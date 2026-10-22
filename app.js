@@ -13,7 +13,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 9;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 10;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -32,7 +32,8 @@ function learnCards(st, u, now) {
 }
 // dạng câu → mặt đo
 const DIMS = [['nghia', '📖 Nghĩa'], ['nghe', '🎧 Nghe'], ['viet', '✍️ Viết'], ['dung', '🧩 Dùng']];
-const DIM_OF = { vi2w: ['nghia'], w2vi: ['nghia'], listen: ['nghe'], spell: ['viet'], cloze: ['dung'], col: ['dung'], clozeT: ['viet', 'dung'] };
+const DIM_OF = { vi2w: ['nghia'], w2vi: ['nghia'], listen: ['nghe'], spell: ['viet'], cloze: ['dung'], col: ['dung'], clozeT: ['viet', 'dung'],
+  read: ['nghia'], hear: ['nghe'], dict: ['nghe', 'viet'] };   // bài tổng hợp (tonghop.js)
 const heldDim = (c, k, now) => !!c && !!c.dm && !!c.dm[k] && !!c.dm[k].pv && !!c.dm[k].ok && recall(c, now) >= HOLD_R;
 function grade(st, wid, ok, now, type) {
   const c = st.cards[wid]; if (!c) return;
@@ -315,7 +316,7 @@ document.addEventListener('click', e => {
   const a = t.dataset.a;
   if (a === 'learn') learn(UBY[t.dataset.u]);
   if (a === 'exam') exam();
-  if (a === 'practice') practice();
+  if (a === 'practice') practiceMenu();
   if (a === 'dict') dict();
 });
 document.addEventListener('click', e => { const s = e.target.closest('#grid span'); if (s && S) learn(UNITS[+s.textContent - 1]); });
@@ -330,7 +331,7 @@ $tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]');
 
 (async () => {
   fetch('a/index.json?v=1').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
-  try { const d = await (await fetch('a1.json?v=1')).json(); UNITS = d.units; }
+  try { const d = await (await fetch('a1.json?v=2')).json(); UNITS = d.units; }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   let last;

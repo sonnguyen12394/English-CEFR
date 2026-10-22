@@ -9,6 +9,7 @@ const lv = JSON.parse(fs.readFileSync(src + '/data/' + lvFile, 'utf8'));
 const A1 = CONTENT.levels.find(L => L.id === 'A1');
 const units = A1.units.map(u => ({
   id: u.id, no: u.no, title: u.title, vi: u.vi,
+  reading: (r => r ? { title: r.title, tvi: r.tvi, text: r.text, vi: r.vi, qs: r.qs } : undefined)((lv.units[u.id] || {}).reading),
   words: u.words.map(w => { const d = lv.words[w.id] || {};
     return { id: w.id, w: w.word, pos: w.pos, ipa: w.ipa, pic: w.pic, vi: w.vi, en: d.en, ex: d.ex, exVi: d.exVi, cloze: d.cloze, col: d.col && d.col.ok ? d.col : undefined }; }),
 }));

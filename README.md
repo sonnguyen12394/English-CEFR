@@ -9,3 +9,4 @@ Học riêng 870 từ A1 (87 unit) lấy từ game English Ladder (`sonnguyen123
 - Lấy lại dữ liệu từ game: `node tools/extract-a1.mjs ../sonnguyen12394.github.io` → `a1.json`.
 - 💬 Góp ý (như game, v167–v169): nút nổi mọi màn, loại 🐞 / 🤔 / 💡 / 📝, ≤ 3 ảnh, tự kèm màn / câu đang làm; mất mạng thì lưu máy rồi gửi sau. 🗂 Quản lý góp ý ở cuối trang chính (không khoá). Máy chủ: bảng `gopy`, kho ảnh riêng tư `gopy`. Mã ở `gopy.js`.
   Đọc góp ý mới: `select id, at, kind, txt, ctx->>'h1' man, ctx->>'item' cau, imgs from gopy where status = 'moi' order by at;`
+- 🏋️ Luyện tập có 4 kiểu (người sáng lập 22/10/2026: bài dính nhiều từ thì chấm cả các từ ấy; mã ở `tonghop.js`): ⚡ Từng từ · 📰 Đọc bài (📖 Nghĩa cho từ trong câu bằng chứng của câu trả lời đúng) · 🎧 Nghe câu (🎧 Nghe cho mọi từ đã học trong câu) · ✍️ Nghe chép (🎧 Nghe + ✍️ Viết cho từng từ chép đúng / sai). Từ dưới 3 chữ cái không chấm kèm.
