@@ -223,7 +223,7 @@ document.addEventListener('click', e => {
 document.addEventListener('click', e => { const s = e.target.closest('#grid span'); if (s && S) learn(UNITS[+s.textContent - 1]); });
 
 (async () => {
-  try { const d = await (await fetch('a1.json')).json(); UNITS = d.units; }
+  try { const d = await (await fetch('a1.json?v=1')).json(); UNITS = d.units; }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   let last;
