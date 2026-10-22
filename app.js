@@ -4,6 +4,9 @@
 // 🔁 Nhớ = số từ có lần đúng cách ngày học xong unit ≥ MEM_DAYS ngày, lần trả lời gần nhất đúng, và khả năng nhớ hiện ≥ 0,9.
 const SB_URL = 'https://eojrfoormaqboxwvdqhr.supabase.co';
 const SB_KEY = 'sb_publishable_WGUA_5AyhR8a_yQfty8JBA_EaJdkZA7';   // khoá công khai; quyền do RLS bảng vocab_state
+// Tự đăng nhập (người sáng lập 22/10/2026): tài khoản riêng chỉ để học. Mật khẩu lộ trong mã trang là chấp nhận được vì tài khoản
+// này chỉ đọc / ghi dòng của chính nó trong vocab_state; bảng soxuong có luật restrictive chặn riêng tài khoản này.
+const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-jDDY_eB99jOLL' };
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 3, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
@@ -94,8 +97,8 @@ function home() {
   const grid = UNITS.map(u => { const d = S.units[u.id], m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
     return `<span class="${m ? 'm' : d ? 'd' : ''}" title="${esc(u.title)}">${u.no}</span>`; }).join('');
   $app.innerHTML = `
-    <div class="row"><h1>Từ vựng A1</h1><button class="link" data-a="out">Đăng xuất</button></div>
-    <p class="mute">${esc(user.email)} · <span id="sync">${esc(sync)}</span></p>
+    <h1>Từ vựng A1</h1>
+    <p class="mute"><span id="sync">${esc(sync)}</span></p>
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">cần ${GATE_MEM}% · ${p.mem}/${p.T} từ</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
@@ -204,16 +207,15 @@ function login(msg) {
 
 async function start(session) {
   user = session ? session.user : null;
-  if (!user) return login();
+  if (!user) { const { error } = await sb.auth.signInWithPassword(AUTO); return error ? login('Không tự đăng nhập được: ' + error.message) : undefined; }   // thành công thì onAuthStateChange gọi lại start
   $app.innerHTML = '<p class="mute">Đang tải tiến độ…</p>';
   await load(); home();
 }
 
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-a]'); if (!t || !S || !user) return;
-  if (!document.getElementById('grid') && t.dataset.a !== 'out') return;   // chỉ trang chính; màn học có onclick riêng
+  if (!document.getElementById('grid')) return;   // chỉ trang chính; màn học có onclick riêng
   const a = t.dataset.a;
-  if (a === 'out') { sb.auth.signOut(); return; }
   if (a === 'review') review();
   if (a === 'learn') learn(UBY[t.dataset.u]);
   if (a === 'exam') exam();
