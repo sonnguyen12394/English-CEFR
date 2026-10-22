@@ -10,6 +10,8 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 3, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
+const APP_V = 4;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
 const $app = document.getElementById('app');
@@ -91,7 +93,7 @@ function nextUnit() { return UNITS.find(u => !S.units[u.id]); }
 function home() {
   const now = Date.now(), p = parts(S, now), nu = nextUnit(), open = gateOpen(p), passed = S.exams.some(x => x.pass);
   const ph2 = p.lq >= GATE_LEARN;
-  $app.onclick = null;
+  $app.onclick = null; window.CUR = { view: 'home' };
   const tip = ph2 ? `Giai đoạn ôn: ôn hết từ đến hạn mỗi ngày để 🔁 Nhớ lên ${GATE_MEM}%.`
     : `Giai đoạn học: mỗi ngày học unit mới, ôn những từ đến hạn. Từ chỉ tính 🔁 Nhớ khi còn đúng sau ít nhất ${MEM_DAYS} ngày kể từ ngày học.`;
   const grid = UNITS.map(u => { const d = S.units[u.id], m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
@@ -114,7 +116,8 @@ function home() {
     </div>
     <h2>87 unit</h2>
     <p class="mute">Xanh dương: đã học · Xanh lá: ≥ 80% từ đang nhớ. Bấm để học / xem lại.</p>
-    <div class="units" id="grid">${grid}</div>`;
+    <div class="units" id="grid">${grid}</div>
+    ${gyHomeHtml()}`;
 }
 
 // học unit: xem 10 thẻ, rồi mỗi từ 2 câu (nghĩa + điền chỗ trống); sai thì hỏi lại tới khi đúng hết
@@ -123,6 +126,7 @@ function learn(u) {
   let i = 0;
   const card = () => {
     const w = u.words[i];
+    window.CUR = { view: 'the', unit: u.id, item: 'w:' + w.id, prompt: w.w };
     $app.innerHTML = `<div class="row"><button class="link" data-a="home">← Về</button><span class="mute">Unit ${u.no} · thẻ ${i + 1}/${u.words.length}</span></div>
       <div class="box" style="text-align:center"><div class="pic">${w.pic || ''}</div><div class="big">${esc(w.w)}</div>
       <div class="mute">${esc(w.ipa || '')} · ${esc(w.pos)}</div><p><b>${esc(w.vi)}</b></p>
@@ -167,6 +171,7 @@ function run({ title, items, retry, quiet, first, done }) {
   const show = () => {
     if (!q.length) return done();
     const it = q[0], Q = question(it.w, it.type);
+    window.CUR = { view: title, unit: it.w.u, item: 'w:' + it.w.id + ':' + Q.type, prompt: String(Q.top).replace(/<[^>]*>|&[a-z#0-9]+;/g, '').slice(0, 200) };
     $app.innerHTML = `<div class="row"><button class="link" data-a="home">← Về</button><span class="mute">${title} · ${solved}/${total}</span></div>
       ${bar(solved / total * 100, 0, 'var(--accent)')}
       <p class="q">${Q.top}</p><p class="mute">${Q.sub}</p>
@@ -209,7 +214,7 @@ async function start(session) {
   user = session ? session.user : null;
   if (!user) { const { error } = await sb.auth.signInWithPassword(AUTO); return error ? login('Không tự đăng nhập được: ' + error.message) : undefined; }   // thành công thì onAuthStateChange gọi lại start
   $app.innerHTML = '<p class="mute">Đang tải tiến độ…</p>';
-  await load(); home();
+  await load(); home(); gyFlush();
 }
 
 document.addEventListener('click', e => {
