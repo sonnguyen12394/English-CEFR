@@ -11,7 +11,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 6;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 7;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -112,8 +112,8 @@ function home() {
   const now = Date.now(), p = parts(S, now), nu = nextUnit(), open = gateOpen(p), passed = S.exams.some(x => x.pass);
   const ph2 = p.lq >= GATE_LEARN;
   $app.onclick = null; window.CUR = { view: 'home' };
-  const tip = ph2 ? `Giai đoạn ôn: ôn hết từ đến hạn mỗi ngày để 🔁 Nhớ lên ${GATE_MEM}%.`
-    : `Giai đoạn học: mỗi ngày học unit mới, ôn những từ đến hạn. Từ tính 🔁 Nhớ khi trả lời đúng ở một ngày sau ngày học (ôn hoặc 🏋️ Luyện thêm).`;
+  const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để 🔁 Nhớ lên ${GATE_MEM}%.`
+    : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Từ tính 🔁 Nhớ khi trả lời đúng ở một ngày sau ngày học (🏋️ Luyện tập).`;
   const grid = UNITS.map(u => { const d = S.units[u.id], m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
     return `<span class="${m ? 'm' : d ? 'd' : ''}" title="${esc(u.title)}">${u.no}</span>`; }).join('');
   $app.innerHTML = `
@@ -123,10 +123,10 @@ function home() {
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">cần ${GATE_MEM}% · ${p.mem}/${p.T} từ</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
     </div>
-    ${p.due ? `<button class="pri" data-a="review">🔁 Ôn ${Math.min(p.due, ROUND)} từ đến hạn${p.due > ROUND ? ` (còn ${p.due})` : ''}</button>` : `<p class="mute">Chưa có từ đến hạn ôn.</p>`}
-    ${p.learn ? `<button data-a="practice">🏋️ Luyện thêm ${ROUND} từ (rèn 🔁 Nhớ, lúc nào cũng được)</button>` : ''}
-    <button data-a="dict">📖 Từ điển 870 từ (đánh dấu Đã học · Nhớ · Quên)</button>
-    ${nu ? `<button class="${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu.id}">📘 Học Unit ${nu.no} · ${esc(nu.title)} (${esc(nu.vi)})</button>` : ''}
+    <div class="duo">
+      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `Unit ${nu.no} · ${esc(nu.vi)}` : 'Đã học hết 87 unit'}</small></button>
+      <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
+    </div>
     <p class="mute">${tip}</p>
     <div class="box">
       <b>🚪 Thi chuyển cấp A1</b>
@@ -158,32 +158,25 @@ function learn(u) {
   const quiz = () => run({
     title: `Unit ${u.no} · luyện tập`, items: shuf(u.words.flatMap(w => [{ w, type: 'vi2w' }, { w, type: 'cloze' }])), retry: true,
     done: () => { if (!again) { learnCards(S, u, Date.now()); save(); }
-      $app.innerHTML = `<div class="box"><b>✅ Xong Unit ${u.no}: ${esc(u.title)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `10 từ đã vào lịch ôn. Từ mai, ôn hoặc 🏋️ Luyện thêm mà đúng thì tính vào 🔁 Nhớ.`}</p></div><button class="pri" data-a="home">Về trang chính</button>`;
+      $app.innerHTML = `<div class="box"><b>✅ Xong Unit ${u.no}: ${esc(u.title)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `10 từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div><button class="pri" data-a="home">Về trang chính</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; },
   });
   card();
 }
 
-function review() {
-  const now = Date.now(), due = WORDS.filter(w => isDue(S.cards[w.id], now)).sort((a, b) => recall(S.cards[a.id], now) - recall(S.cards[b.id], now)).slice(0, ROUND);
-  let ok = 0;
-  run({ title: '🔁 Ôn từ đến hạn', items: due.map(w => ({ w, type: rndType() })), retry: true,
-    first: (it, good) => { grade(S, it.w.id, good, Date.now()); if (good) ok++; save(); },
-    done: () => { $app.innerHTML = `<div class="box"><b>Xong lượt ôn</b><p>Đúng ngay lần đầu ${ok}/${due.length} từ.</p></div><button class="pri" data-a="home">Về trang chính</button>`;
-      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; } });
-}
 
-// Góp ý #3: 🏋️ Luyện thêm lúc nào cũng được. Ưu tiên từ ⚠️ Quên, rồi từ học từ hôm trước mà chưa tính Nhớ (đúng là lên 🔁 Nhớ), rồi từ yếu nhất.
+// 🏋️ Luyện tập (góp ý #3, #5: gộp "Ôn từ đến hạn" + "Luyện thêm" thành một nút), lúc nào cũng được.
+// Ưu tiên từ ⚠️ Quên (đến hạn / sai lần gần nhất, sắp quên nhất trước), rồi từ học từ hôm trước mà chưa tính Nhớ (đúng là lên 🔁 Nhớ), rồi từ yếu nhất.
 // Có chấm vào lịch ôn (grade), nhưng ôn sớm chỉ tăng ít.
 function practice() {
   const now = Date.now(), today = dayOf(now), pri = w => { const c = S.cards[w.id], st = wstat(S, w, now);
-    return st === 'quen' ? 0 : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, now); };
+    return st === 'quen' ? recall(c, now) : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, now); };
   const list = shuf(WORDS.filter(w => S.cards[w.id] && S.units[w.u])).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);
   let ok = 0;
-  run({ title: '🏋️ Luyện thêm', items: list.map(w => ({ w, type: rndType() })), retry: true,
+  run({ title: '🏋️ Luyện tập', items: list.map(w => ({ w, type: rndType() })), retry: true,
     first: (it, good) => { grade(S, it.w.id, good, Date.now()); if (good) ok++; save(); },
     done: () => { const p = parts(S, Date.now());
-      $app.innerHTML = `<div class="box"><b>Xong lượt luyện</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}%.</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về trang chính</button>`;
+      $app.innerHTML = `<div class="box"><b>Xong lượt luyện tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}%.</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về 📘 Học</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="again"]')) practice(); }; } });
 }
 
@@ -191,7 +184,7 @@ function practice() {
 const DICT = { q: '', f: null, open: null };
 function dict() {
   window.CUR = { view: 'tu-dien' };
-  $app.innerHTML = `<div class="row"><button class="link" data-a="home">← Về</button></div><h1>📖 Từ điển A1</h1>
+  $app.innerHTML = `<h1>📖 Từ điển A1</h1>
     <input id="dq" type="search" placeholder="Tìm từ tiếng Anh hoặc nghĩa tiếng Việt" value="${esc(DICT.q)}" autocomplete="off"><div id="df"></div><div id="dl"></div>`;
   const q = document.getElementById('dq'); q.oninput = () => { DICT.q = q.value; dictList(); };
   $app.onclick = e => { const t = e.target;
@@ -282,13 +275,20 @@ document.addEventListener('click', e => {
   const t = e.target.closest('[data-a]'); if (!t || !S || !user) return;
   if (!document.getElementById('grid')) return;   // chỉ trang chính; màn học có onclick riêng
   const a = t.dataset.a;
-  if (a === 'review') review();
   if (a === 'learn') learn(UBY[t.dataset.u]);
   if (a === 'exam') exam();
   if (a === 'practice') practice();
   if (a === 'dict') dict();
 });
 document.addEventListener('click', e => { const s = e.target.closest('#grid span'); if (s && S) learn(UNITS[+s.textContent - 1]); });
+
+// Góp ý #5: hai tab ngang hàng 📘 Học · 📖 Từ điển ở đáy màn; chỉ hiện ở hai màn chính (Học: #grid, Từ điển: #dq), ẩn khi đang làm bài.
+const $tabs = document.getElementById('tabs');
+function syncTabs() { const t = document.getElementById('grid') ? 'hoc' : document.getElementById('dq') ? 'dict' : null;
+  document.body.classList.toggle('has-tabs', !!t); $tabs.hidden = !t;
+  $tabs.querySelectorAll('[data-tab]').forEach(b => { const on = b.dataset.tab === t; b.classList.toggle('on', on); b.setAttribute('aria-current', on ? 'page' : 'false'); }); }
+new MutationObserver(syncTabs).observe($app, { childList: true });
+$tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; if (b.dataset.tab === 'dict') dict(); else home(); scrollTo(0, 0); });
 
 (async () => {
   fetch('a/index.json?v=1').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});

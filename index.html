@@ -46,13 +46,23 @@
   #toast { position:fixed; left:16px; right:16px; bottom:84px; max-width:528px; margin:0 auto; background:var(--fg); color:var(--bg); padding:10px 14px; border-radius:10px; opacity:0; transition:opacity .2s; pointer-events:none; z-index:30; }
   #toast.show { opacity:1; }
   main { padding-bottom:96px; }
+  .duo { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:12px 0; }
+  .big2 { margin:0; text-align:center; padding:16px 8px; font-size:18px; font-weight:700; }
+  .big2 small { display:block; font-size:13px; font-weight:400; margin-top:4px; opacity:.85; }
+  #tabs { position:fixed; left:0; right:0; bottom:0; display:flex; background:var(--bg); border-top:1px solid var(--line); padding-bottom:env(safe-area-inset-bottom); z-index:15; }
+  #tabs[hidden] { display:none; }
+  #tabs button { flex:1; margin:0; border:0; border-radius:0; background:none; text-align:center; padding:10px 0 8px; font-size:15px; color:var(--mute); }
+  #tabs button.on { color:var(--accent); font-weight:700; }
+  body.has-tabs #gybtn { bottom:calc(72px + env(safe-area-inset-bottom)); }
+  body.has-tabs #toast { bottom:140px; }
   .drow { padding:10px 0; border-bottom:1px solid var(--line); cursor:pointer; }
 </style>
 </head>
 <body>
 <main id="app"><p class="mute">Đang tải…</p></main>
+<nav id="tabs" aria-label="Mục chính" hidden><button data-tab="hoc">📘 Học</button><button data-tab="dict">📖 Từ điển</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=6"></script>
-<script src="gopy.js?v=6"></script>
+<script src="app.js?v=7"></script>
+<script src="gopy.js?v=7"></script>
 </body>
 </html>
