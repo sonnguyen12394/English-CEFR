@@ -1,16 +1,17 @@
 // Từ vựng A1: 87 unit / 870 từ lấy từ game (tools/extract-a1.mjs).
 // Luật mở Thi chuyển cấp như game (GATE_LEARN / GATE_MEM, v176): 📘 Học 100% · 🔁 Nhớ 80%.
 // 📘 Học = số từ thuộc unit đã học xong / tổng từ.
-// 🔁 Nhớ = số từ có lần đúng cách ngày học xong unit ≥ MEM_DAYS ngày, lần trả lời gần nhất đúng, và khả năng nhớ hiện ≥ 0,9.
+// 🔁 Nhớ = số từ có lần đúng ở một ngày SAU ngày học xong unit (MEM_DAYS = 1; người sáng lập 22/10/2026, góp ý #3: bỏ chờ 3 ngày như game,
+//   quên vẫn theo lịch giãn dần), lần trả lời gần nhất đúng, và khả năng nhớ hiện ≥ 0,9.
 const SB_URL = 'https://eojrfoormaqboxwvdqhr.supabase.co';
 const SB_KEY = 'sb_publishable_WGUA_5AyhR8a_yQfty8JBA_EaJdkZA7';   // khoá công khai; quyền do RLS bảng vocab_state
 // Tự đăng nhập (người sáng lập 22/10/2026): tài khoản riêng chỉ để học. Mật khẩu lộ trong mã trang là chấp nhận được vì tài khoản
 // này chỉ đọc / ghi dòng của chính nó trong vocab_state; bảng soxuong có luật restrictive chặn riêng tài khoản này.
 const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-jDDY_eB99jOLL' };
-const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 3, HOLD_R = 0.9;
+const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 5;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 6;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -112,7 +113,7 @@ function home() {
   const ph2 = p.lq >= GATE_LEARN;
   $app.onclick = null; window.CUR = { view: 'home' };
   const tip = ph2 ? `Giai đoạn ôn: ôn hết từ đến hạn mỗi ngày để 🔁 Nhớ lên ${GATE_MEM}%.`
-    : `Giai đoạn học: mỗi ngày học unit mới, ôn những từ đến hạn. Từ chỉ tính 🔁 Nhớ khi còn đúng sau ít nhất ${MEM_DAYS} ngày kể từ ngày học.`;
+    : `Giai đoạn học: mỗi ngày học unit mới, ôn những từ đến hạn. Từ tính 🔁 Nhớ khi trả lời đúng ở một ngày sau ngày học (ôn hoặc 🏋️ Luyện thêm).`;
   const grid = UNITS.map(u => { const d = S.units[u.id], m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
     return `<span class="${m ? 'm' : d ? 'd' : ''}" title="${esc(u.title)}">${u.no}</span>`; }).join('');
   $app.innerHTML = `
@@ -157,7 +158,7 @@ function learn(u) {
   const quiz = () => run({
     title: `Unit ${u.no} · luyện tập`, items: shuf(u.words.flatMap(w => [{ w, type: 'vi2w' }, { w, type: 'cloze' }])), retry: true,
     done: () => { if (!again) { learnCards(S, u, Date.now()); save(); }
-      $app.innerHTML = `<div class="box"><b>✅ Xong Unit ${u.no}: ${esc(u.title)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `10 từ đã vào lịch ôn. Ôn đúng lúc sắp quên, sau ${MEM_DAYS} ngày vẫn đúng thì tính vào 🔁 Nhớ.`}</p></div><button class="pri" data-a="home">Về trang chính</button>`;
+      $app.innerHTML = `<div class="box"><b>✅ Xong Unit ${u.no}: ${esc(u.title)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `10 từ đã vào lịch ôn. Từ mai, ôn hoặc 🏋️ Luyện thêm mà đúng thì tính vào 🔁 Nhớ.`}</p></div><button class="pri" data-a="home">Về trang chính</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; },
   });
   card();
@@ -172,7 +173,7 @@ function review() {
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; } });
 }
 
-// Góp ý #3: 🏋️ Luyện thêm lúc nào cũng được. Ưu tiên từ ⚠️ Quên, rồi từ đã học đủ ${MEM_DAYS} ngày mà chưa tính Nhớ (đúng là lên 🔁 Nhớ), rồi từ yếu nhất.
+// Góp ý #3: 🏋️ Luyện thêm lúc nào cũng được. Ưu tiên từ ⚠️ Quên, rồi từ học từ hôm trước mà chưa tính Nhớ (đúng là lên 🔁 Nhớ), rồi từ yếu nhất.
 // Có chấm vào lịch ôn (grade), nhưng ôn sớm chỉ tăng ít.
 function practice() {
   const now = Date.now(), today = dayOf(now), pri = w => { const c = S.cards[w.id], st = wstat(S, w, now);
