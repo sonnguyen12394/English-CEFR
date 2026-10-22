@@ -11,7 +11,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 7;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 8;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -62,10 +62,20 @@ function question(w, type) {
   if (type === 'vi2w') return { type, top: `${w.pic || ''} ${esc(w.vi)}`, sub: 'Từ tiếng Anh nào có nghĩa này?', a: w.w, opts: shuf([w.w, ...pick(w, 'w', 3)]) };
   if (type === 'w2vi') return { type, top: esc(w.w), sub: `${esc(w.ipa || '')} · nghĩa là gì?`, a: w.vi, opts: shuf([w.vi, ...pick(w, 'vi', 3)]), say: w.w };
   if (type === 'col') return { type, top: 'Cụm từ nào đúng?', sub: `${esc(w.w)}: ${esc(w.vi)}`, a: w.col.ok, opts: shuf([w.col.ok, ...w.col.bad]) };
+  if (type === 'listen') return { type, top: '🎧 Nghe rồi chọn nghĩa', sub: `<button class="chip" data-say="${w.id}">🔊 Nghe lại</button>`, a: w.vi, opts: shuf([w.vi, ...pick(w, 'vi', 3)]), say: w.w };
+  // gõ từ (tự nhớ ra để viết): gợi ý chữ đầu + số chữ
+  const hint = a => `Gợi ý: ${esc(a[0])}${a.slice(1).replace(/[^ ]/g, ' _')} (${a.replace(/ /g, '').length} chữ cái)`;
+  if (type === 'spell') return { type, top: `${w.pic || ''} ${esc(w.vi)}`, sub: `Gõ từ tiếng Anh. ${hint(w.w)}`, a: w.w, typed: true };
+  if (type === 'clozeT') return { type, top: esc(w.cloze.s), sub: `Gõ từ còn thiếu (nghĩa: ${esc(w.vi)}). ${hint(w.cloze.a)}`, a: w.cloze.a, typed: true };
   return { type: 'cloze', top: esc(w.cloze.s), sub: 'Chọn từ điền vào chỗ trống.', a: w.cloze.a, opts: shuf([w.cloze.a, ...w.cloze.w]) };
 }
-const TYPES = ['vi2w', 'w2vi', 'cloze', 'col'];
-const rndType = () => TYPES[Math.floor(Math.random() * TYPES.length)];
+// Góp ý #7 (người sáng lập 22/10/2026: áp vào cả 🔁 Nhớ và Thi chuyển cấp): trắc nghiệm chỉ đo NHẬN RA từ; thêm TỰ NHỚ RA để viết (gõ từ) và NGHE HIỂU.
+// Mỗi lượt: khoảng 40% gõ từ (spell / clozeT), 20% nghe, 40% trắc nghiệm.
+const MC = ['vi2w', 'w2vi', 'cloze', 'col'], TYPED = ['spell', 'clozeT'];
+const one = a => a[Math.floor(Math.random() * a.length)];
+const rndType = () => { const r = Math.random(); return r < 0.4 ? one(TYPED) : r < 0.6 ? 'listen' : one(MC); };
+const mixTypes = n => shuf(Array.from({ length: n }, (_, i) => i < Math.round(n * 0.4) ? one(TYPED) : i < Math.round(n * 0.6) ? 'listen' : one(MC)));
+const normAns = x => String(x).toLowerCase().replace(/[‘’`]/g, "'").replace(/\s+/g, ' ').trim().replace(/[.,!?;:]+$/g, '').trim();
 
 // Góp ý #2 (iPhone đọc sai): phát tệp thu sẵn của game (a/<khoá>.mp3, tools/copy-clips.mjs); không có tệp mới dùng giọng máy, chọn hẳn giọng tiếng Anh
 // (iPhone chỉ đặt lang thì có khi đọc bằng giọng tiếng Việt).
@@ -80,6 +90,9 @@ function sayOne(t) { const k = clipKey(t); if (!CLIPS.has(k)) return tts(t);
 async function speak(...ts) { const my = ++sayTok; try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}
   for (const t of ts) { if (my !== sayTok) return; await sayOne(t); } }
 try { speechSynthesis.getVoices(); } catch (e) {}
+// Góp ý #6: một kiểu nút nghe cho mọi màn (thẻ từ, phản hồi, từ điển): 🔊 Từ · 🔊 Câu ví dụ; vào thẻ / mở từ thì tự đọc từ.
+const sayBtns = w => `<div class="chips say"><button class="chip" data-say="${w.id}">🔊 Từ</button><button class="chip" data-say="${w.id}" data-ex="1">🔊 Câu ví dụ</button></div>`;
+document.addEventListener('click', e => { const b = e.target.closest('[data-say]'); if (!b) return; const w = WBY[b.dataset.say]; if (w) speak(b.dataset.ex ? w.ex : w.w); });
 
 // ---------- lưu: máy + Supabase ----------
 const blank = () => ({ v: 1, units: {}, cards: {}, exams: [], t: 0 });
@@ -147,16 +160,17 @@ function learn(u) {
   const card = () => {
     const w = u.words[i];
     window.CUR = { view: 'the', unit: u.id, item: 'w:' + w.id, prompt: w.w };
-    $app.innerHTML = `<div class="row"><button class="link" data-a="home">← Về</button><span class="mute">Unit ${u.no} · thẻ ${i + 1}/${u.words.length}</span></div>
-      <div class="box" style="text-align:center"><div class="pic">${w.pic || ''}</div><div class="big">${esc(w.w)}</div>
-      <div class="mute">${esc(w.ipa || '')} · ${esc(w.pos)}</div><p><b>${esc(w.vi)}</b></p>
-      <p>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}</div>
-      <button data-a="say">🔊 Nghe</button><button class="pri" data-a="next">${i + 1 < u.words.length ? 'Tiếp' : 'Luyện tập'}</button>`;
+    $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">Unit ${u.no} · ${esc(u.vi)}</span></div>
+      <div class="dots">${u.words.map((_, k) => `<i class="${k < i ? 'd' : k === i ? 'c' : ''}"></i>`).join('')}</div>
+      <div class="wcard"><div class="pic">${w.pic || ''}</div><div class="big">${esc(w.w)}</div>
+      <div class="mute">${esc(w.ipa || '')} · ${esc(w.pos)}</div><div class="vi">${esc(w.vi)}</div>
+      <p class="ex">${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}${sayBtns(w)}</div>
+      <button class="pri" data-a="next">${i + 1 < u.words.length ? 'Tiếp →' : 'Luyện tập 10 từ →'}</button>`;
     speak(w.w);
-    $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'say') speak(w.w, w.ex); if (a === 'next') { if (++i < u.words.length) card(); else quiz(); } if (a === 'home') home(); };
+    $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'next') { if (++i < u.words.length) card(); else quiz(); } if (a === 'home') home(); };
   };
   const quiz = () => run({
-    title: `Unit ${u.no} · luyện tập`, items: shuf(u.words.flatMap(w => [{ w, type: 'vi2w' }, { w, type: 'cloze' }])), retry: true,
+    title: `Unit ${u.no} · ${u.vi}`, items: [...shuf(u.words.map(w => ({ w, type: one(['vi2w', 'listen']) }))), ...shuf(u.words.map(w => ({ w, type: one(TYPED) })))], retry: true,
     done: () => { if (!again) { learnCards(S, u, Date.now()); save(); }
       $app.innerHTML = `<div class="box"><b>✅ Xong Unit ${u.no}: ${esc(u.title)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `10 từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div><button class="pri" data-a="home">Về trang chính</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; },
@@ -190,7 +204,7 @@ function dict() {
   $app.onclick = e => { const t = e.target;
     if (t.closest('[data-a="home"]')) return home();
     const f = t.closest('[data-f]'); if (f) { DICT.f = f.dataset.f || null; return dictList(); }
-    const s = t.closest('[data-say]'); if (s) { const w = WBY[s.dataset.say]; return speak(...(s.dataset.ex ? [w.ex] : [w.w])); }
+    if (t.closest('[data-say]')) return;
     const r = t.closest('[data-w]'); if (r) { DICT.open = DICT.open === r.dataset.w ? null : r.dataset.w; dictList(); if (DICT.open) speak(WBY[DICT.open].w); } };
   dictList();
 }
@@ -204,11 +218,11 @@ function dictList() {
   document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute">${lab(st)}</span></div>
     ${DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · Unit ${UBY[w.u].no}: ${esc(UBY[w.u].title)}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
       <p>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}
-      <div class="chips"><button class="chip" data-say="${w.id}">🔊 Từ</button><button class="chip" data-say="${w.id}" data-ex="1">🔊 Câu ví dụ</button></div></div>` : ''}</div>`).join('') : '<p class="mute">Không có từ nào.</p>';
+      ${sayBtns(w)}</div>` : ''}</div>`).join('') : '<p class="mute">Không có từ nào.</p>';
 }
 
 function exam() {
-  const items = shuf(WORDS).slice(0, EXAM_N).map(w => ({ w, type: rndType() })), wrong = [];
+  const ty = mixTypes(EXAM_N), items = shuf(WORDS).slice(0, EXAM_N).map((w, i) => ({ w, type: ty[i] })), wrong = [];
   let ok = 0;
   run({ title: '🚪 Thi chuyển cấp A1', items, retry: false, quiet: true,
     first: (it, good) => { if (good) ok++; else wrong.push(it.w); },
@@ -226,26 +240,34 @@ function run({ title, items, retry, quiet, first, done }) {
     if (!q.length) return done();
     const it = q[0], Q = question(it.w, it.type);
     window.CUR = { view: title, unit: it.w.u, item: 'w:' + it.w.id + ':' + Q.type, prompt: String(Q.top).replace(/<[^>]*>|&[a-z#0-9]+;/g, '').slice(0, 200) };
-    $app.innerHTML = `<div class="row"><button class="link" data-a="home">← Về</button><span class="mute">${title} · ${solved}/${total}</span></div>
+    $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${esc(title)} · ${solved}/${total}</span></div>
       ${bar(solved / total * 100, 0, 'var(--accent)')}
       <p class="q">${Q.top}</p><p class="mute">${Q.sub}</p>
-      ${Q.opts.map((o, k) => `<button data-k="${k}">${esc(o)}</button>`).join('')}<div id="fb"></div>`;
-    if (Q.say && !quiet) speak(Q.say);
+      ${Q.typed ? `<form id="tf" autocomplete="off"><input id="ti" class="tin" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="Gõ câu trả lời">
+        <button class="pri" type="submit">Kiểm tra</button><button type="button" data-a="skip">Không nhớ</button></form>`
+        : Q.opts.map((o, k) => `<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}<div id="fb"></div>`;
+    if (Q.say) speak(Q.say);   // dạng nghe: cả bài thi cũng phát
+    const ti = document.getElementById('ti'); if (ti) ti.focus();
     let answered = false;
-    $app.onclick = e => {
-      if (e.target.closest('[data-a="home"]')) { if (quiet && !confirm('Bỏ bài thi? Lần này không tính.')) return; return home(); }
-      if (e.target.closest('[data-a="go"]')) return show();
-      const b = e.target.closest('[data-k]'); if (!b || answered) return;
-      answered = true;
-      const good = Q.opts[+b.dataset.k] === Q.a;
+    const answer = (good, b, typed) => {
+      if (answered) return; answered = true;
       if (it.tries++ === 0 && first) first(it, good);
       q.shift();
       if (good || !retry) solved++; else q.push(it);
       if (quiet) return show();
-      $app.querySelectorAll('[data-k]').forEach(x => { if (Q.opts[+x.dataset.k] === Q.a) x.classList.add('ok'); else if (x === b) x.classList.add('no'); });
+      if (b) $app.querySelectorAll('[data-k]').forEach(x => { if (Q.opts[+x.dataset.k] === Q.a) x.classList.add('ok'); else if (x === b) x.classList.add('no'); });
+      if (ti) { ti.disabled = true; ti.classList.add(good ? 'ok' : 'no'); document.getElementById('tf').querySelectorAll('button').forEach(x => x.remove()); }
       const w = it.w;
-      document.getElementById('fb').innerHTML = `<div class="box">${good ? '✅ Đúng.' : '❌ Chưa đúng.'} <b>${esc(w.w)}</b> = ${esc(w.vi)}<br>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></div><button class="pri" data-a="go">Tiếp</button>`;
+      document.getElementById('fb').innerHTML = `<div class="box">${good ? '✅ Đúng.' : `❌ Chưa đúng.${Q.typed ? ` Đáp án: <b>${esc(Q.a)}</b>${typed ? ` (bạn gõ: ${esc(typed)})` : ''}.` : ''}`} <b>${esc(w.w)}</b> = ${esc(w.vi)}<br>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span>${sayBtns(w)}</div><button class="pri" data-a="go">Tiếp →</button>`;
       speak(w.w);
+    };
+    const tf = document.getElementById('tf');
+    if (tf) tf.onsubmit = e => { e.preventDefault(); const v = ti.value; if (!v.trim()) return ti.focus(); answer(normAns(v) === normAns(Q.a), null, v.trim()); };
+    $app.onclick = e => {
+      if (e.target.closest('[data-a="home"]')) { if (quiet && !confirm('Bỏ bài thi? Lần này không tính.')) return; return home(); }
+      if (e.target.closest('[data-a="go"]')) return show();
+      if (e.target.closest('[data-a="skip"]')) return answer(false, null, '');
+      const b = e.target.closest('[data-k]'); if (b) answer(Q.opts[+b.dataset.k] === Q.a, b);
     };
   };
   show();
