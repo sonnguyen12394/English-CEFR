@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English CEFR</title>
+<style>
+  body { margin: 0; background: #fff; color: #222; font: 16px/1.5 system-ui, sans-serif; }
+  #st { position: fixed; bottom: 12px; right: 12px; font-size: 13px; color: #888; }
+  #st.ok { color: #1a7f37; } #st.err { color: #c62828; }
+</style>
+</head>
+<body>
+<div id="st">Đang kết nối Supabase…</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+  // Khoá publishable: được phép để công khai; quyền đọc / ghi do RLS quyết định.
+  const SUPABASE_URL = 'https://eojrfoormaqboxwvdqhr.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_WGUA_5AyhR8a_yQfty8JBA_EaJdkZA7';
+  window.sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const st = document.getElementById('st');
+  fetch(SUPABASE_URL + '/auth/v1/settings', { headers: { apikey: SUPABASE_KEY } })
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(() => { st.textContent = '● Đã kết nối Supabase'; st.className = 'ok'; })
+    .catch(e => { st.textContent = '● Lỗi kết nối: ' + e.message; st.className = 'err'; });
+</script>
+</body>
+</html>
