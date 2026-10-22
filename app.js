@@ -10,7 +10,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 3, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 4;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 5;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -30,7 +30,8 @@ function learnCards(st, u, now) {
 function grade(st, wid, ok, now) {
   const c = st.cards[wid]; if (!c) return;
   const t = (now - c.last) / DAY;
-  if (ok) { c.S = Math.max(c.S, t) * 2.5; if (dayOf(now) - c.d0 >= MEM_DAYS) c.pv = 1; }
+  // ôn sớm (t < S) chỉ tăng theo phần thời gian đã trôi: luyện dồn nhiều lần trong một ngày không đẩy lịch ôn đi xa
+  if (ok) { const full = Math.max(c.S, t) * 2.5; c.S = t >= c.S ? full : c.S + (full - c.S) * t / c.S; if (dayOf(now) - c.d0 >= MEM_DAYS) c.pv = 1; }
   else { c.S = 0.5; c.lapse++; }
   c.ok = ok ? 1 : 0; c.last = now; c.n++;
 }
@@ -41,6 +42,10 @@ function parts(st, now) {
   return { learn, mem, due, T, lq: Math.floor(learn / T * 100), mq: Math.floor(mem / T * 100) };
 }
 const gateOpen = p => p.lq >= GATE_LEARN && p.mq >= GATE_MEM;
+// Góp ý #3 / #4: dấu của từng từ. chua = chưa học · hoc = đã học, chưa đủ bằng chứng nhớ · nho = tính vào 🔁 Nhớ · quen = lần gần nhất sai hoặc đã tới lúc sắp quên.
+// hoc + nho + quen = 📘 Học; nho = 🔁 Nhớ.
+function wstat(st, w, now) { const c = st.cards[w.id]; if (!st.units[w.u] || !c) return 'chua'; if (held(c, now)) return 'nho'; if (!c.ok || recall(c, now) < HOLD_R) return 'quen'; return 'hoc'; }
+const WST = [['chua', '⚪ Chưa học'], ['hoc', '📘 Đã học'], ['nho', '✅ Nhớ'], ['quen', '⚠️ Quên']];
 
 // ---------- câu hỏi ----------
 const shuf = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -61,7 +66,19 @@ function question(w, type) {
 const TYPES = ['vi2w', 'w2vi', 'cloze', 'col'];
 const rndType = () => TYPES[Math.floor(Math.random() * TYPES.length)];
 
-function speak(t) { try { const u = new SpeechSynthesisUtterance(t); u.lang = 'en-US'; u.rate = 0.9; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} }
+// Góp ý #2 (iPhone đọc sai): phát tệp thu sẵn của game (a/<khoá>.mp3, tools/copy-clips.mjs); không có tệp mới dùng giọng máy, chọn hẳn giọng tiếng Anh
+// (iPhone chỉ đặt lang thì có khi đọc bằng giọng tiếng Việt).
+const clipNorm = t => String(t).replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().replace(/[.,;:]+$/, '').toLowerCase();
+const clipKey = t => { let h = 0x811c9dc5; const x = clipNorm(t); for (let i = 0; i < x.length; i++) { h ^= x.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return 'a' + h.toString(16).padStart(8, '0'); };
+let CLIPS = new Set(), AUD = null, sayTok = 0;
+function enVoice() { try { const vs = speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang)); const rank = v => (/en[-_](US|GB)/i.test(v.lang) ? 10 : 0) + (v.localService ? 3 : 0) + (/natural|neural|premium|enhanced|samantha|daniel/i.test(v.name) ? 5 : 0); return vs.sort((a, b) => rank(b) - rank(a))[0] || null; } catch (e) { return null; } }
+function tts(t) { return new Promise(res => { try { const u = new SpeechSynthesisUtterance(t), v = enVoice(); u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = 0.9; u.onend = u.onerror = () => res(); speechSynthesis.speak(u); } catch (e) { res(); } }); }
+function sayOne(t) { const k = clipKey(t); if (!CLIPS.has(k)) return tts(t);
+  return new Promise(res => { AUD = AUD || new Audio(); let done = false; const end = () => { if (!done) { done = true; res(); } };
+    AUD.onended = end; AUD.onerror = () => { if (!done) { done = true; tts(t).then(res); } }; AUD.src = 'a/' + k + '.mp3'; const pr = AUD.play(); if (pr) pr.catch(() => { if (!done) { done = true; tts(t).then(res); } }); }); }
+async function speak(...ts) { const my = ++sayTok; try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}
+  for (const t of ts) { if (my !== sayTok) return; await sayOne(t); } }
+try { speechSynthesis.getVoices(); } catch (e) {}
 
 // ---------- lưu: máy + Supabase ----------
 const blank = () => ({ v: 1, units: {}, cards: {}, exams: [], t: 0 });
@@ -106,6 +123,8 @@ function home() {
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">cần ${GATE_MEM}% · ${p.mem}/${p.T} từ</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
     </div>
     ${p.due ? `<button class="pri" data-a="review">🔁 Ôn ${Math.min(p.due, ROUND)} từ đến hạn${p.due > ROUND ? ` (còn ${p.due})` : ''}</button>` : `<p class="mute">Chưa có từ đến hạn ôn.</p>`}
+    ${p.learn ? `<button data-a="practice">🏋️ Luyện thêm ${ROUND} từ (rèn 🔁 Nhớ, lúc nào cũng được)</button>` : ''}
+    <button data-a="dict">📖 Từ điển 870 từ (đánh dấu Đã học · Nhớ · Quên)</button>
     ${nu ? `<button class="${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu.id}">📘 Học Unit ${nu.no} · ${esc(nu.title)} (${esc(nu.vi)})</button>` : ''}
     <p class="mute">${tip}</p>
     <div class="box">
@@ -133,7 +152,7 @@ function learn(u) {
       <p>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}</div>
       <button data-a="say">🔊 Nghe</button><button class="pri" data-a="next">${i + 1 < u.words.length ? 'Tiếp' : 'Luyện tập'}</button>`;
     speak(w.w);
-    $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'say') speak(w.w + '. ' + w.ex); if (a === 'next') { if (++i < u.words.length) card(); else quiz(); } if (a === 'home') home(); };
+    $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'say') speak(w.w, w.ex); if (a === 'next') { if (++i < u.words.length) card(); else quiz(); } if (a === 'home') home(); };
   };
   const quiz = () => run({
     title: `Unit ${u.no} · luyện tập`, items: shuf(u.words.flatMap(w => [{ w, type: 'vi2w' }, { w, type: 'cloze' }])), retry: true,
@@ -151,6 +170,47 @@ function review() {
     first: (it, good) => { grade(S, it.w.id, good, Date.now()); if (good) ok++; save(); },
     done: () => { $app.innerHTML = `<div class="box"><b>Xong lượt ôn</b><p>Đúng ngay lần đầu ${ok}/${due.length} từ.</p></div><button class="pri" data-a="home">Về trang chính</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; } });
+}
+
+// Góp ý #3: 🏋️ Luyện thêm lúc nào cũng được. Ưu tiên từ ⚠️ Quên, rồi từ đã học đủ ${MEM_DAYS} ngày mà chưa tính Nhớ (đúng là lên 🔁 Nhớ), rồi từ yếu nhất.
+// Có chấm vào lịch ôn (grade), nhưng ôn sớm chỉ tăng ít.
+function practice() {
+  const now = Date.now(), today = dayOf(now), pri = w => { const c = S.cards[w.id], st = wstat(S, w, now);
+    return st === 'quen' ? 0 : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, now); };
+  const list = shuf(WORDS.filter(w => S.cards[w.id] && S.units[w.u])).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);
+  let ok = 0;
+  run({ title: '🏋️ Luyện thêm', items: list.map(w => ({ w, type: rndType() })), retry: true,
+    first: (it, good) => { grade(S, it.w.id, good, Date.now()); if (good) ok++; save(); },
+    done: () => { const p = parts(S, Date.now());
+      $app.innerHTML = `<div class="box"><b>Xong lượt luyện</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}%.</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về trang chính</button>`;
+      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="again"]')) practice(); }; } });
+}
+
+// Góp ý #3 / #4: 📖 Từ điển: tra theo tiếng Anh hoặc tiếng Việt, lọc theo dấu, bấm từ để xem chi tiết và nghe.
+const DICT = { q: '', f: null, open: null };
+function dict() {
+  window.CUR = { view: 'tu-dien' };
+  $app.innerHTML = `<div class="row"><button class="link" data-a="home">← Về</button></div><h1>📖 Từ điển A1</h1>
+    <input id="dq" type="search" placeholder="Tìm từ tiếng Anh hoặc nghĩa tiếng Việt" value="${esc(DICT.q)}" autocomplete="off"><div id="df"></div><div id="dl"></div>`;
+  const q = document.getElementById('dq'); q.oninput = () => { DICT.q = q.value; dictList(); };
+  $app.onclick = e => { const t = e.target;
+    if (t.closest('[data-a="home"]')) return home();
+    const f = t.closest('[data-f]'); if (f) { DICT.f = f.dataset.f || null; return dictList(); }
+    const s = t.closest('[data-say]'); if (s) { const w = WBY[s.dataset.say]; return speak(...(s.dataset.ex ? [w.ex] : [w.w])); }
+    const r = t.closest('[data-w]'); if (r) { DICT.open = DICT.open === r.dataset.w ? null : r.dataset.w; dictList(); if (DICT.open) speak(WBY[DICT.open].w); } };
+  dictList();
+}
+function dictList() {
+  const now = Date.now(), fold = x => String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd'), q = fold(DICT.q.trim());
+  const all = WORDS.map(w => ({ w, st: wstat(S, w, now) })), hit = q ? all.filter(x => fold(x.w.w).includes(q) || fold(x.w.vi).includes(q)) : all;
+  const n = k => hit.filter(x => !k || x.st === k).length;
+  document.getElementById('df').innerHTML = `<div class="chips">${[[null, 'Tất cả'], ...WST].map(([k, l]) => `<button class="chip ${DICT.f === k ? 'on' : ''}" data-f="${k || ''}" aria-pressed="${DICT.f === k}">${l} <b>${n(k)}</b></button>`).join('')}</div>
+    <p class="mute">✅ Nhớ = số tính vào thanh 🔁 Nhớ. ⚠️ Quên = lần gần nhất sai hoặc đã tới lúc sắp quên: luyện lại là lên.</p>`;
+  const rows = hit.filter(x => !DICT.f || x.st === DICT.f).sort((a, b) => a.w.w.localeCompare(b.w.w)), lab = k => WST.find(x => x[0] === k)[1];
+  document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute">${lab(st)}</span></div>
+    ${DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · Unit ${UBY[w.u].no}: ${esc(UBY[w.u].title)}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
+      <p>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}
+      <div class="chips"><button class="chip" data-say="${w.id}">🔊 Từ</button><button class="chip" data-say="${w.id}" data-ex="1">🔊 Câu ví dụ</button></div></div>` : ''}</div>`).join('') : '<p class="mute">Không có từ nào.</p>';
 }
 
 function exam() {
@@ -224,10 +284,13 @@ document.addEventListener('click', e => {
   if (a === 'review') review();
   if (a === 'learn') learn(UBY[t.dataset.u]);
   if (a === 'exam') exam();
+  if (a === 'practice') practice();
+  if (a === 'dict') dict();
 });
 document.addEventListener('click', e => { const s = e.target.closest('#grid span'); if (s && S) learn(UNITS[+s.textContent - 1]); });
 
 (async () => {
+  fetch('a/index.json?v=1').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
   try { const d = await (await fetch('a1.json?v=1')).json(); UNITS = d.units; }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
