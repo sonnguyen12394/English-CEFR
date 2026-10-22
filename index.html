@@ -68,6 +68,9 @@
   #tabs button.on { color:var(--accent); font-weight:700; }
   body.has-tabs #gybtn { bottom:calc(72px + env(safe-area-inset-bottom)); }
   body.has-tabs #toast { bottom:140px; }
+  .dims { display:grid; grid-template-columns:1fr 1fr; gap:4px 14px; margin-top:8px; font-size:14px; }
+  .okc { color:var(--good); font-weight:700; }
+  .dm { opacity:.25; filter:grayscale(1); font-size:14px; } .dm.on { opacity:1; filter:none; }
   .drow { padding:10px 0; border-bottom:1px solid var(--line); cursor:pointer; }
 </style>
 </head>
@@ -75,7 +78,7 @@
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="hoc">📘 Học</button><button data-tab="dict">📖 Từ điển</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=8"></script>
-<script src="gopy.js?v=8"></script>
+<script src="app.js?v=9"></script>
+<script src="gopy.js?v=9"></script>
 </body>
 </html>

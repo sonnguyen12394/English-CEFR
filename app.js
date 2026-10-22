@@ -1,8 +1,10 @@
 // Từ vựng A1: 87 unit / 870 từ lấy từ game (tools/extract-a1.mjs).
 // Luật mở Thi chuyển cấp như game (GATE_LEARN / GATE_MEM, v176): 📘 Học 100% · 🔁 Nhớ 80%.
 // 📘 Học = số từ thuộc unit đã học xong / tổng từ.
-// 🔁 Nhớ = số từ có lần đúng ở một ngày SAU ngày học xong unit (MEM_DAYS = 1; người sáng lập 22/10/2026, góp ý #3: bỏ chờ 3 ngày như game,
-//   quên vẫn theo lịch giãn dần), lần trả lời gần nhất đúng, và khả năng nhớ hiện ≥ 0,9.
+// 🔁 Nhớ chia 4 mặt (người sáng lập 22/10/2026: "nhớ từ phải chia nhiều mục để đánh giá, không nói nhớ suông"): 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng.
+//   Một mặt của một từ là nhớ khi: đúng mặt đó ở một ngày SAU ngày học xong unit (MEM_DAYS = 1, góp ý #3), lần gần nhất của mặt đó đúng,
+//   và khả năng nhớ của từ hiện ≥ 0,9 (một lịch ôn chung cho từ). Thanh mỗi mặt = số từ nhớ mặt đó / 870.
+//   🔁 Nhớ tổng = mặt thấp nhất; Thi chuyển cấp mở khi 📘 Học 100% và MỖI mặt ≥ 80% (mặt mạnh không bù được mặt yếu).
 const SB_URL = 'https://eojrfoormaqboxwvdqhr.supabase.co';
 const SB_KEY = 'sb_publishable_WGUA_5AyhR8a_yQfty8JBA_EaJdkZA7';   // khoá công khai; quyền do RLS bảng vocab_state
 // Tự đăng nhập (người sáng lập 22/10/2026): tài khoản riêng chỉ để học. Mật khẩu lộ trong mã trang là chấp nhận được vì tài khoản
@@ -11,7 +13,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 8;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 9;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -23,30 +25,42 @@ let S = null, user = null, sync = '';
 const dayOf = ms => Math.floor((ms - new Date(ms).getTimezoneOffset() * 60000) / DAY);
 const recall = (c, now) => c ? 1 / (1 + Math.max(0, now - c.last) / DAY / (9 * c.S)) : 0;
 const isDue = (c, now) => !!c && (now - c.last) / DAY >= c.S;
-const held = (c, now) => !!c && !!c.pv && !!c.ok && recall(c, now) >= HOLD_R;
+const held = (c, now) => DIMS.every(([k]) => heldDim(c, k, now));   // từ nhớ đủ cả 4 mặt
 function learnCards(st, u, now) {
   st.units[u.id] = { d: dayOf(now) };
   for (const w of u.words) if (!st.cards[w.id]) st.cards[w.id] = { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0 };
 }
-function grade(st, wid, ok, now) {
+// dạng câu → mặt đo
+const DIMS = [['nghia', '📖 Nghĩa'], ['nghe', '🎧 Nghe'], ['viet', '✍️ Viết'], ['dung', '🧩 Dùng']];
+const DIM_OF = { vi2w: ['nghia'], w2vi: ['nghia'], listen: ['nghe'], spell: ['viet'], cloze: ['dung'], col: ['dung'], clozeT: ['viet', 'dung'] };
+const heldDim = (c, k, now) => !!c && !!c.dm && !!c.dm[k] && !!c.dm[k].pv && !!c.dm[k].ok && recall(c, now) >= HOLD_R;
+function grade(st, wid, ok, now, type) {
   const c = st.cards[wid]; if (!c) return;
   const t = (now - c.last) / DAY;
   // ôn sớm (t < S) chỉ tăng theo phần thời gian đã trôi: luyện dồn nhiều lần trong một ngày không đẩy lịch ôn đi xa
   if (ok) { const full = Math.max(c.S, t) * 2.5; c.S = t >= c.S ? full : c.S + (full - c.S) * t / c.S; if (dayOf(now) - c.d0 >= MEM_DAYS) c.pv = 1; }
   else { c.S = 0.5; c.lapse++; }
   c.ok = ok ? 1 : 0; c.last = now; c.n++;
+  c.dm = c.dm || {};
+  for (const k of DIM_OF[type] || []) { const d = c.dm[k] = c.dm[k] || {}; d.ok = ok ? 1 : 0; d.n = (d.n || 0) + 1; if (ok && dayOf(now) - c.d0 >= MEM_DAYS) d.pv = 1; }
 }
 function parts(st, now) {
-  let learn = 0, mem = 0, due = 0;
-  for (const w of WORDS) { const c = st.cards[w.id]; if (st.units[w.u]) learn++; if (held(c, now)) mem++; if (isDue(c, now)) due++; }
-  const T = WORDS.length || 1;
-  return { learn, mem, due, T, lq: Math.floor(learn / T * 100), mq: Math.floor(mem / T * 100) };
+  let learn = 0, full = 0, due = 0; const dim = Object.fromEntries(DIMS.map(([k]) => [k, 0]));
+  for (const w of WORDS) { const c = st.cards[w.id]; if (st.units[w.u]) learn++; if (isDue(c, now)) due++;
+    let all = !!c; for (const [k] of DIMS) { if (heldDim(c, k, now)) dim[k]++; else all = false; } if (all) full++; }
+  const T = WORDS.length || 1, mem = Math.min(...Object.values(dim)), dq = Object.fromEntries(DIMS.map(([k]) => [k, Math.floor(dim[k] / T * 100)]));
+  return { learn, mem, full, due, T, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.floor(mem / T * 100) };
 }
 const gateOpen = p => p.lq >= GATE_LEARN && p.mq >= GATE_MEM;
 // Góp ý #3 / #4: dấu của từng từ. chua = chưa học · hoc = đã học, chưa đủ bằng chứng nhớ · nho = tính vào 🔁 Nhớ · quen = lần gần nhất sai hoặc đã tới lúc sắp quên.
 // hoc + nho + quen = 📘 Học; nho = 🔁 Nhớ.
+// nho = đủ 4 mặt
 function wstat(st, w, now) { const c = st.cards[w.id]; if (!st.units[w.u] || !c) return 'chua'; if (held(c, now)) return 'nho'; if (!c.ok || recall(c, now) < HOLD_R) return 'quen'; return 'hoc'; }
-const WST = [['chua', '⚪ Chưa học'], ['hoc', '📘 Đã học'], ['nho', '✅ Nhớ'], ['quen', '⚠️ Quên']];
+const WST = [['chua', '⚪ Chưa học'], ['hoc', '📘 Đã học'], ['nho', '✅ Nhớ đủ 4 mặt'], ['quen', '⚠️ Quên']];
+const dimMarks = (c, now) => DIMS.map(([k, l]) => `<span class="dm ${heldDim(c, k, now) ? 'on' : ''}" title="${l}">${l.split(' ')[0]}</span>`).join('');
+// mặt nào còn thiếu thì hỏi mặt đó (ngẫu nhiên trong các mặt thiếu); đủ cả thì trộn như thường
+const TYPE_FOR = { nghia: () => one(['vi2w', 'w2vi']), nghe: () => 'listen', viet: () => 'spell', dung: () => one(['cloze', 'col', 'clozeT']) };
+function typeFor(c, now) { const miss = DIMS.map(([k]) => k).filter(k => !heldDim(c, k, now)); return miss.length ? TYPE_FOR[one(miss)]() : rndType(); }
 
 // ---------- câu hỏi ----------
 const shuf = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -125,8 +139,8 @@ function home() {
   const now = Date.now(), p = parts(S, now), nu = nextUnit(), open = gateOpen(p), passed = S.exams.some(x => x.pass);
   const ph2 = p.lq >= GATE_LEARN;
   $app.onclick = null; window.CUR = { view: 'home' };
-  const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để 🔁 Nhớ lên ${GATE_MEM}%.`
-    : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Từ tính 🔁 Nhớ khi trả lời đúng ở một ngày sau ngày học (🏋️ Luyện tập).`;
+  const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để cả 4 mặt lên ${GATE_MEM}%.`
+    : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi mặt của từ tính 🔁 Nhớ khi trả lời đúng mặt đó ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào mặt còn thiếu.`;
   const grid = UNITS.map(u => { const d = S.units[u.id], m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
     return `<span class="${m ? 'm' : d ? 'd' : ''}" title="${esc(u.title)}">${u.no}</span>`; }).join('');
   $app.innerHTML = `
@@ -134,7 +148,9 @@ function home() {
     <p class="mute"><span id="sync">${esc(sync)}</span></p>
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
-      <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">cần ${GATE_MEM}% · ${p.mem}/${p.T} từ</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
+      <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
+      <div class="dims">${DIMS.map(([k, l]) => `<div><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
+      <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả 4 mặt.</p>
     </div>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `Unit ${nu.no} · ${esc(nu.vi)}` : 'Đã học hết 87 unit'}</small></button>
@@ -187,10 +203,10 @@ function practice() {
     return st === 'quen' ? recall(c, now) : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, now); };
   const list = shuf(WORDS.filter(w => S.cards[w.id] && S.units[w.u])).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);
   let ok = 0;
-  run({ title: '🏋️ Luyện tập', items: list.map(w => ({ w, type: rndType() })), retry: true,
-    first: (it, good) => { grade(S, it.w.id, good, Date.now()); if (good) ok++; save(); },
+  run({ title: '🏋️ Luyện tập', items: list.map(w => ({ w, type: typeFor(S.cards[w.id], now) })), retry: true,
+    first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) ok++; save(); },
     done: () => { const p = parts(S, Date.now());
-      $app.innerHTML = `<div class="box"><b>Xong lượt luyện tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}%.</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về 📘 Học</button>`;
+      $app.innerHTML = `<div class="box"><b>Xong lượt luyện tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}% (${DIMS.map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')}).</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về 📘 Học</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="again"]')) practice(); }; } });
 }
 
@@ -213,9 +229,9 @@ function dictList() {
   const all = WORDS.map(w => ({ w, st: wstat(S, w, now) })), hit = q ? all.filter(x => fold(x.w.w).includes(q) || fold(x.w.vi).includes(q)) : all;
   const n = k => hit.filter(x => !k || x.st === k).length;
   document.getElementById('df').innerHTML = `<div class="chips">${[[null, 'Tất cả'], ...WST].map(([k, l]) => `<button class="chip ${DICT.f === k ? 'on' : ''}" data-f="${k || ''}" aria-pressed="${DICT.f === k}">${l} <b>${n(k)}</b></button>`).join('')}</div>
-    <p class="mute">✅ Nhớ = số tính vào thanh 🔁 Nhớ. ⚠️ Quên = lần gần nhất sai hoặc đã tới lúc sắp quên: luyện lại là lên.</p>`;
+    <p class="mute">Mỗi từ có 4 dấu mặt: 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng (sáng = đang nhớ). ✅ = đủ cả 4. ⚠️ Quên = lần gần nhất sai hoặc đã tới lúc sắp quên: luyện lại là lên.</p>`;
   const rows = hit.filter(x => !DICT.f || x.st === DICT.f).sort((a, b) => a.w.w.localeCompare(b.w.w)), lab = k => WST.find(x => x[0] === k)[1];
-  document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute">${lab(st)}</span></div>
+  document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute" style="text-align:right">${lab(st)}${st !== 'chua' ? `<br>${dimMarks(S.cards[w.id], now)}` : ''}</span></div>
     ${DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · Unit ${UBY[w.u].no}: ${esc(UBY[w.u].title)}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
       <p>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}
       ${sayBtns(w)}</div>` : ''}</div>`).join('') : '<p class="mute">Không có từ nào.</p>';
@@ -251,7 +267,7 @@ function run({ title, items, retry, quiet, first, done }) {
     let answered = false;
     const answer = (good, b, typed) => {
       if (answered) return; answered = true;
-      if (it.tries++ === 0 && first) first(it, good);
+      if (it.tries++ === 0 && first) first(it, good, Q.type);
       q.shift();
       if (good || !retry) solved++; else q.push(it);
       if (quiet) return show();
