@@ -14,13 +14,14 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 16;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 17;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
 const $app = document.getElementById('app');
 let UNITS = [], WORDS = [], WBY = {}, UBY = {}, READS = [];
-const LVN = { pre: 'Pre-A1', a1: 'A1' };
+const LVN = { pre: 'Pre-A1', a1: 'A1', a2: 'A2' };
+const LEVELS = ['pre', 'a1', 'a2'];
 let S = null, user = null, sync = '';
 
 // ---------- lịch ôn (đường quên kiểu FSRS: R = 1 / (1 + t / 9S); R = 0,9 khi t = S) ----------
@@ -137,10 +138,13 @@ async function load() {
 
 // ---------- màn ----------
 function bar(v, need, color) { return `<div class="bar"><i style="width:${Math.min(100, v)}%;background:${color}"></i><b style="left:${need}%"></b></div>`; }
-// Cấp hiện tại: chưa qua Thi chuyển cấp Pre-A1 thì 'pre' (bài A1 khoá); qua rồi thì 'a1'.
-const curLevel = () => (typeof xPassed === 'function' && xPassed('pre')) ? 'a1' : 'pre';
-const gateWords = (lv = curLevel()) => lv === 'pre' ? WORDS.filter(w => UBY[w.u].lv === 'pre') : WORDS;
-const locked = u => u.lv === 'a1' && curLevel() === 'pre';
+// Cấp hiện tại: Pre-A1 → (qua Thi Pre-A1) A1 → (qua Thi A1 lần 1) A2. Bài của cấp chưa mở thì khoá.
+// Tập từ của cổng (người sáng lập 23/10/2026): Pre-A1 = từ Pre-A1; A1 = Pre-A1 + A1 (918 từ); A2 = chỉ từ A2, kèm điều kiện A1 "Đạt bền" (exam.js).
+const passed = lv => typeof xPassed === 'function' && xPassed(lv);
+const curLevel = () => !passed('pre') ? 'pre' : !passed('a1') ? 'a1' : 'a2';
+const gateWords = (lv = curLevel()) => WORDS.filter(w => lv === 'a1' ? UBY[w.u].lv !== 'a2' : UBY[w.u].lv === lv);
+const lockedLv = l => (l === 'a1' && !passed('pre')) || (l === 'a2' && !passed('a1'));
+const locked = u => lockedLv(u.lv);
 const unitDone = u => u.words.every(w => S.cards[w.id]);
 function nextUnit() { return UNITS.find(u => !unitDone(u) && !locked(u)); }
 // Lộ trình: mỗi cấp chia chặng theo chủ đề (tools/extract-a1.mjs), bài đánh số trong chặng; chỉ mở chặng đang học.
@@ -148,10 +152,10 @@ const uLabel = u => `${LVN[u.lv]} · Chặng ${u.ch + 1} · Bài ${u.bi}`;
 const HOME = { open: null, lv: null };   // chặng đang mở, cấp đang xem trên trang chính
 function roadmap(now, nu) {
   const lv = HOME.lv || curLevel(), us0 = UNITS.filter(u => u.lv === lv), chs = [...new Set(us0.map(u => u.ch))];
-  const cur = nu && nu.lv === lv ? nu.ch : -1, open = HOME.open ?? cur, lock = lv === 'a1' && curLevel() === 'pre';
-  const tabs = `<div class="chips">${['pre', 'a1'].map(l => { const ws = gateWords(l === 'pre' ? 'pre' : 'x').filter(w => UBY[w.u].lv === l);
-    return `<button class="chip ${lv === l ? 'on' : ''}" data-lv="${l}">${l === 'a1' && curLevel() === 'pre' ? '🔒 ' : l === 'pre' && curLevel() === 'a1' ? '✅ ' : ''}${LVN[l]} · ${ws.length} từ</button>`; }).join('')}</div>`;
-  return tabs + (lock ? `<p class="mute">🔒 Bài A1 mở khi qua Thi chuyển cấp Pre-A1. Xem trước được, chưa học được.</p>` : '') + chs.map(i => { const us = us0.filter(u => u.ch === i), done = us.filter(unitDone).length;
+  const cur = nu && nu.lv === lv ? nu.ch : -1, open = HOME.open ?? cur, lock = lockedLv(lv);
+  const tabs = `<div class="chips">${LEVELS.map(l => { const n = WORDS.filter(w => UBY[w.u].lv === l).length;
+    return `<button class="chip ${lv === l ? 'on' : ''}" data-lv="${l}">${lockedLv(l) ? '🔒 ' : passed(l) ? '✅ ' : ''}${LVN[l]} · ${n} từ</button>`; }).join('')}</div>`;
+  return tabs + (lock ? `<p class="mute">🔒 Bài ${LVN[lv]} mở khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(lv) - 1]]}. Xem trước được, chưa học được.</p>` : '') + chs.map(i => { const us = us0.filter(u => u.ch === i), done = us.filter(unitDone).length;
     const ws = us.flatMap(u => u.words), mem = ws.filter(w => held(S.cards[w.id], now)).length, f = us[0];
     return `<div class="ch ${i === cur ? 'cur' : ''}"><button class="chh" data-ch="${i}" aria-expanded="${i === open}">
       <span>${f.chIcon} <b>Chặng ${i + 1}</b> · ${esc(f.chName)}</span><span class="mute">${done === us.length ? '✅' : `${done}/${us.length} bài`}</span></button>
@@ -166,7 +170,7 @@ function home() {
   const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để cả 4 mặt lên ${GATE_MEM}%.`
     : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi mặt của từ tính 🔁 Nhớ khi trả lời đúng mặt đó ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào mặt còn thiếu.`;
   $app.innerHTML = `
-    <h1>Từ vựng A1</h1>
+    <h1>Từ vựng tiếng Anh</h1>
     <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ${lv === 'a1' ? ', tính cả Pre-A1' : ''})</p>
     <p class="mute"><span id="sync">${esc(sync)}</span></p>
     <div class="box">
@@ -176,11 +180,12 @@ function home() {
       <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả 4 mặt.</p>
     </div>
     <div class="duo">
-      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : lv === 'pre' ? 'Đã học hết bài Pre-A1' : 'Đã học hết bài'}</small></button>
+      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
       <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
     <p class="mute">${tip}</p>
     ${examBox(p, lv)}
+    ${lv === 'a2' && !xDurable() ? examBox(parts(S, now, gateWords('a1')), 'a1') : ''}
     <h2>Lộ trình</h2>
     <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ 4 mặt · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
     <div id="grid">${roadmap(now, nu)}</div>
@@ -248,7 +253,7 @@ function dictList() {
   const all = WORDS.map(w => ({ w, st: wstat(S, w, now) })), hit = q ? all.filter(x => fold(x.w.w).includes(q) || fold(x.w.vi).includes(q)) : all;
   const lvOf = x => UBY[x.w.u].lv, inLv = hit.filter(x => !DICT.lv || lvOf(x) === DICT.lv);
   const n = k => inLv.filter(x => !k || x.st === k).length, nl = l => hit.filter(x => (!DICT.f || x.st === DICT.f) && (!l || lvOf(x) === l)).length;
-  document.getElementById('df').innerHTML = `<div class="chips" aria-label="Cấp">${[[null, 'Mọi cấp'], ['pre', '🌱 Pre-A1'], ['a1', '🌿 A1']].map(([k, l]) => `<button class="chip ${DICT.lv === k ? 'on' : ''}" data-dl="${k || ''}" aria-pressed="${DICT.lv === k}">${l} <b>${nl(k)}</b></button>`).join('')}</div>
+  document.getElementById('df').innerHTML = `<div class="chips" aria-label="Cấp">${[[null, 'Mọi cấp'], ['pre', '🌱 Pre-A1'], ['a1', '🌿 A1'], ['a2', '🌳 A2']].map(([k, l]) => `<button class="chip ${DICT.lv === k ? 'on' : ''}" data-dl="${k || ''}" aria-pressed="${DICT.lv === k}">${l} <b>${nl(k)}</b></button>`).join('')}</div>
     <div class="chips" aria-label="Trạng thái">${[[null, 'Tất cả'], ...WST].map(([k, l]) => `<button class="chip ${DICT.f === k ? 'on' : ''}" data-f="${k || ''}" aria-pressed="${DICT.f === k}">${l} <b>${n(k)}</b></button>`).join('')}</div>
     <p class="mute">Mỗi từ có 4 dấu mặt: 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng (sáng = đang nhớ). ✅ = đủ cả 4. ⚠️ Quên = lần gần nhất sai hoặc đã tới lúc sắp quên: luyện lại là lên.</p>`;
   const rows = inLv.filter(x => !DICT.f || x.st === DICT.f).sort((a, b) => a.w.w.localeCompare(b.w.w)), lab = k => WST.find(x => x[0] === k)[1];
@@ -343,7 +348,7 @@ $tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]');
 
 (async () => {
   fetch('a/index.json?v=4').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
-  try { const d = await (await fetch('a1.json?v=5')).json(); UNITS = d.units; READS = d.reads || []; }
+  try { for (const f of ['a1.json?v=5', 'a2.json?v=1']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   let last;

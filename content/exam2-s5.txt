@@ -1,0 +1,45 @@
+action|I like action films.
+article|I read an interesting article about food.
+business|My father has a small business.
+century|This house is from the last century.
+chart|Look at the chart on page five.
+common|Nguyen is a common name in Vietnam.
+compare|Compare your answers with your friend.
+create|Children love to create things.
+culture|Food is part of our culture.
+description|Write a short description of your room.
+design|She designs clothes.
+detail|Tell me more details about your trip.
+discuss|Discuss the questions in groups.
+event|The party is a big event in our town.
+fact|Here is an interesting fact about cats.
+geography|In geography we learn about countries.
+however|The hotel was nice. However, it was very expensive.
+imagine|I can't imagine life without music.
+improve|You can improve your writing.
+include|The price includes lunch.
+introduce|Let me introduce my friend Nam.
+local|We buy fruit at the local market.
+modern|They live in a modern apartment.
+natural|Fruit juice is a natural drink.
+negative|Make the sentence negative.
+object|Draw an object from your bag.
+opinion|What is your opinion?
+paragraph|Read the second paragraph again.
+period|We had a long period of rain.
+positive|Try to be positive.
+possible|Is it possible to pay by card?
+product|This product is very cheap.
+reason|What is the reason for your visit?
+report|I have to write a report for work.
+result|I got my test results today.
+routine|What is your morning routine?
+rule|What are the rules of the game?
+scientist|She wants to be a scientist.
+section|Read section two of the book.
+similar|Your bag is similar to mine.
+situation|It is a difficult situation.
+statement|Read each statement and choose true or false.
+style|I like her style.
+success|The concert was a great success.
+topic|The topic of today's lesson is family.

@@ -1,0 +1,186 @@
+bridge|We walked across the old bridge.
+castle|The king lived in a castle on the hill.
+church|There is an old church in the village.
+palace|The palace is open to visitors every day.
+tower|You can see the whole city from the tower.
+gallery|We saw some beautiful paintings at the gallery.
+hall|The concert is in the school hall.
+gate|Close the gate so the dog can't get out.
+roof|There is a cat on the roof.
+stair|He sat on the bottom stair and waited.
+social|Social media takes up too much of my time.
+public|You can't smoke in public places.
+law|Driving without a licence is against the law.
+crime|There is very little crime in our town.
+prison|The thief went to prison for two years.
+thief|The police caught the thief.
+international|This is an international school.
+national|Today is a national holiday.
+foreign|Do you speak any foreign languages?
+state|Texas is a big state in the USA.
+continent|Asia is the largest continent.
+war|My grandfather fought in the war.
+peace|We hope for peace in the world.
+army|My cousin joined the army last year.
+accident|He had an accident on his motorbike.
+disaster|The flood was a terrible disaster.
+attack|The dog attacked the postman.
+fight|The two boys had a fight at school.
+kill|Smoking can kill you.
+gun|Police officers in Britain don't usually carry guns.
+trouble|Sorry for the trouble.
+alive|Is your grandfather still alive?
+fear|She has a fear of flying.
+argue|My brother and I often argue about small things.
+argument|They had an argument about money.
+chat|We chatted for an hour on the phone.
+comment|Thank you for your kind comments.
+complain|He always complains about the food.
+greet|She greeted us at the door with a smile.
+mention|She didn't mention the party to me.
+reply|I sent him a message, but he didn't reply.
+request|The hotel was happy to help with our request.
+express|It's hard to express my feelings in English.
+promise|I promise I will call you tomorrow.
+pronounce|How do you pronounce this word?
+suggest|I suggest we take a taxi.
+suggestion|Do you have any suggestions for dinner?
+refuse|He refused to help me.
+realize|I didn't realize it was so late.
+consider|We are considering moving to the city.
+expect|I expect it will rain later.
+suppose|I suppose you are right.
+wish|I wish I could speak French.
+dream|I had a strange dream last night.
+mind|Do you mind if I sit here?
+memory|I have a bad memory for names.
+notice|Did you notice his new haircut?
+discover|We discovered a nice cafe near the river.
+invent|Who invented the telephone?
+invention|The car was a great invention.
+instruction|Read the instructions before you start.
+error|There is an error in your answer.
+simple|The rules of the game are very simple.
+single|Is he married or single?
+double|I'd like a double room, please.
+exact|What is the exact time?
+exactly|That's exactly what I wanted.
+extremely|It's extremely hot today.
+general|In general, I like living here.
+download|You can download the app for free.
+screen|My phone screen is broken.
+charge|I need to charge my phone.
+online|I buy most of my clothes online.
+keyboard|The keyboard on my laptop is broken.
+delete|I deleted the photo by mistake.
+search|Search for the hotel on the internet.
+education|Education is very important for children.
+essay|Write an essay about your home town.
+degree|She has a degree in English.
+mark|I got a good mark in maths.
+term|The new school term starts in September.
+biology|In biology we learn about plants and animals.
+chemistry|We did an experiment in chemistry.
+physics|Physics is my most difficult subject.
+mathematics|He teaches mathematics at a university.
+maths|I'm not very good at maths.
+learning|Learning a language takes time.
+teaching|She loves teaching young children.
+experiment|We did an experiment with water and salt.
+lab|The students are working in the lab.
+device|This small device can play music.
+digital|I have a digital camera.
+electronic|This shop sells electronic games.
+electric|We have an electric cooker.
+electrical|Don't touch the electrical wires.
+electricity|The electricity went off during the storm.
+smartphone|Almost everyone has a smartphone now.
+mobile|What's your mobile number?
+network|The mobile network is slow here.
+web|You can find the answer on the web.
+site|This site has great recipes.
+user|The app has millions of users.
+program|This computer program helps you learn English.
+printer|The printer has no paper.
+print|Can you print this for me?
+code|Enter the code to open the door.
+link|Click on the link to see the photos.
+profile|Update your profile photo.
+advertise|They advertise the new phone on TV.
+advertisement|I saw an advertisement for a cheap flight.
+advertising|She works in advertising.
+poster|There is a poster of a singer on her wall.
+cartoon|The children are watching cartoons.
+comedy|We watched a funny comedy last night.
+drama|It's a drama about a family in Hanoi.
+series|I'm watching a new TV series.
+novel|She is reading a long novel.
+character|Who is your favourite character in the film?
+scene|The last scene of the film was very sad.
+audience|The audience loved the show.
+perform|The band will perform in the park.
+record|The band is recording a new song.
+recording|This is an old recording of my grandfather singing.
+classical|My father likes classical music.
+jazz|We listened to jazz in a small bar.
+ruler|Draw a line with a ruler.
+glue|Stick the picture in your book with glue.
+scissors|Can I borrow your scissors?
+pencil-case|My pens are in my pencil case.
+sharpener|I need a sharpener for my pencil.
+playground|The children are playing in the playground.
+highlighter|Mark the new words with a highlighter.
+stapler|Use the stapler to join the pages.
+crayon|The little girl drew a house with crayons.
+chalk|The teacher wrote on the board with chalk.
+knock|Please knock before you come in.
+lift|Can you help me lift this box?
+pick|We picked apples from the tree.
+blow|Blow out the candles!
+burn|Be careful, you'll burn your hand.
+shout|Don't shout. The baby is sleeping.
+steal|Someone stole my bike.
+rise|The sun rises at six o'clock.
+raise|Raise your hand if you have a question.
+replace|We need to replace the old window.
+remove|Please remove your shoes before you come in.
+repair|Can you repair my watch?
+destroy|The storm destroyed many houses.
+protect|Wear a hat to protect your head from the sun.
+accept|Do you accept credit cards?
+allow|My parents don't allow me to stay out late.
+avoid|Try to avoid sugar and salt.
+appear|A man appeared at the door.
+disappear|My keys disappeared again!
+exist|Do you think ghosts exist?
+contain|This drink contains a lot of sugar.
+depend|It depends on the weather.
+involve|The job involves a lot of travel.
+matter|It doesn't matter if you are late.
+achieve|She achieved her dream of becoming a doctor.
+attend|Five hundred people attended the concert.
+reach|We reached the top of the mountain at noon.
+enter|Please enter your password.
+continue|Let's continue our lesson.
+fail|He failed his driving test twice.
+pass|I hope I pass the exam.
+count|Can you count to ten in English?
+collect|My brother collects old coins.
+level|What level of English are you?
+act|She acts in a lot of films.
+react|How did he react when you told him?
+connect|Connect your phone to the speaker.
+cover|Cover the pot and cook for ten minutes.
+lock|Don't forget to lock the door.
+shut|Shut the window, please. It's cold.
+pack|I need to pack my bag for the trip.
+tidy|Keep your room tidy.
+fit|These jeans don't fit me any more.
+wake-up|I woke up at six this morning.
+turn-on|Can you turn on the light?
+turn-off|Turn off your phone in the cinema.
+look-after|Can you look after my cat this weekend?
+find-out|I want to find out more about the course.
+come-back|What time will you come back?
+sit-down|Please sit down and wait.
+put-away|Put away your toys, please.

@@ -1,0 +1,148 @@
+huge|They live in a huge house with ten bedrooms.
+enormous|The elephant was enormous.
+wide|The river is very wide here.
+narrow|The street is too narrow for cars.
+deep|Be careful, the water is deep.
+thick|This book is very thick.
+heavy|My suitcase is too heavy to carry.
+low|The prices in this market are very low.
+loudly|Please don't talk so loudly.
+noisy|Our neighbours are very noisy at night.
+noise|What's that noise?
+soft|This pillow is nice and soft.
+bright|The room is bright and sunny.
+clear|The sky is clear tonight.
+clearly|Please speak clearly.
+empty|The fridge is empty. Let's go shopping.
+ancient|We visited an ancient temple.
+recent|This is a recent photo of my family.
+recently|I haven't seen him recently.
+traditional|Ao dai is the traditional dress of Vietnam.
+tradition|It's a tradition to give money at New Year.
+unusual|It's unusual for him to be late.
+regular|Regular exercise is good for your health.
+average|The average age in our class is twenty.
+comfortable|This sofa is very comfortable.
+fair|It's not fair! He got more cake than me.
+actually|I thought he was American, but actually he's Canadian.
+already|I've already eaten, thanks.
+almost|It's almost time for dinner.
+especially|I love fruit, especially mangoes.
+immediately|Call me immediately when you arrive.
+suddenly|Suddenly, the lights went out.
+perhaps|Perhaps we can meet next week.
+certainly|I'll certainly come to your party.
+fortunately|Fortunately, nobody was hurt.
+unfortunately|Unfortunately, the shop was closed.
+mostly|The students are mostly from Hanoi.
+rather|It's rather cold today.
+yet|Have you finished your homework yet?
+since|I have lived here since 2015.
+while|I listen to music while I cook.
+either|I don't like coffee, and my wife doesn't either.
+secondly|Firstly, it's cheap. Secondly, it's near.
+forward|Take one step forward.
+myself|I made this cake myself.
+herself|She cut herself with a knife.
+himself|He taught himself to play the guitar.
+itself|The cat is washing itself.
+ourselves|We painted the house ourselves.
+themselves|The children made lunch themselves.
+none|None of my friends can come.
+neither|Neither of my brothers likes fish.
+anywhere|I can't find my glasses anywhere.
+everywhere|There are flowers everywhere in spring.
+somewhere|I left my phone somewhere in the house.
+nowhere|There is nowhere to park here.
+anybody|Is anybody at home?
+among|The house is hidden among the trees.
+along|We walked along the beach.
+against|He put his bike against the wall.
+onto|The cat jumped onto the table.
+amount|Don't put a large amount of salt in it.
+bit|Can I have a bit of cake?
+several|I have been to Japan several times.
+billion|There are about eight billion people in the world.
+zero|It's zero degrees outside.
+per|The hotel costs fifty dollars per night.
+per-cent|Ninety per cent of the students passed the test.
+penny|This sweet costs fifty pence, not one penny less.
+less|I want to spend less time on my phone.
+least|This is the least expensive hotel in town.
+worse|The weather is worse today than yesterday.
+worst|That was the worst film I've ever seen.
+further|We can't walk any further.
+whole|We spent the whole day at the beach.
+such|It was such a beautiful day.
+sort|What sort of music do you like?
+all-right|Are you all right?
+any-more|I don't live there any more.
+used-to|I used to play football every day.
+shall|Shall we go for a walk?
+might|It might rain this afternoon.
+anyway|It was expensive, but I bought it anyway.
+instead|Let's walk instead of taking a taxi.
+except|Everyone came except Tom.
+wow|Wow, what a beautiful view!
+tool|You need the right tools to fix a bike.
+item|There are ten items on the shopping list.
+metal|The gate is made of metal.
+plastic|Please don't use plastic bags.
+gold|She wears a gold ring.
+silver|He won a silver medal.
+wooden|There is a wooden table in the kitchen.
+gas|We cook on a gas cooker.
+sheet|Write your name on the top of the sheet.
+stamp|I need a stamp for this letter.
+board|The teacher wrote the date on the board.
+blank|Fill in the blank with the correct word.
+bottom|The keys are at the bottom of my bag.
+top|Write your name at the top of the page.
+side|There are shops on both sides of the street.
+middle|There is a big table in the middle of the room.
+square|There is a market in the town square.
+circle|Draw a circle around the right answer.
+stress|Too much work can cause stress.
+speed|The car was going at a high speed.
+distance|What is the distance from here to the station?
+direction|Which direction is the beach?
+weight|What is your weight?
+view|The room has a lovely view of the sea.
+image|The image on the screen is not clear.
+appearance|She cares a lot about her appearance.
+voice|She has a beautiful voice.
+ah|Ah, now I understand.
+pop|My daughter loves pop music.
+ring|Your phone is ringing.
+hole|There is a hole in my sock.
+tip|Here is a useful tip for learning new words.
+seem|You seem tired today.
+ending|The film has a happy ending.
+included|Breakfast is included in the price.
+clothing|Wear warm clothing in the mountains.
+bell|The school bell rings at seven.
+able|Will you be able to come tomorrow?
+chance|This is your last chance.
+cause|What was the cause of the fire?
+position|What position do you play in the team?
+power|The storm cut the power for two hours.
+energy|Children have a lot of energy.
+quality|These shoes are good quality.
+figure|Look at the figure on page twelve.
+symbol|The dove is a symbol of peace.
+sign|The sign says "No parking".
+habit|Biting your nails is a bad habit.
+behave|The children behaved very well today.
+belong|Does this bag belong to you?
+possession|He lost all his possessions in the fire.
+secret|Can you keep a secret?
+case|In that case, I'll take a taxi.
+condition|The car is old but in good condition.
+sense|Dogs have a good sense of smell.
+background|There are mountains in the background of the photo.
+alternative|Is there an alternative to taking the bus?
+gap|Mind the gap between the train and the platform.
+ground|The ball fell to the ground.
+step|Be careful, there's a step here.
+cycle|I cycle to work every day.
+round|We sat at a round table.

@@ -1,12 +1,13 @@
 // Ngân hàng câu cho Thi chuyển cấp A1: mỗi từ một câu MỚI (không trùng câu luyện), soạn trong content/exam-s*.txt (dòng "id|câu").
 // Kiểm: câu có từ đích (kể cả dạng -s / -ed / -ing), không trùng câu ví dụ / câu điền đã luyện, ≥ 85% chữ trong câu là từ A1 (hoặc từ A1 của game).
 // Thêm câu nghe có âm thanh thu sẵn của game (clips.json, câu ≤ 14 chữ, dễ, không trùng câu luyện) cho dạng nghe; chép tệp mp3 sang a/.
-// Chạy: node tools/build-exam.mjs ../sonnguyen12394.github.io  → exam-a1.json
+// Chạy: node tools/build-exam.mjs ../sonnguyen12394.github.io [a1|a2]  → exam-a1.json / exam-a2.json (câu A2 soạn ở content/exam2-s*.txt)
 import fs from 'node:fs';
-const src = process.argv[2] || '../sonnguyen12394.github.io', root = new URL('..', import.meta.url).pathname;
-const d = JSON.parse(fs.readFileSync(root + 'a1.json', 'utf8')), W = d.units.flatMap(u => u.words);
+const src = process.argv[2] || '../sonnguyen12394.github.io', root = new URL('..', import.meta.url).pathname, LV = process.argv[3] || 'a1';
+const d = JSON.parse(fs.readFileSync(root + LV + '.json', 'utf8')), W = d.units.flatMap(u => u.words);
+const WA1 = LV === 'a1' ? [] : JSON.parse(fs.readFileSync(root + 'a1.json', 'utf8')).units.flatMap(u => u.words);   // A2: từ A1 cũng tính là đã biết
 const lvl = JSON.parse(fs.readFileSync(src + '/content/wordlist.json', 'utf8'));
-const a1 = new Set([...W.map(w => w.w.toLowerCase()), ...Object.keys(lvl).filter(k => lvl[k] === 'A1')]);
+const a1 = new Set([...W, ...WA1].map(w => w.w.toLowerCase()).concat(Object.keys(lvl).filter(k => lvl[k] === 'A1' || (LV === 'a2' && lvl[k] === 'A2'))));
 const tok = s => s.toLowerCase().replace(/[‘’]/g, "'").match(/[a-z][a-z']*/g) || [];
 const base = t => [t, t.replace(/'s$/, ''), t.replace(/ies$/, 'y'), t.replace(/ied$/, 'y'), ...['es', 's', 'ed', 'd', 'ing'].map(x => t.endsWith(x) ? t.slice(0, -x.length) : t), t.replace(/ing$/, 'e'), t.replace(/(.)\1(ing|ed)$/, '$1'), t.replace(/n't$/, '')];
 // tên riêng và vài từ A1 thông dụng mà danh sách của game chưa gắn A1 (người soạn thêm, chưa người thật kiểm)
@@ -23,7 +24,7 @@ function formsOf(x) { x = x.toLowerCase(); if (/\s/.test(x)) { const [h, ...r] =
 const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const findForm = (w, s) => { const m = new RegExp(`(?<![A-Za-z'])(${formsOf(w.w).map(reEsc).join('|')})(?![A-Za-z])`, 'i').exec(s.replace(/[‘’]/g, "'")); return m ? m[1] : null; };
 const seen = new Set(W.flatMap(w => [w.ex, w.cloze.s.replace('___', w.cloze.a)]).map(s => s.toLowerCase()));
-const lines = fs.readdirSync(root + 'content').filter(f => /^exam-s\d+\.txt$/.test(f)).sort().flatMap(f => fs.readFileSync(root + 'content/' + f, 'utf8').split('\n').filter(Boolean));
+const lines = fs.readdirSync(root + 'content').filter(f => new RegExp(`^${LV === 'a1' ? 'exam' : 'exam2'}-s\\d+\\.txt$`).test(f)).sort().flatMap(f => fs.readFileSync(root + 'content/' + f, 'utf8').split('\n').filter(Boolean));
 const S = {}; for (const l of lines) { const i = l.indexOf('|'); S[l.slice(0, i)] = l.slice(i + 1).trim(); }
 const errs = [], out = {}, hard = [];
 for (const w of W) { const s = S[w.id];
@@ -44,6 +45,6 @@ for (const w of W) { if (!out[w.id] || w.w.replace(/\s/g, '').length < 3) contin
   const k = clipKey(c.t); if (!fs.existsSync(`${src}/a/c/${k}.mp3`)) continue;
   fs.copyFileSync(`${src}/a/c/${k}.mp3`, `${root}a/${k}.mp3`); idx.add(k); out[w.id].l = c.t; nL++; }
 fs.writeFileSync(root + 'a/index.json', JSON.stringify([...idx].sort()));
-fs.writeFileSync(root + 'exam-a1.json', JSON.stringify(out));
+fs.writeFileSync(root + `exam-${LV}.json`, JSON.stringify(out));
 console.log(`câu thi: ${Object.keys(out).length}/${W.length} · lỗi ${errs.length} · nhiều từ lạ ${hard.length} · có câu nghe thu sẵn ${nL}`);
 errs.forEach(e => console.log('LỖI', e)); hard.forEach(e => console.log('KHÓ', e));

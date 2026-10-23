@@ -1,0 +1,195 @@
+eyebrow|He raised one eyebrow and smiled.
+jaw|The boxer hurt his jaw in the fight.
+waist|These trousers are too big around the waist.
+beard|My grandfather has a long white beard.
+moustache|The man with the moustache is our new teacher.
+wrinkle|My grandmother has a lot of wrinkles around her eyes.
+sweat|After the run, his shirt was wet with sweat.
+rib|He broke a rib when he fell off his bike.
+carpet|There is a red carpet in the living room.
+fridge|Put the milk back in the fridge.
+oven|The bread is in the oven.
+furniture|We bought new furniture for the flat.
+towel|Can I have a clean towel, please?
+soap|Wash your hands with soap and water.
+bin|Put the paper in the bin.
+fork|In Vietnam we use chopsticks, not a fork.
+knife|Be careful with that sharp knife.
+spoon|I need a spoon for my soup.
+boil|Boil the eggs for ten minutes.
+recipe|Can you give me the recipe for this cake?
+jam|I like bread with strawberry jam.
+biscuit|Would you like a biscuit with your tea?
+bean|I don't like green beans.
+nut|Some people can't eat nuts.
+oil|Fry the onions in a little oil.
+chip|We had fish and chips for lunch.
+sweet|This mango is very sweet.
+taste|This soup has a strange taste.
+smell|The flowers smell lovely.
+fresh|We buy fresh fish at the market every morning.
+chef|The chef at this restaurant is from Italy.
+bar|Let's meet at the bar after work.
+pub|We had lunch at an old pub in London.
+diary|I write in my diary every night.
+mail|Did any mail come for me today?
+document|Please print this document for me.
+copy|Can you make a copy of this letter?
+column|Write the answers in the second column.
+unit|We are studying unit five in our English book.
+store|There is a big store near my house.
+equipment|The gym has a lot of new equipment.
+cherry|There is a cherry on top of the cake.
+peach|This peach is soft and sweet.
+plum|We picked plums from the tree.
+melon|Would you like a piece of melon?
+coconut|We drank fresh coconut water at the beach.
+peanut|My son can't eat peanuts.
+lettuce|Wash the lettuce before you make the salad.
+cabbage|My mother cooks cabbage soup.
+cucumber|Cut the cucumber into thin pieces.
+pumpkin|We made a pumpkin cake for the party.
+garlic|This dish has a lot of garlic in it.
+ginger|I drink hot tea with ginger when I have a cold.
+mushroom|Do you want mushrooms on your pizza?
+spinach|Spinach is very good for you.
+boiled|I'd like boiled rice, please.
+steamed|We had steamed fish with ginger.
+dessert|What would you like for dessert?
+snack|I eat a small snack in the afternoon.
+noodle|She picked up one long noodle with her chopsticks.
+dumpling|We made dumplings for the New Year.
+pancake|We had pancakes with honey for breakfast.
+omelette|Can you make me a cheese omelette?
+burger|My son wants a burger and chips.
+cereal|I eat cereal with milk every morning.
+yoghurt|I have yoghurt and fruit for breakfast.
+prawn|These prawns are big and fresh.
+crab|We ate crab at a seafood restaurant.
+squid|Grilled squid is popular in Vung Tau.
+tuna|I'd like a tuna sandwich, please.
+salmon|Salmon is a pink fish.
+lamb|We had lamb with potatoes for dinner.
+bacon|He had bacon and eggs for breakfast.
+ham|Put some ham and cheese in the sandwich.
+oyster|Have you ever eaten oysters?
+lobster|Lobster is very expensive in this restaurant.
+kettle|Can you put the kettle on? I want some tea.
+toaster|Put the bread in the toaster.
+microwave|Heat the soup in the microwave.
+freezer|The ice cream is in the freezer.
+jar|There is a jar of honey on the table.
+lid|Put the lid on the pot.
+mug|He drinks coffee from a big mug.
+tray|The waiter carried the drinks on a tray.
+chopsticks|Can you eat with chopsticks?
+napkin|Can I have a napkin, please?
+pillow|I need another pillow for my bed.
+cushion|There are three cushions on the sofa.
+mattress|This mattress is too soft for me.
+drawer|My socks are in the top drawer.
+wardrobe|Hang your coat in the wardrobe.
+balcony|We have breakfast on the balcony.
+vase|Put the flowers in a vase.
+rug|There is a small rug next to the bed.
+doorbell|The doorbell rang, so I opened the door.
+bucket|The children carried water in a bucket.
+gift|This gift is for your birthday.
+celebrate|How do you celebrate New Year?
+guest|We have guests for dinner tonight.
+decorate|We decorated the house for the party.
+wedding|My cousin's wedding is next Saturday.
+festival|The Mid-Autumn Festival is in September.
+candle|She lit a candle on the table.
+belt|These trousers need a belt.
+sock|I can only find one sock.
+pants|He bought new pants and socks.
+suit|He wore a black suit to the meeting.
+tie|You don't need to wear a tie to work.
+uniform|The students wear a blue uniform.
+pocket|My keys are in my pocket.
+button|One button on my shirt is missing.
+jewellery|She doesn't wear much jewellery.
+fashion|She works in fashion in Paris.
+baseball|Baseball is very popular in Japan.
+basketball|He is tall, so he plays basketball.
+golf|My uncle plays golf every Sunday.
+hockey|We play hockey on ice in winter.
+ski|Can you ski?
+skiing|We went skiing in the mountains.
+soccer|In America, football is called soccer.
+athlete|The athlete trains every day.
+coach|Our coach told us to run faster.
+trainer|My trainer at the gym is very strict.
+race|She won the race easily.
+score|What's the score now?
+goal|He scored a great goal.
+prize|She won first prize in the competition.
+award|The film won an award for best music.
+compete|Ten teams will compete in the final.
+competition|I entered a singing competition.
+beat|Vietnam beat Thailand two nil.
+fan|He's a big fan of Manchester United.
+stage|The singer walked onto the stage.
+chess|My grandfather taught me to play chess.
+kite|The children are flying a kite on the beach.
+crossword|My father does the crossword every morning.
+jigsaw|We did a big jigsaw together.
+karaoke|We sang karaoke all night.
+hiking|We went hiking in Sa Pa.
+surfing|Surfing is fun but difficult.
+diving|We went diving to see the fish.
+skateboard|He goes to school on his skateboard.
+knit|My grandmother knitted me a scarf.
+climate|The climate here is hot and wet.
+storm|There was a big storm last night.
+planet|Earth is our planet.
+earth|The earth goes around the sun.
+ocean|The Pacific is the biggest ocean.
+coast|We drove along the coast.
+wave|The waves are very big today.
+hill|Our house is at the top of the hill.
+valley|There is a small village in the valley.
+desert|It hardly ever rains in the desert.
+stone|The old bridge is made of stone.
+rock|The children sat on a big rock.
+wood|The table is made of wood.
+insect|There are many insects in the garden.
+spider|There is a big spider in the bath!
+frog|We heard frogs in the rice field.
+monkey|The monkey took my banana!
+bear|We saw a brown bear at the zoo.
+wild|Wild animals live in the forest.
+environment|We must protect the environment.
+recycle|We recycle bottles and paper.
+rubbish|Please take the rubbish out.
+goat|The goat is eating grass.
+donkey|The donkey carried our bags up the hill.
+rabbit|My daughter has a white rabbit.
+hamster|The hamster is running in its wheel.
+duck|There are ducks on the lake.
+goose|A goose is bigger than a duck.
+parrot|Our parrot can say hello.
+pigeon|There are many pigeons in the square.
+turtle|We saw a turtle in the sea.
+squirrel|A squirrel ran up the tree.
+whale|We saw a whale from the boat.
+dolphin|Dolphins swam next to our boat.
+shark|Is it safe to swim here? Are there sharks?
+crocodile|The crocodile is lying in the river.
+penguin|Penguins can't fly, but they can swim.
+eagle|An eagle flew high above the mountain.
+owl|Owls sleep in the day.
+butterfly|A butterfly landed on the flower.
+mosquito|I have mosquito bites on my legs.
+ant|There are ants on the kitchen table.
+thunder|The thunder woke the baby.
+lightning|Lightning hit the old tree.
+breeze|There is a nice breeze from the sea.
+foggy|It's foggy, so drive slowly.
+chilly|It's chilly this morning. Take a jacket.
+freezing|It's freezing outside!
+rainbow|Look! There's a rainbow in the sky.
+typhoon|The typhoon hit the coast last night.
+heatwave|Many people stayed inside during the heatwave.
+damp|The walls in the old house are damp.

@@ -1,0 +1,188 @@
+price|The price of this jacket is too high for me.
+cash|Can I pay in cash, or do you need a card?
+spend|How much money do you spend on food every week?
+borrow|Can I borrow your umbrella? It's raining.
+lend|My brother never lends me his car.
+customer|The shop was full of customers on Saturday.
+wallet|I left my wallet at home, so I can't pay.
+size|Do you have these shoes in a bigger size?
+sale|Everything in the shop is on sale this week.
+receipt|Keep the receipt in case you want to change it.
+boss|My boss let me go home early today.
+manager|I'd like to speak to the manager, please.
+secretary|The secretary answers the phone in the office.
+assistant|The shop assistant helped me find a dress.
+businessman|He is a rich businessman from Singapore.
+architect|An architect designed our new house.
+engineer|My sister is an engineer at a car company.
+lawyer|You should ask a lawyer before you sign it.
+journalist|The journalist wrote about the fire in the city.
+director|The film director won a prize last year.
+detective|The detective found the missing ring.
+soldier|The young soldier came home after the war.
+professor|Our professor gives very interesting lessons.
+instructor|My driving instructor is very patient.
+author|Who is the author of this book?
+president|The president visited our town yesterday.
+king|The king lived in a big castle.
+queen|The queen waved to the people.
+leader|She is the leader of our team.
+earn|He earns a lot of money as a pilot.
+save|I'm saving money for a new laptop.
+offer|They offered me a job in Da Nang.
+deal|We made a deal: I cook and you wash up.
+credit|I don't like buying things on credit.
+charity|She gives money to a charity every month.
+factory|My father works in a shoe factory.
+service|The service in this hotel is excellent.
+manage|Don't worry. I can manage on my own.
+arrange|Let's arrange a meeting for next week.
+serve|The restaurant serves breakfast until ten.
+lead|This road leads to the beach.
+control|The pilot lost control of the plane for a moment.
+increase|The price of petrol increased again.
+conference|She is going to a conference in Bangkok.
+department|He works in the sales department.
+schedule|What's on your schedule for tomorrow?
+task|My first task today is to answer emails.
+progress|You are making good progress with your English.
+review|I read a good review of the new film.
+publish|Her first book was published last year.
+refer|Please refer to page ten for more information.
+support|My family always supports me.
+permission|You need permission to take photos here.
+turn|Turn right at the traffic lights.
+straight|Go straight on for two hundred metres.
+corner|The bakery is on the corner of the street.
+traffic|There is a lot of traffic in the morning.
+cross|Look left and right before you cross the road.
+far|Is the station far from here?
+crowded|The bus was very crowded this morning.
+journey|The journey from Hanoi to Hue takes twelve hours.
+arrive|What time does the train arrive?
+lorry|A big lorry stopped in front of our house.
+truck|The truck is carrying fruit to the market.
+van|The delivery van brought our new sofa.
+vehicle|No vehicles are allowed in the old town.
+motorcycle|He rides his motorcycle to work every day.
+engine|The car engine is making a strange noise.
+wheel|My bike has a flat wheel.
+petrol|We need to buy petrol before the trip.
+parking|Parking is free after six o'clock.
+railway|The railway station is in the city centre.
+abroad|Have you ever studied abroad?
+passenger|All passengers must show their tickets.
+platform|The train to Hai Phong leaves from platform two.
+route|Which route is the fastest to the airport?
+tour|We took a tour of the old palace.
+guide|Our guide spoke English and French.
+adventure|Our trip to the jungle was a real adventure.
+camping|We went camping by the lake last summer.
+camp|The children stayed at a summer camp.
+airline|Which airline are you flying with?
+pilot|The pilot said hello to the passengers.
+reception|Please leave your key at reception.
+seat|Is this seat free?
+sail|We sailed around the island in a small boat.
+sailing|Sailing is popular in this town.
+track|We walked along a narrow track in the forest.
+transport|Public transport in this city is cheap.
+underground|We took the underground to the museum.
+towards|The dog ran towards me.
+go-out|Do you want to go out tonight?
+grow-up|I grew up in a small village.
+give-back|Please give back my pen after class.
+pick-up|I'll pick you up at the airport.
+fill-in|Please fill in this form with your name.
+try-on|Can I try on these shoes?
+throw-away|Don't throw away those old photos.
+check-in|We checked in at the hotel at two o'clock.
+get-on|Get on the bus at the next stop.
+get-off|We got off the train in Ninh Binh.
+worried|I'm worried about my exam.
+bored|The children were bored, so they went outside.
+excited|We are excited about our holiday.
+shy|My son is shy with new people.
+lazy|Don't be lazy. Help me clean the room.
+polite|It's polite to say thank you.
+nervous|I always feel nervous before a test.
+scared|My sister is scared of the dark.
+scary|That film was really scary.
+crazy|It's crazy to drive so fast in the rain.
+stupid|Sorry, that was a stupid mistake.
+awful|The food at that restaurant was awful.
+brilliant|What a brilliant idea!
+excellent|Your English is excellent.
+incredible|The view from the mountain was incredible.
+strange|I heard a strange noise last night.
+intelligent|Dolphins are very intelligent animals.
+rude|It's rude to talk with your mouth full.
+serious|Is it a serious problem?
+lucky|You are lucky to have such good friends.
+independent|My daughter is very independent.
+attractive|The hotel is in an attractive old building.
+normal|It's normal to feel tired after a long trip.
+typical|This is a typical Vietnamese breakfast.
+lady|The old lady sat down next to me.
+guy|He's a really nice guy.
+kid|The kids are playing in the garden.
+twin|My twin brother looks just like me.
+couple|A young couple moved in next door.
+sir|Excuse me, sir, is this your bag?
+male|Most of the students in the class are male.
+female|Is your doctor male or female?
+human|Humans need water to live.
+alone|My grandmother lives alone.
+ordinary|It was just an ordinary day.
+everyday|Write about your everyday life.
+separate|We sleep in separate rooms.
+curly|She has long curly hair.
+divorced|His parents are divorced.
+missing|My phone is missing. Have you seen it?
+united|The people were united after the storm.
+connected|Is your laptop connected to the internet?
+based|The company is based in Ho Chi Minh City.
+birth|What is your date of birth?
+care|Take care of yourself.
+god|They prayed to God for help.
+hero|My father is my hero.
+joke|He told a funny joke at dinner.
+surprise|We are planning a surprise party for Mum.
+speech|The president gave a short speech.
+instrument|Do you play a musical instrument?
+expert|She is an expert on Asian food.
+technology|Technology changes very quickly.
+niece|My niece is starting school this year.
+nephew|My nephew loves football.
+grandchild|My grandmother has six grandchildren.
+stepmother|His stepmother is very kind to him.
+toddler|The toddler is learning to walk.
+flatmate|My flatmate always cooks dinner.
+classmate|I study with a classmate after school.
+groom|The groom looked very happy at the wedding.
+pensioner|Pensioners can travel on the bus for free.
+orphan|The orphan lived with his aunt.
+ankle|I hurt my ankle when I fell.
+knee|My knee hurts when I run.
+finger|I cut my finger with a knife.
+blood|The nurse took some blood from my arm.
+bone|The dog is eating a bone.
+brain|The brain controls the body.
+heart|Exercise is good for your heart.
+skin|Use sun cream to protect your skin.
+pain|I have a pain in my back.
+injury|He can't play because of an injury.
+flu|I stayed in bed because I had flu.
+disease|Doctors are looking for a cure for the disease.
+virus|A virus can make you very ill.
+patient|The doctor is talking to a patient.
+drug|This drug helps with the pain.
+cigarette|He stopped buying cigarettes last year.
+hit|The ball hit me on the head.
+pull|Pull the door to open it.
+push|Push the button to start the machine.
+drop|Be careful! Don't drop the eggs.
+shake|Shake the bottle before you drink it.
+touch|Please don't touch the paintings.
+chin|He has a small cut on his chin.
+forehead|She put her hand on my forehead.

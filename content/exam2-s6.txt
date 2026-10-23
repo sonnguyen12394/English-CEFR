@@ -1,0 +1,184 @@
+manager|The new manager started work on Monday.
+instructor|Our yoga instructor comes from India.
+author|The author signed my copy of her book.
+king|The old king had three sons.
+permission|Did you ask your boss for permission?
+straight|The road is long and straight.
+far|How far is it to the next village?
+crowded|The beach gets very crowded in July.
+arrive|Please arrive ten minutes before the lesson.
+vehicle|Is this vehicle yours?
+motorcycle|My uncle sold his old motorcycle.
+adventure|The book is about a boy's adventure at sea.
+camping|My parents love camping in the forest.
+camp|We put up our camp near the river.
+airline|This airline gives free meals on long flights.
+reception|The woman at reception gave us a map.
+seat|There are no empty seats on the train.
+sailing|My father taught me sailing when I was ten.
+underground|Is there an underground station near the hotel?
+grow-up|Children grow up so fast.
+pick-up|Please pick up your clothes from the floor.
+get-on|Let's get on the next bus.
+get-off|Where do I get off for the zoo?
+worried|My mother gets worried when I come home late.
+polite|The waiter was very polite to us.
+incredible|She has an incredible memory for names.
+strange|There is a strange man outside the house.
+intelligent|My cousin is very intelligent but a bit lazy.
+rude|I'm sorry I was rude to you yesterday.
+guy|A guy from my class helped me with my bike.
+kid|When I was a kid, I lived in the countryside.
+human|A human can't live without water for long.
+ordinary|They live in an ordinary house in the suburbs.
+separate|Keep the meat separate from the vegetables.
+curly|His curly hair is always messy in the morning.
+divorced|My aunt got divorced last year.
+birth|She gave birth to a baby girl yesterday.
+instrument|Which instrument does your brother play?
+niece|I bought a doll for my niece.
+grandchild|Their first grandchild was born in May.
+heart|My heart beats fast when I run.
+pain|Take this medicine if the pain gets worse.
+patient|There are ten patients in the waiting room.
+pull|Help me pull the boat onto the beach.
+touch|Don't touch the dog. It might bite.
+waist|The water came up to my waist.
+rib|My ribs hurt after the fall.
+carpet|We need a new carpet for the bedroom.
+fridge|There is nothing in the fridge except eggs.
+soap|This soap smells of flowers.
+boil|Wait for the water to boil.
+recipe|I found a good recipe for fish soup online.
+jam|My grandmother makes jam from plums.
+biscuit|The children ate all the biscuits.
+oil|Olive oil is good for salads.
+bar|There is a small bar on the hotel roof.
+equipment|We need some equipment for the camping trip.
+cherry|Cherries are expensive in Vietnam.
+lettuce|The rabbit is eating a lettuce leaf.
+dessert|This restaurant has great desserts.
+pancake|My son wants pancakes every Sunday.
+lobster|We caught a lobster in the sea.
+tray|She brought me breakfast on a tray.
+chopsticks|These chopsticks are made of wood.
+pants|Children's pants are on the second floor.
+jewellery|She keeps her jewellery in a small box.
+baseball|My son wants a baseball cap.
+trainer|The trainer told the players to rest.
+competition|Our school won the dance competition.
+fan|Thousands of fans waited outside the stadium.
+skateboard|I bought my son a skateboard for his birthday.
+earth|Water covers most of the earth.
+desert|We rode camels in the desert.
+wood|We collected wood for the fire.
+environment|Plastic bags are bad for the environment.
+recycle|You can recycle old phones at this shop.
+butterfly|There are many colourful butterflies in the park.
+thunder|We heard thunder far away.
+hall|Leave your shoes in the hall.
+roof|The roof of our house needs repairs.
+foreign|Many foreign students study here.
+continent|Africa is a huge continent.
+war|The war lasted for five years.
+kill|The cold winter killed many plants.
+fear|He has no fear of the dark.
+complain|My neighbours complained about the noise.
+express|Children often express their feelings in pictures.
+pronounce|Some English words are hard to pronounce.
+refuse|The shop refused to give me my money back.
+realize|Suddenly I realized I had no money.
+notice|I didn't notice the red light.
+invent|Who invented the computer?
+instruction|The instructions for the game are in English.
+single|There isn't a single cloud in the sky.
+exact|The exact price is twenty-three dollars.
+extremely|The test was extremely difficult.
+download|It takes a few minutes to download the film.
+screen|The cinema has a huge screen.
+charge|How long does it take to charge the battery?
+delete|Please delete my number from your phone.
+education|My parents paid for my education.
+biology|My sister wants to study biology at university.
+maths|We have maths every morning.
+experiment|The students did an interesting experiment today.
+digital|Most photos today are digital.
+electrical|We sell electrical goods like fridges and fans.
+smartphone|My grandmother doesn't know how to use a smartphone.
+mobile|Please turn off your mobile phone in class.
+printer|We bought a new printer for the office.
+print|Print your name in capital letters.
+code|What is the code for the wifi?
+advertising|They spend a lot of money on advertising.
+classical|We went to a classical concert at the opera house.
+crayon|I need a red crayon.
+knock|Someone is knocking at the door.
+steal|Thieves often steal bags on the beach.
+exist|This old building doesn't exist any more.
+contain|The bottle contains two litres of water.
+depend|I can't decide. It depends on the price.
+achieve|What do you want to achieve this year?
+reach|Can you reach the top shelf?
+enter|Enter the building through the side door.
+count|Count the people in the room.
+level|The water level in the river is very high.
+lock|Lock your bike when you leave it.
+wake-up|My baby wakes up three times a night.
+look-after|Nurses look after sick people.
+thick|There was thick snow on the ground.
+bright|The sun is very bright today.
+clearly|I can see the mountains clearly from here.
+ancient|They found ancient coins in the field.
+regular|He is a regular customer at our cafe.
+comfortable|Make yourself comfortable.
+already|The film has already started.
+especially|It's very hot here, especially in May.
+suddenly|The dog suddenly started to bark.
+mostly|I mostly watch films at home.
+rather|The test was rather difficult.
+while|Please wait while I find your file.
+forward|I'm looking forward to the holiday.
+itself|The door opened by itself.
+ourselves|We enjoyed ourselves at the party.
+themselves|The students did the project by themselves.
+anywhere|You can sit anywhere you like.
+among|The teacher walked among the students.
+onto|He got onto the bus with his bags.
+bit|This coffee is a bit too sweet.
+zero|My phone number has three zeros in it.
+worse|My English is worse than my brother's.
+sort|This sort of phone is very popular now.
+any-more|I don't eat meat any more.
+except|The shop is open every day except Monday.
+wow|Wow, you got full marks!
+gas|There is a smell of gas in the kitchen.
+stamp|How much is a stamp for a letter to Japan?
+top|There is snow on the top of the mountain.
+stress|Walking in the park helps me with stress.
+speed|What's the speed limit on this road?
+image|This image shows a city at night.
+voice|I didn't recognize your voice on the phone.
+seem|The exam didn't seem difficult.
+ending|I didn't like the ending of the book.
+included|Is the tip included in the bill?
+cause|Heavy rain was the cause of the floods.
+energy|After a good sleep, I have more energy.
+symbol|The red heart is a symbol of love.
+habit|Reading before bed is a good habit.
+possession|My bike is my favourite possession.
+secret|It's a secret. Don't tell Mum.
+sense|You have a good sense of humour.
+background|There is a lot of noise in the background.
+round|The ball is round.
+desert|There is very little water in the desert.
+suddenly|Suddenly, it started to rain.
+collect|My brother collects old stamps.
+silver|She has a silver ring on her finger.
+reach|We reached the station just in time.
+attack|The big dog attacked a small cat.
+disaster|The storm was a disaster for the farmers.
+knit|My grandmother likes to knit in the evening.
+lid|Put the lid on the box.
+god|Many people believe in God.
+squid|We ate squid at a seafood restaurant.
+oil|Put a little oil in the pan.
