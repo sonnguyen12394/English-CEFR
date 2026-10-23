@@ -13,7 +13,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 12;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 13;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -136,6 +136,37 @@ async function load() {
 // ---------- màn ----------
 function bar(v, need, color) { return `<div class="bar"><i style="width:${Math.min(100, v)}%;background:${color}"></i><b style="left:${need}%"></b></div>`; }
 function nextUnit() { return UNITS.find(u => !S.units[u.id]); }
+// Lộ trình (người sáng lập 23/10/2026: "98 unit nhìn vào thấy ngộp"): gộp thành chặng theo chủ đề, bài đánh số trong chặng.
+// Unit A1 bổ sung (a1b-*) xếp vào chặng cùng chủ đề. Thứ tự học = thứ tự chặng; chỉ đổi cách trình bày, không đổi luật đo.
+const unitRange = (a, b, p = 'a1-u') => Array.from({ length: b - a + 1 }, (_, i) => p + (a + i));
+const CHANG = [
+  ['🏠', 'Cuộc sống hằng ngày', [...unitRange(1, 10), 'a1b-u3']],
+  ['⏰', 'Thời gian và con số', unitRange(11, 18)],
+  ['🙋', 'Người, vật và câu hỏi', [...unitRange(19, 25), 'a1b-u9']],
+  ['👋', 'Vị trí, tần suất, chào hỏi', [...unitRange(26, 32), 'a1b-u8']],
+  ['👨‍👩‍👧', 'Con người, cơ thể, đồ ăn', [...unitRange(33, 41), 'a1b-u5', 'a1b-u6']],
+  ['🎨', 'Màu sắc, cảm xúc, miêu tả', [...unitRange(42, 50), 'a1b-u1', 'a1b-u2']],
+  ['🏃', 'Hành động hằng ngày', [...unitRange(51, 58), 'a1b-u7']],
+  ['🏙️', 'Nhà cửa, mua sắm, phố xá', [...unitRange(59, 63), 'a1b-u10']],
+  ['🌏', 'Thế giới, thiên nhiên, đi lại', [...unitRange(64, 70), 'a1b-u4']],
+  ['📚', 'Học tập và công việc', unitRange(71, 78)],
+  ['🎵', 'Giải trí và công nghệ', [...unitRange(79, 87), 'a1b-u11']],
+];
+function applyChang() { const order = [];
+  CHANG.forEach(([, , ids], i) => ids.forEach((id, k) => { const u = UBY[id]; if (u) { u.ch = i; u.bi = k + 1; order.push(u); } }));
+  for (const u of UNITS) if (u.ch === undefined) { u.ch = CHANG.length - 1; u.bi = order.filter(x => x.ch === u.ch).length + 1; order.push(u); }   // unit lạ (chưa xếp) vào chặng cuối
+  UNITS = order; }
+const uLabel = u => `Chặng ${u.ch + 1} · Bài ${u.bi}`;
+const HOME = { open: null };   // chặng đang mở trên trang chính
+function roadmap(now, nu) {
+  const cur = nu ? nu.ch : CHANG.length - 1, open = HOME.open ?? cur;
+  return CHANG.map(([ic, name], i) => { const us = UNITS.filter(u => u.ch === i), done = us.filter(u => S.units[u.id]).length;
+    const ws = us.flatMap(u => u.words), mem = ws.filter(w => held(S.cards[w.id], now)).length;
+    return `<div class="ch ${i === cur ? 'cur' : ''}"><button class="chh" data-ch="${i}" aria-expanded="${i === open}">
+      <span>${ic} <b>Chặng ${i + 1}</b> · ${esc(name)}</span><span class="mute">${done === us.length ? '✅' : `${done}/${us.length} bài`}</span></button>
+      ${bar(done / us.length * 100, 0, 'var(--accent)')}
+      ${i === open ? `<p class="mute" style="margin:4px 0">${ws.length} từ · ${mem} từ nhớ đủ 4 mặt</p>${us.map(u => { const d = S.units[u.id], m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
+        return `<button class="urow ${u === nu ? 'next' : ''}" data-un="${u.id}"><span>${m ? '🟢' : d ? '🔵' : u === nu ? '▶️' : '⚪'} Bài ${u.bi} · ${esc(u.vi)}</span><span class="mute">${u.words.length} từ</span></button>`; }).join('')}` : ''}</div>`; }).join(''); }
 
 function home() {
   const now = Date.now(), p = parts(S, now), nu = nextUnit(), open = gateOpen(p), passed = S.exams.some(x => x.pass);
@@ -143,8 +174,6 @@ function home() {
   $app.onclick = null; window.CUR = { view: 'home' };
   const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để cả 4 mặt lên ${GATE_MEM}%.`
     : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi mặt của từ tính 🔁 Nhớ khi trả lời đúng mặt đó ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào mặt còn thiếu.`;
-  const grid = UNITS.map(u => { const d = S.units[u.id], m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
-    return `<span class="${m ? 'm' : d ? 'd' : ''}" title="${esc(u.title)}">${u.no}</span>`; }).join('');
   $app.innerHTML = `
     <h1>Từ vựng A1</h1>
     <p class="mute"><span id="sync">${esc(sync)}</span></p>
@@ -155,14 +184,14 @@ function home() {
       <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả 4 mặt.</p>
     </div>
     <div class="duo">
-      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `Unit ${nu.no} · ${esc(nu.vi)}` : 'Đã học hết ${UNITS.length} unit'}</small></button>
+      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : 'Đã học hết ${UNITS.length} unit'}</small></button>
       <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
     <p class="mute">${tip}</p>
     ${examBox(p)}
-    <h2>${UNITS.length} unit</h2>
-    <p class="mute">Xanh dương: đã học · Xanh lá: ≥ 80% từ đang nhớ. Bấm để học / xem lại.</p>
-    <div class="units" id="grid">${grid}</div>
+    <h2>Lộ trình: ${CHANG.length} chặng</h2>
+    <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ 4 mặt · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
+    <div id="grid">${roadmap(now, nu)}</div>
     ${gyHomeHtml()}`;
 }
 
@@ -173,7 +202,7 @@ function learn(u) {
   const card = () => {
     const w = u.words[i];
     window.CUR = { view: 'the', unit: u.id, item: 'w:' + w.id, prompt: w.w };
-    $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">Unit ${u.no} · ${esc(u.vi)}</span></div>
+    $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${uLabel(u)} · ${esc(u.vi)}</span></div>
       <div class="dots">${u.words.map((_, k) => `<i class="${k < i ? 'd' : k === i ? 'c' : ''}"></i>`).join('')}</div>
       <div class="wcard"><div class="pic">${w.pic || ''}</div><div class="big">${esc(w.w)}</div>
       <div class="mute">${esc(w.ipa || '')} · ${esc(w.pos)}</div><div class="vi">${esc(w.vi)}</div>
@@ -183,9 +212,9 @@ function learn(u) {
     $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'next') { if (++i < u.words.length) card(); else quiz(); } if (a === 'home') home(); };
   };
   const quiz = () => run({
-    title: `Unit ${u.no} · ${u.vi}`, items: [...shuf(u.words.map(w => ({ w, type: one(['vi2w', 'listen']) }))), ...shuf(u.words.map(w => ({ w, type: one(TYPED) })))], retry: true,
+    title: `${uLabel(u)} · ${u.vi}`, items: [...shuf(u.words.map(w => ({ w, type: one(['vi2w', 'listen']) }))), ...shuf(u.words.map(w => ({ w, type: one(TYPED) })))], retry: true,
     done: () => { if (!again) { learnCards(S, u, Date.now()); save(); }
-      $app.innerHTML = `<div class="box"><b>✅ Xong Unit ${u.no}: ${esc(u.title)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `10 từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div><button class="pri" data-a="home">Về trang chính</button>`;
+      $app.innerHTML = `<div class="box"><b>✅ Xong ${uLabel(u)}: ${esc(u.vi)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `10 từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div><button class="pri" data-a="home">Về trang chính</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; },
   });
   card();
@@ -229,7 +258,7 @@ function dictList() {
     <p class="mute">Mỗi từ có 4 dấu mặt: 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng (sáng = đang nhớ). ✅ = đủ cả 4. ⚠️ Quên = lần gần nhất sai hoặc đã tới lúc sắp quên: luyện lại là lên.</p>`;
   const rows = hit.filter(x => !DICT.f || x.st === DICT.f).sort((a, b) => a.w.w.localeCompare(b.w.w)), lab = k => WST.find(x => x[0] === k)[1];
   document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute" style="text-align:right">${lab(st)}${st !== 'chua' ? `<br>${dimMarks(S.cards[w.id], now)}` : ''}</span></div>
-    ${DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · Unit ${UBY[w.u].no}: ${esc(UBY[w.u].title)}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
+    ${DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · ${uLabel(UBY[w.u])}: ${esc(UBY[w.u].vi)}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
       <p>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}
       ${sayBtns(w)}</div>` : ''}</div>`).join('') : '<p class="mute">Không có từ nào.</p>';
 }
@@ -305,7 +334,8 @@ document.addEventListener('click', e => {
   if (a === 'practice') practiceMenu();
   if (a === 'dict') dict();
 });
-document.addEventListener('click', e => { const s = e.target.closest('#grid span'); if (s && S) learn(UNITS[+s.textContent - 1]); });
+document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('#grid [data-un]'); if (g) return learn(UBY[g.dataset.un]);
+  const c = e.target.closest('#grid [data-ch]'); if (c) { const i = +c.dataset.ch; HOME.open = (HOME.open ?? (nextUnit() || {}).ch) === i ? -1 : i; document.getElementById('grid').innerHTML = roadmap(Date.now(), nextUnit()); } });
 
 // Góp ý #5: hai tab ngang hàng 📘 Học · 📖 Từ điển ở đáy màn; chỉ hiện ở hai màn chính (Học: #grid, Từ điển: #dq), ẩn khi đang làm bài.
 const $tabs = document.getElementById('tabs');
@@ -320,6 +350,7 @@ $tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]');
   try { const d = await (await fetch('a1.json?v=3')).json(); UNITS = d.units; }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
+  applyChang();
   let last;
   sb.auth.onAuthStateChange((ev, session) => { const id = session ? session.user.id : null; if (id === last) return; last = id; S = null; setTimeout(() => start(session), 0); });
 })();

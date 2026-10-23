@@ -59,7 +59,7 @@ function readTask() {
       `<p class="mute">Chấm 📖 Nghĩa ${got.size} từ: ${chipsOf([...got.values()], 'on') || '(không có)'}</p><p class="mute">Bài dịch: ${esc(R.vi)}</p><p class="mute">${dimNow()}</p>`, readTask);
     const q = R.qs[i], opts = shuf([q.a, ...q.w]);
     window.CUR = { view: 'doc-bai', unit: u.id, item: 'r:' + u.id + ':' + i, prompt: q.q };
-    $app.innerHTML = `${backRow(`📰 Đọc · Unit ${u.no} · câu ${i + 1}/${R.qs.length}`)}
+    $app.innerHTML = `${backRow(`📰 Đọc · ${uLabel(u)} · câu ${i + 1}/${R.qs.length}`)}
       <div class="box"><b>${esc(R.title)}</b><p style="font-size:18px;line-height:1.6;margin:8px 0 0">${esc(R.text)}</p></div>
       <p class="q">${esc(q.q)}</p>${opts.map((o, k) => `<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}<div id="fb"></div>`;
     let done = false;

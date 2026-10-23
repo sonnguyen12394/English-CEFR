@@ -71,6 +71,11 @@
   .dims { display:grid; grid-template-columns:1fr 1fr; gap:4px 14px; margin-top:8px; font-size:14px; }
   .okc { color:var(--good); font-weight:700; }
   .dm { opacity:.25; filter:grayscale(1); font-size:14px; } .dm.on { opacity:1; filter:none; }
+  .ch { border:1px solid var(--line); border-radius:12px; padding:8px 12px; margin:8px 0; }
+  .ch.cur { border-color:var(--accent); }
+  .chh { border:0; background:none; padding:4px 0; margin:0; display:flex; justify-content:space-between; gap:8px; font-size:16px; }
+  .urow { display:flex; justify-content:space-between; gap:8px; padding:10px 12px; margin:4px 0; font-size:16px; }
+  .urow.next { border-color:var(--accent); font-weight:700; }
   .drow { padding:10px 0; border-bottom:1px solid var(--line); cursor:pointer; }
 </style>
 </head>
@@ -78,9 +83,9 @@
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="hoc">📘 Học</button><button data-tab="dict">📖 Từ điển</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=12"></script>
-<script src="tonghop.js?v=12"></script>
-<script src="exam.js?v=12"></script>
-<script src="gopy.js?v=12"></script>
+<script src="app.js?v=13"></script>
+<script src="tonghop.js?v=13"></script>
+<script src="exam.js?v=13"></script>
+<script src="gopy.js?v=13"></script>
 </body>
 </html>
