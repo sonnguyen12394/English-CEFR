@@ -30,3 +30,7 @@ Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`so
 - `ref.json` (`node tools/extract-ref.mjs ../sonnguyen12394.github.io`): 3.490 từ B1 890 (gồm 82 từ chuyển từ A2) · B2 1.020 · C1 1.020 · C2 560 từ game, bỏ từ trùng cấp dưới. **Chỉ tra** trong 📖 Từ điển, chưa có bài học / thi.
 - 🧭 **Xác định cấp độ từ vựng** (`place.js`): mỗi cấp Pre-A1 → C2 lấy 15 từ, chọn nghĩa hoặc "Không biết"; biết = (đúng − sai/3)/15; dừng khi một cấp < 35%; cấp đạt = cấp cao nhất mà nó và mọi cấp dưới ≥ 80%. Chỉ đo nhận ra nghĩa, sai số khoảng ±15%. Lưu ở `S.place`.
 - Cấp B1–C2 lấy theo game, **chưa soát** như A1 / A2 (chưa đối chiếu EVP).
+
+## Tự cập nhật (23/10/2026)
+- `version.json` ghi số bản mới nhất. Trang hỏi tệp này (không qua bộ nhớ đệm) khi mở / quay lại tab và mỗi 5 phút; có bản mới thì tự tải lại khi đang ở trang chính / từ điển, đang học / thi thì đợi về trang chính.
+- **Mỗi lần phát hành: tăng cùng một số ở `APP_V` (app.js), `?v=` (index.html) và `"v"` (version.json).**
