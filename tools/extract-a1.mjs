@@ -17,5 +17,14 @@ const n = units.reduce((s, u) => s + u.words.length, 0), miss = units.flatMap(u 
 // A1 bổ sung (23/10/2026, docs/DOI-CHIEU-CAMBRIDGE.md): 93 từ thông dụng có trong Cambridge Starters / Movers mà 870 từ chưa có; 63 từ lấy từ cấp A2 / B1 của game, 30 từ tự soạn (content/a1-bosung-soan.json)
 const sup = JSON.parse(fs.readFileSync(new URL('../content/a1-bosung.json', import.meta.url), 'utf8')).units;
 units.push(...sup);
+// Chuyển 45 từ trừu tượng / học thuật sang A2 (người sáng lập 23/10/2026; danh sách content/a2-chuyen-ids.txt), lưu đủ dữ liệu ở content/a2-tu-a1.json.
+// Unit còn quá ít từ thì gộp với unit cùng chặng (giữ id unit đầu).
+const A2IDS = new Set(fs.readFileSync(new URL('../content/a2-chuyen-ids.txt', import.meta.url), 'utf8').replace(/#.*$/gm, '').split(/\s+/).filter(Boolean));
+const moved = [];
+for (const u of units) { moved.push(...u.words.filter(w => A2IDS.has(w.id)).map(w => ({ ...w, fromUnit: u.id }))); u.words = u.words.filter(w => !A2IDS.has(w.id)); }
+const MERGE = [['a1-u73', 'a1-u76', 'Texts and Subjects', 'Bài đọc và môn học'], ['a1-u86', 'a1-u87', 'Big Ideas and Useful Nouns', 'Ý lớn và danh từ hay dùng']];
+for (const [a, b, title, vi] of MERGE) { const ua = units.find(u => u.id === a), ub = units.find(u => u.id === b); if (!ua || !ub) continue;
+  ua.words.push(...ub.words); ua.title = title; ua.vi = vi; if (!ua.reading && ub.reading) ua.reading = ub.reading; units.splice(units.indexOf(ub), 1); }
+fs.writeFileSync(new URL('../content/a2-tu-a1.json', import.meta.url), JSON.stringify({ note: 'Chuyển từ A1 sang A2, 23/10/2026', words: moved }, null, 0));
 fs.writeFileSync(new URL('../a1.json', import.meta.url), JSON.stringify({ units }));
 console.log(units.length, 'unit,', units.reduce((s, u) => s + u.words.length, 0), 'từ; thiếu câu ví dụ / chỗ trống:', miss.length, miss.slice(0, 10));

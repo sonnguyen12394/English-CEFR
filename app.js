@@ -13,7 +13,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 13;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 14;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -139,6 +139,7 @@ function nextUnit() { return UNITS.find(u => !S.units[u.id]); }
 // Lộ trình (người sáng lập 23/10/2026: "98 unit nhìn vào thấy ngộp"): gộp thành chặng theo chủ đề, bài đánh số trong chặng.
 // Unit A1 bổ sung (a1b-*) xếp vào chặng cùng chủ đề. Thứ tự học = thứ tự chặng; chỉ đổi cách trình bày, không đổi luật đo.
 const unitRange = (a, b, p = 'a1-u') => Array.from({ length: b - a + 1 }, (_, i) => p + (a + i));
+// a1-u76 gộp vào a1-u73, a1-u87 gộp vào a1-u86 (tools/extract-a1.mjs): id không còn thì applyChang bỏ qua.
 const CHANG = [
   ['🏠', 'Cuộc sống hằng ngày', [...unitRange(1, 10), 'a1b-u3']],
   ['⏰', 'Thời gian và con số', unitRange(11, 18)],
@@ -346,8 +347,8 @@ new MutationObserver(syncTabs).observe($app, { childList: true });
 $tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; if (b.dataset.tab === 'dict') dict(); else home(); scrollTo(0, 0); });
 
 (async () => {
-  fetch('a/index.json?v=3').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
-  try { const d = await (await fetch('a1.json?v=3')).json(); UNITS = d.units; }
+  fetch('a/index.json?v=4').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
+  try { const d = await (await fetch('a1.json?v=4')).json(); UNITS = d.units; }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   applyChang();

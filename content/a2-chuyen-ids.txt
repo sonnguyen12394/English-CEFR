@@ -1,0 +1,5 @@
+# Từ chuyển từ A1 sang A2 (người sáng lập 23/10/2026: "chuyển hẳn sang A2"). Người soạn chọn theo kinh nghiệm: trừu tượng / học thuật,
+# gần A2–B1 hơn A1; chưa đối chiếu English Vocabulary Profile, chưa người thật kiểm. Dữ liệu đủ lưu ở content/a2-tu-a1.json.
+century however situation opinion period culture statement paragraph section article detail description product report success
+improve include introduce discuss compare positive negative natural local common modern similar possible imagine create design
+action event object rule style routine reason fact scientist geography topic chart result business

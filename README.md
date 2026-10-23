@@ -1,10 +1,10 @@
 # Từ vựng A1
 
-Học riêng 963 từ A1 (98 unit): 870 từ / 87 unit lấy từ game English Ladder (`sonnguyen12394.github.io`) + 93 từ / 11 unit "A1 bổ sung" (23/10/2026, theo đối chiếu Cambridge, `docs/DOI-CHIEU-CAMBRIDGE.md`; 63 từ lấy từ cấp A2 / B1 của game, 30 từ tự soạn ở `content/a1-bosung-soan.json`, chưa người thật kiểm).
+Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`sonnguyen12394.github.io`) + 93 từ / 11 unit "A1 bổ sung" (23/10/2026, theo đối chiếu Cambridge, `docs/DOI-CHIEU-CAMBRIDGE.md`; 63 từ lấy từ cấp A2 / B1 của game, 30 từ tự soạn ở `content/a1-bosung-soan.json`, chưa người thật kiểm).
 
 - Trang: https://sonnguyen12394.github.io/English-CEFR/
-- Lộ trình: 98 unit gộp thành 11 chặng theo chủ đề (`CHANG` trong `app.js`, 23/10/2026); trang chỉ mở chặng đang học, bài đánh số trong chặng.
-- 📘 Học = từ thuộc unit đã học xong / 963. 🔁 Nhớ chia 4 mặt (người sáng lập 22/10/2026): 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng. Một mặt của từ là nhớ khi đúng mặt đó ở một ngày sau ngày học, lần gần nhất của mặt đó đúng, khả năng nhớ của từ ≥ 0,9. 🔁 Nhớ tổng = mặt thấp nhất.
+- Lộ trình: 96 unit gộp thành 11 chặng theo chủ đề (`CHANG` trong `app.js`, 23/10/2026); trang chỉ mở chặng đang học, bài đánh số trong chặng.
+- 📘 Học = từ thuộc unit đã học xong / 918. 45 từ trừu tượng / học thuật đã chuyển sang A2 (người sáng lập 23/10/2026; `content/a2-chuyen-ids.txt`, dữ liệu ở `content/a2-tu-a1.json`). 🔁 Nhớ chia 4 mặt (người sáng lập 22/10/2026): 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng. Một mặt của từ là nhớ khi đúng mặt đó ở một ngày sau ngày học, lần gần nhất của mặt đó đúng, khả năng nhớ của từ ≥ 0,9. 🔁 Nhớ tổng = mặt thấp nhất.
 - Thi chuyển cấp A1 mở khi 📘 Học 100% và MỖI mặt Nhớ ≥ 80%. Bài thi (`exam.js`, 23/10/2026): câu MỚI chưa gặp khi luyện (`exam-a1.json`, soạn ở `content/exam-s*.txt`, dựng + kiểm bằng `node tools/build-exam.mjs ../sonnguyen12394.github.io`; tự soát, chưa người thật kiểm); 2 vòng × 40 câu (vòng 1 ≥ 34 qua, ≤ 29 chưa qua, 30–33 làm vòng 2, cần ≥ 64/80); mỗi vòng 22 gõ từ có gợi ý nghĩa, 8 nghĩa từ trong câu, 10 nghe; không gợi ý chữ cái. Qua lần 1 → sau 14 ngày thi lại (từ khác), qua mới ghi "Đạt bền". Đối chiếu Cambridge: `docs/DOI-CHIEU-CAMBRIDGE.md`.
 - Tiến độ lưu ở Supabase, bảng `vocab_state` (RLS: mỗi tài khoản một dòng của mình). Trang tự đăng nhập bằng tài khoản riêng `hoc-a1@english-cefr.app` (mật khẩu nằm trong `app.js`; tài khoản này bị chặn khỏi bảng `soxuong`). Mọi máy mở trang dùng chung một tiến độ.
 - Lấy lại dữ liệu từ game: `node tools/extract-a1.mjs ../sonnguyen12394.github.io` → `a1.json`.
