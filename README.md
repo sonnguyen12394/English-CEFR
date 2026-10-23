@@ -19,6 +19,7 @@ Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`so
 - 💬 Góp ý (như game, v167–v169): nút nổi mọi màn, loại 🐞 / 🤔 / 💡 / 📝, ≤ 3 ảnh, tự kèm màn / câu đang làm; mất mạng thì lưu máy rồi gửi sau. 🗂 Quản lý góp ý ở cuối trang chính (không khoá). Máy chủ: bảng `gopy`, kho ảnh riêng tư `gopy`. Mã ở `gopy.js`.
 - 🔊 Giọng đọc (v24): ô ở trang chính chọn giọng thu sẵn (nữ Mỹ af_bella) hoặc một giọng máy cho cả trang, tốc độ; lưu theo máy.
 - 🎤 Nói thử (v25, cạnh nút 🔊): một lần bấm vừa ghi âm vừa cho máy chép chữ (Web Speech); tải bộ chấm từng âm miễn phí về máy một lần (wav2vec2 q8, vài trăm MB, `phon-worker.js` + `gop.js` chép từ game) thì có điểm từng âm. Chỉ để luyện, không tính 📘 Học / 🔁 Nhớ (người sáng lập 23/10/2026). Mã ở `noi.js`.
+- 🗣 Nói từ (v26, góp ý #9 #10, ở 🏋️ Luyện tập): lượt 10 từ đã học, nhìn nghĩa → nói từ tiếng Anh. Đúng = máy chép ra đúng từ (kể cả từ đồng âm); không chép được chữ (Chrome / Cốc Cốc trên iPhone có thể không chạy) thì bộ chấm âm ≥ 70 điểm. Xem từ trước = không tính đúng. Chỉ luyện.
   Đọc góp ý mới: `select id, at, kind, txt, ctx->>'h1' man, ctx->>'item' cau, imgs from gopy where status = 'moi' order by at;`
 - 🏋️ Luyện tập có 4 kiểu (người sáng lập 22/10/2026: bài dính nhiều từ thì chấm cả các từ ấy; mã ở `tonghop.js`): ⚡ Từng từ · 📰 Đọc bài (📖 Nghĩa cho từ trong câu bằng chứng của câu trả lời đúng) · 🎧 Nghe câu (🎧 Nghe cho mọi từ đã học trong câu) · ✍️ Nghe chép (🎧 Nghe + ✍️ Viết cho từng từ chép đúng / sai). Từ dưới 3 chữ cái không chấm kèm.
 

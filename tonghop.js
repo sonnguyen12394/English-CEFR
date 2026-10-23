@@ -39,9 +39,10 @@ function practiceMenu() {
     ${opt('word', '⚡ Từng từ (20 câu)', 'Đủ 4 mặt; máy hỏi vào mặt còn thiếu của từng từ')}
     ${opt('read', '📰 Đọc bài', '📖 Nghĩa: các từ trong câu bằng chứng của câu bạn trả lời đúng')}
     ${opt('hear', '🎧 Nghe câu (8 câu)', '🎧 Nghe: mọi từ đã học trong câu bạn hiểu đúng')}
-    ${opt('dict', '✍️ Nghe chép (5 câu)', '🎧 Nghe + ✍️ Viết: từng từ chép đúng')}`;
+    ${opt('dict', '✍️ Nghe chép (5 câu)', '🎧 Nghe + ✍️ Viết: từng từ chép đúng')}
+    ${opt('noi', '🗣 Nói từ (10 từ)', 'Nhìn nghĩa, nói từ tiếng Anh; máy kiểm có ra đúng từ + chấm phát âm. Chỉ luyện, không tính 🔁 Nhớ')}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-m]'); if (!b) return;
-    ({ word: practice, read: readTask, hear: hearTask, dict: dictTask })[b.dataset.m](); };
+    ({ word: practice, read: readTask, hear: hearTask, dict: dictTask, noi: noiTask })[b.dataset.m](); };
 }
 const doneBox = (h, body, again) => { $app.innerHTML = `<div class="box"><b>${h}</b>${body}</div><button class="pri" data-a="again">Làm tiếp</button><button data-a="menu">Kiểu luyện khác</button><button data-a="home">Về 📘 Học</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="menu"]')) practiceMenu(); if (e.target.closest('[data-a="again"]')) again(); }; };

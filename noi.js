@@ -66,7 +66,9 @@ async function nRec() { if (NO.st === 'rec') return nStop();
   // Bật chép lời sau khi micro đã mở (iPhone có thể không cho hai bên dùng micro: lỗi thì vẫn chấm âm).
   nAsr(); }
 function nStop() { clearTimeout(NO.t); const r = NO.rec; NO.rec = null; NO.st = 'busy'; try { r && r.state !== 'inactive' && r.stop(); } catch (e) {}
-  try { NO.asr && NO.asr.stop(); } catch (e) {} nPaint(); }
+  try { NO.asr && NO.asr.stop(); } catch (e) {} nPaint();
+  // Góp ý #9: Chrome / Cốc Cốc trên iPhone có thể có hàm chép lời mà không chạy (không lỗi, không chữ): báo rõ, vẫn kiểm bằng bộ chấm âm.
+  setTimeout(() => { if (SREC && !NO.heard && !NO.asrErr) { try { NO.asr && NO.asr.abort(); } catch (e) {} NO.asrErr = 'Máy chưa chép được lời. Chrome / Cốc Cốc trên iPhone có thể chưa chép được; Safari thì được. Có bộ chấm âm thì vẫn kiểm được từ.'; nPaint(); } }, 3500); }
 async function nDecode(blob) {
   try { const AC = window.AudioContext || window.webkitAudioContext, ac = new AC(), buf = await ac.decodeAudioData(await blob.arrayBuffer()); try { ac.close(); } catch (e) {}
     const n = Math.max(1, Math.ceil(buf.duration * 16000)), oc = new OfflineAudioContext(1, n, 16000), src = oc.createBufferSource(); src.buffer = buf; src.connect(oc.destination); src.start();
@@ -85,10 +87,32 @@ function nTip(R) { const bad = []; for (const w of R.words) w.phones.forEach((p,
     : b.missing ? `Máy chưa nghe thấy âm /${b.ipa}/: đọc chậm, rõ âm đó.`
     : b.heard ? `Âm /${b.ipa}/ máy nghe giống /${b.heard}/: nghe lại mẫu 🔊 rồi đọc theo.` : `Âm /${b.ipa}/ chưa rõ: nghe lại mẫu 🔊 rồi đọc theo.`;
   return `<p class="mute" style="margin:6px 0 0">💡 ${esc(t)}</p>`; }
-function nBody() { const w = NO.w, rec = NO.st === 'rec', busy = NO.st === 'busy';
+// Nói ra đúng từ: máy chép ra đúng từ; không chép được chữ thì dựa vào bộ chấm âm (≥ 70 điểm so với phiên âm của từ).
+const N_OK = 70;
+const nRight = () => { const w = NO.w; if (NO.alts.length && nMatch(w.w, NO.alts)) return true; if (NO.alts.length && NO.st === 'idle' && !NO.res) return false;
+  return NO.res ? NO.res.score >= N_OK : null; };
+// ---------- 🗣 Nói từ (góp ý #9, #10): lượt 10 từ đã học, nhìn nghĩa → nói từ tiếng Anh; chỉ luyện, không tính 🔁 Nhớ ----------
+function noiTask() { const ids = Object.keys(S.cards).filter(id => WBY[id]);
+  if (!ids.length) { toast('Học 1 unit trước rồi luyện nói.'); return; }
+  NO.ses = { list: shuf(ids).slice(0, 10).map(id => WBY[id]), i: 0, got: [], sc: [], show: false };
+  noiOpen(NO.ses.list[0], true); }
+function nNext() { const S2 = NO.ses; if (S2.got[S2.i] == null) S2.got[S2.i] = false; S2.i++; S2.show = false; if (S2.i < S2.list.length) noiOpen(S2.list[S2.i], true); else nPaint(); }
+function nSesBody() { const S2 = NO.ses, n = S2.list.length;
+  if (S2.i >= n) { const ok = S2.got.filter(Boolean).length, sc = S2.sc.filter(x => x != null), avg = sc.length ? Math.round(sc.reduce((a, x) => a + x, 0) / sc.length) : null;
+    const miss = S2.list.filter((_, k) => !S2.got[k]);
+    return `<div class="row"><b style="font-size:18px">🗣 Nói từ</b><button class="link" data-n="x">Đóng ✕</button></div>
+      <div class="box"><b>Xong lượt nói</b><p>Nói ra đúng ${ok}/${n} từ.${avg != null ? ` Điểm phát âm trung bình ${avg}/100.` : ''}</p>
+      ${miss.length ? `<p class="mute">Cần luyện lại: ${miss.map(w => `<button class="link" data-noi="${w.id}">${esc(w.w)}</button>`).join(' · ')}</p>` : ''}</div>
+      <button class="pri" data-n="again">🗣 Nói tiếp 10 từ</button><button data-n="x">Đóng</button>
+      <p class="mute">Chỉ để luyện, không tính vào 📘 Học / 🔁 Nhớ.</p>`; }
+  return null; }
+function nBody() { if (NO.ses && NO.ses.i >= NO.ses.list.length) return nSesBody();
+  const w = NO.w, rec = NO.st === 'rec', busy = NO.st === 'busy', ses = NO.ses, right = NO.st === 'idle' ? nRight() : null;
   const ok = NO.alts.length ? nMatch(w.w, NO.alts) : null;
+  if (ses && right != null && ses.got[ses.i] == null) { ses.got[ses.i] = right && !ses.show; ses.sc[ses.i] = NO.res ? NO.res.score : null; }
+  const open = !ses || ses.show || right != null;
   const heard = NO.heard || NO.asrErr ? `<div class="box"><b>📝 Máy nghe ra:</b> <span id="nheard">${esc(NO.heard || '…')}</span>
-    ${NO.st === 'idle' && NO.heard ? `<br>${ok ? `✅ Máy nghe ra đúng từ <b>${esc(w.w)}</b>${nNorm(ok) !== nNorm(w.w) ? ` (chữ "${esc(ok)}" đọc giống)` : ''}.` : `❌ Chưa ra từ <b>${esc(w.w)}</b>. Nghe mẫu rồi thử lại.`}` : ''}
+    ${NO.st === 'idle' && NO.heard ? `<br>${ok ? `✅ Máy nghe ra đúng từ <b>${esc(w.w)}</b>${nNorm(ok) !== nNorm(w.w) ? ` (chữ "${esc(ok)}" đọc giống)` : ''}.` : `❌ Chưa ra từ <b>${esc(w.w)}</b>.`}` : ''}
     ${NO.asrErr ? `<br><span class="mute">${esc(NO.asrErr)}</span>` : ''}</div>` : rec ? `<div class="box"><b>📝 Máy nghe ra:</b> <span id="nheard">…</span></div>` : '';
   const R = NO.res, score = R ? `<div class="box"><div class="row"><b>🎯 Điểm phát âm</b><b style="color:${nCls(R.score)}">${R.score}/100</b></div>
     <div style="font-size:24px;margin:8px 0;letter-spacing:1px">/${R.words.map(x => x.phones.map(p => `<span style="color:${nCls(p.score)}">${esc(p.ipa)}</span>`).join('')).join(' ')}/</div>
@@ -96,19 +120,26 @@ function nBody() { const w = NO.w, rec = NO.st === 'rec', busy = NO.st === 'busy
   const model = NO.vocab ? `<p class="mute">🧪 Bộ chấm từng âm đã sẵn sàng. <button class="link" data-n="del">Xoá khỏi máy</button></p>`
     : NO.loading ? `<div class="box">⏳ Đang tải bộ chấm từng âm: <span id="nprog">${nProg()}</span><br><span class="mute">Lần đầu tải vài trăm MB, nên dùng Wi-Fi. Lần sau mở từ máy, không tải lại.</span></div>`
     : `<div class="box"><b>🧪 Chấm điểm từng âm</b><p class="mute" style="margin:4px 0">Tải bộ chấm miễn phí về máy một lần (vài trăm MB, nên dùng Wi-Fi). Âm thanh không rời máy. Chưa tải thì chỉ có máy chép chữ.</p><button data-n="load">⬇️ Tải bộ chấm</button></div>`;
-  return `<div class="row"><b style="font-size:18px">🎤 Luyện nói</b><button class="link" data-n="x">Đóng ✕</button></div>
-    <div style="text-align:center"><div class="big">${esc(w.w)}</div><div class="mute">${esc(w.ipa || '')} · ${esc(w.vi)}</div>
-    <div class="chips say"><button class="chip" data-say="${w.id}">🔊 Nghe mẫu</button>${NO.url ? '<button class="chip" data-n="play">▶ Nghe lại mình</button>' : ''}</div></div>
-    <button class="pri" data-n="rec" ${busy ? 'disabled' : ''}>${rec ? '⏹ Dừng' : busy ? '⏳ Đang chấm…' : '🎤 Bấm rồi nói'}</button>
-    ${NO.err ? `<p style="color:var(--bad)">${esc(NO.err)}</p>` : ''}${heard}${score}${model}
+  const verdict = right == null || !NO.res || NO.alts.length ? '' : `<div class="box">${right ? '✅' : '❌'} Theo bộ chấm âm: ${right ? 'nói ra đúng' : 'chưa ra'} từ <b>${esc(w.w)}</b> (${NO.res.score}/100, cần ${N_OK}).</div>`;
+  const head = ses ? `<div class="row"><b style="font-size:18px">🗣 Nói từ · ${ses.i + 1}/${ses.list.length}</b><button class="link" data-n="x">Đóng ✕</button></div>
+    <p class="mute" style="margin:2px 0">Nhìn nghĩa, nói từ tiếng Anh.</p>` : `<div class="row"><b style="font-size:18px">🎤 Luyện nói</b><button class="link" data-n="x">Đóng ✕</button></div>`;
+  const card = open ? `<div class="big">${esc(w.w)}</div><div class="mute">${esc(w.ipa || '')} · ${esc(w.vi)}</div>
+    <div class="chips say"><button class="chip" data-say="${w.id}">🔊 Nghe mẫu</button>${NO.url ? '<button class="chip" data-n="play">▶ Nghe lại mình</button>' : ''}</div>`
+    : `${w.pic ? `<div class="pic">${esc(w.pic)}</div>` : ''}<div class="q">${esc(w.vi)}</div><div class="mute">${esc(w.pos || '')}</div>
+    <div class="chips say"><button class="chip" data-n="show">👀 Xem từ (không tính đúng)</button></div>`;
+  return `${head}<div style="text-align:center">${card}</div>
+    <button class="${ses && right != null ? '' : 'pri'}" style="text-align:center" data-n="rec" ${busy ? 'disabled' : ''}>${rec ? '⏹ Dừng' : busy ? '⏳ Đang chấm…' : right != null ? '🎤 Nói lại' : '🎤 Bấm rồi nói'}</button>
+    ${ses ? `<button class="${right != null ? 'pri' : ''}" style="text-align:center" data-n="next" ${rec || busy ? 'disabled' : ''}>${right == null ? 'Bỏ qua →' : ses.i + 1 < ses.list.length ? 'Tiếp →' : 'Xem kết quả'}</button>` : ''}
+    ${NO.err ? `<p style="color:var(--bad)">${esc(NO.err)}</p>` : ''}${heard}${verdict}${score}${model}
     <p class="mute">Chỉ để luyện, không tính vào 📘 Học / 🔁 Nhớ. Điểm do máy ước tính, chưa người thật kiểm.</p>`; }
 function nPaint() { const b = document.getElementById('nbox'); if (b) b.innerHTML = nBody(); }
-function noiOpen(w) { if (!w) return; try { speechSynthesis.cancel(); } catch (e) {}
+function noiOpen(w, inSes) { if (!w) return; try { speechSynthesis.cancel(); } catch (e) {} if (!inSes) NO.ses = null;
   Object.assign(NO, { w, st: 'idle', res: null, err: '', heard: '', alts: [], asrErr: '', ph: '', url: '' });
   let sh = document.getElementById('nsheet');
   if (!sh) { sh = document.createElement('div'); sh.id = 'nsheet'; sh.innerHTML = '<div class="gybox" id="nbox"></div>'; document.body.appendChild(sh);
     sh.addEventListener('click', e => { if (e.target === sh) return noiClose(); const a = e.target.closest('[data-n]')?.dataset.n;
       if (a === 'x') noiClose(); if (a === 'rec') nRec(); if (a === 'load') nLoad(); if (a === 'del') nDel();
+      if (a === 'show' && NO.ses) { NO.ses.show = true; nPaint(); speak(NO.w.w); } if (a === 'next') nNext(); if (a === 'again') noiTask();
       if (a === 'play') { try { AUD && AUD.pause(); } catch (x) {} AUD = AUD || new Audio(); AUD.src = NO.url; AUD.play().catch(() => {}); } }); }
   sh.hidden = false; nPaint();
   if (!NO.vocab && !NO.loading && nHas()) nLoad(); }   // đã tải lần trước: nạp lại từ bộ nhớ máy
