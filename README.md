@@ -1,9 +1,9 @@
 # Từ vựng tiếng Anh (Pre-A1 → A1 → A2)
 
-> **Từ 23/10/2026 (bản 19): toàn bộ kho từ dựng lại theo chuẩn CEFR-J / Octanove** (`node tools/build-levels.mjs ../sonnguyen12394.github.io`). Các mục cũ bên dưới nói về cách chia trước đó (danh sách chuyển A1↔A2↔B1 bằng tay, bài đo cấp) đã bị thay thế; xem `docs/DOI-CHIEU-CEFRJ.md`.
-> - Cấp = CEFR-J Vocabulary Profile 1.5 / Octanove C1–C2 (`content/ref/`); chuẩn không có thì giữ cấp của game.
-> - Khoá học: **Pre-A1 378 từ / 45 bài · A1 599 / 67 · A2 932 / 100**, mỗi cấp tối đa 15 chủ đề chung. B1 1.295 · B2 936 · C1 527 · C2 503: chỉ tra trong Từ điển (`ref.json`).
-> - Câu thi: `content/exam*-s*.txt` dùng chung theo id → `node tools/build-exam.mjs ../sonnguyen12394.github.io a1|a2` (A1 977, A2 932 câu; tự soạn, chưa người thật kiểm).
+> **Từ 23/10/2026 (bản 20): toàn bộ kho từ dựng lại theo Oxford 3000/5000 làm chuẩn chính** (người sáng lập chọn), không có thì CEFR-J / Octanove, không có nữa thì cấp của game. Dựng: `python3 tools/oxford-levels.py` (tải PDF Oxford, không commit vì có bản quyền) rồi `node tools/build-levels.mjs ../sonnguyen12394.github.io`. Các mục cũ bên dưới nói về cách chia trước đó (danh sách chuyển A1↔A2↔B1 bằng tay, bài đo cấp) đã bị thay thế; xem `docs/DOI-CHIEU-CEFRJ.md`.
+> - Vì sao Oxford: hai chuẩn uy tín (CEFR-J và Oxford) chỉ cùng cấp 44% số từ; CEFR-J (soạn cho người học phổ thông châu Á) xếp nhiều từ người lớn quá cao (passport B1, Oxford A1). English Vocabulary Profile không tải được cả danh sách.
+> - Khoá học: **Pre-A1 365 từ / 44 bài · A1 554 / 64 · A2 788 / 85**, mỗi cấp tối đa 15 chủ đề chung. B1 799 · B2 1.132 · C1 1.057 · C2 475: chỉ tra trong Từ điển (`ref.json`).
+> - Câu thi: `content/exam*-s*.txt` dùng chung theo id → `node tools/build-exam.mjs ../sonnguyen12394.github.io a1|a2` (A1 919, A2 788 câu; tự soạn, chưa người thật kiểm).
 > - Bài 🧭 đo cấp đã bỏ (người sáng lập 23/10/2026).
 
 Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`sonnguyen12394.github.io`) + 93 từ / 11 unit "A1 bổ sung" (23/10/2026, theo đối chiếu Cambridge, `docs/DOI-CHIEU-CAMBRIDGE.md`; 63 từ lấy từ cấp A2 / B1 của game, 30 từ tự soạn ở `content/a1-bosung-soan.json`, chưa người thật kiểm).

@@ -45,3 +45,7 @@ Danh sách đủ từng từ lệch / thiếu: `content/ref/doi-chieu.json`.
 | C2 | 503 | 21% | 79% |
 
 Độ đủ không đổi (xếp lại không thêm từ): kho vẫn thiếu so với chuẩn, nhất là B1–C2. Muốn đủ cần soạn thêm từ (nghĩa, ví dụ, câu điền, câu thi).
+
+## 4. Đổi sang Oxford làm chuẩn chính (bản 20, người sáng lập chọn)
+- Hai chuẩn lệch nhau nhiều: trên 4.354 từ có ở cả CEFR-J và Oxford 3000/5000, chỉ **44% cùng cấp**, 43% lệch 1 cấp, 13% lệch ≥ 2 cấp; CEFR-J xếp thấp hơn Oxford ở 45% số từ. Ví dụ passport CEFR-J B1 / Oxford A1, exam A2 / A1, fever A1 / B2.
+- Cấp mới = Oxford → CEFR-J / Octanove → cấp game. Kết quả: Pre-A1 365 · A1 554 · A2 788 · B1 799 · B2 1.132 · C1 1.057 · C2 475 (3.969 từ theo Oxford, 456 theo CEFR-J / Octanove, 745 giữ cấp game, chưa soát).

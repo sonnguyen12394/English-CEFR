@@ -1,6 +1,6 @@
 # Từ vựng A1 (repo English-CEFR)
 
-Trang học từ vựng theo chuẩn CEFR-J / Octanove (`tools/build-levels.mjs`, nguồn: game English Ladder + `content/a1-bosung.json`): Pre-A1 378 → A1 599 → A2 932 từ, mỗi cấp một Thi chuyển cấp; B1–C2 (3.261 từ) chỉ để tra (`ref.json`). Xem `README.md`.
+Trang học từ vựng, cấp theo Oxford 3000/5000 làm chuẩn chính (người sáng lập 23/10/2026), không có thì CEFR-J / Octanove (`tools/oxford-levels.py` → `tools/build-levels.mjs`; nguồn: game English Ladder + `content/a1-bosung.json`): Pre-A1 365 → A1 554 → A2 788 từ, mỗi cấp một Thi chuyển cấp; B1–C2 (3.463 từ) chỉ để tra (`ref.json`). Danh sách Oxford có bản quyền: không commit (`content/ref/oxford/` trong .gitignore). Xem `README.md`.
 
 ## Luật
 - Kiểm giao diện chỉ trên iPhone (WebKit, như Safari / Chrome trên iPhone). Không kiểm bằng Chrome máy tính / Android thay (người sáng lập 22/10/2026).

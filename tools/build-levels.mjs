@@ -1,6 +1,7 @@
 // Dựng lại toàn bộ kho từ theo chuẩn (người sáng lập 23/10/2026: "bỏ bài đo cấp và xếp lại toàn bộ").
 // Nguồn: mọi cấp A1–C2 của game (CONTENT + data/lv-*.json) + A1 bổ sung (content/a1-bosung.json). Bỏ trùng theo chữ (giữ lần đầu).
-// Cấp = CEFR-J Vocabulary Profile 1.5 / Octanove C1–C2 (content/ref/, như tools/check-levels.py); chuẩn không có → giữ cấp của nguồn.
+// Cấp (người sáng lập 23/10/2026: "Oxford làm chính"): Oxford 3000/5000 (A1–C1; tải bằng tools/oxford-levels.py, không commit)
+//   → không có thì CEFR-J Vocabulary Profile 1.5 / Octanove C1–C2 (content/ref/) → không có thì giữ cấp của nguồn.
 // Khoá học: A1 (Pre-A1 = từ A1 có trong Cambridge Starters, content/cambridge-yle.json) và A2. B1–C2: chỉ tra (ref.json).
 // Chủ đề: một bộ THEMES chung, xếp theo tên unit gốc của game (từ khoá). Mỗi cấp × chủ đề chia bài 6–10 từ. Bài đọc A1 / A2 giữ theo unit gốc.
 // Chạy: node tools/build-levels.mjs ../sonnguyen12394.github.io → a1.json, a2.json, ref.json
@@ -13,7 +14,10 @@ const ORD = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], REF = new Map();
 const csv = f => fs.readFileSync(root + 'content/ref/' + f, 'utf8').split('\n').slice(1).filter(Boolean).map(l => { const m = l.match(/^("([^"]*)"|[^,]*),([^,]*),([^,]*)/); return m ? [m[2] ?? m[1], m[4]] : null; }).filter(Boolean);
 for (const f of ['cefrj-vocabulary-profile-1.5.csv', 'octanove-vocabulary-profile-c1c2-1.0.csv']) for (const [hw, lv] of csv(f)) if (ORD.includes(lv))
   for (const h of hw.split('/')) { const k = h.trim().toLowerCase().replace(/\s+/g, ' '); if (k && (!REF.has(k) || ORD.indexOf(lv) < ORD.indexOf(REF.get(k)))) REF.set(k, lv); }
-const refLv = w => { const x = w.toLowerCase().trim(); for (const c of [x, x.replace(/ies$/, 'y'), x.replace(/(es|s)$/, ''), x.replace(/-/g, ' ')]) if (REF.has(c)) return REF.get(c); return null; };
+const OX = new Map(Object.entries(JSON.parse(fs.readFileSync(root + 'content/ref/oxford/levels.json', 'utf8'))));   // chạy tools/oxford-levels.py trước
+const forms = w => { const x = w.toLowerCase().trim(); return [x, x.replace(/ies$/, 'y'), x.replace(/(es|s)$/, ''), x.replace(/-/g, ' ')]; };
+const srcOf = w => { for (const [name, M] of [['oxford', OX], ['cefrj', REF]]) for (const c of forms(w)) if (M.has(c)) return [M.get(c), name]; return [null, null]; };
+const refLv = w => srcOf(w)[0];
 const ST = new Set(JSON.parse(fs.readFileSync(root + 'content/cambridge-yle.json', 'utf8')).starters);
 const NUM = new Set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty seventy eighty ninety hundred'.split(' '));
 const isPre = w => { const x = w.toLowerCase(); return ST.has(x) || (x.endsWith('s') && ST.has(x.slice(0, -1))) || NUM.has(x); };
@@ -42,7 +46,7 @@ const pool = [], seen = new Set(), ids = new Set(), reads = [], unthemed = new M
 const put = (w, srcLv, title) => { const k = w.w.toLowerCase(); if (seen.has(k) || !w.vi) return; seen.add(k);
   let id = w.id; while (ids.has(id)) id += '-2'; ids.add(id); w.id = id;
   const lv = refLv(w.w) || srcLv, th = themeOf(title); if (th === THEMES.length - 1) unthemed.set(title, (unthemed.get(title) || 0) + 1);
-  pool.push({ w, lv, th, srcLv, inRef: !!refLv(w.w) }); };
+  pool.push({ w, lv, th, srcLv, inRef: !!refLv(w.w), by: srcOf(w.w)[1] }); };
 const sup = JSON.parse(fs.readFileSync(root + 'content/a1-bosung.json', 'utf8')).units;
 for (const L of CONTENT.levels) {
   const det = JSON.parse(fs.readFileSync(src + '/data/' + fs.readdirSync(src + '/data').find(x => x.startsWith('lv-' + L.id + '.')), 'utf8'));
@@ -65,6 +69,6 @@ fs.writeFileSync(root + 'a1.json', JSON.stringify({ units: units1, reads: readsF
 fs.writeFileSync(root + 'a2.json', JSON.stringify({ units: units2, reads: [] }));
 fs.writeFileSync(root + 'ref.json', JSON.stringify({ words: pool.filter(x => !['A1', 'A2'].includes(x.lv)).map(x => ({ id: x.w.id, w: x.w.w, pos: x.w.pos, ipa: x.w.ipa, vi: x.w.vi, ex: x.w.ex, exVi: x.w.exVi, lv: x.lv.toLowerCase() })) }));
 const c = l => pool.filter(x => x.lv === l).length, n = us => us.reduce((s, u) => s + u.words.length, 0);
-console.log(`Pre-A1 ${n(units1.filter(u => u.lv === 'pre'))} từ / ${units1.filter(u => u.lv === 'pre').length} bài · A1 ${n(units1.filter(u => u.lv === 'a1'))} / ${units1.filter(u => u.lv === 'a1').length} · A2 ${n(units2)} / ${units2.length} · B1 ${c('B1')} · B2 ${c('B2')} · C1 ${c('C1')} · C2 ${c('C2')} · tổng ${pool.length} · theo chuẩn ${pool.filter(x => x.inRef).length} · bài đọc ${reads.length}`);
+console.log(`Pre-A1 ${n(units1.filter(u => u.lv === 'pre'))} từ / ${units1.filter(u => u.lv === 'pre').length} bài · A1 ${n(units1.filter(u => u.lv === 'a1'))} / ${units1.filter(u => u.lv === 'a1').length} · A2 ${n(units2)} / ${units2.length} · B1 ${c('B1')} · B2 ${c('B2')} · C1 ${c('C1')} · C2 ${c('C2')} · tổng ${pool.length} · theo Oxford ${pool.filter(x => x.by === 'oxford').length} · theo CEFR-J/Octanove ${pool.filter(x => x.by === 'cefrj').length} · bài đọc ${reads.length}`);
 console.log('từ A1/A2 ở chủ đề cuối "Ý tưởng":', pool.filter(x => ['A1', 'A2'].includes(x.lv) && x.th === THEMES.length - 1).length);
 for (const l of ['pre', 'a1', 'a2']) { const us = [...units1, ...units2].filter(u => u.lv === l); console.log(l, [...new Set(us.map(u => u.ch))].map(c => { const x = us.filter(u => u.ch === c); return x[0].chIcon + x.length; }).join(' ')); }
