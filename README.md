@@ -20,6 +20,7 @@ Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`so
 - 🔊 Giọng đọc (v24): ô ở trang chính chọn giọng thu sẵn (nữ Mỹ af_bella) hoặc một giọng máy cho cả trang, tốc độ; lưu theo máy.
 - 🎤 Nói thử (v25, cạnh nút 🔊): một lần bấm vừa ghi âm vừa cho máy chép chữ (Web Speech); tải bộ chấm từng âm miễn phí về máy một lần (wav2vec2 q8, vài trăm MB, `phon-worker.js` + `gop.js` chép từ game) thì có điểm từng âm. Chỉ để luyện, không tính 📘 Học / 🔁 Nhớ (người sáng lập 23/10/2026). Mã ở `noi.js`.
 - 🗣 Nói từ (v26–v27, góp ý #9 #10, ở 🏋️ Luyện tập): lượt 10 từ, nhìn nghĩa → nói từ tiếng Anh. **Tính mặt 🗣 Nói của 🔁 Nhớ** (người sáng lập 23/10/2026; 🔁 Nhớ thành 5 mặt, mọi cấp): đúng = bộ chấm âm ≥ 80 VÀ máy chép chữ (nếu chép được) ra đúng từ; chưa tải bộ chấm thì không làm được (không tự chấm). Chỉ lần nói đầu của mỗi từ trong lượt được chấm; xem từ trước = sai. ⚡ Từng từ không hỏi mặt Nói.
+- Bấm một mặt của 🔁 Nhớ ở trang chính (v28, `dimView` trong `tonghop.js`): mặt đo gì, ví dụ câu bằng từ đã học, các bài tính vào mặt đó (có ⚡ luyện riêng mặt đó: `practice(k)`), từ còn thiếu mặt đó.
   Đọc góp ý mới: `select id, at, kind, txt, ctx->>'h1' man, ctx->>'item' cau, imgs from gopy where status = 'moi' order by at;`
 - 🏋️ Luyện tập có 4 kiểu (người sáng lập 22/10/2026: bài dính nhiều từ thì chấm cả các từ ấy; mã ở `tonghop.js`): ⚡ Từng từ · 📰 Đọc bài (📖 Nghĩa cho từ trong câu bằng chứng của câu trả lời đúng) · 🎧 Nghe câu (🎧 Nghe cho mọi từ đã học trong câu) · ✍️ Nghe chép (🎧 Nghe + ✍️ Viết cho từng từ chép đúng / sai). Từ dưới 3 chữ cái không chấm kèm.
 

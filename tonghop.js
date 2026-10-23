@@ -28,6 +28,39 @@ const chipsOf = (ws, cls) => ws.map(w => `<span class="chip ${cls || ''}" style=
 const backRow = t => `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${esc(t)}</span></div>`;
 const dimLack = (w, k) => !heldDim(S.cards[w.id], k, Date.now());
 
+// Bấm một mặt của 🔁 Nhớ ở trang chính (người sáng lập 23/10/2026: "bấm vào mỗi mặt để xem bài cụ thể là gì"): mặt đo gì, bài nào tính vào,
+// ví dụ câu bằng từ đã học, nút làm ngay, từ còn thiếu mặt đó.
+const DIM_INFO = {
+  nghia: { what: 'Nhìn từ hiểu nghĩa, và nhìn nghĩa nhận ra từ.', ex: w => [`${w.pic || ''} ${w.vi} → chọn: <b>${w.w}</b> / …`, `<b>${w.w}</b> → chọn nghĩa: ${w.vi} / …`],
+    tasks: [['p', '⚡ Luyện riêng 📖 Nghĩa (20 câu)', 'Chọn từ theo nghĩa, chọn nghĩa theo từ'], ['read', '📰 Đọc bài', 'Hiểu đúng câu hỏi thì mọi từ trong câu bằng chứng được tính']] },
+  nghe: { what: 'Nghe tiếng Anh mà hiểu, không nhìn chữ.', ex: w => [`🔊 (nghe "${w.w}") → chọn nghĩa: ${w.vi} / …`],
+    tasks: [['p', '⚡ Luyện riêng 🎧 Nghe (20 câu)', 'Nghe từ, chọn nghĩa'], ['hear', '🎧 Nghe câu (8 câu)', 'Hiểu đúng câu nghe thì các từ đã học trong câu được tính'], ['dict', '✍️ Nghe chép (5 câu)', 'Chép đúng từ nào thì từ đó được tính']] },
+  viet: { what: 'Tự nhớ ra và gõ đúng chính tả, không có phương án chọn.', ex: w => [`${w.pic || ''} ${w.vi} → gõ: <b>${w.w}</b> (gợi ý chữ đầu + số chữ)`, `${w.cloze ? w.cloze.s : ''} → gõ từ còn thiếu`],
+    tasks: [['p', '⚡ Luyện riêng ✍️ Viết (20 câu)', 'Gõ từ theo nghĩa, gõ từ còn thiếu trong câu'], ['dict', '✍️ Nghe chép (5 câu)', 'Nghe rồi chép lại câu']] },
+  dung: { what: 'Dùng từ đúng chỗ trong câu và đúng cụm hay đi cùng.', ex: w => [`${w.cloze ? w.cloze.s : ''} → chọn / gõ: <b>${w.cloze ? w.cloze.a : w.w}</b>`, w.col ? `Cụm nào đúng? <b>${w.col.ok}</b> / ${w.col.bad[0]}` : ''],
+    tasks: [['p', '⚡ Luyện riêng 🧩 Dùng (20 câu)', 'Điền chỗ trống, chọn cụm từ đúng']] },
+  noi: { what: 'Nhìn nghĩa, tự nói ra từ tiếng Anh; máy kiểm ra đúng từ và phát âm ≥ 80.', ex: w => [`${w.pic || ''} ${w.vi} → 🎤 nói: <b>${w.w}</b> ${w.ipa || ''}`],
+    tasks: [['noi', '🗣 Nói từ (10 từ)', 'Cần tải bộ chấm âm một lần (miễn phí)']] },
+};
+function dimView(k) {
+  window.CUR = { view: 'mat-' + k };
+  const now = Date.now(), I = DIM_INFO[k], l = DIMS.find(x => x[0] === k)[1], WS = gateWords(), p = parts(S, now);
+  const lack = WS.filter(w => S.cards[w.id] && !heldDim(S.cards[w.id], k, now)), early = lack.filter(w => dayOf(now) - S.cards[w.id].d0 < MEM_DAYS).length;
+  const ew = shuf(WS.filter(w => S.cards[w.id]))[0] || WS[0];
+  $app.innerHTML = `${backRow('🔁 Nhớ')}<h1>${l}: ${p.dq[k]}%</h1>${bar(p.dq[k], GATE_MEM, 'var(--good)')}
+    <p class="mute">${p.dim[k]}/${p.T} từ giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} từ${early ? ` (${early} từ mới học hôm nay, từ mai mới tính)` : ''}.</p>
+    <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${I.what}</p>
+      ${ew ? `<p class="mute" style="margin:4px 0">Ví dụ câu:</p>${I.ex(ew).filter(Boolean).map(x => `<p style="margin:2px 0">• ${x}</p>`).join('')}` : ''}
+      <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%; sai hoặc lâu không ôn thì mất, ôn lại để lấy lại.</p></div>
+    <h2>Bài tính vào mặt này</h2>
+    ${I.tasks.map(([m, t, sub], i) => `<button class="opt ${i === 0 ? 'pri' : ''}" data-m="${m}"><b>${t}</b><br><span style="font-size:14px;opacity:.85">${sub}</span></button>`).join('')}
+    ${lack.length ? `<h2>Từ còn thiếu mặt này (${lack.length})</h2><p>${lack.slice(0, 60).map(w => esc(w.w)).join(' · ')}${lack.length > 60 ? ' …' : ''}</p>` : ''}`;
+  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-m]'); if (!b) return;
+    const m = b.dataset.m; if (m === 'p') { if (!Object.keys(S.cards).length) return toast('Học 1 unit trước.'); return practice(k); }
+    ({ read: readTask, hear: hearTask, dict: dictTask, noi: noiTask })[m](); };
+  window.scrollTo(0, 0);
+}
+
 // ---------- chọn kiểu luyện ----------
 function practiceMenu() {
   window.CUR = { view: 'luyen-tap' };

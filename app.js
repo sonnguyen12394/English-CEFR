@@ -15,7 +15,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 27;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 28;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -68,7 +68,7 @@ function wstat(st, w, now) { const c = st.cards[w.id]; if (!c) return 'chua'; if
 const WST = [['chua', '⚪ Chưa học'], ['hoc', '📘 Đã học'], ['nho', '✅ Nhớ đủ 5 mặt'], ['quen', '⚠️ Quên']];
 const dimMarks = (c, now) => DIMS.map(([k, l]) => `<span class="dm ${heldDim(c, k, now) ? 'on' : ''}" title="${l}">${l.split(' ')[0]}</span>`).join('');
 // mặt nào còn thiếu thì hỏi mặt đó (ngẫu nhiên trong các mặt thiếu); đủ cả thì trộn như thường. 🗣 Nói chỉ luyện ở 🗣 Nói từ (noi.js), không hỏi ở đây.
-const TYPE_FOR = { nghia: () => one(['vi2w', 'w2vi']), nghe: () => 'listen', viet: () => 'spell', dung: () => one(['cloze', 'col', 'clozeT']) };
+const TYPE_FOR = { nghia: () => one(['vi2w', 'w2vi']), nghe: () => 'listen', viet: () => one(['spell', 'spell', 'clozeT']), dung: () => one(['cloze', 'col', 'clozeT']) };
 function typeFor(c, now) { const miss = DIMS.map(([k]) => k).filter(k => k !== 'noi' && !heldDim(c, k, now)); return miss.length ? TYPE_FOR[one(miss)]() : rndType(); }
 
 // ---------- câu hỏi ----------
@@ -206,8 +206,8 @@ function home() {
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
-      <div class="dims">${DIMS.map(([k, l]) => `<div><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
-      <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả 5 mặt.</p>
+      <div class="dims">${DIMS.map(([k, l]) => `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
+      <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả 5 mặt. Bấm vào một mặt để xem bài của mặt đó.</p>
     </div>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
@@ -253,16 +253,18 @@ function learn(u) {
 // 🏋️ Luyện tập (góp ý #3, #5: gộp "Ôn từ đến hạn" + "Luyện thêm" thành một nút), lúc nào cũng được.
 // Ưu tiên từ ⚠️ Quên (đến hạn / sai lần gần nhất, sắp quên nhất trước), rồi từ học từ hôm trước mà chưa tính Nhớ (đúng là lên 🔁 Nhớ), rồi từ yếu nhất.
 // Có chấm vào lịch ôn (grade), nhưng ôn sớm chỉ tăng ít.
-function practice() {
+// k = luyện riêng một mặt (bấm mặt ở trang chính, dimView): chỉ hỏi dạng câu của mặt đó, từ thiếu mặt đó trước.
+function practice(k) {
   const now = Date.now(), today = dayOf(now), pri = w => { const c = S.cards[w.id], st = wstat(S, w, now);
+    if (k) return (heldDim(c, k, now) ? 4 : today - c.d0 >= MEM_DAYS ? 0 : 2) + recall(c, now);
     return st === 'quen' ? recall(c, now) : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, now); };
   const list = shuf(WORDS.filter(w => S.cards[w.id])).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);
   let ok = 0;
-  run({ title: '🏋️ Luyện tập', items: list.map(w => ({ w, type: typeFor(S.cards[w.id], now) })), retry: true,
+  run({ title: k ? `🏋️ ${DIMS.find(x => x[0] === k)[1]}` : '🏋️ Luyện tập', items: list.map(w => ({ w, type: k ? TYPE_FOR[k]() : typeFor(S.cards[w.id], now) })), retry: true,
     first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) ok++; save(); },
     done: () => { const p = parts(S, Date.now());
       $app.innerHTML = `<div class="box"><b>Xong lượt luyện tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}% (${DIMS.map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')}).</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về 📘 Học</button>`;
-      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="again"]')) practice(); }; } });
+      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="again"]')) practice(k); }; } });
 }
 
 // Góp ý #3 / #4: 📖 Từ điển: tra theo tiếng Anh hoặc tiếng Việt, lọc theo dấu, bấm từ để xem chi tiết và nghe.
@@ -381,6 +383,7 @@ document.addEventListener('click', e => {
   if (a === 'practice') practiceMenu();
   if (a === 'dict') dict();
 });
+document.addEventListener('click', e => { if (!S || !document.getElementById('grid')) return; const d = e.target.closest('[data-dim]'); if (d) dimView(d.dataset.dim); });
 document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('#grid [data-un]'); if (g) return learn(UBY[g.dataset.un]);
   const l = e.target.closest('#grid [data-lv]'); if (l) { HOME.lv = l.dataset.lv; HOME.open = null; document.getElementById('grid').innerHTML = roadmap(Date.now(), nextUnit()); return; }
   const c = e.target.closest('#grid [data-ch]'); if (c) { const nu = nextUnit(), lv = HOME.lv || curLevel(), i = +c.dataset.ch; HOME.open = (HOME.open ?? (nu && nu.lv === lv ? nu.ch : -1)) === i ? -1 : i; document.getElementById('grid').innerHTML = roadmap(Date.now(), nu); } });
