@@ -1,0 +1,174 @@
+vegetable|Which vegetable do you like best?
+menu|The menu is on the wall.
+table|Our kitchen table is very old.
+bed|My cat sleeps on my bed.
+live|My grandparents live in the country.
+trousers|I need some new trousers for work.
+shoes|Her new shoes are red.
+jacket|I left my jacket at school.
+weather|What's the weather like in Hanoi today?
+student|She is a good student.
+exam|The exam starts at eight o'clock.
+question|Please answer my question.
+hobby|Do you have a hobby?
+film|What's your favourite film?
+read|Can you read this word?
+game|This game is very easy.
+tomorrow|What are you doing tomorrow?
+yesterday|It rained all day yesterday.
+year|I started school this year.
+minute|The bus comes in five minutes.
+time|I don't have time for lunch today.
+four|I have four cousins.
+seven|We start work at seven.
+first|Who came first?
+i|I like cats.
+me|Please call me tomorrow.
+his|His name is Nam.
+no|I have no money today.
+many|There are many shops on this street.
+what|What do you want for dinner?
+if|You can come with us if you want.
+than|This bag is cheaper than that one.
+only|There is only one apple left.
+everyone|Everyone is here. Let's start.
+behind|There is a cat behind the door.
+next-to|The bank is next to the post office.
+to|We go to the beach every summer.
+from|This letter is from my aunt.
+around|There are trees around the school.
+for|I made a cake for my mother.
+with|Do you want to come with me?
+before|Brush your teeth before you go to bed.
+always|He is always late.
+again|Please read the text again.
+do|Do you like music?
+have|We have a big garden.
+would|I would like a coffee, please.
+ok|Are you OK?
+yes|Yes, I am a teacher.
+person|You are a very nice person.
+nurse|My sister is a nurse.
+banana|I eat a banana every day.
+tea|I drink green tea every morning.
+water|Fish live in water.
+cake|This cake is delicious.
+lunch|We have lunch at twelve.
+dish|Can you wash this dish?
+eat|We eat dinner at seven.
+bill|The bill is fifty dollars.
+pay|I'll pay for the coffee.
+blue|My favourite colour is blue.
+yellow|The sun is yellow.
+white|I have a white cat.
+great|This is a great film.
+busy|The market is very busy today.
+same|We have the same bag!
+different|This shop is different from the other one.
+popular|This song is very popular.
+favourite|What's your favourite food?
+thirsty|The dog is thirsty. Give it some water.
+best|This is the best cake in town.
+else|Who else is coming to the party?
+away|My house is far away from my school.
+fly|I want to fly to Japan.
+tell|Tell me about your family.
+speak|My mother can speak three languages.
+agree|We all agree with the plan.
+imagine|I can't imagine life without music.
+hope|I hope it is sunny tomorrow.
+like|I like reading books.
+love|I love chocolate cake.
+prefer|Which do you prefer, cats or dogs?
+improve|You can improve your writing.
+close|Close your eyes.
+room|This room is very big.
+upstairs|Go upstairs and get your bag.
+downstairs|Come downstairs. Dinner is ready.
+back|I'll be back at six.
+desk|My desk is next to the window.
+skirt|This skirt is too short.
+street|There are many cars in the street.
+road|This road goes to the beach.
+area|We live in a quiet area.
+island|Phu Quoc is a big island.
+tree|This tree is very tall.
+plant|I have a plant in my bedroom.
+horse|The horse is running fast.
+grow|Children grow very fast.
+ride|Let's ride our bikes to the park.
+bike|My new bike is blue.
+pen|This pen doesn't work.
+spell|Can you spell that word, please?
+meaning|This word has two meanings.
+mean|What do you mean?
+example|This is a good example.
+text|The text is about a small village.
+title|Write a title for your story.
+statement|Read each statement carefully.
+form|Write your name on the form.
+project|My project is about the sea.
+practice|Football practice is on Tuesday.
+choose|You can choose a book from the box.
+culture|Food is part of our culture.
+work|My parents work very hard.
+company|My uncle has his own company.
+success|The concert was a great success.
+song|Let's sing a song together.
+radio|My grandmother listens to the radio every morning.
+movie|This movie is very long.
+tv|I don't watch TV in the morning.
+photo|This is a photo of my family.
+letter|A is the first letter of the alphabet.
+reading|I do some reading every evening.
+use|How do you use this machine?
+football|My brother plays football every day.
+swimming|We go swimming in summer.
+girlfriend|His girlfriend is a nurse.
+neighbour|My neighbour is very friendly.
+grandfather|My grandfather has a big garden.
+name|Write your name at the top.
+meet|Let's meet at the cafe at six.
+see|Did you see that bird?
+let|Let's go home.
+advice|My mother always gives me good advice.
+past|I walked past the school.
+point|What is the point of this game?
+hot|Be careful! The soup is hot.
+eight|My son goes to bed at eight.
+ten|I can count to ten in English.
+thirty|There are thirty days in June.
+fifth|My birthday is on the fifth of May.
+someone|Someone is at the door.
+into|Put the milk into the fridge.
+through|The train goes through the city.
+across|The shop is across the street.
+nose|I have a cold. My nose is red.
+feeling|I have a good feeling about today.
+onion|I don't like onions.
+green|My bike is green.
+amazing|The food was amazing.
+extra|I need extra time for this test.
+box|There are books in the box.
+library|There are many books in the library.
+include|The price includes lunch.
+product|This product is very cheap.
+telephone|There is a telephone in the hall.
+ball|Kick the ball!
+july|My birthday is in July.
+autumn|Autumn is my favourite season.
+cloudy|It's cloudy today, but it's warm.
+thirty|My mother is thirty years old.
+fifth|This is my fifth English lesson.
+ok|OK, let's go.
+blue|I have a blue bag.
+photo|Look at this old photo of my school.
+fifty|There are fifty people in the room.
+into|Put the milk into the cup.
+salt|Don't put too much salt in the soup.
+island|We went to an island on holiday.
+statement|Read each statement and choose true or false.
+ball|The dog is playing with a ball.
+name|Write your name on the paper.
+past|My grandmother likes to talk about the past.
+point|She made an important point in the meeting.

@@ -1,0 +1,220 @@
+breakfast|We eat breakfast together on Sunday morning.
+delicious|This soup is hot and delicious.
+hungry|The baby is hungry, so she is crying.
+vegetable|Carrots are my favourite vegetable.
+cook|My father likes to cook fish for dinner.
+kitchen|Mum is washing the cups in the kitchen.
+chicken|Do you want chicken or fish?
+drink|Please drink some water after the game.
+menu|Can I see the menu, please?
+order|We order pizza every Friday night.
+alarm|My alarm is very loud in the morning.
+shower|I take a shower after school.
+brush|Brush your hair before you go out.
+usually|She usually walks to work.
+early|We get up early on Monday.
+late|Sorry, I am late for the lesson.
+homework|Our teacher gives us homework every day.
+tired|After the long walk, we were very tired.
+weekend|What are you doing this weekend?
+bus|The bus to the city is red.
+hotel|Our hotel is near the beach.
+book|I want to book a table for two.
+ticket|How much is a ticket to London?
+passport|Don't forget your passport at the airport.
+airport|My uncle works at the airport.
+luggage|Our luggage is very heavy.
+map|Look at the map. The park is here.
+station|The train station is next to the bank.
+cheap|These shoes are cheap but nice.
+trip|We had a great trip to the mountains.
+family|There are five people in my family.
+parents|My parents live in a small town.
+brother|My little brother is six years old.
+sister|Her sister plays the piano.
+grandparents|We visit our grandparents every summer.
+married|My aunt is married to a doctor.
+friend|My best friend lives next door.
+baby|The baby is sleeping in her bed.
+cousin|My cousin is coming to my party.
+young|My teacher is young and kind.
+bedroom|There is a big window in my bedroom.
+bathroom|The bathroom is upstairs.
+garden|We have flowers in our garden.
+table|Put the plates on the table, please.
+chair|This chair is too small for me.
+window|Please open the window. It is hot.
+door|Someone is at the door.
+bed|I go to bed at ten o'clock.
+clean|My room is clean today.
+live|Where do you live?
+head|My cat has a small head.
+hand|Raise your hand if you know the answer.
+eye|She has one blue eye and one green eye.
+headache|I can't read because I have a headache.
+doctor|You are ill. Go and see a doctor.
+medicine|Take this medicine after dinner.
+ill|Tom is ill, so he is at home today.
+rest|You look tired. Have a rest.
+healthy|Fruit and vegetables are healthy.
+hurt|My leg hurts after the football game.
+clothes|I need new clothes for the party.
+shirt|He is wearing a white shirt.
+trousers|These trousers are too long.
+shoes|Take off your shoes, please.
+dress|She has a beautiful red dress.
+jacket|It's cold. Put on your jacket.
+hat|My grandfather always wears a hat.
+wear|What do you wear to school?
+put-on|Put on your coat. It is raining.
+colour|What colour is your car?
+weather|The weather is nice today.
+rain|Take an umbrella. It will rain later.
+sunny|It is sunny, so let's go to the park.
+cloudy|The sky is cloudy this morning.
+hot|Don't touch the cup. It's hot!
+cold|I want a cold drink, please.
+summer|In summer we go to the sea.
+winter|It snows here in winter.
+season|Spring is my favourite season.
+umbrella|Can I use your umbrella?
+teacher|Our English teacher is from Australia.
+student|There are thirty students in my class.
+classroom|Our classroom is on the first floor.
+lesson|The music lesson starts at nine.
+exam|I have a maths exam tomorrow.
+learn|I want to learn to swim.
+study|My sister studies at the university.
+question|Can I ask you a question?
+answer|I don't know the answer.
+subject|Art is my favourite subject.
+hobby|My hobby is taking photos.
+music|I listen to music in the car.
+film|We watched a funny film last night.
+sport|Tennis is a popular sport.
+swim|Can you swim?
+dance|My sister loves to dance.
+play|The children play in the park after school.
+read|I read a book before bed.
+watch|Do you watch TV in the evening?
+game|Let's play a game!
+monday|I go to the gym on Monday.
+tuesday|The shop is closed on Tuesday.
+wednesday|We have art on Wednesday afternoon.
+thursday|My birthday is on Thursday this year.
+friday|On Friday we eat at a restaurant.
+saturday|I sleep late on Saturday.
+sunday|We visit Grandma every Sunday.
+today|It's my birthday today!
+tomorrow|See you tomorrow!
+yesterday|I was at home yesterday.
+january|It is very cold in January.
+february|February is a short month.
+march|My brother was born in March.
+april|We have a holiday in April.
+may|The flowers open in May.
+june|School finishes in June.
+month|I visit my aunt once a month.
+year|There are twelve months in a year.
+spring|The trees are green in spring.
+autumn|In autumn the leaves fall.
+july|We go camping in July.
+august|August is a hot month here.
+september|School starts again in September.
+october|My father's birthday is in October.
+november|It often rains in November.
+december|We have a party in December.
+week|I play football three times a week.
+date|What is the date today?
+century|This house is from the last century.
+holiday|Where are you going on holiday?
+hour|The film is two hours long.
+minute|Wait a minute, please.
+second|I can run there in ten seconds.
+o-clock|The shop opens at nine o'clock.
+half|I'll be home in half an hour.
+quarter|It's a quarter past three.
+midnight|We went to bed at midnight.
+time|What time is it?
+clock|The clock on the wall is slow.
+moment|Please wait a moment.
+one|I have one sister.
+two|She has two cats.
+three|There are three apples on the table.
+four|A car has four wheels.
+five|My son is five years old.
+six|The class starts at six.
+seven|There are seven days in a week.
+eight|A spider has eight legs.
+nine|I go to bed at nine.
+ten|I have ten fingers.
+eleven|The bus comes at eleven.
+twelve|My brother is twelve.
+thirteen|There are thirteen students in the room.
+fourteen|She is fourteen years old.
+fifteen|Lunch is in fifteen minutes.
+sixteen|My cousin is sixteen.
+seventeen|There are seventeen books on the shelf.
+eighteen|You can drive at eighteen.
+nineteen|My sister is nineteen today.
+twenty|I have twenty dollars.
+thirty|It's thirty degrees today.
+forty|My dad is forty years old.
+fifty|This T-shirt costs fifty dollars.
+sixty|An hour has sixty minutes.
+seventy|My grandmother is seventy.
+eighty|There are eighty people at the wedding.
+ninety|He lived to ninety.
+hundred|There are a hundred children in the school.
+thousand|Five thousand people live in this town.
+million|Millions of people visit Paris every year.
+first|This is my first visit to Hanoi.
+third|Our flat is on the third floor.
+fourth|Today is the fourth of July.
+fifth|He came fifth in the race.
+number|What is your phone number?
+once|I wash my car once a week.
+twice|She calls her mother twice a day.
+both|Both my sisters are teachers.
+each|Each student has a book.
+every|I drink milk every morning.
+i|I am a student.
+you|Are you hungry?
+he|He is my uncle.
+she|She is a nurse.
+it|I like this song. It is great.
+we|We are friends.
+they|They live in Ho Chi Minh City.
+me|Can you help me, please?
+him|I see him every day.
+them|I love my dogs. I walk them every evening.
+my|This is my bike.
+your|Is this your bag?
+his|Tom is washing his car.
+her|Anna is with her mother.
+its|The dog is eating its dinner.
+our|Our house is near the river.
+their|The children are in their room.
+us|Come with us to the park!
+yourself|Please help yourself to some cake.
+own|I want my own room.
+a|I have a new phone.
+the|Close the door, please.
+this|Is this your pen?
+that|Look at that big dog!
+some|I need some milk.
+any|Do you have any brothers?
+another|Can I have another apple?
+other|Where are the other children?
+all|All my friends like football.
+no|There is no milk in the fridge.
+many|How many people are in your family?
+much|How much is this bag?
+more|Can I have more rice, please?
+most|Most students walk to school.
+few|Only a few people came to the party.
+little|There is a little water in the bottle.
+lot|I have a lot of friends.
+enough|We don't have enough chairs.
+too|This coffee is too hot.
+very|The test was very easy.

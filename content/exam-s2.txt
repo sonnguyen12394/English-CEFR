@@ -1,0 +1,220 @@
+what|What is your name?
+when|When does the film start?
+where|Where is the bathroom?
+which|Which bag is yours, the red one or the blue one?
+who|Who is that girl?
+why|Why are you sad?
+how|How do you go to work?
+if|If it rains, we will stay at home.
+because|I am tired because I worked all day.
+so|It was late, so we went home.
+and|I have a cat and a dog.
+but|I like tea, but I don't like coffee.
+or|Do you want tea or coffee?
+than|My brother is taller than me.
+also|She speaks English. She also speaks French.
+however|The hotel was nice. However, it was very expensive.
+as|She works as a teacher.
+even|He works even on Sunday.
+only|I have only one sister.
+just|I have just finished my homework.
+someone|Someone is knocking on the door.
+somebody|Somebody took my pen.
+something|I want to eat something.
+anyone|Does anyone have a pencil?
+anything|Do you need anything from the shop?
+everyone|Everyone in my class likes the new teacher.
+everybody|Hello, everybody!
+everything|Thank you for everything.
+nobody|Nobody was at home.
+nothing|There is nothing in the box.
+in|My keys are in my bag.
+on|The cat is sleeping on the sofa.
+at|I'll meet you at the station.
+under|The ball is under the table.
+above|There is a picture above the bed.
+below|The kitchen is below my bedroom.
+behind|The garden is behind the house.
+between|The bank is between the cafe and the shop.
+next-to|Can I sit next to you?
+opposite|The school is opposite the park.
+to|I walk to school every day.
+from|I am from Vietnam.
+into|She jumped into the pool.
+through|We walked through the forest.
+across|Walk across the bridge and turn left.
+around|We walked around the lake.
+over|The bird flew over the house.
+off|Please turn off the light.
+up|Walk up the stairs to the second floor.
+down|Sit down, please.
+of|I'd like a cup of tea.
+for|This present is for you.
+with|I live with my parents.
+without|I drink coffee without sugar.
+by|We went to Hue by train.
+about|This book is about a little dog.
+after|We play football after school.
+before|Wash your hands before dinner.
+during|Don't talk during the film.
+until|The shop is open until ten.
+always|I always brush my teeth before bed.
+often|We often go to the beach in summer.
+sometimes|Sometimes I walk to school.
+never|I never drink coffee at night.
+ever|Have you ever been to Japan?
+again|Can you say that again, please?
+still|It's eleven o'clock and he is still in bed.
+then|First wash your hands, then sit down.
+here|Come here, please.
+there|There is a bank near my house.
+be|Please be quiet in the library.
+do|What do you do at the weekend?
+have|I have two brothers.
+can|I can play the guitar.
+cannot|I cannot find my keys.
+could|Could you open the window, please?
+will|I will call you tonight.
+would|Would you like some tea?
+should|You should go to bed early.
+must|You must stop at a red light.
+hello|Hello, my name is Lan.
+hi|Hi, how are you?
+bye|Bye, see you later!
+goodbye|Say goodbye to your grandma.
+please|A glass of water, please.
+thank|Thank you for the flowers.
+thanks|Thanks for your help!
+sorry|I'm sorry, I broke your cup.
+welcome|Welcome to our home!
+ok|Is it OK if I open the window?
+yes|Yes, I'd love to come.
+yeah|Yeah, that's a good idea.
+oh|Oh, I forgot my bag!
+hey|Hey, wait for me!
+dear|Dear Mum, I miss you.
+not|I am not hungry.
+maybe|Maybe it will rain tomorrow.
+really|I really like your new dress.
+probably|He is probably at home now.
+no-one|No one answered the phone.
+father|My father is a taxi driver.
+mother|My mother cooks very well.
+dad|Dad, can you help me?
+mum|Mum is in the garden.
+son|Their son is a doctor.
+daughter|They have one daughter.
+husband|Her husband works in a bank.
+wife|His wife is from Da Nang.
+uncle|My uncle has a big farm.
+aunt|My aunt lives in Hanoi.
+man|The man in the blue shirt is my teacher.
+woman|A woman is waiting for the bus.
+boy|The boy is playing with a ball.
+girl|The girl has long hair.
+child|Every child needs love.
+adult|The ticket is ten dollars for an adult.
+teenager|My son is a teenager now.
+person|She is a very kind person.
+people|Many people like this song.
+member|He is a member of the football club.
+body|Swimming is good for your body.
+face|Wash your face, please.
+hair|My sister has short hair.
+ear|I have a pain in my ear.
+nose|The clown has a red nose.
+mouth|Open your mouth, please.
+tooth|My tooth hurts.
+arm|He broke his arm.
+leg|A chair has four legs.
+foot|My left foot hurts.
+sick|I feel sick after the boat trip.
+die|My plants die when I forget to water them.
+life|She had a happy life.
+feel|How do you feel today?
+feeling|I have a strange feeling.
+happy|I am happy to see you.
+sad|The film was very sad.
+fine|I'm fine, thank you.
+hospital|My grandmother is in hospital.
+nurse|The nurse gave me some medicine.
+bread|We need some bread for breakfast.
+butter|Put some butter on your bread.
+cheese|I like cheese sandwiches.
+egg|I eat an egg every morning.
+meat|My sister doesn't eat meat.
+fish|We had fish for dinner.
+rice|In Vietnam we eat rice every day.
+soup|This soup is too salty.
+salad|I'd like a green salad, please.
+sandwich|I take a sandwich to school for lunch.
+apple|An apple a day is good for you.
+banana|Monkeys love bananas.
+orange|Can I have an orange juice?
+potato|Cut the potato into small pieces.
+tomato|Put a tomato in the salad.
+onion|Onions make me cry.
+carrot|My rabbit eats a carrot every day.
+fruit|What is your favourite fruit?
+pepper|Add a little salt and pepper.
+salt|Can you pass the salt, please?
+coffee|My mother drinks coffee with milk.
+tea|Would you like a cup of tea?
+milk|Children need milk.
+juice|I'll have an apple juice, please.
+water|Can I have a glass of water?
+beer|My father drinks a beer at the weekend.
+wine|They had a bottle of wine with dinner.
+sugar|I don't take sugar in my tea.
+cake|Mum made a chocolate cake for my birthday.
+chocolate|Don't eat too much chocolate.
+food|Vietnamese food is very good.
+meal|Breakfast is the first meal of the day.
+lunch|What do you want for lunch?
+dinner|We have dinner at seven.
+dish|Pho is a famous Vietnamese dish.
+cup|Can I have a cup of coffee?
+glass|Be careful, the glass is hot.
+bottle|Buy a bottle of water, please.
+eat|What do you usually eat for breakfast?
+cream|Do you want cream with your cake?
+restaurant|This restaurant is always busy.
+cafe|Let's meet at the cafe on the corner.
+waiter|The waiter brought our food.
+ice-cream|Children love ice cream.
+ice|Do you want ice in your drink?
+diet|I'm on a diet, so no cake for me.
+bill|Can we have the bill, please?
+pay|Can I pay by card?
+cost|How much does this book cost?
+expensive|That car is very expensive.
+red|She is wearing a red dress.
+blue|The sky is blue today.
+green|The grass is green.
+yellow|Bananas are yellow.
+black|I have a black cat.
+white|Snow is white.
+brown|My dog has brown eyes.
+grey|The sky is grey. It will rain.
+pink|My little sister loves pink.
+purple|She painted her room purple.
+big|They live in a big house.
+small|My room is very small.
+large|I'd like a large coffee, please.
+long|It was a long day.
+short|The film is short, only an hour.
+tall|My father is very tall.
+fat|My cat is fat because it eats a lot.
+high|This mountain is very high.
+full|The bus is full. Let's wait for the next one.
+blonde|She has blonde hair and blue eyes.
+good|This is a good book.
+bad|The weather is bad today.
+great|We had a great time at the party.
+nice|Have a nice day!
+beautiful|What a beautiful garden!
+pretty|Your little girl is very pretty.
+wonderful|Thank you for a wonderful evening.
+amazing|The view from the top is amazing.
+fantastic|Your English is fantastic!
+terrible|I had a terrible day at work.

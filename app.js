@@ -13,7 +13,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 10;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 11;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -73,6 +73,7 @@ function pick(w, key, n) {
   return out;
 }
 function question(w, type) {
+  if (type && type[0] === 'x') return examQ(w, type);   // câu thi mới (exam.js)
   if (type === 'col' && !w.col) type = 'cloze';
   if (type === 'vi2w') return { type, top: `${w.pic || ''} ${esc(w.vi)}`, sub: 'Từ tiếng Anh nào có nghĩa này?', a: w.w, opts: shuf([w.w, ...pick(w, 'w', 3)]) };
   if (type === 'w2vi') return { type, top: esc(w.w), sub: `${esc(w.ipa || '')} · nghĩa là gì?`, a: w.vi, opts: shuf([w.vi, ...pick(w, 'vi', 3)]), say: w.w };
@@ -158,12 +159,7 @@ function home() {
       <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
     <p class="mute">${tip}</p>
-    <div class="box">
-      <b>🚪 Thi chuyển cấp A1</b>
-      <p class="mute">${passed ? '✅ Đã qua. Làm lại được bất cứ lúc nào.' : open ? 'Đã mở. ' : `Mở khi 📘 Học ${GATE_LEARN}% và 🔁 Nhớ ${GATE_MEM}%. `}${EXAM_N} câu từ vựng, đúng từ ${Math.round(EXAM_PASS * 100)}% là qua.</p>
-      <button class="${open ? 'pri' : ''}" data-a="exam" ${open ? '' : 'disabled'}>${open ? 'Vào làm bài' : '🔒 Chưa mở'}</button>
-      ${S.exams.slice(-3).reverse().map(x => `<div class="mute">${new Date(x.at).toLocaleDateString('vi-VN')}: ${x.ok}/${x.n} ${x.pass ? '✅ qua' : '❌ chưa qua'}</div>`).join('')}
-    </div>
+    ${examBox(p)}
     <h2>87 unit</h2>
     <p class="mute">Xanh dương: đã học · Xanh lá: ≥ 80% từ đang nhớ. Bấm để học / xem lại.</p>
     <div class="units" id="grid">${grid}</div>
@@ -238,16 +234,6 @@ function dictList() {
       ${sayBtns(w)}</div>` : ''}</div>`).join('') : '<p class="mute">Không có từ nào.</p>';
 }
 
-function exam() {
-  const ty = mixTypes(EXAM_N), items = shuf(WORDS).slice(0, EXAM_N).map((w, i) => ({ w, type: ty[i] })), wrong = [];
-  let ok = 0;
-  run({ title: '🚪 Thi chuyển cấp A1', items, retry: false, quiet: true,
-    first: (it, good) => { if (good) ok++; else wrong.push(it.w); },
-    done: () => { const pass = ok / EXAM_N >= EXAM_PASS; S.exams.push({ at: Date.now(), n: EXAM_N, ok, pass }); save();
-      $app.innerHTML = `<div class="box"><b>${pass ? '✅ Qua Thi chuyển cấp A1' : '❌ Chưa qua'}</b><p>Đúng ${ok}/${EXAM_N} (cần ${Math.ceil(EXAM_N * EXAM_PASS)}).</p></div>
-        ${wrong.length ? `<h2>Từ làm sai</h2>${wrong.map(w => `<div>${esc(w.w)}: ${esc(w.vi)}</div>`).join('')}` : ''}<button class="pri" data-a="home">Về trang chính</button>`;
-      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; } });
-}
 
 // chạy một chuỗi câu hỏi. retry: sai thì đưa câu về cuối. first(it, đúng?) gọi một lần cho mỗi câu ở lần hỏi đầu. quiet: không báo đúng / sai (bài thi).
 function run({ title, items, retry, quiet, first, done }) {
@@ -279,7 +265,7 @@ function run({ title, items, retry, quiet, first, done }) {
       speak(w.w);
     };
     const tf = document.getElementById('tf');
-    if (tf) tf.onsubmit = e => { e.preventDefault(); const v = ti.value; if (!v.trim()) return ti.focus(); answer(normAns(v) === normAns(Q.a), null, v.trim()); };
+    if (tf) tf.onsubmit = e => { e.preventDefault(); const v = ti.value; if (!v.trim()) return ti.focus(); answer([Q.a, ...(Q.alt || [])].some(x => normAns(v) === normAns(x)), null, v.trim()); };
     $app.onclick = e => {
       if (e.target.closest('[data-a="home"]')) { if (quiet && !confirm('Bỏ bài thi? Lần này không tính.')) return; return home(); }
       if (e.target.closest('[data-a="go"]')) return show();
@@ -330,7 +316,7 @@ new MutationObserver(syncTabs).observe($app, { childList: true });
 $tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; if (b.dataset.tab === 'dict') dict(); else home(); scrollTo(0, 0); });
 
 (async () => {
-  fetch('a/index.json?v=1').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
+  fetch('a/index.json?v=2').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
   try { const d = await (await fetch('a1.json?v=2')).json(); UNITS = d.units; }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }

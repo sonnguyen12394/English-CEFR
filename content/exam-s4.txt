@@ -1,0 +1,210 @@
+elephant|An elephant has big ears.
+lion|The lion is sleeping under a tree.
+farm|My uncle has a farm with many cows.
+farmer|The farmer gets up very early.
+grow|We grow tomatoes in our garden.
+star|I can see a lot of stars tonight.
+fall|Be careful! Don't fall.
+climb|Cats can climb trees.
+ride|I ride my bike to school.
+lie|I want to lie on the beach all day.
+car|My father washes his car on Sunday.
+bike|Can you ride a bike?
+bicycle|He goes to work by bicycle.
+train|The train to Hue is late.
+plane|The plane leaves at ten.
+boat|We went to the island by boat.
+taxi|Let's take a taxi to the airport.
+drive|My mother drives to work.
+driver|The bus driver is very kind.
+left|Turn left at the bank.
+travel|I love to travel by train.
+tourist|Many tourists visit Hoi An.
+visitor|The museum has many visitors in summer.
+visit|We visit our grandparents every Sunday.
+vacation|We are on vacation in Da Lat.
+stay|We stayed at a small hotel.
+return|I will return your book tomorrow.
+way|Is this the way to the station?
+wait|Wait for me here.
+out|My mother is out. She is at the market.
+money|I don't have any money.
+dollar|This hat costs ten dollars.
+euro|A coffee in Paris costs three euros.
+pound|The ticket is five pounds.
+cent|This pen costs fifty cents.
+card|I sent her a birthday card.
+kilometre|The school is two kilometres from my house.
+metre|The pool is fifty metres long.
+mile|We walked five miles today.
+piece|Can I have a piece of cake?
+school|My school is near my house.
+class|There are thirty students in our class.
+university|My sister goes to university in Hanoi.
+college|He studies music at college.
+test|We have an English test on Friday.
+dictionary|Look up the word in your dictionary.
+pen|Can I borrow your pen?
+pencil|Write your name with a pencil.
+paper|I need some paper to write on.
+page|Open your book at page ten.
+word|I don't know this word.
+sentence|Read the first sentence.
+paragraph|Read the second paragraph again.
+phrase|Learn this phrase: "Nice to meet you."
+spell|How do you spell your name?
+spelling|Check your spelling, please.
+language|How many languages do you speak?
+meaning|What is the meaning of this word?
+mean|What does this word mean?
+example|Can you give me an example?
+dialogue|Listen to the dialogue and answer the questions.
+conversation|We had a long conversation on the phone.
+description|Write a short description of your room.
+describe|Can you describe your house?
+detail|Tell me more details about your trip.
+article|I read an interesting article about food.
+text|Read the text and answer the questions.
+title|What is the title of the book?
+topic|The topic of today's lesson is family.
+section|Read section two of the book.
+statement|Is this statement true or false?
+list|I made a shopping list.
+note|I left a note on the table.
+form|Please fill in this form.
+chart|Look at the chart on page five.
+project|We are doing a project about animals.
+practice|Speaking English needs a lot of practice.
+practise|I practise the piano every day.
+repeat|Listen and repeat.
+mistake|Sorry, I made a mistake.
+check|Check your answers with a partner.
+choose|Choose the correct answer.
+compare|Compare your answers with your friend.
+complete|Complete the sentences with one word.
+discuss|Discuss the questions in groups.
+explain|Can you explain this word, please?
+include|The price includes breakfast.
+introduce|Let me introduce my friend Nam.
+follow|Follow me, please.
+type|I can type very fast.
+art|We have art on Monday.
+history|I like history lessons.
+geography|In geography we learn about countries.
+science|Science is my favourite subject.
+scientist|She wants to be a scientist.
+culture|I want to learn about Japanese culture.
+information|Can I have some information about the trip?
+idea|That's a good idea!
+fact|Here is an interesting fact about cats.
+opinion|What is your opinion?
+job|What is your job?
+work|I work in a hospital.
+worker|The workers are building a new road.
+business|My father has a small business.
+company|She works for a big company.
+police|Call the police!
+policeman|The policeman helped the old woman.
+actor|He is a famous actor.
+actress|My favourite actress is in this film.
+artist|The artist painted a picture of the sea.
+singer|She is a great singer.
+writer|He is a writer. He writes books for children.
+model|My brother made a model of a plane.
+product|This shop sells good products.
+meeting|I have a meeting at ten.
+plan|What are your plans for the weekend?
+problem|There is a problem with my computer.
+result|I got my test results today.
+report|I have to write a report for work.
+success|The party was a big success.
+song|This is my favourite song.
+sing|Can you sing?
+band|My brother plays in a band.
+concert|We went to a concert last night.
+guitar|He plays the guitar very well.
+piano|She plays the piano every evening.
+sound|I love the sound of the sea.
+radio|I listen to the radio in the car.
+dancing|Dancing is my hobby.
+show|Can you show me your photos?
+movie|Let's watch a movie tonight.
+tv|What's on TV tonight?
+television|We don't have a television.
+video|I watched a funny video on my phone.
+camera|I take photos with my new camera.
+photo|Can I take a photo of you?
+photograph|This is an old photograph of my grandfather.
+picture|Look at the picture on page three.
+painting|There is a beautiful painting in the hall.
+programme|This TV programme is very interesting.
+story|Tell me a story, please.
+magazine|I read a magazine on the train.
+newspaper|My grandfather reads the newspaper every morning.
+letter|I wrote a letter to my grandmother.
+post|I got a card in the post.
+send|Send me a message.
+blog|She writes a blog about food.
+email|I got an email from my teacher.
+reading|Reading is my favourite hobby.
+writing|I can't read your writing.
+internet|I use the internet every day.
+computer|My computer is very old.
+telephone|The telephone is ringing.
+phone|Can I use your phone?
+cd|I have this song on a CD.
+dvd|We watched a film on DVD.
+call|Call me tonight.
+machine|This machine makes coffee.
+use|Can I use your pen?
+write|Write your name here, please.
+football|Let's play football after school.
+tennis|I play tennis on Saturday.
+team|Our team won the game.
+swimming|Swimming is good exercise.
+win|I hope we win the match.
+lose|I always lose my keys.
+exercise|Do some exercise every day.
+match|The football match starts at eight.
+ball|Throw the ball to me.
+group|Work in groups of four.
+boyfriend|Her boyfriend is a doctor.
+girlfriend|He is going to the cinema with his girlfriend.
+partner|Work with a partner.
+neighbour|Our neighbour has a big dog.
+grandfather|My grandfather is eighty years old.
+grandmother|My grandmother makes the best soup.
+name|What's your name?
+age|What age is your son?
+born|I was born in 1990.
+meet|Nice to meet you!
+give|Give me the book, please.
+help|Can you help me?
+look|Look at the board.
+see|I can see the sea from my window.
+join|Do you want to join our club?
+let|Let me help you.
+have-to|I have to go now.
+share|Can we share a taxi?
+well|She speaks English well.
+course|I'm taking an English course.
+action|I like action films.
+activity|Swimming is a fun activity.
+address|What is your address?
+advice|Can you give me some advice?
+future|What do you want to do in the future?
+past|In the past, people didn't have phones.
+present|Thank you for the present!
+part|The first part of the film is boring.
+period|We had a long period of rain.
+reason|What is the reason for your visit?
+object|Draw an object from your bag.
+point|That's a good point.
+rule|What are the rules of the game?
+situation|It is a difficult situation.
+style|I like her style.
+line|Draw a line under the word.
+routine|What is your morning routine?
+centre|The hotel is in the city centre.
+shape|What shape is the table?
+event|The party is a big event in our town.

@@ -1,0 +1,220 @@
+new|I have a new bike.
+old|This house is very old.
+easy|The first question is easy.
+difficult|Chinese is difficult for me.
+hard|This bread is too hard.
+fast|He drives too fast.
+slow|The internet is slow today.
+quick|Can I have a quick look at your book?
+quickly|She finished her homework quickly.
+cool|It's cool in the evening here.
+rich|He is rich. He has three cars.
+poor|They were poor, but they were happy.
+strong|My brother is very strong.
+dirty|Your shoes are dirty.
+dark|It gets dark at six in winter.
+warm|Put on a warm coat.
+quiet|The library is very quiet.
+busy|I'm busy now. Can I call you later?
+free|Are you free on Saturday?
+dangerous|It's dangerous to swim here.
+right|Yes, that's right.
+wrong|Sorry, I called the wrong number.
+true|Is it true that you are moving to Hanoi?
+false|Read the sentence and write true or false.
+correct|Your answer is correct.
+same|We are in the same class.
+different|My sister and I are very different.
+similar|Your bag is similar to mine.
+possible|Is it possible to pay by card?
+sure|Are you sure? I think the shop is closed.
+important|Water is important for life.
+special|Today is a special day for my family.
+popular|Football is very popular in Vietnam.
+famous|Ha Long Bay is famous all over the world.
+favourite|Blue is my favourite colour.
+interesting|This is an interesting book.
+interested|I'm interested in music.
+perfect|The weather is perfect for a picnic.
+useful|A dictionary is very useful.
+natural|Fruit juice is a natural drink.
+funny|My uncle tells funny stories.
+fun|The party was really fun.
+ready|Dinner is ready!
+thirsty|I'm thirsty. Can I have some water?
+modern|They live in a modern apartment.
+common|Nguyen is a common name in Vietnam.
+local|We buy fruit at the local market.
+main|The main street is very busy.
+extra|Can I have an extra blanket?
+final|This is the final question.
+last|I saw her last week.
+next|See you next Monday.
+best|She is my best friend.
+better|I feel better today.
+positive|Try to be positive.
+negative|Make the sentence negative.
+quite|The test was quite easy.
+else|Do you want anything else?
+later|I'll call you later.
+soon|See you soon!
+morning|I run every morning.
+afternoon|Good afternoon, everyone.
+evening|What do you do in the evening?
+night|I can't sleep at night.
+tonight|What are you doing tonight?
+day|What day is it today?
+now|I'm busy now.
+ago|I moved here two years ago.
+together|Let's have lunch together.
+away|Go away! I'm busy.
+go|Let's go to the park.
+come|Can you come to my party?
+walk|I walk my dog every morning.
+run|Don't run in the classroom.
+move|We are moving to a new house next month.
+stop|Stop! The light is red.
+start|School starts at seven thirty.
+sit|Please sit here.
+stand|Stand up, please.
+fly|Birds can fly.
+get|Where can I get a taxi?
+wake|Please wake me at six.
+sleep|Babies sleep a lot.
+wash|Can you wash the dishes?
+put|Put your bag on the chair.
+take|Take an umbrella with you.
+bring|Bring your book to class tomorrow.
+carry|Can you carry this box for me?
+keep|You can keep the book.
+leave|The train leaves at nine.
+say|What did she say?
+tell|Can you tell me the way to the station?
+speak|Do you speak English?
+talk|We talk on the phone every day.
+ask|Ask your teacher for help.
+hear|Can you hear me?
+listen|Listen to the teacher.
+laugh|The film made us laugh.
+agree|I agree with you.
+guess|Guess what! I have a new job.
+think|I think it will rain.
+know|I don't know his name.
+understand|Do you understand the question?
+remember|I can't remember her name.
+forget|Don't forget to call me.
+believe|I don't believe you.
+imagine|Imagine you are on a beach.
+decide|We decided to stay at home.
+hope|I hope you feel better soon.
+find|I can't find my phone.
+like|Do you like pizza?
+love|I love my family.
+hate|I hate getting up early.
+want|I want a new phone.
+need|I need a pen.
+prefer|I prefer tea to coffee.
+enjoy|Enjoy your meal!
+relax|I relax by listening to music.
+try|Try this cake. It's very good.
+miss|I miss my friends from school.
+make|Let's make a cake.
+build|They are building a new school.
+cut|Cut the paper into four pieces.
+paint|We painted the kitchen yellow.
+draw|Can you draw a cat?
+prepare|Mum is preparing dinner.
+add|Add some sugar to the tea.
+break|Be careful, don't break the glass.
+create|Children love to create things.
+design|She designs clothes.
+become|He wants to become a doctor.
+begin|The lesson will begin in five minutes.
+beginning|I didn't like the beginning of the film.
+end|The bank is at the end of the street.
+finish|What time do you finish work?
+happen|What happened to your arm?
+change|I want to change my shirt.
+improve|I want to improve my English.
+open|The museum is open every day.
+close|Please close the door.
+house|My house has three bedrooms.
+home|I'm going home now.
+room|My room is on the second floor.
+apartment|We live in a small apartment.
+flat|Her flat is near the park.
+floor|Don't sit on the floor.
+wall|There is a clock on the wall.
+bath|I like to have a hot bath.
+toilet|Where is the toilet, please?
+key|I lost my key.
+upstairs|My bedroom is upstairs.
+downstairs|The kitchen is downstairs.
+outside|Let's play outside.
+front|There is a tree in front of the house.
+back|Sit at the back of the bus.
+desk|My computer is on my desk.
+box|There are toys in the box.
+bag|My bag is very heavy.
+light|Turn on the light, please.
+thing|What is that thing on the table?
+coat|It's cold. Wear your coat.
+jeans|I usually wear jeans at the weekend.
+skirt|She is wearing a long skirt.
+sweater|My grandmother made me a sweater.
+boot|I need new boots for winter.
+t-shirt|He is wearing a white T-shirt.
+pair|I bought a pair of shoes.
+shop|The shop opens at eight.
+shopping|I go shopping on Saturday.
+buy|I want to buy a present for my mother.
+city|Hanoi is a big city.
+town|I live in a small town.
+village|My grandparents live in a village.
+street|What street do you live on?
+road|Be careful when you cross the road.
+park|We play football in the park.
+market|I buy vegetables at the market.
+supermarket|The supermarket is open until ten.
+bank|I need to go to the bank.
+library|I borrow books from the library.
+museum|We visited a museum in Hanoi.
+cinema|Let's go to the cinema tonight.
+theatre|We saw a play at the theatre.
+club|I go to a dance club on Fridays.
+gym|I go to the gym after work.
+pool|The children are swimming in the pool.
+office|My mother works in an office.
+building|That building is very tall.
+place|This is a nice place to live.
+area|There are many restaurants in this area.
+country|What country are you from?
+world|I want to travel around the world.
+capital|Hanoi is the capital of Vietnam.
+land|The farmer has a lot of land.
+island|We took a boat to the island.
+north|It's cold in the north.
+south|Ho Chi Minh City is in the south.
+east|The sun comes up in the east.
+west|The sun goes down in the west.
+space|I want to go into space.
+sea|The sea is blue and warm.
+river|There is a river near my village.
+mountain|We climbed a mountain.
+beach|Let's go to the beach.
+tree|There is a bird in the tree.
+flower|She gave me a flower.
+plant|Water the plants every day.
+air|Open the window. We need fresh air.
+fire|Don't play with fire.
+snow|The children are playing in the snow.
+animal|What is your favourite animal?
+dog|My dog likes to run.
+cat|The cat is sleeping.
+bird|A bird is singing outside.
+horse|Can you ride a horse?
+cow|Cows give us milk.
+pig|The pig is very dirty.
+sheep|There are many sheep on the farm.
+mouse|There is a mouse in the kitchen!
+snake|Be careful, there is a snake!
