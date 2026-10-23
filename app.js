@@ -14,13 +14,13 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 17;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 18;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
 const $app = document.getElementById('app');
 let UNITS = [], WORDS = [], WBY = {}, UBY = {}, READS = [];
-const LVN = { pre: 'Pre-A1', a1: 'A1', a2: 'A2' };
+const LVN = { pre: 'Pre-A1', a1: 'A1', a2: 'A2', b1: 'B1', b2: 'B2', c1: 'C1', c2: 'C2' };   // B1–C2: chỉ tra + đo cấp (place.js)
 const LEVELS = ['pre', 'a1', 'a2'];
 let S = null, user = null, sync = '';
 
@@ -186,6 +186,7 @@ function home() {
     <p class="mute">${tip}</p>
     ${examBox(p, lv)}
     ${lv === 'a2' && !xDurable() ? examBox(parts(S, now, gateWords('a1')), 'a1') : ''}
+    ${placeBox()}
     <h2>Lộ trình</h2>
     <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ 4 mặt · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
     <div id="grid">${roadmap(now, nu)}</div>
@@ -234,7 +235,9 @@ function practice() {
 }
 
 // Góp ý #3 / #4: 📖 Từ điển: tra theo tiếng Anh hoặc tiếng Việt, lọc theo dấu, bấm từ để xem chi tiết và nghe.
-const DICT = { q: '', f: null, lv: null, open: null };   // lv: lọc theo cấp (người sáng lập 23/10/2026)
+const DICT = { q: '', f: null, lv: null, open: null };
+const DICT_MAX = 300;   // vẽ tối đa 300 dòng (kho có hơn 5.000 từ): gõ để tìm hoặc lọc cấp
+const lvw = w => w.lv || UBY[w.u].lv;   // lv: lọc theo cấp (người sáng lập 23/10/2026)
 function dict() {
   window.CUR = { view: 'tu-dien' };
   $app.innerHTML = `<h1>📖 Từ điển A1</h1>
@@ -246,21 +249,22 @@ function dict() {
     const lvb = t.closest('[data-dl]'); if (lvb) { DICT.lv = lvb.dataset.dl || null; return dictList(); }
     if (t.closest('[data-say]')) return;
     const r = t.closest('[data-w]'); if (r) { DICT.open = DICT.open === r.dataset.w ? null : r.dataset.w; dictList(); if (DICT.open) speak(WBY[DICT.open].w); } };
-  dictList();
+  dictList(); if (!REF) loadRef().then(() => { if (document.getElementById('dl')) dictList(); }).catch(() => {});
 }
 function dictList() {
   const now = Date.now(), fold = x => String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd'), q = fold(DICT.q.trim());
-  const all = WORDS.map(w => ({ w, st: wstat(S, w, now) })), hit = q ? all.filter(x => fold(x.w.w).includes(q) || fold(x.w.vi).includes(q)) : all;
-  const lvOf = x => UBY[x.w.u].lv, inLv = hit.filter(x => !DICT.lv || lvOf(x) === DICT.lv);
+  const all = [...WORDS, ...(REF || [])].map(w => ({ w, st: w.u ? wstat(S, w, now) : 'ref' })), hit = q ? all.filter(x => fold(x.w.w).includes(q) || fold(x.w.vi).includes(q)) : all;
+  const lvOf = x => lvw(x.w), inLv = hit.filter(x => !DICT.lv || lvOf(x) === DICT.lv);
   const n = k => inLv.filter(x => !k || x.st === k).length, nl = l => hit.filter(x => (!DICT.f || x.st === DICT.f) && (!l || lvOf(x) === l)).length;
-  document.getElementById('df').innerHTML = `<div class="chips" aria-label="Cấp">${[[null, 'Mọi cấp'], ['pre', '🌱 Pre-A1'], ['a1', '🌿 A1'], ['a2', '🌳 A2']].map(([k, l]) => `<button class="chip ${DICT.lv === k ? 'on' : ''}" data-dl="${k || ''}" aria-pressed="${DICT.lv === k}">${l} <b>${nl(k)}</b></button>`).join('')}</div>
+  document.getElementById('df').innerHTML = `<div class="chips" aria-label="Cấp">${[[null, 'Mọi cấp'], ['pre', '🌱 Pre-A1'], ['a1', '🌿 A1'], ['a2', '🌳 A2'], ['b1', '📗 B1'], ['b2', '📘 B2'], ['c1', '📙 C1'], ['c2', '📕 C2']].map(([k, l]) => `<button class="chip ${DICT.lv === k ? 'on' : ''}" data-dl="${k || ''}" aria-pressed="${DICT.lv === k}">${l} <b>${nl(k)}</b></button>`).join('')}</div>
     <div class="chips" aria-label="Trạng thái">${[[null, 'Tất cả'], ...WST].map(([k, l]) => `<button class="chip ${DICT.f === k ? 'on' : ''}" data-f="${k || ''}" aria-pressed="${DICT.f === k}">${l} <b>${n(k)}</b></button>`).join('')}</div>
     <p class="mute">Mỗi từ có 4 dấu mặt: 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng (sáng = đang nhớ). ✅ = đủ cả 4. ⚠️ Quên = lần gần nhất sai hoặc đã tới lúc sắp quên: luyện lại là lên.</p>`;
-  const rows = inLv.filter(x => !DICT.f || x.st === DICT.f).sort((a, b) => a.w.w.localeCompare(b.w.w)), lab = k => WST.find(x => x[0] === k)[1];
-  document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="lvtag ${UBY[w.u].lv}">${LVN[UBY[w.u].lv]}</span> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute" style="text-align:right">${lab(st)}${st !== 'chua' ? `<br>${dimMarks(S.cards[w.id], now)}` : ''}</span></div>
-    ${DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · ${uLabel(UBY[w.u])}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
+  const rows0 = inLv.filter(x => !DICT.f || x.st === DICT.f).sort((a, b) => a.w.w.localeCompare(b.w.w)), rows = rows0.slice(0, DICT_MAX), lab = k => k === 'ref' ? '📚 chỉ tra' : WST.find(x => x[0] === k)[1];
+  document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="lvtag ${lvw(w)}">${LVN[lvw(w)]}</span> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute" style="text-align:right">${lab(st)}${st !== 'chua' && st !== 'ref' ? `<br>${dimMarks(S.cards[w.id], now)}` : ''}</span></div>
+    ${DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · ${w.u ? uLabel(UBY[w.u]) : `${LVN[w.lv]} · chỉ tra, chưa có bài học`}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
       <p>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}
       ${sayBtns(w)}</div>` : ''}</div>`).join('') : '<p class="mute">Không có từ nào.</p>';
+  if (rows0.length > rows.length) document.getElementById('dl').innerHTML += `<p class="mute">Đang hiện ${rows.length} / ${rows0.length} từ. Gõ để tìm hoặc chọn cấp.</p>`;
 }
 
 
@@ -332,6 +336,7 @@ document.addEventListener('click', e => {
   if (a === 'learn') learn(UBY[t.dataset.u]);
   if (a === 'exam') exam(t.dataset.lv || curLevel());
   if (a === 'practice') practiceMenu();
+  if (a === 'place') placeTest();
   if (a === 'dict') dict();
 });
 document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('#grid [data-un]'); if (g) return learn(UBY[g.dataset.un]);

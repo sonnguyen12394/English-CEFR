@@ -18,3 +18,8 @@ Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`so
 - Mở bài A2 khi qua Thi chuyển cấp A1 lần 1. Cổng A2: Học 100% + mỗi mặt Nhớ ≥ 80% trên 762 từ A2, **và A1 "Đạt bền"**. Bài thi A2 như A1 (2 vòng × 40, thi lại sau 14 ngày), mỗi vòng 30 câu A2 + 10 câu Pre-A1/A1.
 - Câu thi A2: `content/exam2-s*.txt` → `node tools/build-exam.mjs ../sonnguyen12394.github.io a2` → `exam-a2.json` (762 câu mới, tự soạn, chưa người thật kiểm).
 - B1–C2: chưa làm; dữ liệu có sẵn ở game (B2–C2 gần như chưa có âm thanh thu sẵn).
+
+## B1–C2: tra và đo cấp (23/10/2026, người sáng lập: "làm đến C2 … để xác định cấp độ từ vựng")
+- `ref.json` (`node tools/extract-ref.mjs ../sonnguyen12394.github.io`): 3.490 từ B1 890 (gồm 82 từ chuyển từ A2) · B2 1.020 · C1 1.020 · C2 560 từ game, bỏ từ trùng cấp dưới. **Chỉ tra** trong 📖 Từ điển, chưa có bài học / thi.
+- 🧭 **Xác định cấp độ từ vựng** (`place.js`): mỗi cấp Pre-A1 → C2 lấy 15 từ, chọn nghĩa hoặc "Không biết"; biết = (đúng − sai/3)/15; dừng khi một cấp < 35%; cấp đạt = cấp cao nhất mà nó và mọi cấp dưới ≥ 80%. Chỉ đo nhận ra nghĩa, sai số khoảng ±15%. Lưu ở `S.place`.
+- Cấp B1–C2 lấy theo game, **chưa soát** như A1 / A2 (chưa đối chiếu EVP).

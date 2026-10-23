@@ -1,6 +1,6 @@
 # Từ vựng A1 (repo English-CEFR)
 
-Trang học riêng 918 từ A1: 825 từ lấy từ game English Ladder (đã chuyển 45 từ sang A2) + 93 từ A1 bổ sung (`content/a1-bosung.json`). Ba cấp: Pre-A1 (379 từ) → A1 (539 từ) → A2 (762 từ, `a2.json`), mỗi cấp một Thi chuyển cấp. B1–C2 chưa làm (người sáng lập chọn làm kỹ A2 trước). Xem `README.md`.
+Trang học riêng 918 từ A1: 825 từ lấy từ game English Ladder (đã chuyển 45 từ sang A2) + 93 từ A1 bổ sung (`content/a1-bosung.json`). Ba cấp: Pre-A1 (379 từ) → A1 (539 từ) → A2 (762 từ, `a2.json`), mỗi cấp một Thi chuyển cấp. B1–C2 chỉ có để tra (`ref.json`) và đo cấp (`place.js`), chưa có bài học / thi. Xem `README.md`.
 
 ## Luật
 - Kiểm giao diện chỉ trên iPhone (WebKit, như Safari / Chrome trên iPhone). Không kiểm bằng Chrome máy tính / Android thay (người sáng lập 22/10/2026).
