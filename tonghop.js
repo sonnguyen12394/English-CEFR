@@ -18,7 +18,7 @@ function formsOf(w) {
 const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 let FORM_RE = null;
 const formRe = w => (FORM_RE = FORM_RE || {})[w.id] || (FORM_RE[w.id] = new RegExp(`(?<![A-Za-z'])(${formsOf(w.w).map(reEsc).join('|')})(?![A-Za-z])`, 'i'));
-const learned = w => !!S.cards[w.id] && !!S.units[w.u];
+const learned = w => !!S.cards[w.id];
 // các từ đã học có trong đoạn chữ, kèm dạng chữ thật xuất hiện
 function wordsIn(text) { const t = String(text).replace(/[‘’]/g, "'"); const out = [];
   for (const w of WORDS) { if (!learned(w) || w.w.replace(/\s/g, '').length < MIN_LEN) continue; const m = formRe(w).exec(t); if (m) out.push({ w, form: m[1] }); }
@@ -49,17 +49,18 @@ const dimNow = () => { const p = parts(S, Date.now()); return DIMS.map(([k, l]) 
 
 // ---------- 📰 Đọc bài ----------
 function readTask() {
-  const now = Date.now(), cand = UNITS.filter(u => S.units[u.id] && u.reading);
-  if (!cand.length) return practiceMenu();
-  const score = u => u.reading.qs.reduce((n, q) => n + wordsIn(q.why).filter(x => !heldDim(S.cards[x.w.id], 'nghia', now)).length, 0);
-  const u = shuf(cand).sort((a, b) => score(b) - score(a))[0], R = u.reading, got = new Map();
+  // bài đọc theo unit gốc (READS, a1.json): mở khi đã học ≥ 70% từ của unit gốc (bài học đã xếp lại theo cấp, 23/10/2026)
+  const now = Date.now(), cand = READS.filter(r => r.words.filter(id => S.cards[id]).length >= 0.7 * r.words.length);
+  if (!cand.length) { toast('Chưa có bài đọc: học thêm vài bài để mở.'); return practiceMenu(); }
+  const score = r => r.qs.reduce((n, q) => n + wordsIn(q.why).filter(x => !heldDim(S.cards[x.w.id], 'nghia', now)).length, 0);
+  const R = shuf(cand).sort((a, b) => score(b) - score(a))[0], u = { id: R.src }, got = new Map();
   let i = 0, ok = 0;
   const show = () => {
     if (i >= R.qs.length) return doneBox(`Xong bài đọc: ${ok}/${R.qs.length} câu đúng`,
       `<p class="mute">Chấm 📖 Nghĩa ${got.size} từ: ${chipsOf([...got.values()], 'on') || '(không có)'}</p><p class="mute">Bài dịch: ${esc(R.vi)}</p><p class="mute">${dimNow()}</p>`, readTask);
     const q = R.qs[i], opts = shuf([q.a, ...q.w]);
     window.CUR = { view: 'doc-bai', unit: u.id, item: 'r:' + u.id + ':' + i, prompt: q.q };
-    $app.innerHTML = `${backRow(`📰 Đọc · ${uLabel(u)} · câu ${i + 1}/${R.qs.length}`)}
+    $app.innerHTML = `${backRow(`📰 Đọc · ${esc(R.tvi || R.title)} · câu ${i + 1}/${R.qs.length}`)}
       <div class="box"><b>${esc(R.title)}</b><p style="font-size:18px;line-height:1.6;margin:8px 0 0">${esc(R.text)}</p></div>
       <p class="q">${esc(q.q)}</p>${opts.map((o, k) => `<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}<div id="fb"></div>`;
     let done = false;
