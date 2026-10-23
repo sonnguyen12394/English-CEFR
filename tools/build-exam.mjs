@@ -1,7 +1,7 @@
 // Ngân hàng câu cho Thi chuyển cấp A1: mỗi từ một câu MỚI (không trùng câu luyện), soạn trong content/exam-s*.txt (dòng "id|câu").
 // Kiểm: câu có từ đích (kể cả dạng -s / -ed / -ing), không trùng câu ví dụ / câu điền đã luyện, ≥ 85% chữ trong câu là từ A1 (hoặc từ A1 của game).
 // Thêm câu nghe có âm thanh thu sẵn của game (clips.json, câu ≤ 14 chữ, dễ, không trùng câu luyện) cho dạng nghe; chép tệp mp3 sang a/.
-// Chạy: node tools/build-exam.mjs ../sonnguyen12394.github.io [a1|a2]  → exam-a1.json / exam-a2.json (câu A2 soạn ở content/exam2-s*.txt)
+// Chạy: node tools/build-exam.mjs ../sonnguyen12394.github.io [a1|a2]  → exam-a1.json / exam-a2.json (câu soạn ở content/exam*-s*.txt, dùng chung mọi cấp theo id từ; tệp sau ghi đè tệp trước)
 import fs from 'node:fs';
 const src = process.argv[2] || '../sonnguyen12394.github.io', root = new URL('..', import.meta.url).pathname, LV = process.argv[3] || 'a1';
 const d = JSON.parse(fs.readFileSync(root + LV + '.json', 'utf8')), W = d.units.flatMap(u => u.words);
@@ -24,7 +24,7 @@ function formsOf(x) { x = x.toLowerCase(); if (/\s/.test(x)) { const [h, ...r] =
 const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const findForm = (w, s) => { const m = new RegExp(`(?<![A-Za-z'])(${formsOf(w.w).map(reEsc).join('|')})(?![A-Za-z])`, 'i').exec(s.replace(/[‘’]/g, "'")); return m ? m[1] : null; };
 const seen = new Set(W.flatMap(w => [w.ex, w.cloze.s.replace('___', w.cloze.a)]).map(s => s.toLowerCase()));
-const lines = fs.readdirSync(root + 'content').filter(f => new RegExp(`^${LV === 'a1' ? 'exam' : 'exam2'}-s\\d+\\.txt$`).test(f)).sort().flatMap(f => fs.readFileSync(root + 'content/' + f, 'utf8').split('\n').filter(Boolean));
+const lines = fs.readdirSync(root + 'content').filter(f => /^exam\d?-s\d+\.txt$/.test(f)).sort().flatMap(f => fs.readFileSync(root + 'content/' + f, 'utf8').split('\n').filter(Boolean));
 const S = {}; for (const l of lines) { const i = l.indexOf('|'); S[l.slice(0, i)] = l.slice(i + 1).trim(); }
 const errs = [], out = {}, hard = [];
 for (const w of W) { const s = S[w.id];

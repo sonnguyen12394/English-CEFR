@@ -1,0 +1,160 @@
+headteacher|The headteacher spoke to all the students.
+cruise|They went on a cruise around the islands.
+overseas|My cousin works overseas.
+organize|Who will organize the party?
+provide|The hotel provides free towels.
+develop|The city is developing very fast.
+apply|I want to apply for this job.
+experience|Do you have any experience with children?
+trade|Trade between the two countries is growing.
+rent|We rent a small flat near the river.
+value|This old ring has a high value.
+retire|My father will retire next year.
+retired|My grandmother is a retired teacher.
+quit|He quit his job to travel.
+graduate|She will graduate from university in June.
+appointment|I have an appointment with the dentist at three.
+indicate|The red light indicates that the machine is on.
+consist|The team consists of five players.
+account|I opened a bank account.
+brand|What brand is your phone?
+branch|The bank has a branch near my office.
+exchange|We did a language exchange every Friday.
+shop-assistant|The shop assistant found the right size for me.
+budget|Our budget for the trip is two million dong.
+fee|There is a small fee for parking.
+fare|How much is the bus fare to the city?
+clerk|The hotel clerk gave me my key.
+labour|The farm needs a lot of labour in summer.
+bargain|This jacket was a real bargain.
+handle|She can handle difficult customers.
+satisfy|It is hard to satisfy everyone.
+bonus|Everyone got a bonus at New Year.
+fiction|I prefer fiction to history books.
+portrait|There is a portrait of the king on the wall.
+statue|There is a big statue in the park.
+exhibition|We went to a photo exhibition.
+horror|I don't like horror films.
+romantic|We had a romantic dinner by the lake.
+mystery|How the thief got in is still a mystery.
+magic|The children loved the magic show.
+violin|She practises the violin every day.
+racket|I need a new tennis racket.
+composer|Mozart was a famous composer.
+lyric|I can't remember the lyrics of the song.
+rhythm|Clap your hands to the rhythm.
+tune|He is whistling a happy tune.
+medal|She won a gold medal at the games.
+classic|This is a classic film from the 1960s.
+passage|Read the passage and answer the questions.
+tone|She spoke in a friendly tone.
+seed|Plant the seeds in spring.
+shell|We collected shells on the beach.
+impact|The rain had a big impact on the harvest.
+ray|A ray of sun came through the window.
+bay|Ha Long Bay is very beautiful.
+dam|They built a dam across the river.
+society|Old people are important in our society.
+government|The government is building new roads.
+population|The population of the city is growing.
+flood|The flood damaged many houses.
+earthquake|There was a small earthquake last night.
+emergency|In an emergency, call this number.
+survive|Plants can't survive without water.
+murder|The police are looking into the murder.
+court|The case went to court.
+illegal|It is illegal to drive without a licence.
+guard|A guard stood at the gate.
+trick|My uncle showed us a card trick.
+violent|I don't like violent films.
+political|They talked about political problems.
+custom|It's a custom to take off your shoes in the house.
+bride|The bride wore a white dress.
+roundabout|Turn left at the roundabout.
+tram|We took a tram to the old town.
+shore|We walked along the shore.
+landscape|The landscape in Ha Giang is beautiful.
+downtown|We had dinner downtown.
+highway|The highway was busy on Friday evening.
+lane|Stay in the right lane.
+zone|This is a no-smoking zone.
+military|He did military service for two years.
+armed|The bank was robbed by armed men.
+invade|The army invaded the country.
+gender|Write your name, age and gender.
+slave|The story is about a slave who became free.
+ancestor|We visit our ancestors' graves at Tet.
+treasure|The children looked for treasure on the island.
+harvest|The rice harvest is in October.
+research|She does research on plants.
+evidence|The police have no evidence.
+method|This is a good method for learning words.
+campus|The university campus is very green.
+chapter|Read the first chapter for homework.
+script|The actors are reading the script.
+summary|Write a short summary of the story.
+episode|Did you watch the last episode?
+photography|Photography is my hobby.
+software|You need new software for this computer.
+click|Click here to download the file.
+battery|My phone battery is almost dead.
+textbook|Open your textbook at page twenty.
+artificial|These flowers are artificial.
+automatic|The doors are automatic.
+audio|Listen to the audio and answer the questions.
+comic|My son loves reading comics.
+communicate|We communicate by email.
+expression|"Break a leg" is an English expression.
+response|I'm still waiting for a response to my email.
+predict|Nobody can predict the future.
+attention|Please pay attention to the teacher.
+specific|Can you give me a specific example?
+used|I'm used to getting up early.
+contrast|There is a big contrast between the city and the countryside.
+scream|The children screamed with joy.
+beg|The dog begged for food at the table.
+cheer|The fans cheered for their team.
+tear|There were tears in her eyes.
+prevent|Washing your hands can prevent illness.
+escape|The bird escaped from its cage.
+explore|We explored the old town on foot.
+gather|People gathered in the square for the concert.
+freeze|Water freezes at zero degrees.
+pretend|He pretended to be asleep.
+divide|Divide the cake into eight pieces.
+reflect|The lake reflects the mountains.
+release|The band will release a new song next month.
+remain|Please remain in your seats.
+represent|She will represent our school in the competition.
+float|Wood floats on water.
+rush|There's no need to rush. We have time.
+slide|The children slid down the hill on the snow.
+wander|We wandered around the market for an hour.
+adjust|You can adjust the seat.
+split|Let's split the bill.
+trap|The mouse was caught in a trap.
+ruin|The rain ruined our picnic.
+although|Although it was raining, we went out.
+major|There was a major accident on the highway.
+rate|The hotel rate includes breakfast.
+possibly|Could you possibly help me?
+strongly|I strongly agree with you.
+successfully|He successfully passed the test.
+indeed|It was indeed a great day.
+therefore|It was raining. Therefore, we stayed home.
+though|It was cold. We went swimming, though.
+whatever|You can eat whatever you like.
+upon|Once upon a time, there was a king.
+within|Please reply within three days.
+unlike|Unlike her sister, she is very quiet.
+till|Wait till I come back.
+plus|Two plus three is five.
+ahead|Go straight ahead.
+apart|My parents live apart now.
+forever|I will remember this day forever.
+worldwide|The song became famous worldwide.
+aged|The class is for children aged six to ten.
+leisure|What do you do in your leisure time?
+nowadays|Nowadays, everyone has a phone.
+apparently|Apparently, the shop is closed today.
+gradually|The weather gradually got warmer.

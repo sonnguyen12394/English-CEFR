@@ -32,3 +32,16 @@ Máy đối chiếu, chưa người thật kiểm. Chạy lại: `python3 tools/
 | C2 | 896 | 12% | 789 |
 
 Danh sách đủ từng từ lệch / thiếu: `content/ref/doi-chieu.json`.
+
+## 3. Sau khi xếp lại (bản 19, người sáng lập: "xếp lại toàn bộ")
+| Cấp | Số từ | Đúng chuẩn | Chuẩn không có (giữ cấp game, chưa soát) |
+|---|---|---|---|
+| Pre-A1 | 378 | 98% | 2% |
+| A1 | 599 | 98% | 2% |
+| A2 | 932 | 94% | 6% |
+| B1 | 1.295 | 88% | 12% |
+| B2 | 936 | 85% | 15% |
+| C1 | 527 | 29% | 71% |
+| C2 | 503 | 21% | 79% |
+
+Độ đủ không đổi (xếp lại không thêm từ): kho vẫn thiếu so với chuẩn, nhất là B1–C2. Muốn đủ cần soạn thêm từ (nghĩa, ví dụ, câu điền, câu thi).

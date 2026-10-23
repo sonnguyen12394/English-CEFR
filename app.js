@@ -14,13 +14,16 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 18;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 19;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
 const $app = document.getElementById('app');
 let UNITS = [], WORDS = [], WBY = {}, UBY = {}, READS = [];
-const LVN = { pre: 'Pre-A1', a1: 'A1', a2: 'A2', b1: 'B1', b2: 'B2', c1: 'C1', c2: 'C2' };   // B1–C2: chỉ tra + đo cấp (place.js)
+const LVN = { pre: 'Pre-A1', a1: 'A1', a2: 'A2', b1: 'B1', b2: 'B2', c1: 'C1', c2: 'C2' };   // B1–C2: chỉ tra (ref.json)
+// Cấp theo chuẩn CEFR-J / Octanove (tools/build-levels.mjs, 23/10/2026). Bài đo cấp (place.js) đã bỏ theo người sáng lập.
+let REF = null;   // từ B1–C2 để tra, tải khi mở Từ điển
+async function loadRef() { if (REF) return REF; REF = (await (await fetch('ref.json?v=2')).json()).words; for (const w of REF) WBY[w.id] = w; return REF; }
 const LEVELS = ['pre', 'a1', 'a2'];
 let S = null, user = null, sync = '';
 
@@ -186,7 +189,6 @@ function home() {
     <p class="mute">${tip}</p>
     ${examBox(p, lv)}
     ${lv === 'a2' && !xDurable() ? examBox(parts(S, now, gateWords('a1')), 'a1') : ''}
-    ${placeBox()}
     <h2>Lộ trình</h2>
     <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ 4 mặt · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
     <div id="grid">${roadmap(now, nu)}</div>
@@ -336,7 +338,6 @@ document.addEventListener('click', e => {
   if (a === 'learn') learn(UBY[t.dataset.u]);
   if (a === 'exam') exam(t.dataset.lv || curLevel());
   if (a === 'practice') practiceMenu();
-  if (a === 'place') placeTest();
   if (a === 'dict') dict();
 });
 document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('#grid [data-un]'); if (g) return learn(UBY[g.dataset.un]);
@@ -352,8 +353,8 @@ new MutationObserver(syncTabs).observe($app, { childList: true });
 $tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; if (b.dataset.tab === 'dict') dict(); else home(); scrollTo(0, 0); });
 
 (async () => {
-  fetch('a/index.json?v=4').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
-  try { for (const f of ['a1.json?v=5', 'a2.json?v=1']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
+  fetch('a/index.json?v=5').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
+  try { for (const f of ['a1.json?v=6', 'a2.json?v=2']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   let last;

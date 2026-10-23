@@ -1,5 +1,11 @@
 # Từ vựng tiếng Anh (Pre-A1 → A1 → A2)
 
+> **Từ 23/10/2026 (bản 19): toàn bộ kho từ dựng lại theo chuẩn CEFR-J / Octanove** (`node tools/build-levels.mjs ../sonnguyen12394.github.io`). Các mục cũ bên dưới nói về cách chia trước đó (danh sách chuyển A1↔A2↔B1 bằng tay, bài đo cấp) đã bị thay thế; xem `docs/DOI-CHIEU-CEFRJ.md`.
+> - Cấp = CEFR-J Vocabulary Profile 1.5 / Octanove C1–C2 (`content/ref/`); chuẩn không có thì giữ cấp của game.
+> - Khoá học: **Pre-A1 378 từ / 45 bài · A1 599 / 67 · A2 932 / 100**, mỗi cấp tối đa 15 chủ đề chung. B1 1.295 · B2 936 · C1 527 · C2 503: chỉ tra trong Từ điển (`ref.json`).
+> - Câu thi: `content/exam*-s*.txt` dùng chung theo id → `node tools/build-exam.mjs ../sonnguyen12394.github.io a1|a2` (A1 977, A2 932 câu; tự soạn, chưa người thật kiểm).
+> - Bài 🧭 đo cấp đã bỏ (người sáng lập 23/10/2026).
+
 Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`sonnguyen12394.github.io`) + 93 từ / 11 unit "A1 bổ sung" (23/10/2026, theo đối chiếu Cambridge, `docs/DOI-CHIEU-CAMBRIDGE.md`; 63 từ lấy từ cấp A2 / B1 của game, 30 từ tự soạn ở `content/a1-bosung-soan.json`, chưa người thật kiểm).
 
 - Trang: https://sonnguyen12394.github.io/English-CEFR/

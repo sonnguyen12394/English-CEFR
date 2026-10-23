@@ -1,0 +1,160 @@
+kick|He kicked the ball into the net.
+bee|A bee is flying around the flowers.
+ugly|I think this old building is ugly.
+shelf|The books are on the top shelf.
+yard|The kids are playing in the yard behind the school.
+kiss|She gave her baby a kiss on the cheek.
+tube|There is a tube of toothpaste in the bathroom.
+row|We sat in the front row at the cinema.
+notebook|Write the new words in your notebook.
+role|She plays the role of a teacher in the film.
+rat|There is a rat in the kitchen!
+bat|Bats come out at night.
+contest|She won a cooking contest last year.
+glad|I'm glad you came to my party.
+lonely|My grandfather feels lonely since my grandmother died.
+cute|What a cute little dog!
+breathe|Breathe in slowly through your nose.
+fever|The child has a high fever.
+dig|The dog is digging a hole in the garden.
+flag|The Vietnamese flag is red with a yellow star.
+cap|He always wears a cap when he plays tennis.
+interview|I have a job interview tomorrow morning.
+skill|Cooking is a useful skill.
+grade|She got a good grade in English.
+ghost|Do you believe in ghosts?
+opera|We went to the opera in Vienna.
+leaf|A yellow leaf fell from the tree.
+pollution|Air pollution is a big problem in big cities.
+judge|The judge listened to both sides.
+vote|Who did you vote for?
+pray|Many people go to the temple to pray.
+prince|The prince married a beautiful girl.
+princess|My daughter wants to be a princess.
+subway|We took the subway to Central Park.
+survey|We did a survey of students' hobbies.
+poem|She wrote a poem for her mother.
+album|The band's new album is very popular.
+drum|My son plays the drum in a band.
+file|I saved the file on my computer.
+elementary|My son goes to elementary school.
+focus|I can't focus when it's noisy.
+set|I bought a new set of plates.
+hurry|Hurry, or we'll miss the train!
+living|What does he do for a living?
+strict|Our teacher is very strict.
+excuse|What's your excuse for being late?
+ideal|This is an ideal place for a picnic.
+tight|These shoes are too tight.
+due|The homework is due on Friday.
+sum|He paid a large sum of money for the car.
+rose|He gave her a red rose.
+spot|This is a good spot for photos.
+block|A big truck is blocking the road.
+pleasure|It's a pleasure to meet you.
+sight|The Eiffel Tower is an amazing sight.
+smart|My little sister is very smart.
+temple|We visited an old temple in Hue.
+jet|A jet flew over our house.
+self|She is starting to feel like her old self again.
+super|The party was super!
+spy|The film is about a spy in London.
+cop|The cop stopped the car.
+lifestyle|He has a very healthy lifestyle.
+manner|She spoke in a friendly manner.
+behaviour|Good behaviour is important at school.
+personality|She has a warm personality.
+fence|There is a white fence around the garden.
+garage|Dad keeps his car in the garage.
+heating|The heating is broken, so the house is cold.
+sink|Put the dirty plates in the sink.
+bend|Bend your knees when you lift heavy things.
+bite|Be careful. The dog might bite you.
+roll|The ball rolled under the car.
+spread|Spread some butter on the bread.
+bury|The dog buried a bone in the garden.
+coin|I found a coin on the floor.
+diamond|Her ring has a small diamond.
+frame|I put the photo in a frame.
+balloon|The children played with red balloons.
+basket|She carried the fruit in a basket.
+blanket|It's cold. Take another blanket.
+kit|Do you have a first aid kit in the car?
+envelope|Put the letter in an envelope.
+strike|The bus drivers are on strike today.
+tap|Turn off the tap when you brush your teeth.
+bench|We sat on a bench in the park.
+crown|The queen wore a gold crown.
+noon|We have lunch at noon.
+purpose|What is the purpose of your visit?
+structure|The structure of this bridge is very strong.
+system|The school has a new computer system.
+strategy|We need a good strategy to win the game.
+target|Our target is to sell one hundred cakes today.
+bake|My mother bakes bread every Sunday.
+fry|Fry the eggs in a little oil.
+pan|Heat some oil in a pan.
+pour|Pour the milk into the glass.
+slice|Can I have a slice of bread?
+flour|You need flour, eggs and milk to make pancakes.
+mix|Mix the eggs and the sugar together.
+delay|There is a delay because of the bad weather.
+anniversary|Today is my parents' wedding anniversary.
+affair|The wedding was a big family affair.
+annoying|The noise from the street is very annoying.
+annoy|My little brother likes to annoy me.
+embarrassing|It was embarrassing when I fell on the stage.
+disappointed|I was disappointed with my test result.
+disappointing|The end of the film was disappointing.
+frightened|The child was frightened of the big dog.
+frightening|The storm last night was frightening.
+frighten|Don't frighten the birds.
+grateful|I'm grateful for your help.
+upset|She was upset because she lost her bag.
+confident|He is confident about his exam.
+confused|I'm confused. Can you explain again?
+confuse|These two words often confuse students.
+ambition|Her ambition is to be a doctor.
+gentle|Be gentle with the baby.
+talent|He has a talent for music.
+staff|The hotel staff were very friendly.
+agent|A travel agent booked our tickets.
+editor|She works as an editor for a magazine.
+captain|The captain of the ship is very experienced.
+royal|We visited the royal palace in Bangkok.
+native|English is her native language.
+generation|Three generations live in this house.
+host|The host welcomed the guests at the door.
+admire|I admire my mother very much.
+appreciate|I really appreciate your help.
+bother|Sorry to bother you, but where is the bank?
+dislike|I dislike getting up early.
+entertainment|The hotel has entertainment every evening.
+greedy|Don't be greedy. Share the cake.
+pity|It's a pity you can't come.
+joy|The baby brought great joy to the family.
+wise|My grandmother is a wise woman.
+lively|The market is lively in the morning.
+elderly|Help the elderly lady with her bags.
+junior|He is a junior doctor at the hospital.
+senior|She is a senior manager in the company.
+regret|I regret not studying harder.
+disturb|Please don't disturb me. I'm working.
+concern|My main concern is the price.
+rumour|I heard a rumour about the new teacher.
+chest|He has a pain in his chest.
+lip|She bit her lip.
+toe|I hurt my big toe.
+dizzy|I feel dizzy when I stand up quickly.
+wheelchair|My grandfather uses a wheelchair.
+pill|Take one pill after each meal.
+cheek|She kissed me on the cheek.
+swallow|The pill is hard to swallow.
+rugby|Rugby is popular in New Zealand.
+shoot|He shot the ball into the goal.
+glove|I lost one glove on the bus.
+sightseeing|We went sightseeing in the old town.
+suitcase|My suitcase is too heavy.
+aisle|I'd like an aisle seat, please.
+timetable|Check the train timetable before you go.
+semester|The new semester starts in September.

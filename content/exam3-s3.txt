@@ -1,0 +1,145 @@
+deeply|She was deeply sad when her cat died.
+instant|I drink instant coffee in the morning.
+load|The truck carried a heavy load of rice.
+original|Is this the original painting?
+professional|He is a professional photographer.
+physical|Swimming is good physical exercise.
+necessary|Is it necessary to book a table?
+certain|I'm certain I locked the door.
+likely|It's likely to rain this evening.
+material|What material is this bag made of?
+pleasant|We had a pleasant walk by the river.
+unpleasant|There is an unpleasant smell in the kitchen.
+silly|Don't be silly!
+mad|My mum was mad at me for breaking the vase.
+smooth|The baby's skin is very smooth.
+shine|The sun is shining today.
+wool|This sweater is made of wool.
+leather|He has a brown leather bag.
+dust|There is a lot of dust on the shelf.
+advanced|She is in the advanced class.
+basic|I know some basic Spanish.
+convenient|The hotel is very convenient for the station.
+familiar|Your face looks familiar.
+fascinating|The museum was fascinating.
+official|English is an official language in India.
+private|This is a private beach.
+proper|You need proper shoes for hiking.
+remote|They live in a remote village in the mountains.
+organized|She is very organized at work.
+uncomfortable|This chair is uncomfortable.
+unfair|It's unfair that he got more money.
+unnecessary|Don't buy unnecessary things.
+indoor|The hotel has an indoor pool.
+fancy|We had dinner at a fancy restaurant.
+latest|Have you seen her latest film?
+panic|Don't panic. Everything will be fine.
+shock|The news was a shock to everyone.
+terrify|Big dogs terrify my little brother.
+impatient|Don't be so impatient. The bus will come soon.
+trust|I trust my best friend.
+loose|This shirt is a bit loose.
+raw|Don't eat raw chicken.
+inch|The screen is fifteen inches wide.
+litre|Buy a litre of milk, please.
+scale|We need a map with a bigger scale.
+precise|Can you give me the precise address?
+appropriate|Jeans are not appropriate for the wedding.
+logical|That's a logical answer.
+comparative|"Bigger" is the comparative form of "big".
+feather|The bird lost a feather.
+pile|There is a pile of books on my desk.
+bush|The cat is hiding in the bush.
+root|The roots of the tree are very deep.
+unknown|The cause of the fire is unknown.
+ability|She has the ability to learn languages quickly.
+opportunity|This job is a great opportunity for me.
+advantage|One advantage of the city is good transport.
+effect|Coffee has a strong effect on me.
+feature|This phone has some new features.
+context|Guess the meaning of the word from the context.
+source|The river is the main source of water for the village.
+solution|We need a solution to this problem.
+contact|Please contact me by email.
+tape|Fix the poster on the wall with tape.
+string|Tie the box with string.
+rope|They pulled the boat with a rope.
+chain|I lock my bike with a chain.
+net|The fishermen pulled in their nets.
+stadium|The stadium was full of fans.
+mall|Let's go to the mall on Saturday.
+countryside|We spent the weekend in the countryside.
+path|Follow the path to the lake.
+doubt|I have no doubt that she will win.
+concentrate|I can't concentrate with the TV on.
+mood|My boss is in a good mood today.
+apologize|You should apologize to your sister.
+admit|He admitted that he was wrong.
+claim|He claims he saw a ghost.
+encourage|My parents encourage me to read.
+pressure|There is a lot of pressure at work.
+force|Nobody can force you to go.
+influence|My teacher had a big influence on me.
+attitude|She has a positive attitude to life.
+consequence|Think about the consequences before you act.
+function|What is the function of this button?
+issue|Money is a big issue for students.
+range|The shop sells a wide range of shoes.
+sample|Can I try a sample of this cheese?
+effort|He made a big effort to learn English.
+challenge|Climbing the mountain was a real challenge.
+favour|Can you do me a favour?
+production|The factory increased production this year.
+clue|Give me a clue!
+lack|He failed because of a lack of practice.
+plenty|We have plenty of time.
+stuff|Put your stuff in the car.
+blame|Don't blame me!
+besides|Besides English, she speaks French.
+beyond|The village is just beyond the hill.
+committee|She is on the school committee.
+chairman|The chairman opened the meeting.
+citizen|He became a citizen of Canada.
+robbery|There was a robbery at the bank.
+debate|We had a debate about school uniforms.
+oppose|Many people oppose the new road.
+forbid|My parents forbid me to stay out late.
+licence|Do you have a driving licence?
+attempt|He passed on his second attempt.
+pursue|She wants to pursue a career in music.
+seek|Seek help if you feel ill.
+significant|There is a significant difference between the two.
+principal|The principal reason is money.
+establish|The school was established in 1990.
+progressive|The city has a progressive mayor.
+dishonest|It's dishonest to copy someone's homework.
+creativity|Art lessons help children's creativity.
+rating|The film has a high rating.
+honour|It's an honour to meet you.
+spill|Don't spill your coffee.
+reveal|She revealed her secret to me.
+display|The shop displays new clothes in the window.
+fault|It's not my fault.
+bug|There is a bug in my room.
+harm|One glass of wine won't do you any harm.
+mosque|There is a big mosque in the city centre.
+creature|The sea is full of strange creatures.
+fool|I felt like a fool.
+shadow|My shadow is very long in the evening.
+shade|Let's sit in the shade.
+partly|It's partly my fault.
+elsewhere|The shop is closed. Let's go elsewhere.
+whom|To whom should I give this letter?
+inner|She has a strong inner voice.
+additional|There is an additional fee for breakfast.
+being|Human beings need water and food.
+make-up|She doesn't wear much make-up.
+wealth|His wealth comes from his family business.
+id|Please show your ID at the door.
+angel|You're an angel! Thank you.
+sake|Please drive slowly, for your children's sake.
+latter|Of the two plans, I prefer the latter.
+screw|Screw the lid onto the jar.
+grace|She dances with grace.
+harmony|The two families live in harmony.
+license|The shop is licensed to sell alcohol.
