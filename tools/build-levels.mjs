@@ -2,7 +2,9 @@
 // Nguồn: mọi cấp A1–C2 của game (CONTENT + data/lv-*.json) + A1 bổ sung (content/a1-bosung.json). Bỏ trùng theo chữ (giữ lần đầu).
 // Cấp (người sáng lập 23/10/2026: "Oxford làm chính"): Oxford 3000/5000 (A1–C1; tải bằng tools/oxford-levels.py, không commit)
 //   → không có thì CEFR-J Vocabulary Profile 1.5 / Octanove C1–C2 (content/ref/) → không có thì giữ cấp của nguồn.
-// Khoá học: A1 (Pre-A1 = từ A1 có trong Cambridge Starters, content/cambridge-yle.json) và A2. B1–C2: chỉ tra (ref.json).
+// Khoá học: A1 (Pre-A1 = từ A1 có trong Cambridge Starters, content/cambridge-yle.json), A2 và A2+. B1–C2: chỉ tra (ref.json).
+// Cấp "+" (người sáng lập 23/10/2026: "sắp xếp lại từ A2+ trở lên"; không chuẩn nào chia sẵn): trong A2, B1, B2, xếp từ theo độ khó
+//   (CEFR-J xếp cao hơn cấp của từ → khó, thấp hơn hoặc có trong Cambridge Starters / Movers → dễ; cùng mức thì ít thông dụng hơn theo Zipf, content/ref/zipf.json từ tools/zipf.py); nửa khó hơn là cấp "+".
 // Chủ đề: một bộ THEMES chung, xếp theo tên unit gốc của game (từ khoá). Mỗi cấp × chủ đề chia bài 6–10 từ. Bài đọc A1 / A2 giữ theo unit gốc.
 // Chạy: node tools/build-levels.mjs ../sonnguyen12394.github.io → a1.json, a2.json, ref.json
 import fs from 'node:fs';
@@ -55,6 +57,15 @@ for (const L of CONTENT.levels) {
     const r = (det.units[u.id] || {}).reading; if (r && ['A1', 'A2'].includes(L.id)) reads.push({ src: u.id, words: ws.map(w => w.id), title: r.title, tvi: r.tvi, text: r.text, vi: r.vi, qs: r.qs }); }
   if (L.id === 'A1') for (const u of sup) u.words.forEach(w => put({ ...w }, 'A1', u.vi));
 }
+// --- cấp "+"
+const ZIPF = JSON.parse(fs.readFileSync(root + 'content/ref/zipf.json', 'utf8'));
+for (const L of ['A2', 'B1', 'B2']) {
+  const xs = pool.filter(x => x.lv === L), cj = x => { const c = forms(x.w.w).map(f => REF.get(f)).find(Boolean); return c ? ORD.indexOf(c) - ORD.indexOf(L) : 0; };   // CEFR-J cao hơn → khó; thấp hơn → dễ (đồ vật quen thuộc ít gặp trong văn bản)
+  const YL = JSON.parse(fs.readFileSync(root + 'content/cambridge-yle.json', 'utf8')), easy = new Set([...YL.starters, ...YL.movers]);
+  const d = x => cj(x) - (forms(x.w.w).some(f => easy.has(f)) ? 1 : 0) - (x.w.pic ? 0.5 : 0);   // Cambridge Starters / Movers → dễ hơn; có hình (emoji, đồ vật cụ thể, dễ hình dung) → dễ hơn
+  xs.sort((a, b) => d(b) - d(a) || (ZIPF[a.w.w] ?? 0) - (ZIPF[b.w.w] ?? 0));   // khó nhất trước
+  xs.slice(0, Math.floor(xs.length / 2)).forEach(x => { x.lv = L + '+'; });
+}
 // --- chia bài
 const chunk = ws => { const k = Math.ceil(ws.length / 10), r = []; for (let i = 0; i < k; i++) r.push(ws.slice(Math.round(i * ws.length / k), Math.round((i + 1) * ws.length / k))); return r; };
 const course = (lvName, filter) => { const out = []; let ch = 0;
@@ -62,13 +73,13 @@ const course = (lvName, filter) => { const out = []; let ch = 0;
     chunk(ws).forEach((part, bi) => out.push({ id: `${lvName}-c${ch + 1}-b${bi + 1}`, lv: lvName, ch, chIcon: icon, chName: name, bi: bi + 1, vi: `${name} ${bi + 1}`, words: part })); ch++; });
   return out; };
 const a1all = pool.filter(x => x.lv === 'A1'), pre = x => x.lv === 'A1' && isPre(x.w.w);
-const units1 = [...course('pre', pre), ...course('a1', x => x.lv === 'A1' && !isPre(x.w.w))], units2 = course('a2', x => x.lv === 'A2');
+const units1 = [...course('pre', pre), ...course('a1', x => x.lv === 'A1' && !isPre(x.w.w))], units2 = [...course('a2', x => x.lv === 'A2'), ...course('a2p', x => x.lv === 'A2+')];
 const inCourse = new Set([...units1, ...units2].flatMap(u => u.words.map(w => w.id)));
 const readsFor = lvs => reads.filter(r => r.words.some(id => inCourse.has(id)));
 fs.writeFileSync(root + 'a1.json', JSON.stringify({ units: units1, reads: readsFor() }));
 fs.writeFileSync(root + 'a2.json', JSON.stringify({ units: units2, reads: [] }));
-fs.writeFileSync(root + 'ref.json', JSON.stringify({ words: pool.filter(x => !['A1', 'A2'].includes(x.lv)).map(x => ({ id: x.w.id, w: x.w.w, pos: x.w.pos, ipa: x.w.ipa, vi: x.w.vi, ex: x.w.ex, exVi: x.w.exVi, lv: x.lv.toLowerCase() })) }));
+fs.writeFileSync(root + 'ref.json', JSON.stringify({ words: pool.filter(x => !['A1', 'A2', 'A2+'].includes(x.lv)).map(x => ({ id: x.w.id, w: x.w.w, pos: x.w.pos, ipa: x.w.ipa, vi: x.w.vi, ex: x.w.ex, exVi: x.w.exVi, lv: x.lv.toLowerCase().replace('+', 'p') })) }));
 const c = l => pool.filter(x => x.lv === l).length, n = us => us.reduce((s, u) => s + u.words.length, 0);
-console.log(`Pre-A1 ${n(units1.filter(u => u.lv === 'pre'))} từ / ${units1.filter(u => u.lv === 'pre').length} bài · A1 ${n(units1.filter(u => u.lv === 'a1'))} / ${units1.filter(u => u.lv === 'a1').length} · A2 ${n(units2)} / ${units2.length} · B1 ${c('B1')} · B2 ${c('B2')} · C1 ${c('C1')} · C2 ${c('C2')} · tổng ${pool.length} · theo Oxford ${pool.filter(x => x.by === 'oxford').length} · theo CEFR-J/Octanove ${pool.filter(x => x.by === 'cefrj').length} · bài đọc ${reads.length}`);
+console.log(`Pre-A1 ${n(units1.filter(u => u.lv === 'pre'))} từ / ${units1.filter(u => u.lv === 'pre').length} bài · A1 ${n(units1.filter(u => u.lv === 'a1'))} / ${units1.filter(u => u.lv === 'a1').length} · A2 ${n(units2.filter(u => u.lv === 'a2'))} / ${units2.filter(u => u.lv === 'a2').length} · A2+ ${n(units2.filter(u => u.lv === 'a2p'))} / ${units2.filter(u => u.lv === 'a2p').length} · B1 ${c('B1')} · B1+ ${c('B1+')} · B2 ${c('B2')} · B2+ ${c('B2+')} · C1 ${c('C1')} · C2 ${c('C2')} · tổng ${pool.length} · theo Oxford ${pool.filter(x => x.by === 'oxford').length} · theo CEFR-J/Octanove ${pool.filter(x => x.by === 'cefrj').length} · bài đọc ${reads.length}`);
 console.log('từ A1/A2 ở chủ đề cuối "Ý tưởng":', pool.filter(x => ['A1', 'A2'].includes(x.lv) && x.th === THEMES.length - 1).length);
-for (const l of ['pre', 'a1', 'a2']) { const us = [...units1, ...units2].filter(u => u.lv === l); console.log(l, [...new Set(us.map(u => u.ch))].map(c => { const x = us.filter(u => u.ch === c); return x[0].chIcon + x.length; }).join(' ')); }
+for (const l of ['pre', 'a1', 'a2', 'a2p']) { const us = [...units1, ...units2].filter(u => u.lv === l); console.log(l, [...new Set(us.map(u => u.ch))].map(c => { const x = us.filter(u => u.ch === c); return x[0].chIcon + x.length; }).join(' ')); }

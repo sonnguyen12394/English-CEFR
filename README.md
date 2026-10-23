@@ -2,7 +2,8 @@
 
 > **Từ 23/10/2026 (bản 20): toàn bộ kho từ dựng lại theo Oxford 3000/5000 làm chuẩn chính** (người sáng lập chọn), không có thì CEFR-J / Octanove, không có nữa thì cấp của game. Dựng: `python3 tools/oxford-levels.py` (tải PDF Oxford, không commit vì có bản quyền) rồi `node tools/build-levels.mjs ../sonnguyen12394.github.io`. Các mục cũ bên dưới nói về cách chia trước đó (danh sách chuyển A1↔A2↔B1 bằng tay, bài đo cấp) đã bị thay thế; xem `docs/DOI-CHIEU-CEFRJ.md`.
 > - Vì sao Oxford: hai chuẩn uy tín (CEFR-J và Oxford) chỉ cùng cấp 44% số từ; CEFR-J (soạn cho người học phổ thông châu Á) xếp nhiều từ người lớn quá cao (passport B1, Oxford A1). English Vocabulary Profile không tải được cả danh sách.
-> - Khoá học: **Pre-A1 365 từ / 44 bài · A1 554 / 64 · A2 788 / 85**, mỗi cấp tối đa 15 chủ đề chung. B1 799 · B2 1.132 · C1 1.057 · C2 475: chỉ tra trong Từ điển (`ref.json`).
+> - Khoá học: **Pre-A1 365 từ / 44 bài · A1 554 / 64 · A2 394 / 45 · A2+ 394 / 46** (mỗi cấp một cổng; A2 cần A1 "Đạt bền", A2+ cần A2 "Đạt bền"), mỗi cấp tối đa 15 chủ đề chung. B1 400 · B1+ 399 · B2 566 · B2+ 566 · C1 1.057 · C2 475: chỉ tra trong Từ điển (`ref.json`).
+> - Cấp "+" (23/10/2026, không chuẩn nào chia sẵn): trong A2 / B1 / B2, nửa khó hơn là cấp "+". Độ khó: CEFR-J xếp cao hơn → khó; thấp hơn hoặc có trong Cambridge Starters / Movers → dễ; cùng mức thì ít thông dụng hơn (Zipf, `python3 tools/zipf.py`, cần `pip install wordfreq`) là khó hơn. Hạn chế: đồ vật quen thuộc ít gặp trong văn bản (fork, spoon, fridge) có thể rơi vào cấp "+".
 > - Câu thi: `content/exam*-s*.txt` dùng chung theo id → `node tools/build-exam.mjs ../sonnguyen12394.github.io a1|a2` (A1 919, A2 788 câu; tự soạn, chưa người thật kiểm).
 > - Bài 🧭 đo cấp đã bỏ (người sáng lập 23/10/2026).
 

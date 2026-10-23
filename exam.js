@@ -12,6 +12,8 @@ const XL = {
   a1: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true },
   // A2 (23/10/2026): như A1; mỗi vòng 3/4 câu từ A2, 1/4 câu từ Pre-A1 + A1 (kiểm nhớ lâu); mở khi qua Thi A1 lần 1, cổng cần thêm A1 "Đạt bền".
   a2: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 10 },
+  // A2+ (23/10/2026): như A2; 1/4 câu từ A2; mở khi qua Thi A2 lần 1, cổng cần A2 "Đạt bền".
+  a2p: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 10 },
 };
 const X = { RETEST_D: 14, RETRY_D: 7 };
 const X_DIM = { xT: ['viet', 'dung'], xM: ['dung'], xN: ['nghia'], xL: ['nghe'] };
@@ -22,7 +24,7 @@ const SYN = [['bike', 'bicycle'], ['film', 'movie'], ['holiday', 'vacation'], ['
   ['dad', 'father'], ['mum', 'mother'], ['TV', 'television'], ['photo', 'photograph'], ['phone', 'telephone'], ['someone', 'somebody'],
   ['everyone', 'everybody'], ['nobody', 'no one'], ['amazing', 'fantastic', 'wonderful']];
 const synOf = w => (SYN.find(g => g.some(x => x.toLowerCase() === w.w.toLowerCase())) || []).filter(x => x.toLowerCase() !== w.w.toLowerCase());
-const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=6', 'exam-a2.json?v=3'].map(async f => (await fetch(f)).json())))));
+const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=7', 'exam-a2.json?v=4'].map(async f => (await fetch(f)).json())))));
 
 const samePos = (w, n) => shuf(WORDS.filter(x => x.id !== w.id && x.pos === w.pos)).slice(0, n);
 const xBlank = (s, f) => s.replace(new RegExp(`(?<![A-Za-z'])${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z])`, 'i'), '_____');
@@ -51,16 +53,16 @@ const xDurable = (lv = 'a1') => runsOf(lv).some(x => x.pass && x.re);
 const fmtD = t => new Date(t).toLocaleDateString('vi-VN');
 function examState(p, lv) {
   const C = XL[lv], name = LVN[lv], now = Date.now();
-  if (lv === 'a1' && !xPassed('pre')) return { k: 'khoa', h: `🚪 Thi chuyển cấp A1`, p: 'Mở sau khi qua Thi chuyển cấp Pre-A1 và học đủ bài A1.', btn: '🔒 Chưa mở', on: false };
-  if (lv === 'a2' && !xPassed('a1')) return { k: 'khoa', h: `🚪 Thi chuyển cấp A2`, p: 'Mở sau khi qua Thi chuyển cấp A1 và học đủ bài A2.', btn: '🔒 Chưa mở', on: false };
+  const prev = LEVELS[LEVELS.indexOf(lv) - 1];
+  if (prev && !xPassed(prev)) return { k: 'khoa', h: `🚪 Thi chuyển cấp ${name}`, p: `Mở sau khi qua Thi chuyển cấp ${LVN[prev]} và học đủ bài ${name}.`, btn: '🔒 Chưa mở', on: false };
   if (lv === 'pre' && xPassed('pre')) return { k: 'xong', h: '✅ Đã qua Thi chuyển cấp Pre-A1', p: 'Đã mở bài A1.', btn: 'Làm lại (không đổi kết quả)', on: true };
   if (C.retest && xDurable(lv)) return { k: 'ben', h: `✅ Đạt bền từ vựng ${name}`, p: 'Đã qua 2 lần cách nhau ≥ 14 ngày, câu mới mỗi lần.', btn: 'Làm lại (không đổi kết quả)', on: true };
   const at = C.retest ? xPassAt(lv) : null;
   if (at) { const lastRe = runsOf(lv).filter(x => x.re).slice(-1)[0], due = at + X.RETEST_D * DAY, wait = lastRe && !lastRe.pass ? lastRe.at + X.RETRY_D * DAY : 0, t = Math.max(due, wait);
     return now >= t ? { k: 're', h: `🔁 Thi lại để xác nhận đạt bền ${name}`, p: 'Bài mới, từ khác. Qua lần này mới ghi "Đạt bền".', btn: 'Vào thi lại', on: true, re: true }
       : { k: 'cho', h: `✅ Đã qua Thi chuyển cấp ${name} lần 1`, p: `Thi lại xác nhận mở từ ${fmtD(t)}. Cứ luyện tập đều.`, btn: `🔒 Mở ngày ${fmtD(t)}`, on: false }; }
-  const needDur = lv === 'a2' && !xDurable('a1'), open = gateOpen(p) && !needDur;
-  return { k: open ? 'mo' : 'khoa', h: `🚪 Thi chuyển cấp ${name}`, p: open ? `Đã mở. Tối đa 2 vòng × ${C.N} câu mới chưa gặp khi luyện; gõ không có gợi ý chữ.` : `Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt Nhớ ≥ ${GATE_MEM}% (trên ${p.T} từ ${lv === 'a1' ? 'Pre-A1 + A1' : name})${lv === 'a2' ? ', và A1 đã "Đạt bền"' : ''}.${needDur && gateOpen(p) ? ' Còn thiếu: A1 "Đạt bền".' : ''}`, btn: open ? 'Vào làm bài' : '🔒 Chưa mở', on: open };
+  const dp = DUR_PREV[lv], needDur = !!dp && !xDurable(dp), open = gateOpen(p) && !needDur;
+  return { k: open ? 'mo' : 'khoa', h: `🚪 Thi chuyển cấp ${name}`, p: open ? `Đã mở. Tối đa 2 vòng × ${C.N} câu mới chưa gặp khi luyện; gõ không có gợi ý chữ.` : `Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt Nhớ ≥ ${GATE_MEM}% (trên ${p.T} từ ${lv === 'a1' ? 'Pre-A1 + A1' : name})${dp ? `, và ${LVN[dp]} đã "Đạt bền"` : ''}.${needDur && gateOpen(p) ? ` Còn thiếu: ${LVN[dp]} "Đạt bền".` : ''}`, btn: open ? 'Vào làm bài' : '🔒 Chưa mở', on: open };
 }
 function examBox(p, lv) { const s = examState(p, lv);
   return `<div class="box"><b>${s.h}</b><p class="mute">${s.p}</p><button class="${s.on ? 'pri' : ''}" data-a="exam" data-lv="${lv}" ${s.on ? '' : 'disabled'}>${s.btn}</button>
@@ -72,7 +74,7 @@ async function exam(lv) {
   const C = XL[lv], name = LVN[lv], pool = gateWords(lv).filter(w => EB[w.id]);
   const re = examState(parts(S, Date.now(), gateWords(lv)), lv).re || false, used = new Set(re ? runsOf(lv).flatMap(x => x.ids || []) : []);
   if (pool.length - pool.filter(w => used.has(w.id)).length < 2 * C.N) used.clear();
-  const oldPool = C.old ? gateWords('a1').filter(w => EB[w.id]) : [];   // A2: thêm câu từ Pre-A1 + A1
+  const oldPool = C.old ? gateWords(DUR_PREV[lv]).filter(w => EB[w.id]) : [];   // thêm câu từ cấp trước (A2: Pre-A1 + A1; A2+: A2)
   const draw = () => { const ws = [...shuf(pool.filter(w => !used.has(w.id))).slice(0, C.N - (C.old || 0)), ...shuf(oldPool.filter(w => !used.has(w.id))).slice(0, C.old || 0)];
     ws.forEach(w => used.add(w.id)); const ty = shuf(C.MIX); return shuf(ws).map((w, i) => ({ w, type: ty[i] })); };
   const tally = { ok: 0, n: 0, dim: {}, wrong: [] };
