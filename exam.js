@@ -15,7 +15,7 @@ const SYN = [['bike', 'bicycle'], ['film', 'movie'], ['holiday', 'vacation'], ['
   ['dad', 'father'], ['mum', 'mother'], ['TV', 'television'], ['photo', 'photograph'], ['phone', 'telephone'], ['someone', 'somebody'],
   ['everyone', 'everybody'], ['nobody', 'no one'], ['amazing', 'fantastic', 'wonderful']];
 const synOf = w => (SYN.find(g => g.some(x => x.toLowerCase() === w.w.toLowerCase())) || []).filter(x => x.toLowerCase() !== w.w.toLowerCase());
-const loadEB = async () => EB || (EB = await (await fetch('exam-a1.json?v=1')).json());
+const loadEB = async () => EB || (EB = await (await fetch('exam-a1.json?v=2')).json());
 
 const samePos = (w, n) => shuf(WORDS.filter(x => x.id !== w.id && x.pos === w.pos)).slice(0, n);
 const xBlank = (s, f) => s.replace(new RegExp(`(?<![A-Za-z'])${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z])`, 'i'), '_____');

@@ -13,7 +13,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 11;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
+const APP_V = 12;   // tăng khi phát hành; nhớ đổi ?v= trong index.html
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -155,12 +155,12 @@ function home() {
       <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả 4 mặt.</p>
     </div>
     <div class="duo">
-      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `Unit ${nu.no} · ${esc(nu.vi)}` : 'Đã học hết 87 unit'}</small></button>
+      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `Unit ${nu.no} · ${esc(nu.vi)}` : 'Đã học hết ${UNITS.length} unit'}</small></button>
       <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
     <p class="mute">${tip}</p>
     ${examBox(p)}
-    <h2>87 unit</h2>
+    <h2>${UNITS.length} unit</h2>
     <p class="mute">Xanh dương: đã học · Xanh lá: ≥ 80% từ đang nhớ. Bấm để học / xem lại.</p>
     <div class="units" id="grid">${grid}</div>
     ${gyHomeHtml()}`;
@@ -278,7 +278,7 @@ function run({ title, items, retry, quiet, first, done }) {
 
 // ---------- đăng nhập ----------
 function login(msg) {
-  $app.innerHTML = `<h1>Từ vựng A1</h1><p class="mute">870 từ A1 · 87 unit. Đăng nhập để lưu tiến độ trên mọi máy.</p>
+  $app.innerHTML = `<h1>Từ vựng A1</h1><p class="mute">${WORDS.length} từ A1 · ${UNITS.length} unit. Đăng nhập để lưu tiến độ trên mọi máy.</p>
     <form id="f"><input id="em" type="email" placeholder="Email" autocomplete="email" required>
     <input id="pw" type="password" placeholder="Mật khẩu" autocomplete="current-password" required>
     <button class="pri" type="submit">Đăng nhập</button></form><p class="mute" id="msg">${esc(msg || '')}</p>`;
@@ -316,8 +316,8 @@ new MutationObserver(syncTabs).observe($app, { childList: true });
 $tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; if (b.dataset.tab === 'dict') dict(); else home(); scrollTo(0, 0); });
 
 (async () => {
-  fetch('a/index.json?v=2').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
-  try { const d = await (await fetch('a1.json?v=2')).json(); UNITS = d.units; }
+  fetch('a/index.json?v=3').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
+  try { const d = await (await fetch('a1.json?v=3')).json(); UNITS = d.units; }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   let last;

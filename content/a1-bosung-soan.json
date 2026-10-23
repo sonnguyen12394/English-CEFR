@@ -1,0 +1,752 @@
+{
+"boring": {
+"w": "boring",
+"pos": "adjective",
+"ipa": "/ˈbɔːrɪŋ/",
+"pic": "🥱",
+"vi": "chán, tẻ nhạt",
+"en": "not interesting",
+"ex": "The film was long and boring.",
+"exVi": "Bộ phim dài và chán.",
+"cloze": {
+"s": "This book is ___. Nothing happens in it.",
+"a": "boring",
+"w": [
+"bored",
+"bore"
+]
+},
+"col": {
+"ok": "a boring film",
+"bad": [
+"a bored film",
+"a boring of film"
+]
+}
+},
+"exciting": {
+"w": "exciting",
+"pos": "adjective",
+"ipa": "/ɪkˈsaɪtɪŋ/",
+"pic": "🤩",
+"vi": "thú vị, hấp dẫn, gây phấn khích",
+"en": "making you feel very happy and interested",
+"ex": "The football match was very exciting.",
+"exVi": "Trận bóng đá rất hấp dẫn.",
+"cloze": {
+"s": "Our trip to the mountains was really ___.",
+"a": "exciting",
+"w": [
+"excited",
+"excite"
+]
+},
+"col": {
+"ok": "an exciting game",
+"bad": [
+"an excited game",
+"a exciting game"
+]
+}
+},
+"sofa": {
+"w": "sofa",
+"pos": "noun",
+"ipa": "/ˈsəʊfə/",
+"pic": "🛋️",
+"vi": "ghế sô-pha",
+"en": "a long soft seat for two or more people",
+"ex": "My dad is sleeping on the sofa.",
+"exVi": "Bố tôi đang ngủ trên ghế sô-pha.",
+"cloze": {
+"s": "We sit on the ___ and watch TV.",
+"a": "sofa",
+"w": [
+"shelf",
+"sink"
+]
+},
+"col": {
+"ok": "sit on the sofa",
+"bad": [
+"sit in the sofa",
+"sit at the sofa"
+]
+}
+},
+"living-room": {
+"w": "living room",
+"pos": "noun",
+"ipa": "/ˈlɪvɪŋ ruːm/",
+"pic": "🛋️",
+"vi": "phòng khách",
+"en": "the room in a house where people sit and relax",
+"ex": "The TV is in the living room.",
+"exVi": "Ti vi ở trong phòng khách.",
+"cloze": {
+"s": "Our family watches TV in the ___ every evening.",
+"a": "living room",
+"w": [
+"bathroom",
+"kitchen sink"
+]
+},
+"col": {
+"ok": "in the living room",
+"bad": [
+"on the living room",
+"at living room"
+]
+}
+},
+"dining-room": {
+"w": "dining room",
+"pos": "noun",
+"ipa": "/ˈdaɪnɪŋ ruːm/",
+"pic": "🍽️",
+"vi": "phòng ăn",
+"en": "the room where people eat meals",
+"ex": "We eat dinner in the dining room.",
+"exVi": "Chúng tôi ăn tối trong phòng ăn.",
+"cloze": {
+"s": "There is a big table in the ___.",
+"a": "dining room",
+"w": [
+"bathroom",
+"garden"
+]
+},
+"col": {
+"ok": "eat in the dining room",
+"bad": [
+"eat on the dining room",
+"eat at dining room"
+]
+}
+},
+"sun": {
+"w": "sun",
+"pos": "noun",
+"ipa": "/sʌn/",
+"pic": "☀️",
+"vi": "mặt trời",
+"en": "the big star in the sky that gives us light and heat",
+"ex": "The sun is very hot today.",
+"exVi": "Hôm nay mặt trời rất nóng.",
+"cloze": {
+"s": "The ___ comes up in the morning.",
+"a": "sun",
+"w": [
+"moon",
+"son"
+]
+},
+"col": {
+"ok": "in the sun",
+"bad": [
+"on the sun",
+"at the sun"
+]
+}
+},
+"cloud": {
+"w": "cloud",
+"pos": "noun",
+"ipa": "/klaʊd/",
+"pic": "☁️",
+"vi": "đám mây",
+"en": "a white or grey shape in the sky, made of water",
+"ex": "There isn't a cloud in the sky.",
+"exVi": "Trên trời không có một đám mây nào.",
+"cloze": {
+"s": "Look at that big black ___. It will rain soon.",
+"a": "cloud",
+"w": [
+"cloudy",
+"crowd"
+]
+},
+"col": {
+"ok": "a dark cloud",
+"bad": [
+"a darkly cloud",
+"a cloud dark"
+]
+}
+},
+"windy": {
+"w": "windy",
+"pos": "adjective",
+"ipa": "/ˈwɪndi/",
+"pic": "🌬️",
+"vi": "có gió, nhiều gió",
+"en": "with a lot of wind",
+"ex": "It's windy today, so hold your hat.",
+"exVi": "Hôm nay trời nhiều gió, nên giữ mũ của bạn.",
+"cloze": {
+"s": "It's very ___ by the sea today.",
+"a": "windy",
+"w": [
+"wind",
+"window"
+]
+},
+"col": {
+"ok": "a windy day",
+"bad": [
+"a wind day",
+"a windy weather day"
+]
+}
+},
+"toothache": {
+"w": "toothache",
+"pos": "noun",
+"ipa": "/ˈtuːθeɪk/",
+"pic": "🦷",
+"vi": "đau răng",
+"en": "a pain in a tooth",
+"ex": "I have a toothache. I need a dentist.",
+"exVi": "Tôi bị đau răng. Tôi cần đi nha sĩ.",
+"cloze": {
+"s": "Don't eat so many sweets or you'll get a ___.",
+"a": "toothache",
+"w": [
+"headache",
+"toothbrush"
+]
+},
+"col": {
+"ok": "have a toothache",
+"bad": [
+"do a toothache",
+"make a toothache"
+]
+}
+},
+"earache": {
+"w": "earache",
+"pos": "noun",
+"ipa": "/ˈɪəreɪk/",
+"pic": "👂",
+"vi": "đau tai",
+"en": "a pain in your ear",
+"ex": "My son has an earache, so he can't swim.",
+"exVi": "Con trai tôi bị đau tai nên không bơi được.",
+"cloze": {
+"s": "The music was so loud that I got an ___.",
+"a": "earache",
+"w": [
+"earring",
+"eyebrow"
+]
+},
+"col": {
+"ok": "have an earache",
+"bad": [
+"have a earache",
+"make an earache"
+]
+}
+},
+"noodles": {
+"w": "noodles",
+"pos": "noun",
+"ipa": "/ˈnuːdlz/",
+"pic": "🍜",
+"vi": "mì, bún, phở (sợi)",
+"en": "long thin pieces of food made from flour or rice",
+"ex": "I often eat noodles for breakfast.",
+"exVi": "Tôi thường ăn mì vào bữa sáng.",
+"cloze": {
+"s": "Pho is a soup with rice ___.",
+"a": "noodles",
+"w": [
+"needles",
+"nuts"
+]
+},
+"col": {
+"ok": "a bowl of noodles",
+"bad": [
+"a glass of noodles",
+"a bowl noodles"
+]
+}
+},
+"pasta": {
+"w": "pasta",
+"pos": "noun",
+"ipa": "/ˈpæstə/",
+"pic": "🍝",
+"vi": "mì Ý",
+"en": "Italian food made from flour, water and eggs",
+"ex": "We had pasta with tomato sauce.",
+"exVi": "Chúng tôi ăn mì Ý với sốt cà chua.",
+"cloze": {
+"s": "Spaghetti is a kind of ___.",
+"a": "pasta",
+"w": [
+"pastry",
+"paste"
+]
+},
+"col": {
+"ok": "cook pasta",
+"bad": [
+"drink pasta",
+"make a pastas"
+]
+}
+},
+"watermelon": {
+"w": "watermelon",
+"pos": "noun",
+"ipa": "/ˈwɔːtəmelən/",
+"pic": "🍉",
+"vi": "quả dưa hấu",
+"en": "a large green fruit, red inside with black seeds",
+"ex": "Watermelon is great on a hot day.",
+"exVi": "Dưa hấu rất tuyệt vào ngày nóng.",
+"cloze": {
+"s": "This ___ is green outside and red inside.",
+"a": "watermelon",
+"w": [
+"lemon",
+"water"
+]
+},
+"col": {
+"ok": "a slice of watermelon",
+"bad": [
+"a cup of watermelon",
+"a watermelon slice of"
+]
+}
+},
+"teach": {
+"w": "teach",
+"pos": "verb",
+"ipa": "/tiːtʃ/",
+"pic": "👩‍🏫",
+"vi": "dạy",
+"en": "to help someone learn something",
+"ex": "My mother teaches English at a school.",
+"exVi": "Mẹ tôi dạy tiếng Anh ở một trường học.",
+"cloze": {
+"s": "Can you ___ me to play the guitar?",
+"a": "teach",
+"w": [
+"learn",
+"study"
+]
+},
+"col": {
+"ok": "teach someone to swim",
+"bad": [
+"teach to someone swim",
+"learn someone to swim"
+]
+}
+},
+"go-to-bed": {
+"w": "go to bed",
+"pos": "phrase",
+"ipa": "/ɡəʊ tə bed/",
+"pic": "🛏️",
+"vi": "đi ngủ",
+"en": "to get into bed to sleep",
+"ex": "I usually go to bed at eleven.",
+"exVi": "Tôi thường đi ngủ lúc mười một giờ.",
+"cloze": {
+"s": "It's late. Please ___ now.",
+"a": "go to bed",
+"w": [
+"go to the bed",
+"go bed"
+]
+},
+"col": {
+"ok": "go to bed early",
+"bad": [
+"go to the bed early",
+"go bed early"
+]
+}
+},
+"get-dressed": {
+"w": "get dressed",
+"pos": "phrase",
+"ipa": "/ɡet drest/",
+"pic": "👕",
+"vi": "mặc quần áo",
+"en": "to put on your clothes",
+"ex": "I get dressed after breakfast.",
+"exVi": "Tôi mặc quần áo sau bữa sáng.",
+"cloze": {
+"s": "Hurry up and ___. The bus is coming!",
+"a": "get dressed",
+"w": [
+"get dress",
+"get dressing"
+]
+},
+"col": {
+"ok": "get dressed quickly",
+"bad": [
+"get dress quickly",
+"make dressed quickly"
+]
+}
+},
+"these": {
+"w": "these",
+"pos": "determiner",
+"ipa": "/ðiːz/",
+"pic": "👇",
+"vi": "những cái này",
+"en": "used for things near you (more than one)",
+"ex": "These shoes are too small for me.",
+"exVi": "Đôi giày này quá nhỏ với tôi.",
+"cloze": {
+"s": "Are ___ your books here on my desk?",
+"a": "these",
+"w": [
+"this",
+"that"
+]
+},
+"col": {
+"ok": "these apples",
+"bad": [
+"these apple",
+"this apples"
+]
+}
+},
+"those": {
+"w": "those",
+"pos": "determiner",
+"ipa": "/ðəʊz/",
+"pic": "👉",
+"vi": "những cái kia",
+"en": "used for things far from you (more than one)",
+"ex": "Look at those birds in the sky!",
+"exVi": "Nhìn những con chim kia trên trời kìa!",
+"cloze": {
+"s": "Who are ___ people over there?",
+"a": "those",
+"w": [
+"that",
+"this"
+]
+},
+"col": {
+"ok": "those people over there",
+"bad": [
+"that people over there",
+"those person over there"
+]
+}
+},
+"excuse-me": {
+"w": "excuse me",
+"pos": "phrase",
+"ipa": "/ɪkˈskjuːz miː/",
+"pic": "🙋",
+"vi": "xin lỗi (để hỏi / nhờ / xin đi qua)",
+"en": "a polite way to get someone's attention",
+"ex": "Excuse me, where is the bus stop?",
+"exVi": "Xin lỗi, trạm xe buýt ở đâu ạ?",
+"cloze": {
+"s": "___, can you tell me the time, please?",
+"a": "Excuse me",
+"w": [
+"Sorry me",
+"Thank you"
+]
+},
+"col": {
+"ok": "Excuse me, where is…?",
+"bad": [
+"Excuse, where is…?",
+"Excuse you, where is…?"
+]
+}
+},
+"thank-you": {
+"w": "thank you",
+"pos": "phrase",
+"ipa": "/ˈθæŋk juː/",
+"pic": "🙏",
+"vi": "cảm ơn (bạn)",
+"en": "words you say when someone helps you or gives you something",
+"ex": "Thank you for the lovely present.",
+"exVi": "Cảm ơn bạn vì món quà dễ thương.",
+"cloze": {
+"s": "\"Here is your coffee.\" \"___ very much.\"",
+"a": "Thank you",
+"w": [
+"Thanks you",
+"Thank"
+]
+},
+"col": {
+"ok": "thank you for your help",
+"bad": [
+"thank you for help me",
+"thanks you for your help"
+]
+}
+},
+"a-lot-of": {
+"w": "a lot of",
+"pos": "determiner",
+"ipa": "/ə ˈlɒt əv/",
+"pic": "📚",
+"vi": "nhiều",
+"en": "a large number or amount of",
+"ex": "There are a lot of people in the park.",
+"exVi": "Có rất nhiều người trong công viên.",
+"cloze": {
+"s": "She has ___ friends at school.",
+"a": "a lot of",
+"w": [
+"a lot",
+"lot of"
+]
+},
+"col": {
+"ok": "a lot of money",
+"bad": [
+"a lot money",
+"lot of money"
+]
+}
+},
+"out-of": {
+"w": "out of",
+"pos": "preposition",
+"ipa": "/ˈaʊt əv/",
+"pic": "🚪",
+"vi": "ra khỏi",
+"en": "from inside something to outside it",
+"ex": "The cat jumped out of the box.",
+"exVi": "Con mèo nhảy ra khỏi cái hộp.",
+"cloze": {
+"s": "Take the milk ___ the fridge, please.",
+"a": "out of",
+"w": [
+"out",
+"into"
+]
+},
+"col": {
+"ok": "get out of the car",
+"bad": [
+"get out the of car",
+"get out from of the car"
+]
+}
+},
+"slowly": {
+"w": "slowly",
+"pos": "adverb",
+"ipa": "/ˈsləʊli/",
+"pic": "🐢",
+"vi": "một cách chậm rãi",
+"en": "not quickly",
+"ex": "Please speak slowly. I'm learning English.",
+"exVi": "Làm ơn nói chậm thôi. Tôi đang học tiếng Anh.",
+"cloze": {
+"s": "My grandfather walks very ___.",
+"a": "slowly",
+"w": [
+"slow",
+"slower"
+]
+},
+"col": {
+"ok": "drive slowly",
+"bad": [
+"drive slow slowly",
+"slowly drive slowly"
+]
+}
+},
+"quietly": {
+"w": "quietly",
+"pos": "adverb",
+"ipa": "/ˈkwaɪətli/",
+"pic": "🤫",
+"vi": "một cách nhẹ nhàng, khẽ",
+"en": "making very little noise",
+"ex": "The baby is sleeping, so talk quietly.",
+"exVi": "Em bé đang ngủ, nên nói khẽ thôi.",
+"cloze": {
+"s": "She closed the door ___ so she didn't wake anyone.",
+"a": "quietly",
+"w": [
+"quiet",
+"quite"
+]
+},
+"col": {
+"ok": "speak quietly",
+"bad": [
+"speak quiet quietly",
+"quietly speak quietly"
+]
+}
+},
+"picnic": {
+"w": "picnic",
+"pos": "noun",
+"ipa": "/ˈpɪknɪk/",
+"pic": "🧺",
+"vi": "chuyến dã ngoại, bữa ăn ngoài trời",
+"en": "a meal that you eat outside",
+"ex": "Let's have a picnic in the park.",
+"exVi": "Mình đi dã ngoại ở công viên nhé.",
+"cloze": {
+"s": "We took sandwiches and fruit for our ___ by the lake.",
+"a": "picnic",
+"w": [
+"picture",
+"pocket"
+]
+},
+"col": {
+"ok": "have a picnic",
+"bad": [
+"make a picnic food",
+"do a picnic"
+]
+}
+},
+"zoo": {
+"w": "zoo",
+"pos": "noun",
+"ipa": "/zuː/",
+"pic": "🦁",
+"vi": "sở thú",
+"en": "a place where people can see many wild animals",
+"ex": "We saw elephants at the zoo.",
+"exVi": "Chúng tôi đã xem voi ở sở thú.",
+"cloze": {
+"s": "The children want to see the lions at the ___.",
+"a": "zoo",
+"w": [
+"farm",
+"pool"
+]
+},
+"col": {
+"ok": "go to the zoo",
+"bad": [
+"go to zoo the",
+"go at the zoo"
+]
+}
+},
+"motorbike": {
+"w": "motorbike",
+"pos": "noun",
+"ipa": "/ˈməʊtəbaɪk/",
+"pic": "🏍️",
+"vi": "xe máy",
+"en": "a vehicle with two wheels and an engine",
+"ex": "Many people go to work by motorbike.",
+"exVi": "Nhiều người đi làm bằng xe máy.",
+"cloze": {
+"s": "My brother rides his ___ to the office.",
+"a": "motorbike",
+"w": [
+"motorway",
+"engine"
+]
+},
+"col": {
+"ok": "ride a motorbike",
+"bad": [
+"drive on a motorbike ride",
+"go motorbike"
+]
+}
+},
+"bus-stop": {
+"w": "bus stop",
+"pos": "noun",
+"ipa": "/ˈbʌs stɒp/",
+"pic": "🚏",
+"vi": "trạm xe buýt",
+"en": "a place where a bus stops for people",
+"ex": "I'll wait for you at the bus stop.",
+"exVi": "Mình sẽ đợi bạn ở trạm xe buýt.",
+"cloze": {
+"s": "Wait for the number 5 bus at the ___.",
+"a": "bus stop",
+"w": [
+"bus driver",
+"bus ticket"
+]
+},
+"col": {
+"ok": "wait at the bus stop",
+"bad": [
+"wait in the bus stop",
+"wait on bus stop"
+]
+}
+},
+"car-park": {
+"w": "car park",
+"pos": "noun",
+"ipa": "/ˈkɑː pɑːk/",
+"pic": "🅿️",
+"vi": "bãi đỗ xe",
+"en": "a place where people leave their cars",
+"ex": "The car park is behind the supermarket.",
+"exVi": "Bãi đỗ xe ở phía sau siêu thị.",
+"cloze": {
+"s": "There are no free places in the ___.",
+"a": "car park",
+"w": [
+"park car",
+"car key"
+]
+},
+"col": {
+"ok": "in the car park",
+"bad": [
+"on the car park",
+"at car park the"
+]
+}
+},
+"swimming-pool": {
+"w": "swimming pool",
+"pos": "noun",
+"ipa": "/ˈswɪmɪŋ puːl/",
+"pic": "🏊",
+"vi": "bể bơi",
+"en": "a place with water where people swim",
+"ex": "Our hotel has a big swimming pool.",
+"exVi": "Khách sạn của chúng tôi có bể bơi lớn.",
+"cloze": {
+"s": "The children are playing in the ___.",
+"a": "swimming pool",
+"w": [
+"swimming suit",
+"swim pool"
+]
+},
+"col": {
+"ok": "swim in the swimming pool",
+"bad": [
+"swim on the swimming pool",
+"swim at swimming pool the"
+]
+}
+}
+}

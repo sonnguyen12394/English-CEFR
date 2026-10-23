@@ -8,7 +8,7 @@ const MIN_LEN = 3;   // từ quá ngắn (a, I, to, in…) có mặt ở mọi c
 
 // dạng chữ của một từ trong câu: số nhiều, quá khứ, -ing (cả bỏ e, gấp đôi phụ âm, y → ies / ied)
 function formsOf(w) {
-  const x = w.toLowerCase(); if (/\s/.test(x)) return [x];
+  const x = w.toLowerCase(); if (/\s/.test(x)) { const [h, ...r] = x.split(' '); return formsOf(h).map(f => [f, ...r].join(' ')); }   // cụm: chia từ đầu (looking for)
   const f = new Set([x, x + 's', x + 'es', x + 'ed', x + 'd', x + 'ing', x + "'s"]);
   if (/[^aeiou]y$/.test(x)) { f.add(x.slice(0, -1) + 'ies'); f.add(x.slice(0, -1) + 'ied'); }
   if (/e$/.test(x)) f.add(x.slice(0, -1) + 'ing');

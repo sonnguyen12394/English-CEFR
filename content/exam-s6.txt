@@ -1,0 +1,107 @@
+angry|Why is the teacher angry with us?
+afraid|My little sister is afraid of dogs.
+boring|I think golf is a boring sport.
+exciting|Tomorrow is an exciting day for our class.
+careful|Be careful with that hot cup.
+kind|Thank you. You are very kind.
+clever|My cousin is very clever. She is good at maths.
+brave|The brave boy helped the old man.
+surprised|I was surprised to see my uncle at the door.
+weak|After the illness, she felt weak.
+thin|He is tall and thin.
+loud|The music in the cafe is too loud.
+wet|My shoes are wet from the rain.
+dry|Put your wet clothes in the sun to dry.
+safe|Is it safe to swim in this river?
+slowly|The old bus moved slowly up the hill.
+quietly|The students read quietly in the library.
+sofa|There is a cat on the sofa.
+lamp|Turn on the lamp next to the bed.
+mirror|She looked at her face in the mirror.
+cupboard|The cups are in the cupboard.
+living-room|Our living room has a big window.
+dining-room|Please set the table in the dining room.
+plate|Put the cake on a plate.
+bowl|I'd like a bowl of soup.
+toy|The baby is playing with a toy car.
+pet|Do you have a pet?
+sky|The sky is very blue this morning.
+sun|Don't sit in the sun for too long.
+moon|The moon is very bright tonight.
+cloud|A big cloud is coming. Let's go home.
+wind|The wind is very cold today.
+windy|It's too windy to play tennis.
+lake|We swam in the lake last summer.
+forest|There are many tall trees in the forest.
+grass|The children are sitting on the grass.
+field|The cows are in the field.
+neck|She is wearing a scarf around her neck.
+shoulder|My bag hurts my shoulder.
+stomach|I ate too much and my stomach hurts.
+dentist|I go to the dentist twice a year.
+temperature|What is the temperature today?
+cough|My son has a bad cough.
+toothache|She can't eat because of her toothache.
+earache|I have an earache after swimming.
+noodles|Can I have chicken noodles, please?
+sauce|This fish is good with tomato sauce.
+pasta|My children love pasta.
+lemon|I like tea with lemon.
+pear|A pear is a green or yellow fruit.
+grape|These grapes are very sweet.
+mango|I bought three mangoes at the market.
+pineapple|Can you cut the pineapple?
+watermelon|We ate a big watermelon at the beach.
+sausage|I had eggs and sausages for breakfast.
+smile|Smile for the photo!
+cry|The baby started to cry.
+jump|The dog can jump very high.
+throw|Throw the ball to your friend.
+catch|Can you catch the ball?
+hold|Hold my hand when we cross the road.
+teach|Who teaches you English?
+invite|I want to invite you to my party.
+fix|Can you fix my bike?
+hide|The cat likes to hide under the bed.
+look-for|I'm looking for the bank.
+get-up|What time do you get up?
+go-to-bed|Children should go to bed early.
+get-dressed|I get dressed and then eat breakfast.
+excuse-me|Excuse me, is this seat free?
+thank-you|Thank you for your help.
+a-lot-of|We have a lot of homework today.
+these|Can I try these jeans?
+those|Those flowers are beautiful.
+mine|This book is mine.
+whose|Whose bag is this?
+near|Is there a bank near here?
+inside|It's raining. Let's go inside.
+out-of|Get out of the water now!
+birthday|Happy birthday to you!
+party|We are having a party on Saturday.
+picnic|We had a picnic by the river.
+zoo|There are lions and tigers at the zoo.
+ship|The ship is in the port.
+motorbike|My uncle has a red motorbike.
+bus-stop|The bus stop is near my house.
+car-park|We left the car in the car park.
+swimming-pool|Is there a swimming pool in your hotel?
+laptop|I do my homework on my laptop.
+tablet|My son watches films on his tablet.
+app|This app helps me learn English.
+website|You can buy tickets on the website.
+message|I sent you a message.
+wet|Don't sit on the wet grass.
+plate|There is no food on my plate.
+field|The children play football in the field.
+thank-you|Thank you for the lovely dinner.
+whose|Whose car is that?
+near|My school is near the park.
+bus-stop|Let's meet at the bus stop.
+laptop|My laptop is very old and slow.
+dining-room|We have dinner in the dining room.
+moon|I can see the moon from my window.
+grape|I like green grapes.
+excuse-me|Excuse me, where is the toilet?
+ship|We saw a big ship on the sea.
+excuse-me|Excuse me, can I sit here?

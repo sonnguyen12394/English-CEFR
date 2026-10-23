@@ -1,6 +1,6 @@
 # Từ vựng A1 (repo English-CEFR)
 
-Trang học riêng 870 từ A1 lấy từ game English Ladder. Xem `README.md`.
+Trang học riêng 963 từ A1: 870 từ lấy từ game English Ladder + 93 từ A1 bổ sung (`content/a1-bosung.json`). Xem `README.md`.
 
 ## Luật
 - Kiểm giao diện chỉ trên iPhone (WebKit, như Safari / Chrome trên iPhone). Không kiểm bằng Chrome máy tính / Android thay (người sáng lập 22/10/2026).

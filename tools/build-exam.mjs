@@ -14,7 +14,7 @@ const NAMES = 'hanoi vietnam vietnamese english hue da nang lat ho chi minh hoi 
 const EXTRA = 'near kind turn party birthday careful heavy sky message price board pizza'.split(' ');
 const IRR = 'went gone was were been did done had made took saw came got gave told said ate drank wrote broke won lost met bought sang sat stood ran swam flew fell rode drove left felt thought knew found brought kept heard understood forgot began became chose grew built cut put let read children people men women teeth feet mice sheep fish i\'m i\'d i\'ll you\'re it\'s that\'s what\'s let\'s don\'t can\'t won\'t isn\'t aren\'t didn\'t doesn\'t'.split(' ');
 const known = t => IRR.includes(t) || NAMES.includes(t) || EXTRA.includes(t) || base(t).some(x => a1.has(x)) || /^\d/.test(t);
-function formsOf(x) { x = x.toLowerCase(); if (/\s/.test(x)) return [x];
+function formsOf(x) { x = x.toLowerCase(); if (/\s/.test(x)) { const [h, ...r] = x.split(' '); return formsOf(h).map(f => [f, ...r].join(' ')); }   // cụm: chia từ đầu (looking for)
   const f = new Set([x, x + 's', x + 'es', x + 'ed', x + 'd', x + 'ing', x + "'s"]);
   if (/[^aeiou]y$/.test(x)) { f.add(x.slice(0, -1) + 'ies'); f.add(x.slice(0, -1) + 'ied'); }
   if (/e$/.test(x)) f.add(x.slice(0, -1) + 'ing');
