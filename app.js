@@ -14,7 +14,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 23;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 24;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -105,9 +105,34 @@ const normAns = x => String(x).toLowerCase().replace(/[‘’`]/g, "'").replace(
 const clipNorm = t => String(t).replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().replace(/[.,;:]+$/, '').toLowerCase();
 const clipKey = t => { let h = 0x811c9dc5; const x = clipNorm(t); for (let i = 0; i < x.length; i++) { h ^= x.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return 'a' + h.toString(16).padStart(8, '0'); };
 let CLIPS = new Set(), AUD = null, sayTok = 0;
-function enVoice() { try { const vs = speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang)); const rank = v => (/en[-_](US|GB)/i.test(v.lang) ? 10 : 0) + (v.localService ? 3 : 0) + (/natural|neural|premium|enhanced|samantha|daniel/i.test(v.name) ? 5 : 0); return vs.sort((a, b) => rank(b) - rank(a))[0] || null; } catch (e) { return null; } }
-function tts(t) { return new Promise(res => { try { const u = new SpeechSynthesisUtterance(t), v = enVoice(); u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = 0.9; u.onend = u.onerror = () => res(); speechSynthesis.speak(u); } catch (e) { res(); } }); }
-function sayOne(t) { const k = clipKey(t); if (!CLIPS.has(k)) return tts(t);
+// Góp ý "đồng bộ giọng nam / nữ, tuỳ chọn giọng": giọng thu sẵn chỉ có af_bella (nữ Mỹ). Chọn 'clip' = giọng thu sẵn, thiếu tệp thì giọng máy nữ cho khớp;
+// chọn một giọng máy = cả trang chỉ đọc bằng giọng đó (bỏ tệp thu sẵn), nên không lẫn nam / nữ. Lưu theo máy (localStorage), vì mỗi máy có bộ giọng khác.
+// Web Speech không cho biết giới tính: đoán theo tên giọng.
+const VK = 'el-voice', VOX = (() => { try { return Object.assign({ src: 'clip', rate: 0.9 }, JSON.parse(localStorage.getItem(VK) || '{}')); } catch (e) { return { src: 'clip', rate: 0.9 }; } })();
+const voxSave = () => { try { localStorage.setItem(VK, JSON.stringify(VOX)); } catch (e) {} };
+const V_F = /samantha|karen|moira|tessa|victoria|allison|ava|susan|zoe|fiona|kate|serena|veena|nicky|joelle|catherine|martha|zira|hazel|aria|jenny|libby|sonia|female|woman/i;
+const V_M = /daniel|alex\b|fred|rishi|tom\b|aaron|arthur|gordon|oliver|evan|nathan|david|mark\b|guy|ryan|george|thomas|lee\b|male|man\b/i;
+const vSex = v => V_F.test(v.name) ? 'f' : V_M.test(v.name) ? 'm' : '';
+const enVoices = () => { try { return speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang)); } catch (e) { return []; } };
+const vRank = v => (/en[-_](US|GB)/i.test(v.lang) ? 10 : 0) + (v.localService ? 3 : 0) + (/natural|neural|premium|enhanced/i.test(v.name) ? 5 : 0);
+function enVoice() { const vs = enVoices(); if (VOX.src !== 'clip') { const v = vs.find(x => x.voiceURI === VOX.src); if (v) return v; }
+  return vs.sort((a, b) => (vSex(b) === 'f' ? 20 : 0) + (/en[-_]US/i.test(b.lang) ? 2 : 0) + vRank(b) - (vSex(a) === 'f' ? 20 : 0) - (/en[-_]US/i.test(a.lang) ? 2 : 0) - vRank(a))[0] || null; }
+function tts(t) { return new Promise(res => { try { const u = new SpeechSynthesisUtterance(t), v = enVoice(); u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = VOX.rate; u.onend = u.onerror = () => res(); speechSynthesis.speak(u); } catch (e) { res(); } }); }
+const vLang = l => /US/i.test(l) ? 'Mỹ' : /GB/i.test(l) ? 'Anh' : /AU/i.test(l) ? 'Úc' : /IN/i.test(l) ? 'Ấn' : l;
+const vOpts = () => [`<option value="clip"${VOX.src === 'clip' ? ' selected' : ''}>⭐ Giọng thu sẵn (nữ Mỹ, tự nhiên nhất)</option>`]
+  .concat(enVoices().sort((a, b) => vRank(b) - vRank(a)).map(v => `<option value="${esc(v.voiceURI)}"${VOX.src === v.voiceURI ? ' selected' : ''}>${esc(v.name)} · ${vLang(v.lang)}${vSex(v) ? ' · ' + (vSex(v) === 'f' ? 'nữ' : 'nam') : ''}</option>`)).join('');
+const voxHtml = () => `<details class="box" id="vox"><summary>🔊 Giọng đọc: ${VOX.src === 'clip' ? 'thu sẵn (nữ Mỹ)' : esc((enVoices().find(v => v.voiceURI === VOX.src) || { name: 'giọng máy' }).name)}</summary>
+  <label class="mute">Giọng (cả trang đọc bằng một giọng)<select data-vox="src">${vOpts()}</select></label>
+  <label class="mute">Tốc độ<select data-vox="rate">${[[0.7, 'Chậm'], [0.9, 'Vừa'], [1, 'Thường']].map(([r, l]) => `<option value="${r}"${VOX.rate === r ? ' selected' : ''}>${l}</option>`).join('')}</select></label>
+  <button class="chip" data-vox="test">🔊 Nghe thử</button>
+  <p class="mute" style="margin:6px 0 0">Giọng thu sẵn chỉ có giọng nữ. Muốn giọng nam: chọn giọng máy có chữ "nam". Danh sách giọng máy tuỳ theo điện thoại.</p></details>`;
+document.addEventListener('change', e => { const s = e.target.closest('[data-vox]'); if (!s) return;
+  if (s.dataset.vox === 'src') VOX.src = s.value; if (s.dataset.vox === 'rate') VOX.rate = +s.value; voxSave();
+  const sm = document.querySelector('#vox summary'); if (sm) sm.textContent = '🔊 Giọng đọc: ' + (VOX.src === 'clip' ? 'thu sẵn (nữ Mỹ)' : (enVoices().find(v => v.voiceURI === VOX.src) || { name: 'giọng máy' }).name);
+  speak('Hello! This is my voice.'); });
+document.addEventListener('click', e => { if (e.target.closest('[data-vox="test"]')) speak('Hello! This is my voice.'); });
+try { speechSynthesis.addEventListener('voiceschanged', () => { const s = document.querySelector('#vox [data-vox="src"]'); if (s) s.innerHTML = vOpts(); }); } catch (e) {}
+function sayOne(t) { const k = clipKey(t); if (VOX.src !== 'clip' || !CLIPS.has(k)) return tts(t);
   return new Promise(res => { AUD = AUD || new Audio(); let done = false; const end = () => { if (!done) { done = true; res(); } };
     AUD.onended = end; AUD.onerror = () => { if (!done) { done = true; tts(t).then(res); } }; AUD.src = 'a/' + k + '.mp3'; const pr = AUD.play(); if (pr) pr.catch(() => { if (!done) { done = true; tts(t).then(res); } }); }); }
 async function speak(...ts) { const my = ++sayTok; try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}
@@ -193,6 +218,7 @@ function home() {
     <h2>Lộ trình</h2>
     <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ 4 mặt · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
     <div id="grid">${roadmap(now, nu)}</div>
+    ${voxHtml()}
     ${gyHomeHtml()}`;
   setTimeout(maybeReload, 0);
 }
