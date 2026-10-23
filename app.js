@@ -14,7 +14,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 24;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 25;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -139,7 +139,7 @@ async function speak(...ts) { const my = ++sayTok; try { AUD && AUD.pause(); } c
   for (const t of ts) { if (my !== sayTok) return; await sayOne(t); } }
 try { speechSynthesis.getVoices(); } catch (e) {}
 // Góp ý #6: một kiểu nút nghe cho mọi màn (thẻ từ, phản hồi, từ điển): 🔊 Từ · 🔊 Câu ví dụ; vào thẻ / mở từ thì tự đọc từ.
-const sayBtns = w => `<div class="chips say"><button class="chip" data-say="${w.id}">🔊 Từ</button><button class="chip" data-say="${w.id}" data-ex="1">🔊 Câu ví dụ</button></div>`;
+const sayBtns = w => `<div class="chips say"><button class="chip" data-say="${w.id}">🔊 Từ</button><button class="chip" data-say="${w.id}" data-ex="1">🔊 Câu ví dụ</button><button class="chip" data-noi="${w.id}">🎤 Nói thử</button></div>`;
 document.addEventListener('click', e => { const b = e.target.closest('[data-say]'); if (!b) return; const w = WBY[b.dataset.say]; if (w) speak(b.dataset.ex ? w.ex : w.w); });
 
 // ---------- lưu: máy + Supabase ----------
