@@ -32,15 +32,15 @@ const dimLack = (w, k) => !heldDim(S.cards[w.id], k, Date.now());
 function practiceMenu() {
   window.CUR = { view: 'luyen-tap' };
   const p = parts(S, Date.now()), low = DIMS.map(([k]) => k).sort((a, b) => p.dim[a] - p.dim[b])[0];
-  const rec = { nghia: 'read', nghe: 'hear', viet: 'dict', dung: 'word' }[low];
+  const rec = { nghia: 'read', nghe: 'hear', viet: 'dict', dung: 'word', noi: 'noi' }[low];
   const opt = (k, t, sub) => `<button class="opt ${rec === k ? 'pri' : ''}" data-m="${k}"><b>${t}</b>${rec === k ? ' · nên làm' : ''}<br><span style="font-size:14px;opacity:.85">${sub}</span></button>`;
   $app.innerHTML = `${backRow('🏋️ Luyện tập')}<h1>🏋️ Luyện tập</h1>
     <p class="mute">Mặt đang thấp nhất: <b>${DIMS.find(x => x[0] === low)[1]} ${p.dq[low]}%</b>. Bài tổng hợp chấm được nhiều từ một lúc.</p>
-    ${opt('word', '⚡ Từng từ (20 câu)', 'Đủ 4 mặt; máy hỏi vào mặt còn thiếu của từng từ')}
+    ${opt('word', '⚡ Từng từ (20 câu)', '📖 🎧 ✍️ 🧩: máy hỏi vào mặt còn thiếu của từng từ')}
     ${opt('read', '📰 Đọc bài', '📖 Nghĩa: các từ trong câu bằng chứng của câu bạn trả lời đúng')}
     ${opt('hear', '🎧 Nghe câu (8 câu)', '🎧 Nghe: mọi từ đã học trong câu bạn hiểu đúng')}
     ${opt('dict', '✍️ Nghe chép (5 câu)', '🎧 Nghe + ✍️ Viết: từng từ chép đúng')}
-    ${opt('noi', '🗣 Nói từ (10 từ)', 'Nhìn nghĩa, nói từ tiếng Anh; máy kiểm có ra đúng từ + chấm phát âm. Chỉ luyện, không tính 🔁 Nhớ')}`;
+    ${opt('noi', '🗣 Nói từ (10 từ)', '🗣 Nói: nhìn nghĩa, nói từ tiếng Anh; máy kiểm ra đúng từ + phát âm ≥ 80. Cần bộ chấm âm')}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-m]'); if (!b) return;
     ({ word: practice, read: readTask, hear: hearTask, dict: dictTask, noi: noiTask })[b.dataset.m](); };
 }
