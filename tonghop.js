@@ -39,8 +39,10 @@ const DIM_INFO = {
     tasks: [['p', '⚡ Luyện riêng ✍️ Viết (20 câu)', 'Gõ từ theo nghĩa, gõ từ còn thiếu trong câu'], ['dict', '✍️ Nghe chép (5 câu)', 'Nghe rồi chép lại câu']] },
   dung: { what: 'Dùng từ đúng chỗ trong câu và đúng cụm hay đi cùng.', ex: w => [`${w.cloze ? w.cloze.s : ''} → chọn / gõ: <b>${w.cloze ? w.cloze.a : w.w}</b>`, w.col ? `Cụm nào đúng? <b>${w.col.ok}</b> / ${w.col.bad[0]}` : ''],
     tasks: [['p', '⚡ Luyện riêng 🧩 Dùng (20 câu)', 'Điền chỗ trống, chọn cụm từ đúng']] },
-  noi: { what: 'Nhìn nghĩa, tự nói ra từ tiếng Anh; máy kiểm ra đúng từ và phát âm ≥ 80.', ex: w => [`${w.pic || ''} ${w.vi} → 🎤 nói: <b>${w.w}</b> ${w.ipa || ''}`],
-    tasks: [['noi', '🗣 Nói từ (10 từ)', 'Cần tải bộ chấm âm một lần (miễn phí)']] },
+  noi: { what: 'Nhìn nghĩa, tự nói ra từ tiếng Anh; máy chép lời ra đúng từ (từ đồng âm cũng tính). Chỉ tính bằng chép chữ: trình duyệt phải chép được lời (Safari trên iPhone).', ex: w => [`${w.pic || ''} ${w.vi} → 🎤 nói: <b>${w.w}</b> → máy chép: "${w.w}" ✅`],
+    tasks: [['noi', '🗣 Nói từ (10 từ)', 'Không cần tải gì; mở bằng Safari']] },
+  am: { what: 'Nhìn từ, nghe mẫu rồi đọc theo; bộ chấm âm trên máy chấm từng âm, đạt khi ≥ 80/100.', ex: w => [`<b>${w.w}</b> ${w.ipa || ''} → 🎤 đọc → điểm từng âm (xanh / vàng / đỏ)`],
+    tasks: [['am', '🎯 Phát âm (10 từ)', 'Cần tải bộ chấm âm một lần (miễn phí, vài trăm MB)']] },
 };
 function dimView(k) {
   window.CUR = { view: 'mat-' + k };
@@ -57,7 +59,7 @@ function dimView(k) {
     ${lack.length ? `<h2>Từ còn thiếu mặt này (${lack.length})</h2><p>${lack.slice(0, 60).map(w => esc(w.w)).join(' · ')}${lack.length > 60 ? ' …' : ''}</p>` : ''}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-m]'); if (!b) return;
     const m = b.dataset.m; if (m === 'p') { if (!Object.keys(S.cards).length) return toast('Học 1 unit trước.'); return practice(k); }
-    ({ read: readTask, hear: hearTask, dict: dictTask, noi: noiTask })[m](); };
+    ({ read: readTask, hear: hearTask, dict: dictTask, noi: () => noiTask('noi'), am: () => noiTask('am') })[m](); };
   window.scrollTo(0, 0);
 }
 
@@ -65,7 +67,7 @@ function dimView(k) {
 function practiceMenu() {
   window.CUR = { view: 'luyen-tap' };
   const p = parts(S, Date.now()), low = DIMS.map(([k]) => k).sort((a, b) => p.dim[a] - p.dim[b])[0];
-  const rec = { nghia: 'read', nghe: 'hear', viet: 'dict', dung: 'word', noi: 'noi' }[low];
+  const rec = { nghia: 'read', nghe: 'hear', viet: 'dict', dung: 'word', noi: 'noi', am: 'am' }[low];
   const opt = (k, t, sub) => `<button class="opt ${rec === k ? 'pri' : ''}" data-m="${k}"><b>${t}</b>${rec === k ? ' · nên làm' : ''}<br><span style="font-size:14px;opacity:.85">${sub}</span></button>`;
   $app.innerHTML = `${backRow('🏋️ Luyện tập')}<h1>🏋️ Luyện tập</h1>
     <p class="mute">Mặt đang thấp nhất: <b>${DIMS.find(x => x[0] === low)[1]} ${p.dq[low]}%</b>. Bài tổng hợp chấm được nhiều từ một lúc.</p>
@@ -73,9 +75,10 @@ function practiceMenu() {
     ${opt('read', '📰 Đọc bài', '📖 Nghĩa: các từ trong câu bằng chứng của câu bạn trả lời đúng')}
     ${opt('hear', '🎧 Nghe câu (8 câu)', '🎧 Nghe: mọi từ đã học trong câu bạn hiểu đúng')}
     ${opt('dict', '✍️ Nghe chép (5 câu)', '🎧 Nghe + ✍️ Viết: từng từ chép đúng')}
-    ${opt('noi', '🗣 Nói từ (10 từ)', '🗣 Nói: nhìn nghĩa, nói từ tiếng Anh; máy kiểm ra đúng từ + phát âm ≥ 80. Cần bộ chấm âm')}`;
+    ${opt('noi', '🗣 Nói từ (10 từ)', '🗣 Nói: nhìn nghĩa, nói từ tiếng Anh; máy chép ra đúng từ. Cần Safari')}
+    ${opt('am', '🎯 Phát âm (10 từ)', '🎯 Phát âm: nhìn từ, đọc theo; điểm âm ≥ 80. Cần tải bộ chấm âm')}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-m]'); if (!b) return;
-    ({ word: practice, read: readTask, hear: hearTask, dict: dictTask, noi: noiTask })[b.dataset.m](); };
+    ({ word: practice, read: readTask, hear: hearTask, dict: dictTask, noi: () => noiTask('noi'), am: () => noiTask('am') })[b.dataset.m](); };
 }
 const doneBox = (h, body, again) => { $app.innerHTML = `<div class="box"><b>${h}</b>${body}</div><button class="pri" data-a="again">Làm tiếp</button><button data-a="menu">Kiểu luyện khác</button><button data-a="home">Về 📘 Học</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="menu"]')) practiceMenu(); if (e.target.closest('[data-a="again"]')) again(); }; };

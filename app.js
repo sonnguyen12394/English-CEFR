@@ -2,8 +2,9 @@
 // Mỗi cấp có Thi chuyển cấp riêng; qua Pre-A1 mới mở bài A1. Cổng A1 tính trên TẤT CẢ từ (Pre-A1 + A1).
 // Luật mở Thi chuyển cấp như game (GATE_LEARN / GATE_MEM, v176): 📘 Học 100% · 🔁 Nhớ 80%, trên tập từ của cấp.
 // 📘 Học = số từ đã học (có thẻ ôn) / tổng từ của cấp.
-// 🔁 Nhớ chia 5 mặt (người sáng lập 22/10/2026: "nhớ từ phải chia nhiều mục để đánh giá, không nói nhớ suông"): 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng
-// · 🗣 Nói (thêm 23/10/2026: nhìn nghĩa nói ra từ; đúng = bộ chấm âm ≥ 80 và máy chép chữ, nếu có, ra đúng từ; chỉ máy kiểm, không tự chấm; áp cho mọi cấp).
+// 🔁 Nhớ chia 6 mặt (người sáng lập 22/10/2026: "nhớ từ phải chia nhiều mục để đánh giá, không nói nhớ suông"): 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng
+// · 🗣 Nói · 🎯 Phát âm (23–24/10/2026, mọi cấp, chỉ máy kiểm, không tự chấm): 🗣 Nói = nhìn nghĩa nói ra từ, máy chép chữ ra đúng từ (chỉ trình duyệt chép được, như Safari);
+// 🎯 Phát âm = nhìn từ đọc theo, bộ chấm âm ≥ 80. Phát âm sai là lỗi miệng, không phải quên: không đổi lịch ôn của thẻ (grade).
 //   Một mặt của một từ là nhớ khi: đúng mặt đó ở một ngày SAU ngày học xong unit (MEM_DAYS = 1, góp ý #3), lần gần nhất của mặt đó đúng,
 //   và khả năng nhớ của từ hiện ≥ 0,9 (một lịch ôn chung cho từ). Thanh mỗi mặt = số từ nhớ mặt đó / 870.
 //   🔁 Nhớ tổng = mặt thấp nhất; Thi chuyển cấp mở khi 📘 Học 100% và MỖI mặt ≥ 80% (mặt mạnh không bù được mặt yếu).
@@ -15,7 +16,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 28;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 29;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -33,23 +34,24 @@ let S = null, user = null, sync = '';
 const dayOf = ms => Math.floor((ms - new Date(ms).getTimezoneOffset() * 60000) / DAY);
 const recall = (c, now) => c ? 1 / (1 + Math.max(0, now - c.last) / DAY / (9 * c.S)) : 0;
 const isDue = (c, now) => !!c && (now - c.last) / DAY >= c.S;
-const held = (c, now) => DIMS.every(([k]) => heldDim(c, k, now));   // từ nhớ đủ cả 5 mặt
+const held = (c, now) => DIMS.every(([k]) => heldDim(c, k, now));   // từ nhớ đủ cả 6 mặt
 function learnCards(st, u, now) {
   st.units[u.id] = { d: dayOf(now) };
   for (const w of u.words) if (!st.cards[w.id]) st.cards[w.id] = { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0 };
 }
 // dạng câu → mặt đo
-const DIMS = [['nghia', '📖 Nghĩa'], ['nghe', '🎧 Nghe'], ['viet', '✍️ Viết'], ['dung', '🧩 Dùng'], ['noi', '🗣 Nói']];
+const DIMS = [['nghia', '📖 Nghĩa'], ['nghe', '🎧 Nghe'], ['viet', '✍️ Viết'], ['dung', '🧩 Dùng'], ['noi', '🗣 Nói'], ['am', '🎯 Phát âm']];
 const DIM_OF = { vi2w: ['nghia'], w2vi: ['nghia'], listen: ['nghe'], spell: ['viet'], cloze: ['dung'], col: ['dung'], clozeT: ['viet', 'dung'],
-  read: ['nghia'], hear: ['nghe'], dict: ['nghe', 'viet'], noi: ['noi'] };   // bài tổng hợp (tonghop.js)
+  read: ['nghia'], hear: ['nghe'], dict: ['nghe', 'viet'], noi: ['noi'], am: ['am'] };   // bài tổng hợp (tonghop.js)
 const heldDim = (c, k, now) => !!c && !!c.dm && !!c.dm[k] && !!c.dm[k].pv && !!c.dm[k].ok && recall(c, now) >= HOLD_R;
 function grade(st, wid, ok, now, type) {
   const c = st.cards[wid]; if (!c) return;
   const t = (now - c.last) / DAY;
+  if (type !== 'am') {
   // ôn sớm (t < S) chỉ tăng theo phần thời gian đã trôi: luyện dồn nhiều lần trong một ngày không đẩy lịch ôn đi xa
   if (ok) { const full = Math.max(c.S, t) * 2.5; c.S = t >= c.S ? full : c.S + (full - c.S) * t / c.S; if (dayOf(now) - c.d0 >= MEM_DAYS) c.pv = 1; }
   else { c.S = 0.5; c.lapse++; }
-  c.ok = ok ? 1 : 0; c.last = now; c.n++;
+  c.ok = ok ? 1 : 0; c.last = now; c.n++; }
   c.dm = c.dm || {};
   for (const k of DIM_OF[type] || []) { const d = c.dm[k] = c.dm[k] || {}; d.ok = ok ? 1 : 0; d.n = (d.n || 0) + 1; if (ok && dayOf(now) - c.d0 >= MEM_DAYS) d.pv = 1; }
 }
@@ -63,13 +65,13 @@ function parts(st, now, WS = gateWords()) {
 const gateOpen = p => p.lq >= GATE_LEARN && p.mq >= GATE_MEM;
 // Góp ý #3 / #4: dấu của từng từ. chua = chưa học · hoc = đã học, chưa đủ bằng chứng nhớ · nho = tính vào 🔁 Nhớ · quen = lần gần nhất sai hoặc đã tới lúc sắp quên.
 // hoc + nho + quen = 📘 Học; nho = 🔁 Nhớ.
-// nho = đủ 5 mặt
+// nho = đủ 6 mặt
 function wstat(st, w, now) { const c = st.cards[w.id]; if (!c) return 'chua'; if (held(c, now)) return 'nho'; if (!c.ok || recall(c, now) < HOLD_R) return 'quen'; return 'hoc'; }
-const WST = [['chua', '⚪ Chưa học'], ['hoc', '📘 Đã học'], ['nho', '✅ Nhớ đủ 5 mặt'], ['quen', '⚠️ Quên']];
+const WST = [['chua', '⚪ Chưa học'], ['hoc', '📘 Đã học'], ['nho', '✅ Nhớ đủ 6 mặt'], ['quen', '⚠️ Quên']];
 const dimMarks = (c, now) => DIMS.map(([k, l]) => `<span class="dm ${heldDim(c, k, now) ? 'on' : ''}" title="${l}">${l.split(' ')[0]}</span>`).join('');
-// mặt nào còn thiếu thì hỏi mặt đó (ngẫu nhiên trong các mặt thiếu); đủ cả thì trộn như thường. 🗣 Nói chỉ luyện ở 🗣 Nói từ (noi.js), không hỏi ở đây.
+// mặt nào còn thiếu thì hỏi mặt đó (ngẫu nhiên trong các mặt thiếu); đủ cả thì trộn như thường. 🗣 Nói / 🎯 Phát âm chỉ luyện ở noi.js, không hỏi ở đây.
 const TYPE_FOR = { nghia: () => one(['vi2w', 'w2vi']), nghe: () => 'listen', viet: () => one(['spell', 'spell', 'clozeT']), dung: () => one(['cloze', 'col', 'clozeT']) };
-function typeFor(c, now) { const miss = DIMS.map(([k]) => k).filter(k => k !== 'noi' && !heldDim(c, k, now)); return miss.length ? TYPE_FOR[one(miss)]() : rndType(); }
+function typeFor(c, now) { const miss = DIMS.map(([k]) => k).filter(k => k !== 'noi' && k !== 'am' && !heldDim(c, k, now)); return miss.length ? TYPE_FOR[one(miss)]() : rndType(); }
 
 // ---------- câu hỏi ----------
 const shuf = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -190,14 +192,14 @@ function roadmap(now, nu) {
     return `<div class="ch ${i === cur ? 'cur' : ''}"><button class="chh" data-ch="${i}" aria-expanded="${i === open}">
       <span>${f.chIcon} <b>Chặng ${i + 1}</b> · ${esc(f.chName)}</span><span class="mute">${done === us.length ? '✅' : `${done}/${us.length} bài`}</span></button>
       ${bar(done / us.length * 100, 0, 'var(--accent)')}
-      ${i === open ? `<p class="mute" style="margin:4px 0">${ws.length} từ · ${mem} từ nhớ đủ 5 mặt</p>${us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
+      ${i === open ? `<p class="mute" style="margin:4px 0">${ws.length} từ · ${mem} từ nhớ đủ 6 mặt</p>${us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
         return `<button class="urow ${u === nu ? 'next' : ''}" data-un="${u.id}" ${lock ? 'disabled' : ''}><span>${m ? '🟢' : d ? '🔵' : u === nu ? '▶️' : lock ? '🔒' : '⚪'} Bài ${u.bi} · ${esc(u.vi)}</span><span class="mute">${u.words.length} từ</span></button>`; }).join('')}` : ''}</div>`; }).join(''); }
 
 function home() {
   const now = Date.now(), lv = curLevel(), p = parts(S, now), nu = nextUnit();
   const ph2 = p.lq >= GATE_LEARN;
   $app.onclick = null; window.CUR = { view: 'home' };
-  const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để cả 5 mặt lên ${GATE_MEM}%; 🗣 Nói luyện ở 🏋️ Luyện tập → 🗣 Nói từ.`
+  const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để cả 6 mặt lên ${GATE_MEM}%; 🗣 Nói và 🎯 Phát âm luyện ở 🏋️ Luyện tập.`
     : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi mặt của từ tính 🔁 Nhớ khi trả lời đúng mặt đó ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào mặt còn thiếu.`;
   $app.innerHTML = `
     <h1>Từ vựng tiếng Anh</h1>
@@ -207,7 +209,7 @@ function home() {
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
       <div class="dims">${DIMS.map(([k, l]) => `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
-      <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả 5 mặt. Bấm vào một mặt để xem bài của mặt đó.</p>
+      <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả 6 mặt. Bấm vào một mặt để xem bài của mặt đó.</p>
     </div>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
@@ -217,7 +219,7 @@ function home() {
     ${examBox(p, lv)}
     ${DUR_PREV[lv] && !xDurable(DUR_PREV[lv]) ? examBox(parts(S, now, gateWords(DUR_PREV[lv])), DUR_PREV[lv]) : ''}
     <h2>Lộ trình</h2>
-    <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ 5 mặt · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
+    <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ 6 mặt · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
     <div id="grid">${roadmap(now, nu)}</div>
     ${voxHtml()}
     ${gyHomeHtml()}`;
