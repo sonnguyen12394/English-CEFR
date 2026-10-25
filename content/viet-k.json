@@ -1,0 +1,923 @@
+{
+ "_": "Từ khoá ý cho đề viết A1 / A2 (AI soạn 25/10/2026, chưa người thật kiểm). Mỗi đề: danh sách ý; mỗi ý: các nhóm phải có đủ (VÀ), mỗi nhóm: các cách viết (HOẶC). '@num' = số (chữ số hoặc chữ); 'x$' = đúng từ x. Ý về ngữ pháp (vd. dùng quá khứ) không chấm ở đây: đó là phần Ngữ pháp. null = ý không chấm ở phần Viết (ý ngữ pháp).",
+ "a1-w1": [
+  [
+   [
+    "hi",
+    "hello",
+    "dear",
+    "my name",
+    "i am",
+    "i'm"
+   ]
+  ],
+  [
+   [
+    "@num",
+    "years old"
+   ],
+   [
+    "live",
+    "from",
+    "city",
+    "town",
+    "village"
+   ]
+  ],
+  [
+   [
+    "like",
+    "love",
+    "enjoy",
+    "favourite",
+    "favorite",
+    "hobby"
+   ]
+  ],
+  [
+   [
+    "what about you",
+    "write soon",
+    "bye",
+    "see you",
+    "best wishes",
+    "love,",
+    "your friend",
+    "and you"
+   ]
+  ]
+ ],
+ "a1-w2": [
+  [
+   [
+    "@num",
+    "people",
+    "family",
+    "there are",
+    "we are"
+   ]
+  ],
+  [
+   [
+    "mother",
+    "father",
+    "mum",
+    "dad",
+    "brother",
+    "sister",
+    "parent",
+    "grand"
+   ],
+   [
+    "work",
+    "job",
+    "teacher",
+    "doctor",
+    "student",
+    "nurse",
+    "driver",
+    "engineer",
+    "farmer",
+    "office",
+    "school",
+    "worker",
+    "cook",
+    "is a",
+    "is an"
+   ]
+  ],
+  [
+   [
+    "like",
+    "love",
+    "enjoy",
+    "together",
+    "every",
+    "weekend"
+   ]
+  ]
+ ],
+ "a1-w3": [
+  [
+   [
+    "invite",
+    "come to",
+    "party",
+    "would you like",
+    "can you come",
+    "please come"
+   ]
+  ],
+  [
+   [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+    "tomorrow",
+    "next",
+    "june",
+    "july",
+    "may$",
+    "january",
+    "february",
+    "march",
+    "april",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+    "@num"
+   ],
+   [
+    "o'clock",
+    "pm",
+    "am$",
+    ":",
+    "@num",
+    "morning",
+    "afternoon",
+    "evening"
+   ]
+  ],
+  [
+   [
+    "at my",
+    "at the",
+    "house",
+    "home",
+    "restaurant",
+    "cafe",
+    "café",
+    "park",
+    "street",
+    "flat",
+    "room"
+   ]
+  ],
+  [
+   [
+    "bring",
+    "food",
+    "cake",
+    "eat",
+    "drink",
+    "music",
+    "game",
+    "dance",
+    "wear",
+    "present",
+    "pizza"
+   ]
+  ]
+ ],
+ "a1-w4": [
+  [
+   [
+    "i am in",
+    "i'm in",
+    "here in",
+    "we are in",
+    "at the",
+    "on holiday in",
+    "hotel",
+    "beach",
+    "city",
+    "island"
+   ]
+  ],
+  [
+   [
+    "sunny",
+    "rain",
+    "hot",
+    "cold",
+    "warm",
+    "weather",
+    "cloudy",
+    "windy",
+    "snow"
+   ]
+  ],
+  [
+   [
+    "every day",
+    "every morning",
+    "every evening",
+    "i swim",
+    "i go",
+    "i visit",
+    "i eat",
+    "i walk",
+    "we go",
+    "we swim",
+    "we visit"
+   ]
+  ],
+  [
+   [
+    "see you",
+    "best wishes",
+    "regards",
+    "love",
+    "bye",
+    "from",
+    "take care"
+   ]
+  ]
+ ],
+ "a1-w5": [
+  [
+   [
+    "get up",
+    "wake up",
+    "i get",
+    "get out of bed"
+   ],
+   [
+    "@num",
+    "o'clock",
+    "early",
+    "late"
+   ]
+  ],
+  [
+   [
+    "morning",
+    "afternoon",
+    "evening"
+   ]
+  ],
+  [
+   [
+    "go to bed",
+    "sleep",
+    "bed"
+   ]
+  ]
+ ],
+ "a1-w6": [
+  [
+   [
+    "going to",
+    "i am at",
+    "i'm at",
+    "i went",
+    "i go to",
+    "out to",
+    "shop",
+    "market",
+    "gym",
+    "work",
+    "cinema",
+    "park",
+    "doctor",
+    "school"
+   ]
+  ],
+  [
+   [
+    "back",
+    "home",
+    "return"
+   ],
+   [
+    "@num",
+    "o'clock",
+    "pm",
+    "tonight",
+    "evening",
+    "afternoon",
+    "later",
+    "soon"
+   ]
+  ],
+  [
+   [
+    "please",
+    "can you",
+    "could you"
+   ]
+  ],
+  [
+   [
+    "love",
+    "thanks",
+    "see you",
+    "bye",
+    "from"
+   ]
+  ]
+ ],
+ "a1-w7": [
+  [
+   [
+    "live in",
+    "is in",
+    "is near",
+    "house",
+    "flat",
+    "apartment",
+    "street",
+    "city",
+    "town",
+    "village"
+   ]
+  ],
+  [
+   [
+    "@num",
+    "rooms",
+    "bedroom",
+    "kitchen",
+    "living room",
+    "bathroom"
+   ]
+  ],
+  [
+   [
+    "favourite",
+    "favorite",
+    "like",
+    "love",
+    "best"
+   ],
+   [
+    "room",
+    "kitchen",
+    "bedroom",
+    "garden",
+    "balcony",
+    "living"
+   ]
+  ],
+  [
+   [
+    "because",
+    "so i",
+    "it is",
+    "it's"
+   ]
+  ]
+ ],
+ "a1-w8": [
+  [
+   [
+    "name",
+    "i am",
+    "i'm"
+   ],
+   [
+    "@num",
+    "years old",
+    "student",
+    "teacher",
+    "work",
+    "job",
+    "engineer",
+    "doctor",
+    "nurse"
+   ]
+  ],
+  [
+   [
+    "speak",
+    "vietnamese",
+    "english",
+    "language",
+    "chinese",
+    "japanese",
+    "korean",
+    "french"
+   ]
+  ],
+  [
+   [
+    "like",
+    "love",
+    "enjoy",
+    "hobby",
+    "free time",
+    "favourite",
+    "favorite"
+   ]
+  ],
+  [
+   [
+    "want to learn",
+    "want to practise",
+    "want to practice",
+    "learn",
+    "improve",
+    "practise",
+    "practice",
+    "study"
+   ]
+  ]
+ ],
+ "a2-w1": [
+  [
+   [
+    "hi",
+    "hello",
+    "dear",
+    "how are you",
+    "i'm writing",
+    "i want to tell",
+    "guess what"
+   ]
+  ],
+  [
+   [
+    "went",
+    "visited",
+    "go to",
+    "travelled",
+    "traveled",
+    "stayed",
+    "beach",
+    "park",
+    "cinema",
+    "museum",
+    "countryside",
+    "city"
+   ],
+   [
+    "with",
+    "my family",
+    "friends",
+    "my friend",
+    "my brother",
+    "my sister",
+    "alone",
+    "parents"
+   ]
+  ],
+  [
+   [
+    "enjoyed",
+    "fun",
+    "great",
+    "wonderful",
+    "loved",
+    "amazing",
+    "interesting",
+    "boring",
+    "tired",
+    "happy",
+    "nice",
+    "good time"
+   ]
+  ],
+  [
+   [
+    "what about you",
+    "what did you",
+    "write soon",
+    "see you",
+    "bye",
+    "best wishes",
+    "take care",
+    "hope"
+   ]
+  ]
+ ],
+ "a2-w2": [
+  [
+   [
+    "thank",
+    "thanks"
+   ]
+  ],
+  [
+   [
+    "sorry",
+    "afraid",
+    "can't",
+    "cannot",
+    "unfortunately"
+   ],
+   [
+    "because",
+    "have to",
+    "must",
+    "busy",
+    "work",
+    "exam",
+    "visit",
+    "ill",
+    "sick",
+    "family",
+    "study"
+   ]
+  ],
+  [
+   [
+    "how about",
+    "what about",
+    "can we",
+    "could we",
+    "another day",
+    "next",
+    "instead",
+    "maybe",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday"
+   ]
+  ],
+  [
+   [
+    "see you",
+    "love",
+    "best wishes",
+    "bye",
+    "take care",
+    "talk soon",
+    "cheers"
+   ]
+  ]
+ ],
+ "a2-w3": [
+  [
+   [
+    "is in",
+    "is near",
+    "is on",
+    "located",
+    "in the centre",
+    "in the center",
+    "next to",
+    "street",
+    "town",
+    "city",
+    "park",
+    "cafe",
+    "café",
+    "lake",
+    "market",
+    "library",
+    "beach",
+    "museum"
+   ]
+  ],
+  [
+   [
+    "beautiful",
+    "big",
+    "small",
+    "quiet",
+    "old",
+    "new",
+    "green",
+    "clean",
+    "busy",
+    "peaceful",
+    "lovely",
+    "nice",
+    "large",
+    "modern",
+    "pretty",
+    "famous"
+   ]
+  ],
+  [
+   [
+    "i go",
+    "i usually",
+    "i often",
+    "i like to",
+    "read",
+    "walk",
+    "sit",
+    "drink",
+    "meet",
+    "relax",
+    "play",
+    "eat",
+    "take photos",
+    "study"
+   ]
+  ],
+  [
+   [
+    "because",
+    "so i",
+    "that's why",
+    "the reason"
+   ]
+  ]
+ ],
+ "a2-w4": [
+  [
+   [
+    "dear",
+    "hello",
+    "hi",
+    "to whom"
+   ],
+   [
+    "my name",
+    "i am",
+    "i'm",
+    "i would like",
+    "i want",
+    "interested",
+    "join"
+   ]
+  ],
+  [
+   [
+    "what time",
+    "when",
+    "how much",
+    "price",
+    "cost",
+    "teacher",
+    "who",
+    "how many",
+    "start",
+    "schedule",
+    "fee"
+   ],
+   [
+    "?"
+   ]
+  ],
+  [
+   [
+    "thank",
+    "regards",
+    "sincerely",
+    "best wishes",
+    "look forward"
+   ]
+  ]
+ ],
+ "a2-w5": [
+  [
+   [
+    "woke up late",
+    "late",
+    "missed",
+    "forgot",
+    "lost",
+    "broke",
+    "rain",
+    "bad",
+    "wrong",
+    "traffic",
+    "alarm",
+    "dropped"
+   ]
+  ],
+  [
+   [
+    "first",
+    "then",
+    "after that",
+    "next",
+    "later",
+    "finally",
+    "when",
+    "so"
+   ]
+  ],
+  [
+   [
+    "sad",
+    "angry",
+    "upset",
+    "tired",
+    "terrible",
+    "awful",
+    "worried",
+    "stressed",
+    "felt",
+    "feel",
+    "unhappy",
+    "annoyed"
+   ]
+  ],
+  [
+   [
+    "in the end",
+    "finally",
+    "at last",
+    "luckily",
+    "at the end",
+    "fortunately",
+    "went to bed",
+    "tomorrow",
+    "but then"
+   ]
+  ]
+ ],
+ "a2-w6": [
+  [
+   [
+    "hi",
+    "hello",
+    "dear"
+   ],
+   [
+    "come",
+    "visit",
+    "welcome",
+    "invite",
+    "see you",
+    "party",
+    "dinner",
+    "lunch"
+   ]
+  ],
+  [
+   [
+    "first",
+    "then",
+    "after that",
+    "next",
+    "turn",
+    "walk",
+    "go straight",
+    "left",
+    "right",
+    "cross",
+    "take"
+   ]
+  ],
+  [
+   [
+    "next to",
+    "opposite",
+    "near",
+    "corner",
+    "shop",
+    "bank",
+    "school",
+    "park",
+    "church",
+    "pagoda",
+    "cafe",
+    "café",
+    "supermarket",
+    "bridge",
+    "sign",
+    "building",
+    "house"
+   ]
+  ],
+  [
+   [
+    "@num",
+    "o'clock",
+    "pm",
+    "am$",
+    "at"
+   ],
+   [
+    "see you",
+    "bye",
+    "love",
+    "best wishes",
+    "take care",
+    "don't be late"
+   ]
+  ]
+ ],
+ "a2-w7": [
+  [
+   [
+    "yesterday",
+    "last",
+    "one day",
+    "morning",
+    "evening",
+    "week",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+    "ago"
+   ],
+   [
+    "at",
+    "in",
+    "on",
+    "street",
+    "school",
+    "park",
+    "market",
+    "home",
+    "bus",
+    "shop",
+    "office",
+    "city"
+   ]
+  ],
+  [
+   [
+    "found",
+    "won",
+    "lucky",
+    "prize",
+    "money",
+    "met",
+    "got",
+    "gave",
+    "surprise",
+    "free",
+    "ticket",
+    "luckily"
+   ]
+  ],
+  null,
+  [
+   [
+    "happy",
+    "excited",
+    "surprised",
+    "glad",
+    "great",
+    "wonderful",
+    "amazing",
+    "felt",
+    "lucky",
+    "believe",
+    "smile",
+    "proud",
+    "relieved",
+    "thankful",
+    "grateful",
+    "delighted",
+    "best day"
+   ]
+  ]
+ ],
+ "a2-w8": [
+  [
+   [
+    "dear",
+    "hello",
+    "good morning",
+    "hi"
+   ]
+  ],
+  [
+   [
+    "sorry",
+    "apologise",
+    "apologize",
+    "missed",
+    "couldn't",
+    "could not",
+    "wasn't able",
+    "was not able"
+   ],
+   [
+    "ill",
+    "sick",
+    "fever",
+    "cold",
+    "headache",
+    "flu",
+    "doctor",
+    "hospital",
+    "unwell",
+    "stomach"
+   ]
+  ],
+  [
+   [
+    "homework",
+    "exercise",
+    "what did",
+    "page",
+    "assignment",
+    "lesson",
+    "what should"
+   ]
+  ],
+  [
+   [
+    "thank",
+    "regards",
+    "best wishes",
+    "sincerely",
+    "your student",
+    "see you"
+   ]
+  ]
+ ]
+}

@@ -31,6 +31,7 @@ const PARTS = {
 };
 function partView(id) {
   if (id === 'pa') return paView();   // 👄 Phát âm đã xây (pa.js)
+  if (KIT[id]) return kView(id);   // 🧱 📰 🎧 🗣 ✍️ đã xây (kit.js + kparts.js)
   const P = PARTS[id]; if (!P) return home();
   BACK = () => partView(id); window.CUR = { view: 'phan-' + id };
   $app.innerHTML = `<div id="part" data-p="${id}"></div><h1>${P.ic} ${P.t}</h1>

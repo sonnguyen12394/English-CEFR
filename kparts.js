@@ -1,0 +1,124 @@
+// Khai báo 5 phần chạy trên kit.js. Mặt của từng phần (bản v30 người sáng lập đã xem; sửa theo dữ liệu có thật, quyết định kỹ thuật 25/10/2026):
+//   🧱 Ngữ pháp: 🔎 Nhận ra (trắc nghiệm) · ✏️ Điền dạng (gõ) · 🛠 Sửa lỗi (gõ lại câu đúng).
+//   📰 Đọc: 💡 Ý chính (chọn đúng chủ đề bài) · 🔍 Chi tiết (câu hỏi trong bài). 🧠 Suy luận bỏ: kho câu có sẵn gần như không có loại này.
+//   🎧 Nghe: 💡 Ý chính · 🔍 Chi tiết · ✍️ Chép lại (nghe một câu, chép đúng ≥ 90% từ). Không hiện chữ bài trước khi trả lời.
+//   🗣 Nói: ✅ Đủ ý (máy chép lời, tìm ý bằng từ khoá; đề ≥ 4 ý được thiếu 1) · 🗣 Nói rõ (đọc to câu, máy chép ra ≥ 80% từ). Cần Safari.
+//   ✍️ Viết: ✅ Đủ ý (từ khoá; đề ≥ 4 ý được thiếu 1) · 📝 Đúng dạng bài (đủ độ dài, có chào / kết khi là thư, tin nhắn). Không chấm ngữ pháp, chính tả (phần khác).
+// Thi: Ngữ pháp / Đọc / Nghe / Nói đạt ≥ 80–85%; Viết (4 kết quả) đạt ≥ 75%. Đọc, Nghe có bài thi riêng; Nói có câu đọc to riêng;
+// Nói / Viết dùng lại đề đã học cho phần "đủ ý" (kho chỉ có 8 đề mỗi cấp; bài nói / viết mới mỗi lần, không học thuộc được câu trả lời).
+const kSay = t => `<button class="chip" data-sayt="${esc(t)}">🔊</button>`;
+const kSents = t => String(t).split(/(?<=[.!?])\s+/).map(s => s.trim()).filter(Boolean);
+const kOpts = (a, w) => shuf([a, ...w]);
+// số ý cần có: đề ≥ 4 ý thì được thiếu 1 ý, đề ≤ 3 ý thì phải đủ (thay "≥ 80%" làm tròn lên, vốn bắt đủ cả 4 ý)
+const kNeed = n => n >= 4 ? n - 1 : n;
+const kModel = x => [].concat(x.m).join('\n\n');
+const kOther = (P, x, f, n) => shuf(P.items.filter(y => y.lv === x.lv && y.id !== x.id && f(y) !== f(x))).slice(0, n).map(f);
+
+// ---------- 🧱 Ngữ pháp ----------
+KIT.np = { id: 'np', ic: '🧱', t: 'Ngữ pháp', file: 'np.json?v=1', lvs: ['pre', 'a1', 'a2'], unit: 'điểm ngữ pháp', pass: 0.85,
+  intro: 'Mỗi điểm: công thức, cách dùng, lỗi người Việt hay mắc.',
+  dims: [['nhan', '🔎 Nhận ra', 'Chọn câu / dạng đúng'], ['dien', '✏️ Điền dạng', 'Tự gõ dạng đúng'], ['sua', '🛠 Sửa lỗi', 'Gõ lại câu cho đúng']],
+  examTxt: 'Mỗi điểm 2 câu chưa gặp (nhận ra / điền / sửa).',
+  name: x => x.title,
+  lesson: x => `<h1>${esc(x.title)}</h1><p class="mute">${esc(x.en)}</p>
+    <div class="box"><b>📐 Công thức</b>${x.form.map(f => `<p style="margin:4px 0">${esc(f)}</p>`).join('')}</div>
+    <div class="box"><b>🎯 Dùng khi</b>${x.use.map(f => `<p style="margin:4px 0">• ${esc(f)}</p>`).join('')}${x.note ? `<p class="mute" style="margin:6px 0 0">⚠️ ${esc(x.note)}</p>` : ''}</div>
+    <div class="box"><b>📝 Ví dụ</b>${x.ex.map(([e, v]) => `<p style="margin:6px 0">${kSay(e)} ${esc(e)}<br><span class="mute">${esc(v)}</span></p>`).join('')}</div>`,
+  q: (x, k, pool) => {
+    if (k === 'nhan') return shuf(x.mc[pool]).slice(0, pool === 'learn' ? 2 : 1).map(m => ({ x, k, kind: 'mc', q: 'Chọn từ đúng: ' + esc(m.s), opts: kOpts(m.a, m.w), a: m.a, why: m.why }));
+    if (k === 'dien') return shuf(x.ty[pool]).slice(0, 1).map(m => ({ x, k, kind: 'type', head: '<p class="mute">Gõ từ còn thiếu (chia đúng dạng).</p>', q: esc(m.s), acc: m.a, why: m.why ? Object.values(m.why)[0] : '' }));
+    return shuf(x.fx[pool]).slice(0, 1).map(m => ({ x, k, kind: 'type', head: '<p class="mute">🛠 Câu dưới đây sai. Gõ lại cả câu cho đúng.</p>', q: '❌ ' + esc(m.bad), acc: [m.good, ...(m.alt || [])], why: m.why })); },
+  tryQs: x => ['nhan', 'dien', 'sua'].flatMap(k => KIT.np.q(x, k, 'learn').slice(0, 1)),
+  menu: [['nhan', '🔎 Luyện nhận ra (5 điểm)', 'Trắc nghiệm, 2 câu mỗi điểm', ['nhan'], 5], ['dien', '✏️ Luyện điền dạng (6 điểm)', 'Tự gõ dạng đúng', ['dien'], 6], ['sua', '🛠 Luyện sửa lỗi (6 điểm)', 'Gõ lại câu sai cho đúng', ['sua'], 6]],
+  ask: (x, m) => KIT.np.q(x, m, 'learn'),
+  exam: lv => kItems(KIT.np, lv).flatMap(x => shuf(['nhan', 'dien', 'sua']).slice(0, 2).flatMap(k => KIT.np.q(x, k, 'test'))) };
+
+// ---------- 📰 Đọc / 🎧 Nghe (cùng kiểu bài, khác kho bài và cách đưa bài) ----------
+function kRead(P, x, k, listen) {
+  const head = listen ? `<p class="mute">🎧 Bài nghe (chưa hiện chữ): nghe rồi trả lời.</p><button class="chip" data-sayt="${esc(x.text)}">🔊 Nghe lại cả bài</button>`
+    : `<div class="box"><b>${esc(x.title)}</b><p style="font-size:18px;line-height:1.6;margin:8px 0 0;white-space:pre-line">${esc(x.text)}</p></div>`;
+  const after = listen ? `<details><summary>Xem bài nghe</summary><p style="white-space:pre-line">${esc(x.text)}</p><p class="mute">${esc(x.vi)}</p></details>` : '';
+  const say = listen ? kSents(x.text) : null;
+  if (k === 'y') return [{ x, k, kind: 'mc', head, q: 'Bài này chủ yếu nói về gì?', opts: kOpts(x.tvi, kOther(P, x, y => y.tvi, 2)), a: x.tvi, say, after }];
+  if (k === 'ct') return x.qs.filter(q => !/mainly|main idea|best title|mostly about/i.test(q.q)).map(q => ({ x, k, kind: 'mc', head, q: esc(q.q), opts: kOpts(q.a, q.w), a: q.a, why: q.why, say, after }));
+  // ✍️ chép lại: một câu 5–12 từ của bài
+  const ss = kSents(x.text).filter(s => { const n = kWords(s).length; return n >= 5 && n <= 12; }), s = ss[Math.floor(Math.random() * ss.length)] || kSents(x.text)[0];
+  return [{ x, k, kind: 'type', head: `<p class="mute">Nghe một câu trong bài rồi chép lại.</p><button class="chip" data-sayt="${esc(s)}">🔊 Nghe lại câu</button>`, q: '✍️ Chép lại câu vừa nghe', say: [s],
+    check: t => { const r = kMatch(s, t); return { ok: r >= 0.9, html: `Câu đúng: <b>${esc(s)}</b> · khớp ${Math.round(r * 100)}% từ (cần 90%).` }; } }];
+}
+const kReadLesson = (x, listen) => `<h1>${esc(listen ? x.tvi : x.title)}</h1>
+  ${listen ? `<p class="mute">Nghe cả bài (chưa nhìn chữ). Nghe 2–3 lần rồi mới mở bài.</p><button class="pri" data-sayt="${esc(x.text)}">🔊 Nghe cả bài</button>` : ''}
+  <details ${listen ? '' : 'open'}><summary>${listen ? 'Mở chữ bài nghe' : 'Bài đọc'}</summary><div class="box"><p style="font-size:18px;line-height:1.6;margin:0;white-space:pre-line">${esc(x.text)}</p></div></details>
+  <button class="link" data-kl="vi">Hiện / ẩn bản dịch</button><div id="kvi" hidden class="box"><p class="mute" style="margin:0;white-space:pre-line">${esc(x.vi)}</p></div>`;
+KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=1', lvs: ['a1', 'a2'], unit: 'bài đọc', pass: 0.8,
+  intro: 'Bài ngắn kiểu Cambridge (tin nhắn, thông báo, câu chuyện). Phần Đọc bắt đầu từ A1.',
+  dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Tìm thông tin trong bài']],
+  examTxt: '6 bài đọc chưa gặp: ý chính + chi tiết.',
+  name: x => x.title, lesson: x => kReadLesson(x, false),
+  q: (x, k) => kRead(KIT.doc, x, k, false), tryQs: x => [...kRead(KIT.doc, x, 'y'), ...kRead(KIT.doc, x, 'ct')],
+  menu: [['y', '💡 Luyện ý chính (4 bài)', 'Đọc bài, chọn đúng chủ đề', ['y'], 4], ['ct', '🔍 Luyện chi tiết (2 bài)', 'Đọc bài, trả lời câu hỏi', ['ct'], 2]],
+  ask: (x, m) => kRead(KIT.doc, x, m, false),
+  exam: lv => shuf(KIT.doc.items.filter(x => x.lv === lv && x.test)).slice(0, 6).flatMap(x => [...kRead(KIT.doc, x, 'y', false), ...kRead(KIT.doc, x, 'ct', false)]) };
+KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=1', lvs: ['a1', 'a2'], unit: 'bài nghe', pass: 0.8,
+  intro: 'Máy đọc bài (giọng chọn ở 🔊 Giọng đọc, trang 📚 Từ vựng). Phần Nghe bắt đầu từ A1.',
+  dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Nghe ra thông tin'], ['chep', '✍️ Chép lại', 'Nghe một câu, chép đúng ≥ 90% từ']],
+  examTxt: '6 bài nghe chưa gặp: ý chính + chi tiết + chép 1 câu.',
+  name: x => x.tvi, lesson: x => kReadLesson(x, true),
+  tryQs: x => [...kRead(KIT.nghe, x, 'y', true), ...kRead(KIT.nghe, x, 'ct', true).slice(0, 1), ...kRead(KIT.nghe, x, 'chep', true)],
+  menu: [['y', '💡 Luyện ý chính (4 bài)', 'Nghe bài, chọn đúng chủ đề', ['y'], 4], ['ct', '🔍 Luyện chi tiết (2 bài)', 'Nghe bài, trả lời câu hỏi', ['ct'], 2], ['chep', '✍️ Luyện chép lại (5 bài)', 'Nghe một câu, chép lại', ['chep'], 5]],
+  ask: (x, m) => kRead(KIT.nghe, x, m, true),
+  exam: lv => shuf(KIT.nghe.items.filter(x => x.lv === lv && x.test)).slice(0, 6).flatMap(x => ['y', 'ct', 'chep'].flatMap(k => kRead(KIT.nghe, x, k, true))) };
+
+// ---------- 🗣 Nói ----------
+const K_MINW = { a1: 15, a2: 25 };
+function kTalk(x) { const ideas = x.k || [];
+  return { x, k: 'viec', kind: 'speak', head: `<div class="box"><b>${esc(x.en)}</b> <span class="mute">· ${esc(x.vi)}</span><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p>
+      <p class="mute" style="margin:6px 0 0">Cần nói đủ: ${x.c.map(esc).join(' · ')}. Ít nhất ${K_MINW[x.lv]} từ.</p></div>`, q: '🎤 Nói khoảng 30 giây rồi bấm Dừng.',
+    check: t => { const hit = ideas.map(g => kHit(t, g)), n = hit.filter(Boolean).length, need = kNeed(ideas.length), wc = kWords(t).length;
+      return { ok: n >= need && wc >= K_MINW[x.lv], html: `Máy nghe ra ${wc} từ (cần ${K_MINW[x.lv]}). Ý tìm thấy ${n}/${ideas.length} (cần ${need}):<br>${x.c.map((c, i) => `${hit[i] ? '✅' : '⬜'} ${esc(c)}`).join('<br>')}
+        <details><summary>Bài mẫu</summary><p>${kSay(x.m)} ${esc(x.m)}</p></details>` }; } }; }
+const kAloud = (x, s, k = 'ro') => ({ x, k, kind: 'speak', head: `<div class="box"><p style="font-size:20px;margin:0">${esc(s)}</p></div>`, q: '🗣 Đọc to câu trên rồi bấm Dừng.',
+  check: t => { const r = kMatch(s, t); return { ok: r >= 0.8, html: `Máy nghe ra: "${esc(t || '…')}" · khớp ${Math.round(r * 100)}% từ (cần 80%). ${kSay(s)} nghe mẫu` }; } });
+const kModelSent = x => { const ss = kSents(x.m).filter(s => { const n = kWords(s).length; return n >= 5 && n <= 14; }); return ss[Math.floor(Math.random() * ss.length)] || kSents(x.m)[0]; };
+KIT.noi = { id: 'noi', ic: '🗣', t: 'Nói', file: 'noi.json?v=1', lvs: ['a1', 'a2'], unit: 'đề nói', pass: 0.8, needAsr: true,
+  intro: 'Máy chép lời nói rồi tìm ý bằng từ khoá (không chấm ngữ pháp, phát âm: đó là phần khác).',
+  dims: [['viec', '✅ Đủ ý', 'Nói đủ ý đề yêu cầu'], ['ro', '🗣 Nói rõ', 'Đọc to câu, máy chép ra ≥ 80% từ']],
+  examTxt: '4 đề nói (nói mới, máy tìm ý) + 4 câu đọc to chưa gặp.',
+  name: x => x.vi,
+  lesson: x => `<h1>${esc(x.vi)}</h1><p class="mute">${esc(x.en)}</p>
+    <div class="box"><b>Đề</b><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p></div>
+    <div class="box"><b>Cần nói đủ</b>${x.c.map(c => `<p style="margin:4px 0">• ${esc(c)}</p>`).join('')}</div>
+    <div class="box"><b>Cụm hữu ích</b>${x.u.map(([e, v]) => `<p style="margin:4px 0">${kSay(e)} ${esc(e)} <span class="mute">· ${esc(v)}</span></p>`).join('')}</div>
+    <div class="box"><b>Bài mẫu</b><p style="margin:6px 0">${kSay(x.m)} ${esc(x.m)}</p></div>`,
+  tryQs: x => [kTalk(x), kAloud(x, kModelSent(x))],
+  menu: [['viec', '✅ Luyện nói đủ ý (1 đề)', 'Nói theo đề khoảng 30 giây', ['viec'], 1], ['ro', '🗣 Luyện nói rõ (4 câu)', 'Đọc to câu trong bài mẫu', ['ro'], 4]],
+  ask: (x, m) => m === 'viec' ? [kTalk(x)] : [kAloud(x, kModelSent(x))],
+  exam: lv => { const P = KIT.noi, L = shuf(kItems(P, lv)), ss = shuf(P.raw.test[lv]).slice(0, 4);
+    return [...L.slice(0, 4).map(kTalk), ...ss.map((s, i) => kAloud(L[i % L.length], s))]; } };
+
+// ---------- ✍️ Viết ----------
+const K_LETTER = /tin nhắn|thư|email|thiệp|bưu thiếp|ghi chú|hồ sơ/;
+function kWrite(x) { const ideas = (x.k || []).map((g, i) => [g, x.c[i]]).filter(([g]) => g);
+  return { x, k: 'y', kind: 'write', head: `<div class="box"><b>${esc(x.en)}</b> <span class="mute">· ${esc(x.genre)}</span><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p>
+      <p class="mute" style="margin:6px 0 0">Cần viết đủ: ${x.c.map(esc).join(' · ')}. Độ dài ${x.min}–${x.max} từ.</p></div>`, q: '✍️ Viết bài vào ô dưới.',
+    check: t => { const hit = ideas.map(([g]) => kHit(t, g)), n = hit.filter(Boolean).length, need = kNeed(ideas.length), wc = kWords(t).length;
+      const lenOk = wc >= x.min && wc <= x.max + 30, letter = K_LETTER.test(x.genre), open = /^\s*(hi|hello|dear|hey|good (morning|afternoon|evening))\b/i.test(t),
+        close = /(bye|love|regards|best wishes|see you|take care|thanks|thank you|sincerely|write soon|cheers|from)\W*(\n.*)?\s*$/i.test(t.trim()) || /\n\s*[A-Z][a-z]+\s*$/.test(t);
+      const dang = lenOk && kSents(t).length >= 2 && (!letter || open || close);
+      return { ks: { y: n >= need, dang }, ok: n >= need && dang, html: `✅ Đủ ý ${n}/${ideas.length} (cần ${need}): <br>${ideas.map(([, c], i) => `${hit[i] ? '✅' : '⬜'} ${esc(c)}`).join('<br>')}
+        <br>📝 Đúng dạng bài: ${dang ? '✅' : '❌'} ${wc} từ (cần ${x.min}–${x.max})${letter ? `, ${open || close ? 'có' : 'thiếu'} lời chào / lời kết` : ''}.
+        <details><summary>Bài mẫu</summary><p style="white-space:pre-line">${esc(kModel(x))}</p></details>` }; } }; }
+KIT.viet = { id: 'viet', ic: '✍️', t: 'Viết', file: 'viet.json?v=1', lvs: ['a1', 'a2'], unit: 'đề viết', pass: 0.75,
+  intro: 'Máy tìm ý bằng từ khoá và xem dạng bài (độ dài, lời chào / kết). Không chấm ngữ pháp, chính tả: đó là phần khác.',
+  dims: [['y', '✅ Đủ ý', 'Viết đủ các ý đề yêu cầu'], ['dang', '📝 Đúng dạng bài', 'Độ dài, chào / kết khi là thư']],
+  examTxt: '2 đề viết (viết mới), chấm ý và dạng bài.',
+  name: x => x.vi,
+  lesson: x => `<h1>${esc(x.vi)}</h1><p class="mute">${esc(x.en)} · ${esc(x.genre)} · ${x.min}–${x.max} từ</p>
+    <div class="box"><b>Đề</b><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p></div>
+    <div class="box"><b>Cần viết đủ</b>${x.c.map(c => `<p style="margin:4px 0">• ${esc(c)}</p>`).join('')}</div>
+    <div class="box"><b>Cụm hữu ích</b>${x.u.map(([e, v]) => `<p style="margin:4px 0">${esc(e)} <span class="mute">· ${esc(v)}</span></p>`).join('')}</div>
+    <div class="box"><b>Bài mẫu</b><p style="margin:6px 0;white-space:pre-line">${esc(kModel(x))}</p></div>`,
+  tryQs: x => [kWrite(x)],
+  menu: [['y', '✍️ Viết 1 đề', 'Chấm cả ✅ Đủ ý và 📝 Đúng dạng bài', ['y', 'dang'], 1]],
+  ask: x => [kWrite(x)],
+  exam: lv => shuf(kItems(KIT.viet, lv)).slice(0, 2).map(kWrite) };
