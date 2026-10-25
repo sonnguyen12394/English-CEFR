@@ -102,12 +102,13 @@ function nTip(R) { const bad = []; for (const w of R.words) w.phones.forEach((p,
 // Hai bài chạy riêng (không mở micro hai bên cùng lúc: iPhone có thể không cho). Nút 🎤 Nói thử (không tính) vẫn làm cả hai.
 const N_OK = 80;
 const nMode = () => NO.ses ? NO.ses.mode : null;
+const nDimL = k => k === 'am' ? '🎯 Phát âm' : (DIMS.find(x => x[0] === k) || [k, k])[1];
 const nRight = () => { const w = NO.w, m = NO.alts.length ? !!nMatch(w.w, NO.alts) : null, md = nMode();
   if (md === 'am') return NO.res ? NO.res.score >= N_OK : null;
   if (md === 'noi') return NO.st === 'idle' && !NO.asr && NO.alts.length ? m : null;
   if (m) return true; if (m === false && NO.st === 'idle' && !NO.res) return false;
   return NO.res ? NO.res.score >= N_OK : null; };
-const N_MODE = { noi: { t: '🗣 Nói từ', dim: 'noi', sub: 'Nhìn nghĩa, nói từ tiếng Anh. Đúng = máy chép ra đúng từ.' },
+const N_MODE = { noi: { t: '🗣 Nói ra từ', dim: 'noi', sub: 'Nhìn nghĩa, nói từ tiếng Anh. Đúng = máy chép ra đúng từ.' },
   am: { t: '🎯 Phát âm', dim: 'am', sub: `Nhìn từ, nghe mẫu rồi đọc theo. Đúng = điểm âm ≥ ${N_OK}.` } };
 // ---------- lượt 10 từ đã học; tính mặt của bài (grade(…, 'noi' | 'am')) ----------
 // Chọn từ: của cấp đang học trước; từ chưa giữ được mặt đó và đã qua ngày học (làm đúng mới tính) trước, rồi từ đã giữ.
@@ -119,12 +120,12 @@ function noiTask(mode = 'noi') { const now = Date.now(), gw = new Set(gateWords(
 function nNext() { const S2 = NO.ses; if (S2.got[S2.i] == null) S2.got[S2.i] = false; S2.i++; S2.show = false; if (S2.i < S2.list.length) noiOpen(S2.list[S2.i], true); else nPaint(); }
 function nSesBody() { const S2 = NO.ses, n = S2.list.length, M = N_MODE[S2.mode];
   const ok = S2.got.filter(Boolean).length, sc = S2.sc.filter(x => x != null), avg = sc.length ? Math.round(sc.reduce((a, x) => a + x, 0) / sc.length) : null;
-  const miss = S2.list.filter((_, k) => !S2.got[k]), p = parts(S, Date.now()), dl = DIMS.find(x => x[0] === M.dim)[1];
+  const miss = S2.list.filter((_, k) => !S2.got[k]), p = parts(S, Date.now()), dl = nDimL(M.dim), cnt = M.dim !== 'am';
   return `<div class="row"><b style="font-size:18px">${M.t}</b><button class="link" data-n="x">Đóng ✕</button></div>
-    <div class="box"><b>Xong lượt</b><p>Đúng ${ok}/${n} từ.${avg != null ? ` Điểm phát âm trung bình ${avg}/100.` : ''} ${dl} giờ là ${p.dq[M.dim]}%.</p>
+    <div class="box"><b>Xong lượt</b><p>Đúng ${ok}/${n} từ.${avg != null ? ` Điểm phát âm trung bình ${avg}/100.` : ''}${cnt ? ` ${dl} giờ là ${p.dq[M.dim]}%.` : ''}</p>
     ${miss.length ? `<p class="mute">Cần luyện lại: ${miss.map(w => `<button class="link" data-noi="${w.id}">${esc(w.w)}</button>`).join(' · ')}</p>` : ''}</div>
     <button class="pri" data-n="again">${M.t}: tiếp 10 từ</button><button data-n="x">Đóng</button>
-    <p class="mute">Từ làm đúng ở một ngày sau ngày học thì tính ${dl} của 🔁 Nhớ.</p>`; }
+    <p class="mute">${cnt ? `Từ làm đúng ở một ngày sau ngày học thì tính ${dl} của 🔁 Nhớ (📚 Từ vựng).` : '👄 Phát âm đang xây: lượt này chỉ để luyện, chưa tính mục tiêu.'}</p>`; }
 function nBody() { if (NO.ses && NO.ses.i >= NO.ses.list.length) return nSesBody();
   const w = NO.w, rec = NO.st === 'rec', busy = NO.st === 'busy', ses = NO.ses, md = nMode(), right = NO.st === 'idle' ? nRight() : null;
   const ok = NO.alts.length ? nMatch(w.w, NO.alts) : null;
@@ -141,7 +142,7 @@ function nBody() { if (NO.ses && NO.ses.i >= NO.ses.list.length) return nSesBody
     <p class="mute" style="margin:0">Xanh ≥ 80 · vàng 60–79 · đỏ dưới 60.${NO.ph ? ` Máy nghe âm: /${esc(NO.ph)}/` : ''}</p>${nTip(R)}</div>` : '';
   const model = md === 'noi' ? '' : NO.vocab ? `<p class="mute">🧪 Bộ chấm từng âm đã sẵn sàng. <button class="link" data-n="del">Xoá khỏi máy</button></p>`
     : NO.loading ? `<div class="box">⏳ Đang tải bộ chấm từng âm: <span id="nprog">${nProg()}</span><br><span class="mute">Lần đầu tải vài trăm MB, nên dùng Wi-Fi. Lần sau mở từ máy, không tải lại.</span></div>`
-    : `<div class="box"><b>🧪 Chấm điểm từng âm</b><p class="mute" style="margin:4px 0">Tải bộ chấm miễn phí về máy một lần (vài trăm MB, nên dùng Wi-Fi). Âm thanh không rời máy. ${md ? 'Mặt 🎯 Phát âm cần bộ chấm này: máy không kiểm được thì không tính.' : 'Chưa tải thì chỉ có máy chép chữ.'}</p><button class="${md ? 'pri' : ''}" data-n="load">⬇️ Tải bộ chấm</button></div>`;
+    : `<div class="box"><b>🧪 Chấm điểm từng âm</b><p class="mute" style="margin:4px 0">Tải bộ chấm miễn phí về máy một lần (vài trăm MB, nên dùng Wi-Fi). Âm thanh không rời máy. ${md ? 'Bài 🎯 Đọc từ cần bộ chấm này.' : 'Chưa tải thì chỉ có máy chép chữ.'}</p><button class="${md ? 'pri' : ''}" data-n="load">⬇️ Tải bộ chấm</button></div>`;
   const verdict = right == null ? '' : md === 'am' ? `<div class="box">${right ? '✅ Đạt' : '❌ Chưa đạt'}: điểm âm ${R.score}/100 (cần ${N_OK}).</div>`
     : md || !R || NO.alts.length ? '' : `<div class="box">${right ? '✅' : '❌'} Theo bộ chấm âm: ${right ? 'nói ra đúng' : 'chưa ra'} từ <b>${esc(w.w)}</b> (${R.score}/100, cần ${N_OK}).</div>`;
   const head = ses ? `<div class="row"><b style="font-size:18px">${N_MODE[md].t} · ${ses.i + 1}/${ses.list.length}</b><button class="link" data-n="x">Đóng ✕</button></div>
@@ -155,7 +156,7 @@ function nBody() { if (NO.ses && NO.ses.i >= NO.ses.list.length) return nSesBody
     <button class="${ses && right != null ? '' : 'pri'}" style="text-align:center" data-n="rec" ${busy || off ? 'disabled' : ''}>${rec ? '⏹ Dừng' : busy ? '⏳ Đang chấm…' : right != null ? '🎤 Nói lại' : need ? '🎤 Tải bộ chấm để bắt đầu' : '🎤 Bấm rồi nói'}</button>
     ${ses ? `<button class="${right != null ? 'pri' : ''}" style="text-align:center" data-n="next" ${rec || busy ? 'disabled' : ''}>${right == null ? 'Bỏ qua →' : ses.i + 1 < ses.list.length ? 'Tiếp →' : 'Xem kết quả'}</button>` : ''}
     ${NO.err ? `<p style="color:var(--bad)">${esc(NO.err)}</p>` : ''}${heard}${verdict}${score}${need ? '' : model}
-    <p class="mute">${ses ? `Tính ${DIMS.find(x => x[0] === md)[1]} của 🔁 Nhớ.` : 'Chỉ để luyện, không tính 🔁 Nhớ (muốn tính: 🏋️ Luyện tập → 🗣 Nói từ / 🎯 Phát âm).'} Máy chấm là ước tính, chưa người thật kiểm.</p>`; }
+    <p class="mute">${md === 'noi' ? `Tính ${nDimL('noi')} của 📚 Từ vựng.` : md === 'am' ? '👄 Phát âm đang xây: chỉ để luyện, chưa tính mục tiêu.' : 'Chỉ để luyện, không tính 🔁 Nhớ (muốn tính: 🏋️ Luyện tập → 🗣 Nói ra từ).'} Máy chấm là ước tính, chưa người thật kiểm.</p>`; }
 function nPaint() { const b = document.getElementById('nbox'); if (b) b.innerHTML = nBody(); }
 function noiOpen(w, inSes) { if (!w) return; try { speechSynthesis.cancel(); } catch (e) {} if (!inSes) NO.ses = null;
   Object.assign(NO, { w, st: 'idle', res: null, err: '', heard: '', alts: [], asrErr: '', ph: '', url: '' });

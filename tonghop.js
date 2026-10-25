@@ -3,7 +3,8 @@
 //   📰 Đọc bài   → 📖 Nghĩa cho các từ đã học nằm trong CÂU BẰNG CHỨNG của câu hỏi (câu phải hiểu mới trả lời đúng); sai không trừ (không biết sai vì từ nào).
 //   🎧 Nghe câu  → 🎧 Nghe cho mọi từ đã học trong câu (chọn đúng nghĩa cả câu); sai chỉ trừ từ đích của câu.
 //   ✍️ Nghe chép → 🎧 Nghe + ✍️ Viết cho TỪNG từ đã học trong câu: chép đúng từ nào tính đúng từ đó, sai / thiếu tính sai.
-// Luật nhớ của mặt vẫn như cũ (đúng ở một ngày sau ngày học, lần gần nhất đúng, khả năng nhớ ≥ 0,9): chấm qua grade() với dạng read / hear / dict.
+// 25/10/2026 (người sáng lập: tách bạch mục tiêu từng phần): ba bài này là bài kỹ năng, chuyển sang phần 📰 Đọc / 🎧 Nghe (parts.js),
+// THÔI tính cho 📚 Từ vựng (credit() không chấm). Chỉ còn hiện từ đã học gặp lại trong bài, để ôn.
 const MIN_LEN = 3;   // từ quá ngắn (a, I, to, in…) có mặt ở mọi câu: không chấm kèm, tránh lên Nhớ dễ dãi
 
 // dạng chữ của một từ trong câu: số nhiều, quá khứ, -ing (cả bỏ e, gấp đôi phụ âm, y → ies / ied)
@@ -23,7 +24,7 @@ const learned = w => !!S.cards[w.id];
 function wordsIn(text) { const t = String(text).replace(/[‘’]/g, "'"); const out = [];
   for (const w of WORDS) { if (!learned(w) || w.w.replace(/\s/g, '').length < MIN_LEN) continue; const m = formRe(w).exec(t); if (m) out.push({ w, form: m[1] }); }
   return out; }
-function credit(list, type, ok) { const now = Date.now(); for (const w of list) grade(S, w.id, ok, now, type); if (list.length) save(); }
+function credit() {}   // không chấm cho từ vựng (xem đầu tệp)
 const chipsOf = (ws, cls) => ws.map(w => `<span class="chip ${cls || ''}" style="cursor:default">${esc(w.w)}</span>`).join(' ');
 const backRow = t => `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${esc(t)}</span></div>`;
 const dimLack = (w, k) => !heldDim(S.cards[w.id], k, Date.now());
@@ -32,17 +33,15 @@ const dimLack = (w, k) => !heldDim(S.cards[w.id], k, Date.now());
 // ví dụ câu bằng từ đã học, nút làm ngay, từ còn thiếu mặt đó.
 const DIM_INFO = {
   nghia: { what: 'Nhìn từ hiểu nghĩa, và nhìn nghĩa nhận ra từ.', ex: w => [`${w.pic || ''} ${w.vi} → chọn: <b>${w.w}</b> / …`, `<b>${w.w}</b> → chọn nghĩa: ${w.vi} / …`],
-    tasks: [['p', '⚡ Luyện riêng 📖 Nghĩa (20 câu)', 'Chọn từ theo nghĩa, chọn nghĩa theo từ'], ['read', '📰 Đọc bài', 'Hiểu đúng câu hỏi thì mọi từ trong câu bằng chứng được tính']] },
-  nghe: { what: 'Nghe tiếng Anh mà hiểu, không nhìn chữ.', ex: w => [`🔊 (nghe "${w.w}") → chọn nghĩa: ${w.vi} / …`],
-    tasks: [['p', '⚡ Luyện riêng 🎧 Nghe (20 câu)', 'Nghe từ, chọn nghĩa'], ['hear', '🎧 Nghe câu (8 câu)', 'Hiểu đúng câu nghe thì các từ đã học trong câu được tính'], ['dict', '✍️ Nghe chép (5 câu)', 'Chép đúng từ nào thì từ đó được tính']] },
-  viet: { what: 'Tự nhớ ra và gõ đúng chính tả, không có phương án chọn.', ex: w => [`${w.pic || ''} ${w.vi} → gõ: <b>${w.w}</b> (gợi ý chữ đầu + số chữ)`, `${w.cloze ? w.cloze.s : ''} → gõ từ còn thiếu`],
-    tasks: [['p', '⚡ Luyện riêng ✍️ Viết (20 câu)', 'Gõ từ theo nghĩa, gõ từ còn thiếu trong câu'], ['dict', '✍️ Nghe chép (5 câu)', 'Nghe rồi chép lại câu']] },
+    tasks: [['p', '⚡ Luyện riêng 📖 Nghĩa (20 câu)', 'Chọn từ theo nghĩa, chọn nghĩa theo từ']] },
+  nghe: { what: 'Nghe từ (không nhìn chữ) mà nhận ra nghĩa. Nghe hiểu câu, bài là phần 🎧 Nghe.', ex: w => [`🔊 (nghe "${w.w}") → chọn nghĩa: ${w.vi} / …`],
+    tasks: [['p', '⚡ Luyện riêng 🔊 Nhận âm (20 câu)', 'Nghe từ, chọn nghĩa']] },
+  viet: { what: 'Tự nhớ ra và gõ đúng chính tả của từ, không có phương án chọn. Viết câu, đoạn là phần ✍️ Viết.', ex: w => [`${w.pic || ''} ${w.vi} → gõ: <b>${w.w}</b> (gợi ý chữ đầu + số chữ)`, `${w.cloze ? w.cloze.s : ''} → gõ từ còn thiếu`],
+    tasks: [['p', '⚡ Luyện riêng ✍️ Chính tả (20 câu)', 'Gõ từ theo nghĩa, gõ từ còn thiếu trong câu']] },
   dung: { what: 'Dùng từ đúng chỗ trong câu và đúng cụm hay đi cùng.', ex: w => [`${w.cloze ? w.cloze.s : ''} → chọn / gõ: <b>${w.cloze ? w.cloze.a : w.w}</b>`, w.col ? `Cụm nào đúng? <b>${w.col.ok}</b> / ${w.col.bad[0]}` : ''],
     tasks: [['p', '⚡ Luyện riêng 🧩 Dùng (20 câu)', 'Điền chỗ trống, chọn cụm từ đúng']] },
-  noi: { what: 'Nhìn nghĩa, tự nói ra từ tiếng Anh; máy chép lời ra đúng từ (từ đồng âm cũng tính). Chỉ tính bằng chép chữ: trình duyệt phải chép được lời (Safari trên iPhone).', ex: w => [`${w.pic || ''} ${w.vi} → 🎤 nói: <b>${w.w}</b> → máy chép: "${w.w}" ✅`],
-    tasks: [['noi', '🗣 Nói từ (10 từ)', 'Không cần tải gì; mở bằng Safari']] },
-  am: { what: 'Nhìn từ, nghe mẫu rồi đọc theo; bộ chấm âm trên máy chấm từng âm, đạt khi ≥ 80/100.', ex: w => [`<b>${w.w}</b> ${w.ipa || ''} → 🎤 đọc → điểm từng âm (xanh / vàng / đỏ)`],
-    tasks: [['am', '🎯 Phát âm (10 từ)', 'Cần tải bộ chấm âm một lần (miễn phí, vài trăm MB)']] },
+  noi: { what: 'Nhìn nghĩa, tự nói ra từ tiếng Anh; máy chép lời ra đúng từ (từ đồng âm cũng tính). Không chấm độ chuẩn của âm (đó là phần 👄 Phát âm). Trình duyệt phải chép được lời (Safari trên iPhone).', ex: w => [`${w.pic || ''} ${w.vi} → 🎤 nói: <b>${w.w}</b> → máy chép: "${w.w}" ✅`],
+    tasks: [['noi', '🗣 Nói ra từ (10 từ)', 'Không cần tải gì; mở bằng Safari']] },
 };
 function dimView(k) {
   window.CUR = { view: 'mat-' + k };
@@ -59,7 +58,7 @@ function dimView(k) {
     ${lack.length ? `<h2>Từ còn thiếu mặt này (${lack.length})</h2><p>${lack.slice(0, 60).map(w => esc(w.w)).join(' · ')}${lack.length > 60 ? ' …' : ''}</p>` : ''}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-m]'); if (!b) return;
     const m = b.dataset.m; if (m === 'p') { if (!Object.keys(S.cards).length) return toast('Học 1 unit trước.'); return practice(k); }
-    ({ read: readTask, hear: hearTask, dict: dictTask, noi: () => noiTask('noi'), am: () => noiTask('am') })[m](); };
+    ({ read: readTask, hear: hearTask, dict: dictTask, noi: () => noiTask('noi') })[m](); };
   window.scrollTo(0, 0);
 }
 
@@ -67,34 +66,31 @@ function dimView(k) {
 function practiceMenu() {
   window.CUR = { view: 'luyen-tap' };
   const p = parts(S, Date.now()), low = DIMS.map(([k]) => k).sort((a, b) => p.dim[a] - p.dim[b])[0];
-  const rec = { nghia: 'read', nghe: 'hear', viet: 'dict', dung: 'word', noi: 'noi', am: 'am' }[low];
+  const rec = low === 'noi' ? 'noi' : 'word';
   const opt = (k, t, sub) => `<button class="opt ${rec === k ? 'pri' : ''}" data-m="${k}"><b>${t}</b>${rec === k ? ' · nên làm' : ''}<br><span style="font-size:14px;opacity:.85">${sub}</span></button>`;
   $app.innerHTML = `${backRow('🏋️ Luyện tập')}<h1>🏋️ Luyện tập</h1>
-    <p class="mute">Mặt đang thấp nhất: <b>${DIMS.find(x => x[0] === low)[1]} ${p.dq[low]}%</b>. Bài tổng hợp chấm được nhiều từ một lúc.</p>
-    ${opt('word', '⚡ Từng từ (20 câu)', '📖 🎧 ✍️ 🧩: máy hỏi vào mặt còn thiếu của từng từ')}
-    ${opt('read', '📰 Đọc bài', '📖 Nghĩa: các từ trong câu bằng chứng của câu bạn trả lời đúng')}
-    ${opt('hear', '🎧 Nghe câu (8 câu)', '🎧 Nghe: mọi từ đã học trong câu bạn hiểu đúng')}
-    ${opt('dict', '✍️ Nghe chép (5 câu)', '🎧 Nghe + ✍️ Viết: từng từ chép đúng')}
-    ${opt('noi', '🗣 Nói từ (10 từ)', '🗣 Nói: nhìn nghĩa, nói từ tiếng Anh; máy chép ra đúng từ. Cần Safari')}
-    ${opt('am', '🎯 Phát âm (10 từ)', '🎯 Phát âm: nhìn từ, đọc theo; điểm âm ≥ 80. Cần tải bộ chấm âm')}`;
+    <p class="mute">Mặt đang thấp nhất: <b>${DIMS.find(x => x[0] === low)[1]} ${p.dq[low]}%</b>. Bấm một mặt ở trang 📚 Từ vựng để luyện riêng mặt đó.</p>
+    ${opt('word', '⚡ Từng từ (20 câu)', '📖 Nghĩa · 🔊 Nhận âm · ✍️ Chính tả · 🧩 Dùng: máy hỏi vào mặt còn thiếu của từng từ')}
+    ${opt('noi', '🗣 Nói ra từ (10 từ)', 'Nhìn nghĩa, nói từ tiếng Anh; máy chép ra đúng từ. Cần Safari')}
+    <p class="mute">Đọc bài, nghe câu, nghe chép, chấm phát âm: ở các phần 📰 Đọc · 🎧 Nghe · 👄 Phát âm (thanh dưới).</p>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-m]'); if (!b) return;
-    ({ word: practice, read: readTask, hear: hearTask, dict: dictTask, noi: () => noiTask('noi'), am: () => noiTask('am') })[b.dataset.m](); };
+    ({ word: practice, noi: () => noiTask('noi') })[b.dataset.m](); };
 }
-const doneBox = (h, body, again) => { $app.innerHTML = `<div class="box"><b>${h}</b>${body}</div><button class="pri" data-a="again">Làm tiếp</button><button data-a="menu">Kiểu luyện khác</button><button data-a="home">Về 📘 Học</button>`;
-  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="menu"]')) practiceMenu(); if (e.target.closest('[data-a="again"]')) again(); }; };
+const doneBox = (h, body, again) => { $app.innerHTML = `<div class="box"><b>${h}</b>${body}</div><button class="pri" data-a="again">Làm tiếp</button><button data-a="home">← Về</button>`;
+  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) goBack(); if (e.target.closest('[data-a="again"]')) again(); }; };
 const dimNow = () => { const p = parts(S, Date.now()); return DIMS.map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · '); };
 
 // ---------- 📰 Đọc bài ----------
 function readTask() {
   // bài đọc theo unit gốc (READS, a1.json): mở khi đã học ≥ 70% từ của unit gốc (bài học đã xếp lại theo cấp, 23/10/2026)
   const now = Date.now(), cand = READS.filter(r => r.words.filter(id => S.cards[id]).length >= 0.7 * r.words.length);
-  if (!cand.length) { toast('Chưa có bài đọc: học thêm vài bài để mở.'); return practiceMenu(); }
+  if (!cand.length) { toast('Chưa có bài đọc: học thêm vài bài 📚 Từ vựng để mở.'); return goBack(); }
   const score = r => r.qs.reduce((n, q) => n + wordsIn(q.why).filter(x => !heldDim(S.cards[x.w.id], 'nghia', now)).length, 0);
   const R = shuf(cand).sort((a, b) => score(b) - score(a))[0], u = { id: R.src }, got = new Map();
   let i = 0, ok = 0;
   const show = () => {
     if (i >= R.qs.length) return doneBox(`Xong bài đọc: ${ok}/${R.qs.length} câu đúng`,
-      `<p class="mute">Chấm 📖 Nghĩa ${got.size} từ: ${chipsOf([...got.values()], 'on') || '(không có)'}</p><p class="mute">Bài dịch: ${esc(R.vi)}</p><p class="mute">${dimNow()}</p>`, readTask);
+      `<p class="mute">Từ đã học gặp lại (${got.size}): ${chipsOf([...got.values()], 'on') || '(không có)'}</p><p class="mute">Bài dịch: ${esc(R.vi)}</p>`, readTask);
     const q = R.qs[i], opts = shuf([q.a, ...q.w]);
     window.CUR = { view: 'doc-bai', unit: u.id, item: 'r:' + u.id + ':' + i, prompt: q.q };
     $app.innerHTML = `${backRow(`📰 Đọc · ${esc(R.tvi || R.title)} · câu ${i + 1}/${R.qs.length}`)}
@@ -102,14 +98,14 @@ function readTask() {
       <p class="q">${esc(q.q)}</p>${opts.map((o, k) => `<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}<div id="fb"></div>`;
     let done = false;
     $app.onclick = e => {
-      if (e.target.closest('[data-a="home"]')) return home();
+      if (e.target.closest('[data-a="home"]')) return goBack();
       if (e.target.closest('[data-a="go"]')) { i++; return show(); }
       const b = e.target.closest('[data-k]'); if (!b || done) return; done = true;
       const good = opts[+b.dataset.k] === q.a, ev = wordsIn(q.why).map(x => x.w);
       $app.querySelectorAll('[data-k]').forEach(x => { if (opts[+x.dataset.k] === q.a) x.classList.add('ok'); else if (x === b) x.classList.add('no'); });
       if (good) { ok++; credit(ev, 'read', true); ev.forEach(w => got.set(w.id, w)); }
       document.getElementById('fb').innerHTML = `<div class="box">${good ? '✅ Đúng.' : '❌ Chưa đúng.'} Bằng chứng: ${esc(q.why)}
-        ${good && ev.length ? `<p class="mute">Chấm 📖 Nghĩa: ${chipsOf(ev, 'on')}</p>` : ''}</div><button class="pri" data-a="go">Tiếp →</button>`;
+        ${good && ev.length ? `<p class="mute">Từ đã học trong câu: ${chipsOf(ev, 'on')}</p>` : ''}</div><button class="pri" data-a="go">Tiếp →</button>`;
       document.getElementById('fb').scrollIntoView({ block: 'nearest' });
     };
   };
@@ -121,10 +117,10 @@ function readTask() {
 function pickTargets(dim, n) { const now = Date.now(), L = WORDS.filter(learned);
   return shuf(L).sort((a, b) => (heldDim(S.cards[a.id], dim, now) ? 1 : 0) - (heldDim(S.cards[b.id], dim, now) ? 1 : 0) || recall(S.cards[a.id], now) - recall(S.cards[b.id], now)).slice(0, n); }
 function hearTask() {
-  const T = pickTargets('nghe', 8); if (!T.length) return practiceMenu();
+  const T = pickTargets('nghe', 8); if (!T.length) return goBack();
   const got = new Map(); let i = 0, ok = 0;
   const show = () => {
-    if (i >= T.length) return doneBox(`Xong nghe câu: ${ok}/${T.length} câu đúng`, `<p class="mute">Chấm 🎧 Nghe ${got.size} từ: ${chipsOf([...got.values()], 'on') || '(không có)'}</p><p class="mute">${dimNow()}</p>`, hearTask);
+    if (i >= T.length) return doneBox(`Xong nghe câu: ${ok}/${T.length} câu đúng`, `<p class="mute">Từ đã học gặp lại (${got.size}): ${chipsOf([...got.values()], 'on') || '(không có)'}</p>`, hearTask);
     const w = T[i], others = shuf(WORDS.filter(x => x.id !== w.id && x.exVi !== w.exVi)).slice(0, 2), opts = shuf([w.exVi, ...others.map(x => x.exVi)]);
     window.CUR = { view: 'nghe-cau', item: 'h:' + w.id, prompt: w.ex };
     $app.innerHTML = `${backRow(`🎧 Nghe câu ${i + 1}/${T.length}`)}<p class="q">🎧 Nghe rồi chọn nghĩa của cả câu</p>
@@ -133,14 +129,14 @@ function hearTask() {
     speak(w.ex);
     let done = false;
     $app.onclick = e => {
-      if (e.target.closest('[data-a="home"]')) return home();
+      if (e.target.closest('[data-a="home"]')) return goBack();
       if (e.target.closest('[data-a="go"]')) { i++; return show(); }
       const b = e.target.closest('[data-k]'); if (!b || done) return; done = true;
       const good = opts[+b.dataset.k] === w.exVi, ev = [...new Map([w, ...wordsIn(w.ex).map(x => x.w)].map(x => [x.id, x])).values()];
       $app.querySelectorAll('[data-k]').forEach(x => { if (opts[+x.dataset.k] === w.exVi) x.classList.add('ok'); else if (x === b) x.classList.add('no'); });
       if (good) { ok++; credit(ev, 'hear', true); ev.forEach(x => got.set(x.id, x)); } else credit([w], 'hear', false);
       document.getElementById('fb').innerHTML = `<div class="box">${good ? '✅ Đúng.' : '❌ Chưa đúng.'} Câu nghe: <b>${esc(w.ex)}</b>
-        ${good ? `<p class="mute">Chấm 🎧 Nghe: ${chipsOf(ev, 'on')}</p>` : `<p class="mute">Từ cần ôn: ${esc(w.w)} = ${esc(w.vi)}</p>`}</div><button class="pri" data-a="go">Tiếp →</button>`;
+        ${good ? `<p class="mute">Từ đã học trong câu: ${chipsOf(ev, 'on')}</p>` : `<p class="mute">Từ cần ôn: ${esc(w.w)} = ${esc(w.vi)}</p>`}</div><button class="pri" data-a="go">Tiếp →</button>`;
     };
   };
   show();
@@ -148,11 +144,11 @@ function hearTask() {
 
 // ---------- ✍️ Nghe chép ----------
 function dictTask() {
-  const T = pickTargets('viet', 5); if (!T.length) return practiceMenu();
+  const T = pickTargets('viet', 5); if (!T.length) return goBack();
   const got = new Map(), miss = new Map(); let i = 0;
   const show = () => {
     if (i >= T.length) return doneBox(`Xong nghe chép ${T.length} câu`,
-      `<p class="mute">Chấm đúng 🎧 Nghe + ✍️ Viết ${got.size} từ: ${chipsOf([...got.values()], 'on') || '(không có)'}</p>${miss.size ? `<p class="mute">Chép sai / thiếu: ${chipsOf([...miss.values()])}</p>` : ''}<p class="mute">${dimNow()}</p>`, dictTask);
+      `<p class="mute">Chép đúng (${got.size} từ): ${chipsOf([...got.values()], 'on') || '(không có)'}</p>${miss.size ? `<p class="mute">Chép sai / thiếu: ${chipsOf([...miss.values()])}</p>` : ''}`, dictTask);
     const w = T[i];
     window.CUR = { view: 'nghe-chep', item: 'd:' + w.id, prompt: w.ex };
     $app.innerHTML = `${backRow(`✍️ Nghe chép ${i + 1}/${T.length}`)}<p class="q">✍️ Nghe rồi chép lại cả câu</p>
@@ -170,8 +166,8 @@ function dictTask() {
       good.forEach(x => { got.set(x.id, x); miss.delete(x.id); }); bad.forEach(x => { if (!got.has(x.id)) miss.set(x.id, x); });
       ta.disabled = true; f.querySelector('button').remove();
       document.getElementById('fb').innerHTML = `<div class="box">Câu đúng: <b>${esc(w.ex)}</b>
-        ${good.length ? `<p class="mute">Chép đúng (chấm 🎧 + ✍️): ${chipsOf(good, 'on')}</p>` : ''}${bad.length ? `<p class="mute">Sai / thiếu: ${chipsOf(bad)}</p>` : ''}</div><button class="pri" data-a="go">Tiếp →</button>`; };
-    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); if (e.target.closest('[data-a="go"]')) { i++; show(); } };
+        ${good.length ? `<p class="mute">Chép đúng: ${chipsOf(good, 'on')}</p>` : ''}${bad.length ? `<p class="mute">Sai / thiếu: ${chipsOf(bad)}</p>` : ''}</div><button class="pri" data-a="go">Tiếp →</button>`; };
+    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return goBack(); if (e.target.closest('[data-a="go"]')) { i++; show(); } };
   };
   show();
 }
