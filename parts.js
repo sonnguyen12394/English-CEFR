@@ -54,29 +54,52 @@ function partView(id) {
 const OV = [['tv', '📚', 'Từ vựng'], ['pa', '👄', 'Phát âm'], ['np', '🧱', 'Ngữ pháp'], ['nghe', '🎧', 'Nghe'], ['noi', '🗣', 'Nói'], ['doc', '📰', 'Đọc'], ['viet', '✍️', 'Viết']];
 const ovBack = '<div class="row top"><button class="link" data-ov="back">← Tổng quan</button><span></span></div>';
 document.addEventListener('click', e => { if (e.target.closest('[data-ov="back"]')) { BACK = null; overview(); } });
-// số liệu một phần: { lv, lq, mq, due, gate: 'pass' | 'open' | '' }; null khi chưa tải xong dữ liệu
-function ovStat(id) { const now = Date.now();
-  if (id === 'tv') { const lv = curLevel(), p = parts(S, now); return { lv, lq: p.lq, mq: p.mq, due: p.due, gate: passed(lv) ? 'pass' : gateOpen(p) ? 'open' : '' }; }
-  if (id === 'pa') { if (!PA) return null; const lv = paLevel(), p = paParts(lv, now); return { lv, lq: p.lq, mq: p.mq, due: p.due, gate: paPassed(lv) ? 'pass' : p.lq >= GATE_LEARN && p.mq >= GATE_MEM ? 'open' : '' }; }
-  const P = KIT[id]; if (!P.items) return null; const lv = kLv(P), p = kParts(P, lv, now);
-  return { lv, lq: p.lq, mq: p.mq, due: p.due, gate: kPassed(P, lv) ? 'pass' : p.lq >= GATE_LEARN && p.mq >= GATE_MEM ? 'open' : '' }; }
-function overview() { BACK = null; window.CUR = { view: 'tong-quan' };
-  const st = OV.map(([id]) => ovStat(id)), wait = st.some(x => !x);
-  if (wait) Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]).then(() => { if (document.getElementById('ov')) overview(); }).catch(() => {});
-  // việc nên làm trước: phần có bài cần ôn nhiều nhất; không có thì phần 📘 Học thấp nhất
-  // Soát Pre-A1 (25/10/2026): bài mới chỉ gợi ý trong các phần đang ở cấp thấp nhất (đang Pre-A1 thì không đẩy sang Nghe / Đọc A1). Bài cần ôn thì phần nào cũng gợi ý.
-  const LO = ['pre', 'a1', 'a2', 'a2p'], ok = OV.map((o, i) => [o, st[i]]).filter(([, s]) => s), minLv = Math.min(...ok.map(([, s]) => LO.indexOf(s.lv)));
-  const due = ok.filter(([, s]) => s.due).sort((a, b) => b[1].due - a[1].due)[0], low = ok.filter(([, s]) => s.lq < 100 && LO.indexOf(s.lv) === minLv).sort((a, b) => a[1].lq - b[1].lq)[0];
-  const tip = due ? [due[0], `${due[1].due} bài cần ôn hôm nay`] : low ? [low[0], `📘 Học mới ${low[1].lq}%: học bài tiếp theo`] : null;
+// Người sáng lập 25/10/2026: "mỗi cấp học các mục không đều thì chia theo cấp cho rõ, để thế này lẫn lộn cấp độ".
+// Màn tổng quan lấy CẤP làm khung: chọn cấp (Pre-A1 · A1 · A2 · A2+), mỗi cấp liệt kê các phần có bài ở cấp đó và số liệu của phần ở đúng cấp đó.
+// Cấp đang học = cấp thấp nhất còn phần chưa qua Thi chuyển cấp. "Nên làm" chỉ gợi ý bài mới trong cấp đang học (ôn thì mọi cấp).
+// Cấp sau xem trước và học trước được (không khoá cứng); luật đo của từng phần giữ nguyên.
+const OV_LV = ['pre', 'a1', 'a2', 'a2p'];
+let OV_SEL = null;
+const ovLvs = id => id === 'tv' ? LEVELS : id === 'pa' ? PA_LV : KIT[id].lvs;
+const ovIn = (id, lv) => ovLvs(id).includes(lv);
+// số liệu một phần ở một cấp: { lq, mq, due, gate: 'pass' | 'open' | '' }; null khi chưa tải xong dữ liệu
+function ovStat(id, lv) { const now = Date.now();
+  if (id === 'tv') { const p = parts(S, now, lv); return { lq: p.lq, mq: p.mq, due: p.due, gate: passed(lv) ? 'pass' : lv === curLevel() && gateOpen(p) ? 'open' : '' }; }
+  if (id === 'pa') { if (!PA) return null; const p = paParts(lv, now); return { lq: p.lq, mq: p.mq, due: p.due, gate: paPassed(lv) ? 'pass' : lv === paLevel() && p.lq >= GATE_LEARN && p.mq >= GATE_MEM ? 'open' : '' }; }
+  const P = KIT[id]; if (!P.items) return null; const p = kParts(P, lv, now);
+  return { lq: p.lq, mq: p.mq, due: p.due, gate: kPassed(P, lv) ? 'pass' : lv === kLv(P) && p.lq >= GATE_LEARN && p.mq >= GATE_MEM ? 'open' : '' }; }
+const ovPassed = (id, lv) => id === 'tv' ? passed(lv) : id === 'pa' ? (PA ? paPassed(lv) : false) : (KIT[id].items ? kPassed(KIT[id], lv) : false);
+const ovStage = () => OV_LV.find(lv => OV.some(([id]) => ovIn(id, lv) && !ovPassed(id, lv))) || OV_LV[OV_LV.length - 1];
+function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
+  const loaded = PA && Object.values(KIT).every(P => P.items);
+  if (!loaded) Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]).then(() => { if (document.getElementById('ov')) overview(sel); }).catch(() => {});
+  const stage = ovStage(); if (sel) OV_SEL = sel; const lv = OV_SEL && OV_LV.includes(OV_SEL) ? OV_SEL : stage;
+  const ids = OV.filter(([id]) => ovIn(id, lv)), st = ids.map(([id]) => ovStat(id, lv)), done = ids.filter(([id]) => ovPassed(id, lv)).length;
+  const absent = OV.filter(([id]) => !ovIn(id, lv)).map(([, ic, t]) => ic + ' ' + t);
+  // Nên làm: bài cần ôn (mọi phần, cấp đang học của phần); không có thì bài mới của phần có 📘 Học thấp nhất trong cấp đang học
+  const dueAll = loaded ? OV.map(([id, ic, t]) => { const l = id === 'tv' ? curLevel() : id === 'pa' ? paLevel() : kLv(KIT[id]); return [[id, ic, t], ovStat(id, l), l]; }).filter(([, s]) => s && s.due).sort((a, b) => b[1].due - a[1].due)[0] : null;
+  const lowS = OV.filter(([id]) => ovIn(id, stage) && !ovPassed(id, stage)).map(o => [o, ovStat(o[0], stage)]).filter(([, s]) => s && s.lq < 100).sort((a, b) => a[1].lq - b[1].lq)[0];
+  const tip = dueAll ? [dueAll[0], dueAll[2], `${dueAll[1].due} bài cần ôn hôm nay`] : lowS ? [lowS[0], stage, `📘 Học mới ${LVN[stage]} ${lowS[1].lq}%: học bài tiếp theo`] : null;
+  const chip = l => { const has = OV.filter(([id]) => ovIn(id, l)), ok = has.length && has.every(([id]) => ovPassed(id, l)), cur = l === stage;
+    return `<button class="chip ${l === lv ? 'on' : ''}" data-ovl="${l}">${ok ? '✅ ' : cur ? '▶ ' : OV_LV.indexOf(l) > OV_LV.indexOf(stage) ? '🔒 ' : ''}${LVN[l]}</button>`; };
   $app.innerHTML = `<div id="ov"></div><h1>🎯 Tổng quan học</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
-    ${tip ? `<button class="pri" data-ovp="${tip[0][0]}">▶ Nên làm: ${tip[0][1]} ${tip[0][2]} · ${tip[1]}</button>` : ''}
-    ${OV.map(([id, ic, t], i) => { const s = st[i];
-      return `<button class="box ovc" data-ovp="${id}" style="width:100%;text-align:left;display:block">
-        <div class="row"><b style="font-size:18px">${ic} ${t}</b><span class="mute">${s ? `${LVN[s.lv]}${s.gate === 'pass' ? ' ✅' : s.gate === 'open' ? ' · 🚪 thi được' : ''}` : '…'} ›</span></div>
+    <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b></p>
+    ${tip ? `<button class="pri" data-ovp="${tip[0][0]}" data-ovpl="${tip[1]}">▶ Nên làm: ${tip[0][1]} ${tip[0][2]} · ${tip[2]}</button>` : ''}
+    <div class="chips">${OV_LV.map(chip).join('')}</div>
+    <div class="box"><div class="row"><b>Cấp ${LVN[lv]}: ${ids.length} phần</b><span class="mute">đã đạt ${done}/${ids.length}</span></div>${bar(Math.round(done / (ids.length || 1) * 100), 100, 'var(--good)')}
+      <p class="mute" style="margin:6px 0 0">Đạt ${LVN[lv]} khi cả ${ids.length} phần dưới đây qua 🚪 Thi chuyển cấp ${LVN[lv]}. Mỗi phần: 📘 Học bài mới của cấp; 🔁 Nhớ và thi tính cả các cấp trước.${absent.length ? ` Cấp này chưa có: ${absent.join(', ')}.` : ''}</p>
+      ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<p class="mute" style="margin:6px 0 0">🔒 Xem trước: nên học khi đã đạt ${LVN[stage]}. Vẫn mở để học trước nếu muốn.</p>` : ''}</div>
+    ${ids.map(([id, ic, t], i) => { const s = st[i];
+      return `<button class="box ovc" data-ovp="${id}" data-ovpl="${lv}" style="width:100%;text-align:left;display:block">
+        <div class="row"><b style="font-size:18px">${ic} ${t}</b><span class="mute">${s ? (s.gate === 'pass' ? '✅ đã đạt' : s.gate === 'open' ? '🚪 thi được' : '') : '…'} ›</span></div>
         ${s ? `<div class="dims" style="margin-top:4px"><div><div class="row"><span>📘 Học</span><span class="mute">${s.lq}%</span></div>${bar(s.lq, GATE_LEARN, 'var(--accent)')}</div>
           <div><div class="row"><span>🔁 Nhớ</span><span class="mute">${s.mq}%</span></div>${bar(s.mq, GATE_MEM, 'var(--good)')}</div></div>
           ${s.due ? `<p class="mute" style="margin:4px 0 0">${s.due} bài cần ôn</p>` : ''}` : '<p class="mute" style="margin:4px 0 0">Đang tải…</p>'}</button>`; }).join('')}
-    <p class="mute">Mỗi phần có mục tiêu riêng: 📘 Học 100% và 🔁 Nhớ ≥ ${GATE_MEM}% mở 🚪 Thi chuyển cấp của phần đó. Một câu chỉ chấm cho một phần.</p>
+    <p class="mute">Một câu chỉ chấm cho một phần. 📘 Học 100% và 🔁 Nhớ ≥ ${GATE_MEM}% mở 🚪 Thi chuyển cấp của phần đó.</p>
     ${gyHomeHtml()}`;
-  $app.onclick = e => { const b = e.target.closest('[data-ovp]'); if (!b) return; const id = b.dataset.ovp; scrollTo(0, 0); if (id === 'tv') home(); else partView(id); };
+  $app.onclick = e => { const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl);
+    const b = e.target.closest('[data-ovp]'); if (!b) return; const id = b.dataset.ovp, l = b.dataset.ovpl; scrollTo(0, 0);
+    if (id === 'tv') { HOME.lv = l; HOME.open = null; return home(); }
+    if (id === 'pa') PA_VIEW = l; else if (KIT[id]) KIT[id].view = l;
+    partView(id); };
   setTimeout(maybeReload, 0); }
