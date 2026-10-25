@@ -7,11 +7,11 @@
 let BACK = null;   // bài luyện mở từ một phần: ← Về / Kiểu luyện khác quay lại phần đó
 const goBack = () => (BACK || home)();
 const PARTS = {
-  np: { ic: '🧱', t: 'Ngữ pháp', unit: 'điểm ngữ pháp', step: 3,
+  np: { ic: '🧱', t: 'Ngữ pháp', unit: 'điểm ngữ pháp', step: 4,
     dims: [['🔎 Nhận ra', 'Chọn câu đúng, dạng đúng'], ['✏️ Điền dạng', 'Tự gõ dạng đúng vào chỗ trống'], ['🛠 Sửa lỗi', 'Tìm và sửa chỗ sai trong câu']],
     exam: 'Câu mới cho mọi điểm ngữ pháp của cấp. Không chấm từ vựng, chính tả.', tasks: [] },
-  pa: { ic: '👄', t: 'Phát âm', unit: 'âm và cặp âm', step: 4,
-    dims: [['👂 Phân biệt', 'Nghe cặp âm (ship / sheep), chọn đúng'], ['👄 Đọc đúng', 'Đọc từ chứa âm; bộ chấm âm ≥ 80'], ['🎵 Trọng âm', 'Từ 2 âm tiết trở lên: nhấn đúng (từ A1)']],
+  pa: { ic: '👄', t: 'Phát âm', unit: 'bộ cặp âm', step: 3,   // đã xây: pa.js (partView chuyển sang paView)
+    dims: [['👂 Phân biệt', 'Nghe cặp âm (ship / sheep), chọn đúng'], ['👄 Đọc đúng', 'Đọc từ chứa âm; bộ chấm âm ≥ 80']],
     exam: 'Từ, cặp âm, câu ngắn chưa gặp; máy chấm từng âm.',
     tasks: [['am', '🎯 Đọc từ (10 từ đã học)', 'Nhìn từ, nghe mẫu, đọc theo; điểm từng âm. Cần tải bộ chấm âm (miễn phí, vài trăm MB)']] },
   nghe: { ic: '🎧', t: 'Nghe', unit: 'bài nghe', step: 5, skill: true,
@@ -30,6 +30,7 @@ const PARTS = {
     exam: 'Đề mới; chấm ý và dạng bài (A2: email ≥ 25 từ, truyện ≥ 35 từ).', tasks: [] },
 };
 function partView(id) {
+  if (id === 'pa') return paView();   // 👄 Phát âm đã xây (pa.js)
   const P = PARTS[id]; if (!P) return home();
   BACK = () => partView(id); window.CUR = { view: 'phan-' + id };
   $app.innerHTML = `<div id="part" data-p="${id}"></div><h1>${P.ic} ${P.t}</h1>
