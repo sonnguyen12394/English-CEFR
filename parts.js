@@ -83,6 +83,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
   const chip = l => { const has = OV.filter(([id]) => ovIn(id, l)), ok = has.length && has.every(([id]) => ovPassed(id, l)), cur = l === stage;
     return `<button class="chip ${l === lv ? 'on' : ''}" data-ovl="${l}">${ok ? '✅ ' : cur ? '▶ ' : OV_LV.indexOf(l) > OV_LV.indexOf(stage) ? '🔒 ' : ''}${LVN[l]}</button>`; };
   $app.innerHTML = `<div id="ov"></div><h1>🎯 Tổng quan học</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
+    ${S.fake ? '<p class="mute" style="margin:4px 0">🧪 Đang dùng dữ liệu thử (💾 Sao lưu để quay lại dữ liệu thật).</p>' : ''}
     <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b></p>
     ${tip ? `<button class="pri" data-ovp="${tip[0][0]}" data-ovpl="${tip[1]}">▶ Nên làm: ${tip[0][1]} ${tip[0][2]} · ${tip[2]}</button>` : ''}
     <div class="chips">${OV_LV.map(chip).join('')}</div>
