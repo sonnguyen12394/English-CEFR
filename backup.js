@@ -1,6 +1,6 @@
 // 💾 Sao lưu (người sáng lập 26/10/2026): mục thứ ba ở thanh dưới, quản lý tệp JSON dữ liệu học (S, lưu ở máy + Supabase vocab_state):
-// xem tóm tắt, tải tệp về, nhập tệp, sửa trực tiếp, xoá để học lại từ đầu (cả trang hoặc từng phần).
-// An toàn: trước mỗi lần nhập / sửa / xoá, tự chụp một bản (localStorage, giữ 5 bản gần nhất, khôi phục được); xoá phải gõ XOA để xác nhận.
+// xem tóm tắt, tải tệp về, nhập tệp, sửa trực tiếp, 🎚 đặt tiến độ (học lại / dữ liệu thử, theo phần × cấp × mức).
+// An toàn: trước mỗi lần nhập / sửa / đặt tiến độ, tự chụp một bản (localStorage, giữ 5 bản gần nhất, khôi phục được); xoá (mức Chưa học) phải gõ XOA.
 // Dữ liệu sau khi đổi được lưu như thường (save()), nên lên cả máy chủ.
 const BK_LS = 'a1v:bk', BK_N = 5;
 // các phần dữ liệu trong S: [khoá, tên, các trường của S]
@@ -22,7 +22,7 @@ function bkApply(o, why) { bkSnap(why); o.t = Date.now(); S = o; save(); }
 function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
   const raw = JSON.stringify(S), sn = bkSnaps();
   $app.innerHTML = `<div id="bk"></div><h1>💾 Sao lưu</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
-    ${S.fake ? '<div class="box">🧪 Đang dùng <b>dữ liệu thử</b>. Muốn quay lại dữ liệu thật: khôi phục bản chụp "trước khi tạo dữ liệu thử".</div>' : ''}
+    ${S.fake ? '<div class="box">🧪 Đang dùng <b>dữ liệu thử</b>. Muốn quay lại dữ liệu thật: khôi phục bản chụp trước lần đặt tiến độ.</div>' : ''}
     ${msg ? `<div class="box">${msg}</div>` : ''}
     <div class="box"><b>Dữ liệu học hiện tại</b> <span class="mute">· ${bkKB(raw)} · sửa lần cuối ${S.t ? bkDate(S.t) : '—'}</span>
       ${BK_PARTS.map(([id, l]) => `<div class="row" style="margin-top:6px"><span>${l}</span><span class="mute">${bkCount(id)}</span></div>`).join('')}
@@ -31,16 +31,13 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
     <button class="pri" data-bk="down">⬇️ Tải tệp JSON về máy</button>
     <label class="mute" style="display:block;margin-top:6px">⬆️ Nhập tệp JSON (thay toàn bộ dữ liệu hiện tại)<input type="file" id="bkfile" accept="application/json,.json"></label>
     <button data-bk="edit">✏️ Xem và sửa JSON</button>
-    <h2>🧪 Dữ liệu thử</h2>
-    <p class="mute">Tạo tiến độ giả để thử học ở cấp / phần bất kỳ. Các cấp trước của phần đã chọn được ghi là đã đạt (theo luật dồn cấp). Máy chụp lại dữ liệu thật trước khi tạo; muốn quay lại thì khôi phục bản chụp.</p>
-    <div class="sels"><label>Phần<select id="fkp"><option value="all">Tất cả 7 phần</option>${BK_PARTS.map(([id, l]) => `<option value="${id}">${l}</option>`).join('')}</select></label>
-      <label>Cấp<select id="fkl">${['pre', 'a1', 'a2', 'a2p'].map(l => `<option value="${l}">${LVN[l]}</option>`).join('')}</select></label>
-      <label>Mức<select id="fks"><option value="hoc">📘 Học xong (chưa nhớ)</option><option value="nho">🔁 Nhớ đủ (thi mở)</option><option value="dat">✅ Đạt thi (mở cấp sau)</option></select></label></div>
-    <button data-bk="fake">🧪 Tạo dữ liệu thử</button>
-    <h2>Học lại từ đầu</h2>
-    <p class="mute">Xoá tiến độ để học lại. Trước khi xoá, máy tự chụp một bản (khôi phục được ở dưới).</p>
-    ${BK_PARTS.map(([id, l]) => `<button class="urow" data-bkdel="${id}"><span>🗑 Xoá tiến độ ${l}</span><span class="mute">${bkCount(id)}</span></button>`).join('')}
-    <button class="urow no" data-bkdel="all"><span>🗑 Xoá tất cả, học lại từ đầu</span><span></span></button>
+    <h2>🎚 Đặt tiến độ (học lại hoặc thử)</h2>
+    <p class="mute">Chọn phần, cấp và mức. Cấp trước cấp đã chọn: ghi là đã đạt. Cấp đã chọn: đặt đúng mức. Cấp sau: xoá sạch.
+      Học lại từ đầu = Tất cả 7 phần · Pre-A1 · 🗑 Chưa học. Máy chụp lại dữ liệu trước khi đặt (khôi phục được ở dưới).</p>
+    <div class="sels"><label>Phần<select id="fkp"><option value="all">Tất cả 7 phần</option>${BK_PARTS.map(([id, l]) => `<option value="${id}">${l} (${bkCount(id)})</option>`).join('')}</select></label>
+      <label>Cấp<select id="fkl">${BK_LV.map(l => `<option value="${l}">${LVN[l]}</option>`).join('')}</select></label>
+      <label>Mức<select id="fks"><option value="chua">🗑 Chưa học (xoá để học lại)</option><option value="hoc">📘 Học xong (chưa nhớ)</option><option value="nho">🔁 Nhớ đủ (thi mở)</option><option value="dat">✅ Đạt thi (mở cấp sau)</option></select></label></div>
+    <button data-bk="set">🎚 Đặt tiến độ</button>
     <h2>Bản chụp tự động (${sn.length}/${BK_N})</h2>
     ${sn.length ? sn.map((s, i) => `<div class="row urow"><span>${bkDate(s.at)} · ${esc(s.why)} <span class="mute">${bkKB(s.data)}</span></span><span><button class="link" data-bkres="${i}">Khôi phục</button> · <button class="link" data-bkdl="${i}">Tải</button></span></div>`).join('')
       : '<p class="mute">Chưa có. Mỗi lần nhập, sửa hay xoá sẽ tự chụp một bản.</p>'}`;
@@ -50,19 +47,13 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
     const bad = bkCheck(o); if (bad) return backup('❌ ' + esc(bad));
     if (!confirm(`Nhập tệp "${file.name}" (${Object.keys(o.cards).length} từ đã học)? Dữ liệu hiện tại được chụp lại trước khi thay.`)) return backup();
     bkApply(o, 'trước khi nhập tệp'); backup('✅ Đã nhập tệp. Dữ liệu cũ có trong bản chụp tự động.'); };
-  $app.onclick = e => { const b = e.target.closest('[data-bk]'), d = e.target.closest('[data-bkdel]'), r = e.target.closest('[data-bkres]'), dl = e.target.closest('[data-bkdl]');
+  $app.onclick = e => { const b = e.target.closest('[data-bk]'), r = e.target.closest('[data-bkres]'), dl = e.target.closest('[data-bkdl]');
     if (b && b.dataset.bk === 'down') return bkDown(JSON.stringify(S, null, 1), 'hoc-tieng-anh');
     if (b && b.dataset.bk === 'edit') return bkEdit();
-    if (b && b.dataset.bk === 'fake') return bkFakeGo(document.getElementById('fkp').value, document.getElementById('fkl').value, document.getElementById('fks').value);
+    if (b && b.dataset.bk === 'set') return bkSetGo(document.getElementById('fkp').value, document.getElementById('fkl').value, document.getElementById('fks').value);
     if (dl) return bkDown(bkSnaps()[+dl.dataset.bkdl].data, 'ban-chup');
     if (r) { const s = bkSnaps()[+r.dataset.bkres]; if (!s || !confirm(`Khôi phục bản chụp ${bkDate(s.at)}? Dữ liệu hiện tại được chụp lại trước.`)) return;
-      bkApply(JSON.parse(s.data), 'trước khi khôi phục'); return backup('✅ Đã khôi phục bản chụp.'); }
-    if (d) { const id = d.dataset.bkdel, P = BK_PARTS.find(p => p[0] === id), name = id === 'all' ? 'TẤT CẢ dữ liệu học' : 'tiến độ ' + P[1];
-      if ((prompt(`Xoá ${name}? Gõ XOA để xác nhận (máy chụp lại trước khi xoá).`) || '').trim().toUpperCase() !== 'XOA') return;
-      const o = JSON.parse(JSON.stringify(S));
-      if (id === 'all') { const n = blank(); bkApply(n, 'trước khi xoá tất cả'); return backup('✅ Đã xoá tất cả. Học lại từ đầu ở 🎯 Học.'); }
-      for (const f of P[2]) { if (f.startsWith('k.')) { if (o.k) delete o.k[f.slice(2)]; } else if (f === 'units' || f === 'cards') o[f] = {}; else delete o[f]; }
-      bkApply(o, 'trước khi xoá ' + P[1]); return backup(`✅ Đã xoá tiến độ ${P[1]}.`); } };
+      bkApply(JSON.parse(s.data), 'trước khi khôi phục'); return backup('✅ Đã khôi phục bản chụp.'); } };
   window.scrollTo(0, 0); }
 // tải tệp: iPhone mở bảng chia sẻ / lưu vào Tệp
 function bkDown(text, name) { const d = new Date(), stamp = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -80,24 +71,35 @@ function bkEdit() { window.CUR = { view: 'sao-luu-sua' };
     bkApply(o, 'trước khi sửa JSON'); backup('✅ Đã lưu thay đổi. Dữ liệu cũ có trong bản chụp tự động.'); };
   window.scrollTo(0, 0); }
 
-// ---------- 🧪 dữ liệu thử (người sáng lập 26/10/2026: "tạo dữ liệu ảo kiểu đã xong từng cấp độ hoặc xong mục nào đó để test") ----------
-// Mức: hoc = đã học hết bài của cấp (học hôm qua, đến hạn ôn, chưa có mặt nào) · nho = mọi mặt đã giữ (ôn hôm qua, nhớ chắc) · dat = như nho + đã qua thi
-// (Từ vựng ghi cả lần thi lại "Đạt bền"). Cấp trước của phần đã chọn luôn ghi mức dat. Ghi S.fake = true để màn báo đang dùng dữ liệu thử.
+// ---------- 🎚 Đặt tiến độ (26/10/2026; người sáng lập: gộp "dữ liệu thử" với "học lại từ đầu") ----------
+// Một phần × một cấp × một mức: cấp trước = đạt thi (luật dồn cấp), cấp đã chọn = đúng mức, cấp sau = xoá sạch (thẻ + lần thi).
+// Mức: chua = xoá (học lại) · hoc = đã học hết bài của cấp (học hôm qua, đến hạn ôn, chưa có mặt nào) · nho = mọi mặt đã giữ, thi mở ·
+// dat = như nho + đã qua thi (Từ vựng ghi cả "Đạt bền"). Tất cả · Pre-A1 · chua = dữ liệu trắng. Mức khác chua thì ghi S.fake = true (màn báo đang dùng dữ liệu thử).
 const BK_LV = ['pre', 'a1', 'a2', 'a2p'];
 function bkCard(held, ks) { const now = Date.now(), c = { S: held ? 60 : 1, last: now - DAY, d0: dayOf(now) - 3, ok: 1, pv: held ? 1 : 0, n: 1, lapse: 0, dm: {} };
   if (held) for (const k of ks) c.dm[k] = { ok: 1, pv: 1, n: 1 }; return c; }
-async function bkFake(part, lv, stage) { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]);
+async function bkSet(part, lv, stage) { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]);
+  if (part === 'all' && lv === 'pre' && stage === 'chua') { S = blank(); S.t = Date.now(); save(); return BK_PARTS.map(p => p[0]); }
   const now = Date.now(), run = (l, re) => ({ lv: l, at: now - (re ? 1 : 15) * DAY, n: 40, ok: 38, pass: true, re: !!re, fake: true });
-  const setLv = (id, l, st) => { const held = st !== 'hoc';
-    if (id === 'tv') { if (!LEVELS.includes(l)) return 0; for (const u of UNITS.filter(u => u.lv === l)) S.units[u.id] = { d: dayOf(now) - 3 };
+  const has = (id, l) => id === 'tv' ? LEVELS.includes(l) : id === 'pa' ? PA_LV.includes(l) : KIT[id].lvs.includes(l);
+  // xoá thẻ và lần thi của một phần ở một cấp
+  const clear = (id, l) => { if (!has(id, l)) return;
+    if (id === 'tv') { for (const u of UNITS.filter(u => u.lv === l)) delete S.units[u.id]; for (const w of levelWords(l)) delete S.cards[w.id]; xs().runs = xs().runs.filter(r => (r.lv || 'a1') !== l); return; }
+    if (id === 'pa') { for (const x of PA.filter(x => x.lv === l)) delete paSt()[x.id]; S.paX = paRuns().filter(r => r.lv !== l); return; }
+    const P = KIT[id], k = kSt(id); for (const x of P.items.filter(x => x.lv === l)) delete k.cards[x.id]; k.runs = k.runs.filter(r => r.lv !== l); };
+  const put = (id, l, st) => { if (!has(id, l)) return 0; clear(id, l); if (st === 'chua') return 1; const held = st !== 'hoc';
+    if (id === 'tv') { for (const u of UNITS.filter(u => u.lv === l)) S.units[u.id] = { d: dayOf(now) - 3 };
       for (const w of levelWords(l)) S.cards[w.id] = bkCard(held, DIMS.map(d => d[0])); if (st === 'dat') xs().runs.push(run(l), run(l, 1)); return 1; }
-    if (id === 'pa') { if (!PA_LV.includes(l)) return 0; for (const x of PA.filter(x => x.lv === l)) paSt()[x.id] = bkCard(held, PA_DIMS.map(d => d[0])); if (st === 'dat') paRuns().push(run(l)); return 1; }
-    const P = KIT[id]; if (!P.lvs.includes(l)) return 0; for (const x of kItems(P, l)) kSt(id).cards[x.id] = bkCard(held, kDimsOf(P, x)); if (st === 'dat') kSt(id).runs.push(run(l)); return 1; };
-  const ids = part === 'all' ? BK_PARTS.map(p => p[0]) : [part], done = [];
-  for (const id of ids) { let any = 0; for (const l of BK_LV.slice(0, BK_LV.indexOf(lv))) any |= setLv(id, l, 'dat'); if (setLv(id, lv, stage) || any) done.push(id); }
-  S.fake = true; S.t = now; save(); return done; }
-async function bkFakeGo(part, lv, stage) { const pn = part === 'all' ? 'tất cả 7 phần' : BK_PARTS.find(p => p[0] === part)[1], sn = { hoc: 'Học xong', nho: 'Nhớ đủ', dat: 'Đạt thi' }[stage];
-  if (!confirm(`Tạo dữ liệu thử: ${pn} · ${LVN[lv]} · ${sn}? Dữ liệu hiện tại được chụp lại trước (khôi phục được).`)) return;
-  bkSnap('trước khi tạo dữ liệu thử'); const done = await bkFake(part, lv, stage);
+    if (id === 'pa') { for (const x of PA.filter(x => x.lv === l)) paSt()[x.id] = bkCard(held, PA_DIMS.map(d => d[0])); if (st === 'dat') paRuns().push(run(l)); return 1; }
+    const P = KIT[id]; for (const x of kItems(P, l)) kSt(id).cards[x.id] = bkCard(held, kDimsOf(P, x)); if (st === 'dat') kSt(id).runs.push(run(l)); return 1; };
+  const ids = part === 'all' ? BK_PARTS.map(p => p[0]) : [part], done = [], i = BK_LV.indexOf(lv);
+  for (const id of ids) { let any = 0;
+    BK_LV.forEach((l, j) => { if (j < i) any |= put(id, l, 'dat'); else if (j === i) any |= put(id, l, stage); else clear(id, l); });
+    if (any) done.push(id); }
+  if (stage !== 'chua') S.fake = true; S.t = now; save(); return done; }
+async function bkSetGo(part, lv, stage) { const pn = part === 'all' ? 'tất cả 7 phần' : BK_PARTS.find(p => p[0] === part)[1], sn = { chua: 'Chưa học', hoc: 'Học xong', nho: 'Nhớ đủ', dat: 'Đạt thi' }[stage];
+  const ask = `Đặt tiến độ: ${pn} · ${LVN[lv]} · ${sn}. Cấp sau ${LVN[lv]} của phần này bị xoá. Dữ liệu hiện tại được chụp lại trước (khôi phục được).`;
+  if (stage === 'chua') { if ((prompt(ask + '\nGõ XOA để xác nhận.') || '').trim().toUpperCase() !== 'XOA') return; } else if (!confirm(ask)) return;
+  bkSnap(`trước khi đặt ${pn} · ${LVN[lv]} · ${sn}`); const done = await bkSet(part, lv, stage);
   const skip = (part === 'all' ? BK_PARTS.map(p => p[0]) : [part]).filter(id => !done.includes(id)).map(id => BK_PARTS.find(p => p[0] === id)[1]);
-  backup(`🧪 Đã tạo dữ liệu thử: ${esc(pn)} · ${LVN[lv]} · ${sn}.${skip.length ? ` Bỏ qua (không có cấp này): ${skip.join(', ')}.` : ''} Mở 🎯 Học để thử.`); }
+  backup(`✅ Đã đặt: ${esc(pn)} · ${LVN[lv]} · ${sn}.${skip.length ? ` Bỏ qua (không có cấp này): ${skip.join(', ')}.` : ''} Mở 🎯 Học để học.`); }
