@@ -30,6 +30,8 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
     <h2>Tệp dữ liệu</h2>
     <button class="pri" data-bk="down">⬇️ Tải tệp JSON về máy</button>
     <label class="mute" style="display:block;margin-top:6px">⬆️ Nhập tệp JSON (thay toàn bộ dữ liệu hiện tại)<input type="file" id="bkfile" accept="application/json,.json"></label>
+    <button data-bk="copy">📋 Sao chép JSON (dán vào Ghi chú, Zalo… để cất)</button>
+    <button data-bk="paste">📥 Dán JSON để khôi phục</button>
     <button data-bk="edit">✏️ Xem và sửa JSON</button>
     <h2>🎚 Đặt tiến độ (học lại hoặc thử)</h2>
     <p class="mute">Chọn phần, cấp và mức. Cấp trước cấp đã chọn: ghi là đã đạt. Cấp đã chọn: đặt đúng mức. Cấp sau: xoá sạch.
@@ -50,6 +52,8 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
   $app.onclick = e => { const b = e.target.closest('[data-bk]'), r = e.target.closest('[data-bkres]'), dl = e.target.closest('[data-bkdl]');
     if (b && b.dataset.bk === 'down') return bkDown(JSON.stringify(S, null, 1), 'hoc-tieng-anh');
     if (b && b.dataset.bk === 'edit') return bkEdit();
+    if (b && b.dataset.bk === 'copy') return bkCopy();
+    if (b && b.dataset.bk === 'paste') return bkPaste();
     if (b && b.dataset.bk === 'set') return bkSetGo(document.getElementById('fkp').value, document.getElementById('fkl').value, document.getElementById('fks').value);
     if (dl) return bkDown(bkSnaps()[+dl.dataset.bkdl].data, 'ban-chup');
     if (r) { const s = bkSnaps()[+r.dataset.bkres]; if (!s || !confirm(`Khôi phục bản chụp ${bkDate(s.at)}? Dữ liệu hiện tại được chụp lại trước.`)) return;
@@ -103,3 +107,27 @@ async function bkSetGo(part, lv, stage) { const pn = part === 'all' ? 'tất c�
   bkSnap(`trước khi đặt ${pn} · ${LVN[lv]} · ${sn}`); const done = await bkSet(part, lv, stage);
   const skip = (part === 'all' ? BK_PARTS.map(p => p[0]) : [part]).filter(id => !done.includes(id)).map(id => BK_PARTS.find(p => p[0] === id)[1]);
   backup(`✅ Đã đặt: ${esc(pn)} · ${LVN[lv]} · ${sn}.${skip.length ? ` Bỏ qua (không có cấp này): ${skip.join(', ')}.` : ''} Mở 🎯 Học để học.`); }
+
+// ---------- 📋 sao chép / 📥 dán JSON (người sáng lập 26/10/2026: "tệp json có thể copy hoặc paste phục hồi được") ----------
+// Sao chép: JSON gọn (không thụt dòng) vào bộ nhớ tạm; máy không cho chép thì hiện ô chữ đã chọn sẵn để tự chép.
+async function bkCopy() { const t = JSON.stringify(S);
+  try { await navigator.clipboard.writeText(t); return backup(`✅ Đã sao chép JSON (${bkKB(t)}). Dán vào Ghi chú hay tin nhắn để cất.`); } catch (e) {}
+  $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bke="back">← Sao lưu</button><span class="uname">📋 Sao chép JSON</span></div>
+    <p class="mute">Máy chưa cho chép tự động. Bấm vào ô, chọn tất cả rồi Sao chép.</p><textarea id="bkcp" rows="10" readonly style="font-family:ui-monospace,monospace;font-size:12px">${esc(t)}</textarea>`;
+  const ta = document.getElementById('bkcp'); try { ta.focus(); ta.select(); ta.setSelectionRange(0, t.length); } catch (e) {}
+  $app.onclick = e => { if (e.target.closest('[data-bke="back"]')) backup(); }; }
+// Dán: dán vào ô (hoặc nút lấy từ bộ nhớ tạm), kiểm dạng như khi nhập tệp, chụp bản cũ rồi thay.
+function bkPaste() { window.CUR = { view: 'sao-luu-dan' };
+  $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bke="back">← Sao lưu</button><span class="uname">📥 Dán JSON</span></div>
+    <p class="mute">Dán nội dung JSON đã sao chép trước đó vào ô dưới. Khôi phục sẽ thay toàn bộ dữ liệu hiện tại (máy chụp lại bản cũ trước).</p>
+    <button data-bke="clip">📋 Lấy từ bộ nhớ tạm</button>
+    <textarea id="bkpa" rows="10" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="Dán JSON vào đây" style="font-family:ui-monospace,monospace;font-size:12px"></textarea>
+    <div id="bkerr"></div><button class="pri" data-bke="go">♻️ Khôi phục từ nội dung dán</button>`;
+  $app.onclick = async e => { const b = e.target.closest('[data-bke]'); if (!b) return; const a = b.dataset.bke, ta = document.getElementById('bkpa'), er = document.getElementById('bkerr');
+    if (a === 'back') return backup();
+    if (a === 'clip') { try { ta.value = await navigator.clipboard.readText(); er.innerHTML = ''; } catch (x) { er.innerHTML = '<p class="mute">Máy chưa cho đọc bộ nhớ tạm: chạm giữ vào ô rồi chọn Dán.</p>'; } return; }
+    let o; try { o = JSON.parse(ta.value.trim()); } catch (x) { er.innerHTML = `<p style="color:var(--bad)">❌ Không phải JSON hợp lệ: ${esc(x.message)}</p>`; return; }
+    const bad = bkCheck(o); if (bad) { er.innerHTML = `<p style="color:var(--bad)">❌ ${esc(bad)}</p>`; return; }
+    if (!confirm(`Khôi phục từ nội dung dán (${Object.keys(o.cards).length} từ đã học)? Dữ liệu hiện tại được chụp lại trước.`)) return;
+    bkApply(o, 'trước khi dán JSON'); backup('✅ Đã khôi phục từ nội dung dán. Dữ liệu cũ có trong bản chụp tự động.'); };
+  window.scrollTo(0, 0); }
