@@ -16,10 +16,13 @@ async function paLoad() { if (PA) return PA; PA = (await (await fetch('pa.json?v
 const paPassed = lv => paRuns().some(r => r.lv === lv && r.pass);
 const paLevel = () => PA_LV.find(l => !paPassed(l)) || PA_LV[PA_LV.length - 1];
 const paLocked = lv => PA_LV.indexOf(lv) > 0 && !paPassed(PA_LV[PA_LV.indexOf(lv) - 1]);
-function paParts(lv, now = Date.now()) { const L = PA.filter(x => x.lv === lv), st = paSt(), dim = { pb: 0, doc: 0 }; let learn = 0, due = 0;
-  for (const x of L) { const c = st[x.id]; if (c) learn++; if (isDue(c, now)) due++; for (const [k] of PA_DIMS) if (heldDim(c, k, now)) dim[k]++; }
-  const T = L.length || 1, dq = { pb: Math.floor(dim.pb / T * 100), doc: Math.floor(dim.doc / T * 100) };
-  return { T: L.length, learn, due, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.min(dq.pb, dq.doc) }; }
+// 📘 Học: bộ âm của cấp; 🔁 Nhớ: dồn cả cấp trước (người sáng lập 25/10/2026, như Từ vựng)
+const paMem = lv => PA.filter(x => PA_LV.indexOf(x.lv) <= PA_LV.indexOf(lv));
+function paParts(lv, now = Date.now()) { const L = PA.filter(x => x.lv === lv), M = paMem(lv), st = paSt(), dim = { pb: 0, doc: 0 }; let learn = 0, due = 0;
+  for (const x of L) if (st[x.id]) learn++;
+  for (const x of M) { const c = st[x.id]; if (isDue(c, now)) due++; for (const [k] of PA_DIMS) if (heldDim(c, k, now)) dim[k]++; }
+  const T = L.length || 1, Tm = M.length || 1, dq = { pb: Math.floor(dim.pb / Tm * 100), doc: Math.floor(dim.doc / Tm * 100) };
+  return { T: L.length, Tm: M.length, learn, due, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.min(dq.pb, dq.doc) }; }
 const paW = (w, ipa, x) => ({ id: 'pa:' + x.id + ':' + w, w, ipa: '/' + ipa + '/', vi: `${x.title} · ${x.vi}`, say: true, set: x.id });
 const paSay = w => `<button class="chip" data-sayt="${esc(w)}">🔊 ${esc(w)}</button>`;
 document.addEventListener('click', e => { const b = e.target.closest('[data-sayt]'); if (b) speak(b.dataset.sayt); });
@@ -32,7 +35,7 @@ function paView() {
   const now = Date.now(), lv = paLevel(), p = paParts(lv, now), st = paSt(), L = PA.filter(x => x.lv === lv), nx = L.find(x => !st[x.id]);
   const open = p.lq >= GATE_LEARN && p.mq >= GATE_MEM, run = paRuns().filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, 7 - (dayOf(now) - dayOf(run.at))) : 0;
   $app.innerHTML = `<div id="part" data-p="pa"></div>${ovBack}<h1>👄 Phát âm</h1>
-    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} bộ cặp âm). Mỗi bộ: một cặp âm người Việt hay nhầm, kèm cách đặt miệng.</p>
+    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} bộ cặp âm mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} bộ` : ''}). Mỗi bộ: một cặp âm người Việt hay nhầm, kèm cách đặt miệng.</p>
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} bộ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
@@ -147,9 +150,10 @@ function paRun(m) { if (!PA.some(x => paSt()[x.id])) return toast('Học 1 bộ 
 
 // ---------- 🚪 Thi chuyển cấp ----------
 function paExam(lv) { if (!NO.vocab) { toast('Thi cần bộ chấm âm: tải bộ chấm trước.'); return paView(); }
-  const L = PA.filter(x => x.lv === lv);
-  if (!confirm(`Thi chuyển cấp Phát âm ${LVN[lv]}: ${L.length * 2} câu nghe + ${L.length} từ đọc, toàn cặp chưa gặp. Không xem đáp án giữa chừng. Bắt đầu?`)) return;
-  paQuiz({ title: '🚪 Thi · nghe', quiet: true, items: shuf(L.flatMap(x => x.test.map(p => ({ x, p, k: Math.random() < 0.5 ? 0 : 1 })))), done: r1 => {
+  // thi dồn cấp trước: cấp mới đủ 2 câu nghe + 1 từ đọc mỗi bộ; thêm ~30% câu từ bộ âm các cấp trước (mỗi bộ cũ 1 câu nghe + 1 từ đọc)
+  const New = PA.filter(x => x.lv === lv), Old = shuf(paMem(lv).filter(x => x.lv !== lv)).slice(0, Math.round(New.length * 3 * 0.43 / 2)), L = [...New, ...Old];
+  if (!confirm(`Thi chuyển cấp Phát âm ${LVN[lv]}: ${New.length * 2 + Old.length} câu nghe + ${L.length} từ đọc (có ${Old.length} bộ của cấp trước), toàn cặp chưa gặp khi học. Không xem đáp án giữa chừng. Bắt đầu?`)) return;
+  paQuiz({ title: '🚪 Thi · nghe', quiet: true, items: shuf([...New.flatMap(x => x.test.map(p => ({ x, p, k: Math.random() < 0.5 ? 0 : 1 }))), ...Old.map(x => ({ x, p: x.test[Math.floor(Math.random() * x.test.length)], k: Math.random() < 0.5 ? 0 : 1 }))]), done: r1 => {
     const list = shuf(L.map(x => { const p = x.test[Math.floor(Math.random() * x.test.length)]; return Math.random() < 0.5 ? paW(p[0], p[1], x) : paW(p[2], p[3], x); })), r2 = [];
     NO.ses = { mode: 'am', list, i: 0, got: [], sc: [], show: false, title: '🚪 Thi · đọc', okFor: paOkFor, sub: `Đọc từ (chưa gặp). Đúng = điểm âm ≥ ${PA_OK[lv]}. Lần đọc đầu được tính.`, foot: 'Bài thi chuyển cấp Phát âm.',
       onGrade: (w, ok) => r2.push(ok), onEnd: () => {
@@ -165,9 +169,9 @@ function paExam(lv) { if (!NO.vocab) { toast('Thi cần bộ chấm âm: tải b
 const PA_INFO = { pb: { what: 'Nghe một từ trong cặp âm (ship / sheep), chọn đúng từ vừa nghe.', learn: 'phần Nghe từng cặp và 6 câu nghe thử của bài học', ex: '🔊 "sheep" → <b>sheep</b> /ʃiːp/ · ship /ʃɪp/' },
   doc: { what: 'Đọc to một từ có âm của bộ; bộ chấm âm trên máy chấm từng âm, đạt khi ≥ ngưỡng của cấp (Pre-A1 60 · A1 70 · A2 80).', learn: 'ô 👄 Cách đặt miệng, đọc theo từng từ, Đọc thử 4 từ', ex: 'đọc "sheep" → điểm từng âm /ʃ iː p/' } };
 function paDimView(k) { window.CUR = { view: 'pa-mat-' + k };
-  const now = Date.now(), lv = paLevel(), p = paParts(lv, now), l = PA_DIMS.find(d => d[0] === k)[1], I = PA_INFO[k], st = paSt(), L = PA.filter(x => x.lv === lv), lack = L.filter(x => st[x.id] && !heldDim(st[x.id], k, now));
+  const now = Date.now(), lv = paLevel(), p = paParts(lv, now), l = PA_DIMS.find(d => d[0] === k)[1], I = PA_INFO[k], st = paSt(), L = paMem(lv), lack = L.filter(x => st[x.id] && !heldDim(st[x.id], k, now));
   $app.innerHTML = `${backRow('👄 Phát âm')}<h1>${l}: ${p.dq[k]}%</h1>${bar(p.dq[k], GATE_MEM, 'var(--good)')}
-    <p class="mute">${p.dim[k]}/${p.T} bộ âm giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} bộ.</p>
+    <p class="mute">${p.dim[k]}/${p.Tm} bộ âm (cả cấp trước) giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} bộ.</p>
     <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${esc(I.what)}</p><p class="mute" style="margin:4px 0">Ví dụ câu:</p><p style="margin:2px 0">• ${I.ex}</p>
       <p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn)}</p>
       <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%.</p></div>

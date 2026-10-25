@@ -49,7 +49,7 @@ function dimView(k) {
   const lack = WS.filter(w => S.cards[w.id] && !heldDim(S.cards[w.id], k, now)), early = lack.filter(w => dayOf(now) - S.cards[w.id].d0 < MEM_DAYS).length;
   const ew = shuf(WS.filter(w => S.cards[w.id]))[0] || WS[0];
   $app.innerHTML = `${backRow('🔁 Nhớ')}<h1>${l}: ${p.dq[k]}%</h1>${bar(p.dq[k], GATE_MEM, 'var(--good)')}
-    <p class="mute">${p.dim[k]}/${p.T} từ giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} từ${early ? ` (${early} từ mới học hôm nay, từ mai mới tính)` : ''}.</p>
+    <p class="mute">${p.dim[k]}/${p.Tm} từ (cả cấp trước) giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} từ${early ? ` (${early} từ mới học hôm nay, từ mai mới tính)` : ''}.</p>
     <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${I.what}</p>
       ${ew ? `<p class="mute" style="margin:4px 0">Ví dụ câu:</p>${I.ex(ew).filter(Boolean).map(x => `<p style="margin:2px 0">• ${x}</p>`).join('')}` : ''}
       ${I.learn ? `<p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn)}</p>` : ''}

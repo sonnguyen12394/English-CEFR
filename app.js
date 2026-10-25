@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 37;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 38;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -56,12 +56,15 @@ function grade(st, wid, ok, now, type) {
   c.dm = c.dm || {};
   for (const k of DIM_OF[type] || []) { const d = c.dm[k] = c.dm[k] || {}; d.ok = ok ? 1 : 0; d.n = (d.n || 0) + 1; if (ok && dayOf(now) - c.d0 >= MEM_DAYS) d.pv = 1; }
 }
-function parts(st, now, WS = gateWords()) {
+// Người sáng lập 25/10/2026: 📘 Học chỉ tính từ của cấp đang học; 🔁 Nhớ và Thi chuyển cấp tính dồn cả các cấp trước
+// (A1 = A1 + Pre-A1, A2 = A2 + A1 + Pre-A1, A2+ = cả bốn). Áp cho cả 7 phần (pa.js, kit.js cùng luật).
+function parts(st, now, lv = curLevel()) { const WL = levelWords(lv), WM = memWords(lv);
   let learn = 0, full = 0, due = 0; const dim = Object.fromEntries(DIMS.map(([k]) => [k, 0]));
-  for (const w of WS) { const c = st.cards[w.id]; if (c) learn++; if (isDue(c, now)) due++;
+  for (const w of WL) if (st.cards[w.id]) learn++;
+  for (const w of WM) { const c = st.cards[w.id]; if (isDue(c, now)) due++;
     let all = !!c; for (const [k] of DIMS) { if (heldDim(c, k, now)) dim[k]++; else all = false; } if (all) full++; }
-  const T = WS.length || 1, mem = Math.min(...Object.values(dim)), dq = Object.fromEntries(DIMS.map(([k]) => [k, Math.floor(dim[k] / T * 100)]));
-  return { learn, mem, full, due, T, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.floor(mem / T * 100) };
+  const T = WL.length || 1, Tm = WM.length || 1, mem = Math.min(...Object.values(dim)), dq = Object.fromEntries(DIMS.map(([k]) => [k, Math.floor(dim[k] / Tm * 100)]));
+  return { learn, mem, full, due, T: WL.length, Tm: WM.length, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.floor(mem / Tm * 100) };
 }
 const gateOpen = p => p.lq >= GATE_LEARN && p.mq >= GATE_MEM;
 // Góp ý #3 / #4: dấu của từng từ. chua = chưa học · hoc = đã học, chưa đủ bằng chứng nhớ · nho = tính vào 🔁 Nhớ · quen = lần gần nhất sai hoặc đã tới lúc sắp quên.
@@ -175,7 +178,9 @@ function bar(v, need, color) { return `<div class="bar"><i style="width:${Math.m
 // Tập từ của cổng (người sáng lập 23/10/2026): Pre-A1 = từ Pre-A1; A1 = Pre-A1 + A1 (918 từ); A2 = chỉ từ A2, kèm điều kiện A1 "Đạt bền" (exam.js).
 const passed = lv => typeof xPassed === 'function' && xPassed(lv);
 const curLevel = () => LEVELS.find(l => !passed(l)) || LEVELS[LEVELS.length - 1];
-const gateWords = (lv = curLevel()) => WORDS.filter(w => lv === 'a1' ? ['pre', 'a1'].includes(UBY[w.u].lv) : UBY[w.u].lv === lv);
+const levelWords = (lv = curLevel()) => WORDS.filter(w => UBY[w.u].lv === lv);   // 📘 Học: từ của cấp
+const memWords = (lv = curLevel()) => { const i = LEVELS.indexOf(lv); return WORDS.filter(w => LEVELS.indexOf(UBY[w.u].lv) <= i); };   // 🔁 Nhớ: cấp này + các cấp trước
+const gateWords = memWords;
 const lockedLv = l => { const i = LEVELS.indexOf(l); return i > 0 && !passed(LEVELS[i - 1]); };
 const locked = u => lockedLv(u.lv);
 const unitDone = u => u.words.every(w => S.cards[w.id]);
@@ -204,7 +209,7 @@ function home() {
     : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi mặt của từ tính 🔁 Nhớ khi trả lời đúng mặt đó ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào mặt còn thiếu.`;
   $app.innerHTML = `
     ${ovBack}<h1>📚 Từ vựng</h1>
-    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ${lv === 'a1' ? ', tính cả Pre-A1' : ''})</p>
+    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} từ` : ''})</p>
     <p class="mute"><span id="sync">${esc(sync)}</span></p>
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
@@ -218,7 +223,7 @@ function home() {
     </div>
     <p class="mute">${tip}</p>
     ${examBox(p, lv)}
-    ${DUR_PREV[lv] && !xDurable(DUR_PREV[lv]) ? examBox(parts(S, now, gateWords(DUR_PREV[lv])), DUR_PREV[lv]) : ''}
+    ${DUR_PREV[lv] && !xDurable(DUR_PREV[lv]) ? examBox(parts(S, now, DUR_PREV[lv]), DUR_PREV[lv]) : ''}
     <h2>Lộ trình</h2>
     <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ 5 mặt · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
     <div id="grid">${roadmap(now, nu)}</div>

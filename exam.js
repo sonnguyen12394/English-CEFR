@@ -6,14 +6,15 @@
 // Mỗi vòng: 22 gõ từ vào câu có gợi ý nghĩa (✍️ + 🧩), 8 nghĩa từ trong câu (📖), 10 nghe (🎧).
 // Bỏ "chọn từ điền câu" (xM): từ nhiễu tự chọn cùng loại từ có thể cũng đúng ("The ___ is sleeping.": cat / grandmother); xM giữ trong mã, không ra đề.
 // Hai cấp (23/10/2026): Pre-A1 thi 2 vòng × 30 câu (vòng 1 ≥ 26 qua, ≤ 21 chưa qua, giữa thì vòng 2, cần ≥ 48/60; mô phỏng: năng lực 70% → 7% qua,
-// 85% → 89%), chỉ từ Pre-A1, qua một lần là mở A1 (không thi lại bền). A1 như trên, rút từ TẤT CẢ từ (Pre-A1 + A1), có thi lại bền.
+// 85% → 89%), chỉ từ Pre-A1, qua một lần là mở A1 (không thi lại bền). A1 như trên, có thi lại bền; từ 25/10/2026 mỗi vòng 28 câu A1 + 12 câu Pre-A1 (thi dồn cấp trước).
 const XL = {
   pre: { N: 30, HI: 26, LO: 21, TOT: 48, MIX: [...Array(16).fill('xT'), ...Array(6).fill('xN'), ...Array(8).fill('xL')], retest: false },
-  a1: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true },
+  // 25/10/2026 (người sáng lập: thi tính dồn cấp trước): A1, A2, A2+ mỗi vòng 28 câu từ cấp mới + 12 câu (30%) từ các cấp trước.
+  a1: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 12 },
   // A2 (23/10/2026): như A1; mỗi vòng 3/4 câu từ A2, 1/4 câu từ Pre-A1 + A1 (kiểm nhớ lâu); mở khi qua Thi A1 lần 1, cổng cần thêm A1 "Đạt bền".
-  a2: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 10 },
+  a2: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 12 },
   // A2+ (23/10/2026): như A2; 1/4 câu từ A2; mở khi qua Thi A2 lần 1, cổng cần A2 "Đạt bền".
-  a2p: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 10 },
+  a2p: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 12 },
 };
 const X = { RETEST_D: 14, RETRY_D: 7 };
 const X_DIM = { xT: ['viet', 'dung'], xM: ['dung'], xN: ['nghia'], xL: ['nghe'] };
@@ -62,7 +63,7 @@ function examState(p, lv) {
     return now >= t ? { k: 're', h: `🔁 Thi lại để xác nhận đạt bền ${name}`, p: 'Bài mới, từ khác. Qua lần này mới ghi "Đạt bền".', btn: 'Vào thi lại', on: true, re: true }
       : { k: 'cho', h: `✅ Đã qua Thi chuyển cấp ${name} lần 1`, p: `Thi lại xác nhận mở từ ${fmtD(t)}. Cứ luyện tập đều.`, btn: `🔒 Mở ngày ${fmtD(t)}`, on: false }; }
   const dp = DUR_PREV[lv], needDur = !!dp && !xDurable(dp), open = gateOpen(p) && !needDur;
-  return { k: open ? 'mo' : 'khoa', h: `🚪 Thi chuyển cấp ${name}`, p: open ? `Đã mở. Tối đa 2 vòng × ${C.N} câu mới chưa gặp khi luyện; gõ không có gợi ý chữ.` : `Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt Nhớ ≥ ${GATE_MEM}% (trên ${p.T} từ ${lv === 'a1' ? 'Pre-A1 + A1' : name})${dp ? `, và ${LVN[dp]} đã "Đạt bền"` : ''}.${needDur && gateOpen(p) ? ` Còn thiếu: ${LVN[dp]} "Đạt bền".` : ''}`, btn: open ? 'Vào làm bài' : '🔒 Chưa mở', on: open };
+  return { k: open ? 'mo' : 'khoa', h: `🚪 Thi chuyển cấp ${name}`, p: open ? `Đã mở. Tối đa 2 vòng × ${C.N} câu mới chưa gặp khi luyện; gõ không có gợi ý chữ.` : `Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt Nhớ ≥ ${GATE_MEM}% (Học: ${p.T} từ ${name}; Nhớ: ${p.Tm} từ, tính cả cấp trước)${dp ? `, và ${LVN[dp]} đã "Đạt bền"` : ''}.${needDur && gateOpen(p) ? ` Còn thiếu: ${LVN[dp]} "Đạt bền".` : ''}`, btn: open ? 'Vào làm bài' : '🔒 Chưa mở', on: open };
 }
 function examBox(p, lv) { const s = examState(p, lv);
   return `<div class="box"><b>${s.h}</b><p class="mute">${s.p}</p><button class="${s.on ? 'pri' : ''}" data-a="exam" data-lv="${lv}" ${s.on ? '' : 'disabled'}>${s.btn}</button>
@@ -71,10 +72,10 @@ function examBox(p, lv) { const s = examState(p, lv);
 // ---------- làm bài ----------
 async function exam(lv) {
   try { await loadEB(); } catch (e) { return alert('Chưa tải được bài thi. Thử lại khi có mạng.'); }
-  const C = XL[lv], name = LVN[lv], pool = gateWords(lv).filter(w => EB[w.id]);
-  const re = examState(parts(S, Date.now(), gateWords(lv)), lv).re || false, used = new Set(re ? runsOf(lv).flatMap(x => x.ids || []) : []);
+  const C = XL[lv], name = LVN[lv], pool = levelWords(lv).filter(w => EB[w.id]);
+  const re = examState(parts(S, Date.now(), lv), lv).re || false, used = new Set(re ? runsOf(lv).flatMap(x => x.ids || []) : []);
   if (pool.length - pool.filter(w => used.has(w.id)).length < 2 * C.N) used.clear();
-  const oldPool = C.old ? gateWords(DUR_PREV[lv]).filter(w => EB[w.id]) : [];   // thêm câu từ cấp trước (A2: Pre-A1 + A1; A2+: A2)
+  const oldPool = C.old ? memWords(LEVELS[LEVELS.indexOf(lv) - 1]).filter(w => EB[w.id]) : [];   // câu từ mọi cấp trước
   const draw = () => { const ws = [...shuf(pool.filter(w => !used.has(w.id))).slice(0, C.N - (C.old || 0)), ...shuf(oldPool.filter(w => !used.has(w.id))).slice(0, C.old || 0)];
     ws.forEach(w => used.add(w.id)); const ty = shuf(C.MIX); return shuf(ws).map((w, i) => ({ w, type: ty[i] })); };
   const tally = { ok: 0, n: 0, dim: {}, wrong: [] };
@@ -90,7 +91,7 @@ async function exam(lv) {
   function finish(pass) {
     const first = !xPassed(lv);
     xs().runs.push({ at: Date.now(), lv, n: tally.n, ok: tally.ok, pass, re, dim: tally.dim, ids: [...used] }); save();
-    const st = examState(parts(S, Date.now(), gateWords(lv)), lv);
+    const st = examState(parts(S, Date.now(), lv), lv);
     const next = LVN[LEVELS[LEVELS.indexOf(lv) + 1]];
     const h = !pass ? '❌ Chưa qua' : lv === 'pre' ? (first ? '✅ Qua Thi chuyển cấp Pre-A1: đã mở bài A1' : '✅ Qua') : re ? `✅ Qua lần thi lại: Đạt bền từ vựng ${name}` : `✅ Qua Thi chuyển cấp ${name} (lần 1)${first && next ? `: đã mở bài ${next}` : ''}`;
     $app.innerHTML = `<div class="box"><b>${h}</b>

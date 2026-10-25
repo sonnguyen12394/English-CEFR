@@ -21,11 +21,14 @@ const kLocked = (P, lv) => P.lvs.indexOf(lv) > 0 && !kPassed(P, P.lvs[P.lvs.inde
 const kItems = (P, lv) => P.items.filter(x => x.lv === lv && !x.test);
 // mặt của một bài (phần có nhiều loại bài, vd. 🗣 Nói: đề nói có ✅ / 🗣, đóng vai chỉ có 💬): mỗi mặt chỉ tính trên các bài có mặt đó
 const kDimsOf = (P, x) => P.dimsOf ? P.dimsOf(x) : P.dims.map(d => d[0]);
-function kParts(P, lv, now = Date.now()) { const L = kItems(P, lv), st = kSt(P.id).cards, dim = {}, Tk = {}; let learn = 0, due = 0;
+// 📘 Học: bài của cấp; 🔁 Nhớ: dồn cả cấp trước (người sáng lập 25/10/2026: "A1 gồm cả Pre-A1, các cấp sau tương tự")
+const kMem = (P, lv) => P.items.filter(x => !x.test && P.lvs.indexOf(x.lv) <= P.lvs.indexOf(lv));
+function kParts(P, lv, now = Date.now()) { const L = kItems(P, lv), M = kMem(P, lv), st = kSt(P.id).cards, dim = {}, Tk = {}; let learn = 0, due = 0;
   for (const [k] of P.dims) dim[k] = Tk[k] = 0;
-  for (const x of L) { const c = st[x.id]; if (c) learn++; if (isDue(c, now)) due++; for (const k of kDimsOf(P, x)) { Tk[k]++; if (heldDim(c, k, now)) dim[k]++; } }
+  for (const x of L) if (st[x.id]) learn++;
+  for (const x of M) { const c = st[x.id]; if (isDue(c, now)) due++; for (const k of kDimsOf(P, x)) { Tk[k]++; if (heldDim(c, k, now)) dim[k]++; } }
   const T = L.length || 1, dq = {}; for (const [k] of P.dims) dq[k] = Tk[k] ? Math.floor(dim[k] / Tk[k] * 100) : 100;
-  return { T: L.length, learn, due, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.min(...Object.values(dq)) }; }
+  return { T: L.length, Tm: M.length, learn, due, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.min(...Object.values(dq)) }; }
 async function kLoad(P) { if (P.items) return P; const d = await (await fetch(P.file)).json(); P.items = d.items; P.raw = d; P.by = {}; for (const x of d.items) P.by[x.id] = x;
   for (const [k] of P.dims) DIM_OF[P.id + '_' + k] = [k]; return P; }
 const kGo = id => kView(id);
@@ -38,7 +41,7 @@ function kView(id) { const P = KIT[id];
   const open = p.lq >= GATE_LEARN && p.mq >= GATE_MEM, run = st.runs.filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, K_RETRY - (dayOf(now) - dayOf(run.at))) : 0;
   const view = P.view && P.lvs.includes(P.view) ? P.view : lv;
   $app.innerHTML = `<div id="part" data-p="${id}"></div>${ovBack}<h1>${P.ic} ${P.t}</h1>
-    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} ${P.unit}). ${P.intro}</p>
+    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} ${P.unit} mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm}` : ''}). ${P.intro}</p>
     ${P.needAsr && !SREC ? `<div class="box">⚠️ Trình duyệt này không chép được lời nói. Phần ${P.t} chấm bằng máy chép lời: mở trang bằng <b>Safari</b>.</div>` : ''}
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
@@ -110,8 +113,10 @@ function kGrade(P, res) { const g = new Map(), now = Date.now();
 
 // ---------- 🚪 Thi chuyển cấp ----------
 function kExam(P, lv) { if (P.needAsr && !SREC) return toast('Phần này cần máy chép lời: mở trang bằng Safari.');
-  const qs = P.exam(lv);
-  if (!confirm(`Thi chuyển cấp ${P.t} ${LVN[lv]}: ${qs.length} câu, toàn bài / câu chưa gặp. Không xem đáp án giữa chừng. Bắt đầu?`)) return;
+  // thi dồn cấp trước: đề của cấp mới + ~30% câu lấy từ đề các cấp trước (chia đều mỗi cấp)
+  const New = P.exam(lv), prev = P.lvs.slice(0, P.lvs.indexOf(lv)), nOld = Math.round(New.length * 0.43);
+  const Old = prev.flatMap(l => shuf(P.exam(l)).slice(0, Math.ceil(nOld / prev.length))).slice(0, nOld), qs = [...New, ...Old];
+  if (!confirm(`Thi chuyển cấp ${P.t} ${LVN[lv]}: ${qs.length} câu${Old.length ? ` (có ${Old.length} câu của cấp trước)` : ''}, toàn bài / câu chưa gặp khi học. Không xem đáp án giữa chừng. Bắt đầu?`)) return;
   kQuiz({ P, title: '🚪 Thi ' + P.t, qs, quiet: true, done: res => {
     const ok = res.filter(r => r.ok).length, n = res.length, need = Math.ceil(n * P.pass), pass = ok >= need;
     kSt(P.id).runs.push({ lv, at: Date.now(), ok, n, pass }); save();
@@ -199,9 +204,9 @@ function kTeach(P, x) { const ks = kDimsOf(P, x);
     return `<p style="margin:6px 0">${d[1]}: ${esc(I.learn || d[2])}</p>`; }).join('')}<p class="mute" style="margin:4px 0 0">Làm thử có câu cho từng mặt. Từ mai, 🏋️ Luyện tập lại đúng các mặt này mới tính vào 🔁 Nhớ.</p></div>`; }
 function kDimView(P, k) { window.CUR = { view: P.id + '-mat-' + k };
   const now = Date.now(), lv = kLv(P), p = kParts(P, lv, now), d = P.dims.find(z => z[0] === k), I = (P.info || {})[k] || {}, st = kSt(P.id).cards;
-  const L = kItems(P, lv).filter(x => kDimsOf(P, x).includes(k)), lack = L.filter(x => st[x.id] && !heldDim(st[x.id], k, now)), mi = P.menu.map((m, i) => [m, i]).filter(([m]) => m[3].includes(k));
+  const L = kMem(P, lv).filter(x => kDimsOf(P, x).includes(k)), lack = L.filter(x => st[x.id] && !heldDim(st[x.id], k, now)), mi = P.menu.map((m, i) => [m, i]).filter(([m]) => m[3].includes(k));
   $app.innerHTML = `${backRow(P.ic + ' ' + P.t)}<h1>${d[1]}: ${p.dq[k]}%</h1>${bar(p.dq[k], GATE_MEM, 'var(--good)')}
-    <p class="mute">${L.filter(x => heldDim(st[x.id], k, now)).length}/${L.length} bài giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} bài.</p>
+    <p class="mute">${L.filter(x => heldDim(st[x.id], k, now)).length}/${L.length} bài (cả cấp trước) giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} bài.</p>
     <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${esc(I.what || d[2])}</p>${I.ex ? `<p class="mute" style="margin:4px 0">Ví dụ câu:</p><p style="margin:2px 0">• ${I.ex}</p>` : ''}
       <p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn || 'trong bài học')}</p>
       <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%; sai hoặc lâu không ôn thì mất, ôn lại để lấy lại.</p></div>
