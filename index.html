@@ -67,7 +67,7 @@
   #tabs { position:fixed; left:0; right:0; bottom:0; display:flex; background:var(--bg); border-top:1px solid var(--line); padding-bottom:env(safe-area-inset-bottom); z-index:15; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   #tabs::-webkit-scrollbar { display:none; }
   #tabs[hidden] { display:none; }
-  #tabs button { flex:1 0 64px; margin:0; border:0; border-radius:0; background:none; text-align:center; padding:6px 2px 6px; font-size:12px; line-height:1.2; color:var(--mute); white-space:nowrap; }
+  #tabs button { flex:1 0 64px; font-size:13px !important; margin:0; border:0; border-radius:0; background:none; text-align:center; padding:6px 2px 6px; font-size:12px; line-height:1.2; color:var(--mute); white-space:nowrap; }
   #tabs button i { display:block; font-style:normal; font-size:20px; line-height:1.3; }
   #tabs button.on { color:var(--accent); font-weight:700; }
   body.has-tabs #gybtn { bottom:calc(72px + env(safe-area-inset-bottom)); }
@@ -97,17 +97,17 @@
 </head>
 <body>
 <main id="app"><p class="mute">Đang tải…</p></main>
-<nav id="tabs" aria-label="Mục chính" hidden><button data-tab="tv"><i>📚</i>Từ vựng</button><button data-tab="np"><i>🧱</i>Ngữ pháp</button><button data-tab="pa"><i>👄</i>Phát âm</button><button data-tab="nghe"><i>🎧</i>Nghe</button><button data-tab="noi"><i>🗣</i>Nói</button><button data-tab="doc"><i>📰</i>Đọc</button><button data-tab="viet"><i>✍️</i>Viết</button><button data-tab="dict"><i>📖</i>Từ điển</button></nav>
+<nav id="tabs" aria-label="Mục chính" hidden><button data-tab="all"><i>🎯</i>Học</button><button data-tab="dict"><i>📖</i>Từ điển</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=32"></script>
-<script src="tonghop.js?v=32"></script>
-<script src="exam.js?v=32"></script>
-<script src="gopy.js?v=32"></script>
-<script src="gop.js?v=32"></script>
-<script src="noi.js?v=32"></script>
-<script src="parts.js?v=32"></script>
-<script src="pa.js?v=32"></script>
-<script src="kit.js?v=32"></script>
-<script src="kparts.js?v=32"></script>
+<script src="app.js?v=33"></script>
+<script src="tonghop.js?v=33"></script>
+<script src="exam.js?v=33"></script>
+<script src="gopy.js?v=33"></script>
+<script src="gop.js?v=33"></script>
+<script src="noi.js?v=33"></script>
+<script src="parts.js?v=33"></script>
+<script src="pa.js?v=33"></script>
+<script src="kit.js?v=33"></script>
+<script src="kparts.js?v=33"></script>
 </body>
 </html>

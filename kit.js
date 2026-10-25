@@ -35,7 +35,7 @@ function kView(id) { const P = KIT[id];
   const now = Date.now(), lv = kLv(P), p = kParts(P, lv, now), st = kSt(id), L = kItems(P, lv), nx = L.find(x => !st.cards[x.id]);
   const open = p.lq >= GATE_LEARN && p.mq >= GATE_MEM, run = st.runs.filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, K_RETRY - (dayOf(now) - dayOf(run.at))) : 0;
   const view = P.view && P.lvs.includes(P.view) ? P.view : lv;
-  $app.innerHTML = `<div id="part" data-p="${id}"></div><h1>${P.ic} ${P.t}</h1>
+  $app.innerHTML = `<div id="part" data-p="${id}"></div>${ovBack}<h1>${P.ic} ${P.t}</h1>
     <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} ${P.unit}). ${P.intro}</p>
     ${P.needAsr && !SREC ? `<div class="box">⚠️ Trình duyệt này không chép được lời nói. Phần ${P.t} chấm bằng máy chép lời: mở trang bằng <b>Safari</b>.</div>` : ''}
     <div class="box">

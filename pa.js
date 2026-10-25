@@ -28,7 +28,7 @@ function paView() {
   if (!NO.vocab && !NO.loading && nHas()) nLoad();   // đã tải lần trước: nạp lại từ bộ nhớ máy (chỉ khi vào Phát âm, đỡ tốn bộ nhớ)
   const now = Date.now(), lv = paLevel(), p = paParts(lv, now), st = paSt(), L = PA.filter(x => x.lv === lv), nx = L.find(x => !st[x.id]);
   const open = p.lq >= GATE_LEARN && p.mq >= GATE_MEM, run = paRuns().filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, 7 - (dayOf(now) - dayOf(run.at))) : 0;
-  $app.innerHTML = `<div id="part" data-p="pa"></div><h1>👄 Phát âm</h1>
+  $app.innerHTML = `<div id="part" data-p="pa"></div>${ovBack}<h1>👄 Phát âm</h1>
     <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} bộ cặp âm). Mỗi bộ: một cặp âm người Việt hay nhầm, kèm cách đặt miệng.</p>
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} bộ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
