@@ -14,6 +14,11 @@ const kOpts = (a, w) => shuf([a, ...w]);
 // số ý cần có: đề ≥ 4 ý thì được thiếu 1 ý, đề ≤ 3 ý thì phải đủ (thay "≥ 80%" làm tròn lên, vốn bắt đủ cả 4 ý)
 const kNeed = n => n >= 4 ? n - 1 : n;
 const kModel = x => [].concat(x.m).join('\n\n');
+// từ trong câu ngữ pháp mà người học chưa học (soát Pre-A1: ~150 từ ngoài 365 từ Pre-A1): hiện nghĩa ngay dưới câu, để câu chỉ đo ngữ pháp
+function kGloss(s) { const seen = new Set(), out = [];
+  for (const t of String(s).toLowerCase().match(/[a-z]+/g) || []) { const w = WBY[t] || WBY[t.replace(/(es|s)$/, '')] || WBY[t.replace(/ing$/, '')] || WBY[t.replace(/ed$/, '')];
+    if (w && !S.cards[w.id] && !seen.has(w.id) && w.w.length > 2) { seen.add(w.id); out.push(`<b>${esc(w.w)}</b> = ${esc(w.vi)}`); } }
+  return out.length ? `<p class="mute" style="margin:4px 0">Từ chưa học: ${out.slice(0, 4).join(' · ')}</p>` : ''; }
 const kOther = (P, x, f, n) => shuf(P.items.filter(y => y.lv === x.lv && y.id !== x.id && f(y) !== f(x))).slice(0, n).map(f);
 
 // ---------- 🧱 Ngữ pháp ----------
@@ -27,9 +32,9 @@ KIT.np = { id: 'np', ic: '🧱', t: 'Ngữ pháp', file: 'np.json?v=2', lvs: ['p
     <div class="box"><b>🎯 Dùng khi</b>${x.use.map(f => `<p style="margin:4px 0">• ${esc(f)}</p>`).join('')}${x.note ? `<p class="mute" style="margin:6px 0 0">⚠️ ${esc(x.note)}</p>` : ''}</div>
     <div class="box"><b>📝 Ví dụ</b>${x.ex.map(([e, v]) => `<p style="margin:6px 0">${kSay(e)} ${esc(e)}<br><span class="mute">${esc(v)}</span></p>`).join('')}</div>`,
   q: (x, k, pool) => {
-    if (k === 'nhan') return shuf(x.mc[pool]).slice(0, pool === 'learn' ? 2 : 1).map(m => ({ x, k, kind: 'mc', q: 'Chọn từ đúng: ' + esc(m.s), opts: kOpts(m.a, m.w), a: m.a, why: m.why }));
-    if (k === 'dien') return shuf(x.ty[pool]).slice(0, 1).map(m => ({ x, k, kind: 'type', head: '<p class="mute">Gõ từ còn thiếu (chia đúng dạng).</p>', q: esc(m.s), acc: m.a, why: m.why ? Object.values(m.why)[0] : '' }));
-    return shuf(x.fx[pool]).slice(0, 1).map(m => ({ x, k, kind: 'type', head: '<p class="mute">🛠 Câu dưới đây sai. Gõ lại cả câu cho đúng.</p>', q: '❌ ' + esc(m.bad), acc: [m.good, ...(m.alt || [])], why: m.why })); },
+    if (k === 'nhan') return shuf(x.mc[pool]).slice(0, pool === 'learn' ? 2 : 1).map(m => ({ x, k, kind: 'mc', head: kGloss(m.s), q: 'Chọn từ đúng: ' + esc(m.s), opts: kOpts(m.a, m.w), a: m.a, why: m.why }));
+    if (k === 'dien') return shuf(x.ty[pool]).slice(0, 1).map(m => ({ x, k, kind: 'type', head: '<p class="mute">Gõ từ còn thiếu (chia đúng dạng).</p>' + kGloss(m.s), q: esc(m.s), acc: m.a, why: m.why ? Object.values(m.why)[0] : '' }));
+    return shuf(x.fx[pool]).slice(0, 1).map(m => ({ x, k, kind: 'type', head: '<p class="mute">🛠 Câu dưới đây sai. Gõ lại cả câu cho đúng.</p>' + kGloss(m.good), q: '❌ ' + esc(m.bad), acc: [m.good, ...(m.alt || [])], why: m.why })); },
   tryQs: x => ['nhan', 'dien', 'sua'].flatMap(k => KIT.np.q(x, k, 'learn').slice(0, 1)),
   menu: [['nhan', '🔎 Luyện nhận ra (5 điểm)', 'Trắc nghiệm, 2 câu mỗi điểm', ['nhan'], 5], ['dien', '✏️ Luyện điền dạng (6 điểm)', 'Tự gõ dạng đúng', ['dien'], 6], ['sua', '🛠 Luyện sửa lỗi (6 điểm)', 'Gõ lại câu sai cho đúng', ['sua'], 6]],
   ask: (x, m) => KIT.np.q(x, m, 'learn'),

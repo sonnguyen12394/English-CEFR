@@ -64,7 +64,9 @@ function overview() { BACK = null; window.CUR = { view: 'tong-quan' };
   const st = OV.map(([id]) => ovStat(id)), wait = st.some(x => !x);
   if (wait) Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]).then(() => { if (document.getElementById('ov')) overview(); }).catch(() => {});
   // việc nên làm trước: phần có bài cần ôn nhiều nhất; không có thì phần 📘 Học thấp nhất
-  const ok = OV.map((o, i) => [o, st[i]]).filter(([, s]) => s), due = ok.filter(([, s]) => s.due).sort((a, b) => b[1].due - a[1].due)[0], low = ok.filter(([, s]) => s.lq < 100).sort((a, b) => a[1].lq - b[1].lq)[0];
+  // Soát Pre-A1 (25/10/2026): bài mới chỉ gợi ý trong các phần đang ở cấp thấp nhất (đang Pre-A1 thì không đẩy sang Nghe / Đọc A1). Bài cần ôn thì phần nào cũng gợi ý.
+  const LO = ['pre', 'a1', 'a2', 'a2p'], ok = OV.map((o, i) => [o, st[i]]).filter(([, s]) => s), minLv = Math.min(...ok.map(([, s]) => LO.indexOf(s.lv)));
+  const due = ok.filter(([, s]) => s.due).sort((a, b) => b[1].due - a[1].due)[0], low = ok.filter(([, s]) => s.lq < 100 && LO.indexOf(s.lv) === minLv).sort((a, b) => a[1].lq - b[1].lq)[0];
   const tip = due ? [due[0], `${due[1].due} bài cần ôn hôm nay`] : low ? [low[0], `📘 Học mới ${low[1].lq}%: học bài tiếp theo`] : null;
   $app.innerHTML = `<div id="ov"></div><h1>🎯 Tổng quan học</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${tip ? `<button class="pri" data-ovp="${tip[0][0]}">▶ Nên làm: ${tip[0][1]} ${tip[0][2]} · ${tip[1]}</button>` : ''}
