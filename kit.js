@@ -19,10 +19,12 @@ const kLv = P => P.lvs.find(l => !kPassed(P, l)) || P.lvs[P.lvs.length - 1];
 const kPassed = (P, lv) => kSt(P.id).runs.some(r => r.lv === lv && r.pass);
 const kLocked = (P, lv) => P.lvs.indexOf(lv) > 0 && !kPassed(P, P.lvs[P.lvs.indexOf(lv) - 1]);
 const kItems = (P, lv) => P.items.filter(x => x.lv === lv && !x.test);
-function kParts(P, lv, now = Date.now()) { const L = kItems(P, lv), st = kSt(P.id).cards, dim = {}; let learn = 0, due = 0;
-  for (const [k] of P.dims) dim[k] = 0;
-  for (const x of L) { const c = st[x.id]; if (c) learn++; if (isDue(c, now)) due++; for (const [k] of P.dims) if (heldDim(c, k, now)) dim[k]++; }
-  const T = L.length || 1, dq = {}; for (const [k] of P.dims) dq[k] = Math.floor(dim[k] / T * 100);
+// mặt của một bài (phần có nhiều loại bài, vd. 🗣 Nói: đề nói có ✅ / 🗣, đóng vai chỉ có 💬): mỗi mặt chỉ tính trên các bài có mặt đó
+const kDimsOf = (P, x) => P.dimsOf ? P.dimsOf(x) : P.dims.map(d => d[0]);
+function kParts(P, lv, now = Date.now()) { const L = kItems(P, lv), st = kSt(P.id).cards, dim = {}, Tk = {}; let learn = 0, due = 0;
+  for (const [k] of P.dims) dim[k] = Tk[k] = 0;
+  for (const x of L) { const c = st[x.id]; if (c) learn++; if (isDue(c, now)) due++; for (const k of kDimsOf(P, x)) { Tk[k]++; if (heldDim(c, k, now)) dim[k]++; } }
+  const T = L.length || 1, dq = {}; for (const [k] of P.dims) dq[k] = Tk[k] ? Math.floor(dim[k] / Tk[k] * 100) : 100;
   return { T: L.length, learn, due, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.min(...Object.values(dq)) }; }
 async function kLoad(P) { if (P.items) return P; const d = await (await fetch(P.file)).json(); P.items = d.items; P.raw = d; P.by = {}; for (const x of d.items) P.by[x.id] = x;
   for (const [k] of P.dims) DIM_OF[P.id + '_' + k] = [k]; return P; }
@@ -62,7 +64,7 @@ function kView(id) { const P = KIT[id];
     if (a === 'learn' && nx) kLearn(P, nx); if (a === 'menu') kMenu(P); if (a === 'exam') kExam(P, lv); };
   window.scrollTo(0, 0); }
 function kList(P, lv, nx, now) { const st = kSt(P.id).cards;
-  return kItems(P, lv).map(x => { const c = st[x.id], m = P.dims.map(([k, l]) => `<span class="dm ${heldDim(c, k, now) ? 'on' : ''}" title="${l}">${l.split(' ')[0]}</span>`).join('');
+  return kItems(P, lv).map(x => { const c = st[x.id], m = P.dims.filter(([k]) => kDimsOf(P, x).includes(k)).map(([k, l]) => `<span class="dm ${heldDim(c, k, now) ? 'on' : ''}" title="${l}">${l.split(' ')[0]}</span>`).join('');
     return `<button class="urow ${nx && nx.id === x.id ? 'next' : ''}" data-kx="${x.id}"><span>${c ? '🔵' : nx && nx.id === x.id ? '▶️' : '⚪'} ${esc(P.name(x))}</span><span>${c ? m : ''}</span></button>`; }).join(''); }
 
 // ---------- 📘 Học một bài: phần giảng (P.lesson) + làm thử (không tính) ----------
@@ -81,7 +83,7 @@ function kLearn(P, x) { window.CUR = { view: P.id + '-hoc', item: x.id };
   window.scrollTo(0, 0); }
 
 // ---------- 🏋️ Luyện tập ----------
-function kTargets(P, k, n) { const now = Date.now(), st = kSt(P.id).cards, L = P.items.filter(x => !x.test && st[x.id] && !kLocked(P, x.lv));
+function kTargets(P, k, n) { const now = Date.now(), st = kSt(P.id).cards, L = P.items.filter(x => !x.test && st[x.id] && !kLocked(P, x.lv) && kDimsOf(P, x).includes(k));
   const r = x => { const c = st[x.id]; return (heldDim(c, k, now) ? 2 : 0) + (dayOf(now) - c.d0 >= MEM_DAYS ? 0 : 1) + recall(c, now); };
   return shuf(L).sort((a, b) => r(a) - r(b)).slice(0, n); }
 function kMenu(P) { window.CUR = { view: P.id + '-luyen' }; const lv = kLv(P), p = kParts(P, lv);
@@ -119,7 +121,9 @@ function kExam(P, lv) { if (P.needAsr && !SREC) return toast('Phần này cần 
 // ---------- chạy câu hỏi ----------
 // q = { x, k, kind: 'mc' | 'type' | 'write' | 'speak', head?, q, opts?, a?, acc?, check?(text) → { ok, html, ks? }, say?, why? }
 // check có thể trả ks = { mặt: đúng / sai } để một câu chấm nhiều mặt (bài viết: ✅ Đủ ý + 📝 Đúng dạng bài).
-function kQuiz({ P, title, qs, quiet, done }) { let i = 0; const res = []; let said = null;
+// q.play = { key, lines | text }: bài nghe khi luyện / thi chỉ nghe tối đa 2 lần mỗi bài (như Cambridge); lần đầu tự phát. Bài giảng nghe không giới hạn.
+const K_PLAYS = 2;
+function kQuiz({ P, title, qs, quiet, done }) { let i = 0; const res = []; let said = null; const plays = {};
   const push = (q, r) => { if (r.ks) for (const [k, ok] of Object.entries(r.ks)) res.push({ x: q.x, k, ok }); else res.push({ x: q.x, k: q.k, ok: r.ok }); };
   const show = () => { kAsrStop(); if (i >= qs.length) return done(res);
     const q = qs[i]; window.CUR = { view: P.id + '-cau', item: q.x.id + ':' + q.k, prompt: q.q };
@@ -127,7 +131,9 @@ function kQuiz({ P, title, qs, quiet, done }) { let i = 0; const res = []; let s
       : q.kind === 'type' ? `<form id="kf" autocomplete="off"><input id="kt" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Câu trả lời"><button class="pri" type="submit">Kiểm tra</button></form>`
       : q.kind === 'write' ? `<form id="kf" autocomplete="off"><textarea id="kt" rows="7" autocapitalize="sentences" spellcheck="false" aria-label="Bài viết"></textarea><p class="mute" id="kwc">0 từ</p><button class="pri" type="submit">Nộp bài</button></form>`
       : `<button class="pri" data-ks="rec" ${SREC ? '' : 'disabled'}>🎤 Bấm rồi nói</button><div class="box"><b>📝 Máy nghe ra:</b> <span id="kheard">…</span></div>${SREC ? '' : '<p class="mute">Trình duyệt này không chép được lời: mở bằng Safari.</p>'}`;
-    $app.innerHTML = `${backRow(`${title} · ${i + 1}/${qs.length}`)}${q.head || ''}<p class="q">${q.q}</p>${body}<div id="fb"></div>`;
+    const pk = q.play && q.play.key, left = () => K_PLAYS - (plays[pk] || 0), pbtn = () => `🔊 Nghe lại (còn ${left()} lần)`;
+    $app.innerHTML = `${backRow(`${title} · ${i + 1}/${qs.length}`)}${q.head || ''}${q.play ? `<button class="chip" data-kplay ${left() > 0 || !plays[pk] ? '' : 'disabled'}>${plays[pk] ? pbtn() : '🔊 Nghe'}</button>` : ''}<p class="q">${q.q}</p>${body}<div id="fb"></div>`;
+    if (q.play && !plays[pk]) { plays[pk] = 1; kPlay(q.play); const b = $app.querySelector('[data-kplay]'); if (b) { b.textContent = pbtn(); b.disabled = left() <= 0; } }
     if (q.say && said !== q.say) { said = q.say; speak(...[].concat(q.say)); }
     let ans = false;
     const fin = r => { if (ans) return; ans = true; push(q, r); if (quiet) { i++; return show(); }
@@ -139,6 +145,7 @@ function kQuiz({ P, title, qs, quiet, done }) { let i = 0; const res = []; let s
         fin(q.check ? q.check(t.value) : (() => { const ok = q.acc.some(a => kNorm(a) === kNorm(t.value)); return { ok, html: ok ? '' : `Đáp án: <b>${esc(q.acc[0])}</b>.${q.why ? ' ' + esc(q.why) : ''}` }; })()); }; }
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (quiet && !confirm('Bỏ bài thi? Lần này không tính.')) return; kAsrStop(); return kView(P.id); }
       if (e.target.closest('[data-a="go"]')) { i++; return show(); }
+      const pb = e.target.closest('[data-kplay]'); if (pb) { if (left() > 0) { plays[pk]++; kPlay(q.play); } pb.textContent = pbtn(); pb.disabled = left() <= 0; return; }
       if (e.target.closest('[data-ks="rec"]') && !ans) { const b = e.target.closest('[data-ks="rec"]');
         if (K_ASR.on) { b.disabled = true; b.textContent = '⏳ Đang chấm…'; return kAsrStop(txt => fin(q.check(txt))); }
         b.textContent = '⏹ Dừng'; return kAsrStart(txt => { const h = document.getElementById('kheard'); if (h) h.textContent = txt || '…'; }); }
@@ -164,3 +171,20 @@ function kAsrStop(cb) { const r = K_ASR.r; if (!K_ASR.on) { if (cb) cb((K_ASR.fi
   K_ASR.on = false; K_ASR.cb = cb || null; try { r && r.stop(); } catch (e) {}
   // máy không trả onend (Chrome / Cốc Cốc trên iPhone có thể vậy): 2,5 giây sau chấm với chữ đã có
   if (cb) setTimeout(() => { if (K_ASR.cb === cb) { K_ASR.cb = null; cb((K_ASR.fin + ' ' + K_ASR.tmp).trim()); } }, 2500); }
+
+// ---------- phát bài nghe: hội thoại 2 giọng (A nữ, B nam) hoặc từng câu ----------
+// Giọng máy đoán giới tính theo tên (vSex, app.js); máy chỉ có một giọng thì giọng B hạ cao độ cho dễ phân biệt.
+function kPlay(p) { if (p.lines) return kPlayDlg(p.lines); speak(...kSents(p.text)); }
+function kPlayDlg(lines) { try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}
+  sayTok++;   // dừng chuỗi speak() đang đọc
+  try { const vs = enVoices(), us = v => /en[-_](US|GB)/i.test(v.lang);
+    const f = vs.find(v => vSex(v) === 'f' && us(v)) || vs.find(v => vSex(v) === 'f') || vs[0], m = vs.find(v => vSex(v) === 'm' && us(v)) || vs.find(v => vSex(v) === 'm') || vs.find(v => v !== f) || f;
+    for (const [sp, t] of lines) { const u = new SpeechSynthesisUtterance(t), v = sp === 'A' ? f : m; u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = VOX.rate;
+      if (sp !== 'A' && m === f) u.pitch = 0.7; speechSynthesis.speak(u); } } catch (e) {} }
+document.addEventListener('click', e => { const b = e.target.closest('[data-kdlg]'); if (!b) return; const [pid, id] = b.dataset.kdlg.split('|'), x = KIT[pid] && KIT[pid].by[id]; if (x) kPlay(x.lines ? { lines: x.lines } : { text: x.text }); });
+// luật chấm lượt đóng vai (như game: need.all phải có đủ, need.any có ít nhất một; số viết bằng chữ cũng tính như chữ số)
+const K_NW = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'twenty-one', 'twenty-two', 'twenty-three', 'twenty-four', 'twenty-five', 'twenty-six', 'twenty-seven', 'twenty-eight', 'twenty-nine', 'thirty'];
+function kNeedOk(need, text) { let t = ' ' + String(text).toLowerCase().replace(/[‘’]/g, "'").replace(/\s+/g, ' ') + ' ';
+  t += K_NW.map((w, n) => new RegExp(`\\b${w}\\b`).test(t) ? ' ' + n : '').join('') + ' ';
+  const has = a => a === '@num' ? K_NUM.test(t) : t.includes(a.toLowerCase());
+  return (need.all || []).every(has) && (!(need.any || []).length || need.any.some(has)); }

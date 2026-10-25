@@ -1,0 +1,56 @@
+// Khuôn đóng vai A2 (AI soạn 25/10/2026, chưa người thật kiểm), cùng dạng khuôn A1 của game (RPG trong app.js):
+// lượt máy { s: 'B', t } · lượt người học { vi: việc cần nói, t: câu mẫu, need: { any: [ít nhất một], all: [phải có đủ] } }.
+export const RP_A2 = {
+  hotel: { vi: 'Nhận phòng khách sạn và báo phòng có vấn đề', ic: '🏨', make: r => { const [n, nv] = r.pick([['two', 'hai'], ['three', 'ba'], ['four', 'bốn']]), [pb, pbv, key] = r.pick([['The air conditioner doesn\'t work.', 'Báo máy lạnh không chạy', 'air'], ['There are no towels in the bathroom.', 'Báo phòng tắm không có khăn', 'towel'], ['The room is very noisy.', 'Báo phòng rất ồn', 'noisy']]);
+    return [{ s: 'B', t: 'Good evening. Welcome to the River Hotel. How can I help you?' },
+      { vi: `Nói bạn đã đặt phòng ${nv} đêm`, t: `I have a booking for ${n} nights.`, need: { any: ['booking', 'booked', 'reservation', 'reserved'], all: [n] } },
+      { s: 'B', t: 'Can I have your name, please?' },
+      { vi: 'Nói tên và đánh vần họ của bạn', t: 'My name is Lan Tran. T-R-A-N.', need: { any: ['my name', "i'm", 'i am', 'name is'] } },
+      { s: 'B', t: 'Thank you. You are in room 305. Is there anything else?' },
+      { vi: `Lát sau quay lại quầy: ${pbv.toLowerCase()}, nhờ giúp`, t: `${pb} Can you help me, please?`, need: { all: [key], any: ['can you', 'could you', 'please', 'help'] } },
+      { s: 'B', t: "I'm so sorry. We'll fix it now." },
+      { vi: 'Cảm ơn', t: 'Thank you very much.', need: { any: ['thank'] } }]; } },
+  doctor: { vi: 'Gọi điện đặt lịch khám bác sĩ', ic: '🩺', make: r => { const [d, dv] = r.pick([['Monday', 'thứ Hai'], ['Wednesday', 'thứ Tư'], ['Friday', 'thứ Sáu']]), [s, sv, key] = r.pick([['I have a bad cough.', 'bị ho nặng', 'cough'], ['I have a stomach ache.', 'bị đau bụng', 'stomach'], ['I have a high temperature.', 'bị sốt cao', 'temperature']]), h = r.pick(['nine', 'ten', 'eleven']);
+    return [{ s: 'B', t: 'Hello, City Clinic. How can I help you?' },
+      { vi: `Nói bạn muốn đặt lịch khám vào ${dv}`, t: `I'd like to make an appointment for ${d}, please.`, need: { any: ['appointment', 'see the doctor', 'see a doctor', 'book'], all: [d.toLowerCase()] } },
+      { s: 'B', t: "What's the problem?" },
+      { vi: `Nói bạn ${sv}`, t: s, need: { all: [key] } },
+      { s: 'B', t: `We have a free time at ${h} o'clock in the morning.` },
+      { vi: `Đồng ý giờ ${h} giờ`, t: `${h[0].toUpperCase() + h.slice(1)} o'clock is fine.`, need: { all: [h], any: ['fine', 'ok', 'okay', 'good', 'great', 'yes', 'perfect'] } },
+      { s: 'B', t: 'Great. Please bring your ID card.' },
+      { vi: 'Cảm ơn và chào', t: 'Thank you. Goodbye.', need: { any: ['thank', 'bye'] } }]; } },
+  way: { vi: 'Hỏi đường và hỏi lại cho chắc', ic: '🗺️', make: r => { const [p, pv, key] = r.pick([['the post office', 'bưu điện', 'post office'], ['the train station', 'ga tàu', 'station'], ['the City Museum', 'bảo tàng thành phố', 'museum']]), m = r.pick(['five', 'ten', 'fifteen']);
+    return [{ vi: `Hỏi người đi đường cách tới ${pv}`, t: `Excuse me, how can I get to ${p}?`, need: { all: [key], any: ['how', 'where', 'way'] } },
+      { s: 'B', t: 'Go along this street and take the second turning on the right.' },
+      { vi: 'Hỏi lại: rẽ phải ở ngã thứ hai phải không', t: 'Sorry, the second on the right?', need: { all: ['second', 'right'] } },
+      { s: 'B', t: "Yes. Then it's on your left, next to the bank." },
+      { vi: 'Hỏi đi bộ mất bao lâu', t: 'How long does it take on foot?', need: { any: ['how long', 'how far', 'far'] } },
+      { s: 'B', t: `About ${m} minutes.` },
+      { vi: 'Cảm ơn', t: 'Thanks a lot!', need: { any: ['thank'] } }]; } },
+  shop: { vi: 'Mang đồ đi đổi ở cửa hàng', ic: '🧾', make: r => { const [it, iv] = r.pick([['shirt', 'áo sơ mi'], ['pair of shoes', 'đôi giày'], ['jacket', 'áo khoác']]), [pb, pbv, key] = r.pick([["It's too small.", 'chật quá', 'small'], ["It's broken.", 'bị hỏng', 'broken'], ["The colour is wrong.", 'sai màu', 'colour']]);
+    return [{ s: 'B', t: 'Hi. Can I help you?' },
+      { vi: `Nói bạn mua cái ${iv} này hôm qua`, t: `I bought this ${it} here yesterday.`, need: { all: [it.split(' ').pop()], any: ['bought', 'buy', 'yesterday'] } },
+      { s: 'B', t: 'What is the problem with it?' },
+      { vi: `Nói nó ${pbv}`, t: pb, need: { any: [key, key === 'colour' ? 'color' : key] } },
+      { s: 'B', t: 'Do you want to change it or get your money back?' },
+      { vi: 'Nói bạn muốn đổi cái khác', t: "I'd like to change it, please.", need: { any: ['change', 'another', 'new one', 'exchange'] } },
+      { s: 'B', t: 'No problem. Have you got the receipt?' },
+      { vi: 'Nói có, đưa hoá đơn', t: 'Yes, here you are.', need: { any: ['yes', 'here', 'sure'] } }]; } },
+  invite: { vi: 'Mời bạn đi chơi và hẹn giờ', ic: '📅', make: r => { const [ev, evv, key] = r.pick([['the cinema', 'đi xem phim', 'cinema'], ['a concert', 'đi nghe hoà nhạc', 'concert'], ['a football match', 'xem bóng đá', 'football']]), [d, dv] = r.pick([['Saturday', 'thứ Bảy'], ['Sunday', 'Chủ nhật']]);
+    return [{ vi: `Rủ bạn ${evv} vào ${dv}`, t: `Would you like to go to ${ev} on ${d}?`, need: { all: [key, d.toLowerCase()], any: ['would you like', 'do you want', "let's", 'how about', 'shall we', 'can you'] } },
+      { s: 'B', t: "I'd love to! What time?" },
+      { vi: 'Đề nghị một giờ hẹn', t: "How about seven o'clock?", need: { any: ['@num', "o'clock", 'half past', 'pm', 'evening', 'morning', 'afternoon'] } },
+      { s: 'B', t: "That's a bit early for me. Can we meet a bit later?" },
+      { vi: 'Đồng ý hẹn muộn hơn, nói giờ mới', t: "Sure. Let's meet at half past seven.", need: { any: ['@num', 'half past', 'quarter', "o'clock", 'later'] } },
+      { s: 'B', t: 'Great. Where shall we meet?' },
+      { vi: 'Nói nơi gặp', t: "Let's meet in front of the cinema.", need: { any: ['meet', 'at the', 'in front', 'outside', 'near', 'at my', 'bus stop', 'station', 'cafe', 'café'] } }]; } },
+  rest: { vi: 'Gọi món ở nhà hàng có yêu cầu riêng', ic: '🍽️', make: r => { const [f, fv, key] = r.pick([['the chicken soup', 'súp gà', 'chicken'], ['the fried rice', 'cơm rang', 'rice'], ['the beef noodles', 'mì bò', 'beef']]), [q, qv, k2] = r.pick([['without chilli', 'không ớt', 'chilli'], ['without onions', 'không hành', 'onion'], ['not too salty', 'đừng mặn quá', 'salty']]);
+    return [{ s: 'B', t: 'Are you ready to order?' },
+      { vi: `Gọi món ${fv}`, t: `Yes, I'll have ${f}, please.`, need: { all: [key], any: ["i'll have", 'i will have', "i'd like", 'i would like', 'can i have', 'could i have'] } },
+      { s: 'B', t: 'Anything special?' },
+      { vi: `Nhờ làm ${qv}`, t: `Can you make it ${q}, please?`, need: { any: [k2, k2 === 'chilli' ? 'chili' : k2, k2 + 's'] } },
+      { s: 'B', t: 'Of course. Anything to drink?' },
+      { vi: 'Gọi một cốc nước', t: 'Just a glass of water, please.', need: { any: ['water', 'juice', 'tea', 'coffee', 'drink'] } },
+      { s: 'B', t: 'Here is your bill.' },
+      { vi: 'Hỏi có trả bằng thẻ được không', t: 'Can I pay by card?', need: { all: ['card'] } }]; } },
+};

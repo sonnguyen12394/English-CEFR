@@ -6,6 +6,9 @@
 // Một lượt luyện chấm mỗi bộ một lần mỗi mặt (đúng hết câu của bộ trong lượt = đúng). Bằng chứng ở S.pa (thẻ theo bộ, cùng dạng thẻ từ), không đụng S.cards.
 // Thi chuyển cấp: 2 cặp cuối mỗi bộ (không dùng khi học / luyện): mỗi bộ 2 câu nghe + 1 từ đọc; đạt khi ≥ 85% (như từ vựng); trượt thì 7 ngày sau thi lại.
 let PA = null, PABY = {};
+// 👄 Đọc đúng theo cấp (soát 25/10/2026, người sáng lập "thiết kế cho phù hợp"): CEFR A1 chỉ cần người nghe hiểu được, A2 rõ hơn;
+// ngưỡng điểm âm Pre-A1 60 · A1 70 · A2 80, theo cấp của bộ âm (luyện lẫn thi). Ngưỡng đạt của bài thi (85%) giữ nguyên.
+const PA_OK = { pre: 60, a1: 70, a2: 80 }, paOkFor = w => PA_OK[(PABY[w.set] || {}).lv] || N_OK;
 const PA_LV = ['pre', 'a1', 'a2'], PA_DIMS = [['pb', '👂 Phân biệt'], ['doc', '👄 Đọc đúng']], PA_PASS = 0.85;
 DIM_OF.pa_pb = ['pb']; DIM_OF.pa_doc = ['doc'];
 const paSt = () => (S.pa = S.pa || {}), paRuns = () => (S.paX = S.paX || []);
@@ -34,7 +37,7 @@ function paView() {
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} bộ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
       <div class="dims">${PA_DIMS.map(([k, l]) => `<div><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
-      <p class="mute" style="margin:6px 0 0">👂 Phân biệt: nghe một từ, chọn đúng từ trong cặp. 👄 Đọc đúng: đọc từ có âm đó, bộ chấm âm ≥ 80. Tính khi đúng ở một ngày sau ngày học.</p>
+      <p class="mute" style="margin:6px 0 0">👂 Phân biệt: nghe một từ, chọn đúng từ trong cặp. 👄 Đọc đúng: đọc từ có âm đó, bộ chấm âm ≥ ${PA_OK[lv]} (cấp ${LVN[lv]}). Tính khi đúng ở một ngày sau ngày học.</p>
     </div>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-pa="learn" ${nx ? '' : 'disabled'}>📘 Học<small>${nx ? esc(nx.title) : `Đã học hết ${LVN[lv]}`}</small></button>
@@ -112,10 +115,10 @@ function paRead(sets, per, counted) {
   const list = shuf(sets).flatMap(x => shuf(x.pairs).slice(0, per).map(p => Math.random() < 0.5 ? paW(p[0], p[1], x) : paW(p[2], p[3], x))).slice(0, 10);
   const res = [];
   NO.ses = { mode: 'am', list, i: 0, got: [], sc: [], show: false, title: '👄 Đọc đúng',
-    sub: `Nghe mẫu rồi đọc theo. Đúng = điểm âm ≥ ${N_OK}.`, foot: counted ? 'Tính mặt 👄 Đọc đúng của 👄 Phát âm (mỗi bộ: đúng hết từ của bộ trong lượt).' : 'Đọc thử: chưa tính.',
+    okFor: paOkFor, sub: `Nghe mẫu rồi đọc theo. Đúng = điểm âm ≥ ngưỡng của cấp (Pre-A1 ${PA_OK.pre} · A1 ${PA_OK.a1} · A2 ${PA_OK.a2}).`, foot: counted ? 'Tính mặt 👄 Đọc đúng của 👄 Phát âm (mỗi bộ: đúng hết từ của bộ trong lượt).' : 'Đọc thử: chưa tính.',
     onGrade: (w, ok) => res.push({ x: PABY[w.set], ok }),
     onEnd: () => { const by = counted ? paGrade(res, 'pa_doc') : null, ok = res.filter(r => r.ok).length;
-      $app.innerHTML = `<div class="box"><b>Xong lượt đọc</b><p>Đạt ${ok}/${res.length} từ (điểm âm ≥ ${N_OK}).</p>${by ? `<p class="mute">${[...by].map(([id, g]) => `${g ? '✅' : '❌'} ${esc(PABY[id].title)}`).join(' · ')}</p>` : ''}</div>
+      $app.innerHTML = `<div class="box"><b>Xong lượt đọc</b><p>Đạt ${ok}/${res.length} từ (điểm âm ≥ ngưỡng của cấp).</p>${by ? `<p class="mute">${[...by].map(([id, g]) => `${g ? '✅' : '❌'} ${esc(PABY[id].title)}`).join(' · ')}</p>` : ''}</div>
         <button class="pri" data-a="home">Về 👄 Phát âm</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) paView(); }; } };
   noiOpen(list[0], true); }
@@ -127,7 +130,7 @@ function paTargets(dim, n) { const now = Date.now(), st = paSt(), L = PA.filter(
 function paMenu() { window.CUR = { view: 'pa-luyen' }; const lv = paLevel(), p = paParts(lv);
   $app.innerHTML = `${backRow('🏋️ Luyện phát âm')}<h1>🏋️ Luyện phát âm</h1><p class="mute">👂 ${p.dq.pb}% · 👄 ${p.dq.doc}% (cấp ${LVN[lv]}). Máy chọn bộ đến hạn hoặc còn thiếu mặt.</p>
     <button class="opt ${p.dq.pb <= p.dq.doc ? 'pri' : ''}" data-pm="pb"><b>👂 Luyện phân biệt (12 câu)</b><br><span style="font-size:14px;opacity:.85">Nghe một từ, chọn đúng từ trong cặp. 4 bộ × 3 câu.</span></button>
-    <button class="opt ${p.dq.doc < p.dq.pb ? 'pri' : ''}" data-pm="doc"><b>👄 Luyện đọc đúng (8 từ)</b><br><span style="font-size:14px;opacity:.85">Đọc từ, bộ chấm âm ≥ 80. 4 bộ × 2 từ. ${NO.vocab ? '' : 'Cần tải bộ chấm âm.'}</span></button>
+    <button class="opt ${p.dq.doc < p.dq.pb ? 'pri' : ''}" data-pm="doc"><b>👄 Luyện đọc đúng (8 từ)</b><br><span style="font-size:14px;opacity:.85">Đọc từ, bộ chấm âm ≥ ${PA_OK[lv]}. 4 bộ × 2 từ. ${NO.vocab ? '' : 'Cần tải bộ chấm âm.'}</span></button>
     ${nModelBox()}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return paView(); if (e.target.closest('[data-n="load"]')) return nLoad(), paMenu();
     const b = e.target.closest('[data-pm]'); if (!b) return;
@@ -145,7 +148,7 @@ function paExam(lv) { if (!NO.vocab) { toast('Thi cần bộ chấm âm: tải b
   if (!confirm(`Thi chuyển cấp Phát âm ${LVN[lv]}: ${L.length * 2} câu nghe + ${L.length} từ đọc, toàn cặp chưa gặp. Không xem đáp án giữa chừng. Bắt đầu?`)) return;
   paQuiz({ title: '🚪 Thi · nghe', quiet: true, items: shuf(L.flatMap(x => x.test.map(p => ({ x, p, k: Math.random() < 0.5 ? 0 : 1 })))), done: r1 => {
     const list = shuf(L.map(x => { const p = x.test[Math.floor(Math.random() * x.test.length)]; return Math.random() < 0.5 ? paW(p[0], p[1], x) : paW(p[2], p[3], x); })), r2 = [];
-    NO.ses = { mode: 'am', list, i: 0, got: [], sc: [], show: false, title: '🚪 Thi · đọc', sub: `Đọc từ (chưa gặp). Đúng = điểm âm ≥ ${N_OK}. Lần đọc đầu được tính.`, foot: 'Bài thi chuyển cấp Phát âm.',
+    NO.ses = { mode: 'am', list, i: 0, got: [], sc: [], show: false, title: '🚪 Thi · đọc', okFor: paOkFor, sub: `Đọc từ (chưa gặp). Đúng = điểm âm ≥ ${PA_OK[lv]}. Lần đọc đầu được tính.`, foot: 'Bài thi chuyển cấp Phát âm.',
       onGrade: (w, ok) => r2.push(ok), onEnd: () => {
         const ok = r1.filter(r => r.ok).length + r2.filter(Boolean).length, n = r1.length + list.length, pass = ok >= Math.ceil(n * PA_PASS);
         paRuns().push({ lv, at: Date.now(), ok, n, pass, nghe: r1.filter(r => r.ok).length + '/' + r1.length, doc: r2.filter(Boolean).length + '/' + list.length }); save();

@@ -101,10 +101,12 @@ function nTip(R) { const bad = []; for (const w of R.words) w.phones.forEach((p,
 // · 🎯 Phát âm (mode 'am'): nhìn từ, nghe mẫu, đọc theo; đúng = bộ chấm âm ≥ N_OK. Cần tải bộ chấm.
 // Hai bài chạy riêng (không mở micro hai bên cùng lúc: iPhone có thể không cho). Nút 🎤 Nói thử (không tính) vẫn làm cả hai.
 const N_OK = 80;
+// ngưỡng của lượt (👄 Phát âm theo cấp: ses.okFor(từ)); mặc định N_OK
+const nOk = () => NO.ses && NO.ses.okFor ? NO.ses.okFor(NO.w) : N_OK;
 const nMode = () => NO.ses ? NO.ses.mode : null;
 const nDimL = k => k === 'am' ? '🎯 Phát âm' : (DIMS.find(x => x[0] === k) || [k, k])[1];
 const nRight = () => { const w = NO.w, m = NO.alts.length ? !!nMatch(w.w, NO.alts) : null, md = nMode();
-  if (md === 'am') return NO.res ? NO.res.score >= N_OK : null;
+  if (md === 'am') return NO.res ? NO.res.score >= nOk() : null;
   if (md === 'noi') return NO.st === 'idle' && !NO.asr && NO.alts.length ? m : null;
   if (m) return true; if (m === false && NO.st === 'idle' && !NO.res) return false;
   return NO.res ? NO.res.score >= N_OK : null; };
@@ -145,7 +147,7 @@ function nBody() { if (NO.ses && NO.ses.i >= NO.ses.list.length) return nSesBody
   const model = md === 'noi' ? '' : NO.vocab ? `<p class="mute">🧪 Bộ chấm từng âm đã sẵn sàng. <button class="link" data-n="del">Xoá khỏi máy</button></p>`
     : NO.loading ? `<div class="box">⏳ Đang tải bộ chấm từng âm: <span id="nprog">${nProg()}</span><br><span class="mute">Lần đầu tải vài trăm MB, nên dùng Wi-Fi. Lần sau mở từ máy, không tải lại.</span></div>`
     : `<div class="box"><b>🧪 Chấm điểm từng âm</b><p class="mute" style="margin:4px 0">Tải bộ chấm miễn phí về máy một lần (vài trăm MB, nên dùng Wi-Fi). Âm thanh không rời máy. ${md ? 'Bài 🎯 Đọc từ cần bộ chấm này.' : 'Chưa tải thì chỉ có máy chép chữ.'}</p><button class="${md ? 'pri' : ''}" data-n="load">⬇️ Tải bộ chấm</button></div>`;
-  const verdict = right == null ? '' : md === 'am' ? `<div class="box">${right ? '✅ Đạt' : '❌ Chưa đạt'}: điểm âm ${R.score}/100 (cần ${N_OK}).</div>`
+  const verdict = right == null ? '' : md === 'am' ? `<div class="box">${right ? '✅ Đạt' : '❌ Chưa đạt'}: điểm âm ${R.score}/100 (cần ${nOk()}).</div>`
     : md || !R || NO.alts.length ? '' : `<div class="box">${right ? '✅' : '❌'} Theo bộ chấm âm: ${right ? 'nói ra đúng' : 'chưa ra'} từ <b>${esc(w.w)}</b> (${R.score}/100, cần ${N_OK}).</div>`;
   const head = ses ? `<div class="row"><b style="font-size:18px">${ses.title || N_MODE[md].t} · ${ses.i + 1}/${ses.list.length}</b><button class="link" data-n="x">Đóng ✕</button></div>
     <p class="mute" style="margin:2px 0">${ses.sub || N_MODE[md].sub}</p>` : `<div class="row"><b style="font-size:18px">🎤 Luyện nói</b><button class="link" data-n="x">Đóng ✕</button></div>`;
