@@ -139,3 +139,26 @@ KIT.viet = { id: 'viet', ic: '✍️', t: 'Viết', file: 'viet.json?v=2', lvs: 
   menu: [['y', '✍️ Viết 1 đề', 'Chấm cả ✅ Đủ ý và 📝 Đúng dạng bài', ['y', 'dang'], 1]],
   ask: x => [kWrite(x)],
   exam: lv => shuf(kItems(KIT.viet, lv)).slice(0, 2).map(kWrite) };
+
+// ---------- góp ý #12 (25/10/2026): mỗi mặt nói rõ đo gì, học ở đâu trong bài (kTeach / kDimView, kit.js); bài học dạy đủ trước khi Nhớ luyện lại ----------
+KIT.np.info = {
+  nhan: { what: 'Nhìn câu có chỗ trống, chọn dạng đúng.', learn: 'ô 📐 Công thức và 📝 Ví dụ', ex: 'They ___ from Vietnam. → <b>are</b> / is / am' },
+  dien: { what: 'Tự gõ dạng đúng vào chỗ trống, không có phương án chọn.', learn: 'ô 📐 Công thức (khẳng định, phủ định, câu hỏi)', ex: 'We ___ (be) very happy today. → gõ <b>are</b>' },
+  sua: { what: 'Thấy câu sai, gõ lại cả câu cho đúng.', learn: 'ô ⚠️ Lỗi hay gặp (câu sai → câu đúng, vì sao)', ex: '❌ She beautiful. → gõ <b>She is beautiful.</b>' } };
+{ const base = KIT.np.lesson; KIT.np.lesson = x => base(x) + `<div class="box"><b>⚠️ Lỗi hay gặp</b>${x.fx.learn.slice(0, 2).map(f => `<p style="margin:6px 0">❌ ${esc(f.bad)}<br>✅ <b>${esc(f.good)}</b><br><span class="mute">${esc(f.why)}</span></p>`).join('')}</div>`; }
+KIT.doc.info = {
+  y: { what: 'Đọc cả bài, chọn đúng chủ đề của bài.', learn: 'đọc cả bài. Mẹo: tiêu đề, câu đầu và câu cuối thường nói ý chính', ex: 'Bài này chủ yếu nói về gì? → <b>Bữa sáng ở nhà</b> / …' },
+  ct: { what: 'Tìm thông tin cụ thể trong bài: ai, cái gì, khi nào, ở đâu, bao nhiêu.', learn: 'đọc bài và bản dịch. Mẹo: lấy từ khoá của câu hỏi, tìm câu có từ đó trong bài', ex: 'What does Lan cook for breakfast? → tìm câu "I usually make rice…"' } };
+KIT.nghe.info = {
+  y: { what: 'Nghe cả bài (không nhìn chữ), chọn đúng chủ đề.', learn: 'nghe cả bài 2–3 lần rồi mới mở chữ. Mẹo: vài câu đầu thường nói bài về gì', ex: '🔊 … → Bài này chủ yếu nói về gì?' },
+  ct: { what: 'Nghe ra thông tin: số, giờ, giá, tên đánh vần, nơi chốn.', learn: 'nghe lại, mở chữ đối chiếu. Mẹo: đọc câu hỏi trước, chú ý số và tên', ex: '🔊 "That\'s six dollars fifty." → <b>$6.50</b> / $5.60' },
+  chep: { what: 'Nghe một câu trong bài, chép lại đúng ≥ 80% từ.', learn: 'mở chữ bài nghe, nghe từng câu và đọc theo', ex: '🔊 một câu → gõ lại câu đó' } };
+KIT.noi.info = {
+  viec: { what: 'Nói theo đề khoảng 30 giây, đủ các ý đề yêu cầu. Máy chép lời rồi tìm ý bằng từ khoá.', learn: 'ô Cần nói đủ, Cụm hữu ích và Bài mẫu', ex: 'Giới thiệu bản thân → nói tên, tuổi, quê, việc làm, sở thích' },
+  ro: { what: 'Đọc to một câu, máy chép ra đúng ≥ 80% số từ.', learn: 'Bài mẫu: bấm 🔊 nghe rồi đọc theo', ex: '"I\'m from Da Nang, but now I live in Hanoi." → đọc to' },
+  gt: { what: 'Đóng vai: mỗi lượt nói đúng việc (gọi món, hỏi giá, nói nơi đến…); đạt khi ≥ 80% lượt đúng.', learn: 'Hội thoại mẫu: nghe từng câu, đọc phần "Việc của bạn"', ex: '👤 What can I get for you? → 🙋 Can I have two teas, please?' } };
+KIT.viet.info = {
+  y: { what: 'Viết đủ các ý đề yêu cầu. Máy tìm ý bằng từ khoá.', learn: 'ô Cần viết đủ, Cụm hữu ích và Bài mẫu', ex: 'Thiệp mời sinh nhật → lời mời, ngày giờ, địa điểm, một chi tiết thêm' },
+  dang: { what: 'Đúng dạng bài: đủ độ dài; thư, tin nhắn, thiệp có lời chào và lời kết.', learn: 'ô 📝 Dạng bài', ex: 'Hi Mai, … See you soon! Lan (25–50 từ)' } };
+{ const base = KIT.viet.lesson; KIT.viet.lesson = x => base(x) + `<div class="box"><b>📝 Dạng bài</b><p style="margin:6px 0">Độ dài ${x.min}–${x.max} từ, ít nhất 2–3 câu.</p>
+  ${K_LETTER.test(x.genre) ? `<p style="margin:6px 0">Đây là ${esc(x.genre)}: mở đầu bằng lời chào (<i>Hi …, / Dear …,</i>), kết bằng lời chào cuối (<i>See you! / Best wishes,</i>) và tên.</p>` : '<p style="margin:6px 0">Viết thành đoạn liền mạch, kể theo thứ tự (first, then, after that…).</p>'}</div>`; }

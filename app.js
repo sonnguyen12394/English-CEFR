@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 34;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 35;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -228,6 +228,10 @@ function home() {
 }
 
 // học unit: xem 10 thẻ, rồi mỗi từ 2 câu (nghĩa + điền chỗ trống); sai thì hỏi lại tới khi đúng hết
+// góp ý #12: học xong nói thử các từ vừa học (bộ nói 🗣 Nói ra từ, noi.js) để mặt 🗣 được dạy trước khi 🔁 Nhớ luyện lại; lượt này không chấm.
+function learnSay(u) { NO.ses = { mode: 'noi', list: u.words.slice(), i: 0, got: [], sc: [], show: false, title: '🗣 Nói thử', onGrade: () => {},
+    foot: 'Nói thử sau bài học: chưa tính. Từ mai luyện ở 🏋️ Luyện tập → 🗣 Nói ra từ mới tính.', onEnd: () => home() };
+  noiOpen(u.words[0], true); }
 function learn(u) {
   const again = unitDone(u);
   let i = 0;
@@ -239,6 +243,7 @@ function learn(u) {
       <div class="wcard"><div class="pic">${w.pic || ''}</div><div class="big">${esc(w.w)}</div>
       <div class="mute">${esc(w.ipa || '')} · ${esc(w.pos)}</div><div class="vi">${esc(w.vi)}</div>
       <p class="ex">${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}${sayBtns(w)}</div>
+      ${i === 0 ? `<p class="mute">🎯 Mỗi thẻ dạy đủ 5 mặt của 🔁 Nhớ: 📖 nghĩa · 🔊 âm (máy tự đọc) · ✍️ chính tả · 🧩 câu ví dụ, cụm hay dùng · 🗣 đọc to (bấm 🎤 Nói thử).</p>` : ''}
       <button class="pri" data-a="next">${i + 1 < u.words.length ? 'Tiếp →' : 'Luyện tập 10 từ →'}</button>`;
     speak(w.w);
     $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'next') { if (++i < u.words.length) card(); else quiz(); } if (a === 'home') home(); };
@@ -246,8 +251,10 @@ function learn(u) {
   const quiz = () => run({
     title: `${uLabel(u)}`, items: [...shuf(u.words.map(w => ({ w, type: one(['vi2w', 'listen']) }))), ...shuf(u.words.map(w => ({ w, type: one(TYPED) })))], retry: true,
     done: () => { if (!again) { learnCards(S, u, Date.now()); save(); }
-      $app.innerHTML = `<div class="box"><b>✅ Xong ${uLabel(u)}: ${esc(u.vi)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `${u.words.length} từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div><button class="pri" data-a="home">Về trang chính</button>`;
-      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; },
+      $app.innerHTML = `<div class="box"><b>✅ Xong ${uLabel(u)}: ${esc(u.vi)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `${u.words.length} từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div>
+        <div class="box"><b>🎯 Bài vừa học dạy gì cho 🔁 Nhớ</b><p style="margin:6px 0">📖 Nghĩa, 🔊 Nhận âm: thẻ từ + câu chọn nghĩa / nghe chọn nghĩa. ✍️ Chính tả, 🧩 Dùng: câu gõ từ, gõ từ vào câu ví dụ, cụm hay dùng. 🗣 Nói ra từ: nút 🎤 Nói thử bên dưới.</p></div>
+        <button class="pri" data-a="say">🗣 Nói thử ${u.words.length} từ vừa học (chưa tính)</button><button data-a="home">Về 📚 Từ vựng</button>`;
+      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="say"]')) learnSay(u); }; },
   });
   card();
 }

@@ -43,8 +43,8 @@ function kView(id) { const P = KIT[id];
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
-      <div class="dims">${P.dims.map(([k, l, d]) => `<div><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}<div class="mute" style="font-size:12px">${d}</div></div>`).join('')}</div>
-      <p class="mute" style="margin:6px 0 0">Mỗi mặt tính khi làm đúng ở một ngày sau ngày học; giữ khi lần gần nhất đúng và khả năng nhớ ≥ 90%.</p>
+      <div class="dims">${P.dims.map(([k, l, d]) => `<div class="dimc" data-kdim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}<div class="mute" style="font-size:12px">${d}</div></div>`).join('')}</div>
+      <p class="mute" style="margin:6px 0 0">Mỗi mặt tính khi làm đúng ở một ngày sau ngày học; giữ khi lần gần nhất đúng và khả năng nhớ ≥ 90%. Bấm vào một mặt để xem bài của mặt đó.</p>
     </div>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-k="learn" ${nx ? '' : 'disabled'}>📘 Học<small>${nx ? esc(P.name(nx)) : `Đã học hết ${LVN[lv]}`}</small></button>
@@ -57,7 +57,8 @@ function kView(id) { const P = KIT[id];
     <h2>Lộ trình</h2>
     <div class="chips">${P.lvs.map(l => `<button class="chip ${l === view ? 'on' : ''}" data-klv="${l}">${kPassed(P, l) ? '✅ ' : kLocked(P, l) ? '🔒 ' : ''}${LVN[l]} · ${kItems(P, l).length}</button>`).join('')}</div>
     <div id="klist">${kList(P, view, nx, now)}</div>`;
-  $app.onclick = e => { const b = e.target.closest('[data-k]'), lb = e.target.closest('[data-klv]'), u = e.target.closest('[data-kx]');
+  $app.onclick = e => { const b = e.target.closest('[data-k]'), lb = e.target.closest('[data-klv]'), u = e.target.closest('[data-kx]'), dm = e.target.closest('[data-kdim]');
+    if (dm) return kDimView(P, dm.dataset.kdim);
     if (lb) { P.view = lb.dataset.klv; return kView(id); }
     if (u) { const x = P.by[u.dataset.kx]; if (kLocked(P, x.lv)) return toast(`Bài này mở khi qua Thi chuyển cấp ${P.t} cấp trước.`); return kLearn(P, x); }
     if (!b) return; const a = b.dataset.k;
@@ -69,7 +70,7 @@ function kList(P, lv, nx, now) { const st = kSt(P.id).cards;
 
 // ---------- 📘 Học một bài: phần giảng (P.lesson) + làm thử (không tính) ----------
 function kLearn(P, x) { window.CUR = { view: P.id + '-hoc', item: x.id };
-  $app.innerHTML = `${backRow(P.ic + ' ' + P.name(x))}${P.lesson(x)}<button class="pri" data-kl="try">Làm thử →</button>`;
+  $app.innerHTML = `${backRow(P.ic + ' ' + P.name(x))}${P.lesson(x)}${kTeach(P, x)}<button class="pri" data-kl="try">Làm thử (mỗi mặt một câu) →</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return kView(P.id);
     if (e.target.closest('[data-kl="vi"]')) { const v = document.getElementById('kvi'); if (v) v.hidden = !v.hidden; return; }
     if (!e.target.closest('[data-kl="try"]')) return;
@@ -91,14 +92,16 @@ function kMenu(P) { window.CUR = { view: P.id + '-luyen' }; const lv = kLv(P), p
   $app.innerHTML = `${backRow('🏋️ Luyện ' + P.t)}<h1>🏋️ Luyện ${P.t}</h1><p class="mute">${P.dims.map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')} (cấp ${LVN[lv]}). Máy chọn bài đến hạn hoặc còn thiếu mặt.</p>
     ${P.menu.map(([m, t, sub, ks], i) => `<button class="opt ${ks.includes(low) ? 'pri' : ''}" data-km="${i}"><b>${t}</b>${ks.includes(low) ? ' · nên làm' : ''}<br><span style="font-size:14px;opacity:.85">${sub}</span></button>`).join('')}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return kView(P.id); const b = e.target.closest('[data-km]'); if (!b) return;
-    const [m, t, , ks, n] = P.menu[+b.dataset.km], T = kTargets(P, ks[0], n);
+    kRun(P, +b.dataset.km); };
+  window.scrollTo(0, 0); }
+function kRun(P, mi) { const [m, t, , ks, n] = P.menu[mi], T = kTargets(P, ks[0], n);
+    if (!T.length) return toast('Chưa có bài đã học cho mặt này: học thêm bài trước.');
     kQuiz({ P, title: t, qs: T.flatMap(x => P.ask(x, m)), done: res => {
       const by = kGrade(P, res), q = kParts(P, kLv(P)), ok = res.filter(r => r.ok).length;
       $app.innerHTML = `<div class="box"><b>Xong lượt</b><p>Đúng ${ok}/${res.length}. ${P.dims.map(([k, l]) => `${l} ${q.dq[k]}%`).join(' · ')}</p>
         <p class="mute">${by.map(([x, k, g]) => `${g ? '✅' : '❌'} ${esc(P.name(x))} (${P.dims.find(d => d[0] === k)[1]})`).join(' · ')}</p></div>
         <button class="pri" data-a="again">Luyện tiếp</button><button data-a="home">Về ${P.ic} ${P.t}</button>`;
-      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) kView(P.id); if (e.target.closest('[data-a="again"]')) kMenu(P); }; } }); };
-  window.scrollTo(0, 0); }
+      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) kView(P.id); if (e.target.closest('[data-a="again"]')) kMenu(P); }; } }); }
 // chấm mỗi đơn vị một lần mỗi mặt: đúng ≥ 80% câu của mặt trong lượt
 function kGrade(P, res) { const g = new Map(), now = Date.now();
   for (const r of res) { const key = r.x.id + '|' + r.k, o = g.get(key) || { x: r.x, k: r.k, ok: 0, n: 0 }; o.n++; if (r.ok) o.ok++; g.set(key, o); }
@@ -188,3 +191,21 @@ function kNeedOk(need, text) { let t = ' ' + String(text).toLowerCase().replace(
   t += K_NW.map((w, n) => new RegExp(`\\b${w}\\b`).test(t) ? ' ' + n : '').join('') + ' ';
   const has = a => a === '@num' ? K_NUM.test(t) : t.includes(a.toLowerCase());
   return (need.all || []).every(has) && (!(need.any || []).length || need.any.some(has)); }
+
+// ---------- góp ý #12 (25/10/2026): mặt nào cũng bấm xem được; bài học nói rõ dạy gì cho từng mặt ----------
+// Vai thiết kế giáo dục: dạy → luyện → kiểm phải cùng một yêu cầu. P.info[mặt] = { what: đo gì, learn: học ở đâu trong bài, ex: ví dụ câu }.
+function kTeach(P, x) { const ks = kDimsOf(P, x);
+  return `<div class="box"><b>🎯 Bài này dạy gì cho 🔁 Nhớ</b>${ks.map(k => { const d = P.dims.find(z => z[0] === k), I = (P.info || {})[k] || {};
+    return `<p style="margin:6px 0">${d[1]}: ${esc(I.learn || d[2])}</p>`; }).join('')}<p class="mute" style="margin:4px 0 0">Làm thử có câu cho từng mặt. Từ mai, 🏋️ Luyện tập lại đúng các mặt này mới tính vào 🔁 Nhớ.</p></div>`; }
+function kDimView(P, k) { window.CUR = { view: P.id + '-mat-' + k };
+  const now = Date.now(), lv = kLv(P), p = kParts(P, lv, now), d = P.dims.find(z => z[0] === k), I = (P.info || {})[k] || {}, st = kSt(P.id).cards;
+  const L = kItems(P, lv).filter(x => kDimsOf(P, x).includes(k)), lack = L.filter(x => st[x.id] && !heldDim(st[x.id], k, now)), mi = P.menu.map((m, i) => [m, i]).filter(([m]) => m[3].includes(k));
+  $app.innerHTML = `${backRow(P.ic + ' ' + P.t)}<h1>${d[1]}: ${p.dq[k]}%</h1>${bar(p.dq[k], GATE_MEM, 'var(--good)')}
+    <p class="mute">${L.filter(x => heldDim(st[x.id], k, now)).length}/${L.length} bài giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} bài.</p>
+    <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${esc(I.what || d[2])}</p>${I.ex ? `<p class="mute" style="margin:4px 0">Ví dụ câu:</p><p style="margin:2px 0">• ${I.ex}</p>` : ''}
+      <p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn || 'trong bài học')}</p>
+      <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%; sai hoặc lâu không ôn thì mất, ôn lại để lấy lại.</p></div>
+    <h2>Bài tính vào mặt này</h2>${mi.map(([m, i], j) => `<button class="opt ${j === 0 ? 'pri' : ''}" data-km="${i}"><b>${m[1]}</b><br><span style="font-size:14px;opacity:.85">${m[2]}</span></button>`).join('')}
+    ${lack.length ? `<h2>Bài còn thiếu mặt này (${lack.length})</h2><p>${lack.map(x => esc(P.name(x))).join(' · ')}</p>` : ''}`;
+  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return kView(P.id); const b = e.target.closest('[data-km]'); if (b) kRun(P, +b.dataset.km); };
+  window.scrollTo(0, 0); }

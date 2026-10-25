@@ -32,15 +32,15 @@ const dimLack = (w, k) => !heldDim(S.cards[w.id], k, Date.now());
 // Bấm một mặt của 🔁 Nhớ ở trang chính (người sáng lập 23/10/2026: "bấm vào mỗi mặt để xem bài cụ thể là gì"): mặt đo gì, bài nào tính vào,
 // ví dụ câu bằng từ đã học, nút làm ngay, từ còn thiếu mặt đó.
 const DIM_INFO = {
-  nghia: { what: 'Nhìn từ hiểu nghĩa, và nhìn nghĩa nhận ra từ.', ex: w => [`${w.pic || ''} ${w.vi} → chọn: <b>${w.w}</b> / …`, `<b>${w.w}</b> → chọn nghĩa: ${w.vi} / …`],
+  nghia: { learn: 'thẻ từ (hình, nghĩa, câu ví dụ) và câu chọn nghĩa khi học bài', what: 'Nhìn từ hiểu nghĩa, và nhìn nghĩa nhận ra từ.', ex: w => [`${w.pic || ''} ${w.vi} → chọn: <b>${w.w}</b> / …`, `<b>${w.w}</b> → chọn nghĩa: ${w.vi} / …`],
     tasks: [['p', '⚡ Luyện riêng 📖 Nghĩa (20 câu)', 'Chọn từ theo nghĩa, chọn nghĩa theo từ']] },
-  nghe: { what: 'Nghe từ (không nhìn chữ) mà nhận ra nghĩa. Nghe hiểu câu, bài là phần 🎧 Nghe.', ex: w => [`🔊 (nghe "${w.w}") → chọn nghĩa: ${w.vi} / …`],
+  nghe: { learn: 'thẻ từ (máy tự đọc từ, nút 🔊) và câu nghe chọn nghĩa khi học bài', what: 'Nghe từ (không nhìn chữ) mà nhận ra nghĩa. Nghe hiểu câu, bài là phần 🎧 Nghe.', ex: w => [`🔊 (nghe "${w.w}") → chọn nghĩa: ${w.vi} / …`],
     tasks: [['p', '⚡ Luyện riêng 🔊 Nhận âm (20 câu)', 'Nghe từ, chọn nghĩa']] },
-  viet: { what: 'Tự nhớ ra và gõ đúng chính tả của từ, không có phương án chọn. Viết câu, đoạn là phần ✍️ Viết.', ex: w => [`${w.pic || ''} ${w.vi} → gõ: <b>${w.w}</b> (gợi ý chữ đầu + số chữ)`, `${w.cloze ? w.cloze.s : ''} → gõ từ còn thiếu`],
+  viet: { learn: 'thẻ từ (nhìn chữ) và câu gõ từ khi học bài', what: 'Tự nhớ ra và gõ đúng chính tả của từ, không có phương án chọn. Viết câu, đoạn là phần ✍️ Viết.', ex: w => [`${w.pic || ''} ${w.vi} → gõ: <b>${w.w}</b> (gợi ý chữ đầu + số chữ)`, `${w.cloze ? w.cloze.s : ''} → gõ từ còn thiếu`],
     tasks: [['p', '⚡ Luyện riêng ✍️ Chính tả (20 câu)', 'Gõ từ theo nghĩa, gõ từ còn thiếu trong câu']] },
-  dung: { what: 'Dùng từ đúng chỗ trong câu và đúng cụm hay đi cùng.', ex: w => [`${w.cloze ? w.cloze.s : ''} → chọn / gõ: <b>${w.cloze ? w.cloze.a : w.w}</b>`, w.col ? `Cụm nào đúng? <b>${w.col.ok}</b> / ${w.col.bad[0]}` : ''],
+  dung: { learn: 'câu ví dụ, cụm hay dùng trên thẻ và câu gõ từ vào câu khi học bài', what: 'Dùng từ đúng chỗ trong câu và đúng cụm hay đi cùng.', ex: w => [`${w.cloze ? w.cloze.s : ''} → chọn / gõ: <b>${w.cloze ? w.cloze.a : w.w}</b>`, w.col ? `Cụm nào đúng? <b>${w.col.ok}</b> / ${w.col.bad[0]}` : ''],
     tasks: [['p', '⚡ Luyện riêng 🧩 Dùng (20 câu)', 'Điền chỗ trống, chọn cụm từ đúng']] },
-  noi: { what: 'Nhìn nghĩa, tự nói ra từ tiếng Anh; máy chép lời ra đúng từ (từ đồng âm cũng tính). Không chấm độ chuẩn của âm (đó là phần 👄 Phát âm). Trình duyệt phải chép được lời (Safari trên iPhone).', ex: w => [`${w.pic || ''} ${w.vi} → 🎤 nói: <b>${w.w}</b> → máy chép: "${w.w}" ✅`],
+  noi: { learn: 'nút 🎤 Nói thử trên thẻ từ và bước 🗣 Nói thử sau bài học', what: 'Nhìn nghĩa, tự nói ra từ tiếng Anh; máy chép lời ra đúng từ (từ đồng âm cũng tính). Không chấm độ chuẩn của âm (đó là phần 👄 Phát âm). Trình duyệt phải chép được lời (Safari trên iPhone).', ex: w => [`${w.pic || ''} ${w.vi} → 🎤 nói: <b>${w.w}</b> → máy chép: "${w.w}" ✅`],
     tasks: [['noi', '🗣 Nói ra từ (10 từ)', 'Không cần tải gì; mở bằng Safari']] },
 };
 function dimView(k) {
@@ -52,6 +52,7 @@ function dimView(k) {
     <p class="mute">${p.dim[k]}/${p.T} từ giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} từ${early ? ` (${early} từ mới học hôm nay, từ mai mới tính)` : ''}.</p>
     <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${I.what}</p>
       ${ew ? `<p class="mute" style="margin:4px 0">Ví dụ câu:</p>${I.ex(ew).filter(Boolean).map(x => `<p style="margin:2px 0">• ${x}</p>`).join('')}` : ''}
+      ${I.learn ? `<p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn)}</p>` : ''}
       <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%; sai hoặc lâu không ôn thì mất, ôn lại để lấy lại.</p></div>
     <h2>Bài tính vào mặt này</h2>
     ${I.tasks.map(([m, t, sub], i) => `<button class="opt ${i === 0 ? 'pri' : ''}" data-m="${m}"><b>${t}</b><br><span style="font-size:14px;opacity:.85">${sub}</span></button>`).join('')}

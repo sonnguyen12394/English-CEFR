@@ -36,8 +36,8 @@ function paView() {
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} bộ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
-      <div class="dims">${PA_DIMS.map(([k, l]) => `<div><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
-      <p class="mute" style="margin:6px 0 0">👂 Phân biệt: nghe một từ, chọn đúng từ trong cặp. 👄 Đọc đúng: đọc từ có âm đó, bộ chấm âm ≥ ${PA_OK[lv]} (cấp ${LVN[lv]}). Tính khi đúng ở một ngày sau ngày học.</p>
+      <div class="dims">${PA_DIMS.map(([k, l]) => `<div class="dimc" data-padim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
+      <p class="mute" style="margin:6px 0 0">👂 Phân biệt: nghe một từ, chọn đúng từ trong cặp. 👄 Đọc đúng: đọc từ có âm đó, bộ chấm âm ≥ ${PA_OK[lv]} (cấp ${LVN[lv]}). Tính khi đúng ở một ngày sau ngày học. Bấm vào một mặt để xem bài của mặt đó.</p>
     </div>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-pa="learn" ${nx ? '' : 'disabled'}>📘 Học<small>${nx ? esc(nx.title) : `Đã học hết ${LVN[lv]}`}</small></button>
@@ -51,7 +51,8 @@ function paView() {
     <div class="chips">${PA_LV.map(l => `<button class="chip ${l === (PA_VIEW || lv) ? 'on' : ''}" data-palv="${l}">${paPassed(l) ? '✅ ' : paLocked(l) ? '🔒 ' : ''}${LVN[l]} · ${PA.filter(x => x.lv === l).length} bộ</button>`).join('')}</div>
     <div id="palist">${paList(PA_VIEW || lv, nx, now)}</div>
     ${nModelBox()}`;
-  $app.onclick = e => { const b = e.target.closest('[data-pa]'), lb = e.target.closest('[data-palv]'), u = e.target.closest('[data-paset]');
+  $app.onclick = e => { const b = e.target.closest('[data-pa]'), lb = e.target.closest('[data-palv]'), u = e.target.closest('[data-paset]'), dm = e.target.closest('[data-padim]');
+    if (dm) return paDimView(dm.dataset.padim);
     if (lb) { PA_VIEW = lb.dataset.palv; document.getElementById('palist').innerHTML = paList(PA_VIEW, nx, now); $app.querySelectorAll('[data-palv]').forEach(x => x.classList.toggle('on', x === lb)); return; }
     if (u) { if (paLocked(PABY[u.dataset.paset].lv)) return toast('Bộ này mở khi qua Thi chuyển cấp Phát âm cấp trước.'); return paLearn(PABY[u.dataset.paset]); }
     if (e.target.closest('[data-n="load"]')) return nLoad(), paView();
@@ -99,6 +100,7 @@ function paLearn(x) { window.CUR = { view: 'pa-hoc', item: x.id };
     <div class="box"><b>👄 Cách đặt miệng</b><p style="margin:6px 0 0">${esc(x.tip)}</p></div>
     <h2>Nghe từng cặp</h2><p class="mute">Bấm từng từ, nghe kỹ chỗ khác nhau, đọc theo.</p>
     ${x.pairs.map(p => `<div class="row" style="margin:6px 0"><span>${paSay(p[0])} <span class="mute">/${esc(p[1])}/</span></span><span>${paSay(p[2])} <span class="mute">/${esc(p[3])}/</span></span></div>`).join('')}
+    <div class="box"><b>🎯 Bài này dạy gì cho 🔁 Nhớ</b><p style="margin:6px 0">👂 Phân biệt: nghe từng cặp ở trên, rồi 6 câu nghe thử.</p><p style="margin:6px 0">👄 Đọc đúng: ô 👄 Cách đặt miệng, đọc theo từng từ, rồi đọc thử 4 từ (cần bộ chấm âm).</p><p class="mute" style="margin:4px 0 0">Từ mai, 🏋️ Luyện tập lại đúng hai mặt này mới tính vào 🔁 Nhớ.</p></div>
     <button class="pri" data-pl="quiz">👂 Nghe thử 6 câu →</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return paView(); if (!e.target.closest('[data-pl="quiz"]')) return;
     paQuiz({ title: '👂 ' + x.title, items: Array.from({ length: 6 }, () => paPick(x, 'pairs', 1)[0]), done: res => {
@@ -133,14 +135,15 @@ function paMenu() { window.CUR = { view: 'pa-luyen' }; const lv = paLevel(), p =
     <button class="opt ${p.dq.doc < p.dq.pb ? 'pri' : ''}" data-pm="doc"><b>👄 Luyện đọc đúng (8 từ)</b><br><span style="font-size:14px;opacity:.85">Đọc từ, bộ chấm âm ≥ ${PA_OK[lv]}. 4 bộ × 2 từ. ${NO.vocab ? '' : 'Cần tải bộ chấm âm.'}</span></button>
     ${nModelBox()}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return paView(); if (e.target.closest('[data-n="load"]')) return nLoad(), paMenu();
-    const b = e.target.closest('[data-pm]'); if (!b) return;
-    if (b.dataset.pm === 'pb') { const T = paTargets('pb', 4); paQuiz({ title: '👂 Phân biệt', items: shuf(T.flatMap(x => paPick(x, 'pairs', 3))), done: res => {
+    const b = e.target.closest('[data-pm]'); if (b) paRun(b.dataset.pm); };
+  window.scrollTo(0, 0); }
+function paRun(m) { if (!PA.some(x => paSt()[x.id])) return toast('Học 1 bộ âm trước.');
+    if (m === 'pb') { const T = paTargets('pb', 4); paQuiz({ title: '👂 Phân biệt', items: shuf(T.flatMap(x => paPick(x, 'pairs', 3))), done: res => {
       const by = paGrade(res, 'pa_pb'), ok = res.filter(r => r.ok).length, q = paParts(paLevel());
       $app.innerHTML = `<div class="box"><b>Xong lượt nghe</b><p>Đúng ${ok}/${res.length}. 👂 Phân biệt giờ là ${q.dq.pb}%.</p><p class="mute">${[...by].map(([id, g]) => `${g ? '✅' : '❌'} ${esc(PABY[id].title)}`).join(' · ')}</p></div>
         <button class="pri" data-a="again">Luyện tiếp</button><button data-a="home">Về 👄 Phát âm</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) paView(); if (e.target.closest('[data-a="again"]')) paMenu(); }; } }); }
-    else paRead(paTargets('doc', 4), 2, true); };
-  window.scrollTo(0, 0); }
+    else paRead(paTargets('doc', 4), 2, true); }
 
 // ---------- 🚪 Thi chuyển cấp ----------
 function paExam(lv) { if (!NO.vocab) { toast('Thi cần bộ chấm âm: tải bộ chấm trước.'); return paView(); }
@@ -157,3 +160,20 @@ function paExam(lv) { if (!NO.vocab) { toast('Thi cần bộ chấm âm: tải b
           <button class="pri" data-a="home">Về 👄 Phát âm</button>`;
         $app.onclick = e => { if (e.target.closest('[data-a="home"]')) paView(); }; } };
     noiOpen(list[0], true); } }); }
+
+// góp ý #12 (25/10/2026): bấm một mặt của 👄 Phát âm để xem đo gì, học ở đâu, bài tính vào mặt đó, bộ âm còn thiếu (như 📚 Từ vựng)
+const PA_INFO = { pb: { what: 'Nghe một từ trong cặp âm (ship / sheep), chọn đúng từ vừa nghe.', learn: 'phần Nghe từng cặp và 6 câu nghe thử của bài học', ex: '🔊 "sheep" → <b>sheep</b> /ʃiːp/ · ship /ʃɪp/' },
+  doc: { what: 'Đọc to một từ có âm của bộ; bộ chấm âm trên máy chấm từng âm, đạt khi ≥ ngưỡng của cấp (Pre-A1 60 · A1 70 · A2 80).', learn: 'ô 👄 Cách đặt miệng, đọc theo từng từ, Đọc thử 4 từ', ex: 'đọc "sheep" → điểm từng âm /ʃ iː p/' } };
+function paDimView(k) { window.CUR = { view: 'pa-mat-' + k };
+  const now = Date.now(), lv = paLevel(), p = paParts(lv, now), l = PA_DIMS.find(d => d[0] === k)[1], I = PA_INFO[k], st = paSt(), L = PA.filter(x => x.lv === lv), lack = L.filter(x => st[x.id] && !heldDim(st[x.id], k, now));
+  $app.innerHTML = `${backRow('👄 Phát âm')}<h1>${l}: ${p.dq[k]}%</h1>${bar(p.dq[k], GATE_MEM, 'var(--good)')}
+    <p class="mute">${p.dim[k]}/${p.T} bộ âm giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} bộ.</p>
+    <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${esc(I.what)}</p><p class="mute" style="margin:4px 0">Ví dụ câu:</p><p style="margin:2px 0">• ${I.ex}</p>
+      <p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn)}</p>
+      <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%.</p></div>
+    <h2>Bài tính vào mặt này</h2><button class="opt pri" data-pm="${k}"><b>${k === 'pb' ? '👂 Luyện phân biệt (12 câu)' : '👄 Luyện đọc đúng (8 từ)'}</b></button>
+    ${k === 'doc' ? nModelBox() : ''}
+    ${lack.length ? `<h2>Bộ âm còn thiếu mặt này (${lack.length})</h2><p>${lack.map(x => esc(x.title)).join(' · ')}</p>` : ''}`;
+  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return paView(); if (e.target.closest('[data-n="load"]')) return nLoad(), paDimView(k);
+    const b = e.target.closest('[data-pm]'); if (b) paRun(b.dataset.pm); };
+  window.scrollTo(0, 0); }
