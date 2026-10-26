@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 44;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 45;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -262,6 +262,13 @@ function roadmap(now, nu) {
       ${i === open ? `<p class="mute" style="margin:4px 0">${ws.length} từ · ${mem} từ nhớ đủ</p>${us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now, w)).length / u.words.length >= 0.8;
         return `<button class="urow ${u === nu ? 'next' : ''}" data-un="${u.id}" ${lock ? 'disabled' : ''}><span>${m ? '🟢' : d ? '🔵' : u === nu ? '▶️' : lock ? '🔒' : '⚪'} Bài ${u.bi} · ${esc(u.vi)}</span><span class="mute">${u.words.length} từ</span></button>`; }).join('')}` : ''}</div>`; }).join(''); }
 
+// 🔁 Nhớ dạng danh sách đủ 12 yêu cầu Pre-A1 → A2 (người sáng lập 26/10/2026): yêu cầu của cấp chưa tới hiện mờ, 🔒, không bấm được.
+const VREQ_LV = [['pre', 'Pre-A1'], ['a1', 'A1'], ['a2', 'A2']];
+function vreqList(p, lv) {
+  return `<div class="dlist">${VREQ_LV.map(([L, name]) => { const on = lvIdx(L) <= lvIdx(lv), rs = VREQ.filter(r => r[2] === L);
+    return `<div class="dlv ${on ? '' : 'lock'}">${on ? '' : '🔒 '}${L === 'pre' ? name : `${name}: thêm ${rs.length}`}${on ? '' : ` · mở khi lên ${name}`}</div>${rs.map(([k, l]) => on
+      ? `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%${p.Tk[k] !== p.Tm ? ` <small>· ${p.Tk[k]} từ</small>` : ''}</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`
+      : `<div class="dimx"><span>${l}</span></div>`).join('')}`; }).join('')}</div>`; }
 function home() {
   const now = Date.now(), lv = curLevel(), p = parts(S, now), nu = nextUnit();
   const ph2 = p.lq >= GATE_LEARN;
@@ -275,7 +282,7 @@ function home() {
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ${p.Tu ? ` (gồm ${p.Tu} từ cấp trước cần ⬆️ nâng cấp)` : ''}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= yêu cầu thấp nhất · mỗi yêu cầu cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
-      <div class="dims">${dimsAt(lv).map(([k, l]) => `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
+      ${vreqList(p, lv)}
       <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả ${dimsAt(lv).length} yêu cầu của ${LVN[lv]} (mỗi yêu cầu chỉ tính trên từ có yêu cầu đó). Bấm vào một yêu cầu để xem bài của nó.</p>
     </div>
     <div class="duo">
