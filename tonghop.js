@@ -32,31 +32,46 @@ const dimLack = (w, k) => !heldDim(S.cards[w.id], k, Date.now());
 // Bấm một mặt của 🔁 Nhớ ở trang chính (người sáng lập 23/10/2026: "bấm vào mỗi mặt để xem bài cụ thể là gì"): mặt đo gì, bài nào tính vào,
 // ví dụ câu bằng từ đã học, nút làm ngay, từ còn thiếu mặt đó.
 const DIM_INFO = {
-  nghia: { learn: 'thẻ từ (hình, nghĩa, câu ví dụ) và câu chọn nghĩa khi học bài', what: 'Nhìn từ hiểu nghĩa, và nhìn nghĩa nhận ra từ.', ex: w => [`${w.pic || ''} ${w.vi} → chọn: <b>${w.w}</b> / …`, `<b>${w.w}</b> → chọn nghĩa: ${w.vi} / …`],
-    tasks: [['p', '⚡ Luyện riêng 📖 Nghĩa (20 câu)', 'Chọn từ theo nghĩa, chọn nghĩa theo từ']] },
-  nghe: { learn: 'thẻ từ (máy tự đọc từ, nút 🔊) và câu nghe chọn nghĩa khi học bài', what: 'Nghe từ (không nhìn chữ) mà nhận ra nghĩa. Nghe hiểu câu, bài là phần 🎧 Nghe.', ex: w => [`🔊 (nghe "${w.w}") → chọn nghĩa: ${w.vi} / …`],
-    tasks: [['p', '⚡ Luyện riêng 🔊 Nhận âm (20 câu)', 'Nghe từ, chọn nghĩa']] },
-  viet: { learn: 'thẻ từ (nhìn chữ) và câu gõ từ khi học bài', what: 'Tự nhớ ra và gõ đúng chính tả của từ, không có phương án chọn. Viết câu, đoạn là phần ✍️ Viết.', ex: w => [`${w.pic || ''} ${w.vi} → gõ: <b>${w.w}</b> (gợi ý chữ đầu + số chữ)`, `${w.cloze ? w.cloze.s : ''} → gõ từ còn thiếu`],
-    tasks: [['p', '⚡ Luyện riêng ✍️ Chính tả (20 câu)', 'Gõ từ theo nghĩa, gõ từ còn thiếu trong câu']] },
-  dung: { learn: 'câu ví dụ, cụm hay dùng trên thẻ và câu gõ từ vào câu khi học bài', what: 'Dùng từ đúng chỗ trong câu và đúng cụm hay đi cùng.', ex: w => [`${w.cloze ? w.cloze.s : ''} → chọn / gõ: <b>${w.cloze ? w.cloze.a : w.w}</b>`, w.col ? `Cụm nào đúng? <b>${w.col.ok}</b> / ${w.col.bad[0]}` : ''],
-    tasks: [['p', '⚡ Luyện riêng 🧩 Dùng (20 câu)', 'Điền chỗ trống, chọn cụm từ đúng']] },
-  noi: { learn: 'nút 🎤 Nói thử trên thẻ từ và bước 🗣 Nói thử sau bài học', what: 'Nhìn nghĩa, tự nói ra từ tiếng Anh; máy chép lời ra đúng từ (từ đồng âm cũng tính). Không chấm độ chuẩn của âm (đó là phần 👄 Phát âm). Trình duyệt phải chép được lời (Safari trên iPhone).', ex: w => [`${w.pic || ''} ${w.vi} → 🎤 nói: <b>${w.w}</b> → máy chép: "${w.w}" ✅`],
+  nghia: { learn: 'thẻ từ và câu 📖 thấy từ chọn nghĩa khi học bài', what: 'Nhìn chữ tiếng Anh hiểu nghĩa.', ex: w => [`<b>${w.w}</b> → chọn nghĩa: ${w.vi} / …`],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Thấy từ, chọn nghĩa']] },
+  nghe: { learn: 'thẻ từ (máy tự đọc, nút 🔊) và câu 🔊 nghe chọn nghĩa khi học bài', what: 'Nghe từ (không nhìn chữ) mà nhận ra nghĩa. Nghe hiểu câu, bài là phần 🎧 Nghe.', ex: w => [`🔊 (nghe "${w.w}") → chọn nghĩa: ${w.vi} / …`],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Nghe từ, chọn nghĩa']] },
+  chu: { learn: 'câu 🔤 chọn đúng chữ khi học bài', what: 'Nhận ra đúng cách viết giữa các chữ gần giống (thiếu chữ, đảo chữ, từ na ná).', ex: w => [`${w.pic || ''} ${w.vi} → chọn: <b>${w.w}</b> / ${lookalike(w, 2).join(' / ')}`],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Nhìn nghĩa, chọn đúng cách viết']] },
+  nhora: { learn: 'câu 🔤 chọn đúng chữ và ✍️ gõ từ khi học bài', what: 'Nhìn nghĩa tiếng Việt mà nhớ ra từ tiếng Anh (chọn hoặc gõ).', ex: w => [`${w.pic || ''} ${w.vi} → <b>${w.w}</b>`],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Nhìn nghĩa, chọn hoặc gõ từ']] },
+  noi: { learn: 'nút 🎤 trên thẻ từ và bước 🗣 nói ra từ cuối bài học', what: 'Nhìn nghĩa, tự nói ra từ; máy chép lời ra đúng từ là đạt. Không chấm độ chuẩn của âm (phần 👄 Phát âm). Cần Safari trên iPhone.', ex: w => [`${w.pic || ''} ${w.vi} → 🎤 nói: <b>${w.w}</b> → máy chép: "${w.w}" ✅`],
     tasks: [['noi', '🗣 Nói ra từ (10 từ)', 'Không cần tải gì; mở bằng Safari']] },
+  viet: { learn: 'câu ✍️ gõ từ (Pre-A1) hoặc 🧩 gõ từ vào câu (A1 trở lên) khi học bài', what: 'Tự gõ đúng chính tả, không có phương án chọn. Viết câu, đoạn là phần ✍️ Viết.', ex: w => [`${w.pic || ''} ${w.vi} → gõ: <b>${w.w}</b>`],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Nhìn nghĩa, gõ từ']] },
+  cum: { learn: 'dòng 🔗 cụm hay dùng trên thẻ và câu chọn cụm đúng khi học bài', what: 'Biết từ hay đi với từ nào (make a cake, không phải do a cake).', ex: w => [w.col ? `Cụm nào đúng? <b>${w.col.ok}</b> / ${w.col.bad[0]}` : ''],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Chọn cụm từ đúng']] },
+  bqt: { learn: 'dòng 🔀 dạng bất quy tắc trên thẻ và câu chọn dạng đúng khi học bài', what: 'Nhận ra dạng riêng của từ (went, children, better), không bị lừa bởi dạng theo quy tắc (goed, childs).', ex: w => [w.irr ? `${w.irr.f[0][0]} của "${w.w}"? <b>${w.irr.f[0][1][0]}</b> / …` : ''],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Chọn dạng bất quy tắc đúng']] },
+  dung: { learn: 'câu ví dụ trên thẻ và câu 🧩 gõ từ vào câu khi học bài', what: 'Tự điền đúng từ vào chỗ trống trong câu (gõ, không chọn).', ex: w => [`${w.cloze ? w.cloze.s : ''} → gõ: <b>${w.cloze ? w.cloze.a : w.w}</b>`],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Gõ từ còn thiếu trong câu']] },
+  lienq: { learn: 'dòng ↔️ cùng / trái nghĩa trên thẻ và câu chọn từ liên quan khi học bài', what: 'Biết từ cùng nghĩa hoặc trái nghĩa (big ↔ small, start = begin).', ex: w => [w.rel ? relLine(w).replace('<br>', '') : ''],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Chọn từ cùng / trái nghĩa']] },
+  nghia2: { learn: 'dòng 🎭 nghĩa thứ hai trên thẻ và câu chọn nghĩa trong câu khi học bài', what: 'Hiểu nghĩa thứ hai hay gặp của từ qua câu (a cold = cảm lạnh, không phải lạnh).', ex: w => [w.s2 ? `${w.s2.ex} → <b>${w.s2.vi}</b>` : ''],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Đọc câu, chọn nghĩa của từ in đậm']] },
+  bqt2: { learn: 'câu ✏️ gõ dạng bất quy tắc khi học bài (A2)', what: 'Tự gõ ra dạng bất quy tắc (go → went, gone), không có phương án chọn.', ex: w => [w.irr ? `${w.irr.f[0][0]} của "${w.w}" → gõ: <b>${w.irr.f[0][1][0]}</b>` : ''],
+    tasks: [['p', '⚡ Luyện riêng (20 câu)', 'Gõ dạng bất quy tắc']] },
 };
 function dimView(k) {
   window.CUR = { view: 'mat-' + k };
-  const now = Date.now(), I = DIM_INFO[k], l = DIMS.find(x => x[0] === k)[1], WS = gateWords(), p = parts(S, now);
-  const lack = WS.filter(w => S.cards[w.id] && !heldDim(S.cards[w.id], k, now)), early = lack.filter(w => dayOf(now) - S.cards[w.id].d0 < MEM_DAYS).length;
-  const ew = shuf(WS.filter(w => S.cards[w.id]))[0] || WS[0];
+  const now = Date.now(), I = DIM_INFO[k], l = VREQ_BY[k][1], p = parts(S, now), WS = gateWords().filter(w => wDims(w).includes(k));
+  const lack = WS.filter(w => S.cards[w.id] && !heldDim(S.cards[w.id], k, now)), notT = lack.filter(w => taughtDay(S.cards[w.id], w, k) == null).length,
+    early = lack.filter(w => { const td = taughtDay(S.cards[w.id], w, k); return td != null && dayOf(now) - td < MEM_DAYS; }).length;
+  const ew = shuf(WS.filter(w => S.cards[w.id]))[0] || WS[0], L = VREQ_BY[k][2];
   $app.innerHTML = `${backRow('🔁 Nhớ')}<h1>${l}: ${p.dq[k]}%</h1>${bar(p.dq[k], GATE_MEM, 'var(--good)')}
-    <p class="mute">${p.dim[k]}/${p.Tm} từ (cả cấp trước) giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} từ${early ? ` (${early} từ mới học hôm nay, từ mai mới tính)` : ''}.</p>
-    <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${I.what}</p>
+    <p class="mute">${p.dim[k]}/${p.Tk[k]} từ (cả cấp trước; chỉ từ có yêu cầu này) đã giữ · cần ${GATE_MEM}%. Yêu cầu từ cấp ${LVN[L]}. Còn thiếu: ${lack.length} từ${early ? ` (${early} từ mới học, từ mai mới tính)` : ''}${notT ? ` · ${notT} từ cấp trước chưa học ⬆️ Nâng cấp` : ''}.</p>
+    <div class="box"><b>Yêu cầu này đo gì</b><p style="margin:4px 0">${I.what}</p>
       ${ew ? `<p class="mute" style="margin:4px 0">Ví dụ câu:</p>${I.ex(ew).filter(Boolean).map(x => `<p style="margin:2px 0">• ${x}</p>`).join('')}` : ''}
       ${I.learn ? `<p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn)}</p>` : ''}
       <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%; sai hoặc lâu không ôn thì mất, ôn lại để lấy lại.</p></div>
-    <h2>Bài tính vào mặt này</h2>
+    <h2>Bài tính vào yêu cầu này</h2>
     ${I.tasks.map(([m, t, sub], i) => `<button class="opt ${i === 0 ? 'pri' : ''}" data-m="${m}"><b>${t}</b><br><span style="font-size:14px;opacity:.85">${sub}</span></button>`).join('')}
-    ${lack.length ? `<h2>Từ còn thiếu mặt này (${lack.length})</h2><p>${lack.slice(0, 60).map(w => esc(w.w)).join(' · ')}${lack.length > 60 ? ' …' : ''}</p>` : ''}`;
+    ${lack.length ? `<h2>Từ còn thiếu (${lack.length})</h2><p>${lack.slice(0, 60).map(w => esc(w.w)).join(' · ')}${lack.length > 60 ? ' …' : ''}</p>` : ''}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-m]'); if (!b) return;
     const m = b.dataset.m; if (m === 'p') { if (!Object.keys(S.cards).length) return toast('Học 1 unit trước.'); return practice(k); }
     ({ read: readTask, hear: hearTask, dict: dictTask, noi: () => noiTask('noi') })[m](); };
@@ -66,20 +81,20 @@ function dimView(k) {
 // ---------- chọn kiểu luyện ----------
 function practiceMenu() {
   window.CUR = { view: 'luyen-tap' };
-  const p = parts(S, Date.now()), low = DIMS.map(([k]) => k).sort((a, b) => p.dim[a] - p.dim[b])[0];
+  const p = parts(S, Date.now()), ds = dimsAt(), low = ds.map(([k]) => k).sort((a, b) => p.dq[a] - p.dq[b])[0];
   const rec = low === 'noi' ? 'noi' : 'word';
   const opt = (k, t, sub) => `<button class="opt ${rec === k ? 'pri' : ''}" data-m="${k}"><b>${t}</b>${rec === k ? ' · nên làm' : ''}<br><span style="font-size:14px;opacity:.85">${sub}</span></button>`;
   $app.innerHTML = `${backRow('🏋️ Luyện tập')}<h1>🏋️ Luyện tập</h1>
-    <p class="mute">Mặt đang thấp nhất: <b>${DIMS.find(x => x[0] === low)[1]} ${p.dq[low]}%</b>. Bấm một mặt ở trang 📚 Từ vựng để luyện riêng mặt đó.</p>
-    ${opt('word', '⚡ Từng từ (20 câu)', '📖 Nghĩa · 🔊 Nhận âm · ✍️ Chính tả · 🧩 Dùng: máy hỏi vào mặt còn thiếu của từng từ')}
+    <p class="mute">Yêu cầu đang thấp nhất: <b>${VREQ_BY[low][1]} ${p.dq[low]}%</b>. Bấm một yêu cầu ở trang 📚 Từ vựng để luyện riêng.</p>
+    ${opt('word', '⚡ Từng từ (20 câu)', `${ds.filter(d => d[0] !== 'noi').length} yêu cầu của ${LVN[curLevel()]}: máy hỏi vào yêu cầu còn thiếu của từng từ`)}
     ${opt('noi', '🗣 Nói ra từ (10 từ)', 'Nhìn nghĩa, nói từ tiếng Anh; máy chép ra đúng từ. Cần Safari')}
-    <p class="mute">Đọc bài, nghe câu, nghe chép, chấm phát âm: ở các phần 📰 Đọc · 🎧 Nghe · 👄 Phát âm (thanh dưới).</p>`;
+    <p class="mute">Đọc bài, nghe câu, nghe chép, chấm phát âm: ở các phần 📰 Đọc · 🎧 Nghe · 👄 Phát âm.</p>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-m]'); if (!b) return;
-    ({ word: practice, noi: () => noiTask('noi') })[b.dataset.m](); };
+    ({ word: () => practice(), noi: () => noiTask('noi') })[b.dataset.m](); };
 }
 const doneBox = (h, body, again) => { $app.innerHTML = `<div class="box"><b>${h}</b>${body}</div><button class="pri" data-a="again">Làm tiếp</button><button data-a="home">← Về</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) goBack(); if (e.target.closest('[data-a="again"]')) again(); }; };
-const dimNow = () => { const p = parts(S, Date.now()); return DIMS.map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · '); };
+const dimNow = () => { const p = parts(S, Date.now()); return dimsAt().map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · '); };
 
 // ---------- 📰 Đọc bài ----------
 function readTask() {

@@ -1,0 +1,1641 @@
+{
+"_": "Dạng bất quy tắc của từ Pre-A1 → A2+ (yêu cầu #8 nhận ra, #12 tự dùng). Soạn 26/10/2026 theo bảng động từ bất quy tắc chuẩn; cách viết Anh / Mỹ đều nhận.",
+"w": {
+"be": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"was",
+"were"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"been"
+]
+]
+]
+},
+"do": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"did"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"done"
+]
+]
+]
+},
+"have": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"had"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"had"
+]
+]
+]
+},
+"go": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"went"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"gone"
+]
+]
+]
+},
+"come": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"came"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"come"
+]
+]
+]
+},
+"get": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"got"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"got",
+"gotten"
+]
+]
+]
+},
+"sleep": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"slept"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"slept"
+]
+]
+]
+},
+"put": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"put"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"put"
+]
+]
+]
+},
+"drink": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"drank"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"drunk"
+]
+]
+]
+},
+"eat": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"ate"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"eaten"
+]
+]
+]
+},
+"ride": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"rode"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"ridden"
+]
+]
+]
+},
+"drive": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"drove"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"driven"
+]
+]
+]
+},
+"wear": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"wore"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"worn"
+]
+]
+]
+},
+"sing": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"sang"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"sung"
+]
+]
+]
+},
+"show": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"showed"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"shown",
+"showed"
+]
+]
+]
+},
+"learn": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"learned",
+"learnt"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"learned",
+"learnt"
+]
+]
+]
+},
+"spell": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"spelled",
+"spelt"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"spelled",
+"spelt"
+]
+]
+]
+},
+"choose": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"chose"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"chosen"
+]
+]
+]
+},
+"write": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"wrote"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"written"
+]
+]
+]
+},
+"say": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"said"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"said"
+]
+]
+]
+},
+"tell": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"told"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"told"
+]
+]
+]
+},
+"know": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"knew"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"known"
+]
+]
+]
+},
+"understand": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"understood"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"understood"
+]
+]
+]
+},
+"find": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"found"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"found"
+]
+]
+]
+},
+"run": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"ran"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"run"
+]
+]
+]
+},
+"sit": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"sat"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"sat"
+]
+]
+]
+},
+"stand": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"stood"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"stood"
+]
+]
+]
+},
+"fly": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"flew"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"flown"
+]
+]
+]
+},
+"make": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"made"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"made"
+]
+]
+]
+},
+"draw": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"drew"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"drawn"
+]
+]
+]
+},
+"swim": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"swam"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"swum"
+]
+]
+]
+},
+"read": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"read"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"read"
+]
+]
+]
+},
+"give": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"gave"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"given"
+]
+]
+]
+},
+"see": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"saw"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"seen"
+]
+]
+]
+},
+"wake": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"woke"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"woken"
+]
+]
+]
+},
+"take": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"took"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"taken"
+]
+]
+]
+},
+"bring": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"brought"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"brought"
+]
+]
+]
+},
+"keep": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"kept"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"kept"
+]
+]
+]
+},
+"leave": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"left"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"left"
+]
+]
+]
+},
+"pay": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"paid"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"paid"
+]
+]
+]
+},
+"cost": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"cost"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"cost"
+]
+]
+]
+},
+"feel": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"felt"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"felt"
+]
+]
+]
+},
+"meet": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"met"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"met"
+]
+]
+]
+},
+"grow": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"grew"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"grown"
+]
+]
+]
+},
+"fall": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"fell"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"fallen"
+]
+]
+]
+},
+"lie": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"lay"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"lain"
+]
+]
+]
+},
+"buy": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"bought"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"bought"
+]
+]
+]
+},
+"spend": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"spent"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"spent"
+]
+]
+]
+},
+"win": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"won"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"won"
+]
+]
+]
+},
+"lose": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"lost"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"lost"
+]
+]
+]
+},
+"mean": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"meant"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"meant"
+]
+]
+]
+},
+"send": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"sent"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"sent"
+]
+]
+]
+},
+"speak": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"spoke"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"spoken"
+]
+]
+]
+},
+"hear": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"heard"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"heard"
+]
+]
+]
+},
+"think": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"thought"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"thought"
+]
+]
+]
+},
+"forget": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"forgot"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"forgotten"
+]
+]
+]
+},
+"build": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"built"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"built"
+]
+]
+]
+},
+"cut": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"cut"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"cut"
+]
+]
+]
+},
+"break": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"broke"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"broken"
+]
+]
+]
+},
+"become": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"became"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"become"
+]
+]
+]
+},
+"begin": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"began"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"begun"
+]
+]
+]
+},
+"teach": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"taught"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"taught"
+]
+]
+]
+},
+"let": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"let"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"let"
+]
+]
+]
+},
+"hurt": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"hurt"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"hurt"
+]
+]
+]
+},
+"hit": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"hit"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"hit"
+]
+]
+]
+},
+"shake": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"shook"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"shaken"
+]
+]
+]
+},
+"lead": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"led"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"led"
+]
+]
+]
+},
+"fight": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"fought"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"fought"
+]
+]
+]
+},
+"dream": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"dreamed",
+"dreamt"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"dreamed",
+"dreamt"
+]
+]
+]
+},
+"throw": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"threw"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"thrown"
+]
+]
+]
+},
+"catch": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"caught"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"caught"
+]
+]
+]
+},
+"hold": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"held"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"held"
+]
+]
+]
+},
+"hide": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"hid"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"hidden"
+]
+]
+]
+},
+"blow": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"blew"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"blown"
+]
+]
+]
+},
+"ring": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"rang"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"rung"
+]
+]
+]
+},
+"shut": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"shut"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"shut"
+]
+]
+]
+},
+"lend": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"lent"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"lent"
+]
+]
+]
+},
+"burn": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"burned",
+"burnt"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"burned",
+"burnt"
+]
+]
+]
+},
+"steal": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"stole"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"stolen"
+]
+]
+]
+},
+"rise": {
+"k": "v",
+"f": [
+[
+"quá khứ",
+[
+"rose"
+]
+],
+[
+"quá khứ phân từ (V3)",
+[
+"risen"
+]
+]
+]
+},
+"fish": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"fish",
+"fishes"
+]
+]
+]
+},
+"man": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"men"
+]
+]
+]
+},
+"woman": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"women"
+]
+]
+]
+},
+"child": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"children"
+]
+]
+]
+},
+"person": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"people"
+]
+]
+]
+},
+"foot": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"feet"
+]
+]
+]
+},
+"sheep": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"sheep"
+]
+]
+]
+},
+"mouse": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"mice"
+]
+]
+]
+},
+"wife": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"wives"
+]
+]
+]
+},
+"life": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"lives"
+]
+]
+]
+},
+"tooth": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"teeth"
+]
+]
+]
+},
+"half": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"halves"
+]
+]
+]
+},
+"knife": {
+"k": "n",
+"f": [
+[
+"số nhiều",
+[
+"knives"
+]
+]
+]
+},
+"good": {
+"k": "a",
+"f": [
+[
+"so sánh hơn",
+[
+"better"
+]
+],
+[
+"so sánh nhất",
+[
+"best"
+]
+]
+]
+},
+"well": {
+"k": "a",
+"f": [
+[
+"so sánh hơn",
+[
+"better"
+]
+],
+[
+"so sánh nhất",
+[
+"best"
+]
+]
+]
+},
+"bad": {
+"k": "a",
+"f": [
+[
+"so sánh hơn",
+[
+"worse"
+]
+],
+[
+"so sánh nhất",
+[
+"worst"
+]
+]
+]
+},
+"far": {
+"k": "a",
+"f": [
+[
+"so sánh hơn",
+[
+"farther",
+"further"
+]
+],
+[
+"so sánh nhất",
+[
+"farthest",
+"furthest"
+]
+]
+]
+},
+"many": {
+"k": "a",
+"f": [
+[
+"so sánh hơn",
+[
+"more"
+]
+],
+[
+"so sánh nhất",
+[
+"most"
+]
+]
+]
+},
+"much": {
+"k": "a",
+"f": [
+[
+"so sánh hơn",
+[
+"more"
+]
+],
+[
+"so sánh nhất",
+[
+"most"
+]
+]
+]
+},
+"little": {
+"k": "a",
+"f": [
+[
+"so sánh hơn",
+[
+"less"
+]
+],
+[
+"so sánh nhất",
+[
+"least"
+]
+]
+]
+}
+}
+}

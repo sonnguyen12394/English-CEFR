@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 43;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 44;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -35,15 +35,33 @@ let S = null, user = null, sync = '';
 const dayOf = ms => Math.floor((ms - new Date(ms).getTimezoneOffset() * 60000) / DAY);
 const recall = (c, now) => c ? 1 / (1 + Math.max(0, now - c.last) / DAY / (9 * c.S)) : 0;
 const isDue = (c, now) => !!c && (now - c.last) / DAY >= c.S;
-const held = (c, now) => DIMS.every(([k]) => heldDim(c, k, now));   // từ nhớ đủ cả 5 mặt
+const held = (c, now, w, lv = curLevel()) => !!c && wDims(w, lv).every(k => heldDim(c, k, now));   // từ nhớ đủ mọi yêu cầu của cấp
 function learnCards(st, u, now) {
   st.units[u.id] = { d: dayOf(now) };
   for (const w of u.words) if (!st.cards[w.id]) st.cards[w.id] = { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0 };
 }
-// dạng câu → mặt đo
-const DIMS = [['nghia', '📖 Nghĩa'], ['nghe', '🔊 Nhận âm'], ['viet', '✍️ Chính tả'], ['dung', '🧩 Dùng'], ['noi', '🗣 Nói ra từ']];
-const DIM_OF = { vi2w: ['nghia'], w2vi: ['nghia'], listen: ['nghe'], spell: ['viet'], cloze: ['dung'], col: ['dung'], clozeT: ['viet', 'dung'],
-  read: ['nghia'], hear: ['nghe'], dict: ['nghe', 'viet'], noi: ['noi'], am: ['am'] };   // bài tổng hợp (tonghop.js)
+// 🔁 Nhớ của Từ vựng = 12 yêu cầu theo cấp (người sáng lập 26/10/2026: "bản chất của mục tiêu Nhớ là phục vụ các yêu cầu hiểu một từ theo từng cấp;
+// cấp trên bao gồm mọi yêu cầu của cấp dưới"; khung 18 tiêu chí của Nation, phần Pre-A1 → A2):
+//   Pre-A1 (6): thấy từ → nghĩa · nghe → nghĩa · nhận đúng chữ · nghĩa → nhớ ra từ · nói ra từ · chính tả
+//   A1 (+3):   cụm hay đi cùng · nhận ra dạng bất quy tắc · tự điền từ vào câu
+//   A2 (+3):   đồng / trái nghĩa · nghĩa thứ hai · tự dùng dạng bất quy tắc
+// Yêu cầu chỉ áp cho từ có dữ liệu (vx.json: irr, rel, s2; cụm col; câu cloze). Cấp của yêu cầu ≤ cấp đang học mới đòi (dồn cấp).
+// Bằng chứng một yêu cầu chỉ tính (pv) khi đã được dạy: từ của cấp ≥ cấp yêu cầu → dạy ở bài học (c.d0); từ cấp thấp hơn → dạy ở bài ⬆️ Nâng cấp (c.du[cấp]).
+const VREQ = [
+  ['nghia', '📖 Thấy từ → nghĩa', 'pre', () => true], ['nghe', '🔊 Nghe → nghĩa', 'pre', () => true], ['chu', '🔤 Nhận đúng chữ', 'pre', () => true],
+  ['nhora', '💭 Nghĩa → nhớ ra từ', 'pre', () => true], ['noi', '🗣 Nói ra từ', 'pre', () => true], ['viet', '✍️ Chính tả', 'pre', () => true],
+  ['cum', '🔗 Cụm hay đi cùng', 'a1', w => !!w.col], ['bqt', '🔀 Nhận ra dạng bất quy tắc', 'a1', w => !!w.irr], ['dung', '🧩 Tự điền từ vào câu', 'a1', w => !!w.cloze],
+  ['lienq', '↔️ Đồng / trái nghĩa', 'a2', w => !!w.rel], ['nghia2', '🎭 Nghĩa thứ hai', 'a2', w => !!w.s2], ['bqt2', '✏️ Tự dùng dạng bất quy tắc', 'a2', w => !!w.irr]];
+const VREQ_BY = Object.fromEntries(VREQ.map(r => [r[0], r]));
+const DIMS = VREQ.map(r => [r[0], r[1]]);
+const lvIdx = l => LEVELS.indexOf(l);
+const dimsAt = (lv = curLevel()) => VREQ.filter(r => lvIdx(r[2]) <= lvIdx(lv)).map(r => [r[0], r[1]]);
+const wDims = (w, lv = curLevel()) => w ? VREQ.filter(r => lvIdx(r[2]) <= lvIdx(lv) && r[3](w)).map(r => r[0]) : [];
+const wLv = w => (UBY[w.u] || {}).lv || 'pre';
+// ngày yêu cầu k được dạy cho từ w (null = chưa dạy: cần bài ⬆️ Nâng cấp)
+const taughtDay = (c, w, k) => { const L = VREQ_BY[k] ? VREQ_BY[k][2] : 'pre'; return lvIdx(wLv(w)) >= lvIdx(L) ? c.d0 : (c.du && c.du[L] != null ? c.du[L] : null); };
+const DIM_OF = { w2vi: ['nghia'], listen: ['nghe'], form: ['chu', 'nhora'], vi2w: ['nhora'], spell: ['viet', 'nhora'], noi: ['noi'], col: ['cum'], irrR: ['bqt'],
+  clozeT: ['dung', 'viet', 'nhora'], rel: ['lienq'], s2: ['nghia2'], irrT: ['bqt2', 'bqt'], cloze: [], am: ['am'] };
 const heldDim = (c, k, now) => !!c && !!c.dm && !!c.dm[k] && !!c.dm[k].pv && !!c.dm[k].ok && recall(c, now) >= HOLD_R;
 function grade(st, wid, ok, now, type) {
   const c = st.cards[wid]; if (!c) return;
@@ -53,29 +71,72 @@ function grade(st, wid, ok, now, type) {
   if (ok) { const full = Math.max(c.S, t) * 2.5; c.S = t >= c.S ? full : c.S + (full - c.S) * t / c.S; if (dayOf(now) - c.d0 >= MEM_DAYS) c.pv = 1; }
   else { c.S = 0.5; c.lapse++; }
   c.ok = ok ? 1 : 0; c.last = now; c.n++; }
-  c.dm = c.dm || {};
-  for (const k of DIM_OF[type] || []) { const d = c.dm[k] = c.dm[k] || {}; d.ok = ok ? 1 : 0; d.n = (d.n || 0) + 1; if (ok && dayOf(now) - c.d0 >= MEM_DAYS) d.pv = 1; }
+  c.dm = c.dm || {}; const w = WBY[wid];
+  for (const k of DIM_OF[type] || []) { const d = c.dm[k] = c.dm[k] || {}; d.ok = ok ? 1 : 0; d.n = (d.n || 0) + 1;
+    const td = w ? taughtDay(c, w, k) : c.d0; if (ok && td != null && dayOf(now) - td >= MEM_DAYS) d.pv = 1; }
 }
-// Người sáng lập 25/10/2026: 📘 Học chỉ tính từ của cấp đang học; 🔁 Nhớ và Thi chuyển cấp tính dồn cả các cấp trước
-// (A1 = A1 + Pre-A1, A2 = A2 + A1 + Pre-A1, A2+ = cả bốn). Áp cho cả 7 phần (pa.js, kit.js cùng luật).
-function parts(st, now, lv = curLevel()) { const WL = levelWords(lv), WM = memWords(lv);
-  let learn = 0, full = 0, due = 0; const dim = Object.fromEntries(DIMS.map(([k]) => [k, 0]));
+// ⬆️ Nâng cấp: các cấp yêu cầu (A1, A2) mà từ w (cấp thấp hơn) cần được dạy thêm khi đang học cấp lv
+const upNeed = (w, lv = curLevel(), c = S.cards[w.id]) => ['a1', 'a2'].filter(L => lvIdx(L) > lvIdx(wLv(w)) && lvIdx(L) <= lvIdx(lv) && VREQ.some(r => r[2] === L && r[3](w)) && !(c && c.du && c.du[L] != null));
+// Người sáng lập 25/10/2026: 📘 Học chỉ tính từ của cấp đang học; 🔁 Nhớ và Thi chuyển cấp tính dồn cả các cấp trước. 26/10/2026: 📘 Học tính thêm
+// bài ⬆️ Nâng cấp của từ cấp trước (dạy yêu cầu mới trước khi Nhớ đòi). Mỗi yêu cầu tính trên các từ có dữ liệu cho yêu cầu đó.
+function parts(st, now, lv = curLevel()) { const WL = levelWords(lv), WM = memWords(lv), WU = WM.filter(w => lvIdx(wLv(w)) < lvIdx(lv) && upNeed(w, lv, {}).length);
+  let learn = 0, full = 0, due = 0; const ks = dimsAt(lv).map(d => d[0]), dim = Object.fromEntries(ks.map(k => [k, 0])), Tk = Object.fromEntries(ks.map(k => [k, 0]));
   for (const w of WL) if (st.cards[w.id]) learn++;
-  for (const w of WM) { const c = st.cards[w.id]; if (isDue(c, now)) due++;
-    let all = !!c; for (const [k] of DIMS) { if (heldDim(c, k, now)) dim[k]++; else all = false; } if (all) full++; }
-  const T = WL.length || 1, Tm = WM.length || 1, mem = Math.min(...Object.values(dim)), dq = Object.fromEntries(DIMS.map(([k]) => [k, Math.floor(dim[k] / Tm * 100)]));
-  return { learn, mem, full, due, T: WL.length, Tm: WM.length, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.floor(mem / Tm * 100) };
+  for (const w of WU) if (st.cards[w.id] && !upNeed(w, lv, st.cards[w.id]).length) learn++;
+  for (const w of WM) { const c = st.cards[w.id]; if (isDue(c, now)) due++; let all = !!c;
+    for (const k of wDims(w, lv)) { Tk[k]++; if (heldDim(c, k, now)) dim[k]++; else all = false; } if (all) full++; }
+  const T = WL.length + WU.length, dq = Object.fromEntries(ks.map(k => [k, Tk[k] ? Math.floor(dim[k] / Tk[k] * 100) : 100]));
+  return { learn, full, due, T, Tn: WL.length, Tu: WU.length, Tm: WM.length, dim, Tk, dq, lq: Math.floor(learn / (T || 1) * 100), mq: Math.min(...Object.values(dq)) };
 }
 const gateOpen = p => p.lq >= GATE_LEARN && p.mq >= GATE_MEM;
 // Góp ý #3 / #4: dấu của từng từ. chua = chưa học · hoc = đã học, chưa đủ bằng chứng nhớ · nho = tính vào 🔁 Nhớ · quen = lần gần nhất sai hoặc đã tới lúc sắp quên.
 // hoc + nho + quen = 📘 Học; nho = 🔁 Nhớ.
 // nho = đủ 5 mặt
-function wstat(st, w, now) { const c = st.cards[w.id]; if (!c) return 'chua'; if (held(c, now)) return 'nho'; if (!c.ok || recall(c, now) < HOLD_R) return 'quen'; return 'hoc'; }
-const WST = [['chua', '⚪ Chưa học'], ['hoc', '📘 Đã học'], ['nho', '✅ Nhớ đủ 5 mặt'], ['quen', '⚠️ Quên']];
-const dimMarks = (c, now) => DIMS.map(([k, l]) => `<span class="dm ${heldDim(c, k, now) ? 'on' : ''}" title="${l}">${l.split(' ')[0]}</span>`).join('');
-// mặt nào còn thiếu thì hỏi mặt đó (ngẫu nhiên trong các mặt thiếu); đủ cả thì trộn như thường. 🗣 Nói / 🎯 Phát âm chỉ luyện ở noi.js, không hỏi ở đây.
-const TYPE_FOR = { nghia: () => one(['vi2w', 'w2vi']), nghe: () => 'listen', viet: () => one(['spell', 'spell', 'clozeT']), dung: () => one(['cloze', 'col', 'clozeT']) };
-function typeFor(c, now) { const miss = DIMS.map(([k]) => k).filter(k => k !== 'noi' && k !== 'am' && !heldDim(c, k, now)); return miss.length ? TYPE_FOR[one(miss)]() : rndType(); }
+function wstat(st, w, now) { const c = st.cards[w.id]; if (!c) return 'chua'; if (held(c, now, w)) return 'nho'; if (!c.ok || recall(c, now) < HOLD_R) return 'quen'; return 'hoc'; }
+const WST = [['chua', '⚪ Chưa học'], ['hoc', '📘 Đã học'], ['nho', '✅ Nhớ đủ'], ['quen', '⚠️ Quên']];
+const dimMarks = (c, now, w) => DIMS.filter(([k]) => wDims(w).includes(k)).map(([k, l]) => `<span class="dm ${heldDim(c, k, now) ? 'on' : ''}" title="${l}">${l.split(' ')[0]}</span>`).join('');
+// mặt nào còn thiếu thì hỏi mặt đó (ngẫu nhiên trong các yêu cầu thiếu của từ ở cấp đang học); đủ cả thì hỏi ngẫu nhiên một yêu cầu của từ.
+// 🗣 Nói ra từ chỉ luyện ở noi.js (bộ nói), không hỏi ở đây.
+const TYPE_FOR = { nghia: () => 'w2vi', nghe: () => 'listen', chu: () => 'form', nhora: () => one(['form', 'spell']), viet: () => 'spell', cum: () => 'col',
+  bqt: () => 'irrR', dung: () => 'clozeT', lienq: () => 'rel', nghia2: () => 's2', bqt2: () => 'irrT' };
+function typeFor(c, now, w) { const ks = wDims(w).filter(k => k !== 'noi'), miss = ks.filter(k => !heldDim(c, k, now));
+  return TYPE_FOR[one(miss.length ? miss : ks)](); }
+// 🔤 chữ gần giống để nhận đúng chữ: từ thật gần giống (khác 1–2 chữ) + chữ viết sai kiểu hay gặp (đảo, thiếu, thừa chữ, đổi nguyên âm)
+function lev(a, b) { const m = a.length, n = b.length, d = Array.from({ length: m + 1 }, (_, i) => [i, ...Array(n).fill(0)]); for (let j = 1; j <= n; j++) d[0][j] = j;
+  for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return d[m][n]; }
+function lookalike(w, n) { const x = w.w, low = x.toLowerCase(), out = new Set();
+  const real = shuf(WORDS.filter(y => y.id !== w.id && y.vi !== w.vi && Math.abs(y.w.length - x.length) <= 1 && y.w[0].toLowerCase() === low[0] && lev(y.w.toLowerCase(), low) <= 2)).map(y => y.w);
+  if (real.length) out.add(real[0]);
+  const V = 'aeiou', fake = [];
+  for (let i = 1; i < x.length - 1; i++) if (x[i] !== ' ' && x[i + 1] !== ' ' && x[i] !== x[i + 1]) fake.push(x.slice(0, i) + x[i + 1] + x[i] + x.slice(i + 2));   // đảo 2 chữ
+  for (let i = 1; i < x.length; i++) if (x[i] !== ' ' && x.length > 3) fake.push(x.slice(0, i) + x.slice(i + 1));   // thiếu 1 chữ
+  for (let i = 1; i < x.length; i++) if (/[bcdfglmnprst]/.test(x[i])) fake.push(x.slice(0, i + 1) + x[i] + x.slice(i + 1));   // gấp đôi phụ âm
+  for (let i = 0; i < x.length; i++) if (V.includes(x[i])) for (const v of V) if (v !== x[i]) fake.push(x.slice(0, i) + v + x.slice(i + 1));   // đổi nguyên âm
+  const all = new Set(WORDS.map(y => y.w.toLowerCase()));
+  for (const f of shuf(fake)) { if (out.size >= n) break; if (f.toLowerCase() !== low && !all.has(f.toLowerCase())) out.add(f); }
+  for (const r of real.slice(1)) { if (out.size >= n) break; out.add(r); }
+  return [...out].slice(0, n); }
+// 🔀 dạng bất quy tắc: phương án sai = dạng "theo quy tắc" sai (goed, childs, gooder…) + dạng khác của chính từ đó (gone khi hỏi quá khứ) + chính từ gốc
+function irrWrong(w, f) { const b = w.w.toLowerCase(), ok = new Set(f[1].map(x => x.toLowerCase())), k = w.irr.k, c = [];
+  if (k === 'v') c.push(b.endsWith('e') ? b + 'd' : b + 'ed', b + 's', b + 'ing'); else if (k === 'n') c.push(b + 's', b + 'es', f[1][0] + 's'); else c.push(b + 'er', 'more ' + b, b + 'est');
+  for (const g of w.irr.f) if (g !== f) c.push(...g[1]); c.push(b, b + 'en', b + 'ies', b + 'ed');
+  return [...new Set(c.filter(x => !ok.has(x.toLowerCase())))]; }
+// câu dạng mới (#3, #8, #10, #11, #12); trả về null nếu từ không có dữ liệu cho dạng đó
+function questionX(w, type) {
+  if (type === 'form') return { type, top: `${w.pic || ''} ${esc(w.vi)}`, sub: 'Chọn đúng cách viết của từ này.', a: w.w, opts: shuf([w.w, ...lookalike(w, 3)]) };
+  if ((type === 'irrR' || type === 'irrT') && w.irr) { const f = one(w.irr.f);
+    if (type === 'irrT') return { type, top: `${esc(f[0][0].toUpperCase() + f[0].slice(1))} của “${esc(w.w)}” là gì?`, sub: `${esc(w.w)} = ${esc(w.vi)}. Gõ dạng đúng.`, a: f[1][0], alt: f[1].slice(1), typed: true, after: irrLine(w) };
+    return { type, top: `${esc(f[0][0].toUpperCase() + f[0].slice(1))} của “${esc(w.w)}” là gì?`, sub: `${esc(w.w)} = ${esc(w.vi)}`, a: f[1][0], opts: shuf([f[1][0], ...shuf(irrWrong(w, f)).slice(0, 3)]), after: irrLine(w) }; }
+  if (type === 'rel' && w.rel) { const syn = w.rel.syn.length && (!w.rel.ant.length || Math.random() < 0.5), L = syn ? w.rel.syn : w.rel.ant, a = one(L);
+    const bad = new Set([w.w, ...w.rel.syn, ...w.rel.ant].map(x => x.toLowerCase())), pos = w.pos.split(',')[0];
+    const wr = shuf(WORDS.filter(y => !bad.has(y.w.toLowerCase()) && y.pos.split(',')[0] === pos && !(y.rel && (y.rel.syn.includes(a) || y.rel.ant.includes(a))))).slice(0, 3).map(y => y.w);
+    if (wr.length < 3) wr.push(...shuf(WORDS.filter(y => !bad.has(y.w.toLowerCase()) && !wr.includes(y.w) && !(y.rel && (y.rel.syn.includes(a) || y.rel.ant.includes(a))))).slice(0, 3 - wr.length).map(y => y.w));
+    return { type, top: `Từ nào ${syn ? '<b>cùng nghĩa</b>' : '<b>trái nghĩa</b>'} với “${esc(w.w)}”?`, sub: `${esc(w.w)} = ${esc(w.vi)}`, a, opts: shuf([a, ...wr]), after: relLine(w) }; }
+  if (type === 's2' && w.s2) { const re = new RegExp(`\\b(${w.w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\w*)`, 'i');
+    return { type, top: esc(w.s2.ex).replace(re, '<b>$1</b>'), sub: `Từ in đậm trong câu này nghĩa là gì?`, a: w.s2.vi, opts: shuf([w.s2.vi, ...w.s2.w]), after: `<br>🎭 Nghĩa thứ hai: <b>${esc(w.s2.vi)}</b> · ${esc(w.s2.exVi)}` }; }
+  return null; }
+const irrLine = w => `<br>🔀 ${esc(w.w)}: ${w.irr.f.map(([l, f]) => `${esc(l)} <b>${esc(f.join(' / '))}</b>`).join(' · ')}`;
+const relLine = w => `<br>↔️ ${w.rel.syn.length ? `cùng nghĩa: <b>${esc(w.rel.syn.join(', '))}</b>` : ''}${w.rel.syn.length && w.rel.ant.length ? ' · ' : ''}${w.rel.ant.length ? `trái nghĩa: <b>${esc(w.rel.ant.join(', '))}</b>` : ''}`;
 
 // ---------- câu hỏi ----------
 const shuf = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -88,6 +149,7 @@ function pick(w, key, n) {
 }
 function question(w, type) {
   if (type && type[0] === 'x') return examQ(w, type);   // câu thi mới (exam.js)
+  const X = questionX(w, type); if (X) return X; if (['irrR', 'irrT', 'rel', 's2'].includes(type)) type = 'w2vi';   // từ thiếu dữ liệu: hỏi nghĩa
   if (type === 'col' && !w.col) type = 'cloze';
   if (type === 'vi2w') return { type, top: `${w.pic || ''} ${esc(w.vi)}`, sub: 'Từ tiếng Anh nào có nghĩa này?', a: w.w, opts: shuf([w.w, ...pick(w, 'w', 3)]) };
   if (type === 'w2vi') return { type, top: esc(w.w), sub: `${esc(w.ipa || '')} · nghĩa là gì?`, a: w.vi, opts: shuf([w.vi, ...pick(w, 'vi', 3)]), say: w.w };
@@ -103,7 +165,6 @@ function question(w, type) {
 // Mỗi lượt: khoảng 40% gõ từ (spell / clozeT), 20% nghe, 40% trắc nghiệm.
 const MC = ['vi2w', 'w2vi', 'cloze', 'col'], TYPED = ['spell', 'clozeT'];
 const one = a => a[Math.floor(Math.random() * a.length)];
-const rndType = () => { const r = Math.random(); return r < 0.4 ? one(TYPED) : r < 0.6 ? 'listen' : one(MC); };
 const mixTypes = n => shuf(Array.from({ length: n }, (_, i) => i < Math.round(n * 0.4) ? one(TYPED) : i < Math.round(n * 0.6) ? 'listen' : one(MC)));
 const normAns = x => String(x).toLowerCase().replace(/[‘’`]/g, "'").replace(/\s+/g, ' ').trim().replace(/[.,!?;:]+$/g, '').trim();
 
@@ -194,38 +255,39 @@ function roadmap(now, nu) {
   const tabs = `<div class="chips">${LEVELS.map(l => { const n = WORDS.filter(w => UBY[w.u].lv === l).length;
     return `<button class="chip ${lv === l ? 'on' : ''}" data-lv="${l}">${lockedLv(l) ? '🔒 ' : passed(l) ? '✅ ' : ''}${LVN[l]} · ${n} từ</button>`; }).join('')}</div>`;
   return tabs + (lock ? `<p class="mute">🔒 Bài ${LVN[lv]} mở khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(lv) - 1]]}. Xem trước được, chưa học được.</p>` : '') + chs.map(i => { const us = us0.filter(u => u.ch === i), done = us.filter(unitDone).length;
-    const ws = us.flatMap(u => u.words), mem = ws.filter(w => held(S.cards[w.id], now)).length, f = us[0];
+    const ws = us.flatMap(u => u.words), mem = ws.filter(w => held(S.cards[w.id], now, w)).length, f = us[0];
     return `<div class="ch ${i === cur ? 'cur' : ''}"><button class="chh" data-ch="${i}" aria-expanded="${i === open}">
       <span>${f.chIcon} <b>Chặng ${i + 1}</b> · ${esc(f.chName)}</span><span class="mute">${done === us.length ? '✅' : `${done}/${us.length} bài`}</span></button>
       ${bar(done / us.length * 100, 0, 'var(--accent)')}
-      ${i === open ? `<p class="mute" style="margin:4px 0">${ws.length} từ · ${mem} từ nhớ đủ 5 mặt</p>${us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now)).length / u.words.length >= 0.8;
+      ${i === open ? `<p class="mute" style="margin:4px 0">${ws.length} từ · ${mem} từ nhớ đủ</p>${us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now, w)).length / u.words.length >= 0.8;
         return `<button class="urow ${u === nu ? 'next' : ''}" data-un="${u.id}" ${lock ? 'disabled' : ''}><span>${m ? '🟢' : d ? '🔵' : u === nu ? '▶️' : lock ? '🔒' : '⚪'} Bài ${u.bi} · ${esc(u.vi)}</span><span class="mute">${u.words.length} từ</span></button>`; }).join('')}` : ''}</div>`; }).join(''); }
 
 function home() {
   const now = Date.now(), lv = curLevel(), p = parts(S, now), nu = nextUnit();
   const ph2 = p.lq >= GATE_LEARN;
   $app.onclick = null; window.CUR = { view: 'home' };
-  const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để cả 5 mặt lên ${GATE_MEM}%; 🗣 Nói ra từ luyện ở 🏋️ Luyện tập.`
-    : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi mặt của từ tính 🔁 Nhớ khi trả lời đúng mặt đó ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào mặt còn thiếu.`;
+  const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để mọi yêu cầu lên ${GATE_MEM}%; 🗣 Nói ra từ luyện ở 🏋️ Luyện tập.`
+    : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi yêu cầu tính 🔁 Nhớ khi làm đúng ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào yêu cầu còn thiếu.`;
   $app.innerHTML = `
     ${ovBack}<h1>📚 Từ vựng</h1>
     <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} từ` : ''})</p>
     <p class="mute"><span id="sync">${esc(sync)}</span></p>
     <div class="box">
-      <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
-      <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
-      <div class="dims">${DIMS.map(([k, l]) => `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
-      <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả 5 mặt. Bấm vào một mặt để xem bài của mặt đó.</p>
+      <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ${p.Tu ? ` (gồm ${p.Tu} từ cấp trước cần ⬆️ nâng cấp)` : ''}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
+      <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= yêu cầu thấp nhất · mỗi yêu cầu cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
+      <div class="dims">${dimsAt(lv).map(([k, l]) => `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`).join('')}</div>
+      <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả ${dimsAt(lv).length} yêu cầu của ${LVN[lv]} (mỗi yêu cầu chỉ tính trên từ có yêu cầu đó). Bấm vào một yêu cầu để xem bài của nó.</p>
     </div>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
       <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
+    ${(() => { const up = upUnits(lv); return up.length ? `<div class="box"><b>⬆️ Nâng cấp từ cấp trước: còn ${up.length} unit</b><p class="mute" style="margin:4px 0">Lên ${LVN[lv]}, từ cấp trước phải đạt thêm yêu cầu mới. Mỗi bài nâng cấp ~3 phút, tính vào 📘 Học.</p><button data-a="up" data-u="${up[0].id}">⬆️ Nâng cấp ${uLabel(up[0])}</button></div>` : ''; })()}
     <p class="mute">${tip}</p>
     ${examBox(p, lv)}
     ${DUR_PREV[lv] && !xDurable(DUR_PREV[lv]) ? examBox(parts(S, now, DUR_PREV[lv]), DUR_PREV[lv]) : ''}
     <h2>Lộ trình</h2>
-    <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ 5 mặt · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
+    <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ yêu cầu · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
     <div id="grid">${roadmap(now, nu)}</div>
     ${voxHtml()}
     `;   // 🗂 góp ý ở màn 🎯 Tổng quan học
@@ -233,39 +295,62 @@ function home() {
 }
 
 // học unit: xem 10 thẻ, rồi mỗi từ 2 câu (nghĩa + điền chỗ trống); sai thì hỏi lại tới khi đúng hết
-function learn(u) {
-  const again = unitDone(u);
-  let i = 0;
-  const card = () => {
-    const w = u.words[i];
-    window.CUR = { view: 'the', unit: u.id, item: 'w:' + w.id, prompt: w.w };
-    $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${uLabel(u)} · ${esc(u.vi)}</span></div>
-      <div class="dots">${u.words.map((_, k) => `<i class="${k < i ? 'd' : k === i ? 'c' : ''}"></i>`).join('')}</div>
-      <div class="wcard"><div class="pic">${w.pic || ''}</div><div class="big">${esc(w.w)}</div>
+// 📘 Bài học (người sáng lập 26/10/2026: bài học dạy đủ mọi yêu cầu mà 🔁 Nhớ sẽ đòi; chấp nhận ~12–17 phút / unit):
+// mỗi từ một câu cho mỗi nhóm yêu cầu, đi từ dễ tới khó; một câu có thể dạy nhiều yêu cầu (gõ từ vào câu = chính tả + điền từ + nhớ ra từ).
+//   Pre-A1: thấy từ → nghĩa · nghe → nghĩa · nhận đúng chữ (+ nhớ ra từ) · gõ từ (chính tả + nhớ ra từ) · nói ra từ
+//   A1:    thay "gõ từ" bằng "gõ từ vào câu" (+ điền từ), thêm cụm hay đi cùng, nhận ra dạng bất quy tắc (từ có dạng riêng)
+//   A2:    thêm đồng / trái nghĩa, nghĩa thứ hai (từ có dữ liệu); dạng bất quy tắc thành tự gõ (dạy cả nhận ra)
+// Câu trong bài học không tính 🔁 Nhớ (tính từ ngày sau). Bài ⬆️ Nâng cấp: từ cấp trước, chỉ dạy các yêu cầu mới của cấp đang học (tính vào 📘 Học).
+const LESSON_ORDER = ['w2vi', 'listen', 'form', 'spell', 'clozeT', 'col', 'irrR', 'irrT', 'rel', 's2'];
+function lessonTypes(w, reqs) { const r = new Set(reqs.filter(k => VREQ_BY[k] && VREQ_BY[k][3](w))), t = new Set();
+  if (r.has('nghia')) t.add('w2vi'); if (r.has('nghe')) t.add('listen'); if (r.has('chu') || r.has('nhora')) t.add('form');
+  if (r.has('dung')) t.add('clozeT'); else if (r.has('viet')) t.add('spell');
+  if (r.has('cum')) t.add('col'); if (r.has('bqt2')) t.add('irrT'); else if (r.has('bqt')) t.add('irrR');
+  if (r.has('lienq')) t.add('rel'); if (r.has('nghia2')) t.add('s2');
+  return LESSON_ORDER.filter(x => t.has(x)); }
+const reqsUpTo = L => VREQ.filter(r => lvIdx(r[2]) <= lvIdx(L)).map(r => r[0]);
+const reqsOf = Ls => VREQ.filter(r => Ls.includes(r[2])).map(r => r[0]);
+// thẻ từ: phần chung + phần dạy cho yêu cầu mới (dạng bất quy tắc, cặp từ, nghĩa thứ hai) khi bài có yêu cầu đó
+function wordCard(w, reqs) { const has = k => reqs.includes(k) && VREQ_BY[k][3](w);
+  return `<div class="wcard"><div class="pic">${w.pic || ''}</div><div class="big">${esc(w.w)}</div>
       <div class="mute">${esc(w.ipa || '')} · ${esc(w.pos)}</div><div class="vi">${esc(w.vi)}</div>
-      <p class="ex">${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}${sayBtns(w)}</div>
-      ${i === 0 ? `<p class="mute">🎯 Xem hết thẻ rồi luyện 4 câu mỗi từ, đủ 5 mặt của 🔁 Nhớ: 📖 chọn từ theo nghĩa · 🔊 nghe chọn nghĩa · ✍️🧩 gõ từ vào câu ví dụ · 🗣 nói ra từ.</p>` : ''}
-      <button class="pri" data-a="next">${i + 1 < u.words.length ? 'Tiếp →' : `Luyện ${u.words.length * 4} câu (4 câu / từ) →`}</button>`;
+      <p class="ex">${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">🔗 Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}
+      ${has('bqt') || has('bqt2') ? `<p>${irrLine(w).replace('<br>', '')}</p>` : ''}${has('lienq') ? `<p>${relLine(w).replace('<br>', '')}</p>` : ''}
+      ${has('nghia2') ? `<p>🎭 Nghĩa thứ hai: <b>${esc(w.s2.vi)}</b><br><span class="mute">${esc(w.s2.ex)} · ${esc(w.s2.exVi)}</span></p>` : ''}${sayBtns(w)}</div>`; }
+const TYPE_VI = { w2vi: '📖 thấy từ chọn nghĩa', listen: '🔊 nghe chọn nghĩa', form: '🔤 chọn đúng chữ', spell: '✍️ gõ từ', clozeT: '🧩 gõ từ vào câu', col: '🔗 chọn cụm đúng',
+  irrR: '🔀 chọn dạng bất quy tắc', irrT: '✏️ gõ dạng bất quy tắc', rel: '↔️ đồng / trái nghĩa', s2: '🎭 nghĩa thứ hai' };
+function lessonRun(u, words, reqs, title, onDone) {
+  let i = 0; const items = LESSON_ORDER.flatMap(type => shuf(words.filter(w => lessonTypes(w, reqs).includes(type)).map(w => ({ w, type }))));
+  const kinds = LESSON_ORDER.filter(t => items.some(x => x.type === t)), speakStep = reqs.includes('noi') && !!SREC;
+  const card = () => { const w = words[i];
+    window.CUR = { view: 'the', unit: u.id, item: 'w:' + w.id, prompt: w.w };
+    $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${esc(title)}</span></div>
+      <div class="dots">${words.map((_, k) => `<i class="${k < i ? 'd' : k === i ? 'c' : ''}"></i>`).join('')}</div>${wordCard(w, reqs)}
+      ${i === 0 ? `<p class="mute">🎯 Xem hết thẻ rồi luyện ${items.length}${speakStep ? ` + ${words.length} câu nói` : ''} câu, dạy đủ yêu cầu của 🔁 Nhớ: ${kinds.map(t => TYPE_VI[t]).join(' · ')}${speakStep ? ' · 🗣 nói ra từ' : ''}.</p>` : ''}
+      <button class="pri" data-a="next">${i + 1 < words.length ? 'Tiếp →' : `Luyện ${items.length} câu →`}</button>`;
     speak(w.w);
-    $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'next') { if (++i < u.words.length) card(); else quiz(); } if (a === 'home') home(); };
-  };
-  // Góp ý #12 (người sáng lập 25/10/2026 chọn "mỗi từ đủ 5 mặt"): bài học luyện đủ mọi mặt mà 🔁 Nhớ sẽ đòi, đi từ dễ tới khó:
-  // 📖 nhìn nghĩa chọn từ → 🔊 nghe chọn nghĩa → ✍️🧩 gõ từ vào câu ví dụ → 🗣 nhìn nghĩa nói ra từ (bộ nói noi.js; máy không chép được lời thì bỏ qua).
-  // Mỗi từ 4 câu, 40 câu / unit. Câu trong bài học không tính 🔁 Nhớ (tính từ ngày sau, MEM_DAYS).
-  const fin = () => { $app.innerHTML = `<div class="box"><b>✅ Xong ${uLabel(u)}: ${esc(u.vi)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `${u.words.length} từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div>
-        <div class="box"><b>🎯 Bài vừa học đã luyện đủ 5 mặt của 🔁 Nhớ</b><p style="margin:6px 0">📖 Nghĩa: chọn từ theo nghĩa · 🔊 Nhận âm: nghe chọn nghĩa · ✍️ Chính tả + 🧩 Dùng: gõ từ vào câu ví dụ · 🗣 Nói ra từ: nhìn nghĩa nói ra từ.</p>${SREC ? '' : '<p class="mute" style="margin:0">Trình duyệt này không chép được lời nên bước 🗣 đã bỏ qua: mở bằng Safari để luyện nói.</p>'}</div>
-        <button class="pri" data-a="home">Về 📚 Từ vựng</button>`;
-      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; };
-  const quiz = () => run({
-    title: `${uLabel(u)}`, items: ['vi2w', 'listen', 'clozeT'].flatMap(type => shuf(u.words.map(w => ({ w, type })))), retry: true,
-    done: () => { if (!again) { learnCards(S, u, Date.now()); save(); }
-      if (!SREC) return fin();
-      NO.ses = { mode: 'noi', list: shuf(u.words), i: 0, got: [], sc: [], show: false, title: '🗣 Bước cuối: nói ra từ', onGrade: () => {},
-        sub: 'Nhìn nghĩa, nói từ tiếng Anh. Máy chép ra đúng từ là đạt. Chưa tính 🔁 Nhớ.', foot: 'Bước cuối của bài học (chưa tính). Đóng ✕ thì bỏ qua bước này.', onEnd: fin };
-      noiOpen(NO.ses.list[0], true); fin(); },
-  });
-  card();
-}
+    $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'next') { if (++i < words.length) card(); else quiz(); } if (a === 'home') home(); }; };
+  const quiz = () => run({ title, items, retry: true, done: () => { onDone();
+      if (!speakStep) return;
+      NO.ses = { mode: 'noi', list: shuf(words), i: 0, got: [], sc: [], show: false, title: '🗣 Bước cuối: nói ra từ', onGrade: () => {},
+        sub: 'Nhìn nghĩa, nói từ tiếng Anh. Máy chép ra đúng từ là đạt. Chưa tính 🔁 Nhớ.', foot: 'Bước cuối của bài học (chưa tính). Đóng ✕ thì bỏ qua bước này.', onEnd: () => {} };
+      noiOpen(NO.ses.list[0], true); } });
+  card(); }
+function learn(u) { const again = unitDone(u), reqs = reqsUpTo(u.lv);
+  lessonRun(u, u.words, reqs, `${uLabel(u)} · ${u.vi}`, () => { if (!again) { learnCards(S, u, Date.now()); save(); }
+    $app.innerHTML = `<div class="box"><b>✅ Xong ${uLabel(u)}: ${esc(u.vi)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `${u.words.length} từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div>
+      <div class="box"><b>🎯 Bài vừa học đã dạy ${dimsAt(u.lv).length} yêu cầu của 🔁 Nhớ ${LVN[u.lv]}</b><p style="margin:6px 0">${dimsAt(u.lv).map(d => d[1]).join(' · ')}</p>${SREC ? '' : '<p class="mute" style="margin:0">Trình duyệt này không chép được lời nên bước 🗣 đã bỏ qua: mở bằng Safari để luyện nói.</p>'}</div>
+      <button class="pri" data-a="home">Về 📚 Từ vựng</button>`;
+    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; }); }
+// ⬆️ Nâng cấp một unit cấp trước lên cấp đang học: chỉ các từ cần, chỉ yêu cầu mới; xong ghi c.du[cấp yêu cầu] = hôm nay
+const upUnits = (lv = curLevel()) => UNITS.filter(u => lvIdx(u.lv) < lvIdx(lv) && unitDone(u) && u.words.some(w => upNeed(w, lv).length));
+function upgradeUnit(u) { const lv = curLevel(), words = u.words.filter(w => upNeed(w, lv).length), Ls = [...new Set(words.flatMap(w => upNeed(w, lv)))];
+  if (!words.length) return home();
+  lessonRun(u, words, reqsOf(Ls), `⬆️ Nâng cấp · ${uLabel(u)}`, () => { const d = dayOf(Date.now());
+    for (const w of words) { const c = S.cards[w.id]; if (!c) continue; c.du = c.du || {}; for (const L of upNeed(w, lv)) c.du[L] = d; } save();
+    $app.innerHTML = `<div class="box"><b>✅ Đã nâng cấp ${uLabel(u)}</b><p class="mute">${words.length} từ đã học thêm: ${reqsOf(Ls).map(k => VREQ_BY[k][1]).join(' · ')}. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.</p></div>
+      <button class="pri" data-a="home">Về 📚 Từ vựng</button>`;
+    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; }); }
 
 
 // 🏋️ Luyện tập (góp ý #3, #5: gộp "Ôn từ đến hạn" + "Luyện thêm" thành một nút), lúc nào cũng được.
@@ -274,14 +359,17 @@ function learn(u) {
 // k = luyện riêng một mặt (bấm mặt ở trang chính, dimView): chỉ hỏi dạng câu của mặt đó, từ thiếu mặt đó trước.
 function practice(k) {
   const now = Date.now(), today = dayOf(now), pri = w => { const c = S.cards[w.id], st = wstat(S, w, now);
-    if (k) return (heldDim(c, k, now) ? 4 : today - c.d0 >= MEM_DAYS ? 0 : 2) + recall(c, now);
+    if (k) { const td = taughtDay(c, w, k); return (heldDim(c, k, now) ? 4 : td != null && today - td >= MEM_DAYS ? 0 : 2) + recall(c, now); }
     return st === 'quen' ? recall(c, now) : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, now); };
-  const list = shuf(WORDS.filter(w => S.cards[w.id])).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);
+  // luyện riêng một yêu cầu: chỉ từ có yêu cầu đó ở cấp đang học và đã được dạy (bài học hoặc ⬆️ Nâng cấp)
+  const list = shuf(WORDS.filter(w => S.cards[w.id] && (!k || (wDims(w).includes(k) && taughtDay(S.cards[w.id], w, k) != null)))).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);
+  if (k === 'noi') return noiTask('noi');
+  if (!list.length) { toast('Chưa có từ đã học cho yêu cầu này.'); return home(); }
   let ok = 0;
-  run({ title: k ? `🏋️ ${DIMS.find(x => x[0] === k)[1]}` : '🏋️ Luyện tập', items: list.map(w => ({ w, type: k ? TYPE_FOR[k]() : typeFor(S.cards[w.id], now) })), retry: true,
+  run({ title: k ? `🏋️ ${DIMS.find(x => x[0] === k)[1]}` : '🏋️ Luyện tập', items: list.map(w => ({ w, type: k ? TYPE_FOR[k]() : typeFor(S.cards[w.id], now, w) })), retry: true,
     first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) ok++; save(); },
     done: () => { const p = parts(S, Date.now());
-      $app.innerHTML = `<div class="box"><b>Xong lượt luyện tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}% (${DIMS.map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')}).</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về 📘 Học</button>`;
+      $app.innerHTML = `<div class="box"><b>Xong lượt luyện tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}% (${dimsAt().map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')}).</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về 📘 Học</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="again"]')) practice(k); }; } });
 }
 
@@ -323,7 +411,7 @@ function dictList() {
     ${learnable ? `<label>Trạng thái<select data-sel="f">${opt('', `Tất cả (${n(null)})`, !DICT.f)}${WST.map(([k, l]) => opt(k, `${l} (${n(k)})`, DICT.f === k)).join('')}</select></label>` : '<label class="mute">Trạng thái<br>📚 chỉ tra</label>'}</div>
     <details class="mute"><summary>ⓘ Dấu trên mỗi từ</summary>Mỗi từ có 4 dấu mặt: 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng (sáng = đang nhớ). ✅ = đủ cả 4. ⚠️ Quên = lần gần nhất sai hoặc đã tới lúc sắp quên: luyện lại là lên. 📚 chỉ tra = cấp chưa có bài học.</details>`;
   const rows0 = inLv.filter(fOK).sort((a, b) => a.w.w.localeCompare(b.w.w)), rows = rows0.slice(0, DICT_MAX), lab = k => k === 'ref' ? '📚 chỉ tra' : WST.find(x => x[0] === k)[1];
-  document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="lvtag ${lvw(w)}">${LVN[lvw(w)]}</span> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute" style="text-align:right">${lab(st)}${st !== 'chua' && st !== 'ref' ? `<br>${dimMarks(S.cards[w.id], now)}` : ''}</span></div>
+  document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="lvtag ${lvw(w)}">${LVN[lvw(w)]}</span> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute" style="text-align:right">${lab(st)}${st !== 'chua' && st !== 'ref' ? `<br>${dimMarks(S.cards[w.id], now, w)}` : ''}</span></div>
     ${DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · ${w.u ? uLabel(UBY[w.u]) : `${LVN[w.lv]} · chỉ tra, chưa có bài học`}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
       <p>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}
       ${sayBtns(w)}</div>` : ''}</div>`).join('') : '<p class="mute">Không có từ nào.</p>';
@@ -357,7 +445,7 @@ function run({ title, items, retry, quiet, first, done }) {
       if (b) $app.querySelectorAll('[data-k]').forEach(x => { if (Q.opts[+x.dataset.k] === Q.a) x.classList.add('ok'); else if (x === b) x.classList.add('no'); });
       if (ti) { ti.disabled = true; ti.classList.add(good ? 'ok' : 'no'); document.getElementById('tf').querySelectorAll('button').forEach(x => x.remove()); }
       const w = it.w;
-      document.getElementById('fb').innerHTML = `<div class="box">${good ? '✅ Đúng.' : `❌ Chưa đúng.${Q.typed ? ` Đáp án: <b>${esc(Q.a)}</b>${typed ? ` (bạn gõ: ${esc(typed)})` : ''}.` : ''}`} <b>${esc(w.w)}</b> = ${esc(w.vi)}<br>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span>${sayBtns(w)}</div><button class="pri" data-a="go">Tiếp →</button>`;
+      document.getElementById('fb').innerHTML = `<div class="box">${good ? '✅ Đúng.' : `❌ Chưa đúng.${Q.typed ? ` Đáp án: <b>${esc(Q.a)}</b>${typed ? ` (bạn gõ: ${esc(typed)})` : ''}.` : ''}`} <b>${esc(w.w)}</b> = ${esc(w.vi)}<br>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span>${Q.after || ''}${sayBtns(w)}</div><button class="pri" data-a="go">Tiếp →</button>`;
       speak(w.w);
     };
     const tf = document.getElementById('tf');
@@ -397,6 +485,7 @@ document.addEventListener('click', e => {
   if (!document.getElementById('grid')) return;   // chỉ trang chính; màn học có onclick riêng
   const a = t.dataset.a;
   if (a === 'learn') learn(UBY[t.dataset.u]);
+  if (a === 'up') upgradeUnit(UBY[t.dataset.u]);
   if (a === 'exam') exam(t.dataset.lv || curLevel());
   if (a === 'practice') practiceMenu();
   if (a === 'dict') dict();
@@ -440,6 +529,8 @@ checkVer();
   try { for (const f of ['a1.json?v=8', 'a2.json?v=4']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
+  // dữ liệu cho 12 yêu cầu Nhớ (tools/build-vx.mjs): dạng bất quy tắc, đồng / trái nghĩa, nghĩa thứ hai
+  try { const vx = await (await fetch('vx.json?v=1')).json(); for (const w of WORDS) { const k = w.w.toLowerCase(); if (vx.irr[k]) w.irr = vx.irr[k]; if (vx.rel[k]) w.rel = vx.rel[k]; if (vx.s2[k]) w.s2 = vx.s2[k]; } } catch (e) {}
   let last;
   sb.auth.onAuthStateChange((ev, session) => { const id = session ? session.user.id : null; if (id === last) return; last = id; S = null; setTimeout(() => start(session), 0); });
 })();

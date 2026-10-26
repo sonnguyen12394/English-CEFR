@@ -1,0 +1,1692 @@
+{
+"_": "Từ đồng nghĩa / trái nghĩa cho yêu cầu #10 (A2). AI soạn 26/10/2026, chỉ ghép khi cả hai từ có trong danh sách Pre-A1 → A2+; chưa người thật kiểm. Câu hỏi chọn 1 trong 4, phương án sai không nằm trong danh sách đồng / trái nghĩa của từ.",
+"w": {
+"big": {
+"syn": [
+"huge",
+"large"
+],
+"ant": [
+"small"
+]
+},
+"small": {
+"syn": [
+"little"
+],
+"ant": [
+"big"
+]
+},
+"tall": {
+"syn": [],
+"ant": [
+"short"
+]
+},
+"short": {
+"syn": [],
+"ant": [
+"long",
+"tall"
+]
+},
+"long": {
+"syn": [],
+"ant": [
+"short"
+]
+},
+"old": {
+"syn": [],
+"ant": [
+"new",
+"young"
+]
+},
+"new": {
+"syn": [],
+"ant": [
+"old"
+]
+},
+"young": {
+"syn": [],
+"ant": [
+"old"
+]
+},
+"hot": {
+"syn": [],
+"ant": [
+"cold"
+]
+},
+"cold": {
+"syn": [],
+"ant": [
+"hot"
+]
+},
+"happy": {
+"syn": [],
+"ant": [
+"sad"
+]
+},
+"sad": {
+"syn": [],
+"ant": [
+"happy"
+]
+},
+"good": {
+"syn": [],
+"ant": [
+"bad"
+]
+},
+"bad": {
+"syn": [
+"awful"
+],
+"ant": [
+"good"
+]
+},
+"fast": {
+"syn": [
+"quick"
+],
+"ant": [
+"slow"
+]
+},
+"slow": {
+"syn": [],
+"ant": [
+"fast",
+"quick"
+]
+},
+"quick": {
+"syn": [
+"fast"
+],
+"ant": [
+"slow"
+]
+},
+"easy": {
+"syn": [],
+"ant": [
+"difficult",
+"hard"
+]
+},
+"difficult": {
+"syn": [],
+"ant": [
+"easy",
+"simple"
+]
+},
+"cheap": {
+"syn": [],
+"ant": [
+"expensive"
+]
+},
+"expensive": {
+"syn": [],
+"ant": [
+"cheap"
+]
+},
+"rich": {
+"syn": [],
+"ant": [
+"poor"
+]
+},
+"poor": {
+"syn": [],
+"ant": [
+"rich"
+]
+},
+"full": {
+"syn": [],
+"ant": [
+"empty"
+]
+},
+"empty": {
+"syn": [],
+"ant": [
+"full"
+]
+},
+"clean": {
+"syn": [
+"tidy"
+],
+"ant": [
+"dirty"
+]
+},
+"dirty": {
+"syn": [],
+"ant": [
+"clean"
+]
+},
+"wet": {
+"syn": [],
+"ant": [
+"dry"
+]
+},
+"dry": {
+"syn": [],
+"ant": [
+"wet"
+]
+},
+"thick": {
+"syn": [],
+"ant": [
+"thin"
+]
+},
+"thin": {
+"syn": [],
+"ant": [
+"thick"
+]
+},
+"strong": {
+"syn": [],
+"ant": [
+"weak"
+]
+},
+"weak": {
+"syn": [],
+"ant": [
+"strong"
+]
+},
+"early": {
+"syn": [],
+"ant": [
+"late"
+]
+},
+"late": {
+"syn": [],
+"ant": [
+"early"
+]
+},
+"right": {
+"syn": [
+"correct"
+],
+"ant": [
+"left",
+"wrong"
+]
+},
+"wrong": {
+"syn": [],
+"ant": [
+"correct",
+"right"
+]
+},
+"true": {
+"syn": [],
+"ant": [
+"false"
+]
+},
+"false": {
+"syn": [],
+"ant": [
+"true"
+]
+},
+"safe": {
+"syn": [],
+"ant": [
+"dangerous"
+]
+},
+"dangerous": {
+"syn": [],
+"ant": [
+"safe"
+]
+},
+"open": {
+"syn": [],
+"ant": [
+"close",
+"shut"
+]
+},
+"close": {
+"syn": [
+"shut"
+],
+"ant": [
+"open"
+]
+},
+"loud": {
+"syn": [
+"noisy"
+],
+"ant": [
+"quiet"
+]
+},
+"quiet": {
+"syn": [],
+"ant": [
+"loud",
+"noisy"
+]
+},
+"noisy": {
+"syn": [
+"loud"
+],
+"ant": [
+"quiet"
+]
+},
+"high": {
+"syn": [],
+"ant": [
+"low"
+]
+},
+"low": {
+"syn": [],
+"ant": [
+"high"
+]
+},
+"wide": {
+"syn": [],
+"ant": [
+"narrow"
+]
+},
+"narrow": {
+"syn": [],
+"ant": [
+"wide"
+]
+},
+"hard": {
+"syn": [],
+"ant": [
+"easy",
+"soft"
+]
+},
+"soft": {
+"syn": [],
+"ant": [
+"hard"
+]
+},
+"first": {
+"syn": [],
+"ant": [
+"last"
+]
+},
+"last": {
+"syn": [],
+"ant": [
+"first"
+]
+},
+"polite": {
+"syn": [],
+"ant": [
+"rude"
+]
+},
+"rude": {
+"syn": [],
+"ant": [
+"polite"
+]
+},
+"healthy": {
+"syn": [],
+"ant": [
+"ill",
+"sick"
+]
+},
+"ill": {
+"syn": [
+"sick"
+],
+"ant": [
+"healthy"
+]
+},
+"sick": {
+"syn": [
+"ill"
+],
+"ant": [
+"healthy"
+]
+},
+"interesting": {
+"syn": [],
+"ant": [
+"boring"
+]
+},
+"boring": {
+"syn": [],
+"ant": [
+"exciting",
+"interesting"
+]
+},
+"exciting": {
+"syn": [],
+"ant": [
+"boring"
+]
+},
+"correct": {
+"syn": [
+"exact",
+"right"
+],
+"ant": [
+"wrong"
+]
+},
+"same": {
+"syn": [],
+"ant": [
+"different"
+]
+},
+"different": {
+"syn": [],
+"ant": [
+"same"
+]
+},
+"clever": {
+"syn": [
+"intelligent"
+],
+"ant": [
+"stupid"
+]
+},
+"stupid": {
+"syn": [],
+"ant": [
+"clever"
+]
+},
+"busy": {
+"syn": [],
+"ant": [
+"free"
+]
+},
+"free": {
+"syn": [],
+"ant": [
+"busy"
+]
+},
+"married": {
+"syn": [],
+"ant": [
+"single"
+]
+},
+"single": {
+"syn": [],
+"ant": [
+"married"
+]
+},
+"male": {
+"syn": [],
+"ant": [
+"female"
+]
+},
+"female": {
+"syn": [],
+"ant": [
+"male"
+]
+},
+"formal": {
+"syn": [],
+"ant": [
+"informal"
+]
+},
+"informal": {
+"syn": [],
+"ant": [
+"formal"
+]
+},
+"positive": {
+"syn": [],
+"ant": [
+"negative"
+]
+},
+"negative": {
+"syn": [],
+"ant": [
+"positive"
+]
+},
+"simple": {
+"syn": [],
+"ant": [
+"difficult"
+]
+},
+"ancient": {
+"syn": [],
+"ant": [
+"modern"
+]
+},
+"modern": {
+"syn": [],
+"ant": [
+"ancient"
+]
+},
+"always": {
+"syn": [],
+"ant": [
+"never"
+]
+},
+"never": {
+"syn": [],
+"ant": [
+"always"
+]
+},
+"before": {
+"syn": [],
+"ant": [
+"after"
+]
+},
+"after": {
+"syn": [],
+"ant": [
+"before"
+]
+},
+"above": {
+"syn": [],
+"ant": [
+"below"
+]
+},
+"below": {
+"syn": [],
+"ant": [
+"above"
+]
+},
+"inside": {
+"syn": [],
+"ant": [
+"outside"
+]
+},
+"outside": {
+"syn": [],
+"ant": [
+"inside"
+]
+},
+"in": {
+"syn": [],
+"ant": [
+"out"
+]
+},
+"out": {
+"syn": [],
+"ant": [
+"in"
+]
+},
+"up": {
+"syn": [],
+"ant": [
+"down"
+]
+},
+"down": {
+"syn": [],
+"ant": [
+"up"
+]
+},
+"upstairs": {
+"syn": [],
+"ant": [
+"downstairs"
+]
+},
+"downstairs": {
+"syn": [],
+"ant": [
+"upstairs"
+]
+},
+"here": {
+"syn": [],
+"ant": [
+"there"
+]
+},
+"there": {
+"syn": [],
+"ant": [
+"here"
+]
+},
+"together": {
+"syn": [],
+"ant": [
+"alone"
+]
+},
+"alone": {
+"syn": [],
+"ant": [
+"together"
+]
+},
+"loudly": {
+"syn": [],
+"ant": [
+"quietly"
+]
+},
+"quietly": {
+"syn": [],
+"ant": [
+"loudly"
+]
+},
+"quickly": {
+"syn": [],
+"ant": [
+"slowly"
+]
+},
+"slowly": {
+"syn": [],
+"ant": [
+"quickly"
+]
+},
+"fortunately": {
+"syn": [],
+"ant": [
+"unfortunately"
+]
+},
+"unfortunately": {
+"syn": [],
+"ant": [
+"fortunately"
+]
+},
+"come": {
+"syn": [],
+"ant": [
+"go"
+]
+},
+"go": {
+"syn": [],
+"ant": [
+"come"
+]
+},
+"arrive": {
+"syn": [],
+"ant": [
+"leave"
+]
+},
+"leave": {
+"syn": [],
+"ant": [
+"arrive"
+]
+},
+"start": {
+"syn": [
+"begin"
+],
+"ant": [
+"finish"
+]
+},
+"finish": {
+"syn": [
+"end"
+],
+"ant": [
+"begin",
+"start"
+]
+},
+"begin": {
+"syn": [
+"start"
+],
+"ant": [
+"end",
+"finish"
+]
+},
+"end": {
+"syn": [
+"finish"
+],
+"ant": [
+"begin"
+]
+},
+"win": {
+"syn": [],
+"ant": [
+"lose"
+]
+},
+"lose": {
+"syn": [],
+"ant": [
+"find",
+"win"
+]
+},
+"remember": {
+"syn": [],
+"ant": [
+"forget"
+]
+},
+"forget": {
+"syn": [],
+"ant": [
+"remember"
+]
+},
+"love": {
+"syn": [],
+"ant": [
+"hate"
+]
+},
+"hate": {
+"syn": [],
+"ant": [
+"like",
+"love"
+]
+},
+"like": {
+"syn": [
+"enjoy"
+],
+"ant": [
+"hate"
+]
+},
+"ask": {
+"syn": [],
+"ant": [
+"answer"
+]
+},
+"answer": {
+"syn": [],
+"ant": [
+"ask",
+"question"
+]
+},
+"question": {
+"syn": [],
+"ant": [
+"answer"
+]
+},
+"laugh": {
+"syn": [],
+"ant": [
+"cry"
+]
+},
+"cry": {
+"syn": [],
+"ant": [
+"laugh"
+]
+},
+"push": {
+"syn": [],
+"ant": [
+"pull"
+]
+},
+"pull": {
+"syn": [],
+"ant": [
+"push"
+]
+},
+"teach": {
+"syn": [],
+"ant": [
+"learn"
+]
+},
+"learn": {
+"syn": [],
+"ant": [
+"teach"
+]
+},
+"shut": {
+"syn": [
+"close"
+],
+"ant": [
+"open"
+]
+},
+"find": {
+"syn": [],
+"ant": [
+"lose"
+]
+},
+"stand": {
+"syn": [],
+"ant": [
+"sit"
+]
+},
+"sit": {
+"syn": [],
+"ant": [
+"stand"
+]
+},
+"wake": {
+"syn": [],
+"ant": [
+"sleep"
+]
+},
+"sleep": {
+"syn": [],
+"ant": [
+"wake"
+]
+},
+"day": {
+"syn": [],
+"ant": [
+"night"
+]
+},
+"night": {
+"syn": [],
+"ant": [
+"day"
+]
+},
+"morning": {
+"syn": [],
+"ant": [
+"evening"
+]
+},
+"evening": {
+"syn": [],
+"ant": [
+"morning"
+]
+},
+"summer": {
+"syn": [],
+"ant": [
+"winter"
+]
+},
+"winter": {
+"syn": [],
+"ant": [
+"summer"
+]
+},
+"man": {
+"syn": [],
+"ant": [
+"woman"
+]
+},
+"woman": {
+"syn": [],
+"ant": [
+"man"
+]
+},
+"boy": {
+"syn": [],
+"ant": [
+"girl"
+]
+},
+"girl": {
+"syn": [],
+"ant": [
+"boy"
+]
+},
+"husband": {
+"syn": [],
+"ant": [
+"wife"
+]
+},
+"wife": {
+"syn": [],
+"ant": [
+"husband"
+]
+},
+"father": {
+"syn": [
+"dad"
+],
+"ant": [
+"mother"
+]
+},
+"mother": {
+"syn": [
+"mum"
+],
+"ant": [
+"father"
+]
+},
+"brother": {
+"syn": [],
+"ant": [
+"sister"
+]
+},
+"sister": {
+"syn": [],
+"ant": [
+"brother"
+]
+},
+"son": {
+"syn": [],
+"ant": [
+"daughter"
+]
+},
+"daughter": {
+"syn": [],
+"ant": [
+"son"
+]
+},
+"north": {
+"syn": [],
+"ant": [
+"south"
+]
+},
+"south": {
+"syn": [],
+"ant": [
+"north"
+]
+},
+"east": {
+"syn": [],
+"ant": [
+"west"
+]
+},
+"west": {
+"syn": [],
+"ant": [
+"east"
+]
+},
+"left": {
+"syn": [],
+"ant": [
+"right"
+]
+},
+"top": {
+"syn": [],
+"ant": [
+"bottom"
+]
+},
+"bottom": {
+"syn": [],
+"ant": [
+"top"
+]
+},
+"front": {
+"syn": [],
+"ant": [
+"back"
+]
+},
+"back": {
+"syn": [],
+"ant": [
+"front"
+]
+},
+"fail": {
+"syn": [],
+"ant": [
+"pass"
+]
+},
+"pass": {
+"syn": [],
+"ant": [
+"fail"
+]
+},
+"accept": {
+"syn": [],
+"ant": [
+"refuse"
+]
+},
+"refuse": {
+"syn": [],
+"ant": [
+"accept"
+]
+},
+"appear": {
+"syn": [],
+"ant": [
+"disappear"
+]
+},
+"disappear": {
+"syn": [],
+"ant": [
+"appear"
+]
+},
+"borrow": {
+"syn": [],
+"ant": [
+"lend"
+]
+},
+"lend": {
+"syn": [],
+"ant": [
+"borrow"
+]
+},
+"sunny": {
+"syn": [],
+"ant": [
+"cloudy"
+]
+},
+"cloudy": {
+"syn": [],
+"ant": [
+"sunny"
+]
+},
+"best": {
+"syn": [],
+"ant": [
+"worst"
+]
+},
+"worst": {
+"syn": [],
+"ant": [
+"best"
+]
+},
+"better": {
+"syn": [],
+"ant": [
+"worse"
+]
+},
+"worse": {
+"syn": [],
+"ant": [
+"better"
+]
+},
+"more": {
+"syn": [],
+"ant": [
+"less"
+]
+},
+"less": {
+"syn": [],
+"ant": [
+"more"
+]
+},
+"most": {
+"syn": [],
+"ant": [
+"least"
+]
+},
+"least": {
+"syn": [],
+"ant": [
+"most"
+]
+},
+"many": {
+"syn": [],
+"ant": [
+"few"
+]
+},
+"few": {
+"syn": [],
+"ant": [
+"many"
+]
+},
+"much": {
+"syn": [],
+"ant": [
+"little"
+]
+},
+"little": {
+"syn": [
+"small"
+],
+"ant": [
+"much"
+]
+},
+"all": {
+"syn": [
+"whole"
+],
+"ant": [
+"none"
+]
+},
+"none": {
+"syn": [],
+"ant": [
+"all"
+]
+},
+"everything": {
+"syn": [],
+"ant": [
+"nothing"
+]
+},
+"nothing": {
+"syn": [],
+"ant": [
+"everything"
+]
+},
+"everywhere": {
+"syn": [],
+"ant": [
+"nowhere"
+]
+},
+"nowhere": {
+"syn": [],
+"ant": [
+"everywhere",
+"somewhere"
+]
+},
+"somewhere": {
+"syn": [],
+"ant": [
+"nowhere"
+]
+},
+"with": {
+"syn": [],
+"ant": [
+"without"
+]
+},
+"without": {
+"syn": [],
+"ant": [
+"with"
+]
+},
+"for": {
+"syn": [],
+"ant": [
+"against"
+]
+},
+"against": {
+"syn": [],
+"ant": [
+"for"
+]
+},
+"normal": {
+"syn": [
+"ordinary"
+],
+"ant": []
+},
+"strange": {
+"syn": [
+"unusual"
+],
+"ant": []
+},
+"ordinary": {
+"syn": [
+"normal"
+],
+"ant": []
+},
+"local": {
+"syn": [],
+"ant": [
+"foreign"
+]
+},
+"foreign": {
+"syn": [],
+"ant": [
+"local"
+]
+},
+"whole": {
+"syn": [
+"all"
+],
+"ant": []
+},
+"large": {
+"syn": [
+"big"
+],
+"ant": []
+},
+"huge": {
+"syn": [
+"big",
+"enormous"
+],
+"ant": []
+},
+"enormous": {
+"syn": [
+"huge"
+],
+"ant": []
+},
+"afraid": {
+"syn": [
+"scared"
+],
+"ant": []
+},
+"scared": {
+"syn": [
+"afraid"
+],
+"ant": []
+},
+"awful": {
+"syn": [
+"bad",
+"terrible"
+],
+"ant": []
+},
+"terrible": {
+"syn": [
+"awful"
+],
+"ant": []
+},
+"great": {
+"syn": [
+"wonderful"
+],
+"ant": []
+},
+"wonderful": {
+"syn": [
+"fantastic",
+"great"
+],
+"ant": []
+},
+"fantastic": {
+"syn": [
+"brilliant",
+"wonderful"
+],
+"ant": []
+},
+"amazing": {
+"syn": [
+"incredible"
+],
+"ant": []
+},
+"incredible": {
+"syn": [
+"amazing"
+],
+"ant": []
+},
+"brilliant": {
+"syn": [
+"fantastic"
+],
+"ant": []
+},
+"intelligent": {
+"syn": [
+"clever"
+],
+"ant": []
+},
+"exact": {
+"syn": [
+"correct"
+],
+"ant": []
+},
+"nice": {
+"syn": [
+"kind"
+],
+"ant": []
+},
+"kind": {
+"syn": [
+"nice"
+],
+"ant": []
+},
+"beautiful": {
+"syn": [
+"attractive",
+"pretty"
+],
+"ant": []
+},
+"pretty": {
+"syn": [
+"beautiful"
+],
+"ant": []
+},
+"attractive": {
+"syn": [
+"beautiful"
+],
+"ant": []
+},
+"angry": {
+"syn": [
+"cross"
+],
+"ant": []
+},
+"cross": {
+"syn": [
+"angry"
+],
+"ant": []
+},
+"maybe": {
+"syn": [
+"perhaps"
+],
+"ant": []
+},
+"perhaps": {
+"syn": [
+"maybe"
+],
+"ant": []
+},
+"probably": {
+"syn": [
+"likely"
+],
+"ant": []
+},
+"likely": {
+"syn": [
+"probably"
+],
+"ant": []
+},
+"certainly": {
+"syn": [
+"definitely"
+],
+"ant": []
+},
+"definitely": {
+"syn": [
+"certainly"
+],
+"ant": []
+},
+"unusual": {
+"syn": [
+"strange"
+],
+"ant": []
+},
+"speak": {
+"syn": [
+"talk"
+],
+"ant": []
+},
+"talk": {
+"syn": [
+"speak"
+],
+"ant": []
+},
+"choose": {
+"syn": [
+"pick"
+],
+"ant": []
+},
+"pick": {
+"syn": [
+"choose"
+],
+"ant": []
+},
+"want": {
+"syn": [
+"wish"
+],
+"ant": []
+},
+"wish": {
+"syn": [
+"want"
+],
+"ant": []
+},
+"enjoy": {
+"syn": [
+"like"
+],
+"ant": []
+},
+"movie": {
+"syn": [
+"film"
+],
+"ant": []
+},
+"film": {
+"syn": [
+"movie"
+],
+"ant": []
+},
+"holiday": {
+"syn": [
+"vacation"
+],
+"ant": []
+},
+"vacation": {
+"syn": [
+"holiday"
+],
+"ant": []
+},
+"shop": {
+"syn": [
+"store"
+],
+"ant": []
+},
+"store": {
+"syn": [
+"shop"
+],
+"ant": []
+},
+"dad": {
+"syn": [
+"father"
+],
+"ant": []
+},
+"mum": {
+"syn": [
+"mother"
+],
+"ant": []
+},
+"bike": {
+"syn": [
+"bicycle"
+],
+"ant": []
+},
+"bicycle": {
+"syn": [
+"bike"
+],
+"ant": []
+},
+"photo": {
+"syn": [
+"picture"
+],
+"ant": []
+},
+"picture": {
+"syn": [
+"photo"
+],
+"ant": []
+},
+"kid": {
+"syn": [
+"child"
+],
+"ant": []
+},
+"child": {
+"syn": [
+"kid"
+],
+"ant": []
+},
+"road": {
+"syn": [
+"street"
+],
+"ant": []
+},
+"street": {
+"syn": [
+"road"
+],
+"ant": []
+},
+"present": {
+"syn": [
+"gift"
+],
+"ant": []
+},
+"gift": {
+"syn": [
+"present"
+],
+"ant": []
+},
+"centre": {
+"syn": [
+"middle"
+],
+"ant": []
+},
+"middle": {
+"syn": [
+"centre"
+],
+"ant": []
+},
+"plate": {
+"syn": [
+"dish"
+],
+"ant": []
+},
+"dish": {
+"syn": [
+"plate"
+],
+"ant": []
+},
+"autumn": {
+"syn": [
+"fall"
+],
+"ant": []
+},
+"fall": {
+"syn": [
+"autumn"
+],
+"ant": []
+},
+"lorry": {
+"syn": [
+"truck"
+],
+"ant": []
+},
+"truck": {
+"syn": [
+"lorry"
+],
+"ant": []
+},
+"also": {
+"syn": [
+"too"
+],
+"ant": []
+},
+"too": {
+"syn": [
+"also"
+],
+"ant": []
+},
+"tidy": {
+"syn": [
+"clean"
+],
+"ant": []
+},
+"sure": {
+"syn": [
+"certain"
+],
+"ant": []
+},
+"certain": {
+"syn": [
+"sure"
+],
+"ant": []
+},
+"main": {
+"syn": [
+"major"
+],
+"ant": []
+},
+"major": {
+"syn": [
+"main"
+],
+"ant": []
+}
+}
+}

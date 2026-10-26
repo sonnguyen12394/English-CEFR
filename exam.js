@@ -7,17 +7,23 @@
 // Bỏ "chọn từ điền câu" (xM): từ nhiễu tự chọn cùng loại từ có thể cũng đúng ("The ___ is sleeping.": cat / grandmother); xM giữ trong mã, không ra đề.
 // Hai cấp (23/10/2026): Pre-A1 thi 2 vòng × 30 câu (vòng 1 ≥ 26 qua, ≤ 21 chưa qua, giữa thì vòng 2, cần ≥ 48/60; mô phỏng: năng lực 70% → 7% qua,
 // 85% → 89%), chỉ từ Pre-A1, qua một lần là mở A1 (không thi lại bền). A1 như trên, có thi lại bền; từ 25/10/2026 mỗi vòng 28 câu A1 + 12 câu Pre-A1 (thi dồn cấp trước).
+// 26/10/2026 (🔁 Nhớ = 12 yêu cầu theo cấp, dồn cấp): đề có câu cho yêu cầu mới của từng cấp, cấp trên giữ dạng của cấp dưới.
+//   Pre-A1: + 🔤 nhận đúng chữ (xF). A1: + 🔗 cụm (xC), 🔀 nhận ra dạng bất quy tắc (xR). A2, A2+: + ↔️ đồng / trái nghĩa (xS), 🎭 nghĩa thứ hai (xG), ✏️ tự gõ dạng bất quy tắc (xI).
+//   Câu dạng mới chỉ ra cho từ có dữ liệu; không đủ từ thì thành câu gõ từ vào câu (xT).
+const mix = o => Object.entries(o).flatMap(([t, n]) => Array(n).fill(t));
 const XL = {
-  pre: { N: 30, HI: 26, LO: 21, TOT: 48, MIX: [...Array(16).fill('xT'), ...Array(6).fill('xN'), ...Array(8).fill('xL')], retest: false },
+  pre: { N: 30, HI: 26, LO: 21, TOT: 48, MIX: mix({ xT: 13, xF: 3, xN: 6, xL: 8 }), retest: false },
   // 25/10/2026 (người sáng lập: thi tính dồn cấp trước): A1, A2, A2+ mỗi vòng 28 câu từ cấp mới + 12 câu (30%) từ các cấp trước.
-  a1: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 12 },
-  // A2 (23/10/2026): như A1; mỗi vòng 3/4 câu từ A2, 1/4 câu từ Pre-A1 + A1 (kiểm nhớ lâu); mở khi qua Thi A1 lần 1, cổng cần thêm A1 "Đạt bền".
-  a2: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 12 },
-  // A2+ (23/10/2026): như A2; 1/4 câu từ A2; mở khi qua Thi A2 lần 1, cổng cần A2 "Đạt bền".
-  a2p: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: [...Array(22).fill('xT'), ...Array(8).fill('xN'), ...Array(10).fill('xL')], retest: true, old: 12 },
+  a1: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 18, xF: 2, xC: 3, xR: 3, xN: 6, xL: 8 }), retest: true, old: 12 },
+  // A2 (23/10/2026): như A1; mở khi qua Thi A1 lần 1, cổng cần thêm A1 "Đạt bền".
+  a2: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 14, xF: 1, xC: 2, xR: 1, xS: 3, xG: 3, xI: 3, xN: 5, xL: 8 }), retest: true, old: 12 },
+  // A2+ (23/10/2026): như A2; mở khi qua Thi A2 lần 1, cổng cần A2 "Đạt bền".
+  a2p: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 14, xF: 1, xC: 2, xR: 1, xS: 3, xG: 3, xI: 3, xN: 5, xL: 8 }), retest: true, old: 12 },
 };
 const X = { RETEST_D: 14, RETRY_D: 7 };
-const X_DIM = { xT: ['viet', 'dung'], xM: ['dung'], xN: ['nghia'], xL: ['nghe'] };
+const X_DIM = { xT: ['viet', 'dung', 'nhora'], xM: ['dung'], xN: ['nghia'], xL: ['nghe'], xF: ['chu'], xC: ['cum'], xR: ['bqt'], xS: ['lienq'], xG: ['nghia2'], xI: ['bqt2'] };
+// dạng câu thi dùng câu của 🏋️ Luyện tập (questionX / question) và dữ liệu từ cần có
+const X_Q = { xF: ['form', () => true], xC: ['col', w => !!w.col], xR: ['irrR', w => !!w.irr], xS: ['rel', w => !!w.rel], xG: ['s2', w => !!w.s2], xI: ['irrT', w => !!w.irr] };
 let EB = null;   // ngân hàng câu thi
 // Gõ từ có gợi ý nghĩa: nhiều từ A1 chung nghĩa tiếng Việt (114 nhóm) nhưng phần lớn không thay nhau được trong câu (I / me "tôi").
 // Chỉ chấp nhận từ đồng nghĩa THẬT, thay được trong hầu hết câu (chọn tay, chưa người thật kiểm); dạng chữ theo câu (films ↔ movies).
@@ -32,8 +38,9 @@ const xBlank = (s, f) => s.replace(new RegExp(`(?<![A-Za-z'])${f.replace(/[.*+?^
 // dạng của từ đích trong câu: dùng cùng đuôi cho từ nhiễu (cats → dogs); không suy được thì dùng câu gõ
 const inflect = (base, form, other) => { const b = base.toLowerCase(), f = form.toLowerCase(); if (f === b) return other; if (f.startsWith(b)) return other + f.slice(b.length); return null; };
 function examQ(w, type) {
-  const e = EB[w.id], s = e.s, f = e.f;
   window.XSAY = null;
+  if (X_Q[type]) { const q = X_Q[type][1](w) && (questionX(w, X_Q[type][0]) || question(w, X_Q[type][0])); if (q && q.type === X_Q[type][0]) return { ...q, type }; type = 'xT'; }
+  const e = EB[w.id], s = e.s, f = e.f;
   if (type === 'xM') { const ds = [...new Map(samePos(w, 8).map(x => inflect(w.w, f, x.w)).filter(Boolean).filter(x => x.toLowerCase() !== f.toLowerCase()).map(x => [x.toLowerCase(), x])).values()];
     if (ds.length >= 3) return { type, top: esc(xBlank(s, f)), sub: 'Chọn từ điền vào chỗ trống.', a: f, opts: shuf([f, ...ds.slice(0, 3)]) };
     type = 'xT'; }
@@ -77,7 +84,10 @@ async function exam(lv) {
   if (pool.length - pool.filter(w => used.has(w.id)).length < 2 * C.N) used.clear();
   const oldPool = C.old ? memWords(LEVELS[LEVELS.indexOf(lv) - 1]).filter(w => EB[w.id]) : [];   // câu từ mọi cấp trước
   const draw = () => { const ws = [...shuf(pool.filter(w => !used.has(w.id))).slice(0, C.N - (C.old || 0)), ...shuf(oldPool.filter(w => !used.has(w.id))).slice(0, C.old || 0)];
-    ws.forEach(w => used.add(w.id)); const ty = shuf(C.MIX); return shuf(ws).map((w, i) => ({ w, type: ty[i] })); };
+    ws.forEach(w => used.add(w.id));
+    // dạng cần dữ liệu riêng xếp trước, mỗi dạng lấy từ có dữ liệu đó; hết từ phù hợp thì thành câu gõ (xT)
+    const ty = shuf(C.MIX).sort((a, b) => !!X_Q[b] - !!X_Q[a]), rest = shuf(ws);
+    return shuf(ty.map(t => { let i = X_Q[t] ? rest.findIndex(X_Q[t][1]) : 0; if (i < 0) { t = 'xT'; i = 0; } return { w: rest.splice(i, 1)[0], type: t }; })); };
   const tally = { ok: 0, n: 0, dim: {}, wrong: [] };
   const round = (no, items, next) => run({ title: `🚪 Thi ${name}${re ? ' (thi lại)' : ''} · vòng ${no}`, items, retry: false, quiet: true,
     first: (it, good, type) => { tally.n++; if (good) tally.ok++; else tally.wrong.push(it.w); for (const k of X_DIM[type] || []) { const d = tally.dim[k] = tally.dim[k] || [0, 0]; d[1]++; if (good) d[0]++; } },
@@ -95,7 +105,7 @@ async function exam(lv) {
     const next = LVN[LEVELS[LEVELS.indexOf(lv) + 1]];
     const h = !pass ? '❌ Chưa qua' : lv === 'pre' ? (first ? '✅ Qua Thi chuyển cấp Pre-A1: đã mở bài A1' : '✅ Qua') : re ? `✅ Qua lần thi lại: Đạt bền từ vựng ${name}` : `✅ Qua Thi chuyển cấp ${name} (lần 1)${first && next ? `: đã mở bài ${next}` : ''}`;
     $app.innerHTML = `<div class="box"><b>${h}</b>
-      <p>Đúng ${tally.ok}/${tally.n}.</p><p class="mute">${DIMS.map(([k, l]) => tally.dim[k] ? `${l} ${tally.dim[k][0]}/${tally.dim[k][1]}` : '').filter(Boolean).join(' · ')}</p>
+      <p>Đúng ${tally.ok}/${tally.n}.</p><p class="mute">${dimsAt(lv).map(([k, l]) => tally.dim[k] ? `${l} ${tally.dim[k][0]}/${tally.dim[k][1]}` : '').filter(Boolean).join(' · ')}</p>
  <p class="mute">${pass && C.retest && !re ? st.p : !pass ? 'Luyện tập thêm, nhất là mặt có điểm thấp ở trên, rồi thi lại.' : ''}</p></div>
       ${tally.wrong.length ? `<h2>Từ làm sai</h2>${tally.wrong.map(w => `<div>${esc(w.w)}: ${esc(w.vi)} <span class="mute">· ${esc(EB[w.id].s)}</span></div>`).join('')}` : ''}
       <button class="pri" data-a="home">Về trang chính</button>`;

@@ -1,0 +1,518 @@
+{
+"_": "Nghĩa thứ hai thông dụng cho yêu cầu #11 (A2). AI soạn 26/10/2026, chưa người thật kiểm. Câu hỏi: đọc câu, chọn nghĩa của từ in đậm; phương án sai gồm nghĩa thường gặp (nghĩa thứ nhất) và 1–2 nghĩa khác.",
+"w": {
+"run": {
+"vi": "quản lý, điều hành",
+"ex": "My aunt runs a small café near the station.",
+"exVi": "Dì tôi quản lý một quán cà phê nhỏ gần ga.",
+"w": [
+"sửa chữa",
+"mua lại"
+]
+},
+"light": {
+"vi": "nhẹ",
+"ex": "This bag is very light. I can carry it with one hand.",
+"exVi": "Cái túi này rất nhẹ. Tôi xách được bằng một tay.",
+"w": [
+"sáng sủa",
+"đắt tiền"
+]
+},
+"right": {
+"vi": "bên phải",
+"ex": "Turn right at the bank.",
+"exVi": "Rẽ phải ở chỗ ngân hàng.",
+"w": [
+"đúng",
+"thẳng"
+]
+},
+"watch": {
+"vi": "đồng hồ đeo tay",
+"ex": "My grandfather gave me a watch for my birthday.",
+"exVi": "Ông tặng tôi một chiếc đồng hồ đeo tay nhân dịp sinh nhật.",
+"w": [
+"cái ví",
+"điện thoại"
+]
+},
+"play": {
+"vi": "vở kịch",
+"ex": "We saw a funny play at the theatre last night.",
+"exVi": "Tối qua chúng tôi xem một vở kịch vui ở nhà hát.",
+"w": [
+"trận đấu",
+"bài hát"
+]
+},
+"book": {
+"vi": "đặt (chỗ, vé)",
+"ex": "I want to book a table for four people.",
+"exVi": "Tôi muốn đặt một bàn cho bốn người.",
+"w": [
+"đọc",
+"mua"
+]
+},
+"kind": {
+"vi": "loại, kiểu",
+"ex": "What kind of music do you like?",
+"exVi": "Bạn thích loại nhạc nào?",
+"w": [
+"tốt bụng",
+"bài"
+]
+},
+"fine": {
+"vi": "tiền phạt",
+"ex": "He paid a fine because he parked in the wrong place.",
+"exVi": "Anh ấy nộp tiền phạt vì đỗ xe sai chỗ.",
+"w": [
+"khoẻ",
+"vé xe"
+]
+},
+"mean": {
+"vi": "có ý là, nghĩa là",
+"ex": "What does this word mean?",
+"exVi": "Từ này nghĩa là gì?",
+"w": [
+"keo kiệt",
+"nói to"
+]
+},
+"last": {
+"vi": "kéo dài",
+"ex": "The film lasts two hours.",
+"exVi": "Bộ phim kéo dài hai tiếng.",
+"w": [
+"cuối cùng",
+"bắt đầu"
+]
+},
+"left": {
+"vi": "đã rời đi (quá khứ của leave)",
+"ex": "She left the house at seven.",
+"exVi": "Cô ấy rời nhà lúc bảy giờ.",
+"w": [
+"bên trái",
+"quên"
+]
+},
+"train": {
+"vi": "tập luyện",
+"ex": "He trains at the gym every morning.",
+"exVi": "Sáng nào anh ấy cũng tập ở phòng gym.",
+"w": [
+"tàu hoả",
+"đi tàu"
+]
+},
+"ring": {
+"vi": "gọi điện",
+"ex": "I will ring you tomorrow.",
+"exVi": "Mai tôi sẽ gọi điện cho bạn.",
+"w": [
+"chiếc nhẫn",
+"gõ cửa"
+]
+},
+"match": {
+"vi": "que diêm",
+"ex": "He lit a candle with a match.",
+"exVi": "Anh ấy châm nến bằng que diêm.",
+"w": [
+"trận đấu",
+"cái bật lửa"
+]
+},
+"change": {
+"vi": "tiền thừa, tiền lẻ",
+"ex": "Here is your change: two dollars.",
+"exVi": "Đây là tiền thừa của bạn: hai đô.",
+"w": [
+"thay đổi",
+"hoá đơn"
+]
+},
+"date": {
+"vi": "quả chà là / cuộc hẹn hò",
+"ex": "They went on a date to the cinema.",
+"exVi": "Họ hẹn hò đi xem phim.",
+"w": [
+"ngày tháng",
+"bữa tiệc"
+]
+},
+"miss": {
+"vi": "nhớ (ai đó)",
+"ex": "I miss my family when I travel.",
+"exVi": "Tôi nhớ gia đình khi đi xa.",
+"w": [
+"lỡ (xe, chuyến)",
+"gặp"
+]
+},
+"cool": {
+"vi": "tuyệt, hay",
+"ex": "Your new bike is really cool!",
+"exVi": "Xe đạp mới của bạn tuyệt thật!",
+"w": [
+"mát",
+"lạnh lẽo"
+]
+},
+"hard": {
+"vi": "chăm chỉ (làm việc)",
+"ex": "She works very hard every day.",
+"exVi": "Ngày nào cô ấy cũng làm việc rất chăm chỉ.",
+"w": [
+"cứng",
+"khó"
+]
+},
+"land": {
+"vi": "hạ cánh",
+"ex": "The plane will land at 6 p.m.",
+"exVi": "Máy bay sẽ hạ cánh lúc 6 giờ chiều.",
+"w": [
+"đất đai",
+"cất cánh"
+]
+},
+"order": {
+"vi": "gọi món",
+"ex": "Are you ready to order?",
+"exVi": "Anh chị gọi món chưa?",
+"w": [
+"thứ tự",
+"mệnh lệnh"
+]
+},
+"bill": {
+"vi": "hoá đơn tính tiền",
+"ex": "Can we have the bill, please?",
+"exVi": "Cho chúng tôi xin hoá đơn.",
+"w": [
+"tờ tiền",
+"thực đơn"
+]
+},
+"note": {
+"vi": "tờ tiền giấy",
+"ex": "I only have a ten-dollar note.",
+"exVi": "Tôi chỉ có tờ mười đô.",
+"w": [
+"ghi chú",
+"nốt nhạc"
+]
+},
+"glass": {
+"vi": "kính (vật liệu)",
+"ex": "The window is made of glass.",
+"exVi": "Cửa sổ làm bằng kính.",
+"w": [
+"cái cốc",
+"gương"
+]
+},
+"pretty": {
+"vi": "khá (= quite)",
+"ex": "The test was pretty easy.",
+"exVi": "Bài kiểm tra khá dễ.",
+"w": [
+"xinh đẹp",
+"rất khó"
+]
+},
+"show": {
+"vi": "chương trình (TV)",
+"ex": "My favourite TV show starts at eight.",
+"exVi": "Chương trình TV tôi thích bắt đầu lúc tám giờ.",
+"w": [
+"cho xem",
+"buổi họp"
+]
+},
+"fly": {
+"vi": "con ruồi",
+"ex": "There is a fly in my soup!",
+"exVi": "Có con ruồi trong bát súp của tôi!",
+"w": [
+"bay",
+"con muỗi"
+]
+},
+"can": {
+"vi": "lon, hộp kim loại",
+"ex": "I bought a can of cola.",
+"exVi": "Tôi mua một lon cô-la.",
+"w": [
+"có thể",
+"cái chai"
+]
+},
+"park": {
+"vi": "đỗ xe",
+"ex": "You can't park here.",
+"exVi": "Bạn không được đỗ xe ở đây.",
+"w": [
+"công viên",
+"đi bộ"
+]
+},
+"present": {
+"vi": "món quà",
+"ex": "Thank you for the lovely present!",
+"exVi": "Cảm ơn món quà xinh xắn!",
+"w": [
+"hiện tại",
+"có mặt"
+]
+},
+"ground": {
+"vi": "mặt đất",
+"ex": "The ball fell on the ground.",
+"exVi": "Quả bóng rơi xuống đất.",
+"w": [
+"tầng trệt",
+"sân vận động"
+]
+},
+"point": {
+"vi": "chỉ (tay vào)",
+"ex": "Don't point at people. It's rude.",
+"exVi": "Đừng chỉ tay vào người khác. Như thế là bất lịch sự.",
+"w": [
+"điểm số",
+"gọi tên"
+]
+},
+"face": {
+"vi": "đối mặt, quay về phía",
+"ex": "My bedroom faces the sea.",
+"exVi": "Phòng ngủ của tôi nhìn ra biển.",
+"w": [
+"khuôn mặt",
+"rời xa"
+]
+},
+"hand": {
+"vi": "đưa (cho ai)",
+"ex": "Can you hand me that book?",
+"exVi": "Bạn đưa tôi cuốn sách kia được không?",
+"w": [
+"bàn tay",
+"đọc"
+]
+},
+"head": {
+"vi": "đi về phía",
+"ex": "We headed home after the film.",
+"exVi": "Xem phim xong chúng tôi đi về nhà.",
+"w": [
+"cái đầu",
+"nghỉ ngơi"
+]
+},
+"back": {
+"vi": "ủng hộ / lưng",
+"ex": "My back hurts after work.",
+"exVi": "Lưng tôi đau sau giờ làm.",
+"w": [
+"phía sau",
+"trở lại"
+]
+},
+"step": {
+"vi": "bậc thang",
+"ex": "Be careful, there is a step here.",
+"exVi": "Cẩn thận, chỗ này có bậc.",
+"w": [
+"bước chân",
+"cửa"
+]
+},
+"stamp": {
+"vi": "con tem",
+"ex": "I need a stamp for this letter.",
+"exVi": "Tôi cần một con tem cho lá thư này.",
+"w": [
+"dậm chân",
+"phong bì"
+]
+},
+"cold": {
+"vi": "bệnh cảm lạnh",
+"ex": "I have a cold, so I'm staying at home.",
+"exVi": "Tôi bị cảm nên ở nhà.",
+"w": [
+"lạnh",
+"sốt cao"
+]
+},
+"letter": {
+"vi": "chữ cái",
+"ex": "The word \"cat\" has three letters.",
+"exVi": "Từ \"cat\" có ba chữ cái.",
+"w": [
+"lá thư",
+"âm tiết"
+]
+},
+"board": {
+"vi": "lên (tàu, máy bay)",
+"ex": "Passengers can board the plane now.",
+"exVi": "Hành khách có thể lên máy bay rồi.",
+"w": [
+"cái bảng",
+"xuống"
+]
+},
+"break": {
+"vi": "giờ nghỉ giải lao",
+"ex": "Let's have a ten-minute break.",
+"exVi": "Mình nghỉ giải lao mười phút nhé.",
+"w": [
+"làm vỡ",
+"bữa sáng"
+]
+},
+"save": {
+"vi": "tiết kiệm (tiền)",
+"ex": "I'm saving money for a new phone.",
+"exVi": "Tôi đang để dành tiền mua điện thoại mới.",
+"w": [
+"cứu",
+"tiêu"
+]
+},
+"just": {
+"vi": "vừa mới",
+"ex": "I have just finished my homework.",
+"exVi": "Tôi vừa làm xong bài tập.",
+"w": [
+"công bằng",
+"chỉ"
+]
+},
+"still": {
+"vi": "vẫn (còn)",
+"ex": "She is still at school.",
+"exVi": "Cô ấy vẫn còn ở trường.",
+"w": [
+"yên lặng",
+"đã"
+]
+},
+"well": {
+"vi": "giếng nước",
+"ex": "The village gets water from an old well.",
+"exVi": "Làng lấy nước từ một cái giếng cũ.",
+"w": [
+"tốt",
+"sông"
+]
+},
+"spring": {
+"vi": "mùa xuân / lò xo",
+"ex": "Flowers grow in spring.",
+"exVi": "Hoa mọc vào mùa xuân.",
+"w": [
+"nhảy",
+"mùa hè"
+]
+},
+"fall": {
+"vi": "mùa thu (Mỹ)",
+"ex": "The leaves turn red in the fall.",
+"exVi": "Lá chuyển đỏ vào mùa thu.",
+"w": [
+"ngã",
+"mùa đông"
+]
+},
+"wave": {
+"vi": "vẫy tay",
+"ex": "She waved goodbye from the train.",
+"exVi": "Cô ấy vẫy tay chào từ trên tàu.",
+"w": [
+"sóng",
+"gọi to"
+]
+},
+"type": {
+"vi": "đánh máy, gõ",
+"ex": "Can you type your name here?",
+"exVi": "Bạn gõ tên vào đây được không?",
+"w": [
+"loại",
+"viết tay"
+]
+},
+"class": {
+"vi": "lớp học (giờ học)",
+"ex": "My English class starts at nine.",
+"exVi": "Giờ học tiếng Anh của tôi bắt đầu lúc chín giờ.",
+"w": [
+"hạng",
+"phòng ngủ"
+]
+},
+"lie": {
+"vi": "nói dối",
+"ex": "Don't lie to me. Tell me the truth.",
+"exVi": "Đừng nói dối tôi. Nói thật đi.",
+"w": [
+"nằm",
+"hứa"
+]
+},
+"top": {
+"vi": "áo (phần trên)",
+"ex": "She is wearing a blue top.",
+"exVi": "Cô ấy mặc một chiếc áo màu xanh.",
+"w": [
+"đỉnh",
+"mũ"
+]
+},
+"square": {
+"vi": "quảng trường",
+"ex": "We met in the main square.",
+"exVi": "Chúng tôi gặp nhau ở quảng trường chính.",
+"w": [
+"hình vuông",
+"ngã tư"
+]
+},
+"sign": {
+"vi": "ký (tên)",
+"ex": "Please sign here.",
+"exVi": "Xin ký vào đây.",
+"w": [
+"biển báo",
+"đọc"
+]
+},
+"turn": {
+"vi": "lượt",
+"ex": "It's your turn to play.",
+"exVi": "Đến lượt bạn chơi.",
+"w": [
+"rẽ",
+"bàn"
+]
+},
+"mind": {
+"vi": "phiền (không)",
+"ex": "Do you mind if I open the window?",
+"exVi": "Bạn có phiền không nếu tôi mở cửa sổ?",
+"w": [
+"tâm trí",
+"nhớ"
+]
+}
+}
+}

@@ -93,7 +93,9 @@ async function bkSet(part, lv, stage) { await Promise.all([paLoad(), ...Object.v
     const P = KIT[id], k = kSt(id); for (const x of P.items.filter(x => x.lv === l)) delete k.cards[x.id]; k.runs = k.runs.filter(r => r.lv !== l); };
   const put = (id, l, st) => { if (!has(id, l)) return 0; clear(id, l); if (st === 'chua') return 1; const held = st !== 'hoc';
     if (id === 'tv') { for (const u of UNITS.filter(u => u.lv === l)) S.units[u.id] = { d: dayOf(now) - 3 };
-      for (const w of levelWords(l)) S.cards[w.id] = bkCard(held, DIMS.map(d => d[0])); if (st === 'dat') xs().runs.push(run(l), run(l, 1)); return 1; }
+      for (const w of levelWords(l)) { const c = S.cards[w.id] = bkCard(held, DIMS.map(d => d[0]));
+        // bài ⬆️ Nâng cấp của các cấp sau tới cấp đang đặt coi như đã học (cấp xa hơn thì chưa)
+        for (const L of ['a1', 'a2']) if (lvIdx(L) > lvIdx(l) && BK_LV.indexOf(L) <= BK_LV.indexOf(lv)) (c.du = c.du || {})[L] = c.d0; } if (st === 'dat') xs().runs.push(run(l), run(l, 1)); return 1; }
     if (id === 'pa') { for (const x of PA.filter(x => x.lv === l)) paSt()[x.id] = bkCard(held, PA_DIMS.map(d => d[0])); if (st === 'dat') paRuns().push(run(l)); return 1; }
     const P = KIT[id]; for (const x of kItems(P, l)) kSt(id).cards[x.id] = bkCard(held, kDimsOf(P, x)); if (st === 'dat') kSt(id).runs.push(run(l)); return 1; };
   const ids = part === 'all' ? BK_PARTS.map(p => p[0]) : [part], done = [], i = BK_LV.indexOf(lv);
