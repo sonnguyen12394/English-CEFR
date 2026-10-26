@@ -1,0 +1,988 @@
+{
+ "_note": "Sửa và bổ sung Pre-A1 (26/10/2026, người sáng lập duyệt 'ok làm đi' sau buổi kiểm thử Pre-A1). Áp vào a1.json + exam-a1.json bằng: node tools/fix-pre.mjs (chạy lại sau mỗi lần tools/build-levels.mjs / build-exam.mjs). AI soạn, chưa người thật kiểm.",
+ "pic": {
+  "floor": "",
+  "table": "",
+  "get": "",
+  "then": "",
+  "as": "",
+  "be": "",
+  "some": "",
+  "them": "",
+  "mine": "",
+  "his": "",
+  "her": "",
+  "its": "",
+  "their": "",
+  "goodbye": "👋",
+  "eleven": "1️⃣1️⃣",
+  "twelve": "1️⃣2️⃣",
+  "thirteen": "1️⃣3️⃣",
+  "fourteen": "1️⃣4️⃣",
+  "fifteen": "1️⃣5️⃣",
+  "sixteen": "1️⃣6️⃣",
+  "seventeen": "1️⃣7️⃣",
+  "eighteen": "1️⃣8️⃣",
+  "nineteen": "1️⃣9️⃣",
+  "twenty": "2️⃣0️⃣",
+  "thirty": "3️⃣0️⃣",
+  "forty": "4️⃣0️⃣",
+  "fifty": "5️⃣0️⃣",
+  "sixty": "6️⃣0️⃣",
+  "seventy": "7️⃣0️⃣",
+  "eighty": "8️⃣0️⃣",
+  "ninety": "9️⃣0️⃣",
+  "hobby": "",
+  "wear": "👕",
+  "may": "📅"
+ },
+ "word": {
+  "book": {
+   "pos": "noun",
+   "pic": "📕",
+   "vi": "quyển sách",
+   "en": "a set of printed pages that you read",
+   "ex": "I have a new book about animals.",
+   "exVi": "Tôi có một quyển sách mới về động vật.",
+   "cloze": {
+    "s": "I am reading a very good ___.",
+    "a": "book",
+    "w": [
+     "books",
+     "booking"
+    ]
+   },
+   "col": {
+    "ok": "read a book",
+    "bad": [
+     "see a book",
+     "do a book"
+    ]
+   },
+   "exam": {
+    "s": "Open your book at page ten.",
+    "f": "book"
+   }
+  }
+ },
+ "units": [
+  {
+   "id": "pre-c16-b1",
+   "vi": "Bổ sung Starters 1: người và đồ dùng",
+   "words": [
+    {
+     "id": "children",
+     "w": "children",
+     "pos": "noun",
+     "ipa": "/ˈtʃɪldrən/",
+     "pic": "🧒🧒",
+     "vi": "những đứa trẻ (số nhiều của child)",
+     "en": "more than one child",
+     "ex": "The children are playing in the park.",
+     "exVi": "Bọn trẻ đang chơi trong công viên.",
+     "cloze": {
+      "s": "One child, two ___.",
+      "a": "children",
+      "w": [
+       "childs",
+       "childrens"
+      ]
+     },
+     "col": {
+      "ok": "the children are",
+      "bad": [
+       "the children is",
+       "the childrens are"
+      ]
+     },
+     "exam": {
+      "s": "There are ten children in the room.",
+      "f": "children"
+     }
+    },
+    {
+     "id": "men",
+     "w": "men",
+     "pos": "noun",
+     "ipa": "/men/",
+     "pic": "👨👨",
+     "vi": "những người đàn ông (số nhiều của man)",
+     "en": "more than one man",
+     "ex": "Two men are sitting on the bench.",
+     "exVi": "Hai người đàn ông đang ngồi trên ghế dài.",
+     "cloze": {
+      "s": "One man, three ___.",
+      "a": "men",
+      "w": [
+       "mans",
+       "mens"
+      ]
+     },
+     "col": {
+      "ok": "two men",
+      "bad": [
+       "two man",
+       "two mans"
+      ]
+     },
+     "exam": {
+      "s": "The men are wearing hats.",
+      "f": "men"
+     }
+    },
+    {
+     "id": "women",
+     "w": "women",
+     "pos": "noun",
+     "ipa": "/ˈwɪmɪn/",
+     "pic": "👩👩",
+     "vi": "những người phụ nữ (số nhiều của woman)",
+     "en": "more than one woman",
+     "ex": "The women are talking in the kitchen.",
+     "exVi": "Những người phụ nữ đang nói chuyện trong bếp.",
+     "cloze": {
+      "s": "One woman, two ___.",
+      "a": "women",
+      "w": [
+       "womans",
+       "womens"
+      ]
+     },
+     "col": {
+      "ok": "two women",
+      "bad": [
+       "two woman",
+       "two womans"
+      ]
+     },
+     "exam": {
+      "s": "Three women are in the shop.",
+      "f": "women"
+     }
+    },
+    {
+     "id": "feet",
+     "w": "feet",
+     "pos": "noun",
+     "ipa": "/fiːt/",
+     "pic": "🦶🦶",
+     "vi": "hai bàn chân (số nhiều của foot)",
+     "en": "more than one foot",
+     "ex": "My feet are cold.",
+     "exVi": "Chân tôi lạnh.",
+     "cloze": {
+      "s": "I have two ___ and two hands.",
+      "a": "feet",
+      "w": [
+       "foots",
+       "feets"
+      ]
+     },
+     "col": {
+      "ok": "my feet are cold",
+      "bad": [
+       "my foots are cold",
+       "my feet is cold"
+      ]
+     },
+     "exam": {
+      "s": "Wash your feet before bed.",
+      "f": "feet"
+     }
+    },
+    {
+     "id": "glasses",
+     "w": "glasses",
+     "pos": "noun",
+     "ipa": "/ˈɡlɑːsɪz/",
+     "pic": "👓",
+     "vi": "cái kính (đeo mắt)",
+     "en": "two pieces of glass in a frame that you wear to see better",
+     "ex": "My grandfather wears glasses.",
+     "exVi": "Ông tôi đeo kính.",
+     "cloze": {
+      "s": "I can't read without my ___.",
+      "a": "glasses",
+      "w": [
+       "glass",
+       "eyes"
+      ]
+     },
+     "col": {
+      "ok": "wear glasses",
+      "bad": [
+       "put glasses",
+       "dress glasses"
+      ]
+     },
+     "exam": {
+      "s": "She has got red glasses.",
+      "f": "glasses"
+     }
+    },
+    {
+     "id": "eraser",
+     "w": "eraser",
+     "pos": "noun",
+     "ipa": "/ɪˈreɪzə(r)/",
+     "pic": "🧽",
+     "vi": "cục tẩy",
+     "en": "a small object you use to remove pencil marks",
+     "ex": "Can I borrow your eraser?",
+     "exVi": "Mình mượn cục tẩy của bạn được không?",
+     "cloze": {
+      "s": "I made a mistake. Where is my ___?",
+      "a": "eraser",
+      "w": [
+       "ruler",
+       "erase"
+      ]
+     },
+     "col": {
+      "ok": "a pencil and an eraser",
+      "bad": [
+       "a pencil and a eraser",
+       "a pencil and eraser a"
+      ]
+     },
+     "exam": {
+      "s": "My eraser is in my bag.",
+      "f": "eraser"
+     }
+    },
+    {
+     "id": "handbag",
+     "w": "handbag",
+     "pos": "noun",
+     "ipa": "/ˈhændbæɡ/",
+     "pic": "👜",
+     "vi": "túi xách tay",
+     "en": "a small bag for money, keys and other things",
+     "ex": "My phone is in my handbag.",
+     "exVi": "Điện thoại của tôi ở trong túi xách.",
+     "cloze": {
+      "s": "She put her keys in her ___.",
+      "a": "handbag",
+      "w": [
+       "hand",
+       "box"
+      ]
+     },
+     "col": {
+      "ok": "in my handbag",
+      "bad": [
+       "on my handbag",
+       "at my handbag"
+      ]
+     },
+     "exam": {
+      "s": "Mum has a black handbag.",
+      "f": "handbag"
+     }
+    },
+    {
+     "id": "shorts",
+     "w": "shorts",
+     "pos": "noun",
+     "ipa": "/ʃɔːts/",
+     "pic": "🩳",
+     "vi": "quần đùi, quần soóc",
+     "en": "short trousers that stop above the knees",
+     "ex": "I wear shorts in summer.",
+     "exVi": "Tôi mặc quần soóc vào mùa hè.",
+     "cloze": {
+      "s": "It's hot, so he is wearing ___.",
+      "a": "shorts",
+      "w": [
+       "short",
+       "a jacket"
+      ]
+     },
+     "col": {
+      "ok": "wear shorts",
+      "bad": [
+       "wear a shorts",
+       "put on a short"
+      ]
+     },
+     "exam": {
+      "s": "His shorts are green.",
+      "f": "shorts"
+     }
+    },
+    {
+     "id": "boots",
+     "w": "boots",
+     "pos": "noun",
+     "ipa": "/buːts/",
+     "pic": "🥾",
+     "vi": "đôi bốt, giày cao cổ",
+     "en": "strong shoes that cover your foot and part of your leg",
+     "ex": "Put on your boots. It's raining.",
+     "exVi": "Đi bốt vào. Trời đang mưa.",
+     "cloze": {
+      "s": "It's snowing. Wear your ___.",
+      "a": "boots",
+      "w": [
+       "boot",
+       "hats"
+      ]
+     },
+     "col": {
+      "ok": "put on your boots",
+      "bad": [
+       "put in your boots",
+       "wear on your boots"
+      ]
+     },
+     "exam": {
+      "s": "These boots are too big.",
+      "f": "boots"
+     }
+    },
+    {
+     "id": "motorbike",
+     "w": "motorbike",
+     "pos": "noun",
+     "ipa": "/ˈməʊtəbaɪk/",
+     "pic": "🏍️",
+     "vi": "xe máy",
+     "en": "a vehicle with two wheels and an engine",
+     "ex": "My brother goes to work by motorbike.",
+     "exVi": "Anh tôi đi làm bằng xe máy.",
+     "cloze": {
+      "s": "In Vietnam, many people ride a ___.",
+      "a": "motorbike",
+      "w": [
+       "bike",
+       "motor"
+      ]
+     },
+     "col": {
+      "ok": "ride a motorbike",
+      "bad": [
+       "drive on a motorbike",
+       "go a motorbike"
+      ]
+     },
+     "exam": {
+      "s": "He has a red motorbike.",
+      "f": "motorbike"
+     }
+    }
+   ]
+  },
+  {
+   "id": "pre-c16-b2",
+   "vi": "Bổ sung Starters 2: câu giao tiếp",
+   "words": [
+    {
+     "id": "how-many",
+     "w": "how many",
+     "pos": "phrase",
+     "ipa": "/haʊ ˈmeni/",
+     "pic": "🔢",
+     "vi": "bao nhiêu (đếm được)",
+     "en": "used to ask about a number",
+     "ex": "How many brothers have you got?",
+     "exVi": "Bạn có bao nhiêu anh em trai?",
+     "cloze": {
+      "s": "___ cats are there? Three.",
+      "a": "How many",
+      "w": [
+       "How much",
+       "How old"
+      ]
+     },
+     "col": {
+      "ok": "how many people",
+      "bad": [
+       "how much people",
+       "how many of people"
+      ]
+     },
+     "exam": {
+      "s": "How many apples are on the table?",
+      "f": "How many"
+     }
+    },
+    {
+     "id": "how-old",
+     "w": "how old",
+     "pos": "phrase",
+     "ipa": "/haʊ ˈəʊld/",
+     "pic": "🎂",
+     "vi": "bao nhiêu tuổi",
+     "en": "used to ask about age",
+     "ex": "How old are you? I'm thirty.",
+     "exVi": "Bạn bao nhiêu tuổi? Tôi ba mươi.",
+     "cloze": {
+      "s": "___ is your sister? She's ten.",
+      "a": "How old",
+      "w": [
+       "How many",
+       "What old"
+      ]
+     },
+     "col": {
+      "ok": "how old are you",
+      "bad": [
+       "how old do you have",
+       "how many years are you"
+      ]
+     },
+     "exam": {
+      "s": "How old is your dog?",
+      "f": "How old"
+     }
+    },
+    {
+     "id": "lets",
+     "w": "let's",
+     "pos": "phrase",
+     "ipa": "/lets/",
+     "pic": "🙌",
+     "vi": "chúng ta hãy (rủ cùng làm)",
+     "en": "used to suggest doing something together",
+     "ex": "Let's go to the park.",
+     "exVi": "Mình đi công viên đi.",
+     "cloze": {
+      "s": "It's sunny. ___ play football!",
+      "a": "Let's",
+      "w": [
+       "Lets",
+       "Let"
+      ]
+     },
+     "col": {
+      "ok": "let's go",
+      "bad": [
+       "let's to go",
+       "let's going"
+      ]
+     },
+     "exam": {
+      "s": "Let's have lunch now.",
+      "f": "Let's"
+     }
+    },
+    {
+     "id": "would-like",
+     "w": "would like",
+     "pos": "phrase",
+     "ipa": "/wʊd ˈlaɪk/",
+     "pic": "🙋",
+     "vi": "muốn (lịch sự)",
+     "en": "a polite way to say you want something",
+     "ex": "I would like a cup of tea, please.",
+     "exVi": "Tôi muốn một tách trà, làm ơn.",
+     "cloze": {
+      "s": "I ___ an orange juice, please.",
+      "a": "would like",
+      "w": [
+       "would likes",
+       "like would"
+      ]
+     },
+     "col": {
+      "ok": "would like to go",
+      "bad": [
+       "would like go",
+       "would like going"
+      ]
+     },
+     "exam": {
+      "s": "I would like some water, please.",
+      "f": "would like"
+     }
+    },
+    {
+     "id": "pardon",
+     "w": "pardon",
+     "pos": "exclamation",
+     "ipa": "/ˈpɑːdn/",
+     "pic": "👂",
+     "vi": "xin lỗi, nói lại được không?",
+     "en": "used to ask someone to say something again",
+     "ex": "Pardon? Can you say that again?",
+     "exVi": "Xin lỗi? Bạn nói lại được không?",
+     "cloze": {
+      "s": "___? I can't hear you.",
+      "a": "Pardon",
+      "w": [
+       "Thanks",
+       "Hello"
+      ]
+     },
+     "col": {
+      "ok": "Pardon? Say that again, please.",
+      "bad": [
+       "Pardon me to say again.",
+       "Pardon you."
+      ]
+     },
+     "exam": {
+      "s": "Pardon? What is your name?",
+      "f": "Pardon"
+     }
+    },
+    {
+     "id": "see-you",
+     "w": "see you",
+     "pos": "phrase",
+     "ipa": "/ˈsiː juː/",
+     "pic": "👋",
+     "vi": "hẹn gặp lại",
+     "en": "an informal way to say goodbye",
+     "ex": "Bye, Tom! See you tomorrow.",
+     "exVi": "Tạm biệt Tom! Mai gặp nhé.",
+     "cloze": {
+      "s": "Goodbye! ___ on Monday.",
+      "a": "See you",
+      "w": [
+       "Look you",
+       "Meet you"
+      ]
+     },
+     "col": {
+      "ok": "see you later",
+      "bad": [
+       "see you after",
+       "look you later"
+      ]
+     },
+     "exam": {
+      "s": "See you at school!",
+      "f": "See you"
+     }
+    },
+    {
+     "id": "well-done",
+     "w": "well done",
+     "pos": "exclamation",
+     "ipa": "/wel ˈdʌn/",
+     "pic": "👏",
+     "vi": "giỏi lắm, làm tốt lắm",
+     "en": "used to praise someone",
+     "ex": "Ten out of ten! Well done!",
+     "exVi": "Mười trên mười! Giỏi lắm!",
+     "cloze": {
+      "s": "You passed the test. ___!",
+      "a": "Well done",
+      "w": [
+       "Good done",
+       "Well do"
+      ]
+     },
+     "col": {
+      "ok": "Well done, everyone!",
+      "bad": [
+       "Good done, everyone!",
+       "Well did, everyone!"
+      ]
+     },
+     "exam": {
+      "s": "Well done! That's right.",
+      "f": "Well done"
+     }
+    },
+    {
+     "id": "me-too",
+     "w": "me too",
+     "pos": "phrase",
+     "ipa": "/ˌmiː ˈtuː/",
+     "pic": "🙋",
+     "vi": "tôi cũng vậy",
+     "en": "used to say the same is true for you",
+     "ex": "I like pizza. Me too!",
+     "exVi": "Tôi thích pizza. Tôi cũng vậy!",
+     "cloze": {
+      "s": "I'm hungry. ___!",
+      "a": "Me too",
+      "w": [
+       "I too",
+       "Me also too"
+      ]
+     },
+     "col": {
+      "ok": "Me too!",
+      "bad": [
+       "Me also!",
+       "I too!"
+      ]
+     },
+     "exam": {
+      "s": "I love this song. Me too!",
+      "f": "Me too"
+     }
+    },
+    {
+     "id": "dont-worry",
+     "w": "don't worry",
+     "pos": "phrase",
+     "ipa": "/dəʊnt ˈwʌri/",
+     "pic": "😌",
+     "vi": "đừng lo",
+     "en": "used to tell someone not to feel worried",
+     "ex": "Don't worry. I can help you.",
+     "exVi": "Đừng lo. Mình giúp bạn được.",
+     "cloze": {
+      "s": "I lost my pen. ___, you can use my pen.",
+      "a": "Don't worry",
+      "w": [
+       "Not worry",
+       "Don't worried"
+      ]
+     },
+     "col": {
+      "ok": "don't worry about it",
+      "bad": [
+       "don't worry for it",
+       "not worry about it"
+      ]
+     },
+     "exam": {
+      "s": "Don't worry, it's OK.",
+      "f": "Don't worry"
+     }
+    },
+    {
+     "id": "look-at",
+     "w": "look at",
+     "pos": "phrase",
+     "ipa": "/ˈlʊk ət/",
+     "pic": "👀",
+     "vi": "nhìn vào",
+     "en": "to turn your eyes towards something",
+     "ex": "Look at the picture.",
+     "exVi": "Nhìn vào bức tranh.",
+     "cloze": {
+      "s": "___ the board, please.",
+      "a": "Look at",
+      "w": [
+       "Look",
+       "See at"
+      ]
+     },
+     "col": {
+      "ok": "look at the picture",
+      "bad": [
+       "look the picture",
+       "see at the picture"
+      ]
+     },
+     "exam": {
+      "s": "Look at that big dog!",
+      "f": "Look at"
+     }
+    }
+   ]
+  },
+  {
+   "id": "pre-c16-b3",
+   "vi": "Bổ sung Starters 3: vị trí, sở hữu, hoạt động",
+   "words": [
+    {
+     "id": "an",
+     "w": "an",
+     "pos": "determiner",
+     "ipa": "/ən/",
+     "pic": "🍎",
+     "vi": "một (mạo từ, trước âm nguyên âm)",
+     "en": "used instead of 'a' before a vowel sound",
+     "ex": "I eat an apple every day.",
+     "exVi": "Mỗi ngày tôi ăn một quả táo.",
+     "cloze": {
+      "s": "She has ___ orange.",
+      "a": "an",
+      "w": [
+       "a",
+       "the"
+      ]
+     },
+     "col": {
+      "ok": "an egg",
+      "bad": [
+       "a egg",
+       "an banana"
+      ]
+     },
+     "exam": {
+      "s": "There is an elephant at the zoo.",
+      "f": "an"
+     }
+    },
+    {
+     "id": "in-front-of",
+     "w": "in front of",
+     "pos": "preposition",
+     "ipa": "/ɪn ˈfrʌnt əv/",
+     "pic": "⬆️",
+     "vi": "ở phía trước",
+     "en": "in the position before someone or something",
+     "ex": "The car is in front of the house.",
+     "exVi": "Chiếc ô tô ở trước ngôi nhà.",
+     "cloze": {
+      "s": "The dog is ___ the door.",
+      "a": "in front of",
+      "w": [
+       "in front",
+       "front of"
+      ]
+     },
+     "col": {
+      "ok": "in front of the school",
+      "bad": [
+       "in front the school",
+       "on front of the school"
+      ]
+     },
+     "exam": {
+      "s": "The tree is in front of my house.",
+      "f": "in front of"
+     }
+    },
+    {
+     "id": "yours",
+     "w": "yours",
+     "pos": "pronoun",
+     "ipa": "/jɔːz/",
+     "pic": "🫵",
+     "vi": "của bạn (đứng một mình)",
+     "en": "the one that belongs to you",
+     "ex": "Is this pen yours?",
+     "exVi": "Cái bút này là của bạn à?",
+     "cloze": {
+      "s": "This is my bag. Where is ___?",
+      "a": "yours",
+      "w": [
+       "your",
+       "you"
+      ]
+     },
+     "col": {
+      "ok": "Is this yours?",
+      "bad": [
+       "Is this your?",
+       "Is this you's?"
+      ]
+     },
+     "exam": {
+      "s": "My bike is blue. Yours is red.",
+      "f": "Yours"
+     }
+    },
+    {
+     "id": "ours",
+     "w": "ours",
+     "pos": "pronoun",
+     "ipa": "/ˈaʊəz/",
+     "pic": "👫",
+     "vi": "của chúng tôi (đứng một mình)",
+     "en": "the one that belongs to us",
+     "ex": "That house is ours.",
+     "exVi": "Ngôi nhà đó là của chúng tôi.",
+     "cloze": {
+      "s": "Your car is new. ___ is old.",
+      "a": "Ours",
+      "w": [
+       "Our",
+       "Us"
+      ]
+     },
+     "col": {
+      "ok": "It's ours.",
+      "bad": [
+       "It's our.",
+       "It's us."
+      ]
+     },
+     "exam": {
+      "s": "This classroom is ours.",
+      "f": "ours"
+     }
+    },
+    {
+     "id": "theirs",
+     "w": "theirs",
+     "pos": "pronoun",
+     "ipa": "/ðeəz/",
+     "pic": "👨‍👩‍👧",
+     "vi": "của họ (đứng một mình)",
+     "en": "the one that belongs to them",
+     "ex": "These books are theirs.",
+     "exVi": "Những quyển sách này là của họ.",
+     "cloze": {
+      "s": "That dog isn't ours. It's ___.",
+      "a": "theirs",
+      "w": [
+       "their",
+       "them"
+      ]
+     },
+     "col": {
+      "ok": "a friend of theirs",
+      "bad": [
+       "a friend of their",
+       "a friend of them's"
+      ]
+     },
+     "exam": {
+      "s": "The red car is theirs.",
+      "f": "theirs"
+     }
+    },
+    {
+     "id": "hers",
+     "w": "hers",
+     "pos": "pronoun",
+     "ipa": "/hɜːz/",
+     "pic": "👧",
+     "vi": "của cô ấy (đứng một mình)",
+     "en": "the one that belongs to her",
+     "ex": "This phone isn't mine. It's hers.",
+     "exVi": "Điện thoại này không phải của tôi. Nó là của cô ấy.",
+     "cloze": {
+      "s": "Is this Anna's bag? Yes, it's ___.",
+      "a": "hers",
+      "w": [
+       "her",
+       "she"
+      ]
+     },
+     "col": {
+      "ok": "It's hers.",
+      "bad": [
+       "It's her.",
+       "It's she's."
+      ]
+     },
+     "exam": {
+      "s": "The pink hat is hers.",
+      "f": "hers"
+     }
+    },
+    {
+     "id": "closed",
+     "w": "closed",
+     "pos": "adjective",
+     "ipa": "/kləʊzd/",
+     "pic": "🔒",
+     "vi": "đóng cửa, đóng",
+     "en": "not open",
+     "ex": "The shop is closed on Sunday.",
+     "exVi": "Cửa hàng đóng cửa vào Chủ nhật.",
+     "cloze": {
+      "s": "The door is ___. Please open it.",
+      "a": "closed",
+      "w": [
+       "close",
+       "open"
+      ]
+     },
+     "col": {
+      "ok": "closed on Sunday",
+      "bad": [
+       "closed in Sunday",
+       "closed at Sunday"
+      ]
+     },
+     "exam": {
+      "s": "The window is closed.",
+      "f": "closed"
+     }
+    },
+    {
+     "id": "kick",
+     "w": "kick",
+     "pos": "verb",
+     "ipa": "/kɪk/",
+     "pic": "🦵",
+     "vi": "đá",
+     "en": "to hit something with your foot",
+     "ex": "Kick the ball to me!",
+     "exVi": "Đá bóng cho mình!",
+     "cloze": {
+      "s": "He can ___ the ball very far.",
+      "a": "kick",
+      "w": [
+       "kicks",
+       "throw"
+      ]
+     },
+     "col": {
+      "ok": "kick the ball",
+      "bad": [
+       "kick to the ball",
+       "kick on the ball"
+      ]
+     },
+     "exam": {
+      "s": "Don't kick the door!",
+      "f": "kick"
+     }
+    },
+    {
+     "id": "take-a-photo",
+     "w": "take a photo",
+     "pos": "phrase",
+     "ipa": "/teɪk ə ˈfəʊtəʊ/",
+     "pic": "📸",
+     "vi": "chụp ảnh",
+     "en": "to use a camera to make a picture",
+     "ex": "Can I take a photo of you?",
+     "exVi": "Mình chụp ảnh bạn được không?",
+     "cloze": {
+      "s": "Smile! I want to ___ of you.",
+      "a": "take a photo",
+      "w": [
+       "make a photo",
+       "do a photo"
+      ]
+     },
+     "col": {
+      "ok": "take a photo",
+      "bad": [
+       "make a photo",
+       "do a photo"
+      ]
+     },
+     "exam": {
+      "s": "Let's take a photo here.",
+      "f": "take a photo"
+     }
+    },
+    {
+     "id": "english",
+     "w": "English",
+     "pos": "noun / adjective",
+     "ipa": "/ˈɪŋɡlɪʃ/",
+     "pic": "🇬🇧",
+     "vi": "tiếng Anh; thuộc nước Anh",
+     "en": "the language of the UK, the USA and many other countries",
+     "ex": "I am learning English.",
+     "exVi": "Tôi đang học tiếng Anh.",
+     "cloze": {
+      "s": "Can you speak ___?",
+      "a": "English",
+      "w": [
+       "England",
+       "english language"
+      ]
+     },
+     "col": {
+      "ok": "speak English",
+      "bad": [
+       "talk English",
+       "say English"
+      ]
+     },
+     "exam": {
+      "s": "We have English on Monday.",
+      "f": "English"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 48;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 49;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -539,7 +539,7 @@ checkVer();
 
 (async () => {
   fetch('a/index.json?v=7').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
-  try { for (const f of ['a1.json?v=8', 'a2.json?v=4']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
+  try { for (const f of ['a1.json?v=9', 'a2.json?v=4']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   // dữ liệu cho 12 yêu cầu Nhớ (tools/build-vx.mjs): dạng bất quy tắc, đồng / trái nghĩa, nghĩa thứ hai

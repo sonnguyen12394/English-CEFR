@@ -31,12 +31,20 @@ const SYN = [['bike', 'bicycle'], ['film', 'movie'], ['holiday', 'vacation'], ['
   ['dad', 'father'], ['mum', 'mother'], ['TV', 'television'], ['photo', 'photograph'], ['phone', 'telephone'], ['someone', 'somebody'],
   ['everyone', 'everybody'], ['nobody', 'no one'], ['amazing', 'fantastic', 'wonderful']];
 const synOf = w => (SYN.find(g => g.some(x => x.toLowerCase() === w.w.toLowerCase())) || []).filter(x => x.toLowerCase() !== w.w.toLowerCase());
-const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=7', 'exam-a2.json?v=4'].map(async f => (await fetch(f)).json())))));
+const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=8', 'exam-a2.json?v=4'].map(async f => (await fetch(f)).json())))));
 
-const samePos = (w, n) => shuf(WORDS.filter(x => x.id !== w.id && x.pos === w.pos)).slice(0, n);
+// từ nhiễu cùng loại từ, chỉ lấy từ thuộc cấp ≤ cấp đang thi (kiểm thử Pre-A1: đề Pre-A1 từng có từ nhiễu "injury", "poster")
+const samePos = (w, n) => { const ok = x => LEVELS.indexOf(wLv(x)) <= LEVELS.indexOf(XLV); let c = WORDS.filter(x => x.id !== w.id && x.pos === w.pos && ok(x)); if (c.length < n) c = WORDS.filter(x => x.id !== w.id && x.pos === w.pos); return shuf(c).slice(0, n); };
 const xBlank = (s, f) => s.replace(new RegExp(`(?<![A-Za-z'])${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z])`, 'i'), '_____');
 // dạng của từ đích trong câu: dùng cùng đuôi cho từ nhiễu (cats → dogs); không suy được thì dùng câu gõ
 const inflect = (base, form, other) => { const b = base.toLowerCase(), f = form.toLowerCase(); if (f === b) return other; if (f.startsWith(b)) return other + f.slice(b.length); return null; };
+// Câu nghe thu sẵn (e.l, lấy từ game) nhiều câu vượt cấp (kiểm thử Pre-A1 26/10/2026: "once in a blue moon", "fall behind"…).
+// Chỉ dùng khi mọi từ trong câu thuộc cấp ≤ cấp đang thi; không thì máy đọc câu thi (e.s, đã soạn đúng cấp).
+let XLV = 'a1';
+const xLvOf = t => { for (const f of [t, t.replace(/'s$/, ''), t.replace(/s$/, ''), t.replace(/es$/, ''), t.replace(/ed$/, ''), t.replace(/d$/, ''), t.replace(/ing$/, ''), t.replace(/ing$/, 'e')]) { const w = WBY_W[f]; if (w) return wLv(w); } return null; };
+let WBY_W = null;
+function xClipOk(l) { if (!l) return false; WBY_W = WBY_W || Object.fromEntries(WORDS.map(w => [w.w.toLowerCase(), w]));
+  return l.toLowerCase().match(/[a-z']+/g).every(t => { const L = xLvOf(t); return L != null && LEVELS.indexOf(L) <= LEVELS.indexOf(XLV); }); }
 function examQ(w, type) {
   window.XSAY = null;
   if (X_Q[type]) { const q = X_Q[type][1](w) && (questionX(w, X_Q[type][0]) || question(w, X_Q[type][0])); if (q && q.type === X_Q[type][0]) return { ...q, type }; type = 'xT'; }
@@ -45,8 +53,7 @@ function examQ(w, type) {
     if (ds.length >= 3) return { type, top: esc(xBlank(s, f)), sub: 'Chọn từ điền vào chỗ trống.', a: f, opts: shuf([f, ...ds.slice(0, 3)]) };
     type = 'xT'; }
   if (type === 'xN') return { type, top: esc(s).replace(new RegExp(`(?<![A-Za-z'])(${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?![A-Za-z])`, 'i'), '<u><b>$1</b></u>'), sub: 'Từ gạch chân nghĩa là gì?', a: w.vi, opts: shuf([w.vi, ...pick(w, 'vi', 3)]) };
-  if (type === 'xL') { window.XSAY = e.l || w.w; if (e.l) return { type, top: '🎧 Nghe câu. Bạn nghe thấy từ nào?', sub: `<button class="chip" data-xsay="1">🔊 Nghe lại</button>`, a: w.w, opts: shuf([w.w, ...samePos(w, 3).map(x => x.w)]), say: e.l };
-    return { type, top: '🎧 Nghe rồi gõ lại từ', sub: `<button class="chip" data-xsay="1">🔊 Nghe lại</button>`, a: w.w, typed: true, say: w.w }; }
+  if (type === 'xL') { const l = xClipOk(e.l) ? e.l : e.s; window.XSAY = l; return { type, top: '🎧 Nghe câu. Bạn nghe thấy từ nào?', sub: `<button class="chip" data-xsay="1">🔊 Nghe lại</button>`, a: w.w, opts: shuf([w.w, ...samePos(w, 3).map(x => x.w)]), say: l }; }
   const alt = synOf(w).map(x => inflect(w.w, f, x)).filter(Boolean);
   return { type: 'xT', top: esc(xBlank(s, f)), sub: `Gõ từ còn thiếu (đúng dạng trong câu). Nghĩa: ${esc(w.vi)}`, a: f, alt, typed: true };
 }
@@ -79,6 +86,7 @@ function examBox(p, lv) { const s = examState(p, lv);
 // ---------- làm bài ----------
 async function exam(lv) {
   try { await loadEB(); } catch (e) { return alert('Chưa tải được bài thi. Thử lại khi có mạng.'); }
+  XLV = lv;
   const C = XL[lv], name = LVN[lv], pool = levelWords(lv).filter(w => EB[w.id]);
   const re = examState(parts(S, Date.now(), lv), lv).re || false, used = new Set(re ? runsOf(lv).flatMap(x => x.ids || []) : []);
   if (pool.length - pool.filter(w => used.has(w.id)).length < 2 * C.N) used.clear();
