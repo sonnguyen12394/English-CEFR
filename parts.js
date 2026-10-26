@@ -104,3 +104,47 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
     if (id === 'pa') PA_VIEW = l; else if (KIT[id]) KIT[id].view = l;
     partView(id); };
   setTimeout(maybeReload, 0); }
+
+// ---------- 🔁 Nhớ dạng danh sách yêu cầu Pre-A1 → C2 cho 6 phần (người sáng lập 26/10/2026: "làm tương tự với 6 phần kia") ----------
+// Chỉ hiển thị. Dòng có khoá [l, k] = mặt đang đo (giữ nguyên luật đo, bấm xem được); dòng [l] = yêu cầu dự kiến, chưa có bài, không tính.
+// Mặt đang đo đặt ở cấp nó bắt đầu được đo; yêu cầu dự kiến chia theo khung CEFR / Cambridge (Starters, Movers, A2 Key…) là đề xuất, chưa có nguồn chính thức theo từng dòng.
+const RQ_LV = [['pre', 'Pre-A1'], ['a1', 'A1'], ['a2', 'A2'], ['b1', 'B1'], ['b2', 'B2'], ['c1', 'C1'], ['c2', 'C2']];
+const RQ = {
+  pa: { pre: [['👂 Phân biệt cặp âm', 'pb'], ['👄 Đọc đúng âm', 'doc'], ['🔤 Nhìn chữ đoán cách đọc'], ['🔚 Đọc ra âm cuối']],
+    a1: [['🎵 Nhận ra trọng âm'], ['🔁 Đọc đúng đuôi -s / -ed'], ['🧩 Đọc cụm phụ âm (street, desk)']],
+    a2: [['🌊 Nghe ra nối âm, dạng đọc nhẹ'], ['❓ Nhận ra ngữ điệu lên / xuống'], ['📏 Đọc rõ cả câu ngắn']],
+    b1: [['🎵 Tự nói đúng trọng âm từ'], ['💬 Nhấn từ quan trọng trong câu'], ['🔗 Tự nối âm khi nói']],
+    b2: [['🎭 Ngữ điệu thể hiện thái độ'], ['🌍 Nghe hiểu nhiều giọng (Anh, Mỹ, Úc)']], c1: [['🗣 Nói dễ hiểu với người bản xứ, ít lỗi âm']], c2: [['🎨 Dùng nhấn và ngữ điệu để đổi sắc thái']] },
+  np: { pre: [['🔎 Nhận ra', 'nhan'], ['✏️ Điền dạng', 'dien'], ['🛠 Sửa lỗi', 'sua'], ['🔀 Xếp từ thành câu'], ['❓ Đổi sang câu hỏi / phủ định']],
+    a1: [['⏱ Chọn thì theo dấu hiệu'], ['🔗 Nối câu bằng and, but, because']],
+    a2: [['🧩 Điền từ chức năng vào đoạn'], ['🔄 Viết lại câu cùng nghĩa'], ['✍️ Tự đặt câu dùng điểm ngữ pháp']],
+    b1: [['🔀 Câu phức (quan hệ, điều kiện)'], ['💬 Câu tường thuật'], ['🔁 Câu bị động']],
+    b2: [['🧠 Chọn thì theo ý nghĩa'], ['🔗 Liên kết đoạn văn']], c1: [['🎚 Cấu trúc nhấn mạnh, đảo ngữ']], c2: [['🎨 Dùng ngữ pháp linh hoạt, gần như không lỗi']] },
+  nghe: { pre: [['🔊 Nghe từ, chọn hình'], ['🔢 Nghe số, tên đánh vần, màu'], ['📍 Nghe vị trí (in, on, under)'], ['✅ Nghe câu, đúng / sai với tranh']],
+    a1: [['💡 Ý chính', 'y'], ['🔍 Chi tiết', 'ct'], ['✍️ Chép lại', 'chep']],
+    a2: [['💬 Hội thoại: ai nói gì'], ['📝 Nghe điền phiếu ghi chú'], ['🔄 Nhận ra cách nói khác']],
+    b1: [['📻 Bài dài (thông báo, radio): ý chính'], ['🎯 Nhận ra ý kiến, thái độ']],
+    b2: [['🌍 Nhiều giọng, tốc độ thường'], ['🧭 Suy ra ý không nói thẳng']], c1: [['🎬 Phim, bài giảng tự nhiên']], c2: [['⚡ Mọi lời nói ở tốc độ bản xứ']] },
+  doc: { pre: [['🔤 Nối từ với hình'], ['✅ Câu đúng / sai với tranh'], ['🙋 Đọc câu hỏi, trả lời yes / no'], ['🧩 Điền từ có hình gợi ý']],
+    a1: [['💡 Ý chính', 'y'], ['🔍 Chi tiết', 'ct'], ['📋 Biển báo, tin nhắn ngắn']],
+    a2: [['🔄 Nhận ra cách nói khác'], ['🧭 Đoán nghĩa từ lạ qua ngữ cảnh'], ['🔗 Hiểu it, they, this chỉ cái gì']],
+    b1: [['📖 Bài dài 300–500 từ'], ['🎯 Nhận ra ý kiến người viết']],
+    b2: [['🧠 Suy luận, giọng văn'], ['⏱ Đọc lướt tìm ý nhanh']], c1: [['📚 Văn bản dài, chuyên môn']], c2: [['🎨 Văn chương, ẩn ý, chơi chữ']] },
+  noi: { pre: [['🗣 Nói rõ từ, cụm từ'], ['🙋 Trả lời về bản thân 1–3 từ'], ['🖼 Nói câu ngắn về tranh'], ['👋 Chào hỏi xã giao']],
+    a1: [['✅ Đủ ý', 'viec'], ['🗣 Nói rõ', 'ro'], ['💬 Giao tiếp', 'gt'], ['🔗 Nối ý bằng and, but, because']],
+    a2: [['📖 Kể việc đã xảy ra'], ['💭 Nêu ý kiến kèm lý do'], ['🙋 Tự đặt câu hỏi']],
+    b1: [['🗺 Kể chuyện mạch lạc'], ['🧩 Xử lý tình huống bất ngờ']],
+    b2: [['🗣 Nói trôi chảy 1–2 phút'], ['⚖️ Tranh luận ưu / nhược']], c1: [['🎤 Trình bày chủ đề phức tạp']], c2: [['🎨 Diễn đạt sắc thái tinh tế']] },
+  viet: { pre: [['✍️ Chép đúng từ, câu'], ['📝 Điền phiếu thông tin cá nhân'], ['🖼 Viết 1 từ cho tranh']],
+    a1: [['✅ Đủ ý', 'y'], ['📝 Đúng dạng bài', 'dang'], ['🔠 Câu đúng cơ bản (hoa, chấm, động từ)']],
+    a2: [['🔗 Dùng từ nối'], ['📖 Viết chuyện theo 3 tranh'], ['🎯 Đúng việc: mời, xin lỗi, cảm ơn']],
+    b1: [['✉️ Thư kể và giải thích'], ['📄 Đoạn văn có ý chính, ý phụ']],
+    b2: [['⚖️ Bài luận nêu ý kiến'], ['🎚 Đúng văn phong trang trọng / thân mật']], c1: [['📚 Bài dài, lập luận chặt']], c2: [['🎨 Văn phong tự nhiên như người bản xứ']] },
+};
+// cell(k) = ô của mặt đang đo (có %, bấm được)
+function rqList(id, lv, cell) {
+  const i0 = RQ_LV.findIndex(x => x[0] === lv), Q = RQ[id];
+  return `<div class="dlist">${RQ_LV.map(([L, name], i) => { const rs = Q[L] || [], on = i <= i0, has = LEVELS.includes(L);
+    return rs.length ? `<div class="dlv ${on ? '' : 'lock'}">${on ? '' : '🔒 '}${i ? `${name}: thêm ${rs.length}` : name}${on ? '' : has ? ` · mở khi lên ${name}` : ' · chưa có bài'}</div>${rs.map(([l, k]) => on && k ? cell(k)
+      : `<div class="dimx"><span>${l}</span>${on ? '<span style="font-size:12px">chưa có bài</span>' : ''}</div>`).join('')}` : ''; }).join('')}</div>
+    <p class="mute" style="margin:4px 0 0;font-size:12px">Dòng mờ "chưa có bài" là yêu cầu dự kiến: chưa có bài, chưa tính 🔁 Nhớ.</p>`; }
