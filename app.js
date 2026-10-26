@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 49;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 50;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -118,9 +118,12 @@ function lookalike(w, n) { const x = w.w, low = x.toLowerCase(), out = new Set()
   return [...out].slice(0, n); }
 // 🔀 dạng bất quy tắc: phương án sai = dạng "theo quy tắc" sai (goed, childs, gooder…) + dạng khác của chính từ đó (gone khi hỏi quá khứ) + chính từ gốc
 function irrWrong(w, f) { const b = w.w.toLowerCase(), ok = new Set(f[1].map(x => x.toLowerCase())), k = w.irr.k, c = [];
-  if (k === 'v') c.push(b.endsWith('e') ? b + 'd' : b + 'ed', b + 's', b + 'ing'); else if (k === 'n') c.push(b + 's', b + 'es', f[1][0] + 's'); else c.push(b + 'er', 'more ' + b, b + 'est');
-  for (const g of w.irr.f) if (g !== f) c.push(...g[1]); c.push(b, b + 'en', b + 'ies', b + 'ed');
-  return [...new Set(c.filter(x => !ok.has(x.toLowerCase())))]; }
+  if (k === 'v') c.push(b.endsWith('e') ? b + 'd' : b + 'ed', b + 's', b.endsWith('e') && !b.endsWith('ee') ? b.slice(0, -1) + 'ing' : b + 'ing'); else if (k === 'n') c.push(b + 's', b + 'es', f[1][0] + 's'); else c.push(b + 'er', 'more ' + b, b + 'est');
+  for (const g of w.irr.f) if (g !== f) c.push(...g[1]); c.push(b);
+  const r = [...new Set(c.filter(x => !ok.has(x.toLowerCase())))];
+  // ít hơn 3 phương án thì thêm dạng sai kiểu khác (fish → fishs, fishen)
+  for (const x of [b + 'es', b + 'en', b + 'ed']) if (r.length < 3 && !ok.has(x) && !r.includes(x)) r.push(x);
+  return r; }
 // câu dạng mới (#3, #8, #10, #11, #12); trả về null nếu từ không có dữ liệu cho dạng đó
 function questionX(w, type) {
   if (type === 'form') return { type, top: `${w.pic || ''} ${esc(w.vi)}`, sub: 'Chọn đúng cách viết của từ này.', a: w.w, opts: shuf([w.w, ...lookalike(w, 3)]) };
@@ -539,7 +542,7 @@ checkVer();
 
 (async () => {
   fetch('a/index.json?v=7').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
-  try { for (const f of ['a1.json?v=9', 'a2.json?v=4']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
+  try { for (const f of ['a1.json?v=10', 'a2.json?v=4']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   // dữ liệu cho 12 yêu cầu Nhớ (tools/build-vx.mjs): dạng bất quy tắc, đồng / trái nghĩa, nghĩa thứ hai

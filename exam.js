@@ -31,7 +31,7 @@ const SYN = [['bike', 'bicycle'], ['film', 'movie'], ['holiday', 'vacation'], ['
   ['dad', 'father'], ['mum', 'mother'], ['TV', 'television'], ['photo', 'photograph'], ['phone', 'telephone'], ['someone', 'somebody'],
   ['everyone', 'everybody'], ['nobody', 'no one'], ['amazing', 'fantastic', 'wonderful']];
 const synOf = w => (SYN.find(g => g.some(x => x.toLowerCase() === w.w.toLowerCase())) || []).filter(x => x.toLowerCase() !== w.w.toLowerCase());
-const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=8', 'exam-a2.json?v=4'].map(async f => (await fetch(f)).json())))));
+const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=9', 'exam-a2.json?v=4'].map(async f => (await fetch(f)).json())))));
 
 // từ nhiễu cùng loại từ, chỉ lấy từ thuộc cấp ≤ cấp đang thi (kiểm thử Pre-A1: đề Pre-A1 từng có từ nhiễu "injury", "poster")
 const samePos = (w, n) => { const ok = x => LEVELS.indexOf(wLv(x)) <= LEVELS.indexOf(XLV); let c = WORDS.filter(x => x.id !== w.id && x.pos === w.pos && ok(x)); if (c.length < n) c = WORDS.filter(x => x.id !== w.id && x.pos === w.pos); return shuf(c).slice(0, n); };
@@ -41,9 +41,10 @@ const inflect = (base, form, other) => { const b = base.toLowerCase(), f = form.
 // Câu nghe thu sẵn (e.l, lấy từ game) nhiều câu vượt cấp (kiểm thử Pre-A1 26/10/2026: "once in a blue moon", "fall behind"…).
 // Chỉ dùng khi mọi từ trong câu thuộc cấp ≤ cấp đang thi; không thì máy đọc câu thi (e.s, đã soạn đúng cấp).
 let XLV = 'a1';
-const xLvOf = t => { for (const f of [t, t.replace(/'s$/, ''), t.replace(/s$/, ''), t.replace(/es$/, ''), t.replace(/ed$/, ''), t.replace(/d$/, ''), t.replace(/ing$/, ''), t.replace(/ing$/, 'e')]) { const w = WBY_W[f]; if (w) return wLv(w); } return null; };
+const xLvOf = t => { const ed = t.endsWith('ed'); for (const f of [t, t.replace(/'s$/, ''), t.replace(/s$/, ''), t.replace(/es$/, ''), ed ? t.slice(0, -2) : t, ed ? t.slice(0, -1) : t, t.replace(/ing$/, ''), t.replace(/ing$/, 'e')]) { const w = WBY_W[f]; if (w) return wLv(w); } return null; };
 let WBY_W = null;
-function xClipOk(l) { if (!l) return false; WBY_W = WBY_W || Object.fromEntries(WORDS.map(w => [w.w.toLowerCase(), w]));
+// Pre-A1, A1: luôn máy đọc câu thi (kiểm thử A1 26/10/2026: câu thu sẵn "đúng từ" vẫn có thành ngữ, cụm động từ: break the ice, set up, go over).
+function xClipOk(l) { if (!l || ['pre', 'a1'].includes(XLV)) return false; WBY_W = WBY_W || Object.fromEntries(WORDS.map(w => [w.w.toLowerCase(), w]));
   return l.toLowerCase().match(/[a-z']+/g).every(t => { const L = xLvOf(t); return L != null && LEVELS.indexOf(L) <= LEVELS.indexOf(XLV); }); }
 function examQ(w, type) {
   window.XSAY = null;
