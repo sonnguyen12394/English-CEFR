@@ -77,7 +77,8 @@
   .dimc:active { background:var(--line); }
   .dlist { margin-top:8px; font-size:15px; } .dlist .dimc { display:block; margin:4px -4px 8px; }
   .dlv { font-size:13px; font-weight:600; color:var(--mute, #888); margin:10px 0 2px; } .dlv.lock { font-weight:500; }
-  .dimx { display:flex; justify-content:space-between; opacity:.45; padding:3px 0; }
+  .dimx { padding:3px 0; } .dimx summary { display:flex; justify-content:space-between; opacity:.5; cursor:pointer; list-style:none; } .dimx summary::-webkit-details-marker { display:none; }
+  .dimx[open] summary { opacity:.85; } .dxd { font-size:14px; background:var(--bg); border-radius:8px; padding:8px 10px; margin:4px 0 6px; line-height:1.45; }
   .okc { color:var(--good); font-weight:700; }
   .dm { opacity:.25; filter:grayscale(1); font-size:14px; } .dm.on { opacity:1; filter:none; }
   .ch { border:1px solid var(--line); border-radius:12px; padding:8px 12px; margin:8px 0; }
@@ -102,16 +103,16 @@
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="all"><i>🎯</i>Học</button><button data-tab="dict"><i>📖</i>Từ điển</button><button data-tab="bk"><i>💾</i>Sao lưu</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=47"></script>
-<script src="tonghop.js?v=47"></script>
-<script src="exam.js?v=47"></script>
-<script src="gopy.js?v=47"></script>
-<script src="gop.js?v=47"></script>
-<script src="noi.js?v=47"></script>
-<script src="parts.js?v=47"></script>
-<script src="pa.js?v=47"></script>
-<script src="kit.js?v=47"></script>
-<script src="kparts.js?v=47"></script>
-<script src="backup.js?v=47"></script>
+<script src="app.js?v=48"></script>
+<script src="tonghop.js?v=48"></script>
+<script src="exam.js?v=48"></script>
+<script src="gopy.js?v=48"></script>
+<script src="gop.js?v=48"></script>
+<script src="noi.js?v=48"></script>
+<script src="parts.js?v=48"></script>
+<script src="pa.js?v=48"></script>
+<script src="kit.js?v=48"></script>
+<script src="kparts.js?v=48"></script>
+<script src="backup.js?v=48"></script>
 </body>
 </html>

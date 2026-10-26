@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 47;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 48;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -272,7 +272,9 @@ function vreqList(p, lv) {
   return `<div class="dlist">${VREQ_LV.map(([L, name]) => { const on = lvIdx(L) <= lvIdx(lv), rs = VREQ.filter(r => r[2] === L);
     return `<div class="dlv ${on ? '' : 'lock'}">${on ? '' : '🔒 '}${L === 'pre' ? name : `${name}: thêm ${rs.length}`}${on ? '' : ` · mở khi lên ${name}`}</div>${rs.map(([k, l]) => on
       ? `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%${p.Tk[k] !== p.Tm ? ` <small>· ${p.Tk[k]} từ</small>` : ''}</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`
-      : `<div class="dimx"><span>${l}</span></div>`).join('')}`; }).join('')}${VREQ_FUT.map(([name, rs]) => `<div class="dlv lock">🔒 ${name}: thêm ${rs.length} · chưa có bài</div>${rs.map(([l]) => `<div class="dimx"><span>${l}</span></div>`).join('')}`).join('')}</div>`; }
+      : rqRow(l, vreqDesc(k), '')).join('')}`; }).join('')}${VREQ_FUT.map(([name, rs]) => `<div class="dlv lock">🔒 ${name}: thêm ${rs.length} · chưa có bài</div>${rs.map(([l]) => rqRow(l, RQ_D[l], '')).join('')}`).join('')}</div>`; }
+// nội dung yêu cầu đã có bài nhưng cấp chưa mở: lấy từ DIM_INFO (tonghop.js) + ví dụ bằng một từ có dữ liệu
+const vreqDesc = k => { const I = DIM_INFO[k], w = shuf(WORDS.filter(VREQ_BY[k][3]))[0]; return I ? `${I.what}${w ? `<br>Ví dụ: ${I.ex(w).filter(Boolean)[0] || ''}` : ''}<br><span class="mute">Học ở: ${esc(I.learn)}.</span>` : ''; };
 function home() {
   const now = Date.now(), lv = curLevel(), p = parts(S, now), nu = nextUnit();
   const ph2 = p.lq >= GATE_LEARN;
