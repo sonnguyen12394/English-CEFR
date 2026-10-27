@@ -545,7 +545,7 @@ checkVer();
 
 (async () => {
   fetch('a/index.json?v=7').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
-  try { for (const f of ['a1.json?v=11', 'a2.json?v=5']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
+  try { for (const f of ['a1.json?v=12', 'a2.json?v=6']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   // dữ liệu cho 12 yêu cầu Nhớ (tools/build-vx.mjs): dạng bất quy tắc, đồng / trái nghĩa, nghĩa thứ hai

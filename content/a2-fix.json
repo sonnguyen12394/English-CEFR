@@ -1,0 +1,1234 @@
+{
+ "_note": "Bổ sung A2 theo danh sách Cambridge A2 Flyers / A2 Key (27/10/2026, Claude soạn, chưa người thật kiểm). Áp bằng node tools/fix-pre.mjs.",
+ "lv": "a2",
+ "chName": "Bổ sung Key",
+ "pic": {},
+ "drop": [],
+ "word": {},
+ "units": [
+  {
+   "id": "a2-c20-b1",
+   "vi": "Bổ sung Key 1: giao tiếp hằng ngày",
+   "words": [
+    {
+     "id": "of-course",
+     "w": "of course",
+     "pos": "phrase",
+     "ipa": "/əv ˈkɔːs/",
+     "pic": "👌",
+     "vi": "tất nhiên",
+     "en": "used to say yes politely or to show something is clear",
+     "ex": "“Can I sit here?” “Of course.”",
+     "exVi": "“Tôi ngồi đây được không?” “Tất nhiên.”",
+     "cloze": {
+      "s": "“Can you help me?” “___! What do you need?”",
+      "a": "Of course",
+      "w": [
+       "Of cause",
+       "Off course"
+      ]
+     },
+     "col": {
+      "ok": "Yes, of course.",
+      "bad": [
+       "Yes, of the course.",
+       "Yes, off course."
+      ]
+     },
+     "exam": {
+      "s": "“Can I use your pen?” “Of course.”",
+      "f": "Of course"
+     }
+    },
+    {
+     "id": "youre-welcome",
+     "w": "you're welcome",
+     "pos": "phrase",
+     "ipa": "/jɔː ˈwelkəm/",
+     "pic": "😊",
+     "vi": "không có gì (đáp lời cảm ơn)",
+     "en": "a polite answer when someone thanks you",
+     "ex": "“Thanks for your help.” “You're welcome.”",
+     "exVi": "“Cảm ơn bạn đã giúp.” “Không có gì.”",
+     "cloze": {
+      "s": "“Thank you very much!” “___.”",
+      "a": "You're welcome",
+      "w": [
+       "Your welcome",
+       "You welcome"
+      ]
+     },
+     "col": {
+      "ok": "“Thanks!” “You're welcome.”",
+      "bad": [
+       "“Thanks!” “Welcome you.”",
+       "“Thanks!” “You're welcomed.”"
+      ]
+     },
+     "exam": {
+      "s": "“Thank you for the flowers.” “You're welcome.”",
+      "f": "You're welcome"
+     }
+    },
+    {
+     "id": "no-problem",
+     "w": "no problem",
+     "pos": "phrase",
+     "ipa": "/nəʊ ˈprɒbləm/",
+     "pic": "👍",
+     "vi": "không sao, được thôi",
+     "en": "used to say you are happy to do something, or that something is OK",
+     "ex": "“Can you call me later?” “No problem.”",
+     "exVi": "“Lát nữa gọi cho tôi được không?” “Được thôi.”",
+     "cloze": {
+      "s": "“Sorry I'm late.” “___. The film hasn't started.”",
+      "a": "No problem",
+      "w": [
+       "Not problem",
+       "No problems"
+      ]
+     },
+     "col": {
+      "ok": "“Can you help?” “No problem!”",
+      "bad": [
+       "“Can you help?” “Not problem!”",
+       "“Can you help?” “No a problem!”"
+      ]
+     },
+     "exam": {
+      "s": "“Could you open the door?” “No problem.”",
+      "f": "No problem"
+     }
+    },
+    {
+     "id": "how-long",
+     "w": "how long",
+     "pos": "phrase",
+     "ipa": "/haʊ ˈlɒŋ/",
+     "pic": "⏳",
+     "vi": "bao lâu",
+     "en": "used to ask about time or length",
+     "ex": "How long does the journey take?",
+     "exVi": "Chuyến đi mất bao lâu?",
+     "cloze": {
+      "s": "___ have you lived here? Five years.",
+      "a": "How long",
+      "w": [
+       "How much",
+       "How often"
+      ]
+     },
+     "col": {
+      "ok": "How long does it take?",
+      "bad": [
+       "How long does it need time?",
+       "How many long does it take?"
+      ]
+     },
+     "exam": {
+      "s": "How long is the film?",
+      "f": "How long"
+     }
+    },
+    {
+     "id": "look-like",
+     "w": "look like",
+     "pos": "phrase",
+     "ipa": "/ˈlʊk laɪk/",
+     "pic": "🪞",
+     "vi": "trông giống",
+     "en": "to be similar to someone or something in appearance",
+     "ex": "You look like your father.",
+     "exVi": "Bạn trông giống bố bạn.",
+     "cloze": {
+      "s": "What does your new teacher ___? She is tall with short hair.",
+      "a": "look like",
+      "w": [
+       "look",
+       "like look"
+      ]
+     },
+     "col": {
+      "ok": "look like your mother",
+      "bad": [
+       "look as your mother",
+       "look your mother like"
+      ]
+     },
+     "exam": {
+      "s": "What does your brother look like?",
+      "f": "look like"
+     }
+    },
+    {
+     "id": "make-sure",
+     "w": "make sure",
+     "pos": "phrase",
+     "ipa": "/meɪk ˈʃʊə(r)/",
+     "pic": "✅",
+     "vi": "đảm bảo, nhớ kiểm tra",
+     "en": "to check that something is true or will happen",
+     "ex": "Make sure you lock the door.",
+     "exVi": "Nhớ khoá cửa nhé.",
+     "cloze": {
+      "s": "___ you have your passport before you leave.",
+      "a": "Make sure",
+      "w": [
+       "Do sure",
+       "Make sured"
+      ]
+     },
+     "col": {
+      "ok": "make sure you are on time",
+      "bad": [
+       "make sure that you to be on time",
+       "do sure you are on time"
+      ]
+     },
+     "exam": {
+      "s": "Make sure you take an umbrella.",
+      "f": "Make sure"
+     }
+    },
+    {
+     "id": "in-a-minute",
+     "w": "in a minute",
+     "pos": "phrase",
+     "ipa": "/ɪn ə ˈmɪnɪt/",
+     "pic": "⏱️",
+     "vi": "một chút nữa, ngay đây",
+     "en": "very soon",
+     "ex": "I'll be ready in a minute.",
+     "exVi": "Một chút nữa là tôi xong.",
+     "cloze": {
+      "s": "Wait for me. I'll come ___.",
+      "a": "in a minute",
+      "w": [
+       "on a minute",
+       "at a minute"
+      ]
+     },
+     "col": {
+      "ok": "back in a minute",
+      "bad": [
+       "back on a minute",
+       "back at minute"
+      ]
+     },
+     "exam": {
+      "s": "Dinner will be ready in a minute.",
+      "f": "in a minute"
+     }
+    },
+    {
+     "id": "at-the-moment",
+     "w": "at the moment",
+     "pos": "phrase",
+     "ipa": "/ət ðə ˈməʊmənt/",
+     "pic": "🕐",
+     "vi": "lúc này, hiện giờ",
+     "en": "now",
+     "ex": "I'm busy at the moment.",
+     "exVi": "Lúc này tôi đang bận.",
+     "cloze": {
+      "s": "She isn't here ___. She's at lunch.",
+      "a": "at the moment",
+      "w": [
+       "in the moment",
+       "on the moment"
+      ]
+     },
+     "col": {
+      "ok": "at the moment",
+      "bad": [
+       "in this moment",
+       "on the moment"
+      ]
+     },
+     "exam": {
+      "s": "I'm reading a good book at the moment.",
+      "f": "at the moment"
+     }
+    },
+    {
+     "id": "pleased",
+     "w": "pleased",
+     "pos": "adjective",
+     "ipa": "/pliːzd/",
+     "pic": "😊",
+     "vi": "vui, hài lòng",
+     "en": "happy about something",
+     "ex": "I'm pleased with my exam result.",
+     "exVi": "Tôi hài lòng với kết quả thi.",
+     "cloze": {
+      "s": "We are very ___ to meet you.",
+      "a": "pleased",
+      "w": [
+       "pleasing",
+       "please"
+      ]
+     },
+     "col": {
+      "ok": "pleased to meet you",
+      "bad": [
+       "pleased meeting you",
+       "pleasing to meet you"
+      ]
+     },
+     "exam": {
+      "s": "My boss was pleased with my work.",
+      "f": "pleased"
+     }
+    },
+    {
+     "id": "lovely",
+     "w": "lovely",
+     "pos": "adjective",
+     "ipa": "/ˈlʌvli/",
+     "pic": "🥰",
+     "vi": "đáng yêu, rất đẹp, rất tốt",
+     "en": "very nice, beautiful or enjoyable",
+     "ex": "What a lovely dress!",
+     "exVi": "Chiếc váy đẹp quá!",
+     "cloze": {
+      "s": "We had a ___ time at the beach.",
+      "a": "lovely",
+      "w": [
+       "love",
+       "lovingly"
+      ]
+     },
+     "col": {
+      "ok": "a lovely day",
+      "bad": [
+       "a lovely days",
+       "an lovely day"
+      ]
+     },
+     "exam": {
+      "s": "Thank you for the lovely dinner.",
+      "f": "lovely"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2-c20-b2",
+   "vi": "Bổ sung Key 2: nơi chốn và nghề nghiệp",
+   "words": [
+    {
+     "id": "post-office",
+     "w": "post office",
+     "pos": "noun",
+     "ipa": "/ˈpəʊst ɒfɪs/",
+     "pic": "🏤",
+     "vi": "bưu điện",
+     "en": "a place where you can send letters and parcels",
+     "ex": "I need to go to the post office.",
+     "exVi": "Tôi cần ra bưu điện.",
+     "cloze": {
+      "s": "You can buy stamps at the ___.",
+      "a": "post office",
+      "w": [
+       "police station",
+       "office post"
+      ]
+     },
+     "col": {
+      "ok": "at the post office",
+      "bad": [
+       "in post office the",
+       "on the post office"
+      ]
+     },
+     "exam": {
+      "s": "The post office closes at five.",
+      "f": "post office"
+     }
+    },
+    {
+     "id": "police-station",
+     "w": "police station",
+     "pos": "noun",
+     "ipa": "/pəˈliːs steɪʃn/",
+     "pic": "🚓",
+     "vi": "đồn cảnh sát",
+     "en": "the office of the police in a town",
+     "ex": "We went to the police station to report the theft.",
+     "exVi": "Chúng tôi đến đồn cảnh sát trình báo vụ trộm.",
+     "cloze": {
+      "s": "My bag was stolen, so I went to the ___.",
+      "a": "police station",
+      "w": [
+       "post office",
+       "police"
+      ]
+     },
+     "col": {
+      "ok": "go to the police station",
+      "bad": [
+       "go to police station the",
+       "go at the police station"
+      ]
+     },
+     "exam": {
+      "s": "The police station is opposite the bank.",
+      "f": "police station"
+     }
+    },
+    {
+     "id": "police-officer",
+     "w": "police officer",
+     "pos": "noun",
+     "ipa": "/pəˈliːs ɒfɪsə(r)/",
+     "pic": "👮",
+     "vi": "cảnh sát viên",
+     "en": "a member of the police",
+     "ex": "The police officer helped the old woman cross the road.",
+     "exVi": "Anh cảnh sát giúp bà cụ qua đường.",
+     "cloze": {
+      "s": "Ask a ___ if you are lost.",
+      "a": "police officer",
+      "w": [
+       "police station",
+       "officer police"
+      ]
+     },
+     "col": {
+      "ok": "a police officer",
+      "bad": [
+       "an police officer",
+       "a polices officer"
+      ]
+     },
+     "exam": {
+      "s": "My uncle is a police officer.",
+      "f": "police officer"
+     }
+    },
+    {
+     "id": "chemist",
+     "w": "chemist",
+     "pos": "noun",
+     "ipa": "/ˈkemɪst/",
+     "pic": "💊",
+     "vi": "hiệu thuốc; dược sĩ",
+     "en": "a shop that sells medicine (UK); a person who works there",
+     "ex": "You can buy this medicine at the chemist's.",
+     "exVi": "Bạn mua thuốc này ở hiệu thuốc được.",
+     "cloze": {
+      "s": "I have a headache. Is there a ___ near here?",
+      "a": "chemist",
+      "w": [
+       "chemistry",
+       "doctor"
+      ]
+     },
+     "col": {
+      "ok": "go to the chemist's",
+      "bad": [
+       "go to chemist's the",
+       "go at the chemist"
+      ]
+     },
+     "exam": {
+      "s": "The chemist gave me some cough medicine.",
+      "f": "chemist"
+     }
+    },
+    {
+     "id": "photographer",
+     "w": "photographer",
+     "pos": "noun",
+     "ipa": "/fəˈtɒɡrəfə(r)/",
+     "pic": "📸",
+     "vi": "nhiếp ảnh gia",
+     "en": "a person who takes photographs as a job",
+     "ex": "The photographer took photos at the wedding.",
+     "exVi": "Thợ ảnh chụp ảnh ở đám cưới.",
+     "cloze": {
+      "s": "She takes beautiful pictures. She wants to be a ___.",
+      "a": "photographer",
+      "w": [
+       "photograph",
+       "photography"
+      ]
+     },
+     "col": {
+      "ok": "a famous photographer",
+      "bad": [
+       "a photographer famous",
+       "a famous photograph"
+      ]
+     },
+     "exam": {
+      "s": "The photographer asked us to smile.",
+      "f": "photographer"
+     }
+    },
+    {
+     "id": "mechanic",
+     "w": "mechanic",
+     "pos": "noun",
+     "ipa": "/məˈkænɪk/",
+     "pic": "🔧",
+     "vi": "thợ máy, thợ sửa xe",
+     "en": "a person who repairs cars and machines",
+     "ex": "The mechanic fixed my car.",
+     "exVi": "Thợ sửa xe đã sửa ô tô của tôi.",
+     "cloze": {
+      "s": "My motorbike is broken. I'll take it to the ___.",
+      "a": "mechanic",
+      "w": [
+       "mechanical",
+       "machine"
+      ]
+     },
+     "col": {
+      "ok": "a good mechanic",
+      "bad": [
+       "a mechanic good",
+       "an good mechanic"
+      ]
+     },
+     "exam": {
+      "s": "The mechanic says the car is OK now.",
+      "f": "mechanic"
+     }
+    },
+    {
+     "id": "entrance",
+     "w": "entrance",
+     "pos": "noun",
+     "ipa": "/ˈentrəns/",
+     "pic": "🚪",
+     "vi": "lối vào",
+     "en": "a door or gate where you go into a place",
+     "ex": "Meet me at the main entrance.",
+     "exVi": "Gặp tôi ở lối vào chính nhé.",
+     "cloze": {
+      "s": "The ___ to the museum is on the left.",
+      "a": "entrance",
+      "w": [
+       "enter",
+       "exit"
+      ]
+     },
+     "col": {
+      "ok": "the main entrance",
+      "bad": [
+       "the entrance main",
+       "the main enter"
+      ]
+     },
+     "exam": {
+      "s": "Where is the entrance to the park?",
+      "f": "entrance"
+     }
+    },
+    {
+     "id": "quiz",
+     "w": "quiz",
+     "pos": "noun",
+     "ipa": "/kwɪz/",
+     "pic": "❓",
+     "vi": "câu đố, cuộc thi đố vui",
+     "en": "a game where people answer questions",
+     "ex": "We had a music quiz at the party.",
+     "exVi": "Chúng tôi chơi đố vui âm nhạc ở bữa tiệc.",
+     "cloze": {
+      "s": "Our team won the ___ on TV.",
+      "a": "quiz",
+      "w": [
+       "quizzes",
+       "question"
+      ]
+     },
+     "col": {
+      "ok": "take part in a quiz",
+      "bad": [
+       "make part in a quiz",
+       "join in quiz a"
+      ]
+     },
+     "exam": {
+      "s": "There is a quiz on TV tonight.",
+      "f": "quiz"
+     }
+    },
+    {
+     "id": "winner",
+     "w": "winner",
+     "pos": "noun",
+     "ipa": "/ˈwɪnə(r)/",
+     "pic": "🏆",
+     "vi": "người thắng",
+     "en": "a person or team that wins",
+     "ex": "The winner gets a prize.",
+     "exVi": "Người thắng được nhận giải.",
+     "cloze": {
+      "s": "Who was the ___ of the race?",
+      "a": "winner",
+      "w": [
+       "win",
+       "winning"
+      ]
+     },
+     "col": {
+      "ok": "the winner of the game",
+      "bad": [
+       "the winner from the game",
+       "the win of the game"
+      ]
+     },
+     "exam": {
+      "s": "She was the winner of the singing contest.",
+      "f": "winner"
+     }
+    },
+    {
+     "id": "midday",
+     "w": "midday",
+     "pos": "noun",
+     "ipa": "/ˌmɪdˈdeɪ/",
+     "pic": "🕛",
+     "vi": "buổi trưa, 12 giờ trưa",
+     "en": "twelve o'clock in the day",
+     "ex": "We have lunch at midday.",
+     "exVi": "Chúng tôi ăn trưa lúc 12 giờ.",
+     "cloze": {
+      "s": "The shop closes at ___ on Saturday.",
+      "a": "midday",
+      "w": [
+       "midnight",
+       "middle"
+      ]
+     },
+     "col": {
+      "ok": "at midday",
+      "bad": [
+       "in midday",
+       "on midday"
+      ]
+     },
+     "exam": {
+      "s": "The train arrives at midday.",
+      "f": "midday"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2-c20-b3",
+   "vi": "Bổ sung Key 3: đồ dùng và đồ ăn",
+   "words": [
+    {
+     "id": "sunglasses",
+     "w": "sunglasses",
+     "pos": "noun",
+     "ipa": "/ˈsʌnɡlɑːsɪz/",
+     "pic": "🕶️",
+     "vi": "kính râm",
+     "en": "dark glasses that protect your eyes from the sun",
+     "ex": "Don't forget your sunglasses.",
+     "exVi": "Đừng quên kính râm.",
+     "cloze": {
+      "s": "It's very sunny. Put on your ___.",
+      "a": "sunglasses",
+      "w": [
+       "sunglass",
+       "glasses sun"
+      ]
+     },
+     "col": {
+      "ok": "a pair of sunglasses",
+      "bad": [
+       "a pair of sunglass",
+       "a sunglasses"
+      ]
+     },
+     "exam": {
+      "s": "I left my sunglasses on the beach.",
+      "f": "sunglasses"
+     }
+    },
+    {
+     "id": "trainers",
+     "w": "trainers",
+     "pos": "noun",
+     "ipa": "/ˈtreɪnəz/",
+     "pic": "👟",
+     "vi": "giày thể thao",
+     "en": "sports shoes",
+     "ex": "I need new trainers for running.",
+     "exVi": "Tôi cần giày thể thao mới để chạy bộ.",
+     "cloze": {
+      "s": "Wear your ___ for the PE lesson.",
+      "a": "trainers",
+      "w": [
+       "trainer",
+       "training"
+      ]
+     },
+     "col": {
+      "ok": "a pair of trainers",
+      "bad": [
+       "a trainers",
+       "one trainers"
+      ]
+     },
+     "exam": {
+      "s": "These trainers are very comfortable.",
+      "f": "trainers"
+     }
+    },
+    {
+     "id": "calendar",
+     "w": "calendar",
+     "pos": "noun",
+     "ipa": "/ˈkælɪndə(r)/",
+     "pic": "📅",
+     "vi": "lịch",
+     "en": "a list of the days, weeks and months of a year",
+     "ex": "Write the date on the calendar.",
+     "exVi": "Ghi ngày vào lịch.",
+     "cloze": {
+      "s": "Look at the ___. My birthday is next Friday.",
+      "a": "calendar",
+      "w": [
+       "calender",
+       "diary"
+      ]
+     },
+     "col": {
+      "ok": "on the calendar",
+      "bad": [
+       "in the calendar on",
+       "at calendar"
+      ]
+     },
+     "exam": {
+      "s": "There is a calendar on the kitchen wall.",
+      "f": "calendar"
+     }
+    },
+    {
+     "id": "postcard",
+     "w": "postcard",
+     "pos": "noun",
+     "ipa": "/ˈpəʊstkɑːd/",
+     "pic": "🖼️",
+     "vi": "bưu thiếp",
+     "en": "a card with a picture that you send without an envelope",
+     "ex": "I sent my grandma a postcard from Da Lat.",
+     "exVi": "Tôi gửi bà một tấm bưu thiếp từ Đà Lạt.",
+     "cloze": {
+      "s": "Send me a ___ from your holiday!",
+      "a": "postcard",
+      "w": [
+       "post",
+       "card post"
+      ]
+     },
+     "col": {
+      "ok": "send a postcard",
+      "bad": [
+       "post a postcards",
+       "make a postcard"
+      ]
+     },
+     "exam": {
+      "s": "She wrote a postcard to her friend.",
+      "f": "postcard"
+     }
+    },
+    {
+     "id": "invitation",
+     "w": "invitation",
+     "pos": "noun",
+     "ipa": "/ˌɪnvɪˈteɪʃn/",
+     "pic": "💌",
+     "vi": "lời mời, thiệp mời",
+     "en": "a request to come to a party or event",
+     "ex": "Thank you for the invitation to your wedding.",
+     "exVi": "Cảm ơn bạn đã mời tôi dự đám cưới.",
+     "cloze": {
+      "s": "I got an ___ to Lan's birthday party.",
+      "a": "invitation",
+      "w": [
+       "invite",
+       "inviting"
+      ]
+     },
+     "col": {
+      "ok": "accept an invitation",
+      "bad": [
+       "take an invitation",
+       "receive the invitation of"
+      ]
+     },
+     "exam": {
+      "s": "Did you get my invitation?",
+      "f": "invitation"
+     }
+    },
+    {
+     "id": "shampoo",
+     "w": "shampoo",
+     "pos": "noun",
+     "ipa": "/ʃæmˈpuː/",
+     "pic": "🧴",
+     "vi": "dầu gội",
+     "en": "liquid soap for washing your hair",
+     "ex": "This shampoo smells of apples.",
+     "exVi": "Dầu gội này có mùi táo.",
+     "cloze": {
+      "s": "We need to buy some ___ and soap.",
+      "a": "shampoo",
+      "w": [
+       "shampoos",
+       "soap"
+      ]
+     },
+     "col": {
+      "ok": "a bottle of shampoo",
+      "bad": [
+       "a piece of shampoo",
+       "a bottle shampoo"
+      ]
+     },
+     "exam": {
+      "s": "There is no shampoo in the bathroom.",
+      "f": "shampoo"
+     }
+    },
+    {
+     "id": "strawberry",
+     "w": "strawberry",
+     "pos": "noun",
+     "ipa": "/ˈstrɔːbəri/",
+     "pic": "🍓",
+     "vi": "quả dâu tây",
+     "en": "a small red fruit",
+     "ex": "I love strawberry ice cream.",
+     "exVi": "Tôi rất thích kem dâu.",
+     "cloze": {
+      "s": "Da Lat is famous for its ___ farms.",
+      "a": "strawberry",
+      "w": [
+       "strawberries",
+       "straw"
+      ]
+     },
+     "col": {
+      "ok": "strawberry jam",
+      "bad": [
+       "jam strawberry",
+       "strawberries jam of"
+      ]
+     },
+     "exam": {
+      "s": "Would you like a strawberry?",
+      "f": "strawberry"
+     }
+    },
+    {
+     "id": "honey",
+     "w": "honey",
+     "pos": "noun",
+     "ipa": "/ˈhʌni/",
+     "pic": "🍯",
+     "vi": "mật ong",
+     "en": "a sweet food made by bees",
+     "ex": "I put honey in my tea.",
+     "exVi": "Tôi cho mật ong vào trà.",
+     "cloze": {
+      "s": "Bees make ___.",
+      "a": "honey",
+      "w": [
+       "money",
+       "sugar"
+      ]
+     },
+     "col": {
+      "ok": "a spoon of honey",
+      "bad": [
+       "a slice of honey",
+       "a piece honey"
+      ]
+     },
+     "exam": {
+      "s": "This honey is from the mountains.",
+      "f": "honey"
+     }
+    },
+    {
+     "id": "pizza",
+     "w": "pizza",
+     "pos": "noun",
+     "ipa": "/ˈpiːtsə/",
+     "pic": "🍕",
+     "vi": "bánh pizza",
+     "en": "a flat round bread with cheese and tomato on top",
+     "ex": "Let's order a pizza tonight.",
+     "exVi": "Tối nay gọi pizza đi.",
+     "cloze": {
+      "s": "We had a big ___ with cheese and mushrooms.",
+      "a": "pizza",
+      "w": [
+       "pizzas",
+       "pasta"
+      ]
+     },
+     "col": {
+      "ok": "order a pizza",
+      "bad": [
+       "ask a pizza",
+       "make order pizza"
+      ]
+     },
+     "exam": {
+      "s": "My favourite pizza has chicken on it.",
+      "f": "pizza"
+     }
+    },
+    {
+     "id": "broken",
+     "w": "broken",
+     "pos": "adjective",
+     "ipa": "/ˈbrəʊkən/",
+     "pic": "💔",
+     "vi": "bị hỏng, bị vỡ",
+     "en": "damaged and not working or in pieces",
+     "ex": "My phone is broken.",
+     "exVi": "Điện thoại tôi bị hỏng.",
+     "cloze": {
+      "s": "I can't use the lift. It's ___.",
+      "a": "broken",
+      "w": [
+       "break",
+       "broke"
+      ]
+     },
+     "col": {
+      "ok": "a broken window",
+      "bad": [
+       "a break window",
+       "a window broken"
+      ]
+     },
+     "exam": {
+      "s": "The chair is broken. Don't sit on it.",
+      "f": "broken"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2-c20-b4",
+   "vi": "Bổ sung Key 4: hành động và tính cách",
+   "words": [
+    {
+     "id": "sell",
+     "w": "sell",
+     "pos": "verb",
+     "ipa": "/sel/",
+     "pic": "🏷️",
+     "vi": "bán",
+     "en": "to give something to someone for money",
+     "ex": "They sell fruit at the market.",
+     "exVi": "Họ bán hoa quả ở chợ.",
+     "cloze": {
+      "s": "Do you ___ phone cards here?",
+      "a": "sell",
+      "w": [
+       "sale",
+       "buy"
+      ]
+     },
+     "col": {
+      "ok": "sell something to someone",
+      "bad": [
+       "sell something for someone to",
+       "sale something"
+      ]
+     },
+     "exam": {
+      "s": "My uncle sells cars.",
+      "f": "sells"
+     }
+    },
+    {
+     "id": "go-away",
+     "w": "go away",
+     "pos": "phrasal verb",
+     "ipa": "/ɡəʊ əˈweɪ/",
+     "pic": "👋",
+     "vi": "đi khỏi, đi xa (nghỉ)",
+     "en": "to leave a place; to go on holiday",
+     "ex": "We're going away for the weekend.",
+     "exVi": "Cuối tuần này chúng tôi đi xa.",
+     "cloze": {
+      "s": "Please ___! I'm busy.",
+      "a": "go away",
+      "w": [
+       "go off",
+       "away go"
+      ]
+     },
+     "col": {
+      "ok": "go away on holiday",
+      "bad": [
+       "go away in holiday",
+       "go out away on holiday"
+      ]
+     },
+     "exam": {
+      "s": "They go away every summer.",
+      "f": "go away"
+     }
+    },
+    {
+     "id": "get-to",
+     "w": "get to",
+     "pos": "phrasal verb",
+     "ipa": "/ˈɡet tə/",
+     "pic": "📍",
+     "vi": "đến (nơi nào)",
+     "en": "to arrive at a place",
+     "ex": "How do I get to the station?",
+     "exVi": "Đi đến nhà ga bằng cách nào?",
+     "cloze": {
+      "s": "What time did you ___ work?",
+      "a": "get to",
+      "w": [
+       "get in",
+       "arrive to"
+      ]
+     },
+     "col": {
+      "ok": "get to school",
+      "bad": [
+       "get school to",
+       "arrive to school"
+      ]
+     },
+     "exam": {
+      "s": "It takes ten minutes to get to the market.",
+      "f": "get to"
+     }
+    },
+    {
+     "id": "fall-over",
+     "w": "fall over",
+     "pos": "phrasal verb",
+     "ipa": "/fɔːl ˈəʊvə(r)/",
+     "pic": "🤕",
+     "vi": "ngã, vấp ngã",
+     "en": "to fall to the ground",
+     "ex": "Be careful! Don't fall over.",
+     "exVi": "Cẩn thận! Đừng để ngã.",
+     "cloze": {
+      "s": "The floor was wet and I ___.",
+      "a": "fell over",
+      "w": [
+       "fall over",
+       "felt over"
+      ]
+     },
+     "col": {
+      "ok": "fall over and hurt your knee",
+      "bad": [
+       "fall down over",
+       "fall on over"
+      ]
+     },
+     "exam": {
+      "s": "The child fell over in the playground.",
+      "f": "fell over"
+     }
+    },
+    {
+     "id": "friendly",
+     "w": "friendly",
+     "pos": "adjective",
+     "ipa": "/ˈfrendli/",
+     "pic": "🤗",
+     "vi": "thân thiện",
+     "en": "kind and pleasant to other people",
+     "ex": "The people here are very friendly.",
+     "exVi": "Người dân ở đây rất thân thiện.",
+     "cloze": {
+      "s": "Our new neighbour is very ___. She always says hello.",
+      "a": "friendly",
+      "w": [
+       "friend",
+       "friendship"
+      ]
+     },
+     "col": {
+      "ok": "friendly to everyone",
+      "bad": [
+       "friendly for everyone",
+       "friend to everyone"
+      ]
+     },
+     "exam": {
+      "s": "The hotel staff were friendly.",
+      "f": "friendly"
+     }
+    },
+    {
+     "id": "unhappy",
+     "w": "unhappy",
+     "pos": "adjective",
+     "ipa": "/ʌnˈhæpi/",
+     "pic": "😞",
+     "vi": "không vui, buồn",
+     "en": "not happy",
+     "ex": "He looks unhappy today.",
+     "exVi": "Hôm nay anh ấy trông không vui.",
+     "cloze": {
+      "s": "She was ___ because she lost her job.",
+      "a": "unhappy",
+      "w": [
+       "dishappy",
+       "unhappily"
+      ]
+     },
+     "col": {
+      "ok": "feel unhappy",
+      "bad": [
+       "feel unhappily",
+       "make unhappy feel"
+      ]
+     },
+     "exam": {
+      "s": "Why are you so unhappy?",
+      "f": "unhappy"
+     }
+    },
+    {
+     "id": "untidy",
+     "w": "untidy",
+     "pos": "adjective",
+     "ipa": "/ʌnˈtaɪdi/",
+     "pic": "🧺",
+     "vi": "bừa bộn",
+     "en": "not tidy; messy",
+     "ex": "Your room is very untidy!",
+     "exVi": "Phòng con bừa bộn quá!",
+     "cloze": {
+      "s": "His desk is always ___. There are papers everywhere.",
+      "a": "untidy",
+      "w": [
+       "tidy",
+       "untidily"
+      ]
+     },
+     "col": {
+      "ok": "an untidy room",
+      "bad": [
+       "a untidy room",
+       "an room untidy"
+      ]
+     },
+     "exam": {
+      "s": "My brother's bedroom is untidy.",
+      "f": "untidy"
+     }
+    },
+    {
+     "id": "a-few",
+     "w": "a few",
+     "pos": "determiner",
+     "ipa": "/ə ˈfjuː/",
+     "pic": "🤏",
+     "vi": "một vài (đếm được)",
+     "en": "a small number of",
+     "ex": "I have a few friends in Hanoi.",
+     "exVi": "Tôi có vài người bạn ở Hà Nội.",
+     "cloze": {
+      "s": "There are ___ eggs in the fridge.",
+      "a": "a few",
+      "w": [
+       "a little",
+       "few of"
+      ]
+     },
+     "col": {
+      "ok": "a few minutes",
+      "bad": [
+       "a few water",
+       "a little minutes"
+      ]
+     },
+     "exam": {
+      "s": "Wait a few minutes, please.",
+      "f": "a few"
+     }
+    },
+    {
+     "id": "a-little",
+     "w": "a little",
+     "pos": "determiner",
+     "ipa": "/ə ˈlɪtl/",
+     "pic": "💧",
+     "vi": "một ít (không đếm được)",
+     "en": "a small amount of",
+     "ex": "Add a little sugar.",
+     "exVi": "Thêm một ít đường.",
+     "cloze": {
+      "s": "Can I have ___ milk in my coffee?",
+      "a": "a little",
+      "w": [
+       "a few",
+       "little of"
+      ]
+     },
+     "col": {
+      "ok": "a little water",
+      "bad": [
+       "a little apples",
+       "a few water"
+      ]
+     },
+     "exam": {
+      "s": "I speak a little French.",
+      "f": "a little"
+     }
+    },
+    {
+     "id": "surname",
+     "w": "surname",
+     "pos": "noun",
+     "ipa": "/ˈsɜːneɪm/",
+     "pic": "🏷️",
+     "vi": "họ (của tên người)",
+     "en": "your family name",
+     "ex": "My surname is Nguyen.",
+     "exVi": "Họ của tôi là Nguyễn.",
+     "cloze": {
+      "s": "Please write your first name and ___ here.",
+      "a": "surname",
+      "w": [
+       "name",
+       "nickname"
+      ]
+     },
+     "col": {
+      "ok": "spell your surname",
+      "bad": [
+       "say your surname spelling",
+       "write surname your"
+      ]
+     },
+     "exam": {
+      "s": "What is your surname?",
+      "f": "surname"
+     }
+    }
+   ]
+  }
+ ]
+}
