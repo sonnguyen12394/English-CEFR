@@ -52,3 +52,22 @@ Giới hạn không vượt được bằng máy: nội dung AI soạn chưa ng�
 Tổng tới A2 theo mô phỏng: khoảng 300 ngày × 45–55 phút ≈ 230–280 giờ. Cambridge ước A2 Key cần khoảng 180–200 giờ học có hướng dẫn; chuẩn Nhớ của app (≥ 80% mọi yêu cầu trên mọi từ, dồn cấp) chặt hơn nên lâu hơn.
 
 Chưa kiểm được bằng máy: bước 🗣 nói và 👄 bộ chấm âm (cần iPhone thật; Thi Phát âm cần tải bộ chấm âm vài trăm MB); nội dung AI soạn chưa người thật kiểm.
+
+## B1 → C2 (v52, 27/10/2026; người sáng lập: "làm hết tới C2")
+
+Đã làm: 3.447 từ / 434 bài + câu thi mới, 9 yêu cầu 🔁 Nhớ mới (21 tổng), ngữ pháp 46 điểm, Đọc 40, Nghe 40, Nói 24, Viết 16 (mỗi kỹ năng có cấp B1, B2, C1, C2), ô 📝 đề thật B1 Preliminary → C2 Proficiency. Phát âm dừng ở A2.
+
+| Tiêu chí | B1 | B1+ | B2 | B2+ | C1 | C2 |
+|---|---|---|---|---|---|---|
+| X1 màn, đề | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| X2 yêu cầu Nhớ được dạy | ✅ 15 | ✅ 15 | ✅ 18 | ✅ 18 | ✅ 20 | ✅ 21 |
+| X4 câu thi đúng cấp | ✅ 0,5% | ✅ 0,6% | ✅ 0% | ✅ 0% | ✅ 0% | ✅ 0% |
+| X5 câu hỏi hợp lệ, bài mẫu tự qua luật chấm | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| X6 WebKit iPhone 13 giả lập | ✅ | (chung B1) | ✅ | (chung B2) | ✅ | ✅ |
+| X7 thời gian Từ vựng (mô phỏng, 2 lượt ôn / ngày) | ❌ > 800 ngày | 238 ngày | ❌ > 800 | 605 | ❌ > 800 | 437 |
+| X8 đề thật Cambridge | ✅ | – | ✅ | – | ✅ | ✅ |
+
+**X7 không đạt ở B1, B2, C1: Từ vựng không tới cổng.** Mô phỏng B1 (`/tmp` diag, 27/10/2026):
+- Nhớ dồn cấp = 2.213 từ (A1 → B1), mỗi từ tới 15 yêu cầu. Câu ôn mỗi ngày bị hút vào sửa từ cũ vừa sai (từ "quên" được ưu tiên trước), từ B1 thiếu yêu cầu mới ít được hỏi.
+- Kể cả 6 lượt ôn / ngày (~45 phút) trong 720 ngày: yêu cầu mới dừng ở 64–72% (cần 80%). Cho yêu cầu B chỉ áp cho từ cấp B: không đổi đáng kể.
+- Kết luận: luật đo hiện tại (mọi yêu cầu ≥ 80% trên mọi từ dồn cấp) không khả thi ở B1 trở lên. Cần người sáng lập chọn cách đổi (luật đo, Q6). Chưa đổi gì.
