@@ -34,6 +34,11 @@ for (const f of ['pre-fix.json', 'a1-fix.json']) {
 // câu thi Pre-A1 viết lại đúng cấp (X4)
 for (const [id, v] of Object.entries(JSON.parse(fs.readFileSync(root + 'content/exam-pre-fix.json', 'utf8')))) if (id[0] !== '_') E[id] = { s: v[0], f: v[1] };
 function wLvOf(w) { return (A.units.find(u => u.words.includes(w)) || {}).lv; }
+// 📰 Đọc, 🎧 Nghe Pre-A1 kiểu Starters (content/pre-skills.json): thêm vào đầu doc.json / nghe.json, cấp 'pre'
+const SK = JSON.parse(fs.readFileSync(root + 'content/pre-skills.json', 'utf8'));
+for (const id of ['doc', 'nghe']) { const D = JSON.parse(fs.readFileSync(root + id + '.json', 'utf8'));
+  D.items = [...SK[id].map(x => ({ ...x, lv: 'pre', ...(x.lines ? { text: x.lines.map(l => l[1]).join(' '), vi: x.vi || '' } : {}) })), ...D.items.filter(x => !x.id.startsWith(id + '-pre-'))];
+  fs.writeFileSync(root + id + '.json', JSON.stringify(D)); console.log(id, 'Pre-A1:', SK[id].length, 'bài'); }
 // Ngữ pháp: chuyển so sánh hơn / nhất, have to, must từ A2 lên A1 (có trong đề A1 Movers; quyết định Q3, docs/HOAN-THIEN.md)
 const NP = JSON.parse(fs.readFileSync(root + 'np.json', 'utf8')), NP_A1 = ['So sánh hơn của tính từ', 'So sánh nhất của tính từ', 'Have to / don\'t have to', 'Must / mustn\'t'];
 const mvNp = NP.items.filter(x => NP_A1.includes(x.title) && x.lv !== 'a1'); for (const x of mvNp) { x.lv = 'a1'; NP.items.splice(NP.items.indexOf(x), 1); }

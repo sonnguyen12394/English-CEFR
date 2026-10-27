@@ -1,0 +1,1167 @@
+{
+ "_note": "Bài Đọc và Nghe Pre-A1 kiểu Cambridge Starters (27/10/2026, Claude soạn, chưa người thật kiểm). Chỉ dùng từ Pre-A1 (tools/test/run.mjs kiểm). Áp bằng node tools/fix-pre.mjs.",
+ "doc": [
+  {
+   "id": "doc-pre-1",
+   "title": "My Family",
+   "tvi": "Gia đình của mình",
+   "text": "Hello! My name is Lan. I am ten. I live in a small house with my family. My mother is a teacher. My father has a red car. I have one brother. His name is Minh. He is six. We have a cat. Its name is Kiki.",
+   "vi": "Xin chào! Mình tên là Lan. Mình mười tuổi. Mình sống trong một ngôi nhà nhỏ với gia đình. Mẹ mình là giáo viên. Bố mình có một chiếc ô tô đỏ. Mình có một em trai tên Minh, sáu tuổi. Nhà mình có một con mèo tên Kiki.",
+   "qs": [
+    {
+     "q": "How old is Lan?",
+     "a": "Ten",
+     "w": [
+      "Six",
+      "Seven"
+     ],
+     "why": "“I am ten.”"
+    },
+    {
+     "q": "What is her mother?",
+     "a": "A teacher",
+     "w": [
+      "A cook",
+      "A singer"
+     ],
+     "why": "“My mother is a teacher.”"
+    },
+    {
+     "q": "What is Kiki?",
+     "a": "A cat",
+     "w": [
+      "A dog",
+      "Her brother"
+     ],
+     "why": "“We have a cat. Its name is Kiki.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-2",
+   "title": "In My Bedroom",
+   "tvi": "Trong phòng ngủ của mình",
+   "text": "This is my bedroom. It is small but nice. My bed is next to the window. There is a lamp on the table. My books are in the bookcase. There is a big poster of a horse on the wall. My shoes are under the bed.",
+   "vi": "Đây là phòng ngủ của mình. Phòng nhỏ nhưng đẹp. Giường ở cạnh cửa sổ. Có một cái đèn trên bàn. Sách để trong tủ sách. Trên tường có một tấm áp phích to hình con ngựa. Giày ở dưới giường.",
+   "qs": [
+    {
+     "q": "Where is the bed?",
+     "a": "Next to the window",
+     "w": [
+      "Under the table",
+      "In the kitchen"
+     ],
+     "why": "“My bed is next to the window.”"
+    },
+    {
+     "q": "What is on the wall?",
+     "a": "A poster of a horse",
+     "w": [
+      "A clock",
+      "A mirror"
+     ],
+     "why": "“There is a big poster of a horse on the wall.”"
+    },
+    {
+     "q": "Where are the shoes?",
+     "a": "Under the bed",
+     "w": [
+      "In the bookcase",
+      "On the table"
+     ],
+     "why": "“My shoes are under the bed.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-3",
+   "title": "Lunch at School",
+   "tvi": "Bữa trưa ở trường",
+   "text": "It is lunch at school. Tom has chicken and rice. Anna doesn't like meat. She has an egg and some bread. Ben is eating a banana. They drink water. Then they play in the playground.",
+   "vi": "Giờ ăn trưa ở trường. Tom ăn gà và cơm. Anna không thích thịt, bạn ấy ăn một quả trứng và chút bánh mì. Ben đang ăn chuối. Các bạn uống nước. Sau đó các bạn chơi ở sân chơi.",
+   "qs": [
+    {
+     "q": "What does Tom have?",
+     "a": "Chicken and rice",
+     "w": [
+      "An egg and bread",
+      "A banana"
+     ],
+     "why": "“Tom has chicken and rice.”"
+    },
+    {
+     "q": "Which food doesn't Anna like?",
+     "a": "Meat",
+     "w": [
+      "Eggs",
+      "Bread"
+     ],
+     "why": "“Anna doesn't like meat.”"
+    },
+    {
+     "q": "What do the children drink?",
+     "a": "Water",
+     "w": [
+      "Milk",
+      "Juice"
+     ],
+     "why": "“They drink water.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-4",
+   "title": "At the Zoo",
+   "tvi": "Ở sở thú",
+   "text": "Today we are at the zoo. The elephant is very big and grey. It has big ears. The monkeys are funny. They are jumping in the trees. There is a long snake, but I don't like snakes. My sister likes the white sheep. We take a photo with the bear.",
+   "vi": "Hôm nay chúng mình ở sở thú. Con voi rất to, màu xám, tai to. Lũ khỉ buồn cười, chúng đang nhảy trên cây. Có một con rắn dài nhưng mình không thích rắn. Em gái mình thích con cừu trắng. Chúng mình chụp ảnh với con gấu.",
+   "qs": [
+    {
+     "q": "What colour is the elephant?",
+     "a": "Grey",
+     "w": [
+      "Brown",
+      "White"
+     ],
+     "why": "“The elephant is very big and grey.”"
+    },
+    {
+     "q": "What are the monkeys doing?",
+     "a": "Jumping in the trees",
+     "w": [
+      "Sleeping",
+      "Eating bananas"
+     ],
+     "why": "“They are jumping in the trees.”"
+    },
+    {
+     "q": "Which animal does the sister like?",
+     "a": "The sheep",
+     "w": [
+      "The snake",
+      "The bear"
+     ],
+     "why": "“My sister likes the white sheep.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-5",
+   "title": "My Favourite Clothes",
+   "tvi": "Quần áo mình thích nhất",
+   "text": "I love my blue jeans. I wear them at home and in the park. My favourite T-shirt is yellow. It has a big sun on it. My grandmother gave me a pink hat. It is nice, but it is too small.",
+   "vi": "Mình rất thích chiếc quần bò xanh. Mình mặc nó ở nhà và ở công viên. Chiếc áo phông mình thích nhất màu vàng, có hình mặt trời to. Bà tặng mình một cái mũ hồng. Mũ đẹp nhưng chật quá.",
+   "qs": [
+    {
+     "q": "What colour is the T-shirt?",
+     "a": "Yellow",
+     "w": [
+      "Blue",
+      "Pink"
+     ],
+     "why": "“My favourite T-shirt is yellow.”"
+    },
+    {
+     "q": "Who gave the hat?",
+     "a": "The grandmother",
+     "w": [
+      "The mother",
+      "A friend"
+     ],
+     "why": "“My grandmother gave me a pink hat.”"
+    },
+    {
+     "q": "What is wrong with the hat?",
+     "a": "It is too small",
+     "w": [
+      "It is dirty",
+      "It is too big"
+     ],
+     "why": "“It is nice, but it is too small.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-6",
+   "title": "A Day at the Beach",
+   "tvi": "Một ngày ở bãi biển",
+   "text": "Today my family goes to the beach. The sea is blue and the sun is big and yellow. Dad swims in the sea. Mum reads a book under a tree. My brother and I play with a ball. We eat ice cream. In the evening we are very happy.",
+   "vi": "Hôm nay cả nhà mình đi biển. Biển xanh, mặt trời to và vàng. Bố bơi ngoài biển. Mẹ đọc sách dưới gốc cây. Mình và em trai chơi bóng. Cả nhà ăn kem. Buổi tối mọi người rất vui.",
+   "qs": [
+    {
+     "q": "What does Dad do?",
+     "a": "He swims",
+     "w": [
+      "He reads",
+      "He plays with a ball"
+     ],
+     "why": "“Dad swims in the sea.”"
+    },
+    {
+     "q": "Where does Mum read?",
+     "a": "Under a tree",
+     "w": [
+      "In the car",
+      "At home"
+     ],
+     "why": "“Mum reads a book under a tree.”"
+    },
+    {
+     "q": "What do they eat?",
+     "a": "Ice cream",
+     "w": [
+      "Burgers",
+      "Cake"
+     ],
+     "why": "“We eat ice cream.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-7",
+   "title": "My Pet",
+   "tvi": "Con vật nuôi của mình",
+   "text": "I have a pet dog. His name is Bobby. He is brown and white. He has a long tail and small ears. Bobby likes to run in the garden. He can catch a ball. He sleeps in a box in the kitchen. I love Bobby!",
+   "vi": "Mình có một chú chó tên Bobby, màu nâu trắng, đuôi dài, tai nhỏ. Bobby thích chạy trong vườn. Nó bắt được bóng. Nó ngủ trong một cái hộp ở nhà bếp. Mình yêu Bobby!",
+   "qs": [
+    {
+     "q": "What colour is Bobby?",
+     "a": "Brown and white",
+     "w": [
+      "Black",
+      "Grey and white"
+     ],
+     "why": "“He is brown and white.”"
+    },
+    {
+     "q": "What can Bobby do?",
+     "a": "Catch a ball",
+     "w": [
+      "Swim",
+      "Sing"
+     ],
+     "why": "“He can catch a ball.”"
+    },
+    {
+     "q": "Where does Bobby sleep?",
+     "a": "In a box in the kitchen",
+     "w": [
+      "On the sofa",
+      "In the garden"
+     ],
+     "why": "“He sleeps in a box in the kitchen.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-8",
+   "title": "My Hobbies",
+   "tvi": "Sở thích của mình",
+   "text": "I have a lot of hobbies. In the morning I play football with my friends. In the afternoon I have a piano lesson. In the evening I go to the bookshop with my mum. I like the evening, so I can choose a new book!",
+   "vi": "Mình có nhiều sở thích. Buổi sáng mình đá bóng với bạn. Buổi chiều mình học đàn piano. Buổi tối mình đi hiệu sách với mẹ. Mình thích buổi tối vì được chọn sách mới!",
+   "qs": [
+    {
+     "q": "What does the child do in the morning?",
+     "a": "Plays football",
+     "w": [
+      "Has a piano lesson",
+      "Goes to the bookshop"
+     ],
+     "why": "“In the morning I play football with my friends.”"
+    },
+    {
+     "q": "Where does the child go with Mum?",
+     "a": "To the bookshop",
+     "w": [
+      "To the park",
+      "To school"
+     ],
+     "why": "“I go to the bookshop with my mum.”"
+    },
+    {
+     "q": "What can the child choose?",
+     "a": "A new book",
+     "w": [
+      "A new piano",
+      "A new ball"
+     ],
+     "why": "“I can choose a new book!”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-9",
+   "title": "Grandma's Garden",
+   "tvi": "Khu vườn của bà",
+   "text": "My grandma has a beautiful garden. There are red and yellow flowers. There are two apple trees and a lemon tree. In the garden there are carrots, tomatoes and onions. Her cat sleeps in the sun. I like to play in Grandma's garden.",
+   "vi": "Bà mình có một khu vườn đẹp với hoa đỏ và vàng, hai cây táo và một cây chanh. Trong vườn có cà rốt, cà chua và hành. Con mèo của bà ngủ dưới nắng. Mình thích chơi trong vườn của bà.",
+   "qs": [
+    {
+     "q": "What trees are in the garden?",
+     "a": "Apple trees and a lemon tree",
+     "w": [
+      "Banana trees",
+      "Orange trees"
+     ],
+     "why": "“There are two apple trees and a lemon tree.”"
+    },
+    {
+     "q": "Which food is in the garden?",
+     "a": "Carrots, tomatoes and onions",
+     "w": [
+      "Potatoes and beans",
+      "Rice"
+     ],
+     "why": "“there are carrots, tomatoes and onions.”"
+    },
+    {
+     "q": "Where is the cat?",
+     "a": "In the sun",
+     "w": [
+      "In the kitchen",
+      "Under the tree"
+     ],
+     "why": "“Her cat sleeps in the sun.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-10",
+   "title": "A Message from Ben",
+   "tvi": "Tin nhắn của Ben",
+   "text": "Hi Sam! It's my birthday today. Can you come to my house at three? We can play games and eat cake. Please put your guitar in the car. My mum is making burgers. See you! Ben",
+   "vi": "Chào Sam! Hôm nay là sinh nhật mình. Bạn đến nhà mình lúc ba giờ được không? Mình sẽ chơi trò chơi và ăn bánh. Nhớ để đàn ghi-ta lên xe nhé. Mẹ mình đang làm bánh burger. Gặp sau nhé! Ben",
+   "qs": [
+    {
+     "q": "What is the message about?",
+     "a": "Ben's birthday",
+     "w": [
+      "A new book",
+      "A football game"
+     ],
+     "why": "“It's my birthday today.”"
+    },
+    {
+     "q": "What can Sam play at Ben's house?",
+     "a": "Games and the guitar",
+     "w": [
+      "Tennis",
+      "The piano"
+     ],
+     "why": "“We can play games… your guitar”"
+    },
+    {
+     "q": "Who is making burgers?",
+     "a": "Ben's mum",
+     "w": [
+      "Ben",
+      "Sam"
+     ],
+     "why": "“My mum is making burgers.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-11",
+   "title": "In the Classroom",
+   "tvi": "Trong lớp học",
+   "text": "Our classroom is big and clean. There are twenty desks. The teacher's desk is in front of the window. Next to the door there is a computer. Today we learn the English alphabet. We sing a song with the letters.",
+   "vi": "Lớp học của chúng mình to và sạch, có hai mươi cái bàn. Bàn cô giáo ở trước cửa sổ. Cạnh cửa ra vào có một cái máy tính. Hôm nay chúng mình học bảng chữ cái tiếng Anh, hát một bài có các chữ cái.",
+   "qs": [
+    {
+     "q": "How many desks are there?",
+     "a": "Twenty",
+     "w": [
+      "Twelve",
+      "Thirty"
+     ],
+     "why": "“There are twenty desks.”"
+    },
+    {
+     "q": "Where is the computer?",
+     "a": "Next to the door",
+     "w": [
+      "On the teacher's desk",
+      "Under the window"
+     ],
+     "why": "“Next to the door there is a computer.”"
+    },
+    {
+     "q": "What are they learning today?",
+     "a": "The English alphabet",
+     "w": [
+      "Numbers",
+      "Colours"
+     ],
+     "why": "“Today we are learning the English alphabet.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-12",
+   "title": "Going to the Park",
+   "tvi": "Đi công viên",
+   "text": "The sun is big and yellow. Mia and her dad walk to the park. Mia rides her bike. Dad sits on a chair and reads. Mia sees a duck and three frogs in the water. She wants to take a photo, but the frogs jump!",
+   "vi": "Mặt trời to và vàng. Mia và bố đi bộ ra công viên. Mia đạp xe. Bố ngồi ghế đọc sách. Mia thấy một con vịt và ba con ếch dưới nước. Bạn ấy muốn chụp ảnh nhưng lũ ếch nhảy mất!",
+   "qs": [
+    {
+     "q": "Who goes to the park with Mia?",
+     "a": "Her dad",
+     "w": [
+      "Her mum",
+      "Her friend"
+     ],
+     "why": "“Mia and her dad walk to the park.”"
+    },
+    {
+     "q": "How many frogs does Mia see?",
+     "a": "Three",
+     "w": [
+      "One",
+      "Two"
+     ],
+     "why": "“a duck and three frogs”"
+    },
+    {
+     "q": "What do the frogs do?",
+     "a": "They jump",
+     "w": [
+      "They sleep",
+      "They sing"
+     ],
+     "why": "“but the frogs jump!”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-t1",
+   "test": true,
+   "title": "My Friend",
+   "tvi": "Bạn của mình",
+   "text": "My friend is Nam. He is eleven. He has short black hair and big brown eyes. Nam is very funny. He can draw animals very well. We play basketball at school. His favourite food is chicken.",
+   "vi": "Bạn mình là Nam, mười một tuổi, tóc đen ngắn, mắt nâu to. Nam rất vui tính, vẽ con vật rất đẹp. Chúng mình chơi bóng rổ ở trường. Món Nam thích nhất là gà.",
+   "qs": [
+    {
+     "q": "How old is Nam?",
+     "a": "Eleven",
+     "w": [
+      "Ten",
+      "Twelve"
+     ],
+     "why": "“He is eleven.”"
+    },
+    {
+     "q": "What can Nam do very well?",
+     "a": "Draw animals",
+     "w": [
+      "Sing songs",
+      "Swim"
+     ],
+     "why": "“He can draw animals very well.”"
+    },
+    {
+     "q": "What is Nam's favourite food?",
+     "a": "Chicken",
+     "w": [
+      "Fish",
+      "Rice"
+     ],
+     "why": "“His favourite food is chicken.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-t2",
+   "test": true,
+   "title": "Our Kitchen",
+   "tvi": "Nhà bếp của chúng mình",
+   "text": "Our kitchen is not big. There is a table and four chairs. The cupboard is next to the door. The bread is in the cupboard. The clock on the wall says seven. It's breakfast now!",
+   "vi": "Bếp nhà mình không to, có một cái bàn và bốn cái ghế. Tủ bếp ở cạnh cửa. Bánh mì để trong tủ. Đồng hồ trên tường chỉ bảy giờ. Đến giờ ăn sáng rồi!",
+   "qs": [
+    {
+     "q": "How many chairs are there?",
+     "a": "Four",
+     "w": [
+      "Three",
+      "Six"
+     ],
+     "why": "“There are four chairs.”"
+    },
+    {
+     "q": "Where is the cupboard?",
+     "a": "Next to the door",
+     "w": [
+      "Next to the window",
+      "Under the table"
+     ],
+     "why": "“The cupboard is next to the door.”"
+    },
+    {
+     "q": "What does the clock say?",
+     "a": "Seven",
+     "w": [
+      "Eight",
+      "Six"
+     ],
+     "why": "“The clock on the wall says seven.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-t3",
+   "test": true,
+   "title": "The Toy Shop",
+   "tvi": "Cửa hàng đồ chơi",
+   "text": "There is a new toy shop in our street. In the window there is a big red truck and a blue boat. There are balls and kites. I want the kite! It is green and yellow. Mum says I can have it on my birthday.",
+   "vi": "Phố mình có một cửa hàng đồ chơi mới. Trong tủ kính có một chiếc xe tải đỏ to và một chiếc thuyền xanh. Có bóng, diều... Mình muốn cái diều màu xanh lá và vàng. Mẹ bảo sinh nhật mình sẽ được mua.",
+   "qs": [
+    {
+     "q": "What colour is the truck?",
+     "a": "Red",
+     "w": [
+      "Blue",
+      "Green"
+     ],
+     "why": "“a big red truck”"
+    },
+    {
+     "q": "What does the child want?",
+     "a": "The kite",
+     "w": [
+      "The truck",
+      "The boat"
+     ],
+     "why": "“I want the kite!”"
+    },
+    {
+     "q": "Mum says the child can have it...",
+     "a": "on the birthday",
+     "w": [
+      "today",
+      "at school"
+     ],
+     "why": "“Mum says I can have it on my birthday.”"
+    }
+   ]
+  },
+  {
+   "id": "doc-pre-t4",
+   "test": true,
+   "title": "In the Living Room",
+   "tvi": "Trong phòng khách",
+   "text": "We can't play in the garden today. My sister and I are in the living room. She is painting a picture of a flower. I am looking at a story book about a monkey. Dad is in the kitchen. He is making lunch.",
+   "vi": "Hôm nay không chơi ngoài vườn được. Mình và em gái ở phòng khách. Em vẽ một bông hoa. Mình xem truyện về một con khỉ. Bố ở trong bếp, đang làm bữa trưa.",
+   "qs": [
+    {
+     "q": "Where are the children?",
+     "a": "In the living room",
+     "w": [
+      "In the garden",
+      "In the kitchen"
+     ],
+     "why": "“My sister and I are in the living room.”"
+    },
+    {
+     "q": "What is the sister painting?",
+     "a": "A flower",
+     "w": [
+      "A monkey",
+      "A house"
+     ],
+     "why": "“She is painting a picture of a flower.”"
+    },
+    {
+     "q": "What is Dad doing?",
+     "a": "Making lunch",
+     "w": [
+      "Reading",
+      "Sleeping"
+     ],
+     "why": "“He is making lunch.”"
+    }
+   ]
+  }
+ ],
+ "nghe": [
+  {
+   "id": "nghe-pre-1",
+   "title": "My New Bike",
+   "tvi": "Chiếc xe đạp mới của mình",
+   "text": "Hi! I'm Kim. Look at my new bike! It's green and black. It's from my grandpa. I ride it to school with my friend Anna. Her bike is pink.",
+   "vi": "Chào! Mình là Kim. Nhìn xe đạp mới của mình này! Nó màu xanh lá và đen, quà sinh nhật của ông. Mình đạp xe đi học với bạn Anna. Xe của Anna màu hồng.",
+   "qs": [
+    {
+     "q": "What colour is Kim's bike?",
+     "a": "Green and black",
+     "w": [
+      "Pink",
+      "Red and white"
+     ],
+     "why": "“It's green and black.”"
+    },
+    {
+     "q": "Who gave Kim the bike?",
+     "a": "Her grandpa",
+     "w": [
+      "Her mum",
+      "Anna"
+     ],
+     "why": "“a birthday present from my grandpa”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-2",
+   "title": "Where Is My Cat?",
+   "tvi": "Con mèo của mình đâu rồi?",
+   "text": "Where is my cat? She isn't on the sofa. She isn't under the table. Oh, look! She's in the bookcase, between the books. She's sleeping. Silly cat!",
+   "vi": "Mèo của mình đâu rồi? Nó không ở trên ghế sô-pha, không ở dưới bàn. Ồ, nhìn kìa! Nó ở trong tủ sách, giữa mấy quyển sách. Nó đang ngủ.",
+   "qs": [
+    {
+     "q": "Where is the cat?",
+     "a": "In the bookcase",
+     "w": [
+      "On the sofa",
+      "Under the table"
+     ],
+     "why": "“She's in the bookcase, between the books.”"
+    },
+    {
+     "q": "What is the cat doing?",
+     "a": "Sleeping",
+     "w": [
+      "Eating",
+      "Playing"
+     ],
+     "why": "“She's sleeping.”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-3",
+   "title": "My Day",
+   "tvi": "Một ngày của mình",
+   "text": "In the morning I swim. In the afternoon I play tennis with my dad. In the evening I go to my grandma's house. And at night? I sleep!",
+   "vi": "Buổi sáng mình bơi. Buổi chiều mình chơi quần vợt với bố. Buổi tối mình sang nhà bà. Còn ban đêm? Mình ngủ!",
+   "qs": [
+    {
+     "q": "What does the child do in the afternoon?",
+     "a": "Plays tennis",
+     "w": [
+      "Swims",
+      "Sleeps"
+     ],
+     "why": "“In the afternoon I play tennis with my dad.”"
+    },
+    {
+     "q": "Where does the child go in the evening?",
+     "a": "To Grandma's house",
+     "w": [
+      "To the park",
+      "To school"
+     ],
+     "why": "“In the evening I go to my grandma's house.”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-4",
+   "title": "Breakfast",
+   "tvi": "Bữa sáng",
+   "text": "Today I have breakfast with my brother. I have bread and an egg. My brother has rice and fish. We drink orange juice. Mum has some milk... no, water.",
+   "vi": "Hôm nay mình ăn sáng với anh trai. Mình ăn bánh mì và trứng. Anh ăn cơm và cá. Hai anh em uống nước cam. Mẹ uống nước lọc.",
+   "qs": [
+    {
+     "q": "What does the brother eat?",
+     "a": "Rice and fish",
+     "w": [
+      "Bread and an egg",
+      "A banana"
+     ],
+     "why": "“My brother has rice and fish.”"
+    },
+    {
+     "q": "What do the children drink?",
+     "a": "Orange juice",
+     "w": [
+      "Milk",
+      "Water"
+     ],
+     "why": "“We drink orange juice.”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-5",
+   "title": "Spell Your Name",
+   "tvi": "Đánh vần tên của bạn",
+   "lines": [
+    [
+     "B",
+     "Hello. What's your name?"
+    ],
+    [
+     "A",
+     "My name's Lucy."
+    ],
+    [
+     "B",
+     "How do you spell that?"
+    ],
+    [
+     "A",
+     "L-U-C-Y."
+    ],
+    [
+     "B",
+     "And how old are you, Lucy?"
+    ],
+    [
+     "A",
+     "I'm nine."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What is the girl's name?",
+     "a": "Lucy",
+     "w": [
+      "Lily",
+      "Lisa"
+     ],
+     "why": "“L-U-C-Y.”"
+    },
+    {
+     "q": "How old is she?",
+     "a": "Nine",
+     "w": [
+      "Five",
+      "Nineteen"
+     ],
+     "why": "“I'm nine.”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-6",
+   "title": "At the Shop",
+   "tvi": "Ở cửa hàng",
+   "lines": [
+    [
+     "A",
+     "Hello. Can I have two apples, please?"
+    ],
+    [
+     "B",
+     "Red or green?"
+    ],
+    [
+     "A",
+     "Red, please. And a banana."
+    ],
+    [
+     "B",
+     "Here you are."
+    ],
+    [
+     "A",
+     "Thank you. Goodbye!"
+    ]
+   ],
+   "qs": [
+    {
+     "q": "How many apples does the girl want?",
+     "a": "Two",
+     "w": [
+      "One",
+      "Three"
+     ],
+     "why": "“Can I have two apples, please?”"
+    },
+    {
+     "q": "What colour are the apples?",
+     "a": "Red",
+     "w": [
+      "Green",
+      "Yellow"
+     ],
+     "why": "“Red, please.”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-7",
+   "title": "What's in the Picture?",
+   "tvi": "Trong tranh có gì?",
+   "lines": [
+    [
+     "B",
+     "Look at the picture. What can you see?"
+    ],
+    [
+     "A",
+     "I can see a boy and a dog."
+    ],
+    [
+     "B",
+     "Where is the dog?"
+    ],
+    [
+     "A",
+     "It's behind the tree."
+    ],
+    [
+     "B",
+     "And what is the boy doing?"
+    ],
+    [
+     "A",
+     "He's flying a kite."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "Where is the dog?",
+     "a": "Behind the tree",
+     "w": [
+      "In front of the tree",
+      "Under the table"
+     ],
+     "why": "“It's behind the tree.”"
+    },
+    {
+     "q": "What is the boy doing?",
+     "a": "Flying a kite",
+     "w": [
+      "Riding a bike",
+      "Eating"
+     ],
+     "why": "“He's flying a kite.”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-8",
+   "title": "My Favourite Animal",
+   "tvi": "Con vật mình thích nhất",
+   "lines": [
+    [
+     "A",
+     "What's your favourite animal, Ben?"
+    ],
+    [
+     "B",
+     "I like monkeys. They're funny."
+    ],
+    [
+     "A",
+     "I don't like monkeys. I like horses."
+    ],
+    [
+     "B",
+     "Oh! Can you ride a horse?"
+    ],
+    [
+     "A",
+     "Yes, I can!"
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What is Ben's favourite animal?",
+     "a": "Monkeys",
+     "w": [
+      "Horses",
+      "Dogs"
+     ],
+     "why": "“I like monkeys.”"
+    },
+    {
+     "q": "What can the girl do?",
+     "a": "Ride a horse",
+     "w": [
+      "Draw a monkey",
+      "Swim"
+     ],
+     "why": "“Can you ride a horse? — Yes, I can!”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-9",
+   "title": "Colour the Picture",
+   "tvi": "Tô màu bức tranh",
+   "text": "Now colour the picture. Colour the ball red. The fish is in the water. Colour the fish orange. Can you see the bird in the tree? Colour it blue. Good!",
+   "vi": "Bây giờ tô màu tranh. Tô quả bóng màu đỏ. Con cá ở dưới nước, tô màu cam. Con chim trên cây, tô màu xanh dương. Tốt lắm!",
+   "qs": [
+    {
+     "q": "What colour is the fish?",
+     "a": "Orange",
+     "w": [
+      "Red",
+      "Blue"
+     ],
+     "why": "“Colour the fish orange.”"
+    },
+    {
+     "q": "Where is the bird?",
+     "a": "In the tree",
+     "w": [
+      "In the water",
+      "On the ball"
+     ],
+     "why": "“the bird in the tree”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-10",
+   "title": "Our New House",
+   "tvi": "Ngôi nhà mới của chúng mình",
+   "text": "We have a new house. It has three bedrooms and two bathrooms. My bedroom is small, but I have a big window. I can see the park. The kitchen is very big. My mum loves it.",
+   "vi": "Nhà mình có nhà mới, ba phòng ngủ, hai phòng tắm. Phòng mình nhỏ nhưng có cửa sổ to, nhìn ra công viên. Bếp rất rộng, mẹ mình rất thích.",
+   "qs": [
+    {
+     "q": "How many bedrooms are there?",
+     "a": "Three",
+     "w": [
+      "Two",
+      "Four"
+     ],
+     "why": "“It has three bedrooms”"
+    },
+    {
+     "q": "What can the child see from the window?",
+     "a": "The park",
+     "w": [
+      "The sea",
+      "The school"
+     ],
+     "why": "“I can see the park.”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-11",
+   "title": "Lunch",
+   "tvi": "Bữa trưa",
+   "lines": [
+    [
+     "A",
+     "Mum, can I have lunch now?"
+    ],
+    [
+     "B",
+     "Do you want a burger... no, chicken and rice?"
+    ],
+    [
+     "A",
+     "Yes, please! And can I have some water?"
+    ],
+    [
+     "B",
+     "Yes. Here you are."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What food does the boy have?",
+     "a": "Chicken and rice",
+     "w": [
+      "A burger",
+      "Fish"
+     ],
+     "why": "“chicken and rice? — Yes, please!”"
+    },
+    {
+     "q": "What does he want to drink?",
+     "a": "Water",
+     "w": [
+      "Milk",
+      "Juice"
+     ],
+     "why": "“can I have some water?”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-12",
+   "title": "Numbers",
+   "tvi": "Các con số",
+   "text": "Count with me! There are fifteen children in my class. Eight are girls and seven are boys. We have twenty books and twelve pencils. Our teacher is thirty years old.",
+   "vi": "Đếm cùng mình nhé! Lớp mình có mười lăm bạn: tám bạn nữ, bảy bạn nam. Có hai mươi quyển sách và mười hai cái bút chì. Cô giáo ba mươi tuổi.",
+   "qs": [
+    {
+     "q": "How many children are in the class?",
+     "a": "Fifteen",
+     "w": [
+      "Fifty",
+      "Twelve"
+     ],
+     "why": "“There are fifteen children”"
+    },
+    {
+     "q": "How old is the teacher?",
+     "a": "Thirty",
+     "w": [
+      "Thirteen",
+      "Twenty"
+     ],
+     "why": "“Our teacher is thirty years old.”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-t1",
+   "test": true,
+   "title": "At the Park",
+   "tvi": "Ở công viên",
+   "text": "I'm at the park with my brother. He's playing football with his friends. I'm sitting under a tree. I'm looking at a book about animals. My mum is walking the dog.",
+   "vi": "Hôm nay Chủ nhật. Mình ở công viên với em trai. Em đang đá bóng với bạn. Mình ngồi dưới gốc cây đọc sách về động vật. Mẹ dắt chó đi dạo.",
+   "qs": [
+    {
+     "q": "What is the brother doing?",
+     "a": "Playing football",
+     "w": [
+      "Reading a book",
+      "Walking the dog"
+     ],
+     "why": "“He's playing football with his friends.”"
+    },
+    {
+     "q": "What is the book about?",
+     "a": "Animals",
+     "w": [
+      "Football",
+      "Trees"
+     ],
+     "why": "“a book about animals”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-t2",
+   "test": true,
+   "title": "New Shoes",
+   "tvi": "Giày mới",
+   "lines": [
+    [
+     "A",
+     "Mum, I want new shoes."
+    ],
+    [
+     "B",
+     "OK. What colour do you want?"
+    ],
+    [
+     "A",
+     "White, please. White and blue."
+    ],
+    [
+     "B",
+     "Here are some. Are they OK?"
+    ],
+    [
+     "A",
+     "Yes! They're great. Thank you!"
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What does the child want?",
+     "a": "New shoes",
+     "w": [
+      "A new bag",
+      "A new T-shirt"
+     ],
+     "why": "“I want new shoes.”"
+    },
+    {
+     "q": "What colour does the child want?",
+     "a": "White and blue",
+     "w": [
+      "Black",
+      "Red and white"
+     ],
+     "why": "“White and blue.”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-t3",
+   "test": true,
+   "title": "My Cousin",
+   "tvi": "Em họ của mình",
+   "text": "This is my cousin Mai. She's seven. She has long hair and a red dress. She lives in a flat next to the zoo. She can see the giraffes... no, the elephants from her window!",
+   "vi": "Đây là em họ Mai của mình, bảy tuổi, tóc dài, mặc váy đỏ. Em sống ở căn hộ cạnh sở thú, từ cửa sổ nhìn thấy những con voi!",
+   "qs": [
+    {
+     "q": "How old is Mai?",
+     "a": "Seven",
+     "w": [
+      "Six",
+      "Eleven"
+     ],
+     "why": "“She's seven.”"
+    },
+    {
+     "q": "What can Mai see from her window?",
+     "a": "Elephants",
+     "w": [
+      "The sea",
+      "Horses"
+     ],
+     "why": "“the elephants from her window!”"
+    }
+   ]
+  },
+  {
+   "id": "nghe-pre-t4",
+   "test": true,
+   "title": "Where Are the Books?",
+   "tvi": "Sách ở đâu?",
+   "lines": [
+    [
+     "B",
+     "Where are my books, Dad?"
+    ],
+    [
+     "A",
+     "Are they in your bag?"
+    ],
+    [
+     "B",
+     "No, they aren't."
+    ],
+    [
+     "A",
+     "Look! They're on the chair, next to the door."
+    ],
+    [
+     "B",
+     "Oh yes. Thanks, Dad!"
+    ]
+   ],
+   "qs": [
+    {
+     "q": "Where are the books?",
+     "a": "On the chair",
+     "w": [
+      "In the bag",
+      "Under the bed"
+     ],
+     "why": "“They're on the chair, next to the door.”"
+    },
+    {
+     "q": "Who helps the child?",
+     "a": "Dad",
+     "w": [
+      "Mum",
+      "A friend"
+     ],
+     "why": "“Thanks, Dad!”"
+    }
+   ]
+  }
+ ]
+}

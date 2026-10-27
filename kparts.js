@@ -59,8 +59,8 @@ const kReadLesson = (x, listen) => `<h1>${esc(listen ? x.tvi : x.title)}</h1>
   ${listen ? `<p class="mute">Nghe cả bài (chưa nhìn chữ). Nghe 2–3 lần rồi mới mở bài. Khi luyện / thi chỉ được nghe ${K_PLAYS} lần.</p><button class="pri" data-kdlg="nghe|${x.id}">🔊 Nghe cả bài</button>` : ''}
   <details ${listen ? '' : 'open'}><summary>${listen ? 'Mở chữ bài nghe' : 'Bài đọc'}</summary><div class="box"><p style="font-size:18px;line-height:1.6;margin:0;white-space:pre-line">${listen ? kScript(x) : esc(x.text)}</p></div></details>
   ${x.vi ? `<button class="link" data-kl="vi">Hiện / ẩn bản dịch</button><div id="kvi" hidden class="box"><p class="mute" style="margin:0;white-space:pre-line">${esc(x.vi)}</p></div>` : ''}`;
-KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=2', lvs: ['a1', 'a2'], unit: 'bài đọc', pass: 0.8,
-  intro: 'Bài kiểu Cambridge (tin nhắn, thông báo, câu chuyện); A2 có bài dài 150–250 từ như A2 Key. Phần Đọc bắt đầu từ A1.',
+KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=3', lvs: ['pre', 'a1', 'a2'], unit: 'bài đọc', pass: 0.8,
+  intro: 'Bài kiểu Cambridge: Pre-A1 bài ngắn 40–50 từ như Starters (chỉ dùng từ Pre-A1); A1 tin nhắn, thông báo, câu chuyện; A2 có bài dài 150–250 từ như A2 Key.',
   dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Tìm thông tin trong bài']],
   examTxt: '6 bài đọc chưa gặp: ý chính + chi tiết.',
   name: x => x.title, lesson: x => kReadLesson(x, false),
@@ -68,8 +68,8 @@ KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=2', lvs: ['a1'
   menu: [['y', '💡 Luyện ý chính (4 bài)', 'Đọc bài, chọn đúng chủ đề', ['y'], 4], ['ct', '🔍 Luyện chi tiết (2 bài)', 'Đọc bài, trả lời câu hỏi', ['ct'], 2]],
   ask: (x, m) => kRead(KIT.doc, x, m, false),
   exam: lv => shuf(KIT.doc.items.filter(x => x.lv === lv && x.test)).slice(0, 6).flatMap(x => [...kRead(KIT.doc, x, 'y', false), ...kRead(KIT.doc, x, 'ct', false)]) };
-KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=2', lvs: ['a1', 'a2'], unit: 'bài nghe', pass: 0.8,
-  intro: 'Bài kể và hội thoại 2 giọng (số, giờ, giá, đánh vần như đề Cambridge). Khi luyện / thi mỗi bài nghe tối đa 2 lần. Phần Nghe bắt đầu từ A1.',
+KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=3', lvs: ['pre', 'a1', 'a2'], unit: 'bài nghe', pass: 0.8,
+  intro: 'Bài kể và hội thoại 2 giọng (số, giờ, giá, đánh vần như đề Cambridge); Pre-A1 câu ngắn kiểu Starters. Khi luyện / thi mỗi bài nghe tối đa 2 lần.',
   dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Nghe ra thông tin'], ['chep', '✍️ Chép lại', 'Nghe một câu, chép đúng ≥ 80% từ']],
   examTxt: '6 bài nghe chưa gặp: ý chính + chi tiết + chép 1 câu.',
   name: x => x.tvi, lesson: x => kReadLesson(x, true),
