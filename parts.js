@@ -58,7 +58,7 @@ document.addEventListener('click', e => { if (e.target.closest('[data-ov="back"]
 // Màn tổng quan lấy CẤP làm khung: chọn cấp (Pre-A1 · A1 · A2 · A2+), mỗi cấp liệt kê các phần có bài ở cấp đó và số liệu của phần ở đúng cấp đó.
 // Cấp đang học = cấp thấp nhất còn phần chưa qua Thi chuyển cấp. "Nên làm" chỉ gợi ý bài mới trong cấp đang học (ôn thì mọi cấp).
 // Cấp sau xem trước và học trước được (không khoá cứng); luật đo của từng phần giữ nguyên.
-const OV_LV = ['pre', 'a1', 'a2', 'a2p'];
+const OV_LV = ['pre', 'a1', 'a2', 'a2p', 'b1', 'b1p', 'b2', 'b2p', 'c1', 'c2'];
 let OV_SEL = null;
 const ovLvs = id => id === 'tv' ? LEVELS : id === 'pa' ? PA_LV : KIT[id].lvs;
 const ovIn = (id, lv) => ovLvs(id).includes(lv);

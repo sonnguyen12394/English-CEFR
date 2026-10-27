@@ -19,11 +19,20 @@ const XL = {
   a2: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 14, xF: 1, xC: 2, xR: 1, xS: 3, xG: 3, xI: 3, xN: 5, xL: 8 }), retest: true, old: 12 },
   // A2+ (23/10/2026): như A2; mở khi qua Thi A2 lần 1, cổng cần A2 "Đạt bền".
   a2p: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 14, xF: 1, xC: 2, xR: 1, xS: 3, xG: 3, xI: 3, xN: 5, xL: 8 }), retest: true, old: 12 },
+  // B1 → C2 (27/10/2026): như A2; thêm câu cho yêu cầu mới của cấp (B1 🔗🧱🔧 · B2 🛠🎚🔄 · C1 🎩 · C2 🌫), cấp trên giữ dạng của cấp dưới
+  b1: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 10, xF: 1, xC: 1, xR: 1, xS: 2, xG: 2, xI: 1, xN: 4, xL: 6, xCT: 4, xP: 4, xH: 4 }), retest: true, old: 12 },
+  b1p: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 10, xF: 1, xC: 1, xR: 1, xS: 2, xG: 2, xI: 1, xN: 4, xL: 6, xCT: 4, xP: 4, xH: 4 }), retest: true, old: 12 },
+  b2: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 7, xC: 1, xS: 1, xG: 2, xI: 1, xN: 3, xL: 6, xCT: 3, xP: 3, xH: 2, xD: 4, xRg: 3, xY: 4 }), retest: true, old: 12 },
+  b2p: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 7, xC: 1, xS: 1, xG: 2, xI: 1, xN: 3, xL: 6, xCT: 3, xP: 3, xH: 2, xD: 4, xRg: 3, xY: 4 }), retest: true, old: 12 },
+  c1: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 7, xG: 2, xN: 3, xL: 6, xCT: 3, xP: 3, xH: 1, xD: 4, xRg: 2, xY: 4, xV: 5 }), retest: true, old: 12 },
+  c2: { N: 40, HI: 34, LO: 29, TOT: 64, MIX: mix({ xT: 6, xG: 2, xN: 2, xL: 6, xCT: 3, xP: 3, xD: 4, xRg: 1, xY: 4, xV: 4, xId: 5 }), retest: true, old: 12 },
 };
 const X = { RETEST_D: 14, RETRY_D: 7 };
-const X_DIM = { xT: ['viet', 'dung', 'nhora'], xM: ['dung'], xN: ['nghia'], xL: ['nghe'], xF: ['chu'], xC: ['cum'], xR: ['bqt'], xS: ['lienq'], xG: ['nghia2'], xI: ['bqt2'] };
+const X_DIM = { xT: ['viet', 'dung', 'nhora'], xM: ['dung'], xN: ['nghia'], xL: ['nghe'], xF: ['chu'], xC: ['cum'], xR: ['bqt'], xS: ['lienq'], xG: ['nghia2'], xI: ['bqt2'],
+  xCT: ['cumtu', 'cum'], xP: ['mau'], xH: ['ho'], xD: ['taodang', 'ho'], xRg: ['sacthai'], xY: ['thay', 'lienq'], xV: ['vanphong', 'sacthai'], xId: ['thanhngu'] };
 // dạng câu thi dùng câu của 🏋️ Luyện tập (questionX / question) và dữ liệu từ cần có
-const X_Q = { xF: ['form', () => true], xC: ['col', w => !!w.col], xR: ['irrR', w => !!w.irr], xS: ['rel', w => !!w.rel], xG: ['s2', w => !!w.s2], xI: ['irrT', w => !!w.irr] };
+const X_Q = { xF: ['form', () => true], xC: ['col', w => !!w.col], xR: ['irrR', w => !!w.irr], xS: ['rel', w => !!w.rel], xG: ['s2', w => !!w.s2], xI: ['irrT', w => !!w.irr],
+  xCT: ['colT', w => !!(w.col && colPart(w))], xP: ['pat', w => !!w.pat], xH: ['fam', w => !!(w.fam && w.fam.length)], xD: ['famQ', w => !!w.famQ], xRg: ['reg', w => !!w.reg], xY: ['synT', w => !!(w.rel && w.rel.syn.length)], xV: ['style', w => !!w.reg], xId: ['idi', w => !!w.idi] };
 let EB = null;   // ngân hàng câu thi
 // Gõ từ có gợi ý nghĩa: nhiều từ A1 chung nghĩa tiếng Việt (114 nhóm) nhưng phần lớn không thay nhau được trong câu (I / me "tôi").
 // Chỉ chấp nhận từ đồng nghĩa THẬT, thay được trong hầu hết câu (chọn tay, chưa người thật kiểm); dạng chữ theo câu (films ↔ movies).
@@ -31,7 +40,7 @@ const SYN = [['bike', 'bicycle'], ['film', 'movie'], ['holiday', 'vacation'], ['
   ['dad', 'father'], ['mum', 'mother'], ['TV', 'television'], ['photo', 'photograph'], ['phone', 'telephone'], ['someone', 'somebody'],
   ['everyone', 'everybody'], ['nobody', 'no one'], ['amazing', 'fantastic', 'wonderful']];
 const synOf = w => (SYN.find(g => g.some(x => x.toLowerCase() === w.w.toLowerCase())) || []).filter(x => x.toLowerCase() !== w.w.toLowerCase());
-const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=12', 'exam-a2.json?v=5'].map(async f => (await fetch(f)).json())))));
+const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=12', 'exam-a2.json?v=5', 'exam-b.json?v=1'].map(async f => (await fetch(f)).json())))));
 
 // từ nhiễu cùng loại từ, chỉ lấy từ thuộc cấp ≤ cấp đang thi (kiểm thử Pre-A1: đề Pre-A1 từng có từ nhiễu "injury", "poster")
 const samePos = (w, n) => { const ok = x => LEVELS.indexOf(wLv(x)) <= LEVELS.indexOf(XLV); let c = WORDS.filter(x => x.id !== w.id && x.pos === w.pos && ok(x)); if (c.length < n) c = WORDS.filter(x => x.id !== w.id && x.pos === w.pos); return shuf(c).slice(0, n); };
