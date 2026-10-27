@@ -261,7 +261,12 @@ const rqRow = (l, d, tag) => `<details class="dimx"><summary><span>${l}</span><s
 // Đề mẫu Cambridge chính thức (miễn phí), tự làm, tự đếm câu đúng theo đáp án; ghi điểm vào S.real[cấp]. Chỉ ghi nhận, không khoá cấp sau.
 // Ngưỡng 70% mỗi phần là đề xuất (Cambridge chấm bằng khiên 1–5, không có điểm đỗ).
 const REAL = {
-  pre: { name: 'Pre A1 Starters', L: 20, RW: 25 }, a1: { name: 'A1 Movers', L: 25, RW: 35 }, a2: { name: 'A2 Flyers', L: 25, RW: 44 } };
+  pre: { name: 'Pre A1 Starters', L: 20, RW: 25 }, a1: { name: 'A1 Movers', L: 25, RW: 35 }, a2: { name: 'A2 Flyers', L: 25, RW: 44 },
+  // B1 → C2 (v52): trang luyện thi chính thức có đề mẫu + đáp án; phần Viết, Nói cần người chấm nên chỉ đếm Nghe + Đọc (B2 trở lên: Đọc và Dùng tiếng Anh)
+  b1: { name: 'B1 Preliminary', L: 25, RW: 32, rwName: 'Đọc', url: 'https://www.cambridgeenglish.org/exams-and-tests/qualifications/preliminary/preparation/' },
+  b2: { name: 'B2 First', L: 30, RW: 52, rwName: 'Đọc và Dùng tiếng Anh', url: 'https://www.cambridgeenglish.org/exams-and-tests/qualifications/first/preparation/' },
+  c1: { name: 'C1 Advanced', L: 30, RW: 56, rwName: 'Đọc và Dùng tiếng Anh', url: 'https://www.cambridgeenglish.org/exams-and-tests/qualifications/advanced/preparation/' },
+  c2: { name: 'C2 Proficiency', L: 30, RW: 53, rwName: 'Đọc và Dùng tiếng Anh', url: 'https://www.cambridgeenglish.org/exams-and-tests/qualifications/proficiency/preparation/' } };
 const REAL_PDF = 'https://www.cambridgeenglish.org/Images/423014-cambridge-english-young-learners-sample-papers-2018-volume-2.pdf';
 const REAL_PASS = 0.7;
 const realRuns = lv => ((S.real = S.real || {})[lv] = S.real[lv] || []);
@@ -269,12 +274,12 @@ const realOk = r => r.l / r.L >= REAL_PASS && r.rw / r.RW >= REAL_PASS;
 function realBox(lv) { const R = REAL[lv]; if (!R) return ''; const rs = realRuns(lv), last = rs[rs.length - 1], ok = rs.some(realOk);
   return `<div class="box"><div class="row"><b>📝 Kiểm bằng đề thật</b><span class="mute">${ok ? '✅ đạt' : last ? '❌ chưa đạt' : 'chưa làm'}</span></div>
     <p class="mute" style="margin:6px 0">Sau khi các phần qua 🚪 Thi chuyển cấp, làm một đề mẫu chính thức của Cambridge (${R.name}): in ra hoặc làm trên giấy, nghe file nghe, rồi đếm số câu đúng theo đáp án cuối đề. Không cần chuyên môn. Đúng ≥ ${REAL_PASS * 100}% mỗi phần là đạt (ngưỡng đề xuất).</p>
-    ${last ? `<p style="margin:4px 0">Lần gần nhất (${new Date(last.at).toLocaleDateString('vi-VN')}): 🎧 Nghe ${last.l}/${last.L} · 📖 Đọc và Viết ${last.rw}/${last.RW}</p>` : ''}
-    <a class="chip" href="${REAL_PDF}" target="_blank" rel="noopener">📄 Đề mẫu (PDF, có đáp án)</a>
+    ${last ? `<p style="margin:4px 0">Lần gần nhất (${new Date(last.at).toLocaleDateString('vi-VN')}): 🎧 Nghe ${last.l}/${last.L} · 📖 ${R.rwName || 'Đọc và Viết'} ${last.rw}/${last.RW}</p>` : ''}
+    <a class="chip" href="${R.url || REAL_PDF}" target="_blank" rel="noopener">📄 Đề mẫu ${R.url ? '(trang Cambridge, có đáp án)' : '(PDF, có đáp án)'}</a>
     <button class="pri" data-real="${lv}" style="margin-top:8px">✍️ Ghi điểm đề thật</button>
-    <p class="mute" style="margin:6px 0 0;font-size:12px">File nghe: trang Cambridge "${R.name} preparation" (cambridgeenglish.org). Phần Nói của đề cần giám khảo, chưa tính.</p></div>`; }
+    <p class="mute" style="margin:6px 0 0;font-size:12px">File nghe: trang Cambridge "${R.name} preparation" (cambridgeenglish.org). ${R.url ? 'Phần Viết, Nói' : 'Phần Nói'} của đề cần giám khảo, chưa tính.</p></div>`; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-real]'); if (!b) return; const lv = b.dataset.real, R = REAL[lv];
   const ask = (t, max) => { const v = prompt(`${t}: số câu đúng (0–${max})`); if (v == null) return null; const n = parseInt(v, 10); return n >= 0 && n <= max ? n : (alert('Số không hợp lệ.'), null); };
-  const l = ask('🎧 Nghe', R.L); if (l == null) return; const rw = ask('📖 Đọc và Viết', R.RW); if (rw == null) return;
+  const l = ask('🎧 Nghe', R.L); if (l == null) return; const rw = ask('📖 ' + (R.rwName || 'Đọc và Viết'), R.RW); if (rw == null) return;
   const r = { at: Date.now(), l, L: R.L, rw, RW: R.RW }; realRuns(lv).push(r); S.t = Date.now(); save();
   toast(realOk(r) ? '✅ Đạt bằng đề thật.' : '❌ Chưa đạt: ôn phần thấp rồi làm đề khác.'); overview(lv); });

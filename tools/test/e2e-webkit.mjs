@@ -1,6 +1,6 @@
 // Kiểm giao diện trên WebKit giả lập iPhone 13 (tiêu chí X6, docs/HOAN-THIEN.md). Không mạng, Supabase giả (fake-sb.js), không ghi dữ liệu thật.
 // Chạy: node tools/test/e2e-webkit.mjs   (cần Playwright + WebKit: npx playwright install webkit && npx playwright install-deps webkit)
-// Mỗi cấp Pre-A1 → A2: học 1 bài Từ vựng (trả lời đúng), mở bài học của mọi phần, mở Thi chuyển cấp mọi phần, làm trọn thi Từ vựng → phải qua.
+// Mỗi cấp Pre-A1, A1, A2, B1, B2, C1, C2: học 1 bài Từ vựng (trả lời đúng), mở bài học của mọi phần, mở Thi chuyển cấp mọi phần, làm trọn thi Từ vựng → phải qua.
 import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 const root = new URL('../..', import.meta.url).pathname, req = createRequire(import.meta.url);
 let pw; for (const p of ['playwright', '/opt/node22/lib/node_modules/playwright', process.env.PW].filter(Boolean)) { try { pw = req(p); break; } catch (e) {} }
@@ -17,7 +17,10 @@ const cur = () => pg.evaluate(() => { const m = (window.CUR.item || '').split(':
 // trả lời đúng mọi câu Từ vựng (bài học, luyện, thi) tới khi hết câu
 async function answerAll(max = 200) { let n = 0;
   for (; n < max; n++) { const c = await cur(); if (!c || !(await pg.$('[data-k], #ti'))) break;
-    if (await pg.$('#ti')) { const want = c.t === 'clozeT' ? c.cz : c.t === 'xT' ? c.f : c.t === 'irrT' || c.t === 'xI' ? await pg.evaluate(() => document.querySelector('.q').textContent) : c.w;
+    const qa = await pg.evaluate(() => window.CUR_Q && window.CUR_Q.a);
+    if (qa != null && await pg.$('#ti')) { await pg.fill('#ti', String(qa)); await pg.click('#tf button[type=submit]'); }
+    else if (qa != null && await pg.$('[data-k]')) { const o = await pg.$$eval('[data-k]', bs => bs.map(b => b.innerText.trim())); let k = o.indexOf(String(qa).trim()); if (k < 0) k = 0; await pg.click(`[data-k="${k}"]`); }
+    else if (await pg.$('#ti')) { const want = c.t === 'clozeT' ? c.cz : c.t === 'xT' ? c.f : c.t === 'irrT' || c.t === 'xI' ? await pg.evaluate(() => document.querySelector('.q').textContent) : c.w;
       let v = want; if (c.t === 'irrT' || c.t === 'xI') { const lab = v.match(/^(.*) của/)[1].toLowerCase(); v = await pg.evaluate(([w, lab]) => { const x = WORDS.find(y => y.w === w); const f = x.irr.f.find(f => f[0].toLowerCase() === lab); return f[1][0]; }, [c.w, lab]); }
       await pg.fill('#ti', v); await pg.click('#tf button[type=submit]'); }
     else { const o = await pg.$$eval('[data-k]', bs => bs.map(b => b.innerText)); let k = o.findIndex(x => [c.w, c.vi, c.col, c.s2, ...c.irr].includes(x)); if (k < 0) k = o.findIndex(x => c.rel.includes(x)); if (k < 0) k = 0; await pg.click(`[data-k="${k}"]`); }
@@ -25,8 +28,8 @@ async function answerAll(max = 200) { let n = 0;
   return n; }
 await pg.goto(`http://localhost:${port}/index.html`); await pg.waitForTimeout(2500);
 check('mở trang', await pg.$('#ov'));
-const PREV = { pre: null, a1: 'pre', a2: 'a1' };
-for (const lv of ['pre', 'a1', 'a2']) {
+const PREV = { pre: null, a1: 'pre', a2: 'a1', b1: 'a2p', b2: 'b1p', c1: 'b2p', c2: 'c1' };
+for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'])) {
   await pg.evaluate(async p => { S = blank(); if (p) await bkSet('all', p, 'dat'); }, PREV[lv]);
   // học 1 bài Từ vựng
   await pg.evaluate(lv => learn(UNITS.find(u => u.lv === lv)), lv); let n = 0; while (await pg.$('[data-a="next"]')) { await pg.click('[data-a="next"]'); await pg.waitForTimeout(20); if (++n > 20) break; }

@@ -17,13 +17,13 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 51;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 52;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
 const $app = document.getElementById('app');
 let UNITS = [], WORDS = [], WBY = {}, UBY = {}, READS = [];
-const LVN = { pre: 'Pre-A1', a1: 'A1', a2: 'A2', a2p: 'A2+', b1: 'B1', b1p: 'B1+', b2: 'B2', b2p: 'B2+', c1: 'C1', c2: 'C2' };   // B1–C2: chỉ tra (ref.json)
+const LVN = { pre: 'Pre-A1', a1: 'A1', a2: 'A2', a2p: 'A2+', b1: 'B1', b1p: 'B1+', b2: 'B2', b2p: 'B2+', c1: 'C1', c2: 'C2' };   // B1 → C2 có bài học, thi từ v52 (b.json)
 // Cấp theo Oxford 3000/5000 (chuẩn chính) → CEFR-J / Octanove (tools/build-levels.mjs, 23/10/2026). Bài đo cấp (place.js) đã bỏ theo người sáng lập.
 let REF = null;   // từ B1–C2 để tra, tải khi mở Từ điển
 async function loadRef() { if (REF) return REF; REF = (await (await fetch('ref.json?v=4')).json()).words; REF = REF.filter(w => !(WBY[w.id] && WBY[w.id].u)); for (const w of REF) WBY[w.id] = w; return REF; }   // từ đã vào khoá (B1 → C2) không lặp
@@ -498,7 +498,7 @@ function run({ title, items, retry, quiet, first, done }) {
   const show = () => {
     if (!q.length) return done();
     const it = q[0], Q = question(it.w, it.type);
-    window.CUR = { view: title, unit: it.w.u, item: 'w:' + it.w.id + ':' + Q.type, prompt: String(Q.top).replace(/<[^>]*>|&[a-z#0-9]+;/g, '').slice(0, 200) };
+    window.CUR = { view: title, unit: it.w.u, item: 'w:' + it.w.id + ':' + Q.type, prompt: String(Q.top).replace(/<[^>]*>|&[a-z#0-9]+;/g, '').slice(0, 200) }; window.CUR_Q = Q;   // bộ test e2e đọc đáp án
     $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${esc(title)} · ${solved}/${total}</span></div>
       ${bar(solved / total * 100, 0, 'var(--accent)')}
       <p class="q">${Q.top}</p><p class="mute">${Q.sub}</p>${it.teach ? `<p class="mute">🆕 Yêu cầu mới của ${LVN[curLevel()]} cho từ này: làm thử rồi đọc giải thích sau câu. Hôm nay là ngày học, từ mai làm đúng mới tính 🔁 Nhớ.</p>` : ''}
