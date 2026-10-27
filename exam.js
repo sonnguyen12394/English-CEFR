@@ -103,7 +103,7 @@ async function exam(lv) {
   const C = XL[lv], name = LVN[lv], pool = levelWords(lv).filter(w => EB[w.id]);
   const re = examState(parts(S, Date.now(), lv), lv).re || false, used = new Set(re ? runsOf(lv).flatMap(x => x.ids || []) : []);
   if (pool.length - pool.filter(w => used.has(w.id)).length < 2 * C.N) used.clear();
-  const oldPool = C.old ? memWords(LEVELS[LEVELS.indexOf(lv) - 1]).filter(w => EB[w.id]) : [];   // câu từ mọi cấp trước
+  const oldPool = C.old ? cumWords(LEVELS[LEVELS.indexOf(lv) - 1]).filter(w => EB[w.id]) : [];   // câu từ mọi cấp trước
   const draw = () => { const ws = [...shuf(pool.filter(w => !used.has(w.id))).slice(0, C.N - (C.old || 0)), ...shuf(oldPool.filter(w => !used.has(w.id))).slice(0, C.old || 0)];
     ws.forEach(w => used.add(w.id));
     // dạng cần dữ liệu riêng xếp trước, mỗi dạng lấy từ có dữ liệu đó; hết từ phù hợp thì thành câu gõ (xT)

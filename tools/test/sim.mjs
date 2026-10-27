@@ -12,8 +12,8 @@ console.log(await run(`(async () => { user = { id: 'sim' }; await Promise.all([p
       for (let k = 0; k < perDay && ui < us.length; k++) { learnCards(S, us[ui], now); q += us[ui].words.reduce((s, w) => s + lessonTypes(w, reqsUpTo(lv)).length + 2, 0); ui++; }
       for (let r = 0; r < rounds; r++) { const t = now + (r + 1) * 36e5, today = dayOf(t);
         const pri = w => { const c = S.cards[w.id], st = wstat(S, w, t); return st === 'quen' ? recall(c, t) : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, t); };
-        for (const w of memWords(lv).filter(w => S.cards[w.id]).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND)) { const c = S.cards[w.id], ty = typeFor(c, t, w); grade(S, w.id, Math.random() < (BASE[ty] || .8) * (0.55 + 0.45 * recall(c, t)), t, ty); q++; } }
-      { const t = now + 5 * 36e5; for (const w of memWords(lv).filter(w => S.cards[w.id]).sort((a, b) => (heldDim(S.cards[a.id], 'noi', t) - heldDim(S.cards[b.id], 'noi', t)) || recall(S.cards[a.id], t) - recall(S.cards[b.id], t)).slice(0, noiN)) { grade(S, w.id, Math.random() < .8 * (0.55 + 0.45 * recall(S.cards[w.id], t)), t, 'noi'); q++; } }
+        for (const w of memWords(lv, t).filter(w => S.cards[w.id]).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND)) { const c = S.cards[w.id], ty = typeFor(c, t, w); grade(S, w.id, Math.random() < (BASE[ty] || .8) * (0.55 + 0.45 * recall(c, t)), t, ty); q++; } }
+      { const t = now + 5 * 36e5; for (const w of memWords(lv, t).filter(w => S.cards[w.id]).sort((a, b) => (heldDim(S.cards[a.id], 'noi', t) - heldDim(S.cards[b.id], 'noi', t)) || recall(S.cards[a.id], t) - recall(S.cards[b.id], t)).slice(0, noiN)) { grade(S, w.id, Math.random() < .8 * (0.55 + 0.45 * recall(S.cards[w.id], t)), t, 'noi'); q++; } }
       const p = parts(S, now + 20 * 36e5, lv); if (p.lq >= 100 && p.mq >= 80) return { days: d + 1, min: Math.round(q / (d + 1) * SEC / 60) }; }
     return { days: '>800', min: 0 }; }
   const [U, R, N] = (CFG || '1,2,15').split(',').map(Number);

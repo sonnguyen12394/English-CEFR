@@ -63,8 +63,10 @@ const colPart = w => { if (!w.col) return null; const stem = w.w.toLowerCase().s
 const VREQ_BY = Object.fromEntries(VREQ.map(r => [r[0], r]));
 const DIMS = VREQ.map(r => [r[0], r[1]]);
 const lvIdx = l => LEVELS.indexOf(l);
+const MEM_SAMPLE = 100, MEM_FULL_FROM = 'b1';   // 🔁 Nhớ từ B1: xem memWords
 const dimsAt = (lv = curLevel()) => VREQ.filter(r => lvIdx(r[2]) <= lvIdx(lv)).map(r => [r[0], r[1]]);
-const wDims = (w, lv = curLevel()) => w ? VREQ.filter(r => lvIdx(r[2]) <= lvIdx(lv) && r[3](w)).map(r => r[0]) : [];
+// yêu cầu chiều sâu từ B1 (cụm, mẫu câu, họ từ, sắc thái, đồng nghĩa, văn phong, tức thì, thành ngữ) chỉ áp cho từ cấp đó trở lên (đề thật hỏi các mặt này trên mẫu câu, không trên mọi từ đã học)
+const wDims = (w, lv = curLevel()) => w ? VREQ.filter(r => lvIdx(r[2]) <= lvIdx(lv) && r[3](w) && (lvIdx(r[2]) < lvIdx(MEM_FULL_FROM) || lvIdx(wLv(w)) >= lvIdx(r[2]))).map(r => r[0]) : [];
 const wLv = w => (UBY[w.u] || {}).lv || 'pre';
 // ngày yêu cầu k được dạy cho từ w (null = chưa dạy: cần bài ⬆️ Nâng cấp)
 const taughtDay = (c, w, k) => { const L = VREQ_BY[k] ? VREQ_BY[k][2] : 'pre'; return lvIdx(wLv(w)) >= lvIdx(L) ? c.d0 : (c.du && c.du[L] != null ? c.du[L] : null); };
@@ -92,7 +94,7 @@ function grade(st, wid, ok, now, type) {
 const upNeed = (w, lv = curLevel(), c = S.cards[w.id]) => [...new Set(VREQ.map(r => r[2]))].filter(L => L !== 'pre').filter(L => lvIdx(L) > lvIdx(wLv(w)) && lvIdx(L) <= lvIdx(lv) && VREQ.some(r => r[2] === L && r[3](w)) && !(c && c.du && c.du[L] != null));
 // Người sáng lập 25/10/2026: 📘 Học chỉ tính từ của cấp đang học; 🔁 Nhớ và Thi chuyển cấp tính dồn cả các cấp trước. 26/10/2026: 📘 Học tính thêm
 // bài ⬆️ Nâng cấp của từ cấp trước (dạy yêu cầu mới trước khi Nhớ đòi). Mỗi yêu cầu tính trên các từ có dữ liệu cho yêu cầu đó.
-function parts(st, now, lv = curLevel()) { const WL = levelWords(lv), WM = memWords(lv), WU = [];   // 27/10/2026: không còn bài ⬆️ Nâng cấp tính vào 📘 Học (dạy trong luyện tập)
+function parts(st, now, lv = curLevel()) { const WL = levelWords(lv), WM = memWords(lv, now), WU = [];   // 27/10/2026: không còn bài ⬆️ Nâng cấp tính vào 📘 Học (dạy trong luyện tập)
   let learn = 0, full = 0, due = 0; const ks = dimsAt(lv).map(d => d[0]), dim = Object.fromEntries(ks.map(k => [k, 0])), Tk = Object.fromEntries(ks.map(k => [k, 0]));
   for (const w of WL) if (st.cards[w.id]) learn++;
   for (const w of WU) if (st.cards[w.id] && !upNeed(w, lv, st.cards[w.id]).length) learn++;
@@ -273,8 +275,16 @@ function bar(v, need, color) { return `<div class="bar"><i style="width:${Math.m
 const passed = lv => typeof xPassed === 'function' && xPassed(lv);
 const curLevel = () => LEVELS.find(l => !passed(l)) || LEVELS[LEVELS.length - 1];
 const levelWords = (lv = curLevel()) => WORDS.filter(w => UBY[w.u].lv === lv);   // 📘 Học: từ của cấp
-const memWords = (lv = curLevel()) => { const i = LEVELS.indexOf(lv); return WORDS.filter(w => LEVELS.indexOf(UBY[w.u].lv) <= i); };   // 🔁 Nhớ: cấp này + các cấp trước
-const gateWords = memWords;
+const cumWords = (lv = curLevel()) => { const i = LEVELS.indexOf(lv); return WORDS.filter(w => LEVELS.indexOf(UBY[w.u].lv) <= i); };   // cấp này + mọi cấp trước (đề thi lấy câu cũ ở đây)
+// 🔁 Nhớ (27/10/2026, người sáng lập: "mục tiêu là học xong thi thật được, cứ cân nhắc làm"; đối chiếu đề Cambridge: đề chỉ hỏi một mẫu từ, không bắt nhớ từng từ):
+// Pre-A1 → A2+: như cũ, cấp này + mọi cấp trước. Từ B1: cấp này + 1 cấp liền trước đo đủ từng từ; các cấp cũ hơn (đã qua thi) đo trên mẫu MEM_SAMPLE từ, đổi mẫu mỗi tuần.
+// Mô phỏng trước khi đổi: B1 dồn đủ 2.213 từ không tới cổng sau 720 ngày × 6 lượt ôn (docs/HOAN-THIEN.md).
+const memHash = s => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619); return h >>> 0; };
+const memWords = (lv = curLevel(), now = Date.now()) => { const i = LEVELS.indexOf(lv); if (i < LEVELS.indexOf(MEM_FULL_FROM)) return cumWords(lv);
+  const wk = Math.floor(dayOf(now) / 7), near = WORDS.filter(w => LEVELS.indexOf(UBY[w.u].lv) >= i - 1 && LEVELS.indexOf(UBY[w.u].lv) <= i);
+  const old = WORDS.filter(w => LEVELS.indexOf(UBY[w.u].lv) < i - 1).sort((a, b) => memHash(a.id + '|' + wk) - memHash(b.id + '|' + wk)).slice(0, MEM_SAMPLE);
+  return [...old, ...near]; };
+const gateWords = (lv, now) => memWords(lv, now);
 const lockedLv = l => { const i = LEVELS.indexOf(l); return i > 0 && !passed(LEVELS[i - 1]); };
 const locked = u => lockedLv(u.lv);
 const unitDone = u => u.words.every(w => S.cards[w.id]);
@@ -434,7 +444,7 @@ function practice(k) {
     if (k) { const td = taughtDay(c, w, k); return (heldDim(c, k, now) ? 4 : td != null && today - td >= MEM_DAYS ? 0 : 2) + recall(c, now); }
     return st === 'quen' ? recall(c, now) : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, now); };
   // luyện riêng một yêu cầu: chỉ từ có yêu cầu đó ở cấp đang học và đã được dạy (bài học hoặc ⬆️ Nâng cấp)
-  const list = shuf(WORDS.filter(w => S.cards[w.id] && (!k || wDims(w).includes(k)))).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);
+  const mem = new Set(memWords(curLevel(), now).map(w => w.id)), list = shuf(WORDS.filter(w => S.cards[w.id] && mem.has(w.id) && (!k || wDims(w).includes(k)))).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);   // chỉ từ đang tính 🔁 Nhớ
   if (k === 'noi') return noiTask('noi');
   if (!list.length) { toast('Chưa có từ đã học cho yêu cầu này.'); return home(); }
   let ok = 0;
