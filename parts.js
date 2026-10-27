@@ -90,7 +90,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
       <p class="mute" style="margin:0">Mô phỏng (chưa người thật): theo nhịp này Pre-A1 khoảng 1,5–2 tháng, A1 khoảng 5 tháng, A2 khoảng 3,5–4 tháng. Học ít hơn thì lâu hơn; bài cần ôn luôn làm trước bài mới.</p></details>
     <div class="chips">${OV_LV.map(chip).join('')}</div>
     <div class="box"><div class="row"><b>Cấp ${LVN[lv]}: ${ids.length} phần</b><span class="mute">đã đạt ${done}/${ids.length}</span></div>${bar(Math.round(done / (ids.length || 1) * 100), 100, 'var(--good)')}
-      <p class="mute" style="margin:6px 0 0">Đạt ${LVN[lv]} khi cả ${ids.length} phần dưới đây qua 🚪 Thi chuyển cấp ${LVN[lv]}. Mỗi phần: 📘 Học bài mới của cấp; 🔁 Nhớ và thi tính cả các cấp trước.${absent.length ? ` Cấp này chưa có: ${absent.join(', ')}.` : ''}</p>
+      <p class="mute" style="margin:6px 0 0">Đạt ${LVN[lv]} khi cả ${ids.length} phần dưới đây qua 🚪 Thi chuyển cấp ${LVN[lv]}. Mỗi phần: 📘 Học bài mới của cấp; 🔁 Nhớ và thi tính cả các cấp trước${LEVELS.indexOf(lv) >= LEVELS.indexOf(MEM_FULL_FROM) ? ` (Từ vựng: cấp liền trước đủ, cấp cũ hơn kiểm ${MEM_SAMPLE} từ ngẫu nhiên, đổi mỗi tuần, như đề thật chỉ hỏi một mẫu)` : ''}.${absent.length ? ` Cấp này chưa có: ${absent.join(', ')}.` : ''}</p>
       ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<p class="mute" style="margin:6px 0 0">🔒 Xem trước: nên học khi đã đạt ${LVN[stage]}. Vẫn mở để học trước nếu muốn.</p>` : ''}</div>
     ${realBox(lv)}
     ${ids.map(([id, ic, t], i) => { const s = st[i];

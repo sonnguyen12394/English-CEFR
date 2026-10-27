@@ -116,10 +116,10 @@ const TYPE_FOR = { nghia: () => 'w2vi', nghe: () => 'listen', chu: () => 'form',
   bqt: () => 'irrR', dung: () => 'clozeT', lienq: () => 'rel', nghia2: () => 's2', bqt2: () => 'irrT',
   cumtu: () => 'colT', mau: () => 'pat', ho: () => 'fam', taodang: () => 'famQ', sacthai: () => 'reg', thay: () => 'synT', vanphong: () => 'style', tucthi: () => 'fast', thanhngu: () => 'idi' };
 // 27/10/2026: yêu cầu hiếm (ít từ có, vd. 🧱 mẫu câu ~25 từ / cấp) chọn ngẫu nhiên đều thì gần như không được hỏi (mô phỏng B1: ~50 lần / 720 ngày).
-// Chọn có trọng số 1 / số từ có yêu cầu đó ở cấp đang học: yêu cầu hiếm được hỏi đủ, yêu cầu phổ biến vẫn được hỏi qua nhiều từ.
+// Từ B1: chọn có trọng số 1 / √(số từ có yêu cầu đó): yêu cầu hiếm được hỏi đủ. Pre-A1 → A2+ giữ chọn đều (mô phỏng: trọng số làm A1 chậm từ 147 lên 303 ngày).
 const DIM_N = {}; const dimN = (k, lv = curLevel()) => { const key = lv + '|' + k; if (DIM_N[key] == null) DIM_N[key] = WORDS.filter(w => wDims(w, lv).includes(k)).length || 1; return DIM_N[key]; };
 function typeFor(c, now, w) { const ks = wDims(w).filter(k => k !== 'noi'), miss = ks.filter(k => !heldDim(c, k, now)), L = miss.length ? miss : ks;
-  const wt = L.map(k => 1 / Math.sqrt(dimN(k))), sum = wt.reduce((a, b) => a + b, 0); let r = Math.random() * sum, i = 0; while (i < L.length - 1 && (r -= wt[i]) > 0) i++;
+  const wt = L.map(k => lvIdx(curLevel()) >= lvIdx(MEM_FULL_FROM) ? 1 / Math.sqrt(dimN(k)) : 1), sum = wt.reduce((a, b) => a + b, 0); let r = Math.random() * sum, i = 0; while (i < L.length - 1 && (r -= wt[i]) > 0) i++;
   return TYPE_FOR[L[i]](); }
 // 🔤 chữ gần giống để nhận đúng chữ: từ thật gần giống (khác 1–2 chữ) + chữ viết sai kiểu hay gặp (đảo, thiếu, thừa chữ, đổi nguyên âm)
 function lev(a, b) { const m = a.length, n = b.length, d = Array.from({ length: m + 1 }, (_, i) => [i, ...Array(n).fill(0)]); for (let j = 1; j <= n; j++) d[0][j] = j;
@@ -328,7 +328,7 @@ function home() {
     : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi yêu cầu tính 🔁 Nhớ khi làm đúng ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào yêu cầu còn thiếu.`;
   $app.innerHTML = `
     ${ovBack}<h1>📚 Từ vựng</h1>
-    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} từ` : ''})</p>
+    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} từ${lvIdx(lv) >= lvIdx(MEM_FULL_FROM) ? `, gồm ${MEM_SAMPLE} từ mẫu của các cấp cũ, đổi mỗi tuần` : ''}` : ''})</p>
     <p class="mute"><span id="sync">${esc(sync)}</span></p>
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ${p.Tu ? ` (gồm ${p.Tu} từ cấp trước cần ⬆️ nâng cấp)` : ''}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
