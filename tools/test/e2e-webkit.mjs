@@ -1,0 +1,50 @@
+// Kiểm giao diện trên WebKit giả lập iPhone 13 (tiêu chí X6, docs/HOAN-THIEN.md). Không mạng, Supabase giả (fake-sb.js), không ghi dữ liệu thật.
+// Chạy: node tools/test/e2e-webkit.mjs   (cần Playwright + WebKit: npx playwright install webkit && npx playwright install-deps webkit)
+// Mỗi cấp Pre-A1 → A2: học 1 bài Từ vựng (trả lời đúng), mở bài học của mọi phần, mở Thi chuyển cấp mọi phần, làm trọn thi Từ vựng → phải qua.
+import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
+const root = new URL('../..', import.meta.url).pathname, req = createRequire(import.meta.url);
+let pw; for (const p of ['playwright', '/opt/node22/lib/node_modules/playwright', process.env.PW].filter(Boolean)) { try { pw = req(p); break; } catch (e) {} }
+if (!pw) { console.log('Không có Playwright: chưa kiểm được WebKit.'); process.exit(2); }
+const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.mp3': 'audio/mpeg', '.png': 'image/png' };
+const srv = http.createServer((q, r) => { const f = path.join(root, decodeURIComponent(q.url.split('?')[0])); if (!f.startsWith(root) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'content-type': MIME[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(r); }).listen(0);
+const port = srv.address().port, b = await pw.webkit.launch(), ctx = await b.newContext({ ...pw.devices['iPhone 13'] }), pg = await ctx.newPage();
+const errs = []; pg.on('pageerror', e => errs.push(e.message)); pg.on('dialog', d => d.accept());
+// Playwright ưu tiên route đăng ký sau: chặn mạng trước, rồi trả Supabase giả
+await ctx.route(/supabase\.co|jsdelivr|huggingface/, r => r.abort());
+await ctx.route(/supabase-js/, r => r.fulfill({ contentType: 'text/javascript', body: fs.readFileSync(new URL('fake-sb.js', import.meta.url), 'utf8') }));
+const ok = [], bad = [], check = (n, c, m = '') => (c ? ok : bad).push(n + (m ? ': ' + m : ''));
+const cur = () => pg.evaluate(() => { const m = (window.CUR.item || '').split(':'); const w = WBY[m[1]]; return w ? { t: m[2], w: w.w, vi: w.vi, cz: w.cloze && w.cloze.a, col: w.col && w.col.ok, irr: w.irr ? w.irr.f.map(f => f[1][0]) : [], rel: w.rel ? [...w.rel.syn, ...w.rel.ant] : [], s2: w.s2 && w.s2.vi, f: typeof EB !== 'undefined' && EB && EB[w.id] && EB[w.id].f } : null; });
+// trả lời đúng mọi câu Từ vựng (bài học, luyện, thi) tới khi hết câu
+async function answerAll(max = 200) { let n = 0;
+  for (; n < max; n++) { const c = await cur(); if (!c || !(await pg.$('[data-k], #ti'))) break;
+    if (await pg.$('#ti')) { const want = c.t === 'clozeT' ? c.cz : c.t === 'xT' ? c.f : c.t === 'irrT' || c.t === 'xI' ? await pg.evaluate(() => document.querySelector('.q').textContent) : c.w;
+      let v = want; if (c.t === 'irrT' || c.t === 'xI') { const lab = v.match(/^(.*) của/)[1].toLowerCase(); v = await pg.evaluate(([w, lab]) => { const x = WORDS.find(y => y.w === w); const f = x.irr.f.find(f => f[0].toLowerCase() === lab); return f[1][0]; }, [c.w, lab]); }
+      await pg.fill('#ti', v); await pg.click('#tf button[type=submit]'); }
+    else { const o = await pg.$$eval('[data-k]', bs => bs.map(b => b.innerText)); let k = o.findIndex(x => [c.w, c.vi, c.col, c.s2, ...c.irr].includes(x)); if (k < 0) k = o.findIndex(x => c.rel.includes(x)); if (k < 0) k = 0; await pg.click(`[data-k="${k}"]`); }
+    await pg.waitForTimeout(30); const go = await pg.$('[data-a="go"]'); if (go) await go.click(); await pg.waitForTimeout(30); }
+  return n; }
+await pg.goto(`http://localhost:${port}/index.html`); await pg.waitForTimeout(2500);
+check('mở trang', await pg.$('#ov'));
+const PREV = { pre: null, a1: 'pre', a2: 'a1' };
+for (const lv of ['pre', 'a1', 'a2']) {
+  await pg.evaluate(async p => { S = blank(); if (p) await bkSet('all', p, 'dat'); }, PREV[lv]);
+  // học 1 bài Từ vựng
+  await pg.evaluate(lv => learn(UNITS.find(u => u.lv === lv)), lv); let n = 0; while (await pg.$('[data-a="next"]')) { await pg.click('[data-a="next"]'); await pg.waitForTimeout(20); if (++n > 20) break; }
+  const q = await answerAll(); const done = (await pg.innerText('#app')).includes('✅ Xong'); check(`${lv} học bài Từ vựng (${q} câu)`, done);
+  // mọi phần: màn chính, bài học đầu, mở thi
+  for (const id of await pg.evaluate(lv => Object.values(KIT).filter(P => P.lvs.includes(lv)).map(P => P.id), lv)) {
+    await pg.evaluate(id => kView(id), id); await pg.waitForTimeout(500); check(`${lv} ${id} màn chính`, (await pg.innerText('#app')).includes('📘 Học'));
+    await pg.evaluate(([id, lv]) => kLearn(KIT[id], kItems(KIT[id], lv)[0]), [id, lv]); await pg.waitForTimeout(200); check(`${lv} ${id} bài học`, (await pg.innerText('#app')).length > 50);
+    if (id !== 'noi') { await pg.evaluate(([id, lv]) => kExam(KIT[id], lv), [id, lv]); await pg.waitForTimeout(300); check(`${lv} ${id} mở thi`, !!(await pg.$('[data-k], #ti, textarea, [data-kdlg], button'))); } }
+  await pg.evaluate(() => paView()); await pg.waitForTimeout(500); check(`${lv} phát âm màn chính`, (await pg.innerText('#app')).includes('Phát âm'));
+  // thi Từ vựng: đặt Nhớ đủ rồi làm hết, phải qua
+  await pg.evaluate(async ([lv, p]) => { await bkSet('tv', lv, 'nho'); if (p) xs().runs.push({ lv: p, at: Date.now(), n: 30, ok: 30, pass: true }); await exam(lv); }, [lv, PREV[lv]]);
+  await pg.waitForTimeout(400); let t = await answerAll(120); let tx = await pg.innerText('#app');
+  if (tx.includes('Làm vòng 2')) { await pg.click('[data-a="r2"]'); t += await answerAll(120); tx = await pg.innerText('#app'); }
+  check(`${lv} thi Từ vựng (${t} câu)`, /Qua/.test(tx), tx.slice(0, 80).replace(/\n/g, ' '));
+  await pg.evaluate(lv => overview(lv), lv); await pg.waitForTimeout(400); check(`${lv} tổng quan`, (await pg.innerText('#app')).includes('Tổng quan học'));
+}
+check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
+for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
+console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');
+await b.close(); srv.close(); process.exit(bad.length ? 1 : 0);

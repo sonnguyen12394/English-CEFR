@@ -34,6 +34,13 @@ for (const f of ['pre-fix.json', 'a1-fix.json', 'a2-fix.json']) {
 }
 // câu thi Pre-A1 viết lại đúng cấp (X4)
 for (const [id, v] of Object.entries(JSON.parse(fs.readFileSync(root + 'content/exam-pre-fix.json', 'utf8')))) if (id[0] !== '_') E1[id] = { s: v[0], f: v[1] };
+// bài quá ít từ (do chuyển từ A2 xuống) gộp vào bài kề trong cùng chặng; đánh lại số bài
+for (const D of [A1, A2]) { for (let i = 0; i < D.units.length; i++) { const u = D.units[i]; if (u.words.length >= 5) continue;
+    // cùng cấp; ưu tiên cùng chặng, chặng chỉ có một bài nhỏ thì gộp sang bài cuối chặng trước
+    const same = v => v && v !== u && v.lv === u.lv && v.words.length, p = D.units[i - 1], n = D.units[i + 1];
+    if (same(p) && p.words.length + u.words.length <= 13) { p.words.push(...u.words); u.words = []; }
+    else if (same(n) && n.words.length + u.words.length <= 13) { n.words.unshift(...u.words); u.words = []; } }
+  D.units = D.units.filter(u => u.words.length); const k = {}; for (const u of D.units) { const c = u.lv + '|' + u.ch; u.bi = k[c] = (k[c] || 0) + 1; if (!u.id.includes('-mv') && !/Bổ sung/.test(u.vi)) u.vi = `${u.chName} ${u.bi}`; } }
 function wLvOf(w) { return ([...A1.units, ...A2.units].find(u => u.words.includes(w)) || {}).lv; }
 // 📰 Đọc, 🎧 Nghe Pre-A1 kiểu Starters (content/pre-skills.json): thêm vào đầu doc.json / nghe.json, cấp 'pre'
 const SK = JSON.parse(fs.readFileSync(root + 'content/pre-skills.json', 'utf8'));
