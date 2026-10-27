@@ -185,9 +185,9 @@ function kAsrStop(cb) { const r = K_ASR.r; if (!K_ASR.on) { if (cb) cb((K_ASR.fi
 function kPlay(p) { if (p.lines) return kPlayDlg(p.lines); speak(...kSents(p.text)); }
 function kPlayDlg(lines) { try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}
   sayTok++;   // dừng chuỗi speak() đang đọc
-  try { const vs = enVoices(), us = v => /en[-_](US|GB)/i.test(v.lang);
+  try { const vs = EXAM_VOX && vGB(enVoices()).length ? vGB(enVoices()) : enVoices(), us = v => /en[-_](US|GB)/i.test(v.lang);
     const f = vs.find(v => vSex(v) === 'f' && us(v)) || vs.find(v => vSex(v) === 'f') || vs[0], m = vs.find(v => vSex(v) === 'm' && us(v)) || vs.find(v => vSex(v) === 'm') || vs.find(v => v !== f) || f;
-    for (const [sp, t] of lines) { const u = new SpeechSynthesisUtterance(t), v = sp === 'A' ? f : m; u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = VOX.rate;
+    for (const [sp, t] of lines) { const u = new SpeechSynthesisUtterance(t), v = sp === 'A' ? f : m; u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = EXAM_VOX ? 1 : VOX.rate;
       if (sp !== 'A' && m === f) u.pitch = 0.7; speechSynthesis.speak(u); } } catch (e) {} }
 document.addEventListener('click', e => { const b = e.target.closest('[data-kdlg]'); if (!b) return; const [pid, id] = b.dataset.kdlg.split('|'), x = KIT[pid] && KIT[pid].by[id]; if (x) kPlay(x.lines ? { lines: x.lines } : { text: x.text }); });
 // luật chấm lượt đóng vai (như game: need.all phải có đủ, need.any có ít nhất một; số viết bằng chữ cũng tính như chữ số)

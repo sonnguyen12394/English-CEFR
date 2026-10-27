@@ -94,6 +94,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
       ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<p class="mute" style="margin:6px 0 0">🔒 Xem trước: nên học khi đã đạt ${LVN[stage]}. Vẫn mở để học trước nếu muốn.</p>` : ''}</div>
     ${typeof MOCK !== 'undefined' && MOCK[lv] ? `<div class="box"><div class="row"><b>🎓 Đề thử kiểu Cambridge</b><span class="mute">${(S.mock && S.mock[lv] || []).length ? `đã làm ${S.mock[lv].length} lần` : 'chưa làm'}</span></div><p class="mute" style="margin:6px 0">${esc(MOCK[lv].name)}: khuôn, thời gian như đề thật; câu bốc ngẫu nhiên mỗi lần.</p><button class="pri" data-mock="${lv}">🎓 Làm đề thử</button></div>` : ''}
     ${realBox(lv)}
+    ${typeof readyBox === 'function' ? readyBox(lv) + extBox(lv) : ''}
     ${ids.map(([id, ic, t], i) => { const s = st[i];
       return `<button class="box ovc" data-ovp="${id}" data-ovpl="${lv}" style="width:100%;text-align:left;display:block">
         <div class="row"><b style="font-size:18px">${ic} ${t}</b><span class="mute">${s ? (s.gate === 'pass' ? '✅ đã đạt' : s.gate === 'open' ? '🚪 thi được' : '') : '…'} ›</span></div>

@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 55;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 56;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -222,9 +222,12 @@ const V_M = /daniel|alex\b|fred|rishi|tom\b|aaron|arthur|gordon|oliver|evan|nath
 const vSex = v => V_F.test(v.name) ? 'f' : V_M.test(v.name) ? 'm' : '';
 const enVoices = () => { try { return speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang)); } catch (e) { return []; } };
 const vRank = v => (/en[-_](US|GB)/i.test(v.lang) ? 10 : 0) + (v.localService ? 3 : 0) + (/natural|neural|premium|enhanced/i.test(v.name) ? 5 : 0);
-function enVoice() { const vs = enVoices(); if (VOX.src !== 'clip') { const v = vs.find(x => x.voiceURI === VOX.src); if (v) return v; }
+// 🎓 giọng thi (27/10/2026): đề Cambridge dùng giọng Anh–Anh, tốc độ thường; đề thử bật EXAM_VOX khi làm bài Nghe (máy không có giọng Anh thì dùng giọng sẵn có)
+let EXAM_VOX = false;
+const vGB = vs => vs.filter(v => /en[-_](GB|IE|AU)/i.test(v.lang)).sort((a, b) => (/GB/i.test(b.lang) ? 5 : 0) + vRank(b) - (/GB/i.test(a.lang) ? 5 : 0) - vRank(a));
+function enVoice() { const vs = enVoices(); if (EXAM_VOX && vGB(vs).length) return vGB(vs)[0]; if (VOX.src !== 'clip') { const v = vs.find(x => x.voiceURI === VOX.src); if (v) return v; }
   return vs.sort((a, b) => (vSex(b) === 'f' ? 20 : 0) + (/en[-_]US/i.test(b.lang) ? 2 : 0) + vRank(b) - (vSex(a) === 'f' ? 20 : 0) - (/en[-_]US/i.test(a.lang) ? 2 : 0) - vRank(a))[0] || null; }
-function tts(t) { return new Promise(res => { try { const u = new SpeechSynthesisUtterance(t), v = enVoice(); u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = VOX.rate; u.onend = u.onerror = () => res(); speechSynthesis.speak(u); } catch (e) { res(); } }); }
+function tts(t) { return new Promise(res => { try { const u = new SpeechSynthesisUtterance(t), v = enVoice(); u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = EXAM_VOX ? 1 : VOX.rate; u.onend = u.onerror = () => res(); speechSynthesis.speak(u); } catch (e) { res(); } }); }
 const vLang = l => /US/i.test(l) ? 'Mỹ' : /GB/i.test(l) ? 'Anh' : /AU/i.test(l) ? 'Úc' : /IN/i.test(l) ? 'Ấn' : l;
 const vOpts = () => [`<option value="clip"${VOX.src === 'clip' ? ' selected' : ''}>⭐ Giọng thu sẵn (nữ Mỹ, tự nhiên nhất)</option>`]
   .concat(enVoices().sort((a, b) => vRank(b) - vRank(a)).map(v => `<option value="${esc(v.voiceURI)}"${VOX.src === v.voiceURI ? ' selected' : ''}>${esc(v.name)} · ${vLang(v.lang)}${vSex(v) ? ' · ' + (vSex(v) === 'f' ? 'nữ' : 'nam') : ''}</option>`)).join('');
@@ -239,7 +242,7 @@ document.addEventListener('change', e => { const s = e.target.closest('[data-vox
   speak('Hello! This is my voice.'); });
 document.addEventListener('click', e => { if (e.target.closest('[data-vox="test"]')) speak('Hello! This is my voice.'); });
 try { speechSynthesis.addEventListener('voiceschanged', () => { const s = document.querySelector('#vox [data-vox="src"]'); if (s) s.innerHTML = vOpts(); }); } catch (e) {}
-function sayOne(t) { const k = clipKey(t); if (VOX.src !== 'clip' || !CLIPS.has(k)) return tts(t);
+function sayOne(t) { const k = clipKey(t); if (EXAM_VOX || VOX.src !== 'clip' || !CLIPS.has(k)) return tts(t);
   return new Promise(res => { AUD = AUD || new Audio(); let done = false; const end = () => { if (!done) { done = true; res(); } };
     AUD.onended = end; AUD.onerror = () => { if (!done) { done = true; tts(t).then(res); } }; AUD.src = 'a/' + k + '.mp3'; const pr = AUD.play(); if (pr) pr.catch(() => { if (!done) { done = true; tts(t).then(res); } }); }); }
 async function speak(...ts) { const my = ++sayTok; try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}

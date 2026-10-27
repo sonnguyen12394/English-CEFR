@@ -53,6 +53,7 @@ check('đề thử mở', (await pg.innerText('#app')).includes('B1 Preliminary'
 await pg.click('[data-mk="0"]'); await pg.waitForTimeout(400);
 for (let n = 0; n < 80; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else if (await pg.$('#kt')) { await pg.fill('#kt', 'test answer'); await pg.click('#kf button[type=submit]'); } else break; await pg.waitForTimeout(30); }
 check('đề thử ra kết quả', (await pg.innerText('#app')).includes('Kết quả'));
+await pg.evaluate(() => overview('b1')); await pg.waitForTimeout(400); { const tx = await pg.innerText('#app'); check('ô Sẵn sàng thi + Đọc nghe thêm', tx.includes('Sẵn sàng thi') && tx.includes('Đọc nghe thêm')); }
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

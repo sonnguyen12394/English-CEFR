@@ -69,10 +69,10 @@ function mkStart(lv, idx) { const C = MOCK[lv]; MK = { lv, C, papers: [], idx };
   if (!confirm(`${C.name}: ${MK.papers.map(p => `${p.t} ${p.qs.length} câu, ${p.min} phút`).join(' · ')}. Bắt đầu?`)) return mockView(lv);
   mkPaper(0); }
 // chạy một bài thi: đếm giờ, không báo đúng / sai; nghe tối đa 2 lần mỗi bài như đề thật
-function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000, plays = {}; let i = 0;
+function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000, plays = {}; let i = 0; EXAM_VOX = /Nghe/.test(P.t);
   clearInterval(MK.tick); MK.tick = setInterval(() => { const el = document.getElementById('mkt'); if (!el) return; const s = Math.max(0, Math.round((end - Date.now()) / 1000));
     el.textContent = `⏱ ${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; if (s <= 0) { toast('Hết giờ: bài thi tự nộp.'); finish(); } }, 1000);
-  const finish = () => { clearInterval(MK.tick); try { speechSynthesis.cancel(); } catch (e) {} if (P.speak) kAsrStop();
+  const finish = () => { clearInterval(MK.tick); EXAM_VOX = false; try { speechSynthesis.cancel(); } catch (e) {} if (P.speak) kAsrStop();
     for (let j = P.res.length; j < P.qs.length; j++) P.res.push({ ...P.qs[j], ok: false, ans: '', secs: 1, lat: 99 }); i = P.qs.length;
     return pi + 1 < MK.papers.length ? mkBreak(pi) : mkResult(); };
   if (P.speak) return mkSpeakRun(pi, finish);
@@ -84,19 +84,20 @@ function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000
     $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Bỏ</button><span class="uname">${esc(P.t)} · ${i + 1}/${P.qs.length}</span><b id="mkt"></b></div>
       <p class="mute" style="margin:4px 0">${esc(part)}</p>${q.head || ''}${q.play ? `<button class="chip" data-kplay>🔊 Nghe (còn ${left()} lần)</button>` : ''}<p class="q">${q.q}</p>${body}`;
     if (q.play && !plays[pk]) { plays[pk] = 1; kPlay(q.play); const b = $app.querySelector('[data-kplay]'); if (b) { b.textContent = `🔊 Nghe lại (còn ${left()} lần)`; b.disabled = left() <= 0; } }
-    const rec = (ok, ans) => { P.res.push({ part, q, ok, ans }); i++; show(); };
+    const rec = (ok, ans, sc) => { P.res.push({ part, q, ok, ans, sc }); i++; show(); };
     const f = document.getElementById('kf'), t = document.getElementById('kt');
     if (f) { if (q.kind === 'write') t.oninput = () => { document.getElementById('kwc').textContent = kWords(t.value).length + ' từ'; };
       f.onsubmit = e => { e.preventDefault(); if (!t.value.trim()) return t.focus(); const v = t.value;
-        rec(q.check ? q.check(v).ok : (q.acc || [q.a]).some(a => kNorm(a) === kNorm(v)), v); }; }
-    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (!confirm('Bỏ đề thử? Lần này không lưu.')) return; clearInterval(MK.tick); return mockView(MK.lv); }
+        if (q.check) { const r = q.check(v); return rec(r.ok, v, r.sc); } rec((q.acc || [q.a]).some(a => kNorm(a) === kNorm(v)), v); }; }
+    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (!confirm('Bỏ đề thử? Lần này không lưu.')) return; clearInterval(MK.tick); EXAM_VOX = false; return mockView(MK.lv); }
       const pb = e.target.closest('[data-kplay]'); if (pb) { if (left() > 0) { plays[pk]++; kPlay(q.play); } pb.textContent = `🔊 Nghe lại (còn ${left()} lần)`; pb.disabled = left() <= 0; return; }
       const o = e.target.closest('[data-ko]'); if (o && q.kind === 'mc') rec(q.opts[+o.dataset.ko] === q.a, q.opts[+o.dataset.ko]); }; };
   show(); }
 function mkBreak(pi) { $app.innerHTML = `<div class="box"><b>Xong ${esc(MK.papers[pi].t)}</b><p>Bài tiếp: ${esc(MK.papers[pi + 1].t)} (${MK.papers[pi + 1].min} phút). Nghỉ một chút nếu cần.</p></div><button class="pri" data-a="next">▶ Bắt đầu</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="next"]')) mkPaper(pi + 1); }; }
 function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.speak) p.sc = mkSpeakScore(p.res, lv);
-  const ps = MK.papers.map(p => p.sc ? { t: p.t, ok: p.sc.pct, n: 100, crit: p.sc.C } : { t: p.t, ok: p.res.filter(r => r.ok).length, n: p.res.length }), full = MK.idx.length === C.papers.length;
+  // bài viết tính theo điểm 4 tiêu chí (0–1) thay vì đạt / chưa (thi.js); câu khác 0 / 1
+  const ps = MK.papers.map(p => p.sc ? { t: p.t, ok: p.sc.pct, n: 100, crit: p.sc.C } : { t: p.t, ok: Math.round(p.res.reduce((s, r) => s + (r.sc != null ? r.sc : r.ok ? 1 : 0), 0) * 10) / 10, n: p.res.length }), full = MK.idx.length === C.papers.length;
   const pct = Math.round(ps.reduce((s, p) => s + p.ok / p.n, 0) / ps.length * 100), pass = pct >= C.pass * 100;
   mkRuns(lv).push({ at: Date.now(), papers: ps, pct: full ? pct : null, pass: full && pass }); S.t = Date.now(); save();
   const parts = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } return Object.entries(by).map(([k, [a, b]]) => `${esc(k)}: ${a}/${b}`).join('<br>'); };

@@ -92,3 +92,29 @@ Mô phỏng (`node tools/test/sim.mjs`, CFG=1,4,15: 1 bài / ngày, 4 lượt ô
 
 Trước Q7–Q9: B1, B2, C1 > 800 ngày (không tới cổng). Tổng tới C2 ≈ 1.250 ngày (~3,4 năm) ở ~40 phút / ngày; tới A2+ ≈ 355 ngày. Ở 2 lượt ôn / ngày (~30 phút) gần gấp đôi (A1 ~300, B1 173, C1 661).
 Mô phỏng, không phải người thật: tỉ lệ đúng giả định theo dạng câu. Chưa người thật học thử.
+
+## 🎓 Đề thử kiểu Cambridge (v54–v55, 27/10/2026)
+
+- Người sáng lập hỏi "sao không tái hiện đề Cambridge vào app". Claude trả lời: đề mẫu có bản quyền, và đưa vào app thì mất tác dụng kiểm độc lập. Người sáng lập chọn "làm khuôn đưa ra ngẫu nhiên các dạng đề thử".
+- `mock.js`: khuôn theo cấu trúc đề thật (bài thi, thời gian, phần); mỗi lần bốc câu ngẫu nhiên từ kho app. Số câu ít hơn đề thật.
+- `mocknoi.js` (v55, "bạn tự sáng tạo cách để làm được"): bài Nói gồm 4 phần như đề thật, cộng phần nhắc lại câu (Elicited Imitation); máy đo gián tiếp 4 tiêu chí giám khảo. Kiểm (mô phỏng): trả lời mẫu 96–100%, người yếu 16–49%, im lặng 0%.
+- Hạn chế: câu có thể trùng câu đã gặp (dùng chung kho); ngưỡng đạt là ước tính; chấm Nói chưa đối chiếu giám khảo thật.
+
+## Tự kiểm: học xong có thi thật được không? (v56, 27/10/2026)
+
+Người sáng lập: "tự kiểm tra lại app xem đã có thể giúp tôi đạt năng lực thi ngoài đời thật chưa, sáng tạo những thứ cần thiết".
+
+| Mặt | Trước v56 | Đánh giá | Đã làm ở v56 |
+|---|---|---|---|
+| Giờ học | Mô phỏng: tới B2 ≈ 793 ngày × ~40 phút ≈ 530 giờ; tới C2 ≈ 835 giờ | B2 khớp Cambridge (500–600 giờ); C1, C2 thấp hơn (700–800, 1.000–1.200) | 📚 Đọc nghe thêm ngoài app: mục tiêu giờ theo cấp (đề xuất) |
+| Lượng đọc / nghe | Mỗi cấp B1 → C2: Đọc ~1.800–2.700 từ, Nghe ~1.250–1.900 từ (≈ một đề thi) | **Lỗ hổng lớn nhất**: đề thật đòi đọc / nghe nhanh văn bản thật | 📚 nguồn miễn phí theo cấp (BBC Learning English, News in Levels, Breaking News English, TED, BBC News, The Guardian, Gutenberg) + ghi giờ (`S.ext`) |
+| Dạng bài đề thật | Đề thử: câu đơn, đọc hiểu, viết, nghe | Thiếu "đoạn văn khuyết câu" (B1 Đọc phần 4, B2 phần 6, C1 phần 7, C2 phần 6) | 🧩 tự sinh từ bài đọc (`mkGap`) |
+| Viết | Chấm ý (từ khoá) + độ dài | Đề thật chấm 4 tiêu chí; app không bắt lỗi | ✍️ 4 tiêu chí (Nội dung · Mục đích · Bố cục · Ngôn ngữ) + bắt 23 lỗi hay gặp của người Việt (`wErrors`); bài mẫu 85–100%, bài cố tình sai 29%, bài mẫu không bị báo lỗi |
+| Giọng nghe | Giọng thu sẵn nữ Mỹ / giọng máy, tốc độ chậm | Đề Cambridge giọng Anh–Anh, tốc độ thường | 🇬🇧 đề thử bài Nghe: giọng Anh (GB / IE / AU nếu máy có), tốc độ 1 (`EXAM_VOX`) |
+| Biết khi nào đi thi | Chỉ có từng ô riêng | Không có chỗ gom bằng chứng | 🎯 Sẵn sàng thi: 5 điều kiện (qua Thi chuyển cấp mọi phần · đề thử đạt 2 lần, 2 ngày · đủ giờ đọc nghe thêm · đề mẫu chính thức đạt · giáo viên chấm Nói đạt) |
+
+Còn lại (chưa làm được bằng máy):
+- Nội dung AI soạn, chưa người thật kiểm. Đề xuất: nhờ giáo viên soát ngẫu nhiên khoảng 10% mỗi cấp.
+- Bài nghe là giọng máy, không phải người thật nói tự nhiên; nên nghe thêm nguồn thật (📚).
+- Chấm Nói / Viết là đo gián tiếp; cần giáo viên chấm ít nhất 1 lần mỗi cấp (điều kiện 🎯 thứ 5).
+- Chưa thử với người học thật: mọi thời gian là mô phỏng.
