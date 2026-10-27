@@ -983,6 +983,470 @@
      }
     }
    ]
+  },
+  {
+   "id": "pre-c16-b4",
+   "vi": "Bổ sung Starters 4: đồ dùng, gia đình, đồ ăn",
+   "words": [
+    {
+     "id": "alphabet",
+     "w": "alphabet",
+     "pos": "noun",
+     "ipa": "/ˈælfəbet/",
+     "pic": "🔤",
+     "vi": "bảng chữ cái",
+     "en": "all the letters of a language in order",
+     "ex": "There are 26 letters in the English alphabet.",
+     "exVi": "Bảng chữ cái tiếng Anh có 26 chữ.",
+     "cloze": {
+      "s": "Can you say the ___ from A to Z?",
+      "a": "alphabet",
+      "w": [
+       "alphabets",
+       "letter"
+      ]
+     },
+     "col": {
+      "ok": "the English alphabet",
+      "bad": [
+       "the alphabet English",
+       "an English alphabets"
+      ]
+     },
+     "exam": {
+      "s": "The alphabet starts with A.",
+      "f": "alphabet"
+     }
+    },
+    {
+     "id": "armchair",
+     "w": "armchair",
+     "pos": "noun",
+     "ipa": "/ˈɑːmtʃeə(r)/",
+     "pic": "🛋️",
+     "vi": "ghế bành",
+     "en": "a comfortable chair with sides for your arms",
+     "ex": "Grandpa is reading in the armchair.",
+     "exVi": "Ông đang đọc sách trên ghế bành.",
+     "cloze": {
+      "s": "The cat is sleeping in the ___.",
+      "a": "armchair",
+      "w": [
+       "arm",
+       "chairs"
+      ]
+     },
+     "col": {
+      "ok": "sit in an armchair",
+      "bad": [
+       "sit at an armchair",
+       "sit up an armchair"
+      ]
+     },
+     "exam": {
+      "s": "There is a blue armchair in the living room.",
+      "f": "armchair"
+     }
+    },
+    {
+     "id": "bookcase",
+     "w": "bookcase",
+     "pos": "noun",
+     "ipa": "/ˈbʊkkeɪs/",
+     "pic": "📚",
+     "vi": "tủ sách, giá sách",
+     "en": "a piece of furniture with shelves for books",
+     "ex": "My books are in the bookcase.",
+     "exVi": "Sách của tôi ở trong tủ sách.",
+     "cloze": {
+      "s": "Put the books back in the ___.",
+      "a": "bookcase",
+      "w": [
+       "bookshop",
+       "book"
+      ]
+     },
+     "col": {
+      "ok": "a big bookcase",
+      "bad": [
+       "a bookcase big",
+       "an big bookcase"
+      ]
+     },
+     "exam": {
+      "s": "The bookcase is next to the window.",
+      "f": "bookcase"
+     }
+    },
+    {
+     "id": "bookshop",
+     "w": "bookshop",
+     "pos": "noun",
+     "ipa": "/ˈbʊkʃɒp/",
+     "pic": "🏪",
+     "vi": "hiệu sách",
+     "en": "a shop that sells books",
+     "ex": "I bought this book at the bookshop.",
+     "exVi": "Tôi mua quyển sách này ở hiệu sách.",
+     "cloze": {
+      "s": "You can buy books at the ___.",
+      "a": "bookshop",
+      "w": [
+       "bookcase",
+       "library"
+      ]
+     },
+     "col": {
+      "ok": "at the bookshop",
+      "bad": [
+       "on the bookshop",
+       "in bookshop the"
+      ]
+     },
+     "exam": {
+      "s": "The bookshop is near the park.",
+      "f": "bookshop"
+     }
+    },
+    {
+     "id": "drawing",
+     "w": "drawing",
+     "pos": "noun",
+     "ipa": "/ˈdrɔːɪŋ/",
+     "pic": "🖍️",
+     "vi": "bức vẽ; việc vẽ",
+     "en": "a picture made with a pencil or pen",
+     "ex": "Look at my drawing of a horse.",
+     "exVi": "Nhìn bức vẽ con ngựa của mình này.",
+     "cloze": {
+      "s": "This is a ___ of my family.",
+      "a": "drawing",
+      "w": [
+       "draw",
+       "drew"
+      ]
+     },
+     "col": {
+      "ok": "a drawing of a cat",
+      "bad": [
+       "a drawing about a cat",
+       "a drawing from a cat"
+      ]
+     },
+     "exam": {
+      "s": "Her drawing is very good.",
+      "f": "drawing"
+     }
+    },
+    {
+     "id": "fishing",
+     "w": "fishing",
+     "pos": "noun",
+     "ipa": "/ˈfɪʃɪŋ/",
+     "pic": "🎣",
+     "vi": "câu cá",
+     "en": "the activity of catching fish",
+     "ex": "My dad likes fishing at the lake.",
+     "exVi": "Bố tôi thích câu cá ở hồ.",
+     "cloze": {
+      "s": "We go ___ on Sunday morning.",
+      "a": "fishing",
+      "w": [
+       "fish",
+       "fished"
+      ]
+     },
+     "col": {
+      "ok": "go fishing",
+      "bad": [
+       "do fishing",
+       "make fishing"
+      ]
+     },
+     "exam": {
+      "s": "Let's go fishing tomorrow.",
+      "f": "fishing"
+     }
+    },
+    {
+     "id": "go-to-sleep",
+     "w": "go to sleep",
+     "pos": "phrase",
+     "ipa": "/ɡəʊ tə ˈsliːp/",
+     "pic": "😴",
+     "vi": "đi ngủ, ngủ thiếp đi",
+     "en": "to start sleeping",
+     "ex": "I go to sleep at ten o'clock.",
+     "exVi": "Tôi đi ngủ lúc mười giờ.",
+     "cloze": {
+      "s": "It's late. Please ___ now.",
+      "a": "go to sleep",
+      "w": [
+       "go sleep",
+       "go to sleeping"
+      ]
+     },
+     "col": {
+      "ok": "go to sleep early",
+      "bad": [
+       "go to sleep earlier late",
+       "go sleep early"
+      ]
+     },
+     "exam": {
+      "s": "The baby can't go to sleep.",
+      "f": "go to sleep"
+     }
+    },
+    {
+     "id": "grandma",
+     "w": "grandma",
+     "pos": "noun",
+     "ipa": "/ˈɡrænmɑː/",
+     "pic": "👵",
+     "vi": "bà (thân mật)",
+     "en": "an informal word for grandmother",
+     "ex": "My grandma makes great cakes.",
+     "exVi": "Bà tôi làm bánh rất ngon.",
+     "cloze": {
+      "s": "I love my ___. She is very kind.",
+      "a": "grandma",
+      "w": [
+       "grandpa",
+       "mum"
+      ]
+     },
+     "col": {
+      "ok": "visit grandma",
+      "bad": [
+       "visit to grandma",
+       "go grandma"
+      ]
+     },
+     "exam": {
+      "s": "Grandma is in the garden.",
+      "f": "Grandma"
+     }
+    },
+    {
+     "id": "grandpa",
+     "w": "grandpa",
+     "pos": "noun",
+     "ipa": "/ˈɡrænpɑː/",
+     "pic": "👴",
+     "vi": "ông (thân mật)",
+     "en": "an informal word for grandfather",
+     "ex": "My grandpa is eighty years old.",
+     "exVi": "Ông tôi tám mươi tuổi.",
+     "cloze": {
+      "s": "My ___ has a white beard.",
+      "a": "grandpa",
+      "w": [
+       "grandma",
+       "dad"
+      ]
+     },
+     "col": {
+      "ok": "my grandpa and grandma",
+      "bad": [
+       "my grandpa and grandmother and",
+       "my grandpas"
+      ]
+     },
+     "exam": {
+      "s": "Grandpa is watching TV.",
+      "f": "Grandpa"
+     }
+    },
+    {
+     "id": "mice",
+     "w": "mice",
+     "pos": "noun",
+     "ipa": "/maɪs/",
+     "pic": "🐭🐭",
+     "vi": "những con chuột (số nhiều của mouse)",
+     "en": "more than one mouse",
+     "ex": "There are two mice in the kitchen!",
+     "exVi": "Có hai con chuột trong bếp!",
+     "cloze": {
+      "s": "One mouse, three ___.",
+      "a": "mice",
+      "w": [
+       "mouses",
+       "mices"
+      ]
+     },
+     "col": {
+      "ok": "two mice",
+      "bad": [
+       "two mouses",
+       "two mouse"
+      ]
+     },
+     "exam": {
+      "s": "The cat is looking at the mice.",
+      "f": "mice"
+     }
+    },
+    {
+     "id": "pie",
+     "w": "pie",
+     "pos": "noun",
+     "ipa": "/paɪ/",
+     "pic": "🥧",
+     "vi": "bánh nướng có nhân",
+     "en": "food with fruit or meat inside pastry, cooked in an oven",
+     "ex": "Would you like some apple pie?",
+     "exVi": "Bạn ăn chút bánh táo không?",
+     "cloze": {
+      "s": "Mum made an apple ___ for dessert.",
+      "a": "pie",
+      "w": [
+       "pies",
+       "pea"
+      ]
+     },
+     "col": {
+      "ok": "a piece of pie",
+      "bad": [
+       "a slice pie of",
+       "a cup of pie"
+      ]
+     },
+     "exam": {
+      "s": "This pie is very good.",
+      "f": "pie"
+     }
+    },
+    {
+     "id": "keyboard",
+     "w": "keyboard",
+     "pos": "noun",
+     "ipa": "/ˈkiːbɔːd/",
+     "pic": "⌨️",
+     "vi": "bàn phím",
+     "en": "the part of a computer with keys that you press",
+     "ex": "My keyboard doesn't work.",
+     "exVi": "Bàn phím của tôi không hoạt động.",
+     "cloze": {
+      "s": "Type the word on the ___.",
+      "a": "keyboard",
+      "w": [
+       "key",
+       "mouse"
+      ]
+     },
+     "col": {
+      "ok": "a computer keyboard",
+      "bad": [
+       "a keyboard computer",
+       "an computer keyboard"
+      ]
+     },
+     "exam": {
+      "s": "The keyboard is on the desk.",
+      "f": "keyboard"
+     }
+    },
+    {
+     "id": "pineapple",
+     "w": "pineapple",
+     "pos": "noun",
+     "ipa": "/ˈpaɪnæpl/",
+     "pic": "🍍",
+     "vi": "quả dứa",
+     "en": "a big yellow fruit with a hard skin",
+     "ex": "I like pineapple juice.",
+     "exVi": "Tôi thích nước ép dứa.",
+     "cloze": {
+      "s": "A ___ is yellow inside.",
+      "a": "pineapple",
+      "w": [
+       "apple",
+       "pine"
+      ]
+     },
+     "col": {
+      "ok": "a slice of pineapple",
+      "bad": [
+       "a cup of pineapple",
+       "a slice pineapple"
+      ]
+     },
+     "exam": {
+      "s": "There is a pineapple on the table.",
+      "f": "pineapple"
+     }
+    },
+    {
+     "id": "tail",
+     "w": "tail",
+     "pos": "noun",
+     "ipa": "/teɪl/",
+     "pic": "🐕",
+     "vi": "cái đuôi",
+     "en": "the long part at the back of an animal",
+     "ex": "The dog is wagging its tail.",
+     "exVi": "Con chó đang vẫy đuôi.",
+     "cloze": {
+      "s": "The monkey has a long ___.",
+      "a": "tail",
+      "w": [
+       "tale",
+       "tall"
+      ]
+     },
+     "col": {
+      "ok": "a long tail",
+      "bad": [
+       "a tail long",
+       "an long tail"
+      ]
+     },
+     "exam": {
+      "s": "The cat has a black tail.",
+      "f": "tail"
+     }
+    }
+   ]
   }
+ ],
+ "move": [
+  "basketball",
+  "bean",
+  "catch",
+  "count",
+  "cross",
+  "cupboard",
+  "double",
+  "duck",
+  "frog",
+  "hall",
+  "hit",
+  "hold",
+  "jump",
+  "kid",
+  "lamp",
+  "lemon",
+  "mirror",
+  "monkey",
+  "pear",
+  "pet",
+  "pick up",
+  "playground",
+  "poster",
+  "sausage",
+  "scary",
+  "ship",
+  "smile",
+  "sock",
+  "spider",
+  "sweet",
+  "tablet",
+  "throw",
+  "toy",
+  "truck",
+  "wave",
+  "whose"
  ]
 }

@@ -3,11 +3,15 @@
 // Chạy: node tools/fix-pre.mjs (sau mỗi lần tools/build-levels.mjs hoặc tools/build-exam.mjs, vì hai công cụ đó ghi đè a1.json / exam-a1.json).
 import fs from 'node:fs';
 const root = new URL('..', import.meta.url).pathname;
-const A = JSON.parse(fs.readFileSync(root + 'a1.json', 'utf8')), E = JSON.parse(fs.readFileSync(root + 'exam-a1.json', 'utf8'));
+const A = JSON.parse(fs.readFileSync(root + 'a1.json', 'utf8')), A2 = JSON.parse(fs.readFileSync(root + 'a2.json', 'utf8')), E = JSON.parse(fs.readFileSync(root + 'exam-a1.json', 'utf8'));
+// từ chuyển từ A2 xuống (Cambridge Starters / Movers thắng Oxford ở Pre-A1, A1: docs/HOAN-THIEN.md, quyết định Q1); chạy lại: lấy từ các bài đã chuyển trước đó
+const moved = new Map();
 for (const f of ['pre-fix.json', 'a1-fix.json']) {
   const F = JSON.parse(fs.readFileSync(root + 'content/' + f, 'utf8')), lv = F.lv || 'pre', chName = F.chName || 'Bổ sung Starters';
   const newIds = new Set(F.units.map(u => u.id)), drop = new Set(F.drop || []);
-  A.units = A.units.filter(u => !newIds.has(u.id));
+  const mvIds = u => u.id.startsWith(lv + '-mv');
+  for (const u of A.units) if (newIds.has(u.id) || mvIds(u)) for (const w of u.words) moved.set(w.w.toLowerCase(), w);
+  A.units = A.units.filter(u => !newIds.has(u.id) && !mvIds(u));
   for (const u of A.units) if (u.lv === lv) u.words = u.words.filter(w => !drop.has(w.id));
   A.units = A.units.filter(u => u.words.length);
   const all = A.units.flatMap(u => u.words), has = new Set(all.map(w => w.w.toLowerCase()));
@@ -18,8 +22,14 @@ for (const f of ['pre-fix.json', 'a1-fix.json']) {
   const L = A.units.filter(u => u.lv === lv), ch = Math.max(...L.map(u => u.ch)) + 1, at = A.units.indexOf(L[L.length - 1]) + 1;
   const add = F.units.map((u, i) => ({ id: u.id, lv, ch, chIcon: '⭐', chName, bi: i + 1, vi: u.vi,
     words: u.words.filter(w => !has.has(w.w.toLowerCase())).map(({ exam, ...w }) => { if (exam) E[w.id] = exam; return w; }) }));
+  // chuyển từ A2 xuống: bỏ khỏi a2.json, gom thành bài 10 từ cuối cấp
+  const mv = []; for (const x of F.move || []) { let w = moved.get(x); if (!w || F.units.some(u => u.words.some(y => y.id === w.id))) { w = null;
+      for (const u of A2.units) { const i = u.words.findIndex(y => y.w.toLowerCase() === x); if (i >= 0) { w = u.words.splice(i, 1)[0]; break; } } }
+    if (w && !has.has(x)) mv.push(w); }
+  A2.units = A2.units.filter(u => u.words.length);
+  for (let i = 0; i * 10 < mv.length; i++) add.push({ id: `${lv}-mv${i + 1}`, lv, ch, chIcon: '⭐', chName, bi: add.length + 1, vi: `${chName} ${add.length + 1}: từ cơ bản (chuyển từ A2)`, words: mv.slice(i * 10, i * 10 + 10) });
   A.units.splice(at, 0, ...add);
-  console.log(`${f}: hình ${pic} · sửa từ ${fix} · bỏ ${drop.size} · thêm ${add.reduce((n, u) => n + u.words.length, 0)} từ trong ${add.length} bài ${lv}`);
+  console.log(`${f}: hình ${pic} · sửa từ ${fix} · bỏ ${drop.size} · chuyển xuống ${mv.length} · thêm tổng ${add.reduce((n, u) => n + u.words.length, 0)} từ trong ${add.length} bài ${lv}`);
 }
 function wLvOf(w) { return (A.units.find(u => u.words.includes(w)) || {}).lv; }
-fs.writeFileSync(root + 'a1.json', JSON.stringify(A)); fs.writeFileSync(root + 'exam-a1.json', JSON.stringify(E));
+fs.writeFileSync(root + 'a1.json', JSON.stringify(A)); fs.writeFileSync(root + 'a2.json', JSON.stringify(A2)); fs.writeFileSync(root + 'exam-a1.json', JSON.stringify(E));
