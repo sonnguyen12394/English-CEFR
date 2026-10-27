@@ -47,6 +47,8 @@ Giới hạn không vượt được bằng máy: nội dung AI soạn chưa ng�
 | X5 câu hỏi hợp lệ | ✅ | ✅ | ✅ |
 | X6 WebKit iPhone 13 giả lập | ✅ | ✅ | ✅ |
 | X7 thời gian (mô phỏng, ~45 phút / ngày) | ✅ ~46–53 ngày | ❌ ~147 ngày | ~104 ngày |
+
+> Sửa 27/10/2026 (v53): các số X7 ở bảng trên đo bằng bản mô phỏng trước khi sửa cho sát thực tế; chạy lại đúng mã v51 ra Pre-A1 81 ngày ở 2 lượt ôn / ngày. Số đúng ở mục "Luật Nhớ từ B1 (v53)" bên dưới.
 | X8 cổng thật (đề mẫu Cambridge) | ✅ | ✅ | ✅ |
 
 Tổng tới A2 theo mô phỏng: khoảng 300 ngày × 45–55 phút ≈ 230–280 giờ. Cambridge ước A2 Key cần khoảng 180–200 giờ học có hướng dẫn; chuẩn Nhớ của app (≥ 80% mọi yêu cầu trên mọi từ, dồn cấp) chặt hơn nên lâu hơn.
@@ -71,3 +73,22 @@ Chưa kiểm được bằng máy: bước 🗣 nói và 👄 bộ chấm âm (c
 - Nhớ dồn cấp = 2.213 từ (A1 → B1), mỗi từ tới 15 yêu cầu. Câu ôn mỗi ngày bị hút vào sửa từ cũ vừa sai (từ "quên" được ưu tiên trước), từ B1 thiếu yêu cầu mới ít được hỏi.
 - Kể cả 6 lượt ôn / ngày (~45 phút) trong 720 ngày: yêu cầu mới dừng ở 64–72% (cần 80%). Cho yêu cầu B chỉ áp cho từ cấp B: không đổi đáng kể.
 - Kết luận: luật đo hiện tại (mọi yêu cầu ≥ 80% trên mọi từ dồn cấp) không khả thi ở B1 trở lên. Cần người sáng lập chọn cách đổi (luật đo, Q6). Chưa đổi gì.
+
+
+## Luật Nhớ từ B1 (v53, 27/10/2026)
+
+Người sáng lập: "Đối chiếu với các bài thi thật để tìm phương án" rồi "Mục tiêu là học app xong có thể thi thật nên cứ cân nhắc làm đi".
+
+- **Q7. Từ B1, 🔁 Nhớ Từ vựng = cấp đang học + 1 cấp liền trước (đủ từng từ) + mẫu 100 từ của các cấp cũ hơn, đổi mỗi tuần** (`memWords`, `MEM_SAMPLE`, `MEM_FULL_FROM` trong app.js). Lý do: đề Cambridge chỉ hỏi một mẫu từ; B2 First đạt từ 160 điểm thang Cambridge (khoảng 60% câu, nguồn không chính thức). Ngưỡng 80% và Thi chuyển cấp (có ~30% câu cấp cũ, lấy từ mọi cấp trước: `cumWords`) giữ nguyên. Pre-A1 → A2+ không đổi.
+- **Q8. Yêu cầu chiều sâu từ B1 (🔗 🧱 🔧 🛠 🎚 🔄 🎩 ⚡ 🌫) chỉ áp cho từ cấp đó trở lên** (`wDims`): đề thật hỏi các mặt này (Use of English: cụm, tạo dạng từ, viết lại câu) trên mẫu câu, không trên mọi từ đã học.
+- **Q9. Từ B1, câu ôn chọn yêu cầu thiếu theo trọng số 1 / √(số từ có yêu cầu)** (`typeFor`, `dimN`): yêu cầu hiếm (🧱 mẫu câu ~25 từ / cấp) trước đây gần như không được hỏi. Pre-A1 → A2+ giữ chọn đều.
+- 🏋️ Luyện tập chỉ lấy từ đang tính 🔁 Nhớ.
+
+Mô phỏng (`node tools/test/sim.mjs`, CFG=1,4,15: 1 bài / ngày, 4 lượt ôn, 15 từ nói; Từ vựng ~25 phút + 6 phần kia ~15 phút ≈ 40 phút / ngày), số ngày tới cổng Từ vựng:
+
+| Pre-A1 | A1 | A2 | A2+ | B1 | B1+ | B2 | B2+ | C1 | C2 |
+|---|---|---|---|---|---|---|---|---|---|
+| 61 | 149 | ~80 | 65 | 95 | 75 | ~150 | 118 | 305 | 151 |
+
+Trước Q7–Q9: B1, B2, C1 > 800 ngày (không tới cổng). Tổng tới C2 ≈ 1.250 ngày (~3,4 năm) ở ~40 phút / ngày; tới A2+ ≈ 355 ngày. Ở 2 lượt ôn / ngày (~30 phút) gần gấp đôi (A1 ~300, B1 173, C1 661).
+Mô phỏng, không phải người thật: tỉ lệ đúng giả định theo dạng câu. Chưa người thật học thử.
