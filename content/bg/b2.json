@@ -1,0 +1,2257 @@
+{
+"_note": "Ngữ pháp B2 (27/10/2026, Claude soạn theo English Profile / Cambridge B2 First, chưa người thật kiểm).",
+"items": [
+{
+"id": "g-b2-1",
+"lv": "b2",
+"title": "Câu điều kiện loại 3",
+"en": "Third conditional",
+"form": [
+"If + had + V3, would / could / might + have + V3.",
+"If I had known, I would have come."
+],
+"use": [
+"Điều không xảy ra trong quá khứ và kết quả tưởng tượng; tiếc nuối."
+],
+"note": "Không dùng would have trong vế if: “If I would have known” là sai.",
+"ex": [
+[
+"If I had left earlier, I wouldn't have missed the train.",
+"Nếu tôi đi sớm hơn thì đã không lỡ tàu."
+],
+[
+"She would have passed if she had studied.",
+"Nếu chịu học thì cô ấy đã đỗ."
+],
+[
+"If we hadn't met, my life would have been different.",
+"Nếu chúng ta không gặp nhau, đời tôi đã khác."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "If I ___ your number, I would have called you.",
+"a": "had had",
+"w": [
+"would have",
+"had"
+],
+"why": {
+"would have": "Vế if không dùng would.",
+"had": "Quá khứ không thật: had + V3 (had had)."
+}
+},
+{
+"s": "We ___ the match if Minh hadn't been injured.",
+"a": "would have won",
+"w": [
+"would win",
+"had won"
+],
+"why": {
+"would win": "Kết quả trong quá khứ: would have + V3.",
+"had won": "Vế kết quả dùng would have."
+}
+},
+{
+"s": "If it hadn't rained, we ___ to the beach.",
+"a": "would have gone",
+"w": [
+"would go",
+"will have gone"
+],
+"why": {
+"would go": "Quá khứ: would have gone.",
+"will have gone": "Dùng would, không dùng will."
+}
+}
+],
+"test": [
+{
+"s": "She wouldn't have got lost if she ___ a map.",
+"a": "had taken",
+"w": [
+"took",
+"would take"
+],
+"why": {
+"took": "Loại 3: had + V3.",
+"would take": "Vế if không dùng would."
+}
+},
+{
+"s": "If you had told me, I ___ you.",
+"a": "could have helped",
+"w": [
+"could help",
+"can help"
+],
+"why": {
+"could help": "Quá khứ: could have helped.",
+"can help": "Quá khứ không thật: could have + V3."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "If I ___ (know) about the party, I would have come.",
+"a": [
+"had known",
+"'d known"
+]
+},
+{
+"s": "If he had driven carefully, he ___ (not / crash).",
+"a": [
+"wouldn't have crashed",
+"would not have crashed"
+]
+}
+],
+"test": [
+{
+"s": "We ___ (miss) the plane if we hadn't hurried.",
+"a": [
+"would have missed",
+"'d have missed"
+]
+},
+{
+"s": "If she ___ (not / be) ill, she would have come.",
+"a": [
+"hadn't been",
+"had not been"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "If I would have known, I would have told you.",
+"good": "If I had known, I would have told you.",
+"why": "Vế if: had + V3.",
+"alt": [
+"If I'd known, I would have told you.",
+"If I had known, I'd have told you."
+]
+},
+{
+"bad": "If she had asked, I would help her.",
+"good": "If she had asked, I would have helped her.",
+"why": "Kết quả trong quá khứ: would have + V3.",
+"alt": [
+"If she had asked, I'd have helped her."
+]
+}
+],
+"test": [
+{
+"bad": "If we left earlier, we would have caught the bus.",
+"good": "If we had left earlier, we would have caught the bus.",
+"why": "Loại 3: had left.",
+"alt": [
+"If we'd left earlier, we would have caught the bus."
+]
+},
+{
+"bad": "He would have came if you had invited him.",
+"good": "He would have come if you had invited him.",
+"why": "would have + V3: come.",
+"alt": []
+}
+]
+}
+},
+{
+"id": "g-b2-2",
+"lv": "b2",
+"title": "Câu điều kiện hỗn hợp",
+"en": "Mixed conditionals",
+"form": [
+"Quá khứ → hiện tại: If + had + V3, would + V: If I had studied medicine, I would be a doctor now.",
+"Hiện tại → quá khứ: If + quá khứ đơn, would have + V3: If I were braver, I would have said something."
+],
+"use": [
+"Điều kiện và kết quả ở hai thời điểm khác nhau."
+],
+"note": "Nhìn mốc thời gian của từng vế (now / yesterday) để chọn dạng.",
+"ex": [
+[
+"If I had saved money, I would be rich now.",
+"Nếu hồi đó tiết kiệm thì giờ tôi đã giàu."
+],
+[
+"If she weren't so shy, she would have spoken to him.",
+"Nếu không nhút nhát thì cô ấy đã nói chuyện với anh ta."
+],
+[
+"If we had taken the other road, we would be home by now.",
+"Nếu đi đường kia thì giờ đã về tới nhà."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "If I had gone to bed earlier, I ___ so tired now.",
+"a": "wouldn't be",
+"w": [
+"wouldn't have been",
+"won't be"
+],
+"why": {
+"wouldn't have been": "“now” là hiện tại: would + V.",
+"won't be": "Giả định: would."
+}
+},
+{
+"s": "If he ___ lazy, he would have finished the job yesterday.",
+"a": "weren't",
+"w": [
+"hadn't been",
+"isn't"
+],
+"why": {
+"hadn't been": "Lười là tính cách (hiện tại): weren't.",
+"isn't": "Giả định: lùi về weren't."
+}
+},
+{
+"s": "If I had won the lottery, I ___ in a big house now.",
+"a": "would live",
+"w": [
+"would have lived",
+"will live"
+],
+"why": {
+"would have lived": "“now”: would + V.",
+"will live": "Giả định: would."
+}
+}
+],
+"test": [
+{
+"s": "If she had taken the job, she ___ in London now.",
+"a": "would be",
+"w": [
+"would have been",
+"is"
+],
+"why": {
+"would have been": "“now”: would be.",
+"is": "Giả định: would be."
+}
+},
+{
+"s": "If I spoke Japanese, I ___ that job last year.",
+"a": "would have got",
+"w": [
+"would get",
+"got"
+],
+"why": {
+"would get": "“last year”: would have + V3.",
+"got": "Vế kết quả giả định: would have got."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "If I had eaten breakfast, I ___ (not / be) hungry now.",
+"a": [
+"wouldn't be",
+"would not be"
+]
+},
+{
+"s": "If he were more careful, he ___ (not / lose) his keys yesterday.",
+"a": [
+"wouldn't have lost",
+"would not have lost"
+]
+}
+],
+"test": [
+{
+"s": "If they had booked a table, they ___ (eat) now.",
+"a": [
+"would be eating",
+"would eat"
+]
+},
+{
+"s": "If I weren't afraid of flying, I ___ (go) to Japan last summer.",
+"a": [
+"would have gone",
+"'d have gone"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "If I had studied harder, I would have had a better job now.",
+"good": "If I had studied harder, I would have a better job now.",
+"why": "“now”: would + V (would have).",
+"alt": []
+},
+{
+"bad": "If I had listened to you, I wouldn't have been in trouble now.",
+"good": "If I had listened to you, I wouldn't be in trouble now.",
+"why": "“now”: would + V.",
+"alt": []
+}
+],
+"test": [
+{
+"bad": "If she had married him, she would have lived in Paris now.",
+"good": "If she had married him, she would live in Paris now.",
+"why": "“now”: would + V.",
+"alt": [
+"If she had married him, she would be living in Paris now."
+]
+},
+{
+"bad": "If I was taller, I would join the team last year.",
+"good": "If I was taller, I would have joined the team last year.",
+"why": "“last year”: would have + V3.",
+"alt": [
+"If I were taller, I would have joined the team last year."
+]
+}
+]
+}
+},
+{
+"id": "g-b2-3",
+"lv": "b2",
+"title": "Wish / if only cho quá khứ và would",
+"en": "wish / if only + past perfect; wish + would",
+"form": [
+"wish / if only + had + V3: tiếc việc đã qua.",
+"wish + somebody + would + V: muốn người khác thay đổi (bực mình)."
+],
+"use": [
+"Tiếc nuối về quá khứ; phàn nàn thói quen của người khác."
+],
+"note": "Không nói “I wish I would…” về bản thân; dùng could.",
+"ex": [
+[
+"I wish I had studied harder at school.",
+"Giá mà hồi đi học tôi chăm hơn."
+],
+[
+"If only we hadn't sold the house!",
+"Giá mà chúng ta đừng bán nhà!"
+],
+[
+"I wish you would stop talking.",
+"Ước gì bạn thôi nói."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "I wish I ___ to the party last night.",
+"a": "had gone",
+"w": [
+"went",
+"would go"
+],
+"why": {
+"went": "Tiếc việc quá khứ: had + V3.",
+"would go": "Quá khứ: had gone."
+}
+},
+{
+"s": "I wish my neighbours ___ so much noise.",
+"a": "wouldn't make",
+"w": [
+"don't make",
+"hadn't made"
+],
+"why": {
+"don't make": "Phàn nàn: wish + would.",
+"hadn't made": "Chuyện đang lặp lại, không phải quá khứ."
+}
+},
+{
+"s": "If only I ___ that email!",
+"a": "hadn't sent",
+"w": [
+"didn't send",
+"wouldn't send"
+],
+"why": {
+"didn't send": "Việc đã xảy ra: hadn't sent.",
+"wouldn't send": "Tiếc quá khứ: hadn't + V3."
+}
+}
+],
+"test": [
+{
+"s": "She wishes she ___ him the truth.",
+"a": "had told",
+"w": [
+"told",
+"would tell"
+],
+"why": {
+"told": "Tiếc việc đã không làm: had told.",
+"would tell": "Quá khứ: had + V3."
+}
+},
+{
+"s": "I wish it ___ raining. I want to go out.",
+"a": "would stop",
+"w": [
+"stops",
+"had stopped"
+],
+"why": {
+"stops": "Mong điều khác đi: would stop.",
+"had stopped": "Đang mưa, mong nó tạnh: would stop."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "I wish I ___ (not / eat) so much yesterday.",
+"a": [
+"hadn't eaten",
+"had not eaten"
+]
+},
+{
+"s": "I wish you ___ (listen) to me sometimes!",
+"a": [
+"would listen"
+]
+}
+],
+"test": [
+{
+"s": "If only we ___ (leave) earlier!",
+"a": [
+"had left"
+]
+},
+{
+"s": "He wishes he ___ (take) that job last year.",
+"a": [
+"had taken"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "I wish I didn't say that yesterday.",
+"good": "I wish I hadn't said that yesterday.",
+"why": "Tiếc quá khứ: hadn't + V3.",
+"alt": []
+},
+{
+"bad": "I wish I would be taller.",
+"good": "I wish I were taller.",
+"why": "Về bản thân không dùng would.",
+"alt": [
+"I wish I was taller."
+]
+}
+],
+"test": [
+{
+"bad": "If only I listened to you last week.",
+"good": "If only I had listened to you last week.",
+"why": "Quá khứ: had listened.",
+"alt": []
+},
+{
+"bad": "I wish he stops calling me.",
+"good": "I wish he would stop calling me.",
+"why": "Phàn nàn người khác: wish + would.",
+"alt": []
+}
+]
+}
+},
+{
+"id": "g-b2-4",
+"lv": "b2",
+"title": "Suy đoán quá khứ: must have / might have / can't have",
+"en": "Modals of deduction (past)",
+"form": [
+"must have + V3: chắc chắn đã.",
+"might / may / could have + V3: có thể đã.",
+"can't / couldn't have + V3: chắc chắn đã không."
+],
+"use": [
+"Đoán việc đã xảy ra dựa vào dấu hiệu."
+],
+"note": "Không dùng V2 sau must have: “must have went” sai.",
+"ex": [
+[
+"The ground is wet. It must have rained.",
+"Đất ướt. Chắc trời đã mưa."
+],
+[
+"She might have missed the bus.",
+"Có thể cô ấy lỡ xe buýt."
+],
+[
+"He can't have finished already. He only started at 9.",
+"Anh ấy không thể xong rồi được."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "You ___ been hungry after that long walk.",
+"a": "must have",
+"w": [
+"can't have",
+"must"
+],
+"why": {
+"can't have": "Đi bộ lâu: chắc chắn đói.",
+"must": "Quá khứ: must have + V3."
+}
+},
+{
+"s": "She ___ seen me. She walked straight past.",
+"a": "can't have",
+"w": [
+"must have",
+"should have"
+],
+"why": {
+"must have": "Đi ngang không chào: chắc chắn không thấy.",
+"should have": "should have là “lẽ ra nên”."
+}
+},
+{
+"s": "I don't know where my keys are. I ___ left them at work.",
+"a": "might have",
+"w": [
+"must",
+"can't have"
+],
+"why": {
+"must": "Không chắc, quá khứ: might have.",
+"can't have": "Đang đoán có thể: might have."
+}
+}
+],
+"test": [
+{
+"s": "The window is broken. Someone ___ thrown a stone.",
+"a": "must have",
+"w": [
+"can't have",
+"must"
+],
+"why": {
+"can't have": "Dấu hiệu rõ: must have.",
+"must": "Quá khứ: must have + V3."
+}
+},
+{
+"s": "Lan ___ written this. She can't speak English.",
+"a": "can't have",
+"w": [
+"must have",
+"might have"
+],
+"why": {
+"must have": "Lan không biết tiếng Anh: chắc chắn không viết.",
+"might have": "Dấu hiệu rõ: can't have."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "The lights are off. They ___ (go) out. (chắc chắn)",
+"a": [
+"must have gone"
+]
+},
+{
+"s": "He ___ (take) the money. He was with me all day. (chắc chắn không)",
+"a": [
+"can't have taken",
+"couldn't have taken",
+"cannot have taken"
+]
+}
+],
+"test": [
+{
+"s": "She's late. She ___ (miss) the train. (có thể)",
+"a": [
+"might have missed",
+"may have missed",
+"could have missed"
+]
+},
+{
+"s": "You ___ (be) tired after the trip. (chắc chắn)",
+"a": [
+"must have been"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "He must have went home.",
+"good": "He must have gone home.",
+"why": "must have + V3: gone.",
+"alt": []
+},
+{
+"bad": "She mustn't have heard me.",
+"good": "She can't have heard me.",
+"why": "Chắc chắn không: can't have.",
+"alt": [
+"She couldn't have heard me.",
+"She mustn't have heard me."
+]
+}
+],
+"test": [
+{
+"bad": "They might missed the bus.",
+"good": "They might have missed the bus.",
+"why": "Quá khứ: might have + V3.",
+"alt": []
+},
+{
+"bad": "It must rained last night.",
+"good": "It must have rained last night.",
+"why": "Quá khứ: must have + V3.",
+"alt": []
+}
+]
+}
+},
+{
+"id": "g-b2-5",
+"lv": "b2",
+"title": "Should have / could have / needn't have",
+"en": "should have, could have, needn't have",
+"form": [
+"should have + V3: lẽ ra nên (nhưng đã không).",
+"shouldn't have + V3: lẽ ra không nên (nhưng đã làm).",
+"could have + V3: đã có thể; needn't have + V3: đã làm nhưng không cần."
+],
+"use": [
+"Tiếc, trách, nói về khả năng đã bỏ lỡ."
+],
+"note": "“You should have told me” = trách vì đã không nói; khác “You should tell me” (lời khuyên).",
+"ex": [
+[
+"You should have called me.",
+"Lẽ ra bạn nên gọi cho tôi."
+],
+[
+"I shouldn't have eaten so much.",
+"Lẽ ra tôi không nên ăn nhiều thế."
+],
+[
+"You needn't have brought food. We have plenty.",
+"Bạn không cần mang đồ ăn đâu."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "I failed the test. I ___ more.",
+"a": "should have studied",
+"w": [
+"should study",
+"must have studied"
+],
+"why": {
+"should study": "Tiếc việc đã qua: should have + V3.",
+"must have studied": "must have là đoán chắc chắn."
+}
+},
+{
+"s": "We ___ a taxi. It was only five minutes' walk.",
+"a": "needn't have taken",
+"w": [
+"mustn't have taken",
+"shouldn't take"
+],
+"why": {
+"mustn't have taken": "Đã làm nhưng không cần: needn't have.",
+"shouldn't take": "Quá khứ: needn't have taken."
+}
+},
+{
+"s": "You ___ been killed! Be more careful.",
+"a": "could have",
+"w": [
+"should have",
+"must"
+],
+"why": {
+"should have": "Khả năng đã có thể xảy ra: could have.",
+"must": "Quá khứ: could have + V3."
+}
+}
+],
+"test": [
+{
+"s": "He ___ so fast. That's why he crashed.",
+"a": "shouldn't have driven",
+"w": [
+"shouldn't drive",
+"can't have driven"
+],
+"why": {
+"shouldn't drive": "Trách việc đã làm: shouldn't have + V3.",
+"can't have driven": "can't have là đoán, không phải trách."
+}
+},
+{
+"s": "You ___ me! I would have helped.",
+"a": "should have asked",
+"w": [
+"should ask",
+"must have asked"
+],
+"why": {
+"should ask": "Trách việc đã không làm: should have.",
+"must have asked": "must have là đoán."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "It was a secret. I ___ (not / tell) anyone.",
+"a": [
+"shouldn't have told",
+"should not have told"
+]
+},
+{
+"s": "You ___ (bring) an umbrella. It didn't rain. (không cần)",
+"a": [
+"needn't have brought",
+"need not have brought"
+]
+}
+],
+"test": [
+{
+"s": "We lost. We ___ (train) harder.",
+"a": [
+"should have trained"
+]
+},
+{
+"s": "She ___ (win), but she fell. (đã có thể)",
+"a": [
+"could have won"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "You should told me earlier.",
+"good": "You should have told me earlier.",
+"why": "Quá khứ: should have + V3.",
+"alt": []
+},
+{
+"bad": "I should have went to bed earlier.",
+"good": "I should have gone to bed earlier.",
+"why": "should have + V3: gone.",
+"alt": []
+}
+],
+"test": [
+{
+"bad": "You shouldn't have to shout at him yesterday.",
+"good": "You shouldn't have shouted at him yesterday.",
+"why": "shouldn't have + V3.",
+"alt": []
+},
+{
+"bad": "We needn't to have hurried.",
+"good": "We needn't have hurried.",
+"why": "needn't have + V3.",
+"alt": []
+}
+]
+}
+},
+{
+"id": "g-b2-6",
+"lv": "b2",
+"title": "Tương lai tiếp diễn và tương lai hoàn thành",
+"en": "Future continuous and future perfect",
+"form": [
+"will be + V-ing: đang làm vào một lúc trong tương lai.",
+"will have + V3: sẽ xong trước một mốc tương lai (by + mốc)."
+],
+"use": [
+"This time tomorrow I'll be flying. By 2030 I will have finished my degree."
+],
+"note": "By + mốc thời gian là dấu hiệu của tương lai hoàn thành.",
+"ex": [
+[
+"This time next week, I'll be lying on a beach.",
+"Giờ này tuần sau tôi đang nằm trên bãi biển."
+],
+[
+"By the end of the year, we will have saved enough.",
+"Tới cuối năm chúng tôi sẽ để dành đủ."
+],
+[
+"Don't call at 8. We'll be having dinner.",
+"Đừng gọi lúc 8 giờ. Lúc đó nhà tôi đang ăn tối."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "By 6 p.m. I ___ all my work.",
+"a": "will have finished",
+"w": [
+"will be finishing",
+"finish"
+],
+"why": {
+"will be finishing": "By + mốc: xong trước mốc: will have + V3.",
+"finish": "Tương lai hoàn thành."
+}
+},
+{
+"s": "At 10 tomorrow, I ___ in a meeting.",
+"a": "will be sitting",
+"w": [
+"will have sat",
+"sit"
+],
+"why": {
+"will have sat": "Đang diễn ra lúc 10 giờ: will be + V-ing.",
+"sit": "Tương lai tiếp diễn."
+}
+},
+{
+"s": "By next June, they ___ married for ten years.",
+"a": "will have been",
+"w": [
+"will be",
+"are"
+],
+"why": {
+"will be": "By + mốc, kéo dài tới mốc: will have been.",
+"are": "Tương lai hoàn thành."
+}
+}
+],
+"test": [
+{
+"s": "This time tomorrow, we ___ to Paris.",
+"a": "will be flying",
+"w": [
+"will have flown",
+"fly"
+],
+"why": {
+"will have flown": "Đang bay vào lúc đó: will be flying.",
+"fly": "Tương lai tiếp diễn."
+}
+},
+{
+"s": "The film ___ by the time we get there.",
+"a": "will have started",
+"w": [
+"will be starting",
+"starts"
+],
+"why": {
+"will be starting": "Xong trước mốc: will have started.",
+"starts": "Trước một mốc tương lai: will have + V3."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "By Friday, I ___ (read) the whole book.",
+"a": [
+"will have read",
+"'ll have read"
+]
+},
+{
+"s": "At midnight, I ___ (sleep).",
+"a": [
+"will be sleeping",
+"'ll be sleeping"
+]
+}
+],
+"test": [
+{
+"s": "By 2030, scientists ___ (find) a cure.",
+"a": [
+"will have found"
+]
+},
+{
+"s": "Don't come at 7. I ___ (work).",
+"a": [
+"will be working",
+"'ll be working"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "By next year I will finish university.",
+"good": "By next year I will have finished university.",
+"why": "By + mốc: will have + V3.",
+"alt": [
+"By next year I'll have finished university."
+]
+},
+{
+"bad": "This time tomorrow I will lie on the beach.",
+"good": "This time tomorrow I will be lying on the beach.",
+"why": "Đang diễn ra lúc đó: will be + V-ing.",
+"alt": [
+"This time tomorrow I'll be lying on the beach."
+]
+}
+],
+"test": [
+{
+"bad": "By the time you arrive, I will cook dinner.",
+"good": "By the time you arrive, I will have cooked dinner.",
+"why": "Xong trước mốc: will have cooked.",
+"alt": [
+"By the time you arrive, I'll have cooked dinner."
+]
+},
+{
+"bad": "At 9 tonight I will be watch TV.",
+"good": "At 9 tonight I will be watching TV.",
+"why": "will be + V-ing.",
+"alt": [
+"At 9 tonight I'll be watching TV."
+]
+}
+]
+}
+},
+{
+"id": "g-b2-7",
+"lv": "b2",
+"title": "Bị động tường thuật: It is said that / is said to",
+"en": "Impersonal passive",
+"form": [
+"It is said / believed / thought that + mệnh đề.",
+"Chủ ngữ + is said / believed + to V (hiện tại) / to have + V3 (quá khứ)."
+],
+"use": [
+"Văn báo chí, trang trọng: nói điều mọi người cho là đúng."
+],
+"note": "Việc đã qua dùng to have + V3: “He is believed to have left the country.”",
+"ex": [
+[
+"It is said that the castle is haunted.",
+"Người ta nói lâu đài có ma."
+],
+[
+"He is believed to be very rich.",
+"Người ta tin rằng ông ấy rất giàu."
+],
+[
+"The thief is thought to have escaped by car.",
+"Người ta cho rằng tên trộm đã trốn bằng ô tô."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "It ___ that the president will resign.",
+"a": "is reported",
+"w": [
+"reports",
+"is reporting"
+],
+"why": {
+"reports": "Bị động tường thuật: It is reported that.",
+"is reporting": "Cần bị động."
+}
+},
+{
+"s": "She is thought ___ the best player in the world.",
+"a": "to be",
+"w": [
+"being",
+"that she is"
+],
+"why": {
+"being": "is thought + to V.",
+"that she is": "Sau chủ ngữ người: is thought to be."
+}
+},
+{
+"s": "The painting is believed ___ in 1500.",
+"a": "to have been painted",
+"w": [
+"to be painted",
+"that it was painted"
+],
+"why": {
+"to be painted": "Năm 1500 là quá khứ: to have been + V3.",
+"that it was painted": "Chủ ngữ đã là “the painting”: to have been painted."
+}
+}
+],
+"test": [
+{
+"s": "It ___ that coffee is good for your heart.",
+"a": "is claimed",
+"w": [
+"claims",
+"is claiming"
+],
+"why": {
+"claims": "Bị động: It is claimed.",
+"is claiming": "Cần bị động."
+}
+},
+{
+"s": "The man is said ___ the bank last week.",
+"a": "to have robbed",
+"w": [
+"to rob",
+"robbing"
+],
+"why": {
+"to rob": "“last week”: to have + V3.",
+"robbing": "is said + to V."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "It ___ (believe) that the city was built 1,000 years ago.",
+"a": [
+"is believed"
+]
+},
+{
+"s": "He is said ___ (be) a genius.",
+"a": [
+"to be"
+]
+}
+],
+"test": [
+{
+"s": "The singer is thought ___ (leave) the band last year.",
+"a": [
+"to have left"
+]
+},
+{
+"s": "It ___ (say) that she speaks ten languages.",
+"a": [
+"is said"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "It says that he is rich.",
+"good": "It is said that he is rich.",
+"why": "Bị động: It is said that.",
+"alt": [
+"He is said to be rich."
+]
+},
+{
+"bad": "She is believed to steal the money last year.",
+"good": "She is believed to have stolen the money last year.",
+"why": "Quá khứ: to have + V3.",
+"alt": []
+}
+],
+"test": [
+{
+"bad": "The tower is thought being 300 years old.",
+"good": "The tower is thought to be 300 years old.",
+"why": "is thought + to V.",
+"alt": [
+"It is thought that the tower is 300 years old."
+]
+},
+{
+"bad": "It is believed that he to be rich.",
+"good": "It is believed that he is rich.",
+"why": "Sau that là mệnh đề đầy đủ.",
+"alt": [
+"He is believed to be rich."
+]
+}
+]
+}
+},
+{
+"id": "g-b2-8",
+"lv": "b2",
+"title": "Have / get something done",
+"en": "Causative have / get",
+"form": [
+"have / get + vật + V3: I had my hair cut.",
+"Dùng mọi thì: I'm having my car repaired; I'll get it fixed."
+],
+"use": [
+"Nhờ / thuê người khác làm; hoặc việc xấu xảy ra với mình (I had my phone stolen)."
+],
+"note": "Người Việt hay nói “I cut my hair” khi đi tiệm: nghĩa là tự cắt. Đi tiệm: “I had my hair cut.”",
+"ex": [
+[
+"I had my hair cut yesterday.",
+"Hôm qua tôi đi cắt tóc."
+],
+[
+"We're getting the house painted.",
+"Nhà tôi đang thuê người sơn nhà."
+],
+[
+"She had her bag stolen on the bus.",
+"Cô ấy bị lấy cắp túi trên xe buýt."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "I need to have my eyes ___.",
+"a": "tested",
+"w": [
+"test",
+"testing"
+],
+"why": {
+"test": "have + vật + V3: tested.",
+"testing": "have + vật + V3."
+}
+},
+{
+"s": "We ___ our car serviced every year.",
+"a": "have",
+"w": [
+"are",
+"make"
+],
+"why": {
+"are": "Cấu trúc nhờ: have + vật + V3.",
+"make": "make + người + V là bắt làm."
+}
+},
+{
+"s": "He got his phone ___ last week.",
+"a": "repaired",
+"w": [
+"repair",
+"to repair"
+],
+"why": {
+"repair": "get + vật + V3.",
+"to repair": "get + vật + V3."
+}
+}
+],
+"test": [
+{
+"s": "She is going to have her photo ___.",
+"a": "taken",
+"w": [
+"take",
+"took"
+],
+"why": {
+"take": "have + vật + V3: taken.",
+"took": "V3 của take là taken."
+}
+},
+{
+"s": "I ___ my wallet stolen in the market.",
+"a": "had",
+"w": [
+"was",
+"made"
+],
+"why": {
+"was": "Việc xấu xảy ra với mình: had + vật + V3.",
+"made": "Cấu trúc là have / get."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "I'm going to have my car ___ (wash).",
+"a": [
+"washed"
+]
+},
+{
+"s": "She ___ (have) her nails done every month.",
+"a": [
+"has"
+]
+}
+],
+"test": [
+{
+"s": "We need to get the roof ___ (fix).",
+"a": [
+"fixed"
+]
+},
+{
+"s": "He had his bike ___ (steal).",
+"a": [
+"stolen"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "I cut my hair at the barber's yesterday.",
+"good": "I had my hair cut at the barber's yesterday.",
+"why": "Người khác cắt: have + vật + V3.",
+"alt": [
+"I got my hair cut at the barber's yesterday."
+]
+},
+{
+"bad": "We had the house paint.",
+"good": "We had the house painted.",
+"why": "have + vật + V3.",
+"alt": [
+"We got the house painted."
+]
+}
+],
+"test": [
+{
+"bad": "I need to repair my shoes at the shop.",
+"good": "I need to have my shoes repaired at the shop.",
+"why": "Thợ sửa: have + vật + V3.",
+"alt": [
+"I need to get my shoes repaired at the shop."
+]
+},
+{
+"bad": "She had stolen her car last night.",
+"good": "She had her car stolen last night.",
+"why": "Trật tự: had + vật + V3.",
+"alt": []
+}
+]
+}
+},
+{
+"id": "g-b2-9",
+"lv": "b2",
+"title": "Mệnh đề phân từ (-ing, V3)",
+"en": "Participle clauses",
+"form": [
+"V-ing (chủ động): Feeling tired, I went to bed.",
+"V3 (bị động): Built in 1900, the house is very old.",
+"Having + V3 (xong trước): Having finished work, she went home."
+],
+"use": [
+"Rút gọn câu, văn viết gọn hơn. Chủ ngữ hai vế phải là một."
+],
+"note": "Lỗi “treo”: “Walking home, the rain started” sai vì mưa không đi bộ.",
+"ex": [
+[
+"Not knowing what to say, I kept quiet.",
+"Không biết nói gì, tôi im lặng."
+],
+[
+"Written in 1960, the book is still popular.",
+"Được viết năm 1960, cuốn sách vẫn được ưa chuộng."
+],
+[
+"Having lost my keys, I couldn't get in.",
+"Vì làm mất chìa khoá, tôi không vào được."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "___ by the noise, the baby started crying.",
+"a": "Woken",
+"w": [
+"Waking",
+"Wake"
+],
+"why": {
+"Waking": "Em bé bị đánh thức: bị động V3.",
+"Wake": "Cần phân từ: Woken."
+}
+},
+{
+"s": "___ the door, she saw a stranger.",
+"a": "Opening",
+"w": [
+"Opened",
+"Open"
+],
+"why": {
+"Opened": "Cô ấy mở cửa (chủ động): V-ing.",
+"Open": "Cần phân từ: Opening."
+}
+},
+{
+"s": "___ his homework, he went out to play.",
+"a": "Having finished",
+"w": [
+"Finished",
+"Having finish"
+],
+"why": {
+"Finished": "Xong trước rồi mới đi (chủ động): Having finished.",
+"Having finish": "Having + V3."
+}
+}
+],
+"test": [
+{
+"s": "___ in Vietnam, this coffee is very strong.",
+"a": "Grown",
+"w": [
+"Growing",
+"Grow"
+],
+"why": {
+"Growing": "Cà phê được trồng: bị động V3.",
+"Grow": "Cần phân từ."
+}
+},
+{
+"s": "___ late, we took a taxi.",
+"a": "Being",
+"w": [
+"Been",
+"To be"
+],
+"why": {
+"Been": "Chủ động, cùng lúc: Being.",
+"To be": "Mệnh đề phân từ dùng V-ing."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "___ (feel) hungry, I made a sandwich.",
+"a": [
+"Feeling"
+]
+},
+{
+"s": "___ (make) in Japan, these cars are reliable.",
+"a": [
+"Made"
+]
+}
+],
+"test": [
+{
+"s": "___ (not / have) a car, I walk to work.",
+"a": [
+"Not having"
+]
+},
+{
+"s": "___ (see) the film before, I didn't want to go. (xong trước)",
+"a": [
+"Having seen"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "Walking to school, the rain started.",
+"good": "Walking to school, I got caught in the rain.",
+"why": "Chủ ngữ phải là người đi bộ.",
+"alt": [
+"While I was walking to school, the rain started."
+]
+},
+{
+"bad": "Building in 1990, the bridge is still strong.",
+"good": "Built in 1990, the bridge is still strong.",
+"why": "Cầu được xây: bị động V3.",
+"alt": []
+}
+],
+"test": [
+{
+"bad": "Having finish my work, I left.",
+"good": "Having finished my work, I left.",
+"why": "Having + V3.",
+"alt": []
+},
+{
+"bad": "Painted the wall, he cleaned the brushes.",
+"good": "Having painted the wall, he cleaned the brushes.",
+"why": "Chủ động, xong trước: Having + V3.",
+"alt": [
+"After painting the wall, he cleaned the brushes."
+]
+}
+]
+}
+},
+{
+"id": "g-b2-10",
+"lv": "b2",
+"title": "Động từ tường thuật: suggest, advise, deny…",
+"en": "Reporting verbs",
+"form": [
+"+ to V: agree, offer, refuse, promise, threaten.",
+"+ người + to V: advise, warn, remind, persuade, ask, tell.",
+"+ V-ing: suggest, deny, admit, recommend.",
+"+ người + giới từ + V-ing: accuse sb of, blame sb for, congratulate sb on."
+],
+"use": [
+"Thuật lại ý (không chép nguyên lời)."
+],
+"note": "suggest không đi với người + to V: “He suggested me to go” sai.",
+"ex": [
+[
+"She offered to drive me home.",
+"Cô ấy đề nghị chở tôi về."
+],
+[
+"He denied stealing the money.",
+"Anh ta chối đã lấy tiền."
+],
+[
+"The doctor advised me to rest.",
+"Bác sĩ khuyên tôi nghỉ ngơi."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "He suggested ___ a taxi.",
+"a": "taking",
+"w": [
+"to take",
+"me to take"
+],
+"why": {
+"to take": "suggest + V-ing.",
+"me to take": "suggest không đi với người + to V."
+}
+},
+{
+"s": "They accused him ___ the money.",
+"a": "of stealing",
+"w": [
+"to steal",
+"for stealing"
+],
+"why": {
+"to steal": "accuse sb of + V-ing.",
+"for stealing": "accuse đi với of."
+}
+},
+{
+"s": "She refused ___ me.",
+"a": "to help",
+"w": [
+"helping",
+"help"
+],
+"why": {
+"helping": "refuse + to V.",
+"help": "refuse + to V."
+}
+}
+],
+"test": [
+{
+"s": "My teacher advised me ___ more.",
+"a": "to read",
+"w": [
+"reading",
+"read"
+],
+"why": {
+"reading": "advise + người + to V.",
+"read": "advise sb to V."
+}
+},
+{
+"s": "He admitted ___ the window.",
+"a": "breaking",
+"w": [
+"to break",
+"break"
+],
+"why": {
+"to break": "admit + V-ing.",
+"break": "admit + V-ing."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "She promised ___ (call) me.",
+"a": [
+"to call"
+]
+},
+{
+"s": "He denied ___ (lie).",
+"a": [
+"lying"
+]
+}
+],
+"test": [
+{
+"s": "They congratulated me on ___ (pass) the exam.",
+"a": [
+"passing"
+]
+},
+{
+"s": "She reminded me ___ (lock) the door.",
+"a": [
+"to lock"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "He suggested me to go home.",
+"good": "He suggested that I go home.",
+"why": "suggest + that / V-ing, không có người + to V.",
+"alt": [
+"He suggested going home.",
+"He suggested that I should go home."
+]
+},
+{
+"bad": "She denied to take the money.",
+"good": "She denied taking the money.",
+"why": "deny + V-ing.",
+"alt": [
+"She denied having taken the money."
+]
+}
+],
+"test": [
+{
+"bad": "They blamed me of the accident.",
+"good": "They blamed me for the accident.",
+"why": "blame sb for.",
+"alt": []
+},
+{
+"bad": "He offered helping me.",
+"good": "He offered to help me.",
+"why": "offer + to V.",
+"alt": []
+}
+]
+}
+},
+{
+"id": "g-b2-11",
+"lv": "b2",
+"title": "Unless / provided / as long as / in case",
+"en": "Conditional linkers",
+"form": [
+"unless = if … not: Unless you hurry, you'll be late.",
+"provided (that) / as long as = chỉ khi.",
+"in case + mệnh đề: phòng khi (không phải “nếu”)."
+],
+"use": [
+"Điều kiện có sắc thái."
+],
+"note": "in case ≠ if: “Take an umbrella in case it rains” = mang ô phòng mưa (dù chưa mưa).",
+"ex": [
+[
+"I'll go unless it rains.",
+"Tôi sẽ đi trừ khi trời mưa."
+],
+[
+"You can borrow my car as long as you drive carefully.",
+"Bạn mượn xe được, miễn là lái cẩn thận."
+],
+[
+"Take some money in case you need a taxi.",
+"Mang ít tiền phòng khi cần đi taxi."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "You won't pass ___ you study.",
+"a": "unless",
+"w": [
+"if",
+"in case"
+],
+"why": {
+"if": "Nghĩa là “nếu không học”: unless.",
+"in case": "in case là phòng khi."
+}
+},
+{
+"s": "Write down my number ___ you get lost.",
+"a": "in case",
+"w": [
+"unless",
+"provided"
+],
+"why": {
+"unless": "Ghi số để phòng: in case.",
+"provided": "provided là “miễn là”."
+}
+},
+{
+"s": "You can stay ___ you keep quiet.",
+"a": "as long as",
+"w": [
+"unless",
+"in case"
+],
+"why": {
+"unless": "Điều kiện cho phép: as long as.",
+"in case": "in case là phòng khi."
+}
+}
+],
+"test": [
+{
+"s": "I'll lend you the money ___ you pay me back next week.",
+"a": "provided",
+"w": [
+"unless",
+"in case"
+],
+"why": {
+"unless": "Điều kiện: provided (that).",
+"in case": "in case là phòng khi."
+}
+},
+{
+"s": "Don't call me ___ it's urgent.",
+"a": "unless",
+"w": [
+"in case",
+"as long as"
+],
+"why": {
+"in case": "Nghĩa là “trừ khi gấp”: unless.",
+"as long as": "Nghĩa ngược."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "I'll come ___ I'm too tired. (trừ khi)",
+"a": [
+"unless"
+]
+},
+{
+"s": "Bring a jacket ___ it gets cold. (phòng khi)",
+"a": [
+"in case"
+]
+}
+],
+"test": [
+{
+"s": "You can go out ___ you're home by ten. (miễn là)",
+"a": [
+"as long as",
+"provided",
+"provided that",
+"providing",
+"so long as"
+]
+},
+{
+"s": "___ you leave now, you'll miss the bus. (trừ khi)",
+"a": [
+"Unless"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "Unless you don't hurry, you'll be late.",
+"good": "Unless you hurry, you'll be late.",
+"why": "unless đã mang nghĩa phủ định.",
+"alt": [
+"If you don't hurry, you'll be late."
+]
+},
+{
+"bad": "Take an umbrella if it will rain.",
+"good": "Take an umbrella in case it rains.",
+"why": "Phòng khi: in case + hiện tại.",
+"alt": []
+}
+],
+"test": [
+{
+"bad": "I'll help you as long as you will help me.",
+"good": "I'll help you as long as you help me.",
+"why": "Sau as long as dùng hiện tại.",
+"alt": []
+},
+{
+"bad": "In case you are tired, take a rest.",
+"good": "If you are tired, take a rest.",
+"why": "Đây là điều kiện thường: if.",
+"alt": [
+"If you're tired, take a rest."
+]
+}
+]
+}
+},
+{
+"id": "g-b2-12",
+"lv": "b2",
+"title": "Be used to / get used to",
+"en": "be used to / get used to + -ing",
+"form": [
+"be used to + V-ing / danh từ: đã quen.",
+"get used to + V-ing / danh từ: dần quen.",
+"Khác used to + V (trước đây hay)."
+],
+"use": [
+"Nói về sự quen thuộc."
+],
+"note": "Sau be / get used to là V-ing: “I'm used to get up early” sai.",
+"ex": [
+[
+"I'm used to working at night.",
+"Tôi quen làm đêm."
+],
+[
+"She can't get used to the cold weather.",
+"Cô ấy không quen được trời lạnh."
+],
+[
+"You'll soon get used to driving on the left.",
+"Bạn sẽ sớm quen lái xe bên trái."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "I'm used to ___ up early.",
+"a": "getting",
+"w": [
+"get",
+"got"
+],
+"why": {
+"get": "be used to + V-ing.",
+"got": "be used to + V-ing."
+}
+},
+{
+"s": "He ___ to living alone now.",
+"a": "is used",
+"w": [
+"used",
+"uses"
+],
+"why": {
+"used": "used to + V là thói quen cũ; quen bây giờ: is used to.",
+"uses": "Không có uses to."
+}
+},
+{
+"s": "It took me months to ___ used to the food.",
+"a": "get",
+"w": [
+"be",
+"use"
+],
+"why": {
+"be": "Quá trình dần quen: get used to.",
+"use": "Cấu trúc: get used to."
+}
+}
+],
+"test": [
+{
+"s": "She isn't used to ___ in public.",
+"a": "speaking",
+"w": [
+"speak",
+"spoke"
+],
+"why": {
+"speak": "be used to + V-ing.",
+"spoke": "be used to + V-ing."
+}
+},
+{
+"s": "I ___ play tennis, but now I don't.",
+"a": "used to",
+"w": [
+"am used to",
+"get used to"
+],
+"why": {
+"am used to": "Thói quen cũ: used to + V.",
+"get used to": "Thói quen cũ: used to."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "I'm not used to ___ (wear) a suit.",
+"a": [
+"wearing"
+]
+},
+{
+"s": "You'll get used to ___ (live) here.",
+"a": [
+"living"
+]
+}
+],
+"test": [
+{
+"s": "She is used to ___ (work) long hours.",
+"a": [
+"working"
+]
+},
+{
+"s": "Have you got used to ___ (drive) in the city?",
+"a": [
+"driving"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "I'm used to get up at 5.",
+"good": "I'm used to getting up at 5.",
+"why": "be used to + V-ing.",
+"alt": [
+"I am used to getting up at 5."
+]
+},
+{
+"bad": "I can't get use to this noise.",
+"good": "I can't get used to this noise.",
+"why": "get used to (có d).",
+"alt": []
+}
+],
+"test": [
+{
+"bad": "He is used to drive on the right.",
+"good": "He is used to driving on the right.",
+"why": "be used to + V-ing.",
+"alt": []
+},
+{
+"bad": "I used to living with my parents now.",
+"good": "I'm used to living with my parents now.",
+"why": "Quen bây giờ: be used to + V-ing.",
+"alt": [
+"I am used to living with my parents now."
+]
+}
+]
+}
+},
+{
+"id": "g-b2-13",
+"lv": "b2",
+"title": "Câu hỏi gián tiếp lịch sự",
+"en": "Indirect questions",
+"form": [
+"Could you tell me / Do you know / I wonder + từ hỏi + chủ ngữ + động từ.",
+"Có / không: … if / whether + chủ ngữ + động từ."
+],
+"use": [
+"Hỏi lịch sự với người lạ, trong công việc."
+],
+"note": "Không đảo: “Could you tell me where is the station?” sai.",
+"ex": [
+[
+"Could you tell me where the station is?",
+"Bạn chỉ giúp tôi ga ở đâu được không?"
+],
+[
+"Do you know what time the shop opens?",
+"Bạn có biết mấy giờ cửa hàng mở không?"
+],
+[
+"I wonder if you could help me.",
+"Không biết bạn có thể giúp tôi không."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "Could you tell me where ___?",
+"a": "the toilet is",
+"w": [
+"is the toilet",
+"does the toilet"
+],
+"why": {
+"is the toilet": "Câu hỏi gián tiếp không đảo.",
+"does the toilet": "Không dùng does."
+}
+},
+{
+"s": "Do you know ___ the bus leaves?",
+"a": "what time",
+"w": [
+"what time does",
+"what does time"
+],
+"why": {
+"what time does": "Không dùng does trong câu gián tiếp.",
+"what does time": "Sai trật tự."
+}
+},
+{
+"s": "I wonder ___ he will come.",
+"a": "whether",
+"w": [
+"that",
+"what"
+],
+"why": {
+"that": "Câu có / không: whether / if.",
+"what": "Không phải câu hỏi what."
+}
+}
+],
+"test": [
+{
+"s": "Can you tell me how much ___?",
+"a": "this costs",
+"w": [
+"does this cost",
+"costs this"
+],
+"why": {
+"does this cost": "Không dùng does, không đảo.",
+"costs this": "Chủ ngữ trước động từ."
+}
+},
+{
+"s": "Do you know ___ she is married?",
+"a": "if",
+"w": [
+"that",
+"is"
+],
+"why": {
+"that": "Câu có / không: if.",
+"is": "Cần if / whether."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "Could you tell me where the bank ___?",
+"a": [
+"is"
+]
+},
+{
+"s": "Do you know ___ the museum is open today? (có / không)",
+"a": [
+"if",
+"whether"
+]
+}
+],
+"test": [
+{
+"s": "I'd like to know what time the train ___ (arrive).",
+"a": [
+"arrives"
+]
+},
+{
+"s": "Can you tell me how ___ get to the airport? (tôi)",
+"a": [
+"I can",
+"I could"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "Could you tell me where is the post office?",
+"good": "Could you tell me where the post office is?",
+"why": "Không đảo.",
+"alt": []
+},
+{
+"bad": "Do you know what time does the film start?",
+"good": "Do you know what time the film starts?",
+"why": "Không dùng does.",
+"alt": []
+}
+],
+"test": [
+{
+"bad": "I wonder what is his name.",
+"good": "I wonder what his name is.",
+"why": "Không đảo.",
+"alt": []
+},
+{
+"bad": "Can you tell me do you have a room?",
+"good": "Can you tell me if you have a room?",
+"why": "Câu có / không: if / whether.",
+"alt": [
+"Can you tell me whether you have a room?"
+]
+}
+]
+}
+},
+{
+"id": "g-b2-14",
+"lv": "b2",
+"title": "It's time / would rather / had better",
+"en": "It's time, would rather, had better",
+"form": [
+"It's (high) time + chủ ngữ + quá khứ đơn: It's time we went.",
+"would rather + V; would rather + người + quá khứ đơn.",
+"had better (not) + V: nên (nếu không sẽ có hậu quả)."
+],
+"use": [
+"Thúc giục, ưu tiên, khuyên mạnh."
+],
+"note": "had better không có to: “You'd better to go” sai.",
+"ex": [
+[
+"It's time you went to bed.",
+"Đến giờ con đi ngủ rồi."
+],
+[
+"I'd rather stay at home tonight.",
+"Tối nay tôi thích ở nhà hơn."
+],
+[
+"You'd better take a coat. It's cold.",
+"Bạn nên mang áo khoác. Trời lạnh."
+]
+],
+"mc": {
+"learn": [
+{
+"s": "It's high time you ___ a job.",
+"a": "found",
+"w": [
+"find",
+"will find"
+],
+"why": {
+"find": "It's time + quá khứ đơn.",
+"will find": "It's time + quá khứ đơn."
+}
+},
+{
+"s": "You'd better ___ late again.",
+"a": "not be",
+"w": [
+"not to be",
+"don't be"
+],
+"why": {
+"not to be": "had better not + V (không có to).",
+"don't be": "had better not + V."
+}
+},
+{
+"s": "I'd rather you ___ smoke here.",
+"a": "didn't",
+"w": [
+"don't",
+"won't"
+],
+"why": {
+"don't": "would rather + người + quá khứ.",
+"won't": "would rather + người + quá khứ."
+}
+}
+],
+"test": [
+{
+"s": "I'd rather ___ by train.",
+"a": "go",
+"w": [
+"to go",
+"going"
+],
+"why": {
+"to go": "would rather + V.",
+"going": "would rather + V."
+}
+},
+{
+"s": "We'd better ___ now or we'll miss the bus.",
+"a": "leave",
+"w": [
+"to leave",
+"leaving"
+],
+"why": {
+"to leave": "had better + V.",
+"leaving": "had better + V."
+}
+}
+]
+},
+"ty": {
+"learn": [
+{
+"s": "It's time we ___ (go) home.",
+"a": [
+"went"
+]
+},
+{
+"s": "You'd better ___ (see) a doctor.",
+"a": [
+"see"
+]
+}
+],
+"test": [
+{
+"s": "I'd rather you ___ (tell) me the truth.",
+"a": [
+"told"
+]
+},
+{
+"s": "I'd rather ___ (not / talk) about it.",
+"a": [
+"not talk"
+]
+}
+]
+},
+"fx": {
+"learn": [
+{
+"bad": "You'd better to hurry.",
+"good": "You'd better hurry.",
+"why": "had better + V.",
+"alt": [
+"You had better hurry."
+]
+},
+{
+"bad": "It's time we go home.",
+"good": "It's time we went home.",
+"why": "It's time + quá khứ.",
+"alt": [
+"It's time to go home.",
+"It's time for us to go home."
+]
+}
+],
+"test": [
+{
+"bad": "I'd rather to stay here.",
+"good": "I'd rather stay here.",
+"why": "would rather + V.",
+"alt": [
+"I would rather stay here."
+]
+},
+{
+"bad": "You had better not to tell her.",
+"good": "You had better not tell her.",
+"why": "had better not + V.",
+"alt": [
+"You'd better not tell her."
+]
+}
+]
+}
+}
+]
+}

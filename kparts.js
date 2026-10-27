@@ -22,7 +22,7 @@ function kGloss(s) { const seen = new Set(), out = [];
 const kOther = (P, x, f, n) => shuf(P.items.filter(y => y.lv === x.lv && y.id !== x.id && f(y) !== f(x))).slice(0, n).map(f);
 
 // ---------- 🧱 Ngữ pháp ----------
-KIT.np = { id: 'np', ic: '🧱', t: 'Ngữ pháp', file: 'np.json?v=3', lvs: ['pre', 'a1', 'a2'], unit: 'điểm ngữ pháp', pass: 0.85,
+KIT.np = { id: 'np', ic: '🧱', t: 'Ngữ pháp', file: 'np.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'điểm ngữ pháp', pass: 0.85,
   intro: 'Mỗi điểm: công thức, cách dùng, lỗi người Việt hay mắc.',
   dims: [['nhan', '🔎 Nhận ra', 'Chọn câu / dạng đúng'], ['dien', '✏️ Điền dạng', 'Tự gõ dạng đúng'], ['sua', '🛠 Sửa lỗi', 'Gõ lại câu cho đúng']],
   examTxt: 'Mỗi điểm 2 câu chưa gặp (nhận ra / điền / sửa).',

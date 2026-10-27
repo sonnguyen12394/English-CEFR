@@ -37,8 +37,11 @@ const IDI = units.flatMap(u => u.words).filter(w => /idiom/.test(w.pos) && w.clo
 for (const w of IDI) { const o = IDI.filter(y => y !== w && y.vi !== w.vi), pick = []; for (let i = 0; pick.length < 3 && i < o.length; i++) { const y = o[(w.w.length * 7 + i * 13) % o.length]; if (!pick.includes(y.vi)) pick.push(y.vi); }
   w.idi = { p: w.cloze.a, vi: w.vi, s: w.ex, w: pick }; }
 const miss = Object.keys(BD).filter(k => !bdUsed.has(k));
-fs.writeFileSync(root + 'b.json', JSON.stringify({ units })); fs.writeFileSync(root + 'exam-b.json', JSON.stringify(exam));
+fs.writeFileSync(root + 'b.json', JSON.stringify({ units }));
+// 🧱 ngữ pháp B1 → C2 (content/bg/*.json, Claude soạn, chưa người thật kiểm): thay các điểm g-b*, g-c* trong np.json
+const NP = J('np.json'), G = ['b1', 'b2', 'c1', 'c2'].flatMap(l => J(`content/bg/${l}.json`).items);
+NP.items = NP.items.filter(x => !/^g-[bc]\d/.test(x.id)).concat(G); fs.writeFileSync(root + 'np.json', JSON.stringify(NP)); fs.writeFileSync(root + 'exam-b.json', JSON.stringify(exam));
 const n = units.reduce((s, u) => s + u.words.length, 0);
 console.log(`b.json: ${units.length} bài, ${n} từ · có câu điền ${units.reduce((s, u) => s + u.words.filter(w => w.cloze).length, 0)} · cụm ${Object.keys(COL).length} · câu thi ${Object.keys(exam).length}`);
-const ws = units.flatMap(u => u.words); console.log(`dữ liệu Nhớ: đồng nghĩa ${ws.filter(w => w.rel).length} · trang trọng ${ws.filter(w => w.reg).length} · mẫu câu ${ws.filter(w => w.pat).length} · thành ngữ ${ws.filter(w => w.idi).length}${miss.length ? ` · không khớp từ nào: ${miss.join(', ')}` : ''}`);
+console.log(`ngữ pháp B1 → C2: ${G.length} điểm`); const ws = units.flatMap(u => u.words); console.log(`dữ liệu Nhớ: đồng nghĩa ${ws.filter(w => w.rel).length} · trang trọng ${ws.filter(w => w.reg).length} · mẫu câu ${ws.filter(w => w.pat).length} · thành ngữ ${ws.filter(w => w.idi).length}${miss.length ? ` · không khớp từ nào: ${miss.join(', ')}` : ''}`);
 for (const lv of LVS) console.log(' ', LVN[lv], units.filter(u => u.lv === lv).length, 'bài');
