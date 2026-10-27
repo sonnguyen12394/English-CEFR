@@ -107,8 +107,31 @@ function wCrit(x, t, ideaRatio, lenOk) { const lv = x.lv, [tP, tL, tV] = W_T[lv]
     const w = wCrit(x, t, ideas.length ? hit / ideas.length : 1, wc >= x.min && wc <= x.max + 30); r.sc = w.pct / 100; r.crit = w.C;
     r.html += `<div class="box" style="margin-top:8px"><b>🧐 Chấm theo 4 tiêu chí Cambridge (máy đo gián tiếp): ${w.pct}%</b>${w.C.map(([n, v]) => `<p style="margin:2px 0">${n}: ${v}%</p>`).join('')}
       <p class="mute" style="margin:4px 0 0">${w.d.paras}/${w.d.tP} đoạn · ${w.d.links}/${w.d.tL} từ nối khác nhau · ${w.d.voc}/${w.d.tV} từ đúng cấp trở lên${w.d.contr ? ` · ${w.d.contr} chữ viết tắt (bài trang trọng nên viết đủ: do not, I am)` : ''}</p>
-      ${w.errs.length ? `<p style="margin:6px 0 0"><b>Lỗi hay gặp (${w.errs.length}):</b></p>${w.errs.map(([s, m]) => `<p style="margin:2px 0">❌ “${esc(s)}” · ${esc(m)}</p>`).join('')}` : '<p class="mute" style="margin:6px 0 0">Không thấy lỗi hay gặp nào (máy chỉ bắt một số lỗi chắc chắn; không thay giáo viên).</p>'}</div>`;
+      ${w.errs.length ? `<p style="margin:6px 0 0"><b>Lỗi hay gặp (${w.errs.length}):</b></p>${w.errs.map(([s, m]) => `<p style="margin:2px 0">❌ “${esc(s)}” · ${esc(m)}</p>`).join('')}` : '<p class="mute" style="margin:6px 0 0">Không thấy lỗi hay gặp nào (máy chỉ bắt một số lỗi chắc chắn; không thay giáo viên).</p>'}
+      ${x.lv !== 'pre' ? aiBtn('viet', x.lv, { prompt: x.p, genre: x.genre, min: x.min, max: x.max }, t) : ''}</div>`;
     return r; }; return q; }; }
+
+// ---------- 🧑‍🏫 AI chấm như giám khảo (edge function el-cham, Claude; người sáng lập đồng ý tạo khoá 27/10/2026) ----------
+// Chấm theo 4 tiêu chí Cambridge, chỉ từng lỗi + cách sửa, viết lại bài. Mỗi người ≤ 20 lần / ngày (máy chủ giới hạn). Chưa có khoá: báo rõ, app vẫn chạy.
+const AI = { n: 0, pend: {} };
+function aiBtn(kind, lv, task, text) { const k = 'ai' + (++AI.n); AI.pend[k] = { kind, lv, task, text };
+  return `<div style="margin-top:8px"><button class="chip" data-ai="${k}">🧑‍🏫 Nhờ AI chấm như giám khảo</button><div id="${k}"></div></div>`; }
+const aiRuns = () => (S.ai = S.ai || []);
+function aiHtml(g) { return `<div class="box"><b>🧑‍🏫 AI chấm: ${g.overall_pct}% · ${g.reaches_level ? '✅ đạt chuẩn cấp' : '❌ chưa đạt chuẩn cấp'}</b>
+  ${g.criteria.map(c => `<p style="margin:4px 0">${esc(c.name_vi)}: <b>${c.score}/5</b><br><span class="mute">${esc(c.comment_vi)}</span></p>`).join('')}
+  ${g.errors.length ? `<p style="margin:6px 0 0"><b>Lỗi và cách sửa (${g.errors.length}):</b></p>${g.errors.map(e => `<p style="margin:2px 0">❌ ${esc(e.wrong)} → ✅ <b>${esc(e.correct)}</b><br><span class="mute">${esc(e.why_vi)}</span></p>`).join('')}` : ''}
+  ${g.strengths_vi.length ? `<p style="margin:6px 0 0"><b>Điểm mạnh:</b> ${g.strengths_vi.map(esc).join(' · ')}</p>` : ''}
+  ${g.next_steps_vi.length ? `<p style="margin:6px 0 0"><b>Cần làm tiếp:</b></p>${g.next_steps_vi.map(s => `<p style="margin:2px 0">• ${esc(s)}</p>`).join('')}` : ''}
+  <details><summary>Bài sửa lại ở đúng cấp</summary><p style="white-space:pre-line">${esc(g.improved)}</p></details>
+  <p class="mute" style="margin:6px 0 0">AI chấm theo thang Cambridge; vẫn có thể sai. Nói: AI chỉ thấy lời máy chép, nên phát âm chấm rất sơ bộ.</p></div>`; }
+document.addEventListener('click', async e => { const b = e.target.closest('[data-ai]'); if (!b) return; const k = b.dataset.ai, P = AI.pend[k], box = document.getElementById(k); if (!P || !box) return;
+  b.disabled = true; b.textContent = '⏳ AI đang chấm (10–40 giây)…';
+  try { const { data, error } = await sb.functions.invoke('el-cham', { body: { ...P, uid: (user && user.id) || 'khach' } });
+    let msg = data && data.error; if (error && !msg) { try { msg = (await error.context.json()).error; } catch (er) { msg = 'Không gọi được máy chấm.'; } }
+    if (msg || !data || !data.grade) { box.innerHTML = `<p class="mute">❌ ${esc(msg || 'Lỗi.')}</p>`; b.disabled = false; b.textContent = '🧑‍🏫 Thử lại'; return; }
+    aiRuns().push({ at: Date.now(), kind: P.kind, lv: P.lv, pct: data.grade.overall_pct, ok: data.grade.reaches_level }); S.t = Date.now(); save();
+    box.innerHTML = aiHtml(data.grade); b.remove();
+  } catch (er) { box.innerHTML = '<p class="mute">❌ Không gọi được máy chấm (mạng?).</p>'; b.disabled = false; b.textContent = '🧑‍🏫 Thử lại'; } });
 
 // ---------- 🧩 Đoạn văn khuyết câu (đề thật: B1 Đọc phần 4, B2 First phần 6, C1 Advanced phần 7, C2 Proficiency phần 6) ----------
 // Lấy bài đọc của cấp, bỏ 3 câu (không lấy câu đầu / cuối, không liền nhau), thêm 1 câu nhiễu từ bài khác; mỗi chỗ trống chọn câu đúng. Đáp án duy nhất vì là câu gốc.

@@ -101,16 +101,21 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
   const pct = Math.round(ps.reduce((s, p) => s + p.ok / p.n, 0) / ps.length * 100), pass = pct >= C.pass * 100;
   mkRuns(lv).push({ at: Date.now(), papers: ps, pct: full ? pct : null, pass: full && pass }); S.t = Date.now(); save();
   const parts = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } return Object.entries(by).map(([k, [a, b]]) => `${esc(k)}: ${a}/${b}`).join('<br>'); };
-  const wrong = MK.papers.filter(p => !p.speak).flatMap(p => p.res.filter(r => !r.ok).map(r => ({ p, r })));
+  const wrong = MK.papers.filter(p => !p.speak).flatMap(p => p.res.filter(r => !r.ok && r.q.kind !== 'write').map(r => ({ p, r })));
+  // ✍️ bài viết: điểm 4 tiêu chí của máy + nút nhờ AI chấm như giám khảo (thi.js)
+  const wr = MK.papers.flatMap(p => p.res.filter(r => r.q.kind === 'write' && r.ans)), wHtml = wr.map(r => `<details class="box"><summary>✍️ ${esc(r.q.x.vi)}: máy chấm ${r.sc != null ? Math.round(r.sc * 100) + '%' : '–'}</summary>
+    <p style="white-space:pre-line;font-size:14px">${esc(r.ans)}</p>${typeof aiBtn === 'function' ? aiBtn('viet', lv, { prompt: r.q.x.p, genre: r.q.x.genre, min: r.q.x.min, max: r.q.x.max }, r.ans) : ''}</details>`).join('');
   const spk = MK.papers.filter(p => p.sc).map(p => { const d = p.sc.d; return `<details class="box" open><summary>🗣 Nói: ${p.sc.pct}% theo 4 tiêu chí giám khảo (máy đo gián tiếp)</summary>
     ${p.sc.C.map(([n, v]) => `<p style="margin:4px 0">${n}: <b>${v}%</b></p>${bar(v, C.pass * 100, 'var(--good)')}`).join('')}
     <p class="mute" style="margin:6px 0 0">🔁 Nhắc lại câu đúng ${d.eit}% từ · cấu trúc đề đòi ${d.struct == null ? '–' : d.struct + '%'} · từ đúng cấp trở lên ${d.voc}/${d.tV} · từ nối khác nhau ${d.links}/${d.tL} · tốc độ ${d.wpm}/${d.tW} từ/phút · đóng vai đúng việc ${d.rp == null ? '–' : d.rp + '%'}.</p>
     ${p.res.map(r => `<p style="margin:6px 0 0;font-size:14px"><span class="mute">${esc(r.part)}:</span> ${r.q.mode === 'eit' ? `câu gốc “${esc(r.q.s)}” · ` : ''}bạn nói “${esc(r.ans || '…')}”${r.q.mode === 'q' && r.q.need.length ? ` <span class="mute">(cần: ${r.q.need.map(k => (SPK_RE[k].test(String(r.ans || '').toLowerCase()) ? '✅ ' : '⬜ ') + SPK_REVI[k]).join(', ')})</span>` : ''}</p>`).join('')}
-    <p class="mute" style="margin:6px 0 0">Máy không chấm được lỗi ngữ pháp trong lời nói tự do, nên đo qua nhắc lại câu, cấu trúc, độ dài, tốc độ. Chưa đối chiếu giám khảo thật: nên nói thử với giáo viên 1 buổi mỗi cấp.</p></details>`; }).join('');
+    <p class="mute" style="margin:6px 0 0">Máy không chấm được lỗi ngữ pháp trong lời nói tự do, nên đo qua nhắc lại câu, cấu trúc, độ dài, tốc độ. Chưa đối chiếu giám khảo thật: nên nói thử với giáo viên 1 buổi mỗi cấp.</p>
+    ${typeof aiBtn === 'function' ? aiBtn('noi', lv, { prompt: 'Cambridge-style speaking test: interview, long turn, role play, discussion. Each answer below follows its question.' },
+      p.res.filter(r => r.q.mode !== 'eit').map(r => `[${r.part}] ${r.q.mode === 'rp' ? (r.q.prev ? 'Examiner: ' + r.q.prev + ' / Task: ' + r.q.st.t : 'Task: ' + r.q.st.t) : 'Question: ' + r.q.q}\nCandidate: ${r.ans || '(no answer)'}`).join('\n\n')) : ''}</details>`; }).join('');
   $app.innerHTML = `<h1>🎓 Kết quả ${esc(C.name)}</h1>
     <div class="box">${ps.map(p => `<p style="margin:4px 0"><b>${p.t}</b> ${p.crit ? `${p.ok}% (4 tiêu chí)` : `${p.ok}/${p.n} (${Math.round(p.ok / p.n * 100)}%)`}</p>`).join('')}
       ${full ? `<p style="margin:6px 0 0"><b>Trung bình ${pct}% · ${pass ? '✅ ước đạt' : '❌ ước chưa đạt'}</b> (cần ${C.pass * 100}%, ngưỡng ước tính)</p>` : '<p class="mute">Chỉ làm một phần đề: chưa tính đạt.</p>'}</div>
-    ${spk}${MK.papers.filter(p => !p.speak).map(p => `<details class="box"><summary>${p.t}: theo phần</summary><p class="mute">${parts(p)}</p></details>`).join('')}
+    ${spk}${wHtml}${MK.papers.filter(p => !p.speak).map(p => `<details class="box"><summary>${p.t}: theo phần</summary><p class="mute">${parts(p)}</p></details>`).join('')}
     ${wrong.length ? `<details class="box"><summary>Xem lại ${wrong.length} câu sai</summary>${wrong.map(({ r }) => `<div style="margin:8px 0;border-top:1px solid var(--line, #ddd);padding-top:6px"><p class="mute" style="margin:0">${esc(r.part)}</p><p style="margin:2px 0">${r.q.q}</p>
       <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 300))}${r.q.kind === 'write' ? '' : ` · Đáp án: <b>${esc(r.q.a != null ? r.q.a : (r.q.acc || [])[0] || '')}</b>`}</p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
     <p class="mute">Máy chấm; bài viết chấm đủ ý và dạng bài bằng từ khoá, không chấm ngữ pháp. Ôn phần thấp nhất rồi bấm làm đề mới (câu đổi mỗi lần).</p>

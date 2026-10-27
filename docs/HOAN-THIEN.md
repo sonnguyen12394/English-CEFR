@@ -113,8 +113,19 @@ Người sáng lập: "tự kiểm tra lại app xem đã có thể giúp tôi �
 | Giọng nghe | Giọng thu sẵn nữ Mỹ / giọng máy, tốc độ chậm | Đề Cambridge giọng Anh–Anh, tốc độ thường | 🇬🇧 đề thử bài Nghe: giọng Anh (GB / IE / AU nếu máy có), tốc độ 1 (`EXAM_VOX`) |
 | Biết khi nào đi thi | Chỉ có từng ô riêng | Không có chỗ gom bằng chứng | 🎯 Sẵn sàng thi: 5 điều kiện (qua Thi chuyển cấp mọi phần · đề thử đạt 2 lần, 2 ngày · đủ giờ đọc nghe thêm · đề mẫu chính thức đạt · giáo viên chấm Nói đạt) |
 
-Còn lại (chưa làm được bằng máy):
+Còn lại (chưa làm được bằng máy) ở v56 → đã khắc phục ở v57 (mục dưới), trừ việc cần người thật:
 - Nội dung AI soạn, chưa người thật kiểm. Đề xuất: nhờ giáo viên soát ngẫu nhiên khoảng 10% mỗi cấp.
-- Bài nghe là giọng máy, không phải người thật nói tự nhiên; nên nghe thêm nguồn thật (📚).
-- Chấm Nói / Viết là đo gián tiếp; cần giáo viên chấm ít nhất 1 lần mỗi cấp (điều kiện 🎯 thứ 5).
 - Chưa thử với người học thật: mọi thời gian là mô phỏng.
+
+## Khắc phục để thi lấy bằng (v57, 27/10/2026)
+
+Người sáng lập: "bạn đủ giỏi để khắc phục những khuyết điểm đó; làm sao để tôi dùng được app học đạt thành tựu thi ngoài lấy bằng".
+
+| Khuyết điểm | Đã làm | Kiểm |
+|---|---|---|
+| Nội dung AI soạn chưa ai soát | Soát toàn bộ 13.436 câu tiếng Anh "mẫu đúng" (câu ví dụ, câu thi, bài đọc, bài nghe, bài mẫu Nói / Viết, câu ngữ pháp đã điền đáp án) bằng LanguageTool (công cụ độc lập, en-GB); xem từng chỗ bị đánh dấu | 633 chỗ bị đánh dấu, Claude xem từng chỗ: ~610 báo nhầm (tên riêng Việt Nam, từ chuyên môn đúng, chính tả / dùng từ Anh–Anh hợp lệ như "open your book at page", "enrolled on a course", lời chào thư, gợi ý tiếng Việt cố ý trong câu ngữ pháp, "do" nhấn mạnh); sửa 4 chỗ cho chuẩn Anh–Anh: drink-driving, shortcut, have a rest, second-largest. Không thấy lỗi ngữ pháp thật. Hạn chế: LanguageTool chỉ bắt lỗi bề mặt, không soát nghĩa / độ tự nhiên / đáp án |
+| Bài nghe là giọng máy điện thoại | `tools/build-audio.py`: giọng tự nhiên Kokoro (bộ đã làm giọng af_bella của game), 80% Anh–Anh (bf_emma, bf_isabella, bf_alice, bf_lily / bm_george, bm_lewis, bm_daniel, bm_fable), 20% Mỹ; hội thoại 2 giọng nam / nữ; cả câu đọc to, nhắc lại câu, lời người kia khi đóng vai. Ra `n/<clipKey>.mp3` (24 kHz, 32 kbps); `sayOne` / `kPlayDlg` ưu tiên `n/` | Khoá Python khớp `clipKey` của app (đã thử 3 câu có dấu nháy cong, khoảng trắng) |
+| Chấm Viết / Nói chỉ gián tiếp | 🧑‍🏫 AI chấm như giám khảo: edge function `el-cham` (Claude Opus 5.5, effort low, kết quả JSON theo khuôn, tự chuyển mô hình khi bị từ chối `fallbacks: "default"`): 4 tiêu chí Cambridge 0–5, lỗi + cách sửa, điểm mạnh, việc cần làm, bài viết lại; giới hạn 20 lần / người / ngày, 200 lần / app / ngày (bảng `el_cham`). Nút ở bài Viết (luyện, thi, đề thử) và bài Nói của đề thử | Đã triển khai; chưa có khoá thì báo "Chưa cài khoá", không tốn tiền |
+
+Cài khoá AI (người sáng lập làm): console.anthropic.com → API Keys → tạo khoá, nạp tiền → Supabase → Edge Functions → Secrets → thêm `ANTHROPIC_API_KEY`. Không dán khoá vào trang hay vào chat.
+Chi phí ước tính (suy luận, chưa đo): Opus 5.5 giá $4 / $20 mỗi triệu token vào / ra; một lượt chấm khoảng 1.500 token vào + 1.500–2.500 token ra ≈ $0,04 ≈ 1.000 đồng; 1–2 bài / ngày ≈ 30.000–60.000 đồng / tháng. Đo thật bằng cột `tin`, `tout` của bảng `el_cham` sau vài lần chấm.

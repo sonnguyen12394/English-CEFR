@@ -183,7 +183,8 @@ function kAsrStop(cb) { const r = K_ASR.r; if (!K_ASR.on) { if (cb) cb((K_ASR.fi
 // ---------- phát bài nghe: hội thoại 2 giọng (A nữ, B nam) hoặc từng câu ----------
 // Giọng máy đoán giới tính theo tên (vSex, app.js); máy chỉ có một giọng thì giọng B hạ cao độ cho dễ phân biệt.
 function kPlay(p) { if (p.lines) return kPlayDlg(p.lines); speak(...kSents(p.text)); }
-function kPlayDlg(lines) { try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}
+function kPlayDlg(lines) { if ((VOX.src === 'clip' || EXAM_VOX) && lines.every(l => NCLIPS.has(clipKey(l[1])))) return speak(...lines.map(l => l[1]));   // giọng tự nhiên 2 người (n/)
+  try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}
   sayTok++;   // dừng chuỗi speak() đang đọc
   try { const vs = EXAM_VOX && vGB(enVoices()).length ? vGB(enVoices()) : enVoices(), us = v => /en[-_](US|GB)/i.test(v.lang);
     const f = vs.find(v => vSex(v) === 'f' && us(v)) || vs.find(v => vSex(v) === 'f') || vs[0], m = vs.find(v => vSex(v) === 'm' && us(v)) || vs.find(v => vSex(v) === 'm') || vs.find(v => v !== f) || f;

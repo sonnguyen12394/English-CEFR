@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 56;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 57;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -242,7 +242,12 @@ document.addEventListener('change', e => { const s = e.target.closest('[data-vox
   speak('Hello! This is my voice.'); });
 document.addEventListener('click', e => { if (e.target.closest('[data-vox="test"]')) speak('Hello! This is my voice.'); });
 try { speechSynthesis.addEventListener('voiceschanged', () => { const s = document.querySelector('#vox [data-vox="src"]'); if (s) s.innerHTML = vOpts(); }); } catch (e) {}
-function sayOne(t) { const k = clipKey(t); if (EXAM_VOX || VOX.src !== 'clip' || !CLIPS.has(k)) return tts(t);
+// n/: giọng đọc tự nhiên (Kokoro, chủ yếu Anh–Anh) cho bài Nghe, câu đọc to, lời người kia khi đóng vai (tools/build-audio.py, 27/10/2026); ưu tiên hơn tệp game và giọng máy
+let NCLIPS = new Set();
+const playFile = (src, t) => new Promise(res => { AUD = AUD || new Audio(); let done = false; const end = () => { if (!done) { done = true; res(); } };
+  AUD.onended = end; AUD.onerror = () => { if (!done) { done = true; tts(t).then(res); } }; AUD.src = src; const pr = AUD.play(); if (pr) pr.catch(() => { if (!done) { done = true; tts(t).then(res); } }); });
+function sayOne(t) { const k = clipKey(t); if ((VOX.src === 'clip' || EXAM_VOX) && NCLIPS.has(k)) return playFile('n/' + k + '.mp3', t);
+  if (EXAM_VOX || VOX.src !== 'clip' || !CLIPS.has(k)) return tts(t);
   return new Promise(res => { AUD = AUD || new Audio(); let done = false; const end = () => { if (!done) { done = true; res(); } };
     AUD.onended = end; AUD.onerror = () => { if (!done) { done = true; tts(t).then(res); } }; AUD.src = 'a/' + k + '.mp3'; const pr = AUD.play(); if (pr) pr.catch(() => { if (!done) { done = true; tts(t).then(res); } }); }); }
 async function speak(...ts) { const my = ++sayTok; try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}
@@ -617,6 +622,7 @@ checkVer();
 
 (async () => {
   fetch('a/index.json?v=7').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
+  fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(k => { NCLIPS = new Set(k); }).catch(() => {});
   try { for (const f of ['a1.json?v=12', 'a2.json?v=6', 'b.json?v=1']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }

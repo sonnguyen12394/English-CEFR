@@ -1762,11 +1762,11 @@
 "alt": []
 },
 {
-"bad": "In case you are tired, take a rest.",
-"good": "If you are tired, take a rest.",
+"bad": "In case you are tired, have a rest.",
+"good": "If you are tired, have a rest.",
 "why": "Đây là điều kiện thường: if.",
 "alt": [
-"If you're tired, take a rest."
+"If you're tired, have a rest."
 ]
 }
 ]
