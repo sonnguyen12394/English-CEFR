@@ -47,6 +47,12 @@ for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', '
   check(`${lv} thi Từ vựng (${t} câu)`, /Qua/.test(tx), tx.slice(0, 80).replace(/\n/g, ' '));
   await pg.evaluate(lv => overview(lv), lv); await pg.waitForTimeout(400); check(`${lv} tổng quan`, (await pg.innerText('#app')).includes('Tổng quan học'));
 }
+// 🎓 đề thử B1: mở từ Tổng quan, làm trọn bài Đọc (chọn đáp án đầu / gõ chữ), phải ra màn kết quả
+await pg.evaluate(() => overview('b1')); await pg.waitForTimeout(400); await pg.click('[data-mock="b1"]'); await pg.waitForTimeout(1500);
+check('đề thử mở', (await pg.innerText('#app')).includes('B1 Preliminary'));
+await pg.click('[data-mk="0"]'); await pg.waitForTimeout(400);
+for (let n = 0; n < 80; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else if (await pg.$('#kt')) { await pg.fill('#kt', 'test answer'); await pg.click('#kf button[type=submit]'); } else break; await pg.waitForTimeout(30); }
+check('đề thử ra kết quả', (await pg.innerText('#app')).includes('Kết quả'));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

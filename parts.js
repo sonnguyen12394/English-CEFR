@@ -92,6 +92,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
     <div class="box"><div class="row"><b>Cấp ${LVN[lv]}: ${ids.length} phần</b><span class="mute">đã đạt ${done}/${ids.length}</span></div>${bar(Math.round(done / (ids.length || 1) * 100), 100, 'var(--good)')}
       <p class="mute" style="margin:6px 0 0">Đạt ${LVN[lv]} khi cả ${ids.length} phần dưới đây qua 🚪 Thi chuyển cấp ${LVN[lv]}. Mỗi phần: 📘 Học bài mới của cấp; 🔁 Nhớ và thi tính cả các cấp trước${LEVELS.indexOf(lv) >= LEVELS.indexOf(MEM_FULL_FROM) ? ` (Từ vựng: cấp liền trước đủ, cấp cũ hơn kiểm ${MEM_SAMPLE} từ ngẫu nhiên, đổi mỗi tuần, như đề thật chỉ hỏi một mẫu)` : ''}.${absent.length ? ` Cấp này chưa có: ${absent.join(', ')}.` : ''}</p>
       ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<p class="mute" style="margin:6px 0 0">🔒 Xem trước: nên học khi đã đạt ${LVN[stage]}. Vẫn mở để học trước nếu muốn.</p>` : ''}</div>
+    ${typeof MOCK !== 'undefined' && MOCK[lv] ? `<div class="box"><div class="row"><b>🎓 Đề thử kiểu Cambridge</b><span class="mute">${(S.mock && S.mock[lv] || []).length ? `đã làm ${S.mock[lv].length} lần` : 'chưa làm'}</span></div><p class="mute" style="margin:6px 0">${esc(MOCK[lv].name)}: khuôn, thời gian như đề thật; câu bốc ngẫu nhiên mỗi lần.</p><button class="pri" data-mock="${lv}">🎓 Làm đề thử</button></div>` : ''}
     ${realBox(lv)}
     ${ids.map(([id, ic, t], i) => { const s = st[i];
       return `<button class="box ovc" data-ovp="${id}" data-ovpl="${lv}" style="width:100%;text-align:left;display:block">
@@ -101,7 +102,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
           ${s.due ? `<p class="mute" style="margin:4px 0 0">${s.due} bài cần ôn</p>` : ''}` : '<p class="mute" style="margin:4px 0 0">Đang tải…</p>'}</button>`; }).join('')}
     <p class="mute">Một câu chỉ chấm cho một phần. 📘 Học 100% và 🔁 Nhớ ≥ ${GATE_MEM}% mở 🚪 Thi chuyển cấp của phần đó.</p>
     ${gyHomeHtml()}`;
-  $app.onclick = e => { const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl);
+  $app.onclick = e => { const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl); const mk = e.target.closest('[data-mock]'); if (mk) return mockView(mk.dataset.mock);
     const b = e.target.closest('[data-ovp]'); if (!b) return; const id = b.dataset.ovp, l = b.dataset.ovpl; scrollTo(0, 0);
     if (id === 'tv') { HOME.lv = l; HOME.open = null; return home(); }
     if (id === 'pa') PA_VIEW = l; else if (KIT[id]) KIT[id].view = l;
