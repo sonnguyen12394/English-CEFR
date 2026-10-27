@@ -34,4 +34,9 @@ for (const f of ['pre-fix.json', 'a1-fix.json']) {
 // câu thi Pre-A1 viết lại đúng cấp (X4)
 for (const [id, v] of Object.entries(JSON.parse(fs.readFileSync(root + 'content/exam-pre-fix.json', 'utf8')))) if (id[0] !== '_') E[id] = { s: v[0], f: v[1] };
 function wLvOf(w) { return (A.units.find(u => u.words.includes(w)) || {}).lv; }
+// Ngữ pháp: chuyển so sánh hơn / nhất, have to, must từ A2 lên A1 (có trong đề A1 Movers; quyết định Q3, docs/HOAN-THIEN.md)
+const NP = JSON.parse(fs.readFileSync(root + 'np.json', 'utf8')), NP_A1 = ['So sánh hơn của tính từ', 'So sánh nhất của tính từ', 'Have to / don\'t have to', 'Must / mustn\'t'];
+const mvNp = NP.items.filter(x => NP_A1.includes(x.title) && x.lv !== 'a1'); for (const x of mvNp) { x.lv = 'a1'; NP.items.splice(NP.items.indexOf(x), 1); }
+NP.items.splice(NP.items.map(x => x.lv).lastIndexOf('a1') + 1, 0, ...mvNp); fs.writeFileSync(root + 'np.json', JSON.stringify(NP));
+console.log('ngữ pháp chuyển lên A1:', mvNp.length);
 fs.writeFileSync(root + 'a1.json', JSON.stringify(A)); fs.writeFileSync(root + 'a2.json', JSON.stringify(A2)); fs.writeFileSync(root + 'exam-a1.json', JSON.stringify(E));

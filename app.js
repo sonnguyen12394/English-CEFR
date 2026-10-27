@@ -73,13 +73,17 @@ function grade(st, wid, ok, now, type) {
   c.ok = ok ? 1 : 0; c.last = now; c.n++; }
   c.dm = c.dm || {}; const w = WBY[wid];
   for (const k of DIM_OF[type] || []) { const d = c.dm[k] = c.dm[k] || {}; d.ok = ok ? 1 : 0; d.n = (d.n || 0) + 1;
-    const td = w ? taughtDay(c, w, k) : c.d0; if (ok && td != null && dayOf(now) - td >= MEM_DAYS) d.pv = 1; }
+    let td = w ? taughtDay(c, w, k) : c.d0;
+    // 27/10/2026 (Claude, người sáng lập giao "tự tính"): bỏ bài ⬆️ Nâng cấp riêng. Từ cấp trước gặp yêu cầu mới lần đầu trong 🏋️ Luyện tập
+    // = được dạy hôm đó (giải thích hiện sau câu); từ ngày sau làm đúng mới tính 🔁 Nhớ.
+    if (td == null && w && VREQ_BY[k]) { c.du = c.du || {}; td = c.du[VREQ_BY[k][2]] = dayOf(now); }
+    if (ok && td != null && dayOf(now) - td >= MEM_DAYS) d.pv = 1; }
 }
 // ⬆️ Nâng cấp: các cấp yêu cầu (A1, A2) mà từ w (cấp thấp hơn) cần được dạy thêm khi đang học cấp lv
 const upNeed = (w, lv = curLevel(), c = S.cards[w.id]) => ['a1', 'a2'].filter(L => lvIdx(L) > lvIdx(wLv(w)) && lvIdx(L) <= lvIdx(lv) && VREQ.some(r => r[2] === L && r[3](w)) && !(c && c.du && c.du[L] != null));
 // Người sáng lập 25/10/2026: 📘 Học chỉ tính từ của cấp đang học; 🔁 Nhớ và Thi chuyển cấp tính dồn cả các cấp trước. 26/10/2026: 📘 Học tính thêm
 // bài ⬆️ Nâng cấp của từ cấp trước (dạy yêu cầu mới trước khi Nhớ đòi). Mỗi yêu cầu tính trên các từ có dữ liệu cho yêu cầu đó.
-function parts(st, now, lv = curLevel()) { const WL = levelWords(lv), WM = memWords(lv), WU = WM.filter(w => lvIdx(wLv(w)) < lvIdx(lv) && upNeed(w, lv, {}).length);
+function parts(st, now, lv = curLevel()) { const WL = levelWords(lv), WM = memWords(lv), WU = [];   // 27/10/2026: không còn bài ⬆️ Nâng cấp tính vào 📘 Học (dạy trong luyện tập)
   let learn = 0, full = 0, due = 0; const ks = dimsAt(lv).map(d => d[0]), dim = Object.fromEntries(ks.map(k => [k, 0])), Tk = Object.fromEntries(ks.map(k => [k, 0]));
   for (const w of WL) if (st.cards[w.id]) learn++;
   for (const w of WU) if (st.cards[w.id] && !upNeed(w, lv, st.cards[w.id]).length) learn++;
@@ -156,7 +160,7 @@ function question(w, type) {
   if (type === 'col' && !w.col) type = 'cloze';
   if (type === 'vi2w') return { type, top: `${w.pic || ''} ${esc(w.vi)}`, sub: 'Từ tiếng Anh nào có nghĩa này?', a: w.w, opts: shuf([w.w, ...pick(w, 'w', 3)]) };
   if (type === 'w2vi') return { type, top: esc(w.w), sub: `${esc(w.ipa || '')} · nghĩa là gì?`, a: w.vi, opts: shuf([w.vi, ...pick(w, 'vi', 3)]), say: w.w };
-  if (type === 'col') return { type, top: 'Cụm từ nào đúng?', sub: `${esc(w.w)}: ${esc(w.vi)}`, a: w.col.ok, opts: shuf([w.col.ok, ...w.col.bad]) };
+  if (type === 'col') return { type, top: 'Cụm từ nào đúng?', sub: `${esc(w.w)}: ${esc(w.vi)}`, a: w.col.ok, opts: shuf([w.col.ok, ...w.col.bad]), after: `<br>🔗 Cụm đúng: <b>${esc(w.col.ok)}</b>` };
   if (type === 'listen') return { type, top: '🎧 Nghe rồi chọn nghĩa', sub: `<button class="chip" data-say="${w.id}">🔊 Nghe lại</button>`, a: w.vi, opts: shuf([w.vi, ...pick(w, 'vi', 3)]), say: w.w };
   // gõ từ (tự nhớ ra để viết): gợi ý chữ đầu + số chữ
   const hint = a => `Gợi ý: ${esc(a[0])}${a.slice(1).replace(/[^ ]/g, ' _')} (${a.replace(/ /g, '').length} chữ cái)`;
@@ -298,7 +302,6 @@ function home() {
       <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
       <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
-    ${(() => { const up = upUnits(lv); return up.length ? `<div class="box"><b>⬆️ Nâng cấp từ cấp trước: còn ${up.length} unit</b><p class="mute" style="margin:4px 0">Lên ${LVN[lv]}, từ cấp trước phải đạt thêm yêu cầu mới. Mỗi bài nâng cấp ~3 phút, tính vào 📘 Học.</p><button data-a="up" data-u="${up[0].id}">⬆️ Nâng cấp ${uLabel(up[0])}</button></div>` : ''; })()}
     <p class="mute">${tip}</p>
     ${examBox(p, lv)}
     ${DUR_PREV[lv] && !xDurable(DUR_PREV[lv]) ? examBox(parts(S, now, DUR_PREV[lv]), DUR_PREV[lv]) : ''}
@@ -378,11 +381,11 @@ function practice(k) {
     if (k) { const td = taughtDay(c, w, k); return (heldDim(c, k, now) ? 4 : td != null && today - td >= MEM_DAYS ? 0 : 2) + recall(c, now); }
     return st === 'quen' ? recall(c, now) : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, now); };
   // luyện riêng một yêu cầu: chỉ từ có yêu cầu đó ở cấp đang học và đã được dạy (bài học hoặc ⬆️ Nâng cấp)
-  const list = shuf(WORDS.filter(w => S.cards[w.id] && (!k || (wDims(w).includes(k) && taughtDay(S.cards[w.id], w, k) != null)))).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);
+  const list = shuf(WORDS.filter(w => S.cards[w.id] && (!k || wDims(w).includes(k)))).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);
   if (k === 'noi') return noiTask('noi');
   if (!list.length) { toast('Chưa có từ đã học cho yêu cầu này.'); return home(); }
   let ok = 0;
-  run({ title: k ? `🏋️ ${DIMS.find(x => x[0] === k)[1]}` : '🏋️ Luyện tập', items: list.map(w => ({ w, type: k ? TYPE_FOR[k]() : typeFor(S.cards[w.id], now, w) })), retry: true,
+  run({ title: k ? `🏋️ ${DIMS.find(x => x[0] === k)[1]}` : '🏋️ Luyện tập', items: list.map(w => { const type = k ? TYPE_FOR[k]() : typeFor(S.cards[w.id], now, w); return { w, type, teach: (DIM_OF[type] || []).some(d => wDims(w).includes(d) && taughtDay(S.cards[w.id], w, d) == null) }; }), retry: true,
     first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) ok++; save(); },
     done: () => { const p = parts(S, Date.now());
       $app.innerHTML = `<div class="box"><b>Xong lượt luyện tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}% (${dimsAt().map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')}).</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về 📘 Học</button>`;
@@ -445,7 +448,7 @@ function run({ title, items, retry, quiet, first, done }) {
     window.CUR = { view: title, unit: it.w.u, item: 'w:' + it.w.id + ':' + Q.type, prompt: String(Q.top).replace(/<[^>]*>|&[a-z#0-9]+;/g, '').slice(0, 200) };
     $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${esc(title)} · ${solved}/${total}</span></div>
       ${bar(solved / total * 100, 0, 'var(--accent)')}
-      <p class="q">${Q.top}</p><p class="mute">${Q.sub}</p>
+      <p class="q">${Q.top}</p><p class="mute">${Q.sub}</p>${it.teach ? `<p class="mute">🆕 Yêu cầu mới của ${LVN[curLevel()]} cho từ này: làm thử rồi đọc giải thích sau câu. Hôm nay là ngày học, từ mai làm đúng mới tính 🔁 Nhớ.</p>` : ''}
       ${Q.typed ? `<form id="tf" autocomplete="off"><input id="ti" class="tin" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="Gõ câu trả lời">
         <button class="pri" type="submit">Kiểm tra</button><button type="button" data-a="skip">Không nhớ</button></form>`
         : Q.opts.map((o, k) => `<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}<div id="fb"></div>`;
