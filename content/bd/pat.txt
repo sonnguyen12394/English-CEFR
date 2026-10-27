@@ -1,0 +1,158 @@
+# P|từ|câu có ___|đáp án|sai1,sai2,sai3|mẫu. Claude soạn 27/10/2026, chưa người thật kiểm.
+P|afford|We can't afford ___ a new car this year.|to buy|buying,buy,for buying|afford + to V
+P|tend|Prices tend ___ in summer.|to rise|rising,rise,for rising|tend + to V
+P|intend|I intend ___ my job next year.|to leave|leaving,leave,for leaving|intend + to V
+P|pretend|He pretended ___ asleep.|to be|being,be,that be|pretend + to V
+P|admit|She admitted ___ the money.|taking|to take,take,for taking|admit + V-ing
+P|deny|He denied ___ the window.|breaking|to break,break,for breaking|deny + V-ing
+P|regret|I regret ___ him the truth.|telling|to tell,tell,for telling|regret + V-ing (việc đã làm)
+P|resist|I couldn't resist ___ another cake.|eating|to eat,eat,for eating|can't resist + V-ing
+P|consist|The team consists ___ five people.|of|in,with,by|consist of
+P|concentrate|I can't concentrate ___ my work.|on|in,at,to|concentrate on
+P|apologize|She apologized ___ being late.|for|about,of,to|apologize (to sb) for V-ing
+P|insist|He insisted ___ paying the bill.|on|to,for,at|insist on + V-ing
+P|depend|It depends ___ the weather.|on|of,from,at|depend on
+P|rely|You can rely ___ me.|on|to,at,in|rely on
+P|accuse|They accused him ___ lying.|of|for,about,with|accuse sb of + V-ing
+P|blame|Don't blame me ___ the mistake.|for|of,about,with|blame sb for sth
+P|warn|She warned us ___ the danger.|about|for,with,to|warn sb about sth
+P|suffer|He suffers ___ headaches.|from|of,with,by|suffer from
+P|participate|Everyone participated ___ the game.|in|on,at,to|participate in
+P|contribute|Many people contributed ___ the project.|to|for,in,on|contribute to
+P|cope|She is coping well ___ the new job.|with|for,to,at|cope with
+P|succeed|He succeeded ___ passing the exam.|in|on,to,at|succeed in + V-ing
+P|persuade|We persuaded him ___ with us.|to come|coming,come,for coming|persuade sb + to V
+P|convince|She convinced me ___ the job.|to take|taking,take,for taking|convince sb + to V
+P|encourage|My teacher encouraged me ___ more.|to read|reading,read,for reading|encourage sb + to V
+P|urge|They urged him ___ a doctor.|to see|seeing,see,for seeing|urge sb + to V
+P|forbid|Her parents forbade her ___ out late.|to go|going,go,for going|forbid sb + to V
+P|enable|The money enabled us ___ a house.|to buy|buying,buy,for buying|enable sb + to V
+P|remind|Remind me ___ the milk.|to buy|buying,buy,for buying|remind sb + to V
+P|deserve|You deserve ___ a break.|to have|having,have,for having|deserve + to V
+P|hesitate|Don't hesitate ___ me.|to call|calling,call,for calling|hesitate + to V
+P|dare|Nobody dared ___ a word.|to say|saying,said,for saying|dare + to V
+P|volunteer|She volunteered ___ the children.|to help|helping,help,for helping|volunteer + to V
+P|threaten|He threatened ___ the police.|to call|calling,call,for calling|threaten + to V
+P|beg|The child begged ___ stay up late.|to|for,on,with|beg + to V
+P|seek|They are seeking ___ the problem.|to solve|solving,solve,for solving|seek + to V
+P|strive|We strive ___ the best service.|to give|giving,give,for giving|strive + to V
+P|opt|Many students opt ___ online courses.|for|to,on,with|opt for sth
+P|cater|The hotel caters ___ families.|for|to,with,on|cater for
+P|adhere|Players must adhere ___ the rules.|to|on,with,at|adhere to
+P|comply|All staff must comply ___ the law.|with|to,on,for|comply with
+P|interfere|Don't interfere ___ their argument.|in|on,at,to|interfere in
+P|refrain|Please refrain ___ smoking.|from|of,to,on|refrain from + V-ing
+P|deprive|They deprived him ___ sleep.|of|from,with,on|deprive sb of sth
+P|compensate|The company compensated us ___ the delay.|for|of,with,about|compensate sb for sth
+P|congratulate|We congratulated her ___ her new job.|on|for,with,about|congratulate sb on sth
+P|confess|He confessed ___ the crime.|to|for,of,about|confess to sth
+P|dwell on|Don't dwell ___ the past.|on|in,at,with|dwell on
+P|indulge|We indulged ___ a big dinner.|in|on,with,at|indulge in
+P|plead|He pleaded ___ help.|for|to,on,with|plead for
+P|cling|The child clung ___ her mother.|to|on,with,at|cling to
+P|coincide|My birthday coincides ___ the holiday.|with|to,on,at|coincide with
+P|differ|Our opinions differ ___ yours.|from|of,with,at|differ from
+P|distinguish|Can you distinguish ___ the twins?|between|from,of,on|distinguish between A and B
+P|object|Many people object ___ the new tax.|to|on,with,for|object to
+P|devote|She devoted her life ___ helping others.|to|for,on,with|devote sth to + V-ing
+P|commit|He is committed ___ improving the school.|to|for,on,with|be committed to + V-ing
+P|look forward to|I'm looking forward ___ you.|to seeing|to see,seeing,see|look forward to + V-ing
+P|get used to|I can't get used ___ up early.|to getting|to get,getting,get|get used to + V-ing
+P|object to|I object ___ treated like a child.|to being|to be,being,be|object to + V-ing
+P|resent|He resented ___ told what to do.|being|to be,be,for being|resent + V-ing
+P|postpone|They postponed ___ the meeting.|holding|to hold,hold,for holding|postpone + V-ing
+P|risk|Don't risk ___ your job.|losing|to lose,lose,for losing|risk + V-ing
+P|quit|I quit ___ last year.|smoking|to smoke,smoke,for smoking|quit + V-ing
+P|mind|Would you mind ___ the door?|closing|to close,close,for closing|mind + V-ing
+P|recall|I don't recall ___ him before.|meeting|to meet,meet,for meeting|recall + V-ing
+P|anticipate|We anticipate ___ more staff.|hiring|to hire,hire,for hiring|anticipate + V-ing
+P|contemplate|She is contemplating ___ abroad.|moving|to move,move,for moving|contemplate + V-ing
+P|envisage|I can't envisage ___ there.|working|to work,work,for working|envisage + V-ing
+P|resume|They resumed ___ after lunch.|talking|to talk,talk,for talking|resume + V-ing
+P|tolerate|I won't tolerate ___ late.|being|to be,be,for being|tolerate + V-ing
+P|suggest|She suggested ___ a taxi.|taking|to take,take,for taking|suggest + V-ing
+P|claim|He claims ___ the king.|to have met|having met,meet,that meet|claim + to V
+P|assume|I assumed ___ you were busy.|that|if,what,to|assume (that) + mệnh đề
+P|ensure|Please ensure ___ the door is locked.|that|if,to,what|ensure (that) + mệnh đề
+P|reckon|I reckon ___ it will rain.|that|if,to,what|reckon (that) + mệnh đề
+P|imply|Are you implying ___ I lied?|that|if,to,what|imply (that) + mệnh đề
+P|regard|I regard him ___ my best friend.|as|like,for,to|regard sb as sth
+P|perceive|She is perceived ___ a strong leader.|as|like,for,to|be perceived as
+P|associate|We associate summer ___ holidays.|with|to,for,on|associate A with B
+P|attribute|He attributes his success ___ hard work.|to|for,on,with|attribute A to B
+P|derive|Many English words derive ___ Latin.|from|of,by,with|derive from
+P|emerge|The truth emerged ___ the trial.|from|of,by,at|emerge from
+P|transform|The city was transformed ___ a tourist centre.|into|to,on,at|transform A into B
+P|convert|They converted the barn ___ a house.|into|to,on,at|convert A into B
+P|divide|Divide the class ___ two groups.|into|to,on,by|divide sth into
+P|split|We split the bill ___ four people.|between|among,into,by|split sth between
+P|supply|The farm supplies us ___ eggs.|with|for,of,to|supply sb with sth
+P|provide|The school provides students ___ books.|with|for,of,to|provide sb with sth
+P|equip|The room is equipped ___ a computer.|with|for,of,by|be equipped with
+P|charge|They charged him ___ theft.|with|of,for,about|charge sb with (a crime)
+P|suspect|Police suspect him ___ the robbery.|of|for,with,about|suspect sb of sth
+P|rob|They robbed him ___ his wallet.|of|from,with,for|rob sb of sth
+P|cure|This medicine will cure you ___ the cough.|of|from,with,for|cure sb of sth
+P|prevent|The rain prevented us ___ going out.|from|of,to,for|prevent sb from + V-ing
+P|discourage|Bad weather discourages people ___ coming.|from|of,to,for|discourage sb from + V-ing
+P|prohibit|Students are prohibited ___ using phones.|from|of,to,for|prohibit sb from + V-ing
+P|dissuade|We dissuaded her ___ leaving.|from|of,to,for|dissuade sb from + V-ing
+P|refer|She referred ___ the report.|to|on,at,for|refer to
+P|respond|He didn't respond ___ my email.|to|on,at,for|respond to
+P|react|How did she react ___ the news?|to|on,at,for|react to
+P|apply|I applied ___ the job.|for|to,on,at|apply for (a job)
+P|qualify|He qualified ___ a doctor last year.|as|like,for,to|qualify as
+P|specialize|She specializes ___ children's books.|in|on,at,for|specialize in
+P|invest|They invested ___ new machines.|in|on,at,for|invest in
+P|engage|We engage ___ lots of activities.|in|on,at,for|engage in
+P|confide|She confided ___ her sister.|in|on,at,to|confide in sb
+P|boast|He boasted ___ his new car.|about|on,with,at|boast about
+P|complain|They complained ___ the noise.|about|on,with,at|complain about
+P|argue|They argued ___ money.|about|on,with,at|argue about sth
+P|negotiate|We negotiated ___ the company for weeks.|with|to,on,at|negotiate with sb
+P|cooperate|We must cooperate ___ other teams.|with|to,on,at|cooperate with
+P|collaborate|She collaborated ___ a famous writer.|with|to,on,at|collaborate with
+P|interact|Children interact ___ each other.|with|to,on,at|interact with
+P|sympathize|I sympathize ___ your situation.|with|to,on,for|sympathize with
+P|aware|Are you aware ___ the danger?|of|about,with,for|be aware of
+P|capable|She is capable ___ winning.|of|to,for,in|be capable of + V-ing
+P|proud|I'm proud ___ my son.|of|about,with,for|be proud of
+P|ashamed|He was ashamed ___ his behaviour.|of|about,with,for|be ashamed of
+P|fond|She is fond ___ cats.|of|about,with,for|be fond of
+P|keen|He is keen ___ football.|on|of,about,with|be keen on
+P|familiar|Are you familiar ___ this software?|with|to,of,on|be familiar with
+P|grateful|I'm grateful ___ your help.|for|of,with,to|be grateful (to sb) for sth
+P|responsible|Who is responsible ___ this mess?|for|of,with,to|be responsible for
+P|eligible|You are eligible ___ a discount.|for|of,with,to|be eligible for
+P|guilty|He was found guilty ___ theft.|of|for,with,about|be guilty of
+P|jealous|She is jealous ___ her sister.|of|about,with,for|be jealous of
+P|envious|He was envious ___ my success.|of|about,with,for|be envious of
+P|immune|She is immune ___ the disease.|to|from,of,with|be immune to
+P|compatible|This app is compatible ___ my phone.|with|to,of,for|be compatible with
+P|equivalent|One mile is equivalent ___ 1.6 km.|to|with,of,for|be equivalent to
+P|relevant|This is not relevant ___ our topic.|to|with,of,for|be relevant to
+P|sensitive|My skin is sensitive ___ the sun.|to|with,of,for|be sensitive to
+P|liable|You are liable ___ any damage.|for|to,of,with|be liable for
+P|reluctant|He was reluctant ___ help.|to|for,of,in|be reluctant + to V
+P|willing|Are you willing ___ more?|to pay|paying,pay,for paying|be willing + to V
+P|eager|The kids are eager ___ the zoo.|to visit|visiting,visit,for visiting|be eager + to V
+P|inclined|I'm inclined ___ with you.|to agree|agreeing,agree,for agreeing|be inclined + to V
+P|unable|She was unable ___ the door.|to open|opening,open,for opening|be unable + to V
+P|bound|It's bound ___ rain tomorrow.|to|for,of,in|be bound + to V (chắc chắn)
+P|accustomed|I'm accustomed ___ up early.|to getting|to get,getting,get|be accustomed to + V-ing
+P|tantamount|His silence was tantamount ___ a confession.|to|with,of,for|be tantamount to
+P|regardless|We went regardless ___ the rain.|of|to,with,for|regardless of
+P|apart|Apart ___ Tom, everyone came.|from|of,to,with|apart from
+P|due|The delay was due ___ the snow.|to|of,for,with|due to
+P|worth|This film is worth ___.|watching|to watch,watch,for watching|be worth + V-ing
+P|access|Students have access ___ the library.|to|for,of,with|access to
+P|attitude|His attitude ___ work is great.|to|for,of,with|attitude to/towards
+P|impact|Phones have an impact ___ sleep.|on|to,for,with|impact on
+P|demand|There is high demand ___ nurses.|for|of,to,on|demand for
+P|tendency|He has a tendency ___ exaggerate.|to|for,of,in|tendency + to V
+P|reluctance|I understand your reluctance ___ talk.|to|for,of,in|reluctance + to V
+P|ban|There is a ban ___ smoking here.|on|for,of,to|ban on sth
+P|lack|There is a lack ___ money.|of|for,in,with|lack of
+P|threat|Pollution is a threat ___ our health.|to|for,of,on|threat to
+P|solution|Is there a solution ___ this problem?|to|for,of,on|solution to
+P|cope|How do you cope ___ stress?|with|for,to,at|cope with

@@ -191,7 +191,7 @@ function question(w, type) {
   // gõ từ (tự nhớ ra để viết): gợi ý chữ đầu + số chữ
   const hint = a => `Gợi ý: ${esc(a[0])}${a.slice(1).replace(/[^ ]/g, ' _')} (${a.replace(/ /g, '').length} chữ cái)`;
   if (type === 'spell') return { type, top: `${w.pic || ''} ${esc(w.vi)}`, sub: `Gõ từ tiếng Anh. ${hint(w.w)}`, a: w.w, typed: true };
-  if (type === 'clozeT') return { type, top: esc(w.cloze.s), sub: `Gõ từ còn thiếu (nghĩa: ${esc(w.vi)}). ${hint(w.cloze.a)}`, a: w.cloze.a, typed: true };
+  if (type === 'clozeT' && w.cloze) return { type, top: esc(w.cloze.s), sub: `Gõ từ còn thiếu (nghĩa: ${esc(w.vi)}). ${hint(w.cloze.a)}`, a: w.cloze.a, typed: true };
   return { type: 'cloze', top: esc(w.cloze.s), sub: 'Chọn từ điền vào chỗ trống.', a: w.cloze.a, opts: shuf([w.cloze.a, ...w.cloze.w]) };
 }
 // Góp ý #7 (người sáng lập 22/10/2026: áp vào cả 🔁 Nhớ và Thi chuyển cấp): trắc nghiệm chỉ đo NHẬN RA từ; thêm TỰ NHỚ RA để viết (gõ từ) và NGHE HIỂU.

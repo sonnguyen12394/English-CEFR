@@ -133,3 +133,4 @@ raison-d-etre|Helping people is the charity's raison d'être.|raison d'être
 glisten|The grass glistened with dew.|glistened
 marginalise|The policy marginalises poor families.|marginalises
 off-the-cuff|He spoke off the cuff at the meeting.|off the cuff
+lyric|I don't understand the lyrics of this song.|lyrics

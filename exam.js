@@ -57,7 +57,10 @@ function xClipOk(l) { if (!l || ['pre', 'a1'].includes(XLV)) return false; WBY_W
   return l.toLowerCase().match(/[a-z']+/g).every(t => { const L = xLvOf(t); return L != null && LEVELS.indexOf(L) <= LEVELS.indexOf(XLV); }); }
 function examQ(w, type) {
   window.XSAY = null;
-  if (X_Q[type]) { const q = X_Q[type][1](w) && (questionX(w, X_Q[type][0]) || question(w, X_Q[type][0])); if (q && q.type === X_Q[type][0]) return { ...q, type }; type = 'xT'; }
+  if (X_Q[type]) { const q = X_Q[type][1](w) && (questionX(w, X_Q[type][0]) || question(w, X_Q[type][0]));
+    // 🔄 thay từ, 🌫 thành ngữ: câu thi mới (câu luyện là câu ví dụ trên thẻ); dạng từ trong câu thi in đậm
+    const e = EB && EB[w.id]; if (q && (type === 'xY' || type === 'xId') && e && e.f && xBlank(e.s, e.f) !== e.s) q.top = esc(xBlank(e.s, e.f)).replace('_____', `<b>${esc(e.s.match(new RegExp(`(?<![A-Za-z'])${e.f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z])`, 'i'))[0])}</b>`);
+    if (q && q.type === X_Q[type][0]) return { ...q, type }; type = 'xT'; }
   const e = EB[w.id], s = e.s, f = e.f;
   if (type === 'xM') { const ds = [...new Map(samePos(w, 8).map(x => inflect(w.w, f, x.w)).filter(Boolean).filter(x => x.toLowerCase() !== f.toLowerCase()).map(x => [x.toLowerCase(), x])).values()];
     if (ds.length >= 3) return { type, top: esc(xBlank(s, f)), sub: 'Chọn từ điền vào chỗ trống.', a: f, opts: shuf([f, ...ds.slice(0, 3)]) };

@@ -1,0 +1,76 @@
+# S|cụm động từ|đồng nghĩa|trái nghĩa. Claude soạn 27/10/2026, chưa người thật kiểm.
+S|make up|reconcile|fall out
+S|get back|return|
+S|go over|review,check|
+S|look up|check|
+S|keep up with|keep pace with|fall behind
+S|run out of|use up|
+S|fall out|argue,quarrel|make up
+S|drop out|leave,quit|
+S|clean up|tidy|
+S|fall behind|lag|catch up
+S|split up|break up,separate|
+S|get through|survive|
+S|do without|manage without|
+S|live up to|meet|
+S|come up against|face,encounter|
+S|talk over|discuss|
+S|go along with|agree with,accept|oppose
+S|get across|communicate,convey|
+S|break out|start,erupt|
+S|stand out|be noticeable|
+S|get round|avoid,get around|
+S|fall through|fail,collapse|succeed
+S|come round|visit|
+S|speak up|speak louder|
+S|catch on|become popular|
+S|phase out|gradually remove|introduce
+S|back down|give in,retreat|
+S|play down|minimize|exaggerate
+S|hand over|give,transfer|
+S|level off|stabilize|
+S|account for|explain|
+S|hold up|delay|
+S|stand by|support|
+S|follow up|pursue|
+S|fall back on|rely on|
+S|step down|resign|
+S|die down|subside,decrease|intensify
+S|bring forward|advance|postpone
+S|draw up|prepare,draft|
+S|wind down|relax|
+S|push back|postpone,delay|bring forward
+S|bear out|confirm,support|contradict
+S|kick off|start,begin|
+S|zero in on|focus on|
+S|lay off|dismiss|hire
+S|set aside|save,reserve|
+S|ward off|prevent,repel|
+S|drag on|continue|
+S|crop up|arise,appear|
+S|brush aside|dismiss,ignore|
+S|bounce back|recover|
+S|weigh up|consider|
+S|spill over|spread|
+S|flare up|erupt|
+S|dwell on|brood on|
+S|gloss over|ignore|
+S|trump up|invent,fabricate|
+S|factor in|include|
+S|egg on|encourage,urge|
+S|shore up|support,strengthen|
+S|stem from|come from,arise from|
+S|pin down|identify|
+S|rope in|recruit|
+S|whip up|stir up|
+S|verge on|border on|
+S|lapse into|slip into|
+S|embark on|begin,start|finish
+S|scrape by|get by|
+S|rake in|earn|
+S|rein in|control,restrain|
+S|hinge on|depend on|
+S|fob off|put off|
+S|stave off|prevent,ward off|
+S|detract from|reduce|
+S|wriggle out of|avoid,evade|

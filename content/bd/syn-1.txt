@@ -1,0 +1,294 @@
+# S|từ|đồng nghĩa (phẩy)|trái nghĩa (phẩy). Claude soạn 27/10/2026, chưa người thật kiểm.
+S|get on with|get along with|
+S|take on|employ,hire|
+S|get over|recover from|
+S|work out|solve,figure out|
+S|look up to|admire,respect|look down on
+S|take after|resemble|
+S|come up with|think of,invent|
+S|give up|quit,stop|
+S|set up|establish,start|
+S|point out|mention,indicate|
+S|put off|postpone,delay|
+S|set off|leave,depart|
+S|let down|disappoint|
+S|hand in|submit|
+S|run into|meet,bump into|
+S|call off|cancel|
+S|turn up|arrive,appear|
+S|bring up|raise|
+S|turn down|refuse,reject|accept
+S|break down|fail|
+S|release|free|
+S|respect|admire|
+S|contact|call|
+S|sort out|solve,fix|
+S|claim|say,state|
+S|damage|harm|repair
+S|carry on|continue|stop
+S|catch up|draw level|
+S|remain|stay|leave
+S|spread|extend|
+S|supply|provide|
+S|require|need|
+S|prove|show|
+S|treat|handle|
+S|appreciate|value|
+S|mix|blend|separate
+S|update|renew|
+S|measure|gauge|
+S|escape|flee|
+S|admit|confess|deny
+S|rent|hire|
+S|represent|stand for|
+S|quit|leave|
+S|survive|live|die
+S|encourage|support|discourage
+S|bother|annoy|
+S|indicate|show|
+S|pretend|fake|
+S|explore|investigate|
+S|gather|collect|scatter
+S|hurry|rush|
+S|divide|split|unite
+S|concentrate|focus|
+S|admire|respect|despise
+S|dislike|hate|like
+S|confuse|puzzle|
+S|annoy|irritate|please
+S|frighten|scare|
+S|determine|decide|
+S|switch|change|
+S|tend|incline|
+S|ban|prohibit,forbid|allow
+S|ignore|overlook|notice
+S|occur|happen|
+S|suffer|endure|
+S|assist|help|
+S|participate|take part|
+S|confirm|verify|deny
+S|hire|employ|fire
+S|expand|grow,enlarge|shrink
+S|commit|devote|
+S|investigate|examine,look into|
+S|announce|declare|
+S|convince|persuade|
+S|combine|join,mix|separate
+S|intend|plan,mean|
+S|cheat|deceive|
+S|donate|give|
+S|reject|refuse|accept
+S|warn|alert|
+S|punish|discipline|reward
+S|locate|find|
+S|conclude|finish,end|begin
+S|entertain|amuse|bore
+S|persuade|convince|
+S|explode|blow up|
+S|attach|fasten|detach
+S|revise|review|
+S|analyse|examine|
+S|decorate|adorn|
+S|summarize|sum up|
+S|fasten|attach|unfasten
+S|trust|believe|distrust
+S|gain|get,obtain|lose
+S|handle|manage,deal with|
+S|transfer|move|
+S|ensure|make sure|
+S|launch|start,begin|
+S|advance|progress|retreat
+S|maintain|keep|
+S|blame|accuse|
+S|display|show|hide
+S|seek|look for,search for|
+S|deserve|merit|
+S|assume|suppose|
+S|conduct|carry out|
+S|grab|seize,grasp|
+S|suspect|doubt|
+S|rescue|save|
+S|rush|hurry|
+S|defend|protect|attack
+S|establish|set up,found|
+S|select|choose|
+S|chase|pursue,follow|
+S|reveal|show,disclose|hide,conceal
+S|capture|catch|release
+S|decline|refuse|accept
+S|delay|postpone|
+S|obtain|get,acquire|
+S|recall|remember|forget
+S|monitor|watch,check|
+S|regret|repent|
+S|settle|resolve|
+S|regard|consider|
+S|contribute|give|
+S|deny|refuse|admit
+S|extend|lengthen|shorten
+S|praise|compliment|criticise
+S|ruin|destroy,spoil|
+S|enable|allow|prevent
+S|estimate|guess|
+S|recover|get better|
+S|overcome|beat,defeat|
+S|encounter|meet|
+S|pursue|follow,chase|
+S|forgive|pardon|
+S|trigger|cause|
+S|delete|remove,erase|
+S|generate|produce,create|
+S|demonstrate|show|
+S|resist|oppose|
+S|adopt|take up|
+S|preserve|protect,keep|destroy
+S|acknowledge|admit|deny
+S|cancel|call off|
+S|collapse|fall down|
+S|restore|repair|
+S|decrease|reduce,fall|increase
+S|resolve|solve,settle|
+S|retain|keep|lose
+S|eliminate|remove|
+S|acquire|get,obtain|lose
+S|heal|cure|
+S|urge|encourage|
+S|approve|accept|reject
+S|adjust|change,adapt|
+S|scare|frighten|
+S|observe|watch|
+S|accomplish|achieve|fail
+S|beg|plead|
+S|declare|announce|
+S|strengthen|reinforce|weaken
+S|transform|change|
+S|differ|vary|
+S|abandon|leave,desert|
+S|inspire|motivate|
+S|negotiate|bargain|
+S|adapt|adjust|
+S|construct|build|destroy
+S|expose|reveal|hide
+S|satisfy|please|
+S|oppose|resist|support
+S|arise|come up|
+S|occupy|fill|
+S|stare|gaze|
+S|emerge|appear|disappear
+S|calculate|work out|
+S|distinguish|differentiate|
+S|convey|express|
+S|absorb|soak up|
+S|accompany|go with|
+S|spoil|ruin|
+S|undergo|experience|
+S|restrict|limit|
+S|distribute|hand out|collect
+S|hesitate|pause|
+S|modify|change,alter|
+S|surround|encircle|
+S|wander|roam|
+S|forbid|ban,prohibit|allow
+S|disturb|interrupt|
+S|terrify|frighten|
+S|make out|see|
+S|back up|support|
+S|take up|start,begin|
+S|give in|surrender,yield|resist
+S|take over|control|
+S|found|establish|
+S|look into|investigate|
+S|put up with|tolerate,stand|
+S|set out|start|
+S|look down on|despise|look up to
+S|call for|demand,require|
+S|turn out|prove|
+S|bring about|cause|
+S|come across|find|
+S|cut down on|reduce|
+S|hold back|restrain|
+S|figure out|understand,solve|
+S|pass on|transmit|
+S|put forward|propose,suggest|
+S|rule out|exclude|
+S|carry out|perform,conduct|
+S|wear off|fade|
+S|pull out|withdraw|
+S|stick to|keep to|
+S|iron out|resolve,solve|
+S|purchase|buy|sell
+S|sum up|summarize|
+S|submit|hand in|
+S|implement|carry out|
+S|embrace|accept,welcome|reject
+S|tackle|deal with,handle|
+S|convert|change|
+S|assess|evaluate,judge|
+S|alter|change,modify|
+S|detect|notice,discover|
+S|withdraw|remove,pull out|deposit
+S|cope|manage|
+S|enhance|improve|
+S|extract|remove|insert
+S|evaluate|assess,judge|
+S|insert|put in|remove
+S|manufacture|make,produce|
+S|resign|quit|
+S|threaten|menace|
+S|exceed|surpass|
+S|impose|enforce|
+S|recruit|hire|
+S|consult|ask|
+S|regulate|control|
+S|clarify|explain|
+S|dismiss|reject|
+S|incorporate|include|exclude
+S|exploit|use|
+S|imply|suggest|
+S|obey|follow|disobey
+S|interpret|explain|
+S|exclude|leave out|include
+S|specify|state|
+S|chop|cut|
+S|reckon|think|
+S|whisper|murmur|shout
+S|anticipate|expect|
+S|undertake|take on|
+S|integrate|combine|separate
+S|perceive|notice,see|
+S|accuse|blame|
+S|distract|divert|
+S|illustrate|show|
+S|emphasize|stress|
+S|reinforce|strengthen|weaken
+S|suspend|stop|
+S|cite|quote|
+S|stimulate|encourage|
+S|transmit|send|receive
+S|comprise|consist of|
+S|interrupt|cut in|
+S|isolate|separate|
+S|motivate|inspire|
+S|grin|smile|frown
+S|discourage|deter|encourage
+S|fulfil|achieve|
+S|devote|dedicate|
+S|starve|go hungry|
+S|derive|get|
+S|prohibit|ban,forbid|allow
+S|speculate|guess|
+S|unfold|develop|
+S|stride|march|
+S|compute|calculate|
+S|classify|sort,categorize|
+S|contradict|deny|confirm
+S|signify|mean|
+S|infer|deduce|
+S|refute|disprove|prove
+S|erode|wear away|
+S|deduce|infer|
+S|erupt|explode|
+S|gleam|shine|
+S|imprison|jail|free
+S|precede|come before|follow
+S|stagger|stumble|

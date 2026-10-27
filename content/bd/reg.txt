@@ -1,0 +1,184 @@
+# R|từ|từ cùng nghĩa khác văn phong|F = từ này trang trọng hơn, I = từ này thân mật hơn|nghĩa (tuỳ chọn). Claude soạn 27/10/2026, chưa người thật kiểm.
+R|require|need|F|cần
+R|assist|help|F|giúp
+R|obtain|get|F|có được
+R|acquire|get|F|có được
+R|purchase|buy|F|mua
+R|commence|start|F|bắt đầu
+R|terminate|end|F|kết thúc
+R|cease|stop|F|ngừng
+R|utilize|use|F|dùng
+R|reside|live|F|sống, cư trú
+R|notify|tell|F|báo cho biết
+R|sufficient|enough|F|đủ
+R|approximately|about|F|khoảng
+R|therefore|so|F|vì vậy
+R|thus|so|F|vì vậy
+R|hence|so|F|vì vậy
+R|furthermore|also|F|hơn nữa
+R|moreover|also|F|hơn nữa
+R|nevertheless|still|F|tuy vậy
+R|nonetheless|still|F|tuy vậy
+R|consequently|so|F|do đó
+R|subsequent|later|F|sau đó
+R|previously|before|F|trước đây
+R|currently|now|F|hiện nay
+R|eventually|in the end|F|cuối cùng
+R|frequently|often|F|thường xuyên
+R|seldom|hardly ever|F|hiếm khi
+R|retain|keep|F|giữ lại
+R|maintain|keep|F|duy trì
+R|seek|look for|F|tìm
+R|request|ask for|F|yêu cầu
+R|inquire|ask|F|hỏi
+R|depart|leave|F|rời đi
+R|enable|let|F|cho phép
+R|permit|let|F|cho phép
+R|prohibit|ban|F|cấm
+R|demonstrate|show|F|cho thấy
+R|indicate|show|F|cho thấy
+R|construct|build|F|xây
+R|establish|set up|F|thành lập
+R|investigate|look into|F|điều tra
+R|tolerate|put up with|F|chịu đựng
+R|postpone|put off|F|hoãn
+R|cancel|call off|F|huỷ
+R|discover|find out|F|phát hiện
+R|ascertain|find out|F|xác định rõ
+R|comprehend|understand|F|hiểu
+R|deem|consider|F|cho là
+R|endeavour|try|F|cố gắng
+R|strive|try hard|F|nỗ lực
+R|attain|reach|F|đạt được
+R|accomplish|do|F|hoàn thành
+R|implement|carry out|F|thực hiện
+R|undertake|take on|F|đảm nhận
+R|assemble|put together|F|lắp ráp; tập hợp
+R|allocate|give out|F|phân bổ
+R|distribute|hand out|F|phân phát
+R|submit|hand in|F|nộp
+R|compensate|pay back|F|bồi thường
+R|reimburse|pay back|F|hoàn tiền
+R|diminish|go down|F|giảm
+R|decrease|go down|F|giảm
+R|elevate|lift|F|nâng lên
+R|descend|go down|F|đi xuống
+R|enquire|ask|F|hỏi
+R|expedite|speed up|F|đẩy nhanh
+R|accelerate|speed up|F|tăng tốc
+R|alleviate|ease|F|làm dịu
+R|mitigate|lessen|F|giảm nhẹ
+R|ameliorate|improve|F|cải thiện
+R|rectify|put right|F|sửa lại
+R|clarify|explain|F|làm rõ
+R|elucidate|explain|F|giải thích rõ
+R|reiterate|say again|F|nhắc lại
+R|endorse|back|F|tán thành
+R|commend|praise|F|khen
+R|admonish|tell off|F|khiển trách
+R|rebuke|tell off|F|khiển trách
+R|reprimand|tell off|F|khiển trách
+R|deceased|dead|F|đã mất
+R|elderly|old|F|cao tuổi
+R|affluent|rich|F|giàu có
+R|impoverished|poor|F|nghèo khó
+R|destitute|poor|F|cơ cực
+R|indigent|poor|F|nghèo túng
+R|inebriated|drunk|F|say
+R|commence|begin|F|bắt đầu
+R|adequate|enough|F|đủ
+R|numerous|lots of|F|nhiều
+R|substantial|big|F|đáng kể
+R|considerable|big|F|đáng kể
+R|immense|huge|F|rất lớn
+R|minuscule|tiny|F|rất nhỏ
+R|regarding|about|F|về việc
+R|prior|earlier|F|trước
+R|whereby|by which|F|nhờ đó
+R|thereby|so|F|nhờ đó
+R|thereafter|after that|F|sau đó
+R|henceforth|from now on|F|từ nay
+R|hitherto|until now|F|cho tới nay
+R|solely|only|F|chỉ
+R|merely|just|F|chỉ
+R|predominantly|mostly|F|chủ yếu
+R|ostensibly|seemingly|F|bề ngoài
+R|purportedly|supposedly|F|được cho là
+R|reportedly|apparently|F|theo tin
+R|candid|honest|F|thẳng thắn
+R|reticent|quiet|F|kín đáo, ít nói
+R|loquacious|chatty|F|nói nhiều
+R|garrulous|chatty|F|nói nhiều
+R|affable|friendly|F|dễ mến
+R|jovial|cheerful|F|vui vẻ
+R|morose|gloomy|F|buồn rầu
+R|fastidious|fussy|F|khó tính
+R|obstinate|stubborn|F|bướng
+R|inept|useless|F|vụng về, kém
+R|commendable|good|F|đáng khen
+R|exemplary|perfect|F|mẫu mực
+R|imminent|about to happen|F|sắp xảy ra
+R|deteriorate|get worse|F|xấu đi
+R|worsen|get worse|F|xấu đi
+R|abandon|give up|F|từ bỏ
+R|relinquish|give up|F|từ bỏ
+R|forgo|go without|F|bỏ qua, nhịn
+R|conceal|hide|F|che giấu
+R|disclose|tell|F|tiết lộ
+R|reveal|show|F|tiết lộ
+R|consume|eat|F|ăn, tiêu thụ
+R|kid|child|I|đứa trẻ
+R|guy|man|I|anh chàng
+R|mate|friend|I|bạn
+R|buddy|friend|I|bạn
+R|cop|police officer|I|cảnh sát
+R|fridge|refrigerator|I|tủ lạnh
+R|grab|take|I|chộp, lấy
+R|weird|strange|I|kì quặc
+R|dumb|stupid|I|ngốc
+R|gross|disgusting|I|ghê tởm
+R|super|very|I|rất
+R|cute|attractive|I|dễ thương
+R|mad|angry|I|tức điên
+R|reckon|think|I|nghĩ là
+R|sack|dismiss|I|đuổi việc
+R|quit|resign|I|nghỉ, bỏ (việc)
+R|hire|employ|I|thuê
+R|fix|repair|I|sửa
+R|figure out|understand|I|hiểu ra
+R|sort out|resolve|I|giải quyết
+R|find out|discover|I|tìm ra
+R|look into|investigate|I|điều tra
+R|put up with|tolerate|I|chịu đựng
+R|put off|postpone|I|hoãn
+R|call off|cancel|I|huỷ
+R|hand in|submit|I|nộp
+R|set up|establish|I|thành lập
+R|carry out|conduct|I|tiến hành
+R|cut down on|reduce|I|cắt giảm
+R|give up|abandon|I|từ bỏ
+R|come up with|devise|I|nghĩ ra
+R|bring about|cause|I|gây ra
+R|turn down|reject|I|từ chối
+R|speak up|speak louder|I|nói to lên
+R|hilarious|very funny|I|rất buồn cười
+R|gorgeous|beautiful|I|lộng lẫy
+R|fabulous|wonderful|I|tuyệt vời
+R|terrific|excellent|I|tuyệt
+R|awesome|impressive|I|tuyệt
+R|stuff|things|I|đồ, thứ
+R|chilly|cold|I|lạnh
+R|nosy|curious|I|tò mò
+R|grumpy|bad-tempered|I|cáu kỉnh
+R|bossy|domineering|I|hách dịch
+R|chatty|talkative|I|hay chuyện
+R|freaky|strange|I|kì dị
+R|tons|a great deal|I|rất nhiều
+R|loads|a great deal|I|rất nhiều
+R|pretty|fairly|I|khá
+R|nowadays|currently|I|ngày nay
+R|anyway|nevertheless|I|dù sao
+R|okay|acceptable|I|ổn
+R|bucks|dollars|I|đô la
+R|telly|television|I|ti vi
+R|loo|toilet|I|nhà vệ sinh
