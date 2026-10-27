@@ -31,5 +31,7 @@ for (const f of ['pre-fix.json', 'a1-fix.json']) {
   A.units.splice(at, 0, ...add);
   console.log(`${f}: hình ${pic} · sửa từ ${fix} · bỏ ${drop.size} · chuyển xuống ${mv.length} · thêm tổng ${add.reduce((n, u) => n + u.words.length, 0)} từ trong ${add.length} bài ${lv}`);
 }
+// câu thi Pre-A1 viết lại đúng cấp (X4)
+for (const [id, v] of Object.entries(JSON.parse(fs.readFileSync(root + 'content/exam-pre-fix.json', 'utf8')))) if (id[0] !== '_') E[id] = { s: v[0], f: v[1] };
 function wLvOf(w) { return (A.units.find(u => u.words.includes(w)) || {}).lv; }
 fs.writeFileSync(root + 'a1.json', JSON.stringify(A)); fs.writeFileSync(root + 'a2.json', JSON.stringify(A2)); fs.writeFileSync(root + 'exam-a1.json', JSON.stringify(E));

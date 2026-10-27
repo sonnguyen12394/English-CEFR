@@ -31,7 +31,7 @@ const SYN = [['bike', 'bicycle'], ['film', 'movie'], ['holiday', 'vacation'], ['
   ['dad', 'father'], ['mum', 'mother'], ['TV', 'television'], ['photo', 'photograph'], ['phone', 'telephone'], ['someone', 'somebody'],
   ['everyone', 'everybody'], ['nobody', 'no one'], ['amazing', 'fantastic', 'wonderful']];
 const synOf = w => (SYN.find(g => g.some(x => x.toLowerCase() === w.w.toLowerCase())) || []).filter(x => x.toLowerCase() !== w.w.toLowerCase());
-const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=10', 'exam-a2.json?v=4'].map(async f => (await fetch(f)).json())))));
+const loadEB = async () => EB || (EB = Object.assign({}, ...(await Promise.all(['exam-a1.json?v=11', 'exam-a2.json?v=4'].map(async f => (await fetch(f)).json())))));
 
 // từ nhiễu cùng loại từ, chỉ lấy từ thuộc cấp ≤ cấp đang thi (kiểm thử Pre-A1: đề Pre-A1 từng có từ nhiễu "injury", "poster")
 const samePos = (w, n) => { const ok = x => LEVELS.indexOf(wLv(x)) <= LEVELS.indexOf(XLV); let c = WORDS.filter(x => x.id !== w.id && x.pos === w.pos && ok(x)); if (c.length < n) c = WORDS.filter(x => x.id !== w.id && x.pos === w.pos); return shuf(c).slice(0, n); };
