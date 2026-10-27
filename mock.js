@@ -55,14 +55,15 @@ async function mockView(lv) { window.CUR = { view: 'de-thu', item: lv }; const C
   const rs = mkRuns(lv), last = rs[rs.length - 1];
   $app.innerHTML = `${backRow('🎓 Đề thử')}<h1>🎓 ${esc(C.name)}</h1>
     <div class="box"><p style="margin:0">Khuôn theo đề Cambridge thật: ${C.papers.map(p => `<b>${p.t}</b> ${p.min} phút`).join(' · ')}. Mỗi lần bấm, máy bốc câu mới ngẫu nhiên. Không báo đúng / sai giữa chừng. Hết giờ thì bài thi tự nộp.</p>
-      <p class="mute" style="margin:6px 0 0">Đạt (ước, không chính thức): mỗi bài thi tính ngang nhau, trung bình ≥ ${C.pass * 100}%. Nội dung AI soạn, không phải đề Cambridge; số câu ít hơn đề thật. Phần Nói chưa có (cần giám khảo). Kiểm cuối bằng đề mẫu chính thức ở 📝 Kiểm bằng đề thật.</p></div>
+      <p class="mute" style="margin:6px 0 0">Đạt (ước, không chính thức): mỗi bài thi tính ngang nhau, trung bình ≥ ${C.pass * 100}%. Nội dung AI soạn, không phải đề Cambridge; số câu ít hơn đề thật. 🗣 Nói (từ A1, cần Safari trên iPhone): máy đo gián tiếp 4 tiêu chí giám khảo, chưa đối chiếu người chấm thật. Kiểm cuối bằng đề mẫu chính thức ở 📝 Kiểm bằng đề thật.</p></div>
     ${C.papers.map((p, i) => `<button class="pri" data-mk="${i}" style="margin-top:8px">${p.t} (${p.min} phút)</button>`).join('')}
     <button data-mk="all" style="margin-top:8px">▶ Làm cả đề (${C.papers.length} bài thi liền nhau)</button>
     ${last ? `<div class="box"><b>Lần gần nhất</b> (${new Date(last.at).toLocaleDateString('vi-VN')}): ${last.papers.map(p => `${p.t} ${p.ok}/${p.n}`).join(' · ')}${last.pct != null ? ` → <b>${last.pct}%</b> ${last.pass ? '✅' : '❌'}` : ''}<p class="mute" style="margin:4px 0 0">Đã làm ${rs.length} lần.</p></div>` : ''}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return overview(lv); const b = e.target.closest('[data-mk]'); if (!b) return;
     const idx = b.dataset.mk === 'all' ? C.papers.map((_, i) => i) : [+b.dataset.mk]; mkStart(lv, idx); }; }
 function mkStart(lv, idx) { const C = MOCK[lv]; MK = { lv, C, papers: [], idx };
-  for (const i of idx) { const p = C.papers[i]; MK.papers.push({ t: p.t, min: p.min, qs: p.parts.flatMap(([part, gen]) => gen().map(q => ({ part, q }))), res: [] }); }
+  for (const i of idx) { const p = C.papers[i]; if (p.speak && !SREC) { toast('Bài Nói cần máy chép lời: mở trang bằng Safari trên iPhone.'); continue; }
+    MK.papers.push({ t: p.t, min: p.min, speak: p.speak, qs: p.parts.flatMap(([part, gen]) => gen().map(q => q.part && q.q ? q : { part, q })), res: [] }); }
   const empty = MK.papers.filter(p => !p.qs.length); if (empty.length) toast('Kho chưa đủ câu cho: ' + empty.map(p => p.t).join(', '));
   MK.papers = MK.papers.filter(p => p.qs.length); if (!MK.papers.length) return mockView(lv);
   if (!confirm(`${C.name}: ${MK.papers.map(p => `${p.t} ${p.qs.length} câu, ${p.min} phút`).join(' · ')}. Bắt đầu?`)) return mockView(lv);
@@ -71,8 +72,10 @@ function mkStart(lv, idx) { const C = MOCK[lv]; MK = { lv, C, papers: [], idx };
 function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000, plays = {}; let i = 0;
   clearInterval(MK.tick); MK.tick = setInterval(() => { const el = document.getElementById('mkt'); if (!el) return; const s = Math.max(0, Math.round((end - Date.now()) / 1000));
     el.textContent = `⏱ ${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; if (s <= 0) { toast('Hết giờ: bài thi tự nộp.'); finish(); } }, 1000);
-  const finish = () => { clearInterval(MK.tick); try { speechSynthesis.cancel(); } catch (e) {} for (; i < P.qs.length; i++) P.res.push({ ...P.qs[i], ok: false, ans: '(hết giờ)' }); i = P.qs.length;
+  const finish = () => { clearInterval(MK.tick); try { speechSynthesis.cancel(); } catch (e) {} if (P.speak) kAsrStop();
+    for (let j = P.res.length; j < P.qs.length; j++) P.res.push({ ...P.qs[j], ok: false, ans: '', secs: 1, lat: 99 }); i = P.qs.length;
     return pi + 1 < MK.papers.length ? mkBreak(pi) : mkResult(); };
+  if (P.speak) return mkSpeakRun(pi, finish);
   const show = () => { if (i >= P.qs.length) return finish(); const { part, q } = P.qs[i]; window.CUR = { view: 'de-thu-cau', item: MK.lv + ':' + P.t + ':' + i, prompt: String(q.q).replace(/<[^>]*>/g, '').slice(0, 200) };
     const body = q.kind === 'mc' ? q.opts.map((o, k) => `<button class="opt" data-ko="${k}">${esc(o)}</button>`).join('')
       : q.kind === 'write' ? `<form id="kf" autocomplete="off"><textarea id="kt" rows="9" autocapitalize="sentences" spellcheck="false" aria-label="Bài viết"></textarea><p class="mute" id="kwc">0 từ</p><button class="pri" type="submit">Nộp bài viết</button></form>`
@@ -92,15 +95,21 @@ function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000
   show(); }
 function mkBreak(pi) { $app.innerHTML = `<div class="box"><b>Xong ${esc(MK.papers[pi].t)}</b><p>Bài tiếp: ${esc(MK.papers[pi + 1].t)} (${MK.papers[pi + 1].min} phút). Nghỉ một chút nếu cần.</p></div><button class="pri" data-a="next">▶ Bắt đầu</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="next"]')) mkPaper(pi + 1); }; }
-function mkResult() { const { lv, C } = MK, ps = MK.papers.map(p => ({ t: p.t, ok: p.res.filter(r => r.ok).length, n: p.res.length })), full = MK.idx.length === C.papers.length;
+function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.speak) p.sc = mkSpeakScore(p.res, lv);
+  const ps = MK.papers.map(p => p.sc ? { t: p.t, ok: p.sc.pct, n: 100, crit: p.sc.C } : { t: p.t, ok: p.res.filter(r => r.ok).length, n: p.res.length }), full = MK.idx.length === C.papers.length;
   const pct = Math.round(ps.reduce((s, p) => s + p.ok / p.n, 0) / ps.length * 100), pass = pct >= C.pass * 100;
   mkRuns(lv).push({ at: Date.now(), papers: ps, pct: full ? pct : null, pass: full && pass }); S.t = Date.now(); save();
   const parts = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } return Object.entries(by).map(([k, [a, b]]) => `${esc(k)}: ${a}/${b}`).join('<br>'); };
-  const wrong = MK.papers.flatMap(p => p.res.filter(r => !r.ok).map(r => ({ p, r })));
+  const wrong = MK.papers.filter(p => !p.speak).flatMap(p => p.res.filter(r => !r.ok).map(r => ({ p, r })));
+  const spk = MK.papers.filter(p => p.sc).map(p => { const d = p.sc.d; return `<details class="box" open><summary>🗣 Nói: ${p.sc.pct}% theo 4 tiêu chí giám khảo (máy đo gián tiếp)</summary>
+    ${p.sc.C.map(([n, v]) => `<p style="margin:4px 0">${n}: <b>${v}%</b></p>${bar(v, C.pass * 100, 'var(--good)')}`).join('')}
+    <p class="mute" style="margin:6px 0 0">🔁 Nhắc lại câu đúng ${d.eit}% từ · cấu trúc đề đòi ${d.struct == null ? '–' : d.struct + '%'} · từ đúng cấp trở lên ${d.voc}/${d.tV} · từ nối khác nhau ${d.links}/${d.tL} · tốc độ ${d.wpm}/${d.tW} từ/phút · đóng vai đúng việc ${d.rp == null ? '–' : d.rp + '%'}.</p>
+    ${p.res.map(r => `<p style="margin:6px 0 0;font-size:14px"><span class="mute">${esc(r.part)}:</span> ${r.q.mode === 'eit' ? `câu gốc “${esc(r.q.s)}” · ` : ''}bạn nói “${esc(r.ans || '…')}”${r.q.mode === 'q' && r.q.need.length ? ` <span class="mute">(cần: ${r.q.need.map(k => (SPK_RE[k].test(String(r.ans || '').toLowerCase()) ? '✅ ' : '⬜ ') + SPK_REVI[k]).join(', ')})</span>` : ''}</p>`).join('')}
+    <p class="mute" style="margin:6px 0 0">Máy không chấm được lỗi ngữ pháp trong lời nói tự do, nên đo qua nhắc lại câu, cấu trúc, độ dài, tốc độ. Chưa đối chiếu giám khảo thật: nên nói thử với giáo viên 1 buổi mỗi cấp.</p></details>`; }).join('');
   $app.innerHTML = `<h1>🎓 Kết quả ${esc(C.name)}</h1>
-    <div class="box">${ps.map(p => `<p style="margin:4px 0"><b>${p.t}</b> ${p.ok}/${p.n} (${Math.round(p.ok / p.n * 100)}%)</p>`).join('')}
+    <div class="box">${ps.map(p => `<p style="margin:4px 0"><b>${p.t}</b> ${p.crit ? `${p.ok}% (4 tiêu chí)` : `${p.ok}/${p.n} (${Math.round(p.ok / p.n * 100)}%)`}</p>`).join('')}
       ${full ? `<p style="margin:6px 0 0"><b>Trung bình ${pct}% · ${pass ? '✅ ước đạt' : '❌ ước chưa đạt'}</b> (cần ${C.pass * 100}%, ngưỡng ước tính)</p>` : '<p class="mute">Chỉ làm một phần đề: chưa tính đạt.</p>'}</div>
-    ${MK.papers.map(p => `<details class="box"><summary>${p.t}: theo phần</summary><p class="mute">${parts(p)}</p></details>`).join('')}
+    ${spk}${MK.papers.filter(p => !p.speak).map(p => `<details class="box"><summary>${p.t}: theo phần</summary><p class="mute">${parts(p)}</p></details>`).join('')}
     ${wrong.length ? `<details class="box"><summary>Xem lại ${wrong.length} câu sai</summary>${wrong.map(({ r }) => `<div style="margin:8px 0;border-top:1px solid var(--line, #ddd);padding-top:6px"><p class="mute" style="margin:0">${esc(r.part)}</p><p style="margin:2px 0">${r.q.q}</p>
       <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 300))}${r.q.kind === 'write' ? '' : ` · Đáp án: <b>${esc(r.q.a != null ? r.q.a : (r.q.acc || [])[0] || '')}</b>`}</p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
     <p class="mute">Máy chấm; bài viết chấm đủ ý và dạng bài bằng từ khoá, không chấm ngữ pháp. Ôn phần thấp nhất rồi bấm làm đề mới (câu đổi mỗi lần).</p>
