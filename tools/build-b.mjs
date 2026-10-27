@@ -43,5 +43,11 @@ const NP = J('np.json'), G = ['b1', 'b2', 'c1', 'c2'].flatMap(l => J(`content/bg
 NP.items = NP.items.filter(x => !/^g-[bc]\d/.test(x.id)).concat(G); fs.writeFileSync(root + 'np.json', JSON.stringify(NP)); fs.writeFileSync(root + 'exam-b.json', JSON.stringify(exam));
 const n = units.reduce((s, u) => s + u.words.length, 0);
 console.log(`b.json: ${units.length} bài, ${n} từ · có câu điền ${units.reduce((s, u) => s + u.words.filter(w => w.cloze).length, 0)} · cụm ${Object.keys(COL).length} · câu thi ${Object.keys(exam).length}`);
+// 📰 Đọc, 🎧 Nghe, 🗣 Nói, ✍️ Viết B1 → C2 (content/bs/*.json, Claude soạn, chưa người thật kiểm): thay các mục cấp B1 → C2
+const BL = ['b1', 'b2', 'c1', 'c2'], keep = x => !BL.includes(x.lv);
+for (const [f, src] of [['doc.json', BL.map(l => `content/bs/doc-${l}.json`)], ['nghe.json', BL.map(l => `content/bs/nghe-${l}.json`)], ['noi.json', ['content/bs/noi.json']], ['viet.json', ['content/bs/viet.json']]]) {
+  const D = J(f), add = src.flatMap(x => J(x).items).map(x => x.lines && !x.text ? { ...x, text: x.lines.map(l => l[1]).join(' '), vi: '' } : x);
+  D.items = D.items.filter(keep).concat(add); if (f === 'noi.json') Object.assign(D.test, J('content/bs/noi.json').test);
+  fs.writeFileSync(root + f, JSON.stringify(D)); console.log(`${f}: thêm ${add.length} mục B1 → C2`); }
 console.log(`ngữ pháp B1 → C2: ${G.length} điểm`); const ws = units.flatMap(u => u.words); console.log(`dữ liệu Nhớ: đồng nghĩa ${ws.filter(w => w.rel).length} · trang trọng ${ws.filter(w => w.reg).length} · mẫu câu ${ws.filter(w => w.pat).length} · thành ngữ ${ws.filter(w => w.idi).length}${miss.length ? ` · không khớp từ nào: ${miss.join(', ')}` : ''}`);
 for (const lv of LVS) console.log(' ', LVN[lv], units.filter(u => u.lv === lv).length, 'bài');

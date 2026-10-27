@@ -1,0 +1,2784 @@
+{
+"_note": "🗣 Nói B1 → C2 (27/10/2026, Claude soạn kiểu Cambridge Speaking, chưa người thật kiểm). Mỗi cấp 4 đề nói + 2 đóng vai; test = câu đọc to.",
+"items": [
+{
+"id": "b1-s1",
+"lv": "b1",
+"en": "A Difficult Decision",
+"vi": "Một quyết định khó khăn",
+"p": "Tell me about a difficult decision you made. What was the situation? What did you decide, and why? Was it the right decision?",
+"pv": "Kể về một quyết định khó: hoàn cảnh, bạn chọn gì, vì sao, có đúng không.",
+"c": [
+"Hoàn cảnh (quá khứ)",
+"Bạn đã quyết định gì",
+"Lý do",
+"Bây giờ bạn nghĩ sao"
+],
+"u": [
+[
+"A few years ago, I had to decide whether to",
+"Vài năm trước tôi phải quyết định có nên"
+],
+[
+"In the end, I decided to",
+"Cuối cùng tôi quyết định"
+],
+[
+"The main reason was that",
+"Lý do chính là"
+],
+[
+"Looking back, I think",
+"Nhìn lại, tôi nghĩ"
+]
+],
+"m": "A few years ago, I had to decide whether to stay in my home town or move to Hanoi for a new job. My parents wanted me to stay, because I am their only son. In the end, I decided to move. The main reason was that the job offered much better training and a higher salary. It was hard at first, because I felt lonely and I missed my family. Looking back, I think it was the right decision. I have learned a lot, and now I visit my parents every month.",
+"k": [
+[
+[
+"ago",
+"when i was",
+"last year",
+"years",
+"had to",
+"situation",
+"choose",
+"decide whether"
+]
+],
+[
+[
+"decided",
+"chose",
+"i choose",
+"i decide",
+"in the end",
+"finally"
+]
+],
+[
+[
+"because",
+"reason",
+"so$",
+"since",
+"as it"
+]
+],
+[
+[
+"now",
+"looking back",
+"right decision",
+"wrong decision",
+"i think",
+"glad",
+"regret",
+"happy",
+"mistake"
+]
+]
+]
+},
+{
+"id": "b1-s2",
+"lv": "b1",
+"en": "Your Ideal Job",
+"vi": "Công việc lý tưởng",
+"p": "Describe your ideal job. What would you do? Where would you work? Why would this job suit you?",
+"pv": "Tả công việc mơ ước: làm gì, ở đâu, vì sao hợp với bạn.",
+"c": [
+"Công việc gì",
+"Làm ở đâu, với ai",
+"Vì sao hợp với bạn",
+"Cần làm gì để có việc đó"
+],
+"u": [
+[
+"My ideal job would be",
+"Công việc lý tưởng của tôi sẽ là"
+],
+[
+"I would work",
+"Tôi sẽ làm việc"
+],
+[
+"It would suit me because",
+"Nó hợp với tôi vì"
+],
+[
+"To get this job, I would need to",
+"Để có việc này, tôi cần"
+]
+],
+"m": "My ideal job would be a travel writer. I would work for a magazine or a website, and I would travel to different countries to write about food and culture. I wouldn't need to sit in an office all day. It would suit me because I love meeting new people and I enjoy writing. I'm also quite organised, which is important when you travel a lot. To get this job, I would need to improve my English and build a good portfolio of articles.",
+"k": [
+[
+[
+"ideal job",
+"dream job",
+"would be",
+"want to be",
+"work as",
+"would like to be"
+]
+],
+[
+[
+"work in",
+"work at",
+"work for",
+"office",
+"company",
+"home",
+"abroad",
+"outside",
+"with people",
+"colleagues",
+"team"
+]
+],
+[
+[
+"because",
+"suit",
+"good at",
+"enjoy",
+"love",
+"like",
+"interested"
+]
+],
+[
+[
+"need to",
+"have to",
+"should",
+"study",
+"learn",
+"improve",
+"experience",
+"degree",
+"course",
+"practise",
+"practice"
+]
+]
+]
+},
+{
+"id": "b1-s3",
+"lv": "b1",
+"en": "Technology in Your Life",
+"vi": "Công nghệ trong cuộc sống",
+"p": "How do you use technology in your daily life? What are the advantages and disadvantages? Could you live without your phone for a week?",
+"pv": "Bạn dùng công nghệ hằng ngày thế nào? Lợi, hại? Sống một tuần không điện thoại được không?",
+"c": [
+"Bạn dùng công nghệ làm gì",
+"Một điểm lợi",
+"Một điểm hại",
+"Một tuần không điện thoại"
+],
+"u": [
+[
+"I use my phone to",
+"Tôi dùng điện thoại để"
+],
+[
+"One advantage is that",
+"Một điểm lợi là"
+],
+[
+"On the other hand,",
+"Mặt khác,"
+],
+[
+"I don't think I could",
+"Tôi không nghĩ tôi có thể"
+]
+],
+"m": "I use my phone for almost everything: to check the news, to message my friends, to pay for things and to learn English. One advantage is that I can find information very quickly. It also helps me stay in touch with my family. On the other hand, I spend too much time on social media, and sometimes I can't sleep because I look at my phone late at night. I don't think I could live without my phone for a week, but maybe I could try for a weekend.",
+"k": [
+[
+[
+"use",
+"phone",
+"computer",
+"laptop",
+"internet",
+"app"
+]
+],
+[
+[
+"advantage",
+"good thing",
+"useful",
+"helps",
+"convenient",
+"quickly",
+"easy"
+]
+],
+[
+[
+"disadvantage",
+"bad thing",
+"on the other hand",
+"too much",
+"problem",
+"addicted",
+"waste",
+"sleep",
+"eyes",
+"but"
+]
+],
+[
+[
+"without",
+"a week",
+"could",
+"couldn't",
+"can't",
+"weekend",
+"try"
+]
+]
+]
+},
+{
+"id": "b1-s4",
+"lv": "b1",
+"en": "A Place You Recommend",
+"vi": "Một nơi bạn giới thiệu",
+"p": "Recommend a place in your country that visitors should see. Where is it? What can people do there? When is the best time to go?",
+"pv": "Giới thiệu một nơi nên đến ở nước bạn: ở đâu, làm gì, đi lúc nào.",
+"c": [
+"Tên nơi, ở đâu",
+"Có thể làm gì",
+"Thời điểm đẹp nhất",
+"Lời khuyên cho du khách"
+],
+"u": [
+[
+"I'd recommend visiting",
+"Tôi khuyên nên đến"
+],
+[
+"It's located in",
+"Nó nằm ở"
+],
+[
+"You can",
+"Bạn có thể"
+],
+[
+"The best time to go is",
+"Thời điểm đẹp nhất để đi là"
+]
+],
+"m": "I'd recommend visiting Ninh Binh, which is located about two hours south of Hanoi. It's famous for its limestone mountains and rice fields. You can take a small boat along the river through caves, ride a bike through the villages or climb to the top of Mua Cave for an amazing view. The best time to go is in late May or early June, when the rice fields turn golden. My advice is to stay at least one night, because it's very peaceful in the evening.",
+"k": [
+[
+[
+"recommend",
+"visit",
+"should see",
+"should go",
+"place",
+"located",
+"in the north",
+"in the south",
+"near",
+"from hanoi",
+"from ho chi minh",
+"city",
+"province"
+]
+],
+[
+[
+"you can",
+"people can",
+"visitors can",
+"try",
+"see",
+"take",
+"climb",
+"swim",
+"eat",
+"walk",
+"ride"
+]
+],
+[
+[
+"best time",
+"in spring",
+"in summer",
+"in autumn",
+"in winter",
+"month",
+"season",
+"january",
+"february",
+"march",
+"april",
+"may",
+"june",
+"july",
+"august",
+"september",
+"october",
+"november",
+"december"
+]
+],
+[
+[
+"advice",
+"should",
+"don't forget",
+"remember",
+"make sure",
+"bring",
+"stay"
+]
+]
+]
+},
+{
+"id": "rp-b1-return",
+"lv": "b1",
+"type": "rp",
+"vi": "Trả lại đồ bị lỗi ở cửa hàng",
+"ic": "🛍",
+"en": "Role play",
+"learn": [
+[
+{
+"s": "B",
+"t": "Hi there. How can I help you today?"
+},
+{
+"vi": "Nói bạn mua chiếc tai nghe này tuần trước và nó bị hỏng",
+"t": "I bought these headphones last week, but they've stopped working.",
+"need": {
+"any": [
+"bought",
+"buy"
+],
+"all": [
+"headphone"
+]
+}
+},
+{
+"s": "B",
+"t": "I'm sorry to hear that. What exactly is the problem?"
+},
+{
+"vi": "Giải thích: bên trái không có tiếng",
+"t": "There's no sound from the left side.",
+"need": {
+"all": [
+"left"
+],
+"any": [
+"sound",
+"work",
+"hear"
+]
+}
+},
+{
+"s": "B",
+"t": "Do you have the receipt?"
+},
+{
+"vi": "Đưa hoá đơn, hỏi đổi cái mới hay trả tiền",
+"t": "Yes, here it is. Can I exchange them or get a refund?",
+"need": {
+"any": [
+"exchange",
+"refund",
+"money back",
+"new one",
+"replace",
+"change"
+]
+}
+},
+{
+"s": "B",
+"t": "We can give you a new pair, or your money back. Which would you prefer?"
+},
+{
+"vi": "Chọn đổi cái mới, cảm ơn",
+"t": "I'd prefer a new pair, please. Thank you.",
+"need": {
+"any": [
+"new",
+"exchange",
+"replace",
+"another"
+]
+}
+}
+],
+[
+{
+"s": "B",
+"t": "Hello. Can I help you?"
+},
+{
+"vi": "Nói bạn mua chiếc áo khoác này hôm thứ Bảy và có vấn đề",
+"t": "I bought this jacket on Saturday, but there's a problem with it.",
+"need": {
+"any": [
+"bought",
+"buy"
+],
+"all": [
+"jacket"
+]
+}
+},
+{
+"s": "B",
+"t": "Oh dear. What's wrong with it?"
+},
+{
+"vi": "Giải thích: khoá kéo bị hỏng",
+"t": "The zip is broken. It won't close.",
+"need": {
+"any": [
+"zip",
+"zipper"
+]
+}
+},
+{
+"s": "B",
+"t": "Have you got the receipt with you?"
+},
+{
+"vi": "Có hoá đơn; hỏi lấy lại tiền",
+"t": "Yes, I have. Could I get a refund, please?",
+"need": {
+"any": [
+"refund",
+"money back"
+]
+}
+},
+{
+"s": "B",
+"t": "Of course. I'll do that for you now."
+},
+{
+"vi": "Cảm ơn",
+"t": "Thanks very much.",
+"need": {
+"any": [
+"thank"
+]
+}
+}
+]
+],
+"tests": [
+[
+{
+"s": "B",
+"t": "Good morning. How can I help?"
+},
+{
+"vi": "Nói bạn mua chiếc ấm điện này hai ngày trước và nó không chạy",
+"t": "I bought this kettle two days ago, but it doesn't work.",
+"need": {
+"any": [
+"bought",
+"buy"
+],
+"all": [
+"kettle"
+]
+}
+},
+{
+"s": "B",
+"t": "I see. What happens when you switch it on?"
+},
+{
+"vi": "Giải thích: đèn sáng nhưng nước không nóng",
+"t": "The light comes on, but the water doesn't get hot.",
+"need": {
+"any": [
+"hot",
+"heat",
+"warm",
+"boil"
+]
+}
+},
+{
+"s": "B",
+"t": "Do you have your receipt?"
+},
+{
+"vi": "Có; hỏi đổi cái khác",
+"t": "Yes. Could I exchange it for another one?",
+"need": {
+"any": [
+"exchange",
+"another",
+"new one",
+"replace",
+"change"
+]
+}
+},
+{
+"s": "B",
+"t": "No problem. Here's a new one."
+},
+{
+"vi": "Cảm ơn và chào",
+"t": "Thank you. Goodbye.",
+"need": {
+"any": [
+"thank",
+"bye"
+]
+}
+}
+]
+]
+},
+{
+"id": "rp-b1-plan",
+"lv": "b1",
+"type": "rp",
+"vi": "Rủ bạn đi chơi và thống nhất kế hoạch",
+"ic": "📅",
+"en": "Role play",
+"learn": [
+[
+{
+"s": "B",
+"t": "Hey! Are you free this weekend?"
+},
+{
+"vi": "Nói bạn rảnh thứ Bảy, rủ đi xem phim",
+"t": "I'm free on Saturday. Would you like to see a film?",
+"need": {
+"all": [
+"saturday"
+],
+"any": [
+"film",
+"movie",
+"cinema"
+]
+}
+},
+{
+"s": "B",
+"t": "I'd love to, but I've seen most of the films that are on now. Any other ideas?"
+},
+{
+"vi": "Gợi ý đi ăn đồ Hàn ở quán mới",
+"t": "How about trying the new Korean restaurant?",
+"need": {
+"any": [
+"how about",
+"what about",
+"why don't we",
+"let's",
+"shall we"
+],
+"all": [
+"korean"
+]
+}
+},
+{
+"s": "B",
+"t": "Great idea. What time?"
+},
+{
+"vi": "Đề nghị 7 giờ tối",
+"t": "Let's meet at seven in the evening.",
+"need": {
+"all": [
+"7"
+],
+"any": [
+"meet",
+"at"
+]
+}
+},
+{
+"s": "B",
+"t": "Perfect. Shall I book a table?"
+},
+{
+"vi": "Đồng ý, nhờ bạn đặt bàn cho hai người",
+"t": "Yes, please. Book a table for two.",
+"need": {
+"all": [
+"2"
+],
+"any": [
+"yes",
+"please",
+"ok",
+"sure"
+]
+}
+}
+],
+[
+{
+"s": "B",
+"t": "Hi! Do you want to do something on Sunday?"
+},
+{
+"vi": "Đồng ý; rủ đi bơi",
+"t": "Sure. Why don't we go swimming?",
+"need": {
+"any": [
+"swim",
+"pool"
+]
+}
+},
+{
+"s": "B",
+"t": "Hmm, the weather forecast says it might rain."
+},
+{
+"vi": "Gợi ý đi bảo tàng thay vào đó",
+"t": "Then let's go to the museum instead.",
+"need": {
+"any": [
+"museum"
+]
+}
+},
+{
+"s": "B",
+"t": "OK. How shall we get there?"
+},
+{
+"vi": "Gợi ý đi xe buýt số 9",
+"t": "We can take the number nine bus.",
+"need": {
+"any": [
+"bus"
+],
+"all": [
+"9"
+]
+}
+},
+{
+"s": "B",
+"t": "Fine. See you at the bus stop at ten?"
+},
+{
+"vi": "Đồng ý và chào",
+"t": "Great. See you then.",
+"need": {
+"any": [
+"see you",
+"great",
+"ok",
+"fine",
+"bye",
+"perfect"
+]
+}
+}
+]
+],
+"tests": [
+[
+{
+"s": "B",
+"t": "Hi! What are you doing on Friday evening?"
+},
+{
+"vi": "Nói bạn rảnh, rủ đi nghe nhạc",
+"t": "Nothing. Would you like to go to a concert?",
+"need": {
+"any": [
+"concert",
+"music",
+"gig"
+]
+}
+},
+{
+"s": "B",
+"t": "Sounds good, but tickets are quite expensive. Any cheaper ideas?"
+},
+{
+"vi": "Gợi ý đi dạo chợ đêm",
+"t": "How about walking around the night market?",
+"need": {
+"any": [
+"night market",
+"market"
+]
+}
+},
+{
+"s": "B",
+"t": "Lovely. When shall we meet?"
+},
+{
+"vi": "Hẹn 8 giờ ở cổng chợ",
+"t": "Let's meet at eight at the market entrance.",
+"need": {
+"all": [
+"8"
+],
+"any": [
+"meet",
+"entrance",
+"gate"
+]
+}
+},
+{
+"s": "B",
+"t": "Great, see you there."
+},
+{
+"vi": "Chào",
+"t": "See you!",
+"need": {
+"any": [
+"see you",
+"bye",
+"great"
+]
+}
+}
+]
+]
+},
+{
+"id": "b2-s1",
+"lv": "b2",
+"en": "Cities or Countryside",
+"vi": "Thành phố hay nông thôn",
+"p": "Some people think life is better in the countryside than in the city. Do you agree? Give reasons and examples, and consider the other point of view.",
+"pv": "Có người cho rằng sống ở nông thôn tốt hơn thành phố. Bạn đồng ý không? Nêu lý do, ví dụ và xét cả ý ngược lại.",
+"c": [
+"Nêu quan điểm",
+"Lý do và ví dụ",
+"Xét ý ngược lại",
+"Kết luận"
+],
+"u": [
+[
+"In my opinion,",
+"Theo tôi,"
+],
+[
+"For example,",
+"Ví dụ,"
+],
+[
+"Having said that,",
+"Dù vậy,"
+],
+[
+"On balance, I'd say",
+"Cân nhắc lại, tôi cho rằng"
+]
+],
+"m": "In my opinion, it depends on your stage of life, but on the whole I prefer the city. For young people especially, cities offer far more opportunities: better jobs, universities and a wider range of cultural activities. For example, in Ho Chi Minh City I can go to concerts, try food from all over the world and meet people from many backgrounds. Having said that, I understand why many people prefer the countryside. The air is cleaner, life is less stressful and housing is much cheaper. Many of my friends with young children have moved back to their home towns for exactly these reasons. On balance, I'd say the city is better for building a career, but the countryside may be better for raising a family.",
+"k": [
+[
+[
+"in my opinion",
+"i think",
+"i believe",
+"i agree",
+"i disagree",
+"personally",
+"i prefer",
+"depends"
+]
+],
+[
+[
+"because",
+"reason",
+"for example",
+"for instance",
+"such as",
+"opportunit",
+"job"
+]
+],
+[
+[
+"having said that",
+"on the other hand",
+"however",
+"although",
+"but",
+"understand why",
+"some people"
+]
+],
+[
+[
+"on balance",
+"overall",
+"in conclusion",
+"to sum up",
+"all in all",
+"so i",
+"that's why"
+]
+]
+]
+},
+{
+"id": "b2-s2",
+"lv": "b2",
+"en": "A Person Who Influenced You",
+"vi": "Người ảnh hưởng tới bạn",
+"p": "Talk about a person who has had a strong influence on your life. Who are they? How did you meet them? In what ways did they change you?",
+"pv": "Kể về một người ảnh hưởng lớn tới bạn: là ai, gặp thế nào, thay đổi bạn ra sao.",
+"c": [
+"Người đó là ai",
+"Gặp / quen thế nào",
+"Họ đã làm gì",
+"Bạn thay đổi thế nào"
+],
+"u": [
+[
+"The person who has influenced me most is",
+"Người ảnh hưởng tới tôi nhiều nhất là"
+],
+[
+"I first met her when",
+"Lần đầu tôi gặp cô ấy khi"
+],
+[
+"What I admire most is",
+"Điều tôi ngưỡng mộ nhất là"
+],
+[
+"Thanks to him, I",
+"Nhờ anh ấy, tôi"
+]
+],
+"m": "The person who has influenced me most is my high school maths teacher, Mr Quang. I first met him when I was fifteen, at a time when I was failing maths and had almost given up. Instead of criticising me, he stayed after class twice a week to help me, and he always explained things in several different ways until I understood. What I admire most is his patience. He never made me feel stupid. Thanks to him, I not only passed my exams, but I also learned that being bad at something is not permanent. That idea has helped me in everything I've done since, including learning English.",
+"k": [
+[
+[
+"influenced",
+"influence",
+"the person",
+"my teacher",
+"my mother",
+"my father",
+"my grand",
+"my friend",
+"my boss",
+"my coach",
+"my uncle",
+"my aunt",
+"my brother",
+"my sister"
+]
+],
+[
+[
+"met",
+"when i was",
+"years ago",
+"first",
+"at school",
+"at university",
+"at work"
+]
+],
+[
+[
+"helped",
+"taught",
+"showed",
+"encouraged",
+"supported",
+"always",
+"never"
+]
+],
+[
+[
+"thanks to",
+"because of",
+"changed",
+"now i",
+"learned",
+"learnt",
+"made me",
+"became"
+]
+]
+]
+},
+{
+"id": "b2-s3",
+"lv": "b2",
+"en": "Online Learning",
+"vi": "Học trực tuyến",
+"p": "What are the advantages and disadvantages of learning online compared with learning in a classroom? Which do you prefer, and why?",
+"pv": "So sánh học trực tuyến và học trên lớp: lợi, hại. Bạn thích cách nào, vì sao?",
+"c": [
+"Ưu điểm học trực tuyến",
+"Nhược điểm học trực tuyến",
+"Ưu điểm học trên lớp",
+"Bạn chọn gì và vì sao"
+],
+"u": [
+[
+"One clear advantage of online learning is",
+"Một ưu điểm rõ của học trực tuyến là"
+],
+[
+"The main drawback is",
+"Nhược điểm chính là"
+],
+[
+"In a classroom, by contrast,",
+"Ngược lại, trên lớp"
+],
+[
+"Personally, I'd choose",
+"Cá nhân tôi sẽ chọn"
+]
+],
+"m": "One clear advantage of online learning is flexibility. You can study whenever and wherever you like, which is ideal for people who work full-time. It's also usually cheaper, and you can replay lessons as many times as you need. The main drawback is that it's easy to lose motivation when nobody is checking on you. It can also feel quite lonely. In a classroom, by contrast, you can ask questions immediately, practise speaking with other students and get instant feedback from the teacher. Personally, I'd choose a mix of both. I'd use online lessons for grammar and vocabulary, but I'd want a real class for speaking practice, because that's where I need most help.",
+"k": [
+[
+[
+"advantage",
+"flexib",
+"whenever",
+"anywhere",
+"wherever",
+"cheaper",
+"convenient",
+"at home",
+"replay"
+]
+],
+[
+[
+"drawback",
+"disadvantage",
+"motivat",
+"lonely",
+"distract",
+"isolat",
+"no one",
+"nobody",
+"hard to"
+]
+],
+[
+[
+"classroom",
+"in class",
+"teacher",
+"face to face",
+"face-to-face",
+"other students",
+"classmates",
+"feedback"
+]
+],
+[
+[
+"personally",
+"i'd choose",
+"i prefer",
+"i'd prefer",
+"i would choose",
+"mix",
+"both",
+"because"
+]
+]
+]
+},
+{
+"id": "b2-s4",
+"lv": "b2",
+"en": "A Memorable Event",
+"vi": "Một sự kiện đáng nhớ",
+"p": "Describe an event that you will never forget. What happened? Who was there? Why was it so memorable?",
+"pv": "Kể về một sự kiện bạn không bao giờ quên: chuyện gì, có ai, vì sao đáng nhớ.",
+"c": [
+"Sự kiện gì, khi nào",
+"Diễn biến",
+"Có những ai",
+"Vì sao đáng nhớ"
+],
+"u": [
+[
+"One event I'll never forget is",
+"Một sự kiện tôi sẽ không bao giờ quên là"
+],
+[
+"It all started when",
+"Mọi chuyện bắt đầu khi"
+],
+[
+"To my surprise,",
+"Tôi bất ngờ là"
+],
+[
+"It was memorable because",
+"Nó đáng nhớ vì"
+]
+],
+"m": "One event I'll never forget is my sister's wedding three years ago. It all started badly: on the morning of the wedding, there was a huge storm and the power went off in the whole street. The make-up artist couldn't see anything, and my sister was close to tears. To my surprise, all our neighbours came out with torches and candles to help. By the afternoon the sun came out, and the ceremony in the garden was beautiful. My whole family was there, including my grandmother, who had travelled from the countryside. It was memorable because it showed me how a community can turn a disaster into something wonderful.",
+"k": [
+[
+[
+"never forget",
+"event",
+"ago",
+"last year",
+"when i was",
+"wedding",
+"party",
+"trip",
+"festival",
+"concert",
+"match",
+"graduation",
+"birthday"
+]
+],
+[
+[
+"happened",
+"started",
+"then",
+"after that",
+"suddenly",
+"finally",
+"in the end"
+]
+],
+[
+[
+"with",
+"family",
+"friends",
+"everyone",
+"people",
+"there were",
+"my mother",
+"my father",
+"my sister",
+"my brother",
+"neighbours",
+"neighbors"
+]
+],
+[
+[
+"memorable because",
+"because",
+"never forget",
+"taught me",
+"showed me",
+"realised",
+"realized",
+"felt",
+"special"
+]
+]
+]
+},
+{
+"id": "rp-b2-complain",
+"lv": "b2",
+"type": "rp",
+"vi": "Phàn nàn với khách sạn và đòi giải pháp",
+"ic": "🏨",
+"en": "Role play",
+"learn": [
+[
+{
+"s": "B",
+"t": "Good evening, reception. How may I help you?"
+},
+{
+"vi": "Nói phòng 412 rất ồn vì có công trình bên cạnh",
+"t": "I'm in room 412, and it's extremely noisy because of the building work next door.",
+"need": {
+"any": [
+"noise",
+"noisy",
+"loud",
+"412"
+]
+}
+},
+{
+"s": "B",
+"t": "I do apologise. Unfortunately, the work is scheduled until six p.m."
+},
+{
+"vi": "Nói bạn làm việc trong phòng và đề nghị đổi phòng phía bên kia",
+"t": "I'm working from my room today. Could I move to a room on the other side of the building?",
+"need": {
+"any": [
+"move",
+"change",
+"another room",
+"different room",
+"other side",
+"switch"
+]
+}
+},
+{
+"s": "B",
+"t": "Let me check. We have a quieter room, but it's a standard room rather than a deluxe."
+},
+{
+"vi": "Hỏi có được giảm giá vì phòng nhỏ hơn không",
+"t": "Would you be able to offer a discount, since it's a smaller room?",
+"need": {
+"any": [
+"discount",
+"refund",
+"reduce",
+"cheaper",
+"price",
+"money back",
+"compensat"
+]
+}
+},
+{
+"s": "B",
+"t": "Certainly. We'll refund the difference and offer you free breakfast tomorrow."
+},
+{
+"vi": "Chấp nhận và cảm ơn",
+"t": "That sounds fair. Thank you for your help.",
+"need": {
+"any": [
+"thank",
+"fair",
+"great",
+"perfect",
+"fine",
+"ok"
+]
+}
+}
+],
+[
+{
+"s": "B",
+"t": "Front desk, good morning."
+},
+{
+"vi": "Nói máy lạnh phòng 208 không chạy từ tối qua",
+"t": "The air conditioning in room 208 hasn't been working since last night.",
+"need": {
+"any": [
+"air",
+"conditioning",
+"aircon",
+"208"
+]
+}
+},
+{
+"s": "B",
+"t": "I'm very sorry. I'll send someone up this afternoon."
+},
+{
+"vi": "Nói chiều thì quá muộn; bạn ngủ không được, muốn sửa ngay",
+"t": "I'm afraid that's too late. I couldn't sleep at all. Could someone come now?",
+"need": {
+"any": [
+"now",
+"immediately",
+"right away",
+"as soon as",
+"too late",
+"this morning"
+]
+}
+},
+{
+"s": "B",
+"t": "I understand. Our engineer is busy, but I could move you to another room."
+},
+{
+"vi": "Đồng ý đổi phòng, hỏi có được bù gì không",
+"t": "All right, I'll move. Will you offer any compensation for last night?",
+"need": {
+"any": [
+"compensat",
+"discount",
+"refund",
+"free",
+"money back",
+"reduce"
+]
+}
+},
+{
+"s": "B",
+"t": "Of course. We won't charge you for last night."
+},
+{
+"vi": "Cảm ơn",
+"t": "Thank you, I appreciate that.",
+"need": {
+"any": [
+"thank",
+"appreciate"
+]
+}
+}
+]
+],
+"tests": [
+[
+{
+"s": "B",
+"t": "Reception, how can I help?"
+},
+{
+"vi": "Nói phòng 305 chưa được dọn dù bạn đi cả ngày",
+"t": "My room, 305, hasn't been cleaned, even though I was out all day.",
+"need": {
+"any": [
+"clean",
+"tidy",
+"housekeeping",
+"305"
+]
+}
+},
+{
+"s": "B",
+"t": "I'm terribly sorry. Housekeeping is very busy today."
+},
+{
+"vi": "Nói bạn có khách đến lúc 7 giờ, cần dọn trước giờ đó",
+"t": "I have guests coming at seven, so I need it cleaned before then.",
+"need": {
+"all": [
+"7"
+],
+"any": [
+"before",
+"need",
+"clean"
+]
+}
+},
+{
+"s": "B",
+"t": "I'll send someone in the next twenty minutes."
+},
+{
+"vi": "Hỏi có được bù gì cho sự bất tiện không",
+"t": "Thank you. Is there anything you can offer for the inconvenience?",
+"need": {
+"any": [
+"offer",
+"compensat",
+"discount",
+"free",
+"inconvenience"
+]
+}
+},
+{
+"s": "B",
+"t": "We'll give you a free drink at the bar this evening."
+},
+{
+"vi": "Chấp nhận, cảm ơn",
+"t": "That's kind. Thank you.",
+"need": {
+"any": [
+"thank",
+"kind",
+"great",
+"fine"
+]
+}
+}
+]
+]
+},
+{
+"id": "rp-b2-negotiate",
+"lv": "b2",
+"type": "rp",
+"vi": "Thương lượng với chủ nhà về giá thuê",
+"ic": "🏠",
+"en": "Role play",
+"learn": [
+[
+{
+"s": "B",
+"t": "So, as I said, the rent is eight million dong a month."
+},
+{
+"vi": "Nói bạn thích căn hộ nhưng giá hơi cao so với khu này",
+"t": "I really like the flat, but the price seems a bit high for this area.",
+"need": {
+"any": [
+"high",
+"expensive",
+"too much",
+"a lot"
+]
+}
+},
+{
+"s": "B",
+"t": "Well, it's newly painted and fully furnished."
+},
+{
+"vi": "Đề nghị 7 triệu nếu bạn ký hợp đồng một năm",
+"t": "Would you accept seven million if I sign a one-year contract?",
+"need": {
+"all": [
+"7"
+],
+"any": [
+"year",
+"contract",
+"sign"
+]
+}
+},
+{
+"s": "B",
+"t": "Hmm. Seven and a half, and I'll include the internet."
+},
+{
+"vi": "Đồng ý, hỏi khi nào chuyển vào được",
+"t": "That's fair. When could I move in?",
+"need": {
+"any": [
+"move in",
+"when",
+"start",
+"fair",
+"deal",
+"agree",
+"ok"
+]
+}
+},
+{
+"s": "B",
+"t": "From the first of next month."
+},
+{
+"vi": "Cảm ơn, hẹn ký hợp đồng",
+"t": "Great. Let's sign the contract this week.",
+"need": {
+"any": [
+"sign",
+"contract",
+"great",
+"deal",
+"thank"
+]
+}
+}
+]
+],
+"tests": [
+[
+{
+"s": "B",
+"t": "The rent for this room is four million a month, plus electricity."
+},
+{
+"vi": "Nói phòng đẹp nhưng xa chỗ làm, giá hơi cao",
+"t": "It's a nice room, but it's quite far from my office and a bit expensive.",
+"need": {
+"any": [
+"expensive",
+"high",
+"too much",
+"far"
+]
+}
+},
+{
+"s": "B",
+"t": "What did you have in mind?"
+},
+{
+"vi": "Đề nghị 3,5 triệu, trả trước ba tháng",
+"t": "How about three and a half million if I pay three months in advance?",
+"need": {
+"any": [
+"three and a half",
+"3.5",
+"3,5",
+"three point five",
+"3 and a half"
+]
+}
+},
+{
+"s": "B",
+"t": "All right, but electricity is extra."
+},
+{
+"vi": "Đồng ý và hỏi khi nào xem hợp đồng",
+"t": "Agreed. When can I see the contract?",
+"need": {
+"any": [
+"agree",
+"deal",
+"ok",
+"fine",
+"contract"
+]
+}
+}
+]
+]
+},
+{
+"id": "c1-s1",
+"lv": "c1",
+"en": "Should University Be Free?",
+"vi": "Đại học có nên miễn phí?",
+"p": "Some people argue that university education should be free for everyone. Discuss the arguments for and against, and give your own view.",
+"pv": "Có ý kiến cho rằng đại học nên miễn phí cho mọi người. Bàn ý ủng hộ, phản đối và nêu quan điểm.",
+"c": [
+"Lý lẽ ủng hộ",
+"Lý lẽ phản đối",
+"Quan điểm của bạn",
+"Đề xuất / điều kiện"
+],
+"u": [
+[
+"Proponents argue that",
+"Người ủng hộ lập luận rằng"
+],
+[
+"Critics, however, point out that",
+"Tuy nhiên, người phản đối chỉ ra rằng"
+],
+[
+"My own view is that",
+"Quan điểm của tôi là"
+],
+[
+"A compromise might be to",
+"Một giải pháp dung hoà có thể là"
+]
+],
+"m": "Proponents argue that free university education is a matter of fairness. Talent is spread evenly across society, but money is not, so charging fees means that many capable young people from poor families never get the chance to study. A more educated population also benefits the whole economy. Critics, however, point out that someone has to pay, and that free tuition often benefits middle-class families most, since their children are more likely to go to university anyway. There is also a risk that universities become underfunded and overcrowded. My own view is that cost should never be the reason a talented student cannot study. A compromise might be to make university free for students from lower-income families, while others repay loans once they earn above a certain salary.",
+"k": [
+[
+[
+"proponents",
+"supporters",
+"argue",
+"in favour",
+"in favor",
+"fair",
+"equal",
+"opportunit",
+"talent",
+"poor famil"
+]
+],
+[
+[
+"critics",
+"however",
+"on the other hand",
+"against",
+"someone has to pay",
+"tax",
+"expensive",
+"cost",
+"underfund",
+"middle-class",
+"middle class"
+]
+],
+[
+[
+"my own view",
+"in my view",
+"i believe",
+"personally",
+"i think",
+"my opinion"
+]
+],
+[
+[
+"compromise",
+"solution",
+"should",
+"could",
+"loan",
+"scholarship",
+"lower-income",
+"low-income",
+"condition",
+"depend"
+]
+]
+]
+},
+{
+"id": "c1-s2",
+"lv": "c1",
+"en": "The Impact of Social Media",
+"vi": "Tác động của mạng xã hội",
+"p": "How has social media changed the way people communicate and form opinions? Is the overall effect positive or negative?",
+"pv": "Mạng xã hội đã thay đổi cách con người giao tiếp và hình thành quan điểm ra sao? Tác động chung là tích cực hay tiêu cực?",
+"c": [
+"Thay đổi trong giao tiếp",
+"Ảnh hưởng tới cách hình thành quan điểm",
+"Mặt tích cực",
+"Đánh giá chung"
+],
+"u": [
+[
+"Social media has fundamentally changed",
+"Mạng xã hội đã thay đổi căn bản"
+],
+[
+"One consequence is that",
+"Một hệ quả là"
+],
+[
+"That said,",
+"Dù vậy,"
+],
+[
+"Overall, I'd argue that",
+"Nhìn chung, tôi cho rằng"
+]
+],
+"m": "Social media has fundamentally changed how we communicate. We now stay in constant contact with hundreds of people, including many we have never met, and news travels in seconds rather than days. One consequence is that our opinions are increasingly shaped by algorithms that show us content we already agree with. This can create echo chambers, where people rarely encounter opposing views and become more extreme. Misinformation also spreads faster than corrections. That said, social media has undeniable benefits. It has given a voice to people who were previously ignored, helped small businesses reach customers and allowed communities to organise quickly in emergencies. Overall, I'd argue that the effect is mixed, and that it depends largely on how critically we use it.",
+"k": [
+[
+[
+"communicat",
+"contact",
+"stay in touch",
+"message",
+"connect",
+"instant",
+"seconds"
+]
+],
+[
+[
+"opinion",
+"algorithm",
+"echo chamber",
+"bubble",
+"misinformation",
+"fake news",
+"extreme",
+"agree with"
+]
+],
+[
+[
+"benefit",
+"positive",
+"advantage",
+"voice",
+"small business",
+"organis",
+"organiz",
+"helpful",
+"useful"
+]
+],
+[
+[
+"overall",
+"on balance",
+"in conclusion",
+"i'd argue",
+"i would argue",
+"mixed",
+"depends",
+"i believe",
+"i think"
+]
+]
+]
+},
+{
+"id": "c1-s3",
+"lv": "c1",
+"en": "Work-Life Balance",
+"vi": "Cân bằng công việc và cuộc sống",
+"p": "Many people say it is increasingly difficult to achieve a healthy work-life balance. Why might this be? What can individuals and employers do about it?",
+"pv": "Nhiều người nói ngày càng khó cân bằng công việc và cuộc sống. Vì sao? Cá nhân và công ty có thể làm gì?",
+"c": [
+"Nguyên nhân",
+"Hậu quả",
+"Cá nhân có thể làm gì",
+"Công ty có thể làm gì"
+],
+"u": [
+[
+"There are several reasons for this.",
+"Có vài lý do cho điều này."
+],
+[
+"As a result,",
+"Do đó,"
+],
+[
+"On a personal level,",
+"Ở góc độ cá nhân,"
+],
+[
+"Employers, for their part,",
+"Về phía công ty,"
+]
+],
+"m": "There are several reasons for this. Technology means that many of us are reachable at any time, so the working day never truly ends. Economic pressure and job insecurity also push people to work longer hours to prove their value. As a result, stress and burnout have become extremely common, and relationships and health often suffer. On a personal level, people can set clear boundaries, for example by switching off work notifications in the evening and protecting time for exercise and family. Employers, for their part, have a responsibility too. They can discourage emails outside working hours, offer flexible schedules and, most importantly, ensure that managers lead by example, since staff tend to copy what their bosses do rather than what they say.",
+"k": [
+[
+[
+"reason",
+"because",
+"technology",
+"phone",
+"email",
+"reachable",
+"pressure",
+"insecur",
+"longer hours"
+]
+],
+[
+[
+"result",
+"stress",
+"burnout",
+"health",
+"relationship",
+"tired",
+"exhaust",
+"suffer"
+]
+],
+[
+[
+"personal",
+"individual",
+"boundar",
+"switch off",
+"turn off",
+"exercise",
+"family",
+"time for",
+"say no"
+]
+],
+[
+[
+"employer",
+"company",
+"companies",
+"manager",
+"flexible",
+"policy",
+"responsib",
+"encourage",
+"discourage"
+]
+]
+]
+},
+{
+"id": "c1-s4",
+"lv": "c1",
+"en": "Preserving Traditions",
+"vi": "Gìn giữ truyền thống",
+"p": "In a globalised world, is it important to preserve traditional customs and crafts? Who should be responsible for this?",
+"pv": "Trong thế giới toàn cầu hoá, có cần giữ phong tục, nghề truyền thống? Ai nên chịu trách nhiệm?",
+"c": [
+"Quan điểm: có quan trọng không",
+"Lý do, ví dụ cụ thể",
+"Khó khăn",
+"Ai chịu trách nhiệm"
+],
+"u": [
+[
+"I'd argue that it is essential to",
+"Tôi cho rằng rất cần"
+],
+[
+"Take, for instance,",
+"Lấy ví dụ"
+],
+[
+"The difficulty, of course, is that",
+"Khó khăn dĩ nhiên là"
+],
+[
+"Responsibility should be shared between",
+"Trách nhiệm nên được chia giữa"
+]
+],
+"m": "I'd argue that it is essential to preserve traditional customs and crafts, not because the past is always better, but because they give communities a sense of identity and continuity. Take, for instance, the pottery village of Bat Trang. Its techniques have been passed down for centuries, and losing them would mean losing knowledge that cannot be recovered. The difficulty, of course, is that young people often see little future in traditional crafts, which tend to be poorly paid compared with factory or office work. Responsibility should be shared between governments, which can provide funding and protect heritage sites, and communities themselves, who can find ways to make traditions relevant today, for example through tourism, design collaborations or online sales.",
+"k": [
+[
+[
+"essential",
+"important",
+"necessary",
+"should preserve",
+"worth",
+"i'd argue",
+"i believe",
+"i think",
+"in my view"
+]
+],
+[
+[
+"for instance",
+"for example",
+"such as",
+"village",
+"craft",
+"festival",
+"tet",
+"pottery",
+"silk",
+"identity"
+]
+],
+[
+[
+"difficult",
+"problem",
+"challenge",
+"young people",
+"poorly paid",
+"no future",
+"disappear",
+"modern"
+]
+],
+[
+[
+"responsib",
+"government",
+"communit",
+"famil",
+"school",
+"shared",
+"should",
+"tourism",
+"fund"
+]
+]
+]
+},
+{
+"id": "rp-c1-meeting",
+"lv": "c1",
+"type": "rp",
+"vi": "Họp công việc: bảo vệ đề xuất trước sếp",
+"ic": "💼",
+"en": "Role play",
+"learn": [
+[
+{
+"s": "B",
+"t": "So, you wanted to talk about the new training programme?"
+},
+{
+"vi": "Đề xuất một khoá đào tạo tiếng Anh cho nhân viên bán hàng",
+"t": "Yes. I'd like to propose an English course for our sales staff.",
+"need": {
+"any": [
+"propose",
+"suggest",
+"recommend",
+"idea"
+],
+"all": [
+"english"
+]
+}
+},
+{
+"s": "B",
+"t": "Why do you think it's necessary?"
+},
+{
+"vi": "Lý do: 40% khách hàng mới là người nước ngoài",
+"t": "Around forty percent of our new clients are international, and we're losing deals because of communication problems.",
+"need": {
+"any": [
+"client",
+"customer",
+"international",
+"foreign",
+"40"
+]
+}
+},
+{
+"s": "B",
+"t": "I see the point, but our budget is very tight this year."
+},
+{
+"vi": "Đề nghị bắt đầu với nhóm nhỏ 10 người rồi đánh giá",
+"t": "I understand. Could we start with a pilot group of ten people and evaluate the results after three months?",
+"need": {
+"any": [
+"pilot",
+"small group",
+"start with",
+"trial",
+"test",
+"10"
+]
+}
+},
+{
+"s": "B",
+"t": "That sounds more realistic. Can you send me the costs?"
+},
+{
+"vi": "Đồng ý gửi bảng chi phí trước thứ Sáu",
+"t": "Certainly. I'll send you a detailed budget by Friday.",
+"need": {
+"all": [
+"friday"
+],
+"any": [
+"send",
+"budget",
+"cost"
+]
+}
+}
+]
+],
+"tests": [
+[
+{
+"s": "B",
+"t": "You asked to see me about working from home?"
+},
+{
+"vi": "Đề xuất cho nhóm làm ở nhà hai ngày mỗi tuần",
+"t": "Yes. I'd like to propose that our team works from home two days a week.",
+"need": {
+"any": [
+"propose",
+"suggest",
+"recommend"
+],
+"all": [
+"home"
+]
+}
+},
+{
+"s": "B",
+"t": "What would the company gain from that?"
+},
+{
+"vi": "Lý do: tiết kiệm chi phí văn phòng, nhân viên ít nghỉ ốm",
+"t": "We'd save on office costs, and staff would take fewer sick days.",
+"need": {
+"any": [
+"save",
+"cost",
+"sick",
+"productiv",
+"fewer"
+]
+}
+},
+{
+"s": "B",
+"t": "I'm worried about communication with clients."
+},
+{
+"vi": "Đề nghị luôn có một người ở văn phòng mỗi ngày",
+"t": "We could make sure at least one person is in the office every day.",
+"need": {
+"any": [
+"one person",
+"someone",
+"always",
+"every day",
+"rota"
+]
+}
+},
+{
+"s": "B",
+"t": "All right. Let's try it for a month."
+},
+{
+"vi": "Cảm ơn, hứa báo cáo kết quả",
+"t": "Thank you. I'll report back on the results.",
+"need": {
+"any": [
+"thank",
+"report",
+"result"
+]
+}
+}
+]
+]
+},
+{
+"id": "rp-c1-mediate",
+"lv": "c1",
+"type": "rp",
+"vi": "Hoà giải bất đồng giữa hai đồng nghiệp",
+"ic": "🤝",
+"en": "Role play",
+"learn": [
+[
+{
+"s": "B",
+"t": "Honestly, I'm fed up. Minh keeps changing the design without telling me."
+},
+{
+"vi": "Thể hiện thông cảm, hỏi chuyện xảy ra khi nào",
+"t": "I can see why you're frustrated. When did this start happening?",
+"need": {
+"any": [
+"understand",
+"see why",
+"frustrat",
+"sorry to hear",
+"must be"
+]
+}
+},
+{
+"s": "B",
+"t": "About two weeks ago. I find out only when the client complains."
+},
+{
+"vi": "Gợi ý ba người họp ngắn để thống nhất quy trình",
+"t": "Why don't the three of us have a short meeting to agree on a process?",
+"need": {
+"any": [
+"meeting",
+"meet",
+"talk",
+"sit down",
+"discuss"
+]
+}
+},
+{
+"s": "B",
+"t": "I suppose. But what if he gets defensive?"
+},
+{
+"vi": "Khuyên tập trung vào quy trình, không đổ lỗi",
+"t": "Let's focus on the process rather than blaming anyone. That usually helps.",
+"need": {
+"any": [
+"process",
+"not blam",
+"without blam",
+"rather than",
+"focus"
+]
+}
+},
+{
+"s": "B",
+"t": "OK, that makes sense. Can you arrange it?"
+},
+{
+"vi": "Đồng ý, hẹn chiều mai",
+"t": "Of course. I'll book a room for tomorrow afternoon.",
+"need": {
+"any": [
+"tomorrow",
+"book",
+"arrange",
+"of course",
+"sure"
+]
+}
+}
+]
+],
+"tests": [
+[
+{
+"s": "B",
+"t": "I can't work with Lan anymore. She never finishes her part on time."
+},
+{
+"vi": "Thể hiện thông cảm, hỏi việc trễ ảnh hưởng gì",
+"t": "That sounds really stressful. How is it affecting your work?",
+"need": {
+"any": [
+"stressful",
+"understand",
+"sorry",
+"frustrat",
+"affect"
+]
+}
+},
+{
+"s": "B",
+"t": "I have to stay late to finish everything myself."
+},
+{
+"vi": "Gợi ý nói chuyện riêng với Lan, có thể cô ấy đang quá tải",
+"t": "Maybe you could talk to her privately. She might be overloaded.",
+"need": {
+"any": [
+"talk to her",
+"speak to her",
+"privately",
+"overload",
+"too much work",
+"busy"
+]
+}
+},
+{
+"s": "B",
+"t": "And if that doesn't work?"
+},
+{
+"vi": "Nói khi đó nên báo trưởng nhóm để chia lại việc",
+"t": "Then it would be worth raising it with the team leader so the work can be shared more fairly.",
+"need": {
+"any": [
+"team leader",
+"manager",
+"boss",
+"raise",
+"share",
+"fair"
+]
+}
+}
+]
+]
+},
+{
+"id": "c2-s1",
+"lv": "c2",
+"en": "Is Progress Always Good?",
+"vi": "Tiến bộ có luôn tốt?",
+"p": "\"Not all progress is improvement.\" Discuss this statement with reference to technology, society or the environment.",
+"pv": "“Không phải tiến bộ nào cũng là cải thiện.” Bàn về nhận định này, liên hệ công nghệ, xã hội hoặc môi trường.",
+"c": [
+"Diễn giải nhận định",
+"Ví dụ tiến bộ có cái giá",
+"Ý phản biện",
+"Kết luận tinh tế"
+],
+"u": [
+[
+"At first glance, the statement seems",
+"Thoạt nhìn, nhận định có vẻ"
+],
+[
+"A telling example is",
+"Một ví dụ rõ là"
+],
+[
+"It would be simplistic, however, to",
+"Tuy nhiên sẽ là quá đơn giản nếu"
+],
+[
+"Ultimately, the question is not whether … but",
+"Rốt cuộc, câu hỏi không phải là … mà là"
+]
+],
+"m": "At first glance, the statement seems almost paradoxical, since we tend to use 'progress' as a synonym for improvement. But progress, strictly speaking, simply means movement in a particular direction, and whether that direction is desirable is a separate question. A telling example is the rise of the car. It brought unprecedented freedom of movement, yet it also reshaped our cities around traffic rather than people, contributed heavily to pollution and made many communities dependent on long commutes. It would be simplistic, however, to conclude that progress is therefore suspect. Medicine offers countless advances whose benefits are overwhelmingly clear. Ultimately, the question is not whether we should pursue progress, but whether we are sufficiently honest about its costs, and whether those who bear those costs have any say in the decision.",
+"k": [
+[
+[
+"at first glance",
+"statement",
+"paradox",
+"progress",
+"improvement",
+"means",
+"synonym",
+"direction"
+]
+],
+[
+[
+"example",
+"for instance",
+"car",
+"technology",
+"social media",
+"factory",
+"industrial",
+"pollution",
+"cost"
+]
+],
+[
+[
+"however",
+"simplistic",
+"on the other hand",
+"nonetheless",
+"nevertheless",
+"medicine",
+"benefit",
+"advance"
+]
+],
+[
+[
+"ultimately",
+"in the end",
+"in conclusion",
+"the question is",
+"honest",
+"cost",
+"balance",
+"depends"
+]
+]
+]
+},
+{
+"id": "c2-s2",
+"lv": "c2",
+"en": "The Role of Art in Society",
+"vi": "Vai trò của nghệ thuật trong xã hội",
+"p": "Should governments fund the arts, even when there are more urgent needs such as healthcare and housing? Justify your position.",
+"pv": "Chính phủ có nên tài trợ nghệ thuật khi còn những nhu cầu cấp bách hơn như y tế, nhà ở? Lập luận cho quan điểm của bạn.",
+"c": [
+"Quan điểm rõ",
+"Lập luận giá trị của nghệ thuật",
+"Thừa nhận ý ngược lại",
+"Đề xuất cân bằng"
+],
+"u": [
+[
+"I would contend that",
+"Tôi cho rằng"
+],
+[
+"To dismiss the arts as a luxury is to",
+"Coi nghệ thuật là xa xỉ tức là"
+],
+[
+"I readily concede that",
+"Tôi sẵn sàng thừa nhận rằng"
+],
+[
+"What matters, then, is",
+"Vậy điều quan trọng là"
+]
+],
+"m": "I would contend that governments should fund the arts, even in difficult times, although the scale and form of that funding deserve careful thought. To dismiss the arts as a luxury is to misunderstand their role. They are one of the principal ways in which a society reflects on itself, preserves its memory and imagines alternatives. They also have tangible benefits: cultural industries employ large numbers of people, and access to the arts has been linked to improved mental health and educational outcomes. I readily concede that when people lack adequate housing or medical care, those needs must take priority, and that arts funding can sometimes serve elite audiences rather than the public. What matters, then, is not whether to fund the arts, but how: prioritising projects that are genuinely accessible, rooted in communities and open to those who would otherwise be excluded.",
+"k": [
+[
+[
+"contend",
+"i believe",
+"i would argue",
+"in my view",
+"should fund",
+"should support",
+"should not",
+"my position"
+]
+],
+[
+[
+"memory",
+"identity",
+"reflect",
+"imagin",
+"employ",
+"mental health",
+"education",
+"benefit",
+"value"
+]
+],
+[
+[
+"concede",
+"admit",
+"acknowledge",
+"of course",
+"priority",
+"urgent",
+"healthcare",
+"housing",
+"elite"
+]
+],
+[
+[
+"what matters",
+"balance",
+"accessible",
+"communit",
+"how",
+"prioritis",
+"prioritiz",
+"depends"
+]
+]
+]
+},
+{
+"id": "c2-s3",
+"lv": "c2",
+"en": "Privacy in the Digital Age",
+"vi": "Quyền riêng tư thời số",
+"p": "\"If you have nothing to hide, you have nothing to fear.\" Evaluate this argument about surveillance and privacy.",
+"pv": "“Không có gì để giấu thì chẳng có gì phải sợ.” Đánh giá lập luận này về giám sát và quyền riêng tư.",
+"c": [
+"Nêu và diễn giải lập luận",
+"Chỉ ra điểm yếu",
+"Thừa nhận lý do giám sát",
+"Kết luận"
+],
+"u": [
+[
+"The argument has a superficial appeal, but",
+"Lập luận nghe có lý bề ngoài, nhưng"
+],
+[
+"It rests on the assumption that",
+"Nó dựa trên giả định rằng"
+],
+[
+"This is not to deny that",
+"Điều này không phủ nhận rằng"
+],
+[
+"In short,",
+"Tóm lại,"
+]
+],
+"m": "The argument has a superficial appeal, but it collapses on closer inspection. It rests on the assumption that privacy matters only to people engaged in wrongdoing, which is plainly false. We close the bathroom door not because we are doing anything illegal, but because certain aspects of life are legitimately our own. Moreover, the argument assumes that those conducting surveillance will always be benevolent and competent, and that the definition of wrongdoing will never change. History suggests otherwise: information gathered for one purpose is frequently used for another. This is not to deny that some surveillance is justified, for example in investigating serious crime, provided it is targeted, proportionate and subject to independent oversight. In short, the question is not whether we have something to hide, but who decides what we must reveal, and with what safeguards.",
+"k": [
+[
+[
+"argument",
+"superficial",
+"appeal",
+"nothing to hide",
+"statement",
+"claim"
+]
+],
+[
+[
+"assum",
+"weak",
+"flaw",
+"false",
+"collapse",
+"door",
+"benevolent",
+"change",
+"misuse",
+"history"
+]
+],
+[
+[
+"not to deny",
+"justified",
+"crime",
+"security",
+"terror",
+"necessary",
+"some surveillance",
+"admit",
+"concede"
+]
+],
+[
+[
+"in short",
+"in conclusion",
+"ultimately",
+"safeguard",
+"oversight",
+"who decides",
+"proportion"
+]
+]
+]
+},
+{
+"id": "c2-s4",
+"lv": "c2",
+"en": "Success and Happiness",
+"vi": "Thành công và hạnh phúc",
+"p": "How far do you agree that modern societies confuse success with happiness? Draw on personal observation or wider examples.",
+"pv": "Bạn đồng ý tới đâu rằng xã hội hiện đại nhầm lẫn thành công với hạnh phúc? Dùng quan sát cá nhân hoặc ví dụ rộng hơn.",
+"c": [
+"Mức độ đồng ý",
+"Biểu hiện của sự nhầm lẫn",
+"Ví dụ / quan sát",
+"Kết luận có sắc thái"
+],
+"u": [
+[
+"I am broadly in agreement, with one qualification.",
+"Tôi về cơ bản đồng ý, với một điểm dè dặt."
+],
+[
+"This confusion manifests itself in",
+"Sự nhầm lẫn này thể hiện ở"
+],
+[
+"I have observed, for instance,",
+"Ví dụ tôi từng quan sát thấy"
+],
+[
+"Perhaps the more fruitful question is",
+"Có lẽ câu hỏi đáng bàn hơn là"
+]
+],
+"m": "I am broadly in agreement, with one qualification. This confusion manifests itself in the way we measure lives: by salary, job title, property and, increasingly, by visibility on social media. These markers are easy to compare and easy to display, which makes them convenient stand-ins for something far harder to assess. I have observed, for instance, friends who achieved every goal their parents set for them and yet describe themselves as exhausted and strangely empty. Research on wellbeing tends to support this impression: beyond a modest level of income, relationships, autonomy and a sense of purpose matter considerably more than further gains in status. My qualification is that success and happiness are not opposites; meaningful achievement can be a profound source of satisfaction. Perhaps the more fruitful question is not whether to pursue success, but whose definition of it we are pursuing.",
+"k": [
+[
+[
+"agree",
+"disagree",
+"broadly",
+"to some extent",
+"largely",
+"qualification",
+"partly"
+]
+],
+[
+[
+"salary",
+"money",
+"job title",
+"status",
+"property",
+"social media",
+"measure",
+"compare",
+"display"
+]
+],
+[
+[
+"for instance",
+"for example",
+"observed",
+"friend",
+"research",
+"study",
+"studies",
+"know people"
+]
+],
+[
+[
+"perhaps",
+"ultimately",
+"in conclusion",
+"not opposites",
+"whose definition",
+"meaning",
+"purpose",
+"balance"
+]
+]
+]
+},
+{
+"id": "rp-c2-interview",
+"lv": "c2",
+"type": "rp",
+"vi": "Phỏng vấn xin việc cấp quản lý: câu hỏi khó",
+"ic": "🎯",
+"en": "Role play",
+"learn": [
+[
+{
+"s": "B",
+"t": "Thank you for coming. Let's start with a difficult one: what's your greatest weakness?"
+},
+{
+"vi": "Thừa nhận đôi khi ôm việc thay vì giao cho người khác",
+"t": "I've sometimes found it hard to delegate. I tend to take on too much myself rather than trusting the team.",
+"need": {
+"any": [
+"delegat",
+"take on too much",
+"do everything myself",
+"trust"
+]
+}
+},
+{
+"s": "B",
+"t": "And what have you done about that?"
+},
+{
+"vi": "Nói bạn đã áp dụng họp giao việc hằng tuần và kết quả tốt hơn",
+"t": "I introduced weekly planning meetings where tasks are assigned openly, and the team's output actually improved.",
+"need": {
+"any": [
+"weekly",
+"meeting",
+"assign",
+"plan"
+]
+}
+},
+{
+"s": "B",
+"t": "Tell me about a time you disagreed with your manager."
+},
+{
+"vi": "Kể đã phản đối ra mắt sản phẩm sớm, đưa dữ liệu, được chấp nhận lùi hai tuần",
+"t": "I once argued against launching a product early. I presented test data showing serious bugs, and we agreed to delay by two weeks.",
+"need": {
+"any": [
+"disagree",
+"argued",
+"against",
+"data",
+"evidence",
+"delay"
+]
+}
+},
+{
+"s": "B",
+"t": "Why should we choose you over the other candidates?"
+},
+{
+"vi": "Nêu kinh nghiệm quản lý nhóm đa văn hoá và kết quả đo được",
+"t": "I've led multicultural teams for six years and consistently delivered projects on time and under budget.",
+"need": {
+"any": [
+"led",
+"lead",
+"manag",
+"experience",
+"team"
+]
+}
+}
+]
+],
+"tests": [
+[
+{
+"s": "B",
+"t": "Why are you leaving your current position?"
+},
+{
+"vi": "Trả lời tích cực: tìm thử thách mới, không chê công ty cũ",
+"t": "I've learned a great deal there, but I'm looking for a role with more strategic responsibility.",
+"need": {
+"any": [
+"learned",
+"learnt",
+"challenge",
+"responsib",
+"grow",
+"opportunit",
+"new role",
+"strategic"
+]
+}
+},
+{
+"s": "B",
+"t": "How do you handle a team member who consistently underperforms?"
+},
+{
+"vi": "Nói sẽ nói chuyện riêng để tìm nguyên nhân, đặt mục tiêu rõ",
+"t": "I'd speak to them privately to understand the cause, then agree clear goals and check progress regularly.",
+"need": {
+"any": [
+"privately",
+"talk to",
+"speak to",
+"understand",
+"cause",
+"reason"
+]
+}
+},
+{
+"s": "B",
+"t": "And if nothing improves?"
+},
+{
+"vi": "Nói khi đó sẽ cùng phòng nhân sự xem xét các bước chính thức",
+"t": "Then I'd involve HR and follow the formal procedure, while keeping the process fair and documented.",
+"need": {
+"any": [
+"hr",
+"human resources",
+"formal",
+"procedure",
+"process",
+"document"
+]
+}
+}
+]
+]
+},
+{
+"id": "rp-c2-persuade",
+"lv": "c2",
+"type": "rp",
+"vi": "Thuyết phục hội đồng khu phố về một dự án",
+"ic": "🏛",
+"en": "Role play",
+"learn": [
+[
+{
+"s": "B",
+"t": "The council has concerns about turning the car park into a community garden. Convince us."
+},
+{
+"vi": "Nêu lợi ích: không gian xanh, trẻ em có chỗ chơi, giảm nhiệt",
+"t": "The garden would give families a green space, give children somewhere safe to play and help cool the neighbourhood.",
+"need": {
+"any": [
+"green",
+"children",
+"play",
+"cool",
+"famil",
+"communit"
+]
+}
+},
+{
+"s": "B",
+"t": "But local shops depend on that parking."
+},
+{
+"vi": "Đề xuất giữ một nửa chỗ đỗ xe, chỉ chuyển một nửa thành vườn",
+"t": "We could keep half the spaces for parking and convert only the other half.",
+"need": {
+"any": [
+"half",
+"part",
+"some",
+"keep"
+]
+}
+},
+{
+"s": "B",
+"t": "And who would maintain it? We have no budget."
+},
+{
+"vi": "Nói cư dân sẽ tình nguyện chăm, đã có 60 người đăng ký",
+"t": "Residents would maintain it as volunteers. Sixty people have already signed up.",
+"need": {
+"any": [
+"volunteer",
+"residents",
+"signed up",
+"sign up",
+"60"
+]
+}
+},
+{
+"s": "B",
+"t": "Interesting. We'll consider a one-year trial."
+},
+{
+"vi": "Cảm ơn, đề nghị báo cáo kết quả sau 6 tháng",
+"t": "Thank you. We'd be happy to report back after six months.",
+"need": {
+"any": [
+"thank",
+"report",
+"six months",
+"6 months"
+]
+}
+}
+]
+],
+"tests": [
+[
+{
+"s": "B",
+"t": "Why should we close this street to cars on Sundays?"
+},
+{
+"vi": "Nêu lợi ích: phố đi bộ, chợ phiên, hàng quán bán được hơn",
+"t": "It would create a pedestrian street with a weekend market, and local businesses would attract more customers.",
+"need": {
+"any": [
+"pedestrian",
+"walk",
+"market",
+"business",
+"customer",
+"shop"
+]
+}
+},
+{
+"s": "B",
+"t": "Residents worry about noise."
+},
+{
+"vi": "Đề xuất kết thúc lúc 9 giờ tối và cấm loa lớn",
+"t": "We could finish by nine p.m. and ban loudspeakers.",
+"need": {
+"any": [
+"finish",
+"end",
+"ban",
+"no loud",
+"limit"
+],
+"all": [
+"9"
+]
+}
+},
+{
+"s": "B",
+"t": "All right, we'll try it for three months."
+},
+{
+"vi": "Cảm ơn, hứa thu ý kiến cư dân",
+"t": "Thank you. We'll collect residents' feedback throughout.",
+"need": {
+"any": [
+"thank",
+"feedback",
+"survey",
+"opinion"
+]
+}
+}
+]
+]
+}
+],
+"test": {
+"b1": [
+"I've been learning English for about three years.",
+"If I had more free time, I would travel more.",
+"The weather was so bad that we stayed at home.",
+"She told me she would call back later.",
+"I'm looking forward to seeing you next week.",
+"We used to live near the river when I was a child.",
+"Could you tell me where the nearest station is?",
+"Although it was raining, the match continued.",
+"He must be tired after such a long journey.",
+"I stopped eating meat two years ago.",
+"The new library will be opened next month.",
+"You can borrow my bike as long as you return it tomorrow."
+],
+"b2": [
+"If I had known about the problem, I would have helped.",
+"By the end of the year, we will have finished the project.",
+"It is said that the castle was built in the twelfth century.",
+"I'd rather you didn't mention it to anyone.",
+"She must have left her phone at the office.",
+"Having finished the report, he went straight home.",
+"I'm not used to working such long hours.",
+"Unless the price comes down, I'm not going to buy it.",
+"We should have booked the tickets much earlier.",
+"The more you practise, the more confident you become.",
+"Not only did he arrive late, but he also forgot the documents.",
+"I'm having my car repaired this afternoon."
+],
+"c1": [
+"Never have I seen such a remarkable performance.",
+"Had we known about the delay, we would have taken a later train.",
+"What I find most interesting is the way the story ends.",
+"It is essential that every participant be informed in advance.",
+"No sooner had I sat down than the phone started ringing.",
+"Should you require any further assistance, please let us know.",
+"The decision to close the factory was met with widespread criticism.",
+"Weather permitting, the ceremony will take place outdoors.",
+"It was not until the end of the meeting that the problem became clear.",
+"Some people thrive under pressure, whereas others find it overwhelming.",
+"The proposal was accepted, albeit with several important changes.",
+"Under no circumstances should the door be left unlocked."
+],
+"c2": [
+"Little did they realise how much their decision would cost them.",
+"Were it not for her persistence, the project would never have succeeded.",
+"Much as I admire his work, I find his latest novel unconvincing.",
+"So compelling was the evidence that the jury reached a verdict within an hour.",
+"Strange as it may seem, the simplest solutions are often the hardest to find.",
+"He talks as though he had personally witnessed every event.",
+"Only after years of research did the true cause of the disease emerge.",
+"Whatever the outcome, the experience has been invaluable.",
+"The building is thought to have been designed by a little-known architect.",
+"Such was the demand that additional performances had to be scheduled.",
+"However carefully we plan, some uncertainty will always remain.",
+"It is the quality of our questions, not the speed of our answers, that matters."
+]
+}
+}
