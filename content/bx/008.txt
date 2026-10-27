@@ -1,0 +1,150 @@
+deny|He denied stealing the money.|denied|deny doing something|deny to do something|deny do something
+extend|They extended the deadline.|extended|extend a deadline|extend on a deadline|extend of a deadline
+instant|I had instant noodles for lunch.|instant|instant coffee|instantly coffee|instance coffee
+principle|It's against my principles.|principles|in principle|on principle in|at principle
+progressive|The school has progressive ideas.|progressive|progressive ideas|progress ideas|progressively ideas
+sum|He paid a large sum of money.|sum|a large sum of money|a large sum from money|a large sums of money
+conservation|They work in wildlife conservation.|conservation|wildlife conservation|wild life conservations|wildlife conserve
+elementary|This is an elementary mistake.|elementary|an elementary level|an elementarily level|an elementary levels
+infection|She has an ear infection.|infection|an ear infection|an ears infection|an ear infect
+precious|Time is precious.|precious|precious stones|preciously stones|precious stone of
+reward|They offered a reward for the lost dog.|reward|offer a reward|give on a reward|make a reward
+satellite|We have satellite TV.|satellite|satellite TV|satellites TV|satellite TVs of
+shore|We walked along the shore.|shore|along the shore|along of the shore|along on shore
+trap|The mouse was caught in a trap.|trap|fall into a trap|fall in to a trap|fall on a trap
+aggressive|The dog is aggressive.|aggressive|aggressive behaviour|aggressively behaviour|aggression behaviour
+courage|It takes courage to say no.|courage|have the courage to|have the courage for|have the courageous to
+cure|There is no cure for this disease.|cure|a cure for|a cure of|a cure to
+desperate|They are desperate for help.|desperate|desperate for|desperate of|desperate to for
+sufficient|We have sufficient food.|sufficient|sufficient time|sufficiently time|sufficiency time
+tissue|Can I have a tissue?|tissue|a paper tissue|a papers tissue|a paper tissues
+virtual|We had a virtual meeting.|virtual|a virtual tour|a virtually tour|a virtual tours
+dare|I didn't dare to tell him.|dare|dare to do something|dare doing something|dare for do something
+praise|The teacher praised her work.|praised|praise someone for|praise someone of|praise to someone
+ruin|The rain ruined our picnic.|ruined|ruin the day|ruin on the day|ruin of the day
+slave|He worked like a slave.|slave|work like a slave|work as like a slave|work slave like
+steady|She has a steady job.|steady|a steady job|a steadily job|a steady jobs
+terminal|Our flight leaves from Terminal 2.|Terminal|the airport terminal|the airports terminal|the airport terminals of
+affair|It's a family affair.|affair|a family affair|a families affair|a family affairs
+agenda|What's on the agenda today?|agenda|on the agenda|in the agenda|at the agenda
+bat|Bats sleep during the day.|Bats|a baseball bat|a baseballs bat|a baseball bats
+craft|She sells local crafts.|crafts|arts and crafts|art and craft of|arts and craft
+enable|The app enables you to pay by phone.|enables|enable someone to do something|enable someone doing something|enable someone do something
+partly|It was partly my fault.|partly|partly true|part true|partly truly
+slide|The children slid down the hill.|slid|slide down|slide on down|slide at
+alien|The film is about an alien.|alien|an alien from space|an alien of space|an aliens from space
+drag|She dragged the heavy box.|dragged|drag your feet|drag on your feet|drag at your feet
+estimate|We estimate the cost at 2 million.|estimate|estimate the cost|estimate on the cost|estimate of the cost
+fool|Don't be a fool!|fool|make a fool of yourself|do a fool of yourself|make fool yourself
+jet|We flew in a private jet.|jet|a private jet|a privately jet|a private jets
+overseas|She works overseas.|overseas|study overseas|study oversea|study over seas
+recover|He recovered quickly.|recovered|recover from an illness|recover of an illness|recover at an illness
+tale|She told us a tale about a dragon.|tale|a fairy tale|a fair tale|a fairy tales
+logo|The company changed its logo.|logo|a company logo|a companies logo|a company logos
+slip|Be careful not to slip.|slip|slip on the ice|slip in the ice|slip at the ice
+tap|Turn off the tap.|tap|turn off the tap|turn out the tap|turn down the tap
+opera|We went to the opera.|opera|an opera house|an operas house|an opera houses of
+overcome|She overcame her fear.|overcame|overcome a problem|overcome on a problem|overcome of a problem
+passage|Read the passage and answer the questions.|passage|a short passage|a shortly passage|a short passages
+radiation|Radiation can be dangerous.|Radiation|exposure to radiation|exposure of radiation|exposed to radiations
+stunning|The view is stunning.|stunning|a stunning view|a stunningly view|a stun view
+tune|I can't get this tune out of my head.|tune|a catchy tune|a catchily tune|a catch tune
+wherever|You can sit wherever you like.|wherever|wherever you go|where ever you go|wherever go you
+bold|That was a bold decision.|bold|a bold move|a boldly move|a bold moves
+clip|Watch this video clip.|clip|a video clip|a videos clip|a video clips
+encounter|We encountered many problems.|encountered|encounter a problem|encounter with a problem|encounter on a problem
+examination|She passed the examination.|examination|a medical examination|a medically examination|a medicine examination
+homeless|There are many homeless people in the city.|homeless|homeless people|homelessly people|homelessness people
+panic|Don't panic!|panic|panic about|panic on about|panic for of
+pursue|She wants to pursue a career in law.|pursue|pursue a career|pursue on a career|pursue of a career
+aids|They raise money for AIDS research.|AIDS|AIDS research|AIDS researches|AID research
+brick|The house is made of brick.|brick|a brick wall|a bricks wall|a brick walls
+considerable|It cost a considerable amount of money.|considerable|a considerable amount|a considerably amount|a consider amount
+forgive|Please forgive me.|forgive|forgive someone for|forgive someone of|forgive to someone
+inquiry|There will be an inquiry into the accident.|inquiry|an inquiry into|an inquiry in to|an inquiry on into
+nevertheless|It was hard. Nevertheless, we finished.|Nevertheless|but nevertheless|but never the less|and nevertheless of
+outer|The outer layer is hard.|outer|outer space|outerly space|outer spaces of
+oxygen|Plants produce oxygen.|oxygen|oxygen mask|oxygens mask|oxygen masks of
+shelter|We found shelter from the rain.|shelter|find shelter|search a shelters|look shelter
+trigger|Stress can trigger headaches.|trigger|trigger an attack|trigger on an attack|trigger of an attack
+artificial|The flowers are artificial.|artificial|artificial intelligence|artificially intelligence|artifice intelligence
+bullet|The bullet missed him.|bullet|fire a bullet|shoot on a bullet|make a bullet
+deposit|You need to pay a deposit.|deposit|pay a deposit|give on a deposit|make deposit a
+diverse|The city has a diverse population.|diverse|a diverse group|a diversely group|a diversity group
+neutral|Switzerland stayed neutral.|neutral|remain neutral|remain neutrally|remain neutrality
+terrorism|The world must fight terrorism.|terrorism|fight terrorism|fight on terrorism|fight to terrorism
+wound|The wound is healing.|wound|a deep wound|a deeply wound|a deep wounds
+casual|You can wear casual clothes.|casual|casual clothes|casually clothes|casualty clothes
+furthermore|The hotel is cheap. Furthermore, it's near the beach.|Furthermore|and furthermore|and further more|and furthermores
+palm|She held it in her palm.|palm|palm tree|palms tree|palm trees of
+rubber|The tyres are made of rubber.|rubber|rubber gloves|rubbers gloves|rubber glove of
+strict|My parents are very strict.|strict|strict rules|strictly rules|strictness rules
+unexpected|We had an unexpected visitor.|unexpected|an unexpected visit|an unexpectedly visit|an unexpecting visit
+canal|They built a canal to the sea.|canal|a canal boat|a canals boat|a canal boats
+cruise|They went on a cruise.|cruise|go on a cruise|go to a cruise on|make a cruise
+delete|Delete the old files.|Delete|delete a file|delete on a file|delete of a file
+dig|The dog is digging a hole.|digging|dig a hole|dig on a hole|dig of a hole
+fever|The baby has a fever.|fever|have a fever|make a fever|do a fever
+generate|The plant generates electricity.|generates|generate electricity|generate on electricity|generate of electricity
+nasty|That was a nasty thing to say.|nasty|a nasty smell|a nastily smell|a nasty smells
+tension|There is tension between them.|tension|rising tension|rise tension|rising tensions of
+bitter|The coffee is bitter.|bitter|a bitter taste|a bitterly taste|a bitter tastes
+clinic|She works at a dental clinic.|clinic|a dental clinic|a dentist clinics|a dentally clinic
+disability|He has a learning disability.|disability|a physical disability|a physically disability|a physical disabilities
+gradually|The weather gradually improved.|gradually|gradually improve|gradual improve|gradually improvement
+bug|There is a bug in the software.|bug|fix a bug|repair on a bug|make a bug
+cave|We explored a cave.|cave|a dark cave|a darkly cave|a dark caves
+demonstrate|Let me demonstrate how it works.|demonstrate|demonstrate how|demonstrate about how|demonstrate of how
+loyal|The dog is loyal to its owner.|loyal|loyal to|loyal with|loyal for
+resist|I couldn't resist the cake.|resist|resist temptation|resist on temptation|resist of temptation
+wrap|Wrap the present in paper.|Wrap|wrap a present|wrap on a present|wrap of a present
+adopt|They adopted a baby girl.|adopted|adopt a child|adopt on a child|adopt of a child
+dealer|He is a car dealer.|dealer|a car dealer|a cars dealer|a car dealers
+exploration|Space exploration is expensive.|exploration|space exploration|spaces exploration|space explore
+graphics|The game has great graphics.|graphics|computer graphics|computers graphics|computer graphic of
+insight|The book gives an insight into her life.|insight|an insight into|an insight in to|an insight on into
+overnight|We stayed overnight in Hue.|overnight|stay overnight|stay over night of|stay overnights
+preserve|We must preserve our traditions.|preserve|preserve the environment|preserve on the environment|preserve of the environment
+trace|There was no trace of the thief.|trace|without a trace|without trace a|with no a trace of
+widespread|The disease is widespread.|widespread|widespread support|widely support|widespreads support
+acknowledge|He acknowledged his mistake.|acknowledged|acknowledge a mistake|acknowledge on a mistake|acknowledge of a mistake
+animation|I love Japanese animation.|animation|computer animation|computers animation|computer animate
+cancel|We had to cancel the trip.|cancel|cancel a meeting|cancel on a meeting|cancel of a meeting
+collapse|The bridge collapsed.|collapsed|collapse suddenly|collapse sudden|collapse suddenness
+compound|Water is a chemical compound.|compound|a chemical compound|a chemically compound|a chemical compounds
+conscious|He was still conscious after the accident.|conscious|conscious of|conscious about of|conscious on
+restore|They restored the old building.|restored|restore a building|restore on a building|restore of a building
+tropical|Vietnam has a tropical climate.|tropical|a tropical climate|a tropically climate|a tropic climates
+decrease|The number of visitors decreased.|decreased|decrease by 10 per cent|decrease of 10 per cent by|decrease at 10 per cent
+notion|I have no notion of what he means.|notion|the notion of|the notion for|the notion about of
+rat|There's a rat in the kitchen!|rat|a rat trap|a rats trap|a rat traps of
+resolve|We resolved the problem.|resolved|resolve a conflict|resolve on a conflict|resolve of a conflict
+treasure|They found buried treasure.|treasure|buried treasure|bury treasure|buried treasures of
+creature|The ocean is full of strange creatures.|creatures|a living creature|a lively creature|a live creatures
+deadly|The virus is deadly.|deadly|a deadly disease|a deadlily disease|a dead disease
+moreover|The film is long. Moreover, it's boring.|Moreover|and moreover|and more over|and moreovers
+realistic|Be realistic about your goals.|realistic|a realistic goal|a realistically goal|a real goal
+retain|The company wants to retain its staff.|retain|retain information|retain on information|retain of information
+scratch|The cat scratched me.|scratched|scratch your head|scratch on your head|scratch at your head
+shade|Let's sit in the shade.|shade|in the shade|on the shade|at the shade
+teens|She is in her teens.|teens|in your teens|on your teens|at your teens
+crop|The farmers grow rice crops.|crops|grow crops|make crops|do crops
+elderly|We help elderly people.|elderly|elderly people|elder people of|elderly peoples
+eliminate|We must eliminate waste.|eliminate|eliminate a problem|eliminate on a problem|eliminate of a problem
+scholarship|She won a scholarship to study abroad.|scholarship|win a scholarship|gain on a scholarship|make a scholarship
+workshop|I went to a writing workshop.|workshop|a writing workshop|a write workshop|a written workshops
+abstract|It's an abstract painting.|abstract|abstract art|abstractly art|abstract arts of
+accent|He has a strong accent.|accent|a strong accent|a strongly accent|a strong accents
+curve|The road has a sharp curve.|curve|a sharp curve|a sharply curve|a sharp curves
+depressed|She has been depressed since she lost her job.|depressed|feel depressed|feel depressing|feel depress
+install|We installed a new air conditioner.|installed|install software|install on software|install of software
+lean|Don't lean on the door.|lean|lean against the wall|lean to the wall against|lean at the wall
+logical|That's a logical answer.|logical|a logical explanation|a logically explanation|a logic explanation
+organ|The heart is an important organ.|organ|a vital organ|a vitally organ|a vital organs
+pile|There's a pile of books on the floor.|pile|a pile of|a pile from|a piles of
+scream|She screamed when she saw the snake.|screamed|scream for help|scream of help|scream to help for
+tragedy|The accident was a tragedy.|tragedy|a terrible tragedy|a terribly tragedy|a terrible tragedies
+acquire|She acquired good English skills.|acquired|acquire a skill|acquire on a skill|acquire of a skill
+arrow|Follow the arrows.|arrows|a bow and arrow|a bow and arrows of|a bows and arrow
+cabin|They stayed in a wooden cabin.|cabin|a log cabin|a logs cabin|a log cabins
+goodness|My goodness, it's late!|goodness|my goodness|my goodnesses|my good ness

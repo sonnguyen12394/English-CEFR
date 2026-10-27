@@ -1,0 +1,147 @@
+savoury|I prefer savoury food to sweet food.|savoury|savoury snacks|savourily snacks|savour snacks
+aggravate|Running will aggravate your knee injury.|aggravate|aggravate an injury|aggravate on an injury|aggravate of an injury
+bereft|She was bereft after her husband died.|bereft|bereft of|bereft from|bereft on
+inclement|The match was cancelled due to inclement weather.|inclement|inclement weather|inclemently weather|inclemency weather
+calibrate|The scales need to be calibrated.|calibrated|calibrate an instrument|calibrate on an instrument|calibrate of an instrument
+obliterate|The town was obliterated by the bombs.|obliterated|obliterate evidence|obliterate on evidence|obliterate of evidence
+condolence|Please accept my condolences.|condolences|offer condolences|give on condolences|make condolence
+offbeat|She has an offbeat sense of humour.|offbeat|an offbeat style|an offbeatly style|an off-beating style
+placate|He tried to placate his angry wife.|placate|placate someone|placate to someone|placate on someone
+instigate|Who instigated the fight?|instigated|instigate a fight|instigate on a fight|instigate of a fight
+pariah|He became a pariah in the industry.|pariah|a social pariah|a socially pariah|a social pariahs
+posit|The theory posits that time is relative.|posits|posit a theory|posit on a theory|posit of a theory
+guile|He used guile to win.|guile|without guile|with no guiles|without of guile
+corollary|Higher prices are a corollary of inflation.|corollary|a natural corollary|a naturally corollary|a nature corollary
+jovial|He is a jovial man.|jovial|a jovial mood|a jovially mood|a joviality mood
+nonchalant|She tried to look nonchalant.|nonchalant|a nonchalant shrug|a nonchalantly shrug|a nonchalance shrug
+obstinate|He is too obstinate to admit his mistake.|obstinate|an obstinate child|an obstinately child|an obstinacy child
+petulant|The child gave a petulant reply.|petulant|a petulant child|a petulantly child|a petulance child
+heuristic|It's a heuristic approach to learning.|heuristic|a heuristic approach|a heuristically approach|a heuristics approach
+trepidation|She opened the letter with trepidation.|trepidation|with trepidation|by trepidation|on trepidation
+a-storm-in-a-teacup|The argument was a storm in a teacup.|a storm in a teacup|a storm in a teacup|a storm in a glass|a storm on a teacup
+cogent|She made a cogent argument.|cogent|a cogent argument|a cogently argument|a cogency argument
+elegy|He wrote an elegy for his father.|elegy|write an elegy|make an elegy|do an elegies
+gregarious|He is a gregarious person.|gregarious|a gregarious nature|a gregariously nature|a gregariousness nature
+modicum|Have a modicum of respect.|modicum|a modicum of|a modicum from|a modicums of
+sullen|The teenager was sullen and silent.|sullen|a sullen expression|a sullenly expression|a sullenness expression
+whimper|The puppy whimpered.|whimpered|whimper in pain|whimper on pain|whimper at pain
+wistful|She gave a wistful smile.|wistful|a wistful smile|a wistfully smile|a wistfulness smile
+allude|He alluded to his past.|alluded|allude to|allude on|allude at
+balmy|It was a balmy summer evening.|balmy|a balmy evening|a balmily evening|a balm evening
+delectable|The cake looked delectable.|delectable|a delectable dish|a delectably dish|a delectation dish
+elucidate|Could you elucidate your point?|elucidate|elucidate a point|elucidate on a point|elucidate of a point
+preponderance|There is a preponderance of evidence.|preponderance|a preponderance of|a preponderance from|a preponderances of
+verdant|The valley is lush and verdant.|verdant|verdant hills|verdantly hills|verdancy hills
+incongruous|The modern building looks incongruous here.|incongruous|incongruous with|incongruous to with|incongruously with
+kitsch|The shop sells kitsch souvenirs.|kitsch|kitsch art|kitschy arts of|kitsches art
+meander|The river meanders through the valley.|meanders|meander through|meander on through|meander at through
+squalor|They lived in squalor.|squalor|live in squalor|live on squalor|live at squalor
+despondent|He was despondent after failing.|despondent|despondent about|despondent on|despondent of about
+indigent|The charity helps indigent families.|indigent|indigent patients|indigently patients|indigence patients
+laudable|It was a laudable effort.|laudable|a laudable aim|a laudably aim|a laud aim
+extrapolate|We can extrapolate from these figures.|extrapolate|extrapolate from|extrapolate of|extrapolate on from
+rejuvenate|The holiday rejuvenated me.|rejuvenated|rejuvenate the city|rejuvenate on the city|rejuvenate of the city
+surmise|I surmised that he was lying.|surmised|surmise that|surmise about that|surmise of that
+terse|She sent a terse email.|terse|a terse reply|a tersely reply|a terseness reply
+affable|He is an affable man.|affable|an affable host|an affably host|an affability host
+gargantuan|They faced a gargantuan task.|gargantuan|a gargantuan task|a gargantuanly task|a gargantua task
+deplete|We are depleting our natural resources.|depleting|deplete resources|deplete on resources|deplete of resources
+goad|They goaded him into fighting.|goaded|goad someone into|goad someone in to|goad someone on into
+append|Append your signature here.|Append|append a note|append on a note|append of a note
+fastidious|He is fastidious about cleanliness.|fastidious|fastidious about|fastidious on|fastidious of about
+gastronomy|Lyon is famous for its gastronomy.|gastronomy|French gastronomy|France gastronomy|French gastronomies
+glib|He gave a glib answer.|glib|a glib answer|a glibly answer|a glibness answer
+inexorably|Prices rise inexorably.|inexorably|move inexorably|move inexorable|move inexorability
+insipid|The soup was insipid.|insipid|insipid food|insipidly food|insipidity food
+assuage|Nothing could assuage her grief.|assuage|assuage guilt|assuage on guilt|assuage of guilt
+charlatan|The doctor was a charlatan.|charlatan|a complete charlatan|a completely charlatan|a complete charlatans
+jubilant|The fans were jubilant.|jubilant|jubilant crowds|jubilantly crowds|jubilation crowds
+autocracy|The country moved from autocracy to democracy.|autocracy|move from autocracy|move of autocracy|move on autocracy
+reticent|He was reticent about his past.|reticent|reticent about|reticent on|reticent of about
+cacophony|A cacophony of horns filled the street.|cacophony|a cacophony of|a cacophony from|a cacophonies of
+dwindle|Their savings dwindled.|dwindled|dwindle away|dwindle on away|dwindle off away
+magnanimous|He was magnanimous in victory.|magnanimous|a magnanimous gesture|a magnanimously gesture|a magnanimity gesture
+paucity|There is a paucity of evidence.|paucity|a paucity of|a paucity from|a paucities of
+clamour|There is a clamour for change.|clamour|a clamour for|a clamour of|a clamour to for
+postulate|Scientists postulated a new particle.|postulated|postulate a theory|postulate on a theory|postulate of a theory
+quandary|She was in a quandary about what to do.|quandary|in a quandary|on a quandary|at a quandary
+sweltering|It was a sweltering day.|sweltering|sweltering heat|swelteringly heat|swelter heat
+insinuate|Are you insinuating that I lied?|insinuating|insinuate that|insinuate about that|insinuate of that
+morsel|He ate every morsel.|morsel|a tasty morsel|a tastily morsel|a tasty morsels
+scurry|Mice scurried across the floor.|scurried|scurry away|scurry on away|scurry off away of
+wriggle-out-of|He tried to wriggle out of paying.|wriggle out of|wriggle out of something|wriggle off of something|wriggle out from something
+acquit|The jury acquitted him.|acquitted|acquit someone of|acquit someone from|acquit someone for
+deja-vu|I had a strange feeling of déjà vu.|déjà vu|a feeling of déjà vu|a feeling for déjà vu|a feelings of déjà vu
+disparage|Don't disparage other people's work.|disparage|disparage someone|disparage to someone|disparage on someone
+feign|He feigned illness.|feigned|feign surprise|feign on surprise|feign of surprise
+interminable|The meeting seemed interminable.|interminable|an interminable wait|an interminably wait|an interminability wait
+aficionado|He is a jazz aficionado.|aficionado|a jazz aficionado|a jazzes aficionado|a jazz aficionados
+ameliorate|They tried to ameliorate conditions.|ameliorate|ameliorate conditions|ameliorate on conditions|ameliorate of conditions
+delineate|The plan delineates our goals.|delineates|delineate a plan|delineate on a plan|delineate of a plan
+acrimonious|It was an acrimonious divorce.|acrimonious|an acrimonious dispute|an acrimoniously dispute|an acrimony dispute
+freakish|We had freakish weather.|freakish|freakish weather|freakishly weather|freak weathers of
+meritocracy|They believe in meritocracy.|meritocracy|a true meritocracy|a truly meritocracy|a true meritocracies
+languid|She gave a languid wave.|languid|a languid pace|a languidly pace|a languor pace
+vindicate|The results vindicated her decision.|vindicated|vindicate a decision|vindicate on a decision|vindicate of a decision
+listless|The heat made us listless.|listless|feel listless|feel listlessly|feel listlessness
+pastiche|The film is a pastiche of old westerns.|pastiche|a pastiche of|a pastiche from|a pastiches of
+duplicity|She was shocked by his duplicity.|duplicity|accuse of duplicity|accuse on duplicity|accuse for duplicities
+merriment|There was much merriment at the party.|merriment|much merriment|many merriment|much merriments
+peculiarity|Every language has its peculiarities.|peculiarities|a peculiarity of|a peculiarity from|a peculiarities of
+protrude|A nail protruded from the wall.|protruded|protrude from|protrude of|protrude on from
+demagogue|He was a dangerous demagogue.|demagogue|a populist demagogue|a populistly demagogue|a popular demagogues
+adjudicate|A judge will adjudicate the case.|adjudicate|adjudicate a dispute|adjudicate on a dispute of|adjudicate of a dispute
+effusive|She gave effusive praise.|effusive|effusive praise|effusively praise|effusion praise
+glutton|He is a glutton for punishment.|glutton|a glutton for punishment|a glutton of punishment|a gluttons for punishment
+bucolic|The painting shows a bucolic scene.|bucolic|a bucolic landscape|a bucolically landscape|a bucolics landscape
+morose|He was morose and silent.|morose|a morose expression|a morosely expression|a moroseness expression
+verbose|His writing is too verbose.|verbose|a verbose report|a verbosely report|a verbosity report
+gleeful|The children were gleeful.|gleeful|a gleeful laugh|a gleefully laugh|a glee laugh
+rapturous|The band received a rapturous welcome.|rapturous|rapturous applause|rapturously applause|rapture applause
+deride|Critics derided the film.|derided|deride someone as|deride someone like|deride to someone as
+trudge|We trudged through the snow.|trudged|trudge through|trudge on through|trudge at through
+laconic|He has a laconic style.|laconic|a laconic reply|a laconically reply|a laconism reply
+brusque|She was brusque with the waiter.|brusque|a brusque manner|a brusquely manner|a brusqueness manner
+exhilarated|We felt exhilarated after the climb.|exhilarated|feel exhilarated|feel exhilarating|feel exhilaration
+taciturn|He is a taciturn man.|taciturn|a taciturn person|a taciturnly person|a taciturnity person
+rebuff|She rebuffed his offer.|rebuffed|rebuff an offer|rebuff on an offer|rebuff of an offer
+construe|His silence was construed as agreement.|construed|construe as|construe like|construe for as
+adroit|She is adroit at handling difficult people.|adroit|adroit at|adroit on|adroit with at
+largesse|They depend on the largesse of donors.|largesse|the largesse of|the largesse from|the largesses of
+raison-d-etre|Music is her raison d'être.|raison d'être|her raison d'être|her raison d'êtres|her reason d'être
+amble|We ambled along the beach.|ambled|amble along|amble on along|amble at along
+extol|He extolled the virtues of exercise.|extolled|extol the virtues of|extol on the virtues of|extol the virtue for
+admonish|The teacher admonished the boy.|admonished|admonish someone for|admonish someone of|admonish someone at
+reverberate|The sound reverberated through the hall.|reverberated|reverberate through|reverberate on through|reverberate at through
+dexterous|He is dexterous with his hands.|dexterous|dexterous fingers|dexterously fingers|dexterity fingers
+disenfranchise|Poor people felt disenfranchised.|disenfranchised|feel disenfranchised|feel disenfranchising|feel disenfranchisement
+detente|The two powers entered a period of détente.|détente|a period of détente|a period for détente|a periods of détente
+rotund|He was a rotund little man.|rotund|a rotund figure|a rotundly figure|a rotundity figure
+a-pyrrhic-victory|Winning the case was a Pyrrhic victory.|a Pyrrhic victory|a Pyrrhic victory|a Pyrrhic win victory|a Pyramid victory
+sonorous|He has a deep, sonorous voice.|sonorous|a sonorous voice|a sonorously voice|a sonority voice
+glisten|Her eyes glistened with tears.|glistened|glisten with|glisten of|glisten on with
+chicanery|The election was marred by chicanery.|chicanery|political chicanery|politically chicanery|political chicaneries
+exhort|He exhorted his team to try harder.|exhorted|exhort someone to do something|exhort someone doing something|exhort someone do something
+saunter|He sauntered into the room.|sauntered|saunter into|saunter in to on|saunter at into
+cajole|She cajoled him into helping.|cajoled|cajole someone into|cajole someone in to|cajole someone on into
+blase|She is blasé about travelling.|blasé|blasé about|blasé on|blasé of about
+privation|They suffered great privation.|privation|suffer privation|suffer on privation|suffer privations of
+evanescent|Youth is evanescent.|evanescent|evanescent beauty|evanescently beauty|evanescence beauty
+juxtapose|The exhibition juxtaposes old and new art.|juxtaposes|juxtapose A with B|juxtapose A by B|juxtapose A on B
+garrulous|He is a garrulous old man.|garrulous|a garrulous neighbour|a garrulously neighbour|a garrulity neighbour
+loquacious|She is very loquacious.|loquacious|a loquacious guest|a loquaciously guest|a loquacity guest
+obviate|The new system obviates the need for paper.|obviates|obviate the need for|obviate the need of|obviate on the need for
+diffident|He is diffident about his abilities.|diffident|diffident about|diffident on|diffident of about
+penury|He died in penury.|penury|live in penury|live on penury|live at penury
+mendacious|The report was mendacious.|mendacious|a mendacious statement|a mendaciously statement|a mendacity statement
+hurtle|The car hurtled down the hill.|hurtled|hurtle down|hurtle on down|hurtle at down
+antagonise|Don't antagonise your boss.|antagonise|antagonise someone|antagonise to someone|antagonise on someone
+connote|The word connotes danger.|connotes|connote something|connote on something|connote of something
+lambast|The critics lambasted the film.|lambasted|lambast someone for|lambast someone of|lambast someone at
+wheedle|She wheedled money out of her father.|wheedled|wheedle something out of someone|wheedle something off someone|wheedle something from out someone
+embroil|He became embroiled in a scandal.|embroiled|embroiled in|embroiled on|embroiled at in
+maladroit|It was a maladroit attempt.|maladroit|a maladroit attempt|a maladroitly attempt|a maladroitness attempt
+burgeon|The tourist industry is burgeoning.|burgeoning|a burgeoning industry|a burgeon industry|a burgeoningly industry
+marginalise|Older workers often feel marginalised.|marginalised|marginalise a group|marginalise on a group|marginalise of a group
+ostracise|He was ostracised by his classmates.|ostracised|ostracise someone|ostracise to someone|ostracise on someone
+cogitate|She cogitated on the problem.|cogitated|cogitate on|cogitate at|cogitate to on

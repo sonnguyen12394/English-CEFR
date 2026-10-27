@@ -344,6 +344,28 @@ function home() {
 //   A1:    thay "gõ từ" bằng "gõ từ vào câu" (+ điền từ), thêm cụm hay đi cùng, nhận ra dạng bất quy tắc (từ có dạng riêng)
 //   A2:    thêm đồng / trái nghĩa, nghĩa thứ hai (từ có dữ liệu); dạng bất quy tắc thành tự gõ (dạy cả nhận ra)
 // Câu trong bài học không tính 🔁 Nhớ (tính từ ngày sau). Bài ⬆️ Nâng cấp: từ cấp trước, chỉ dạy các yêu cầu mới của cấp đang học (tính vào 📘 Học).
+// 🔧 Họ từ (B1) / 🛠 Tạo dạng từ (B2): tự tìm họ từ trong kho (happy → happiness, unhappy, happily) bằng tiền tố / hậu tố,
+// kiểm loại từ của gốc để tránh nhầm (early ≠ ear + ly vì ear không phải tính từ). Câu 🛠: câu ví dụ của một từ cùng họ, đục chỗ từ đó.
+// [hậu tố, loại từ của gốc, loại từ của từ mới]
+const FAM_SUF = [['ness', 'adjective', 'noun'], ['ity', 'adjective', 'noun'], ['ly', 'adjective', 'adverb'], ['ment', 'verb', 'noun'], ['ation', 'verb', 'noun'], ['tion', 'verb', 'noun'], ['sion', 'verb', 'noun'],
+  ['er', 'verb', 'noun'], ['or', 'verb', 'noun'], ['ive', 'verb', 'adjective'], ['able', 'verb', 'adjective'], ['ible', 'verb', 'adjective'], ['ful', 'noun', 'adjective'], ['less', 'noun', 'adjective'],
+  ['ence', 'adjective', 'noun'], ['ance', 'verb', 'noun'], ['en', 'adjective', 'verb'], ['ize', 'adjective', 'verb'], ['ise', 'adjective', 'verb'], ['y', 'noun', 'adjective'], ['al', 'verb', 'noun']];
+// [tiền tố, loại từ (cả gốc và từ mới)]
+const FAM_PRE = [['un', 'adjective'], ['dis', 'verb'], ['dis', 'adjective'], ['in', 'adjective'], ['im', 'adjective'], ['ir', 'adjective'], ['il', 'adjective'], ['re', 'verb'], ['mis', 'verb']];
+// cặp trông như cùng họ nhưng không phải (Claude soát tay 27/10/2026)
+const FAM_BAD = new Set('busy|bus live|liver show|shower flow|flower let|letter can|canal come|comment display|play close|disclose count|counter post|poster scar|scary return|turn list|listless should|shoulder dismiss|miss different|indifferent fast|fasten posit|positive cover|discover cover|recover pass|passive hole|holy tide|tidy sex|sexy retreat|treat lay|layer tin|tiny ban|banner grave|gravity dispose|pose revel|revelation draw|drawer charge|discharge play|display turn|return miss|dismiss bus|business'.split(' '));
+function buildFam() { const by = {}; for (const w of WORDS) if (/^[a-z]+$/.test(w.w)) by[w.w] = w;
+  const isP = (w, p) => new RegExp(`(^|[^a-z])${p}`).test((w.pos || '').toLowerCase());   // "adverb" không tính là "verb"
+  const bases = x => { const out = new Set(), X = by[x];
+    for (const [suf, p, q] of FAM_SUF) if (x.endsWith(suf) && x.length - suf.length >= 3 && isP(X, q)) { const r = x.slice(0, -suf.length);
+      for (const c of [r, r + 'e', r.replace(/i$/, 'y'), r.replace(/(.)\1$/, '$1')]) if (c.length >= 3 && by[c] && by[c] !== X && isP(by[c], p) && !FAM_BAD.has(c + '|' + x) && !FAM_BAD.has(x + '|' + c)) out.add(c); }
+    for (const [pre, p] of FAM_PRE) { const c = x.slice(pre.length); if (x.startsWith(pre) && c.length >= 4 && by[c] && isP(X, p) && isP(by[c], p) && !FAM_BAD.has(c + '|' + x) && !FAM_BAD.has(x + '|' + c)) out.add(c); }
+    return [...out]; };
+  const root = {}; const find = x => { const b = bases(x); if (!b.length) return x; return b[0] === x ? x : find(b[0]); };
+  for (const x in by) (root[find(x)] = root[find(x)] || []).push(x);
+  for (const [r, xs] of Object.entries(root)) if (xs.length >= 2) for (const x of xs) { const w = by[x]; w.fam = xs.filter(y => y !== x).slice(0, 5);
+    const m = shuf(w.fam.map(y => by[y]).filter(y => y.ex && new RegExp(`\\b${y.w}\\b`, 'i').test(y.ex)))[0];
+    if (m) w.famQ = { s: m.ex.replace(new RegExp(`\\b${m.w}\\b`, 'i'), '___'), a: m.w }; } }
 const LESSON_ORDER = ['w2vi', 'listen', 'form', 'spell', 'clozeT', 'col', 'irrR', 'irrT', 'rel', 's2', 'fam', 'pat', 'colT', 'famQ', 'reg', 'synT', 'style', 'idi', 'fast'];
 function lessonTypes(w, reqs) { const r = new Set(reqs.filter(k => VREQ_BY[k] && VREQ_BY[k][3](w))), t = new Set();
   if (r.has('nghia')) t.add('w2vi'); if (r.has('nghe')) t.add('listen'); if (r.has('chu') || r.has('nhora')) t.add('form');
@@ -583,6 +605,7 @@ checkVer();
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   // dữ liệu cho 12 yêu cầu Nhớ (tools/build-vx.mjs): dạng bất quy tắc, đồng / trái nghĩa, nghĩa thứ hai
   try { const vx = await (await fetch('vx.json?v=1')).json(); for (const w of WORDS) { const k = w.w.toLowerCase(); if (vx.irr[k]) w.irr = vx.irr[k]; if (vx.rel[k]) w.rel = vx.rel[k]; if (vx.s2[k]) w.s2 = vx.s2[k]; } } catch (e) {}
+  buildFam();
   let last;
   sb.auth.onAuthStateChange((ev, session) => { const id = session ? session.user.id : null; if (id === last) return; last = id; S = null; setTimeout(() => start(session), 0); });
 })();

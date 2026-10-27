@@ -6,7 +6,11 @@ import fs from 'node:fs';
 const root = new URL('..', import.meta.url).pathname, J = f => JSON.parse(fs.readFileSync(root + f, 'utf8')), opt = f => fs.existsSync(root + f) ? J(f) : {};
 const REF = J('ref.json').words, Z = J('content/ref/zipf.json'), LVS = ['b1', 'b1p', 'b2', 'b2p', 'c1', 'c2'], LVN = { b1: 'B1', b1p: 'B1+', b2: 'B2', b2p: 'B2+', c1: 'C1', c2: 'C2' };
 const have = new Set(['a1.json', 'a2.json'].flatMap(f => J(f).units.flatMap(u => u.words.map(w => w.w.toLowerCase()))));
-const COL = opt('content/b-col.json'), EX = opt('content/b-exam.json'), DATA = opt('content/b-data.json');
+// content/bx/*.txt: mỗi dòng id|câu thi|dạng từ trong câu|cụm đúng|cụm sai 1|cụm sai 2 (Claude soạn 27/10/2026, chưa người thật kiểm)
+const COL = {}, EX = {}, DATA = opt('content/b-data.json');
+for (const f of fs.readdirSync(root + 'content/bx').filter(f => f.endsWith('.txt')).sort((a, b) => a.startsWith('fix') - b.startsWith('fix') || a.localeCompare(b))) for (const l of fs.readFileSync(root + 'content/bx/' + f, 'utf8').split('\n').filter(Boolean)) {
+  const [id, s, fm, ok, b1, b2] = l.split('|'); EX[id] = [s, fm]; if (ok && b1 && b2) COL[id] = { ok, bad: [b1, b2] }; }
+// fix-*.txt (đọc sau, ghi đè câu thi): câu thi trùng câu ví dụ trên thẻ được viết lại (thi phải là câu chưa gặp)
 const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 // câu điền từ câu ví dụ: tìm dạng của từ trong câu (đuôi -s, -ed, -ing, -er…); cụm nhiều chữ thì tìm nguyên cụm
 function cloze(w) { const x = w.w, re = x.includes(' ') ? new RegExp(`\\b(${esc(x)})\\b`, 'i') : new RegExp(`\\b(${esc(x.length > 4 && /e$/.test(x) ? x.slice(0, -1) : x)}[a-z]{0,4})\\b`, 'i');
