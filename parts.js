@@ -86,6 +86,8 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
     ${S.fake ? '<p class="mute" style="margin:4px 0">🧪 Đang dùng dữ liệu thử (💾 Sao lưu để quay lại dữ liệu thật).</p>' : ''}
     <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b></p>
     ${tip ? `<button class="pri" data-ovp="${tip[0][0]}" data-ovpl="${tip[1]}">▶ Nên làm: ${tip[0][1]} ${tip[0][2]} · ${tip[2]}</button>` : ''}
+    <details class="box"><summary><b>🗓 Gợi ý mỗi ngày (~45 phút)</b></summary><p style="margin:6px 0">• 2 bài 📚 Từ vựng mới (~12 phút)<br>• 4 lượt 🏋️ Luyện tập Từ vựng (80 câu, ~16 phút)<br>• 20 câu 🗣 Nói ra từ (~4 phút)<br>• 1 bài của phần khác: ngữ pháp, phát âm, đọc, nghe… (~10–15 phút)</p>
+      <p class="mute" style="margin:0">Mô phỏng (chưa người thật): theo nhịp này Pre-A1 khoảng 1,5–2 tháng, A1 khoảng 5 tháng, A2 khoảng 3,5–4 tháng. Học ít hơn thì lâu hơn; bài cần ôn luôn làm trước bài mới.</p></details>
     <div class="chips">${OV_LV.map(chip).join('')}</div>
     <div class="box"><div class="row"><b>Cấp ${LVN[lv]}: ${ids.length} phần</b><span class="mute">đã đạt ${done}/${ids.length}</span></div>${bar(Math.round(done / (ids.length || 1) * 100), 100, 'var(--good)')}
       <p class="mute" style="margin:6px 0 0">Đạt ${LVN[lv]} khi cả ${ids.length} phần dưới đây qua 🚪 Thi chuyển cấp ${LVN[lv]}. Mỗi phần: 📘 Học bài mới của cấp; 🔁 Nhớ và thi tính cả các cấp trước.${absent.length ? ` Cấp này chưa có: ${absent.join(', ')}.` : ''}</p>
