@@ -81,6 +81,18 @@ await pg.click('[data-a="next"]'); await pg.waitForTimeout(400); check('thư vi�
 await pg.evaluate(() => uoeView('c2')); await pg.waitForTimeout(600); await pg.click('[data-ut="sum"]'); await pg.waitForTimeout(400);
 await pg.fill('#ut', await pg.evaluate(() => kModel(UOE.sum.find(x => document.body.innerText.includes(x.en))))); await pg.click('#uf button[type=submit]'); await pg.waitForTimeout(300);
 check('tóm tắt C2 chấm bài mẫu', /Đúng/.test(await pg.innerText('#ufb')));
+// 🌏 Học IELTS (v68): mở từ thanh dưới; luyện cả bài Đọc → ra kết quả; Viết Task 2 nộp bài mẫu → máy ước band; đề thử bài Đọc làm trọn → ra band
+await pg.evaluate(() => overview()); await pg.waitForTimeout(400); await pg.click('#tabs [data-tab="ie"]'); await pg.waitForTimeout(1500);
+check('IELTS mở từ thanh dưới', !!(await pg.$('#ie')) && await pg.isVisible('#tabs [data-tab="ie"].on'));
+await pg.click('[data-ier="all"]'); await pg.waitForTimeout(400);
+for (let n = 0; n < 30; n++) { if (await pg.$('#it:not([disabled])')) { await pg.fill('#it', 'x'); await pg.click('#if button[type=submit]'); } else if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break;
+  await pg.waitForTimeout(50); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(50); }
+check('IELTS đọc ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
+await pg.click('[data-iew="t2"]'); await pg.waitForTimeout(300); await pg.fill('#iwt', await pg.evaluate(() => IE.t2[0].m)); await pg.click('#iwf button[type=submit]'); await pg.waitForTimeout(300);
+check('IELTS viết máy ước band', /Máy ước: band/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
+await pg.click('[data-iemk="1"]'); await pg.waitForTimeout(1500);
+for (let n = 0; n < 80; n++) { if (await pg.$('#kt')) { await pg.fill('#kt', 'x'); await pg.click('#kf button[type=submit]'); } else if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
+check('IELTS đề thử Đọc ra band', /Kết quả IELTS/.test(await pg.innerText('#app')));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

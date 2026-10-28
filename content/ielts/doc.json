@@ -1,0 +1,191 @@
+{
+  "_note": "Bài đọc kiểu IELTS (Claude soạn 28/10/2026, chưa người thật kiểm). Không chép đề IELTS thật. Mỗi bài: đoạn A–F, tiêu đề đúng của từng đoạn (h) + tiêu đề nhiễu (hx), TRUE/FALSE/NOT GIVEN (tf), điền ≤ 2 từ lấy đúng từ bài (comp), trắc nghiệm (mc). Dựng: node tools/build-ielts.mjs",
+  "items": [
+    {
+      "id": "ir-heat", "lv": "b2", "title": "Cooling the Urban Heat Island",
+      "paras": [
+        "On a calm summer evening, the centre of a large city can be several degrees warmer than the countryside only a few kilometres away. This effect, known as the urban heat island, was first described in the early nineteenth century, when an amateur meteorologist compared thermometer readings taken in London with those from nearby villages. Today it is measured with satellites as well as thermometers, and it has become a serious concern for city planners, because hotter cities use more energy for cooling and put the health of elderly residents at risk.",
+        "Several features of cities combine to trap heat. Dark materials such as asphalt and roofing tar absorb most of the sunlight that falls on them during the day and release it slowly after sunset, so streets stay warm long into the night. Cities also have far less vegetation than rural areas. Plants cool the air around them by releasing water through a process called evapotranspiration, and when they are replaced by concrete, this natural air conditioning is lost. In addition, cars, factories and air-conditioning units all produce waste heat, while tall buildings reduce the movement of air through narrow streets, so warm air cannot easily escape.",
+        "The consequences go beyond discomfort. During heatwaves, death rates rise most sharply in densely built neighbourhoods, particularly among older people who live alone. Demand for electricity peaks on the hottest afternoons, which can overload local networks. Heat also affects air quality: ground-level ozone, a pollutant that irritates the lungs, forms more quickly when temperatures are high.",
+        "One widely discussed response is the green roof, a layer of soil and plants laid on top of a building. Green roofs cool the building beneath them by providing shade and by releasing moisture, and they also hold rainwater that would otherwise rush into drains during storms. However, they are expensive to install, they need regular maintenance, and the extra weight often means that the roof structure must be strengthened. Studies also suggest that a single green roof has little effect on the temperature at street level; the benefit only becomes noticeable when many roofs in an area are covered.",
+        "A cheaper option is to make surfaces more reflective. Painting roofs white or with special light-coloured coatings can reduce the amount of heat they absorb, and some cities now require cool roofs on certain new buildings. Reflective pavements have also been tested, but with mixed results. Because they send sunlight back upwards, they can increase glare and even make pedestrians feel hotter, even though the surface itself stays cooler.",
+        "For many researchers, the most cost-effective solution is still the street tree. Trees provide shade for both people and buildings, and a mature tree releases large amounts of water vapour on a hot day. Yet trees need space for their roots and water during dry periods, and they take years to grow. Planners must also decide where to plant them. Poorer neighbourhoods tend to have fewer street trees than wealthier ones, and they are often the hottest parts of a city. Networks of cheap sensors are now being used to map temperatures street by street, so that planting can be directed to the places that need shade most."
+      ],
+      "h": ["An old observation that has become a modern problem", "Why cities hold on to heat", "The human and environmental costs", "A living layer on top of buildings", "A cheaper surface solution with an unexpected side effect", "Deciding where shade is needed most"],
+      "hx": ["The financial rewards of building upwards", "How rural areas are affected by city heat"],
+      "tf": [
+        { "s": "The urban heat island effect was first identified using satellite data.", "a": "FALSE", "why": "Đoạn A: phát hiện đầu thế kỷ 19 bằng nhiệt kế; vệ tinh là cách đo ngày nay." },
+        { "s": "Tall buildings can reduce the movement of air through streets.", "a": "TRUE", "why": "Đoạn B: tall buildings reduce the movement of air through narrow streets." },
+        { "s": "Ground-level ozone is produced more quickly in hot weather.", "a": "TRUE", "why": "Đoạn C: forms more quickly when temperatures are high." },
+        { "s": "Green roofs are more popular in Europe than in Asia.", "a": "NOT GIVEN", "why": "Bài không so sánh các châu lục." },
+        { "s": "Reflective pavements always make streets more comfortable for people walking.", "a": "FALSE", "why": "Đoạn E: chúng có thể làm người đi bộ thấy nóng hơn." },
+        { "s": "Poorer neighbourhoods usually have fewer street trees than wealthier ones.", "a": "TRUE", "why": "Đoạn F: Poorer neighbourhoods tend to have fewer street trees than wealthier ones." }
+      ],
+      "comp": [
+        { "s": "Dark materials such as ______ absorb sunlight during the day.", "a": ["asphalt"], "why": "Đoạn B: Dark materials such as asphalt and roofing tar…" },
+        { "s": "Plants cool the air by releasing water through ______.", "a": ["evapotranspiration"], "why": "Đoạn B: a process called evapotranspiration." },
+        { "s": "Besides cooling buildings, green roofs hold ______ during storms.", "a": ["rainwater"], "why": "Đoạn D: they also hold rainwater…" },
+        { "s": "Planners use networks of cheap ______ to map temperatures street by street.", "a": ["sensors"], "why": "Đoạn F: Networks of cheap sensors…" }
+      ],
+      "mc": [
+        { "q": "Which drawback of green roofs is mentioned in the passage?", "a": "The roof may need to be made stronger.", "w": ["They attract too many insects.", "They increase energy use in winter.", "They can only be built on new buildings."], "why": "Đoạn D: the roof structure must be strengthened." },
+        { "q": "What does the writer say about street trees?", "a": "They are cost-effective but need space, water and time.", "w": ["They are less effective than reflective paint.", "They should only be planted in wealthy areas.", "They cool streets immediately after planting."], "why": "Đoạn F: most cost-effective… need space… water… take years to grow." }
+      ]
+    },
+    {
+      "id": "ir-choice", "lv": "b2", "title": "Can There Be Too Much Choice?",
+      "paras": [
+        "It is widely assumed that having more options makes people happier. A modern supermarket may stock tens of thousands of different products, and online shops offer even more. Economists have traditionally argued that extra choice cannot make consumers worse off: if they do not like a new option, they can simply ignore it. Over the past twenty-five years, however, psychologists have tested this assumption and found that the picture is more complicated.",
+        "The best-known study was published in 2000. Researchers set up a tasting table in an upmarket grocery store in California. On some days the table displayed twenty-four varieties of jam; on other days it displayed only six. The larger display attracted more attention: about 60 per cent of passing shoppers stopped at it, compared with 40 per cent for the smaller one. But when it came to buying, the result was reversed. Only around 3 per cent of those who visited the large display bought a jar, while about 30 per cent of those who saw the small display did so.",
+        "Several explanations have been offered. Comparing many options requires considerable mental effort, and people may put off a decision they find tiring. A large range can also increase the fear of regret: the more alternatives there are, the more likely it seems that a better one has been missed. Finally, a wide choice may raise expectations, so that even a good product feels disappointing.",
+        "Later research, however, has raised doubts about how general the effect is. Some attempts to repeat the jam study and similar experiments found no difference between large and small selections, and a few found that more choice actually increased buying. A 2010 review that combined the results of dozens of experiments concluded that, on average, the effect was close to zero. This does not mean that choice overload never happens, but it suggests that it appears only in certain situations.",
+        "Researchers have since tried to identify those situations. Overload seems most likely when the options are difficult to compare, when people do not have clear preferences before they start, and when a decision must be made quickly. Experts are less affected than beginners: a person who knows a lot about wine can quickly reject most of the bottles on a long list, while a beginner may feel lost.",
+        "These findings have practical value. Shops and websites can help customers by grouping products into clear categories, and organisations can offer a sensible default option for people who do not want to choose. Automatic enrolment in workplace pension schemes, for example, has greatly increased the number of people saving for retirement, while still allowing anyone to opt out. Most researchers warn against simply removing options, however, because people also value the freedom to choose."
+      ],
+      "h": ["A widely shared assumption", "An experiment in a food shop", "Possible reasons for the effect", "Doubts about the original finding", "The conditions that make choosing harder", "Helping people choose without limiting freedom"],
+      "hx": ["Why shops are reducing their product ranges", "The cost of offering too few products"],
+      "tf": [
+        { "s": "More shoppers stopped at the table with the larger selection of jam.", "a": "TRUE", "why": "Đoạn B: 60 per cent stopped at the large display, 40 per cent at the small one." },
+        { "s": "Shoppers who saw six jams spent more money in total in the store.", "a": "NOT GIVEN", "why": "Bài chỉ nói tỉ lệ mua mứt, không nói tổng tiền tiêu trong cửa hàng." },
+        { "s": "The 2010 review confirmed that large choices always reduce buying.", "a": "FALSE", "why": "Đoạn D: review thấy hiệu ứng trung bình gần bằng 0." },
+        { "s": "Fear of regret is suggested as one explanation for choice overload.", "a": "TRUE", "why": "Đoạn C: A large range can also increase the fear of regret." },
+        { "s": "People who know a lot about a product are less affected by large choices.", "a": "TRUE", "why": "Đoạn E: Experts are less affected than beginners." },
+        { "s": "Automatic pension enrolment was first introduced in California.", "a": "NOT GIVEN", "why": "Bài không nói nơi bắt đầu tự động đăng ký lương hưu." }
+      ],
+      "comp": [
+        { "s": "The jam study took place in an ______ grocery store.", "a": ["upmarket"], "why": "Đoạn B: an upmarket grocery store in California." },
+        { "s": "Comparing many options requires considerable ______ effort.", "a": ["mental"], "why": "Đoạn C: considerable mental effort." },
+        { "s": "Overload is most likely when options are difficult to ______.", "a": ["compare"], "why": "Đoạn E: when the options are difficult to compare." },
+        { "s": "Organisations can offer a sensible ______ option for people who do not want to choose.", "a": ["default"], "why": "Đoạn F: a sensible default option." }
+      ],
+      "mc": [
+        { "q": "According to paragraph D, choice overload…", "a": "happens only in certain situations.", "w": ["has been proved in every experiment.", "affects experts more than beginners.", "makes people buy more products."], "why": "Đoạn D: it appears only in certain situations." },
+        { "q": "What is the writer's main purpose?", "a": "To examine whether too much choice is harmful.", "w": ["To persuade shops to sell fewer products.", "To describe the history of supermarkets.", "To explain how to save for retirement."], "why": "Cả bài xét giả định 'càng nhiều lựa chọn càng tốt'." }
+      ]
+    },
+    {
+      "id": "ir-coral", "lv": "c1", "title": "Saving the World's Coral Reefs",
+      "paras": [
+        "Coral reefs cover less than one per cent of the ocean floor, yet they support roughly a quarter of all known marine species. They protect coastlines from storm waves, provide food for hundreds of millions of people and attract tourists who bring income to coastal communities. It is therefore alarming that reefs around the world have declined sharply in recent decades.",
+        "The main threat is rising sea temperatures. Corals live in partnership with tiny algae that live inside their tissues, produce food through photosynthesis and give the coral much of its colour. When the water becomes too warm for too long, this partnership breaks down: the coral expels the algae and turns white, a process known as bleaching. Bleached corals are not dead, and they can recover if temperatures return to normal quickly. If the heat continues, however, they starve. Mass bleaching events, which affect whole reef systems at once, have become far more frequent.",
+        "In response, scientists and volunteers have developed methods of restoring damaged reefs. The most common is coral gardening. Small fragments are cut from healthy corals and grown in underwater nurseries, often hanging from frames sometimes called coral trees. Fast-growing branching species are usually chosen because they reach a useful size within a year or two. The young corals are then attached to damaged parts of the reef.",
+        "Coral gardening has produced encouraging local results, but its critics point to a problem of scale. Most projects restore an area of a few hundred square metres, while the reefs being lost are measured in thousands of square kilometres. The work is also labour-intensive and therefore expensive. Above all, gardening does nothing about the cause of the damage: a newly planted coral will bleach as easily as the original if the water heats up again.",
+        "Some researchers are therefore trying to produce corals that can survive higher temperatures. By selecting and breeding individuals that came through recent heatwaves, they hope to speed up natural adaptation, an approach known as assisted evolution. Supporters argue that it may be the only way to keep reefs functioning as the climate changes. Others worry that releasing large numbers of similar corals could reduce genetic variety, leaving reefs more vulnerable to diseases in the future.",
+        "A newer technique aims to work at a much larger scale. Many corals reproduce in mass spawning events, releasing eggs and sperm into the water on a few nights each year. Teams collect this spawn, rear the larvae in tanks or floating pools and then release them over damaged reefs, where some settle and grow. Even so, most scientists agree that restoration can only buy time. Without significant cuts in the emissions that are warming the oceans, no technique is likely to save reefs in their present form."
+      ],
+      "h": ["Small area, large importance", "What happens when the sea gets too warm", "Growing coral like plants", "Why gardening alone is not enough", "Creating tougher corals", "Working at a larger scale"],
+      "hx": ["Tourism as the main threat to reefs", "The commercial value of reef fish"],
+      "tf": [
+        { "s": "Coral reefs cover more than one per cent of the ocean floor.", "a": "FALSE", "why": "Đoạn A: less than one per cent." },
+        { "s": "The algae living inside corals provide them with food.", "a": "TRUE", "why": "Đoạn B: algae… produce food through photosynthesis." },
+        { "s": "Bleached corals cannot recover.", "a": "FALSE", "why": "Đoạn B: they can recover if temperatures return to normal quickly." },
+        { "s": "Coral gardening has been tried in every major reef system in the world.", "a": "NOT GIVEN", "why": "Bài không nói phạm vi áp dụng trên thế giới." },
+        { "s": "Some scientists fear that breeding heat-tolerant corals could reduce genetic variety.", "a": "TRUE", "why": "Đoạn E: Others worry… could reduce genetic variety." },
+        { "s": "Larval seeding costs less than coral gardening.", "a": "NOT GIVEN", "why": "Bài không so sánh chi phí hai cách." }
+      ],
+      "comp": [
+        { "s": "When corals expel their algae, they turn ______.", "a": ["white"], "why": "Đoạn B: the coral expels the algae and turns white." },
+        { "s": "Coral fragments are often grown on frames called ______.", "a": ["coral trees"], "why": "Đoạn C: frames sometimes called coral trees." },
+        { "s": "Breeding corals that survived heatwaves is known as assisted ______.", "a": ["evolution"], "why": "Đoạn E: an approach known as assisted evolution." },
+        { "s": "Teams collect coral spawn during mass ______ events.", "a": ["spawning"], "why": "Đoạn F: mass spawning events." }
+      ],
+      "mc": [
+        { "q": "What is the main criticism of coral gardening in paragraph D?", "a": "Projects are very small compared with the damage.", "w": ["The corals used grow too slowly.", "Volunteers are not trained properly.", "Nurseries harm healthy corals."], "why": "Đoạn D: a problem of scale." },
+        { "q": "What conclusion does the writer reach?", "a": "Restoration only buys time unless emissions are cut.", "w": ["Assisted evolution will save most reefs.", "Coral gardening should be stopped.", "Reefs will recover without human help."], "why": "Đoạn F: restoration can only buy time…" }
+      ]
+    },
+    {
+      "id": "ir-lang", "lv": "c1", "title": "The Fight to Keep Languages Alive",
+      "paras": [
+        "Estimates vary, but around 7,000 languages are spoken in the world today. They are very unevenly distributed. More than half of the world's population speaks one of just two dozen major languages, while thousands of others have only a few hundred or a few thousand speakers. Linguists estimate that about 40 per cent of all languages are now endangered, and that many could disappear within this century.",
+        "Languages rarely die suddenly. Much more often, a community goes through what linguists call language shift. Parents who speak a minority language decide, often for understandable reasons, to bring up their children in the language of schools, jobs and the media. The children may understand their grandparents but answer them in the dominant language, and within two or three generations the old language is no longer used in daily life.",
+        "Supporters of endangered languages argue that much more than vocabulary is lost when a language disappears. Many small languages contain detailed knowledge of local plants and animals, built up over centuries. They also preserve stories, songs and oral history, and they show the remarkable range of ways in which human languages can organise grammar and meaning. For scientists who study how language works, each disappearance removes evidence that cannot be recovered.",
+        "One response is documentation. Linguists work with the last fluent speakers to record conversations and stories and to produce grammars and dictionaries. Cheap digital recorders and smartphones have made this work much easier than it was a generation ago. Yet a recording, however detailed, is not the same as a living language. A dictionary on a library shelf does not mean that anyone speaks the language at home.",
+        "There are, however, examples of recovery. Hebrew, which for centuries was used mainly in religious texts, became the everyday language of millions of people in the twentieth century. In New Zealand, Māori communities set up preschools known as language nests, where young children spend the day with older speakers, and Māori is now heard far more often in public life than it was fifty years ago. In Wales, schools that teach mainly through Welsh have helped to stop a long decline.",
+        "Revitalisation is not easy, however. It requires adults to learn a language that may be very different from the one they grew up with, and it can lead to arguments about a standard spelling system or about which local variety should be taught. Outside experts can provide training and resources, but most specialists agree that success depends above all on whether the speakers themselves want their language to survive."
+      ],
+      "h": ["An uneven distribution", "A gradual process of change", "More than words", "Keeping a record", "Examples of recovery", "Who decides a language's future"],
+      "hx": ["Why some languages are easier to learn", "The role of international languages in business"],
+      "tf": [
+        { "s": "Linguists agree on the exact number of languages in the world.", "a": "FALSE", "why": "Đoạn A: Estimates vary." },
+        { "s": "Most endangered languages disappear suddenly.", "a": "FALSE", "why": "Đoạn B: Languages rarely die suddenly." },
+        { "s": "Parents' decisions play an important part in language loss.", "a": "TRUE", "why": "Đoạn B: Parents… decide… to bring up their children in the language of schools." },
+        { "s": "Smartphones have made it easier to record languages.", "a": "TRUE", "why": "Đoạn D: Cheap digital recorders and smartphones have made this work much easier." },
+        { "s": "Hebrew was revived mainly through radio broadcasting.", "a": "NOT GIVEN", "why": "Bài không nói Hebrew được phục hồi bằng cách nào." },
+        { "s": "Language nests in New Zealand are designed for adult learners.", "a": "FALSE", "why": "Đoạn E: young children spend the day with older speakers." }
+      ],
+      "comp": [
+        { "s": "When a community stops passing on its language, linguists call it language ______.", "a": ["shift"], "why": "Đoạn B: what linguists call language shift." },
+        { "s": "Small languages often contain detailed knowledge of local ______ and animals.", "a": ["plants"], "why": "Đoạn C: local plants and animals." },
+        { "s": "Māori preschools are known as language ______.", "a": ["nests"], "why": "Đoạn E: preschools known as language nests." },
+        { "s": "Revitalisation can cause arguments about a standard ______ system.", "a": ["spelling"], "why": "Đoạn F: a standard spelling system." }
+      ],
+      "mc": [
+        { "q": "What is the main point of paragraph D?", "a": "Recording a language does not guarantee that it survives.", "w": ["Dictionaries are too expensive to produce.", "Linguists no longer need fluent speakers.", "Smartphones have replaced dictionaries."], "why": "Đoạn D: a recording… is not the same as a living language." },
+        { "q": "According to the writer, a language's survival depends mainly on…", "a": "whether its speakers want it to survive.", "w": ["the work of outside experts.", "the number of dictionaries available.", "government funding for schools."], "why": "Đoạn F: success depends above all on whether the speakers themselves want…" }
+      ]
+    },
+    {
+      "id": "ir-farm", "lv": "b2", "title": "Farming Upwards",
+      "paras": [
+        "Vertical farming is a method of growing crops indoors in stacked layers, often inside warehouses or old factories. Instead of soil, the plants usually grow in water containing nutrients, and instead of sunlight they receive light from rows of LED lamps. Supporters say that vertical farms can produce fresh food close to the cities where it is eaten, without pesticides, and they claim to use up to 95 per cent less water than conventional fields.",
+        "Because everything happens indoors, vertical farms are not affected by droughts, floods or frost. Temperature, humidity and light can be controlled precisely, so crops can be grown in any season and harvested many times a year. Food travels a much shorter distance to shops, which means it can be sold fresher and less of it is wasted on the way. A vertical farm also needs far less land than a field producing the same amount of lettuce.",
+        "The difficulty is energy. In a field, sunlight is free; in a vertical farm, every hour of light must be paid for. Lighting, heating, cooling and pumping water make electricity one of the largest costs of the business. The environmental benefits also depend on how the local electricity is produced. A farm powered mainly by coal may have a larger carbon footprint than the farms it is supposed to replace.",
+        "There are also limits on what can be grown. Most vertical farms produce leafy greens and herbs, which grow quickly, stay small and sell at high prices. Staple crops such as wheat and rice, which provide most of the world's calories, are currently impractical: they take months to grow, need a great deal of light and are sold cheaply. For the foreseeable future, vertical farms are unlikely to feed the world on their own.",
+        "These problems became clear in the early 2020s. After years of rapid investment, several well-funded vertical farming companies closed or went bankrupt, as energy prices rose sharply and investors lost patience with businesses that were not making a profit. Some firms that survived reduced their size and concentrated on a smaller number of products.",
+        "Nevertheless, the idea may still make sense in particular places. In countries with very cold or very dry climates, where fresh vegetables are normally imported, local indoor farms can compete more easily. They are also attractive in cities where land prices are high. LED lights continue to become more efficient, and farms that use renewable electricity can avoid the worst of the carbon problem. Vertical farming may never replace traditional agriculture, but it could become a useful addition to it."
+      ],
+      "h": ["A new way of growing food", "Freedom from the weather", "The hidden cost of artificial light", "Not every crop is suitable", "Financial difficulties in the industry", "Where the idea may still work"],
+      "hx": ["Consumer doubts about taste", "Replacing farmers with robots"],
+      "tf": [
+        { "s": "Vertical farms usually grow plants in soil.", "a": "FALSE", "why": "Đoạn A: Instead of soil, the plants usually grow in water…" },
+        { "s": "Vertical farms can produce crops in any season.", "a": "TRUE", "why": "Đoạn B: crops can be grown in any season." },
+        { "s": "Growing wheat in vertical farms is currently impractical.", "a": "TRUE", "why": "Đoạn D: wheat and rice… are currently impractical." },
+        { "s": "Consumers prefer the taste of vertically farmed lettuce.", "a": "NOT GIVEN", "why": "Bài không nói về khẩu vị người mua." },
+        { "s": "Rising energy prices contributed to the closure of some companies.", "a": "TRUE", "why": "Đoạn E: as energy prices rose sharply…" },
+        { "s": "LED lights have become less efficient in recent years.", "a": "FALSE", "why": "Đoạn F: LED lights continue to become more efficient." }
+      ],
+      "comp": [
+        { "s": "Instead of soil, plants grow in water containing ______.", "a": ["nutrients"], "why": "Đoạn A: water containing nutrients." },
+        { "s": "Most vertical farms produce leafy greens and ______.", "a": ["herbs"], "why": "Đoạn D: leafy greens and herbs." },
+        { "s": "The environmental benefit depends on how the local ______ is produced.", "a": ["electricity"], "why": "Đoạn C: how the local electricity is produced." },
+        { "s": "Indoor farms are attractive in cities where ______ prices are high.", "a": ["land"], "why": "Đoạn F: cities where land prices are high." }
+      ],
+      "mc": [
+        { "q": "What is described as one of the largest costs of vertical farming?", "a": "Electricity", "w": ["Pesticides", "Transport", "Land"], "why": "Đoạn C: electricity one of the largest costs." },
+        { "q": "What is the writer's overall view of vertical farming?", "a": "It may be a useful addition to traditional farming.", "w": ["It will soon replace traditional farming.", "It has no real advantages.", "It should only grow wheat and rice."], "why": "Đoạn F: could become a useful addition to it." }
+      ]
+    },
+    {
+      "id": "ir-sleep", "lv": "c1", "title": "Sleep and the Learning Brain",
+      "paras": [
+        "For much of history, sleep was regarded as a period of rest in which the brain simply switched off. Scientists now know that this view was mistaken. Recordings of brain activity show that the sleeping brain passes through several distinct stages every night, and that in some of them it is almost as active as during the day. One of the most important tasks it carries out during these hours appears to be the processing of memories.",
+        "According to the most widely accepted theory, new memories are first stored in a small structure deep in the brain called the hippocampus. This store has limited capacity and is easily disrupted. During deep sleep, the hippocampus appears to replay the experiences of the day, and these memories are gradually transferred to the cortex, the outer layer of the brain, where they can be kept for much longer. This process is known as consolidation.",
+        "Evidence for this comes from many experiments. In a typical study, volunteers learn a list of word pairs or practise a new movement in the evening. Half of them then sleep normally, while the others stay awake for the same number of hours. When everyone is tested later, the people who slept usually remember more. Other research suggests that the stage of sleep in which most dreaming takes place, known as REM sleep, plays a part in processing emotional memories and may help people to see connections between ideas.",
+        "The effects of losing sleep are equally revealing. After a single night without sleep, people find it significantly harder to form new memories the following day, and brain scans show reduced activity in the hippocampus when they try to learn. Regular short sleep has also been linked with poorer concentration and slower reactions, which matter in the classroom as much as on the road.",
+        "Daytime naps can also help. Even a short nap after learning seems to protect new information, and a longer nap that includes deep sleep may have effects similar to a full night. However, long naps late in the afternoon can make it harder to fall asleep at night, so most sleep researchers recommend keeping them early and brief.",
+        "These findings have clear lessons for students. Staying up all night to study before an exam, often called cramming, is likely to be counterproductive, because it removes the very sleep that would help the material to be remembered. They are also relevant to schools. Teenagers' body clocks tend to shift later during adolescence, so early starts force many of them to learn while short of sleep. Some school districts have delayed their start times, and several have reported improvements in attendance and alertness."
+      ],
+      "h": ["A change in scientific thinking", "Moving memories to long-term storage", "Evidence from the laboratory", "What happens without sleep", "The value of a short rest", "Lessons for students and schools"],
+      "hx": ["Why some people need less sleep", "Dreams as predictions of the future"],
+      "tf": [
+        { "s": "Scientists once believed that the brain did little during sleep.", "a": "TRUE", "why": "Đoạn A: the brain simply switched off… this view was mistaken." },
+        { "s": "Most sleep experiments are carried out on university students.", "a": "NOT GIVEN", "why": "Bài chỉ nói 'volunteers', không nói là sinh viên." },
+        { "s": "REM sleep has no connection with emotional memories.", "a": "FALSE", "why": "Đoạn C: REM sleep plays a part in processing emotional memories." },
+        { "s": "One night without sleep makes it harder to learn new information the next day.", "a": "TRUE", "why": "Đoạn D: significantly harder to form new memories the following day." },
+        { "s": "Sleep researchers recommend long naps late in the afternoon.", "a": "FALSE", "why": "Đoạn E: recommend keeping them early and brief." },
+        { "s": "Teenagers' body clocks tend to shift later.", "a": "TRUE", "why": "Đoạn F: Teenagers' body clocks tend to shift later." }
+      ],
+      "comp": [
+        { "s": "New memories are first stored in a structure called the ______.", "a": ["hippocampus"], "why": "Đoạn B: called the hippocampus." },
+        { "s": "During sleep, memories are transferred to the ______.", "a": ["cortex"], "why": "Đoạn B: transferred to the cortex." },
+        { "s": "Staying up all night to study is often called ______.", "a": ["cramming"], "why": "Đoạn F: often called cramming." },
+        { "s": "Some school districts have delayed their ______ times.", "a": ["start"], "why": "Đoạn F: delayed their start times." }
+      ],
+      "mc": [
+        { "q": "What is the process of moving memories to the cortex called?", "a": "Consolidation", "w": ["Replay", "Adolescence", "Concentration"], "why": "Đoạn B: This process is known as consolidation." },
+        { "q": "What is the main purpose of the passage?", "a": "To explain how sleep supports learning.", "w": ["To describe different types of dreams.", "To argue that naps are better than night sleep.", "To criticise schools for long holidays."], "why": "Cả bài nói giấc ngủ giúp ghi nhớ và học." }
+      ]
+    }
+  ]
+}

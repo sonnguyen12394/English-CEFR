@@ -74,13 +74,13 @@ function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000
     el.textContent = `⏱ ${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; if (s <= 0) { toast('Hết giờ: bài thi tự nộp.'); finish(); } }, 1000);
   const finish = () => { clearInterval(MK.tick); EXAM_VOX = false; try { speechSynthesis.cancel(); } catch (e) {} if (P.speak) kAsrStop();
     for (let j = P.res.length; j < P.qs.length; j++) P.res.push({ ...P.qs[j], ok: false, ans: '', secs: 1, lat: 99 }); i = P.qs.length;
-    return pi + 1 < MK.papers.length ? mkBreak(pi) : mkResult(); };
-  if (P.speak) return mkSpeakRun(pi, finish);
+    return pi + 1 < MK.papers.length ? mkBreak(pi) : MK.done ? MK.done() : mkResult(); };
+  if (P.speak) return (MK.speakRun || mkSpeakRun)(pi, finish);
   const show = () => { if (i >= P.qs.length) return finish(); const { part, q } = P.qs[i]; window.CUR = { view: 'de-thu-cau', item: MK.lv + ':' + P.t + ':' + i, prompt: String(q.q).replace(/<[^>]*>/g, '').slice(0, 200) };
     const body = q.kind === 'mc' ? q.opts.map((o, k) => `<button class="opt" data-ko="${k}">${esc(o)}</button>`).join('')
       : q.kind === 'write' ? `<form id="kf" autocomplete="off"><textarea id="kt" rows="9" autocapitalize="sentences" spellcheck="false" aria-label="Bài viết"></textarea><p class="mute" id="kwc">0 từ</p><button class="pri" type="submit">Nộp bài viết</button></form>`
       : `<form id="kf" autocomplete="off"><input id="kt" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Câu trả lời"><button class="pri" type="submit">Trả lời</button></form>`;
-    const pk = q.play && q.play.key, left = () => K_PLAYS - (plays[pk] || 0);
+    const pk = q.play && q.play.key, left = () => (MK.plays || K_PLAYS) - (plays[pk] || 0);   // MK.plays: đề IELTS chỉ nghe 1 lần (ielts.js)
     $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Bỏ</button><span class="uname">${esc(P.t)} · ${i + 1}/${P.qs.length}</span><b id="mkt"></b></div>
       <p class="mute" style="margin:4px 0">${esc(part)}</p>${q.head || ''}${q.play ? `<button class="chip" data-kplay>🔊 Nghe (còn ${left()} lần)</button>` : ''}<p class="q">${q.q}</p>${body}${q.foot || ''}`;
     if (q.play && !plays[pk]) { plays[pk] = 1; kPlay(q.play); const b = $app.querySelector('[data-kplay]'); if (b) { b.textContent = `🔊 Nghe lại (còn ${left()} lần)`; b.disabled = left() <= 0; } }
@@ -89,7 +89,7 @@ function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000
     if (f) { if (q.kind === 'write') t.oninput = () => { document.getElementById('kwc').textContent = kWords(t.value).length + ' từ'; };
       f.onsubmit = e => { e.preventDefault(); if (!t.value.trim()) return t.focus(); const v = t.value;
         if (q.check) { const r = q.check(v); return rec(r.ok, v, r.sc); } rec((q.acc || [q.a]).some(a => kNorm(a) === kNorm(v)), v); }; }
-    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (!confirm('Bỏ đề thử? Lần này không lưu.')) return; clearInterval(MK.tick); EXAM_VOX = false; return mockView(MK.lv); }
+    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (!confirm('Bỏ đề thử? Lần này không lưu.')) return; clearInterval(MK.tick); EXAM_VOX = false; return MK.quit ? MK.quit() : mockView(MK.lv); }
       const pb = e.target.closest('[data-kplay]'); if (pb) { if (left() > 0) { plays[pk]++; kPlay(q.play); } pb.textContent = `🔊 Nghe lại (còn ${left()} lần)`; pb.disabled = left() <= 0; return; }
       const o = e.target.closest('[data-ko]'); if (o && q.kind === 'mc') rec(q.opts[+o.dataset.ko] === q.a, q.opts[+o.dataset.ko]); }; };
   show(); }

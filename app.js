@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 67;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 68;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -594,11 +594,12 @@ document.addEventListener('click', e => { if (!S) return; const g = e.target.clo
 // Góp ý #5: hai tab ngang hàng 📘 Học · 📖 Từ điển ở đáy màn; chỉ hiện ở hai màn chính (Học: #grid, Từ điển: #dq), ẩn khi đang làm bài.
 const $tabs = document.getElementById('tabs');
 // 25/10/2026: thanh dưới 2 mục 🎯 Học · 📖 Từ điển (parts.js overview). 🎯 sáng ở màn tổng quan (#ov) và màn chính của từng phần (#grid, #part).
-function syncTabs() { const t = document.getElementById('bk') ? 'bk' : document.getElementById('dq') ? 'dict' : (document.getElementById('ov') || document.getElementById('grid') || document.getElementById('part')) ? 'all' : null;
+// v68 (28/10/2026): 4 mục 🎯 Học CEFR · 🌏 Học IELTS (ielts.js, màn #ie) · 📖 Từ điển · 💾 Sao lưu.
+function syncTabs() { const t = document.getElementById('bk') ? 'bk' : document.getElementById('ie') ? 'ie' : document.getElementById('dq') ? 'dict' : (document.getElementById('ov') || document.getElementById('grid') || document.getElementById('part')) ? 'all' : null;
   document.body.classList.toggle('has-tabs', !!t); $tabs.hidden = !t;
   $tabs.querySelectorAll('[data-tab]').forEach(b => { const on = b.dataset.tab === t; b.classList.toggle('on', on); b.setAttribute('aria-current', on ? 'page' : 'false'); if (on) try { b.scrollIntoView({ inline: 'nearest', block: 'nearest' }); } catch (e) {} }); }
 new MutationObserver(syncTabs).observe($app, { childList: true });
-$tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; BACK = null; if (b.dataset.tab === 'dict') dict(); else if (b.dataset.tab === 'bk') backup(); else overview(); scrollTo(0, 0); });
+$tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; BACK = null; if (b.dataset.tab === 'dict') dict(); else if (b.dataset.tab === 'bk') backup(); else if (b.dataset.tab === 'ie') ieltsView(); else overview(); scrollTo(0, 0); });
 
 // Tự cập nhật (người sáng lập 23/10/2026: "web tự cập nhật nếu có thay đổi, không phải bấm tải lại"). iPhone giữ trang cũ trong bộ nhớ khi mở lại tab
 // và GitHub Pages cho giữ trang ~10 phút, nên hỏi version.json (không qua bộ nhớ đệm) khi mở / quay lại tab và mỗi 5 phút.
@@ -610,7 +611,7 @@ function maybeReload() {
   if (!NEWV) return;
   const k = 'upd-' + NEWV; let tried = false; try { tried = !!sessionStorage.getItem(k); } catch (e) {}
   if (tried) return;   // đã thử tải lại cho bản này mà vẫn cũ: không lặp vô hạn
-  if (!S || document.getElementById('grid') || document.getElementById('dq') || document.getElementById('ov') || document.getElementById('part')) {
+  if (!S || document.getElementById('grid') || document.getElementById('dq') || document.getElementById('ov') || document.getElementById('part') || document.getElementById('ie')) {
     try { sessionStorage.setItem(k, '1'); } catch (e) {}
     location.replace(location.pathname + '?v=' + NEWV + location.hash);
   } else if (typeof toast === 'function') toast('Có bản mới. Trang sẽ tự cập nhật khi bạn về trang chính.');
