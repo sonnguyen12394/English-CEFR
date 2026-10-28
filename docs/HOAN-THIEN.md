@@ -194,3 +194,9 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Thêm 332 từ C1 (Claude soạn, chưa người thật kiểm): accountability, algorithm, collaboration, credibility, diagnosis, e-commerce, inequality, legislation-related, resilience, sustainability, transparency, vulnerability… Bỏ 27 dạng suy ra được (-ly, -ing của từ gốc có sẵn) và 2 từ (trans, sexuality); "follow-up" đã có.
 - `content/bx/add-c1.txt`, chặng ⭐ cuối C1 (42 bài); 0 bài cũ đổi. Số từ: C1 1.057 → 1.389.
 - Kết quả cả đợt v64–v67: app đã có đủ từ của Oxford 3000 / 5000 (A1 → C1) trừ dạng suy ra được. Tổng thêm 797 từ. Thời gian học ước tăng tương ứng số từ (B2 +22%, B2+ +31%, C1 +31%); chưa chạy lại mô phỏng.
+
+## Thi vượt cấp (v75, 28/10/2026)
+- Quyết định của người sáng lập: "làm thêm cái thi vượt cấp đi" (đồng ý đổi luật đo sau khi có 🧭 Kiểm tra xếp cấp).
+- Lý do: dữ liệu thật 28/10 cho thấy app được mở nhưng không được học; người lớn đã biết A2–B1 phải học lại từ Pre-A1 là lý do dễ bỏ.
+- Luật mới: Thi chuyển cấp của từng phần mở cho mọi cấp cao hơn (không cần cổng 📘 / 🔁 / cấp trước), đề và ngưỡng như cũ. Qua → đạt mọi cấp ≤ cấp thi của phần đó; trượt → chờ 7 ngày. Đạt một cấp vẫn cần cả 7 phần.
+- Hạn chế: Nói cần máy chép lời (Safari), Phát âm cần tải bộ chấm âm; trình duyệt thiếu thì phần đó không thi vượt được nên "cấp đang học" có thể đứng lại ở cấp thấp. Bài đánh dấu "đã nhớ" sau thi vượt là suy ra từ một bài thi, không phải đã ôn từng bài; chúng quay lại ôn dần trong 1–5 tháng.

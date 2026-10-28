@@ -113,6 +113,10 @@ check('TOEIC đề thử Đọc ra điểm', /Kết quả TOEIC/.test(await pg.i
 await pg.evaluate(() => { S = blank(); overview(); }); await pg.waitForTimeout(600); check('ô Hôm nay', (await pg.innerText('#app')).includes('3 việc hôm nay'));
 await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }
 check('xếp cấp ra kết quả', /Kết quả xếp cấp/.test(await pg.innerText('#app')));
+// 🚀 thi vượt cấp (v75): từ Tổng quan cấp B1 (chưa học) → màn thi vượt → bấm thi Ngữ pháp B1 mở đề thi
+await pg.evaluate(() => { S = blank(); overview('b1'); }); await pg.waitForTimeout(600); await pg.click('[data-vcv="b1"]'); await pg.waitForTimeout(800);
+check('màn thi vượt', (await pg.innerText('#app')).includes('Thi vượt lên B1')); await pg.click('[data-vc="np|b1"]'); await pg.waitForTimeout(800);
+check('thi vượt mở đề', !!(await pg.$('[data-ko], [data-k], #ti, #kt, input, textarea')));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

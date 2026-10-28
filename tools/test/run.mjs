@@ -134,6 +134,24 @@ const R = await run(`(async () => {
       || plNext({ a2: [5, 5], b1: [1, 5] }, 'b1') !== null || plNext({ pre: [0, 5], a1: [0, 5], a2: [0, 5] }, 'pre') !== null || plResult({ a2: [5, 5], b1: [2, 5] }) !== 'a2') bad.push('bậc thang xếp cấp sai');
     await tryv('màn xếp cấp', () => placeView());
     add('cefr', 'C1', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'phút học, chuỗi ngày, ô Hôm nay, 🧰 thu gọn, xếp cấp mọi cấp đều đúng'); }
+  // 🚀 Thi vượt cấp (vuotcap.js): qua → đạt mọi cấp ≤ cấp thi, bài cấp dưới thành đã học + nhớ, hạn ôn rải (không bài nào đến hạn ngay, không dồn một ngày); trượt → không đổi, chờ 7 ngày
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now();
+    S.vc = { pend: [{ id: 'np', lv: 'b1', at: now - 1000, n: 0 }, { id: 'tv', lv: 'a2p', at: now - 1000, n: 0 }, { id: 'nghe', lv: 'a2', at: now - 1000, n: 0 }], log: [] };
+    kSt('np').runs.push({ lv: 'b1', at: now, ok: 30, n: 34, pass: true }); xs().runs.push({ lv: 'a2p', at: now, ok: 36, n: 40, pass: true }); kSt('nghe').runs.push({ lv: 'a2', at: now, ok: 5, n: 20, pass: false });
+    vcCheck(now);
+    for (const l of ['pre', 'a1', 'a2']) if (!kPassed(KIT.np, l)) bad.push('ngữ pháp chưa đạt cấp dưới ' + l);
+    for (const l of ['pre', 'a1', 'a2']) if (!passed(l) || !xDurable(l)) bad.push('từ vựng chưa đạt / đạt bền cấp dưới ' + l);
+    if (KIT.nghe.lvs.some(l => kPassed(KIT.nghe, l))) bad.push('trượt mà vẫn đạt nghe');
+    if (vcWait('nghe', 'a2') !== 7 || S.vc.pend.length) bad.push('chờ thi lại / hàng chờ sai');
+    const cs = [...Object.values(S.cards), ...Object.values(kSt('np').cards)], due = cs.filter(c => isDue(c, now)).length, days = new Set(cs.map(c => c.S));
+    if (!cs.length || due || days.size < 50) bad.push('hạn ôn không rải: ' + cs.length + ' thẻ, ' + due + ' đến hạn, ' + days.size + ' mức');
+    if (Object.keys(S.cards).length !== ['pre', 'a1', 'a2', 'a2p'].reduce((t, l) => t + levelWords(l).length, 0)) bad.push('số từ đánh dấu sai');
+    const p = parts(S, now, 'a2'); if (p.lq !== 100 || p.mq < 80) bad.push('📘 / 🔁 cấp A2 sau thi vượt: ' + p.lq + ' / ' + p.mq);
+    if (ovStage() !== 'pre') bad.push('mới vượt 2 phần mà cấp đang học đã đổi');
+    for (const [id] of OV) if (id !== 'tv') { const L = vcLvOf(id, 'a2'); vcRuns(id).push({ lv: L, at: now, ok: 9, n: 10, pass: true }); vcApply(id, L, now); } if (ovStage() !== 'b1') bad.push('vượt đủ 7 phần tới A2 / A2+ mà cấp đang học là ' + ovStage());
+    S.vc.pend = [{ id: 'doc', lv: 'a2', at: now - 2 * 864e5, n: 0 }]; vcCheck(now); if (S.vc.pend.length) bad.push('hàng chờ quá hạn không bỏ');
+    await tryv('màn thi vượt', () => vcView('b1')); await vcView('b1'); if (!String($app.innerHTML).includes('Thi vượt lên B1')) bad.push('màn thi vượt');
+    add('cefr', 'C2', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'thi vượt: qua → đạt cấp dưới, hạn ôn rải; trượt → không đổi, chờ 7 ngày'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

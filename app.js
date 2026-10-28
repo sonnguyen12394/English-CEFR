@@ -17,7 +17,7 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 74;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 75;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -263,6 +263,7 @@ const lkey = () => 'a1v:' + (user ? user.id : '');
 let saveTimer = null;
 function save() {
   S.t = Date.now(); if (typeof actTick === 'function') actTick(S.t);   // 📅 phút học mỗi ngày (homnay.js)
+  if (typeof vcCheck === 'function') vcCheck(S.t);   // 🚀 thi vượt cấp vừa có kết quả (vuotcap.js)
   try { localStorage.setItem(lkey(), JSON.stringify(S)); } catch (e) {}
   clearTimeout(saveTimer); setSync('Đang lưu…');
   saveTimer = setTimeout(async () => {
