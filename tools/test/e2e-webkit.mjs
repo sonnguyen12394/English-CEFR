@@ -33,7 +33,7 @@ const PREV = { pre: null, a1: 'pre', a2: 'a1', b1: 'a2p', b2: 'b1p', c1: 'b2p', 
 for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'])) {
   await pg.evaluate(async p => { S = blank(); if (p) await bkSet('all', p, 'dat'); }, PREV[lv]);
   // học 1 bài Từ vựng
-  await pg.evaluate(lv => learn(UNITS.find(u => u.lv === lv)), lv); let n = 0; while (await pg.$('[data-a="next"]')) { await pg.click('[data-a="next"]'); await pg.waitForTimeout(20); if (++n > 20) break; }
+  await pg.evaluate(lv => learn(UNITS.find(u => u.lv === lv)), lv); await pg.waitForTimeout(200); if (await pg.$('[data-pt="skip"]')) { await pg.click('[data-pt="skip"]'); await pg.waitForTimeout(200); } let n = 0; while (await pg.$('[data-a="next"]')) { await pg.click('[data-a="next"]'); await pg.waitForTimeout(20); if (++n > 20) break; }
   const q = await answerAll(); const done = (await pg.innerText('#app')).includes('✅ Xong'); check(`${lv} học bài Từ vựng (${q} câu)`, done);
   // mọi phần: màn chính, bài học đầu, mở thi
   for (const id of await pg.evaluate(lv => Object.values(KIT).filter(P => P.lvs.includes(lv)).map(P => P.id), lv)) {
@@ -117,6 +117,11 @@ check('xếp cấp ra kết quả', /Kết quả xếp cấp/.test(await pg.inne
 await pg.evaluate(() => { S = blank(); overview('b1'); }); await pg.waitForTimeout(600); await pg.click('[data-vcv="b1"]'); await pg.waitForTimeout(800);
 check('màn thi vượt', (await pg.innerText('#app')).includes('Thi vượt lên B1')); await pg.click('[data-vc="np|b1"]'); await pg.waitForTimeout(800);
 check('thi vượt mở đề', !!(await pg.$('[data-ko], [data-k], #ti, #kt, input, textarea')));
+// ⚡ kiểm tra đầu bài (v76): mở bài A1 mới, trả lời đúng hết (chọn nghĩa đúng, gõ đúng từ) → bỏ qua hết, hoàn thành bài
+await pg.evaluate(() => { S = blank(); learn(UNITS.find(u => u.lv === 'a1')); }); await pg.waitForTimeout(300); await pg.click('[data-pt="go"]'); await pg.waitForTimeout(200);
+for (let n = 0; n < 40; n++) { const it = await pg.evaluate(() => { const m = (window.CUR.item || '').split(':'), w = WBY[m[1]]; return w ? { w: w.w, vi: w.vi } : null; }); if (!it) break;
+  if (await pg.$('#ptt')) { await pg.fill('#ptt', it.w); await pg.click('#ptf button[type=submit]'); } else if (await pg.$('[data-po]')) { const o = await pg.$$eval('[data-po]', bs => bs.map(b => b.innerText.trim())); const k = o.indexOf(it.vi); await pg.click(`[data-po="${k >= 0 ? k : -1}"]`); } else break; await pg.waitForTimeout(30); }
+check('kiểm tra đầu bài ra kết quả', /Đã biết \d+\/\d+ từ/.test(await pg.innerText('#app')), (await pg.innerText('#app')).slice(0, 60));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

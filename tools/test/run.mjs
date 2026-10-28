@@ -152,6 +152,25 @@ const R = await run(`(async () => {
     S.vc.pend = [{ id: 'doc', lv: 'a2', at: now - 2 * 864e5, n: 0 }]; vcCheck(now); if (S.vc.pend.length) bad.push('hàng chờ quá hạn không bỏ');
     await tryv('màn thi vượt', () => vcView('b1')); await vcView('b1'); if (!String($app.innerHTML).includes('Thi vượt lên B1')) bad.push('màn thi vượt');
     add('cefr', 'C2', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'thi vượt: qua → đạt cấp dưới, hạn ôn rải; trượt → không đổi, chờ 7 ngày'); }
+  // ⚡ v76 (nhanh.js): ngưỡng nhớ 80%, kiểm tra đầu bài, chấm nhiều mục (chỉ từ đã học trong câu hỏi + đáp án, 1 lần / ngày), tra từ = chưa nhớ, gợi ý học lại
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now(), DAYMS = 864e5;
+    const c0 = { S: 1, last: now - 1.3 * DAYMS, d0: dayOf(now) - 3, ok: 1, pv: 1, dm: { nghia: { ok: 1, pv: 1 } } }; const r = recall(c0, now);
+    if (!(r < 0.9 && r >= 0.8) || !heldDim(c0, 'nghia', now) || isDue(c0, now) === false) bad.push('ngưỡng 80% / lịch ôn 90% sai: R=' + r.toFixed(3));
+    const u = UNITS.find(x => x.lv === 'a1'); await tryv('mở bài học', () => learn(u)); if (!String($app.innerHTML).includes('Biết rồi thì bỏ qua')) bad.push('bài học không mở kiểm tra đầu bài');
+    const pc = ptCard(now), w0 = u.words[0]; S.cards[w0.id] = pc; if (!['nghia', 'nhora', 'viet'].every(k => heldDim(pc, k, now)) || heldDim(pc, 'nghe', now)) bad.push('từ qua kiểm tra: mặt nhớ sai');
+    if (!parts(S, now, 'a1').learn) bad.push('từ qua kiểm tra không tính đã học');
+    // chấm nhiều mục: câu đọc có từ đã học (học từ hôm trước) → cộng; từ học hôm nay, từ chỉ trong đoạn văn, câu sai, bài viết: không cộng
+    S = blank(); const ws = WORDS.filter(w => /^[a-z]{4,}$/.test(w.w) && wLv(w) === 'a1').slice(0, 12); for (const w of ws.slice(0, 10)) S.cards[w.id] = { S: 2, last: now - 3 * DAYMS, d0: dayOf(now) - 5, ok: 1, pv: 1, n: 2, lapse: 0, dm: {} };
+    S.cards[ws[10].id] = { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0, dm: {} };
+    const q = { kind: 'mc', q: 'Why did ' + ws[0].w + ' and ' + ws[1].w + 's matter?', a: 'Because of ' + ws[2].w + ' and ' + ws[10].w, x: { text: ws[5].w } };
+    const n1 = mfCredit(KIT.doc, q, true, now), n2 = mfCredit(KIT.doc, q, true, now), n3 = mfCredit(KIT.doc, { ...q, q: ws[3].w }, false, now), n4 = mfCredit(KIT.viet, { ...q, q: ws[4].w }, true, now);
+    if (n1 !== 3 || n2 !== 0 || n3 || n4) bad.push('chấm nhiều mục sai: ' + [n1, n2, n3, n4].join('/'));
+    if (!S.cards[ws[0].id].dm.nghia || !S.cards[ws[0].id].dm.nghia.ok || S.cards[ws[5].id].mf) bad.push('cộng sai từ');
+    if (!mfLookup(ws[6], now) || S.cards[ws[6].id].ok || mfLookup(ws[6], now) || mfLookup(ws[11], now)) bad.push('tra từ = chưa nhớ sai');
+    // gợi ý học lại: bài có ≥ 3 từ quên nhiều lần
+    S = blank(); learnCards(S, u, now - 20 * DAYMS); for (const w of u.words.slice(0, 3)) Object.assign(S.cards[w.id], { lapse: 2, ok: 0, last: now - 10 * DAYMS, S: 0.5 });
+    const rl = relearnUnits(now); if (!rl.length || rl[0][0] !== u || rl[0][1].length !== 3) bad.push('gợi ý học lại sai'); tryv('học lại', () => relearn(u));
+    add('cefr', 'C3', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'ngưỡng nhớ 80%, kiểm tra đầu bài, chấm nhiều mục, tra từ, học lại đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

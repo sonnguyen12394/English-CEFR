@@ -43,7 +43,7 @@ async function libRead(lv, id, p) { $app.innerHTML = '<p class="mute">Đang tả
   $app.onclick = e => { LIBT.act = Date.now(); const pop = document.getElementById('libw');
     if (e.target.closest('[data-a="back"]')) { libStop(); return libView(lv); } if (e.target.closest('[data-a="prev"]')) return libRead(lv, id, p - 1); if (e.target.closest('[data-a="next"]')) return libRead(lv, id, p + 1);
     if (e.target.closest('[data-lsay]')) return speak(e.target.closest('[data-lsay]').dataset.lsay); if (e.target.closest('[data-lx]')) { pop.hidden = true; return; }
-    const s = e.target.closest('[data-lw]'); if (!s) { if (!e.target.closest('#libw')) pop.hidden = true; return; } const t = s.textContent, w = libFind(t);
+    const s = e.target.closest('[data-lw]'); if (!s) { if (!e.target.closest('#libw')) pop.hidden = true; return; } const t = s.textContent, w = libFind(t); if (w && typeof mfLookup === 'function') mfLookup(w);   // v76: tra từ = chưa nhớ (nhanh.js)
     pop.innerHTML = `<div class="box" style="box-shadow:0 4px 16px rgba(0,0,0,.25);margin:0"><div class="row"><b style="font-size:20px">${esc(w ? w.w : t)}</b><button class="link" data-lx>✕</button></div>
       ${w ? `<p style="margin:4px 0"><span class="lvtag ${lvw(w)}">${LVN[lvw(w)]}</span> <span class="mute">${esc(w.ipa || '')} ${esc(w.pos || '')}</span><br>${esc(w.vi)}</p>` : '<p class="mute" style="margin:4px 0">Từ này chưa có trong từ điển app (từ cổ, tên riêng hoặc từ hiếm).</p>'}
       <div class="chips"><button class="chip" data-lsay="${esc(w ? w.w : t)}">🔊 Nghe</button><a class="chip" href="https://dictionary.cambridge.org/dictionary/english-vietnamese/${encodeURIComponent((w ? w.w : t).toLowerCase())}" target="_blank" rel="noopener">Cambridge Dictionary</a></div></div>`;

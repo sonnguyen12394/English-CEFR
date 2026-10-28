@@ -7,7 +7,7 @@
 // 25/10/2026 (người sáng lập: tách bạch mục tiêu từng phần): từ vựng chỉ đo "biết từ". Tên mặt tránh trùng tên kỹ năng (Nghe → 🔊 Nhận âm, Viết → ✍️ Chính tả).
 // 🎯 chấm âm chuyển sang phần 👄 Phát âm (parts.js; bằng chứng dm.am vẫn ghi, không đổi lịch ôn của thẻ). Bài đọc / nghe câu / nghe chép chuyển sang phần kỹ năng, thôi tính cho từ.
 //   Một mặt của một từ là nhớ khi: đúng mặt đó ở một ngày SAU ngày học xong unit (MEM_DAYS = 1, góp ý #3), lần gần nhất của mặt đó đúng,
-//   và khả năng nhớ của từ hiện ≥ 0,9 (một lịch ôn chung cho từ). Thanh mỗi mặt = số từ nhớ mặt đó / 870.
+//   và khả năng nhớ của từ hiện ≥ 0,8 (v76; một lịch ôn chung cho từ, nhắc ôn ở 0,9). Thanh mỗi mặt = số từ nhớ mặt đó / 870.
 //   🔁 Nhớ tổng = mặt thấp nhất; Thi chuyển cấp mở khi 📘 Học 100% và MỖI mặt ≥ 80% (mặt mạnh không bù được mặt yếu).
 const SB_URL = 'https://eojrfoormaqboxwvdqhr.supabase.co';
 const SB_KEY = 'sb_publishable_WGUA_5AyhR8a_yQfty8JBA_EaJdkZA7';   // khoá công khai; quyền do RLS bảng vocab_state
@@ -15,9 +15,12 @@ const SB_KEY = 'sb_publishable_WGUA_5AyhR8a_yQfty8JBA_EaJdkZA7';   // khoá côn
 // này chỉ đọc / ghi dòng của chính nó trong vocab_state; bảng soxuong có luật restrictive chặn riêng tài khoản này.
 const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-jDDY_eB99jOLL' };
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
+// v76 (28/10/2026, người sáng lập giao tự tính): một mặt tính 🔁 Nhớ khi khả năng nhớ ≥ 80% (MEM_R); lịch ôn vẫn nhắc ở 90% (isDue: t ≥ S).
+// Mô phỏng (tools/test/sim.mjs, ~11 phút / ngày): A1 tới cổng ~313 → ~165 ngày, nhớ sau 30 ngày không ôn ~90% → ~88% (docs/HOAN-THIEN.md).
+const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 75;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 76;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -73,7 +76,7 @@ const taughtDay = (c, w, k) => { const L = VREQ_BY[k] ? VREQ_BY[k][2] : 'pre'; r
 const DIM_OF = { colT: ['cumtu', 'cum'], pat: ['mau'], fam: ['ho'], famQ: ['taodang', 'ho'], reg: ['sacthai'], synT: ['thay', 'lienq'], style: ['vanphong', 'sacthai'], fast: ['tucthi', 'nghia'], idi: ['thanhngu'],
   w2vi: ['nghia'], listen: ['nghe'], form: ['chu', 'nhora'], vi2w: ['nhora'], spell: ['viet', 'nhora'], noi: ['noi'], col: ['cum'], irrR: ['bqt'],
   clozeT: ['dung', 'viet', 'nhora'], rel: ['lienq'], s2: ['nghia2'], irrT: ['bqt2', 'bqt'], cloze: [], am: ['am'] };
-const heldDim = (c, k, now) => !!c && !!c.dm && !!c.dm[k] && !!c.dm[k].pv && !!c.dm[k].ok && recall(c, now) >= HOLD_R;
+const heldDim = (c, k, now) => !!c && !!c.dm && !!c.dm[k] && !!c.dm[k].pv && !!c.dm[k].ok && recall(c, now) >= MEM_R;
 function grade(st, wid, ok, now, type) {
   const c = st.cards[wid]; if (!c) return;
   const t = (now - c.last) / DAY;
@@ -431,12 +434,14 @@ function lessonRun(u, words, reqs, title, onDone) {
         sub: 'Nhìn nghĩa, nói từ tiếng Anh. Máy chép ra đúng từ là đạt. Chưa tính 🔁 Nhớ.', foot: 'Bước cuối của bài học (chưa tính). Đóng ✕ thì bỏ qua bước này.', onEnd: () => {} };
       noiOpen(NO.ses.list[0], true); } });
   card(); }
-function learn(u) { const again = unitDone(u), reqs = reqsUpTo(u.lv);
-  lessonRun(u, u.words, reqs, `${uLabel(u)} · ${u.vi}`, () => { if (!again) { learnCards(S, u, Date.now()); save(); }
+// v76: bài mới bắt đầu bằng ⚡ kiểm tra đầu bài (nhanh.js ptRun): từ đã biết bỏ khỏi bài, chỉ học từ chưa biết
+function learn(u) { const again = unitDone(u), reqs = reqsUpTo(u.lv), fin = () => { if (!again) { learnCards(S, u, Date.now()); save(); }
     $app.innerHTML = `<div class="box"><b>✅ Xong ${uLabel(u)}: ${esc(u.vi)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `${u.words.length} từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div>
       <div class="box"><b>🎯 Bài vừa học đã dạy ${dimsAt(u.lv).length} yêu cầu của 🔁 Nhớ ${LVN[u.lv]}</b><p style="margin:6px 0">${dimsAt(u.lv).map(d => d[1]).join(' · ')}</p>${SREC ? '' : '<p class="mute" style="margin:0">Trình duyệt này không chép được lời nên bước 🗣 đã bỏ qua: mở bằng Safari để luyện nói.</p>'}</div>
       <button class="pri" data-a="home">Về 📚 Từ vựng</button>`;
-    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; }); }
+    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; };
+  if (!again && typeof ptRun === 'function') return ptRun(u, () => { const ws = u.words.filter(w => !S.cards[w.id]); return ws.length ? lessonRun(u, ws, reqs, `${uLabel(u)} · ${u.vi}`, fin) : fin(); });
+  lessonRun(u, u.words, reqs, `${uLabel(u)} · ${u.vi}`, fin); }
 // ⬆️ Nâng cấp một unit cấp trước lên cấp đang học: chỉ các từ cần, chỉ yêu cầu mới; xong ghi c.du[cấp yêu cầu] = hôm nay
 const upUnits = (lv = curLevel()) => UNITS.filter(u => lvIdx(u.lv) < lvIdx(lv) && unitDone(u) && u.words.some(w => upNeed(w, lv).length));
 function upgradeUnit(u) { const lv = curLevel(), words = u.words.filter(w => upNeed(w, lv).length), Ls = [...new Set(words.flatMap(w => upNeed(w, lv)))];

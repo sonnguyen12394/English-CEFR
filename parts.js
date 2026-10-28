@@ -1,7 +1,7 @@
 // 8 mục ngang hàng (người sáng lập 25/10/2026): 📚 Từ vựng · 🧱 Ngữ pháp · 👄 Phát âm · 🎧 Nghe · 🗣 Nói · 📰 Đọc · ✍️ Viết · 📖 Từ điển.
-// Mỗi phần có mục tiêu riêng, không lẫn: một câu chỉ chấm cho một phần; Thi chuyển cấp của phần nào chỉ hỏi phần đó.
+// Mỗi phần có mục tiêu riêng; Thi chuyển cấp của phần nào chỉ hỏi phần đó. v76: câu luyện Đọc / Nghe / Ngữ pháp đúng cộng thêm ôn nghĩa cho từ đã học trong câu (nhanh.js).
 // Luật chung (người sáng lập chọn "dùng Nhớ như Từ vựng" cho cả kỹ năng): 📘 Học = học hết đơn vị của cấp; 🔁 Nhớ = mỗi mặt ≥ 80%
-// (làm đúng ở ngày sau ngày học, lần gần nhất đúng, khả năng nhớ ≥ 90%); Học 100% + Nhớ ≥ 80% mở Thi chuyển cấp của phần.
+// (làm đúng ở ngày sau ngày học, lần gần nhất đúng, khả năng nhớ ≥ 80%); Học 100% + Nhớ ≥ 80% mở Thi chuyển cấp của phần.
 // Kỹ năng: làm lại bài cũ thì đổi câu hỏi để đo kỹ năng, không đo nhớ bài (quyết định kỹ thuật).
 // Các phần ngoài Từ vựng đang xây: màn này ghi mục tiêu (bản nháp, chưa chốt) + bài luyện có sẵn (chưa tính mục tiêu).
 let BACK = null;   // bài luyện mở từ một phần: ← Về / Kiểu luyện khác quay lại phần đó
@@ -39,7 +39,7 @@ function partView(id) {
     <div class="box"><b>🚧 Đang xây (bước ${P.step} / 7)</b><p class="mute" style="margin:4px 0 0">Chưa có lộ trình và Thi chuyển cấp. Mục tiêu dưới đây là bản nháp, chưa chốt. Bài luyện bên dưới chỉ để luyện, chưa tính mục tiêu, không tính cho 📚 Từ vựng.</p></div>
     <div class="box"><b>🎯 Mục tiêu của phần ${P.t}</b>
       <p style="margin:6px 0"><b>📘 Học</b> = học hết ${P.unit} của cấp.</p>
-      <p style="margin:6px 0"><b>🔁 Nhớ</b> = mỗi mặt ≥ ${GATE_MEM}%: làm đúng ở một ngày sau ngày học, lần gần nhất đúng, khả năng nhớ ≥ 90%.${P.skill ? ' Làm lại bài cũ thì đổi câu hỏi, để đo kỹ năng chứ không đo nhớ bài.' : ''}</p>
+      <p style="margin:6px 0"><b>🔁 Nhớ</b> = mỗi mặt ≥ ${GATE_MEM}%: làm đúng ở một ngày sau ngày học, lần gần nhất đúng, khả năng nhớ ≥ 80%.${P.skill ? ' Làm lại bài cũ thì đổi câu hỏi, để đo kỹ năng chứ không đo nhớ bài.' : ''}</p>
       <div class="dims">${P.dims.map(([l, d]) => `<div><div class="row"><span>${l}</span><span class="mute">—</span></div>${bar(0, GATE_MEM, 'var(--good)')}<div class="mute" style="font-size:12px">${d}</div></div>`).join('')}</div>
       <p style="margin:10px 0 0"><b>🚪 Thi chuyển cấp</b>: mở khi 📘 Học ${GATE_LEARN}% và 🔁 Nhớ ≥ ${GATE_MEM}%. ${P.exam}</p></div>
     ${P.tasks.length ? `<h2>Bài luyện có sẵn</h2>${P.tasks.map(([m, t, sub]) => `<button class="opt" data-m="${m}"><b>${t}</b><br><span style="font-size:14px;opacity:.85">${sub}</span></button>`).join('')}` : ''}`;
@@ -107,7 +107,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
         ${s ? `<div class="dims" style="margin-top:4px"><div><div class="row"><span>📘 Học</span><span class="mute">${s.lq}%</span></div>${bar(s.lq, GATE_LEARN, 'var(--accent)')}</div>
           <div><div class="row"><span>🔁 Nhớ</span><span class="mute">${s.mq}%</span></div>${bar(s.mq, GATE_MEM, 'var(--good)')}</div></div>
           ${s.due ? `<p class="mute" style="margin:4px 0 0">${s.due} bài cần ôn</p>` : ''}` : '<p class="mute" style="margin:4px 0 0">Đang tải…</p>'}</button>`; }).join('')}
-    <p class="mute">Một câu chỉ chấm cho một phần. 📘 Học 100% và 🔁 Nhớ ≥ ${GATE_MEM}% mở 🚪 Thi chuyển cấp của phần đó.</p>
+    <p class="mute">Bài luyện Đọc, Nghe, Ngữ pháp làm đúng cũng ôn luôn từ vựng đã học có trong câu. 📘 Học 100% và 🔁 Nhớ ≥ ${GATE_MEM}% mở 🚪 Thi chuyển cấp của phần đó. Bài Từ vựng mới bắt đầu bằng ⚡ kiểm tra: từ đã biết được bỏ qua.</p>
     ${gyHomeHtml()}`;
   $app.onclick = e => { const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl); const mk = e.target.closest('[data-mock]'); if (mk) return mockView(mk.dataset.mock);
     const b = e.target.closest('[data-ovp]'); if (!b) return; const id = b.dataset.ovp, l = b.dataset.ovpl; scrollTo(0, 0);

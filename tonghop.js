@@ -86,7 +86,7 @@ function dimView(k) {
     <div class="box"><b>Yêu cầu này đo gì</b><p style="margin:4px 0">${I.what}</p>
       ${ew ? `<p class="mute" style="margin:4px 0">Ví dụ câu:</p>${I.ex(ew).filter(Boolean).map(x => `<p style="margin:2px 0">• ${x}</p>`).join('')}` : ''}
       ${I.learn ? `<p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn)}</p>` : ''}
-      <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%; sai hoặc lâu không ôn thì mất, ôn lại để lấy lại.</p></div>
+      <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 80%; sai hoặc lâu không ôn thì mất, ôn lại để lấy lại.</p></div>
     <h2>Bài tính vào yêu cầu này</h2>
     ${I.tasks.map(([m, t, sub], i) => `<button class="opt ${i === 0 ? 'pri' : ''}" data-m="${m}"><b>${t}</b><br><span style="font-size:14px;opacity:.85">${sub}</span></button>`).join('')}
     ${lack.length ? `<h2>Từ còn thiếu (${lack.length})</h2><p>${lack.slice(0, 60).map(w => esc(w.w)).join(' · ')}${lack.length > 60 ? ' …' : ''}</p>` : ''}`;

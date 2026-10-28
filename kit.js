@@ -1,9 +1,9 @@
 // Bộ máy chung cho 5 phần 🧱 Ngữ pháp · 📰 Đọc · 🎧 Nghe · 🗣 Nói · ✍️ Viết (người sáng lập 25/10/2026: "tự làm hết";
 // cấu trúc như 📚 Từ vựng: 📘 Học · 🔁 Nhớ theo mặt · 🏋️ Luyện tập · 🚪 Thi chuyển cấp; "dùng Nhớ như Từ vựng" cho cả kỹ năng).
-//   📘 Học = đã học hết đơn vị của cấp. 🔁 Nhớ = mỗi mặt ≥ 80%: đúng ở một ngày sau ngày học, lần gần nhất đúng, khả năng nhớ ≥ 90% (grade() của app.js).
+//   📘 Học = đã học hết đơn vị của cấp. 🔁 Nhớ = mỗi mặt ≥ 80%: đúng ở một ngày sau ngày học, lần gần nhất đúng, khả năng nhớ ≥ 80% (grade() của app.js).
 //   Một lượt luyện chấm mỗi đơn vị một lần mỗi mặt: đúng ≥ 80% câu của mặt đó trong lượt = đúng.
 //   Thi chuyển cấp dùng câu / bài giữ riêng (dữ liệu *.json, tools/build-skills.mjs), không gặp khi học; trượt thì 7 ngày sau thi lại.
-// Bằng chứng ở S.k[phần] = { cards, runs }: không đụng Từ vựng (S.cards) hay Phát âm (S.pa). Một câu chỉ chấm cho một phần.
+// Bằng chứng ở S.k[phần] = { cards, runs }: không đụng Từ vựng (S.cards) hay Phát âm (S.pa). v76: câu luyện Đọc / Nghe / Ngữ pháp đúng thì cộng thêm một lần ôn 📖 nghĩa cho từ đã học trong câu hỏi + đáp án (nhanh.js mfCredit); thi không cộng chéo.
 const KIT = {}, K_RETRY = 7;
 const kSt = id => { const k = (S.k = S.k || {}); return (k[id] = k[id] || { cards: {}, runs: [] }); };
 const kNorm = s => String(s).toLowerCase().replace(/[‘’`]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().replace(/[.!?,;:]+$/g, '').trim();
@@ -47,7 +47,7 @@ function kView(id) { const P = KIT[id];
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
       ${rqList(id, lv, k => { const [, l, d] = P.dims.find(x => x[0] === k); return `<div class="dimc" data-kdim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}<div class="mute" style="font-size:12px">${d}</div></div>`; })}
-      <p class="mute" style="margin:6px 0 0">Mỗi mặt tính khi làm đúng ở một ngày sau ngày học; giữ khi lần gần nhất đúng và khả năng nhớ ≥ 90%. Bấm vào một mặt để xem bài của mặt đó.</p>
+      <p class="mute" style="margin:6px 0 0">Mỗi mặt tính khi làm đúng ở một ngày sau ngày học; giữ khi lần gần nhất đúng và khả năng nhớ ≥ 80%. Bấm vào một mặt để xem bài của mặt đó.</p>
     </div>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-k="learn" ${nx ? '' : 'disabled'}>📘 Học<small>${nx ? esc(P.name(nx)) : `Đã học hết ${LVN[lv]}`}</small></button>
@@ -145,6 +145,7 @@ function kQuiz({ P, title, qs, quiet, done }) { let i = 0; const res = []; let s
     if (q.say && said !== q.say) { said = q.say; speak(...[].concat(q.say)); }
     let ans = false;
     const fin = r => { if (ans) return; ans = true; push(q, r); if (quiet) { i++; return show(); }
+      const mf = typeof mfCredit === 'function' ? mfCredit(P, q, r.ok) : 0; if (mf) r = { ...r, html: (r.html || '') + ` <span class="mute">· 📚 +${mf} từ đã học được ôn trong câu này</span>` };   // v76 chấm nhiều mục (nhanh.js)
       document.getElementById('fb').innerHTML = `<div class="box">${r.ok ? '✅ Đúng.' : '❌ Chưa đúng.'} ${r.html || ''}${q.after || ''}</div><button class="pri" data-a="go">Tiếp →</button>`;
       document.getElementById('fb').scrollIntoView({ block: 'nearest' }); };
     const f = document.getElementById('kf'), t = document.getElementById('kt');
@@ -210,7 +211,7 @@ function kDimView(P, k) { window.CUR = { view: P.id + '-mat-' + k };
     <p class="mute">${L.filter(x => heldDim(st[x.id], k, now)).length}/${L.length} bài (cả cấp trước) giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} bài.</p>
     <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${esc(I.what || d[2])}</p>${I.ex ? `<p class="mute" style="margin:4px 0">Ví dụ câu:</p><p style="margin:2px 0">• ${I.ex}</p>` : ''}
       <p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn || 'trong bài học')}</p>
-      <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%; sai hoặc lâu không ôn thì mất, ôn lại để lấy lại.</p></div>
+      <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 80%; sai hoặc lâu không ôn thì mất, ôn lại để lấy lại.</p></div>
     <h2>Bài tính vào mặt này</h2>${mi.map(([m, i], j) => `<button class="opt ${j === 0 ? 'pri' : ''}" data-km="${i}"><b>${m[1]}</b><br><span style="font-size:14px;opacity:.85">${m[2]}</span></button>`).join('')}
     ${lack.length ? `<h2>Bài còn thiếu mặt này (${lack.length})</h2><p>${lack.map(x => esc(P.name(x))).join(' · ')}</p>` : ''}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return kView(P.id); const b = e.target.closest('[data-km]'); if (b) kRun(P, +b.dataset.km); };

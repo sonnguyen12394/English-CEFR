@@ -1,6 +1,6 @@
 // 👄 Phát âm (người sáng lập 25/10/2026: phần riêng trong 8 mục, xây trước Ngữ pháp). Đơn vị học = bộ cặp âm (pa.json, 26 bộ chép từ game,
 // tools/build-pa.mjs chia cấp Pre-A1 8 · A1 9 · A2 9). Luật như 📚 Từ vựng (người sáng lập: "dùng Nhớ như Từ vựng"):
-//   📘 Học = đã học hết bộ âm của cấp; 🔁 Nhớ = mỗi mặt ≥ 80%: đúng ở một ngày sau ngày học, lần gần nhất đúng, khả năng nhớ ≥ 90%.
+//   📘 Học = đã học hết bộ âm của cấp; 🔁 Nhớ = mỗi mặt ≥ 80%: đúng ở một ngày sau ngày học, lần gần nhất đúng, khả năng nhớ ≥ 80%.
 //   Hai mặt: 👂 Phân biệt (nghe một từ của cặp, chọn đúng từ) · 👄 Đọc đúng (đọc từ có âm đó, bộ chấm âm trên máy ≥ 80).
 //   🎵 Trọng âm (bản nháp v30) để sau: bộ chấm âm chỉ chấm âm, chưa chấm được nhấn.
 // Một lượt luyện chấm mỗi bộ một lần mỗi mặt (đúng hết câu của bộ trong lượt = đúng). Bằng chứng ở S.pa (thẻ theo bộ, cùng dạng thẻ từ), không đụng S.cards.
@@ -174,7 +174,7 @@ function paDimView(k) { window.CUR = { view: 'pa-mat-' + k };
     <p class="mute">${p.dim[k]}/${p.Tm} bộ âm (cả cấp trước) giữ được mặt này · cần ${GATE_MEM}%. Đã học mà còn thiếu: ${lack.length} bộ.</p>
     <div class="box"><b>Mặt này đo gì</b><p style="margin:4px 0">${esc(I.what)}</p><p class="mute" style="margin:4px 0">Ví dụ câu:</p><p style="margin:2px 0">• ${I.ex}</p>
       <p style="margin:8px 0 0"><b>Học ở đâu:</b> ${esc(I.learn)}</p>
-      <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 90%.</p></div>
+      <p class="mute" style="margin:6px 0 0">Tính khi làm đúng ở một ngày sau ngày học. Giữ khi lần gần nhất đúng và máy ước khả năng nhớ còn ≥ 80%.</p></div>
     <h2>Bài tính vào mặt này</h2><button class="opt pri" data-pm="${k}"><b>${k === 'pb' ? '👂 Luyện phân biệt (12 câu)' : '👄 Luyện đọc đúng (8 từ)'}</b></button>
     ${k === 'doc' ? nModelBox() : ''}
     ${lack.length ? `<h2>Bộ âm còn thiếu mặt này (${lack.length})</h2><p>${lack.map(x => esc(x.title)).join(' · ')}</p>` : ''}`;

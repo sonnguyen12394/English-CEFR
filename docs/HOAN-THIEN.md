@@ -200,3 +200,17 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Lý do: dữ liệu thật 28/10 cho thấy app được mở nhưng không được học; người lớn đã biết A2–B1 phải học lại từ Pre-A1 là lý do dễ bỏ.
 - Luật mới: Thi chuyển cấp của từng phần mở cho mọi cấp cao hơn (không cần cổng 📘 / 🔁 / cấp trước), đề và ngưỡng như cũ. Qua → đạt mọi cấp ≤ cấp thi của phần đó; trượt → chờ 7 ngày. Đạt một cấp vẫn cần cả 7 phần.
 - Hạn chế: Nói cần máy chép lời (Safari), Phát âm cần tải bộ chấm âm; trình duyệt thiếu thì phần đó không thi vượt được nên "cấp đang học" có thể đứng lại ở cấp thấp. Bài đánh dấu "đã nhớ" sau thi vượt là suy ra từ một bài thi, không phải đã ôn từng bài; chúng quay lại ôn dần trong 1–5 tháng.
+
+## Học nhanh mà chắc (v76, 28/10/2026)
+- Người sáng lập: "học dựa vào kiểm tra để nắm năng lực … rèn những bài yếu thôi"; "chấm theo nhiều yếu tố để các mục tiêu trong nhớ nâng lên đồng thời"; "tự tính làm cho mọi cấp đi khỏi hỏi tôi".
+- Chẩn đoán bằng mô phỏng (Claude): luật Nhớ cũ đạt mục đích nhớ lâu (lúc mở cổng, 30 ngày không ôn vẫn nhớ ~83–90%) nhưng ngưỡng 90% cho mọi mặt × mọi từ (dồn cấp) cùng lúc thành "máy chạy bộ": thời gian dồn vào giữ từ cũ. Ngưỡng 80% (lịch ôn giữ 90%): A1 ~313 → ~165 ngày, nhớ sau 30 ngày ~90% → ~88%. Học bị giới hạn bởi số bài khi người học đã biết sẵn nhiều từ.
+- Quyết định (Claude, được giao): ngưỡng nhớ 80% mọi cấp; kiểm tra đầu bài Từ vựng theo từng từ (chọn nghĩa + tự gõ); chấm nhiều mục theo mức bằng chứng (chỉ từ trong câu hỏi + đáp án, không cộng từ chỉ có trong đoạn văn, sai không trừ, thi không cộng chéo); tra từ = bằng chứng chưa nhớ; gợi ý học lại theo từ hay quên. Bỏ luật "một câu chỉ chấm cho một phần" (25/10/2026).
+- Mô phỏng cùng điều kiện (`node tools/test/sim.mjs`, người mới hoàn toàn, 1 bài / ngày, chưa tính kiểm tra đầu bài và chấm nhiều mục):
+
+| Cấp | Luật cũ (90%) | Luật mới (80%) |
+|---|---|---|
+| Pre-A1 | 77 ngày | 55 ngày |
+| A1 | 315 ngày | 162 ngày |
+| A2 | 177 ngày | 111 ngày |
+
+- Cần đo bằng người thật: tỉ lệ quên của từ "qua nhờ kiểm tra" so với từ học thường (≤ 1,5 lần là được; cao hơn thì siết kiểm tra); 🔁 Nhớ tăng mà tỉ lệ đúng khi ôn giảm → chấm nhiều mục đang cộng quá tay.
