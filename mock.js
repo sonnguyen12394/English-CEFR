@@ -51,7 +51,7 @@ const mkWrite = n => KIT.viet.lvs.some(l => mkLvs().includes(l)) ? mkPick(KIT.vi
 
 const mkRuns = lv => ((S.mock = S.mock || {})[lv] = S.mock[lv] || []);
 async function mockView(lv) { window.CUR = { view: 'de-thu', item: lv }; const C = MOCK[lv]; if (!C) return toast('Cấp này chưa có khuôn đề thử.');
-  $app.innerHTML = '<p class="mute">Đang tải kho câu…</p>'; await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad)]);
+  $app.innerHTML = '<p class="mute">Đang tải kho câu…</p>'; await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad), typeof uLoad === 'function' ? uLoad() : 0]);
   const rs = mkRuns(lv), last = rs[rs.length - 1];
   $app.innerHTML = `${backRow('🎓 Đề thử')}<h1>🎓 ${esc(C.name)}</h1>
     <div class="box"><p style="margin:0">Khuôn theo đề Cambridge thật: ${C.papers.map(p => `<b>${p.t}</b> ${p.min} phút`).join(' · ')}. Mỗi lần bấm, máy bốc câu mới ngẫu nhiên. Không báo đúng / sai giữa chừng. Hết giờ thì bài thi tự nộp.</p>
@@ -82,7 +82,7 @@ function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000
       : `<form id="kf" autocomplete="off"><input id="kt" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Câu trả lời"><button class="pri" type="submit">Trả lời</button></form>`;
     const pk = q.play && q.play.key, left = () => K_PLAYS - (plays[pk] || 0);
     $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Bỏ</button><span class="uname">${esc(P.t)} · ${i + 1}/${P.qs.length}</span><b id="mkt"></b></div>
-      <p class="mute" style="margin:4px 0">${esc(part)}</p>${q.head || ''}${q.play ? `<button class="chip" data-kplay>🔊 Nghe (còn ${left()} lần)</button>` : ''}<p class="q">${q.q}</p>${body}`;
+      <p class="mute" style="margin:4px 0">${esc(part)}</p>${q.head || ''}${q.play ? `<button class="chip" data-kplay>🔊 Nghe (còn ${left()} lần)</button>` : ''}<p class="q">${q.q}</p>${body}${q.foot || ''}`;
     if (q.play && !plays[pk]) { plays[pk] = 1; kPlay(q.play); const b = $app.querySelector('[data-kplay]'); if (b) { b.textContent = `🔊 Nghe lại (còn ${left()} lần)`; b.disabled = left() <= 0; } }
     const rec = (ok, ans, sc) => { P.res.push({ part, q, ok, ans, sc }); i++; show(); };
     const f = document.getElementById('kf'), t = document.getElementById('kt');

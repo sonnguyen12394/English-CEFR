@@ -129,3 +129,16 @@ Người sáng lập: "bạn đủ giỏi để khắc phục những khuyết �
 
 Cài khoá AI (người sáng lập làm): console.anthropic.com → API Keys → tạo khoá, nạp tiền → Supabase → Edge Functions → Secrets → thêm `ANTHROPIC_API_KEY`. Không dán khoá vào trang hay vào chat.
 Chi phí ước tính (suy luận, chưa đo): Opus 5.5 giá $4 / $20 mỗi triệu token vào / ra; một lượt chấm khoảng 1.500 token vào + 1.500–2.500 token ra ≈ $0,04 ≈ 1.000 đồng; 1–2 bài / ngày ≈ 30.000–60.000 đồng / tháng. Đo thật bằng cột `tin`, `tout` của bảng `el_cham` sau vài lần chấm.
+
+## Bù khuyết điểm (v59+, 28/10/2026; người sáng lập: "sáng tạo các cách để bù đắp, khỏi hỏi tôi")
+Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn → Bù 2 nghe ghi chú, nhại theo → Bù 3 nói theo cặp → Bù 4 thư viện đọc mở rộng → Bù 5 tóm tắt C2, soát đáp án.
+
+### Bù 1 (v59): 🧩 Dạng đề thật B1 → C2
+- Khuyết điểm: bài đọc 160–290 từ (đề thật 400–850); Dùng tiếng Anh hỏi từng câu lẻ, đề thật làm trên cả đoạn; thiếu phần 4 viết lại câu từ khoá; thiếu nối câu với đoạn.
+- Làm: `uoe.js` + `uoe.json` (dựng bằng `node tools/build-uoe.mjs` từ `content/bs/uoe-*.json`, có kiểm: số chỗ trống, 4 phương án khác nhau, đáp án 1 từ, viết lại câu đủ / đúng số từ và có từ khoá, độ dài bài).
+  - 8 bài dài (B1 330 từ ×2; B2 566 + 505; C1 603 + 513; C2 774 + 573): trắc nghiệm 4 phương án hoặc nối 10 câu với 4 đoạn.
+  - 12 bài điền từ trắc nghiệm, 12 bài điền một từ, 9 bài tạo dạng từ (6–8 chỗ / bài), 42 câu viết lại câu từ khoá.
+  - 🎓 Đề thử B1 → C2: phần Đọc / Đọc và Dùng tiếng Anh thay câu lẻ bằng đúng thứ tự phần của đề thật (B2: phần 1–7; C1: thiếu phần 6 so sánh 4 ý kiến).
+  - 🧩 Luyện dạng đề thật (ô ở Tổng quan từ B1): không tính giờ, báo đúng / sai + giải thích; câu hỏi hiện ngay câu chứa chỗ trống, cả bài ở dưới. Lưu `S.uoe[id] = { at, ok, n }`.
+  - Không đổi luật đo: không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp.
+- Giới hạn (thật): kho nhỏ, mỗi dạng 2–12 bài / cấp, làm 3–4 đề thử là gặp lại. Claude soạn, chưa người thật kiểm; đáp án điền từ có thể sót cách viết đúng khác (báo bằng 💬 góp ý). Đề thật vẫn là thước đo cuối.

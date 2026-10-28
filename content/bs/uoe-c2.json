@@ -1,0 +1,894 @@
+{
+"_note": "🧩 Dạng đề thật C2 Proficiency (28/10/2026, Claude soạn, chưa người thật kiểm): Đọc và Dùng tiếng Anh phần 1–4 trên cả đoạn, phần 5 (bài dài trắc nghiệm), phần 7 (nối đoạn). Viết lại câu 3–8 từ.",
+"long": [
+{
+"id": "lg-c2-1",
+"lv": "c2",
+"title": "Lost and Found in Translation",
+"text": "Every translator, sooner or later, is asked the same question: how much is lost in translation? It is usually posed sympathetically, as though the speaker imagines the translator as a kind of removal man, carrying furniture from one house to another and inevitably chipping a few chairs on the way. I have been translating novels for nearly twenty years, and I have come to think the question rests on a misunderstanding. It assumes that the original text contains a fixed quantity of meaning, which can only diminish as it is transferred. In my experience, the process is rather less tidy than that, and considerably more interesting.\nConsider the simplest of examples. Vietnamese has no single word for 'you'; speakers choose from a range of terms that indicate age, status and degree of intimacy, and a shift from one to another can signal affection, respect or contempt. An English translator has no equivalent device. Something is indeed lost. But the translator who recognises this is forced to look elsewhere, to the rhythm of a sentence, a choice of verb, a carefully placed silence, in order to convey the shift in the relationship. Done well, the result is not a diminished copy but a different solution to the same problem, one which may draw a reader's attention to the relationship in ways the original, precisely because it was so effortless, did not.\nNone of this is to deny that some losses are real and irreparable. Wordplay is the most obvious casualty. A pun that depends on two meanings of a single word will rarely survive the journey, and the translator must choose between abandoning it, explaining it in a footnote, which is rather like explaining a joke, or inventing a new pun that does similar work. Each option involves a betrayal of some kind. Poetry presents still greater difficulties, since sound and sense are so closely bound together that to alter one is to alter the other. It is no accident that the most admired translations of poetry are often described as 'versions' rather than translations at all.\nWhat troubles me more than these familiar problems, however, is the assumption, widespread among publishers and reviewers alike, that the best translation is an invisible one. A translation is praised when it 'reads as if it were written in English', which sounds like a compliment but conceals a demand: that the strangeness of the original be smoothed away. A novel set in rural Vietnam, in this view, should feel as comfortable to an English reader as one set in Yorkshire. Yet part of the value of reading in translation lies in encountering ways of thinking and speaking that are not one's own. A translation that removes every trace of the foreign may be fluent, but it is also, in an important sense, dishonest.\nThe opposite approach has its own dangers. Some translators, anxious to preserve the flavour of the original, produce English so awkward that the reader is constantly reminded of the effort involved, much as an overly elaborate frame distracts from the painting it surrounds. The challenge is to find a middle path: English that is natural enough to be read with pleasure, yet retains enough of the original's character to remind readers that they are, after all, somewhere else.\nCultural references pose a subtler problem. A passing mention of a festival, a dish or a popular song may carry, for its original readers, a whole world of associations that a foreign reader cannot be expected to share. The translator can add a few words of explanation, at the risk of slowing the narrative and patronising the reader, or leave the reference as it stands and trust the reader's curiosity. I have increasingly come to favour the second course. Readers, in my experience, are far more tolerant of not understanding everything than publishers tend to assume, and a little uncertainty can be part of the pleasure of being somewhere unfamiliar.\nIt is often forgotten, too, that translation can add as well as subtract. Readers of a translated novel sometimes notice qualities that the original audience took for granted, and a skilled translation can reveal patterns in a text that its own author never consciously intended. Several writers I have worked with have told me that reading their book in English showed them something new about it. One remarked, only half joking, that she now preferred my version to her own.\nSo when I am asked how much is lost in translation, I have learned to answer with another question: how much is found? The answer is rarely 'nothing', and occasionally it is 'more than you might think'.",
+"qs": [
+{
+"q": "In the first paragraph, the writer suggests that the common question about translation",
+"a": "is based on a mistaken view of how meaning works.",
+"w": [
+"is usually asked in an unkind or critical way.",
+"is difficult for experienced translators to answer.",
+"shows that most people undervalue translators' work."
+],
+"why": "“the question rests on a misunderstanding. It assumes that the original text contains a fixed quantity of meaning.”"
+},
+{
+"q": "The writer uses the example of Vietnamese forms of address to show that",
+"a": "a loss can lead the translator to a creative alternative.",
+"w": [
+"Vietnamese is harder to translate than other languages.",
+"English lacks the vocabulary to express relationships.",
+"translators should explain cultural differences in notes."
+],
+"why": "“the result is not a diminished copy but a different solution to the same problem.”"
+},
+{
+"q": "What does the writer imply about footnotes that explain puns?",
+"a": "They spoil the effect the pun was meant to have.",
+"w": [
+"They are the most honest solution available.",
+"They are preferred by most publishers.",
+"They are only necessary in poetry."
+],
+"why": "“explaining it in a footnote, which is rather like explaining a joke.”"
+},
+{
+"q": "What is the writer's main criticism in the fourth paragraph?",
+"a": "Readers are denied the experience of something unfamiliar.",
+"w": [
+"Reviewers rarely read the original text.",
+"Publishers choose translators who do not know the culture.",
+"Novels set abroad are not popular with English readers."
+],
+"why": "“part of the value of reading in translation lies in encountering ways of thinking… that are not one's own.”"
+},
+{
+"q": "In the fifth paragraph, the comparison with a picture frame illustrates",
+"a": "how a translation can draw attention away from the work itself.",
+"w": [
+"why difficult translations deserve higher pay.",
+"how readers judge a book by its appearance.",
+"why some originals are better than their translations."
+],
+"why": "“an overly elaborate frame distracts from the painting it surrounds.”"
+},
+{
+"q": "The anecdote about one of the writer's authors suggests that",
+"a": "a translation can offer insights even to the original writer.",
+"w": [
+"authors are generally unhappy with translations of their work.",
+"the writer's translations sell better than the originals.",
+"authors should translate their own work."
+],
+"why": "“reading their book in English showed them something new about it.”"
+}
+]
+},
+{
+"id": "lg-c2-2",
+"lv": "c2",
+"title": "Is Ambition Overrated?",
+"text": "A  Helen Marsh, novelist\n'I distrust the word, frankly. In my experience, the people who describe themselves as ambitious are usually describing a desire for status, which is not at all the same as a desire to do something well. The writers I admire most were driven, certainly, but by curiosity rather than any wish to be admired. That said, I'd be a hypocrite to pretend I'm immune. When my first novel was overlooked for a prize, I sulked for a month. What I've learned since is that external recognition is a poor compass. It arrives late, if at all, and it seldom rewards the work one is proudest of. Prizes are pleasant, but they are decided by a handful of people on a particular afternoon, and I've sat on enough juries to know how arbitrary that can be. The only ambition worth having, I think, is the private one of doing better than last time.'\nB  Dr Samuel Okafor, economist\n'There is a fashionable view that ambition is somehow toxic, and I think it's largely a luxury of the comfortable. If you grow up, as I did, in a household where every expense had to be weighed, ambition isn't a personality trait; it's a survival strategy. My parents never used the word; they simply assumed we would work harder than anyone else, because nobody was going to hand us anything. The research on this is fairly consistent: people who set high goals for themselves tend, on average, to achieve more and earn more, though, interestingly, they aren't noticeably happier. I don't find that troubling. Happiness was never the point. What does concern me is that the language of balance and wellbeing, however well meant, can end up discouraging young people from poorer backgrounds from aiming as high as their wealthier peers do without a second thought.'\nC  Akiko Sato, former Olympic rower\n'Ambition got me to the Olympics, and it very nearly destroyed me. For eight years, every decision I made, what I ate, who I saw, when I slept, was measured against a single goal. My coaches talked constantly about mental toughness, but nobody ever talked about what happens afterwards. When I retired at twenty-nine, I had no idea who I was without it, and the year that followed was the hardest of my life. I'm not sure I'd do it again. And yet I can't honestly say I regret it either; I learned things about discipline and endurance that I couldn't have learned any other way. What I'd say to young athletes now is to make sure their sense of themselves rests on more than one thing, so that losing it doesn't mean losing everything.'\nD  Professor Elena Varga, psychologist\n'Much of the confusion in this debate arises because we use a single word for several different things. Psychologists distinguish between goals that are intrinsic, such as mastering a skill or contributing to a community, and extrinsic ones, such as wealth, fame or status. The evidence suggests that pursuing intrinsic goals is associated with greater wellbeing, whereas the relentless pursuit of extrinsic ones tends to be associated with anxiety, even among people who achieve them. So the useful question is not whether ambition is good or bad, but what one is ambitious for. Interestingly, people are often poor judges of their own motives, and goals that feel intrinsic can turn out, on closer inspection, to be about recognition after all.'",
+"secs": [
+"A Helen Marsh",
+"B Samuel Okafor",
+"C Akiko Sato",
+"D Elena Varga"
+],
+"pm": [
+{
+"q": "Who admits to having reacted badly to a lack of recognition?",
+"p": 0,
+"why": "Helen: “When my first novel was overlooked for a prize, I sulked for a month.”"
+},
+{
+"q": "Who suggests that criticism of ambition reflects a privileged position?",
+"p": 1,
+"why": "Samuel: “it's largely a luxury of the comfortable.”"
+},
+{
+"q": "Who describes difficulty adjusting after a period of intense focus came to an end?",
+"p": 2,
+"why": "Akiko: “When I retired… I had no idea who I was without it.”"
+},
+{
+"q": "Who argues that the debate is confused by imprecise use of language?",
+"p": 3,
+"why": "Elena: “we use a single word for several different things.”"
+},
+{
+"q": "Who mentions a finding that ambitious people are not happier, without seeing this as a problem?",
+"p": 1,
+"why": "Samuel: “they aren't noticeably happier. I don't find that troubling.”"
+},
+{
+"q": "Who recommends not relying on a single source of identity?",
+"p": 2,
+"why": "Akiko: “make sure their sense of themselves rests on more than one thing.”"
+},
+{
+"q": "Who suggests that people may misunderstand their own reasons for pursuing goals?",
+"p": 3,
+"why": "Elena: “people are often poor judges of their own motives.”"
+},
+{
+"q": "Who says that the most admirable people in their field were motivated by curiosity?",
+"p": 0,
+"why": "Helen: “driven, certainly, but by curiosity rather than any wish to be admired.”"
+},
+{
+"q": "Who has mixed feelings about whether their ambition was worthwhile?",
+"p": 2,
+"why": "Akiko: “I'm not sure I'd do it again. And yet I can't honestly say I regret it either.”"
+},
+{
+"q": "Who is concerned that certain well-meant advice may hold back some young people?",
+"p": 1,
+"why": "Samuel: “can end up discouraging young people from poorer backgrounds.”"
+}
+]
+}
+],
+"mc": [
+{
+"id": "mc-c2-1",
+"lv": "c2",
+"title": "The Art of Forgery",
+"text": "Few crimes {1} the public imagination quite like art forgery. There is something perversely admirable about a forger who can deceive the experts, and successful fakers have often {2} a kind of celebrity once their deceptions come to light. The Dutch painter Han van Meegeren, who sold fake Vermeers to Nazi leaders during the Second World War, was {3} as a national hero after the war, despite having made a fortune from his crimes. Yet the very {4} of forgery raises uncomfortable questions for the art world. If a fake can hang in a major museum for decades without anyone noticing, what exactly is it that we value in the original? Some argue that our {5} with authenticity has little to do with the visual qualities of a work and everything to do with its history and the story of its creation. Others {6} that a painting's worth should rest on what can be seen, and that the fuss about attribution is largely driven by the market. Either way, advances in scientific analysis have made it far harder for forgers to {7} undetected, and today's experts are rarely {8} in by even the most skilful imitators.",
+"gaps": [
+{
+"a": "capture",
+"w": [
+"arrest",
+"possess",
+"take"
+],
+"why": "capture the imagination = thu hút trí tưởng tượng."
+},
+{
+"a": "enjoyed",
+"w": [
+"received",
+"profited",
+"benefited"
+],
+"why": "enjoy celebrity = được nổi tiếng."
+},
+{
+"a": "hailed",
+"w": [
+"called",
+"titled",
+"cheered"
+],
+"why": "be hailed as = được tôn vinh là."
+},
+{
+"a": "existence",
+"w": [
+"being",
+"life",
+"reality"
+],
+"why": "the very existence of = chính sự tồn tại của."
+},
+{
+"a": "obsession",
+"w": [
+"devotion",
+"mania",
+"attraction"
+],
+"why": "obsession with = ám ảnh với; devotion to, mania for, attraction to."
+},
+{
+"a": "contend",
+"w": [
+"persuade",
+"convince",
+"assure"
+],
+"why": "contend that = cho rằng; ba từ kia cần tân ngữ người."
+},
+{
+"a": "remain",
+"w": [
+"stand",
+"hold",
+"rest"
+],
+"why": "remain undetected = không bị phát hiện."
+},
+{
+"a": "taken",
+"w": [
+"brought",
+"drawn",
+"led"
+],
+"why": "be taken in = bị lừa."
+}
+]
+},
+{
+"id": "mc-c2-2",
+"lv": "c2",
+"title": "The Ethics of Zoos",
+"text": "Zoos have {1} a remarkable transformation over the past century. The cramped cages of the Victorian era have largely given {2} to spacious enclosures designed to mimic natural habitats, and most major zoos now present themselves as centres of conservation and education rather than mere entertainment. Their defenders point to breeding programmes that have {3} several species back from the brink of extinction, and argue that seeing animals in the flesh fosters a {4} of connection with wildlife that no documentary can match. Critics remain unconvinced. They contend that even the most generous enclosure is a poor {5} for the vast territories some animals roam in the wild, and that the educational benefits are often overstated. Studies of visitor behaviour, they note, suggest that many people spend less than a minute at each enclosure, often without so {6} as glancing at the information provided. The debate is unlikely to be {7} any time soon. What both sides might agree on is that the zoo of the future will need to justify its existence on grounds more {8} than the public's appetite for spectacle.",
+"gaps": [
+{
+"a": "undergone",
+"w": [
+"passed",
+"gone",
+"made"
+],
+"why": "undergo a transformation = trải qua thay đổi."
+},
+{
+"a": "way",
+"w": [
+"room",
+"path",
+"road"
+],
+"why": "give way to = nhường chỗ cho."
+},
+{
+"a": "brought",
+"w": [
+"carried",
+"fetched",
+"taken"
+],
+"why": "bring back from the brink = kéo lại từ bờ vực."
+},
+{
+"a": "sense",
+"w": [
+"sentiment",
+"mood",
+"touch"
+],
+"why": "a sense of connection."
+},
+{
+"a": "substitute",
+"w": [
+"exchange",
+"swap",
+"return"
+],
+"why": "a poor substitute for = thứ thay thế kém."
+},
+{
+"a": "much",
+"w": [
+"far",
+"long",
+"well"
+],
+"why": "without so much as = thậm chí không."
+},
+{
+"a": "resolved",
+"w": [
+"solved",
+"completed",
+"cured"
+],
+"why": "resolve a debate = giải quyết tranh cãi; solve dùng cho bài toán."
+},
+{
+"a": "compelling",
+"w": [
+"forcing",
+"pushing",
+"urging"
+],
+"why": "compelling grounds = lý do thuyết phục."
+}
+]
+},
+{
+"id": "mc-c2-3",
+"lv": "c2",
+"title": "The Value of Failure",
+"text": "In recent years, failure has undergone something of a {1} in the business world. Where it was once a source of shame, to be concealed or quickly forgotten, it is now frequently celebrated as an essential step on the road to success. Entrepreneurs {2} up to the companies they ran into the ground, and conferences devoted entirely to failure attract large audiences. There is undoubtedly some truth in the idea that setbacks can be instructive. Yet the new enthusiasm deserves a degree of {3}. For one thing, the people who speak most eloquently about failure tend to be those who {4} succeeded; we rarely hear from those whose failures simply led to further failures. For {5}, the notion that failure is always a valuable learning experience {6} over the fact that its costs are unevenly distributed. A wealthy founder whose start-up collapses can usually {7} back on savings or family support, whereas an employee who loses a job may face genuine hardship. Celebrating failure, in other words, is easier for those who can afford it. None of this means we should return to stigmatising it; but we might at least {8} in mind that its lessons come at a price.",
+"gaps": [
+{
+"a": "rehabilitation",
+"w": [
+"renovation",
+"renewal",
+"repair"
+],
+"why": "rehabilitation = được phục hồi danh tiếng."
+},
+{
+"a": "own",
+"w": [
+"come",
+"live",
+"stand"
+],
+"why": "own up to = thừa nhận."
+},
+{
+"a": "scepticism",
+"w": [
+"denial",
+"refusal",
+"rejection"
+],
+"why": "deserve a degree of scepticism = đáng hoài nghi phần nào."
+},
+{
+"a": "eventually",
+"w": [
+"lastly",
+"latterly",
+"lately"
+],
+"why": "eventually = cuối cùng thì."
+},
+{
+"a": "another",
+"w": [
+"other",
+"further",
+"second"
+],
+"why": "For one thing… For another… = Một là… hai là…"
+},
+{
+"a": "glosses",
+"w": [
+"looks",
+"goes",
+"runs"
+],
+"why": "gloss over = lờ đi."
+},
+{
+"a": "fall",
+"w": [
+"drop",
+"lean",
+"rely"
+],
+"why": "fall back on = dựa vào khi khó."
+},
+{
+"a": "bear",
+"w": [
+"hold",
+"take",
+"carry"
+],
+"why": "bear in mind = ghi nhớ."
+}
+]
+}
+],
+"open": [
+{
+"id": "op-c2-1",
+"lv": "c2",
+"title": "The Origins of Writing",
+"text": "Writing is generally thought to have been invented independently in at {1} three places: Mesopotamia, China and Mesoamerica. In Mesopotamia, the earliest written records date back {2} around 3200 BC and consist, perhaps disappointingly, of accounts: lists of goods, quantities and payments. Far {3} being created to record poetry or history, writing seems to have emerged as a practical tool {4} keeping track of trade. It was only {5} later that scribes began to use the system for literature, law and correspondence. {6} is remarkable about this development is how long it took. For thousands of years before writing appeared, people had used tokens and marks to represent quantities, yet the leap to recording language itself was made {7} once or twice in human history. {8} it not for those anonymous accountants, we might know almost nothing of the ancient world.",
+"gaps": [
+{
+"a": [
+"least"
+],
+"why": "at least = ít nhất."
+},
+{
+"a": [
+"to"
+],
+"why": "date back to."
+},
+{
+"a": [
+"from"
+],
+"why": "Far from = Không hề, trái lại."
+},
+{
+"a": [
+"for"
+],
+"why": "a tool for + V-ing."
+},
+{
+"a": [
+"much",
+"far",
+"considerably",
+"centuries"
+],
+"why": "only much later = mãi sau này."
+},
+{
+"a": [
+"what"
+],
+"why": "What is remarkable… = Điều đáng chú ý…"
+},
+{
+"a": [
+"only"
+],
+"why": "only once or twice."
+},
+{
+"a": [
+"were"
+],
+"why": "Were it not for = Nếu không có (đảo ngữ)."
+}
+]
+},
+{
+"id": "op-c2-2",
+"lv": "c2",
+"title": "Urban Myths",
+"text": "Urban myths are stories that spread widely despite being untrue, and they have a curious habit of being told {1} though they had happened to a friend of a friend. {2} their content varies, many share a common structure: an ordinary situation, a shocking twist and an implied warning. It is {3} this warning that some researchers attribute their success. Stories that express shared anxieties, about crime, technology or contaminated food, are more likely to be passed {4}, because they feel relevant to the listener's own life. The internet, far from killing {5} such myths, has given them a new lease of life. A story that might {6} have taken years to travel between cities can now circle the globe in a matter of hours. Fact-checking websites do their best, but corrections rarely spread as fast {7} the stories they correct. As one folklorist observes, a good story will {8} be more persuasive than a dull truth.",
+"gaps": [
+{
+"a": [
+"as"
+],
+"why": "as though = như thể."
+},
+{
+"a": [
+"although",
+"while",
+"though",
+"whilst"
+],
+"why": "Dù nội dung khác nhau."
+},
+{
+"a": [
+"to"
+],
+"why": "attribute sth to sth (câu chẻ: It is to… that)."
+},
+{
+"a": [
+"on"
+],
+"why": "pass on = truyền đi."
+},
+{
+"a": [
+"off"
+],
+"why": "kill off = xoá sổ."
+},
+{
+"a": [
+"once",
+"previously",
+"formerly"
+],
+"why": "might once have taken = trước kia có thể mất."
+},
+{
+"a": [
+"as"
+],
+"why": "as fast as."
+},
+{
+"a": [
+"always",
+"often",
+"usually",
+"generally"
+],
+"why": "Trạng từ tần suất."
+}
+]
+},
+{
+"id": "op-c2-3",
+"lv": "c2",
+"title": "The Four-Minute Mile",
+"text": "For years, many people believed that running a mile in {1} than four minutes was physically impossible. When Roger Bannister finally achieved it in May 1954, the news made headlines around the world. What happened next has become one of the {2} famous stories in sport. Within little more {3} a year, several other runners had also broken the barrier, as though Bannister's achievement had removed some psychological obstacle. The story is often told to illustrate the power of belief, but it is not {4} straightforward as it seems. Several athletes had been getting {5} closer to the four-minute mark for years, and improvements in training meant that the record was likely to fall sooner or {6}. Bannister himself, a medical student who trained {7} his studies, was keen to stress the role of careful preparation. {8} the truth, the story continues to inspire anyone facing a challenge that others have declared impossible.",
+"gaps": [
+{
+"a": [
+"less"
+],
+"why": "in less than four minutes."
+},
+{
+"a": [
+"most"
+],
+"why": "one of the most famous."
+},
+{
+"a": [
+"than"
+],
+"why": "little more than a year."
+},
+{
+"a": [
+"as",
+"so"
+],
+"why": "not as / so … as."
+},
+{
+"a": [
+"ever",
+"steadily",
+"gradually",
+"progressively",
+"increasingly"
+],
+"why": "getting ever closer = ngày càng gần."
+},
+{
+"a": [
+"later"
+],
+"why": "sooner or later = sớm muộn."
+},
+{
+"a": [
+"around",
+"alongside",
+"between",
+"during"
+],
+"why": "trained around his studies = tập xen giữa việc học."
+},
+{
+"a": [
+"whatever"
+],
+"why": "Whatever the truth = Dù sự thật thế nào."
+}
+]
+}
+],
+"wf": [
+{
+"id": "wf-c2-1",
+"lv": "c2",
+"title": "The Paradox of Choice",
+"text": "It seems {1} obvious that more choice should make us happier. Yet a growing body of research suggests that an {2} of options can leave people anxious and dissatisfied. Faced with dozens of alternatives, we are more likely to {3} our decisions and to suspect that a better option was available. People who habitually seek the best possible choice, known as 'maximisers', report lower life {4} than those who settle for something good enough. The findings are not without their {5}, some of whom point to {6} results across cultures. Even so, the idea has {7} struck a chord in societies where the {8} of products seems limitless.",
+"gaps": [
+{
+"stem": "INTUITION",
+"a": [
+"intuitively"
+],
+"why": "Trạng từ trước tính từ obvious."
+},
+{
+"stem": "ABUNDANT",
+"a": [
+"abundance",
+"overabundance"
+],
+"why": "an abundance of = rất nhiều."
+},
+{
+"stem": "GUESS",
+"a": [
+"second-guess"
+],
+"why": "second-guess = nghi ngờ lại quyết định."
+},
+{
+"stem": "SATISFY",
+"a": [
+"satisfaction"
+],
+"why": "life satisfaction."
+},
+{
+"stem": "CRITIC",
+"a": [
+"critics"
+],
+"why": "“some of whom” → người: critics."
+},
+{
+"stem": "CONSIST",
+"a": [
+"inconsistent"
+],
+"why": "inconsistent results = kết quả không nhất quán."
+},
+{
+"stem": "DOUBT",
+"a": [
+"undoubtedly"
+],
+"why": "Trạng từ: chắc chắn."
+},
+{
+"stem": "AVAIL",
+"a": [
+"availability"
+],
+"why": "the availability of products."
+}
+]
+},
+{
+"id": "wf-c2-2",
+"lv": "c2",
+"title": "Language Death",
+"text": "Of the roughly seven thousand languages spoken today, linguists estimate that around half may {1} by the end of the century. Most are spoken by small communities, and when older {2} die, the language often dies with them. The loss is not merely {3}. Each language embodies a unique way of understanding the world, and many contain {4} knowledge about local plants, animals and landscapes. Efforts at {5} have met with mixed success. Hebrew, which was {6} extinct as a spoken language for centuries, is now the {7} language of millions, but such cases are {8} rare.",
+"gaps": [
+{
+"stem": "APPEAR",
+"a": [
+"disappear"
+],
+"why": "may disappear = có thể biến mất."
+},
+{
+"stem": "SPEAK",
+"a": [
+"speakers"
+],
+"why": "older speakers = người nói lớn tuổi."
+},
+{
+"stem": "SENTIMENT",
+"a": [
+"sentimental"
+],
+"why": "không chỉ là chuyện tình cảm."
+},
+{
+"stem": "REPLACE",
+"a": [
+"irreplaceable"
+],
+"why": "không thể thay thế."
+},
+{
+"stem": "VITAL",
+"a": [
+"revitalisation",
+"revitalization"
+],
+"why": "efforts at revitalisation = nỗ lực hồi sinh."
+},
+{
+"stem": "VIRTUAL",
+"a": [
+"virtually"
+],
+"why": "virtually extinct = gần như tuyệt chủng."
+},
+{
+"stem": "NATION",
+"a": [
+"national"
+],
+"why": "national language."
+},
+{
+"stem": "EXCEPTION",
+"a": [
+"exceptionally"
+],
+"why": "exceptionally rare = cực hiếm."
+}
+]
+},
+{
+"id": "wf-c2-3",
+"lv": "c2",
+"title": "Ten Thousand Hours?",
+"text": "How long does it take to become an expert? A widely quoted figure suggests ten thousand hours of practice, but this number has been greatly {1}. The original research, which studied violinists, found that the most {2} players had indeed practised for longer, but the amount varied {3} from person to person. More importantly, the researchers emphasised the {4} of 'deliberate practice': focused, often {5} work on specific weaknesses, guided by {6} feedback. Simply repeating an activity, however {7}, does not lead to improvement. Critics have since argued that innate talent plays a greater role than the theory allows, and the {8} between practice and performance remains hotly debated.",
+"gaps": [
+{
+"stem": "SIMPLE",
+"a": [
+"oversimplified",
+"simplified"
+],
+"why": "bị đơn giản hoá quá mức."
+},
+{
+"stem": "ACCOMPLISH",
+"a": [
+"accomplished"
+],
+"why": "accomplished players = người chơi giỏi."
+},
+{
+"stem": "CONSIDER",
+"a": [
+"considerably"
+],
+"why": "varied considerably = khác nhau nhiều."
+},
+{
+"stem": "SIGNIFY",
+"a": [
+"significance"
+],
+"why": "the significance of = tầm quan trọng."
+},
+{
+"stem": "COMFORT",
+"a": [
+"uncomfortable"
+],
+"why": "công việc không dễ chịu."
+},
+{
+"stem": "SPECIAL",
+"a": [
+"specialist",
+"specialised",
+"specialized"
+],
+"why": "specialist feedback = phản hồi của chuyên gia."
+},
+{
+"stem": "FAITH",
+"a": [
+"faithfully"
+],
+"why": "however faithfully = dù đều đặn đến đâu."
+},
+{
+"stem": "RELATE",
+"a": [
+"relationship",
+"relation"
+],
+"why": "the relationship between."
+}
+]
+}
+],
+"kwt": [
+{
+"id": "kw-c2-1",
+"lv": "c2",
+"s1": "I had no intention of offending anyone.",
+"key": "MEANT",
+"s2": "I never ____ anyone.",
+"a": [
+"meant to offend"
+],
+"why": "mean to + V = cố ý."
+},
+{
+"id": "kw-c2-2",
+"lv": "c2",
+"s1": "She has always been extremely good at languages.",
+"key": "FLAIR",
+"s2": "She has always ____ languages.",
+"a": [
+"had a flair for",
+"had a real flair for",
+"had a great flair for"
+],
+"why": "have a flair for = có năng khiếu."
+},
+{
+"id": "kw-c2-3",
+"lv": "c2",
+"s1": "It is very unlikely that the plan will succeed.",
+"key": "CHANCE",
+"s2": "There is ____ the plan succeeding.",
+"a": [
+"little chance of",
+"very little chance of",
+"hardly any chance of",
+"not much chance of"
+],
+"why": "little chance of + V-ing."
+},
+{
+"id": "kw-c2-4",
+"lv": "c2",
+"s1": "They were only able to finish the project because of her help.",
+"key": "HAD",
+"s2": "If it ____ her help, they would not have been able to finish the project.",
+"a": [
+"had not been for",
+"hadn't been for"
+],
+"why": "If it hadn't been for = Nếu không nhờ."
+},
+{
+"id": "kw-c2-5",
+"lv": "c2",
+"s1": "He was not in the least worried about the interview.",
+"key": "SLIGHTEST",
+"s2": "He was not ____ about the interview.",
+"a": [
+"the slightest bit worried",
+"worried in the slightest"
+],
+"why": "not the slightest bit = chẳng chút nào."
+},
+{
+"id": "kw-c2-6",
+"lv": "c2",
+"s1": "The minister's speech made people even more confused.",
+"key": "ADDED",
+"s2": "The minister's speech ____ confusion.",
+"a": [
+"added to the",
+"only added to the",
+"added to people's"
+],
+"why": "add to the confusion = làm rối thêm."
+},
+{
+"id": "kw-c2-7",
+"lv": "c2",
+"s1": "Nobody could understand why he had left so suddenly.",
+"key": "BEYOND",
+"s2": "Why he had left so suddenly ____ comprehension.",
+"a": [
+"was beyond everyone's",
+"was beyond anyone's",
+"was beyond all"
+],
+"why": "beyond comprehension = không ai hiểu nổi."
+},
+{
+"id": "kw-c2-8",
+"lv": "c2",
+"s1": "The success of the event depends on the weather.",
+"key": "HINGES",
+"s2": "Whether ____ the weather.",
+"a": [
+"the event succeeds hinges on",
+"the event is successful hinges on",
+"or not the event succeeds hinges on",
+"or not the event is successful hinges on"
+],
+"why": "hinge on = phụ thuộc hoàn toàn."
+},
+{
+"id": "kw-c2-9",
+"lv": "c2",
+"s1": "She was the only person who did not lose her temper.",
+"key": "EXCEPTION",
+"s2": "With ____, everyone lost their temper.",
+"a": [
+"the exception of her"
+],
+"why": "with the exception of = trừ."
+},
+{
+"id": "kw-c2-10",
+"lv": "c2",
+"s1": "We were made to wait for over an hour.",
+"key": "KEPT",
+"s2": "They ____ for over an hour.",
+"a": [
+"kept us waiting"
+],
+"why": "keep sb waiting = bắt ai chờ."
+}
+]
+}
