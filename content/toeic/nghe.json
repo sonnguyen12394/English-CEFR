@@ -1,0 +1,109 @@
+{
+  "_note": "TOEIC Part 2–4 kiểu (Claude soạn 28/10/2026, chưa người thật kiểm; tên người, công ty bịa; không chép đề ETS). Giọng: tools/build-audio.py (Kokoro, giọng Mỹ + Anh). p2: câu hỏi + 3 lời đáp (đề thật không in chữ, chỉ nghe). p3: hội thoại (A nữ, B nam), p4: một người nói; mỗi bài 3 câu hỏi.",
+  "p2": [
+    { "id": "t2-01", "q": "When is the sales report due?", "o": ["By the end of the week.", "In the conference room.", "Yes, it was very good."], "a": 0 },
+    { "id": "t2-02", "q": "Where can I find extra paper for the printer?", "o": ["It prints in color.", "In the cabinet next to the window.", "About two hundred pages."], "a": 1 },
+    { "id": "t2-03", "q": "Who's going to lead the training session?", "o": ["At nine o'clock tomorrow.", "The train was delayed.", "Ms. Garcia from human resources."], "a": 2 },
+    { "id": "t2-04", "q": "Why was the meeting postponed?", "o": ["The manager is out sick.", "Let's meet at the café.", "Yes, I posted it."], "a": 0 },
+    { "id": "t2-05", "q": "Would you like me to book a taxi for you?", "o": ["I read that book last year.", "Thanks, but I'll take the subway.", "It's a long way from here."], "a": 1 },
+    { "id": "t2-06", "q": "How many people have signed up for the workshop?", "o": ["Sign here, please.", "On the second floor.", "Around thirty so far."], "a": 2 },
+    { "id": "t2-07", "q": "Have you sent the invoice to the client yet?", "o": ["I'm doing it right now.", "She's a new client.", "It costs five hundred dollars."], "a": 0 },
+    { "id": "t2-08", "q": "Which hotel are you staying at in Chicago?", "o": ["For three nights.", "The one near the convention center.", "I stayed late at the office."], "a": 1 },
+    { "id": "t2-09", "q": "Isn't the store open on Sundays?", "o": ["I'll store them in the back.", "Some fresh vegetables.", "Only in December."], "a": 2 },
+    { "id": "t2-10", "q": "Could you help me move these boxes?", "o": ["Sure, where should I put them?", "We moved here last year.", "They're made of plastic."], "a": 0 },
+    { "id": "t2-11", "q": "What time does the flight to Seoul leave?", "o": ["Gate twelve.", "At four fifteen.", "I left it on the plane."], "a": 1 },
+    { "id": "t2-12", "q": "Should we order lunch now or wait for Tom?", "o": ["The order was confirmed.", "Yes, it was delicious.", "Let's wait a few more minutes."], "a": 2 },
+    { "id": "t2-13", "q": "The new photocopier is easy to use, isn't it?", "o": ["Yes, much easier than the old one.", "Three copies, please.", "I used to work there."], "a": 0 },
+    { "id": "t2-14", "q": "How long will the renovation take?", "o": ["It's quite long.", "About six weeks.", "In the lobby."], "a": 1 },
+    { "id": "t2-15", "q": "Why don't we hold the party outdoors?", "o": ["It was held last night.", "Because the door is locked.", "That's a great idea if the weather's nice."], "a": 2 },
+    { "id": "t2-16", "q": "Whose turn is it to clean the kitchen?", "o": ["I think it's Mark's.", "Turn left at the corner.", "The kitchen is new."], "a": 0 },
+    { "id": "t2-17", "q": "Did you get a chance to review my proposal?", "o": ["A chance of rain.", "Not yet, but I'll look at it this afternoon.", "I proposed a new plan."], "a": 1 },
+    { "id": "t2-18", "q": "Where should I send the signed contracts?", "o": ["They were signed yesterday.", "A two-year contract.", "Directly to the legal department."], "a": 2 },
+    { "id": "t2-19", "q": "Are you attending the conference in May or June?", "o": ["Neither, I have to stay here.", "Yes, I'm attending.", "It was a great conference."], "a": 0 },
+    { "id": "t2-20", "q": "When will the new manager start?", "o": ["She manages the team well.", "Next Monday, I believe.", "At the start of the road."], "a": 1 },
+    { "id": "t2-21", "q": "Do you know where the nearest bank is?", "o": ["I know the manager there.", "Yes, the river bank.", "There's one across from the post office."], "a": 2 },
+    { "id": "t2-22", "q": "Why haven't the packages been delivered?", "o": ["There was a problem with the truck.", "A large package.", "Yes, deliver them to me."], "a": 0 },
+    { "id": "t2-23", "q": "I can't find my security badge.", "o": ["It's a secure building.", "Did you check your coat pocket?", "The badge has a photo on it."], "a": 1 },
+    { "id": "t2-24", "q": "Who should I talk to about a refund?", "o": ["For a broken lamp.", "Talk to you later.", "The customer service desk can help you."], "a": 2 },
+    { "id": "t2-25", "q": "How was the presentation this morning?", "o": ["It went better than expected.", "In the main hall.", "I'll present it tomorrow."], "a": 0 },
+    { "id": "t2-26", "q": "Would you prefer a window seat or an aisle seat?", "o": ["Please take a seat.", "An aisle seat, please.", "The window is open."], "a": 1 },
+    { "id": "t2-27", "q": "Let's review the budget before the meeting.", "o": ["The meeting was canceled.", "It's over budget.", "Good idea, I'll bring the figures."], "a": 2 },
+    { "id": "t2-28", "q": "Where did you buy that laptop bag?", "o": ["At an online store.", "Last weekend.", "It holds two laptops."], "a": 0 },
+    { "id": "t2-29", "q": "Hasn't the shipment from Mexico arrived?", "o": ["Mexico is a big country.", "It came in this morning.", "I'll ship it tomorrow."], "a": 1 },
+    { "id": "t2-30", "q": "What did the client think of our design?", "o": ["We designed it in March.", "The client is from Toronto.", "She asked for a few small changes."], "a": 2 }
+  ],
+  "p3": [
+    { "id": "t3-01", "lines": [["A", "Hi, I'm calling about the printer in our office. It's been making a strange noise since yesterday, and now it won't print at all."], ["B", "I'm sorry to hear that. Is it the model we installed last month?"], ["A", "Yes, that's the one. We have an important report to print by Thursday."], ["B", "I can send a technician tomorrow morning. In the meantime, you can use the printer on the third floor."]],
+      "qs": [
+        { "q": "What problem does the woman report?", "a": "A printer is not working.", "w": ["A report is missing.", "A technician is late.", "An office is too noisy."] },
+        { "q": "What does the woman say about Thursday?", "a": "She has a deadline then.", "w": ["She will be on vacation.", "A new printer will arrive.", "The office will be closed."] },
+        { "q": "What does the man suggest?", "a": "Using another printer", "w": ["Buying a new model", "Calling the manufacturer", "Printing the report at home"] } ] },
+    { "id": "t3-02", "lines": [["B", "Laura, have you seen the sales figures for last quarter?"], ["A", "Yes, they're much better than we expected, especially in the northern region."], ["B", "I think the new advertising campaign really helped. Should we present the results at Friday's board meeting?"], ["A", "Definitely. I'll prepare some charts, and you could summarize the main points."]],
+      "qs": [
+        { "q": "What are the speakers discussing?", "a": "Recent sales results", "w": ["A new office building", "A hiring plan", "A product recall"] },
+        { "q": "According to the man, what caused the improvement?", "a": "An advertising campaign", "w": ["Lower prices", "A new manager", "Better weather"] },
+        { "q": "What will the woman do?", "a": "Prepare some charts", "w": ["Contact the board", "Visit the northern region", "Write a press release"] } ] },
+    { "id": "t3-03", "lines": [["A", "Good afternoon, Riverside Hotel. How can I help you?"], ["B", "Hi, I have a reservation for two nights starting tomorrow, but my flight has been canceled. Can I change it to start on Saturday instead?"], ["A", "Let me check. Yes, we have a room available from Saturday. There's no fee for changing the dates."], ["B", "That's great. Could you also send me a new confirmation by e-mail?"]],
+      "qs": [
+        { "q": "Why is the man calling?", "a": "To change a reservation", "w": ["To book a flight", "To complain about a room", "To ask about restaurants"] },
+        { "q": "What does the woman say about the change?", "a": "There is no extra charge.", "w": ["It must be paid in cash.", "Only one night is available.", "The hotel is fully booked."] },
+        { "q": "What does the man ask for?", "a": "A confirmation by e-mail", "w": ["A refund", "A late checkout", "An airport shuttle"] } ] },
+    { "id": "t3-04", "lines": [["B", "Excuse me, I bought this jacket here last week, but the zipper broke the first time I wore it."], ["A", "I'm sorry about that. Do you have your receipt?"], ["B", "Yes, here it is. I'd like to exchange it for the same jacket in the same size, if possible."], ["A", "Unfortunately, we're out of that size right now. I can order one for you, and it should arrive in three days, or I can give you a full refund."]],
+      "qs": [
+        { "q": "Where most likely are the speakers?", "a": "In a clothing store", "w": ["In a dry cleaner's", "In a factory", "In a post office"] },
+        { "q": "What does the man want to do?", "a": "Exchange an item", "w": ["Return a receipt", "Buy a larger size", "Repair a zipper himself"] },
+        { "q": "What problem does the woman mention?", "a": "A size is not available.", "w": ["The receipt has expired.", "The store is closing soon.", "The jacket was on sale."] } ] },
+    { "id": "t3-05", "lines": [["A", "Kevin, the client from Lisbon just confirmed that she'll visit us next Tuesday."], ["B", "Great. Should I reserve a table at the Italian restaurant for lunch?"], ["A", "Actually, she mentioned she's vegetarian. Maybe the new place on Elm Street would be better. They have a lot of vegetarian dishes."], ["B", "Good point. I'll call them this afternoon and book a table for four."]],
+      "qs": [
+        { "q": "Who will visit next Tuesday?", "a": "A client", "w": ["A job applicant", "A new manager", "A restaurant owner"] },
+        { "q": "Why does the woman suggest a different restaurant?", "a": "It offers vegetarian food.", "w": ["It is closer to the office.", "It is less expensive.", "It has a private room."] },
+        { "q": "What will the man do this afternoon?", "a": "Make a reservation", "w": ["Meet the client", "Prepare a presentation", "Order office supplies"] } ] },
+    { "id": "t3-06", "lines": [["B", "Hi, Amanda. I heard you're moving to the Singapore office next month."], ["A", "That's right. I'll be managing the new marketing team there. I'm excited, but there's a lot to organize."], ["B", "I worked there for two years. If you'd like, I can give you a list of good neighborhoods to live in."], ["A", "That would be really helpful, thanks. Could you e-mail it to me?"]],
+      "qs": [
+        { "q": "What is the woman going to do next month?", "a": "Transfer to another office", "w": ["Start a new company", "Take a vacation", "Retire from her job"] },
+        { "q": "What does the man offer to do?", "a": "Recommend places to live", "w": ["Help her pack", "Introduce her to a client", "Train her new team"] },
+        { "q": "Why is the man able to help?", "a": "He used to work in Singapore.", "w": ["He manages the marketing team.", "He owns property there.", "He is moving with her."] } ] },
+    { "id": "t3-07", "lines": [["A", "The new software update was supposed to be installed on everyone's computer by today, but mine still has the old version."], ["B", "The IT team had some problems over the weekend, so a few departments are behind schedule."], ["A", "I see. I need the new reporting feature to finish the monthly summary."], ["B", "I'll ask them to do yours first. It should take about twenty minutes."]],
+      "qs": [
+        { "q": "What problem does the woman have?", "a": "Her computer has not been updated.", "w": ["Her password has expired.", "Her computer is broken.", "Her report was deleted."] },
+        { "q": "Why are some departments behind schedule?", "a": "The IT team had problems.", "w": ["Some staff were on holiday.", "The software was too expensive.", "There was a power cut."] },
+        { "q": "What will the man do?", "a": "Ask for her computer to be done first", "w": ["Install the software himself", "Finish her summary for her", "Buy a new computer"] } ] },
+    { "id": "t3-08", "lines": [["B", "I'm thinking about joining the company's cycling club. Have you heard anything about it?"], ["A", "Yes, my manager is a member. They ride together every Saturday morning, and the company pays for the safety equipment."], ["B", "That sounds good. Do I need my own bike?"], ["A", "I think so. But there's a discount at the bike shop on Main Street for club members."]],
+      "qs": [
+        { "q": "What are the speakers mainly discussing?", "a": "A company club", "w": ["A business trip", "A new product", "A training course"] },
+        { "q": "What does the company pay for?", "a": "Safety equipment", "w": ["Bicycles", "Club membership fees", "Transportation"] },
+        { "q": "What can club members get at a shop on Main Street?", "a": "A discount", "w": ["Free repairs", "A new bicycle", "A club uniform"] } ] }
+  ],
+  "p4": [
+    { "id": "t4-01", "text": "Attention, shoppers. Our store will be closing in fifteen minutes. Please bring your final purchases to the registers at the front of the store. We'd also like to remind you that our annual summer sale begins tomorrow morning at eight o'clock. All outdoor furniture will be thirty percent off, and members of our rewards program will receive an extra ten percent discount. Thank you for shopping with us.",
+      "qs": [
+        { "q": "Where is the announcement being made?", "a": "In a store", "w": ["At an airport", "In a library", "At a train station"] },
+        { "q": "What will happen tomorrow morning?", "a": "A sale will begin.", "w": ["The store will be closed.", "New staff will start.", "Furniture will be delivered."] },
+        { "q": "Who will receive an extra discount?", "a": "Rewards program members", "w": ["First-time customers", "Store employees", "People who pay in cash"] } ] },
+    { "id": "t4-02", "text": "Hello, this is Paul Turner from Kendall Dental Clinic. I'm calling to remind you of your appointment with Dr. Silva this Thursday at two thirty. Please arrive ten minutes early to complete a short health form. If you need to change the time, call us at least twenty-four hours in advance, or a cancellation fee may apply. Our number is five five five, zero one nine eight. We look forward to seeing you.",
+      "qs": [
+        { "q": "What is the purpose of the call?", "a": "To remind someone of an appointment", "w": ["To offer a job", "To cancel a meeting", "To advertise a new clinic"] },
+        { "q": "What is the listener asked to do?", "a": "Arrive early", "w": ["Bring a friend", "Pay in advance", "Call back today"] },
+        { "q": "What may happen if the listener cancels late?", "a": "A fee may be charged.", "w": ["The clinic will close.", "Dr. Silva will call back.", "The form must be repeated."] } ] },
+    { "id": "t4-03", "text": "Good morning, everyone, and welcome to your first day at Norland Engineering. My name is Rachel Kim, and I'm the head of human resources. This morning, we'll start with a short tour of the building. After that, you'll meet your team leaders, who will explain your responsibilities. Lunch will be provided in the staff cafeteria at twelve thirty. In the afternoon, the IT department will set up your computers and e-mail accounts. Please make sure you have your photo identification with you, as you'll need it to receive your security badge.",
+      "qs": [
+        { "q": "Who most likely are the listeners?", "a": "New employees", "w": ["Company clients", "Engineering students", "Hotel guests"] },
+        { "q": "What will happen first?", "a": "A tour of the building", "w": ["A meeting with team leaders", "Lunch in the cafeteria", "Computer setup"] },
+        { "q": "Why should listeners have photo identification?", "a": "To receive a security badge", "w": ["To enter the cafeteria", "To open a bank account", "To use the computers"] } ] },
+    { "id": "t4-04", "text": "And now for the traffic report. Drivers heading into the city on Highway Nine should expect delays of up to thirty minutes this morning because of road repairs near the river bridge. One lane will be closed until Friday. If possible, consider taking the Coastal Road instead, which is moving smoothly. Commuters may also want to use the express bus service, which has added extra buses this week. I'll be back with another update in fifteen minutes.",
+      "qs": [
+        { "q": "What is causing the delays?", "a": "Road repairs", "w": ["An accident", "Bad weather", "A sports event"] },
+        { "q": "What does the speaker suggest?", "a": "Taking a different road", "w": ["Leaving home later", "Driving faster", "Working from home"] },
+        { "q": "What is mentioned about the express bus service?", "a": "It has added more buses.", "w": ["It is free this week.", "It has been canceled.", "It stops at the bridge."] } ] },
+    { "id": "t4-05", "text": "Thanks for joining today's webinar on time management. I'm Lucas Brandt, and I've been training managers for over fifteen years. Today, I'll share three simple techniques that you can start using immediately. First, plan tomorrow's tasks before you leave work today. Second, check your e-mail at fixed times rather than all day long. And third, schedule your most difficult work for the time of day when you have the most energy. At the end of the session, I'll answer your questions, so please type them in the chat box as we go.",
+      "qs": [
+        { "q": "What is the webinar about?", "a": "Managing time effectively", "w": ["Writing better e-mails", "Hiring new managers", "Using new software"] },
+        { "q": "What does the speaker say about checking e-mail?", "a": "It should be done at set times.", "w": ["It should be done first thing.", "It should be done by an assistant.", "It should be done on weekends."] },
+        { "q": "What are listeners asked to do?", "a": "Type their questions in the chat", "w": ["Call the speaker later", "Turn on their cameras", "Download a document"] } ] },
+    { "id": "t4-06", "text": "Welcome aboard the Harbor City ferry. Our trip to Pine Island will take approximately forty minutes. Snacks and drinks are available at the café on the lower deck. For your safety, please do not stand near the railings while the ferry is moving. Life jackets are located under every seat. When we arrive, please wait until the ferry has stopped completely before moving to the exit. We hope you enjoy the journey and the beautiful views of the coast.",
+      "qs": [
+        { "q": "Who is the speaker most likely talking to?", "a": "Ferry passengers", "w": ["Restaurant staff", "Island residents", "Tour guides"] },
+        { "q": "Where can listeners buy snacks?", "a": "On the lower deck", "w": ["At the exit", "On Pine Island", "Near the railings"] },
+        { "q": "Where are the life jackets?", "a": "Under the seats", "w": ["Next to the café", "At the front of the ferry", "On the upper deck"] } ] }
+  ]
+}

@@ -58,6 +58,22 @@ for f in ('a1.json', 'a2.json'):
         for w in u['words']:
             for t in (w['w'], w.get('ex')):
                 if t and key(t) not in A: add(t, 'af_heart')
+T = J('toeic.json') if os.path.exists(os.path.join(ROOT, 'toeic.json')) else None   # 🎓 TOEIC (toeic.js, 28/10/2026): giọng Mỹ + Anh như đề thật
+if T:
+    TF, TM = ['af_heart', 'af_bella', 'af_sarah', 'bf_emma', 'bf_isabella'], ['am_michael', 'am_adam', 'am_eric', 'bm_george', 'bm_lewis']
+    tp = lambda seq, sid, salt: seq[int(hashlib.md5((sid + salt).encode()).hexdigest(), 16) % len(seq)]
+    for x in T['p2']:   # câu hỏi một giọng, 3 lời đáp giọng khác giới
+        q, a = (TF, TM) if int(hashlib.md5(x['id'].encode()).hexdigest(), 16) % 2 else (TM, TF)
+        add(x['lines'][0][1], tp(q, x['id'], 'q'))
+        for _, t in x['lines'][1:]: add(t, tp(a, x['id'], 'a'))
+    for x in T['p3']:
+        fv, mv = tp(TF, x['id'], 'f'), tp(TM, x['id'], 'm')
+        for sp, t in x['lines']: add(t, fv if sp == 'A' else mv)
+    for x in T['p4']:
+        v = tp(TF + TM, x['id'], 'v')
+        for s in sents(x['text']): add(s, v)
+    for tpc in T['voc']:
+        for w, vi, ex in tpc['w']: add(w, 'af_heart'); add(ex, 'af_heart')
 OUT = os.path.join(ROOT, 'n'); os.makedirs(OUT, exist_ok=True)
 todo = [(k, t, v) for k, (t, v) in jobs.items() if not os.path.exists(os.path.join(OUT, k + '.mp3'))]
 print(len(jobs), 'câu,', len(todo), 'cần dựng', flush=True)

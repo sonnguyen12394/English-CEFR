@@ -180,7 +180,8 @@ function ieSHtml(res, sc) { if (!sc.band) return `<div class="box"><b>Máy nghe 
 
 // ---------- màn luyện (báo đúng / sai ngay, không tính giờ) ----------
 // min: tính giờ như đề thật (Đọc cả bài ~20 phút), báo thời gian ở cuối
-function ieRun(title, qs, back, min) { const res = []; let i = 0; const plays = {}, t0 = Date.now(), clk = () => { const s = Math.round((Date.now() - t0) / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+// o (v72, TOEIC dùng chung): { R: nơi ghi kết quả (mặc định S.ie.r), home: nhãn nút về, done: gọi sau khi lưu }
+function ieRun(title, qs, back, min, o = {}) { const res = []; let i = 0; const plays = {}, t0 = Date.now(), clk = () => { const s = Math.round((Date.now() - t0) / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
   const show = () => { if (i >= qs.length) return end(); const q = qs[i]; window.CUR = { view: 'ielts-cau', item: (q.x && q.x.id || '') + ':' + i, prompt: String(q.q).replace(/<[^>]*>/g, '').slice(0, 200) };
     const pk = q.play && q.play.key, left = () => K_PLAYS - (plays[pk] || 0);
     const body = q.kind === 'mc' ? q.opts.map((o, j) => `<button class="opt" data-io="${j}">${esc(o)}</button>`).join('')
@@ -196,11 +197,11 @@ function ieRun(title, qs, back, min) { const res = []; let i = 0; const plays = 
     if (q.kind === 'mc') $app.querySelectorAll('[data-io]').forEach(b => { b.disabled = true; const o = q.opts[+b.dataset.io]; if (o === q.a) b.classList.add('ok'); else if (o === ans) b.classList.add('no'); });
     document.getElementById('ifb').innerHTML = `<div class="box"><b>${ok ? '✅ Đúng' : '❌ Chưa đúng'}</b>${html ? `<p style="margin:4px 0">${html}</p>` : q.kind === 'mc' ? '' : `<p style="margin:4px 0">Đáp án: <b>${esc((q.acc || [q.a]).join(' / '))}</b></p>`}${q.why ? `<p class="mute" style="margin:4px 0 0">${esc(q.why)}</p>` : ''}</div><button class="pri" data-a="next">Tiếp ›</button>`;
     const n = $app.querySelector('[data-a="next"]'); if (n && n.scrollIntoView) n.scrollIntoView({ block: 'nearest' }); };
-  const end = () => { EXAM_VOX = false; const R = ieSt().r, by = {}; for (const r of res) { const id = r.q.x && r.q.x.id; if (!id) continue; const o = by[id] = by[id] || { at: Date.now(), ok: 0, n: 0, k: r.q.x.paras ? 'r' : 'l', ...(min ? { secs: Math.round((Date.now() - t0) / 1000) } : {}) }; o.n++; if (r.ok) o.ok++; }
+  const end = () => { EXAM_VOX = false; const R = o.R || ieSt().r, by = {}; for (const r of res) { const id = r.q.x && r.q.x.id; if (!id) continue; const o = by[id] = by[id] || { at: Date.now(), ok: 0, n: 0, k: r.q.sec || (r.q.x.paras ? 'r' : 'l'), ...(min ? { secs: Math.round((Date.now() - t0) / 1000) } : {}) }; o.n++; if (r.ok) o.ok++; }
     Object.assign(R, by); S.t = Date.now(); save(); const ok = res.filter(r => r.ok).length, wrong = res.filter(r => !r.ok);
     const mins = (Date.now() - t0) / 60000; clearInterval(tk);
     $app.innerHTML = `<h1>${ok}/${res.length} câu đúng</h1>${min ? `<p>⏱ ${mins.toFixed(1)} phút ${mins <= min ? '✅' : '⚠️'} <span class="mute">(đề thật ~${min} phút mỗi bài${mins > min ? '; luyện đọc lướt tìm từ khoá, đừng đọc kỹ từng câu' : ''})</span></p>` : ''}${wrong.length ? `<div class="box"><b>Câu sai</b>${wrong.map(r => `<p style="margin:8px 0 0">${r.q.q}<br>Bạn: ${esc(r.ans)} · Đáp án: <b>${esc(r.q.a)}</b>${r.q.why ? `<br><span class="mute">${esc(r.q.why)}</span>` : ''}</p>`).join('')}</div>` : '<p>Đúng hết.</p>'}
-      <p class="mute">Luyện ở đây không tính vào 🎯 Học CEFR.</p><button class="pri" data-a="back">← Học IELTS</button>`; scrollTo(0, 0); $app.onclick = e => { if (e.target.closest('[data-a="back"]')) back(); }; };
+      <p class="mute">Luyện ở đây không tính vào 🎯 Học CEFR.</p><button class="pri" data-a="back">← ${o.home || 'Học IELTS'}</button>`; scrollTo(0, 0); if (o.done) o.done(res); $app.onclick = e => { if (e.target.closest('[data-a="back"]')) back(); }; };
   const tk = min ? setInterval(() => { const el = document.getElementById('irt'); if (el) el.textContent = '⏱ ' + clk(); }, 1000) : 0;
   show(); }
 // ✍️ luyện Viết: một đề, đếm giờ, đếm từ; nộp thì chấm 4 tiêu chí + nút AI chấm + bài mẫu
@@ -307,7 +308,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
     try { await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KIT.doc), kLoad(KIT.np)]); } catch (e) { $app.innerHTML = '<div id="ie"></div><p>Không tải được dữ liệu IELTS. Thử lại sau.</p>'; return; } }
   const o = ieSt(), tg = o.target, base = ieBase(tg), now = ieNow(), cs = ieReady(), nOk = cs.filter(c => c[0]).length, [t1] = ieT1();
   const sk = (k, ic, n) => `<div class="box" style="margin:0;text-align:center"><div class="mute" style="font-size:13px">${ic} ${n}</div><div style="font-size:22px;font-weight:800">${bandTxt(now.b[k])}</div><div class="mute" style="font-size:11px">${now.cal[k] ? `📏 đã chỉnh (${now.cal[k].n})` : 'chưa chỉnh'}</div></div>`;
-  $app.innerHTML = `<div id="ie"></div><h1>🌏 Học IELTS</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
+  $app.innerHTML = `<div id="ie"></div>${typeof exSwitch === 'function' ? exSwitch('ielts') : ''}<h1>🌏 Học IELTS</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
     <div class="chips">${Object.entries(IE_TYPE).map(([k, n]) => `<button class="chip ${o.type === k ? 'on' : ''}" data-iety="${k}">${n}</button>`).join('')}</div>
     <p style="margin:8px 0 2px">Band mục tiêu:</p><div class="chips">${IE_BANDS.map(b => `<button class="chip ${b === tg ? 'on' : ''}" data-ietg="${b}">${bandTxt(b)}</button>`).join('')}</div>
     <div class="box"><div class="row"><b>📊 Band ước hiện tại</b><span class="${now.all != null && now.all >= tg ? 'okc' : 'mute'}">${now.all != null ? 'Overall ≈ ' + bandTxt(now.all) : 'chưa đủ 4 kỹ năng'}</span></div>

@@ -95,6 +95,15 @@ check('IELTS viết máy ước band', /Máy ước: band/.test(await pg.innerTe
 await pg.click('[data-iemk="1"]'); await pg.waitForTimeout(1500);
 for (let n = 0; n < 80; n++) { if (await pg.$('#kt')) { await pg.fill('#kt', 'x'); await pg.click('#kf button[type=submit]'); } else if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('IELTS đề thử Đọc ra band', /Kết quả IELTS/.test(await pg.innerText('#app')));
+// 💼 TOEIC (v72): chuyển từ IELTS sang TOEIC trong 🎓 Luyện thi; luyện Part 5 trọn bài → ra kết quả; đề thử Đọc → ra điểm
+await pg.evaluate(() => ieltsView()); await pg.waitForTimeout(800); await pg.click('[data-exsel="toeic"]'); await pg.waitForTimeout(1200);
+check('TOEIC mở', (await pg.innerText('#app')).includes('Luyện TOEIC') && await pg.isVisible('#tabs [data-tab="ie"].on'));
+await pg.click('[data-top="p5"]'); await pg.waitForTimeout(300);
+for (let n = 0; n < 20; n++) { if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break; await pg.waitForTimeout(40); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(40); }
+check('TOEIC Part 5 ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(600);
+await pg.click('[data-tomk="1"]'); await pg.waitForTimeout(800);
+for (let n = 0; n < 60; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
+check('TOEIC đề thử Đọc ra điểm', /Kết quả TOEIC/.test(await pg.innerText('#app')));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');
