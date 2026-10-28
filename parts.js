@@ -93,7 +93,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
       <p class="mute" style="margin:6px 0 0">Đạt ${LVN[lv]} khi cả ${ids.length} phần dưới đây qua 🚪 Thi chuyển cấp ${LVN[lv]}. Mỗi phần: 📘 Học bài mới của cấp; 🔁 Nhớ và thi tính cả các cấp trước${LEVELS.indexOf(lv) >= LEVELS.indexOf(MEM_FULL_FROM) ? ` (Từ vựng: cấp liền trước đủ, cấp cũ hơn kiểm ${MEM_SAMPLE} từ ngẫu nhiên, đổi mỗi tuần, như đề thật chỉ hỏi một mẫu)` : ''}.${absent.length ? ` Cấp này chưa có: ${absent.join(', ')}.` : ''}</p>
       ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<p class="mute" style="margin:6px 0 0">🔒 Xem trước: nên học khi đã đạt ${LVN[stage]}. Vẫn mở để học trước nếu muốn.</p>` : ''}</div>
     ${typeof MOCK !== 'undefined' && MOCK[lv] ? `<div class="box"><div class="row"><b>🎓 Đề thử kiểu Cambridge</b><span class="mute">${(S.mock && S.mock[lv] || []).length ? `đã làm ${S.mock[lv].length} lần` : 'chưa làm'}</span></div><p class="mute" style="margin:6px 0">${esc(MOCK[lv].name)}: khuôn, thời gian như đề thật; câu bốc ngẫu nhiên mỗi lần.</p><button class="pri" data-mock="${lv}">🎓 Làm đề thử</button></div>` : ''}
-    ${typeof uoeBox === 'function' ? uoeBox(lv) : ''}${typeof ngBox === 'function' ? ngBox(lv) : ''}${typeof capBox === 'function' ? capBox(lv) : ''}
+    ${typeof uoeBox === 'function' ? uoeBox(lv) : ''}${typeof ngBox === 'function' ? ngBox(lv) : ''}${typeof capBox === 'function' ? capBox(lv) : ''}${typeof libBox === 'function' ? libBox(lv) : ''}
     ${realBox(lv)}
     ${typeof readyBox === 'function' ? readyBox(lv) + extBox(lv) : ''}
     ${ids.map(([id, ic, t], i) => { const s = st[i];

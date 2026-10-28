@@ -72,6 +72,11 @@ await pg.evaluate(() => overview('b2')); await pg.waitForTimeout(600); await pg.
 check('nói cặp mở', (await pg.innerText('#app')).includes('Nói theo cặp')); await pg.click('[data-capt]'); 
 for (let n = 0; n < 6; n++) { await pg.waitForSelector('#capt, [data-a="rec"]', { timeout: 30000 }).catch(() => {}); if (!(await pg.$('#capt'))) break; await pg.fill('#capt', 'I agree because it is cheap. What do you think?'); await pg.click('[data-a="typed"]'); }
 await pg.waitForTimeout(800); check('nói cặp ra kết quả', /tương tác|luyện thêm/.test(await pg.innerText('#app')));
+// 📚 thư viện: mở từ Tổng quan B2, mở truyện, chạm một từ → hiện ô tra từ, lật trang
+await pg.evaluate(() => overview('b2')); await pg.waitForTimeout(600); await pg.click('[data-lib="b2"]'); await pg.waitForTimeout(800);
+check('thư viện mở', (await pg.innerText('#app')).includes('Thư viện đọc')); await pg.click('[data-lb]'); await pg.waitForTimeout(800);
+await pg.click('#libp [data-lw]:nth-child(3)'); await pg.waitForTimeout(200); check('thư viện tra từ', await pg.isVisible('#libw'));
+await pg.click('[data-a="next"]'); await pg.waitForTimeout(400); check('thư viện lật trang', /· 2\//.test(await pg.innerText('.uname')));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');
