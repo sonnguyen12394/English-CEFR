@@ -58,6 +58,9 @@ document.addEventListener('click', e => { if (e.target.closest('[data-ov="back"]
 // Màn tổng quan lấy CẤP làm khung: chọn cấp (Pre-A1 · A1 · A2 · A2+), mỗi cấp liệt kê các phần có bài ở cấp đó và số liệu của phần ở đúng cấp đó.
 // Cấp đang học = cấp thấp nhất còn phần chưa qua Thi chuyển cấp. "Nên làm" chỉ gợi ý bài mới trong cấp đang học (ôn thì mọi cấp).
 // Cấp sau xem trước và học trước được (không khoá cứng); luật đo của từng phần giữ nguyên.
+// v74: mục 🧰 thu gọn mặc định, nhớ đóng / mở trên máy này
+const ovToolsOpen = () => { try { return localStorage.getItem('ovTools') === '1'; } catch (e) { return false; } };
+document.addEventListener('toggle', e => { if (e.target && e.target.id === 'ovtools') try { localStorage.setItem('ovTools', e.target.open ? '1' : '0'); } catch (er) {} }, true);
 const OV_LV = ['pre', 'a1', 'a2', 'a2p', 'b1', 'b1p', 'b2', 'b2p', 'c1', 'c2'];
 let OV_SEL = null;
 const ovLvs = id => id === 'tv' ? LEVELS : id === 'pa' ? PA_LV : KIT[id].lvs;
@@ -85,6 +88,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
   $app.innerHTML = `<div id="ov"></div><h1>🎯 Tổng quan học CEFR</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${S.fake ? '<p class="mute" style="margin:4px 0">🧪 Đang dùng dữ liệu thử (💾 Sao lưu để quay lại dữ liệu thật).</p>' : ''}
     <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b></p>
+    ${typeof todayBox === 'function' ? todayBox(stage) : ''}
     ${tip ? `<button class="pri" data-ovp="${tip[0][0]}" data-ovpl="${tip[1]}">▶ Nên làm: ${tip[0][1]} ${tip[0][2]} · ${tip[2]}</button>` : ''}
     <details class="box"><summary><b>🗓 Gợi ý mỗi ngày (~45 phút)</b></summary><p style="margin:6px 0">• 2 bài 📚 Từ vựng mới (~12 phút)<br>• 4 lượt 🏋️ Luyện tập Từ vựng (80 câu, ~16 phút)<br>• 20 câu 🗣 Nói ra từ (~4 phút)<br>• 1 bài của phần khác: ngữ pháp, phát âm, đọc, nghe… (~10–15 phút)</p>
       <p class="mute" style="margin:0">Mô phỏng (chưa người thật): theo nhịp này Pre-A1 khoảng 1,5–2 tháng, A1 khoảng 5 tháng, A2 khoảng 3,5–4 tháng. Học ít hơn thì lâu hơn; bài cần ôn luôn làm trước bài mới.</p></details>
@@ -92,10 +96,11 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
     <div class="box"><div class="row"><b>Cấp ${LVN[lv]}: ${ids.length} phần</b><span class="mute">đã đạt ${done}/${ids.length}</span></div>${bar(Math.round(done / (ids.length || 1) * 100), 100, 'var(--good)')}
       <p class="mute" style="margin:6px 0 0">Đạt ${LVN[lv]} khi cả ${ids.length} phần dưới đây qua 🚪 Thi chuyển cấp ${LVN[lv]}. Mỗi phần: 📘 Học bài mới của cấp; 🔁 Nhớ và thi tính cả các cấp trước${LEVELS.indexOf(lv) >= LEVELS.indexOf(MEM_FULL_FROM) ? ` (Từ vựng: cấp liền trước đủ, cấp cũ hơn kiểm ${MEM_SAMPLE} từ ngẫu nhiên, đổi mỗi tuần, như đề thật chỉ hỏi một mẫu)` : ''}.${absent.length ? ` Cấp này chưa có: ${absent.join(', ')}.` : ''}</p>
       ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<p class="mute" style="margin:6px 0 0">🔒 Xem trước: nên học khi đã đạt ${LVN[stage]}. Vẫn mở để học trước nếu muốn.</p>` : ''}</div>
+    <details class="box" id="ovtools" ${ovToolsOpen() ? 'open' : ''}><summary><b>🧰 Luyện thi và công cụ thêm · ${LVN[lv]}</b></summary><p class="mute" style="margin:6px 0">Đề thử, dạng đề thật, nghe điền, nói cặp, thư viện, sẵn sàng thi, sổ lỗi. Học 7 phần bên dưới là chính; mục này để luyện thêm.</p>
     ${typeof MOCK !== 'undefined' && MOCK[lv] ? `<div class="box"><div class="row"><b>🎓 Đề thử kiểu Cambridge</b><span class="mute">${(S.mock && S.mock[lv] || []).length ? `đã làm ${S.mock[lv].length} lần` : 'chưa làm'}</span></div><p class="mute" style="margin:6px 0">${esc(MOCK[lv].name)}: khuôn, thời gian như đề thật; câu bốc ngẫu nhiên mỗi lần.</p><button class="pri" data-mock="${lv}">🎓 Làm đề thử</button></div>` : ''}
     ${typeof uoeBox === 'function' ? uoeBox(lv) : ''}${typeof ngBox === 'function' ? ngBox(lv) : ''}${typeof capBox === 'function' ? capBox(lv) : ''}${typeof libBox === 'function' ? libBox(lv) : ''}
     ${realBox(lv)}
-    ${typeof readyBox === 'function' ? readyBox(lv) + extBox(lv) : ''}${typeof errBox === 'function' ? errBox('ov') : ''}
+    ${typeof readyBox === 'function' ? readyBox(lv) + extBox(lv) : ''}${typeof errBox === 'function' ? errBox('ov') : ''}</details>
     ${ids.map(([id, ic, t], i) => { const s = st[i];
       return `<button class="box ovc" data-ovp="${id}" data-ovpl="${lv}" style="width:100%;text-align:left;display:block">
         <div class="row"><b style="font-size:18px">${ic} ${t}</b><span class="mute">${s ? (s.gate === 'pass' ? '✅ đã đạt' : s.gate === 'open' ? '🚪 thi được' : '') : '…'} ›</span></div>

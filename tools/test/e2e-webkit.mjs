@@ -27,6 +27,7 @@ async function answerAll(max = 200) { let n = 0;
     await pg.waitForTimeout(30); const go = await pg.$('[data-a="go"]'); if (go) await go.click(); await pg.waitForTimeout(30); }
   return n; }
 await pg.goto(`http://localhost:${port}/index.html`); await pg.waitForTimeout(2500);
+await pg.evaluate(() => { try { localStorage.setItem('ovTools', '1'); } catch (e) {} });   // mở sẵn mục 🧰 (v74) để bấm các nút bên trong
 check('mở trang', await pg.$('#ov'));
 const PREV = { pre: null, a1: 'pre', a2: 'a1', b1: 'a2p', b2: 'b1p', c1: 'b2p', c2: 'c1' };
 for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'])) {
@@ -108,6 +109,10 @@ check('TOEIC phân tích điểm yếu', /Phân tích điểm yếu/.test(await 
 await pg.click('[data-tomk="1"]'); await pg.waitForTimeout(800);
 for (let n = 0; n < 60; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('TOEIC đề thử Đọc ra điểm', /Kết quả TOEIC/.test(await pg.innerText('#app')));
+// 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả
+await pg.evaluate(() => { S = blank(); overview(); }); await pg.waitForTimeout(600); check('ô Hôm nay', (await pg.innerText('#app')).includes('3 việc hôm nay'));
+await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }
+check('xếp cấp ra kết quả', /Kết quả xếp cấp/.test(await pg.innerText('#app')));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');
