@@ -1,5 +1,5 @@
 {
-"_note": "Từ Oxford B1 app còn thiếu (28/10/2026, Claude soạn, chưa người thật kiểm; người sáng lập: \"làm tiếp\"). tools/build-b.mjs thêm thành chặng ⭐ Bổ sung Oxford cuối B1 / B1+. Câu thi + cụm ở content/bx/add-b1.txt.",
+"_note": "Từ Oxford B1, B2 app còn thiếu (28/10/2026, Claude soạn, chưa người thật kiểm; người sáng lập: \"làm tiếp\"). tools/build-b.mjs thêm thành chặng ⭐ Bổ sung Oxford cuối B1 / B1+. Câu thi + cụm ở content/bx/add-b1.txt.",
 "words": [
 {
 "id": "advise",
@@ -1000,6 +1000,3056 @@
 "ex": "In his youth, he played football every day.",
 "exVi": "Hồi trẻ, ông ấy chơi bóng mỗi ngày.",
 "lv": "b1p"
+},
+{
+"id": "absolute",
+"w": "absolute",
+"pos": "adjective",
+"ipa": "/ˈæbsəluːt/",
+"vi": "hoàn toàn, tuyệt đối",
+"ex": "The party was an absolute disaster.",
+"exVi": "Bữa tiệc là một thảm hoạ hoàn toàn.",
+"lv": "b2"
+},
+{
+"id": "acceptable",
+"w": "acceptable",
+"pos": "adjective",
+"ipa": "/əkˈseptəbl/",
+"vi": "chấp nhận được",
+"ex": "Is it acceptable to wear jeans to work?",
+"exVi": "Mặc quần bò đi làm có được không?",
+"lv": "b2"
+},
+{
+"id": "actual",
+"w": "actual",
+"pos": "adjective",
+"ipa": "/ˈæktʃuəl/",
+"vi": "thực tế, thật sự",
+"ex": "The actual cost was much higher than we expected.",
+"exVi": "Chi phí thực tế cao hơn nhiều so với dự tính.",
+"lv": "b2"
+},
+{
+"id": "agency",
+"w": "agency",
+"pos": "noun",
+"ipa": "/ˈeɪdʒənsi/",
+"vi": "đại lý, cơ quan",
+"ex": "We booked our trip through a travel agency.",
+"exVi": "Chúng tôi đặt chuyến đi qua một đại lý du lịch.",
+"lv": "b2"
+},
+{
+"id": "anger",
+"w": "anger",
+"pos": "noun",
+"ipa": "/ˈæŋɡə/",
+"vi": "sự tức giận",
+"ex": "He couldn't hide his anger at the decision.",
+"exVi": "Anh ấy không giấu được cơn giận trước quyết định đó.",
+"lv": "b2"
+},
+{
+"id": "anxious",
+"w": "anxious",
+"pos": "adjective",
+"ipa": "/ˈæŋkʃəs/",
+"vi": "lo âu, bồn chồn",
+"ex": "She was anxious about her exam results.",
+"exVi": "Cô ấy lo lắng về kết quả thi.",
+"lv": "b2"
+},
+{
+"id": "apparent",
+"w": "apparent",
+"pos": "adjective",
+"ipa": "/əˈpærənt/",
+"vi": "rõ ràng; có vẻ",
+"ex": "It soon became apparent that he was lying.",
+"exVi": "Chẳng mấy chốc đã rõ là anh ta nói dối.",
+"lv": "b2"
+},
+{
+"id": "approval",
+"w": "approval",
+"pos": "noun",
+"ipa": "/əˈpruːvl/",
+"vi": "sự chấp thuận",
+"ex": "The plan needs the approval of the manager.",
+"exVi": "Kế hoạch cần quản lý chấp thuận.",
+"lv": "b2"
+},
+{
+"id": "arms",
+"w": "arms",
+"pos": "noun",
+"ipa": "/ɑːmz/",
+"vi": "vũ khí",
+"ex": "The country spends a lot on arms.",
+"exVi": "Nước đó chi nhiều tiền cho vũ khí.",
+"lv": "b2"
+},
+{
+"id": "artistic",
+"w": "artistic",
+"pos": "adjective",
+"ipa": "/ɑːˈtɪstɪk/",
+"vi": "có khiếu nghệ thuật",
+"ex": "My daughter is very artistic and loves painting.",
+"exVi": "Con gái tôi rất có khiếu nghệ thuật, thích vẽ.",
+"lv": "b2"
+},
+{
+"id": "assessment",
+"w": "assessment",
+"pos": "noun",
+"ipa": "/əˈsesmənt/",
+"vi": "sự đánh giá",
+"ex": "Teachers use tests for the assessment of students.",
+"exVi": "Giáo viên dùng bài kiểm tra để đánh giá học sinh.",
+"lv": "b2"
+},
+{
+"id": "associated",
+"w": "associated",
+"pos": "adjective",
+"ipa": "/əˈsəʊsieɪtɪd/",
+"vi": "có liên quan",
+"ex": "There are health risks associated with smoking.",
+"exVi": "Hút thuốc có các nguy cơ sức khoẻ đi kèm.",
+"lv": "b2"
+},
+{
+"id": "association",
+"w": "association",
+"pos": "noun",
+"ipa": "/əˌsəʊsiˈeɪʃn/",
+"vi": "hiệp hội; sự liên tưởng",
+"ex": "She is a member of the national football association.",
+"exVi": "Cô ấy là thành viên hiệp hội bóng đá quốc gia.",
+"lv": "b2"
+},
+{
+"id": "capacity",
+"w": "capacity",
+"pos": "noun",
+"ipa": "/kəˈpæsəti/",
+"vi": "sức chứa; khả năng",
+"ex": "The stadium has a capacity of 40,000.",
+"exVi": "Sân vận động có sức chứa 40.000 người.",
+"lv": "b2"
+},
+{
+"id": "civil",
+"w": "civil",
+"pos": "adjective",
+"ipa": "/ˈsɪvl/",
+"vi": "(thuộc) dân sự",
+"ex": "She works as a civil engineer.",
+"exVi": "Cô ấy là kỹ sư xây dựng dân dụng.",
+"lv": "b2"
+},
+{
+"id": "combination",
+"w": "combination",
+"pos": "noun",
+"ipa": "/ˌkɒmbɪˈneɪʃn/",
+"vi": "sự kết hợp",
+"ex": "The dish is a combination of rice and fish.",
+"exVi": "Món ăn là sự kết hợp giữa cơm và cá.",
+"lv": "b2"
+},
+{
+"id": "comfort",
+"w": "comfort",
+"pos": "noun",
+"ipa": "/ˈkʌmfət/",
+"vi": "sự thoải mái; an ủi",
+"ex": "The hotel offers comfort and good service.",
+"exVi": "Khách sạn mang lại sự thoải mái và phục vụ tốt.",
+"lv": "b2"
+},
+{
+"id": "commitment",
+"w": "commitment",
+"pos": "noun",
+"ipa": "/kəˈmɪtmənt/",
+"vi": "sự cam kết, tận tâm",
+"ex": "Learning a language takes time and commitment.",
+"exVi": "Học ngoại ngữ cần thời gian và sự kiên trì.",
+"lv": "b2"
+},
+{
+"id": "concentration",
+"w": "concentration",
+"pos": "noun",
+"ipa": "/ˌkɒnsnˈtreɪʃn/",
+"vi": "sự tập trung",
+"ex": "Noise affects my concentration.",
+"exVi": "Tiếng ồn ảnh hưởng đến sự tập trung của tôi.",
+"lv": "b2"
+},
+{
+"id": "concerned",
+"w": "concerned",
+"pos": "adjective",
+"ipa": "/kənˈsɜːnd/",
+"vi": "lo ngại",
+"ex": "Doctors are concerned about the number of cases.",
+"exVi": "Các bác sĩ lo ngại về số ca bệnh.",
+"lv": "b2"
+},
+{
+"id": "confidence",
+"w": "confidence",
+"pos": "noun",
+"ipa": "/ˈkɒnfɪdəns/",
+"vi": "sự tự tin; lòng tin",
+"ex": "She speaks English with great confidence.",
+"exVi": "Cô ấy nói tiếng Anh rất tự tin.",
+"lv": "b2"
+},
+{
+"id": "confusing",
+"w": "confusing",
+"pos": "adjective",
+"ipa": "/kənˈfjuːzɪŋ/",
+"vi": "gây bối rối, khó hiểu",
+"ex": "The instructions were very confusing.",
+"exVi": "Hướng dẫn rất khó hiểu.",
+"lv": "b2"
+},
+{
+"id": "consideration",
+"w": "consideration",
+"pos": "noun",
+"ipa": "/kənˌsɪdəˈreɪʃn/",
+"vi": "sự cân nhắc",
+"ex": "After careful consideration, we chose the cheaper flat.",
+"exVi": "Sau khi cân nhắc kỹ, chúng tôi chọn căn hộ rẻ hơn.",
+"lv": "b2"
+},
+{
+"id": "construction",
+"w": "construction",
+"pos": "noun",
+"ipa": "/kənˈstrʌkʃn/",
+"vi": "sự xây dựng",
+"ex": "The new bridge is still under construction.",
+"exVi": "Cây cầu mới vẫn đang được xây.",
+"lv": "b2"
+},
+{
+"id": "contribution",
+"w": "contribution",
+"pos": "noun",
+"ipa": "/ˌkɒntrɪˈbjuːʃn/",
+"vi": "sự đóng góp",
+"ex": "Thank you for your contribution to the project.",
+"exVi": "Cảm ơn bạn đã đóng góp cho dự án.",
+"lv": "b2"
+},
+{
+"id": "convinced",
+"w": "convinced",
+"pos": "adjective",
+"ipa": "/kənˈvɪnst/",
+"vi": "tin chắc",
+"ex": "I'm convinced that he is telling the truth.",
+"exVi": "Tôi tin chắc anh ấy nói thật.",
+"lv": "b2"
+},
+{
+"id": "corporate",
+"w": "corporate",
+"pos": "adjective",
+"ipa": "/ˈkɔːpərət/",
+"vi": "(thuộc) công ty, doanh nghiệp",
+"ex": "He works in corporate law.",
+"exVi": "Anh ấy làm về luật doanh nghiệp.",
+"lv": "b2"
+},
+{
+"id": "creation",
+"w": "creation",
+"pos": "noun",
+"ipa": "/kriˈeɪʃn/",
+"vi": "sự tạo ra",
+"ex": "The plan will lead to the creation of new jobs.",
+"exVi": "Kế hoạch sẽ tạo ra việc làm mới.",
+"lv": "b2"
+},
+{
+"id": "critical",
+"w": "critical",
+"pos": "adjective",
+"ipa": "/ˈkrɪtɪkl/",
+"vi": "phê phán; then chốt",
+"ex": "The report was critical of the government.",
+"exVi": "Bản báo cáo chỉ trích chính phủ.",
+"lv": "b2"
+},
+{
+"id": "criticism",
+"w": "criticism",
+"pos": "noun",
+"ipa": "/ˈkrɪtɪsɪzəm/",
+"vi": "lời chỉ trích",
+"ex": "The new law has received a lot of criticism.",
+"exVi": "Luật mới bị chỉ trích nhiều.",
+"lv": "b2"
+},
+{
+"id": "criticize",
+"w": "criticize",
+"pos": "verb",
+"ipa": "/ˈkrɪtɪsaɪz/",
+"vi": "chỉ trích",
+"ex": "The film was criticized for being too violent.",
+"exVi": "Bộ phim bị chỉ trích vì quá bạo lực.",
+"lv": "b2"
+},
+{
+"id": "curved",
+"w": "curved",
+"pos": "adjective",
+"ipa": "/kɜːvd/",
+"vi": "cong",
+"ex": "The road is curved around the lake.",
+"exVi": "Con đường uốn cong quanh hồ.",
+"lv": "b2"
+},
+{
+"id": "decoration",
+"w": "decoration",
+"pos": "noun",
+"ipa": "/ˌdekəˈreɪʃn/",
+"vi": "đồ trang trí",
+"ex": "We put up decorations for the New Year.",
+"exVi": "Chúng tôi treo đồ trang trí đón năm mới.",
+"lv": "b2"
+},
+{
+"id": "defence",
+"w": "defence",
+"pos": "noun",
+"ipa": "/dɪˈfens/",
+"vi": "sự phòng thủ, bảo vệ",
+"ex": "The team's defence was very strong.",
+"exVi": "Hàng phòng ngự của đội rất mạnh.",
+"lv": "b2"
+},
+{
+"id": "delight",
+"w": "delight",
+"pos": "noun",
+"ipa": "/dɪˈlaɪt/",
+"vi": "niềm vui sướng",
+"ex": "To my delight, I passed the exam.",
+"exVi": "Tôi vui sướng vì đã thi đỗ.",
+"lv": "b2"
+},
+{
+"id": "delivery",
+"w": "delivery",
+"pos": "noun",
+"ipa": "/dɪˈlɪvəri/",
+"vi": "sự giao hàng",
+"ex": "Delivery is free for orders over 200,000 dong.",
+"exVi": "Miễn phí giao hàng cho đơn trên 200.000 đồng.",
+"lv": "b2"
+},
+{
+"id": "depressing",
+"w": "depressing",
+"pos": "adjective",
+"ipa": "/dɪˈpresɪŋ/",
+"vi": "gây buồn chán",
+"ex": "The news is really depressing today.",
+"exVi": "Tin tức hôm nay thật buồn.",
+"lv": "b2"
+},
+{
+"id": "depth",
+"w": "depth",
+"pos": "noun",
+"ipa": "/depθ/",
+"vi": "độ sâu",
+"ex": "The lake has a depth of ten metres.",
+"exVi": "Hồ sâu mười mét.",
+"lv": "b2"
+},
+{
+"id": "detailed",
+"w": "detailed",
+"pos": "adjective",
+"ipa": "/ˈdiːteɪld/",
+"vi": "chi tiết",
+"ex": "She gave a detailed description of the man.",
+"exVi": "Cô ấy mô tả người đàn ông rất chi tiết.",
+"lv": "b2"
+},
+{
+"id": "distribution",
+"w": "distribution",
+"pos": "noun",
+"ipa": "/ˌdɪstrɪˈbjuːʃn/",
+"vi": "sự phân phát, phân bố",
+"ex": "The distribution of food took three days.",
+"exVi": "Việc phát lương thực mất ba ngày.",
+"lv": "b2"
+},
+{
+"id": "division",
+"w": "division",
+"pos": "noun",
+"ipa": "/dɪˈvɪʒn/",
+"vi": "sự phân chia; bộ phận",
+"ex": "There is a clear division of work in the team.",
+"exVi": "Trong nhóm có phân công công việc rõ ràng.",
+"lv": "b2"
+},
+{
+"id": "dominate",
+"w": "dominate",
+"pos": "verb",
+"ipa": "/ˈdɒmɪneɪt/",
+"vi": "thống trị, chiếm ưu thế",
+"ex": "Two big companies dominate the market.",
+"exVi": "Hai công ty lớn thống trị thị trường.",
+"lv": "b2"
+},
+{
+"id": "dramatic",
+"w": "dramatic",
+"pos": "adjective",
+"ipa": "/drəˈmætɪk/",
+"vi": "đột ngột, mạnh mẽ",
+"ex": "There has been a dramatic increase in prices.",
+"exVi": "Giá cả đã tăng mạnh.",
+"lv": "b2"
+},
+{
+"id": "edit",
+"w": "edit",
+"pos": "verb",
+"ipa": "/ˈedɪt/",
+"vi": "biên tập, chỉnh sửa",
+"ex": "She edits a fashion magazine.",
+"exVi": "Cô ấy biên tập một tạp chí thời trang.",
+"lv": "b2"
+},
+{
+"id": "elect",
+"w": "elect",
+"pos": "verb",
+"ipa": "/ɪˈlekt/",
+"vi": "bầu (bằng bỏ phiếu)",
+"ex": "The people will elect a new president next year.",
+"exVi": "Người dân sẽ bầu tổng thống mới vào năm sau.",
+"lv": "b2"
+},
+{
+"id": "emotional",
+"w": "emotional",
+"pos": "adjective",
+"ipa": "/ɪˈməʊʃənl/",
+"vi": "(thuộc) cảm xúc; dễ xúc động",
+"ex": "It was a very emotional moment for the family.",
+"exVi": "Đó là khoảnh khắc rất xúc động với gia đình.",
+"lv": "b2"
+},
+{
+"id": "emphasis",
+"w": "emphasis",
+"pos": "noun",
+"ipa": "/ˈemfəsɪs/",
+"vi": "sự nhấn mạnh",
+"ex": "The school puts a lot of emphasis on sport.",
+"exVi": "Trường rất chú trọng thể thao.",
+"lv": "b2"
+},
+{
+"id": "enthusiastic",
+"w": "enthusiastic",
+"pos": "adjective",
+"ipa": "/ɪnˌθjuːziˈæstɪk/",
+"vi": "hăng hái, nhiệt tình",
+"ex": "The students were very enthusiastic about the trip.",
+"exVi": "Học sinh rất hào hứng với chuyến đi.",
+"lv": "b2"
+},
+{
+"id": "existence",
+"w": "existence",
+"pos": "noun",
+"ipa": "/ɪɡˈzɪstəns/",
+"vi": "sự tồn tại",
+"ex": "Do you believe in the existence of ghosts?",
+"exVi": "Bạn có tin có ma không?",
+"lv": "b2"
+},
+{
+"id": "expectation",
+"w": "expectation",
+"pos": "noun",
+"ipa": "/ˌekspekˈteɪʃn/",
+"vi": "sự kỳ vọng",
+"ex": "The hotel was better than our expectations.",
+"exVi": "Khách sạn tốt hơn chúng tôi mong đợi.",
+"lv": "b2"
+},
+{
+"id": "expense",
+"w": "expense",
+"pos": "noun",
+"ipa": "/ɪkˈspens/",
+"vi": "chi phí",
+"ex": "The company will pay your travel expenses.",
+"exVi": "Công ty sẽ trả chi phí đi lại cho bạn.",
+"lv": "b2"
+},
+{
+"id": "extent",
+"w": "extent",
+"pos": "noun",
+"ipa": "/ɪkˈstent/",
+"vi": "mức độ, phạm vi",
+"ex": "To some extent, I agree with you.",
+"exVi": "Ở mức độ nào đó, tôi đồng ý với bạn.",
+"lv": "b2"
+},
+{
+"id": "failure",
+"w": "failure",
+"pos": "noun",
+"ipa": "/ˈfeɪljə/",
+"vi": "sự thất bại",
+"ex": "The project was a complete failure.",
+"exVi": "Dự án thất bại hoàn toàn.",
+"lv": "b2"
+},
+{
+"id": "finance",
+"w": "finance",
+"pos": "noun",
+"ipa": "/ˈfaɪnæns/",
+"vi": "tài chính",
+"ex": "She is the director of finance.",
+"exVi": "Cô ấy là giám đốc tài chính.",
+"lv": "b2"
+},
+{
+"id": "firm",
+"w": "firm",
+"pos": "noun",
+"ipa": "/fɜːm/",
+"vi": "công ty",
+"ex": "He works for a law firm.",
+"exVi": "Anh ấy làm cho một công ty luật.",
+"lv": "b2"
+},
+{
+"id": "fortune",
+"w": "fortune",
+"pos": "noun",
+"ipa": "/ˈfɔːtʃuːn/",
+"vi": "tài sản lớn; vận may",
+"ex": "He made a fortune selling software.",
+"exVi": "Anh ấy kiếm được cả gia tài nhờ bán phần mềm.",
+"lv": "b2"
+},
+{
+"id": "freedom",
+"w": "freedom",
+"pos": "noun",
+"ipa": "/ˈfriːdəm/",
+"vi": "sự tự do",
+"ex": "Students have the freedom to choose their own topics.",
+"exVi": "Sinh viên được tự do chọn đề tài.",
+"lv": "b2"
+},
+{
+"id": "frequency",
+"w": "frequency",
+"pos": "noun",
+"ipa": "/ˈfriːkwənsi/",
+"vi": "tần suất",
+"ex": "The frequency of buses increases at rush hour.",
+"exVi": "Xe buýt chạy dày hơn vào giờ cao điểm.",
+"lv": "b2"
+},
+{
+"id": "funding",
+"w": "funding",
+"pos": "noun",
+"ipa": "/ˈfʌndɪŋ/",
+"vi": "kinh phí, nguồn vốn",
+"ex": "The school needs more funding for new computers.",
+"exVi": "Trường cần thêm kinh phí mua máy tính mới.",
+"lv": "b2"
+},
+{
+"id": "govern",
+"w": "govern",
+"pos": "verb",
+"ipa": "/ˈɡʌvn/",
+"vi": "cai trị, điều hành",
+"ex": "The country is governed by an elected parliament.",
+"exVi": "Đất nước được điều hành bởi quốc hội được bầu.",
+"lv": "b2"
+},
+{
+"id": "harmful",
+"w": "harmful",
+"pos": "adjective",
+"ipa": "/ˈhɑːmfl/",
+"vi": "có hại",
+"ex": "Too much sun can be harmful to your skin.",
+"exVi": "Nắng quá nhiều có thể hại da.",
+"lv": "b2"
+},
+{
+"id": "hearing",
+"w": "hearing",
+"pos": "noun",
+"ipa": "/ˈhɪərɪŋ/",
+"vi": "thính giác",
+"ex": "My grandfather's hearing is getting worse.",
+"exVi": "Thính lực của ông tôi ngày càng kém.",
+"lv": "b2"
+},
+{
+"id": "housing",
+"w": "housing",
+"pos": "noun",
+"ipa": "/ˈhaʊzɪŋ/",
+"vi": "nhà ở",
+"ex": "The city needs more cheap housing.",
+"exVi": "Thành phố cần thêm nhà ở giá rẻ.",
+"lv": "b2"
+},
+{
+"id": "illustration",
+"w": "illustration",
+"pos": "noun",
+"ipa": "/ˌɪləˈstreɪʃn/",
+"vi": "tranh minh hoạ; ví dụ",
+"ex": "The book has lovely colour illustrations.",
+"exVi": "Cuốn sách có tranh minh hoạ màu rất đẹp.",
+"lv": "b2"
+},
+{
+"id": "imagination",
+"w": "imagination",
+"pos": "noun",
+"ipa": "/ɪˌmædʒɪˈneɪʃn/",
+"vi": "trí tưởng tượng",
+"ex": "Children have a wonderful imagination.",
+"exVi": "Trẻ em có trí tưởng tượng tuyệt vời.",
+"lv": "b2"
+},
+{
+"id": "impress",
+"w": "impress",
+"pos": "verb",
+"ipa": "/ɪmˈpres/",
+"vi": "gây ấn tượng",
+"ex": "She impressed everyone with her speech.",
+"exVi": "Cô ấy gây ấn tượng với mọi người bằng bài phát biểu.",
+"lv": "b2"
+},
+{
+"id": "impressed",
+"w": "impressed",
+"pos": "adjective",
+"ipa": "/ɪmˈprest/",
+"vi": "thấy ấn tượng",
+"ex": "I was very impressed by the hotel's service.",
+"exVi": "Tôi rất ấn tượng với dịch vụ của khách sạn.",
+"lv": "b2"
+},
+{
+"id": "industrial",
+"w": "industrial",
+"pos": "adjective",
+"ipa": "/ɪnˈdʌstriəl/",
+"vi": "(thuộc) công nghiệp",
+"ex": "The factory is in an industrial area outside the city.",
+"exVi": "Nhà máy nằm ở khu công nghiệp ngoài thành phố.",
+"lv": "b2"
+},
+{
+"id": "inform",
+"w": "inform",
+"pos": "verb",
+"ipa": "/ɪnˈfɔːm/",
+"vi": "thông báo",
+"ex": "Please inform us if you change your address.",
+"exVi": "Vui lòng báo chúng tôi nếu bạn đổi địa chỉ.",
+"lv": "b2"
+},
+{
+"id": "institute",
+"w": "institute",
+"pos": "noun",
+"ipa": "/ˈɪnstɪtjuːt/",
+"vi": "viện, học viện",
+"ex": "She works at a research institute.",
+"exVi": "Cô ấy làm ở một viện nghiên cứu.",
+"lv": "b2"
+},
+{
+"id": "intended",
+"w": "intended",
+"pos": "adjective",
+"ipa": "/ɪnˈtendɪd/",
+"vi": "dành cho; dự định",
+"ex": "The book is intended for beginners.",
+"exVi": "Cuốn sách dành cho người mới bắt đầu.",
+"lv": "b2"
+},
+{
+"id": "investigation",
+"w": "investigation",
+"pos": "noun",
+"ipa": "/ɪnˌvestɪˈɡeɪʃn/",
+"vi": "cuộc điều tra",
+"ex": "The police have started an investigation.",
+"exVi": "Cảnh sát đã bắt đầu điều tra.",
+"lv": "b2"
+},
+{
+"id": "investment",
+"w": "investment",
+"pos": "noun",
+"ipa": "/ɪnˈvestmənt/",
+"vi": "sự đầu tư",
+"ex": "Buying a house is a good investment.",
+"exVi": "Mua nhà là một khoản đầu tư tốt.",
+"lv": "b2"
+},
+{
+"id": "judgement",
+"w": "judgement",
+"pos": "noun",
+"ipa": "/ˈdʒʌdʒmənt/",
+"vi": "sự phán đoán, đánh giá",
+"ex": "I trust your judgement.",
+"exVi": "Tôi tin vào phán đoán của bạn.",
+"lv": "b2"
+},
+{
+"id": "justify",
+"w": "justify",
+"pos": "verb",
+"ipa": "/ˈdʒʌstɪfaɪ/",
+"vi": "biện minh",
+"ex": "How can you justify spending so much money?",
+"exVi": "Làm sao bạn biện minh cho việc tiêu nhiều tiền thế?",
+"lv": "b2"
+},
+{
+"id": "leadership",
+"w": "leadership",
+"pos": "noun",
+"ipa": "/ˈliːdəʃɪp/",
+"vi": "sự lãnh đạo",
+"ex": "The team did well under her leadership.",
+"exVi": "Đội làm tốt dưới sự lãnh đạo của cô ấy.",
+"lv": "b2"
+},
+{
+"id": "majority",
+"w": "majority",
+"pos": "noun",
+"ipa": "/məˈdʒɒrəti/",
+"vi": "đa số",
+"ex": "The majority of students passed the test.",
+"exVi": "Đa số học sinh qua bài kiểm tra.",
+"lv": "b2"
+},
+{
+"id": "mass",
+"w": "mass",
+"pos": "adjective",
+"ipa": "/mæs/",
+"vi": "hàng loạt, đại chúng",
+"ex": "Mass tourism has changed the island.",
+"exVi": "Du lịch đại trà đã thay đổi hòn đảo.",
+"lv": "b2"
+},
+{
+"id": "means",
+"w": "means",
+"pos": "noun",
+"ipa": "/miːnz/",
+"vi": "phương tiện, cách thức",
+"ex": "The bicycle is a cheap means of transport.",
+"exVi": "Xe đạp là phương tiện đi lại rẻ.",
+"lv": "b2"
+},
+{
+"id": "measurement",
+"w": "measurement",
+"pos": "noun",
+"ipa": "/ˈmeʒəmənt/",
+"vi": "số đo; sự đo",
+"ex": "The tailor took my measurements for the suit.",
+"exVi": "Thợ may đo người tôi để may bộ com-lê.",
+"lv": "b2"
+},
+{
+"id": "mysterious",
+"w": "mysterious",
+"pos": "adjective",
+"ipa": "/mɪˈstɪəriəs/",
+"vi": "bí ẩn",
+"ex": "A mysterious man was standing outside the house.",
+"exVi": "Một người đàn ông bí ẩn đứng bên ngoài ngôi nhà.",
+"lv": "b2"
+},
+{
+"id": "observation",
+"w": "observation",
+"pos": "noun",
+"ipa": "/ˌɒbzəˈveɪʃn/",
+"vi": "sự quan sát; nhận xét",
+"ex": "The patient is under observation in hospital.",
+"exVi": "Bệnh nhân đang được theo dõi ở bệnh viện.",
+"lv": "b2"
+},
+{
+"id": "offend",
+"w": "offend",
+"pos": "verb",
+"ipa": "/əˈfend/",
+"vi": "xúc phạm, làm phật lòng",
+"ex": "I'm sorry if I offended you.",
+"exVi": "Xin lỗi nếu tôi đã làm bạn phật lòng.",
+"lv": "b2"
+},
+{
+"id": "offensive",
+"w": "offensive",
+"pos": "adjective",
+"ipa": "/əˈfensɪv/",
+"vi": "xúc phạm",
+"ex": "Some of the comments were very offensive.",
+"exVi": "Một số bình luận rất xúc phạm.",
+"lv": "b2"
+},
+{
+"id": "opening",
+"w": "opening",
+"pos": "noun",
+"ipa": "/ˈəʊpnɪŋ/",
+"vi": "lễ khai trương; chỗ hở",
+"ex": "The opening of the new museum is next week.",
+"exVi": "Lễ khai trương bảo tàng mới vào tuần sau.",
+"lv": "b2"
+},
+{
+"id": "operate",
+"w": "operate",
+"pos": "verb",
+"ipa": "/ˈɒpəreɪt/",
+"vi": "vận hành; phẫu thuật",
+"ex": "Can you operate this machine?",
+"exVi": "Bạn biết vận hành máy này không?",
+"lv": "b2"
+},
+{
+"id": "opposed",
+"w": "opposed",
+"pos": "adjective",
+"ipa": "/əˈpəʊzd/",
+"vi": "phản đối",
+"ex": "Many people are opposed to the new road.",
+"exVi": "Nhiều người phản đối con đường mới.",
+"lv": "b2"
+},
+{
+"id": "opposition",
+"w": "opposition",
+"pos": "noun",
+"ipa": "/ˌɒpəˈzɪʃn/",
+"vi": "sự phản đối; phe đối lập",
+"ex": "There is strong opposition to the plan.",
+"exVi": "Kế hoạch bị phản đối mạnh mẽ.",
+"lv": "b2"
+},
+{
+"id": "origin",
+"w": "origin",
+"pos": "noun",
+"ipa": "/ˈɒrɪdʒɪn/",
+"vi": "nguồn gốc",
+"ex": "What is the origin of this word?",
+"exVi": "Từ này có nguồn gốc từ đâu?",
+"lv": "b2"
+},
+{
+"id": "participant",
+"w": "participant",
+"pos": "noun",
+"ipa": "/pɑːˈtɪsɪpənt/",
+"vi": "người tham gia",
+"ex": "All participants will receive a certificate.",
+"exVi": "Mọi người tham gia sẽ nhận giấy chứng nhận.",
+"lv": "b2"
+},
+{
+"id": "permit",
+"w": "permit",
+"pos": "verb",
+"ipa": "/pəˈmɪt/",
+"vi": "cho phép",
+"ex": "Smoking is not permitted in the building.",
+"exVi": "Không được hút thuốc trong toà nhà.",
+"lv": "b2"
+},
+{
+"id": "popularity",
+"w": "popularity",
+"pos": "noun",
+"ipa": "/ˌpɒpjuˈlærəti/",
+"vi": "sự phổ biến, được yêu thích",
+"ex": "The game grew in popularity very quickly.",
+"exVi": "Trò chơi nhanh chóng được ưa chuộng.",
+"lv": "b2"
+},
+{
+"id": "possess",
+"w": "possess",
+"pos": "verb",
+"ipa": "/pəˈzes/",
+"vi": "sở hữu",
+"ex": "He doesn't possess a car.",
+"exVi": "Anh ấy không sở hữu ô tô.",
+"lv": "b2"
+},
+{
+"id": "preparation",
+"w": "preparation",
+"pos": "noun",
+"ipa": "/ˌprepəˈreɪʃn/",
+"vi": "sự chuẩn bị",
+"ex": "We spent weeks in preparation for the wedding.",
+"exVi": "Chúng tôi chuẩn bị đám cưới nhiều tuần.",
+"lv": "b2"
+},
+{
+"id": "privacy",
+"w": "privacy",
+"pos": "noun",
+"ipa": "/ˈprɪvəsi/",
+"vi": "sự riêng tư",
+"ex": "Everyone has a right to privacy.",
+"exVi": "Ai cũng có quyền riêng tư.",
+"lv": "b2"
+},
+{
+"id": "proof",
+"w": "proof",
+"pos": "noun",
+"ipa": "/pruːf/",
+"vi": "bằng chứng",
+"ex": "Do you have proof of your address?",
+"exVi": "Bạn có giấy tờ chứng minh địa chỉ không?",
+"lv": "b2"
+},
+{
+"id": "propose",
+"w": "propose",
+"pos": "verb",
+"ipa": "/prəˈpəʊz/",
+"vi": "đề xuất; cầu hôn",
+"ex": "The manager proposed a new plan.",
+"exVi": "Quản lý đề xuất một kế hoạch mới.",
+"lv": "b2"
+},
+{
+"id": "protection",
+"w": "protection",
+"pos": "noun",
+"ipa": "/prəˈtekʃn/",
+"vi": "sự bảo vệ",
+"ex": "Wear sunglasses for protection from the sun.",
+"exVi": "Hãy đeo kính râm để chống nắng.",
+"lv": "b2"
+},
+{
+"id": "psychologist",
+"w": "psychologist",
+"pos": "noun",
+"ipa": "/saɪˈkɒlədʒɪst/",
+"vi": "nhà tâm lý học",
+"ex": "She went to see a psychologist about her stress.",
+"exVi": "Cô ấy đi gặp nhà tâm lý vì căng thẳng.",
+"lv": "b2"
+},
+{
+"id": "publication",
+"w": "publication",
+"pos": "noun",
+"ipa": "/ˌpʌblɪˈkeɪʃn/",
+"vi": "sự xuất bản; ấn phẩm",
+"ex": "The book is ready for publication.",
+"exVi": "Cuốn sách đã sẵn sàng xuất bản.",
+"lv": "b2"
+},
+{
+"id": "reduction",
+"w": "reduction",
+"pos": "noun",
+"ipa": "/rɪˈdʌkʃn/",
+"vi": "sự giảm",
+"ex": "There has been a reduction in crime.",
+"exVi": "Tội phạm đã giảm.",
+"lv": "b2"
+},
+{
+"id": "regional",
+"w": "regional",
+"pos": "adjective",
+"ipa": "/ˈriːdʒənl/",
+"vi": "(thuộc) vùng, khu vực",
+"ex": "The dish has many regional versions.",
+"exVi": "Món ăn có nhiều phiên bản theo vùng.",
+"lv": "b2"
+},
+{
+"id": "regulation",
+"w": "regulation",
+"pos": "noun",
+"ipa": "/ˌreɡjuˈleɪʃn/",
+"vi": "quy định",
+"ex": "There are strict regulations about food safety.",
+"exVi": "Có quy định chặt chẽ về an toàn thực phẩm.",
+"lv": "b2"
+},
+{
+"id": "relief",
+"w": "relief",
+"pos": "noun",
+"ipa": "/rɪˈliːf/",
+"vi": "sự nhẹ nhõm",
+"ex": "It was a relief to hear that she was safe.",
+"exVi": "Thật nhẹ nhõm khi nghe tin cô ấy an toàn.",
+"lv": "b2"
+},
+{
+"id": "rely",
+"w": "rely",
+"pos": "verb",
+"ipa": "/rɪˈlaɪ/",
+"vi": "dựa vào, tin cậy",
+"ex": "You can rely on me.",
+"exVi": "Bạn có thể tin cậy tôi.",
+"lv": "b2"
+},
+{
+"id": "representative",
+"w": "representative",
+"pos": "noun",
+"ipa": "/ˌreprɪˈzentətɪv/",
+"vi": "người đại diện",
+"ex": "She is the student representative on the committee.",
+"exVi": "Cô ấy là đại diện học sinh trong uỷ ban.",
+"lv": "b2"
+},
+{
+"id": "requirement",
+"w": "requirement",
+"pos": "noun",
+"ipa": "/rɪˈkwaɪəmənt/",
+"vi": "yêu cầu, điều kiện",
+"ex": "A degree is a requirement for this job.",
+"exVi": "Công việc này yêu cầu có bằng đại học.",
+"lv": "b2"
+},
+{
+"id": "reserve",
+"w": "reserve",
+"pos": "verb",
+"ipa": "/rɪˈzɜːv/",
+"vi": "đặt trước",
+"ex": "I'd like to reserve a table for two.",
+"exVi": "Tôi muốn đặt một bàn cho hai người.",
+"lv": "b2"
+},
+{
+"id": "satisfied",
+"w": "satisfied",
+"pos": "adjective",
+"ipa": "/ˈsætɪsfaɪd/",
+"vi": "hài lòng",
+"ex": "Are you satisfied with the service?",
+"exVi": "Bạn có hài lòng với dịch vụ không?",
+"lv": "b2"
+},
+{
+"id": "secure",
+"w": "secure",
+"pos": "adjective",
+"ipa": "/sɪˈkjʊə/",
+"vi": "an toàn, chắc chắn",
+"ex": "Keep your passport in a secure place.",
+"exVi": "Giữ hộ chiếu ở nơi an toàn.",
+"lv": "b2"
+},
+{
+"id": "selection",
+"w": "selection",
+"pos": "noun",
+"ipa": "/sɪˈlekʃn/",
+"vi": "sự lựa chọn; tuyển chọn",
+"ex": "The shop has a wide selection of books.",
+"exVi": "Cửa hàng có nhiều sách để chọn.",
+"lv": "b2"
+},
+{
+"id": "shame",
+"w": "shame",
+"pos": "noun",
+"ipa": "/ʃeɪm/",
+"vi": "điều đáng tiếc; sự xấu hổ",
+"ex": "It's a shame you can't come to the party.",
+"exVi": "Tiếc là bạn không đến dự tiệc được.",
+"lv": "b2"
+},
+{
+"id": "shocked",
+"w": "shocked",
+"pos": "adjective",
+"ipa": "/ʃɒkt/",
+"vi": "sốc, bàng hoàng",
+"ex": "We were shocked by the news.",
+"exVi": "Chúng tôi bàng hoàng trước tin đó.",
+"lv": "b2"
+},
+{
+"id": "shot",
+"w": "shot",
+"pos": "noun",
+"ipa": "/ʃɒt/",
+"vi": "phát bắn; cú sút; ảnh chụp",
+"ex": "His first shot hit the goal post.",
+"exVi": "Cú sút đầu tiên của anh ấy trúng cột dọc.",
+"lv": "b2"
+},
+{
+"id": "silence",
+"w": "silence",
+"pos": "noun",
+"ipa": "/ˈsaɪləns/",
+"vi": "sự im lặng",
+"ex": "There was a long silence after his question.",
+"exVi": "Sau câu hỏi của anh ấy là một khoảng lặng dài.",
+"lv": "b2"
+},
+{
+"id": "slight",
+"w": "slight",
+"pos": "adjective",
+"ipa": "/slaɪt/",
+"vi": "nhẹ, không đáng kể",
+"ex": "I have a slight headache.",
+"exVi": "Tôi hơi đau đầu.",
+"lv": "b2"
+},
+{
+"id": "specialist",
+"w": "specialist",
+"pos": "noun",
+"ipa": "/ˈspeʃəlɪst/",
+"vi": "chuyên gia",
+"ex": "You should see a heart specialist.",
+"exVi": "Bạn nên đi khám bác sĩ chuyên khoa tim.",
+"lv": "b2"
+},
+{
+"id": "sticky",
+"w": "sticky",
+"pos": "adjective",
+"ipa": "/ˈstɪki/",
+"vi": "dính",
+"ex": "My hands are sticky after eating the cake.",
+"exVi": "Tay tôi dính sau khi ăn bánh.",
+"lv": "b2"
+},
+{
+"id": "surgery",
+"w": "surgery",
+"pos": "noun",
+"ipa": "/ˈsɜːdʒəri/",
+"vi": "phẫu thuật",
+"ex": "She needs surgery on her knee.",
+"exVi": "Cô ấy cần phẫu thuật đầu gối.",
+"lv": "b2"
+},
+{
+"id": "surrounding",
+"w": "surrounding",
+"pos": "adjective",
+"ipa": "/səˈraʊndɪŋ/",
+"vi": "xung quanh",
+"ex": "We explored the town and the surrounding area.",
+"exVi": "Chúng tôi khám phá thị trấn và vùng xung quanh.",
+"lv": "b2"
+},
+{
+"id": "threat",
+"w": "threat",
+"pos": "noun",
+"ipa": "/θret/",
+"vi": "mối đe doạ",
+"ex": "Pollution is a threat to wildlife.",
+"exVi": "Ô nhiễm là mối đe doạ với động vật hoang dã.",
+"lv": "b2"
+},
+{
+"id": "universe",
+"w": "universe",
+"pos": "noun",
+"ipa": "/ˈjuːnɪvɜːs/",
+"vi": "vũ trụ",
+"ex": "Is there life somewhere else in the universe?",
+"exVi": "Có sự sống ở nơi khác trong vũ trụ không?",
+"lv": "b2"
+},
+{
+"id": "vary",
+"w": "vary",
+"pos": "verb",
+"ipa": "/ˈveəri/",
+"vi": "thay đổi, khác nhau",
+"ex": "Prices vary from shop to shop.",
+"exVi": "Giá mỗi cửa hàng một khác.",
+"lv": "b2"
+},
+{
+"id": "violence",
+"w": "violence",
+"pos": "noun",
+"ipa": "/ˈvaɪələns/",
+"vi": "bạo lực",
+"ex": "There is too much violence on TV.",
+"exVi": "Có quá nhiều bạo lực trên tivi.",
+"lv": "b2"
+},
+{
+"id": "weakness",
+"w": "weakness",
+"pos": "noun",
+"ipa": "/ˈwiːknəs/",
+"vi": "điểm yếu",
+"ex": "Chocolate is my weakness.",
+"exVi": "Sô-cô-la là điểm yếu của tôi.",
+"lv": "b2"
+},
+{
+"id": "wealthy",
+"w": "wealthy",
+"pos": "adjective",
+"ipa": "/ˈwelθi/",
+"vi": "giàu có",
+"ex": "She comes from a wealthy family.",
+"exVi": "Cô ấy xuất thân từ gia đình giàu có.",
+"lv": "b2"
+},
+{
+"id": "wildlife",
+"w": "wildlife",
+"pos": "noun",
+"ipa": "/ˈwaɪldlaɪf/",
+"vi": "động vật hoang dã",
+"ex": "The national park is full of wildlife.",
+"exVi": "Vườn quốc gia có rất nhiều động vật hoang dã.",
+"lv": "b2"
+},
+{
+"id": "accommodate",
+"w": "accommodate",
+"pos": "verb",
+"ipa": "/əˈkɒmədeɪt/",
+"vi": "chứa được; đáp ứng",
+"ex": "The hotel can accommodate 200 guests.",
+"exVi": "Khách sạn có thể chứa 200 khách.",
+"lv": "b2p"
+},
+{
+"id": "accountant",
+"w": "accountant",
+"pos": "noun",
+"ipa": "/əˈkaʊntənt/",
+"vi": "kế toán",
+"ex": "She works as an accountant for a bank.",
+"exVi": "Cô ấy làm kế toán cho một ngân hàng.",
+"lv": "b2p"
+},
+{
+"id": "accuracy",
+"w": "accuracy",
+"pos": "noun",
+"ipa": "/ˈækjərəsi/",
+"vi": "độ chính xác",
+"ex": "The accuracy of the information is important.",
+"exVi": "Độ chính xác của thông tin rất quan trọng.",
+"lv": "b2p"
+},
+{
+"id": "affordable",
+"w": "affordable",
+"pos": "adjective",
+"ipa": "/əˈfɔːdəbl/",
+"vi": "giá phải chăng",
+"ex": "It's hard to find affordable housing in the city.",
+"exVi": "Khó tìm nhà giá phải chăng trong thành phố.",
+"lv": "b2p"
+},
+{
+"id": "apology",
+"w": "apology",
+"pos": "noun",
+"ipa": "/əˈpɒlədʒi/",
+"vi": "lời xin lỗi",
+"ex": "I owe you an apology.",
+"exVi": "Tôi nợ bạn một lời xin lỗi.",
+"lv": "b2p"
+},
+{
+"id": "applicant",
+"w": "applicant",
+"pos": "noun",
+"ipa": "/ˈæplɪkənt/",
+"vi": "người nộp đơn",
+"ex": "There were 300 applicants for the job.",
+"exVi": "Có 300 người nộp đơn cho công việc.",
+"lv": "b2p"
+},
+{
+"id": "assign",
+"w": "assign",
+"pos": "verb",
+"ipa": "/əˈsaɪn/",
+"vi": "giao (việc), phân công",
+"ex": "The teacher assigned us a project on climate change.",
+"exVi": "Thầy giao cho chúng tôi dự án về biến đổi khí hậu.",
+"lv": "b2p"
+},
+{
+"id": "assistance",
+"w": "assistance",
+"pos": "noun",
+"ipa": "/əˈsɪstəns/",
+"vi": "sự trợ giúp",
+"ex": "Can I be of any assistance?",
+"exVi": "Tôi có thể giúp gì không?",
+"lv": "b2p"
+},
+{
+"id": "assumption",
+"w": "assumption",
+"pos": "noun",
+"ipa": "/əˈsʌmpʃn/",
+"vi": "giả định",
+"ex": "Don't make assumptions about people.",
+"exVi": "Đừng vội giả định về người khác.",
+"lv": "b2p"
+},
+{
+"id": "attachment",
+"w": "attachment",
+"pos": "noun",
+"ipa": "/əˈtætʃmənt/",
+"vi": "tệp đính kèm; sự gắn bó",
+"ex": "Please see the attachment for more details.",
+"exVi": "Xem tệp đính kèm để biết thêm chi tiết.",
+"lv": "b2p"
+},
+{
+"id": "awareness",
+"w": "awareness",
+"pos": "noun",
+"ipa": "/əˈweənəs/",
+"vi": "nhận thức",
+"ex": "The campaign raised awareness of the problem.",
+"exVi": "Chiến dịch nâng cao nhận thức về vấn đề.",
+"lv": "b2p"
+},
+{
+"id": "balanced",
+"w": "balanced",
+"pos": "adjective",
+"ipa": "/ˈbælənst/",
+"vi": "cân bằng",
+"ex": "A balanced diet includes fruit and vegetables.",
+"exVi": "Chế độ ăn cân bằng gồm rau quả.",
+"lv": "b2p"
+},
+{
+"id": "beneficial",
+"w": "beneficial",
+"pos": "adjective",
+"ipa": "/ˌbenɪˈfɪʃl/",
+"vi": "có lợi",
+"ex": "Regular exercise is beneficial to your health.",
+"exVi": "Tập thể dục đều đặn có lợi cho sức khoẻ.",
+"lv": "b2p"
+},
+{
+"id": "beside",
+"w": "beside",
+"pos": "preposition",
+"ipa": "/bɪˈsaɪd/",
+"vi": "bên cạnh",
+"ex": "Come and sit beside me.",
+"exVi": "Lại ngồi cạnh tôi đi.",
+"lv": "b2p"
+},
+{
+"id": "billionaire",
+"w": "billionaire",
+"pos": "noun",
+"ipa": "/ˌbɪljəˈneə/",
+"vi": "tỉ phú",
+"ex": "The company was bought by a billionaire.",
+"exVi": "Công ty được một tỉ phú mua lại.",
+"lv": "b2p"
+},
+{
+"id": "biological",
+"w": "biological",
+"pos": "adjective",
+"ipa": "/ˌbaɪəˈlɒdʒɪkl/",
+"vi": "(thuộc) sinh học",
+"ex": "She is the child's biological mother.",
+"exVi": "Cô ấy là mẹ ruột của đứa trẻ.",
+"lv": "b2p"
+},
+{
+"id": "booking",
+"w": "booking",
+"pos": "noun",
+"ipa": "/ˈbʊkɪŋ/",
+"vi": "sự đặt chỗ",
+"ex": "I made a booking for two nights.",
+"exVi": "Tôi đã đặt phòng hai đêm.",
+"lv": "b2p"
+},
+{
+"id": "brake",
+"w": "brake",
+"pos": "noun",
+"ipa": "/breɪk/",
+"vi": "phanh",
+"ex": "The driver hit the brakes just in time.",
+"exVi": "Tài xế đạp phanh vừa kịp.",
+"lv": "b2p"
+},
+{
+"id": "broadcaster",
+"w": "broadcaster",
+"pos": "noun",
+"ipa": "/ˈbrɔːdkɑːstə/",
+"vi": "đài phát thanh / truyền hình; phát thanh viên",
+"ex": "The national broadcaster showed the match live.",
+"exVi": "Đài quốc gia truyền hình trực tiếp trận đấu.",
+"lv": "b2p"
+},
+{
+"id": "caption",
+"w": "caption",
+"pos": "noun",
+"ipa": "/ˈkæpʃn/",
+"vi": "chú thích ảnh",
+"ex": "Read the caption under the photo.",
+"exVi": "Đọc chú thích dưới bức ảnh.",
+"lv": "b2p"
+},
+{
+"id": "certainty",
+"w": "certainty",
+"pos": "noun",
+"ipa": "/ˈsɜːtnti/",
+"vi": "sự chắc chắn",
+"ex": "Nobody can say with certainty what will happen.",
+"exVi": "Không ai dám chắc điều gì sẽ xảy ra.",
+"lv": "b2p"
+},
+{
+"id": "challenging",
+"w": "challenging",
+"pos": "adjective",
+"ipa": "/ˈtʃælɪndʒɪŋ/",
+"vi": "đầy thử thách",
+"ex": "Teaching is challenging but rewarding.",
+"exVi": "Dạy học đầy thử thách nhưng đáng giá.",
+"lv": "b2p"
+},
+{
+"id": "championship",
+"w": "championship",
+"pos": "noun",
+"ipa": "/ˈtʃæmpiənʃɪp/",
+"vi": "giải vô địch",
+"ex": "Our team won the national championship.",
+"exVi": "Đội chúng tôi vô địch quốc gia.",
+"lv": "b2p"
+},
+{
+"id": "collector",
+"w": "collector",
+"pos": "noun",
+"ipa": "/kəˈlektə/",
+"vi": "nhà sưu tầm",
+"ex": "He is a collector of old stamps.",
+"exVi": "Ông ấy là người sưu tầm tem cổ.",
+"lv": "b2p"
+},
+{
+"id": "colourful",
+"w": "colourful",
+"pos": "adjective",
+"ipa": "/ˈkʌləfl/",
+"vi": "sặc sỡ",
+"ex": "The market is full of colourful fruit.",
+"exVi": "Chợ đầy trái cây đủ màu sắc.",
+"lv": "b2p"
+},
+{
+"id": "comedian",
+"w": "comedian",
+"pos": "noun",
+"ipa": "/kəˈmiːdiən/",
+"vi": "diễn viên hài",
+"ex": "The comedian made everyone laugh.",
+"exVi": "Diễn viên hài khiến ai cũng cười.",
+"lv": "b2p"
+},
+{
+"id": "commander",
+"w": "commander",
+"pos": "noun",
+"ipa": "/kəˈmɑːndə/",
+"vi": "chỉ huy",
+"ex": "The commander ordered the soldiers to stop.",
+"exVi": "Chỉ huy ra lệnh cho binh lính dừng lại.",
+"lv": "b2p"
+},
+{
+"id": "completion",
+"w": "completion",
+"pos": "noun",
+"ipa": "/kəmˈpliːʃn/",
+"vi": "sự hoàn thành",
+"ex": "The building is near completion.",
+"exVi": "Toà nhà sắp hoàn thành.",
+"lv": "b2p"
+},
+{
+"id": "compose",
+"w": "compose",
+"pos": "verb",
+"ipa": "/kəmˈpəʊz/",
+"vi": "sáng tác; cấu thành",
+"ex": "Mozart composed his first music at the age of five.",
+"exVi": "Mozart sáng tác bản nhạc đầu tiên lúc năm tuổi.",
+"lv": "b2p"
+},
+{
+"id": "confusion",
+"w": "confusion",
+"pos": "noun",
+"ipa": "/kənˈfjuːʒn/",
+"vi": "sự nhầm lẫn, bối rối",
+"ex": "There was some confusion about the time of the meeting.",
+"exVi": "Có chút nhầm lẫn về giờ họp.",
+"lv": "b2p"
+},
+{
+"id": "console",
+"w": "console",
+"pos": "noun",
+"ipa": "/ˈkɒnsəʊl/",
+"vi": "máy chơi game",
+"ex": "He got a new games console for his birthday.",
+"exVi": "Cậu ấy được tặng máy chơi game mới dịp sinh nhật.",
+"lv": "b2p"
+},
+{
+"id": "consultant",
+"w": "consultant",
+"pos": "noun",
+"ipa": "/kənˈsʌltənt/",
+"vi": "chuyên viên tư vấn",
+"ex": "The company hired a consultant to help.",
+"exVi": "Công ty thuê chuyên viên tư vấn hỗ trợ.",
+"lv": "b2p"
+},
+{
+"id": "controversial",
+"w": "controversial",
+"pos": "adjective",
+"ipa": "/ˌkɒntrəˈvɜːʃl/",
+"vi": "gây tranh cãi",
+"ex": "The new law is very controversial.",
+"exVi": "Luật mới gây nhiều tranh cãi.",
+"lv": "b2p"
+},
+{
+"id": "convenience",
+"w": "convenience",
+"pos": "noun",
+"ipa": "/kənˈviːniəns/",
+"vi": "sự tiện lợi",
+"ex": "For your convenience, the shop is open 24 hours.",
+"exVi": "Để tiện cho bạn, cửa hàng mở 24 giờ.",
+"lv": "b2p"
+},
+{
+"id": "conventional",
+"w": "conventional",
+"pos": "adjective",
+"ipa": "/kənˈvenʃənl/",
+"vi": "thông thường, truyền thống",
+"ex": "Electric cars are cleaner than conventional cars.",
+"exVi": "Xe điện sạch hơn xe thông thường.",
+"lv": "b2p"
+},
+{
+"id": "convincing",
+"w": "convincing",
+"pos": "adjective",
+"ipa": "/kənˈvɪnsɪŋ/",
+"vi": "thuyết phục",
+"ex": "She gave a very convincing argument.",
+"exVi": "Cô ấy đưa ra lập luận rất thuyết phục.",
+"lv": "b2p"
+},
+{
+"id": "darkness",
+"w": "darkness",
+"pos": "noun",
+"ipa": "/ˈdɑːknəs/",
+"vi": "bóng tối",
+"ex": "The room was in complete darkness.",
+"exVi": "Căn phòng tối om.",
+"lv": "b2p"
+},
+{
+"id": "defender",
+"w": "defender",
+"pos": "noun",
+"ipa": "/dɪˈfendə/",
+"vi": "hậu vệ; người bảo vệ",
+"ex": "He plays as a defender for the national team.",
+"exVi": "Anh ấy chơi hậu vệ cho đội tuyển quốc gia.",
+"lv": "b2p"
+},
+{
+"id": "democratic",
+"w": "democratic",
+"pos": "adjective",
+"ipa": "/ˌdeməˈkrætɪk/",
+"vi": "dân chủ",
+"ex": "The country held its first democratic election.",
+"exVi": "Đất nước tổ chức cuộc bầu cử dân chủ đầu tiên.",
+"lv": "b2p"
+},
+{
+"id": "demonstration",
+"w": "demonstration",
+"pos": "noun",
+"ipa": "/ˌdemənˈstreɪʃn/",
+"vi": "cuộc biểu tình; sự trình diễn",
+"ex": "Thousands of people joined the demonstration.",
+"exVi": "Hàng nghìn người tham gia cuộc biểu tình.",
+"lv": "b2p"
+},
+{
+"id": "depart",
+"w": "depart",
+"pos": "verb",
+"ipa": "/dɪˈpɑːt/",
+"vi": "khởi hành",
+"ex": "The train departs at 8.15.",
+"exVi": "Tàu khởi hành lúc 8 giờ 15.",
+"lv": "b2p"
+},
+{
+"id": "dependent",
+"w": "dependent",
+"pos": "adjective",
+"ipa": "/dɪˈpendənt/",
+"vi": "phụ thuộc",
+"ex": "The town is dependent on tourism.",
+"exVi": "Thị trấn phụ thuộc vào du lịch.",
+"lv": "b2p"
+},
+{
+"id": "depression",
+"w": "depression",
+"pos": "noun",
+"ipa": "/dɪˈpreʃn/",
+"vi": "trầm cảm; suy thoái",
+"ex": "She suffered from depression after losing her job.",
+"exVi": "Cô ấy bị trầm cảm sau khi mất việc.",
+"lv": "b2p"
+},
+{
+"id": "destruction",
+"w": "destruction",
+"pos": "noun",
+"ipa": "/dɪˈstrʌkʃn/",
+"vi": "sự phá huỷ",
+"ex": "The storm caused terrible destruction.",
+"exVi": "Cơn bão gây tàn phá khủng khiếp.",
+"lv": "b2p"
+},
+{
+"id": "determination",
+"w": "determination",
+"pos": "noun",
+"ipa": "/dɪˌtɜːmɪˈneɪʃn/",
+"vi": "sự quyết tâm",
+"ex": "She showed great determination to succeed.",
+"exVi": "Cô ấy rất quyết tâm thành công.",
+"lv": "b2p"
+},
+{
+"id": "diabetes",
+"w": "diabetes",
+"pos": "noun",
+"ipa": "/ˌdaɪəˈbiːtiːz/",
+"vi": "bệnh tiểu đường",
+"ex": "My grandfather has diabetes.",
+"exVi": "Ông tôi bị tiểu đường.",
+"lv": "b2p"
+},
+{
+"id": "disabled",
+"w": "disabled",
+"pos": "adjective",
+"ipa": "/dɪsˈeɪbld/",
+"vi": "khuyết tật",
+"ex": "The building has access for disabled people.",
+"exVi": "Toà nhà có lối đi cho người khuyết tật.",
+"lv": "b2p"
+},
+{
+"id": "disappoint",
+"w": "disappoint",
+"pos": "verb",
+"ipa": "/ˌdɪsəˈpɔɪnt/",
+"vi": "làm thất vọng",
+"ex": "I'm sorry to disappoint you, but the trip is cancelled.",
+"exVi": "Rất tiếc làm bạn thất vọng, chuyến đi bị huỷ.",
+"lv": "b2p"
+},
+{
+"id": "disappointment",
+"w": "disappointment",
+"pos": "noun",
+"ipa": "/ˌdɪsəˈpɔɪntmənt/",
+"vi": "sự thất vọng",
+"ex": "To our disappointment, the concert was cancelled.",
+"exVi": "Chúng tôi thất vọng vì buổi hoà nhạc bị huỷ.",
+"lv": "b2p"
+},
+{
+"id": "distant",
+"w": "distant",
+"pos": "adjective",
+"ipa": "/ˈdɪstənt/",
+"vi": "xa xôi",
+"ex": "They live in a distant village in the mountains.",
+"exVi": "Họ sống ở một ngôi làng xa xôi trên núi.",
+"lv": "b2p"
+},
+{
+"id": "diversity",
+"w": "diversity",
+"pos": "noun",
+"ipa": "/daɪˈvɜːsəti/",
+"vi": "sự đa dạng",
+"ex": "The city is famous for its cultural diversity.",
+"exVi": "Thành phố nổi tiếng với sự đa dạng văn hoá.",
+"lv": "b2p"
+},
+{
+"id": "divorce",
+"w": "divorce",
+"pos": "noun",
+"ipa": "/dɪˈvɔːs/",
+"vi": "sự ly hôn",
+"ex": "Her parents got a divorce when she was ten.",
+"exVi": "Bố mẹ cô ấy ly hôn khi cô mười tuổi.",
+"lv": "b2p"
+},
+{
+"id": "donation",
+"w": "donation",
+"pos": "noun",
+"ipa": "/dəʊˈneɪʃn/",
+"vi": "sự quyên góp",
+"ex": "We made a donation to the children's hospital.",
+"exVi": "Chúng tôi quyên góp cho bệnh viện nhi.",
+"lv": "b2p"
+},
+{
+"id": "economics",
+"w": "economics",
+"pos": "noun",
+"ipa": "/ˌiːkəˈnɒmɪks/",
+"vi": "kinh tế học",
+"ex": "She is studying economics at university.",
+"exVi": "Cô ấy học kinh tế ở đại học.",
+"lv": "b2p"
+},
+{
+"id": "economist",
+"w": "economist",
+"pos": "noun",
+"ipa": "/ɪˈkɒnəmɪst/",
+"vi": "nhà kinh tế học",
+"ex": "Economists expect prices to rise.",
+"exVi": "Các nhà kinh tế dự đoán giá sẽ tăng.",
+"lv": "b2p"
+},
+{
+"id": "ecosystem",
+"w": "ecosystem",
+"pos": "noun",
+"ipa": "/ˈiːkəʊsɪstəm/",
+"vi": "hệ sinh thái",
+"ex": "Plastic is damaging the ocean ecosystem.",
+"exVi": "Nhựa đang huỷ hoại hệ sinh thái biển.",
+"lv": "b2p"
+},
+{
+"id": "electronics",
+"w": "electronics",
+"pos": "noun",
+"ipa": "/ɪˌlekˈtrɒnɪks/",
+"vi": "đồ điện tử; ngành điện tử",
+"ex": "The shop sells electronics and phones.",
+"exVi": "Cửa hàng bán đồ điện tử và điện thoại.",
+"lv": "b2p"
+},
+{
+"id": "enjoyable",
+"w": "enjoyable",
+"pos": "adjective",
+"ipa": "/ɪnˈdʒɔɪəbl/",
+"vi": "thú vị, dễ chịu",
+"ex": "We had a very enjoyable evening.",
+"exVi": "Chúng tôi đã có một buổi tối rất vui.",
+"lv": "b2p"
+},
+{
+"id": "equip",
+"w": "equip",
+"pos": "verb",
+"ipa": "/ɪˈkwɪp/",
+"vi": "trang bị",
+"ex": "The school is equipped with new computers.",
+"exVi": "Trường được trang bị máy tính mới.",
+"lv": "b2p"
+},
+{
+"id": "evaluation",
+"w": "evaluation",
+"pos": "noun",
+"ipa": "/ɪˌvæljuˈeɪʃn/",
+"vi": "sự đánh giá",
+"ex": "We need an evaluation of the new program.",
+"exVi": "Chúng tôi cần đánh giá chương trình mới.",
+"lv": "b2p"
+},
+{
+"id": "evident",
+"w": "evident",
+"pos": "adjective",
+"ipa": "/ˈevɪdənt/",
+"vi": "rõ ràng, hiển nhiên",
+"ex": "It was evident that she was very tired.",
+"exVi": "Rõ ràng là cô ấy rất mệt.",
+"lv": "b2p"
+},
+{
+"id": "evolve",
+"w": "evolve",
+"pos": "verb",
+"ipa": "/iˈvɒlv/",
+"vi": "tiến hoá, phát triển dần",
+"ex": "Languages evolve over time.",
+"exVi": "Ngôn ngữ thay đổi theo thời gian.",
+"lv": "b2p"
+},
+{
+"id": "exception",
+"w": "exception",
+"pos": "noun",
+"ipa": "/ɪkˈsepʃn/",
+"vi": "ngoại lệ",
+"ex": "Everyone came, with the exception of Nam.",
+"exVi": "Mọi người đều đến, trừ Nam.",
+"lv": "b2p"
+},
+{
+"id": "exhibit",
+"w": "exhibit",
+"pos": "verb",
+"ipa": "/ɪɡˈzɪbɪt/",
+"vi": "trưng bày",
+"ex": "Her paintings are exhibited in the city museum.",
+"exVi": "Tranh của cô ấy được trưng bày ở bảo tàng thành phố.",
+"lv": "b2p"
+},
+{
+"id": "expansion",
+"w": "expansion",
+"pos": "noun",
+"ipa": "/ɪkˈspænʃn/",
+"vi": "sự mở rộng",
+"ex": "The company is planning a rapid expansion.",
+"exVi": "Công ty đang lên kế hoạch mở rộng nhanh.",
+"lv": "b2p"
+},
+{
+"id": "exposure",
+"w": "exposure",
+"pos": "noun",
+"ipa": "/ɪkˈspəʊʒə/",
+"vi": "sự tiếp xúc, phơi nhiễm",
+"ex": "Too much exposure to the sun is bad for your skin.",
+"exVi": "Tiếp xúc nhiều với nắng không tốt cho da.",
+"lv": "b2p"
+},
+{
+"id": "extension",
+"w": "extension",
+"pos": "noun",
+"ipa": "/ɪkˈstenʃn/",
+"vi": "sự gia hạn; phần mở rộng",
+"ex": "I asked for an extension to finish my essay.",
+"exVi": "Tôi xin gia hạn để viết xong bài luận.",
+"lv": "b2p"
+},
+{
+"id": "fame",
+"w": "fame",
+"pos": "noun",
+"ipa": "/feɪm/",
+"vi": "danh tiếng",
+"ex": "The singer rose to fame in the 1990s.",
+"exVi": "Ca sĩ nổi tiếng từ những năm 1990.",
+"lv": "b2p"
+},
+{
+"id": "fantasy",
+"w": "fantasy",
+"pos": "noun",
+"ipa": "/ˈfæntəsi/",
+"vi": "sự tưởng tượng; truyện kỳ ảo",
+"ex": "He lives in a fantasy world.",
+"exVi": "Anh ta sống trong thế giới tưởng tượng.",
+"lv": "b2p"
+},
+{
+"id": "follower",
+"w": "follower",
+"pos": "noun",
+"ipa": "/ˈfɒləʊə/",
+"vi": "người theo dõi",
+"ex": "The singer has ten million followers online.",
+"exVi": "Ca sĩ có mười triệu người theo dõi trên mạng.",
+"lv": "b2p"
+},
+{
+"id": "footprint",
+"w": "footprint",
+"pos": "noun",
+"ipa": "/ˈfʊtprɪnt/",
+"vi": "dấu chân",
+"ex": "We saw footprints in the sand.",
+"exVi": "Chúng tôi thấy dấu chân trên cát.",
+"lv": "b2p"
+},
+{
+"id": "formation",
+"w": "formation",
+"pos": "noun",
+"ipa": "/fɔːˈmeɪʃn/",
+"vi": "sự hình thành",
+"ex": "The formation of new cells takes time.",
+"exVi": "Sự hình thành tế bào mới cần thời gian.",
+"lv": "b2p"
+},
+{
+"id": "fortunate",
+"w": "fortunate",
+"pos": "adjective",
+"ipa": "/ˈfɔːtʃənət/",
+"vi": "may mắn",
+"ex": "We were fortunate to find a hotel so late.",
+"exVi": "Chúng tôi may mắn tìm được khách sạn muộn thế.",
+"lv": "b2p"
+},
+{
+"id": "foundation",
+"w": "foundation",
+"pos": "noun",
+"ipa": "/faʊnˈdeɪʃn/",
+"vi": "nền móng; quỹ",
+"ex": "Trust is the foundation of a good relationship.",
+"exVi": "Lòng tin là nền tảng của mối quan hệ tốt.",
+"lv": "b2p"
+},
+{
+"id": "founder",
+"w": "founder",
+"pos": "noun",
+"ipa": "/ˈfaʊndə/",
+"vi": "người sáng lập",
+"ex": "He is the founder of a famous company.",
+"exVi": "Ông ấy là người sáng lập một công ty nổi tiếng.",
+"lv": "b2p"
+},
+{
+"id": "frequent",
+"w": "frequent",
+"pos": "adjective",
+"ipa": "/ˈfriːkwənt/",
+"vi": "thường xuyên",
+"ex": "He is a frequent visitor to our café.",
+"exVi": "Anh ấy là khách quen của quán.",
+"lv": "b2p"
+},
+{
+"id": "genetic",
+"w": "genetic",
+"pos": "adjective",
+"ipa": "/dʒəˈnetɪk/",
+"vi": "(thuộc) di truyền",
+"ex": "The disease is genetic.",
+"exVi": "Căn bệnh này do di truyền.",
+"lv": "b2p"
+},
+{
+"id": "globalization",
+"w": "globalization",
+"pos": "noun",
+"ipa": "/ˌɡləʊbəlaɪˈzeɪʃn/",
+"vi": "toàn cầu hoá",
+"ex": "Globalization has changed the way we shop.",
+"exVi": "Toàn cầu hoá đã thay đổi cách ta mua sắm.",
+"lv": "b2p"
+},
+{
+"id": "globe",
+"w": "globe",
+"pos": "noun",
+"ipa": "/ɡləʊb/",
+"vi": "quả địa cầu; thế giới",
+"ex": "Tourists come from all over the globe.",
+"exVi": "Du khách đến từ khắp thế giới.",
+"lv": "b2p"
+},
+{
+"id": "golden",
+"w": "golden",
+"pos": "adjective",
+"ipa": "/ˈɡəʊldən/",
+"vi": "bằng vàng; màu vàng óng",
+"ex": "The beach has beautiful golden sand.",
+"exVi": "Bãi biển có cát vàng óng tuyệt đẹp.",
+"lv": "b2p"
+},
+{
+"id": "graphic",
+"w": "graphic",
+"pos": "adjective",
+"ipa": "/ˈɡræfɪk/",
+"vi": "(thuộc) đồ hoạ",
+"ex": "She works as a graphic designer.",
+"exVi": "Cô ấy làm thiết kế đồ hoạ.",
+"lv": "b2p"
+},
+{
+"id": "honesty",
+"w": "honesty",
+"pos": "noun",
+"ipa": "/ˈɒnəsti/",
+"vi": "sự trung thực",
+"ex": "I value honesty in a friend.",
+"exVi": "Tôi quý sự trung thực ở một người bạn.",
+"lv": "b2p"
+},
+{
+"id": "hug",
+"w": "hug",
+"pos": "verb",
+"ipa": "/hʌɡ/",
+"vi": "ôm",
+"ex": "She hugged her mother at the airport.",
+"exVi": "Cô ấy ôm mẹ ở sân bay.",
+"lv": "b2p"
+},
+{
+"id": "hunger",
+"w": "hunger",
+"pos": "noun",
+"ipa": "/ˈhʌŋɡə/",
+"vi": "cơn đói, nạn đói",
+"ex": "Millions of people still suffer from hunger.",
+"exVi": "Hàng triệu người vẫn chịu đói.",
+"lv": "b2p"
+},
+{
+"id": "immigration",
+"w": "immigration",
+"pos": "noun",
+"ipa": "/ˌɪmɪˈɡreɪʃn/",
+"vi": "sự nhập cư; khu xuất nhập cảnh",
+"ex": "We waited an hour at immigration.",
+"exVi": "Chúng tôi chờ một tiếng ở cửa xuất nhập cảnh.",
+"lv": "b2p"
+},
+{
+"id": "implication",
+"w": "implication",
+"pos": "noun",
+"ipa": "/ˌɪmplɪˈkeɪʃn/",
+"vi": "hệ quả, hàm ý",
+"ex": "The decision has serious implications for workers.",
+"exVi": "Quyết định có hệ quả nghiêm trọng với công nhân.",
+"lv": "b2p"
+},
+{
+"id": "independence",
+"w": "independence",
+"pos": "noun",
+"ipa": "/ˌɪndɪˈpendəns/",
+"vi": "sự độc lập",
+"ex": "Vietnam celebrates Independence Day on 2 September.",
+"exVi": "Việt Nam kỷ niệm ngày Quốc khánh vào 2 tháng 9.",
+"lv": "b2p"
+},
+{
+"id": "indication",
+"w": "indication",
+"pos": "noun",
+"ipa": "/ˌɪndɪˈkeɪʃn/",
+"vi": "dấu hiệu",
+"ex": "There is no indication that the rain will stop.",
+"exVi": "Không có dấu hiệu mưa sẽ tạnh.",
+"lv": "b2p"
+},
+{
+"id": "inhabitant",
+"w": "inhabitant",
+"pos": "noun",
+"ipa": "/ɪnˈhæbɪtənt/",
+"vi": "cư dân",
+"ex": "The island has only 300 inhabitants.",
+"exVi": "Hòn đảo chỉ có 300 cư dân.",
+"lv": "b2p"
+},
+{
+"id": "innovative",
+"w": "innovative",
+"pos": "adjective",
+"ipa": "/ˈɪnəveɪtɪv/",
+"vi": "đổi mới, sáng tạo",
+"ex": "The company is famous for its innovative products.",
+"exVi": "Công ty nổi tiếng với sản phẩm đột phá.",
+"lv": "b2p"
+},
+{
+"id": "installation",
+"w": "installation",
+"pos": "noun",
+"ipa": "/ˌɪnstəˈleɪʃn/",
+"vi": "sự lắp đặt",
+"ex": "The installation of the air conditioner took two hours.",
+"exVi": "Lắp máy điều hoà mất hai tiếng.",
+"lv": "b2p"
+},
+{
+"id": "interaction",
+"w": "interaction",
+"pos": "noun",
+"ipa": "/ˌɪntərˈækʃn/",
+"vi": "sự tương tác",
+"ex": "There is a lot of interaction between teachers and students.",
+"exVi": "Giáo viên và học sinh tương tác nhiều.",
+"lv": "b2p"
+},
+{
+"id": "interpretation",
+"w": "interpretation",
+"pos": "noun",
+"ipa": "/ɪnˌtɜːprɪˈteɪʃn/",
+"vi": "sự diễn giải",
+"ex": "There are different interpretations of the poem.",
+"exVi": "Bài thơ có nhiều cách hiểu khác nhau.",
+"lv": "b2p"
+},
+{
+"id": "invasion",
+"w": "invasion",
+"pos": "noun",
+"ipa": "/ɪnˈveɪʒn/",
+"vi": "cuộc xâm lược; sự xâm phạm",
+"ex": "The invasion of the country began in March.",
+"exVi": "Cuộc xâm lược đất nước bắt đầu vào tháng Ba.",
+"lv": "b2p"
+},
+{
+"id": "isolated",
+"w": "isolated",
+"pos": "adjective",
+"ipa": "/ˈaɪsəleɪtɪd/",
+"vi": "biệt lập, cô lập",
+"ex": "They live in an isolated village in the mountains.",
+"exVi": "Họ sống ở một ngôi làng biệt lập trên núi.",
+"lv": "b2p"
+},
+{
+"id": "journalism",
+"w": "journalism",
+"pos": "noun",
+"ipa": "/ˈdʒɜːnəlɪzəm/",
+"vi": "nghề báo",
+"ex": "She studied journalism at university.",
+"exVi": "Cô ấy học báo chí ở đại học.",
+"lv": "b2p"
+},
+{
+"id": "lighting",
+"w": "lighting",
+"pos": "noun",
+"ipa": "/ˈlaɪtɪŋ/",
+"vi": "ánh sáng, hệ thống đèn",
+"ex": "The lighting in the restaurant was very soft.",
+"exVi": "Ánh đèn trong nhà hàng rất dịu.",
+"lv": "b2p"
+},
+{
+"id": "limitation",
+"w": "limitation",
+"pos": "noun",
+"ipa": "/ˌlɪmɪˈteɪʃn/",
+"vi": "sự hạn chế",
+"ex": "Every method has its limitations.",
+"exVi": "Phương pháp nào cũng có hạn chế.",
+"lv": "b2p"
+},
+{
+"id": "literary",
+"w": "literary",
+"pos": "adjective",
+"ipa": "/ˈlɪtərəri/",
+"vi": "(thuộc) văn học",
+"ex": "She won a major literary prize.",
+"exVi": "Cô ấy đoạt một giải văn học lớn.",
+"lv": "b2p"
+},
+{
+"id": "manufacturing",
+"w": "manufacturing",
+"pos": "noun",
+"ipa": "/ˌmænjuˈfæktʃərɪŋ/",
+"vi": "sản xuất (công nghiệp)",
+"ex": "Manufacturing is important for the economy.",
+"exVi": "Sản xuất công nghiệp quan trọng với nền kinh tế.",
+"lv": "b2p"
+},
+{
+"id": "mechanical",
+"w": "mechanical",
+"pos": "adjective",
+"ipa": "/məˈkænɪkl/",
+"vi": "(thuộc) máy móc, cơ khí",
+"ex": "The flight was delayed because of a mechanical problem.",
+"exVi": "Chuyến bay bị hoãn do trục trặc kỹ thuật.",
+"lv": "b2p"
+},
+{
+"id": "membership",
+"w": "membership",
+"pos": "noun",
+"ipa": "/ˈmembəʃɪp/",
+"vi": "tư cách hội viên",
+"ex": "Gym membership costs 500,000 dong a month.",
+"exVi": "Phí hội viên phòng gym là 500.000 đồng một tháng.",
+"lv": "b2p"
+},
+{
+"id": "miner",
+"w": "miner",
+"pos": "noun",
+"ipa": "/ˈmaɪnə/",
+"vi": "thợ mỏ",
+"ex": "The miners worked deep underground.",
+"exVi": "Thợ mỏ làm việc sâu dưới lòng đất.",
+"lv": "b2p"
+},
+{
+"id": "motivation",
+"w": "motivation",
+"pos": "noun",
+"ipa": "/ˌməʊtɪˈveɪʃn/",
+"vi": "động lực",
+"ex": "I've lost my motivation to study.",
+"exVi": "Tôi mất động lực học.",
+"lv": "b2p"
+},
+{
+"id": "navigate",
+"w": "navigate",
+"pos": "verb",
+"ipa": "/ˈnævɪɡeɪt/",
+"vi": "định hướng, tìm đường",
+"ex": "Sailors used the stars to navigate.",
+"exVi": "Thuỷ thủ dùng sao để định hướng.",
+"lv": "b2p"
+},
+{
+"id": "negotiation",
+"w": "negotiation",
+"pos": "noun",
+"ipa": "/nɪˌɡəʊʃiˈeɪʃn/",
+"vi": "cuộc đàm phán",
+"ex": "After long negotiations, they agreed on a price.",
+"exVi": "Sau đàm phán dài, họ thống nhất giá.",
+"lv": "b2p"
+},
+{
+"id": "novelist",
+"w": "novelist",
+"pos": "noun",
+"ipa": "/ˈnɒvəlɪst/",
+"vi": "tiểu thuyết gia",
+"ex": "She is a famous Vietnamese novelist.",
+"exVi": "Bà ấy là một tiểu thuyết gia Việt Nam nổi tiếng.",
+"lv": "b2p"
+},
+{
+"id": "nursing",
+"w": "nursing",
+"pos": "noun",
+"ipa": "/ˈnɜːsɪŋ/",
+"vi": "nghề điều dưỡng",
+"ex": "She chose a career in nursing.",
+"exVi": "Cô ấy chọn nghề điều dưỡng.",
+"lv": "b2p"
+},
+{
+"id": "observer",
+"w": "observer",
+"pos": "noun",
+"ipa": "/əbˈzɜːvə/",
+"vi": "người quan sát",
+"ex": "Observers say the election was fair.",
+"exVi": "Các quan sát viên cho rằng cuộc bầu cử công bằng.",
+"lv": "b2p"
+},
+{
+"id": "occupation",
+"w": "occupation",
+"pos": "noun",
+"ipa": "/ˌɒkjuˈpeɪʃn/",
+"vi": "nghề nghiệp",
+"ex": "Please write your name and occupation.",
+"exVi": "Vui lòng ghi tên và nghề nghiệp.",
+"lv": "b2p"
+},
+{
+"id": "offender",
+"w": "offender",
+"pos": "noun",
+"ipa": "/əˈfendə/",
+"vi": "người phạm tội",
+"ex": "Young offenders may go to special schools.",
+"exVi": "Người phạm tội trẻ tuổi có thể vào trường đặc biệt.",
+"lv": "b2p"
+},
+{
+"id": "operator",
+"w": "operator",
+"pos": "noun",
+"ipa": "/ˈɒpəreɪtə/",
+"vi": "người điều khiển; nhà khai thác",
+"ex": "The machine operator stopped the line.",
+"exVi": "Người vận hành máy dừng dây chuyền.",
+"lv": "b2p"
+},
+{
+"id": "pandemic",
+"w": "pandemic",
+"pos": "noun",
+"ipa": "/pænˈdemɪk/",
+"vi": "đại dịch",
+"ex": "Many businesses closed during the pandemic.",
+"exVi": "Nhiều doanh nghiệp đóng cửa trong đại dịch.",
+"lv": "b2p"
+},
+{
+"id": "passionate",
+"w": "passionate",
+"pos": "adjective",
+"ipa": "/ˈpæʃənət/",
+"vi": "đam mê",
+"ex": "He is passionate about football.",
+"exVi": "Anh ấy đam mê bóng đá.",
+"lv": "b2p"
+},
+{
+"id": "patience",
+"w": "patience",
+"pos": "noun",
+"ipa": "/ˈpeɪʃns/",
+"vi": "sự kiên nhẫn",
+"ex": "Teaching young children requires patience.",
+"exVi": "Dạy trẻ nhỏ cần kiên nhẫn.",
+"lv": "b2p"
+},
+{
+"id": "perception",
+"w": "perception",
+"pos": "noun",
+"ipa": "/pəˈsepʃn/",
+"vi": "nhận thức, cách nhìn",
+"ex": "The film changed my perception of war.",
+"exVi": "Bộ phim thay đổi cách nhìn của tôi về chiến tranh.",
+"lv": "b2p"
+},
+{
+"id": "preference",
+"w": "preference",
+"pos": "noun",
+"ipa": "/ˈprefrəns/",
+"vi": "sự ưa thích hơn",
+"ex": "Do you have a preference for tea or coffee?",
+"exVi": "Bạn thích trà hay cà phê hơn?",
+"lv": "b2p"
+},
+{
+"id": "preview",
+"w": "preview",
+"pos": "noun",
+"ipa": "/ˈpriːvjuː/",
+"vi": "sự xem trước",
+"ex": "We watched a preview of the new film.",
+"exVi": "Chúng tôi xem trước bộ phim mới.",
+"lv": "b2p"
+},
+{
+"id": "pride",
+"w": "pride",
+"pos": "noun",
+"ipa": "/praɪd/",
+"vi": "niềm tự hào",
+"ex": "She spoke with pride about her children.",
+"exVi": "Bà ấy nói về các con với niềm tự hào.",
+"lv": "b2p"
+},
+{
+"id": "prior",
+"w": "prior",
+"pos": "adjective",
+"ipa": "/ˈpraɪə/",
+"vi": "trước, có trước",
+"ex": "No prior experience is needed for this job.",
+"exVi": "Công việc này không cần kinh nghiệm trước.",
+"lv": "b2p"
+},
+{
+"id": "probable",
+"w": "probable",
+"pos": "adjective",
+"ipa": "/ˈprɒbəbl/",
+"vi": "có thể xảy ra",
+"ex": "It is probable that prices will rise again.",
+"exVi": "Có khả năng giá sẽ tăng nữa.",
+"lv": "b2p"
+},
+{
+"id": "proceed",
+"w": "proceed",
+"pos": "verb",
+"ipa": "/prəˈsiːd/",
+"vi": "tiếp tục, tiến hành",
+"ex": "Please proceed to Gate 12.",
+"exVi": "Xin mời tới cửa số 12.",
+"lv": "b2p"
+},
+{
+"id": "psychological",
+"w": "psychological",
+"pos": "adjective",
+"ipa": "/ˌsaɪkəˈlɒdʒɪkl/",
+"vi": "(thuộc) tâm lý",
+"ex": "The accident caused him psychological problems.",
+"exVi": "Vụ tai nạn để lại vấn đề tâm lý cho anh ấy.",
+"lv": "b2p"
+},
+{
+"id": "pursuit",
+"w": "pursuit",
+"pos": "noun",
+"ipa": "/pəˈsjuːt/",
+"vi": "sự theo đuổi",
+"ex": "He moved to the city in pursuit of a better job.",
+"exVi": "Anh ấy lên thành phố để tìm việc tốt hơn.",
+"lv": "b2p"
+},
+{
+"id": "racial",
+"w": "racial",
+"pos": "adjective",
+"ipa": "/ˈreɪʃl/",
+"vi": "(thuộc) chủng tộc",
+"ex": "The law protects people from racial discrimination.",
+"exVi": "Luật bảo vệ người dân khỏi phân biệt chủng tộc.",
+"lv": "b2p"
+},
+{
+"id": "racist",
+"w": "racist",
+"pos": "adjective",
+"ipa": "/ˈreɪsɪst/",
+"vi": "phân biệt chủng tộc",
+"ex": "Racist comments are not acceptable.",
+"exVi": "Bình luận phân biệt chủng tộc là không chấp nhận được.",
+"lv": "b2p"
+},
+{
+"id": "recovery",
+"w": "recovery",
+"pos": "noun",
+"ipa": "/rɪˈkʌvəri/",
+"vi": "sự hồi phục",
+"ex": "She made a quick recovery after the operation.",
+"exVi": "Cô ấy hồi phục nhanh sau ca mổ.",
+"lv": "b2p"
+},
+{
+"id": "recruitment",
+"w": "recruitment",
+"pos": "noun",
+"ipa": "/rɪˈkruːtmənt/",
+"vi": "sự tuyển dụng",
+"ex": "The company is planning the recruitment of new staff.",
+"exVi": "Công ty lên kế hoạch tuyển nhân viên mới.",
+"lv": "b2p"
+},
+{
+"id": "registration",
+"w": "registration",
+"pos": "noun",
+"ipa": "/ˌredʒɪˈstreɪʃn/",
+"vi": "sự đăng ký",
+"ex": "Registration for the course closes on Friday.",
+"exVi": "Đăng ký khoá học kết thúc vào thứ Sáu.",
+"lv": "b2p"
+},
+{
+"id": "relieve",
+"w": "relieve",
+"pos": "verb",
+"ipa": "/rɪˈliːv/",
+"vi": "làm giảm, xoa dịu",
+"ex": "This medicine will relieve the pain.",
+"exVi": "Thuốc này sẽ giảm đau.",
+"lv": "b2p"
+},
+{
+"id": "remarkable",
+"w": "remarkable",
+"pos": "adjective",
+"ipa": "/rɪˈmɑːkəbl/",
+"vi": "đáng chú ý, phi thường",
+"ex": "She made a remarkable recovery.",
+"exVi": "Cô ấy hồi phục đáng kinh ngạc.",
+"lv": "b2p"
+},
+{
+"id": "resolution",
+"w": "resolution",
+"pos": "noun",
+"ipa": "/ˌrezəˈluːʃn/",
+"vi": "quyết tâm; giải pháp",
+"ex": "My New Year's resolution is to exercise more.",
+"exVi": "Quyết tâm năm mới của tôi là tập thể dục nhiều hơn.",
+"lv": "b2p"
+},
+{
+"id": "restriction",
+"w": "restriction",
+"pos": "noun",
+"ipa": "/rɪˈstrɪkʃn/",
+"vi": "sự hạn chế",
+"ex": "There are restrictions on what you can bring on the plane.",
+"exVi": "Có hạn chế về đồ được mang lên máy bay.",
+"lv": "b2p"
+},
+{
+"id": "retirement",
+"w": "retirement",
+"pos": "noun",
+"ipa": "/rɪˈtaɪəmənt/",
+"vi": "sự nghỉ hưu",
+"ex": "My father is enjoying his retirement.",
+"exVi": "Bố tôi đang tận hưởng thời gian nghỉ hưu.",
+"lv": "b2p"
+},
+{
+"id": "revision",
+"w": "revision",
+"pos": "noun",
+"ipa": "/rɪˈvɪʒn/",
+"vi": "sự ôn tập; sự sửa đổi",
+"ex": "I need to do some revision for my exams.",
+"exVi": "Tôi cần ôn bài cho kỳ thi.",
+"lv": "b2p"
+},
+{
+"id": "risky",
+"w": "risky",
+"pos": "adjective",
+"ipa": "/ˈrɪski/",
+"vi": "rủi ro",
+"ex": "Investing all your money in one company is risky.",
+"exVi": "Dồn hết tiền vào một công ty là rủi ro.",
+"lv": "b2p"
+},
+{
+"id": "rob",
+"w": "rob",
+"pos": "verb",
+"ipa": "/rɒb/",
+"vi": "cướp",
+"ex": "Two men robbed the bank last night.",
+"exVi": "Hai người đàn ông cướp ngân hàng tối qua.",
+"lv": "b2p"
+},
+{
+"id": "romance",
+"w": "romance",
+"pos": "noun",
+"ipa": "/rəʊˈmæns/",
+"vi": "chuyện tình cảm",
+"ex": "They had a holiday romance in Da Lat.",
+"exVi": "Họ có một mối tình trong kỳ nghỉ ở Đà Lạt.",
+"lv": "b2p"
+},
+{
+"id": "satisfaction",
+"w": "satisfaction",
+"pos": "noun",
+"ipa": "/ˌsætɪsˈfækʃn/",
+"vi": "sự hài lòng",
+"ex": "Customer satisfaction is our top priority.",
+"exVi": "Sự hài lòng của khách là ưu tiên hàng đầu.",
+"lv": "b2p"
+},
+{
+"id": "scholar",
+"w": "scholar",
+"pos": "noun",
+"ipa": "/ˈskɒlə/",
+"vi": "học giả",
+"ex": "He is a scholar of ancient history.",
+"exVi": "Ông ấy là học giả về lịch sử cổ đại.",
+"lv": "b2p"
+},
+{
+"id": "seeker",
+"w": "seeker",
+"pos": "noun",
+"ipa": "/ˈsiːkə/",
+"vi": "người tìm kiếm",
+"ex": "The website helps job seekers find work.",
+"exVi": "Trang web giúp người tìm việc có việc làm.",
+"lv": "b2p"
+},
+{
+"id": "sensor",
+"w": "sensor",
+"pos": "noun",
+"ipa": "/ˈsensə/",
+"vi": "cảm biến",
+"ex": "The light has a sensor and turns on automatically.",
+"exVi": "Đèn có cảm biến và tự bật.",
+"lv": "b2p"
+},
+{
+"id": "settler",
+"w": "settler",
+"pos": "noun",
+"ipa": "/ˈsetlə/",
+"vi": "người định cư",
+"ex": "The first settlers arrived three hundred years ago.",
+"exVi": "Những người định cư đầu tiên đến từ ba trăm năm trước.",
+"lv": "b2p"
+},
+{
+"id": "shocking",
+"w": "shocking",
+"pos": "adjective",
+"ipa": "/ˈʃɒkɪŋ/",
+"vi": "gây sốc",
+"ex": "The news was shocking.",
+"exVi": "Tin tức thật gây sốc.",
+"lv": "b2p"
+},
+{
+"id": "signature",
+"w": "signature",
+"pos": "noun",
+"ipa": "/ˈsɪɡnətʃə/",
+"vi": "chữ ký",
+"ex": "Please put your signature at the bottom.",
+"exVi": "Vui lòng ký tên ở dưới cùng.",
+"lv": "b2p"
+},
+{
+"id": "significance",
+"w": "significance",
+"pos": "noun",
+"ipa": "/sɪɡˈnɪfɪkəns/",
+"vi": "tầm quan trọng, ý nghĩa",
+"ex": "The date has great significance for our family.",
+"exVi": "Ngày đó có ý nghĩa lớn với gia đình tôi.",
+"lv": "b2p"
+},
+{
+"id": "skilled",
+"w": "skilled",
+"pos": "adjective",
+"ipa": "/skɪld/",
+"vi": "lành nghề",
+"ex": "The company needs more skilled workers.",
+"exVi": "Công ty cần thêm thợ lành nghề.",
+"lv": "b2p"
+},
+{
+"id": "sometime",
+"w": "sometime",
+"pos": "adverb",
+"ipa": "/ˈsʌmtaɪm/",
+"vi": "vào lúc nào đó",
+"ex": "Let's meet for coffee sometime next week.",
+"exVi": "Tuần sau ta uống cà phê lúc nào đó nhé.",
+"lv": "b2p"
+},
+{
+"id": "spectator",
+"w": "spectator",
+"pos": "noun",
+"ipa": "/spekˈteɪtə/",
+"vi": "khán giả (thể thao)",
+"ex": "Thousands of spectators watched the race.",
+"exVi": "Hàng nghìn khán giả xem cuộc đua.",
+"lv": "b2p"
+},
+{
+"id": "speculation",
+"w": "speculation",
+"pos": "noun",
+"ipa": "/ˌspekjuˈleɪʃn/",
+"vi": "sự suy đoán",
+"ex": "There is speculation that the singer will retire.",
+"exVi": "Có đồn đoán rằng ca sĩ sẽ giải nghệ.",
+"lv": "b2p"
+},
+{
+"id": "spokesman",
+"w": "spokesman",
+"pos": "noun",
+"ipa": "/ˈspəʊksmən/",
+"vi": "người phát ngôn",
+"ex": "A spokesman for the company refused to comment.",
+"exVi": "Người phát ngôn của công ty từ chối bình luận.",
+"lv": "b2p"
+},
+{
+"id": "sponsorship",
+"w": "sponsorship",
+"pos": "noun",
+"ipa": "/ˈspɒnsəʃɪp/",
+"vi": "sự tài trợ",
+"ex": "The team gets sponsorship from a bank.",
+"exVi": "Đội nhận tài trợ từ một ngân hàng.",
+"lv": "b2p"
+},
+{
+"id": "suffering",
+"w": "suffering",
+"pos": "noun",
+"ipa": "/ˈsʌfərɪŋ/",
+"vi": "nỗi đau khổ",
+"ex": "The war caused great suffering.",
+"exVi": "Chiến tranh gây nhiều đau khổ.",
+"lv": "b2p"
+},
+{
+"id": "survivor",
+"w": "survivor",
+"pos": "noun",
+"ipa": "/səˈvaɪvə/",
+"vi": "người sống sót",
+"ex": "There were only two survivors of the crash.",
+"exVi": "Chỉ có hai người sống sót trong vụ tai nạn.",
+"lv": "b2p"
+},
+{
+"id": "sympathetic",
+"w": "sympathetic",
+"pos": "adjective",
+"ipa": "/ˌsɪmpəˈθetɪk/",
+"vi": "cảm thông",
+"ex": "My boss was very sympathetic when I was ill.",
+"exVi": "Sếp rất thông cảm khi tôi ốm.",
+"lv": "b2p"
+},
+{
+"id": "tattoo",
+"w": "tattoo",
+"pos": "noun",
+"ipa": "/təˈtuː/",
+"vi": "hình xăm",
+"ex": "He has a tattoo on his arm.",
+"exVi": "Anh ấy có hình xăm trên cánh tay.",
+"lv": "b2p"
+},
+{
+"id": "tease",
+"w": "tease",
+"pos": "verb",
+"ipa": "/tiːz/",
+"vi": "trêu chọc",
+"ex": "My brother always teases me about my hair.",
+"exVi": "Anh tôi luôn trêu tóc tôi.",
+"lv": "b2p"
+},
+{
+"id": "technological",
+"w": "technological",
+"pos": "adjective",
+"ipa": "/ˌteknəˈlɒdʒɪkl/",
+"vi": "(thuộc) công nghệ",
+"ex": "We live in a time of rapid technological change.",
+"exVi": "Ta sống trong thời công nghệ thay đổi nhanh.",
+"lv": "b2p"
+},
+{
+"id": "tendency",
+"w": "tendency",
+"pos": "noun",
+"ipa": "/ˈtendənsi/",
+"vi": "xu hướng",
+"ex": "He has a tendency to talk too much.",
+"exVi": "Anh ấy hay nói nhiều quá.",
+"lv": "b2p"
+},
+{
+"id": "terms",
+"w": "terms",
+"pos": "noun",
+"ipa": "/tɜːmz/",
+"vi": "điều khoản; phương diện",
+"ex": "In terms of price, this phone is the best.",
+"exVi": "Về giá thì điện thoại này tốt nhất.",
+"lv": "b2p"
+},
+{
+"id": "terror",
+"w": "terror",
+"pos": "noun",
+"ipa": "/ˈterə/",
+"vi": "sự kinh hoàng",
+"ex": "The children screamed in terror.",
+"exVi": "Bọn trẻ hét lên kinh hãi.",
+"lv": "b2p"
+},
+{
+"id": "terrorist",
+"w": "terrorist",
+"pos": "noun",
+"ipa": "/ˈterərɪst/",
+"vi": "kẻ khủng bố",
+"ex": "The police arrested a group of terrorists.",
+"exVi": "Cảnh sát bắt một nhóm khủng bố.",
+"lv": "b2p"
+},
+{
+"id": "theft",
+"w": "theft",
+"pos": "noun",
+"ipa": "/θeft/",
+"vi": "vụ trộm",
+"ex": "He reported the theft of his bike to the police.",
+"exVi": "Anh ấy báo cảnh sát về vụ mất trộm xe đạp.",
+"lv": "b2p"
+},
+{
+"id": "therapist",
+"w": "therapist",
+"pos": "noun",
+"ipa": "/ˈθerəpɪst/",
+"vi": "nhà trị liệu",
+"ex": "She sees a therapist once a week.",
+"exVi": "Cô ấy gặp nhà trị liệu mỗi tuần một lần.",
+"lv": "b2p"
+},
+{
+"id": "timeline",
+"w": "timeline",
+"pos": "noun",
+"ipa": "/ˈtaɪmlaɪn/",
+"vi": "mốc thời gian, tiến độ",
+"ex": "We need a clear timeline for the project.",
+"exVi": "Chúng ta cần tiến độ rõ ràng cho dự án.",
+"lv": "b2p"
+},
+{
+"id": "tragic",
+"w": "tragic",
+"pos": "adjective",
+"ipa": "/ˈtrædʒɪk/",
+"vi": "bi thảm",
+"ex": "He died in a tragic accident.",
+"exVi": "Anh ấy mất trong một tai nạn thương tâm.",
+"lv": "b2p"
+},
+{
+"id": "transportation",
+"w": "transportation",
+"pos": "noun",
+"ipa": "/ˌtrænspɔːˈteɪʃn/",
+"vi": "sự vận chuyển, giao thông",
+"ex": "Public transportation in the city is cheap.",
+"exVi": "Giao thông công cộng ở thành phố rẻ.",
+"lv": "b2p"
+},
+{
+"id": "unfortunate",
+"w": "unfortunate",
+"pos": "adjective",
+"ipa": "/ʌnˈfɔːtʃənət/",
+"vi": "không may, đáng tiếc",
+"ex": "It was unfortunate that it rained on the wedding day.",
+"exVi": "Thật không may trời mưa đúng ngày cưới.",
+"lv": "b2p"
+},
+{
+"id": "unite",
+"w": "unite",
+"pos": "verb",
+"ipa": "/juˈnaɪt/",
+"vi": "đoàn kết, hợp nhất",
+"ex": "The tragedy united the whole country.",
+"exVi": "Thảm kịch khiến cả nước đoàn kết.",
+"lv": "b2p"
+},
+{
+"id": "unity",
+"w": "unity",
+"pos": "noun",
+"ipa": "/ˈjuːnəti/",
+"vi": "sự thống nhất",
+"ex": "The team showed great unity.",
+"exVi": "Đội thể hiện tinh thần đoàn kết.",
+"lv": "b2p"
+},
+{
+"id": "urgent",
+"w": "urgent",
+"pos": "adjective",
+"ipa": "/ˈɜːdʒənt/",
+"vi": "khẩn cấp",
+"ex": "I have an urgent message for the manager.",
+"exVi": "Tôi có tin khẩn cho quản lý.",
+"lv": "b2p"
+},
+{
+"id": "usage",
+"w": "usage",
+"pos": "noun",
+"ipa": "/ˈjuːsɪdʒ/",
+"vi": "cách dùng; mức sử dụng",
+"ex": "Water usage is high in summer.",
+"exVi": "Lượng dùng nước cao vào mùa hè.",
+"lv": "b2p"
+},
+{
+"id": "useless",
+"w": "useless",
+"pos": "adjective",
+"ipa": "/ˈjuːsləs/",
+"vi": "vô dụng",
+"ex": "This old phone is useless.",
+"exVi": "Cái điện thoại cũ này vô dụng.",
+"lv": "b2p"
+},
+{
+"id": "vaccinate",
+"w": "vaccinate",
+"pos": "verb",
+"ipa": "/ˈvæksɪneɪt/",
+"vi": "tiêm chủng",
+"ex": "All children should be vaccinated against measles.",
+"exVi": "Mọi trẻ em nên được tiêm phòng sởi.",
+"lv": "b2p"
+},
+{
+"id": "vaccination",
+"w": "vaccination",
+"pos": "noun",
+"ipa": "/ˌvæksɪˈneɪʃn/",
+"vi": "sự tiêm chủng",
+"ex": "You need a vaccination before you travel.",
+"exVi": "Bạn cần tiêm phòng trước khi đi.",
+"lv": "b2p"
+},
+{
+"id": "villain",
+"w": "villain",
+"pos": "noun",
+"ipa": "/ˈvɪlən/",
+"vi": "kẻ phản diện",
+"ex": "The villain in the film was very scary.",
+"exVi": "Kẻ phản diện trong phim rất đáng sợ.",
+"lv": "b2p"
+},
+{
+"id": "voluntary",
+"w": "voluntary",
+"pos": "adjective",
+"ipa": "/ˈvɒləntri/",
+"vi": "tự nguyện",
+"ex": "She does voluntary work at the hospital.",
+"exVi": "Cô ấy làm tình nguyện ở bệnh viện.",
+"lv": "b2p"
+},
+{
+"id": "wisdom",
+"w": "wisdom",
+"pos": "noun",
+"ipa": "/ˈwɪzdəm/",
+"vi": "sự khôn ngoan",
+"ex": "My grandmother is full of wisdom.",
+"exVi": "Bà tôi rất thông thái.",
+"lv": "b2p"
 }
 ]
 }

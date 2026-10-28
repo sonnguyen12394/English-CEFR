@@ -35,7 +35,7 @@ for (const lv of LVS) {
   const add = (opt('content/b-add.json').words || []).filter(r => r.lv === lv && !have.has(r.w.toLowerCase())), ch0 = Math.ceil(ws.length / 80);
   for (let i = 0; i * 8 < add.length; i++) units.push({ id: `${lv}-ox-b${i + 1}`, lv, ch: ch0, chIcon: '⭐', chName: `${LVN[lv]} bổ sung Oxford`, bi: i + 1, vi: `${LVN[lv]} bổ sung Oxford · bài ${i + 1}`,
     words: add.slice(i * 8, i * 8 + 8).map(r => { const w = { id: r.id, w: r.w, pos: r.pos, ipa: r.ipa, pic: '', vi: r.vi, en: '', ex: r.ex, exVi: r.exVi };
-      const c = cloze(w); if (c) w.cloze = c; if (COL[r.id]) w.col = COL[r.id]; Object.assign(w, BD[r.w.toLowerCase()] || {}, DATA[r.id] || {});
+      const c = cloze(w); if (c) w.cloze = c; if (COL[r.id]) w.col = COL[r.id]; Object.assign(w, BD[r.w.toLowerCase()] || {}, DATA[r.id] || {}); if (BD[r.w.toLowerCase()]) bdUsed.add(r.w.toLowerCase());
       if (EX[r.id]) exam[r.id] = { s: EX[r.id][0], f: EX[r.id][1] }; return w; }) });
 }
 // 🌫 thành ngữ: từ loại idiom, câu ví dụ trên thẻ, nghĩa sai lấy từ thành ngữ khác

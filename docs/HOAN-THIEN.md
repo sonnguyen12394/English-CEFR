@@ -183,3 +183,9 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Nguồn: `content/b-add.json` (nghĩa, phiên âm, ví dụ) + `content/bx/add-b1.txt` (câu thi, cụm đúng / sai). `tools/build-b.mjs` thêm thành chặng ⭐ "bổ sung Oxford" cuối B1 / B1+ (7 + 7 bài); các bài cũ giữ nguyên (đã đối chiếu: 0 bài đổi, 0 câu thi đổi).
 - Số từ: B1 400 → 451, B1+ 399 → 448. Chưa có giọng tự nhiên (máy đọc như các từ B khác).
 - Còn thiếu: B2 362, C1 362 (nhiều từ phái sinh).
+
+### Bổ sung từ Oxford B2 còn thiếu (v66, 28/10/2026)
+- Thêm 305 từ (Claude soạn, chưa người thật kiểm): B2 +127 (từ thuộc Oxford 3000: anxious, confidence, criticism, freedom, investment, majority, privacy, threat, wildlife…), B2+ +178 (từ Oxford 5000: affordable, awareness, controversial, diversity, footprint, motivation, pandemic, recovery, wisdom…). Bỏ 55 dạng suy ra được (43 trạng từ -ly, making, moving, testing, voting…).
+- Cùng cách v65: `content/b-add.json` + `content/bx/add-b2.txt`, chặng ⭐ cuối B2 / B2+; 0 bài cũ đổi. Số từ: B2 566 → 693, B2+ 566 → 744.
+- Phụ: 31 từ có sẵn dữ liệu mẫu câu / sắc thái trong `content/bd` (rely, remind, equip, permit, threat…) trước đây không khớp từ nào, nay có từ nên được dùng.
+- Còn thiếu: C1 362 từ Oxford 5000.
