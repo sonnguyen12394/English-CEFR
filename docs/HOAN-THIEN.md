@@ -189,3 +189,8 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Cùng cách v65: `content/b-add.json` + `content/bx/add-b2.txt`, chặng ⭐ cuối B2 / B2+; 0 bài cũ đổi. Số từ: B2 566 → 693, B2+ 566 → 744.
 - Phụ: 31 từ có sẵn dữ liệu mẫu câu / sắc thái trong `content/bd` (rely, remind, equip, permit, threat…) trước đây không khớp từ nào, nay có từ nên được dùng.
 - Còn thiếu: C1 362 từ Oxford 5000.
+
+### Bổ sung từ Oxford C1 còn thiếu (v67, 28/10/2026)
+- Thêm 332 từ C1 (Claude soạn, chưa người thật kiểm): accountability, algorithm, collaboration, credibility, diagnosis, e-commerce, inequality, legislation-related, resilience, sustainability, transparency, vulnerability… Bỏ 27 dạng suy ra được (-ly, -ing của từ gốc có sẵn) và 2 từ (trans, sexuality); "follow-up" đã có.
+- `content/bx/add-c1.txt`, chặng ⭐ cuối C1 (42 bài); 0 bài cũ đổi. Số từ: C1 1.057 → 1.389.
+- Kết quả cả đợt v64–v67: app đã có đủ từ của Oxford 3000 / 5000 (A1 → C1) trừ dạng suy ra được. Tổng thêm 797 từ. Thời gian học ước tăng tương ứng số từ (B2 +22%, B2+ +31%, C1 +31%); chưa chạy lại mô phỏng.

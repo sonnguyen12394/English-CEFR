@@ -1,5 +1,5 @@
 {
-"_note": "Từ Oxford B1, B2 app còn thiếu (28/10/2026, Claude soạn, chưa người thật kiểm; người sáng lập: \"làm tiếp\"). tools/build-b.mjs thêm thành chặng ⭐ Bổ sung Oxford cuối B1 / B1+. Câu thi + cụm ở content/bx/add-b1.txt.",
+"_note": "Từ Oxford B1, B2, C1 app còn thiếu (28/10/2026, Claude soạn, chưa người thật kiểm; người sáng lập: \"làm tiếp\"). tools/build-b.mjs thêm thành chặng ⭐ Bổ sung Oxford cuối B1 / B1+. Câu thi + cụm ở content/bx/add-b1.txt.",
 "words": [
 {
 "id": "advise",
@@ -4050,6 +4050,3326 @@
 "ex": "My grandmother is full of wisdom.",
 "exVi": "Bà tôi rất thông thái.",
 "lv": "b2p"
+},
+{
+"id": "absent",
+"w": "absent",
+"pos": "adjective",
+"ipa": "/ˈæbsənt/",
+"vi": "vắng mặt",
+"ex": "Three students were absent from class today.",
+"exVi": "Hôm nay ba học sinh vắng mặt.",
+"lv": "c1"
+},
+{
+"id": "acceptance",
+"w": "acceptance",
+"pos": "noun",
+"ipa": "/əkˈseptəns/",
+"vi": "sự chấp nhận",
+"ex": "She received a letter of acceptance from the university.",
+"exVi": "Cô ấy nhận thư báo trúng tuyển của trường đại học.",
+"lv": "c1"
+},
+{
+"id": "accessible",
+"w": "accessible",
+"pos": "adjective",
+"ipa": "/əkˈsesəbl/",
+"vi": "dễ tiếp cận",
+"ex": "The museum is accessible to wheelchair users.",
+"exVi": "Bảo tàng có lối cho người dùng xe lăn.",
+"lv": "c1"
+},
+{
+"id": "accessory",
+"w": "accessory",
+"pos": "noun",
+"ipa": "/əkˈsesəri/",
+"vi": "phụ kiện",
+"ex": "This scarf is the perfect accessory for your dress.",
+"exVi": "Chiếc khăn này là phụ kiện hoàn hảo cho chiếc váy của bạn.",
+"lv": "c1"
+},
+{
+"id": "accomplishment",
+"w": "accomplishment",
+"pos": "noun",
+"ipa": "/əˈkʌmplɪʃmənt/",
+"vi": "thành tựu",
+"ex": "Finishing the marathon was a real accomplishment.",
+"exVi": "Chạy xong marathon là một thành tựu thực sự.",
+"lv": "c1"
+},
+{
+"id": "accordance",
+"w": "accordance",
+"pos": "noun",
+"ipa": "/əˈkɔːdns/",
+"vi": "sự phù hợp (theo)",
+"ex": "The building was designed in accordance with safety rules.",
+"exVi": "Toà nhà được thiết kế theo quy định an toàn.",
+"lv": "c1"
+},
+{
+"id": "accountability",
+"w": "accountability",
+"pos": "noun",
+"ipa": "/əˌkaʊntəˈbɪləti/",
+"vi": "trách nhiệm giải trình",
+"ex": "Citizens demand greater accountability from politicians.",
+"exVi": "Người dân đòi chính trị gia có trách nhiệm hơn.",
+"lv": "c1"
+},
+{
+"id": "accumulation",
+"w": "accumulation",
+"pos": "noun",
+"ipa": "/əˌkjuːmjəˈleɪʃn/",
+"vi": "sự tích tụ",
+"ex": "The accumulation of dust can cause allergies.",
+"exVi": "Bụi tích tụ có thể gây dị ứng.",
+"lv": "c1"
+},
+{
+"id": "accusation",
+"w": "accusation",
+"pos": "noun",
+"ipa": "/ˌækjuˈzeɪʃn/",
+"vi": "lời buộc tội",
+"ex": "He denied the accusations of cheating.",
+"exVi": "Anh ấy phủ nhận cáo buộc gian lận.",
+"lv": "c1"
+},
+{
+"id": "accused",
+"w": "accused",
+"pos": "noun",
+"ipa": "/əˈkjuːzd/",
+"vi": "bị cáo",
+"ex": "The accused was found not guilty.",
+"exVi": "Bị cáo được tuyên vô tội.",
+"lv": "c1"
+},
+{
+"id": "adaptation",
+"w": "adaptation",
+"pos": "noun",
+"ipa": "/ˌædæpˈteɪʃn/",
+"vi": "sự chuyển thể; thích nghi",
+"ex": "The film is an adaptation of a famous novel.",
+"exVi": "Bộ phim chuyển thể từ một tiểu thuyết nổi tiếng.",
+"lv": "c1"
+},
+{
+"id": "adjustment",
+"w": "adjustment",
+"pos": "noun",
+"ipa": "/əˈdʒʌstmənt/",
+"vi": "sự điều chỉnh",
+"ex": "We made a few adjustments to the plan.",
+"exVi": "Chúng tôi điều chỉnh kế hoạch một chút.",
+"lv": "c1"
+},
+{
+"id": "administrative",
+"w": "administrative",
+"pos": "adjective",
+"ipa": "/ədˈmɪnɪstrətɪv/",
+"vi": "(thuộc) hành chính",
+"ex": "She does administrative work in a hospital.",
+"exVi": "Cô ấy làm công việc hành chính ở bệnh viện.",
+"lv": "c1"
+},
+{
+"id": "administrator",
+"w": "administrator",
+"pos": "noun",
+"ipa": "/ədˈmɪnɪstreɪtə/",
+"vi": "quản trị viên",
+"ex": "Contact the system administrator for a new password.",
+"exVi": "Liên hệ quản trị hệ thống để lấy mật khẩu mới.",
+"lv": "c1"
+},
+{
+"id": "adoption",
+"w": "adoption",
+"pos": "noun",
+"ipa": "/əˈdɒpʃn/",
+"vi": "sự nhận con nuôi; sự áp dụng",
+"ex": "They are thinking about adoption.",
+"exVi": "Họ đang cân nhắc nhận con nuôi.",
+"lv": "c1"
+},
+{
+"id": "aggression",
+"w": "aggression",
+"pos": "noun",
+"ipa": "/əˈɡreʃn/",
+"vi": "sự hung hăng",
+"ex": "Violent games may increase aggression in children.",
+"exVi": "Trò chơi bạo lực có thể làm trẻ hung hăng hơn.",
+"lv": "c1"
+},
+{
+"id": "agricultural",
+"w": "agricultural",
+"pos": "adjective",
+"ipa": "/ˌæɡrɪˈkʌltʃərəl/",
+"vi": "(thuộc) nông nghiệp",
+"ex": "Rice is the main agricultural product of the region.",
+"exVi": "Lúa là nông sản chính của vùng.",
+"lv": "c1"
+},
+{
+"id": "algorithm",
+"w": "algorithm",
+"pos": "noun",
+"ipa": "/ˈælɡərɪðəm/",
+"vi": "thuật toán",
+"ex": "The app uses an algorithm to suggest videos.",
+"exVi": "Ứng dụng dùng thuật toán để gợi ý video.",
+"lv": "c1"
+},
+{
+"id": "alignment",
+"w": "alignment",
+"pos": "noun",
+"ipa": "/əˈlaɪnmənt/",
+"vi": "sự thẳng hàng; sự phù hợp",
+"ex": "The policy is in alignment with international rules.",
+"exVi": "Chính sách phù hợp với quy định quốc tế.",
+"lv": "c1"
+},
+{
+"id": "allegation",
+"w": "allegation",
+"pos": "noun",
+"ipa": "/ˌæləˈɡeɪʃn/",
+"vi": "lời cáo buộc",
+"ex": "The minister denies all the allegations.",
+"exVi": "Bộ trưởng bác bỏ mọi cáo buộc.",
+"lv": "c1"
+},
+{
+"id": "allocation",
+"w": "allocation",
+"pos": "noun",
+"ipa": "/ˌæləˈkeɪʃn/",
+"vi": "sự phân bổ",
+"ex": "The allocation of money to schools has increased.",
+"exVi": "Ngân sách phân bổ cho trường học đã tăng.",
+"lv": "c1"
+},
+{
+"id": "allowance",
+"w": "allowance",
+"pos": "noun",
+"ipa": "/əˈlaʊəns/",
+"vi": "trợ cấp; tiền tiêu vặt",
+"ex": "The company pays a travel allowance.",
+"exVi": "Công ty trả phụ cấp đi lại.",
+"lv": "c1"
+},
+{
+"id": "all-time",
+"w": "all-time",
+"pos": "adjective",
+"ipa": "/ˈɔːl taɪm/",
+"vi": "(cao / thấp) nhất từ trước tới nay",
+"ex": "Prices have reached an all-time high.",
+"exVi": "Giá đã lên mức cao nhất từ trước tới nay.",
+"lv": "c1"
+},
+{
+"id": "amendment",
+"w": "amendment",
+"pos": "noun",
+"ipa": "/əˈmendmənt/",
+"vi": "sự sửa đổi (luật)",
+"ex": "Parliament approved an amendment to the law.",
+"exVi": "Quốc hội thông qua bản sửa đổi luật.",
+"lv": "c1"
+},
+{
+"id": "analytics",
+"w": "analytics",
+"pos": "noun",
+"ipa": "/ˌænəˈlɪtɪks/",
+"vi": "phân tích dữ liệu",
+"ex": "The company uses analytics to understand its customers.",
+"exVi": "Công ty dùng phân tích dữ liệu để hiểu khách hàng.",
+"lv": "c1"
+},
+{
+"id": "appreciation",
+"w": "appreciation",
+"pos": "noun",
+"ipa": "/əˌpriːʃiˈeɪʃn/",
+"vi": "sự trân trọng; hiểu biết",
+"ex": "We gave her flowers as a sign of our appreciation.",
+"exVi": "Chúng tôi tặng hoa cô ấy để tỏ lòng biết ơn.",
+"lv": "c1"
+},
+{
+"id": "aspire",
+"w": "aspire",
+"pos": "verb",
+"ipa": "/əˈspaɪə/",
+"vi": "khao khát",
+"ex": "She aspires to become a doctor.",
+"exVi": "Cô ấy khao khát trở thành bác sĩ.",
+"lv": "c1"
+},
+{
+"id": "assertion",
+"w": "assertion",
+"pos": "noun",
+"ipa": "/əˈsɜːʃn/",
+"vi": "lời khẳng định",
+"ex": "There is no evidence for his assertion.",
+"exVi": "Không có bằng chứng cho khẳng định của anh ta.",
+"lv": "c1"
+},
+{
+"id": "assurance",
+"w": "assurance",
+"pos": "noun",
+"ipa": "/əˈʃʊərəns/",
+"vi": "sự đảm bảo",
+"ex": "He gave me his assurance that the work would be finished.",
+"exVi": "Anh ấy cam đoan công việc sẽ xong.",
+"lv": "c1"
+},
+{
+"id": "attendance",
+"w": "attendance",
+"pos": "noun",
+"ipa": "/əˈtendəns/",
+"vi": "sự có mặt, số người tham dự",
+"ex": "Attendance at the meeting was low.",
+"exVi": "Số người dự họp ít.",
+"lv": "c1"
+},
+{
+"id": "availability",
+"w": "availability",
+"pos": "noun",
+"ipa": "/əˌveɪləˈbɪləti/",
+"vi": "tình trạng có sẵn",
+"ex": "Please check the availability of rooms.",
+"exVi": "Vui lòng kiểm tra phòng còn trống không.",
+"lv": "c1"
+},
+{
+"id": "bang",
+"w": "bang",
+"pos": "noun",
+"ipa": "/bæŋ/",
+"vi": "tiếng nổ lớn",
+"ex": "The door closed with a loud bang.",
+"exVi": "Cửa đóng sầm một tiếng.",
+"lv": "c1"
+},
+{
+"id": "bare",
+"w": "bare",
+"pos": "adjective",
+"ipa": "/beə/",
+"vi": "trần, trống trơn",
+"ex": "He walked on the beach in bare feet.",
+"exVi": "Anh ấy đi chân trần trên bãi biển.",
+"lv": "c1"
+},
+{
+"id": "blaze",
+"w": "blaze",
+"pos": "noun",
+"ipa": "/bleɪz/",
+"vi": "đám cháy lớn",
+"ex": "Firefighters fought the blaze for hours.",
+"exVi": "Lính cứu hoả dập đám cháy nhiều giờ.",
+"lv": "c1"
+},
+{
+"id": "bout",
+"w": "bout",
+"pos": "noun",
+"ipa": "/baʊt/",
+"vi": "cơn, đợt (bệnh)",
+"ex": "She is recovering from a bout of flu.",
+"exVi": "Cô ấy đang khỏi một đợt cúm.",
+"lv": "c1"
+},
+{
+"id": "burial",
+"w": "burial",
+"pos": "noun",
+"ipa": "/ˈberiəl/",
+"vi": "sự chôn cất",
+"ex": "The burial took place in his hometown.",
+"exVi": "Lễ an táng diễn ra ở quê ông.",
+"lv": "c1"
+},
+{
+"id": "buzz",
+"w": "buzz",
+"pos": "noun",
+"ipa": "/bʌz/",
+"vi": "tiếng vo ve; sự náo nhiệt",
+"ex": "There is a real buzz in the city before the festival.",
+"exVi": "Thành phố nhộn nhịp trước lễ hội.",
+"lv": "c1"
+},
+{
+"id": "calculation",
+"w": "calculation",
+"pos": "noun",
+"ipa": "/ˌkælkjuˈleɪʃn/",
+"vi": "phép tính",
+"ex": "My calculations show we will need more money.",
+"exVi": "Theo tính toán của tôi, ta cần thêm tiền.",
+"lv": "c1"
+},
+{
+"id": "cancellation",
+"w": "cancellation",
+"pos": "noun",
+"ipa": "/ˌkænsəˈleɪʃn/",
+"vi": "sự huỷ bỏ",
+"ex": "There is a fee for late cancellation.",
+"exVi": "Huỷ muộn sẽ bị tính phí.",
+"lv": "c1"
+},
+{
+"id": "capitalism",
+"w": "capitalism",
+"pos": "noun",
+"ipa": "/ˈkæpɪtəlɪzəm/",
+"vi": "chủ nghĩa tư bản",
+"ex": "The book criticises modern capitalism.",
+"exVi": "Cuốn sách phê phán chủ nghĩa tư bản hiện đại.",
+"lv": "c1"
+},
+{
+"id": "capitalist",
+"w": "capitalist",
+"pos": "noun",
+"ipa": "/ˈkæpɪtəlɪst/",
+"vi": "nhà tư bản",
+"ex": "A venture capitalist invested in the start-up.",
+"exVi": "Một nhà đầu tư mạo hiểm rót vốn vào công ty khởi nghiệp.",
+"lv": "c1"
+},
+{
+"id": "cautious",
+"w": "cautious",
+"pos": "adjective",
+"ipa": "/ˈkɔːʃəs/",
+"vi": "thận trọng",
+"ex": "Be cautious when you walk on the ice.",
+"exVi": "Hãy cẩn thận khi đi trên băng.",
+"lv": "c1"
+},
+{
+"id": "charm",
+"w": "charm",
+"pos": "noun",
+"ipa": "/tʃɑːm/",
+"vi": "sức quyến rũ",
+"ex": "The old town has a special charm.",
+"exVi": "Phố cổ có nét quyến rũ riêng.",
+"lv": "c1"
+},
+{
+"id": "chill",
+"w": "chill",
+"pos": "noun",
+"ipa": "/tʃɪl/",
+"vi": "cảm giác lạnh",
+"ex": "There was a chill in the air.",
+"exVi": "Không khí se lạnh.",
+"lv": "c1"
+},
+{
+"id": "circulation",
+"w": "circulation",
+"pos": "noun",
+"ipa": "/ˌsɜːkjəˈleɪʃn/",
+"vi": "sự lưu thông; số phát hành",
+"ex": "Exercise improves blood circulation.",
+"exVi": "Tập thể dục giúp lưu thông máu.",
+"lv": "c1"
+},
+{
+"id": "citizenship",
+"w": "citizenship",
+"pos": "noun",
+"ipa": "/ˈsɪtɪzənʃɪp/",
+"vi": "quốc tịch",
+"ex": "She applied for British citizenship.",
+"exVi": "Cô ấy nộp đơn xin quốc tịch Anh.",
+"lv": "c1"
+},
+{
+"id": "clinical",
+"w": "clinical",
+"pos": "adjective",
+"ipa": "/ˈklɪnɪkl/",
+"vi": "(thuộc) lâm sàng",
+"ex": "The drug is now in clinical trials.",
+"exVi": "Thuốc đang được thử nghiệm lâm sàng.",
+"lv": "c1"
+},
+{
+"id": "coastal",
+"w": "coastal",
+"pos": "adjective",
+"ipa": "/ˈkəʊstl/",
+"vi": "ven biển",
+"ex": "Coastal towns are popular in summer.",
+"exVi": "Các thị trấn ven biển đông khách vào mùa hè.",
+"lv": "c1"
+},
+{
+"id": "collaboration",
+"w": "collaboration",
+"pos": "noun",
+"ipa": "/kəˌlæbəˈreɪʃn/",
+"vi": "sự hợp tác",
+"ex": "The project is a collaboration between two universities.",
+"exVi": "Dự án là sự hợp tác giữa hai trường đại học.",
+"lv": "c1"
+},
+{
+"id": "collective",
+"w": "collective",
+"pos": "adjective",
+"ipa": "/kəˈlektɪv/",
+"vi": "tập thể",
+"ex": "It was a collective decision.",
+"exVi": "Đó là quyết định tập thể.",
+"lv": "c1"
+},
+{
+"id": "columnist",
+"w": "columnist",
+"pos": "noun",
+"ipa": "/ˈkɒləmnɪst/",
+"vi": "người viết chuyên mục",
+"ex": "She is a columnist for a national newspaper.",
+"exVi": "Cô ấy viết chuyên mục cho một tờ báo quốc gia.",
+"lv": "c1"
+},
+{
+"id": "comeback",
+"w": "comeback",
+"pos": "noun",
+"ipa": "/ˈkʌmbæk/",
+"vi": "sự trở lại",
+"ex": "The singer made a comeback after ten years.",
+"exVi": "Ca sĩ trở lại sau mười năm.",
+"lv": "c1"
+},
+{
+"id": "commentator",
+"w": "commentator",
+"pos": "noun",
+"ipa": "/ˈkɒmənteɪtə/",
+"vi": "bình luận viên",
+"ex": "The football commentator got very excited.",
+"exVi": "Bình luận viên bóng đá rất phấn khích.",
+"lv": "c1"
+},
+{
+"id": "commerce",
+"w": "commerce",
+"pos": "noun",
+"ipa": "/ˈkɒmɜːs/",
+"vi": "thương mại",
+"ex": "The city is a centre of trade and commerce.",
+"exVi": "Thành phố là trung tâm buôn bán và thương mại.",
+"lv": "c1"
+},
+{
+"id": "commissioner",
+"w": "commissioner",
+"pos": "noun",
+"ipa": "/kəˈmɪʃənə/",
+"vi": "uỷ viên, người đứng đầu cơ quan",
+"ex": "The police commissioner announced new measures.",
+"exVi": "Giám đốc cảnh sát công bố biện pháp mới.",
+"lv": "c1"
+},
+{
+"id": "compel",
+"w": "compel",
+"pos": "verb",
+"ipa": "/kəmˈpel/",
+"vi": "buộc, ép",
+"ex": "The rain compelled us to cancel the trip.",
+"exVi": "Cơn mưa buộc chúng tôi huỷ chuyến đi.",
+"lv": "c1"
+},
+{
+"id": "compensation",
+"w": "compensation",
+"pos": "noun",
+"ipa": "/ˌkɒmpenˈseɪʃn/",
+"vi": "tiền bồi thường",
+"ex": "The passengers received compensation for the delay.",
+"exVi": "Hành khách được bồi thường vì chuyến bay trễ.",
+"lv": "c1"
+},
+{
+"id": "competence",
+"w": "competence",
+"pos": "noun",
+"ipa": "/ˈkɒmpɪtəns/",
+"vi": "năng lực",
+"ex": "Nobody doubts her competence as a manager.",
+"exVi": "Không ai nghi ngờ năng lực quản lý của cô ấy.",
+"lv": "c1"
+},
+{
+"id": "complexity",
+"w": "complexity",
+"pos": "noun",
+"ipa": "/kəmˈpleksəti/",
+"vi": "sự phức tạp",
+"ex": "The complexity of the problem surprised us.",
+"exVi": "Mức độ phức tạp của vấn đề khiến chúng tôi bất ngờ.",
+"lv": "c1"
+},
+{
+"id": "compliance",
+"w": "compliance",
+"pos": "noun",
+"ipa": "/kəmˈplaɪəns/",
+"vi": "sự tuân thủ",
+"ex": "All factories must be in compliance with safety laws.",
+"exVi": "Mọi nhà máy phải tuân thủ luật an toàn.",
+"lv": "c1"
+},
+{
+"id": "concession",
+"w": "concession",
+"pos": "noun",
+"ipa": "/kənˈseʃn/",
+"vi": "sự nhượng bộ",
+"ex": "Both sides had to make concessions.",
+"exVi": "Hai bên đều phải nhượng bộ.",
+"lv": "c1"
+},
+{
+"id": "confession",
+"w": "confession",
+"pos": "noun",
+"ipa": "/kənˈfeʃn/",
+"vi": "lời thú nhận",
+"ex": "I have a confession to make: I ate your cake.",
+"exVi": "Tôi phải thú nhận: tôi đã ăn bánh của bạn.",
+"lv": "c1"
+},
+{
+"id": "confirmation",
+"w": "confirmation",
+"pos": "noun",
+"ipa": "/ˌkɒnfəˈmeɪʃn/",
+"vi": "sự xác nhận",
+"ex": "You will receive confirmation by email.",
+"exVi": "Bạn sẽ nhận xác nhận qua email.",
+"lv": "c1"
+},
+{
+"id": "confrontation",
+"w": "confrontation",
+"pos": "noun",
+"ipa": "/ˌkɒnfrʌnˈteɪʃn/",
+"vi": "sự đối đầu",
+"ex": "He wanted to avoid a confrontation with his boss.",
+"exVi": "Anh ấy muốn tránh đối đầu với sếp.",
+"lv": "c1"
+},
+{
+"id": "connectivity",
+"w": "connectivity",
+"pos": "noun",
+"ipa": "/ˌkɒnekˈtɪvəti/",
+"vi": "khả năng kết nối",
+"ex": "Rural areas still have poor internet connectivity.",
+"exVi": "Vùng nông thôn vẫn kết nối mạng kém.",
+"lv": "c1"
+},
+{
+"id": "consciousness",
+"w": "consciousness",
+"pos": "noun",
+"ipa": "/ˈkɒnʃəsnəs/",
+"vi": "ý thức; tri giác",
+"ex": "He lost consciousness after the fall.",
+"exVi": "Anh ấy bất tỉnh sau cú ngã.",
+"lv": "c1"
+},
+{
+"id": "conserve",
+"w": "conserve",
+"pos": "verb",
+"ipa": "/kənˈsɜːv/",
+"vi": "bảo tồn; tiết kiệm",
+"ex": "We must conserve water during the dry season.",
+"exVi": "Ta phải tiết kiệm nước mùa khô.",
+"lv": "c1"
+},
+{
+"id": "constitute",
+"w": "constitute",
+"pos": "verb",
+"ipa": "/ˈkɒnstɪtjuːt/",
+"vi": "cấu thành, là",
+"ex": "Women constitute half of the workforce.",
+"exVi": "Phụ nữ chiếm một nửa lực lượng lao động.",
+"lv": "c1"
+},
+{
+"id": "constitutional",
+"w": "constitutional",
+"pos": "adjective",
+"ipa": "/ˌkɒnstɪˈtjuːʃənl/",
+"vi": "(thuộc) hiến pháp",
+"ex": "Freedom of speech is a constitutional right.",
+"exVi": "Tự do ngôn luận là quyền hiến định.",
+"lv": "c1"
+},
+{
+"id": "consultation",
+"w": "consultation",
+"pos": "noun",
+"ipa": "/ˌkɒnslˈteɪʃn/",
+"vi": "sự tham khảo ý kiến; buổi khám",
+"ex": "The plan was made after consultation with residents.",
+"exVi": "Kế hoạch được lập sau khi hỏi ý kiến dân.",
+"lv": "c1"
+},
+{
+"id": "contend",
+"w": "contend",
+"pos": "verb",
+"ipa": "/kənˈtend/",
+"vi": "cho rằng; tranh đấu",
+"ex": "Some experts contend that the tax is unfair.",
+"exVi": "Một số chuyên gia cho rằng thuế này không công bằng.",
+"lv": "c1"
+},
+{
+"id": "contention",
+"w": "contention",
+"pos": "noun",
+"ipa": "/kənˈtenʃn/",
+"vi": "luận điểm; sự tranh cãi",
+"ex": "It is my contention that the plan will fail.",
+"exVi": "Quan điểm của tôi là kế hoạch sẽ thất bại.",
+"lv": "c1"
+},
+{
+"id": "contractor",
+"w": "contractor",
+"pos": "noun",
+"ipa": "/kənˈtræktə/",
+"vi": "nhà thầu",
+"ex": "We hired a contractor to repair the roof.",
+"exVi": "Chúng tôi thuê nhà thầu sửa mái.",
+"lv": "c1"
+},
+{
+"id": "contributor",
+"w": "contributor",
+"pos": "noun",
+"ipa": "/kənˈtrɪbjətə/",
+"vi": "người đóng góp; nguyên nhân",
+"ex": "Cars are a major contributor to air pollution.",
+"exVi": "Ô tô là thủ phạm lớn gây ô nhiễm không khí.",
+"lv": "c1"
+},
+{
+"id": "conversion",
+"w": "conversion",
+"pos": "noun",
+"ipa": "/kənˈvɜːʃn/",
+"vi": "sự chuyển đổi",
+"ex": "The conversion of the old factory into flats took two years.",
+"exVi": "Việc cải tạo nhà máy cũ thành căn hộ mất hai năm.",
+"lv": "c1"
+},
+{
+"id": "conviction",
+"w": "conviction",
+"pos": "noun",
+"ipa": "/kənˈvɪkʃn/",
+"vi": "niềm tin chắc; sự kết án",
+"ex": "She spoke with great conviction.",
+"exVi": "Cô ấy nói đầy tin tưởng.",
+"lv": "c1"
+},
+{
+"id": "cooperation",
+"w": "cooperation",
+"pos": "noun",
+"ipa": "/kəʊˌɒpəˈreɪʃn/",
+"vi": "sự hợp tác",
+"ex": "Thank you for your cooperation.",
+"exVi": "Cảm ơn sự hợp tác của bạn.",
+"lv": "c1"
+},
+{
+"id": "cooperative",
+"w": "cooperative",
+"pos": "adjective",
+"ipa": "/kəʊˈɒpərətɪv/",
+"vi": "hợp tác, sẵn lòng giúp",
+"ex": "The staff were very cooperative.",
+"exVi": "Nhân viên rất hợp tác.",
+"lv": "c1"
+},
+{
+"id": "coordination",
+"w": "coordination",
+"pos": "noun",
+"ipa": "/kəʊˌɔːdɪˈneɪʃn/",
+"vi": "sự phối hợp",
+"ex": "The rescue needed good coordination between teams.",
+"exVi": "Cuộc cứu hộ cần phối hợp tốt giữa các đội.",
+"lv": "c1"
+},
+{
+"id": "coordinator",
+"w": "coordinator",
+"pos": "noun",
+"ipa": "/kəʊˈɔːdɪneɪtə/",
+"vi": "điều phối viên",
+"ex": "She works as a project coordinator.",
+"exVi": "Cô ấy làm điều phối viên dự án.",
+"lv": "c1"
+},
+{
+"id": "correction",
+"w": "correction",
+"pos": "noun",
+"ipa": "/kəˈrekʃn/",
+"vi": "sự sửa chữa",
+"ex": "The teacher made corrections in red.",
+"exVi": "Cô giáo sửa bài bằng mực đỏ.",
+"lv": "c1"
+},
+{
+"id": "correlation",
+"w": "correlation",
+"pos": "noun",
+"ipa": "/ˌkɒrəˈleɪʃn/",
+"vi": "sự tương quan",
+"ex": "There is a correlation between sleep and memory.",
+"exVi": "Có mối tương quan giữa giấc ngủ và trí nhớ.",
+"lv": "c1"
+},
+{
+"id": "correspond",
+"w": "correspond",
+"pos": "verb",
+"ipa": "/ˌkɒrəˈspɒnd/",
+"vi": "tương ứng; trao đổi thư",
+"ex": "The numbers correspond to the rooms.",
+"exVi": "Các số tương ứng với các phòng.",
+"lv": "c1"
+},
+{
+"id": "corresponding",
+"w": "corresponding",
+"pos": "adjective",
+"ipa": "/ˌkɒrəˈspɒndɪŋ/",
+"vi": "tương ứng",
+"ex": "Sales rose by 10% compared with the corresponding period last year.",
+"exVi": "Doanh số tăng 10% so với cùng kỳ năm ngoái.",
+"lv": "c1"
+},
+{
+"id": "corruption",
+"w": "corruption",
+"pos": "noun",
+"ipa": "/kəˈrʌpʃn/",
+"vi": "tham nhũng",
+"ex": "The government promised to fight corruption.",
+"exVi": "Chính phủ hứa chống tham nhũng.",
+"lv": "c1"
+},
+{
+"id": "councillor",
+"w": "councillor",
+"pos": "noun",
+"ipa": "/ˈkaʊnsələ/",
+"vi": "uỷ viên hội đồng",
+"ex": "The local councillor visited our street.",
+"exVi": "Đại biểu hội đồng địa phương đến thăm phố tôi.",
+"lv": "c1"
+},
+{
+"id": "counselling",
+"w": "counselling",
+"pos": "noun",
+"ipa": "/ˈkaʊnsəlɪŋ/",
+"vi": "sự tư vấn (tâm lý)",
+"ex": "The school offers free counselling for students.",
+"exVi": "Trường có tư vấn tâm lý miễn phí cho học sinh.",
+"lv": "c1"
+},
+{
+"id": "creator",
+"w": "creator",
+"pos": "noun",
+"ipa": "/kriˈeɪtə/",
+"vi": "người sáng tạo",
+"ex": "He is the creator of a popular cartoon.",
+"exVi": "Anh ấy là tác giả một bộ phim hoạt hình nổi tiếng.",
+"lv": "c1"
+},
+{
+"id": "credibility",
+"w": "credibility",
+"pos": "noun",
+"ipa": "/ˌkredəˈbɪləti/",
+"vi": "sự đáng tin",
+"ex": "The scandal damaged his credibility.",
+"exVi": "Vụ bê bối làm mất uy tín của ông ấy.",
+"lv": "c1"
+},
+{
+"id": "cryptocurrency",
+"w": "cryptocurrency",
+"pos": "noun",
+"ipa": "/ˈkrɪptəʊkʌrənsi/",
+"vi": "tiền mã hoá",
+"ex": "He lost money investing in cryptocurrency.",
+"exVi": "Anh ấy mất tiền vì đầu tư tiền mã hoá.",
+"lv": "c1"
+},
+{
+"id": "curiosity",
+"w": "curiosity",
+"pos": "noun",
+"ipa": "/ˌkjʊəriˈɒsəti/",
+"vi": "sự tò mò",
+"ex": "Children are full of curiosity.",
+"exVi": "Trẻ em đầy tò mò.",
+"lv": "c1"
+},
+{
+"id": "damaging",
+"w": "damaging",
+"pos": "adjective",
+"ipa": "/ˈdæmɪdʒɪŋ/",
+"vi": "gây hại",
+"ex": "Smoking is damaging to your health.",
+"exVi": "Hút thuốc có hại cho sức khoẻ.",
+"lv": "c1"
+},
+{
+"id": "declaration",
+"w": "declaration",
+"pos": "noun",
+"ipa": "/ˌdekləˈreɪʃn/",
+"vi": "tuyên bố; tờ khai",
+"ex": "Fill in the customs declaration form.",
+"exVi": "Điền tờ khai hải quan.",
+"lv": "c1"
+},
+{
+"id": "dedication",
+"w": "dedication",
+"pos": "noun",
+"ipa": "/ˌdedɪˈkeɪʃn/",
+"vi": "sự tận tuỵ",
+"ex": "Her dedication to her work is amazing.",
+"exVi": "Sự tận tuỵ với công việc của cô ấy thật đáng nể.",
+"lv": "c1"
+},
+{
+"id": "deficiency",
+"w": "deficiency",
+"pos": "noun",
+"ipa": "/dɪˈfɪʃnsi/",
+"vi": "sự thiếu hụt",
+"ex": "Vitamin D deficiency is common in winter.",
+"exVi": "Thiếu vitamin D thường gặp vào mùa đông.",
+"lv": "c1"
+},
+{
+"id": "delegation",
+"w": "delegation",
+"pos": "noun",
+"ipa": "/ˌdelɪˈɡeɪʃn/",
+"vi": "phái đoàn; sự giao quyền",
+"ex": "A delegation from Japan visited the factory.",
+"exVi": "Một phái đoàn Nhật Bản thăm nhà máy.",
+"lv": "c1"
+},
+{
+"id": "denial",
+"w": "denial",
+"pos": "noun",
+"ipa": "/dɪˈnaɪəl/",
+"vi": "sự phủ nhận",
+"ex": "He issued a denial of the rumours.",
+"exVi": "Anh ấy lên tiếng phủ nhận tin đồn.",
+"lv": "c1"
+},
+{
+"id": "dense",
+"w": "dense",
+"pos": "adjective",
+"ipa": "/dens/",
+"vi": "dày đặc",
+"ex": "The city is covered in dense fog.",
+"exVi": "Thành phố bị sương mù dày đặc bao phủ.",
+"lv": "c1"
+},
+{
+"id": "dependence",
+"w": "dependence",
+"pos": "noun",
+"ipa": "/dɪˈpendəns/",
+"vi": "sự phụ thuộc",
+"ex": "The country wants to reduce its dependence on oil.",
+"exVi": "Đất nước muốn giảm phụ thuộc vào dầu mỏ.",
+"lv": "c1"
+},
+{
+"id": "deployment",
+"w": "deployment",
+"pos": "noun",
+"ipa": "/dɪˈplɔɪmənt/",
+"vi": "sự triển khai",
+"ex": "The deployment of the new software took a week.",
+"exVi": "Việc triển khai phần mềm mới mất một tuần.",
+"lv": "c1"
+},
+{
+"id": "descent",
+"w": "descent",
+"pos": "noun",
+"ipa": "/dɪˈsent/",
+"vi": "sự hạ xuống; dòng dõi",
+"ex": "The plane began its descent into Hanoi.",
+"exVi": "Máy bay bắt đầu hạ cánh xuống Hà Nội.",
+"lv": "c1"
+},
+{
+"id": "detention",
+"w": "detention",
+"pos": "noun",
+"ipa": "/dɪˈtenʃn/",
+"vi": "sự giam giữ; phạt ở lại trường",
+"ex": "He was held in detention for two days.",
+"exVi": "Anh ta bị tạm giam hai ngày.",
+"lv": "c1"
+},
+{
+"id": "devastating",
+"w": "devastating",
+"pos": "adjective",
+"ipa": "/ˈdevəsteɪtɪŋ/",
+"vi": "tàn khốc",
+"ex": "The earthquake had devastating effects.",
+"exVi": "Trận động đất gây hậu quả tàn khốc.",
+"lv": "c1"
+},
+{
+"id": "diagnosis",
+"w": "diagnosis",
+"pos": "noun",
+"ipa": "/ˌdaɪəɡˈnəʊsɪs/",
+"vi": "sự chẩn đoán",
+"ex": "The doctor made a quick diagnosis.",
+"exVi": "Bác sĩ chẩn đoán nhanh.",
+"lv": "c1"
+},
+{
+"id": "dictate",
+"w": "dictate",
+"pos": "verb",
+"ipa": "/dɪkˈteɪt/",
+"vi": "đọc cho chép; quy định",
+"ex": "The weather will dictate our plans.",
+"exVi": "Thời tiết sẽ quyết định kế hoạch của chúng tôi.",
+"lv": "c1"
+},
+{
+"id": "diplomatic",
+"w": "diplomatic",
+"pos": "adjective",
+"ipa": "/ˌdɪpləˈmætɪk/",
+"vi": "ngoại giao; khéo léo",
+"ex": "The two countries restored diplomatic relations.",
+"exVi": "Hai nước khôi phục quan hệ ngoại giao.",
+"lv": "c1"
+},
+{
+"id": "disastrous",
+"w": "disastrous",
+"pos": "adjective",
+"ipa": "/dɪˈzɑːstrəs/",
+"vi": "thảm hại",
+"ex": "The holiday was disastrous from start to finish.",
+"exVi": "Kỳ nghỉ tệ hại từ đầu đến cuối.",
+"lv": "c1"
+},
+{
+"id": "disclosure",
+"w": "disclosure",
+"pos": "noun",
+"ipa": "/dɪsˈkləʊʒə/",
+"vi": "sự tiết lộ, công bố",
+"ex": "The law requires the disclosure of company profits.",
+"exVi": "Luật yêu cầu công bố lợi nhuận công ty.",
+"lv": "c1"
+},
+{
+"id": "dismissal",
+"w": "dismissal",
+"pos": "noun",
+"ipa": "/dɪsˈmɪsl/",
+"vi": "sự sa thải",
+"ex": "He complained about his unfair dismissal.",
+"exVi": "Anh ấy khiếu nại việc bị sa thải bất công.",
+"lv": "c1"
+},
+{
+"id": "disposal",
+"w": "disposal",
+"pos": "noun",
+"ipa": "/dɪˈspəʊzl/",
+"vi": "sự xử lý (rác); sẵn dùng",
+"ex": "The disposal of plastic waste is a big problem.",
+"exVi": "Xử lý rác thải nhựa là vấn đề lớn.",
+"lv": "c1"
+},
+{
+"id": "disruption",
+"w": "disruption",
+"pos": "noun",
+"ipa": "/dɪsˈrʌpʃn/",
+"vi": "sự gián đoạn",
+"ex": "The strike caused serious disruption to trains.",
+"exVi": "Cuộc đình công gây gián đoạn nghiêm trọng cho tàu.",
+"lv": "c1"
+},
+{
+"id": "distinctive",
+"w": "distinctive",
+"pos": "adjective",
+"ipa": "/dɪˈstɪŋktɪv/",
+"vi": "đặc trưng",
+"ex": "The bird has a distinctive red tail.",
+"exVi": "Con chim có chiếc đuôi đỏ đặc trưng.",
+"lv": "c1"
+},
+{
+"id": "documentation",
+"w": "documentation",
+"pos": "noun",
+"ipa": "/ˌdɒkjumenˈteɪʃn/",
+"vi": "tài liệu, giấy tờ",
+"ex": "You need proper documentation to enter the country.",
+"exVi": "Bạn cần giấy tờ hợp lệ để nhập cảnh.",
+"lv": "c1"
+},
+{
+"id": "drone",
+"w": "drone",
+"pos": "noun",
+"ipa": "/drəʊn/",
+"vi": "máy bay không người lái",
+"ex": "The wedding was filmed with a drone.",
+"exVi": "Đám cưới được quay bằng flycam.",
+"lv": "c1"
+},
+{
+"id": "earnings",
+"w": "earnings",
+"pos": "noun",
+"ipa": "/ˈɜːnɪŋz/",
+"vi": "thu nhập",
+"ex": "His annual earnings are about 300 million dong.",
+"exVi": "Thu nhập hằng năm của anh ấy khoảng 300 triệu đồng.",
+"lv": "c1"
+},
+{
+"id": "ease",
+"w": "ease",
+"pos": "noun",
+"ipa": "/iːz/",
+"vi": "sự dễ dàng; thoải mái",
+"ex": "She passed the exam with ease.",
+"exVi": "Cô ấy đỗ dễ dàng.",
+"lv": "c1"
+},
+{
+"id": "e-commerce",
+"w": "e-commerce",
+"pos": "noun",
+"ipa": "/ˈiː kɒmɜːs/",
+"vi": "thương mại điện tử",
+"ex": "E-commerce has changed the way people shop.",
+"exVi": "Thương mại điện tử đã thay đổi cách mua sắm.",
+"lv": "c1"
+},
+{
+"id": "embarrassment",
+"w": "embarrassment",
+"pos": "noun",
+"ipa": "/ɪmˈbærəsmənt/",
+"vi": "sự xấu hổ",
+"ex": "His face went red with embarrassment.",
+"exVi": "Mặt anh ấy đỏ lên vì ngượng.",
+"lv": "c1"
+},
+{
+"id": "emergence",
+"w": "emergence",
+"pos": "noun",
+"ipa": "/iˈmɜːdʒəns/",
+"vi": "sự nổi lên, xuất hiện",
+"ex": "The emergence of smartphones changed everything.",
+"exVi": "Sự xuất hiện của điện thoại thông minh đã thay đổi tất cả.",
+"lv": "c1"
+},
+{
+"id": "encouragement",
+"w": "encouragement",
+"pos": "noun",
+"ipa": "/ɪnˈkʌrɪdʒmənt/",
+"vi": "sự khích lệ",
+"ex": "Thank you for your encouragement.",
+"exVi": "Cảm ơn bạn đã động viên.",
+"lv": "c1"
+},
+{
+"id": "encouraging",
+"w": "encouraging",
+"pos": "adjective",
+"ipa": "/ɪnˈkʌrɪdʒɪŋ/",
+"vi": "đáng khích lệ",
+"ex": "The results are very encouraging.",
+"exVi": "Kết quả rất đáng khích lệ.",
+"lv": "c1"
+},
+{
+"id": "endorsement",
+"w": "endorsement",
+"pos": "noun",
+"ipa": "/ɪnˈdɔːsmənt/",
+"vi": "sự ủng hộ; quảng cáo",
+"ex": "The athlete earns millions from endorsements.",
+"exVi": "Vận động viên kiếm hàng triệu từ hợp đồng quảng cáo.",
+"lv": "c1"
+},
+{
+"id": "enforcement",
+"w": "enforcement",
+"pos": "noun",
+"ipa": "/ɪnˈfɔːsmənt/",
+"vi": "sự thực thi",
+"ex": "Law enforcement is the job of the police.",
+"exVi": "Thực thi pháp luật là việc của cảnh sát.",
+"lv": "c1"
+},
+{
+"id": "engagement",
+"w": "engagement",
+"pos": "noun",
+"ipa": "/ɪnˈɡeɪdʒmənt/",
+"vi": "sự đính hôn; sự tham gia",
+"ex": "They announced their engagement last month.",
+"exVi": "Họ công bố đính hôn tháng trước.",
+"lv": "c1"
+},
+{
+"id": "engaging",
+"w": "engaging",
+"pos": "adjective",
+"ipa": "/ɪnˈɡeɪdʒɪŋ/",
+"vi": "hấp dẫn, lôi cuốn",
+"ex": "She is an engaging speaker.",
+"exVi": "Cô ấy là diễn giả lôi cuốn.",
+"lv": "c1"
+},
+{
+"id": "enquire",
+"w": "enquire",
+"pos": "verb",
+"ipa": "/ɪnˈkwaɪə/",
+"vi": "hỏi thăm, hỏi",
+"ex": "I'm writing to enquire about the job.",
+"exVi": "Tôi viết thư để hỏi về công việc.",
+"lv": "c1"
+},
+{
+"id": "equity",
+"w": "equity",
+"pos": "noun",
+"ipa": "/ˈekwəti/",
+"vi": "sự công bằng; vốn cổ phần",
+"ex": "The government promotes equity in education.",
+"exVi": "Chính phủ thúc đẩy công bằng giáo dục.",
+"lv": "c1"
+},
+{
+"id": "establishment",
+"w": "establishment",
+"pos": "noun",
+"ipa": "/ɪˈstæblɪʃmənt/",
+"vi": "sự thành lập; cơ sở",
+"ex": "The establishment of the school took ten years.",
+"exVi": "Việc thành lập trường mất mười năm.",
+"lv": "c1"
+},
+{
+"id": "excellence",
+"w": "excellence",
+"pos": "noun",
+"ipa": "/ˈeksələns/",
+"vi": "sự xuất sắc",
+"ex": "The school is known for academic excellence.",
+"exVi": "Trường nổi tiếng về thành tích học tập xuất sắc.",
+"lv": "c1"
+},
+{
+"id": "excess",
+"w": "excess",
+"pos": "noun",
+"ipa": "/ɪkˈses/",
+"vi": "sự dư thừa",
+"ex": "Drinking in excess is dangerous.",
+"exVi": "Uống quá mức rất nguy hiểm.",
+"lv": "c1"
+},
+{
+"id": "exclusion",
+"w": "exclusion",
+"pos": "noun",
+"ipa": "/ɪkˈskluːʒn/",
+"vi": "sự loại trừ",
+"ex": "He studied history to the exclusion of other subjects.",
+"exVi": "Anh ấy chỉ học lịch sử, bỏ qua các môn khác.",
+"lv": "c1"
+},
+{
+"id": "execution",
+"w": "execution",
+"pos": "noun",
+"ipa": "/ˌeksɪˈkjuːʃn/",
+"vi": "sự thực hiện; tử hình",
+"ex": "The idea was good but the execution was poor.",
+"exVi": "Ý tưởng tốt nhưng thực hiện kém.",
+"lv": "c1"
+},
+{
+"id": "experimental",
+"w": "experimental",
+"pos": "adjective",
+"ipa": "/ɪkˌsperɪˈmentl/",
+"vi": "thử nghiệm",
+"ex": "The drug is still experimental.",
+"exVi": "Thuốc vẫn đang thử nghiệm.",
+"lv": "c1"
+},
+{
+"id": "exploitation",
+"w": "exploitation",
+"pos": "noun",
+"ipa": "/ˌeksplɔɪˈteɪʃn/",
+"vi": "sự bóc lột; khai thác",
+"ex": "The film shows the exploitation of factory workers.",
+"exVi": "Bộ phim cho thấy sự bóc lột công nhân.",
+"lv": "c1"
+},
+{
+"id": "extremist",
+"w": "extremist",
+"pos": "noun",
+"ipa": "/ɪkˈstriːmɪst/",
+"vi": "kẻ cực đoan",
+"ex": "The attack was carried out by extremists.",
+"exVi": "Vụ tấn công do những kẻ cực đoan thực hiện.",
+"lv": "c1"
+},
+{
+"id": "fairness",
+"w": "fairness",
+"pos": "noun",
+"ipa": "/ˈfeənəs/",
+"vi": "sự công bằng",
+"ex": "Students want fairness in the marking of exams.",
+"exVi": "Học sinh muốn chấm thi công bằng.",
+"lv": "c1"
+},
+{
+"id": "festive",
+"w": "festive",
+"pos": "adjective",
+"ipa": "/ˈfestɪv/",
+"vi": "(thuộc) lễ hội, vui tươi",
+"ex": "The city has a festive atmosphere before Tet.",
+"exVi": "Thành phố rộn ràng không khí lễ hội trước Tết.",
+"lv": "c1"
+},
+{
+"id": "flawed",
+"w": "flawed",
+"pos": "adjective",
+"ipa": "/flɔːd/",
+"vi": "có khiếm khuyết",
+"ex": "The study was flawed because the sample was too small.",
+"exVi": "Nghiên cứu có thiếu sót vì mẫu quá nhỏ.",
+"lv": "c1"
+},
+{
+"id": "flexibility",
+"w": "flexibility",
+"pos": "noun",
+"ipa": "/ˌfleksəˈbɪləti/",
+"vi": "sự linh hoạt",
+"ex": "The job offers a lot of flexibility.",
+"exVi": "Công việc rất linh hoạt.",
+"lv": "c1"
+},
+{
+"id": "formula",
+"w": "formula",
+"pos": "noun",
+"ipa": "/ˈfɔːmjələ/",
+"vi": "công thức",
+"ex": "There is no magic formula for success.",
+"exVi": "Không có công thức thần kỳ cho thành công.",
+"lv": "c1"
+},
+{
+"id": "forth",
+"w": "forth",
+"pos": "adverb",
+"ipa": "/fɔːθ/",
+"vi": "về phía trước; vân vân",
+"ex": "He walked back and forth across the room.",
+"exVi": "Anh ấy đi đi lại lại trong phòng.",
+"lv": "c1"
+},
+{
+"id": "frustrating",
+"w": "frustrating",
+"pos": "adjective",
+"ipa": "/frʌˈstreɪtɪŋ/",
+"vi": "gây bực bội",
+"ex": "It's frustrating when the internet is slow.",
+"exVi": "Mạng chậm thật bực mình.",
+"lv": "c1"
+},
+{
+"id": "frustration",
+"w": "frustration",
+"pos": "noun",
+"ipa": "/frʌˈstreɪʃn/",
+"vi": "sự bực bội",
+"ex": "She shouted in frustration.",
+"exVi": "Cô ấy hét lên vì bực.",
+"lv": "c1"
+},
+{
+"id": "functional",
+"w": "functional",
+"pos": "adjective",
+"ipa": "/ˈfʌŋkʃənl/",
+"vi": "thiết thực; hoạt động được",
+"ex": "The furniture is simple and functional.",
+"exVi": "Đồ nội thất đơn giản và tiện dụng.",
+"lv": "c1"
+},
+{
+"id": "glory",
+"w": "glory",
+"pos": "noun",
+"ipa": "/ˈɡlɔːri/",
+"vi": "vinh quang",
+"ex": "The team returned home in glory.",
+"exVi": "Đội trở về trong vinh quang.",
+"lv": "c1"
+},
+{
+"id": "guidance",
+"w": "guidance",
+"pos": "noun",
+"ipa": "/ˈɡaɪdns/",
+"vi": "sự hướng dẫn",
+"ex": "Students need guidance when choosing a career.",
+"exVi": "Học sinh cần được hướng dẫn khi chọn nghề.",
+"lv": "c1"
+},
+{
+"id": "guilt",
+"w": "guilt",
+"pos": "noun",
+"ipa": "/ɡɪlt/",
+"vi": "cảm giác tội lỗi",
+"ex": "She felt a lot of guilt about leaving her family.",
+"exVi": "Cô ấy rất áy náy vì xa gia đình.",
+"lv": "c1"
+},
+{
+"id": "hack",
+"w": "hack",
+"pos": "verb",
+"ipa": "/hæk/",
+"vi": "tấn công (máy tính), hack",
+"ex": "Someone hacked my email account.",
+"exVi": "Có người hack tài khoản email của tôi.",
+"lv": "c1"
+},
+{
+"id": "hammer",
+"w": "hammer",
+"pos": "noun",
+"ipa": "/ˈhæmə/",
+"vi": "cái búa",
+"ex": "Hit the nail with a hammer.",
+"exVi": "Đóng đinh bằng búa.",
+"lv": "c1"
+},
+{
+"id": "handling",
+"w": "handling",
+"pos": "noun",
+"ipa": "/ˈhændlɪŋ/",
+"vi": "cách xử lý",
+"ex": "The government's handling of the crisis was criticised.",
+"exVi": "Cách chính phủ xử lý khủng hoảng bị chỉ trích.",
+"lv": "c1"
+},
+{
+"id": "hopeful",
+"w": "hopeful",
+"pos": "adjective",
+"ipa": "/ˈhəʊpfl/",
+"vi": "hy vọng",
+"ex": "We are hopeful that the weather will improve.",
+"exVi": "Chúng tôi hy vọng thời tiết sẽ khá hơn.",
+"lv": "c1"
+},
+{
+"id": "hospitality",
+"w": "hospitality",
+"pos": "noun",
+"ipa": "/ˌhɒspɪˈtæləti/",
+"vi": "lòng hiếu khách; ngành dịch vụ",
+"ex": "Thank you for your kind hospitality.",
+"exVi": "Cảm ơn sự tiếp đón nồng hậu của bạn.",
+"lv": "c1"
+},
+{
+"id": "hub",
+"w": "hub",
+"pos": "noun",
+"ipa": "/hʌb/",
+"vi": "trung tâm",
+"ex": "Singapore is a major transport hub.",
+"exVi": "Singapore là trung tâm giao thông lớn.",
+"lv": "c1"
+},
+{
+"id": "humanity",
+"w": "humanity",
+"pos": "noun",
+"ipa": "/hjuːˈmænəti/",
+"vi": "nhân loại; lòng nhân đạo",
+"ex": "Climate change is a threat to humanity.",
+"exVi": "Biến đổi khí hậu đe doạ nhân loại.",
+"lv": "c1"
+},
+{
+"id": "hybrid",
+"w": "hybrid",
+"pos": "adjective",
+"ipa": "/ˈhaɪbrɪd/",
+"vi": "lai, kết hợp",
+"ex": "He drives a hybrid car.",
+"exVi": "Anh ấy lái xe lai (xăng điện).",
+"lv": "c1"
+},
+{
+"id": "ignorance",
+"w": "ignorance",
+"pos": "noun",
+"ipa": "/ˈɪɡnərəns/",
+"vi": "sự thiếu hiểu biết",
+"ex": "Ignorance of the law is no excuse.",
+"exVi": "Không biết luật không phải là lý do.",
+"lv": "c1"
+},
+{
+"id": "immunity",
+"w": "immunity",
+"pos": "noun",
+"ipa": "/ɪˈmjuːnəti/",
+"vi": "khả năng miễn dịch",
+"ex": "Vaccines give immunity to the disease.",
+"exVi": "Vắc-xin tạo miễn dịch với bệnh.",
+"lv": "c1"
+},
+{
+"id": "implementation",
+"w": "implementation",
+"pos": "noun",
+"ipa": "/ˌɪmplɪmenˈteɪʃn/",
+"vi": "sự thực thi",
+"ex": "The implementation of the new system was slow.",
+"exVi": "Việc áp dụng hệ thống mới diễn ra chậm.",
+"lv": "c1"
+},
+{
+"id": "imprisonment",
+"w": "imprisonment",
+"pos": "noun",
+"ipa": "/ɪmˈprɪznmənt/",
+"vi": "sự bỏ tù",
+"ex": "He was sentenced to five years' imprisonment.",
+"exVi": "Anh ta bị kết án năm năm tù.",
+"lv": "c1"
+},
+{
+"id": "inability",
+"w": "inability",
+"pos": "noun",
+"ipa": "/ˌɪnəˈbɪləti/",
+"vi": "sự không có khả năng",
+"ex": "His inability to say no causes problems.",
+"exVi": "Việc anh ấy không biết từ chối gây rắc rối.",
+"lv": "c1"
+},
+{
+"id": "inclusive",
+"w": "inclusive",
+"pos": "adjective",
+"ipa": "/ɪnˈkluːsɪv/",
+"vi": "bao gồm; hoà nhập",
+"ex": "The price is inclusive of breakfast.",
+"exVi": "Giá đã bao gồm bữa sáng.",
+"lv": "c1"
+},
+{
+"id": "indicator",
+"w": "indicator",
+"pos": "noun",
+"ipa": "/ˈɪndɪkeɪtə/",
+"vi": "chỉ số, dấu hiệu",
+"ex": "Unemployment is a key economic indicator.",
+"exVi": "Thất nghiệp là chỉ số kinh tế quan trọng.",
+"lv": "c1"
+},
+{
+"id": "inequality",
+"w": "inequality",
+"pos": "noun",
+"ipa": "/ˌɪnɪˈkwɒləti/",
+"vi": "sự bất bình đẳng",
+"ex": "Income inequality has grown in many countries.",
+"exVi": "Bất bình đẳng thu nhập tăng ở nhiều nước.",
+"lv": "c1"
+},
+{
+"id": "infamous",
+"w": "infamous",
+"pos": "adjective",
+"ipa": "/ˈɪnfəməs/",
+"vi": "khét tiếng",
+"ex": "The prison was infamous for its cruelty.",
+"exVi": "Nhà tù khét tiếng tàn bạo.",
+"lv": "c1"
+},
+{
+"id": "infect",
+"w": "infect",
+"pos": "verb",
+"ipa": "/ɪnˈfekt/",
+"vi": "lây nhiễm",
+"ex": "The virus can infect humans and animals.",
+"exVi": "Vi-rút có thể lây sang người và động vật.",
+"lv": "c1"
+},
+{
+"id": "infectious",
+"w": "infectious",
+"pos": "adjective",
+"ipa": "/ɪnˈfekʃəs/",
+"vi": "dễ lây",
+"ex": "Flu is highly infectious.",
+"exVi": "Cúm rất dễ lây.",
+"lv": "c1"
+},
+{
+"id": "influential",
+"w": "influential",
+"pos": "adjective",
+"ipa": "/ˌɪnfluˈenʃl/",
+"vi": "có ảnh hưởng",
+"ex": "She is one of the most influential writers of her time.",
+"exVi": "Bà là một trong những nhà văn có ảnh hưởng nhất thời đó.",
+"lv": "c1"
+},
+{
+"id": "inject",
+"w": "inject",
+"pos": "verb",
+"ipa": "/ɪnˈdʒekt/",
+"vi": "tiêm; rót (vốn)",
+"ex": "The nurse injected the medicine into his arm.",
+"exVi": "Y tá tiêm thuốc vào tay anh ấy.",
+"lv": "c1"
+},
+{
+"id": "insider",
+"w": "insider",
+"pos": "noun",
+"ipa": "/ɪnˈsaɪdə/",
+"vi": "người trong cuộc",
+"ex": "An insider told the newspaper about the plan.",
+"exVi": "Một người trong cuộc tiết lộ kế hoạch cho báo.",
+"lv": "c1"
+},
+{
+"id": "inspect",
+"w": "inspect",
+"pos": "verb",
+"ipa": "/ɪnˈspekt/",
+"vi": "kiểm tra, thanh tra",
+"ex": "Officials inspect restaurants every year.",
+"exVi": "Cán bộ kiểm tra nhà hàng mỗi năm.",
+"lv": "c1"
+},
+{
+"id": "inspiration",
+"w": "inspiration",
+"pos": "noun",
+"ipa": "/ˌɪnspəˈreɪʃn/",
+"vi": "nguồn cảm hứng",
+"ex": "Her grandmother was her inspiration.",
+"exVi": "Bà là nguồn cảm hứng của cô ấy.",
+"lv": "c1"
+},
+{
+"id": "institutional",
+"w": "institutional",
+"pos": "adjective",
+"ipa": "/ˌɪnstɪˈtjuːʃənl/",
+"vi": "(thuộc) thể chế, tổ chức",
+"ex": "The country needs institutional reform.",
+"exVi": "Đất nước cần cải cách thể chế.",
+"lv": "c1"
+},
+{
+"id": "instruct",
+"w": "instruct",
+"pos": "verb",
+"ipa": "/ɪnˈstrʌkt/",
+"vi": "chỉ dẫn, ra lệnh",
+"ex": "The pilot instructed passengers to stay seated.",
+"exVi": "Phi công yêu cầu hành khách ngồi yên.",
+"lv": "c1"
+},
+{
+"id": "instrumental",
+"w": "instrumental",
+"pos": "adjective",
+"ipa": "/ˌɪnstrəˈmentl/",
+"vi": "đóng vai trò quan trọng",
+"ex": "She was instrumental in getting the project started.",
+"exVi": "Cô ấy đóng vai trò then chốt trong việc khởi động dự án.",
+"lv": "c1"
+},
+{
+"id": "integrated",
+"w": "integrated",
+"pos": "adjective",
+"ipa": "/ˈɪntɪɡreɪtɪd/",
+"vi": "tích hợp",
+"ex": "The phone has an integrated camera.",
+"exVi": "Điện thoại có camera tích hợp.",
+"lv": "c1"
+},
+{
+"id": "integration",
+"w": "integration",
+"pos": "noun",
+"ipa": "/ˌɪntɪˈɡreɪʃn/",
+"vi": "sự hội nhập",
+"ex": "Language lessons help the integration of immigrants.",
+"exVi": "Học tiếng giúp người nhập cư hội nhập.",
+"lv": "c1"
+},
+{
+"id": "intensity",
+"w": "intensity",
+"pos": "noun",
+"ipa": "/ɪnˈtensəti/",
+"vi": "cường độ",
+"ex": "The storm grew in intensity.",
+"exVi": "Cơn bão mạnh dần lên.",
+"lv": "c1"
+},
+{
+"id": "intensive",
+"w": "intensive",
+"pos": "adjective",
+"ipa": "/ɪnˈtensɪv/",
+"vi": "cấp tốc; chuyên sâu",
+"ex": "She took an intensive English course.",
+"exVi": "Cô ấy học khoá tiếng Anh cấp tốc.",
+"lv": "c1"
+},
+{
+"id": "interactive",
+"w": "interactive",
+"pos": "adjective",
+"ipa": "/ˌɪntərˈæktɪv/",
+"vi": "tương tác",
+"ex": "The museum has interactive displays for children.",
+"exVi": "Bảo tàng có khu trưng bày tương tác cho trẻ.",
+"lv": "c1"
+},
+{
+"id": "interference",
+"w": "interference",
+"pos": "noun",
+"ipa": "/ˌɪntəˈfɪərəns/",
+"vi": "sự can thiệp, nhiễu",
+"ex": "She doesn't like interference in her private life.",
+"exVi": "Cô ấy không thích bị can thiệp vào đời tư.",
+"lv": "c1"
+},
+{
+"id": "intervention",
+"w": "intervention",
+"pos": "noun",
+"ipa": "/ˌɪntəˈvenʃn/",
+"vi": "sự can thiệp",
+"ex": "Early intervention can prevent serious problems.",
+"exVi": "Can thiệp sớm có thể ngăn vấn đề nghiêm trọng.",
+"lv": "c1"
+},
+{
+"id": "investigator",
+"w": "investigator",
+"pos": "noun",
+"ipa": "/ɪnˈvestɪɡeɪtə/",
+"vi": "điều tra viên",
+"ex": "Investigators are looking for the cause of the fire.",
+"exVi": "Điều tra viên đang tìm nguyên nhân vụ cháy.",
+"lv": "c1"
+},
+{
+"id": "invisible",
+"w": "invisible",
+"pos": "adjective",
+"ipa": "/ɪnˈvɪzəbl/",
+"vi": "vô hình",
+"ex": "Air is invisible.",
+"exVi": "Không khí vô hình.",
+"lv": "c1"
+},
+{
+"id": "involvement",
+"w": "involvement",
+"pos": "noun",
+"ipa": "/ɪnˈvɒlvmənt/",
+"vi": "sự tham gia, dính líu",
+"ex": "Parents' involvement in school helps children.",
+"exVi": "Sự tham gia của phụ huynh giúp ích cho trẻ.",
+"lv": "c1"
+},
+{
+"id": "irony",
+"w": "irony",
+"pos": "noun",
+"ipa": "/ˈaɪrəni/",
+"vi": "sự trớ trêu",
+"ex": "The irony is that the fire station burned down.",
+"exVi": "Trớ trêu là trạm cứu hoả bị cháy.",
+"lv": "c1"
+},
+{
+"id": "kingdom",
+"w": "kingdom",
+"pos": "noun",
+"ipa": "/ˈkɪŋdəm/",
+"vi": "vương quốc",
+"ex": "The United Kingdom has four countries.",
+"exVi": "Vương quốc Anh gồm bốn xứ.",
+"lv": "c1"
+},
+{
+"id": "legendary",
+"w": "legendary",
+"pos": "adjective",
+"ipa": "/ˈledʒəndri/",
+"vi": "huyền thoại",
+"ex": "He was a legendary football player.",
+"exVi": "Ông ấy là cầu thủ huyền thoại.",
+"lv": "c1"
+},
+{
+"id": "legislative",
+"w": "legislative",
+"pos": "adjective",
+"ipa": "/ˈledʒɪslətɪv/",
+"vi": "(thuộc) lập pháp",
+"ex": "Parliament has legislative power.",
+"exVi": "Quốc hội có quyền lập pháp.",
+"lv": "c1"
+},
+{
+"id": "legislature",
+"w": "legislature",
+"pos": "noun",
+"ipa": "/ˈledʒɪsleɪtʃə/",
+"vi": "cơ quan lập pháp",
+"ex": "The state legislature passed the new law.",
+"exVi": "Cơ quan lập pháp bang thông qua luật mới.",
+"lv": "c1"
+},
+{
+"id": "lesser",
+"w": "lesser",
+"pos": "adjective",
+"ipa": "/ˈlesə/",
+"vi": "ít hơn, kém hơn",
+"ex": "The disease affects adults and, to a lesser extent, children.",
+"exVi": "Bệnh ảnh hưởng người lớn và ở mức thấp hơn là trẻ em.",
+"lv": "c1"
+},
+{
+"id": "liberty",
+"w": "liberty",
+"pos": "noun",
+"ipa": "/ˈlɪbəti/",
+"vi": "sự tự do",
+"ex": "People fought for their liberty.",
+"exVi": "Người dân đấu tranh vì tự do.",
+"lv": "c1"
+},
+{
+"id": "logic",
+"w": "logic",
+"pos": "noun",
+"ipa": "/ˈlɒdʒɪk/",
+"vi": "lô-gíc",
+"ex": "I don't understand the logic of his decision.",
+"exVi": "Tôi không hiểu lý lẽ của quyết định đó.",
+"lv": "c1"
+},
+{
+"id": "long-time",
+"w": "long-time",
+"pos": "adjective",
+"ipa": "/ˈlɒŋ taɪm/",
+"vi": "lâu năm",
+"ex": "She is a long-time friend of the family.",
+"exVi": "Bà ấy là bạn lâu năm của gia đình.",
+"lv": "c1"
+},
+{
+"id": "loyalty",
+"w": "loyalty",
+"pos": "noun",
+"ipa": "/ˈlɔɪəlti/",
+"vi": "lòng trung thành",
+"ex": "Dogs are known for their loyalty.",
+"exVi": "Chó nổi tiếng trung thành.",
+"lv": "c1"
+},
+{
+"id": "magical",
+"w": "magical",
+"pos": "adjective",
+"ipa": "/ˈmædʒɪkl/",
+"vi": "kỳ diệu",
+"ex": "It was a magical evening by the sea.",
+"exVi": "Đó là một buổi tối kỳ diệu bên biển.",
+"lv": "c1"
+},
+{
+"id": "maintenance",
+"w": "maintenance",
+"pos": "noun",
+"ipa": "/ˈmeɪntənəns/",
+"vi": "sự bảo trì",
+"ex": "The lift is closed for maintenance.",
+"exVi": "Thang máy đóng để bảo trì.",
+"lv": "c1"
+},
+{
+"id": "mandatory",
+"w": "mandatory",
+"pos": "adjective",
+"ipa": "/ˈmændətəri/",
+"vi": "bắt buộc",
+"ex": "Wearing a helmet is mandatory.",
+"exVi": "Đội mũ bảo hiểm là bắt buộc.",
+"lv": "c1"
+},
+{
+"id": "manipulation",
+"w": "manipulation",
+"pos": "noun",
+"ipa": "/məˌnɪpjuˈleɪʃn/",
+"vi": "sự thao túng",
+"ex": "The photo shows clear signs of manipulation.",
+"exVi": "Bức ảnh có dấu hiệu chỉnh sửa rõ ràng.",
+"lv": "c1"
+},
+{
+"id": "marginal",
+"w": "marginal",
+"pos": "adjective",
+"ipa": "/ˈmɑːdʒɪnl/",
+"vi": "nhỏ, không đáng kể",
+"ex": "There was only a marginal improvement.",
+"exVi": "Chỉ cải thiện chút ít.",
+"lv": "c1"
+},
+{
+"id": "mathematical",
+"w": "mathematical",
+"pos": "adjective",
+"ipa": "/ˌmæθəˈmætɪkl/",
+"vi": "(thuộc) toán học",
+"ex": "She has strong mathematical skills.",
+"exVi": "Cô ấy giỏi toán.",
+"lv": "c1"
+},
+{
+"id": "maximize",
+"w": "maximize",
+"pos": "verb",
+"ipa": "/ˈmæksɪmaɪz/",
+"vi": "tối đa hoá",
+"ex": "Companies try to maximize their profits.",
+"exVi": "Doanh nghiệp tìm cách tối đa lợi nhuận.",
+"lv": "c1"
+},
+{
+"id": "memorial",
+"w": "memorial",
+"pos": "noun",
+"ipa": "/məˈmɔːriəl/",
+"vi": "đài tưởng niệm",
+"ex": "The memorial honours soldiers who died in the war.",
+"exVi": "Đài tưởng niệm tôn vinh những người lính hy sinh.",
+"lv": "c1"
+},
+{
+"id": "mere",
+"w": "mere",
+"pos": "adjective",
+"ipa": "/mɪə/",
+"vi": "chỉ là, đơn thuần",
+"ex": "The mere thought of flying makes her nervous.",
+"exVi": "Chỉ nghĩ đến đi máy bay là cô ấy đã run.",
+"lv": "c1"
+},
+{
+"id": "merge",
+"w": "merge",
+"pos": "verb",
+"ipa": "/mɜːdʒ/",
+"vi": "sáp nhập, hoà vào",
+"ex": "The two companies merged last year.",
+"exVi": "Hai công ty sáp nhập năm ngoái.",
+"lv": "c1"
+},
+{
+"id": "migrant",
+"w": "migrant",
+"pos": "noun",
+"ipa": "/ˈmaɪɡrənt/",
+"vi": "người di cư",
+"ex": "Many migrants work in the construction industry.",
+"exVi": "Nhiều người di cư làm ngành xây dựng.",
+"lv": "c1"
+},
+{
+"id": "milestone",
+"w": "milestone",
+"pos": "noun",
+"ipa": "/ˈmaɪlstəʊn/",
+"vi": "cột mốc",
+"ex": "Turning eighteen is an important milestone.",
+"exVi": "Tròn mười tám tuổi là một cột mốc quan trọng.",
+"lv": "c1"
+},
+{
+"id": "mindset",
+"w": "mindset",
+"pos": "noun",
+"ipa": "/ˈmaɪndset/",
+"vi": "tư duy, lối nghĩ",
+"ex": "Success requires a positive mindset.",
+"exVi": "Thành công cần tư duy tích cực.",
+"lv": "c1"
+},
+{
+"id": "minimize",
+"w": "minimize",
+"pos": "verb",
+"ipa": "/ˈmɪnɪmaɪz/",
+"vi": "giảm tối thiểu",
+"ex": "We must minimize the risk of accidents.",
+"exVi": "Ta phải giảm thiểu nguy cơ tai nạn.",
+"lv": "c1"
+},
+{
+"id": "mining",
+"w": "mining",
+"pos": "noun",
+"ipa": "/ˈmaɪnɪŋ/",
+"vi": "ngành khai mỏ",
+"ex": "Coal mining is dangerous work.",
+"exVi": "Khai thác than là công việc nguy hiểm.",
+"lv": "c1"
+},
+{
+"id": "ministry",
+"w": "ministry",
+"pos": "noun",
+"ipa": "/ˈmɪnɪstri/",
+"vi": "bộ (chính phủ)",
+"ex": "She works for the Ministry of Education.",
+"exVi": "Cô ấy làm ở Bộ Giáo dục.",
+"lv": "c1"
+},
+{
+"id": "misery",
+"w": "misery",
+"pos": "noun",
+"ipa": "/ˈmɪzəri/",
+"vi": "sự khổ sở",
+"ex": "The war brought misery to millions.",
+"exVi": "Chiến tranh mang lại khổ đau cho hàng triệu người.",
+"lv": "c1"
+},
+{
+"id": "mobility",
+"w": "mobility",
+"pos": "noun",
+"ipa": "/məʊˈbɪləti/",
+"vi": "khả năng di chuyển",
+"ex": "Exercise helps older people keep their mobility.",
+"exVi": "Tập thể dục giúp người già đi lại tốt.",
+"lv": "c1"
+},
+{
+"id": "modification",
+"w": "modification",
+"pos": "noun",
+"ipa": "/ˌmɒdɪfɪˈkeɪʃn/",
+"vi": "sự sửa đổi",
+"ex": "We made some modifications to the design.",
+"exVi": "Chúng tôi sửa thiết kế một chút.",
+"lv": "c1"
+},
+{
+"id": "motorist",
+"w": "motorist",
+"pos": "noun",
+"ipa": "/ˈməʊtərɪst/",
+"vi": "người lái xe",
+"ex": "Motorists should drive slowly near schools.",
+"exVi": "Người lái xe nên chạy chậm gần trường học.",
+"lv": "c1"
+},
+{
+"id": "nomination",
+"w": "nomination",
+"pos": "noun",
+"ipa": "/ˌnɒmɪˈneɪʃn/",
+"vi": "sự đề cử",
+"ex": "The film received three Oscar nominations.",
+"exVi": "Bộ phim nhận ba đề cử Oscar.",
+"lv": "c1"
+},
+{
+"id": "nominee",
+"w": "nominee",
+"pos": "noun",
+"ipa": "/ˌnɒmɪˈniː/",
+"vi": "người được đề cử",
+"ex": "The nominees for best actor were announced.",
+"exVi": "Danh sách đề cử nam diễn viên chính được công bố.",
+"lv": "c1"
+},
+{
+"id": "notification",
+"w": "notification",
+"pos": "noun",
+"ipa": "/ˌnəʊtɪfɪˈkeɪʃn/",
+"vi": "thông báo",
+"ex": "I turned off notifications on my phone.",
+"exVi": "Tôi tắt thông báo trên điện thoại.",
+"lv": "c1"
+},
+{
+"id": "obsess",
+"w": "obsess",
+"pos": "verb",
+"ipa": "/əbˈses/",
+"vi": "ám ảnh",
+"ex": "Don't obsess about small details.",
+"exVi": "Đừng ám ảnh với tiểu tiết.",
+"lv": "c1"
+},
+{
+"id": "occasional",
+"w": "occasional",
+"pos": "adjective",
+"ipa": "/əˈkeɪʒənl/",
+"vi": "thỉnh thoảng",
+"ex": "I have the occasional coffee, but mostly I drink tea.",
+"exVi": "Thỉnh thoảng tôi uống cà phê, chủ yếu uống trà.",
+"lv": "c1"
+},
+{
+"id": "occurrence",
+"w": "occurrence",
+"pos": "noun",
+"ipa": "/əˈkʌrəns/",
+"vi": "sự việc xảy ra",
+"ex": "Power cuts are a common occurrence here.",
+"exVi": "Mất điện là chuyện thường ở đây.",
+"lv": "c1"
+},
+{
+"id": "odds",
+"w": "odds",
+"pos": "noun",
+"ipa": "/ɒdz/",
+"vi": "khả năng; tỉ lệ cược",
+"ex": "The odds of winning the lottery are very small.",
+"exVi": "Khả năng trúng xổ số rất nhỏ.",
+"lv": "c1"
+},
+{
+"id": "offshore",
+"w": "offshore",
+"pos": "adjective",
+"ipa": "/ˌɒfˈʃɔː/",
+"vi": "ngoài khơi; ở nước ngoài",
+"ex": "They are building an offshore wind farm.",
+"exVi": "Họ đang xây trang trại gió ngoài khơi.",
+"lv": "c1"
+},
+{
+"id": "operational",
+"w": "operational",
+"pos": "adjective",
+"ipa": "/ˌɒpəˈreɪʃənl/",
+"vi": "(đang) hoạt động",
+"ex": "The new airport will be operational next year.",
+"exVi": "Sân bay mới sẽ hoạt động năm sau.",
+"lv": "c1"
+},
+{
+"id": "optimism",
+"w": "optimism",
+"pos": "noun",
+"ipa": "/ˈɒptɪmɪzəm/",
+"vi": "sự lạc quan",
+"ex": "There is growing optimism about the economy.",
+"exVi": "Ngày càng lạc quan về kinh tế.",
+"lv": "c1"
+},
+{
+"id": "organizational",
+"w": "organizational",
+"pos": "adjective",
+"ipa": "/ˌɔːɡənaɪˈzeɪʃənl/",
+"vi": "(thuộc) tổ chức",
+"ex": "She has excellent organizational skills.",
+"exVi": "Cô ấy có kỹ năng tổ chức tuyệt vời.",
+"lv": "c1"
+},
+{
+"id": "outsider",
+"w": "outsider",
+"pos": "noun",
+"ipa": "/ˌaʊtˈsaɪdə/",
+"vi": "người ngoài cuộc",
+"ex": "As a newcomer, she felt like an outsider.",
+"exVi": "Là người mới, cô ấy thấy mình như người ngoài.",
+"lv": "c1"
+},
+{
+"id": "overwhelm",
+"w": "overwhelm",
+"pos": "verb",
+"ipa": "/ˌəʊvəˈwelm/",
+"vi": "tràn ngập, áp đảo",
+"ex": "Don't let the work overwhelm you.",
+"exVi": "Đừng để công việc đè bẹp bạn.",
+"lv": "c1"
+},
+{
+"id": "parliamentary",
+"w": "parliamentary",
+"pos": "adjective",
+"ipa": "/ˌpɑːləˈmentri/",
+"vi": "(thuộc) quốc hội",
+"ex": "Parliamentary elections will be held in May.",
+"exVi": "Bầu cử quốc hội diễn ra vào tháng Năm.",
+"lv": "c1"
+},
+{
+"id": "persistent",
+"w": "persistent",
+"pos": "adjective",
+"ipa": "/pəˈsɪstənt/",
+"vi": "dai dẳng; kiên trì",
+"ex": "She has a persistent cough.",
+"exVi": "Cô ấy bị ho dai dẳng.",
+"lv": "c1"
+},
+{
+"id": "pharmaceutical",
+"w": "pharmaceutical",
+"pos": "adjective",
+"ipa": "/ˌfɑːməˈsuːtɪkl/",
+"vi": "(thuộc) dược phẩm",
+"ex": "He works for a pharmaceutical company.",
+"exVi": "Anh ấy làm cho một công ty dược.",
+"lv": "c1"
+},
+{
+"id": "philosopher",
+"w": "philosopher",
+"pos": "noun",
+"ipa": "/fəˈlɒsəfə/",
+"vi": "triết gia",
+"ex": "Confucius was a famous Chinese philosopher.",
+"exVi": "Khổng Tử là triết gia nổi tiếng của Trung Quốc.",
+"lv": "c1"
+},
+{
+"id": "plea",
+"w": "plea",
+"pos": "noun",
+"ipa": "/pliː/",
+"vi": "lời khẩn cầu",
+"ex": "She made a plea for help.",
+"exVi": "Cô ấy khẩn thiết xin giúp đỡ.",
+"lv": "c1"
+},
+{
+"id": "pregnancy",
+"w": "pregnancy",
+"pos": "noun",
+"ipa": "/ˈpreɡnənsi/",
+"vi": "sự mang thai",
+"ex": "You should not smoke during pregnancy.",
+"exVi": "Không nên hút thuốc khi mang thai.",
+"lv": "c1"
+},
+{
+"id": "prescription",
+"w": "prescription",
+"pos": "noun",
+"ipa": "/prɪˈskrɪpʃn/",
+"vi": "đơn thuốc",
+"ex": "You need a prescription for this medicine.",
+"exVi": "Thuốc này phải có đơn bác sĩ.",
+"lv": "c1"
+},
+{
+"id": "preservation",
+"w": "preservation",
+"pos": "noun",
+"ipa": "/ˌprezəˈveɪʃn/",
+"vi": "sự bảo tồn",
+"ex": "The preservation of old buildings is important.",
+"exVi": "Bảo tồn công trình cổ là việc quan trọng.",
+"lv": "c1"
+},
+{
+"id": "preside",
+"w": "preside",
+"pos": "verb",
+"ipa": "/prɪˈzaɪd/",
+"vi": "chủ trì",
+"ex": "The judge presided over the trial.",
+"exVi": "Thẩm phán chủ toạ phiên toà.",
+"lv": "c1"
+},
+{
+"id": "presidential",
+"w": "presidential",
+"pos": "adjective",
+"ipa": "/ˌprezɪˈdenʃl/",
+"vi": "(thuộc) tổng thống",
+"ex": "The presidential election is next year.",
+"exVi": "Bầu cử tổng thống diễn ra năm sau.",
+"lv": "c1"
+},
+{
+"id": "prevalence",
+"w": "prevalence",
+"pos": "noun",
+"ipa": "/ˈprevələns/",
+"vi": "sự phổ biến (của bệnh, hiện tượng)",
+"ex": "The prevalence of obesity is rising.",
+"exVi": "Tỉ lệ béo phì đang tăng.",
+"lv": "c1"
+},
+{
+"id": "prevention",
+"w": "prevention",
+"pos": "noun",
+"ipa": "/prɪˈvenʃn/",
+"vi": "sự phòng ngừa",
+"ex": "Prevention is better than cure.",
+"exVi": "Phòng bệnh hơn chữa bệnh.",
+"lv": "c1"
+},
+{
+"id": "prioritize",
+"w": "prioritize",
+"pos": "verb",
+"ipa": "/praɪˈɒrətaɪz/",
+"vi": "ưu tiên",
+"ex": "You need to prioritize your tasks.",
+"exVi": "Bạn cần sắp xếp thứ tự ưu tiên công việc.",
+"lv": "c1"
+},
+{
+"id": "proceedings",
+"w": "proceedings",
+"pos": "noun",
+"ipa": "/prəˈsiːdɪŋz/",
+"vi": "thủ tục tố tụng",
+"ex": "The company started legal proceedings against him.",
+"exVi": "Công ty khởi kiện anh ta.",
+"lv": "c1"
+},
+{
+"id": "processor",
+"w": "processor",
+"pos": "noun",
+"ipa": "/ˈprəʊsesə/",
+"vi": "bộ xử lý",
+"ex": "The new laptop has a faster processor.",
+"exVi": "Máy tính mới có bộ xử lý nhanh hơn.",
+"lv": "c1"
+},
+{
+"id": "productive",
+"w": "productive",
+"pos": "adjective",
+"ipa": "/prəˈdʌktɪv/",
+"vi": "năng suất",
+"ex": "I feel more productive in the morning.",
+"exVi": "Tôi làm việc hiệu quả hơn vào buổi sáng.",
+"lv": "c1"
+},
+{
+"id": "profitable",
+"w": "profitable",
+"pos": "adjective",
+"ipa": "/ˈprɒfɪtəbl/",
+"vi": "có lãi",
+"ex": "The business became profitable after two years.",
+"exVi": "Công việc kinh doanh có lãi sau hai năm.",
+"lv": "c1"
+},
+{
+"id": "pronounced",
+"w": "pronounced",
+"pos": "adjective",
+"ipa": "/prəˈnaʊnst/",
+"vi": "rõ rệt",
+"ex": "She has a pronounced French accent.",
+"exVi": "Cô ấy có giọng Pháp rõ rệt.",
+"lv": "c1"
+},
+{
+"id": "prosecution",
+"w": "prosecution",
+"pos": "noun",
+"ipa": "/ˌprɒsɪˈkjuːʃn/",
+"vi": "sự truy tố; bên nguyên",
+"ex": "He faces prosecution for fraud.",
+"exVi": "Anh ta đối mặt với truy tố tội lừa đảo.",
+"lv": "c1"
+},
+{
+"id": "prosecutor",
+"w": "prosecutor",
+"pos": "noun",
+"ipa": "/ˈprɒsɪkjuːtə/",
+"vi": "công tố viên",
+"ex": "The prosecutor asked for a long sentence.",
+"exVi": "Công tố viên đề nghị mức án dài.",
+"lv": "c1"
+},
+{
+"id": "prospective",
+"w": "prospective",
+"pos": "adjective",
+"ipa": "/prəˈspektɪv/",
+"vi": "tương lai, tiềm năng",
+"ex": "The school is showing prospective students around.",
+"exVi": "Trường đang dẫn học sinh tương lai đi tham quan.",
+"lv": "c1"
+},
+{
+"id": "protective",
+"w": "protective",
+"pos": "adjective",
+"ipa": "/prəˈtektɪv/",
+"vi": "bảo vệ; che chở",
+"ex": "Workers must wear protective clothing.",
+"exVi": "Công nhân phải mặc đồ bảo hộ.",
+"lv": "c1"
+},
+{
+"id": "provincial",
+"w": "provincial",
+"pos": "adjective",
+"ipa": "/prəˈvɪnʃl/",
+"vi": "(thuộc) tỉnh",
+"ex": "The provincial government built a new hospital.",
+"exVi": "Chính quyền tỉnh xây bệnh viện mới.",
+"lv": "c1"
+},
+{
+"id": "realization",
+"w": "realization",
+"pos": "noun",
+"ipa": "/ˌriːəlaɪˈzeɪʃn/",
+"vi": "sự nhận ra; sự hiện thực hoá",
+"ex": "The realization that he was lost made him panic.",
+"exVi": "Nhận ra mình bị lạc khiến anh ấy hoảng.",
+"lv": "c1"
+},
+{
+"id": "rebellion",
+"w": "rebellion",
+"pos": "noun",
+"ipa": "/rɪˈbeljən/",
+"vi": "cuộc nổi dậy",
+"ex": "The rebellion was quickly stopped.",
+"exVi": "Cuộc nổi dậy nhanh chóng bị dập tắt.",
+"lv": "c1"
+},
+{
+"id": "reflection",
+"w": "reflection",
+"pos": "noun",
+"ipa": "/rɪˈflekʃn/",
+"vi": "hình phản chiếu; sự suy ngẫm",
+"ex": "She looked at her reflection in the mirror.",
+"exVi": "Cô ấy nhìn bóng mình trong gương.",
+"lv": "c1"
+},
+{
+"id": "refusal",
+"w": "refusal",
+"pos": "noun",
+"ipa": "/rɪˈfjuːzl/",
+"vi": "sự từ chối",
+"ex": "His refusal to help surprised us.",
+"exVi": "Việc anh ấy từ chối giúp khiến chúng tôi bất ngờ.",
+"lv": "c1"
+},
+{
+"id": "regulator",
+"w": "regulator",
+"pos": "noun",
+"ipa": "/ˈreɡjuleɪtə/",
+"vi": "cơ quan quản lý",
+"ex": "The energy regulator approved the new prices.",
+"exVi": "Cơ quan quản lý năng lượng duyệt giá mới.",
+"lv": "c1"
+},
+{
+"id": "rejection",
+"w": "rejection",
+"pos": "noun",
+"ipa": "/rɪˈdʒekʃn/",
+"vi": "sự từ chối, bác bỏ",
+"ex": "She received a rejection letter from the company.",
+"exVi": "Cô ấy nhận thư từ chối của công ty.",
+"lv": "c1"
+},
+{
+"id": "relevance",
+"w": "relevance",
+"pos": "noun",
+"ipa": "/ˈreləvəns/",
+"vi": "sự liên quan",
+"ex": "I don't see the relevance of your question.",
+"exVi": "Tôi không thấy câu hỏi của bạn liên quan gì.",
+"lv": "c1"
+},
+{
+"id": "remains",
+"w": "remains",
+"pos": "noun",
+"ipa": "/rɪˈmeɪnz/",
+"vi": "tàn tích; di hài",
+"ex": "We visited the remains of an ancient temple.",
+"exVi": "Chúng tôi thăm tàn tích một ngôi đền cổ.",
+"lv": "c1"
+},
+{
+"id": "removal",
+"w": "removal",
+"pos": "noun",
+"ipa": "/rɪˈmuːvl/",
+"vi": "sự dỡ bỏ, di dời",
+"ex": "The removal of the old trees made people angry.",
+"exVi": "Việc chặt cây cổ thụ khiến người dân tức giận.",
+"lv": "c1"
+},
+{
+"id": "renew",
+"w": "renew",
+"pos": "verb",
+"ipa": "/rɪˈnjuː/",
+"vi": "gia hạn; làm mới",
+"ex": "I need to renew my passport.",
+"exVi": "Tôi cần gia hạn hộ chiếu.",
+"lv": "c1"
+},
+{
+"id": "rental",
+"w": "rental",
+"pos": "noun",
+"ipa": "/ˈrentl/",
+"vi": "sự thuê; tiền thuê",
+"ex": "Car rental is cheap on the island.",
+"exVi": "Thuê xe trên đảo rẻ.",
+"lv": "c1"
+},
+{
+"id": "replacement",
+"w": "replacement",
+"pos": "noun",
+"ipa": "/rɪˈpleɪsmənt/",
+"vi": "sự thay thế",
+"ex": "We need a replacement for the broken window.",
+"exVi": "Chúng tôi cần kính mới thay cửa sổ vỡ.",
+"lv": "c1"
+},
+{
+"id": "representation",
+"w": "representation",
+"pos": "noun",
+"ipa": "/ˌreprɪzenˈteɪʃn/",
+"vi": "sự đại diện; hình ảnh thể hiện",
+"ex": "Women need more representation in government.",
+"exVi": "Phụ nữ cần có nhiều đại diện hơn trong chính phủ.",
+"lv": "c1"
+},
+{
+"id": "residence",
+"w": "residence",
+"pos": "noun",
+"ipa": "/ˈrezɪdəns/",
+"vi": "nơi cư trú",
+"ex": "The palace was the king's official residence.",
+"exVi": "Cung điện là nơi ở chính thức của nhà vua.",
+"lv": "c1"
+},
+{
+"id": "residential",
+"w": "residential",
+"pos": "adjective",
+"ipa": "/ˌrezɪˈdenʃl/",
+"vi": "(thuộc) khu dân cư",
+"ex": "This is a quiet residential area.",
+"exVi": "Đây là khu dân cư yên tĩnh.",
+"lv": "c1"
+},
+{
+"id": "resignation",
+"w": "resignation",
+"pos": "noun",
+"ipa": "/ˌrezɪɡˈneɪʃn/",
+"vi": "sự từ chức",
+"ex": "The minister handed in his resignation.",
+"exVi": "Bộ trưởng nộp đơn từ chức.",
+"lv": "c1"
+},
+{
+"id": "resilience",
+"w": "resilience",
+"pos": "noun",
+"ipa": "/rɪˈzɪliəns/",
+"vi": "khả năng phục hồi, sự kiên cường",
+"ex": "The town showed great resilience after the flood.",
+"exVi": "Thị trấn cho thấy sức bật lớn sau lũ.",
+"lv": "c1"
+},
+{
+"id": "resistance",
+"w": "resistance",
+"pos": "noun",
+"ipa": "/rɪˈzɪstəns/",
+"vi": "sự kháng cự",
+"ex": "There was strong resistance to the new law.",
+"exVi": "Luật mới vấp phải phản đối mạnh.",
+"lv": "c1"
+},
+{
+"id": "respective",
+"w": "respective",
+"pos": "adjective",
+"ipa": "/rɪˈspektɪv/",
+"vi": "tương ứng, riêng của mỗi người",
+"ex": "After lunch, we went back to our respective offices.",
+"exVi": "Ăn trưa xong, mỗi người về văn phòng của mình.",
+"lv": "c1"
+},
+{
+"id": "restoration",
+"w": "restoration",
+"pos": "noun",
+"ipa": "/ˌrestəˈreɪʃn/",
+"vi": "sự khôi phục, trùng tu",
+"ex": "The restoration of the temple took five years.",
+"exVi": "Việc trùng tu ngôi đền mất năm năm.",
+"lv": "c1"
+},
+{
+"id": "revival",
+"w": "revival",
+"pos": "noun",
+"ipa": "/rɪˈvaɪvl/",
+"vi": "sự hồi sinh",
+"ex": "There has been a revival of interest in traditional music.",
+"exVi": "Âm nhạc truyền thống được quan tâm trở lại.",
+"lv": "c1"
+},
+{
+"id": "revolutionary",
+"w": "revolutionary",
+"pos": "adjective",
+"ipa": "/ˌrevəˈluːʃənəri/",
+"vi": "mang tính cách mạng",
+"ex": "The internet was a revolutionary invention.",
+"exVi": "Internet là phát minh mang tính cách mạng.",
+"lv": "c1"
+},
+{
+"id": "rotation",
+"w": "rotation",
+"pos": "noun",
+"ipa": "/rəʊˈteɪʃn/",
+"vi": "sự quay; sự luân phiên",
+"ex": "The rotation of the earth causes day and night.",
+"exVi": "Trái đất tự quay tạo ra ngày và đêm.",
+"lv": "c1"
+},
+{
+"id": "ruling",
+"w": "ruling",
+"pos": "noun",
+"ipa": "/ˈruːlɪŋ/",
+"vi": "phán quyết",
+"ex": "The court's ruling was final.",
+"exVi": "Phán quyết của toà là cuối cùng.",
+"lv": "c1"
+},
+{
+"id": "safeguard",
+"w": "safeguard",
+"pos": "verb",
+"ipa": "/ˈseɪfɡɑːd/",
+"vi": "bảo vệ",
+"ex": "The law safeguards the rights of workers.",
+"exVi": "Luật bảo vệ quyền lợi người lao động.",
+"lv": "c1"
+},
+{
+"id": "scam",
+"w": "scam",
+"pos": "noun",
+"ipa": "/skæm/",
+"vi": "trò lừa đảo",
+"ex": "The email was a scam to steal your password.",
+"exVi": "Email đó là trò lừa để lấy mật khẩu.",
+"lv": "c1"
+},
+{
+"id": "scrap",
+"w": "scrap",
+"pos": "verb",
+"ipa": "/skræp/",
+"vi": "huỷ bỏ, loại bỏ",
+"ex": "The government scrapped the plan.",
+"exVi": "Chính phủ huỷ kế hoạch.",
+"lv": "c1"
+},
+{
+"id": "seasonal",
+"w": "seasonal",
+"pos": "adjective",
+"ipa": "/ˈsiːzənl/",
+"vi": "theo mùa",
+"ex": "Many farm jobs are seasonal.",
+"exVi": "Nhiều việc nông trại làm theo mùa.",
+"lv": "c1"
+},
+{
+"id": "selective",
+"w": "selective",
+"pos": "adjective",
+"ipa": "/sɪˈlektɪv/",
+"vi": "chọn lọc, kén chọn",
+"ex": "The university is very selective.",
+"exVi": "Trường đại học tuyển rất chọn lọc.",
+"lv": "c1"
+},
+{
+"id": "sensation",
+"w": "sensation",
+"pos": "noun",
+"ipa": "/senˈseɪʃn/",
+"vi": "cảm giác; sự náo động",
+"ex": "I had a strange sensation in my leg.",
+"exVi": "Tôi có cảm giác lạ ở chân.",
+"lv": "c1"
+},
+{
+"id": "sensitivity",
+"w": "sensitivity",
+"pos": "noun",
+"ipa": "/ˌsensəˈtɪvəti/",
+"vi": "sự nhạy cảm, tế nhị",
+"ex": "The issue needs to be handled with sensitivity.",
+"exVi": "Vấn đề cần xử lý tế nhị.",
+"lv": "c1"
+},
+{
+"id": "settlement",
+"w": "settlement",
+"pos": "noun",
+"ipa": "/ˈsetlmənt/",
+"vi": "sự dàn xếp; khu định cư",
+"ex": "The two sides reached a settlement.",
+"exVi": "Hai bên đạt được thoả thuận.",
+"lv": "c1"
+},
+{
+"id": "shipping",
+"w": "shipping",
+"pos": "noun",
+"ipa": "/ˈʃɪpɪŋ/",
+"vi": "sự vận chuyển (hàng)",
+"ex": "Shipping is free for orders over 500,000 dong.",
+"exVi": "Miễn phí vận chuyển cho đơn trên 500.000 đồng.",
+"lv": "c1"
+},
+{
+"id": "simulation",
+"w": "simulation",
+"pos": "noun",
+"ipa": "/ˌsɪmjuˈleɪʃn/",
+"vi": "sự mô phỏng",
+"ex": "Pilots train using flight simulations.",
+"exVi": "Phi công tập bằng mô phỏng bay.",
+"lv": "c1"
+},
+{
+"id": "slavery",
+"w": "slavery",
+"pos": "noun",
+"ipa": "/ˈsleɪvəri/",
+"vi": "chế độ nô lệ",
+"ex": "Slavery was abolished in the nineteenth century.",
+"exVi": "Chế độ nô lệ bị bãi bỏ ở thế kỷ 19.",
+"lv": "c1"
+},
+{
+"id": "socialist",
+"w": "socialist",
+"pos": "adjective",
+"ipa": "/ˈsəʊʃəlɪst/",
+"vi": "xã hội chủ nghĩa",
+"ex": "Vietnam is a socialist republic.",
+"exVi": "Việt Nam là nước cộng hoà xã hội chủ nghĩa.",
+"lv": "c1"
+},
+{
+"id": "sole",
+"w": "sole",
+"pos": "adjective",
+"ipa": "/səʊl/",
+"vi": "duy nhất",
+"ex": "She was the sole survivor of the crash.",
+"exVi": "Cô ấy là người sống sót duy nhất.",
+"lv": "c1"
+},
+{
+"id": "specialized",
+"w": "specialized",
+"pos": "adjective",
+"ipa": "/ˈspeʃəlaɪzd/",
+"vi": "chuyên biệt",
+"ex": "The job needs specialized knowledge.",
+"exVi": "Công việc cần kiến thức chuyên môn.",
+"lv": "c1"
+},
+{
+"id": "specification",
+"w": "specification",
+"pos": "noun",
+"ipa": "/ˌspesɪfɪˈkeɪʃn/",
+"vi": "thông số kỹ thuật",
+"ex": "Check the specifications before you buy a laptop.",
+"exVi": "Xem thông số trước khi mua máy tính.",
+"lv": "c1"
+},
+{
+"id": "spray",
+"w": "spray",
+"pos": "verb",
+"ipa": "/spreɪ/",
+"vi": "phun, xịt",
+"ex": "Farmers spray their crops with chemicals.",
+"exVi": "Nông dân phun hoá chất lên cây trồng.",
+"lv": "c1"
+},
+{
+"id": "stability",
+"w": "stability",
+"pos": "noun",
+"ipa": "/stəˈbɪləti/",
+"vi": "sự ổn định",
+"ex": "The country needs political stability.",
+"exVi": "Đất nước cần ổn định chính trị.",
+"lv": "c1"
+},
+{
+"id": "start-up",
+"w": "start-up",
+"pos": "noun",
+"ipa": "/ˈstɑːt ʌp/",
+"vi": "công ty khởi nghiệp",
+"ex": "She works for a tech start-up.",
+"exVi": "Cô ấy làm cho một công ty khởi nghiệp công nghệ.",
+"lv": "c1"
+},
+{
+"id": "statistical",
+"w": "statistical",
+"pos": "adjective",
+"ipa": "/stəˈtɪstɪkl/",
+"vi": "(thuộc) thống kê",
+"ex": "The report contains a lot of statistical data.",
+"exVi": "Báo cáo chứa nhiều số liệu thống kê.",
+"lv": "c1"
+},
+{
+"id": "strategic",
+"w": "strategic",
+"pos": "adjective",
+"ipa": "/strəˈtiːdʒɪk/",
+"vi": "chiến lược",
+"ex": "The company made a strategic decision to expand.",
+"exVi": "Công ty quyết định chiến lược là mở rộng.",
+"lv": "c1"
+},
+{
+"id": "striking",
+"w": "striking",
+"pos": "adjective",
+"ipa": "/ˈstraɪkɪŋ/",
+"vi": "nổi bật, ấn tượng",
+"ex": "There is a striking similarity between the sisters.",
+"exVi": "Hai chị em giống nhau đến lạ.",
+"lv": "c1"
+},
+{
+"id": "structural",
+"w": "structural",
+"pos": "adjective",
+"ipa": "/ˈstrʌktʃərəl/",
+"vi": "(thuộc) cấu trúc",
+"ex": "The earthquake caused structural damage to the building.",
+"exVi": "Động đất làm hư hại kết cấu toà nhà.",
+"lv": "c1"
+},
+{
+"id": "submission",
+"w": "submission",
+"pos": "noun",
+"ipa": "/səbˈmɪʃn/",
+"vi": "sự nộp (bài)",
+"ex": "The deadline for submission is Friday.",
+"exVi": "Hạn nộp bài là thứ Sáu.",
+"lv": "c1"
+},
+{
+"id": "subscribe",
+"w": "subscribe",
+"pos": "verb",
+"ipa": "/səbˈskraɪb/",
+"vi": "đăng ký (theo dõi, mua dài hạn)",
+"ex": "Subscribe to our channel for new videos.",
+"exVi": "Đăng ký kênh của chúng tôi để xem video mới.",
+"lv": "c1"
+},
+{
+"id": "subscription",
+"w": "subscription",
+"pos": "noun",
+"ipa": "/səbˈskrɪpʃn/",
+"vi": "sự đăng ký dài hạn",
+"ex": "The magazine costs 300,000 dong for an annual subscription.",
+"exVi": "Tạp chí giá 300.000 đồng cho một năm đăng ký.",
+"lv": "c1"
+},
+{
+"id": "substitution",
+"w": "substitution",
+"pos": "noun",
+"ipa": "/ˌsʌbstɪˈtjuːʃn/",
+"vi": "sự thay thế",
+"ex": "The coach made a substitution in the second half.",
+"exVi": "Huấn luyện viên thay người ở hiệp hai.",
+"lv": "c1"
+},
+{
+"id": "suburban",
+"w": "suburban",
+"pos": "adjective",
+"ipa": "/səˈbɜːbən/",
+"vi": "(thuộc) ngoại ô",
+"ex": "They moved to a suburban house with a garden.",
+"exVi": "Họ chuyển về một căn nhà ngoại ô có vườn.",
+"lv": "c1"
+},
+{
+"id": "successive",
+"w": "successive",
+"pos": "adjective",
+"ipa": "/səkˈsesɪv/",
+"vi": "liên tiếp",
+"ex": "The team won three successive games.",
+"exVi": "Đội thắng ba trận liên tiếp.",
+"lv": "c1"
+},
+{
+"id": "successor",
+"w": "successor",
+"pos": "noun",
+"ipa": "/səkˈsesə/",
+"vi": "người kế nhiệm",
+"ex": "The president chose his successor.",
+"exVi": "Tổng thống chọn người kế nhiệm.",
+"lv": "c1"
+},
+{
+"id": "supervision",
+"w": "supervision",
+"pos": "noun",
+"ipa": "/ˌsuːpəˈvɪʒn/",
+"vi": "sự giám sát",
+"ex": "Children must swim under adult supervision.",
+"exVi": "Trẻ em phải bơi dưới sự giám sát của người lớn.",
+"lv": "c1"
+},
+{
+"id": "supervisor",
+"w": "supervisor",
+"pos": "noun",
+"ipa": "/ˈsuːpəvaɪzə/",
+"vi": "người giám sát",
+"ex": "Ask your supervisor for permission.",
+"exVi": "Xin phép người quản lý trực tiếp của bạn.",
+"lv": "c1"
+},
+{
+"id": "supportive",
+"w": "supportive",
+"pos": "adjective",
+"ipa": "/səˈpɔːtɪv/",
+"vi": "ủng hộ, hỗ trợ",
+"ex": "My family was very supportive when I changed jobs.",
+"exVi": "Gia đình rất ủng hộ khi tôi đổi việc.",
+"lv": "c1"
+},
+{
+"id": "surpass",
+"w": "surpass",
+"pos": "verb",
+"ipa": "/səˈpɑːs/",
+"vi": "vượt qua",
+"ex": "Sales surpassed our expectations.",
+"exVi": "Doanh số vượt kỳ vọng.",
+"lv": "c1"
+},
+{
+"id": "suspicious",
+"w": "suspicious",
+"pos": "adjective",
+"ipa": "/səˈspɪʃəs/",
+"vi": "đáng ngờ; nghi ngờ",
+"ex": "Call the police if you see anything suspicious.",
+"exVi": "Gọi cảnh sát nếu thấy điều gì đáng ngờ.",
+"lv": "c1"
+},
+{
+"id": "sustain",
+"w": "sustain",
+"pos": "verb",
+"ipa": "/səˈsteɪn/",
+"vi": "duy trì",
+"ex": "The economy cannot sustain this level of growth.",
+"exVi": "Nền kinh tế không thể duy trì mức tăng này.",
+"lv": "c1"
+},
+{
+"id": "sustainability",
+"w": "sustainability",
+"pos": "noun",
+"ipa": "/səˌsteɪnəˈbɪləti/",
+"vi": "sự bền vững",
+"ex": "The company focuses on sustainability.",
+"exVi": "Công ty chú trọng phát triển bền vững.",
+"lv": "c1"
+},
+{
+"id": "symbolic",
+"w": "symbolic",
+"pos": "adjective",
+"ipa": "/sɪmˈbɒlɪk/",
+"vi": "mang tính biểu tượng",
+"ex": "The gesture was purely symbolic.",
+"exVi": "Cử chỉ đó chỉ mang tính tượng trưng.",
+"lv": "c1"
+},
+{
+"id": "tactical",
+"w": "tactical",
+"pos": "adjective",
+"ipa": "/ˈtæktɪkl/",
+"vi": "(thuộc) chiến thuật",
+"ex": "The coach made a tactical change.",
+"exVi": "Huấn luyện viên thay đổi chiến thuật.",
+"lv": "c1"
+},
+{
+"id": "testimony",
+"w": "testimony",
+"pos": "noun",
+"ipa": "/ˈtestɪməni/",
+"vi": "lời khai",
+"ex": "The witness gave her testimony in court.",
+"exVi": "Nhân chứng khai trước toà.",
+"lv": "c1"
+},
+{
+"id": "theoretical",
+"w": "theoretical",
+"pos": "adjective",
+"ipa": "/ˌθɪəˈretɪkl/",
+"vi": "(thuộc) lý thuyết",
+"ex": "The course has theoretical and practical parts.",
+"exVi": "Khoá học có phần lý thuyết và thực hành.",
+"lv": "c1"
+},
+{
+"id": "tolerance",
+"w": "tolerance",
+"pos": "noun",
+"ipa": "/ˈtɒlərəns/",
+"vi": "sự khoan dung; sức chịu đựng",
+"ex": "We should teach tolerance of other cultures.",
+"exVi": "Ta nên dạy sự tôn trọng văn hoá khác.",
+"lv": "c1"
+},
+{
+"id": "trafficking",
+"w": "trafficking",
+"pos": "noun",
+"ipa": "/ˈtræfɪkɪŋ/",
+"vi": "sự buôn bán (trái phép)",
+"ex": "The police are fighting drug trafficking.",
+"exVi": "Cảnh sát chống buôn bán ma tuý.",
+"lv": "c1"
+},
+{
+"id": "transformation",
+"w": "transformation",
+"pos": "noun",
+"ipa": "/ˌtrænsfəˈmeɪʃn/",
+"vi": "sự biến đổi",
+"ex": "The city has undergone a complete transformation.",
+"exVi": "Thành phố đã thay đổi hoàn toàn.",
+"lv": "c1"
+},
+{
+"id": "transmission",
+"w": "transmission",
+"pos": "noun",
+"ipa": "/trænzˈmɪʃn/",
+"vi": "sự truyền (bệnh, tín hiệu)",
+"ex": "Washing hands reduces the transmission of disease.",
+"exVi": "Rửa tay giảm lây truyền bệnh.",
+"lv": "c1"
+},
+{
+"id": "transparency",
+"w": "transparency",
+"pos": "noun",
+"ipa": "/trænsˈpærənsi/",
+"vi": "sự minh bạch",
+"ex": "People want more transparency from the government.",
+"exVi": "Người dân muốn chính phủ minh bạch hơn.",
+"lv": "c1"
+},
+{
+"id": "tribal",
+"w": "tribal",
+"pos": "adjective",
+"ipa": "/ˈtraɪbl/",
+"vi": "(thuộc) bộ lạc",
+"ex": "The museum has a collection of tribal art.",
+"exVi": "Bảo tàng có bộ sưu tập nghệ thuật bộ lạc.",
+"lv": "c1"
+},
+{
+"id": "troubled",
+"w": "troubled",
+"pos": "adjective",
+"ipa": "/ˈtrʌbld/",
+"vi": "lo lắng; gặp khó khăn",
+"ex": "The company has had a troubled year.",
+"exVi": "Công ty trải qua một năm khó khăn.",
+"lv": "c1"
+},
+{
+"id": "unprecedented",
+"w": "unprecedented",
+"pos": "adjective",
+"ipa": "/ʌnˈpresɪdentɪd/",
+"vi": "chưa từng có",
+"ex": "The city saw an unprecedented number of tourists.",
+"exVi": "Thành phố đón lượng du khách chưa từng có.",
+"lv": "c1"
+},
+{
+"id": "utility",
+"w": "utility",
+"pos": "noun",
+"ipa": "/juːˈtɪləti/",
+"vi": "tiện ích (điện, nước)",
+"ex": "Electricity is the most expensive utility in our flat.",
+"exVi": "Điện là khoản tiện ích đắt nhất trong căn hộ của chúng tôi.",
+"lv": "c1"
+},
+{
+"id": "vegan",
+"w": "vegan",
+"pos": "noun",
+"ipa": "/ˈviːɡən/",
+"vi": "người ăn thuần chay",
+"ex": "She became a vegan five years ago.",
+"exVi": "Cô ấy ăn thuần chay từ năm năm trước.",
+"lv": "c1"
+},
+{
+"id": "vendor",
+"w": "vendor",
+"pos": "noun",
+"ipa": "/ˈvendə/",
+"vi": "người bán hàng",
+"ex": "Street vendors sell food near the station.",
+"exVi": "Người bán hàng rong bán đồ ăn gần ga.",
+"lv": "c1"
+},
+{
+"id": "villager",
+"w": "villager",
+"pos": "noun",
+"ipa": "/ˈvɪlɪdʒə/",
+"vi": "dân làng",
+"ex": "The villagers welcomed us with tea.",
+"exVi": "Dân làng đón chúng tôi bằng trà.",
+"lv": "c1"
+},
+{
+"id": "violation",
+"w": "violation",
+"pos": "noun",
+"ipa": "/ˌvaɪəˈleɪʃn/",
+"vi": "sự vi phạm",
+"ex": "Parking here is a violation of the rules.",
+"exVi": "Đỗ xe ở đây là vi phạm quy định.",
+"lv": "c1"
+},
+{
+"id": "vulnerability",
+"w": "vulnerability",
+"pos": "noun",
+"ipa": "/ˌvʌlnərəˈbɪləti/",
+"vi": "sự dễ bị tổn thương; lỗ hổng",
+"ex": "Hackers found a vulnerability in the software.",
+"exVi": "Tin tặc tìm ra lỗ hổng trong phần mềm.",
+"lv": "c1"
+},
+{
+"id": "width",
+"w": "width",
+"pos": "noun",
+"ipa": "/wɪdθ/",
+"vi": "chiều rộng",
+"ex": "Measure the width of the window.",
+"exVi": "Đo chiều rộng cửa sổ.",
+"lv": "c1"
+},
+{
+"id": "wildfire",
+"w": "wildfire",
+"pos": "noun",
+"ipa": "/ˈwaɪldfaɪə/",
+"vi": "cháy rừng",
+"ex": "Wildfires destroyed thousands of homes.",
+"exVi": "Cháy rừng thiêu huỷ hàng nghìn ngôi nhà.",
+"lv": "c1"
+},
+{
+"id": "willingness",
+"w": "willingness",
+"pos": "noun",
+"ipa": "/ˈwɪlɪŋnəs/",
+"vi": "sự sẵn lòng",
+"ex": "Thank you for your willingness to help.",
+"exVi": "Cảm ơn bạn đã sẵn lòng giúp.",
+"lv": "c1"
+},
+{
+"id": "withdrawal",
+"w": "withdrawal",
+"pos": "noun",
+"ipa": "/wɪðˈdrɔːəl/",
+"vi": "sự rút (tiền, quân)",
+"ex": "There is a fee for cash withdrawals.",
+"exVi": "Rút tiền mặt mất phí.",
+"lv": "c1"
 }
 ]
 }
