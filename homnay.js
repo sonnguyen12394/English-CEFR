@@ -34,6 +34,7 @@ function todayBox(stage) { const t = dayOf(Date.now()), m = actMin(t), g = actGo
     ${step(due === 0, due == null ? 'Ôn bài đến hạn' : due ? `Ôn ${due} bài đến hạn (làm trước, chống quên)` : 'Không còn bài đến hạn', 'data-today="due"')}
     ${step(nw > 0, nw ? `Đã học ${nw} mục mới hôm nay` : `Học 1 bài mới ở cấp ${LVN[stage]}`, 'data-today="new"')}
     ${step(sk, sk ? 'Đã luyện kỹ năng hôm nay' : `Luyện 1 bài kỹ năng${lowSk ? `: ${OV.find(o => o[0] === lowSk[0])[1]} ${OV.find(o => o[0] === lowSk[0])[2]}` : ''}`, `data-today="skill"${lowSk ? ` data-tsk="${lowSk[0]}"` : ''}`)}
+    ${typeof relearnUnits === 'function' ? relearnUnits().slice(0, 2).map(([u, ws]) => `<button data-relearn="${u.id}" style="margin:4px 0">🔁 Học lại ${esc(uLabel(u))}: ${ws.length} từ hay quên</button>`).join('') : ''}
     ${!Object.keys(S.cards || {}).length && !S.place ? '<button data-place style="margin-top:6px">🧭 Mới bắt đầu? Kiểm tra xếp cấp (5–10 phút) để biết nên học từ cấp nào</button>' : ''}
     <p class="mute" style="margin:6px 0 0">Phút học đo từ lúc bạn làm bài (không tính lúc chỉ mở app). Ngày ≥ ${ACT_DAY_MIN} phút tính vào chuỗi. Học đều mỗi ngày nhớ lâu hơn học dồn (hiệu ứng giãn cách).</p></div>`; }
 document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('[data-goal]'); if (g) { S.goal = +g.dataset.goal; S.t = Date.now(); save(); return overview(); }
