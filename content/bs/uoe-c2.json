@@ -890,5 +890,292 @@
 ],
 "why": "keep sb waiting = bắt ai chờ."
 }
+],
+"sum": [
+{
+"id": "sum-c2-1",
+"lv": "c2",
+"en": "Summary essay: Working from Home",
+"vi": "Tóm tắt và đánh giá: làm việc tại nhà",
+"genre": "bài luận tóm tắt",
+"min": 240,
+"max": 280,
+"p": "Read the two texts below. Write an essay summarising and evaluating the main points of both texts. Use your own words as far as possible and include your own ideas. Write 240–280 words.",
+"pv": "Đọc hai đoạn văn. Viết bài luận tóm tắt và đánh giá ý chính của cả hai, dùng lời của mình càng nhiều càng tốt, thêm ý riêng. 240–280 từ.",
+"texts": [
+"The shift to remote work has been hailed as a liberation. Freed from the daily commute, employees regain hours each week, and many report that they are able to concentrate more effectively away from the interruptions of an open-plan office. Employers, for their part, can recruit talent regardless of geography and reduce the considerable cost of office space. Yet the benefits are not evenly distributed: those with cramped accommodation or young children may find home anything but a haven of productivity.",
+"What remote work gains in efficiency, it may lose in less tangible ways. Much of what makes organisations innovative arises from unplanned encounters: a conversation by the coffee machine, an overheard remark that sparks an idea. Junior staff, in particular, learn by observing experienced colleagues, something that video calls replicate poorly. There is also a risk that the boundary between work and private life dissolves altogether, leaving employees perpetually on call. A model that combines the flexibility of home working with regular time together may prove the most sustainable compromise."
+],
+"c": [
+"Tóm đoạn 1: lợi ích (bớt đi lại, tập trung, tuyển người ở xa, giảm chi phí)",
+"Tóm đoạn 1: không đều cho mọi người (nhà chật, con nhỏ)",
+"Tóm đoạn 2: mất gặp gỡ ngẫu nhiên, người mới khó học, ranh giới mờ, mô hình kết hợp",
+"Đánh giá hai đoạn + ý riêng, kết luận"
+],
+"u": [
+[
+"Both texts examine",
+"Cả hai đoạn bàn về"
+],
+[
+"The first text focuses on",
+"Đoạn thứ nhất tập trung vào"
+],
+[
+"The second text is considerably more sceptical",
+"Đoạn thứ hai hoài nghi hơn nhiều"
+],
+[
+"In my view, … presents the stronger argument",
+"Theo tôi, … lập luận mạnh hơn"
+],
+[
+"On balance,",
+"Cân nhắc mọi mặt,"
+]
+],
+"k": [
+[
+[
+"commut",
+"concentrat",
+"recruit",
+"premises",
+"office space",
+"travelling"
+]
+],
+[
+[
+"evenly",
+"circumstances",
+"cramped",
+"small flat",
+"children",
+"not everyone"
+]
+],
+[
+[
+"spontaneous",
+"unplanned",
+"junior",
+"less experienced",
+"learn by",
+"private life",
+"hybrid",
+"on call"
+]
+],
+[
+[
+"in my view",
+"in my opinion",
+"i would argue",
+"i believe",
+"i find",
+"in conclusion",
+"on balance",
+"overall",
+"it seems to me"
+]
+]
+],
+"m": [
+"Both texts examine the consequences of the move towards remote working, but they place the emphasis on rather different aspects of it.",
+"The first text focuses on the practical advantages. Employees no longer waste time travelling and may find it easier to focus at home, while companies can hire people wherever they live and save on expensive premises. However, the writer rightly acknowledges that these benefits depend heavily on personal circumstances: parents of young children who live in a small flat are unlikely to find home a peaceful place to work.",
+"The second text argues that something valuable is lost when colleagues no longer share a workplace. Spontaneous conversations, which often generate new ideas, become rare, and less experienced employees miss the chance to learn by watching others. The writer also warns that work may intrude into every part of private life, and proposes a hybrid arrangement as the solution.",
+"In my view, the second writer raises the more serious concerns, since the advantages described in the first text are immediate and measurable, whereas the costs are gradual and easy to overlook. A young employee may appreciate the absence of a commute today without realising how much slower their professional development has become. Nevertheless, a hybrid model only succeeds if the days spent together are used for collaboration rather than for tasks that could be done alone. On balance, remote work is neither a liberation nor a threat in itself; its value depends on how carefully organisations design it."
+]
+},
+{
+"id": "sum-c2-2",
+"lv": "c2",
+"en": "Summary essay: The Value of Tourism",
+"vi": "Tóm tắt và đánh giá: giá trị của du lịch",
+"genre": "bài luận tóm tắt",
+"min": 240,
+"max": 280,
+"p": "Read the two texts below. Write an essay summarising and evaluating the main points of both texts. Use your own words as far as possible and include your own ideas. Write 240–280 words.",
+"pv": "Đọc hai đoạn văn. Viết bài luận tóm tắt và đánh giá ý chính của cả hai, dùng lời của mình càng nhiều càng tốt, thêm ý riêng. 240–280 từ.",
+"texts": [
+"Mass tourism is frequently blamed for overcrowded city centres and damaged landscapes, but such criticism often overlooks its economic importance. In many regions, tourism provides employment where few alternatives exist, and the income it generates can fund the preservation of historic sites that would otherwise fall into disrepair. Visitors also bring cultural exchange, encouraging local communities to take pride in traditions that might otherwise be forgotten. The challenge is not to discourage travel but to manage it more intelligently.",
+"The financial benefits of tourism are real but frequently overstated. A significant share of the profits ends up with international hotel chains and tour operators rather than local businesses, while residents face rising rents as homes are converted into holiday accommodation. Meanwhile, traditions risk being reduced to performances staged for visitors. Some destinations have begun to limit visitor numbers or introduce tourist taxes, arguing that only by restricting tourism can its long-term value be protected."
+],
+"c": [
+"Tóm đoạn 1: tạo việc làm, tiền giữ di tích",
+"Tóm đoạn 1: giao lưu văn hoá, cần quản lý chứ không cấm",
+"Tóm đoạn 2: lợi nhuận chảy ra ngoài, giá nhà tăng, văn hoá thành trình diễn, hạn chế khách",
+"Đánh giá hai đoạn + ý riêng, kết luận"
+],
+"u": [
+[
+"Both texts examine",
+"Cả hai đoạn bàn về"
+],
+[
+"The first text focuses on",
+"Đoạn thứ nhất tập trung vào"
+],
+[
+"The second text is considerably more sceptical",
+"Đoạn thứ hai hoài nghi hơn nhiều"
+],
+[
+"In my view, … presents the stronger argument",
+"Theo tôi, … lập luận mạnh hơn"
+],
+[
+"On balance,",
+"Cân nhắc mọi mặt,"
+]
+],
+"k": [
+[
+[
+"jobs",
+"employment",
+"work",
+"upkeep",
+"historic",
+"econom"
+]
+],
+[
+[
+"pride",
+"cultur",
+"tradition",
+"managed",
+"manage"
+]
+],
+[
+[
+"foreign compan",
+"international",
+"priced out",
+"rent",
+"holiday let",
+"show",
+"caps",
+"taxes",
+"restrict"
+]
+],
+[
+[
+"in my view",
+"in my opinion",
+"i would argue",
+"i believe",
+"i find",
+"in conclusion",
+"on balance",
+"overall",
+"it seems to me"
+]
+]
+],
+"m": [
+"The two texts offer contrasting assessments of tourism, although both accept that it needs to be controlled in some way.",
+"According to the first text, critics tend to ignore how much tourism contributes economically. It creates jobs in areas where there is little other work, and the money it brings in can pay for the upkeep of historic buildings. The writer adds that contact with visitors can strengthen local pride in cultural traditions, and concludes that tourism should be managed better rather than reduced.",
+"The second text is considerably more sceptical. Its writer points out that much of the money spent by tourists goes to large foreign companies instead of local people, and that residents are often priced out of their neighbourhoods as properties become holiday lets. Far from preserving culture, tourism may turn it into a show. For this reason, the writer supports caps on visitor numbers and special taxes.",
+"In my opinion, the second text presents the stronger argument, largely because it questions who actually benefits. The first writer's claims about employment are valid, but jobs in tourism are often seasonal and poorly paid, which limits their value to communities. That said, outright restrictions carry their own risks, particularly for regions with no other industry. I would argue that the most effective approach combines elements of both views: taxes reinvested in local housing and services, together with support for locally owned businesses, so that tourism serves residents rather than the other way round."
+]
+},
+{
+"id": "sum-c2-3",
+"lv": "c2",
+"en": "Summary essay: Do We Still Need to Learn Languages?",
+"vi": "Tóm tắt và đánh giá: còn cần học ngoại ngữ?",
+"genre": "bài luận tóm tắt",
+"min": 240,
+"max": 280,
+"p": "Read the two texts below. Write an essay summarising and evaluating the main points of both texts. Use your own words as far as possible and include your own ideas. Write 240–280 words.",
+"pv": "Đọc hai đoạn văn. Viết bài luận tóm tắt và đánh giá ý chính của cả hai, dùng lời của mình càng nhiều càng tốt, thêm ý riêng. 240–280 từ.",
+"texts": [
+"Advances in machine translation have led some to question whether learning a foreign language is still worth the effort. Translation apps can now render everyday conversation with impressive accuracy, allowing travellers and businesses to communicate across language barriers instantly. For many practical purposes, the argument goes, the years spent mastering grammar and vocabulary could be devoted to more productive activities, while the technology itself will only continue to improve.",
+"To regard a language merely as a code to be converted is to misunderstand what it offers. Learning another language gives access to ways of thinking, humour and social nuance that no translation fully captures, and it builds relationships of trust that are difficult to establish through a device. Research also suggests that the mental effort involved in language learning brings cognitive benefits, such as improved concentration, that extend well beyond communication itself."
+],
+"c": [
+"Tóm đoạn 1: máy dịch chính xác, giao tiếp ngay",
+"Tóm đoạn 1: thời gian học có thể dành việc khác",
+"Tóm đoạn 2: văn hoá, sắc thái, niềm tin, lợi ích cho trí não",
+"Đánh giá hai đoạn + ý riêng, kết luận"
+],
+"u": [
+[
+"Both texts examine",
+"Cả hai đoạn bàn về"
+],
+[
+"The first text focuses on",
+"Đoạn thứ nhất tập trung vào"
+],
+[
+"The second text is considerably more sceptical",
+"Đoạn thứ hai hoài nghi hơn nhiều"
+],
+[
+"In my view, … presents the stronger argument",
+"Theo tôi, … lập luận mạnh hơn"
+],
+[
+"On balance,",
+"Cân nhắc mọi mặt,"
+]
+],
+"k": [
+[
+[
+"translation",
+"accurate",
+"without delay",
+"instant",
+"machine"
+]
+],
+[
+[
+"time",
+"effort",
+"better spent",
+"other things",
+"worth"
+]
+],
+[
+[
+"humour",
+"subtlet",
+"nuance",
+"connection",
+"trust",
+"concentration",
+"mental"
+]
+],
+[
+[
+"in my view",
+"in my opinion",
+"i would argue",
+"i believe",
+"i find",
+"in conclusion",
+"on balance",
+"overall",
+"it seems to me"
+]
+]
+],
+"m": [
+"Both texts consider whether translation technology has made language learning unnecessary, but they reach opposite conclusions.",
+"The first text argues that machine translation is now accurate enough to allow people to communicate across languages without delay, whether they are tourists or companies. From this perspective, the considerable time needed to learn a language might be better spent on other things, especially as the technology keeps improving.",
+"The second text rejects this view on the grounds that language is far more than a system for exchanging information. Knowing a language allows people to understand a culture's humour and subtleties and to build genuine personal connections, which a machine cannot achieve. The writer also refers to research showing that language learning improves mental abilities such as concentration.",
+"I find the second text more convincing, although the first makes a fair point about practical communication. For a holiday, a translation app is undoubtedly convenient. However, the first writer assumes that communication consists only of exchanging facts, which is rarely true. Negotiations, friendships and even casual conversations depend on tone, timing and shared references that are easily lost when every sentence passes through a device. Moreover, relying entirely on technology leaves users helpless when it fails. In my view, translation tools are best seen as a support for learners rather than a replacement for learning; by making authentic material accessible to beginners, they may even make language study more rewarding. Learning a language, after all, is also a way of learning about the people who speak it."
+]
+}
 ]
 }

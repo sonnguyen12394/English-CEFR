@@ -77,6 +77,10 @@ await pg.evaluate(() => overview('b2')); await pg.waitForTimeout(600); await pg.
 check('thư viện mở', (await pg.innerText('#app')).includes('Thư viện đọc')); await pg.click('[data-lb]'); await pg.waitForTimeout(800);
 await pg.click('#libp [data-lw]:nth-child(3)'); await pg.waitForTimeout(200); check('thư viện tra từ', await pg.isVisible('#libw'));
 await pg.click('[data-a="next"]'); await pg.waitForTimeout(400); check('thư viện lật trang', /· 2\//.test(await pg.innerText('.uname')));
+// 📝 tóm tắt 2 đoạn C2: mở, nộp bài mẫu → báo đủ ý
+await pg.evaluate(() => uoeView('c2')); await pg.waitForTimeout(600); await pg.click('[data-ut="sum"]'); await pg.waitForTimeout(400);
+await pg.fill('#ut', await pg.evaluate(() => kModel(UOE.sum.find(x => document.body.innerText.includes(x.en))))); await pg.click('#uf button[type=submit]'); await pg.waitForTimeout(300);
+check('tóm tắt C2 chấm bài mẫu', /Đúng/.test(await pg.innerText('#ufb')));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');
