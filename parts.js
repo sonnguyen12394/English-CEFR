@@ -263,7 +263,7 @@ const rqRow = (l, d, tag) => `<details class="dimx"><summary><span>${l}</span><s
 // Đề mẫu Cambridge chính thức (miễn phí), tự làm, tự đếm câu đúng theo đáp án; ghi điểm vào S.real[cấp]. Chỉ ghi nhận, không khoá cấp sau.
 // Ngưỡng 70% mỗi phần là đề xuất (Cambridge chấm bằng khiên 1–5, không có điểm đỗ).
 const REAL = {
-  pre: { name: 'Pre A1 Starters', L: 20, RW: 25 }, a1: { name: 'A1 Movers', L: 25, RW: 35 }, a2: { name: 'A2 Flyers', L: 25, RW: 44 },
+  pre: { name: 'Pre A1 Starters', L: 20, RW: 25 }, a1: { name: 'A1 Movers', L: 25, RW: 35 }, a2: { name: 'A2 Key', L: 25, RW: 30, rwName: 'Đọc (phần 1–5)', url: 'https://www.cambridgeenglish.org/exams-and-tests/qualifications/key/preparation/' },   // 28/10/2026: trước trỏ đề Flyers (trẻ em); bằng thật cho người lớn là A2 Key
   // B1 → C2 (v52): trang luyện thi chính thức có đề mẫu + đáp án; phần Viết, Nói cần người chấm nên chỉ đếm Nghe + Đọc (B2 trở lên: Đọc và Dùng tiếng Anh)
   b1: { name: 'B1 Preliminary', L: 25, RW: 32, rwName: 'Đọc', url: 'https://www.cambridgeenglish.org/exams-and-tests/qualifications/preliminary/preparation/' },
   b2: { name: 'B2 First', L: 30, RW: 52, rwName: 'Đọc và Dùng tiếng Anh', url: 'https://www.cambridgeenglish.org/exams-and-tests/qualifications/first/preparation/' },
