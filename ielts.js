@@ -1,6 +1,6 @@
 // 🌏 Học IELTS (v68, 28/10/2026, người sáng lập: "để IELTS chạy riêng, làm thêm mục thứ 4 là học IELTS, còn mục học cũ là học CEFR … dùng phần học đó để học và thi IELTS được. Bạn tự tính mà làm").
 // Mục riêng ở thanh dưới. KHÔNG đụng luật đo CEFR (📘 Học / 🔁 Nhớ / Thi chuyển cấp): luyện ở đây không tính vào phần nào bên 🎯 Học CEFR.
-// Dữ liệu: ielts.json ← content/ielts/*.json (node tools/build-ielts.mjs; Claude soạn, chưa người thật kiểm; bài đọc ~430–530 từ, ngắn hơn đề thật ~700–900 từ).
+// Dữ liệu: ielts.json ← content/ielts/*.json (node tools/build-ielts.mjs; Claude soạn, chưa người thật kiểm; bài đọc 430–700 từ, đề thật ~700–900 từ).
 // Dùng lại kho sẵn có: bài nghe B1 → C2 (giọng tự nhiên n/), nghe điền phiếu (nghe2.js ngQs), máy chép lời (kAsr), bắt lỗi Viết (thi.js wErrors), AI chấm (el-cham, thang band IELTS).
 // Band máy là ƯỚC LƯỢNG, chưa đối chiếu điểm thi thật. Viết / Nói: máy chỉ báo tới 7.0 (trên mức đó máy không phân biệt được), nên nhờ AI chấm hoặc giáo viên.
 // Không phải sản phẩm chính thức của IELTS (British Council, IDP, Cambridge); không chép đề thật.
@@ -173,6 +173,7 @@ function ieSHtml(res, sc) { if (!sc.band) return `<div class="box"><b>Máy nghe 
   return `<div class="box"><b>🧐 Máy ước: band ${bandTxt(sc.band)}</b>${sc.C.map(([n, b]) => `<p style="margin:4px 0">${n}: <b>${bandTxt(b)}</b></p>`).join('')}
     <p class="mute" style="margin:6px 0 0">${sc.d.words} từ · ${sc.d.wpm} từ/phút (người nói tự nhiên ~110–150) · ${sc.d.links} từ nối khác nhau · ${sc.d.hi} từ B2 trở lên · cấu trúc đã dùng: ${sc.d.feats.join(', ') || 'chưa thấy'}.</p>
     ${res.map(r => `<p style="margin:6px 0 0;font-size:14px"><span class="mute">${esc(r.part)}: ${esc(r.q.q)}</span><br>Bạn: “${esc(r.ans || '…')}”</p>`).join('')}
+    ${[...new Set(res.map(r => r.q.card).filter(c => c && c.m))].map(c => `<details style="margin-top:6px"><summary>Bài nói mẫu Part 2 (tham khảo cách triển khai, đừng học thuộc)</summary><p style="font-size:15px">${esc(c.m)}</p></details>`).join('')}
     <p class="mute" style="margin:6px 0 0">Máy chỉ thấy lời đã chép (máy chép tự sửa một số lỗi, không nghe được ngữ điệu), nên chấm phát âm và ngữ pháp rất sơ bộ, chỉ báo tới band ${IE_MAXM}.0. Nên nói thử với giáo viên.</p>
     ${aiBtn('noi', ieLvTag(), { prompt: 'IELTS Speaking test (Part 1 interview, Part 2 long turn, Part 3 discussion). Each answer follows its question.', target: ieSt().target, mb: sc.band },
       res.map(r => `[${r.part}] Examiner: ${r.q.q}\nCandidate: ${r.ans || '(no answer)'}`).join('\n\n'))}</div>`; }
@@ -321,7 +322,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
     <h2>Luyện từng kỹ năng</h2><p class="mute" style="margin:0 0 6px">Báo đúng / sai ngay, có giải thích. Không tính giờ (trừ Viết, Nói).</p>
     <div class="box"><b>🎧 Nghe (Listening)</b><p class="mute" style="margin:4px 0">Bài nghe B1 → C2 của app, giọng tự nhiên. Đề thật có nhiều giọng (Anh, Úc, Mỹ…); app chủ yếu một giọng.</p>
       <div class="duo"><button class="big2" data-iel="form">📝 Điền phiếu<small>Part 1, 4</small></button><button class="big2" data-iel="mc">🔘 Trắc nghiệm<small>Part 2, 3</small></button></div>${typeof ieHow === 'function' ? ieHow(['listen']) : ''}</div>
-    <div class="box"><b>📖 Đọc (Reading)</b><p class="mute" style="margin:4px 0">${IE.doc.length} bài đọc học thuật kiểu IELTS (~430–530 từ, ngắn hơn đề thật ~700–900 từ).</p>
+    <div class="box"><b>📖 Đọc (Reading)</b><p class="mute" style="margin:4px 0">${IE.doc.length} bài đọc học thuật kiểu IELTS (${(() => { const n = IE.doc.map(x => kWords(x.paras.join(' ')).length); return Math.min(...n) + '–' + Math.max(...n); })()} từ; đề thật ~700–900 từ).</p>
       <button data-ier="all">📄 Cả bài: 14–18 câu, mọi dạng, tính giờ 20 phút</button><div class="duo">${Object.entries(IE_RK).map(([k, [ic, n]]) => `<button class="big2" data-ier="${k}">${ic} ${n}</button>`).join('')}</div>${typeof ieHow === 'function' ? ieHow(['tf', 'h', 'comp', 'time']) : ''}</div>
     <div class="box"><b>✍️ Viết (Writing)</b><p class="mute" style="margin:4px 0">Máy chấm 4 tiêu chí IELTS (gián tiếp, tối đa ${IE_MAXM}.0) + nút 🧑‍🏫 AI chấm theo thang band.</p>
       <div class="duo"><button class="big2" data-iew="${t1}">${t1 === 't1' ? '📊 Task 1<small>tả biểu đồ, 150 từ</small>' : '✉️ Task 1<small>viết thư, 150 từ</small>'}</button><button class="big2" data-iew="t2">📝 Task 2<small>bài luận, 250 từ</small></button></div>
