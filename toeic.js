@@ -1,4 +1,5 @@
 // 💼 Luyện TOEIC Listening & Reading (v72, 28/10/2026, người sáng lập: "hãy làm đi" sau góp ý làm phần học TOEIC).
+// v73 (người sáng lập: "phân tích điểm mạnh yếu … làm cho phần học TOEIC trở nên giá trị"): kho gấp ~1,7 lần, Part 5 theo dạng, bẫy Part 2, luyện tốc độ, nơi tăng điểm nhanh nhất, ngày thi.
 // Chung mục 🎓 Luyện thi với 🌏 IELTS (nút chuyển ở đầu màn). Chạy riêng, KHÔNG tính vào luật đo CEFR.
 // Dữ liệu: toeic.json ← content/toeic/*.json (node tools/build-toeic.mjs; Claude soạn, chưa người thật kiểm; không chép đề ETS). Giọng Part 2–4, từ vựng: tools/build-audio.py (Kokoro, Mỹ + Anh).
 // Đề thật: Nghe 100 câu / 45 phút (Part 1 tả ảnh 6 · Part 2 hỏi–đáp 25 · Part 3 hội thoại 39 · Part 4 bài nói 30), Đọc 100 câu / 75 phút (Part 5 điền câu 30 · Part 6 điền đoạn 16 · Part 7 đọc hiểu 54).
@@ -6,7 +7,7 @@
 // TOEIC là thương hiệu của ETS; app không phải sản phẩm chính thức.
 let TO = null;
 const toLoad = async () => TO || (TO = await (await fetch('toeic.json?v=' + APP_V)).json());
-const toSt = () => { const o = (S.to = S.to || {}); o.target = o.target || 600; o.r = o.r || {}; o.voc = o.voc || {}; for (const k of ['mock', 'off']) o[k] = o[k] || []; return o; };
+const toSt = () => { const o = (S.to = S.to || {}); o.target = o.target || 600; o.r = o.r || {}; o.voc = o.voc || {}; o.trap = o.trap || {}; for (const k of ['mock', 'off', 'spd']) o[k] = o[k] || []; return o; };
 const TO_TG = [450, 550, 650, 750, 850];
 // điểm ước một phần: 5 + 490 × tỉ lệ đúng, làm tròn 5 (thang 5–495); KHÔNG phải bảng quy đổi của ETS
 const toScale = (ok, n) => Math.max(5, Math.min(495, 5 + Math.round(490 * ok / Math.max(1, n) / 5) * 5));
@@ -23,11 +24,14 @@ const TO_HOW = {
 
 // ---------- câu hỏi (khuôn chung với ieRun / mkPaper: { x, sec, kind, head, q, opts, a, why, play }) ----------
 const TO_LH = '<p class="mute">🎧 Nghe rồi chọn. Đề thật chỉ nghe 1 lần (đề thử của app cũng vậy); luyện được nghe 2 lần.</p>';
+// v73: Part 2 hiện lời bài kèm loại bẫy của từng lời đáp sai (content: tr)
+const TO_TRAP = { rep: ['Lặp từ / từ gần âm', 'Lời đáp dùng lại từ (hoặc từ nghe giống) trong câu hỏi nhưng không trả lời.'], type: ['Sai loại thông tin', 'Câu hỏi hỏi một loại thông tin (khi nào, ở đâu, ai…) nhưng lời đáp nói loại khác.'],
+  yn: ['Yes / No cho câu Wh-', 'Câu hỏi When, Where, Why… không trả lời bằng Yes / No.'], rel: ['Cùng chủ đề, không trả lời', 'Nghe có vẻ liên quan nhưng không trả lời điều được hỏi.'] };
 const toP2Q = x => ({ x, sec: 'p2', kind: 'mc', head: TO_LH + '<p class="mute">Part 2: nghe câu hỏi và 3 lời đáp (đề thật không in chữ). Chọn lời đáp hợp nhất.</p>', q: 'Lời đáp nào đúng?', opts: ['A', 'B', 'C'], a: 'ABC'[x.a],
-  play: { key: x.id, lines: x.lines }, why: x.lines.map(l => l[1]).join(' · ') });
+  play: { key: x.id, lines: x.lines }, why: x.q + ' → ' + x.o.map((t, i) => `${'ABC'[i]}. ${t} ${i === x.a ? '✅' : '❌ ' + (x.tr ? TO_TRAP[x.tr[i]][0] : '')}`).join(' · ') });
 const toTalkQs = (x, sec) => x.qs.map((q, i) => ({ x, sec, kind: 'mc', head: TO_LH + `<div class="box"><p class="mute" style="margin:0">Câu ${i + 1}/${x.qs.length} của bài này</p></div>`, q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a,
   play: x.lines ? { key: x.id, lines: x.lines } : { key: x.id, text: x.text }, why: 'Lời bài: ' + (x.lines ? x.lines.map(l => l[1]).join(' ') : x.text) }));
-const toP5Q = x => ({ x, sec: 'p5', kind: 'mc', head: `<p class="mute">Part 5: chọn từ / cụm điền vào chỗ trống.${x.k === 'f' ? ' (dạng từ)' : x.k === 'v' ? ' (từ vựng)' : ' (ngữ pháp)'}</p>`, q: esc(x.s).replace('-------', '<b>-------</b>'), opts: shuf(x.o), a: x.a, why: x.why });
+const toP5Q = x => ({ x, sec: 'p5', kind: 'mc', head: `<p class="mute">Part 5 · ${TO_T5[x.t] || ''}: chọn từ / cụm điền vào chỗ trống.</p>`, q: esc(x.s).replace('-------', '<b>-------</b>'), opts: shuf(x.o), a: x.a, why: x.why });
 const toP6Text = (x, cur) => `<div class="box"><p class="mute" style="margin:0">${esc(x.kind)}</p><b style="font-size:15px">${esc(x.title)}</b><p style="font-size:16px;line-height:1.7;margin:8px 0 0">${esc(x.text).replace(/\{(\d)\}/g, (_, n) => +n - 1 === cur ? `<mark style="padding:1px 4px;border-radius:4px"><b>(${n})</b> -------</mark>` : `<b>(${n})</b> -------`)}</p></div>`;
 const toP6Qs = x => x.gaps.map((g, i) => ({ x, sec: 'p6', kind: 'mc', head: '<p class="mute">Part 6: chọn phương án cho chỗ trống được tô. Có một chỗ phải chèn cả câu.</p>' + toP6Text(x, i), q: `Chỗ (${i + 1})`, opts: shuf(g.o), a: g.a, why: g.why }));
 const toDocs = x => x.docs.map(d => `<div class="box"><b style="font-size:15px">${esc(d.title)}</b><p style="font-size:16px;line-height:1.6;margin:6px 0 0;white-space:pre-line">${esc(d.text)}</p></div>`).join('');
@@ -36,6 +40,8 @@ const toP7Qs = x => x.qs.map((q, i) => ({ x, sec: 'p7', kind: 'mc', head: `<p cl
 const toPick = (its, n) => { const R = toSt().r; return shuf(its).sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0)).slice(0, n); };
 const toGen = { p2: n => toPick(TO.p2, n).map(toP2Q), p3: n => toPick(TO.p3, n).flatMap(x => toTalkQs(x, 'p3')), p4: n => toPick(TO.p4, n).flatMap(x => toTalkQs(x, 'p4')),
   p5: n => toPick(TO.p5, n).map(toP5Q), p6: n => toPick(TO.p6, n).flatMap(toP6Qs), p7: n => toPick(TO.p7.filter(x => x.docs.length === 1), n).flatMap(toP7Qs), p7m: n => toPick(TO.p7.filter(x => x.docs.length > 1), n).flatMap(toP7Qs) };
+// dạng Part 5 (content: t)
+const TO_T5 = { form: 'Dạng từ', verb: 'Động từ (thì, bị động, V-ing / to V)', prep: 'Giới từ', conj: 'Liên từ, từ nối', pron: 'Đại từ, mệnh đề quan hệ', struct: 'So sánh, đảo ngữ', voc: 'Từ vựng, cụm từ' };
 const TO_PRAC = { p2: 10, p3: 2, p4: 2, p5: 15, p6: 1, p7: 2 };
 // ôn câu Part 5 làm sai gần nhất
 const toWrong5 = () => TO.p5.filter(x => { const r = toSt().r[x.id]; return r && r.ok < r.n; });
@@ -62,7 +68,7 @@ async function toMock(idx) { $app.innerHTML = '<p class="mute">Đang tải…</p
   for (const i of idx) { const p = TO_PAPERS[i]; MK.papers.push({ t: p.t, k: p.k, min: p.min, qs: p.gen(), res: [] }); }
   if (!confirm(`${MK.C.name}: ${MK.papers.map(p => `${p.t} ${p.qs.length} câu, ${p.min} phút`).join(' · ')}. Bài nghe chỉ phát 1 lần như đề thật. Bắt đầu?`)) return toeicView();
   mkPaper(0); }
-function toMockResult() { const b = {}, rows = [];
+function toMockResult() { const b = {}, rows = []; toTrapLog(MK.papers.flatMap(p => p.res));
   for (const p of MK.papers) { const ok = p.res.filter(r => r.ok).length; b[p.k] = toScale(ok, p.res.length);
     const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } rows.push([p, ok, by]); }
   const full = b.L != null && b.R != null, tot = full ? b.L + b.R : null, tg = toSt().target; toSt().mock.push({ at: Date.now(), b, tot }); S.t = Date.now(); save();
@@ -98,7 +104,37 @@ document.addEventListener('click', e => { const b = e.target.closest('[data-toad
 function toToday() { const o = toSt(), acc = s => { const a = Object.values(o.r).filter(r => r.k === s), n = a.reduce((t, r) => t + r.n, 0); return n ? a.reduce((t, r) => t + r.ok, 0) / n : -1; }, last = (o.mock[o.mock.length - 1] || {}).at || 0;
   if (toVocDue().length) return ['data-tovoc=""', `📚 Ôn ${Math.min(10, toVocDue().length)} từ công sở đến hạn`];
   if (Object.keys(o.r).length >= 8 && Date.now() - last > 14 * 864e5) return ['data-tomk="all"', '🎓 Làm một đề thử (2 tuần chưa làm)'];
-  const s = Object.keys(TO_PRAC).sort((a, b) => acc(a) - acc(b))[0]; return [`data-top="${s}"`, `${TO_SEC[s][0]} Luyện ${TO_SEC[s][1]}${acc(s) < 0 ? ' (chưa làm)' : ` (đúng ${Math.round(acc(s) * 100)}%)`}`]; }
+  const s = Object.keys(TO_PRAC).sort((a, b) => acc(a) - acc(b))[0], tg5 = toTagAcc().filter(t => t.n >= 4).sort((a, b) => a.p - b.p)[0];
+  if (s === 'p5' && tg5) return [`data-top="t:${tg5.t}"`, `✏️ Part 5 · ${TO_T5[tg5.t]} (đúng ${Math.round(tg5.p * 100)}%, dạng yếu nhất)`];
+  return [`data-top="${s}"`, `${TO_SEC[s][0]} Luyện ${TO_SEC[s][1]}${acc(s) < 0 ? ' (chưa làm)' : ` (đúng ${Math.round(acc(s) * 100)}%)`}`]; }
+
+// ---------- v73: phân tích điểm yếu, tốc độ, nơi tăng điểm nhanh nhất, ngày thi ----------
+// Part 5 theo dạng: % đúng lần làm gần nhất của các câu mỗi dạng
+const toTagAcc = () => Object.keys(TO_T5).map(t => { const its = TO.p5.filter(x => x.t === t), R = toSt().r; let ok = 0, n = 0; for (const x of its) { const r = R[x.id]; if (r) { ok += r.ok; n += r.n; } } return { t, ok, n, p: n ? ok / n : 0, tot: its.length }; });
+// bẫy Part 2 đã mắc (đếm từ luyện và đề thử)
+function toTrapLog(res) { const T = toSt().trap; for (const r of res) { const x = r.q && r.q.x; if (!x || r.q.sec !== 'p2' || r.ok || !x.tr) continue; const t = x.tr['ABC'.indexOf(r.ans)]; if (t) T[t] = (T[t] || 0) + 1; } }
+// nơi tăng điểm nhanh nhất: số câu mỗi Part trong đề thật × phần còn có thể đúng thêm (tối đa +20 điểm %) × ~4,9 điểm / câu (thang 495 / 100 câu)
+const TO_REAL = { p2: 25, p3: 39, p4: 30, p5: 30, p6: 16, p7: 54 };
+function toGain() { const R = Object.values(toSt().r); return Object.keys(TO_REAL).map(s => { const a = R.filter(r => r.k === s), n = a.reduce((t, r) => t + r.n, 0), p = n ? a.reduce((t, r) => t + r.ok, 0) / n : null;
+  return { s, n, p, g: p == null ? null : Math.round(Math.min(0.2, 1 - p) * TO_REAL[s] * 4.9 / 5) * 5 }; }).filter(x => x.n >= 5).sort((a, b) => b.g - a.g); }
+// tốc độ: luyện có đồng hồ từng câu (Part 5: 20 giây; Part 7: 60 giây, tính cả thời gian đọc)
+const TO_SPD = { p5: [20, 15], p7: [60, 2] };
+function toSpeed(s) { const [sec, n] = TO_SPD[s], qs = s === 'p5' ? toGen.p5(n) : toGen.p7(n);
+  ieRun(`⏱ ${TO_SEC[s][1]} · ${sec} giây / câu`, qs, toeicView, 0, { R: toSt().r, home: 'Luyện TOEIC', spd: sec,
+    endHtml: res => { const avg = res.reduce((t, r) => t + r.secs, 0) / Math.max(1, res.length), over = res.filter(r => r.secs > sec).length;
+      return `<div class="box"><b>⏱ Trung bình ${avg.toFixed(1)} giây / câu</b> ${avg <= sec ? '✅' : '⚠️'} <span class="mute">(mục tiêu ≤ ${sec})</span><p class="mute" style="margin:4px 0 0">${over} câu quá giờ. ${avg > sec ? (s === 'p5' ? 'Nhìn 4 phương án trước: cùng gốc khác đuôi thì chỉ cần xem vị trí từ, không cần đọc hết câu.' : 'Đọc câu hỏi trước, rồi tìm từ khoá trong bài; đừng đọc kỹ cả bài.') : 'Giữ nhịp này, thi thật còn dư giờ cho Part 7.'}</p></div>`; },
+    done: res => { toSt().spd.push({ at: Date.now(), s, avg: Math.round(res.reduce((t, r) => t + r.secs, 0) / Math.max(1, res.length) * 10) / 10, ok: res.filter(r => r.ok).length, n: res.length }); S.t = Date.now(); save(); } }); }
+function toInsights() { const o = toSt(), tags = toTagAcc().filter(t => t.n), gain = toGain().slice(0, 3), traps = Object.entries(o.trap).sort((a, b) => b[1] - a[1]), sp = s => o.spd.filter(r => r.s === s).slice(-1)[0];
+  const wk = o.date ? Math.max(0, Math.ceil((new Date(o.date + 'T12:00:00') - Date.now()) / (7 * 864e5))) : null, now = toNow();
+  return `<div class="box"><b>🔍 Phân tích điểm yếu</b>
+    <div class="row" style="margin-top:6px;gap:8px"><label class="mute" style="font-size:14px">Ngày thi<input type="date" id="todate" value="${esc(o.date || '')}" style="margin:2px 0"></label>
+      <span>${wk != null ? `Còn <b>${wk} tuần</b>${now.tot != null ? ` · cách mục tiêu <b>${Math.max(0, o.target - now.tot)}</b> điểm` : ''}` : '<span class="mute">Chọn ngày thi để đếm tuần còn lại.</span>'}</span></div>
+    <p style="margin:10px 0 2px"><b>🚀 Tăng điểm nhanh nhất ở đâu</b></p>${gain.length ? gain.map(x => `<p style="margin:2px 0">${TO_SEC[x.s][0]} ${TO_SEC[x.s][1]}: đúng ${Math.round(x.p * 100)}% → nếu thêm ${Math.round(Math.min(0.2, 1 - x.p) * 100)}% ≈ <b>+${x.g} điểm</b> <span class="mute">(đề thật ${TO_REAL[x.s]} câu)</span></p>`).join('')
+      : '<p class="mute" style="margin:2px 0">Luyện ít nhất 5 câu mỗi Part để app tính.</p>'}<p class="mute" style="margin:2px 0 0">Ước theo số câu mỗi Part trong đề thật, ~4,9 điểm / câu; không phải bảng ETS.${wk != null && gain.length ? ` Gợi ý mỗi tuần: 3 buổi ${TO_SEC[gain[0].s][1]}${gain[1] ? `, 2 buổi ${TO_SEC[gain[1].s][1]}` : ''}, 1 đề thử, từ vựng mỗi ngày; mỗi 4 tuần 1 đề thật.` : ''}</p>
+    ${tags.length ? `<p style="margin:10px 0 2px"><b>✏️ Part 5 theo dạng</b> <span class="mute">(lần làm gần nhất mỗi câu)</span></p>${tags.sort((a, b) => a.p - b.p).map(t => `<div class="row" style="margin:2px 0"><button class="link" data-top="t:${t.t}" style="text-align:left">${TO_T5[t.t]}</button><span class="${t.p >= 0.8 ? 'okc' : 'mute'}">${Math.round(t.p * 100)}% · ${t.n} câu</span></div>${bar(Math.round(t.p * 100), 80, t.p >= 0.8 ? 'var(--good)' : 'var(--accent)')}`).join('')}<p class="mute" style="margin:2px 0 0">Bấm tên dạng để luyện riêng dạng đó.</p>` : ''}
+    ${traps.length ? `<p style="margin:10px 0 2px"><b>🪤 Bẫy Part 2 bạn hay mắc</b></p>${traps.map(([t, n]) => `<p style="margin:2px 0">${TO_TRAP[t][0]}: <b>${n}</b> lần <span class="mute">· ${TO_TRAP[t][1]}</span></p>`).join('')}` : ''}
+    <p style="margin:10px 0 2px"><b>⏱ Tốc độ</b></p><div class="duo">${Object.entries(TO_SPD).map(([s, [sec]]) => { const r = sp(s); return `<button class="big2" data-tospd="${s}">${TO_SEC[s][1].replace(/: .*/, '')} · ${sec}s/câu<small>${r ? `lần trước ${r.avg}s, đúng ${r.ok}/${r.n}` : 'chưa làm'}</small></button>`; }).join('')}</div></div>`; }
+document.addEventListener('change', e => { if (!S || !e.target.closest('#todate')) return; toSt().date = e.target.value || null; S.t = Date.now(); save(); toeicView(); });
 
 // ---------- màn chính ----------
 // chuyển giữa 🌏 IELTS và 💼 TOEIC trong mục 🎓 Luyện thi (nhớ lựa chọn: S.exSel)
@@ -116,6 +152,7 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">${cell('L', '🎧 Listening')}${cell('R', '📖 Reading')}</div>
       <p class="mute" style="margin:6px 0 0">Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. Ước theo tỉ lệ đúng, không phải bảng ETS. 📏 = đã chỉnh theo đề thật bạn nhập (so đề thử app trong 14 ngày).</p>
       <button class="pri" ${act} style="margin-top:8px">▶ Nên làm hôm nay: ${esc(lab)}</button></div>
+    ${toInsights()}
     <div class="box"><b>🧱 Nền cần có: CEFR ${LVN[base]}</b><p class="mute" style="margin:6px 0">Suy từ bảng ETS (Nghe B1 ≥ 275, B2 ≥ 400, C1 ≥ 490; Đọc B1 ≥ 275, B2 ≥ 385, C1 ≥ 455; nên đối chiếu tài liệu ETS). ${tg} điểm ≈ mỗi phần ${tg / 2}.</p>
       <p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🎯 Mở Học CEFR cấp ${LVN[base]}</button></div>
     <div class="box"><div class="row"><b>🎓 Đề thử TOEIC</b><span class="mute">${o.mock.length ? `đã làm ${o.mock.length} lần` : 'chưa làm'}</span></div>
@@ -136,8 +173,10 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
     if ((b = g('[data-iecefr]'))) { scrollTo(0, 0); return overview(b.dataset.iecefr); }
     if ((b = g('[data-tomk]'))) return toMock(b.dataset.tomk === 'all' ? [0, 1] : [+b.dataset.tomk]);
     if ((b = g('[data-tovoc]'))) { scrollTo(0, 0); return toVocRun(b.dataset.tovoc); }
+    if ((b = g('[data-tospd]'))) { scrollTo(0, 0); return toSpeed(b.dataset.tospd); }
     if ((b = g('[data-top]'))) { const s = b.dataset.top; scrollTo(0, 0); if (!NCLIPS.size) fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(k => { NCLIPS = new Set(k); }).catch(() => {});
+      if (s.startsWith('t:')) { const t = s.slice(2), qs = toPick(TO.p5.filter(x => x.t === t), 15).map(toP5Q); return ieRun('✏️ Part 5 · ' + TO_T5[t], qs, toeicView, 0, { R: o.r, home: 'Luyện TOEIC' }); }
       const qs = s === 'w5' ? shuf(toWrong5()).slice(0, 15).map(toP5Q) : toGen[s](s === 'p7m' ? 1 : TO_PRAC[s]); if (!qs.length) return toast('Chưa có bài.');
-      return ieRun((TO_SEC[s] || ['📑', s === 'w5' ? 'Làm lại câu sai' : 'Part 7: nhiều văn bản'])[0] + ' ' + (TO_SEC[s] ? TO_SEC[s][1] : s === 'w5' ? 'Làm lại câu sai' : 'Part 7: nhiều văn bản'), qs, toeicView, 0, { R: o.r, home: 'Luyện TOEIC' }); } }; }
+      return ieRun((TO_SEC[s] || ['📑', s === 'w5' ? 'Làm lại câu sai' : 'Part 7: nhiều văn bản'])[0] + ' ' + (TO_SEC[s] ? TO_SEC[s][1] : s === 'w5' ? 'Làm lại câu sai' : 'Part 7: nhiều văn bản'), qs, toeicView, 0, { R: o.r, home: 'Luyện TOEIC', done: toTrapLog }); } }; }
 const toHow = k => `<details style="margin-top:6px"><summary>📘 Cách làm</summary>${TO_HOW[k][1].map(s => `<p style="margin:2px 0;font-size:15px">• ${esc(s)}</p>`).join('')}</details>`;
 toLoad().catch(() => {});

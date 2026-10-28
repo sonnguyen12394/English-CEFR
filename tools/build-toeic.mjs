@@ -11,9 +11,12 @@ for (const x of P5) { id(x); if (x.o.length !== 4 || new Set(x.o).size !== 4 || 
 for (const x of D.p6) { id(x); const n = (x.text.match(/\{\d\}/g) || []).length; if (n !== x.gaps.length) err.push(x.id + ': số chỗ trống ≠ số câu');
   for (const g of x.gaps) if (g.o.length !== 4 || new Set(g.o).size !== 4 || !g.o.includes(g.a)) err.push(x.id + ': phương án hỏng'); if (!x.gaps.some(g => g.a.split(' ').length > 5)) err.push(x.id + ': thiếu câu chèn'); }
 for (const x of D.p7) { id(x); if (!x.docs.length || x.qs.length < 2) err.push(x.id + ': thiếu văn bản / câu hỏi'); for (const q of x.qs) mcOk(x, q); }
+const TR = ['rep', 'type', 'yn', 'rel'], T5 = ['form', 'verb', 'prep', 'conj', 'pron', 'struct', 'voc'];
+for (const x of P5) if (!T5.includes(x.t)) err.push(x.id + ': thiếu / sai dạng t');
 const p2 = N.p2.map(x => { id(x); if (x.o.length !== 3 || !(x.a >= 0 && x.a < 3)) err.push(x.id + ': Part 2 hỏng');
+  if (!x.tr || x.tr.length !== 3 || x.tr[x.a] !== null || x.tr.some((t, i) => i !== x.a && !TR.includes(t))) err.push(x.id + ': nhãn bẫy tr hỏng');
   const r = h(x.id) % 6, perm = [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]][r], o = perm.map(i => x.o[i]), a = perm.indexOf(x.a);
-  return { id: x.id, q: x.q, o, a, lines: [['A', x.q], ...o.map((t, i) => ['B', 'ABC'[i] + '. ' + t])] }; });
+  return { id: x.id, q: x.q, o, a, tr: perm.map(i => x.tr[i]), lines: [['A', x.q], ...o.map((t, i) => ['B', 'ABC'[i] + '. ' + t])] }; });
 for (const x of [...N.p3, ...N.p4]) { id(x); if (x.qs.length !== 3) err.push(x.id + ': cần 3 câu hỏi'); for (const q of x.qs) mcOk(x, q); }
 const seen = new Set(); for (const t of V) for (const [w, vi, ex] of t.w) { if (seen.has(w)) err.push('từ trùng: ' + w); seen.add(w); if (!vi || !ex || !ex.toLowerCase().includes(w.toLowerCase().split(' ')[0].slice(0, 4))) err.push('từ thiếu nghĩa / ví dụ: ' + w); }
 if (err.length) { console.error(err.join('\n')); process.exit(1); }

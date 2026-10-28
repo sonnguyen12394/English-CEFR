@@ -1,103 +1,973 @@
 {
-  "_note": "TOEIC Part 6–7 kiểu (Claude soạn 28/10/2026, chưa người thật kiểm; tên người, công ty đều bịa; không chép đề ETS). p6: văn bản có {1}…{4}, mỗi chỗ 4 phương án (một chỗ là chèn câu). p7: một văn bản (one) hoặc 2–3 văn bản (multi), câu hỏi trắc nghiệm.",
-  "p6": [
-    { "id": "t6-memo", "kind": "Memo", "title": "To: All staff · From: Facilities Department · Subject: Parking garage repairs",
-      "text": "Please be aware that the east parking garage will be closed from Monday, March 3, to Friday, March 7, while repairs are {1} to the upper levels. During this period, employees may park in the visitor lot on Grant Street. {2} Shuttle buses will run between the visitor lot and the main entrance every fifteen minutes from 7:00 A.M. to 7:00 P.M. We apologize for any {3} this may cause. If you have any questions, please contact the facilities office at extension 4410. Thank you for your {4}.",
-      "gaps": [
-        { "o": ["made", "making", "make", "makes"], "a": "made", "why": "Bị động tiếp diễn ý: repairs are made (được thực hiện)." },
-        { "o": ["Please display your staff permit on the dashboard.", "The garage was built ten years ago.", "Grant Street is famous for its restaurants.", "Visitors are welcome to join the company."], "a": "Please display your staff permit on the dashboard.", "why": "Câu chèn phải nối ý đỗ xe ở bãi khách: dặn đặt thẻ nhân viên trên xe." },
-        { "o": ["inconvenience", "inconvenient", "inconveniently", "convenience"], "a": "inconvenience", "why": "apologize for any inconvenience: cần danh từ, nghĩa bất tiện." },
-        { "o": ["cooperation", "cooperate", "cooperative", "cooperatively"], "a": "cooperation", "why": "Thank you for your + danh từ: cooperation." } ] },
-    { "id": "t6-email", "kind": "E-mail", "title": "To: Daniel Moore · From: Lena Fischer · Subject: Your order #48213",
-      "text": "Dear Mr. Moore, Thank you for your recent order of office chairs from Brightline Furniture. Unfortunately, the model you selected is currently out of stock. We {1} to receive a new shipment in about two weeks. {2}, we can offer you a similar model, the Ergo Plus, at the same price. {3} Please let us know which option you {4} by replying to this e-mail. Sincerely, Lena Fischer, Customer Service",
-      "gaps": [
-        { "o": ["expect", "expected", "expecting", "are expected"], "a": "expect", "why": "Chủ ngữ We + hiện tại đơn: We expect to receive." },
-        { "o": ["Alternatively", "Therefore", "Similarly", "Otherwise"], "a": "Alternatively", "why": "Đưa ra lựa chọn khác: Alternatively (hoặc là)." },
-        { "o": ["It comes with an adjustable headrest and a five-year warranty.", "Our store will be closed next week.", "We hope you enjoyed your visit to our factory.", "Your payment has been refunded in full."], "a": "It comes with an adjustable headrest and a five-year warranty.", "why": "Câu chèn mô tả thêm mẫu ghế thay thế vừa nhắc." },
-        { "o": ["prefer", "prefers", "preferring", "preference"], "a": "prefer", "why": "Mệnh đề which option you ___: chủ ngữ you + động từ prefer." } ] },
-    { "id": "t6-ad", "kind": "Advertisement", "title": "Harbor View Fitness Center",
-      "text": "Looking for a place to stay active this winter? Harbor View Fitness Center offers modern equipment, group classes and a heated indoor pool. New members who sign up before January 31 will receive their first month {1} charge. {2} Our certified trainers will create a personal plan based on your goals. Classes are held {3} morning and evening, so you can always find a time that suits your schedule. Visit our website to {4} a free tour.",
-      "gaps": [
-        { "o": ["free of", "free from", "freely", "freedom"], "a": "free of", "why": "free of charge = miễn phí." },
-        { "o": ["In addition, every new member gets a free fitness assessment.", "The center was closed for repairs last year.", "Swimming is not allowed in winter.", "Please return your towels to the front desk."], "a": "In addition, every new member gets a free fitness assessment.", "why": "Câu chèn nối với câu sau (huấn luyện viên lập kế hoạch theo mục tiêu)." },
-        { "o": ["every", "all", "each of", "both"], "a": "every", "why": "every morning and evening = mỗi sáng và tối." },
-        { "o": ["schedule", "scheduling", "scheduled", "schedules"], "a": "schedule", "why": "to + động từ nguyên mẫu: to schedule a tour." } ] },
-    { "id": "t6-letter", "kind": "Letter", "title": "Dear Ms. Ahmed,",
-      "text": "On behalf of the Riverside Business Association, I am pleased to inform you that you have been selected as this year's Small Business Owner of the Year. The award {1} the outstanding contribution your bakery has made to our community. The award ceremony will take place on April 18 at the Riverside Hotel. {2} We would be honored if you could say a few words after receiving the award. Please confirm your {3} by April 5. We look forward to {4} you there. Sincerely, Tom Becker, President",
-      "gaps": [
-        { "o": ["recognizes", "recognize", "recognizing", "recognition"], "a": "recognizes", "why": "Chủ ngữ số ít The award + hiện tại đơn: recognizes." },
-        { "o": ["Dinner will be served at 7:00 P.M., followed by the presentation.", "The bakery opens at 6:00 A.M. every day.", "The hotel is looking for new staff.", "Last year's winner moved to another city."], "a": "Dinner will be served at 7:00 P.M., followed by the presentation.", "why": "Câu chèn nói thêm chi tiết buổi lễ." },
-        { "o": ["attendance", "attend", "attendant", "attended"], "a": "attendance", "why": "confirm your + danh từ: attendance (việc tham dự)." },
-        { "o": ["seeing", "see", "seen", "be seen"], "a": "seeing", "why": "look forward to + V-ing." } ] },
-    { "id": "t6-notice", "kind": "Notice", "title": "Notice to library users",
-      "text": "Starting next month, the Central Library will {1} its opening hours on weekends. The library will now open at 9:00 A.M. on Saturdays and Sundays, two hours earlier than before. This change is in {2} to requests from many users who wish to study in the mornings. {3} The changes will not affect weekday hours. For more information, please speak to a member of staff or visit our website, where the full schedule is {4}.",
-      "gaps": [
-        { "o": ["extend", "extension", "extensive", "extensively"], "a": "extend", "why": "will + động từ nguyên mẫu: extend (kéo dài)." },
-        { "o": ["response", "respond", "responsive", "responded"], "a": "response", "why": "in response to = để đáp lại." },
-        { "o": ["Closing times will remain the same.", "The library was built in 1965.", "Many users enjoy reading novels.", "Please do not eat in the reading room."], "a": "Closing times will remain the same.", "why": "Câu chèn hợp mạch: giờ mở sớm hơn, giờ đóng giữ nguyên, trước câu nói ngày thường không đổi." },
-        { "o": ["available", "availability", "avail", "availably"], "a": "available", "why": "is + tính từ: available (có sẵn)." } ] },
-    { "id": "t6-press", "kind": "Press release", "title": "Solmar Foods to open new plant",
-      "text": "Solmar Foods announced on Tuesday that it will build a new processing plant in the city of Dalton. The facility, which is expected to cost $40 million, will be the company's {1} in the region. Construction will begin in May and should be completed {2} eighteen months. {3} Company president Maria Solano said that Dalton was chosen because of its {4} to major highways and its skilled workforce.",
-      "gaps": [
-        { "o": ["largest", "larger", "large", "largely"], "a": "largest", "why": "the company's + so sánh nhất: largest." },
-        { "o": ["within", "until", "since", "among"], "a": "within", "why": "within eighteen months = trong vòng 18 tháng." },
-        { "o": ["Once open, the plant will employ about 300 people.", "Solmar Foods was founded by a group of farmers.", "Dalton has a population of 50,000.", "The company sells products in twelve countries."], "a": "Once open, the plant will employ about 300 people.", "why": "Câu chèn nối tiếp ý xây xong nhà máy: số việc làm tạo ra; câu sau giải thích lý do chọn Dalton." },
-        { "o": ["proximity", "proximate", "approximately", "approximate"], "a": "proximity", "why": "its + danh từ: proximity to = gần với." } ] }
-  ],
-  "p7": [
-    { "id": "t7-text", "kind": "Text message chain", "docs": [{ "title": "Text messages", "text": "Karen Wu (9:12 A.M.): Hi Raj, are you still at the warehouse? The client just called. They need the samples by noon, not tomorrow.\nRaj Mehta (9:14 A.M.): I'm here. The samples are packed, but our driver doesn't start until 11.\nKaren Wu (9:15 A.M.): Can you use a courier instead? I'll approve the cost.\nRaj Mehta (9:16 A.M.): Sure thing. I'll book one now and send you the tracking number." }],
-      "qs": [
-        { "q": "Why does Ms. Wu contact Mr. Mehta?", "a": "A delivery is needed sooner than planned.", "w": ["A client has canceled an order.", "Some samples were damaged.", "The warehouse will close early."], "why": "They need the samples by noon, not tomorrow." },
-        { "q": "At 9:16 A.M., what does Mr. Mehta mean when he writes, \"Sure thing\"?", "a": "He agrees to arrange a courier.", "w": ["He is sure the driver will arrive.", "He has already sent the samples.", "He thinks the cost is too high."], "why": "Trả lời đề nghị dùng courier, rồi nói sẽ đặt ngay." } ] },
-    { "id": "t7-job", "kind": "Job advertisement", "docs": [{ "title": "Administrative Assistant — Clarke & Lowe Architects", "text": "Clarke & Lowe Architects is seeking a full-time administrative assistant for its downtown office. Responsibilities include answering phones, scheduling meetings, ordering office supplies and preparing documents for client presentations. Applicants should have at least two years of office experience and be familiar with spreadsheet software. Experience in an architecture or design firm is an advantage but not required. To apply, send a cover letter and résumé to hiring@clarkelowe.com by June 15. Only shortlisted candidates will be contacted." }],
-      "qs": [
-        { "q": "What is one of the duties of the position?", "a": "Ordering office supplies", "w": ["Designing buildings", "Visiting construction sites", "Training new architects"], "why": "Responsibilities include … ordering office supplies." },
-        { "q": "What is stated about experience in a design firm?", "a": "It is helpful but not necessary.", "w": ["It is required for all applicants.", "It must be at least five years.", "It will be provided after hiring."], "why": "an advantage but not required." },
-        { "q": "What will happen after June 15?", "a": "Only some applicants will be contacted.", "w": ["All applicants will be interviewed.", "The office will move downtown.", "The position will become part-time."], "why": "Only shortlisted candidates will be contacted." } ] },
-    { "id": "t7-invoice", "kind": "Invoice", "docs": [{ "title": "Greenleaf Catering — Invoice #2291", "text": "Customer: Norton Consulting, 14 Bay Street\nEvent: Staff lunch, October 9\nLunch buffet (40 people × $18) — $720\nCoffee and tea service — $80\nDelivery fee — $25\nSubtotal — $825\nDiscount (returning customer, 10%) — –$82.50\nTotal due — $742.50\nPayment is due within 30 days. Please make checks payable to Greenleaf Catering or pay online at greenleafcatering.com/pay." }],
-      "qs": [
-        { "q": "Why did Norton Consulting receive a discount?", "a": "It has ordered from Greenleaf before.", "w": ["The event was canceled.", "It paid in advance.", "The delivery was late."], "why": "Discount (returning customer, 10%)." },
-        { "q": "How many people was the lunch prepared for?", "a": "40", "w": ["18", "25", "80"], "why": "Lunch buffet (40 people × $18)." } ] },
-    { "id": "t7-article", "kind": "Article", "docs": [{ "title": "Local firm goes green", "text": "PORTVILLE — Lindqvist Printing, one of Portville's oldest businesses, has completed the installation of 600 solar panels on the roof of its factory. The panels are expected to provide about 40 percent of the company's electricity. \"Our customers increasingly ask about the environmental impact of their orders,\" said owner Erik Lindqvist. \"This investment helps us answer that question and lowers our costs over time.\" The company also plans to switch to recycled paper for all standard orders by next spring. Lindqvist Printing was founded in 1962 by Mr. Lindqvist's grandfather and now employs 85 people." }],
-      "qs": [
-        { "q": "What is the article mainly about?", "a": "A company's environmental improvements", "w": ["The history of printing in Portville", "A new product launched by a printer", "The opening of a solar panel factory"], "why": "Lắp pin mặt trời, chuyển sang giấy tái chế." },
-        { "q": "According to Mr. Lindqvist, why did the company make the investment?", "a": "Customers care about environmental issues.", "w": ["The government required it.", "The factory roof needed repairs.", "Electricity was unavailable."], "why": "Our customers increasingly ask about the environmental impact…" },
-        { "q": "What is indicated about Lindqvist Printing?", "a": "It is a family business.", "w": ["It was founded last year.", "It has 600 employees.", "It only uses recycled paper now."], "why": "founded in 1962 by Mr. Lindqvist's grandfather." } ] },
-    { "id": "t7-notice", "kind": "Notice", "docs": [{ "title": "Westfield Apartments — Water shut-off", "text": "Dear residents, Water will be shut off in Building B on Wednesday, May 14, from 10:00 A.M. to 2:00 P.M. while plumbers replace a main pipe. Residents of Buildings A and C will not be affected. Bottled water will be available in the lobby of Building B during this time. We recommend that you fill containers with water before 10:00 A.M. if needed. We apologize for the inconvenience. — Westfield Management Office" }],
-      "qs": [
-        { "q": "Who is the notice intended for?", "a": "Residents of an apartment complex", "w": ["Plumbers working in Building B", "Employees of a water company", "Visitors to a hotel"], "why": "Dear residents … Westfield Apartments." },
-        { "q": "What will be provided during the shut-off?", "a": "Bottled water", "w": ["Free meals", "A shuttle bus", "Hotel rooms"], "why": "Bottled water will be available in the lobby." } ] },
-    { "id": "t7-review", "kind": "Online review", "docs": [{ "title": "Review of Casa Verde Restaurant ★★★★☆", "text": "I took my parents to Casa Verde for my father's birthday last Saturday. The food was excellent, especially the grilled fish, and the portions were generous. The staff even brought a small cake with a candle without us asking, which my father loved. The only disappointment was the wait: although we had a reservation for 7:00, we were not seated until almost 7:40. The manager apologized and offered us free coffee, which was a nice gesture. I would definitely return, but I would book an earlier table. — Paula Grant" }],
-      "qs": [
-        { "q": "Why did Ms. Grant go to the restaurant?", "a": "To celebrate a family member's birthday", "w": ["To meet a business client", "To write a review for a newspaper", "To apply for a job"], "why": "for my father's birthday." },
-        { "q": "What problem does Ms. Grant mention?", "a": "Her table was not ready on time.", "w": ["The food was cold.", "The portions were small.", "The staff were rude."], "why": "not seated until almost 7:40 despite a 7:00 reservation." },
-        { "q": "What did the manager do?", "a": "Offered free drinks", "w": ["Gave a full refund", "Moved them to a private room", "Reduced the price of the cake"], "why": "offered us free coffee." } ] },
-    { "id": "t7-m-conf", "kind": "E-mail + schedule", "docs": [
-        { "title": "Schedule — Regional Sales Conference, Hotel Arcadia", "text": "Thursday, September 18\n9:00 A.M. Welcome speech — Ingrid Holm, Sales Director (Ballroom)\n10:00 A.M. Workshop: Negotiating with large clients — Victor Osei (Room 2)\n12:00 P.M. Lunch (Garden Terrace)\n1:30 P.M. Workshop: Using data to find new customers — Amy Ng (Room 3)\n3:30 P.M. Panel discussion: The future of retail (Ballroom)" },
-        { "title": "E-mail · To: Conference participants · From: Ingrid Holm · Date: September 15", "text": "Dear colleagues, I look forward to seeing you all on Thursday. Please note one change to the schedule: Amy Ng's workshop will now take place in the Ballroom instead of Room 3, as more than sixty people have registered for it. Also, because of renovation work, lunch will be served in the hotel restaurant rather than outdoors. Please remember to bring your laptops for the afternoon workshop. Best regards, Ingrid" } ],
-      "qs": [
-        { "q": "What is the purpose of the e-mail?", "a": "To announce changes to an event", "w": ["To invite people to register", "To cancel a workshop", "To introduce a new director"], "why": "Please note one change to the schedule…" },
-        { "q": "Why was Ms. Ng's workshop moved?", "a": "Many people signed up for it.", "w": ["Room 3 is being renovated.", "Ms. Ng arrived late.", "The panel discussion was canceled."], "why": "more than sixty people have registered for it." },
-        { "q": "Where will lunch be served?", "a": "In the hotel restaurant", "w": ["On the Garden Terrace", "In Room 2", "In the Ballroom"], "why": "lunch will be served in the hotel restaurant rather than outdoors." },
-        { "q": "What should participants bring to the 1:30 P.M. session?", "a": "Laptops", "w": ["Business cards", "Printed reports", "Name badges"], "why": "Đối chiếu 2 văn bản: 1:30 là workshop của Amy Ng (buổi chiều) → mang laptop." },
-        { "q": "Who will give the first talk of the day?", "a": "Ms. Holm", "w": ["Mr. Osei", "Ms. Ng", "A panel of experts"], "why": "9:00 A.M. Welcome speech — Ingrid Holm." } ] },
-    { "id": "t7-m-order", "kind": "Web page + e-mails", "docs": [
-        { "title": "Tecso Office Supplies — Delivery information", "text": "Standard delivery (3–5 business days): free on orders over $50; otherwise $6.\nExpress delivery (next business day): $15 on all orders.\nOrders placed after 3:00 P.M. are processed the following business day.\nDamaged items can be returned within 14 days for a full refund or replacement." },
-        { "title": "E-mail · To: support@tecso.com · From: Mark Dunn · Date: Monday, 4:30 P.M.", "text": "Hello, I placed order #7712 an hour ago and chose express delivery because we need the printer paper for a training session on Wednesday morning. Could you confirm it will arrive in time? Also, I noticed I was charged $15 for delivery, although my order was $120. I thought delivery was free for orders over $50. Thank you, Mark Dunn" },
-        { "title": "E-mail · To: Mark Dunn · From: Tecso Customer Support · Date: Tuesday, 9:05 A.M.", "text": "Dear Mr. Dunn, Thank you for your message. Your order was processed this morning and is scheduled to arrive tomorrow, in time for your session. Please note that free delivery applies only to the standard service, so the express charge is correct. As a gesture of goodwill, however, we have added a $10 voucher to your account for your next purchase. Best regards, Tecso Customer Support" } ],
-      "qs": [
-        { "q": "Why was Mr. Dunn's order processed on Tuesday?", "a": "It was placed after 3:00 P.M.", "w": ["The printer paper was out of stock.", "He chose standard delivery.", "The payment was delayed."], "why": "Đặt 3:30 P.M. thứ Hai (gửi e-mail 4:30, một giờ sau khi đặt); sau 3:00 P.M. thì xử lý ngày làm việc hôm sau." },
-        { "q": "When will the order arrive?", "a": "On Wednesday", "w": ["On Monday", "On Tuesday", "On Friday"], "why": "E-mail thứ Ba: arrive tomorrow → thứ Tư." },
-        { "q": "What does Mr. Dunn misunderstand?", "a": "Which delivery service is free", "w": ["The price of printer paper", "How to return damaged items", "The date of his training session"], "why": "Free delivery applies only to the standard service." },
-        { "q": "What does Tecso give Mr. Dunn?", "a": "A voucher for a future order", "w": ["A full refund of the order", "Free express delivery", "Extra printer paper"], "why": "added a $10 voucher to your account." },
-        { "q": "In the second e-mail, the word \"gesture\" is closest in meaning to", "a": "action", "w": ["movement", "signal", "price"], "why": "a gesture of goodwill = một hành động thể hiện thiện chí." } ] },
-    { "id": "t7-m-rent", "kind": "Advertisement + form", "docs": [
-        { "title": "Office space for rent — Maple Business Park", "text": "Fully furnished offices available from August 1. Small office (2 desks): $900/month. Medium office (5 desks): $1,800/month. Large office (10 desks): $3,200/month. All offices include internet, cleaning and access to shared meeting rooms. Free parking for tenants. Minimum lease: 6 months. Contact Leasing Manager Olivia Park at 555-0142." },
-        { "title": "Rental application form", "text": "Company: Bluefin Design\nContact: Sam Okafor\nNumber of employees: 4 (planning to hire 3 more next year)\nPreferred start date: August 1\nLease length: 12 months\nComments: We often meet clients, so access to meeting rooms is important. We would like an office large enough for our team to grow." } ],
-      "qs": [
-        { "q": "What is included in the price of every office?", "a": "Cleaning", "w": ["Furniture delivery", "Phone calls", "Lunch"], "why": "All offices include internet, cleaning…" },
-        { "q": "Which office will Bluefin Design most likely rent?", "a": "The large office", "w": ["The small office", "The medium office", "Two small offices"], "why": "Đối chiếu: 4 người + 3 người nữa = 7 > 5 bàn của văn phòng vừa → văn phòng lớn 10 bàn." },
-        { "q": "Why are meeting rooms important to Mr. Okafor?", "a": "His company often meets clients.", "w": ["His team holds daily training.", "He plans to rent them to others.", "His office has no internet."], "why": "We often meet clients." },
-        { "q": "What is suggested about Bluefin Design's lease?", "a": "It is longer than the minimum required.", "w": ["It begins later than August.", "It is shorter than the minimum required.", "It includes paid parking."], "why": "12 tháng > tối thiểu 6 tháng." } ] }
-  ]
+ "_note": "TOEIC Part 6–7 kiểu (Claude soạn 28/10/2026, chưa người thật kiểm; tên người, công ty đều bịa; không chép đề ETS). p6: văn bản có {1}…{4}, mỗi chỗ 4 phương án (một chỗ là chèn câu). p7: một văn bản (one) hoặc 2–3 văn bản (multi), câu hỏi trắc nghiệm.",
+ "p6": [
+  {
+   "id": "t6-memo",
+   "kind": "Memo",
+   "title": "To: All staff · From: Facilities Department · Subject: Parking garage repairs",
+   "text": "Please be aware that the east parking garage will be closed from Monday, March 3, to Friday, March 7, while repairs are {1} to the upper levels. During this period, employees may park in the visitor lot on Grant Street. {2} Shuttle buses will run between the visitor lot and the main entrance every fifteen minutes from 7:00 A.M. to 7:00 P.M. We apologize for any {3} this may cause. If you have any questions, please contact the facilities office at extension 4410. Thank you for your {4}.",
+   "gaps": [
+    {
+     "o": [
+      "made",
+      "making",
+      "make",
+      "makes"
+     ],
+     "a": "made",
+     "why": "Bị động tiếp diễn ý: repairs are made (được thực hiện)."
+    },
+    {
+     "o": [
+      "Please display your staff permit on the dashboard.",
+      "The garage was built ten years ago.",
+      "Grant Street is famous for its restaurants.",
+      "Visitors are welcome to join the company."
+     ],
+     "a": "Please display your staff permit on the dashboard.",
+     "why": "Câu chèn phải nối ý đỗ xe ở bãi khách: dặn đặt thẻ nhân viên trên xe."
+    },
+    {
+     "o": [
+      "inconvenience",
+      "inconvenient",
+      "inconveniently",
+      "convenience"
+     ],
+     "a": "inconvenience",
+     "why": "apologize for any inconvenience: cần danh từ, nghĩa bất tiện."
+    },
+    {
+     "o": [
+      "cooperation",
+      "cooperate",
+      "cooperative",
+      "cooperatively"
+     ],
+     "a": "cooperation",
+     "why": "Thank you for your + danh từ: cooperation."
+    }
+   ]
+  },
+  {
+   "id": "t6-email",
+   "kind": "E-mail",
+   "title": "To: Daniel Moore · From: Lena Fischer · Subject: Your order #48213",
+   "text": "Dear Mr. Moore, Thank you for your recent order of office chairs from Brightline Furniture. Unfortunately, the model you selected is currently out of stock. We {1} to receive a new shipment in about two weeks. {2}, we can offer you a similar model, the Ergo Plus, at the same price. {3} Please let us know which option you {4} by replying to this e-mail. Sincerely, Lena Fischer, Customer Service",
+   "gaps": [
+    {
+     "o": [
+      "expect",
+      "expected",
+      "expecting",
+      "are expected"
+     ],
+     "a": "expect",
+     "why": "Chủ ngữ We + hiện tại đơn: We expect to receive."
+    },
+    {
+     "o": [
+      "Alternatively",
+      "Therefore",
+      "Similarly",
+      "Otherwise"
+     ],
+     "a": "Alternatively",
+     "why": "Đưa ra lựa chọn khác: Alternatively (hoặc là)."
+    },
+    {
+     "o": [
+      "It comes with an adjustable headrest and a five-year warranty.",
+      "Our store will be closed next week.",
+      "We hope you enjoyed your visit to our factory.",
+      "Your payment has been refunded in full."
+     ],
+     "a": "It comes with an adjustable headrest and a five-year warranty.",
+     "why": "Câu chèn mô tả thêm mẫu ghế thay thế vừa nhắc."
+    },
+    {
+     "o": [
+      "prefer",
+      "prefers",
+      "preferring",
+      "preference"
+     ],
+     "a": "prefer",
+     "why": "Mệnh đề which option you ___: chủ ngữ you + động từ prefer."
+    }
+   ]
+  },
+  {
+   "id": "t6-ad",
+   "kind": "Advertisement",
+   "title": "Harbor View Fitness Center",
+   "text": "Looking for a place to stay active this winter? Harbor View Fitness Center offers modern equipment, group classes and a heated indoor pool. New members who sign up before January 31 will receive their first month {1} charge. {2} Our certified trainers will create a personal plan based on your goals. Classes are held {3} morning and evening, so you can always find a time that suits your schedule. Visit our website to {4} a free tour.",
+   "gaps": [
+    {
+     "o": [
+      "free of",
+      "free from",
+      "freely",
+      "freedom"
+     ],
+     "a": "free of",
+     "why": "free of charge = miễn phí."
+    },
+    {
+     "o": [
+      "In addition, every new member gets a free fitness assessment.",
+      "The center was closed for repairs last year.",
+      "Swimming is not allowed in winter.",
+      "Please return your towels to the front desk."
+     ],
+     "a": "In addition, every new member gets a free fitness assessment.",
+     "why": "Câu chèn nối với câu sau (huấn luyện viên lập kế hoạch theo mục tiêu)."
+    },
+    {
+     "o": [
+      "every",
+      "all",
+      "each of",
+      "both"
+     ],
+     "a": "every",
+     "why": "every morning and evening = mỗi sáng và tối."
+    },
+    {
+     "o": [
+      "schedule",
+      "scheduling",
+      "scheduled",
+      "schedules"
+     ],
+     "a": "schedule",
+     "why": "to + động từ nguyên mẫu: to schedule a tour."
+    }
+   ]
+  },
+  {
+   "id": "t6-letter",
+   "kind": "Letter",
+   "title": "Dear Ms. Ahmed,",
+   "text": "On behalf of the Riverside Business Association, I am pleased to inform you that you have been selected as this year's Small Business Owner of the Year. The award {1} the outstanding contribution your bakery has made to our community. The award ceremony will take place on April 18 at the Riverside Hotel. {2} We would be honored if you could say a few words after receiving the award. Please confirm your {3} by April 5. We look forward to {4} you there. Sincerely, Tom Becker, President",
+   "gaps": [
+    {
+     "o": [
+      "recognizes",
+      "recognize",
+      "recognizing",
+      "recognition"
+     ],
+     "a": "recognizes",
+     "why": "Chủ ngữ số ít The award + hiện tại đơn: recognizes."
+    },
+    {
+     "o": [
+      "Dinner will be served at 7:00 P.M., followed by the presentation.",
+      "The bakery opens at 6:00 A.M. every day.",
+      "The hotel is looking for new staff.",
+      "Last year's winner moved to another city."
+     ],
+     "a": "Dinner will be served at 7:00 P.M., followed by the presentation.",
+     "why": "Câu chèn nói thêm chi tiết buổi lễ."
+    },
+    {
+     "o": [
+      "attendance",
+      "attend",
+      "attendant",
+      "attended"
+     ],
+     "a": "attendance",
+     "why": "confirm your + danh từ: attendance (việc tham dự)."
+    },
+    {
+     "o": [
+      "seeing",
+      "see",
+      "seen",
+      "be seen"
+     ],
+     "a": "seeing",
+     "why": "look forward to + V-ing."
+    }
+   ]
+  },
+  {
+   "id": "t6-notice",
+   "kind": "Notice",
+   "title": "Notice to library users",
+   "text": "Starting next month, the Central Library will {1} its opening hours on weekends. The library will now open at 9:00 A.M. on Saturdays and Sundays, two hours earlier than before. This change is in {2} to requests from many users who wish to study in the mornings. {3} The changes will not affect weekday hours. For more information, please speak to a member of staff or visit our website, where the full schedule is {4}.",
+   "gaps": [
+    {
+     "o": [
+      "extend",
+      "extension",
+      "extensive",
+      "extensively"
+     ],
+     "a": "extend",
+     "why": "will + động từ nguyên mẫu: extend (kéo dài)."
+    },
+    {
+     "o": [
+      "response",
+      "respond",
+      "responsive",
+      "responded"
+     ],
+     "a": "response",
+     "why": "in response to = để đáp lại."
+    },
+    {
+     "o": [
+      "Closing times will remain the same.",
+      "The library was built in 1965.",
+      "Many users enjoy reading novels.",
+      "Please do not eat in the reading room."
+     ],
+     "a": "Closing times will remain the same.",
+     "why": "Câu chèn hợp mạch: giờ mở sớm hơn, giờ đóng giữ nguyên, trước câu nói ngày thường không đổi."
+    },
+    {
+     "o": [
+      "available",
+      "availability",
+      "avail",
+      "availably"
+     ],
+     "a": "available",
+     "why": "is + tính từ: available (có sẵn)."
+    }
+   ]
+  },
+  {
+   "id": "t6-press",
+   "kind": "Press release",
+   "title": "Solmar Foods to open new plant",
+   "text": "Solmar Foods announced on Tuesday that it will build a new processing plant in the city of Dalton. The facility, which is expected to cost $40 million, will be the company's {1} in the region. Construction will begin in May and should be completed {2} eighteen months. {3} Company president Maria Solano said that Dalton was chosen because of its {4} to major highways and its skilled workforce.",
+   "gaps": [
+    {
+     "o": [
+      "largest",
+      "larger",
+      "large",
+      "largely"
+     ],
+     "a": "largest",
+     "why": "the company's + so sánh nhất: largest."
+    },
+    {
+     "o": [
+      "within",
+      "until",
+      "since",
+      "among"
+     ],
+     "a": "within",
+     "why": "within eighteen months = trong vòng 18 tháng."
+    },
+    {
+     "o": [
+      "Once open, the plant will employ about 300 people.",
+      "Solmar Foods was founded by a group of farmers.",
+      "Dalton has a population of 50,000.",
+      "The company sells products in twelve countries."
+     ],
+     "a": "Once open, the plant will employ about 300 people.",
+     "why": "Câu chèn nối tiếp ý xây xong nhà máy: số việc làm tạo ra; câu sau giải thích lý do chọn Dalton."
+    },
+    {
+     "o": [
+      "proximity",
+      "proximate",
+      "approximately",
+      "approximate"
+     ],
+     "a": "proximity",
+     "why": "its + danh từ: proximity to = gần với."
+    }
+   ]
+  },
+  {
+   "id": "t6-policy",
+   "kind": "E-mail",
+   "title": "To: All employees · From: Human Resources · Subject: Updated travel policy",
+   "text": "Effective July 1, employees traveling for business must book all flights and hotels through our new online travel portal. This change will help us {1} costs and keep better records of business trips. {2} Employees who book travel outside the portal will not be {3} for their expenses unless they have written approval from their department manager. A short guide to using the portal is attached to this e-mail. Please read it {4} before planning your next trip.",
+   "gaps": [
+    {
+     "o": [
+      "reduce",
+      "reduction",
+      "reducing",
+      "reduced"
+     ],
+     "a": "reduce",
+     "why": "help us + động từ nguyên mẫu: reduce."
+    },
+    {
+     "o": [
+      "The portal also offers discounted rates with several airlines.",
+      "Our company was founded in 1998.",
+      "Many employees enjoy traveling abroad.",
+      "The office will be closed on July 4."
+     ],
+     "a": "The portal also offers discounted rates with several airlines.",
+     "why": "Câu chèn nói thêm lợi ích của cổng đặt vé, nối ý giảm chi phí."
+    },
+    {
+     "o": [
+      "reimbursed",
+      "reimbursing",
+      "reimburse",
+      "reimbursement"
+     ],
+     "a": "reimbursed",
+     "why": "Bị động: will not be reimbursed (không được hoàn tiền)."
+    },
+    {
+     "o": [
+      "carefully",
+      "careful",
+      "care",
+      "carefulness"
+     ],
+     "a": "carefully",
+     "why": "Bổ nghĩa động từ read: trạng từ carefully."
+    }
+   ]
+  },
+  {
+   "id": "t6-product",
+   "kind": "Product information",
+   "title": "AquaPure Water Filter — Instructions",
+   "text": "Thank you for choosing the AquaPure Water Filter. To get the best results, replace the filter cartridge {1} three months. A light on the top of the unit will turn red when a replacement is needed. {2} Replacement cartridges are available from most supermarkets and from our website. Do not place the unit in direct sunlight, as this may {3} its performance. For questions about your filter, contact our customer support team, which is available seven days a {4}.",
+   "gaps": [
+    {
+     "o": [
+      "every",
+      "each of",
+      "all",
+      "some"
+     ],
+     "a": "every",
+     "why": "every three months = ba tháng một lần."
+    },
+    {
+     "o": [
+      "Simply twist the old cartridge to remove it and insert the new one.",
+      "Our company also makes coffee machines.",
+      "Water is essential for good health.",
+      "The light can be switched off at night."
+     ],
+     "a": "Simply twist the old cartridge to remove it and insert the new one.",
+     "why": "Câu chèn hướng dẫn cách thay lõi lọc, nối với câu trước về đèn báo thay."
+    },
+    {
+     "o": [
+      "affect",
+      "effect",
+      "affection",
+      "effective"
+     ],
+     "a": "affect",
+     "why": "may + động từ: affect (ảnh hưởng). effect thường là danh từ."
+    },
+    {
+     "o": [
+      "week",
+      "weekly",
+      "weeks",
+      "weekend"
+     ],
+     "a": "week",
+     "why": "seven days a week = mọi ngày trong tuần."
+    }
+   ]
+  }
+ ],
+ "p7": [
+  {
+   "id": "t7-text",
+   "kind": "Text message chain",
+   "docs": [
+    {
+     "title": "Text messages",
+     "text": "Karen Wu (9:12 A.M.): Hi Raj, are you still at the warehouse? The client just called. They need the samples by noon, not tomorrow.\nRaj Mehta (9:14 A.M.): I'm here. The samples are packed, but our driver doesn't start until 11.\nKaren Wu (9:15 A.M.): Can you use a courier instead? I'll approve the cost.\nRaj Mehta (9:16 A.M.): Sure thing. I'll book one now and send you the tracking number."
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why does Ms. Wu contact Mr. Mehta?",
+     "a": "A delivery is needed sooner than planned.",
+     "w": [
+      "A client has canceled an order.",
+      "Some samples were damaged.",
+      "The warehouse will close early."
+     ],
+     "why": "They need the samples by noon, not tomorrow."
+    },
+    {
+     "q": "At 9:16 A.M., what does Mr. Mehta mean when he writes, \"Sure thing\"?",
+     "a": "He agrees to arrange a courier.",
+     "w": [
+      "He is sure the driver will arrive.",
+      "He has already sent the samples.",
+      "He thinks the cost is too high."
+     ],
+     "why": "Trả lời đề nghị dùng courier, rồi nói sẽ đặt ngay."
+    }
+   ]
+  },
+  {
+   "id": "t7-job",
+   "kind": "Job advertisement",
+   "docs": [
+    {
+     "title": "Administrative Assistant — Clarke & Lowe Architects",
+     "text": "Clarke & Lowe Architects is seeking a full-time administrative assistant for its downtown office. Responsibilities include answering phones, scheduling meetings, ordering office supplies and preparing documents for client presentations. Applicants should have at least two years of office experience and be familiar with spreadsheet software. Experience in an architecture or design firm is an advantage but not required. To apply, send a cover letter and résumé to hiring@clarkelowe.com by June 15. Only shortlisted candidates will be contacted."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is one of the duties of the position?",
+     "a": "Ordering office supplies",
+     "w": [
+      "Designing buildings",
+      "Visiting construction sites",
+      "Training new architects"
+     ],
+     "why": "Responsibilities include … ordering office supplies."
+    },
+    {
+     "q": "What is stated about experience in a design firm?",
+     "a": "It is helpful but not necessary.",
+     "w": [
+      "It is required for all applicants.",
+      "It must be at least five years.",
+      "It will be provided after hiring."
+     ],
+     "why": "an advantage but not required."
+    },
+    {
+     "q": "What will happen after June 15?",
+     "a": "Only some applicants will be contacted.",
+     "w": [
+      "All applicants will be interviewed.",
+      "The office will move downtown.",
+      "The position will become part-time."
+     ],
+     "why": "Only shortlisted candidates will be contacted."
+    }
+   ]
+  },
+  {
+   "id": "t7-invoice",
+   "kind": "Invoice",
+   "docs": [
+    {
+     "title": "Greenleaf Catering — Invoice #2291",
+     "text": "Customer: Norton Consulting, 14 Bay Street\nEvent: Staff lunch, October 9\nLunch buffet (40 people × $18) — $720\nCoffee and tea service — $80\nDelivery fee — $25\nSubtotal — $825\nDiscount (returning customer, 10%) — –$82.50\nTotal due — $742.50\nPayment is due within 30 days. Please make checks payable to Greenleaf Catering or pay online at greenleafcatering.com/pay."
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why did Norton Consulting receive a discount?",
+     "a": "It has ordered from Greenleaf before.",
+     "w": [
+      "The event was canceled.",
+      "It paid in advance.",
+      "The delivery was late."
+     ],
+     "why": "Discount (returning customer, 10%)."
+    },
+    {
+     "q": "How many people was the lunch prepared for?",
+     "a": "40",
+     "w": [
+      "18",
+      "25",
+      "80"
+     ],
+     "why": "Lunch buffet (40 people × $18)."
+    }
+   ]
+  },
+  {
+   "id": "t7-article",
+   "kind": "Article",
+   "docs": [
+    {
+     "title": "Local firm goes green",
+     "text": "PORTVILLE — Lindqvist Printing, one of Portville's oldest businesses, has completed the installation of 600 solar panels on the roof of its factory. The panels are expected to provide about 40 percent of the company's electricity. \"Our customers increasingly ask about the environmental impact of their orders,\" said owner Erik Lindqvist. \"This investment helps us answer that question and lowers our costs over time.\" The company also plans to switch to recycled paper for all standard orders by next spring. Lindqvist Printing was founded in 1962 by Mr. Lindqvist's grandfather and now employs 85 people."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the article mainly about?",
+     "a": "A company's environmental improvements",
+     "w": [
+      "The history of printing in Portville",
+      "A new product launched by a printer",
+      "The opening of a solar panel factory"
+     ],
+     "why": "Lắp pin mặt trời, chuyển sang giấy tái chế."
+    },
+    {
+     "q": "According to Mr. Lindqvist, why did the company make the investment?",
+     "a": "Customers care about environmental issues.",
+     "w": [
+      "The government required it.",
+      "The factory roof needed repairs.",
+      "Electricity was unavailable."
+     ],
+     "why": "Our customers increasingly ask about the environmental impact…"
+    },
+    {
+     "q": "What is indicated about Lindqvist Printing?",
+     "a": "It is a family business.",
+     "w": [
+      "It was founded last year.",
+      "It has 600 employees.",
+      "It only uses recycled paper now."
+     ],
+     "why": "founded in 1962 by Mr. Lindqvist's grandfather."
+    }
+   ]
+  },
+  {
+   "id": "t7-notice",
+   "kind": "Notice",
+   "docs": [
+    {
+     "title": "Westfield Apartments — Water shut-off",
+     "text": "Dear residents, Water will be shut off in Building B on Wednesday, May 14, from 10:00 A.M. to 2:00 P.M. while plumbers replace a main pipe. Residents of Buildings A and C will not be affected. Bottled water will be available in the lobby of Building B during this time. We recommend that you fill containers with water before 10:00 A.M. if needed. We apologize for the inconvenience. — Westfield Management Office"
+    }
+   ],
+   "qs": [
+    {
+     "q": "Who is the notice intended for?",
+     "a": "Residents of an apartment complex",
+     "w": [
+      "Plumbers working in Building B",
+      "Employees of a water company",
+      "Visitors to a hotel"
+     ],
+     "why": "Dear residents … Westfield Apartments."
+    },
+    {
+     "q": "What will be provided during the shut-off?",
+     "a": "Bottled water",
+     "w": [
+      "Free meals",
+      "A shuttle bus",
+      "Hotel rooms"
+     ],
+     "why": "Bottled water will be available in the lobby."
+    }
+   ]
+  },
+  {
+   "id": "t7-review",
+   "kind": "Online review",
+   "docs": [
+    {
+     "title": "Review of Casa Verde Restaurant ★★★★☆",
+     "text": "I took my parents to Casa Verde for my father's birthday last Saturday. The food was excellent, especially the grilled fish, and the portions were generous. The staff even brought a small cake with a candle without us asking, which my father loved. The only disappointment was the wait: although we had a reservation for 7:00, we were not seated until almost 7:40. The manager apologized and offered us free coffee, which was a nice gesture. I would definitely return, but I would book an earlier table. — Paula Grant"
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why did Ms. Grant go to the restaurant?",
+     "a": "To celebrate a family member's birthday",
+     "w": [
+      "To meet a business client",
+      "To write a review for a newspaper",
+      "To apply for a job"
+     ],
+     "why": "for my father's birthday."
+    },
+    {
+     "q": "What problem does Ms. Grant mention?",
+     "a": "Her table was not ready on time.",
+     "w": [
+      "The food was cold.",
+      "The portions were small.",
+      "The staff were rude."
+     ],
+     "why": "not seated until almost 7:40 despite a 7:00 reservation."
+    },
+    {
+     "q": "What did the manager do?",
+     "a": "Offered free drinks",
+     "w": [
+      "Gave a full refund",
+      "Moved them to a private room",
+      "Reduced the price of the cake"
+     ],
+     "why": "offered us free coffee."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-conf",
+   "kind": "E-mail + schedule",
+   "docs": [
+    {
+     "title": "Schedule — Regional Sales Conference, Hotel Arcadia",
+     "text": "Thursday, September 18\n9:00 A.M. Welcome speech — Ingrid Holm, Sales Director (Ballroom)\n10:00 A.M. Workshop: Negotiating with large clients — Victor Osei (Room 2)\n12:00 P.M. Lunch (Garden Terrace)\n1:30 P.M. Workshop: Using data to find new customers — Amy Ng (Room 3)\n3:30 P.M. Panel discussion: The future of retail (Ballroom)"
+    },
+    {
+     "title": "E-mail · To: Conference participants · From: Ingrid Holm · Date: September 15",
+     "text": "Dear colleagues, I look forward to seeing you all on Thursday. Please note one change to the schedule: Amy Ng's workshop will now take place in the Ballroom instead of Room 3, as more than sixty people have registered for it. Also, because of renovation work, lunch will be served in the hotel restaurant rather than outdoors. Please remember to bring your laptops for the afternoon workshop. Best regards, Ingrid"
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the purpose of the e-mail?",
+     "a": "To announce changes to an event",
+     "w": [
+      "To invite people to register",
+      "To cancel a workshop",
+      "To introduce a new director"
+     ],
+     "why": "Please note one change to the schedule…"
+    },
+    {
+     "q": "Why was Ms. Ng's workshop moved?",
+     "a": "Many people signed up for it.",
+     "w": [
+      "Room 3 is being renovated.",
+      "Ms. Ng arrived late.",
+      "The panel discussion was canceled."
+     ],
+     "why": "more than sixty people have registered for it."
+    },
+    {
+     "q": "Where will lunch be served?",
+     "a": "In the hotel restaurant",
+     "w": [
+      "On the Garden Terrace",
+      "In Room 2",
+      "In the Ballroom"
+     ],
+     "why": "lunch will be served in the hotel restaurant rather than outdoors."
+    },
+    {
+     "q": "What should participants bring to the 1:30 P.M. session?",
+     "a": "Laptops",
+     "w": [
+      "Business cards",
+      "Printed reports",
+      "Name badges"
+     ],
+     "why": "Đối chiếu 2 văn bản: 1:30 là workshop của Amy Ng (buổi chiều) → mang laptop."
+    },
+    {
+     "q": "Who will give the first talk of the day?",
+     "a": "Ms. Holm",
+     "w": [
+      "Mr. Osei",
+      "Ms. Ng",
+      "A panel of experts"
+     ],
+     "why": "9:00 A.M. Welcome speech — Ingrid Holm."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-order",
+   "kind": "Web page + e-mails",
+   "docs": [
+    {
+     "title": "Tecso Office Supplies — Delivery information",
+     "text": "Standard delivery (3–5 business days): free on orders over $50; otherwise $6.\nExpress delivery (next business day): $15 on all orders.\nOrders placed after 3:00 P.M. are processed the following business day.\nDamaged items can be returned within 14 days for a full refund or replacement."
+    },
+    {
+     "title": "E-mail · To: support@tecso.com · From: Mark Dunn · Date: Monday, 4:30 P.M.",
+     "text": "Hello, I placed order #7712 an hour ago and chose express delivery because we need the printer paper for a training session on Wednesday morning. Could you confirm it will arrive in time? Also, I noticed I was charged $15 for delivery, although my order was $120. I thought delivery was free for orders over $50. Thank you, Mark Dunn"
+    },
+    {
+     "title": "E-mail · To: Mark Dunn · From: Tecso Customer Support · Date: Tuesday, 9:05 A.M.",
+     "text": "Dear Mr. Dunn, Thank you for your message. Your order was processed this morning and is scheduled to arrive tomorrow, in time for your session. Please note that free delivery applies only to the standard service, so the express charge is correct. As a gesture of goodwill, however, we have added a $10 voucher to your account for your next purchase. Best regards, Tecso Customer Support"
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why was Mr. Dunn's order processed on Tuesday?",
+     "a": "It was placed after 3:00 P.M.",
+     "w": [
+      "The printer paper was out of stock.",
+      "He chose standard delivery.",
+      "The payment was delayed."
+     ],
+     "why": "Đặt 3:30 P.M. thứ Hai (gửi e-mail 4:30, một giờ sau khi đặt); sau 3:00 P.M. thì xử lý ngày làm việc hôm sau."
+    },
+    {
+     "q": "When will the order arrive?",
+     "a": "On Wednesday",
+     "w": [
+      "On Monday",
+      "On Tuesday",
+      "On Friday"
+     ],
+     "why": "E-mail thứ Ba: arrive tomorrow → thứ Tư."
+    },
+    {
+     "q": "What does Mr. Dunn misunderstand?",
+     "a": "Which delivery service is free",
+     "w": [
+      "The price of printer paper",
+      "How to return damaged items",
+      "The date of his training session"
+     ],
+     "why": "Free delivery applies only to the standard service."
+    },
+    {
+     "q": "What does Tecso give Mr. Dunn?",
+     "a": "A voucher for a future order",
+     "w": [
+      "A full refund of the order",
+      "Free express delivery",
+      "Extra printer paper"
+     ],
+     "why": "added a $10 voucher to your account."
+    },
+    {
+     "q": "In the second e-mail, the word \"gesture\" is closest in meaning to",
+     "a": "action",
+     "w": [
+      "movement",
+      "signal",
+      "price"
+     ],
+     "why": "a gesture of goodwill = một hành động thể hiện thiện chí."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-rent",
+   "kind": "Advertisement + form",
+   "docs": [
+    {
+     "title": "Office space for rent — Maple Business Park",
+     "text": "Fully furnished offices available from August 1. Small office (2 desks): $900/month. Medium office (5 desks): $1,800/month. Large office (10 desks): $3,200/month. All offices include internet, cleaning and access to shared meeting rooms. Free parking for tenants. Minimum lease: 6 months. Contact Leasing Manager Olivia Park at 555-0142."
+    },
+    {
+     "title": "Rental application form",
+     "text": "Company: Bluefin Design\nContact: Sam Okafor\nNumber of employees: 4 (planning to hire 3 more next year)\nPreferred start date: August 1\nLease length: 12 months\nComments: We often meet clients, so access to meeting rooms is important. We would like an office large enough for our team to grow."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is included in the price of every office?",
+     "a": "Cleaning",
+     "w": [
+      "Furniture delivery",
+      "Phone calls",
+      "Lunch"
+     ],
+     "why": "All offices include internet, cleaning…"
+    },
+    {
+     "q": "Which office will Bluefin Design most likely rent?",
+     "a": "The large office",
+     "w": [
+      "The small office",
+      "The medium office",
+      "Two small offices"
+     ],
+     "why": "Đối chiếu: 4 người + 3 người nữa = 7 > 5 bàn của văn phòng vừa → văn phòng lớn 10 bàn."
+    },
+    {
+     "q": "Why are meeting rooms important to Mr. Okafor?",
+     "a": "His company often meets clients.",
+     "w": [
+      "His team holds daily training.",
+      "He plans to rent them to others.",
+      "His office has no internet."
+     ],
+     "why": "We often meet clients."
+    },
+    {
+     "q": "What is suggested about Bluefin Design's lease?",
+     "a": "It is longer than the minimum required.",
+     "w": [
+      "It begins later than August.",
+      "It is shorter than the minimum required.",
+      "It includes paid parking."
+     ],
+     "why": "12 tháng > tối thiểu 6 tháng."
+    }
+   ]
+  },
+  {
+   "id": "t7-memo2",
+   "kind": "Memo",
+   "docs": [
+    {
+     "title": "MEMO · To: All staff · From: Linda Cho, Office Manager · Re: Kitchen renovation",
+     "text": "The staff kitchen on the fourth floor will be renovated from Monday, November 3, to Friday, November 14. During this time, the kitchen will be completely closed. Coffee and tea will be available in the meeting room on the third floor, and the microwave there may be used between 11:30 A.M. and 2:00 P.M. Please remove any personal items from the kitchen refrigerator by Friday, October 31. Anything left after that date will be thrown away. When the work is finished, the kitchen will have a larger seating area and a new dishwasher."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the main purpose of the memo?",
+     "a": "To inform staff about a temporary closure",
+     "w": [
+      "To introduce a new office manager",
+      "To announce a new lunch menu",
+      "To ask for help with a renovation"
+     ],
+     "why": "The kitchen will be completely closed…"
+    },
+    {
+     "q": "What are employees asked to do by October 31?",
+     "a": "Remove items from a refrigerator",
+     "w": [
+      "Clean the meeting room",
+      "Order new equipment",
+      "Sign up for lunch"
+     ],
+     "why": "Please remove any personal items… by Friday, October 31."
+    },
+    {
+     "q": "What will be added to the kitchen?",
+     "a": "More seating",
+     "w": [
+      "A coffee machine",
+      "A second refrigerator",
+      "A television"
+     ],
+     "why": "a larger seating area and a new dishwasher."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-event",
+   "kind": "Web page + e-mail + schedule",
+   "docs": [
+    {
+     "title": "Harbor Arts Festival — Volunteer page",
+     "text": "We are looking for volunteers to help at this year's festival, June 6–8. Volunteers work one four-hour shift and receive a free festival T-shirt and a ticket to the closing concert. Shifts are available at the information desk, the ticket gate and the children's art tent. Volunteers under 18 must work with an adult volunteer. To sign up, e-mail volunteer@harborarts.org with your preferred day and area."
+    },
+    {
+     "title": "E-mail · To: volunteer@harborarts.org · From: Nora Bell",
+     "text": "Hello, I would like to volunteer at the festival on Saturday, June 7. I am a primary school teacher, so I would be happy to help in the children's art tent. My 16-year-old son would also like to volunteer. Could we work the same shift? Thank you, Nora Bell"
+    },
+    {
+     "title": "Volunteer schedule — Saturday, June 7 (children's art tent)",
+     "text": "9:00 A.M.–1:00 P.M.: Nora Bell, Tom Bell\n1:00 P.M.–5:00 P.M.: Grace Liu, Ahmed Saleh\n5:00 P.M.–9:00 P.M.: (open)"
+    }
+   ],
+   "qs": [
+    {
+     "q": "What will volunteers receive?",
+     "a": "A concert ticket",
+     "w": [
+      "A cash payment",
+      "Free meals",
+      "A parking pass"
+     ],
+     "why": "a ticket to the closing concert."
+    },
+    {
+     "q": "Why does Ms. Bell want to work in the children's art tent?",
+     "a": "She works with children.",
+     "w": [
+      "Her son is an artist.",
+      "It is near the entrance.",
+      "It has the shortest shift."
+     ],
+     "why": "I am a primary school teacher."
+    },
+    {
+     "q": "What is suggested about Tom Bell?",
+     "a": "He must work with an adult volunteer.",
+     "w": [
+      "He is a primary school teacher.",
+      "He chose the ticket gate.",
+      "He will work on June 6."
+     ],
+     "why": "Đối chiếu: con trai 16 tuổi của Nora (Tom Bell trên lịch) dưới 18 → phải làm cùng người lớn."
+    },
+    {
+     "q": "What time will Ms. Bell finish her shift?",
+     "a": "At 1:00 P.M.",
+     "w": [
+      "At 9:00 A.M.",
+      "At 5:00 P.M.",
+      "At 9:00 P.M."
+     ],
+     "why": "Lịch: 9:00 A.M.–1:00 P.M.: Nora Bell."
+    },
+    {
+     "q": "Which shift still needs volunteers?",
+     "a": "The evening shift",
+     "w": [
+      "The morning shift",
+      "The afternoon shift",
+      "No shift"
+     ],
+     "why": "5:00 P.M.–9:00 P.M.: (open)."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-repair",
+   "kind": "Invoice + e-mail",
+   "docs": [
+    {
+     "title": "Quickfix Appliance Repair — Invoice #5530",
+     "text": "Customer: Café Lumen\nService date: March 12\nRepair of espresso machine (labor, 2 hours) — $140\nReplacement water pump — $95\nCall-out fee — $40\nTotal — $275\nAll repairs are guaranteed for 90 days. Payment due within 14 days."
+    },
+    {
+     "title": "E-mail · To: service@quickfix.com · From: Diego Ramos, Café Lumen · Date: April 2",
+     "text": "Hello, your technician repaired our espresso machine on March 12, but it stopped working again this morning. It seems to be the same problem with the water supply. As this is within your guarantee period, I assume there will be no charge for the repair. Could someone come tomorrow morning before we open at 7:00? Our busiest day is Saturday, so we need the machine working by then. Thank you, Diego Ramos"
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the problem with the espresso machine?",
+     "a": "It has stopped working again.",
+     "w": [
+      "It was delivered late.",
+      "It is too noisy.",
+      "It was sold at the wrong price."
+     ],
+     "why": "it stopped working again this morning."
+    },
+    {
+     "q": "Why does Mr. Ramos expect a free repair?",
+     "a": "The previous repair is still guaranteed.",
+     "w": [
+      "He paid the invoice early.",
+      "He is a regular customer.",
+      "The technician made a mistake with the bill."
+     ],
+     "why": "Đối chiếu: sửa 12/3, bảo hành 90 ngày, e-mail ngày 2/4 → còn bảo hành."
+    },
+    {
+     "q": "Which part was replaced on March 12?",
+     "a": "A water pump",
+     "w": [
+      "A coffee grinder",
+      "A power cable",
+      "A milk frother"
+     ],
+     "why": "Replacement water pump — $95."
+    },
+    {
+     "q": "When does Mr. Ramos want the technician to come?",
+     "a": "Before the café opens",
+     "w": [
+      "On Saturday afternoon",
+      "During lunchtime",
+      "After 7:00 P.M."
+     ],
+     "why": "tomorrow morning before we open at 7:00."
+    }
+   ]
+  }
+ ]
 }
