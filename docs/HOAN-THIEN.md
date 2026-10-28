@@ -165,3 +165,15 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Khuyết điểm: C2 Proficiency Viết phần 1 (bắt buộc) là tóm tắt và đánh giá hai đoạn văn, 240–280 từ; app chưa có dạng này. Đáp án bài đọc / nghe B1 → C2 do AI soạn, chưa ai soát.
 - Làm: 3 đề tóm tắt (làm việc tại nhà, du lịch, máy dịch và học ngoại ngữ) có bài mẫu 245–253 từ; ở 🧩 Luyện dạng đề thật (C2) và là phần 1 bài Viết của 🎓 đề thử C2. Chấm như bài Viết (đủ 4 ý bằng từ khoá, độ dài, 4 tiêu chí, bắt lỗi); nút AI chấm nhận cả hai đoạn văn trong đề.
 - Soát đáp án: (1) 737 câu trích dẫn trong lời giải thích đối chiếu với bài: 9 lệch, 6 chỉ khác dấu câu, 3 trích sai (Pre-A1) đã sửa; (2) 260 câu trắc nghiệm B1 → C2: máy gắn cờ 85 câu có phương án sai trùng chữ với bài nhiều hơn đáp án (đúng kiểu bẫy của đề thật); đọc lại 8 câu ngẫu nhiên trong số đó: cả 8 đáp án đúng. Chưa người thật soát toàn bộ.
+
+## Bổ sung từ Oxford A1–A2 còn thiếu (v64, 28/10/2026; người sáng lập: "tự tính làm tiếp")
+- Vì sao: đo độ phủ ở thư viện (v62) lộ ra app thiếu từ Oxford 3000 rất thường gặp (real, interest, news, danger, dead, nature, knowledge…). Đề Cambridge A2 Key dùng chúng thường xuyên.
+- Làm: thêm 60 từ, mỗi từ đủ nghĩa, phiên âm, ví dụ, câu điền, cụm đúng / sai, câu thi (Claude soạn, chưa người thật kiểm):
+  - A1 +8 (`content/a1-fix.json`, bài a1-c16-b5): because of, fill, flight, health, interest, news, personal, real.
+  - A2 +26 (`content/a2-fix.json`, bài a2-c20-b5…b7): beef, choice, crowd, daily, danger, dead, death, decision, disagree, heat, height, helpful, illness, impossible, luck, marry, nature, nearly, owner, smoke, solve, teenage, usual, worry, lost, receive.
+  - A2+ +26 (`content/a2p-fix.json` mới, chặng ⭐ Bổ sung Oxford): active, architecture, cooker, creative, direct, discussion, employ, employee, explanation, following, hike, introduction, knowledge, laughter, medical, movement, musician, officer, possibility, produce, reporter, successful, surprising, thought, tourism, traveller.
+  - Không thêm 33 dạng suy ra được từ từ gốc đã có (completely, easily, driving, singing, designer, runner…).
+  - `tools/fix-pre.mjs` nhận thêm `a2p-fix.json`; giọng Kokoro (nữ Mỹ như `a/`) cho từ và câu ví dụ chưa có tệp thu sẵn (`tools/build-audio.py`).
+- Số từ mới: Pre-A1 445 · A1 673 · A2 353 · A2+ 412. 📘 Học của A1, A2, A2+ sẽ giảm nhẹ với người đã học xong cấp đó (cần học thêm 1–3 bài). Thời gian tới cổng ước tăng ~1% (A1) và ~7–8% (A2, A2+), chưa chạy lại mô phỏng.
+- Còn thiếu: B1 124, B2 362, C1 362 từ Oxford 5000 (nhiều từ phái sinh). Chưa làm: cần thêm qua `tools/build-b.mjs` cùng dữ liệu yêu cầu B (cụm từ, mẫu câu…).
+- Sửa tận nguồn 3 lời giải Pre-A1 ở `content/pre-skills.json` (v63 sửa thẳng doc.json / nghe.json, bị `fix-pre.mjs` ghi đè).

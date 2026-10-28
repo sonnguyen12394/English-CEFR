@@ -1229,6 +1229,804 @@
      }
     }
    ]
+  },
+  {
+   "id": "a2-c20-b5",
+   "vi": "Bổ sung Oxford A2 1: đời sống, cảm xúc",
+   "words": [
+    {
+     "id": "beef",
+     "w": "beef",
+     "pos": "noun",
+     "ipa": "/biːf/",
+     "pic": "🥩",
+     "vi": "thịt bò",
+     "en": "meat from a cow",
+     "ex": "We had beef noodle soup for lunch.",
+     "exVi": "Chúng tôi ăn phở bò buổi trưa.",
+     "cloze": {
+      "s": "Pho is often made with chicken or ___.",
+      "a": "beef",
+      "w": [
+       "cow",
+       "beefs"
+      ]
+     },
+     "col": {
+      "ok": "beef noodle soup",
+      "bad": [
+       "cow noodle soup",
+       "beefs noodle soup"
+      ]
+     },
+     "exam": {
+      "s": "I don't eat beef or pork.",
+      "f": "beef"
+     }
+    },
+    {
+     "id": "choice",
+     "w": "choice",
+     "pos": "noun",
+     "ipa": "/tʃɔɪs/",
+     "pic": "🤔",
+     "vi": "sự lựa chọn",
+     "en": "the act of choosing, or something you can choose",
+     "ex": "There is a big choice of food at the market.",
+     "exVi": "Ở chợ có rất nhiều đồ ăn để chọn.",
+     "cloze": {
+      "s": "You can have tea or coffee. It's your ___.",
+      "a": "choice",
+      "w": [
+       "choose",
+       "chose"
+      ]
+     },
+     "col": {
+      "ok": "make a choice",
+      "bad": [
+       "do a choice",
+       "take a choose"
+      ]
+     },
+     "exam": {
+      "s": "It was a difficult choice for me.",
+      "f": "choice"
+     }
+    },
+    {
+     "id": "crowd",
+     "w": "crowd",
+     "pos": "noun",
+     "ipa": "/kraʊd/",
+     "pic": "👥",
+     "vi": "đám đông",
+     "en": "a large group of people in one place",
+     "ex": "A big crowd was waiting outside the stadium.",
+     "exVi": "Một đám đông lớn đang chờ bên ngoài sân vận động.",
+     "cloze": {
+      "s": "There was a huge ___ of people at the concert.",
+      "a": "crowd",
+      "w": [
+       "crowded",
+       "crowds"
+      ]
+     },
+     "col": {
+      "ok": "a crowd of people",
+      "bad": [
+       "a crowded of people",
+       "a crowd from people"
+      ]
+     },
+     "exam": {
+      "s": "The crowd was very noisy.",
+      "f": "crowd"
+     }
+    },
+    {
+     "id": "daily",
+     "w": "daily",
+     "pos": "adjective",
+     "ipa": "/ˈdeɪli/",
+     "pic": "📅",
+     "vi": "hằng ngày",
+     "en": "happening every day",
+     "ex": "Walking is part of my daily life.",
+     "exVi": "Đi bộ là một phần cuộc sống hằng ngày của tôi.",
+     "cloze": {
+      "s": "I read the ___ news on my phone every morning.",
+      "a": "daily",
+      "w": [
+       "day",
+       "days"
+      ]
+     },
+     "col": {
+      "ok": "daily life",
+      "bad": [
+       "day life",
+       "days life"
+      ]
+     },
+     "exam": {
+      "s": "Exercise is part of my daily life.",
+      "f": "daily"
+     }
+    },
+    {
+     "id": "danger",
+     "w": "danger",
+     "pos": "noun",
+     "ipa": "/ˈdeɪndʒə/",
+     "pic": "⚠️",
+     "vi": "sự nguy hiểm",
+     "en": "the possibility that something bad will happen",
+     "ex": "The sign says: Danger! Deep water.",
+     "exVi": "Biển báo ghi: Nguy hiểm! Nước sâu.",
+     "cloze": {
+      "s": "The children didn't know about the ___ of the river.",
+      "a": "danger",
+      "w": [
+       "dangerous",
+       "dangerously"
+      ]
+     },
+     "col": {
+      "ok": "in danger",
+      "bad": [
+       "on danger",
+       "at danger"
+      ]
+     },
+     "exam": {
+      "s": "The old bridge is in danger of falling.",
+      "f": "danger"
+     }
+    },
+    {
+     "id": "dead",
+     "w": "dead",
+     "pos": "adjective",
+     "ipa": "/ded/",
+     "pic": "🥀",
+     "vi": "chết",
+     "en": "not alive",
+     "ex": "The flowers are dead because I forgot to water them.",
+     "exVi": "Hoa chết vì tôi quên tưới.",
+     "cloze": {
+      "s": "My plant is ___. It needed more water.",
+      "a": "dead",
+      "w": [
+       "die",
+       "death"
+      ]
+     },
+     "col": {
+      "ok": "a dead plant",
+      "bad": [
+       "a die plant",
+       "a death plant"
+      ]
+     },
+     "exam": {
+      "s": "The fish in the river are dead.",
+      "f": "dead"
+     }
+    },
+    {
+     "id": "death",
+     "w": "death",
+     "pos": "noun",
+     "ipa": "/deθ/",
+     "pic": "🕯️",
+     "vi": "cái chết",
+     "en": "the end of life",
+     "ex": "The death of her grandfather made her very sad.",
+     "exVi": "Cái chết của ông khiến cô ấy rất buồn.",
+     "cloze": {
+      "s": "After the ___ of his dog, he was sad for weeks.",
+      "a": "death",
+      "w": [
+       "dead",
+       "die"
+      ]
+     },
+     "col": {
+      "ok": "the death of",
+      "bad": [
+       "the dead of",
+       "the die of"
+      ]
+     },
+     "exam": {
+      "s": "His death was a shock to everyone.",
+      "f": "death"
+     }
+    },
+    {
+     "id": "decision",
+     "w": "decision",
+     "pos": "noun",
+     "ipa": "/dɪˈsɪʒn/",
+     "pic": "✅",
+     "vi": "quyết định",
+     "en": "a choice that you make after thinking",
+     "ex": "Moving to a new city was a big decision.",
+     "exVi": "Chuyển tới thành phố mới là một quyết định lớn.",
+     "cloze": {
+      "s": "I need to make a ___ about my holiday.",
+      "a": "decision",
+      "w": [
+       "decide",
+       "decided"
+      ]
+     },
+     "col": {
+      "ok": "make a decision",
+      "bad": [
+       "do a decision",
+       "take a decide"
+      ]
+     },
+     "exam": {
+      "s": "It was a hard decision to leave my job.",
+      "f": "decision"
+     }
+    },
+    {
+     "id": "disagree",
+     "w": "disagree",
+     "pos": "verb",
+     "ipa": "/ˌdɪsəˈɡriː/",
+     "pic": "🙅",
+     "vi": "không đồng ý",
+     "en": "to have a different opinion",
+     "ex": "I disagree with you about this film.",
+     "exVi": "Tôi không đồng ý với bạn về bộ phim này.",
+     "cloze": {
+      "s": "I'm sorry, but I ___ with you.",
+      "a": "disagree",
+      "w": [
+       "agree",
+       "disagreement"
+      ]
+     },
+     "col": {
+      "ok": "disagree with someone",
+      "bad": [
+       "disagree to someone",
+       "disagree someone"
+      ]
+     },
+     "exam": {
+      "s": "My sister and I often disagree about music.",
+      "f": "disagree"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2-c20-b6",
+   "vi": "Bổ sung Oxford A2 2: sức khoẻ, thiên nhiên",
+   "words": [
+    {
+     "id": "heat",
+     "w": "heat",
+     "pos": "noun",
+     "ipa": "/hiːt/",
+     "pic": "🔥",
+     "vi": "sức nóng, cái nóng",
+     "en": "the quality of being hot",
+     "ex": "I can't sleep in this heat.",
+     "exVi": "Tôi không ngủ được trong cái nóng này.",
+     "cloze": {
+      "s": "Close the window. The ___ is coming in.",
+      "a": "heat",
+      "w": [
+       "hot",
+       "heating"
+      ]
+     },
+     "col": {
+      "ok": "the heat of the sun",
+      "bad": [
+       "the hot of the sun",
+       "the heating of the sun"
+      ]
+     },
+     "exam": {
+      "s": "The heat in the city was terrible in June.",
+      "f": "heat"
+     }
+    },
+    {
+     "id": "height",
+     "w": "height",
+     "pos": "noun",
+     "ipa": "/haɪt/",
+     "pic": "📏",
+     "vi": "chiều cao",
+     "en": "how tall or high someone or something is",
+     "ex": "What is the height of that tower?",
+     "exVi": "Cái tháp đó cao bao nhiêu?",
+     "cloze": {
+      "s": "The ___ of the building is 100 metres.",
+      "a": "height",
+      "w": [
+       "high",
+       "tall"
+      ]
+     },
+     "col": {
+      "ok": "the height of",
+      "bad": [
+       "the high of",
+       "the tall of"
+      ]
+     },
+     "exam": {
+      "s": "Write your name, age and height on the form.",
+      "f": "height"
+     }
+    },
+    {
+     "id": "helpful",
+     "w": "helpful",
+     "pos": "adjective",
+     "ipa": "/ˈhelpfl/",
+     "pic": "🤝",
+     "vi": "có ích, sẵn lòng giúp",
+     "en": "useful, or happy to help",
+     "ex": "The hotel staff were very helpful.",
+     "exVi": "Nhân viên khách sạn rất nhiệt tình giúp đỡ.",
+     "cloze": {
+      "s": "Thank you, that information was very ___.",
+      "a": "helpful",
+      "w": [
+       "helping",
+       "help"
+      ]
+     },
+     "col": {
+      "ok": "helpful advice",
+      "bad": [
+       "help advice",
+       "helping advice"
+      ]
+     },
+     "exam": {
+      "s": "The teacher gave us some helpful advice.",
+      "f": "helpful"
+     }
+    },
+    {
+     "id": "illness",
+     "w": "illness",
+     "pos": "noun",
+     "ipa": "/ˈɪlnəs/",
+     "pic": "🤒",
+     "vi": "bệnh, sự ốm đau",
+     "en": "a disease or a period of being sick",
+     "ex": "She missed school because of a long illness.",
+     "exVi": "Cô ấy nghỉ học vì ốm lâu.",
+     "cloze": {
+      "s": "He was in hospital for two weeks with a serious ___.",
+      "a": "illness",
+      "w": [
+       "ill",
+       "illy"
+      ]
+     },
+     "col": {
+      "ok": "a serious illness",
+      "bad": [
+       "a serious ill",
+       "a heavy illness"
+      ]
+     },
+     "exam": {
+      "s": "My grandmother had a long illness last year.",
+      "f": "illness"
+     }
+    },
+    {
+     "id": "impossible",
+     "w": "impossible",
+     "pos": "adjective",
+     "ipa": "/ɪmˈpɒsəbl/",
+     "pic": "🚫",
+     "vi": "không thể",
+     "en": "not able to happen or be done",
+     "ex": "It's impossible to finish this work today.",
+     "exVi": "Không thể làm xong việc này hôm nay.",
+     "cloze": {
+      "s": "It's ___ to see the stars in the city.",
+      "a": "impossible",
+      "w": [
+       "possible",
+       "unpossible"
+      ]
+     },
+     "col": {
+      "ok": "impossible to do",
+      "bad": [
+       "impossible doing",
+       "impossible for do"
+      ]
+     },
+     "exam": {
+      "s": "It is impossible to sleep with this noise.",
+      "f": "impossible"
+     }
+    },
+    {
+     "id": "luck",
+     "w": "luck",
+     "pos": "noun",
+     "ipa": "/lʌk/",
+     "pic": "🍀",
+     "vi": "may mắn",
+     "en": "good things that happen by chance",
+     "ex": "Good luck with your exam tomorrow!",
+     "exVi": "Chúc bạn thi tốt ngày mai!",
+     "cloze": {
+      "s": "Good ___ in the race!",
+      "a": "luck",
+      "w": [
+       "lucky",
+       "luckily"
+      ]
+     },
+     "col": {
+      "ok": "good luck",
+      "bad": [
+       "nice luck",
+       "good lucky"
+      ]
+     },
+     "exam": {
+      "s": "I wish you good luck in your new job.",
+      "f": "luck"
+     }
+    },
+    {
+     "id": "marry",
+     "w": "marry",
+     "pos": "verb",
+     "ipa": "/ˈmæri/",
+     "pic": "💍",
+     "vi": "cưới, kết hôn",
+     "en": "to become the husband or wife of someone",
+     "ex": "He wants to marry her next year.",
+     "exVi": "Anh ấy muốn cưới cô ấy vào năm sau.",
+     "cloze": {
+      "s": "Will you ___ me?",
+      "a": "marry",
+      "w": [
+       "married",
+       "marriage"
+      ]
+     },
+     "col": {
+      "ok": "marry someone",
+      "bad": [
+       "marry with someone",
+       "marry to someone"
+      ]
+     },
+     "exam": {
+      "s": "My cousin will marry his girlfriend in May.",
+      "f": "marry"
+     }
+    },
+    {
+     "id": "nature",
+     "w": "nature",
+     "pos": "noun",
+     "ipa": "/ˈneɪtʃə/",
+     "pic": "🌿",
+     "vi": "thiên nhiên",
+     "en": "plants, animals and the world that are not made by people",
+     "ex": "I love walking in the forest and being close to nature.",
+     "exVi": "Tôi thích đi bộ trong rừng và gần gũi thiên nhiên.",
+     "cloze": {
+      "s": "We went to the mountains to enjoy ___.",
+      "a": "nature",
+      "w": [
+       "natural",
+       "naturally"
+      ]
+     },
+     "col": {
+      "ok": "close to nature",
+      "bad": [
+       "close to the natures",
+       "close with nature"
+      ]
+     },
+     "exam": {
+      "s": "My father loves nature and birds.",
+      "f": "nature"
+     }
+    },
+    {
+     "id": "nearly",
+     "w": "nearly",
+     "pos": "adverb",
+     "ipa": "/ˈnɪəli/",
+     "pic": "⏳",
+     "vi": "gần như, suýt",
+     "en": "almost",
+     "ex": "It's nearly ten o'clock. Let's go to bed.",
+     "exVi": "Gần mười giờ rồi. Đi ngủ thôi.",
+     "cloze": {
+      "s": "I ___ missed the bus this morning.",
+      "a": "nearly",
+      "w": [
+       "near",
+       "nearby"
+      ]
+     },
+     "col": {
+      "ok": "nearly finished",
+      "bad": [
+       "near finished",
+       "nearby finished"
+      ]
+     },
+     "exam": {
+      "s": "The film is nearly over.",
+      "f": "nearly"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2-c20-b7",
+   "vi": "Bổ sung Oxford A2 3: việc thường ngày",
+   "words": [
+    {
+     "id": "owner",
+     "w": "owner",
+     "pos": "noun",
+     "ipa": "/ˈəʊnə/",
+     "pic": "🔑",
+     "vi": "chủ, người sở hữu",
+     "en": "a person who owns something",
+     "ex": "The owner of the café is very friendly.",
+     "exVi": "Chủ quán cà phê rất thân thiện.",
+     "cloze": {
+      "s": "Who is the ___ of this black bike?",
+      "a": "owner",
+      "w": [
+       "own",
+       "owning"
+      ]
+     },
+     "col": {
+      "ok": "the owner of",
+      "bad": [
+       "the own of",
+       "the owner from"
+      ]
+     },
+     "exam": {
+      "s": "The owner of the shop is my uncle.",
+      "f": "owner"
+     }
+    },
+    {
+     "id": "smoke",
+     "w": "smoke",
+     "pos": "noun",
+     "ipa": "/sməʊk/",
+     "pic": "💨",
+     "vi": "khói",
+     "en": "the grey or black gas that comes from something burning",
+     "ex": "There was smoke coming from the kitchen.",
+     "exVi": "Có khói bốc ra từ bếp.",
+     "cloze": {
+      "s": "We saw black ___ coming from the window.",
+      "a": "smoke",
+      "w": [
+       "smoking",
+       "smoky"
+      ]
+     },
+     "col": {
+      "ok": "black smoke",
+      "bad": [
+       "black smoking",
+       "black smoky"
+      ]
+     },
+     "exam": {
+      "s": "There is smoke in the kitchen!",
+      "f": "smoke"
+     }
+    },
+    {
+     "id": "solve",
+     "w": "solve",
+     "pos": "verb",
+     "ipa": "/sɒlv/",
+     "pic": "🧩",
+     "vi": "giải quyết, giải",
+     "en": "to find an answer to a problem",
+     "ex": "Can you help me solve this maths problem?",
+     "exVi": "Bạn giúp tôi giải bài toán này nhé?",
+     "cloze": {
+      "s": "We need to ___ this problem quickly.",
+      "a": "solve",
+      "w": [
+       "solution",
+       "solved"
+      ]
+     },
+     "col": {
+      "ok": "solve a problem",
+      "bad": [
+       "solve a solution",
+       "solve on a problem"
+      ]
+     },
+     "exam": {
+      "s": "She solved the problem in five minutes.",
+      "f": "solved"
+     }
+    },
+    {
+     "id": "teenage",
+     "w": "teenage",
+     "pos": "adjective",
+     "ipa": "/ˈtiːneɪdʒ/",
+     "pic": "🧑",
+     "vi": "tuổi thiếu niên (13–19)",
+     "en": "between 13 and 19 years old",
+     "ex": "They have two teenage children.",
+     "exVi": "Họ có hai đứa con tuổi thiếu niên.",
+     "cloze": {
+      "s": "My ___ son spends hours playing games.",
+      "a": "teenage",
+      "w": [
+       "teenager",
+       "teens"
+      ]
+     },
+     "col": {
+      "ok": "a teenage boy",
+      "bad": [
+       "a teenager boy",
+       "a teens boy"
+      ]
+     },
+     "exam": {
+      "s": "Many teenage students use phones in class.",
+      "f": "teenage"
+     }
+    },
+    {
+     "id": "usual",
+     "w": "usual",
+     "pos": "adjective",
+     "ipa": "/ˈjuːʒuəl/",
+     "pic": "🔁",
+     "vi": "thường lệ",
+     "en": "normal; happening most of the time",
+     "ex": "I got up at the usual time.",
+     "exVi": "Tôi dậy vào giờ như thường lệ.",
+     "cloze": {
+      "s": "She was late, as ___.",
+      "a": "usual",
+      "w": [
+       "usually",
+       "use"
+      ]
+     },
+     "col": {
+      "ok": "as usual",
+      "bad": [
+       "as usually",
+       "like usual"
+      ]
+     },
+     "exam": {
+      "s": "He came home late as usual.",
+      "f": "usual"
+     }
+    },
+    {
+     "id": "worry",
+     "w": "worry",
+     "pos": "verb",
+     "ipa": "/ˈwʌri/",
+     "pic": "😟",
+     "vi": "lo lắng",
+     "en": "to think about problems or bad things that might happen",
+     "ex": "Don't worry. Everything will be fine.",
+     "exVi": "Đừng lo. Mọi chuyện sẽ ổn.",
+     "cloze": {
+      "s": "Don't ___ about the test. You will pass.",
+      "a": "worry",
+      "w": [
+       "worried",
+       "worrying"
+      ]
+     },
+     "col": {
+      "ok": "worry about",
+      "bad": [
+       "worry for",
+       "worry on"
+      ]
+     },
+     "exam": {
+      "s": "My mother worries about me when I travel.",
+      "f": "worries"
+     }
+    },
+    {
+     "id": "lost",
+     "w": "lost",
+     "pos": "adjective",
+     "ipa": "/lɒst/",
+     "pic": "🧭",
+     "vi": "bị lạc, bị mất",
+     "en": "not able to find your way, or not able to be found",
+     "ex": "We got lost in the old town.",
+     "exVi": "Chúng tôi bị lạc trong phố cổ.",
+     "cloze": {
+      "s": "I don't know where I am. I think I'm ___.",
+      "a": "lost",
+      "w": [
+       "lose",
+       "loss"
+      ]
+     },
+     "col": {
+      "ok": "get lost",
+      "bad": [
+       "get lose",
+       "become loss"
+      ]
+     },
+     "exam": {
+      "s": "We got lost on the way to the hotel.",
+      "f": "lost"
+     }
+    },
+    {
+     "id": "receive",
+     "w": "receive",
+     "pos": "verb",
+     "ipa": "/rɪˈsiːv/",
+     "pic": "📬",
+     "vi": "nhận",
+     "en": "to get something that someone gives or sends you",
+     "ex": "Did you receive my email?",
+     "exVi": "Bạn đã nhận được email của tôi chưa?",
+     "cloze": {
+      "s": "I ___ a lot of messages on my birthday.",
+      "a": "receive",
+      "w": [
+       "recipe",
+       "receipt"
+      ]
+     },
+     "col": {
+      "ok": "receive a letter",
+      "bad": [
+       "receive to a letter",
+       "receipt a letter"
+      ]
+     },
+     "exam": {
+      "s": "She received a letter from her friend.",
+      "f": "received"
+     }
+    }
+   ]
   }
  ]
 }

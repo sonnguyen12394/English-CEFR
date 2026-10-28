@@ -6,9 +6,9 @@ const root = new URL('..', import.meta.url).pathname;
 const A1 = JSON.parse(fs.readFileSync(root + 'a1.json', 'utf8')), A2 = JSON.parse(fs.readFileSync(root + 'a2.json', 'utf8')), E1 = JSON.parse(fs.readFileSync(root + 'exam-a1.json', 'utf8')), E2 = JSON.parse(fs.readFileSync(root + 'exam-a2.json', 'utf8'));
 // từ chuyển từ A2 xuống (Cambridge Starters / Movers thắng Oxford ở Pre-A1, A1: docs/HOAN-THIEN.md, quyết định Q1); chạy lại: lấy từ các bài đã chuyển trước đó
 const moved = new Map();
-for (const f of ['pre-fix.json', 'a1-fix.json', 'a2-fix.json']) {
+for (const f of ['pre-fix.json', 'a1-fix.json', 'a2-fix.json', 'a2p-fix.json']) {
   const F = JSON.parse(fs.readFileSync(root + 'content/' + f, 'utf8')), lv = F.lv || 'pre', chName = F.chName || 'Bổ sung Starters';
-  const A = lv === 'a2' ? A2 : A1, E = lv === 'a2' ? E2 : E1;
+  const A = lv.startsWith('a2') ? A2 : A1, E = lv.startsWith('a2') ? E2 : E1;
   const newIds = new Set(F.units.map(u => u.id)), drop = new Set(F.drop || []);
   const mvIds = u => u.id.startsWith(lv + '-mv');
   for (const u of A.units) if (newIds.has(u.id) || mvIds(u)) for (const w of u.words) moved.set(w.w.toLowerCase(), w);

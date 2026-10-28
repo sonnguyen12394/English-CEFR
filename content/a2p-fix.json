@@ -1,0 +1,808 @@
+{
+ "_note": "Bổ sung A2+ theo Oxford 3000 (28/10/2026, Claude soạn, chưa người thật kiểm): từ Oxford A2 app còn thiếu, phần khó hơn (người sáng lập: \"tự tính làm tiếp\"). Không thêm dạng suy ra được từ từ gốc đã có (-ly, -ing, -er). Áp bằng node tools/fix-pre.mjs.",
+ "lv": "a2p",
+ "chName": "Bổ sung Oxford",
+ "pic": {},
+ "drop": [],
+ "word": {},
+ "units": [
+  {
+   "id": "a2p-ox-b1",
+   "vi": "Bổ sung Oxford 1: con người và công việc",
+   "words": [
+    {
+     "id": "active",
+     "w": "active",
+     "pos": "adjective",
+     "ipa": "/ˈæktɪv/",
+     "pic": "🏃",
+     "vi": "năng động, tích cực",
+     "en": "always busy doing things, especially physical ones",
+     "ex": "My grandmother is very active. She walks every day.",
+     "exVi": "Bà tôi rất năng động. Ngày nào bà cũng đi bộ.",
+     "cloze": {
+      "s": "Children should stay ___ and play outside.",
+      "a": "active",
+      "w": [
+       "act",
+       "action"
+      ]
+     },
+     "col": {
+      "ok": "an active life",
+      "bad": [
+       "an act life",
+       "an action life"
+      ]
+     },
+     "exam": {
+      "s": "My uncle is very active for his age.",
+      "f": "active"
+     }
+    },
+    {
+     "id": "architecture",
+     "w": "architecture",
+     "pos": "noun",
+     "ipa": "/ˈɑːkɪtektʃə/",
+     "pic": "🏛️",
+     "vi": "kiến trúc",
+     "en": "the design of buildings, or the style of buildings",
+     "ex": "I love the old French architecture in Hanoi.",
+     "exVi": "Tôi thích kiến trúc Pháp cổ ở Hà Nội.",
+     "cloze": {
+      "s": "She wants to study ___ and design houses.",
+      "a": "architecture",
+      "w": [
+       "architect",
+       "architectural"
+      ]
+     },
+     "col": {
+      "ok": "modern architecture",
+      "bad": [
+       "modern architect",
+       "modern architectures"
+      ]
+     },
+     "exam": {
+      "s": "The city is famous for its old architecture.",
+      "f": "architecture"
+     }
+    },
+    {
+     "id": "cooker",
+     "w": "cooker",
+     "pos": "noun",
+     "ipa": "/ˈkʊkə/",
+     "pic": "🍳",
+     "vi": "bếp (nấu), nồi",
+     "en": "a machine for cooking food (not a person who cooks)",
+     "ex": "We have a new gas cooker in the kitchen.",
+     "exVi": "Nhà tôi có bếp ga mới trong bếp.",
+     "cloze": {
+      "s": "Put the pan on the ___ and heat the oil.",
+      "a": "cooker",
+      "w": [
+       "cook",
+       "cooking"
+      ]
+     },
+     "col": {
+      "ok": "a rice cooker",
+      "bad": [
+       "a rice cook",
+       "a rice cooking"
+      ]
+     },
+     "exam": {
+      "s": "My mother bought a new rice cooker.",
+      "f": "cooker"
+     }
+    },
+    {
+     "id": "creative",
+     "w": "creative",
+     "pos": "adjective",
+     "ipa": "/kriˈeɪtɪv/",
+     "pic": "🎨",
+     "vi": "sáng tạo",
+     "en": "good at thinking of new ideas or making new things",
+     "ex": "She is very creative and makes her own clothes.",
+     "exVi": "Cô ấy rất sáng tạo, tự may quần áo cho mình.",
+     "cloze": {
+      "s": "Artists and designers need to be ___.",
+      "a": "creative",
+      "w": [
+       "create",
+       "creation"
+      ]
+     },
+     "col": {
+      "ok": "a creative idea",
+      "bad": [
+       "a create idea",
+       "a creation idea"
+      ]
+     },
+     "exam": {
+      "s": "My brother has many creative ideas.",
+      "f": "creative"
+     }
+    },
+    {
+     "id": "direct",
+     "w": "direct",
+     "pos": "adjective",
+     "ipa": "/dəˈrekt/",
+     "pic": "➡️",
+     "vi": "thẳng, trực tiếp",
+     "en": "going straight from one place to another without stopping",
+     "ex": "Is there a direct flight to London?",
+     "exVi": "Có chuyến bay thẳng tới London không?",
+     "cloze": {
+      "s": "We took a ___ train with no stops.",
+      "a": "direct",
+      "w": [
+       "direction",
+       "directly"
+      ]
+     },
+     "col": {
+      "ok": "a direct flight",
+      "bad": [
+       "a direction flight",
+       "a directly flight"
+      ]
+     },
+     "exam": {
+      "s": "There is no direct bus to the airport.",
+      "f": "direct"
+     }
+    },
+    {
+     "id": "discussion",
+     "w": "discussion",
+     "pos": "noun",
+     "ipa": "/dɪˈskʌʃn/",
+     "pic": "💬",
+     "vi": "cuộc thảo luận",
+     "en": "a conversation about something important",
+     "ex": "We had a long discussion about the holiday.",
+     "exVi": "Chúng tôi thảo luận rất lâu về kỳ nghỉ.",
+     "cloze": {
+      "s": "The class had a ___ about the environment.",
+      "a": "discussion",
+      "w": [
+       "discuss",
+       "discussing"
+      ]
+     },
+     "col": {
+      "ok": "have a discussion",
+      "bad": [
+       "do a discussion",
+       "make a discuss"
+      ]
+     },
+     "exam": {
+      "s": "We had an interesting discussion in class.",
+      "f": "discussion"
+     }
+    },
+    {
+     "id": "employ",
+     "w": "employ",
+     "pos": "verb",
+     "ipa": "/ɪmˈplɔɪ/",
+     "pic": "🏢",
+     "vi": "thuê (người làm)",
+     "en": "to pay someone to work for you",
+     "ex": "The company employs two hundred people.",
+     "exVi": "Công ty thuê hai trăm người.",
+     "cloze": {
+      "s": "The hotel ___ fifty workers.",
+      "a": "employs",
+      "w": [
+       "employee",
+       "employment"
+      ]
+     },
+     "col": {
+      "ok": "employ someone",
+      "bad": [
+       "employ for someone",
+       "employ to someone"
+      ]
+     },
+     "exam": {
+      "s": "The factory employs many young people.",
+      "f": "employs"
+     }
+    },
+    {
+     "id": "employee",
+     "w": "employee",
+     "pos": "noun",
+     "ipa": "/ɪmˈplɔɪiː/",
+     "pic": "👷",
+     "vi": "nhân viên, người làm thuê",
+     "en": "a person who is paid to work for someone",
+     "ex": "Every employee gets a day off on their birthday.",
+     "exVi": "Mỗi nhân viên được nghỉ một ngày vào sinh nhật.",
+     "cloze": {
+      "s": "The shop has ten ___.",
+      "a": "employees",
+      "w": [
+       "employer",
+       "employ"
+      ]
+     },
+     "col": {
+      "ok": "a new employee",
+      "bad": [
+       "a new employ",
+       "a new employer"
+      ]
+     },
+     "exam": {
+      "s": "The company has five hundred employees.",
+      "f": "employees"
+     }
+    },
+    {
+     "id": "explanation",
+     "w": "explanation",
+     "pos": "noun",
+     "ipa": "/ˌekspləˈneɪʃn/",
+     "pic": "💡",
+     "vi": "lời giải thích",
+     "en": "the reasons or details that make something clear",
+     "ex": "The teacher's explanation was very clear.",
+     "exVi": "Lời giải thích của cô giáo rất rõ ràng.",
+     "cloze": {
+      "s": "There is no ___ for his bad behaviour.",
+      "a": "explanation",
+      "w": [
+       "explain",
+       "explaining"
+      ]
+     },
+     "col": {
+      "ok": "a clear explanation",
+      "bad": [
+       "a clear explain",
+       "a clear explaining"
+      ]
+     },
+     "exam": {
+      "s": "Thank you for your explanation.",
+      "f": "explanation"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2p-ox-b2",
+   "vi": "Bổ sung Oxford 2: học tập, ý tưởng",
+   "words": [
+    {
+     "id": "following",
+     "w": "following",
+     "pos": "adjective",
+     "ipa": "/ˈfɒləʊɪŋ/",
+     "pic": "⏭️",
+     "vi": "tiếp theo, sau đó",
+     "en": "next; coming after",
+     "ex": "We arrived on Monday and left the following day.",
+     "exVi": "Chúng tôi đến hôm thứ Hai và rời đi vào hôm sau.",
+     "cloze": {
+      "s": "Answer the ___ questions.",
+      "a": "following",
+      "w": [
+       "follow",
+       "followed"
+      ]
+     },
+     "col": {
+      "ok": "the following day",
+      "bad": [
+       "the follow day",
+       "the followed day"
+      ]
+     },
+     "exam": {
+      "s": "Read the following text carefully.",
+      "f": "following"
+     }
+    },
+    {
+     "id": "hike",
+     "w": "hike",
+     "pos": "noun",
+     "ipa": "/haɪk/",
+     "pic": "🥾",
+     "vi": "cuộc đi bộ đường dài",
+     "en": "a long walk in the country or mountains",
+     "ex": "We went on a five-hour hike in Sapa.",
+     "exVi": "Chúng tôi đi bộ đường dài năm tiếng ở Sa Pa.",
+     "cloze": {
+      "s": "Let's go for a ___ in the mountains this weekend.",
+      "a": "hike",
+      "w": [
+       "hiker",
+       "hiking"
+      ]
+     },
+     "col": {
+      "ok": "go on a hike",
+      "bad": [
+       "go a hike",
+       "do on a hike"
+      ]
+     },
+     "exam": {
+      "s": "We went on a long hike yesterday.",
+      "f": "hike"
+     }
+    },
+    {
+     "id": "introduction",
+     "w": "introduction",
+     "pos": "noun",
+     "ipa": "/ˌɪntrəˈdʌkʃn/",
+     "pic": "👋",
+     "vi": "lời giới thiệu, phần mở đầu",
+     "en": "the first part of something, or the act of introducing people",
+     "ex": "Read the introduction before you start the book.",
+     "exVi": "Hãy đọc phần mở đầu trước khi đọc sách.",
+     "cloze": {
+      "s": "The ___ to the book is only two pages.",
+      "a": "introduction",
+      "w": [
+       "introduce",
+       "introducing"
+      ]
+     },
+     "col": {
+      "ok": "the introduction to",
+      "bad": [
+       "the introduce to",
+       "the introduction for"
+      ]
+     },
+     "exam": {
+      "s": "Write a short introduction about yourself.",
+      "f": "introduction"
+     }
+    },
+    {
+     "id": "knowledge",
+     "w": "knowledge",
+     "pos": "noun",
+     "ipa": "/ˈnɒlɪdʒ/",
+     "pic": "📚",
+     "vi": "kiến thức, sự hiểu biết",
+     "en": "information and understanding that you have",
+     "ex": "He has a good knowledge of history.",
+     "exVi": "Anh ấy hiểu biết nhiều về lịch sử.",
+     "cloze": {
+      "s": "Reading books will improve your ___.",
+      "a": "knowledge",
+      "w": [
+       "know",
+       "knowledges"
+      ]
+     },
+     "col": {
+      "ok": "knowledge of",
+      "bad": [
+       "knowledges of",
+       "knowledge on the"
+      ]
+     },
+     "exam": {
+      "s": "My teacher has great knowledge of English.",
+      "f": "knowledge"
+     }
+    },
+    {
+     "id": "laughter",
+     "w": "laughter",
+     "pos": "noun",
+     "ipa": "/ˈlɑːftə/",
+     "pic": "😂",
+     "vi": "tiếng cười",
+     "en": "the sound of people laughing",
+     "ex": "We heard laughter from the next room.",
+     "exVi": "Chúng tôi nghe tiếng cười từ phòng bên.",
+     "cloze": {
+      "s": "The room was full of ___ and music.",
+      "a": "laughter",
+      "w": [
+       "laugh",
+       "laughing"
+      ]
+     },
+     "col": {
+      "ok": "full of laughter",
+      "bad": [
+       "full of laugh",
+       "full of laughing"
+      ]
+     },
+     "exam": {
+      "s": "There was a lot of laughter at the party.",
+      "f": "laughter"
+     }
+    },
+    {
+     "id": "medical",
+     "w": "medical",
+     "pos": "adjective",
+     "ipa": "/ˈmedɪkl/",
+     "pic": "🏥",
+     "vi": "(thuộc) y tế",
+     "en": "connected with medicine and doctors",
+     "ex": "She is a medical student at the university.",
+     "exVi": "Cô ấy là sinh viên y.",
+     "cloze": {
+      "s": "You need ___ help. Call a doctor.",
+      "a": "medical",
+      "w": [
+       "medicine",
+       "medically"
+      ]
+     },
+     "col": {
+      "ok": "medical help",
+      "bad": [
+       "medicine help",
+       "medically help"
+      ]
+     },
+     "exam": {
+      "s": "He needs medical help after the accident.",
+      "f": "medical"
+     }
+    },
+    {
+     "id": "movement",
+     "w": "movement",
+     "pos": "noun",
+     "ipa": "/ˈmuːvmənt/",
+     "pic": "🌀",
+     "vi": "sự chuyển động",
+     "en": "a change of position",
+     "ex": "I saw a movement in the trees.",
+     "exVi": "Tôi thấy có gì động đậy trong cây.",
+     "cloze": {
+      "s": "Don't make any ___. The bird will fly away.",
+      "a": "movement",
+      "w": [
+       "move",
+       "moving"
+      ]
+     },
+     "col": {
+      "ok": "a sudden movement",
+      "bad": [
+       "a sudden move",
+       "a sudden moving"
+      ]
+     },
+     "exam": {
+      "s": "I saw a quick movement in the grass.",
+      "f": "movement"
+     }
+    },
+    {
+     "id": "musician",
+     "w": "musician",
+     "pos": "noun",
+     "ipa": "/mjuˈzɪʃn/",
+     "pic": "🎸",
+     "vi": "nhạc sĩ, nhạc công",
+     "en": "a person who plays or writes music",
+     "ex": "My uncle is a musician. He plays the guitar.",
+     "exVi": "Chú tôi là nhạc công. Chú chơi ghi-ta.",
+     "cloze": {
+      "s": "The ___ played the piano beautifully.",
+      "a": "musician",
+      "w": [
+       "music",
+       "musical"
+      ]
+     },
+     "col": {
+      "ok": "a famous musician",
+      "bad": [
+       "a famous music",
+       "a famous musical"
+      ]
+     },
+     "exam": {
+      "s": "She wants to be a musician one day.",
+      "f": "musician"
+     }
+    },
+    {
+     "id": "officer",
+     "w": "officer",
+     "pos": "noun",
+     "ipa": "/ˈɒfɪsə/",
+     "pic": "👮",
+     "vi": "cảnh sát, sĩ quan, cán bộ",
+     "en": "a police officer, or a person with a position of authority",
+     "ex": "A police officer helped the old man cross the road.",
+     "exVi": "Một cảnh sát giúp ông cụ qua đường.",
+     "cloze": {
+      "s": "Ask the police ___ for help.",
+      "a": "officer",
+      "w": [
+       "office",
+       "official"
+      ]
+     },
+     "col": {
+      "ok": "a police officer",
+      "bad": [
+       "a police office",
+       "a police official"
+      ]
+     },
+     "exam": {
+      "s": "The officer asked to see my passport.",
+      "f": "officer"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2p-ox-b3",
+   "vi": "Bổ sung Oxford 3: đi lại và xã hội",
+   "words": [
+    {
+     "id": "possibility",
+     "w": "possibility",
+     "pos": "noun",
+     "ipa": "/ˌpɒsəˈbɪləti/",
+     "pic": "❓",
+     "vi": "khả năng (có thể xảy ra)",
+     "en": "something that might happen or be true",
+     "ex": "There is a possibility of rain this afternoon.",
+     "exVi": "Chiều nay có khả năng mưa.",
+     "cloze": {
+      "s": "Is there any ___ that the shop is open today?",
+      "a": "possibility",
+      "w": [
+       "possible",
+       "possibly"
+      ]
+     },
+     "col": {
+      "ok": "a possibility of",
+      "bad": [
+       "a possible of",
+       "a possibility for to"
+      ]
+     },
+     "exam": {
+      "s": "There is a possibility of snow tonight.",
+      "f": "possibility"
+     }
+    },
+    {
+     "id": "produce",
+     "w": "produce",
+     "pos": "verb",
+     "ipa": "/prəˈdjuːs/",
+     "pic": "🏭",
+     "vi": "sản xuất, tạo ra",
+     "en": "to make or grow something",
+     "ex": "Vietnam produces a lot of coffee.",
+     "exVi": "Việt Nam sản xuất rất nhiều cà phê.",
+     "cloze": {
+      "s": "This factory ___ cars.",
+      "a": "produces",
+      "w": [
+       "product",
+       "production"
+      ]
+     },
+     "col": {
+      "ok": "produce coffee",
+      "bad": [
+       "product coffee",
+       "production coffee"
+      ]
+     },
+     "exam": {
+      "s": "The farm produces milk and cheese.",
+      "f": "produces"
+     }
+    },
+    {
+     "id": "reporter",
+     "w": "reporter",
+     "pos": "noun",
+     "ipa": "/rɪˈpɔːtə/",
+     "pic": "🎤",
+     "vi": "phóng viên",
+     "en": "a person who writes or talks about the news",
+     "ex": "A reporter asked the singer some questions.",
+     "exVi": "Một phóng viên hỏi ca sĩ vài câu.",
+     "cloze": {
+      "s": "The TV ___ is standing outside the hospital.",
+      "a": "reporter",
+      "w": [
+       "report",
+       "reporting"
+      ]
+     },
+     "col": {
+      "ok": "a news reporter",
+      "bad": [
+       "a news report person",
+       "a news reporting"
+      ]
+     },
+     "exam": {
+      "s": "The reporter wrote a story about our school.",
+      "f": "reporter"
+     }
+    },
+    {
+     "id": "successful",
+     "w": "successful",
+     "pos": "adjective",
+     "ipa": "/səkˈsesfl/",
+     "pic": "🏆",
+     "vi": "thành công",
+     "en": "achieving what you wanted to achieve",
+     "ex": "Her new shop is very successful.",
+     "exVi": "Cửa hàng mới của cô ấy rất thành công.",
+     "cloze": {
+      "s": "He is a ___ businessman with three companies.",
+      "a": "successful",
+      "w": [
+       "success",
+       "succeed"
+      ]
+     },
+     "col": {
+      "ok": "a successful business",
+      "bad": [
+       "a success business",
+       "a succeed business"
+      ]
+     },
+     "exam": {
+      "s": "My aunt has a successful café.",
+      "f": "successful"
+     }
+    },
+    {
+     "id": "surprising",
+     "w": "surprising",
+     "pos": "adjective",
+     "ipa": "/səˈpraɪzɪŋ/",
+     "pic": "😮",
+     "vi": "đáng ngạc nhiên",
+     "en": "making you feel surprised",
+     "ex": "The end of the film was very surprising.",
+     "exVi": "Kết phim rất bất ngờ.",
+     "cloze": {
+      "s": "It's ___ that nobody came to the party.",
+      "a": "surprising",
+      "w": [
+       "surprised",
+       "surprise"
+      ]
+     },
+     "col": {
+      "ok": "surprising news",
+      "bad": [
+       "surprised news",
+       "surprise news"
+      ]
+     },
+     "exam": {
+      "s": "The result of the game was surprising.",
+      "f": "surprising"
+     }
+    },
+    {
+     "id": "thought",
+     "w": "thought",
+     "pos": "noun",
+     "ipa": "/θɔːt/",
+     "pic": "💭",
+     "vi": "suy nghĩ, ý nghĩ",
+     "en": "an idea or opinion",
+     "ex": "What are your thoughts about the plan?",
+     "exVi": "Bạn nghĩ gì về kế hoạch này?",
+     "cloze": {
+      "s": "I had a ___: why don't we go to the beach?",
+      "a": "thought",
+      "w": [
+       "think",
+       "thinking"
+      ]
+     },
+     "col": {
+      "ok": "have a thought",
+      "bad": [
+       "make a thought",
+       "do a think"
+      ]
+     },
+     "exam": {
+      "s": "Thank you for your kind thoughts.",
+      "f": "thoughts"
+     }
+    },
+    {
+     "id": "tourism",
+     "w": "tourism",
+     "pos": "noun",
+     "ipa": "/ˈtʊərɪzəm/",
+     "pic": "🗺️",
+     "vi": "ngành du lịch",
+     "en": "the business of providing services for people on holiday",
+     "ex": "Tourism is important for Hoi An.",
+     "exVi": "Du lịch rất quan trọng với Hội An.",
+     "cloze": {
+      "s": "Many people in this town work in ___.",
+      "a": "tourism",
+      "w": [
+       "tourist",
+       "tour"
+      ]
+     },
+     "col": {
+      "ok": "work in tourism",
+      "bad": [
+       "work in tourist",
+       "work in tours"
+      ]
+     },
+     "exam": {
+      "s": "Tourism brings a lot of money to the island.",
+      "f": "Tourism"
+     }
+    },
+    {
+     "id": "traveller",
+     "w": "traveller",
+     "pos": "noun",
+     "ipa": "/ˈtrævələ/",
+     "pic": "🧳",
+     "vi": "người đi du lịch, du khách",
+     "en": "a person who is travelling or who often travels",
+     "ex": "The hotel is popular with young travellers.",
+     "exVi": "Khách sạn được nhiều du khách trẻ ưa thích.",
+     "cloze": {
+      "s": "Every ___ needs a passport.",
+      "a": "traveller",
+      "w": [
+       "travel",
+       "travelling"
+      ]
+     },
+     "col": {
+      "ok": "a young traveller",
+      "bad": [
+       "a young travel",
+       "a young travelling"
+      ]
+     },
+     "exam": {
+      "s": "The café is full of travellers from Europe.",
+      "f": "travellers"
+     }
+    }
+   ]
+  }
+ ]
+}

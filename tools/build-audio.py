@@ -52,6 +52,12 @@ for lv, arr in C['react'].items():
 for x in C['tasks']:
     v = pick(F, x['id'], 'cap')
     for t in [x['open'], *x['turns'], x['decide']]: add(t, v)
+A = set(J('a/index.json'))   # 📚 từ và câu ví dụ chưa có tệp thu sẵn của game (a/): giọng nữ Mỹ như a/ (từ bổ sung Oxford, 28/10/2026)
+for f in ('a1.json', 'a2.json'):
+    for u in J(f)['units']:
+        for w in u['words']:
+            for t in (w['w'], w.get('ex')):
+                if t and key(t) not in A: add(t, 'af_heart')
 OUT = os.path.join(ROOT, 'n'); os.makedirs(OUT, exist_ok=True)
 todo = [(k, t, v) for k, (t, v) in jobs.items() if not os.path.exists(os.path.join(OUT, k + '.mp3'))]
 print(len(jobs), 'câu,', len(todo), 'cần dựng', flush=True)

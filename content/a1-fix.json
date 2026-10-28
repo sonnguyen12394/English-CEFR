@@ -1030,6 +1030,252 @@
      }
     }
    ]
+  },
+  {
+   "id": "a1-c16-b5",
+   "vi": "Bổ sung Oxford A1: từ thường gặp còn thiếu",
+   "words": [
+    {
+     "id": "because-of",
+     "w": "because of",
+     "pos": "phrase",
+     "ipa": "/bɪˈkɒz əv/",
+     "pic": "☔",
+     "vi": "vì, do",
+     "en": "used to give the reason for something",
+     "ex": "We stayed at home because of the rain.",
+     "exVi": "Chúng tôi ở nhà vì trời mưa.",
+     "cloze": {
+      "s": "The game stopped ___ the rain.",
+      "a": "because of",
+      "w": [
+       "because",
+       "cause of"
+      ]
+     },
+     "col": {
+      "ok": "because of the weather",
+      "bad": [
+       "because the weather",
+       "cause of the weather"
+      ]
+     },
+     "exam": {
+      "s": "The bus was late because of the snow.",
+      "f": "because of"
+     }
+    },
+    {
+     "id": "fill",
+     "w": "fill",
+     "pos": "verb",
+     "ipa": "/fɪl/",
+     "pic": "🥛",
+     "vi": "đổ đầy, làm đầy",
+     "en": "to make something full",
+     "ex": "Please fill the bottle with water.",
+     "exVi": "Hãy đổ đầy nước vào chai.",
+     "cloze": {
+      "s": "Can you ___ this glass with milk, please?",
+      "a": "fill",
+      "w": [
+       "full",
+       "feel"
+      ]
+     },
+     "col": {
+      "ok": "fill a glass with water",
+      "bad": [
+       "fill a glass of water",
+       "fill a glass by water"
+      ]
+     },
+     "exam": {
+      "s": "She filled the box with old books.",
+      "f": "filled"
+     }
+    },
+    {
+     "id": "flight",
+     "w": "flight",
+     "pos": "noun",
+     "ipa": "/flaɪt/",
+     "pic": "✈️",
+     "vi": "chuyến bay",
+     "en": "a journey in a plane",
+     "ex": "Our flight to Da Nang leaves at nine o'clock.",
+     "exVi": "Chuyến bay của chúng tôi đi Đà Nẵng cất cánh lúc chín giờ.",
+     "cloze": {
+      "s": "The ___ from Hanoi to Paris takes twelve hours.",
+      "a": "flight",
+      "w": [
+       "fly",
+       "flying"
+      ]
+     },
+     "col": {
+      "ok": "a long flight",
+      "bad": [
+       "a long fly",
+       "a long flying"
+      ]
+     },
+     "exam": {
+      "s": "My flight was two hours late.",
+      "f": "flight"
+     }
+    },
+    {
+     "id": "health",
+     "w": "health",
+     "pos": "noun",
+     "ipa": "/helθ/",
+     "pic": "🩺",
+     "vi": "sức khoẻ",
+     "en": "the condition of your body and mind",
+     "ex": "Fruit and vegetables are good for your health.",
+     "exVi": "Rau quả tốt cho sức khoẻ của bạn.",
+     "cloze": {
+      "s": "Smoking is bad for your ___.",
+      "a": "health",
+      "w": [
+       "healthy",
+       "heal"
+      ]
+     },
+     "col": {
+      "ok": "good for your health",
+      "bad": [
+       "good for your healthy",
+       "good to your health"
+      ]
+     },
+     "exam": {
+      "s": "Sleep is important for your health.",
+      "f": "health"
+     }
+    },
+    {
+     "id": "interest",
+     "w": "interest",
+     "pos": "noun",
+     "ipa": "/ˈɪntrəst/",
+     "pic": "⭐",
+     "vi": "sự quan tâm, sở thích",
+     "en": "the feeling of wanting to know more about something",
+     "ex": "My brother has a big interest in old cars.",
+     "exVi": "Anh tôi rất quan tâm đến ô tô cổ.",
+     "cloze": {
+      "s": "She has a strong ___ in music.",
+      "a": "interest",
+      "w": [
+       "interesting",
+       "interested"
+      ]
+     },
+     "col": {
+      "ok": "an interest in",
+      "bad": [
+       "an interest on",
+       "an interest about"
+      ]
+     },
+     "exam": {
+      "s": "Tom has no interest in football.",
+      "f": "interest"
+     }
+    },
+    {
+     "id": "news",
+     "w": "news",
+     "pos": "noun",
+     "ipa": "/njuːz/",
+     "pic": "📰",
+     "vi": "tin tức",
+     "en": "information about things that are happening now",
+     "ex": "I watch the news on TV every evening.",
+     "exVi": "Tối nào tôi cũng xem tin tức trên tivi.",
+     "cloze": {
+      "s": "Have you heard the ___? Lan has a new baby!",
+      "a": "news",
+      "w": [
+       "new",
+       "newspaper"
+      ]
+     },
+     "col": {
+      "ok": "the news is",
+      "bad": [
+       "the news are",
+       "the newses"
+      ]
+     },
+     "exam": {
+      "s": "I read the news on my phone.",
+      "f": "news"
+     }
+    },
+    {
+     "id": "personal",
+     "w": "personal",
+     "pos": "adjective",
+     "ipa": "/ˈpɜːsənl/",
+     "pic": "🔒",
+     "vi": "cá nhân, riêng tư",
+     "en": "belonging to or about one person",
+     "ex": "Don't ask him about his personal life.",
+     "exVi": "Đừng hỏi anh ấy về đời tư.",
+     "cloze": {
+      "s": "Please don't read my letters. They are ___.",
+      "a": "personal",
+      "w": [
+       "person",
+       "people"
+      ]
+     },
+     "col": {
+      "ok": "personal information",
+      "bad": [
+       "person information",
+       "personally information"
+      ]
+     },
+     "exam": {
+      "s": "Do not give your personal information to strangers.",
+      "f": "personal"
+     }
+    },
+    {
+     "id": "real",
+     "w": "real",
+     "pos": "adjective",
+     "ipa": "/rɪəl/",
+     "pic": "💯",
+     "vi": "thật",
+     "en": "not false or imagined",
+     "ex": "Is that a real flower or a plastic one?",
+     "exVi": "Đó là hoa thật hay hoa nhựa?",
+     "cloze": {
+      "s": "This is not a toy. It's a ___ car.",
+      "a": "real",
+      "w": [
+       "really",
+       "reality"
+      ]
+     },
+     "col": {
+      "ok": "a real friend",
+      "bad": [
+       "a really friend",
+       "a realty friend"
+      ]
+     },
+     "exam": {
+      "s": "Is this a real dog or a toy?",
+      "f": "real"
+     }
+    }
+   ]
   }
  ],
  "move": [
