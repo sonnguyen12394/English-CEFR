@@ -177,3 +177,9 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Số từ mới: Pre-A1 445 · A1 673 · A2 353 · A2+ 412. 📘 Học của A1, A2, A2+ sẽ giảm nhẹ với người đã học xong cấp đó (cần học thêm 1–3 bài). Thời gian tới cổng ước tăng ~1% (A1) và ~7–8% (A2, A2+), chưa chạy lại mô phỏng.
 - Còn thiếu: B1 124, B2 362, C1 362 từ Oxford 5000 (nhiều từ phái sinh). Chưa làm: cần thêm qua `tools/build-b.mjs` cùng dữ liệu yêu cầu B (cụm từ, mẫu câu…).
 - Sửa tận nguồn 3 lời giải Pre-A1 ở `content/pre-skills.json` (v63 sửa thẳng doc.json / nghe.json, bị `fix-pre.mjs` ghi đè).
+
+### Bổ sung từ Oxford B1 còn thiếu (v65, 28/10/2026; người sáng lập: "làm tiếp")
+- Thêm 100 từ Oxford B1 (Claude soạn, chưa người thật kiểm): B1 +51 (advise, agreement, arrival, attract, beauty, belief, childhood, complaint, difficulty, happiness, hardly, importance, length, marriage, neighbourhood…), B1+ +49 (achievement, application, communication, development, employment, performance, poverty, recommendation, strength, truth, youth…). Bỏ 23 trạng từ -ly suy ra được (generally, mainly, simply…), giữ "hardly" vì nghĩa khác "hard".
+- Nguồn: `content/b-add.json` (nghĩa, phiên âm, ví dụ) + `content/bx/add-b1.txt` (câu thi, cụm đúng / sai). `tools/build-b.mjs` thêm thành chặng ⭐ "bổ sung Oxford" cuối B1 / B1+ (7 + 7 bài); các bài cũ giữ nguyên (đã đối chiếu: 0 bài đổi, 0 câu thi đổi).
+- Số từ: B1 400 → 451, B1+ 399 → 448. Chưa có giọng tự nhiên (máy đọc như các từ B khác).
+- Còn thiếu: B2 362, C1 362 (nhiều từ phái sinh).

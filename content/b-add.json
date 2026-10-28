@@ -1,0 +1,1005 @@
+{
+"_note": "Từ Oxford B1 app còn thiếu (28/10/2026, Claude soạn, chưa người thật kiểm; người sáng lập: \"làm tiếp\"). tools/build-b.mjs thêm thành chặng ⭐ Bổ sung Oxford cuối B1 / B1+. Câu thi + cụm ở content/bx/add-b1.txt.",
+"words": [
+{
+"id": "advise",
+"w": "advise",
+"pos": "verb",
+"ipa": "/ədˈvaɪz/",
+"vi": "khuyên",
+"ex": "The doctor advised me to rest for a week.",
+"exVi": "Bác sĩ khuyên tôi nghỉ một tuần.",
+"lv": "b1"
+},
+{
+"id": "agreement",
+"w": "agreement",
+"pos": "noun",
+"ipa": "/əˈɡriːmənt/",
+"vi": "sự đồng ý, thoả thuận",
+"ex": "We finally reached an agreement about the price.",
+"exVi": "Cuối cùng chúng tôi đã thoả thuận được về giá.",
+"lv": "b1"
+},
+{
+"id": "amazed",
+"w": "amazed",
+"pos": "adjective",
+"ipa": "/əˈmeɪzd/",
+"vi": "kinh ngạc",
+"ex": "I was amazed by how fast she learned Japanese.",
+"exVi": "Tôi kinh ngạc vì cô ấy học tiếng Nhật nhanh thế.",
+"lv": "b1"
+},
+{
+"id": "arrival",
+"w": "arrival",
+"pos": "noun",
+"ipa": "/əˈraɪvl/",
+"vi": "sự đến nơi",
+"ex": "Please call me on your arrival at the airport.",
+"exVi": "Hãy gọi cho tôi khi bạn đến sân bay.",
+"lv": "b1"
+},
+{
+"id": "attract",
+"w": "attract",
+"pos": "verb",
+"ipa": "/əˈtrækt/",
+"vi": "thu hút",
+"ex": "The beautiful beaches attract many tourists.",
+"exVi": "Những bãi biển đẹp thu hút nhiều du khách.",
+"lv": "b1"
+},
+{
+"id": "beauty",
+"w": "beauty",
+"pos": "noun",
+"ipa": "/ˈbjuːti/",
+"vi": "vẻ đẹp",
+"ex": "We were surprised by the beauty of the mountains.",
+"exVi": "Chúng tôi ngạc nhiên trước vẻ đẹp của núi non.",
+"lv": "b1"
+},
+{
+"id": "belief",
+"w": "belief",
+"pos": "noun",
+"ipa": "/bɪˈliːf/",
+"vi": "niềm tin",
+"ex": "It is a common belief that carrots help you see in the dark.",
+"exVi": "Nhiều người tin rằng cà rốt giúp nhìn rõ trong bóng tối.",
+"lv": "b1"
+},
+{
+"id": "careless",
+"w": "careless",
+"pos": "adjective",
+"ipa": "/ˈkeələs/",
+"vi": "cẩu thả, bất cẩn",
+"ex": "I made a careless mistake in my test.",
+"exVi": "Tôi mắc một lỗi cẩu thả trong bài kiểm tra.",
+"lv": "b1"
+},
+{
+"id": "celebration",
+"w": "celebration",
+"pos": "noun",
+"ipa": "/ˌselɪˈbreɪʃn/",
+"vi": "lễ kỷ niệm, sự ăn mừng",
+"ex": "There was a big celebration after the team won.",
+"exVi": "Có một buổi ăn mừng lớn sau khi đội thắng.",
+"lv": "b1"
+},
+{
+"id": "central",
+"w": "central",
+"pos": "adjective",
+"ipa": "/ˈsentrəl/",
+"vi": "ở trung tâm",
+"ex": "Our hotel is in central London.",
+"exVi": "Khách sạn của chúng tôi ở trung tâm London.",
+"lv": "b1"
+},
+{
+"id": "childhood",
+"w": "childhood",
+"pos": "noun",
+"ipa": "/ˈtʃaɪldhʊd/",
+"vi": "thời thơ ấu",
+"ex": "I spent my childhood in a small village.",
+"exVi": "Tôi sống thời thơ ấu ở một ngôi làng nhỏ.",
+"lv": "b1"
+},
+{
+"id": "cloth",
+"w": "cloth",
+"pos": "noun",
+"ipa": "/klɒθ/",
+"vi": "vải, khăn lau",
+"ex": "Clean the table with a wet cloth.",
+"exVi": "Lau bàn bằng khăn ướt.",
+"lv": "b1"
+},
+{
+"id": "collection",
+"w": "collection",
+"pos": "noun",
+"ipa": "/kəˈlekʃn/",
+"vi": "bộ sưu tập",
+"ex": "He has a large collection of old coins.",
+"exVi": "Anh ấy có bộ sưu tập tiền xu cổ lớn.",
+"lv": "b1"
+},
+{
+"id": "comparison",
+"w": "comparison",
+"pos": "noun",
+"ipa": "/kəmˈpærɪsn/",
+"vi": "sự so sánh",
+"ex": "In comparison with Hanoi, my town is very quiet.",
+"exVi": "So với Hà Nội, thị trấn của tôi rất yên tĩnh.",
+"lv": "b1"
+},
+{
+"id": "complaint",
+"w": "complaint",
+"pos": "noun",
+"ipa": "/kəmˈpleɪnt/",
+"vi": "lời phàn nàn",
+"ex": "The hotel received many complaints about the noise.",
+"exVi": "Khách sạn nhận nhiều lời phàn nàn về tiếng ồn.",
+"lv": "b1"
+},
+{
+"id": "connection",
+"w": "connection",
+"pos": "noun",
+"ipa": "/kəˈnekʃn/",
+"vi": "sự kết nối, mối liên hệ",
+"ex": "The internet connection here is very slow.",
+"exVi": "Kết nối mạng ở đây rất chậm.",
+"lv": "b1"
+},
+{
+"id": "container",
+"w": "container",
+"pos": "noun",
+"ipa": "/kənˈteɪnə/",
+"vi": "đồ đựng, thùng chứa",
+"ex": "Keep the rice in a plastic container.",
+"exVi": "Hãy đựng gạo trong hộp nhựa.",
+"lv": "b1"
+},
+{
+"id": "cultural",
+"w": "cultural",
+"pos": "adjective",
+"ipa": "/ˈkʌltʃərəl/",
+"vi": "(thuộc) văn hoá",
+"ex": "Hue has many cultural events every year.",
+"exVi": "Huế có nhiều sự kiện văn hoá mỗi năm.",
+"lv": "b1"
+},
+{
+"id": "difficulty",
+"w": "difficulty",
+"pos": "noun",
+"ipa": "/ˈdɪfɪkəlti/",
+"vi": "sự khó khăn",
+"ex": "She has difficulty sleeping at night.",
+"exVi": "Cô ấy khó ngủ vào ban đêm.",
+"lv": "b1"
+},
+{
+"id": "dirt",
+"w": "dirt",
+"pos": "noun",
+"ipa": "/dɜːt/",
+"vi": "bụi bẩn, đất",
+"ex": "His shoes were covered in dirt.",
+"exVi": "Giày anh ấy dính đầy đất.",
+"lv": "b1"
+},
+{
+"id": "disadvantage",
+"w": "disadvantage",
+"pos": "noun",
+"ipa": "/ˌdɪsədˈvɑːntɪdʒ/",
+"vi": "bất lợi, nhược điểm",
+"ex": "One disadvantage of living here is the traffic.",
+"exVi": "Một bất lợi khi sống ở đây là giao thông.",
+"lv": "b1"
+},
+{
+"id": "dressed",
+"w": "dressed",
+"pos": "adjective",
+"ipa": "/drest/",
+"vi": "mặc quần áo",
+"ex": "Hurry up and get dressed!",
+"exVi": "Nhanh lên và mặc quần áo vào!",
+"lv": "b1"
+},
+{
+"id": "eastern",
+"w": "eastern",
+"pos": "adjective",
+"ipa": "/ˈiːstən/",
+"vi": "(thuộc) phía đông",
+"ex": "Eastern Europe has very cold winters.",
+"exVi": "Đông Âu có mùa đông rất lạnh.",
+"lv": "b1"
+},
+{
+"id": "educate",
+"w": "educate",
+"pos": "verb",
+"ipa": "/ˈedʒukeɪt/",
+"vi": "giáo dục",
+"ex": "Schools should educate children about the environment.",
+"exVi": "Trường học nên giáo dục trẻ về môi trường.",
+"lv": "b1"
+},
+{
+"id": "effective",
+"w": "effective",
+"pos": "adjective",
+"ipa": "/ɪˈfektɪv/",
+"vi": "hiệu quả",
+"ex": "This medicine is very effective against headaches.",
+"exVi": "Thuốc này rất hiệu quả khi đau đầu.",
+"lv": "b1"
+},
+{
+"id": "equal",
+"w": "equal",
+"pos": "adjective",
+"ipa": "/ˈiːkwəl/",
+"vi": "bằng nhau, bình đẳng",
+"ex": "Men and women should get equal pay.",
+"exVi": "Nam và nữ nên được trả lương bằng nhau.",
+"lv": "b1"
+},
+{
+"id": "examine",
+"w": "examine",
+"pos": "verb",
+"ipa": "/ɪɡˈzæmɪn/",
+"vi": "xem xét, khám",
+"ex": "The doctor examined my eyes.",
+"exVi": "Bác sĩ khám mắt cho tôi.",
+"lv": "b1"
+},
+{
+"id": "excitement",
+"w": "excitement",
+"pos": "noun",
+"ipa": "/ɪkˈsaɪtmənt/",
+"vi": "sự phấn khích",
+"ex": "The children were shouting with excitement.",
+"exVi": "Bọn trẻ hét lên vì phấn khích.",
+"lv": "b1"
+},
+{
+"id": "experienced",
+"w": "experienced",
+"pos": "adjective",
+"ipa": "/ɪkˈspɪəriənst/",
+"vi": "có kinh nghiệm",
+"ex": "We need an experienced driver for this trip.",
+"exVi": "Chúng tôi cần một tài xế có kinh nghiệm cho chuyến đi.",
+"lv": "b1"
+},
+{
+"id": "fashionable",
+"w": "fashionable",
+"pos": "adjective",
+"ipa": "/ˈfæʃnəbl/",
+"vi": "hợp thời trang",
+"ex": "This café is very fashionable with young people.",
+"exVi": "Quán cà phê này rất được giới trẻ ưa chuộng.",
+"lv": "b1"
+},
+{
+"id": "friendship",
+"w": "friendship",
+"pos": "noun",
+"ipa": "/ˈfrendʃɪp/",
+"vi": "tình bạn",
+"ex": "Our friendship started at primary school.",
+"exVi": "Tình bạn của chúng tôi bắt đầu từ tiểu học.",
+"lv": "b1"
+},
+{
+"id": "goods",
+"w": "goods",
+"pos": "noun",
+"ipa": "/ɡʊdz/",
+"vi": "hàng hoá",
+"ex": "The shop sells electrical goods.",
+"exVi": "Cửa hàng bán đồ điện.",
+"lv": "b1"
+},
+{
+"id": "growth",
+"w": "growth",
+"pos": "noun",
+"ipa": "/ɡrəʊθ/",
+"vi": "sự tăng trưởng",
+"ex": "There has been a growth in the number of tourists.",
+"exVi": "Số du khách đã tăng lên.",
+"lv": "b1"
+},
+{
+"id": "happiness",
+"w": "happiness",
+"pos": "noun",
+"ipa": "/ˈhæpinəs/",
+"vi": "hạnh phúc",
+"ex": "Money doesn't always bring happiness.",
+"exVi": "Tiền không phải lúc nào cũng mang lại hạnh phúc.",
+"lv": "b1"
+},
+{
+"id": "hardly",
+"w": "hardly",
+"pos": "adverb",
+"ipa": "/ˈhɑːdli/",
+"vi": "hầu như không",
+"ex": "I can hardly hear you. Speak louder!",
+"exVi": "Tôi hầu như không nghe thấy bạn. Nói to lên!",
+"lv": "b1"
+},
+{
+"id": "historical",
+"w": "historical",
+"pos": "adjective",
+"ipa": "/hɪˈstɒrɪkl/",
+"vi": "(thuộc) lịch sử",
+"ex": "I enjoy reading historical novels.",
+"exVi": "Tôi thích đọc tiểu thuyết lịch sử.",
+"lv": "b1"
+},
+{
+"id": "identity",
+"w": "identity",
+"pos": "noun",
+"ipa": "/aɪˈdentəti/",
+"vi": "danh tính, bản sắc",
+"ex": "You need an identity card to open a bank account.",
+"exVi": "Bạn cần chứng minh thư để mở tài khoản ngân hàng.",
+"lv": "b1"
+},
+{
+"id": "immediate",
+"w": "immediate",
+"pos": "adjective",
+"ipa": "/ɪˈmiːdiət/",
+"vi": "ngay lập tức",
+"ex": "The new law will have an immediate effect.",
+"exVi": "Luật mới sẽ có hiệu lực ngay.",
+"lv": "b1"
+},
+{
+"id": "importance",
+"w": "importance",
+"pos": "noun",
+"ipa": "/ɪmˈpɔːtns/",
+"vi": "tầm quan trọng",
+"ex": "Teachers explained the importance of sleep.",
+"exVi": "Thầy cô giải thích tầm quan trọng của giấc ngủ.",
+"lv": "b1"
+},
+{
+"id": "improvement",
+"w": "improvement",
+"pos": "noun",
+"ipa": "/ɪmˈpruːvmənt/",
+"vi": "sự cải thiện",
+"ex": "There has been a big improvement in your English.",
+"exVi": "Tiếng Anh của bạn đã tiến bộ nhiều.",
+"lv": "b1"
+},
+{
+"id": "injure",
+"w": "injure",
+"pos": "verb",
+"ipa": "/ˈɪndʒə/",
+"vi": "làm bị thương",
+"ex": "Two people were injured in the accident.",
+"exVi": "Hai người bị thương trong vụ tai nạn.",
+"lv": "b1"
+},
+{
+"id": "intelligence",
+"w": "intelligence",
+"pos": "noun",
+"ipa": "/ɪnˈtelɪdʒəns/",
+"vi": "trí thông minh",
+"ex": "Dolphins are animals of great intelligence.",
+"exVi": "Cá heo là loài vật rất thông minh.",
+"lv": "b1"
+},
+{
+"id": "laboratory",
+"w": "laboratory",
+"pos": "noun",
+"ipa": "/ləˈbɒrətri/",
+"vi": "phòng thí nghiệm",
+"ex": "The scientists work in a laboratory.",
+"exVi": "Các nhà khoa học làm việc trong phòng thí nghiệm.",
+"lv": "b1"
+},
+{
+"id": "length",
+"w": "length",
+"pos": "noun",
+"ipa": "/leŋθ/",
+"vi": "chiều dài",
+"ex": "The length of the bridge is two kilometres.",
+"exVi": "Cây cầu dài hai ki-lô-mét.",
+"lv": "b1"
+},
+{
+"id": "management",
+"w": "management",
+"pos": "noun",
+"ipa": "/ˈmænɪdʒmənt/",
+"vi": "sự quản lý",
+"ex": "She studied business management at university.",
+"exVi": "Cô ấy học quản trị kinh doanh ở đại học.",
+"lv": "b1"
+},
+{
+"id": "marriage",
+"w": "marriage",
+"pos": "noun",
+"ipa": "/ˈmærɪdʒ/",
+"vi": "hôn nhân",
+"ex": "Their marriage lasted fifty years.",
+"exVi": "Cuộc hôn nhân của họ kéo dài năm mươi năm.",
+"lv": "b1"
+},
+{
+"id": "nation",
+"w": "nation",
+"pos": "noun",
+"ipa": "/ˈneɪʃn/",
+"vi": "quốc gia, dân tộc",
+"ex": "The president spoke to the nation on TV.",
+"exVi": "Tổng thống phát biểu trước toàn quốc trên truyền hình.",
+"lv": "b1"
+},
+{
+"id": "neighbourhood",
+"w": "neighbourhood",
+"pos": "noun",
+"ipa": "/ˈneɪbəhʊd/",
+"vi": "khu phố, vùng lân cận",
+"ex": "There are many cafés in my neighbourhood.",
+"exVi": "Khu phố tôi có nhiều quán cà phê.",
+"lv": "b1"
+},
+{
+"id": "northern",
+"w": "northern",
+"pos": "adjective",
+"ipa": "/ˈnɔːðən/",
+"vi": "(thuộc) phía bắc",
+"ex": "Northern Vietnam has four seasons.",
+"exVi": "Miền Bắc Việt Nam có bốn mùa.",
+"lv": "b1"
+},
+{
+"id": "package",
+"w": "package",
+"pos": "noun",
+"ipa": "/ˈpækɪdʒ/",
+"vi": "gói hàng, bưu kiện",
+"ex": "A package arrived for you this morning.",
+"exVi": "Có một bưu kiện gửi cho bạn sáng nay.",
+"lv": "b1"
+},
+{
+"id": "painful",
+"w": "painful",
+"pos": "adjective",
+"ipa": "/ˈpeɪnfl/",
+"vi": "đau đớn",
+"ex": "My knee is still painful after the fall.",
+"exVi": "Đầu gối tôi vẫn đau sau cú ngã.",
+"lv": "b1"
+},
+{
+"id": "achievement",
+"w": "achievement",
+"pos": "noun",
+"ipa": "/əˈtʃiːvmənt/",
+"vi": "thành tựu",
+"ex": "Passing the exam was a great achievement for her.",
+"exVi": "Thi đỗ là một thành tựu lớn với cô ấy.",
+"lv": "b1p"
+},
+{
+"id": "addition",
+"w": "addition",
+"pos": "noun",
+"ipa": "/əˈdɪʃn/",
+"vi": "sự thêm vào",
+"ex": "In addition to English, she speaks French.",
+"exVi": "Ngoài tiếng Anh, cô ấy còn nói tiếng Pháp.",
+"lv": "b1p"
+},
+{
+"id": "application",
+"w": "application",
+"pos": "noun",
+"ipa": "/ˌæplɪˈkeɪʃn/",
+"vi": "đơn xin; ứng dụng",
+"ex": "I sent my job application last Friday.",
+"exVi": "Tôi đã gửi đơn xin việc thứ Sáu tuần trước.",
+"lv": "b1p"
+},
+{
+"id": "attraction",
+"w": "attraction",
+"pos": "noun",
+"ipa": "/əˈtrækʃn/",
+"vi": "điểm thu hút",
+"ex": "The old bridge is the city's main tourist attraction.",
+"exVi": "Cây cầu cổ là điểm thu hút khách chính của thành phố.",
+"lv": "b1p"
+},
+{
+"id": "base",
+"w": "base",
+"pos": "verb",
+"ipa": "/beɪs/",
+"vi": "dựa vào, đặt trụ sở",
+"ex": "The film is based on a true story.",
+"exVi": "Bộ phim dựa trên một câu chuyện có thật.",
+"lv": "b1p"
+},
+{
+"id": "chemical",
+"w": "chemical",
+"pos": "noun",
+"ipa": "/ˈkemɪkl/",
+"vi": "hoá chất",
+"ex": "Farmers use chemicals to kill insects.",
+"exVi": "Nông dân dùng hoá chất để diệt côn trùng.",
+"lv": "b1p"
+},
+{
+"id": "communication",
+"w": "communication",
+"pos": "noun",
+"ipa": "/kəˌmjuːnɪˈkeɪʃn/",
+"vi": "sự giao tiếp, liên lạc",
+"ex": "Good communication is important in a team.",
+"exVi": "Giao tiếp tốt rất quan trọng trong một nhóm.",
+"lv": "b1p"
+},
+{
+"id": "competitive",
+"w": "competitive",
+"pos": "adjective",
+"ipa": "/kəmˈpetətɪv/",
+"vi": "cạnh tranh; ham thắng",
+"ex": "My brother is very competitive, even in games.",
+"exVi": "Anh tôi rất ham thắng, kể cả khi chơi trò chơi.",
+"lv": "b1p"
+},
+{
+"id": "consume",
+"w": "consume",
+"pos": "verb",
+"ipa": "/kənˈsjuːm/",
+"vi": "tiêu thụ",
+"ex": "Old cars consume a lot of petrol.",
+"exVi": "Ô tô cũ tốn nhiều xăng.",
+"lv": "b1p"
+},
+{
+"id": "consumer",
+"w": "consumer",
+"pos": "noun",
+"ipa": "/kənˈsjuːmə/",
+"vi": "người tiêu dùng",
+"ex": "Consumers want cheaper and better products.",
+"exVi": "Người tiêu dùng muốn sản phẩm rẻ hơn và tốt hơn.",
+"lv": "b1p"
+},
+{
+"id": "definite",
+"w": "definite",
+"pos": "adjective",
+"ipa": "/ˈdefɪnət/",
+"vi": "chắc chắn, rõ ràng",
+"ex": "We need a definite answer by Friday.",
+"exVi": "Chúng tôi cần câu trả lời chắc chắn trước thứ Sáu.",
+"lv": "b1p"
+},
+{
+"id": "development",
+"w": "development",
+"pos": "noun",
+"ipa": "/dɪˈveləpmənt/",
+"vi": "sự phát triển",
+"ex": "The development of the city has been very fast.",
+"exVi": "Thành phố phát triển rất nhanh.",
+"lv": "b1p"
+},
+{
+"id": "employment",
+"w": "employment",
+"pos": "noun",
+"ipa": "/ɪmˈplɔɪmənt/",
+"vi": "việc làm",
+"ex": "It is hard to find employment in this small town.",
+"exVi": "Ở thị trấn nhỏ này khó tìm việc làm.",
+"lv": "b1p"
+},
+{
+"id": "engineering",
+"w": "engineering",
+"pos": "noun",
+"ipa": "/ˌendʒɪˈnɪərɪŋ/",
+"vi": "kỹ thuật, ngành kỹ sư",
+"ex": "My sister is studying engineering at university.",
+"exVi": "Chị tôi học ngành kỹ thuật ở đại học.",
+"lv": "b1p"
+},
+{
+"id": "environmental",
+"w": "environmental",
+"pos": "adjective",
+"ipa": "/ɪnˌvaɪrənˈmentl/",
+"vi": "(thuộc) môi trường",
+"ex": "Plastic is a serious environmental problem.",
+"exVi": "Nhựa là vấn đề môi trường nghiêm trọng.",
+"lv": "b1p"
+},
+{
+"id": "payment",
+"w": "payment",
+"pos": "noun",
+"ipa": "/ˈpeɪmənt/",
+"vi": "sự thanh toán",
+"ex": "We accept payment by card or cash.",
+"exVi": "Chúng tôi nhận thanh toán bằng thẻ hoặc tiền mặt.",
+"lv": "b1p"
+},
+{
+"id": "peaceful",
+"w": "peaceful",
+"pos": "adjective",
+"ipa": "/ˈpiːsfl/",
+"vi": "yên bình",
+"ex": "The village is very peaceful in the evening.",
+"exVi": "Ngôi làng rất yên bình vào buổi tối.",
+"lv": "b1p"
+},
+{
+"id": "percentage",
+"w": "percentage",
+"pos": "noun",
+"ipa": "/pəˈsentɪdʒ/",
+"vi": "tỉ lệ phần trăm",
+"ex": "A large percentage of students use phones in class.",
+"exVi": "Tỉ lệ lớn học sinh dùng điện thoại trong lớp.",
+"lv": "b1p"
+},
+{
+"id": "performance",
+"w": "performance",
+"pos": "noun",
+"ipa": "/pəˈfɔːməns/",
+"vi": "buổi biểu diễn; kết quả làm việc",
+"ex": "The band gave a great performance last night.",
+"exVi": "Ban nhạc biểu diễn rất hay tối qua.",
+"lv": "b1p"
+},
+{
+"id": "poverty",
+"w": "poverty",
+"pos": "noun",
+"ipa": "/ˈpɒvəti/",
+"vi": "sự nghèo đói",
+"ex": "Many families still live in poverty.",
+"exVi": "Nhiều gia đình vẫn sống trong nghèo khó.",
+"lv": "b1p"
+},
+{
+"id": "powerful",
+"w": "powerful",
+"pos": "adjective",
+"ipa": "/ˈpaʊəfl/",
+"vi": "mạnh mẽ, có quyền lực",
+"ex": "This is a very powerful computer.",
+"exVi": "Đây là một máy tính rất mạnh.",
+"lv": "b1p"
+},
+{
+"id": "prediction",
+"w": "prediction",
+"pos": "noun",
+"ipa": "/prɪˈdɪkʃn/",
+"vi": "lời dự đoán",
+"ex": "His prediction about the match was correct.",
+"exVi": "Dự đoán của anh ấy về trận đấu đã đúng.",
+"lv": "b1p"
+},
+{
+"id": "prisoner",
+"w": "prisoner",
+"pos": "noun",
+"ipa": "/ˈprɪznə/",
+"vi": "tù nhân",
+"ex": "The prisoner escaped during the night.",
+"exVi": "Tù nhân trốn thoát trong đêm.",
+"lv": "b1p"
+},
+{
+"id": "profession",
+"w": "profession",
+"pos": "noun",
+"ipa": "/prəˈfeʃn/",
+"vi": "nghề nghiệp (chuyên môn)",
+"ex": "Teaching is a difficult but rewarding profession.",
+"exVi": "Dạy học là nghề vất vả nhưng đáng giá.",
+"lv": "b1p"
+},
+{
+"id": "promote",
+"w": "promote",
+"pos": "verb",
+"ipa": "/prəˈməʊt/",
+"vi": "quảng bá; thăng chức",
+"ex": "The singer is travelling to promote her new album.",
+"exVi": "Ca sĩ đang đi để quảng bá album mới.",
+"lv": "b1p"
+},
+{
+"id": "qualified",
+"w": "qualified",
+"pos": "adjective",
+"ipa": "/ˈkwɒlɪfaɪd/",
+"vi": "đủ trình độ, có bằng cấp",
+"ex": "She is a qualified nurse.",
+"exVi": "Cô ấy là y tá có bằng.",
+"lv": "b1p"
+},
+{
+"id": "qualify",
+"w": "qualify",
+"pos": "verb",
+"ipa": "/ˈkwɒlɪfaɪ/",
+"vi": "đủ điều kiện; đỗ (để hành nghề)",
+"ex": "You need to pass the test to qualify for the job.",
+"exVi": "Bạn phải qua bài kiểm tra mới đủ điều kiện nhận việc.",
+"lv": "b1p"
+},
+{
+"id": "reaction",
+"w": "reaction",
+"pos": "noun",
+"ipa": "/riˈækʃn/",
+"vi": "phản ứng",
+"ex": "What was his reaction when you told him the news?",
+"exVi": "Anh ấy phản ứng thế nào khi bạn báo tin?",
+"lv": "b1p"
+},
+{
+"id": "recommendation",
+"w": "recommendation",
+"pos": "noun",
+"ipa": "/ˌrekəmenˈdeɪʃn/",
+"vi": "lời khuyên, sự giới thiệu",
+"ex": "I bought this book on my friend's recommendation.",
+"exVi": "Tôi mua cuốn sách này theo lời giới thiệu của bạn.",
+"lv": "b1p"
+},
+{
+"id": "reference",
+"w": "reference",
+"pos": "noun",
+"ipa": "/ˈrefrəns/",
+"vi": "sự nhắc tới; thư giới thiệu",
+"ex": "Keep this book for future reference.",
+"exVi": "Giữ cuốn sách này để tra cứu sau.",
+"lv": "b1p"
+},
+{
+"id": "relaxed",
+"w": "relaxed",
+"pos": "adjective",
+"ipa": "/rɪˈlækst/",
+"vi": "thoải mái, thư giãn",
+"ex": "I feel very relaxed after my holiday.",
+"exVi": "Tôi thấy rất thư thái sau kỳ nghỉ.",
+"lv": "b1p"
+},
+{
+"id": "remind",
+"w": "remind",
+"pos": "verb",
+"ipa": "/rɪˈmaɪnd/",
+"vi": "nhắc nhở",
+"ex": "Please remind me to call my mother.",
+"exVi": "Hãy nhắc tôi gọi cho mẹ nhé.",
+"lv": "b1p"
+},
+{
+"id": "safety",
+"w": "safety",
+"pos": "noun",
+"ipa": "/ˈseɪfti/",
+"vi": "sự an toàn",
+"ex": "For your safety, please wear a helmet.",
+"exVi": "Vì an toàn của bạn, hãy đội mũ bảo hiểm.",
+"lv": "b1p"
+},
+{
+"id": "sailor",
+"w": "sailor",
+"pos": "noun",
+"ipa": "/ˈseɪlə/",
+"vi": "thuỷ thủ",
+"ex": "My grandfather was a sailor for thirty years.",
+"exVi": "Ông tôi làm thuỷ thủ ba mươi năm.",
+"lv": "b1p"
+},
+{
+"id": "scientific",
+"w": "scientific",
+"pos": "adjective",
+"ipa": "/ˌsaɪənˈtɪfɪk/",
+"vi": "(thuộc) khoa học",
+"ex": "There is no scientific evidence for this idea.",
+"exVi": "Không có bằng chứng khoa học cho ý này.",
+"lv": "b1p"
+},
+{
+"id": "sensible",
+"w": "sensible",
+"pos": "adjective",
+"ipa": "/ˈsensəbl/",
+"vi": "hợp lý, khôn ngoan",
+"ex": "It would be sensible to take an umbrella.",
+"exVi": "Mang ô theo thì hợp lý đấy.",
+"lv": "b1p"
+},
+{
+"id": "similarity",
+"w": "similarity",
+"pos": "noun",
+"ipa": "/ˌsɪməˈlærəti/",
+"vi": "sự giống nhau",
+"ex": "There is a similarity between the two languages.",
+"exVi": "Hai ngôn ngữ có điểm giống nhau.",
+"lv": "b1p"
+},
+{
+"id": "southern",
+"w": "southern",
+"pos": "adjective",
+"ipa": "/ˈsʌðən/",
+"vi": "(thuộc) phía nam",
+"ex": "Southern Vietnam is hot all year.",
+"exVi": "Miền Nam Việt Nam nóng quanh năm.",
+"lv": "b1p"
+},
+{
+"id": "strength",
+"w": "strength",
+"pos": "noun",
+"ipa": "/streŋθ/",
+"vi": "sức mạnh; điểm mạnh",
+"ex": "You need strength to carry these boxes.",
+"exVi": "Bạn cần có sức để khiêng mấy cái thùng này.",
+"lv": "b1p"
+},
+{
+"id": "stranger",
+"w": "stranger",
+"pos": "noun",
+"ipa": "/ˈstreɪndʒə/",
+"vi": "người lạ",
+"ex": "Don't get into a car with a stranger.",
+"exVi": "Đừng lên xe với người lạ.",
+"lv": "b1p"
+},
+{
+"id": "sudden",
+"w": "sudden",
+"pos": "adjective",
+"ipa": "/ˈsʌdn/",
+"vi": "đột ngột",
+"ex": "There was a sudden noise outside.",
+"exVi": "Có tiếng động đột ngột bên ngoài.",
+"lv": "b1p"
+},
+{
+"id": "suitable",
+"w": "suitable",
+"pos": "adjective",
+"ipa": "/ˈsuːtəbl/",
+"vi": "phù hợp",
+"ex": "This film is not suitable for children.",
+"exVi": "Bộ phim này không phù hợp cho trẻ em.",
+"lv": "b1p"
+},
+{
+"id": "treatment",
+"w": "treatment",
+"pos": "noun",
+"ipa": "/ˈtriːtmənt/",
+"vi": "sự điều trị; cách đối xử",
+"ex": "He is receiving treatment for a back problem.",
+"exVi": "Anh ấy đang điều trị bệnh lưng.",
+"lv": "b1p"
+},
+{
+"id": "truth",
+"w": "truth",
+"pos": "noun",
+"ipa": "/truːθ/",
+"vi": "sự thật",
+"ex": "Please tell me the truth.",
+"exVi": "Hãy nói thật với tôi.",
+"lv": "b1p"
+},
+{
+"id": "various",
+"w": "various",
+"pos": "adjective",
+"ipa": "/ˈveəriəs/",
+"vi": "nhiều loại, khác nhau",
+"ex": "The shop sells various kinds of tea.",
+"exVi": "Cửa hàng bán nhiều loại trà.",
+"lv": "b1p"
+},
+{
+"id": "weigh",
+"w": "weigh",
+"pos": "verb",
+"ipa": "/weɪ/",
+"vi": "cân, nặng",
+"ex": "The baby weighs three kilos.",
+"exVi": "Em bé nặng ba cân.",
+"lv": "b1p"
+},
+{
+"id": "western",
+"w": "western",
+"pos": "adjective",
+"ipa": "/ˈwestən/",
+"vi": "(thuộc) phía tây",
+"ex": "Western countries have different customs.",
+"exVi": "Các nước phương Tây có phong tục khác.",
+"lv": "b1p"
+},
+{
+"id": "wonder",
+"w": "wonder",
+"pos": "verb",
+"ipa": "/ˈwʌndə/",
+"vi": "tự hỏi",
+"ex": "I wonder why she didn't come.",
+"exVi": "Tôi tự hỏi tại sao cô ấy không đến.",
+"lv": "b1p"
+},
+{
+"id": "youth",
+"w": "youth",
+"pos": "noun",
+"ipa": "/juːθ/",
+"vi": "tuổi trẻ; thanh niên",
+"ex": "In his youth, he played football every day.",
+"exVi": "Hồi trẻ, ông ấy chơi bóng mỗi ngày.",
+"lv": "b1p"
+}
+]
+}
