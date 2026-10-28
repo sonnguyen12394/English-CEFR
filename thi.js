@@ -130,8 +130,10 @@ document.addEventListener('click', async e => { const b = e.target.closest('[dat
   try { const { data, error } = await sb.functions.invoke('el-cham', { body: { ...P, uid: (user && user.id) || 'khach' } });
     let msg = data && data.error; if (error && !msg) { try { msg = (await error.context.json()).error; } catch (er) { msg = 'Không gọi được máy chấm.'; } }
     if (msg || !data || !data.grade) { box.innerHTML = `<p class="mute">❌ ${esc(msg || 'Lỗi.')}</p>`; b.disabled = false; b.textContent = '🧑‍🏫 Thử lại'; return; }
-    aiRuns().push({ at: Date.now(), kind: P.kind, lv: P.lv, pct: data.grade.overall_pct, ok: data.grade.reaches_level, ...(data.grade.band != null ? { band: data.grade.band } : {}) }); S.t = Date.now(); save();
-    box.innerHTML = aiHtml(data.grade); b.remove();
+    aiRuns().push({ at: Date.now(), kind: P.kind, lv: P.lv, pct: data.grade.overall_pct, ok: data.grade.reaches_level, ...(data.grade.band != null ? { band: data.grade.band } : {}), ...(P.task && P.task.mb != null ? { mb: P.task.mb } : {}) }); S.t = Date.now(); save();
+    // 📒 lỗi AI chỉ ra vào Sổ lỗi (soloi.js) để ôn lặp lại; mb = band máy ước cùng bài (ielts.js hiệu chỉnh Viết / Nói)
+    const er = typeof errAdd === 'function' ? errAdd(data.grade.errors, P.kind + ':' + P.lv) : null;
+    box.innerHTML = aiHtml(data.grade) + (er && (er.n || er.rep) ? `<p class="mute" style="margin:4px 0">📒 Đã thêm ${er.n} lỗi vào Sổ lỗi${er.rep ? ` · ⚠️ ${er.rep} lỗi bạn từng mắc lại` : ''}.</p>` : ''); b.remove();
   } catch (er) { box.innerHTML = '<p class="mute">❌ Không gọi được máy chấm (mạng?).</p>'; b.disabled = false; b.textContent = '🧑‍🏫 Thử lại'; } });
 
 // ---------- 🧩 Đoạn văn khuyết câu (đề thật: B1 Đọc phần 4, B2 First phần 6, C1 Advanced phần 7, C2 Proficiency phần 6) ----------
