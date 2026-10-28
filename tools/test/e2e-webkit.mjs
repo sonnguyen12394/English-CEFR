@@ -61,6 +61,12 @@ for (const k of ['kwt', 'pm']) { await pg.click(`[data-ut="${k}"]`); await pg.wa
   for (let n = 0; n < 20; n++) { if (await pg.$('#ut')) { await pg.fill('#ut', 'x'); await pg.click('#uf button[type=submit]'); }
     else if (await pg.$('[data-uo]:not([disabled])')) await pg.click('[data-uo="0"]'); else break; await pg.waitForTimeout(50); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(50); }
   const tx = await pg.innerText('#app'); check(`dạng đề ${k} ra kết quả`, /câu đúng/.test(tx), tx.slice(0, 80)); await pg.click('[data-a="back"]'); await pg.waitForTimeout(300); }
+// 🎧 nghe điền thông tin B1: mở từ Tổng quan, điền phiếu, nộp → ra kết quả; nhại theo mở được
+await pg.evaluate(() => overview('b1')); await pg.waitForTimeout(600); await pg.click('[data-ng="nf|b1"]'); await pg.waitForTimeout(1200);
+check('nghe điền mở', !!(await pg.$('[data-nf="0"]'))); await pg.fill('[data-nf="0"]', 'x'); await pg.click('#nf button[type=submit]'); await pg.waitForTimeout(300);
+check('nghe điền ra kết quả', /chỗ đúng/.test(await pg.innerText('#app')));
+await pg.evaluate(() => overview('b1')); await pg.waitForTimeout(600); await pg.click('[data-ng="sh|b1"]'); await pg.waitForTimeout(1200);
+check('nhại theo mở', (await pg.innerText('#app')).includes('Nhại theo'));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

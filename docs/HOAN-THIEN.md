@@ -142,3 +142,9 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
   - 🧩 Luyện dạng đề thật (ô ở Tổng quan từ B1): không tính giờ, báo đúng / sai + giải thích; câu hỏi hiện ngay câu chứa chỗ trống, cả bài ở dưới. Lưu `S.uoe[id] = { at, ok, n }`.
   - Không đổi luật đo: không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp.
 - Giới hạn (thật): kho nhỏ, mỗi dạng 2–12 bài / cấp, làm 3–4 đề thử là gặp lại. Claude soạn, chưa người thật kiểm; đáp án điền từ có thể sót cách viết đúng khác (báo bằng 💬 góp ý). Đề thật vẫn là thước đo cuối.
+
+### Bù 2 (v60): 🎧 Nghe điền thông tin + 🗣 Nhại theo (`nghe2.js`)
+- Khuyết điểm: Nghe chỉ có trắc nghiệm + chép câu; đề thật A2 Key phần 2, B1 phần 3, B2 / C1 / C2 phần 2 bắt điền từ / số khi nghe; chưa có luyện nói theo nhịp người bản xứ.
+- 📝 Nghe điền: phiếu ghi chú tự sinh từ 82 bài nghe A2 → C2 (81 bài dùng được): mỗi câu một chỗ trống, ưu tiên số (chữ số hoặc chữ, "twenty-five" = 25), giờ, giá, tên riêng, rồi từ nội dung ≥ 7 chữ (bỏ trạng từ -ly); 3–6 chỗ / bài; nghe tối đa 2 lần, giọng Anh–Anh. Có trong 🎓 đề thử (bài Nghe) và ô 🎧 Nghe kiểu đề thật ở Tổng quan từ A2. Lưu `S.ng.nf`.
+- 🗣 Nhại theo: 5 câu 6–16 từ có giọng Kokoro; nghe → nói lại; đạt khi khớp ≥ 80% từ và nhịp ≤ 1,3 lần thời gian giọng mẫu. Lưu `S.ng.sh` (tối đa 500).
+- Giới hạn (thật): câu trên phiếu giữ nguyên lời bài (đề thật diễn đạt lại) nên dễ hơn đề một bậc; nhịp đo từ lúc máy chép được chữ đầu tới chữ cuối, chỉ ước lượng; chép lời cần Safari trên iPhone; chưa kiểm trên iPhone thật.
