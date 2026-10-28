@@ -39,8 +39,8 @@ Deno.serve(async (req) => {
     if (!Deno.env.get("ANTHROPIC_API_KEY")) return out({ error: "Chưa cài khoá AI (ANTHROPIC_API_KEY) trên Supabase." }, 503);
     const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
     const since = new Date(Date.now() - 864e5).toISOString(), who = String(uid || "khach").slice(0, 80);
-    const { count: nU } = await db.from("el_cham").select("id", { count: "exact", head: true }).eq("uid", who).gte("at", since);
-    const { count: nA } = await db.from("el_cham").select("id", { count: "exact", head: true }).gte("at", since);
+    const { count: nU } = await db.from("el_cham").select("id", { count: "exact", head: true }).eq("uid", who).neq("kind", "ban").gte("at", since);
+    const { count: nA } = await db.from("el_cham").select("id", { count: "exact", head: true }).neq("kind", "ban").gte("at", since);
     if ((nU ?? 0) >= PER_USER) return out({ error: `Hôm nay đã chấm ${PER_USER} bài. Mai chấm tiếp.` }, 429);
     if ((nA ?? 0) >= PER_APP) return out({ error: "App đã dùng hết lượt chấm hôm nay." }, 429);
 

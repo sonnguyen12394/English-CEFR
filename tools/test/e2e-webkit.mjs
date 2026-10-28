@@ -67,6 +67,11 @@ check('nghe điền mở', !!(await pg.$('[data-nf="0"]'))); await pg.fill('[dat
 check('nghe điền ra kết quả', /chỗ đúng/.test(await pg.innerText('#app')));
 await pg.evaluate(() => overview('b1')); await pg.waitForTimeout(600); await pg.click('[data-ng="sh|b1"]'); await pg.waitForTimeout(1200);
 check('nhại theo mở', (await pg.innerText('#app')).includes('Nhại theo'));
+// 👥 nói theo cặp B2: mở, chọn đề (WebKit giả lập không chép lời: gõ lượt), làm trọn 6 lượt → ra kết quả
+await pg.evaluate(() => overview('b2')); await pg.waitForTimeout(600); await pg.click('[data-cap="b2"]'); await pg.waitForTimeout(1000);
+check('nói cặp mở', (await pg.innerText('#app')).includes('Nói theo cặp')); await pg.click('[data-capt]'); 
+for (let n = 0; n < 6; n++) { await pg.waitForSelector('#capt, [data-a="rec"]', { timeout: 30000 }).catch(() => {}); if (!(await pg.$('#capt'))) break; await pg.fill('#capt', 'I agree because it is cheap. What do you think?'); await pg.click('[data-a="typed"]'); }
+await pg.waitForTimeout(800); check('nói cặp ra kết quả', /tương tác|luyện thêm/.test(await pg.innerText('#app')));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

@@ -46,6 +46,12 @@ for x in N['items']:
         for st in var:
             if st.get('s'): add(st['t'], pick(M, x['id'], 'rp'))
 
+C = J('cap.json')   # 🗣 bạn thi ảo nói theo cặp (cap.js): một giọng nữ mỗi đề, lời phản hồi chung giọng nữ đầu
+for lv, arr in C['react'].items():
+    for s in arr: add(s, F[0])
+for x in C['tasks']:
+    v = pick(F, x['id'], 'cap')
+    for t in [x['open'], *x['turns'], x['decide']]: add(t, v)
 OUT = os.path.join(ROOT, 'n'); os.makedirs(OUT, exist_ok=True)
 todo = [(k, t, v) for k, (t, v) in jobs.items() if not os.path.exists(os.path.join(OUT, k + '.mp3'))]
 print(len(jobs), 'câu,', len(todo), 'cần dựng', flush=True)
