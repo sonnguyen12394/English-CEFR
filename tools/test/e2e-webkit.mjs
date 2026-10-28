@@ -84,6 +84,8 @@ check('tóm tắt C2 chấm bài mẫu', /Đúng/.test(await pg.innerText('#ufb'
 // 🌏 Học IELTS (v68): mở từ thanh dưới; luyện cả bài Đọc → ra kết quả; Viết Task 2 nộp bài mẫu → máy ước band; đề thử bài Đọc làm trọn → ra band
 await pg.evaluate(() => overview()); await pg.waitForTimeout(400); await pg.click('#tabs [data-tab="ie"]'); await pg.waitForTimeout(1500);
 check('IELTS mở từ thanh dưới', !!(await pg.$('#ie')) && await pg.isVisible('#tabs [data-tab="ie"].on'));
+await pg.fill('#iedate', new Date(Date.now() + 60 * 864e5).toISOString().slice(0, 10)); await pg.dispatchEvent('#iedate', 'change'); await pg.waitForTimeout(800);
+check('IELTS kế hoạch theo ngày thi', /Còn \d+ tuần/.test(await pg.innerText('#app')) && !!(await pg.$('button.pri[data-iel], button.pri[data-ier], button.pri[data-iew], button.pri[data-ies], button.pri[data-err], button.pri[data-iemk]')));
 await pg.click('[data-ier="all"]'); await pg.waitForTimeout(400);
 for (let n = 0; n < 30; n++) { if (await pg.$('#it:not([disabled])')) { await pg.fill('#it', 'x'); await pg.click('#if button[type=submit]'); } else if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break;
   await pg.waitForTimeout(50); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(50); }

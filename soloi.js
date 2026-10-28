@@ -14,11 +14,13 @@ const errDone = () => errSt().filter(x => x.box >= ERR_DAYS.length).length;
 // sửa đúng: khớp nguyên câu, hoặc ≥ 90% từ hai chiều (cho phép khác dấu câu, viết hoa)
 const errOk = (x, v) => kNorm(v) === kNorm(x.correct) || (kMatch(x.correct, v) >= 0.9 && kMatch(v, x.correct) >= 0.9);
 function errBox(back) { const L = errSt();
-  if (!L.length) return `<div class="box"><b>📒 Sổ lỗi của tôi</b><p class="mute" style="margin:6px 0 0">Còn trống. Bấm 🧑‍🏫 Nhờ AI chấm ở bài Viết / Nói: lỗi AI chỉ ra tự vào sổ, rồi ôn tới khi hết sai.</p></div>`;
+  if (!L.length) return `<div class="box"><b>📒 Sổ lỗi của tôi</b><p class="mute" style="margin:6px 0 0">Còn trống. Bấm 🧑‍🏫 Nhờ AI chấm ở bài Viết / Nói: lỗi AI chỉ ra tự vào sổ, rồi ôn tới khi hết sai.</p>${errPasteBtn(back)}</div>`;
   const d = errDue().length, rep = L.reduce((s, x) => s + (x.rep || 0), 0);
   return `<div class="box"><div class="row"><b>📒 Sổ lỗi của tôi</b><span class="mute">${L.length} lỗi · ${errDone()} đã bỏ được</span></div>
     <p class="mute" style="margin:6px 0">Lỗi AI chỉ ra trong bài của bạn. Ôn bằng cách tự sửa câu sai, cách quãng 1 → 35 ngày. Lỗi cũ mắc lại trong bài sau: <b>${rep}</b> lần (số này giảm dần là học có hiệu quả).</p>
-    <button class="${d ? 'pri' : ''}" data-err="${back}" ${d ? '' : 'disabled'}>${d ? `✏️ Sửa ${Math.min(d, 10)} lỗi đến hạn` : '✅ Chưa có lỗi đến hạn ôn'}</button></div>`; }
+    <button class="${d ? 'pri' : ''}" data-err="${back}" ${d ? '' : 'disabled'}>${d ? `✏️ Sửa ${Math.min(d, 10)} lỗi đến hạn` : '✅ Chưa có lỗi đến hạn ôn'}</button>${errPasteBtn(back)}</div>`; }
+// 📥 dán lỗi giáo viên sửa (ieplus.js errPaste)
+const errPasteBtn = back => typeof errPaste === 'function' ? `<button class="chip" data-errp="${back}">📥 Dán lỗi giáo viên sửa</button>` : '';
 function errRun(back) { const qs = shuf(errDue()).slice(0, 10); let i = 0, ok = 0; const home = () => back === 'ie' ? ieltsView() : overview();
   if (!qs.length) return home();
   const show = () => { if (i >= qs.length) return end(); const x = qs[i]; window.CUR = { view: 'so-loi', item: x.id, prompt: x.wrong };
