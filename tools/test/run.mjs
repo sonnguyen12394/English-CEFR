@@ -264,6 +264,26 @@ const R = await run(`(async () => {
     tryv('học lại bài gốc', () => { mapRelearn(k0); $app.onclick({ target: { closest: q => q === '[data-mr="ok"]' ? {} : null } }); });
     const rl = mapFocus(); if (rl.root.length || !rl.act.some(w => mapKey(w) === k0 && w.r === 2) || rl.act.filter(w => w.id === 'doc').length !== kDimsOf(P, x0).length) bad.push('học lại xong chưa vào lại nhóm (mọi mặt của bài)');
     add('cefr', 'C5', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'nhóm 15 / Từ vựng ≤ 9, chữa xong cần đúng ở ngày sau, ra ngoài phạm vi không tính, chấm ở đâu cũng đếm, xem lại trước khi thử, gác 14 ngày, kẹt lần 2 → học lại bài gốc, ô Hôm nay'); }
+  // v85 ưu tiên theo tầng (bando.js): suất giữ chỗ Hiểu / Tạo ra, gốc trước triệu chứng (từ yếu trong bài yếu lên trước, bài giảm), Nói / Viết 1 lần đã tin cậy, nhật ký chữa xong
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now(), D = 864e5;
+    const us = UNITS.filter(x => x.lv === 'pre').slice(0, 3); for (const u of us) learnCards(S, u, now - 5 * D); const ws = us.flatMap(u => u.words);
+    for (const w of ws) { const c = S.cards[w.id]; c.S = 30; c.last = now - D; c.pv = 1; c.dm = {}; for (const k of wDims(w, 'pre')) c.dm[k] = { ok: 1, pv: 1, n: 3 }; c.dm.nghia = { ok: 0, pv: 1, n: 3 }; }
+    const bad0 = (P, x, n) => ({ S: 30, last: now - D, d0: dayOf(now) - 4, ok: 0, pv: 1, n, lapse: 0, dm: Object.fromEntries(kDimsOf(P, x).map(k => [k, { ok: 0, pv: 1, n }])) });
+    const Pd = KIT.doc, xd = kItems(Pd, kLv(Pd)).slice(0, 4), Pv = KIT.viet, xv = kItems(Pv, kLv(Pv))[0];
+    for (const x of xd) kSt('doc').cards[x.id] = bad0(Pd, x, 2); kSt('viet').cards[xv.id] = bad0(Pv, xv, 1);
+    // một từ trong bài đọc đầu tiên: học rồi nhưng nghĩa sai → gốc
+    const gw = mfWords(mapText(xd[0])).find(w => LEVELS.indexOf(wLv(w)) <= LEVELS.indexOf(xd[0].lv) + 1 && !S.cards[w.id]);
+    if (gw) { S.cards[gw.id] = { S: 30, last: now - D, pv: 1, ok: 0, n: 3, dm: { nghia: { ok: 0, pv: 1, n: 3 } } }; }
+    const W = mapWeak(now), wv = W.find(w => w.id === 'viet'), wg = gw && W.find(w => w.id === 'tv' && w.x === gw && w.k === 'nghia'), w0 = W.find(w => w.id === 'tv' && !w.rk && w.k === 'nghia');
+    if (!wv || wv.p < 0.99) bad.push('Viết 1 lần chưa tính tin cậy: ' + (wv && wv.p));
+    if (!gw) bad.push('bài đọc không có từ để thử gốc'); else if (!wg || !wg.rk || !(wg.p > w0.p)) bad.push('từ gốc không lên trước: ' + JSON.stringify([wg && wg.p, wg && wg.rk, w0 && w0.p]));
+    if (!W.some(w => w.id === 'doc' && w.x === xd[0] && w.gr)) bad.push('bài yếu còn gốc chưa giảm ưu tiên');
+    const f = mapFocus(now), n = t => f.act.filter(w => MAP_TIER[w.id] === t).length;
+    if (f.act.length !== MAP_ACT || n('tao') < 1 || n('hieu') < 3) bad.push('suất giữ chỗ sai: ' + MAP_TIER_N.map(([t]) => n(t)).join('/'));
+    const a = f.act.find(w => w.id === 'tv'); S.cards[a.x.id].dm.nghia = { ok: 1, pv: 1, n: 4 }; mapHit('tv', a.x.id, ['nghia'], true, now); mapFocus(now);
+    if (!(S.focus.h || []).some(([d, id]) => id === 'tv' && d === dayOf(now))) bad.push('nhật ký chữa xong không ghi');
+    await tryv('màn bản đồ', () => mapView()); await mapView(); if (!String($app.innerHTML).includes('Chia chỗ')) bad.push('màn bản đồ thiếu chia chỗ');
+    add('cefr', 'C5b', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'ưu tiên theo tầng: giữ chỗ Hiểu / Tạo ra, gốc trước triệu chứng, tin cậy Nói / Viết, nhật ký đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

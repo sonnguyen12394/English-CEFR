@@ -227,3 +227,13 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - v81 sửa 6 rủi ro: chữa xong cần đúng ở ngày sau lần sai; ra ngoài phạm vi không tính; chấm ở đâu cũng đếm lần thử; xem lại trước khi thử; gác lần 2 → học lại bài gốc; việc chữa trong ô Hôm nay.
 - Tiêu chí đo sau 2 tuần học thật: chỗ ✅ yếu lại trong 7 ngày < 20%; tỉ lệ bị gác < 30%; không chỗ nào nằm trong nhóm > 7 ngày mà chưa thử. Mốc dừng: 2 tuần chưa có người học thật → dừng làm tính năng, đi tìm người học.
 - Không đổi luật đo. Số 15 là ước đoán, cần chỉnh lại theo dữ liệu thật (tỉ lệ chữa xong mỗi tuần).
+
+## Ưu tiên theo tầng (v85, 29/10/2026)
+- Người sáng lập hỏi cách ưu tiên chỗ yếu giữa 7 phần; Claude phản biện công thức v78 (7 phần chung một thang, coi như độc lập) và bổ sung theo yêu cầu "tìm cách bổ sung đi".
+- Tầng: 🧱 Nền (Từ vựng, Ngữ pháp, Phát âm) · 👂 Hiểu (Đọc, Nghe) · 🗣 Tạo ra (Nói, Viết).
+- ① Suất giữ chỗ (`MAP_RES`): khi lấp chỗ trống trong nhóm 15, giữ tối thiểu 2 chỗ Tạo ra và 3 chỗ Hiểu nếu tầng đó có chỗ yếu; không đẩy chỗ đang chữa ra. Lý do: xếp thuần theo điểm thì Nền luôn còn chỗ yếu, Nói / Viết không bao giờ tới lượt.
+- ② Gốc trước triệu chứng (`mapSpread`): từ yếu nằm trong bài Đọc / Nghe / Ngữ pháp đang yếu được +25% ưu tiên mỗi bài (tối đa ×2); bài yếu còn từ gốc chưa vững thì −20%.
+- ③ Tin cậy Nói / Viết (`MAP_SLOW`): 1 lần có bằng chứng đã tính tin cậy (mỗi bài làm lâu, khó đạt 2 lần như từ).
+- ④ Nhật ký chữa xong theo phần (`S.focus.h`), màn bản đồ hiện số chữa xong 28 ngày theo tầng.
+- Các hệ số (3 / 2 chỗ, +25%, −20%) là ước đoán, chưa có dữ liệu thật. Đo sau 4 tuần học thật: chỗ chữa xong mỗi tuần theo tầng; bài Đọc / Nghe yếu có hết yếu sau khi chữa từ gốc không (≥ 50% là gốc từ có tác dụng). Không khác biệt → bỏ hệ số, giữ đơn giản.
+- Chưa làm: hệ số "chặn cấp" (chỗ yếu đang chặn Thi chuyển cấp); bản đồ phụ thuộc ngữ pháp. Không đổi luật đo.

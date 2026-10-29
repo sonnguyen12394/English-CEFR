@@ -24,12 +24,21 @@ function mapFace(c, k, now) { const d = c && c.dm && c.dm[k]; if (!d) return 'ch
 const MAP_SEV = { sai: 1, quen: 0.6 };
 // mọi chỗ yếu: { id (phần), x (từ / bài), k (mặt), st, p (ưu tiên), lv }
 function mapWeak(now = Date.now()) { const out = [], push = (id, x, k, c, lvItem, lvPart, core) => { const st = mapFace(c, k, now); if (!MAP_SEV[st]) return;
-    const n = (c.dm[k].n || 0) + (c.lapse || 0), conf = n >= 2 ? 1 : 0.6, imp = (core ? 1 : 0.7) * (lvItem === lvPart ? 1 : 0.8);
+    const n = (c.dm[k].n || 0) + (c.lapse || 0), conf = n >= (MAP_SLOW.has(id) ? 1 : 2) ? 1 : 0.6, imp = (core ? 1 : 0.7) * (lvItem === lvPart ? 1 : 0.8);
     out.push({ id, x, k, st, lv: lvItem, p: Math.round(MAP_SEV[st] * conf * imp * 100) / 100 }); };
   { const lv = curLevel(); for (const w of memWords(lv, now)) { const c = S.cards[w.id]; if (!c) continue; for (const k of wDims(w, lv)) if (k !== 'noi' || SREC) push('tv', w, k, c, wLv(w), lv, MAP_CORE.has(k)); } }
   for (const P of Object.values(KIT)) { if (!P.items) continue; const lv = kLv(P), st = kSt(P.id).cards; for (const x of kMem(P, lv)) { const c = st[x.id]; if (c) for (const k of kDimsOf(P, x)) push(P.id, x, k, c, x.lv, lv, true); } }
   if (PA) { const lv = paLevel(); for (const x of PA.filter(x => PA_LV.indexOf(x.lv) <= PA_LV.indexOf(lv))) { const c = paSt()[x.id]; if (c) for (const [k] of PA_DIMS) push('pa', x, k, c, x.lv, lv, true); } }
+  mapSpread(out, now);
   return out.sort((a, b) => b.p - a.p); }
+// v85 gốc trước triệu chứng: từ yếu nằm trong bài Đọc / Nghe / Ngữ pháp đang yếu được cộng ưu tiên (+25% mỗi bài, tối đa ×2, w.rk = số bài);
+//   bài yếu mà trong bài còn từ chưa học / đang quên / đang yếu thì giảm 20% (w.gr = số từ gốc): chữa từ trước, bài tự dễ lên.
+function mapSpread(out, now) { if (typeof mfWords !== 'function') return; const tv = new Map(out.filter(w => w.id === 'tv').map(w => [w.x.id, w])), hit = new Map(), gr = new Map();
+  for (const it of out) { if (!MAP_SYM.includes(it.id)) continue; const key = it.id + '|' + it.x.id;
+    if (!gr.has(key)) { const ws = mfWords(mapText(it.x)).filter(w => LEVELS.indexOf(wLv(w)) <= LEVELS.indexOf(it.lv) + 1), rs = ws.filter(w => tv.has(w.id) || !S.cards[w.id] || wstat(S, w, now) === 'quen');
+      for (const w of ws) if (tv.has(w.id)) hit.set(w.id, (hit.get(w.id) || 0) + 1); gr.set(key, rs.length); }
+    const g = gr.get(key); if (g) { it.gr = g; it.p = Math.round(it.p * 0.8 * 100) / 100; } }
+  for (const [id, k] of hit) for (const w of out) if (w.id === 'tv' && w.x.id === id) { w.rk = k; w.p = Math.round(w.p * (1 + 0.25 * Math.min(k, 4)) * 100) / 100; } }
 // tầng 1: độ phủ bằng chứng ở cấp đang học của mỗi phần
 function mapCover() { return OV.map(([id, ic, t]) => { const lv = mapLv(id);
   if (id === 'tv') { const ws = levelWords(lv), h = ws.filter(w => S.cards[w.id]).length; return { id, ic, t, lv, n: ws.length, has: h }; }
@@ -48,6 +57,10 @@ function mapRoots(weak, now = Date.now()) { const seen = new Set(), out = [];
   return out; }
 // 🎯 nhóm đang chữa + ⏳ hàng chờ + ⏸ tạm gác + 🧱 cần học lại bài gốc. S.focus = { a: [{ q, at, t (số ngày đã thử), td, wd (ngày sai gần nhất), cd (ngày đúng gần nhất), r (lần quay lại) }],
 //   p: [{ q, at, r, root }] (tạm gác), n: số chỗ chữa xong, out: số chỗ ra ngoài phạm vi (lên cấp, đổi mẫu từ… — không tính chữa xong) }
+// v85 suất giữ chỗ: nhóm 15 chỗ dành tối thiểu 3 chỗ Hiểu (Đọc, Nghe) và 2 chỗ Tạo ra (Nói, Viết) nếu tầng đó có chỗ yếu; phần còn lại cho Nền theo ưu tiên.
+//   Chỉ dùng khi lấp chỗ trống: không đẩy chỗ đang chữa ra. Nói / Viết mỗi bài làm lâu nên 1 lần có bằng chứng đã tính tin cậy (MAP_SLOW).
+const MAP_TIER = { tv: 'nen', np: 'nen', pa: 'nen', doc: 'hieu', nghe: 'hieu', noi: 'tao', viet: 'tao' }, MAP_TIER_N = [['nen', '🧱 Nền'], ['hieu', '👂 Hiểu'], ['tao', '🗣 Tạo ra']];
+const MAP_RES = [['tao', 2], ['hieu', 3]], MAP_SLOW = new Set(['noi', 'viet']), MAP_SYM = ['doc', 'nghe', 'np'], MAP_LOG_D = 28;
 const MAP_ACT = 15, MAP_TV_MAX = 9, MAP_TRY = 3, MAP_PARK_D = 14, MAP_TODAY = 5, mapKey = w => `${w.id}|${w.x.id}|${w.k}`;
 // khoá → { id, x, k, lv, c (thẻ) }; không còn bài / từ thì null
 function mapItem(q) { const ps = q.split('|'), id = ps[0], k = ps[ps.length - 1], xid = ps.slice(1, -1).join('|'); let x, c;
@@ -58,15 +71,18 @@ function mapItem(q) { const ps = q.split('|'), id = ps[0], k = ps[ps.length - 1]
 const mapVung = it => !!(it && it.c && mapFace(it.c, it.k, Date.now()) === 'vung');
 const mapOk = (f, it) => mapVung(it) && (f.cd != null ? f.cd > (f.wd ?? -1) : (f.wd ?? -1) < 0);
 function mapFocus(now = Date.now(), weak = mapWeak(now)) { const F = S.focus = S.focus || {}, by = new Map(weak.map(w => [mapKey(w), w])); F.a = F.a || []; F.p = F.p || []; F.n = F.n || 0; F.out = F.out || 0;
-  const np = []; for (const p of F.p) { if (by.has(p.q)) np.push(p); else if (mapVung(mapItem(p.q))) F.n++; else F.out++; } F.p = np;   // hết yếu lúc đang gác = chữa xong
+  const fixed = q => { F.n++; (F.h = F.h || []).push([dayOf(now), q.split('|')[0]]); if (F.h.length > 300) F.h.splice(0, F.h.length - 300); };   // nhật ký chữa xong (đo sau 4 tuần)
+  const np = []; for (const p of F.p) { if (by.has(p.q)) np.push(p); else if (mapVung(mapItem(p.q))) fixed(p.q); else F.out++; } F.p = np;   // hết yếu lúc đang gác = chữa xong
   const keep = []; for (const f of F.a) { if (by.has(f.q)) { if ((f.t || 0) >= MAP_TRY) F.p.push({ q: f.q, at: now, r: f.r || 0, root: (f.r || 0) >= 1 }); else keep.push(f); continue; }
-    const it = mapItem(f.q); if (mapOk(f, it)) F.n++; else if (mapVung(it)) keep.push(f); else F.out++; }   // vững nhưng chưa xác nhận: giữ chỗ; còn lại = ra ngoài phạm vi
+    const it = mapItem(f.q); if (mapOk(f, it)) fixed(f.q); else if (mapVung(it)) keep.push(f); else F.out++; }   // vững nhưng chưa xác nhận: giữ chỗ; còn lại = ra ngoài phạm vi
   const inAct = new Set(keep.map(f => f.q)), parked = new Map(F.p.map(p => [p.q, p])), back = p => !p.root && now - p.at >= MAP_PARK_D * DAY;
   const queue = [...weak.filter(w => !inAct.has(mapKey(w)) && !parked.has(mapKey(w))), ...weak.filter(w => parked.has(mapKey(w)) && back(parked.get(mapKey(w))))];   // chỗ gác hết hạn: cuối hàng
   let tv = keep.filter(f => f.q.startsWith('tv|')).length;
-  for (const pass of [1, 2]) for (const w of queue) { if (keep.length >= MAP_ACT) break; const q = mapKey(w); if (inAct.has(q) || (pass === 1 && w.id === 'tv' && tv >= MAP_TV_MAX)) continue;
-    const pk = parked.get(q), c = (mapItem(q) || {}).c; keep.push({ q, at: now, t: 0, r: pk ? pk.r + 1 : 0, wd: w.st === 'sai' && c ? dayOf(c.last || now) : -1 }); inAct.add(q);
-    if (pk) { parked.delete(q); F.p = F.p.filter(p => p.q !== q); } if (w.id === 'tv') tv++; }
+  const add = w => { const q = mapKey(w), pk = parked.get(q), c = (mapItem(q) || {}).c; keep.push({ q, at: now, t: 0, r: pk ? pk.r + 1 : 0, wd: w.st === 'sai' && c ? dayOf(c.last || now) : -1 }); inAct.add(q);
+    if (pk) { parked.delete(q); F.p = F.p.filter(p => p.q !== q); } if (w.id === 'tv') tv++; };
+  for (const [t, m] of MAP_RES) { let have = keep.filter(f => MAP_TIER[f.q.split('|')[0]] === t).length;
+    for (const w of queue) { if (have >= m || keep.length >= MAP_ACT) break; if (MAP_TIER[w.id] === t && !inAct.has(mapKey(w))) { add(w); have++; } } }
+  for (const pass of [1, 2]) for (const w of queue) { if (keep.length >= MAP_ACT) break; const q = mapKey(w); if (inAct.has(q) || (pass === 1 && w.id === 'tv' && tv >= MAP_TV_MAX)) continue; add(w); }
   F.a = keep;
   const one = f => { const w = by.get(f.q) || { ...mapItem(f.q), st: 'cho' }; return { ...w, t: f.t || 0, r: f.r || 0, cho: !by.has(f.q), td: f.td }; };
   return { act: keep.map(one), queue: queue.filter(w => !inAct.has(mapKey(w))), park: F.p.filter(p => !p.root && !back(p)).map(p => ({ ...by.get(p.q), at: p.at })),
@@ -94,10 +110,12 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
     <div class="box"><div class="row"><b>② Tầng chữa · 🎯 đang chữa</b><span class="mute">${fo.act.length}/${MAP_ACT} chỗ</span></div>
       ${fo.act.length ? `<p class="mute" style="margin:4px 0">Chữa tối đa ${MAP_ACT} chỗ một lúc cho chắc. Chỗ nào xong, chỗ đầu hàng chờ tự vào. ❌ = làm sai lần gần nhất · ⚠️ = đã quên (khả năng nhớ &lt; 80%) · ✔ = đúng rồi, cần đúng thêm ở một ngày sau mới tính xong.</p>
         ${OV.filter(([id]) => fby[id]).map(([id, ic, t]) => `<details style="margin:6px 0"${id === fo.act[0].id ? ' open' : ''}><summary>${ic} ${t}: <b>${fby[id].length}</b> chỗ đang chữa</summary>
-          ${fby[id].map(w => `<p style="margin:2px 0;font-size:15px">${w.cho ? '✔' : w.st === 'sai' ? '❌' : '⚠️'} ${label(w)} <span class="mute">· ${esc(face(id, w.k))}${w.lv ? ' · ' + LVN[w.lv] : ''} · ${w.cho ? 'đúng rồi, chờ xác nhận hôm sau' : `thử ${w.t}/${MAP_TRY}`}${w.r ? ` · quay lại lần ${w.r}` : ''}</span></p>`).join('')}
+          ${fby[id].map(w => `<p style="margin:2px 0;font-size:15px">${w.cho ? '✔' : w.st === 'sai' ? '❌' : '⚠️'} ${label(w)} <span class="mute">· ${esc(face(id, w.k))}${w.lv ? ' · ' + LVN[w.lv] : ''}${w.rk ? ` · 🌱 gốc của ${w.rk} bài` : ''}${w.gr ? ` · còn ${w.gr} từ gốc` : ''} · ${w.cho ? 'đúng rồi, chờ xác nhận hôm sau' : `thử ${w.t}/${MAP_TRY}`}${w.r ? ` · quay lại lần ${w.r}` : ''}</span></p>`).join('')}
           <button class="pri" data-map="fix|${id}" style="margin-top:4px">▶ Chữa ${ic} ${t}</button></details>`).join('')}
         <p class="mute" style="margin:4px 0">Mỗi chỗ thử ${MAP_TRY} ngày (làm ở đâu cũng tính). Từ lần 2 app cho 📘 xem lại trước khi thử. Chưa qua thì ⏸ tạm gác ${MAP_PARK_D} ngày; khi đó còn kẹt thì quay lại hàng chờ. Kẹt lần nữa thì 🧱 học lại bài gốc.</p>`
         : '<p class="mute" style="margin:4px 0">Chưa có chỗ yếu đã xác định. Học và luyện thêm, bản đồ sẽ tự hiện chỗ cần chữa.</p>'}
+      <p class="mute" style="margin:6px 0 0">Chia chỗ: ${MAP_TIER_N.map(([t, n]) => `${n} ${fo.act.filter(w => MAP_TIER[w.id] === t).length}`).join(' · ')}. Luôn giữ tối thiểu ${MAP_RES.map(([t, m]) => `${m} chỗ ${MAP_TIER_N.find(x => x[0] === t)[1]}`).join(', ')} nếu có chỗ yếu, để Nói / Viết không bị bỏ quên. Từ yếu nằm trong bài Đọc / Nghe / Ngữ pháp yếu được chữa trước (🌱 gốc).</p>
+      ${(() => { const h = (S.focus.h || []).filter(([d]) => d > dayOf(now) - MAP_LOG_D); return h.length ? `<p class="mute" style="margin:4px 0 0">${MAP_LOG_D} ngày qua chữa xong: ${MAP_TIER_N.map(([t, n]) => `${n} ${h.filter(([, id]) => MAP_TIER[id] === t).length}`).join(' · ')}</p>` : ''; })()}
       <p style="margin:6px 0 0">✅ Đã chữa xong: <b>${fo.done}</b> chỗ${fo.out ? ` <span class="mute">· ${fo.out} chỗ ra ngoài phạm vi (lên cấp, đổi mẫu từ…), không tính</span>` : ''}</p>
       ${fo.root.length ? `<div style="margin:8px 0"><b>🧱 Cần học lại bài gốc: ${fo.root.length} chỗ</b><p class="mute" style="margin:2px 0">Đã gác, quay lại vẫn kẹt: hỏi thêm không giúp, cần học lại cả bài. Học xong thì vào lại hàng chờ.</p>
         ${[...new Map(fo.root.map(w => [w.id + '|' + w.x.id, w])).values()].slice(0, 6).map(w => `<button data-map="rl|${esc(mapKey(w))}" style="margin:3px 0">🧱 ${nm(w.id)[1]} ${label(w)} <span class="mute">· ${esc(face(w.id, w.k))}</span></button>`).join('')}</div>` : ''}
