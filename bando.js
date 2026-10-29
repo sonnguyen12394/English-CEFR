@@ -6,6 +6,9 @@
 //     (tin cậy: ≥ 2 lần làm mới chắc; quan trọng: mặt cốt lõi > mặt chiều sâu, cấp đang học > cấp dưới). Buổi chữa 70 / 30: 14 chỗ yếu + 6 từ đang nhớ cần giữ.
 //   Tầng 3 · Truy gốc: bài Đọc / Nghe / Ngữ pháp còn yếu → từ trong bài chưa học hoặc đang quên (gốc từ vựng) → chữa gốc trước.
 //   Cân bằng: nhóm Hiểu (Từ vựng, Ngữ pháp, Đọc, Nghe) và nhóm Tạo ra (Nói, Viết, Phát âm); phần nào ≥ 3 ngày chưa luyện thì nhắc (máy đo Nói / Viết yếu, nên không để "yếu nhất trước" bỏ quên chúng).
+// 🎯 Giới hạn (v79, người sáng lập: "giới hạn lại số lỗi để học và số lỗi tương lai cần tập trung học tiếp sau khi hoàn thành những lỗi cũ"): chỉ chữa tối đa 15 chỗ
+//   một lúc (S.focus), Từ vựng tối đa 9 nếu phần khác cũng có chỗ yếu; còn lại vào ⏳ hàng chờ theo ưu tiên. Chỗ nào hết yếu thì ra khỏi nhóm (đếm ✅ chữa xong),
+//   chỗ đầu hàng chờ tự vào thay. Chỗ yếu mới phát hiện vào hàng chờ, không chen vào nhóm đang chữa. Chữa ≥ 14 ngày chưa xong → 🐢, gợi ý truy gốc / học lại.
 // Quy tắc dừng: một chỗ yếu hết yếu khi lần gần nhất đúng và khả năng nhớ ≥ 80% (luật Nhớ); làm đúng ở ngày khác mới tính, nên tự cần ≥ 2 ngày.
 const MAP_CORE = new Set(['nghia', 'nghe', 'chu', 'nhora', 'noi', 'viet']), MAP_SCAN_D = 21, MAP_IDLE_D = 3, MAP_FIX = [14, 6];
 const MAP_GROUP = [['Hiểu', ['tv', 'np', 'doc', 'nghe']], ['Tạo ra', ['noi', 'viet', 'pa']]];
@@ -37,12 +40,21 @@ function mapRoots(weak, now = Date.now()) { const seen = new Set(), out = [];
     const gap = ws.filter(w => { const c = S.cards[w.id]; return !c || wstat(S, w, now) === 'quen'; });
     if (gap.length) out.push({ it, gap: gap.slice(0, 12) }); if (out.length >= 5) break; }
   return out; }
+// 🎯 nhóm đang chữa + ⏳ hàng chờ: bỏ chỗ đã hết yếu, lấp chỗ trống theo ưu tiên. Lưu ở S.focus = { a: [{ q, at }], n: số chỗ đã chữa xong }
+const MAP_ACT = 15, MAP_TV_MAX = 9, MAP_SLOW_D = 14, mapKey = w => `${w.id}|${w.x.id}|${w.k}`;
+function mapFocus(now = Date.now(), weak = mapWeak(now)) { const F = S.focus = S.focus || { a: [], n: 0 }, by = new Map(weak.map(w => [mapKey(w), w]));
+  const keep = F.a.filter(f => by.has(f.q)); F.n = (F.n || 0) + F.a.length - keep.length;
+  const inAct = new Set(keep.map(f => f.q)); let tv = keep.filter(f => f.q.startsWith('tv|')).length;
+  for (const pass of [1, 2]) for (const w of weak) { if (keep.length >= MAP_ACT) break; const q = mapKey(w); if (inAct.has(q) || (pass === 1 && w.id === 'tv' && tv >= MAP_TV_MAX)) continue;
+    keep.push({ q, at: now }); inAct.add(q); if (w.id === 'tv') tv++; }
+  F.a = keep;
+  return { act: keep.map(f => ({ ...by.get(f.q), at: f.at, slow: now - f.at >= MAP_SLOW_D * DAY })), queue: weak.filter(w => !inAct.has(mapKey(w))), done: F.n }; }
 const mapScanDue = (now = Date.now()) => { const s = (S.scan || []).slice(-1)[0]; return !s || now - s.at >= MAP_SCAN_D * DAY; };
 
 // ---------- màn 🗺 Bản đồ chỗ yếu ----------
 async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.innerHTML = '<div id="dl"></div><p class="mute">Đang tải…</p>';
   try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); } catch (e) {}
-  const now = Date.now(), weak = mapWeak(now), cov = mapCover(), roots = mapRoots(weak, now), by = {}; for (const w of weak) (by[w.id] = by[w.id] || []).push(w);
+  const now = Date.now(), weak = mapWeak(now), fo = mapFocus(now, weak), fby = {}, cov = mapCover(), roots = mapRoots(weak, now), by = {}; for (const w of weak) (by[w.id] = by[w.id] || []).push(w); for (const w of fo.act) (fby[w.id] = fby[w.id] || []).push(w); save();
   const nm = id => OV.find(o => o[0] === id), face = (id, k) => id === 'tv' ? (VREQ_BY[k] || [k, k])[1] : id === 'pa' ? (PA_DIMS.find(d => d[0] === k) || [k, k])[1] : (KIT[id].dims.find(d => d[0] === k) || [k, k])[1];
   const label = w => w.id === 'tv' ? esc(w.x.w) : w.id === 'pa' ? esc(w.x.title || w.x.id) : esc(KIT[w.id].name ? KIT[w.id].name(w.x) : w.x.id);
   const any = OV.some(([id]) => mapLast(id)), idle = OV.map(([id, ic, t]) => [id, ic, t, mapLast(id)]).filter(([, , , l]) => l ? (now - l) / DAY >= MAP_IDLE_D : any);   // đã học phần khác mà phần này chưa luyện lần nào cũng nhắc
@@ -54,13 +66,17 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
       ${cov.map(c => `<div class="row" style="margin-top:6px"><span>${c.ic} ${c.t} <span class="mute">${LVN[c.lv] || ''}</span></span><span class="mute">${c.has}/${c.n}</span></div>${bar(c.n ? Math.round(c.has / c.n * 100) : 0, 100, 'var(--accent)')}`).join('')}
       <p class="mute" style="margin:6px 0 0">Phần chưa có bằng chứng là "chưa rõ": có thể bạn đã biết. 🔎 Quét lại để tìm nhanh, khỏi học lại.</p>
       <button class="${mapScanDue(now) && !noData ? 'pri' : ''}" data-map="scan" style="margin-top:6px">🔎 Quét lại (~5 phút)${mapScanDue(now) ? '' : ` · lần trước ${new Date(S.scan.slice(-1)[0].at).toLocaleDateString('vi-VN')}`}</button></div>
-    <div class="box"><div class="row"><b>② Tầng chữa · chỗ yếu</b><span class="mute">${weak.length} chỗ</span></div>
-      ${weak.length ? `<p class="mute" style="margin:4px 0">❌ = làm sai lần gần nhất · ⚠️ = đã quên (khả năng nhớ &lt; 80%). Xếp theo ưu tiên: mức yếu × độ chắc của bằng chứng × mức quan trọng.</p>
-        ${OV.filter(([id]) => by[id]).map(([id, ic, t]) => `<details style="margin:6px 0"><summary>${ic} ${t}: <b>${by[id].length}</b> chỗ yếu</summary>
-          ${by[id].slice(0, 12).map(w => `<p style="margin:2px 0;font-size:15px">${w.st === 'sai' ? '❌' : '⚠️'} ${label(w)} <span class="mute">· ${esc(face(id, w.k))}${w.lv ? ' · ' + LVN[w.lv] : ''}</span></p>`).join('')}
-          ${by[id].length > 12 ? `<p class="mute" style="margin:2px 0">… và ${by[id].length - 12} chỗ nữa</p>` : ''}
-          <button class="pri" data-map="fix|${id}" style="margin-top:4px">▶ Chữa ${ic} ${t}${id === 'tv' ? ` (${Math.min(MAP_FIX[0], by[id].length)} yếu + ôn giữ)` : ''}</button></details>`).join('')}`
-        : '<p class="mute" style="margin:4px 0">Chưa có chỗ yếu đã xác định. Học và luyện thêm, bản đồ sẽ tự hiện chỗ cần chữa.</p>'}</div>
+    <div class="box"><div class="row"><b>② Tầng chữa · 🎯 đang chữa</b><span class="mute">${fo.act.length}/${MAP_ACT} chỗ</span></div>
+      ${fo.act.length ? `<p class="mute" style="margin:4px 0">Chữa tối đa ${MAP_ACT} chỗ một lúc cho chắc. Chỗ nào xong, chỗ đầu hàng chờ tự vào. ❌ = làm sai lần gần nhất · ⚠️ = đã quên (khả năng nhớ &lt; 80%).</p>
+        ${OV.filter(([id]) => fby[id]).map(([id, ic, t]) => `<details style="margin:6px 0"${id === fo.act[0].id ? ' open' : ''}><summary>${ic} ${t}: <b>${fby[id].length}</b> chỗ đang chữa</summary>
+          ${fby[id].map(w => `<p style="margin:2px 0;font-size:15px">${w.st === 'sai' ? '❌' : '⚠️'} ${label(w)} <span class="mute">· ${esc(face(id, w.k))}${w.lv ? ' · ' + LVN[w.lv] : ''}</span>${w.slow ? ' 🐢' : ''}</p>`).join('')}
+          <button class="pri" data-map="fix|${id}" style="margin-top:4px">▶ Chữa ${ic} ${t}</button></details>`).join('')}
+        ${fo.act.some(w => w.slow) ? `<p class="mute" style="margin:4px 0">🐢 = đã chữa ≥ ${MAP_SLOW_D} ngày chưa xong: xem ③ tầng gốc hoặc học lại bài chứa nó.</p>` : ''}`
+        : '<p class="mute" style="margin:4px 0">Chưa có chỗ yếu đã xác định. Học và luyện thêm, bản đồ sẽ tự hiện chỗ cần chữa.</p>'}
+      <p style="margin:6px 0 0">✅ Đã chữa xong: <b>${fo.done}</b> chỗ</p>
+      ${fo.queue.length ? `<details style="margin:6px 0"><summary>⏳ Hàng chờ: <b>${fo.queue.length}</b> chỗ (học sau khi xong nhóm đang chữa)</summary>
+        ${fo.queue.slice(0, 10).map(w => `<p style="margin:2px 0;font-size:15px">${nm(w.id)[1]} ${label(w)} <span class="mute">· ${esc(face(w.id, w.k))}</span></p>`).join('')}
+        ${fo.queue.length > 10 ? `<p class="mute" style="margin:2px 0">… và ${fo.queue.length - 10} chỗ nữa</p>` : ''}</details>` : ''}</div>
     <div class="box"><b>③ Tầng gốc · bài yếu do thiếu từ</b>
       ${roots.length ? roots.map(r => `<p style="margin:8px 0 2px">${nm(r.it.id)[1]} ${esc(KIT[r.it.id].name ? KIT[r.it.id].name(r.it.x) : r.it.x.id)}</p><p class="mute" style="margin:0">Từ chưa học / đang quên trong bài: ${r.gap.map(w => esc(w.w)).join(', ')}</p>`).join('')
         + `<button data-map="root" style="margin-top:6px">▶ Chữa gốc: ôn các từ đang quên${roots.some(r => r.gap.some(w => !S.cards[w.id])) ? ', mở bài có từ chưa học' : ''}</button>`
@@ -74,13 +90,13 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
 
 // ---------- buổi chữa ----------
 // Từ vựng: 14 mặt yếu (ưu tiên cao trước, mỗi từ một mặt) + 6 từ đang nhớ khả năng nhớ thấp nhất (giữ, chống lủng mới) — bộ chấm, lịch ôn như 🏋️ Luyện tập
-function mapFix(id, now = Date.now()) { const weak = mapWeak(now).filter(w => w.id === id); if (!weak.length) return toast('Phần này chưa có chỗ yếu.');
+function mapFix(id, now = Date.now()) { const weak = mapFocus(now).act.filter(w => w.id === id); if (!weak.length) return toast('Phần này chưa có chỗ yếu.');
   if (id === 'tv') { const seen = new Set(), items = [];
     for (const w of weak) { if (seen.has(w.x.id) || items.length >= MAP_FIX[0]) continue; seen.add(w.x.id); if (w.k === 'noi') continue; const type = TYPE_FOR[w.k] ? TYPE_FOR[w.k]() : 'w2vi'; items.push({ w: w.x, type }); }
     const keep = memWords(curLevel(), now).filter(w => S.cards[w.id] && !seen.has(w.id) && wstat(S, w, now) === 'nho').sort((a, b) => recall(S.cards[a.id], now) - recall(S.cards[b.id], now)).slice(0, MAP_FIX[1]);
     for (const w of keep) items.push({ w, type: typeFor(S.cards[w.id], now, w) }); let ok = 0;
     return run({ title: '🗺 Chữa chỗ yếu · Từ vựng', items: shuf(items), first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) ok++; save(); },
-      done: () => { $app.innerHTML = `<div class="box"><b>Xong buổi chữa</b><p>Đúng ngay lần đầu ${ok}/${items.length}. Còn ${mapWeak().filter(w => w.id === 'tv').length} chỗ yếu Từ vựng.</p><p class="mute">Chỗ vừa làm đúng sẽ hết yếu khi đúng thêm ở một ngày sau.</p></div><button class="pri" data-a="map">🗺 Về bản đồ</button>`;
+      done: () => { $app.innerHTML = `<div class="box"><b>Xong buổi chữa</b><p>Đúng ngay lần đầu ${ok}/${items.length}. ${(f => `🎯 Đang chữa ${f.act.length} chỗ · ✅ đã chữa xong ${f.done} · ⏳ hàng chờ ${f.queue.length}.`)(mapFocus())}</p><p class="mute">Chỗ vừa làm đúng sẽ hết yếu khi đúng thêm ở một ngày sau.</p></div><button class="pri" data-a="map">🗺 Về bản đồ</button>`;
         $app.onclick = e => { if (e.target.closest('[data-a="map"]')) mapView(); }; } }); }
   if (id === 'pa') { toast('Phát âm: luyện ở 👄 Phát âm (cần bộ chấm âm).'); return paView(); }
   const P = KIT[id], picks = [], seen = new Set();
@@ -108,5 +124,5 @@ function mapScan(now = Date.now()) { const lv = curLevel(), held = shuf(memWords
   run({ title: '🔎 Quét lại · từ đang nhớ', items: held.map(w => ({ w, type: 'spell' })), first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) okH++; save(); }, done: after }); }
 document.addEventListener('click', e => { if (e.target.closest('[data-mapv]') && S) { scrollTo(0, 0); mapView(); } });
 // ô tóm tắt (đầu tab 💾 Dữ liệu, ô 📅 Hôm nay)
-function mapCard() { const weak = mapWeak(), scan = mapScanDue() && Object.keys(S.cards || {}).length;
-  return `<div class="box"><div class="row"><b>🗺 Bản đồ chỗ yếu</b><span class="mute">${weak.length} chỗ yếu</span></div><p class="mute" style="margin:6px 0">Kiểm tra → chữa chỗ yếu trước → đào tiếp chỗ lủng sâu hơn, giữ cân bằng kỹ năng.${scan ? ' 🔎 Đã tới lúc quét lại.' : ''}</p><button class="pri" data-mapv>🗺 Mở bản đồ</button></div>`; }
+function mapCard() { const f = mapFocus(), scan = mapScanDue() && Object.keys(S.cards || {}).length;
+  return `<div class="box"><div class="row"><b>🗺 Bản đồ chỗ yếu</b><span class="mute">🎯 ${f.act.length}/${MAP_ACT} · ⏳ ${f.queue.length}</span></div><p class="mute" style="margin:6px 0">Kiểm tra → chữa tối đa ${MAP_ACT} chỗ yếu một lúc → đào tiếp chỗ lủng sâu hơn, giữ cân bằng kỹ năng.${scan ? ' 🔎 Đã tới lúc quét lại.' : ''}</p><button class="pri" data-mapv>🗺 Mở bản đồ</button></div>`; }

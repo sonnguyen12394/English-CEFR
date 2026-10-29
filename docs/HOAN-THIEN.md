@@ -219,3 +219,9 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Người sáng lập: chiến lược "học nhanh" nhiều tầng — kiểm tra đầu vào là đánh giá cấp 1; cấp 2 tập trung chỗ yếu trước, không để kỹ năng lệch; rồi dùng bài học và rèn luyện bóc tiếp chỗ lủng sâu hơn ("vạch lá tìm sâu nhưng theo nhiều tầng"); "xây chiến lược này để ở mục dữ liệu".
 - Rủi ro đã tính (Claude): chẩn đoán nhầm vì một lần đúng / sai (→ độ tin cậy, quy tắc dừng cần đúng ở ngày khác); chữa triệu chứng không chữa gốc (→ tầng gốc: bài yếu → từ); chỉ chữa thứ máy đo được làm lệch kỹ năng (→ ô cân bằng); toàn chỗ yếu thì nản (→ buổi chữa 70 / 30); chỗ lủng chưa từng hỏi (→ quét lại mỗi 21 ngày).
 - Chưa có: bản đồ phụ thuộc giữa các điểm ngữ pháp (cần gắn nhãn tay); truy gốc lỗi Viết / Nói; kế hoạch ngày tự xếp theo bản đồ (ô Hôm nay mới có nút dẫn tới bản đồ). Sẽ làm khi có dữ liệu học thật.
+
+## Giới hạn chỗ đang chữa (v79, 29/10/2026)
+- Người sáng lập: giữ mục tiêu bắt chỗ yếu, nhưng giới hạn số chỗ học cùng lúc và có hàng chờ cho chỗ tiếp theo.
+- Lý do: danh sách dài làm nản, chữa dàn trải không chỗ nào xong. Ít chỗ một lúc thì mỗi chỗ được chữa tới nơi.
+- Luật: tối đa 15 chỗ (`MAP_ACT`); Từ vựng ≤ 9 (`MAP_TV_MAX`) nếu phần khác có chỗ yếu; xong 1 chỗ thì vào 1 chỗ; chỗ mới không chen; ≥ 14 ngày chưa xong → 🐢.
+- Không đổi luật đo. Số 15 là ước đoán, cần chỉnh lại theo dữ liệu thật (tỉ lệ chữa xong mỗi tuần).

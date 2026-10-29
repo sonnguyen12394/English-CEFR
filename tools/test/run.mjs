@@ -188,6 +188,23 @@ const R = await run(`(async () => {
     if (!/data-mapv/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu nút bản đồ'); tryv('tab dữ liệu', () => backup()); if (!String($app.innerHTML).includes('Bản đồ chỗ yếu')) bad.push('tab Dữ liệu thiếu bản đồ');
     if (!mapScanDue(now)) bad.push('quét lại chưa đến hạn khi chưa quét lần nào'); S.scan = [{ at: now }]; if (mapScanDue(now)) bad.push('quét lại đến hạn ngay sau khi quét');
     add('cefr', 'C4', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'bản đồ chỗ yếu: xếp ưu tiên, độ phủ, truy gốc, cân bằng, buổi chữa, quét lại đều đúng'); }
+  // 🎯 nhóm đang chữa tối đa 15 + hàng chờ (bando.js mapFocus, v79)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now(), D = 864e5;
+    const us = UNITS.filter(x => x.lv === 'pre').slice(0, 3); for (const u of us) learnCards(S, u, now - 5 * D); const ws = us.flatMap(u => u.words);
+    for (const w of ws) { const c = S.cards[w.id]; c.S = 30; c.last = now - D; c.pv = 1; c.dm = {}; for (const k of wDims(w, 'pre')) c.dm[k] = { ok: 1, pv: 1, n: 3 }; c.dm.nghia = { ok: 0, pv: 1, n: 3 }; }
+    const P = KIT.doc, xs = kItems(P, kLv(P)).slice(0, 3); for (const x of xs) kSt('doc').cards[x.id] = { S: 30, last: now - D, d0: dayOf(now) - 4, ok: 0, pv: 1, n: 2, lapse: 1, dm: Object.fromEntries(kDimsOf(P, x).map(k => [k, { ok: 0, pv: 1, n: 2 }])) };
+    const W = mapWeak(now), f = mapFocus(now), tv = f.act.filter(w => w.id === 'tv').length;
+    if (W.length <= MAP_ACT) bad.push('dữ liệu thử ít chỗ yếu: ' + W.length);
+    if (f.act.length !== MAP_ACT || tv > MAP_TV_MAX || !f.act.some(w => w.id === 'doc') || f.queue.length !== W.length - MAP_ACT || f.done) bad.push('nhóm đang chữa sai: ' + [f.act.length, tv, f.queue.length, f.done].join('/'));
+    // chữa xong 1 từ trong nhóm → ra khỏi nhóm, chỗ đầu hàng chờ vào thay, đếm chữa xong
+    const a0 = f.act.find(w => w.id === 'tv'), q0 = f.queue[0]; S.cards[a0.x.id].dm[a0.k] = { ok: 1, pv: 1, n: 4 };
+    const g = mapFocus(now); if (g.act.length !== MAP_ACT || g.done !== 1 || g.act.some(w => w.x === a0.x && w.k === a0.k) || !g.act.some(w => mapKey(w) === mapKey(q0))) bad.push('hàng chờ không tiến: ' + [g.act.length, g.done].join('/'));
+    // chỗ yếu mới không chen vào nhóm; chữa lâu → 🐢
+    const keys = new Set(g.act.map(mapKey)); S.focus.a.forEach(x => x.at = now - 15 * D); const h = mapFocus(now);
+    if (h.act.some(w => !keys.has(mapKey(w))) || !h.act.every(w => w.slow)) bad.push('nhóm đổi khi chưa xong / thiếu 🐢');
+    await tryv('màn bản đồ', () => mapView()); await mapView(); const ht = String($app.innerHTML); if (!ht.includes('đang chữa') || !ht.includes('Hàng chờ') || !ht.includes('🐢')) bad.push('màn bản đồ thiếu nhóm / hàng chờ');
+    tryv('chữa từ vựng', () => mapFix('tv')); if (!/Đang chữa [0-9]+ chỗ yếu/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu nhóm đang chữa');
+    add('cefr', 'C5', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'nhóm đang chữa tối đa 15, Từ vựng ≤ 9, hàng chờ tiến khi chữa xong, 🐢 chữa lâu'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');
