@@ -199,12 +199,16 @@ const R = await run(`(async () => {
     // chữa xong 1 từ trong nhóm → ra khỏi nhóm, chỗ đầu hàng chờ vào thay, đếm chữa xong
     const a0 = f.act.find(w => w.id === 'tv'), q0 = f.queue[0]; S.cards[a0.x.id].dm[a0.k] = { ok: 1, pv: 1, n: 4 };
     const g = mapFocus(now); if (g.act.length !== MAP_ACT || g.done !== 1 || g.act.some(w => w.x === a0.x && w.k === a0.k) || !g.act.some(w => mapKey(w) === mapKey(q0))) bad.push('hàng chờ không tiến: ' + [g.act.length, g.done].join('/'));
-    // chỗ yếu mới không chen vào nhóm; chữa lâu → 🐢
-    const keys = new Set(g.act.map(mapKey)); S.focus.a.forEach(x => x.at = now - 15 * D); const h = mapFocus(now);
-    if (h.act.some(w => !keys.has(mapKey(w))) || !h.act.every(w => w.slow)) bad.push('nhóm đổi khi chưa xong / thiếu 🐢');
-    await tryv('màn bản đồ', () => mapView()); await mapView(); const ht = String($app.innerHTML); if (!ht.includes('đang chữa') || !ht.includes('Hàng chờ') || !ht.includes('🐢')) bad.push('màn bản đồ thiếu nhóm / hàng chờ');
+    // chỗ yếu mới không chen vào nhóm; thử 3 ngày chưa qua → tạm gác, chỗ khác vào; 14 ngày sau còn yếu → quay lại cuối hàng
+    const keys = new Set(g.act.map(mapKey)); const h = mapFocus(now); if (h.act.some(w => !keys.has(mapKey(w)))) bad.push('nhóm đổi khi chưa xong');
+    const b0 = h.act[0], k0 = mapKey(b0); for (let i = 0; i < 3; i++) { mapTry(new Set([k0]), now + i * D); mapTry(new Set([k0]), now + i * D); }
+    if (S.focus.a.find(f => f.q === k0).t !== 3) bad.push('đếm lần thử sai (mỗi ngày 1)');
+    const pk = mapFocus(now + 3 * D); if (pk.act.some(w => mapKey(w) === k0) || !pk.park.some(w => mapKey(w) === k0) || pk.act.length !== MAP_ACT || pk.queue.some(w => mapKey(w) === k0)) bad.push('không tạm gác sau 3 lần: ' + [pk.act.length, pk.park.length].join('/'));
+    const bk = mapFocus(now + 18 * D); if (pk.park.length && bk.park.some(w => mapKey(w) === k0) || !(bk.queue.some(w => mapKey(w) === k0) || bk.act.some(w => mapKey(w) === k0 && w.r === 1))) bad.push('chỗ gác không quay lại');
+    S.focus.p.push({ q: k0, at: now, r: 0 }); S.focus.a = S.focus.a.filter(f => f.q !== k0);
+    await tryv('màn bản đồ', () => mapView()); await mapView(); const ht = String($app.innerHTML); if (!ht.includes('đang chữa') || !ht.includes('Hàng chờ') || !ht.includes('Tạm gác') || !ht.includes('thử 0/3')) bad.push('màn bản đồ thiếu nhóm / hàng chờ');
     tryv('chữa từ vựng', () => mapFix('tv')); if (!/Đang chữa [0-9]+ chỗ yếu/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu nhóm đang chữa');
-    add('cefr', 'C5', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'nhóm đang chữa tối đa 15, Từ vựng ≤ 9, hàng chờ tiến khi chữa xong, 🐢 chữa lâu'); }
+    add('cefr', 'C5', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'nhóm đang chữa tối đa 15, Từ vựng ≤ 9, hàng chờ tiến khi chữa xong, thử 3 ngày rồi tạm gác 14 ngày, quay lại cuối hàng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');
