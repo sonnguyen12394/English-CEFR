@@ -133,6 +133,33 @@ const R = await run(`(async () => {
     if (!String($app.innerHTML).includes('Theo dạng câu (đề này)')) bad.push('kết quả đề thử thiếu bảng theo dạng');
     await ieltsView(); if (!String($app.innerHTML).includes('📊 Theo dạng câu')) bad.push('Học IELTS thiếu ô theo dạng');
     add('ielts', 'I2', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'ghi theo dạng câu + tiêu chí (máy / AI riêng), đề thử có bảng theo dạng, ô 📊 ở Học IELTS'); }
+  // 🗺 Bản đồ band IELTS (iemap.js, v83): chỗ yếu theo dạng / tiêu chí, ưu tiên, nhóm 3 (mỗi kỹ năng 1), thử bằng bài mới, đạt 2 ngày = xong, gác, 🧱 nền CEFR
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await ieLoad(); await kLoad(KIT.nghe); await kLoad(KIT.doc);
+    const now = Date.now(), D = 864e5, o = ieSt(); o.target = 6.5; const ses = (ok, n, ids) => ({ at: now, ok, n, ids, src: 'thi' });
+    o.ty = { 'R-tf': [ses(2, 6, ['a']), ses(2, 6, ['b'])], 'R-h': [ses(3, 5, ['a'])], 'R-comp': [ses(9, 10, ['a', 'b'])], 'L-form': [ses(3, 10, ['n1', 'n2'])] };
+    ieCrLog('W', 't2', [5, 6, 6.5, 6], 'ai'); ieCrLog('S', null, [7, 7, 7, 7], 'may');
+    const W = imWeak(), u = W.map(w => w.u);
+    if (u.includes('R-comp') || !u.includes('R-tf') || !u.includes('R-h') || !u.includes('W:0') || u.includes('W:2') || u.includes('S:0')) bad.push('chỗ yếu sai: ' + u.join(','));
+    if (!(W.find(w => w.u === 'R-tf').p > W.find(w => w.u === 'R-h').p) || !W.find(w => w.u === 'W:0').sure) bad.push('ưu tiên / độ chắc sai');
+    const f = imFocus(now), sk = f.act.map(w => w.sk);
+    if (f.act.length !== 3 || new Set(sk).size !== 3 || !f.act.some(w => w.u === 'R-tf') || f.act.some(w => w.u === 'R-h') || !f.queue.some(w => w.u === 'R-h')) bad.push('nhóm đang chữa sai: ' + f.act.map(w => w.u).join(','));
+    // lượt luyện trên bài đã gặp không tính; bài mới tính
+    const x = IE.doc[0], tfq = ieRQs(x, ['tf']); if (tfq.length < IM_MIN_Q) bad.push('bài đọc ít câu TF: ' + tfq.length);
+    ieTyLog(tfq.map(q => ({ q, ok: false })), 'luyen', new Set()); if ((o.fo.a.find(a => a.u === 'R-tf').tr || 0) !== 0) bad.push('bài đã gặp vẫn tính lần thử');
+    // đạt hôm nay + đạt hôm sau → xong; chỗ đầu hàng chờ (R-h) vào thay
+    imHit('R-tf', true, now); imHit('R-tf', true, now + 1000); if (o.fo.a.find(a => a.u === 'R-tf').pd.length !== 1) bad.push('đạt 2 lần cùng ngày tính 2');
+    imHit('R-tf', true, now + D); const g = imFocus(now + D); if (g.done !== 1 || g.act.some(w => w.u === 'R-tf') || !g.act.some(w => w.u === 'R-h')) bad.push('đạt 2 ngày chưa xong: ' + [g.done, g.act.map(w => w.u)].join('/'));
+    // lượt trượt xoá chuỗi đạt; 3 ngày chưa xong → gác; 15 ngày sau quay lại (r = 1); kẹt tiếp → 🧱, không tự quay lại; bấm "Đã học nền" → vào lại
+    imHit('L-form', true, now + D); imHit('L-form', false, now + D + 1000); if (o.fo.a.find(a => a.u === 'L-form').pd.length) bad.push('trượt chưa xoá chuỗi đạt');
+    imHit('L-form', false, now + 2 * D); imHit('L-form', false, now + 3 * D); const pk = imFocus(now + 3 * D); if (!pk.park.some(w => w.u === 'L-form') || pk.act.some(w => w.u === 'L-form')) bad.push('không gác sau 3 lần');
+    const bk = imFocus(now + 18 * D), r1 = bk.act.find(w => w.u === 'L-form'); if (!r1 || r1.r !== 1) bad.push('chỗ gác không quay lại');
+    for (let k = 0; k < 3; k++) imHit('L-form', false, now + (18 + k) * D); const rt = imFocus(now + 21 * D); if (!rt.root.some(w => w.u === 'L-form') || imFocus(now + 99 * D).act.some(w => w.u === 'L-form')) bad.push('kẹt lần 2 chưa sang nền CEFR');
+    // tiêu chí: bài Viết AI chấm đạt → một lượt đạt
+    const w0 = o.fo.a.find(a => a.u[0] === 'W'); if (w0) { const t0 = w0.tr || 0; ieCrLog('W', 't2', [7, 7, 7, 7], 'ai'); if (w0.tr !== t0 + 1 || !w0.pd.length) bad.push('bài Viết chưa ghi lượt'); } else bad.push('thiếu chỗ Viết trong nhóm');
+    await ieltsView(); const h = String($app.innerHTML); if (!h.includes('Bản đồ band') || !h.includes('Kẹt lâu')) bad.push('màn Học IELTS thiếu bản đồ band / 🧱');
+    await imFix('R-h'); if (!(h2 => h2.includes('Trước khi thử') || h2.includes(' · 1/'))(String($app.innerHTML))) bad.push('chữa dạng câu không mở bài');
+    if (!o.fo.a.find(a => a.u === 'R-h')) bad.push('R-h mất'); else {o.fo.a.find(a => a.u === 'R-h').tr = 1; o.fo.a.find(a => a.u === 'R-h').td = dayOf(now) - 1; await imFix('R-h'); if (!String($app.innerHTML).includes('Trước khi thử')) bad.push('thiếu xem cách làm trước lần thử 2'); }
+    add('ielts', 'I3', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'bản đồ band: chỗ yếu theo dạng / tiêu chí, nhóm 3 mỗi kỹ năng 1, chỉ bài mới tính, đạt 2 ngày = xong, gác 14 ngày, 🧱 nền CEFR, xem cách làm trước khi thử'); }
   // 📅 Hôm nay + 🧭 xếp cấp (homnay.js): phút học từ nhịp save(), chuỗi ngày, ô Hôm nay, câu xếp cấp hợp lệ mọi cấp, bậc thang lên / xuống / dừng
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const t0 = Date.now() - 3 * 864e5;
     for (const d of [0, 1, 2]) for (let k = 0; k < 40; k++) actTick(t0 + d * 864e5 + k * 15000);   // 3 ngày, mỗi ngày 40 lần cách 15 giây ≈ 10 phút

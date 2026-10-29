@@ -90,3 +90,14 @@ Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`so
 - Bước 1 (đã làm): mỗi câu Đọc / Nghe gắn dạng (`q.ty`: nối tiêu đề, True / False / Not Given, điền từ, trắc nghiệm, văn bản GT, nghe điền phiếu, nghe trắc nghiệm). Luyện và đề thử ghi vào `S.ie.ty` (`ieTyLog`). Viết / Nói ghi 4 tiêu chí vào `S.ie.cr` (`ieCrLog`), máy ước và 🧑‍🏫 AI chấm tách riêng.
 - Xem: ô "📊 Theo dạng câu & tiêu chí" ở Học IELTS; bảng theo dạng ở kết quả đề thử. Đủ chắc: ≥ 8 câu ở ≥ 2 bài; dưới 75% là chỗ yếu.
 - Bước 2 (màn Bản đồ band chỉ xem) chỉ làm khi có ≥ 2 đề thử hoặc ≥ 10 bài luyện thật. Bước 3 (nhóm 3 chỗ đang chữa, thử bằng bài mới) cần thêm bài: mỗi dạng ≥ 10 bài.
+
+## 🗺 Bản đồ band IELTS (v83, bước 2 + 3, `iemap.js`)
+- Người sáng lập 29/10/2026 chọn làm luôn bước 2 + 3 dù dữ liệu thật còn 0 bài IELTS. Mọi ngưỡng là ước đoán, chỉnh sau 2 tuần học thật.
+- Chỗ yếu: dạng câu Đọc / Nghe dưới 75%, tiêu chí Viết / Nói dưới band mục tiêu (AI chấm có thì dùng AI, không thì máy ước, độ chắc 0,5).
+- Ưu tiên = band có thể tăng × độ chắc. Đọc / Nghe: tỉ trọng dạng × khoảng thiếu tới 75% × 40 câu / ~4,5 câu mỗi band. Viết / Nói: (mục tiêu − band tiêu chí) / 4.
+- 🎯 Nhóm đang chữa tối đa 3, mỗi kỹ năng 1; còn lại ⏳ hàng chờ.
+- Một lần thử: lượt có ≥ 4 câu của dạng trên bài chưa gặp trong 30 ngày (luyện hoặc đề thử), hoặc một bài Viết / Nói được chấm; mỗi ngày tính 1. Hết bài mới: lượt đó không tính (app báo).
+- Chữa xong: đạt 2 lượt liền ở 2 ngày khác nhau (trượt xoá chuỗi). Sau đó chỉ xét lại bằng lượt làm sau ngày chữa xong.
+- Thử 3 ngày chưa xong → ⏸ gác 14 ngày; quay lại vẫn kẹt → 🧱 học nền CEFR; bấm "Đã học nền" để thử lại.
+- Từ lần thử 2 (và luôn với Viết / Nói): 📘 xem cách làm dạng / cách nâng tiêu chí trước khi thử.
+- Giới hạn đã biết: kho 9 bài Đọc học thuật, nên mỗi dạng chỉ có khoảng 3 lượt "bài mới" trong 30 ngày.
