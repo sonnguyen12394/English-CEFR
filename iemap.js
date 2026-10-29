@@ -38,24 +38,9 @@ function imPool(u) { if (u === 'R-gt') return KIT.doc.items ? KIT.doc.items.filt
   if (u[0] === 'R') return IE ? IE.doc : []; if (u[0] === 'L') return KIT.nghe.items ? KIT.nghe.items.filter(x => ['b1', 'b2', 'c1', 'c2'].includes(x.lv) && (u === 'L-form' ? ngForm(x) : true)) : []; return []; }
 const imFreshN = u => imPool(u).filter(x => imFreshOk(x.id)).length;
 // nhóm đang chữa: S.ie.fo = { a: [{ u, at, tr (số ngày đã thử), td, pd (ngày đạt liền nhau), r (lần quay lại) }], p: [{ u, at, r, root }], n: số chỗ chữa xong }
-function imFocus(now = Date.now()) { const o = ieSt(), F = o.fo = o.fo || {}; F.a = F.a || []; F.p = F.p || []; F.n = F.n || 0; F.fx = F.fx || {};
-  const fixed = u => { F.n++; F.fx[u] = now; };
-  let weak = imWeak(), by = new Map(weak.map(w => [w.u, w]));
-  const np = []; for (const p of F.p) { if (by.has(p.u)) np.push(p); else fixed(p.u); } F.p = np;   // hết yếu trong lúc gác = chữa xong
-  const keep = []; for (const f of F.a) { if ((f.pd || []).length >= 2) { fixed(f.u); continue; }
-    if ((f.tr || 0) >= IM_TRY) { if (by.has(f.u)) F.p.push({ u: f.u, at: now, r: f.r || 0, root: (f.r || 0) >= 1 }); else fixed(f.u); continue; } keep.push(f); }
-  weak = imWeak(); by = new Map(weak.map(w => [w.u, w]));   // chỗ vừa chữa xong: bỏ lượt cũ
-  const sk = new Set(keep.map(f => f.u[0])), inA = new Set(keep.map(f => f.u)), parked = new Map(F.p.map(p => [p.u, p])), back = p => !p.root && now - p.at >= IM_PARK_D * DAY;
-  const queue = [...weak.filter(w => !inA.has(w.u) && !parked.has(w.u)), ...weak.filter(w => parked.has(w.u) && back(parked.get(w.u)))];
-  for (const w of queue) { if (keep.length >= IM_ACT) break; if (sk.has(w.sk) || inA.has(w.u)) continue; const pk = parked.get(w.u);
-    keep.push({ u: w.u, at: now, tr: 0, r: pk ? pk.r + 1 : 0, pd: [] }); inA.add(w.u); sk.add(w.sk); if (pk) F.p = F.p.filter(p => p.u !== w.u); }
-  F.a = keep;
-  const info = u => by.get(u) || { u, sk: u[0], t: imName(u), v: 'đã đạt ngưỡng, chờ đủ 2 lượt', p: 0 };
-  return { act: keep.map(f => ({ ...info(f.u), tr: f.tr || 0, r: f.r || 0, pd: (f.pd || []).length, td: f.td })), queue: queue.filter(w => !inA.has(w.u)),
-    park: F.p.filter(p => !p.root && !back(p)).map(p => ({ ...info(p.u), at: p.at })), root: F.p.filter(p => p.root).map(p => info(p.u)), done: F.n }; }
+const imFocus = (now = Date.now()) => { const o = ieSt(); return fcFocus(o.fo = o.fo || {}, imWeak, { act: IM_ACT, cap: () => 1, try: IM_TRY, parkD: IM_PARK_D, info: u => ({ u, sk: u[0], t: imName(u), v: 'đã đạt ngưỡng, chờ đủ 2 lượt', p: 0 }) }, now); };
 // một lượt của chỗ đang chữa (gọi từ ieTyLog / ieCrLog trong ielts.js)
-function imHit(u, pass, now = Date.now()) { const F = ieSt().fo; if (!F || !F.a) return; const f = F.a.find(x => x.u === u); if (!f) return; const d = dayOf(now);
-  if (f.td !== d) { f.tr = (f.tr || 0) + 1; f.td = d; } f.pd = pass ? [...new Set([...(f.pd || []), d])] : []; }
+const imHit = (u, pass, now = Date.now()) => fcHit(ieSt().fo, u, pass, now);
 
 // ---------- ▶ chữa một chỗ ----------
 function imTeach(u, go) { const k = u[0], html = IE_TY[u] ? (typeof ieHow === 'function' ? ieHow([IM_HOWK[u]]).replace('<details', '<details open') : '')
@@ -92,4 +77,4 @@ function imBox() { const f = imFocus(), hasData = Object.keys(ieSt().ty || {}).l
     <p class="mute" style="margin:6px 0 0">Ngưỡng (75%, 3 chỗ, 3 lần thử, 14 ngày gác) là ước đoán, sẽ chỉnh theo dữ liệu thật.</p></div>`; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-im]'); if (!b || !S) return; const v = b.dataset.im, i = v.indexOf('|'), a = i < 0 ? v : v.slice(0, i), u = v.slice(i + 1);
   if (a === 'fix') { scrollTo(0, 0); return imFix(u); }
-  if (a === 'rl') { const p = (ieSt().fo.p || []).find(x => x.u === u); if (p) { p.root = false; p.at = Date.now() - IM_PARK_D * DAY; } S.t = Date.now(); save(); return ieltsView(); } });
+  if (a === 'rl') { fcRelease(ieSt().fo, u); S.t = Date.now(); save(); return ieltsView(); } });

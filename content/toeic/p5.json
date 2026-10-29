@@ -100,6 +100,14 @@
     {"id": "t5-97", "k": "v", "t": "voc", "s": "Our technicians will ------- the equipment free of charge during the warranty period.", "o": ["repair", "replace with", "recover", "refer"], "a": "repair", "why": "repair the equipment = sửa thiết bị."},
     {"id": "t5-98", "k": "v", "t": "voc", "s": "The director asked for a detailed ------- of the costs before approving the plan.", "o": ["breakdown", "breakthrough", "breakout", "breakup"], "a": "breakdown", "why": "a breakdown of the costs = bảng chi tiết chi phí."},
     {"id": "t5-99", "k": "v", "t": "voc", "s": "Employees are ------- to a 15 percent discount on all company products.", "o": ["entitled", "eligible for", "allowed of", "permitted on"], "a": "entitled", "why": "be entitled to = được hưởng (quyền lợi)."},
-    {"id": "t5-100", "k": "v", "t": "voc", "s": "The airline apologized for the ------- caused by the delay.", "o": ["inconvenience", "incident", "insistence", "interference"], "a": "inconvenience", "why": "apologize for the inconvenience = xin lỗi vì sự bất tiện."}
-  ]
+    {"id": "t5-100", "k": "v", "t": "voc", "s": "The airline apologized for the ------- caused by the delay.", "o": ["inconvenience", "incident", "insistence", "interference"], "a": "inconvenience", "why": "apologize for the inconvenience = xin lỗi vì sự bất tiện."},
+    {"id":  "t5-101", "k":  "g", "s":  "Our new delivery service is ------- than any other service in the region.", "o":  ["faster", "fast", "fastest", "fastly"], "a":  "faster", "why":  "Có than: so sánh hơn faster.", "t":  "struct"},
+    {"id":  "t5-102", "k":  "g", "s":  "Ms. Tran is the ------- experienced engineer on the project team.", "o":  ["most", "more", "much", "very"], "a":  "most", "why":  "the + most + tính từ dài: so sánh nhất.", "t":  "struct"},
+    {"id":  "t5-103", "k":  "g", "s":  "Only after the contract was signed ------- the work begin.", "o":  ["did", "does", "was", "had"], "a":  "did", "why":  "Only after … đứng đầu câu → đảo ngữ: did the work begin.", "t":  "struct"},
+    {"id":  "t5-104", "k":  "g", "s":  "The second hotel was not as ------- as the first one we visited.", "o":  ["comfortable", "more comfortable", "most comfortable", "comfortably"], "a":  "comfortable", "why":  "as + tính từ nguyên dạng + as.", "t":  "struct"},
+    {"id":  "t5-105", "k":  "g", "s":  "Never before ------- the company received so many applications for one position.", "o":  ["has", "have", "is", "did"], "a":  "has", "why":  "Never before đầu câu → đảo ngữ, chủ ngữ số ít the company: has … received.", "t":  "struct"},
+    {"id":  "t5-106", "k":  "g", "s":  "Of the three proposals, Mr. Diaz's was by far the ------- .", "o":  ["best", "better", "good", "well"], "a":  "best", "why":  "by far the + so sánh nhất (trong ba đề xuất).", "t":  "struct"},
+    {"id":  "t5-107", "k":  "g", "s":  "------- had the meeting started when the fire alarm rang.", "o":  ["Hardly", "Even", "Still", "Already"], "a":  "Hardly", "why":  "Hardly had … when …: vừa mới … thì …", "t":  "struct"},
+    {"id":  "t5-108", "k":  "g", "s":  "The more customers we serve, the ------- our reputation becomes.", "o":  ["stronger", "strong", "strongest", "more strongly"], "a":  "stronger", "why":  "The + so sánh hơn …, the + so sánh hơn … (càng … càng …).", "t":  "struct"}
+]
 }

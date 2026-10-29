@@ -1352,6 +1352,406 @@
      ]
     }
    ]
+  },
+  {
+   "id": "t3-13",
+   "lines": [
+    [
+     "A",
+     "Hi, Marco. Did you get a chance to look at the budget for the trade show in Singapore?"
+    ],
+    [
+     "B",
+     "I did. The booth rental is much higher than last year, so we may need to cut something else."
+    ],
+    [
+     "A",
+     "What about the printed brochures? We could put everything on a tablet display instead."
+    ],
+    [
+     "B",
+     "Good idea. I'll ask the design team if they can prepare a digital version by Friday."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What are the speakers mainly discussing?",
+     "a": "The cost of an event",
+     "w": [
+      "A new product design",
+      "A hiring decision",
+      "A delayed flight"
+     ]
+    },
+    {
+     "q": "What does the woman suggest?",
+     "a": "Replacing printed materials",
+     "w": [
+      "Renting a smaller booth",
+      "Canceling the trip",
+      "Asking for a bigger budget"
+     ]
+    },
+    {
+     "q": "What will the man do next?",
+     "a": "Contact the design team",
+     "w": [
+      "Book a hotel",
+      "Print some brochures",
+      "Call the event organizer"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-14",
+   "lines": [
+    [
+     "A",
+     "Good morning, I'd like to return this jacket. I bought it last week, but it's too small."
+    ],
+    [
+     "B",
+     "Do you have your receipt? We can exchange it for a larger size or give you a refund."
+    ],
+    [
+     "A",
+     "Here it is. I'd prefer a larger size, but I don't see any on the shelf."
+    ],
+    [
+     "B",
+     "Let me check our other branch on Main Street. They can hold one for you until this evening."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "Why is the woman at the store?",
+     "a": "To return an item",
+     "w": [
+      "To apply for a job",
+      "To pick up an order",
+      "To complain about service"
+     ]
+    },
+    {
+     "q": "What problem does the woman mention?",
+     "a": "A size is not available.",
+     "w": [
+      "She lost her receipt.",
+      "The jacket is damaged.",
+      "The store is closing."
+     ]
+    },
+    {
+     "q": "What does the man offer to do?",
+     "a": "Contact another store",
+     "w": [
+      "Give a discount",
+      "Deliver the item",
+      "Repair the jacket"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-15",
+   "lines": [
+    [
+     "A",
+     "Excuse me, the train to Westfield was supposed to leave at ten. Do you know what's happening?"
+    ],
+    [
+     "B",
+     "There's a problem with the signals, so it's delayed by about forty minutes."
+    ],
+    [
+     "A",
+     "Oh no, I have a job interview at eleven thirty. Is there another way to get there?"
+    ],
+    [
+     "B",
+     "The express bus leaves from the stop outside in ten minutes. Your train ticket is valid on it today."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "Why is the train delayed?",
+     "a": "There is a technical problem.",
+     "w": [
+      "The weather is bad.",
+      "The driver is sick.",
+      "A track is being built."
+     ]
+    },
+    {
+     "q": "Why is the woman worried?",
+     "a": "She has an appointment.",
+     "w": [
+      "She lost her ticket.",
+      "She missed a meeting.",
+      "Her luggage is missing."
+     ]
+    },
+    {
+     "q": "What does the man tell the woman?",
+     "a": "She can use her ticket on a bus.",
+     "w": [
+      "She should buy a new ticket.",
+      "The train will leave soon.",
+      "A taxi is waiting outside."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-16",
+   "lines": [
+    [
+     "A",
+     "Paula, the client from Lindgren Foods wants to move tomorrow's meeting to next Tuesday."
+    ],
+    [
+     "B",
+     "That's a problem. I'll be at the training course in Boston all next week."
+    ],
+    [
+     "A",
+     "Could you join by video call? The meeting only takes an hour."
+    ],
+    [
+     "B",
+     "Sure. Please send me the link, and I'll ask Tom to bring the samples to the meeting room."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What does the client want to do?",
+     "a": "Reschedule a meeting",
+     "w": [
+      "Cancel an order",
+      "Visit a factory",
+      "Change a supplier"
+     ]
+    },
+    {
+     "q": "Why can't the woman attend in person?",
+     "a": "She will be at a training course.",
+     "w": [
+      "She is going on vacation.",
+      "She has another client.",
+      "She is moving offices."
+     ]
+    },
+    {
+     "q": "What does the man suggest?",
+     "a": "Joining online",
+     "w": [
+      "Sending a colleague instead",
+      "Meeting on Monday",
+      "Calling the client"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-17",
+   "lines": [
+    [
+     "A",
+     "Hello, this is Dr. Patel's office. I'm calling to remind you of your appointment on Wednesday at nine."
+    ],
+    [
+     "B",
+     "Thank you. Actually, could I come in the afternoon instead? I have a meeting that morning."
+    ],
+    [
+     "A",
+     "We have an opening at two fifteen. Please arrive ten minutes early to fill in a new form."
+    ],
+    [
+     "B",
+     "Two fifteen is perfect. Should I bring anything else?"
+    ]
+   ],
+   "qs": [
+    {
+     "q": "Why is the woman calling?",
+     "a": "To remind someone of an appointment",
+     "w": [
+      "To offer a job",
+      "To order supplies",
+      "To ask for payment"
+     ]
+    },
+    {
+     "q": "What does the man ask for?",
+     "a": "A different time",
+     "w": [
+      "A different doctor",
+      "A copy of a form",
+      "Directions to the office"
+     ]
+    },
+    {
+     "q": "What is the man asked to do?",
+     "a": "Arrive early",
+     "w": [
+      "Bring his insurance card",
+      "Call back tomorrow",
+      "Pay in advance"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-18",
+   "lines": [
+    [
+     "A",
+     "Have you seen the sales figures for our new energy drink?"
+    ],
+    [
+     "B",
+     "Yes, sales are strong in supermarkets but weak in convenience stores."
+    ],
+    [
+     "A",
+     "Maybe the bottles are too big for people buying on the go. We could launch a smaller size."
+    ],
+    [
+     "B",
+     "Let's discuss it with the marketing manager at Thursday's meeting. I'll add it to the agenda."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What product are the speakers discussing?",
+     "a": "A drink",
+     "w": [
+      "A snack",
+      "A store app",
+      "A cleaning product"
+     ]
+    },
+    {
+     "q": "What does the man suggest?",
+     "a": "Offering a smaller package",
+     "w": [
+      "Lowering the price",
+      "Changing the flavor",
+      "Advertising on television"
+     ]
+    },
+    {
+     "q": "What will the woman do?",
+     "a": "Add an item to a meeting agenda",
+     "w": [
+      "Call some store managers",
+      "Order new bottles",
+      "Write a sales report"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-19",
+   "lines": [
+    [
+     "A",
+     "Welcome to Harbor Hotel. Do you have a reservation?"
+    ],
+    [
+     "B",
+     "Yes, under the name Kim. I booked a room with a sea view for three nights."
+    ],
+    [
+     "A",
+     "I'm afraid the sea-view rooms are being painted this week. I can give you a suite on the top floor at no extra charge."
+    ],
+    [
+     "B",
+     "That sounds great. Could I also get a late checkout on Sunday? My flight isn't until the evening."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "Where does the conversation take place?",
+     "a": "At a hotel",
+     "w": [
+      "At an airport",
+      "At a restaurant",
+      "At a travel agency"
+     ]
+    },
+    {
+     "q": "Why can't the man get the room he booked?",
+     "a": "Some rooms are being painted.",
+     "w": [
+      "The hotel is full.",
+      "His booking was canceled.",
+      "The price has changed."
+     ]
+    },
+    {
+     "q": "What does the man ask for?",
+     "a": "A late checkout",
+     "w": [
+      "A taxi to the airport",
+      "Breakfast in his room",
+      "A cheaper room"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-20",
+   "lines": [
+    [
+     "A",
+     "I just heard that Ms. Alvarez is retiring at the end of the month."
+    ],
+    [
+     "B",
+     "Really? She's led the accounting team for twenty years. We should do something for her."
+    ],
+    [
+     "A",
+     "How about a lunch at the Italian restaurant across the street? I can collect money from the team."
+    ],
+    [
+     "B",
+     "Good. I'll book a table for Friday the twenty-eighth and order a card for everyone to sign."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What are the speakers discussing?",
+     "a": "A colleague's retirement",
+     "w": [
+      "A new accountant",
+      "A restaurant opening",
+      "A team budget"
+     ]
+    },
+    {
+     "q": "What does the woman offer to do?",
+     "a": "Collect money",
+     "w": [
+      "Write a speech",
+      "Order flowers",
+      "Contact Ms. Alvarez"
+     ]
+    },
+    {
+     "q": "What will the man do?",
+     "a": "Reserve a table",
+     "w": [
+      "Plan a trip",
+      "Hire a caterer",
+      "Print a schedule"
+     ]
+    }
+   ]
   }
  ],
  "p4": [
@@ -1681,6 +2081,336 @@
       "Take photos of the machines",
       "Meet the factory owner",
       "Watch a short film"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-11",
+   "text": "Good morning, everyone, and welcome to your first day at Norland Bank. My name is Jessica Park, and I'll be leading your orientation today. This morning, we'll tour the building and you'll receive your staff ID cards. After lunch, which will be served in the cafeteria on the second floor, you'll meet your team leaders. Please make sure you have a copy of your signed contract, as human resources needs to collect it before five o'clock.",
+   "qs": [
+    {
+     "q": "Who most likely are the listeners?",
+     "a": "New employees",
+     "w": [
+      "Bank customers",
+      "Team leaders",
+      "Job applicants"
+     ]
+    },
+    {
+     "q": "Where will lunch be served?",
+     "a": "In the cafeteria",
+     "w": [
+      "In a meeting room",
+      "At a restaurant nearby",
+      "In the lobby"
+     ]
+    },
+    {
+     "q": "What are listeners asked to bring?",
+     "a": "A signed contract",
+     "w": [
+      "A photo ID",
+      "A laptop",
+      "A bank card"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-12",
+   "text": "This is the Riverside Weekly traffic report. Drivers heading downtown should expect delays on Highway 9 this morning, where one lane is closed for road repairs. The work is scheduled to finish by Thursday. If possible, use Bridge Road instead. Also, remember that the city marathon takes place this Sunday, so several streets near Central Park will be closed from six A.M. until two P.M.",
+   "qs": [
+    {
+     "q": "What is causing delays on Highway 9?",
+     "a": "Road repairs",
+     "w": [
+      "An accident",
+      "Heavy snow",
+      "A sports event"
+     ]
+    },
+    {
+     "q": "What does the speaker recommend?",
+     "a": "Taking a different route",
+     "w": [
+      "Leaving home later",
+      "Using public transportation",
+      "Parking near the park"
+     ]
+    },
+    {
+     "q": "What will happen on Sunday?",
+     "a": "A race will be held.",
+     "w": [
+      "A bridge will open.",
+      "A park will be renovated.",
+      "A parade will take place."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-13",
+   "text": "Hi, this message is for Daniel Ruiz. This is Amy from Brightway Office Supplies. You ordered fifty desk chairs for your new office, but the model you chose is currently out of stock. We can deliver a very similar model next Monday at the same price, or wait three weeks for the original chairs. Please call me back at 555-0187 before Friday so we can arrange delivery.",
+   "qs": [
+    {
+     "q": "Why is the speaker calling?",
+     "a": "An item is not available.",
+     "w": [
+      "A payment is late.",
+      "A delivery was damaged.",
+      "An office is moving."
+     ]
+    },
+    {
+     "q": "What does the speaker offer?",
+     "a": "A similar product",
+     "w": [
+      "A discount",
+      "Free installation",
+      "A refund"
+     ]
+    },
+    {
+     "q": "What is the listener asked to do?",
+     "a": "Return a call",
+     "w": [
+      "Visit the store",
+      "Send an e-mail",
+      "Sign a contract"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-14",
+   "text": "Thank you all for coming to today's workshop on time management. Before we start, please turn off your mobile phones. The session will last about two hours, with a fifteen-minute break in the middle. Coffee and snacks will be available in the hallway. At the end, I'll ask you to complete a short survey about the workshop, so we can improve future sessions.",
+   "qs": [
+    {
+     "q": "What is the topic of the workshop?",
+     "a": "Managing time",
+     "w": [
+      "Using mobile phones",
+      "Writing surveys",
+      "Leading a team"
+     ]
+    },
+    {
+     "q": "How long will the workshop last?",
+     "a": "About two hours",
+     "w": [
+      "Fifteen minutes",
+      "All day",
+      "About one hour"
+     ]
+    },
+    {
+     "q": "What will listeners do at the end?",
+     "a": "Complete a survey",
+     "w": [
+      "Take a test",
+      "Watch a video",
+      "Meet the speaker"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-15",
+   "text": "Attention, passengers on Flight 482 to Toronto. Due to strong winds, our departure has been delayed by one hour. The new departure time is three forty-five. Passengers who have connecting flights in Toronto should speak to an agent at the service desk near Gate 12. We're sorry for the delay, and we'll provide meal vouchers at the gate in a few minutes.",
+   "qs": [
+    {
+     "q": "Why has the flight been delayed?",
+     "a": "Because of the weather",
+     "w": [
+      "Because of a mechanical problem",
+      "Because a crew member is late",
+      "Because of heavy traffic"
+     ]
+    },
+    {
+     "q": "Who should go to the service desk?",
+     "a": "Passengers with connecting flights",
+     "w": [
+      "Passengers with heavy bags",
+      "First-class passengers",
+      "Passengers without tickets"
+     ]
+    },
+    {
+     "q": "What will passengers receive?",
+     "a": "Meal vouchers",
+     "w": [
+      "Free upgrades",
+      "Hotel rooms",
+      "Travel guides"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-16",
+   "text": "Welcome to Green Valley Farm. Today's tour will take about an hour. We'll start in the greenhouse, where we grow tomatoes all year round. Then you'll see how our cheese is made. Please don't touch the animals in the fields, as some of them are very young. At the end of the tour, you can visit our shop, where all of our products are ten percent off for visitors today.",
+   "qs": [
+    {
+     "q": "Where will the tour begin?",
+     "a": "In a greenhouse",
+     "w": [
+      "In a shop",
+      "In a field",
+      "In a cheese factory"
+     ]
+    },
+    {
+     "q": "What are listeners asked not to do?",
+     "a": "Touch the animals",
+     "w": [
+      "Take photos",
+      "Eat in the greenhouse",
+      "Leave the group"
+     ]
+    },
+    {
+     "q": "What is offered to visitors today?",
+     "a": "A discount",
+     "w": [
+      "A free lunch",
+      "A cooking class",
+      "A gift bag"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-17",
+   "text": "I'm pleased to announce that our company has won this year's Green Business Award. The judges were impressed by how much we reduced our energy use, almost thirty percent in two years. I'd like to thank the facilities team, who installed the new lighting system. To celebrate, there will be a reception in the main hall on Friday afternoon, and everyone is invited.",
+   "qs": [
+    {
+     "q": "What is the announcement about?",
+     "a": "An award",
+     "w": [
+      "A new manager",
+      "A building move",
+      "An energy bill"
+     ]
+    },
+    {
+     "q": "Why did the company receive recognition?",
+     "a": "It reduced its energy use.",
+     "w": [
+      "It increased its sales.",
+      "It opened a new office.",
+      "It hired more staff."
+     ]
+    },
+    {
+     "q": "What will happen on Friday?",
+     "a": "A celebration",
+     "w": [
+      "A safety inspection",
+      "A training session",
+      "A lighting installation"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-18",
+   "text": "You've reached Coleman Dental Clinic. Our office is currently closed. Our regular hours are Monday to Friday, eight A.M. to six P.M., and Saturday mornings from nine to twelve. If you'd like to make an appointment, you can now book online through our website. If you have a dental emergency, please call Dr. Coleman's emergency number at 555-0144.",
+   "qs": [
+    {
+     "q": "What type of business recorded the message?",
+     "a": "A dental clinic",
+     "w": [
+      "A pharmacy",
+      "A hospital",
+      "An insurance company"
+     ]
+    },
+    {
+     "q": "When is the business open on Saturdays?",
+     "a": "In the morning",
+     "w": [
+      "All day",
+      "In the afternoon",
+      "Only by appointment"
+     ]
+    },
+    {
+     "q": "What is new about making appointments?",
+     "a": "They can be made online.",
+     "w": [
+      "They are free on Saturdays.",
+      "They require a deposit.",
+      "They must be made by e-mail."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-19",
+   "text": "Good afternoon, and thank you for listening to Business Today. My guest this afternoon is Carl Jensen, the founder of Jensen Bikes. Ten years ago, Carl started repairing bicycles in his garage. Today, his company sells electric bikes in twelve countries. Later in the show, Carl will talk about his plans to open a factory in Vietnam and answer questions from our listeners.",
+   "qs": [
+    {
+     "q": "Who is Carl Jensen?",
+     "a": "A company founder",
+     "w": [
+      "A radio host",
+      "A professional cyclist",
+      "A factory worker"
+     ]
+    },
+    {
+     "q": "How did Mr. Jensen start his business?",
+     "a": "By repairing bicycles",
+     "w": [
+      "By selling cars",
+      "By designing websites",
+      "By working in a factory"
+     ]
+    },
+    {
+     "q": "What will Mr. Jensen talk about later?",
+     "a": "Plans for a new factory",
+     "w": [
+      "A cycling race",
+      "His favorite bike",
+      "A product recall"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-20",
+   "text": "Hello, team. I want to give you a quick update on the website project. The design is finished, but testing is taking longer than planned because we found problems with the payment page. Because of this, the launch will be moved from June first to June fifteenth. I need everyone to send me a list of the problems you've found by Wednesday, so the developers can fix them.",
+   "qs": [
+    {
+     "q": "What is the speaker mainly talking about?",
+     "a": "A project update",
+     "w": [
+      "A new team member",
+      "A payment policy",
+      "A sales report"
+     ]
+    },
+    {
+     "q": "What problem does the speaker mention?",
+     "a": "An issue with a web page",
+     "w": [
+      "A lack of designers",
+      "A budget cut",
+      "A late payment"
+     ]
+    },
+    {
+     "q": "What are listeners asked to do by Wednesday?",
+     "a": "Send a list of problems",
+     "w": [
+      "Test a new design",
+      "Attend a meeting",
+      "Contact the developers"
      ]
     }
    ]

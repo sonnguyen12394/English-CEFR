@@ -68,7 +68,7 @@ async function toMock(idx) { $app.innerHTML = '<p class="mute">Đang tải…</p
   for (const i of idx) { const p = TO_PAPERS[i]; MK.papers.push({ t: p.t, k: p.k, min: p.min, qs: p.gen(), res: [] }); }
   if (!confirm(`${MK.C.name}: ${MK.papers.map(p => `${p.t} ${p.qs.length} câu, ${p.min} phút`).join(' · ')}. Bài nghe chỉ phát 1 lần như đề thật. Bắt đầu?`)) return toeicView();
   mkPaper(0); }
-function toMockResult() { const b = {}, rows = []; toTrapLog(MK.papers.flatMap(p => p.res));
+function toMockResult() { const b = {}, rows = []; toLog(MK.papers.flatMap(p => p.res), 'thi');   // 🗺 tomap.js: lịch sử theo dạng + lần thử (gồm đếm bẫy cũ)
   for (const p of MK.papers) { const ok = p.res.filter(r => r.ok).length; b[p.k] = toScale(ok, p.res.length);
     const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } rows.push([p, ok, by]); }
   const full = b.L != null && b.R != null, tot = full ? b.L + b.R : null, tg = toSt().target; toSt().mock.push({ at: Date.now(), b, tot }); S.t = Date.now(); save();
@@ -123,7 +123,8 @@ function toSpeed(s) { const [sec, n] = TO_SPD[s], qs = s === 'p5' ? toGen.p5(n) 
   ieRun(`⏱ ${TO_SEC[s][1]} · ${sec} giây / câu`, qs, toeicView, 0, { R: toSt().r, home: 'Luyện TOEIC', spd: sec,
     endHtml: res => { const avg = res.reduce((t, r) => t + r.secs, 0) / Math.max(1, res.length), over = res.filter(r => r.secs > sec).length;
       return `<div class="box"><b>⏱ Trung bình ${avg.toFixed(1)} giây / câu</b> ${avg <= sec ? '✅' : '⚠️'} <span class="mute">(mục tiêu ≤ ${sec})</span><p class="mute" style="margin:4px 0 0">${over} câu quá giờ. ${avg > sec ? (s === 'p5' ? 'Nhìn 4 phương án trước: cùng gốc khác đuôi thì chỉ cần xem vị trí từ, không cần đọc hết câu.' : 'Đọc câu hỏi trước, rồi tìm từ khoá trong bài; đừng đọc kỹ cả bài.') : 'Giữ nhịp này, thi thật còn dư giờ cho Part 7.'}</p></div>`; },
-    done: res => { toSt().spd.push({ at: Date.now(), s, avg: Math.round(res.reduce((t, r) => t + r.secs, 0) / Math.max(1, res.length) * 10) / 10, ok: res.filter(r => r.ok).length, n: res.length }); S.t = Date.now(); save(); } }); }
+    done: (res, fr) => { const avg = Math.round(res.reduce((t, r) => t + r.secs, 0) / Math.max(1, res.length) * 10) / 10, ok = res.filter(r => r.ok).length; toSt().spd.push({ at: Date.now(), s, avg, ok, n: res.length });
+      toLog(res, 'luyen', fr); tmHit('spd:' + s, avg <= sec && ok / Math.max(1, res.length) >= toTh()); S.t = Date.now(); save(); } }); }
 function toInsights() { const o = toSt(), tags = toTagAcc().filter(t => t.n), gain = toGain().slice(0, 3), traps = Object.entries(o.trap).sort((a, b) => b[1] - a[1]), sp = s => o.spd.filter(r => r.s === s).slice(-1)[0];
   const wk = o.date ? Math.max(0, Math.ceil((new Date(o.date + 'T12:00:00') - Date.now()) / (7 * 864e5))) : null, now = toNow();
   return `<div class="box"><b>🔍 Phân tích điểm yếu</b>
@@ -152,7 +153,7 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">${cell('L', '🎧 Listening')}${cell('R', '📖 Reading')}</div>
       <p class="mute" style="margin:6px 0 0">Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. Ước theo tỉ lệ đúng, không phải bảng ETS. 📏 = đã chỉnh theo đề thật bạn nhập (so đề thử app trong 14 ngày).</p>
       <button class="pri" ${act} style="margin-top:8px">▶ Nên làm hôm nay: ${esc(lab)}</button></div>
-    ${toInsights()}
+    ${tmBox()}${toInsights()}
     <div class="box"><b>🧱 Nền cần có: CEFR ${LVN[base]}</b><p class="mute" style="margin:6px 0">Suy từ bảng ETS (Nghe B1 ≥ 275, B2 ≥ 400, C1 ≥ 490; Đọc B1 ≥ 275, B2 ≥ 385, C1 ≥ 455; nên đối chiếu tài liệu ETS). ${tg} điểm ≈ mỗi phần ${tg / 2}.</p>
       <p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🎯 Mở Học CEFR cấp ${LVN[base]}</button></div>
     <div class="box"><div class="row"><b>🎓 Đề thử TOEIC</b><span class="mute">${o.mock.length ? `đã làm ${o.mock.length} lần` : 'chưa làm'}</span></div>
@@ -175,8 +176,8 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
     if ((b = g('[data-tovoc]'))) { scrollTo(0, 0); return toVocRun(b.dataset.tovoc); }
     if ((b = g('[data-tospd]'))) { scrollTo(0, 0); return toSpeed(b.dataset.tospd); }
     if ((b = g('[data-top]'))) { const s = b.dataset.top; scrollTo(0, 0); if (!NCLIPS.size) fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(k => { NCLIPS = new Set(k); }).catch(() => {});
-      if (s.startsWith('t:')) { const t = s.slice(2), qs = toPick(TO.p5.filter(x => x.t === t), 15).map(toP5Q); return ieRun('✏️ Part 5 · ' + TO_T5[t], qs, toeicView, 0, { R: o.r, home: 'Luyện TOEIC' }); }
+      if (s.startsWith('t:')) { const t = s.slice(2), qs = toPick(TO.p5.filter(x => x.t === t), 15).map(toP5Q); return ieRun('✏️ Part 5 · ' + TO_T5[t], qs, toeicView, 0, { R: o.r, home: 'Luyện TOEIC', done: (res, fr) => toLog(res, 'luyen', fr) }); }
       const qs = s === 'w5' ? shuf(toWrong5()).slice(0, 15).map(toP5Q) : toGen[s](s === 'p7m' ? 1 : TO_PRAC[s]); if (!qs.length) return toast('Chưa có bài.');
-      return ieRun((TO_SEC[s] || ['📑', s === 'w5' ? 'Làm lại câu sai' : 'Part 7: nhiều văn bản'])[0] + ' ' + (TO_SEC[s] ? TO_SEC[s][1] : s === 'w5' ? 'Làm lại câu sai' : 'Part 7: nhiều văn bản'), qs, toeicView, 0, { R: o.r, home: 'Luyện TOEIC', done: toTrapLog }); } }; }
+      return ieRun((TO_SEC[s] || ['📑', s === 'w5' ? 'Làm lại câu sai' : 'Part 7: nhiều văn bản'])[0] + ' ' + (TO_SEC[s] ? TO_SEC[s][1] : s === 'w5' ? 'Làm lại câu sai' : 'Part 7: nhiều văn bản'), qs, toeicView, 0, { R: o.r, home: 'Luyện TOEIC', done: (res, fr) => toLog(res, 'luyen', fr) }); } }; }
 const toHow = k => `<details style="margin-top:6px"><summary>📘 Cách làm</summary>${TO_HOW[k][1].map(s => `<p style="margin:2px 0;font-size:15px">• ${esc(s)}</p>`).join('')}</details>`;
 toLoad().catch(() => {});

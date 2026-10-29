@@ -4,7 +4,7 @@ export const root = new URL('../..', import.meta.url).pathname;
 export async function load() {
   const el = () => new Proxy({ style: {}, classList: { toggle() {}, add() {}, remove() {} }, dataset: {}, innerHTML: '', hidden: false }, { get: (t, k) => k in t ? t[k] : (k === 'querySelectorAll' ? () => [] : typeof k === 'string' && /^(addEventListener|appendChild|remove|setAttribute|focus|scrollIntoView|querySelector|closest)$/.test(k) ? () => null : undefined) });
   const els = {}, LS = {};
-  const ctx = { console, Blob, URL, setTimeout, clearTimeout, setInterval: () => 0, Promise, Date, Math, JSON, Set, Map, Array, Object, String, Number, RegExp, URLSearchParams,
+  const ctx = { console, Blob, URL, setTimeout, clearTimeout, setInterval: () => 0, clearInterval: () => {}, Promise, Date, Math, JSON, Set, Map, Array, Object, String, Number, RegExp, URLSearchParams,
     navigator: { userAgent: 'test' }, innerWidth: 390, innerHeight: 844, scrollTo() {}, alert() {}, confirm: () => true, prompt: () => null,
     localStorage: { getItem: k => LS[k] ?? null, setItem: (k, v) => { LS[k] = String(v); }, removeItem: k => { delete LS[k]; } },
     speechSynthesis: { getVoices: () => [], speak() {}, cancel() {} }, Audio: class { play() { return Promise.resolve(); } pause() {} },

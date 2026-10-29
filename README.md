@@ -101,3 +101,12 @@ Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`so
 - Thử 3 ngày chưa xong → ⏸ gác 14 ngày; quay lại vẫn kẹt → 🧱 học nền CEFR; bấm "Đã học nền" để thử lại.
 - Từ lần thử 2 (và luôn với Viết / Nói): 📘 xem cách làm dạng / cách nâng tiêu chí trước khi thử.
 - Giới hạn đã biết: kho 9 bài Đọc học thuật, nên mỗi dạng chỉ có khoảng 3 lượt "bài mới" trong 30 ngày.
+
+## 🗺 Bản đồ điểm TOEIC (v84, `tomap.js` + `focus.js`)
+- Người sáng lập 29/10/2026: "làm hết đi khỏi hỏi" sau khi bàn chiến lược bắt chỗ yếu cho TOEIC.
+- Cơ chế nhóm đang chữa tách thành `focus.js`, IELTS (`iemap.js`) và TOEIC dùng chung: đạt 2 lượt liền ở 2 ngày = xong; 3 ngày thử còn yếu → gác 14 ngày → kẹt lần 2 → 🧱 học nền.
+- Chỗ yếu TOEIC: Part 5 theo 7 dạng, 4 loại bẫy Part 2 (có mẫu số: số lần gặp bẫy / số lần mắc), từng Part, tốc độ Part 5 / Part 7. Bỏ 'Part 5' / 'Part 2' chung khi đã có dạng / bẫy cụ thể yếu.
+- Ngưỡng đạt theo điểm mục tiêu: ≈ (mục tiêu / 2 − 5) / 490, trong 50–90% (thang ước của app, không phải bảng ETS). 600 → 60%, 850 → 85%.
+- Ưu tiên = số câu của chỗ đó trong đề thật × khoảng thiếu × ~4,9 điểm / câu × độ chắc. Nhóm tối đa 3 (Nghe ≤ 2, Đọc ≤ 2).
+- Lần thử: lượt có ≥ 5 câu (Part 3, 4, 6, 7: ≥ 3) trên câu / bài chưa gặp 30 ngày; tốc độ: một lượt luyện tốc độ (đạt khi đủ giờ và đủ tỉ lệ đúng).
+- Kho thêm (Claude soạn, chưa người thật kiểm): Part 3 12 → 20, Part 4 10 → 20, Part 6 8 → 20, Part 7 12 → 20 bộ (66 câu), Part 5 100 → 108 (so sánh / đảo ngữ 8 → 16). Giọng Part 3 / 4 mới dựng bằng `tools/build-audio.py` (85 câu).

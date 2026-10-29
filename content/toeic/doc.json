@@ -384,6 +384,582 @@
      "why": "seven days a week = mọi ngày trong tuần."
     }
    ]
+  },
+  {
+   "id": "t6-hire",
+   "kind": "E-mail",
+   "title": "To: Maria Lopez · From: Hiring Team, Castell Logistics · Subject: Interview invitation",
+   "text": "Dear Ms. Lopez, Thank you for applying for the position of warehouse supervisor. We were very {1} with your experience and would like to invite you to an interview on Tuesday, May 12, at 10:00 A.M. {2} The interview will last about forty-five minutes. Please bring a copy of your driver's license and any {3} you have received. If this time is not convenient, please reply to this e-mail {4} Friday. Sincerely, Hiring Team",
+   "gaps": [
+    {
+     "o": [
+      "impressed",
+      "impressive",
+      "impressing",
+      "impression"
+     ],
+     "a": "impressed",
+     "why": "be impressed with: ấn tượng với (tính từ -ed chỉ cảm xúc của người)."
+    },
+    {
+     "o": [
+      "You will meet the operations manager and two team leaders.",
+      "Our warehouse was built in 1995.",
+      "Many supervisors enjoy their work.",
+      "Please send your payment by May 12."
+     ],
+     "a": "You will meet the operations manager and two team leaders.",
+     "why": "Câu chèn nói tiếp về buổi phỏng vấn (gặp ai), nối với câu sau về thời lượng."
+    },
+    {
+     "o": [
+      "certificates",
+      "certify",
+      "certified",
+      "certifying"
+     ],
+     "a": "certificates",
+     "why": "any + danh từ: any certificates (chứng chỉ)."
+    },
+    {
+     "o": [
+      "by",
+      "until",
+      "since",
+      "during"
+     ],
+     "a": "by",
+     "why": "by + thời hạn: trả lời trước / chậm nhất thứ Sáu."
+    }
+   ]
+  },
+  {
+   "id": "t6-menu",
+   "kind": "Notice",
+   "title": "Notice to all staff — Cafeteria changes",
+   "text": "Starting next Monday, the staff cafeteria will offer a new menu {1} more vegetarian and low-salt dishes. These changes are based on the results of last month's employee survey. {2} In addition, the cafeteria will stay open until 3:00 P.M., one hour {3} than before, so that staff working late shifts can enjoy a hot meal. Prices will remain the same. We {4} your feedback on the new menu.",
+   "gaps": [
+    {
+     "o": [
+      "with",
+      "for",
+      "at",
+      "on"
+     ],
+     "a": "with",
+     "why": "a menu with + món: thực đơn có (thêm) món chay."
+    },
+    {
+     "o": [
+      "More than 400 employees took part in the survey.",
+      "The cafeteria was painted last year.",
+      "Lunch is the most important meal.",
+      "Please park in the visitor lot."
+     ],
+     "a": "More than 400 employees took part in the survey.",
+     "why": "Câu chèn nói thêm về cuộc khảo sát vừa nhắc."
+    },
+    {
+     "o": [
+      "later",
+      "lately",
+      "latest",
+      "late"
+     ],
+     "a": "later",
+     "why": "So sánh hơn với than: later than before (muộn hơn trước)."
+    },
+    {
+     "o": [
+      "welcome",
+      "welcomes",
+      "welcoming",
+      "welcomed"
+     ],
+     "a": "welcome",
+     "why": "Chủ ngữ We, thì hiện tại đơn: We welcome (hoan nghênh)."
+    }
+   ]
+  },
+  {
+   "id": "t6-update",
+   "kind": "E-mail",
+   "title": "To: All customers · From: Bluewave Internet · Subject: Scheduled maintenance",
+   "text": "Dear customer, Bluewave Internet will carry out maintenance on our network on Saturday, June 7, between 1:00 A.M. and 5:00 A.M. During this time, your internet service may be {1}. We have chosen these hours because very few customers are online. {2} After the work is complete, you may need to {3} your modem. Simply turn it off and on again. We apologize for any inconvenience and thank you for {4} Bluewave.",
+   "gaps": [
+    {
+     "o": [
+      "unavailable",
+      "unavailability",
+      "unavailably",
+      "avail"
+     ],
+     "a": "unavailable",
+     "why": "be + tính từ: may be unavailable (có thể không dùng được)."
+    },
+    {
+     "o": [
+      "The work will make your connection faster and more reliable.",
+      "Our office is closed on Sundays.",
+      "Customers can pay their bills online.",
+      "Bluewave was founded in 2005."
+     ],
+     "a": "The work will make your connection faster and more reliable.",
+     "why": "Câu chèn nói lợi ích của việc bảo trì, nối mạch văn."
+    },
+    {
+     "o": [
+      "restart",
+      "restarted",
+      "restarting",
+      "restarts"
+     ],
+     "a": "restart",
+     "why": "need to + động từ nguyên mẫu."
+    },
+    {
+     "o": [
+      "choosing",
+      "choose",
+      "chosen",
+      "chose"
+     ],
+     "a": "choosing",
+     "why": "Sau giới từ for dùng V-ing: thank you for choosing."
+    }
+   ]
+  },
+  {
+   "id": "t6-art",
+   "kind": "Article",
+   "title": "Local bakery expands",
+   "text": "Golden Crust Bakery, a small family business on Elm Street, is opening a second shop in the city center next month. Owner Hana Ito started the bakery {1} years ago with only one oven. {2} The new shop will be twice as large as the original one and will {3} a seating area for thirty customers. Ms. Ito says the expansion will create twelve new jobs. \"We're grateful to our loyal customers,\" she said. \"Without {4}, none of this would be possible.\"",
+   "gaps": [
+    {
+     "o": [
+      "eight",
+      "eighth",
+      "eights",
+      "eighteenth"
+     ],
+     "a": "eight",
+     "why": "Số đếm trước danh từ số nhiều: eight years ago."
+    },
+    {
+     "o": [
+      "Today, its bread is sold in more than twenty local supermarkets.",
+      "Elm Street is closed for repairs.",
+      "Ovens are very expensive to repair.",
+      "Many people prefer coffee to tea."
+     ],
+     "a": "Today, its bread is sold in more than twenty local supermarkets.",
+     "why": "Câu chèn nối từ lúc bắt đầu nhỏ tới thành công hôm nay."
+    },
+    {
+     "o": [
+      "include",
+      "including",
+      "included",
+      "inclusion"
+     ],
+     "a": "include",
+     "why": "will + động từ nguyên mẫu: will include."
+    },
+    {
+     "o": [
+      "them",
+      "they",
+      "their",
+      "theirs"
+     ],
+     "a": "them",
+     "why": "Sau giới từ without dùng đại từ tân ngữ: them (= khách hàng)."
+    }
+   ]
+  },
+  {
+   "id": "t6-policy2",
+   "kind": "Memo",
+   "title": "To: All employees · From: Human Resources · Subject: Travel expense policy",
+   "text": "Effective July 1, all requests for travel expenses must be submitted {1} the new online system. Paper forms will no longer be accepted. Employees should upload {2} receipts within ten days of returning from a trip. {3} Requests submitted after this deadline may not be paid. Training videos explaining how to use the system are available on the company intranet. If you need further {4}, please contact Human Resources.",
+   "gaps": [
+    {
+     "o": [
+      "through",
+      "across",
+      "among",
+      "between"
+     ],
+     "a": "through",
+     "why": "submit through a system: nộp qua hệ thống."
+    },
+    {
+     "o": [
+      "their",
+      "them",
+      "they",
+      "theirs"
+     ],
+     "a": "their",
+     "why": "Tính từ sở hữu trước danh từ: their receipts."
+    },
+    {
+     "o": [
+      "This will help the finance team process payments more quickly.",
+      "Many employees enjoy traveling abroad.",
+      "The intranet was updated last year.",
+      "Receipts are printed on paper."
+     ],
+     "a": "This will help the finance team process payments more quickly.",
+     "why": "Câu chèn giải thích lý do của hạn 10 ngày."
+    },
+    {
+     "o": [
+      "assistance",
+      "assist",
+      "assistant",
+      "assisted"
+     ],
+     "a": "assistance",
+     "why": "further + danh từ không đếm được: further assistance (thêm trợ giúp)."
+    }
+   ]
+  },
+  {
+   "id": "t6-ad2",
+   "kind": "Advertisement",
+   "title": "FitLife Gym — Grand Opening",
+   "text": "FitLife Gym is opening its doors on Harbor Road on September 1! Our {1} facility includes a swimming pool, more than fifty exercise machines, and three studios for group classes. {2} Members who sign up before August 31 will receive their first month free. All memberships include a free session with a personal trainer, {3} will design an exercise plan just for you. Visit our website or stop by the front desk to {4} more.",
+   "gaps": [
+    {
+     "o": [
+      "modern",
+      "modernly",
+      "modernize",
+      "modernity"
+     ],
+     "a": "modern",
+     "why": "Tính từ đứng trước danh từ: our modern facility."
+    },
+    {
+     "o": [
+      "Classes range from yoga to high-intensity training.",
+      "Harbor Road is near the station.",
+      "The building used to be a bank.",
+      "Swimming is a popular sport."
+     ],
+     "a": "Classes range from yoga to high-intensity training.",
+     "why": "Câu chèn nói thêm về các lớp tập vừa nhắc."
+    },
+    {
+     "o": [
+      "who",
+      "which",
+      "whose",
+      "whom"
+     ],
+     "a": "who",
+     "why": "Mệnh đề quan hệ chỉ người làm chủ ngữ: a personal trainer, who will…"
+    },
+    {
+     "o": [
+      "learn",
+      "learning",
+      "learned",
+      "to learn"
+     ],
+     "a": "learn",
+     "why": "to + động từ nguyên mẫu: to learn more."
+    }
+   ]
+  },
+  {
+   "id": "t6-letter2",
+   "kind": "Letter",
+   "title": "Dear Mr. Novak,",
+   "text": "Thank you for your letter of March 3 regarding the delay in your furniture delivery. We sincerely apologize for the {1}. The delay was caused by a problem at our supplier's factory. {2} Your sofa and armchairs will now be delivered on March 20. To thank you for your patience, we {3} a 15 percent discount to your account. This discount can be used on any future purchase. Please do not hesitate to contact me {4} you have any further questions. Yours sincerely, Laura Chen, Customer Service Manager",
+   "gaps": [
+    {
+     "o": [
+      "inconvenience",
+      "inconvenient",
+      "inconveniently",
+      "inconvenienced"
+     ],
+     "a": "inconvenience",
+     "why": "the + danh từ: the inconvenience (sự bất tiện)."
+    },
+    {
+     "o": [
+      "The problem has now been solved, and production has started again.",
+      "Our showroom is open seven days a week.",
+      "Sofas come in many colors.",
+      "Mr. Novak has been a customer for years."
+     ],
+     "a": "The problem has now been solved, and production has started again.",
+     "why": "Câu chèn nói vấn đề đã giải quyết, nối tới ngày giao mới."
+    },
+    {
+     "o": [
+      "have added",
+      "adding",
+      "will add to",
+      "add"
+     ],
+     "a": "have added",
+     "why": "Hiện tại hoàn thành: đã thêm (kết quả có ngay bây giờ)."
+    },
+    {
+     "o": [
+      "if",
+      "unless",
+      "although",
+      "because of"
+     ],
+     "a": "if",
+     "why": "if + mệnh đề: nếu ông có câu hỏi."
+    }
+   ]
+  },
+  {
+   "id": "t6-volunteer",
+   "kind": "E-mail",
+   "title": "To: Staff · From: Community Relations · Subject: Park clean-up day",
+   "text": "Dear colleagues, Our company will once again take part in the city's Park Clean-Up Day on Saturday, April 26. Last year, more than eighty employees {1}, and together we collected over two tons of rubbish. {2} Gloves, bags, and lunch will be provided. Volunteers should meet at the north entrance of Riverside Park at 8:30 A.M. Please wear comfortable clothes and {3} shoes. To sign up, simply reply to this e-mail. Spaces are limited, so register as {4} as possible.",
+   "gaps": [
+    {
+     "o": [
+      "participated",
+      "participate",
+      "participating",
+      "participates"
+     ],
+     "a": "participated",
+     "why": "Last year: quá khứ đơn."
+    },
+    {
+     "o": [
+      "We hope to welcome even more volunteers this year.",
+      "Riverside Park has a large lake.",
+      "Rubbish trucks come every Monday.",
+      "Our company sells sports equipment."
+     ],
+     "a": "We hope to welcome even more volunteers this year.",
+     "why": "Câu chèn nối kết quả năm ngoái với lời mời năm nay."
+    },
+    {
+     "o": [
+      "sturdy",
+      "sturdily",
+      "sturdiness",
+      "sturdier than"
+     ],
+     "a": "sturdy",
+     "why": "Tính từ trước danh từ: sturdy shoes (giày chắc chắn)."
+    },
+    {
+     "o": [
+      "soon",
+      "sooner",
+      "soonest",
+      "lately"
+     ],
+     "a": "soon",
+     "why": "as + tính / trạng từ nguyên dạng + as possible: as soon as possible."
+    }
+   ]
+  },
+  {
+   "id": "t6-recall",
+   "kind": "Press release",
+   "title": "Kettle safety notice — Homeline Appliances",
+   "text": "Homeline Appliances is voluntarily recalling its Model K-200 electric kettle {1} a problem with the power switch. In rare cases, the switch may not turn off automatically after the water boils. {2} Customers who own this model should stop using it immediately. They can return the kettle to any Homeline store for a full refund or a free {3}. A receipt is not required. For more information, customers may call our helpline, {4} is open 24 hours a day.",
+   "gaps": [
+    {
+     "o": [
+      "because of",
+      "because",
+      "so that",
+      "although"
+     ],
+     "a": "because of",
+     "why": "because of + cụm danh từ (a problem…); because + mệnh đề."
+    },
+    {
+     "o": [
+      "No injuries have been reported so far.",
+      "Kettles are popular wedding gifts.",
+      "Homeline also sells toasters.",
+      "Water boils at 100 degrees."
+     ],
+     "a": "No injuries have been reported so far.",
+     "why": "Câu chèn nói về hậu quả (chưa ai bị thương), hợp mạch thông báo an toàn."
+    },
+    {
+     "o": [
+      "replacement",
+      "replace",
+      "replaced",
+      "replaceable"
+     ],
+     "a": "replacement",
+     "why": "a free + danh từ: a free replacement (đổi cái mới miễn phí)."
+    },
+    {
+     "o": [
+      "which",
+      "who",
+      "where",
+      "what"
+     ],
+     "a": "which",
+     "why": "Mệnh đề quan hệ không xác định chỉ vật: our helpline, which is open…"
+    }
+   ]
+  },
+  {
+   "id": "t6-office",
+   "kind": "Memo",
+   "title": "To: Marketing Department · From: Office Manager · Subject: Office move",
+   "text": "As you know, the marketing department will move to the fifth floor next week. Movers will arrive on Thursday at 6:00 P.M. Before you leave on Thursday, please {1} all personal items from your desk and put them in the boxes provided. {2} Computers will be moved by the IT team, so please do not pack them yourself. On Friday morning, the new offices will be ready, and you can {3} your work as usual. Thank you for your {4} during the move.",
+   "gaps": [
+    {
+     "o": [
+      "remove",
+      "removal",
+      "removed",
+      "removing"
+     ],
+     "a": "remove",
+     "why": "please + động từ nguyên mẫu."
+    },
+    {
+     "o": [
+      "Please label each box with your name and new desk number.",
+      "The fifth floor has a nice view.",
+      "Marketing is a large department.",
+      "Movers are expensive in the summer."
+     ],
+     "a": "Please label each box with your name and new desk number.",
+     "why": "Câu chèn tiếp tục hướng dẫn đóng thùng."
+    },
+    {
+     "o": [
+      "continue",
+      "continuing",
+      "continuous",
+      "continuation"
+     ],
+     "a": "continue",
+     "why": "can + động từ nguyên mẫu."
+    },
+    {
+     "o": [
+      "patience",
+      "patient",
+      "patiently",
+      "patients"
+     ],
+     "a": "patience",
+     "why": "your + danh từ: your patience (sự kiên nhẫn)."
+    }
+   ]
+  },
+  {
+   "id": "t6-subscribe",
+   "kind": "E-mail",
+   "title": "To: Kevin Brown · From: City Reader Magazine · Subject: Your subscription",
+   "text": "Dear Mr. Brown, Your subscription to City Reader Magazine will {1} on October 31. To continue receiving the magazine without interruption, please renew before that date. {2} If you renew for two years, you will save 25 percent compared with the price of a single year. You can renew online, by phone, or by returning the enclosed form. We have enjoyed {3} you as a reader and hope you will stay with us. If you have already renewed, please {4} this message.",
+   "gaps": [
+    {
+     "o": [
+      "expire",
+      "expiry",
+      "expired",
+      "expiring"
+     ],
+     "a": "expire",
+     "why": "will + động từ nguyên mẫu: will expire (hết hạn)."
+    },
+    {
+     "o": [
+      "Renewing early also gives you the best price.",
+      "Our office is located downtown.",
+      "Magazines are delivered by mail.",
+      "October is a busy month."
+     ],
+     "a": "Renewing early also gives you the best price.",
+     "why": "Câu chèn dẫn tới ưu đãi giá 2 năm ở câu sau."
+    },
+    {
+     "o": [
+      "having",
+      "have",
+      "had",
+      "to have"
+     ],
+     "a": "having",
+     "why": "enjoy + V-ing: enjoyed having you."
+    },
+    {
+     "o": [
+      "disregard",
+      "disregarding",
+      "disregarded",
+      "disregards"
+     ],
+     "a": "disregard",
+     "why": "please + động từ nguyên mẫu: please disregard (bỏ qua)."
+    }
+   ]
+  },
+  {
+   "id": "t6-survey",
+   "kind": "Notice",
+   "title": "Customer survey — Pine Street Library",
+   "text": "Pine Street Library is asking visitors to take part in a short survey about our services. The survey takes about five minutes to {1}. Your answers will help us decide how to use next year's budget. {2} Paper copies of the survey are available at the front desk, or you can answer {3} on our website. Everyone who completes the survey before May 15 will be entered into a {4} to win a tablet computer.",
+   "gaps": [
+    {
+     "o": [
+      "complete",
+      "completion",
+      "completely",
+      "completed"
+     ],
+     "a": "complete",
+     "why": "to + động từ nguyên mẫu: takes five minutes to complete."
+    },
+    {
+     "o": [
+      "For example, we may extend opening hours or buy more e-books.",
+      "The library was built in 1960.",
+      "Tablets are useful for reading.",
+      "Pine Street is very busy."
+     ],
+     "a": "For example, we may extend opening hours or buy more e-books.",
+     "why": "Câu chèn cho ví dụ về cách dùng ngân sách vừa nhắc."
+    },
+    {
+     "o": [
+      "online",
+      "on line",
+      "onward",
+      "only"
+     ],
+     "a": "online",
+     "why": "answer online: trả lời trực tuyến (trạng từ)."
+    },
+    {
+     "o": [
+      "drawing",
+      "drawn",
+      "draw up",
+      "drew"
+     ],
+     "a": "drawing",
+     "why": "a + danh từ: a drawing (cuộc rút thăm)."
+    }
+   ]
   }
  ],
  "p7": [
@@ -966,6 +1542,368 @@
       "After 7:00 P.M."
      ],
      "why": "tomorrow morning before we open at 7:00."
+    }
+   ]
+  },
+  {
+   "id": "t7-parking",
+   "kind": "Notice",
+   "docs": [
+    {
+     "title": "Notice — Westgate Office Tower",
+     "text": "Starting May 1, all vehicles parked in the Westgate Office Tower garage must display a new electronic parking pass. The old paper passes will no longer be accepted. Tenants can request new passes from the building management office on the ground floor between 9:00 A.M. and 4:00 P.M. Each company may request up to ten passes free of charge. Additional passes cost $15 per month. Vehicles without a valid pass after May 1 may be towed at the owner's expense."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the purpose of the notice?",
+     "a": "To announce a new parking system",
+     "w": [
+      "To advertise office space",
+      "To report a car accident",
+      "To explain new office hours"
+     ],
+     "why": "must display a new electronic parking pass… old paper passes will no longer be accepted."
+    },
+    {
+     "q": "How much does an eleventh pass cost?",
+     "a": "$15 per month",
+     "w": [
+      "Nothing",
+      "$10 per month",
+      "$15 per year"
+     ],
+     "why": "up to ten passes free… Additional passes cost $15 per month."
+    },
+    {
+     "q": "What may happen to vehicles without a valid pass?",
+     "a": "They may be removed.",
+     "w": [
+      "Their owners will receive a warning letter.",
+      "They will be charged $15.",
+      "They will be moved to the ground floor."
+     ],
+     "why": "may be towed (bị kéo đi)."
+    }
+   ]
+  },
+  {
+   "id": "t7-chat2",
+   "kind": "Online chat discussion",
+   "docs": [
+    {
+     "title": "Online chat",
+     "text": "Lena Fischer (2:03 P.M.): The projector in Meeting Room B isn't working. The clients arrive in twenty minutes.\nOmar Haddad (2:04 P.M.): Did you try the remote control? The batteries were low yesterday.\nLena Fischer (2:05 P.M.): I replaced them, but nothing happens.\nOmar Haddad (2:06 P.M.): Room D is free this afternoon. It has a large screen.\nLena Fischer (2:06 P.M.): Perfect. Can you tell the receptionist to send the clients there?\nOmar Haddad (2:07 P.M.): Will do."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What problem does Ms. Fischer have?",
+     "a": "Some equipment is not working.",
+     "w": [
+      "A client has canceled.",
+      "A room is too small.",
+      "She cannot find the remote control."
+     ],
+     "why": "The projector in Meeting Room B isn't working."
+    },
+    {
+     "q": "At 2:07 P.M., what does Mr. Haddad mean when he writes, \"Will do\"?",
+     "a": "He will contact the receptionist.",
+     "w": [
+      "He will fix the projector.",
+      "He will buy new batteries.",
+      "He will meet the clients himself."
+     ],
+     "why": "Trả lời yêu cầu: Can you tell the receptionist…? → Will do (sẽ làm)."
+    }
+   ]
+  },
+  {
+   "id": "t7-ad3",
+   "kind": "Advertisement",
+   "docs": [
+    {
+     "title": "Advertisement — Sunrise Cleaning Services",
+     "text": "Is your office ready for a fresh start? Sunrise Cleaning Services has been keeping businesses in Brookfield clean for over fifteen years. We offer daily, weekly, and monthly cleaning plans, as well as carpet and window cleaning. All of our products are environmentally friendly. New customers who sign a one-year contract before June 30 will receive their first window cleaning free. Call 555-0199 today for a free price estimate. Please note that we do not provide services on public holidays."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is indicated about Sunrise Cleaning Services?",
+     "a": "It has operated for many years.",
+     "w": [
+      "It recently moved to Brookfield.",
+      "It only cleans homes.",
+      "It works on public holidays."
+     ],
+     "why": "for over fifteen years."
+    },
+    {
+     "q": "What is offered to some new customers?",
+     "a": "A free window cleaning",
+     "w": [
+      "A discount on carpets",
+      "A free one-year contract",
+      "Free cleaning products"
+     ],
+     "why": "will receive their first window cleaning free."
+    },
+    {
+     "q": "The word \"fresh\" in line 1 is closest in meaning to",
+     "a": "new",
+     "w": [
+      "cold",
+      "cool",
+      "quick"
+     ],
+     "why": "a fresh start = một khởi đầu mới."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-train",
+   "kind": "E-mail + registration form",
+   "docs": [
+    {
+     "title": "E-mail · To: All department heads · From: Training Office · Date: August 4",
+     "text": "Our autumn training program is now open for registration. This year we are offering four courses: Project Management (two days), Advanced Excel (one day), Presentation Skills (one day), and Customer Communication (half day). Each department may send up to three employees per course. Courses are free for staff, but departments must pay for any participant who does not attend without notice. Please return the attached form by August 20."
+    },
+    {
+     "title": "Registration form — Department: Sales",
+     "text": "Project Management: Anna Kowal, Ben Ortiz\nAdvanced Excel: Ben Ortiz, Chloe Lam, David Ng, Eva Ruiz\nPresentation Skills: Chloe Lam\nCustomer Communication: Anna Kowal, Eva Ruiz\nSubmitted by: Paul Grant, Sales Manager, August 22"
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the purpose of the e-mail?",
+     "a": "To announce training courses",
+     "w": [
+      "To introduce a new manager",
+      "To change a work schedule",
+      "To request a budget"
+     ],
+     "why": "Our autumn training program is now open for registration."
+    },
+    {
+     "q": "Which course is the shortest?",
+     "a": "Customer Communication",
+     "w": [
+      "Project Management",
+      "Advanced Excel",
+      "Presentation Skills"
+     ],
+     "why": "Customer Communication (half day)."
+    },
+    {
+     "q": "What problem is there with the Sales department's form for Advanced Excel?",
+     "a": "Too many employees are listed.",
+     "w": [
+      "The course is not offered.",
+      "No employee is listed.",
+      "An employee is listed twice."
+     ],
+     "why": "Tối đa 3 người mỗi khoá, nhưng Advanced Excel có 4 người (đối chiếu 2 văn bản)."
+    },
+    {
+     "q": "What is indicated about Mr. Grant?",
+     "a": "He submitted the form late.",
+     "w": [
+      "He will attend two courses.",
+      "He works in the Training Office.",
+      "He teaches Presentation Skills."
+     ],
+     "why": "Hạn 20/8, nộp ngày 22/8 (đối chiếu)."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-hotel",
+   "kind": "Web page + review",
+   "docs": [
+    {
+     "title": "Web page — Lakeside Inn",
+     "text": "Lakeside Inn offers 40 rooms with views of Crystal Lake. All rooms include free Wi-Fi and breakfast. Guests can rent bicycles and kayaks at the front desk. Our restaurant is open daily from 6:00 to 10:00 P.M. Check-in is from 3:00 P.M.; check-out is at 11:00 A.M. Guests staying five nights or more receive a free dinner for two."
+    },
+    {
+     "title": "Review by T. Moreau, posted October 12",
+     "text": "My husband and I stayed at Lakeside Inn for six nights last week. The view from our room was wonderful, and the staff were very friendly. We rented kayaks twice, which was the highlight of our trip. The only disappointment was the Wi-Fi, which was very slow in our room. We also enjoyed a lovely free dinner at the restaurant on our last night."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is NOT mentioned as included in the room price?",
+     "a": "Kayak rental",
+     "w": [
+      "Breakfast",
+      "Wi-Fi",
+      "A lake view"
+     ],
+     "why": "Kayak phải thuê (rent) ở quầy, không kèm giá phòng."
+    },
+    {
+     "q": "Why did Ms. Moreau receive a free dinner?",
+     "a": "She stayed more than five nights.",
+     "w": [
+      "She wrote a review.",
+      "She complained about the Wi-Fi.",
+      "It was her birthday."
+     ],
+     "why": "Ở 6 đêm; trang web: từ 5 đêm được bữa tối miễn phí (đối chiếu)."
+    },
+    {
+     "q": "What did Ms. Moreau dislike?",
+     "a": "The Internet connection",
+     "w": [
+      "The staff",
+      "The view",
+      "The restaurant"
+     ],
+     "why": "The only disappointment was the Wi-Fi."
+    }
+   ]
+  },
+  {
+   "id": "t7-letter3",
+   "kind": "Letter",
+   "docs": [
+    {
+     "title": "Letter — Greenfield Water Company",
+     "text": "Dear Mr. Abara, Our records show that your water bill for September, in the amount of $64.20, has not been paid. The payment was due on October 5. To avoid a late fee of $10, please pay the full amount by October 25. You can pay online at greenfieldwater.com, by phone, or in person at our office on 18 Mill Road. If you have already sent your payment, please ignore this letter. If you are having difficulty paying, our customer service team can help you set up a payment plan. Sincerely, Billing Department"
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why was the letter sent?",
+     "a": "A bill has not been paid.",
+     "w": [
+      "A price is increasing.",
+      "Water will be shut off.",
+      "An office is moving."
+     ],
+     "why": "your water bill for September… has not been paid."
+    },
+    {
+     "q": "What will happen if Mr. Abara pays after October 25?",
+     "a": "He will be charged an extra fee.",
+     "w": [
+      "His service will be stopped.",
+      "He will receive a refund.",
+      "He must visit the office."
+     ],
+     "why": "To avoid a late fee of $10, please pay… by October 25."
+    },
+    {
+     "q": "What is offered to customers who have trouble paying?",
+     "a": "A payment plan",
+     "w": [
+      "A discount",
+      "A free inspection",
+      "A new meter"
+     ],
+     "why": "help you set up a payment plan."
+    }
+   ]
+  },
+  {
+   "id": "t7-article2",
+   "kind": "Article",
+   "docs": [
+    {
+     "title": "Article — Brookfield Business News",
+     "text": "BROOKFIELD (March 3) — Tech company Novaline announced yesterday that it will move its headquarters from Chicago to Brookfield by the end of the year. The company, which makes software for hospitals, currently employs 300 people. It plans to hire 150 more in Brookfield over the next two years. [1] Novaline chose Brookfield because of its lower office costs and its close connection to Brookfield University, which has a strong computer science program. [2] The new headquarters will be in the renovated Carlton Building on River Street. [3] Mayor Ellen Sato welcomed the news, saying it would bring \"high-quality jobs\" to the city. [4]"
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the article mainly about?",
+     "a": "A company's relocation",
+     "w": [
+      "A new hospital",
+      "A university course",
+      "An election"
+     ],
+     "why": "will move its headquarters from Chicago to Brookfield."
+    },
+    {
+     "q": "What does Novaline produce?",
+     "a": "Software",
+     "w": [
+      "Medical equipment",
+      "Office furniture",
+      "Computers"
+     ],
+     "why": "makes software for hospitals."
+    },
+    {
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Many of those positions will be filled by recent graduates.\"",
+     "a": "[2]",
+     "w": [
+      "[1]",
+      "[3]",
+      "[4]"
+     ],
+     "why": "Sau câu nói về trường đại học (nguồn sinh viên mới tốt nghiệp) và trước câu về toà nhà."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-order2",
+   "kind": "E-mail + invoice + e-mail",
+   "docs": [
+    {
+     "title": "E-mail · To: orders@papercraft.com · From: Julia Benz, Benz Design Studio · Date: April 2",
+     "text": "Hello, I'd like to order 500 business cards (model Classic White) and 200 envelopes with our logo. Please deliver them to our studio at 42 Park Lane by April 10, as we are opening a new office that week. Thank you, Julia Benz"
+    },
+    {
+     "title": "Invoice — PaperCraft · April 3",
+     "text": "Customer: Benz Design Studio\n500 business cards, Classic Cream — $75.00\n200 printed envelopes — $60.00\nExpress delivery (by April 8) — $15.00\nTotal: $150.00"
+    },
+    {
+     "title": "E-mail · To: Julia Benz · From: PaperCraft Customer Service · Date: April 4",
+     "text": "Dear Ms. Benz, Thank you for pointing out our mistake. We will print your cards in the color you requested at no extra cost, and they will still arrive before your deadline. We have also removed the delivery charge from your invoice. We apologize for the error."
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why did Ms. Benz need the items by April 10?",
+     "a": "Her company is opening a new office.",
+     "w": [
+      "She is attending a conference.",
+      "Her old cards are damaged.",
+      "She is changing her logo."
+     ],
+     "why": "we are opening a new office that week."
+    },
+    {
+     "q": "What mistake was made on the invoice?",
+     "a": "The wrong color was listed.",
+     "w": [
+      "The wrong address was listed.",
+      "Too many envelopes were charged.",
+      "The order date was wrong."
+     ],
+     "why": "Đặt Classic White, hoá đơn ghi Classic Cream (đối chiếu)."
+    },
+    {
+     "q": "How much will Ms. Benz most likely pay?",
+     "a": "$135.00",
+     "w": [
+      "$150.00",
+      "$75.00",
+      "$120.00"
+     ],
+     "why": "Bỏ phí giao hàng $15: 150 − 15 = 135 (đối chiếu hoá đơn + e-mail)."
+    },
+    {
+     "q": "What is suggested about the cards?",
+     "a": "They will be delivered before April 10.",
+     "w": [
+      "They will cost more than planned.",
+      "They will be sent to a new address.",
+      "They will be printed by another company."
+     ],
+     "why": "they will still arrive before your deadline."
     }
    ]
   }
