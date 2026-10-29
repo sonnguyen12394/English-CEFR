@@ -14,13 +14,17 @@ const SB_KEY = 'sb_publishable_WGUA_5AyhR8a_yQfty8JBA_EaJdkZA7';   // khoá côn
 // Tự đăng nhập (người sáng lập 22/10/2026): tài khoản riêng chỉ để học. Mật khẩu lộ trong mã trang là chấp nhận được vì tài khoản
 // này chỉ đọc / ghi dòng của chính nó trong vocab_state; bảng soxuong có luật restrictive chặn riêng tài khoản này.
 const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-jDDY_eB99jOLL' };
+// v86 (29/10/2026): mỗi máy một tài khoản ẩn danh (signInAnonymously) để nhiều người học không ghi đè tiến độ của nhau. Supabase chưa bật
+// "Allow anonymous sign-ins" thì lùi về tài khoản chung AUTO như cũ. Máy đang dùng AUTO giữ nguyên (người sáng lập); tách ra được ở 💾 Dữ liệu (acctSplit).
+// RLS: người ẩn danh chỉ đọc / ghi vocab_state của mình và gửi góp ý; bị chặn khỏi soxuong, không đọc / sửa / xoá góp ý (migration chan_an_danh_*).
+const isAnon = () => !!(user && user.is_anonymous), CARRY = 'a1v:carry';
 const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 // v76 (28/10/2026, người sáng lập giao tự tính): một mặt tính 🔁 Nhớ khi khả năng nhớ ≥ 80% (MEM_R); lịch ôn vẫn nhắc ở 90% (isDue: t ≥ S).
 // Mô phỏng (tools/test/sim.mjs, ~11 phút / ngày): A1 tới cổng ~313 → ~165 ngày, nhớ sau 30 ngày không ôn ~90% → ~88% (docs/HOAN-THIEN.md).
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 85;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 86;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -282,6 +286,7 @@ async function load() {
   const { data, error } = await sb.from('vocab_state').select('data').eq('user_id', user.id).maybeSingle();
   if (error) { setSync('Không tải được từ mạng: ' + error.message); S = local || blank(); return; }
   const remote = data && data.data && data.data.v ? data.data : null;
+  try { const c = JSON.parse(localStorage.getItem(CARRY) || 'null'); if (c && c.v && !remote && !local) local = c; localStorage.removeItem(CARRY); } catch (e) {}   // tách máy: mang tiến độ sang tài khoản mới
   S = (local && (!remote || local.t > remote.t)) ? local : (remote || blank());
   if (S !== remote) save(); else setSync('Đã lưu');
 }
@@ -565,6 +570,9 @@ function run({ title, items, retry, quiet, first, done }) {
 }
 
 // ---------- đăng nhập ----------
+// tách máy đang dùng tài khoản chung sang tài khoản riêng của máy, mang theo tiến độ hiện tại
+async function acctSplit() { try { localStorage.setItem(CARRY, JSON.stringify(S)); } catch (e) { return toast('Không lưu tạm được tiến độ trên máy.'); }
+  const a = await sb.auth.signInAnonymously(); if (a.error) { try { localStorage.removeItem(CARRY); } catch (e) {} return toast('Chưa tách được: ' + a.error.message + '. Người quản trị cần bật "Allow anonymous sign-ins" trong Supabase.'); } }
 function login(msg) {
   $app.innerHTML = `<h1>Từ vựng A1</h1><p class="mute">${WORDS.length} từ A1 · ${UNITS.length} unit. Đăng nhập để lưu tiến độ trên mọi máy.</p>
     <form id="f"><input id="em" type="email" placeholder="Email" autocomplete="email" required>
@@ -579,7 +587,8 @@ function login(msg) {
 
 async function start(session) {
   user = session ? session.user : null;
-  if (!user) { const { error } = await sb.auth.signInWithPassword(AUTO); return error ? login('Không tự đăng nhập được: ' + error.message) : undefined; }   // thành công thì onAuthStateChange gọi lại start
+  if (!user) { const a = await sb.auth.signInAnonymously(); if (!a.error) return;   // thành công thì onAuthStateChange gọi lại start
+    const { error } = await sb.auth.signInWithPassword(AUTO); return error ? login('Không tự đăng nhập được: ' + error.message) : undefined; }
   $app.innerHTML = '<p class="mute">Đang tải tiến độ…</p>';
   await load(); overview(); gyFlush();
 }
@@ -603,7 +612,7 @@ document.addEventListener('click', e => { if (!S) return; const g = e.target.clo
 const $tabs = document.getElementById('tabs');
 // 25/10/2026: thanh dưới 2 mục 🎯 Học · 📖 Từ điển (parts.js overview). 🎯 sáng ở màn tổng quan (#ov) và màn chính của từng phần (#grid, #part).
 // v68 (28/10/2026): 4 mục 🎯 Học CEFR · 🌏 Học IELTS (ielts.js, màn #ie) · 📖 Từ điển · 💾 Sao lưu. v72: mục 2 thành 🎓 Luyện thi (IELTS / TOEIC, toeic.js exOpen; cả hai màn có #ie). v78: mục 4 đổi tên 💾 Dữ liệu (Sao lưu + 🗺 Bản đồ chỗ yếu bando.js, màn #dl).
-function syncTabs() { const t = document.getElementById('bk') || document.getElementById('dl') ? 'bk' : document.getElementById('ie') ? 'ie' : document.getElementById('dq') ? 'dict' : (document.getElementById('ov') || document.getElementById('grid') || document.getElementById('part')) ? 'all' : null;
+function syncTabs() { const t = document.getElementById('bk') ? 'bk' : document.getElementById('ie') ? 'ie' : document.getElementById('dq') ? 'dict' : (document.getElementById('ov') || document.getElementById('bdo') || document.getElementById('grid') || document.getElementById('part')) ? 'all' : null;
   document.body.classList.toggle('has-tabs', !!t); $tabs.hidden = !t;
   $tabs.querySelectorAll('[data-tab]').forEach(b => { const on = b.dataset.tab === t; b.classList.toggle('on', on); b.setAttribute('aria-current', on ? 'page' : 'false'); if (on) try { b.scrollIntoView({ inline: 'nearest', block: 'nearest' }); } catch (e) {} }); }
 new MutationObserver(syncTabs).observe($app, { childList: true });
@@ -619,7 +628,7 @@ function maybeReload() {
   if (!NEWV) return;
   const k = 'upd-' + NEWV; let tried = false; try { tried = !!sessionStorage.getItem(k); } catch (e) {}
   if (tried) return;   // đã thử tải lại cho bản này mà vẫn cũ: không lặp vô hạn
-  if (!S || document.getElementById('grid') || document.getElementById('dq') || document.getElementById('ov') || document.getElementById('part') || document.getElementById('ie') || document.getElementById('dl')) {
+  if (!S || document.getElementById('grid') || document.getElementById('dq') || document.getElementById('ov') || document.getElementById('part') || document.getElementById('ie') || document.getElementById('bdo')) {
     try { sessionStorage.setItem(k, '1'); } catch (e) {}
     location.replace(location.pathname + '?v=' + NEWV + location.hash);
   } else if (typeof toast === 'function') toast('Có bản mới. Trang sẽ tự cập nhật khi bạn về trang chính.');

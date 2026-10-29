@@ -28,7 +28,7 @@ function kParts(P, lv, now = Date.now()) { const L = kItems(P, lv), M = kMem(P, 
   for (const x of L) if (st[x.id]) learn++;
   for (const x of M) { const c = st[x.id]; if (isDue(c, now)) due++; for (const k of kDimsOf(P, x)) { Tk[k]++; if (heldDim(c, k, now)) dim[k]++; } }
   const T = L.length || 1, dq = {}; for (const [k] of P.dims) dq[k] = Tk[k] ? Math.floor(dim[k] / Tk[k] * 100) : 100;
-  return { T: L.length, Tm: M.length, learn, due, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.min(...Object.values(dq)) }; }
+  return { T: L.length, Tm: M.length, learn, due, dim, Tk, dq, lq: Math.floor(learn / T * 100), mq: Math.min(...Object.values(dq)) }; }
 async function kLoad(P) { if (P.items) return P; const d = await (await fetch(P.file)).json(); P.items = d.items; P.raw = d; P.by = {}; for (const x of d.items) P.by[x.id] = x;
   for (const [k] of P.dims) DIM_OF[P.id + '_' + k] = [k]; return P; }
 const kGo = id => kView(id);

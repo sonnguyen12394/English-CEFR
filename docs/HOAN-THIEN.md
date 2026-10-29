@@ -237,3 +237,10 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - ④ Nhật ký chữa xong theo phần (`S.focus.h`), màn bản đồ hiện số chữa xong 28 ngày theo tầng.
 - Các hệ số (3 / 2 chỗ, +25%, −20%) là ước đoán, chưa có dữ liệu thật. Đo sau 4 tuần học thật: chỗ chữa xong mỗi tuần theo tầng; bài Đọc / Nghe yếu có hết yếu sau khi chữa từ gốc không (≥ 50% là gốc từ có tác dụng). Không khác biệt → bỏ hệ số, giữ đơn giản.
 - Chưa làm: hệ số "chặn cấp" (chỗ yếu đang chặn Thi chuyển cấp); bản đồ phụ thuộc ngữ pháp. Không đổi luật đo.
+
+## Đánh giá lại app (v86, 29/10/2026)
+- Bằng chứng (Supabase): `vocab_state` sửa lần cuối 22/10 (10 thẻ); 7 góp ý, mới nhất 25/10 (v34); v34 → v85 không có dữ liệu học mới. Mọi máy chung một tài khoản nên không thể có người học thứ hai.
+- Người sáng lập: "làm hết đi" cho 7 đề xuất. Đã làm: ① mỗi máy một tài khoản ẩn danh (cần bật "Allow anonymous sign-ins" ở Supabase → Authentication → Sign In / Providers; chưa bật thì app vẫn dùng tài khoản chung như cũ); ② ô Hôm nay là nơi duy nhất bảo làm gì; ③ bản đồ chỗ yếu về Học CEFR; ④ hiện dần theo trình độ; ⑤ "còn thiếu gì" thay %; ⑥ nhãn AI soạn + ⚑ Câu sai; ⑦ `tools/release.mjs`, sửa T2 chập chờn.
+- Tổng quan người mới: 30 → 17 nút, ~3.500 → ~1.100 chữ (đề xuất ≤ 10 nút, ≤ 800 chữ: chưa đạt; còn chip mục tiêu phút 4, chip cấp 3, thẻ phần 5).
+- Chưa làm (cần người): giáo viên soát mẫu 50 câu / cấp (gỡ nhãn AI khi lỗi < 5%); 3 người học tự giải thích được "vì sao chưa thi được"; 5 người học thật trong 2–4 tuần (≥ 3/5 học ≥ 4 ngày / tuần, ≥ 200 câu / người). Mốc đổi hướng: sau 2 tuần < 2 người quay lại → hỏi người học trước khi viết thêm tính năng.
+- Rủi ro tài khoản ẩn danh: Safari xoá dữ liệu trang → mất tài khoản; nhắc tải JSON ở 💾 Dữ liệu. Chi phí AI chấm vẫn giới hạn 20 lượt / người / ngày, 200 lượt / ngày cả app (el-cham).

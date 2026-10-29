@@ -4,7 +4,7 @@
 // Mất mạng: lưu trên máy, có mạng tự gửi. 🗂 Quản lý góp ý: lọc loại × trạng thái, đổi trạng thái, sửa, thêm tay, xoá (khôi phục được), xoá hẳn (bấm 2 lần).
 // Máy chủ: bảng public.gopy + kho ảnh riêng tư 'gopy' (Supabase). Không khoá quản trị: ai mở trang cũng xem / sửa / xoá được.
 const GY_LS = 'a1v:gopy', GY_SENT = 'a1v:gopy-sent', GY_IMG_N = 3, GY_PX = 1280;
-const GY_KIND = [['loi', '🐞 Lỗi'], ['kho', '🤔 Khó hiểu'], ['y', '💡 Ý tưởng'], ['khac', '📝 Khác']];
+const GY_KIND = [['sai', '⚑ Câu sai'], ['loi', '🐞 Lỗi'], ['kho', '🤔 Khó hiểu'], ['y', '💡 Ý tưởng'], ['khac', '📝 Khác']];   // v86: ⚑ câu hỏi / đáp án sai (nội dung AI soạn)
 const GA_ST = [['moi', '🆕 Mới'], ['dang', '🔧 Đang xử lý'], ['xong', '✅ Xong'], ['bo', '🚫 Bỏ'], ['xoa', '🗑 Đã xoá']];
 const GY = { open: false, kind: 'loi', txt: '', imgs: [], ctx: null, busy: false, msg: '' };
 const GA = { rows: null, st: null, kd: null, err: '', busy: false, urls: {}, add: false, purge: null, nw: { kd: 'y', tx: '', nt: '' } };
@@ -16,7 +16,7 @@ function toast(t) { let el = document.getElementById('toast'); if (!el) { el = d
 
 function gyCtx() { const c = window.CUR || {}, h = document.querySelector('#app h1, #app .q');
   return { ...c, h1: h ? h.textContent.trim().slice(0, 120) : null, ua: String(navigator.userAgent || '').slice(0, 160), scr: innerWidth + 'x' + innerHeight }; }
-function gyOpen() { GY.open = true; GY.ctx = gyCtx(); GY.msg = ''; gyDraw(); }
+function gyOpen() { GY.open = true; GY.ctx = gyCtx(); GY.msg = ''; if (!GY.txt && document.querySelector('#app .q, #app .opt')) GY.kind = 'sai'; gyDraw(); }   // đang làm câu hỏi: mặc định ⚑ Câu sai
 function gyClose() { GY.open = false; const el = document.getElementById('gysheet'); if (el) el.remove(); }
 function gyDraw() {
   let el = document.getElementById('gysheet'); if (!GY.open) { if (el) el.remove(); return; }
@@ -62,10 +62,11 @@ async function gyFlush() {
   for (const it of q) { try {
     const imgs = []; for (const u of it.imgs || []) { const p = await gyUpload(u); if (p) imgs.push(p); }
     const lost = (it.imgs || []).length - imgs.length;
-    const { data, error } = await sb.from('gopy').insert({ kind: it.kind, txt: it.txt + (lost ? ` [${lost} ảnh không gửi được]` : ''), ctx: it.ctx || {}, imgs, app_v: String(APP_V) }).select('id').single();
+    const row = { kind: it.kind, txt: it.txt + (lost ? ` [${lost} ảnh không gửi được]` : ''), ctx: it.ctx || {}, imgs, app_v: String(APP_V) };   // v86: người ẩn danh chỉ được thêm, không đọc lại (RLS) → không lấy id
+    const { data, error } = isAnon() ? await sb.from('gopy').insert(row) : await sb.from('gopy').insert(row).select('id').single();
     if (error) { if (/fetch|network/i.test(error.message)) break; gyLS(GY_LS, gyLS(GY_LS).filter(x => x.id !== it.id)); continue; }   // máy chủ từ chối: bỏ, không thử mãi
     gyLS(GY_LS, gyLS(GY_LS).filter(x => x.id !== it.id));
-    const sent = gyLS(GY_SENT); sent.push({ id: data.id, t: it.t, kind: it.kind, txt: it.txt.slice(0, 80), n: imgs.length }); gyLS(GY_SENT, sent.slice(-50));
+    const sent = gyLS(GY_SENT); sent.push({ id: data ? data.id : '', t: it.t, kind: it.kind, txt: it.txt.slice(0, 80), n: imgs.length }); gyLS(GY_SENT, sent.slice(-50));
   } catch (e) { break; } }
   gyBusy = false;
 }
@@ -73,8 +74,8 @@ async function gyFlush() {
 function gyHomeInner() { const s = gyLS(GY_SENT), q = gyLS(GY_LS);
   return `<h2>💬 Góp ý</h2><p class="mute">Thấy lỗi, khó hiểu hay có ý tưởng: bấm nút 💬 ở góc dưới phải, ở màn nào cũng được.</p>
     ${q.length ? `<p class="mute">${q.length} góp ý chờ gửi (mất mạng). <button class="link" data-g="flush">Gửi lại</button></p>` : ''}
-    ${s.length ? `<div class="mute">Đã gửi:</div>${s.slice(-5).reverse().map(x => `<div class="mute">#${x.id} · ${esc(gaKind(x.kind))} · ${esc(x.txt)}${x.n ? ` · ${x.n} ảnh` : ''}</div>`).join('')}` : ''}
-    <button data-g="admin">🗂 Quản lý góp ý</button>`; }
+    ${s.length ? `<div class="mute">Đã gửi:</div>${s.slice(-5).reverse().map(x => `<div class="mute">${x.id ? '#' + x.id + ' · ' : ''}${esc(gaKind(x.kind))} · ${esc(x.txt)}${x.n ? ` · ${x.n} ảnh` : ''}</div>`).join('')}` : ''}
+    ${typeof isAnon === 'function' && isAnon() ? '' : '<button data-g="admin">🗂 Quản lý góp ý</button>'}`; }
 const gyHomeHtml = () => `<div class="box" id="gyhome">${gyHomeInner()}</div>`;
 
 // ---------- 🗂 Quản lý góp ý ----------

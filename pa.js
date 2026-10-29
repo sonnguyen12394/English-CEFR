@@ -22,7 +22,7 @@ function paParts(lv, now = Date.now()) { const L = PA.filter(x => x.lv === lv), 
   for (const x of L) if (st[x.id]) learn++;
   for (const x of M) { const c = st[x.id]; if (isDue(c, now)) due++; for (const [k] of PA_DIMS) if (heldDim(c, k, now)) dim[k]++; }
   const T = L.length || 1, Tm = M.length || 1, dq = { pb: Math.floor(dim.pb / Tm * 100), doc: Math.floor(dim.doc / Tm * 100) };
-  return { T: L.length, Tm: M.length, learn, due, dim, dq, lq: Math.floor(learn / T * 100), mq: Math.min(dq.pb, dq.doc) }; }
+  return { T: L.length, Tm: M.length, learn, due, dim, Tk: { pb: M.length, doc: M.length }, dq, lq: Math.floor(learn / T * 100), mq: Math.min(dq.pb, dq.doc) }; }
 const paW = (w, ipa, x) => ({ id: 'pa:' + x.id + ':' + w, w, ipa: '/' + ipa + '/', vi: `${x.title} · ${x.vi}`, say: true, set: x.id });
 const paSay = w => `<button class="chip" data-sayt="${esc(w)}">🔊 ${esc(w)}</button>`;
 document.addEventListener('click', e => { const b = e.target.closest('[data-sayt]'); if (b) speak(b.dataset.sayt); });

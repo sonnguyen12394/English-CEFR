@@ -19,15 +19,23 @@ function bkCheck(o) { if (!o || typeof o !== 'object' || Array.isArray(o)) retur
   return ''; }
 function bkApply(o, why) { bkSnap(why); o.t = Date.now(); S = o; save(); }
 
+// v86: tài khoản của máy (ẩn danh riêng hay tài khoản chung) và cách chuyển sang máy khác
+function bkAcct() { if (typeof isAnon !== 'function' || !user) return '';
+  if (isAnon()) return `<div class="box"><b>👤 Tài khoản riêng của máy này</b> <span class="mute">· mã ${esc(String(user.id).slice(0, 8))}</span>
+    <p class="mute" style="margin:6px 0 0">Tiến độ chỉ của bạn, không lẫn với người khác. Không cần mật khẩu, nên nếu xoá dữ liệu Safari hoặc đổi máy thì tài khoản này mất.
+    Hãy ⬇️ tải tệp JSON để cất; sang máy mới thì 📥 dán JSON để khôi phục.</p></div>`;
+  return `<div class="box"><b>👥 Đang dùng tài khoản chung</b> <span class="mute">· ${esc(user.email || '')}</span>
+    <p class="mute" style="margin:6px 0">Mọi máy dùng tài khoản này chung một tiến độ. Người học khác nên dùng máy riêng (app tự tạo tài khoản riêng), hoặc tách máy này ra.</p>
+    <button data-bk="split">👤 Tách máy này ra tài khoản riêng</button></div>`; }
 function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
   const raw = JSON.stringify(S), sn = bkSnaps();
   $app.innerHTML = `<div id="bk"></div><h1>💾 Dữ liệu</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
-    ${typeof mapCard === 'function' ? mapCard() : ''}<h2>💾 Sao lưu</h2>
+    ${bkAcct()}<h2>💾 Sao lưu</h2>
     ${S.fake ? '<div class="box">🧪 Đang dùng <b>dữ liệu thử</b>. Muốn quay lại dữ liệu thật: khôi phục bản chụp trước lần đặt tiến độ.</div>' : ''}
     ${msg ? `<div class="box">${msg}</div>` : ''}
     <div class="box"><b>Dữ liệu học hiện tại</b> <span class="mute">· ${bkKB(raw)} · sửa lần cuối ${S.t ? bkDate(S.t) : '—'}</span>
       ${BK_PARTS.map(([id, l]) => `<div class="row" style="margin-top:6px"><span>${l}</span><span class="mute">${bkCount(id)}</span></div>`).join('')}
-      <p class="mute" style="margin:6px 0 0">Lưu ở máy này và trên máy chủ (tự đăng nhập). Tệp tải về là JSON, mở được bằng ứng dụng Tệp.</p></div>
+      <p class="mute" style="margin:6px 0 0">Lưu ở máy này và trên máy chủ. Tệp tải về là JSON, mở được bằng ứng dụng Tệp.</p></div>
     <h2>Tệp dữ liệu</h2>
     <button class="pri" data-bk="down">⬇️ Tải tệp JSON về máy</button>
     <label class="mute" style="display:block;margin-top:6px">⬆️ Nhập tệp JSON (thay toàn bộ dữ liệu hiện tại)<input type="file" id="bkfile" accept="application/json,.json"></label>
@@ -53,6 +61,7 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
   $app.onclick = e => { const b = e.target.closest('[data-bk]'), r = e.target.closest('[data-bkres]'), dl = e.target.closest('[data-bkdl]');
     if (b && b.dataset.bk === 'down') return bkDown(JSON.stringify(S, null, 1), 'hoc-tieng-anh');
     if (b && b.dataset.bk === 'edit') return bkEdit();
+    if (b && b.dataset.bk === 'split') return confirm('Tách máy này ra tài khoản riêng? Tiến độ hiện tại đi theo máy này; tài khoản chung giữ nguyên.') && acctSplit();
     if (b && b.dataset.bk === 'copy') return bkCopy();
     if (b && b.dataset.bk === 'paste') return bkPaste();
     if (b && b.dataset.bk === 'set') return bkSetGo(document.getElementById('fkp').value, document.getElementById('fkl').value, document.getElementById('fks').value);

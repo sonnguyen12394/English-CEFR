@@ -1,6 +1,6 @@
 // 🗺 Bản đồ chỗ yếu (v78, 29/10/2026, người sáng lập: chiến lược "học nhanh" nhiều tầng — "kiểm tra đầu vào phủ nhanh chỗ mạnh yếu (cấp 1) → tập trung chỗ yếu trước
 // để bù chỗ lủng, không để kỹ năng lệch → bài học và rèn luyện bóc tiếp chỗ lủng sâu hơn … như vạch lá tìm sâu nhưng theo nhiều tầng"; "xây chiến lược này, để ở mục dữ liệu").
-// Đặt ở tab 💾 Dữ liệu (trước gọi 💾 Sao lưu). Chỉ đọc bằng chứng sẵn có (thẻ ôn của 7 phần), không đổi luật đo; buổi chữa dùng đúng bộ chấm + lịch ôn của từng phần.
+// Đặt ở tab 💾 Dữ liệu (v78); v86 chuyển lối vào về ô 📅 Hôm nay của 🎯 Học CEFR (màn #bdo, nút ← Học CEFR). Chỉ đọc bằng chứng sẵn có (thẻ ôn của 7 phần), không đổi luật đo; buổi chữa dùng đúng bộ chấm + lịch ôn của từng phần.
 //   Tầng 1 · Phủ: mỗi phần ở cấp đang học có bao nhiêu % bài / từ đã có bằng chứng; phần "chưa rõ" → 🔎 Quét lại (mỗi 21 ngày: kiểm tra từ chưa học + xác nhận từ đã nhớ).
 //   Tầng 2 · Chữa: danh sách chỗ yếu = mặt đã làm sai (nặng) hoặc đã quên (nhẹ hơn); mức ưu tiên = mức yếu × mức tin cậy × mức quan trọng
 //     (tin cậy: ≥ 2 lần làm mới chắc; quan trọng: mặt cốt lõi > mặt chiều sâu, cấp đang học > cấp dưới). Buổi chữa 70 / 30: 14 chỗ yếu + 6 từ đang nhớ cần giữ.
@@ -93,14 +93,14 @@ function mapHit(id, xid, ks, ok, now = Date.now()) { const F = S && S.focus; if 
 const mapScanDue = (now = Date.now()) => { const s = (S.scan || []).slice(-1)[0]; return !s || now - s.at >= MAP_SCAN_D * DAY; };
 
 // ---------- màn 🗺 Bản đồ chỗ yếu ----------
-async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.innerHTML = '<div id="dl"></div><p class="mute">Đang tải…</p>';
+async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.innerHTML = '<div id="bdo"></div><p class="mute">Đang tải…</p>';
   try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); } catch (e) {}
   const now = Date.now(), weak = mapWeak(now), fo = mapFocus(now, weak), fby = {}, cov = mapCover(), roots = mapRoots(weak, now), by = {}; for (const w of weak) (by[w.id] = by[w.id] || []).push(w); for (const w of fo.act) (fby[w.id] = fby[w.id] || []).push(w); save();
   const nm = id => OV.find(o => o[0] === id), face = (id, k) => id === 'tv' ? (VREQ_BY[k] || [k, k])[1] : id === 'pa' ? (PA_DIMS.find(d => d[0] === k) || [k, k])[1] : (KIT[id].dims.find(d => d[0] === k) || [k, k])[1];
   const label = w => w.id === 'tv' ? esc(w.x.w) : w.id === 'pa' ? esc(w.x.title || w.x.id) : esc(KIT[w.id].name ? KIT[w.id].name(w.x) : w.x.id);
   const any = OV.some(([id]) => mapLast(id)), idle = OV.map(([id, ic, t]) => [id, ic, t, mapLast(id)]).filter(([, , , l]) => l ? (now - l) / DAY >= MAP_IDLE_D : any);   // đã học phần khác mà phần này chưa luyện lần nào cũng nhắc
   const noData = !Object.keys(S.cards).length && !Object.values(S.k || {}).some(k => Object.keys(k.cards || {}).length);
-  $app.innerHTML = `<div id="dl"></div><div class="row top"><button class="link" data-a="bk">← Dữ liệu</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>
+  $app.innerHTML = `<div id="bdo"></div><div class="row top"><button class="link" data-a="bk">← Học CEFR</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>
     <p class="mute">Gom mọi bằng chứng (kiểm tra, luyện, thi, tra từ) thành chỗ cần chữa. Chữa chỗ yếu trước, giữ cân bằng các kỹ năng, rồi đào tiếp chỗ lủng sâu hơn.</p>
     ${noData ? '<div class="box"><b>Chưa có dữ liệu học.</b><p class="mute" style="margin:6px 0 0">Bản đồ lớn dần khi bạn học. Bắt đầu: 🎯 Học CEFR → ô 📅 Hôm nay → 🧭 Kiểm tra xếp cấp.</p></div>' : ''}
     <div class="box"><b>① Tầng phủ · đã có bằng chứng ở cấp đang học</b>
@@ -133,7 +133,7 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
         const warn = d == null ? any : d >= MAP_IDLE_D; return `<div class="row" style="margin:2px 0"><span>${ic} ${t}</span><span class="${warn ? '' : 'mute'}">${d == null ? 'chưa luyện' : d === 0 ? 'hôm nay' : `${d} ngày trước`}${warn ? ' ⚠️' : ''} · ${n} yếu</span></div>`; }).join('')}`).join('')}
       <p class="mute" style="margin:6px 0 0">${idle.length ? `Nên luyện: ${idle.map(([, ic, t, l]) => ic + ' ' + t + (l ? '' : ' (chưa luyện lần nào)')).join(', ')}. ` : ''}Máy đo Nói, Viết yếu hơn Từ vựng; đừng để chúng bị bỏ quên chỉ vì máy ít thấy lỗi.</p></div>
     <p class="mute">Bản đồ chỉ đọc dữ liệu, không đổi luật đo. Chỗ yếu hết yếu khi làm đúng ở một ngày sau lần sai gần nhất và khả năng nhớ ≥ 80%.</p>`;
-  $app.onclick = e => { if (e.target.closest('[data-a="bk"]')) return backup(); const b = e.target.closest('[data-map]'); if (!b) return; const v = b.dataset.map, i = v.indexOf('|'), a = i < 0 ? v : v.slice(0, i), id = i < 0 ? '' : v.slice(i + 1); scrollTo(0, 0);
+  $app.onclick = e => { if (e.target.closest('[data-a="bk"]')) return overview(); const b = e.target.closest('[data-map]'); if (!b) return; const v = b.dataset.map, i = v.indexOf('|'), a = i < 0 ? v : v.slice(0, i), id = i < 0 ? '' : v.slice(i + 1); scrollTo(0, 0);
     if (a === 'scan') return mapScan(); if (a === 'root') return mapRoot(roots); if (a === 'fix') return mapFix(id); if (a === 'rl') return mapRelearn(id); }; }
 
 // ---------- buổi chữa ----------
@@ -197,6 +197,3 @@ function mapScan(now = Date.now()) { const lv = curLevel(), held = shuf(memWords
   if (!held.length) return after();
   run({ title: '🔎 Quét lại · từ đang nhớ', items: held.map(w => ({ w, type: 'spell' })), first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) okH++; save(); }, done: after }); }
 document.addEventListener('click', e => { if (!S) return; if (e.target.closest('[data-mapv]')) { scrollTo(0, 0); mapView(); } const r = e.target.closest('[data-map-rl]'); if (r) { scrollTo(0, 0); mapRelearn(r.dataset.mapRl); } });
-// ô tóm tắt (đầu tab 💾 Dữ liệu, ô 📅 Hôm nay)
-function mapCard() { const f = mapFocus(), scan = mapScanDue() && Object.keys(S.cards || {}).length;
-  return `<div class="box"><div class="row"><b>🗺 Bản đồ chỗ yếu</b><span class="mute">🎯 ${f.act.length}/${MAP_ACT} · ⏳ ${f.queue.length}</span></div><p class="mute" style="margin:6px 0">Kiểm tra → chữa tối đa ${MAP_ACT} chỗ yếu một lúc → đào tiếp chỗ lủng sâu hơn, giữ cân bằng kỹ năng.${scan ? ' 🔎 Đã tới lúc quét lại.' : ''}</p><button class="pri" data-mapv>🗺 Mở bản đồ</button></div>`; }

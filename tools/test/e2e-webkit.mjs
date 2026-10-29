@@ -46,7 +46,7 @@ for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', '
   await pg.waitForTimeout(400); let t = await answerAll(120); let tx = await pg.innerText('#app');
   if (tx.includes('Làm vòng 2')) { await pg.click('[data-a="r2"]'); t += await answerAll(120); tx = await pg.innerText('#app'); }
   check(`${lv} thi Từ vựng (${t} câu)`, /Qua/.test(tx), tx.slice(0, 80).replace(/\n/g, ' '));
-  await pg.evaluate(lv => overview(lv), lv); await pg.waitForTimeout(400); check(`${lv} tổng quan`, (await pg.innerText('#app')).includes('Tổng quan học'));
+  await pg.evaluate(lv => overview(lv), lv); await pg.waitForTimeout(400); check(`${lv} tổng quan`, (await pg.innerText('#app')).includes('Học CEFR'));
 }
 // 🎓 đề thử B1: mở từ Tổng quan, làm trọn bài Đọc (chọn đáp án đầu / gõ chữ), phải ra màn kết quả
 await pg.evaluate(() => overview('b1')); await pg.waitForTimeout(400); await pg.click('[data-mock="b1"]'); await pg.waitForTimeout(1500);
@@ -84,29 +84,32 @@ await pg.fill('#ut', await pg.evaluate(() => kModel(UOE.sum.find(x => document.b
 check('tóm tắt C2 chấm bài mẫu', /Đúng/.test(await pg.innerText('#ufb')));
 // 🌏 Học IELTS (v68): mở từ thanh dưới; luyện cả bài Đọc → ra kết quả; Viết Task 2 nộp bài mẫu → máy ước band; đề thử bài Đọc làm trọn → ra band
 await pg.evaluate(() => overview()); await pg.waitForTimeout(400); await pg.click('#tabs [data-tab="ie"]'); await pg.waitForTimeout(1500);
+// v86: lần đầu IELTS hỏi 3 câu (loại thi, band, ngày thi); các mục kỹ năng gập lại → mở hết để bấm
+const openAll = () => pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; }));
+check('IELTS lần đầu hỏi 3 câu', (await pg.innerText('#app')).includes('Bắt đầu: 3 câu hỏi')); await pg.click('[data-ieset]'); await pg.waitForTimeout(800); await openAll();
 check('IELTS mở từ thanh dưới', !!(await pg.$('#ie')) && await pg.isVisible('#tabs [data-tab="ie"].on')); check('IELTS có bản đồ band', (await pg.innerText('#app')).includes('Bản đồ band'));
 await pg.fill('#iedate', new Date(Date.now() + 60 * 864e5).toISOString().slice(0, 10)); await pg.dispatchEvent('#iedate', 'change'); await pg.waitForTimeout(800);
 check('IELTS kế hoạch theo ngày thi', /Còn \d+ tuần/.test(await pg.innerText('#app')) && !!(await pg.$('button.pri[data-iel], button.pri[data-ier], button.pri[data-iew], button.pri[data-ies], button.pri[data-err], button.pri[data-iemk]')));
-await pg.click('[data-ier="all"]'); await pg.waitForTimeout(400);
+await openAll(); await pg.click('[data-ier="all"]'); await pg.waitForTimeout(400);
 for (let n = 0; n < 30; n++) { if (await pg.$('#it:not([disabled])')) { await pg.fill('#it', 'x'); await pg.click('#if button[type=submit]'); } else if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break;
   await pg.waitForTimeout(50); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(50); }
 check('IELTS đọc ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
-await pg.click('[data-iew="t2"]'); await pg.waitForTimeout(300); await pg.fill('#iwt', await pg.evaluate(() => IE.t2[0].m)); await pg.click('#iwf button[type=submit]'); await pg.waitForTimeout(300);
+await openAll(); await pg.click('[data-iew="t2"]'); await pg.waitForTimeout(300); await pg.fill('#iwt', await pg.evaluate(() => IE.t2[0].m)); await pg.click('#iwf button[type=submit]'); await pg.waitForTimeout(300);
 check('IELTS viết máy ước band', /Máy ước: band/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
-await pg.click('[data-iemk="1"]'); await pg.waitForTimeout(1500);
+await openAll(); await pg.click('[data-iemk="1"]'); await pg.waitForTimeout(1500);
 for (let n = 0; n < 80; n++) { if (await pg.$('#kt')) { await pg.fill('#kt', 'x'); await pg.click('#kf button[type=submit]'); } else if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('IELTS đề thử Đọc ra band', /Kết quả IELTS/.test(await pg.innerText('#app')));
 // 💼 TOEIC (v72): chuyển từ IELTS sang TOEIC trong 🎓 Luyện thi; luyện Part 5 trọn bài → ra kết quả; đề thử Đọc → ra điểm
 await pg.evaluate(() => ieltsView()); await pg.waitForTimeout(800); await pg.click('[data-exsel="toeic"]'); await pg.waitForTimeout(1200);
 check('TOEIC mở', (await pg.innerText('#app')).includes('Luyện TOEIC') && await pg.isVisible('#tabs [data-tab="ie"].on'));
-await pg.click('[data-top="p5"]'); await pg.waitForTimeout(300);
+await openAll(); await pg.click('[data-top="p5"]'); await pg.waitForTimeout(300);
 for (let n = 0; n < 20; n++) { if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break; await pg.waitForTimeout(40); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(40); }
 check('TOEIC Part 5 ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(600); check('TOEIC có bản đồ điểm', (await pg.innerText('#app')).includes('Bản đồ điểm'));
-await pg.click('[data-tospd="p5"]'); await pg.waitForTimeout(300);
+await openAll(); await pg.click('[data-tospd="p5"]'); await pg.waitForTimeout(300);
 for (let n = 0; n < 20; n++) { if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break; await pg.waitForTimeout(40); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(40); }
 check('TOEIC luyện tốc độ ra kết quả', /giây \/ câu/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(600);
-check('TOEIC phân tích điểm yếu', /Phân tích điểm yếu/.test(await pg.innerText('#app')));
-await pg.click('[data-tomk="1"]'); await pg.waitForTimeout(800);
+await openAll(); check('TOEIC phân tích điểm yếu', /Phân tích điểm yếu/.test(await pg.innerText('#app')));
+await openAll(); await pg.click('[data-tomk="1"]'); await pg.waitForTimeout(800);
 for (let n = 0; n < 60; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('TOEIC đề thử Đọc ra điểm', /Kết quả TOEIC/.test(await pg.innerText('#app')));
 // 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả
@@ -122,10 +125,11 @@ await pg.evaluate(() => { S = blank(); learn(UNITS.find(u => u.lv === 'a1')); })
 for (let n = 0; n < 40; n++) { const it = await pg.evaluate(() => { const m = (window.CUR.item || '').split(':'), w = WBY[m[1]]; return w ? { w: w.w, vi: w.vi } : null; }); if (!it) break;
   if (await pg.$('#ptt')) { await pg.fill('#ptt', it.w); await pg.click('#ptf button[type=submit]'); } else if (await pg.$('[data-po]')) { const o = await pg.$$eval('[data-po]', bs => bs.map(b => b.innerText.trim())); const k = o.indexOf(it.vi); await pg.click(`[data-po="${k >= 0 ? k : -1}"]`); } else break; await pg.waitForTimeout(30); }
 check('kiểm tra đầu bài ra kết quả', /Đã biết \d+\/\d+ từ/.test(await pg.innerText('#app')), (await pg.innerText('#app')).slice(0, 60));
-// 🗺 Bản đồ chỗ yếu (v78): tab 💾 Dữ liệu có ô bản đồ, mở được, đủ 3 tầng
-await pg.evaluate(() => overview()); await pg.waitForTimeout(400); await pg.click('#tabs [data-tab="bk"]'); await pg.waitForTimeout(600);
-check('tab Dữ liệu có bản đồ', (await pg.innerText('#app')).includes('Bản đồ chỗ yếu')); check('bản đồ có nhóm đang chữa', /🎯/.test(await pg.innerText('#app'))); await pg.click('[data-mapv]'); await pg.waitForTimeout(1200);
-check('bản đồ đủ tầng', /Tầng phủ[\s\S]*Tầng chữa[\s\S]*Tầng gốc/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="bk"].on'));
+// 🗺 Bản đồ chỗ yếu (v78; v86 lối vào ở ô 📅 Hôm nay của Học CEFR): mở được, đủ 3 tầng, thanh dưới sáng 🎯
+await pg.evaluate(() => overview()); await pg.waitForTimeout(600);
+check('ô Hôm nay có bản đồ', (await pg.innerText('#app')).includes('Bản đồ chỗ yếu')); await pg.click('[data-mapv]'); await pg.waitForTimeout(1200);
+check('bản đồ đủ tầng', /Tầng phủ[\s\S]*Tầng chữa[\s\S]*Tầng gốc/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="all"].on'));
+await pg.click('#tabs [data-tab="dict"]'); await pg.waitForTimeout(600); check('Từ điển sáng đúng nút', await pg.isVisible('#tabs [data-tab="dict"].on') && !(await pg.$('#tabs [data-tab="bk"].on')));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

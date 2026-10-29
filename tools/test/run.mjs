@@ -166,7 +166,9 @@ const R = await run(`(async () => {
     actTick(Date.now() - 60000); actTick(Date.now());
     if (actMin(dayOf(t0)) !== 10 || actStreak() !== 3) bad.push('phút / chuỗi sai: ' + actMin(dayOf(t0)) + ' / ' + actStreak());
     actTick(Date.now() + 10 * 60000); if (actMin(dayOf(Date.now())) > 2) bad.push('khoảng nghỉ dài vẫn tính phút');
-    await overview('a1'); const ov = String($app.innerHTML); if (!ov.includes('📅 Hôm nay') || !ov.includes('id="ovtools"') || !ov.includes('3 việc hôm nay')) bad.push('Tổng quan thiếu ô Hôm nay / 🧰');
+    await overview('a1'); const ov = String($app.innerHTML); if (!ov.includes('📅 Hôm nay') || !ov.includes('3 việc hôm nay')) bad.push('Tổng quan thiếu ô Hôm nay');
+    // v86 hiện dần: người mới chưa thấy 🧰 luyện thi (chỉ một dòng báo), không còn ▶ Nên làm / 🗓 Gợi ý ~45 phút trái mục tiêu phút
+    if (ov.includes('id="ovtools"') || !ov.includes('Đề thử và luyện thi mở khi') || ov.includes('Gợi ý mỗi ngày') || ov.includes('▶ Nên làm')) bad.push('Tổng quan người mới chưa gọn');
     for (const lv of PL_LV) { const qs = plQs(lv); if (qs.length !== 5 || qs.some(it => !it.q.opts.includes(it.q.a))) bad.push('xếp cấp ' + lv + ': ' + qs.length + ' câu'); }
     if (plNext({ a2: [5, 5] }, 'a2') !== 'b1' || plNext({ a2: [1, 5] }, 'a2') !== 'a1' || plNext({ a2: [3, 5] }, 'a2') !== 'a2' || plNext({ a2: [6, 10] }, 'a2') !== null
       || plNext({ a2: [5, 5], b1: [1, 5] }, 'b1') !== null || plNext({ pre: [0, 5], a1: [0, 5], a2: [0, 5] }, 'pre') !== null || plResult({ a2: [5, 5], b1: [2, 5] }) !== 'a2') bad.push('bậc thang xếp cấp sai');
@@ -223,7 +225,7 @@ const R = await run(`(async () => {
     const R = mapRoots(mapWeak(now), now); if (!R.length || !R[0].gap.length) bad.push('truy gốc không ra từ');
     await tryv('màn bản đồ', () => mapView()); await mapView(); const h = String($app.innerHTML); if (!h.includes('Tầng phủ') || !h.includes('Tầng chữa') || !h.includes('Tầng gốc') || !h.includes('Cân bằng')) bad.push('màn bản đồ thiếu tầng');
     tryv('chữa từ vựng', () => mapFix('tv')); tryv('chữa đọc', () => mapFix('doc')); tryv('chữa gốc', () => mapRoot(R)); tryv('quét lại', () => mapScan());
-    if (!/data-mapv/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu nút bản đồ'); tryv('tab dữ liệu', () => backup()); if (!String($app.innerHTML).includes('Bản đồ chỗ yếu')) bad.push('tab Dữ liệu thiếu bản đồ');
+    if (!/data-mapv/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu nút bản đồ'); tryv('tab dữ liệu', () => backup()); if (String($app.innerHTML).includes('Mở bản đồ')) bad.push('v86: bản đồ còn ở tab Dữ liệu (đã chuyển về ô Hôm nay)');
     if (!mapScanDue(now)) bad.push('quét lại chưa đến hạn khi chưa quét lần nào'); S.scan = [{ at: now }]; if (mapScanDue(now)) bad.push('quét lại đến hạn ngay sau khi quét');
     add('cefr', 'C4', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'bản đồ chỗ yếu: xếp ưu tiên, độ phủ, truy gốc, cân bằng, buổi chữa, quét lại đều đúng'); }
   // 🎯 nhóm đang chữa (bando.js mapFocus, v79–v81): tối đa 15, Từ vựng ≤ 9, hàng chờ; chữa xong = đúng ở ngày sau lần sai; ra ngoài phạm vi không tính;
@@ -284,6 +286,21 @@ const R = await run(`(async () => {
     if (!(S.focus.h || []).some(([d, id]) => id === 'tv' && d === dayOf(now))) bad.push('nhật ký chữa xong không ghi');
     await tryv('màn bản đồ', () => mapView()); await mapView(); if (!String($app.innerHTML).includes('Chia chỗ')) bad.push('màn bản đồ thiếu chia chỗ');
     add('cefr', 'C5b', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'ưu tiên theo tầng: giữ chỗ Hiểu / Tạo ra, gốc trước triệu chứng, tin cậy Nói / Viết, nhật ký đều đúng'); }
+  // v86: tài khoản riêng mỗi máy (ẩn danh) / tài khoản chung; góp ý ⚑ Câu sai, người ẩn danh không quản lý góp ý; Tổng quan gọn + "còn thiếu"; IELTS hỏi 3 câu lần đầu
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const u0 = user;
+    user = { id: 'anon-1234567890', is_anonymous: true }; tryv('dữ liệu ẩn danh', () => backup()); if (!String($app.innerHTML).includes('Tài khoản riêng của máy này')) bad.push('thiếu ô tài khoản riêng');
+    if (/data-g="admin"/.test(gyHomeInner())) bad.push('người ẩn danh thấy Quản lý góp ý');
+    user = { id: 'chung', email: AUTO.email }; tryv('dữ liệu chung', () => backup()); if (!String($app.innerHTML).includes('data-bk="split"')) bad.push('tài khoản chung thiếu nút tách máy');
+    if (!/data-g="admin"/.test(gyHomeInner())) bad.push('tài khoản chung mất Quản lý góp ý'); user = u0;
+    if (gaKind('sai') !== '⚑ Câu sai') bad.push('thiếu loại góp ý ⚑ Câu sai');
+    const s0 = ovStat('tv', 'pre'); if (!s0 || s0.nl !== levelWords('pre').length || !(s0.nm > 0)) bad.push('còn thiếu sai: ' + JSON.stringify(s0 && [s0.nl, s0.nm]));
+    if (!ovNeedLine(s0, true).includes('bài chưa học')) bad.push('thẻ phần thiếu dòng còn thiếu');
+    await overview('pre'); const h = String($app.innerHTML), nb = (h.match(/<button/g) || []).length, nt = h.replace(/<[^>]+>/g, ' ').replace(/\\s+/g, ' ').length;
+    if (nb > 20 || nt > 2000) bad.push('Tổng quan người mới còn nặng: ' + nb + ' nút, ' + nt + ' chữ');
+    if (!/data-ovp="[a-z]+" data-ovpl="pre"[^>]*>⬜ Học 1 bài mới/.test(h)) bad.push('Hôm nay: việc học mới chưa mở thẳng phần');
+    delete S.ie; await ieltsView(); if (!String($app.innerHTML).includes('Bắt đầu: 3 câu hỏi')) bad.push('IELTS lần đầu chưa hỏi 3 câu');
+    ieSt().set = 1; await ieltsView(); const hi = String($app.innerHTML); if (!hi.includes('Hôm nay & kế hoạch') || !hi.includes('<summary><b>🎧 Nghe')) bad.push('IELTS sau khi chọn chưa gọn');
+    add('cefr', 'C6', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'tài khoản riêng / chung, góp ý ⚑, Tổng quan gọn (' + nb + ' nút, ' + nt + ' chữ), còn thiếu, IELTS 3 câu đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');
@@ -325,8 +342,11 @@ const R = await run(`(async () => {
     tmHit('p5:prep', true, now); tmHit('p5:prep', true, now + D); const g = tmFocus(now + D); if (g.done !== 1 || g.act.some(w => w.u === 'p5:prep')) bad.push('đạt 2 ngày chưa xong');
     // tốc độ Part 7 chậm → chỗ yếu; mở chữa có màn xem cách làm
     o.spd.push({ at: now + D, s: 'p7', avg: 80, ok: 4, n: 6 }, { at: now + D, s: 'p7', avg: 75, ok: 4, n: 6 }); if (!tmWeak().some(w => w.u === 'spd:p7')) bad.push('thiếu chỗ yếu tốc độ');
-    await new Promise(r => setTimeout(r, 300)); await tmFix('spd:p7'); if (!String($app.innerHTML).includes('Trước khi thử')) bad.push('tốc độ thiếu màn cách làm');
-    const ra = o.fo.a.find(a => a.u === 'tr:rep'); if (ra) { ra.tr = 1; ra.td = dayOf(now) - 1; await tmFix('tr:rep'); if (!String($app.innerHTML).includes('Trước khi thử')) bad.push('thiếu cách làm trước lần thử 2'); }
+    // đếm lần gọi tmTeach thay vì đọc $app: trong DOM giả, overview() tải chậm của khối kiểm trước có thể vẽ đè $app giữa chừng (test chập chờn v84)
+    const tt0 = tmTeach; let taught = []; tmTeach = (u, go) => { taught.push(u); return tt0(u, go); };
+    await tmFix('spd:p7'); if (!taught.includes('spd:p7')) bad.push('tốc độ thiếu màn cách làm');
+    const ra = o.fo.a.find(a => a.u === 'tr:rep'); if (ra) { ra.tr = 1; ra.td = dayOf(now) - 1; await tmFix('tr:rep'); if (!taught.includes('tr:rep')) bad.push('thiếu cách làm trước lần thử 2'); }
+    tmTeach = tt0;
     try { await tmFix('p6'); await tmFix('p7'); await tmFix('p3'); } catch (e) { errs.push('chữa Part: ' + e.message); }
     await toeicView(); if (!String($app.innerHTML).includes('Bản đồ điểm')) bad.push('màn TOEIC thiếu bản đồ điểm');
     add('toeic', 'T2', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'bản đồ điểm: dạng / bẫy có mẫu số, ngưỡng theo mục tiêu, nhóm 3 (Nghe ≤ 2, Đọc ≤ 2), chỉ câu mới tính, đạt 2 ngày = xong, tốc độ, kho ≥ 20 bộ'); }

@@ -103,6 +103,7 @@ document.addEventListener('click', e => { const b = e.target.closest('[data-toad
 // ---------- ▶ nên làm hôm nay ----------
 function toToday() { const o = toSt(), acc = s => { const a = Object.values(o.r).filter(r => r.k === s), n = a.reduce((t, r) => t + r.n, 0); return n ? a.reduce((t, r) => t + r.ok, 0) / n : -1; }, last = (o.mock[o.mock.length - 1] || {}).at || 0;
   if (toVocDue().length) return ['data-tovoc=""', `📚 Ôn ${Math.min(10, toVocDue().length)} từ công sở đến hạn`];
+  if (typeof tmFocus === 'function') { const d = dayOf(Date.now()), w = tmFocus().act.find(w => w.td !== d); if (w) return [`data-tm="fix|${w.u}"`, `🗺 Chữa chỗ yếu: ${TM_SK[w.sk].split(' ')[0]} ${w.t}`]; }   // v86: bản đồ điểm cấp việc cho ô Hôm nay
   if (Object.keys(o.r).length >= 8 && Date.now() - last > 14 * 864e5) return ['data-tomk="all"', '🎓 Làm một đề thử (2 tuần chưa làm)'];
   const s = Object.keys(TO_PRAC).sort((a, b) => acc(a) - acc(b))[0], tg5 = toTagAcc().filter(t => t.n >= 4).sort((a, b) => a.p - b.p)[0];
   if (s === 'p5' && tg5) return [`data-top="t:${tg5.t}"`, `✏️ Part 5 · ${TO_T5[tg5.t]} (đúng ${Math.round(tg5.p * 100)}%, dạng yếu nhất)`];
@@ -148,27 +149,27 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
   const cell = (k, n) => `<div class="box" style="margin:0;text-align:center"><div class="mute" style="font-size:13px">${n}</div><div style="font-size:22px;font-weight:800">${now.b[k] != null ? '≈ ' + now.b[k] : '–'}</div><div class="mute" style="font-size:11px">${now.cal[k] ? `📏 đã chỉnh (${now.cal[k].n})` : 'chưa chỉnh'}</div></div>`;
   const sec = s => { const a = Object.values(o.r).filter(r => r.k === s), n = a.reduce((t, r) => t + r.n, 0); return `<button class="big2" data-top="${s}">${TO_SEC[s][0]} ${TO_SEC[s][1].replace(/^Part \d: /, '')}<small>${TO_SEC[s][1].match(/^Part \d/)[0]}${n ? ` · đúng ${Math.round(a.reduce((t, r) => t + r.ok, 0) / n * 100)}%` : ''}</small></button>`; };
   $app.innerHTML = `<div id="ie"></div>${exSwitch('toeic')}<h1>💼 Luyện TOEIC</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
-    <p style="margin:8px 0 2px">Điểm mục tiêu (tổng 10–990):</p><div class="chips">${TO_TG.map(t => `<button class="chip ${t === tg ? 'on' : ''}" data-totg="${t}">${t}</button>`).join('')}</div>
+    <details class="box"><summary><b>⚙️ Điểm mục tiêu: ${tg}</b> <span class="mute">(tổng 10–990)</span></summary><div class="chips">${TO_TG.map(t => `<button class="chip ${t === tg ? 'on' : ''}" data-totg="${t}">${t}</button>`).join('')}</div></details>
     <div class="box"><div class="row"><b>📊 Điểm ước hiện tại</b><span class="${now.tot != null && now.tot >= tg ? 'okc' : 'mute'}">${now.tot != null ? 'Tổng ≈ ' + now.tot : 'chưa đủ số đo'}</span></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">${cell('L', '🎧 Listening')}${cell('R', '📖 Reading')}</div>
       <p class="mute" style="margin:6px 0 0">Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. Ước theo tỉ lệ đúng, không phải bảng ETS. 📏 = đã chỉnh theo đề thật bạn nhập (so đề thử app trong 14 ngày).</p>
       <button class="pri" ${act} style="margin-top:8px">▶ Nên làm hôm nay: ${esc(lab)}</button></div>
-    ${tmBox()}${toInsights()}
+    <details class="box"><summary><b>🗺 Bản đồ điểm & phân tích</b> <span class="mute">· chỗ làm mất điểm</span></summary>${tmBox()}${toInsights()}</details>
     <div class="box"><b>🧱 Nền cần có: CEFR ${LVN[base]}</b><p class="mute" style="margin:6px 0">Suy từ bảng ETS (Nghe B1 ≥ 275, B2 ≥ 400, C1 ≥ 490; Đọc B1 ≥ 275, B2 ≥ 385, C1 ≥ 455; nên đối chiếu tài liệu ETS). ${tg} điểm ≈ mỗi phần ${tg / 2}.</p>
       <p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🎯 Mở Học CEFR cấp ${LVN[base]}</button></div>
     <div class="box"><div class="row"><b>🎓 Đề thử TOEIC</b><span class="mute">${o.mock.length ? `đã làm ${o.mock.length} lần` : 'chưa làm'}</span></div>
       <p class="mute" style="margin:6px 0">Tỉ lệ các Part như đề thật, ít câu hơn (đề thật 200 câu / 120 phút). Nghe 1 lần, không báo đúng / sai giữa chừng.</p>
       ${TO_PAPERS.map((p, i) => `<button data-tomk="${i}">${p.t} · ${p.min} phút</button>`).join('')}<button class="pri" data-tomk="all">▶ Làm cả đề</button></div>
-    <div class="box"><b>🎧 Nghe (Listening)</b><p class="mute" style="margin:4px 0">Giọng Mỹ và Anh tự nhiên. Chưa có Part 1 (tả ảnh).</p><div class="duo">${['p2', 'p3', 'p4'].map(sec).join('')}</div>${toHow('L')}</div>
-    <div class="box"><b>📖 Đọc (Reading)</b><div class="duo">${['p5', 'p6', 'p7'].map(sec).join('')}<button class="big2" data-top="p7m">📑 Nhiều văn bản<small>Part 7, đối chiếu</small></button></div>
-      ${w5 ? `<button data-top="w5">🔁 Làm lại ${Math.min(15, w5)} câu Part 5 từng sai</button>` : ''}${toHow('R')}</div>
+    <details class="box"><summary><b>🎧 Nghe (Listening)</b></summary><p class="mute" style="margin:4px 0">Giọng Mỹ và Anh tự nhiên. Chưa có Part 1 (tả ảnh).</p><div class="duo">${['p2', 'p3', 'p4'].map(sec).join('')}</div>${toHow('L')}</details>
+    <details class="box"><summary><b>📖 Đọc (Reading)</b></summary><div class="duo">${['p5', 'p6', 'p7'].map(sec).join('')}<button class="big2" data-top="p7m">📑 Nhiều văn bản<small>Part 7, đối chiếu</small></button></div>
+      ${w5 ? `<button data-top="w5">🔁 Làm lại ${Math.min(15, w5)} câu Part 5 từng sai</button>` : ''}${toHow('R')}</details>
     <div class="box"><div class="row"><b>📚 Từ vựng công sở</b><span class="mute">${toVocKnown()}/${nv} nhớ vững</span></div><p class="mute" style="margin:4px 0">${TO.voc.length} chủ đề, ôn cách quãng 1 → 35 ngày.${toVocDue().length ? ` <b>${toVocDue().length} từ đến hạn.</b>` : ''}</p>
       <div class="chips">${TO.voc.map(t => { const n = t.w.filter(w => o.voc[w[0]]).length; return `<button class="chip" data-tovoc="${t.id}">${t.t} ${n}/${t.w.length}</button>`; }).join('')}</div></div>
-    <div class="box"><div class="row"><b>🎯 Sẵn sàng thi ${tg}</b><span class="${nOk === cs.length ? 'okc' : 'mute'}">${nOk}/${cs.length}</span></div>
+    <details class="box"><summary><b>🎯 Sẵn sàng thi ${tg}</b> <span class="${nOk === cs.length ? 'okc' : 'mute'}">${nOk}/${cs.length}</span></summary>
       ${cs.map(([ok, t, d]) => `<p style="margin:4px 0">${ok ? '✅' : '⬜'} ${t} <span class="mute">· ${esc(d)}</span></p>`).join('')}
       <p class="mute" style="margin:6px 0 0">Đủ cả 4 mới nên đăng ký thi. Đề của app do AI soạn; đề luyện thật (sách ETS) là bằng chứng độc lập.</p>
-      <button class="chip" data-toadd>📝 Ghi điểm đề luyện thật (Listening, Reading)</button></div>
-    <p class="mute">TOEIC là thương hiệu của ETS; app không phải sản phẩm chính thức, không chép đề ETS. Nội dung AI soạn, chưa người thật kiểm. Không tính vào 🎯 Học CEFR. Đăng ký thi tại Việt Nam: IIG Việt Nam (đại diện ETS).</p>`;
+      <button class="chip" data-toadd>📝 Ghi điểm đề luyện thật (Listening, Reading)</button></details>
+    <p class="mute">TOEIC là thương hiệu của ETS; app không phải sản phẩm chính thức, không chép đề ETS. 🤖 Nội dung AI soạn, chưa giáo viên kiểm (thấy câu sai: 💬 → ⚑ Câu sai). Không tính vào 🎯 Học CEFR. Đăng ký thi tại Việt Nam: IIG Việt Nam (đại diện ETS).</p>`;
   $app.onclick = e => { const g = s => e.target.closest(s); let b;
     if ((b = g('[data-totg]'))) { o.target = +b.dataset.totg; S.t = Date.now(); save(); return toeicView(); }
     if ((b = g('[data-iecefr]'))) { scrollTo(0, 0); return overview(b.dataset.iecefr); }
