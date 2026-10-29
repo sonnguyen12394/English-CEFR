@@ -214,3 +214,8 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 | A2 | 177 ngày | 111 ngày |
 
 - Cần đo bằng người thật: tỉ lệ quên của từ "qua nhờ kiểm tra" so với từ học thường (≤ 1,5 lần là được; cao hơn thì siết kiểm tra); 🔁 Nhớ tăng mà tỉ lệ đúng khi ôn giảm → chấm nhiều mục đang cộng quá tay.
+
+## Bản đồ chỗ yếu (v78, 29/10/2026)
+- Người sáng lập: chiến lược "học nhanh" nhiều tầng — kiểm tra đầu vào là đánh giá cấp 1; cấp 2 tập trung chỗ yếu trước, không để kỹ năng lệch; rồi dùng bài học và rèn luyện bóc tiếp chỗ lủng sâu hơn ("vạch lá tìm sâu nhưng theo nhiều tầng"); "xây chiến lược này để ở mục dữ liệu".
+- Rủi ro đã tính (Claude): chẩn đoán nhầm vì một lần đúng / sai (→ độ tin cậy, quy tắc dừng cần đúng ở ngày khác); chữa triệu chứng không chữa gốc (→ tầng gốc: bài yếu → từ); chỉ chữa thứ máy đo được làm lệch kỹ năng (→ ô cân bằng); toàn chỗ yếu thì nản (→ buổi chữa 70 / 30); chỗ lủng chưa từng hỏi (→ quét lại mỗi 21 ngày).
+- Chưa có: bản đồ phụ thuộc giữa các điểm ngữ pháp (cần gắn nhãn tay); truy gốc lỗi Viết / Nói; kế hoạch ngày tự xếp theo bản đồ (ô Hôm nay mới có nút dẫn tới bản đồ). Sẽ làm khi có dữ liệu học thật.

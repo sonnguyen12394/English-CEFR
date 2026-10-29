@@ -21,7 +21,8 @@ function bkApply(o, why) { bkSnap(why); o.t = Date.now(); S = o; save(); }
 
 function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
   const raw = JSON.stringify(S), sn = bkSnaps();
-  $app.innerHTML = `<div id="bk"></div><h1>💾 Sao lưu</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
+  $app.innerHTML = `<div id="bk"></div><h1>💾 Dữ liệu</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
+    ${typeof mapCard === 'function' ? mapCard() : ''}<h2>💾 Sao lưu</h2>
     ${S.fake ? '<div class="box">🧪 Đang dùng <b>dữ liệu thử</b>. Muốn quay lại dữ liệu thật: khôi phục bản chụp trước lần đặt tiến độ.</div>' : ''}
     ${msg ? `<div class="box">${msg}</div>` : ''}
     <div class="box"><b>Dữ liệu học hiện tại</b> <span class="mute">· ${bkKB(raw)} · sửa lần cuối ${S.t ? bkDate(S.t) : '—'}</span>

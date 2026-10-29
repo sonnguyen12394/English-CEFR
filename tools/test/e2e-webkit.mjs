@@ -122,6 +122,10 @@ await pg.evaluate(() => { S = blank(); learn(UNITS.find(u => u.lv === 'a1')); })
 for (let n = 0; n < 40; n++) { const it = await pg.evaluate(() => { const m = (window.CUR.item || '').split(':'), w = WBY[m[1]]; return w ? { w: w.w, vi: w.vi } : null; }); if (!it) break;
   if (await pg.$('#ptt')) { await pg.fill('#ptt', it.w); await pg.click('#ptf button[type=submit]'); } else if (await pg.$('[data-po]')) { const o = await pg.$$eval('[data-po]', bs => bs.map(b => b.innerText.trim())); const k = o.indexOf(it.vi); await pg.click(`[data-po="${k >= 0 ? k : -1}"]`); } else break; await pg.waitForTimeout(30); }
 check('kiểm tra đầu bài ra kết quả', /Đã biết \d+\/\d+ từ/.test(await pg.innerText('#app')), (await pg.innerText('#app')).slice(0, 60));
+// 🗺 Bản đồ chỗ yếu (v78): tab 💾 Dữ liệu có ô bản đồ, mở được, đủ 3 tầng
+await pg.evaluate(() => overview()); await pg.waitForTimeout(400); await pg.click('#tabs [data-tab="bk"]'); await pg.waitForTimeout(600);
+check('tab Dữ liệu có bản đồ', (await pg.innerText('#app')).includes('Bản đồ chỗ yếu')); await pg.click('[data-mapv]'); await pg.waitForTimeout(1200);
+check('bản đồ đủ tầng', /Tầng phủ[\s\S]*Tầng chữa[\s\S]*Tầng gốc/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="bk"].on'));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

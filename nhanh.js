@@ -15,9 +15,9 @@ const PT_DIMS = ['nghia', 'nhora', 'viet'];
 function ptCard(now) { const c = { S: 4, last: now, d0: dayOf(now) - 1, ok: 1, pv: 1, n: 2, lapse: 0, pt: 1, dm: {} }; for (const k of PT_DIMS) c.dm[k] = { ok: 1, pv: 1, n: 1 }; return c; }
 const ptNorm = s => String(s || '').toLowerCase().replace(/[‘’]/g, "'").replace(/\s+/g, ' ').trim();
 // chạy kiểm tra cho bài u; xong gọi done(known: Set id từ đã biết)
-function ptRun(u, done) { const ws = u.words.filter(w => !S.cards[w.id]); let i = 0, step = 0; const known = new Set(), res = [];
+function ptRun(u, done, title) { const T = title || `${uLabel(u)} · ${u.vi}`; const ws = u.words.filter(w => !S.cards[w.id]); let i = 0, step = 0; const known = new Set(), res = [];
   if (!ws.length) return done(known);
-  $app.innerHTML = `${backRow(`${uLabel(u)} · ${u.vi}`)}<h1>⚡ Biết rồi thì bỏ qua</h1><div class="box"><p style="margin:0">Bài có ${ws.length} từ. Kiểm tra nhanh (~${Math.max(1, Math.round(ws.length * 12 / 60))} phút): mỗi từ 2 câu, chọn nghĩa rồi tự gõ từ. Từ nào đúng cả 2 thì bỏ khỏi bài, chỉ học từ chưa biết.</p>
+  $app.innerHTML = `${backRow(T)}<h1>⚡ Biết rồi thì bỏ qua</h1><div class="box"><p style="margin:0">Bài có ${ws.length} từ. Kiểm tra nhanh (~${Math.max(1, Math.round(ws.length * 12 / 60))} phút): mỗi từ 2 câu, chọn nghĩa rồi tự gõ từ. Từ nào đúng cả 2 thì bỏ khỏi bài, chỉ học từ chưa biết.</p>
     <p class="mute" style="margin:6px 0 0">Không đoán bừa: không biết thì bấm "Chưa biết". Đoán trúng chỉ làm sau này quên và phải học lại.</p></div>
     <button class="pri" data-pt="go">⚡ Kiểm tra trước</button><button data-pt="skip">📘 Học hết bài</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); if (e.target.closest('[data-pt="skip"]')) return done(known); if (e.target.closest('[data-pt="go"]')) show(); };
@@ -32,7 +32,7 @@ function ptRun(u, done) { const ws = u.words.filter(w => !S.cards[w.id]); let i 
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); const b = e.target.closest('[data-po]'); if (!b) return; const k = +b.dataset.po; next(k >= 0 && q.opts && q.opts[k] === q.a); }; };
   const end = () => { const now = Date.now(); for (const id of known) S.cards[id] = ptCard(now); (S.pt = S.pt || []).push({ at: now, u: u.id, n: ws.length, known: known.size }); S.t = now; save();
     const left = ws.filter(w => !known.has(w.id));
-    $app.innerHTML = `${backRow(`${uLabel(u)} · ${u.vi}`)}<h1>⚡ Đã biết ${known.size}/${ws.length} từ</h1>
+    $app.innerHTML = `${backRow(T)}<h1>⚡ Đã biết ${known.size}/${ws.length} từ</h1>
       <div class="box">${known.size ? `<p style="margin:0">✅ Bỏ qua: ${ws.filter(w => known.has(w.id)).map(w => esc(w.w)).join(', ')}</p><p class="mute" style="margin:6px 0 0">Đã tính học. 📖 nghĩa, 💭 nhớ ra từ, ✍️ chính tả tính vào 🔁 Nhớ; vài ngày nữa app hỏi lại để xác nhận. Các mặt khác (nghe, nói, cụm…) luyện dần trong 🏋️ Luyện tập.</p>` : '<p style="margin:0">Chưa bỏ qua từ nào: học cả bài.</p>'}</div>
       ${left.length ? `<button class="pri" data-pt="learn">📘 Học ${left.length} từ chưa biết</button>` : '<button class="pri" data-pt="fin">✅ Hoàn thành bài</button>'}`;
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); if (e.target.closest('[data-pt="learn"], [data-pt="fin"]')) done(known); }; };
