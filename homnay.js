@@ -32,15 +32,19 @@ function todayBox(stage) { const t = dayOf(Date.now()), m = actMin(t), g = actGo
     <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:11px;text-align:center" class="mute">${days.map(d => `<span>${d === t ? 'Nay' : wd[new Date(d * DAY + 12 * 3600000).getUTCDay()]}</span>`).join('')}</div>
     <p style="margin:10px 0 2px"><b>3 việc hôm nay</b> <span class="mute">(~${g} phút)</span></p>
     ${step(due === 0, due == null ? 'Ôn bài đến hạn' : due ? `Ôn ${due} bài đến hạn (làm trước, chống quên)` : 'Không còn bài đến hạn', 'data-today="due"')}
+    ${typeof mapFocus === 'function' && Object.keys(S.cards || {}).length ? (f => { const d = dayOf(Date.now()), did = f.act.some(w => w.td === d);
+      return (f.act.length ? step(did, did ? 'Đã chữa chỗ yếu hôm nay' : `Chữa ${Math.min(MAP_TODAY, f.act.length)} chỗ yếu đang chữa (kèm việc ôn)`, 'data-today="fix"') : '')
+        + (f.root.length ? `<button data-map-rl="${esc(mapKey(f.root[0]))}" style="margin:4px 0">🧱 Học lại bài gốc: ${f.root.length} chỗ kẹt lâu</button>` : '')
+        + (f.act.length ? `<button data-mapv style="margin:4px 0">🗺 Đang chữa ${f.act.length} chỗ yếu${f.queue.length ? ` · ${f.queue.length} chờ` : ''}</button>` : ''); })(mapFocus()) : ''}
     ${step(nw > 0, nw ? `Đã học ${nw} mục mới hôm nay` : `Học 1 bài mới ở cấp ${LVN[stage]}`, 'data-today="new"')}
     ${step(sk, sk ? 'Đã luyện kỹ năng hôm nay' : `Luyện 1 bài kỹ năng${lowSk ? `: ${OV.find(o => o[0] === lowSk[0])[1]} ${OV.find(o => o[0] === lowSk[0])[2]}` : ''}`, `data-today="skill"${lowSk ? ` data-tsk="${lowSk[0]}"` : ''}`)}
-    ${typeof mapFocus === 'function' && Object.keys(S.cards || {}).length ? (f => f.act.length ? `<button data-mapv style="margin:4px 0">🗺 Đang chữa ${f.act.length} chỗ yếu${f.queue.length ? ` · ${f.queue.length} chờ` : ''}</button>` : '')(mapFocus()) : ''}
     ${typeof relearnUnits === 'function' ? relearnUnits().slice(0, 2).map(([u, ws]) => `<button data-relearn="${u.id}" style="margin:4px 0">🔁 Học lại ${esc(uLabel(u))}: ${ws.length} từ hay quên</button>`).join('') : ''}
     ${!Object.keys(S.cards || {}).length && !S.place ? '<button data-place style="margin-top:6px">🧭 Mới bắt đầu? Kiểm tra xếp cấp (5–10 phút) để biết nên học từ cấp nào</button>' : ''}
     <p class="mute" style="margin:6px 0 0">Phút học đo từ lúc bạn làm bài (không tính lúc chỉ mở app). Ngày ≥ ${ACT_DAY_MIN} phút tính vào chuỗi. Học đều mỗi ngày nhớ lâu hơn học dồn (hiệu ứng giãn cách).</p></div>`; }
 document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('[data-goal]'); if (g) { S.goal = +g.dataset.goal; S.t = Date.now(); save(); return overview(); }
   const b = e.target.closest('[data-today]'); if (!b) return; const k = b.dataset.today; scrollTo(0, 0);
   if (k === 'due' || k === 'new') { const nb = document.querySelector('#app [data-ovp].pri'); if (nb && k === 'due') return nb.click(); return k === 'new' ? (HOME.lv = curLevel(), HOME.open = null, home()) : overview(); }
+  if (k === 'fix') return mapToday();
   if (k === 'skill') { const id = b.dataset.tsk || 'nghe'; KIT[id].view = kLv(KIT[id]); return kView(id); } });
 
 // ---------- ③ 🧭 kiểm tra xếp cấp: bậc thang, mỗi cấp 5 câu (3 nghĩa từ + 2 ngữ pháp) ----------

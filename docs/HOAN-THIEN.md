@@ -224,4 +224,6 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Người sáng lập: giữ mục tiêu bắt chỗ yếu, nhưng giới hạn số chỗ học cùng lúc và có hàng chờ cho chỗ tiếp theo.
 - Lý do: danh sách dài làm nản, chữa dàn trải không chỗ nào xong. Ít chỗ một lúc thì mỗi chỗ được chữa tới nơi.
 - Luật: tối đa 15 chỗ (`MAP_ACT`); Từ vựng ≤ 9 (`MAP_TV_MAX`) nếu phần khác có chỗ yếu; xong 1 chỗ thì vào 1 chỗ; chỗ mới không chen; v80: thử tối đa 3 ngày, chưa qua thì tạm gác 14 ngày rồi quay lại cuối hàng chờ (như "thẻ khó" của Anki: không để một chỗ kẹt chặn cả nhóm).
+- v81 sửa 6 rủi ro: chữa xong cần đúng ở ngày sau lần sai; ra ngoài phạm vi không tính; chấm ở đâu cũng đếm lần thử; xem lại trước khi thử; gác lần 2 → học lại bài gốc; việc chữa trong ô Hôm nay.
+- Tiêu chí đo sau 2 tuần học thật: chỗ ✅ yếu lại trong 7 ngày < 20%; tỉ lệ bị gác < 30%; không chỗ nào nằm trong nhóm > 7 ngày mà chưa thử. Mốc dừng: 2 tuần chưa có người học thật → dừng làm tính năng, đi tìm người học.
 - Không đổi luật đo. Số 15 là ước đoán, cần chỉnh lại theo dữ liệu thật (tỉ lệ chữa xong mỗi tuần).

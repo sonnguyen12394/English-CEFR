@@ -20,7 +20,7 @@ const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 80;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 81;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -92,6 +92,8 @@ function grade(st, wid, ok, now, type) {
     // = được dạy hôm đó (giải thích hiện sau câu); từ ngày sau làm đúng mới tính 🔁 Nhớ.
     if (td == null && w && VREQ_BY[k]) { c.du = c.du || {}; td = c.du[VREQ_BY[k][2]] = dayOf(now); }
     if (ok && td != null && dayOf(now) - td >= MEM_DAYS) d.pv = 1; }
+  // 🗺 nhóm đang chữa (bando.js): mọi lần chấm đều là một lần thử; kit / phát âm gọi grade với kiểu "<phần>_<mặt>"
+  if (typeof mapHit === 'function') mapHit(st === S ? 'tv' : String(type).split('_')[0], wid, DIM_OF[type] || [], ok, now);
 }
 // ⬆️ Nâng cấp: các cấp yêu cầu (A1, A2) mà từ w (cấp thấp hơn) cần được dạy thêm khi đang học cấp lv
 const upNeed = (w, lv = curLevel(), c = S.cards[w.id]) => [...new Set(VREQ.map(r => r[2]))].filter(L => L !== 'pre').filter(L => lvIdx(L) > lvIdx(wLv(w)) && lvIdx(L) <= lvIdx(lv) && VREQ.some(r => r[2] === L && r[3](w)) && !(c && c.du && c.du[L] != null));
