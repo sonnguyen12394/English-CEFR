@@ -84,3 +84,9 @@ Học riêng 918 từ A1 (96 unit): 825 từ lấy từ game English Ladder (`so
 ## Tự cập nhật (23/10/2026)
 - `version.json` ghi số bản mới nhất. Trang hỏi tệp này (không qua bộ nhớ đệm) khi mở / quay lại tab và mỗi 5 phút; có bản mới thì tự tải lại khi đang ở trang chính / từ điển, đang học / thi thì đợi về trang chính.
 - **Mỗi lần phát hành: tăng cùng một số ở `APP_V` (app.js), `?v=` (index.html) và `"v"` (version.json).**
+
+## 📊 IELTS theo dạng câu và tiêu chí (v82, bước 1 của "Bản đồ band")
+- Người sáng lập 29/10/2026 hỏi chiến lược bắt chỗ yếu của CEFR áp cho IELTS thế nào. Khác gốc: chỗ yếu IELTS là dạng câu và tiêu chí chấm, không phải từng bài; chữa bằng bài MỚI cùng dạng, không ôn lặp bài cũ (làm lại = nhớ đáp án).
+- Bước 1 (đã làm): mỗi câu Đọc / Nghe gắn dạng (`q.ty`: nối tiêu đề, True / False / Not Given, điền từ, trắc nghiệm, văn bản GT, nghe điền phiếu, nghe trắc nghiệm). Luyện và đề thử ghi vào `S.ie.ty` (`ieTyLog`). Viết / Nói ghi 4 tiêu chí vào `S.ie.cr` (`ieCrLog`), máy ước và 🧑‍🏫 AI chấm tách riêng.
+- Xem: ô "📊 Theo dạng câu & tiêu chí" ở Học IELTS; bảng theo dạng ở kết quả đề thử. Đủ chắc: ≥ 8 câu ở ≥ 2 bài; dưới 75% là chỗ yếu.
+- Bước 2 (màn Bản đồ band chỉ xem) chỉ làm khi có ≥ 2 đề thử hoặc ≥ 10 bài luyện thật. Bước 3 (nhóm 3 chỗ đang chữa, thử bằng bài mới) cần thêm bài: mỗi dạng ≥ 10 bài.

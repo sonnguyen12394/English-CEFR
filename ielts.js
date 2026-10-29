@@ -33,10 +33,10 @@ const iePass = x => `<details class="box" open style="margin-top:12px"><summary>
 const IE_TFH = '<p class="mute">TRUE = bài nói đúng như vậy · FALSE = bài nói ngược lại · NOT GIVEN = bài không nói tới.</p>';
 const IE_RK = { h: ['🧭', 'Chọn tiêu đề cho đoạn'], tf: ['⚖️', 'TRUE / FALSE / NOT GIVEN'], comp: ['✏️', 'Điền không quá 2 từ'], mc: ['🔘', 'Trắc nghiệm'] };
 function ieRQs(x, kinds = ['h', 'tf', 'comp', 'mc']) { const foot = iePass(x), out = [];
-  if (kinds.includes('h')) { const hs = shuf([...x.h, ...x.hx]); x.h.forEach((h, i) => out.push({ x, k: 'h', kind: 'mc', head: '<p class="mute">Chọn tiêu đề đúng cho đoạn. Mỗi tiêu đề dùng một lần; có tiêu đề thừa.</p>', q: `Đoạn ${IE_AB[i]}`, opts: hs, a: h, foot })); }
-  if (kinds.includes('tf')) for (const t of x.tf) out.push({ x, k: 'tf', kind: 'mc', head: IE_TFH, q: esc(t.s), opts: ['TRUE', 'FALSE', 'NOT GIVEN'], a: t.a, why: t.why, foot });
-  if (kinds.includes('comp')) for (const c of x.comp) out.push({ x, k: 'comp', kind: 'type', head: '<p class="mute">Điền KHÔNG QUÁ HAI TỪ, lấy đúng từ trong bài.</p>', q: esc(c.s).replace('______', '<b>______</b>'), a: c.a[0], acc: c.a, why: c.why, foot });
-  if (kinds.includes('mc')) for (const m of x.mc) out.push({ x, k: 'mc', kind: 'mc', q: esc(m.q), opts: shuf([m.a, ...m.w]), a: m.a, why: m.why, foot });
+  if (kinds.includes('h')) { const hs = shuf([...x.h, ...x.hx]); x.h.forEach((h, i) => out.push({ x, k: 'h', ty: 'R-h', kind: 'mc', head: '<p class="mute">Chọn tiêu đề đúng cho đoạn. Mỗi tiêu đề dùng một lần; có tiêu đề thừa.</p>', q: `Đoạn ${IE_AB[i]}`, opts: hs, a: h, foot })); }
+  if (kinds.includes('tf')) for (const t of x.tf) out.push({ x, k: 'tf', ty: 'R-tf', kind: 'mc', head: IE_TFH, q: esc(t.s), opts: ['TRUE', 'FALSE', 'NOT GIVEN'], a: t.a, why: t.why, foot });
+  if (kinds.includes('comp')) for (const c of x.comp) out.push({ x, k: 'comp', ty: 'R-comp', kind: 'type', head: '<p class="mute">Điền KHÔNG QUÁ HAI TỪ, lấy đúng từ trong bài.</p>', q: esc(c.s).replace('______', '<b>______</b>'), a: c.a[0], acc: c.a, why: c.why, foot });
+  if (kinds.includes('mc')) for (const m of x.mc) out.push({ x, k: 'mc', ty: 'R-mc', kind: 'mc', q: esc(m.q), opts: shuf([m.a, ...m.w]), a: m.a, why: m.why, foot });
   return out; }
 // chọn bài: chưa làm / làm lâu nhất trước
 const iePick = (its, n) => { const R = ieSt().r; return shuf(its).sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0)).slice(0, n); };
@@ -48,7 +48,7 @@ const IE_LP = [['Part 1: hội thoại, điền phiếu', ['b1', 'b2'], 'form', 
 function ieListen(parts = [0, 1, 2, 3]) { const used = new Set(), out = [];
   for (const i of parts) { const [part, lvs, k, dlg] = IE_LP[i], its = KIT.nghe.items.filter(x => lvs.includes(x.lv) && !used.has(x.id) && !!x.lines === dlg && (k !== 'form' || ngForm(x)));
     const x = iePick(its.length ? its : KIT.nghe.items.filter(x => lvs.includes(x.lv) && !used.has(x.id)), 1)[0]; if (!x) continue; used.add(x.id);
-    const qs = k === 'form' && ngForm(x) ? ngQs(x) : kRead(KIT.nghe, x, 'ct', true); for (const q of qs) q.head = String(q.head || '').replace(/<p class="mute">.*?<\/p>/, IE_LH); out.push(...qs.map(q => ({ part, q }))); }
+    const qs = k === 'form' && ngForm(x) ? ngQs(x) : kRead(KIT.nghe, x, 'ct', true); for (const q of qs) { q.head = String(q.head || '').replace(/<p class="mute">.*?<\/p>/, IE_LH); q.ty = k === 'form' && ngForm(x) ? 'L-form' : 'L-mc'; } out.push(...qs.map(q => ({ part, q }))); }
   return out; }
 
 // ---------- ✍️ Writing ----------
@@ -181,6 +181,30 @@ function ieSHtml(res, sc) { if (!sc.band) return `<div class="box"><b>Máy nghe 
 // ---------- màn luyện (báo đúng / sai ngay, không tính giờ) ----------
 // min: tính giờ như đề thật (Đọc cả bài ~20 phút), báo thời gian ở cuối
 // o (v72, TOEIC dùng chung): { R: nơi ghi kết quả (mặc định S.ie.r), home: nhãn nút về, done: gọi sau khi lưu, spd: giây mục tiêu mỗi câu (v73, đồng hồ từng câu), endHtml: thêm vào màn kết quả }
+// ---------- 📊 Ghi theo dạng câu + tiêu chí (v82, bước 1 của "Bản đồ band"; người sáng lập 29/10/2026) ----------
+// Chỉ ghi dữ liệu, chưa đổi cách học. Chỗ yếu IELTS là dạng câu (Đọc / Nghe) và tiêu chí chấm (Viết / Nói), không phải từng bài.
+// o.ty[dạng] = [{ at, ok, n, ids (bài), src: 'luyen' | 'thi' }] (40 lượt gần nhất); o.cr = [{ at, k: 'W' | 'S', task, c: [band 4 tiêu chí], src: 'may' | 'ai' }] (80 lần).
+// Đủ chắc để gọi là chỗ yếu: ≥ 8 câu ở ≥ 2 bài khác nhau; Viết / Nói: chỉ AI / giáo viên chấm mới đủ tin (máy đo gián tiếp).
+const IE_TY = { 'R-h': 'Nối tiêu đề (Matching headings)', 'R-tf': 'True / False / Not Given', 'R-comp': 'Điền từ (Completion)', 'R-mc': 'Trắc nghiệm Đọc', 'R-gt': 'Đọc văn bản đời thường (GT)', 'L-form': 'Nghe điền phiếu', 'L-mc': 'Nghe trắc nghiệm' };
+const IE_CR = { W: ['Hoàn thành đề', 'Mạch lạc', 'Vốn từ', 'Ngữ pháp'], S: ['Trôi chảy', 'Vốn từ', 'Ngữ pháp', 'Phát âm'] }, IE_TY_N = 8, IE_TY_OK = 75;
+function ieTyLog(res, src) { const o = ieSt(), T = o.ty = o.ty || {}, by = {};
+  for (const r of res) { const q = r.q || {}, ty = q.ty; if (!ty) continue; const b = by[ty] = by[ty] || { at: Date.now(), ok: 0, n: 0, ids: [], src }; b.n++; if (r.ok) b.ok++; const id = q.x && q.x.id; if (id && !b.ids.includes(id)) b.ids.push(id); }
+  for (const [ty, b] of Object.entries(by)) T[ty] = [...(T[ty] || []), b].slice(-40);
+  return by; }
+function ieCrLog(k, task, C, src) { if (!C || C.length !== 4) return; const o = ieSt(); o.cr = [...(o.cr || []), { at: Date.now(), k, task: task || null, c: C.map(c => Array.isArray(c) ? c[1] : +c), src }].slice(-80); }
+// mỗi dạng: % đúng 10 lượt gần nhất, số câu, số bài khác nhau; mỗi tiêu chí: band trung bình 5 lần gần nhất, máy và AI tách riêng
+function ieTyStats() { const o = ieSt(), T = o.ty || {};
+  const ty = Object.keys(IE_TY).map(k => { const a = (T[k] || []).slice(-10), n = a.reduce((s, b) => s + b.n, 0), ok = a.reduce((s, b) => s + b.ok, 0), items = new Set(a.flatMap(b => b.ids)).size;
+    return { k, t: IE_TY[k], n, items, pct: n ? Math.round(ok / n * 100) : null, sure: n >= IE_TY_N && items >= 2 }; });
+  const cr = ['W', 'S'].flatMap(k => ['ai', 'may'].map(src => { const a = (o.cr || []).filter(r => r.k === k && r.src === src).slice(-5);
+    return { k, src, n: a.length, c: a.length ? IE_CR[k].map((_, i) => ieRound(a.reduce((s, r) => s + (r.c[i] || 0), 0) / a.length)) : null }; }));
+  return { ty, cr }; }
+function ieTyBox() { const { ty, cr } = ieTyStats(), has = ty.filter(t => t.n), hc = cr.filter(c => c.n); if (!has.length && !hc.length) return '';
+  return `<details class="box"><summary><b>📊 Theo dạng câu &amp; tiêu chí</b> <span class="mute">· ${has.length} dạng có dữ liệu</span></summary>
+    ${has.map(t => `<div class="row" style="margin:4px 0"><span>${esc(t.t)}</span><span class="${t.pct >= IE_TY_OK ? 'okc' : ''}">${t.pct}% <span class="mute">· ${t.n} câu, ${t.items} bài${t.sure ? '' : ' · chưa đủ chắc'}</span></span></div>`).join('')}
+    ${hc.map(c => `<p style="margin:6px 0 2px"><b>${c.k === 'W' ? '✍️ Viết' : '🗣 Nói'} · ${c.src === 'ai' ? '🧑‍🏫 AI chấm' : 'máy ước (gián tiếp)'}</b> <span class="mute">· ${c.n} lần gần nhất</span></p>
+      <p class="mute" style="margin:0">${IE_CR[c.k].map((n, i) => `${n} ${bandTxt(c.c[i])}`).join(' · ')}</p>`).join('')}
+    <p class="mute" style="margin:6px 0 0">Bước 1: app mới ghi dữ liệu. Dạng dưới ${IE_TY_OK}% với ≥ ${IE_TY_N} câu ở ≥ 2 bài là chỗ yếu đủ chắc. Viết / Nói nên tin 🧑‍🏫 AI chấm hơn máy ước.</p></details>`; }
 function ieRun(title, qs, back, min, o = {}) { const res = []; let i = 0, tq = 0; const plays = {}, t0 = Date.now(), clk = () => { const s = Math.round((Date.now() - t0) / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
   const show = () => { if (i >= qs.length) return end(); const q = qs[i]; tq = Date.now(); window.CUR = { view: 'ielts-cau', item: (q.x && q.x.id || '') + ':' + i, prompt: String(q.q).replace(/<[^>]*>/g, '').slice(0, 200) };
     const pk = q.play && q.play.key, left = () => K_PLAYS - (plays[pk] || 0);
@@ -198,7 +222,7 @@ function ieRun(title, qs, back, min, o = {}) { const res = []; let i = 0, tq = 0
     document.getElementById('ifb').innerHTML = `<div class="box"><b>${ok ? '✅ Đúng' : '❌ Chưa đúng'}</b>${html ? `<p style="margin:4px 0">${html}</p>` : q.kind === 'mc' ? '' : `<p style="margin:4px 0">Đáp án: <b>${esc((q.acc || [q.a]).join(' / '))}</b></p>`}${q.why ? `<p class="mute" style="margin:4px 0 0">${esc(q.why)}</p>` : ''}</div><button class="pri" data-a="next">Tiếp ›</button>`;
     const n = $app.querySelector('[data-a="next"]'); if (n && n.scrollIntoView) n.scrollIntoView({ block: 'nearest' }); };
   const end = () => { EXAM_VOX = false; const R = o.R || ieSt().r, by = {}; for (const r of res) { const id = r.q.x && r.q.x.id; if (!id) continue; const o = by[id] = by[id] || { at: Date.now(), ok: 0, n: 0, k: r.q.sec || (r.q.x.paras ? 'r' : 'l'), ...(min ? { secs: Math.round((Date.now() - t0) / 1000) } : {}) }; o.n++; if (r.ok) o.ok++; }
-    Object.assign(R, by); S.t = Date.now(); save(); const ok = res.filter(r => r.ok).length, wrong = res.filter(r => !r.ok);
+    Object.assign(R, by); ieTyLog(res, 'luyen'); S.t = Date.now(); save(); const ok = res.filter(r => r.ok).length, wrong = res.filter(r => !r.ok);
     const mins = (Date.now() - t0) / 60000; clearInterval(tk);
     $app.innerHTML = `<h1>${ok}/${res.length} câu đúng</h1>${min ? `<p>⏱ ${mins.toFixed(1)} phút ${mins <= min ? '✅' : '⚠️'} <span class="mute">(đề thật ~${min} phút mỗi bài${mins > min ? '; luyện đọc lướt tìm từ khoá, đừng đọc kỹ từng câu' : ''})</span></p>` : ''}${o.endHtml ? o.endHtml(res) : ''}${wrong.length ? `<div class="box"><b>Câu sai</b>${wrong.map(r => `<p style="margin:8px 0 0">${r.q.q}<br>Bạn: ${esc(r.ans)} · Đáp án: <b>${esc(r.q.a)}</b>${r.q.why ? `<br><span class="mute">${esc(r.q.why)}</span>` : ''}</p>`).join('')}</div>` : '<p>Đúng hết.</p>'}
       <p class="mute">Luyện ở đây không tính vào 🎯 Học CEFR.</p><button class="pri" data-a="back">← ${o.home || 'Học IELTS'}</button>`; scrollTo(0, 0); if (o.done) o.done(res); $app.onclick = e => { if (e.target.closest('[data-a="back"]')) back(); }; };
@@ -214,11 +238,11 @@ function ieWrite(task, x, pre) { x = x || ieWPick(task); const q = ieWQ(task, x)
   const tick = setInterval(() => { const el = document.getElementById('iet'); if (!el) return clearInterval(tick); const s = Math.round((Date.now() - t0) / 1000); el.textContent = `⏱ ${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; }, 1000);
   const t = document.getElementById('iwt'); t.oninput = () => { document.getElementById('iwc').textContent = kWords(t.value).length + ' từ'; };
   document.getElementById('iwf').onsubmit = e => { e.preventDefault(); if (kWords(t.value).length < 30) return toast('Viết ít nhất 30 từ để máy chấm.'); clearInterval(tick);
-    const r = q.check(t.value); const prev = pre ? ieSt().w.filter(w => w.id === x.id).pop() : null; ieSt().w.push({ at: Date.now(), id: x.id, task, band: r.band, min: Math.round((Date.now() - t0) / 60000), ...(pre ? { redo: 1 } : {}) }); S.t = Date.now(); save();
+    const r = q.check(t.value); const prev = pre ? ieSt().w.filter(w => w.id === x.id).pop() : null; ieCrLog('W', task, ieWScore(task, x, t.value).C, 'may'); ieSt().w.push({ at: Date.now(), id: x.id, task, band: r.band, min: Math.round((Date.now() - t0) / 60000), ...(pre ? { redo: 1 } : {}) }); S.t = Date.now(); save();
     t.disabled = true; e.target.querySelector('button').remove(); document.getElementById('iwr').innerHTML = (prev ? `<p class="mute">Lần trước máy ước ${bandTxt(prev.band)} → lần này ${bandTxt(r.band)}.</p>` : '') + r.html + '<button class="pri" data-a="redo">✍️ Viết lại bài này (sửa theo góp ý)</button>'; const b = $app.querySelector('[data-a="other"]'); if (b) b.remove(); };
   $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { clearInterval(tick); return ieltsView(); } if (e.target.closest('[data-a="redo"]')) { scrollTo(0, 0); return ieWrite(task, x, t.value); } if (e.target.closest('[data-a="other"]')) { clearInterval(tick); return ieWrite(task, shuf((task === 't2' ? IE.t2 : task === 'gt1' ? IE.gt1 : IE.t1).filter(y => y !== x))[0]); } }; }
 function ieSpeak(parts) { if (!SREC) return toast('Phần Nói cần máy chép lời: mở trang bằng Safari trên iPhone.'); const qs = ieSpeakQs(parts), res = [];
-  ieSpeakCore(qs, res, () => { const sc = ieSScore(res); ieSt().s.push({ at: Date.now(), parts: parts.join('+'), band: sc.band }); S.t = Date.now(); save();
+  ieSpeakCore(qs, res, () => { const sc = ieSScore(res); ieCrLog('S', parts.join('+'), sc.C, 'may'); ieSt().s.push({ at: Date.now(), parts: parts.join('+'), band: sc.band }); S.t = Date.now(); save();
     $app.innerHTML = `<h1>🗣 Kết quả bài nói</h1>${ieSHtml(res, sc)}<button class="pri" data-a="again">▶ Nói đề khác</button><button data-a="back">← Học IELTS</button>`; scrollTo(0, 0);
     $app.onclick = e => { if (e.target.closest('[data-a="again"]')) ieSpeak(parts); if (e.target.closest('[data-a="back"]')) ieltsView(); }; }, ieltsView); }
 
@@ -226,7 +250,7 @@ function ieSpeak(parts) { if (!SREC) return toast('Phần Nói cần máy chép 
 const IE_PAPERS = [
   { t: '🎧 Nghe (Listening)', k: 'L', min: 30, gen: () => ieListen() },
   { t: '📖 Đọc (Reading)', k: 'R', min: 60, gen: () => ieSt().type === 'gt'
-    ? [...KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)).sort(() => Math.random() - 0.5).slice(0, 2).flatMap(x => kRead(KIT.doc, x, 'ct', false).map(q => ({ part: 'Section 1–2: văn bản đời thường, công việc', q }))),
+    ? [...KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)).sort(() => Math.random() - 0.5).slice(0, 2).flatMap(x => kRead(KIT.doc, x, 'ct', false).map(q => ({ part: 'Section 1–2: văn bản đời thường, công việc', q: Object.assign(q, { ty: 'R-gt' }) }))),
       ...iePick(IE.doc, 1).flatMap(x => ieRQs(x).map(q => ({ part: 'Section 3: bài dài', q })))]
     : iePick(IE.doc, 3).flatMap((x, i) => ieRQs(x).map(q => ({ part: `Passage ${i + 1}: ${x.title}`, q }))) },
   { t: '✍️ Viết (Writing)', k: 'W', min: 60, gen: () => { const [t1, its] = ieT1(); return [{ part: IE_TASK[t1][0], q: ieWQ(t1, iePick(its, 1)[0]) }, { part: IE_TASK.t2[0], q: ieWQ('t2', ieWPick('t2')) }]; } },
@@ -246,6 +270,8 @@ function ieMockResult() { const T = ieSt().type, b = {}, out = [];
     if (p.k === 'W') { const bs = p.res.map(r => r.ans ? Math.round((r.sc || 0) * 9 * 2) / 2 : 0); b.W = bs.length === 2 ? ieRound((bs[0] + 2 * bs[1]) / 3) : bs[0] || 0; out.push([p, `Task 1: ${bandTxt(bs[0])} · Task 2: ${bandTxt(bs[1])} (Task 2 tính gấp đôi)`]); }
     if (p.k === 'S') { p.sc = ieSScore(p.res); b.S = p.sc.band; out.push([p, '']); } }
   const full = ['L', 'R', 'W', 'S'].every(k => b[k] != null), all = full ? ieRound((b.L + b.R + b.W + b.S) / 4) : null, tg = ieSt().target;
+  const tyBy = ieTyLog(MK.papers.filter(p => p.k === 'L' || p.k === 'R').flatMap(p => p.res), 'thi');
+  for (const p of MK.papers) { if (p.k === 'W') for (const r of p.res) if (r.ans) ieCrLog('W', r.q.task, ieWScore(r.q.task, r.q.x, r.ans).C, 'may'); if (p.k === 'S' && p.sc) ieCrLog('S', 'mock', p.sc.C, 'may'); }
   ieSt().mock.push({ at: Date.now(), type: T, b, all }); S.t = Date.now(); save();
   const wrong = MK.papers.filter(p => p.k === 'L' || p.k === 'R').flatMap(p => p.res.filter(r => !r.ok));
   const wr = MK.papers.filter(p => p.k === 'W').flatMap(p => p.res.filter(r => r.ans).map(r => `<details class="box"><summary>✍️ ${esc(r.part)}: máy ước ${bandTxt(Math.round(r.sc * 18) / 2)}</summary><p style="white-space:pre-line;font-size:14px">${esc(r.ans)}</p>${ieWHtml(r.q.task, r.q.x, r.ans, ieWScore(r.q.task, r.q.x, r.ans))}</details>`)).join('');
@@ -254,6 +280,8 @@ function ieMockResult() { const T = ieSt().type, b = {}, out = [];
     <div class="box">${out.map(([p, d]) => `<p style="margin:4px 0"><b>${p.t}</b>: band ${bandTxt(b[p.k])}${d ? ` <span class="mute">· ${d}</span>` : ''}</p>`).join('')}
       ${full ? `<p style="margin:8px 0 0;font-size:20px"><b>Overall ≈ ${bandTxt(all)}</b> ${all >= tg ? '✅' : '⬜'} <span class="mute" style="font-size:14px">(mục tiêu ${bandTxt(tg)})</span></p>` : '<p class="mute">Chỉ làm một phần đề: chưa tính Overall.</p>'}
       <p class="mute" style="margin:6px 0 0">Band là ước lượng: Nghe / Đọc quy theo bảng điểm IELTS công bố nhưng đề app ít câu và dễ hơn đề thật; Viết / Nói máy đo gián tiếp, tối đa ${IE_MAXM}.0. Chưa đối chiếu điểm thi thật: đối chiếu bằng đề luyện chính thức (ô 📝 bên Học IELTS).</p></div>
+    ${Object.keys(tyBy).length ? `<div class="box"><b>📊 Theo dạng câu (đề này)</b>${Object.entries(tyBy).map(([k, v]) => `<div class="row" style="margin:4px 0"><span>${esc(IE_TY[k] || k)}</span><span class="${v.ok / v.n >= 0.75 ? 'okc' : ''}">${v.ok}/${v.n} · ${Math.round(v.ok / v.n * 100)}%</span></div>`).join('')}
+      <p class="mute" style="margin:4px 0 0">Dạng dưới 75% là ứng viên chỗ yếu. Cần ≥ 8 câu ở ≥ 2 bài mới đủ chắc (xem ô 📊 ở Học IELTS).</p></div>` : ''}
     ${wr}${sp}
     ${wrong.length ? `<details class="box"><summary>Xem lại ${wrong.length} câu sai (Nghe / Đọc)</summary>${wrong.map(r => `<div style="margin:8px 0;border-top:1px solid var(--line);padding-top:6px"><p class="mute" style="margin:0">${esc(r.part)}</p><p style="margin:2px 0">${r.q.q}</p>
       <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 200))} · Đáp án: <b>${esc(r.q.a != null ? r.q.a : (r.q.acc || [])[0] || '')}</b></p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
@@ -315,6 +343,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
     <div class="box"><div class="row"><b>📊 Band ước hiện tại</b><span class="${now.all != null && now.all >= tg ? 'okc' : 'mute'}">${now.all != null ? 'Overall ≈ ' + bandTxt(now.all) : 'chưa đủ 4 kỹ năng'}</span></div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px">${sk('L', '🎧', 'Nghe')}${sk('R', '📖', 'Đọc')}${sk('W', '✍️', 'Viết')}${sk('S', '🗣', 'Nói')}</div>
       <p class="mute" style="margin:6px 0 0">Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. 📏 = đã chỉnh theo độ lệch riêng của bạn (Nghe / Đọc: so đề thật với đề thử app trong 14 ngày; Viết / Nói: so AI chấm, giáo viên với máy). Chưa chỉnh thì chỉ là máy ước. Mỗi tháng làm 1 đề thật (📝 ô Sẵn sàng thi) để band ước sát hơn. Band ${bandTxt(tg)} ≈ CEFR ${LVN[ieCefr(tg)]} (bảng đối chiếu IELTS công bố).</p></div>
+    ${ieTyBox()}
     ${typeof iePlanBox === 'function' ? iePlanBox() : ''}
     <div class="box"><b>🧱 Nền cần có: CEFR ${LVN[base]}</b><p class="mute" style="margin:6px 0">Từ vựng và ngữ pháp là gốc của cả 4 kỹ năng. Học ở mục 🎯 Học CEFR; phần này không tính lại ở đây.</p>
       <p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🎯 Mở Học CEFR cấp ${LVN[base]}</button></div>

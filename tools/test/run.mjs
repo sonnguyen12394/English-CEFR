@@ -122,6 +122,17 @@ const R = await run(`(async () => {
     tryv('dán lỗi', () => errPaste('ie')); if (!/data-ieshare/.test(ieShareBtn('t', 'p', 'x'))) bad.push('nút gửi giáo viên'); tryv('cách làm', () => ieHow(Object.keys(IE_HOW)));
     S.ie.tw = [{ at: Date.now(), band: 5 }]; S.ie.w = [{ at: Date.now() - 864e5, id: 'x', task: 't2', band: 6 }]; if (!ieCal().W || ieReady()[2][2].indexOf('5.0') < 0) bad.push('band giáo viên không vào hiệu chuẩn / sẵn sàng thi');
     add('ielts', 'I1', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...new Set(bad)].slice(0, 10).join(' | ') : 'màn, đề thử Academic + General Training, chấm Viết / Nói, quy đổi band đều đúng'); }
+  // 📊 IELTS bước 1 (v82): ghi theo dạng câu (Đọc / Nghe) + tiêu chí (Viết / Nói), máy và AI tách riêng; đề thử hiện bảng theo dạng
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await ieLoad(); await kLoad(KIT.nghe); await kLoad(KIT.doc);
+    const qs = [...ieRQs(IE.doc[0]), ...ieRQs(IE.doc[1])], lq = ieListen(); if (qs.some(q => !IE_TY[q.ty])) bad.push('câu Đọc thiếu dạng'); if (!lq.length || lq.some(it => !IE_TY[it.q.ty])) bad.push('câu Nghe thiếu dạng');
+    const by = ieTyLog(qs.map(q => ({ q, ok: q.ty === 'R-tf' })), 'luyen'), st = ieTyStats().ty, tf = st.find(t => t.k === 'R-tf'), h = st.find(t => t.k === 'R-h');
+    if (!by['R-tf'] || tf.pct !== 100 || tf.items !== 2 || tf.sure !== (tf.n >= IE_TY_N) || h.pct !== 0) bad.push('thống kê theo dạng sai: ' + JSON.stringify([tf, h]));
+    const x = IE.t2[0]; ieCrLog('W', 't2', ieWScore('t2', x, x.m).C, 'may'); ieCrLog('W', null, [6, 6, 7, 5], 'ai'); const cr = ieTyStats().cr;
+    const ai = cr.find(c => c.k === 'W' && c.src === 'ai'), my = cr.find(c => c.k === 'W' && c.src === 'may'); if (!ai || ai.c.join() !== '6,6,7,5' || !my || !my.c || my.c.length !== 4) bad.push('tiêu chí Viết sai');
+    MK = { idx: [1], C: { name: 'IELTS thử' }, papers: [{ t: 'R', k: 'R', res: qs.map((q, j) => ({ part: 'p', q, ok: j % 2 === 0, ans: 'x' })) }] }; tryv('đề thử theo dạng', () => ieMockResult());
+    if (!String($app.innerHTML).includes('Theo dạng câu (đề này)')) bad.push('kết quả đề thử thiếu bảng theo dạng');
+    await ieltsView(); if (!String($app.innerHTML).includes('📊 Theo dạng câu')) bad.push('Học IELTS thiếu ô theo dạng');
+    add('ielts', 'I2', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'ghi theo dạng câu + tiêu chí (máy / AI riêng), đề thử có bảng theo dạng, ô 📊 ở Học IELTS'); }
   // 📅 Hôm nay + 🧭 xếp cấp (homnay.js): phút học từ nhịp save(), chuỗi ngày, ô Hôm nay, câu xếp cấp hợp lệ mọi cấp, bậc thang lên / xuống / dừng
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const t0 = Date.now() - 3 * 864e5;
     for (const d of [0, 1, 2]) for (let k = 0; k < 40; k++) actTick(t0 + d * 864e5 + k * 15000);   // 3 ngày, mỗi ngày 40 lần cách 15 giây ≈ 10 phút

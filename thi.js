@@ -132,6 +132,7 @@ document.addEventListener('click', async e => { const b = e.target.closest('[dat
     if (msg || !data || !data.grade) { box.innerHTML = `<p class="mute">❌ ${esc(msg || 'Lỗi.')}</p>`; b.disabled = false; b.textContent = '🧑‍🏫 Thử lại'; return; }
     aiRuns().push({ at: Date.now(), kind: P.kind, lv: P.lv, pct: data.grade.overall_pct, ok: data.grade.reaches_level, ...(data.grade.band != null ? { band: data.grade.band } : {}), ...(P.task && P.task.mb != null ? { mb: P.task.mb } : {}) }); S.t = Date.now(); save();
     // 📒 lỗi AI chỉ ra vào Sổ lỗi (soloi.js) để ôn lặp lại; mb = band máy ước cùng bài (ielts.js hiệu chỉnh Viết / Nói)
+    if (String(P.lv).startsWith('ielts') && typeof ieCrLog === 'function' && Array.isArray(data.grade.criteria)) { ieCrLog(P.kind === 'noi' ? 'S' : 'W', null, data.grade.criteria.map(c => +c.score), 'ai'); save(); }   // 📊 tiêu chí IELTS do AI chấm (ielts.js)
     const er = typeof errAdd === 'function' ? errAdd(data.grade.errors, P.kind + ':' + P.lv) : null;
     box.innerHTML = aiHtml(data.grade) + (er && (er.n || er.rep) ? `<p class="mute" style="margin:4px 0">📒 Đã thêm ${er.n} lỗi vào Sổ lỗi${er.rep ? ` · ⚠️ ${er.rep} lỗi bạn từng mắc lại` : ''}.</p>` : ''); b.remove();
   } catch (er) { box.innerHTML = '<p class="mute">❌ Không gọi được máy chấm (mạng?).</p>'; b.disabled = false; b.textContent = '🧑‍🏫 Thử lại'; } });
