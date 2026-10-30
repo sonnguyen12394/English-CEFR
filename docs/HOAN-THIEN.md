@@ -244,3 +244,10 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Tổng quan người mới: 30 → 17 nút, ~3.500 → ~1.100 chữ (đề xuất ≤ 10 nút, ≤ 800 chữ: chưa đạt; còn chip mục tiêu phút 4, chip cấp 3, thẻ phần 5).
 - Chưa làm (cần người): giáo viên soát mẫu 50 câu / cấp (gỡ nhãn AI khi lỗi < 5%); 3 người học tự giải thích được "vì sao chưa thi được"; 5 người học thật trong 2–4 tuần (≥ 3/5 học ≥ 4 ngày / tuần, ≥ 200 câu / người). Mốc đổi hướng: sau 2 tuần < 2 người quay lại → hỏi người học trước khi viết thêm tính năng.
 - Rủi ro tài khoản ẩn danh: Safari xoá dữ liệu trang → mất tài khoản; nhắc tải JSON ở 💾 Dữ liệu. Chi phí AI chấm vẫn giới hạn 20 lượt / người / ngày, 200 lượt / ngày cả app (el-cham).
+
+## IELTS: trợ lý quanh đề thật (v87, 30/10/2026)
+- Người sáng lập muốn dùng app tự học rồi thi IELTS thật làm minh chứng; hỏi "đã đủ nội dung IELTS chưa", rồi "làm hết đi khỏi hỏi".
+- Quyết định (Claude): không cố tự soạn cho đủ đề (đề AI không thêm uy tín). App là trợ lý quanh đề chính thức: nhập kết quả từng câu → band + bản đồ theo dạng; lấy từ mới từ đề vào ôn cách quãng.
+- Đã thêm: 📝 nhập đề thật theo từng câu; 📥 từ mới từ đề thật; 🔁 diễn đạt lại 32 câu; Task 1 bản đồ 3 + quy trình 3; Nói 20 chủ đề Part 1 + 18 thẻ Part 2; Nghe kiểu IELTS 5 phần / 50 câu (Part 1 × 2, Part 2 có bản đồ, Part 3 ghép, Part 4 bài giảng), giọng Kokoro.
+- Vẫn thiếu: Đọc vẫn 9 bài (≈ 3 đề), chưa có bài dạng ghép thông tin, Yes/No/NG… do app soạn (chữa bằng đề thật); Nghe mới 5 phần, giọng chủ yếu Anh, chưa có giọng Úc; chấm Nói vẫn qua lời chép, không chấm phát âm.
+- Đo sau 4 tuần người sáng lập luyện: ≥ 4 đề thật đã nhập; bản đồ band chỉ ra ≥ 1 dạng yếu và dạng đó tăng ≥ 15 điểm % sau khi chữa; ≥ 100 từ đề thật trong bộ thẻ, tỉ lệ nhớ ở lần ôn ≥ 70%.

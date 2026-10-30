@@ -75,6 +75,15 @@ if T:
         for s in sents(x['text']): add(s, v)
     for tpc in T['voc']:
         for w, vi, ex in tpc['w']: add(w, 'af_heart'); add(ex, 'af_heart')
+I = J('ielts.json') if os.path.exists(os.path.join(ROOT, 'ielts.json')) else None   # 🌏 Nghe kiểu IELTS (v87, ielts.js ieLnQs): chủ yếu Anh–Anh, người nói thứ ba (C) giọng nữ khác
+if I:
+    for x in I.get('ln', []):
+        if x.get('lines'):
+            fv, mv = pick(F, x['id'], 'f'), pick(M, x['id'], 'm'); cv = next(v for v in F if v != fv)
+            for sp, t in x['lines']: add(t, fv if sp == 'A' else mv if sp == 'B' else cv)
+        else:
+            v = pick(M if int(hashlib.md5(x['id'].encode()).hexdigest(), 16) % 2 else F, x['id'], 'v')
+            for s in sents(x['text']): add(s, v)
 OUT = os.path.join(ROOT, 'n'); os.makedirs(OUT, exist_ok=True)
 todo = [(k, t, v) for k, (t, v) in jobs.items() if not os.path.exists(os.path.join(OUT, k + '.mp3'))]
 print(len(jobs), 'câu,', len(todo), 'cần dựng', flush=True)

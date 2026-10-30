@@ -1,36 +1,915 @@
 {
-  "_note": "Đề Nói kiểu IELTS (Claude soạn 28/10/2026, chưa người thật kiểm). p1: Part 1 theo chủ đề, mỗi câu [hỏi, nghĩa]. p2: thẻ Part 2 (t = đề, b = 4 gợi ý, p3 = câu Part 3 cùng chủ đề). m = bài nói mẫu Part 2.",
-  "p1": [
-    { "id": "s1-home", "topic": "Your home", "qs": [["Do you live in a house or a flat?", "Bạn sống ở nhà riêng hay căn hộ?"], ["What do you like most about your home?", "Bạn thích gì nhất ở nhà mình?"], ["Is there anything you would like to change about it?", "Có gì bạn muốn đổi ở nhà mình?"], ["Do you plan to live there for a long time?", "Bạn định sống ở đó lâu không?"]] },
-    { "id": "s1-work", "topic": "Work or studies", "qs": [["Do you work or are you a student?", "Bạn đi làm hay đi học?"], ["Why did you choose that job or subject?", "Vì sao bạn chọn công việc / ngành đó?"], ["What do you find most difficult about it?", "Điều gì khó nhất với bạn?"], ["What would you like to do in the future?", "Sau này bạn muốn làm gì?"]] },
-    { "id": "s1-food", "topic": "Food", "qs": [["What kind of food do you like?", "Bạn thích món ăn kiểu gì?"], ["Do you prefer eating at home or in restaurants?", "Bạn thích ăn ở nhà hay nhà hàng?"], ["Can you cook?", "Bạn có biết nấu ăn không?"], ["Has your diet changed since you were a child?", "Chế độ ăn của bạn có đổi từ hồi nhỏ không?"]] },
-    { "id": "s1-weather", "topic": "Weather", "qs": [["What's the weather usually like where you live?", "Thời tiết nơi bạn sống thường thế nào?"], ["What kind of weather do you like best?", "Bạn thích kiểu thời tiết nào nhất?"], ["Does the weather affect your mood?", "Thời tiết có ảnh hưởng tâm trạng bạn không?"], ["What do you usually do on rainy days?", "Ngày mưa bạn thường làm gì?"]] },
-    { "id": "s1-free", "topic": "Free time", "qs": [["What do you like to do in your free time?", "Lúc rảnh bạn thích làm gì?"], ["Do you prefer spending free time alone or with others?", "Bạn thích dành thời gian rảnh một mình hay với người khác?"], ["Did you have the same hobbies when you were younger?", "Hồi nhỏ bạn có cùng sở thích không?"], ["Is there a new hobby you would like to try?", "Có sở thích mới nào bạn muốn thử?"]] },
-    { "id": "s1-phone", "topic": "Mobile phones", "qs": [["How often do you use your mobile phone?", "Bạn dùng điện thoại thường xuyên tới mức nào?"], ["What do you mainly use it for?", "Bạn dùng nó chủ yếu để làm gì?"], ["Could you live without your phone for a week?", "Bạn có sống được một tuần không có điện thoại?"], ["Do you think people use their phones too much?", "Bạn có nghĩ người ta dùng điện thoại quá nhiều?"]] },
-    { "id": "s1-town", "topic": "Your hometown", "qs": [["Where is your hometown?", "Quê bạn ở đâu?"], ["What is it famous for?", "Nơi đó nổi tiếng về gì?"], ["How has it changed in recent years?", "Mấy năm gần đây nó thay đổi ra sao?"], ["Would you recommend it to tourists? Why?", "Bạn có giới thiệu nó cho du khách không? Vì sao?"]] },
-    { "id": "s1-reading", "topic": "Reading", "qs": [["Do you enjoy reading?", "Bạn có thích đọc không?"], ["What kinds of things do you read?", "Bạn hay đọc những gì?"], ["Do you prefer paper books or e-books?", "Bạn thích sách giấy hay sách điện tử?"], ["Did you read a lot as a child?", "Hồi nhỏ bạn có đọc nhiều không?"]] }
-  ],
-  "p2": [
-    { "id": "s2-person", "t": "Describe a person who has influenced you.", "vi": "Tả một người đã ảnh hưởng tới bạn.", "b": ["who this person is", "how you know them", "what they have done", "and explain how they have influenced you"],
-      "p3": [["What qualities make someone a good role model?", "Phẩm chất nào làm nên một hình mẫu tốt?"], ["Do young people today have different role models from in the past?", "Giới trẻ ngày nay có hình mẫu khác ngày xưa không?"], ["Should famous people be expected to behave well in public?", "Người nổi tiếng có phải cư xử tốt nơi công cộng không?"]],
-      "m": "I'd like to talk about my high school maths teacher, Mr Hung, who probably influenced me more than anyone outside my family. I was in his class for three years, from the age of fifteen to eighteen. At first I didn't like him very much, because he was quite strict and he gave us a lot of homework. But gradually I realised that he really cared about his students. He used to stay after school, without being paid, to help anyone who was struggling, and he always explained things in several different ways until everyone understood. What influenced me most, though, was his attitude to mistakes. Whenever I got something wrong, he would say that a mistake was just information, not a failure. Before I met him, I was afraid of making mistakes, so I often didn't even try difficult problems. Because of him, I became much more confident, and I think that's why I later chose to study engineering. Even now, when I face a difficult task at work, I remember what he told us and I try to treat problems as something to learn from rather than something to be afraid of." },
-    { "id": "s2-place", "t": "Describe a place you visited that you would like to go back to.", "vi": "Tả một nơi bạn từng đến và muốn quay lại.", "b": ["where it is", "when you went there", "what you did there", "and explain why you would like to go back"],
-      "p3": [["Why do people like to travel to new places?", "Vì sao người ta thích đi nơi mới?"], ["What are the effects of tourism on local communities?", "Du lịch ảnh hưởng thế nào tới cộng đồng địa phương?"], ["Will people travel more or less in the future?", "Tương lai người ta sẽ đi du lịch nhiều hơn hay ít hơn?"]], "m": "I'd like to talk about Da Lat, a city in the Central Highlands of Vietnam, which I visited with my university friends about three years ago. We went there in December, just after our exams, so we were all in a very relaxed mood. Da Lat is quite different from the rest of the country, because it's high up in the mountains and the weather is cool all year round. We stayed in a small guest house surrounded by pine trees. During the day we rented motorbikes and rode out to waterfalls and flower farms, and in the evenings we walked around the night market, eating grilled rice paper and drinking hot soy milk. One morning we got up at five o'clock to watch the sunrise over the valley, which was absolutely beautiful, although it was freezing. The reason I'd like to go back is partly the peaceful atmosphere. My life in Ho Chi Minh City is very busy and noisy, and in Da Lat I felt that I could finally breathe. But it's also because of the memories. Some of those friends now live abroad, so if we could all go back together one day, it would be really special." },
-    { "id": "s2-skill", "t": "Describe a skill you learned that you think is useful.", "vi": "Tả một kỹ năng bạn đã học và thấy hữu ích.", "b": ["what the skill is", "when and how you learned it", "how difficult it was", "and explain why it is useful"],
-      "p3": [["Which skills are most important for young people today?", "Kỹ năng nào quan trọng nhất với giới trẻ ngày nay?"], ["Is it better to learn skills at school or at work?", "Học kỹ năng ở trường hay ở chỗ làm tốt hơn?"], ["Will machines replace people in skilled jobs?", "Máy móc có thay người trong việc cần tay nghề không?"]], "m": "The skill I'd like to describe is cooking, which I learned when I moved away from home to study at university. Before that, my mother always cooked for the family, so I could only make instant noodles. When I started living alone, I realised that eating out every day was too expensive and not very healthy, so I decided to teach myself. At first I watched cooking videos online and called my mother almost every evening to ask how to make simple dishes like fried rice or soup. It was quite difficult at the beginning. I burned quite a few meals, and once I put far too much salt in a fish dish and had to throw it away. But gradually I got better, and after about six months I could cook most of the traditional dishes my family eats. I think it's a really useful skill for several reasons. First, it saves a lot of money. Second, I know exactly what's in my food, so I eat more healthily. And finally, it's a great way to bring people together. These days I often invite friends over for dinner, and cooking for them makes me feel proud and happy." },
-    { "id": "s2-book", "t": "Describe a book or film that made you think.", "vi": "Tả một cuốn sách hoặc bộ phim khiến bạn suy nghĩ.", "b": ["what it is", "when you read or saw it", "what it is about", "and explain why it made you think"],
-      "p3": [["Do people read less than they used to?", "Người ta có đọc ít hơn trước không?"], ["Should films be used to teach history?", "Có nên dùng phim để dạy lịch sử không?"], ["How has technology changed the way we enjoy stories?", "Công nghệ đã đổi cách ta thưởng thức câu chuyện thế nào?"]], "m": "I'm going to talk about a film called Parasite, a South Korean film that I watched in the cinema a few years ago, after it won several international awards. It's about two families: a poor family who live in a small basement apartment and a very rich family who live in a beautiful modern house. The poor family gradually find jobs working for the rich family, by pretending they don't know each other, and the story becomes more and more tense until it ends quite violently. At first I thought it was going to be a comedy, because the beginning is very funny. But the longer I watched, the more uncomfortable I felt. The film made me think about inequality, and about how people from different social classes can live in the same city but have completely different lives. What really stayed with me was a scene where it rains heavily. For the rich family, the rain is just an inconvenience that spoils their plans, but for the poor family it floods their home and they lose everything. After the film, my friends and I talked about it for hours, and I still think about that scene whenever there's a big storm." },
-    { "id": "s2-change", "t": "Describe an important change in your life.", "vi": "Tả một thay đổi quan trọng trong đời bạn.", "b": ["what the change was", "when it happened", "how you felt about it", "and explain why it was important"],
-      "p3": [["Why do some people find change difficult?", "Vì sao có người thấy thay đổi là khó?"], ["Is it better to change jobs often or stay in one job?", "Đổi việc thường xuyên hay ở một chỗ tốt hơn?"], ["How have cities in your country changed in recent years?", "Các thành phố ở nước bạn thay đổi thế nào gần đây?"]], "m": "An important change in my life happened about two years ago, when I left my job at a bank and started working for a small technology company. I had worked at the bank for nearly five years, and it was a secure job with a good salary, so it wasn't an easy decision. However, I had started to feel bored, because I was doing the same tasks every day and I didn't feel that I was learning anything new. When a friend told me that his company was looking for someone to manage customer projects, I decided to apply, and to my surprise I got the job. To be honest, I was very nervous at first. My salary was a little lower, and I had to learn a lot of new skills very quickly, such as using project management software and talking to clients in English. There were several weeks when I wondered if I'd made a mistake. But after a few months, I started to really enjoy it. The change was important because it showed me that I could adapt to something new, and it gave me much more confidence. I also feel that my work is more meaningful now, because I can see the results of what I do." },
-    { "id": "s2-help", "t": "Describe a time when you helped someone.", "vi": "Tả một lần bạn giúp ai đó.", "b": ["who you helped", "what the situation was", "what you did", "and explain how you felt afterwards"],
-      "p3": [["Why do some people volunteer to help others?", "Vì sao có người tình nguyện giúp người khác?"], ["Should schools teach children to help in the community?", "Trường có nên dạy trẻ giúp cộng đồng không?"], ["Are people less helpful in big cities than in small towns?", "Người ở thành phố lớn có ít giúp nhau hơn ở thị trấn nhỏ không?"]], "m": "I'd like to describe a time when I helped an elderly neighbour of mine, Mrs Lan, who lives alone in the flat next to mine. Last year, during the rainy season, she slipped on the wet stairs and broke her wrist. Her children live in another city, so for about two months she had real difficulty doing everyday things like shopping and cooking. When I found out what had happened, I offered to help. Every few days I went to the market for her and carried her shopping upstairs, and on Sundays I usually cooked a little extra food and took it round to her. I also went with her to the hospital a couple of times for check-ups, because she was nervous about taking a taxi on her own. It didn't take much of my time, but it obviously meant a lot to her. She often told me stories about the neighbourhood when she was young, which I found really interesting. Afterwards, I felt very happy and also a bit surprised, because I realised that I had been living next to her for three years without really knowing her. Now we're good friends, and she always gives me fruit from her family's garden." },
-    { "id": "s2-tech", "t": "Describe a piece of technology you use every day.", "vi": "Tả một thiết bị công nghệ bạn dùng hằng ngày.", "b": ["what it is", "when you started using it", "what you use it for", "and explain how your life would be different without it"],
-      "p3": [["Has technology made people's lives easier or more stressful?", "Công nghệ làm đời sống dễ hơn hay căng thẳng hơn?"], ["Should children be allowed to use smartphones?", "Có nên cho trẻ dùng điện thoại thông minh?"], ["What technology do you think will be important in the future?", "Bạn nghĩ công nghệ nào sẽ quan trọng sau này?"]], "m": "The piece of technology I use every day is my laptop. I bought it about four years ago, when I started my first full-time job, and it's become an essential part of my life. I use it mainly for work. I'm a graphic designer, so I spend most of the day creating images, editing photos and sending files to clients. But I also use it for lots of other things. In the evenings I watch films or online courses, I video-call my parents, who live in another province, and at weekends I use it to plan trips and manage my money. Without my laptop, my life would be very different. First of all, I simply couldn't do my job, because all the software I need runs on a computer. I'd probably have to work in an office every day instead of working from home sometimes, which I really appreciate. I'd also find it harder to keep learning new skills, because most of the courses I take are online. On the other hand, I sometimes think I might be healthier without it, because I'd spend less time sitting down and looking at a screen, so maybe it would be good for me to switch it off a bit more often." },
-    { "id": "s2-goal", "t": "Describe a goal you would like to achieve in the future.", "vi": "Tả một mục tiêu bạn muốn đạt trong tương lai.", "b": ["what the goal is", "when you decided on it", "what you need to do to achieve it", "and explain why it is important to you"],
-      "p3": [["Is it important to set goals in life?", "Đặt mục tiêu trong đời có quan trọng không?"], ["Do young people today have more opportunities than their parents had?", "Giới trẻ ngày nay có nhiều cơ hội hơn bố mẹ họ không?"], ["Should success be measured by money?", "Có nên đo thành công bằng tiền không?"]], "m": "One goal I'd really like to achieve is to get a master's degree in environmental science from a university abroad. I decided on this about a year ago, after I worked as a volunteer on a project to clean up a polluted river in my hometown. It made me realise how serious environmental problems are in my country, and I'd like to have the knowledge to do something about them. To achieve this goal, there are several things I need to do. The first is to improve my English, because most universities require an IELTS score of at least 6.5, so at the moment I'm studying for the test every evening. I also need to save money, since studying abroad is very expensive, although I'm also going to apply for scholarships. And finally, I need to get more experience in the field, so I'm hoping to find a job with an environmental organisation next year. This goal is important to me because I want my work to make a real difference. I think young people today will have to deal with the effects of climate change for the rest of their lives, so it's something I want to understand properly and help to solve." },
-    { "id": "s2-event", "t": "Describe a celebration or festival you enjoyed.", "vi": "Tả một lễ hội hoặc dịp ăn mừng bạn thích.", "b": ["what it was", "where and when it took place", "who you were with", "and explain why you enjoyed it"],
-      "p3": [["Why are traditional festivals important?", "Vì sao lễ hội truyền thống quan trọng?"], ["Are festivals becoming too commercial?", "Lễ hội có đang quá thương mại không?"], ["How do celebrations differ between generations?", "Cách ăn mừng khác nhau giữa các thế hệ thế nào?"]], "m": "I'd like to talk about Tet, the Lunar New Year, which is the most important festival in Vietnam. The celebration I remember best was the year before last, when I went back to my grandparents' village in the north. It usually takes place in late January or February, and people spend weeks getting ready for it. That year, my whole family was there, including my aunts, uncles and cousins, so there were more than twenty of us in the house. In the days before the festival we cleaned the house, decorated it with peach blossom and made banh chung, a traditional square rice cake, which we cooked overnight over a fire. I stayed up with my cousins to watch the pot, and we spent the whole night chatting and laughing. On the first day of the new year we visited relatives and neighbours, and the children received lucky money in red envelopes. I enjoyed it so much because it was the first time in years that the whole family had been together. Normally everyone is busy with work and study, so this was a rare chance to relax and reconnect. It reminded me how important family and tradition are to me." },
-    { "id": "s2-decision", "t": "Describe a difficult decision you had to make.", "vi": "Tả một quyết định khó bạn đã phải đưa ra.", "b": ["what the decision was", "when you made it", "what choices you had", "and explain why it was difficult"],
-      "p3": [["Who should young people ask for advice when making decisions?", "Người trẻ nên hỏi ai khi phải quyết định?"], ["Do people make better decisions when they are older?", "Người lớn tuổi có quyết định tốt hơn không?"], ["Should children be allowed to make important decisions for themselves?", "Có nên để trẻ tự quyết việc quan trọng?"]], "m": "A difficult decision I had to make was whether to study medicine or computer science at university. I had to decide in my final year of high school, when I was about eighteen. My parents are both doctors, and they had always hoped I would become one too. My grades in biology and chemistry were good enough, and I knew that being a doctor is a respected and secure career. On the other hand, I had become really interested in programming. I had taught myself to build simple websites and apps in my free time, and I enjoyed it far more than anything I studied at school. The decision was difficult for a few reasons. Firstly, I didn't want to disappoint my parents, who had supported me for so long. Secondly, medicine is a very long course, so if I chose it and then changed my mind, I would have wasted years. In the end, I had a long and honest conversation with my parents. I explained why I loved computing, and to my surprise they told me they just wanted me to be happy. So I chose computer science, and I've never regretted it. It taught me that it's important to talk openly about difficult choices." }
-  ]
+ "_note": "Đề Nói kiểu IELTS (Claude soạn 28/10/2026, chưa người thật kiểm). p1: Part 1 theo chủ đề, mỗi câu [hỏi, nghĩa]. p2: thẻ Part 2 (t = đề, b = 4 gợi ý, p3 = câu Part 3 cùng chủ đề). m = bài nói mẫu Part 2.",
+ "p1": [
+  {
+   "id": "s1-home",
+   "topic": "Your home",
+   "qs": [
+    [
+     "Do you live in a house or a flat?",
+     "Bạn sống ở nhà riêng hay căn hộ?"
+    ],
+    [
+     "What do you like most about your home?",
+     "Bạn thích gì nhất ở nhà mình?"
+    ],
+    [
+     "Is there anything you would like to change about it?",
+     "Có gì bạn muốn đổi ở nhà mình?"
+    ],
+    [
+     "Do you plan to live there for a long time?",
+     "Bạn định sống ở đó lâu không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-work",
+   "topic": "Work or studies",
+   "qs": [
+    [
+     "Do you work or are you a student?",
+     "Bạn đi làm hay đi học?"
+    ],
+    [
+     "Why did you choose that job or subject?",
+     "Vì sao bạn chọn công việc / ngành đó?"
+    ],
+    [
+     "What do you find most difficult about it?",
+     "Điều gì khó nhất với bạn?"
+    ],
+    [
+     "What would you like to do in the future?",
+     "Sau này bạn muốn làm gì?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-food",
+   "topic": "Food",
+   "qs": [
+    [
+     "What kind of food do you like?",
+     "Bạn thích món ăn kiểu gì?"
+    ],
+    [
+     "Do you prefer eating at home or in restaurants?",
+     "Bạn thích ăn ở nhà hay nhà hàng?"
+    ],
+    [
+     "Can you cook?",
+     "Bạn có biết nấu ăn không?"
+    ],
+    [
+     "Has your diet changed since you were a child?",
+     "Chế độ ăn của bạn có đổi từ hồi nhỏ không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-weather",
+   "topic": "Weather",
+   "qs": [
+    [
+     "What's the weather usually like where you live?",
+     "Thời tiết nơi bạn sống thường thế nào?"
+    ],
+    [
+     "What kind of weather do you like best?",
+     "Bạn thích kiểu thời tiết nào nhất?"
+    ],
+    [
+     "Does the weather affect your mood?",
+     "Thời tiết có ảnh hưởng tâm trạng bạn không?"
+    ],
+    [
+     "What do you usually do on rainy days?",
+     "Ngày mưa bạn thường làm gì?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-free",
+   "topic": "Free time",
+   "qs": [
+    [
+     "What do you like to do in your free time?",
+     "Lúc rảnh bạn thích làm gì?"
+    ],
+    [
+     "Do you prefer spending free time alone or with others?",
+     "Bạn thích dành thời gian rảnh một mình hay với người khác?"
+    ],
+    [
+     "Did you have the same hobbies when you were younger?",
+     "Hồi nhỏ bạn có cùng sở thích không?"
+    ],
+    [
+     "Is there a new hobby you would like to try?",
+     "Có sở thích mới nào bạn muốn thử?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-phone",
+   "topic": "Mobile phones",
+   "qs": [
+    [
+     "How often do you use your mobile phone?",
+     "Bạn dùng điện thoại thường xuyên tới mức nào?"
+    ],
+    [
+     "What do you mainly use it for?",
+     "Bạn dùng nó chủ yếu để làm gì?"
+    ],
+    [
+     "Could you live without your phone for a week?",
+     "Bạn có sống được một tuần không có điện thoại?"
+    ],
+    [
+     "Do you think people use their phones too much?",
+     "Bạn có nghĩ người ta dùng điện thoại quá nhiều?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-town",
+   "topic": "Your hometown",
+   "qs": [
+    [
+     "Where is your hometown?",
+     "Quê bạn ở đâu?"
+    ],
+    [
+     "What is it famous for?",
+     "Nơi đó nổi tiếng về gì?"
+    ],
+    [
+     "How has it changed in recent years?",
+     "Mấy năm gần đây nó thay đổi ra sao?"
+    ],
+    [
+     "Would you recommend it to tourists? Why?",
+     "Bạn có giới thiệu nó cho du khách không? Vì sao?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-reading",
+   "topic": "Reading",
+   "qs": [
+    [
+     "Do you enjoy reading?",
+     "Bạn có thích đọc không?"
+    ],
+    [
+     "What kinds of things do you read?",
+     "Bạn hay đọc những gì?"
+    ],
+    [
+     "Do you prefer paper books or e-books?",
+     "Bạn thích sách giấy hay sách điện tử?"
+    ],
+    [
+     "Did you read a lot as a child?",
+     "Hồi nhỏ bạn có đọc nhiều không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-music",
+   "topic": "Music",
+   "qs": [
+    [
+     "What kind of music do you like?",
+     "Bạn thích loại nhạc nào?"
+    ],
+    [
+     "When do you usually listen to music?",
+     "Bạn thường nghe nhạc lúc nào?"
+    ],
+    [
+     "Have you ever learned to play an instrument?",
+     "Bạn đã từng học chơi nhạc cụ chưa?"
+    ],
+    [
+     "Is music an important part of your culture?",
+     "Âm nhạc có quan trọng trong văn hoá nước bạn không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-sport",
+   "topic": "Sport and exercise",
+   "qs": [
+    [
+     "Do you do any sport or exercise?",
+     "Bạn có chơi thể thao hay tập thể dục không?"
+    ],
+    [
+     "What sport was popular when you were a child?",
+     "Hồi nhỏ môn thể thao nào phổ biến?"
+    ],
+    [
+     "Do you prefer watching or playing sport?",
+     "Bạn thích xem hay chơi thể thao hơn?"
+    ],
+    [
+     "Would you like to try a new sport?",
+     "Bạn có muốn thử môn mới không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-travel",
+   "topic": "Travel",
+   "qs": [
+    [
+     "Do you like travelling?",
+     "Bạn có thích đi du lịch không?"
+    ],
+    [
+     "Where did you go on your last holiday?",
+     "Kỳ nghỉ gần nhất bạn đi đâu?"
+    ],
+    [
+     "Do you prefer travelling alone or with others?",
+     "Bạn thích đi một mình hay đi cùng người khác?"
+    ],
+    [
+     "Is there a place you would really like to visit?",
+     "Có nơi nào bạn rất muốn tới không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-friends",
+   "topic": "Friends",
+   "qs": [
+    [
+     "How often do you see your friends?",
+     "Bạn gặp bạn bè thường xuyên không?"
+    ],
+    [
+     "What do you usually do together?",
+     "Các bạn thường làm gì cùng nhau?"
+    ],
+    [
+     "Is it easy to make new friends where you live?",
+     "Ở nơi bạn sống có dễ kết bạn mới không?"
+    ],
+    [
+     "Are your friends similar to you or different?",
+     "Bạn bè giống bạn hay khác bạn?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-shop",
+   "topic": "Shopping",
+   "qs": [
+    [
+     "Do you enjoy shopping?",
+     "Bạn có thích đi mua sắm không?"
+    ],
+    [
+     "Do you prefer shopping online or in shops?",
+     "Bạn thích mua online hay ở cửa hàng?"
+    ],
+    [
+     "What was the last thing you bought?",
+     "Món gần nhất bạn mua là gì?"
+    ],
+    [
+     "Do you ever buy things you don't need?",
+     "Bạn có hay mua đồ không cần không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-sleep",
+   "topic": "Sleep",
+   "qs": [
+    [
+     "How many hours do you usually sleep?",
+     "Bạn thường ngủ mấy tiếng?"
+    ],
+    [
+     "Do you ever take a nap during the day?",
+     "Bạn có ngủ trưa không?"
+    ],
+    [
+     "What do you do if you can't sleep?",
+     "Khi mất ngủ bạn làm gì?"
+    ],
+    [
+     "Do you think people sleep less now than in the past?",
+     "Bạn có nghĩ người ta ngủ ít hơn xưa không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-transport",
+   "topic": "Transport",
+   "qs": [
+    [
+     "How do you usually get to work or school?",
+     "Bạn thường đi làm / đi học bằng gì?"
+    ],
+    [
+     "Is public transport good in your city?",
+     "Giao thông công cộng ở thành phố bạn có tốt không?"
+    ],
+    [
+     "Have you ever ridden a bicycle in the city?",
+     "Bạn đã đạp xe trong thành phố bao giờ chưa?"
+    ],
+    [
+     "How will transport change in the future?",
+     "Giao thông sẽ thay đổi thế nào trong tương lai?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-cook",
+   "topic": "Cooking",
+   "qs": [
+    [
+     "Do you like cooking?",
+     "Bạn có thích nấu ăn không?"
+    ],
+    [
+     "Who does most of the cooking in your family?",
+     "Ai nấu ăn nhiều nhất trong nhà bạn?"
+    ],
+    [
+     "What dish can you cook well?",
+     "Bạn nấu ngon món gì?"
+    ],
+    [
+     "Do you think children should learn to cook?",
+     "Trẻ em có nên học nấu ăn không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-photo",
+   "topic": "Photographs",
+   "qs": [
+    [
+     "Do you like taking photos?",
+     "Bạn có thích chụp ảnh không?"
+    ],
+    [
+     "What do you usually take photos of?",
+     "Bạn thường chụp gì?"
+    ],
+    [
+     "Do you print your photos or keep them on your phone?",
+     "Bạn in ảnh hay để trong điện thoại?"
+    ],
+    [
+     "Do you like being in photos?",
+     "Bạn có thích được chụp không?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-birthday",
+   "topic": "Birthdays",
+   "qs": [
+    [
+     "How do you usually celebrate your birthday?",
+     "Bạn thường mừng sinh nhật thế nào?"
+    ],
+    [
+     "Which birthday do you remember best?",
+     "Bạn nhớ nhất sinh nhật nào?"
+    ],
+    [
+     "Are birthdays important in your country?",
+     "Sinh nhật có quan trọng ở nước bạn không?"
+    ],
+    [
+     "Do you prefer giving or receiving presents?",
+     "Bạn thích tặng hay nhận quà hơn?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-nature",
+   "topic": "Nature and parks",
+   "qs": [
+    [
+     "Do you often go to parks?",
+     "Bạn có hay đi công viên không?"
+    ],
+    [
+     "Is there a park near where you live?",
+     "Gần nhà bạn có công viên không?"
+    ],
+    [
+     "Do you prefer the countryside or the city?",
+     "Bạn thích nông thôn hay thành phố?"
+    ],
+    [
+     "What can people do to protect nature?",
+     "Người ta có thể làm gì để bảo vệ thiên nhiên?"
+    ]
+   ]
+  },
+  {
+   "id": "s1-learn",
+   "topic": "Learning English",
+   "qs": [
+    [
+     "How long have you been learning English?",
+     "Bạn học tiếng Anh bao lâu rồi?"
+    ],
+    [
+     "What is the most difficult part of English for you?",
+     "Phần khó nhất của tiếng Anh với bạn là gì?"
+    ],
+    [
+     "How do you practise outside class?",
+     "Ngoài lớp bạn luyện thế nào?"
+    ],
+    [
+     "Would you like to learn another language?",
+     "Bạn có muốn học thêm ngôn ngữ khác không?"
+    ]
+   ]
+  }
+ ],
+ "p2": [
+  {
+   "id": "s2-person",
+   "t": "Describe a person who has influenced you.",
+   "vi": "Tả một người đã ảnh hưởng tới bạn.",
+   "b": [
+    "who this person is",
+    "how you know them",
+    "what they have done",
+    "and explain how they have influenced you"
+   ],
+   "p3": [
+    [
+     "What qualities make someone a good role model?",
+     "Phẩm chất nào làm nên một hình mẫu tốt?"
+    ],
+    [
+     "Do young people today have different role models from in the past?",
+     "Giới trẻ ngày nay có hình mẫu khác ngày xưa không?"
+    ],
+    [
+     "Should famous people be expected to behave well in public?",
+     "Người nổi tiếng có phải cư xử tốt nơi công cộng không?"
+    ]
+   ],
+   "m": "I'd like to talk about my high school maths teacher, Mr Hung, who probably influenced me more than anyone outside my family. I was in his class for three years, from the age of fifteen to eighteen. At first I didn't like him very much, because he was quite strict and he gave us a lot of homework. But gradually I realised that he really cared about his students. He used to stay after school, without being paid, to help anyone who was struggling, and he always explained things in several different ways until everyone understood. What influenced me most, though, was his attitude to mistakes. Whenever I got something wrong, he would say that a mistake was just information, not a failure. Before I met him, I was afraid of making mistakes, so I often didn't even try difficult problems. Because of him, I became much more confident, and I think that's why I later chose to study engineering. Even now, when I face a difficult task at work, I remember what he told us and I try to treat problems as something to learn from rather than something to be afraid of."
+  },
+  {
+   "id": "s2-place",
+   "t": "Describe a place you visited that you would like to go back to.",
+   "vi": "Tả một nơi bạn từng đến và muốn quay lại.",
+   "b": [
+    "where it is",
+    "when you went there",
+    "what you did there",
+    "and explain why you would like to go back"
+   ],
+   "p3": [
+    [
+     "Why do people like to travel to new places?",
+     "Vì sao người ta thích đi nơi mới?"
+    ],
+    [
+     "What are the effects of tourism on local communities?",
+     "Du lịch ảnh hưởng thế nào tới cộng đồng địa phương?"
+    ],
+    [
+     "Will people travel more or less in the future?",
+     "Tương lai người ta sẽ đi du lịch nhiều hơn hay ít hơn?"
+    ]
+   ],
+   "m": "I'd like to talk about Da Lat, a city in the Central Highlands of Vietnam, which I visited with my university friends about three years ago. We went there in December, just after our exams, so we were all in a very relaxed mood. Da Lat is quite different from the rest of the country, because it's high up in the mountains and the weather is cool all year round. We stayed in a small guest house surrounded by pine trees. During the day we rented motorbikes and rode out to waterfalls and flower farms, and in the evenings we walked around the night market, eating grilled rice paper and drinking hot soy milk. One morning we got up at five o'clock to watch the sunrise over the valley, which was absolutely beautiful, although it was freezing. The reason I'd like to go back is partly the peaceful atmosphere. My life in Ho Chi Minh City is very busy and noisy, and in Da Lat I felt that I could finally breathe. But it's also because of the memories. Some of those friends now live abroad, so if we could all go back together one day, it would be really special."
+  },
+  {
+   "id": "s2-skill",
+   "t": "Describe a skill you learned that you think is useful.",
+   "vi": "Tả một kỹ năng bạn đã học và thấy hữu ích.",
+   "b": [
+    "what the skill is",
+    "when and how you learned it",
+    "how difficult it was",
+    "and explain why it is useful"
+   ],
+   "p3": [
+    [
+     "Which skills are most important for young people today?",
+     "Kỹ năng nào quan trọng nhất với giới trẻ ngày nay?"
+    ],
+    [
+     "Is it better to learn skills at school or at work?",
+     "Học kỹ năng ở trường hay ở chỗ làm tốt hơn?"
+    ],
+    [
+     "Will machines replace people in skilled jobs?",
+     "Máy móc có thay người trong việc cần tay nghề không?"
+    ]
+   ],
+   "m": "The skill I'd like to describe is cooking, which I learned when I moved away from home to study at university. Before that, my mother always cooked for the family, so I could only make instant noodles. When I started living alone, I realised that eating out every day was too expensive and not very healthy, so I decided to teach myself. At first I watched cooking videos online and called my mother almost every evening to ask how to make simple dishes like fried rice or soup. It was quite difficult at the beginning. I burned quite a few meals, and once I put far too much salt in a fish dish and had to throw it away. But gradually I got better, and after about six months I could cook most of the traditional dishes my family eats. I think it's a really useful skill for several reasons. First, it saves a lot of money. Second, I know exactly what's in my food, so I eat more healthily. And finally, it's a great way to bring people together. These days I often invite friends over for dinner, and cooking for them makes me feel proud and happy."
+  },
+  {
+   "id": "s2-book",
+   "t": "Describe a book or film that made you think.",
+   "vi": "Tả một cuốn sách hoặc bộ phim khiến bạn suy nghĩ.",
+   "b": [
+    "what it is",
+    "when you read or saw it",
+    "what it is about",
+    "and explain why it made you think"
+   ],
+   "p3": [
+    [
+     "Do people read less than they used to?",
+     "Người ta có đọc ít hơn trước không?"
+    ],
+    [
+     "Should films be used to teach history?",
+     "Có nên dùng phim để dạy lịch sử không?"
+    ],
+    [
+     "How has technology changed the way we enjoy stories?",
+     "Công nghệ đã đổi cách ta thưởng thức câu chuyện thế nào?"
+    ]
+   ],
+   "m": "I'm going to talk about a film called Parasite, a South Korean film that I watched in the cinema a few years ago, after it won several international awards. It's about two families: a poor family who live in a small basement apartment and a very rich family who live in a beautiful modern house. The poor family gradually find jobs working for the rich family, by pretending they don't know each other, and the story becomes more and more tense until it ends quite violently. At first I thought it was going to be a comedy, because the beginning is very funny. But the longer I watched, the more uncomfortable I felt. The film made me think about inequality, and about how people from different social classes can live in the same city but have completely different lives. What really stayed with me was a scene where it rains heavily. For the rich family, the rain is just an inconvenience that spoils their plans, but for the poor family it floods their home and they lose everything. After the film, my friends and I talked about it for hours, and I still think about that scene whenever there's a big storm."
+  },
+  {
+   "id": "s2-change",
+   "t": "Describe an important change in your life.",
+   "vi": "Tả một thay đổi quan trọng trong đời bạn.",
+   "b": [
+    "what the change was",
+    "when it happened",
+    "how you felt about it",
+    "and explain why it was important"
+   ],
+   "p3": [
+    [
+     "Why do some people find change difficult?",
+     "Vì sao có người thấy thay đổi là khó?"
+    ],
+    [
+     "Is it better to change jobs often or stay in one job?",
+     "Đổi việc thường xuyên hay ở một chỗ tốt hơn?"
+    ],
+    [
+     "How have cities in your country changed in recent years?",
+     "Các thành phố ở nước bạn thay đổi thế nào gần đây?"
+    ]
+   ],
+   "m": "An important change in my life happened about two years ago, when I left my job at a bank and started working for a small technology company. I had worked at the bank for nearly five years, and it was a secure job with a good salary, so it wasn't an easy decision. However, I had started to feel bored, because I was doing the same tasks every day and I didn't feel that I was learning anything new. When a friend told me that his company was looking for someone to manage customer projects, I decided to apply, and to my surprise I got the job. To be honest, I was very nervous at first. My salary was a little lower, and I had to learn a lot of new skills very quickly, such as using project management software and talking to clients in English. There were several weeks when I wondered if I'd made a mistake. But after a few months, I started to really enjoy it. The change was important because it showed me that I could adapt to something new, and it gave me much more confidence. I also feel that my work is more meaningful now, because I can see the results of what I do."
+  },
+  {
+   "id": "s2-help",
+   "t": "Describe a time when you helped someone.",
+   "vi": "Tả một lần bạn giúp ai đó.",
+   "b": [
+    "who you helped",
+    "what the situation was",
+    "what you did",
+    "and explain how you felt afterwards"
+   ],
+   "p3": [
+    [
+     "Why do some people volunteer to help others?",
+     "Vì sao có người tình nguyện giúp người khác?"
+    ],
+    [
+     "Should schools teach children to help in the community?",
+     "Trường có nên dạy trẻ giúp cộng đồng không?"
+    ],
+    [
+     "Are people less helpful in big cities than in small towns?",
+     "Người ở thành phố lớn có ít giúp nhau hơn ở thị trấn nhỏ không?"
+    ]
+   ],
+   "m": "I'd like to describe a time when I helped an elderly neighbour of mine, Mrs Lan, who lives alone in the flat next to mine. Last year, during the rainy season, she slipped on the wet stairs and broke her wrist. Her children live in another city, so for about two months she had real difficulty doing everyday things like shopping and cooking. When I found out what had happened, I offered to help. Every few days I went to the market for her and carried her shopping upstairs, and on Sundays I usually cooked a little extra food and took it round to her. I also went with her to the hospital a couple of times for check-ups, because she was nervous about taking a taxi on her own. It didn't take much of my time, but it obviously meant a lot to her. She often told me stories about the neighbourhood when she was young, which I found really interesting. Afterwards, I felt very happy and also a bit surprised, because I realised that I had been living next to her for three years without really knowing her. Now we're good friends, and she always gives me fruit from her family's garden."
+  },
+  {
+   "id": "s2-tech",
+   "t": "Describe a piece of technology you use every day.",
+   "vi": "Tả một thiết bị công nghệ bạn dùng hằng ngày.",
+   "b": [
+    "what it is",
+    "when you started using it",
+    "what you use it for",
+    "and explain how your life would be different without it"
+   ],
+   "p3": [
+    [
+     "Has technology made people's lives easier or more stressful?",
+     "Công nghệ làm đời sống dễ hơn hay căng thẳng hơn?"
+    ],
+    [
+     "Should children be allowed to use smartphones?",
+     "Có nên cho trẻ dùng điện thoại thông minh?"
+    ],
+    [
+     "What technology do you think will be important in the future?",
+     "Bạn nghĩ công nghệ nào sẽ quan trọng sau này?"
+    ]
+   ],
+   "m": "The piece of technology I use every day is my laptop. I bought it about four years ago, when I started my first full-time job, and it's become an essential part of my life. I use it mainly for work. I'm a graphic designer, so I spend most of the day creating images, editing photos and sending files to clients. But I also use it for lots of other things. In the evenings I watch films or online courses, I video-call my parents, who live in another province, and at weekends I use it to plan trips and manage my money. Without my laptop, my life would be very different. First of all, I simply couldn't do my job, because all the software I need runs on a computer. I'd probably have to work in an office every day instead of working from home sometimes, which I really appreciate. I'd also find it harder to keep learning new skills, because most of the courses I take are online. On the other hand, I sometimes think I might be healthier without it, because I'd spend less time sitting down and looking at a screen, so maybe it would be good for me to switch it off a bit more often."
+  },
+  {
+   "id": "s2-goal",
+   "t": "Describe a goal you would like to achieve in the future.",
+   "vi": "Tả một mục tiêu bạn muốn đạt trong tương lai.",
+   "b": [
+    "what the goal is",
+    "when you decided on it",
+    "what you need to do to achieve it",
+    "and explain why it is important to you"
+   ],
+   "p3": [
+    [
+     "Is it important to set goals in life?",
+     "Đặt mục tiêu trong đời có quan trọng không?"
+    ],
+    [
+     "Do young people today have more opportunities than their parents had?",
+     "Giới trẻ ngày nay có nhiều cơ hội hơn bố mẹ họ không?"
+    ],
+    [
+     "Should success be measured by money?",
+     "Có nên đo thành công bằng tiền không?"
+    ]
+   ],
+   "m": "One goal I'd really like to achieve is to get a master's degree in environmental science from a university abroad. I decided on this about a year ago, after I worked as a volunteer on a project to clean up a polluted river in my hometown. It made me realise how serious environmental problems are in my country, and I'd like to have the knowledge to do something about them. To achieve this goal, there are several things I need to do. The first is to improve my English, because most universities require an IELTS score of at least 6.5, so at the moment I'm studying for the test every evening. I also need to save money, since studying abroad is very expensive, although I'm also going to apply for scholarships. And finally, I need to get more experience in the field, so I'm hoping to find a job with an environmental organisation next year. This goal is important to me because I want my work to make a real difference. I think young people today will have to deal with the effects of climate change for the rest of their lives, so it's something I want to understand properly and help to solve."
+  },
+  {
+   "id": "s2-event",
+   "t": "Describe a celebration or festival you enjoyed.",
+   "vi": "Tả một lễ hội hoặc dịp ăn mừng bạn thích.",
+   "b": [
+    "what it was",
+    "where and when it took place",
+    "who you were with",
+    "and explain why you enjoyed it"
+   ],
+   "p3": [
+    [
+     "Why are traditional festivals important?",
+     "Vì sao lễ hội truyền thống quan trọng?"
+    ],
+    [
+     "Are festivals becoming too commercial?",
+     "Lễ hội có đang quá thương mại không?"
+    ],
+    [
+     "How do celebrations differ between generations?",
+     "Cách ăn mừng khác nhau giữa các thế hệ thế nào?"
+    ]
+   ],
+   "m": "I'd like to talk about Tet, the Lunar New Year, which is the most important festival in Vietnam. The celebration I remember best was the year before last, when I went back to my grandparents' village in the north. It usually takes place in late January or February, and people spend weeks getting ready for it. That year, my whole family was there, including my aunts, uncles and cousins, so there were more than twenty of us in the house. In the days before the festival we cleaned the house, decorated it with peach blossom and made banh chung, a traditional square rice cake, which we cooked overnight over a fire. I stayed up with my cousins to watch the pot, and we spent the whole night chatting and laughing. On the first day of the new year we visited relatives and neighbours, and the children received lucky money in red envelopes. I enjoyed it so much because it was the first time in years that the whole family had been together. Normally everyone is busy with work and study, so this was a rare chance to relax and reconnect. It reminded me how important family and tradition are to me."
+  },
+  {
+   "id": "s2-decision",
+   "t": "Describe a difficult decision you had to make.",
+   "vi": "Tả một quyết định khó bạn đã phải đưa ra.",
+   "b": [
+    "what the decision was",
+    "when you made it",
+    "what choices you had",
+    "and explain why it was difficult"
+   ],
+   "p3": [
+    [
+     "Who should young people ask for advice when making decisions?",
+     "Người trẻ nên hỏi ai khi phải quyết định?"
+    ],
+    [
+     "Do people make better decisions when they are older?",
+     "Người lớn tuổi có quyết định tốt hơn không?"
+    ],
+    [
+     "Should children be allowed to make important decisions for themselves?",
+     "Có nên để trẻ tự quyết việc quan trọng?"
+    ]
+   ],
+   "m": "A difficult decision I had to make was whether to study medicine or computer science at university. I had to decide in my final year of high school, when I was about eighteen. My parents are both doctors, and they had always hoped I would become one too. My grades in biology and chemistry were good enough, and I knew that being a doctor is a respected and secure career. On the other hand, I had become really interested in programming. I had taught myself to build simple websites and apps in my free time, and I enjoyed it far more than anything I studied at school. The decision was difficult for a few reasons. Firstly, I didn't want to disappoint my parents, who had supported me for so long. Secondly, medicine is a very long course, so if I chose it and then changed my mind, I would have wasted years. In the end, I had a long and honest conversation with my parents. I explained why I loved computing, and to my surprise they told me they just wanted me to be happy. So I chose computer science, and I've never regretted it. It taught me that it's important to talk openly about difficult choices."
+  },
+  {
+   "id": "s2-object",
+   "t": "Describe an object that is important to you.",
+   "vi": "Tả một đồ vật quan trọng với bạn.",
+   "b": [
+    "what it is",
+    "where you got it",
+    "how often you use it",
+    "and explain why it is important to you"
+   ],
+   "p3": [
+    [
+     "Why do people keep things they no longer use?",
+     "Vì sao người ta giữ đồ không còn dùng?"
+    ],
+    [
+     "Do people today own too many things?",
+     "Ngày nay người ta có quá nhiều đồ không?"
+    ],
+    [
+     "How has advertising changed what people buy?",
+     "Quảng cáo đã thay đổi việc mua sắm thế nào?"
+    ]
+   ],
+   "m": "I'd like to talk about an old watch that belonged to my grandfather. It's a simple silver watch with a brown leather strap, and it's probably about fifty years old. My grandfather bought it when he got his first job, and he wore it every single day until he passed away. After that, my grandmother gave it to me, because I was the grandchild who used to spend the most time with him. To be honest, I don't wear it every day, because the strap is quite worn and I'm afraid of damaging it. I usually wear it on special occasions, like family weddings or important exams, and the rest of the time I keep it in a small box on my desk. The reason it matters so much to me is not its value, because it isn't expensive at all. It's important because it reminds me of him and of the advice he gave me, especially about being patient and working hard. Whenever I look at it, I remember sitting with him in the evening while he told me stories about his life. So for me, it's not really a watch, it's a connection to my family's history."
+  },
+  {
+   "id": "s2-advice",
+   "t": "Describe a time when someone gave you good advice.",
+   "vi": "Tả một lần ai đó cho bạn lời khuyên hay.",
+   "b": [
+    "who gave you the advice",
+    "what the advice was",
+    "whether you followed it",
+    "and explain why it was good advice"
+   ],
+   "p3": [
+    [
+     "Who do young people usually ask for advice?",
+     "Người trẻ thường hỏi ý kiến ai?"
+    ],
+    [
+     "Is it better to get advice from friends or from experts?",
+     "Nên hỏi bạn bè hay chuyên gia?"
+    ],
+    [
+     "Why do some people not like receiving advice?",
+     "Vì sao có người không thích nhận lời khuyên?"
+    ]
+   ],
+   "m": "I'm going to describe some advice my older cousin gave me about three years ago, when I was trying to decide what to study at university. At that time, I was planning to choose business, mainly because my friends were doing it and I thought it would lead to a well-paid job. My cousin, who is about eight years older than me and works as a software engineer, sat down with me one weekend and asked me a simple question: which subjects did I actually enjoy at school? When I answered that it was maths and computers, she told me that it's much easier to work hard at something you enjoy, and that I shouldn't choose a subject only because other people were choosing it. She also suggested that I talk to a few people working in different jobs before deciding. I followed her advice, and in the end I chose information technology. Looking back, I think it was excellent advice, because I really enjoy my studies now, and my results are much better than I expected. It taught me to make decisions based on my own interests rather than on pressure from others."
+  },
+  {
+   "id": "s2-city",
+   "t": "Describe a city you would like to live in.",
+   "vi": "Tả một thành phố bạn muốn sống.",
+   "b": [
+    "which city it is",
+    "how you know about it",
+    "what it is like",
+    "and explain why you would like to live there"
+   ],
+   "p3": [
+    [
+     "What are the advantages of living in a big city?",
+     "Sống ở thành phố lớn có lợi gì?"
+    ],
+    [
+     "Why do many young people move to cities?",
+     "Vì sao nhiều người trẻ lên thành phố?"
+    ],
+    [
+     "How can cities be made better places to live?",
+     "Làm sao để thành phố dễ sống hơn?"
+    ]
+   ],
+   "m": "The city I'd love to live in one day is Da Nang, in the centre of Vietnam. I first went there on a school trip about five years ago, and since then I've been back twice with my family, so I know it reasonably well. What I like most about it is that it seems to have the advantages of a big city without many of the disadvantages. It's modern and quite developed, with good hospitals, universities and plenty of new businesses, but the traffic is much lighter than in Hanoi or Ho Chi Minh City, and the air feels cleaner. It also has a long, beautiful beach right next to the city centre, so after work you could go for a swim or a walk along the coast, which is something I can't do where I live now. On top of that, there are mountains nearby, and Hoi An, the old town, is less than an hour away. I'd like to live there because I think it would give me a better balance between work and free time. I'm hoping that, after I graduate, I'll be able to find a job there in the technology sector."
+  },
+  {
+   "id": "s2-app",
+   "t": "Describe a website or app you find useful.",
+   "vi": "Tả một trang web hay ứng dụng bạn thấy hữu ích.",
+   "b": [
+    "what it is",
+    "how you found out about it",
+    "what you use it for",
+    "and explain why you find it useful"
+   ],
+   "p3": [
+    [
+     "Do people spend too much time on their phones?",
+     "Người ta có dùng điện thoại quá nhiều không?"
+    ],
+    [
+     "What are the dangers of sharing information online?",
+     "Chia sẻ thông tin trên mạng có nguy hiểm gì?"
+    ],
+    [
+     "Will online learning replace schools?",
+     "Học online có thay được trường học không?"
+    ]
+   ],
+   "m": "One app I find really useful is a map and navigation app that I use almost every day. I started using it about four years ago, when I moved to a new city to study and didn't know my way around at all. A friend recommended it, saying it was more accurate than the one that came with my phone. I mainly use it for getting around the city on my motorbike, because it shows me the quickest route and warns me about traffic jams. But I also use it to find places, like restaurants or pharmacies, and to read other people's reviews before I go. When I travel to another city, it's even more helpful, because I can download maps in advance and use them without the internet. The main reason I find it so useful is that it saves me a lot of time and stress. Before I had it, I often got lost and had to stop and ask people for directions, which was difficult in a city I didn't know. Now I feel much more confident going to new places on my own, and I would honestly find it hard to manage without it."
+  },
+  {
+   "id": "s2-teacher",
+   "t": "Describe a lesson or class you really enjoyed.",
+   "vi": "Tả một buổi học bạn rất thích.",
+   "b": [
+    "what the lesson was about",
+    "who taught it",
+    "what you did in the lesson",
+    "and explain why you enjoyed it"
+   ],
+   "p3": [
+    [
+     "What makes a good teacher?",
+     "Thế nào là giáo viên giỏi?"
+    ],
+    [
+     "Is it better to learn in a group or alone?",
+     "Học nhóm hay học một mình tốt hơn?"
+    ],
+    [
+     "How has technology changed the way students learn?",
+     "Công nghệ đã thay đổi cách học thế nào?"
+    ]
+   ],
+   "m": "I'd like to describe a history lesson I had in my second year of high school. The topic was the ancient trade routes of Southeast Asia, which doesn't sound very exciting, but it turned out to be one of the most memorable lessons I've ever had. The teacher, Ms Lan, didn't just give us a lecture. Instead, she divided the class into small groups, and each group became a trading city with its own products, like silk, spices or pottery. We had to negotiate with the other groups to exchange goods, and every few minutes she announced events, such as a storm at sea or a new tax, that changed the rules. By the end, we understood why some cities became rich and powerful while others didn't, much better than we would have from reading a textbook. I enjoyed it because it was active and a bit competitive, and because we had to think and talk rather than just listen and take notes. It also showed me that history isn't only about remembering dates, but about understanding why people made the decisions they did. I still remember a lot of what I learned that day."
+  },
+  {
+   "id": "s2-noise",
+   "t": "Describe a time when you were in a noisy place.",
+   "vi": "Tả một lần bạn ở nơi ồn ào.",
+   "b": [
+    "where you were",
+    "why you were there",
+    "what the noise was like",
+    "and explain how you felt about it"
+   ],
+   "p3": [
+    [
+     "What are the main sources of noise in cities?",
+     "Tiếng ồn ở thành phố chủ yếu từ đâu?"
+    ],
+    [
+     "Should there be laws to control noise?",
+     "Có nên có luật kiểm soát tiếng ồn không?"
+    ],
+    [
+     "Are people today more used to noise than in the past?",
+     "Ngày nay người ta quen ồn hơn xưa không?"
+    ]
+   ],
+   "m": "I'm going to talk about the time I went to a big football match at the national stadium in Hanoi, about two years ago. My uncle had two spare tickets, and he invited me because he knows I'm a big fan of the national team. It was an important qualifying match, so the stadium was completely full, with about forty thousand people. The noise was unbelievable. From about an hour before kick-off, people were singing, beating drums and blowing horns, and when our team scored the first goal, the whole stadium seemed to shake. At times I couldn't hear my uncle even though he was shouting right next to me. At first I found it a bit overwhelming, and by the end of the match my ears were ringing. But overall I felt excited and proud, because the noise came from thousands of people sharing the same feeling. It was completely different from the noise of traffic, which just makes me tired and irritated. So I'd say it's one of the few times when being in such a noisy place was actually enjoyable, although I definitely wouldn't want that level of noise every day."
+  },
+  {
+   "id": "s2-money",
+   "t": "Describe something you saved money to buy.",
+   "vi": "Tả một món bạn đã để dành tiền mua.",
+   "b": [
+    "what it was",
+    "how long you saved for it",
+    "how you saved the money",
+    "and explain how you felt when you bought it"
+   ],
+   "p3": [
+    [
+     "Should children be taught how to manage money?",
+     "Có nên dạy trẻ quản lý tiền không?"
+    ],
+    [
+     "Why do some people find it hard to save?",
+     "Vì sao có người khó để dành tiền?"
+    ],
+    [
+     "Is it better to save money or to enjoy it now?",
+     "Nên để dành hay tiêu ngay?"
+    ]
+   ],
+   "m": "The thing I saved for the longest was my first laptop, which I bought when I was seventeen. I needed it for school projects and for learning programming, but my parents said that they would only pay half, and that I had to find the other half myself. So I saved for about ten months. I did it in a few ways. First, I stopped buying snacks and drinks after school, which actually saved more than I expected. I also gave private English lessons to two younger children in my neighbourhood twice a week, and I put all the money from that into a box in my room. On top of that, I sold some old books and a bicycle that I no longer used. When I finally had enough money, I went to the shop with my father, and I spent almost an hour comparing different models before choosing one. I remember feeling really proud, because it was the first expensive thing I'd ever paid for with my own effort. I also took much better care of it than I would have if it had been a present, and it lasted for five years."
+  },
+  {
+   "id": "s2-tradition",
+   "t": "Describe a tradition in your country that you like.",
+   "vi": "Tả một phong tục ở nước bạn mà bạn thích.",
+   "b": [
+    "what the tradition is",
+    "when it happens",
+    "what people do",
+    "and explain why you like it"
+   ],
+   "p3": [
+    [
+     "Why are traditions important for a country?",
+     "Vì sao phong tục quan trọng với một đất nước?"
+    ],
+    [
+     "Are young people losing interest in traditions?",
+     "Giới trẻ có đang mất hứng thú với phong tục không?"
+    ],
+    [
+     "Should old traditions change to fit modern life?",
+     "Phong tục cũ có nên đổi cho hợp đời sống mới không?"
+    ]
+   ],
+   "m": "One tradition I really like is visiting family and friends during Tet, the Lunar New Year, which is the most important holiday in Vietnam. It usually happens in late January or February, and it lasts for several days, although the preparations start weeks before. Before Tet, families clean and decorate their homes, often with peach blossom in the north or yellow apricot blossom in the south, and they cook traditional food such as banh chung, a square sticky rice cake. During the first days of the new year, people visit their relatives, starting with the oldest members of the family, and then their friends and neighbours. When you visit someone, you wish them health and good luck, and adults give children red envelopes with lucky money. The reason I like this tradition so much is that it's the one time of year when everyone stops working and makes time for each other. My family members live in different provinces, so Tet is often the only chance I get to see some of my cousins. It reminds me of where I come from and how important family is."
+  }
+ ]
 }

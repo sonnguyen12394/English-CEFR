@@ -34,8 +34,9 @@ function imWeak() { const o = ieSt(), tg = o.target, T = o.ty || {}, fx = (o.fo 
   return out.sort((a, b) => b.p - a.p); }
 // số bài chưa gặp trong 30 ngày cho một dạng (kho nhỏ: hết bài mới thì lượt luyện không tính lần thử)
 const imFreshOk = (id, now = Date.now()) => { const r = ieSt().r[id]; return !r || now - r.at >= IM_FRESH_D * DAY; };
-function imPool(u) { if (u === 'R-gt') return KIT.doc.items ? KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)) : [];
-  if (u[0] === 'R') return IE ? IE.doc : []; if (u[0] === 'L') return KIT.nghe.items ? KIT.nghe.items.filter(x => ['b1', 'b2', 'c1', 'c2'].includes(x.lv) && (u === 'L-form' ? ngForm(x) : true)) : []; return []; }
+function imPool(u) { if (u === 'R-para') return IE && IE.para || []; if (u === 'R-gt') return KIT.doc.items ? KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)) : [];
+  if (u[0] === 'R') return IE ? IE.doc : []; if (u === 'L-map' || u === 'L-match') return IE && IE.ln ? IE.ln.filter(x => x.qs.some(q => IE_LTY[q.k] === u)) : [];
+  if (u[0] === 'L') { const ln = IE && IE.ln ? IE.ln.filter(x => x.qs.some(q => IE_LTY[q.k] === u)) : []; return [...ln, ...(KIT.nghe.items ? KIT.nghe.items.filter(x => ['b1', 'b2', 'c1', 'c2'].includes(x.lv) && (u === 'L-form' ? ngForm(x) : true)) : [])]; } return []; }
 const imFreshN = u => imPool(u).filter(x => imFreshOk(x.id)).length;
 // nhóm đang chữa: S.ie.fo = { a: [{ u, at, tr (số ngày đã thử), td, pd (ngày đạt liền nhau), r (lần quay lại) }], p: [{ u, at, r, root }], n: số chỗ chữa xong }
 const imFocus = (now = Date.now()) => { const o = ieSt(); return fcFocus(o.fo = o.fo || {}, imWeak, { act: IM_ACT, cap: () => 1, try: IM_TRY, parkD: IM_PARK_D, info: u => ({ u, sk: u[0], t: imName(u), v: 'đã đạt ngưỡng, chờ đủ 2 lượt', p: 0 }) }, now); };
@@ -49,10 +50,12 @@ function imTeach(u, go) { const k = u[0], html = IE_TY[u] ? (typeof ieHow === 'f
     <p class="mute">Đọc lại cách làm rồi mới thử: làm thêm mà không đổi cách làm thì dễ sai như cũ.</p>${html}<button class="pri" data-im="go">Thử →</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return ieltsView(); if (e.target.closest('[data-im="go"]')) { scrollTo(0, 0); go(); } }; }
 async function imFix(u) { await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KIT.doc)]); const f = imFocus().act.find(w => w.u === u), d = dayOf(Date.now()), k = u[0];
+  if (typeof TH_APP !== 'undefined' && !TH_APP.has(u) && u !== 'R-para') return imTeach(u, () => ieThat(k));   // v87: dạng app chưa có bài → chữa bằng đề thật rồi nhập kết quả
   const run = () => {
+    if (u === 'R-para') return ieRun('🗺 ' + IE_TY[u], ieParaQs(10), ieltsView);
     if (k === 'W') return ieWrite('t2');
     if (k === 'S') return ieSpeak(['p1', 'p2', 'p3']);
-    if (k === 'L') { const qs = ieListen(u === 'L-form' ? [0, 3] : [1, 2]).map(it => it.q); return qs.length ? ieRun('🗺 ' + IE_TY[u], qs, ieltsView) : toast('Chưa có bài nghe hợp dạng này.'); }
+    if (k === 'L') { const qs = ieListen(u === 'L-form' ? [0, 3] : u === 'L-map' ? [1] : u === 'L-match' ? [2] : [1, 2]).map(it => it.q); return qs.length ? ieRun('🗺 ' + IE_TY[u], qs, ieltsView) : toast('Chưa có bài nghe hợp dạng này.'); }
     const pool = imPool(u), fresh = shuf(pool.filter(x => imFreshOk(x.id))), xs = (fresh.length ? fresh : [...pool].sort((a, b) => (ieSt().r[a.id] || {}).at - (ieSt().r[b.id] || {}).at)).slice(0, 2);
     if (!fresh.length) toast('Hết bài mới cho dạng này: lượt này không tính lần thử (đã gặp bài trong 30 ngày).');
     const qs = u === 'R-gt' ? xs.flatMap(x => kRead(KIT.doc, x, 'ct', false).map(q => Object.assign(q, { ty: 'R-gt' }))) : xs.flatMap(x => ieRQs(x, [u.slice(2)]));
@@ -64,7 +67,7 @@ async function imFix(u) { await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KI
 // ---------- ô 🗺 Bản đồ band ở màn Học IELTS ----------
 function imBox() { const f = imFocus(), hasData = Object.keys(ieSt().ty || {}).length || (ieSt().cr || []).length;
   const row = w => `<div style="margin:8px 0;border-top:1px solid var(--line);padding-top:6px"><div class="row"><b>${IM_SK[w.sk].split(' ')[0]} ${esc(w.t)}</b><span class="mute">${esc(w.v)}</span></div>
-    <p class="mute" style="margin:2px 0">thử ${w.tr}/${IM_TRY} · đạt liền ${w.pd}/2${w.r ? ` · quay lại lần ${w.r}` : ''}${IE_TY[w.u] ? ` · còn ${imFreshN(w.u)} bài mới` : ''}${w.sure ? '' : ' · bằng chứng chưa chắc'}</p>
+    <p class="mute" style="margin:2px 0">thử ${w.tr}/${IM_TRY} · đạt liền ${w.pd}/2${w.r ? ` · quay lại lần ${w.r}` : ''}${IE_TY[w.u] ? (typeof TH_APP === 'undefined' || TH_APP.has(w.u) || w.u === 'R-para' ? ` · còn ${imFreshN(w.u)} bài mới` : ' · chữa bằng đề thật') : ''}${w.sure ? '' : ' · bằng chứng chưa chắc'}</p>
     <button class="pri" data-im="fix|${w.u}" style="margin-top:4px">▶ Chữa</button></div>`;
   return `<div class="box"><div class="row"><b>🗺 Bản đồ band</b><span class="mute">🎯 ${f.act.length}/${IM_ACT} · ⏳ ${f.queue.length} · ✅ ${f.done}</span></div>
     ${!hasData ? '<p class="mute" style="margin:6px 0 0">Chưa có dữ liệu theo dạng câu / tiêu chí. Làm 1 đề thử hoặc vài bài luyện: app tự tìm chỗ làm mất điểm nhiều nhất.</p>'

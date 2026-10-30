@@ -160,6 +160,35 @@ const R = await run(`(async () => {
     await imFix('R-h'); if (!(h2 => h2.includes('Trước khi thử') || h2.includes(' · 1/'))(String($app.innerHTML))) bad.push('chữa dạng câu không mở bài');
     if (!o.fo.a.find(a => a.u === 'R-h')) bad.push('R-h mất'); else {o.fo.a.find(a => a.u === 'R-h').tr = 1; o.fo.a.find(a => a.u === 'R-h').td = dayOf(now) - 1; await imFix('R-h'); if (!String($app.innerHTML).includes('Trước khi thử')) bad.push('thiếu xem cách làm trước lần thử 2'); }
     add('ielts', 'I3', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'bản đồ band: chỗ yếu theo dạng / tiêu chí, nhóm 3 mỗi kỹ năng 1, chỉ bài mới tính, đạt 2 ngày = xong, gác 14 ngày, 🧱 nền CEFR, xem cách làm trước khi thử'); }
+  // v87 IELTS: nhập đề thật theo từng câu → band + bản đồ theo dạng; từ mới từ đề thật (Leitner); diễn đạt lại; Task 1 bản đồ / quy trình; Nói mở rộng; Nghe kiểu IELTS có giọng
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await ieLoad(); delete S.ie; const o = ieSt(); o.set = 1; o.target = 6.5;
+    TH = { sk: 'R', name: 'Cambridge 18 · Test 2', blocks: [[1, 13, 'R-tf'], [14, 26, 'R-mi'], [27, 40, 'R-mc']], wrong: new Set([2, 14, 15, 16, 17, 18, 19, 20]) };
+    tryv('lưu đề thật', () => thSave()); const off = o.off[o.off.length - 1];
+    if (!off || off.rr !== 32 || off.R !== ieRaw(IE_RA, 32, 40) || off.L != null) bad.push('đề thật: band sai ' + JSON.stringify(off));
+    const mi = (o.ty['R-mi'] || []).slice(-1)[0]; if (!mi || mi.n !== 13 || mi.ok !== 6 || mi.src !== 'that') bad.push('đề thật: theo dạng sai ' + JSON.stringify(mi));
+    if (!imWeak().some(w => w.u === 'R-mi')) bad.push('dạng yếu của đề thật chưa vào bản đồ band'); if (!String($app.innerHTML).includes('Ghép thông tin')) bad.push('màn kết quả đề thật thiếu bảng theo dạng');
+    tryv('ô Sẵn sàng thi', () => ieReady()); tryv('màn nhập đề thật', () => ieThat('L')); if (!String($app.innerHTML).includes('Chạm vào câu SAI')) bad.push('màn nhập đề thật hỏng');
+    if (thRange([1, 2, 3, 5, 7, 8]) !== '1–3, 5, 7–8') bad.push('gộp dải câu sai');
+    // từ mới từ đề thật
+    await loadRef(); LIBW = null; const C = vwCands('The researchers concluded that urbanisation had a detrimental impact on biodiversity. The cat sat on the mat.');
+    if (!C.some(c => /detrimental/.test(c.t)) || C.some(c => c.t === 'the')) bad.push('tách từ đề thật sai: ' + C.map(c => c.t).join(','));
+    const n = vwPut(C.slice(0, 3).map(c => ({ w: c.w ? c.w.w : c.t, vi: c.w && c.w.vi || '', ex: c.ex, app: null })), 'C18'); if (n !== 3 || vwDue().length !== 3 || vwPut([{ w: C[0].w ? C[0].w.w : C[0].t }], 'x') !== 0) bad.push('bộ thẻ từ đề thật sai');
+    tryv('ôn từ đề thật', () => vwRun()); if (!String($app.innerHTML).includes('Nghĩa là gì')) bad.push('màn ôn từ hỏng');
+    // diễn đạt lại
+    const pq = ieParaQs(5); if (pq.length !== 5 || pq.some(q => !q.opts.includes(q.a) || q.opts.length !== 4 || q.ty !== 'R-para')) bad.push('diễn đạt lại sai');
+    // Task 1 bản đồ / quy trình: hình vẽ được, bài mẫu đạt mọi yêu cầu dạng bài
+    for (const x of IE.t1.filter(x => x.kind === 'map' || x.kind === 'process')) { const h = ieChart(x); if (x.kind === 'map' ? (h.match(/<svg/g) || []).length !== 2 : (h.match(/↓/g) || []).length !== x.steps.length - 1) bad.push('vẽ Task 1 hỏng: ' + x.id);
+      const r = ieWScore('t1', x, x.m), miss = r.f.filter(f => !f[1]).map(f => f[0]); if (miss.length || r.band < 6) bad.push('bài mẫu ' + x.id + ' chưa đạt: ' + miss.join(', ') + ' band ' + r.band); }
+    if (IE.t1.filter(x => x.kind === 'map').length < 3 || IE.t1.filter(x => x.kind === 'process').length < 3) bad.push('thiếu đề bản đồ / quy trình');
+    if (IE.p1.length < 20 || IE.p2.length < 18) bad.push('đề Nói chưa mở rộng');
+    // Nghe kiểu IELTS: đủ 4 phần, câu hợp lệ, mọi câu có giọng tự nhiên
+    if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json')).json()); } catch (e) {}
+    for (const p of [1, 2, 3, 4]) if (!IE.ln.some(x => x.part === p)) bad.push('Nghe IELTS thiếu Part ' + p);
+    for (const x of IE.ln) { const qs = ieLnQs(x); if (qs.length !== 10 || qs.some(q => q.kind === 'mc' ? !q.opts.includes(q.a) : !(q.acc || []).length)) bad.push('Nghe IELTS câu hỏng: ' + x.id);
+      const ts = x.lines ? x.lines.map(l => l[1]) : kSents(x.text), miss = ts.filter(t => !NCLIPS.has(clipKey(t))); if (miss.length) bad.push('Nghe IELTS thiếu giọng ' + x.id + ': ' + miss.length + ' câu (chạy tools/build-audio.py)'); }
+    const lq = ieListen([0, 1, 2, 3]); if (lq.length !== 40 || !lq.some(it => it.q.ty === 'L-map') || !lq.some(it => it.q.ty === 'L-match')) bad.push('đề Nghe 4 phần chưa dùng bài IELTS: ' + lq.length);
+    await ieltsView(); const h = String($app.innerHTML); if (!h.includes('Luyện bằng đề thật') || !h.includes('data-iepara')) bad.push('màn Học IELTS thiếu đề thật / diễn đạt lại');
+    add('ielts', 'I4', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đề thật theo từng câu, từ mới đề thật, diễn đạt lại, Task 1 bản đồ / quy trình, Nói mở rộng, Nghe kiểu IELTS có giọng đều đúng'); }
   // 📅 Hôm nay + 🧭 xếp cấp (homnay.js): phút học từ nhịp save(), chuỗi ngày, ô Hôm nay, câu xếp cấp hợp lệ mọi cấp, bậc thang lên / xuống / dừng
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const t0 = Date.now() - 3 * 864e5;
     for (const d of [0, 1, 2]) for (let k = 0; k < 40; k++) actTick(t0 + d * 864e5 + k * 15000);   // 3 ngày, mỗi ngày 40 lần cách 15 giây ≈ 10 phút

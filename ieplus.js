@@ -36,6 +36,7 @@ function iePlan() { const o = ieSt(), tg = o.target, now = ieNow(), hpw = o.hpw 
 // việc nên làm hôm nay: Sổ lỗi đến hạn → đề thử (14 ngày chưa làm) → kỹ năng cách mục tiêu xa nhất (chưa đo thì đo trước)
 function ieToday() { const o = ieSt(), P = iePlan(), lastMk = (o.mock[o.mock.length - 1] || {}).at || 0, prac = Object.keys(o.r).length + o.w.length + o.s.length;
   if (typeof errDue === 'function' && errDue().length) return [`data-err="ie"`, `📒 Sửa ${Math.min(10, errDue().length)} lỗi đến hạn trong Sổ lỗi`];
+  if (typeof vwDue === 'function' && vwDue().length >= 5) return ['data-vwrun', `📥 Ôn ${Math.min(20, vwDue().length)} từ lấy từ đề thật`];   // v87
   if (typeof imFocus === 'function') { const d = dayOf(Date.now()), w = imFocus().act.find(w => w.td !== d); if (w) return [`data-im="fix|${w.u}"`, `🗺 Chữa chỗ yếu: ${IM_SK[w.sk].split(' ')[0]} ${w.t}`]; }   // v86: bản đồ band cấp việc cho ô Hôm nay
   if (prac >= 5 && Date.now() - lastMk > 14 * 864e5) return [`data-iemk="all"`, '🎓 Làm một đề thử đủ 4 kỹ năng (2 tuần chưa làm)'];
   const ks = Object.keys(IE_SK).sort((a, b) => (P.gap(b) == null ? 99 : P.gap(b)) - (P.gap(a) == null ? 99 : P.gap(a))), k = ks[0], [t1] = ieT1(), lastW = o.w[o.w.length - 1];
