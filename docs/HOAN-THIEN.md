@@ -259,3 +259,4 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Sau 4 tuần dùng thật: xem `S.dh` (từ hay tra) và từ tự nhập trong sổ để quyết định có bổ sung từ nào vào khoá không.
 - v89: chạm để tra trong bài, "Gặp trong bài" (phủ 70% từ; cấp C1 / C2 thấp vì kho bài ít câu cấp cao), quản lý sổ từ + CSV, ghi từ app chưa có (`td_miss`). Sau 4 tuần: lấy 30 từ hay tra nhất trong `td_miss` → nhờ giáo viên duyệt nghĩa / cấp → thêm vào khoá.
 - v90 tra cứu nhiều mặt: ngữ pháp 106 điểm (đo: 15/16 cách gõ hay gặp ra đúng bài, đạt ≥ 9/10), cụm từ (dữ liệu sẵn có), lỗi hay gặp 42, bảng 44 âm + 26 cặp âm, cụm câu 50. Lỗi hay gặp / cụm câu: Claude soạn, cần giáo viên soát.
+- v91 tra theo 4 kỹ năng: gom nội dung sẵn có + 43 từ nối, 34 tiền tố / hậu tố (ví dụ chọn tay; tự tìm theo gốc bị loại vì sai: information → in-), 31 mục nghe số / ngày / âm yếu. Claude soạn, cần giáo viên soát.

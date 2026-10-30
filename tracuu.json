@@ -861,5 +861,858 @@
    "k": "phụ âm",
    "ex": "wet"
   }
+ ],
+ "noi": [
+  {
+   "t": "➕ Thêm ý",
+   "items": [
+    {
+     "en": "and",
+     "vi": "và",
+     "ex": "She is clever and kind."
+    },
+    {
+     "en": "also",
+     "vi": "cũng",
+     "ex": "He also plays the guitar."
+    },
+    {
+     "en": "in addition",
+     "vi": "ngoài ra",
+     "ex": "In addition, the hotel has a pool."
+    },
+    {
+     "en": "moreover",
+     "vi": "hơn nữa",
+     "ex": "Moreover, the course is free."
+    },
+    {
+     "en": "furthermore",
+     "vi": "hơn nữa",
+     "ex": "Furthermore, prices have fallen."
+    },
+    {
+     "en": "as well as",
+     "vi": "cũng như",
+     "ex": "She speaks French as well as English."
+    },
+    {
+     "en": "not only … but also",
+     "vi": "không chỉ … mà còn",
+     "ex": "It is not only cheap but also healthy."
+    }
+   ]
+  },
+  {
+   "t": "↔️ Đối lập, nhượng bộ",
+   "items": [
+    {
+     "en": "but",
+     "vi": "nhưng",
+     "ex": "It was cold, but we went out."
+    },
+    {
+     "en": "however",
+     "vi": "tuy nhiên",
+     "ex": "The plan is good. However, it is expensive."
+    },
+    {
+     "en": "although",
+     "vi": "mặc dù (+ mệnh đề)",
+     "ex": "Although it rained, we played."
+    },
+    {
+     "en": "despite",
+     "vi": "mặc dù (+ danh từ / V-ing)",
+     "ex": "Despite the rain, we played."
+    },
+    {
+     "en": "whereas",
+     "vi": "trong khi (so sánh trái ngược)",
+     "ex": "Cars are fast, whereas bikes are cheap."
+    },
+    {
+     "en": "on the other hand",
+     "vi": "mặt khác",
+     "ex": "On the other hand, cities are noisy."
+    },
+    {
+     "en": "nevertheless",
+     "vi": "dù vậy",
+     "ex": "It was hard. Nevertheless, she finished."
+    },
+    {
+     "en": "in contrast",
+     "vi": "ngược lại",
+     "ex": "In contrast, sales in Asia rose."
+    }
+   ]
+  },
+  {
+   "t": "➡️ Nguyên nhân",
+   "items": [
+    {
+     "en": "because",
+     "vi": "vì (+ mệnh đề)",
+     "ex": "I stayed home because I was ill."
+    },
+    {
+     "en": "because of",
+     "vi": "vì (+ danh từ)",
+     "ex": "The match was cancelled because of the rain."
+    },
+    {
+     "en": "since",
+     "vi": "vì (đã biết rõ)",
+     "ex": "Since you are here, let's start."
+    },
+    {
+     "en": "due to",
+     "vi": "do",
+     "ex": "The delay was due to the snow."
+    },
+    {
+     "en": "as a result of",
+     "vi": "do hậu quả của",
+     "ex": "As a result of the storm, roads closed."
+    }
+   ]
+  },
+  {
+   "t": "✅ Kết quả",
+   "items": [
+    {
+     "en": "so",
+     "vi": "vì vậy",
+     "ex": "It was late, so we went home."
+    },
+    {
+     "en": "therefore",
+     "vi": "do đó",
+     "ex": "He was ill; therefore, he stayed home."
+    },
+    {
+     "en": "as a result",
+     "vi": "kết quả là",
+     "ex": "As a result, prices went up."
+    },
+    {
+     "en": "consequently",
+     "vi": "vì thế",
+     "ex": "Consequently, many shops closed."
+    },
+    {
+     "en": "this means that",
+     "vi": "điều này có nghĩa là",
+     "ex": "This means that fewer people drive."
+    }
+   ]
+  },
+  {
+   "t": "💡 Ví dụ, làm rõ",
+   "items": [
+    {
+     "en": "for example",
+     "vi": "ví dụ",
+     "ex": "Some fruits, for example oranges, are rich in vitamin C."
+    },
+    {
+     "en": "for instance",
+     "vi": "chẳng hạn",
+     "ex": "Many cities, for instance Hanoi, are growing fast."
+    },
+    {
+     "en": "such as",
+     "vi": "như là",
+     "ex": "Sports such as football are popular."
+    },
+    {
+     "en": "in other words",
+     "vi": "nói cách khác",
+     "ex": "He is broke. In other words, he has no money."
+    },
+    {
+     "en": "that is",
+     "vi": "tức là",
+     "ex": "I'll come on the 5th, that is, next Monday."
+    }
+   ]
+  },
+  {
+   "t": "🔢 Trình tự, chuyển ý (hay gặp ở bài giảng Nghe)",
+   "items": [
+    {
+     "en": "first / firstly",
+     "vi": "đầu tiên",
+     "ex": "Firstly, let's look at the history."
+    },
+    {
+     "en": "then / next",
+     "vi": "sau đó / tiếp theo",
+     "ex": "Next, the water is heated."
+    },
+    {
+     "en": "after that",
+     "vi": "sau đó",
+     "ex": "After that, it is cooled."
+    },
+    {
+     "en": "finally",
+     "vi": "cuối cùng",
+     "ex": "Finally, the bottles are sent to shops."
+    },
+    {
+     "en": "moving on to",
+     "vi": "chuyển sang",
+     "ex": "Moving on to the second point, …"
+    },
+    {
+     "en": "let's now turn to",
+     "vi": "giờ ta chuyển sang",
+     "ex": "Let's now turn to the results."
+    },
+    {
+     "en": "to begin with",
+     "vi": "để bắt đầu",
+     "ex": "To begin with, I'll define the term."
+    }
+   ]
+  },
+  {
+   "t": "🎯 Nhấn mạnh, kết luận",
+   "items": [
+    {
+     "en": "in fact",
+     "vi": "thật ra",
+     "ex": "In fact, the opposite is true."
+    },
+    {
+     "en": "especially",
+     "vi": "đặc biệt là",
+     "ex": "I love fruit, especially mangoes."
+    },
+    {
+     "en": "in conclusion",
+     "vi": "tóm lại",
+     "ex": "In conclusion, both sides have a point."
+    },
+    {
+     "en": "overall",
+     "vi": "nhìn chung",
+     "ex": "Overall, the trend was upward."
+    },
+    {
+     "en": "to sum up",
+     "vi": "tóm lại",
+     "ex": "To sum up, the plan worked."
+    },
+    {
+     "en": "on balance",
+     "vi": "cân nhắc mọi mặt",
+     "ex": "On balance, the benefits are greater."
+    }
+   ]
+  }
+ ],
+ "afx": [
+  {
+   "a": "un-",
+   "k": "tiền tố",
+   "vi": "không, ngược lại",
+   "ex": "unhappy",
+   "w": [
+    "unhappy",
+    "unusual",
+    "unfair",
+    "unknown",
+    "unlucky",
+    "untidy",
+    "unable",
+    "unfriendly"
+   ]
+  },
+  {
+   "a": "dis-",
+   "k": "tiền tố",
+   "vi": "không, trái",
+   "ex": "disagree",
+   "w": [
+    "disagree",
+    "dislike",
+    "disappear",
+    "disadvantage",
+    "dishonest",
+    "disappointed"
+   ]
+  },
+  {
+   "a": "in- / im- / il- / ir-",
+   "k": "tiền tố",
+   "vi": "không",
+   "ex": "impossible",
+   "w": [
+    "impossible",
+    "incorrect",
+    "independent",
+    "illegal",
+    "irregular",
+    "impatient",
+    "informal"
+   ]
+  },
+  {
+   "a": "re-",
+   "k": "tiền tố",
+   "vi": "làm lại",
+   "ex": "rebuild",
+   "w": [
+    "rebuild",
+    "repeat",
+    "replace",
+    "recycle",
+    "rewrite",
+    "return"
+   ]
+  },
+  {
+   "a": "mis-",
+   "k": "tiền tố",
+   "vi": "sai",
+   "ex": "misunderstand",
+   "w": [
+    "misunderstand",
+    "misleading",
+    "mistake",
+    "misuse"
+   ]
+  },
+  {
+   "a": "pre-",
+   "k": "tiền tố",
+   "vi": "trước",
+   "ex": "preview",
+   "w": [
+    "preview",
+    "prehistoric",
+    "prepay",
+    "predict"
+   ]
+  },
+  {
+   "a": "over-",
+   "k": "tiền tố",
+   "vi": "quá mức",
+   "ex": "overweight",
+   "w": [
+    "overweight",
+    "overcome",
+    "overtime",
+    "overcharge",
+    "overeat",
+    "overcrowded"
+   ]
+  },
+  {
+   "a": "under-",
+   "k": "tiền tố",
+   "vi": "dưới, chưa đủ",
+   "ex": "underpaid",
+   "w": [
+    "underground",
+    "underpaid",
+    "underline",
+    "underestimate",
+    "underwater"
+   ]
+  },
+  {
+   "a": "inter-",
+   "k": "tiền tố",
+   "vi": "giữa, qua lại",
+   "ex": "international",
+   "w": [
+    "international",
+    "interact",
+    "internet",
+    "interview",
+    "interchange"
+   ]
+  },
+  {
+   "a": "multi-",
+   "k": "tiền tố",
+   "vi": "nhiều",
+   "ex": "multicultural",
+   "w": [
+    "multicultural",
+    "multiple",
+    "multimedia",
+    "multinational"
+   ]
+  },
+  {
+   "a": "non-",
+   "k": "tiền tố",
+   "vi": "không",
+   "ex": "non-smoker",
+   "w": [
+    "non-smoker",
+    "nonsense",
+    "non-profit",
+    "nonstop"
+   ]
+  },
+  {
+   "a": "co-",
+   "k": "tiền tố",
+   "vi": "cùng",
+   "ex": "co-worker",
+   "w": [
+    "co-worker",
+    "cooperate",
+    "coexist",
+    "co-author",
+    "cooperation"
+   ]
+  },
+  {
+   "a": "anti-",
+   "k": "tiền tố",
+   "vi": "chống",
+   "ex": "antisocial",
+   "w": [
+    "antisocial",
+    "antibiotic",
+    "antivirus",
+    "anticlockwise"
+   ]
+  },
+  {
+   "a": "self-",
+   "k": "tiền tố",
+   "vi": "tự",
+   "ex": "self-confident",
+   "w": [
+    "self-confident",
+    "self-employed",
+    "selfish",
+    "self-service",
+    "self-study"
+   ]
+  },
+  {
+   "a": "-tion / -sion",
+   "k": "hậu tố",
+   "vi": "danh từ chỉ hành động / kết quả",
+   "ex": "education",
+   "w": [
+    "education",
+    "information",
+    "decision",
+    "discussion",
+    "pollution",
+    "invention"
+   ]
+  },
+  {
+   "a": "-ment",
+   "k": "hậu tố",
+   "vi": "danh từ",
+   "ex": "development",
+   "w": [
+    "development",
+    "government",
+    "movement",
+    "payment",
+    "agreement"
+   ]
+  },
+  {
+   "a": "-ness",
+   "k": "hậu tố",
+   "vi": "danh từ chỉ tính chất",
+   "ex": "kindness",
+   "w": [
+    "kindness",
+    "happiness",
+    "darkness",
+    "illness",
+    "weakness",
+    "fitness"
+   ]
+  },
+  {
+   "a": "-ity",
+   "k": "hậu tố",
+   "vi": "danh từ chỉ tính chất",
+   "ex": "ability",
+   "w": [
+    "ability",
+    "activity",
+    "electricity",
+    "security",
+    "reality",
+    "possibility"
+   ]
+  },
+  {
+   "a": "-er / -or",
+   "k": "hậu tố",
+   "vi": "người làm / vật làm",
+   "ex": "teacher",
+   "w": [
+    "teacher",
+    "worker",
+    "driver",
+    "actor",
+    "visitor",
+    "director"
+   ]
+  },
+  {
+   "a": "-ist",
+   "k": "hậu tố",
+   "vi": "người (nghề, chuyên)",
+   "ex": "scientist",
+   "w": [
+    "tourist",
+    "artist",
+    "scientist",
+    "journalist",
+    "dentist"
+   ]
+  },
+  {
+   "a": "-ship",
+   "k": "hậu tố",
+   "vi": "danh từ trạng thái, quan hệ",
+   "ex": "friendship",
+   "w": [
+    "friendship",
+    "relationship",
+    "leadership",
+    "membership",
+    "partnership"
+   ]
+  },
+  {
+   "a": "-ance / -ence",
+   "k": "hậu tố",
+   "vi": "danh từ",
+   "ex": "importance",
+   "w": [
+    "importance",
+    "difference",
+    "appearance",
+    "confidence",
+    "performance",
+    "independence"
+   ]
+  },
+  {
+   "a": "-ful",
+   "k": "hậu tố",
+   "vi": "tính từ: đầy, có",
+   "ex": "useful",
+   "w": [
+    "useful",
+    "careful",
+    "helpful",
+    "beautiful",
+    "successful",
+    "painful"
+   ]
+  },
+  {
+   "a": "-less",
+   "k": "hậu tố",
+   "vi": "tính từ: không có",
+   "ex": "homeless",
+   "w": [
+    "homeless",
+    "careless",
+    "useless",
+    "endless",
+    "hopeless"
+   ]
+  },
+  {
+   "a": "-able / -ible",
+   "k": "hậu tố",
+   "vi": "tính từ: có thể",
+   "ex": "comfortable",
+   "w": [
+    "comfortable",
+    "reliable",
+    "possible",
+    "responsible",
+    "enjoyable",
+    "washable"
+   ]
+  },
+  {
+   "a": "-ous",
+   "k": "hậu tố",
+   "vi": "tính từ",
+   "ex": "dangerous",
+   "w": [
+    "dangerous",
+    "famous",
+    "nervous",
+    "poisonous",
+    "mysterious"
+   ]
+  },
+  {
+   "a": "-al",
+   "k": "hậu tố",
+   "vi": "tính từ",
+   "ex": "national",
+   "w": [
+    "national",
+    "natural",
+    "personal",
+    "musical",
+    "cultural",
+    "traditional"
+   ]
+  },
+  {
+   "a": "-ive",
+   "k": "hậu tố",
+   "vi": "tính từ",
+   "ex": "creative",
+   "w": [
+    "creative",
+    "active",
+    "attractive",
+    "expensive",
+    "positive"
+   ]
+  },
+  {
+   "a": "-ic",
+   "k": "hậu tố",
+   "vi": "tính từ",
+   "ex": "economic",
+   "w": [
+    "economic",
+    "scientific",
+    "historic",
+    "artistic",
+    "heroic"
+   ]
+  },
+  {
+   "a": "-y",
+   "k": "hậu tố",
+   "vi": "tính từ (từ danh từ)",
+   "ex": "sunny",
+   "w": [
+    "sunny",
+    "rainy",
+    "cloudy",
+    "windy",
+    "dirty",
+    "healthy"
+   ]
+  },
+  {
+   "a": "-ly",
+   "k": "hậu tố",
+   "vi": "trạng từ (từ tính từ)",
+   "ex": "quickly",
+   "w": [
+    "quickly",
+    "slowly",
+    "carefully",
+    "easily",
+    "really",
+    "usually"
+   ]
+  },
+  {
+   "a": "-ize / -ise",
+   "k": "hậu tố",
+   "vi": "động từ: làm cho",
+   "ex": "organise",
+   "w": [
+    "organise",
+    "realise",
+    "modernize",
+    "apologise"
+   ]
+  },
+  {
+   "a": "-en",
+   "k": "hậu tố",
+   "vi": "động từ: làm cho",
+   "ex": "widen",
+   "w": [
+    "widen",
+    "strengthen",
+    "shorten",
+    "soften",
+    "darken"
+   ]
+  },
+  {
+   "a": "-ify",
+   "k": "hậu tố",
+   "vi": "động từ: làm cho",
+   "ex": "simplify",
+   "w": [
+    "simplify",
+    "classify",
+    "identify",
+    "justify"
+   ]
+  }
+ ],
+ "so": [
+  {
+   "t": "🔢 Số dễ nghe nhầm",
+   "items": [
+    {
+     "en": "thirteen – thirty",
+     "vi": "13 – 30: -teen nhấn âm cuối (thirTEEN), -ty nhấn âm đầu (THIRty)"
+    },
+    {
+     "en": "fourteen – forty",
+     "vi": "14 – 40: chú ý trọng âm, và forty không có u"
+    },
+    {
+     "en": "fifteen – fifty",
+     "vi": "15 – 50"
+    },
+    {
+     "en": "sixteen – sixty",
+     "vi": "16 – 60"
+    },
+    {
+     "en": "nineteen – ninety",
+     "vi": "19 – 90"
+    },
+    {
+     "en": "double five",
+     "vi": "55 khi đọc số điện thoại (đọc từng số, hai số giống nhau nói double)"
+    },
+    {
+     "en": "oh",
+     "vi": "số 0 khi đọc số điện thoại: oh seven seven…"
+    },
+    {
+     "en": "one point five",
+     "vi": "1.5: dấu chấm thập phân đọc là point"
+    },
+    {
+     "en": "two hundred and fifty",
+     "vi": "250: tiếng Anh–Anh có and"
+    }
+   ]
+  },
+  {
+   "t": "📅 Ngày, giờ, tiền",
+   "items": [
+    {
+     "en": "the fifth of May / May the fifth",
+     "vi": "5/5: ngày đọc số thứ tự"
+    },
+    {
+     "en": "the first, second, third",
+     "vi": "1st, 2nd, 3rd: số thứ tự"
+    },
+    {
+     "en": "twenty twenty-six",
+     "vi": "2026: đọc năm theo cặp"
+    },
+    {
+     "en": "nineteen ninety-eight",
+     "vi": "1998"
+    },
+    {
+     "en": "half past ten",
+     "vi": "10:30"
+    },
+    {
+     "en": "quarter to nine",
+     "vi": "8:45"
+    },
+    {
+     "en": "a quarter past six",
+     "vi": "6:15"
+    },
+    {
+     "en": "twelve pounds fifty",
+     "vi": "£12.50"
+    },
+    {
+     "en": "ten pence",
+     "vi": "10p"
+    }
+   ]
+  },
+  {
+   "t": "🔤 Đánh vần, tên riêng",
+   "items": [
+    {
+     "en": "double L",
+     "vi": "hai chữ L liền nhau: H-A-double L"
+    },
+    {
+     "en": "A – E – I",
+     "vi": "A /eɪ/, E /iː/, I /aɪ/: hay nhầm khi đánh vần"
+    },
+    {
+     "en": "G – J",
+     "vi": "G /dʒiː/, J /dʒeɪ/: hay nhầm"
+    },
+    {
+     "en": "Y – W",
+     "vi": "Y /waɪ/, W /ˈdʌbəl juː/"
+    },
+    {
+     "en": "capital letter",
+     "vi": "chữ viết hoa"
+    },
+    {
+     "en": "dot / at / underscore",
+     "vi": "dấu . / @ / _ trong email"
+    }
+   ]
+  },
+  {
+   "t": "🌊 Âm yếu, nối âm (nghe nhanh)",
+   "items": [
+    {
+     "en": "to → /tə/",
+     "vi": "going to → /ˈɡənə/ (gonna), want to → wanna"
+    },
+    {
+     "en": "and → /ən/",
+     "vi": "fish and chips → fish 'n' chips"
+    },
+    {
+     "en": "for → /fə/",
+     "vi": "for you → /fə juː/"
+    },
+    {
+     "en": "of → /əv/",
+     "vi": "a cup of tea → /ə kʌp əv tiː/"
+    },
+    {
+     "en": "can → /kən/",
+     "vi": "I can swim: can đọc nhẹ; can't đọc rõ /kɑːnt/"
+    },
+    {
+     "en": "did you → /dɪdʒə/",
+     "vi": "Did you see it? → /dɪdʒə siː ɪt/"
+    },
+    {
+     "en": "an apple → /ənæpəl/",
+     "vi": "nối phụ âm cuối với nguyên âm đầu từ sau"
+    }
+   ]
+  }
  ]
 }
