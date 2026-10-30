@@ -123,7 +123,7 @@ function aiHtml(g) { const ie = g.band != null; return `<div class="box"><b>🧑
   ${g.errors.length ? `<p style="margin:6px 0 0"><b>Lỗi và cách sửa (${g.errors.length}):</b></p>${g.errors.map(e => `<p style="margin:2px 0">❌ ${esc(e.wrong)} → ✅ <b>${esc(e.correct)}</b><br><span class="mute">${esc(e.why_vi)}</span></p>`).join('')}` : ''}
   ${g.strengths_vi.length ? `<p style="margin:6px 0 0"><b>Điểm mạnh:</b> ${g.strengths_vi.map(esc).join(' · ')}</p>` : ''}
   ${g.next_steps_vi.length ? `<p style="margin:6px 0 0"><b>Cần làm tiếp:</b></p>${g.next_steps_vi.map(s => `<p style="margin:2px 0">• ${esc(s)}</p>`).join('')}` : ''}
-  <details><summary>${ie ? 'Bài sửa lại (cao hơn một band)' : 'Bài sửa lại ở đúng cấp'}</summary><p style="white-space:pre-line">${esc(g.improved)}</p></details>
+  <details><summary>${ie ? 'Bài sửa lại (cao hơn một band)' : 'Bài sửa lại ở đúng cấp'}</summary><p class="tdtap" style="white-space:pre-line">${esc(g.improved)}</p></details>
   <p class="mute" style="margin:6px 0 0">AI chấm theo thang ${ie ? 'band IELTS' : 'Cambridge'}; vẫn có thể sai. Nói: AI chỉ thấy lời máy chép, nên phát âm chấm rất sơ bộ.</p></div>`; }
 document.addEventListener('click', async e => { const b = e.target.closest('[data-ai]'); if (!b) return; const k = b.dataset.ai, P = AI.pend[k], box = document.getElementById(k); if (!P || !box) return;
   b.disabled = true; b.textContent = '⏳ AI đang chấm (10–40 giây)…';
@@ -143,7 +143,7 @@ function mkGap(nTexts) { const P = KIT.doc, ls = mkKitLvs(P), its = shuf(P.items
   for (const x of its) { const ss = kSents(x.text), idx = []; for (const i of shuf([...Array(ss.length - 2).keys()].map(i => i + 1))) if (idx.length < 3 && !idx.some(j => Math.abs(j - i) < 2)) idx.push(i);
     idx.sort((a, b) => a - b); const other = shuf(P.items.filter(y => y !== x && ls.includes(y.lv)))[0], extra = other ? shuf(kSents(other.text))[0] : null;
     const opts = shuf([...idx.map(i => ss[i]), ...(extra ? [extra] : [])]), shown = ss.map((s, i) => idx.includes(i) ? ` <b>[${idx.indexOf(i) + 1}]</b> ______ ` : s).join(' ');
-    const head = `<div class="box"><b>${esc(x.title)}</b><p style="font-size:16px;line-height:1.6;margin:8px 0 0">${esc(shown).replace(/&lt;b&gt;\[(\d)\]&lt;\/b&gt;/g, '<b>[$1]</b>')}</p></div>`;
+    const head = `<div class="box"><b>${esc(x.title)}</b><p class="tdtap" style="font-size:16px;line-height:1.6;margin:8px 0 0">${esc(shown).replace(/&lt;b&gt;\[(\d)\]&lt;\/b&gt;/g, '<b>[$1]</b>')}</p></div>`;
     idx.forEach((i, k) => out.push({ x, k: 'ct', kind: 'mc', head, q: `Câu nào điền vào chỗ trống [${k + 1}]?`, opts, a: ss[i] })); }
   return out; }
 { const ins = (lv, paper, label, n) => { const C = MOCK[lv]; if (C) C.papers[paper].parts.push([label, () => mkGap(n)]); };

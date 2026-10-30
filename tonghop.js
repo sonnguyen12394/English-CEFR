@@ -128,7 +128,7 @@ function readTask() {
     const q = R.qs[i], opts = shuf([q.a, ...q.w]);
     window.CUR = { view: 'doc-bai', unit: u.id, item: 'r:' + u.id + ':' + i, prompt: q.q };
     $app.innerHTML = `${backRow(`📰 Đọc · ${esc(R.tvi || R.title)} · câu ${i + 1}/${R.qs.length}`)}
-      <div class="box"><b>${esc(R.title)}</b><p style="font-size:18px;line-height:1.6;margin:8px 0 0">${esc(R.text)}</p></div>
+      <div class="box"><b>${esc(R.title)}</b><p class="tdtap" style="font-size:18px;line-height:1.6;margin:8px 0 0">${esc(R.text)}</p></div>
       <p class="q">${esc(q.q)}</p>${opts.map((o, k) => `<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}<div id="fb"></div>`;
     let done = false;
     $app.onclick = e => {

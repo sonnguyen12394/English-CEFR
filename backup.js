@@ -26,7 +26,7 @@ function bkAcct() { if (typeof isAnon !== 'function' || !user) return '';
     Hãy ⬇️ tải tệp JSON để cất; sang máy mới thì 📥 dán JSON để khôi phục.</p></div>`;
   return `<div class="box"><b>👥 Đang dùng tài khoản chung</b> <span class="mute">· ${esc(user.email || '')}</span>
     <p class="mute" style="margin:6px 0">Mọi máy dùng tài khoản này chung một tiến độ. Người học khác nên dùng máy riêng (app tự tạo tài khoản riêng), hoặc tách máy này ra.</p>
-    <button data-bk="split">👤 Tách máy này ra tài khoản riêng</button></div>`; }
+    <button data-bk="split">👤 Tách máy này ra tài khoản riêng</button>${typeof tdMissView === 'function' ? '<button data-bk="miss">📊 Từ người học tra mà app chưa có</button>' : ''}</div>`; }
 function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
   const raw = JSON.stringify(S), sn = bkSnaps();
   $app.innerHTML = `<div id="bk"></div><h1>💾 Dữ liệu</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
@@ -61,6 +61,7 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
   $app.onclick = e => { const b = e.target.closest('[data-bk]'), r = e.target.closest('[data-bkres]'), dl = e.target.closest('[data-bkdl]');
     if (b && b.dataset.bk === 'down') return bkDown(JSON.stringify(S, null, 1), 'hoc-tieng-anh');
     if (b && b.dataset.bk === 'edit') return bkEdit();
+    if (b && b.dataset.bk === 'miss') return tdMissView();
     if (b && b.dataset.bk === 'split') return confirm('Tách máy này ra tài khoản riêng? Tiến độ hiện tại đi theo máy này; tài khoản chung giữ nguyên.') && acctSplit();
     if (b && b.dataset.bk === 'copy') return bkCopy();
     if (b && b.dataset.bk === 'paste') return bkPaste();

@@ -29,7 +29,7 @@ const ieLvTag = () => 'ielts-' + ieSt().type;
 // ---------- 📖 Reading ----------
 const IE_AB = 'ABCDEFGH';
 const iePass = x => `<details class="box" open style="margin-top:12px"><summary><b>${esc(x.title)}</b> <span class="mute">(${kWords(x.paras.join(' ')).length} từ)</span></summary>
-  ${x.paras.map((p, i) => `<p style="font-size:16px;line-height:1.7;margin:8px 0 0"><b>${IE_AB[i]}</b> ${esc(p)}</p>`).join('')}</details>`;
+  ${x.paras.map((p, i) => `<p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0"><b>${IE_AB[i]}</b> ${esc(p)}</p>`).join('')}</details>`;
 const IE_TFH = '<p class="mute">TRUE = bài nói đúng như vậy · FALSE = bài nói ngược lại · NOT GIVEN = bài không nói tới.</p>';
 const IE_RK = { h: ['🧭', 'Chọn tiêu đề cho đoạn'], tf: ['⚖️', 'TRUE / FALSE / NOT GIVEN'], comp: ['✏️', 'Điền không quá 2 từ'], mc: ['🔘', 'Trắc nghiệm'] };
 function ieRQs(x, kinds = ['h', 'tf', 'comp', 'mc']) { const foot = iePass(x), out = [];
@@ -151,7 +151,7 @@ function ieWHtml(task, x, t, r) { const lv = ieLvTag();
     ${r.errs.length ? `<p style="margin:6px 0 0"><b>Lỗi hay gặp (${r.errs.length}):</b></p>${r.errs.map(([s, m]) => `<p style="margin:2px 0">❌ “${esc(s)}” · ${esc(m)}</p>`).join('')}` : ''}
     <p class="mute" style="margin:6px 0 0">Máy đo gián tiếp (độ dài, từ khoá, từ nối, từ vựng theo cấp, lỗi hay gặp), chỉ báo tới band ${IE_MAXM}.0, chưa đối chiếu giám khảo. Nhờ AI chấm theo thang band IELTS để biết lỗi cụ thể.</p>
     ${aiBtn('viet', lv, { prompt: x.p + (task === 't1' ? '\n\n' + ieT1Text(x) : ''), genre: IE_TASK[task][0], min: r.min, max: r.min + 150, part: task === 't2' ? 'Task 2' : 'Task 1', target: ieSt().target, mb: r.band }, t)}${typeof ieShareBtn === 'function' ? ieShareBtn('IELTS Writing ' + (task === 't2' ? 'Task 2' : 'Task 1'), x.p + (task === 't1' ? '\n(' + x.title + ' · ' + ieT1Text(x) + ')' : ''), t) : ''}</div>
-    ${x.m ? `<details class="box"><summary>Bài mẫu (Claude viết, tham khảo)</summary><p style="white-space:pre-line">${esc(x.m)}</p></details>` : ''}`; }
+    ${x.m ? `<details class="box"><summary>Bài mẫu (Claude viết, tham khảo)</summary><p class="tdtap" style="white-space:pre-line">${esc(x.m)}</p></details>` : ''}`; }
 const ieWQ = (task, x) => ({ x, task, k: 'w-' + task, kind: 'write', head: ieWHead(task, x), q: '✍️ Viết bài vào ô dưới.',
   check: t => { const r = ieWScore(task, x, t); return { ok: r.band >= ieSt().target, sc: r.band / 9, band: r.band, html: ieWHtml(task, x, t, r) }; } });
 const ieT1 = () => ieSt().type === 'gt' ? ['gt1', IE.gt1] : ['t1', IE.t1];
@@ -304,7 +304,7 @@ function ieMockResult() { const T = ieSt().type, b = {}, out = [];
   for (const p of MK.papers) { if (p.k === 'W') for (const r of p.res) if (r.ans) ieCrLog('W', r.q.task, ieWScore(r.q.task, r.q.x, r.ans).C, 'may'); if (p.k === 'S' && p.sc) ieCrLog('S', 'mock', p.sc.C, 'may'); }
   ieSt().mock.push({ at: Date.now(), type: T, b, all }); S.t = Date.now(); save();
   const wrong = MK.papers.filter(p => p.k === 'L' || p.k === 'R').flatMap(p => p.res.filter(r => !r.ok));
-  const wr = MK.papers.filter(p => p.k === 'W').flatMap(p => p.res.filter(r => r.ans).map(r => `<details class="box"><summary>✍️ ${esc(r.part)}: máy ước ${bandTxt(Math.round(r.sc * 18) / 2)}</summary><p style="white-space:pre-line;font-size:14px">${esc(r.ans)}</p>${ieWHtml(r.q.task, r.q.x, r.ans, ieWScore(r.q.task, r.q.x, r.ans))}</details>`)).join('');
+  const wr = MK.papers.filter(p => p.k === 'W').flatMap(p => p.res.filter(r => r.ans).map(r => `<details class="box"><summary>✍️ ${esc(r.part)}: máy ước ${bandTxt(Math.round(r.sc * 18) / 2)}</summary><p class="tdtap" style="white-space:pre-line;font-size:14px">${esc(r.ans)}</p>${ieWHtml(r.q.task, r.q.x, r.ans, ieWScore(r.q.task, r.q.x, r.ans))}</details>`)).join('');
   const sp = MK.papers.filter(p => p.k === 'S').map(p => `<details class="box"><summary>🗣 Nói: máy ước ${bandTxt(p.sc.band)}</summary>${ieSHtml(p.res, p.sc)}</details>`).join('');
   $app.innerHTML = `<h1>🎓 Kết quả ${esc(MK.C.name)}</h1>
     <div class="box">${out.map(([p, d]) => `<p style="margin:4px 0"><b>${p.t}</b>: band ${bandTxt(b[p.k])}${d ? ` <span class="mute">· ${d}</span>` : ''}</p>`).join('')}

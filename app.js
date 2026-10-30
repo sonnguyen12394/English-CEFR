@@ -24,7 +24,7 @@ const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 88;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 89;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -502,6 +502,9 @@ function dict() {
     if (t.closest('[data-say]')) return;
     const r = t.closest('[data-w]'); if (r) { DICT.open = DICT.open === r.dataset.w ? null : r.dataset.w; if (DICT.open && typeof tdSeen === 'function') tdSeen(WBY[DICT.open]); dictList(); if (DICT.open) speak(WBY[DICT.open].w); } };
   dictList(); if (!REF) loadRef().then(() => { if (document.getElementById('dl')) dictList(); }).catch(() => {});
+  // v89 "Gặp trong bài" (tudien.js tdHits): tải kho bài Đọc / Nghe / IELTS / TOEIC ở nền
+  Promise.all([kLoad(KIT.doc), kLoad(KIT.nghe), typeof ieLoad === 'function' ? ieLoad() : 0, typeof toLoad === 'function' ? toLoad() : 0, typeof uLoad === 'function' ? uLoad() : 0,
+    typeof libLoad === 'function' ? libLoad().then(L => Promise.all(L.books.map(b => libBook(b.id).catch(() => null)))) : 0]).then(() => { TD_SENT = null; if (document.getElementById('dl') && DICT.open) dictList(); }).catch(() => {});
   setTimeout(maybeReload, 0);
 }
 function dictList() {

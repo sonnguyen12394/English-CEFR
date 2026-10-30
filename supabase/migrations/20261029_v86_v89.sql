@@ -17,3 +17,16 @@ create policy "gopy anh an danh khong xoa" on storage.objects as restrictive for
 -- loại góp ý ⚑ Câu sai
 alter table public.gopy drop constraint gopy_kind_check;
 alter table public.gopy add constraint gopy_kind_check check (kind = any (array['loi','kho','y','khac','sai']));
+
+-- v89 (30/10/2026): từ người học tra mà từ điển app chưa có (chỉ từ, không gắn tài khoản); người ẩn danh chỉ thêm, không đọc
+create table public.td_miss (
+  id bigint generated always as identity primary key,
+  at timestamptz not null default now(),
+  w text not null check (w ~ '^[a-z][a-z''-]{2,29}$'),
+  src text not null check (src in ('cham', 'tra', 'luu')),
+  app_v text check (char_length(app_v) <= 10)
+);
+alter table public.td_miss enable row level security;
+create policy "td_miss them" on public.td_miss for insert to authenticated with check (true);
+create policy "td_miss doc" on public.td_miss for select to authenticated using (coalesce((auth.jwt() ->> 'is_anonymous')::boolean, false) = false);
+create index td_miss_at on public.td_miss (at desc);

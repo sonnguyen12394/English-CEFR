@@ -348,6 +348,22 @@ const R = await run(`(async () => {
     DICT.q = ''; tryv('đầu từ điển', () => dictList()); if (!String(document.getElementById('df').innerHTML).includes('Sổ từ: 1 từ')) bad.push('đầu từ điển thiếu sổ từ');
     if (!/data-sotu/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu ôn sổ từ'); tryv('ôn sổ từ', () => vwRun(Date.now(), dict)); if (!String($app.innerHTML).includes('Ôn sổ từ')) bad.push('màn ôn sổ từ hỏng');
     add('cefr', 'C7', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'từ điển: đủ dữ liệu, tìm dạng biến đổi / gõ sai / thành ngữ, từ điển ngoài, sổ từ, tra gần đây đều đúng'); }
+  // v89 📖 chạm vào từ trong bài, "Gặp trong bài", quản lý sổ từ + CSV, ghi từ app chưa có (td_miss)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await Promise.all([kLoad(KIT.doc), kLoad(KIT.nghe), ieLoad(), uLoad()]); TD_SENT = null;
+    const go = WORDS.find(w => w.w === 'go'), h = tdHits(go); if (!h.length || h.some(([t]) => !/\\bgo(es|ing)?\\b|\\bwent\\b|\\bgone\\b/i.test(t))) bad.push('Gặp trong bài sai: ' + JSON.stringify(h.slice(0, 1)));
+    if (!tdEntry(go, null).includes('Gặp trong bài')) bad.push('mục từ thiếu Gặp trong bài');
+    const nTap = ['kparts.js', 'ielts.js', 'toeic.js', 'uoe.js'].length; if (!String(iePass(IE.doc[0])).includes('tdtap') || !String(kRead(KIT.doc, kItems(KIT.doc, 'a1')[0], 'ct', false)[0].head || '').includes('tdtap')) bad.push('đoạn văn chưa bật chạm để tra');
+    if (!TD_NOTAP.test('🚪 Thi chuyển cấp A1') || !TD_NOTAP.test('de-thu-cau') || TD_NOTAP.test('doc-bai')) bad.push('chặn tra trong đề thi sai');
+    tryv('thẻ tra nhanh', () => tdPop('went', 'Yesterday we went home.')); const pop = document.getElementById('tdpop'); if (!String(pop.innerHTML).includes('dạng của “go”') || !String(pop.innerHTML).includes('data-tdp="save"')) bad.push('thẻ tra nhanh sai');
+    tryv('thẻ tra từ lạ', () => tdPop('zorblax', '')); if (!String(document.getElementById('tdpop').innerHTML).includes('Chưa có trong từ điển app')) bad.push('thẻ từ lạ sai');
+    // sổ từ: sửa nghĩa, xoá, CSV
+    vwPut([{ w: 'resilient', vi: '', ex: 'Corals are resilient.' }, { w: 'go', vi: 'đi', ex: '' }], 'test'); tryv('màn sổ từ', () => sotuView(dict)); if (!String($app.innerHTML).includes('Sổ từ của tôi')) bad.push('màn sổ từ hỏng');
+    const x0 = vwSt().find(x => x.k === 'resilient'); tryv('sửa nghĩa', () => $app.onchange({ target: { closest: s => s === '[data-stv]' ? { dataset: { stv: x0.id }, value: 'kiên cường' } : null } })); if (x0.vi !== 'kiên cường') bad.push('sửa nghĩa không lưu');
+    const csv = tdCsv(vwSt()); if (!csv.startsWith('﻿"word","meaning"') || !csv.includes('"resilient","kiên cường","Corals are resilient."')) bad.push('CSV sai');
+    tryv('xoá', () => $app.onclick({ target: { closest: s => s === '[data-st]' ? { dataset: { st: 'del|' + x0.id } } : null } })); if (vwSt().some(x => x.k === 'resilient')) bad.push('xoá không được');
+    if (tdMiss('Hello world', 'tra') !== undefined) bad.push('ghi từ thiếu nhận cả cụm');
+    const u0 = user; user = { id: 'chung', email: AUTO.email }; tryv('dữ liệu', () => backup()); if (!String($app.innerHTML).includes('data-bk="miss"')) bad.push('Dữ liệu thiếu xem từ app chưa có'); await tdMissView(); if (!String($app.innerHTML).includes('Từ người học tra')) bad.push('màn từ app chưa có hỏng'); user = u0;
+    add('cefr', 'C8', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'chạm để tra, Gặp trong bài, sổ từ (sửa, xoá, CSV), từ app chưa có đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

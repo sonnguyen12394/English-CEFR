@@ -56,7 +56,7 @@ function ngFill(lv) { const x = ngPick(ngLvs(lv), 1)[0]; if (!x) return toast('C
   const done = () => { EXAM_VOX = false; const r = qs.map((q, i) => ({ q, v: ans[i] || '', ok: !!(ans[i] || '').trim() && q.check(ans[i]).ok })), ok = r.filter(y => y.ok).length;
     ngRuns().nf[x.id] = { at: Date.now(), ok, n: r.length }; S.t = Date.now(); save();
     $app.innerHTML = `<h1>📝 ${ok}/${r.length} chỗ đúng</h1><div class="box">${r.map((y, i) => `<p style="margin:6px 0">${y.ok ? '✅' : '❌'} (${i + 1}) bạn: ${esc(y.v || '…')} · đáp án: <b>${esc(y.q.a)}</b></p>`).join('')}</div>
-      <details class="box"><summary>Xem bài nghe</summary><p style="white-space:pre-line">${kScript(x)}</p></details>
+      <details class="box"><summary>Xem bài nghe</summary><p class="tdtap" style="white-space:pre-line">${kScript(x)}</p></details>
       <p class="mute">Sai chính tả cũng mất điểm trong đề thật. Nghe lại bài, dò từng chỗ sai.</p><button class="pri" data-a="again">▶ Bài khác</button><button data-a="back">← Tổng quan</button>`; scrollTo(0, 0); };
   $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { EXAM_VOX = false; return overview(lv); } if (e.target.closest('[data-a="play"]')) return play(); if (e.target.closest('[data-a="again"]')) return ngFill(lv); };
   draw(); }

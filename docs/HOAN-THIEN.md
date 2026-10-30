@@ -257,3 +257,4 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Đã làm: hiện đủ dữ liệu; tìm thông minh; không có từ → từ điển chính thức (Cambridge Anh–Việt, Oxford Learner's); 📌 Sổ từ + tra gần đây; 🔊 giọng Anh. Không tự soạn thêm từ (dễ sai, bản quyền Oxford, không thêm uy tín).
 - Đo: trên 4 bài đọc IELTS của app, 91–96% từ khác nhau tra ra trong app; từ thiếu đáng kể: vocabulary, grammar, coral, algae, fluent… (học thuật / ngoài khoá) → mở từ điển ngoài + lưu sổ.
 - Sau 4 tuần dùng thật: xem `S.dh` (từ hay tra) và từ tự nhập trong sổ để quyết định có bổ sung từ nào vào khoá không.
+- v89: chạm để tra trong bài, "Gặp trong bài" (phủ 70% từ; cấp C1 / C2 thấp vì kho bài ít câu cấp cao), quản lý sổ từ + CSV, ghi từ app chưa có (`td_miss`). Sau 4 tuần: lấy 30 từ hay tra nhất trong `td_miss` → nhờ giáo viên duyệt nghĩa / cấp → thêm vào khoá.

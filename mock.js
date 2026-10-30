@@ -104,7 +104,7 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
   const wrong = MK.papers.filter(p => !p.speak).flatMap(p => p.res.filter(r => !r.ok && r.q.kind !== 'write').map(r => ({ p, r })));
   // ✍️ bài viết: điểm 4 tiêu chí của máy + nút nhờ AI chấm như giám khảo (thi.js)
   const wr = MK.papers.flatMap(p => p.res.filter(r => r.q.kind === 'write' && r.ans)), wHtml = wr.map(r => `<details class="box"><summary>✍️ ${esc(r.q.x.vi)}: máy chấm ${r.sc != null ? Math.round(r.sc * 100) + '%' : '–'}</summary>
-    <p style="white-space:pre-line;font-size:14px">${esc(r.ans)}</p>${typeof aiBtn === 'function' ? aiBtn('viet', lv, { prompt: r.q.x.p, genre: r.q.x.genre, min: r.q.x.min, max: r.q.x.max }, r.ans) : ''}</details>`).join('');
+    <p class="tdtap" style="white-space:pre-line;font-size:14px">${esc(r.ans)}</p>${typeof aiBtn === 'function' ? aiBtn('viet', lv, { prompt: r.q.x.p, genre: r.q.x.genre, min: r.q.x.min, max: r.q.x.max }, r.ans) : ''}</details>`).join('');
   const spk = MK.papers.filter(p => p.sc).map(p => { const d = p.sc.d; return `<details class="box" open><summary>🗣 Nói: ${p.sc.pct}% theo 4 tiêu chí giám khảo (máy đo gián tiếp)</summary>
     ${p.sc.C.map(([n, v]) => `<p style="margin:4px 0">${n}: <b>${v}%</b></p>${bar(v, C.pass * 100, 'var(--good)')}`).join('')}
     <p class="mute" style="margin:6px 0 0">🔁 Nhắc lại câu đúng ${d.eit}% từ · cấu trúc đề đòi ${d.struct == null ? '–' : d.struct + '%'} · từ đúng cấp trở lên ${d.voc}/${d.tV} · từ nối khác nhau ${d.links}/${d.tL} · tốc độ ${d.wpm}/${d.tW} từ/phút · đóng vai đúng việc ${d.rp == null ? '–' : d.rp + '%'}.</p>

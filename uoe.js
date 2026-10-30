@@ -19,7 +19,7 @@ const uItems = (k, ls) => !UOE ? [] : k === 'pm' ? UOE.long.filter(x => x.pm && 
 // chọn bài: cấp đầu danh sách trước, bài chưa làm / làm lâu nhất trước
 const uPick = (k, ls, n) => { const R = uRuns(); for (const l of ls) { const its = uItems(k, [l]); if (its.length) return shuf(its).sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0)).slice(0, n); } return []; };
 const uText = t => esc(t).replace(/\n/g, '<br><br>');
-function uPassage(x, cur, k) { return `<div class="box"><b>${esc(x.title)}</b><p style="font-size:16px;line-height:1.7;margin:8px 0 0">${uText(x.text).replace(/\{(\d+)\}/g, (_, n) => {
+function uPassage(x, cur, k) { return `<div class="box"><b>${esc(x.title)}</b><p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0">${uText(x.text).replace(/\{(\d+)\}/g, (_, n) => {
   const g = x.gaps[n - 1], s = `<b>(${n})</b> ______${k === 'wf' ? ` <span class="mute">(${esc(g.stem)})</span>` : ''}`; return +n - 1 === cur ? `<mark style="padding:1px 4px;border-radius:4px">${s}</mark>` : s; })}</p></div>`; }
 // câu chứa chỗ trống (hiện ngay ở câu hỏi, cả bài nằm dưới để đọc thêm ngữ cảnh; trên iPhone khỏi cuộn tìm chỗ trống)
 const uSent = (x, n, k) => { const ss = x.text.replace(/\n/g, ' ').match(/[^.!?]+[.!?]+['’"]?\s*/g) || [x.text], s = ss.find(t => t.includes(`{${n}}`)) || '';
@@ -31,12 +31,12 @@ function uGapQs(k, x) { return x.gaps.map((g, i) => { const head = `<p class="mu
 const uKwtCheck = x => v => { const n = kNorm(v), ok = x.a.some(a => kNorm(a) === n || kNorm(x.s2.replace('____', a)) === n); return { ok, html: `${ok ? '✅' : '❌'} Đáp án: <b>${esc(x.a[0])}</b>${x.a.length > 1 ? ` <span class="mute">(cũng đúng: ${x.a.slice(1).map(esc).join(' / ')})</span>` : ''}` }; };
 const uKwtQ = x => ({ x, k: 'kwt', kind: 'type', head: `<div class="box"><p style="margin:0">${esc(x.s1)}</p><p style="margin:8px 0;font-weight:800;letter-spacing:1px">${esc(x.key)}</p><p style="margin:0">${esc(x.s2).replace('____', '<b>__________</b>')}</p></div>`,
   q: 'Viết phần còn thiếu (có từ khoá in hoa)', a: x.a[0], acc: x.a, why: x.why, check: uKwtCheck(x) });
-const uLongBox = x => `<details class="box" open style="margin-top:12px"><summary><b>${esc(x.title)}</b> <span class="mute">(${kWords(x.text).length} từ)</span></summary><p style="font-size:16px;line-height:1.7;margin:8px 0 0">${uText(x.text)}</p></details>`;
+const uLongBox = x => `<details class="box" open style="margin-top:12px"><summary><b>${esc(x.title)}</b> <span class="mute">(${kWords(x.text).length} từ)</span></summary><p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0">${uText(x.text)}</p></details>`;
 const uLongQs = x => x.qs.map(q => ({ x, k: 'long', kind: 'mc', foot: uLongBox(x), q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a, why: q.why }));
 const uPmQs = x => x.pm.map(q => ({ x, k: 'pm', kind: 'mc', foot: uLongBox(x), q: esc(q.q), opts: x.secs, a: x.secs[q.p], why: q.why }));
 // 📝 tóm tắt 2 đoạn (C2): chấm như bài Viết (đủ ý bằng từ khoá, độ dài, 4 tiêu chí); AI chấm nhận cả hai đoạn trong đề
 function uSumQ(x) { const y = { ...x, p: x.p + '\n\nText 1: ' + x.texts[0] + '\n\nText 2: ' + x.texts[1] }, q = kWrite(y);
-  q.head = `<div class="box"><b>${esc(x.en)}</b><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p></div>${x.texts.map((t, i) => `<div class="box"><b>Text ${i + 1}</b><p style="margin:6px 0 0;font-size:16px;line-height:1.6">${esc(t)}</p></div>`).join('')}
+  q.head = `<div class="box"><b>${esc(x.en)}</b><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p></div>${x.texts.map((t, i) => `<div class="box"><b>Text ${i + 1}</b><p class="tdtap" style="margin:6px 0 0;font-size:16px;line-height:1.6">${esc(t)}</p></div>`).join('')}
     <p class="mute">Cần viết đủ: ${x.c.map(esc).join(' · ')}.</p>`; q.k2 = 'sum'; return q; }
 const uQs = (k, x) => k === 'long' ? uLongQs(x) : k === 'pm' ? uPmQs(x) : k === 'kwt' ? uKwtQ(x) : k === 'sum' ? [uSumQ(x)] : uGapQs(k, x);
 
