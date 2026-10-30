@@ -41,6 +41,7 @@ function todayBox(stage, o = {}) { const t = dayOf(Date.now()), m = actMin(t), g
         + `<button data-mapv style="margin:4px 0">🗺 Bản đồ chỗ yếu${f.act.length ? `: đang chữa ${f.act.length}${f.queue.length ? ` · ${f.queue.length} chờ` : ''}` : ''} ›</button>`; })(mf) : ''}
     ${step(nw > 0, nw ? `Đã học ${nw} mục mới hôm nay` : `Học 1 bài mới ở cấp ${LVN[stage]}${o.low ? `: ${OV.find(x => x[0] === o.low[0])[1]} ${OV.find(x => x[0] === o.low[0])[2]}` : ''}`, o.low && !nw ? `data-ovp="${o.low[0]}" data-ovpl="${o.low[1]}"` : 'data-today="new"')}
     ${step(sk, sk ? 'Đã luyện kỹ năng hôm nay' : `Luyện 1 bài kỹ năng${lowSk ? `: ${OV.find(x => x[0] === lowSk[0])[1]} ${OV.find(x => x[0] === lowSk[0])[2]}${mapSk ? ' (chỗ yếu)' : ''}` : ''}`, `data-today="skill"${lowSk ? ` data-tsk="${lowSk[0]}"` : ''}`)}
+    ${typeof vwDue === 'function' && vwDue().length ? `<button data-sotu style="margin:4px 0">📌 Ôn ${Math.min(20, vwDue().length)} từ trong sổ từ</button>` : ''}
     ${typeof relearnUnits === 'function' ? relearnUnits().slice(0, 2).map(([u, ws]) => `<button data-relearn="${u.id}" style="margin:4px 0">🔁 Học lại ${esc(uLabel(u))}: ${ws.length} từ hay quên</button>`).join('') : ''}
     ${!Object.keys(S.cards || {}).length && !S.place ? '<button data-place style="margin-top:6px">🧭 Mới bắt đầu? Kiểm tra xếp cấp (5–10 phút) để biết nên học từ cấp nào</button>' : ''}
     <p class="mute" style="margin:6px 0 0">Phút tính khi làm bài. Ngày ≥ ${ACT_DAY_MIN} phút vào chuỗi. Học đều mỗi ngày nhớ lâu hơn học dồn.</p></div>`; }

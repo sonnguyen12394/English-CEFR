@@ -330,6 +330,24 @@ const R = await run(`(async () => {
     delete S.ie; await ieltsView(); if (!String($app.innerHTML).includes('Bắt đầu: 3 câu hỏi')) bad.push('IELTS lần đầu chưa hỏi 3 câu');
     ieSt().set = 1; await ieltsView(); const hi = String($app.innerHTML); if (!hi.includes('Hôm nay & kế hoạch') || !hi.includes('<summary><b>🎧 Nghe')) bad.push('IELTS sau khi chọn chưa gọn');
     add('cefr', 'C6', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'tài khoản riêng / chung, góp ý ⚑, Tổng quan gọn (' + nb + ' nút, ' + nt + ' chữ), còn thiếu, IELTS 3 câu đều đúng'); }
+  // v88 📖 Từ điển: hiện đủ dữ liệu (đồng / trái nghĩa, họ từ, bất quy tắc, nghĩa khác, văn phong, thành ngữ, mẫu); tìm dạng biến đổi / gõ sai / cụm từ; không có từ → từ điển ngoài; 📌 sổ từ; tra gần đây
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); DICT.q = ''; DICT.open = null; DICT.list = null; DICT.lv = null; DICT.f = null;
+    const m1 = tdMatch('went'), go = WORDS.find(w => w.w === 'go'); if (!go || m1.exact !== go.id) bad.push('went không ra go');
+    const hw = new Set(WORDS.map(w => w.w.toLowerCase())), iw = WORDS.find(w => w.irr && w.irr.f.some(([, fs]) => fs.some(f => !hw.has(f.toLowerCase())))), ifm = iw && iw.irr.f.flatMap(([, fs]) => fs).find(f => !hw.has(f.toLowerCase()));
+    if (!iw || tdMatch(ifm).exact !== iw.id) bad.push('dạng bất quy tắc không ra từ gốc: ' + ifm);
+    const bea = WORDS.find(w => w.w === 'beautiful'); if (bea && !tdMatch('beautifull').ids.has(bea.id)) bad.push('gõ sai 1 chữ không ra');
+    const idw = WORDS.find(w => w.idi); if (!tdMatch(idw.idi.p).ids.has(idw.id)) bad.push('không tìm được thành ngữ');
+    if (!td1('house', 'horse') || td1('house', 'mouse!') || !td1('cat', 'cats')) bad.push('so gõ sai 1 chữ sai');
+    const full = WORDS.find(w => w.rel && w.fam && w.irr) || WORDS.find(w => w.rel && w.irr), h = tdEntry(full, tdMatch(full.w));
+    if (!h.includes('Gần nghĩa') && !h.includes('Trái nghĩa')) bad.push('mục từ thiếu đồng / trái nghĩa'); if (!h.includes('bất quy tắc')) bad.push('mục từ thiếu dạng bất quy tắc');
+    if (!tdEntry(WORDS.find(w => w.s2), null).includes('Nghĩa khác') || !tdEntry(WORDS.find(w => w.reg), null).includes('🎚') || !tdEntry(WORDS.find(w => w.fam && w.fam.length), null).includes('Họ từ')) bad.push('mục từ thiếu nghĩa khác / văn phong / họ từ');
+    if (!h.includes('dictionary.cambridge.org') || !h.includes('data-tdsave')) bad.push('mục từ thiếu từ điển ngoài / nút lưu');
+    tryv('màn từ điển', () => dict()); DICT.q = 'went'; tryv('tìm went', () => dictList()); const hl = String(document.getElementById('dl').innerHTML); if (hl.indexOf('data-w="' + go.id + '"') !== hl.indexOf('data-w=')) bad.push('went: go chưa lên đầu');
+    DICT.q = 'zxqvbnm'; tryv('tìm từ lạ', () => dictList()); if (!String(document.getElementById('dl').innerHTML).includes('chưa có trong từ điển')) bad.push('từ lạ chưa gợi ý từ điển ngoài');
+    tryv('tra = gần đây', () => tdSeen(go)); if (S.dh[0] !== go.id) bad.push('tra gần đây không ghi'); tryv('lưu sổ', () => tdSave(go)); if (!vwSt().some(x => x.k === 'go')) bad.push('lưu sổ từ không ghi');
+    DICT.q = ''; tryv('đầu từ điển', () => dictList()); if (!String(document.getElementById('df').innerHTML).includes('Sổ từ: 1 từ')) bad.push('đầu từ điển thiếu sổ từ');
+    if (!/data-sotu/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu ôn sổ từ'); tryv('ôn sổ từ', () => vwRun(Date.now(), dict)); if (!String($app.innerHTML).includes('Ôn sổ từ')) bad.push('màn ôn sổ từ hỏng');
+    add('cefr', 'C7', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'từ điển: đủ dữ liệu, tìm dạng biến đổi / gõ sai / thành ngữ, từ điển ngoài, sổ từ, tra gần đây đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

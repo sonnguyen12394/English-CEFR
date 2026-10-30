@@ -251,3 +251,9 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Đã thêm: 📝 nhập đề thật theo từng câu; 📥 từ mới từ đề thật; 🔁 diễn đạt lại 32 câu; Task 1 bản đồ 3 + quy trình 3; Nói 20 chủ đề Part 1 + 18 thẻ Part 2; Nghe kiểu IELTS 5 phần / 50 câu (Part 1 × 2, Part 2 có bản đồ, Part 3 ghép, Part 4 bài giảng), giọng Kokoro.
 - Vẫn thiếu: Đọc vẫn 9 bài (≈ 3 đề), chưa có bài dạng ghép thông tin, Yes/No/NG… do app soạn (chữa bằng đề thật); Nghe mới 5 phần, giọng chủ yếu Anh, chưa có giọng Úc; chấm Nói vẫn qua lời chép, không chấm phát âm.
 - Đo sau 4 tuần người sáng lập luyện: ≥ 4 đề thật đã nhập; bản đồ band chỉ ra ≥ 1 dạng yếu và dạng đó tăng ≥ 15 điểm % sau khi chữa; ≥ 100 từ đề thật trong bộ thẻ, tỉ lệ nhớ ở lần ôn ≥ 70%.
+
+## Từ điển (v88, 30/10/2026)
+- Người sáng lập thấy từ điển "chưa đủ"; Claude kiểm: 6.067 từ (ref.json không thêm từ nào vì đã vào bài B1 → C2); nhiều dữ liệu có sẵn không hiện (đồng / trái nghĩa 1.604 từ, họ từ 678, bất quy tắc 100…); tìm không ra dạng biến đổi; tra xong không lưu được.
+- Đã làm: hiện đủ dữ liệu; tìm thông minh; không có từ → từ điển chính thức (Cambridge Anh–Việt, Oxford Learner's); 📌 Sổ từ + tra gần đây; 🔊 giọng Anh. Không tự soạn thêm từ (dễ sai, bản quyền Oxford, không thêm uy tín).
+- Đo: trên 4 bài đọc IELTS của app, 91–96% từ khác nhau tra ra trong app; từ thiếu đáng kể: vocabulary, grammar, coral, algae, fluent… (học thuật / ngoài khoá) → mở từ điển ngoài + lưu sổ.
+- Sau 4 tuần dùng thật: xem `S.dh` (từ hay tra) và từ tự nhập trong sổ để quyết định có bổ sung từ nào vào khoá không.

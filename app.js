@@ -24,7 +24,7 @@ const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 87;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 88;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -500,13 +500,14 @@ function dict() {
   $app.onclick = e => { const t = e.target;
     if (t.closest('[data-a="home"]')) return home();
     if (t.closest('[data-say]')) return;
-    const r = t.closest('[data-w]'); if (r) { DICT.open = DICT.open === r.dataset.w ? null : r.dataset.w; dictList(); if (DICT.open) speak(WBY[DICT.open].w); } };
+    const r = t.closest('[data-w]'); if (r) { DICT.open = DICT.open === r.dataset.w ? null : r.dataset.w; if (DICT.open && typeof tdSeen === 'function') tdSeen(WBY[DICT.open]); dictList(); if (DICT.open) speak(WBY[DICT.open].w); } };
   dictList(); if (!REF) loadRef().then(() => { if (document.getElementById('dl')) dictList(); }).catch(() => {});
   setTimeout(maybeReload, 0);
 }
 function dictList() {
   const now = Date.now(), fold = x => String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd'), q = fold(DICT.q.trim());
-  const all = [...WORDS, ...(REF || [])].map(w => ({ w, st: w.u ? wstat(S, w, now) : 'ref' })), hit = q ? all.filter(x => fold(x.w.w).includes(q) || fold(x.w.vi).includes(q)) : all;
+  const M = typeof tdMatch === 'function' ? tdMatch(DICT.q) : null;   // v88: dạng biến đổi, họ từ, cụm từ, gõ sai 1 chữ (tudien.js)
+  const all = [...WORDS, ...(REF || [])].map(w => ({ w, st: w.u ? wstat(S, w, now) : 'ref' })), hit = q ? all.filter(x => fold(x.w.w).includes(q) || fold(x.w.vi).includes(q) || (M && M.ids.has(x.w.id))) : all;
   const L = DLISTS.find(l => l.id === DICT.list) || DLISTS[0], G = L.groups(), base = L.only ? hit.filter(L.only) : hit;
   if (DICT.lv && !G.some(g => g.k === DICT.lv)) DICT.lv = null;
   const g = G.find(x => x.k === DICT.lv), inLv = base.filter(x => !g || g.has(x)), learnable = inLv.some(x => x.st !== 'ref');
@@ -516,12 +517,12 @@ function dictList() {
     <label>Danh sách<select data-sel="list">${DLISTS.map(l => opt(l.id, l.name, l === L)).join('')}</select></label>
     <label>${L.label}<select data-sel="g">${opt('', `Tất cả (${ng(null)})`, !g)}${G.map(x => opt(x.k, `${x.l} (${ng(x)})`, x === g)).join('')}</select></label>
     ${learnable ? `<label>Trạng thái<select data-sel="f">${opt('', `Tất cả (${n(null)})`, !DICT.f)}${WST.map(([k, l]) => opt(k, `${l} (${n(k)})`, DICT.f === k)).join('')}</select></label>` : '<label class="mute">Trạng thái<br>📚 chỉ tra</label>'}</div>
-    <details class="mute"><summary>ⓘ Dấu trên mỗi từ</summary>Mỗi từ có 4 dấu mặt: 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng (sáng = đang nhớ). ✅ = đủ cả 4. ⚠️ Quên = lần gần nhất sai hoặc đã tới lúc sắp quên: luyện lại là lên. 📚 chỉ tra = cấp chưa có bài học.</details>`;
-  const rows0 = inLv.filter(fOK).sort((a, b) => a.w.w.localeCompare(b.w.w)), rows = rows0.slice(0, DICT_MAX), lab = k => k === 'ref' ? '📚 chỉ tra' : WST.find(x => x[0] === k)[1];
+    ${typeof tdTop === 'function' ? tdTop() : ''}<details class="mute"><summary>ⓘ Dấu trên mỗi từ</summary>Mỗi từ có 4 dấu mặt: 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng (sáng = đang nhớ). ✅ = đủ cả 4. ⚠️ Quên = lần gần nhất sai hoặc đã tới lúc sắp quên: luyện lại là lên. 📚 chỉ tra = cấp chưa có bài học.</details>`;
+  const rows0 = inLv.filter(fOK).sort((a, b) => (q && M ? tdRank(a.w, DICT.q, M) - tdRank(b.w, DICT.q, M) : 0) || a.w.w.localeCompare(b.w.w)), rows = rows0.slice(0, DICT_MAX), lab = k => k === 'ref' ? '📚 chỉ tra' : WST.find(x => x[0] === k)[1];
   document.getElementById('dl').innerHTML = rows.length ? rows.map(({ w, st }) => `<div class="drow" data-w="${w.id}"><div class="row"><span><b>${esc(w.w)}</b> <span class="lvtag ${lvw(w)}">${LVN[lvw(w)]}</span> <span class="mute">${esc(w.ipa || '')}</span><br>${esc(w.vi)}</span><span class="mute" style="text-align:right">${lab(st)}${st !== 'chua' && st !== 'ref' ? `<br>${dimMarks(S.cards[w.id], now, w)}` : ''}</span></div>
-    ${DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · ${w.u ? uLabel(UBY[w.u]) : `${LVN[w.lv]} · chỉ tra, chưa có bài học`}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
+    ${DICT.open === w.id && typeof tdEntry === 'function' ? tdEntry(w, M) : DICT.open === w.id ? `<div class="box" style="margin:8px 0 0"><div class="mute">${esc(w.pos)} · ${w.u ? uLabel(UBY[w.u]) : `${LVN[w.lv]} · chỉ tra, chưa có bài học`}</div>${w.en ? `<p class="mute">${esc(w.en)}</p>` : ''}
       <p>${esc(w.ex)}<br><span class="mute">${esc(w.exVi)}</span></p>${w.col ? `<p class="mute">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}
-      ${sayBtns(w)}</div>` : ''}</div>`).join('') : '<p class="mute">Không có từ nào.</p>';
+      ${sayBtns(w)}</div>` : ''}</div>`).join('') : q && typeof tdNone === 'function' ? tdNone(DICT.q.trim()) : '<p class="mute">Không có từ nào.</p>';
   if (rows0.length > rows.length) document.getElementById('dl').innerHTML += `<p class="mute">Đang hiện ${rows.length} / ${rows0.length} từ. Gõ để tìm hoặc chọn nhóm.</p>`;
 }
 
