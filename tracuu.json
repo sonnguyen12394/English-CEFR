@@ -1,0 +1,865 @@
+{
+ "_note": "Tra cứu ngoài từ vựng (v90, Claude soạn, chưa giáo viên kiểm): loi = lỗi hay gặp của người Việt (câu sai → đúng); cum = cụm câu Viết / Nói theo tình huống; ipa = 44 âm tiếng Anh–Anh (từ ví dụ app tự tìm theo IPA).",
+ "loi": [
+  {
+   "id": "l01",
+   "wrong": "I am agree with you.",
+   "right": "I agree with you.",
+   "why": "“agree” là động từ, không đi với am / is / are.",
+   "k": "agree",
+   "lv": "a1"
+  },
+  {
+   "id": "l02",
+   "wrong": "She can to swim.",
+   "right": "She can swim.",
+   "why": "Sau can / must / should / will không có “to”.",
+   "k": "can must should will to",
+   "lv": "a1"
+  },
+  {
+   "id": "l03",
+   "wrong": "He don't like coffee.",
+   "right": "He doesn't like coffee.",
+   "why": "Ngôi 3 số ít (he / she / it) dùng doesn't.",
+   "k": "don't doesn't",
+   "lv": "pre"
+  },
+  {
+   "id": "l04",
+   "wrong": "She like music.",
+   "right": "She likes music.",
+   "why": "Hiện tại đơn, ngôi 3 số ít thêm -s.",
+   "k": "he she it s",
+   "lv": "pre"
+  },
+  {
+   "id": "l05",
+   "wrong": "I didn't went to school.",
+   "right": "I didn't go to school.",
+   "why": "Sau didn't / doesn't / don't dùng động từ nguyên mẫu.",
+   "k": "didn't did",
+   "lv": "a1"
+  },
+  {
+   "id": "l06",
+   "wrong": "This is more better.",
+   "right": "This is better.",
+   "why": "better đã là so sánh hơn, không thêm more.",
+   "k": "more better comparative",
+   "lv": "a2"
+  },
+  {
+   "id": "l07",
+   "wrong": "She is the most tallest.",
+   "right": "She is the tallest.",
+   "why": "So sánh nhất của tính từ ngắn: the + -est, không thêm most.",
+   "k": "most est superlative",
+   "lv": "a2"
+  },
+  {
+   "id": "l08",
+   "wrong": "I have lived here since three years.",
+   "right": "I have lived here for three years.",
+   "why": "Khoảng thời gian dùng for; mốc thời gian dùng since (since 2020).",
+   "k": "since for",
+   "lv": "a2"
+  },
+  {
+   "id": "l09",
+   "wrong": "I live here since 2020.",
+   "right": "I have lived here since 2020.",
+   "why": "Việc bắt đầu trong quá khứ và còn tiếp tục: hiện tại hoàn thành.",
+   "k": "since present perfect",
+   "lv": "b1"
+  },
+  {
+   "id": "l10",
+   "wrong": "My mother made me to clean my room.",
+   "right": "My mother made me clean my room.",
+   "why": "make / let + người + động từ nguyên mẫu, không có to.",
+   "k": "make let",
+   "lv": "b1"
+  },
+  {
+   "id": "l11",
+   "wrong": "I enjoy to read books.",
+   "right": "I enjoy reading books.",
+   "why": "enjoy / finish / avoid / mind + V-ing.",
+   "k": "enjoy finish avoid mind ing",
+   "lv": "a2"
+  },
+  {
+   "id": "l12",
+   "wrong": "We discussed about the problem.",
+   "right": "We discussed the problem.",
+   "why": "discuss không đi với about.",
+   "k": "discuss about",
+   "lv": "b1"
+  },
+  {
+   "id": "l13",
+   "wrong": "Please explain me this word.",
+   "right": "Please explain this word to me.",
+   "why": "explain + việc + to + người.",
+   "k": "explain",
+   "lv": "b1"
+  },
+  {
+   "id": "l14",
+   "wrong": "Although it rained, but we went out.",
+   "right": "Although it rained, we went out.",
+   "why": "although và but không dùng chung một câu.",
+   "k": "although but",
+   "lv": "a2"
+  },
+  {
+   "id": "l15",
+   "wrong": "Despite of the rain, we went out.",
+   "right": "Despite the rain, we went out.",
+   "why": "despite không có of (in spite of thì có).",
+   "k": "despite in spite of",
+   "lv": "b1"
+  },
+  {
+   "id": "l16",
+   "wrong": "In the other hand, it is expensive.",
+   "right": "On the other hand, it is expensive.",
+   "why": "Cụm đúng: on the other hand.",
+   "k": "other hand",
+   "lv": "b1"
+  },
+  {
+   "id": "l17",
+   "wrong": "I very like football.",
+   "right": "I really like football.",
+   "why": "very không đứng trước động từ: really like / like … very much.",
+   "k": "very like",
+   "lv": "pre"
+  },
+  {
+   "id": "l18",
+   "wrong": "I am go to school.",
+   "right": "I go to school.",
+   "why": "Hiện tại đơn không có am / is / are; hoặc dùng tiếp diễn: I am going.",
+   "k": "am is are ing",
+   "lv": "pre"
+  },
+  {
+   "id": "l19",
+   "wrong": "I ate a apple.",
+   "right": "I ate an apple.",
+   "why": "Trước âm nguyên âm dùng an: an apple, an hour.",
+   "k": "a an",
+   "lv": "pre"
+  },
+  {
+   "id": "l20",
+   "wrong": "She is an university student.",
+   "right": "She is a university student.",
+   "why": "university đọc /juː/ (phụ âm): a university.",
+   "k": "a an",
+   "lv": "a1"
+  },
+  {
+   "id": "l21",
+   "wrong": "People is very friendly.",
+   "right": "People are very friendly.",
+   "why": "people / children / police là số nhiều.",
+   "k": "people children police",
+   "lv": "a1"
+  },
+  {
+   "id": "l22",
+   "wrong": "Every students has a book.",
+   "right": "Every student has a book.",
+   "why": "every / each + danh từ số ít.",
+   "k": "every each",
+   "lv": "a2"
+  },
+  {
+   "id": "l23",
+   "wrong": "Can you give me some informations?",
+   "right": "Can you give me some information?",
+   "why": "information, advice, furniture, homework, luggage không đếm được, không có -s.",
+   "k": "information advice uncountable",
+   "lv": "a2"
+  },
+  {
+   "id": "l24",
+   "wrong": "i like it.",
+   "right": "I like it.",
+   "why": "Chữ I (tôi) luôn viết hoa.",
+   "k": "I capital",
+   "lv": "pre"
+  },
+  {
+   "id": "l25",
+   "wrong": "I have two brother.",
+   "right": "I have two brothers.",
+   "why": "Sau số lớn hơn 1, danh từ đếm được thêm -s.",
+   "k": "plural s",
+   "lv": "pre"
+  },
+  {
+   "id": "l26",
+   "wrong": "Is raining.",
+   "right": "It is raining.",
+   "why": "Câu tiếng Anh cần chủ ngữ; thời tiết dùng it.",
+   "k": "it subject weather",
+   "lv": "a1"
+  },
+  {
+   "id": "l27",
+   "wrong": "If it will rain, we will stay at home.",
+   "right": "If it rains, we will stay at home.",
+   "why": "Câu điều kiện loại 1: mệnh đề if dùng hiện tại đơn.",
+   "k": "if will conditional",
+   "lv": "a2"
+  },
+  {
+   "id": "l28",
+   "wrong": "I am interesting in music.",
+   "right": "I am interested in music.",
+   "why": "-ed: cảm xúc của người (interested); -ing: tính chất của vật (interesting).",
+   "k": "interested interesting bored boring",
+   "lv": "a2"
+  },
+  {
+   "id": "l29",
+   "wrong": "He married with a doctor.",
+   "right": "He married a doctor. / He got married to a doctor.",
+   "why": "marry không đi với with.",
+   "k": "marry married",
+   "lv": "b1"
+  },
+  {
+   "id": "l30",
+   "wrong": "I listen music every day.",
+   "right": "I listen to music every day.",
+   "why": "listen to + vật / người.",
+   "k": "listen",
+   "lv": "a1"
+  },
+  {
+   "id": "l31",
+   "wrong": "We arrived to the airport at six.",
+   "right": "We arrived at the airport at six.",
+   "why": "arrive at (nơi nhỏ) / arrive in (thành phố, nước), không dùng to.",
+   "k": "arrive",
+   "lv": "a2"
+  },
+  {
+   "id": "l32",
+   "wrong": "It depends of the weather.",
+   "right": "It depends on the weather.",
+   "why": "depend on.",
+   "k": "depend",
+   "lv": "b1"
+  },
+  {
+   "id": "l33",
+   "wrong": "I look forward to hear from you.",
+   "right": "I look forward to hearing from you.",
+   "why": "look forward to + V-ing (to ở đây là giới từ).",
+   "k": "look forward to",
+   "lv": "b1"
+  },
+  {
+   "id": "l34",
+   "wrong": "He said me that he was tired.",
+   "right": "He told me that he was tired.",
+   "why": "tell + người; say + điều (say to someone).",
+   "k": "say tell",
+   "lv": "a2"
+  },
+  {
+   "id": "l35",
+   "wrong": "Can you borrow me your pen?",
+   "right": "Can you lend me your pen?",
+   "why": "lend = cho mượn; borrow = mượn của ai.",
+   "k": "borrow lend",
+   "lv": "a2"
+  },
+  {
+   "id": "l36",
+   "wrong": "The news are good.",
+   "right": "The news is good.",
+   "why": "news là danh từ không đếm được, đi với động từ số ít.",
+   "k": "news",
+   "lv": "b1"
+  },
+  {
+   "id": "l37",
+   "wrong": "I don't know nothing.",
+   "right": "I don't know anything.",
+   "why": "Không dùng hai từ phủ định trong một câu.",
+   "k": "nothing anything double negative",
+   "lv": "a2"
+  },
+  {
+   "id": "l38",
+   "wrong": "She is a girl beautiful.",
+   "right": "She is a beautiful girl.",
+   "why": "Tính từ đứng trước danh từ.",
+   "k": "adjective order",
+   "lv": "pre"
+  },
+  {
+   "id": "l39",
+   "wrong": "I used to living in Hue.",
+   "right": "I used to live in Hue.",
+   "why": "used to + động từ nguyên mẫu (thói quen trong quá khứ); be used to + V-ing (quen với).",
+   "k": "used to",
+   "lv": "b1"
+  },
+  {
+   "id": "l40",
+   "wrong": "The number of students have increased.",
+   "right": "The number of students has increased.",
+   "why": "The number of + danh từ số nhiều + động từ số ít (A number of → số nhiều).",
+   "k": "number of",
+   "lv": "b2"
+  },
+  {
+   "id": "l41",
+   "wrong": "Despite it was cold, we swam.",
+   "right": "Although it was cold, we swam.",
+   "why": "despite + danh từ / V-ing; although + mệnh đề.",
+   "k": "despite although",
+   "lv": "b1"
+  },
+  {
+   "id": "l42",
+   "wrong": "He suggested me to go home.",
+   "right": "He suggested that I (should) go home. / He suggested going home.",
+   "why": "suggest không dùng cấu trúc + người + to V.",
+   "k": "suggest",
+   "lv": "b2"
+  }
+ ],
+ "cum": [
+  {
+   "t": "✍️ IELTS Task 1: mở bài",
+   "items": [
+    {
+     "en": "The chart illustrates …",
+     "vi": "Biểu đồ minh hoạ …",
+     "ex": "The chart illustrates the number of visitors to three museums between 2010 and 2020."
+    },
+    {
+     "en": "The table compares … in terms of …",
+     "vi": "Bảng so sánh … về mặt …",
+     "ex": "The table compares four countries in terms of their energy use."
+    },
+    {
+     "en": "The maps show the changes that took place in … between … and …",
+     "vi": "Các bản đồ cho thấy những thay đổi ở … giữa … và …",
+     "ex": "The maps show the changes that took place in the town centre between 2000 and 2025."
+    },
+    {
+     "en": "The diagram shows how … is produced.",
+     "vi": "Sơ đồ cho thấy … được sản xuất như thế nào.",
+     "ex": "The diagram shows how glass bottles are recycled."
+    }
+   ]
+  },
+  {
+   "t": "✍️ IELTS Task 1: tổng quan",
+   "items": [
+    {
+     "en": "Overall, it is clear that …",
+     "vi": "Nhìn chung, rõ ràng là …",
+     "ex": "Overall, it is clear that car use fell while cycling rose."
+    },
+    {
+     "en": "The most noticeable feature is …",
+     "vi": "Đặc điểm dễ thấy nhất là …",
+     "ex": "The most noticeable feature is the sharp rise in online sales."
+    },
+    {
+     "en": "In general, … remained the most popular …",
+     "vi": "Nói chung, … vẫn là … phổ biến nhất",
+     "ex": "In general, the bus remained the most popular way of commuting."
+    },
+    {
+     "en": "Overall, the process consists of … stages, beginning with … and ending with …",
+     "vi": "Nhìn chung, quy trình gồm … bước, bắt đầu bằng … và kết thúc bằng …",
+     "ex": "Overall, the process consists of seven stages, beginning with collection and ending with delivery."
+    }
+   ]
+  },
+  {
+   "t": "✍️ IELTS Task 1: xu hướng, số liệu",
+   "items": [
+    {
+     "en": "… rose sharply from … to …",
+     "vi": "… tăng mạnh từ … lên …",
+     "ex": "Sales rose sharply from 20% to 45%."
+    },
+    {
+     "en": "… fell gradually to a low of …",
+     "vi": "… giảm dần xuống mức thấp nhất …",
+     "ex": "The figure fell gradually to a low of 5 million."
+    },
+    {
+     "en": "… remained stable at around …",
+     "vi": "… giữ ổn định ở khoảng …",
+     "ex": "Prices remained stable at around $3."
+    },
+    {
+     "en": "… peaked at … in …",
+     "vi": "… đạt đỉnh … vào năm …",
+     "ex": "Visitor numbers peaked at 2 million in 2015."
+    },
+    {
+     "en": "… roughly doubled",
+     "vi": "… tăng gần gấp đôi",
+     "ex": "Train use roughly doubled over the period."
+    },
+    {
+     "en": "… accounted for … of …",
+     "vi": "… chiếm … của …",
+     "ex": "Coal accounted for a third of all energy used."
+    },
+    {
+     "en": "whereas / while …",
+     "vi": "trong khi …",
+     "ex": "Car use fell, whereas bicycle use rose."
+    },
+    {
+     "en": "… was twice as high as …",
+     "vi": "… cao gấp đôi …",
+     "ex": "Spending in 2020 was twice as high as in 2000."
+    }
+   ]
+  },
+  {
+   "t": "✍️ IELTS Task 1: bản đồ, quy trình",
+   "items": [
+    {
+     "en": "… was demolished and replaced by …",
+     "vi": "… bị phá bỏ và thay bằng …",
+     "ex": "The factory was demolished and replaced by apartments."
+    },
+    {
+     "en": "… was converted into …",
+     "vi": "… được chuyển thành …",
+     "ex": "The old station was converted into a museum."
+    },
+    {
+     "en": "… was extended to the north",
+     "vi": "… được mở rộng về phía bắc",
+     "ex": "The car park was extended to the north."
+    },
+    {
+     "en": "First, … Then, … After that, … Finally, …",
+     "vi": "Đầu tiên … Sau đó … Tiếp theo … Cuối cùng …",
+     "ex": "First, the bottles are collected. Then, they are washed."
+    },
+    {
+     "en": "Once …, …",
+     "vi": "Khi … xong thì …",
+     "ex": "Once it has melted, the glass is shaped into bottles."
+    }
+   ]
+  },
+  {
+   "t": "📝 IELTS Task 2: mở bài, quan điểm",
+   "items": [
+    {
+     "en": "It is often argued that …",
+     "vi": "Người ta thường cho rằng …",
+     "ex": "It is often argued that university education should be free."
+    },
+    {
+     "en": "This essay will discuss both views before giving my own opinion.",
+     "vi": "Bài viết sẽ bàn cả hai quan điểm trước khi nêu ý kiến của tôi.",
+     "ex": "This essay will discuss both views before giving my own opinion."
+    },
+    {
+     "en": "I strongly agree that …",
+     "vi": "Tôi hoàn toàn đồng ý rằng …",
+     "ex": "I strongly agree that governments should invest in public transport."
+    },
+    {
+     "en": "In my view, the advantages outweigh the disadvantages.",
+     "vi": "Theo tôi, lợi nhiều hơn hại.",
+     "ex": "In my view, the advantages of working from home outweigh the disadvantages."
+    }
+   ]
+  },
+  {
+   "t": "📝 IELTS Task 2: lý do, ví dụ, phản biện",
+   "items": [
+    {
+     "en": "The main reason for this is that …",
+     "vi": "Lý do chính là …",
+     "ex": "The main reason for this is that cities are becoming more crowded."
+    },
+    {
+     "en": "A good example of this is …",
+     "vi": "Một ví dụ rõ là …",
+     "ex": "A good example of this is Singapore, where public transport is cheap and reliable."
+    },
+    {
+     "en": "As a result, …",
+     "vi": "Kết quả là …",
+     "ex": "As a result, many young people cannot afford to buy a home."
+    },
+    {
+     "en": "Admittedly, … However, …",
+     "vi": "Phải thừa nhận rằng … Tuy nhiên …",
+     "ex": "Admittedly, online courses are cheaper. However, they offer less support."
+    },
+    {
+     "en": "Opponents of this view claim that …",
+     "vi": "Những người phản đối cho rằng …",
+     "ex": "Opponents of this view claim that taxes would have to rise."
+    },
+    {
+     "en": "This is particularly true of …",
+     "vi": "Điều này đặc biệt đúng với …",
+     "ex": "This is particularly true of people living in rural areas."
+    }
+   ]
+  },
+  {
+   "t": "📝 IELTS Task 2: kết luận",
+   "items": [
+    {
+     "en": "In conclusion, …",
+     "vi": "Tóm lại, …",
+     "ex": "In conclusion, both individuals and governments have a role to play."
+    },
+    {
+     "en": "On balance, I believe that …",
+     "vi": "Cân nhắc mọi mặt, tôi tin rằng …",
+     "ex": "On balance, I believe that the benefits of tourism are greater than its costs."
+    },
+    {
+     "en": "Therefore, it is essential that …",
+     "vi": "Vì vậy, điều cần thiết là …",
+     "ex": "Therefore, it is essential that schools teach financial skills."
+    }
+   ]
+  },
+  {
+   "t": "✉️ Thư (IELTS GT, B1–B2)",
+   "items": [
+    {
+     "en": "I am writing to complain about …",
+     "vi": "Tôi viết thư này để phàn nàn về …",
+     "ex": "I am writing to complain about the service I received last week."
+    },
+    {
+     "en": "I am writing to enquire about …",
+     "vi": "Tôi viết thư này để hỏi về …",
+     "ex": "I am writing to enquire about the evening courses you offer."
+    },
+    {
+     "en": "I would be grateful if you could …",
+     "vi": "Tôi sẽ rất biết ơn nếu ông / bà có thể …",
+     "ex": "I would be grateful if you could send me more information."
+    },
+    {
+     "en": "I look forward to hearing from you.",
+     "vi": "Tôi mong nhận được hồi âm.",
+     "ex": "I look forward to hearing from you."
+    },
+    {
+     "en": "Thanks so much for your letter.",
+     "vi": "Cảm ơn bạn nhiều vì lá thư.",
+     "ex": "Thanks so much for your letter. It was great to hear from you."
+    },
+    {
+     "en": "Let me know if you need anything else.",
+     "vi": "Cần gì thêm thì báo mình nhé.",
+     "ex": "Let me know if you need anything else before the party."
+    }
+   ]
+  },
+  {
+   "t": "🗣 Nói: nêu ý kiến, câu đệm",
+   "items": [
+    {
+     "en": "Well, I'd say that …",
+     "vi": "À, tôi cho là …",
+     "ex": "Well, I'd say that it depends on the person."
+    },
+    {
+     "en": "To be honest, …",
+     "vi": "Thật lòng mà nói, …",
+     "ex": "To be honest, I'm not a big fan of shopping."
+    },
+    {
+     "en": "That's an interesting question. Let me think…",
+     "vi": "Câu hỏi hay đấy. Để tôi nghĩ đã…",
+     "ex": "That's an interesting question. Let me think… I suppose it's because of the internet."
+    },
+    {
+     "en": "I'm not really sure, but I suppose …",
+     "vi": "Tôi không chắc lắm, nhưng tôi đoán …",
+     "ex": "I'm not really sure, but I suppose people have less free time now."
+    },
+    {
+     "en": "On the one hand, … On the other hand, …",
+     "vi": "Một mặt … Mặt khác …",
+     "ex": "On the one hand, cities offer more jobs. On the other hand, they are expensive."
+    },
+    {
+     "en": "What I mean is …",
+     "vi": "Ý tôi là …",
+     "ex": "What I mean is that technology makes life easier, but not always happier."
+    }
+   ]
+  },
+  {
+   "t": "🗣 Nói: kể chuyện (Part 2)",
+   "items": [
+    {
+     "en": "I'd like to talk about …",
+     "vi": "Tôi muốn kể về …",
+     "ex": "I'd like to talk about a trip I took to Da Lat last year."
+    },
+    {
+     "en": "It happened about … ago, when …",
+     "vi": "Chuyện xảy ra khoảng … trước, khi …",
+     "ex": "It happened about two years ago, when I was still at university."
+    },
+    {
+     "en": "What I remember most is …",
+     "vi": "Điều tôi nhớ nhất là …",
+     "ex": "What I remember most is the view from the top of the mountain."
+    },
+    {
+     "en": "Looking back, I think …",
+     "vi": "Nhìn lại, tôi nghĩ …",
+     "ex": "Looking back, I think it was one of the best decisions I've made."
+    }
+   ]
+  }
+ ],
+ "ipa": [
+  {
+   "s": "iː",
+   "k": "nguyên âm dài",
+   "ex": "sheep"
+  },
+  {
+   "s": "ɪ",
+   "k": "nguyên âm ngắn",
+   "ex": "ship"
+  },
+  {
+   "s": "e",
+   "k": "nguyên âm ngắn",
+   "ex": "bed"
+  },
+  {
+   "s": "æ",
+   "k": "nguyên âm ngắn",
+   "ex": "cat"
+  },
+  {
+   "s": "ɑː",
+   "k": "nguyên âm dài",
+   "ex": "car"
+  },
+  {
+   "s": "ɒ",
+   "k": "nguyên âm ngắn",
+   "ex": "hot"
+  },
+  {
+   "s": "ɔː",
+   "k": "nguyên âm dài",
+   "ex": "door"
+  },
+  {
+   "s": "ʊ",
+   "k": "nguyên âm ngắn",
+   "ex": "book"
+  },
+  {
+   "s": "uː",
+   "k": "nguyên âm dài",
+   "ex": "food"
+  },
+  {
+   "s": "ʌ",
+   "k": "nguyên âm ngắn",
+   "ex": "cup"
+  },
+  {
+   "s": "ɜː",
+   "k": "nguyên âm dài",
+   "ex": "bird"
+  },
+  {
+   "s": "ə",
+   "k": "nguyên âm ngắn (âm yếu)",
+   "ex": "about"
+  },
+  {
+   "s": "eɪ",
+   "k": "nguyên âm đôi",
+   "ex": "day"
+  },
+  {
+   "s": "aɪ",
+   "k": "nguyên âm đôi",
+   "ex": "my"
+  },
+  {
+   "s": "ɔɪ",
+   "k": "nguyên âm đôi",
+   "ex": "boy"
+  },
+  {
+   "s": "əʊ",
+   "k": "nguyên âm đôi",
+   "ex": "go"
+  },
+  {
+   "s": "aʊ",
+   "k": "nguyên âm đôi",
+   "ex": "now"
+  },
+  {
+   "s": "ɪə",
+   "k": "nguyên âm đôi",
+   "ex": "near"
+  },
+  {
+   "s": "eə",
+   "k": "nguyên âm đôi",
+   "ex": "hair"
+  },
+  {
+   "s": "ʊə",
+   "k": "nguyên âm đôi",
+   "ex": "tour"
+  },
+  {
+   "s": "p",
+   "k": "phụ âm",
+   "ex": "pen"
+  },
+  {
+   "s": "b",
+   "k": "phụ âm",
+   "ex": "bad"
+  },
+  {
+   "s": "t",
+   "k": "phụ âm",
+   "ex": "tea"
+  },
+  {
+   "s": "d",
+   "k": "phụ âm",
+   "ex": "dog"
+  },
+  {
+   "s": "k",
+   "k": "phụ âm",
+   "ex": "cat"
+  },
+  {
+   "s": "ɡ",
+   "k": "phụ âm",
+   "ex": "go"
+  },
+  {
+   "s": "f",
+   "k": "phụ âm",
+   "ex": "fish"
+  },
+  {
+   "s": "v",
+   "k": "phụ âm",
+   "ex": "van"
+  },
+  {
+   "s": "θ",
+   "k": "phụ âm",
+   "ex": "think"
+  },
+  {
+   "s": "ð",
+   "k": "phụ âm",
+   "ex": "this"
+  },
+  {
+   "s": "s",
+   "k": "phụ âm",
+   "ex": "sun"
+  },
+  {
+   "s": "z",
+   "k": "phụ âm",
+   "ex": "zoo"
+  },
+  {
+   "s": "ʃ",
+   "k": "phụ âm",
+   "ex": "she"
+  },
+  {
+   "s": "ʒ",
+   "k": "phụ âm",
+   "ex": "television"
+  },
+  {
+   "s": "h",
+   "k": "phụ âm",
+   "ex": "hat"
+  },
+  {
+   "s": "tʃ",
+   "k": "phụ âm",
+   "ex": "chair"
+  },
+  {
+   "s": "dʒ",
+   "k": "phụ âm",
+   "ex": "job"
+  },
+  {
+   "s": "m",
+   "k": "phụ âm",
+   "ex": "man"
+  },
+  {
+   "s": "n",
+   "k": "phụ âm",
+   "ex": "no"
+  },
+  {
+   "s": "ŋ",
+   "k": "phụ âm",
+   "ex": "sing"
+  },
+  {
+   "s": "l",
+   "k": "phụ âm",
+   "ex": "leg"
+  },
+  {
+   "s": "r",
+   "k": "phụ âm",
+   "ex": "red"
+  },
+  {
+   "s": "j",
+   "k": "phụ âm",
+   "ex": "yes"
+  },
+  {
+   "s": "w",
+   "k": "phụ âm",
+   "ex": "wet"
+  }
+ ]
+}

@@ -364,6 +364,22 @@ const R = await run(`(async () => {
     if (tdMiss('Hello world', 'tra') !== undefined) bad.push('ghi từ thiếu nhận cả cụm');
     const u0 = user; user = { id: 'chung', email: AUTO.email }; tryv('dữ liệu', () => backup()); if (!String($app.innerHTML).includes('data-bk="miss"')) bad.push('Dữ liệu thiếu xem từ app chưa có'); await tdMissView(); if (!String($app.innerHTML).includes('Từ người học tra')) bad.push('màn từ app chưa có hỏng'); user = u0;
     add('cefr', 'C8', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'chạm để tra, Gặp trong bài, sổ từ (sửa, xoá, CSV), từ app chưa có đều đúng'); }
+  // v90 📖 tra cứu nhiều mặt: 🧱 ngữ pháp (tên Việt / Anh / tên gọi khác), 🔗 cụm từ, ❗ lỗi hay gặp, 👄 phát âm, ✍️ cụm câu; "Cũng có"; từ → ngữ pháp liên quan
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await Promise.all([kLoad(KIT.np), tcLoad(), paLoad()]); DICT.q = ''; DICT.open = null; DICT.kind = 'tu';
+    const qs = ['present perfect', 'hiện tại hoàn thành', 'quá khứ đơn', 'bị động', 'câu điều kiện', 'mệnh đề quan hệ', 'so sánh', 'mạo từ', 'used to', 'gerund'], miss = qs.filter(q => !tcNpHits(q, 1).length);
+    if (miss.length > 1) bad.push('tìm ngữ pháp trượt: ' + miss.join(', '));
+    const w = n => WORDS.find(x => x.w === n); if (!/hoàn thành/i.test(tcGramFor(w('since'))) || !/điều kiện/i.test(tcGramFor(w('if'))) || !/although/i.test(tcGramFor(w('although')))) bad.push('từ → ngữ pháp liên quan sai');
+    if (!tdEntry(w('although'), null).includes('Ngữ pháp liên quan')) bad.push('mục từ thiếu ngữ pháp liên quan');
+    if (tcCum('pv', '').length < 100 || tcCum('idi', '').length < 100 || !tcCum('pv', 'give up').some(r => r[0] === 'give up')) bad.push('cụm từ thiếu: ' + tcCum('pv', '').length);
+    if (TC.loi.length < 40 || TC.loi.some(x => !x.wrong || !x.right || x.wrong === x.right || !x.why)) bad.push('lỗi hay gặp hỏng'); if (!tcLoiHits('since').length) bad.push('tìm lỗi since trượt');
+    for (const x of TC.loi) { const r = wErrors(x.right.split(' / ')[0]); if (r.length) bad.push('câu đúng bị máy bắt lỗi: ' + x.right + ' · ' + r[0][1]); }
+    if (TC.ipa.length !== 44 || TC.ipa.some(p => !tcIpaWords(p.s, 1).length)) bad.push('bảng âm thiếu từ ví dụ: ' + TC.ipa.filter(p => !tcIpaWords(p.s, 1).length).map(p => p.s).join(' '));
+    if (tcIpaWords('e', 20).some(x => !String(x.ipa).replace(/eɪ|eə/g, '').includes('e'))) bad.push('/e/ khớp nhầm /eɪ/');
+    if ((TC.cum || []).reduce((s, x) => s + x.items.length, 0) < 50 || TC.cum.some(s => s.items.some(x => !x.en || !x.vi || !x.ex))) bad.push('cụm câu hỏng');
+    tryv('màn từ điển', () => dict()); for (const k of ['np', 'cum', 'loi', 'pa', 'cau']) { DICT.kind = k; tryv('loại ' + k, () => dictList()); if (!String(document.getElementById('dl').innerHTML).length) bad.push('loại ' + k + ' trống'); }
+    DICT.kind = 'tu'; DICT.q = 'although'; tryv('cũng có', () => dictList()); if (!String(document.getElementById('dl').innerHTML).includes('Cũng có')) bad.push('thiếu "Cũng có" khi tìm');
+    DICT.q = ''; DICT.kind = 'tu';
+    add('cefr', 'C9', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'tra cứu ngữ pháp, cụm từ, lỗi hay gặp, phát âm, cụm câu, "Cũng có", từ → ngữ pháp đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

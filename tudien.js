@@ -53,7 +53,7 @@ function tdEntry(w, M) { const why = M && M.how.get(w.id), chip = t => `<button 
     w.reg && `<p style="margin:6px 0">🎚 ${w.reg.f ? `<b>Trang trọng</b>; nói thường dùng: <b>${esc(w.reg.p)}</b>` : `<b>Thân mật</b>; viết trang trọng dùng: <b>${esc(w.reg.p)}</b>`}</p>`,
     w.idi && `<p style="margin:6px 0">💬 <b>Thành ngữ:</b> ${esc(w.idi.p)} = ${esc(w.idi.vi)}${w.idi.s ? `<br><span class="mute">${esc(w.idi.s)}</span>` : ''}</p>`].filter(Boolean).join('');
   return `<div class="box" style="margin:8px 0 0">${why ? `<p class="mute" style="margin:0 0 4px">🔎 ${esc(why)}</p>` : ''}<div class="mute">${esc(w.pos || '')} · ${w.u ? uLabel(UBY[w.u]) : `${LVN[w.lv] || ''} · chỉ tra`}</div>${w.en ? `<p class="mute" style="margin:4px 0">${esc(w.en)}</p>` : ''}
-    <p style="margin:6px 0">${esc(w.ex || '')}<br><span class="mute">${esc(w.exVi || '')}</span></p>${w.col && w.col.ok ? `<p class="mute" style="margin:6px 0">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}${rows}${tdInText(w)}
+    <p style="margin:6px 0">${esc(w.ex || '')}<br><span class="mute">${esc(w.exVi || '')}</span></p>${w.col && w.col.ok ? `<p class="mute" style="margin:6px 0">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}${rows}${typeof tcGramFor === 'function' ? tcGramFor(w) : ''}${tdInText(w)}
     ${typeof sayBtns === 'function' ? sayBtns(w).replace('</div>', `<button class="chip" data-tdgb="${w.id}">🔊 Giọng Anh</button></div>`) : ''}
     <div class="chips" style="margin:6px 0 0">${inSo ? '<span class="chip on">📌 Đã có trong sổ từ</span>' : `<button class="chip" data-tdsave="${w.id}">📌 Lưu vào sổ từ</button>`}</div>${tdLinks(w.w)}</div>`; }
 // 🔊 giọng Anh–Anh của máy (như giọng thi); máy không có giọng Anh thì dùng giọng sẵn có

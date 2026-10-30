@@ -258,3 +258,4 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Đo: trên 4 bài đọc IELTS của app, 91–96% từ khác nhau tra ra trong app; từ thiếu đáng kể: vocabulary, grammar, coral, algae, fluent… (học thuật / ngoài khoá) → mở từ điển ngoài + lưu sổ.
 - Sau 4 tuần dùng thật: xem `S.dh` (từ hay tra) và từ tự nhập trong sổ để quyết định có bổ sung từ nào vào khoá không.
 - v89: chạm để tra trong bài, "Gặp trong bài" (phủ 70% từ; cấp C1 / C2 thấp vì kho bài ít câu cấp cao), quản lý sổ từ + CSV, ghi từ app chưa có (`td_miss`). Sau 4 tuần: lấy 30 từ hay tra nhất trong `td_miss` → nhờ giáo viên duyệt nghĩa / cấp → thêm vào khoá.
+- v90 tra cứu nhiều mặt: ngữ pháp 106 điểm (đo: 15/16 cách gõ hay gặp ra đúng bài, đạt ≥ 9/10), cụm từ (dữ liệu sẵn có), lỗi hay gặp 42, bảng 44 âm + 26 cặp âm, cụm câu 50. Lỗi hay gặp / cụm câu: Claude soạn, cần giáo viên soát.
