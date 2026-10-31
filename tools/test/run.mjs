@@ -382,15 +382,20 @@ const R = await run(`(async () => {
     add('cefr', 'C9', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'tra cứu ngữ pháp, cụm từ, lỗi hay gặp, phát âm, cụm câu, "Cũng có", từ → ngữ pháp đều đúng'); }
   // v91 tra theo 4 kỹ năng: mỗi tab ≥ 4 nhóm; từ nối theo chức năng; tiền tố / hậu tố có từ ví dụ trong app; nghe số / ngày / âm yếu
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await Promise.all([tcLoad(), ieLoad()]);
-    for (const k of ['nghe', 'noi', 'doc', 'viet']) { const h = tcSkill(k, ''), n = (h.match(/<details class="box"/g) || []).length; if (n < 4) bad.push('tab ' + k + ' chỉ ' + n + ' nhóm'); }
-    if (!/Đối lập/.test(tcSkill('doc', 'however'))) bad.push('however không ra nhóm đối lập');
+    await Promise.all([toLoad(), uLoad()]);
+    for (const ex of ['cefr', 'ielts', 'toeic']) { DICT.ex = ex; for (const k of ['nghe', 'noi', 'doc', 'viet']) { const h = tcSkill(k, ''), n = (h.match(/<details class="box"/g) || []).length, min = ex === 'toeic' && (k === 'noi' || k === 'viet') ? 2 : 4; if (n < min) bad.push(ex + ' / ' + k + ' chỉ ' + n + ' nhóm'); } }
+    // v92: phần riêng từng kỳ thi
+    DICT.ex = 'toeic'; if (!/Bẫy Part 2 \\(4\\)/.test(tcSkill('nghe', '')) || !/Từ vựng công sở/.test(tcSkill('doc', '')) || !/không thi Nói/.test(tcSkill('noi', ''))) bad.push('TOEIC trong tab kỹ năng thiếu');
+    DICT.ex = 'cefr'; const cv = tcSkill('viet', ''); if ((cv.match(/Bố cục<\\/b>/g) || []).length < 8 || !/Dạng đề Đọc/.test(tcSkill('doc', '')) || /IELTS Task/.test(cv)) bad.push('CEFR trong tab kỹ năng thiếu / lẫn IELTS');
+    DICT.ex = 'ielts'; if (!/Part 1/.test(tcSkill('noi', '')) || /Bẫy Part 2/.test(tcSkill('nghe', ''))) bad.push('IELTS trong tab kỹ năng sai');
+    DICT.ex = 'ielts'; if (!/Đối lập/.test(tcSkill('doc', 'however'))) bad.push('however không ra nhóm đối lập');
     const un = TC.afx.find(x => x.a === 'un-'), uw = tcAfxWords(un); if (uw.filter(w => w.app).length < 5 || uw.some(w => !w.w.toLowerCase().startsWith('un'))) bad.push('un- thiếu từ ví dụ trong app: ' + uw.map(w => w.w).join(','));
     const poor = TC.afx.filter(x => tcAfxWords(x).length < 3).map(x => x.a); if (poor.length) bad.push('tiền tố / hậu tố ít ví dụ: ' + poor.join(', '));
     // ví dụ chọn tay phải đúng tiền tố / hậu tố (bỏ dấu gạch nối, so đầu / cuối từ)
     for (const x of TC.afx) { const fs = x.a.split(' / ').map(f => f.replace(/-/g, '')); for (const w of x.w) { const k = w.toLowerCase().replace(/-/g, ''); if (!fs.some(f => x.k === 'tiền tố' ? k.startsWith(f) : k.endsWith(f) || k.endsWith(f + 'e'))) bad.push('ví dụ sai ' + x.a + ': ' + w); } }
     if (TC.noi.reduce((s, x) => s + x.items.length, 0) < 40 || TC.so.reduce((s, x) => s + x.items.length, 0) < 30) bad.push('thiếu từ nối / nghe số');
     tryv('màn từ điển', () => dict()); for (const k of ['nghe', 'noi', 'doc', 'viet']) { DICT.kind = k; DICT.q = ''; tryv('tab ' + k, () => dictList()); if (!String(document.getElementById('dl').innerHTML).includes('<details')) bad.push('tab ' + k + ' trống'); }
-    DICT.kind = 'tu';
+    DICT.kind = 'tu'; DICT.ex = null;
     add('cefr', 'C10', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'tra theo 4 kỹ năng (Nghe, Nói, Đọc, Viết), từ nối, tiền tố / hậu tố, nghe số / âm yếu đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;

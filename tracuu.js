@@ -95,12 +95,32 @@ const tcList2 = (items, say = true) => items.map(x => `<div style="margin:8px 0;
 // v91: từ ví dụ chọn tay (x.w); từ có trong từ điển app thì bấm tra được, không có thì vẫn hiện làm ví dụ.
 // (Thử tự tìm theo phần gốc thì sai nhiều: information → in-, anticipate → anti-, cousin → co-, nên không dùng.)
 function tcAfxWords(x, n = 6) { const by = new Map(WORDS.map(w => [w.w.toLowerCase(), w])); return (x.w || []).slice(0, n).map(t => ({ w: t, app: by.get(t.toLowerCase()) || null })); }
-function tcSkill(k, q) { const how = TC_SK[k].filter(h => typeof IE_HOW !== 'undefined' && IE_HOW[h]).map(h => tcSec('📘 ' + IE_HOW[h][0].replace(/^\S+\s/, ''), IE_HOW[h][1].map(s => `<p style="margin:4px 0">• ${esc(s)}</p>`).join(''), IE_HOW[h].flat(2).join(' ')));
+// v92: chọn kỳ thi trong tab kỹ năng (🎓 CEFR dạng Cambridge · 🌏 IELTS · 💼 TOEIC); phần dùng chung (từ nối, tiền tố / hậu tố, nghe số, phát âm, lỗi) luôn hiện
+const TC_EX = [['cefr', '🎓 CEFR'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']];
+const tcEx = () => DICT.ex || (S.exSel === 'toeic' ? 'toeic' : S.ie && S.ie.set ? 'ielts' : 'cefr');
+function tcExSecs(k, ex) { const out = [], li = a => a.map(t => `<p style="margin:4px 0">• ${esc(t)}</p>`).join(''), C = TC && TC.cefr;
+  if (ex === 'cefr' && C) {
+    if (k === 'nghe') out.push(tcSec('🎓 Nghe kiểu Cambridge (A2 Key → C2)', li(C.nghe), C.nghe.join(' '), true));
+    if (k === 'noi') out.push(tcSec('🎓 Nói kiểu Cambridge', li(C.noi) + '<button data-tcgo="cau|">✍️ Cụm câu Nói</button>', C.noi.join(' '), true));
+    if (k === 'doc' && typeof U_T !== 'undefined') out.push(tcSec('🎓 Dạng đề Đọc / dùng tiếng Anh (B1 → C2)', Object.values(U_T).map(([ic, t, d]) => `<p style="margin:6px 0">${ic} <b>${esc(t)}</b><br><span class="mute">${esc(d)}</span></p>`).join(''), JSON.stringify(U_T), true));
+    if (k === 'viet') out.push(...C.viet.map(g => tcSec(`${g.t} <span class="mute">${esc(g.lv)}</span>`, `<p style="margin:4px 0"><b>Bố cục</b></p>${li(g.bo)}<p style="margin:8px 0 4px"><b>Giọng văn</b>: ${esc(g.giong)}</p>
+      <p style="margin:8px 0 2px"><b>Mở</b></p>${g.mo.map(m => `<p style="margin:2px 0">${tcSay(m)}${esc(m)}</p>`).join('')}<p style="margin:8px 0 2px"><b>Kết</b></p>${g.ket.map(m => `<p style="margin:2px 0">${tcSay(m)}${esc(m)}</p>`).join('')}`, JSON.stringify(g)))); }
+  if (ex === 'toeic') {
+    if (k === 'nghe') { if (typeof TO_HOW !== 'undefined') out.push(tcSec('💼 Mẹo Nghe TOEIC', li(TO_HOW.L[1]), TO_HOW.L[1].join(' '), true));
+      if (typeof TO_TRAP !== 'undefined') out.push(tcSec(`💼 Bẫy Part 2 (${Object.keys(TO_TRAP).length})`, Object.values(TO_TRAP).map(([t, d]) => `<p style="margin:6px 0"><b>${esc(t)}</b><br><span class="mute">${esc(d)}</span></p>`).join(''), JSON.stringify(TO_TRAP), true)); }
+    if (k === 'doc') { if (typeof TO_HOW !== 'undefined') out.push(tcSec('💼 Mẹo Đọc TOEIC', li(TO_HOW.R[1]), TO_HOW.R[1].join(' '), true));
+      if (typeof TO_T5 !== 'undefined') out.push(tcSec('💼 Part 5 theo nhóm câu', Object.entries(TO_T5).map(([t, n]) => `<p style="margin:6px 0"><b>${esc(n)}</b>${TC.t5tip && TC.t5tip[t] ? `<br><span class="mute">${esc(TC.t5tip[t])}</span>` : ''}</p>`).join(''), JSON.stringify(TO_T5) + JSON.stringify(TC.t5tip || {}), true));
+      if (typeof TO !== 'undefined' && TO && TO.voc) out.push(tcSec(`💼 Từ vựng công sở (${TO.voc.reduce((n, t) => n + t.w.length, 0)} từ)`, TO.voc.map(t => `<p style="margin:10px 0 2px"><b>${esc(t.t)}</b></p>${t.w.map(([w, vi]) => `<p style="margin:2px 0">${tcSay(w)}<b>${esc(w)}</b> <span class="mute">${esc(vi)}</span></p>`).join('')}`).join(''), JSON.stringify(TO.voc))); }
+    if (k === 'noi' || k === 'viet') out.push(tcSec('💼 TOEIC Listening & Reading không thi ' + (k === 'noi' ? 'Nói' : 'Viết'), `<p class="mute" style="margin:4px 0">Bài thi TOEIC phổ biến (Listening & Reading) chỉ thi Nghe và Đọc. Nói / Viết là bài thi riêng (TOEIC Speaking & Writing); app chưa có phần luyện bài này. Phần dùng chung bên dưới vẫn hữu ích.</p>`, '', true)); }
+  return out; }
+function tcSkill(k, q) { const ex = tcEx(); if (ex === 'toeic' && typeof toLoad === 'function' && (typeof TO === 'undefined' || !TO)) toLoad().then(() => { if (document.getElementById('dq')) dictList(); }).catch(() => {});
+  if (ex === 'cefr' && typeof uLoad === 'function' && typeof UOE !== 'undefined' && !UOE) uLoad().catch(() => {});
+  const how = ex !== 'ielts' ? [] : TC_SK[k].filter(h => typeof IE_HOW !== 'undefined' && IE_HOW[h]).map(h => tcSec('📘 ' + IE_HOW[h][0].replace(/^\S+\s/, ''), IE_HOW[h][1].map(s => `<p style="margin:4px 0">• ${esc(s)}</p>`).join(''), IE_HOW[h].flat(2).join(' ')));
   const noi = (TC && TC.noi || []), cum = (TC && TC.cum || []), out = [], go = (kind, t) => `<button data-tck="${kind}">${t}</button>`;
   if (k === 'nghe') { out.push(...(TC && TC.so || []).map(s => tcSec(s.t, tcList2(s.items), JSON.stringify(s)))); out.push(tcSec('🔢 Từ báo chuyển ý của bài giảng', tcList2(noi.filter(s => /Trình tự/.test(s.t)).flatMap(s => s.items)), JSON.stringify(noi)));
     out.push(...how); out.push(tcSec('👄 Âm dễ nghe nhầm', `<p class="mute" style="margin:4px 0">26 cặp âm người Việt hay nhầm (ship – sheep, thin – tin…).</p>${go('pa', '👄 Mở Phát âm')}`, 'phát âm âm')); }
-  if (k === 'noi') { out.push(...cum.filter(s => s.t.startsWith('🗣')).map(s => tcSec(s.t, tcList2(s.items), JSON.stringify(s))));
-    if (typeof IE !== 'undefined' && IE) { out.push(tcSec(`💬 Chủ đề hay gặp Part 1 (${IE.p1.length})`, IE.p1.map(p => `<p style="margin:8px 0 2px"><b>${esc(p.topic)}</b></p>${p.qs.map(([en, vi]) => `<p style="margin:2px 0">${tcSay(en)}${esc(en)} <span class="mute">${esc(vi)}</span></p>`).join('')}`).join(''), JSON.stringify(IE.p1)));
+  if (k === 'noi') { out.push(...(ex === 'toeic' ? [] : cum.filter(s => s.t.startsWith('🗣'))).map(s => tcSec(s.t, tcList2(s.items), JSON.stringify(s))));
+    if (ex === 'ielts' && typeof IE !== 'undefined' && IE) { out.push(tcSec(`💬 Chủ đề hay gặp Part 1 (${IE.p1.length})`, IE.p1.map(p => `<p style="margin:8px 0 2px"><b>${esc(p.topic)}</b></p>${p.qs.map(([en, vi]) => `<p style="margin:2px 0">${tcSay(en)}${esc(en)} <span class="mute">${esc(vi)}</span></p>`).join('')}`).join(''), JSON.stringify(IE.p1)));
       out.push(tcSec(`🗂 Thẻ đề Part 2 + câu Part 3 (${IE.p2.length})`, IE.p2.map(p => `<details style="margin:6px 0"><summary>${esc(p.t)}</summary><p class="mute" style="margin:2px 0">${esc(p.vi)}</p>${p.b.map(b => `<p style="margin:2px 0">• ${esc(b)}</p>`).join('')}${p.p3.map(([en]) => `<p style="margin:2px 0">❓ ${esc(en)}</p>`).join('')}${p.m ? `<details><summary>Bài mẫu (Claude viết)</summary><p class="tdtap">${esc(p.m)}</p></details>` : ''}</details>`).join(''), JSON.stringify(IE.p2))); }
     out.push(...how); out.push(tcSec('👄 Phát âm, âm yếu', `${go('pa', '👄 Bảng âm + cặp âm dễ nhầm')}${tcList2(((TC && TC.so) || []).filter(s => /Âm yếu/.test(s.t)).flatMap(s => s.items))}`, 'phát âm âm yếu nối âm')); }
   if (k === 'doc') { out.push(tcSec('🔗 Từ nối: cho biết ý tiếp theo', noi.map(s => `<p style="margin:10px 0 2px"><b>${esc(s.t)}</b></p>${tcList2(s.items)}`).join(''), JSON.stringify(noi)));
@@ -108,15 +128,17 @@ function tcSkill(k, q) { const how = TC_SK[k].filter(h => typeof IE_HOW !== 'und
     if (typeof IE !== 'undefined' && IE && IE.para) out.push(tcSec(`🔁 Cặp diễn đạt lại (${IE.para.length})`, IE.para.map(x => `<p style="margin:8px 0 2px">❓ ${esc(x.s)}<br>📄 ${esc(x.a)}</p><p class="mute" style="margin:0">${x.p.map(([a, b]) => esc(a) + ' → ' + esc(b)).join(' · ')}</p>`).join('') + '<button data-iepara>🔁 Luyện diễn đạt lại</button>', JSON.stringify(IE.para)));
     out.push(...how); }
   if (k === 'viet') { out.push(...how.map(s => ({ ...s, t: s.t.replace('📘', '🏗 Bố cục:') })));
-    out.push(...cum.filter(s => /^(✍️|📝|✉️)/.test(s.t)).map(s => tcSec(s.t, tcList2(s.items), JSON.stringify(s))));
+    out.push(...cum.filter(s => ex === 'ielts' ? /^(✍️|📝|✉️)/.test(s.t) : ex === 'cefr' && /^✉️/.test(s.t)).map(s => tcSec(s.t, tcList2(s.items), JSON.stringify(s))));
     out.push(tcSec('🔗 Từ nối theo chức năng', noi.map(s => `<p style="margin:10px 0 2px"><b>${esc(s.t)}</b></p>${tcList2(s.items)}`).join(''), JSON.stringify(noi)));
     out.push(tcSec('❗ Lỗi hay gặp, cụm từ hay đi với nhau', `${go('loi', '❗ 42 lỗi hay gặp của người Việt')}<button data-tcgo="cum|">🔗 Cụm hay dùng (collocation)</button>`, 'lỗi collocation cụm')); }
-  const shown = q ? out.filter(s => tcHas(q, s.t, s.txt)).map(s => ({ ...s, open: true })) : out;
-  return tcAi + (shown.length ? shown.map(tcDet).join('') : `<p class="mute">Không có mục khớp “${esc(q)}” trong tab này.</p>`); }
+  out.unshift(...tcExSecs(k, ex));
+  const shown = q ? out.filter(s => tcHas(q, s.t, s.txt)).map(s => ({ ...s, open: true })) : out, chips = `<div class="chips" style="margin:6px 0">${TC_EX.map(([e, n]) => `<button class="chip ${ex === e ? 'on' : ''}" data-tce="${e}">${n}</button>`).join('')}</div>`;
+  return chips + tcAi + (shown.length ? shown.map(tcDet).join('') : `<p class="mute">Không có mục khớp “${esc(q)}” trong tab này.</p>`); }
 document.addEventListener('click', e => { if (!S || !document.getElementById('dq')) return; const g = s => e.target.closest(s); let b;
   const stop = () => e.stopPropagation(), re = () => { dictList(); };
   if ((b = g('[data-tck]'))) { stop(); DICT.kind = b.dataset.tck; DICT.open = null; return re(); }
   if ((b = g('[data-tcs]'))) { stop(); DICT.sub = b.dataset.tcs; return re(); }
+  if ((b = g('[data-tce]'))) { stop(); DICT.ex = b.dataset.tce; return re(); }
   if ((b = g('[data-tcsay]'))) { stop(); return speak(b.dataset.tcsay); }
   if ((b = g('[data-tcipa]'))) { stop(); TC_IPA = TC_IPA === b.dataset.tcipa ? null : b.dataset.tcipa; DICT.kind = 'pa'; return re(); }
   if (g('[data-tcpa]')) { stop(); return paView(); }

@@ -1714,5 +1714,217 @@
     }
    ]
   }
- ]
+ ],
+ "cefr": {
+  "nghe": [
+   "Có thời gian đọc câu hỏi trước khi nghe: gạch từ khoá, đoán loại thông tin cần nghe (số, ngày, tên, nơi chốn).",
+   "Đề Cambridge thường cho nghe mỗi bài 2 lần: lần 1 chọn đáp án, lần 2 kiểm lại.",
+   "Câu trắc nghiệm có hình / có chữ: cả 3 phương án thường được nhắc tới, chỉ một cái đúng với câu hỏi; nghe cả câu, đừng chọn ngay khi nghe thấy từ.",
+   "Điền thông tin: chép đúng chính tả, nhất là tên được đánh vần và số.",
+   "Bẫy sửa lời: người nói đổi ý (\"on Monday… no, Tuesday\"); chọn thông tin cuối cùng."
+  ],
+  "noi": [
+   "Phần hỏi đáp về bản thân: trả lời 2–3 câu (ý + lý do + ví dụ), không trả lời một từ.",
+   "Tả tranh: nói ai, ở đâu, đang làm gì, đoán thêm (They might be…); không biết từ thì tả bằng cách khác (a thing you use to…).",
+   "Thảo luận theo cặp: hỏi ý bạn (What do you think?), đồng ý / không đồng ý có lý do, và cùng đi tới quyết định khi đề yêu cầu.",
+   "Giám khảo chấm ngữ pháp, từ vựng, sắp xếp ý, phát âm và khả năng giao tiếp: nói tự nhiên, sửa lỗi nếu nhận ra, không học thuộc bài."
+  ],
+  "viet": [
+   {
+    "t": "✉️ Email / thư thân mật",
+    "lv": "A2–B2",
+    "bo": [
+     "Chào: Hi / Dear + tên",
+     "Cảm ơn / hỏi thăm, nói lý do viết",
+     "Trả lời đủ mọi ý đề hỏi (mỗi ý một đoạn ngắn)",
+     "Kết: lời chúc, hẹn gặp",
+     "Ký: Best wishes / Love / See you soon"
+    ],
+    "giong": "Thân mật: được dùng viết tắt (I'm, can't), câu ngắn, câu hỏi lại bạn.",
+    "mo": [
+     "Thanks for your email!",
+     "It was great to hear from you."
+    ],
+    "ket": [
+     "Write back soon!",
+     "Can't wait to see you."
+    ]
+   },
+   {
+    "t": "📧 Email / thư trang trọng",
+    "lv": "B1–C1",
+    "bo": [
+     "Dear Sir or Madam / Dear Mr Smith,",
+     "Lý do viết (I am writing to…)",
+     "Các ý chính, mỗi ý một đoạn",
+     "Đề nghị / yêu cầu cụ thể",
+     "Kết: Yours faithfully (không biết tên) / Yours sincerely (biết tên)"
+    ],
+    "giong": "Trang trọng: không viết tắt, không tiếng lóng, câu lịch sự (I would be grateful if…).",
+    "mo": [
+     "I am writing to enquire about…",
+     "I am writing to complain about…"
+    ],
+    "ket": [
+     "I look forward to hearing from you.",
+     "Thank you for your attention."
+    ]
+   },
+   {
+    "t": "📰 Bài báo (article)",
+    "lv": "B1–C1",
+    "bo": [
+     "Tiêu đề gây chú ý",
+     "Mở bài lôi cuốn người đọc (câu hỏi, chuyện ngắn)",
+     "2–3 đoạn thân, mỗi đoạn một ý, có ví dụ",
+     "Kết: ý kiến riêng / câu hỏi để người đọc nghĩ"
+    ],
+    "giong": "Thân thiện, nói chuyện với người đọc (you); câu đa dạng, có cảm xúc.",
+    "mo": [
+     "Have you ever wondered…?",
+     "Imagine a world where…"
+    ],
+    "ket": [
+     "So, why not give it a try?",
+     "What do you think?"
+    ]
+   },
+   {
+    "t": "⭐ Bài nhận xét (review)",
+    "lv": "B1–C1",
+    "bo": [
+     "Giới thiệu thứ được nhận xét (phim, sách, quán…)",
+     "Mô tả ngắn (không kể hết)",
+     "Điểm hay, điểm chưa hay, có ví dụ",
+     "Khuyên có nên xem / đi / mua không, cho ai"
+    ],
+    "giong": "Nửa trang trọng, có ý kiến rõ, tính từ đánh giá phong phú (gripping, disappointing).",
+    "mo": [
+     "I recently watched…",
+     "If you are looking for…, …"
+    ],
+    "ket": [
+     "I would highly recommend it to…",
+     "Overall, it is well worth a visit."
+    ]
+   },
+   {
+    "t": "📋 Báo cáo (report)",
+    "lv": "B2–C1",
+    "bo": [
+     "Tiêu đề + mục đích (The aim of this report is to…)",
+     "Các mục có tiêu đề nhỏ",
+     "Nêu thông tin, số liệu, nhận định",
+     "Kết luận + đề xuất (Recommendations)"
+    ],
+    "giong": "Trang trọng, khách quan, câu bị động, không kể chuyện.",
+    "mo": [
+     "The aim of this report is to…",
+     "This report examines…"
+    ],
+    "ket": [
+     "In conclusion, …",
+     "It is recommended that…"
+    ]
+   },
+   {
+    "t": "💡 Đề xuất (proposal)",
+    "lv": "B2–C1",
+    "bo": [
+     "Tiêu đề + mục đích đề xuất",
+     "Tình hình hiện tại",
+     "Các đề xuất cụ thể (mỗi đề xuất một mục)",
+     "Lợi ích mong đợi, kết luận"
+    ],
+    "giong": "Trang trọng, thuyết phục, hướng tới tương lai (I would suggest… would allow…).",
+    "mo": [
+     "The purpose of this proposal is to…"
+    ],
+    "ket": [
+     "I strongly believe that these changes would…"
+    ]
+   },
+   {
+    "t": "📝 Bài luận (essay)",
+    "lv": "B1–C2",
+    "bo": [
+     "Mở bài: nêu vấn đề, hướng trả lời",
+     "2 đoạn thân: mỗi đoạn một ý + lý do + ví dụ (B2: thêm ý thứ ba của riêng bạn)",
+     "Đoạn phản biện nếu cần",
+     "Kết luận: ý kiến rõ ràng"
+    ],
+    "giong": "Trang trọng, khách quan, từ nối đa dạng; không dùng viết tắt.",
+    "mo": [
+     "Nowadays, more and more people…",
+     "It is often said that…"
+    ],
+    "ket": [
+     "In conclusion, …",
+     "On balance, I believe that…"
+    ]
+   },
+   {
+    "t": "📖 Truyện ngắn (story)",
+    "lv": "A2–B2",
+    "bo": [
+     "Mở đầu: ai, ở đâu, khi nào (thường dùng câu đề cho sẵn)",
+     "Diễn biến: sự việc theo thứ tự thời gian",
+     "Cao trào: điều bất ngờ",
+     "Kết thúc: cảm xúc / bài học"
+    ],
+    "giong": "Kể bằng quá khứ, có từ nối thời gian (suddenly, later, in the end), tính từ cảm xúc.",
+    "mo": [
+     "It was a cold, dark evening when…"
+    ],
+    "ket": [
+     "It was a day I would never forget."
+    ]
+   },
+   {
+    "t": "📮 Bưu thiếp, tin nhắn, ghi chú",
+    "lv": "Pre-A1–A2",
+    "bo": [
+     "Chào ngắn",
+     "Trả lời đủ 2–3 ý đề yêu cầu",
+     "Kết ngắn + tên"
+    ],
+    "giong": "Rất ngắn (25–35 từ ở A2), câu đơn, thân mật.",
+    "mo": [
+     "Hi Tom,",
+     "Dear Grandma,"
+    ],
+    "ket": [
+     "See you soon!",
+     "Love, Anna"
+    ]
+   },
+   {
+    "t": "✍️ Tóm tắt (C2)",
+    "lv": "C2",
+    "bo": [
+     "Tóm ý chính của cả hai đoạn bằng lời của mình",
+     "Đánh giá các ý (đồng ý / không, vì sao)",
+     "Thêm ý riêng của bạn",
+     "240–280 từ"
+    ],
+    "giong": "Trang trọng, diễn đạt lại (không chép câu gốc), so sánh hai đoạn.",
+    "mo": [
+     "Both texts discuss…",
+     "The first text argues that…, whereas the second…"
+    ],
+    "ket": [
+     "In my view, the second writer's argument is more convincing because…"
+    ]
+   }
+  ]
+ },
+ "t5tip": {
+  "form": "Xem vị trí chỗ trống: trước danh từ → tính từ; sau động từ / cuối câu → trạng từ; sau mạo từ / giới từ → danh từ.",
+  "verb": "Tìm chủ ngữ (số ít / nhiều), dấu hiệu thời gian (since, last year, by next week) và nghĩa chủ động / bị động.",
+  "prep": "Nhớ cụm cố định: in charge of, responsible for, according to, on behalf of; giới từ thời gian: on Monday, in March, at 5 p.m., by Friday.",
+  "conj": "Xem quan hệ hai vế: đối lập (although, despite), nguyên nhân (because, due to), điều kiện (unless, provided that); despite + danh từ, although + mệnh đề.",
+  "pron": "Đại từ thay cho ai / cái gì; who cho người, which cho vật, whose chỉ sở hữu; tự làm: themselves.",
+  "struct": "So sánh: than đi với -er / more; the most cho nhất; đảo ngữ: Not only did…, Rarely have…",
+  "voc": "Bốn từ cùng loại, khác nghĩa: đọc cả câu, xem từ nào đi với từ bên cạnh (collocation: meet a deadline, place an order)."
+ }
 }
