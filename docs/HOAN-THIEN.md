@@ -298,3 +298,7 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Sửa: dùng kết quả xếp cấp; nhiễu câu xếp cấp cùng bài / cùng cấp / cùng loại từ; bản đồ band / điểm chỉ nhận chỗ yếu đủ chắc; nhập đề thật phải chọn dạng; Đọc 13–14 câu / bài; 2 câu NOT GIVEN; tìm tiếng Việt đủ dấu; máy chấm Viết nhận ví dụ cụ thể; Phát âm tham khảo (đổi luật đo, được duyệt).
 - Chưa sửa: kho từ thiếu một số từ học thuật hay gặp (vd. sedentary): chờ dữ liệu `td_miss` từ người học thật thay vì đoán.
 - Kiểm bằng người thật: nhờ 1 giáo viên dùng 3 ngày, so với nhật ký; đo tỉ lệ người xếp cấp ≥ B1 có bấm 🚀 thi vượt và qua được bao nhiêu phần.
+
+## Cách học 7 phần, đợt A: đề thi không lặp (v100, 31/10/2026)
+- Lỗi: B1+ mỗi cấp chỉ 4 bài thi Đọc / Nghe, đề cần 6 bài nên lần nào cũng gặp lại; Viết / Nói thi bằng đề đã luyện.
+- Sửa: chọn bài thi ít dùng nhất; thêm 20 bài Đọc, 20 bài Nghe, 24 đề Viết, 24 đề Nói dành cho thi. Đo (C17): Đọc, Viết 2 lần thi liên tiếp không lặp; Nghe 3 lần. Bài Đọc mới 250–420 từ: dài hơn bài cũ ~40–50% nhưng vẫn ngắn hơn đề thật B2+ (550–700 từ).

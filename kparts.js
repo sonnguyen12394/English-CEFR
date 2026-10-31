@@ -69,7 +69,8 @@ KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=4', lvs: ['pre
   q: (x, k) => kRead(KIT.doc, x, k, false), tryQs: x => [...kRead(KIT.doc, x, 'y'), ...kRead(KIT.doc, x, 'ct')],
   menu: [['y', '💡 Luyện ý chính (4 bài)', 'Đọc bài, chọn đúng chủ đề', ['y'], 4], ['ct', '🔍 Luyện chi tiết (2 bài)', 'Đọc bài, trả lời câu hỏi', ['ct'], 2]],
   ask: (x, m) => kRead(KIT.doc, x, m, false),
-  exam: lv => shuf(KIT.doc.items.filter(x => x.lv === lv && x.test)).slice(0, 6).flatMap(x => [...kRead(KIT.doc, x, 'y', false), ...kRead(KIT.doc, x, 'ct', false)]) };
+  // v100: bài thi ít dùng nhất trước; B1+ (bài dài 6 câu) lấy tới đủ 15 câu, cấp dưới 6 bài như cũ
+  exam: lv => kTake(kExamPick(KIT.doc, KIT.doc.items.filter(x => x.lv === lv && x.test)), x => [...kRead(KIT.doc, x, 'y', false), ...kRead(KIT.doc, x, 'ct', false)], lvIdx(lv) >= lvIdx('b1') ? 15 : 999, 6) };
 KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bài nghe', pass: 0.75,
   intro: 'Bài kể và hội thoại 2 giọng (số, giờ, giá, đánh vần như đề Cambridge); Pre-A1 câu ngắn kiểu Starters; B1 → C2 phỏng vấn, bài giảng, tranh luận. Khi luyện / thi mỗi bài nghe tối đa 2 lần.',
   dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Nghe ra thông tin'], ['chep', '✍️ Chép lại', 'Nghe một câu, chép đúng ≥ 80% từ']],
@@ -78,7 +79,7 @@ KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=4', lvs: ['pr
   tryQs: x => [...kRead(KIT.nghe, x, 'y', true), ...kRead(KIT.nghe, x, 'ct', true).slice(0, 1), ...kRead(KIT.nghe, x, 'chep', true)],
   menu: [['y', '💡 Luyện ý chính (4 bài)', 'Nghe bài, chọn đúng chủ đề', ['y'], 4], ['ct', '🔍 Luyện chi tiết (2 bài)', 'Nghe bài, trả lời câu hỏi', ['ct'], 2], ['chep', '✍️ Luyện chép lại (5 bài)', 'Nghe một câu, chép lại', ['chep'], 5]],
   ask: (x, m) => kRead(KIT.nghe, x, m, true),
-  exam: lv => shuf(KIT.nghe.items.filter(x => x.lv === lv && x.test)).slice(0, 6).flatMap(x => ['y', 'ct', 'chep'].flatMap(k => kRead(KIT.nghe, x, k, true))) };
+  exam: lv => kTake(kExamPick(KIT.nghe, KIT.nghe.items.filter(x => x.lv === lv && x.test)), x => ['y', 'ct', 'chep'].flatMap(k => kRead(KIT.nghe, x, k, true)), lvIdx(lv) >= lvIdx('b1') ? 15 : 999, 6) };
 
 // ---------- 🗣 Nói ----------
 const K_MINW = { a1: 15, a2: 25, b1: 50, b2: 80, c1: 110, c2: 130 }, K_SECS = { a1: '30 giây', a2: '30 giây', b1: '1 phút', b2: '1–2 phút', c1: '2 phút', c2: '2 phút' };
@@ -117,8 +118,10 @@ KIT.noi = { id: 'noi', ic: '🗣', t: 'Nói', file: 'noi.json?v=3', lvs: ['a1', 
   menu: [['viec', '✅ Luyện nói đủ ý (1 đề)', 'Nói theo đề (30 giây – 2 phút tuỳ cấp)', ['viec'], 1], ['ro', '🗣 Luyện nói rõ (4 câu)', 'Đọc to câu trong bài mẫu', ['ro'], 4],
     ['gt', '💬 Luyện đóng vai (1 tình huống)', 'Nói phần của bạn trong hội thoại', ['gt'], 1]],
   ask: (x, m) => m === 'gt' ? kRp(x, x.learn[Math.floor(Math.random() * x.learn.length)]) : m === 'viec' ? [kTalk(x)] : [kAloud(x, kModelSent(x))],
-  exam: lv => { const P = KIT.noi, L = shuf(kItems(P, lv).filter(x => x.type !== 'rp')), R = shuf(kItems(P, lv).filter(x => x.type === 'rp')).slice(0, 2), ss = shuf(P.raw.test[lv]).slice(0, 4);
-    return [...L.slice(0, 4).map(kTalk), ...ss.map((s, i) => kAloud(L[i % L.length], s)), ...R.flatMap(x => kRp(x, x.tests[Math.floor(Math.random() * x.tests.length)]))]; } };
+  // v100: đề nói dành cho thi (test) trước, ít dùng nhất trước; thiếu thì lấy đề đã luyện
+  exam: lv => { const P = KIT.noi, T = P.items.filter(x => x.lv === lv && x.test && x.type !== 'rp'), L = [...kExamPick(P, T), ...shuf(kItems(P, lv).filter(x => x.type !== 'rp'))], R = shuf(kItems(P, lv).filter(x => x.type === 'rp')).slice(0, 2), ss = shuf(P.raw.test[lv]).slice(0, 4);
+    // v100: B1+ đề nói dài 1–2 phút: 2 đề mỗi lần thi (6 đề thi mỗi cấp → 3 lần thi không lặp); cấp dưới 4 đề như cũ
+    return [...L.slice(0, lvIdx(lv) >= lvIdx('b1') ? 2 : 4).map(kTalk), ...ss.map((s, i) => kAloud(L[i % L.length], s)), ...R.flatMap(x => kRp(x, x.tests[Math.floor(Math.random() * x.tests.length)]))]; } };
 
 // ---------- ✍️ Viết ----------
 const K_LETTER = /tin nhắn|thư|email|thiệp|bưu thiếp|ghi chú|hồ sơ/;
@@ -145,7 +148,7 @@ KIT.viet = { id: 'viet', ic: '✍️', t: 'Viết', file: 'viet.json?v=3', lvs: 
   tryQs: x => [kWrite(x)],
   menu: [['y', '✍️ Viết 1 đề', 'Chấm cả ✅ Đủ ý và 📝 Đúng dạng bài', ['y', 'dang'], 1]],
   ask: x => [kWrite(x)],
-  exam: lv => shuf(kItems(KIT.viet, lv)).slice(0, 2).map(kWrite) };
+  exam: lv => { const T = KIT.viet.items.filter(x => x.lv === lv && x.test); return [...kExamPick(KIT.viet, T), ...shuf(kItems(KIT.viet, lv))].slice(0, 2).map(kWrite); } };
 
 // ---------- góp ý #12 (25/10/2026): mỗi mặt nói rõ đo gì, học ở đâu trong bài (kTeach / kDimView, kit.js); bài học dạy đủ trước khi Nhớ luyện lại ----------
 KIT.np.info = {

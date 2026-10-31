@@ -536,6 +536,21 @@ const R = await run(`(async () => {
     // 👄 Phát âm tham khảo
     if (!ovRef('pa') || ovReq('pre').some(([id]) => id === 'pa') || ovReq('pre').length !== 4) bad.push('Phát âm chưa thành tham khảo');
     add('cefr', 'C16', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'xếp cấp dùng được + nhiễu khó đoán (' + nd + ' từ), Đọc 13–14 câu / đề thử 40, đề thật phải chọn dạng, tìm đủ dấu, nhận ví dụ, Phát âm tham khảo đều đúng'); }
+  // v100 đề thi không lặp bài: bài thi ít dùng nhất trước (id ghi vào lần thi); B1+ có thêm bài thi dài (Đọc 6 câu, 4 phương án; Nghe có câu suy luận), đề Viết / Nói dành cho thi
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank();
+    const BL = ['b1', 'b2', 'c1', 'c2'];
+    for (const lv of BL) { const nd = KIT.doc.items.filter(x => x.lv === lv && x.test), nn = KIT.nghe.items.filter(x => x.lv === lv && x.test), nv = KIT.viet.items.filter(x => x.lv === lv && x.test), ns = KIT.noi.items.filter(x => x.lv === lv && x.test);
+      if (nd.length < 9 || nn.length < 9 || nv.length < 6 || ns.length < 6) bad.push(lv + ' thiếu bài thi: ' + [nd.length, nn.length, nv.length, ns.length].join('/'));
+      for (const x of nd.filter(x => x.qs.length >= 6)) if (x.qs.some(q => q.w.length !== 3 || q.w.includes(q.a))) bad.push('câu đọc 4 phương án hỏng ' + x.id); }
+    // thi liên tiếp không gặp lại bài: Đọc / Viết 2 lần, Nghe 3 lần
+    const ids = qs => new Set(qs.map(q => q.x && q.x.id).filter(Boolean)), take = (P, lv) => { const q = P.exam(lv), s = ids(q); kSt(P.id).runs.push({ lv, at: Date.now() + kSt(P.id).runs.length * 1000, ok: 0, n: q.length, pass: false, ids: [...s] }); return [s, q.length]; };
+    for (const [id, k] of [['doc', 2], ['nghe', 3], ['viet', 2]]) for (const lv of BL) { const P = KIT[id]; kSt(id).runs = []; const sets = []; let nq = 0;
+      for (let i = 0; i < k; i++) { const [s, n] = take(P, lv); sets.push(s); nq = n; }
+      for (let i = 1; i < k; i++) if ([...sets[i]].some(x => sets.slice(0, i).some(p => p.has(x)))) bad.push(id + ' ' + lv + ': lần thi ' + (i + 1) + ' gặp lại bài cũ');
+      if (id !== 'viet' && nq < 15) bad.push(id + ' ' + lv + ': đề chỉ ' + nq + ' câu'); }
+    for (const lv of BL) { KIT.noi.raw = KIT.noi.raw || {}; const q = KIT.noi.exam(lv), talks = q.filter(x => x.k === 'viec'); if (talks.length !== 2 || talks.some(t => !t.x.test)) bad.push('Nói ' + lv + ': đề thi không phải 2 đề dành cho thi'); }
+    for (const id of ['doc', 'nghe', 'viet', 'noi']) kSt(id).runs = [];
+    add('cefr', 'C17', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đề thi B1+ không lặp bài (Đọc, Viết 2 lần · Nghe 3 lần liên tiếp), đủ bài thi mỗi cấp, Nói 2 đề dành cho thi'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

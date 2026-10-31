@@ -112,14 +112,19 @@ function kGrade(P, res) { const g = new Map(), now = Date.now();
   save(); return out; }
 
 // ---------- 🚪 Thi chuyển cấp ----------
+// v100 (người sáng lập "làm hết đi" sau khi bàn cách học 7 phần): bài thi dùng ít / lâu nhất trước (id bài ghi vào lần thi), thi lại không gặp lại đúng bài cũ;
+// kTake lấy bài theo thứ tự đó tới khi đủ minQ câu hoặc maxN bài
+const kUsed = P => { const m = {}; for (const r of kSt(P.id).runs) for (const id of r.ids || []) m[id] = Math.max(m[id] || 0, r.at); return m; };
+const kExamPick = (P, xs) => { const u = kUsed(P); return shuf(xs).sort((a, b) => (u[a.id] || 0) - (u[b.id] || 0)); };
+function kTake(xs, mk, minQ, maxN) { const out = []; let n = 0; for (const x of xs) { if (out.length >= minQ || n >= maxN) break; out.push(...mk(x)); n++; } return out; }
 function kExam(P, lv) { if (P.needAsr && !SREC) return toast('Phần này cần máy chép lời: mở trang bằng Safari.');
   // thi dồn cấp trước: đề của cấp mới + ~30% câu lấy từ đề các cấp trước (chia đều mỗi cấp)
   const New = P.exam(lv), prev = P.lvs.slice(0, P.lvs.indexOf(lv)), nOld = Math.round(New.length * 0.43);
-  const Old = prev.flatMap(l => shuf(P.exam(l)).slice(0, Math.ceil(nOld / prev.length))).slice(0, nOld), qs = [...New, ...Old];
+  const Old = prev.flatMap(l => shuf(P.exam(l)).slice(0, Math.ceil(nOld / prev.length))).slice(0, nOld), qs = [...New, ...Old], ids = [...new Set(qs.map(q => q.x && q.x.id).filter(Boolean))];
   if (!confirm(`Thi chuyển cấp ${P.t} ${LVN[lv]}: ${qs.length} câu${Old.length ? ` (có ${Old.length} câu của cấp trước)` : ''}, toàn bài / câu chưa gặp khi học. Không xem đáp án giữa chừng. Bắt đầu?`)) return;
   kQuiz({ P, title: '🚪 Thi ' + P.t, qs, quiet: true, done: res => {
     const ok = res.filter(r => r.ok).length, n = res.length, need = Math.ceil(n * P.pass), pass = ok >= need;
-    kSt(P.id).runs.push({ lv, at: Date.now(), ok, n, pass }); save();
+    kSt(P.id).runs.push({ lv, at: Date.now(), ok, n, pass, ids }); save();
     const by = {}; for (const r of res) { const o = by[r.k] = by[r.k] || [0, 0]; o[1]++; if (r.ok) o[0]++; }
     $app.innerHTML = `<div class="box"><b>${pass ? `✅ Qua Thi chuyển cấp ${P.t} ${LVN[lv]}` : '❌ Chưa qua'}</b><p>Đúng ${ok}/${n} (cần ${need}). ${P.dims.filter(([k]) => by[k]).map(([k, l]) => `${l} ${by[k][0]}/${by[k][1]}`).join(' · ')}</p>
       <p class="mute">${pass ? (lv !== P.lvs[P.lvs.length - 1] ? `Đã mở ${P.t} ${LVN[P.lvs[P.lvs.indexOf(lv) + 1]]}.` : '') : `Luyện tiếp; ${K_RETRY} ngày sau thi lại.`} Máy chấm, chưa người thật kiểm.</p></div>

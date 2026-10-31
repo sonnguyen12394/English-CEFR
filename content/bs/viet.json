@@ -1,5 +1,5 @@
 {
-"_note": "✍️ Viết B1 → C2 (27/10/2026, Claude soạn kiểu Cambridge Writing, chưa người thật kiểm). Mỗi cấp 4 đề.",
+"_note": "✍️ Viết B1 → C2 (27/10/2026, Claude soạn kiểu Cambridge Writing, chưa người thật kiểm). Mỗi cấp 4 đề. v100: +6 đề thi mỗi cấp (w5–w10, test: 1), thi chọn đề ít dùng nhất.",
 "items": [
 {
 "id": "b1-w1",
@@ -1389,6 +1389,1854 @@
 "instead",
 "yours faithfully",
 "yours sincerely"
+]
+]
+]
+},
+{
+"id": "b1-w5",
+"lv": "b1",
+"test": 1,
+"en": "Email to a New Classmate",
+"vi": "Email cho bạn cùng lớp mới",
+"genre": "email thân mật",
+"min": 90,
+"max": 120,
+"p": "A new student from Australia is joining your English class next week. Write an email to him. Welcome him, tell him about the class and the teacher, and suggest something you could do together after school.",
+"pv": "Một bạn mới từ Úc sẽ vào lớp tiếng Anh tuần sau. Viết email chào đón, kể về lớp và cô giáo, rủ bạn làm gì đó sau giờ học.",
+"c": [
+"Lời chào, chào đón",
+"Kể về lớp học và giáo viên",
+"Gợi ý một hoạt động sau giờ học",
+"Lời kết"
+],
+"u": [
+[
+"Welcome to",
+"Chào mừng đến"
+],
+[
+"Our teacher is",
+"Cô / thầy của chúng mình là"
+],
+[
+"Why don't we",
+"Hay là chúng mình"
+],
+[
+"See you on",
+"Hẹn gặp vào"
+]
+],
+"m": [
+"Hi Jack,",
+"Welcome to our class! I'm Linh, and our teacher asked me to write to you.",
+"There are twenty-two students in the class and most of us are fifteen. Our teacher, Ms Hoa, is very friendly, but she gives us a lot of homework, so be ready! We usually have English on Monday, Wednesday and Friday mornings.",
+"Why don't we go for bubble tea after school on Monday? There's a great place near the school gate, and I can show you around the area. You can meet some of my friends too.",
+"See you on Monday!",
+"Linh"
+],
+"k": [
+[
+[
+"welcome",
+"hi ",
+"hello",
+"dear"
+]
+],
+[
+[
+"teacher",
+"class",
+"students",
+"lesson"
+]
+],
+[
+[
+"why don't we",
+"let's",
+"would you like",
+"we could",
+"how about",
+"after school"
+]
+],
+[
+[
+"see you",
+"bye",
+"best wishes",
+"take care",
+"write soon"
+]
+]
+]
+},
+{
+"id": "b1-w6",
+"lv": "b1",
+"test": 1,
+"en": "Story: The Wrong Bus",
+"vi": "Truyện: Lên nhầm xe buýt",
+"genre": "truyện ngắn",
+"min": 90,
+"max": 120,
+"p": "Write a story that begins with this sentence: “As soon as the bus doors closed, I realised I had made a mistake.”",
+"pv": "Viết một câu chuyện bắt đầu bằng câu: “Ngay khi cửa xe buýt đóng lại, tôi nhận ra mình đã nhầm.”",
+"c": [
+"Mở đầu bằng câu đã cho",
+"Chuyện gì đã xảy ra (quá khứ)",
+"Nhân vật cảm thấy thế nào",
+"Kết thúc câu chuyện"
+],
+"u": [
+[
+"As soon as",
+"Ngay khi"
+],
+[
+"I didn't know what to do",
+"Tôi không biết phải làm gì"
+],
+[
+"Luckily",
+"May mắn thay"
+],
+[
+"In the end",
+"Cuối cùng"
+]
+],
+"m": "As soon as the bus doors closed, I realised I had made a mistake. The bus was going north, but my job interview was in the south of the city. I looked at my watch. It was already half past eight, and the interview started at nine. I felt sick. I didn't know what to do, so I asked the woman next to me for help. Luckily, she worked near the company and told me to get off at the next stop and take a taxi with her. We shared the cost and chatted all the way. In the end, I arrived just in time, and I got the job. Now she is my colleague and one of my best friends.",
+"k": [
+[
+[
+"as soon as the bus doors closed",
+"made a mistake"
+]
+],
+[
+[
+"was",
+"were",
+"went",
+"looked",
+"realised",
+"realized",
+"asked",
+"got"
+]
+],
+[
+[
+"felt",
+"worried",
+"nervous",
+"scared",
+"sick",
+"panic",
+"relieved",
+"happy"
+]
+],
+[
+[
+"in the end",
+"finally",
+"luckily",
+"at last",
+"now"
+]
+]
+]
+},
+{
+"id": "b1-w7",
+"lv": "b1",
+"test": 1,
+"en": "Article: My Favourite Place",
+"vi": "Bài báo: Nơi tôi yêu thích",
+"genre": "bài báo",
+"min": 90,
+"max": 120,
+"p": "You see this announcement in an English-language magazine for teenagers: “Articles wanted! Tell us about your favourite place in your town. What is it like? Why do you like it? Would you recommend it to visitors?” Write your article.",
+"pv": "Tạp chí tuổi teen mời viết bài: nơi bạn thích nhất ở thành phố bạn: nơi đó thế nào, vì sao thích, có nên giới thiệu cho khách không.",
+"c": [
+"Tên nơi đó và miêu tả",
+"Lý do bạn thích",
+"Có nên giới thiệu cho khách không",
+"Câu mở hoặc tiêu đề thu hút"
+],
+"u": [
+[
+"My favourite place is",
+"Nơi tôi thích nhất là"
+],
+[
+"What I love most is",
+"Điều tôi thích nhất là"
+],
+[
+"If you visit",
+"Nếu bạn ghé thăm"
+],
+[
+"I would definitely recommend",
+"Tôi chắc chắn sẽ giới thiệu"
+]
+],
+"m": "A Quiet Corner in a Busy City\nMy favourite place in Hanoi is a small bookshop café in the Old Quarter. From the outside, it looks like an ordinary shop, but upstairs there is a peaceful room full of old books, comfortable chairs and plants.\nWhat I love most is the calm. Outside, the streets are noisy and crowded, but inside you can read for hours with a cup of coconut coffee and nobody disturbs you. The owner is very kind and often recommends books.\nIf you visit Hanoi, I would definitely recommend it, especially on a hot afternoon. It is the perfect place to rest after a long day of sightseeing.",
+"k": [
+[
+[
+"my favourite place",
+"my favorite place",
+"is a",
+"café",
+"cafe",
+"park",
+"lake",
+"market",
+"library"
+]
+],
+[
+[
+"because",
+"love",
+"like",
+"what i",
+"the best thing"
+]
+],
+[
+[
+"recommend",
+"visitors",
+"if you visit",
+"tourists",
+"should go"
+]
+],
+[
+[
+"?",
+"!",
+"corner",
+"best",
+"secret",
+"quiet",
+"favourite",
+"favorite"
+]
+]
+]
+},
+{
+"id": "b1-w8",
+"lv": "b1",
+"test": 1,
+"en": "Email Asking for Information",
+"vi": "Email hỏi thông tin",
+"genre": "email trang trọng vừa",
+"min": 90,
+"max": 120,
+"p": "You have seen an advertisement for a summer English course in Singapore. Write an email to the school. Say why you are interested, ask about the accommodation and the price, and ask if there are activities at weekends.",
+"pv": "Bạn thấy quảng cáo khoá tiếng Anh mùa hè ở Singapore. Viết email cho trường: nói lý do quan tâm, hỏi về chỗ ở, giá, và hoạt động cuối tuần.",
+"c": [
+"Lời chào và lý do viết",
+"Hỏi về chỗ ở",
+"Hỏi về giá",
+"Hỏi về hoạt động cuối tuần và lời kết"
+],
+"u": [
+[
+"I am writing to ask about",
+"Tôi viết thư để hỏi về"
+],
+[
+"Could you tell me",
+"Xin cho tôi biết"
+],
+[
+"I would also like to know",
+"Tôi cũng muốn biết"
+],
+[
+"I look forward to hearing from you",
+"Mong nhận được hồi âm"
+]
+],
+"m": [
+"Dear Sir or Madam,",
+"I am writing to ask about the summer English course I saw advertised on your website. I am a university student in Vietnam, and I would like to improve my speaking before I study abroad next year.",
+"Could you tell me what kind of accommodation you offer? I would prefer to stay with a local family if possible. I would also like to know the total price of the course, including accommodation and meals.",
+"Finally, are there any organised activities at weekends, such as trips or sports?",
+"I look forward to hearing from you.",
+"Yours faithfully,",
+"Tran Minh Anh"
+],
+"k": [
+[
+[
+"i am writing",
+"i'm writing",
+"interested",
+"dear"
+]
+],
+[
+[
+"accommodation",
+"stay",
+"host family",
+"live",
+"room"
+]
+],
+[
+[
+"price",
+"cost",
+"how much",
+"fee"
+]
+],
+[
+[
+"weekend",
+"activities",
+"trips"
+],
+[
+"look forward",
+"yours",
+"regards",
+"thank you"
+]
+]
+]
+},
+{
+"id": "b1-w9",
+"lv": "b1",
+"test": 1,
+"en": "Article: Can Teenagers Live without Phones?",
+"vi": "Bài báo: Tuổi teen sống thiếu điện thoại được không?",
+"genre": "bài báo",
+"min": 90,
+"max": 120,
+"p": "Your school magazine is asking students: “Could you live without your phone for a week? What would be difficult? What might be good about it?” Write an article answering these questions.",
+"pv": "Báo trường hỏi: bạn có sống thiếu điện thoại một tuần được không, điều gì khó, điều gì có thể tốt.",
+"c": [
+"Trả lời: có làm được không",
+"Điều gì sẽ khó",
+"Điều gì có thể tốt",
+"Kết luận"
+],
+"u": [
+[
+"To be honest",
+"Thật lòng mà nói"
+],
+[
+"The hardest thing would be",
+"Khó nhất sẽ là"
+],
+[
+"On the other hand",
+"Mặt khác"
+],
+[
+"All in all",
+"Nhìn chung"
+]
+],
+"m": "To be honest, I'm not sure I could live without my phone for a whole week, but I'd like to try.\nThe hardest thing would be keeping in touch with my friends. We use group chats to plan everything, from homework to weekend trips, so I would probably miss a lot. I also use my phone for music and maps, so getting around would be more difficult.\nOn the other hand, there could be some real benefits. I would probably sleep better, because I often look at my screen late at night. I might also read more and spend more time talking to my family.\nAll in all, a week without a phone would be hard, but it could be a useful experiment.",
+"k": [
+[
+[
+"could",
+"couldn't",
+"i think",
+"to be honest",
+"i'm not sure",
+"yes",
+"no"
+]
+],
+[
+[
+"difficult",
+"hard",
+"miss",
+"problem"
+]
+],
+[
+[
+"good",
+"benefit",
+"better",
+"positive",
+"on the other hand"
+]
+],
+[
+[
+"all in all",
+"in conclusion",
+"overall",
+"to sum up",
+"so"
+]
+]
+]
+},
+{
+"id": "b1-w10",
+"lv": "b1",
+"test": 1,
+"en": "Email Apologising to a Friend",
+"vi": "Email xin lỗi bạn",
+"genre": "email thân mật",
+"min": 90,
+"max": 120,
+"p": "You forgot your English friend's birthday party last Saturday. Write an email to her. Apologise, explain what happened, and suggest a way to celebrate together soon.",
+"pv": "Bạn quên tiệc sinh nhật của bạn người Anh hôm thứ Bảy. Viết email xin lỗi, giải thích chuyện gì đã xảy ra và đề nghị cách cùng ăn mừng sớm.",
+"c": [
+"Lời xin lỗi",
+"Giải thích chuyện đã xảy ra",
+"Đề nghị cách ăn mừng",
+"Lời kết"
+],
+"u": [
+[
+"I'm so sorry",
+"Mình rất xin lỗi"
+],
+[
+"What happened was",
+"Chuyện là"
+],
+[
+"Let me make it up to you",
+"Để mình chuộc lỗi"
+],
+[
+"Hope you can forgive me",
+"Mong bạn bỏ qua cho mình"
+]
+],
+"m": [
+"Hi Sophie,",
+"I'm so sorry I missed your birthday party on Saturday. I feel terrible about it.",
+"What happened was that my grandmother was ill, so my family drove to her village on Friday night. There was no signal there, and with everything going on I completely forgot to message you. That's no excuse, though.",
+"Let me make it up to you. Can I take you out for dinner next weekend? There's a new Korean restaurant near your house, and it's my treat. I've also got a small present for you.",
+"Hope you can forgive me.",
+"Love,",
+"Mai"
+],
+"k": [
+[
+[
+"sorry",
+"apologise",
+"apologize"
+]
+],
+[
+[
+"what happened",
+"because",
+"was ill",
+"had to",
+"forgot"
+]
+],
+[
+[
+"make it up",
+"dinner",
+"take you",
+"let's",
+"how about",
+"would you like",
+"celebrate"
+]
+],
+[
+[
+"forgive",
+"love",
+"see you",
+"bye",
+"best wishes"
+]
+]
+]
+},
+{
+"id": "b2-w5",
+"lv": "b2",
+"test": 1,
+"en": "Essay: Should Schools Ban Mobile Phones?",
+"vi": "Bài luận: Trường có nên cấm điện thoại?",
+"genre": "bài luận",
+"min": 140,
+"max": 190,
+"p": "In your English class you have been talking about technology in schools. Now your teacher has asked you to write an essay. “Schools should ban mobile phones during the school day. Do you agree?” Notes: write about 1. concentration in lessons 2. safety and contact with parents 3. your own idea.",
+"pv": "Bài luận: trường có nên cấm điện thoại trong ngày học? Viết về: 1. sự tập trung 2. an toàn, liên lạc với bố mẹ 3. ý của bạn.",
+"c": [
+"Nêu quan điểm ở mở bài",
+"Ý 1: sự tập trung trong giờ học",
+"Ý 2: an toàn và liên lạc với bố mẹ",
+"Ý 3 riêng của bạn + kết luận"
+],
+"u": [
+[
+"It is often argued that",
+"Người ta thường cho rằng"
+],
+[
+"On the one hand",
+"Một mặt"
+],
+[
+"However, it could be argued that",
+"Tuy nhiên, có thể nói rằng"
+],
+[
+"On balance",
+"Cân nhắc mọi mặt"
+]
+],
+"m": "Mobile phones have become part of daily life, and many schools are now considering banning them during lessons and breaks. While a complete ban has some advantages, I believe a more flexible approach would be better.\nOn the one hand, phones are a major source of distraction. Notifications and games make it difficult for students to concentrate, and some teachers say that attention has fallen noticeably in recent years. Removing phones during lessons would almost certainly help.\nHowever, it could be argued that phones are important for safety. Many parents want to be able to contact their children, especially when they travel home alone. A total ban could make families anxious.\nIn my view, phones can also be useful learning tools, for example for looking up words or recording presentations. On balance, I think schools should ask students to switch phones off in lessons but allow them at lunchtime, rather than banning them completely.",
+"k": [
+[
+[
+"i believe",
+"in my view",
+"i think",
+"in my opinion",
+"agree",
+"disagree"
+]
+],
+[
+[
+"concentrat",
+"distract",
+"attention",
+"focus"
+]
+],
+[
+[
+"safe",
+"parents",
+"contact",
+"emergency"
+]
+],
+[
+[
+"on balance",
+"in conclusion",
+"to sum up",
+"overall"
+]
+]
+]
+},
+{
+"id": "b2-w6",
+"lv": "b2",
+"test": 1,
+"en": "Review of a Film or Series",
+"vi": "Bài nhận xét phim / phim bộ",
+"genre": "bài nhận xét (review)",
+"min": 140,
+"max": 190,
+"p": "An international website for students is looking for reviews: “Tell us about a film or TV series that made you think. What is it about? What did you learn from it? Would you recommend it to other students?” Write your review.",
+"pv": "Trang web quốc tế cho học sinh mời viết nhận xét về một phim / phim bộ khiến bạn suy nghĩ: nội dung, bạn học được gì, có nên giới thiệu không.",
+"c": [
+"Tên phim và nội dung chính",
+"Điều khiến bạn suy nghĩ / học được",
+"Điểm mạnh và điểm yếu",
+"Có nên giới thiệu cho học sinh khác không"
+],
+"u": [
+[
+"is set in",
+"lấy bối cảnh ở"
+],
+[
+"What struck me most was",
+"Điều làm tôi ấn tượng nhất là"
+],
+[
+"My only criticism is",
+"Điểm tôi chưa thích duy nhất là"
+],
+[
+"I would highly recommend",
+"Tôi rất nên giới thiệu"
+]
+],
+"m": "Hidden Figures tells the true story of three African-American women who worked as mathematicians at NASA in the 1960s, during the race to send astronauts into space. The film is set at a time when they faced discrimination both as women and because of their race.\nWhat struck me most was how much talent can be wasted when people are not given a fair chance. The women solve problems that their colleagues cannot, yet they have to fight to be allowed into meetings or even to use the same bathroom. It made me think about how many unfair rules still exist today.\nThe acting is excellent, and the story is told with humour as well as anger. My only criticism is that some scenes feel a little too neat, as if real history had been simplified.\nEven so, I would highly recommend it to other students, especially anyone interested in science. It is inspiring, entertaining and genuinely thought-provoking.",
+"k": [
+[
+[
+"tells the story",
+"is about",
+"is set",
+"film",
+"series"
+]
+],
+[
+[
+"made me think",
+"learned",
+"learnt",
+"struck me",
+"realised",
+"realized"
+]
+],
+[
+[
+"criticism",
+"however",
+"weakness",
+"excellent",
+"the acting",
+"although"
+]
+],
+[
+[
+"recommend",
+"worth watching",
+"should watch"
+]
+]
+]
+},
+{
+"id": "b2-w7",
+"lv": "b2",
+"test": 1,
+"en": "Report on a Youth Centre",
+"vi": "Báo cáo về nhà văn hoá thanh niên",
+"genre": "báo cáo",
+"min": 140,
+"max": 190,
+"p": "The manager of your local youth centre wants to attract more young people. She has asked you to write a report describing the facilities now, explaining why some young people do not use the centre, and recommending improvements.",
+"pv": "Quản lý nhà văn hoá thanh niên nhờ bạn viết báo cáo: cơ sở vật chất hiện có, vì sao một số bạn trẻ không đến, và đề xuất cải thiện.",
+"c": [
+"Tiêu đề, mục đích báo cáo",
+"Cơ sở vật chất hiện tại",
+"Lý do một số bạn trẻ không đến",
+"Đề xuất cải thiện"
+],
+"u": [
+[
+"The aim of this report is to",
+"Mục đích của báo cáo này là"
+],
+[
+"At present",
+"Hiện nay"
+],
+[
+"According to",
+"Theo"
+],
+[
+"I would recommend that",
+"Tôi đề xuất rằng"
+]
+],
+"m": "Report on the Riverside Youth Centre\nIntroduction\nThe aim of this report is to describe the current facilities, explain why some young people do not use the centre, and suggest improvements. It is based on a short survey of thirty students.\nCurrent facilities\nAt present, the centre has a sports hall, a small library and a room with two computers. The sports hall is popular, but the other rooms are rarely used.\nReasons for low attendance\nAccording to the survey, many young people think the centre is old-fashioned. The computers are slow, there is no Wi-Fi, and the centre closes at six o'clock, before many students finish their extra classes.\nRecommendations\nI would recommend that the centre installs Wi-Fi and replaces the computers. Opening until nine o'clock on weekdays would also make a big difference. Finally, a music room or a space for clubs could attract students who are not interested in sport.",
+"k": [
+[
+[
+"report",
+"the aim",
+"introduction",
+"purpose"
+]
+],
+[
+[
+"at present",
+"currently",
+"facilities",
+"has a",
+"there is"
+]
+],
+[
+[
+"because",
+"reason",
+"survey",
+"according to",
+"do not use",
+"don't use"
+]
+],
+[
+[
+"recommend",
+"suggest",
+"should",
+"it would be"
+]
+]
+]
+},
+{
+"id": "b2-w8",
+"lv": "b2",
+"test": 1,
+"en": "Letter of Application for a Volunteer Job",
+"vi": "Thư ứng tuyển tình nguyện viên",
+"genre": "thư trang trọng",
+"min": 140,
+"max": 190,
+"p": "You see this advertisement: “Volunteers wanted for an international music festival. We need people to help visitors, give information and work in our information tent. Write and tell us why you would be a good volunteer.” Write your letter of application.",
+"pv": "Quảng cáo tuyển tình nguyện viên cho lễ hội âm nhạc quốc tế: giúp khách, cung cấp thông tin. Viết thư ứng tuyển, nói vì sao bạn phù hợp.",
+"c": [
+"Mở thư trang trọng, nói lý do viết",
+"Kinh nghiệm / kỹ năng liên quan",
+"Vì sao bạn muốn làm",
+"Kết thư trang trọng"
+],
+"u": [
+[
+"I am writing to apply for",
+"Tôi viết thư để ứng tuyển"
+],
+[
+"I have experience of",
+"Tôi có kinh nghiệm"
+],
+[
+"I believe I would be",
+"Tôi tin mình sẽ là"
+],
+[
+"I look forward to hearing from you",
+"Mong nhận được hồi âm"
+]
+],
+"m": [
+"Dear Sir or Madam,",
+"I am writing to apply for a position as a volunteer at your international music festival, which I saw advertised on your website.",
+"I am a second-year tourism student, and I have experience of working with visitors. Last summer, I worked part time at a hotel reception in Hoi An, where I dealt with guests from many different countries and helped them with directions, bookings and problems. I speak English fluently and some basic Korean.",
+"I believe I would be a good volunteer because I am patient, friendly and calm under pressure. I am also a huge fan of live music, and I would love the chance to be part of such an exciting event while gaining more experience for my future career.",
+"I am available for the whole festival weekend and would be happy to attend any training sessions.",
+"I look forward to hearing from you.",
+"Yours faithfully,",
+"Nguyen Thu Ha"
+],
+"k": [
+[
+[
+"i am writing to apply",
+"dear sir",
+"apply"
+]
+],
+[
+[
+"experience",
+"worked",
+"skills",
+"speak"
+]
+],
+[
+[
+"i believe",
+"because",
+"would love",
+"fan of",
+"good volunteer"
+]
+],
+[
+[
+"look forward",
+"yours faithfully",
+"yours sincerely",
+"available"
+]
+]
+]
+},
+{
+"id": "b2-w9",
+"lv": "b2",
+"test": 1,
+"en": "Article: A Skill Everyone Should Learn",
+"vi": "Bài báo: Một kỹ năng ai cũng nên học",
+"genre": "bài báo",
+"min": 140,
+"max": 190,
+"p": "A magazine for young people is running a series called “Life Skills”. Write an article about one practical skill you think every young person should learn before leaving school. Explain why it is important and how young people could learn it.",
+"pv": "Tạp chí giới trẻ có chuyên mục Kỹ năng sống. Viết bài về một kỹ năng thực tế ai cũng nên học trước khi ra trường: vì sao quan trọng, học thế nào.",
+"c": [
+"Tiêu đề / câu mở thu hút",
+"Kỹ năng đó là gì",
+"Vì sao quan trọng",
+"Cách học kỹ năng đó"
+],
+"u": [
+[
+"Have you ever",
+"Bạn đã bao giờ"
+],
+[
+"Surprisingly few",
+"Ít người đến ngạc nhiên"
+],
+[
+"Not only… but also",
+"Không chỉ… mà còn"
+],
+[
+"The good news is",
+"Tin vui là"
+]
+],
+"m": "Money Matters\nHave you ever reached the end of the month and wondered where all your money went? You are not alone. Surprisingly few young people leave school knowing how to manage money, yet it is one of the most useful skills anyone can have.\nLearning to budget not only helps you avoid debt but also gives you freedom. If you know how much you earn and spend, you can save for things that matter to you, whether that is a trip abroad or a course you want to take. It also helps you avoid common traps, such as buying expensive things on credit.\nThe good news is that the basics are easy to learn. Schools could include a few lessons on budgeting and saving, and parents could involve teenagers in planning family expenses. There are also free apps that show you exactly where your money goes.\nMoney may not buy happiness, but knowing how to manage it can certainly prevent a lot of stress.",
+"k": [
+[
+[
+"have you ever",
+"imagine",
+"?",
+"!"
+]
+],
+[
+[
+"money",
+"cook",
+"skill",
+"budget",
+"first aid",
+"swim"
+]
+],
+[
+[
+"important",
+"useful",
+"not only",
+"helps",
+"because"
+]
+],
+[
+[
+"learn",
+"schools could",
+"lessons",
+"apps",
+"parents could",
+"practise",
+"practice"
+]
+]
+]
+},
+{
+"id": "b2-w10",
+"lv": "b2",
+"test": 1,
+"en": "Essay: Is Tourism Good for Local People?",
+"vi": "Bài luận: Du lịch có tốt cho người dân địa phương?",
+"genre": "bài luận",
+"min": 140,
+"max": 190,
+"p": "Your teacher has asked you to write an essay. “Tourism brings more benefits than problems to local communities. Do you agree?” Notes: write about 1. jobs and income 2. the environment 3. your own idea.",
+"pv": "Bài luận: du lịch mang lại cho cộng đồng địa phương lợi nhiều hơn hại? Viết về: 1. việc làm, thu nhập 2. môi trường 3. ý của bạn.",
+"c": [
+"Quan điểm ở mở bài",
+"Ý 1: việc làm và thu nhập",
+"Ý 2: môi trường",
+"Ý 3 riêng + kết luận"
+],
+"u": [
+[
+"There is no doubt that",
+"Không còn nghi ngờ rằng"
+],
+[
+"Nevertheless",
+"Tuy vậy"
+],
+[
+"Another point to consider is",
+"Một điểm khác cần xem xét là"
+],
+[
+"To sum up",
+"Tóm lại"
+]
+],
+"m": "Tourism is one of the fastest-growing industries in the world, and many communities depend on it. Although it can cause serious problems, I believe that, if managed well, it brings more benefits than harm.\nThere is no doubt that tourism creates jobs. Hotels, restaurants, guides and drivers all depend on visitors, and in many rural areas tourism provides income that farming alone cannot. It can also encourage young people to stay in their home towns instead of moving to cities.\nNevertheless, tourism can damage the environment. Beaches become polluted, water is used up by hotels, and popular areas suffer from traffic and litter. Ha Long Bay, for example, has struggled with plastic waste.\nAnother point to consider is culture. Tourism can help preserve traditions, because visitors pay to see festivals and crafts, but it can also turn them into performances for tourists.\nTo sum up, tourism is beneficial overall, but only if local people are involved in decisions and the environment is protected.",
+"k": [
+[
+[
+"i believe",
+"in my view",
+"i think",
+"agree",
+"disagree",
+"in my opinion"
+]
+],
+[
+[
+"job",
+"income",
+"money",
+"employ",
+"work"
+]
+],
+[
+[
+"environment",
+"pollut",
+"litter",
+"waste",
+"nature"
+]
+],
+[
+[
+"to sum up",
+"in conclusion",
+"overall",
+"on balance"
+]
+]
+]
+},
+{
+"id": "c1-w5",
+"lv": "c1",
+"test": 1,
+"en": "Essay: Funding Public Spaces",
+"vi": "Bài luận: Đầu tư cho không gian công cộng",
+"genre": "bài luận",
+"min": 220,
+"max": 260,
+"p": "Your class has attended a panel discussion on how city councils should spend money to improve the quality of life. You have made the notes below. Write an essay discussing two of the options in your notes. Explain which option is more important, giving reasons. Notes: Which should receive more funding? parks and green spaces · public transport · libraries and community centres.",
+"pv": "Bài luận: bàn 2 trong 3 lựa chọn (công viên, giao thông công cộng, thư viện / nhà văn hoá) mà thành phố nên chi tiền; nói lựa chọn nào quan trọng hơn, có lý do.",
+"c": [
+"Mở bài nêu vấn đề",
+"Bàn lựa chọn 1 có lý do",
+"Bàn lựa chọn 2 có lý do",
+"Kết luận: lựa chọn nào quan trọng hơn"
+],
+"u": [
+[
+"It is widely acknowledged that",
+"Ai cũng thừa nhận rằng"
+],
+[
+"A compelling argument for",
+"Một lý lẽ thuyết phục cho"
+],
+[
+"That said,",
+"Dù vậy,"
+],
+[
+"Weighing up both options,",
+"Cân nhắc cả hai lựa chọn,"
+]
+],
+"m": "As cities grow larger and more crowded, councils face difficult choices about where to invest limited public money. Of the options discussed, green spaces and public transport seem to me the most significant, although for rather different reasons.\nA compelling argument for investing in parks is their effect on health. Green spaces encourage exercise, reduce stress and provide relief from heat in increasingly hot summers. In dense neighbourhoods, a park may be the only place where children can play safely or where older residents can meet. Unlike many facilities, parks are free and open to everyone, which makes them particularly valuable for low-income families.\nPublic transport, however, affects the quality of life of almost every resident every day. Reliable buses and trains reduce traffic congestion and air pollution, and they make it possible for people without cars to reach jobs, schools and hospitals. In cities where commuting can take two hours, an efficient metro line can give people back a significant part of their day.\nThat said, the two are not entirely separate. A park that cannot be reached easily is of limited use, and a transport system that serves only business districts does little for residents' wellbeing.\nWeighing up both options, I believe public transport should receive priority, because it underpins access to everything else a city offers, including its parks. Nevertheless, councils should ensure that new transport projects are planned alongside green spaces rather than at their expense.",
+"k": [
+[
+[
+"cities",
+"council",
+"invest",
+"public money",
+"funding"
+]
+],
+[
+[
+"park",
+"green space"
+]
+],
+[
+[
+"public transport",
+"bus",
+"metro",
+"train",
+"librar",
+"community centre"
+]
+],
+[
+[
+"i believe",
+"in my view",
+"should receive priority",
+"more important",
+"weighing up",
+"in conclusion",
+"on balance"
+]
+]
+]
+},
+{
+"id": "c1-w6",
+"lv": "c1",
+"test": 1,
+"en": "Proposal: Improving Student Wellbeing",
+"vi": "Đề xuất: Cải thiện sức khoẻ tinh thần sinh viên",
+"genre": "đề xuất (proposal)",
+"min": 220,
+"max": 260,
+"p": "The principal of your college is concerned that students are under too much stress. She has asked students to submit proposals. Write a proposal describing the main causes of stress, suggesting two or three ways the college could help, and explaining how these measures would benefit students.",
+"pv": "Hiệu trưởng lo sinh viên quá căng thẳng. Viết đề xuất: nguyên nhân chính, 2–3 cách trường có thể giúp, và lợi ích của các biện pháp đó.",
+"c": [
+"Tiêu đề, mục đích đề xuất",
+"Nguyên nhân chính gây căng thẳng",
+"2–3 biện pháp cụ thể",
+"Lợi ích của các biện pháp"
+],
+"u": [
+[
+"The purpose of this proposal is to",
+"Mục đích của đề xuất này là"
+],
+[
+"A major source of",
+"Một nguồn chính của"
+],
+[
+"It is recommended that",
+"Đề xuất rằng"
+],
+[
+"This would enable students to",
+"Điều này sẽ giúp sinh viên"
+]
+],
+"m": "Proposal: Reducing Student Stress\nIntroduction\nThe purpose of this proposal is to identify the main causes of stress among students at our college and to recommend practical ways of addressing them. It is based on informal discussions with around forty students.\nMain causes of stress\nA major source of stress is the timing of assessments. Deadlines in different subjects frequently fall in the same week, leaving students overwhelmed. Many students also mention uncertainty about their future careers and a lack of anyone to talk to when they are struggling.\nRecommendations\nFirstly, it is recommended that departments coordinate their deadlines through a shared calendar, so that major assignments are spread more evenly across the term. Secondly, the college could introduce regular drop-in sessions with a trained counsellor, available without an appointment. Finally, a series of short workshops on time management and career planning would give students practical tools as well as reassurance.\nExpected benefits\nThese measures would enable students to plan their workload more effectively and to seek help before problems become serious. Coordinated deadlines alone could significantly reduce the periods of intense pressure that students describe. In the longer term, students who feel supported are more likely to stay motivated and achieve better results.\nConclusion\nThe changes proposed are relatively inexpensive, and I am confident that they would make a noticeable difference to student wellbeing.",
+"k": [
+[
+[
+"proposal",
+"the purpose",
+"introduction"
+]
+],
+[
+[
+"cause",
+"source of stress",
+"deadline",
+"pressure",
+"because"
+]
+],
+[
+[
+"recommend",
+"could introduce",
+"firstly",
+"secondly",
+"suggest"
+]
+],
+[
+[
+"benefit",
+"would enable",
+"would help",
+"would allow",
+"as a result"
+]
+]
+]
+},
+{
+"id": "c1-w7",
+"lv": "c1",
+"test": 1,
+"en": "Review: A Museum or Exhibition",
+"vi": "Nhận xét: Một bảo tàng hoặc triển lãm",
+"genre": "bài nhận xét (review)",
+"min": 220,
+"max": 260,
+"p": "A cultural website has asked readers to review a museum or exhibition that tried to make history or science interesting for young people. Describe what the museum or exhibition offered, evaluate how successful it was, and say who you would recommend it to.",
+"pv": "Trang văn hoá mời nhận xét một bảo tàng / triển lãm làm lịch sử hoặc khoa học hấp dẫn với giới trẻ: có gì, thành công đến đâu, giới thiệu cho ai.",
+"c": [
+"Giới thiệu bảo tàng / triển lãm",
+"Nó có những gì",
+"Đánh giá mức độ thành công (điểm mạnh, điểm yếu)",
+"Nên giới thiệu cho ai"
+],
+"u": [
+[
+"sets out to",
+"nhằm mục đích"
+],
+[
+"succeeds admirably in",
+"thành công đáng khen trong việc"
+],
+[
+"falls short",
+"chưa đạt"
+],
+[
+"would particularly appeal to",
+"đặc biệt hợp với"
+]
+],
+"m": "The Vietnam Museum of Ethnology in Hanoi sets out to introduce visitors to the country's fifty-four ethnic groups, and for the most part it succeeds admirably in bringing their cultures to life.\nThe museum is divided into an indoor exhibition and a large outdoor area. Inside, displays of clothing, tools and musical instruments are accompanied by short videos in which people from different communities explain their own traditions. Outside, visitors can walk into full-size traditional houses, including an impressive communal house with a roof that rises more than fifteen metres.\nWhat makes the museum particularly effective for young people is that it avoids presenting cultures as frozen in the past. Many exhibits show how traditions are changing, for example how young people in mountain villages combine traditional festivals with social media. The outdoor houses, which visitors can explore freely, are far more engaging than objects behind glass.\nWhere the museum falls short is in its information panels, some of which are long, dense and poorly translated into English. Families with small children may also find that the indoor section requires more patience than their children have.\nOverall, however, this is one of the most rewarding museums in the city. It would particularly appeal to teenagers and university students interested in culture or social change, and to any visitor who wants to understand Vietnam beyond its major tourist sights. Allow at least three hours, and do not miss the outdoor section.",
+"k": [
+[
+[
+"museum",
+"exhibition",
+"gallery"
+]
+],
+[
+[
+"display",
+"exhibit",
+"videos",
+"visitors can",
+"offers",
+"divided into"
+]
+],
+[
+[
+"succeed",
+"effective",
+"falls short",
+"however",
+"weakness",
+"disappoint",
+"impressive"
+]
+],
+[
+[
+"recommend",
+"would appeal",
+"suitable for",
+"worth visiting",
+"appeal to"
+]
+]
+]
+},
+{
+"id": "c1-w8",
+"lv": "c1",
+"test": 1,
+"en": "Letter to a Newspaper Editor",
+"vi": "Thư gửi biên tập báo",
+"genre": "thư trang trọng",
+"min": 220,
+"max": 260,
+"p": "A local newspaper recently published an article claiming that young people today are less willing to work hard than previous generations. Write a letter to the editor responding to the article, giving your views and supporting them with examples.",
+"pv": "Báo địa phương đăng bài cho rằng giới trẻ ngày nay lười hơn thế hệ trước. Viết thư gửi biên tập phản hồi, nêu quan điểm, có ví dụ.",
+"c": [
+"Mở thư, nhắc tới bài báo",
+"Quan điểm của bạn",
+"Ví dụ / lý lẽ ủng hộ",
+"Kết thư trang trọng"
+],
+"u": [
+[
+"I am writing in response to",
+"Tôi viết thư để phản hồi"
+],
+[
+"While I accept that",
+"Dù tôi thừa nhận rằng"
+],
+[
+"A case in point is",
+"Một ví dụ điển hình là"
+],
+[
+"I would urge",
+"Tôi tha thiết đề nghị"
+]
+],
+"m": [
+"Dear Editor,",
+"I am writing in response to the article “A Generation That Won't Work Hard”, published in last Saturday's edition. As a twenty-year-old university student, I found its conclusions both unfair and poorly supported.",
+"While I accept that the way young people work has changed, I do not believe that this reflects a lack of effort. Many of my friends combine full-time study with part-time jobs, often in cafés or delivery work, simply to cover their living costs. A case in point is my flatmate, who studies engineering during the day and tutors secondary school students three evenings a week.",
+"What the article describes as laziness may sometimes be a different set of priorities. Young people are more likely than previous generations to question long working hours or to leave jobs that damage their health. This is not an unwillingness to work, but a recognition that productivity and exhaustion are not the same thing. Many young people I know work longer hours than their parents did, often in jobs that offer far less security.",
+"Finally, the article relied largely on the opinions of a few employers rather than on evidence. Generalising about millions of people on this basis seems to me irresponsible.",
+"I would urge your readers to judge young people by what they actually do rather than by stereotypes.",
+"Yours faithfully,",
+"Le Bao Chau"
+],
+"k": [
+[
+[
+"i am writing in response",
+"your article",
+"dear editor",
+"the article"
+]
+],
+[
+[
+"i do not believe",
+"i don't believe",
+"unfair",
+"in my view",
+"i disagree",
+"i believe"
+]
+],
+[
+[
+"for example",
+"a case in point",
+"many of my friends",
+"for instance",
+"such as"
+]
+],
+[
+[
+"yours faithfully",
+"yours sincerely",
+"i would urge"
+]
+]
+]
+},
+{
+"id": "c1-w9",
+"lv": "c1",
+"test": 1,
+"en": "Essay: Learning Online versus in a Classroom",
+"vi": "Bài luận: Học trực tuyến hay học trên lớp",
+"genre": "bài luận",
+"min": 220,
+"max": 260,
+"p": "Your class has watched a documentary about the future of education. Write an essay discussing whether online learning can replace learning in a classroom. Consider two of the following: cost and access · social development · quality of teaching. Give reasons for your opinion.",
+"pv": "Bài luận: học trực tuyến có thể thay học trên lớp không? Bàn 2 trong 3 khía cạnh: chi phí và khả năng tiếp cận · phát triển xã hội · chất lượng giảng dạy.",
+"c": [
+"Mở bài nêu vấn đề",
+"Khía cạnh 1 có lý do",
+"Khía cạnh 2 có lý do",
+"Kết luận rõ quan điểm"
+],
+"u": [
+[
+"There is little doubt that",
+"Hầu như không còn nghi ngờ"
+],
+[
+"By contrast,",
+"Ngược lại,"
+],
+[
+"It is worth noting that",
+"Đáng lưu ý rằng"
+],
+[
+"Ultimately,",
+"Rốt cuộc,"
+]
+],
+"m": "The rapid growth of online courses has led some to predict that traditional classrooms will soon become unnecessary. While online learning offers clear advantages, I do not believe it can fully replace learning in a physical classroom, particularly for younger students.\nThere is little doubt that online learning has widened access to education. Students in remote areas can now attend courses taught by experts in other countries, and many courses are cheaper or free. For adults who need to study around work and family commitments, the flexibility of online learning can make the difference between studying and not studying at all.\nBy contrast, the social side of education is much harder to reproduce online. Schools are not only places where knowledge is transmitted; they are where young people learn to cooperate, resolve conflicts and form friendships. Video calls can support these interactions but rarely replace them, and many students who studied online during school closures reported feeling isolated and less motivated.\nIt is worth noting that the quality of online learning varies enormously. Well-designed courses can be excellent, but simply recording lectures and posting them online often produces passive, disengaged learners.\nUltimately, the most promising future is likely to combine both approaches, using online tools to extend access while preserving the classroom as a place for discussion, collaboration and personal support.",
+"k": [
+[
+[
+"online learning",
+"online courses",
+"classroom",
+"replace"
+]
+],
+[
+[
+"access",
+"cost",
+"cheaper",
+"free",
+"remote"
+]
+],
+[
+[
+"social",
+"friends",
+"cooperat",
+"isolated",
+"quality",
+"teaching"
+]
+],
+[
+[
+"ultimately",
+"in conclusion",
+"i do not believe",
+"i believe",
+"overall",
+"on balance"
+]
+]
+]
+},
+{
+"id": "c1-w10",
+"lv": "c1",
+"test": 1,
+"en": "Report: A Language Exchange Programme",
+"vi": "Báo cáo: Chương trình trao đổi ngôn ngữ",
+"genre": "báo cáo",
+"min": 220,
+"max": 260,
+"p": "Your college ran a language exchange programme last term, pairing local students with international students. The director has asked you to write a report evaluating the programme, explaining what worked well and what did not, and making recommendations for next year.",
+"pv": "Trường đã có chương trình trao đổi ngôn ngữ. Viết báo cáo đánh giá: điều gì tốt, điều gì chưa, đề xuất cho năm sau.",
+"c": [
+"Tiêu đề, mục đích báo cáo",
+"Điều làm tốt",
+"Điều chưa tốt",
+"Đề xuất cho năm sau"
+],
+"u": [
+[
+"This report evaluates",
+"Báo cáo này đánh giá"
+],
+[
+"Feedback suggests that",
+"Phản hồi cho thấy"
+],
+[
+"A recurring complaint was",
+"Một phàn nàn lặp lại là"
+],
+[
+"In light of these findings,",
+"Dựa trên các kết quả này,"
+]
+],
+"m": "Evaluation of the Language Exchange Programme\nIntroduction\nThis report evaluates the language exchange programme run last term, in which sixty local students were paired with international students for weekly conversation sessions. It draws on an online survey completed by forty-five participants.\nWhat worked well\nFeedback suggests that the programme was valued highly. Most participants said their speaking confidence had improved, and many had formed friendships that continued outside the sessions. The monthly social events, such as the cooking evening, were especially popular and helped participants meet people beyond their own partner.\nAreas for improvement\nA recurring complaint was the matching process. Several pairs had very different language levels or incompatible timetables, which led some to stop meeting after a few weeks. Others felt that unstructured conversation became repetitive, and that they did not know what to talk about.\nRecommendations\nIn light of these findings, I would recommend three changes. Firstly, participants should complete a short questionnaire on their level, interests and availability so that partners can be matched more carefully. Secondly, a list of suggested topics and short activities could be provided for each week. Finally, a mid-term check-in would allow coordinators to identify pairs that are not working and arrange new partners.\nConclusion\nOverall, the programme was a success, and with these adjustments it could reach more students and maintain their participation throughout the term.",
+"k": [
+[
+[
+"report",
+"evaluat",
+"introduction"
+]
+],
+[
+[
+"worked well",
+"valued",
+"improved",
+"popular",
+"success"
+]
+],
+[
+[
+"complaint",
+"problem",
+"improvement",
+"did not",
+"didn't",
+"however"
+]
+],
+[
+[
+"recommend",
+"should",
+"suggest",
+"next year"
+]
+]
+]
+},
+{
+"id": "c2-w5",
+"lv": "c2",
+"test": 1,
+"en": "Essay: Should Museums Return Cultural Objects?",
+"vi": "Bài luận: Bảo tàng có nên trả lại hiện vật văn hoá?",
+"genre": "bài luận",
+"min": 240,
+"max": 280,
+"p": "Write an essay discussing the following question: “Should museums return objects that were taken from other countries during colonial periods?” Consider the arguments on both sides and give your own opinion.",
+"pv": "Bài luận: bảo tàng có nên trả lại hiện vật bị lấy từ nước khác thời thuộc địa? Bàn cả hai phía và nêu ý kiến của bạn.",
+"c": [
+"Mở bài nêu vấn đề",
+"Lý lẽ ủng hộ việc trả lại",
+"Lý lẽ phản đối / lo ngại",
+"Ý kiến riêng có lập luận"
+],
+"u": [
+[
+"Few debates in the cultural world are as",
+"Ít cuộc tranh luận văn hoá nào"
+],
+[
+"Proponents of repatriation contend that",
+"Người ủng hộ trả lại cho rằng"
+],
+[
+"Critics, however, raise",
+"Tuy nhiên, người phản đối nêu"
+],
+[
+"It seems to me that",
+"Theo tôi"
+]
+],
+"m": "Few debates in the cultural world are as charged as the question of whether museums should return objects acquired during colonial rule. What was once regarded as a matter of curatorial practice is now widely seen as a question of justice.\nProponents of repatriation contend that many of these objects were taken through force, coercion or grossly unequal exchanges, and that their continued display abroad perpetuates the injustices under which they were removed. For the communities from which they came, such objects are often not merely artefacts but carriers of religious meaning, identity and memory. Returning them, on this view, is an act of acknowledgement rather than charity.\nCritics, however, raise practical and philosophical objections. Some argue that major museums allow millions of visitors to encounter the art of many cultures side by side, fostering an understanding that would be lost if collections were dispersed. Others question whether the institutions now requesting objects are the rightful heirs of those from whom they were taken, given that borders and states have changed. There are also concerns, sometimes exaggerated, about the conditions in which returned objects would be preserved.\nIt seems to me that the strongest case lies with repatriation, at least where it can be shown that objects were taken without consent. The argument about universal access, though sincere, conveniently assumes that access should always be provided by the institutions that benefited from colonialism. Long-term loans, shared research and digital collections can preserve global access while restoring ownership. What matters most is that decisions are made in genuine partnership rather than imposed by either side.",
+"k": [
+[
+[
+"museum",
+"colonial",
+"objects",
+"artefact",
+"artifact"
+]
+],
+[
+[
+"return",
+"repatriat",
+"justice",
+"taken by force",
+"identity"
+]
+],
+[
+[
+"critics",
+"however",
+"object",
+"concern",
+"argue that"
+]
+],
+[
+[
+"it seems to me",
+"i believe",
+"in my view",
+"in conclusion",
+"my own view"
+]
+]
+]
+},
+{
+"id": "c2-w6",
+"lv": "c2",
+"test": 1,
+"en": "Article: The Pleasure of Doing Nothing",
+"vi": "Bài báo: Niềm vui của việc chẳng làm gì",
+"genre": "bài báo",
+"min": 240,
+"max": 280,
+"p": "A magazine with an educated readership has invited articles for a series called “Against the Grain”, challenging a widely held belief. Write an article arguing that modern society undervalues rest and idleness.",
+"pv": "Tạp chí cho độc giả trí thức mời viết loạt bài “Đi ngược số đông”. Viết bài lập luận rằng xã hội hiện đại coi nhẹ việc nghỉ ngơi và nhàn rỗi.",
+"c": [
+"Mở bài thu hút, nêu niềm tin phổ biến",
+"Lập luận vì sao nghỉ ngơi bị coi nhẹ",
+"Lợi ích của nghỉ ngơi / nhàn rỗi có dẫn chứng",
+"Kết bài đọng lại"
+],
+"u": [
+[
+"We live in an age that",
+"Ta sống trong thời đại"
+],
+[
+"Yet the evidence suggests",
+"Thế nhưng bằng chứng cho thấy"
+],
+[
+"Far from being",
+"Hoàn toàn không phải là"
+],
+[
+"Perhaps the most radical thing",
+"Có lẽ điều táo bạo nhất"
+]
+],
+"m": "In Praise of Idleness\nWe live in an age that treats busyness as a virtue. Asked how we are, we answer “busy” with a hint of pride, and even our leisure has become a project to be optimised: steps counted, books logged, holidays photographed. To admit to doing nothing at all, for an afternoon or a week, feels faintly shameful.\nThis attitude has deep roots. Industrial societies needed disciplined workers, and the moral language that grew up around work, in which idleness was a vice and productivity a duty, has outlived the factories that produced it. Today, technology extends that logic into every waking hour, so that any unoccupied moment becomes an opportunity to reply to a message or consume another piece of content.\nYet the evidence suggests that rest is not the opposite of productivity but one of its conditions. Studies of creative work repeatedly find that ideas emerge during periods of apparent inactivity, when attention is loosened and the mind is free to wander. Countries with shorter working hours are not, on the whole, less prosperous, and employees who take proper breaks tend to make fewer errors. Far from being wasted, idle time may be where some of our most valuable thinking takes place.\nThere is also something beyond usefulness. Rest allows us to notice our surroundings, our relationships and our own thoughts, experiences that cannot easily be measured and are therefore easily neglected.\nPerhaps the most radical thing a person can do today is to sit on a bench without a phone and simply watch the afternoon pass, without feeling the need to justify it.",
+"k": [
+[
+[
+"busy",
+"busyness",
+"we live in",
+"virtue",
+"idleness"
+]
+],
+[
+[
+"industrial",
+"moral",
+"productivity",
+"technology",
+"work"
+]
+],
+[
+[
+"evidence",
+"studies",
+"creative",
+"rest",
+"breaks"
+]
+],
+[
+[
+"perhaps",
+"in the end",
+"ultimately",
+"simply"
+]
+]
+]
+},
+{
+"id": "c2-w7",
+"lv": "c2",
+"test": 1,
+"en": "Report: Reducing Waste at a Festival",
+"vi": "Báo cáo: Giảm rác thải ở lễ hội",
+"genre": "báo cáo",
+"min": 240,
+"max": 280,
+"p": "You helped organise a large annual music festival in your city. The organising committee has asked you to write a report on the environmental impact of this year's festival, assessing the measures taken to reduce waste and recommending further action.",
+"pv": "Bạn tham gia tổ chức lễ hội âm nhạc lớn. Viết báo cáo về tác động môi trường năm nay: đánh giá biện pháp giảm rác đã làm, đề xuất thêm.",
+"c": [
+"Tiêu đề, mục đích, nguồn dữ liệu",
+"Biện pháp đã làm và hiệu quả",
+"Hạn chế còn tồn tại",
+"Đề xuất có lý do"
+],
+"u": [
+[
+"This report assesses",
+"Báo cáo này đánh giá"
+],
+[
+"proved largely effective",
+"tỏ ra khá hiệu quả"
+],
+[
+"fell considerably short of",
+"kém khá xa"
+],
+[
+"It is therefore recommended that",
+"Vì vậy đề xuất rằng"
+]
+],
+"m": "Environmental Impact of the City Music Festival\nIntroduction\nThis report assesses the environmental impact of this year's festival, focusing on waste, and recommends further measures. It draws on figures from the waste contractor and feedback from volunteers and visitors.\nMeasures taken\nThree main initiatives were introduced. A deposit scheme for reusable cups replaced single-use plastic cups at all bars, food vendors were required to use compostable packaging, and sorting stations staffed by volunteers were placed throughout the site. The cup scheme proved largely effective: plastic waste from drinks fell by an estimated seventy per cent compared with last year, and most visitors returned their cups.\nRemaining problems\nOther measures were less successful. Recycling rates fell considerably short of the target, mainly because sorting stations were overwhelmed during peak hours and much compostable packaging ended up mixed with general waste. In addition, large numbers of tents were abandoned at the campsite, creating several tonnes of waste that could not be recycled.\nRecommendations\nIt is therefore recommended that the number of sorting stations be doubled near food areas and that volunteers be scheduled according to visitor numbers rather than evenly throughout the day. A camping deposit, refunded when visitors leave with their tents, has reduced abandonment at festivals abroad and should be considered. Finally, clear signs and announcements before headline performances could remind visitors how to sort their waste.\nConclusion\nThis year's festival made genuine progress, but sustained investment in organisation, rather than new initiatives alone, will be needed to meet next year's targets.",
+"k": [
+[
+[
+"report",
+"assess",
+"introduction",
+"draws on"
+]
+],
+[
+[
+"deposit",
+"reusable",
+"compostable",
+"sorting",
+"effective"
+]
+],
+[
+[
+"less successful",
+"fell short",
+"problem",
+"however",
+"abandoned"
+]
+],
+[
+[
+"recommend",
+"should be",
+"it is therefore",
+"suggest"
+]
+]
+]
+},
+{
+"id": "c2-w8",
+"lv": "c2",
+"test": 1,
+"en": "Letter: Responding to a Planning Proposal",
+"vi": "Thư phản hồi đề án quy hoạch",
+"genre": "thư trang trọng",
+"min": 240,
+"max": 280,
+"p": "Your city council plans to replace a historic covered market with a shopping centre and car park. Write a letter to the council expressing your views on the plan, considering its likely impact on residents and businesses and proposing an alternative.",
+"pv": "Thành phố định thay chợ cổ có mái bằng trung tâm thương mại và bãi đỗ xe. Viết thư cho thành phố nêu quan điểm, tác động tới dân và tiểu thương, đề xuất phương án khác.",
+"c": [
+"Mở thư, nêu lý do viết",
+"Tác động tới cư dân và tiểu thương",
+"Phương án thay thế",
+"Kết thư trang trọng"
+],
+"u": [
+[
+"I am writing to express my concern about",
+"Tôi viết thư để bày tỏ lo ngại về"
+],
+[
+"It would be regrettable if",
+"Thật đáng tiếc nếu"
+],
+[
+"A more balanced approach would be",
+"Một cách cân bằng hơn là"
+],
+[
+"I trust that",
+"Tôi tin rằng"
+]
+],
+"m": [
+"Dear Councillors,",
+"I am writing to express my concern about the proposal to demolish the Central Covered Market and replace it with a shopping centre and multi-storey car park. While I recognise the need to modernise the area, I believe the plan in its current form would do considerable harm.",
+"The market is not simply a building. For more than a century it has supported dozens of small family businesses, many of which could not afford the rents typically charged in shopping centres. It is also one of the few places in the city where residents of all ages and incomes still meet in the course of their daily lives. Replacing it with national chain stores would remove a source of affordable fresh food and weaken the character that draws visitors to the old town.",
+"It would be regrettable if the council's legitimate concerns about the market's poor condition and limited parking led to the loss of something that cannot be recreated. A more balanced approach would be to restore the existing structure, improve its facilities and lighting, and create parking on the underused site to the north. The upper level of the market could be leased to cafés or small creative businesses, generating income without displacing current traders.",
+"I trust that the council will consult traders and residents fully before making a final decision, and I would welcome the opportunity to contribute to that discussion.",
+"Yours faithfully,",
+"Pham Duc Huy"
+],
+"k": [
+[
+[
+"i am writing",
+"dear council",
+"proposal",
+"plan"
+]
+],
+[
+[
+"business",
+"trader",
+"resident",
+"rents",
+"affordable"
+]
+],
+[
+[
+"alternative",
+"instead",
+"a more balanced",
+"restore",
+"could be"
+]
+],
+[
+[
+"yours faithfully",
+"yours sincerely",
+"i trust",
+"consult"
+]
+]
+]
+},
+{
+"id": "c2-w9",
+"lv": "c2",
+"test": 1,
+"en": "Review: A Book That Changed Your Mind",
+"vi": "Nhận xét: Cuốn sách làm bạn đổi suy nghĩ",
+"genre": "bài nhận xét (review)",
+"min": 240,
+"max": 280,
+"p": "A literary website invites reviews of books that changed the reviewer's mind about an important subject. Write a review describing the book, explaining how it changed your thinking, and evaluating its strengths and weaknesses.",
+"pv": "Trang văn học mời nhận xét cuốn sách làm bạn đổi cách nghĩ về một vấn đề quan trọng: giới thiệu, nó thay đổi bạn thế nào, điểm mạnh và yếu.",
+"c": [
+"Giới thiệu sách và vấn đề",
+"Bạn đã nghĩ gì trước đó và thay đổi ra sao",
+"Điểm mạnh",
+"Điểm yếu và đánh giá chung"
+],
+"u": [
+[
+"sets out to",
+"đặt mục tiêu"
+],
+[
+"I had always assumed that",
+"Tôi vẫn luôn cho rằng"
+],
+[
+"What is most persuasive is",
+"Điều thuyết phục nhất là"
+],
+[
+"Its chief weakness",
+"Điểm yếu chính"
+]
+],
+"m": "Factfulness, by Hans Rosling, sets out to show that most of us hold a far gloomier view of the world than the evidence justifies. Written with his son and daughter-in-law, it draws on decades of data on health, poverty and education.\nI had always assumed, like most of the people Rosling surveyed, that extreme poverty was increasing and that the world was divided into rich and poor countries with little in between. The book demolishes both assumptions. Using clear charts, Rosling shows that the proportion of people living in extreme poverty has fallen dramatically and that most of the world's population now lives in middle-income countries. Reading it, I realised that my view of the world had been shaped by images and headlines rather than by numbers.\nWhat is most persuasive is not the statistics themselves but Rosling's analysis of why we misjudge them. He identifies a series of mental habits, such as our tendency to notice dramatic events and to assume that trends will continue in a straight line, and illustrates each with memorable stories from his career as a doctor.\nIts chief weakness is perhaps a tendency to understate problems that are genuinely getting worse. Critics have argued that its optimism can sound complacent when applied to climate change or inequality within countries, and the book sometimes seems more interested in correcting pessimism than in examining these risks.\nEven so, it is an unusually valuable book: humane, engaging and, above all, a lesson in thinking more carefully before deciding what we know.",
+"k": [
+[
+[
+"sets out to",
+"the book",
+"by",
+"written"
+]
+],
+[
+[
+"i had always",
+"assumed",
+"i realised",
+"i realized",
+"changed my",
+"i used to"
+]
+],
+[
+[
+"persuasive",
+"strength",
+"clear",
+"memorable",
+"convincing"
+]
+],
+[
+[
+"weakness",
+"however",
+"critics",
+"even so",
+"overall"
+]
+]
+]
+},
+{
+"id": "c2-w10",
+"lv": "c2",
+"test": 1,
+"en": "Essay: Is Expertise Losing Its Authority?",
+"vi": "Bài luận: Chuyên gia có đang mất uy tín?",
+"genre": "bài luận",
+"min": 240,
+"max": 280,
+"p": "Write an essay discussing the view that expert opinion has lost its authority in the age of the internet. Consider the reasons for this change, its consequences, and how trust in expertise might be rebuilt.",
+"pv": "Bài luận: ý kiến chuyên gia có đang mất uy tín trong thời internet? Bàn nguyên nhân, hệ quả và cách xây lại lòng tin.",
+"c": [
+"Mở bài nêu vấn đề và quan điểm",
+"Nguyên nhân thay đổi",
+"Hệ quả",
+"Cách xây dựng lại lòng tin + kết luận"
+],
+"u": [
+[
+"It has become commonplace to",
+"Đã thành chuyện thường khi"
+],
+[
+"Part of the explanation lies in",
+"Một phần lý do nằm ở"
+],
+[
+"The consequences are far from trivial",
+"Hệ quả không hề nhỏ"
+],
+[
+"Rebuilding trust will require",
+"Xây lại lòng tin sẽ cần"
+]
+],
+"m": "It has become commonplace to claim that we live in an era in which expertise counts for little, and in which the opinion of a scientist carries no more weight online than that of an anonymous commentator. The reality is more nuanced, but there is undoubtedly a crisis of trust in some areas, and its causes deserve careful examination.\nPart of the explanation lies in the internet itself. Access to vast amounts of information has given many people the impression that they can evaluate complex questions without specialised training, while algorithms tend to reward content that provokes strong emotions rather than content that is accurate. Experts have also contributed to the problem. Highly publicised failures, such as inaccurate economic forecasts, and a tendency to communicate in inaccessible language have encouraged the suspicion that expert opinion is either unreliable or self-serving.\nThe consequences are far from trivial. When public health advice is treated as just another opinion, vaccination rates can fall and preventable diseases return. More broadly, a society that cannot agree on basic facts finds it increasingly difficult to debate what should be done about them.\nRebuilding trust will require effort on several fronts. Experts need to explain not only their conclusions but also their uncertainties, since overconfidence that is later exposed does lasting damage. Educational systems could do more to teach how knowledge is produced and tested. Above all, trust is earned through consistency and openness rather than demanded on the basis of credentials. Expertise has not lost its value; what it has lost is the assumption that its value is self-evident.",
+"k": [
+[
+[
+"expert",
+"expertise",
+"authority",
+"trust"
+]
+],
+[
+[
+"internet",
+"algorithm",
+"information",
+"explanation lies",
+"because"
+]
+],
+[
+[
+"consequence",
+"vaccination",
+"public health",
+"as a result",
+"society"
+]
+],
+[
+[
+"rebuild",
+"trust is earned",
+"will require",
+"should",
+"need to",
+"in conclusion",
+"above all"
 ]
 ]
 ]

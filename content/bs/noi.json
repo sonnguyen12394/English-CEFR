@@ -1,5 +1,5 @@
 {
-"_note": "🗣 Nói B1 → C2 (27/10/2026, Claude soạn kiểu Cambridge Speaking, chưa người thật kiểm). Mỗi cấp 4 đề nói + 2 đóng vai; test = câu đọc to.",
+"_note": "🗣 Nói B1 → C2 (27/10/2026, Claude soạn kiểu Cambridge Speaking, chưa người thật kiểm). Mỗi cấp 4 đề nói + 2 đóng vai; test = câu đọc to. v100: +6 đề nói thi mỗi cấp (s5–s10, test: 1).",
 "items": [
 {
 "id": "b1-s1",
@@ -2719,6 +2719,1734 @@
 ]
 }
 }
+]
+]
+},
+{
+"id": "b1-s5",
+"lv": "b1",
+"test": 1,
+"en": "A Place You Like to Relax",
+"vi": "Nơi bạn thích thư giãn",
+"p": "Describe a place where you like to relax. Where is it? What do you do there? Why do you like it?",
+"pv": "Tả nơi bạn thích thư giãn: ở đâu, làm gì ở đó, vì sao thích.",
+"c": [
+"Nơi đó ở đâu",
+"Bạn làm gì ở đó",
+"Vì sao bạn thích",
+"Bạn đến đó khi nào / bao lâu một lần"
+],
+"u": [
+[
+"One place I really like is",
+"Một nơi tôi rất thích là"
+],
+[
+"I usually go there when",
+"Tôi thường đến đó khi"
+],
+[
+"What I like most is",
+"Điều tôi thích nhất là"
+],
+[
+"It helps me",
+"Nó giúp tôi"
+]
+],
+"m": "One place I really like is a small lake near my house. It's only ten minutes away by bike. I usually go there when I feel stressed after school or at the weekend. I sit on a bench, listen to music and watch people walking or fishing. Sometimes I take a book. What I like most is that it's quiet and green, even though it's in the middle of the city. It helps me forget about homework for a while, and I always feel calmer when I go home.",
+"k": [
+[
+[
+"near",
+"in the",
+"away",
+"place",
+"it's",
+"it is"
+]
+],
+[
+[
+"sit",
+"listen",
+"read",
+"walk",
+"watch",
+"go there"
+]
+],
+[
+[
+"because",
+"like most",
+"quiet",
+"calm",
+"love"
+]
+],
+[
+[
+"usually",
+"when",
+"weekend",
+"every",
+"sometimes",
+"often"
+]
+]
+]
+},
+{
+"id": "b1-s6",
+"lv": "b1",
+"test": 1,
+"en": "A Useful Thing You Learned",
+"vi": "Một điều hữu ích bạn đã học",
+"p": "Talk about something useful you learned outside school. Who taught you? How did you learn it? How has it helped you?",
+"pv": "Kể một điều hữu ích bạn học ngoài trường: ai dạy, học thế nào, giúp ích gì.",
+"c": [
+"Điều bạn đã học",
+"Ai dạy / học thế nào (quá khứ)",
+"Nó giúp bạn ra sao",
+"Cảm nghĩ hiện tại"
+],
+"u": [
+[
+"Something useful I learned was",
+"Một điều hữu ích tôi đã học là"
+],
+[
+"taught me how to",
+"dạy tôi cách"
+],
+[
+"At first it was difficult, but",
+"Lúc đầu khó, nhưng"
+],
+[
+"Now I can",
+"Bây giờ tôi có thể"
+]
+],
+"m": "Something useful I learned outside school was how to cook simple meals. My grandmother taught me when I stayed with her for a summer. At first it was difficult, because I kept burning the rice, but she was very patient and showed me again and again. Now I can cook several dishes, like fried rice, soup and fried eggs with tomatoes. It has helped me a lot, especially when my parents work late. I'm really glad she taught me, and I think everyone should learn to cook.",
+"k": [
+[
+[
+"learned",
+"learnt",
+"how to",
+"useful"
+]
+],
+[
+[
+"taught",
+"showed",
+"my ",
+"when i",
+"at first"
+]
+],
+[
+[
+"helped",
+"now i can",
+"useful when",
+"can cook",
+"save"
+]
+],
+[
+[
+"glad",
+"happy",
+"i think",
+"everyone should",
+"proud",
+"now"
+]
+]
+]
+},
+{
+"id": "b1-s7",
+"lv": "b1",
+"test": 1,
+"en": "A Celebration in Your Family",
+"vi": "Một dịp ăn mừng trong gia đình",
+"p": "Describe a family celebration you remember well. What was the occasion? Who was there? What happened?",
+"pv": "Kể một dịp ăn mừng gia đình bạn nhớ: dịp gì, ai có mặt, chuyện gì đã xảy ra.",
+"c": [
+"Dịp gì",
+"Ai có mặt",
+"Chuyện gì đã xảy ra (quá khứ)",
+"Vì sao bạn nhớ"
+],
+"u": [
+[
+"I remember",
+"Tôi nhớ"
+],
+[
+"The whole family",
+"Cả gia đình"
+],
+[
+"The best moment was",
+"Khoảnh khắc đẹp nhất là"
+],
+[
+"I'll never forget",
+"Tôi sẽ không bao giờ quên"
+]
+],
+"m": "I remember my grandfather's eightieth birthday very well. It was two years ago, during the Tet holiday. The whole family came, more than thirty people, including cousins from Ho Chi Minh City I hadn't seen for years. We cooked together all morning and had a big lunch in the garden. The best moment was when my little cousins sang a song they had practised for weeks. My grandfather cried a little because he was so happy. I'll never forget that day, because it was the first time everyone was together.",
+"k": [
+[
+[
+"birthday",
+"wedding",
+"tet",
+"anniversary",
+"party",
+"celebration"
+]
+],
+[
+[
+"family",
+"cousins",
+"grandfather",
+"grandmother",
+"parents",
+"everyone"
+]
+],
+[
+[
+"was",
+"were",
+"came",
+"cooked",
+"sang",
+"had",
+"went"
+]
+],
+[
+[
+"never forget",
+"remember",
+"because",
+"special",
+"first time"
+]
+]
+]
+},
+{
+"id": "b1-s8",
+"lv": "b1",
+"test": 1,
+"en": "Your Plans for Next Year",
+"vi": "Kế hoạch năm tới của bạn",
+"p": "Talk about your plans for next year. What do you want to do? Why? What might make it difficult?",
+"pv": "Nói về kế hoạch năm tới: muốn làm gì, vì sao, điều gì có thể gây khó.",
+"c": [
+"Kế hoạch là gì (tương lai)",
+"Lý do",
+"Khó khăn có thể gặp",
+"Bạn sẽ làm gì để vượt qua"
+],
+"u": [
+[
+"Next year I'm planning to",
+"Năm tới tôi dự định"
+],
+[
+"The reason is that",
+"Lý do là"
+],
+[
+"The hardest part will probably be",
+"Khó nhất có lẽ sẽ là"
+],
+[
+"To deal with that, I'll",
+"Để giải quyết, tôi sẽ"
+]
+],
+"m": "Next year I'm planning to take the IELTS exam and apply for a scholarship to study in Australia. The reason is that I want to study environmental science, and the best programmes are abroad. The hardest part will probably be the writing test, because I'm not very good at essays yet. Money could also be a problem if I don't get the scholarship. To deal with that, I'll practise writing every week with my teacher, and I'll also look for part-time work so I can save some money.",
+"k": [
+[
+[
+"planning to",
+"going to",
+"next year",
+"want to",
+"will"
+]
+],
+[
+[
+"because",
+"the reason",
+"so that",
+"i want"
+]
+],
+[
+[
+"hardest",
+"difficult",
+"problem",
+"worried",
+"might"
+]
+],
+[
+[
+"i'll",
+"i will",
+"to deal with",
+"practise",
+"practice",
+"save"
+]
+]
+]
+},
+{
+"id": "b1-s9",
+"lv": "b1",
+"test": 1,
+"en": "Shopping Online or in Shops",
+"vi": "Mua hàng online hay ở cửa hàng",
+"p": "Do you prefer shopping online or in shops? Talk about the advantages and disadvantages, and give your opinion.",
+"pv": "Bạn thích mua online hay ở cửa hàng? Nói ưu, nhược điểm và ý kiến của bạn.",
+"c": [
+"Bạn thích cách nào",
+"Ưu điểm",
+"Nhược điểm",
+"Ý kiến cuối cùng"
+],
+"u": [
+[
+"Personally, I prefer",
+"Cá nhân tôi thích"
+],
+[
+"One advantage is that",
+"Một ưu điểm là"
+],
+[
+"The problem is that",
+"Vấn đề là"
+],
+[
+"Overall, I think",
+"Nhìn chung, tôi nghĩ"
+]
+],
+"m": "Personally, I prefer shopping online for most things. One advantage is that it saves a lot of time, because I don't have to travel or queue. It's also easy to compare prices. The problem is that you can't touch or try things before you buy them. I once bought a jacket online that was much too small, and returning it was really annoying. For clothes and shoes, I still prefer going to shops. Overall, I think online shopping is better for things like books and electronics, but shops are better when the size or quality really matters.",
+"k": [
+[
+[
+"prefer",
+"i like",
+"personally",
+"rather"
+]
+],
+[
+[
+"advantage",
+"saves",
+"easy",
+"cheaper",
+"convenient"
+]
+],
+[
+[
+"problem",
+"disadvantage",
+"can't",
+"cannot",
+"but"
+]
+],
+[
+[
+"overall",
+"i think",
+"in my opinion",
+"so"
+]
+]
+]
+},
+{
+"id": "b1-s10",
+"lv": "b1",
+"test": 1,
+"en": "A Person Who Helped You",
+"vi": "Một người đã giúp bạn",
+"p": "Talk about a person who helped you when you needed it. Who were they? What did they do? How did you feel?",
+"pv": "Kể về một người đã giúp bạn lúc cần: là ai, đã làm gì, bạn cảm thấy thế nào.",
+"c": [
+"Người đó là ai",
+"Hoàn cảnh bạn cần giúp",
+"Họ đã làm gì (quá khứ)",
+"Bạn cảm thấy thế nào"
+],
+"u": [
+[
+"I'd like to talk about",
+"Tôi muốn kể về"
+],
+[
+"I was having a hard time because",
+"Tôi đang gặp khó khăn vì"
+],
+[
+"She helped me by",
+"Cô ấy giúp tôi bằng cách"
+],
+[
+"I felt really grateful",
+"Tôi thấy rất biết ơn"
+]
+],
+"m": "I'd like to talk about my maths teacher in grade ten, Ms Lan. I was having a hard time because my parents were getting divorced, and my marks were falling. She noticed that I was quiet in class and asked me to stay after a lesson. She didn't ask too many questions, but she offered to help me with maths for free twice a week. She also told me I could talk to her any time. I felt really grateful, because I didn't feel alone anymore. My marks improved, and we still send each other messages at Tet.",
+"k": [
+[
+[
+"teacher",
+"friend",
+"my ",
+"neighbour",
+"brother",
+"sister",
+"talk about"
+]
+],
+[
+[
+"hard time",
+"because",
+"problem",
+"difficult",
+"needed"
+]
+],
+[
+[
+"helped",
+"offered",
+"told me",
+"showed",
+"gave"
+]
+],
+[
+[
+"felt",
+"grateful",
+"thankful",
+"happy",
+"relieved"
+]
+]
+]
+},
+{
+"id": "b2-s5",
+"lv": "b2",
+"test": 1,
+"en": "A Change in Your Town",
+"vi": "Một thay đổi ở nơi bạn sống",
+"p": "Describe an important change in your town or neighbourhood in recent years. What changed? How has it affected people? Is it a positive change overall?",
+"pv": "Tả một thay đổi quan trọng ở nơi bạn sống gần đây: thay đổi gì, ảnh hưởng ra sao, nhìn chung có tích cực không.",
+"c": [
+"Thay đổi là gì",
+"Ảnh hưởng tốt",
+"Ảnh hưởng chưa tốt",
+"Đánh giá chung"
+],
+"u": [
+[
+"Over the past few years",
+"Vài năm qua"
+],
+[
+"On the plus side",
+"Về mặt tích cực"
+],
+[
+"The downside is that",
+"Mặt trái là"
+],
+[
+"All things considered",
+"Xét mọi mặt"
+]
+],
+"m": "Over the past few years, the biggest change in my neighbourhood has been the opening of a new metro line. Before that, getting to the city centre could take over an hour in traffic. On the plus side, people can now commute much faster, and the air near the main road seems a little cleaner because fewer people use motorbikes. Small businesses near the stations have also become busier. The downside is that rents have gone up a lot, and some older families have had to move further out. The construction also caused years of noise and dust. All things considered, I think it's a positive change, but the city should do more to protect people who can't afford higher rents.",
+"k": [
+[
+[
+"change",
+"new",
+"opened",
+"built",
+"over the past"
+]
+],
+[
+[
+"plus side",
+"positive",
+"faster",
+"better",
+"benefit",
+"busier"
+]
+],
+[
+[
+"downside",
+"however",
+"problem",
+"rents",
+"noise",
+"negative"
+]
+],
+[
+[
+"all things considered",
+"overall",
+"i think",
+"on balance",
+"in general"
+]
+]
+]
+},
+{
+"id": "b2-s6",
+"lv": "b2",
+"test": 1,
+"en": "Learning from a Mistake",
+"vi": "Bài học từ một sai lầm",
+"p": "Tell me about a mistake you made and what you learned from it. What happened? Why did it happen? What would you do differently now?",
+"pv": "Kể một sai lầm và bài học: chuyện gì, vì sao, giờ bạn sẽ làm khác thế nào.",
+"c": [
+"Sai lầm là gì (quá khứ)",
+"Vì sao xảy ra",
+"Hậu quả",
+"Bài học / giờ sẽ làm khác"
+],
+"u": [
+[
+"One mistake I'll never forget is",
+"Một sai lầm tôi không quên là"
+],
+[
+"Looking back, the reason was",
+"Nhìn lại, lý do là"
+],
+[
+"As a result,",
+"Kết quả là"
+],
+[
+"If I could do it again, I'd",
+"Nếu được làm lại, tôi sẽ"
+]
+],
+"m": "One mistake I'll never forget is when I agreed to lead three group projects at university in the same term. I wanted to look responsible, and I didn't want to say no to my friends. Looking back, the reason was that I didn't think realistically about how much time each project would take. As a result, I was exhausted, all three projects were finished at the last minute, and one of them got a really poor mark, which affected my whole group. If I could do it again, I'd only take on one leadership role and be honest about my limits. I've learned that saying no politely is much better than letting people down later.",
+"k": [
+[
+[
+"mistake",
+"agreed",
+"decided",
+"when i"
+]
+],
+[
+[
+"because",
+"the reason",
+"didn't think",
+"wanted to"
+]
+],
+[
+[
+"as a result",
+"so",
+"exhausted",
+"poor mark",
+"consequence"
+]
+],
+[
+[
+"if i could",
+"i'd",
+"i would",
+"learned",
+"learnt",
+"lesson"
+]
+]
+]
+},
+{
+"id": "b2-s7",
+"lv": "b2",
+"test": 1,
+"en": "Should Young People Travel Alone?",
+"vi": "Người trẻ có nên đi du lịch một mình?",
+"p": "Some people think young people should travel alone at least once. Do you agree? Talk about the benefits and the risks, and give your opinion.",
+"pv": "Có người cho rằng người trẻ nên đi du lịch một mình ít nhất một lần. Bạn đồng ý không? Nói lợi ích, rủi ro và ý kiến.",
+"c": [
+"Quan điểm của bạn",
+"Lợi ích",
+"Rủi ro",
+"Kết luận / lời khuyên"
+],
+"u": [
+[
+"I'm inclined to agree",
+"Tôi khá đồng ý"
+],
+[
+"It forces you to",
+"Nó buộc bạn phải"
+],
+[
+"That said, there are risks",
+"Dù vậy, có những rủi ro"
+],
+[
+"As long as",
+"Miễn là"
+]
+],
+"m": "I'm inclined to agree, as long as it's done sensibly. Travelling alone forces you to make your own decisions, solve problems and talk to strangers, which builds confidence in a way that's hard to get at home. When I travelled alone to Da Lat for a week, I had to deal with a cancelled bus and a hostel that had lost my booking, and I came back feeling much more independent. That said, there are risks. Young people may be less aware of scams or unsafe areas, and if something goes wrong, there's nobody to help immediately. So I'd say it's a great experience, but people should start with a safe destination, tell their family their plans and keep some emergency money.",
+"k": [
+[
+[
+"agree",
+"disagree",
+"i think",
+"inclined",
+"in my opinion"
+]
+],
+[
+[
+"confidence",
+"independent",
+"decisions",
+"benefit",
+"forces you"
+]
+],
+[
+[
+"risk",
+"danger",
+"unsafe",
+"scam",
+"that said",
+"however"
+]
+],
+[
+[
+"as long as",
+"should",
+"i'd say",
+"so",
+"advice"
+]
+]
+]
+},
+{
+"id": "b2-s8",
+"lv": "b2",
+"test": 1,
+"en": "A Hobby That Takes Time",
+"vi": "Một sở thích tốn thời gian",
+"p": "Describe a hobby or activity that you have spent a lot of time on. How did you start? What do you enjoy about it? Has it changed you in any way?",
+"pv": "Tả một sở thích bạn dành nhiều thời gian: bắt đầu thế nào, thích điều gì, nó có thay đổi bạn không.",
+"c": [
+"Sở thích là gì",
+"Bắt đầu thế nào (quá khứ)",
+"Điều bạn thích",
+"Nó thay đổi bạn ra sao"
+],
+"u": [
+[
+"I've been… for",
+"Tôi đã… được"
+],
+[
+"I got into it when",
+"Tôi bắt đầu mê khi"
+],
+[
+"What I find rewarding is",
+"Điều khiến tôi thấy đáng là"
+],
+[
+"It has taught me",
+"Nó đã dạy tôi"
+]
+],
+"m": "I've been playing the guitar for about six years now. I got into it when my older cousin left his old guitar at our house and never came back for it. At first I just watched online videos and practised a few simple songs, but after a while I joined a small band with some friends from school. What I find rewarding is that progress is very clear: a song that seemed impossible a month ago suddenly becomes easy. Playing with other people is also great fun. It has taught me patience and discipline, because there are no shortcuts, you just have to practise. It has also made me more confident performing in front of people.",
+"k": [
+[
+[
+"playing",
+"hobby",
+"i've been",
+"for about",
+"years"
+]
+],
+[
+[
+"got into",
+"started",
+"began",
+"when my",
+"at first"
+]
+],
+[
+[
+"rewarding",
+"enjoy",
+"love",
+"fun",
+"like"
+]
+],
+[
+[
+"taught me",
+"changed",
+"made me",
+"learned",
+"confident"
+]
+]
+]
+},
+{
+"id": "b2-s9",
+"lv": "b2",
+"test": 1,
+"en": "The Role of Technology in Education",
+"vi": "Vai trò của công nghệ trong giáo dục",
+"p": "How has technology changed the way people learn? Talk about the advantages and disadvantages and say whether you think schools use technology well.",
+"pv": "Công nghệ đã thay đổi cách học thế nào? Nói ưu, nhược và liệu trường học có dùng công nghệ tốt không.",
+"c": [
+"Công nghệ thay đổi cách học thế nào",
+"Ưu điểm",
+"Nhược điểm",
+"Trường dùng có tốt không"
+],
+"u": [
+[
+"Technology has completely changed",
+"Công nghệ đã thay đổi hoàn toàn"
+],
+[
+"The main advantage is",
+"Ưu điểm chính là"
+],
+[
+"On the other hand,",
+"Mặt khác,"
+],
+[
+"In my experience,",
+"Theo trải nghiệm của tôi,"
+]
+],
+"m": "Technology has completely changed the way people learn. Twenty years ago, if you wanted to learn something, you needed a teacher or a library. Now you can find videos, courses and practice exercises on almost any subject for free. The main advantage is access: students in small towns can learn from excellent teachers anywhere in the world. On the other hand, it's very easy to get distracted, and some students just copy answers from the internet without really understanding them. In my experience, schools don't always use technology well. Some teachers just put their slides online, which doesn't really change anything. I think technology works best when it's used for practice and feedback, not as a replacement for good teaching.",
+"k": [
+[
+[
+"changed",
+"technology",
+"now you can",
+"years ago"
+]
+],
+[
+[
+"advantage",
+"access",
+"free",
+"anywhere",
+"benefit"
+]
+],
+[
+[
+"on the other hand",
+"distracted",
+"copy",
+"disadvantage",
+"however"
+]
+],
+[
+[
+"schools",
+"in my experience",
+"i think",
+"teachers"
+]
+]
+]
+},
+{
+"id": "b2-s10",
+"lv": "b2",
+"test": 1,
+"en": "A Difficult Conversation",
+"vi": "Một cuộc nói chuyện khó",
+"p": "Tell me about a time you had to have a difficult conversation with someone. What was it about? How did you handle it? What was the result?",
+"pv": "Kể lần bạn phải nói chuyện khó với ai đó: về chuyện gì, bạn xử lý thế nào, kết quả ra sao.",
+"c": [
+"Cuộc nói chuyện về gì",
+"Vì sao khó",
+"Bạn xử lý thế nào",
+"Kết quả"
+],
+"u": [
+[
+"I had to tell",
+"Tôi phải nói với"
+],
+[
+"It was difficult because",
+"Khó vì"
+],
+[
+"I tried to",
+"Tôi cố gắng"
+],
+[
+"In the end,",
+"Cuối cùng,"
+]
+],
+"m": "A few months ago I had to tell my best friend that I couldn't lend her any more money. She had borrowed money from me several times and hadn't paid it back, and it was starting to affect our friendship. It was difficult because I didn't want to hurt her or make her feel embarrassed. I tried to choose a calm moment, when we were having coffee, and I explained honestly that I was struggling with money myself. I didn't blame her. In the end, she was actually relieved that I had said something, and she apologised. She has paid back most of it now, and our friendship is stronger because we were honest with each other.",
+"k": [
+[
+[
+"had to tell",
+"conversation",
+"talk to",
+"tell my"
+]
+],
+[
+[
+"difficult because",
+"didn't want",
+"hurt",
+"embarrass",
+"hard"
+]
+],
+[
+[
+"tried to",
+"explained",
+"honestly",
+"chose",
+"calm"
+]
+],
+[
+[
+"in the end",
+"result",
+"finally",
+"now",
+"relieved"
+]
+]
+]
+},
+{
+"id": "c1-s5",
+"lv": "c1",
+"test": 1,
+"en": "The Value of Failure",
+"vi": "Giá trị của thất bại",
+"p": "Some people say that failure is more valuable than success. To what extent do you agree? Use examples from your own experience or from society.",
+"pv": "Có người nói thất bại quý hơn thành công. Bạn đồng ý tới mức nào? Dùng ví dụ từ bản thân hoặc xã hội.",
+"c": [
+"Mức độ đồng ý",
+"Lý lẽ ủng hộ có ví dụ",
+"Giới hạn / mặt khác",
+"Kết luận cân bằng"
+],
+"u": [
+[
+"I'd agree up to a point",
+"Tôi đồng ý ở một mức độ"
+],
+[
+"Failure tends to",
+"Thất bại thường"
+],
+[
+"That said, it would be naive to",
+"Dù vậy, thật ngây thơ nếu"
+],
+[
+"What really matters is",
+"Điều thật sự quan trọng là"
+]
+],
+"m": "I'd agree up to a point. Failure tends to teach us things that success rarely does, because it forces us to analyse what went wrong. When I failed my first driving test, I realised I'd been relying on luck rather than practice, and that changed how I prepare for anything important. In business, too, many successful founders say their first company failed and that they learned more from it than from any course. That said, it would be naive to romanticise failure. Repeated failure can destroy confidence, and not everyone can afford to fail: someone who loses their savings on a failed business may never get a second chance. So what really matters is not failure itself but the conditions around it: whether people have the support and security to reflect on it and try again. Without that, failure is just painful.",
+"k": [
+[
+[
+"agree",
+"up to a point",
+"to some extent",
+"disagree"
+]
+],
+[
+[
+"teach",
+"learned",
+"learnt",
+"for example",
+"when i failed",
+"founders"
+]
+],
+[
+[
+"that said",
+"however",
+"naive",
+"not everyone",
+"can destroy"
+]
+],
+[
+[
+"what really matters",
+"so",
+"overall",
+"in the end",
+"ultimately"
+]
+]
+]
+},
+{
+"id": "c1-s6",
+"lv": "c1",
+"test": 1,
+"en": "Work–Life Balance",
+"vi": "Cân bằng công việc và cuộc sống",
+"p": "Many people find it hard to balance work and personal life. Why do you think this is? Whose responsibility is it to improve the situation: individuals, employers or governments?",
+"pv": "Nhiều người khó cân bằng công việc và đời sống. Vì sao? Trách nhiệm cải thiện thuộc về cá nhân, công ty hay nhà nước?",
+"c": [
+"Nguyên nhân",
+"Vai trò của cá nhân",
+"Vai trò của công ty / nhà nước",
+"Quan điểm cuối cùng"
+],
+"u": [
+[
+"There are several reasons for this",
+"Có vài lý do"
+],
+[
+"To some extent, individuals can",
+"Ở mức nào đó, cá nhân có thể"
+],
+[
+"However, it's unrealistic to expect",
+"Tuy nhiên, thật khó kỳ vọng"
+],
+[
+"Ultimately, I'd argue",
+"Rốt cuộc, tôi cho rằng"
+]
+],
+"m": "There are several reasons for this. Technology means work can follow us everywhere, so the boundary between the office and home has almost disappeared. Many jobs are also less secure than in the past, so people feel they have to be constantly available to keep their position. To some extent, individuals can protect themselves, for example by switching off notifications in the evening or being clear about their limits. However, it's unrealistic to expect people to do this alone if their manager sends messages at eleven at night and expects an answer. Employers set the culture, so they have a big responsibility. Governments can help too: some countries now give workers a legal right to disconnect after working hours. Ultimately, I'd argue that the main responsibility lies with employers, because individual effort rarely changes a culture that rewards overwork.",
+"k": [
+[
+[
+"reasons",
+"because",
+"technology",
+"less secure"
+]
+],
+[
+[
+"individuals",
+"people can",
+"themselves",
+"switch off",
+"limits"
+]
+],
+[
+[
+"employer",
+"government",
+"manager",
+"right to disconnect",
+"law"
+]
+],
+[
+[
+"ultimately",
+"i'd argue",
+"i think",
+"responsibility lies",
+"in conclusion"
+]
+]
+]
+},
+{
+"id": "c1-s7",
+"lv": "c1",
+"test": 1,
+"en": "A Decision That Shaped Your Life",
+"vi": "Một quyết định định hình cuộc đời bạn",
+"p": "Describe a decision that had a significant effect on your life. What were the options? How did you decide? Would you make the same choice again?",
+"pv": "Tả một quyết định ảnh hưởng lớn tới đời bạn: có những lựa chọn nào, bạn quyết định ra sao, có chọn lại như thế không.",
+"c": [
+"Hoàn cảnh và các lựa chọn",
+"Bạn quyết định thế nào",
+"Ảnh hưởng của quyết định",
+"Có chọn lại như thế không"
+],
+"u": [
+[
+"I was torn between",
+"Tôi phân vân giữa"
+],
+[
+"What tipped the balance was",
+"Điều quyết định là"
+],
+[
+"It turned out to be",
+"Hoá ra"
+],
+[
+"With hindsight,",
+"Nhìn lại,"
+]
+],
+"m": "The decision that shaped my life most was choosing to study linguistics instead of medicine. My family had always assumed I would become a doctor, and I had good enough grades. I was torn between meeting their expectations and following my genuine interest in languages. What tipped the balance was a conversation with a doctor friend of my father's, who told me honestly that medicine is too demanding to do without real passion. I chose linguistics, and my parents were disappointed for a while. It turned out to be the right choice: I now work as a translator and I genuinely enjoy my work, which I don't think I would have done in a hospital. With hindsight, I'd make the same decision, though I'd explain my reasons to my parents earlier and more clearly.",
+"k": [
+[
+[
+"torn between",
+"options",
+"choose",
+"choosing",
+"decision"
+]
+],
+[
+[
+"tipped the balance",
+"decided",
+"conversation",
+"i chose"
+]
+],
+[
+[
+"turned out",
+"now i",
+"effect",
+"disappointed",
+"enjoy"
+]
+],
+[
+[
+"hindsight",
+"same decision",
+"would",
+"again",
+"regret"
+]
+]
+]
+},
+{
+"id": "c1-s8",
+"lv": "c1",
+"test": 1,
+"en": "Should Cities Ban Cars from Centres?",
+"vi": "Thành phố có nên cấm ô tô ở trung tâm?",
+"p": "Some cities have banned private cars from their centres. Discuss the advantages and disadvantages of this policy and say whether it would work in a city you know.",
+"pv": "Một số thành phố cấm xe riêng ở trung tâm. Bàn ưu, nhược và liệu chính sách này có hợp với thành phố bạn biết không.",
+"c": [
+"Ưu điểm",
+"Nhược điểm",
+"Áp dụng vào thành phố bạn biết",
+"Kết luận có điều kiện"
+],
+"u": [
+[
+"The most obvious benefit is",
+"Lợi ích rõ nhất là"
+],
+[
+"Critics point out that",
+"Người phản đối chỉ ra"
+],
+[
+"In the case of",
+"Với trường hợp"
+],
+[
+"It would only work if",
+"Chỉ hiệu quả nếu"
+]
+],
+"m": "The most obvious benefit is cleaner air and safer streets. When cars are removed, city centres become quieter and more pleasant, and in several European cities, shops actually reported more customers because people spent longer walking around. Critics point out, however, that a ban can be unfair to people with disabilities, older residents and businesses that depend on deliveries. It can also simply push traffic into surrounding neighbourhoods. In the case of Hanoi, I think a complete ban would be difficult right now, because most people use motorbikes and public transport is still being developed. A gradual approach might work better, starting with car-free weekends around Hoan Kiem Lake, which have already been popular. So it would only work if public transport is reliable and there are exceptions for people who genuinely need vehicles.",
+"k": [
+[
+[
+"benefit",
+"cleaner",
+"safer",
+"advantage",
+"quieter"
+]
+],
+[
+[
+"critics",
+"however",
+"unfair",
+"disadvantage",
+"problem"
+]
+],
+[
+[
+"in the case of",
+"hanoi",
+"ho chi minh",
+"in my city",
+"da nang"
+]
+],
+[
+[
+"only work if",
+"so",
+"gradual",
+"conclusion",
+"overall"
+]
+]
+]
+},
+{
+"id": "c1-s9",
+"lv": "c1",
+"test": 1,
+"en": "The Influence of Celebrities",
+"vi": "Ảnh hưởng của người nổi tiếng",
+"p": "How much influence do celebrities and influencers have on young people today? Is this influence mainly positive or negative? Give reasons and examples.",
+"pv": "Người nổi tiếng và người có ảnh hưởng tác động tới giới trẻ thế nào? Chủ yếu tích cực hay tiêu cực? Nêu lý do và ví dụ.",
+"c": [
+"Mức độ ảnh hưởng",
+"Ảnh hưởng tích cực có ví dụ",
+"Ảnh hưởng tiêu cực có ví dụ",
+"Kết luận"
+],
+"u": [
+[
+"It's hard to overstate",
+"Khó mà nói quá"
+],
+[
+"To be fair,",
+"Công bằng mà nói,"
+],
+[
+"The darker side is",
+"Mặt tối là"
+],
+[
+"On the whole,",
+"Nhìn chung,"
+]
+],
+"m": "It's hard to overstate how much influence they have. Many young people spend hours a day watching influencers, and they often trust them more than traditional media. To be fair, some of that influence is positive. Several Vietnamese creators have encouraged young people to read more, learn languages or talk openly about mental health, which was a taboo subject not long ago. The darker side is the pressure to look and live in a certain way. Constant images of perfect bodies and expensive lifestyles can make teenagers feel inadequate, and some influencers promote products they clearly know nothing about. On the whole, I'd say the influence is mixed, and what matters most is whether young people learn to think critically about what they watch, which is something schools could teach far more effectively.",
+"k": [
+[
+[
+"influence",
+"overstate",
+"trust",
+"hours"
+]
+],
+[
+[
+"positive",
+"to be fair",
+"encouraged",
+"for example",
+"mental health"
+]
+],
+[
+[
+"darker side",
+"pressure",
+"negative",
+"inadequate",
+"however"
+]
+],
+[
+[
+"on the whole",
+"overall",
+"i'd say",
+"in conclusion",
+"what matters"
+]
+]
+]
+},
+{
+"id": "c1-s10",
+"lv": "c1",
+"test": 1,
+"en": "A Tradition Worth Keeping",
+"vi": "Một truyền thống đáng giữ gìn",
+"p": "Describe a tradition in your country that you think should be preserved. What does it involve? Why is it important? What threatens it?",
+"pv": "Tả một truyền thống ở nước bạn nên được giữ: gồm những gì, vì sao quan trọng, điều gì đe doạ nó.",
+"c": [
+"Truyền thống là gì",
+"Vì sao quan trọng",
+"Điều gì đe doạ nó",
+"Cách giữ gìn"
+],
+"u": [
+[
+"A tradition I value deeply is",
+"Một truyền thống tôi rất trân trọng là"
+],
+[
+"What makes it special is",
+"Điều làm nó đặc biệt là"
+],
+[
+"Sadly, it's under threat from",
+"Đáng buồn, nó đang bị đe doạ bởi"
+],
+[
+"One way to keep it alive",
+"Một cách giữ nó sống"
+]
+],
+"m": "A tradition I value deeply is the family meal on the first day of Tet, when several generations gather at the oldest relative's house. It involves preparing traditional dishes like banh chung, offering food at the family altar and then eating together for hours. What makes it special is that it connects people to their ancestors and to each other, and it's often the only time the whole extended family is in one place. Sadly, it's under threat from busy modern lives. More families now travel during Tet or order food instead of cooking together, and younger people sometimes see it as an obligation rather than something meaningful. One way to keep it alive might be to adapt it rather than insist on every detail, for example sharing the cooking so it isn't a burden for one person, which is usually a woman.",
+"k": [
+[
+[
+"tradition",
+"tet",
+"festival",
+"custom",
+"involves"
+]
+],
+[
+[
+"special",
+"important",
+"connects",
+"meaning",
+"because"
+]
+],
+[
+[
+"threat",
+"busy",
+"travel",
+"sadly",
+"obligation"
+]
+],
+[
+[
+"keep it alive",
+"preserve",
+"adapt",
+"one way",
+"should"
+]
+]
+]
+},
+{
+"id": "c2-s5",
+"lv": "c2",
+"test": 1,
+"en": "Is Privacy Becoming Obsolete?",
+"vi": "Quyền riêng tư có đang lỗi thời?",
+"p": "Some argue that privacy is becoming an outdated idea in a connected world. Do you agree? Discuss the implications for individuals and society.",
+"pv": "Có người cho rằng quyền riêng tư đang lỗi thời trong thế giới kết nối. Bạn đồng ý không? Bàn tác động tới cá nhân và xã hội.",
+"c": [
+"Quan điểm rõ ràng",
+"Tác động tới cá nhân",
+"Tác động tới xã hội",
+"Lập luận kết, có sắc thái"
+],
+"u": [
+[
+"I'd take issue with that",
+"Tôi không đồng tình điểm đó"
+],
+[
+"What has changed is not",
+"Điều đã thay đổi không phải là"
+],
+[
+"The implications go well beyond",
+"Hệ quả vượt xa"
+],
+[
+"If anything,",
+"Nếu có gì thì"
+]
+],
+"m": "I'd take issue with that claim. What has changed is not the value of privacy but how much effort it takes to protect it. People share a great deal online, but that doesn't mean they've stopped caring; surveys consistently show that most people are uneasy about how their data is collected, they simply feel powerless to do anything about it. For individuals, the loss of privacy can be very concrete: personal information can be used to manipulate purchases, raise insurance prices or expose people to harassment. The implications go well beyond individuals, though. Privacy is what allows people to explore ideas, form opinions and organise without constant observation, and a society in which everyone assumes they are being watched tends to become more cautious and conformist. If anything, I'd argue that privacy matters more than ever precisely because it's so easily lost, and that the burden of protecting it should shift from individuals to the companies and governments that collect the data.",
+"k": [
+[
+[
+"take issue",
+"disagree",
+"i agree",
+"i don't think",
+"claim"
+]
+],
+[
+[
+"individuals",
+"personal information",
+"manipulate",
+"harassment",
+"people share"
+]
+],
+[
+[
+"society",
+"goes well beyond",
+"conformist",
+"democracy",
+"watched"
+]
+],
+[
+[
+"if anything",
+"i'd argue",
+"ultimately",
+"burden",
+"in conclusion"
+]
+]
+]
+},
+{
+"id": "c2-s6",
+"lv": "c2",
+"test": 1,
+"en": "The Purpose of Higher Education",
+"vi": "Mục đích của giáo dục đại học",
+"p": "What do you think the main purpose of university education should be: preparing people for jobs, or developing the ability to think independently? Can it do both?",
+"pv": "Mục đích chính của đại học nên là chuẩn bị đi làm hay phát triển tư duy độc lập? Có thể làm được cả hai không?",
+"c": [
+"Hai quan niệm về mục đích",
+"Lý lẽ cho định hướng nghề nghiệp",
+"Lý lẽ cho tư duy độc lập",
+"Có thể kết hợp không, ra sao"
+],
+"u": [
+[
+"This is often framed as",
+"Vấn đề thường được đặt thành"
+],
+[
+"There's a strong case for",
+"Có lý lẽ mạnh cho"
+],
+[
+"Yet it would be short-sighted to",
+"Thế nhưng thật thiển cận nếu"
+],
+[
+"The two are far from incompatible",
+"Hai điều này hoàn toàn không mâu thuẫn"
+]
+],
+"m": "This is often framed as a choice between two opposing goals, but I think that's a false dichotomy. There's a strong case for vocational relevance: students and their families invest enormous amounts of money and time, and it's reasonable for them to expect degrees that lead to decent employment. Universities that ignore the labour market risk producing graduates who struggle to find work. Yet it would be short-sighted to reduce education to job training. Many of the jobs today's students will do don't exist yet, and the skills that last, such as analysing evidence, writing clearly and questioning assumptions, are exactly those developed by a broad, rigorous education. The two are far from incompatible. The best programmes I've encountered combine practical projects with genuine intellectual challenge, so that students learn to apply knowledge while also learning to doubt it. If universities have to prioritise, though, I'd lean towards independent thinking, since specific technical skills date quickly while the ability to learn does not.",
+"k": [
+[
+[
+"framed as",
+"two",
+"choice",
+"dichotomy",
+"purpose"
+]
+],
+[
+[
+"jobs",
+"employment",
+"vocational",
+"labour market",
+"career"
+]
+],
+[
+[
+"thinking",
+"short-sighted",
+"analys",
+"questioning",
+"independent"
+]
+],
+[
+[
+"incompatible",
+"combine",
+"both",
+"lean towards",
+"prioritise"
+]
+]
+]
+},
+{
+"id": "c2-s7",
+"lv": "c2",
+"test": 1,
+"en": "A Work of Art That Moved You",
+"vi": "Một tác phẩm nghệ thuật làm bạn xúc động",
+"p": "Describe a work of art, music or literature that affected you deeply. What is it? Why did it have such an impact on you? Has your view of it changed over time?",
+"pv": "Tả một tác phẩm nghệ thuật, âm nhạc hay văn chương làm bạn xúc động sâu sắc: là gì, vì sao, cách bạn nhìn nó có thay đổi theo thời gian không.",
+"c": [
+"Tác phẩm là gì",
+"Vì sao tác động mạnh",
+"Hoàn cảnh bạn gặp nó",
+"Cách nhìn thay đổi theo thời gian"
+],
+"u": [
+[
+"One work that has stayed with me is",
+"Một tác phẩm vẫn ở mãi trong tôi là"
+],
+[
+"What struck me at the time was",
+"Điều làm tôi ấn tượng lúc đó là"
+],
+[
+"Revisiting it years later,",
+"Đọc / xem lại nhiều năm sau,"
+],
+[
+"It taught me",
+"Nó dạy tôi"
+]
+],
+"m": "One work that has stayed with me is Bao Ninh's novel The Sorrow of War, which I first read at about seventeen. What struck me at the time was how completely it contradicted the heroic stories of the war I had grown up with. The narrator is haunted, confused and often unable to make sense of what he has lived through, and the book moves back and forth in time in a way that mirrors his memory. I read it during a period when my grandfather, who had fought in the war, rarely spoke about it, and the book helped me understand his silence. Revisiting it years later, I noticed things I had missed: the love story, which I had found almost secondary, now seemed central, a picture of everything the war destroyed. It taught me that literature can tell truths that official histories leave out, and that a single honest voice can be more powerful than a thousand slogans.",
+"k": [
+[
+[
+"novel",
+"book",
+"painting",
+"song",
+"film",
+"work"
+]
+],
+[
+[
+"struck me",
+"contradicted",
+"because",
+"impact",
+"affected"
+]
+],
+[
+[
+"at the time",
+"when i",
+"first read",
+"grandfather",
+"during"
+]
+],
+[
+[
+"revisiting",
+"years later",
+"now",
+"changed",
+"taught me"
+]
+]
+]
+},
+{
+"id": "c2-s8",
+"lv": "c2",
+"test": 1,
+"en": "Global Languages and Local Languages",
+"vi": "Ngôn ngữ toàn cầu và ngôn ngữ địa phương",
+"p": "As English and a few other languages spread worldwide, many smaller languages are disappearing. Does this matter? What, if anything, should be done?",
+"pv": "Khi tiếng Anh và vài ngôn ngữ lớn lan rộng, nhiều ngôn ngữ nhỏ biến mất. Điều này có đáng lo không? Nên làm gì?",
+"c": [
+"Có đáng lo không, vì sao",
+"Mặt lợi của ngôn ngữ toàn cầu",
+"Mất mát khi ngôn ngữ nhỏ biến mất",
+"Nên làm gì"
+],
+"u": [
+[
+"It matters a great deal, in my view",
+"Theo tôi, điều này rất quan trọng"
+],
+[
+"Admittedly,",
+"Phải thừa nhận rằng,"
+],
+[
+"When a language disappears,",
+"Khi một ngôn ngữ biến mất,"
+],
+[
+"Rather than resisting English,",
+"Thay vì chống lại tiếng Anh,"
+]
+],
+"m": "It matters a great deal, in my view, although the issue is more complicated than it first appears. Admittedly, global languages bring real benefits. A shared language allows scientists to collaborate, opens up educational opportunities and gives speakers of small languages access to a much wider world, so it's understandable that parents want their children to learn English. When a language disappears, however, something irreplaceable is lost: ways of describing nature, family relationships and humour that exist nowhere else, as well as oral histories that were never written down. In Vietnam, several ethnic minority languages have very few young speakers left. What should be done is not to discourage people from learning global languages but to support bilingualism, for example through early schooling in the mother tongue, recordings of elderly speakers and media in local languages. Rather than resisting English, communities need the resources to keep their own languages alive alongside it.",
+"k": [
+[
+[
+"matters",
+"in my view",
+"important",
+"worrying"
+]
+],
+[
+[
+"admittedly",
+"benefit",
+"shared language",
+"opportunities"
+]
+],
+[
+[
+"disappears",
+"lost",
+"irreplaceable",
+"oral histories",
+"minority"
+]
+],
+[
+[
+"should be done",
+"support",
+"bilingual",
+"schooling",
+"rather than"
+]
+]
+]
+},
+{
+"id": "c2-s9",
+"lv": "c2",
+"test": 1,
+"en": "The Limits of Science",
+"vi": "Giới hạn của khoa học",
+"p": "Are there questions that science cannot answer? Discuss with reference to areas such as ethics, art or human experience.",
+"pv": "Có câu hỏi nào khoa học không trả lời được? Bàn với các lĩnh vực như đạo đức, nghệ thuật hay trải nghiệm con người.",
+"c": [
+"Quan điểm tổng quát",
+"Ví dụ: đạo đức",
+"Ví dụ: nghệ thuật / trải nghiệm",
+"Kết luận có sắc thái"
+],
+"u": [
+[
+"It depends partly on what we mean by",
+"Phần nào tuỳ vào ta hiểu thế nào là"
+],
+[
+"Take ethics, for instance",
+"Lấy đạo đức làm ví dụ"
+],
+[
+"The same is true of",
+"Điều tương tự cũng đúng với"
+],
+[
+"None of this diminishes",
+"Điều này không làm giảm"
+]
+],
+"m": "It depends partly on what we mean by an answer, but I'd say yes, there are important questions science can't settle on its own. Take ethics, for instance. Science can tell us what the consequences of a policy are likely to be, how many lives a vaccine will save or how much a new road will increase pollution, but it cannot tell us how to weigh those consequences against each other or what we owe to future generations. Those are questions of values. The same is true of art. Neuroscience can describe what happens in the brain when we listen to music, but that description doesn't explain why a particular piece feels meaningful, or whether it is good. And there's the question of subjective experience itself: what it is like to be in love or to grieve. None of this diminishes science, which remains our most reliable way of understanding the physical world. It simply suggests that a complete understanding of human life needs philosophy, art and personal reflection as well.",
+"k": [
+[
+[
+"depends",
+"i'd say",
+"questions",
+"cannot",
+"can't"
+]
+],
+[
+[
+"ethics",
+"values",
+"consequences",
+"moral"
+]
+],
+[
+[
+"art",
+"music",
+"experience",
+"the same is true",
+"grieve"
+]
+],
+[
+[
+"none of this",
+"diminishes",
+"remains",
+"simply suggests",
+"in conclusion"
+]
+]
+]
+},
+{
+"id": "c2-s10",
+"lv": "c2",
+"test": 1,
+"en": "Ambition and Contentment",
+"vi": "Tham vọng và sự hài lòng",
+"p": "Is ambition always a good thing? Discuss the relationship between ambition and personal happiness, drawing on examples.",
+"pv": "Tham vọng có luôn tốt? Bàn mối liên hệ giữa tham vọng và hạnh phúc cá nhân, có ví dụ.",
+"c": [
+"Quan điểm chung",
+"Mặt tích cực của tham vọng",
+"Mặt trái của tham vọng",
+"Cân bằng giữa tham vọng và hài lòng"
+],
+"u": [
+[
+"Ambition is often treated as",
+"Tham vọng thường được coi là"
+],
+[
+"Without it,",
+"Thiếu nó,"
+],
+[
+"Taken too far, however,",
+"Tuy nhiên, khi quá đà,"
+],
+[
+"Perhaps the healthiest form of ambition",
+"Có lẽ dạng tham vọng lành mạnh nhất"
+]
+],
+"m": "Ambition is often treated as an unquestionable virtue, but I don't think it's always a good thing. Without it, of course, very little would be achieved; many of the people who have improved our lives, from scientists to social reformers, were driven by a powerful desire to accomplish something. On a personal level, having goals gives structure and meaning to daily life. Taken too far, however, ambition can become a source of permanent dissatisfaction. If your sense of worth depends on the next promotion or achievement, every success is quickly replaced by a new target, and there's never a moment to enjoy what you already have. I've seen colleagues earn excellent salaries and still feel like failures because someone else had done better. Perhaps the healthiest form of ambition is directed towards doing something well, or contributing to something larger, rather than towards status. That kind of ambition can coexist with contentment, because its rewards come from the work itself rather than from comparison with others.",
+"k": [
+[
+[
+"always",
+"virtue",
+"i don't think",
+"good thing"
+]
+],
+[
+[
+"without it",
+"achieved",
+"driven",
+"goals",
+"meaning"
+]
+],
+[
+[
+"taken too far",
+"dissatisfaction",
+"however",
+"never",
+"failures"
+]
+],
+[
+[
+"healthiest",
+"contentment",
+"coexist",
+"rather than",
+"perhaps"
+]
 ]
 ]
 }
