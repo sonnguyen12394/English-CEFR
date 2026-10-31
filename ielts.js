@@ -38,6 +38,13 @@ function ieRQs(x, kinds = ['h', 'tf', 'comp', 'mc']) { const foot = iePass(x), o
   if (kinds.includes('comp')) for (const c of x.comp) out.push({ x, k: 'comp', ty: 'R-comp', kind: 'type', head: '<p class="mute">Điền KHÔNG QUÁ HAI TỪ, lấy đúng từ trong bài.</p>', q: esc(c.s).replace('______', '<b>______</b>'), a: c.a[0], acc: c.a, why: c.why, foot });
   if (kinds.includes('mc')) for (const m of x.mc) out.push({ x, k: 'mc', ty: 'R-mc', kind: 'mc', q: esc(m.q), opts: shuf([m.a, ...m.w]), a: m.a, why: m.why, foot });
   return out; }
+// v99 (nhật ký trải nghiệm): đề thật mỗi bài đọc 13–14 câu (cả đề 40). Bài của app có ~18–22 câu: lượt "cả bài" và đề thử cắt còn n câu,
+// chia theo dạng (mỗi dạng ≥ 2 câu), giữ thứ tự dạng và thứ tự câu trong bài
+function ieCap(qs, n) { if (qs.length <= n) return qs; const g = [...new Set(qs.map(q => q.k))].map(k => qs.filter(q => q.k === k));
+  const al = g.map(a => Math.min(a.length, Math.max(2, Math.round(a.length * n / qs.length)))); let s = al.reduce((x, y) => x + y, 0);
+  while (s > n) { const i = al.indexOf(Math.max(...al)); al[i]--; s--; }
+  while (s < n) { const i = g.findIndex((a, j) => al[j] < a.length); if (i < 0) break; al[i]++; s++; }
+  return g.flatMap((a, j) => shuf(a.map((q, i) => [q, i])).slice(0, al[j]).sort((x, y) => x[1] - y[1]).map(x => x[0])); }
 // chọn bài: chưa làm / làm lâu nhất trước
 const iePick = (its, n) => { const R = ieSt().r; return shuf(its).sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0)).slice(0, n); };
 
@@ -101,7 +108,9 @@ const IE_CMP = /\b(higher|lower|more than|less than|compared|whereas|while|in co
 const IE_TREND = /\b(rose|rise|rising|fell|fall|falling|increase[sd]?|decrease[sd]?|grew|growth|declin\w+|dropped|drop|peak\w*|steadily|remained|stable|doubled|halved)\b/;
 const IE_POS = /\b(i (strongly |completely |partly |firmly )?(agree|disagree|believe|think|feel|would argue)|in my (opinion|view)|from my (perspective|point of view)|my view is|i am convinced)\b/;
 const IE_END = /\b(in conclusion|to conclude|to sum up|in summary|overall|all in all|on balance)\b/;
-const IE_EG = /\b(for example|for instance|such as|e\.g\.|a good example|to illustrate)\b/;
+// v99 (nhật ký trải nghiệm: "as the United Kingdom did in 2018" bị báo thiếu ví dụ): nhận cả ví dụ cụ thể không có từ báo hiệu: năm, phần trăm,
+// "as … did", nêu tên nước, "a case in point", "according to"
+const IE_EG = /\b(for example|for instance|such as|e\.g\.|a good example|to illustrate|a case in point|take [a-z]+ as an example|according to|namely)\b|\bas [a-z ]{2,40}? (did|does|has done|have done)\b|\b(in|of|like) (19|20)\d\d\b|\b\d+(\.\d+)? ?(%|percent|per cent)|\b(in|like|of) (vietnam|the uk|the united kingdom|britain|the united states|the us|america|japan|china|singapore|korea|south korea|australia|germany|france|india|finland|sweden|norway|canada)\b/;
 function ieFeat(task, x, t) { const low = t.toLowerCase();
   if (task === 't1' && (x.kind === 'map' || x.kind === 'process')) { const hit = (x.k || []).filter(k => low.includes(k.toLowerCase())).length, need = Math.ceil((x.k || []).length * 0.7);
     const seq = (low.match(/\b(first(ly)?|then|next|after (that|this)|once|finally|following this|subsequently|at the (start|end)|in the (next|final) stage)\b/g) || []).length;
@@ -281,8 +290,8 @@ const IE_PAPERS = [
   { t: '🎧 Nghe (Listening)', k: 'L', min: 30, gen: () => ieListen() },
   { t: '📖 Đọc (Reading)', k: 'R', min: 60, gen: () => ieSt().type === 'gt'
     ? [...KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)).sort(() => Math.random() - 0.5).slice(0, 2).flatMap(x => kRead(KIT.doc, x, 'ct', false).map(q => ({ part: 'Section 1–2: văn bản đời thường, công việc', q: Object.assign(q, { ty: 'R-gt' }) }))),
-      ...iePick(IE.doc, 1).flatMap(x => ieRQs(x).map(q => ({ part: 'Section 3: bài dài', q })))]
-    : iePick(IE.doc, 3).flatMap((x, i) => ieRQs(x).map(q => ({ part: `Passage ${i + 1}: ${x.title}`, q }))) },
+      ...iePick(IE.doc, 1).flatMap(x => ieCap(ieRQs(x), 14).map(q => ({ part: 'Section 3: bài dài', q })))]
+    : iePick(IE.doc, 3).flatMap((x, i) => ieCap(ieRQs(x), i === 2 ? 14 : 13).map(q => ({ part: `Passage ${i + 1}: ${x.title}`, q }))) },
   { t: '✍️ Viết (Writing)', k: 'W', min: 60, gen: () => { const [t1, its] = ieT1(); return [{ part: IE_TASK[t1][0], q: ieWQ(t1, iePick(its, 1)[0]) }, { part: IE_TASK.t2[0], q: ieWQ('t2', ieWPick('t2')) }]; } },
   { t: '🗣 Nói (Speaking)', k: 'S', min: 14, speak: true, gen: () => ieSpeakQs() }];
 async function ieMock(idx) { $app.innerHTML = '<p class="mute">Đang tải kho câu…</p>'; await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KIT.doc)]);
@@ -400,7 +409,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
     <details class="box"><summary><b>🎧 Nghe (Listening)</b></summary><p class="mute" style="margin:4px 0">${IE.ln ? IE.ln.length + ' phần soạn đúng kiểu IELTS (phiếu, bản đồ, ghép, bài giảng) + ' : ''}bài nghe B1 → C2 của app, giọng tự nhiên. Đề thật có nhiều giọng (Anh, Úc, Mỹ…); app chủ yếu giọng Anh. Luyện chính bằng đề Cambridge rồi 📝 nhập kết quả.</p>
       <div class="duo"><button class="big2" data-iel="form">📝 Điền phiếu<small>Part 1, 4</small></button><button class="big2" data-iel="mc">🔘 Trắc nghiệm<small>Part 2, 3</small></button></div>${typeof ieHow === 'function' ? ieHow(['listen']) : ''}</details>
     <details class="box"><summary><b>📖 Đọc (Reading)</b></summary><p class="mute" style="margin:4px 0">${IE.doc.length} bài đọc học thuật kiểu IELTS (${(() => { const n = IE.doc.map(x => kWords(x.paras.join(' ')).length); return Math.min(...n) + '–' + Math.max(...n); })()} từ; đề thật ~700–900 từ).</p>
-      <button data-ier="all">📄 Cả bài: 14–18 câu, mọi dạng, tính giờ 20 phút</button><button data-iepara>🔁 Diễn đạt lại: kỹ năng gốc của Đọc / Nghe</button><div class="duo">${Object.entries(IE_RK).map(([k, [ic, n]]) => `<button class="big2" data-ier="${k}">${ic} ${n}</button>`).join('')}</div>${typeof ieHow === 'function' ? ieHow(['tf', 'h', 'comp', 'time']) : ''}</details>
+      <button data-ier="all">📄 Cả bài: 13–14 câu như đề thật, mọi dạng, tính giờ 20 phút</button><button data-iepara>🔁 Diễn đạt lại: kỹ năng gốc của Đọc / Nghe</button><div class="duo">${Object.entries(IE_RK).map(([k, [ic, n]]) => `<button class="big2" data-ier="${k}">${ic} ${n}</button>`).join('')}</div>${typeof ieHow === 'function' ? ieHow(['tf', 'h', 'comp', 'time']) : ''}</details>
     <details class="box"><summary><b>✍️ Viết (Writing)</b></summary><p class="mute" style="margin:4px 0">Máy chấm 4 tiêu chí IELTS (gián tiếp, tối đa ${IE_MAXM}.0) + nút 🧑‍🏫 AI chấm theo thang band.</p>
       <div class="duo"><button class="big2" data-iew="${t1}">${t1 === 't1' ? '📊 Task 1<small>tả biểu đồ, 150 từ</small>' : '✉️ Task 1<small>viết thư, 150 từ</small>'}</button><button class="big2" data-iew="t2">📝 Task 2<small>bài luận, 250 từ</small></button></div>
       ${o.w.length ? `<p class="mute" style="margin:4px 0 0">Đã viết ${o.w.length} bài · gần nhất máy ước ${bandTxt(o.w[o.w.length - 1].band)}.</p>` : ''}${typeof ieHow === 'function' ? ieHow([t1, 't2']) : ''}</details>
@@ -420,7 +429,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
     if ((b = g('[data-iecefr]'))) { scrollTo(0, 0); return overview(b.dataset.iecefr); }
     if ((b = g('[data-iemk]'))) return ieMock(b.dataset.iemk === 'all' ? [0, 1, 2, 3] : [+b.dataset.iemk]);
     if ((b = g('[data-iel]'))) { const qs = ieListen(b.dataset.iel === 'form' ? [shuf([0, 3])[0]] : [shuf([1, 2])[0]]).map(it => it.q); scrollTo(0, 0); return qs.length ? ieRun('🎧 Nghe', qs, ieltsView) : toast('Chưa có bài nghe hợp dạng này.'); }
-    if ((b = g('[data-ier]'))) { const k = b.dataset.ier, x = iePick(IE.doc, 1)[0]; scrollTo(0, 0); return ieRun('📖 ' + (k === 'all' ? x.title : IE_RK[k][1]), ieRQs(x, k === 'all' ? undefined : [k]), ieltsView, k === 'all' ? 20 : 0); }
+    if ((b = g('[data-ier]'))) { const k = b.dataset.ier, x = iePick(IE.doc, 1)[0]; scrollTo(0, 0); return ieRun('📖 ' + (k === 'all' ? x.title : IE_RK[k][1]), k === 'all' ? ieCap(ieRQs(x), 14) : ieRQs(x, [k]), ieltsView, k === 'all' ? 20 : 0); }
     if ((b = g('[data-iew]'))) { scrollTo(0, 0); return ieWrite(b.dataset.iew); }
     if ((b = g('[data-ies]'))) { scrollTo(0, 0); return ieSpeak(b.dataset.ies === 'all' ? ['p1', 'p2', 'p3'] : b.dataset.ies === 'p3' ? ['p3'] : [b.dataset.ies]); } }; }
 ieLoad().catch(() => {});

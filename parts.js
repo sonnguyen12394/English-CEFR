@@ -64,7 +64,7 @@ let OV_SEL = null, OV_ALL = false;
 // v86: dòng "còn thiếu" của thẻ phần + lý do khi 🔁 Nhớ giảm so với lần xem trước (lưu theo máy, localStorage ovMq)
 const ovMqLS = v => { try { if (v) localStorage.setItem('ovMq', JSON.stringify(v)); else return JSON.parse(localStorage.getItem('ovMq') || '{}'); } catch (e) { return {}; } };
 function ovNeedLine(s, cur) { if (!s || s.gate === 'pass') return ''; if (s.gate === 'open') return '<p style="margin:4px 0 0">🚪 Đủ điều kiện: vào làm Thi chuyển cấp</p>'; if (!cur) return '';
-  const a = []; if (s.nl) a.push(`${s.nl} bài chưa học`); if (s.nm) a.push(`${s.nm} mặt nhớ`);
+  const a = []; if (s.nl) a.push(`${s.nl} ${s.u || 'bài'} chưa học`);   // v99: Từ vựng đếm từ, Phát âm đếm bộ âm if (s.nm) a.push(`${s.nm} mặt nhớ`);
   return a.length ? `<p class="mute" style="margin:4px 0 0">Còn ${a.join(' + ')} nữa là mở 🚪 Thi</p>` : ''; }
 const ovLvs = id => id === 'tv' ? LEVELS : id === 'pa' ? PA_LV : KIT[id].lvs;
 const ovIn = (id, lv) => ovLvs(id).includes(lv);
@@ -73,14 +73,14 @@ const ovIn = (id, lv) => ovLvs(id).includes(lv);
 // v97: bài còn thiếu tới 📘 Học GATE_LEARN% (learnNeed); chỉ đếm mặt tính cổng (p.gk; Từ vựng bỏ 🗣 Nói ra từ: tham khảo)
 const ovNeed = p => ({ nl: learnNeed(p), nm: Object.keys(p.Tk || {}).filter(k => !p.gk || p.gk.includes(k)).reduce((s, k) => s + Math.max(0, Math.ceil(p.Tk[k] * GATE_MEM / 100 - 1e-9) - (p.dim[k] || 0)), 0) });
 function ovStat(id, lv) { const now = Date.now();
-  if (id === 'tv') { const p = parts(S, now, lv); return { ...ovNeed(p), lq: p.lq, mq: p.mq, due: p.due, gate: passed(lv) ? 'pass' : lv === curLevel() && gateOpen(p, 'tv|' + lv, now) ? 'open' : '' }; }
-  if (id === 'pa') { if (!PA) return null; const p = paParts(lv, now); return { ...ovNeed(p), lq: p.lq, mq: p.mq, due: p.due, gate: paPassed(lv) ? 'pass' : lv === paLevel() && gateOpen(p, 'pa|' + lv, now) ? 'open' : '' }; }
+  if (id === 'tv') { const p = parts(S, now, lv); return { ...ovNeed(p), u: 'từ', lq: p.lq, mq: p.mq, due: p.due, gate: passed(lv) ? 'pass' : lv === curLevel() && gateOpen(p, 'tv|' + lv, now) ? 'open' : '' }; }
+  if (id === 'pa') { if (!PA) return null; const p = paParts(lv, now); return { ...ovNeed(p), u: 'bộ âm', lq: p.lq, mq: p.mq, due: p.due, gate: paPassed(lv) ? 'pass' : lv === paLevel() && gateOpen(p, 'pa|' + lv, now) ? 'open' : '' }; }
   const P = KIT[id]; if (!P.items) return null; const p = kParts(P, lv, now);
   return { ...ovNeed(p), lq: p.lq, mq: p.mq, due: p.due, gate: kPassed(P, lv) ? 'pass' : lv === kLv(P) && gateOpen(p, id + '|' + lv, now) ? 'open' : '' }; }
 const ovPassed = (id, lv) => id === 'tv' ? passed(lv) : id === 'pa' ? (PA ? paPassed(lv) : false) : (KIT[id].items ? kPassed(KIT[id], lv) : false);
 // v97 (người sáng lập duyệt): 🗣 Nói, ✍️ Viết máy chấm gián tiếp (KIT.ref) = tham khảo: không chặn hoàn thành cấp. "Hoàn thành cấp trong app" ≠ đạt CEFR thật:
 // chữ "đạt" dành cho đề mẫu chính thức (realBox, 🎓 Luyện thi → Cambridge).
-const ovRef = id => !!(KIT[id] && KIT[id].ref);
+const ovRef = id => id === 'pa' ? typeof PA_REF !== 'undefined' && PA_REF : !!(KIT[id] && KIT[id].ref);   // v99: + 👄 Phát âm
 const ovReq = lv => OV.filter(([id]) => ovIn(id, lv) && !ovRef(id));   // phần bắt buộc để hoàn thành cấp
 const ovDone = lv => { const r = ovReq(lv); return r.length > 0 && r.every(([id]) => ovPassed(id, lv)); };
 const ovStage = () => OV_LV.find(lv => !ovDone(lv)) || OV_LV[OV_LV.length - 1];
@@ -103,7 +103,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
   const ai = LEVELS.indexOf(lv) >= LEVELS.indexOf('b1');
   $app.innerHTML = `<div id="ov"></div><h1>🎯 Học CEFR</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${S.fake ? '<p class="mute" style="margin:4px 0">🧪 Đang dùng dữ liệu thử (💾 Dữ liệu để quay lại dữ liệu thật).</p>' : ''}
-    <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b></p>
+    <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${typeof plTop === 'function' && plTop(stage) ? ` · 🧭 xếp cấp: ${LVN[plTop(stage)]}` : ''}</p>
     ${typeof todayBox === 'function' ? todayBox(stage, tips) : ''}
     <div class="chips">${showLv.map(chip).join('')}${OV_ALL ? '' : '<button class="chip" data-ovall>⋯ Mọi cấp</button>'}</div>
     <div class="box"><div class="row"><b>Cấp ${LVN[lv]}: ${ids.length} phần</b><span class="mute">qua thi ${done}/${req.length} phần bắt buộc</span></div>${bar(Math.round(done / (req.length || 1) * 100), 100, 'var(--good)')}

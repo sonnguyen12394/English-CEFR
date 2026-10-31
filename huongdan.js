@@ -6,7 +6,7 @@ const hdDays = a => a.join(' → ') + ' ngày';
 // [mã, tiêu đề, nội dung HTML]; nội dung là hàm: đọc hằng số lúc mở (tệp này nạp sau cùng)
 const HD = [
   ['batdau', '🚀 Bắt đầu trong 5 phút', () => `
-    <p>1. Mở tab <b>🎯 Học</b>. Người mới: bấm <b>🧭 Kiểm tra xếp cấp</b> (5–10 phút) để biết nên học từ cấp nào. Kết quả chỉ là gợi ý.</p>
+    <p>1. Mở tab <b>🎯 Học</b>. Người mới: bấm <b>🧭 Kiểm tra xếp cấp</b> (5–10 phút) để biết nên học từ cấp nào. Xếp cao hơn cấp đang học thì ô Hôm nay gợi ý <b>🚀 thi vượt</b> các phần lên cấp đó, khỏi học lại cấp dưới (không muốn thì bấm "Không, tôi muốn học từ…").</p>
     <p>2. Mỗi ngày làm theo ô <b>📅 Hôm nay</b>, từ trên xuống: ôn mục đến hạn → học 1 bài mới → luyện 1 bài kỹ năng.</p>
     <p>3. Chọn mục tiêu phút mỗi ngày (10, 15, 30 hoặc 45). Đều đặn quan trọng hơn học dồn.</p>
     <p>4. Khi một phần đủ điều kiện, nút <b>🚪 Thi chuyển cấp</b> mở ở thẻ phần đó. Các phần bắt buộc đều qua thi là <b>hoàn thành cấp trong app</b>.</p>
@@ -19,7 +19,7 @@ const HD = [
   ['cap', '🪜 Cấp và phần', () => `
     <p>Cấp: Pre-A1 → A1 → A2 → A2+ → B1 → B1+ → B2 → B2+ → C1 → C2. Cấp "+" là nửa khó hơn của cấp đó.</p>
     <p>Mỗi cấp có các phần (không phải cấp nào cũng đủ 7 phần; Nói, Viết bắt đầu từ A1). Mỗi phần có 3 mục tiêu riêng: <b>📘 Học</b>, <b>🔁 Nhớ</b>, <b>🚪 Thi chuyển cấp</b>.</p>
-    <p><b>Hoàn thành cấp trong app</b> khi mọi phần <b>bắt buộc</b> của cấp đã qua Thi chuyển cấp. 🗣 Nói và ✍️ Viết do máy chấm gián tiếp nên chỉ để <b>tham khảo</b>: vẫn nên luyện và thi, nhưng không chặn hoàn thành cấp.</p>
+    <p><b>Hoàn thành cấp trong app</b> khi mọi phần <b>bắt buộc</b> của cấp đã qua Thi chuyển cấp. 🗣 Nói, ✍️ Viết và 👄 Phát âm do máy chấm (chưa đối chiếu người chấm) nên chỉ để <b>tham khảo</b>: vẫn nên luyện và thi, nhưng không chặn hoàn thành cấp.</p>
     <p><b>Hoàn thành trong app chưa phải bằng CEFR.</b> Đề trong app lấy từ kho bài của app. Chữ <b>"đạt A1, A2…"</b> chỉ dùng khi bạn làm <b>📝 đề mẫu chính thức</b> của Cambridge (🎓 Luyện thi → Cambridge) và đúng đủ ngưỡng. Kết quả hiện ở 👤 Của tôi.</p>
     <p>Mỗi phần lên cấp riêng: Ngữ pháp có thể ở B1 khi Từ vựng còn ở A2.</p>
     <p>Cấp sau xem trước và học trước được, không khoá cứng.</p>`],
@@ -69,7 +69,7 @@ const HD = [
     <p>Luyện thi không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp.</p>`],
   ['tin', '🤖 Độ tin cậy', () => `
     <p>Pre-A1 → A2 dựa trên danh sách Cambridge / Oxford. <b>B1 → C2, IELTS, TOEIC, mẹo, lỗi hay gặp</b> do AI soạn, <b>chưa giáo viên kiểm</b>.</p>
-    <p>Máy chấm Nói / Viết đo gián tiếp (độ dài, từ đúng cấp, từ nối…), chưa đối chiếu người chấm thật, nên Nói / Viết chỉ để tham khảo, không chặn hoàn thành cấp. 🧑‍🏫 AI chấm sát hơn nhưng vẫn là ước lượng.</p>
+    <p>Máy chấm Nói / Viết đo gián tiếp (độ dài, từ đúng cấp, từ nối…), chưa đối chiếu người chấm thật; Phát âm do bộ chấm âm trên máy chấm. Nên Nói / Viết / Phát âm chỉ để tham khảo, không chặn hoàn thành cấp. 🧑‍🏫 AI chấm sát hơn nhưng vẫn là ước lượng.</p>
     <p>Thấy câu sai: bấm 💬 → <b>⚑ Câu sai</b>. Thước đo đáng tin nhất là điểm thi thật.</p>`],
   ['dulieu', '💾 Dữ liệu và tài khoản', () => `
     <p>Tiến độ lưu trên máy và trên máy chủ, tự đồng bộ. Không cần đăng ký: ô 👤 tài khoản ở đầu 💾 Dữ liệu cho biết máy này dùng tài khoản riêng hay tài khoản chung.</p>

@@ -137,13 +137,14 @@ const R = await run(`(async () => {
   // 🗺 Bản đồ band IELTS (iemap.js, v83): chỗ yếu theo dạng / tiêu chí, ưu tiên, nhóm 3 (mỗi kỹ năng 1), thử bằng bài mới, đạt 2 ngày = xong, gác, 🧱 nền CEFR
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await ieLoad(); await kLoad(KIT.nghe); await kLoad(KIT.doc);
     const now = Date.now(), D = 864e5, o = ieSt(); o.target = 6.5; const ses = (ok, n, ids) => ({ at: now, ok, n, ids, src: 'thi' });
-    o.ty = { 'R-tf': [ses(2, 6, ['a']), ses(2, 6, ['b'])], 'R-h': [ses(3, 5, ['a'])], 'R-comp': [ses(9, 10, ['a', 'b'])], 'L-form': [ses(3, 10, ['n1', 'n2'])] };
+    // v99: chỉ chỗ yếu đủ chắc (≥ 8 câu ở ≥ 2 bài) vào nhóm đang chữa; R-mc 1 / 2 câu sai chỉ hiện ở bảng, không vào nhóm
+    o.ty = { 'R-tf': [ses(2, 6, ['a']), ses(2, 6, ['b'])], 'R-h': [ses(5, 8, ['a']), ses(1, 2, ['b'])], 'R-comp': [ses(9, 10, ['a', 'b'])], 'L-form': [ses(3, 10, ['n1', 'n2'])], 'R-mc': [ses(1, 2, ['c'])] };
     ieCrLog('W', 't2', [5, 6, 6.5, 6], 'ai'); ieCrLog('S', null, [7, 7, 7, 7], 'may');
     const W = imWeak(), u = W.map(w => w.u);
     if (u.includes('R-comp') || !u.includes('R-tf') || !u.includes('R-h') || !u.includes('W:0') || u.includes('W:2') || u.includes('S:0')) bad.push('chỗ yếu sai: ' + u.join(','));
-    if (!(W.find(w => w.u === 'R-tf').p > W.find(w => w.u === 'R-h').p) || !W.find(w => w.u === 'W:0').sure) bad.push('ưu tiên / độ chắc sai');
+    if (!(W.find(w => w.u === 'R-tf').p > W.find(w => w.u === 'R-h').p) || !W.find(w => w.u === 'W:0').sure || !W.some(w => w.u === 'R-mc' && !w.sure)) bad.push('ưu tiên / độ chắc sai');
     const f = imFocus(now), sk = f.act.map(w => w.sk);
-    if (f.act.length !== 3 || new Set(sk).size !== 3 || !f.act.some(w => w.u === 'R-tf') || f.act.some(w => w.u === 'R-h') || !f.queue.some(w => w.u === 'R-h')) bad.push('nhóm đang chữa sai: ' + f.act.map(w => w.u).join(','));
+    if (f.act.length !== 3 || new Set(sk).size !== 3 || !f.act.some(w => w.u === 'R-tf') || f.act.some(w => w.u === 'R-h') || !f.queue.some(w => w.u === 'R-h') || [...f.act, ...f.queue].some(w => w.u === 'R-mc')) bad.push('nhóm đang chữa sai: ' + f.act.map(w => w.u).join(','));
     // lượt luyện trên bài đã gặp không tính; bài mới tính
     const x = IE.doc[0], tfq = ieRQs(x, ['tf']); if (tfq.length < IM_MIN_Q) bad.push('bài đọc ít câu TF: ' + tfq.length);
     ieTyLog(tfq.map(q => ({ q, ok: false })), 'luyen', new Set()); if ((o.fo.a.find(a => a.u === 'R-tf').tr || 0) !== 0) bad.push('bài đã gặp vẫn tính lần thử');
@@ -324,7 +325,7 @@ const R = await run(`(async () => {
     if (!/data-g="admin"/.test(gyHomeInner())) bad.push('tài khoản chung mất Quản lý góp ý'); user = u0;
     if (gaKind('sai') !== '⚑ Câu sai') bad.push('thiếu loại góp ý ⚑ Câu sai');
     const s0 = ovStat('tv', 'pre'); if (!s0 || s0.nl !== Math.ceil(levelWords('pre').length * GATE_LEARN / 100) || !(s0.nm > 0)) bad.push('còn thiếu sai: ' + JSON.stringify(s0 && [s0.nl, s0.nm]));
-    if (!ovNeedLine(s0, true).includes('bài chưa học')) bad.push('thẻ phần thiếu dòng còn thiếu');
+    if (!ovNeedLine(s0, true).includes('từ chưa học')) bad.push('thẻ phần thiếu dòng còn thiếu');
     await overview('pre'); const h = String($app.innerHTML), nb = (h.match(/<button/g) || []).length, nt = h.replace(/<[^>]+>/g, ' ').replace(/\\s+/g, ' ').length;
     if (nb > 20 || nt > 2000) bad.push('Tổng quan người mới còn nặng: ' + nb + ' nút, ' + nt + ' chữ');
     if (!/data-ovp="[a-z]+" data-ovpl="pre"[^>]*>⬜ Học 1 bài mới/.test(h)) bad.push('Hôm nay: việc học mới chưa mở thẳng phần');
@@ -505,6 +506,36 @@ const R = await run(`(async () => {
     realRuns('a1').push({ at: now, l: 25, L: 25, rw: 40, RW: 40 }); await minhView(); if (!/Đạt bằng đề mẫu chính thức: <b>A1/.test(H())) bad.push('đạt bằng đề mẫu chính thức chưa hiện');
     const P = KIT.np; tryv('màn Ngữ pháp', () => kView('np')); if (/Đã đạt|Chưa đạt/.test(H())) bad.push('màn phần còn chữ đạt');
     add('cefr', 'C15', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'luật mới: Học 90%, giữ mở 7 ngày, mặt tự tạo ra chỉ từ ≤ A2+, 🗣 tham khảo, câu gõ B1+ hỏi từ thông dụng, Nói / Viết không chặn, ngưỡng 2 bậc, hoàn thành ≠ đạt đều đúng'); }
+  // v99 (nhật ký trải nghiệm vai giáo viên ôn IELTS): dùng kết quả xếp cấp; câu xếp cấp khó đoán hơn; Đọc 13–14 câu / bài, đề thử 40 câu;
+  // nhập đề thật phải chọn dạng; tìm tiếng Việt đủ dấu; máy chấm Viết nhận ví dụ cụ thể; 👄 Phát âm tham khảo
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await Promise.all([ieLoad(), tcLoad()]); const H = () => String($app.innerHTML);
+    // câu xếp cấp: nhiễu cùng loại từ, không trùng nghĩa, không đồng / trái nghĩa
+    let nd = 0, badD = [];
+    for (const w of shuf(WORDS.filter(w => ['b2', 'c1'].includes(wLv(w)) && w.vi)).slice(0, 60)) { const d = plDis(w); if (d.length < 3) continue; nd++;
+      const dw = d.map(v => WORDS.find(x => x.vi === v && x.pos.split(',')[0] === w.pos.split(',')[0])); if (dw.some(x => !x)) badD.push(w.w + ': khác loại từ');
+      const rel = w.rel ? [...w.rel.syn, ...w.rel.ant] : []; if (dw.some(x => x && rel.includes(x.w))) badD.push(w.w + ': nhiễu là từ đồng / trái nghĩa'); }
+    if (nd < 40 || badD.length) bad.push('nhiễu xếp cấp: ' + nd + ' từ đủ nhiễu; ' + badD.slice(0, 3).join(', '));
+    for (const lv of PL_LV) { const qs = plQs(lv); if (qs.length !== 5 || qs.some(it => !it.q.opts.includes(it.q.a) || new Set(it.q.opts).size !== it.q.opts.length)) bad.push('xếp cấp ' + lv + ' hỏng'); }
+    // dùng kết quả xếp cấp
+    S.place = { at: Date.now(), top: 'c1', start: 'c2' }; if (plTop('pre') !== 'c1' || plLeft('c1').length < 3) bad.push('plTop / plLeft sai');
+    const tb = todayBox('pre'); if (!/data-vcv="c1"[^>]*>⬜ 🚀 Bạn xếp cấp C1/.test(tb) || !tb.includes('data-plno') || /⬜ Học 1 bài mới/.test(tb)) bad.push('Hôm nay chưa gợi ý thi vượt theo xếp cấp');
+    await overview(); if (!H().includes('xếp cấp: C1')) bad.push('Tổng quan thiếu dòng xếp cấp');
+    CB_LV = null; await cbView(); if (!/class="chip on" data-cbl="c1"/.test(H())) bad.push('Cambridge chưa mở ở cấp xếp được'); CB_LV = null;
+    S.place.no = 1; if (plTop('pre') || /data-vcv/.test(todayBox('pre'))) bad.push('chọn học từ đầu vẫn gợi ý thi vượt'); delete S.place;
+    // Đọc: 13–14 câu / bài, đề thử Academic 40 câu, mỗi dạng ≥ 2 câu
+    for (const x of IE.doc) { const q = ieCap(ieRQs(x), 14), ks = [...new Set(ieRQs(x).map(z => z.k))]; if (q.length !== Math.min(14, ieRQs(x).length) || ks.some(k => q.filter(z => z.k === k).length < Math.min(2, ieRQs(x).filter(z => z.k === k).length))) bad.push('cắt câu bài ' + x.id + ' sai'); }
+    ieSt().type = 'ac'; const rp = IE_PAPERS.find(p => p.k === 'R').gen(); if (rp.length !== 40) bad.push('đề thử Đọc ' + rp.length + ' câu (cần 40)');
+    // nhập đề thật: dạng để trống, phải chọn; chưa chọn thì không vào bản đồ theo dạng
+    TH = null; tryv('nhập đề thật', () => ieThat('R')); if (!H().includes('— chọn dạng —') || TH.blocks.some(b => b[2])) bad.push('nhập đề thật còn điền sẵn dạng');
+    const ty0 = JSON.stringify(ieSt().ty || {}); TH.wrong.add(3); tryv('lưu đề thật', () => thSave()); if (JSON.stringify(ieSt().ty || {}) !== ty0 || !(ieSt().th || []).length) bad.push('đề thật chưa chọn dạng mà vẫn ghi theo dạng');
+    // tìm tiếng Việt đủ dấu
+    const tg = tcWordHits('tăng').all; if (!tg.length || tg.some(w => !w.vi.toLowerCase().includes('tăng') && !tdMatch('tăng').ids.has(w.id))) bad.push('tìm "tăng" lẫn từ khác: ' + tg.filter(w => !w.vi.toLowerCase().includes('tăng')).slice(0, 3).map(w => w.w).join(','));
+    if (!tcWordHits('tang').all.length) bad.push('gõ không dấu không ra gì');
+    // máy chấm Viết: ví dụ cụ thể không có từ báo hiệu
+    if (!IE_EG.test('governments could tax sugary drinks, as the united kingdom did in 2018.') || !IE_EG.test('about 30% of children') || IE_EG.test('children like sweets.')) bad.push('nhận ví dụ sai');
+    // 👄 Phát âm tham khảo
+    if (!ovRef('pa') || ovReq('pre').some(([id]) => id === 'pa') || ovReq('pre').length !== 4) bad.push('Phát âm chưa thành tham khảo');
+    add('cefr', 'C16', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'xếp cấp dùng được + nhiễu khó đoán (' + nd + ' từ), Đọc 13–14 câu / đề thử 40, đề thật phải chọn dạng, tìm đủ dấu, nhận ví dụ, Phát âm tham khảo đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');
@@ -535,9 +566,11 @@ const R = await run(`(async () => {
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to; const o = toSt(), now = Date.now(), D = 864e5;
     if (TO.p3.length < 20 || TO.p4.length < 20 || TO.p6.length < 20 || TO.p7.length < 20 || TO.p5.filter(x => x.t === 'struct').length < 16) bad.push('kho chưa đủ 20 bộ mỗi Part');
     if (toTh() !== 0.6) bad.push('ngưỡng mục tiêu 600 sai: ' + toTh()); o.target = 850; if (toTh() !== 0.85) bad.push('ngưỡng 850 sai'); o.target = 600;
-    const prep = TO.p5.filter(x => x.t === 'prep').slice(0, 6), voc = TO.p5.filter(x => x.t === 'voc').slice(0, 6), p2 = TO.p2.filter(x => x.tr.includes('rep')).slice(0, 6);
+    // v99: chỉ chỗ yếu đủ chắc (≥ 8 câu ở ≥ 2 bài) vào nhóm đang chữa: 3 câu sai chưa đủ
+    toLog(TO.p5.filter(x => x.t === 'prep').slice(-3).map(x => ({ q: toP5Q(x), ok: false, ans: 'x' })), 'thi'); if (tmFocus(now).act.length || !tmWeak().some(w => w.u === 'p5:prep' && !w.sure)) bad.push('3 câu sai đã vào nhóm đang chữa'); o.ty = {}; o.fo = {};
+    const prep = TO.p5.filter(x => x.t === 'prep').slice(0, 8), voc = TO.p5.filter(x => x.t === 'voc').slice(0, 8), p2 = TO.p2.filter(x => x.tr.includes('rep')).slice(0, 8);
     const res = [...prep.map(x => ({ q: toP5Q(x), ok: false, ans: 'x' })), ...voc.map(x => ({ q: toP5Q(x), ok: true, ans: x.a })), ...p2.map(x => ({ q: toP2Q(x), ok: false, ans: 'ABC'[x.tr.indexOf('rep')] }))];
-    const by = toLog(res, 'thi'); if (!by['tr:rep'] || by['tr:rep'].ok !== 0 || by['tr:rep'].n !== 6 || by['p5:voc'].ok !== 6) bad.push('ghi theo dạng / bẫy sai: ' + JSON.stringify(by['tr:rep']));
+    const by = toLog(res, 'thi'); if (p2.length < 8 || !by['tr:rep'] || by['tr:rep'].ok !== 0 || by['tr:rep'].n !== p2.length || by['p5:voc'].ok !== voc.length) bad.push('ghi theo dạng / bẫy sai: ' + JSON.stringify(by['tr:rep']));
     const W = tmWeak(), u = W.map(w => w.u); if (!u.includes('p5:prep') || !u.includes('tr:rep') || u.includes('p5:voc') || u.includes('p5') || u.includes('p2')) bad.push('chỗ yếu sai: ' + u.join(','));
     const f = tmFocus(now), L = f.act.filter(w => w.sk === 'L').length, R = f.act.filter(w => w.sk === 'R').length;
     if (!f.act.length || f.act.length > 3 || L > 2 || R > 2 || !f.act.some(w => w.u === 'p5:prep') || !f.act.some(w => w.u === 'tr:rep')) bad.push('nhóm đang chữa sai: ' + f.act.map(w => w.u).join(','));

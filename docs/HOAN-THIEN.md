@@ -292,3 +292,9 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 
 - Đọc kết quả: ở Pre-A1 → A2 thời gian gần như không đổi vì nút thắt là mặt chính tả / nhớ ra từ của từ thông dụng (giữ cố ý: vốn từ cốt lõi). Lợi lớn hơn mô phỏng thấy: giữ mở 7 ngày (mô phỏng không tính), và máy không chép được lời nói (trước v97 cổng Từ vựng không bao giờ mở vì 🗣 Nói ra từ 0%).
 - Đo bằng người thật sau 4–8 tuần: tỉ lệ người tới cửa thi; tỉ lệ qua thi lần đầu (quá cao > 90% → ngưỡng / cổng lỏng; quá thấp < 40% → cổng chưa báo đúng sẵn sàng); điểm đề mẫu chính thức của người đã "hoàn thành trong app" (mục tiêu: ≥ 70% người hoàn thành cũng đạt đề mẫu).
+
+## Sửa theo nhật ký trải nghiệm (v99, 31/10/2026)
+- Claude đóng vai giáo viên (B2–C1) ôn IELTS Academic 7.5, chạy chính mã của app (không xem được giao diện, âm thanh, Nói, AI chấm) và ghi nhật ký; người sáng lập: "tự làm hết đi".
+- Sửa: dùng kết quả xếp cấp; nhiễu câu xếp cấp cùng bài / cùng cấp / cùng loại từ; bản đồ band / điểm chỉ nhận chỗ yếu đủ chắc; nhập đề thật phải chọn dạng; Đọc 13–14 câu / bài; 2 câu NOT GIVEN; tìm tiếng Việt đủ dấu; máy chấm Viết nhận ví dụ cụ thể; Phát âm tham khảo (đổi luật đo, được duyệt).
+- Chưa sửa: kho từ thiếu một số từ học thuật hay gặp (vd. sedentary): chờ dữ liệu `td_miss` từ người học thật thay vì đoán.
+- Kiểm bằng người thật: nhờ 1 giáo viên dùng 3 ngày, so với nhật ký; đo tỉ lệ người xếp cấp ≥ B1 có bấm 🚀 thi vượt và qua được bao nhiêu phần.

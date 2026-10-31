@@ -26,7 +26,9 @@ Object.assign(IM_HOWK, { 'R-para': 'para', 'R-mi': 'mi', 'R-mf': 'mf', 'R-se': '
 // dạng nào app có bài luyện riêng (còn lại: chữa bằng đề thật)
 const TH_APP = new Set(['R-h', 'R-tf', 'R-comp', 'R-mc', 'R-gt', 'L-form', 'L-mc', 'L-map', 'L-match']);
 const TH_SK = { L: ['🎧', 'Listening'], R: ['📖', 'Reading'] };
-const TH_DEF = { L: [[1, 10, 'L-form'], [11, 20, 'L-mc'], [21, 30, 'L-match'], [31, 40, 'L-form']], R: [[1, 13, 'R-tf'], [14, 26, 'R-mi'], [27, 40, 'R-mc']] };
+// v99 (nhật ký trải nghiệm: bấm Lưu với dạng điền sẵn → bản đồ band học từ dạng sai): khối chỉ gợi ý cách chia câu, dạng để trống, người học tự chọn theo đề
+const TH_DEF = { L: [[1, 10, ''], [11, 20, ''], [21, 30, ''], [31, 40, '']], R: [[1, 13, ''], [14, 26, ''], [27, 40, '']] };
+const thUntyped = T => T.blocks.filter(b => !b[2]).flatMap(([a, c]) => { const o = []; for (let n = Math.min(a, c); n <= Math.max(a, c); n++) o.push(n); return o; });
 const thTys = sk => Object.keys(IE_TY).filter(k => k[0] === sk && k !== 'R-gt' && k !== 'R-para');
 let TH = null;   // màn nhập đang làm: { sk, name, blocks: [[từ, đến, dạng]], wrong: Set }
 
@@ -39,8 +41,8 @@ function ieThat(sk) { if (!TH || (sk && TH.sk !== sk)) TH = { sk: sk || (TH && T
     <label class="mute">Tên đề<input id="thn" value="${esc(T.name)}" placeholder="vd. Cambridge 18 · Test 2"></label>
     <div class="box"><b>1. Chia khối câu theo dạng</b><p class="mute" style="margin:4px 0">Xem dòng "Questions 1–6" trong đề: mỗi khối một dạng câu.</p>
       ${T.blocks.map(([a, b, ty], i) => `<div class="row" style="gap:6px;margin:6px 0;align-items:center"><span>Câu</span><input type="number" min="1" max="40" value="${a}" data-thb="${i}|0" style="width:62px;margin:0"><span>–</span><input type="number" min="1" max="40" value="${b}" data-thb="${i}|1" style="width:62px;margin:0">
-        <select data-thb="${i}|2" style="flex:1;margin:0">${tys.map(k => `<option value="${k}" ${k === ty ? 'selected' : ''}>${esc(IE_TY[k])}</option>`).join('')}</select><button class="link" data-thx="${i}" aria-label="Bỏ khối">✕</button></div>`).join('')}
-      <button data-tha>+ Thêm khối</button>${cov.gap.length ? `<p class="mute" style="margin:6px 0 0">⚠️ Chưa có dạng: câu ${thRange(cov.gap)}.</p>` : ''}${cov.dup.length ? `<p class="mute" style="margin:6px 0 0">⚠️ Trùng khối: câu ${thRange(cov.dup)}.</p>` : ''}</div>
+        <select data-thb="${i}|2" style="flex:1;margin:0"><option value="" ${ty ? '' : 'selected'}>— chọn dạng —</option>${tys.map(k => `<option value="${k}" ${k === ty ? 'selected' : ''}>${esc(IE_TY[k])}</option>`).join('')}</select><button class="link" data-thx="${i}" aria-label="Bỏ khối">✕</button></div>`).join('')}
+      <button data-tha>+ Thêm khối</button>${thUntyped(T).length ? `<p style="margin:6px 0 0">⚠️ Chọn dạng cho từng khối (xem dòng "Questions 1–6" trong đề): còn câu ${thRange(thUntyped(T))}.</p>` : ''}${cov.gap.length ? `<p class="mute" style="margin:6px 0 0">⚠️ Chưa có dạng: câu ${thRange(cov.gap)}.</p>` : ''}${cov.dup.length ? `<p class="mute" style="margin:6px 0 0">⚠️ Trùng khối: câu ${thRange(cov.dup)}.</p>` : ''}</div>
     <div class="box"><div class="row"><b>2. Chạm vào câu SAI</b><span><b>${ok}</b>/40 · band ${bandTxt(ieRaw(T.sk === 'L' ? IE_L : ieSt().type === 'gt' ? IE_RG : IE_RA, ok, 40))}</span></div>
       <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-top:8px">${[...Array(40)].map((_, i) => `<button class="chip ${T.wrong.has(i + 1) ? 'on' : ''}" data-thq="${i + 1}" style="margin:0;padding:8px 0;min-width:0${T.wrong.has(i + 1) ? ';background:var(--bad);color:#fff' : ''}">${i + 1}</button>`).join('')}</div>
       <p class="mute" style="margin:6px 0 0">Đỏ = sai hoặc bỏ trống. Chạm lại để bỏ.</p></div>
@@ -50,7 +52,7 @@ function ieThat(sk) { if (!TH || (sk && TH.sk !== sk)) TH = { sk: sk || (TH && T
     if ((b = g('[data-ths]'))) { TH = null; return ieThat(b.dataset.ths); }
     if ((b = g('[data-thq]'))) { const n = +b.dataset.thq; T.wrong.has(n) ? T.wrong.delete(n) : T.wrong.add(n); return ieThat(); }
     if ((b = g('[data-thx]'))) { T.blocks.splice(+b.dataset.thx, 1); return ieThat(); }
-    if (g('[data-tha]')) { const last = T.blocks[T.blocks.length - 1], a = last ? Math.min(40, last[1] + 1) : 1; T.blocks.push([a, 40, tys[0]]); return ieThat(); }
+    if (g('[data-tha]')) { const last = T.blocks[T.blocks.length - 1], a = last ? Math.min(40, last[1] + 1) : 1; T.blocks.push([a, 40, '']); return ieThat(); }
     if (g('[data-thsave]')) return thSave(); };
   $app.onchange = e => { const el = e.target.closest('[data-thb]'); if (!el) return; const [i, j] = el.dataset.thb.split('|').map(Number); T.blocks[i][j] = j === 2 ? el.value : Math.max(1, Math.min(40, +el.value || 1)); ieThat(); }; }
 // câu 1–40: câu chưa có khối (gap) và câu thuộc 2 khối (dup)
@@ -59,7 +61,8 @@ function thCover(T) { const c = Array(41).fill(0); for (const [a, b] of T.blocks
 const thRange = ns => { const out = []; for (let i = 0; i < ns.length; i++) { let j = i; while (j + 1 < ns.length && ns[j + 1] === ns[j] + 1) j++; out.push(i === j ? ns[i] : ns[i] + '–' + ns[j]); i = j; } return out.join(', '); };
 const thTyOf = (T, n) => { const b = T.blocks.find(([a, c]) => n >= Math.min(a, c) && n <= Math.max(a, c)); return b ? b[2] : null; };
 function thSave(now = Date.now()) { const T = TH, o = ieSt(), cov = thCover(T); if (cov.dup.length) return toast('Có câu thuộc 2 khối: sửa khối trước khi lưu.');
-  if (cov.gap.length && !confirm(`Câu ${thRange(cov.gap)} chưa có dạng: vẫn tính vào band, nhưng không vào bản đồ theo dạng. Lưu?`)) return;
+  const noTy = [...new Set([...cov.gap, ...thUntyped(T)])].sort((a, b) => a - b);
+  if (noTy.length && !confirm(`Câu ${thRange(noTy)} chưa chọn dạng: vẫn tính vào band, nhưng không vào bản đồ theo dạng (app không biết bạn mất điểm ở dạng nào). Vẫn lưu?`)) return;
   const ok = 40 - T.wrong.size, name = (T.name || '').trim() || 'Đề thật ' + new Date(now).toLocaleDateString('vi-VN'), id = 'that:' + name;
   const band = ieRaw(T.sk === 'L' ? IE_L : o.type === 'gt' ? IE_RG : IE_RA, ok, 40);
   o.off.push({ at: now, [T.sk === 'L' ? 'rl' : 'rr']: ok, [T.sk]: band, type: o.type, name, src: 'that' });   // hiệu chuẩn band (ieCal) + 🎯 Sẵn sàng thi

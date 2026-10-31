@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 98;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 99;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -531,7 +531,9 @@ function dictList() {
   if (typeof tcRoute === 'function' && tcRoute()) return;   // v93: màn đầu / kết quả tìm gộp nhóm / các mục khác (tracuu.js); còn lại = 📚 danh sách từ theo cấp
   const now = Date.now(), fold = x => String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd'), q = fold(DICT.q.trim());
   const M = typeof tdMatch === 'function' ? tdMatch(DICT.q) : null;   // v88: dạng biến đổi, họ từ, cụm từ, gõ sai 1 chữ (tudien.js)
-  const all = [...WORDS, ...(REF || [])].map(w => ({ w, st: w.u ? wstat(S, w, now) : 'ref' })), hit = q ? all.filter(x => fold(x.w.w).includes(q) || fold(x.w.vi).includes(q) || (M && M.ids.has(x.w.id))) : all;
+  // v99: gõ có dấu tiếng Việt thì nghĩa phải khớp đủ dấu ("tăng" không ra "tầng"); gõ không dấu thì so bỏ dấu như cũ
+  const qv = DICT.q.trim().toLowerCase().normalize('NFC'), vd = qv !== fold(qv), viHit = vi => vd ? String(vi || '').toLowerCase().normalize('NFC').includes(qv) : fold(vi).includes(q);
+  const all = [...WORDS, ...(REF || [])].map(w => ({ w, st: w.u ? wstat(S, w, now) : 'ref' })), hit = q ? all.filter(x => (!vd && fold(x.w.w).includes(q)) || viHit(x.w.vi) || (M && M.ids.has(x.w.id))) : all;
   const L = DLISTS.find(l => l.id === DICT.list) || DLISTS[0], G = L.groups(), base = L.only ? hit.filter(L.only) : hit;
   if (DICT.lv && !G.some(g => g.k === DICT.lv)) DICT.lv = null;
   const g = G.find(x => x.k === DICT.lv), inLv = base.filter(x => !g || g.has(x)), learnable = inLv.some(x => x.st !== 'ref');

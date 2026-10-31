@@ -9,6 +9,9 @@ let PA = null, PABY = {};
 // 👄 Đọc đúng theo cấp (soát 25/10/2026, người sáng lập "thiết kế cho phù hợp"): CEFR A1 chỉ cần người nghe hiểu được, A2 rõ hơn;
 // ngưỡng điểm âm Pre-A1 60 · A1 70 · A2 80, theo cấp của bộ âm (luyện lẫn thi). Ngưỡng đạt của bài thi (85%) giữ nguyên.
 const PA_OK = { pre: 60, a1: 70, a2: 80 }, paOkFor = w => PA_OK[(PABY[w.set] || {}).lv] || N_OK;
+// v99 (người sáng lập "tự làm hết đi" sau nhật ký trải nghiệm): thi Phát âm cần bộ chấm âm tải về máy (vài trăm MB) và do máy chấm,
+// nên như 🗣 Nói / ✍️ Viết (v97): tham khảo, không chặn hoàn thành cấp (parts.js ovRef). Vẫn có Thi chuyển cấp để lên cấp của chính phần này.
+const PA_REF = true;
 const PA_LV = ['pre', 'a1', 'a2'], PA_DIMS = [['pb', '👂 Phân biệt'], ['doc', '👄 Đọc đúng']], PA_PASS = 0.85;
 DIM_OF.pa_pb = ['pb']; DIM_OF.pa_doc = ['doc'];
 const paSt = () => (S.pa = S.pa || {}), paRuns = () => (S.paX = S.paX || []);
@@ -47,7 +50,7 @@ function paView() {
       <button class="big2 ${p.due ? 'pri' : ''}" data-pa="menu" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 bộ trước' : p.due ? `${p.due} bộ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
     <div class="box"><b>🚪 Thi chuyển cấp Phát âm ${LVN[lv]}</b>
-      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. Mỗi bộ: 2 câu nghe + 1 từ đọc, toàn cặp chưa gặp. Qua khi đúng ≥ ${Math.round(PA_PASS * 100)}%. Cần bộ chấm âm.</p>
+      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. Mỗi bộ: 2 câu nghe + 1 từ đọc, toàn cặp chưa gặp. Qua khi đúng ≥ ${Math.round(PA_PASS * 100)}%. Cần bộ chấm âm.${PA_REF ? ' Máy chấm âm nên phần này chỉ để tham khảo: không chặn hoàn thành cấp, vẫn nên luyện.' : ''}</p>
       ${gateHoldTxt(p, open && !paPassed(lv))}${paPassed(lv) ? `<p>✅ Đã qua Thi chuyển cấp Phát âm ${LVN[lv]} (trong app).</p>` : wait ? `<p class="mute">Lần trước chưa qua (${run.ok}/${run.n}). Thi lại sau ${wait} ngày; trong lúc chờ, luyện tiếp.</p>`
         : `<button class="${open ? 'pri' : ''}" data-pa="exam" ${open ? '' : 'disabled'}>${open ? '🚪 Vào thi' : `🔒 Còn thiếu: ${p.lq < GATE_LEARN ? `học ${learnNeed(p)} bộ` : ''}${p.lq < GATE_LEARN && p.mq < GATE_MEM ? ' · ' : ''}${p.mq < GATE_MEM ? `Nhớ ${p.mq}% / ${GATE_MEM}%` : ''}`}</button>`}</div>
     <h2>Lộ trình</h2>

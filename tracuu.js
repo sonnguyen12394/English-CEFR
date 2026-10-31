@@ -169,7 +169,8 @@ const tcPbHits = q => (TC && TC.pb || []).filter(g => !q || tcHas(q, g.vi, g.w, 
 const tcPbRow = g => `<div class="box" style="margin:8px 0"><b>“${esc(g.vi)}”: ${g.w.map(x => `<button class="chip" data-tcgo="tu|${esc(x)}">${esc(x)}</button>`).join('')}</b>${g.note.map(n => `<p style="margin:4px 0;font-size:15px">• ${esc(n)}</p>`).join('')}</div>`;
 // từ khớp ô tìm (như danh sách từ: chữ / nghĩa / dạng biến đổi / gõ sai), khớp đúng lên đầu; tiếng Việt: nghĩa bắt đầu bằng chữ gõ lên trước
 function tcWordHits(q, n = 8) { const f = tcF(q.trim()), M = typeof tdMatch === 'function' ? tdMatch(q) : { ids: new Set(), how: new Map() }, vn = TC_VN.test(q);
-  const hs = WORDS.filter(w => tcF(w.w).includes(f) || tcF(w.vi).includes(f) || M.ids.has(w.id));
+  // v99 (nhật ký trải nghiệm: gõ "tăng" ra cả "tầng lớp"): gõ có dấu thì nghĩa tiếng Việt khớp đủ dấu; gõ không dấu mới so bỏ dấu
+  const qv = q.trim().toLowerCase().normalize('NFC'), hs = WORDS.filter(w => (!vn && tcF(w.w).includes(f)) || (vn ? String(w.vi || '').toLowerCase().normalize('NFC').includes(qv) : tcF(w.vi).includes(f)) || M.ids.has(w.id));
   const r = w => vn ? (tcF(w.vi).startsWith(f) ? 0 : new RegExp(`(^|[ ,;(])${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([ ,;)]|$)`).test(tcF(w.vi)) ? 1 : 2) : tdRank(w, q, M);
   return { M, all: hs.sort((a, b) => r(a) - r(b) || a.w.length - b.w.length || a.w.localeCompare(b.w)), n }; }
 function tcSearch(q) { const df = document.getElementById('df'), dl = document.getElementById('dl'), vn = TC_VN.test(q), W = tcWordHits(q), grp = [];

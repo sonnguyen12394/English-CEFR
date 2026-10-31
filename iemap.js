@@ -30,7 +30,8 @@ function imWeak() { const o = ieSt(), tg = o.target, T = o.ty || {}, fx = (o.fo 
     if (pct < IE_TY_OK) out.push({ u: k, sk: k[0], t: IE_TY[k], v: `${pct}% · ${n} câu`, p: imR2((IM_W[k] || 0.3) * (IE_TY_OK - pct) / 100 * 40 / 4.5 * (sure ? 1 : 0.5)), sure }); }
   for (const k of ['W', 'S']) for (let i = 0; i < 4; i++) { const u = k + ':' + i, cs = (o.cr || []).filter(r => r.k === k && r.at > (fx[u] || 0)), ai = cs.filter(r => r.src === 'ai').slice(-5), a = ai.length ? ai : cs.filter(r => r.src === 'may').slice(-5);
     if (!a.length) continue; const b = ieRound(a.reduce((s, r) => s + (r.c[i] || 0), 0) / a.length);
-    if (b < tg) out.push({ u, sk: k, t: imName(u), v: `${bandTxt(b)} ${ai.length ? '(🧑‍🏫 AI)' : '(máy ước)'}`, p: imR2((tg - b) / 4 * (ai.length ? 1 : 0.5)), sure: !!ai.length }); }
+    // v99: máy chỉ báo tới IE_MAXM (7.0): mục tiêu cao hơn thì điểm máy = trần chưa nói được là yếu; máy chấm cần ≥ 2 bài mới chắc
+    if (b < (ai.length ? tg : Math.min(tg, IE_MAXM))) out.push({ u, sk: k, t: imName(u), v: `${bandTxt(b)} ${ai.length ? '(🧑‍🏫 AI)' : `(máy ước, ${a.length} bài)`}`, p: imR2((tg - b) / 4 * (ai.length ? 1 : 0.5)), sure: !!ai.length || a.length >= 2 }); }
   return out.sort((a, b) => b.p - a.p); }
 // số bài chưa gặp trong 30 ngày cho một dạng (kho nhỏ: hết bài mới thì lượt luyện không tính lần thử)
 const imFreshOk = (id, now = Date.now()) => { const r = ieSt().r[id]; return !r || now - r.at >= IM_FRESH_D * DAY; };
@@ -39,7 +40,10 @@ function imPool(u) { if (u === 'R-para') return IE && IE.para || []; if (u === '
   if (u[0] === 'L') { const ln = IE && IE.ln ? IE.ln.filter(x => x.qs.some(q => IE_LTY[q.k] === u)) : []; return [...ln, ...(KIT.nghe.items ? KIT.nghe.items.filter(x => ['b1', 'b2', 'c1', 'c2'].includes(x.lv) && (u === 'L-form' ? ngForm(x) : true)) : [])]; } return []; }
 const imFreshN = u => imPool(u).filter(x => imFreshOk(x.id)).length;
 // nhóm đang chữa: S.ie.fo = { a: [{ u, at, tr (số ngày đã thử), td, pd (ngày đạt liền nhau), r (lần quay lại) }], p: [{ u, at, r, root }], n: số chỗ chữa xong }
-const imFocus = (now = Date.now()) => { const o = ieSt(); return fcFocus(o.fo = o.fo || {}, imWeak, { act: IM_ACT, cap: () => 1, try: IM_TRY, parkD: IM_PARK_D, info: u => ({ u, sk: u[0], t: imName(u), v: 'đã đạt ngưỡng, chờ đủ 2 lượt', p: 0 }) }, now); };
+// v99 (nhật ký trải nghiệm: sai 1 / 2 câu trắc nghiệm đã thành "chỗ yếu" ở ▶ Nên làm hôm nay): chỉ chỗ yếu đủ chắc mới vào nhóm đang chữa;
+// chỗ chưa đủ dữ liệu vẫn hiện ở bảng theo dạng ("chưa đủ chắc")
+const imSure = () => imWeak().filter(w => w.sure);
+const imFocus = (now = Date.now()) => { const o = ieSt(); return fcFocus(o.fo = o.fo || {}, imSure, { act: IM_ACT, cap: () => 1, try: IM_TRY, parkD: IM_PARK_D, info: u => ({ u, sk: u[0], t: imName(u), v: 'đã đạt ngưỡng, chờ đủ 2 lượt', p: 0 }) }, now); };
 // một lượt của chỗ đang chữa (gọi từ ieTyLog / ieCrLog trong ielts.js)
 const imHit = (u, pass, now = Date.now()) => fcHit(ieSt().fo, u, pass, now);
 
@@ -72,7 +76,8 @@ function imBox() { const f = imFocus(), hasData = Object.keys(ieSt().ty || {}).l
   return `<div class="box"><div class="row"><b>🗺 Bản đồ band</b><span class="mute">🎯 ${f.act.length}/${IM_ACT} · ⏳ ${f.queue.length} · ✅ ${f.done}</span></div>
     ${!hasData ? '<p class="mute" style="margin:6px 0 0">Chưa có dữ liệu theo dạng câu / tiêu chí. Làm 1 đề thử hoặc vài bài luyện: app tự tìm chỗ làm mất điểm nhiều nhất.</p>'
       : f.act.length ? `<p class="mute" style="margin:6px 0 0">Chữa tối đa ${IM_ACT} chỗ, mỗi kỹ năng 1. Mỗi lần thử phải là bài mới cùng dạng. Đạt 2 lượt liền ở 2 ngày khác nhau là xong.</p>${f.act.map(row).join('')}`
-      : '<p class="mute" style="margin:6px 0 0">Chưa thấy chỗ yếu: các dạng đều ≥ 75% và tiêu chí đạt band mục tiêu. Làm thêm đề thử để chắc.</p>'}
+      : (n => n ? `<p class="mute" style="margin:6px 0 0">Có ${n} chỗ có thể yếu nhưng chưa đủ dữ liệu (dạng câu: ≥ ${IE_TY_N} câu ở ≥ 2 bài; Viết / Nói: AI chấm hoặc ≥ 2 bài máy chấm). Làm thêm rồi app mới đưa vào chữa.</p>`
+        : '<p class="mute" style="margin:6px 0 0">Chưa thấy chỗ yếu: các dạng đều ≥ 75% và tiêu chí đạt band mục tiêu. Làm thêm đề thử để chắc.</p>')(imWeak().filter(w => !w.sure).length)}
     ${f.queue.length ? `<details style="margin:6px 0"><summary>⏳ Hàng chờ: <b>${f.queue.length}</b> chỗ</summary>${f.queue.slice(0, 8).map(w => `<p style="margin:2px 0;font-size:15px">${IM_SK[w.sk].split(' ')[0]} ${esc(w.t)} <span class="mute">· ${esc(w.v)}</span></p>`).join('')}</details>` : ''}
     ${f.park.length ? `<details style="margin:6px 0"><summary>⏸ Tạm gác: <b>${f.park.length}</b> chỗ</summary>${f.park.map(w => `<p style="margin:2px 0;font-size:15px">${esc(w.t)} <span class="mute">· quay lại ${new Date(w.at + IM_PARK_D * DAY).toLocaleDateString('vi-VN')}</span></p>`).join('')}</details>` : ''}
     ${f.root.length ? `<div style="margin:8px 0"><b>🧱 Kẹt lâu, cần học nền CEFR: ${f.root.length} chỗ</b><p class="mute" style="margin:2px 0">Đã gác, quay lại vẫn kẹt: thường do thiếu từ / ngữ pháp, luyện thêm dạng câu không giúp. Học nền ở 🎯 Học CEFR (🗺 Bản đồ chỗ yếu), xong bấm "Đã học nền" để thử lại.</p>

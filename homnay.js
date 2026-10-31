@@ -5,7 +5,10 @@
 // muốn bỏ qua cấp dưới vẫn dùng 🎚 Đặt tiến độ ở 💾 Sao lưu hoặc thi chuyển cấp như cũ). Không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp.
 
 // ---------- ① phút học: mỗi lần save() (mỗi câu trả lời, mỗi bài) cộng khoảng cách tới lần trước nếu < 3 phút, không thì 15 giây ----------
-const ACT_GAP = 180000, ACT_BASE = 15000, ACT_DAY_MIN = 5;   // ngày có ≥ 5 phút mới tính vào chuỗi
+const ACT_GAP = 180000, ACT_BASE = 15000, ACT_DAY_MIN = 5;
+// v99: dùng kết quả 🧭 xếp cấp. Xếp cao hơn cấp đang học (và chưa chọn "học từ đầu") → gợi ý 🚀 thi vượt các phần bắt buộc chưa thử ở cấp đó.
+const plTop = (stage = ovStage()) => { const P = S && S.place; return P && P.top && !P.no && LEVELS.indexOf(P.top) > LEVELS.indexOf(stage) ? P.top : null; };
+const plLeft = lv => typeof vcLvOf !== 'function' ? [] : ovReq(lv).filter(([id]) => { const L = vcLvOf(id, lv); return L && !ovPassed(id, L) && !vcLast(id, L) && !vcBlock(id); });   // ngày có ≥ 5 phút mới tính vào chuỗi
 const actSt = () => (S.act = S.act || {});
 function actTick(now = Date.now()) { if (!S) return; const d = dayOf(now), A = actSt(), o = A[d] = A[d] || { ms: 0, n: 0, last: 0 };
   o.ms += o.last && now - o.last < ACT_GAP ? now - o.last : ACT_BASE; o.n++; o.last = now;
@@ -41,13 +44,17 @@ function todayBox(stage, o = {}) { const t = dayOf(Date.now()), m = actMin(t), g
       return (f.act.length ? step(did, did ? 'Đã chữa chỗ yếu hôm nay' : `Chữa ${Math.min(MAP_TODAY, f.act.length)} chỗ yếu đang chữa (kèm việc ôn)`, 'data-today="fix"') : '')
         + (f.root.length ? `<button data-map-rl="${esc(mapKey(f.root[0]))}" style="margin:4px 0">🧱 Học lại bài gốc: ${f.root.length} chỗ kẹt lâu</button>` : '')
         + `<button data-mapv style="margin:4px 0">🗺 Bản đồ chỗ yếu${f.act.length ? `: đang chữa ${f.act.length}${f.queue.length ? ` · ${f.queue.length} chờ` : ''}` : ''} ›</button>`; })(mf) : ''}
-    ${step(nw > 0, nw ? `Đã học ${nw} mục mới hôm nay` : `Học 1 bài mới ở cấp ${LVN[stage]}${o.low ? `: ${OV.find(x => x[0] === o.low[0])[1]} ${OV.find(x => x[0] === o.low[0])[2]}` : ''}`, o.low && !nw ? `data-ovp="${o.low[0]}" data-ovpl="${o.low[1]}"` : 'data-today="new"')}
+    ${(() => { const pl = plTop(stage), left = pl && !nw ? plLeft(pl) : [];   // v99: xếp cấp cao hơn → thi vượt thay cho bài mới cấp thấp
+      if (left.length) return step(false, `🚀 Bạn xếp cấp ${LVN[pl]}: thi vượt ${left.length} phần (${left.map(x => x[1]).join(' ')}) để khỏi học lại cấp dưới`, `data-vcv="${pl}"`)
+        + `<button class="link" data-plno style="margin:0 0 4px">Không, tôi muốn học từ ${LVN[stage]}</button>`;
+      return step(nw > 0, nw ? `Đã học ${nw} mục mới hôm nay` : `Học 1 bài mới ở cấp ${LVN[stage]}${o.low ? `: ${OV.find(x => x[0] === o.low[0])[1]} ${OV.find(x => x[0] === o.low[0])[2]}` : ''}`, o.low && !nw ? `data-ovp="${o.low[0]}" data-ovpl="${o.low[1]}"` : 'data-today="new"'); })()}
     ${step(sk, sk ? 'Đã luyện kỹ năng hôm nay' : `Luyện 1 bài kỹ năng${lowSk ? `: ${OV.find(x => x[0] === lowSk[0])[1]} ${OV.find(x => x[0] === lowSk[0])[2]}${mapSk ? ' (chỗ yếu)' : ''}` : ''}`, `data-today="skill"${lowSk ? ` data-tsk="${lowSk[0]}"` : ''}`)}
     ${typeof relearnUnits === 'function' ? relearnUnits().slice(0, 2).map(([u, ws]) => `<button data-relearn="${u.id}" style="margin:4px 0">🔁 Học lại ${esc(uLabel(u))}: ${ws.length} từ hay quên</button>`).join('') : ''}
     ${!Object.keys(S.cards || {}).length && !S.place ? '<button data-place style="margin-top:6px">🧭 Mới bắt đầu? Kiểm tra xếp cấp (5–10 phút) để biết nên học từ cấp nào</button>' : ''}
     <p class="mute" style="margin:6px 0 0">Phút tính khi làm bài. Ngày ≥ ${ACT_DAY_MIN} phút vào chuỗi. Học đều mỗi ngày nhớ lâu hơn học dồn.</p></div>`; }
 document.addEventListener('change', e => { const g = S && e.target.closest && e.target.closest('select[data-goal]'); if (g && +g.value) { S.goal = +g.value; S.t = Date.now(); save(); overview(); } });
 document.addEventListener('click', e => { if (!S) return;
+  if (e.target.closest('[data-plno]') && S.place) { S.place.no = 1; S.t = Date.now(); save(); scrollTo(0, 0); return overview(); }
   const b = e.target.closest('[data-today]'); if (!b) return; const k = b.dataset.today; scrollTo(0, 0);
   if (k === 'due' || k === 'new') { const nb = document.querySelector('#app [data-ovp].pri'); if (nb && k === 'due') return nb.click(); return k === 'new' ? (HOME.lv = curLevel(), HOME.open = null, home()) : overview(); }
   if (k === 'fix') return mapToday();
@@ -56,8 +63,16 @@ document.addEventListener('click', e => { if (!S) return;
 // ---------- ③ 🧭 kiểm tra xếp cấp: bậc thang, mỗi cấp 5 câu (3 nghĩa từ + 2 ngữ pháp) ----------
 // Đúng ≥ 4/5 → lên cấp; ≤ 2/5 → dừng; 3/5 → thêm 1 vòng ở cấp đó. Kết quả = cấp cao nhất đúng ≥ 4/5. Chỉ đo hiểu từ và ngữ pháp (thụ động), không đo nghe nói.
 const PL_LV = ['pre', 'a1', 'a2', 'b1', 'b2', 'c1'];
+// v99 (nhật ký trải nghiệm vai giáo viên: "plummet" có nhiễu "ban phước", "đi dạo ung dung": loại trừ là đúng, không cần biết từ):
+// phương án nhiễu lấy từ cùng bài (cùng chủ đề) rồi cùng cấp, cùng loại từ; bỏ từ đồng / trái nghĩa và nghĩa trùng 2 tiếng liền nhau với đáp án
+const plBi = s => { const t = String(s).toLowerCase().split(/[^\p{L}]+/u).filter(Boolean); return new Set(t.slice(1).map((x, i) => t[i] + ' ' + x)); };
+function plDis(w, n = 3) { const rel = new Set([...(w.rel ? [...w.rel.syn, ...w.rel.ant] : [])].map(x => x.toLowerCase())), bw = plBi(w.vi), pos = String(w.pos || '').split(',')[0], out = [], seen = new Set([w.vi]);
+  const ok = x => x.id !== w.id && x.vi && !seen.has(x.vi) && String(x.pos || '').split(',')[0] === pos && !rel.has(x.w.toLowerCase()) && ![...plBi(x.vi)].some(b => bw.has(b));
+  const unit = ((UBY[w.u] || {}).words || []), lvw = WORDS.filter(x => wLv(x) === wLv(w));
+  for (const x of [...shuf(unit), ...shuf(lvw)]) { if (out.length >= n) break; if (ok(x)) { seen.add(x.vi); out.push(x.vi); } }
+  return out; }
 function plQs(lv) { const ws = shuf(WORDS.filter(w => wLv(w) === lv && w.vi)).slice(0, 12), out = [];
-  for (const w of ws) { if (out.length >= 3) break; const q = question(w, 'w2vi'); if (q && q.opts && q.opts.includes(q.a)) out.push({ w, q }); }
+  for (const w of ws) { if (out.length >= 3) break; const q = question(w, 'w2vi'), d = plDis(w); if (q && d.length === 3) q.opts = shuf([w.vi, ...d]); if (q && q.opts && q.opts.includes(q.a)) out.push({ w, q }); }
   const P = KIT.np, gl = P.lvs.includes(lv) ? lv : P.lvs.filter(l => LEVELS.indexOf(l) <= LEVELS.indexOf(lv)).pop(), gi = shuf(P.items.filter(x => x.lv === gl));
   for (const x of gi) { if (out.length >= 5) break; const q = (P.q(x, 'nhan', 'test') || [])[0]; if (q && q.opts && q.opts.includes(q.a)) out.push({ g: x, q }); }
   return out; }
@@ -77,7 +92,7 @@ async function placeView() { $app.innerHTML = '<p class="mute">Đang tải…</p
     $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return overview(); const b = e.target.closest('[data-po]'); if (!b) return; const k = +b.dataset.po, ok = k >= 0 && q.opts[k] === q.a;
       const r = R[lv] = R[lv] || [0, 0]; r[1]++; if (ok) r[0]++; res.push({ lv, ok }); i++; show(); }; };
   const end = () => { const top = plResult(R), start = top ? (LEVELS[LEVELS.indexOf(top) + 1] || top) : 'pre'; S.place = { at: Date.now(), top, start, R }; S.t = Date.now(); save();
-    $app.innerHTML = `<h1>🧭 Kết quả xếp cấp</h1><div class="box"><p style="margin:0;font-size:19px">${top ? `Bạn nắm khá vững <b>${LVN[top]}</b>.` : 'Nên bắt đầu từ đầu.'} Nên bắt đầu học ở <b>${LVN[start]}</b>.</p>
+    $app.innerHTML = `<h1>🧭 Kết quả xếp cấp</h1><div class="box"><p style="margin:0;font-size:19px">${top ? `Phần hiểu từ và ngữ pháp: bạn nắm khá vững <b>${LVN[top]}</b>${top === PL_LV[PL_LV.length - 1] ? ' (bài đo tới đây là hết)' : ''}. Gợi ý: 🚀 thi vượt các phần lên ${LVN[top]}, rồi học tiếp <b>${LVN[start]}</b>.` : 'Nên bắt đầu từ đầu.'}</p>
       <p class="mute" style="margin:6px 0 0">${PL_LV.filter(l => R[l]).map(l => `${LVN[l]}: ${R[l][0]}/${R[l][1]}`).join(' · ')}</p>
       <p class="mute" style="margin:6px 0 0">Bài này chỉ đo hiểu nghĩa từ và ngữ pháp, không đo nghe, nói, viết; là gợi ý, không phải thi chuyển cấp. Các cấp dưới vẫn còn đó để ôn khi cần.</p></div>
       ${top ? `<div class="box"><b>Muốn bỏ qua các cấp dưới ${LVN[start]}?</b><p class="mute" style="margin:6px 0">🚀 Thi vượt cấp: làm thẳng Thi chuyển cấp ${LVN[top]} của từng phần (đề như thi thường). Qua phần nào thì phần đó hoàn thành mọi cấp ≤ ${LVN[top]}.</p><button class="pri" data-vcv="${top}">🚀 Thi vượt lên ${LVN[top]}</button></div>` : ''}

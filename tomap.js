@@ -33,7 +33,9 @@ function tmWeak() { const o = toSt(), T = o.ty || {}, fx = (o.fo || {}).fx || {}
     out.push({ u, sk: 'R', t: tmName(u), v: `${avg.toFixed(1)} giây / câu (mục tiêu ${lim})`, p: Math.round(tmQ(u) * Math.min(0.2, avg / lim - 1) * 4.9 * (a.length >= 2 ? 1 : 0.5) * 10) / 10, sure: a.length >= 2 }); }
   const has = pre => out.some(w => w.u.startsWith(pre));
   return out.filter(w => !(w.u === 'p5' && has('p5:')) && !(w.u === 'p2' && has('tr:'))).sort((a, b) => b.p - a.p); }
-const tmFocus = (now = Date.now()) => { const o = toSt(); return fcFocus(o.fo = o.fo || {}, tmWeak, { act: TM_ACT, cap: () => 2, try: TM_TRY, parkD: TM_PARK_D, info: u => ({ u, sk: tmSk(u), t: tmName(u), v: 'đã đạt ngưỡng, chờ đủ 2 lượt', p: 0 }) }, now); };
+// v99: như IELTS: chỉ chỗ yếu đủ chắc (≥ 8 câu ở ≥ 2 bài; tốc độ ≥ 2 lượt) mới vào nhóm đang chữa
+const tmSure = () => tmWeak().filter(w => w.sure);
+const tmFocus = (now = Date.now()) => { const o = toSt(); return fcFocus(o.fo = o.fo || {}, tmSure, { act: TM_ACT, cap: () => 2, try: TM_TRY, parkD: TM_PARK_D, info: u => ({ u, sk: tmSk(u), t: tmName(u), v: 'đã đạt ngưỡng, chờ đủ 2 lượt', p: 0 }) }, now); };
 const tmHit = (u, pass, now = Date.now()) => fcHit(toSt().fo, u, pass, now);
 
 // ---------- ▶ chữa một chỗ ----------
@@ -76,7 +78,8 @@ function tmBox() { const f = tmFocus(), o = toSt(), has = Object.keys(o.ty || {}
     <p class="mute" style="margin:6px 0 0">Ngưỡng đạt theo mục tiêu ${o.target}: đúng ≥ ${Math.round(toTh() * 100)}% mỗi dạng / Part.</p>
     ${!has ? '<p class="mute" style="margin:6px 0 0">Chưa có dữ liệu. Làm 1 đề thử hoặc vài lượt luyện: app tự tìm chỗ làm mất điểm nhiều nhất.</p>'
       : f.act.length ? `<p class="mute" style="margin:6px 0 0">Chữa tối đa ${TM_ACT} chỗ (Nghe ≤ 2, Đọc ≤ 2). Mỗi lần thử phải là câu / bài mới. Đạt 2 lượt liền ở 2 ngày khác nhau là xong.</p>${f.act.map(row).join('')}`
-      : '<p class="mute" style="margin:6px 0 0">Chưa thấy chỗ yếu so với ngưỡng mục tiêu. Làm thêm đề thử để chắc, hoặc nâng điểm mục tiêu.</p>'}
+      : (n => n ? `<p class="mute" style="margin:6px 0 0">Có ${n} chỗ có thể yếu nhưng chưa đủ dữ liệu (≥ 8 câu ở ≥ 2 bài). Làm thêm rồi app mới đưa vào chữa.</p>`
+        : '<p class="mute" style="margin:6px 0 0">Chưa thấy chỗ yếu so với ngưỡng mục tiêu. Làm thêm đề thử để chắc, hoặc nâng điểm mục tiêu.</p>')(tmWeak().filter(w => !w.sure).length)}
     ${f.queue.length ? `<details style="margin:6px 0"><summary>⏳ Hàng chờ: <b>${f.queue.length}</b> chỗ</summary>${f.queue.slice(0, 8).map(w => `<p style="margin:2px 0;font-size:15px">${TM_SK[w.sk].split(' ')[0]} ${esc(w.t)} <span class="mute">· ${esc(w.v)} · ≈ +${w.p} điểm</span></p>`).join('')}</details>` : ''}
     ${f.park.length ? `<details style="margin:6px 0"><summary>⏸ Tạm gác: <b>${f.park.length}</b> chỗ</summary>${f.park.map(w => `<p style="margin:2px 0;font-size:15px">${esc(w.t)} <span class="mute">· quay lại ${new Date(w.at + TM_PARK_D * DAY).toLocaleDateString('vi-VN')}</span></p>`).join('')}</details>` : ''}
     ${f.root.length ? `<div style="margin:8px 0"><b>🧱 Kẹt lâu, cần học nền: ${f.root.length} chỗ</b><p class="mute" style="margin:2px 0">Đã gác, quay lại vẫn kẹt: luyện thêm dạng câu không giúp. Ngữ pháp → học Ngữ pháp CEFR; từ vựng, đọc, nghe → 📚 Từ vựng công sở và nền CEFR. Xong bấm "Đã học nền".</p>
