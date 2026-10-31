@@ -37,6 +37,7 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
     ...ioff.map(r => `🌏 IELTS đề thật: ${r.L != null ? 'L ' + bandTxt(r.L) : ''} ${r.R != null ? 'R ' + bandTxt(r.R) : ''}`),
     ...toff.map(r => `💼 TOEIC đề thật: L ${r.L} · R ${r.R}`), ...cb.map(([l, r]) => `🎓 ${esc((RN[l] || {}).name || LVN[l])}: Nghe ${r.l}/${r.L} · Đọc / Viết ${r.rw}/${r.RW}`)];
   $app.innerHTML = `<div id="bk"></div><h1>👤 Của tôi</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
+    ${typeof hdView === 'function' ? '<button data-hdv>📘 Luật và cách dùng: học thế nào, tính điểm ra sao</button>' : ''}
     <div class="box"><b>📈 Tiến độ</b><p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${passedLv.length ? ` · đã đạt: ${passedLv.map(l => LVN[l]).join(', ')}` : ''}</p>
       <p class="mute" style="margin:0">📚 ${nW} từ đã học · 🧩 ${nK} bài kỹ năng · ⏱ hôm nay ${actMin(t)} / ${actGoal()} phút · 7 ngày ${mins} phút · 🔥 ${actStreak(now)} ngày liền</p></div>
     <div class="box"><div class="row"><b>🗺 Bản đồ chỗ yếu</b><span class="mute">${f ? `🎯 ${f.act.length} · ⏳ ${f.queue.length} · ✅ ${f.done}` : 'chưa có dữ liệu'}</span></div>

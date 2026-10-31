@@ -270,3 +270,8 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Tiêu chí (kiểm tự động, C13): màn chính của mỗi chức năng ≤ 2 chạm từ thanh dưới; 🎯 Học người mới ≤ 12 nút (đo: 11, trước 16); Hôm nay đúng 1 nút ôn; không đổi luật đo.
 - Chưa kiểm trên iPhone (máy soạn không có WebKit): cần người sáng lập thử 4 tab, ô Hôm nay (ô chọn phút), nút ôn chung, Của tôi → bản đồ / sổ từ / dữ liệu.
 - Sau 4 tuần dùng thật: xem người học có vào 🎓 Luyện thi / 👤 Của tôi không (`window.CUR` trong góp ý, `S.mock`, `S.err`); nếu bỏ quên thì thêm lối tắt ở Hôm nay chứ không thêm tab.
+
+## Luật và cách dùng (v96, 31/10/2026)
+- Người sáng lập: nhiều chức năng nhưng chưa rõ luật và cách dùng; chọn gom MỘT chỗ (không ❓ tại từng màn). Làm: 👤 Của tôi → 📘 Luật và cách dùng, 14 mục, tìm được.
+- Số liệu đọc từ hằng số trong mã; C14 kiểm chữ có đúng số (80%, 15 chỗ, 14 ngày, 7 ngày…).
+- Rủi ro: người học không mở trang này. Đo sau 4 tuần: hỏi 2–3 người mới còn chỗ nào không hiểu; nếu hỏi đáp không trả lời được thì thêm câu, nếu luật khó giải thích thì cân nhắc giản luật.

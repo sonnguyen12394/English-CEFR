@@ -465,6 +465,18 @@ const R = await run(`(async () => {
     S.ie.vw = []; S.err = []; if (revCount().n !== (todayDue() || 0)) bad.push('đếm ôn chung sai');
     CB_LV = null; delete S.exSel;
     add('cefr', 'C13', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '4 tab (Học · Luyện thi · Tra cứu · Của tôi), 🎯 Học người mới ' + nh + ' nút, Cambridge ở Luyện thi, Cẩm nang 2 lối vào, Của tôi đủ 7 ô, Hôm nay một nút ôn chung đều đúng'); }
+  // v96 📘 Luật và cách dùng (huongdan.js): một chỗ ở 👤 Của tôi; số trong chữ lấy từ hằng số của mã; tìm được
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const H = () => String($app.innerHTML);
+    await minhView(); if (!H().includes('data-hdv')) bad.push('Của tôi thiếu nút Luật và cách dùng');
+    HD_Q = ''; tryv('mở', () => hdView()); const h = String(document.getElementById('hdl').innerHTML), nsec = (h.match(/data-hd="/g) || []).length;
+    if (!H().includes('id="bk"') || !H().includes('← Của tôi') || nsec !== HD.length || nsec < 12) bad.push('màn luật sai: ' + nsec + ' mục');
+    const all = HD.map(x => x[2]()).join(' ');
+    for (const [n, v] of [['GATE_MEM', GATE_MEM + '%'], ['MEM_R', Math.round(MEM_R * 100) + '%'], ['MAP_ACT', MAP_ACT + ' chỗ'], ['MAP_PARK_D', MAP_PARK_D + ' ngày'], ['VC_WAIT', 'sau ' + VC_WAIT + ' ngày'], ['K_RETRY', K_RETRY + ' ngày sau thi lại'], ['ACT_DAY_MIN', ACT_DAY_MIN + ' phút'], ['VW_DAYS', VW_DAYS.join(' → ')], ['viết', Math.round(KIT.viet.pass * 100) + '%']]) if (!all.includes(v)) bad.push('chữ thiếu số ' + n + ' = ' + v);
+    if (/undefined|NaN/.test(all)) bad.push('chữ có undefined / NaN');
+    HD_Q = 'nhớ giảm'; tryv('tìm', () => hdList()); const hq = String(document.getElementById('hdl').innerHTML); if (!hq.includes('Vì sao 🔁 Nhớ giảm') || (hq.match(/data-hd="/g) || []).length >= HD.length) bad.push('tìm "nhớ giảm" sai');
+    HD_Q = 'nho giam'; tryv('tìm không dấu', () => hdList()); if (!String(document.getElementById('hdl').innerHTML).includes('Vì sao 🔁 Nhớ giảm')) bad.push('tìm không dấu sai');
+    HD_Q = '';
+    add('cefr', 'C14', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Luật và cách dùng: ' + nsec + ' mục ở Của tôi, số khớp hằng số trong mã, tìm có / không dấu đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

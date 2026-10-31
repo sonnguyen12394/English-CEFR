@@ -111,7 +111,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
           <div><div class="row"><span>🔁 Nhớ</span><span class="mute">${s.mq}%</span></div>${bar(s.mq, GATE_MEM, 'var(--good)')}</div></div>
           ${ovNeedLine(s, lv === stage)}${dr ? `<p class="mute" style="margin:4px 0 0">🔻 Nhớ giảm ${dr}% từ lần trước: có mục quá hạn ôn, khả năng nhớ xuống dưới ${GATE_MEM}%.${s.due ? ` Ôn ${s.due} bài để lấy lại.` : ''}</p>` : s.due ? `<p class="mute" style="margin:4px 0 0">${s.due} bài cần ôn</p>` : ''}` : '<p class="mute" style="margin:4px 0 0">Đang tải…</p>'}</button>`; }).join('')}
     ${typeof libBox === 'function' ? libBox(lv) : ''}
-    <p class="mute" style="margin:10px 0 0">🎓 Đề thử Cambridge, dạng đề, sẵn sàng thi: tab 🎓 Luyện thi. 📌 Sổ từ, 📒 Sổ lỗi, 🗺 chỗ yếu, tiến độ: tab 👤 Của tôi.</p>`;
+    <p class="mute" style="margin:10px 0 0">🎓 Đề thử Cambridge, dạng đề, sẵn sàng thi: tab 🎓 Luyện thi. 📌 Sổ từ, 📒 Sổ lỗi, 🗺 chỗ yếu, tiến độ, 📘 luật và cách dùng: tab 👤 Của tôi.</p>`;
   if (loaded) ovMqLS(nextMq);
   $app.onclick = e => { if (e.target.closest('[data-ovall]')) { OV_ALL = true; return overview(); } const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl);
     const b = e.target.closest('[data-ovp]'); if (!b) return; const id = b.dataset.ovp, l = b.dataset.ovpl; scrollTo(0, 0);
