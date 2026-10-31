@@ -21,7 +21,9 @@ function errBox(back) { const L = errSt();
     <button class="${d ? 'pri' : ''}" data-err="${back}" ${d ? '' : 'disabled'}>${d ? `✏️ Sửa ${Math.min(d, 10)} lỗi đến hạn` : '✅ Chưa có lỗi đến hạn ôn'}</button>${errPasteBtn(back)}</div>`; }
 // 📥 dán lỗi giáo viên sửa (ieplus.js errPaste)
 const errPasteBtn = back => typeof errPaste === 'function' ? `<button class="chip" data-errp="${back}">📥 Dán lỗi giáo viên sửa</button>` : '';
-function errRun(back) { const qs = shuf(errDue()).slice(0, 10); let i = 0, ok = 0; const home = () => back === 'ie' ? ieltsView() : overview();
+// back: 'ct' (👤 Của tôi) · 'ie' (IELTS) · hàm (hàng ôn chung của Hôm nay: sang loại tiếp theo); quit: khi bấm "← Thôi" (mặc định = back)
+const errHome = back => typeof back === 'function' ? back() : back === 'ie' ? ieltsView() : back === 'ct' && typeof minhView === 'function' ? minhView() : overview();
+function errRun(back, quit) { const qs = shuf(errDue()).slice(0, 10); let i = 0, ok = 0; const home = () => errHome(back), stop = () => errHome(quit || back);
   if (!qs.length) return home();
   const show = () => { if (i >= qs.length) return end(); const x = qs[i]; window.CUR = { view: 'so-loi', item: x.id, prompt: x.wrong };
     $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Thôi</button><span class="uname">📒 ${i + 1}/${qs.length}</span></div>
@@ -34,9 +36,9 @@ function errRun(back) { const qs = shuf(errDue()).slice(0, 10); let i = 0, ok = 
       document.getElementById('efb').innerHTML = `<div class="box"><b>${good ? '✅ Đúng' : '❌ Chưa đúng'}</b><p style="margin:4px 0">Câu đúng: <b>${esc(x.correct)}</b></p>${x.why ? `<p class="mute" style="margin:0">${esc(x.why)}</p>` : ''}
         <p class="mute" style="margin:6px 0 0">${good ? (x.box >= ERR_DAYS.length ? 'Đã bỏ được lỗi này 🎉' : `Ôn lại sau ${ERR_DAYS[x.box - 1]} ngày.`) : 'Ôn lại ngày mai.'}</p></div>
         <button class="pri" data-a="next">Tiếp ›</button><button class="link" data-a="del">🗑 Bỏ lỗi này khỏi sổ (AI sửa sai)</button>`; };
-    $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return home(); if (e.target.closest('[data-a="next"]')) { i++; scrollTo(0, 0); return show(); }
+    $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return stop(); if (e.target.closest('[data-a="next"]')) { i++; scrollTo(0, 0); return show(); }
       if (e.target.closest('[data-a="del"]')) { S.err = errSt().filter(y => y !== x); S.t = Date.now(); save(); toast('Đã bỏ khỏi sổ.'); i++; return show(); } }; };
-  const end = () => { $app.innerHTML = `<h1>📒 Sửa đúng ${ok}/${qs.length}</h1><p class="mute">Lỗi sai sẽ quay lại ngày mai. Lỗi đúng giãn dần 1 → 3 → 7 → 16 → 35 ngày.</p>${errBox(back)}<button data-a="back">← Về</button>`;
+  const end = () => { $app.innerHTML = `<h1>📒 Sửa đúng ${ok}/${qs.length}</h1><p class="mute">Lỗi sai sẽ quay lại ngày mai. Lỗi đúng giãn dần 1 → 3 → 7 → 16 → 35 ngày.</p>${typeof back === 'function' ? '' : errBox(back)}<button class="pri" data-a="back">${typeof back === 'function' ? 'Tiếp ›' : '← Về'}</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="back"]')) home(); }; scrollTo(0, 0); };
   show(); }
 document.addEventListener('click', e => { const b = e.target.closest('[data-err]'); if (b && !b.disabled && S) { scrollTo(0, 0); errRun(b.dataset.err); } });

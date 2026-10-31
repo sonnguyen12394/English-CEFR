@@ -29,7 +29,7 @@ function bkAcct() { if (typeof isAnon !== 'function' || !user) return '';
     <button data-bk="split">👤 Tách máy này ra tài khoản riêng</button>${typeof tdMissView === 'function' ? '<button data-bk="miss">📊 Từ người học tra mà app chưa có</button>' : ''}</div>`; }
 function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
   const raw = JSON.stringify(S), sn = bkSnaps();
-  $app.innerHTML = `<div id="bk"></div><h1>💾 Dữ liệu</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
+  $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bk="ct">← Của tôi</button><span class="uname">💾 Dữ liệu</span></div><h1>💾 Dữ liệu và tài khoản</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${bkAcct()}<h2>💾 Sao lưu</h2>
     ${S.fake ? '<div class="box">🧪 Đang dùng <b>dữ liệu thử</b>. Muốn quay lại dữ liệu thật: khôi phục bản chụp trước lần đặt tiến độ.</div>' : ''}
     ${msg ? `<div class="box">${msg}</div>` : ''}
@@ -62,6 +62,7 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
     if (b && b.dataset.bk === 'down') return bkDown(JSON.stringify(S, null, 1), 'hoc-tieng-anh');
     if (b && b.dataset.bk === 'edit') return bkEdit();
     if (b && b.dataset.bk === 'miss') return tdMissView();
+    if (b && b.dataset.bk === 'ct') { scrollTo(0, 0); return typeof minhView === 'function' ? minhView() : 0; }
     if (b && b.dataset.bk === 'split') return confirm('Tách máy này ra tài khoản riêng? Tiến độ hiện tại đi theo máy này; tài khoản chung giữ nguyên.') && acctSplit();
     if (b && b.dataset.bk === 'copy') return bkCopy();
     if (b && b.dataset.bk === 'paste') return bkPaste();
@@ -76,7 +77,7 @@ function bkDown(text, name) { const d = new Date(), stamp = `${d.getFullYear()}-
   document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); }
 // sửa trực tiếp: JSON đẹp trong ô chữ; lưu chỉ khi đúng JSON và đúng dạng
 function bkEdit() { window.CUR = { view: 'sao-luu-sua' };
-  $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bke="back">← Sao lưu</button><span class="uname">✏️ Sửa JSON</span></div>
+  $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bke="back">← Dữ liệu</button><span class="uname">✏️ Sửa JSON</span></div>
     <p class="mute">Sửa cẩn thận: sai dạng thì không lưu. Trước khi lưu, máy chụp lại dữ liệu cũ.</p>
     <textarea id="bkta" rows="18" spellcheck="false" autocapitalize="off" autocorrect="off" style="font-family:ui-monospace,monospace;font-size:13px">${esc(JSON.stringify(S, null, 1))}</textarea>
     <div id="bkerr"></div><button class="pri" data-bke="save">💾 Lưu thay đổi</button><button data-bke="back">Huỷ</button>`;
@@ -125,13 +126,13 @@ async function bkSetGo(part, lv, stage) { const pn = part === 'all' ? 'tất c�
 // Sao chép: JSON gọn (không thụt dòng) vào bộ nhớ tạm; máy không cho chép thì hiện ô chữ đã chọn sẵn để tự chép.
 async function bkCopy() { const t = JSON.stringify(S);
   try { await navigator.clipboard.writeText(t); return backup(`✅ Đã sao chép JSON (${bkKB(t)}). Dán vào Ghi chú hay tin nhắn để cất.`); } catch (e) {}
-  $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bke="back">← Sao lưu</button><span class="uname">📋 Sao chép JSON</span></div>
+  $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bke="back">← Dữ liệu</button><span class="uname">📋 Sao chép JSON</span></div>
     <p class="mute">Máy chưa cho chép tự động. Bấm vào ô, chọn tất cả rồi Sao chép.</p><textarea id="bkcp" rows="10" readonly style="font-family:ui-monospace,monospace;font-size:12px">${esc(t)}</textarea>`;
   const ta = document.getElementById('bkcp'); try { ta.focus(); ta.select(); ta.setSelectionRange(0, t.length); } catch (e) {}
   $app.onclick = e => { if (e.target.closest('[data-bke="back"]')) backup(); }; }
 // Dán: dán vào ô (hoặc nút lấy từ bộ nhớ tạm), kiểm dạng như khi nhập tệp, chụp bản cũ rồi thay.
 function bkPaste() { window.CUR = { view: 'sao-luu-dan' };
-  $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bke="back">← Sao lưu</button><span class="uname">📥 Dán JSON</span></div>
+  $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bke="back">← Dữ liệu</button><span class="uname">📥 Dán JSON</span></div>
     <p class="mute">Dán nội dung JSON đã sao chép trước đó vào ô dưới. Khôi phục sẽ thay toàn bộ dữ liệu hiện tại (máy chụp lại bản cũ trước).</p>
     <button data-bke="clip">📋 Lấy từ bộ nhớ tạm</button>
     <textarea id="bkpa" rows="10" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="Dán JSON vào đây" style="font-family:ui-monospace,monospace;font-size:12px"></textarea>

@@ -30,22 +30,24 @@ function todayBox(stage, o = {}) { const t = dayOf(Date.now()), m = actMin(t), g
   const step = (ok, lab, attr) => `<button class="${ok ? '' : 'pri'}" ${attr} style="margin:4px 0;${ok ? 'opacity:.7' : ''}">${ok ? '✅' : '⬜'} ${lab}</button>`;
   return `<div class="box" id="today"><div class="row"><b>📅 Hôm nay</b><span>${st ? `🔥 ${st} ngày liền` : '<span class="mute">chưa có chuỗi ngày</span>'}</span></div>
     <div class="row" style="margin-top:6px"><span style="font-size:22px;font-weight:800">${m}<span class="mute" style="font-size:15px;font-weight:400"> / ${g} phút</span></span>
-      <span class="chips" style="margin:0">${[10, 15, 30, 45].map(x => `<button class="chip ${x === g ? 'on' : ''}" data-goal="${x}">${x}′</button>`).join('')}</span></div>${bar(Math.round(Math.min(1, m / g) * 100), 100, 'var(--good)')}
+      <select data-goal aria-label="Mục tiêu phút mỗi ngày" style="width:auto;margin:0;padding:6px 10px">${[10, 15, 30, 45].map(x => `<option value="${x}"${x === g ? ' selected' : ''}>🎯 ${x} phút / ngày</option>`).join('')}</select></div>${bar(Math.round(Math.min(1, m / g) * 100), 100, 'var(--good)')}
     <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;align-items:end;height:46px;margin:8px 0 2px">${days.map(d => { const v = actMin(d); return `<div title="${v} phút" style="height:${Math.max(3, Math.round(v / mx * 40))}px;border-radius:3px;background:${v >= ACT_DAY_MIN ? 'var(--good)' : 'var(--line)'}"></div>`; }).join('')}</div>
     <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:11px;text-align:center" class="mute">${days.map(d => `<span>${d === t ? 'Nay' : wd[new Date(d * DAY + 12 * 3600000).getUTCDay()]}</span>`).join('')}</div>
-    <p style="margin:10px 0 2px"><b>3 việc hôm nay</b> <span class="mute">(~${g} phút)</span></p>
-    ${step(due === 0, due == null ? 'Ôn bài đến hạn' : due ? `Ôn ${due} bài đến hạn (làm trước, chống quên)` : 'Không còn bài đến hạn', due && o.due ? `data-ovp="${o.due[0]}" data-ovpl="${o.due[1]}"` : 'data-today="due"')}
+    <p style="margin:10px 0 2px"><b>Việc hôm nay</b> <span class="mute">(~${g} phút)</span></p>
+    ${(() => { const R = typeof revCount === 'function' ? revCount() : { n: due || 0, c: due, e: 0, v: 0 }, what = [R.e ? `${R.e} lỗi` : '', R.v ? `${R.v} từ sổ từ` : '', R.c ? `${R.c} bài` : ''].filter(Boolean).join(' · ');   // v95: MỘT nút ôn chung (dieuhuong.js revRun)
+      if (!R.n && !Object.keys(S.cards || {}).length && !Object.values(S.k || {}).some(k => Object.keys(k.cards || {}).length)) return '';
+      return step(!R.n && due != null, R.n ? `Ôn ${R.n} mục đến hạn (${what}): làm trước, chống quên` : due == null ? 'Ôn bài đến hạn' : 'Không còn mục đến hạn', R.n && typeof revRun === 'function' ? 'data-rev' : 'data-today="due"'); })()}
     ${mf ? (f => { const d = dayOf(Date.now()), did = f.act.some(w => w.td === d);
       return (f.act.length ? step(did, did ? 'Đã chữa chỗ yếu hôm nay' : `Chữa ${Math.min(MAP_TODAY, f.act.length)} chỗ yếu đang chữa (kèm việc ôn)`, 'data-today="fix"') : '')
         + (f.root.length ? `<button data-map-rl="${esc(mapKey(f.root[0]))}" style="margin:4px 0">🧱 Học lại bài gốc: ${f.root.length} chỗ kẹt lâu</button>` : '')
         + `<button data-mapv style="margin:4px 0">🗺 Bản đồ chỗ yếu${f.act.length ? `: đang chữa ${f.act.length}${f.queue.length ? ` · ${f.queue.length} chờ` : ''}` : ''} ›</button>`; })(mf) : ''}
     ${step(nw > 0, nw ? `Đã học ${nw} mục mới hôm nay` : `Học 1 bài mới ở cấp ${LVN[stage]}${o.low ? `: ${OV.find(x => x[0] === o.low[0])[1]} ${OV.find(x => x[0] === o.low[0])[2]}` : ''}`, o.low && !nw ? `data-ovp="${o.low[0]}" data-ovpl="${o.low[1]}"` : 'data-today="new"')}
     ${step(sk, sk ? 'Đã luyện kỹ năng hôm nay' : `Luyện 1 bài kỹ năng${lowSk ? `: ${OV.find(x => x[0] === lowSk[0])[1]} ${OV.find(x => x[0] === lowSk[0])[2]}${mapSk ? ' (chỗ yếu)' : ''}` : ''}`, `data-today="skill"${lowSk ? ` data-tsk="${lowSk[0]}"` : ''}`)}
-    ${typeof vwDue === 'function' && vwDue().length ? `<button data-sotu style="margin:4px 0">📌 Ôn ${Math.min(20, vwDue().length)} từ trong sổ từ</button>` : ''}
     ${typeof relearnUnits === 'function' ? relearnUnits().slice(0, 2).map(([u, ws]) => `<button data-relearn="${u.id}" style="margin:4px 0">🔁 Học lại ${esc(uLabel(u))}: ${ws.length} từ hay quên</button>`).join('') : ''}
     ${!Object.keys(S.cards || {}).length && !S.place ? '<button data-place style="margin-top:6px">🧭 Mới bắt đầu? Kiểm tra xếp cấp (5–10 phút) để biết nên học từ cấp nào</button>' : ''}
     <p class="mute" style="margin:6px 0 0">Phút tính khi làm bài. Ngày ≥ ${ACT_DAY_MIN} phút vào chuỗi. Học đều mỗi ngày nhớ lâu hơn học dồn.</p></div>`; }
-document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('[data-goal]'); if (g) { S.goal = +g.dataset.goal; S.t = Date.now(); save(); return overview(); }
+document.addEventListener('change', e => { const g = S && e.target.closest && e.target.closest('select[data-goal]'); if (g && +g.value) { S.goal = +g.value; S.t = Date.now(); save(); overview(); } });
+document.addEventListener('click', e => { if (!S) return;
   const b = e.target.closest('[data-today]'); if (!b) return; const k = b.dataset.today; scrollTo(0, 0);
   if (k === 'due' || k === 'new') { const nb = document.querySelector('#app [data-ovp].pri'); if (nb && k === 'due') return nb.click(); return k === 'new' ? (HOME.lv = curLevel(), HOME.open = null, home()) : overview(); }
   if (k === 'fix') return mapToday();

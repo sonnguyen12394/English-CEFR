@@ -26,7 +26,7 @@ function extBox(lv) { const src = EXT_SRC[lv]; if (!src) return ''; const m = ex
     <div class="chips" style="margin-top:6px"><button class="chip" data-ext="${lv}|doc">➕ Ghi giờ đọc</button><button class="chip" data-ext="${lv}|nghe">➕ Ghi giờ nghe</button></div></details>`; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-ext]'); if (!b) return; const [lv, kind] = b.dataset.ext.split('|');
   const v = prompt(`${kind === 'doc' ? 'Đọc' : 'Nghe'} bao nhiêu phút?`, '15'); if (v == null) return; const min = parseInt(v, 10); if (!(min > 0 && min <= 300)) return alert('Số phút 1–300.');
-  extLog().push({ at: Date.now(), lv, kind, min }); S.t = Date.now(); save(); toast(`Đã ghi ${min} phút.`); overview(lv); });
+  extLog().push({ at: Date.now(), lv, kind, min }); S.t = Date.now(); save(); toast(`Đã ghi ${min} phút.`); exHome(lv); });
 
 // ---------- 🎯 Sẵn sàng thi ----------
 // Chỉ nên đăng ký thi thật khi đủ cả 5 bằng chứng (đề thử của app do AI soạn nên không đủ một mình).
@@ -49,8 +49,8 @@ function readyBox(lv) { if (!RD_EXAM[lv]) return ''; const cs = readyChecks(lv),
     <button class="chip" data-teach="${RD_REAL[lv] || lv}">✍️ Ghi điểm buổi nói với giáo viên</button></div>`; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-teach]'); if (!b) return; const lv = b.dataset.teach;
   const v = prompt('Giáo viên chấm phần Nói được bao nhiêu % (0–100)? Gợi ý: nhờ giáo viên chấm theo 4 tiêu chí Cambridge, mỗi tiêu chí 0–5, rồi đổi ra %.'); if (v == null) return;
-  const pct = parseInt(v, 10); if (!(pct >= 0 && pct <= 100)) return alert('Số 0–100.'); teachRuns(lv).push({ at: Date.now(), pct }); S.t = Date.now(); save(); toast('Đã ghi.'); overview(curOvLv()); });
-const curOvLv = () => (typeof OV_SEL !== 'undefined' && OV_SEL) || curLevel();
+  const pct = parseInt(v, 10); if (!(pct >= 0 && pct <= 100)) return alert('Số 0–100.'); teachRuns(lv).push({ at: Date.now(), pct }); S.t = Date.now(); save(); toast('Đã ghi.'); exHome(curOvLv()); });
+const curOvLv = () => (typeof CB_LV !== 'undefined' && CB_LV) || (typeof OV_SEL !== 'undefined' && OV_SEL) || curLevel();   // v95: ô sẵn sàng thi ở 🎓 Luyện thi → Cambridge
 
 // ---------- ✍️ Chấm Viết 4 tiêu chí Cambridge ----------
 // Đề thật chấm: Nội dung · Hoàn thành mục đích giao tiếp · Bố cục · Ngôn ngữ (mỗi tiêu chí 0–5). Máy đo gián tiếp:

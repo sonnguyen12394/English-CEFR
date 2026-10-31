@@ -53,13 +53,13 @@ const uMk = (k, n) => () => { const ls = mkLvs().filter(l => U_LV.includes(l)).r
 function uoeBox(lv) { if (LEVELS.indexOf(lv) < LEVELS.indexOf('b1')) return ''; const R = uRuns(), ls = uLvs(lv), all = UOE ? Object.keys(U_T).flatMap(k => uItems(k, ls)) : [], done = all.filter(x => R[x.id]).length;
   return `<div class="box"><div class="row"><b>🧩 Luyện dạng đề thật</b><span class="mute">${UOE ? `đã làm ${done}/${all.length}` : ''}</span></div><p class="mute" style="margin:6px 0">Bài đọc dài như đề, điền từ cả đoạn, tạo dạng từ, viết lại câu từ khoá. Báo đúng / sai từng câu, có giải thích.</p><button data-uoe="${lv}">🧩 Luyện</button></div>`; }
 async function uoeView(lv) { window.CUR = { view: 'dang-de', item: lv }; $app.innerHTML = '<p class="mute">Đang tải…</p>';
-  try { await uLoad(); } catch (e) { $app.innerHTML = `${backRow('🧩 Dạng đề thật')}<p>Không tải được. Thử lại sau.</p>`; $app.onclick = e => { if (e.target.closest('[data-a="home"]')) overview(lv); }; return; }
+  try { await uLoad(); } catch (e) { $app.innerHTML = `${backRow('🧩 Dạng đề thật')}<p>Không tải được. Thử lại sau.</p>`; $app.onclick = e => { if (e.target.closest('[data-a="home"]')) exHome(lv); }; return; }
   const R = uRuns(), ls = uLvs(lv), row = k => { const its = uItems(k, ls); if (!its.length) return ''; const d = its.filter(x => R[x.id]), avg = d.length ? Math.round(d.reduce((s, x) => s + R[x.id].ok / R[x.id].n, 0) / d.length * 100) : null;
     return `<button class="box" data-ut="${k}" style="width:100%;text-align:left;display:block"><div class="row"><b>${U_T[k][0]} ${U_T[k][1]}</b><span class="mute">${d.length}/${its.length}${avg != null ? ` · ${avg}%` : ''} ›</span></div><p class="mute" style="margin:4px 0 0">${U_T[k][2]}</p></button>`; };
   $app.innerHTML = `${backRow('🧩 Dạng đề thật')}<h1>🧩 Luyện dạng đề thật · ${LVN[lv]}</h1>
     <p class="mute">Dạng bài như đề Cambridge: làm trên cả bài, không phải câu lẻ. Lấy bài cấp ${LVN[lv]} trước, rồi các cấp B dưới. Không tính giờ, báo đúng / sai ngay. Nội dung AI soạn, chưa người thật kiểm; mỗi dạng 2–12 bài nên sẽ gặp lại.</p>
     ${Object.keys(U_T).map(row).join('')}<p class="mute">Không tính vào 📘 Học / 🔁 Nhớ. Muốn làm có giờ như thi thật: 🎓 Đề thử.</p>`;
-  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return overview(lv); const b = e.target.closest('[data-ut]'); if (!b) return; const k = b.dataset.ut;
+  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return exHome(lv); const b = e.target.closest('[data-ut]'); if (!b) return; const k = b.dataset.ut;
     const xs = k === 'kwt' ? uPick(k, ls, 6) : uPick(k, ls, 1); if (xs.length) uRun(lv, k, xs); }; }
 function uRun(lv, k, xs) { const qs = k === 'kwt' ? xs.map(uKwtQ) : uQs(k, xs[0]), res = []; let i = 0;
   const show = () => { if (i >= qs.length) return end(); const q = qs[i]; window.CUR = { view: 'dang-de-cau', item: (q.x.id || '') + ':' + i, prompt: String(q.q).replace(/<[^>]*>/g, '').slice(0, 200) };

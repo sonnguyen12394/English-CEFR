@@ -21,7 +21,7 @@ const capTasks = lv => { const b = capBase(lv), ls = CAP_LVS.filter(l => LEVELS.
 function capBox(lv) { if (LEVELS.indexOf(lv) < LEVELS.indexOf('a2')) return ''; const R = capRuns(), n = Object.keys(R).length;
   return `<div class="box"><div class="row"><b>👥 Nói theo cặp</b><span class="mute">${n ? `đã làm ${n} đề` : ''}</span></div><p class="mute" style="margin:6px 0">Thảo luận với bạn thi ảo như phần nói cặp của đề thật: đáp lời, nêu lý do, hỏi lại, rồi cùng chốt. Cần Safari trên iPhone.</p><button data-cap="${lv}">👥 Luyện nói theo cặp</button></div>`; }
 async function capView(lv) { window.CUR = { view: 'noi-cap', item: lv }; $app.innerHTML = '<p class="mute">Đang tải…</p>';
-  try { await capLoad(); } catch (e) { $app.innerHTML = `${backRow('👥 Nói theo cặp')}<p>Không tải được. Thử lại sau.</p>`; $app.onclick = e => { if (e.target.closest('[data-a="home"]')) overview(lv); }; return; }
+  try { await capLoad(); } catch (e) { $app.innerHTML = `${backRow('👥 Nói theo cặp')}<p>Không tải được. Thử lại sau.</p>`; $app.onclick = e => { if (e.target.closest('[data-a="home"]')) exHome(lv); }; return; }
   if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {}
   const R = capRuns(), ts = capTasks(lv);
   $app.innerHTML = `${backRow('👥 Nói theo cặp')}<h1>👥 Nói theo cặp · ${LVN[ts[0] ? ts[0].lv : lv]}</h1>
@@ -29,7 +29,7 @@ async function capView(lv) { window.CUR = { view: 'noi-cap', item: lv }; $app.in
     ${!SREC ? '<div class="box"><b>Trình duyệt này không chép được lời.</b><p class="mute" style="margin:4px 0 0">Mở bằng Safari trên iPhone để máy nghe và đo. Vẫn xem đề được.</p></div>' : ''}
     <label class="box" style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" id="capai" style="width:auto;margin:4px 0" ${S.capAi ? 'checked' : ''}><span>🤖 Bạn AI trả lời theo lời bạn nói<br><span class="mute">Cần khoá AI trên Supabase; tốn ít tiền mỗi lượt. Lỗi hoặc chưa có khoá thì bạn thi dùng lời soạn sẵn.</span></span></label>
     ${ts.map(x => `<button class="box" data-capt="${x.id}" style="width:100%;text-align:left;display:block"><div class="row"><b>${esc(x.title)}</b><span class="mute">${R[x.id] ? R[x.id].pct + '%' : ''} ›</span></div><p class="mute" style="margin:4px 0 0">${esc(x.q)}</p></button>`).join('')}`;
-  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return overview(lv); const c = e.target.closest('#capai'); if (c) { S.capAi = c.checked; S.t = Date.now(); save(); return; }
+  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return exHome(lv); const c = e.target.closest('#capai'); if (c) { S.capAi = c.checked; S.t = Date.now(); save(); return; }
     const b = e.target.closest('[data-capt]'); if (b) capRun(lv, CAP.tasks.find(x => x.id === b.dataset.capt)); }; }
 // bạn thi nói (giọng Kokoro n/ nếu có, không thì giọng máy Anh–Anh)
 const capSay = async ts => { EXAM_VOX = true; try { await speak(...ts); } finally { EXAM_VOX = false; } };
@@ -64,7 +64,7 @@ function capRun(lv, x) { if (!x) return; const steps = [x.open, ...x.turns, x.de
       <p class="mute">Máy đo cách tương tác qua lời chép, không chấm ngữ pháp, phát âm. Muốn chấm như giám khảo: nút dưới (cần khoá AI).</p>
       ${typeof aiBtn === 'function' ? aiBtn('noi', capBase(lv), { prompt: `Collaborative discussion task with a partner (two candidates). Central question: ${x.q} Prompts: ${x.prompts.join(', ')}. Then the candidates decide together. Focus especially on Interactive Communication.` }, tr) : ''}
       <button class="pri" data-a="list">👥 Đề khác</button><button data-a="home2">← Tổng quan</button>`; scrollTo(0, 0);
-    $app.onclick = e => { if (e.target.closest('[data-a="list"]')) return capView(lv); if (e.target.closest('[data-a="home2"]')) return overview(lv); }; };
+    $app.onclick = e => { if (e.target.closest('[data-a="list"]')) return capView(lv); if (e.target.closest('[data-a="home2"]')) return exHome(lv); }; };
   $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { kAsrStop(); try { speechSynthesis.cancel(); AUD && AUD.pause(); } catch (er) {} return capView(lv); } };
   turn(steps[0]); }
 document.addEventListener('click', e => { const b = e.target.closest('[data-cap]'); if (b) capView(b.dataset.cap); });

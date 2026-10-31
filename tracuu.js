@@ -71,9 +71,9 @@ function tcCau(q) { const S0 = (TC && TC.cum || []).map(s => ({ t: s.t, items: s
 
 // ---------- vẽ theo loại (gọi từ dictList) ----------
 const tcKind = () => TC_OF[DICT.kind] ? DICT.kind : 'home';
-// đầu một mục: ← Từ điển + tên mục + chip con của mục
+// đầu một mục: ← Tra cứu + tên mục + chip con của mục
 function tcHead(k = tcKind()) { const sec = TC_SECT[TC_OF[k]]; if (!sec) return ''; const cur = k === 'cum' ? 'cum:' + (DICT.sub || 'pv') : k;
-  return `<div class="row" style="margin:6px 0"><button class="link" data-tck="home" style="width:auto">← Từ điển</button><b>${sec[0]} ${sec[1]}</b></div>${sec[2].length ? `<div class="chips" style="margin:4px 0">${sec[2].map(([c, n]) => `<button class="chip ${cur === c ? 'on' : ''}" data-tck="${c}">${esc(n)}</button>`).join('')}</div>` : ''}`; }
+  return `<div class="row" style="margin:6px 0"><button class="link" data-tck="home" style="width:auto">← Tra cứu</button><b>${sec[0]} ${sec[1]}</b></div>${sec[2].length ? `<div class="chips" style="margin:4px 0">${sec[2].map(([c, n]) => `<button class="chip ${cur === c ? 'on' : ''}" data-tck="${c}">${esc(n)}</button>`).join('')}</div>` : ''}`; }
 const tcChips = () => tcHead('tu');
 // "Cũng có": ở loại 📚 Từ, đang tìm → ngữ pháp / lỗi / cụm câu khớp (gõ một lần, ra mọi mặt)
 function tcAlso(q) { if (!q || q.trim().length < 3 || !TC) return ''; const np = tcNpHits(q, 3), lo = tcLoiHits(q).slice(0, 2), cau = (TC.cum || []).flatMap(s => s.items).filter(x => tcHas(q, x.en, x.vi)).slice(0, 2);
@@ -109,7 +109,7 @@ const tcList2 = (items, say = true) => items.map(x => `<div style="margin:8px 0;
 function tcAfxWords(x, n = 6) { const by = new Map(WORDS.map(w => [w.w.toLowerCase(), w])); return (x.w || []).slice(0, n).map(t => ({ w: t, app: by.get(t.toLowerCase()) || null })); }
 // v92: chọn kỳ thi trong tab kỹ năng (🎓 CEFR dạng Cambridge · 🌏 IELTS · 💼 TOEIC); phần dùng chung (từ nối, tiền tố / hậu tố, nghe số, phát âm, lỗi) luôn hiện
 const TC_EX = [['cefr', '🎓 CEFR'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']];
-const tcEx = () => DICT.ex || (S.exSel === 'toeic' ? 'toeic' : S.ie && S.ie.set ? 'ielts' : 'cefr');
+const tcEx = () => DICT.ex || (typeof exSel === 'function' ? exSel() : S.exSel === 'toeic' ? 'toeic' : S.ie && S.ie.set ? 'ielts' : 'cefr');
 function tcExSecs(k, ex) { const out = [], li = a => a.map(t => `<p style="margin:4px 0">• ${esc(t)}</p>`).join(''), C = TC && TC.cefr;
   if (ex === 'cefr' && C) {
     if (k === 'nghe') out.push(tcSec('🎓 Nghe kiểu Cambridge (A2 Key → C2)', li(C.nghe), C.nghe.join(' '), true));
@@ -188,7 +188,7 @@ function tcSearch(q) { const df = document.getElementById('df'), dl = document.g
   const uk = (TC && TC.uk || []).filter(x => x.k !== 'spell' && q.trim().length >= 3 && tcHas(q, x.gb, x.us)).slice(0, 3);   // từ Anh–Mỹ khác (chính tả khác đã ra ở 📚 Từ)
   grp.push(sec('🇬🇧🇺🇸 Anh–Anh / Anh–Mỹ', uk.map(x => `<div class="row" style="margin:4px 0"><span>🇬🇧 ${tcWordChip(x.gb)}</span><span>🇺🇸 ${tcWordChip(x.us)}</span></div>`).join('')));
   const body = grp.filter(Boolean).join('');
-  df.innerHTML = `<div class="row" style="margin:6px 0"><button class="link" data-tck="home" style="width:auto">← Từ điển</button><span class="mute">${vn ? 'Tìm từ tiếng Anh cho nghĩa tiếng Việt' : 'Kết quả tìm'}</span></div>`;
+  df.innerHTML = `<div class="row" style="margin:6px 0"><button class="link" data-tck="home" style="width:auto">← Tra cứu</button><span class="mute">${vn ? 'Tìm từ tiếng Anh cho nghĩa tiếng Việt' : 'Kết quả tìm'}</span></div>`;
   dl.innerHTML = body && W.all.length ? body : (body || '') + (typeof tdNone === 'function' ? tdNone(q.trim()) : ''); }
 function tcHome() { const df = document.getElementById('df'), dl = document.getElementById('dl');
   const card = (k, ic, t, d) => `<button class="box" data-tck="${k}" style="margin:6px 0;text-align:left;display:block;width:100%"><b style="font-size:17px">${ic} ${t}</b><br><span class="mute" style="font-size:14px">${d}</span></button>`;
@@ -196,24 +196,25 @@ function tcHome() { const df = document.getElementById('df'), dl = document.getE
   dl.innerHTML = `<p class="mute" style="margin:10px 0 2px">Gõ tiếng Anh khi gặp từ lạ; gõ tiếng Việt khi muốn nói / viết một ý.</p>
     ${card('tu', '📚', 'Từ & cụm từ', `${WORDS.length.toLocaleString('vi-VN')} từ theo cấp, từ dễ nhầm, cụm động từ, thành ngữ, từ nối, tiền tố / hậu tố`)}
     ${card('np', '🧱', 'Ngữ pháp & lỗi hay gặp', `${tcNp().length || 106} điểm ngữ pháp, ${(TC && TC.loi || []).length || 42} lỗi người Việt hay mắc`)}
-    ${card('pa', '👄', 'Phát âm', '44 âm tiếng Anh, cặp âm dễ nhầm')}
-    <p class="mute" style="margin:10px 0 0">Mẹo thi theo kỹ năng (Nghe · Nói · Đọc · Viết) nằm ở 🎓 Luyện thi → 📘 Cẩm nang.</p>`; }
+    ${card('pa', '👄', 'Phát âm', '44 âm, trọng âm, đuôi -s / -ed, âm cuối, ngữ điệu, cặp âm dễ nhầm')}
+    <button class="box" data-cnv="tc" style="margin:6px 0;text-align:left;display:block;width:100%"><b style="font-size:17px">📘 Cẩm nang thi</b><br><span class="mute" style="font-size:14px">Mẹo Nghe · Nói · Đọc · Viết theo Cambridge / IELTS / TOEIC: dạng câu, bố cục bài, cụm câu, bẫy hay gặp</span></button>`; }
 // điều hướng của dictList: true = đã vẽ (màn đầu / tìm gộp / mục khác); false = để app.js vẽ 📚 danh sách từ theo cấp
 function tcRoute() { if (!TC) tcLoad().then(() => { tcRe(); }).catch(() => {}); const k = tcKind(), q = (DICT.q || '').trim();
   if (k === 'home') { q ? tcSearch(q) : tcHome(); return true; }
   if (k !== 'tu') { tcList(); return true; }
   return false; }
 
-// 📘 Cẩm nang thi (🎓 Luyện thi): mẹo theo kỹ năng × kỳ thi (trước ở 📖 Từ điển, v91–v92)
-let CN_K = 'nghe';
-function camnangView(k) { if (k) CN_K = k; window.CUR = { view: 'cam-nang' }; const need = [typeof ieLoad === 'function' && (typeof IE === 'undefined' || !IE) ? ieLoad() : 0, !TC ? tcLoad() : 0].filter(Boolean);
-  if (need.length) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; Promise.all(need).then(() => camnangView()).catch(() => {}); return; }
-  $app.innerHTML = `<div id="ie"></div><div id="cnv"></div><div class="row top"><button class="link" data-a="back">← Luyện thi</button><span class="uname">📘 Cẩm nang thi</span></div><h1>📘 Cẩm nang thi</h1>
+// 📘 Cẩm nang thi: mẹo theo kỹ năng × kỳ thi. v91–v92 ở Từ điển, v93 chuyển sang 🎓 Luyện thi, v95 chỗ ở chính là 📖 Tra cứu (thẻ thứ 4),
+// 🎓 Luyện thi giữ lối tắt "📘 Cẩm nang thi" ở mỗi kỳ thi (chọn sẵn kỳ thi đó)
+let CN_K = 'nghe', CN_FROM = 'tc';   // v95: from 'tc' = 📖 Tra cứu (chỗ ở chính) · 'ex' = 🎓 Luyện thi (lối tắt, chọn sẵn kỳ thi)
+function camnangView(k, from, ex) { if (k) CN_K = k; if (from) CN_FROM = from; if (ex) DICT.ex = ex; window.CUR = { view: 'cam-nang' }; const mk = CN_FROM === 'ex' ? '<div id="ie"></div>' : '<div id="tcv"></div>'; const need = [typeof ieLoad === 'function' && (typeof IE === 'undefined' || !IE) ? ieLoad() : 0, !TC ? tcLoad() : 0].filter(Boolean);
+  if (need.length) { $app.innerHTML = mk + '<p class="mute">Đang tải…</p>'; Promise.all(need).then(() => camnangView()).catch(() => {}); return; }
+  $app.innerHTML = `${mk}<div id="cnv"></div><div class="row top"><button class="link" data-a="back">← ${CN_FROM === 'ex' ? 'Luyện thi' : 'Tra cứu'}</button><span class="uname">📘 Cẩm nang thi</span></div><h1>📘 Cẩm nang thi</h1>
     <p class="mute">Mẹo theo dạng câu, bố cục, cụm câu, bẫy hay gặp. Chọn kỹ năng và kỳ thi.</p>
     <div class="chips">${[['nghe', '🎧 Nghe'], ['noi', '🗣 Nói'], ['doc', '📰 Đọc'], ['viet', '✍️ Viết']].map(([c, n]) => `<button class="chip ${CN_K === c ? 'on' : ''}" data-cnk="${c}">${n}</button>`).join('')}</div>
     <div id="cnb">${tcSkill(CN_K, '')}</div>`;
-  $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return typeof exOpen === 'function' ? exOpen() : ieltsView(); const b = e.target.closest('[data-cnk]'); if (b) { scrollTo(0, 0); camnangView(b.dataset.cnk); } }; }
-document.addEventListener('click', e => { if (S && e.target.closest('[data-cnv]')) { scrollTo(0, 0); camnangView(); } });
+  $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { scrollTo(0, 0); return CN_FROM === 'ex' ? (typeof exOpen === 'function' ? exOpen() : ieltsView()) : dict(); } const b = e.target.closest('[data-cnk]'); if (b) { scrollTo(0, 0); camnangView(b.dataset.cnk); } }; }
+document.addEventListener('click', e => { const b = S && e.target.closest('[data-cnv]'); if (!b) return; scrollTo(0, 0); const v = b.dataset.cnv || 'tc'; camnangView(null, v === 'tc' ? 'tc' : 'ex', v === 'tc' ? null : v); });
 
 // ---------- v94 🔢 đếm được / không đếm được, 🇬🇧🇺🇸 Anh–Anh / Anh–Mỹ, 👄 quy tắc phát âm ----------
 const tcWordChip = t => { const w = WORDS.find(x => x.w.toLowerCase() === String(t).toLowerCase()); return w ? `<button class="chip" data-tcgo="tu|${esc(w.w)}">${esc(t)}</button>` : `<span class="chip" style="opacity:.75">${esc(t)}</span>`; };

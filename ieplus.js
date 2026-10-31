@@ -66,7 +66,7 @@ document.addEventListener('click', async e => { const b = e.target.closest('[dat
 // dòng "câu sai => câu đúng | lý do" (cũng nhận →, ->)
 const errParse = s => String(s).split(/\n+/).map(l => l.trim()).filter(Boolean).map(l => { const m = l.split(/\s*(?:=>|→|->)\s*/); if (m.length < 2) return null; const [c, ...why] = m.slice(1).join(' ').split('|');
   return { wrong: m[0].replace(/^[-•*\d.)\s]+/, '').replace(/^["“]|["”]$/g, ''), correct: c.trim().replace(/^["“]|["”]$/g, ''), why_vi: why.join('|').trim() }; }).filter(x => x && x.wrong && x.correct);
-function errPaste(back) { const home = () => back === 'ie' ? ieltsView() : overview(); window.CUR = { view: 'so-loi-dan' };
+function errPaste(back) { const home = () => typeof errHome === 'function' ? errHome(back) : back === 'ie' ? ieltsView() : overview(); window.CUR = { view: 'so-loi-dan' };
   $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Thôi</button><span class="uname">📥 Lỗi giáo viên sửa</span></div>
     <p class="mute">Dán phần giáo viên sửa, mỗi lỗi một dòng: <b>câu sai =&gt; câu đúng | lý do</b> (lý do không bắt buộc; nhận cả → hoặc -&gt;).</p>
     <textarea id="ept" rows="10" spellcheck="false" aria-label="Lỗi giáo viên sửa" placeholder="I am agree => I agree | agree là động từ"></textarea>

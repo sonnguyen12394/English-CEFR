@@ -118,20 +118,20 @@ function vwPut(list, src, now = Date.now()) { const L = vwSt(); let n = 0;
     L.push({ id: 'v' + now.toString(36) + L.length, k, w: x.w, vi: x.vi || '', ex: x.ex || '', src: String(src || '').slice(0, 80), at: now, box: 0, due: now, n: 0, lapse: 0 }); n++;
     if (x.app && typeof mfLookup === 'function') mfLookup(x.app, now); }
   if (n) { S.t = now; save(); } return n; }
-// back: màn quay về (Học IELTS hoặc 📖 Từ điển)
-function vwRun(now = Date.now(), back = ieltsView) { const due = shuf(vwDue(now)).slice(0, 20); if (!due.length) return toast('Chưa có từ đến hạn ôn.'); let i = 0, ok = 0;
+// back: màn quay về khi xong (Học IELTS, 📖 Tra cứu, 👤 Của tôi, hoặc bước tiếp của hàng ôn chung); quit: khi bấm "← Thôi"
+function vwRun(now = Date.now(), back = ieltsView, quit = back) { const due = shuf(vwDue(now)).slice(0, 20); if (!due.length) return toast('Chưa có từ đến hạn ôn.'); let i = 0, ok = 0;
   const show = () => { if (i >= due.length) return end(); const x = due[i]; window.CUR = { view: 'ielts-on-tu', item: x.id };
     const ex = x.ex ? esc(x.ex).replace(new RegExp(`\\b(${x.w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\w*)`, 'i'), '<b>$1</b>') : '';
     $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Thôi</button><span class="uname">📌 Ôn sổ từ · ${i + 1}/${due.length}</span></div>
       <p class="q" style="font-size:28px">${esc(x.w)}</p>${ex ? `<p style="margin:4px 0">${ex}</p>` : ''}<p class="mute">${esc(x.src || '')}</p>
       <div id="vwa"><button class="pri" data-vw="show">👀 Nghĩa là gì? (nghĩ trước rồi xem)</button></div>`;
-    $app.onclick = e => { const b = e.target.closest('[data-vw]'); if (e.target.closest('[data-a="back"]')) return back(); if (!b) return; const a = b.dataset.vw;
+    $app.onclick = e => { const b = e.target.closest('[data-vw]'); if (e.target.closest('[data-a="back"]')) return quit(); if (!b) return; const a = b.dataset.vw;
       if (a === 'show') { document.getElementById('vwa').innerHTML = `<div class="box">${x.vi ? `<b>${esc(x.vi)}</b>` : '<span class="mute">Chưa có nghĩa: tra từ điển rồi ghi vào đây.</span>'}<input id="vwv" value="${esc(x.vi)}" placeholder="sửa / ghi nghĩa tiếng Việt"></div>
           <div class="duo"><button data-vw="no">❌ Chưa nhớ</button><button class="pri" data-vw="ok">✅ Nhớ</button></div>`; return; }
       const v = document.getElementById('vwv'); if (v) x.vi = v.value.trim();
       x.n++; if (a === 'ok') { x.box++; ok++; x.due = now + VW_DAYS[Math.min(x.box, VW_DAYS.length) - 1] * DAY; } else { x.box = 0; x.lapse++; x.due = now; }
       S.t = Date.now(); save(); i++; show(); }; };
-  const end = () => { $app.innerHTML = `<div class="box"><b>✅ Xong ${due.length} từ</b><p>Nhớ ${ok}/${due.length}. Từ chưa nhớ sẽ hỏi lại lần ôn sau.</p><p class="mute">Thuộc ${vwSt().filter(x => x.box >= VW_DAYS.length).length}/${vwSt().length} từ (qua hộp ${VW_DAYS[VW_DAYS.length - 1]} ngày).</p></div><button class="pri" data-a="back">← Về</button>`;
+  const end = () => { $app.innerHTML = `<div class="box"><b>✅ Xong ${due.length} từ</b><p>Nhớ ${ok}/${due.length}. Từ chưa nhớ sẽ hỏi lại lần ôn sau.</p><p class="mute">Thuộc ${vwSt().filter(x => x.box >= VW_DAYS.length).length}/${vwSt().length} từ (qua hộp ${VW_DAYS[VW_DAYS.length - 1]} ngày).</p></div><button class="pri" data-a="back">${quit !== back ? 'Tiếp ›' : '← Về'}</button>`;
     scrollTo(0, 0); $app.onclick = e => { if (e.target.closest('[data-a="back"]')) back(); }; };
   show(); }
 

@@ -84,6 +84,8 @@ await pg.fill('#ut', await pg.evaluate(() => kModel(UOE.sum.find(x => document.b
 check('tóm tắt C2 chấm bài mẫu', /Đúng/.test(await pg.innerText('#ufb')));
 // 🌏 Học IELTS (v68): mở từ thanh dưới; luyện cả bài Đọc → ra kết quả; Viết Task 2 nộp bài mẫu → máy ước band; đề thử bài Đọc làm trọn → ra band
 await pg.evaluate(() => overview()); await pg.waitForTimeout(400); await pg.click('#tabs [data-tab="ie"]'); await pg.waitForTimeout(1500);
+// v95: 🎓 Luyện thi mở 🎓 Cambridge trước (người chưa chọn kỳ thi); chuyển sang 🌏 IELTS bằng nút đầu màn
+check('Luyện thi mở Cambridge', (await pg.innerText('#app')).includes('Thi Cambridge') && await pg.isVisible('#tabs [data-tab="ie"].on')); await pg.click('[data-exsel="ielts"]'); await pg.waitForTimeout(1500);
 // v86: lần đầu IELTS hỏi 3 câu (loại thi, band, ngày thi); các mục kỹ năng gập lại → mở hết để bấm
 const openAll = () => pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; }));
 check('IELTS lần đầu hỏi 3 câu', (await pg.innerText('#app')).includes('Bắt đầu: 3 câu hỏi')); await pg.click('[data-ieset]'); await pg.waitForTimeout(800); await openAll();
@@ -113,7 +115,7 @@ await openAll(); await pg.click('[data-tomk="1"]'); await pg.waitForTimeout(800)
 for (let n = 0; n < 60; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('TOEIC đề thử Đọc ra điểm', /Kết quả TOEIC/.test(await pg.innerText('#app')));
 // 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả
-await pg.evaluate(() => { S = blank(); overview(); }); await pg.waitForTimeout(600); check('ô Hôm nay', (await pg.innerText('#app')).includes('3 việc hôm nay'));
+await pg.evaluate(() => { S = blank(); overview(); }); await pg.waitForTimeout(600); check('ô Hôm nay', (await pg.innerText('#app')).includes('Việc hôm nay'));
 await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }
 check('xếp cấp ra kết quả', /Kết quả xếp cấp/.test(await pg.innerText('#app')));
 // 🚀 thi vượt cấp (v75): từ Tổng quan cấp B1 (chưa học) → màn thi vượt → bấm thi Ngữ pháp B1 mở đề thi
@@ -130,6 +132,11 @@ await pg.evaluate(() => overview()); await pg.waitForTimeout(600);
 check('ô Hôm nay có bản đồ', (await pg.innerText('#app')).includes('Bản đồ chỗ yếu')); await pg.click('[data-mapv]'); await pg.waitForTimeout(1200);
 check('bản đồ đủ tầng', /Tầng phủ[\s\S]*Tầng chữa[\s\S]*Tầng gốc/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="all"].on'));
 await pg.click('#tabs [data-tab="dict"]'); await pg.waitForTimeout(600); check('Từ điển sáng đúng nút', await pg.isVisible('#tabs [data-tab="dict"].on') && !(await pg.$('#tabs [data-tab="bk"].on')));
+// v95: 📖 Tra cứu → 📘 Cẩm nang thi (thanh dưới vẫn sáng 📖); 👤 Của tôi → 🗺 bản đồ (sáng 👤, nút về Của tôi) → 💾 Dữ liệu
+await pg.click('[data-cnv="tc"]'); await pg.waitForTimeout(800); check('Cẩm nang từ Tra cứu', (await pg.innerText('#app')).includes('Cẩm nang thi') && await pg.isVisible('#tabs [data-tab="dict"].on'));
+await pg.click('#tabs [data-tab="bk"]'); await pg.waitForTimeout(800); check('Của tôi mở', /Tiến độ[\s\S]*Bản đồ chỗ yếu[\s\S]*Sổ từ/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="bk"].on'));
+await pg.click('[data-mapv="ct"]'); await pg.waitForTimeout(1200); check('bản đồ từ Của tôi', (await pg.innerText('#app')).includes('← Của tôi') && await pg.isVisible('#tabs [data-tab="bk"].on'));
+await pg.click('[data-a="bk"]'); await pg.waitForTimeout(600); await pg.click('[data-ct="data"]'); await pg.waitForTimeout(800); check('Dữ liệu từ Của tôi', (await pg.innerText('#app')).includes('Dữ liệu và tài khoản') && await pg.isVisible('#tabs [data-tab="bk"].on'));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

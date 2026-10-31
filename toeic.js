@@ -140,8 +140,10 @@ document.addEventListener('change', e => { if (!S || !e.target.closest('#todate'
 
 // ---------- màn chính ----------
 // chuyển giữa 🌏 IELTS và 💼 TOEIC trong mục 🎓 Luyện thi (nhớ lựa chọn: S.exSel)
-const exSwitch = cur => `<div class="chips" style="margin:4px 0 8px"><button class="chip ${cur === 'ielts' ? 'on' : ''}" data-exsel="ielts">🌏 IELTS</button><button class="chip ${cur === 'toeic' ? 'on' : ''}" data-exsel="toeic">💼 TOEIC</button></div>`;
-const exOpen = () => S && S.exSel === 'toeic' ? toeicView() : ieltsView();
+const exSwitch = cur => `<div class="chips" style="margin:4px 0 8px"><button class="chip ${cur === 'cefr' ? 'on' : ''}" data-exsel="cefr">🎓 Cambridge</button><button class="chip ${cur === 'ielts' ? 'on' : ''}" data-exsel="ielts">🌏 IELTS</button><button class="chip ${cur === 'toeic' ? 'on' : ''}" data-exsel="toeic">💼 TOEIC</button></div>`;
+// v95: 🎓 Cambridge (CEFR) là kỳ thi thứ ba (dieuhuong.js cbView); chưa chọn bao giờ: đã đặt IELTS thì IELTS, không thì Cambridge
+const exSel = () => S && (S.exSel || (S.ie && S.ie.set ? 'ielts' : 'cefr'));
+const exOpen = () => exSel() === 'toeic' ? toeicView() : exSel() === 'ielts' || typeof cbView !== 'function' ? ieltsView() : cbView();
 document.addEventListener('click', e => { const b = e.target.closest('[data-exsel]'); if (!b || !S) return; S.exSel = b.dataset.exsel; S.t = Date.now(); save(); scrollTo(0, 0); exOpen(); });
 async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_VOX = false;
   if (!TO || !KIT.np.items) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([toLoad(), kLoad(KIT.np)]); } catch (e) { $app.innerHTML = '<div id="ie"></div><p>Không tải được dữ liệu TOEIC. Thử lại sau.</p>'; return; } }
@@ -154,7 +156,7 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">${cell('L', '🎧 Listening')}${cell('R', '📖 Reading')}</div>
       <p class="mute" style="margin:6px 0 0">Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. Ước theo tỉ lệ đúng, không phải bảng ETS. 📏 = đã chỉnh theo đề thật bạn nhập (so đề thử app trong 14 ngày).</p>
       <button class="pri" ${act} style="margin-top:8px">▶ Nên làm hôm nay: ${esc(lab)}</button></div>
-    <button data-cnv>📘 Cẩm nang thi: mẹo Nghe · Đọc, bẫy Part 2, từ công sở</button>
+    <button data-cnv="toeic">📘 Cẩm nang thi: mẹo Nghe · Đọc, bẫy Part 2, từ công sở</button>
     <details class="box"><summary><b>🗺 Bản đồ điểm & phân tích</b> <span class="mute">· chỗ làm mất điểm</span></summary>${tmBox()}${toInsights()}</details>
     <div class="box"><b>🧱 Nền cần có: CEFR ${LVN[base]}</b><p class="mute" style="margin:6px 0">Suy từ bảng ETS (Nghe B1 ≥ 275, B2 ≥ 400, C1 ≥ 490; Đọc B1 ≥ 275, B2 ≥ 385, C1 ≥ 455; nên đối chiếu tài liệu ETS). ${tg} điểm ≈ mỗi phần ${tg / 2}.</p>
       <p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🎯 Mở Học CEFR cấp ${LVN[base]}</button></div>

@@ -59,7 +59,7 @@ async function mockView(lv) { window.CUR = { view: 'de-thu', item: lv }; const C
     ${C.papers.map((p, i) => `<button class="pri" data-mk="${i}" style="margin-top:8px">${p.t} (${p.min} phút)</button>`).join('')}
     <button data-mk="all" style="margin-top:8px">▶ Làm cả đề (${C.papers.length} bài thi liền nhau)</button>
     ${last ? `<div class="box"><b>Lần gần nhất</b> (${new Date(last.at).toLocaleDateString('vi-VN')}): ${last.papers.map(p => `${p.t} ${p.ok}/${p.n}`).join(' · ')}${last.pct != null ? ` → <b>${last.pct}%</b> ${last.pass ? '✅' : '❌'}` : ''}<p class="mute" style="margin:4px 0 0">Đã làm ${rs.length} lần.</p></div>` : ''}`;
-  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return overview(lv); const b = e.target.closest('[data-mk]'); if (!b) return;
+  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return exHome(lv); const b = e.target.closest('[data-mk]'); if (!b) return;
     const idx = b.dataset.mk === 'all' ? C.papers.map((_, i) => i) : [+b.dataset.mk]; mkStart(lv, idx); }; }
 function mkStart(lv, idx) { const C = MOCK[lv]; MK = { lv, C, papers: [], idx };
   for (const i of idx) { const p = C.papers[i]; if (p.speak && !SREC) { toast('Bài Nói cần máy chép lời: mở trang bằng Safari trên iPhone.'); continue; }
@@ -120,4 +120,4 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
       <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 300))}${r.q.kind === 'write' ? '' : ` · Đáp án: <b>${esc(r.q.a != null ? r.q.a : (r.q.acc || [])[0] || '')}</b>`}</p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
     <p class="mute">Máy chấm; bài viết chấm đủ ý và dạng bài bằng từ khoá, không chấm ngữ pháp. Ôn phần thấp nhất rồi bấm làm đề mới (câu đổi mỗi lần).</p>
     <button class="pri" data-a="again">🎓 Làm đề mới</button><button data-a="home">Về Tổng quan</button>`;
-  $app.onclick = e => { if (e.target.closest('[data-a="again"]')) mockView(lv); if (e.target.closest('[data-a="home"]')) overview(lv); }; }
+  $app.onclick = e => { if (e.target.closest('[data-a="again"]')) mockView(lv); if (e.target.closest('[data-a="home"]')) exHome(lv); }; }

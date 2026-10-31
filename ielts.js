@@ -386,7 +386,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
     ${typeof iePlanBox === 'function' ? iePlanBox() : ''}
     <details class="box"><summary><b>⚙️ ${IE_TYPE[o.type]} · band mục tiêu ${bandTxt(tg)}</b></summary>${setup}</details>
     ${typeof thBox === 'function' ? thBox() : ''}
-    <button data-cnv>📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết</button>
+    <button data-cnv="ielts">📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết</button>
     <div class="box"><div class="row"><b>📊 Band ước hiện tại</b><span class="${now.all != null && now.all >= tg ? 'okc' : 'mute'}">${now.all != null ? 'Overall ≈ ' + bandTxt(now.all) : 'chưa đủ 4 kỹ năng'}</span></div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px">${sk('L', '🎧', 'Nghe')}${sk('R', '📖', 'Đọc')}${sk('W', '✍️', 'Viết')}${sk('S', '🗣', 'Nói')}</div>
       <p class="mute" style="margin:6px 0 0">Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. 📏 = đã chỉnh theo độ lệch riêng của bạn (Nghe / Đọc: so đề thật với đề thử app trong 14 ngày; Viết / Nói: so AI chấm, giáo viên với máy). Chưa chỉnh thì chỉ là máy ước. Mỗi tháng làm 1 đề thật (📝 ô Sẵn sàng thi) để band ước sát hơn. Band ${bandTxt(tg)} ≈ CEFR ${LVN[ieCefr(tg)]} (bảng đối chiếu IELTS công bố).</p></div>
@@ -404,7 +404,6 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
     <details class="box"><summary><b>✍️ Viết (Writing)</b></summary><p class="mute" style="margin:4px 0">Máy chấm 4 tiêu chí IELTS (gián tiếp, tối đa ${IE_MAXM}.0) + nút 🧑‍🏫 AI chấm theo thang band.</p>
       <div class="duo"><button class="big2" data-iew="${t1}">${t1 === 't1' ? '📊 Task 1<small>tả biểu đồ, 150 từ</small>' : '✉️ Task 1<small>viết thư, 150 từ</small>'}</button><button class="big2" data-iew="t2">📝 Task 2<small>bài luận, 250 từ</small></button></div>
       ${o.w.length ? `<p class="mute" style="margin:4px 0 0">Đã viết ${o.w.length} bài · gần nhất máy ước ${bandTxt(o.w[o.w.length - 1].band)}.</p>` : ''}${typeof ieHow === 'function' ? ieHow([t1, 't2']) : ''}</details>
-    ${typeof errBox === 'function' && (S.err || []).length ? errBox('ie') : ''}
     <details class="box"><summary><b>🗣 Nói (Speaking)</b></summary><p class="mute" style="margin:4px 0">Cần Safari trên iPhone (máy chép lời). Thi thật là nói 1–1 với giám khảo.</p>
       <div class="duo"><button class="big2" data-ies="p1">Part 1<small>4 câu ngắn</small></button><button class="big2" data-ies="p2">Part 2<small>thẻ đề, 2 phút</small></button><button class="big2" data-ies="p3">Part 3<small>bàn luận</small></button><button class="big2" data-ies="all">Cả bài<small>Part 1–3</small></button></div>${typeof ieHow === 'function' ? ieHow(['p13', 'p2']) : ''}</details>
     <details class="box"><summary><b>🎯 Sẵn sàng thi IELTS ${bandTxt(tg)}</b> <span class="${nOk === cs.length ? 'okc' : 'mute'}">${nOk}/${cs.length}</span></summary>
@@ -414,7 +413,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
     <details class="box"><summary><b>📚 Đề luyện chính thức (miễn phí)</b></summary>${IE_SRC.map(([n, u]) => `<p style="margin:4px 0"><a href="${u}" target="_blank" rel="noopener">${esc(n)}</a></p>`).join('')}
       <p class="mute" style="margin:6px 0 0">Làm đề luyện chính thức có giờ, chấm theo đáp án, rồi ghi band vào ô 🎯 ở trên. Sách Cambridge IELTS (bộ đề cũ) cũng dùng tốt.</p></details>
     <p class="mute">App không phải sản phẩm chính thức của IELTS (British Council, IDP, Cambridge). 🤖 Nội dung AI soạn, chưa giáo viên kiểm (thấy câu sai: 💬 → ⚑ Câu sai). Luyện ở đây không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp của 🎯 Học CEFR.</p>
-    ${typeof gyHomeHtml === 'function' ? gyHomeHtml() : ''}`;
+`;
   $app.onclick = e => { const g = s => e.target.closest(s); let b;
     if ((b = g('[data-iety]'))) { o.type = b.dataset.iety; S.t = Date.now(); save(); return ieltsView(); }
     if ((b = g('[data-ietg]'))) { o.target = +b.dataset.ietg; S.t = Date.now(); save(); return ieltsView(); }

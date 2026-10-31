@@ -58,9 +58,7 @@ document.addEventListener('click', e => { if (e.target.closest('[data-ov="back"]
 // Màn tổng quan lấy CẤP làm khung: chọn cấp (Pre-A1 · A1 · A2 · A2+), mỗi cấp liệt kê các phần có bài ở cấp đó và số liệu của phần ở đúng cấp đó.
 // Cấp đang học = cấp thấp nhất còn phần chưa qua Thi chuyển cấp. "Nên làm" chỉ gợi ý bài mới trong cấp đang học (ôn thì mọi cấp).
 // Cấp sau xem trước và học trước được (không khoá cứng); luật đo của từng phần giữ nguyên.
-// v74: mục 🧰 thu gọn mặc định, nhớ đóng / mở trên máy này
-const ovToolsOpen = () => { try { return localStorage.getItem('ovTools') === '1'; } catch (e) { return false; } };
-document.addEventListener('toggle', e => { if (e.target && e.target.id === 'ovtools') try { localStorage.setItem('ovTools', e.target.open ? '1' : '0'); } catch (er) {} }, true);
+// v95: mục 🧰 luyện thi (v74) chuyển sang tab 🎓 Luyện thi → 🎓 Cambridge (dieuhuong.js cbView)
 const OV_LV = ['pre', 'a1', 'a2', 'a2p', 'b1', 'b1p', 'b2', 'b2p', 'c1', 'c2'];
 let OV_SEL = null, OV_ALL = false;
 // v86: dòng "còn thiếu" của thẻ phần + lý do khi 🔁 Nhớ giảm so với lần xem trước (lưu theo máy, localStorage ovMq)
@@ -94,7 +92,6 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
     return `<button class="chip ${l === lv ? 'on' : ''}" data-ovl="${l}">${ok ? '✅ ' : cur ? '▶ ' : OV_LV.indexOf(l) > OV_LV.indexOf(stage) ? '🔒 ' : ''}${LVN[l]}</button>`; };
   const tips = { due: dueAll ? [dueAll[0][0], dueAll[2]] : null, low: lowS ? [lowS[0][0], stage] : null };
   // hiện dần: người mới chỉ thấy Hôm nay + xếp cấp + các phần; 🧰 luyện thi mở khi có phần đầu tiên qua thi hoặc từ A2; sẵn sàng thi khi ≥ 3 phần của cấp qua thi
-  const adv = OV_LV.indexOf(stage) >= OV_LV.indexOf('a2') || OV_LV.some(l => OV.some(([id]) => ovIn(id, l) && ovPassed(id, l))), ready = done >= Math.min(3, ids.length);
   const showLv = OV_ALL ? OV_LV : OV_LV.filter(l => OV_LV.indexOf(l) <= Math.max(OV_LV.indexOf(stage) + 1, OV_LV.indexOf(lv)));
   const prevMq = ovMqLS(), nextMq = { ...prevMq }, drop = (id, s) => { const k = id + '|' + lv, o = prevMq[k]; if (loaded && s) nextMq[k] = s.mq; return o != null && s && s.mq < o ? o - s.mq : 0; };
   const ai = LEVELS.indexOf(lv) >= LEVELS.indexOf('b1');
@@ -113,17 +110,10 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
         ${s ? `<div class="dims" style="margin-top:4px"><div><div class="row"><span>📘 Học</span><span class="mute">${s.lq}%</span></div>${bar(s.lq, GATE_LEARN, 'var(--accent)')}</div>
           <div><div class="row"><span>🔁 Nhớ</span><span class="mute">${s.mq}%</span></div>${bar(s.mq, GATE_MEM, 'var(--good)')}</div></div>
           ${ovNeedLine(s, lv === stage)}${dr ? `<p class="mute" style="margin:4px 0 0">🔻 Nhớ giảm ${dr}% từ lần trước: có mục quá hạn ôn, khả năng nhớ xuống dưới ${GATE_MEM}%.${s.due ? ` Ôn ${s.due} bài để lấy lại.` : ''}</p>` : s.due ? `<p class="mute" style="margin:4px 0 0">${s.due} bài cần ôn</p>` : ''}` : '<p class="mute" style="margin:4px 0 0">Đang tải…</p>'}</button>`; }).join('')}
-    ${adv ? `<details class="box" id="ovtools" ${ovToolsOpen() ? 'open' : ''}><summary><b>🧰 Luyện thi và công cụ thêm · ${LVN[lv]}</b></summary><p class="mute" style="margin:6px 0">Đề thử, dạng đề thật, nghe điền, nói cặp, thư viện${ready ? ', sẵn sàng thi' : ''}. Học các phần ở trên là chính.</p>
-    ${typeof MOCK !== 'undefined' && MOCK[lv] ? `<div class="box"><div class="row"><b>🎓 Đề thử kiểu Cambridge</b><span class="mute">${(S.mock && S.mock[lv] || []).length ? `đã làm ${S.mock[lv].length} lần` : 'chưa làm'}</span></div><p class="mute" style="margin:6px 0">${esc(MOCK[lv].name)}: khuôn, thời gian như đề thật; câu bốc ngẫu nhiên mỗi lần.</p><button class="pri" data-mock="${lv}">🎓 Làm đề thử</button></div>` : ''}
-    <button data-cnv>📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết, thể loại bài Viết</button>
-    ${typeof uoeBox === 'function' ? uoeBox(lv) : ''}${typeof ngBox === 'function' ? ngBox(lv) : ''}${typeof capBox === 'function' ? capBox(lv) : ''}${typeof libBox === 'function' ? libBox(lv) : ''}
-    ${ready ? realBox(lv) : ''}
-    ${typeof readyBox === 'function' ? (ready ? readyBox(lv) : '') + extBox(lv) : ''}</details>`
-      : '<p class="mute">🧰 Đề thử và luyện thi mở khi có phần đầu tiên qua 🚪 Thi chuyển cấp.</p>'}
-    ${typeof errBox === 'function' && (S.err || []).length ? errBox('ov') : ''}
-    ${gyHomeHtml()}`;
+    ${typeof libBox === 'function' ? libBox(lv) : ''}
+    <p class="mute" style="margin:10px 0 0">🎓 Đề thử Cambridge, dạng đề, sẵn sàng thi: tab 🎓 Luyện thi. 📌 Sổ từ, 📒 Sổ lỗi, 🗺 chỗ yếu, tiến độ: tab 👤 Của tôi.</p>`;
   if (loaded) ovMqLS(nextMq);
-  $app.onclick = e => { if (e.target.closest('[data-ovall]')) { OV_ALL = true; return overview(); } const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl); const mk = e.target.closest('[data-mock]'); if (mk) return mockView(mk.dataset.mock);
+  $app.onclick = e => { if (e.target.closest('[data-ovall]')) { OV_ALL = true; return overview(); } const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl);
     const b = e.target.closest('[data-ovp]'); if (!b) return; const id = b.dataset.ovp, l = b.dataset.ovpl; scrollTo(0, 0);
     if (id === 'tv') { HOME.lv = l; HOME.open = null; return home(); }
     if (id === 'pa') PA_VIEW = l; else if (KIT[id]) KIT[id].view = l;
@@ -304,4 +294,4 @@ document.addEventListener('click', e => { const b = e.target.closest('[data-real
   const ask = (t, max) => { const v = prompt(`${t}: số câu đúng (0–${max})`); if (v == null) return null; const n = parseInt(v, 10); return n >= 0 && n <= max ? n : (alert('Số không hợp lệ.'), null); };
   const l = ask('🎧 Nghe', R.L); if (l == null) return; const rw = ask('📖 ' + (R.rwName || 'Đọc và Viết'), R.RW); if (rw == null) return;
   const r = { at: Date.now(), l, L: R.L, rw, RW: R.RW }; realRuns(lv).push(r); S.t = Date.now(); save();
-  toast(realOk(r) ? '✅ Đạt bằng đề thật.' : '❌ Chưa đạt: ôn phần thấp rồi làm đề khác.'); overview(lv); });
+  toast(realOk(r) ? '✅ Đạt bằng đề thật.' : '❌ Chưa đạt: ôn phần thấp rồi làm đề khác.'); exHome(lv); });

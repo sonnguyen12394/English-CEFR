@@ -1,6 +1,7 @@
 // Kiểm tự động tiêu chí "xong" X1–X5 của docs/HOAN-THIEN.md cho Pre-A1 → C2. Chạy: node tools/test/run.mjs   (thoát mã 1 nếu có tiêu chí chưa đạt)
 import { load } from './load.mjs';
 const { run, ctx } = await load(); ctx.ALLMISS = !!process.env.ALL; ctx.LVS_ = process.env.LVS;
+ctx.IDX_ = (await import('node:fs')).readFileSync(new URL('../../index.html', import.meta.url), 'utf8');   // v95: kiểm nhãn thanh dưới
 const R = await run(`(async () => {
   S = blank(); user = { id: 'test' }; await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); await loadEB(); await uLoad(); await capLoad();
   const out = [], add = (lv, id, ok, msg) => out.push({ lv, id, ok, msg });
@@ -195,14 +196,14 @@ const R = await run(`(async () => {
     actTick(Date.now() - 60000); actTick(Date.now());
     if (actMin(dayOf(t0)) !== 10 || actStreak() !== 3) bad.push('phút / chuỗi sai: ' + actMin(dayOf(t0)) + ' / ' + actStreak());
     actTick(Date.now() + 10 * 60000); if (actMin(dayOf(Date.now())) > 2) bad.push('khoảng nghỉ dài vẫn tính phút');
-    await overview('a1'); const ov = String($app.innerHTML); if (!ov.includes('📅 Hôm nay') || !ov.includes('3 việc hôm nay')) bad.push('Tổng quan thiếu ô Hôm nay');
+    await overview('a1'); const ov = String($app.innerHTML); if (!ov.includes('📅 Hôm nay') || !ov.includes('Việc hôm nay')) bad.push('Tổng quan thiếu ô Hôm nay');
     // v86 hiện dần: người mới chưa thấy 🧰 luyện thi (chỉ một dòng báo), không còn ▶ Nên làm / 🗓 Gợi ý ~45 phút trái mục tiêu phút
-    if (ov.includes('id="ovtools"') || !ov.includes('Đề thử và luyện thi mở khi') || ov.includes('Gợi ý mỗi ngày') || ov.includes('▶ Nên làm')) bad.push('Tổng quan người mới chưa gọn');
+    if (ov.includes('id="ovtools"') || ov.includes('data-mock') || !ov.includes('tab 🎓 Luyện thi') || ov.includes('Gợi ý mỗi ngày') || ov.includes('▶ Nên làm')) bad.push('Tổng quan người mới chưa gọn');
     for (const lv of PL_LV) { const qs = plQs(lv); if (qs.length !== 5 || qs.some(it => !it.q.opts.includes(it.q.a))) bad.push('xếp cấp ' + lv + ': ' + qs.length + ' câu'); }
     if (plNext({ a2: [5, 5] }, 'a2') !== 'b1' || plNext({ a2: [1, 5] }, 'a2') !== 'a1' || plNext({ a2: [3, 5] }, 'a2') !== 'a2' || plNext({ a2: [6, 10] }, 'a2') !== null
       || plNext({ a2: [5, 5], b1: [1, 5] }, 'b1') !== null || plNext({ pre: [0, 5], a1: [0, 5], a2: [0, 5] }, 'pre') !== null || plResult({ a2: [5, 5], b1: [2, 5] }) !== 'a2') bad.push('bậc thang xếp cấp sai');
     await tryv('màn xếp cấp', () => placeView());
-    add('cefr', 'C1', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'phút học, chuỗi ngày, ô Hôm nay, 🧰 thu gọn, xếp cấp mọi cấp đều đúng'); }
+    add('cefr', 'C1', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'phút học, chuỗi ngày, ô Hôm nay, Học không còn công cụ luyện thi, xếp cấp mọi cấp đều đúng'); }
   // 🚀 Thi vượt cấp (vuotcap.js): qua → đạt mọi cấp ≤ cấp thi, bài cấp dưới thành đã học + nhớ, hạn ôn rải (không bài nào đến hạn ngay, không dồn một ngày); trượt → không đổi, chờ 7 ngày
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now();
     S.vc = { pend: [{ id: 'np', lv: 'b1', at: now - 1000, n: 0 }, { id: 'tv', lv: 'a2p', at: now - 1000, n: 0 }, { id: 'nghe', lv: 'a2', at: now - 1000, n: 0 }], log: [] };
@@ -346,7 +347,7 @@ const R = await run(`(async () => {
     DICT.q = 'zxqvbnm'; tryv('tìm từ lạ', () => dictList()); if (!String(document.getElementById('dl').innerHTML).includes('chưa có trong từ điển')) bad.push('từ lạ chưa gợi ý từ điển ngoài');
     tryv('tra = gần đây', () => tdSeen(go)); if (S.dh[0] !== go.id) bad.push('tra gần đây không ghi'); tryv('lưu sổ', () => tdSave(go)); if (!vwSt().some(x => x.k === 'go')) bad.push('lưu sổ từ không ghi');
     DICT.q = ''; tryv('đầu từ điển', () => dictList()); if (!String(document.getElementById('df').innerHTML).includes('Sổ từ: 1 từ')) bad.push('đầu từ điển thiếu sổ từ');
-    if (!/data-sotu/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu ôn sổ từ'); tryv('ôn sổ từ', () => vwRun(Date.now(), dict)); if (!String($app.innerHTML).includes('Ôn sổ từ')) bad.push('màn ôn sổ từ hỏng');
+    if (!/data-rev[^>]*>⬜ Ôn \\d+ mục đến hạn \\([^)]*từ sổ từ/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu ôn sổ từ (nút ôn chung)'); tryv('ôn sổ từ', () => vwRun(Date.now(), dict)); if (!String($app.innerHTML).includes('Ôn sổ từ')) bad.push('màn ôn sổ từ hỏng');
     add('cefr', 'C7', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'từ điển: đủ dữ liệu, tìm dạng biến đổi / gõ sai / thành ngữ, từ điển ngoài, sổ từ, tra gần đây đều đúng'); }
   // v89 📖 chạm vào từ trong bài, "Gặp trong bài", quản lý sổ từ + CSV, ghi từ app chưa có (td_miss)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await Promise.all([kLoad(KIT.doc), kLoad(KIT.nghe), ieLoad(), uLoad()]); TD_SENT = null;
@@ -407,7 +408,7 @@ const R = await run(`(async () => {
     const bus = WORDS.find(w => w.w === 'bus'), eb = tdEntry(bus, null); if (!eb.includes('Dùng thế nào') || /<details class="tdt" open/.test(eb.split('Mở rộng')[0])) bad.push('A1: tầng Dùng thế nào chưa gập');
     const inc = WORDS.find(w => w.w === 'increase'); if (inc && !/<details class="tdt" open[^>]*><summary><b>✍️ Dùng thế nào/.test(tdEntry(inc, null))) bad.push('từ dễ nhầm: tầng Dùng thế nào chưa mở');
     if (/<details class="tdt" open[^>]*><summary><b>🔍 Mở rộng/.test(eb)) bad.push('tầng Mở rộng phải gập');
-    for (const k of ['tu', 'cum', 'tn', 'afx', 'pb', 'np', 'loi', 'pa', 'cau']) { DICT.kind = k; DICT.q = ''; tryv('mục ' + k, () => dictList()); if (!String(document.getElementById('df').innerHTML).includes('← Từ điển')) bad.push('mục ' + k + ' thiếu nút về'); }
+    for (const k of ['tu', 'cum', 'tn', 'afx', 'pb', 'np', 'loi', 'pa', 'cau']) { DICT.kind = k; DICT.q = ''; tryv('mục ' + k, () => dictList()); if (!String(document.getElementById('df').innerHTML).includes('← Tra cứu')) bad.push('mục ' + k + ' thiếu nút về'); }
     ieSt().set = 1; await ieltsView(); if (!String($app.innerHTML).includes('data-cnv')) bad.push('IELTS thiếu nút Cẩm nang');
     DICT.kind = null; DICT.q = '';
     add('cefr', 'C11', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'từ điển sắp xếp lại: màn đầu ' + nb + ' nút, tìm gộp nhóm, Việt → Anh + từ dễ nhầm, mục từ 3 tầng, cẩm nang thi đều đúng'); }
@@ -432,6 +433,38 @@ const R = await run(`(async () => {
     DICT.kind = null; DICT.q = 'elevator'; tryv('tìm elevator', () => dictList()); if (!String(document.getElementById('dl').innerHTML).includes('Anh–Anh / Anh–Mỹ')) bad.push('tìm gộp thiếu nhóm Anh–Mỹ');
     DICT.kind = null; DICT.q = '';
     add('cefr', 'C12', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'từ điển đủ: trọng âm ' + shown + '/' + multi.length + ' từ, [U] / [C/U], Anh–Anh / Anh–Mỹ, giải nghĩa tiếng Anh B1+, quy tắc phát âm, IPA đã sửa đều đúng'); }
+  // v95 điều hướng theo việc người học làm (dieuhuong.js): 4 tab 🎯 Học · 🎓 Luyện thi · 📖 Tra cứu · 👤 Của tôi; mỗi thứ MỘT chỗ ở chính, nơi khác chỉ lối tắt; Hôm nay MỘT nút ôn chung
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
+    S = blank(); await Promise.all([tcLoad(), ieLoad()]); const H = () => String($app.innerHTML), nbt = h => (h.match(/<button/g) || []).length;
+    const tabs = [...IDX_.matchAll(/data-tab="(\\w+)"><i>[^<]*<\\/i>([^<]+)</g)].map(m => m[1] + ':' + m[2]).join(' ');
+    if (tabs !== 'all:Học ie:Luyện thi dict:Tra cứu bk:Của tôi') bad.push('thanh dưới: ' + tabs);
+    // 🎯 Học người mới: ≤ 12 nút; công cụ luyện thi, sổ lỗi, góp ý ở tab khác; chưa học gì thì chưa có việc ôn
+    await tryA('Học', () => overview('pre')); const ho = H(), nh = nbt(ho); if (nh > 12) bad.push('🎯 Học người mới ' + nh + ' nút');
+    if (/data-mock|id="ovtools"|id="gyhome"|Sổ lỗi của tôi|data-rev|data-sotu/.test(ho)) bad.push('🎯 Học người mới còn công cụ của tab khác / việc ôn khi chưa có gì để ôn');
+    // 🎓 Luyện thi: chưa chọn kỳ thi → 🎓 Cambridge (đề thử, cẩm nang, chuyển IELTS / TOEIC); đã đặt IELTS → IELTS
+    delete S.exSel; delete S.ie; CB_LV = null; await tryA('Luyện thi', () => exOpen()); const hc = H();
+    if (!hc.includes('Thi Cambridge') || !/data-mock="/.test(hc) || !hc.includes('data-cnv="cefr"') || !hc.includes('data-exsel="ielts"') || !hc.includes('id="ie"')) bad.push('Luyện thi chưa mở Cambridge đủ');
+    ieSt().set = 1; if (exSel() !== 'ielts') bad.push('đã đặt IELTS mà Luyện thi không mở IELTS'); S.exSel = 'cefr'; if (exSel() !== 'cefr') bad.push('chọn Cambridge không giữ');
+    await tryA('về Cambridge', () => exHome('a2')); if (!/class="chip on" data-cbl="a2"/.test(H())) bad.push('nút về của công cụ Cambridge không giữ cấp');
+    // 📘 Cẩm nang: chỗ ở chính 📖 Tra cứu (sáng 📖, về Tra cứu); từ Luyện thi là lối tắt (sáng 🎓, về Luyện thi)
+    tryv('Tra cứu', () => dict()); if (!String(document.getElementById('dl').innerHTML).includes('data-cnv="tc"')) bad.push('Tra cứu thiếu thẻ Cẩm nang');
+    tryv('cẩm nang từ Tra cứu', () => camnangView('nghe', 'tc')); if (!H().includes('id="tcv"') || !H().includes('← Tra cứu')) bad.push('cẩm nang từ Tra cứu sai');
+    tryv('cẩm nang từ Luyện thi', () => camnangView('doc', 'ex', 'cefr')); if (!H().includes('id="ie"') || !H().includes('← Luyện thi') || DICT.ex !== 'cefr') bad.push('cẩm nang từ Luyện thi sai');
+    // 👤 Của tôi: tiến độ, bản đồ, sổ từ, sổ lỗi, đề thật, dữ liệu, góp ý; mở con nào cũng sáng 👤 và về Của tôi
+    const go = WORDS.find(w => w.w === 'go'); tryv('lưu sổ', () => tdSave(go)); errAdd([{ wrong: 'He go to school.', correct: 'He goes to school.', why_vi: 'ngôi thứ ba số ít' }], 'test');
+    S.ie.th = [{ at: Date.now(), sk: 'R', name: 'Cambridge 18 Test 1', ok: 30, band: 7, wrong: [], blocks: [] }];
+    await tryA('Của tôi', () => minhView()); const hm = H();
+    for (const k of ['id="bk"', '📈 Tiến độ', '🗺 Bản đồ chỗ yếu', '📌 Sổ từ', '📒 Sổ lỗi', '📊 Kết quả thi thật', '30/40', 'data-ct="data"', 'id="gyhome"']) if (!hm.includes(k)) bad.push('Của tôi thiếu ' + k);
+    MAP_BACK = 'ct'; await tryA('bản đồ từ Của tôi', () => mapView()); if (!H().includes('id="bk"') || !H().includes('← Của tôi')) bad.push('bản đồ từ Của tôi sai'); MAP_BACK = 'hoc';
+    tryv('sổ từ từ Của tôi', () => sotuView(minhView)); if (!H().includes('id="bk"') || !H().includes('← Của tôi')) bad.push('sổ từ từ Của tôi sai');
+    tryv('dữ liệu', () => backup()); if (!H().includes('id="bk"') || !H().includes('data-bk="ct"')) bad.push('Dữ liệu thiếu nút về Của tôi');
+    // 📅 Hôm nay: MỘT nút ôn gom sổ lỗi + sổ từ + bài CEFR; bấm thì đi lần lượt sổ lỗi → sổ từ → phần nhiều bài đến hạn
+    const tb = todayBox('pre'), nr = (tb.match(/data-rev/g) || []).length; if (nr !== 1 || /data-sotu/.test(tb) || !/Ôn 2 mục đến hạn \\(1 lỗi · 1 từ sổ từ\\)/.test(tb)) bad.push('Hôm nay chưa có đúng một nút ôn chung: ' + nr);
+    const calls = [], e0 = errRun, v0 = vwRun; errRun = (next, quit) => { calls.push('lỗi'); next(); }; vwRun = (now, next, quit) => { calls.push('từ'); next(); };
+    tryv('ôn chung', () => revRun()); errRun = e0; vwRun = v0; if (calls.join(',') !== 'lỗi,từ') bad.push('thứ tự ôn chung sai: ' + calls.join(','));
+    S.ie.vw = []; S.err = []; if (revCount().n !== (todayDue() || 0)) bad.push('đếm ôn chung sai');
+    CB_LV = null; delete S.exSel;
+    add('cefr', 'C13', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '4 tab (Học · Luyện thi · Tra cứu · Của tôi), 🎯 Học người mới ' + nh + ' nút, Cambridge ở Luyện thi, Cẩm nang 2 lối vào, Của tôi đủ 7 ô, Hôm nay một nút ôn chung đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

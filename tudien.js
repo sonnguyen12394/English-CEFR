@@ -96,7 +96,6 @@ function tdEntry(w, M) { const why = M && M.how.get(w.id), chip = t => `<button 
 // 🔊 giọng Anh–Anh của máy (như giọng thi); máy không có giọng Anh thì dùng giọng sẵn có
 async function tdSayGB(t) { const was = EXAM_VOX; EXAM_VOX = true; try { await speak(t); } finally { EXAM_VOX = was; } }
 
-document.addEventListener('click', e => { if (S && e.target.closest('[data-sotu]')) { scrollTo(0, 0); vwRun(Date.now(), overview); } });   // ô 📅 Hôm nay
 
 // ---------- ③ không có trong từ điển app ----------
 const tdNone = q => `<div class="box tdnone"><b>“${esc(q)}” chưa có trong từ điển của app</b><p class="mute" style="margin:6px 0">Từ điển app có ${WORDS.length.toLocaleString('vi-VN')} từ của khoá học. Tra ở từ điển chính thức:</p>${tdLinks(q)}
@@ -110,7 +109,7 @@ function tdTop() { const n = typeof vwSt === 'function' ? vwSt().length : 0, d =
   return `<div class="row" style="gap:6px;margin:6px 0">${n ? `<button class="${d ? 'pri' : ''}" data-tdrun style="margin:0">📌 Sổ từ: ${n} từ${d ? ` · ôn ${d} từ đến hạn` : ''}</button>` : '<span class="mute">📌 Chưa có từ trong sổ: mở một từ rồi bấm "Lưu vào sổ từ".</span>'}</div>
     ${H.length && !DICT.q ? `<div class="chips"><span class="mute" style="font-size:14px">🕘 Tra gần đây:</span>${H.map(w => `<button class="chip" data-tdq="${esc(w.w)}">${esc(w.w)}</button>`).join('')}</div>` : ''}`; }
 function tdSave(w, vi, ex) { if (typeof vwPut !== 'function') return toast('Chưa tải được sổ từ.');
-  const n = vwPut([{ w: w.w || w, vi: vi != null ? vi : w.vi || '', ex: ex != null ? ex : w.ex || '', app: null }], '📖 Từ điển'); toast(n ? '📌 Đã lưu vào sổ từ. Ôn lần đầu ngay hôm nay.' : 'Từ này đã có trong sổ.'); }
+  const n = vwPut([{ w: w.w || w, vi: vi != null ? vi : w.vi || '', ex: ex != null ? ex : w.ex || '', app: null }], '📖 Tra cứu'); toast(n ? '📌 Đã lưu vào sổ từ. Ôn lần đầu ngay hôm nay.' : 'Từ này đã có trong sổ.'); }
 document.addEventListener('click', e => { if (!S || !document.getElementById('dq')) return; const g = s => e.target.closest(s); let b;
   if (g('#dl a[href]')) { e.stopPropagation(); if (g('#dl .tdnone')) tdMiss(DICT.q, 'tra'); return; }   // mở từ điển ngoài: không gập mục từ; từ app chưa có → ghi td_miss
   if ((b = g('[data-tdq]'))) { e.stopPropagation(); DICT.q = b.dataset.tdq; DICT.open = null; const q = document.getElementById('dq'); q.value = DICT.q; dictList(); scrollTo(0, 0); return; }
@@ -179,8 +178,9 @@ async function tdMissView() { window.CUR = { view: 'tu-thieu' }; $app.innerHTML 
 let SOTU_Q = '';
 function sotuView(back = dict) { window.CUR = { view: 'so-tu' }; const L = vwSt(), d = vwDue().length, q = SOTU_Q.toLowerCase(), rows = L.filter(x => !q || x.k.includes(q) || tdFold(x.vi).includes(tdFold(q))).sort((a, b) => b.at - a.at);
   const box = x => x.box >= VW_DAYS.length ? '✅ thuộc' : `hộp ${x.box + 1}/${VW_DAYS.length}${x.due <= Date.now() ? ' · đến hạn' : ' · ôn ' + new Date(x.due).toLocaleDateString('vi-VN')}`;
-  $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Về</button><span class="uname">📌 Sổ từ</span></div><h1>📌 Sổ từ của tôi</h1>
-    <p class="mute">${L.length} từ · thuộc ${L.filter(x => x.box >= VW_DAYS.length).length}. Gồm từ lưu ở 📖 Từ điển, chạm trong bài và 📥 đề thật.</p>
+  const ct = typeof minhView === 'function' && back === minhView, tc = back === dict;   // v95: thanh dưới sáng tab đã mở sổ từ
+  $app.innerHTML = `${ct ? '<div id="bk"></div>' : tc ? '<div id="tcv"></div>' : ''}<div class="row top"><button class="link" data-a="back">← ${ct ? 'Của tôi' : tc ? 'Tra cứu' : 'Về'}</button><span class="uname">📌 Sổ từ</span></div><h1>📌 Sổ từ của tôi</h1>
+    <p class="mute">${L.length} từ · thuộc ${L.filter(x => x.box >= VW_DAYS.length).length}. Gồm từ lưu ở 📖 Tra cứu, chạm trong bài và 📥 đề thật.</p>
     ${d ? `<button class="pri" data-st="run">🔁 Ôn ${Math.min(20, d)} từ đến hạn</button>` : ''}
     <input id="stq" type="search" placeholder="Tìm trong sổ" value="${esc(SOTU_Q)}">
     ${rows.length ? rows.map(x => `<div class="box" style="margin:8px 0;padding:10px 12px"><div class="row"><b>${esc(x.w)}</b><span class="mute" style="font-size:13px">${box(x)}</span></div>

@@ -100,7 +100,7 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
   const label = w => w.id === 'tv' ? esc(w.x.w) : w.id === 'pa' ? esc(w.x.title || w.x.id) : esc(KIT[w.id].name ? KIT[w.id].name(w.x) : w.x.id);
   const any = OV.some(([id]) => mapLast(id)), idle = OV.map(([id, ic, t]) => [id, ic, t, mapLast(id)]).filter(([, , , l]) => l ? (now - l) / DAY >= MAP_IDLE_D : any);   // đã học phần khác mà phần này chưa luyện lần nào cũng nhắc
   const noData = !Object.keys(S.cards).length && !Object.values(S.k || {}).some(k => Object.keys(k.cards || {}).length);
-  $app.innerHTML = `<div id="bdo"></div><div class="row top"><button class="link" data-a="bk">← Học CEFR</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>
+  $app.innerHTML = `<div id="bdo"></div>${MAP_BACK === 'ct' ? '<div id="bk"></div>' : ''}<div class="row top"><button class="link" data-a="bk">← ${MAP_BACK === 'ct' ? 'Của tôi' : 'Học'}</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>
     <p class="mute">Gom mọi bằng chứng (kiểm tra, luyện, thi, tra từ) thành chỗ cần chữa. Chữa chỗ yếu trước, giữ cân bằng các kỹ năng, rồi đào tiếp chỗ lủng sâu hơn.</p>
     ${noData ? '<div class="box"><b>Chưa có dữ liệu học.</b><p class="mute" style="margin:6px 0 0">Bản đồ lớn dần khi bạn học. Bắt đầu: 🎯 Học CEFR → ô 📅 Hôm nay → 🧭 Kiểm tra xếp cấp.</p></div>' : ''}
     <div class="box"><b>① Tầng phủ · đã có bằng chứng ở cấp đang học</b>
@@ -133,7 +133,7 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
         const warn = d == null ? any : d >= MAP_IDLE_D; return `<div class="row" style="margin:2px 0"><span>${ic} ${t}</span><span class="${warn ? '' : 'mute'}">${d == null ? 'chưa luyện' : d === 0 ? 'hôm nay' : `${d} ngày trước`}${warn ? ' ⚠️' : ''} · ${n} yếu</span></div>`; }).join('')}`).join('')}
       <p class="mute" style="margin:6px 0 0">${idle.length ? `Nên luyện: ${idle.map(([, ic, t, l]) => ic + ' ' + t + (l ? '' : ' (chưa luyện lần nào)')).join(', ')}. ` : ''}Máy đo Nói, Viết yếu hơn Từ vựng; đừng để chúng bị bỏ quên chỉ vì máy ít thấy lỗi.</p></div>
     <p class="mute">Bản đồ chỉ đọc dữ liệu, không đổi luật đo. Chỗ yếu hết yếu khi làm đúng ở một ngày sau lần sai gần nhất và khả năng nhớ ≥ 80%.</p>`;
-  $app.onclick = e => { if (e.target.closest('[data-a="bk"]')) return overview(); const b = e.target.closest('[data-map]'); if (!b) return; const v = b.dataset.map, i = v.indexOf('|'), a = i < 0 ? v : v.slice(0, i), id = i < 0 ? '' : v.slice(i + 1); scrollTo(0, 0);
+  $app.onclick = e => { if (e.target.closest('[data-a="bk"]')) return MAP_BACK === 'ct' && typeof minhView === 'function' ? minhView() : overview(); const b = e.target.closest('[data-map]'); if (!b) return; const v = b.dataset.map, i = v.indexOf('|'), a = i < 0 ? v : v.slice(0, i), id = i < 0 ? '' : v.slice(i + 1); scrollTo(0, 0);
     if (a === 'scan') return mapScan(); if (a === 'root') return mapRoot(roots); if (a === 'fix') return mapFix(id); if (a === 'rl') return mapRelearn(id); }; }
 
 // ---------- buổi chữa ----------
@@ -196,4 +196,5 @@ function mapScan(now = Date.now()) { const lv = curLevel(), held = shuf(memWords
     $app.onclick = e => { if (e.target.closest('[data-a="map"]')) mapView(); }; };
   if (!held.length) return after();
   run({ title: '🔎 Quét lại · từ đang nhớ', items: held.map(w => ({ w, type: 'spell' })), first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) okH++; save(); }, done: after }); }
-document.addEventListener('click', e => { if (!S) return; if (e.target.closest('[data-mapv]')) { scrollTo(0, 0); mapView(); } const r = e.target.closest('[data-map-rl]'); if (r) { scrollTo(0, 0); mapRelearn(r.dataset.mapRl); } });
+let MAP_BACK = 'hoc';   // v95: mở từ 👤 Của tôi (data-mapv="ct") thì nút về và tab sáng là Của tôi; từ ô Hôm nay thì về 🎯 Học
+document.addEventListener('click', e => { if (!S) return; const mv = e.target.closest('[data-mapv]'); if (mv) { MAP_BACK = mv.dataset.mapv || 'hoc'; scrollTo(0, 0); mapView(); } const r = e.target.closest('[data-map-rl]'); if (r) { scrollTo(0, 0); mapRelearn(r.dataset.mapRl); } });
