@@ -109,7 +109,10 @@ async function bkSet(part, lv, stage) { await Promise.all([paLoad(), ...Object.v
         // bài ⬆️ Nâng cấp của các cấp sau tới cấp đang đặt coi như đã học (cấp xa hơn thì chưa)
         for (const L of ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']) if (lvIdx(L) > lvIdx(l) && BK_LV.indexOf(L) <= BK_LV.indexOf(lv)) (c.du = c.du || {})[L] = c.d0; } if (st === 'dat') xs().runs.push(run(l), run(l, 1)); return 1; }
     if (id === 'pa') { for (const x of PA.filter(x => x.lv === l)) paSt()[x.id] = bkCard(held, PA_DIMS.map(d => d[0])); if (st === 'dat') paRuns().push(run(l)); return 1; }
-    const P = KIT[id]; for (const x of kItems(P, l)) kSt(id).cards[x.id] = bkCard(held, kDimsOf(P, x)); if (st === 'dat') kSt(id).runs.push(run(l)); return 1; };
+    // v101: mặt đo trên bài mới (Đọc, Nghe) ghi như đã làm bài mới đúng hết (fq), không phụ thuộc lịch ôn
+    const P = KIT[id]; for (const x of kItems(P, l)) { const c = kSt(id).cards[x.id] = bkCard(held, kDimsOf(P, x));
+      if (held) for (const k of kDimsOf(P, x).filter(k => kFreshK(P, k))) Object.assign(c.dm[k] = c.dm[k] || {}, { ok: 1, pv: 1, f: c.last, fq: [1, 1] }); c.seen = c.last; }
+    if (st === 'dat') kSt(id).runs.push(run(l)); return 1; };
   const ids = part === 'all' ? BK_PARTS.map(p => p[0]) : [part], done = [], i = BK_LV.indexOf(lv);
   for (const id of ids) { let any = 0;
     BK_LV.forEach((l, j) => { if (j < i) any |= put(id, l, 'dat'); else if (j === i) any |= put(id, l, stage); else clear(id, l); });

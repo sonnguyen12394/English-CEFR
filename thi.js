@@ -102,12 +102,12 @@ function wCrit(x, t, ideaRatio, lenOk) { const lv = x.lv, [tP, tL, tV] = W_T[lv]
     ['Ngôn ngữ', 0.5 * cap(1 - per100 / 5) + 0.25 * cap(sub / sents / 0.5) + 0.25 * cap(voc / tV)]].map(([n, v]) => [n, Math.round(v * 100)]);
   return { C, pct: Math.round(C.reduce((s, c) => s + c[1], 0) / C.length), errs, d: { paras, tP, links, tL, voc, tV, contr: formal ? contr : null } }; }
 // gắn vào bài Viết (luyện, thi chuyển cấp, đề thử): giữ cách tính đạt cũ (đủ ý + đúng dạng), thêm 4 tiêu chí và lỗi hay gặp
-{ const base = kWrite; kWrite = x => { const q = base(x), chk = q.check;
+{ const base = kWrite; kWrite = (x, prev) => { const q = base(x, prev), chk = q.check;
   q.check = t => { const r = chk(t), ideas = (x.k || []).filter(Boolean), hit = ideas.filter(g => kHit(t, g)).length, wc = kWords(t).length;
     const w = wCrit(x, t, ideas.length ? hit / ideas.length : 1, wc >= x.min && wc <= x.max + 30); r.sc = w.pct / 100; r.crit = w.C;
     r.html += `<div class="box" style="margin-top:8px"><b>🧐 Chấm theo 4 tiêu chí Cambridge (máy đo gián tiếp): ${w.pct}%</b>${w.C.map(([n, v]) => `<p style="margin:2px 0">${n}: ${v}%</p>`).join('')}
       <p class="mute" style="margin:4px 0 0">${w.d.paras}/${w.d.tP} đoạn · ${w.d.links}/${w.d.tL} từ nối khác nhau · ${w.d.voc}/${w.d.tV} từ đúng cấp trở lên${w.d.contr ? ` · ${w.d.contr} chữ viết tắt (bài trang trọng nên viết đủ: do not, I am)` : ''}</p>
-      ${w.errs.length ? `<p style="margin:6px 0 0"><b>Lỗi hay gặp (${w.errs.length}):</b></p>${w.errs.map(([s, m]) => `<p style="margin:2px 0">❌ “${esc(s)}” · ${esc(m)}</p>`).join('')}` : '<p class="mute" style="margin:6px 0 0">Không thấy lỗi hay gặp nào (máy chỉ bắt một số lỗi chắc chắn; không thay giáo viên).</p>'}
+      ${w.errs.length ? `<p style="margin:6px 0 0"><b>🎯 Sửa trước ${Math.min(3, w.errs.length)} lỗi${w.errs.length > 3 ? ` (máy thấy ${w.errs.length}; v101: góp ý tập trung, sửa xong mới tới lỗi khác)` : ''}:</b></p>${w.errs.slice(0, 3).map(([s, m]) => `<p style="margin:2px 0">❌ “${esc(s)}” · ${esc(m)}</p>`).join('')}` : '<p class="mute" style="margin:6px 0 0">Không thấy lỗi hay gặp nào (máy chỉ bắt một số lỗi chắc chắn; không thay giáo viên).</p>'}
       ${x.lv !== 'pre' ? aiBtn('viet', x.lv, { prompt: x.p, genre: x.genre, min: x.min, max: x.max }, t) : ''}</div>`;
     return r; }; return q; }; }
 

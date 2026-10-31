@@ -9,9 +9,9 @@ let PA = null, PABY = {};
 // 👄 Đọc đúng theo cấp (soát 25/10/2026, người sáng lập "thiết kế cho phù hợp"): CEFR A1 chỉ cần người nghe hiểu được, A2 rõ hơn;
 // ngưỡng điểm âm Pre-A1 60 · A1 70 · A2 80, theo cấp của bộ âm (luyện lẫn thi). Ngưỡng đạt của bài thi (85%) giữ nguyên.
 const PA_OK = { pre: 60, a1: 70, a2: 80 }, paOkFor = w => PA_OK[(PABY[w.set] || {}).lv] || N_OK;
-// v99 (người sáng lập "tự làm hết đi" sau nhật ký trải nghiệm): thi Phát âm cần bộ chấm âm tải về máy (vài trăm MB) và do máy chấm,
-// nên như 🗣 Nói / ✍️ Viết (v97): tham khảo, không chặn hoàn thành cấp (parts.js ovRef). Vẫn có Thi chuyển cấp để lên cấp của chính phần này.
-const PA_REF = true;
+// v101 (người sáng lập chọn phương án (a) 31/10/2026, thay v99 "tham khảo"): Phát âm BẮT BUỘC lại. Máy đã tải bộ chấm âm (nHas) thì tính cả 👂 nghe phân biệt
+// và 👄 đọc đúng; chưa tải thì chỉ tính phần nghe (thi chỉ có phần nghe). Bộ chấm là ước tính của máy, chưa giáo viên đối chiếu.
+const PA_REF = false, paGk = () => nHas() || (typeof NO !== 'undefined' && NO.vocab) ? ['pb', 'doc'] : ['pb'];
 const PA_LV = ['pre', 'a1', 'a2'], PA_DIMS = [['pb', '👂 Phân biệt'], ['doc', '👄 Đọc đúng']], PA_PASS = 0.85;
 DIM_OF.pa_pb = ['pb']; DIM_OF.pa_doc = ['doc'];
 const paSt = () => (S.pa = S.pa || {}), paRuns = () => (S.paX = S.paX || []);
@@ -25,7 +25,7 @@ function paParts(lv, now = Date.now()) { const L = PA.filter(x => x.lv === lv), 
   for (const x of L) if (st[x.id]) learn++;
   for (const x of M) { const c = st[x.id]; if (isDue(c, now)) due++; for (const [k] of PA_DIMS) if (heldDim(c, k, now)) dim[k]++; }
   const T = L.length || 1, Tm = M.length || 1, dq = { pb: Math.floor(dim.pb / Tm * 100), doc: Math.floor(dim.doc / Tm * 100) };
-  return { T: L.length, Tm: M.length, learn, due, dim, Tk: { pb: M.length, doc: M.length }, dq, lq: Math.floor(learn / T * 100), mq: Math.min(dq.pb, dq.doc) }; }
+  const gk = paGk(); return { T: L.length, Tm: M.length, learn, due, dim, Tk: { pb: M.length, doc: M.length }, dq, gk, lq: Math.floor(learn / T * 100), mq: Math.min(...gk.map(k => dq[k])) }; }
 const paW = (w, ipa, x) => ({ id: 'pa:' + x.id + ':' + w, w, ipa: '/' + ipa + '/', vi: `${x.title} · ${x.vi}`, say: true, set: x.id });
 const paSay = w => `<button class="chip" data-sayt="${esc(w)}">🔊 ${esc(w)}</button>`;
 document.addEventListener('click', e => { const b = e.target.closest('[data-sayt]'); if (b) speak(b.dataset.sayt); });
@@ -50,7 +50,7 @@ function paView() {
       <button class="big2 ${p.due ? 'pri' : ''}" data-pa="menu" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 bộ trước' : p.due ? `${p.due} bộ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
     <div class="box"><b>🚪 Thi chuyển cấp Phát âm ${LVN[lv]}</b>
-      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. Mỗi bộ: 2 câu nghe + 1 từ đọc, toàn cặp chưa gặp. Qua khi đúng ≥ ${Math.round(PA_PASS * 100)}%. Cần bộ chấm âm.${PA_REF ? ' Máy chấm âm nên phần này chỉ để tham khảo: không chặn hoàn thành cấp, vẫn nên luyện.' : ''}</p>
+      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. Mỗi bộ: 2 câu nghe + 1 từ đọc, toàn cặp chưa gặp. Qua khi đúng ≥ ${Math.round(PA_PASS * 100)}%. ${paGk().length > 1 ? 'Máy đã có bộ chấm âm: tính cả 👂 nghe và 👄 đọc.' : 'Máy chưa có bộ chấm âm: chỉ tính và thi phần 👂 nghe; tải bộ chấm để luyện cả phần đọc.'}</p>
       ${gateHoldTxt(p, open && !paPassed(lv))}${paPassed(lv) ? `<p>✅ Đã qua Thi chuyển cấp Phát âm ${LVN[lv]} (trong app).</p>` : wait ? `<p class="mute">Lần trước chưa qua (${run.ok}/${run.n}). Thi lại sau ${wait} ngày; trong lúc chờ, luyện tiếp.</p>`
         : `<button class="${open ? 'pri' : ''}" data-pa="exam" ${open ? '' : 'disabled'}>${open ? '🚪 Vào thi' : `🔒 Còn thiếu: ${p.lq < GATE_LEARN ? `học ${learnNeed(p)} bộ` : ''}${p.lq < GATE_LEARN && p.mq < GATE_MEM ? ' · ' : ''}${p.mq < GATE_MEM ? `Nhớ ${p.mq}% / ${GATE_MEM}%` : ''}`}</button>`}</div>
     <h2>Lộ trình</h2>
@@ -152,11 +152,14 @@ function paRun(m) { if (!PA.some(x => paSt()[x.id])) return toast('Học 1 bộ 
     else paRead(paTargets('doc', 4), 2, true); }
 
 // ---------- 🚪 Thi chuyển cấp ----------
-function paExam(lv) { if (!NO.vocab) { toast('Thi cần bộ chấm âm: tải bộ chấm trước.'); return paView(); }
+function paExam(lv) { const nghe = !NO.vocab;   // v101: chưa có bộ chấm âm → thi phần nghe (như luật tính Nhớ)
   // thi dồn cấp trước: cấp mới đủ 2 câu nghe + 1 từ đọc mỗi bộ; thêm ~30% câu từ bộ âm các cấp trước (mỗi bộ cũ 1 câu nghe + 1 từ đọc)
   const New = PA.filter(x => x.lv === lv), Old = shuf(paMem(lv).filter(x => x.lv !== lv)).slice(0, Math.round(New.length * 3 * 0.43 / 2)), L = [...New, ...Old];
-  if (!confirm(`Thi chuyển cấp Phát âm ${LVN[lv]}: ${New.length * 2 + Old.length} câu nghe + ${L.length} từ đọc (có ${Old.length} bộ của cấp trước), toàn cặp chưa gặp khi học. Không xem đáp án giữa chừng. Bắt đầu?`)) return;
+  if (!confirm(`Thi chuyển cấp Phát âm ${LVN[lv]}: ${New.length * 2 + Old.length} câu nghe${nghe ? ' (máy chưa có bộ chấm âm nên chỉ thi phần nghe)' : ` + ${L.length} từ đọc`} (có ${Old.length} bộ của cấp trước), toàn cặp chưa gặp khi học. Không xem đáp án giữa chừng. Bắt đầu?`)) return;
   paQuiz({ title: '🚪 Thi · nghe', quiet: true, items: shuf([...New.flatMap(x => x.test.map(p => ({ x, p, k: Math.random() < 0.5 ? 0 : 1 }))), ...Old.map(x => ({ x, p: x.test[Math.floor(Math.random() * x.test.length)], k: Math.random() < 0.5 ? 0 : 1 }))]), done: r1 => {
+    if (nghe) { const ok = r1.filter(r => r.ok).length, n = r1.length, pass = ok >= Math.ceil(n * PA_PASS); paRuns().push({ lv, at: Date.now(), ok, n, pass, nghe: ok + '/' + n, doc: '—' }); save();
+      $app.innerHTML = `<div class="box"><b>${pass ? `✅ Qua Thi chuyển cấp Phát âm ${LVN[lv]} (phần nghe)` : '❌ Chưa qua'}</b><p>Nghe đúng ${ok}/${n} (cần ${Math.ceil(n * PA_PASS)}).</p><p class="mute">Tải bộ chấm âm để luyện và thi cả phần đọc.${pass ? '' : ' Luyện tiếp; 7 ngày sau thi lại.'}</p></div><button class="pri" data-a="home">Về 👄 Phát âm</button>`;
+      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) paView(); }; return; }
     const list = shuf(L.map(x => { const p = x.test[Math.floor(Math.random() * x.test.length)]; return Math.random() < 0.5 ? paW(p[0], p[1], x) : paW(p[2], p[3], x); })), r2 = [];
     NO.ses = { mode: 'am', list, i: 0, got: [], sc: [], show: false, title: '🚪 Thi · đọc', okFor: paOkFor, sub: `Đọc từ (chưa gặp). Đúng = điểm âm ≥ ${PA_OK[lv]}. Lần đọc đầu được tính.`, foot: 'Bài thi chuyển cấp Phát âm.',
       onGrade: (w, ok) => r2.push(ok), onEnd: () => {

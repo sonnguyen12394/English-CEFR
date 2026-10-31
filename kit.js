@@ -38,8 +38,10 @@ function kParts(P, lv, now = Date.now()) { const L = kItems(P, lv), M = kMem(P, 
     for (const k of kDimsOf(P, x)) { Tk[k]++; if (kFreshK(P, k)) { const f = c && c.dm && c.dm[k] && c.dm[k].fq; if (f) { fq[k][0] += f[0]; fq[k][1] += f[1]; fq[k][2]++; } } else if (heldDim(c, k, now)) dim[k]++; } }
   const T = L.length || 1, dq = {}; for (const [k] of P.dims) { if (kFreshK(P, k)) { dq[k] = Tk[k] ? (fq[k][1] ? Math.floor(fq[k][0] / fq[k][1] * 100 * Math.min(1, fq[k][2] / Tk[k] / 0.9)) : 0) : 100; dim[k] = Math.floor(dq[k] * Tk[k] / 100); }
     else dq[k] = Tk[k] ? Math.floor(dim[k] / Tk[k] * 100) : 100; }
-  return { T: L.length, Tm: M.length, learn, due, dim, Tk, dq, lq: Math.floor(learn / T * 100), mq: Math.min(...Object.values(dq)) }; }
-async function kLoad(P) { if (P.items) return P; const d = await (await fetch(P.file)).json(); P.items = d.items; P.raw = d; P.by = {}; for (const x of d.items) P.by[x.id] = x;
+  // v101: mặt tham khảo (P.refK(lv): Viết đủ ý / đúng dạng, Nói một mạch từ B1) vẫn hiện % nhưng không chặn cổng
+  const rk = P.refK ? P.refK(lv) : [], gk = P.dims.map(d => d[0]).filter(k => !rk.includes(k) && Tk[k]);
+  return { T: L.length, Tm: M.length, learn, due, dim, Tk, dq, gk, lq: Math.floor(learn / T * 100), mq: gk.length ? Math.min(...gk.map(k => dq[k])) : 100 }; }
+async function kLoad(P) { if (P.items) return P; const d = await (await fetch(P.file)).json(); if (P.init) P.init(d); P.items = d.items; P.raw = d; P.by = {}; for (const x of d.items) P.by[x.id] = x;
   for (const [k] of P.dims) DIM_OF[P.id + '_' + k] = [k]; return P; }
 const kGo = id => kView(id);
 
@@ -187,19 +189,21 @@ function kQuiz({ P, title, qs, quiet, done }) { let i = 0; const res = []; let s
     const q = qs[i]; window.CUR = { view: P.id + '-cau', item: q.x.id + ':' + q.k, prompt: q.q };
     const body = q.kind === 'mc' ? q.opts.map((o, k) => `<button class="opt" data-ko="${k}">${esc(o)}</button>`).join('')
       : q.kind === 'type' ? `<form id="kf" autocomplete="off"><input id="kt" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Câu trả lời"><button class="pri" type="submit">Kiểm tra</button></form>`
+      : q.kind === 'order' ? `<div class="box" id="kord" style="min-height:48px;font-size:18px">…</div><div class="chips">${q.toks.map((t, k) => `<button type="button" class="chip" data-kt="${k}" style="font-size:17px">${esc(t)}</button>`).join('')}<button type="button" class="chip" data-kt="-1" aria-label="Bỏ từ cuối">⌫</button></div><button class="pri" data-kchk>Kiểm tra</button>`
       : q.kind === 'write' ? `<form id="kf" autocomplete="off"><textarea id="kt" rows="7" autocapitalize="sentences" spellcheck="false" aria-label="Bài viết"></textarea><p class="mute" id="kwc">0 từ</p><button class="pri" type="submit">Nộp bài</button></form>`
       : `<button class="pri" data-ks="rec" ${SREC ? '' : 'disabled'}>🎤 Bấm rồi nói</button><div class="box"><b>📝 Máy nghe ra:</b> <span id="kheard">…</span></div>${SREC ? '' : '<p class="mute">Trình duyệt này không chép được lời: mở bằng Safari.</p>'}`;
     // v101: số lần nghe theo câu (q.play.max: núm theo cấp, quy trình 3 lượt), tốc độ chậm khi luyện Pre-A1 / A1 (q.rate); thi luôn K_PLAYS lần, tốc độ thường
     const pk = q.play && q.play.key, left = () => (quiet ? K_PLAYS : q.play.max || K_PLAYS) - (plays[pk] || 0), pbtn = () => `🔊 Nghe lại (còn ${left()} lần)`; K_RATE = !quiet && q.rate ? q.rate : 1;
-    $app.innerHTML = `${backRow(`${title} · ${i + 1}/${qs.length}`)}${q.head || ''}${q.play ? `<button class="chip" data-kplay ${left() > 0 || !plays[pk] ? '' : 'disabled'}>${plays[pk] ? pbtn() : '🔊 Nghe'}</button>` : ''}<p class="q">${q.q}</p>${q.secs ? `<p class="mute" id="ksec">⏱ ${q.secs} giây</p>` : ''}${body}<div id="fb"></div>`;
+    $app.innerHTML = `${backRow(`${title} · ${i + 1}/${qs.length}`)}${q.head || ''}${q.play ? `<button class="chip" data-kplay ${left() > 0 || !plays[pk] ? '' : 'disabled'}>${plays[pk] ? pbtn() : '🔊 Nghe'}</button>` : ''}<p class="q">${q.q}</p>${q.secs ? `<p class="mute" id="ksec">⏱ ${q.secs} giây</p>` : ''}${q.prep && !quiet ? `<p class="mute" id="kprep">⏱ Chuẩn bị ${q.prep} giây: đọc đề, nghĩ 2–3 ý (bấm 🎤 khi sẵn sàng).</p>` : ''}${body}<div id="fb"></div>`;
     if (q.play && !plays[pk]) { plays[pk] = 1; kPlay(q.play); const b = $app.querySelector('[data-kplay]'); if (b) { b.textContent = pbtn(); b.disabled = left() <= 0; } }
     if (q.say && said !== q.say) { said = q.say; speak(...[].concat(q.say)); }
     let ans = false;
     const fin = r => { if (ans) return; ans = true; clearInterval(tk); push(q, r); if (quiet) { i++; return show(); }
       const mf = typeof mfCredit === 'function' ? mfCredit(P, q, r.ok) : 0; if (mf) r = { ...r, html: (r.html || '') + ` <span class="mute">· 📚 +${mf} từ đã học được ôn trong câu này</span>` };   // v76 chấm nhiều mục (nhanh.js)
-      document.getElementById('fb').innerHTML = `<div class="box">${r.ok ? '✅ Đúng.' : '❌ Chưa đúng.'} ${r.html || ''}${q.after || ''}</div><button class="pri" data-a="go">Tiếp →</button>`;
+      document.getElementById('fb').innerHTML = `<div class="box">${r.ok ? '✅ Đúng.' : '❌ Chưa đúng.'} ${r.html || ''}${q.after || ''}</div>${q.again ? `<button data-a="again">${q.againTxt || '✍️ Viết lại theo góp ý (lần 2, luyện)'}</button>` : ''}<button class="pri" data-a="go">Tiếp →</button>`;
       document.getElementById('fb').scrollIntoView({ block: 'nearest' }); };
     // ⏱ câu có giờ (Đọc: dò nhanh): hết giờ là chưa đúng
+    if (q.prep && !quiet) { let s = q.prep; tk = setInterval(() => { s--; const e = document.getElementById('kprep'); if (e) e.textContent = s > 0 ? `⏱ Chuẩn bị: còn ${s} giây.` : '⏱ Hết giờ chuẩn bị: bấm 🎤 và nói.'; if (s <= 0) clearInterval(tk); }, 1000); }
     if (q.secs) { let s = q.secs; tk = setInterval(() => { s--; const e = document.getElementById('ksec'); if (e) e.textContent = `⏱ ${Math.max(0, s)} giây`; if (s <= 0) fin({ ok: false, html: `⏱ Hết giờ. Đáp án: <b>${esc(q.a)}</b>.` }); }, 1000); }
     const f = document.getElementById('kf'), t = document.getElementById('kt');
     if (f) { if (q.kind === 'write') t.oninput = () => { document.getElementById('kwc').textContent = kWords(t.value).length + ' từ'; };
@@ -211,6 +215,13 @@ function kQuiz({ P, title, qs, quiet, done }) { let i = 0; const res = []; let s
       if (e.target.closest('[data-ks="rec"]') && !ans) { const b = e.target.closest('[data-ks="rec"]');
         if (K_ASR.on) { b.disabled = true; b.textContent = '⏳ Đang chấm…'; return kAsrStop(txt => fin(q.check(txt))); }
         b.textContent = '⏹ Dừng'; return kAsrStart(txt => { const h = document.getElementById('kheard'); if (h) h.textContent = txt || '…'; }); }
+      // 🧩 xếp từ thành câu: chạm thẻ theo thứ tự, ⌫ bỏ thẻ cuối
+      const tb = e.target.closest('[data-kt]'); if (tb && q.kind === 'order' && !ans) { const O = (q.ord = q.ord || []);
+        if (tb.dataset.kt === '-1') { const j = O.pop(); const b = j != null && $app.querySelector(`[data-kt="${j}"]`); if (b) b.disabled = false; } else { O.push(+tb.dataset.kt); tb.disabled = true; }
+        document.getElementById('kord').textContent = O.map(j => q.toks[j]).join(' ') || '…'; return; }
+      if (e.target.closest('[data-kchk]') && q.kind === 'order' && !ans) { if (!(q.ord || []).length) return; e.target.closest('[data-kchk]').remove(); return fin(q.check(q.ord.map(j => q.toks[j]).join(' '))); }
+      // ✍️ viết lại lần 2 (bậc 4): cùng đề, ghi tiến bộ; luyện, không tính
+      if (e.target.closest('[data-a="again"]') && q.again) { qs.splice(i + 1, 0, q.again()); i++; return show(); }
       const o = e.target.closest('[data-ko]'); if (!o || ans || q.kind !== 'mc') return;
       const ok = q.opts[+o.dataset.ko] === q.a;
       if (!quiet) $app.querySelectorAll('[data-ko]').forEach(x => { if (q.opts[+x.dataset.ko] === q.a) x.classList.add('ok'); else if (x === o) x.classList.add('no'); });

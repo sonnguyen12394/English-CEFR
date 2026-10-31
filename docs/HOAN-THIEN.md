@@ -302,3 +302,12 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 ## Cách học 7 phần, đợt A: đề thi không lặp (v100, 31/10/2026)
 - Lỗi: B1+ mỗi cấp chỉ 4 bài thi Đọc / Nghe, đề cần 6 bài nên lần nào cũng gặp lại; Viết / Nói thi bằng đề đã luyện.
 - Sửa: chọn bài thi ít dùng nhất; thêm 20 bài Đọc, 20 bài Nghe, 24 đề Viết, 24 đề Nói dành cho thi. Đo (C17): Đọc, Viết 2 lần thi liên tiếp không lặp; Nghe 3 lần. Bài Đọc mới 250–420 từ: dài hơn bài cũ ~40–50% nhưng vẫn ngắn hơn đề thật B2+ (550–700 từ).
+
+## Cách học 7 phần, đợt B–H (v101, 31/10/2026)
+- Tiêu chí đặt trước: Từ vựng mô phỏng số ngày tới cổng ≤ +10%; bài học mới ngắn đi ≥ 30%; mỗi bậc đúng 75–90% trên người thật (chưa đo: chưa có người học).
+- Từ vựng (đo bằng `tools/test/sim.mjs`, 1 bài / ngày, ngẫu nhiên nên lệch vài ngày): Pre-A1 57 → 61 (+7%), A1 149 → 162 (+8%), A2 103 → 103, B1 87–93 → 99 (+6–14%: B1 chưa chắc đạt). Tổng phút tới cổng giảm (A1 2.533 → 2.430; B1 1.767 → 1.485) vì bài học ngắn hơn. Bài học mới: Pre-A1 ít hơn 25% câu (chưa đạt 30%), A1 trở lên ít hơn 41–60%. Khoá chặt từng bậc đã thử và bỏ (A1 +14%, B1 +25%).
+- Ngữ pháp: 120 câu hỏi hiểu nghĩa (60 điểm Pre-A1 → A2), 22 nhóm điểm dễ nhầm. Thứ tự điểm theo Core Inventory cần giáo viên kiểm.
+- Đọc / Nghe: đổi luật đo sang bài mới (30 ngày). Rủi ro: người đúng < 80% câu bài mới phải chờ 30 ngày làm lại bài cũ; theo dõi khi có người học.
+- Viết: 2 bậc câu bắt buộc (máy chấm chắc), 120 câu nối (Claude soạn, nhiều đáp án được chấp nhận; câu viết khác đúng nghĩa vẫn có thể bị chấm sai: báo ⚑ Câu sai).
+- Nói / Phát âm: bắt buộc theo thiết bị (máy chép được lời; đã tải bộ chấm âm). Chưa làm: chấm 2 lớp cho câu, mặt Đọc to, hiệu chuẩn micro, 20 lỗi phát âm người Việt, Phát âm B1+.
+- Đo: test C18–C20; chưa kiểm trên iPhone.

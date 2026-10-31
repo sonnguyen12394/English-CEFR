@@ -167,13 +167,15 @@ function ngTach() { const P = KIT.nghe, L = kLearned(P), X = L.length ? L : kIte
   return qs.length ? { title: '🔤 Tách âm, từ', qs } : (toast('Chưa có câu để luyện tách âm.'), false); }
 
 // ---------- 🗣 Nói ----------
-const K_MINW = { a1: 15, a2: 25, b1: 50, b2: 80, c1: 110, c2: 130 }, K_SECS = { a1: '30 giây', a2: '30 giây', b1: '1 phút', b2: '1–2 phút', c1: '2 phút', c2: '2 phút' };
-function kTalk(x) { const ideas = x.k || [];
-  return { x, k: 'viec', kind: 'speak', head: `<div class="box"><b>${esc(x.en)}</b> <span class="mute">· ${esc(x.vi)}</span><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p>
+const K_MINW = { pre: 8, a1: 15, a2: 25, b1: 50, b2: 80, c1: 110, c2: 130 }, K_SECS = { pre: '20 giây', a1: '30 giây', a2: '30 giây', b1: '1 phút', b2: '1–2 phút', c1: '2 phút', c2: '2 phút' };
+// v101 bậc 4 nói một mạch: có giờ chuẩn bị (30 giây; từ B1 60 giây), nói xong được 🗣 nói lại lần 2 (luyện, không tính, ghi tiến bộ)
+function kTalk(x, prev) { const ideas = x.k || [];
+  const q = { x, k: prev ? 'lai' : 'viec', kind: 'speak', prep: lvIdx(x.lv) >= lvIdx('b1') ? 60 : 30, againTxt: '🗣 Nói lại lần 2 (luyện, ghi tiến bộ)', head: `<div class="box"><b>${esc(x.en)}</b> <span class="mute">· ${esc(x.vi)}</span><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p>
       <p class="mute" style="margin:6px 0 0">Cần nói đủ: ${x.c.map(esc).join(' · ')}. Ít nhất ${K_MINW[x.lv]} từ.</p></div>`, q: `🎤 Nói khoảng ${K_SECS[x.lv]} rồi bấm Dừng.`,
-    check: t => { const hit = ideas.map(g => kHit(t, g)), n = hit.filter(Boolean).length, need = kNeed(ideas.length), wc = kWords(t).length;
-      return { ok: n >= need && wc >= K_MINW[x.lv], html: `Máy nghe ra ${wc} từ (cần ${K_MINW[x.lv]}). Ý tìm thấy ${n}/${ideas.length} (cần ${need}):<br>${x.c.map((c, i) => `${hit[i] ? '✅' : '⬜'} ${esc(c)}`).join('<br>')}
-        <details><summary>Bài mẫu</summary><p>${kSay(x.m)} ${esc(x.m)}</p></details>` }; } }; }
+    check: t => { const hit = ideas.map(g => kHit(t, g)), n = hit.filter(Boolean).length, need = kNeed(ideas.length), wc = kWords(t).length; q.again = prev ? null : () => kTalk(x, { n, wc });
+      return { ok: n >= need && wc >= K_MINW[x.lv], html: `${prev ? `📈 Lần 2 so với lần 1: ý ${prev.n} → ${n} · ${prev.wc} → ${wc} từ.<br>` : ''}Máy nghe ra ${wc} từ (cần ${K_MINW[x.lv]}). Ý tìm thấy ${n}/${ideas.length} (cần ${need}):<br>${x.c.map((c, i) => `${hit[i] ? '✅' : '⬜'} ${esc(c)}`).join('<br>')}
+        <details><summary>Bài mẫu</summary><p>${kSay(x.m)} ${esc(x.m)}</p></details>` }; } };
+  return q; }
 const kAloud = (x, s, k = 'ro') => ({ x, k, kind: 'speak', head: `<div class="box"><p style="font-size:20px;margin:0">${esc(s)}</p></div>`, q: '🗣 Đọc to câu trên rồi bấm Dừng.',
   check: t => { const r = kMatch(s, t); return { ok: r >= 0.8, html: `Máy nghe ra: "${esc(t || '…')}" · khớp ${Math.round(r * 100)}% từ (cần 80%). ${kSay(s)} nghe mẫu` }; } });
 const kModelSent = x => { const ss = kSents(x.m).filter(s => { const n = kWords(s).length; return n >= 5 && n <= 14; }); return ss[Math.floor(Math.random() * ss.length)] || kSents(x.m)[0]; };
@@ -188,7 +190,11 @@ function kRp(x, steps) { const out = []; let prev = ''; const hist = [];
   return out; }
 const kRpLesson = x => { const v = x.learn[0]; return `<h1>${x.ic} ${esc(x.vi)}</h1><p class="mute">Đóng vai: máy là người kia, bạn nói phần của mình. Mỗi lần luyện là một biến thể khác (món, giá, nơi chốn đổi).</p>
   <div class="box"><b>Hội thoại mẫu</b>${v.map(s => `<p style="margin:6px 0">${s.s ? '👤' : '🙋'} ${kSay(s.t)} ${esc(s.t)}${s.vi ? `<br><span class="mute">Việc của bạn: ${esc(s.vi)}</span>` : ''}</p>`).join('')}</div>`; };
-KIT.noi = { id: 'noi', ic: '🗣', t: 'Nói', file: 'noi.json?v=3', lvs: ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'đề nói và tình huống', pass: 0.7, ref: true, needAsr: true,
+KIT.noi = { id: 'noi', ic: '🗣', t: 'Nói', file: 'noi.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'đề nói và tình huống', pass: 0.7, needAsr: true,
+  // v101 (người sáng lập chốt 31/10/2026): máy chép được lời (Safari) thì Nói bắt buộc (bậc 1 đọc to, bậc 2 trả lời ngắn, bậc 3 đóng vai); không chép được lời thì tham khảo.
+  // Bậc 4 nói một mạch (✅ đủ ý từ B1) và bậc 5 thảo luận: luyện / AI chấm, không chặn cổng.
+  get ref() { return !SREC; }, refK: lv => lvIdx(lv) >= lvIdx('b1') ? ['viec'] : [],
+  how: '1 Nhắc lại / đọc to câu (🗣 nói rõ) → 2 Trả lời ngắn có khung (✅ đủ ý, Pre-A1 → A2) → 3 Đóng vai (💬) → 4 Nói một mạch: chuẩn bị 30–60 giây, nói, rồi 🗣 nói lại lần 2 → 5 Thảo luận (từ B1, 👥 Nói theo cặp, AI). Mở bằng Safari để máy chép được lời: khi đó bậc 1–3 bắt buộc; từ B1 bậc 4–5 là tham khảo.',
   intro: 'Đề nói về bản thân và đóng vai giao tiếp (gọi món, mua bán, taxi, hỏi đường…); B1 → C2 kể chuyện, nêu và bảo vệ ý kiến, họp, thương lượng, phỏng vấn. Máy chép lời, tìm ý bằng từ khoá; không chấm ngữ pháp, phát âm (phần khác).',
   dims: [['viec', '✅ Đủ ý', 'Đề nói: nói đủ ý'], ['ro', '🗣 Nói rõ', 'Đọc to câu, máy chép ra ≥ 80% từ'], ['gt', '💬 Giao tiếp', 'Đóng vai: nói đúng việc ≥ 80% lượt']],
   dimsOf: x => x.type === 'rp' ? ['gt'] : ['viec', 'ro'],
@@ -206,34 +212,75 @@ KIT.noi = { id: 'noi', ic: '🗣', t: 'Nói', file: 'noi.json?v=3', lvs: ['a1', 
   // v100: đề nói dành cho thi (test) trước, ít dùng nhất trước; thiếu thì lấy đề đã luyện
   exam: lv => { const P = KIT.noi, T = P.items.filter(x => x.lv === lv && x.test && x.type !== 'rp'), L = [...kExamPick(P, T), ...shuf(kItems(P, lv).filter(x => x.type !== 'rp'))], R = shuf(kItems(P, lv).filter(x => x.type === 'rp')).slice(0, 2), ss = shuf(P.raw.test[lv]).slice(0, 4);
     // v100: B1+ đề nói dài 1–2 phút: 2 đề mỗi lần thi (6 đề thi mỗi cấp → 3 lần thi không lặp); cấp dưới 4 đề như cũ
-    return [...L.slice(0, lvIdx(lv) >= lvIdx('b1') ? 2 : 4).map(kTalk), ...ss.map((s, i) => kAloud(L[i % L.length], s)), ...R.flatMap(x => kRp(x, x.tests[Math.floor(Math.random() * x.tests.length)]))]; } };
+    return [...L.slice(0, lvIdx(lv) >= lvIdx('b1') ? 2 : 4).map(x => kTalk(x)), ...ss.map((s, i) => kAloud(L[i % L.length], s)), ...R.flatMap(x => kRp(x, x.tests[Math.floor(Math.random() * x.tests.length)]))]; } };
 
 // ---------- ✍️ Viết ----------
 const K_LETTER = /tin nhắn|thư|email|thiệp|bưu thiếp|ghi chú|hồ sơ/;
-function kWrite(x) { const ideas = (x.k || []).map((g, i) => [g, x.c[i]]).filter(([g]) => g);
-  return { x, k: 'y', kind: 'write', head: `<div class="box"><b>${esc(x.en)}</b> <span class="mute">· ${esc(x.genre)}</span><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p>
+// v101 bậc 4: viết → góp ý tập trung (tối đa 3 loại lỗi hay gặp) → ✍️ viết lại lần 2, ghi tiến bộ (ý, độ dài, số lỗi); lần 2 luyện, không tính
+function kWrite(x, prev) { const ideas = (x.k || []).map((g, i) => [g, x.c[i]]).filter(([g]) => g);
+  const q = { x, k: prev ? 'lai' : 'y', kind: 'write', head: `<div class="box"><b>${esc(x.en)}</b> <span class="mute">· ${esc(x.genre)}</span><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p>
       <p class="mute" style="margin:6px 0 0">Cần viết đủ: ${x.c.map(esc).join(' · ')}. Độ dài ${x.min}–${x.max} từ.</p></div>`, q: '✍️ Viết bài vào ô dưới.',
     check: t => { const hit = ideas.map(([g]) => kHit(t, g)), n = hit.filter(Boolean).length, need = kNeed(ideas.length), wc = kWords(t).length;
       const lenOk = wc >= x.min && wc <= x.max + 30, letter = K_LETTER.test(x.genre), open = /^\s*(hi|hello|dear|hey|good (morning|afternoon|evening))\b/i.test(t),
         close = /(bye|love|regards|best wishes|see you|take care|thanks|thank you|sincerely|write soon|cheers|from)\W*(\n.*)?\s*$/i.test(t.trim()) || /\n\s*[A-Z][a-z]+\s*$/.test(t);
       const dang = lenOk && kSents(t).length >= 2 && (!letter || open || close);
-      return { ks: { y: n >= need, dang }, ok: n >= need && dang, html: `✅ Đủ ý ${n}/${ideas.length} (cần ${need}): <br>${ideas.map(([, c], i) => `${hit[i] ? '✅' : '⬜'} ${esc(c)}`).join('<br>')}
+      const er = typeof wErrors === 'function' ? wErrors(t).slice(0, 3) : [];
+      q.again = prev ? null : () => kWrite(x, { n, wc, e: er.length });
+      return { ks: prev ? {} : { y: n >= need, dang }, ok: n >= need && dang, html: `${prev ? `📈 Lần 2 so với lần 1: ý ${prev.n} → ${n} · ${prev.wc} → ${wc} từ · lỗi hay gặp ${prev.e} → ${er.length}.<br>` : ''}✅ Đủ ý ${n}/${ideas.length} (cần ${need}): <br>${ideas.map(([, c], i) => `${hit[i] ? '✅' : '⬜'} ${esc(c)}`).join('<br>')}
         <br>📝 Đúng dạng bài: ${dang ? '✅' : '❌'} ${wc} từ (cần ${x.min}–${x.max})${letter ? `, ${open || close ? 'có' : 'thiếu'} lời chào / lời kết` : ''}.
-        <details><summary>Bài mẫu</summary><p class="tdtap" style="white-space:pre-line">${esc(kModel(x))}</p></details>` }; } }; }
-KIT.viet = { id: 'viet', ic: '✍️', t: 'Viết', file: 'viet.json?v=3', lvs: ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'đề viết', pass: 0.7, ref: true,
+        <details><summary>Bài mẫu</summary><p class="tdtap" style="white-space:pre-line">${esc(kModel(x))}</p></details>` }; } };
+  return q; }
+// ---------- v101 ✍️ Viết bậc 1 · Câu đúng (xếp từ thành câu, tự sinh từ câu ví dụ của từ vựng) và bậc 2 · Nối câu (viet.json noi, Claude soạn) ----------
+// Máy chấm chắc (đáp án biết trước) nên hai bậc này tính 🔁 Nhớ và bắt buộc; bài viết (✅ đủ ý, 📝 đúng dạng) là mặt tham khảo.
+const V_CON = [[/\bwon't\b/g, 'will not'], [/\bcan't\b/g, 'cannot'], [/\bcan not\b/g, 'cannot'], [/\bshan't\b/g, 'shall not'], [/n't\b/g, ' not'], [/'m\b/g, ' am'], [/'re\b/g, ' are'], [/'ll\b/g, ' will'], [/'ve\b/g, ' have']];
+const vNorm = s => V_CON.reduce((t, [re, r]) => t.replace(re, r), String(s).toLowerCase().replace(/[‘’`]/g, "'")).replace(/[.,;:!?"“”()…]/g, ' ').replace(/\s+/g, ' ').trim();
+const vOk = s => { const n = s.split(/\s+/).length; return n >= 4 && n <= 11 && /^[A-Z]/.test(s) && /[.?!]$/.test(s) && !/["“”();:–—]/.test(s); };
+function vietInit(d) { const lvs = ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], out = [];
+  for (const lv of lvs) { const L = WORDS.filter(w => wLv(w) === lv && w.ex && w.exVi && vOk(w.ex)).sort((a, b) => a.id < b.id ? -1 : 1);
+    // 12 bộ 5 câu: 8 bộ luyện + 4 bộ thi (2 lần thi liên tiếp không lặp); nối câu 20 câu: 2 bộ luyện + 2 bộ thi
+    const step = Math.max(1, Math.floor(L.length / 60)), pick = L.filter((_, i) => i % step === 0).slice(0, 60);
+    for (let s = 0; s < 12 && pick.length >= (s + 1) * 5; s++) out.push({ id: `vc-${lv}-${s < 8 ? s + 1 : 't' + (s - 7)}`, lv, kind: 'cau', n: s + 1, ...(s >= 8 ? { test: true } : {}), ss: pick.slice(s * 5, s * 5 + 5).map(w => [w.ex, w.exVi]) });
+    const N = (d.noi || {})[lv] || []; for (let s = 0; s * 5 < N.length; s++) out.push({ id: `vn-${lv}-${s < 2 ? s + 1 : 't' + (s - 1)}`, lv, kind: 'noi', n: s + 1, ...(s >= 2 ? { test: true } : {}), qs: N.slice(s * 5, s * 5 + 5) }); }
+  d.items = [...out.filter(x => x.lv === 'pre'), ...d.items, ...out.filter(x => x.lv !== 'pre')]; }
+function vOrder(x, s, vi) { let toks = s.split(/\s+/); for (let k = 0; k < 5; k++) { toks = shuf(toks); if (toks.join(' ') !== s) break; }
+  return { x, k: 'cau', kind: 'order', head: `<p class="mute">🧩 Bậc 1 · Câu đúng: chạm các từ theo đúng thứ tự.</p><p>Nghĩa: <b>${esc(vi)}</b></p>`, q: 'Xếp thành câu tiếng Anh:', toks,
+    check: t => { const ok = vNorm(t) === vNorm(s); return { ok, html: ok ? `${kSay(s)} ${esc(s)}` : `Câu đúng: ${kSay(s)} <b>${esc(s)}</b>` }; } }; }
+function vJoin(x, it) { const [a, b, w, ...acc] = it;
+  return { x, k: 'noi', kind: 'type', head: `<p class="mute">🔗 Bậc 2 · Nối câu: viết thành MỘT câu, dùng từ cho sẵn, giữ nghĩa.</p><div class="box"><p style="margin:0">${esc(a)}<br>${esc(b)}</p><p style="margin:6px 0 0">Dùng: <b>${esc(w)}</b></p></div>`, q: '✍️ Gõ câu đã nối:',
+    check: t => { const ok = acc.some(c => vNorm(c) === vNorm(t)); return { ok, html: ok ? '' : `Câu đúng: <b>${esc(acc[0])}</b>${acc.length > 1 ? `<br><span class="mute">Cũng đúng: ${acc.slice(1, 3).map(esc).join(' · ')}</span>` : ''}` }; } }; }
+const vQs = x => x.kind === 'cau' ? shuf(x.ss).map(([s, vi]) => vOrder(x, s, vi)) : x.kind === 'noi' ? shuf(x.qs).map(it => vJoin(x, it)) : [kWrite(x)];
+KIT.viet = { id: 'viet', ic: '✍️', t: 'Viết', file: 'viet.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bộ câu và đề viết', pass: 0.8, ref: false,
+  how: '1 Câu đúng (🧩 xếp từ thành câu, từ Pre-A1) → 2 Nối câu (🔗 and, because, although…, từ A1) → 3 Đoạn văn có khung → 4 Bài theo thể loại: viết → góp ý 2–3 lỗi → ✍️ viết lại, ghi tiến bộ → 5 Bài thi có giờ (từ B1). Bậc 1–2 máy chấm chắc: tính 🔁 Nhớ và bắt buộc. Bài viết (✅ đủ ý, 📝 đúng dạng) chấm gián tiếp: tham khảo; muốn chắc nhờ 🧑‍🏫 AI hoặc giáo viên. Bài dài trên iPhone có thể dùng 🎤 đọc chính tả của bàn phím (khi đó là luyện nói nhiều hơn viết).',
+  init: vietInit, refK: () => ['y', 'dang'], dimsOf: x => x.kind === 'cau' ? ['cau'] : x.kind === 'noi' ? ['noi'] : ['y', 'dang'],
   intro: 'A1, A2 tin nhắn, email ngắn; B1 → C2 email, truyện, bài luận, báo cáo, đề xuất, thư trang trọng theo độ dài đề Cambridge. Máy tìm ý bằng từ khoá và xem dạng bài (độ dài, lời chào / kết). Không chấm ngữ pháp, chính tả: đó là phần khác.',
-  dims: [['y', '✅ Đủ ý', 'Viết đủ các ý đề yêu cầu'], ['dang', '📝 Đúng dạng bài', 'Độ dài, chào / kết khi là thư']],
-  examTxt: '2 đề viết (viết mới), chấm ý và dạng bài.',
-  name: x => x.vi,
-  lesson: x => `<h1>${esc(x.vi)}</h1><p class="mute">${esc(x.en)} · ${esc(x.genre)} · ${x.min}–${x.max} từ</p>
+  dims: [['cau', '🧩 Câu đúng', 'Xếp từ thành câu đúng (bậc 1)'], ['noi', '🔗 Nối câu', 'Nối 2 câu bằng từ cho sẵn (bậc 2, từ A1)'], ['y', '✅ Đủ ý (tham khảo)', 'Viết đủ các ý đề yêu cầu'], ['dang', '📝 Đúng dạng bài (tham khảo)', 'Độ dài, chào / kết khi là thư']],
+  examTxt: '2 bộ xếp câu + 1 bộ nối câu chưa gặp (Pre-A1: chỉ xếp câu). Bài viết dài luyện ở 🎓 Luyện thi, nhờ AI / giáo viên chấm.',
+  name: x => x.kind === 'cau' ? `🧩 Câu đúng · bộ ${x.n}` : x.kind === 'noi' ? `🔗 Nối câu · bộ ${x.n}` : x.vi,
+  lesson: x => x.kind === 'cau' ? `<h1>🧩 Câu đúng · bộ ${x.n}</h1><div class="box"><b>Trật tự câu tiếng Anh</b><p style="margin:6px 0">Ai / cái gì (chủ ngữ) → làm gì (động từ) → cái gì / ai (tân ngữ) → ở đâu → khi nào.</p>
+      <p class="mute" style="margin:0">Ví dụ: <b>I</b> · <b>play</b> · <b>football</b> · <b>in the park</b> · <b>on Sundays</b>. Câu hỏi: từ hỏi → trợ động từ → chủ ngữ → động từ (Where do you live?). Viết hoa chữ đầu câu, cuối câu có dấu chấm / chấm hỏi.</p></div>`
+    : x.kind === 'noi' ? `<h1>🔗 Nối câu · bộ ${x.n}</h1><div class="box"><b>Từ nối trong bộ này</b>${[...new Set(x.qs.map(q => q[2]))].map(w => `<p style="margin:4px 0">• <b>${esc(w)}</b>${V_NOI[w] ? ` <span class="mute">· ${esc(V_NOI[w])}</span>` : ''}</p>`).join('')}</div>
+      <p class="mute">Nối 2 câu thành một, giữ nghĩa. Mệnh đề có because / when / if / although… đứng trước thì thêm dấu phẩy. Máy chấm bỏ qua hoa / thường, dấu câu, viết tắt (don't = do not).</p>`
+    : `<h1>${esc(x.vi)}</h1><p class="mute">${esc(x.en)} · ${esc(x.genre)} · ${x.min}–${x.max} từ</p>
     <div class="box"><b>Đề</b><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p></div>
     <div class="box"><b>Cần viết đủ</b>${x.c.map(c => `<p style="margin:4px 0">• ${esc(c)}</p>`).join('')}</div>
     <div class="box"><b>Cụm hữu ích</b>${x.u.map(([e, v]) => `<p style="margin:4px 0">${esc(e)} <span class="mute">· ${esc(v)}</span></p>`).join('')}</div>
     <div class="box"><b>Bài mẫu</b><p class="tdtap" style="margin:6px 0;white-space:pre-line">${esc(kModel(x))}</p></div>`,
-  tryQs: x => [kWrite(x)],
-  menu: [['y', '✍️ Viết 1 đề', 'Chấm cả ✅ Đủ ý và 📝 Đúng dạng bài', ['y', 'dang'], 1]],
-  ask: x => [kWrite(x)],
-  exam: lv => { const T = KIT.viet.items.filter(x => x.lv === lv && x.test); return [...kExamPick(KIT.viet, T), ...shuf(kItems(KIT.viet, lv))].slice(0, 2).map(kWrite); } };
+  tryQs: x => vQs(x).slice(0, x.kind ? 2 : 1),
+  menu: [['cau', '🧩 Luyện xếp câu (2 bộ)', 'Bậc 1: chạm từ theo đúng thứ tự', ['cau'], 2], ['noi', '🔗 Luyện nối câu (2 bộ)', 'Bậc 2: nối 2 câu bằng từ cho sẵn', ['noi'], 2],
+    ['y', '✍️ Viết 1 đề (tham khảo)', 'Bậc 3–4: viết → góp ý → viết lại; chấm ✅ đủ ý, 📝 đúng dạng', ['y', 'dang'], 1]],
+  ask: x => vQs(x),
+  // v101: thi = câu máy chấm chắc (xếp câu, nối câu) chưa gặp; bộ thi ít dùng nhất trước
+  exam: lv => { const T = KIT.viet.items.filter(x => x.lv === lv && x.test), C = kExamPick(KIT.viet, T.filter(x => x.kind === 'cau')).slice(0, 2), N = kExamPick(KIT.viet, T.filter(x => x.kind === 'noi')).slice(0, 1);
+    return [...C, ...N].flatMap(vQs); } };
+const V_NOI = { and: 'và (thêm ý)', but: 'nhưng (đối lập)', or: 'hoặc (lựa chọn)', so: 'vì vậy (kết quả)', because: 'vì (nguyên nhân)', when: 'khi', before: 'trước khi', after: 'sau khi', if: 'nếu', until: 'cho tới khi', while: 'trong khi',
+  although: 'mặc dù (+ mệnh đề)', who: 'người mà (thay cho người)', which: 'cái mà (thay cho vật)', where: 'nơi mà', whose: 'của người / vật đó', unless: 'trừ khi (= if … not)', 'as soon as': 'ngay khi', 'so that': 'để (mục đích)', 'even though': 'dù cho (mạnh hơn although)', 'as long as': 'miễn là',
+  despite: 'mặc dù (+ danh từ / V-ing)', 'in spite of': 'mặc dù (+ danh từ / V-ing)', 'not only ... but also': 'không những … mà còn', 'so ... that': 'quá … đến nỗi (+ tính từ)', 'such ... that': 'quá … đến nỗi (+ danh từ)', whereas: 'trong khi đó (so sánh đối lập)',
+  'in case': 'phòng khi', 'by the time': 'trước lúc (mệnh đề chính thường dùng quá khứ hoàn thành)', whom: 'người mà (tân ngữ, trang trọng)', otherwise: 'nếu không thì', 'provided that': 'với điều kiện là', having: 'sau khi đã (Having + V3)', 'no sooner ... than': 'vừa mới … thì (đảo ngữ)',
+  'hardly ... when': 'vừa mới … thì (đảo ngữ)', 'not until': 'mãi đến khi (đảo ngữ)', on: 'ngay khi (On + V-ing)', 'owing to': 'do, bởi (+ danh từ)', 'so as to': 'để (+ động từ nguyên mẫu)', 'given that': 'xét rằng', whereby: 'theo đó', 'as a result': 'kết quả là',
+  'but for': 'nếu không có', 'the moment': 'ngay lúc', 'for all': 'mặc dù có', 'as a result of': 'do, vì (+ danh từ / V-ing)', walking: 'rút gọn mệnh đề (V-ing)', 'with the result that': 'đến mức kết quả là', 'in the event that': 'trong trường hợp', albeit: 'dù (trang trọng)',
+  had: 'đảo ngữ điều kiện loại 3 (Had + S + V3)', should: 'đảo ngữ điều kiện loại 1 (Should + S + V)', were: 'đảo ngữ điều kiện loại 2 (Were + S)', such: 'đảo ngữ Such + be + N + that', so: 'kết quả / đảo ngữ So + adj + be + N + that', 'much as': 'dù rất', notwithstanding: 'bất chấp',
+  what: 'câu chẻ What … is …', 'it was': 'câu chẻ It was … who / that …', whereupon: 'ngay sau đó', lest: 'kẻo, để khỏi', scarcely: 'vừa mới … thì (đảo ngữ)', 'under no circumstances': 'không bao giờ (đảo ngữ)', 'only later': 'mãi sau này (đảo ngữ)',
+  though: 'Adj + though + S + be (đảo nhấn mạnh)', little: 'hầu như không (đảo ngữ)', however: 'dù … đến đâu (However + adj)', upon: 'ngay khi (trang trọng)', 'be that as it may': 'dù vậy' };
 
 // ---------- góp ý #12 (25/10/2026): mỗi mặt nói rõ đo gì, học ở đâu trong bài (kTeach / kDimView, kit.js); bài học dạy đủ trước khi Nhớ luyện lại ----------
 KIT.np.info = {
@@ -253,7 +300,9 @@ KIT.noi.info = {
   ro: { what: 'Đọc to một câu, máy chép ra đúng ≥ 80% số từ.', learn: 'Bài mẫu: bấm 🔊 nghe rồi đọc theo', ex: '"I\'m from Da Nang, but now I live in Hanoi." → đọc to' },
   gt: { what: 'Đóng vai: mỗi lượt nói đúng việc (gọi món, hỏi giá, nói nơi đến…); đạt khi ≥ 80% lượt đúng.', learn: 'Hội thoại mẫu: nghe từng câu, đọc phần "Việc của bạn"', ex: '👤 What can I get for you? → 🙋 Can I have two teas, please?' } };
 KIT.viet.info = {
+  cau: { what: 'Bậc 1: chạm các từ theo đúng thứ tự để thành câu đúng (nghĩa tiếng Việt cho sẵn).', learn: 'ô Trật tự câu tiếng Anh', ex: 'my · I · bike · ride → <b>I ride my bike.</b>' },
+  noi: { what: 'Bậc 2: nối 2 câu thành một bằng từ cho sẵn, giữ nghĩa.', learn: 'ô Từ nối trong bộ này', ex: 'I was tired. I went to bed. (so) → <b>I was tired, so I went to bed.</b>' },
   y: { what: 'Viết đủ các ý đề yêu cầu. Máy tìm ý bằng từ khoá.', learn: 'ô Cần viết đủ, Cụm hữu ích và Bài mẫu', ex: 'Thiệp mời sinh nhật → lời mời, ngày giờ, địa điểm, một chi tiết thêm' },
   dang: { what: 'Đúng dạng bài: đủ độ dài; thư, tin nhắn, thiệp có lời chào và lời kết.', learn: 'ô 📝 Dạng bài', ex: 'Hi Mai, … See you soon! Lan (25–50 từ)' } };
-{ const base = KIT.viet.lesson; KIT.viet.lesson = x => base(x) + `<div class="box"><b>📝 Dạng bài</b><p style="margin:6px 0">Độ dài ${x.min}–${x.max} từ, ít nhất 2–3 câu.</p>
+{ const base = KIT.viet.lesson; KIT.viet.lesson = x => x.kind ? base(x) : base(x) + `<div class="box"><b>📝 Dạng bài</b><p style="margin:6px 0">Độ dài ${x.min}–${x.max} từ, ít nhất 2–3 câu.</p>
   ${K_LETTER.test(x.genre) ? `<p style="margin:6px 0">Đây là ${esc(x.genre)}: mở đầu bằng lời chào (<i>Hi …, / Dear …,</i>), kết bằng lời chào cuối (<i>See you! / Best wishes,</i>) và tên.</p>` : '<p style="margin:6px 0">Viết thành đoạn liền mạch, kể theo thứ tự (first, then, after that…).</p>'}</div>`; }

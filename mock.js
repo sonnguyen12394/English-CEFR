@@ -44,10 +44,11 @@ function mkVocab(type, n) { XLV = MK.lv; const ok = X_Q[type] ? X_Q[type][1] : (
   return pool.slice(0, n * 3).map(w => { const q = examQ(w, type); return q && (q.type === type || type === 'xT') ? mkFromX(w, q) : null; }).filter(Boolean).slice(0, n); }
 const mkFromX = (w, q) => ({ x: w, kind: q.opts ? 'mc' : 'type', head: q.sub ? `<p class="mute">${q.sub}</p>` : '', q: q.top, opts: q.opts, a: q.a, acc: [q.a, ...(q.alt || [])], after: q.after });
 function mkGram(k, n) { const P = KIT.np, ls = mkKitLvs(P); return shuf(P.items.filter(x => ls.includes(x.lv))).flatMap(x => P.q(x, k, 'test').slice(0, 1)).slice(0, n); }
-const mkPick = (P, n) => { const ls = mkKitLvs(P), its = P.items.filter(x => ls.includes(x.lv)); return [...shuf(its.filter(x => x.test)), ...shuf(its.filter(x => !x.test))].slice(0, n); };
+// v101: bỏ bộ câu của Viết (x.kind), chỉ lấy đề
+const mkPick = (P, n) => { const ls = mkKitLvs(P), its = P.items.filter(x => ls.includes(x.lv) && !x.kind); return [...shuf(its.filter(x => x.test)), ...shuf(its.filter(x => !x.test))].slice(0, n); };
 const mkRead = n => mkPick(KIT.doc, n).flatMap(x => [...kRead(KIT.doc, x, 'y', false), ...kRead(KIT.doc, x, 'ct', false)]);
 const mkListen = n => mkPick(KIT.nghe, n).flatMap((x, i) => ['y', 'ct', ...(i < 2 ? ['chep'] : [])].flatMap(k => kRead(KIT.nghe, x, k, true)));
-const mkWrite = n => KIT.viet.lvs.some(l => mkLvs().includes(l)) ? mkPick(KIT.viet, n).map(kWrite) : [];
+const mkWrite = n => KIT.viet.lvs.some(l => mkLvs().includes(l)) ? mkPick(KIT.viet, n).map(x => kWrite(x)) : [];
 
 const mkRuns = lv => ((S.mock = S.mock || {})[lv] = S.mock[lv] || []);
 async function mockView(lv) { window.CUR = { view: 'de-thu', item: lv }; const C = MOCK[lv]; if (!C) return toast('Cấp này chưa có khuôn đề thử.');

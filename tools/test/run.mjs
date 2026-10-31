@@ -43,7 +43,7 @@ const R = await run(`(async () => {
     // bài mẫu tự qua luật chấm của chính nó: 🗣 đề nói (đủ ý, đủ từ), 💬 câu mẫu đóng vai, ✍️ bài mẫu viết
     for (const x of kItems(KIT.noi, lv)) { if (x.type === 'rp') { for (const v of [...x.learn, ...x.tests]) for (const st of v) if (!st.s && !kNeedOk(st.need, st.t)) bad.push('rp:' + x.id + ':' + st.t.slice(0, 30)); }
       else if (!kTalk(x).check(x.m).ok) bad.push('nói mẫu:' + x.id); }
-    for (const x of kItems(KIT.viet, lv)) if (!kWrite(x).check(kModel(x)).ok) bad.push('viết mẫu:' + x.id);
+    for (const x of kItems(KIT.viet, lv).filter(x => !x.kind)) if (!kWrite(x).check(kModel(x)).ok) bad.push('viết mẫu:' + x.id);
     // 🎓 đề thử kiểu Cambridge: mọi phần sinh được câu, câu hợp lệ
     if (MOCK[lv]) { MK = { lv, C: MOCK[lv] }; for (const P of MOCK[lv].papers) for (const [t, g] of P.parts) { const qs = g(); if (!qs.length) bad.push('đề thử trống:' + t);
       for (const q of qs) if ((q.kind === 'mc' && !q.opts.includes(q.a)) || (q.kind === 'type' && !q.check && !(q.acc && q.acc[0]))) bad.push('đề thử:' + t);
@@ -73,7 +73,7 @@ const R = await run(`(async () => {
     { if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json')).json()); } catch (e) {} const miss = []; for (const x of KIT.nghe.items.filter(x => x.lv === lv)) for (const t of (x.lines ? x.lines.flatMap(l => [l[1], ...kSents(l[1])]) : kSents(x.text))) if (!NCLIPS.has(clipKey(t))) miss.push(x.id);
       if (miss.length) bad.push('thiếu giọng tự nhiên: ' + [...new Set(miss)].slice(0, 5).join(', ') + ' (' + miss.length + ' câu)'); }
     // ✍️ chấm Viết 4 tiêu chí (thi.js): bài mẫu không bị báo lỗi, ≥ 80%; bài cố tình sai phải bị bắt
-    for (const x of kItems(KIT.viet, lv)) { const m = kModel(x), r = kWrite(x).check(m); if (wErrors(m).length) bad.push('viết mẫu bị báo lỗi:' + x.id + ' ' + wErrors(m).map(e => e[0]).join('|')); if (r.sc < 0.8) bad.push('viết mẫu < 80%:' + x.id + ' ' + Math.round(r.sc * 100)); }
+    for (const x of kItems(KIT.viet, lv).filter(x => !x.kind)) { const m = kModel(x), r = kWrite(x).check(m); if (wErrors(m).length) bad.push('viết mẫu bị báo lỗi:' + x.id + ' ' + wErrors(m).map(e => e[0]).join('|')); if (r.sc < 0.8) bad.push('viết mẫu < 80%:' + x.id + ' ' + Math.round(r.sc * 100)); }
     if (lv === 'pre' && wErrors("i am agree. He don't like it. I can to swim since three years.").length < 4) bad.push('bộ bắt lỗi Viết không bắt được lỗi');
     add(lv, 'X5', !bad.length, bad.length ? bad.length + ' lỗi: ' + [...new Set(bad)].slice(0, 10).join(', ') : 'mọi câu hợp lệ');
   }
@@ -441,8 +441,8 @@ const R = await run(`(async () => {
     S = blank(); await Promise.all([tcLoad(), ieLoad()]); const H = () => String($app.innerHTML), nbt = h => (h.match(/<button/g) || []).length;
     const tabs = [...IDX_.matchAll(/data-tab="(\\w+)"><i>[^<]*<\\/i>([^<]+)</g)].map(m => m[1] + ':' + m[2]).join(' ');
     if (tabs !== 'all:Học ie:Luyện thi dict:Tra cứu bk:Của tôi') bad.push('thanh dưới: ' + tabs);
-    // 🎯 Học người mới: ≤ 12 nút; công cụ luyện thi, sổ lỗi, góp ý ở tab khác; chưa học gì thì chưa có việc ôn
-    await tryA('Học', () => overview('pre')); const ho = H(), nh = nbt(ho); if (nh > 12) bad.push('🎯 Học người mới ' + nh + ' nút');
+    // 🎯 Học người mới: ≤ 14 nút (v101: Pre-A1 thêm thẻ ✍️ Viết, 🗣 Nói); công cụ luyện thi, sổ lỗi, góp ý ở tab khác; chưa học gì thì chưa có việc ôn
+    await tryA('Học', () => overview('pre')); const ho = H(), nh = nbt(ho); if (nh > 14) bad.push('🎯 Học người mới ' + nh + ' nút');
     if (/data-mock|id="ovtools"|id="gyhome"|Sổ lỗi của tôi|data-rev|data-sotu/.test(ho)) bad.push('🎯 Học người mới còn công cụ của tab khác / việc ôn khi chưa có gì để ôn');
     // 🎓 Luyện thi: chưa chọn kỳ thi → 🎓 Cambridge (đề thử, cẩm nang, chuyển IELTS / TOEIC); đã đặt IELTS → IELTS
     delete S.exSel; delete S.ie; CB_LV = null; await tryA('Luyện thi', () => exOpen()); const hc = H();
@@ -496,12 +496,12 @@ const R = await run(`(async () => {
     let bT = 0; for (let r = 0; r < 20; r++) for (const it of xAssign(XL.b2.MIX, [...shuf(levelWords('b2')).slice(0, 28), ...shuf(cumWords('b1p')).slice(0, 12)])) if (it.type === 'xT' && lvIdx(wLv(it.w)) > lvIdx(VPROD_MAX)) bT++;
     if (bT) bad.push('câu gõ hỏi từ B1+: ' + bT);
     const a1q = xAssign(XL.a1.MIX, shuf(levelWords('a1')).slice(0, 40)); if (a1q.length !== 40 || a1q.filter(x => x.type === 'xT').length < 18) bad.push('đề A1 đổi số câu gõ');
-    // hoàn thành cấp: Nói / Viết tham khảo
-    if (!ovRef('noi') || !ovRef('viet') || ovRef('np') || ovReq('a1').some(([id]) => ovRef(id)) || !OV.some(([id]) => id === 'noi' && ovIn(id, 'a1'))) bad.push('phần bắt buộc sai');
+    // hoàn thành cấp (v101): Viết bắt buộc (phần câu); Nói bắt buộc khi máy chép được lời, không thì tham khảo
+    if (ovRef('noi') !== !SREC || ovRef('viet') || ovRef('np') || ovReq('a1').some(([id]) => ovRef(id)) || !OV.some(([id]) => id === 'noi' && ovIn(id, 'a1'))) bad.push('phần bắt buộc sai');
     S = blank(); for (const lv of ['pre', 'a1']) for (const [id] of ovReq(lv)) { const r = { lv, at: now, ok: 10, n: 10, pass: true }; if (id === 'tv') xs().runs.push(r); else if (id === 'pa') paRuns().push(r); else kSt(id).runs.push(r); }
     if (!ovDone('a1') || ovStage() !== 'a2') bad.push('Nói / Viết chưa qua vẫn chặn hoàn thành A1: ' + ovStage());
     // ngưỡng 2 bậc
-    if (KIT.np.pass !== 0.85 || PA_PASS !== 0.85 || KIT.doc.pass !== 0.75 || KIT.nghe.pass !== 0.75 || KIT.noi.pass !== 0.7 || KIT.viet.pass !== 0.7) bad.push('ngưỡng 2 bậc sai');
+    if (KIT.np.pass !== 0.85 || PA_PASS !== 0.85 || KIT.doc.pass !== 0.75 || KIT.nghe.pass !== 0.75 || KIT.noi.pass !== 0.7 || KIT.viet.pass !== 0.8) bad.push('ngưỡng 2 bậc sai');
     // tên: "hoàn thành trong app"; "đạt" chỉ cho đề mẫu chính thức
     await overview('a1'); if (!H().includes('Hoàn thành A1 trong app') || /Đạt A1 khi|đã đạt \\d|✅ đã đạt/.test(H())) bad.push('Tổng quan còn chữ đạt cấp');
     await minhView(); if (!H().includes('hoàn thành trong app: Pre-A1, A1') || !H().includes('Đạt bằng đề mẫu chính thức') || /Đạt bằng đề mẫu chính thức: <b>/.test(H())) bad.push('Của tôi chưa tách hoàn thành / đạt');
@@ -535,8 +535,8 @@ const R = await run(`(async () => {
     if (!tcWordHits('tang').all.length) bad.push('gõ không dấu không ra gì');
     // máy chấm Viết: ví dụ cụ thể không có từ báo hiệu
     if (!IE_EG.test('governments could tax sugary drinks, as the united kingdom did in 2018.') || !IE_EG.test('about 30% of children') || IE_EG.test('children like sweets.')) bad.push('nhận ví dụ sai');
-    // 👄 Phát âm tham khảo
-    if (!ovRef('pa') || ovReq('pre').some(([id]) => id === 'pa') || ovReq('pre').length !== 4) bad.push('Phát âm chưa thành tham khảo');
+    // 👄 Phát âm bắt buộc lại (v101, phương án a); Pre-A1 bắt buộc: Từ vựng, Phát âm, Ngữ pháp, Đọc, Nghe, Viết (+ Nói khi chép được lời)
+    if (ovRef('pa') || !ovReq('pre').some(([id]) => id === 'pa') || ovReq('pre').length !== (SREC ? 7 : 6)) bad.push('Phát âm / phần bắt buộc Pre-A1 sai: ' + ovReq('pre').map(([id]) => id).join(','));
     add('cefr', 'C16', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'xếp cấp dùng được + nhiễu khó đoán (' + nd + ' từ), Đọc 13–14 câu / đề thử 40, đề thật phải chọn dạng, tìm đủ dấu, nhận ví dụ, Phát âm tham khảo đều đúng'); }
   // v100 đề thi không lặp bài: bài thi ít dùng nhất trước (id ghi vào lần thi); B1+ có thêm bài thi dài (Đọc 6 câu, 4 phương án; Nghe có câu suy luận), đề Viết / Nói dành cho thi
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank();
@@ -617,6 +617,35 @@ const R = await run(`(async () => {
       const c1 = kCover(t); if (!(c0 < c1 && c1 >= 90)) bad.push('độ phủ từ sai: ' + c0 + ' → ' + c1); });
     tryv('bando', () => { const x = kItems(KIT.doc, 'pre')[0], c = kSt('doc').cards[x.id]; if (c && c.dm.y.ok && mapFace(c, 'y', now + 400 * DAY) !== 'vung') bad.push('mặt bài mới bị coi là quên'); });
     add('cefr', 'C19', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Nghe / Đọc đo trên bài mới (30 ngày), nghe 3 lượt, núm số lần / tốc độ theo cấp, tách âm, hiểu câu, dò có giờ, đoán nghĩa, độ phủ từ'); }
+  // v101 Viết bậc 1–2 bắt buộc (xếp câu, nối câu), bài viết tham khảo + viết lại; Nói bắt buộc khi chép được lời, Pre-A1 Nói; Phát âm bắt buộc theo bộ chấm âm; Luật có cách học từng phần
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now();
+    tryv('viet', () => { const P = KIT.viet;
+      for (const lv of P.lvs) { const C = P.items.filter(x => x.lv === lv && x.kind === 'cau'), N = P.items.filter(x => x.lv === lv && x.kind === 'noi');
+        if (C.filter(x => !x.test).length < 8 || C.filter(x => x.test).length < 4) bad.push(lv + ': thiếu bộ xếp câu ' + C.length);
+        if (lv !== 'pre' && (N.filter(x => !x.test).length < 2 || N.filter(x => x.test).length < 2)) bad.push(lv + ': thiếu bộ nối câu ' + N.length); }
+      const ids = P.items.map(x => x.id); if (new Set(ids).size !== ids.length) bad.push('trùng id bài Viết');
+      const xc = P.items.find(x => x.kind === 'cau'), q = vQs(xc)[0], s = xc.ss.find(z => vOrder(xc, z[0], z[1]).toks.length === q.toks.length && q.toks.slice().sort().join(' ') === z[0].split(/\\s+/).sort().join(' '));
+      if (!s || !q.check(s[0]).ok || q.check(s[0].split(/\\s+/).reverse().join(' ')).ok) bad.push('chấm xếp câu sai');
+      let nAcc = 0; for (const x of P.items.filter(x => x.kind === 'noi')) for (const it of x.qs) { const j = vJoin(x, it); for (const a of it.slice(3)) { nAcc++; if (!j.check(a).ok || !j.check(a.replace(/,/g, '').toLowerCase()).ok) bad.push('đáp án nối câu không qua: ' + a); } if (j.check(it[0] + ' ' + it[1]).ok) bad.push('ghép 2 câu nguyên mà vẫn đúng: ' + it[0]); }
+      if (nAcc < 120) bad.push('ít đáp án nối câu: ' + nAcc);
+      if (!vJoin({ id: 'z' }, ['a.', 'b.', 'but', "I don't like it, but I eat it."]).check('I do not like it but I eat it').ok) bad.push('chưa nhận do not = don\\'t');
+      kSt('viet').runs = []; const p = kParts(P, 'a1'); if (p.gk.join() !== 'cau,noi') bad.push('mặt bắt buộc Viết sai: ' + p.gk);
+      const E = P.exam('a1'); if (E.length < 12 || E.some(q => !['cau', 'noi'].includes(q.k))) bad.push('đề thi Viết A1 sai: ' + E.length);
+      if (P.exam('pre').some(q => q.k !== 'cau') || !P.exam('pre').length) bad.push('đề thi Viết Pre-A1 sai');
+      if (ovRef('viet')) bad.push('Viết vẫn là tham khảo'); { const m0 = MK; MK = { lv: 'b1', C: { lo: 'pre' } }; if (mkPick(P, 20).some(x => x.kind)) bad.push('đề thử lấy nhầm bộ câu'); MK = m0; }
+      const xw = P.items.find(x => !x.kind && x.lv === 'a1'), w1 = kWrite(xw); w1.check('Hello. I am Lan. I live in Hanoi. I like music. Bye.'); const w2 = w1.again && w1.again();
+      if (!w2 || w2.k !== 'lai' || !/Lần 2/.test(w2.check('Hello. I am Lan. I am ten. I live in Hanoi with my family. I like music and books. Bye, Lan').html)) bad.push('viết lại lần 2 hỏng');
+      if (kGrade(P, [{ x: xw, k: 'lai', ok: true }]).length) bad.push('lần viết lại bị chấm'); });
+    tryv('noi', () => { const P = KIT.noi; if (P.ref !== !SREC) bad.push('Nói bắt buộc chưa theo máy chép lời'); if (!P.refK('b1').includes('viec') || P.refK('a1').length) bad.push('bậc 4 nói một mạch chưa là tham khảo từ B1');
+      const L = P.items.filter(x => x.lv === 'pre'); if (L.length < 12 || !(P.raw.test.pre || []).length) bad.push('thiếu Nói Pre-A1');
+      const E = P.exam('pre'); if (!E.length || E.some(q => q.k === 'lai')) bad.push('đề thi Nói Pre-A1 hỏng');
+      const t = kTalk(L[0]); t.check(L[0].m); if (!t.again || t.prep !== 30 || t.again().k !== 'lai') bad.push('nói lại lần 2 / giờ chuẩn bị hỏng');
+      if (!t.check(L[0].m).ok) bad.push('bài mẫu Pre-A1 không qua máy chấm: ' + L[0].id); for (const x of L) if (!kTalk(x).check(x.m).ok) bad.push('bài mẫu không qua: ' + x.id); });
+    tryv('pa', () => { if (PA_REF || ovRef('pa')) bad.push('Phát âm vẫn là tham khảo');
+      localStorage.removeItem(NK); NO.vocab = null; if (paParts('pre').gk.join() !== 'pb') bad.push('chưa có bộ chấm mà vẫn tính phần đọc');
+      localStorage.setItem(NK, '1'); if (paParts('pre').gk.join() !== 'pb,doc') bad.push('có bộ chấm mà không tính phần đọc'); localStorage.removeItem(NK); });
+    tryv('luat', () => { const h = HD.find(x => x[0] === 'cachhoc'); const t = h ? h[2]() : ''; for (const k of ['Từ vựng', 'Ngữ pháp', 'Phát âm', 'Nghe', 'Nói', 'Đọc', 'Viết', '4 kỹ năng']) if (!t.includes(k)) bad.push('Luật thiếu cách học: ' + k); });
+    add('cefr', 'C20', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Viết bậc 1–2 bắt buộc (xếp câu, 120 câu nối), viết / nói lại lần 2, Nói theo máy chép lời + Pre-A1, Phát âm theo bộ chấm âm, Luật có cách học 7 phần'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

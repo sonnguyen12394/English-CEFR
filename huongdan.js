@@ -18,11 +18,22 @@ const HD = [
     <p><b>👤 Của tôi</b>: tiến độ, 🗺 bản đồ chỗ yếu, 📌 sổ từ, 📒 sổ lỗi, kết quả thi thật, 💾 dữ liệu và tài khoản, góp ý, và trang này.</p>`],
   ['cap', '🪜 Cấp và phần', () => `
     <p>Cấp: Pre-A1 → A1 → A2 → A2+ → B1 → B1+ → B2 → B2+ → C1 → C2. Cấp "+" là nửa khó hơn của cấp đó.</p>
-    <p>Mỗi cấp có các phần (không phải cấp nào cũng đủ 7 phần; Nói, Viết bắt đầu từ A1). Mỗi phần có 3 mục tiêu riêng: <b>📘 Học</b>, <b>🔁 Nhớ</b>, <b>🚪 Thi chuyển cấp</b>.</p>
-    <p><b>Hoàn thành cấp trong app</b> khi mọi phần <b>bắt buộc</b> của cấp đã qua Thi chuyển cấp. 🗣 Nói, ✍️ Viết và 👄 Phát âm do máy chấm (chưa đối chiếu người chấm) nên chỉ để <b>tham khảo</b>: vẫn nên luyện và thi, nhưng không chặn hoàn thành cấp.</p>
+    <p>Mỗi cấp có các phần (Phát âm hiện có Pre-A1 → A2). Mỗi phần có 3 mục tiêu riêng: <b>📘 Học</b>, <b>🔁 Nhớ</b>, <b>🚪 Thi chuyển cấp</b>.</p>
+    <p><b>Hoàn thành cấp trong app</b> khi mọi phần <b>bắt buộc</b> của cấp đã qua Thi chuyển cấp. Bắt buộc: 📚 Từ vựng, 🧱 Ngữ pháp, 📰 Đọc, 🎧 Nghe; ✍️ Viết phần câu (🧩 xếp câu, 🔗 nối câu: máy chấm chắc); 👄 Phát âm phần nghe (máy đã tải bộ chấm âm thì cả phần đọc); 🗣 Nói khi máy chép được lời (mở bằng Safari). Chỉ để <b>tham khảo</b> (vẫn nên luyện, không chặn): bài viết dài (✅ đủ ý, 📝 đúng dạng), từ B1 bài nói một mạch, và 🗣 Nói trên máy không chép được lời.</p>
     <p><b>Hoàn thành trong app chưa phải bằng CEFR.</b> Đề trong app lấy từ kho bài của app. Chữ <b>"đạt A1, A2…"</b> chỉ dùng khi bạn làm <b>📝 đề mẫu chính thức</b> của Cambridge (🎓 Luyện thi → Cambridge) và đúng đủ ngưỡng. Kết quả hiện ở 👤 Của tôi.</p>
     <p>Mỗi phần lên cấp riêng: Ngữ pháp có thể ở B1 khi Từ vựng còn ở A2.</p>
     <p>Cấp sau xem trước và học trước được, không khoá cứng.</p>`],
+  ['cachhoc', '🪜 Cách học từng phần (theo bậc)', () => `
+    <p>Mỗi phần đi từ dễ đến khó theo <b>bậc</b>. Bạn không cần tự chọn bậc: 📅 Hôm nay và ▶ Luyện theo bậc tự chọn. Bước làm quen (ghi "luyện, không tính") không tính 🔁 Nhớ.</p>
+    <p><b>📚 Từ vựng (${VSTAGE.length} bậc)</b>: ${VSTAGE.map(s => s[0]).join(' → ')}. Bài học ngày đầu chỉ hỏi bậc 1 (nghĩa, nghe, chọn đúng chữ). Luyện tập chỉ hỏi bậc trên khi bậc 1 của từ đã vững. Sai câu tự gõ thì làm lại bằng dạng dễ hơn (🧩 xếp chữ cái, chọn từ điền câu), đúng rồi tự gõ lại.</p>
+    <p><b>🧱 Ngữ pháp</b>: ${esc(KIT.np.how)}</p>
+    <p><b>👄 Phát âm</b>: nghe phân biệt cặp âm (ship / sheep) → đọc từ có âm đó (cần bộ chấm âm). Máy chưa tải bộ chấm âm thì chỉ tính phần nghe.</p>
+    <h3 style="margin:10px 0 4px">4 kỹ năng</h3>
+    <p><b>🎧 Nghe</b>: ${esc(KIT.nghe.how)}</p>
+    <p><b>🗣 Nói</b>: ${esc(KIT.noi.how)}</p>
+    <p><b>📰 Đọc</b>: ${esc(KIT.doc.how)}</p>
+    <p><b>✍️ Viết</b>: ${esc(KIT.viet.how)}</p>
+    <p class="mute">Thứ tự bậc theo nghiên cứu dạy ngôn ngữ (Nation: từ vựng; Field: nghe; Graham & Perin: viết). Cách chia cụ thể do Claude đề xuất, người sáng lập duyệt 31/10/2026, chưa đo trên người học thật.</p>`],
   ['hoc', '📘 Học: tính thế nào', () => `
     <p>📘 Học = phần trăm bài của <b>cấp đang học</b> đã học xong. Chỉ tính bài của cấp này, không tính cấp trước.</p>
     <p>Học xong một bài = làm hết lượt học của bài đó. Từ vựng có ⚡ kiểm tra đầu bài: từ nào chọn đúng nghĩa và tự gõ đúng thì được tính đã học luôn, khỏi học lại.</p>
@@ -33,6 +44,7 @@ const HD = [
     <p>🔁 Nhớ của phần = mặt thấp nhất. Cần <b>mỗi mặt</b> ≥ ${GATE_MEM}% mới mở Thi chuyển cấp.</p>
     <p><b>Từ vựng: hiểu và tự dùng.</b> Ai cũng hiểu được nhiều từ hơn số từ tự dùng được. Vì vậy các mặt tự tạo ra (💭 nghĩa → nhớ ra từ, ✍️ chính tả, 🧩 tự điền từ vào câu) chỉ đòi ở từ cấp ≤ ${LVN[VPROD_MAX]} (≈ 1.900 từ thông dụng nhất). Từ B1 trở lên chỉ cần hiểu, cộng các yêu cầu chiều sâu của cấp (cụm từ, dạng từ, đồng nghĩa: giống bài thi thật). Câu gõ trong Thi Từ vựng cũng chỉ hỏi từ thông dụng.</p>
     <p><b>🗣 Nói ra từ</b> do máy nghe chấm: chỉ để tham khảo, không chặn thi.</p>
+    <p><b>📰 Đọc, 🎧 Nghe: đo trên bài mới.</b> 💡 Ý chính và 🔍 chi tiết chỉ tính khi làm bài chưa gặp, hoặc gặp lần cuối ≥ ${K_FRESH_D} ngày trước (làm lại bài vừa gặp là nhớ đáp án, không phải kỹ năng). Mặt này = tỉ lệ câu đúng ở các lần làm mới (tính cả cấp trước), không giảm theo ngày. ✍️ Chép lại vẫn tính khi ôn bài cũ.</p>
     <p><b>Dồn cấp</b>: 🔁 Nhớ tính cả các cấp trước (Nhớ A1 = A1 + Pre-A1). Từ B1, Từ vựng tính cấp này + 1 cấp liền trước + 100 từ mẫu cấp cũ hơn (đổi mỗi tuần).</p>
     <p>Lịch ôn nhắc bài sớm hơn một chút (khi khả năng nhớ xuống khoảng 90%) để bạn ôn trước khi quên.</p>`],
   ['thi', '🚪 Thi chuyển cấp', () => `
@@ -69,7 +81,7 @@ const HD = [
     <p>Luyện thi không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp.</p>`],
   ['tin', '🤖 Độ tin cậy', () => `
     <p>Pre-A1 → A2 dựa trên danh sách Cambridge / Oxford. <b>B1 → C2, IELTS, TOEIC, mẹo, lỗi hay gặp</b> do AI soạn, <b>chưa giáo viên kiểm</b>.</p>
-    <p>Máy chấm Nói / Viết đo gián tiếp (độ dài, từ đúng cấp, từ nối…), chưa đối chiếu người chấm thật; Phát âm do bộ chấm âm trên máy chấm. Nên Nói / Viết / Phát âm chỉ để tham khảo, không chặn hoàn thành cấp. 🧑‍🏫 AI chấm sát hơn nhưng vẫn là ước lượng.</p>
+    <p>Máy chấm chắc khi có đáp án biết trước: xếp câu, nối câu, nghe phân biệt, câu nói / đọc to so với câu mẫu (máy chép lời). Máy chấm gián tiếp (chưa đối chiếu người chấm thật): bài viết dài, bài nói một mạch (độ dài, ý, từ nối), điểm âm của bộ chấm âm. Phần chấm gián tiếp chỉ để tham khảo; 🧑‍🏫 AI chấm sát hơn nhưng vẫn là ước lượng.</p>
     <p>Thấy câu sai: bấm 💬 → <b>⚑ Câu sai</b>. Thước đo đáng tin nhất là điểm thi thật.</p>`],
   ['dulieu', '💾 Dữ liệu và tài khoản', () => `
     <p>Tiến độ lưu trên máy và trên máy chủ, tự đồng bộ. Không cần đăng ký: ô 👤 tài khoản ở đầu 💾 Dữ liệu cho biết máy này dùng tài khoản riêng hay tài khoản chung.</p>
