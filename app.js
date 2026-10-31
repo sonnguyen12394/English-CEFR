@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 97;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 98;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -664,7 +664,8 @@ checkVer();
 (async () => {
   fetch('a/index.json?v=7').then(r => r.json()).then(k => { CLIPS = new Set(k); }).catch(() => {});
   fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(k => { NCLIPS = new Set(k); }).catch(() => {});
-  try { for (const f of ['a1.json?v=12', 'a2.json?v=6', 'b.json?v=1']) { const d = await (await fetch(f)).json(); UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
+  // v98: 3 tệp tải song song (trước tải lần lượt: cộng dồn 3 lần chờ mạng trước khi hiện màn đầu); thứ tự ghép giữ nguyên
+  try { const ds = await Promise.all(['a1.json?v=12', 'a2.json?v=6', 'b.json?v=1'].map(async f => (await fetch(f)).json())); for (const d of ds) { UNITS.push(...d.units); READS.push(...(d.reads || [])); } }
   catch (e) { $app.innerHTML = '<p>Không tải được dữ liệu từ (a1.json).</p>'; return; }
   for (const u of UNITS) { UBY[u.id] = u; for (const w of u.words) { w.u = u.id; WBY[w.id] = w; WORDS.push(w); } }
   // dữ liệu cho 12 yêu cầu Nhớ (tools/build-vx.mjs): dạng bất quy tắc, đồng / trái nghĩa, nghĩa thứ hai
