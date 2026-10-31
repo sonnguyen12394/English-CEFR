@@ -646,6 +646,28 @@ const R = await run(`(async () => {
       localStorage.setItem(NK, '1'); if (paParts('pre').gk.join() !== 'pb,doc') bad.push('có bộ chấm mà không tính phần đọc'); localStorage.removeItem(NK); });
     tryv('luat', () => { const h = HD.find(x => x[0] === 'cachhoc'); const t = h ? h[2]() : ''; for (const k of ['Từ vựng', 'Ngữ pháp', 'Phát âm', 'Nghe', 'Nói', 'Đọc', 'Viết', '4 kỹ năng']) if (!t.includes(k)) bad.push('Luật thiếu cách học: ' + k); });
     add('cefr', 'C20', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Viết bậc 1–2 bắt buộc (xếp câu, 120 câu nối), viết / nói lại lần 2, Nói theo máy chép lời + Pre-A1, Phát âm theo bộ chấm âm, Luật có cách học 7 phần'); }
+  // v102 📖🗣 Đọc to 4 bậc (mặt mới của Đọc, đo theo lần đọc gần nhất, chỉ chặn cổng khi máy chép được lời), 👄 nghe đuôi từ / trọng âm, ✍️ đoạn có khung, 🗣 trả lời ngắn có khung
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now();
+    tryv('docto', () => { const P = KIT.doc, x = kItems(P, 'a1').find(z => kWords(z.text).length > 50) || kItems(P, 'a1')[0];
+      if (P.dims.find(d => d[0] === 'to') == null || !kDimsOf(P, x).includes('to')) bad.push('Đọc thiếu mặt Đọc to');
+      if (kParts(P, 'pre').gk.includes('to') !== !!SREC) bad.push('Đọc to chặn cổng sai theo máy chép lời');
+      kSt('doc').cards[x.id] = { S: 1, last: now - 2 * DAY, d0: dayOf(now) - 2, ok: 1, pv: 0, n: 0, lapse: 0 };
+      const qs = docTo(x), ch = qs.filter(q => q.k === 'to'); if (!ch.length || ch.some(q => kWords(q.head.replace(/<[^>]*>/g, ' ')).length > 60)) bad.push('chia đoạn đọc to sai');
+      if (!qs.some(q => q.k === 'toe')) bad.push('A1 lần đầu thiếu Đ1 nghe rồi nhắc lại');
+      const t0 = ch[0].head.replace(/<[^>]*>|Đ[23] · đoạn \\d+\\/\\d+/g, ' ').replace(/&[a-z#0-9]+;/g, "'").trim(); ch[0].t0 = now; ch[0].t1 = now + 30000;
+      const r = ch[0].check(t0); if (!r.ok || !/từ đúng \\/ phút/.test(r.html)) bad.push('chấm đọc to / tốc độ hỏng');
+      if (ch[0].check('hello').ok) bad.push('đọc sai vẫn đạt');
+      const by = kGrade(P, [...qs.map(q => ({ x, k: q.k, ok: true, q }))]); const c = kSt('doc').cards[x.id];
+      if (!c.dm.to || !c.dm.to.fq || by.some(b => b[1] === 'to' && b[2] == null)) bad.push('đọc lại bài vừa gặp không tính Đọc to');
+      if (c.dm.toe) bad.push('Đ1 bị chấm'); });
+    tryv('pa', () => { const F = paFinQs(), T = paStressQs(); if (F.length < 6 || F.some(q => !q.opts.includes(q.a) || !q.play)) bad.push('nghe đuôi từ hỏng: ' + F.length);
+      if (T.length < 5 || T.some(q => !q.opts.includes(q.a) || q.opts.length < 2)) bad.push('nghe trọng âm hỏng: ' + T.length);
+      const w = WORDS.find(z => z.w === 'banana'); if (w && tdSyl(w.ipa).s !== 2) bad.push('trọng âm banana sai'); });
+    tryv('khung', () => { const V = vKhung(); if (!V || V.qs[0].k !== 'khung' || !/Khung đoạn văn/.test(V.qs[0].head)) bad.push('đoạn có khung hỏng');
+      const x = V.qs[0].x; if (!V.qs[0].check(kModel(x)).html) bad.push('chấm đoạn có khung hỏng');
+      const N = noiKhung(); if (!N || !N.qs.length || N.qs.some(q => q.kind !== 'speak' || q.k !== 'khung')) bad.push('nói ngắn có khung hỏng');
+      if (kGrade(KIT.viet, V.qs.map(q => ({ x: q.x, k: q.k, ok: true }))).length || kGrade(KIT.noi, N.qs.map(q => ({ x: q.x, k: q.k, ok: true }))).length) bad.push('câu khung bị chấm'); });
+    add('cefr', 'C21', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '📖🗣 Đọc to (Đ1 → Đ4, tốc độ, đọc lại vẫn tính, chặn cổng theo máy chép lời), 👂 nghe đuôi từ, 🎵 trọng âm, đoạn văn / trả lời ngắn có khung'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

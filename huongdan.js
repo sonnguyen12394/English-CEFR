@@ -27,7 +27,7 @@ const HD = [
     <p>Mỗi phần đi từ dễ đến khó theo <b>bậc</b>. Bạn không cần tự chọn bậc: 📅 Hôm nay và ▶ Luyện theo bậc tự chọn. Bước làm quen (ghi "luyện, không tính") không tính 🔁 Nhớ.</p>
     <p><b>📚 Từ vựng (${VSTAGE.length} bậc)</b>: ${VSTAGE.map(s => s[0]).join(' → ')}. Bài học ngày đầu chỉ hỏi bậc 1 (nghĩa, nghe, chọn đúng chữ). Luyện tập chỉ hỏi bậc trên khi bậc 1 của từ đã vững. Sai câu tự gõ thì làm lại bằng dạng dễ hơn (🧩 xếp chữ cái, chọn từ điền câu), đúng rồi tự gõ lại.</p>
     <p><b>🧱 Ngữ pháp</b>: ${esc(KIT.np.how)}</p>
-    <p><b>👄 Phát âm</b>: nghe phân biệt cặp âm (ship / sheep) → đọc từ có âm đó (cần bộ chấm âm). Máy chưa tải bộ chấm âm thì chỉ tính phần nghe.</p>
+    <p><b>👄 Phát âm</b>: nghe phân biệt cặp âm (ship / sheep) → đọc từ có âm đó (cần bộ chấm âm). Máy chưa tải bộ chấm âm thì chỉ tính phần nghe. Luyện thêm (không tính): 👂 nghe đuôi từ (-s, -ed, phụ âm cuối người Việt hay nuốt), 🎵 nghe trọng âm.</p>
     <h3 style="margin:10px 0 4px">4 kỹ năng</h3>
     <p><b>🎧 Nghe</b>: ${esc(KIT.nghe.how)}</p>
     <p><b>🗣 Nói</b>: ${esc(KIT.noi.how)}</p>
@@ -44,7 +44,7 @@ const HD = [
     <p>🔁 Nhớ của phần = mặt thấp nhất. Cần <b>mỗi mặt</b> ≥ ${GATE_MEM}% mới mở Thi chuyển cấp.</p>
     <p><b>Từ vựng: hiểu và tự dùng.</b> Ai cũng hiểu được nhiều từ hơn số từ tự dùng được. Vì vậy các mặt tự tạo ra (💭 nghĩa → nhớ ra từ, ✍️ chính tả, 🧩 tự điền từ vào câu) chỉ đòi ở từ cấp ≤ ${LVN[VPROD_MAX]} (≈ 1.900 từ thông dụng nhất). Từ B1 trở lên chỉ cần hiểu, cộng các yêu cầu chiều sâu của cấp (cụm từ, dạng từ, đồng nghĩa: giống bài thi thật). Câu gõ trong Thi Từ vựng cũng chỉ hỏi từ thông dụng.</p>
     <p><b>🗣 Nói ra từ</b> do máy nghe chấm: chỉ để tham khảo, không chặn thi.</p>
-    <p><b>📰 Đọc, 🎧 Nghe: đo trên bài mới.</b> 💡 Ý chính và 🔍 chi tiết chỉ tính khi làm bài chưa gặp, hoặc gặp lần cuối ≥ ${K_FRESH_D} ngày trước (làm lại bài vừa gặp là nhớ đáp án, không phải kỹ năng). Mặt này = tỉ lệ câu đúng ở các lần làm mới (tính cả cấp trước), không giảm theo ngày. ✍️ Chép lại vẫn tính khi ôn bài cũ.</p>
+    <p><b>📰 Đọc, 🎧 Nghe: đo trên bài mới.</b> 💡 Ý chính và 🔍 chi tiết chỉ tính khi làm bài chưa gặp, hoặc gặp lần cuối ≥ ${K_FRESH_D} ngày trước (làm lại bài vừa gặp là nhớ đáp án, không phải kỹ năng). Mặt này = tỉ lệ câu đúng ở các lần làm mới (tính cả cấp trước), không giảm theo ngày. ✍️ Chép lại vẫn tính khi ôn bài cũ. <b>📖🗣 Đọc to</b> = tỉ lệ đoạn đọc to đạt (máy chép ra ≥ ${Math.round(K_TO * 100)}% từ) ở lần đọc gần nhất của mỗi bài: đọc lại vẫn tính; chỉ tính khi máy chép được lời.</p>
     <p><b>Dồn cấp</b>: 🔁 Nhớ tính cả các cấp trước (Nhớ A1 = A1 + Pre-A1). Từ B1, Từ vựng tính cấp này + 1 cấp liền trước + 100 từ mẫu cấp cũ hơn (đổi mỗi tuần).</p>
     <p>Lịch ôn nhắc bài sớm hơn một chút (khi khả năng nhớ xuống khoảng 90%) để bạn ôn trước khi quên.</p>`],
   ['thi', '🚪 Thi chuyển cấp', () => `

@@ -11,7 +11,8 @@ const KIT = {}, K_RETRY = 7;
 const K_FRESH_D = 30;
 const kSeen = c => c ? (c.seen || c.last || 0) : 0;
 const kIsFresh = (P, x, now = Date.now()) => { const c = kSt(P.id).cards[x.id]; return !c || now - kSeen(c) >= K_FRESH_D * DAY; };
-const kFreshK = (P, k) => !!(P.fresh && P.fresh.includes(k));
+const kFreshK = (P, k) => !!(P.fresh && P.fresh.includes(k)) || !!(P.skill && P.skill.includes(k));   // v102: P.skill (📖🗣 Đọc to) đo như bài mới nhưng đọc lại vẫn tính
+const kNeedFresh = (P, k) => !!(P.fresh && P.fresh.includes(k));
 const kHeld = (P, c, k, now) => kFreshK(P, k) ? !!(c && c.dm && c.dm[k] && c.dm[k].pv && c.dm[k].ok) : heldDim(c, k, now);
 const kSt = id => { const k = (S.k = S.k || {}); return (k[id] = k[id] || { cards: {}, runs: [] }); };
 const kNorm = s => String(s).toLowerCase().replace(/[‘’`]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().replace(/[.!?,;:]+$/g, '').trim();
@@ -146,15 +147,15 @@ function kGrade(P, res) { const g = new Map(), now = Date.now(), dk = new Set(P.
   for (const r of res) if (r.k === 'tap' && r.ok) { const c = st[r.x.id]; if (c) c.tp = 1; }
   res = res.filter(r => dk.has(r.k));
   // bài mới (P.fresh): xét TRƯỚC khi ghi lần gặp này; bài chưa có thẻ thì lần làm này là 📘 Học
-  const fr = new Set(res.filter(r => kFreshK(P, r.k) && kIsFresh(P, r.x, now)).map(r => r.x.id));
+  const fr = new Set(res.filter(r => kNeedFresh(P, r.k) && kIsFresh(P, r.x, now)).map(r => r.x.id));
   for (const r of res) if (!st[r.x.id]) st[r.x.id] = { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0 };
   for (const r of res) { const key = r.x.id + '|' + r.k, o = g.get(key) || { x: r.x, k: r.k, ok: 0, n: 0 }; o.n++; if (r.ok) o.ok++; g.set(key, o); }
   const out = []; for (const o of g.values()) {
-    if (kFreshK(P, o.k)) { if (!fr.has(o.x.id)) { out.push([o.x, o.k, null]); continue; }   // bài vừa gặp: luyện, không tính
+    if (kFreshK(P, o.k)) { if (kNeedFresh(P, o.k) && !fr.has(o.x.id)) { out.push([o.x, o.k, null]); continue; }   // bài vừa gặp: luyện, không tính
       const c = st[o.x.id], d = (c.dm = c.dm || {})[o.k] = c.dm[o.k] || {}, ok = o.ok >= Math.ceil(o.n * P.pass - 1e-9);
       Object.assign(d, { ok: ok ? 1 : 0, pv: 1, n: (d.n || 0) + 1, f: now, fq: [o.ok, o.n] }); out.push([o.x, o.k, ok]); continue; }
     const ok = o.ok >= Math.ceil(o.n * 0.8); grade({ cards: st }, o.x.id, ok, now, P.id + '_' + o.k); out.push([o.x, o.k, ok]); }
-  if (P.fresh) for (const id of new Set(res.map(r => r.x.id))) st[id].seen = now;
+  if (P.fresh) for (const id of new Set(res.filter(r => kNeedFresh(P, r.k)).map(r => r.x.id))) st[id].seen = now;
   save(); return out; }
 
 // ---------- 🚪 Thi chuyển cấp ----------
@@ -182,7 +183,7 @@ function kExam(P, lv) { if (P.needAsr && !SREC) return toast('Phần này cần 
 // check có thể trả ks = { mặt: đúng / sai } để một câu chấm nhiều mặt (bài viết: ✅ Đủ ý + 📝 Đúng dạng bài).
 // q.play = { key, lines | text }: bài nghe khi luyện / thi chỉ nghe tối đa 2 lần mỗi bài (như Cambridge); lần đầu tự phát. Bài giảng nghe không giới hạn.
 const K_PLAYS = 2;
-function kQuiz({ P, title, qs, quiet, done }) { let i = 0; const res = []; let said = null; const plays = {};
+function kQuiz({ P, title, qs, quiet, done, back }) { let i = 0; const res = []; let said = null; const plays = {};
   const push = (q, r) => { if (r.ks) for (const [k, ok] of Object.entries(r.ks)) res.push({ x: q.x, k, ok, q }); else res.push({ x: q.x, k: q.k, ok: r.ok, q }); };
   let tk = null;
   const show = () => { kAsrStop(); clearInterval(tk); if (i >= qs.length) { K_RATE = 1; return done(res); }
@@ -209,12 +210,12 @@ function kQuiz({ P, title, qs, quiet, done }) { let i = 0; const res = []; let s
     if (f) { if (q.kind === 'write') t.oninput = () => { document.getElementById('kwc').textContent = kWords(t.value).length + ' từ'; };
       f.onsubmit = e => { e.preventDefault(); if (!t.value.trim()) return t.focus(); t.disabled = true; f.querySelector('button').remove();
         fin(q.check ? q.check(t.value) : (() => { const ok = q.acc.some(a => kNorm(a) === kNorm(t.value)); return { ok, html: ok ? '' : `Đáp án: <b>${esc(q.acc[0])}</b>.${q.why ? ' ' + esc(q.why) : ''}` }; })()); }; }
-    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (quiet && !confirm('Bỏ bài thi? Lần này không tính.')) return; kAsrStop(); clearInterval(tk); K_RATE = 1; return kView(P.id); }
+    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (quiet && !confirm('Bỏ bài thi? Lần này không tính.')) return; kAsrStop(); clearInterval(tk); K_RATE = 1; return back ? back() : kView(P.id); }
       if (e.target.closest('[data-a="go"]')) { i++; return show(); }
       const pb = e.target.closest('[data-kplay]'); if (pb) { if (left() > 0) { plays[pk]++; kPlay(q.play); } pb.textContent = pbtn(); pb.disabled = left() <= 0; return; }
       if (e.target.closest('[data-ks="rec"]') && !ans) { const b = e.target.closest('[data-ks="rec"]');
-        if (K_ASR.on) { b.disabled = true; b.textContent = '⏳ Đang chấm…'; return kAsrStop(txt => fin(q.check(txt))); }
-        b.textContent = '⏹ Dừng'; return kAsrStart(txt => { const h = document.getElementById('kheard'); if (h) h.textContent = txt || '…'; }); }
+        if (K_ASR.on) { q.t1 = Date.now(); b.disabled = true; b.textContent = '⏳ Đang chấm…'; return kAsrStop(txt => fin(q.check(txt))); }
+        q.t0 = Date.now(); b.textContent = '⏹ Dừng'; return kAsrStart(txt => { const h = document.getElementById('kheard'); if (h) h.textContent = txt || '…'; }); }
       // 🧩 xếp từ thành câu: chạm thẻ theo thứ tự, ⌫ bỏ thẻ cuối
       const tb = e.target.closest('[data-kt]'); if (tb && q.kind === 'order' && !ans) { const O = (q.ord = q.ord || []);
         if (tb.dataset.kt === '-1') { const j = O.pop(); const b = j != null && $app.querySelector(`[data-kt="${j}"]`); if (b) b.disabled = false; } else { O.push(+tb.dataset.kt); tb.disabled = true; }

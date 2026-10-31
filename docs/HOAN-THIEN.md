@@ -311,3 +311,4 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Viết: 2 bậc câu bắt buộc (máy chấm chắc), 120 câu nối (Claude soạn, nhiều đáp án được chấp nhận; câu viết khác đúng nghĩa vẫn có thể bị chấm sai: báo ⚑ Câu sai).
 - Nói / Phát âm: bắt buộc theo thiết bị (máy chép được lời; đã tải bộ chấm âm). Chưa làm: chấm 2 lớp cho câu, mặt Đọc to, hiệu chuẩn micro, 20 lỗi phát âm người Việt, Phát âm B1+.
 - Đo: test C18–C20; chưa kiểm trên iPhone.
+- v102: thêm 📖🗣 Đọc to (lớp 1: máy chép lời ≥ 90% từ mỗi đoạn; tốc độ chỉ tham khảo, mốc ước đoán), 👂 nghe đuôi từ / 🎵 trọng âm, đoạn văn / trả lời ngắn có khung. Còn thiếu: lớp 2 điểm âm, hiệu chuẩn micro, 20 lỗi phát âm người Việt, Phát âm B1+, câu suy luận bài luyện, đổi giọng theo cấp. Test C21.

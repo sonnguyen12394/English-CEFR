@@ -139,10 +139,28 @@ function paMenu() { window.CUR = { view: 'pa-luyen' }; const lv = paLevel(), p =
   $app.innerHTML = `${backRow('🏋️ Luyện phát âm')}<h1>🏋️ Luyện phát âm</h1><p class="mute">👂 ${p.dq.pb}% · 👄 ${p.dq.doc}% (cấp ${LVN[lv]}). Máy chọn bộ đến hạn hoặc còn thiếu mặt.</p>
     <button class="opt ${p.dq.pb <= p.dq.doc ? 'pri' : ''}" data-pm="pb"><b>👂 Luyện phân biệt (12 câu)</b><br><span style="font-size:14px;opacity:.85">Nghe một từ, chọn đúng từ trong cặp. 4 bộ × 3 câu.</span></button>
     <button class="opt ${p.dq.doc < p.dq.pb ? 'pri' : ''}" data-pm="doc"><b>👄 Luyện đọc đúng (8 từ)</b><br><span style="font-size:14px;opacity:.85">Đọc từ, bộ chấm âm ≥ ${PA_OK[lv]}. 4 bộ × 2 từ. ${NO.vocab ? '' : 'Cần tải bộ chấm âm.'}</span></button>
+    <button class="opt" data-pm="fin"><b>👂 Nghe đuôi từ (8 câu)</b><br><span style="font-size:14px;opacity:.85">-s, -ed, phụ âm cuối người Việt hay nuốt (bed / bet) · luyện, không tính</span></button>
+    <button class="opt" data-pm="tra"><b>🎵 Nghe trọng âm (8 từ)</b><br><span style="font-size:14px;opacity:.85">Nghe từ nhiều âm tiết, chọn âm tiết được nhấn · luyện, không tính</span></button>
     ${nModelBox()}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return paView(); if (e.target.closest('[data-n="load"]')) return nLoad(), paMenu();
-    const b = e.target.closest('[data-pm]'); if (b) paRun(b.dataset.pm); };
+    const b = e.target.closest('[data-pm]'); if (b) return ['fin', 'tra'].includes(b.dataset.pm) ? paDrill(b.dataset.pm) : paRun(b.dataset.pm); };
   window.scrollTo(0, 0); }
+// v102 bậc nghe thêm của Phát âm (luyện, không tính 🔁 Nhớ): 👂 đuôi từ (-s / -es, -ed; phụ âm cuối) và 🎵 trọng âm (tự lấy từ phiên âm, tdSyl)
+const PA_FIN = [['bed', 'bet'], ['back', 'bag'], ['cap', 'cab'], ['rice', 'rise'], ['peace', 'peas'], ['half', 'have'], ['life', 'live'], ['send', 'sent'], ['card', 'cart'], ['wide', 'white'], ['dock', 'dog'], ['leaf', 'leave'], ['price', 'prize'], ['code', 'coat'], ['bus', 'buzz']];
+const paWords = () => { const L = WORDS.filter(w => S.cards[w.id]); return L.length >= 20 ? L : levelWords(curLevel()); };
+function paFinQs() { const out = [], mk = (id, head, opts, a) => ({ x: { id }, k: 'fin', kind: 'mc', head, q: '🔊 Bạn nghe thấy từ nào?', opts: shuf(opts), a, play: { key: id, text: a, max: 3 } });
+  for (const w of shuf(paWords().filter(w => /verb/.test(w.pos || '') && !w.irr && /^[a-z]{3,}$/.test(w.w) && !/[ey]$/.test(w.w))).slice(0, 4)) { const b = w.w, f = [b, b + (/(s|sh|ch|x|z)$/.test(b) ? 'es' : 's'), b + 'ed'];
+    out.push(mk('fin:' + b, '<p class="mute">👂 Đuôi -s / -ed: chú ý âm cuối.</p>', f, one(f))); }
+  for (const p of shuf(PA_FIN).slice(0, 4)) out.push(mk('fin:' + p.join('-'), '<p class="mute">👂 Phụ âm cuối: hai từ chỉ khác âm cuối.</p>', p, one(p)));
+  return shuf(out); }
+function paStressQs() { const pat = (n, s) => [...Array(n)].map((_, k) => k + 1 === s ? '●' : '○').join(' ');
+  return shuf(paWords().filter(w => !/\s/.test(w.w) && w.ipa)).map(w => [w, tdSyl(w.ipa)]).filter(([, r]) => r && r.n >= 2 && r.n <= 4).slice(0, 8)
+    .map(([w, r]) => ({ x: { id: 'tra:' + w.id }, k: 'tra', kind: 'mc', head: '<p class="mute">🎵 Âm tiết được nhấn đọc mạnh, dài, cao hơn. ● = âm tiết nhấn.</p>', q: `🔊 <b>${esc(w.w)}</b> <span class="mute">(${r.n} âm tiết)</span>`,
+      opts: [...Array(r.n)].map((_, k) => pat(r.n, k + 1)), a: pat(r.n, r.s), play: { key: 'tra:' + w.id, text: w.w, max: 3 }, why: `${w.w} ${w.ipa}: nhấn âm tiết ${r.s}.` })); }
+function paDrill(m) { const qs = m === 'fin' ? paFinQs() : paStressQs(); if (!qs.length) return toast('Chưa có từ để luyện.');
+  kQuiz({ P: { id: 'pa', t: 'Phát âm', ic: '👄', dims: [] }, title: m === 'fin' ? '👂 Nghe đuôi từ' : '🎵 Nghe trọng âm', qs, back: paMenu, done: res => { const ok = res.filter(r => r.ok).length;
+    $app.innerHTML = `<div class="box"><b>Xong lượt</b><p>Đúng ${ok}/${res.length}. Luyện thêm, không tính 🔁 Nhớ.</p></div><button class="pri" data-a="again">Luyện tiếp</button><button data-a="home">Về 🏋️ Luyện phát âm</button>`;
+    $app.onclick = e => { if (e.target.closest('[data-a="again"]')) paDrill(m); if (e.target.closest('[data-a="home"]')) paMenu(); }; } }); }
 function paRun(m) { if (!PA.some(x => paSt()[x.id])) return toast('Học 1 bộ âm trước.');
     if (m === 'pb') { const T = paTargets('pb', 4); paQuiz({ title: '👂 Phân biệt', items: shuf(T.flatMap(x => paPick(x, 'pairs', 3))), done: res => {
       const by = paGrade(res, 'pa_pb'), ok = res.filter(r => r.ok).length, q = paParts(paLevel());
