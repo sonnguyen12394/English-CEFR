@@ -323,7 +323,7 @@ const R = await run(`(async () => {
     user = { id: 'chung', email: AUTO.email }; tryv('dữ liệu chung', () => backup()); if (!String($app.innerHTML).includes('data-bk="split"')) bad.push('tài khoản chung thiếu nút tách máy');
     if (!/data-g="admin"/.test(gyHomeInner())) bad.push('tài khoản chung mất Quản lý góp ý'); user = u0;
     if (gaKind('sai') !== '⚑ Câu sai') bad.push('thiếu loại góp ý ⚑ Câu sai');
-    const s0 = ovStat('tv', 'pre'); if (!s0 || s0.nl !== levelWords('pre').length || !(s0.nm > 0)) bad.push('còn thiếu sai: ' + JSON.stringify(s0 && [s0.nl, s0.nm]));
+    const s0 = ovStat('tv', 'pre'); if (!s0 || s0.nl !== Math.ceil(levelWords('pre').length * GATE_LEARN / 100) || !(s0.nm > 0)) bad.push('còn thiếu sai: ' + JSON.stringify(s0 && [s0.nl, s0.nm]));
     if (!ovNeedLine(s0, true).includes('bài chưa học')) bad.push('thẻ phần thiếu dòng còn thiếu');
     await overview('pre'); const h = String($app.innerHTML), nb = (h.match(/<button/g) || []).length, nt = h.replace(/<[^>]+>/g, ' ').replace(/\\s+/g, ' ').length;
     if (nb > 20 || nt > 2000) bad.push('Tổng quan người mới còn nặng: ' + nb + ' nút, ' + nt + ' chữ');
@@ -471,12 +471,40 @@ const R = await run(`(async () => {
     HD_Q = ''; tryv('mở', () => hdView()); const h = String(document.getElementById('hdl').innerHTML), nsec = (h.match(/data-hd="/g) || []).length;
     if (!H().includes('id="bk"') || !H().includes('← Của tôi') || nsec !== HD.length || nsec < 12) bad.push('màn luật sai: ' + nsec + ' mục');
     const all = HD.map(x => x[2]()).join(' ');
-    for (const [n, v] of [['GATE_MEM', GATE_MEM + '%'], ['MEM_R', Math.round(MEM_R * 100) + '%'], ['MAP_ACT', MAP_ACT + ' chỗ'], ['MAP_PARK_D', MAP_PARK_D + ' ngày'], ['VC_WAIT', 'sau ' + VC_WAIT + ' ngày'], ['K_RETRY', K_RETRY + ' ngày sau thi lại'], ['ACT_DAY_MIN', ACT_DAY_MIN + ' phút'], ['VW_DAYS', VW_DAYS.join(' → ')], ['viết', Math.round(KIT.viet.pass * 100) + '%']]) if (!all.includes(v)) bad.push('chữ thiếu số ' + n + ' = ' + v);
+    for (const [n, v] of [['GATE_MEM', GATE_MEM + '%'], ['MEM_R', Math.round(MEM_R * 100) + '%'], ['MAP_ACT', MAP_ACT + ' chỗ'], ['MAP_PARK_D', MAP_PARK_D + ' ngày'], ['VC_WAIT', 'sau ' + VC_WAIT + ' ngày'], ['K_RETRY', K_RETRY + ' ngày sau thi lại'], ['ACT_DAY_MIN', ACT_DAY_MIN + ' phút'], ['VW_DAYS', VW_DAYS.join(' → ')], ['viết', Math.round(KIT.viet.pass * 100) + '%'], ['GATE_LEARN', 'Học ' + GATE_LEARN + '%'], ['GATE_HOLD_D', 'Giữ mở ' + GATE_HOLD_D + ' ngày'], ['đọc', 'Đọc ' + Math.round(KIT.doc.pass * 100) + '%']]) if (!all.includes(v)) bad.push('chữ thiếu số ' + n + ' = ' + v);
     if (/undefined|NaN/.test(all)) bad.push('chữ có undefined / NaN');
     HD_Q = 'nhớ giảm'; tryv('tìm', () => hdList()); const hq = String(document.getElementById('hdl').innerHTML); if (!hq.includes('Vì sao 🔁 Nhớ giảm') || (hq.match(/data-hd="/g) || []).length >= HD.length) bad.push('tìm "nhớ giảm" sai');
     HD_Q = 'nho giam'; tryv('tìm không dấu', () => hdList()); if (!String(document.getElementById('hdl').innerHTML).includes('Vì sao 🔁 Nhớ giảm')) bad.push('tìm không dấu sai');
     HD_Q = '';
     add('cefr', 'C14', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Luật và cách dùng: ' + nsec + ' mục ở Của tôi, số khớp hằng số trong mã, tìm có / không dấu đều đúng'); }
+  // v97 luật đo mới (người sáng lập duyệt 31/10/2026): 📘 Học 90%; 🔁 Nhớ Từ vựng: mặt tự tạo ra chỉ ở từ ≤ A2+, 🗣 Nói ra từ tham khảo; cổng giữ mở 7 ngày;
+  // đề Từ vựng B1+: câu gõ chỉ hỏi từ ≤ A2+; Nói / Viết không chặn hoàn thành cấp; ngưỡng 2 bậc; "hoàn thành trong app" tách khỏi "đạt" (đề mẫu chính thức)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now(), D = 864e5, H = () => String($app.innerHTML);
+    if (GATE_LEARN !== 90 || GATE_MEM !== 80 || GATE_HOLD_D !== 7) bad.push('hằng số cổng');
+    const g = (lq, mq, t) => gateOpen({ lq, mq }, 'x|a1', t);
+    if (!g(90, 80, now) || g(89, 95, now)) bad.push('cổng Học 90% sai');
+    if (!g(95, 60, now + 6 * D) || g(95, 60, now + 8 * D) || g(50, 60, now + D)) bad.push('giữ mở 7 ngày sai');
+    // Từ vựng: mặt tự tạo ra theo cấp của từ; 🗣 Nói ra từ không tính cổng
+    const wa = WORDS.find(w => wLv(w) === 'a1' && w.cloze), wb = WORDS.find(w => wLv(w) === 'b1' && w.cloze), PR = ['nhora', 'viet', 'dung'];
+    if (!PR.every(k => wDims(wa, 'b1').includes(k)) || PR.some(k => wDims(wb, 'b1').includes(k)) || !wDims(wb, 'b1').includes('nghia')) bad.push('mặt tự tạo ra theo cấp từ sai');
+    S = blank(); for (const w of levelWords('pre')) S.cards[w.id] = { S: 200, last: now, d0: dayOf(now) - 5, ok: 1, pv: 1, n: 3, lapse: 0, dm: Object.fromEntries(wDims(w, 'pre').filter(k => k !== 'noi').map(k => [k, { ok: 1, pv: 1, n: 2 }])) };
+    const p = parts(S, now, 'pre'); if (p.gk.includes('noi') || p.dq.noi !== 0 || p.mq < GATE_MEM || !gateOpen(p, 'tv|pre', now) || !held(S.cards[levelWords('pre')[0].id], now, levelWords('pre')[0], 'pre')) bad.push('🗣 Nói ra từ vẫn chặn cổng: mq ' + p.mq);
+    // đề Từ vựng: B2 câu gõ chỉ hỏi từ ≤ A2+; A1 giữ đủ câu gõ
+    let bT = 0; for (let r = 0; r < 20; r++) for (const it of xAssign(XL.b2.MIX, [...shuf(levelWords('b2')).slice(0, 28), ...shuf(cumWords('b1p')).slice(0, 12)])) if (it.type === 'xT' && lvIdx(wLv(it.w)) > lvIdx(VPROD_MAX)) bT++;
+    if (bT) bad.push('câu gõ hỏi từ B1+: ' + bT);
+    const a1q = xAssign(XL.a1.MIX, shuf(levelWords('a1')).slice(0, 40)); if (a1q.length !== 40 || a1q.filter(x => x.type === 'xT').length < 18) bad.push('đề A1 đổi số câu gõ');
+    // hoàn thành cấp: Nói / Viết tham khảo
+    if (!ovRef('noi') || !ovRef('viet') || ovRef('np') || ovReq('a1').some(([id]) => ovRef(id)) || !OV.some(([id]) => id === 'noi' && ovIn(id, 'a1'))) bad.push('phần bắt buộc sai');
+    S = blank(); for (const lv of ['pre', 'a1']) for (const [id] of ovReq(lv)) { const r = { lv, at: now, ok: 10, n: 10, pass: true }; if (id === 'tv') xs().runs.push(r); else if (id === 'pa') paRuns().push(r); else kSt(id).runs.push(r); }
+    if (!ovDone('a1') || ovStage() !== 'a2') bad.push('Nói / Viết chưa qua vẫn chặn hoàn thành A1: ' + ovStage());
+    // ngưỡng 2 bậc
+    if (KIT.np.pass !== 0.85 || PA_PASS !== 0.85 || KIT.doc.pass !== 0.75 || KIT.nghe.pass !== 0.75 || KIT.noi.pass !== 0.7 || KIT.viet.pass !== 0.7) bad.push('ngưỡng 2 bậc sai');
+    // tên: "hoàn thành trong app"; "đạt" chỉ cho đề mẫu chính thức
+    await overview('a1'); if (!H().includes('Hoàn thành A1 trong app') || /Đạt A1 khi|đã đạt \\d|✅ đã đạt/.test(H())) bad.push('Tổng quan còn chữ đạt cấp');
+    await minhView(); if (!H().includes('hoàn thành trong app: Pre-A1, A1') || !H().includes('Đạt bằng đề mẫu chính thức') || /Đạt bằng đề mẫu chính thức: <b>/.test(H())) bad.push('Của tôi chưa tách hoàn thành / đạt');
+    realRuns('a1').push({ at: now, l: 25, L: 25, rw: 40, RW: 40 }); await minhView(); if (!/Đạt bằng đề mẫu chính thức: <b>A1/.test(H())) bad.push('đạt bằng đề mẫu chính thức chưa hiện');
+    const P = KIT.np; tryv('màn Ngữ pháp', () => kView('np')); if (/Đã đạt|Chưa đạt/.test(H())) bad.push('màn phần còn chữ đạt');
+    add('cefr', 'C15', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'luật mới: Học 90%, giữ mở 7 ngày, mặt tự tạo ra chỉ từ ≤ A2+, 🗣 tham khảo, câu gõ B1+ hỏi từ thông dụng, Nói / Viết không chặn, ngưỡng 2 bậc, hoàn thành ≠ đạt đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

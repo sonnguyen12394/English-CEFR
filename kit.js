@@ -38,7 +38,7 @@ function kView(id) { const P = KIT[id];
   if (!P.items) { $app.innerHTML = `<div id="part" data-p="${id}"></div><p class="mute">Đang tải ${P.t}…</p>`; return kLoad(P).then(() => kView(id)).catch(() => { $app.innerHTML = `<div id="part" data-p="${id}"></div><p>Không tải được ${P.t}. Thử lại sau.</p>`; }); }
   BACK = () => kView(id); window.CUR = { view: 'phan-' + id };
   const now = Date.now(), lv = kLv(P), p = kParts(P, lv, now), st = kSt(id), L = kItems(P, lv), nx = L.find(x => !st.cards[x.id]);
-  const open = p.lq >= GATE_LEARN && p.mq >= GATE_MEM, run = st.runs.filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, K_RETRY - (dayOf(now) - dayOf(run.at))) : 0;
+  const open = gateOpen(p, id + '|' + lv, now), run = st.runs.filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, K_RETRY - (dayOf(now) - dayOf(run.at))) : 0;
   const view = P.view && P.lvs.includes(P.view) ? P.view : lv;
   $app.innerHTML = `<div id="part" data-p="${id}"></div>${ovBack}<h1>${P.ic} ${P.t}</h1>
     <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} ${P.unit} mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm}` : ''}). ${P.intro}</p>
@@ -54,9 +54,9 @@ function kView(id) { const P = KIT[id];
       <button class="big2 ${p.due ? 'pri' : ''}" data-k="menu" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 bài trước' : p.due ? `${p.due} bài cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
     <div class="box"><b>🚪 Thi chuyển cấp ${P.t} ${LVN[lv]}</b>
-      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. ${P.examTxt} Đạt khi đúng ≥ ${Math.round(P.pass * 100)}%.</p>
-      ${kPassed(P, lv) ? `<p>✅ Đã đạt ${P.t} ${LVN[lv]}.</p>` : wait ? `<p class="mute">Lần trước chưa đạt (${run.ok}/${run.n}). Thi lại sau ${wait} ngày; trong lúc chờ, luyện tiếp.</p>`
-        : `<button class="${open ? 'pri' : ''}" data-k="exam" ${open ? '' : 'disabled'}>${open ? '🚪 Vào thi' : `🔒 Còn thiếu: ${p.lq < GATE_LEARN ? `học ${p.T - p.learn} bài` : ''}${p.lq < GATE_LEARN && p.mq < GATE_MEM ? ' · ' : ''}${p.mq < GATE_MEM ? `Nhớ ${p.mq}% / ${GATE_MEM}%` : ''}`}</button>`}</div>
+      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. ${P.examTxt} Qua khi đúng ≥ ${Math.round(P.pass * 100)}%.${P.ref ? ' Máy chấm gián tiếp nên phần này chỉ để tham khảo: không chặn hoàn thành cấp. Muốn chắc: 🧑‍🏫 AI chấm hoặc nhờ giáo viên.' : ''}</p>
+      ${gateHoldTxt(p, open && !kPassed(P, lv))}${kPassed(P, lv) ? `<p>✅ Đã qua Thi chuyển cấp ${P.t} ${LVN[lv]} (trong app).</p>` : wait ? `<p class="mute">Lần trước chưa qua (${run.ok}/${run.n}). Thi lại sau ${wait} ngày; trong lúc chờ, luyện tiếp.</p>`
+        : `<button class="${open ? 'pri' : ''}" data-k="exam" ${open ? '' : 'disabled'}>${open ? '🚪 Vào thi' : `🔒 Còn thiếu: ${p.lq < GATE_LEARN ? `học ${learnNeed(p)} bài` : ''}${p.lq < GATE_LEARN && p.mq < GATE_MEM ? ' · ' : ''}${p.mq < GATE_MEM ? `Nhớ ${p.mq}% / ${GATE_MEM}%` : ''}`}</button>`}</div>
     <h2>Lộ trình</h2>
     <div class="chips">${P.lvs.map(l => `<button class="chip ${l === view ? 'on' : ''}" data-klv="${l}">${kPassed(P, l) ? '✅ ' : kLocked(P, l) ? '🔒 ' : ''}${LVN[l]} · ${kItems(P, l).length}</button>`).join('')}</div>
     <div id="klist">${kList(P, view, nx, now)}</div>`;
@@ -121,7 +121,7 @@ function kExam(P, lv) { if (P.needAsr && !SREC) return toast('Phần này cần 
     const ok = res.filter(r => r.ok).length, n = res.length, need = Math.ceil(n * P.pass), pass = ok >= need;
     kSt(P.id).runs.push({ lv, at: Date.now(), ok, n, pass }); save();
     const by = {}; for (const r of res) { const o = by[r.k] = by[r.k] || [0, 0]; o[1]++; if (r.ok) o[0]++; }
-    $app.innerHTML = `<div class="box"><b>${pass ? `✅ Đạt ${P.t} ${LVN[lv]}` : '❌ Chưa đạt'}</b><p>Đúng ${ok}/${n} (cần ${need}). ${P.dims.filter(([k]) => by[k]).map(([k, l]) => `${l} ${by[k][0]}/${by[k][1]}`).join(' · ')}</p>
+    $app.innerHTML = `<div class="box"><b>${pass ? `✅ Qua Thi chuyển cấp ${P.t} ${LVN[lv]}` : '❌ Chưa qua'}</b><p>Đúng ${ok}/${n} (cần ${need}). ${P.dims.filter(([k]) => by[k]).map(([k, l]) => `${l} ${by[k][0]}/${by[k][1]}`).join(' · ')}</p>
       <p class="mute">${pass ? (lv !== P.lvs[P.lvs.length - 1] ? `Đã mở ${P.t} ${LVN[P.lvs[P.lvs.indexOf(lv) + 1]]}.` : '') : `Luyện tiếp; ${K_RETRY} ngày sau thi lại.`} Máy chấm, chưa người thật kiểm.</p></div>
       <button class="pri" data-a="home">Về ${P.ic} ${P.t}</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) kView(P.id); }; } }); }

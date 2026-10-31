@@ -28,7 +28,8 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
   if (!(PA && Object.values(KIT).every(P => P.items))) { $app.innerHTML = '<div id="bk"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); } catch (e) {} }
   const now = Date.now(), t = dayOf(now), stage = ovStage(), mins = [...Array(7)].reduce((s, _, i) => s + actMin(t - i), 0);
   const nW = Object.keys(S.cards || {}).length, nK = Object.values(S.k || {}).reduce((s, k) => s + Object.keys(k.cards || {}).length, 0);
-  const passedLv = OV_LV.filter(l => { const has = OV.filter(([id]) => ovIn(id, l)); return has.length && has.every(([id]) => ovPassed(id, l)); });
+  // v97: "hoàn thành trong app" (phần bắt buộc qua thi) tách khỏi "đạt" (đề mẫu chính thức của Cambridge, realOk)
+  const passedLv = OV_LV.filter(ovDone), realLv = typeof realOk === 'function' ? OV_LV.filter(l => (S.real && S.real[l] || []).some(realOk)) : [];
   const f = typeof mapFocus === 'function' && (nW || nK) ? mapFocus(now) : null, vn = typeof vwSt === 'function' ? vwSt().length : 0, vd = typeof vwDue === 'function' ? vwDue(now).length : 0;
   // kết quả đề thật: IELTS (nhập theo từng câu / tổng), TOEIC, Cambridge (đề mẫu chính thức)
   const ie = S.ie || {}, th = (ie.th || []).slice(-3).reverse(), ioff = (ie.off || []).filter(r => !r.name).slice(-2).reverse(), toff = ((S.to || {}).off || []).slice(-2).reverse();
@@ -38,7 +39,8 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
     ...toff.map(r => `💼 TOEIC đề thật: L ${r.L} · R ${r.R}`), ...cb.map(([l, r]) => `🎓 ${esc((RN[l] || {}).name || LVN[l])}: Nghe ${r.l}/${r.L} · Đọc / Viết ${r.rw}/${r.RW}`)];
   $app.innerHTML = `<div id="bk"></div><h1>👤 Của tôi</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${typeof hdView === 'function' ? '<button data-hdv>📘 Luật và cách dùng: học thế nào, tính điểm ra sao</button>' : ''}
-    <div class="box"><b>📈 Tiến độ</b><p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${passedLv.length ? ` · đã đạt: ${passedLv.map(l => LVN[l]).join(', ')}` : ''}</p>
+    <div class="box"><b>📈 Tiến độ</b><p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${passedLv.length ? ` · hoàn thành trong app: ${passedLv.map(l => LVN[l]).join(', ')}` : ''}</p>
+      <p style="margin:0 0 6px">🎓 Đạt bằng đề mẫu chính thức: ${realLv.length ? `<b>${realLv.map(l => LVN[l]).join(', ')}</b>` : '<span class="mute">chưa có (làm ở 🎓 Luyện thi → Cambridge)</span>'}</p>
       <p class="mute" style="margin:0">📚 ${nW} từ đã học · 🧩 ${nK} bài kỹ năng · ⏱ hôm nay ${actMin(t)} / ${actGoal()} phút · 7 ngày ${mins} phút · 🔥 ${actStreak(now)} ngày liền</p></div>
     <div class="box"><div class="row"><b>🗺 Bản đồ chỗ yếu</b><span class="mute">${f ? `🎯 ${f.act.length} · ⏳ ${f.queue.length} · ✅ ${f.done}` : 'chưa có dữ liệu'}</span></div>
       <p class="mute" style="margin:6px 0">Gom mọi lần làm sai / quên thành chỗ cần chữa, mỗi lần tối đa 15 chỗ.</p><button data-mapv="ct">🗺 Mở bản đồ</button></div>

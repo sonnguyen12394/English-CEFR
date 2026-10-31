@@ -33,7 +33,7 @@ function paView() {
   BACK = paView; window.CUR = { view: 'phat-am' };
   if (!NO.vocab && !NO.loading && nHas()) nLoad();   // đã tải lần trước: nạp lại từ bộ nhớ máy (chỉ khi vào Phát âm, đỡ tốn bộ nhớ)
   const now = Date.now(), lv = paLevel(), p = paParts(lv, now), st = paSt(), L = PA.filter(x => x.lv === lv), nx = L.find(x => !st[x.id]);
-  const open = p.lq >= GATE_LEARN && p.mq >= GATE_MEM, run = paRuns().filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, 7 - (dayOf(now) - dayOf(run.at))) : 0;
+  const open = gateOpen(p, 'pa|' + lv, now), run = paRuns().filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, 7 - (dayOf(now) - dayOf(run.at))) : 0;
   $app.innerHTML = `<div id="part" data-p="pa"></div>${ovBack}<h1>👄 Phát âm</h1>
     <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} bộ cặp âm mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} bộ` : ''}). Mỗi bộ: một cặp âm người Việt hay nhầm, kèm cách đặt miệng.</p>
     <div class="box">
@@ -47,9 +47,9 @@ function paView() {
       <button class="big2 ${p.due ? 'pri' : ''}" data-pa="menu" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 bộ trước' : p.due ? `${p.due} bộ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div>
     <div class="box"><b>🚪 Thi chuyển cấp Phát âm ${LVN[lv]}</b>
-      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. Mỗi bộ: 2 câu nghe + 1 từ đọc, toàn cặp chưa gặp. Đạt khi đúng ≥ ${PA_PASS * 100}%. Cần bộ chấm âm.</p>
-      ${paPassed(lv) ? `<p>✅ Đã đạt Phát âm ${LVN[lv]}.</p>` : wait ? `<p class="mute">Lần trước chưa đạt (${run.ok}/${run.n}). Thi lại sau ${wait} ngày; trong lúc chờ, luyện tiếp.</p>`
-        : `<button class="${open ? 'pri' : ''}" data-pa="exam" ${open ? '' : 'disabled'}>${open ? '🚪 Vào thi' : `🔒 Còn thiếu: ${p.lq < GATE_LEARN ? `học ${p.T - p.learn} bộ` : ''}${p.lq < GATE_LEARN && p.mq < GATE_MEM ? ' · ' : ''}${p.mq < GATE_MEM ? `Nhớ ${p.mq}% / ${GATE_MEM}%` : ''}`}</button>`}</div>
+      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. Mỗi bộ: 2 câu nghe + 1 từ đọc, toàn cặp chưa gặp. Qua khi đúng ≥ ${Math.round(PA_PASS * 100)}%. Cần bộ chấm âm.</p>
+      ${gateHoldTxt(p, open && !paPassed(lv))}${paPassed(lv) ? `<p>✅ Đã qua Thi chuyển cấp Phát âm ${LVN[lv]} (trong app).</p>` : wait ? `<p class="mute">Lần trước chưa qua (${run.ok}/${run.n}). Thi lại sau ${wait} ngày; trong lúc chờ, luyện tiếp.</p>`
+        : `<button class="${open ? 'pri' : ''}" data-pa="exam" ${open ? '' : 'disabled'}>${open ? '🚪 Vào thi' : `🔒 Còn thiếu: ${p.lq < GATE_LEARN ? `học ${learnNeed(p)} bộ` : ''}${p.lq < GATE_LEARN && p.mq < GATE_MEM ? ' · ' : ''}${p.mq < GATE_MEM ? `Nhớ ${p.mq}% / ${GATE_MEM}%` : ''}`}</button>`}</div>
     <h2>Lộ trình</h2>
     <div class="chips">${PA_LV.map(l => `<button class="chip ${l === (PA_VIEW || lv) ? 'on' : ''}" data-palv="${l}">${paPassed(l) ? '✅ ' : paLocked(l) ? '🔒 ' : ''}${LVN[l]} · ${PA.filter(x => x.lv === l).length} bộ</button>`).join('')}</div>
     <div id="palist">${paList(PA_VIEW || lv, nx, now)}</div>
@@ -159,7 +159,7 @@ function paExam(lv) { if (!NO.vocab) { toast('Thi cần bộ chấm âm: tải b
       onGrade: (w, ok) => r2.push(ok), onEnd: () => {
         const ok = r1.filter(r => r.ok).length + r2.filter(Boolean).length, n = r1.length + list.length, pass = ok >= Math.ceil(n * PA_PASS);
         paRuns().push({ lv, at: Date.now(), ok, n, pass, nghe: r1.filter(r => r.ok).length + '/' + r1.length, doc: r2.filter(Boolean).length + '/' + list.length }); save();
-        $app.innerHTML = `<div class="box"><b>${pass ? `✅ Đạt Phát âm ${LVN[lv]}` : '❌ Chưa đạt'}</b><p>Đúng ${ok}/${n} (cần ${Math.ceil(n * PA_PASS)}). Nghe ${r1.filter(r => r.ok).length}/${r1.length} · Đọc ${r2.filter(Boolean).length}/${list.length}.</p>
+        $app.innerHTML = `<div class="box"><b>${pass ? `✅ Qua Thi chuyển cấp Phát âm ${LVN[lv]}` : '❌ Chưa qua'}</b><p>Đúng ${ok}/${n} (cần ${Math.ceil(n * PA_PASS)}). Nghe ${r1.filter(r => r.ok).length}/${r1.length} · Đọc ${r2.filter(Boolean).length}/${list.length}.</p>
           <p class="mute">${pass ? (lv !== PA_LV[PA_LV.length - 1] ? `Đã mở Phát âm ${LVN[PA_LV[PA_LV.indexOf(lv) + 1]]}.` : '') : 'Luyện tiếp; 7 ngày sau thi lại.'} Điểm do máy chấm, chưa người thật kiểm.</p></div>
           <button class="pri" data-a="home">Về 👄 Phát âm</button>`;
         $app.onclick = e => { if (e.target.closest('[data-a="home"]')) paView(); }; } };

@@ -43,11 +43,11 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
     <button data-bk="paste">📥 Dán JSON để khôi phục</button>
     <button data-bk="edit">✏️ Xem và sửa JSON</button>
     <h2>🎚 Đặt tiến độ (học lại hoặc thử)</h2>
-    <p class="mute">Chọn phần, cấp và mức. Cấp trước cấp đã chọn: ghi là đã đạt. Cấp đã chọn: đặt đúng mức. Cấp sau: xoá sạch.
+    <p class="mute">Chọn phần, cấp và mức. Cấp trước cấp đã chọn: ghi là đã qua thi. Cấp đã chọn: đặt đúng mức. Cấp sau: xoá sạch.
       Học lại từ đầu = Tất cả 7 phần · Pre-A1 · 🗑 Chưa học. Máy chụp lại dữ liệu trước khi đặt (khôi phục được ở dưới).</p>
     <div class="sels"><label>Phần<select id="fkp"><option value="all">Tất cả 7 phần</option>${BK_PARTS.map(([id, l]) => `<option value="${id}">${l} (${bkCount(id)})</option>`).join('')}</select></label>
       <label>Cấp<select id="fkl">${BK_LV.map(l => `<option value="${l}">${LVN[l]}</option>`).join('')}</select></label>
-      <label>Mức<select id="fks"><option value="chua">🗑 Chưa học (xoá để học lại)</option><option value="hoc">📘 Học xong (chưa nhớ)</option><option value="nho">🔁 Nhớ đủ (thi mở)</option><option value="dat">✅ Đạt thi (mở cấp sau)</option></select></label></div>
+      <label>Mức<select id="fks"><option value="chua">🗑 Chưa học (xoá để học lại)</option><option value="hoc">📘 Học xong (chưa nhớ)</option><option value="nho">🔁 Nhớ đủ (thi mở)</option><option value="dat">✅ Qua thi (mở cấp sau)</option></select></label></div>
     <button data-bk="set">🎚 Đặt tiến độ</button>
     <h2>Bản chụp tự động (${sn.length}/${BK_N})</h2>
     ${sn.length ? sn.map((s, i) => `<div class="row urow"><span>${bkDate(s.at)} · ${esc(s.why)} <span class="mute">${bkKB(s.data)}</span></span><span><button class="link" data-bkres="${i}">Khôi phục</button> · <button class="link" data-bkdl="${i}">Tải</button></span></div>`).join('')
@@ -115,7 +115,7 @@ async function bkSet(part, lv, stage) { await Promise.all([paLoad(), ...Object.v
     BK_LV.forEach((l, j) => { if (j < i) any |= put(id, l, 'dat'); else if (j === i) any |= put(id, l, stage); else clear(id, l); });
     if (any) done.push(id); }
   if (stage !== 'chua') S.fake = true; S.t = now; save(); return done; }
-async function bkSetGo(part, lv, stage) { const pn = part === 'all' ? 'tất cả 7 phần' : BK_PARTS.find(p => p[0] === part)[1], sn = { chua: 'Chưa học', hoc: 'Học xong', nho: 'Nhớ đủ', dat: 'Đạt thi' }[stage];
+async function bkSetGo(part, lv, stage) { const pn = part === 'all' ? 'tất cả 7 phần' : BK_PARTS.find(p => p[0] === part)[1], sn = { chua: 'Chưa học', hoc: 'Học xong', nho: 'Nhớ đủ', dat: 'Qua thi' }[stage];
   const ask = `Đặt tiến độ: ${pn} · ${LVN[lv]} · ${sn}. Cấp sau ${LVN[lv]} của phần này bị xoá. Dữ liệu hiện tại được chụp lại trước (khôi phục được).`;
   if (stage === 'chua') { if ((prompt(ask + '\nGõ XOA để xác nhận.') || '').trim().toUpperCase() !== 'XOA') return; } else if (!confirm(ask)) return;
   bkSnap(`trước khi đặt ${pn} · ${LVN[lv]} · ${sn}`); const done = await bkSet(part, lv, stage);

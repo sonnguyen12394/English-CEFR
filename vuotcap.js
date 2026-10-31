@@ -39,12 +39,12 @@ function vcStart(id, lv) { if (vcBlock(id)) return toast('Chưa thi được: ' 
   if (id === 'tv') return exam(lv); if (id === 'pa') return paExam(lv); return kExam(KIT[id], lv); }
 async function vcView(lv) { window.CUR = { view: 'thi-vuot', item: lv }; $app.innerHTML = '<p class="mute">Đang tải…</p>'; await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]);
   const rows = OV.map(([id, ic, t]) => { const L = vcLvOf(id, lv); if (!L) return ''; const done = ovPassed(id, L), w = vcWait(id, L), bl = vcBlock(id), last = vcLast(id, L);
-    return `<div class="box"><div class="row"><b>${ic} ${t} · ${LVN[L]}</b><span class="${done ? 'okc' : 'mute'}">${done ? '✅ đã đạt' : last ? (last.pass ? '✅ qua' : '❌ lần trước chưa qua') : ''}</span></div>
+    return `<div class="box"><div class="row"><b>${ic} ${t} · ${LVN[L]}</b><span class="${done ? 'okc' : 'mute'}">${done ? '✅ đã qua' : last ? (last.pass ? '✅ qua' : '❌ lần trước chưa qua') : ''}</span></div>
       ${done ? '' : bl ? `<p class="mute" style="margin:6px 0 0">Chưa thi được: ${bl}.</p>` : w ? `<p class="mute" style="margin:6px 0 0">Thi vượt lại sau ${w} ngày (chống đoán mò). Trong lúc chờ: học bài ${LVN[L]} như thường.</p>`
         : `<button class="pri" data-vc="${id}|${L}" style="margin-top:6px">🚀 Thi ${t} ${LVN[L]}</button>`}</div>`; }).join('');
   $app.innerHTML = `${backRow('🚀 Thi vượt cấp')}<h1>🚀 Thi vượt lên ${LVN[lv]}</h1>
-    <div class="box"><p style="margin:0">Thi thẳng Thi chuyển cấp ${LVN[lv]} của từng phần, không cần học hết các cấp dưới. <b>Đề như thi thường</b> (có ~30% câu cấp trước), cần đạt như thi thường.</p>
-      <p class="mute" style="margin:6px 0 0">Qua phần nào → phần đó đạt mọi cấp ≤ ${LVN[lv]}; bài chưa học của các cấp đó được tính đã học, sẽ quay lại ôn dần trong 1–5 tháng. Trượt → không đổi gì, thi vượt lại sau ${VC_WAIT} ngày. Mỗi phần thi riêng; phần nào chưa vượt thì học như thường.</p></div>
+    <div class="box"><p style="margin:0">Thi thẳng Thi chuyển cấp ${LVN[lv]} của từng phần, không cần học hết các cấp dưới. <b>Đề như thi thường</b> (có ~30% câu cấp trước), cần qua như thi thường.</p>
+      <p class="mute" style="margin:6px 0 0">Qua phần nào → phần đó hoàn thành mọi cấp ≤ ${LVN[lv]} (trong app); bài chưa học của các cấp đó được tính đã học, sẽ quay lại ôn dần trong 1–5 tháng. Trượt → không đổi gì, thi vượt lại sau ${VC_WAIT} ngày. Mỗi phần thi riêng; phần nào chưa vượt thì học như thường.</p></div>
     ${rows}<p class="mute">Gợi ý: làm 🧭 Kiểm tra xếp cấp trước để chọn cấp vượt hợp lý. Vượt quá sức sẽ trượt và phải chờ ${VC_WAIT} ngày.</p>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return overview(lv); const b = e.target.closest('[data-vc]'); if (!b) return; const [id, L] = b.dataset.vc.split('|'); scrollTo(0, 0); vcStart(id, L); }; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-vcv]'); if (b && S) { scrollTo(0, 0); vcView(b.dataset.vcv); } });

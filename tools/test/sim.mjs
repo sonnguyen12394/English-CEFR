@@ -14,7 +14,7 @@ console.log(await run(`(async () => { user = { id: 'sim' }; await Promise.all([p
         const pri = w => { const c = S.cards[w.id], st = wstat(S, w, t); return st === 'quen' ? recall(c, t) : st === 'hoc' && today - c.d0 >= MEM_DAYS ? 1 : st === 'hoc' ? 3 : 2 + recall(c, t); };
         for (const w of memWords(lv, t).filter(w => S.cards[w.id]).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND)) { const c = S.cards[w.id], ty = typeFor(c, t, w); grade(S, w.id, Math.random() < (BASE[ty] || .8) * (0.55 + 0.45 * recall(c, t)), t, ty); q++; } }
       { const t = now + 5 * 36e5; for (const w of memWords(lv, t).filter(w => S.cards[w.id]).sort((a, b) => (heldDim(S.cards[a.id], 'noi', t) - heldDim(S.cards[b.id], 'noi', t)) || recall(S.cards[a.id], t) - recall(S.cards[b.id], t)).slice(0, noiN)) { grade(S, w.id, Math.random() < .8 * (0.55 + 0.45 * recall(S.cards[w.id], t)), t, 'noi'); q++; } }
-      const p = parts(S, now + 20 * 36e5, lv); if (p.lq >= 100 && p.mq >= 80) return { days: d + 1, min: Math.round(q / (d + 1) * SEC / 60) }; }
+      const p = parts(S, now + 20 * 36e5, lv); if (p.lq >= GATE_LEARN && p.mq >= GATE_MEM) return { days: d + 1, min: Math.round(q / (d + 1) * SEC / 60) }; }
     return { days: '>800', min: 0 }; }
   const [U, R, N] = (CFG || '1,2,15').split(',').map(Number);
   for (const [lv, prev] of [['pre', null], ['a1', 'pre'], ['a2', 'a1'], ['a2p', 'a2'], ['b1', 'a2p'], ['b1p', 'b1'], ['b2', 'b1p'], ['b2p', 'b2'], ['c1', 'b2p'], ['c2', 'c1']].filter(x => !LVS || LVS.includes(x[0]))) {

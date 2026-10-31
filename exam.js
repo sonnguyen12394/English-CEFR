@@ -79,18 +79,25 @@ const xPassed = lv => runsOf(lv).some(x => x.pass);
 const xPassAt = lv => { const r = runsOf(lv).filter(x => x.pass && !x.re); return r.length ? r[0].at : null; };
 const xDurable = (lv = 'a1') => runsOf(lv).some(x => x.pass && x.re);
 const fmtD = t => new Date(t).toLocaleDateString('vi-VN');
+// gán dạng câu cho các từ của một vòng: dạng cần dữ liệu riêng xếp trước, mỗi dạng lấy từ có dữ liệu đó; hết từ phù hợp thì thành câu gõ (xT).
+// v97: câu gõ (✍️ / 💭 / 🧩 tự tạo ra) chỉ hỏi từ cấp ≤ A2+ (VPROD_MAX); không còn từ như vậy thì hỏi nghĩa (xN). Pre-A1 → A2+ không đổi.
+function xAssign(mix, ws) { const com = w => lvIdx(wLv(w)) <= lvIdx(VPROD_MAX), rk = t => X_Q[t] ? 0 : t === 'xT' ? 1 : 2;
+  const ty = shuf(mix).sort((a, b) => rk(a) - rk(b)), rest = shuf(ws);
+  return shuf(ty.map(t => { let i = X_Q[t] ? rest.findIndex(X_Q[t][1]) : -1; if (X_Q[t] && i < 0) t = 'xT';
+    if (t === 'xT') { i = rest.findIndex(com); if (i < 0) { t = 'xN'; i = 0; } } else if (i < 0) { i = rest.findIndex(w => !com(w)); if (i < 0) i = 0; }
+    return { w: rest.splice(i, 1)[0], type: t }; })); }
 function examState(p, lv) {
   const C = XL[lv], name = LVN[lv], now = Date.now();
   const prev = LEVELS[LEVELS.indexOf(lv) - 1];
   if (prev && !xPassed(prev)) return { k: 'khoa', h: `🚪 Thi chuyển cấp ${name}`, p: `Mở sau khi qua Thi chuyển cấp ${LVN[prev]} và học đủ bài ${name}.`, btn: '🔒 Chưa mở', on: false };
   if (lv === 'pre' && xPassed('pre')) return { k: 'xong', h: '✅ Đã qua Thi chuyển cấp Pre-A1', p: 'Đã mở bài A1.', btn: 'Làm lại (không đổi kết quả)', on: true };
-  if (C.retest && xDurable(lv)) return { k: 'ben', h: `✅ Đạt bền từ vựng ${name}`, p: 'Đã qua 2 lần cách nhau ≥ 14 ngày, câu mới mỗi lần.', btn: 'Làm lại (không đổi kết quả)', on: true };
+  if (C.retest && xDurable(lv)) return { k: 'ben', h: `✅ Nhớ bền từ vựng ${name}`, p: `Đã qua 2 lần cách nhau ≥ ${X.RETEST_D} ngày, câu mới mỗi lần.`, btn: 'Làm lại (không đổi kết quả)', on: true };
   const at = C.retest ? xPassAt(lv) : null;
   if (at) { const lastRe = runsOf(lv).filter(x => x.re).slice(-1)[0], due = at + X.RETEST_D * DAY, wait = lastRe && !lastRe.pass ? lastRe.at + X.RETRY_D * DAY : 0, t = Math.max(due, wait);
-    return now >= t ? { k: 're', h: `🔁 Thi lại để xác nhận đạt bền ${name}`, p: 'Bài mới, từ khác. Qua lần này mới ghi "Đạt bền".', btn: 'Vào thi lại', on: true, re: true }
+    return now >= t ? { k: 're', h: `🔁 Thi lại để xác nhận nhớ bền ${name}`, p: 'Bài mới, từ khác. Qua lần này mới ghi "Nhớ bền".', btn: 'Vào thi lại', on: true, re: true }
       : { k: 'cho', h: `✅ Đã qua Thi chuyển cấp ${name} lần 1`, p: `Thi lại xác nhận mở từ ${fmtD(t)}. Cứ luyện tập đều.`, btn: `🔒 Mở ngày ${fmtD(t)}`, on: false }; }
-  const dp = DUR_PREV[lv], needDur = !!dp && !xDurable(dp), open = gateOpen(p) && !needDur;
-  return { k: open ? 'mo' : 'khoa', h: `🚪 Thi chuyển cấp ${name}`, p: open ? `Đã mở. Tối đa 2 vòng × ${C.N} câu mới chưa gặp khi luyện; gõ không có gợi ý chữ.` : `Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt Nhớ ≥ ${GATE_MEM}% (Học: ${p.T} từ ${name}; Nhớ: ${p.Tm} từ, tính cả cấp trước)${dp ? `, và ${LVN[dp]} đã "Đạt bền"` : ''}.${needDur && gateOpen(p) ? ` Còn thiếu: ${LVN[dp]} "Đạt bền".` : ''}`, btn: open ? 'Vào làm bài' : '🔒 Chưa mở', on: open };
+  const dp = DUR_PREV[lv], needDur = !!dp && !xDurable(dp), g = gateOpen(p, 'tv|' + lv, now), open = g && !needDur;
+  return { k: open ? 'mo' : 'khoa', h: `🚪 Thi chuyển cấp ${name}`, p: open ? `Đã mở. Tối đa 2 vòng × ${C.N} câu mới chưa gặp khi luyện; gõ không có gợi ý chữ.` : `Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt Nhớ ≥ ${GATE_MEM}% (trừ 🗣 Nói ra từ: tham khảo; Học: ${p.T} từ ${name}; Nhớ: ${p.Tm} từ, tính cả cấp trước)${dp ? `, và ${LVN[dp]} đã "Nhớ bền"` : ''}.${needDur && g ? ` Còn thiếu: ${LVN[dp]} "Nhớ bền".` : ''}`, btn: open ? 'Vào làm bài' : '🔒 Chưa mở', on: open };
 }
 function examBox(p, lv) { const s = examState(p, lv);
   return `<div class="box"><b>${s.h}</b><p class="mute">${s.p}</p><button class="${s.on ? 'pri' : ''}" data-a="exam" data-lv="${lv}" ${s.on ? '' : 'disabled'}>${s.btn}</button>
@@ -105,10 +112,7 @@ async function exam(lv) {
   if (pool.length - pool.filter(w => used.has(w.id)).length < 2 * C.N) used.clear();
   const oldPool = C.old ? cumWords(LEVELS[LEVELS.indexOf(lv) - 1]).filter(w => EB[w.id]) : [];   // câu từ mọi cấp trước
   const draw = () => { const ws = [...shuf(pool.filter(w => !used.has(w.id))).slice(0, C.N - (C.old || 0)), ...shuf(oldPool.filter(w => !used.has(w.id))).slice(0, C.old || 0)];
-    ws.forEach(w => used.add(w.id));
-    // dạng cần dữ liệu riêng xếp trước, mỗi dạng lấy từ có dữ liệu đó; hết từ phù hợp thì thành câu gõ (xT)
-    const ty = shuf(C.MIX).sort((a, b) => !!X_Q[b] - !!X_Q[a]), rest = shuf(ws);
-    return shuf(ty.map(t => { let i = X_Q[t] ? rest.findIndex(X_Q[t][1]) : 0; if (i < 0) { t = 'xT'; i = 0; } return { w: rest.splice(i, 1)[0], type: t }; })); };
+    ws.forEach(w => used.add(w.id)); return xAssign(C.MIX, ws); };
   const tally = { ok: 0, n: 0, dim: {}, wrong: [] };
   const round = (no, items, next) => run({ title: `🚪 Thi ${name}${re ? ' (thi lại)' : ''} · vòng ${no}`, items, retry: false, quiet: true,
     first: (it, good, type) => { tally.n++; if (good) tally.ok++; else tally.wrong.push(it.w); for (const k of X_DIM[type] || []) { const d = tally.dim[k] = tally.dim[k] || [0, 0]; d[1]++; if (good) d[0]++; } },
@@ -124,7 +128,7 @@ async function exam(lv) {
     xs().runs.push({ at: Date.now(), lv, n: tally.n, ok: tally.ok, pass, re, dim: tally.dim, ids: [...used] }); save();
     const st = examState(parts(S, Date.now(), lv), lv);
     const next = LVN[LEVELS[LEVELS.indexOf(lv) + 1]];
-    const h = !pass ? '❌ Chưa qua' : lv === 'pre' ? (first ? '✅ Qua Thi chuyển cấp Pre-A1: đã mở bài A1' : '✅ Qua') : re ? `✅ Qua lần thi lại: Đạt bền từ vựng ${name}` : `✅ Qua Thi chuyển cấp ${name} (lần 1)${first && next ? `: đã mở bài ${next}` : ''}`;
+    const h = !pass ? '❌ Chưa qua' : lv === 'pre' ? (first ? '✅ Qua Thi chuyển cấp Pre-A1: đã mở bài A1' : '✅ Qua') : re ? `✅ Qua lần thi lại: Nhớ bền từ vựng ${name}` : `✅ Qua Thi chuyển cấp ${name} (lần 1)${first && next ? `: đã mở bài ${next}` : ''}`;
     $app.innerHTML = `<div class="box"><b>${h}</b>
       <p>Đúng ${tally.ok}/${tally.n}.</p><p class="mute">${dimsAt(lv).map(([k, l]) => tally.dim[k] ? `${l} ${tally.dim[k][0]}/${tally.dim[k][1]}` : '').filter(Boolean).join(' · ')}</p>
  <p class="mute">${pass && C.retest && !re ? st.p : !pass ? 'Luyện tập thêm, nhất là mặt có điểm thấp ở trên, rồi thi lại.' : ''}</p></div>

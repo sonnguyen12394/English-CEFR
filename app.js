@@ -1,6 +1,6 @@
 // Từ vựng A1 (tools/extract-a1.mjs → a1.json). Hai cấp (người sáng lập 23/10/2026: "2 cấp, 2 cổng"): Pre-A1 (từ Cambridge Starters + số đếm) → A1.
 // Mỗi cấp có Thi chuyển cấp riêng; qua Pre-A1 mới mở bài A1. Cổng A1 tính trên TẤT CẢ từ (Pre-A1 + A1).
-// Luật mở Thi chuyển cấp như game (GATE_LEARN / GATE_MEM, v176): 📘 Học 100% · 🔁 Nhớ 80%, trên tập từ của cấp.
+// Luật mở Thi chuyển cấp (GATE_LEARN / GATE_MEM): 📘 Học 90% (v97; trước 100%) · 🔁 Nhớ 80%, trên tập từ của cấp; đã mở thì giữ mở GATE_HOLD_D ngày (gateOpen).
 // 📘 Học = số từ đã học (có thẻ ôn) / tổng từ của cấp.
 // 📚 Từ vựng: 🔁 Nhớ chia 5 mặt (người sáng lập 22/10/2026: "nhớ từ phải chia nhiều mục để đánh giá, không nói nhớ suông"): 📖 Nghĩa · 🎧 Nghe · ✍️ Viết · 🧩 Dùng
 // · 🗣 Nói ra từ (23/10/2026, chỉ máy kiểm: máy chép chữ ra đúng từ, trình duyệt phải chép được, như Safari).
@@ -18,13 +18,15 @@ const AUTO = { email: 'hoc-a1@english-cefr.app', password: 'FK86g0kICNxxSPM_-9-j
 // "Allow anonymous sign-ins" thì lùi về tài khoản chung AUTO như cũ. Máy đang dùng AUTO giữ nguyên (người sáng lập); tách ra được ở 💾 Dữ liệu (acctSplit).
 // RLS: người ẩn danh chỉ đọc / ghi vocab_state của mình và gửi góp ý; bị chặn khỏi soxuong, không đọc / sửa / xoá góp ý (migration chan_an_danh_*).
 const isAnon = () => !!(user && user.is_anonymous), CARRY = 'a1v:carry';
-const GATE_LEARN = 100, GATE_MEM = 80, MEM_DAYS = 1, HOLD_R = 0.9;
+// v97 (31/10/2026, người sáng lập "làm hết đi" sau đánh giá của giáo viên tiếng Anh + khảo thí): 📘 Học 100% → 90% (học thành thạo không cần 100% kho bài);
+// cổng đã mở thì giữ mở 7 ngày (khả năng nhớ dao động theo ngày: cửa vừa mở đã đóng gây nản, đề thi vẫn đo thật).
+const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.9;
 // v76 (28/10/2026, người sáng lập giao tự tính): một mặt tính 🔁 Nhớ khi khả năng nhớ ≥ 80% (MEM_R); lịch ôn vẫn nhắc ở 90% (isDue: t ≥ S).
 // Mô phỏng (tools/test/sim.mjs, ~11 phút / ngày): A1 tới cổng ~313 → ~165 ngày, nhớ sau 30 ngày không ôn ~90% → ~88% (docs/HOAN-THIEN.md).
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 96;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 97;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -36,14 +38,14 @@ let REF = null;   // từ B1–C2 để tra, tải khi mở Từ điển
 async function loadRef() { if (REF) return REF; REF = (await (await fetch('ref.json?v=4')).json()).words; REF = REF.filter(w => !(WBY[w.id] && WBY[w.id].u)); for (const w of REF) WBY[w.id] = w; return REF; }   // từ đã vào khoá (B1 → C2) không lặp
 const LEVELS = ['pre', 'a1', 'a2', 'a2p', 'b1', 'b1p', 'b2', 'b2p', 'c1', 'c2'];   // 27/10/2026: thêm B1 → C2 (b.json, người sáng lập "làm hết tới C2")
 // cấp có bài học, theo thứ tự (A2+ từ 23/10/2026: người sáng lập "mỗi cấp một cổng")
-const DUR_PREV = { a2: 'a1', a2p: 'a2', b1: 'a2p', b1p: 'b1', b2: 'b1p', b2p: 'b2', c1: 'b2p', c2: 'c1' };   // cổng cần cấp trước "Đạt bền"
+const DUR_PREV = { a2: 'a1', a2p: 'a2', b1: 'a2p', b1p: 'b1', b2: 'b1p', b2p: 'b2', c1: 'b2p', c2: 'c1' };   // cổng cần cấp trước "Nhớ bền" (v97: trước gọi "Đạt bền")
 let S = null, user = null, sync = '';
 
 // ---------- lịch ôn (đường quên kiểu FSRS: R = 1 / (1 + t / 9S); R = 0,9 khi t = S) ----------
 const dayOf = ms => Math.floor((ms - new Date(ms).getTimezoneOffset() * 60000) / DAY);
 const recall = (c, now) => c ? 1 / (1 + Math.max(0, now - c.last) / DAY / (9 * c.S)) : 0;
 const isDue = (c, now) => !!c && (now - c.last) / DAY >= c.S;
-const held = (c, now, w, lv = curLevel()) => !!c && wDims(w, lv).every(k => heldDim(c, k, now));   // từ nhớ đủ mọi yêu cầu của cấp
+const held = (c, now, w, lv = curLevel()) => !!c && wDims(w, lv).every(k => VREF.has(k) || heldDim(c, k, now));   // từ nhớ đủ mọi yêu cầu của cấp (trừ mặt tham khảo)
 function learnCards(st, u, now) {
   st.units[u.id] = { d: dayOf(now) };
   for (const w of u.words) if (!st.cards[w.id]) st.cards[w.id] = { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0 };
@@ -68,12 +70,17 @@ const VREQ = [
 const colPart = w => { if (!w.col) return null; const stem = w.w.toLowerCase().split(' ')[0].slice(0, Math.max(3, w.w.length - 2));
   return w.col.ok.split(' ').find(t => !/^(a|an|the|someone|something|sb|sth|your|my|his|her)$/i.test(t) && !t.toLowerCase().startsWith(stem) && /^[a-z'-]+$/i.test(t)) || null; };
 const VREQ_BY = Object.fromEntries(VREQ.map(r => [r[0], r]));
+// v97 (người sáng lập duyệt): người ta hiểu được nhiều từ hơn số từ tự dùng được (Nation). Mặt tự tạo ra cơ bản (💭 nhớ ra từ, ✍️ chính tả, 🧩 tự điền)
+// chỉ đòi ở từ cấp ≤ A2+ (≈ 1.900 từ thông dụng nhất: Cambridge YLE + Oxford A1–A2); từ B1 trở lên chỉ cần hiểu + yêu cầu chiều sâu của cấp
+// (tự dùng cụm, tạo dạng từ, thay từ đồng nghĩa: giống bài thi thật B2 / C1, áp cho ít từ). 🗣 Nói ra từ do máy nghe chấm: tham khảo, không chặn thi (VREF).
+const VPROD = new Set(['nhora', 'viet', 'dung']), VPROD_MAX = 'a2p', VREF = new Set(['noi']);
 const DIMS = VREQ.map(r => [r[0], r[1]]);
 const lvIdx = l => LEVELS.indexOf(l);
 const MEM_SAMPLE = 100, MEM_FULL_FROM = 'b1';   // 🔁 Nhớ từ B1: xem memWords
 const dimsAt = (lv = curLevel()) => VREQ.filter(r => lvIdx(r[2]) <= lvIdx(lv)).map(r => [r[0], r[1]]);
 // yêu cầu chiều sâu từ B1 (cụm, mẫu câu, họ từ, sắc thái, đồng nghĩa, văn phong, tức thì, thành ngữ) chỉ áp cho từ cấp đó trở lên (đề thật hỏi các mặt này trên mẫu câu, không trên mọi từ đã học)
-const wDims = (w, lv = curLevel()) => w ? VREQ.filter(r => lvIdx(r[2]) <= lvIdx(lv) && r[3](w) && (lvIdx(r[2]) < lvIdx(MEM_FULL_FROM) || lvIdx(wLv(w)) >= lvIdx(r[2]))).map(r => r[0]) : [];
+const wDims = (w, lv = curLevel()) => w ? VREQ.filter(r => lvIdx(r[2]) <= lvIdx(lv) && r[3](w) && (lvIdx(r[2]) < lvIdx(MEM_FULL_FROM) || lvIdx(wLv(w)) >= lvIdx(r[2]))
+  && !(VPROD.has(r[0]) && lvIdx(wLv(w)) > lvIdx(VPROD_MAX))).map(r => r[0]) : [];
 const wLv = w => (UBY[w.u] || {}).lv || 'pre';
 // ngày yêu cầu k được dạy cho từ w (null = chưa dạy: cần bài ⬆️ Nâng cấp)
 const taughtDay = (c, w, k) => { const L = VREQ_BY[k] ? VREQ_BY[k][2] : 'pre'; return lvIdx(wLv(w)) >= lvIdx(L) ? c.d0 : (c.du && c.du[L] != null ? c.du[L] : null); };
@@ -108,11 +115,19 @@ function parts(st, now, lv = curLevel()) { const WL = levelWords(lv), WM = memWo
   for (const w of WL) if (st.cards[w.id]) learn++;
   for (const w of WU) if (st.cards[w.id] && !upNeed(w, lv, st.cards[w.id]).length) learn++;
   for (const w of WM) { const c = st.cards[w.id]; if (isDue(c, now)) due++; let all = !!c;
-    for (const k of wDims(w, lv)) { Tk[k]++; if (heldDim(c, k, now)) dim[k]++; else all = false; } if (all) full++; }
-  const T = WL.length + WU.length, dq = Object.fromEntries(ks.map(k => [k, Tk[k] ? Math.floor(dim[k] / Tk[k] * 100) : 100]));
-  return { learn, full, due, T, Tn: WL.length, Tu: WU.length, Tm: WM.length, dim, Tk, dq, lq: Math.floor(learn / (T || 1) * 100), mq: Math.min(...Object.values(dq)) };
+    for (const k of wDims(w, lv)) { Tk[k]++; if (heldDim(c, k, now)) dim[k]++; else if (!VREF.has(k)) all = false; } if (all) full++; }
+  const T = WL.length + WU.length, dq = Object.fromEntries(ks.map(k => [k, Tk[k] ? Math.floor(dim[k] / Tk[k] * 100) : 100])), gk = ks.filter(k => !VREF.has(k));
+  // mq = mặt thấp nhất trong các mặt tính cổng (gk); mặt tham khảo (🗣 Nói ra từ) vẫn hiện % nhưng không chặn
+  return { learn, full, due, T, Tn: WL.length, Tu: WU.length, Tm: WM.length, dim, Tk, dq, gk, lq: Math.floor(learn / (T || 1) * 100), mq: Math.min(...gk.map(k => dq[k])) };
 }
-const gateOpen = p => p.lq >= GATE_LEARN && p.mq >= GATE_MEM;
+// cổng Thi chuyển cấp của mọi phần (key = 'phần|cấp'): 📘 Học ≥ GATE_LEARN và 🔁 Nhớ ≥ GATE_MEM; đã đủ thì giữ mở GATE_HOLD_D ngày dù Nhớ tụt (S.gate ghi lần cuối đủ).
+// Học không tụt khi học bình thường; đặt lại tiến độ (Học tụt) thì đóng ngay.
+function gateOpen(p, key, now = Date.now()) { if (p.lq < GATE_LEARN) return false; const G = S.gate = S.gate || {};
+  if (p.mq >= GATE_MEM) { if (key) G[key] = now; return true; } return !!key && !!G[key] && now - G[key] < GATE_HOLD_D * DAY; }
+// số bài còn phải học để 📘 Học đủ GATE_LEARN%
+const learnNeed = p => Math.max(0, Math.ceil((p.T || 0) * GATE_LEARN / 100 - 1e-9) - (p.learn || 0));
+// dòng báo cổng đang giữ mở dù Nhớ đã tụt
+const gateHoldTxt = (p, open) => open && p.mq < GATE_MEM ? `<p class="mute" style="margin:4px 0">🔓 🔁 Nhớ đang ${p.mq}% (dưới ${GATE_MEM}%) nhưng cổng giữ mở ${GATE_HOLD_D} ngày kể từ lần đủ điều kiện. Ôn bài đến hạn trước khi thi.</p>` : '';
 // Góp ý #3 / #4: dấu của từng từ. chua = chưa học · hoc = đã học, chưa đủ bằng chứng nhớ · nho = tính vào 🔁 Nhớ · quen = lần gần nhất sai hoặc đã tới lúc sắp quên.
 // hoc + nho + quen = 📘 Học; nho = 🔁 Nhớ.
 // nho = đủ 5 mặt
@@ -335,7 +350,7 @@ const VREQ_LV = [['pre', 'Pre-A1'], ['a1', 'A1'], ['a2', 'A2'], ['b1', 'B1'], ['
 function vreqList(p, lv) {
   return `<div class="dlist">${VREQ_LV.map(([L, name]) => { const on = lvIdx(L) <= lvIdx(lv), rs = VREQ.filter(r => r[2] === L);
     return `<div class="dlv ${on ? '' : 'lock'}">${on ? '' : '🔒 '}${L === 'pre' ? name : `${name}: thêm ${rs.length}`}${on ? '' : ` · mở khi lên ${name}`}</div>${rs.map(([k, l]) => on
-      ? `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%${p.Tk[k] !== p.Tm ? ` <small>· ${p.Tk[k]} từ</small>` : ''}</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`
+      ? `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}${VREF.has(k) ? ' <small class="mute">· tham khảo, không chặn thi</small>' : ''}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%${p.Tk[k] !== p.Tm ? ` <small>· ${p.Tk[k]} từ</small>` : ''}</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`
       : rqRow(l, vreqDesc(k), '')).join('')}`; }).join('')}</div>`; }
 // nội dung yêu cầu đã có bài nhưng cấp chưa mở: lấy từ DIM_INFO (tonghop.js) + ví dụ bằng một từ có dữ liệu
 const vreqDesc = k => { const I = DIM_INFO[k], w = shuf(WORDS.filter(VREQ_BY[k][3]))[0]; return I ? `${I.what}${w ? `<br>Ví dụ: ${I.ex(w).filter(Boolean)[0] || ''}` : ''}<br><span class="mute">Học ở: ${esc(I.learn)}.</span>` : ''; };
@@ -352,6 +367,7 @@ function home() {
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ${p.Tu ? ` (gồm ${p.Tu} từ cấp trước cần ⬆️ nâng cấp)` : ''}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= yêu cầu thấp nhất · mỗi yêu cầu cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
+      ${lvIdx(lv) > lvIdx(VPROD_MAX) ? `<p class="mute" style="margin:4px 0">💭 Nhớ ra từ, ✍️ Chính tả, 🧩 Tự điền chỉ tính trên từ cấp ≤ ${LVN[VPROD_MAX]} (≈ 1.900 từ thông dụng nhất); từ ${LVN[lv]} chỉ cần hiểu.</p>` : ''}
       ${vreqList(p, lv)}
       <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả ${dimsAt(lv).length} yêu cầu của ${LVN[lv]} (mỗi yêu cầu chỉ tính trên từ có yêu cầu đó). Bấm vào một yêu cầu để xem bài của nó.</p>
     </div>

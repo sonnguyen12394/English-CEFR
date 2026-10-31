@@ -22,6 +22,8 @@ function kGloss(s) { const seen = new Set(), out = [];
 const kOther = (P, x, f, n) => shuf(P.items.filter(y => y.lv === x.lv && y.id !== x.id && f(y) !== f(x))).slice(0, n).map(f);
 
 // ---------- 🧱 Ngữ pháp ----------
+// v97 (người sáng lập duyệt 31/10/2026): ngưỡng qua thi 2 bậc: kiến thức từng mục (Từ vựng, Ngữ pháp, Phát âm) 85%; kỹ năng tổng hợp Đọc, Nghe 75%,
+// Nói, Viết 70% (gần ngưỡng đạt của đề Cambridge; câu AI soạn chưa kiểm dễ làm trượt oan). ref = Nói, Viết máy chấm gián tiếp: tham khảo, không chặn hoàn thành cấp.
 KIT.np = { id: 'np', ic: '🧱', t: 'Ngữ pháp', file: 'np.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'điểm ngữ pháp', pass: 0.85,
   intro: 'Mỗi điểm: công thức, cách dùng, lỗi người Việt hay mắc.',
   dims: [['nhan', '🔎 Nhận ra', 'Chọn câu / dạng đúng'], ['dien', '✏️ Điền dạng', 'Tự gõ dạng đúng'], ['sua', '🛠 Sửa lỗi', 'Gõ lại câu cho đúng']],
@@ -59,7 +61,7 @@ const kReadLesson = (x, listen) => `<h1>${esc(listen ? x.tvi : x.title)}</h1>
   ${listen ? `<p class="mute">Nghe cả bài (chưa nhìn chữ). Nghe 2–3 lần rồi mới mở bài. Khi luyện / thi chỉ được nghe ${K_PLAYS} lần.</p><button class="pri" data-kdlg="nghe|${x.id}">🔊 Nghe cả bài</button>` : ''}
   <details ${listen ? '' : 'open'}><summary>${listen ? 'Mở chữ bài nghe' : 'Bài đọc'}</summary><div class="box"><p class="tdtap" style="font-size:18px;line-height:1.6;margin:0;white-space:pre-line">${listen ? kScript(x) : esc(x.text)}</p></div></details>
   ${x.vi ? `<button class="link" data-kl="vi">Hiện / ẩn bản dịch</button><div id="kvi" hidden class="box"><p class="mute" style="margin:0;white-space:pre-line">${esc(x.vi)}</p></div>` : ''}`;
-KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bài đọc', pass: 0.8,
+KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bài đọc', pass: 0.75,
   intro: 'Bài kiểu Cambridge: Pre-A1 bài ngắn 40–50 từ như Starters (chỉ dùng từ Pre-A1); A1 tin nhắn, thông báo, câu chuyện; A2 có bài dài 150–250 từ như A2 Key; B1 → C2 bài báo, thư, bình luận 180–290 từ như B1 Preliminary → C2 Proficiency, có câu hỏi ý kiến, suy luận.',
   dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Tìm thông tin trong bài']],
   examTxt: '6 bài đọc chưa gặp: ý chính + chi tiết.',
@@ -68,7 +70,7 @@ KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=4', lvs: ['pre
   menu: [['y', '💡 Luyện ý chính (4 bài)', 'Đọc bài, chọn đúng chủ đề', ['y'], 4], ['ct', '🔍 Luyện chi tiết (2 bài)', 'Đọc bài, trả lời câu hỏi', ['ct'], 2]],
   ask: (x, m) => kRead(KIT.doc, x, m, false),
   exam: lv => shuf(KIT.doc.items.filter(x => x.lv === lv && x.test)).slice(0, 6).flatMap(x => [...kRead(KIT.doc, x, 'y', false), ...kRead(KIT.doc, x, 'ct', false)]) };
-KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bài nghe', pass: 0.8,
+KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bài nghe', pass: 0.75,
   intro: 'Bài kể và hội thoại 2 giọng (số, giờ, giá, đánh vần như đề Cambridge); Pre-A1 câu ngắn kiểu Starters; B1 → C2 phỏng vấn, bài giảng, tranh luận. Khi luyện / thi mỗi bài nghe tối đa 2 lần.',
   dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Nghe ra thông tin'], ['chep', '✍️ Chép lại', 'Nghe một câu, chép đúng ≥ 80% từ']],
   examTxt: '6 bài nghe chưa gặp: ý chính + chi tiết + chép 1 câu.',
@@ -100,7 +102,7 @@ function kRp(x, steps) { const out = []; let prev = ''; const hist = [];
   return out; }
 const kRpLesson = x => { const v = x.learn[0]; return `<h1>${x.ic} ${esc(x.vi)}</h1><p class="mute">Đóng vai: máy là người kia, bạn nói phần của mình. Mỗi lần luyện là một biến thể khác (món, giá, nơi chốn đổi).</p>
   <div class="box"><b>Hội thoại mẫu</b>${v.map(s => `<p style="margin:6px 0">${s.s ? '👤' : '🙋'} ${kSay(s.t)} ${esc(s.t)}${s.vi ? `<br><span class="mute">Việc của bạn: ${esc(s.vi)}</span>` : ''}</p>`).join('')}</div>`; };
-KIT.noi = { id: 'noi', ic: '🗣', t: 'Nói', file: 'noi.json?v=3', lvs: ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'đề nói và tình huống', pass: 0.8, needAsr: true,
+KIT.noi = { id: 'noi', ic: '🗣', t: 'Nói', file: 'noi.json?v=3', lvs: ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'đề nói và tình huống', pass: 0.7, ref: true, needAsr: true,
   intro: 'Đề nói về bản thân và đóng vai giao tiếp (gọi món, mua bán, taxi, hỏi đường…); B1 → C2 kể chuyện, nêu và bảo vệ ý kiến, họp, thương lượng, phỏng vấn. Máy chép lời, tìm ý bằng từ khoá; không chấm ngữ pháp, phát âm (phần khác).',
   dims: [['viec', '✅ Đủ ý', 'Đề nói: nói đủ ý'], ['ro', '🗣 Nói rõ', 'Đọc to câu, máy chép ra ≥ 80% từ'], ['gt', '💬 Giao tiếp', 'Đóng vai: nói đúng việc ≥ 80% lượt']],
   dimsOf: x => x.type === 'rp' ? ['gt'] : ['viec', 'ro'],
@@ -130,7 +132,7 @@ function kWrite(x) { const ideas = (x.k || []).map((g, i) => [g, x.c[i]]).filter
       return { ks: { y: n >= need, dang }, ok: n >= need && dang, html: `✅ Đủ ý ${n}/${ideas.length} (cần ${need}): <br>${ideas.map(([, c], i) => `${hit[i] ? '✅' : '⬜'} ${esc(c)}`).join('<br>')}
         <br>📝 Đúng dạng bài: ${dang ? '✅' : '❌'} ${wc} từ (cần ${x.min}–${x.max})${letter ? `, ${open || close ? 'có' : 'thiếu'} lời chào / lời kết` : ''}.
         <details><summary>Bài mẫu</summary><p class="tdtap" style="white-space:pre-line">${esc(kModel(x))}</p></details>` }; } }; }
-KIT.viet = { id: 'viet', ic: '✍️', t: 'Viết', file: 'viet.json?v=3', lvs: ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'đề viết', pass: 0.75,
+KIT.viet = { id: 'viet', ic: '✍️', t: 'Viết', file: 'viet.json?v=3', lvs: ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'đề viết', pass: 0.7, ref: true,
   intro: 'A1, A2 tin nhắn, email ngắn; B1 → C2 email, truyện, bài luận, báo cáo, đề xuất, thư trang trọng theo độ dài đề Cambridge. Máy tìm ý bằng từ khoá và xem dạng bài (độ dài, lời chào / kết). Không chấm ngữ pháp, chính tả: đó là phần khác.',
   dims: [['y', '✅ Đủ ý', 'Viết đủ các ý đề yêu cầu'], ['dang', '📝 Đúng dạng bài', 'Độ dài, chào / kết khi là thư']],
   examTxt: '2 đề viết (viết mới), chấm ý và dạng bài.',

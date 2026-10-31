@@ -275,3 +275,20 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Người sáng lập: nhiều chức năng nhưng chưa rõ luật và cách dùng; chọn gom MỘT chỗ (không ❓ tại từng màn). Làm: 👤 Của tôi → 📘 Luật và cách dùng, 14 mục, tìm được.
 - Số liệu đọc từ hằng số trong mã; C14 kiểm chữ có đúng số (80%, 15 chỗ, 14 ngày, 7 ngày…).
 - Rủi ro: người học không mở trang này. Đo sau 4 tuần: hỏi 2–3 người mới còn chỗ nào không hiểu; nếu hỏi đáp không trả lời được thì thêm câu, nếu luật khó giải thích thì cân nhắc giản luật.
+
+## Luật đo mới (v97, 31/10/2026)
+- Người sáng lập nhờ đánh giá luật bằng vai giáo viên tiếng Anh, khảo thí, khoa học ghi nhớ, thiết kế học tập; duyệt cả 5 đề xuất ("làm hết đi").
+- Gốc vấn đề: (1) "đạt A1" trong app chỉ chứng minh thuộc nội dung app, chưa hiệu chuẩn với kỳ thi thật; (2) cổng 📘 100% + mọi mặt × mọi từ ≥ 80% quá nặng; (3) Nói / Viết máy chấm gián tiếp lại chặn cả cấp; (4) đòi tự tạo ra (chính tả, nhớ ra từ) cho mọi từ ở mọi cấp, trong khi vốn từ tự dùng luôn nhỏ hơn vốn từ hiểu (Nation); (5) ngưỡng chưa theo logic.
+- Đã làm: ① Học 90%, cổng giữ mở 7 ngày. ② Mặt tự tạo ra cơ bản chỉ đòi ở từ ≤ A2+ (≈ 1.900 từ thông dụng: Cambridge YLE + Oxford A1–A2); từ B1+ chỉ cần hiểu + yêu cầu chiều sâu của cấp (giữ vì giống bài thi B2 / C1: tạo dạng từ, cụm, đồng nghĩa); 🗣 Nói ra từ tham khảo; câu gõ trong đề Từ vựng B1+ chỉ hỏi từ thông dụng. ③ Nói / Viết không chặn hoàn thành cấp. ④ Ngưỡng 85% (kiến thức) / 75% (Đọc, Nghe) / 70% (Nói, Viết). ⑤ "Hoàn thành cấp trong app", "Nhớ bền", "Qua Thi chuyển cấp"; "đạt" chỉ cho đề mẫu chính thức.
+- Cách hiểu đề xuất ② + ④ (Claude chọn, cần người sáng lập xem): "mặt cốt lõi" = mặt hiểu; mặt tự tạo ra chỉ bắt buộc với từ thông dụng. Phát âm (👄 đọc đúng) và các phần kỹ năng giữ mọi mặt vì mặt đó chính là kỹ năng.
+- Mô phỏng cùng điều kiện (`node tools/test/sim.mjs`, 1 bài / ngày; ngẫu nhiên, lệch vài ngày mỗi lần chạy):
+
+| Cấp | Luật cũ | Luật v97 |
+|---|---|---|
+| Pre-A1 | 57 ngày | 57 ngày |
+| A1 | 163 ngày | 150 ngày |
+| A2 | 110 ngày | 103 ngày |
+| B1 | 114 ngày | 87 ngày |
+
+- Đọc kết quả: ở Pre-A1 → A2 thời gian gần như không đổi vì nút thắt là mặt chính tả / nhớ ra từ của từ thông dụng (giữ cố ý: vốn từ cốt lõi). Lợi lớn hơn mô phỏng thấy: giữ mở 7 ngày (mô phỏng không tính), và máy không chép được lời nói (trước v97 cổng Từ vựng không bao giờ mở vì 🗣 Nói ra từ 0%).
+- Đo bằng người thật sau 4–8 tuần: tỉ lệ người tới cửa thi; tỉ lệ qua thi lần đầu (quá cao > 90% → ngưỡng / cổng lỏng; quá thấp < 40% → cổng chưa báo đúng sẵn sàng); điểm đề mẫu chính thức của người đã "hoàn thành trong app" (mục tiêu: ≥ 70% người hoàn thành cũng đạt đề mẫu).
