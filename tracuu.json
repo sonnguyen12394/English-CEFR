@@ -1926,5 +1926,388 @@
   "pron": "Đại từ thay cho ai / cái gì; who cho người, which cho vật, whose chỉ sở hữu; tự làm: themselves.",
   "struct": "So sánh: than đi với -er / more; the most cho nhất; đảo ngữ: Not only did…, Rarely have…",
   "voc": "Bốn từ cùng loại, khác nghĩa: đọc cả câu, xem từ nào đi với từ bên cạnh (collocation: meet a deadline, place an order)."
- }
+ },
+ "pb": [
+  {
+   "vi": "tăng",
+   "w": [
+    "increase",
+    "rise",
+    "raise"
+   ],
+   "note": [
+    "increase: tăng (dùng được cả có tân ngữ và không), trung tính. Prices increased. / They increased prices.",
+    "rise: tự tăng, KHÔNG có tân ngữ (rise – rose – risen). Prices rose by 5%.",
+    "raise: làm cho tăng, CÓ tân ngữ (raise – raised). The shop raised its prices. / raise your hand."
+   ]
+  },
+  {
+   "vi": "giảm",
+   "w": [
+    "decrease",
+    "fall",
+    "reduce",
+    "drop"
+   ],
+   "note": [
+    "fall / drop: tự giảm, không tân ngữ. Sales fell / dropped sharply.",
+    "reduce: làm giảm, có tân ngữ. We must reduce costs.",
+    "decrease: dùng cả hai cách, trang trọng hơn. The number decreased."
+   ]
+  },
+  {
+   "vi": "nói",
+   "w": [
+    "say",
+    "tell",
+    "speak",
+    "talk"
+   ],
+   "note": [
+    "say + điều được nói: She said (that) she was tired. (say to sb)",
+    "tell + người: He told me the truth. / tell a story, tell a joke.",
+    "speak: nói một ngôn ngữ, nói trang trọng: speak English, speak to the manager.",
+    "talk: trò chuyện: talk to / with a friend, talk about the film."
+   ]
+  },
+  {
+   "vi": "nhìn, xem",
+   "w": [
+    "see",
+    "look",
+    "watch"
+   ],
+   "note": [
+    "see: nhìn thấy (không cố ý). I saw a bird.",
+    "look (at): nhìn có chủ ý vào thứ đứng yên. Look at this photo.",
+    "watch: xem thứ đang chuyển động, trong một thời gian. watch TV, watch a match."
+   ]
+  },
+  {
+   "vi": "nghe",
+   "w": [
+    "hear",
+    "listen"
+   ],
+   "note": [
+    "hear: nghe thấy (không cố ý). I heard a noise.",
+    "listen (to): lắng nghe có chủ ý. Listen to the teacher. (không nói listen music)"
+   ]
+  },
+  {
+   "vi": "mượn, cho mượn",
+   "w": [
+    "borrow",
+    "lend"
+   ],
+   "note": [
+    "borrow: mượn CỦA ai. Can I borrow your pen?",
+    "lend: CHO ai mượn. Can you lend me your pen?"
+   ]
+  },
+  {
+   "vi": "làm",
+   "w": [
+    "do",
+    "make"
+   ],
+   "note": [
+    "do: làm việc, hoạt động: do homework, do the shopping, do exercise, do a job.",
+    "make: tạo ra cái gì: make a cake, make a mistake, make a decision, make money, make friends."
+   ]
+  },
+  {
+   "vi": "mang",
+   "w": [
+    "bring",
+    "take",
+    "carry"
+   ],
+   "note": [
+    "bring: mang ĐẾN chỗ người nói. Bring your book tomorrow.",
+    "take: mang ĐI khỏi chỗ người nói. Take an umbrella.",
+    "carry: cầm, xách, vác (nhấn vào việc mang nặng). She carried the box upstairs."
+   ]
+  },
+  {
+   "vi": "học",
+   "w": [
+    "learn",
+    "study"
+   ],
+   "note": [
+    "learn: học được, biết thêm (kết quả). I learned to swim.",
+    "study: học, nghiên cứu (quá trình, thường ở trường). I study economics."
+   ]
+  },
+  {
+   "vi": "đến, tới",
+   "w": [
+    "come",
+    "arrive",
+    "reach"
+   ],
+   "note": [
+    "come: đến (về phía người nói). Come here!",
+    "arrive at / in: đến nơi (không dùng to). arrive at the station, arrive in Hanoi.",
+    "reach + nơi (không giới từ): We reached the hotel at six."
+   ]
+  },
+  {
+   "vi": "cho phép",
+   "w": [
+    "allow",
+    "let",
+    "permit"
+   ],
+   "note": [
+    "let + người + động từ nguyên mẫu: Let me help you.",
+    "allow + người + to V: They allowed us to leave early.",
+    "permit: trang trọng, thường bị động: Smoking is not permitted."
+   ]
+  },
+  {
+   "vi": "nhớ",
+   "w": [
+    "remember",
+    "remind",
+    "miss"
+   ],
+   "note": [
+    "remember: nhớ, không quên. I remember her name.",
+    "remind: nhắc ai nhớ. Remind me to call Mum.",
+    "miss: nhớ (ai đó ở xa), cũng nghĩa là lỡ (tàu, xe). I miss my family. / I missed the bus."
+   ]
+  },
+  {
+   "vi": "mất, lỡ",
+   "w": [
+    "lose",
+    "miss",
+    "waste"
+   ],
+   "note": [
+    "lose: làm mất, thua. I lost my keys. / We lost the match.",
+    "miss: lỡ (xe, cơ hội), vắng (buổi học). I missed the class.",
+    "waste: phí (thời gian, tiền). Don't waste time."
+   ]
+  },
+  {
+   "vi": "thắng",
+   "w": [
+    "win",
+    "beat"
+   ],
+   "note": [
+    "win + trận đấu / giải: win a match, win a prize.",
+    "beat + đối thủ: We beat their team 2–0."
+   ]
+  },
+  {
+   "vi": "công việc",
+   "w": [
+    "work",
+    "job",
+    "career"
+   ],
+   "note": [
+    "work: công việc nói chung, KHÔNG đếm được. I have a lot of work.",
+    "job: một công việc cụ thể, đếm được. She got a new job.",
+    "career: sự nghiệp, con đường nghề nghiệp lâu dài."
+   ]
+  },
+  {
+   "vi": "chuyến đi",
+   "w": [
+    "travel",
+    "trip",
+    "journey"
+   ],
+   "note": [
+    "travel: việc đi lại nói chung (động từ / danh từ không đếm được). I love travel.",
+    "trip: chuyến đi ngắn, đi rồi về. a business trip, a day trip.",
+    "journey: hành trình từ A đến B, thường dài. The journey took 5 hours."
+   ]
+  },
+  {
+   "vi": "người",
+   "w": [
+    "people",
+    "person"
+   ],
+   "note": [
+    "person: một người (số ít).",
+    "people: nhiều người (số nhiều): Two people are waiting. (persons chỉ dùng trong văn bản hành chính)"
+   ]
+  },
+  {
+   "vi": "khác",
+   "w": [
+    "other",
+    "another",
+    "different"
+   ],
+   "note": [
+    "another + danh từ số ít: another cup (thêm một cái nữa / một cái khác).",
+    "other + danh từ số nhiều: other people; the other = cái còn lại.",
+    "different (from): khác biệt. This is different from that."
+   ]
+  },
+  {
+   "vi": "cũng",
+   "w": [
+    "also",
+    "too",
+    "either"
+   ],
+   "note": [
+    "also: đứng trước động từ thường, sau be. I also like tea.",
+    "too: đứng cuối câu khẳng định. I like tea too.",
+    "either: cuối câu PHỦ ĐỊNH. I don't like it either."
+   ]
+  },
+  {
+   "vi": "trong khi, trong lúc",
+   "w": [
+    "while",
+    "during"
+   ],
+   "note": [
+    "while + mệnh đề: while I was sleeping.",
+    "during + danh từ: during the night, during the meeting."
+   ]
+  },
+  {
+   "vi": "vẫn, chưa, đã",
+   "w": [
+    "still",
+    "yet",
+    "already"
+   ],
+   "note": [
+    "still: vẫn còn. He is still at work.",
+    "yet: chưa (câu phủ định / câu hỏi, cuối câu). Have you finished yet?",
+    "already: đã rồi (sớm hơn mong đợi). I've already eaten."
+   ]
+  },
+  {
+   "vi": "giá, phí",
+   "w": [
+    "price",
+    "cost",
+    "fee",
+    "charge"
+   ],
+   "note": [
+    "price: giá bán của một món hàng. The price of this phone.",
+    "cost: chi phí bỏ ra (động từ: It costs $5).",
+    "fee: phí trả cho dịch vụ, học phí: school fees, entrance fee.",
+    "charge: tiền tính cho một dịch vụ: a delivery charge."
+   ]
+  },
+  {
+   "vi": "vui",
+   "w": [
+    "fun",
+    "funny",
+    "happy"
+   ],
+   "note": [
+    "fun: vui, thú vị (để làm). The party was fun.",
+    "funny: buồn cười. a funny joke.",
+    "happy: hạnh phúc, vui (cảm xúc của người)."
+   ]
+  },
+  {
+   "vi": "chán, thú vị (-ed / -ing)",
+   "w": [
+    "bored",
+    "boring",
+    "interested",
+    "interesting"
+   ],
+   "note": [
+    "-ed: cảm xúc của người: I am bored / interested.",
+    "-ing: tính chất của vật / việc gây ra cảm xúc: The film is boring / interesting."
+   ]
+  },
+  {
+   "vi": "đặt (chỗ, hàng)",
+   "w": [
+    "book",
+    "order",
+    "reserve"
+   ],
+   "note": [
+    "book: đặt trước (vé, phòng, bàn). book a table, book a flight.",
+    "order: đặt mua, gọi món. order a pizza, order online.",
+    "reserve: đặt giữ chỗ, trang trọng hơn book."
+   ]
+  },
+  {
+   "vi": "kiểm tra",
+   "w": [
+    "check",
+    "test",
+    "inspect"
+   ],
+   "note": [
+    "check: kiểm tra nhanh cho chắc. Check your answers.",
+    "test: kiểm tra bằng bài thi / thử nghiệm. test a new drug, an English test.",
+    "inspect: kiểm tra kỹ, chính thức (thanh tra)."
+   ]
+  },
+  {
+   "vi": "kỳ nghỉ",
+   "w": [
+    "holiday",
+    "vacation",
+    "leave"
+   ],
+   "note": [
+    "holiday: kỳ nghỉ (Anh–Anh); public holiday = ngày lễ.",
+    "vacation: kỳ nghỉ (Anh–Mỹ).",
+    "leave: nghỉ phép khi đang đi làm: sick leave, annual leave."
+   ]
+  },
+  {
+   "vi": "đồng ý, chấp nhận",
+   "w": [
+    "agree",
+    "accept",
+    "approve"
+   ],
+   "note": [
+    "agree (with sb / to sth): đồng ý (động từ, không có am / is). I agree with you.",
+    "accept: nhận, chấp nhận (lời mời, quà, lời xin lỗi). She accepted the job.",
+    "approve (of): phê duyệt, tán thành (chính thức)."
+   ]
+  },
+  {
+   "vi": "thay đổi, đổi",
+   "w": [
+    "change",
+    "exchange",
+    "replace"
+   ],
+   "note": [
+    "change: thay đổi, đổi (quần áo, ý kiến). I changed my mind.",
+    "exchange: trao đổi, đổi lấy cái khác. exchange money, exchange gifts.",
+    "replace: thay thế cái cũ bằng cái mới. replace the battery."
+   ]
+  },
+  {
+   "vi": "nhận ra, nhận thấy",
+   "w": [
+    "realise",
+    "recognise",
+    "notice"
+   ],
+   "note": [
+    "realise: nhận ra (hiểu ra một sự thật). I realised I was wrong.",
+    "recognise: nhận ra (người / vật đã từng biết). I didn't recognise her.",
+    "notice: để ý thấy. Did you notice the new sign?"
+   ]
+  }
+ ]
 }

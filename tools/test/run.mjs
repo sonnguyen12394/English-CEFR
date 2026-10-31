@@ -331,7 +331,7 @@ const R = await run(`(async () => {
     ieSt().set = 1; await ieltsView(); const hi = String($app.innerHTML); if (!hi.includes('Hôm nay & kế hoạch') || !hi.includes('<summary><b>🎧 Nghe')) bad.push('IELTS sau khi chọn chưa gọn');
     add('cefr', 'C6', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'tài khoản riêng / chung, góp ý ⚑, Tổng quan gọn (' + nb + ' nút, ' + nt + ' chữ), còn thiếu, IELTS 3 câu đều đúng'); }
   // v88 📖 Từ điển: hiện đủ dữ liệu (đồng / trái nghĩa, họ từ, bất quy tắc, nghĩa khác, văn phong, thành ngữ, mẫu); tìm dạng biến đổi / gõ sai / cụm từ; không có từ → từ điển ngoài; 📌 sổ từ; tra gần đây
-  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); DICT.q = ''; DICT.open = null; DICT.list = null; DICT.lv = null; DICT.f = null;
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); DICT.q = ''; DICT.open = null; DICT.list = null; DICT.lv = null; DICT.f = null; DICT.kind = null;
     const m1 = tdMatch('went'), go = WORDS.find(w => w.w === 'go'); if (!go || m1.exact !== go.id) bad.push('went không ra go');
     const hw = new Set(WORDS.map(w => w.w.toLowerCase())), iw = WORDS.find(w => w.irr && w.irr.f.some(([, fs]) => fs.some(f => !hw.has(f.toLowerCase())))), ifm = iw && iw.irr.f.flatMap(([, fs]) => fs).find(f => !hw.has(f.toLowerCase()));
     if (!iw || tdMatch(ifm).exact !== iw.id) bad.push('dạng bất quy tắc không ra từ gốc: ' + ifm);
@@ -377,7 +377,7 @@ const R = await run(`(async () => {
     if (tcIpaWords('e', 20).some(x => !String(x.ipa).replace(/eɪ|eə/g, '').includes('e'))) bad.push('/e/ khớp nhầm /eɪ/');
     if ((TC.cum || []).reduce((s, x) => s + x.items.length, 0) < 50 || TC.cum.some(s => s.items.some(x => !x.en || !x.vi || !x.ex))) bad.push('cụm câu hỏng');
     tryv('màn từ điển', () => dict()); for (const k of ['np', 'cum', 'loi', 'pa', 'cau']) { DICT.kind = k; tryv('loại ' + k, () => dictList()); if (!String(document.getElementById('dl').innerHTML).length) bad.push('loại ' + k + ' trống'); }
-    DICT.kind = 'tu'; DICT.q = 'although'; tryv('cũng có', () => dictList()); if (!String(document.getElementById('dl').innerHTML).includes('Cũng có')) bad.push('thiếu "Cũng có" khi tìm');
+    DICT.kind = null; DICT.q = 'although'; tryv('tìm gộp', () => dictList()); const ga = String(document.getElementById('dl').innerHTML); if (!ga.includes('🧱 Ngữ pháp') || !ga.includes('❗ Lỗi hay gặp') || !ga.includes('📚 Từ')) bad.push('tìm although chưa gộp đủ nhóm');
     DICT.q = ''; DICT.kind = 'tu';
     add('cefr', 'C9', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'tra cứu ngữ pháp, cụm từ, lỗi hay gặp, phát âm, cụm câu, "Cũng có", từ → ngữ pháp đều đúng'); }
   // v91 tra theo 4 kỹ năng: mỗi tab ≥ 4 nhóm; từ nối theo chức năng; tiền tố / hậu tố có từ ví dụ trong app; nghe số / ngày / âm yếu
@@ -394,9 +394,23 @@ const R = await run(`(async () => {
     // ví dụ chọn tay phải đúng tiền tố / hậu tố (bỏ dấu gạch nối, so đầu / cuối từ)
     for (const x of TC.afx) { const fs = x.a.split(' / ').map(f => f.replace(/-/g, '')); for (const w of x.w) { const k = w.toLowerCase().replace(/-/g, ''); if (!fs.some(f => x.k === 'tiền tố' ? k.startsWith(f) : k.endsWith(f) || k.endsWith(f + 'e'))) bad.push('ví dụ sai ' + x.a + ': ' + w); } }
     if (TC.noi.reduce((s, x) => s + x.items.length, 0) < 40 || TC.so.reduce((s, x) => s + x.items.length, 0) < 30) bad.push('thiếu từ nối / nghe số');
-    tryv('màn từ điển', () => dict()); for (const k of ['nghe', 'noi', 'doc', 'viet']) { DICT.kind = k; DICT.q = ''; tryv('tab ' + k, () => dictList()); if (!String(document.getElementById('dl').innerHTML).includes('<details')) bad.push('tab ' + k + ' trống'); }
+    for (const k of ['nghe', 'noi', 'doc', 'viet']) { tryv('cẩm nang ' + k, () => camnangView(k)); if (!String($app.innerHTML).includes('<details') || !String($app.innerHTML).includes('📘 Cẩm nang thi')) bad.push('cẩm nang ' + k + ' trống'); }
     DICT.kind = 'tu'; DICT.ex = null;
     add('cefr', 'C10', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'tra theo 4 kỹ năng (Nghe, Nói, Đọc, Viết), từ nối, tiền tố / hậu tố, nghe số / âm yếu đều đúng'); }
+  // v93 từ điển sắp xếp lại: màn đầu ≤ 7 nút; tìm gộp nhóm; gõ tiếng Việt → tiếng Anh nói thế nào + từ dễ nhầm; mục từ 3 tầng; mẹo thi chuyển sang 🎓 Luyện thi → 📘 Cẩm nang
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await Promise.all([tcLoad(), kLoad(KIT.np), ieLoad()]); DICT.kind = null; DICT.q = ''; DICT.open = null;
+    tryv('màn đầu', () => dict()); const hh = String(document.getElementById('df').innerHTML) + String(document.getElementById('dl').innerHTML), nb = (hh.match(/<button/g) || []).length;
+    if (nb > 7 || !hh.includes('Từ & cụm từ') || !hh.includes('Ngữ pháp & lỗi') || !hh.includes('Phát âm') || hh.includes('data-tck="nghe"')) bad.push('màn đầu chưa gọn: ' + nb + ' nút');
+    DICT.q = 'since'; tryv('tìm since', () => dictList()); const hs = String(document.getElementById('dl').innerHTML); if (!hs.includes('📚 Từ') || !hs.includes('🧱 Ngữ pháp') || !hs.includes('❗ Lỗi hay gặp')) bad.push('since chưa ra từ + ngữ pháp + lỗi');
+    DICT.q = 'tăng'; tryv('tìm tăng', () => dictList()); const hv = String(document.getElementById('dl').innerHTML); if (!/Tiếng Anh nói “tăng”/.test(hv) || !['increase', 'rise', 'raise'].every(x => hv.includes('>' + x + '<'))) bad.push('tăng chưa ra increase / rise / raise');
+    if (TC.pb.length < 30 || TC.pb.some(g => g.w.length < 2 || g.note.length < 2)) bad.push('nhóm từ dễ nhầm hỏng');
+    const bus = WORDS.find(w => w.w === 'bus'), eb = tdEntry(bus, null); if (!eb.includes('Dùng thế nào') || /<details class="tdt" open/.test(eb.split('Mở rộng')[0])) bad.push('A1: tầng Dùng thế nào chưa gập');
+    const inc = WORDS.find(w => w.w === 'increase'); if (inc && !/<details class="tdt" open[^>]*><summary><b>✍️ Dùng thế nào/.test(tdEntry(inc, null))) bad.push('từ dễ nhầm: tầng Dùng thế nào chưa mở');
+    if (/<details class="tdt" open[^>]*><summary><b>🔍 Mở rộng/.test(eb)) bad.push('tầng Mở rộng phải gập');
+    for (const k of ['tu', 'cum', 'tn', 'afx', 'pb', 'np', 'loi', 'pa', 'cau']) { DICT.kind = k; DICT.q = ''; tryv('mục ' + k, () => dictList()); if (!String(document.getElementById('df').innerHTML).includes('← Từ điển')) bad.push('mục ' + k + ' thiếu nút về'); }
+    ieSt().set = 1; await ieltsView(); if (!String($app.innerHTML).includes('data-cnv')) bad.push('IELTS thiếu nút Cẩm nang');
+    DICT.kind = null; DICT.q = '';
+    add('cefr', 'C11', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'từ điển sắp xếp lại: màn đầu ' + nb + ' nút, tìm gộp nhóm, Việt → Anh + từ dễ nhầm, mục từ 3 tầng, cẩm nang thi đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

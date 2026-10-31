@@ -6,8 +6,12 @@
 // Chỉ để tra: không tính vào luật đo.
 let TC = null;
 const tcLoad = async () => TC || (TC = await (await fetch('tracuu.json?v=' + APP_V)).json());
-// v91: thêm 4 tab kỹ năng 🎧 🗣 📰 ✍️ (gom nội dung đã có + từ nối, tiền tố / hậu tố, nghe số / ngày / âm yếu); ✍️ Cụm câu vào tab Nói / Viết (vẫn mở được từ "Cũng có")
-const TC_KIND = [['tu', '📚 Từ'], ['nghe', '🎧 Nghe'], ['noi', '🗣 Nói'], ['doc', '📰 Đọc'], ['viet', '✍️ Viết'], ['np', '🧱 Ngữ pháp'], ['cum', '🔗 Cụm từ'], ['loi', '❗ Lỗi hay gặp'], ['pa', '👄 Phát âm']];
+// v93 (31/10/2026, giáo viên tiếng Anh + thiết kế di động; người sáng lập "từ điển nhiều chức năng quá… sắp xếp lại"): từ điển là công cụ TÌM.
+// Màn đầu: ô tìm (Anh hoặc Việt) + 📌 Sổ từ + 🕘 tra gần đây + 3 mục: 📚 Từ & cụm từ · 🧱 Ngữ pháp & lỗi · 👄 Phát âm. Gõ thì ra MỘT danh sách chia nhóm
+// (từ, ngữ pháp, lỗi, cụm từ…); gõ tiếng Việt thì ưu tiên "tiếng Anh nói thế nào" + phân biệt từ dễ nhầm. Mẹo thi theo kỹ năng chuyển sang 🎓 Luyện thi → 📘 Cẩm nang.
+const TC_SECT = { tu: ['📚', 'Từ & cụm từ', [['tu', 'Danh sách từ'], ['pb', 'Từ dễ nhầm'], ['cum:pv', 'Cụm động từ'], ['cum:idi', 'Thành ngữ'], ['cum:col', 'Cụm hay dùng'], ['cum:pat', 'Mẫu câu'], ['cum:reg', 'Trang trọng / thân mật'], ['tn', 'Từ nối'], ['afx', 'Tiền tố / hậu tố'], ['cau', 'Cụm câu Viết / Nói']]],
+  np: ['🧱', 'Ngữ pháp & lỗi', [['np', 'Ngữ pháp'], ['loi', 'Lỗi hay gặp']]], pa: ['👄', 'Phát âm', []] };
+const TC_OF = { tu: 'tu', pb: 'tu', cum: 'tu', tn: 'tu', afx: 'tu', cau: 'tu', np: 'np', loi: 'np', pa: 'pa' };
 const TC_SUB = [['pv', 'Cụm động từ'], ['idi', 'Thành ngữ'], ['col', 'Cụm hay dùng'], ['pat', 'Mẫu câu'], ['reg', 'Trang trọng / thân mật']];
 const TC_PV = /^[a-z]+ (up|down|out|off|on|in|over|away|back|through|into|after|for|with|about|around|along|across|ahead|apart|by|forward)( [a-z]+)?$/;
 const tcF = x => typeof tdFold === 'function' ? tdFold(x) : String(x).toLowerCase();
@@ -66,8 +70,11 @@ function tcCau(q) { const S0 = (TC && TC.cum || []).map(s => ({ t: s.t, items: s
     <p style="margin:4px 0">${tcSay(x.ex)}${esc(x.ex)}</p><button class="chip" data-tcsave="${esc(x.en)}|${esc(x.vi)}|${esc(x.ex)}">📌 Lưu vào sổ từ</button></div>`).join('')}</details>`).join('') : '<p class="mute">Không có cụm câu khớp.</p>'; }
 
 // ---------- vẽ theo loại (gọi từ dictList) ----------
-const tcKind = () => DICT.kind || 'tu';
-const tcChips = () => `<div class="chips" style="margin:6px 0">${TC_KIND.map(([k, n]) => `<button class="chip ${tcKind() === k ? 'on' : ''}" data-tck="${k}">${n}</button>`).join('')}</div>`;
+const tcKind = () => TC_OF[DICT.kind] ? DICT.kind : 'home';
+// đầu một mục: ← Từ điển + tên mục + chip con của mục
+function tcHead(k = tcKind()) { const sec = TC_SECT[TC_OF[k]]; if (!sec) return ''; const cur = k === 'cum' ? 'cum:' + (DICT.sub || 'pv') : k;
+  return `<div class="row" style="margin:6px 0"><button class="link" data-tck="home" style="width:auto">← Từ điển</button><b>${sec[0]} ${sec[1]}</b></div>${sec[2].length ? `<div class="chips" style="margin:4px 0">${sec[2].map(([c, n]) => `<button class="chip ${cur === c ? 'on' : ''}" data-tck="${c}">${esc(n)}</button>`).join('')}</div>` : ''}`; }
+const tcChips = () => tcHead('tu');
 // "Cũng có": ở loại 📚 Từ, đang tìm → ngữ pháp / lỗi / cụm câu khớp (gõ một lần, ra mọi mặt)
 function tcAlso(q) { if (!q || q.trim().length < 3 || !TC) return ''; const np = tcNpHits(q, 3), lo = tcLoiHits(q).slice(0, 2), cau = (TC.cum || []).flatMap(s => s.items).filter(x => tcHas(q, x.en, x.vi)).slice(0, 2);
   if (!np.length && !lo.length && !cau.length) return '';
@@ -75,16 +82,19 @@ function tcAlso(q) { if (!q || q.trim().length < 3 || !TC) return ''; const np =
     ${lo.map(x => `<p style="margin:4px 0">❗ <button class="link" data-tcgo="loi|${esc(DICT.q)}" style="width:auto;display:inline">${esc(x.wrong)} → ${esc(x.right)}</button></p>`).join('')}
     ${cau.map(x => `<p style="margin:4px 0">✍️ <button class="link" data-tcgo="cau|${esc(DICT.q)}" style="width:auto;display:inline">${esc(x.en)}</button></p>`).join('')}</div>`; }
 function tcList() { const k = tcKind(), q = (DICT.q || '').trim(), df = document.getElementById('df'), dl = document.getElementById('dl');
-  if (!TC) { tcLoad().then(() => { if (document.getElementById('dq')) dictList(); }).catch(() => {}); }
-  if (k === 'np' && !tcNp().length) kLoad(KIT.np).then(() => { if (document.getElementById('dq')) dictList(); }).catch(() => {});
-  if (k === 'pa' && typeof PA !== 'undefined' && !PA) paLoad().then(() => { if (document.getElementById('dq')) dictList(); }).catch(() => {});
-  df.innerHTML = tcChips() + (k === 'cum' ? `<div class="chips">${TC_SUB.map(([s, n]) => `<button class="chip ${(DICT.sub || 'pv') === s ? 'on' : ''}" data-tcs="${s}">${n}</button>`).join('')}</div>` : '');
+  if (!TC) { tcLoad().then(() => { tcRe(); }).catch(() => {}); }
+  if (k === 'np' && !tcNp().length) kLoad(KIT.np).then(() => { tcRe(); }).catch(() => {});
+  if (k === 'pa' && typeof PA !== 'undefined' && !PA) paLoad().then(() => { tcRe(); }).catch(() => {});
+  df.innerHTML = tcHead(k);
+  if (k === 'tn') { const rs = (TC && TC.noi || []).map(s => ({ ...s, items: s.items.filter(x => !q || tcHas(q, x.en, x.vi, x.ex)) })).filter(s => s.items.length); dl.innerHTML = tcAi + (rs.length ? rs.map(s => tcDet({ t: s.t, body: tcList2(s.items), open: !!q || rs.length < 3 })).join('') : '<p class="mute">Không có từ nối khớp.</p>'); return; }
+  if (k === 'afx') { const rs = (TC && TC.afx || []).filter(x => !q || tcHas(q, x.a, x.vi, x.w)); dl.innerHTML = tcAi + (rs.length ? rs.map(x => `<div class="box" style="margin:8px 0;padding:10px 12px"><b>${esc(x.a)}</b> <span class="mute">${esc(x.k)} · ${esc(x.vi)}</span><br>${tcAfxWords(x).map(w => w.app ? `<button class="chip" data-tcgo="tu|${esc(w.app.w)}">${esc(w.w)}</button>` : `<span class="chip" style="opacity:.75">${esc(w.w)}</span>`).join('')}</div>`).join('') : '<p class="mute">Không có mục khớp.</p>'); return; }
+  if (k === 'pb') { const rs = tcPbHits(q); dl.innerHTML = tcAi + (rs.length ? rs.map(tcPbRow).join('') : '<p class="mute">Không có nhóm khớp.</p>'); return; }
   if (k === 'np') { const hs = tcNpHits(q); dl.innerHTML = hs.length ? hs.map(x => tcNpRow(x, DICT.open === x.id)).join('') : `<p class="mute">Không có điểm ngữ pháp khớp “${esc(q)}”. Thử tên tiếng Việt (hiện tại hoàn thành) hoặc tiếng Anh (present perfect).</p>`; return; }
   if (k === 'cum') { const rs = tcCum(DICT.sub || 'pv', q); dl.innerHTML = rs.length ? `<p class="mute">${rs.length} mục${rs.length > DICT_MAX ? `, hiện ${DICT_MAX}` : ''}. Chạm để mở từ.</p>` + rs.slice(0, DICT_MAX).map(([p, vi, ex, w]) => `<div class="drow" data-tcgo="tu|${esc(w.w)}"><b>${esc(p)}</b><br>${esc(vi || '')}${ex ? `<br><span class="mute">${esc(ex)}</span>` : ''}</div>`).join('') : '<p class="mute">Không có mục khớp.</p>'; return; }
   if (k === 'loi') { const rs = tcLoiHits(q); dl.innerHTML = tcAi + (rs.length ? rs.map(tcLoiRow).join('') : '<p class="mute">Không có lỗi khớp.</p>'); return; }
   if (k === 'pa') { dl.innerHTML = tcPa(q); return; }
   if (k === 'cau') { dl.innerHTML = tcAi + tcCau(q); return; }
-  if (TC_SK[k]) { if (typeof ieLoad === 'function' && (typeof IE === 'undefined' || !IE)) ieLoad().then(() => { if (document.getElementById('dq')) dictList(); }).catch(() => {}); dl.innerHTML = tcSkill(k, q); return; } }
+}
 
 // ---------- v91 🎧 🗣 📰 ✍️ tra theo kỹ năng: mỗi tab gom các nhóm (mẹo theo dạng câu, cụm câu, từ nối, tiền tố / hậu tố, nghe số…) ----------
 const TC_SK = { nghe: ['listen', 'map', 'match'], noi: ['p13', 'p2'], doc: ['tf', 'yn', 'h', 'mi', 'mf', 'se', 'sum', 'dia', 'comp', 'sa', 'para', 'time'], viet: ['t1', 'gt1', 't2'] };
@@ -113,7 +123,7 @@ function tcExSecs(k, ex) { const out = [], li = a => a.map(t => `<p style="margi
       if (typeof TO !== 'undefined' && TO && TO.voc) out.push(tcSec(`💼 Từ vựng công sở (${TO.voc.reduce((n, t) => n + t.w.length, 0)} từ)`, TO.voc.map(t => `<p style="margin:10px 0 2px"><b>${esc(t.t)}</b></p>${t.w.map(([w, vi]) => `<p style="margin:2px 0">${tcSay(w)}<b>${esc(w)}</b> <span class="mute">${esc(vi)}</span></p>`).join('')}`).join(''), JSON.stringify(TO.voc))); }
     if (k === 'noi' || k === 'viet') out.push(tcSec('💼 TOEIC Listening & Reading không thi ' + (k === 'noi' ? 'Nói' : 'Viết'), `<p class="mute" style="margin:4px 0">Bài thi TOEIC phổ biến (Listening & Reading) chỉ thi Nghe và Đọc. Nói / Viết là bài thi riêng (TOEIC Speaking & Writing); app chưa có phần luyện bài này. Phần dùng chung bên dưới vẫn hữu ích.</p>`, '', true)); }
   return out; }
-function tcSkill(k, q) { const ex = tcEx(); if (ex === 'toeic' && typeof toLoad === 'function' && (typeof TO === 'undefined' || !TO)) toLoad().then(() => { if (document.getElementById('dq')) dictList(); }).catch(() => {});
+function tcSkill(k, q) { const ex = tcEx(); if (ex === 'toeic' && typeof toLoad === 'function' && (typeof TO === 'undefined' || !TO)) toLoad().then(() => { tcRe(); }).catch(() => {});
   if (ex === 'cefr' && typeof uLoad === 'function' && typeof UOE !== 'undefined' && !UOE) uLoad().catch(() => {});
   const how = ex !== 'ielts' ? [] : TC_SK[k].filter(h => typeof IE_HOW !== 'undefined' && IE_HOW[h]).map(h => tcSec('📘 ' + IE_HOW[h][0].replace(/^\S+\s/, ''), IE_HOW[h][1].map(s => `<p style="margin:4px 0">• ${esc(s)}</p>`).join(''), IE_HOW[h].flat(2).join(' ')));
   const noi = (TC && TC.noi || []), cum = (TC && TC.cum || []), out = [], go = (kind, t) => `<button data-tck="${kind}">${t}</button>`;
@@ -134,9 +144,10 @@ function tcSkill(k, q) { const ex = tcEx(); if (ex === 'toeic' && typeof toLoad 
   out.unshift(...tcExSecs(k, ex));
   const shown = q ? out.filter(s => tcHas(q, s.t, s.txt)).map(s => ({ ...s, open: true })) : out, chips = `<div class="chips" style="margin:6px 0">${TC_EX.map(([e, n]) => `<button class="chip ${ex === e ? 'on' : ''}" data-tce="${e}">${n}</button>`).join('')}</div>`;
   return chips + tcAi + (shown.length ? shown.map(tcDet).join('') : `<p class="mute">Không có mục khớp “${esc(q)}” trong tab này.</p>`); }
-document.addEventListener('click', e => { if (!S || !document.getElementById('dq')) return; const g = s => e.target.closest(s); let b;
-  const stop = () => e.stopPropagation(), re = () => { dictList(); };
-  if ((b = g('[data-tck]'))) { stop(); DICT.kind = b.dataset.tck; DICT.open = null; return re(); }
+document.addEventListener('click', e => { const cn = document.getElementById('cnv'); if (!S || (!document.getElementById('dq') && !cn)) return; const g = s => e.target.closest(s); let b;
+  const stop = () => e.stopPropagation(), re = () => { if (cn) camnangView(); else dictList(); }, toDict = () => { if (cn) { scrollTo(0, 0); dict(); return true; } return false; };
+  if (!cn && g('#dl summary')) { stop(); return; }   // mở / gập tầng của mục từ: không gập cả mục
+  if ((b = g('[data-tck]'))) { stop(); const [k, sub] = b.dataset.tck.split(':'); DICT.kind = k; if (sub) DICT.sub = sub; DICT.open = null; if (k === 'home') { DICT.q = ''; const dq = document.getElementById('dq'); if (dq) dq.value = ''; } if (toDict()) return; scrollTo(0, 0); return re(); }
   if ((b = g('[data-tcs]'))) { stop(); DICT.sub = b.dataset.tcs; return re(); }
   if ((b = g('[data-tce]'))) { stop(); DICT.ex = b.dataset.tce; return re(); }
   if ((b = g('[data-tcsay]'))) { stop(); return speak(b.dataset.tcsay); }
@@ -144,7 +155,58 @@ document.addEventListener('click', e => { if (!S || !document.getElementById('dq
   if (g('[data-tcpa]')) { stop(); return paView(); }
   if ((b = g('[data-tcsave]'))) { stop(); const [w, vi, ex] = b.dataset.tcsave.split('|'); const n = typeof vwPut === 'function' ? vwPut([{ w, vi, ex, app: null }], '✍️ Cụm câu') : 0; return toast(n ? '📌 Đã lưu vào sổ từ.' : 'Cụm này đã có trong sổ.'); }
   if ((b = g('[data-tcnpl]'))) { stop(); const x = tcNp().find(y => y.id === b.dataset.tcnpl); if (x) { KIT.np.view = x.lv; scrollTo(0, 0); return kLearn(KIT.np, x); } return; }
-  if ((b = g('[data-tcgo]'))) { stop(); const v = b.dataset.tcgo, i = v.indexOf('|'), k = v.slice(0, i), a = v.slice(i + 1);
-    if (k === 'np') { DICT.kind = 'np'; DICT.q = ''; DICT.open = a; } else if (k === 'tu') { DICT.kind = 'tu'; DICT.q = a; const w = WORDS.find(x => x.w === a); DICT.open = w ? w.id : null; } else { DICT.kind = k; DICT.q = a; DICT.open = null; if (k === 'cum' && !a) DICT.sub = 'col'; }
-    const dq = document.getElementById('dq'); dq.value = DICT.q; re(); scrollTo(0, 0); return; }
+  if ((b = g('[data-tcgo]'))) { stop(); const v = b.dataset.tcgo, i = v.indexOf('|'), k = v.slice(0, i), [a, all] = v.slice(i + 1).split('|');
+    if (k === 'np') { DICT.kind = 'np'; DICT.q = ''; DICT.open = a; } else if (k === 'tu') { const w = WORDS.find(x => x.w === a); DICT.kind = all || !w ? 'tu' : 'home'; DICT.q = a; DICT.open = w && !all ? w.id : null; if (w && !all) tdSeen(w); } else { DICT.kind = k; DICT.q = a; DICT.open = null; if (k === 'cum' && !a) DICT.sub = 'col'; }
+    if (toDict()) return; const dq = document.getElementById('dq'); dq.value = DICT.q; re(); scrollTo(0, 0); return; }
   if ((b = g('[data-tcnp]')) && tcKind() === 'np') { stop(); DICT.open = DICT.open === b.dataset.tcnp ? null : b.dataset.tcnp; return re(); } }, true);
+
+// ---------- v93 màn đầu, tìm gộp nhóm, từ dễ nhầm, 📘 Cẩm nang thi ----------
+const tcRe = () => document.getElementById('cnv') ? camnangView() : document.getElementById('dq') ? dictList() : 0;
+const TC_VN = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i;
+const tcPbHits = q => (TC && TC.pb || []).filter(g => !q || tcHas(q, g.vi, g.w, g.note));
+const tcPbRow = g => `<div class="box" style="margin:8px 0"><b>“${esc(g.vi)}”: ${g.w.map(x => `<button class="chip" data-tcgo="tu|${esc(x)}">${esc(x)}</button>`).join('')}</b>${g.note.map(n => `<p style="margin:4px 0;font-size:15px">• ${esc(n)}</p>`).join('')}</div>`;
+// từ khớp ô tìm (như danh sách từ: chữ / nghĩa / dạng biến đổi / gõ sai), khớp đúng lên đầu; tiếng Việt: nghĩa bắt đầu bằng chữ gõ lên trước
+function tcWordHits(q, n = 8) { const f = tcF(q.trim()), M = typeof tdMatch === 'function' ? tdMatch(q) : { ids: new Set(), how: new Map() }, vn = TC_VN.test(q);
+  const hs = WORDS.filter(w => tcF(w.w).includes(f) || tcF(w.vi).includes(f) || M.ids.has(w.id));
+  const r = w => vn ? (tcF(w.vi).startsWith(f) ? 0 : new RegExp(`(^|[ ,;(])${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([ ,;)]|$)`).test(tcF(w.vi)) ? 1 : 2) : tdRank(w, q, M);
+  return { M, all: hs.sort((a, b) => r(a) - r(b) || a.w.length - b.w.length || a.w.localeCompare(b.w)), n }; }
+function tcSearch(q) { const df = document.getElementById('df'), dl = document.getElementById('dl'), vn = TC_VN.test(q), W = tcWordHits(q), grp = [];
+  const more = (k, n, t) => n ? `<button class="link" data-tcgo="${k}|${esc(q)}" style="width:auto">Xem thêm ${n} ${t} ›</button>` : '';
+  const sec = (t, body) => body ? `<div style="margin:12px 0 4px"><b>${t}</b></div>${body}` : '';
+  const pb = tcPbHits(q).filter(g => tcHas(q, g.vi, g.w)).slice(0, 2), np = tcNpHits(q, 3), lo = tcLoiHits(q).slice(0, 2), cumAll = q.trim().length >= 3 ? ['pv', 'idi', 'col'].flatMap(s => tcCum(s, q).map(r => [s, ...r])) : [], cum = cumAll.slice(0, 3);
+  const tn = q.trim().length >= 3 ? (TC && TC.noi || []).flatMap(s => s.items).filter(x => tcHas(q, x.en, x.vi)).slice(0, 3) : [];
+  const words = W.all.slice(0, W.n).map(w => dictRow(w, null, W.M)).join('');
+  if (vn && pb.length) grp.push(sec(`⚖️ Tiếng Anh nói “${esc(q.trim())}” thế nào`, pb.map(tcPbRow).join('')));
+  grp.push(sec(`📚 Từ${W.all.length ? ` (${W.all.length})` : ''}`, words ? words + (W.all.length > W.n ? `<button class="link" data-tcgo="tu|${esc(q)}|all" style="width:auto">Xem tất cả ${W.all.length} từ ›</button>` : '') : ''));
+  if (!vn && pb.length) grp.push(sec('⚖️ Từ dễ nhầm', pb.map(tcPbRow).join('')));
+  grp.push(sec('🧱 Ngữ pháp', np.map(x => `<div class="drow" data-tcgo="np|${x.id}"><b>${esc(x.title)}</b> <span class="lvtag ${x.lv}">${LVN[x.lv] || ''}</span><br><span class="mute">${esc(x.en || '')}</span></div>`).join('') + more('np', Math.max(0, tcNpHits(q).length - np.length), 'điểm ngữ pháp')));
+  grp.push(sec('❗ Lỗi hay gặp', lo.map(tcLoiRow).join('')));
+  grp.push(sec('🔗 Cụm từ, thành ngữ', cum.map(([s, p, vi, ex, w]) => `<div class="drow" data-tcgo="tu|${esc(w.w)}"><b>${esc(p)}</b><br>${esc(vi || '')}</div>`).join('')));
+  grp.push(sec('🔀 Từ nối', tn.length ? tcList2(tn) : ''));
+  const body = grp.filter(Boolean).join('');
+  df.innerHTML = `<div class="row" style="margin:6px 0"><button class="link" data-tck="home" style="width:auto">← Từ điển</button><span class="mute">${vn ? 'Tìm từ tiếng Anh cho nghĩa tiếng Việt' : 'Kết quả tìm'}</span></div>`;
+  dl.innerHTML = body && W.all.length ? body : (body || '') + (typeof tdNone === 'function' ? tdNone(q.trim()) : ''); }
+function tcHome() { const df = document.getElementById('df'), dl = document.getElementById('dl');
+  const card = (k, ic, t, d) => `<button class="box" data-tck="${k}" style="margin:6px 0;text-align:left;display:block;width:100%"><b style="font-size:17px">${ic} ${t}</b><br><span class="mute" style="font-size:14px">${d}</span></button>`;
+  df.innerHTML = typeof tdTop === 'function' ? tdTop() : '';
+  dl.innerHTML = `<p class="mute" style="margin:10px 0 2px">Gõ tiếng Anh khi gặp từ lạ; gõ tiếng Việt khi muốn nói / viết một ý.</p>
+    ${card('tu', '📚', 'Từ & cụm từ', `${WORDS.length.toLocaleString('vi-VN')} từ theo cấp, từ dễ nhầm, cụm động từ, thành ngữ, từ nối, tiền tố / hậu tố`)}
+    ${card('np', '🧱', 'Ngữ pháp & lỗi hay gặp', `${tcNp().length || 106} điểm ngữ pháp, ${(TC && TC.loi || []).length || 42} lỗi người Việt hay mắc`)}
+    ${card('pa', '👄', 'Phát âm', '44 âm tiếng Anh, cặp âm dễ nhầm')}
+    <p class="mute" style="margin:10px 0 0">Mẹo thi theo kỹ năng (Nghe · Nói · Đọc · Viết) nằm ở 🎓 Luyện thi → 📘 Cẩm nang.</p>`; }
+// điều hướng của dictList: true = đã vẽ (màn đầu / tìm gộp / mục khác); false = để app.js vẽ 📚 danh sách từ theo cấp
+function tcRoute() { if (!TC) tcLoad().then(() => { tcRe(); }).catch(() => {}); const k = tcKind(), q = (DICT.q || '').trim();
+  if (k === 'home') { q ? tcSearch(q) : tcHome(); return true; }
+  if (k !== 'tu') { tcList(); return true; }
+  return false; }
+
+// 📘 Cẩm nang thi (🎓 Luyện thi): mẹo theo kỹ năng × kỳ thi (trước ở 📖 Từ điển, v91–v92)
+let CN_K = 'nghe';
+function camnangView(k) { if (k) CN_K = k; window.CUR = { view: 'cam-nang' }; const need = [typeof ieLoad === 'function' && (typeof IE === 'undefined' || !IE) ? ieLoad() : 0, !TC ? tcLoad() : 0].filter(Boolean);
+  if (need.length) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; Promise.all(need).then(() => camnangView()).catch(() => {}); return; }
+  $app.innerHTML = `<div id="ie"></div><div id="cnv"></div><div class="row top"><button class="link" data-a="back">← Luyện thi</button><span class="uname">📘 Cẩm nang thi</span></div><h1>📘 Cẩm nang thi</h1>
+    <p class="mute">Mẹo theo dạng câu, bố cục, cụm câu, bẫy hay gặp. Chọn kỹ năng và kỳ thi.</p>
+    <div class="chips">${[['nghe', '🎧 Nghe'], ['noi', '🗣 Nói'], ['doc', '📰 Đọc'], ['viet', '✍️ Viết']].map(([c, n]) => `<button class="chip ${CN_K === c ? 'on' : ''}" data-cnk="${c}">${n}</button>`).join('')}</div>
+    <div id="cnb">${tcSkill(CN_K, '')}</div>`;
+  $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return typeof exOpen === 'function' ? exOpen() : ieltsView(); const b = e.target.closest('[data-cnk]'); if (b) { scrollTo(0, 0); camnangView(b.dataset.cnk); } }; }
+document.addEventListener('click', e => { if (S && e.target.closest('[data-cnv]')) { scrollTo(0, 0); camnangView(); } });

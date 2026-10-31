@@ -42,20 +42,34 @@ function tdMatch(q) { const out = { ids: new Set(), how: new Map(), exact: null 
 const tdRank = (w, q, M) => { const k = w.w.toLowerCase(); q = String(q || '').toLowerCase().trim(); return w.id === M.exact || k === q ? 0 : k.startsWith(q) ? 1 : 2; };
 
 // ---------- ① một mục từ đầy đủ ----------
+// v93 mục từ 3 tầng theo nhu cầu người học (giáo viên tiếng Anh, 31/10/2026): ① Hiểu (luôn hiện: nghĩa, phát âm, ví dụ, dạng bất quy tắc, 📌);
+// ② Dùng thế nào (khi viết / nói: cụm hay dùng, mẫu, ngữ pháp liên quan, văn phong, từ dễ nhầm, lỗi hay gặp; mở sẵn từ cấp B1, dưới B1 gập);
+// ③ Mở rộng (gập: nghĩa khác, đồng / trái nghĩa, họ từ, thành ngữ, gặp trong bài, từ điển ngoài).
 function tdEntry(w, M) { const why = M && M.how.get(w.id), chip = t => `<button class="chip" data-tdq="${esc(t)}">${esc(t)}</button>`, inSo = typeof vwSt === 'function' && vwSt().some(x => x.k === w.w.toLowerCase());
-  const rows = [
-    w.s2 && `<p style="margin:6px 0">🔀 <b>Nghĩa khác:</b> ${esc(w.s2.vi)}${w.s2.ex ? `<br><span>${esc(w.s2.ex)}</span><br><span class="mute">${esc(w.s2.exVi || '')}</span>` : ''}</p>`,
-    w.irr && `<p style="margin:6px 0">🔁 <b>Dạng bất quy tắc:</b> ${w.irr.f.map(([n, fs]) => `${esc(n)}: <b>${fs.map(esc).join(' / ')}</b>`).join(' · ')}</p>`,
+  const lvOk = typeof curLevel === 'function' && LEVELS.indexOf(curLevel()) >= LEVELS.indexOf('b1'), k = w.w.toLowerCase();
+  const loi = typeof TC !== 'undefined' && TC ? (TC.loi || []).filter(x => new RegExp(`(^|\\s)${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(\\s|$)`, 'i').test(x.k)).slice(0, 2) : [];
+  const pb = typeof TC !== 'undefined' && TC ? (TC.pb || []).filter(g => g.w.includes(k)) : [];
+  const use = [
+    w.col && w.col.ok && `<p style="margin:6px 0">🔗 <b>Cụm hay dùng:</b> ${esc(w.col.ok)}${(w.col.bad || []).length ? ` <span class="mute">(không nói: ${w.col.bad.map(esc).join(', ')})</span>` : ''}</p>`,
     w.pat && `<p style="margin:6px 0">🧩 <b>Mẫu:</b> ${esc(w.pat.m)} <span class="mute">· ${esc(w.pat.s.replace('___', w.pat.a))}</span></p>`,
+    typeof tcGramFor === 'function' && tcGramFor(w),
+    w.reg && `<p style="margin:6px 0">🎚 ${w.reg.f ? `<b>Trang trọng</b>; nói thường dùng: <b>${esc(w.reg.p)}</b>` : `<b>Thân mật</b>; viết trang trọng dùng: <b>${esc(w.reg.p)}</b>`}</p>`,
+    ...pb.map(g => `<div style="margin:6px 0">⚖️ <b>Dễ nhầm: ${g.w.map(esc).join(' / ')}</b> <span class="mute">(“${esc(g.vi)}”)</span>${g.note.map(n => `<p style="margin:2px 0;font-size:15px">• ${esc(n)}</p>`).join('')}</div>`),
+    ...loi.map(x => `<p style="margin:6px 0">❗ <s>${esc(x.wrong)}</s> → <b>${esc(x.right)}</b><br><span class="mute">${esc(x.why)}</span></p>`)].filter(Boolean).join('');
+  const more = [
+    w.s2 && `<p style="margin:6px 0">🔀 <b>Nghĩa khác:</b> ${esc(w.s2.vi)}${w.s2.ex ? `<br><span>${esc(w.s2.ex)}</span><br><span class="mute">${esc(w.s2.exVi || '')}</span>` : ''}</p>`,
     w.rel && (w.rel.syn || []).length && `<div style="margin:6px 0">🟰 <b>Gần nghĩa:</b> <span class="chips" style="display:inline">${w.rel.syn.map(chip).join('')}</span></div>`,
     w.rel && (w.rel.ant || []).length && `<div style="margin:6px 0">↔️ <b>Trái nghĩa:</b> <span class="chips" style="display:inline">${w.rel.ant.map(chip).join('')}</span></div>`,
     (w.fam || []).length && `<div style="margin:6px 0">👪 <b>Họ từ:</b> <span class="chips" style="display:inline">${w.fam.map(chip).join('')}</span></div>`,
-    w.reg && `<p style="margin:6px 0">🎚 ${w.reg.f ? `<b>Trang trọng</b>; nói thường dùng: <b>${esc(w.reg.p)}</b>` : `<b>Thân mật</b>; viết trang trọng dùng: <b>${esc(w.reg.p)}</b>`}</p>`,
-    w.idi && `<p style="margin:6px 0">💬 <b>Thành ngữ:</b> ${esc(w.idi.p)} = ${esc(w.idi.vi)}${w.idi.s ? `<br><span class="mute">${esc(w.idi.s)}</span>` : ''}</p>`].filter(Boolean).join('');
+    w.idi && `<p style="margin:6px 0">💬 <b>Thành ngữ:</b> ${esc(w.idi.p)} = ${esc(w.idi.vi)}${w.idi.s ? `<br><span class="mute">${esc(w.idi.s)}</span>` : ''}</p>`,
+    tdInText(w)].filter(Boolean).join('');
   return `<div class="box" style="margin:8px 0 0">${why ? `<p class="mute" style="margin:0 0 4px">🔎 ${esc(why)}</p>` : ''}<div class="mute">${esc(w.pos || '')} · ${w.u ? uLabel(UBY[w.u]) : `${LVN[w.lv] || ''} · chỉ tra`}</div>${w.en ? `<p class="mute" style="margin:4px 0">${esc(w.en)}</p>` : ''}
-    <p style="margin:6px 0">${esc(w.ex || '')}<br><span class="mute">${esc(w.exVi || '')}</span></p>${w.col && w.col.ok ? `<p class="mute" style="margin:6px 0">Cụm hay dùng: <b>${esc(w.col.ok)}</b></p>` : ''}${rows}${typeof tcGramFor === 'function' ? tcGramFor(w) : ''}${tdInText(w)}
+    <p style="margin:6px 0">${esc(w.ex || '')}<br><span class="mute">${esc(w.exVi || '')}</span></p>
+    ${w.irr ? `<p style="margin:6px 0">🔁 <b>Dạng bất quy tắc:</b> ${w.irr.f.map(([n, fs]) => `${esc(n)}: <b>${fs.map(esc).join(' / ')}</b>`).join(' · ')}</p>` : ''}
     ${typeof sayBtns === 'function' ? sayBtns(w).replace('</div>', `<button class="chip" data-tdgb="${w.id}">🔊 Giọng Anh</button></div>`) : ''}
-    <div class="chips" style="margin:6px 0 0">${inSo ? '<span class="chip on">📌 Đã có trong sổ từ</span>' : `<button class="chip" data-tdsave="${w.id}">📌 Lưu vào sổ từ</button>`}</div>${tdLinks(w.w)}</div>`; }
+    <div class="chips" style="margin:6px 0 0">${inSo ? '<span class="chip on">📌 Đã có trong sổ từ</span>' : `<button class="chip" data-tdsave="${w.id}">📌 Lưu vào sổ từ</button>`}</div>
+    ${use ? `<details class="tdt" ${lvOk || pb.length || loi.length ? 'open' : ''} style="margin:8px 0 0"><summary><b>✍️ Dùng thế nào</b> <span class="mute">(khi viết / nói)</span></summary>${use}</details>` : ''}
+    <details class="tdt" style="margin:8px 0 0"><summary><b>🔍 Mở rộng</b> <span class="mute">(nghĩa khác, họ từ, gặp trong bài…)</span></summary>${more}${tdLinks(w.w)}</details></div>`; }
 // 🔊 giọng Anh–Anh của máy (như giọng thi); máy không có giọng Anh thì dùng giọng sẵn có
 async function tdSayGB(t) { const was = EXAM_VOX; EXAM_VOX = true; try { await speak(t); } finally { EXAM_VOX = was; } }
 
