@@ -411,6 +411,27 @@ const R = await run(`(async () => {
     ieSt().set = 1; await ieltsView(); if (!String($app.innerHTML).includes('data-cnv')) bad.push('IELTS thiếu nút Cẩm nang');
     DICT.kind = null; DICT.q = '';
     add('cefr', 'C11', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'từ điển sắp xếp lại: màn đầu ' + nb + ' nút, tìm gộp nhóm, Việt → Anh + từ dễ nhầm, mục từ 3 tầng, cẩm nang thi đều đúng'); }
+  // v94 từ điển bổ sung cho đủ: trọng âm từ IPA, [U] / [C/U], Anh–Anh / Anh–Mỹ (cả khi tìm), giải nghĩa tiếng Anh B1+, quy tắc phát âm, IPA sai đã sửa, cụm cố định "nói đúng cả cụm"
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await tcLoad(); const W = k => WORDS.find(w => w.w === k);
+    const st = k => { const r = tdSyl(W(k).ipa); return r ? [...Array(r.n)].map((_, i) => i + 1 === r.s ? 'O' : 'o').join('') : '-'; };
+    const exp = { remember: 'oOo', information: 'ooOo', photograph: 'Ooo', photographer: 'oOoo', hotel: 'oO', police: 'oO', beautiful: 'Ooo', important: 'oOo', computer: 'oOo', banana: 'oOo', education: 'ooOo', economy: 'oOoo', economic: 'ooOo', engineer: 'ooO', decide: 'oO', happy: 'Oo', table: 'Oo', bottle: 'Oo', listen: 'Oo', final: 'Oo', animal: 'Ooo', film: '-', world: '-' };
+    const wrong = Object.entries(exp).filter(([k, v]) => W(k) && st(k) !== v).map(([k, v]) => k + ' ' + st(k) + '≠' + v); if (wrong.length) bad.push('trọng âm sai: ' + wrong.join(', '));
+    const multi = WORDS.filter(w => !/\\s/.test(w.w) && /ˈ/.test(w.ipa || '')), shown = multi.filter(w => tdSyl(w.ipa)).length; if (shown < multi.length * 0.99) bad.push('trọng âm hiện ít: ' + shown + '/' + multi.length);
+    if (!tdEntry(W('remember'), null).includes('Trọng âm') || tdEntry(W('film'), null).includes('Trọng âm')) bad.push('dòng trọng âm trong mục từ sai');
+    if (W('mission').ipa !== '/ˈmɪʃn/' || W('would').ipa !== '/wʊd/') bad.push('IPA mission / would chưa sửa');
+    if (!tdEntry(W('information'), null).includes('[U] Không đếm được') || !tdEntry(W('time'), null).includes('[C / U]') || tdEntry(W('book'), null).includes('đếm được')) bad.push('nhãn đếm được sai');
+    if (TC.unc.length < 60 || TC.cu.length < 20) bad.push('thiếu danh sách đếm được');
+    if (!tdEntry(W('colour'), null).includes('Anh–Mỹ:</b> color') || !tdEntry(W('organize'), null).includes('-ise và -ize')) bad.push('Anh–Anh / Anh–Mỹ trong mục từ sai');
+    if (tdMatch('color').exact !== W('colour').id || tdMatch('elevator').exact !== W('lift').id) bad.push('tìm color / elevator không ra colour / lift');
+    const b1 = WORDS.find(w => !w.en && wLv(w) === 'b1'), a1w = WORDS.find(w => w.en && wLv(w) === 'a1'); if (!tdEntry(b1, null).includes('oxfordlearnersdictionaries') || tdEntry(a1w, null).includes('Giải nghĩa tiếng Anh')) bad.push('link giải nghĩa tiếng Anh sai');
+    const tp = WORDS.find(w => w.w === 'take a photo'); if (tp && !tdEntry(tp, null).includes('Nói đúng cả cụm')) bad.push('cụm cố định chưa đổi nhãn');
+    if (TC.am.length < 5 || !TC.am.some(s => /-ed/.test(s.t)) || TC.am.flatMap(s => s.items).length < 25) bad.push('thiếu quy tắc phát âm');
+    if (TC.pb.flatMap(g => g.w).some(x => !W(x))) bad.push('từ dễ nhầm có từ không có trong app');
+    tryv('màn từ điển', () => dict()); for (const k of ['dem', 'uk']) { DICT.kind = k; DICT.q = ''; tryv('mục ' + k, () => dictList()); if (!String(document.getElementById('dl').innerHTML).includes('<details')) bad.push('mục ' + k + ' trống'); }
+    DICT.kind = 'pa'; DICT.q = ''; tryv('phát âm', () => dictList()); const hp = String(document.getElementById('dl').innerHTML); if (!hp.includes('Trọng âm: quy tắc') || !hp.includes('Đuôi -ed') || !hp.includes('Âm cuối')) bad.push('👄 thiếu nhóm quy tắc');
+    DICT.kind = null; DICT.q = 'elevator'; tryv('tìm elevator', () => dictList()); if (!String(document.getElementById('dl').innerHTML).includes('Anh–Anh / Anh–Mỹ')) bad.push('tìm gộp thiếu nhóm Anh–Mỹ');
+    DICT.kind = null; DICT.q = '';
+    add('cefr', 'C12', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'từ điển đủ: trọng âm ' + shown + '/' + multi.length + ' từ, [U] / [C/U], Anh–Anh / Anh–Mỹ, giải nghĩa tiếng Anh B1+, quy tắc phát âm, IPA đã sửa đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

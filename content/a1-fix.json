@@ -15,7 +15,11 @@
  "drop": [
   "boot"
  ],
- "word": {},
+ "word": {
+  "would": {
+   "ipa": "/wʊd/"
+  }
+ },
  "units": [
   {
    "id": "a1-c16-b1",

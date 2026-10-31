@@ -1295,7 +1295,6 @@
    "w": [
     "self-confident",
     "self-employed",
-    "selfish",
     "self-service",
     "self-study"
    ]
@@ -1537,10 +1536,10 @@
    "vi": "động từ: làm cho",
    "ex": "organise",
    "w": [
-    "organise",
-    "realise",
+    "organize",
+    "realize",
     "modernize",
-    "apologise"
+    "apologize"
    ]
   },
   {
@@ -2299,14 +2298,1296 @@
   {
    "vi": "nhận ra, nhận thấy",
    "w": [
-    "realise",
-    "recognise",
+    "realize",
+    "recognize",
     "notice"
    ],
    "note": [
-    "realise: nhận ra (hiểu ra một sự thật). I realised I was wrong.",
-    "recognise: nhận ra (người / vật đã từng biết). I didn't recognise her.",
+    "realize: nhận ra (hiểu ra một sự thật). I realized I was wrong.",
+    "recognize: nhận ra (người / vật đã từng biết). I didn't recognize her.",
     "notice: để ý thấy. Did you notice the new sign?"
+   ]
+  }
+ ],
+ "unc": [
+  {
+   "w": "advice",
+   "note": "a piece of advice; không nói an advice, advices"
+  },
+  {
+   "w": "information",
+   "note": "a piece of information; không nói informations"
+  },
+  {
+   "w": "news",
+   "note": "a piece of news; news đi với động từ số ít: The news is good."
+  },
+  {
+   "w": "furniture",
+   "note": "a piece of furniture / a chair, a table"
+  },
+  {
+   "w": "equipment",
+   "note": "a piece of equipment"
+  },
+  {
+   "w": "luggage",
+   "note": "a piece of luggage / a bag, a suitcase"
+  },
+  {
+   "w": "baggage",
+   "note": "như luggage (hay dùng ở sân bay)"
+  },
+  {
+   "w": "homework",
+   "note": "a piece of homework; do homework"
+  },
+  {
+   "w": "housework",
+   "note": "do the housework"
+  },
+  {
+   "w": "knowledge",
+   "note": "a good knowledge of…; không nói knowledges"
+  },
+  {
+   "w": "research",
+   "note": "a piece of research; do research"
+  },
+  {
+   "w": "progress",
+   "note": "make progress; không nói a progress"
+  },
+  {
+   "w": "evidence",
+   "note": "a piece of evidence"
+  },
+  {
+   "w": "traffic",
+   "note": "heavy traffic; không nói a traffic, traffics"
+  },
+  {
+   "w": "weather",
+   "note": "nice weather / a nice day; không nói a nice weather"
+  },
+  {
+   "w": "money",
+   "note": "much / a lot of money; đếm bằng đơn vị tiền: ten dollars"
+  },
+  {
+   "w": "music",
+   "note": "a piece of music / a song"
+  },
+  {
+   "w": "bread",
+   "note": "a loaf / a slice of bread"
+  },
+  {
+   "w": "rice",
+   "note": "a bowl of rice"
+  },
+  {
+   "w": "water",
+   "note": "a glass / a bottle of water"
+  },
+  {
+   "w": "milk",
+   "note": "a glass / a carton of milk"
+  },
+  {
+   "w": "sugar",
+   "note": "a spoonful of sugar"
+  },
+  {
+   "w": "salt",
+   "note": "a pinch of salt"
+  },
+  {
+   "w": "meat",
+   "note": "a piece of meat"
+  },
+  {
+   "w": "butter",
+   "note": "a piece of butter"
+  },
+  {
+   "w": "flour",
+   "note": "a bag of flour"
+  },
+  {
+   "w": "oil",
+   "note": "a bottle of oil"
+  },
+  {
+   "w": "soap",
+   "note": "a bar of soap"
+  },
+  {
+   "w": "luck",
+   "note": "good luck; không nói a good luck"
+  },
+  {
+   "w": "fun",
+   "note": "have fun; không nói a fun"
+  },
+  {
+   "w": "health",
+   "note": "good health"
+  },
+  {
+   "w": "happiness",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "education",
+   "note": "a good education (ngoại lệ dùng a khi có tính từ)"
+  },
+  {
+   "w": "accommodation",
+   "note": "Anh–Anh không đếm được; Anh–Mỹ hay dùng accommodations"
+  },
+  {
+   "w": "behaviour",
+   "note": "good / bad behaviour"
+  },
+  {
+   "w": "permission",
+   "note": "ask for permission; không nói a permission"
+  },
+  {
+   "w": "pollution",
+   "note": "air pollution"
+  },
+  {
+   "w": "rubbish",
+   "note": "a piece of rubbish / a bag of rubbish"
+  },
+  {
+   "w": "clothing",
+   "note": "an item of clothing; clothes thì luôn số nhiều"
+  },
+  {
+   "w": "jewellery",
+   "note": "a piece of jewellery"
+  },
+  {
+   "w": "machinery",
+   "note": "a piece of machinery"
+  },
+  {
+   "w": "software",
+   "note": "a piece of software / a program"
+  },
+  {
+   "w": "feedback",
+   "note": "some feedback"
+  },
+  {
+   "w": "employment",
+   "note": "find employment / a job"
+  },
+  {
+   "w": "transport",
+   "note": "public transport"
+  },
+  {
+   "w": "safety",
+   "note": "for your safety"
+  },
+  {
+   "w": "wealth",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "poverty",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "violence",
+   "note": "an act of violence"
+  },
+  {
+   "w": "peace",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "patience",
+   "note": "have patience"
+  },
+  {
+   "w": "courage",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "honesty",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "intelligence",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "electricity",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "air",
+   "note": "fresh air"
+  },
+  {
+   "w": "oxygen",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "snow",
+   "note": "a lot of snow; a snowfall"
+  },
+  {
+   "w": "rain",
+   "note": "heavy rain; a shower of rain"
+  },
+  {
+   "w": "heat",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "darkness",
+   "note": "không dùng a / an"
+  },
+  {
+   "w": "cash",
+   "note": "pay in cash"
+  },
+  {
+   "w": "mail",
+   "note": "a piece of mail / a letter"
+  },
+  {
+   "w": "stuff",
+   "note": "some stuff; không nói stuffs"
+  },
+  {
+   "w": "damage",
+   "note": "cause damage; damages (số nhiều) = tiền bồi thường"
+  },
+  {
+   "w": "pasta",
+   "note": "a plate of pasta"
+  },
+  {
+   "w": "toothpaste",
+   "note": "a tube of toothpaste"
+  },
+  {
+   "w": "shampoo",
+   "note": "a bottle of shampoo"
+  }
+ ],
+ "cu": [
+  {
+   "w": "time",
+   "c": "đếm được = lần: three times",
+   "u": "không đếm được = thời gian: much time"
+  },
+  {
+   "w": "paper",
+   "c": "đếm được = tờ báo, bài nghiên cứu: a paper",
+   "u": "không đếm được = giấy: a sheet of paper"
+  },
+  {
+   "w": "glass",
+   "c": "đếm được = cái cốc, cặp kính (glasses)",
+   "u": "không đếm được = thuỷ tinh"
+  },
+  {
+   "w": "hair",
+   "c": "đếm được = một sợi tóc: a hair in my soup",
+   "u": "không đếm được = mái tóc: long hair"
+  },
+  {
+   "w": "work",
+   "c": "đếm được = tác phẩm: works of art",
+   "u": "không đếm được = công việc: a lot of work"
+  },
+  {
+   "w": "experience",
+   "c": "đếm được = một trải nghiệm: an amazing experience",
+   "u": "không đếm được = kinh nghiệm: much experience"
+  },
+  {
+   "w": "room",
+   "c": "đếm được = căn phòng",
+   "u": "không đếm được = chỗ trống: no room"
+  },
+  {
+   "w": "chicken",
+   "c": "đếm được = con gà",
+   "u": "không đếm được = thịt gà"
+  },
+  {
+   "w": "business",
+   "c": "đếm được = công ty: a small business",
+   "u": "không đếm được = việc kinh doanh"
+  },
+  {
+   "w": "coffee",
+   "c": "đếm được = một cốc: two coffees, please",
+   "u": "không đếm được = cà phê nói chung"
+  },
+  {
+   "w": "tea",
+   "c": "đếm được = một tách: two teas",
+   "u": "không đếm được = trà nói chung"
+  },
+  {
+   "w": "food",
+   "c": "đếm được = loại món: Asian foods",
+   "u": "không đếm được = thức ăn nói chung"
+  },
+  {
+   "w": "fruit",
+   "c": "đếm được = loại quả: tropical fruits",
+   "u": "không đếm được = trái cây nói chung"
+  },
+  {
+   "w": "light",
+   "c": "đếm được = cái đèn",
+   "u": "không đếm được = ánh sáng"
+  },
+  {
+   "w": "noise",
+   "c": "đếm được = một tiếng động",
+   "u": "không đếm được = tiếng ồn nói chung"
+  },
+  {
+   "w": "space",
+   "c": "đếm được = một chỗ: a parking space",
+   "u": "không đếm được = không gian, khoảng trống"
+  },
+  {
+   "w": "iron",
+   "c": "đếm được = bàn là",
+   "u": "không đếm được = sắt"
+  },
+  {
+   "w": "cheese",
+   "c": "đếm được = loại phô mai",
+   "u": "không đếm được = phô mai nói chung"
+  },
+  {
+   "w": "chocolate",
+   "c": "đếm được = một viên sô-cô-la",
+   "u": "không đếm được = sô-cô-la nói chung"
+  },
+  {
+   "w": "wood",
+   "c": "đếm được = khu rừng nhỏ (the woods)",
+   "u": "không đếm được = gỗ"
+  },
+  {
+   "w": "language",
+   "c": "đếm được = một ngôn ngữ",
+   "u": "không đếm được = ngôn ngữ nói chung"
+  },
+  {
+   "w": "life",
+   "c": "đếm được = cuộc đời một người: lives",
+   "u": "không đếm được = sự sống"
+  }
+ ],
+ "uk": [
+  {
+   "k": "spell",
+   "gb": "colour",
+   "us": "color"
+  },
+  {
+   "k": "spell",
+   "gb": "favourite",
+   "us": "favorite"
+  },
+  {
+   "k": "spell",
+   "gb": "neighbour",
+   "us": "neighbor"
+  },
+  {
+   "k": "spell",
+   "gb": "behaviour",
+   "us": "behavior"
+  },
+  {
+   "k": "spell",
+   "gb": "flavour",
+   "us": "flavor"
+  },
+  {
+   "k": "spell",
+   "gb": "honour",
+   "us": "honor"
+  },
+  {
+   "k": "spell",
+   "gb": "labour",
+   "us": "labor"
+  },
+  {
+   "k": "spell",
+   "gb": "humour",
+   "us": "humor"
+  },
+  {
+   "k": "spell",
+   "gb": "centre",
+   "us": "center"
+  },
+  {
+   "k": "spell",
+   "gb": "theatre",
+   "us": "theater"
+  },
+  {
+   "k": "spell",
+   "gb": "metre",
+   "us": "meter"
+  },
+  {
+   "k": "spell",
+   "gb": "litre",
+   "us": "liter"
+  },
+  {
+   "k": "spell",
+   "gb": "kilometre",
+   "us": "kilometer"
+  },
+  {
+   "k": "spell",
+   "gb": "grey",
+   "us": "gray"
+  },
+  {
+   "k": "spell",
+   "gb": "programme",
+   "us": "program"
+  },
+  {
+   "k": "spell",
+   "gb": "jewellery",
+   "us": "jewelry"
+  },
+  {
+   "k": "spell",
+   "gb": "defence",
+   "us": "defense"
+  },
+  {
+   "k": "spell",
+   "gb": "licence",
+   "us": "license"
+  },
+  {
+   "k": "spell",
+   "gb": "tyre",
+   "us": "tire"
+  },
+  {
+   "k": "spell",
+   "gb": "cheque",
+   "us": "check"
+  },
+  {
+   "k": "spell",
+   "gb": "analyse",
+   "us": "analyze"
+  },
+  {
+   "k": "spell",
+   "gb": "catalogue",
+   "us": "catalog"
+  },
+  {
+   "k": "spell",
+   "gb": "dialogue",
+   "us": "dialog"
+  },
+  {
+   "k": "spell",
+   "gb": "fulfil",
+   "us": "fulfill"
+  },
+  {
+   "k": "spell",
+   "gb": "enrol",
+   "us": "enroll"
+  },
+  {
+   "k": "spell",
+   "gb": "travelled",
+   "us": "traveled"
+  },
+  {
+   "k": "spell",
+   "gb": "cancelled",
+   "us": "canceled"
+  },
+  {
+   "k": "spell",
+   "gb": "mum",
+   "us": "mom"
+  },
+  {
+   "k": "spell",
+   "gb": "aeroplane",
+   "us": "airplane"
+  },
+  {
+   "k": "spell",
+   "gb": "pyjamas",
+   "us": "pajamas"
+  },
+  {
+   "k": "spell",
+   "gb": "sceptical",
+   "us": "skeptical"
+  },
+  {
+   "k": "spell",
+   "gb": "organise",
+   "us": "organize"
+  },
+  {
+   "k": "spell",
+   "gb": "realise",
+   "us": "realize"
+  },
+  {
+   "k": "spell",
+   "gb": "apologise",
+   "us": "apologize"
+  },
+  {
+   "k": "spell",
+   "gb": "recognise",
+   "us": "recognize"
+  },
+  {
+   "k": "word",
+   "gb": "flat",
+   "us": "apartment"
+  },
+  {
+   "k": "word",
+   "gb": "lift",
+   "us": "elevator"
+  },
+  {
+   "k": "word",
+   "gb": "holiday",
+   "us": "vacation"
+  },
+  {
+   "k": "word",
+   "gb": "autumn",
+   "us": "fall"
+  },
+  {
+   "k": "word",
+   "gb": "rubbish",
+   "us": "garbage"
+  },
+  {
+   "k": "word",
+   "gb": "petrol",
+   "us": "gas"
+  },
+  {
+   "k": "word",
+   "gb": "motorway",
+   "us": "highway"
+  },
+  {
+   "k": "word",
+   "gb": "queue",
+   "us": "line"
+  },
+  {
+   "k": "word",
+   "gb": "biscuit",
+   "us": "cookie"
+  },
+  {
+   "k": "word",
+   "gb": "chips",
+   "us": "fries"
+  },
+  {
+   "k": "word",
+   "gb": "crisps",
+   "us": "chips"
+  },
+  {
+   "k": "word",
+   "gb": "trousers",
+   "us": "pants"
+  },
+  {
+   "k": "word",
+   "gb": "underground",
+   "us": "subway"
+  },
+  {
+   "k": "word",
+   "gb": "pavement",
+   "us": "sidewalk"
+  },
+  {
+   "k": "word",
+   "gb": "film",
+   "us": "movie"
+  },
+  {
+   "k": "word",
+   "gb": "shop",
+   "us": "store"
+  },
+  {
+   "k": "word",
+   "gb": "post",
+   "us": "mail"
+  },
+  {
+   "k": "word",
+   "gb": "timetable",
+   "us": "schedule"
+  },
+  {
+   "k": "word",
+   "gb": "football",
+   "us": "soccer"
+  },
+  {
+   "k": "word",
+   "gb": "sweets",
+   "us": "candy"
+  },
+  {
+   "k": "word",
+   "gb": "trainers",
+   "us": "sneakers"
+  },
+  {
+   "k": "word",
+   "gb": "lorry",
+   "us": "truck"
+  },
+  {
+   "k": "word",
+   "gb": "tap",
+   "us": "faucet"
+  },
+  {
+   "k": "word",
+   "gb": "postcode",
+   "us": "zip code"
+  },
+  {
+   "k": "word",
+   "gb": "mobile phone",
+   "us": "cell phone"
+  },
+  {
+   "k": "word",
+   "gb": "car park",
+   "us": "parking lot"
+  },
+  {
+   "k": "word",
+   "gb": "cinema",
+   "us": "movie theater"
+  },
+  {
+   "k": "word",
+   "gb": "maths",
+   "us": "math"
+  },
+  {
+   "k": "word",
+   "gb": "torch",
+   "us": "flashlight"
+  },
+  {
+   "k": "word",
+   "gb": "return ticket",
+   "us": "round-trip ticket"
+  },
+  {
+   "k": "word",
+   "gb": "CV",
+   "us": "résumé"
+  },
+  {
+   "k": "word",
+   "gb": "toilet",
+   "us": "restroom"
+  },
+  {
+   "k": "use",
+   "gb": "at the weekend",
+   "us": "on the weekend"
+  },
+  {
+   "k": "use",
+   "gb": "in hospital",
+   "us": "in the hospital"
+  },
+  {
+   "k": "use",
+   "gb": "Have you got…?",
+   "us": "Do you have…?"
+  },
+  {
+   "k": "use",
+   "gb": "31 October / 31/10",
+   "us": "October 31 / 10/31"
+  },
+  {
+   "k": "use",
+   "gb": "ground floor",
+   "us": "first floor"
+  },
+  {
+   "k": "use",
+   "gb": "different from / to",
+   "us": "different from / than"
+  }
+ ],
+ "am": [
+  {
+   "t": "🎵 Trọng âm: quy tắc thường gặp",
+   "note": "Quy tắc có ngoại lệ: trọng âm của từng từ xem ở mục từ (dấu ● là âm tiết nhấn).",
+   "items": [
+    {
+     "r": "Danh từ, tính từ 2 âm tiết: thường nhấn âm tiết 1",
+     "ex": [
+      [
+       "table",
+       "TA-ble"
+      ],
+      [
+       "happy",
+       "HAP-py"
+      ],
+      [
+       "student",
+       "STU-dent"
+      ],
+      [
+       "yellow",
+       "YEL-low"
+      ]
+     ],
+     "x": "Ngoại lệ hay gặp: hotel, police, machine, mistake."
+    },
+    {
+     "r": "Động từ 2 âm tiết: thường nhấn âm tiết 2",
+     "ex": [
+      [
+       "decide",
+       "de-CIDE"
+      ],
+      [
+       "begin",
+       "be-GIN"
+      ],
+      [
+       "forget",
+       "for-GET"
+      ],
+      [
+       "relax",
+       "re-LAX"
+      ]
+     ]
+    },
+    {
+     "r": "Cùng một từ: danh từ nhấn âm 1, động từ nhấn âm 2",
+     "ex": [
+      [
+       "record",
+       "REC-ord / re-CORD"
+      ],
+      [
+       "present",
+       "PRES-ent / pre-SENT"
+      ],
+      [
+       "object",
+       "OB-ject / ob-JECT"
+      ],
+      [
+       "increase",
+       "IN-crease / in-CREASE"
+      ]
+     ]
+    },
+    {
+     "r": "Đuôi -tion, -sion, -ic, -ical, -ity, -ian, -ial: nhấn âm tiết ngay trước đuôi",
+     "ex": [
+      [
+       "information",
+       "in-for-MA-tion"
+      ],
+      [
+       "economic",
+       "e-co-NOM-ic"
+      ],
+      [
+       "ability",
+       "a-BIL-i-ty"
+      ],
+      [
+       "musician",
+       "mu-SI-cian"
+      ]
+     ]
+    },
+    {
+     "r": "Đuôi -ee, -eer, -ese, -ique, -oo: nhấn vào chính đuôi",
+     "ex": [
+      [
+       "refugee",
+       "ref-u-GEE"
+      ],
+      [
+       "engineer",
+       "en-gi-NEER"
+      ],
+      [
+       "Vietnamese",
+       "Viet-nam-ESE"
+      ],
+      [
+       "unique",
+       "u-NIQUE"
+      ]
+     ]
+    },
+    {
+     "r": "Đuôi -ful, -less, -ness, -ment, -ous, -er, -ly: không đổi trọng âm của từ gốc",
+     "ex": [
+      [
+       "beautiful",
+       "BEAU-ti-ful"
+      ],
+      [
+       "careless",
+       "CARE-less"
+      ],
+      [
+       "development",
+       "de-VEL-op-ment"
+      ],
+      [
+       "happiness",
+       "HAP-pi-ness"
+      ]
+     ]
+    },
+    {
+     "r": "Đuôi -ate, -y, -al ở từ 3 âm tiết trở lên: thường nhấn âm tiết thứ 3 tính từ cuối",
+     "ex": [
+      [
+       "celebrate",
+       "CEL-e-brate"
+      ],
+      [
+       "communicate",
+       "com-MU-ni-cate"
+      ],
+      [
+       "photography",
+       "pho-TOG-ra-phy"
+      ],
+      [
+       "political",
+       "po-LIT-i-cal"
+      ]
+     ]
+    },
+    {
+     "r": "Danh từ ghép: nhấn từ đầu",
+     "ex": [
+      [
+       "classroom",
+       "CLASS-room"
+      ],
+      [
+       "bus stop",
+       "BUS stop"
+      ],
+      [
+       "birthday",
+       "BIRTH-day"
+      ],
+      [
+       "swimming pool",
+       "SWIM-ming pool"
+      ]
+     ]
+    },
+    {
+     "r": "Tiền tố (un-, re-, im-, dis-…) thường không nhận trọng âm",
+     "ex": [
+      [
+       "unhappy",
+       "un-HAP-py"
+      ],
+      [
+       "impossible",
+       "im-POS-si-ble"
+      ],
+      [
+       "rewrite",
+       "re-WRITE"
+      ],
+      [
+       "disagree",
+       "dis-a-GREE"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "t": "🔚 Đuôi -s / -es (số nhiều, ngôi 3, sở hữu 's)",
+   "items": [
+    {
+     "r": "/s/ sau âm vô thanh /p t k f θ/",
+     "ex": [
+      [
+       "cats",
+       "cats /kæts/"
+      ],
+      [
+       "books",
+       "books /bʊks/"
+      ],
+      [
+       "stops",
+       "stops /stɒps/"
+      ],
+      [
+       "months",
+       "months /mʌnθs/"
+      ]
+     ]
+    },
+    {
+     "r": "/z/ sau âm hữu thanh và nguyên âm",
+     "ex": [
+      [
+       "dogs",
+       "dogs /dɒɡz/"
+      ],
+      [
+       "plays",
+       "plays /pleɪz/"
+      ],
+      [
+       "bags",
+       "bags /bæɡz/"
+      ],
+      [
+       "cars",
+       "cars /kɑːz/"
+      ]
+     ]
+    },
+    {
+     "r": "/ɪz/ sau /s z ʃ ʒ tʃ dʒ/ (thêm một âm tiết)",
+     "ex": [
+      [
+       "buses",
+       "buses /ˈbʌsɪz/"
+      ],
+      [
+       "watches",
+       "watches /ˈwɒtʃɪz/"
+      ],
+      [
+       "oranges",
+       "oranges /ˈɒrɪndʒɪz/"
+      ],
+      [
+       "washes",
+       "washes /ˈwɒʃɪz/"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "t": "🔚 Đuôi -ed (quá khứ, phân từ)",
+   "items": [
+    {
+     "r": "/t/ sau âm vô thanh /p k s ʃ tʃ f θ/",
+     "ex": [
+      [
+       "stopped",
+       "stopped /stɒpt/"
+      ],
+      [
+       "worked",
+       "worked /wɜːkt/"
+      ],
+      [
+       "washed",
+       "washed /wɒʃt/"
+      ],
+      [
+       "laughed",
+       "laughed /lɑːft/"
+      ]
+     ]
+    },
+    {
+     "r": "/d/ sau âm hữu thanh và nguyên âm",
+     "ex": [
+      [
+       "played",
+       "played /pleɪd/"
+      ],
+      [
+       "opened",
+       "opened /ˈəʊpənd/"
+      ],
+      [
+       "lived",
+       "lived /lɪvd/"
+      ],
+      [
+       "called",
+       "called /kɔːld/"
+      ]
+     ]
+    },
+    {
+     "r": "/ɪd/ sau /t d/ (thêm một âm tiết)",
+     "ex": [
+      [
+       "wanted",
+       "wanted /ˈwɒntɪd/"
+      ],
+      [
+       "needed",
+       "needed /ˈniːdɪd/"
+      ],
+      [
+       "decided",
+       "decided /dɪˈsaɪdɪd/"
+      ],
+      [
+       "visited",
+       "visited /ˈvɪzɪtɪd/"
+      ]
+     ],
+     "x": "Một số tính từ đọc /ɪd/ dù không sau t / d: naked, wicked, beloved, learned (= uyên bác)."
+    }
+   ]
+  },
+  {
+   "t": "✂️ Âm cuối người Việt hay bỏ hoặc nuốt",
+   "note": "Tiếng Việt ít âm cuối và không có cụm phụ âm cuối, nên hay đọc thiếu. Đọc thiếu âm cuối có thể đổi nghĩa (bus / but, card / car).",
+   "items": [
+    {
+     "r": "/s/, /z/ cuối từ: đọc rõ, không bỏ",
+     "ex": [
+      [
+       "bus",
+       "bus"
+      ],
+      [
+       "his",
+       "his"
+      ],
+      [
+       "nice",
+       "nice"
+      ],
+      [
+       "rice",
+       "rice"
+      ]
+     ]
+    },
+    {
+     "r": "/t/ – /d/, /k/ – /ɡ/: phân biệt; nguyên âm trước /d/, /ɡ/ kéo dài hơn",
+     "ex": [
+      [
+       "bet",
+       "bet"
+      ],
+      [
+       "bed",
+       "bed"
+      ],
+      [
+       "back",
+       "back"
+      ],
+      [
+       "bag",
+       "bag"
+      ]
+     ]
+    },
+    {
+     "r": "/l/ cuối từ: lưỡi chạm lợi trên, không đọc thành \"u\"",
+     "ex": [
+      [
+       "feel",
+       "feel"
+      ],
+      [
+       "school",
+       "school"
+      ],
+      [
+       "tell",
+       "tell"
+      ],
+      [
+       "hotel",
+       "hotel"
+      ]
+     ]
+    },
+    {
+     "r": "/ʃ/, /tʃ/, /dʒ/ cuối từ",
+     "ex": [
+      [
+       "wish",
+       "wish"
+      ],
+      [
+       "watch",
+       "watch"
+      ],
+      [
+       "page",
+       "page"
+      ],
+      [
+       "orange",
+       "orange"
+      ]
+     ]
+    },
+    {
+     "r": "Cụm phụ âm cuối: đọc đủ, không bỏ bớt",
+     "ex": [
+      [
+       "desk",
+       "desk"
+      ],
+      [
+       "asked",
+       "asked"
+      ],
+      [
+       "texts",
+       "texts"
+      ],
+      [
+       "months",
+       "months"
+      ]
+     ]
+    },
+    {
+     "r": "/v/, /θ/, /ð/ cuối từ",
+     "ex": [
+      [
+       "have",
+       "have"
+      ],
+      [
+       "five",
+       "five"
+      ],
+      [
+       "month",
+       "month"
+      ],
+      [
+       "with",
+       "with"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "t": "🎶 Ngữ điệu và nhấn câu",
+   "items": [
+    {
+     "r": "Câu hỏi Yes / No: lên giọng ở cuối ↗",
+     "ex": [
+      [
+       "Are you ready?",
+       "Are you ready? ↗"
+      ],
+      [
+       "Do you like tea?",
+       "Do you like tea? ↗"
+      ]
+     ]
+    },
+    {
+     "r": "Câu hỏi Wh- và câu kể: xuống giọng ở cuối ↘",
+     "ex": [
+      [
+       "Where do you live?",
+       "Where do you live? ↘"
+      ],
+      [
+       "I live in Hanoi.",
+       "I live in Hanoi. ↘"
+      ]
+     ]
+    },
+    {
+     "r": "Liệt kê: lên giọng ở từng mục, xuống ở mục cuối",
+     "ex": [
+      [
+       "apples, oranges and bananas",
+       "apples ↗, oranges ↗ and bananas ↘"
+      ]
+     ]
+    },
+    {
+     "r": "Câu hỏi đuôi: xuống giọng khi chắc chắn, lên giọng khi hỏi thật",
+     "ex": [
+      [
+       "It's cold, isn't it?",
+       "It's cold, isn't it? ↘ (chắc chắn) / ↗ (hỏi thật)"
+      ]
+     ]
+    },
+    {
+     "r": "Nhấn từ mang nghĩa (danh từ, động từ chính, tính từ); từ chức năng (a, the, to, of, and, can) đọc nhẹ",
+     "ex": [
+      [
+       "I want to go to the beach.",
+       "I WANT to GO to the BEACH."
+      ],
+      [
+       "She can swim.",
+       "She can SWIM. (can đọc nhẹ /kən/)"
+      ]
+     ]
+    }
    ]
   }
  ]

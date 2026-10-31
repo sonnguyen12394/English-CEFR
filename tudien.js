@@ -29,6 +29,8 @@ function td1(a, b) { if (a === b) return true; const m = a.length, n = b.length;
 function tdMatch(q) { const out = { ids: new Set(), how: new Map(), exact: null }, raw = String(q || '').toLowerCase().trim(); if (!raw) return out;
   const X = tdIndex(), add = (w, why) => { if (!w || out.ids.has(w.id)) return; out.ids.add(w.id); if (why) out.how.set(w.id, why); };
   const ex = WORDS.find(w => w.w.toLowerCase() === raw); if (ex) out.exact = ex.id;
+  const uk = typeof tdUkPair === 'function' && !ex ? tdUkPair(raw) : null, ukw = uk && WORDS.find(w => w.w.toLowerCase() === (uk.gb.toLowerCase() === raw ? uk.us : uk.gb).toLowerCase());   // v94: color → colour
+  if (ukw) { add(ukw, `“${raw}” là cách ${uk.gb.toLowerCase() === raw ? 'Anh–Anh' : 'Anh–Mỹ'} của “${ukw.w}”`); out.exact = out.exact || ukw.id; }
   const heads = new Map(WORDS.map(w => [w.w.toLowerCase(), w])), stem = [raw.replace(/([bdgmnpt])\1(er|est|ed|ing)$/, '$1'), raw.replace(/ied$/, 'y'), raw.replace(/ier$/, 'y'), raw.replace(/iest$/, 'y'), raw.replace(/r$/, ''), raw.replace(/st$/, ''), raw.replace(/d$/, ''), raw.replace(/ers?$/, ''), raw.replace(/ings?$/, ''), raw.replace(/ly$/, ''), raw.replace(/ily$/, 'y'), raw.replace(/ly$/, 'le'), raw.replace(/s$/, '').replace(/([bdgmnpt])\1ers?$/, '$1'), raw.replace(/s$/, '').replace(/ers?$/, '')].find(x => x !== raw && x.length >= 2 && heads.has(x));
   const base = TD_BASE[raw] || stem || null, bw = base && heads.get(base);   // went → go: libFind; hotter → hot, tried → try, larger → large, simply → simple (le → ly: libFind)
   if (!ex && bw) { add(bw, `“${raw}” là dạng của “${bw.w}”`); out.exact = out.exact || bw.id; }
@@ -42,6 +44,26 @@ function tdMatch(q) { const out = { ids: new Set(), how: new Map(), exact: null 
 const tdRank = (w, q, M) => { const k = w.w.toLowerCase(); q = String(q || '').toLowerCase().trim(); return w.id === M.exact || k === q ? 0 : k.startsWith(q) ? 1 : 2; };
 
 // ---------- ① một mục từ đầy đủ ----------
+// v94 🎵 trọng âm lấy từ IPA (4.239 từ có dấu ˈ): đếm âm tiết = số hạt nhân nguyên âm (nguyên âm đôi tính 1, /l/ /n/ đứng làm âm tiết sau phụ âm:
+// bottle, listen, final), âm tiết nhấn = hạt nhân đầu tiên sau ˈ. Từ không có ˈ (một âm tiết theo nguồn) và cụm nhiều chữ: không hiện.
+const TD_V = 'iɪeɛæaɑɒɔoʊuʌəɜɐɚɝyʏøœɘɵ', TD_DI = ['eɪ', 'aɪ', 'ɔɪ', 'əʊ', 'aʊ', 'ɪə', 'eə', 'ʊə', 'oʊ', 'ɛə'], TD_OBS = 'pbtdkɡgfvθðszʃʒh';
+function tdSyl(ipa) { const t = String(ipa || '').trim().replace(/^\/|\/$/g, '').split(/[,;]/)[0].replace(/\([^)]*\)/g, '').replace(/[ʳ.]/g, '').trim();
+  if (!t || /\s/.test(t) || !t.includes('ˈ')) return null; const nuc = [], isV = c => TD_V.includes(c);
+  for (let i = 0; i < t.length;) { const c = t[i];
+    if (isV(c)) { let len = TD_DI.includes(t.slice(i, i + 2)) ? 2 : 1; if (t[i + len] === 'ː') len++; nuc.push(i); i += len; continue; }
+    if (c === '̩' || ((c === 'n' || c === 'l') && i > 0 && (TD_OBS.includes(t[i - 1]) || (c === 'l' && 'mnŋ'.includes(t[i - 1]))) && (i === t.length - 1 || !isV(t[i + 1])))) { nuc.push(i); i++; continue; }
+    i++; }
+  const p = t.indexOf('ˈ'), s = nuc.filter(x => x < p).length + 1; return nuc.length >= 2 && s <= nuc.length ? { n: nuc.length, s } : null; }
+const tdStress = w => { if (/\s/.test(w.w)) return ''; const r = tdSyl(w.ipa); return r ? `<p style="margin:4px 0">🎵 <b>Trọng âm:</b> <span style="letter-spacing:2px">${[...Array(r.n)].map((_, k) => k + 1 === r.s ? '●' : '○').join('')}</span> <span class="mute">nhấn âm tiết ${r.s} / ${r.n}</span></p>` : ''; };
+// v94 nhãn đếm được / không đếm được và Anh–Anh / Anh–Mỹ (tracuu.json unc, cu, uk)
+function tdCount(w) { if (typeof TC === 'undefined' || !TC) return ''; const k = w.w.toLowerCase(), u = (TC.unc || []).find(x => x.w === k), c = (TC.cu || []).find(x => x.w === k);
+  if (u || /uncountable/.test(w.pos || '')) return `<p style="margin:4px 0">🔢 <b>[U] Không đếm được</b>: không thêm -s, không dùng a / an.${u ? ` <span class="mute">${esc(u.note)}</span>` : ''}</p>`;
+  return c ? `<p style="margin:4px 0">🔢 <b>[C / U] Vừa đếm được vừa không</b><br><span class="mute">• ${esc(c.c)}<br>• ${esc(c.u)}</span></p>` : ''; }
+const tdUkPair = k => typeof TC !== 'undefined' && TC ? (TC.uk || []).find(x => x.gb.toLowerCase() === k || x.us.toLowerCase() === k) : null;
+function tdUk(w) { const x = tdUkPair(w.w.toLowerCase()); if (!x) return ''; const ize = /is(e|ed|ing|ation)$/.test(x.gb) && /iz(e|ed|ing|ation)$/.test(x.us);
+  return `<p style="margin:4px 0">🇬🇧 <b>Anh–Anh:</b> ${esc(x.gb)} · 🇺🇸 <b>Anh–Mỹ:</b> ${esc(x.us)}${ize ? ' <span class="mute">(Anh–Anh viết được cả -ise và -ize)</span>' : ''}</p>`; }
+const tdDef = w => w.en ? '' : `<p style="margin:4px 0" class="mute">📘 Giải nghĩa tiếng Anh: <a href="https://www.oxfordlearnersdictionaries.com/search/english/?q=${encodeURIComponent(w.w)}" target="_blank" rel="noopener">↗ Oxford Learner's</a> · <a href="https://dictionary.cambridge.org/dictionary/english/${encodeURIComponent(w.w.toLowerCase().replace(/\s+/g, '-'))}" target="_blank" rel="noopener">↗ Cambridge</a></p>`;
+
 // v93 mục từ 3 tầng theo nhu cầu người học (giáo viên tiếng Anh, 31/10/2026): ① Hiểu (luôn hiện: nghĩa, phát âm, ví dụ, dạng bất quy tắc, 📌);
 // ② Dùng thế nào (khi viết / nói: cụm hay dùng, mẫu, ngữ pháp liên quan, văn phong, từ dễ nhầm, lỗi hay gặp; mở sẵn từ cấp B1, dưới B1 gập);
 // ③ Mở rộng (gập: nghĩa khác, đồng / trái nghĩa, họ từ, thành ngữ, gặp trong bài, từ điển ngoài).
@@ -50,7 +72,7 @@ function tdEntry(w, M) { const why = M && M.how.get(w.id), chip = t => `<button 
   const loi = typeof TC !== 'undefined' && TC ? (TC.loi || []).filter(x => new RegExp(`(^|\\s)${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(\\s|$)`, 'i').test(x.k)).slice(0, 2) : [];
   const pb = typeof TC !== 'undefined' && TC ? (TC.pb || []).filter(g => g.w.includes(k)) : [];
   const use = [
-    w.col && w.col.ok && `<p style="margin:6px 0">🔗 <b>Cụm hay dùng:</b> ${esc(w.col.ok)}${(w.col.bad || []).length ? ` <span class="mute">(không nói: ${w.col.bad.map(esc).join(', ')})</span>` : ''}</p>`,
+    w.col && w.col.ok && `<p style="margin:6px 0">${w.col.ok.toLowerCase() === k ? '✅ <b>Nói đúng cả cụm:</b>' : '🔗 <b>Cụm hay dùng:</b>'} ${esc(w.col.ok)}${(w.col.bad || []).length ? ` <span class="mute">(không nói: ${w.col.bad.map(esc).join(', ')})</span>` : ''}</p>`,   // cụm cố định / thành ngữ: chính nó là cụm đúng, phần "không nói" mới là chỗ cần học
     w.pat && `<p style="margin:6px 0">🧩 <b>Mẫu:</b> ${esc(w.pat.m)} <span class="mute">· ${esc(w.pat.s.replace('___', w.pat.a))}</span></p>`,
     typeof tcGramFor === 'function' && tcGramFor(w),
     w.reg && `<p style="margin:6px 0">🎚 ${w.reg.f ? `<b>Trang trọng</b>; nói thường dùng: <b>${esc(w.reg.p)}</b>` : `<b>Thân mật</b>; viết trang trọng dùng: <b>${esc(w.reg.p)}</b>`}</p>`,
@@ -65,6 +87,7 @@ function tdEntry(w, M) { const why = M && M.how.get(w.id), chip = t => `<button 
     tdInText(w)].filter(Boolean).join('');
   return `<div class="box" style="margin:8px 0 0">${why ? `<p class="mute" style="margin:0 0 4px">🔎 ${esc(why)}</p>` : ''}<div class="mute">${esc(w.pos || '')} · ${w.u ? uLabel(UBY[w.u]) : `${LVN[w.lv] || ''} · chỉ tra`}</div>${w.en ? `<p class="mute" style="margin:4px 0">${esc(w.en)}</p>` : ''}
     <p style="margin:6px 0">${esc(w.ex || '')}<br><span class="mute">${esc(w.exVi || '')}</span></p>
+    ${tdStress(w)}${tdCount(w)}${tdUk(w)}${tdDef(w)}
     ${w.irr ? `<p style="margin:6px 0">🔁 <b>Dạng bất quy tắc:</b> ${w.irr.f.map(([n, fs]) => `${esc(n)}: <b>${fs.map(esc).join(' / ')}</b>`).join(' · ')}</p>` : ''}
     ${typeof sayBtns === 'function' ? sayBtns(w).replace('</div>', `<button class="chip" data-tdgb="${w.id}">🔊 Giọng Anh</button></div>`) : ''}
     <div class="chips" style="margin:6px 0 0">${inSo ? '<span class="chip on">📌 Đã có trong sổ từ</span>' : `<button class="chip" data-tdsave="${w.id}">📌 Lưu vào sổ từ</button>`}</div>
