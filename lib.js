@@ -18,7 +18,7 @@ async function libView(lv) { libStop(); window.CUR = { view: 'thu-vien', item: l
   const grp = (t, xs) => xs.length ? `<h2>${t}</h2>${xs.map(card).join('')}` : '';
   $app.innerHTML = `${backRow('📚 Thư viện')}<h1>📚 Thư viện đọc</h1>
     <p class="mute">Truyện nguyên bản (không rút gọn), tiếng Anh cổ hơn tiếng Anh ngày nay một chút. Cách đọc: đọc nhanh cho hiểu ý, chỉ chạm tra từ khi mất mạch. Đọc thấy dưới 2 từ lạ mỗi dòng là vừa sức.</p>
-    ${grp(`Hợp cấp ${LVN[me]}`, LIB.books.filter(x => x.lv === me))}${grp('Dễ hơn (đọc nhanh, luyện tốc độ)', LIB.books.filter(x => LIB_LV.indexOf(x.lv) < k))}${grp('Khó hơn (đọc thử)', LIB.books.filter(x => LIB_LV.indexOf(x.lv) > k))}
+    ${grp('🌱 Đọc rộng: vừa sức (≥ 95% từ có trong app tới cấp của bạn)', LIB.books.filter(x => cov(x) >= 95 && x.lv !== me))}${grp(`Hợp cấp ${LVN[me]}`, LIB.books.filter(x => x.lv === me))}${grp('Dễ hơn (đọc nhanh, luyện tốc độ)', LIB.books.filter(x => LIB_LV.indexOf(x.lv) < k && cov(x) < 95))}${grp('Khó hơn (đọc thử)', LIB.books.filter(x => LIB_LV.indexOf(x.lv) > k && cov(x) < 95))}
     <p class="mute">Nguồn: Project Gutenberg (truyện hết bản quyền ở Mỹ). Cấp gợi ý theo thói quen chọn sách của giáo viên; % từ đo bằng danh sách từ của app.</p>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return overview(lv); const c = e.target.closest('[data-lb]'); if (c) libRead(lv, c.dataset.lb, (R[c.dataset.lb] || {}).done ? 0 : (R[c.dataset.lb] || {}).p || 0); }; }
 // ⏱ giờ đọc thật: mỗi 15 giây, nếu trang đang hiện và có thao tác (chạm, cuộn, lật trang) trong 2 phút qua thì cộng 15 giây
@@ -36,7 +36,7 @@ async function libRead(lv, id, p) { $app.innerHTML = '<p class="mute">Đang tả
   p = Math.max(0, Math.min(p, B.pages.length - 1)); const R = libRuns(), r = R[id] = R[id] || {}; r.p = p; r.at = Date.now(); if (p === B.pages.length - 1) r.done = true; S.t = Date.now(); save();
   window.CUR = { view: 'thu-vien-doc', item: id + ':' + p }; libStart(lv, id); LIBT.act = Date.now();
   $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Thư viện</button><span class="uname">${esc(B.title)} · ${p + 1}/${B.pages.length}</span></div>${bar(Math.round((p + 1) / B.pages.length * 100), 100, 'var(--accent)')}
-    <div id="libp" style="font-size:18px;line-height:1.7">${B.pages[p].map(x => `<p>${libPara(x)}</p>`).join('')}</div>
+    ${typeof kCoverTxt === 'function' ? kCoverTxt(B.pages[p].join(' ')).replace('của bài', 'của trang này') : ''}<div id="libp" style="font-size:18px;line-height:1.7">${B.pages[p].map(x => `<p>${libPara(x)}</p>`).join('')}</div>
     <div class="duo">${p ? '<button data-a="prev">‹ Trang trước</button>' : '<span></span>'}${p < B.pages.length - 1 ? '<button class="pri" data-a="next">Trang sau ›</button>' : '<button class="pri" data-a="back">✅ Hết truyện</button>'}</div>
     <p class="mute">${esc(B.author)} · Project Gutenberg. Chạm một từ để tra.</p><div id="libw" style="position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom));max-width:536px;margin:0 auto;z-index:25" hidden></div>`;
   scrollTo(0, 0);

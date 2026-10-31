@@ -20,7 +20,8 @@ const MAP_GROUP = [['Hiểu', ['tv', 'np', 'doc', 'nghe']], ['Tạo ra', ['noi',
 // cấp đang học của từng phần (như "Nên làm")
 const mapLv = id => id === 'tv' ? curLevel() : id === 'pa' ? paLevel() : kLv(KIT[id]);
 // một mặt của một thẻ: 'sai' (lần gần nhất sai), 'quen' (đúng nhưng khả năng nhớ < 80%), 'vung', 'chua' (chưa có bằng chứng)
-function mapFace(c, k, now) { const d = c && c.dm && c.dm[k]; if (!d) return 'chua'; if (!d.ok) return 'sai'; return heldDim(c, k, now) ? 'vung' : recall(c, now) < MEM_R ? 'quen' : 'chua'; }
+// v101: mặt đo trên bài mới (Đọc, Nghe: d.f) không giảm theo ngày: đúng là vững, sai là sai (chữa bằng tầng gốc: từ chưa học trong bài; làm lại sau 30 ngày mới tính)
+function mapFace(c, k, now) { const d = c && c.dm && c.dm[k]; if (!d) return 'chua'; if (!d.ok) return 'sai'; if (d.f) return 'vung'; return heldDim(c, k, now) ? 'vung' : recall(c, now) < MEM_R ? 'quen' : 'chua'; }
 const MAP_SEV = { sai: 1, quen: 0.6 };
 // mọi chỗ yếu: { id (phần), x (từ / bài), k (mặt), st, p (ưu tiên), lv }
 function mapWeak(now = Date.now()) { const out = [], push = (id, x, k, c, lvItem, lvPart, core) => { const st = mapFace(c, k, now); if (!MAP_SEV[st]) return;

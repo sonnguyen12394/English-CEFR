@@ -25,8 +25,10 @@ const R = await run(`(async () => {
     add(lv, 'X1', !errs.length, errs.length ? errs.slice(0, 5).join(' | ') : 'mọi màn mở được, mọi phần có đề thi');
     // X2: mỗi yêu cầu Nhớ của Từ vựng có dạng câu trong bài học
     const taught = new Set(UNITS.filter(u => u.lv === lv).flatMap(u => u.words.flatMap(w => lessonTypes(w, reqsUpTo(lv)).flatMap(t => DIM_OF[t] || [])))); taught.add('noi');
+    // v101: bài học dạy bậc 1 (nhận ra), bậc 2–4 hỏi dần trong luyện tập: mỗi yêu cầu cần có dạng câu ở bài học HOẶC ở luyện tập (TYPE_FOR)
+    for (const k of Object.keys(TYPE_FOR)) if ((DIM_OF[TYPE_FOR[k](null, null)] || []).includes(k)) taught.add(k);
     const untaught = dimsAt(lv).map(d => d[0]).filter(k => !taught.has(k) && WORDS.some(w => wLv(w) === lv && VREQ_BY[k][3](w)));
-    add(lv, 'X2', !untaught.length, untaught.length ? 'yêu cầu chưa được dạy trong bài học: ' + untaught.join(', ') : \`\${dimsAt(lv).length} yêu cầu Từ vựng đều được dạy\`);
+    add(lv, 'X2', !untaught.length, untaught.length ? 'yêu cầu chưa có dạng câu (bài học / luyện tập): ' + untaught.join(', ') : \`\${dimsAt(lv).length} yêu cầu Từ vựng đều có dạng câu (bài học bậc 1, luyện tập bậc 2–4)\`);
     // X4: câu thi đúng cấp
     XLV = lv; const ws = levelWords(lv).filter(w => EB[w.id]); let over = 0, tot = 0; const ex = new Set();
     for (const w of ws) for (const t of (EB[w.id].s.toLowerCase().match(/[a-z']+/g) || [])) { tot++; const l = lvw[t]; if (l && LEVELS.indexOf(l) > LEVELS.indexOf(lv) + (['pre', 'a1'].includes(lv) ? 0 : 1)) { over++; ex.add(t); } }
@@ -551,6 +553,70 @@ const R = await run(`(async () => {
     for (const lv of BL) { KIT.noi.raw = KIT.noi.raw || {}; const q = KIT.noi.exam(lv), talks = q.filter(x => x.k === 'viec'); if (talks.length !== 2 || talks.some(t => !t.x.test)) bad.push('Nói ' + lv + ': đề thi không phải 2 đề dành cho thi'); }
     for (const id of ['doc', 'nghe', 'viet', 'noi']) kSt(id).runs = [];
     add('cefr', 'C17', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đề thi B1+ không lặp bài (Đọc, Viết 2 lần · Nghe 3 lần liên tiếp), đủ bài thi mỗi cấp, Nói 2 đề dành cho thi'); }
+  // v101 cách học Từ vựng 4 bậc + Ngữ pháp 5 bậc (người sáng lập chốt 31/10/2026): bậc quyết định thứ tự giới thiệu mặt mới; bài học ngày đầu chỉ bậc 1 (Từ vựng) / bậc 1–2 (Ngữ pháp)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now();
+    // Từ vựng: bậc mở dần; bước đệm xếp chữ / chọn từ điền câu
+    await bkSet('tv', 'pre', 'dat');   // đang học A1 (typeFor dùng cấp đang học)
+    const w = levelWords('a1').find(x => x.cloze), c = S.cards[w.id] = { S: 2, last: now - 864e5, d0: dayOf(now) - 1, ok: 1, pv: 0, n: 1, lapse: 0, dm: {} };
+    if (vStage(c, w, 'a1') !== 0) bad.push('từ mới không ở bậc 1');
+    for (let i = 0; i < 30; i++) { const t = typeFor(c, now, w); if (!['w2vi', 'listen', 'form'].includes(t)) { bad.push('bậc 1 hỏi dạng ' + t); break; } }
+    for (const k of ['nghia', 'nghe', 'chu']) c.dm[k] = { ok: 1, pv: 1, n: 1 };
+    if (vStage(c, w, 'a1') !== 1) bad.push('đúng bậc 1 chưa mở bậc 2');
+    const t2 = new Set(); for (let i = 0; i < 80; i++) t2.add(typeFor(c, now, w)); if (!t2.has('spell') || !t2.has('clozeT') || t2.has('tiles') || t2.has('cloze')) bad.push('tầng 2 (bậc 2 + 3) hỏi sai dạng: ' + [...t2].join(','));
+    const Q = question(w, 'tiles'); if (!Q.typed || !Q.tiles || Q.tiles.slice().sort().join('') !== [...w.w].map(ch => ch === ' ' ? '␣' : ch).sort().join('')) bad.push('câu xếp chữ cái hỏng');
+    const S0 = c.S, n0 = c.n; grade(S, w.id, true, now, 'tiles'); if (c.S !== S0 || c.n !== n0) bad.push('bước xếp chữ đổi lịch ôn');
+    if (VEASY.spell !== 'tiles' || VEASY.clozeT !== 'cloze' || VEASY.form !== 'vi2w') bad.push('thiếu dạng dễ hơn cho lượt làm lại');
+    await bkSet('tv', 'a2p', 'dat');   // đang học B1: chưa vững bậc 1 thì chỉ hỏi bậc 1; sai câu bậc trên thì làm lại bằng dạng dễ hơn
+    const wb = levelWords('b1').find(x => wDims(x, 'b1').some(k => VSTAGE[3][1].includes(k)));
+    if (wb) { const cb = { S: 2, last: now - 864e5, d0: dayOf(now) - 1, ok: 1, pv: 0, n: 1, lapse: 0, dm: { nghia: { ok: 1 } } };
+      const tb = new Set(); for (let i = 0; i < 60; i++) tb.add(typeFor(cb, now, wb)); if ([...tb].some(t => !['w2vi', 'listen', 'form'].includes(t))) bad.push('B1: chưa vững bậc 1 mà hỏi ' + [...tb].join(',')); }
+    const wc = WORDS.find(x => x.col && x.cloze); if (!wc || vEasy(wc, 'colT') !== 'col' || vEasy(wc, 'clozeT') !== 'cloze' || vEasy(wc, 'w2vi') !== null) bad.push('dạng dễ hơn khi làm lại sai');
+    if (lessonTypes(w, reqsUpTo('a1')).some(t => !['w2vi', 'listen', 'form'].includes(t))) bad.push('bài học còn hỏi bậc 2+');
+    // Ngữ pháp
+    const P = KIT.np, A = P.items.filter(x => ['pre', 'a1', 'a2'].includes(x.lv));
+    if (A.some(x => !x.hieu || x.hieu.length < 2)) bad.push('thiếu câu kiểm tra hiểu: ' + A.filter(x => !x.hieu).map(x => x.id).join(','));
+    for (const x of A) for (const q of P.q(x, 'hieu', 'learn')) if (!q.opts.includes(q.a) || new Set(q.opts).size !== 3) bad.push('câu hiểu hỏng ' + x.id);
+    let nt = 0; for (const x of P.items) for (const q of P.q(x, 'tap', 'learn')) { nt++; if (!q.opts.includes(q.a)) bad.push('chạm chỗ sai hỏng ' + x.id); }
+    if (nt < 30) bad.push('ít điểm có câu chạm chỗ sai: ' + nt);
+    const x0 = A[0], tq = P.tryQs(x0); if (tq[0].k !== 'hieu' || tq.some(q => ['dien', 'sua'].includes(q.k))) bad.push('bài học ngữ pháp không theo bậc 1–2');
+    const st = kSt('np').cards; st[x0.id] = { S: 2, last: now, d0: dayOf(now) - 1, ok: 1, pv: 0, n: 1, lapse: 0, dm: {} };
+    if (npBac(x0).some(q => q.k !== 'nhan')) bad.push('chưa vững nhận ra mà hỏi bậc 3');
+    st[x0.id].dm.nhan = { ok: 1, pv: 1, n: 1 }; const kb = new Set(); for (let i = 0; i < 30; i++) npBac(x0).forEach(q => kb.add(q.k)); if (!kb.has('dien') || kb.has('hieu')) bad.push('bậc 3 hỏi sai: ' + [...kb].join(','));
+    if (npTron() !== false) bad.push('chưa học đủ nhóm mà vẫn trộn');
+    const g = P.raw.nhom.find(n => n.id === 'n-ht'); for (const id of g.ids) st[id] = st[id] || { S: 2, last: now, d0: dayOf(now) - 1, ok: 1, pv: 0, n: 1, lapse: 0, dm: {} };
+    const tr = npTron(); if (!tr || new Set(tr.qs.map(q => q.x.id)).size < 2 || tr.qs.some(q => !['nhan', 'dien'].includes(q.k))) bad.push('trộn điểm dễ nhầm hỏng');
+    const by = kGrade(P, [{ x: x0, k: 'tap', ok: true }, { x: x0, k: 'hieu', ok: true }]); if (by.length || !st[x0.id].tp) bad.push('câu bước đệm vẫn bị chấm mặt');
+    if (!['bac', 'tron', 'dung'].every(m => P.menu.some(e => e[0] === m))) bad.push('thiếu mục luyện theo bậc / trộn / dùng');
+    add('cefr', 'C18', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Từ vựng 4 bậc (mở dần, xếp chữ cái, bài học bậc 1) và Ngữ pháp 5 bậc (hiểu, chạm chỗ sai, luyện theo bậc, trộn điểm dễ nhầm) đều đúng'); }
+  // v101 Nghe / Đọc: 💡 / 🔍 đo trên bài mới (chưa gặp hoặc ≥ K_FRESH_D ngày), nghe 3 lượt, núm theo cấp, bậc luyện thêm (tách âm, hiểu câu, dò có giờ, đoán nghĩa)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now();
+    tryv('fresh', () => { const P = KIT.doc, x = kItems(P, 'pre')[0];
+      if (!kIsFresh(P, x)) bad.push('bài chưa làm mà không phải bài mới');
+      const qs = P.newQs(x), res = qs.map((q, i) => ({ x, k: q.k, ok: i !== 1, q })); const by = kGrade(P, res), c = kSt('doc').cards[x.id];
+      if (!c || !c.seen || !c.dm.y || !c.dm.y.fq || c.dm.y.pv !== 1) bad.push('làm bài mới không ghi bằng chứng');
+      const by2 = kGrade(P, res.map(r => ({ ...r, ok: true }))); if (by2.some(b => b[2] != null)) bad.push('làm lại bài vừa gặp vẫn tính');
+      if (c.dm.ct.fq[0] !== res.filter(r => r.k === 'ct' && r.ok).length) bad.push('làm lại bài vừa gặp ghi đè kết quả bài mới');
+      c.seen = now - (K_FRESH_D + 1) * DAY; if (!kIsFresh(P, x)) bad.push('quá 30 ngày chưa thành bài mới');
+      const p = kParts(P, 'pre'); if (!(p.dq.y > 0 && p.dq.y <= 100 / 0.9 * 1 / kItems(P, 'pre').length * 100)) bad.push('Nhớ ý chính tính sai: ' + p.dq.y);
+      if (!kHeld(P, c, 'y', now + 400 * DAY)) bad.push('mặt bài mới bị giảm theo ngày'); });
+    tryv('nghe', () => { const P = KIT.nghe, xa = P.items.find(x => x.lv === 'a2' && !x.test), xb = P.items.find(x => x.lv === 'b2' && !x.test), xp = P.items.find(x => x.lv === 'pre' && !x.test);
+      const qa = P.newQs(xa), y = qa.find(q => q.k === 'y'), c = qa.filter(q => q.k === 'ct');
+      if (y.after || y.play.max !== 1 || !c.length || c[0].play.key !== xa.id + '|2' || c[0].play.max !== 1) bad.push('nghe 3 lượt A2 sai');
+      const qb = P.newQs(xb); if (qb.filter(q => q.k !== 'chep').some(q => q.play.key !== xb.id || q.play.max !== 1)) bad.push('B2+ chưa nghe 1 lần');
+      const qp = P.newQs(xp); if (qp.find(q => q.k === 'y').play.max !== 2 || !qp.every(q => q.rate === 0.85)) bad.push('Pre-A1 chưa chậm / 3 lần');
+      if (kRead(P, xp, 'y', true)[0].play.max !== 3 || kRead(P, xa, 'y', true)[0].play.max !== 2) bad.push('núm số lần nghe khi luyện sai');
+      const T = ngTach(); if (!T || T.qs.length < 3 || T.qs.some(q => !q.q.includes('____') || !q.opts.includes(q.a) || q.opts.length < 2)) bad.push('tách âm hỏng: ' + (T ? T.qs.length : 0));
+      if (!ngVar('fifteen').includes('fifty') || !ngVar('walked').includes('walk')) bad.push('từ nghe gần giống sai: ' + ngVar('walked')); });
+    tryv('doc', () => { const C = docCau(); if (!C || C.qs.length < 4 || C.qs.some(q => !q.opts.includes(q.a) || new Set(q.opts).size !== q.opts.length)) bad.push('hiểu câu hỏng');
+      const D = docDo(); if (!D || D.qs.some(q => !(q.secs >= 15 && q.secs <= 60) || q.k !== 'do')) bad.push('dò có giờ hỏng');
+      const x = KIT.doc.items.find(z => z.lv === 'b1' && !z.test); kSt('doc').cards[x.id] = { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0, seen: now };
+      const A = (() => { const st = kSt('doc'); st.runs.push({ lv: 'pre', pass: true, at: now }, { lv: 'a1', pass: true, at: now }); return docDoan(); })();
+      if (!A || A.qs.some(q => !q.q.includes('<b>') || !q.opts.includes(q.a))) bad.push('đoán nghĩa từ hỏng');
+      if (kGrade(KIT.doc, [...C.qs, ...D.qs, ...(A ? A.qs : [])].map(q => ({ x: q.x, k: q.k, ok: true, q }))).length) bad.push('câu luyện thêm bị chấm mặt');
+      const t = KIT.doc.items[0].text, c0 = kCover(t); for (const w of WORDS) S.cards[w.id] = S.cards[w.id] || { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0 };
+      const c1 = kCover(t); if (!(c0 < c1 && c1 >= 90)) bad.push('độ phủ từ sai: ' + c0 + ' → ' + c1); });
+    tryv('bando', () => { const x = kItems(KIT.doc, 'pre')[0], c = kSt('doc').cards[x.id]; if (c && c.dm.y.ok && mapFace(c, 'y', now + 400 * DAY) !== 'vung') bad.push('mặt bài mới bị coi là quên'); });
+    add('cefr', 'C19', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Nghe / Đọc đo trên bài mới (30 ngày), nghe 3 lượt, núm số lần / tốc độ theo cấp, tách âm, hiểu câu, dò có giờ, đoán nghĩa, độ phủ từ'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

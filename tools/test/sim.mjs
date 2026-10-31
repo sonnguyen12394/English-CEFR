@@ -3,7 +3,7 @@
 import { load } from './load.mjs';
 const { run, ctx } = await load(); ctx.CFG = process.env.CFG; ctx.LVS = process.env.LVS;   // CFG=bài/ngày,lượt luyện 20 câu,câu nói  LVS=pre,a1
 console.log(await run(`(async () => { user = { id: 'sim' }; await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]);
-  const BASE = { w2vi: .95, listen: .85, form: .92, spell: .75, noi: .8, clozeT: .7, col: .85, irrR: .85, irrT: .7, rel: .85, s2: .85, colT: .7, pat: .8, fam: .8, famQ: .7, reg: .8, style: .8, synT: .65, fast: .8, idi: .8 };
+  const BASE = { vi2w: .9, tiles: .92, cloze: .85, w2vi: .95, listen: .85, form: .92, spell: .75, noi: .8, clozeT: .7, col: .85, irrR: .85, irrT: .7, rel: .85, s2: .85, colT: .7, pat: .8, fam: .8, famQ: .7, reg: .8, style: .8, synT: .65, fast: .8, idi: .8 };
   const SEC = 12, out = [];
   async function vocab(lv, prev, perDay, rounds, noiN) { S = blank(); const T0 = Date.now() + 2 * DAY;
     if (prev) { await bkSet('tv', prev, 'dat'); for (const w of WORDS) { const c = S.cards[w.id]; if (c) { delete c.du; for (const k in c.dm) if (VREQ_BY[k] && lvIdx(VREQ_BY[k][2]) > lvIdx(prev)) delete c.dm[k]; c.d0 = dayOf(T0) - 30; c.last = T0 - 5 * DAY; c.S = 30; } } }

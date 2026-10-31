@@ -67,7 +67,8 @@ const PL_LV = ['pre', 'a1', 'a2', 'b1', 'b2', 'c1'];
 // phương án nhiễu lấy từ cùng bài (cùng chủ đề) rồi cùng cấp, cùng loại từ; bỏ từ đồng / trái nghĩa và nghĩa trùng 2 tiếng liền nhau với đáp án
 const plBi = s => { const t = String(s).toLowerCase().split(/[^\p{L}]+/u).filter(Boolean); return new Set(t.slice(1).map((x, i) => t[i] + ' ' + x)); };
 function plDis(w, n = 3) { const rel = new Set([...(w.rel ? [...w.rel.syn, ...w.rel.ant] : [])].map(x => x.toLowerCase())), bw = plBi(w.vi), pos = String(w.pos || '').split(',')[0], out = [], seen = new Set([w.vi]);
-  const ok = x => x.id !== w.id && x.vi && !seen.has(x.vi) && String(x.pos || '').split(',')[0] === pos && !rel.has(x.w.toLowerCase()) && ![...plBi(x.vi)].some(b => bw.has(b));
+  const rv = new Set(rel.size ? WORDS.filter(x => rel.has(x.w.toLowerCase())).map(x => x.vi) : []);   // nghĩa của từ đồng / trái nghĩa (từ khác cùng nghĩa cũng loại)
+  const ok = x => x.id !== w.id && x.vi && !seen.has(x.vi) && !rv.has(x.vi) && String(x.pos || '').split(',')[0] === pos && !rel.has(x.w.toLowerCase()) && ![...plBi(x.vi)].some(b => bw.has(b));
   const unit = ((UBY[w.u] || {}).words || []), lvw = WORDS.filter(x => wLv(x) === wLv(w));
   for (const x of [...shuf(unit), ...shuf(lvw)]) { if (out.length >= n) break; if (ok(x)) { seen.add(x.vi); out.push(x.vi); } }
   return out; }
