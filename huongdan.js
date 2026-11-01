@@ -11,8 +11,9 @@ const HD = [
     <p>3. Chọn mục tiêu phút mỗi ngày (10, 15, 30 hoặc 45). Đều đặn quan trọng hơn học dồn.</p>
     <p>4. Khi một phần đủ điều kiện, nút <b>🚪 Thi chuyển cấp</b> mở ở thẻ phần đó. Các phần bắt buộc đều qua thi là <b>hoàn thành cấp trong app</b>.</p>
     <p>5. Gặp từ lạ: chạm vào từ trong bài, hoặc tìm ở tab <b>📖 Tra cứu</b>. Bấm 📌 để lưu vào Sổ từ.</p>`],
-  ['tab', '🧭 4 tab dùng làm gì', () => `
+  ['tab', '🧭 5 tab dùng làm gì', () => `
     <p><b>🎯 Học</b>: ô Hôm nay, 7 phần (Từ vựng, Phát âm, Ngữ pháp, Nghe, Nói, Đọc, Viết) theo cấp, Thư viện đọc. Đây là chỗ học chính và chỗ duy nhất tính 📘 Học / 🔁 Nhớ / Thi chuyển cấp.</p>
+    <p><b>🔄 Lộ trình</b>: đặt mục tiêu, xếp cấp, học theo đợt ${LT_D} ngày, kiểm tra nhẹ cuối đợt và tổng kết. Chỉ chia việc; bài làm ở đây tính như ở 🎯 Học.</p>
     <p><b>🎓 Luyện thi</b>: 🎓 Cambridge (đề thử theo khuôn Starters → Proficiency, dạng đề thật), 🌏 IELTS, 💼 TOEIC. Chuyển kỳ thi bằng nút ở đầu màn. Luyện ở đây <b>không tính</b> vào luật đo của 🎯 Học.</p>
     <p><b>📖 Tra cứu</b>: tìm từ, ngữ pháp, lỗi hay gặp, phát âm, cụm từ; 📘 Cẩm nang thi (mẹo theo kỹ năng). Gõ tiếng Anh hoặc tiếng Việt.</p>
     <p><b>👤 Của tôi</b>: tiến độ, 🗺 bản đồ chỗ yếu, 📌 sổ từ, 📒 sổ lỗi, kết quả thi thật, 💾 dữ liệu và tài khoản, góp ý, và trang này.</p>`],
@@ -88,6 +89,14 @@ const HD = [
     <p>Tiến độ lưu trên máy và trên máy chủ, tự đồng bộ. Không cần đăng ký: ô 👤 tài khoản ở đầu 💾 Dữ liệu cho biết máy này dùng tài khoản riêng hay tài khoản chung.</p>
     <p>Đổi máy / sợ mất: 👤 Của tôi → 💾 Dữ liệu → tải tệp sao lưu, rồi nhập ở máy kia. Trước mỗi lần nhập, sửa hay đặt tiến độ, máy tự chụp lại bản cũ (giữ 5 bản gần nhất).</p>
     <p>🎚 Đặt tiến độ (trong 💾 Dữ liệu) dùng để học lại hoặc thử; có bản chụp để quay lại.</p>`],
+  ['lotrinh', '🔄 Lộ trình: mục tiêu, xếp cấp, đợt ${LT_D} ngày', () => `
+    <p><b>Chu trình</b>: 🎯 mục tiêu → 🧭 xếp cấp → 📆 đợt ${LT_D} ngày → 📝 kiểm tra nhẹ cuối đợt → 📊 tổng kết → đợt sau.</p>
+    <p><b>🧭 Xếp cấp</b> chỉ chọn chỗ bắt đầu, <b>không</b> trao hoàn thành cấp. Hoàn thành cấp chỉ do 🚪 Thi chuyển cấp hoặc 🚀 thi vượt. Xếp cấp lại khi: đã ${LT_RE_D} ngày, vừa hoàn thành một cấp, có phần trượt thi vượt, hoặc chưa xếp lần nào. Còn ≤ ${LT_EXAM_D} ngày tới ngày thi thì làm 📝 đề mẫu chính thức thay xếp cấp.</p>
+    <p><b>Vì sao không xếp cấp lại mỗi ${LT_D} ngày?</b> Lên một cấp cần khoảng 200 giờ học (ước của Cambridge). ${LT_D} ngày × 15–30 phút tiến bộ nhỏ hơn sai số của bài 15–30 câu: điểm lên xuống ngẫu nhiên, dễ nản hoặc tin nhầm.</p>
+    <p><b>Mỗi ngày</b>: ① ôn mục đến hạn → ② chữa chỗ yếu của 🗺 bản đồ, tối đa <b>${Math.round(LT_FIX * 100)}% số phút</b> mục tiêu → ③ bài mới (≥ ${100 - Math.round(LT_FIX * 100)}%). Mọi câu trả lời hằng ngày tự cập nhật bản đồ.</p>
+    <p><b>Loại lỗi</b>: A. sai một câu đang làm: báo đúng ngay, làm lại dạng dễ rồi dạng khó, lượt làm lại không chấm. B. chỗ yếu (sai ≥ 2 lần hoặc quên): vào 🗺 bản đồ, chữa xong khi đúng ở một ngày sau. C. lỗi Viết / Nói do AI / giáo viên chỉ: vào 📒 sổ lỗi, tự sửa câu theo lịch ôn.</p>
+    <p><b>📝 Kiểm tra cuối đợt</b> (ngày ${LT_D}, ~10 phút): ${LT_MINI} câu kiểu xếp cấp ở cấp đang học + ${LT_MINI} câu cấp kế (chỉ xem xu hướng, không đổi cấp), rồi 🔎 quét lại từ của bản đồ.</p>
+    <p><b>📊 Tổng kết đợt</b>: số ngày học, phút, phút chữa lỗi, mục mới, phần mới qua thi. Đợt tốt khi chữa xong ≥ ${Math.round(LT_FIX_OK * 100)}% chỗ yếu đã chọn đầu đợt và học ≥ ${LT_DAYS_OK} ngày.</p>`],
   ['hoi', '❓ Hỏi đáp', () => `
     <p><b>Vì sao 🔁 Nhớ giảm?</b> Khả năng nhớ giảm dần theo thời gian. Mặt quá hạn ôn tụt dưới ${Math.round(MEM_R * 100)}% thì không còn tính nhớ. Ôn bài đến hạn để lấy lại.</p>
     <p><b>Sao chưa mở Thi?</b> Xem dòng "Còn N bài chưa học + M mặt nhớ nữa" ở thẻ phần. Cần đủ cả 📘 Học ${GATE_LEARN}% và mỗi mặt Nhớ ≥ ${GATE_MEM}% (trừ mặt tham khảo). Đã mở rồi thì giữ ${GATE_HOLD_D} ngày.</p>

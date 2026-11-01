@@ -57,7 +57,7 @@ document.addEventListener('click', e => { if (!S) return;
   if (e.target.closest('[data-plno]') && S.place) { S.place.no = 1; S.t = Date.now(); save(); scrollTo(0, 0); return overview(); }
   const b = e.target.closest('[data-today]'); if (!b) return; const k = b.dataset.today; scrollTo(0, 0);
   if (k === 'due' || k === 'new') { const nb = document.querySelector('#app [data-ovp].pri'); if (nb && k === 'due') return nb.click(); return k === 'new' ? (HOME.lv = curLevel(), HOME.open = null, home()) : overview(); }
-  if (k === 'fix') return mapToday();
+  if (k === 'fix') { if (typeof MAP_BACK !== 'undefined') MAP_BACK = 'hoc'; return mapToday(); }
   if (k === 'skill') { const id = b.dataset.tsk || 'nghe'; KIT[id].view = kLv(KIT[id]); return kView(id); } });
 
 // ---------- ③ 🧭 kiểm tra xếp cấp: bậc thang, mỗi cấp 5 câu (3 nghĩa từ + 2 ngữ pháp) ----------
@@ -83,21 +83,21 @@ function plNext(R, lv) { const [a, n] = R[lv], p = a / n, i = PL_LV.indexOf(lv),
   if (p <= 0.4) return dn && !R[dn] ? dn : null;
   return n < 10 ? lv : null; }
 const plResult = R => PL_LV.filter(l => R[l] && R[l][0] / R[l][1] >= 0.8).pop() || null;
-async function placeView() { $app.innerHTML = '<p class="mute">Đang tải…</p>'; await Promise.all([loadEB(), kLoad(KIT.np)]); window.CUR = { view: 'xep-cap' };
+async function placeView(back) { const out = typeof back === 'function' ? back : overview; $app.innerHTML = '<p class="mute">Đang tải…</p>'; await Promise.all([loadEB(), kLoad(KIT.np)]); window.CUR = { view: 'xep-cap' };
   const R = {}, res = []; let lv = 'a2', qs = plQs(lv), i = 0;
   const show = () => { if (i >= qs.length) { R[lv] = R[lv] || [0, 0]; const nx = R[lv][1] ? plNext(R, lv) : null; if (!nx) return end(); lv = nx; qs = plQs(lv); i = 0; if (!qs.length) return end(); }
     const it = qs[i], q = it.q;
     $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Thôi</button><span class="uname">🧭 Xếp cấp · câu ${res.length + 1}</span></div>
       <p class="mute">Không đoán bừa: không biết thì chọn "Chưa biết". Làm 15–30 câu, khoảng 5–10 phút.</p>${it.w ? `<p class="q">${q.top}</p><p class="mute">${q.sub}</p>` : `${q.head || ''}<p class="q">${q.q}</p>`}
       ${q.opts.map((o, k) => `<button class="opt" data-po="${k}">${esc(o)}</button>`).join('')}<button class="opt" data-po="-1" style="opacity:.75">🤷 Chưa biết</button>`;
-    $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return overview(); const b = e.target.closest('[data-po]'); if (!b) return; const k = +b.dataset.po, ok = k >= 0 && q.opts[k] === q.a;
+    $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return out(); const b = e.target.closest('[data-po]'); if (!b) return; const k = +b.dataset.po, ok = k >= 0 && q.opts[k] === q.a;
       const r = R[lv] = R[lv] || [0, 0]; r[1]++; if (ok) r[0]++; res.push({ lv, ok }); i++; show(); }; };
-  const end = () => { const top = plResult(R), start = top ? (LEVELS[LEVELS.indexOf(top) + 1] || top) : 'pre'; S.place = { at: Date.now(), top, start, R }; S.t = Date.now(); save();
+  const end = () => { const top = plResult(R), start = top ? (LEVELS[LEVELS.indexOf(top) + 1] || top) : 'pre'; S.place = { at: Date.now(), top, start, R, st: ovStage() }; S.t = Date.now(); save();
     $app.innerHTML = `<h1>🧭 Kết quả xếp cấp</h1><div class="box"><p style="margin:0;font-size:19px">${top ? `Phần hiểu từ và ngữ pháp: bạn nắm khá vững <b>${LVN[top]}</b>${top === PL_LV[PL_LV.length - 1] ? ' (bài đo tới đây là hết)' : ''}. Gợi ý: 🚀 thi vượt các phần lên ${LVN[top]}, rồi học tiếp <b>${LVN[start]}</b>.` : 'Nên bắt đầu từ đầu.'}</p>
       <p class="mute" style="margin:6px 0 0">${PL_LV.filter(l => R[l]).map(l => `${LVN[l]}: ${R[l][0]}/${R[l][1]}`).join(' · ')}</p>
       <p class="mute" style="margin:6px 0 0">Bài này chỉ đo hiểu nghĩa từ và ngữ pháp, không đo nghe, nói, viết; là gợi ý, không phải thi chuyển cấp. Các cấp dưới vẫn còn đó để ôn khi cần.</p></div>
       ${top ? `<div class="box"><b>Muốn bỏ qua các cấp dưới ${LVN[start]}?</b><p class="mute" style="margin:6px 0">🚀 Thi vượt cấp: làm thẳng Thi chuyển cấp ${LVN[top]} của từng phần (đề như thi thường). Qua phần nào thì phần đó hoàn thành mọi cấp ≤ ${LVN[top]}.</p><button class="pri" data-vcv="${top}">🚀 Thi vượt lên ${LVN[top]}</button></div>` : ''}
-      <button class="pri" data-a="go">▶ Mở cấp ${LVN[start]}</button><button data-a="back">← Tổng quan</button>`; scrollTo(0, 0);
-    $app.onclick = e => { if (e.target.closest('[data-a="go"]')) return overview(start); if (e.target.closest('[data-a="back"]')) overview(); }; };
+      <button class="pri" data-a="go">▶ Mở cấp ${LVN[start]}</button><button data-a="back">${out === overview ? '← Tổng quan' : '← Lộ trình'}</button>`; scrollTo(0, 0);
+    $app.onclick = e => { if (e.target.closest('[data-a="go"]')) return overview(start); if (e.target.closest('[data-a="back"]')) out(); }; };
   if (!qs.length) return end(); show(); }
 document.addEventListener('click', e => { if (e.target.closest('[data-place]') && S) { scrollTo(0, 0); placeView(); } });

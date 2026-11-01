@@ -136,6 +136,11 @@ await pg.click('[data-cnv="tc"]'); await pg.waitForTimeout(800); check('Cẩm na
 await pg.click('#tabs [data-tab="bk"]'); await pg.waitForTimeout(800); check('Của tôi mở', /Tiến độ[\s\S]*Bản đồ chỗ yếu[\s\S]*Sổ từ/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="bk"].on'));
 await pg.click('[data-mapv="ct"]'); await pg.waitForTimeout(1200); check('bản đồ từ Của tôi', (await pg.innerText('#app')).includes('← Của tôi') && await pg.isVisible('#tabs [data-tab="bk"].on'));
 await pg.click('[data-a="bk"]'); await pg.waitForTimeout(600); await pg.click('[data-ct="data"]'); await pg.waitForTimeout(800); check('Dữ liệu từ Của tôi', (await pg.innerText('#app')).includes('Dữ liệu và tài khoản') && await pg.isVisible('#tabs [data-tab="bk"].on'));
+// v105 🔄 Lộ trình: tab thứ 2; lần đầu hỏi mục tiêu → bắt đầu đợt 1; không tràn ngang
+await pg.click('#tabs [data-tab="lt"]'); await pg.waitForTimeout(1200); check('Lộ trình hỏi mục tiêu', (await pg.innerText('#app')).includes('Mục tiêu học') && await pg.isVisible('#tabs [data-tab="lt"].on'));
+await pg.click('[data-lt="goal"]'); await pg.waitForTimeout(800); const ls = await pg.$('[data-lt="start"]'); if (ls) { await ls.click(); await pg.waitForTimeout(800); }
+check('Lộ trình đợt 1', /Đợt 1 · ngày 1\/10[\s\S]*Việc hôm nay/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="lt"].on'));
+check('Lộ trình không tràn ngang', await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
 check('không lỗi trang', !errs.length, errs.slice(0, 3).join(' | '));
 for (const x of ok) console.log('✅ ' + x); for (const x of bad) console.log('❌ ' + x);
 console.log(bad.length ? `\n${bad.length} mục chưa đạt` : '\nĐạt hết (WebKit, iPhone 13 giả lập)');

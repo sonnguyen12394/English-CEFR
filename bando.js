@@ -72,7 +72,7 @@ function mapItem(q) { const ps = q.split('|'), id = ps[0], k = ps[ps.length - 1]
 const mapVung = it => !!(it && it.c && mapFace(it.c, it.k, Date.now()) === 'vung');
 const mapOk = (f, it) => mapVung(it) && (f.cd != null ? f.cd > (f.wd ?? -1) : (f.wd ?? -1) < 0);
 function mapFocus(now = Date.now(), weak = mapWeak(now)) { const F = S.focus = S.focus || {}, by = new Map(weak.map(w => [mapKey(w), w])); F.a = F.a || []; F.p = F.p || []; F.n = F.n || 0; F.out = F.out || 0;
-  const fixed = q => { F.n++; (F.h = F.h || []).push([dayOf(now), q.split('|')[0]]); if (F.h.length > 300) F.h.splice(0, F.h.length - 300); };   // nhật ký chữa xong (đo sau 4 tuần)
+  const fixed = q => { F.n++; (F.h = F.h || []).push([dayOf(now), q.split('|')[0], q]); if (F.h.length > 300) F.h.splice(0, F.h.length - 300); };   // nhật ký chữa xong (đo sau 4 tuần)
   const np = []; for (const p of F.p) { if (by.has(p.q)) np.push(p); else if (mapVung(mapItem(p.q))) fixed(p.q); else F.out++; } F.p = np;   // hết yếu lúc đang gác = chữa xong
   const keep = []; for (const f of F.a) { if (by.has(f.q)) { if ((f.t || 0) >= MAP_TRY) F.p.push({ q: f.q, at: now, r: f.r || 0, root: (f.r || 0) >= 1 }); else keep.push(f); continue; }
     const it = mapItem(f.q); if (mapOk(f, it)) fixed(f.q); else if (mapVung(it)) keep.push(f); else F.out++; }   // vững nhưng chưa xác nhận: giữ chỗ; còn lại = ra ngoài phạm vi
@@ -101,7 +101,7 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
   const label = w => w.id === 'tv' ? esc(w.x.w) : w.id === 'pa' ? esc(w.x.title || w.x.id) : esc(KIT[w.id].name ? KIT[w.id].name(w.x) : w.x.id);
   const any = OV.some(([id]) => mapLast(id)), idle = OV.map(([id, ic, t]) => [id, ic, t, mapLast(id)]).filter(([, , , l]) => l ? (now - l) / DAY >= MAP_IDLE_D : any);   // đã học phần khác mà phần này chưa luyện lần nào cũng nhắc
   const noData = !Object.keys(S.cards).length && !Object.values(S.k || {}).some(k => Object.keys(k.cards || {}).length);
-  $app.innerHTML = `<div id="bdo"></div>${MAP_BACK === 'ct' ? '<div id="bk"></div>' : ''}<div class="row top"><button class="link" data-a="bk">← ${MAP_BACK === 'ct' ? 'Của tôi' : 'Học'}</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>
+  $app.innerHTML = `<div id="bdo"></div>${MAP_BACK === 'ct' ? '<div id="bk"></div>' : MAP_BACK === 'lt' ? '<div id="lt"></div>' : ''}<div class="row top"><button class="link" data-a="bk">← ${MAP_BACK === 'ct' ? 'Của tôi' : MAP_BACK === 'lt' ? 'Lộ trình' : 'Học'}</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>
     <p class="mute">Gom mọi bằng chứng (kiểm tra, luyện, thi, tra từ) thành chỗ cần chữa. Chữa chỗ yếu trước, giữ cân bằng các kỹ năng, rồi đào tiếp chỗ lủng sâu hơn.</p>
     ${noData ? '<div class="box"><b>Chưa có dữ liệu học.</b><p class="mute" style="margin:6px 0 0">Bản đồ lớn dần khi bạn học. Bắt đầu: 🎯 Học CEFR → ô 📅 Hôm nay → 🧭 Kiểm tra xếp cấp.</p></div>' : ''}
     <div class="box"><b>① Tầng phủ · đã có bằng chứng ở cấp đang học</b>
@@ -134,7 +134,7 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
         const warn = d == null ? any : d >= MAP_IDLE_D; return `<div class="row" style="margin:2px 0"><span>${ic} ${t}</span><span class="${warn ? '' : 'mute'}">${d == null ? 'chưa luyện' : d === 0 ? 'hôm nay' : `${d} ngày trước`}${warn ? ' ⚠️' : ''} · ${n} yếu</span></div>`; }).join('')}`).join('')}
       <p class="mute" style="margin:6px 0 0">${idle.length ? `Nên luyện: ${idle.map(([, ic, t, l]) => ic + ' ' + t + (l ? '' : ' (chưa luyện lần nào)')).join(', ')}. ` : ''}Máy đo Nói, Viết yếu hơn Từ vựng; đừng để chúng bị bỏ quên chỉ vì máy ít thấy lỗi.</p></div>
     <p class="mute">Bản đồ chỉ đọc dữ liệu, không đổi luật đo. Chỗ yếu hết yếu khi làm đúng ở một ngày sau lần sai gần nhất và khả năng nhớ ≥ 80%.</p>`;
-  $app.onclick = e => { if (e.target.closest('[data-a="bk"]')) return MAP_BACK === 'ct' && typeof minhView === 'function' ? minhView() : overview(); const b = e.target.closest('[data-map]'); if (!b) return; const v = b.dataset.map, i = v.indexOf('|'), a = i < 0 ? v : v.slice(0, i), id = i < 0 ? '' : v.slice(i + 1); scrollTo(0, 0);
+  $app.onclick = e => { if (e.target.closest('[data-a="bk"]')) return MAP_BACK === 'ct' && typeof minhView === 'function' ? minhView() : MAP_BACK === 'lt' && typeof ltView === 'function' ? ltView() : overview(); const b = e.target.closest('[data-map]'); if (!b) return; const v = b.dataset.map, i = v.indexOf('|'), a = i < 0 ? v : v.slice(0, i), id = i < 0 ? '' : v.slice(i + 1); scrollTo(0, 0);
     if (a === 'scan') return mapScan(); if (a === 'root') return mapRoot(roots); if (a === 'fix') return mapFix(id); if (a === 'rl') return mapRelearn(id); }; }
 
 // ---------- buổi chữa ----------
@@ -143,8 +143,8 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
 function mapFix(id, lim, now = Date.now()) { const d = dayOf(now), act = mapFocus(now).act.filter(w => w.id === id).sort((a, b) => (a.cho - b.cho) || ((b.p || 0) - (a.p || 0)));
   if (!act.length) return toast('Phần này không có chỗ đang chữa.');
   const fin = (head, extra) => { const f = mapFocus(); $app.innerHTML = `<div class="box"><b>${head}</b>${extra}<p>🎯 Đang chữa ${f.act.length} chỗ · ✅ đã chữa xong ${f.done} · ⏳ hàng chờ ${f.queue.length}${f.park.length ? ` · ⏸ tạm gác ${f.park.length}` : ''}.</p>
-      <p class="mute">Sai rồi đúng ngay trong buổi chưa tính xong: cần đúng thêm ở một ngày sau.</p></div><button class="pri" data-a="map">🗺 Về bản đồ</button><button data-a="ov">Về 🎯 Học CEFR</button>`;
-    $app.onclick = e => { if (e.target.closest('[data-a="map"]')) mapView(); if (e.target.closest('[data-a="ov"]')) overview(); }; };
+      <p class="mute">Sai rồi đúng ngay trong buổi chưa tính xong: cần đúng thêm ở một ngày sau.</p></div><button class="pri" data-a="map">🗺 Về bản đồ</button><button data-a="ov">${MAP_BACK === 'lt' ? 'Về 🔄 Lộ trình' : 'Về 🎯 Học CEFR'}</button>`;
+    $app.onclick = e => { if (e.target.closest('[data-a="map"]')) mapView(); if (e.target.closest('[data-a="ov"]')) (MAP_BACK === 'lt' && typeof ltView === 'function' ? ltView : overview)(); }; };
   const teach = sel => sel.filter(w => !w.cho && w.t >= 1 && w.td !== d);
   if (id === 'tv') { const seen = new Set(), items = [], sel = [];
     for (const w of act) { if (seen.has(w.x.id) || items.length >= (lim || MAP_FIX[0])) continue; seen.add(w.x.id); if (w.k === 'noi') continue; sel.push(w); items.push({ w: w.x, type: TYPE_FOR[w.k] ? TYPE_FOR[w.k]() : 'w2vi' }); }
@@ -188,10 +188,10 @@ function mapRoot(roots, now = Date.now()) { const ws = [...new Map(roots.flatMap
       $app.onclick = e => { if (e.target.closest('[data-a="map"]')) mapView(); if (e.target.closest('[data-a="unit"]')) learn(UBY[none[0].u]); }; } }); }
   if (none.length) return learn(UBY[none[0].u]); toast('Không còn từ gốc cần chữa.'); }
 // 🔎 quét lại: 8 từ đang nhớ (xác nhận, sai thì mở lại) + 12 từ chưa học của các cấp ≤ cấp đang học (biết rồi thì tính đã học, như ⚡ kiểm tra đầu bài)
-function mapScan(now = Date.now()) { const lv = curLevel(), held = shuf(memWords(lv, now).filter(w => S.cards[w.id] && wstat(S, w, now) === 'nho')).slice(0, 8);
+function mapScan(now = Date.now(), done) { const lv = curLevel(), held = shuf(memWords(lv, now).filter(w => S.cards[w.id] && wstat(S, w, now) === 'nho')).slice(0, 8);
   const unl = shuf(WORDS.filter(w => !S.cards[w.id] && LEVELS.indexOf(wLv(w)) <= LEVELS.indexOf(lv) && w.vi)).slice(0, 12); let okH = 0;
   const after = () => { if (!unl.length || typeof ptRun !== 'function') return fin(0, 0); ptRun({ id: 'quet', words: unl, vi: 'Quét lại', lv }, known => fin(known.size, unl.length), '🔎 Quét lại · từ chưa học'); };
-  const fin = (k, n) => { (S.scan = S.scan || []).push({ at: Date.now(), held: held.length, heldOk: okH, unl: n, known: k }); S.t = Date.now(); save();
+  const fin = (k, n) => { const sc = { at: Date.now(), held: held.length, heldOk: okH, unl: n, known: k }; (S.scan = S.scan || []).push(sc); S.t = Date.now(); save(); if (typeof done === 'function') return done(sc);
     $app.innerHTML = `<div class="box"><b>🔎 Xong quét lại</b><p>Từ đang nhớ: đúng ${okH}/${held.length}${held.length - okH ? ` (${held.length - okH} từ đã quên, đã đưa về ôn)` : ''}.${n ? ` Từ chưa học: đã biết ${k}/${n} (tính đã học).` : ''}</p>
       <p class="mute">Quét lại mỗi ${MAP_SCAN_D} ngày để tìm chỗ lủng mới và chỗ đã biết mà app chưa thấy.</p></div><button class="pri" data-a="map">🗺 Về bản đồ</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="map"]')) mapView(); }; };

@@ -1,5 +1,5 @@
 // 🧭 Điều hướng theo việc người học làm (v95, 31/10/2026; giáo viên tiếng Anh + thiết kế di động; người sáng lập "làm hết đi").
-// 4 tab: 🎯 Học (Hôm nay + 7 phần + Thư viện) · 🎓 Luyện thi (🎓 Cambridge · 🌏 IELTS · 💼 TOEIC; mỗi kỳ thi có 📘 Cẩm nang) ·
+// 4 tab (v105 thêm 🔄 Lộ trình, lotrinh.js): 🎯 Học (Hôm nay + 7 phần + Thư viện) · 🎓 Luyện thi (🎓 Cambridge · 🌏 IELTS · 💼 TOEIC; mỗi kỳ thi có 📘 Cẩm nang) ·
 // 📖 Tra cứu (từ, ngữ pháp, phát âm, 🎯 mẹo theo kỹ năng) · 👤 Của tôi (tiến độ, 🗺 chỗ yếu, 📌 sổ từ, 📒 sổ lỗi, kết quả thi thật, góp ý, dữ liệu).
 // Mỗi thứ có MỘT chỗ ở chính; nơi khác chỉ đặt lối tắt. Không đổi luật đo (📘 Học / 🔁 Nhớ / Thi chuyển cấp).
 
@@ -63,8 +63,8 @@ function revPart() { if (!(PA && Object.values(KIT).every(P => P.items))) return
   const r = OV.map(([id]) => { const l = id === 'tv' ? curLevel() : id === 'pa' ? paLevel() : kLv(KIT[id]), s = ovStat(id, l); return [id, l, s ? s.due : 0]; }).filter(x => x[2]).sort((a, b) => b[2] - a[2])[0];
   return r ? [r[0], r[1]] : null; }
 function ovOpenPart(id, l) { scrollTo(0, 0); if (id === 'tv') { HOME.lv = l; HOME.open = null; return home(); } if (id === 'pa') PA_VIEW = l; else if (KIT[id]) KIT[id].view = l; partView(id); }
-function revRun() { const R = revCount(), steps = [], quit = () => overview();
+function revRun(back) { const R = revCount(), steps = [], quit = () => (typeof back === 'function' ? back : overview)();
   if (R.e) steps.push(next => errRun(next, quit)); if (R.v) steps.push(next => vwRun(Date.now(), next, quit));
-  const last = () => { const p = revPart(); if (p) return ovOpenPart(p[0], p[1]); toast('✅ Đã ôn hết mục đến hạn hôm nay.'); overview(); };
+  const last = () => { const p = revPart(); if (p) return ovOpenPart(p[0], p[1]); toast('✅ Đã ôn hết mục đến hạn hôm nay.'); quit(); };
   const go = i => i < steps.length ? steps[i](() => go(i + 1)) : last(); scrollTo(0, 0); go(0); }
 document.addEventListener('click', e => { if (S && e.target.closest('[data-rev]')) revRun(); });
