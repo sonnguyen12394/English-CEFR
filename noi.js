@@ -65,7 +65,7 @@ async function nRec() { if (nMode() === 'noi') return nRecAsr();
   NO.chunks = []; mr.ondataavailable = e => { if (e.data && e.data.size) NO.chunks.push(e.data); };
   mr.onstop = () => { s.getTracks().forEach(t => t.stop()); const b = new Blob(NO.chunks, { type: mr.mimeType || 'audio/mp4' });
     try { NO.url && URL.revokeObjectURL(NO.url); NO.url = URL.createObjectURL(b); } catch (e) {} nDecode(b); };
-  mr.start(); NO.rec = mr; NO.st = 'rec'; NO.t = setTimeout(nStop, 4000); nPaint();
+  mr.start(); NO.rec = mr; NO.st = 'rec'; NO.t = setTimeout(nStop, NO.w && NO.w.dur || 4000); nPaint();
   // Bật chép lời sau khi micro đã mở (iPhone có thể không cho hai bên dùng micro: lỗi thì vẫn chấm âm).
   if (nMode() !== 'am') nAsr(); }
 // 🗣 Nói: chỉ chép chữ. Trình duyệt có hàm mà không chạy (Chrome / Cốc Cốc trên iPhone có thể vậy): sau 7 giây báo mở Safari.
@@ -89,12 +89,22 @@ async function nDecode(blob) {
 
 // ---------- màn ----------
 const nCls = s => s >= 80 ? 'var(--good)' : s >= 60 ? '#b8860b' : 'var(--bad)';
+// v103: cách đặt miệng cho các âm người Việt hay sai (Claude soạn theo kinh nghiệm dạy phát âm, chưa giáo viên kiểm)
+const VN_TIP = { 'θ': 'Đặt đầu lưỡi giữa hai răng rồi thổi hơi (think); đừng đọc thành /t/ hay “th” tiếng Việt.', 'ð': 'Đầu lưỡi giữa hai răng và rung cổ (this, then); đừng đọc thành “d” hay /z/.',
+  'ʃ': 'Chu môi, lưỡi lùi hơn /s/, xì dài như “suỵt” (she); đừng đọc thành /s/.', 'ʒ': 'Như /ʃ/ nhưng rung cổ (vision, measure).', 'tʃ': 'Chu môi, bật “ch” mạnh (chair); khác /tr/ (train).',
+  'dʒ': 'Chu môi, bật như “ch” có rung (job); đừng đọc thành “gi / d” kiểu /z/.', 'z': 'Lưỡi sau răng, xì và rung như ong kêu (zoo, is); đừng đọc thành /s/.',
+  'r': 'Cong lưỡi lên, không chạm vòm miệng, không rung lưỡi như “r” tiếng Việt (red).', 'l': 'Đầu lưỡi chạm lợi trên, hơi thoát hai bên (light); cuối từ vẫn giữ lưỡi chạm lợi, đừng đọc thành “u”.',
+  'n': 'Hơi ra mũi, đầu lưỡi chạm lợi (night); đừng lẫn với /l/.', 'v': 'Răng trên chạm môi dưới và rung (very); đừng đọc thành “b” hay /f/.', 'f': 'Răng trên chạm môi dưới, thổi hơi (fine).',
+  'p': 'Đầu từ: mím môi rồi bật hơi mạnh (pen), mạnh hơn “p” tiếng Việt.', 'æ': 'Mở miệng rộng, giữa “a” và “e” (cat); đừng đọc thành “e”.', 'ʌ': 'Như “ă” ngắn, miệng thả lỏng (cup).',
+  'ɜː': 'Như “ơ” kéo dài, môi thả lỏng (bird).', 'ə': 'Âm “ơ” rất nhẹ, ngắn, không nhấn (about).', 'ɪ': '“i” ngắn, thả lỏng (ship); khác “i” dài /iː/ (sheep).', 'iː': '“i” dài, căng môi như cười (sheep).',
+  'ʊ': '“u” ngắn, thả lỏng (book); khác /uː/ dài (food).', 'uː': '“u” dài, tròn môi (food).', 'w': 'Tròn môi như “qu” rồi mở ra (we); đừng đọc thành /v/.', 'ŋ': '“ng” ở mũi; cuối từ đừng thêm /g/ (sing).',
+  'eɪ': 'Nguyên âm đôi: lướt từ “ê” sang “i” (day).', 'aɪ': 'Lướt từ “a” sang “i” (my).', 'əʊ': 'Lướt từ “ơ” sang “u” (go).', 'aʊ': 'Lướt từ “a” sang “u” (now).', 'ɔɪ': 'Lướt từ “o” sang “i” (boy).' };
 function nTip(R) { const bad = []; for (const w of R.words) w.phones.forEach((p, k) => { if (p.score < 60) bad.push({ ...p, fin: k === w.phones.length - 1 }); });
   if (!bad.length) return '';
-  const b = bad.sort((x, y) => x.score - y.score)[0];
-  const t = b.fin && /^[tdkgɡsz]$/.test(b.ipa) ? `Âm cuối /${b.ipa}/ bị nhẹ hoặc nuốt mất: đọc rõ âm cuối, đừng ngắt cụt như tiếng Việt.`
-    : b.missing ? `Máy chưa nghe thấy âm /${b.ipa}/: đọc chậm, rõ âm đó.`
-    : b.heard ? `Âm /${b.ipa}/ máy nghe giống /${b.heard}/: nghe lại mẫu 🔊 rồi đọc theo.` : `Âm /${b.ipa}/ chưa rõ: nghe lại mẫu 🔊 rồi đọc theo.`;
+  const b = bad.sort((x, y) => x.score - y.score)[0], v = VN_TIP[b.ipa] ? ' ' + VN_TIP[b.ipa] : '';
+  const t = b.fin && /^(t|d|k|g|ɡ|s|z|p|b|f|v|θ|ð|ʃ|tʃ|dʒ|l)$/.test(b.ipa) ? `Âm cuối /${b.ipa}/ bị nhẹ hoặc nuốt mất: đọc rõ âm cuối, đừng ngắt cụt như tiếng Việt.${v}`
+    : b.missing ? `Máy chưa nghe thấy âm /${b.ipa}/: đọc chậm, rõ âm đó.${v}`
+    : b.heard ? `Âm /${b.ipa}/ máy nghe giống /${b.heard}/.${v || ' Nghe lại mẫu 🔊 rồi đọc theo.'}` : `Âm /${b.ipa}/ chưa rõ.${v || ' Nghe lại mẫu 🔊 rồi đọc theo.'}`;
   return `<p class="mute" style="margin:6px 0 0">💡 ${esc(t)}</p>`; }
 // Hai mặt nói của 🔁 Nhớ (người sáng lập 24/10/2026: tách "nói nhận diện chữ" và "nói chấm phát âm", Nhớ 6 mặt; máy không kiểm được thì không tính):
 // · 🗣 Nói (mode 'noi'): nhìn nghĩa, nói từ; đúng = máy chép chữ ra đúng từ (kể cả từ đồng âm). Chỉ chép chữ: trình duyệt không chép được thì mở Safari.
@@ -151,7 +161,7 @@ function nBody() { if (NO.ses && NO.ses.i >= NO.ses.list.length) return nSesBody
     : md || !R || NO.alts.length ? '' : `<div class="box">${right ? '✅' : '❌'} Theo bộ chấm âm: ${right ? 'nói ra đúng' : 'chưa ra'} từ <b>${esc(w.w)}</b> (${R.score}/100, cần ${N_OK}).</div>`;
   const head = ses ? `<div class="row"><b style="font-size:18px">${ses.title || N_MODE[md].t} · ${ses.i + 1}/${ses.list.length}</b><button class="link" data-n="x">Đóng ✕</button></div>
     <p class="mute" style="margin:2px 0">${ses.sub || N_MODE[md].sub}</p>` : `<div class="row"><b style="font-size:18px">🎤 Luyện nói</b><button class="link" data-n="x">Đóng ✕</button></div>`;
-  const card = open ? `<div class="big">${esc(w.w)}</div><div class="mute">${esc(w.ipa || '')} · ${esc(w.vi)}</div>
+  const card = open ? `<div class="${w.long ? 'q' : 'big'}">${esc(w.w)}</div><div class="mute">${esc(w.ipa || '')} · ${esc(w.vi)}</div>
     <div class="chips say"><button class="chip" ${w.say ? `data-sayt="${esc(w.w)}"` : `data-say="${w.id}"`}>🔊 Nghe mẫu</button>${NO.url ? '<button class="chip" data-n="play">▶ Nghe lại mình</button>' : ''}</div>`
     : `${w.pic ? `<div class="pic">${esc(w.pic)}</div>` : ''}<div class="q">${esc(w.vi)}</div><div class="mute">${esc(w.pos || '')}</div>
     <div class="chips say"><button class="chip" data-n="show">👀 Xem từ (không tính đúng)</button></div>`;
@@ -172,5 +182,23 @@ function noiOpen(w, inSes) { if (!w) return; try { speechSynthesis.cancel(); } c
       if (a === 'play') { try { AUD && AUD.pause(); } catch (x) {} AUD = AUD || new Audio(); AUD.src = NO.url; AUD.play().catch(() => {}); } }); }
   sh.hidden = false; nPaint();
   if (!NO.vocab && !NO.loading && nHas()) nLoad(); }   // đã tải lần trước: nạp lại từ bộ nhớ máy
+// ---------- v103 lớp 2: chấm âm cả câu đọc to (bộ chấm âm). Phiên âm ghép từ từ điển của app (từ nguyên dạng; thêm -s / -ed theo luật);
+// câu có từ thiếu phiên âm thì không chấm. Chỉ tham khảo (chưa đối chiếu giáo viên nên chưa chặn cổng); điểm lần đầu lưu vào S.paCal (không lưu âm thanh) để hiệu chuẩn sau.
+const nSfx = (ipa, ed) => { const e = ipa.replace(/[ˈˌː]/g, ''); return ed ? (/[td]$/.test(e) ? 'ɪd' : /(p|k|f|θ|s|ʃ|tʃ)$/.test(e) ? 't' : 'd') : (/(s|z|ʃ|ʒ|tʃ|dʒ)$/.test(e) ? 'ɪz' : /(p|t|k|f|θ)$/.test(e) ? 's' : 'z'); };
+function nSentIpa(s) { const out = [];
+  for (const raw of String(s).match(/[A-Za-z][A-Za-z'’]*/g) || []) { const t = raw.toLowerCase().replace(/’/g, "'"), w = typeof libFind === 'function' ? libFind(t) : null;
+    if (!w || !w.ipa) return null; const b = w.w.toLowerCase(), ipa = String(w.ipa).replace(/^\/|\/$/g, '').split(/[,;]/)[0].trim(); if (!ipa || /\s/.test(ipa)) return null;
+    if (t === b) out.push(ipa); else if (t === b + 's' || t === b + 'es' || (b.endsWith('y') && t === b.slice(0, -1) + 'ies')) out.push(ipa + nSfx(ipa));
+    else if (t === b + 'ed' || t === b + 'd' || t === b + b.slice(-1) + 'ed' || (b.endsWith('y') && t === b.slice(0, -1) + 'ied')) out.push(ipa + nSfx(ipa, 1)); else return null; }
+  return out.length ? out.join(' ') : null; }
+const nSentOk = s => (nHas() || !!NO.vocab) && kWords(s).length >= 3 && kWords(s).length <= 20 && !!nSentIpa(s);
+const nSentBtn = s => { const c = kSents(s).find(nSentOk); return c ? `<br><button class="chip" data-pas="${esc(c)}">👄 Chấm âm câu${c !== s ? ' đầu' : ''} này (thử nghiệm, chưa tính)</button>` : ''; };
+function nSent(s) { const ipa = nSentIpa(s); if (!ipa) return toast('Câu này có từ chưa có phiên âm: chưa chấm âm được.');
+  const n = kWords(s).length, w = { id: 'sent', w: s, ipa: '/' + ipa + '/', vi: 'Đọc to cả câu', say: true, long: true, dur: Math.min(12000, 1500 + n * 450) };
+  NO.ses = { mode: 'am', list: [w], i: 0, got: [], sc: [], show: false, title: '👄 Chấm âm cả câu', okFor: () => 70,
+    sub: 'Nghe mẫu, rồi bấm 🎤 đọc to cả câu. Bộ chấm âm chấm từng âm (thử nghiệm).', foot: 'Lớp 2 (điểm âm) chỉ tham khảo: chưa đối chiếu giáo viên nên chưa tính 🔁 Nhớ. Điểm lần đầu được lưu (không lưu âm thanh) để hiệu chuẩn sau.',
+    onGrade: (x, ok, sc) => { if (sc == null) return; const L = (S.paCal = S.paCal || []); L.push({ at: Date.now(), n, sc }); if (L.length > 200) L.shift(); save(); }, onEnd: () => {} };
+  noiOpen(w, true); }
+document.addEventListener('click', e => { const b = e.target.closest('[data-pas]'); if (b) nSent(b.dataset.pas); });
 function noiClose() { if (NO.st === 'rec') nStop(); const sh = document.getElementById('nsheet'); if (sh) sh.hidden = true; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-noi]'); if (b) noiOpen(WBY[b.dataset.noi]); });

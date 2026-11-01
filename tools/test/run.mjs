@@ -668,6 +668,22 @@ const R = await run(`(async () => {
       const N = noiKhung(); if (!N || !N.qs.length || N.qs.some(q => q.kind !== 'speak' || q.k !== 'khung')) bad.push('nói ngắn có khung hỏng');
       if (kGrade(KIT.viet, V.qs.map(q => ({ x: q.x, k: q.k, ok: true }))).length || kGrade(KIT.noi, N.qs.map(q => ({ x: q.x, k: q.k, ok: true }))).length) bad.push('câu khung bị chấm'); });
     add('cefr', 'C21', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '📖🗣 Đọc to (Đ1 → Đ4, tốc độ, đọc lại vẫn tính, chặn cổng theo máy chép lời), 👂 nghe đuôi từ, 🎵 trọng âm, đoạn văn / trả lời ngắn có khung'); }
+  // v103 Phát âm B1 → C2 (bộ âm mới, thin – tin lên A2), mẹo lỗi phát âm người Việt, lớp 2 chấm âm cả câu (tham khảo)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank();
+    tryv('pa', () => { for (const lv of ['b1', 'b2', 'c1', 'c2']) { const L = PA.filter(x => x.lv === lv); if (L.length < 2 || L.some(x => x.pairs.length < 4 || x.test.length < 2)) bad.push('thiếu bộ âm ' + lv); }
+      if (PA_LV.join() !== 'pre,a1,a2,b1,b2,c1,c2' || PABY['s-05'].lv !== 'a2' || !PA_OK.c2) bad.push('cấp Phát âm sai');
+      const ids = PA.map(x => x.id); if (new Set(ids).size !== ids.length) bad.push('trùng id bộ âm');
+      if (!ovLvs('pa').includes('b1') || ovRef('pa')) bad.push('Phát âm B1+ chưa bắt buộc'); });
+    tryv('tip', () => { const R = { words: [{ phones: [{ ipa: 'θ', score: 30 }, { ipa: 'ɪ', score: 90 }, { ipa: 'ŋ', score: 90 }, { ipa: 'k', score: 85 }] }] }; if (!/giữa hai răng/.test(nTip(R))) bad.push('thiếu mẹo âm θ');
+      const R2 = { words: [{ phones: [{ ipa: 'b', score: 90 }, { ipa: 'e', score: 90 }, { ipa: 'd', score: 20 }] }] }; if (!/Âm cuối/.test(nTip(R2))) bad.push('thiếu mẹo âm cuối'); });
+    tryv('cau', () => { const i1 = nSentIpa('I like apples.'), i2 = nSentIpa('She walked to school.'), i3 = nSentIpa('Nguyen likes apples.');
+      if (!i1 || i1.split(' ').length !== 3 || !/z$/.test(i1)) bad.push('phiên âm câu sai: ' + i1);
+      if (!i2 || !/t$/.test(i2.split(' ')[1])) bad.push('đuôi -ed sai: ' + i2); if (i3) bad.push('tên riêng vẫn chấm');
+      localStorage.setItem(NK, '1'); if (!nSentBtn('I like apples. You like bananas.').includes('data-pas')) bad.push('thiếu nút chấm âm câu'); localStorage.removeItem(NK);
+      if (nSentBtn('I like apples.')) bad.push('chưa có bộ chấm âm mà vẫn hiện nút');
+      nSent('I like apples.'); if (!NO.ses || NO.ses.mode !== 'am' || NO.ses.list[0].dur < 2000 || !NO.ses.list[0].long) bad.push('mở chấm âm câu sai');
+      NO.ses.onGrade(NO.ses.list[0], true, 77); if (!S.paCal || S.paCal[0].sc !== 77) bad.push('chưa lưu điểm để hiệu chuẩn'); NO.ses = null; });
+    add('cefr', 'C22', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Phát âm B1 → C2 (13 bộ, thin – tin lên A2), mẹo lỗi phát âm người Việt, lớp 2 chấm âm cả câu (phiên âm ghép từ điển, -s / -ed, tham khảo, lưu điểm hiệu chuẩn)'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

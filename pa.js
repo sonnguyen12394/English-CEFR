@@ -8,14 +8,15 @@
 let PA = null, PABY = {};
 // 👄 Đọc đúng theo cấp (soát 25/10/2026, người sáng lập "thiết kế cho phù hợp"): CEFR A1 chỉ cần người nghe hiểu được, A2 rõ hơn;
 // ngưỡng điểm âm Pre-A1 60 · A1 70 · A2 80, theo cấp của bộ âm (luyện lẫn thi). Ngưỡng đạt của bài thi (85%) giữ nguyên.
-const PA_OK = { pre: 60, a1: 70, a2: 80 }, paOkFor = w => PA_OK[(PABY[w.set] || {}).lv] || N_OK;
+const PA_OK = { pre: 60, a1: 70, a2: 80, b1: 80, b2: 80, c1: 85, c2: 85 }, paOkFor = w => PA_OK[(PABY[w.set] || {}).lv] || N_OK;
 // v101 (người sáng lập chọn phương án (a) 31/10/2026, thay v99 "tham khảo"): Phát âm BẮT BUỘC lại. Máy đã tải bộ chấm âm (nHas) thì tính cả 👂 nghe phân biệt
 // và 👄 đọc đúng; chưa tải thì chỉ tính phần nghe (thi chỉ có phần nghe). Bộ chấm là ước tính của máy, chưa giáo viên đối chiếu.
 const PA_REF = false, paGk = () => nHas() || (typeof NO !== 'undefined' && NO.vocab) ? ['pb', 'doc'] : ['pb'];
-const PA_LV = ['pre', 'a1', 'a2'], PA_DIMS = [['pb', '👂 Phân biệt'], ['doc', '👄 Đọc đúng']], PA_PASS = 0.85;
+const PA_LV = ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'],   // v103: thêm B1 → C2 (content/pa-b.json)
+  PA_DIMS = [['pb', '👂 Phân biệt'], ['doc', '👄 Đọc đúng']], PA_PASS = 0.85;
 DIM_OF.pa_pb = ['pb']; DIM_OF.pa_doc = ['doc'];
 const paSt = () => (S.pa = S.pa || {}), paRuns = () => (S.paX = S.paX || []);
-async function paLoad() { if (PA) return PA; PA = (await (await fetch('pa.json?v=1')).json()).sets; for (const x of PA) PABY[x.id] = x; return PA; }
+async function paLoad() { if (PA) return PA; PA = (await (await fetch('pa.json?v=2')).json()).sets; for (const x of PA) PABY[x.id] = x; return PA; }
 const paPassed = lv => paRuns().some(r => r.lv === lv && r.pass);
 const paLevel = () => PA_LV.find(l => !paPassed(l)) || PA_LV[PA_LV.length - 1];
 const paLocked = lv => PA_LV.indexOf(lv) > 0 && !paPassed(PA_LV[PA_LV.indexOf(lv) - 1]);

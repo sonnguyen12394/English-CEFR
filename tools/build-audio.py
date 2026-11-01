@@ -58,6 +58,10 @@ for f in ('a1.json', 'a2.json'):
         for w in u['words']:
             for t in (w['w'], w.get('ex')):
                 if t and key(t) not in A: add(t, 'af_heart')
+for x in J('pa.json')['sets']:   # 👄 từ trong cặp âm (v103 thêm B1 → C2) chưa có tệp thu của game: giọng nữ Anh (phiên âm của bộ âm là kiểu Anh)
+    for p in x['pairs'] + x['test']:
+        for t in (p[0], p[2]):
+            if key(t) not in A: add(t, 'bf_emma')
 T = J('toeic.json') if os.path.exists(os.path.join(ROOT, 'toeic.json')) else None   # 🎓 TOEIC (toeic.js, 28/10/2026): giọng Mỹ + Anh như đề thật
 if T:
     TF, TM = ['af_heart', 'af_bella', 'af_sarah', 'bf_emma', 'bf_isabella'], ['am_michael', 'am_adam', 'am_eric', 'bm_george', 'bm_lewis']

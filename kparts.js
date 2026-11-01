@@ -162,7 +162,7 @@ function docToQ(x, t, i, n) { const q = { x, k: 'to', kind: 'speak', head: `<div
     check: said => { const r = kMatch(t, said), w = Math.round(kWords(t).length * r), m = q.t0 && q.t1 ? (q.t1 - q.t0) / 60000 : 0, wpm = m > 0.03 ? Math.round(w / m) : 0, c = kSt('doc').cards[x.id];
       let tip = ''; if (c && wpm) { const h = (c.wpm = c.wpm || []); if (i === 0 || !h.length) h.push([dayOf(Date.now()), wpm, 1]); else { const e = h[h.length - 1]; e[1] = Math.round((e[1] * e[2] + wpm) / (e[2] + 1)); e[2]++; } if (h.length > 8) h.shift();
         if (i === n - 1) { const now = h[h.length - 1][1], prev = h.length > 1 ? h[h.length - 2][1] : 0; tip = ` · cả bài ${now} từ / phút${prev ? ` (Đ4 · lần trước ${prev})` : ''}`; } }
-      return { ok: r >= K_TO, html: `Máy nghe ra ${Math.round(r * 100)}% từ (cần ${Math.round(K_TO * 100)}%).${wpm ? ` ⏱ ${wpm} từ đúng / phút${tip}; mốc ${LVN[x.lv]} khoảng ${K_WCPM[x.lv]} (ước đoán, chỉ tham khảo).` : ''}<br><span class="mute">Máy nghe ra: “${esc(said || '…')}”</span>` }; } };
+      return { ok: r >= K_TO, html: `Máy nghe ra ${Math.round(r * 100)}% từ (cần ${Math.round(K_TO * 100)}%).${wpm ? ` ⏱ ${wpm} từ đúng / phút${tip}; mốc ${LVN[x.lv]} khoảng ${K_WCPM[x.lv]} (ước đoán, chỉ tham khảo).` : ''}<br><span class="mute">Máy nghe ra: “${esc(said || '…')}”</span>${typeof nSentBtn === 'function' ? nSentBtn(t) : ''}` }; } };
   return q; }
 // ✍️ bậc 3 · đoạn văn có khung (luyện): câu chủ đề + mỗi ý một câu + ví dụ / câu kết, có câu mở sẵn từ đề
 function vKhung() { const P = KIT.viet, lv = kLv(P), L = P.items.filter(x => !x.kind && !x.test && lvIdx(x.lv) <= lvIdx(lv) && kSt('viet').cards[x.id]), X = L.length ? L : P.items.filter(x => !x.kind && !x.test && x.lv === (lv === 'pre' ? 'a1' : lv));
@@ -206,7 +206,7 @@ function kTalk(x, prev) { const ideas = x.k || [];
         <details><summary>Bài mẫu</summary><p>${kSay(x.m)} ${esc(x.m)}</p></details>` }; } };
   return q; }
 const kAloud = (x, s, k = 'ro') => ({ x, k, kind: 'speak', head: `<div class="box"><p style="font-size:20px;margin:0">${esc(s)}</p></div>`, q: '🗣 Đọc to câu trên rồi bấm Dừng.',
-  check: t => { const r = kMatch(s, t); return { ok: r >= 0.8, html: `Máy nghe ra: "${esc(t || '…')}" · khớp ${Math.round(r * 100)}% từ (cần 80%). ${kSay(s)} nghe mẫu` }; } });
+  check: t => { const r = kMatch(s, t); return { ok: r >= 0.8, html: `Máy nghe ra: "${esc(t || '…')}" · khớp ${Math.round(r * 100)}% từ (cần 80%). ${kSay(s)} nghe mẫu${typeof nSentBtn === 'function' ? nSentBtn(s) : ''}` }; } });
 const kModelSent = x => { const ss = kSents(x.m).filter(s => { const n = kWords(s).length; return n >= 5 && n <= 14; }); return ss[Math.floor(Math.random() * ss.length)] || kSents(x.m)[0]; };
 // 💬 đóng vai: mỗi lượt của người học là một câu nói; nghe câu của người kia (giọng máy), đọc việc cần nói, nói; chấm theo luật need của lượt.
 function kRp(x, steps) { const out = []; let prev = ''; const hist = [];
