@@ -40,6 +40,7 @@ function todayBox(stage, o = {}) { const t = dayOf(Date.now()), m = actMin(t), g
     ${(() => { const R = typeof revCount === 'function' ? revCount() : { n: due || 0, c: due, e: 0, v: 0 }, what = [R.e ? `${R.e} lỗi` : '', R.v ? `${R.v} từ sổ từ` : '', R.c ? `${R.c} bài` : ''].filter(Boolean).join(' · ');   // v95: MỘT nút ôn chung (dieuhuong.js revRun)
       if (!R.n && !Object.keys(S.cards || {}).length && !Object.values(S.k || {}).some(k => Object.keys(k.cards || {}).length)) return '';
       return step(!R.n && due != null, R.n ? `Ôn ${R.n} mục đến hạn (${what}): làm trước, chống quên` : due == null ? 'Ôn bài đến hạn' : 'Không còn mục đến hạn', R.n && typeof revRun === 'function' ? 'data-rev' : 'data-today="due"'); })()}
+    ${(() => { const gn = typeof plGaps === 'function' ? plGaps().filter(g => !g.cho).length : 0; return gn && !(mf && mf.act.length) ? step(false, `Chữa ${gn} chỗ hổng nền (bài xếp cấp phát hiện)`, 'data-today="fix"') : ''; })()}
     ${mf ? (f => { const d = dayOf(Date.now()), did = f.act.some(w => w.td === d);
       return (f.act.length ? step(did, did ? 'Đã chữa chỗ yếu hôm nay' : `Chữa ${Math.min(MAP_TODAY, f.act.length)} chỗ yếu đang chữa (kèm việc ôn)`, 'data-today="fix"') : '')
         + (f.root.length ? `<button data-map-rl="${esc(mapKey(f.root[0]))}" style="margin:4px 0">🧱 Học lại bài gốc: ${f.root.length} chỗ kẹt lâu</button>` : '')
@@ -91,10 +92,18 @@ async function placeView(back) { const out = typeof back === 'function' ? back :
       <p class="mute">Không đoán bừa: không biết thì chọn "Chưa biết". Làm 15–30 câu, khoảng 5–10 phút.</p>${it.w ? `<p class="q">${q.top}</p><p class="mute">${q.sub}</p>` : `${q.head || ''}<p class="q">${q.q}</p>`}
       ${q.opts.map((o, k) => `<button class="opt" data-po="${k}">${esc(o)}</button>`).join('')}<button class="opt" data-po="-1" style="opacity:.75">🤷 Chưa biết</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return out(); const b = e.target.closest('[data-po]'); if (!b) return; const k = +b.dataset.po, ok = k >= 0 && q.opts[k] === q.a;
-      const r = R[lv] = R[lv] || [0, 0]; r[1]++; if (ok) r[0]++; res.push({ lv, ok }); i++; show(); }; };
-  const end = () => { const top = plResult(R), start = top ? (LEVELS[LEVELS.indexOf(top) + 1] || top) : 'pre'; S.place = { at: Date.now(), top, start, R, st: ovStage() }; S.t = Date.now(); save();
+      const r = R[lv] = R[lv] || [0, 0]; r[1]++; if (ok) r[0]++; res.push({ lv, ok, it }); i++; show(); }; };
+  // v106: câu sai ở cấp đã nắm vững (≤ cấp xếp được) chỉ là giả thuyết → 🔎 hỏi thêm 2 câu mỗi chỗ (chandoan.js); sai thật mới vào 🗺 bản đồ (🧭 chỗ hổng nền)
+  const end = () => { const top = plResult(R), start = top ? (LEVELS[LEVELS.indexOf(top) + 1] || top) : 'pre', old = ((S.place || {}).gap || []).filter(g => !g.ok);
+    S.place = { at: Date.now(), top, start, R, st: ovStage(), gap: old }; S.t = Date.now(); save();
+    const cands = top && typeof plConfirm === 'function' ? res.filter(r => !r.ok && LEVELS.indexOf(r.lv) <= LEVELS.indexOf(top)).slice(0, PL_CF_MAX).map(r => ({ ...r.it, lv: r.lv })) : [];
+    if (!cands.length) return result(null);
+    plConfirm(cands, { gap: true, intro: `Bạn sai ${cands.length} câu ở cấp bạn nắm khá vững. Một câu sai có thể chỉ là bấm nhầm hay đoán. Hỏi thêm ${PL_CF_N} câu mỗi chỗ (~${Math.max(1, Math.round(cands.length * PL_CF_N * 12 / 60))} phút): sai thật mới đưa vào 🗺 bản đồ.` },
+      cf => { S.place.cf = cf; S.t = Date.now(); save(); result(cf); }); };
+  const result = cf => { const top = S.place.top, start = S.place.start;
     $app.innerHTML = `<h1>🧭 Kết quả xếp cấp</h1><div class="box"><p style="margin:0;font-size:19px">${top ? `Phần hiểu từ và ngữ pháp: bạn nắm khá vững <b>${LVN[top]}</b>${top === PL_LV[PL_LV.length - 1] ? ' (bài đo tới đây là hết)' : ''}. Gợi ý: 🚀 thi vượt các phần lên ${LVN[top]}, rồi học tiếp <b>${LVN[start]}</b>.` : 'Nên bắt đầu từ đầu.'}</p>
       <p class="mute" style="margin:6px 0 0">${PL_LV.filter(l => R[l]).map(l => `${LVN[l]}: ${R[l][0]}/${R[l][1]}`).join(' · ')}</p>
+      ${cf && cf.n ? `<p style="margin:6px 0 0">${plCfTxt(cf)}${cf.sure ? ' Đã đưa vào 🗺 bản đồ, nhóm 🌱 Gốc: chữa trước khi học tiếp.' : ''}</p>` : ''}
       <p class="mute" style="margin:6px 0 0">Bài này chỉ đo hiểu nghĩa từ và ngữ pháp, không đo nghe, nói, viết; là gợi ý, không phải thi chuyển cấp. Các cấp dưới vẫn còn đó để ôn khi cần.</p></div>
       ${top ? `<div class="box"><b>Muốn bỏ qua các cấp dưới ${LVN[start]}?</b><p class="mute" style="margin:6px 0">🚀 Thi vượt cấp: làm thẳng Thi chuyển cấp ${LVN[top]} của từng phần (đề như thi thường). Qua phần nào thì phần đó hoàn thành mọi cấp ≤ ${LVN[top]}.</p><button class="pri" data-vcv="${top}">🚀 Thi vượt lên ${LVN[top]}</button></div>` : ''}
       <button class="pri" data-a="go">▶ Mở cấp ${LVN[start]}</button><button data-a="back">${out === overview ? '← Tổng quan' : '← Lộ trình'}</button>`; scrollTo(0, 0);

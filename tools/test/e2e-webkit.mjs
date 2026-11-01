@@ -129,7 +129,7 @@ check('kiểm tra đầu bài ra kết quả', /Đã biết \d+\/\d+ từ/.test(
 // 🗺 Bản đồ chỗ yếu (v78; v86 lối vào ở ô 📅 Hôm nay của Học CEFR): mở được, đủ 3 tầng, thanh dưới sáng 🎯
 await pg.evaluate(() => overview()); await pg.waitForTimeout(600);
 check('ô Hôm nay có bản đồ', (await pg.innerText('#app')).includes('Bản đồ chỗ yếu')); await pg.click('[data-mapv]'); await pg.waitForTimeout(1200);
-check('bản đồ đủ tầng', /Tầng phủ[\s\S]*Tầng chữa[\s\S]*Tầng gốc/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="all"].on'));
+check('bản đồ một danh sách', /Việc cần chữa[\s\S]*Độ phủ/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="all"].on'));
 await pg.click('#tabs [data-tab="dict"]'); await pg.waitForTimeout(600); check('Từ điển sáng đúng nút', await pg.isVisible('#tabs [data-tab="dict"].on') && !(await pg.$('#tabs [data-tab="bk"].on')));
 // v95: 📖 Tra cứu → 📘 Cẩm nang thi (thanh dưới vẫn sáng 📖); 👤 Của tôi → 🗺 bản đồ (sáng 👤, nút về Của tôi) → 💾 Dữ liệu
 await pg.click('[data-cnv="tc"]'); await pg.waitForTimeout(800); check('Cẩm nang từ Tra cứu', (await pg.innerText('#app')).includes('Cẩm nang thi') && await pg.isVisible('#tabs [data-tab="dict"].on'));

@@ -67,6 +67,8 @@ const HD = [
     <p><b>Bài mới</b> mở thẳng phần có 📘 Học thấp nhất. <b>Bài kỹ năng</b> do 🗺 bản đồ chỗ yếu chọn (chưa có dữ liệu thì chọn kỹ năng thấp nhất).</p>`],
   ['bando', '🗺 Bản đồ chỗ yếu', () => `
     <p>Gom mọi lần sai / quên (luyện, thi, tra từ) thành <b>chỗ cần chữa</b>. Chỉ đọc dữ liệu, không đổi luật đo.</p>
+    <p>Màn bản đồ là <b>một danh sách 🎯 Việc cần chữa</b>, gốc trước: 🌱 🧭 chỗ hổng nền (bài xếp cấp phát hiện), bài Đọc / Nghe yếu do thiếu từ, 🧱 học lại bài gốc; rồi nhóm đang chữa. Nút ▶ Chữa tiếp luôn làm việc đầu danh sách. 🔎 Độ phủ là một ô riêng; hàng chờ, tạm gác, cân bằng kỹ năng gập trong "Xem thêm".</p>
+    <p><b>🧭 Xếp cấp khác 🔎 kiểm tra tìm điểm yếu.</b> Xếp cấp hỏi rộng, mỗi từ / điểm ngữ pháp chỉ 1 câu: tin được ở mức <b>cấp</b>, không tin được ở <b>từng mục</b> (có thể đoán, bấm nhầm). Nên câu sai ở cấp bạn nắm vững được hỏi thêm ${typeof PL_CF_N !== 'undefined' ? PL_CF_N : 2} câu dạng khác; sai thêm ≥ 1 câu mới là sai thật. Mục chưa học → 🧭 chỗ hổng nền (không tính 📘 Học); mục đã học → chấm như luyện tập, bản đồ tự thấy. Hết hổng khi làm đúng ở một ngày sau lần sai gần nhất. Câu xác nhận không đổi cấp xếp được.</p>
     <p>Chỉ chữa tối đa <b>${MAP_ACT} chỗ</b> một lúc (Từ vựng ≤ ${MAP_TV_MAX} nếu phần khác cũng có chỗ yếu); còn lại xếp ⏳ hàng chờ. Ô Hôm nay mỗi ngày đưa ${MAP_TODAY} chỗ.</p>
     <p><b>Chữa xong</b> khi làm đúng ở một ngày <b>sau</b> lần sai gần nhất (sai rồi đúng ngay trong ngày chưa tính).</p>
     <p>Mỗi chỗ thử tối đa ${MAP_TRY} ngày; chưa được thì ⏸ tạm gác ${MAP_PARK_D} ngày rồi thử lại. Kẹt lần 2 → 🧱 học lại bài gốc.</p>

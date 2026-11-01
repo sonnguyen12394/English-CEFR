@@ -256,7 +256,7 @@ const R = await run(`(async () => {
     // truy gốc: bài đọc yếu chứa từ chưa học
     const P = KIT.doc, x = kItems(P, kLv(P))[0]; kSt('doc').cards[x.id] = { S: 1, last: now - 3 * D, d0: dayOf(now) - 4, ok: 0, pv: 1, n: 2, lapse: 1, dm: Object.fromEntries(kDimsOf(P, x).map(k => [k, { ok: 0, pv: 1, n: 2 }])) };
     const R = mapRoots(mapWeak(now), now); if (!R.length || !R[0].gap.length) bad.push('truy gốc không ra từ');
-    await tryv('màn bản đồ', () => mapView()); await mapView(); const h = String($app.innerHTML); if (!h.includes('Tầng phủ') || !h.includes('Tầng chữa') || !h.includes('Tầng gốc') || !h.includes('Cân bằng')) bad.push('màn bản đồ thiếu tầng');
+    await tryv('màn bản đồ', () => mapView()); await mapView(); const h = String($app.innerHTML); if (!h.includes('Việc cần chữa') || !h.includes('Độ phủ') || !h.includes('🌱 Gốc') || !h.includes('bài yếu do thiếu từ') || !h.includes('Cân bằng')) bad.push('màn bản đồ thiếu phần (v106 gộp: việc cần chữa, gốc, độ phủ)');
     tryv('chữa từ vựng', () => mapFix('tv')); tryv('chữa đọc', () => mapFix('doc')); tryv('chữa gốc', () => mapRoot(R)); tryv('quét lại', () => mapScan());
     if (!/data-mapv/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu nút bản đồ'); tryv('tab dữ liệu', () => backup()); if (String($app.innerHTML).includes('Mở bản đồ')) bad.push('v86: bản đồ còn ở tab Dữ liệu (đã chuyển về ô Hôm nay)');
     if (!mapScanDue(now)) bad.push('quét lại chưa đến hạn khi chưa quét lần nào'); S.scan = [{ at: now }]; if (mapScanDue(now)) bad.push('quét lại đến hạn ngay sau khi quét');
@@ -735,6 +735,45 @@ const R = await run(`(async () => {
     MAP_BACK = 'lt'; await tryA('bản đồ từ Lộ trình', () => mapView()); if (!H().includes('id="lt"') || !H().includes('← Lộ trình')) bad.push('bản đồ từ Lộ trình sai'); MAP_BACK = 'hoc';
     const hd = HD.map(x => x[2]()).join(' '); if (!HD.some(x => x[0] === 'lotrinh') || !hd.includes(Math.round(LT_FIX * 100) + '% số phút') || !hd.includes(LT_RE_D + ' ngày') || !hd.includes('🔄 Lộ trình')) bad.push('Luật thiếu mục Lộ trình');
     add('cefr', 'C24', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Lộ trình: mục tiêu, xếp cấp lại theo sự kiện (' + LT_RE_D + ' ngày, hoàn thành cấp, trượt thi vượt, gần ngày thi → đề mẫu), đợt ' + LT_D + ' ngày, phút chữa ≤ ' + Math.round(LT_FIX * 100) + '%, kiểm tra nhẹ, tổng kết, nút về đều đúng'); }
+  // v106 🔎 xác nhận chỗ yếu sau bài kiểu xếp cấp (chandoan.js): câu sai = giả thuyết; hỏi thêm 2 câu dạng khác; sai thật: chưa học → 🧭 chỗ hổng nền, đã học → chấm như luyện tập; bản đồ gộp một danh sách
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
+    S = blank(); await loadEB(); await kLoad(KIT.np); const H = () => String($app.innerHTML), now = Date.now(), D = 864e5, t = dayOf(now);
+    const click = k => $app.onclick({ target: { closest: s => s === '[data-po]' ? { dataset: { po: String(k) } } : null } });
+    const right = set => { const m = [...H().matchAll(/data-po="([0-9]+)">([^<]*)</g)].find(x => set.has(x[2])); return m ? +m[1] : -9; };
+    const ws = WORDS.filter(x => wLv(x) === 'pre' && x.cloze && x.vi && !/[&<>"']/.test(x.w + x.cloze.a + x.vi)), [w1, w2, w3] = ws;
+    const g = KIT.np.items.find(x => x.lv === 'pre' && x.hieu && x.hieu.length), q0 = KIT.np.q(g, 'nhan', 'test')[0];
+    const vq = plCfQs({ w: w1 }), gq = plCfQs({ g, q: q0 });
+    if (vq.length !== 2 || vq.some(q => q.type === 'w2vi')) bad.push('câu xác nhận từ phải khác dạng xếp cấp: ' + vq.map(q => q.type));
+    if (gq.length !== 2 || gq.some(q => q.q === q0.q)) bad.push('câu xác nhận ngữ pháp trùng câu đã hỏi');
+    // w1 sai rồi đúng (sai thật: 2 / 3), w2 đúng cả 2 (bấm nhầm), g sai cả 2 (sai thật); chưa học → chỗ hổng nền
+    S.place = { at: now, top: 'a1', gap: [] }; let cf = null;
+    const vset = w => new Set([w.w, w.cloze.a]), gset = new Set([...(g.hieu || []).map(h => h.a), ...g.mc.learn.map(m => m.a), ...g.mc.test.map(m => m.a)]);
+    tryv('xác nhận', () => { plConfirm([{ w: w1, lv: 'pre' }, { w: w2, lv: 'pre' }, { g, q: q0, lv: 'pre' }], { gap: true, intro: 'x' }, r => { cf = r; });
+      if (!H().includes('Bỏ qua bước này') || !/xac-nhan/.test(CUR.view) || !TD_NOTAP.test(CUR.view)) bad.push('màn xác nhận sai');
+      click(-1); click(right(vset(w1))); click(right(vset(w2))); click(right(vset(w2))); click(-1); click(-1); });
+    if (!cf || cf.n !== 3 || cf.sure !== 2 || cf.noise !== 1) bad.push('kết quả xác nhận sai: ' + JSON.stringify(cf));
+    if (S.cards[w1.id] || kSt('np').cards[g.id]) bad.push('chỗ hổng chưa học mà đã tạo thẻ (tính 📘 Học)');
+    if (plGaps().map(x => x.k).sort().join() !== ['tv|' + w1.id, 'np|' + g.id].sort().join()) bad.push('chỗ hổng nền sai: ' + plGaps().map(x => x.k));
+    if (!/chỗ hổng nền/.test(todayBox('pre'))) bad.push('ô Hôm nay thiếu việc chữa chỗ hổng');
+    await tryA('bản đồ', () => mapView()); if (!H().includes('Việc cần chữa') || !H().includes('🧭 2 chỗ hổng nền') || !H().includes('data-map="gap"') || !H().includes('Chữa tiếp: chỗ hổng nền trước')) bad.push('bản đồ chưa có chỗ hổng nền ở 🌱 Gốc');
+    // hết hổng: đúng ở ngày SAU lần sai gần nhất; đúng cùng ngày = ✔ chờ; sai lại thì tính từ lần sai mới
+    mapHit('tv', w1.id, [], true, now); if (plGaps().find(x => x.id === 'tv').cho !== true) bad.push('đúng cùng ngày chưa thành chờ');
+    mapHit('tv', w1.id, [], true, now + D); if (plGaps().some(x => x.id === 'tv')) bad.push('đúng ngày sau chưa hết hổng');
+    mapHit('np', g.id, [], false, now + D); mapHit('np', g.id, [], true, now + D); if (!plGaps().some(x => x.id === 'np')) bad.push('sai rồi đúng cùng ngày đã hết hổng');
+    mapHit('np', g.id, [], true, now + 2 * D); if (plGaps().length) bad.push('chỗ hổng ngữ pháp chưa hết');
+    // mục đã học: chấm như luyện tập, không vào chỗ hổng
+    S.cards[w3.id] = { S: 3, last: now - 2 * D, d0: t - 2, ok: 1, pv: 0, n: 1, lapse: 0 }; cf = null;
+    tryv('xác nhận đã học', () => { plConfirm([{ w: w3, lv: 'pre' }], { gap: false }, r => { cf = r; }); click(-1); click(-1); });
+    if (!cf || cf.sure !== 1 || S.cards[w3.id].lapse < 1 || S.place.gap.some(x => x.k === 'tv|' + w3.id && !x.ok)) bad.push('mục đã học xác nhận sai: ' + JSON.stringify(S.cards[w3.id]));
+    // xếp cấp: A2 đúng 4/5 → B1 không biết → xếp A2; câu sai ở A2 → bước xác nhận; bỏ qua → kết quả; chỗ hổng cũ chưa hết được giữ khi xếp lại
+    S.place.gap.push({ k: 'tv|' + w2.id, lv: 'pre', d: t - 5, wd: t - 5 });
+    const pq0 = plQs, fake = lv => WORDS.filter(x => wLv(x) === 'a2' && x.vi).slice(0, 5).map(w => ({ w, q: { top: esc(w.w), sub: 'nghĩa là gì?', a: 'A', opts: ['A', 'B', 'C', 'D'] } }));
+    plQs = fake; await tryA('xếp cấp', () => placeView(ltView)); tryv('làm xếp cấp', () => { click(0); click(0); click(0); click(0); click(1); for (let k = 0; k < 5; k++) click(-1); }); plQs = pq0;
+    if (!S.place || S.place.top !== 'a2' || !/xac-nhan/.test(CUR.view)) bad.push('xếp cấp chưa sang bước xác nhận: ' + (S.place && S.place.top) + ' ' + CUR.view);
+    if (!S.place.gap.some(x => x.k === 'tv|' + w2.id)) bad.push('xếp lại làm mất chỗ hổng cũ');
+    tryv('bỏ qua', () => $app.onclick({ target: { closest: s => s === '[data-a="skip"]' ? {} : null } })); if (!H().includes('Kết quả xếp cấp')) bad.push('bỏ qua xác nhận chưa ra kết quả');
+    const hd = HD.map(x => x[2]()).join(' '); if (!hd.includes('Xếp cấp khác 🔎 kiểm tra tìm điểm yếu') || !hd.includes('Việc cần chữa')) bad.push('Luật thiếu xếp cấp ≠ kiểm tra / bản đồ gộp');
+    add('cefr', 'C25', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'xếp cấp ≠ kiểm tra tìm điểm yếu: câu sai hỏi thêm ' + PL_CF_N + ' câu dạng khác, sai thật → chỗ hổng nền (không tạo thẻ) / chấm như luyện tập; hết hổng khi đúng ở ngày sau; bản đồ một danh sách, gốc trước'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');
