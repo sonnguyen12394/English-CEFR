@@ -686,6 +686,23 @@ const R = await run(`(async () => {
     tryv('suyluan', () => { for (const id of ['doc', 'nghe']) for (const x of KIT[id].items.filter(z => ['b1', 'b2'].includes(z.lv) && !z.test)) { const s = x.qs.filter(q => q.sl);
       if (s.length !== 1 || s[0].w.includes(s[0].a) || !kRead(KIT[id], x, 'ct', id === 'nghe').some(q => /Suy luận/.test(q.q))) bad.push('thiếu câu suy luận ' + x.id); } });
     add('cefr', 'C22', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Phát âm B1 → C2 (13 bộ, thin – tin lên A2), mẹo lỗi phát âm người Việt, lớp 2 chấm âm cả câu (phiên âm ghép từ điển, -s / -ed, tham khảo, lưu điểm hiệu chuẩn), câu suy luận Đọc / Nghe B1, B2'); }
+  // v104 hiệu chuẩn bộ chấm âm theo người, đọc lại khi sát ngưỡng (trung bình 2 lần), 🧑‍🏫 đối chiếu giáo viên (chấm oan / bỏ sót)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank();
+    tryv('thr', () => { if (paThr(80) !== 80) bad.push('chưa hiệu chuẩn mà đổi ngưỡng'); S.paBase = { med: 68 }; if (paThr(80) !== 65 || paThr(60) !== 48) bad.push('hạ ngưỡng sai: ' + paThr(80) + '/' + paThr(60));
+      S.paBase = { med: 40 }; if (paThr(80) !== 65) bad.push('hạ quá ' + PA_CAL_MAX + ' điểm'); S.paBase = { med: 95 }; if (paThr(80) !== 80) bad.push('mốc cao mà nâng ngưỡng'); S.paBase = null; });
+    tryv('redo', () => { const g0 = [GOP.score, GOP.greedy, GOP.toModelPhones], seq = [77, 85]; GOP.score = () => ({ score: seq.shift(), words: [] }); GOP.greedy = () => ''; GOP.toModelPhones = () => [{ ipa: 'k' }];
+      NO.vocab = { '<pad>': 0 }; NO.w = { w: 'cat', ipa: '/kæt/', set: 's-02' }; NO.ses = { mode: 'am', list: [NO.w], i: 0, got: [], sc: [], okFor: () => 80 }; NO.redo = null;
+      nScore({ dims: [1, 1, 1], data: [] }); if (NO.res || NO.redo !== 77 || !/đọc lại/.test(NO.note)) bad.push('sát ngưỡng chưa bắt đọc lại');
+      nScore({ dims: [1, 1, 1], data: [] }); if (!NO.res || NO.res.score !== 81 || NO.res.avg !== 77) bad.push('chưa lấy trung bình 2 lần: ' + (NO.res && NO.res.score));
+      seq.push(60); NO.redo = null; nScore({ dims: [1, 1, 1], data: [] }); if (!NO.res || NO.res.score !== 60) bad.push('xa ngưỡng vẫn bắt đọc lại');
+      [GOP.score, GOP.greedy, GOP.toModelPhones] = g0; NO.ses = null; NO.vocab = null; });
+    tryv('val', () => { S.paVal = [...Array(40)].map((_, i) => ({ m: i % 10 !== 0, t: true, k: 'tu' })).concat([...Array(12)].map((_, i) => ({ m: i < 2, t: false, k: 'tu' })));
+      const v = paValStat(); if (v.n !== 52 || Math.abs(v.fr - 0.1) > 1e-9 || Math.abs(v.miss - 2 / 12) > 1e-9 || !paValOk()) bad.push('thống kê đối chiếu sai: ' + JSON.stringify(v));
+      S.paVal = S.paVal.slice(0, 30); if (paValOk()) bad.push('chưa đủ ' + PA_VAL_N + ' lần mà đã đạt'); });
+    tryv('ui', () => { localStorage.setItem(NK, '1'); NO.vocab = { '<pad>': 0 }; paMenu(); const h = String($app.innerHTML); if (!/data-pm="cal"/.test(h) || !/data-pm="val"/.test(h)) bad.push('thiếu nút hiệu chuẩn / đối chiếu');
+      paCal(); if (!NO.ses || NO.ses.okFor() !== 0 || NO.ses.list.length < 8) bad.push('lượt hiệu chuẩn sai'); NO.ses.onGrade(null, true, 70); NO.ses = null;
+      paVal(); if (!NO.ses || !NO.ses.val || NO.ses.list.length !== 10) bad.push('lượt đối chiếu sai'); NO.ses = null; NO.vocab = null; localStorage.removeItem(NK); });
+    add('cefr', 'C23', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'hiệu chuẩn bộ chấm âm (chỉ hạ, tối đa ' + PA_CAL_MAX + ' điểm), đọc lại khi sát ngưỡng lấy trung bình, đối chiếu giáo viên (chấm oan / bỏ sót, cần ≥ ' + PA_VAL_N + ' lần)'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

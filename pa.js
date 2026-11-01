@@ -8,7 +8,25 @@
 let PA = null, PABY = {};
 // 👄 Đọc đúng theo cấp (soát 25/10/2026, người sáng lập "thiết kế cho phù hợp"): CEFR A1 chỉ cần người nghe hiểu được, A2 rõ hơn;
 // ngưỡng điểm âm Pre-A1 60 · A1 70 · A2 80, theo cấp của bộ âm (luyện lẫn thi). Ngưỡng đạt của bài thi (85%) giữ nguyên.
-const PA_OK = { pre: 60, a1: 70, a2: 80, b1: 80, b2: 80, c1: 85, c2: 85 }, paOkFor = w => PA_OK[(PABY[w.set] || {}).lv] || N_OK;
+const PA_OK = { pre: 60, a1: 70, a2: 80, b1: 80, b2: 80, c1: 85, c2: 85 }, paOkFor = w => paThr(PA_OK[(PABY[w.set] || {}).lv] || N_OK);
+// v104 🎚 hiệu chuẩn theo người (người sáng lập chốt "phát âm tốt nhất có thể"): đọc 10 từ dễ → mốc riêng = trung vị điểm. Mốc dưới PA_REF_SC (micro, giọng
+// làm máy chấm thấp hơn thật) thì hạ ngưỡng theo tỉ lệ, tối đa PA_CAL_MAX điểm; không bao giờ nâng ngưỡng. 🧑‍🏫 Đối chiếu giáo viên: S.paVal (máy / giáo viên).
+const PA_CAL_W = ['cat', 'dog', 'sun', 'pen', 'map', 'cup', 'bed', 'hat', 'bus', 'box'], PA_REF_SC = 85, PA_CAL_MAX = 15, PA_VAL_N = 50, PA_VAL_FR = 0.15, PA_VAL_MISS = 0.25;
+const paThr = t => { const b = S && S.paBase; return b && b.med < PA_REF_SC ? Math.max(t - PA_CAL_MAX, Math.round(t * b.med / PA_REF_SC)) : t; };
+function paValStat(k) { const L = ((S && S.paVal) || []).filter(x => !k || x.k === k), T = L.filter(x => x.t), F = L.filter(x => !x.t);
+  return { n: L.length, fr: T.length ? T.filter(x => !x.m).length / T.length : null, miss: F.length ? F.filter(x => x.m).length / F.length : null }; }
+const paValOk = k => { const v = paValStat(k); return v.n >= PA_VAL_N && v.fr != null && v.fr <= PA_VAL_FR && (v.miss == null || v.miss <= PA_VAL_MISS); };
+function paCal() { if (!NO.vocab && !nHas()) return toast('Tải bộ chấm âm trước.'); const L = PA_CAL_W.map(w => WORDS.find(x => x.w === w && x.ipa)).filter(Boolean), sc = [];
+  NO.ses = { mode: 'am', list: L, i: 0, got: [], sc: [], show: false, title: '🎚 Hiệu chuẩn bộ chấm âm', okFor: () => 0, sub: 'Đọc 10 từ dễ bằng giọng bình thường, ở chỗ yên tĩnh. Máy lấy mốc điểm của riêng bạn để chấm công bằng hơn.',
+    foot: 'Không tính vào học. Đổi máy hoặc micro thì làm lại.', onGrade: (w, ok, s) => { if (s != null) sc.push(s); },
+    onEnd: () => { if (sc.length < 6) { toast('Chưa đủ 6 từ có điểm: thử lại ở chỗ yên tĩnh.'); return paMenu(); } const m = sc.slice().sort((a, b) => a - b)[Math.floor(sc.length / 2)];
+      S.paBase = { at: Date.now(), med: m, n: sc.length }; save(); toast(`Mốc của bạn: ${m}/100.`); paMenu(); } };
+  noiOpen(L[0], true); }
+function paVal() { if (!NO.vocab && !nHas()) return toast('Tải bộ chấm âm trước.'); const lv = paLevel(), sets = PA.filter(x => x.lv === lv);
+  const list = shuf(sets.flatMap(x => x.pairs.map(p => Math.random() < 0.5 ? paW(p[0], p[1], x) : paW(p[2], p[3], x)))).slice(0, 10);
+  NO.ses = { mode: 'am', val: true, tv: [], list, i: 0, got: [], sc: [], show: false, title: '🧑‍🏫 Đối chiếu với giáo viên', okFor: paOkFor, sub: 'Học viên nghe mẫu rồi đọc. Giáo viên ngồi cạnh nghe và chạm ✅ / ❌ trước khi xem điểm máy.',
+    foot: 'Không tính vào học. Kết quả dùng để biết bộ chấm âm có đáng tin không.', onGrade: () => {}, onEnd: () => paMenu() };
+  noiOpen(list[0], true); }
 // v101 (người sáng lập chọn phương án (a) 31/10/2026, thay v99 "tham khảo"): Phát âm BẮT BUỘC lại. Máy đã tải bộ chấm âm (nHas) thì tính cả 👂 nghe phân biệt
 // và 👄 đọc đúng; chưa tải thì chỉ tính phần nghe (thi chỉ có phần nghe). Bộ chấm là ước tính của máy, chưa giáo viên đối chiếu.
 const PA_REF = false, paGk = () => nHas() || (typeof NO !== 'undefined' && NO.vocab) ? ['pb', 'doc'] : ['pb'];
@@ -140,11 +158,13 @@ function paMenu() { window.CUR = { view: 'pa-luyen' }; const lv = paLevel(), p =
   $app.innerHTML = `${backRow('🏋️ Luyện phát âm')}<h1>🏋️ Luyện phát âm</h1><p class="mute">👂 ${p.dq.pb}% · 👄 ${p.dq.doc}% (cấp ${LVN[lv]}). Máy chọn bộ đến hạn hoặc còn thiếu mặt.</p>
     <button class="opt ${p.dq.pb <= p.dq.doc ? 'pri' : ''}" data-pm="pb"><b>👂 Luyện phân biệt (12 câu)</b><br><span style="font-size:14px;opacity:.85">Nghe một từ, chọn đúng từ trong cặp. 4 bộ × 3 câu.</span></button>
     <button class="opt ${p.dq.doc < p.dq.pb ? 'pri' : ''}" data-pm="doc"><b>👄 Luyện đọc đúng (8 từ)</b><br><span style="font-size:14px;opacity:.85">Đọc từ, bộ chấm âm ≥ ${PA_OK[lv]}. 4 bộ × 2 từ. ${NO.vocab ? '' : 'Cần tải bộ chấm âm.'}</span></button>
+    ${NO.vocab || nHas() ? (() => { const v = paValStat(), pc = x => x == null ? '—' : Math.round(x * 100) + '%'; return `<div class="box"><b>🎚 Bộ chấm âm</b><p class="mute" style="margin:4px 0">${S.paBase ? `Mốc của bạn ${S.paBase.med}/100 (ngưỡng A2 thành ${paThr(PA_OK.a2)}).` : 'Chưa hiệu chuẩn: máy dùng ngưỡng chung.'} 🧑‍🏫 Đối chiếu giáo viên: ${v.n}/${PA_VAL_N} lần · chấm oan ${pc(v.fr)} (cần ≤ ${PA_VAL_FR * 100}%) · bỏ sót ${pc(v.miss)} (cần ≤ ${PA_VAL_MISS * 100}%).</p>
+      <div class="duo"><button data-pm="cal">🎚 Hiệu chuẩn (10 từ)</button><button data-pm="val">🧑‍🏫 Đối chiếu giáo viên</button></div></div>`; })() : ''}
     <button class="opt" data-pm="fin"><b>👂 Nghe đuôi từ (8 câu)</b><br><span style="font-size:14px;opacity:.85">-s, -ed, phụ âm cuối người Việt hay nuốt (bed / bet) · luyện, không tính</span></button>
     <button class="opt" data-pm="tra"><b>🎵 Nghe trọng âm (8 từ)</b><br><span style="font-size:14px;opacity:.85">Nghe từ nhiều âm tiết, chọn âm tiết được nhấn · luyện, không tính</span></button>
     ${nModelBox()}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return paView(); if (e.target.closest('[data-n="load"]')) return nLoad(), paMenu();
-    const b = e.target.closest('[data-pm]'); if (b) return ['fin', 'tra'].includes(b.dataset.pm) ? paDrill(b.dataset.pm) : paRun(b.dataset.pm); };
+    const b = e.target.closest('[data-pm]'); if (b) return b.dataset.pm === 'cal' ? paCal() : b.dataset.pm === 'val' ? paVal() : ['fin', 'tra'].includes(b.dataset.pm) ? paDrill(b.dataset.pm) : paRun(b.dataset.pm); };
   window.scrollTo(0, 0); }
 // v102 bậc nghe thêm của Phát âm (luyện, không tính 🔁 Nhớ): 👂 đuôi từ (-s / -es, -ed; phụ âm cuối) và 🎵 trọng âm (tự lấy từ phiên âm, tdSyl)
 const PA_FIN = [['bed', 'bet'], ['back', 'bag'], ['cap', 'cab'], ['rice', 'rise'], ['peace', 'peas'], ['half', 'have'], ['life', 'live'], ['send', 'sent'], ['card', 'cart'], ['wide', 'white'], ['dock', 'dog'], ['leaf', 'leave'], ['price', 'prize'], ['code', 'coat'], ['bus', 'buzz']];
@@ -180,7 +200,7 @@ function paExam(lv) { const nghe = !NO.vocab;   // v101: chưa có bộ chấm �
       $app.innerHTML = `<div class="box"><b>${pass ? `✅ Qua Thi chuyển cấp Phát âm ${LVN[lv]} (phần nghe)` : '❌ Chưa qua'}</b><p>Nghe đúng ${ok}/${n} (cần ${Math.ceil(n * PA_PASS)}).</p><p class="mute">Tải bộ chấm âm để luyện và thi cả phần đọc.${pass ? '' : ' Luyện tiếp; 7 ngày sau thi lại.'}</p></div><button class="pri" data-a="home">Về 👄 Phát âm</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) paView(); }; return; }
     const list = shuf(L.map(x => { const p = x.test[Math.floor(Math.random() * x.test.length)]; return Math.random() < 0.5 ? paW(p[0], p[1], x) : paW(p[2], p[3], x); })), r2 = [];
-    NO.ses = { mode: 'am', list, i: 0, got: [], sc: [], show: false, title: '🚪 Thi · đọc', okFor: paOkFor, sub: `Đọc từ (chưa gặp). Đúng = điểm âm ≥ ${PA_OK[lv]}. Lần đọc đầu được tính.`, foot: 'Bài thi chuyển cấp Phát âm.',
+    NO.ses = { mode: 'am', list, i: 0, got: [], sc: [], show: false, title: '🚪 Thi · đọc', okFor: paOkFor, sub: `Đọc từ (chưa gặp). Đúng = điểm âm ≥ ${PA_OK[lv]}. Lần đọc đầu được tính (sát ngưỡng thì đọc lại, lấy trung bình 2 lần).`, foot: 'Bài thi chuyển cấp Phát âm.',
       onGrade: (w, ok) => r2.push(ok), onEnd: () => {
         const ok = r1.filter(r => r.ok).length + r2.filter(Boolean).length, n = r1.length + list.length, pass = ok >= Math.ceil(n * PA_PASS);
         paRuns().push({ lv, at: Date.now(), ok, n, pass, nghe: r1.filter(r => r.ok).length + '/' + r1.length, doc: r2.filter(Boolean).length + '/' + list.length }); save();

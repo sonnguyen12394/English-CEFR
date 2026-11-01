@@ -82,7 +82,8 @@ const HD = [
   ['tin', '🤖 Độ tin cậy', () => `
     <p>Pre-A1 → A2 dựa trên danh sách Cambridge / Oxford. <b>B1 → C2, IELTS, TOEIC, mẹo, lỗi hay gặp</b> do AI soạn, <b>chưa giáo viên kiểm</b>.</p>
     <p>Máy chấm chắc khi có đáp án biết trước: xếp câu, nối câu, nghe phân biệt, câu nói / đọc to so với câu mẫu (máy chép lời). Máy chấm gián tiếp (chưa đối chiếu người chấm thật): bài viết dài, bài nói một mạch (độ dài, ý, từ nối), điểm âm của bộ chấm âm. Phần chấm gián tiếp chỉ để tham khảo; 🧑‍🏫 AI chấm sát hơn nhưng vẫn là ước lượng.</p>
-    <p>Thấy câu sai: bấm 💬 → <b>⚑ Câu sai</b>. Thước đo đáng tin nhất là điểm thi thật.</p>`],
+    <p>Thấy câu sai: bấm 💬 → <b>⚑ Câu sai</b>. Thước đo đáng tin nhất là điểm thi thật.</p>
+    <p>Nhờ giáo viên kiểm nội dung mới: gửi trang <a href="docs/kiem-noi-dung.html" target="_blank" rel="noopener">📋 Bảng kiểm nội dung</a> (tích đúng / sai từng mục, chép kết quả gửi lại). Kiểm bộ chấm âm: 👄 Phát âm → 🏋️ Luyện → 🧑‍🏫 Đối chiếu giáo viên (cần ≥ ${PA_VAL_N} lần, chấm oan ≤ ${PA_VAL_FR * 100}%, bỏ sót ≤ ${PA_VAL_MISS * 100}%).</p>`],
   ['dulieu', '💾 Dữ liệu và tài khoản', () => `
     <p>Tiến độ lưu trên máy và trên máy chủ, tự đồng bộ. Không cần đăng ký: ô 👤 tài khoản ở đầu 💾 Dữ liệu cho biết máy này dùng tài khoản riêng hay tài khoản chung.</p>
     <p>Đổi máy / sợ mất: 👤 Của tôi → 💾 Dữ liệu → tải tệp sao lưu, rồi nhập ở máy kia. Trước mỗi lần nhập, sửa hay đặt tiến độ, máy tự chụp lại bản cũ (giữ 5 bản gần nhất).</p>

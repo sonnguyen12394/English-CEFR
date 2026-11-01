@@ -53,6 +53,10 @@ function nTarget(w) { const words = [], phones = [], parts = String(w.ipa || '')
 function nScore(m) { const T = m.dims[1], V = m.dims[2], idTo = [], blank = (NO.vocab || {})['<pad>'] ?? 0; for (const [k, v] of Object.entries(NO.vocab || {})) idTo[v] = k;
   const tg = nTarget(NO.w); NO.res = tg.phones.length ? GOP.score(m.data, T, V, tg.phones, tg.words, idTo, blank) : null;
   NO.ph = GOP.greedy(m.data, T, V, idTo, blank);
+  // v104: lượt có ngưỡng mà điểm sát ngưỡng (thiếu ≤ 5) → đọc lại một lần, lấy trung bình 2 lần (giảm chấm oan do một lần ghi âm kém)
+  if (NO.res && nMode() === 'am' && NO.ses && NO.ses.okFor) { const t = nOk();
+    if (NO.redo != null) { NO.res.score = Math.round((NO.redo + NO.res.score) / 2); NO.res.avg = NO.redo; NO.redo = null; }
+    else if (t > 0 && NO.res.score < t && NO.res.score >= t - 5) { NO.redo = NO.res.score; NO.res = null; NO.note = `Gần đạt (${NO.redo}/100, cần ${t}): đọc lại một lần nữa, máy lấy trung bình 2 lần.`; } }
   if (!NO.res) NO.err = 'Âm thanh quá ngắn hoặc chưa rõ: nói rõ cả từ rồi thử lại.'; }
 
 // ---------- ghi âm: một nút 🎤 làm cả hai việc ----------
@@ -151,7 +155,9 @@ function nBody() { if (NO.ses && NO.ses.i >= NO.ses.list.length) return nSesBody
   const heard = NO.heard || NO.asrErr ? `<div class="box"><b>📝 Máy nghe ra:</b> <span id="nheard">${esc(NO.heard || '…')}</span>
     ${NO.st === 'idle' && NO.heard ? `<br>${ok ? `✅ Máy nghe ra đúng từ <b>${esc(w.w)}</b>${nNorm(ok) !== nNorm(w.w) ? ` (chữ "${esc(ok)}" đọc giống)` : ''}.` : `❌ Chưa ra từ <b>${esc(w.w)}</b>.`}${ses && ses.show && md === 'noi' ? ' Đã xem từ trước nên chưa tính đúng.' : ''}` : ''}
     ${NO.asrErr ? `<br><span class="mute">${esc(NO.asrErr)}</span>` : ''}</div>` : rec && md !== 'am' ? `<div class="box"><b>📝 Máy nghe ra:</b> <span id="nheard">…</span></div>` : '';
-  const R = NO.res, score = R ? `<div class="box"><div class="row"><b>🎯 Điểm phát âm</b><b style="color:${nCls(R.score)}">${R.score}/100</b></div>
+  // v104 🧑‍🏫 đối chiếu: giáo viên chạm ✅ / ❌ TRƯỚC khi thấy điểm máy (không bị điểm máy dẫn dắt)
+  const tvPend = !!(ses && ses.val && NO.res && (ses.tv || [])[ses.i] == null), tvBox = tvPend ? `<div class="box"><b>🧑‍🏫 Giáo viên nghe vừa rồi thấy học viên đọc:</b><div class="duo" style="margin-top:8px"><button class="pri" data-n="tv1">✅ Đúng</button><button data-n="tv0">❌ Sai</button></div><p class="mute" style="margin:6px 0 0">Chạm trước rồi mới xem điểm máy.</p></div>` : '';
+  const R = NO.res, score = R ? `<div class="box"><div class="row"><b>🎯 Điểm phát âm</b><b style="color:${nCls(R.score)}">${R.score}/100${R.avg != null ? ` <span class="mute" style="font-weight:normal">(TB 2 lần, lần 1: ${R.avg})</span>` : ''}</b></div>
     <div style="font-size:24px;margin:8px 0;letter-spacing:1px">/${R.words.map(x => x.phones.map(p => `<span style="color:${nCls(p.score)}">${esc(p.ipa)}</span>`).join('')).join(' ')}/</div>
     <p class="mute" style="margin:0">Xanh ≥ 80 · vàng 60–79 · đỏ dưới 60.${NO.ph ? ` Máy nghe âm: /${esc(NO.ph)}/` : ''}</p>${nTip(R)}</div>` : '';
   const model = md === 'noi' ? '' : NO.vocab ? `<p class="mute">🧪 Bộ chấm từng âm đã sẵn sàng. <button class="link" data-n="del">Xoá khỏi máy</button></p>`
@@ -168,17 +174,19 @@ function nBody() { if (NO.ses && NO.ses.i >= NO.ses.list.length) return nSesBody
   const off = need || noAsr;
   return `${head}${need ? model : ''}${noAsr ? `<div class="box">⚠️ Trình duyệt này không chép được lời nói. Mặt 🗣 Nói chỉ tính bằng chép chữ: mở trang bằng <b>Safari</b> để làm bài này.</div>` : ''}<div style="text-align:center">${card}</div>
     <button class="${ses && right != null ? '' : 'pri'}" style="text-align:center" data-n="rec" ${busy || off ? 'disabled' : ''}>${rec ? '⏹ Dừng' : busy ? '⏳ Đang chấm…' : right != null ? '🎤 Nói lại' : need ? '🎤 Tải bộ chấm để bắt đầu' : '🎤 Bấm rồi nói'}</button>
-    ${ses ? `<button class="${right != null ? 'pri' : ''}" style="text-align:center" data-n="next" ${rec || busy ? 'disabled' : ''}>${right == null ? 'Bỏ qua →' : ses.i + 1 < ses.list.length ? 'Tiếp →' : 'Xem kết quả'}</button>` : ''}
-    ${NO.err ? `<p style="color:var(--bad)">${esc(NO.err)}</p>` : ''}${heard}${verdict}${score}${need ? '' : model}
+    ${ses ? `<button class="${right != null ? 'pri' : ''}" style="text-align:center" data-n="next" ${rec || busy || tvPend ? 'disabled' : ''}>${right == null ? 'Bỏ qua →' : ses.i + 1 < ses.list.length ? 'Tiếp →' : 'Xem kết quả'}</button>` : ''}
+    ${NO.err ? `<p style="color:var(--bad)">${esc(NO.err)}</p>` : ''}${NO.note && !NO.res ? `<p class="mute">🔁 ${esc(NO.note)}</p>` : ''}${heard}${tvPend ? tvBox : verdict + score}${need ? '' : model}
     <p class="mute">${ses && ses.foot ? ses.foot : md === 'noi' ? `Tính ${nDimL('noi')} của 📚 Từ vựng.` : md === 'am' ? '👄 Phát âm đang xây: chỉ để luyện, chưa tính mục tiêu.' : 'Chỉ để luyện, không tính 🔁 Nhớ (muốn tính: 🏋️ Luyện tập → 🗣 Nói ra từ).'} Máy chấm là ước tính, chưa người thật kiểm.</p>`; }
 function nPaint() { const b = document.getElementById('nbox'); if (b) b.innerHTML = nBody(); }
 function noiOpen(w, inSes) { if (!w) return; try { speechSynthesis.cancel(); } catch (e) {} if (!inSes) NO.ses = null;
-  Object.assign(NO, { w, st: 'idle', res: null, err: '', heard: '', alts: [], asrErr: '', ph: '', url: '' });
+  Object.assign(NO, { w, st: 'idle', res: null, redo: null, note: '', err: '', heard: '', alts: [], asrErr: '', ph: '', url: '' });
   let sh = document.getElementById('nsheet');
   if (!sh) { sh = document.createElement('div'); sh.id = 'nsheet'; sh.innerHTML = '<div class="gybox" id="nbox"></div>'; document.body.appendChild(sh);
     sh.addEventListener('click', e => { if (e.target === sh) return noiClose(); const a = e.target.closest('[data-n]')?.dataset.n;
       if (a === 'x') noiClose(); if (a === 'rec') nRec(); if (a === 'load') nLoad(); if (a === 'del') nDel();
-      if (a === 'show' && NO.ses) { NO.ses.show = true; nPaint(); speak(NO.w.w); } if (a === 'next') nNext(); if (a === 'again') noiTask(NO.ses.mode);
+      if (a === 'show' && NO.ses) { NO.ses.show = true; nPaint(); speak(NO.w.w); }
+      if ((a === 'tv1' || a === 'tv0') && NO.ses && NO.ses.val && NO.res) { const t = nOk(), L = (S.paVal = S.paVal || []); (NO.ses.tv = NO.ses.tv || [])[NO.ses.i] = a === 'tv1';
+        L.push({ at: Date.now(), sc: NO.res.score, thr: t, m: NO.res.score >= t, t: a === 'tv1', k: NO.w.long ? 'cau' : 'tu' }); if (L.length > 500) L.shift(); save(); nPaint(); } if (a === 'next') nNext(); if (a === 'again') noiTask(NO.ses.mode);
       if (a === 'play') { try { AUD && AUD.pause(); } catch (x) {} AUD = AUD || new Audio(); AUD.src = NO.url; AUD.play().catch(() => {}); } }); }
   sh.hidden = false; nPaint();
   if (!NO.vocab && !NO.loading && nHas()) nLoad(); }   // đã tải lần trước: nạp lại từ bộ nhớ máy
