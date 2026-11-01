@@ -683,7 +683,9 @@ const R = await run(`(async () => {
       if (nSentBtn('I like apples.')) bad.push('chưa có bộ chấm âm mà vẫn hiện nút');
       nSent('I like apples.'); if (!NO.ses || NO.ses.mode !== 'am' || NO.ses.list[0].dur < 2000 || !NO.ses.list[0].long) bad.push('mở chấm âm câu sai');
       NO.ses.onGrade(NO.ses.list[0], true, 77); if (!S.paCal || S.paCal[0].sc !== 77) bad.push('chưa lưu điểm để hiệu chuẩn'); NO.ses = null; });
-    add('cefr', 'C22', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Phát âm B1 → C2 (13 bộ, thin – tin lên A2), mẹo lỗi phát âm người Việt, lớp 2 chấm âm cả câu (phiên âm ghép từ điển, -s / -ed, tham khảo, lưu điểm hiệu chuẩn)'); }
+    tryv('suyluan', () => { for (const id of ['doc', 'nghe']) for (const x of KIT[id].items.filter(z => ['b1', 'b2'].includes(z.lv) && !z.test)) { const s = x.qs.filter(q => q.sl);
+      if (s.length !== 1 || s[0].w.includes(s[0].a) || !kRead(KIT[id], x, 'ct', id === 'nghe').some(q => /Suy luận/.test(q.q))) bad.push('thiếu câu suy luận ' + x.id); } });
+    add('cefr', 'C22', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Phát âm B1 → C2 (13 bộ, thin – tin lên A2), mẹo lỗi phát âm người Việt, lớp 2 chấm âm cả câu (phiên âm ghép từ điển, -s / -ed, tham khảo, lưu điểm hiệu chuẩn), câu suy luận Đọc / Nghe B1, B2'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('Luyện TOEIC') || !String($app.innerHTML).includes('data-exsel')) bad.push('màn TOEIC');

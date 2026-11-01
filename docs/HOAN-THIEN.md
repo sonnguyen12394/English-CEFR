@@ -312,3 +312,4 @@ Thứ tự theo tác động: Bù 1 bài dài + dạng đề trên cả đoạn 
 - Nói / Phát âm: bắt buộc theo thiết bị (máy chép được lời; đã tải bộ chấm âm). Chưa làm: chấm 2 lớp cho câu, mặt Đọc to, hiệu chuẩn micro, 20 lỗi phát âm người Việt, Phát âm B1+.
 - Đo: test C18–C20; chưa kiểm trên iPhone.
 - v102: thêm 📖🗣 Đọc to (lớp 1: máy chép lời ≥ 90% từ mỗi đoạn; tốc độ chỉ tham khảo, mốc ước đoán), 👂 nghe đuôi từ / 🎵 trọng âm, đoạn văn / trả lời ngắn có khung. Còn thiếu: lớp 2 điểm âm, hiệu chuẩn micro, 20 lỗi phát âm người Việt, Phát âm B1+, câu suy luận bài luyện, đổi giọng theo cấp. Test C21.
+- v103: Phát âm B1 → C2 (13 bộ), mẹo âm người Việt, lớp 2 chấm âm cả câu (chỉ tham khảo; cần đối chiếu giáo viên: tiêu chí ≤ 15% chấm oan, ≤ 25% bỏ sót trước khi tính), 24 câu suy luận B1 / B2. Còn thiếu: hiệu chuẩn theo người (đã lưu điểm `S.paCal`), đổi giọng theo cấp, câu suy luận A2. Test C22.

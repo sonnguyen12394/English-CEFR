@@ -79,7 +79,7 @@ function kRead(P, x, k, listen) {
   const after = listen ? `<details><summary>Xem bài nghe</summary><p class="tdtap" style="white-space:pre-line">${kScript(x)}</p>${x.vi ? `<p class="mute">${esc(x.vi)}</p>` : ''}</details>` : '';
   const say = null, play = listen ? { key: x.id, lines: x.lines, text: x.text, max: K_PLAYN[x.lv] } : null, rate = listen && K_SLOW.has(x.lv) ? 0.85 : 0;
   if (k === 'y') return [{ x, k, kind: 'mc', head, q: 'Bài này chủ yếu nói về gì?', opts: kOpts(x.tvi, kOther(P, x, y => y.tvi, 2)), a: x.tvi, say, play, after, rate }];
-  if (k === 'ct') return x.qs.filter(q => !/mainly|main idea|best title|mostly about/i.test(q.q)).map(q => ({ x, k, kind: 'mc', head, q: esc(q.q), opts: kOpts(q.a, q.w), a: q.a, why: q.why, say, play, after, rate }));
+  if (k === 'ct') return x.qs.filter(q => !/mainly|main idea|best title|mostly about/i.test(q.q)).map(q => ({ x, k, kind: 'mc', head, q: (q.sl ? '🧠 Suy luận: ' : '') + esc(q.q), opts: kOpts(q.a, q.w), a: q.a, why: q.why, say, play, after, rate }));
   // ✍️ chép lại: một câu 5–12 từ của bài
   const ss = kSents(x.text).filter(s => { const n = kWords(s).length; return n >= 5 && n <= 12; }), s = ss[Math.floor(Math.random() * ss.length)] || kSents(x.text)[0];
   return [{ x, k, kind: 'type', rate, head: '<p class="mute">Nghe một câu trong bài rồi chép lại.</p>', q: '✍️ Chép lại câu vừa nghe', play: { key: x.id + '|' + s, text: s, max: Math.max(2, K_PLAYN[x.lv]) },
@@ -89,7 +89,7 @@ const kReadLesson = (x, listen) => `<h1>${esc(listen ? x.tvi : x.title)}</h1>
   ${listen ? `<p class="mute">Nghe cả bài (chưa nhìn chữ). Nghe 2–3 lần rồi mới mở bài. Khi luyện / thi chỉ được nghe ${K_PLAYS} lần.</p><button class="pri" data-kdlg="nghe|${x.id}">🔊 Nghe cả bài</button>` : ''}
   ${listen ? '' : kCoverTxt(x.text)}<details ${listen ? '' : 'open'}><summary>${listen ? 'Mở chữ bài nghe' : 'Bài đọc'}</summary><div class="box"><p class="tdtap" style="font-size:18px;line-height:1.6;margin:0;white-space:pre-line">${listen ? kScript(x) : esc(x.text)}</p></div></details>
   ${x.vi ? `<button class="link" data-kl="vi">Hiện / ẩn bản dịch</button><div id="kvi" hidden class="box"><p class="mute" style="margin:0;white-space:pre-line">${esc(x.vi)}</p></div>` : ''}`;
-KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bài đọc', pass: 0.75,
+KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=5', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bài đọc', pass: 0.75,
   intro: 'Bài kiểu Cambridge: Pre-A1 bài ngắn 40–50 từ như Starters (chỉ dùng từ Pre-A1); A1 tin nhắn, thông báo, câu chuyện; A2 có bài dài 150–250 từ như A2 Key; B1 → C2 bài báo, thư, bình luận 180–290 từ như B1 Preliminary → C2 Proficiency, có câu hỏi ý kiến, suy luận.',
   dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Tìm thông tin trong bài'], ['to', '📖🗣 Đọc to', 'Đọc to bài đã học, máy chép ra ≥ 90% từ mỗi đoạn']],
   examTxt: '6 bài đọc chưa gặp: ý chính + chi tiết.',
@@ -106,7 +106,7 @@ KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=4', lvs: ['pre
   ask: (x, m) => m === 'to' ? docTo(x) : kRead(KIT.doc, x, m, false),
   // v100: bài thi ít dùng nhất trước; B1+ (bài dài 6 câu) lấy tới đủ 15 câu, cấp dưới 6 bài như cũ
   exam: lv => kTake(kExamPick(KIT.doc, KIT.doc.items.filter(x => x.lv === lv && x.test)), x => [...kRead(KIT.doc, x, 'y', false), ...kRead(KIT.doc, x, 'ct', false)], lvIdx(lv) >= lvIdx('b1') ? 15 : 999, 6) };
-KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=4', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bài nghe', pass: 0.75,
+KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=5', lvs: ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], unit: 'bài nghe', pass: 0.75,
   intro: 'Bài kể và hội thoại 2 giọng (số, giờ, giá, đánh vần như đề Cambridge); Pre-A1 câu ngắn kiểu Starters; B1 → C2 phỏng vấn, bài giảng, tranh luận. Khi luyện / thi mỗi bài nghe tối đa 2 lần.',
   dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Nghe ra thông tin'], ['chep', '✍️ Chép lại', 'Nghe một câu, chép đúng ≥ 80% từ']],
   examTxt: '6 bài nghe chưa gặp: ý chính + chi tiết + chép 1 câu.',
