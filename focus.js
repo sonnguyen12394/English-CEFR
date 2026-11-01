@@ -3,7 +3,7 @@
 // F = { a: [{ u, at, tr (số ngày đã thử), td, pd (ngày đạt liền nhau), r (lần quay lại) }], p: [{ u, at, r, root }] (gác), n: số chỗ chữa xong, fx: { u: lúc chữa xong } }
 // weakFn() → chỗ yếu đã xếp ưu tiên [{ u, sk, … }] (weakFn tự bỏ lượt làm trước F.fx[u]: chỗ vừa chữa xong không bị lượt cũ kéo vào lại).
 // cfg = { act: số chỗ tối đa, cap: sk → số chỗ tối đa của nhóm kỹ năng đó, try: số ngày thử, parkD: số ngày gác, info: u → chỗ khi không còn trong danh sách yếu }
-// Luật: đạt 2 lượt liền ở 2 ngày khác nhau = xong · thử đủ `try` ngày còn yếu → ⏸ gác `parkD` ngày → quay lại cuối hàng chờ · kẹt lần 2 → 🧱 root (không tự quay lại).
+// Luật: đạt 2 lượt liền ở 2 ngày khác nhau = xong (v107: chỉ tính ngày SAU lần trượt gần nhất, như bản đồ CEFR: trượt rồi đạt ngay trong ngày chưa tính) · thử đủ `try` ngày còn yếu → ⏸ gác `parkD` ngày → quay lại cuối hàng chờ · kẹt lần 2 → 🧱 root (không tự quay lại).
 function fcFocus(F, weakFn, cfg, now = Date.now()) { F.a = F.a || []; F.p = F.p || []; F.n = F.n || 0; F.fx = F.fx || {};
   const fixed = u => { F.n++; F.fx[u] = now; };
   let weak = weakFn(), by = new Map(weak.map(w => [w.u, w]));
@@ -22,6 +22,7 @@ function fcFocus(F, weakFn, cfg, now = Date.now()) { F.a = F.a || []; F.p = F.p 
     park: F.p.filter(p => !p.root && !back(p)).map(p => ({ ...info(p.u), at: p.at })), root: F.p.filter(p => p.root).map(p => info(p.u)), done: F.n }; }
 // một lượt của chỗ đang chữa: mỗi ngày tính 1 lần thử; đạt thì thêm ngày vào chuỗi đạt, trượt xoá chuỗi
 function fcHit(F, u, pass, now = Date.now()) { if (!F || !F.a) return; const f = F.a.find(x => x.u === u); if (!f) return; const d = dayOf(now);
-  if (f.td !== d) { f.tr = (f.tr || 0) + 1; f.td = d; } f.pd = pass ? [...new Set([...(f.pd || []), d])] : []; }
+  if (f.td !== d) { f.tr = (f.tr || 0) + 1; f.td = d; }
+  if (!pass) { f.pd = []; f.fd = d; } else if (d > (f.fd ?? -1)) f.pd = [...new Set([...(f.pd || []), d])]; }
 // "Đã học nền" ở chỗ 🧱: vào lại hàng chờ ngay
 function fcRelease(F, u) { const p = (F.p || []).find(x => x.u === u); if (p) { p.root = false; p.at = Date.now() - 365 * DAY; } }

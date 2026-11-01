@@ -4,7 +4,7 @@
 //     Độ chắc: dạng ≥ 8 câu ở ≥ 2 bài = 1, ít hơn = 0,5; tiêu chí AI chấm = 1, máy ước = 0,5 (AI có thì dùng AI).
 //   🎯 Nhóm đang chữa tối đa 3 chỗ, mỗi kỹ năng tối đa 1 (kỹ năng cần vài tuần, không phải vài ngày như một từ). Còn lại ⏳ hàng chờ.
 //   Một lần thử = một lượt có ≥ 4 câu của dạng, trên bài chưa gặp trong 30 ngày (luyện hoặc đề thử), hoặc một bài Viết / Nói được chấm; mỗi ngày tính 1.
-//   Lượt đạt: dạng ≥ 75%; tiêu chí ≥ band mục tiêu. Chữa xong = đạt 2 lượt liền ở 2 ngày khác nhau (lượt trượt xoá chuỗi đạt).
+//   Lượt đạt: dạng ≥ 75%; tiêu chí ≥ band mục tiêu. Chữa xong = đạt 2 lượt liền ở 2 ngày khác nhau (lượt trượt xoá chuỗi đạt; v107: lượt đạt cùng ngày với lượt trượt chưa tính).
 //   Thử 3 ngày chưa xong → ⏸ gác 14 ngày; quay lại vẫn kẹt → 🧱 truy nền CEFR (thường thiếu từ / ngữ pháp), không tự quay lại; học nền xong bấm "Đã học nền" để thử lại.
 //   Từ lần thử 2: 📘 xem cách làm dạng / cách nâng tiêu chí trước khi thử.
 const IM_ACT = 3, IM_TRY = 3, IM_PARK_D = 14, IM_FRESH_D = 30, IM_MIN_Q = 4;
@@ -75,7 +75,7 @@ function imBox() { const f = imFocus(), hasData = Object.keys(ieSt().ty || {}).l
     <button class="pri" data-im="fix|${w.u}" style="margin-top:4px">▶ Chữa</button></div>`;
   return `<div class="box"><div class="row"><b>🗺 Bản đồ band</b><span class="mute">🎯 ${f.act.length}/${IM_ACT} · ⏳ ${f.queue.length} · ✅ ${f.done}</span></div>
     ${!hasData ? '<p class="mute" style="margin:6px 0 0">Chưa có dữ liệu theo dạng câu / tiêu chí. Làm 1 đề thử hoặc vài bài luyện: app tự tìm chỗ làm mất điểm nhiều nhất.</p>'
-      : f.act.length ? `<p class="mute" style="margin:6px 0 0">Chữa tối đa ${IM_ACT} chỗ, mỗi kỹ năng 1. Mỗi lần thử phải là bài mới cùng dạng. Đạt 2 lượt liền ở 2 ngày khác nhau là xong.</p>${f.act.map(row).join('')}`
+      : f.act.length ? `<p class="mute" style="margin:6px 0 0">Chữa tối đa ${IM_ACT} chỗ, mỗi kỹ năng 1. Mỗi lần thử phải là bài mới cùng dạng. Đạt 2 lượt liền ở 2 ngày khác nhau (sau ngày trượt gần nhất) là xong.</p>${f.act.map(row).join('')}`
       : (n => n ? `<p class="mute" style="margin:6px 0 0">Có ${n} chỗ có thể yếu nhưng chưa đủ dữ liệu (dạng câu: ≥ ${IE_TY_N} câu ở ≥ 2 bài; Viết / Nói: AI chấm hoặc ≥ 2 bài máy chấm). Làm thêm rồi app mới đưa vào chữa.</p>`
         : '<p class="mute" style="margin:6px 0 0">Chưa thấy chỗ yếu: các dạng đều ≥ 75% và tiêu chí đạt band mục tiêu. Làm thêm đề thử để chắc.</p>')(imWeak().filter(w => !w.sure).length)}
     ${f.queue.length ? `<details style="margin:6px 0"><summary>⏳ Hàng chờ: <b>${f.queue.length}</b> chỗ</summary>${f.queue.slice(0, 8).map(w => `<p style="margin:2px 0;font-size:15px">${IM_SK[w.sk].split(' ')[0]} ${esc(w.t)} <span class="mute">· ${esc(w.v)}</span></p>`).join('')}</details>` : ''}

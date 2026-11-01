@@ -77,7 +77,7 @@ function tmBox() { const f = tmFocus(), o = toSt(), has = Object.keys(o.ty || {}
   return `<div class="box"><div class="row"><b>🗺 Bản đồ điểm</b><span class="mute">🎯 ${f.act.length}/${TM_ACT} · ⏳ ${f.queue.length} · ✅ ${f.done}</span></div>
     <p class="mute" style="margin:6px 0 0">Ngưỡng đạt theo mục tiêu ${o.target}: đúng ≥ ${Math.round(toTh() * 100)}% mỗi dạng / Part.</p>
     ${!has ? '<p class="mute" style="margin:6px 0 0">Chưa có dữ liệu. Làm 1 đề thử hoặc vài lượt luyện: app tự tìm chỗ làm mất điểm nhiều nhất.</p>'
-      : f.act.length ? `<p class="mute" style="margin:6px 0 0">Chữa tối đa ${TM_ACT} chỗ (Nghe ≤ 2, Đọc ≤ 2). Mỗi lần thử phải là câu / bài mới. Đạt 2 lượt liền ở 2 ngày khác nhau là xong.</p>${f.act.map(row).join('')}`
+      : f.act.length ? `<p class="mute" style="margin:6px 0 0">Chữa tối đa ${TM_ACT} chỗ (Nghe ≤ 2, Đọc ≤ 2). Mỗi lần thử phải là câu / bài mới. Đạt 2 lượt liền ở 2 ngày khác nhau (sau ngày trượt gần nhất) là xong.</p>${f.act.map(row).join('')}`
       : (n => n ? `<p class="mute" style="margin:6px 0 0">Có ${n} chỗ có thể yếu nhưng chưa đủ dữ liệu (≥ 8 câu ở ≥ 2 bài). Làm thêm rồi app mới đưa vào chữa.</p>`
         : '<p class="mute" style="margin:6px 0 0">Chưa thấy chỗ yếu so với ngưỡng mục tiêu. Làm thêm đề thử để chắc, hoặc nâng điểm mục tiêu.</p>')(tmWeak().filter(w => !w.sure).length)}
     ${f.queue.length ? `<details style="margin:6px 0"><summary>⏳ Hàng chờ: <b>${f.queue.length}</b> chỗ</summary>${f.queue.slice(0, 8).map(w => `<p style="margin:2px 0;font-size:15px">${TM_SK[w.sk].split(' ')[0]} ${esc(w.t)} <span class="mute">· ${esc(w.v)} · ≈ +${w.p} điểm</span></p>`).join('')}</details>` : ''}
