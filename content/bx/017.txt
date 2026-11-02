@@ -42,7 +42,7 @@ slap|She slapped his face.|slapped|slap someone in the face|slap someone on the 
 succession|He won three games in succession.|succession|in succession|on succession|at succession
 suspicion|He was arrested on suspicion of theft.|suspicion|on suspicion of|in suspicion of|at suspicion of
 thereafter|He moved to Hanoi and soon thereafter got married.|thereafter|shortly thereafter|shortly there after|shortly thereafters
-tuition|Tuition fees are rising.|Tuition|tuition fees|tuitions fees|tuition fee of
+tuition|Tuition fees are rising.|Tuition|tuition fees|tuitions fees|a tuition fees
 architectural|The city has architectural beauty.|architectural|architectural design|architecturally design|architecture designs of
 canvas|She painted on canvas.|canvas|on canvas|in canvas|at canvas
 conscience|I have a clear conscience.|conscience|a clear conscience|a clearly conscience|a clear consciousness
@@ -59,7 +59,7 @@ superb|The food was superb.|superb|a superb view|a superbly view|a superb views
 supposedly|The house is supposedly haunted.|supposedly|supposedly true|supposed true|supposedly truth
 triumph|It was a triumph for the team.|triumph|a great triumph|a greatly triumph|a great triumphs
 viable|Is the plan viable?|viable|a viable option|a viably option|a viability option
-wit|She is known for her wit.|wit|quick wit|quickly wit|quick wits of
+wit|She is known for her wit.|wit|quick wit|quickly wit|a quick wits
 absurd|That's an absurd idea.|absurd|an absurd situation|an absurdly situation|an absurdity situation
 amid|He left amid rumours.|amid|amid concerns|amid of concerns|amidst of concerns
 blend|Blend the fruit and milk.|Blend|blend together|blend on together|blend at together
@@ -109,7 +109,7 @@ reliability|The car is known for its reliability.|reliability|reliability of|rel
 theology|He studied theology.|theology|study theology|study theologies of|study theological
 albeit|It was a success, albeit a small one.|albeit|albeit small|albeit of small|al be it small
 catalogue|Look through the catalogue.|catalogue|a mail-order catalogue|a mail-ordered catalogue|a mail-order catalogues
-continually|He continually complains.|continually|continually change|continual change|continually changes of
+continually|He continually complains.|continually|continually change|continually to change|continually changes of
 genocide|The genocide shocked the world.|genocide|commit genocide|make genocide|do genocide
 glance|She glanced at her watch.|glanced|glance at|glance to|glance on
 humanitarian|They sent humanitarian aid.|humanitarian|humanitarian aid|humanitarianly aid|humanity aid

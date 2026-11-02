@@ -1,4 +1,4 @@
-get-on-with|Do you get on with your new boss?|get on with|get on with your neighbours|get on to your neighbours|get in with your neighbours
+get-on-with|Do you get on with your new boss?|get on with|get on with your neighbours|get on to your neighbours|get at with your neighbours
 make-up-2|They had a fight, but they made up the next day.|made up|kiss and make up|kiss and make on|kiss and do up
 take-on|The company is taking on new staff this year.|taking on|take on extra work|take in extra work|take up on extra work
 get-over|It took her a long time to get over the flu.|get over|get over an illness|get above an illness|get off an illness
@@ -14,18 +14,18 @@ come-up-with|Who came up with this idea?|came up with|come up with an idea|come 
 day-off|I have a day off on Friday.|day off|take a day off|make a day off|do a day off
 give-up|Don't give up! You can do it.|give up|give up smoking|give out smoking|give off smoking
 take-off|Please take off your shoes.|take off|take off your coat|take out your coat|put off your coat
-keep-up-with|It's hard to keep up with the news.|keep up with|keep up with the class|keep on with the class|keep up to the class
+keep-up-with|It's hard to keep up with the news.|keep up with|keep up with the class|keep up for the class|keep up to the class
 set-up-2|My sister set up her own company.|set up|set up a business|set on a business|set in a business
 though|It was cold. We went for a walk, though.|though|even though|even through|even thought
 point-out|He pointed out a mistake in my report.|pointed out|point out a problem|point up a problem|point on a problem
-put-off|The meeting was put off until next week.|put off|put off a decision|put out a decision|put away a decision
-within|Please reply within three days.|within|within a week|within of a week|inside of a week
+put-off|The meeting was put off until next week.|put off|put off a decision|put of a decision|put away a decision
+within|Please reply within three days.|within|within a week|within of a week|within to a week
 out-of-order|The lift is out of order again.|out of order|the machine is out of order|the machine is out of ordered|the machine is off order
 run-out-of|We've run out of milk.|run out of|run out of money|run out from money|run off of money
-set-off|We set off early to avoid the traffic.|set off|set off on a journey|set out on a journey with|set up on a journey
+set-off|We set off early to avoid the traffic.|set off|set off on a journey|set of on a journey|set up on a journey
 let-down|I won't let you down.|let|let someone down|let someone off down|let down to someone
-court|The case went to court last year.|court|go to court|go to the court of|go in court
-hand-in|Please hand in your homework by Friday.|hand in|hand in your homework|hand on your homework|hand out your homework
+court|The case went to court last year.|court|go to court|go at court|go in court
+hand-in|Please hand in your homework by Friday.|hand in|hand in your homework|hand on your homework|hand at your homework
 run-into|I ran into an old friend at the market.|ran into|run into an old friend|run onto an old friend|run in an old friend
 call-off|The match was called off because of the rain.|called off|call off a meeting|call out a meeting|call down a meeting
 call-it-a-day|We're all tired. Let's call it a day.|call it a day|let's call it a day|let's call it the day|let's say it a day
@@ -36,10 +36,10 @@ living|What do you do for a living?|living|earn a living|win a living|make livin
 by-heart|I learned the poem by heart.|by heart|learn something by heart|learn something with heart|learn something in heart
 political|They talked about the political situation.|political|a political party|a politic party|a politics party
 stay-up|We stayed up until midnight.|stayed up|stay up late|stay on late|stay out late up
-turn-up|Only five people turned up to the meeting.|turned up|turn up late|turn on late|turn in late
+turn-up|Only five people turned up to the meeting.|turned up|turn up late|turn on late|turn at late
 current|What is your current job?|current|current situation|currently situation|current situate
-make-up-your-mind|I can't make up my mind.|make up my mind|make up your mind|make your mind up on|do up your mind
-bring-up|My grandparents brought me up.|brought|bring up children|bring on children|bring in children
+make-up-your-mind|I can't make up my mind.|make up my mind|make up your mind|do your mind up|do up your mind
+bring-up|My grandparents brought me up.|brought|bring up children|bring on children|bring of children
 force|Nobody can force you to sign it.|force|force someone to do something|force someone doing something|force someone do something
 issue|This is an important issue for young people.|issue|deal with an issue|make with an issue|do an issue
 rest|You should rest after a long trip.|rest|have a rest|make a rest|do a rest
@@ -55,7 +55,7 @@ private|This is a private beach.|private|private life|privacy life|private live
 take-it-easy|Take it easy. Everything will be fine.|Take it easy|take it easy|take it easily|make it easy
 policy|The school has a new policy on phones.|policy|company policy|company politics|company police
 a-big-deal|Don't worry. It's not a big deal.|a big deal|it's no big deal|it's no big deals|it's not big deal
-press|The minister spoke to the press.|press|the press|the presses|a press of people
+press|The minister spoke to the press.|press|the press|a press media|press the
 worth|The museum is worth a visit.|worth|worth visiting|worth to visit|worth visit
 value|The value of the house has gone up.|value|good value for money|good valuable for money|good value of money
 official|English is an official language here.|official|an official visit|an officially visit|an office visit
@@ -123,7 +123,7 @@ operation|My grandmother needs an operation.|operation|have an operation|make an
 analysis|We need a careful analysis of the data.|analysis|carry out an analysis|make on an analysis|do an analyse
 damage|The storm damaged many houses.|damaged|badly damaged|badly damage|bad damaged
 directly|You can buy tickets directly from the theatre.|directly|directly from|directly of|direct from of
-doubt|There is no doubt that she is right.|doubt|no doubt|no doubts that|not doubt
+doubt|There is no doubt that she is right.|doubt|no doubt|none doubt|not doubt
 fall-behind|If you miss class, you will fall behind.|fall behind|fall behind with your work|fall behind of your work|fall back with your work
 glad|I'm glad you came.|glad|glad to see you|glad seeing you|glad for see you
 basic|I can speak basic French.|basic|basic skills|basically skills|basic skill of

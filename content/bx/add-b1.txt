@@ -10,7 +10,7 @@ celebration|We had a family celebration for my grandmother's birthday.|celebrati
 central|The flat is very central, near the shops.|central|in central London|in centre London|in centrally London
 childhood|She has happy memories of her childhood.|childhood|a happy childhood|a happy children|a happy childish
 cloth|This bag is made of cloth, not plastic.|cloth|a piece of cloth|a piece of clothe|a piece of clothes
-collection|The museum has a famous collection of paintings.|collection|a collection of|a collection from|a collect of
+collection|The museum has a famous collection of paintings.|collection|a collection of|a collections of|a collect of
 comparison|Make a comparison between the two pictures.|comparison|in comparison with|in comparison of|on comparison with
 complaint|I want to make a complaint about the food.|complaint|make a complaint|do a complaint|give a complain
 connection|Is there a connection between sleep and memory?|connection|a connection between|a connection among of|a connect between
@@ -20,7 +20,7 @@ difficulty|He had no difficulty finding the hotel.|difficulty|have difficulty do
 dirt|Wash the dirt off your hands before dinner.|dirt|covered in dirt|covered on dirt|covered with dirty
 disadvantage|What are the advantages and disadvantages of city life?|disadvantages|a disadvantage of|a disadvantage for doing|an unadvantage of
 dressed|I got dressed quickly and ran to the bus.|dressed|get dressed|get dress|make dressed
-eastern|They live in the eastern part of the city.|eastern|the eastern part|the eastly part|the easterly part
+eastern|They live in the eastern part of the city.|eastern|the eastern part|the eastly part|the easter part
 educate|She was educated in Hanoi and London.|educated|educate people about|educate people for|educate to people
 effective|Walking is an effective way to stay healthy.|effective|an effective way|an effect way|an effectively way
 equal|Cut the cake into eight equal pieces.|equal|equal pay|equally pay|equals pay
@@ -46,7 +46,7 @@ management|The hotel is under new management.|management|time management|time ma
 marriage|They have a happy marriage.|marriage|a happy marriage|a happy married|a happy marry
 nation|Vietnam is a nation of nearly a hundred million people.|nation|the whole nation|the whole national|the all nation
 neighbourhood|It's a quiet neighbourhood with lots of trees.|neighbourhood|a quiet neighbourhood|a quiet neighbour|a quietly neighbourhood
-northern|Sapa is in the northern mountains.|northern|the northern part|the northly part|the northerly part
+northern|Sapa is in the northern mountains.|northern|the northern part|the northly part|the norther part
 package|I sent a package to my sister in Australia.|package|send a package|send a packaging|send a packing
 painful|Breaking your arm is very painful.|painful|very painful|very pain|very painfully
 achievement|Winning the prize was his biggest achievement.|achievement|a great achievement|a great achieve|a great achieving
@@ -74,7 +74,7 @@ prediction|Can you make a prediction about the weather?|prediction|make a predic
 prisoner|The prisoners can watch TV in the evening.|prisoners|a prisoner escapes|a prison escapes|a prisoned escapes
 profession|She is a doctor by profession.|profession|by profession|in profession|from profession
 promote|She was promoted to manager last year.|promoted|promote a product|promote for a product|promotion a product
-qualified|Only qualified teachers can work at this school.|qualified|a qualified teacher|a qualify teacher|a quality teacher
+qualified|Only qualified teachers can work at this school.|qualified|a qualified teacher|a qualify teacher|a qualifyed teacher
 qualify|He qualified as a doctor in 2015.|qualified|qualify for the final|qualify to the final|qualify in the final
 reaction|She had a bad reaction to the medicine.|reaction|a reaction to|a reaction at|a react to
 recommendation|Can you give me a recommendation for a good hotel?|recommendation|on someone's recommendation|in someone's recommendation|by someone's recommend
@@ -84,9 +84,9 @@ remind|This song reminds me of my school days.|reminds|remind someone to do some
 safety|Safety is the most important thing on a building site.|Safety|for your safety|for your safe|for your safely
 sailor|The sailors worked on the ship all night.|sailors|an experienced sailor|an experienced sail|an experienced sailing
 scientific|The magazine publishes scientific research.|scientific|scientific research|science research|scientist research
-sensible|She is a sensible girl who never takes risks.|sensible|a sensible decision|a sensitive decision|a sense decision
+sensible|She is a sensible girl who never takes risks.|sensible|a sensible decision|a sensibly decision|a sense decision
 similarity|I can see a similarity between you and your father.|similarity|a similarity between|a similar between|a similarity among
-southern|They moved to a southern city last year.|southern|the southern part|the southly part|the southerly part
+southern|They moved to a southern city last year.|southern|the southern part|the southly part|the souther part
 strength|What are your strengths and weaknesses?|strengths|strengths and weaknesses|strongs and weaknesses|strong and weaknesses
 stranger|A stranger asked me for directions.|stranger|a complete stranger|a complete strange|a completely stranger
 sudden|The sudden change in the weather surprised us.|sudden|all of a sudden|all of a suddenly|all in a sudden
@@ -95,6 +95,6 @@ treatment|The new treatment helped many patients.|treatment|receive treatment|re
 truth|Nobody knows the truth about what happened.|truth|tell the truth|say the truth|tell the true
 various|She has lived in various countries.|various|various kinds of|various kind of|variety kinds of
 weigh|How much does your suitcase weigh?|weigh|weigh three kilos|weight three kilos|weigh of three kilos
-western|We visited the western coast of the island.|western|the western coast|the westerly coast|the westly coast
+western|We visited the western coast of the island.|western|the western coast|the wester coast|the westly coast
 wonder|I wonder if it will rain tomorrow.|wonder|I wonder if|I wonder that if|I wondering if
 youth|The town needs more activities for youth.|youth|in his youth|in his young|on his youth

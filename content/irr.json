@@ -777,15 +777,21 @@
 "k": "v",
 "f": [
 [
-"quá khứ",
+"quá khứ (nằm)",
 [
 "lay"
 ]
 ],
 [
-"quá khứ phân từ (V3)",
+"quá khứ phân từ (nằm)",
 [
 "lain"
+]
+],
+[
+"quá khứ (nói dối)",
+[
+"lied"
 ]
 ]
 ]
@@ -1624,13 +1630,13 @@
 "k": "a",
 "f": [
 [
-"so sánh hơn",
+"so sánh hơn (nghĩa “một chút”)",
 [
 "less"
 ]
 ],
 [
-"so sánh nhất",
+"so sánh nhất (nghĩa “một chút”)",
 [
 "least"
 ]

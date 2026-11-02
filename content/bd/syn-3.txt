@@ -203,7 +203,7 @@ S|furthermore|moreover|
 S|strict|harsh|lenient
 S|unexpected|surprising|expected
 S|nasty|unpleasant|nice
-S|bitter|sour|sweet
+S|bitter||sweet
 S|gradually|slowly|suddenly
 S|loyal|faithful|disloyal
 S|widespread|common|rare
@@ -223,7 +223,7 @@ S|miserable|unhappy|happy
 S|ashamed|embarrassed|proud
 S|spectacular|impressive|
 S|magnificent|splendid|
-S|shallow|superficial|deep
+S|shallow||deep
 S|firmly|strongly|
 S|steep|sheer|gentle
 S|memorable|unforgettable|forgettable

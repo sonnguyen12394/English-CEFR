@@ -22,7 +22,7 @@ bite|The dog bit my leg.|bit|bite your nails|bite on your nails|eat your nails
 explore|We explored the old town.|explored|explore a city|explore in a city|explore on a city
 favour|Can you do me a favour?|favour|do someone a favour|make someone a favour|give someone a favour of
 mall|We went shopping at the mall.|mall|a shopping mall|a shop mall|a shopping malls
-alarm|The fire alarm went off.|alarm|set an alarm|put an alarm on|make an alarm
+alarm|The fire alarm went off.|alarm|set an alarm|set on an alarm|make an alarm
 breathe|Breathe slowly and relax.|Breathe|breathe deeply|breathe deep|breath deeply
 garage|The car is in the garage.|garage|park in the garage|park on the garage|park at the garages
 lonely|She felt lonely in the big city.|lonely|feel lonely|feel alonely|feel loneliness
@@ -100,7 +100,7 @@ sexual|The law bans sexual discrimination.|sexual|sexual discrimination|sex disc
 marketing|She works in marketing.|marketing|a marketing manager|a market manager|a marketed manager
 technical|We had a technical problem.|technical|technical problems|technique problems|technically problems
 fixed|The price is fixed.|fixed|a fixed price|a fix price|a fixing price
-profit|The shop made a big profit.|profit|make a profit|do a profit|take a profit
+profit|The shop made a big profit.|profit|make a profit|do a profit|win a profit
 candidate|There are three candidates for the job.|candidates|a candidate for|a candidate of|a candidate to for
 determined|She is determined to win.|determined|determined to do something|determined doing something|determined do something
 determine|The test will determine your level.|determine|determine the cause|determine on the cause|determine of the cause
@@ -120,7 +120,7 @@ medium|I'd like a medium coffee, please.|medium|medium size|medium sized of|medi
 unable|She was unable to come.|unable|unable to do something|unable doing something|unable for do something
 wing|The bird hurt its wing.|wing|spread its wings|spread its wing on|open on its wings
 bomb|A bomb exploded in the city.|bomb|a bomb exploded|a bomb burst out|a bomb broken
-hang|Hang your coat on the hook.|Hang|hang up your coat|hang on your coat up|hang out your coat
+hang|Hang your coat on the hook.|Hang|hang up your coat|hang on your coat up|hang at your coat
 switch|Switch off the lights, please.|Switch|switch off the light|switch out the light|switch down the light
 get-the-hang-of|Driving is hard at first, but you'll get the hang of it.|get the hang of|get the hang of it|get the hang on it|take the hang of it
 warning|The doctor gave him a warning about smoking.|warning|give a warning|make a warning|do a warning

@@ -40,9 +40,9 @@ testify|She testified in court.|testified|testify in court|testify on court|test
 tolerate|I won't tolerate rudeness.|tolerate|tolerate noise|tolerate on noise|tolerate of noise
 activation|Account activation takes a minute.|activation|account activation|accounts activation|account activate
 breakthrough|Scientists made a breakthrough.|breakthrough|make a breakthrough|do a breakthrough|take a breakthrough
-critique|She wrote a critique of the book.|critique|a critique of|a critique on of|a critic of
+critique|She wrote a critique of the book.|critique|a critique of|a critique on of|a critiques of
 discourse|The book is about political discourse.|discourse|public discourse|publicly discourse|public discourses of
-dominance|The team showed its dominance.|dominance|dominance over|dominance on over|dominant over
+dominance|The team showed its dominance.|dominance|dominance over|dominance on over|dominances over
 imagery|The poem is full of imagery.|imagery|vivid imagery|vividly imagery|vivid imageries
 inherent|There are inherent risks.|inherent|inherent risks|inherently risks|inheritance risks
 justification|There is no justification for violence.|justification|justification for|justification of for|justify for
@@ -66,7 +66,7 @@ premise|The film's premise is simple.|premise|the basic premise|the basically pr
 remedy|Honey is a remedy for a sore throat.|remedy|a remedy for|a remedy of|a remedy to for
 stimulus|The government announced an economic stimulus.|stimulus|an economic stimulus|an economy stimulus|an economic stimuluses
 surge|There was a surge in demand.|surge|a surge in|a surge of in|a surge at
-flee|They fled the war.|fled|flee the country|flee to the country from|flee on the country
+flee|They fled the war.|fled|flee the country|flee at the country|flee on the country
 fundraising|We organised a fundraising event.|fundraising|a fundraising event|a fundraise event|a fundraised event
 glimpse|I caught a glimpse of the singer.|glimpse|catch a glimpse of|take a glimpse at of|make a glimpse of
 injustice|They fought against injustice.|injustice|social injustice|socially injustice|social unjustice
@@ -77,11 +77,11 @@ confront|We must confront the problem.|confront|confront a problem|confront with
 decisive|It was a decisive moment.|decisive|a decisive victory|a decisively victory|a decision victory
 epidemic|There is a flu epidemic.|epidemic|a flu epidemic|a flus epidemic|a flu epidemics
 predominantly|The area is predominantly rural.|predominantly|predominantly rural|predominant rural|predominantly rurally
-seize|The police seized the drugs.|seized|seize an opportunity|seize on an opportunity|seize of an opportunity
+seize|The police seized the drugs.|seized|seize an opportunity|seize to an opportunity|seize of an opportunity
 thankfully|Thankfully, no one was hurt.|Thankfully|thankfully|thankful ly|thanksfully
 cooperate|Please cooperate with the police.|cooperate|cooperate with|cooperate to|cooperate on with
-faction|The party split into two factions.|factions|rival factions|rivalry factions|rival faction of
-neglect|Don't neglect your health.|neglect|neglect your duties|neglect on your duties|neglect of your duties
+faction|The party split into two factions.|factions|rival factions|rivalry factions|a rival factions
+neglect|Don't neglect your health.|neglect|neglect your duties|neglect on your duties|neglect at your duties
 prejudice|We must fight prejudice.|prejudice|prejudice against|prejudice to|prejudice on against
 projection|Sales projections are good.|projections|sales projections|sale projection of|sales projects
 apparatus|The firefighters wore breathing apparatus.|apparatus|breathing apparatus|breath apparatus|breathing apparatuses of
@@ -97,7 +97,7 @@ stab|He was stabbed in the arm.|stabbed|stab someone in the back|stab someone on
 tenant|The tenant pays rent every month.|tenant|a new tenant|a newly tenant|a new tenants
 turnover|The company has a high turnover.|turnover|staff turnover|staffs turnover|staff turnovers of
 attribute|Patience is an important attribute.|attribute|a key attribute|a keys attribute|a key attributes
-complement|The wine is a perfect complement to the meal.|complement|a complement to|a complement for to|a compliment to
+complement|The wine is a perfect complement to the meal.|complement|a complement to|a complement for to|a complements to
 conquer|They conquered the city.|conquered|conquer a fear|conquer on a fear|conquer of a fear
 crawl|The baby is starting to crawl.|crawl|crawl on all fours|crawl in all fours|crawl at all fours
 credible|We need credible evidence.|credible|credible evidence|credibly evidence|credibility evidence

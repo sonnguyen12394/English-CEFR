@@ -63,6 +63,45 @@
     "s": "Open your book at page ten.",
     "f": "book"
    }
+  },
+  "inside": {
+   "ipa": "/ˌɪnˈsaɪd/"
+  },
+  "dream": {
+   "col": {
+    "ok": "dream of",
+    "bad": [
+     "dream to",
+     "dream at"
+    ]
+   }
+  },
+  "goal": {
+   "col": {
+    "ok": "score a goal",
+    "bad": [
+     "do a goal",
+     "shoot a goal in"
+    ]
+   }
+  },
+  "roof": {
+   "col": {
+    "ok": "on the roof",
+    "bad": [
+     "on roof the",
+     "at the roofs"
+    ]
+   }
+  },
+  "top": {
+   "col": {
+    "ok": "at the top of",
+    "bad": [
+     "at top of the",
+     "on top the"
+    ]
+   }
   }
  },
  "units": [
@@ -1369,7 +1408,7 @@
      "col": {
       "ok": "a slice of pineapple",
       "bad": [
-       "a cup of pineapple",
+       "a slices of pineapple",
        "a slice pineapple"
       ]
      },

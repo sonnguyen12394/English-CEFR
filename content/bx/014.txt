@@ -16,20 +16,20 @@ senator|The senator voted against the bill.|senator|a US senator|a US senators|a
 academy|He studied at the police academy.|academy|a military academy|a militarily academy|a military academies
 storage|We need more storage space.|storage|storage space|storages space|store space of
 combat|The soldiers saw combat.|combat|in combat|on combat|at combat
-constitution|The constitution protects our rights.|constitution|under the constitution|on the constitution|at the constitution
+constitution|The constitution protects our rights.|constitution|under the constitution|under constitution the|at the constitution
 crown|The queen wore a gold crown.|crown|a gold crown|a golden crowns|a gold crowns
 exclusive|It's an exclusive hotel.|exclusive|an exclusive interview|an exclusively interview|an exclusion interview
-grace|She danced with grace.|grace|with grace|in grace with|by grace
+grace|She danced with grace.|grace|with grace|in grace with|on grace
 latter|Of tea and coffee, I prefer the latter.|latter|the latter|a latter|the latters
 personnel|All personnel must wear a badge.|personnel|military personnel|militarily personnel|military personnels
 premier|The premier visited China.|premier|the Chinese premier|the China premier|the Chinese premiers
 the-benefit-of-the-doubt|I'll give you the benefit of the doubt.|the benefit of the doubt|give someone the benefit of the doubt|give someone the benefit for the doubt|give someone a benefit of doubt
 deputy|She is the deputy manager.|deputy|the deputy director|the deputize director|the deputies director
-interior|The interior of the car is clean.|interior|interior design|interiorly design|interior designs of
+interior|The interior of the car is clean.|interior|interior design|interiorly design|an interior designs
 legislation|New legislation was passed.|legislation|pass legislation|make legislation on|do legislation
 set-aside|Set aside some money every month.|Set aside|set aside time|set off time|set out time
 marine|They study marine life.|marine|marine life|marinely life|marine lives of
-peak|We reached the peak of the mountain.|peak|peak hours|peaks hours|peak hour of
+peak|We reached the peak of the mountain.|peak|peak hours|peaks hours|a peak hours
 reform|The government promised reform.|reform|economic reform|economy reforms|economically reform
 debut|She made her debut at 18.|debut|make a debut|do a debut|take a debut
 license|The shop is licensed to sell alcohol.|licensed|licensed to sell|licensed selling|licensed for sell
@@ -40,26 +40,26 @@ regardless|We will go regardless of the weather.|regardless|regardless of|regard
 the-jury-is-out|The jury is out on whether the plan will work.|The jury is out|the jury is out|the judge is out|the jury is off
 chamber|The meeting was held in a chamber.|chamber|a council chamber|a councils chamber|a council chambers
 province|Ha Giang is a mountainous province.|province|a northern province|a northernly province|a northern provinces
-gear|Change gear when you go uphill.|gear|change gear|switch gears|move a gear
+gear|Change gear when you go uphill.|gear|change gear|change a gears|move a gear
 superior|This product is superior to that one.|superior|superior to|superior than|superior from
 alongside|We walked alongside the river.|alongside|work alongside|work along side|work alongsides
 angel|You're an angel!|angel|a guardian angel|a guard angel|a guardian angels
 bonus|We got a Christmas bonus.|bonus|a cash bonus|a cashed bonus|a cash bonuses
 respectively|Tom and Ann are 10 and 12, respectively.|respectively|respectively|respective|respectfully
 trail|We followed the trail through the forest.|trail|a mountain trail|a mountains trail|a mountain trails
-a-grey-area|Using AI for homework is a grey area.|a grey area|a grey area|a gray zone|a grey place
+a-grey-area|Using AI for homework is a grey area.|a grey area|a grey area|a grey areas|a grey place
 assault|He was charged with assault.|assault|a violent assault|a violently assault|a violence assault
 thread|I need a needle and thread.|thread|a piece of thread|a slice of thread|a bit thread
 rear|Sit in the rear of the car.|rear|the rear seat|the rearly seat|the rears seat
 behalf|I'm writing on behalf of my company.|behalf|on behalf of|in behalf for|on behalf for
 not-see-the-wood-for-the-trees|He's so busy with details that he can't see the wood for the trees.|see the wood for the trees|not see the wood for the trees|not see the forest for the leaves|not look the wood for the trees
 suck|The baby is sucking its thumb.|sucking|suck your thumb|suck on your thumb on|suck of your thumb
-boost|The win boosted their confidence.|boosted|boost confidence|boost on confidence|boost of confidence
+boost|The win boosted their confidence.|boosted|boost confidence|boost on confidence|boost at confidence
 saint|She has the patience of a saint.|saint|the patience of a saint|the patience from a saint|the patient of a saint
 alliance|The two countries formed an alliance.|alliance|form an alliance|do an alliance|make on an alliance
 buddy|He's my old buddy.|buddy|an old buddy|an oldly buddy|an old buddies
 crystal|The water was crystal clear.|crystal|crystal clear|crystally clear|crystal clearly
-elite|Only the elite can afford it.|elite|the elite|an elites|the elites of
+elite|Only the elite can afford it.|elite|the elite|an elites|a elite
 play-it-by-ear|We don't have a plan. Let's play it by ear.|play it by ear|play it by ear|play it by eye|play it with ear
 sake|For your own sake, stop smoking.|sake|for the sake of|for the sake for|for sake of the
 bench|They sat on a park bench.|bench|a park bench|a parks bench|a park benches
@@ -78,7 +78,7 @@ reverse|Reverse the car into the garage.|Reverse|reverse a decision|reverse on a
 sin|Lying is a sin.|sin|commit a sin|make a sin|do a sin
 sword|The knight drew his sword.|sword|draw a sword|pull on a sword|take a swords
 ward|She works on the children's ward.|ward|a hospital ward|a hospitals ward|a hospital wards
-a-last-resort|Use this medicine only as a last resort.|a last resort|as a last resort|as the last resort|as a final resorts
+a-last-resort|Use this medicine only as a last resort.|a last resort|as a last resort|as last a resort|as a final resorts
 consent|You need your parents' consent.|consent|give consent|make consent|do consent
 fate|No one knows their fate.|fate|tempt fate|tempt fates|test the fate of
 get-the-ball-rolling|Let's get the ball rolling.|get the ball rolling|get the ball rolling|get the ball running|make the ball rolled
@@ -99,7 +99,7 @@ fleet|The company has a fleet of taxis.|fleet|a fleet of|a fleet from|a fleets o
 foster|We want to foster good relations.|foster|foster relations|foster on relations|foster of relations
 premium|You pay a premium for fast delivery.|premium|pay a premium|give a premium|do a premium
 prominent|She is a prominent scientist.|prominent|a prominent figure|a prominently figure|a prominence figure
-radical|We need radical change.|radical|radical change|radically change|radicals change
+radical|We need radical change.|radical|radical change|a radicals change|radicals change
 substantial|There was a substantial increase.|substantial|a substantial amount|a substantially amount|a substance amount
 blast|The blast broke all the windows.|blast|a bomb blast|a bombs blast|a bomb blasts
 communist|It was a communist country.|communist|the communist party|the communism party|the communistic party
@@ -115,7 +115,7 @@ treaty|The two countries signed a treaty.|treaty|sign a treaty|write on a treaty
 bow|She tied a bow in her hair.|bow|tie a bow|make on a bow tie|tie on a bow
 devil|Speak of the devil!|devil|speak of the devil|speak about the devil of|say of the devil
 hardware|The computer hardware is old.|hardware|computer hardware|computers hardware|computer hardwares
-petition|Thousands signed the petition.|petition|sign a petition|write a petition on|do a petition
+petition|Thousands signed the petition.|petition|sign a petition|make on a petition|do a petition
 regime|The regime collapsed in 1991.|regime|a military regime|a militarily regime|a military regimes
 seal|Seal the envelope.|Seal|seal an envelope|seal on an envelope|seal of an envelope
 stem|The problem stems from poor planning.|stems|stem from|stem of|stem on
@@ -129,7 +129,7 @@ franchise|He owns a coffee franchise.|franchise|a fast-food franchise|a fast-foo
 loop|The song plays on a loop.|loop|on a loop|in a loop on|at a loop
 sacrifice|Parents make many sacrifices.|sacrifices|make sacrifices|do sacrifices|take sacrifices
 worship|They worship their ancestors.|worship|worship God|worship to God|worship on God
-worthy|She is a worthy winner.|worthy|worthy of|worthy for|worthy to
+worthy|She is a worthy winner.|worthy|worthy of|worthy for|worthy at
 bass|He plays bass in a band.|bass|a bass guitar|a basses guitar|a bass guitars
 dual|He has dual nationality.|dual|dual nationality|dually nationality|duo nationality
 filter|Change the water filter.|filter|a water filter|a waters filter|a water filters

@@ -4,8 +4,7 @@ S|reverse|undo|
 S|foster|encourage,promote|
 S|seal|close|open
 S|upgrade|improve|downgrade
-S|sue|prosecute|
-S|twist|bend|straighten
+S|twist|sprain|straighten
 S|advocate|support,champion|oppose
 S|skip|miss|
 S|crush|squash|
@@ -14,10 +13,10 @@ S|burst|explode|
 S|retreat|withdraw|advance
 S|resume|continue,restart|stop
 S|smash|break|
-S|surrender|give up|resist
+S|surrender|yield|resist
 S|breed|raise|
-S|drain|empty|fill
-S|comply|obey|disobey
+S|drain||fill
+S|comply|conform|disobey
 S|cease|stop,end|start
 S|harvest|gather|plant
 S|bounce|rebound|
@@ -28,7 +27,6 @@ S|facilitate|help,ease|hinder
 S|insult|offend|praise
 S|offset|balance|
 S|grasp|understand,grip|
-S|enforce|impose|
 S|stir|mix|
 S|blend|mix,combine|separate
 S|execute|carry out,perform|
@@ -36,15 +34,15 @@ S|leap|jump|
 S|squeeze|press|
 S|discharge|release|
 S|halt|stop|start
-S|glance|glimpse|stare
+S|glance|look,peek|stare
 S|sack|fire,dismiss|hire
-S|toss|throw|
+S|toss|flip|
 S|opt|choose|
 S|interfere|meddle|
 S|verify|check,confirm|
 S|fade|disappear|
 S|yell|shout,scream|whisper
-S|creep|crawl|
+S|creep|sneak|
 S|disclose|reveal|conceal
 S|tolerate|stand,bear|
 S|confess|admit|deny
@@ -53,10 +51,10 @@ S|drift|float|
 S|endure|bear,stand|
 S|flee|escape,run away|
 S|confront|face|avoid
-S|seize|grab,take|release
+S|seize|confiscate|release
 S|cooperate|collaborate|
 S|neglect|ignore|
-S|compensate|repay|
+S|compensate|make up|
 S|conquer|defeat|
 S|crawl|creep|
 S|utilize|use|
@@ -69,30 +67,29 @@ S|shrink|contract|grow
 S|thrive|flourish|decline
 S|condemn|criticize|praise
 S|steer|guide|
-S|strive|try,struggle|
+S|strive|aim,try|
 S|appoint|name|dismiss
-S|deploy|use|
+S|deploy|send|
 S|gaze|stare|
-S|manipulate|control|
+S|manipulate|trick|
 S|retrieve|get back,recover|
 S|revive|restore|
 S|reside|live|
 S|accelerate|speed up|slow down
 S|suppress|crush|
-S|intervene|step in|
+S|intervene|get involved|
 S|terminate|end,stop|begin
 S|undermine|weaken|strengthen
-S|assemble|gather,build|
+S|assemble|build,gather|
 S|align|line up|
 S|await|wait for|
 S|endorse|support,approve|oppose
 S|plead|beg|
 S|portray|depict,show|
-S|reproduce|copy|
+S|reproduce|breed|
 S|assert|claim,state|
 S|differentiate|distinguish|
 S|presume|assume|
-S|soak|drench|
 S|attain|achieve,reach|
 S|commence|begin,start|end
 S|disrupt|disturb|
@@ -103,13 +100,12 @@ S|induce|cause|
 S|vow|promise,swear|
 S|amend|change,revise|
 S|prevail|win|
-S|administer|manage|
+S|administer|give|
 S|articulate|express|
 S|expire|run out|
 S|haunt|trouble|
-S|indulge|pamper|
 S|mitigate|reduce,ease|worsen
-S|conform|comply|rebel
+S|conform|adhere|rebel
 S|evacuate|empty|
 S|flourish|thrive|wither
 S|overlook|miss,ignore|notice
@@ -122,10 +118,9 @@ S|boast|brag|
 S|collaborate|cooperate|
 S|descend|go down|ascend
 S|oversee|supervise|
-S|tighten|tense|loosen
+S|tighten||loosen
 S|provoke|cause|calm
-S|cling|hold|
-S|dissolve|melt|
+S|cling|hold on|
 S|plunge|dive,fall|
 S|weaken|undermine|strengthen
 S|abolish|end,scrap|
@@ -146,8 +141,6 @@ S|stumble|trip|
 S|carve|cut|
 S|contemplate|consider|
 S|depict|portray,show|
-S|conceive|imagine|
-S|prescribe|order|
 S|soar|rise,climb|plummet
 S|vanish|disappear|appear
 S|authorize|allow,approve|forbid
@@ -157,12 +150,12 @@ S|designate|name|
 S|discard|throw away|keep
 S|originate|begin|
 S|stun|shock|
-S|exert|use|
+S|exert|apply|
 S|escalate|grow,increase|
 S|deem|consider|
-S|inflict|impose|
+S|inflict|cause|
 S|inhibit|hinder,prevent|
-S|loom|appear|
+S|loom|approach|
 S|invoke|cite|
 S|supervise|oversee|
 S|allocate|assign|
@@ -265,7 +258,7 @@ S|disparage|belittle|praise
 S|feign|fake,pretend|
 S|ameliorate|improve|worsen
 S|delineate|outline|
-S|vindicate|clear|
+S|vindicate|justify|
 S|protrude|stick out|
 S|deride|mock,ridicule|praise
 S|trudge|plod|
@@ -280,7 +273,7 @@ S|exhort|urge|
 S|saunter|stroll|
 S|cajole|coax|
 S|juxtapose|compare|
-S|obviate|prevent,avoid|
+S|obviate|remove,eliminate|
 S|hurtle|rush|
 S|antagonise|provoke|
 S|connote|imply|

@@ -126,7 +126,7 @@ R|forgo|go without|F|bỏ qua, nhịn
 R|conceal|hide|F|che giấu
 R|disclose|tell|F|tiết lộ
 R|reveal|show|F|tiết lộ
-R|consume|eat|F|ăn, tiêu thụ
+R|consume|use|F|dùng, tiêu thụ
 R|kid|child|I|đứa trẻ
 R|guy|man|I|anh chàng
 R|mate|friend|I|bạn
@@ -137,7 +137,7 @@ R|grab|take|I|chộp, lấy
 R|weird|strange|I|kì quặc
 R|dumb|stupid|I|ngốc
 R|gross|disgusting|I|ghê tởm
-R|super|very|I|rất
+R|super|excellent|I|tuyệt vời
 R|cute|attractive|I|dễ thương
 R|mad|angry|I|tức điên
 R|reckon|think|I|nghĩ là

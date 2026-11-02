@@ -21,7 +21,7 @@ turnout|Voter turnout was high.|turnout|voter turnout|voters turnout of|voter tu
 fibre|Eat more fibre.|fibre|high in fibre|tall in fibre|high on fibre
 fixture|The bathroom fixtures are new.|fixtures|fixtures and fittings|fixture and fitting of|fixtures with fittings
 imminent|The storm is imminent.|imminent|imminent danger|imminently danger|imminence danger
-protagonist|The protagonist is a young girl.|protagonist|the main protagonist|the mainly protagonist|the main protagonists
+protagonist|The protagonist is a young girl.|protagonist|the main protagonist|the mainly protagonist|a main protagonists
 reside|She resides in Hanoi.|resides|reside in|reside on|reside at in
 vibrant|Saigon is a vibrant city.|vibrant|vibrant colours|vibrantly colours|vibration colours
 accelerate|The car accelerated quickly.|accelerated|accelerate growth|accelerate on growth|accelerate of growth
@@ -52,7 +52,7 @@ assert|She asserted her rights.|asserted|assert yourself|assert on yourself|asse
 differentiate|Can you differentiate between the two?|differentiate|differentiate between|differentiate among between|differentiate from between
 empirical|We need empirical evidence.|empirical|empirical evidence|empirically evidence|empiric evidences
 fuse|The fuse blew.|fuse|a fuse blows|a fuse burst blows|a fuses blow
-militant|Militants attacked the base.|Militants|armed militants|arm militants|armed militant of
+militant|Militants attacked the base.|Militants|armed militants|arm militants|an armed militants
 peasant|The peasants worked in the fields.|peasants|a peasant farmer|a peasants farmer|a peasant farmers
 presume|I presume you're hungry.|presume|presume that|presume about that|presume of that
 casualty|There were no casualties.|casualties|heavy casualties|heavily casualties|heavy casualty of

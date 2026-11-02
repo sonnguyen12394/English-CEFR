@@ -17,7 +17,480 @@
  ],
  "word": {
   "would": {
-   "ipa": "/wʊd/"
+   "ipa": "/wʊd/",
+   "pos": "modal verb"
+  },
+  "his": {
+   "ipa": "/hɪz/"
+  },
+  "him": {
+   "ipa": "/hɪm/"
+  },
+  "your": {
+   "ipa": "/jɔː(r)/"
+  },
+  "close": {
+   "ipa": "/kləʊz/"
+  },
+  "use": {
+   "ipa": "/juːz/"
+  },
+  "minute": {
+   "ipa": "/ˈmɪnɪt/"
+  },
+  "outside": {
+   "ipa": "/ˌaʊtˈsaɪd/"
+  },
+  "chair": {
+   "ipa": "/tʃeə(r)/"
+  },
+  "door": {
+   "ipa": "/dɔː(r)/"
+  },
+  "brother": {
+   "ipa": "/ˈbrʌðə(r)/"
+  },
+  "sister": {
+   "ipa": "/ˈsɪstə(r)/"
+  },
+  "wear": {
+   "ipa": "/weə(r)/"
+  },
+  "colour": {
+   "ipa": "/ˈkʌlə(r)/"
+  },
+  "teacher": {
+   "ipa": "/ˈtiːtʃə(r)/"
+  },
+  "answer": {
+   "ipa": "/ˈɑːnsə(r)/"
+  },
+  "shower": {
+   "ipa": "/ˈʃaʊə(r)/"
+  },
+  "order": {
+   "ipa": "/ˈɔːdə(r)/"
+  },
+  "doctor": {
+   "ipa": "/ˈdɒktə(r)/"
+  },
+  "far": {
+   "ipa": "/fɑː(r)/"
+  },
+  "customer": {
+   "ipa": "/ˈkʌstəmə(r)/"
+  },
+  "career": {
+   "ipa": "/kəˈrɪə(r)/"
+  },
+  "weather": {
+   "ipa": "/ˈweðə(r)/"
+  },
+  "summer": {
+   "ipa": "/ˈsʌmə(r)/"
+  },
+  "winter": {
+   "ipa": "/ˈwɪntə(r)/"
+  },
+  "near": {
+   "ipa": "/nɪə(r)/"
+  },
+  "year": {
+   "ex": "We go to Da Lat every year.",
+   "exVi": "Năm nào chúng tôi cũng đi Đà Lạt."
+  },
+  "lion": {
+   "exVi": "Sư tử được gọi là vua của muôn loài."
+  },
+  "lamp": {
+   "pic": "💡"
+  },
+  "can": {
+   "pos": "modal verb"
+  },
+  "could": {
+   "pos": "modal verb"
+  },
+  "will": {
+   "pos": "modal verb"
+  },
+  "should": {
+   "pos": "modal verb"
+  },
+  "must": {
+   "pos": "modal verb"
+  },
+  "have-to": {
+   "pos": "modal verb"
+  },
+  "egg": {
+   "col": {
+    "ok": "fried eggs",
+    "bad": [
+     "fried egg's",
+     "a fried eggs"
+    ]
+   }
+  },
+  "hand": {
+   "col": {
+    "ok": "wash your hands",
+    "bad": [
+     "wash your hand's",
+     "wash you hands"
+    ]
+   }
+  },
+  "watermelon": {
+   "col": {
+    "ok": "a slice of watermelon",
+    "bad": [
+     "a slice watermelon",
+     "a watermelon slice of"
+    ]
+   }
+  },
+  "bike": {
+   "col": {
+    "ok": "by bike",
+    "bad": [
+     "in bike",
+     "with bike"
+    ]
+   }
+  },
+  "letter": {
+   "col": {
+    "ok": "write a letter",
+    "bad": [
+     "write to a letter",
+     "write letter"
+    ]
+   }
+  },
+  "write": {
+   "col": {
+    "ok": "write to someone",
+    "bad": [
+     "write someone to",
+     "write at someone"
+    ]
+   }
+  },
+  "paint": {
+   "col": {
+    "ok": "paint a picture",
+    "bad": [
+     "make a paint",
+     "make paint a picture"
+    ]
+   }
+  },
+  "and": {
+   "col": {
+    "ok": "salt and pepper",
+    "bad": [
+     "and salt pepper",
+     "salt and a pepper"
+    ]
+   }
+  },
+  "black": {
+   "col": {
+    "ok": "black hair",
+    "bad": [
+     "blacks hair",
+     "hair black"
+    ]
+   }
+  },
+  "grey": {
+   "col": {
+    "ok": "grey hair",
+    "bad": [
+     "greys hair",
+     "hair grey"
+    ]
+   }
+  },
+  "short": {
+   "col": {
+    "ok": "short hair",
+    "bad": [
+     "shorts hair",
+     "hair short"
+    ]
+   }
+  },
+  "line": {
+   "col": {
+    "ok": "wait in line",
+    "bad": [
+     "wait at line",
+     "wait by line"
+    ]
+   }
+  },
+  "smile": {
+   "col": {
+    "ok": "smile at someone",
+    "bad": [
+     "smile to someone",
+     "smile someone"
+    ]
+   }
+  },
+  "wash": {
+   "col": {
+    "ok": "wash your face",
+    "bad": [
+     "wash you face",
+     "wash your face's"
+    ]
+   }
+  },
+  "leave": {
+   "col": {
+    "ok": "leave home",
+    "bad": [
+     "leave to home",
+     "go out home"
+    ]
+   }
+  },
+  "beer": {
+   "col": {
+    "ok": "a glass of beer",
+    "bad": [
+     "a glass beer",
+     "a glasses of beer"
+    ]
+   }
+  },
+  "grandparents": {
+   "col": {
+    "ok": "visit your grandparents",
+    "bad": [
+     "visiting to your grandparents",
+     "visit at your grandparents"
+    ]
+   }
+  },
+  "nurse": {
+   "col": {
+    "ok": "work as a nurse",
+    "bad": [
+     "work in a nurse",
+     "work a nurse"
+    ]
+   }
+  },
+  "museum": {
+   "col": {
+    "ok": "visit a museum",
+    "bad": [
+     "visiting to a museum",
+     "go museum"
+    ]
+   }
+  },
+  "visit": {
+   "col": {
+    "ok": "visit a friend",
+    "bad": [
+     "visiting to a friend",
+     "go visit to a friend"
+    ]
+   }
+  },
+  "stay": {
+   "col": {
+    "ok": "stay at home",
+    "bad": [
+     "stay in home",
+     "stay on home"
+    ]
+   }
+  },
+  "match": {
+   "col": {
+    "ok": "win the match",
+    "bad": [
+     "gain the match",
+     "win match the"
+    ]
+   }
+  },
+  "library": {
+   "col": {
+    "ok": "borrow a book from the library",
+    "bad": [
+     "borrow a book to the library",
+     "lend a book from the library"
+    ]
+   }
+  },
+  "introduce": {
+   "col": {
+    "ok": "introduce yourself",
+    "bad": [
+     "introduce your self",
+     "introduce yourselfs"
+    ]
+   }
+  },
+  "newspaper": {
+   "col": {
+    "ok": "in the newspaper",
+    "bad": [
+     "in newspaper",
+     "at the newspaper"
+    ]
+   }
+  },
+  "call": {
+   "col": {
+    "ok": "make a phone call",
+    "bad": [
+     "do a phone call",
+     "say a phone call"
+    ]
+   }
+  },
+  "guess": {
+   "col": {
+    "ok": "make a guess",
+    "bad": [
+     "do a guess",
+     "say a guess"
+    ]
+   }
+  },
+  "relax": {
+   "col": {
+    "ok": "relax at home",
+    "bad": [
+     "relax in home",
+     "relax on home"
+    ]
+   }
+  },
+  "yourself": {
+   "col": {
+    "ok": "enjoy yourself",
+    "bad": [
+     "enjoy your self",
+     "enjoy yourselfs"
+    ]
+   }
+  },
+  "all": {
+   "col": {
+    "ok": "all day",
+    "bad": [
+     "all of day",
+     "the all day"
+    ]
+   }
+  },
+  "someone": {
+   "col": {
+    "ok": "someone else",
+    "bad": [
+     "else someone",
+     "someones else"
+    ]
+   }
+  },
+  "around": {
+   "col": {
+    "ok": "around the world",
+    "bad": [
+     "around of the world",
+     "arounds the world"
+    ]
+   }
+  },
+  "down": {
+   "col": {
+    "ok": "sit down",
+    "bad": [
+     "sit downs",
+     "sit downwards"
+    ]
+   }
+  },
+  "by": {
+   "col": {
+    "ok": "by car",
+    "bad": [
+     "in car",
+     "with car"
+    ]
+   }
+  },
+  "same": {
+   "col": {
+    "ok": "the same as",
+    "bad": [
+     "the same like",
+     "the same than"
+    ]
+   }
+  },
+  "dark": {
+   "col": {
+    "ok": "dark hair",
+    "bad": [
+     "darks hair",
+     "darkly hair"
+    ]
+   }
+  },
+  "busy": {
+   "col": {
+    "ok": "a busy street",
+    "bad": [
+     "a street busy",
+     "a busily street"
+    ]
+   }
+  },
+  "video": {
+   "col": {
+    "ok": "make a video",
+    "bad": [
+     "make a videos",
+     "create up a video"
+    ]
+   }
+  },
+  "dictionary": {
+   "col": {
+    "ok": "look up a word in a dictionary",
+    "bad": [
+     "look a word in a dictionary",
+     "look up a word on a dictionary"
+    ]
+   }
+  },
+  "dish": {
+   "col": {
+    "ok": "wash the dishes",
+    "bad": [
+     "wash the dishs",
+     "wash dishes the"
+    ]
+   }
+  },
+  "set": {
+   "col": {
+    "ok": "a set of",
+    "bad": [
+     "a sets of",
+     "a set off"
+    ]
+   }
   }
  },
  "units": [
@@ -63,8 +536,8 @@
      "pic": "👴👵",
      "vi": "ông hoặc bà",
      "en": "a grandmother or grandfather",
-     "ex": "I visit my grandparents every Sunday.",
-     "exVi": "Chủ nhật nào tôi cũng thăm ông bà.",
+     "ex": "Every grandparent loves their grandchildren.",
+     "exVi": "Ông bà nào cũng thương các cháu.",
      "cloze": {
       "s": "My grandmother is my favourite ___.",
       "a": "grandparent",

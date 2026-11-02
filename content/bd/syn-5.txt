@@ -21,7 +21,6 @@ S|break out|start,erupt|
 S|stand out|be noticeable|
 S|get round|avoid,get around|
 S|fall through|fail,collapse|succeed
-S|come round|visit|
 S|speak up|speak louder|
 S|catch on|become popular|
 S|phase out|gradually remove|introduce
@@ -29,10 +28,9 @@ S|back down|give in,retreat|
 S|play down|minimize|exaggerate
 S|hand over|give,transfer|
 S|level off|stabilize|
-S|account for|explain|
+S|account for|make up,represent|
 S|hold up|delay|
-S|stand by|support|
-S|follow up|pursue|
+S|stand by|stick to,maintain|
 S|fall back on|rely on|
 S|step down|resign|
 S|die down|subside,decrease|intensify
@@ -72,5 +70,5 @@ S|rein in|control,restrain|
 S|hinge on|depend on|
 S|fob off|put off|
 S|stave off|prevent,ward off|
-S|detract from|reduce|
+S|detract from|spoil|
 S|wriggle out of|avoid,evade|

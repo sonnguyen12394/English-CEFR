@@ -62,7 +62,7 @@ cacophony|A cacophony of horns filled the street.|cacophony|a cacophony of|a cac
 dwindle|Their savings dwindled.|dwindled|dwindle away|dwindle on away|dwindle off away
 magnanimous|He was magnanimous in victory.|magnanimous|a magnanimous gesture|a magnanimously gesture|a magnanimity gesture
 paucity|There is a paucity of evidence.|paucity|a paucity of|a paucity from|a paucities of
-clamour|There is a clamour for change.|clamour|a clamour for|a clamour of|a clamour to for
+clamour|There is a clamour for change.|clamour|a clamour for|a clamour at|a clamour to for
 postulate|Scientists postulated a new particle.|postulated|postulate a theory|postulate on a theory|postulate of a theory
 quandary|She was in a quandary about what to do.|quandary|in a quandary|on a quandary|at a quandary
 sweltering|It was a sweltering day.|sweltering|sweltering heat|swelteringly heat|swelter heat
@@ -90,7 +90,7 @@ merriment|There was much merriment at the party.|merriment|much merriment|many m
 peculiarity|Every language has its peculiarities.|peculiarities|a peculiarity of|a peculiarity from|a peculiarities of
 protrude|A nail protruded from the wall.|protruded|protrude from|protrude of|protrude on from
 demagogue|He was a dangerous demagogue.|demagogue|a populist demagogue|a populistly demagogue|a popular demagogues
-adjudicate|A judge will adjudicate the case.|adjudicate|adjudicate a dispute|adjudicate on a dispute of|adjudicate of a dispute
+adjudicate|A judge will adjudicate the case.|adjudicate|adjudicate a dispute|adjudicate at a dispute|adjudicate of a dispute
 effusive|She gave effusive praise.|effusive|effusive praise|effusively praise|effusion praise
 glutton|He is a glutton for punishment.|glutton|a glutton for punishment|a glutton of punishment|a gluttons for punishment
 bucolic|The painting shows a bucolic scene.|bucolic|a bucolic landscape|a bucolically landscape|a bucolics landscape
@@ -102,7 +102,7 @@ deride|Critics derided the film.|derided|deride someone as|deride someone like|d
 trudge|We trudged through the snow.|trudged|trudge through|trudge on through|trudge at through
 laconic|He has a laconic style.|laconic|a laconic reply|a laconically reply|a laconism reply
 brusque|She was brusque with the waiter.|brusque|a brusque manner|a brusquely manner|a brusqueness manner
-exhilarated|We felt exhilarated after the climb.|exhilarated|feel exhilarated|feel exhilarating|feel exhilaration
+exhilarated|We felt exhilarated after the climb.|exhilarated|feel exhilarated|feel exhilarating|feel exhilaratedly
 taciturn|He is a taciturn man.|taciturn|a taciturn person|a taciturnly person|a taciturnity person
 rebuff|She rebuffed his offer.|rebuffed|rebuff an offer|rebuff on an offer|rebuff of an offer
 construe|His silence was construed as agreement.|construed|construe as|construe like|construe for as
@@ -125,7 +125,7 @@ exhort|He exhorted his team to try harder.|exhorted|exhort someone to do somethi
 saunter|He sauntered into the room.|sauntered|saunter into|saunter in to on|saunter at into
 cajole|She cajoled him into helping.|cajoled|cajole someone into|cajole someone in to|cajole someone on into
 blase|She is blasé about travelling.|blasé|blasé about|blasé on|blasé of about
-privation|They suffered great privation.|privation|suffer privation|suffer on privation|suffer privations of
+privation|They suffered great privation.|privation|suffer privation|suffer on privation|suffer of privation
 evanescent|Youth is evanescent.|evanescent|evanescent beauty|evanescently beauty|evanescence beauty
 juxtapose|The exhibition juxtaposes old and new art.|juxtaposes|juxtapose A with B|juxtapose A by B|juxtapose A on B
 garrulous|He is a garrulous old man.|garrulous|a garrulous neighbour|a garrulously neighbour|a garrulity neighbour

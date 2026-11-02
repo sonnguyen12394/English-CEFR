@@ -4,7 +4,7 @@ grip|Keep a firm grip on the rope.|grip|a firm grip|a firmly grip|a firm grips
 handful|Only a handful of people came.|handful|a handful of|a handful from|a handfuls of
 harmony|They live in harmony.|harmony|in harmony with|on harmony with|in harmony to
 humble|He is a humble man.|humble|a humble person|a humbly person|a humility person
-minimal|The damage was minimal.|minimal|minimal cost|minimally cost|minimum costs of
+minimal|The damage was minimal.|minimal|minimal cost|minimally cost|a minimal costs
 noon|We'll meet at noon.|noon|at noon|in noon|on noon
 parish|He is the parish priest.|parish|a parish church|a parishes church|a parish churches
 rage|He was in a rage.|rage|in a rage|on a rage|at a rage
@@ -32,12 +32,12 @@ frustrated|I feel frustrated.|frustrated|frustrated with|frustrated on|frustrate
 gambling|Gambling is illegal here.|Gambling|online gambling|onlinely gambling|online gambles of
 glorious|We had glorious weather.|glorious|glorious sunshine|gloriously sunshine|glory sunshine
 grief|She was full of grief.|grief|overcome with grief|overcome by of grief|overcome on grief
-layout|I like the layout of the house.|layout|the layout of|the layout from|the layouts of the
+layout|I like the layout of the house.|layout|the layout of|the layout from|a layouts of
 merchant|The merchant sold silk.|merchant|a wealthy merchant|a wealthily merchant|a wealth merchant
 merit|The idea has some merit.|merit|on merit|in merit|at merit
 overwhelming|The response was overwhelming.|overwhelming|an overwhelming majority|an overwhelmingly majority|an overwhelm majority
 pastor|The pastor spoke to the church.|pastor|a church pastor|a churches pastor|a church pastors
-rebel|The rebels took the city.|rebels|rebel forces|rebels forces|rebel force of
+rebel|The rebels took the city.|rebels|rebel forces|rebels forces|a rebel forces
 subtle|There is a subtle difference.|subtle|a subtle difference|a subtly difference|a subtlety difference
 toll|We paid the road toll.|toll|the death toll|the dead toll|the death tolls of
 viral|The video went viral.|viral|go viral|become virally|do viral
@@ -57,20 +57,20 @@ nest|The bird built a nest.|nest|build a nest|make on a nest|do a nest
 notable|It was a notable achievement.|notable|a notable exception|a notably exception|a note exception
 optical|The eye is an optical instrument.|optical|an optical illusion|an optically illusion|an optic illusions
 outlook|She has a positive outlook on life.|outlook|outlook on life|outlook at life|outlook to life
-reign|The queen's reign lasted 70 years.|reign|during the reign of|during the reign from|during the reigns of
-span|Children have a short attention span.|span|attention span|attentions span|attention spans of
+reign|The queen's reign lasted 70 years.|reign|during the reign of|during the reign from|during a reigns of
+span|Children have a short attention span.|span|attention span|attentions span|an attention spans
 tremendous|She made tremendous progress.|tremendous|a tremendous effort|a tremendously effort|a tremendous efforts
 ballot|The vote was by secret ballot.|ballot|a secret ballot|a secretly ballot|a secret ballots
 cemetery|He is buried in the cemetery.|cemetery|a local cemetery|a locally cemetery|a local cemeteries
 deficit|The country has a large budget deficit.|deficit|a budget deficit|a budgets deficit|a budget deficits
 demon|The film is about a demon.|demon|fight your demons|fight on your demons|fight to your demons
-detection|Early detection of cancer saves lives.|detection|early detection|earlier detection of|early detect
+detection|Early detection of cancer saves lives.|detection|early detection|earlily detection|early detect
 elaborate|They made an elaborate plan.|elaborate|an elaborate design|an elaborately design|an elaboration design
 halfway|We stopped halfway.|halfway|halfway through|half way through of|halfway thorough
 intimate|They had an intimate dinner.|intimate|an intimate friend|an intimately friend|an intimacy friend
 pulse|The nurse took my pulse.|pulse|take someone's pulse|make someone's pulse|do someone's pulse
 rational|Be rational about it.|rational|a rational decision|a rationally decision|a ration decision
-realm|It's beyond the realm of possibility.|realm|the realm of|the realm from|the realms of
+realm|It's beyond the realm of possibility.|realm|the realm of|the realm from|a realms of
 the-elephant-in-the-room|Nobody talked about the elephant in the room.|the elephant in the room|the elephant in the room|the tiger in the room|the elephant in the house
 dip|Dip the bread in the soup.|Dip|dip in|dip on|dip at
 effectiveness|We tested the effectiveness of the drug.|effectiveness|the effectiveness of|the effectiveness for|the effective of
@@ -100,7 +100,7 @@ harvest|They harvest rice in October.|harvest|harvest crops|harvest on crops|har
 kidney|He needs a kidney transplant.|kidney|kidney disease|kidneys disease|kidney diseases of
 lobby|They lobbied the government for change.|lobbied|lobby for change|lobby on change|lobby to change for
 mob|An angry mob gathered.|mob|an angry mob|an angrily mob|an angry mobs
-passive|He is too passive.|passive|passive smoking|passively smoking|passive smoke of
+passive|He is too passive.|passive|passive smoking|passively smoking|passive smokes
 remainder|The remainder of the money is yours.|remainder|the remainder of|the remainder from|the remain of
 sentiment|I share your sentiment.|sentiment|public sentiment|publicly sentiment|public sentiments of
 supplement|She takes vitamin supplements.|supplements|a dietary supplement|a diet supplements of|a dietary supplements
@@ -123,7 +123,7 @@ ideology|The party has a strong ideology.|ideology|political ideology|politicall
 inclusion|We support the inclusion of all children.|inclusion|social inclusion|socially inclusion|social include
 isolation|Old people often suffer from isolation.|isolation|in isolation|on isolation|at isolation
 machinery|The factory has modern machinery.|machinery|heavy machinery|heavily machinery|heavy machineries
-namely|Two students, namely Lan and Minh, won.|namely|namely|name ly|namely that
+namely|Two students, namely Lan and Minh, won.|namely|namely|name ly|namly
 ritual|Coffee in the morning is my ritual.|ritual|a daily ritual|a dailly ritual|a daily rituals
 slam|She slammed the door.|slammed|slam the door|slam on the door|slam at the door
 utterly|I was utterly exhausted.|utterly|utterly exhausted|utter exhausted|utterly exhaustion
@@ -142,7 +142,7 @@ whip|Whip the cream.|Whip|whip cream|whip on cream|whip of cream
 wipe|Wipe the table.|Wipe|wipe the table|wipe on the table|wipe of the table
 a-recipe-for-disaster|Driving tired is a recipe for disaster.|a recipe for disaster|a recipe for disaster|a receipt for disaster|a recipe of disaster
 acute|He has acute pain in his chest.|acute|acute pain|acutely pain|acuteness pain
-civic|Voting is a civic duty.|civic|civic duty|civically duty|civil duties of
+civic|Voting is a civic duty.|civic|civic duty|civically duty|a civic duties
 coup|The army staged a coup.|coup|stage a coup|make a coup|do a coup
 crude|The price of crude oil rose.|crude|crude oil|crudely oil|crude oils
 interim|He is the interim manager.|interim|an interim report|an interimly report|an interims report

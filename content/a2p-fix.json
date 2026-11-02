@@ -4,7 +4,281 @@
  "chName": "Bổ sung Oxford",
  "pic": {},
  "drop": [],
- "word": {},
+ "word": {
+  "increase": {
+   "ipa": "/ɪnˈkriːs/"
+  },
+  "record": {
+   "ipa": "/rɪˈkɔːd/"
+  },
+  "perhaps": {
+   "ipa": "/pəˈhæps/"
+  },
+  "underground": {
+   "ipa": "/ˈʌndəɡraʊnd/"
+  },
+  "data": {
+   "ipa": "/ˈdeɪtə/"
+  },
+  "corner": {
+   "ipa": "/ˈkɔːnə(r)/"
+  },
+  "employer": {
+   "ipa": "/ɪmˈplɔɪə(r)/"
+  },
+  "knee": {
+   "col": {
+    "ok": "on your knees",
+    "bad": [
+     "on your knee's",
+     "on yours knees"
+    ]
+   }
+  },
+  "blood": {
+   "col": {
+    "ok": "a blood test",
+    "bad": [
+     "a blooded test",
+     "a bloods test"
+    ]
+   }
+  },
+  "male": {
+   "col": {
+    "ok": "a male nurse",
+    "bad": [
+     "a maleness nurse",
+     "a males nurse"
+    ]
+   }
+  },
+  "female": {
+   "col": {
+    "ok": "a female doctor",
+    "bad": [
+     "a femaly doctor",
+     "a females doctor"
+    ]
+   }
+  },
+  "surprise": {
+   "col": {
+    "ok": "a surprise party",
+    "bad": [
+     "a surprised party",
+     "a surprises party"
+    ]
+   }
+  },
+  "shake": {
+   "col": {
+    "ok": "shake hands",
+    "bad": [
+     "shake hand",
+     "shake hand's"
+    ]
+   }
+  },
+  "size": {
+   "col": {
+    "ok": "a bigger size",
+    "bad": [
+     "a more big size",
+     "a biger size"
+    ]
+   }
+  },
+  "attack": {
+   "col": {
+    "ok": "attack someone",
+    "bad": [
+     "attack to someone",
+     "attack at someone"
+    ]
+   }
+  },
+  "continue": {
+   "col": {
+    "ok": "continue to work",
+    "bad": [
+     "continue to working",
+     "continue of working"
+    ]
+   }
+  },
+  "go-out": {
+   "col": {
+    "ok": "go out for dinner",
+    "bad": [
+     "go out at dinner",
+     "go out for the dinners"
+    ]
+   }
+  },
+  "since": {
+   "col": {
+    "ok": "since last year",
+    "bad": [
+     "since last years",
+     "from since last year"
+    ]
+   }
+  },
+  "itself": {
+   "col": {
+    "ok": "by itself",
+    "bad": [
+     "by it's self",
+     "by its"
+    ]
+   }
+  },
+  "board": {
+   "col": {
+    "ok": "on the board",
+    "bad": [
+     "in the board",
+     "in board"
+    ]
+   }
+  },
+  "voice": {
+   "col": {
+    "ok": "in a loud voice",
+    "bad": [
+     "on a loud voice",
+     "by a loud voice"
+    ]
+   }
+  },
+  "oven": {
+   "col": {
+    "ok": "in the oven",
+    "bad": [
+     "at the ovens",
+     "at the oven"
+    ]
+   }
+  },
+  "soap": {
+   "col": {
+    "ok": "a bar of soap",
+    "bad": [
+     "a soaps",
+     "a bread of soap"
+    ]
+   }
+  },
+  "belong": {
+   "col": {
+    "ok": "belong to",
+    "bad": [
+     "belong of",
+     "belong at"
+    ]
+   }
+  },
+  "chip": {
+   "col": {
+    "ok": "fish and chips",
+    "bad": [
+     "fishes and chips",
+     "fish and the chips"
+    ]
+   }
+  },
+  "greedy": {
+   "col": {
+    "ok": "greedy for money",
+    "bad": [
+     "greedy of money",
+     "greedy at money"
+    ]
+   }
+  },
+  "violin": {
+   "col": {
+    "ok": "play the violin",
+    "bad": [
+     "play on violin",
+     "play violin the"
+    ]
+   }
+  },
+  "wood": {
+   "col": {
+    "ok": "a piece of wood",
+    "bad": [
+     "a wood piece",
+     "a wood's piece"
+    ]
+   }
+  },
+  "gate": {
+   "col": {
+    "ok": "at the gate",
+    "bad": [
+     "at gate the",
+     "in gate"
+    ]
+   }
+  },
+  "tram": {
+   "col": {
+    "ok": "by tram",
+    "bad": [
+     "in tram",
+     "with tram"
+    ]
+   }
+  },
+  "mention": {
+   "col": {
+    "ok": "mention something",
+    "bad": [
+     "mention about something",
+     "mention at something"
+    ]
+   }
+  },
+  "herself": {
+   "col": {
+    "ok": "by herself",
+    "bad": [
+     "by she",
+     "by hers"
+    ]
+   }
+  },
+  "somewhere": {
+   "col": {
+    "ok": "somewhere else",
+    "bad": [
+     "some where else",
+     "else somewhere"
+    ]
+   }
+  },
+  "onto": {
+   "col": {
+    "ok": "jump onto",
+    "bad": [
+     "jump onto on",
+     "jump into on"
+    ]
+   }
+  },
+  "available": {
+   "col": {
+    "ok": "available for",
+    "bad": [
+     "available at for",
+     "available of"
+    ]
+   }
+  }
+ },
  "units": [
   {
    "id": "a2p-ox-b1",
@@ -487,7 +761,7 @@
      "col": {
       "ok": "a sudden movement",
       "bad": [
-       "a sudden move",
+       "a suddenly movement",
        "a sudden moving"
       ]
      },
@@ -533,7 +807,7 @@
      "ipa": "/ˈɒfɪsə/",
      "pic": "👮",
      "vi": "cảnh sát, sĩ quan, cán bộ",
-     "en": "a police officer, or a person with a position of authority",
+     "en": "a person with authority in the police, the army or another organization",
      "ex": "A police officer helped the old man cross the road.",
      "exVi": "Một cảnh sát giúp ông cụ qua đường.",
      "cloze": {

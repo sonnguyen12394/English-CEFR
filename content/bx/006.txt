@@ -21,7 +21,7 @@ dazzle|The bright lights dazzled me.|dazzled|dazzled by the light|dazzled of the
 postcode|What is your postcode?|postcode|enter your postcode|write on your postcode|put your postcodes
 duvet|I need a warmer duvet for winter.|duvet|a warm duvet|a warmly duvet|a warm duvets
 fasten|Please fasten your seatbelts.|fasten|fasten your seatbelt|fast your seatbelt|fasten on your seatbelt
-talkative|She is very talkative today.|talkative|a talkative child|a talking child|a talkatively child
+talkative|She is very talkative today.|talkative|a talkative child|a talker child|a talkatively child
 influencer|She is a famous fashion influencer.|influencer|a social media influencer|a social media influence|a social medias influencer
 homesick|I felt homesick during my first year abroad.|homesick|feel homesick|feel homesickness|feel home sicken
 impair|Alcohol impairs your judgement.|impairs|impair your ability|impair on your ability|impair of your ability

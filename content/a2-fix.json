@@ -241,7 +241,7 @@
      "col": {
       "ok": "at the moment",
       "bad": [
-       "in this moment",
+       "at moment the",
        "on the moment"
       ]
      },
@@ -1070,7 +1070,7 @@
       "ok": "friendly to everyone",
       "bad": [
        "friendly for everyone",
-       "friend to everyone"
+       "friendly at everyone"
       ]
      },
      "exam": {
@@ -1957,7 +1957,7 @@
      "col": {
       "ok": "worry about",
       "bad": [
-       "worry for",
+       "worry with",
        "worry on"
       ]
      },

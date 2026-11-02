@@ -17,7 +17,7 @@ authorize|Who authorized this payment?|authorized|authorize a payment|authorize 
 compile|She compiled a list of names.|compiled|compile a list|compile on a list|compile of a list
 elevate|Exercise elevates your mood.|elevates|elevate your mood|elevate on your mood|elevate of your mood
 rumour|There's a rumour that he's leaving.|rumour|spread a rumour|throw a rumour|make on a rumour
-beneficiary|She is the main beneficiary of the will.|beneficiary|the main beneficiary|the mainly beneficiary|the main beneficiaries
+beneficiary|She is the main beneficiary of the will.|beneficiary|the main beneficiary|the mainly beneficiary|a main beneficiaries
 designate|The area was designated a national park.|designated|designate someone as|designate someone like|designate to someone as
 discard|Discard the old batteries safely.|Discard|discard rubbish|discard on rubbish|discard of rubbish
 eclectic|She has an eclectic taste in music.|eclectic|an eclectic mix|an eclectically mix|an eclectic mixes
@@ -39,14 +39,14 @@ counsellor|She talked to a school counsellor.|counsellor|a school counsellor|a s
 supervise|She supervises ten workers.|supervises|supervise staff|supervise on staff|supervise of staff
 allocate|Funds were allocated to schools.|allocated|allocate funds to|allocate funds for to|allocate funds at
 bolster|The win bolstered his confidence.|bolstered|bolster confidence|bolster on confidence|bolster of confidence
-complication|There were complications after the operation.|complications|serious complications|seriously complications|serious complication of
+complication|There were complications after the operation.|complications|serious complications|seriously complications|a serious complications
 linger|The smell lingered in the room.|lingered|linger on|linger in on|linger at on
 aspiration|She has aspirations to be a writer.|aspirations|aspirations to|aspirations for to|aspirations of to
 enrich|Travel enriches your life.|enriches|enrich your life|enrich on your life|enrich of your life
 incur|You will incur extra charges.|incur|incur costs|incur on costs|incur of costs
 reassure|The doctor reassured her.|reassured|reassure someone that|reassure to someone that|reassure on someone that
 a-ballpark-figure|Can you give me a ballpark figure?|a ballpark figure|a ballpark figure|a football figure|a ballpark number of
-constraint|We work under time constraints.|constraints|time constraints|times constraints|time constraint of
+constraint|We work under time constraints.|constraints|time constraints|times constraints|a time constraints
 refine|They refine oil here.|refine|refine a method|refine on a method|refine of a method
 tinker|He likes to tinker with old cars.|tinker|tinker with|tinker on|tinker at with
 encompass|The course encompasses all aspects of design.|encompasses|encompass a range|encompass on a range|encompass of a range
@@ -54,7 +54,7 @@ evoke|The song evokes happy memories.|evokes|evoke memories|evoke on memories|ev
 invoice|Please send us an invoice.|invoice|send an invoice|post on an invoice|give invoices
 privatization|The privatization of the railways was controversial.|privatization|the privatization of|the privatization for|the privatize of
 proclaim|He proclaimed his innocence.|proclaimed|proclaim independence|proclaim on independence|proclaim of independence
-youngster|The youngsters played football.|youngsters|local youngsters|locally youngsters|local youngster of
+youngster|The youngsters played football.|youngsters|local youngsters|locally youngsters|a local youngsters
 dismay|To my dismay, the shop was closed.|dismay|to my dismay|for my dismay|in my dismay
 widen|They are widening the road.|widening|widen a road|widen on a road|widen of a road
 conscientious|She is a conscientious worker.|conscientious|a conscientious student|a conscientiously student|a conscience student

@@ -81,7 +81,7 @@ S|reject|refuse|accept
 S|warn|alert|
 S|punish|discipline|reward
 S|locate|find|
-S|conclude|finish,end|begin
+S|conclude|deduce,infer|
 S|entertain|amuse|bore
 S|persuade|convince|
 S|explode|blow up|
@@ -106,7 +106,6 @@ S|deserve|merit|
 S|assume|suppose|
 S|conduct|carry out|
 S|grab|seize,grasp|
-S|suspect|doubt|
 S|rescue|save|
 S|rush|hurry|
 S|defend|protect|attack
@@ -115,16 +114,15 @@ S|select|choose|
 S|chase|pursue,follow|
 S|reveal|show,disclose|hide,conceal
 S|capture|catch|release
-S|decline|refuse|accept
+S|decline|fall,decrease|rise,increase
 S|delay|postpone|
 S|obtain|get,acquire|
 S|recall|remember|forget
 S|monitor|watch,check|
 S|regret|repent|
-S|settle|resolve|
 S|regard|consider|
 S|contribute|give|
-S|deny|refuse|admit
+S|deny||admit
 S|extend|lengthen|shorten
 S|praise|compliment|criticise
 S|ruin|destroy,spoil|
@@ -140,7 +138,6 @@ S|delete|remove,erase|
 S|generate|produce,create|
 S|demonstrate|show|
 S|resist|oppose|
-S|adopt|take up|
 S|preserve|protect,keep|destroy
 S|acknowledge|admit|deny
 S|cancel|call off|
@@ -151,9 +148,8 @@ S|resolve|solve,settle|
 S|retain|keep|lose
 S|eliminate|remove|
 S|acquire|get,obtain|lose
-S|heal|cure|
 S|urge|encourage|
-S|approve|accept|reject
+S|approve||reject
 S|adjust|change,adapt|
 S|scare|frighten|
 S|observe|watch|
@@ -168,7 +164,7 @@ S|inspire|motivate|
 S|negotiate|bargain|
 S|adapt|adjust|
 S|construct|build|destroy
-S|expose|reveal|hide
+S|expose||hide
 S|satisfy|please|
 S|oppose|resist|support
 S|arise|come up|
@@ -241,7 +237,6 @@ S|recruit|hire|
 S|consult|ask|
 S|regulate|control|
 S|clarify|explain|
-S|dismiss|reject|
 S|incorporate|include|exclude
 S|exploit|use|
 S|imply|suggest|
@@ -255,16 +250,14 @@ S|whisper|murmur|shout
 S|anticipate|expect|
 S|undertake|take on|
 S|integrate|combine|separate
-S|perceive|notice,see|
+S|perceive|see|
 S|accuse|blame|
 S|distract|divert|
 S|illustrate|show|
 S|emphasize|stress|
 S|reinforce|strengthen|weaken
-S|suspend|stop|
 S|cite|quote|
-S|stimulate|encourage|
-S|transmit|send|receive
+S|transmit||receive
 S|comprise|consist of|
 S|interrupt|cut in|
 S|isolate|separate|
@@ -281,7 +274,7 @@ S|unfold|develop|
 S|stride|march|
 S|compute|calculate|
 S|classify|sort,categorize|
-S|contradict|deny|confirm
+S|contradict||confirm
 S|signify|mean|
 S|infer|deduce|
 S|refute|disprove|prove

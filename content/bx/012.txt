@@ -1,7 +1,7 @@
 foul|The referee gave a foul.|foul|commit a foul|make on a foul|do a foul
 sophisticated|This is a sophisticated system.|sophisticated|sophisticated technology|sophisticatedly technology|sophisticate technology
 stance|What is your stance on this issue?|stance|take a stance on|make a stance on|do a stance on
-thesis|She is writing her thesis.|thesis|write a thesis|make a thesis|do a thesis on
+thesis|She is writing her thesis.|thesis|write a thesis|make a thesis|take a thesis
 warming|Global warming is a big problem.|warming|global warming|globally warming|global warm
 withdraw|I need to withdraw some money.|withdraw|withdraw money|withdraw on money|withdraw of money
 bite-your-tongue|I wanted to argue, but I bit my tongue.|bit my tongue|bite your tongue|bite your lips tongue|eat your tongue
@@ -52,7 +52,7 @@ overtime|I worked overtime last week.|overtime|work overtime|make overtime|do ov
 threaten|He threatened to leave.|threatened|threaten to do something|threaten doing something|threaten do something
 unconscious|He was unconscious for an hour.|unconscious|knocked unconscious|knock unconsciously|knocked unconsciousness
 workforce|The company has a large workforce.|workforce|a skilled workforce|a skill workforce|a skilled workforces
-norm|Working from home is now the norm.|norm|the norm|a norms|the norms of
+norm|Working from home is now the norm.|norm|the norm|a norms|a norms of
 exceed|Don't exceed the speed limit.|exceed|exceed the limit|exceed on the limit|exceed of the limit
 impose|The government imposed a new tax.|imposed|impose a tax on|impose a tax to|impose a tax at
 exotic|They grow exotic fruits.|exotic|exotic fruit|exotically fruit|exotics fruit
@@ -84,7 +84,7 @@ interpret|How do you interpret this poem?|interpret|interpret a dream|interpret 
 lid|Put the lid on the pot.|lid|put the lid on|put the lid in|put the lid at
 obesity|Obesity is a growing problem.|Obesity|childhood obesity|child obesity of|childhood obese
 suburb|They live in a quiet suburb.|suburb|in the suburbs|on the suburbs|at the suburbs
-microwave|Heat the soup in the microwave.|microwave|in the microwave|on the microwave|at the microwave
+microwave|Heat the soup in the microwave.|microwave|in the microwave|at the microwaves|at the microwave
 trillion|The project cost a trillion dong.|trillion|a trillion dollars|a trillions dollars|a trillion of dollars
 exclude|Children under 12 are excluded.|excluded|exclude someone from|exclude someone of|exclude someone at
 penguin|Penguins can't fly.|Penguins|a king penguin|a kings penguin|a king penguins
@@ -106,7 +106,7 @@ reckon|I reckon it will rain.|reckon|I reckon|I reckoned so of|I reckon on so
 cue|That was my cue to leave.|cue|on cue|in cue|at cue
 finite|Oil is a finite resource.|finite|a finite resource|a finitely resource|a finites resource
 rigid|The rules are too rigid.|rigid|rigid rules|rigidly rules|rigidity rules
-tray|She carried the cups on a tray.|tray|on a tray|in a tray|at a tray
+tray|She carried the cups on a tray.|tray|on a tray|on tray a|at a tray
 upwards|Prices are moving upwards.|upwards|move upwards|move upward of|move upwardly
 arrogant|He is arrogant and rude.|arrogant|an arrogant man|an arrogantly man|an arrogance man
 whisper|She whispered in my ear.|whispered|whisper in someone's ear|whisper on someone's ear|whisper at someone's ear
@@ -143,7 +143,7 @@ rash|The baby has a rash.|rash|a skin rash|a skins rash|a skin rashes
 stimulate|The aim is to stimulate growth.|stimulate|stimulate growth|stimulate on growth|stimulate of growth
 transmit|Mosquitoes transmit diseases.|transmit|transmit a disease|transmit on a disease|transmit of a disease
 tutor|She has a maths tutor.|tutor|a private tutor|a privately tutor|a private tutors
-circumstance|Under no circumstances should you open it.|circumstances|under no circumstances|in no circumstances|on no circumstances
+circumstance|Under no circumstances should you open it.|circumstances|under no circumstances|under no circumstance of|on no circumstances
 dictator|The dictator ruled for 30 years.|dictator|a military dictator|a militarily dictator|a military dictators
 disagreement|We had a disagreement about money.|disagreement|a disagreement about|a disagreement on about|a disagreement of
 remark|He made a rude remark.|remark|make a remark|do a remark|say a remark

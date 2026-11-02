@@ -3,18 +3,17 @@ S|long-standing|long-established|
 S|high-profile|prominent|
 S|large-scale|extensive|small-scale
 S|joint|shared|separate
-S|supreme|highest|
 S|dedicated|committed|
-S|exclusive|sole|inclusive
-S|regardless|anyway|
-S|superior|better|inferior
+S|exclusive||inclusive
+S|regardless|irrespective|
+S|superior||inferior
 S|merely|only,just|
 S|upcoming|forthcoming|
 S|alert|watchful|
 S|prominent|important|
 S|radical|extreme|moderate
 S|substantial|considerable|small
-S|awkward|clumsy|graceful
+S|awkward|embarrassing,uncomfortable|comfortable
 S|eligible|qualified|ineligible
 S|worthy|deserving|unworthy
 S|mature|grown-up|immature
@@ -30,7 +29,7 @@ S|chronic|persistent|acute
 S|solely|only|
 S|situated|located|
 S|consecutive|successive|
-S|endless|infinite|
+S|endless|constant,never-ending|
 S|anonymous|unnamed|
 S|beloved|dear|
 S|partial|incomplete|complete
@@ -45,10 +44,10 @@ S|meaningful|significant|meaningless
 S|alike|similar|different
 S|applicable|relevant|
 S|reportedly|allegedly|
-S|adjacent|next to,neighbouring|
-S|generic|general|specific
+S|adjacent|neighbouring|
+S|generic||specific
 S|humble|modest|arrogant
-S|minimal|minimum|maximal
+S|minimal|slight,small|maximal
 S|brutal|cruel|
 S|fatal|deadly|
 S|seemingly|apparently|
@@ -56,9 +55,8 @@ S|comparable|similar|
 S|frustrated|annoyed|
 S|glorious|magnificent|
 S|overwhelming|huge|
-S|subtle|delicate|obvious
+S|subtle|slight|obvious
 S|charming|delightful|
-S|freely|openly|
 S|hostile|unfriendly|friendly
 S|nationwide|national|local
 S|notable|remarkable|
@@ -74,13 +72,13 @@ S|eager|keen|reluctant
 S|passive|inactive|active
 S|thereby|thus|
 S|varied|diverse|
-S|accordingly|therefore|
+S|accordingly|appropriately|
 S|bizarre|strange,weird|normal
 S|namely|specifically|
 S|utterly|completely,totally|
 S|delicate|fragile|robust
 S|sheer|pure|
-S|stark|bare|
+S|stark|sharp|
 S|transparent|clear|opaque
 S|acute|severe|chronic
 S|crude|rough|refined
@@ -128,7 +126,6 @@ S|prestigious|respected|
 S|arbitrary|random|
 S|desirable|attractive|undesirable
 S|lengthy|long|brief
-S|inherent|built-in|
 S|notorious|infamous|
 S|straightforward|simple|complicated
 S|thoughtful|considerate|thoughtless
@@ -138,7 +135,7 @@ S|reluctant|unwilling|eager
 S|decisive|resolute|indecisive
 S|predominantly|mainly,mostly|
 S|thankfully|fortunately|
-S|credible|believable|incredible
+S|credible|believable|implausible
 S|insufficient|inadequate|sufficient
 S|forthcoming|upcoming|
 S|lifelong|lasting|
@@ -156,7 +153,7 @@ S|benign|harmless|malignant
 S|chilly|cold|warm
 S|concurrent|simultaneous|
 S|candid|frank|
-S|subordinate|junior|superior
+S|subordinate|secondary|superior
 S|negligible|insignificant|significant
 S|eclectic|varied|
 S|impoverished|poor|rich
@@ -249,7 +246,7 @@ S|commendable|praiseworthy|
 S|destitute|poor|wealthy
 S|outlandish|bizarre|
 S|egalitarian|equal|
-S|palatable|tasty|unpalatable
+S|palatable|edible,acceptable|unpalatable
 S|pompous|self-important|modest
 S|unequivocally|clearly|
 S|dilapidated|run-down|

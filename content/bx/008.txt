@@ -42,7 +42,7 @@ recover|He recovered quickly.|recovered|recover from an illness|recover of an il
 tale|She told us a tale about a dragon.|tale|a fairy tale|a fair tale|a fairy tales
 logo|The company changed its logo.|logo|a company logo|a companies logo|a company logos
 slip|Be careful not to slip.|slip|slip on the ice|slip in the ice|slip at the ice
-tap|Turn off the tap.|tap|turn off the tap|turn out the tap|turn down the tap
+tap|Turn off the tap.|tap|turn off the tap|turn out the tap|turn of the tap
 opera|We went to the opera.|opera|an opera house|an operas house|an opera houses of
 overcome|She overcame her fear.|overcame|overcome a problem|overcome on a problem|overcome of a problem
 passage|Read the passage and answer the questions.|passage|a short passage|a shortly passage|a short passages
@@ -120,12 +120,12 @@ notion|I have no notion of what he means.|notion|the notion of|the notion for|th
 rat|There's a rat in the kitchen!|rat|a rat trap|a rats trap|a rat traps of
 resolve|We resolved the problem.|resolved|resolve a conflict|resolve on a conflict|resolve of a conflict
 treasure|They found buried treasure.|treasure|buried treasure|bury treasure|buried treasures of
-creature|The ocean is full of strange creatures.|creatures|a living creature|a lively creature|a live creatures
+creature|The ocean is full of strange creatures.|creatures|a living creature|a livingly creature|a live creatures
 deadly|The virus is deadly.|deadly|a deadly disease|a deadlily disease|a dead disease
 moreover|The film is long. Moreover, it's boring.|Moreover|and moreover|and more over|and moreovers
-realistic|Be realistic about your goals.|realistic|a realistic goal|a realistically goal|a real goal
+realistic|Be realistic about your goals.|realistic|a realistic goal|a realistically goal|a realisticly goal
 retain|The company wants to retain its staff.|retain|retain information|retain on information|retain of information
-scratch|The cat scratched me.|scratched|scratch your head|scratch on your head|scratch at your head
+scratch|The cat scratched me.|scratched|scratch your head|scratch on your head|scratch of your head
 shade|Let's sit in the shade.|shade|in the shade|on the shade|at the shade
 teens|She is in her teens.|teens|in your teens|on your teens|at your teens
 crop|The farmers grow rice crops.|crops|grow crops|make crops|do crops

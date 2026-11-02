@@ -4,7 +4,7 @@ precise|Can you be more precise?|precise|precise details|precisely details|preci
 surgeon|The surgeon operated on her heart.|surgeon|a heart surgeon|a hearts surgeon|a heart surgeons
 visa|You need a visa to visit the USA.|visa|apply for a visa|apply a visa|ask on a visa
 curriculum|Music is part of the school curriculum.|curriculum|the school curriculum|the schools curriculum|the school curriculums of
-deadline|The deadline is Friday.|deadline|meet a deadline|reach on a deadline|make a deadline
+deadline|The deadline is Friday.|deadline|meet a deadline|reach on a deadline|do a deadline
 dive|He dived into the pool.|dived|dive into the water|dive in to the water|dive on the water
 heal|The cut healed quickly.|healed|heal quickly|heal quick|heal quickness
 nowadays|Nowadays, everyone has a phone.|Nowadays|nowadays|now a days|nowaday
@@ -66,7 +66,7 @@ firmly|Hold the rope firmly.|firmly|firmly believe|firm believe|firmly belief
 inspire|Her story inspired me.|inspired|inspire someone to do something|inspire someone doing something|inspire to someone
 lottery|He won the lottery.|lottery|win the lottery|gain the lottery|earn the lottery
 pause|There was a long pause.|pause|a short pause|a shortly pause|a short pauses
-bent|The old man was bent over.|bent|bent over|bend over|bended over of
+bent|The old man was bent over.|bent|bent over|bented over|bended over of
 negotiate|They negotiated a new contract.|negotiated|negotiate a deal|negotiate on a deal|negotiate of a deal
 steep|The hill is very steep.|steep|a steep hill|a steeply hill|a steep hills
 adapt|You need to adapt to the new culture.|adapt|adapt to|adapt with|adapt on

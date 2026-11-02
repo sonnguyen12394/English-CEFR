@@ -3,8 +3,8 @@
 "w": {
 "big": {
 "syn": [
-"huge",
-"large"
+"large",
+"huge"
 ],
 "ant": [
 "small"
@@ -87,17 +87,13 @@
 ]
 },
 "bad": {
-"syn": [
-"awful"
-],
+"syn": [],
 "ant": [
 "good"
 ]
 },
 "fast": {
-"syn": [
-"quick"
-],
+"syn": [],
 "ant": [
 "slow"
 ]
@@ -110,9 +106,7 @@
 ]
 },
 "quick": {
-"syn": [
-"fast"
-],
+"syn": [],
 "ant": [
 "slow"
 ]
@@ -412,8 +406,8 @@
 },
 "correct": {
 "syn": [
-"exact",
-"right"
+"right",
+"exact"
 ],
 "ant": [
 "wrong"
@@ -701,7 +695,7 @@
 },
 "finish": {
 "syn": [
-"end"
+"complete"
 ],
 "ant": [
 "begin",
@@ -718,9 +712,7 @@
 ]
 },
 "end": {
-"syn": [
-"finish"
-],
+"syn": [],
 "ant": [
 "begin"
 ]
@@ -1157,17 +1149,13 @@
 ]
 },
 "little": {
-"syn": [
-"small"
-],
+"syn": [],
 "ant": [
 "much"
 ]
 },
 "all": {
-"syn": [
-"whole"
-],
+"syn": [],
 "ant": [
 "none"
 ]
@@ -1235,7 +1223,8 @@
 },
 "normal": {
 "syn": [
-"ordinary"
+"natural",
+"usual"
 ],
 "ant": []
 },
@@ -1265,7 +1254,7 @@
 },
 "whole": {
 "syn": [
-"all"
+"entire"
 ],
 "ant": []
 },
@@ -1365,7 +1354,7 @@
 },
 "nice": {
 "syn": [
-"kind"
+"good"
 ],
 "ant": []
 },
@@ -1390,19 +1379,13 @@
 },
 "attractive": {
 "syn": [
-"beautiful"
+"appealing"
 ],
 "ant": []
 },
 "angry": {
 "syn": [
 "cross"
-],
-"ant": []
-},
-"cross": {
-"syn": [
-"angry"
 ],
 "ant": []
 },
@@ -1424,12 +1407,6 @@
 ],
 "ant": []
 },
-"likely": {
-"syn": [
-"probably"
-],
-"ant": []
-},
 "certainly": {
 "syn": [
 "definitely"
@@ -1445,12 +1422,6 @@
 "unusual": {
 "syn": [
 "strange"
-],
-"ant": []
-},
-"speak": {
-"syn": [
-"talk"
 ],
 "ant": []
 },
@@ -1474,13 +1445,7 @@
 },
 "want": {
 "syn": [
-"wish"
-],
-"ant": []
-},
-"wish": {
-"syn": [
-"want"
+"would like"
 ],
 "ant": []
 },
@@ -1517,12 +1482,6 @@
 "shop": {
 "syn": [
 "store"
-],
-"ant": []
-},
-"store": {
-"syn": [
-"shop"
 ],
 "ant": []
 },
@@ -1598,12 +1557,6 @@
 ],
 "ant": []
 },
-"centre": {
-"syn": [
-"middle"
-],
-"ant": []
-},
 "middle": {
 "syn": [
 "centre"
@@ -1616,21 +1569,9 @@
 ],
 "ant": []
 },
-"dish": {
-"syn": [
-"plate"
-],
-"ant": []
-},
 "autumn": {
 "syn": [
 "fall"
-],
-"ant": []
-},
-"fall": {
-"syn": [
-"autumn"
 ],
 "ant": []
 },
@@ -1643,18 +1584,6 @@
 "truck": {
 "syn": [
 "lorry"
-],
-"ant": []
-},
-"also": {
-"syn": [
-"too"
-],
-"ant": []
-},
-"too": {
-"syn": [
-"also"
 ],
 "ant": []
 },
@@ -1684,7 +1613,8 @@
 },
 "major": {
 "syn": [
-"main"
+"big",
+"serious"
 ],
 "ant": []
 }

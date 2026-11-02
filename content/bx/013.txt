@@ -15,18 +15,18 @@ motivate|A good teacher motivates students.|motivates|motivate someone to do som
 grin|He grinned at me.|grinned|grin at someone|grin to someone|grin on someone
 rib|He broke a rib.|rib|break a rib|broke on a rib|crack on rib
 ambiguous|The question was ambiguous.|ambiguous|an ambiguous answer|an ambiguously answer|an ambiguity answer
-de-facto|He is the de facto leader.|de facto|the de facto leader|the de facto leaders of|the de factor leader
+de-facto|He is the de facto leader.|de facto|the de facto leader|the de facto's leader|the de factor leader
 discourage|Don't let failure discourage you.|discourage|discourage someone from|discourage someone of|discourage someone to from
 a-blessing-in-disguise|Losing that job was a blessing in disguise.|a blessing in disguise|a blessing in disguise|a blessing in hiding|a blessing on disguise
 catastrophe|The flood was a catastrophe.|catastrophe|a natural catastrophe|a naturally catastrophe|a nature catastrophes
 lucrative|It's a lucrative business.|lucrative|a lucrative contract|a lucratively contract|a lucre contract
 mango|I love mango juice.|mango|a ripe mango|a ripely mango|a ripe mangoes
 outskirts|They live on the outskirts of Hanoi.|outskirts|on the outskirts of|in the outskirts of on|at the outskirts from
-bureaucracy|There is too much bureaucracy.|bureaucracy|government bureaucracy|governmental bureaucracies of|government bureaucrat
+bureaucracy|There is too much bureaucracy.|bureaucracy|government bureaucracy|governmental bureaucracies of|government's bureaucracys
 fragment|We found fragments of glass.|fragments|a fragment of|a fragment from|a fragments of
 fulfil|She fulfilled her dream.|fulfilled|fulfil a dream|fulfil on a dream|fulfil of a dream
 plum|The plums are ripe.|plums|a ripe plum|a ripely plum|a ripe plums
-pastoral|The painting shows a pastoral scene.|pastoral|a pastoral scene|a pastorally scene|a pasture scene
+pastoral|The painting shows a pastoral scene.|pastoral|a pastoral scene|a pastorally scene|a pastoral's scene
 conversely|Conversely, some people disagree.|Conversely|and conversely|and converse|and conversation
 devote|She devoted her life to helping others.|devoted|devote your time to|devote your time for|devote your time on
 timeless|The song is timeless.|timeless|a timeless classic|a timelessly classic|a timelessness classic
@@ -91,7 +91,7 @@ infer|What can you infer from the text?|infer|infer from|infer of|infer on from
 stepmother|She lives with her father and stepmother.|stepmother|a wicked stepmother|a wickedly stepmother|a wicked stepmothers
 refute|He refuted the claims.|refuted|refute a claim|refute on a claim|refute of a claim
 dormitory|Students live in the dormitory.|dormitory|a student dormitory|a students dormitory|a student dormitories
-leaflet|They gave out leaflets in the street.|leaflets|hand out leaflets|hand in leaflets|give on leaflets
+leaflet|They gave out leaflets in the street.|leaflets|hand out leaflets|hand at leaflets|give on leaflets
 frugal|They live a frugal life.|frugal|a frugal lifestyle|a frugally lifestyle|a frugality lifestyle
 protester|Protesters gathered outside the building.|Protesters|peaceful protesters|peacefully protesters|peace protesters
 inert|Helium is an inert gas.|inert|an inert gas|an inertly gas|an inertia gas
@@ -102,7 +102,7 @@ bossy|My sister is very bossy.|bossy|a bossy person|a bossily person|a boss pers
 deduce|What can we deduce from this?|deduce|deduce from|deduce of|deduce on from
 erupt|The volcano erupted in 2010.|erupted|a volcano erupts|a volcano erupts out|a volcano erupted on
 gleam|Her eyes gleamed with joy.|gleamed|gleam with|gleam of|gleam on with
-sociable|She is friendly and sociable.|sociable|a sociable person|a sociably person|a social person
+sociable|She is friendly and sociable.|sociable|a sociable person|a sociably person|a sociability person
 firework|We watched the fireworks at New Year.|fireworks|a firework display|a fireworks displays|a firework displaying
 sonnet|Shakespeare wrote many sonnets.|sonnets|write a sonnet|make a sonnet|do a sonnet
 murmur|There was a murmur of agreement.|murmur|a murmur of|a murmur from|a murmurs of
@@ -118,7 +118,7 @@ set-up|The set-up of the room is perfect.|set-up|the office set-up|the offices s
 line-up|The festival has a great line-up.|line-up|a star line-up|a stars line-up|a star line-ups
 play-down|The government played down the problem.|played down|play down a problem|play off a problem|play out a problem
 hand-over|He handed over the keys.|handed over|hand over power|hand off power|hand out power
-level-off|Prices have levelled off.|levelled off|prices level off|prices level out of|prices level up off
+level-off|Prices have levelled off.|levelled off|prices level off|prices level at off|prices level up off
 account-for|Students account for half the population.|account for|account for a large part|account on a large part|account to a large part
 hold-up|Sorry I'm late. I was held up in traffic.|held up|held up in traffic|held on in traffic|held off in traffic
 post-war|Life was hard in the post-war years.|post-war|the post-war period|the post-wars period|the post-war periods of

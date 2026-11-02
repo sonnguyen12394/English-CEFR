@@ -33,15 +33,15 @@ contagious|Laughter is contagious.|contagious|a contagious disease|a contagiousl
 combustion|The engine works by combustion.|combustion|internal combustion|internally combustion|internal combust
 metropolis|Tokyo is a huge metropolis.|metropolis|a busy metropolis|a busily metropolis|a busy metropolises
 consulate|She went to the consulate for a visa.|consulate|the British consulate|the Britain consulate|the British consulates
-culinary|Hanoi is famous for its culinary traditions.|culinary|culinary skills|culinarily skills|culinary skill of
+culinary|Hanoi is famous for its culinary traditions.|culinary|culinary skills|culinarily skills|a culinary skills
 din|I couldn't hear above the din.|din|above the din|over the dins|on the din
 the-thin-end-of-the-wedge|Some people think the new tax is the thin end of the wedge.|the thin end of the wedge|the thin end of the wedge|the thick end of the wedge|the thin side of the wedge
 curator|The curator showed us the paintings.|curator|a museum curator|a museums curator|a museum curators
-plaintiff|The plaintiff won the case.|plaintiff|the plaintiff and the defendant|the plaintiffs and the defendant|the plaintiff with defendant
+plaintiff|The plaintiff won the case.|plaintiff|the plaintiff and the defendant|the plaintive and the defendant|the plaintiff with defendant
 replicate|Scientists couldn't replicate the results.|replicate|replicate results|replicate on results|replicate of results
 hoax|The bomb threat was a hoax.|hoax|a hoax call|a hoaxes call|a hoax calls
 residue|There was a sticky residue on the table.|residue|a sticky residue|a stickily residue|a sticky residues
-dosage|Follow the recommended dosage.|dosage|the recommended dosage|the recommend dosage|the recommended dosages
+dosage|Follow the recommended dosage.|dosage|the recommended dosage|the recommend dosage|a recommended dosages
 fauna|The local fauna includes monkeys.|fauna|local fauna|locally fauna|local faunas
 off-the-cuff|He made an off-the-cuff remark.|off the cuff|speak off the cuff|speak out of the cuff|speak on the cuff
 perennial|Traffic is a perennial problem.|perennial|a perennial problem|a perennially problem|a perennials problem
@@ -60,15 +60,15 @@ plight|The film shows the plight of refugees.|plight|the plight of|the plight fr
 abiding|She has an abiding love of music.|abiding|an abiding interest|an abidingly interest|an abide interest
 crocodile-tears|He shed crocodile tears.|crocodile tears|shed crocodile tears|cry crocodile tear|shed alligator tears
 implicit|There was an implicit threat.|implicit|an implicit agreement|an implicitly agreement|an implicate agreement
-liquidity|The bank has liquidity problems.|liquidity|liquidity problems|liquid problems of|liquidity problem of
+liquidity|The bank has liquidity problems.|liquidity|liquidity problems|liquid problems of|a liquidity problems
 nostalgic|The song makes me feel nostalgic.|nostalgic|feel nostalgic|feel nostalgia nostalgic|feel nostalgically
-qualitative|It was a qualitative study.|qualitative|qualitative research|qualitatively research|quality research of
+qualitative|It was a qualitative study.|qualitative|qualitative research|qualitatively research|a qualitative researches
 rendition|She sang a beautiful rendition of the song.|rendition|a rendition of|a rendition from|a renditions of
 inadvertently|I inadvertently deleted the file.|inadvertently|inadvertently delete|inadvertent delete|inadvertently deletion
 bleak|The future looks bleak.|bleak|a bleak future|a bleakly future|a bleak futures
 lavish|They had a lavish wedding.|lavish|a lavish party|a lavishly party|a lavishness party
 ubiquitous|Smartphones are ubiquitous.|ubiquitous|ubiquitous technology|ubiquitously technology|ubiquity technology
-austerity|The government introduced austerity measures.|austerity|austerity measures|austere measures|austerity measure of
+austerity|The government introduced austerity measures.|austerity|austerity measures|austerely measures|an austerity measures
 emulate|She tries to emulate her sister.|emulate|emulate someone|emulate to someone|emulate on someone
 ad-hoc|They formed an ad hoc committee.|ad hoc|an ad hoc committee|an ad hock committee|an ad hoc committees
 embark-on|She embarked on a new career.|embarked on|embark on a career|embark at a career|embark in a career on

@@ -48,7 +48,7 @@ slightly|The price is slightly higher this year.|slightly|slightly different|sli
 treat|They treat their workers well.|treat|treat someone badly|treat someone bad|treat to someone badly
 appreciate|I really appreciate your help.|appreciate|really appreciate|real appreciate|really appreciation
 edge|Don't stand near the edge.|edge|on the edge of|in the edge of|at edge of the
-forever|I will love you forever.|forever|last forever|last for ever more|last forevers
+forever|I will love you forever.|forever|last forever|last for the ever|last forevers
 iron|I need to iron my shirt.|iron|iron a shirt|iron on a shirt|make iron a shirt
 mad|My mum will be mad at me.|mad|mad at someone|mad on someone|mad to someone
 per-cent|Ten per cent of the students are absent.|per cent|fifty per cent|fifty per cents|fifty percents of
@@ -61,7 +61,7 @@ port|The ship arrived at the port.|port|a busy port|a busily port|a busy ports
 shoot|He shot the ball into the goal.|shot|shoot a film|shoot on a film|take shoot a film
 solid|The ice is solid now.|solid|solid food|solidly food|solids food
 emergency|In an emergency, call 115.|emergency|in an emergency|at an emergency|on an emergency
-fuel|The car is running out of fuel.|fuel|save fuel|keep fuels|safe fuel
+fuel|The car is running out of fuel.|fuel|save fuel|keep fuels|safe of fuel
 plenty|There's plenty of time.|plenty|plenty of food|plenty food|a plenty food
 prince|The prince married a teacher.|prince|a young prince|a youngly prince|a prince young
 proper|You need proper shoes for hiking.|proper|a proper meal|a properly meal|a propriety meal
@@ -70,7 +70,7 @@ duty|It's my duty to help.|duty|on duty|in duty|at duty
 mix|Mix the eggs and the flour.|Mix|mix A with B|mix A by B|mix A to B
 path|Follow the path through the forest.|path|follow a path|go a path|walk a path on
 pay-rise|I asked my boss for a pay rise.|pay rise|ask for a pay rise|ask a pay rise for|demand of a pay rise
-border|We crossed the border into Laos.|border|cross the border|across the border|pass over the border to
+border|We crossed the border into Laos.|border|cross the border|cross over border to|pass over the border to
 enemy|He has no enemies.|enemies|make enemies|do enemies|create enemies with
 limit|There is a time limit of one hour.|limit|a speed limit|a speeding limit|a fast limit
 see-eye-to-eye|My parents don't always see eye to eye.|see eye to eye|see eye to eye on something|see eyes to eyes on something|look eye to eye on something
@@ -90,7 +90,7 @@ escape|The prisoner escaped from the prison.|escaped|escape from|escape out of f
 lay|Lay the baby on the bed.|Lay|lay an egg|lie an egg|lay on an egg
 properly|Close the door properly.|properly|work properly|work proper|work property
 split-up|They split up after five years.|split up|split up with someone|split off with someone|split down with someone
-talent|She has a talent for music.|talent|a talent for|a talent in|a talent of for
+talent|She has a talent for music.|talent|a talent for|a talents for|a talent of for
 obvious|The answer is obvious.|obvious|an obvious mistake|an obviously mistake|an obviousness mistake
 stadium|The stadium holds 40,000 people.|stadium|a football stadium|a football stadiums|a footballing stadium
 editor|She works as an editor for a magazine.|editor|a newspaper editor|a newspaper editing|a news editors

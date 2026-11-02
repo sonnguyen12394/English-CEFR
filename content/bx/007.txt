@@ -73,7 +73,7 @@ mount|Pressure is mounting.|mounting|mounting pressure|mount pressure|mounted pr
 proposal|They accepted our proposal.|proposal|make a proposal|do a proposal|take a proposal
 reputation|The hotel has a good reputation.|reputation|a good reputation|a well reputation|a good reputations
 bound|It's bound to rain.|bound|bound to happen|bound happen|bound for happen
-elsewhere|Let's go elsewhere.|elsewhere|somewhere elsewhere|go elsewhere|go elsewheres
+elsewhere|Let's go elsewhere.|elsewhere|go elsewhere|go to elsewhere|go elsewheres
 establish|The company was established in 1990.|established|establish a company|establish on a company|establish of a company
 hip|She hurt her hip.|hip|break your hip|broke on your hip|crack on hip
 loose|These trousers are too loose.|loose|loose clothes|loosely clothes|lose clothes
@@ -90,14 +90,14 @@ chase|The dog chased the cat.|chased|chase after|chase to after|chase on after
 deeply|I'm deeply sorry.|deeply|deeply moved|deep moved|deeply moving of
 guarantee|The TV has a two-year guarantee.|guarantee|a money-back guarantee|a monies-back guarantee|a money-back guarantees
 rank|He reached the rank of captain.|rank|high rank|tall rank|highly rank
-shadow|The tree cast a long shadow.|shadow|cast a shadow|throw on a shadow|make a shadow
+shadow|The tree cast a long shadow.|shadow|cast a shadow|throw on a shadow|do a shadow
 naked|The baby was naked.|naked|the naked eye|the nakedly eye|the naked eyes of
 plain|She wore a plain white shirt.|plain|plain English|plainly English|plain Englishes
 reveal|He revealed the truth.|revealed|reveal a secret|reveal on a secret|reveal of a secret
 wire|Don't touch the wire.|wire|an electric wire|an electricity wires|an electric wires
 afterwards|We had dinner and went home afterwards.|afterwards|soon afterwards|soon afterward of|soonly afterwards
 capture|The police captured the thief.|captured|capture the moment|capture on the moment|capture of the moment
-comic|He reads comics.|comics|a comic book|a comics book|a comical book
+comic|He reads comics.|comics|a comic book|a comics book|a comicly book
 efficient|This heater is very efficient.|efficient|energy efficient|energy efficiency|energy efficiently
 kit|Bring a first aid kit.|kit|a first aid kit|a first aids kit|a first aid kits
 whoever|Whoever wins will get a prize.|Whoever|whoever you are|who ever you are|whoever are you

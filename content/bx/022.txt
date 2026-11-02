@@ -36,7 +36,7 @@ apprehension|She felt some apprehension about the trip.|apprehension|apprehensio
 dichotomy|There is a dichotomy between theory and practice.|dichotomy|a dichotomy between|a dichotomy among between|a dichotomies between
 diminutive|She is a diminutive woman.|diminutive|a diminutive figure|a diminutively figure|a diminish figure
 lukewarm|The coffee is lukewarm.|lukewarm|a lukewarm response|a lukewarmly response|a lukewarmness response
-nuance|He understands every nuance of the language.|nuance|subtle nuances|subtly nuances|subtle nuance of
+nuance|He understands every nuance of the language.|nuance|subtle nuances|subtly nuances|a subtle nuances
 outcast|He felt like an outcast.|outcast|a social outcast|a socially outcast|a social outcasts
 automate|The factory automated the process.|automated|automate a process|automate on a process|automate of a process
 henceforth|Henceforth, the shop will open at nine.|Henceforth|henceforth|hence forth on|henceforward on

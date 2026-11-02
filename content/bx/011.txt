@@ -11,7 +11,7 @@ evolution|Darwin wrote about evolution.|evolution|the theory of evolution|the th
 institution|The bank is a financial institution.|institution|a financial institution|a financially institution|a finance institutions
 priority|Safety is our top priority.|priority|a top priority|a topped priority|a top priorities
 whereas|He likes tea, whereas his wife likes coffee.|whereas|whereas|where as|whereas that
-bid|They made a bid for the house.|bid|make a bid|do a bid|take a bid
+bid|They made a bid for the house.|bid|make a bid|do a bid|give a bids
 decent|He earns a decent salary.|decent|a decent salary|a decently salary|a decency salary
 landing|The plane made a safe landing.|landing|a safe landing|a safely landing|a safe landings
 ownership|Home ownership is rising.|ownership|home ownership|home owner of|homes ownership
@@ -52,7 +52,7 @@ ongoing|The investigation is ongoing.|ongoing|an ongoing problem|an ongoingly pr
 database|The information is stored in a database.|database|a large database|a largely database|a large databases
 disorder|She has an eating disorder.|disorder|an eating disorder|an eat disorder|an eaten disorder
 dynamic|She is a dynamic leader.|dynamic|a dynamic person|a dynamically person|a dynamics person
-psychology|She studied psychology at university.|psychology|child psychology|children psychology of|child psychologist
+psychology|She studied psychology at university.|psychology|child psychology|children psychology of|child's psychologies
 rocket|They launched a rocket into space.|rocket|launch a rocket|throw a rocket|start a rockets
 intellectual|He enjoys intellectual conversations.|intellectual|intellectual property|intellectually property|intellect property
 certificate|You will get a certificate at the end.|certificate|a birth certificate|a born certificate|a births certificate
@@ -65,7 +65,7 @@ spare|Do you have a spare pen?|spare|spare time|sparely time|spare times of
 submit|Submit your application by Friday.|Submit|submit an application|submit on an application|submit of an application
 auction|The painting was sold at auction.|auction|at auction|in auction|on auction
 hilarious|The film was hilarious.|hilarious|a hilarious story|a hilariously story|a hilarity story
-margin|Write notes in the margin.|margin|in the margin|on the margin|at the margin
+margin|Write notes in the margin.|margin|in the margin|in margin the|at the margin
 mechanism|The mechanism is very simple.|mechanism|a safety mechanism|a safe mechanism|a safety mechanisms
 parallel|The two roads are parallel.|parallel|parallel to|parallel with to|parallel of
 stroke|My grandfather had a stroke.|stroke|have a stroke|make a stroke|do a stroke

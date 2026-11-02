@@ -74,11 +74,11 @@
 ]
 },
 "mean": {
-"vi": "có ý là, nghĩa là",
-"ex": "What does this word mean?",
-"exVi": "Từ này nghĩa là gì?",
+"vi": "xấu tính",
+"ex": "Don't be mean to your little brother.",
+"exVi": "Đừng xấu tính với em trai.",
 "w": [
-"keo kiệt",
+"có nghĩa là",
 "nói to"
 ]
 },
@@ -137,7 +137,7 @@
 ]
 },
 "date": {
-"vi": "quả chà là / cuộc hẹn hò",
+"vi": "cuộc hẹn hò",
 "ex": "They went on a date to the cinema.",
 "exVi": "Họ hẹn hò đi xem phim.",
 "w": [
@@ -182,20 +182,20 @@
 ]
 },
 "order": {
-"vi": "gọi món",
-"ex": "Are you ready to order?",
-"exVi": "Anh chị gọi món chưa?",
+"vi": "thứ tự",
+"ex": "Put the words in the correct order.",
+"exVi": "Xếp các từ theo đúng thứ tự.",
 "w": [
-"thứ tự",
+"gọi món",
 "mệnh lệnh"
 ]
 },
 "bill": {
-"vi": "hoá đơn tính tiền",
-"ex": "Can we have the bill, please?",
-"exVi": "Cho chúng tôi xin hoá đơn.",
+"vi": "tờ tiền giấy (Mỹ)",
+"ex": "He paid with a twenty-dollar bill.",
+"exVi": "Anh ấy trả bằng một tờ hai mươi đô.",
 "w": [
-"tờ tiền",
+"hoá đơn",
 "thực đơn"
 ]
 },
@@ -263,21 +263,21 @@
 ]
 },
 "present": {
-"vi": "món quà",
-"ex": "Thank you for the lovely present!",
-"exVi": "Cảm ơn món quà xinh xắn!",
+"vi": "có mặt",
+"ex": "All the students were present at the meeting.",
+"exVi": "Tất cả học sinh đều có mặt ở buổi họp.",
 "w": [
-"hiện tại",
-"có mặt"
+"món quà",
+"hiện tại"
 ]
 },
 "ground": {
-"vi": "mặt đất",
-"ex": "The ball fell on the ground.",
-"exVi": "Quả bóng rơi xuống đất.",
+"vi": "sân (thể thao)",
+"ex": "The players are training at the football ground.",
+"exVi": "Các cầu thủ đang tập ở sân bóng.",
 "w": [
-"tầng trệt",
-"sân vận động"
+"mặt đất",
+"tầng trệt"
 ]
 },
 "point": {
@@ -317,7 +317,7 @@
 ]
 },
 "back": {
-"vi": "ủng hộ / lưng",
+"vi": "lưng",
 "ex": "My back hurts after work.",
 "exVi": "Lưng tôi đau sau giờ làm.",
 "w": [
@@ -335,11 +335,11 @@
 ]
 },
 "stamp": {
-"vi": "con tem",
-"ex": "I need a stamp for this letter.",
-"exVi": "Tôi cần một con tem cho lá thư này.",
+"vi": "dậm (chân)",
+"ex": "Don't stamp your feet on the floor!",
+"exVi": "Đừng dậm chân xuống sàn!",
 "w": [
-"dậm chân",
+"con tem",
 "phong bì"
 ]
 },
@@ -398,11 +398,11 @@
 ]
 },
 "still": {
-"vi": "vẫn (còn)",
-"ex": "She is still at school.",
-"exVi": "Cô ấy vẫn còn ở trường.",
+"vi": "đứng yên",
+"ex": "Keep still while I take your photo.",
+"exVi": "Đứng yên để tôi chụp ảnh cho bạn.",
 "w": [
-"yên lặng",
+"vẫn còn",
 "đã"
 ]
 },
@@ -416,12 +416,12 @@
 ]
 },
 "spring": {
-"vi": "mùa xuân / lò xo",
-"ex": "Flowers grow in spring.",
-"exVi": "Hoa mọc vào mùa xuân.",
+"vi": "lò xo",
+"ex": "The old bed has a broken spring.",
+"exVi": "Cái giường cũ bị gãy một lò xo.",
 "w": [
-"nhảy",
-"mùa hè"
+"mùa xuân",
+"cái gối"
 ]
 },
 "fall": {
@@ -443,20 +443,20 @@
 ]
 },
 "type": {
-"vi": "đánh máy, gõ",
-"ex": "Can you type your name here?",
-"exVi": "Bạn gõ tên vào đây được không?",
+"vi": "loại, kiểu",
+"ex": "This type of phone is very popular.",
+"exVi": "Loại điện thoại này rất phổ biến.",
 "w": [
-"loại",
+"gõ chữ",
 "viết tay"
 ]
 },
 "class": {
-"vi": "lớp học (giờ học)",
-"ex": "My English class starts at nine.",
-"exVi": "Giờ học tiếng Anh của tôi bắt đầu lúc chín giờ.",
+"vi": "hạng (vé, ghế)",
+"ex": "We flew economy class to Bangkok.",
+"exVi": "Chúng tôi bay hạng phổ thông đến Bangkok.",
 "w": [
-"hạng",
+"lớp học",
 "phòng ngủ"
 ]
 },
@@ -506,11 +506,11 @@
 ]
 },
 "mind": {
-"vi": "phiền (không)",
-"ex": "Do you mind if I open the window?",
-"exVi": "Bạn có phiền không nếu tôi mở cửa sổ?",
+"vi": "tâm trí",
+"ex": "Exercise is good for body and mind.",
+"exVi": "Tập thể dục tốt cho cả cơ thể lẫn tâm trí.",
 "w": [
-"tâm trí",
+"phiền",
 "nhớ"
 ]
 }

@@ -10,7 +10,7 @@ ferry|We took the ferry to the island.|ferry|take the ferry|ride on the ferry ta
 lamb|We had roast lamb for dinner.|lamb|roast lamb|roasted lambs|roasting lamb of
 warn|I warned you about the weather.|warned|warn someone about|warn someone of about|warn to someone
 disk|Save it on the hard disk.|disk|a hard disk|a hardly disk|a hard disks
-nephew|My nephew is six years old.|nephew|my little nephew|my littler nephew|my small nephews
+nephew|My nephew is six years old.|nephew|my little nephew|my littler nephew|my nephew little
 salmon|We had grilled salmon.|salmon|grilled salmon|grill salmons|grilling salmon of
 cottage|They rent a cottage by the lake.|cottage|a country cottage|a countryside cottages|a countries cottage
 indirect|The questions were indirect.|indirect|an indirect question|an indirectly question|a nondirect question
@@ -49,13 +49,13 @@ turtle|The turtle laid its eggs on the beach.|turtle|a sea turtle|a seas turtle|
 chorus|Everyone sang the chorus.|chorus|sing the chorus|say the chorus|make the chorus
 conclude|The police concluded that it was an accident.|concluded|conclude that|conclude about that|conclude of that
 peanut|He is allergic to peanuts.|peanuts|peanut butter|peanuts butter|peanut butters
-striker|The striker scored two goals.|striker|a striker scores|a striker does score|a striker makes
+striker|The striker scored two goals.|striker|a striker scores|a striker score|a striker makes
 unemployed|He has been unemployed for a year.|unemployed|unemployed people|unemploy people|unemployment people
 moss|Moss grows on the old wall.|Moss|covered in moss|covered on moss|covered at moss
 headphones|Put on your headphones.|headphones|a pair of headphones|a pair of headphone|a couple headphones
-qualification|You need a teaching qualification.|qualification|get a qualification|take a qualification|make a qualification
+qualification|You need a teaching qualification.|qualification|get a qualification|win a qualification|make a qualification
 shiny|He has a shiny new car.|shiny|shiny hair|shinily hair|shine hair
-whistle|The referee blew his whistle.|whistle|blow a whistle|play a whistle|make on a whistle
+whistle|The referee blew his whistle.|whistle|blow a whistle|hit a whistle|make on a whistle
 alley|The shop is down a narrow alley.|alley|a narrow alley|a narrowly alley|a narrow alleys
 forehead|He has a scar on his forehead.|forehead|on your forehead|in your forehead|at your forehead
 ant|There are ants in the kitchen.|ants|an ant colony|an ants colony|an ant colonies
@@ -64,15 +64,15 @@ curtain|Close the curtains, please.|curtains|close the curtains|shut on the curt
 diagram|Look at the diagram on page 5.|diagram|draw a diagram|make on a diagram|paint a diagram
 swamp|Crocodiles live in the swamp.|swamp|a mangrove swamp|a mangroves swamp|a mangrove swamps
 entertain|The clown entertained the children.|entertained|entertain guests|entertain to guests|entertain on guests
-niece|My niece is starting school.|niece|my little niece|my littler niece|my small nieces
+niece|My niece is starting school.|niece|my little niece|my littler niece|my niece little
 persuade|She persuaded me to go.|persuaded|persuade someone to do something|persuade someone doing something|persuade someone do something
-competitor|They are our main competitor.|competitor|a main competitor|a mainly competitor|a main competition
+competitor|They are our main competitor.|competitor|a main competitor|a mainly competitor|a mains competitor
 explode|The bomb exploded.|exploded|explode with anger|explode of anger|explode by anger
 luggage|How much luggage do you have?|luggage|a piece of luggage|a luggage|many luggages
 spicy|I love spicy food.|spicy|spicy food|spice food|spicily food
 wardrobe|Hang your clothes in the wardrobe.|wardrobe|in the wardrobe|on the wardrobe|at the wardrobes
 goalkeeper|The goalkeeper saved the penalty.|goalkeeper|the goalkeeper saved|the goalkeeper caught on|the goal keeper keep
-imaginary|Many children have an imaginary friend.|imaginary|an imaginary friend|an imaginative friend|an imagine friend
+imaginary|Many children have an imaginary friend.|imaginary|an imaginary friend|an imaginery friend|an imagine friend
 backpack|I carry my laptop in a backpack.|backpack|carry a backpack|bring on a backpacks|take a backpacks
 queue|There was a long queue at the bank.|queue|a long queue|a longly queue|a long queues
 stubborn|My brother is very stubborn.|stubborn|as stubborn as a mule|as stubborn like a mule|so stubborn as mule

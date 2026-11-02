@@ -58,7 +58,7 @@ strip|Strip the paint off the wall.|Strip|strip off|strip down off|strip out of 
 cotton|This shirt is made of cotton.|cotton|a cotton shirt|a cottons shirt|a cotton shirts
 discount|Students get a ten per cent discount.|discount|get a discount|take on a discount|make a discount
 expand|The company wants to expand into Asia.|expand|expand a business|expand on a business|expand of a business
-impression|She made a good impression at the interview.|impression|make a good impression|do a good impression|give a good impressions
+impression|She made a good impression at the interview.|impression|make a good impression|take a good impression|give a good impressions
 luxury|They live in luxury.|luxury|a luxury hotel|a luxurious hotel of|a luxuries hotel
 ought|You ought to see a doctor.|ought|ought to do something|ought do something|ought doing something
 punishment|The punishment was too hard.|punishment|a harsh punishment|a harshly punishment|a harsh punish
@@ -66,7 +66,7 @@ commit|He committed a crime.|committed|commit a crime|make a crime|do a crime
 cost-an-arm-and-a-leg|That watch cost an arm and a leg.|cost an arm and a leg|cost an arm and a leg|cost a hand and a foot|cost an arm and leg
 intention|I have no intention of leaving.|intention|have no intention of|have no intention to of|have no intend of
 priest|The priest spoke to the people.|priest|a Catholic priest|a Catholic priests|a Catholicly priest
-frozen|Buy some frozen vegetables.|frozen|frozen food|freezing food|froze food
+frozen|Buy some frozen vegetables.|frozen|frozen food|freezed food|froze food
 invest|He invested his money in gold.|invested|invest in|invest on|invest at
 announcement|The captain made an announcement.|announcement|make an announcement|do an announcement|give announce
 blocked|The road is blocked by snow.|blocked|a blocked road|a blocking road|a block road
@@ -106,11 +106,11 @@ continuous|There was continuous rain for a week.|continuous|continuous noise|con
 highlight|Highlight the important words.|Highlight|highlight a problem|highlight on a problem|highlight of a problem
 nail|She painted her nails red.|nails|paint your nails|colour on your nails|draw your nails
 poet|He is a famous poet.|poet|a famous poet|a famously poet|a fame poet
-generous|She is very generous with her time.|generous|generous with|generous of|generous on
+generous|She is very generous with her time.|generous|generous with|generous at|generous on
 customs|We went through customs at the airport.|customs|go through customs|go across customs|pass on customs
 emotion|He showed no emotion.|emotion|show emotion|make emotion|do emotions
 assignment|I have to finish my assignment tonight.|assignment|hand in an assignment|hand on an assignment|give out an assignment in
-ceiling|There is a spider on the ceiling.|ceiling|on the ceiling|in the ceiling|at the ceilings
+ceiling|There is a spider on the ceiling.|ceiling|on the ceiling|on ceiling the|at the ceilings
 costume|The children wore animal costumes.|costumes|wear a costume|dress a costume|put a costume
 grain|The farmers grow grain.|grain|a grain of rice|a grain from rice|a grains of rice
 mixture|Pour the mixture into a bowl.|mixture|a mixture of|a mixture from|a mix of from
