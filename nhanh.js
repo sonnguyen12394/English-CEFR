@@ -17,9 +17,13 @@ const ptNorm = s => String(s || '').toLowerCase().replace(/[‘’]/g, "'").repl
 // chạy kiểm tra cho bài u; xong gọi done(known: Set id từ đã biết)
 function ptRun(u, done, title) { const T = title || `${uLabel(u)} · ${u.vi}`; const ws = u.words.filter(w => !S.cards[w.id]); let i = 0, step = 0; const known = new Set(), res = [];
   if (!ws.length) return done(known);
-  $app.innerHTML = `${backRow(T)}<h1>⚡ Biết rồi thì bỏ qua</h1><div class="box"><p style="margin:0">Bài có ${ws.length} từ. Kiểm tra nhanh (~${Math.max(1, Math.round(ws.length * 12 / 60))} phút): mỗi từ 2 câu, chọn nghĩa rồi tự gõ từ. Từ nào đúng cả 2 thì bỏ khỏi bài, chỉ học từ chưa biết.</p>
+  // v116 (tách 📘 Bài học / 🏋️ Bài tập): trong bài học Từ vựng, bước này là 🏋️ bài tập (tính 🔁 Nhớ) đặt TRƯỚC phần dạy; phần dạy sau đó không tính. Cách chấm không đổi.
+  const lesson = !title, mins = Math.max(1, Math.round(ws.length * 12 / 60));
+  $app.innerHTML = `${backRow(T)}<h1>⚡ ${lesson ? 'Bài tập nhanh trước bài học' : 'Biết rồi thì bỏ qua'}</h1><div class="box">${lesson
+      ? `<p style="margin:0">Đây là <b>🏋️ bài tập</b> (tính 🔁 Nhớ), làm trước phần dạy. Bài có ${ws.length} từ (~${mins} phút): mỗi từ chọn nghĩa rồi tự gõ từ. Từ nào đúng cả 2 thì tính đã học, 📖 nghĩa, 💭 nhớ ra từ, ✍️ chính tả tính vào 🔁 Nhớ, và bỏ khỏi bài học. Bài học sau đó chỉ dạy từ chưa biết, không tính 🔁 Nhớ.</p>`
+      : `<p style="margin:0">Bài có ${ws.length} từ. Kiểm tra nhanh (~${mins} phút): mỗi từ 2 câu, chọn nghĩa rồi tự gõ từ. Từ nào đúng cả 2 thì bỏ khỏi bài, chỉ học từ chưa biết.</p>`}
     <p class="mute" style="margin:6px 0 0">Không đoán bừa: không biết thì bấm "Chưa biết". Đoán trúng chỉ làm sau này quên và phải học lại.</p></div>
-    <button class="pri" data-pt="go">⚡ Kiểm tra trước</button><button data-pt="skip">📘 Học hết bài</button>`;
+    <button class="pri" data-pt="go">⚡ ${lesson ? 'Làm bài tập nhanh' : 'Kiểm tra trước'}</button><button data-pt="skip">📘 ${lesson ? 'Bỏ qua, vào bài học' : 'Học hết bài'}</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); if (e.target.closest('[data-pt="skip"]')) return done(known); if (e.target.closest('[data-pt="go"]')) show(); };
   const next = ok => { res.push(ok); if (step === 0 && ok) { step = 1; return show(); } if (step === 1 && ok) known.add(ws[i].id); step = 0; i++; show(); };
   const show = () => { if (i >= ws.length) return end(); const w = ws[i]; window.CUR = { view: 'kiem-tra-dau-bai', item: u.id + ':' + w.id };
@@ -33,7 +37,7 @@ function ptRun(u, done, title) { const T = title || `${uLabel(u)} · ${u.vi}`; c
   const end = () => { const now = Date.now(); for (const id of known) S.cards[id] = ptCard(now); (S.pt = S.pt || []).push({ at: now, u: u.id, n: ws.length, known: known.size }); S.t = now; save();
     const left = ws.filter(w => !known.has(w.id));
     $app.innerHTML = `${backRow(T)}<h1>⚡ Đã biết ${known.size}/${ws.length} từ</h1>
-      <div class="box">${known.size ? `<p style="margin:0">✅ Bỏ qua: ${ws.filter(w => known.has(w.id)).map(w => esc(w.w)).join(', ')}</p><p class="mute" style="margin:6px 0 0">Đã tính học. 📖 nghĩa, 💭 nhớ ra từ, ✍️ chính tả tính vào 🔁 Nhớ; vài ngày nữa app hỏi lại để xác nhận. Các mặt khác (nghe, nói, cụm…) luyện dần trong 🏋️ Luyện tập.</p>` : '<p style="margin:0">Chưa bỏ qua từ nào: học cả bài.</p>'}</div>
+      <div class="box">${known.size ? `<p style="margin:0">✅ Bỏ qua: ${ws.filter(w => known.has(w.id)).map(w => esc(w.w)).join(', ')}</p><p class="mute" style="margin:6px 0 0">Đã tính học. 📖 nghĩa, 💭 nhớ ra từ, ✍️ chính tả tính vào 🔁 Nhớ; vài ngày nữa app hỏi lại để xác nhận. Các mặt khác (nghe, nói, cụm…) luyện dần trong 🏋️ Bài tập.</p>` : '<p style="margin:0">Chưa bỏ qua từ nào: học cả bài.</p>'}</div>
       ${left.length ? `<button class="pri" data-pt="learn">📘 Học ${left.length} từ chưa biết</button>` : '<button class="pri" data-pt="fin">✅ Hoàn thành bài</button>'}`;
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); if (e.target.closest('[data-pt="learn"], [data-pt="fin"]')) done(known); }; };
 }
@@ -59,6 +63,6 @@ function mfLookup(w, now = Date.now()) { const c = w && S.cards[w.id], today = d
 // ---------- ⑤ gợi ý học lại ----------
 function relearnUnits(now = Date.now()) { return UNITS.filter(u => unitDone(u)).map(u => [u, u.words.filter(w => { const c = S.cards[w.id]; return c && c.lapse >= 2 && wstat(S, w, now) === 'quen'; })]).filter(([, ws]) => ws.length >= 3).sort((a, b) => b[1].length - a[1].length); }
 function relearn(u) { const ws = (relearnUnits().find(([x]) => x === u) || [u, []])[1]; if (!ws.length) return home();
-  lessonRun(u, ws, reqsUpTo(u.lv), `🔁 Học lại ${uLabel(u)}`, () => { $app.innerHTML = `<div class="box"><b>✅ Đã học lại ${ws.length} từ hay quên</b><p class="mute">Các từ này vẫn ở lịch ôn; 🏋️ Luyện tập sẽ hỏi lại sớm.</p></div><button class="pri" data-a="home">Về 📚 Từ vựng</button>`;
+  lessonRun(u, ws, reqsUpTo(u.lv), `🔁 Học lại ${uLabel(u)}`, () => { $app.innerHTML = `<div class="box"><b>✅ Đã học lại ${ws.length} từ hay quên</b><p class="mute">Các từ này vẫn ở lịch ôn; 🏋️ Bài tập sẽ hỏi lại sớm (học lại là bài học, không tính 🔁 Nhớ).</p></div><button class="pri" data-a="home">Về 📚 Từ vựng</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; }); }
 document.addEventListener('click', e => { const b = e.target.closest('[data-relearn]'); if (b && S) { scrollTo(0, 0); relearn(UBY[b.dataset.relearn]); } });

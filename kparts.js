@@ -51,6 +51,7 @@ KIT.np = { id: 'np', ic: '🧱', t: 'Ngữ pháp', file: 'np.json?v=5', lvs: ['p
     ['dung', '✍️ Dùng: viết lại câu giữ nghĩa (bậc 5, từ B1)', 'Dạng đề thật: viết lại câu với từ cho sẵn', [], 0], ['nhan', '🔎 Luyện nhận ra (5 điểm)', 'Trắc nghiệm, 2 câu mỗi điểm', ['nhan'], 5], ['dien', '✏️ Luyện điền dạng (6 điểm)', 'Tự gõ dạng đúng', ['dien'], 6], ['sua', '🛠 Luyện sửa lỗi (6 điểm)', 'Gõ lại câu sai cho đúng', ['sua'], 6]],
   ask: (x, m) => m === 'bac' ? npBac(x) : KIT.np.q(x, m, 'learn'),
   menuQs: m => m === 'tron' ? npTron() : m === 'dung' ? npDung() : null,
+  extraOk: m => m !== 'dung' || lvIdx(kLv(KIT.np)) >= lvIdx('b1'),   // v116 📘 luyện thêm: bậc Dùng (dạng đề thật) chỉ hiện từ B1
   exam: lv => kItems(KIT.np, lv).flatMap(x => shuf(['nhan', 'dien', 'sua']).slice(0, 2).flatMap(k => KIT.np.q(x, k, 'test'))) };
 
 // v101 🧱 luyện theo bậc: chưa vững Nhận ra thì hỏi nhận ra; rồi điền dạng / sửa câu (lần đầu sửa câu: chạm chỗ sai trước)
@@ -98,11 +99,12 @@ KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=5', lvs: ['pre
   name: x => x.title, lesson: x => kReadLesson(x, false),
   q: (x, k) => kRead(KIT.doc, x, k, false), tryQs: x => [...kRead(KIT.doc, x, 'y'), ...kRead(KIT.doc, x, 'ct')],
   menu: [['moi', '🆕 Bài mới (tính 🔁 Nhớ)', 'Bài chưa làm, hoặc làm đã ≥ 30 ngày: đọc, trả lời, rồi xem lại câu sai', ['y', 'ct'], 0],
-    ['cau', '🔤 Hiểu câu (bậc 1)', 'Đọc một câu, chọn nghĩa đúng · luyện, không tính', [], 0], ['do', '⏱ Dò nhanh có giờ (bậc 2)', 'Tìm chi tiết trong bài đã làm, mỗi câu có giờ · luyện', [], 0],
-    ['doan', '📖 Đoán nghĩa từ trong bài (bậc 4, từ A2)', 'Từ bạn chưa học trong bài đã làm: đoán nghĩa theo câu · luyện', [], 0],
+    ['cau', '🔤 Hiểu câu (bậc 1)', 'Đọc một câu, chọn nghĩa đúng', [], 0], ['do', '⏱ Dò nhanh có giờ (bậc 2)', 'Tìm chi tiết trong bài đã làm, mỗi câu có giờ', [], 0],
+    ['doan', '📖 Đoán nghĩa từ trong bài (bậc 4, từ A2)', 'Từ bạn chưa học trong bài đã làm: đoán nghĩa theo câu', [], 0],
     ['to', '📖🗣 Đọc to (1 bài)', 'Đọc to từng đoạn bài đã học, máy chép lời; đo tốc độ, so với lần trước', ['to'], 1],
     ['y', '💡 Ôn ý chính bài đã làm (4 bài)', 'Bài gặp chưa đủ 30 ngày thì không tính', ['y'], 4], ['ct', '🔍 Ôn chi tiết bài đã làm (2 bài)', 'Bài gặp chưa đủ 30 ngày thì không tính', ['ct'], 2]],
   menuQs: m => m === 'moi' ? kMoi(KIT.doc) : m === 'cau' ? docCau() : m === 'do' ? docDo() : m === 'doan' ? docDoan() : null,
+  extraOk: m => m !== 'doan' || lvIdx(kLv(KIT.doc)) >= lvIdx('a2'),   // v116 📘 luyện thêm: đoán nghĩa từ chỉ hiện từ A2
   ask: (x, m) => m === 'to' ? docTo(x) : kRead(KIT.doc, x, m, false),
   // v100: bài thi ít dùng nhất trước; B1+ (bài dài 6 câu) lấy tới đủ 15 câu, cấp dưới 6 bài như cũ
   exam: lv => kTake(kExamPick(KIT.doc, KIT.doc.items.filter(x => x.lv === lv && x.test)), x => [...kRead(KIT.doc, x, 'y', false), ...kRead(KIT.doc, x, 'ct', false)], lvIdx(lv) >= lvIdx('b1') ? 15 : 999, 6) };
@@ -119,7 +121,7 @@ KIT.nghe = { id: 'nghe', ic: '🎧', t: 'Nghe', file: 'nghe.json?v=5', lvs: ['pr
     return [...y, ...c, ...kRead(KIT.nghe, x, 'chep', true)]; },
   name: x => x.tvi, lesson: x => kReadLesson(x, true),
   tryQs: x => [...kRead(KIT.nghe, x, 'y', true), ...kRead(KIT.nghe, x, 'ct', true).slice(0, 1), ...kRead(KIT.nghe, x, 'chep', true)],
-  menu: [['moi', '🆕 Bài mới (tính 🔁 Nhớ)', 'Nghe 3 lượt: ý chính → chi tiết → xem lời, nghe lại câu sai', ['y', 'ct'], 0], ['tach', '🔤 Tách âm, từ (bậc 1)', 'Nghe một câu, chọn đúng từ nghe được · luyện, không tính', [], 0],
+  menu: [['moi', '🆕 Bài mới (tính 🔁 Nhớ)', 'Nghe 3 lượt: ý chính → chi tiết → xem lời, nghe lại câu sai', ['y', 'ct'], 0], ['tach', '🔤 Tách âm, từ (bậc 1)', 'Nghe một câu, chọn đúng từ nghe được', [], 0],
     ['chep', '✍️ Luyện chép lại (5 bài)', 'Nghe một câu, chép lại', ['chep'], 5], ['y', '💡 Ôn ý chính bài đã nghe (4 bài)', 'Bài gặp chưa đủ 30 ngày thì không tính', ['y'], 4], ['ct', '🔍 Ôn chi tiết bài đã nghe (2 bài)', 'Bài gặp chưa đủ 30 ngày thì không tính', ['ct'], 2]],
   menuQs: m => m === 'moi' ? kMoi(KIT.nghe) : m === 'tach' ? ngTach() : null,
   ask: (x, m) => kRead(KIT.nghe, x, m, true),
@@ -236,7 +238,7 @@ KIT.noi = { id: 'noi', ic: '🗣', t: 'Nói', file: 'noi.json?v=4', lvs: ['pre',
     <div class="box"><b>Bài mẫu</b><p style="margin:6px 0">${kSay(x.m)} ${esc(x.m)}</p></div>`,
   tryQs: x => x.type === 'rp' ? kRp(x, x.learn[0]) : [kTalk(x), kAloud(x, kModelSent(x))],
   menu: [['viec', '✅ Luyện nói đủ ý (1 đề)', 'Nói theo đề (30 giây – 2 phút tuỳ cấp)', ['viec'], 1], ['ro', '🗣 Luyện nói rõ (4 câu)', 'Đọc to câu trong bài mẫu', ['ro'], 4],
-    ['gt', '💬 Luyện đóng vai (1 tình huống)', 'Nói phần của bạn trong hội thoại', ['gt'], 1], ['khung', '💬 Trả lời ngắn có khung (bậc 2)', 'Mỗi ý một câu, có câu mở sẵn · luyện', [], 0]],
+    ['gt', '💬 Luyện đóng vai (1 tình huống)', 'Nói phần của bạn trong hội thoại', ['gt'], 1], ['khung', '💬 Trả lời ngắn có khung (bậc 2)', 'Mỗi ý một câu, có câu mở sẵn', [], 0]],
   menuQs: m => m === 'khung' ? noiKhung() : null,
   ask: (x, m) => m === 'gt' ? kRp(x, x.learn[Math.floor(Math.random() * x.learn.length)]) : m === 'viec' ? [kTalk(x)] : [kAloud(x, kModelSent(x))],
   // v100: đề nói dành cho thi (test) trước, ít dùng nhất trước; thiếu thì lấy đề đã luyện
@@ -298,7 +300,7 @@ KIT.viet = { id: 'viet', ic: '✍️', t: 'Viết', file: 'viet.json?v=4', lvs: 
     <div class="box"><b>Bài mẫu</b><p class="tdtap" style="margin:6px 0;white-space:pre-line">${esc(kModel(x))}</p></div>`,
   tryQs: x => vQs(x).slice(0, x.kind ? 2 : 1),
   menu: [['cau', '🧩 Luyện xếp câu (2 bộ)', 'Bậc 1: chạm từ theo đúng thứ tự', ['cau'], 2], ['noi', '🔗 Luyện nối câu (2 bộ)', 'Bậc 2: nối 2 câu bằng từ cho sẵn', ['noi'], 2],
-    ['khung', '📝 Đoạn văn có khung (bậc 3)', 'Câu chủ đề + mỗi ý một câu + ví dụ, có câu mở sẵn · luyện', [], 0],
+    ['khung', '📝 Đoạn văn có khung (bậc 3)', 'Câu chủ đề + mỗi ý một câu + ví dụ, có câu mở sẵn', [], 0],
     ['y', '✍️ Viết 1 đề (tham khảo)', 'Bậc 4: viết → góp ý → viết lại; chấm ✅ đủ ý, 📝 đúng dạng', ['y', 'dang'], 1]],
   menuQs: m => m === 'khung' ? vKhung() : null,
   ask: x => vQs(x),
@@ -322,7 +324,7 @@ KIT.np.info = {
   sua: { what: 'Thấy câu sai, gõ lại cả câu cho đúng.', learn: 'ô ⚠️ Lỗi hay gặp (câu sai → câu đúng, vì sao)', ex: '❌ She beautiful. → gõ <b>She is beautiful.</b>' } };
 { const base = KIT.np.lesson; KIT.np.lesson = x => base(x) + `<div class="box"><b>⚠️ Lỗi hay gặp</b>${x.fx.learn.slice(0, 2).map(f => `<p style="margin:6px 0">❌ ${esc(f.bad)}<br>✅ <b>${esc(f.good)}</b><br><span class="mute">${esc(f.why)}</span></p>`).join('')}</div>`; }
 KIT.doc.info = {
-  to: { what: 'Đọc to từng đoạn của bài đã học; máy chép lời ra ≥ 90% từ là đạt đoạn đó. Đo trên lần đọc gần nhất, đọc lại vẫn tính. Cần máy chép được lời (Safari).', learn: '🏋️ Luyện → 📖🗣 Đọc to (nghe mẫu bằng nút 🔊 của từng đoạn)', ex: 'Đoạn 1/2 · “Tom lives in a small town…” → bấm 🎤, đọc, bấm Dừng' },
+  to: { what: 'Đọc to từng đoạn của bài đã học; máy chép lời ra ≥ 90% từ là đạt đoạn đó. Đo trên lần đọc gần nhất, đọc lại vẫn tính. Cần máy chép được lời (Safari).', learn: '🏋️ Bài tập → 📖🗣 Đọc to (nghe mẫu bằng nút 🔊 của từng đoạn)', ex: 'Đoạn 1/2 · “Tom lives in a small town…” → bấm 🎤, đọc, bấm Dừng' },
   y: { what: 'Đọc cả bài, chọn đúng chủ đề của bài.', learn: 'đọc cả bài. Mẹo: tiêu đề, câu đầu và câu cuối thường nói ý chính', ex: 'Bài này chủ yếu nói về gì? → <b>Bữa sáng ở nhà</b> / …' },
   ct: { what: 'Tìm thông tin cụ thể trong bài: ai, cái gì, khi nào, ở đâu, bao nhiêu.', learn: 'đọc bài và bản dịch. Mẹo: lấy từ khoá của câu hỏi, tìm câu có từ đó trong bài', ex: 'What does Lan cook for breakfast? → tìm câu "I usually make rice…"' } };
 KIT.nghe.info = {

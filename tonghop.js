@@ -102,8 +102,8 @@ function practiceMenu() {
   const p = parts(S, Date.now()), ds = dimsAt(), low = ds.map(([k]) => k).sort((a, b) => p.dq[a] - p.dq[b])[0];
   const rec = low === 'noi' ? 'noi' : 'word';
   const opt = (k, t, sub) => `<button class="opt ${rec === k ? 'pri' : ''}" data-m="${k}"><b>${t}</b>${rec === k ? ' · nên làm' : ''}<br><span style="font-size:14px;opacity:.85">${sub}</span></button>`;
-  $app.innerHTML = `${backRow('🏋️ Luyện tập')}<h1>🏋️ Luyện tập</h1>
-    <p class="mute">Yêu cầu đang thấp nhất: <b>${VREQ_BY[low][1]} ${p.dq[low]}%</b>. Bấm một yêu cầu ở trang 📚 Từ vựng để luyện riêng.</p>
+  $app.innerHTML = `${backRow('🏋️ Bài tập · Từ vựng')}<h1>🏋️ Bài tập · Từ vựng</h1>
+    <p class="mute">Mọi lượt ở đây tính 🔁 Nhớ. Yêu cầu đang thấp nhất: <b>${VREQ_BY[low][1]} ${p.dq[low]}%</b>. Bấm một yêu cầu ở trang 📚 Từ vựng để luyện riêng.</p>
     ${opt('word', '⚡ Từng từ (20 câu)', `${ds.filter(d => d[0] !== 'noi').length} yêu cầu của ${LVN[curLevel()]}: máy hỏi vào yêu cầu còn thiếu của từng từ`)}
     ${opt('noi', '🗣 Nói ra từ (10 từ)', 'Nhìn nghĩa, nói từ tiếng Anh; máy chép ra đúng từ. Cần Safari')}
     <p class="mute">Đọc bài, nghe câu, nghe chép, chấm phát âm: ở các phần 📰 Đọc · 🎧 Nghe · 👄 Phát âm.</p>`;

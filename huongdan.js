@@ -9,7 +9,7 @@ const HD = [
     <p>1. Lần đầu mở app: trả lời <b>3 câu</b>, mỗi màn một câu: học để làm gì (giỏi lên, IELTS, TOEIC, Cambridge) → trình độ (kiểm tra nhanh 5 phút hoặc "mới bắt đầu") → mỗi ngày bao nhiêu phút.</p>
     <p>2. Mỗi ngày mở app là vào <b>🧭 Lộ trình → Hôm nay</b>: vòng tròn số phút, danh sách việc (✓ xong, ▶ việc kế tiếp). Chỉ cần bấm <b>▶ Học tiếp</b>; xong một việc, quay lại bấm tiếp.</p>
     <p>3. Bấm ô <b>🎯 mục tiêu</b> ở cuối màn Hôm nay để xem đường tới mục tiêu: các cấp, ước tính thời gian, mỗi ngày chia nền / luyện đề, 10 ngày này.</p>
-    <p>4. Muốn tự chọn bài: tab <b>📚 Học</b> (🧱 Nền tiếng Anh: 7 kỹ năng; 🎓 Luyện thi: Cambridge, IELTS, TOEIC). Mỗi kỹ năng: 📘 Học bài mới, 🏋️ Luyện tập, 🚪 bài thi lên cấp.</p>
+    <p>4. Muốn tự chọn bài: tab <b>📚 Học</b> (🧱 Nền tiếng Anh: 7 kỹ năng; 🎓 Luyện thi: Cambridge, IELTS, TOEIC). Mỗi kỹ năng có 2 cửa: <b>📘 Bài học</b> (dạy, không tính 🔁 Nhớ) và <b>🏋️ Bài tập</b> (tính 🔁 Nhớ), cùng 🚪 bài thi lên cấp.</p>
     <p>5. Gặp từ lạ: chạm vào từ trong bài, hoặc tìm ở tab <b>🔍 Tra cứu</b>. Bấm 📌 để lưu vào Sổ từ.</p>`],
   ['tab', '🧭 4 tab dùng làm gì', () => `
     <p><b>🧭 Lộ trình</b> (mở đầu tiên) có 2 phần ở đầu màn: <b>📅 Hôm nay</b> và <b>🗺 Chỗ yếu</b> (mọi bản đồ chỗ yếu: nền CEFR, band IELTS, điểm TOEIC). Màn <b>Hôm nay</b> (vòng phút, ▶ Học tiếp, việc hôm nay: chỗ duy nhất bảo "làm gì") và màn <b>Đường tới mục tiêu</b> (cấp, ước tính, chia nền / đề, đợt ${LT_D} ngày, đo trình độ, đổi mục tiêu). Chạy từ mục tiêu → tìm chỗ yếu → chữa → bài mới, tới khi đạt.</p>
@@ -24,19 +24,26 @@ const HD = [
     <p>Mỗi phần lên cấp riêng: Ngữ pháp có thể ở B1 khi Từ vựng còn ở A2.</p>
     <p>Cấp sau xem trước và học trước được, không khoá cứng.</p>`],
   ['cachhoc', '🪜 Cách học từng phần (theo bậc)', () => `
-    <p>Mỗi phần đi từ dễ đến khó theo <b>bậc</b>. Bạn không cần tự chọn bậc: màn Hôm nay và ▶ Luyện theo bậc tự chọn. Bước làm quen (ghi "luyện, không tính") không tính 🔁 Nhớ.</p>
-    <p><b>📚 Từ vựng (${VSTAGE.length} bậc)</b>: ${VSTAGE.map(s => s[0]).join(' → ')}. Bài học ngày đầu chỉ hỏi bậc 1 (nghĩa, nghe, chọn đúng chữ). Luyện tập chỉ hỏi bậc trên khi bậc 1 của từ đã vững. Sai câu tự gõ thì làm lại bằng dạng dễ hơn (🧩 xếp chữ cái, chọn từ điền câu), đúng rồi tự gõ lại.</p>
+    <p>Mỗi phần đi từ dễ đến khó theo <b>bậc</b>. Bạn không cần tự chọn bậc: màn Hôm nay và ▶ Luyện theo bậc tự chọn. Bước làm quen trong bài tập và mọi bài <b>📘 Luyện thêm</b> không tính 🔁 Nhớ.</p>
+    <p><b>📚 Từ vựng (${VSTAGE.length} bậc)</b>: ${VSTAGE.map(s => s[0]).join(' → ')}. Bài học ngày đầu chỉ hỏi bậc 1 (nghĩa, nghe, chọn đúng chữ). 🏋️ Bài tập chỉ hỏi bậc trên khi bậc 1 của từ đã vững. Sai câu tự gõ thì làm lại bằng dạng dễ hơn (🧩 xếp chữ cái, chọn từ điền câu), đúng rồi tự gõ lại.</p>
     <p><b>🧱 Ngữ pháp</b>: ${esc(KIT.np.how)}</p>
-    <p><b>👄 Phát âm</b>: nghe phân biệt cặp âm (ship / sheep) → đọc từ có âm đó (cần bộ chấm âm). Máy chưa tải bộ chấm âm thì chỉ tính phần nghe. Luyện thêm (không tính): 👂 nghe đuôi từ (-s, -ed, phụ âm cuối người Việt hay nuốt), 🎵 nghe trọng âm. Đọc sai âm nào thì có mẹo đặt miệng cho âm đó. Câu đọc to (Nói, Đọc to) có thể 👄 chấm âm cả câu khi máy đã tải bộ chấm âm: thử nghiệm, chưa tính.</p>
+    <p><b>👄 Phát âm</b>: nghe phân biệt cặp âm (ship / sheep) → đọc từ có âm đó (cần bộ chấm âm). Máy chưa tải bộ chấm âm thì chỉ tính phần nghe. 📘 Luyện thêm (không tính): 👂 nghe đuôi từ (-s, -ed, phụ âm cuối người Việt hay nuốt), 🎵 nghe trọng âm. Đọc sai âm nào thì có mẹo đặt miệng cho âm đó. Câu đọc to (Nói, Đọc to) có thể 👄 chấm âm cả câu khi máy đã tải bộ chấm âm: thử nghiệm, chưa tính.</p>
     <h3 style="margin:10px 0 4px">4 kỹ năng</h3>
     <p><b>🎧 Nghe</b>: ${esc(KIT.nghe.how)}</p>
     <p><b>🗣 Nói</b>: ${esc(KIT.noi.how)}</p>
     <p><b>📰 Đọc</b>: ${esc(KIT.doc.how)}</p>
     <p><b>✍️ Viết</b>: ${esc(KIT.viet.how)}</p>
     <p class="mute">Thứ tự bậc theo nghiên cứu dạy ngôn ngữ (Nation: từ vựng; Field: nghe; Graham & Perin: viết). Cách chia cụ thể do Claude đề xuất, người sáng lập duyệt 31/10/2026, chưa đo trên người học thật.</p>`],
+  // v116 (người sáng lập 2/11/2026: "tách phần bài học và phần bài tập ra riêng… phần nhớ rèn luyện chỉ sử dụng bài tập thôi")
+  ['baitap', '📘 Bài học và 🏋️ Bài tập', () => `
+    <p>Mỗi phần có 2 cửa: <b>📘 Bài học</b> và <b>🏋️ Bài tập</b>. Luật một câu: <b>🔁 Nhớ chỉ tính ở bài tập và bài thi; bài học không bao giờ tính.</b></p>
+    <p><b>📘 Bài học</b>: phần dạy (thẻ từ, giảng ngữ pháp, cách đặt miệng, bài mẫu…), làm thử, và <b>📘 Luyện thêm</b> (hiểu câu, dò nhanh, đoán nghĩa từ, tách âm, nghe đuôi từ, trọng âm, đoạn văn / trả lời có khung, viết lại câu từ B1). Học xong một bài thì tính vào <b>📘 Học</b> (đã học bao nhiêu bài); câu trong bài học không tính 🔁 Nhớ, kể cả ôn chéo cho từ.</p>
+    <p><b>🏋️ Bài tập</b>: mọi lượt đều tính 🔁 Nhớ. Máy chọn bài đến hạn ôn hoặc còn thiếu mặt. Câu đúng ở bài tập 📰 Đọc, 🎧 Nghe, 🧱 Ngữ pháp còn cộng một lần ôn 📖 nghĩa cho từ đã học có trong câu hỏi và đáp án.</p>
+    <p><b>Hai chỗ đặc biệt.</b> ① <b>📰 Đọc, 🎧 Nghe</b>: bài mới là bài tập, làm trước rồi mới xem bài, vì lần đầu gặp bài là lần duy nhất đo đúng khả năng hiểu. 📘 Bài học của hai phần này gồm cách học, luyện thêm và xem lại bài vừa làm. Bài làm đã ≥ ${K_FRESH_D} ngày lại thành bài mới. ② <b>📚 Từ vựng</b>: bài học mở đầu bằng <b>⚡ bài tập nhanh</b> (tính 🔁 Nhớ): từ nào chọn đúng nghĩa và tự gõ đúng thì bỏ khỏi phần dạy.</p>
+    <p>Ngoài 2 cửa, những việc sau cũng tính 🔁 Nhớ vì là bài tập hoặc bài thi: 🩹 sửa lỗi sai (🗺 Chỗ yếu), câu hỏi thêm sau 🧭 kiểm tra trình độ (mục đã học), 🔎 quét lại của bản đồ, 🚀 thi vượt cấp (qua thì tính cả cấp dưới). 📌 Sổ từ và 📒 Sổ lỗi có lịch ôn riêng, không tính 🔁 Nhớ.</p>`],
   ['hoc', '📘 Học: tính thế nào', () => `
     <p>📘 Học = phần trăm bài của <b>cấp đang học</b> đã học xong. Chỉ tính bài của cấp này, không tính cấp trước.</p>
-    <p>Học xong một bài = làm hết lượt học của bài đó. Từ vựng có ⚡ kiểm tra đầu bài: từ nào chọn đúng nghĩa và tự gõ đúng thì được tính đã học luôn, khỏi học lại.</p>
+    <p>Học xong một bài = làm hết lượt học của bài đó. Từ vựng có ⚡ bài tập nhanh đầu bài: từ nào chọn đúng nghĩa và tự gõ đúng thì được tính đã học luôn, khỏi học lại. 📰 Đọc, 🎧 Nghe: bài tính đã học khi làm xong 🆕 bài mới ở 🏋️ Bài tập.</p>
     <p>Cần 📘 Học ${GATE_LEARN}% (không cần 100%) mới mở Thi chuyển cấp. Bài còn lại vẫn nên học; đề thi có thể hỏi cả từ / bài chưa học.</p>`],
   ['nho', '🔁 Nhớ: tính thế nào', () => `
     <p>Mỗi bài có nhiều <b>mặt</b> cần nhớ. Ví dụ một từ: nghĩa, nghe ra, viết đúng chính tả, nói… Mỗi mặt được đo riêng.</p>
@@ -88,7 +95,7 @@ const HD = [
     <p>Pre-A1 → A2 dựa trên danh sách Cambridge / Oxford. <b>B1 → C2, IELTS, TOEIC, mẹo, lỗi hay gặp</b> do AI soạn, <b>chưa giáo viên kiểm</b>.</p>
     <p>Máy chấm chắc khi có đáp án biết trước: xếp câu, nối câu, nghe phân biệt, câu nói / đọc to so với câu mẫu (máy chép lời). Máy chấm gián tiếp (chưa đối chiếu người chấm thật): bài viết dài, bài nói một mạch (độ dài, ý, từ nối), điểm âm của bộ chấm âm. Phần chấm gián tiếp chỉ để tham khảo; 🧑‍🏫 AI chấm sát hơn nhưng vẫn là ước lượng.</p>
     <p>Thấy câu sai: bấm 💬 → <b>⚑ Câu sai</b>. Thước đo đáng tin nhất là điểm thi thật.</p>
-    <p>Nhờ giáo viên kiểm nội dung mới: gửi trang <a href="docs/kiem-noi-dung.html" target="_blank" rel="noopener">📋 Bảng kiểm nội dung</a> (tích đúng / sai từng mục, chép kết quả gửi lại). Kiểm bộ chấm âm: 👄 Phát âm → 🏋️ Luyện → 🧑‍🏫 Đối chiếu giáo viên (cần ≥ ${PA_VAL_N} lần, chấm oan ≤ ${PA_VAL_FR * 100}%, bỏ sót ≤ ${PA_VAL_MISS * 100}%).</p>`],
+    <p>Nhờ giáo viên kiểm nội dung mới: gửi trang <a href="docs/kiem-noi-dung.html" target="_blank" rel="noopener">📋 Bảng kiểm nội dung</a> (tích đúng / sai từng mục, chép kết quả gửi lại). Kiểm bộ chấm âm: 👄 Phát âm → ô 🎚 Bộ chấm âm → 🧑‍🏫 Đối chiếu giáo viên (cần ≥ ${PA_VAL_N} lần, chấm oan ≤ ${PA_VAL_FR * 100}%, bỏ sót ≤ ${PA_VAL_MISS * 100}%).</p>`],
   ['dulieu', '💾 Dữ liệu và tài khoản', () => `
     <p>Tiến độ lưu trên máy và trên máy chủ, tự đồng bộ. Không cần đăng ký: ô 👤 tài khoản ở đầu 💾 Dữ liệu cho biết máy này dùng tài khoản riêng hay tài khoản chung.</p>
     <p>Đổi máy / sợ mất: 👤 Tôi → 💾 Dữ liệu → tải tệp sao lưu, rồi nhập ở máy kia. Trước mỗi lần nhập, sửa hay đặt tiến độ, máy tự chụp lại bản cũ (giữ 5 bản gần nhất).</p>
@@ -106,7 +113,7 @@ const HD = [
     <p><b>Vì sao 🔁 Nhớ giảm?</b> Khả năng nhớ giảm dần theo thời gian. Mặt quá hạn ôn tụt dưới ${Math.round(MEM_R * 100)}% thì không còn tính nhớ. Ôn bài đến hạn để lấy lại.</p>
     <p><b>Sao chưa mở Thi?</b> Xem dòng "Còn N bài chưa học + M mặt nhớ nữa" ở thẻ phần. Cần đủ cả 📘 Học ${GATE_LEARN}% và mỗi mặt Nhớ ≥ ${GATE_MEM}% (trừ mặt tham khảo). Đã mở rồi thì giữ ${GATE_HOLD_D} ngày.</p>
     <p><b>Hoàn thành cấp trong app có phải đạt CEFR?</b> Chưa. Làm 📝 đề mẫu chính thức ở 📚 Học → 🎓 Luyện thi → 🎓 Cambridge; đủ ngưỡng thì 👤 Tôi ghi "Đạt bằng đề mẫu chính thức".</p>
-    <p><b>Đã biết cấp dưới, có phải học lại?</b> Không: dùng 🚀 Thi vượt cấp, hoặc ⚡ kiểm tra đầu bài để bỏ qua từ đã biết.</p>
+    <p><b>Đã biết cấp dưới, có phải học lại?</b> Không: dùng 🚀 Thi vượt cấp, hoặc ⚡ bài tập nhanh đầu bài Từ vựng để bỏ qua từ đã biết.</p>
     <p><b>Làm đề thử có giúp lên cấp?</b> Không tính vào luật đo; dùng để làm quen đề và biết chỗ yếu.</p>
     <p><b>Tra từ đã học có bị trừ?</b> Tra = chưa nhớ chắc: từ đó sẽ được hỏi lại sớm hơn. Không phải phạt, là để ôn đúng chỗ.</p>
     <p><b>Mỗi ngày nên học bao lâu?</b> 15–30 phút đều đặn tốt hơn 2 giờ một lần. Làm theo ô Hôm nay là đủ.</p>

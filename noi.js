@@ -176,7 +176,7 @@ function nBody() { if (NO.ses && NO.ses.i >= NO.ses.list.length) return nSesBody
     <button class="${ses && right != null ? '' : 'pri'}" style="text-align:center" data-n="rec" ${busy || off ? 'disabled' : ''}>${rec ? '⏹ Dừng' : busy ? '⏳ Đang chấm…' : right != null ? '🎤 Nói lại' : need ? '🎤 Tải bộ chấm để bắt đầu' : '🎤 Bấm rồi nói'}</button>
     ${ses ? `<button class="${right != null ? 'pri' : ''}" style="text-align:center" data-n="next" ${rec || busy || tvPend ? 'disabled' : ''}>${right == null ? 'Bỏ qua →' : ses.i + 1 < ses.list.length ? 'Tiếp →' : 'Xem kết quả'}</button>` : ''}
     ${NO.err ? `<p style="color:var(--bad)">${esc(NO.err)}</p>` : ''}${NO.note && !NO.res ? `<p class="mute">🔁 ${esc(NO.note)}</p>` : ''}${heard}${tvPend ? tvBox : verdict + score}${need ? '' : model}
-    <p class="mute">${ses && ses.foot ? ses.foot : md === 'noi' ? `Tính ${nDimL('noi')} của 📚 Từ vựng.` : md === 'am' ? '👄 Phát âm đang xây: chỉ để luyện, chưa tính mục tiêu.' : 'Chỉ để luyện, không tính 🔁 Nhớ (muốn tính: 🏋️ Luyện tập → 🗣 Nói ra từ).'} Máy chấm là ước tính, chưa người thật kiểm.</p>`; }
+    <p class="mute">${ses && ses.foot ? ses.foot : md === 'noi' ? `Tính ${nDimL('noi')} của 📚 Từ vựng.` : md === 'am' ? '👄 Phát âm đang xây: chỉ để luyện, chưa tính mục tiêu.' : 'Chỉ để luyện, không tính 🔁 Nhớ (muốn tính: 🏋️ Bài tập → 🗣 Nói ra từ).'} Máy chấm là ước tính, chưa người thật kiểm.</p>`; }
 function nPaint() { const b = document.getElementById('nbox'); if (b) b.innerHTML = nBody(); }
 function noiOpen(w, inSes) { if (!w) return; try { speechSynthesis.cancel(); } catch (e) {} if (!inSes) NO.ses = null;
   Object.assign(NO, { w, st: 'idle', res: null, redo: null, note: '', err: '', heard: '', alts: [], asrErr: '', ph: '', url: '' });

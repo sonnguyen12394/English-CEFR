@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 115;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 116;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -375,16 +375,16 @@ function home() {
   const now = Date.now(), lv = curLevel(), p = parts(S, now), nu = nextUnit();
   const ph2 = p.lq >= GATE_LEARN;
   $app.onclick = null; window.CUR = { view: 'home' };
-  const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để mọi yêu cầu lên ${GATE_MEM}%; 🗣 Nói ra từ luyện ở 🏋️ Luyện tập.`
-    : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi yêu cầu tính 🔁 Nhớ khi làm đúng ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào yêu cầu còn thiếu.`;
+  const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Bài tập tới khi hết từ cần ôn để mọi yêu cầu lên ${GATE_MEM}%; 🗣 Nói ra từ luyện ở 🏋️ Bài tập.`
+    : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Bài tập những từ cần ôn. Mỗi yêu cầu tính 🔁 Nhớ khi làm đúng ở một ngày sau ngày học; 🏋️ Bài tập tự hỏi vào yêu cầu còn thiếu.`;
   // v112 (giao diện trực quan): 2 nút chính lên đầu; tiến độ gọn 2 thanh; bài thi; chi tiết yêu cầu, cách học gập trong 📊 Chi tiết
   $app.innerHTML = `
     ${ovBack}<h1>📚 Từ vựng</h1>
     <p class="mute" style="margin:0 0 6px">Trình độ <b>${LVN[lv]}</b> · đã học ${p.learn} / ${p.T} từ · <span id="sync">${esc(sync)}</span></p>
     <div class="duo">
-      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
-      <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
-    </div>
+      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Bài học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
+      <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Bài tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
+    </div><p class="mute" style="margin:2px 0 10px;font-size:13px">📘 Bài học: dạy, không tính 🔁 Nhớ (trừ ⚡ bài tập nhanh đầu bài) · 🏋️ Bài tập: tính 🔁 Nhớ</p>
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ${p.Tu ? ` (gồm ${p.Tu} từ cấp trước cần ⬆️ nâng cấp)` : ''}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= yêu cầu thấp nhất · mỗi yêu cầu cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
@@ -395,7 +395,7 @@ function home() {
     <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} từ${lvIdx(lv) >= lvIdx(MEM_FULL_FROM) ? `, gồm ${MEM_SAMPLE} từ mẫu của các cấp cũ, đổi mỗi tuần` : ''}` : ''})</p>
       ${lvIdx(lv) > lvIdx(VPROD_MAX) ? `<p class="mute" style="margin:4px 0">💭 Nhớ ra từ, ✍️ Chính tả, 🧩 Tự điền chỉ tính trên từ cấp ≤ ${LVN[VPROD_MAX]} (≈ 1.900 từ thông dụng nhất); từ ${LVN[lv]} chỉ cần hiểu.</p>` : ''}
       ${(() => { const now2 = Date.now(), L = memWords(lv, now2).filter(w => S.cards[w.id]); if (!L.length) return ''; const n = [0, 0, 0, 0, 0]; for (const w of L) n[vStage(S.cards[w.id], w, lv)]++;
-        return `<p class="mute" style="margin:4px 0">🪜 Bậc của từ đã học: ${VSTAGE.map((s, i) => `${s[0]} ${n[i]}`).join(' · ')} · vững cả 4 bậc ${n[4]}. Luyện tập hỏi mặt mới theo thứ tự này.</p>`; })()}
+        return `<p class="mute" style="margin:4px 0">🪜 Bậc của từ đã học: ${VSTAGE.map((s, i) => `${s[0]} ${n[i]}`).join(' · ')} · vững cả 4 bậc ${n[4]}. 🏋️ Bài tập hỏi mặt mới theo thứ tự này.</p>`; })()}
       ${vreqList(p, lv)}
       <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả ${dimsAt(lv).length} yêu cầu của ${LVN[lv]} (mỗi yêu cầu chỉ tính trên từ có yêu cầu đó). Bấm vào một yêu cầu để xem bài của nó.</p>
     <p class="mute">${tip}</p>
@@ -471,7 +471,7 @@ function lessonRun(u, words, reqs, title, onDone) {
     window.CUR = { view: 'the', unit: u.id, item: 'w:' + w.id, prompt: w.w };
     $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${esc(title)}</span></div>
       <div class="dots">${words.map((_, k) => `<i class="${k < i ? 'd' : k === i ? 'c' : ''}"></i>`).join('')}</div>${wordCard(w, reqs)}
-      ${i === 0 ? `<p class="mute">🎯 Xem hết thẻ rồi luyện ${items.length}${speakStep ? ` + ${words.length} câu nói` : ''} câu, dạy đủ yêu cầu của 🔁 Nhớ: ${kinds.map(t => TYPE_VI[t]).join(' · ')}${speakStep ? ' · 🗣 nói ra từ' : ''}.</p>` : ''}
+      ${i === 0 ? `<p class="mute">🎯 Xem hết thẻ rồi luyện ${items.length}${speakStep ? ` + ${words.length} câu nói` : ''} câu, dạy đủ yêu cầu của 🔁 Nhớ: ${kinds.map(t => TYPE_VI[t]).join(' · ')}${speakStep ? ' · 🗣 nói ra từ' : ''}. 📘 Bài học: câu ở đây không tính 🔁 Nhớ.</p>` : ''}
       <button class="pri" data-a="next">${i + 1 < words.length ? 'Tiếp →' : `Luyện ${items.length} câu →`}</button>`;
     speak(w.w);
     $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'next') { if (++i < words.length) card(); else quiz(); } if (a === 'home') home(); }; };
@@ -483,7 +483,7 @@ function lessonRun(u, words, reqs, title, onDone) {
   card(); }
 // v76: bài mới bắt đầu bằng ⚡ kiểm tra đầu bài (nhanh.js ptRun): từ đã biết bỏ khỏi bài, chỉ học từ chưa biết
 function learn(u) { const again = unitDone(u), reqs = reqsUpTo(u.lv), fin = () => { if (!again) { learnCards(S, u, Date.now()); save(); }
-    $app.innerHTML = `<div class="box"><b>✅ Xong ${uLabel(u)}: ${esc(u.vi)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `${u.words.length} từ đã vào lịch ôn. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.`}</p></div>
+    $app.innerHTML = `<div class="box"><b>✅ Xong ${uLabel(u)}: ${esc(u.vi)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `${u.words.length} từ đã vào lịch ôn. Câu trong bài học không tính 🔁 Nhớ; từ mai, 🏋️ Bài tập mà đúng thì tính.`}</p></div>
       <div class="box"><b>🎯 Bài vừa học đã dạy ${dimsAt(u.lv).length} yêu cầu của 🔁 Nhớ ${LVN[u.lv]}</b><p style="margin:6px 0">${dimsAt(u.lv).map(d => d[1]).join(' · ')}</p>${SREC ? '' : '<p class="mute" style="margin:0">Trình duyệt này không chép được lời nên bước 🗣 đã bỏ qua: mở bằng Safari để luyện nói.</p>'}</div>
       <button class="pri" data-a="home">Về 📚 Từ vựng</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; };
@@ -495,12 +495,12 @@ function upgradeUnit(u) { const lv = curLevel(), words = u.words.filter(w => upN
   if (!words.length) return home();
   lessonRun(u, words, reqsOf(Ls), `⬆️ Nâng cấp · ${uLabel(u)}`, () => { const d = dayOf(Date.now());
     for (const w of words) { const c = S.cards[w.id]; if (!c) continue; c.du = c.du || {}; for (const L of upNeed(w, lv)) c.du[L] = d; } save();
-    $app.innerHTML = `<div class="box"><b>✅ Đã nâng cấp ${uLabel(u)}</b><p class="mute">${words.length} từ đã học thêm: ${reqsOf(Ls).map(k => VREQ_BY[k][1]).join(' · ')}. Từ mai, 🏋️ Luyện tập mà đúng thì tính vào 🔁 Nhớ.</p></div>
+    $app.innerHTML = `<div class="box"><b>✅ Đã nâng cấp ${uLabel(u)}</b><p class="mute">${words.length} từ đã học thêm: ${reqsOf(Ls).map(k => VREQ_BY[k][1]).join(' · ')}. Từ mai, 🏋️ Bài tập mà đúng thì tính vào 🔁 Nhớ.</p></div>
       <button class="pri" data-a="home">Về 📚 Từ vựng</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; }); }
 
 
-// 🏋️ Luyện tập (góp ý #3, #5: gộp "Ôn từ đến hạn" + "Luyện thêm" thành một nút), lúc nào cũng được.
+// 🏋️ Luyện tập (góp ý #3, #5: gộp "Ôn từ đến hạn" + "Luyện thêm" thành một nút), lúc nào cũng được. v116: tên trên màn là 🏋️ Bài tập (mọi câu tính 🔁 Nhớ).
 // Ưu tiên từ ⚠️ Quên (đến hạn / sai lần gần nhất, sắp quên nhất trước), rồi từ học từ hôm trước mà chưa tính Nhớ (đúng là lên 🔁 Nhớ), rồi từ yếu nhất.
 // Có chấm vào lịch ôn (grade), nhưng ôn sớm chỉ tăng ít.
 // k = luyện riêng một mặt (bấm mặt ở trang chính, dimView): chỉ hỏi dạng câu của mặt đó, từ thiếu mặt đó trước.
@@ -513,10 +513,10 @@ function practice(k) {
   if (k === 'noi') return noiTask('noi');
   if (!list.length) { toast('Chưa có từ đã học cho yêu cầu này.'); return home(); }
   let ok = 0;
-  run({ title: k ? `🏋️ ${DIMS.find(x => x[0] === k)[1]}` : '🏋️ Luyện tập', items: list.map(w => { const type = k ? TYPE_FOR[k]() : typeFor(S.cards[w.id], now, w); return { w, type, teach: (DIM_OF[type] || []).some(d => wDims(w).includes(d) && taughtDay(S.cards[w.id], w, d) == null), fresh: (DIM_OF[type] || []).some(d => wDims(w).includes(d) && !(S.cards[w.id].dm && S.cards[w.id].dm[d] && S.cards[w.id].dm[d].n)) }; }), retry: true,
+  run({ title: k ? `🏋️ ${DIMS.find(x => x[0] === k)[1]}` : '🏋️ Bài tập', items: list.map(w => { const type = k ? TYPE_FOR[k]() : typeFor(S.cards[w.id], now, w); return { w, type, teach: (DIM_OF[type] || []).some(d => wDims(w).includes(d) && taughtDay(S.cards[w.id], w, d) == null), fresh: (DIM_OF[type] || []).some(d => wDims(w).includes(d) && !(S.cards[w.id].dm && S.cards[w.id].dm[d] && S.cards[w.id].dm[d].n)) }; }), retry: true,
     first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) ok++; save(); },
     done: () => { const p = parts(S, Date.now());
-      $app.innerHTML = `<div class="box"><b>Xong lượt luyện tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}% (${dimsAt().map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')}).</p></div><button class="pri" data-a="again">🏋️ Luyện tiếp</button><button data-a="home">Về 📘 Học</button>`;
+      $app.innerHTML = `<div class="box"><b>Xong lượt bài tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}% (${dimsAt().map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')}).</p></div><button class="pri" data-a="again">🏋️ Làm tiếp</button><button data-a="home">Về 📚 Từ vựng</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="again"]')) practice(k); }; } });
 }
 

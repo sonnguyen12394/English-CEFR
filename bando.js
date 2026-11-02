@@ -167,7 +167,7 @@ function mapFix(id, lim, now = Date.now()) { const d = dayOf(now), act = mapFocu
   const teach = sel => sel.filter(w => !w.cho && w.t >= 1 && w.td !== d);
   if (id === 'tv') { const seen = new Set(), items = [], sel = [];
     for (const w of act) { if (seen.has(w.x.id) || items.length >= (lim || MAP_FIX[0])) continue; seen.add(w.x.id); if (w.k === 'noi') continue; sel.push(w); items.push({ w: w.x, type: TYPE_FOR[w.k] ? TYPE_FOR[w.k]() : 'w2vi' }); }
-    if (!items.length) return toast('Chỗ đang chữa của Từ vựng cần nói: luyện ở 🏋️ Luyện tập (Safari).');
+    if (!items.length) return toast('Chỗ đang chữa của Từ vựng cần nói: luyện ở 🏋️ Bài tập (Safari).');
     const keep = memWords(curLevel(), now).filter(w => S.cards[w.id] && !seen.has(w.id) && wstat(S, w, now) === 'nho').sort((a, b) => recall(S.cards[a.id], now) - recall(S.cards[b.id], now)).slice(0, lim ? 2 : MAP_FIX[1]);
     for (const w of keep) items.push({ w, type: typeFor(S.cards[w.id], now, w) }); let ok = 0;
     return mapTeach(teach(sel), () => run({ title: '🗺 Chữa chỗ yếu · Từ vựng', items: shuf(items), first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) ok++; save(); },

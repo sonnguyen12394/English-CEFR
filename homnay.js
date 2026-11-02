@@ -60,8 +60,8 @@ function todayItems(stage = ovStage(), o = {}) { const now = Date.now(), t = day
   // 📘 bài mới (v99: xếp cấp cao hơn → thi vượt thay cho bài mới cấp thấp)
   { const pl = plTop(stage), left = pl && !nw ? plLeft(pl) : [];
     if (left.length) { add({ k: 'vc', ic: '🚀', title: `Thi vượt lên ${LVN[pl]}`, meta: `${left.length} phần · khỏi học lại cấp dưới`, done: false, attr: `data-vcv="${pl}"` }); extra(`<button class="link" data-plno style="margin:0 0 4px">Không, tôi muốn học từ ${LVN[stage]}</button>`); }
-    else if (!sp || sp.nen > 10) { const nn = low ? nextName(low[0]) : '';
-      add({ k: 'new', ic: '📘', title: 'Học bài mới', meta: nw ? `Đã học ${nw} mục mới` : low ? TODAY_CUT(`${nm(low[0])[2]}${nn ? ' · ' + nn : ''}`) : `Cấp ${LVN[stage]}`, done: nw > 0, attr: low && !nw ? `data-today="part" data-tp="${low[0]}" data-tpl="${low[1]}"` : 'data-today="new"' }); } }
+    else if (!sp || sp.nen > 10) { const nn = low ? nextName(low[0]) : '', rd = low && KIT[low[0]] && KIT[low[0]].newQs;   // v116: 📰 Đọc / 🎧 Nghe: bài mới là 🏋️ bài tập (làm trước, xem sau)
+      add({ k: 'new', ic: rd ? '🆕' : '📘', title: rd ? 'Làm bài mới' : 'Học bài mới', meta: nw ? `Đã học ${nw} mục mới` : low ? TODAY_CUT(`${nm(low[0])[2]}${nn ? ' · ' + nn : ''}`) : `Cấp ${LVN[stage]}`, done: nw > 0, attr: low && !nw ? `data-today="part" data-tp="${low[0]}" data-tpl="${low[1]}"` : 'data-today="new"' }); } }
   // 🎧 kỹ năng (bỏ khi nền chỉ còn phần nhỏ: luyện đề đã luyện kỹ năng)
   if (!sp || sp.nen >= 70) add({ k: 'skill', ic: lowSk ? nm(lowSk[0])[1] : '🎧', title: 'Luyện kỹ năng', meta: sk ? 'Đã luyện hôm nay' : lowSk ? `${nm(lowSk[0])[2]}${mapSk ? ' · chỗ còn yếu' : ''}` : 'Nghe, Nói, Đọc, Viết', done: sk, attr: `data-today="skill"${lowSk ? ` data-tsk="${lowSk[0]}"` : ''}` });
   // 🎓 luyện đề của mục tiêu: đủ số phút đề là xong
@@ -88,7 +88,8 @@ document.addEventListener('click', e => { if (!S) return;
   const b = e.target.closest('[data-today]'); if (!b) return; const k = b.dataset.today; scrollTo(0, 0);
   if (k === 'due' || k === 'new') { const nb = document.querySelector('#app [data-ovp].pri'); if (nb && k === 'due') return nb.click(); return k === 'new' ? (HOME.lv = curLevel(), HOME.open = null, home()) : overview(); }
   if (k === 'fix') { if (typeof MAP_BACK !== 'undefined') MAP_BACK = document.getElementById('lt') ? 'lt' : 'hoc'; return mapToday(); }
-  if (k === 'part') return ovOpenPart(b.dataset.tp, b.dataset.tpl);
+  if (k === 'part') { const P = KIT[b.dataset.tp], x = P && P.newQs && P.items ? kNextNew(P) : null;   // v116: Đọc / Nghe vào thẳng 🆕 bài mới (🏋️ bài tập)
+    if (x) return kNew(P, x, () => kView(P.id)); return ovOpenPart(b.dataset.tp, b.dataset.tpl); }
   if (k === 'skill') { const id = b.dataset.tsk || 'nghe'; KIT[id].view = kLv(KIT[id]); return kView(id); }
   if (k === 'exam') return typeof exGo === 'function' ? exGo() : exOpen(); });
 

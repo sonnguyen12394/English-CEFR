@@ -131,7 +131,7 @@ async function exam(lv) {
     const h = !pass ? '❌ Chưa qua' : lv === 'pre' ? (first ? '✅ Qua Thi chuyển cấp Pre-A1: đã mở bài A1' : '✅ Qua') : re ? `✅ Qua lần thi lại: Nhớ bền từ vựng ${name}` : `✅ Qua Thi chuyển cấp ${name} (lần 1)${first && next ? `: đã mở bài ${next}` : ''}`;
     $app.innerHTML = `<div class="box"><b>${h}</b>
       <p>Đúng ${tally.ok}/${tally.n}.</p><p class="mute">${dimsAt(lv).map(([k, l]) => tally.dim[k] ? `${l} ${tally.dim[k][0]}/${tally.dim[k][1]}` : '').filter(Boolean).join(' · ')}</p>
- <p class="mute">${pass && C.retest && !re ? st.p : !pass ? 'Luyện tập thêm, nhất là mặt có điểm thấp ở trên, rồi thi lại.' : ''}</p></div>
+ <p class="mute">${pass && C.retest && !re ? st.p : !pass ? 'Làm thêm 🏋️ Bài tập, nhất là mặt có điểm thấp ở trên, rồi thi lại.' : ''}</p></div>
       ${tally.wrong.length ? `<h2>Từ làm sai</h2>${tally.wrong.map(w => `<div>${esc(w.w)}: ${esc(w.vi)} <span class="mute">· ${esc(EB[w.id].s)}</span></div>`).join('')}` : ''}
       <button class="pri" data-a="home">Về trang chính</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { HOME.lv = null; home(); } };

@@ -232,7 +232,7 @@ const R = await run(`(async () => {
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); const now = Date.now(), DAYMS = 864e5;
     const c0 = { S: 1, last: now - 1.3 * DAYMS, d0: dayOf(now) - 3, ok: 1, pv: 1, dm: { nghia: { ok: 1, pv: 1 } } }; const r = recall(c0, now);
     if (!(r < 0.9 && r >= 0.8) || !heldDim(c0, 'nghia', now) || isDue(c0, now) === false) bad.push('ngưỡng 80% / lịch ôn 90% sai: R=' + r.toFixed(3));
-    const u = UNITS.find(x => x.lv === 'a1'); await tryv('mở bài học', () => learn(u)); if (!String($app.innerHTML).includes('Biết rồi thì bỏ qua')) bad.push('bài học không mở kiểm tra đầu bài');
+    const u = UNITS.find(x => x.lv === 'a1'); await tryv('mở bài học', () => learn(u)); if (!String($app.innerHTML).includes('⚡ Bài tập nhanh trước bài học')) bad.push('bài học không mở kiểm tra đầu bài');
     const pc = ptCard(now), w0 = u.words[0]; S.cards[w0.id] = pc; if (!['nghia', 'nhora', 'viet'].every(k => heldDim(pc, k, now)) || heldDim(pc, 'nghe', now)) bad.push('từ qua kiểm tra: mặt nhớ sai');
     if (!parts(S, now, 'a1').learn) bad.push('từ qua kiểm tra không tính đã học');
     // chấm nhiều mục: câu đọc có từ đã học (học từ hôm trước) → cộng; từ học hôm nay, từ chỉ trong đoạn văn, câu sai, bài viết: không cộng
@@ -702,7 +702,8 @@ const R = await run(`(async () => {
     tryv('val', () => { S.paVal = [...Array(40)].map((_, i) => ({ m: i % 10 !== 0, t: true, k: 'tu' })).concat([...Array(12)].map((_, i) => ({ m: i < 2, t: false, k: 'tu' })));
       const v = paValStat(); if (v.n !== 52 || Math.abs(v.fr - 0.1) > 1e-9 || Math.abs(v.miss - 2 / 12) > 1e-9 || !paValOk()) bad.push('thống kê đối chiếu sai: ' + JSON.stringify(v));
       S.paVal = S.paVal.slice(0, 30); if (paValOk()) bad.push('chưa đủ ' + PA_VAL_N + ' lần mà đã đạt'); });
-    tryv('ui', () => { localStorage.setItem(NK, '1'); NO.vocab = { '<pad>': 0 }; paMenu(); const h = String($app.innerHTML); if (!/data-pm="cal"/.test(h) || !/data-pm="val"/.test(h)) bad.push('thiếu nút hiệu chuẩn / đối chiếu');
+    tryv('ui', () => { localStorage.setItem(NK, '1'); NO.vocab = { '<pad>': 0 }; paView(); const h = String($app.innerHTML); if (!/data-pm="cal"/.test(h) || !/data-pm="val"/.test(h)) bad.push('thiếu nút hiệu chuẩn / đối chiếu');
+      paMenu(); if (/data-pm="(cal|val|fin|tra)"/.test(String($app.innerHTML))) bad.push('v116: 🏋️ Bài tập Phát âm còn mục không tính');
       paCal(); if (!NO.ses || NO.ses.okFor() !== 0 || NO.ses.list.length < 8) bad.push('lượt hiệu chuẩn sai'); NO.ses.onGrade(null, true, 70); NO.ses = null;
       paVal(); if (!NO.ses || !NO.ses.val || NO.ses.list.length !== 10) bad.push('lượt đối chiếu sai'); NO.ses = null; NO.vocab = null; localStorage.removeItem(NK); });
     add('cefr', 'C23', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'hiệu chuẩn bộ chấm âm (chỉ hạ, tối đa ' + PA_CAL_MAX + ' điểm), đọc lại khi sát ngưỡng lấy trung bình, đối chiếu giáo viên (chấm oan / bỏ sót, cần ≥ ' + PA_VAL_N + ' lần)'); }
@@ -915,6 +916,57 @@ const R = await run(`(async () => {
     if (todayBox('pre', { lt: 1 }).includes('data-mapv')) bad.push('Hôm nay còn lối tắt bản đồ thừa');
     S.place = null; delete S.lt; delete S.to;
     add('cefr', 'C30', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Lộ trình 2 phần (📅 Hôm nay · 🗺 Chỗ yếu); Chỗ yếu gồm bản đồ CEFR + band IELTS + điểm TOEIC, kỳ thi mục tiêu lên trước khi Lộ trình dồn ≥ 50% cho luyện đề; màn kỳ thi, 👤 Tôi chỉ lối tắt'); }
+  // v116 📘 Bài học / 🏋️ Bài tập tách riêng (người sáng lập 2/11/2026): 🔁 Nhớ chỉ tính ở bài tập (và bài thi); bài học, luyện thêm không bao giờ tính, kể cả ôn chéo cho từ
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML), now = Date.now(), t = dayOf(now), D = 864e5;
+    const blankC = d0 => ({ S: 10, last: now - 3 * D, d0, ok: 1, pv: 1, n: 2, lapse: 0, dm: {} });
+    // ① 🏋️ chỉ có mục tính (có mặt); mục không có mặt nào nằm ở 📘 Luyện thêm của màn phần
+    S = blank();
+    for (const P of Object.values(KIT)) { tryv('menu ' + P.id, () => kMenu(P)); const h = H();
+      P.menu.forEach((m, i) => { if (h.includes('data-km="' + i + '"') !== !!m[3].length) bad.push('🏋️ ' + P.id + ' mục ' + m[0] + (m[3].length ? ' bị mất' : ' không tính mà vẫn ở 🏋️')); });
+      tryv('view ' + P.id, () => kView(P.id)); const v = H();
+      if (!v.includes('📘 Bài học') || !v.includes('🏋️ Bài tập') || v.includes('🏋️ Luyện tập')) bad.push(P.id + ': 2 nút chưa đổi tên');
+      for (const [m, i] of kExtra(P)) if (!v.includes('data-kex="' + i + '"')) bad.push(P.id + ': luyện thêm ' + m[0] + ' chưa ở màn phần'); }
+    if (kExtra(KIT.np).some(([m]) => m[0] === 'dung') || kExtra(KIT.doc).some(([m]) => m[0] === 'doan')) bad.push('luyện thêm chưa theo cấp (Dùng từ B1, đoán nghĩa từ A2)');
+    if (!kExtra(KIT.doc).length || !kExtra(KIT.nghe).length || !kExtra(KIT.noi).length || !kExtra(KIT.viet).length) bad.push('thiếu luyện thêm');
+    // ② Đọc / Nghe: 📘 mở màn Bài học riêng; 🏋️ mở được khi chưa làm bài nào; 📘 không mở thẳng bài chưa gặp
+    for (const id of ['doc', 'nghe']) { const P = KIT[id]; S = blank(); tryv('view ' + id, () => kView(id)); const h = H();
+      if (!h.includes('data-k="hoc"') || h.includes('data-k="learn"') || /data-k="menu"[^>]*disabled/.test(h)) bad.push(id + ': nút 📘 / 🏋️ sai');
+      const [x, x2] = kItems(P, 'pre');
+      tryv('kLearn bài mới ' + id, () => kLearn(P, x)); if (!H().includes('data-kl="new"') || kSt(id).cards[x.id]) bad.push(id + ': 📘 vẫn mở thẳng bài mới');
+      kSt(id).cards[x.id] = { S: 1, last: now, seen: now, d0: t, ok: 1, pv: 0, n: 0, lapse: 0 }; kSt(id).cards[x2.id] = { S: 1, last: now - 40 * D, seen: now - 40 * D, d0: t - 40, ok: 1, pv: 0, n: 0, lapse: 0 };
+      tryv('kHoc ' + id, () => kHoc(P)); const hh = H(); if (!hh.includes('data-kr="' + x.id + '"') || hh.includes('data-kr="' + x2.id + '"')) bad.push(id + ': xem lại sai (bài vừa làm có, bài ≥ 30 ngày không)');
+      for (const [, i] of kExtra(P)) if (!hh.includes('data-kex="' + i + '"')) bad.push(id + ': 📘 thiếu luyện thêm');
+      let called = null; const kq0 = kQuiz; kQuiz = o => { called = o; };
+      tryv('xem lại ' + id, () => kLearn(P, x, () => kHoc(P))); if (!H().includes('data-kl="try"')) bad.push(id + ': xem lại không mở bài');
+      tryv('làm thử ' + id, () => $app.onclick({ target: { closest: s => s === '[data-kl="try"]' ? {} : null } })); if (!called || !called.nomf) bad.push(id + ': làm thử ở 📘 vẫn cộng ôn chéo');
+      called = null; tryv('bài cũ ' + id, () => { kView(id); $app.onclick({ target: { closest: s => s === '[data-kx]' ? { dataset: { kx: x2.id } } : null } }); });
+      if (!called || called.nomf || !/^🆕/.test(called.title)) bad.push(id + ': bài làm đã ≥ 30 ngày chưa làm như bài mới (🏋️)');
+      kQuiz = kq0; }
+    // ③ câu đúng ở 📘 (nomf) không cộng ôn chéo cho từ đã học; ở 🏋️ thì cộng (đối chứng)
+    { S = blank(); const P = KIT.np, x = kItems(P, 'pre')[0], ws = ['cat', 'dog'].map(k => WORDS.find(w => w.w === k)); for (const w of ws) S.cards[w.id] = blankC(t - 5);
+      const q0 = () => ({ x, k: 'nhan', kind: 'mc', q: 'I have a cat and a dog.', opts: ['cat', 'cow'], a: 'cat' }), ans = () => $app.onclick({ target: { closest: s => s === '[data-ko]' ? { dataset: { ko: '0' } } : null } });
+      tryv('câu bài học', () => { kQuiz({ P, title: 't', qs: [q0()], nomf: true, done: () => {} }); ans(); }); if (S.mfn && Object.keys(S.mfn).length) bad.push('câu bài học vẫn cộng ôn chéo cho từ');
+      tryv('câu bài tập', () => { kQuiz({ P, title: 't', qs: [q0()], done: () => {} }); ans(); }); if (!S.mfn || !S.mfn[t]) bad.push('câu bài tập không cộng ôn chéo (đối chứng)'); }
+    // ④ kRun: mục luyện thêm chạy không cộng chéo và không chấm; mục bài tập chạy như cũ
+    { let called = null; const kq0 = kQuiz; kQuiz = o => { called = o; }; S = blank();
+      tryv('luyện thêm Đọc', () => kRun(KIT.doc, KIT.doc.menu.findIndex(m => m[0] === 'cau'))); if (!called || !called.nomf) bad.push('luyện thêm vẫn cộng ôn chéo');
+      const xn = kItems(KIT.np, 'pre')[0]; kSt('np').cards[xn.id] = blankC(t - 5); called = null;
+      tryv('bài tập Ngữ pháp', () => kRun(KIT.np, KIT.np.menu.findIndex(m => m[0] === 'nhan'))); if (!called || called.nomf) bad.push('bài tập Ngữ pháp bị tắt cộng chéo');
+      kQuiz = kq0; }
+    // ⑤ Từ vựng, Phát âm: tên 2 cửa; ⚡ ghi rõ là bài tập (tính) đặt trước phần dạy; 🏋️ Phát âm không còn mục không tính
+    S = blank(); tryv('home', () => home()); if (!H().includes('📘 Bài học') || !H().includes('🏋️ Bài tập')) bad.push('Từ vựng: 2 nút chưa đổi tên');
+    tryv('practiceMenu', () => practiceMenu()); if (!H().includes('🏋️ Bài tập · Từ vựng') || !H().includes('tính 🔁 Nhớ')) bad.push('Từ vựng: màn bài tập chưa ghi rõ');
+    tryv('learn', () => learn(UNITS.find(u => u.lv === 'pre'))); if (!H().includes('⚡ Bài tập nhanh trước bài học') || !H().includes('tính 🔁 Nhớ')) bad.push('⚡ chưa ghi rõ là bài tập');
+    tryv('paView', () => paView()); if (!H().includes('📘 Bài học') || !H().includes('📘 Luyện thêm') || !H().includes('data-pm="fin"')) bad.push('Phát âm: 📘 luyện thêm thiếu');
+    tryv('paMenu', () => paMenu()); if (/data-pm="(fin|tra|cal|val)"/.test(H()) || !H().includes('🏋️ Bài tập · Phát âm')) bad.push('Phát âm: 🏋️ còn mục không tính');
+    // ⑥ Hôm nay: bài mới của Đọc / Nghe ghi "Làm bài mới" (bài tập), phần khác vẫn "Học bài mới"
+    S = blank(); const itD = todayItems('pre', { low: ['doc', 'pre'] }).find(x => x.k === 'new'), itN = todayItems('pre', { low: ['np', 'pre'] }).find(x => x.k === 'new');
+    if (!itD || itD.title !== 'Làm bài mới' || !itD.attr.includes('data-tp="doc"') || !itN || itN.title !== 'Học bài mới') bad.push('Hôm nay: tên việc bài mới sai');
+    // ⑦ Luật có mục riêng; chữ trong bài học nói rõ không tính
+    const hd = HD.find(x => x[0] === 'baitap'); if (!hd || !hd[2]().includes('bài học không bao giờ tính') || !hd[2]().includes(K_FRESH_D + ' ngày')) bad.push('Luật chưa có mục Bài học / Bài tập');
+    if (!kTeach(KIT.np, kItems(KIT.np, 'pre')[0]).includes('bài học, không tính') || !kTeach(KIT.doc, kItems(KIT.doc, 'pre')[0]).includes('🆕 bài mới (🏋️ Bài tập)')) bad.push('bài học chưa ghi không tính');
+    S = blank();
+    add('cefr', 'C31', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '📘 Bài học / 🏋️ Bài tập tách riêng: 🏋️ chỉ có lượt tính 🔁 Nhớ, luyện thêm ở 📘 (không cộng ôn chéo), Đọc / Nghe bài mới là bài tập (📘 = luyện thêm + xem lại bài vừa làm), ⚡ Từ vựng ghi rõ là bài tập, Phát âm, Hôm nay, Luật đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V', 'T'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung)');
