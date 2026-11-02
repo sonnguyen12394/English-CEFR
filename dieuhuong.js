@@ -46,8 +46,7 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
     <div class="box"><b>📈 Tiến độ</b><p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${typeof plTop === 'function' && plTop(stage) ? ` · 🧭 xếp cấp: ${LVN[plTop(stage)]}` : ''}${passedLv.length ? ` · hoàn thành trong app: ${passedLv.map(l => LVN[l]).join(', ')}` : ''}</p>
       <p style="margin:0 0 6px">🎓 Đạt bằng đề mẫu chính thức: ${realLv.length ? `<b>${realLv.map(l => LVN[l]).join(', ')}</b>` : '<span class="mute">chưa có (làm ở màn 🎓 Cambridge)</span>'}</p>
       <p class="mute" style="margin:0">📚 ${nW} từ đã học · 🧩 ${nK} bài kỹ năng · ⏱ hôm nay ${actMin(t)} / ${actGoal()} phút · 7 ngày ${mins} phút · 🔥 ${actStreak(now)} ngày liền</p></div>
-    <div class="box"><div class="row"><b>🗺 Bản đồ chỗ yếu</b><span class="mute">${f ? `🎯 ${f.act.length} · ⏳ ${f.queue.length} · ✅ ${f.done}` : 'chưa có dữ liệu'}</span></div>
-      <p class="mute" style="margin:6px 0">Gom mọi lần làm sai / quên thành chỗ cần chữa, mỗi lần tối đa 15 chỗ.</p><button data-mapv="ct">🗺 Mở bản đồ</button></div>
+    <p class="mute" style="margin:4px 0 10px">🗺 Chỗ yếu${f ? ` (${f.act.length} chỗ đang chữa)` : ''} nằm ở <button class="link" data-mapv="lt">🧭 Lộ trình → 🗺 Chỗ yếu ›</button></p>
     <div class="box"><div class="row"><b>📌 Sổ từ</b><span class="mute">${vn} từ${vd ? ` · ${vd} đến hạn` : ''}</span></div>
       <p class="mute" style="margin:6px 0">Từ bạn lưu khi tra, khi chạm trong bài và từ đề thật. Ôn cách quãng 1 → 35 ngày.</p>
       <div class="duo"><button data-ct="sotu">📌 Mở sổ từ</button>${vd ? `<button class="pri" data-ct="vwrun">🔁 Ôn ${Math.min(20, vd)} từ</button>` : ''}</div></div>

@@ -71,7 +71,7 @@ function todayItems(stage = ovStage(), o = {}) { const now = Date.now(), t = day
       const o2 = exK === 'ielts' ? S.ie || {} : exK === 'toeic' ? S.to || {} : {}, at = r => r && r.at && dayOf(r.at) === t, exM = sp ? sp.exM : 0, done = sp ? ltExMin(t) >= exM : Object.values(o2.r || {}).some(at) || ['w', 's', 'mock', 'spd'].some(k => (o2[k] || []).some(at));
       add({ k: 'exam', ic: '🎓', title: `Luyện ${en}`, meta: done ? (sp ? `Đủ ${exM} phút hôm nay` : 'Đã luyện hôm nay') : `${sp ? `${exM} phút · ` : ''}${TODAY_CUT(lab || (exK === 'cambridge' ? 'Đề thử, dạng đề' : 'Bài nên làm'), sp ? 26 : 34)}`, done, attr: 'data-today="exam"' }); } }
   if (typeof relearnUnits === 'function') for (const [u, ws] of relearnUnits().slice(0, 2)) extra(`<button class="link" data-relearn="${u.id}" style="margin:0 0 4px">🔁 Học lại ${esc(u.vi || uLabel(u))}: ${ws.length} từ hay quên ›</button>`);
-  if (mf) extra(`<button class="link" data-mapv${o.lt ? '="lt"' : ''} style="margin:0 0 4px">🗺 Bản đồ chỗ yếu ›</button>`);
+  if (mf && !o.lt) extra(`<button class="link" data-mapv${o.lt ? '="lt"' : ''} style="margin:0 0 4px">🗺 Bản đồ chỗ yếu ›</button>`);
   return out; }
 const todayRow = (it, next) => `<button class="task${it.done ? ' done' : ''}${next ? ' next' : ''}" ${it.attr}><span class="c">${it.done ? '✓' : next ? '▶' : esc(it.ic)}</span><span class="t"><b>${esc(it.title)}</b><span>${esc(it.meta)}</span></span><span class="chev">›</span></button>`;
 // tương thích (v107–v111): [{ done, html }]
