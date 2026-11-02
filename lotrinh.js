@@ -180,18 +180,18 @@ document.addEventListener('change', e => { if (!S || !e.target.closest) return; 
 // ---------- 📅 kế hoạch kỳ thi ở ô mục tiêu (v111: chuyển từ màn IELTS / TOEIC về Lộ trình; phần học chỉ còn nội dung) ----------
 function ltExamPlan(k, sp) { try {
   if (k === 'ielts') { const P = iePlan(), warn = P.wk != null && P.need && P.wk < P.need[0];
-    return `<p style="margin:4px 0">${P.wk != null ? `Còn <b>${P.wk} tuần</b> · ` : ''}${P.g != null ? `band ước (Overall) cách mục tiêu <b>${bandTxt(Math.max(0, P.g))}</b>` : 'chưa có band ước: làm 1 đề thử IELTS ở 📚 Học → 🎓 Thi'}</p>
+    return `<p style="margin:4px 0">${P.wk != null ? `Còn <b>${P.wk} tuần</b> · ` : ''}${P.g != null ? `band ước (Overall) cách mục tiêu <b>${bandTxt(Math.max(0, P.g))}</b>` : 'chưa có band ước: làm 1 đề thử IELTS ở 📚 Học → 🎓 Luyện thi'}</p>
       ${sp.ex ? `<p class="mute" style="margin:2px 0">Mỗi tuần ~${String(Object.values(P.hrs).reduce((a, b) => a + b, 0)).replace('.', ',')} giờ luyện đề: ${Object.entries(P.hrs).map(([x, h]) => `${IE_SK[x][0]} ${String(h).replace('.', ',')} giờ`).join(' · ')} (Viết / Nói nặng hơn). Mỗi 2 tuần 1 đề thử app, mỗi 4 tuần 1 đề thật.</p>` : ''}
       ${warn ? `<p style="margin:2px 0">⚠️ Còn ${P.wk} tuần, cần tăng ${bandTxt(P.g)} band: kinh nghiệm thường gặp (không phải số chính thức) là ${P.need[0]}–${P.need[1]} tuần. Cân nhắc lùi ngày thi hoặc hạ mục tiêu.</p>` : ''}`; }
   if (k === 'toeic') { const o = toSt(), now = toNow(), wk = o.date ? Math.max(0, Math.ceil((new Date(o.date + 'T12:00:00') - Date.now()) / (7 * DAY))) : null;
-    return `<p style="margin:4px 0">${wk != null ? `Còn <b>${wk} tuần</b> · ` : ''}${now.tot != null ? `điểm ước cách mục tiêu <b>${Math.max(0, o.target - now.tot)}</b>` : 'chưa có điểm ước: làm 1 đề thử TOEIC ở 📚 Học → 🎓 Thi'}</p>`; }
+    return `<p style="margin:4px 0">${wk != null ? `Còn <b>${wk} tuần</b> · ` : ''}${now.tot != null ? `điểm ước cách mục tiêu <b>${Math.max(0, o.target - now.tot)}</b>` : 'chưa có điểm ước: làm 1 đề thử TOEIC ở 📚 Học → 🎓 Luyện thi'}</p>`; }
 } catch (e) {} return ''; }
 
 // ---------- 🎯 ô mục tiêu ở 📚 Học: tên mục tiêu, việc hôm nay, ⚖️ chia thời gian, nút mở phần riêng của kỳ thi ----------
 function ltGoalCard(stage = ovStage()) { const g = S.lt && S.lt.goal;
-  if (!g) return `<div class="box"><b>🎯 Chưa đặt mục tiêu</b><p class="mute" style="margin:6px 0">Đặt mục tiêu ở 🔄 Lộ trình: app chia việc mỗi ngày theo mục tiêu. Mục 🎓 Thi ở hàng trên vẫn mở được mọi kỳ thi.</p><button class="pri" data-ltgo>🎯 Đặt mục tiêu ›</button></div>`;
+  if (!g) return `<div class="box"><b>🎯 Chưa đặt mục tiêu</b><p class="mute" style="margin:6px 0">Đặt mục tiêu ở 🧭 Lộ trình: app chia việc mỗi ngày theo mục tiêu. Mục 🎓 Thi ở hàng trên vẫn mở được mọi kỳ thi.</p><button class="pri" data-ltgo>🎯 Đặt mục tiêu ›</button></div>`;
   const sp = ltSplit(g), TP = typeof todayPlan === 'function' ? todayPlan(stage).filter(x => x.done != null) : [], ok = TP.filter(x => x.done).length, ic = { cambridge: '🎓', ielts: '🌏', toeic: '💼' }[sp.k];
-  return `<div class="box"><div class="row"><b>🎯 ${esc(ltGoalName(g))}</b><button class="link" data-ltgo>🔄 Lộ trình ›</button></div>
+  return `<div class="box"><div class="row"><b>🎯 ${esc(ltGoalName(g))}</b><button class="link" data-ltgo>🧭 Lộ trình ›</button></div>
     <p class="mute" style="margin:4px 0">📅 Việc hôm nay: ${ok}/${TP.length} xong · ⚖️ nền ${sp.nen}%${sp.k !== 'cefr' ? ` · đề ${sp.ex}%` : ''}</p>
     ${sp.k !== 'cefr' ? `<button data-ltex style="margin:6px 0 0">${ic} Phần riêng cho mục tiêu: luyện ${LT_EXN[sp.k]} ›${sp.ex ? '' : '<small style="display:block;opacity:.85">chưa nên luyện đề, học nền trước; vẫn xem được dạng đề</small>'}</button>` : ''}</div>`; }
 

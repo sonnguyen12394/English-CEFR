@@ -92,7 +92,7 @@ function toNow() { const o = toSt(), last = o.mock[o.mock.length - 1], R = Objec
 function toReady() { const o = toSt(), tg = o.target, base = toBase(tg), lvOf = id => ovIn(id, base) ? base : base.replace(/p$/, ''), found = ['tv', 'np'].map(id => [id, ovPassed(id, lvOf(id))]);
   const mk = o.mock.filter(r => r.tot != null).slice(-2), mOk = mk.length === 2 && mk.every(r => r.tot >= tg) && new Date(mk[0].at).toDateString() !== new Date(mk[1].at).toDateString();
   const off = o.off[o.off.length - 1], offOk = !!off && off.L + off.R >= tg, nv = TO.voc.reduce((s, t) => s + t.w.length, 0), kv = toVocKnown();
-  return [[found.every(f => f[1]), `🧱 Nền CEFR ${LVN[base]}: Từ vựng và Ngữ pháp qua Thi chuyển cấp`, found.map(([id, ok]) => (ok ? '✅ ' : '⬜ ') + (id === 'tv' ? 'Từ vựng' : 'Ngữ pháp') + ' ' + LVN[lvOf(id)]).join(' · ')],
+  return [[found.every(f => f[1]), `🧱 Nền tiếng Anh ${LVN[base]}: Từ vựng và Ngữ pháp qua Thi chuyển cấp`, found.map(([id, ok]) => (ok ? '✅ ' : '⬜ ') + (id === 'tv' ? 'Từ vựng' : 'Ngữ pháp') + ' ' + LVN[lvOf(id)]).join(' · ')],
     [kv >= nv * 0.8, '📚 Từ vựng công sở: ≥ 80% từ nhớ vững (hộp 3 trở lên)', `${kv}/${nv} từ`],
     [mOk, `🎓 Đề thử app ≥ ${tg} hai lần liền, hai ngày khác nhau`, mk.length ? mk.map(r => r.tot).join(', ') : 'chưa làm'],
     [offOk, `📝 Đề luyện thật (sách ETS / đề mẫu chính thức) ≥ ${tg}`, off ? `L ${off.L} · R ${off.R} = ${off.L + off.R}` : 'chưa ghi']]; }
@@ -129,7 +129,7 @@ function toSpeed(s) { const [sec, n] = TO_SPD[s], qs = s === 'p5' ? toGen.p5(n) 
 function toInsights() { const o = toSt(), tags = toTagAcc().filter(t => t.n), gain = toGain().slice(0, 3), traps = Object.entries(o.trap).sort((a, b) => b[1] - a[1]), sp = s => o.spd.filter(r => r.s === s).slice(-1)[0];
   const wk = o.date ? Math.max(0, Math.ceil((new Date(o.date + 'T12:00:00') - Date.now()) / (7 * 864e5))) : null, now = toNow();
   return `<div class="box"><b>🔍 Phân tích điểm yếu</b>
-    <div style="margin-top:6px"><span>${wk != null ? `Còn <b>${wk} tuần</b>${now.tot != null ? ` · cách mục tiêu <b>${Math.max(0, o.target - now.tot)}</b> điểm` : ''}` : '<span class="mute">Đặt ngày thi ở 🔄 Lộ trình (mục tiêu TOEIC) để đếm tuần còn lại.</span>'}</span></div>
+    <div style="margin-top:6px"><span>${wk != null ? `Còn <b>${wk} tuần</b>${now.tot != null ? ` · cách mục tiêu <b>${Math.max(0, o.target - now.tot)}</b> điểm` : ''}` : '<span class="mute">Đặt ngày thi ở 🧭 Lộ trình (mục tiêu TOEIC) để đếm tuần còn lại.</span>'}</span></div>
     <p style="margin:10px 0 2px"><b>🚀 Tăng điểm nhanh nhất ở đâu</b></p>${gain.length ? gain.map(x => `<p style="margin:2px 0">${TO_SEC[x.s][0]} ${TO_SEC[x.s][1]}: đúng ${Math.round(x.p * 100)}% → nếu thêm ${Math.round(Math.min(0.2, 1 - x.p) * 100)}% ≈ <b>+${x.g} điểm</b> <span class="mute">(đề thật ${TO_REAL[x.s]} câu)</span></p>`).join('')
       : '<p class="mute" style="margin:2px 0">Luyện ít nhất 5 câu mỗi Part để app tính.</p>'}<p class="mute" style="margin:2px 0 0">Ước theo số câu mỗi Part trong đề thật, ~4,9 điểm / câu; không phải bảng ETS.${wk != null && gain.length ? ` Gợi ý mỗi tuần: 3 buổi ${TO_SEC[gain[0].s][1]}${gain[1] ? `, 2 buổi ${TO_SEC[gain[1].s][1]}` : ''}, 1 đề thử, từ vựng mỗi ngày; mỗi 4 tuần 1 đề thật.` : ''}</p>
     ${tags.length ? `<p style="margin:10px 0 2px"><b>✏️ Part 5 theo dạng</b> <span class="mute">(lần làm gần nhất mỗi câu)</span></p>${tags.sort((a, b) => a.p - b.p).map(t => `<div class="row" style="margin:2px 0"><button class="link" data-top="t:${t.t}" style="text-align:left">${TO_T5[t.t]}</button><span class="${t.p >= 0.8 ? 'okc' : 'mute'}">${Math.round(t.p * 100)}% · ${t.n} câu</span></div>${bar(Math.round(t.p * 100), 80, t.p >= 0.8 ? 'var(--good)' : 'var(--accent)')}`).join('')}<p class="mute" style="margin:2px 0 0">Bấm tên dạng để luyện riêng dạng đó.</p>` : ''}
@@ -178,7 +178,7 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
       ${cs.map(([ok, t, d]) => `<p style="margin:4px 0">${ok ? '✅' : '⬜'} ${t} <span class="mute">· ${esc(d)}</span></p>`).join('')}
       <p class="mute" style="margin:6px 0 0">Đủ cả 4 mới nên đăng ký thi. Đề của app do AI soạn; đề luyện thật (sách ETS) là bằng chứng độc lập.</p>
       <button class="chip" data-toadd>📝 Ghi điểm đề luyện thật (Listening, Reading)</button></details>
-    <p class="mute">TOEIC là thương hiệu của ETS; app không phải sản phẩm chính thức, không chép đề ETS. 🤖 Nội dung AI soạn, chưa giáo viên kiểm (thấy câu sai: 💬 → ⚑ Câu sai). Không tính vào 🎯 Học CEFR. Đăng ký thi tại Việt Nam: IIG Việt Nam (đại diện ETS).</p>`;
+    <p class="mute">TOEIC là thương hiệu của ETS; app không phải sản phẩm chính thức, không chép đề ETS. 🤖 Nội dung AI soạn, chưa giáo viên kiểm (thấy câu sai: 💬 → ⚑ Câu sai). Không tính vào 🧱 Nền tiếng Anh. Đăng ký thi tại Việt Nam: IIG Việt Nam (đại diện ETS).</p>`;
   $app.onclick = e => { const g = s => e.target.closest(s); let b;
     if ((b = g('[data-totg]'))) { o.target = +b.dataset.totg; S.t = Date.now(); save(); return toeicView(); }
     if ((b = g('[data-iecefr]'))) { scrollTo(0, 0); return overview(b.dataset.iecefr); }

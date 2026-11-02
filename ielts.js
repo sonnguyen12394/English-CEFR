@@ -334,7 +334,7 @@ function ieReady() { const o = ieSt(), tg = o.target, base = ieBase(tg), lvOf = 
   const ai = [...(S.ai || []).filter(r => r.kind === 'viet' && String(r.lv).startsWith('ielts') && r.band != null), ...o.tw].sort((a, b) => a.at - b.at).slice(-2), wOk = ai.length === 2 && ai.every(r => r.band >= tg - 0.5);
   const lastOf = k => [...o.off].reverse().find(r => r[k] != null), oL = lastOf('L'), oR = lastOf('R'), off = oL || oR ? { L: oL ? oL.L : null, R: oR ? oR.R : null } : null;   // v87: đề thật nhập riêng Nghe / Đọc
   const offOk = !!(oL && oR) && ieRound((off.L + off.R) / 2) >= tg, te = o.teach[o.teach.length - 1], tOk = !!te && te.band >= tg - 0.5;
-  return [[found.every(f => f[1]), `🧱 Nền CEFR ${LVN[base]}: Từ vựng và Ngữ pháp qua Thi chuyển cấp`, found.map(([id, ok]) => (ok ? '✅ ' : '⬜ ') + (id === 'tv' ? 'Từ vựng' : 'Ngữ pháp') + ' ' + LVN[lvOf(id)]).join(' · ')],
+  return [[found.every(f => f[1]), `🧱 Nền tiếng Anh ${LVN[base]}: Từ vựng và Ngữ pháp qua Thi chuyển cấp`, found.map(([id, ok]) => (ok ? '✅ ' : '⬜ ') + (id === 'tv' ? 'Từ vựng' : 'Ngữ pháp') + ' ' + LVN[lvOf(id)]).join(' · ')],
     [mOk, `🎓 Đề thử IELTS cả đề ≥ ${bandTxt(tg)} hai lần liền, hai ngày khác nhau`, mk.length ? mk.map(r => bandTxt(r.all)).join(', ') : 'chưa làm'],
     [wOk, `✍️ Hai bài Viết gần nhất AI / giáo viên chấm ≥ ${bandTxt(tg - 0.5)}`, ai.length ? ai.map(r => bandTxt(r.band)).join(', ') : 'chưa nhờ AI / giáo viên chấm'],
     [offOk, `📝 Đề luyện chính thức (Nghe + Đọc) ≥ ${bandTxt(tg)}`, off ? `L ${bandTxt(off.L)} · R ${bandTxt(off.R)}` : 'chưa ghi'],
@@ -387,7 +387,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px">${sk('L', '🎧', 'Nghe')}${sk('R', '📖', 'Đọc')}${sk('W', '✍️', 'Viết')}${sk('S', '🗣', 'Nói')}</div>
       <p class="mute" style="margin:6px 0 0">Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. 📏 = đã chỉnh theo độ lệch riêng của bạn (Nghe / Đọc: so đề thật với đề thử app trong 14 ngày; Viết / Nói: so AI chấm, giáo viên với máy). Chưa chỉnh thì chỉ là máy ước. Mỗi tháng làm 1 đề thật (📝 ô Sẵn sàng thi) để band ước sát hơn. Band ${bandTxt(tg)} ≈ CEFR ${LVN[ieCefr(tg)]} (bảng đối chiếu IELTS công bố).</p></div>
     ${typeof imBox === 'function' ? `<details class="box"><summary><b>🗺 Bản đồ band</b> <span class="mute">· chỗ làm mất điểm, theo dạng câu</span></summary>${imBox()}${ieTyBox()}</details>` : ''}
-    <div class="box"><b>🧱 Nền cần có: CEFR ${LVN[base]}</b><p class="mute" style="margin:6px 0">Từ vựng và ngữ pháp là gốc của cả 4 kỹ năng. Học ở 📚 Học → 🧱 Nền CEFR; phần này không tính lại ở đây.</p>
+    <div class="box"><b>🧱 Nền cần có: CEFR ${LVN[base]}</b><p class="mute" style="margin:6px 0">Từ vựng và ngữ pháp là gốc của cả 4 kỹ năng. Học ở 📚 Học → 🧱 Nền tiếng Anh; phần này không tính lại ở đây.</p>
       <p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🎯 Mở Học CEFR cấp ${LVN[base]}</button></div>
     <div class="box"><div class="row"><b>🎓 Đề thử IELTS ${IE_TYPE[o.type]}</b><span class="mute">${o.mock.length ? `đã làm ${o.mock.length} lần` : 'chưa làm'}</span></div>
       <p class="mute" style="margin:6px 0">Khuôn như đề thật: Nghe 30 phút (nghe 1 lần) · Đọc 60 phút · Viết 60 phút · Nói 11–14 phút. Câu bốc ngẫu nhiên mỗi lần, không báo đúng / sai giữa chừng.</p>
@@ -408,7 +408,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
       <div class="chips"><button class="chip" data-ieadd="off">📝 Ghi số câu đúng đề thật (Nghe, Đọc)</button><button class="chip" data-ieadd="teach">🗣 Ghi band Nói với giáo viên</button></div></details>
     <details class="box"><summary><b>📚 Đề luyện chính thức (miễn phí)</b></summary>${IE_SRC.map(([n, u]) => `<p style="margin:4px 0"><a href="${u}" target="_blank" rel="noopener">${esc(n)}</a></p>`).join('')}
       <p class="mute" style="margin:6px 0 0">Làm đề luyện chính thức có giờ, chấm theo đáp án, rồi ghi band vào ô 🎯 ở trên. Sách Cambridge IELTS (bộ đề cũ) cũng dùng tốt.</p></details>
-    <p class="mute">App không phải sản phẩm chính thức của IELTS (British Council, IDP, Cambridge). 🤖 Nội dung AI soạn, chưa giáo viên kiểm (thấy câu sai: 💬 → ⚑ Câu sai). Luyện ở đây không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp của 🎯 Học CEFR.</p>
+    <p class="mute">App không phải sản phẩm chính thức của IELTS (British Council, IDP, Cambridge). 🤖 Nội dung AI soạn, chưa giáo viên kiểm (thấy câu sai: 💬 → ⚑ Câu sai). Luyện ở đây không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp của 🧱 Nền tiếng Anh.</p>
 `;
   $app.onclick = e => { const g = s => e.target.closest(s); let b;
     if ((b = g('[data-iety]'))) { o.type = b.dataset.iety; S.t = Date.now(); save(); return ieltsView(); }

@@ -532,7 +532,7 @@ const DICT_MAX = 300;   // vẽ tối đa 300 dòng (kho có hơn 5.000 từ): g
 const lvw = w => w.lv || UBY[w.u].lv;   // lv: lọc theo cấp (người sáng lập 23/10/2026)
 function dict() {
   window.CUR = { view: 'tu-dien' };
-  $app.innerHTML = `<h1>📖 Tra cứu</h1>
+  $app.innerHTML = `<h1>🔍 Tra cứu</h1>
     <input id="dq" type="search" placeholder="Tìm từ, ngữ pháp… bằng tiếng Anh hoặc tiếng Việt" value="${esc(DICT.q)}" autocomplete="off"><div id="df"></div><div id="dl"></div>`;
   const q = document.getElementById('dq'); q.oninput = () => { DICT.q = q.value; dictList(); };
   document.getElementById('df').onchange = e => { const k = e.target.dataset.sel, v = e.target.value || null; if (!k) return;
