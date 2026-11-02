@@ -262,7 +262,8 @@ function kWrite(x, prev) { const ideas = (x.k || []).map((g, i) => [g, x.c[i]]).
   return q; }
 // ---------- v101 ✍️ Viết bậc 1 · Câu đúng (xếp từ thành câu, tự sinh từ câu ví dụ của từ vựng) và bậc 2 · Nối câu (viet.json noi, Claude soạn) ----------
 // Máy chấm chắc (đáp án biết trước) nên hai bậc này tính 🔁 Nhớ và bắt buộc; bài viết (✅ đủ ý, 📝 đúng dạng) là mặt tham khảo.
-const V_CON = [[/\bwon't\b/g, 'will not'], [/\bcan't\b/g, 'cannot'], [/\bcan not\b/g, 'cannot'], [/\bshan't\b/g, 'shall not'], [/n't\b/g, ' not'], [/'m\b/g, ' am'], [/'re\b/g, ' are'], [/'ll\b/g, ' will'], [/'ve\b/g, ' have']];
+const V_CON = [[/\bwon't\b/g, 'will not'], [/\bcan't\b/g, 'cannot'], [/\bcan not\b/g, 'cannot'], [/\bshan't\b/g, 'shall not'], [/n't\b/g, ' not'], [/'m\b/g, ' am'], [/'re\b/g, ' are'], [/'ll\b/g, ' will'], [/'ve\b/g, ' have'],
+  [/\b(it|that|he|she|there|here|what|who|where|how)'s\b/g, '$1 is'], [/'d\b/g, ' would']];   // soát 2/11/2026: "That is …" khớp "That's …", "I'd have …" khớp "I would have …" (hai bên cùng chuẩn hoá)
 const vNorm = s => V_CON.reduce((t, [re, r]) => t.replace(re, r), String(s).toLowerCase().replace(/[‘’`]/g, "'")).replace(/[.,;:!?"“”()…]/g, ' ').replace(/\s+/g, ' ').trim();
 const vOk = s => { const n = s.split(/\s+/).length; return n >= 4 && n <= 11 && /^[A-Z]/.test(s) && /[.?!]$/.test(s) && !/["“”();:–—]/.test(s); };
 function vietInit(d) { const lvs = ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'], out = [];

@@ -22,7 +22,7 @@
         { "s": "Poorer neighbourhoods usually have fewer street trees than wealthier ones.", "a": "TRUE", "why": "Đoạn F: Poorer neighbourhoods tend to have fewer street trees than wealthier ones." }
       ],
       "comp": [
-        { "s": "Dark materials such as ______ absorb sunlight during the day.", "a": ["asphalt"], "why": "Đoạn B: Dark materials such as asphalt and roofing tar…" },
+        { "s": "Dark materials such as ______ absorb sunlight during the day.", "a": ["asphalt", "roofing tar"], "why": "Đoạn B: Dark materials such as asphalt and roofing tar…" },
         { "s": "Plants cool the air by releasing water through ______.", "a": ["evapotranspiration"], "why": "Đoạn B: a process called evapotranspiration." },
         { "s": "Besides cooling buildings, green roofs hold ______ during storms.", "a": ["rainwater"], "why": "Đoạn D: they also hold rainwater…" },
         { "s": "Planners use networks of cheap ______ to map temperatures street by street.", "a": ["sensors"], "why": "Đoạn F: Networks of cheap sensors…" }

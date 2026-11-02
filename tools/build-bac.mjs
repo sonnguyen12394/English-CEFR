@@ -25,3 +25,9 @@ for (const x of PB.sets) { if (!BLV.includes(x.lv) || x.pairs.length < 4 || x.te
 PJ.sets = [...PJ.sets.filter(x => !BLV.includes(x.lv)).map(x => PB.move[x.id] ? { ...x, lv: PB.move[x.id] } : x), ...PB.sets]; W('pa.json', PJ);
 console.log('pa.json:', PJ.sets.length, 'bộ âm (B1 → C2:', PB.sets.length + ')');
 console.log('viet.json: nối câu', Object.entries(noi).map(([l, L]) => l + ' ' + L.length).join(' · '), '| noi.json: Pre-A1', P.items.length, 'đề,', P.test.length, 'câu đọc to thi');
+// Soát nội dung 2/11/2026: sửa mục lấy từ game (build-skills.mjs) qua content/skill-fix.json, áp sau cùng (đọc lại tệp vừa ghi). Đã sửa thì bỏ qua; lệch cả hai thì dừng.
+const SF = J('content/skill-fix.json'), SD = {}; let nsf = 0;
+for (const [f, id, a, b] of SF.fix) { const D = SD[f] ||= J(f), i = D.items.findIndex(x => x.id === id); if (i < 0) throw new Error('skill-fix: không thấy ' + f + ' ' + id);
+  const s = JSON.stringify(D.items[i]); if (s.includes(a)) { D.items[i] = JSON.parse(s.replace(a, () => b)); nsf++; } else if (!s.includes(b)) throw new Error('skill-fix: lệch ' + id + ': ' + a); }
+for (const [f, D] of Object.entries(SD)) W(f, D);
+console.log('skill-fix:', nsf, 'chỗ mới áp /', SF.fix.length);

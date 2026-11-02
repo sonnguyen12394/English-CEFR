@@ -430,7 +430,9 @@
 },
 {
 "a": [
-"can"
+"can",
+"does",
+"could"
 ],
 "why": "one person can make a difference."
 }
@@ -698,7 +700,8 @@
 {
 "stem": "CONSCIOUS",
 "a": [
-"unconsciously"
+"unconsciously",
+"subconsciously"
 ],
 "why": "Trạng từ phủ định: vô thức."
 },

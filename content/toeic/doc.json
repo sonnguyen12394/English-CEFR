@@ -70,7 +70,7 @@
       "Alternatively",
       "Therefore",
       "Similarly",
-      "Otherwise"
+      "As a result"
      ],
      "a": "Alternatively",
      "why": "Đưa ra lựa chọn khác: Alternatively (hoặc là)."
@@ -1836,7 +1836,7 @@
      "why": "makes software for hospitals."
     },
     {
-     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Many of those positions will be filled by recent graduates.\"",
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Many of the new employees are expected to come from the university's computer science program.\"",
      "a": "[2]",
      "w": [
       "[1]",

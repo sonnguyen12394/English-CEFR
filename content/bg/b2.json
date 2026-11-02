@@ -35,15 +35,15 @@
 "a": "had had",
 "w": [
 "would have",
-"had"
+"have had"
 ],
 "why": {
 "would have": "Vế if không dùng would.",
-"had": "Quá khứ không thật: had + V3 (had had)."
+"have had": "Quá khứ không thật: had + V3 (had had), không dùng have had."
 }
 },
 {
-"s": "We ___ the match if Minh hadn't been injured.",
+"s": "Last Sunday we ___ the match if Minh hadn't been injured.",
 "a": "would have won",
 "w": [
 "would win",
@@ -84,11 +84,11 @@
 "s": "If you had told me, I ___ you.",
 "a": "could have helped",
 "w": [
-"could help",
+"had helped",
 "can help"
 ],
 "why": {
-"could help": "Quá khứ: could have helped.",
+"had helped": "Vế kết quả không dùng had + V3: could have helped.",
 "can help": "Quá khứ không thật: could have + V3."
 }
 }
@@ -211,11 +211,11 @@
 "s": "If he ___ lazy, he would have finished the job yesterday.",
 "a": "weren't",
 "w": [
-"hadn't been",
+"wouldn't be",
 "isn't"
 ],
 "why": {
-"hadn't been": "Lười là tính cách (hiện tại): weren't.",
+"wouldn't be": "Vế if không dùng would. Lười là tính cách (hiện tại): weren't.",
 "isn't": "Giả định: lùi về weren't."
 }
 },
@@ -374,11 +374,11 @@
 "a": "wouldn't make",
 "w": [
 "don't make",
-"hadn't made"
+"won't make"
 ],
 "why": {
 "don't make": "Phàn nàn: wish + would.",
-"hadn't made": "Chuyện đang lặp lại, không phải quá khứ."
+"won't make": "Sau wish không dùng will: wouldn't make."
 }
 },
 {
@@ -412,11 +412,11 @@
 "a": "would stop",
 "w": [
 "stops",
-"had stopped"
+"will stop"
 ],
 "why": {
 "stops": "Mong điều khác đi: would stop.",
-"had stopped": "Đang mưa, mong nó tạnh: would stop."
+"will stop": "Sau wish không dùng will: would stop."
 }
 }
 ]
@@ -626,8 +626,7 @@
 "good": "She can't have heard me.",
 "why": "Chắc chắn không: can't have.",
 "alt": [
-"She couldn't have heard me.",
-"She mustn't have heard me."
+"She couldn't have heard me."
 ]
 }
 ],

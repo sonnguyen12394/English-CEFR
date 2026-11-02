@@ -465,7 +465,9 @@
 },
 {
 "a": [
-"on"
+"on",
+"around",
+"round"
 ],
 "why": "pass on = truyền đi."
 },
@@ -618,7 +620,8 @@
 {
 "stem": "DOUBT",
 "a": [
-"undoubtedly"
+"undoubtedly",
+"doubtless"
 ],
 "why": "Trạng từ: chắc chắn."
 },

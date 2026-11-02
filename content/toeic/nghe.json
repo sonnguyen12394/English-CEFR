@@ -1508,7 +1508,7 @@
    "lines": [
     [
      "A",
-     "Paula, the client from Lindgren Foods wants to move tomorrow's meeting to next Tuesday."
+     "Paul, the client from Lindgren Foods wants to move tomorrow's meeting to next Tuesday."
     ],
     [
      "B",
@@ -1534,16 +1534,16 @@
      ]
     },
     {
-     "q": "Why can't the woman attend in person?",
-     "a": "She will be at a training course.",
+     "q": "Why can't the man attend in person?",
+     "a": "He will be at a training course.",
      "w": [
-      "She is going on vacation.",
-      "She has another client.",
-      "She is moving offices."
+      "He is going on vacation.",
+      "He has another client.",
+      "He is moving offices."
      ]
     },
     {
-     "q": "What does the man suggest?",
+     "q": "What does the woman suggest?",
      "a": "Joining online",
      "w": [
       "Sending a colleague instead",
@@ -1634,7 +1634,7 @@
      ]
     },
     {
-     "q": "What does the man suggest?",
+     "q": "What does the woman suggest?",
      "a": "Offering a smaller package",
      "w": [
       "Lowering the price",
@@ -1643,7 +1643,7 @@
      ]
     },
     {
-     "q": "What will the woman do?",
+     "q": "What will the man do?",
      "a": "Add an item to a meeting agenda",
      "w": [
       "Call some store managers",

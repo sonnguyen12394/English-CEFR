@@ -1,7 +1,7 @@
 {
  "_note": "Câu thi Pre-A1 viết lại chỉ dùng từ Pre-A1 (tiêu chí X4, docs/HOAN-THIEN.md). Áp bằng node tools/fix-pre.mjs. AI soạn, chưa người thật kiểm.",
  "bus": ["The bus is red and big.", "bus"],
- "bathroom": ["The bathroom is next to my bedroom.", "bathroom"],
+ "bathroom": ["There is a cat in the bathroom.", "bathroom"],
  "window": ["Please open the window.", "window"],
  "door": ["My mum is at the door.", "door"],
  "live": ["My grandparents live in a big house.", "live"],
@@ -152,7 +152,7 @@
  "hall": ["Put your shoes in the hall.", "hall"],
  "hold": ["Hold my hand, please.", "Hold"],
  "jump": ["The dog can jump very well.", "jump"],
- "kid": ["The kids are playing in the garden.", "kid"],
+ "kid": ["The kid has a red ball.", "kid"],
  "lamp": ["The lamp is next to the bed.", "lamp"],
  "lemon": ["I like juice with lemon.", "lemon"],
  "pick-up": ["Please pick up your clothes.", "pick up"],

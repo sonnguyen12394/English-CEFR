@@ -1,0 +1,107 @@
+{
+ "_": "Sửa nội dung lấy từ game (tools/build-skills.mjs đọc thư mục game; máy soạn không có thư mục này). Mỗi dòng: [tệp, id, chuỗi cũ, chuỗi mới], so trên JSON.stringify của mục. tools/build-bac.mjs áp sau cùng; chạy lại không đổi (đã sửa thì bỏ qua, lệch cả hai thì báo lỗi). Soát nội dung 2/11/2026, Claude.",
+ "fix": [
+  [
+   "np.json",
+   "g-a1-03",
+   "\"w\":[\"an\",\"some\"],\"why\":{\"an\":\"“university” đọc /juː/ (phụ âm /j/) nên dùng “a”.\",\"some\":\"“some” không đi với danh từ đếm được số ít.\"}",
+   "\"w\":[\"an\",\"two\"],\"why\":{\"an\":\"“university” đọc /juː/ (phụ âm /j/) nên dùng “a”.\",\"two\":\"“two” cần danh từ số nhiều (two universities); ở đây chỉ một trường.\"}"
+  ],
+  [
+   "np.json",
+   "g-a1-04",
+   "-s, -sh, -ch, -x, -o → + es: buses, dishes, watches, boxes, tomatoes",
+   "-s, -sh, -ch, -x → + es: buses, dishes, watches, boxes; -o thường + es: tomatoes, potatoes (nhưng photos, pianos)"
+  ],
+  [
+   "np.json",
+   "g-a1-04",
+   "phụ âm + y → ies: city → cities; -f/-fe → ves: knife → knives",
+   "phụ âm + y → ies: city → cities; -f/-fe thường → ves: knife → knives (nhưng roofs, chefs)"
+  ],
+  [
+   "np.json",
+   "g-a1-14",
+   "\"w\":[\"near\",\"beside\"],\"why\":{\"near\":\"Cụm đúng là “next to”; “near” không đi với “to”.\",",
+   "\"w\":[\"behind\",\"beside\"],\"why\":{\"behind\":\"Cụm đúng là “next to”; “behind” không đi với “to” (behind the bank).\","
+  ],
+  [
+   "np.json",
+   "g-a2-24",
+   "{\"bad\":\"Did you meet somebody interesting?\",\"good\":\"Did you meet anybody interesting?\",\"why\":\"Câu hỏi thông thường dùng any-.\",\"alt\":[\"Did you meet anyone interesting?\"]}",
+   "{\"bad\":\"Someone have left their bag here.\",\"good\":\"Someone has left their bag here.\",\"why\":\"someone, somebody, anyone… đi với động từ số ít: has.\",\"alt\":[\"Somebody has left their bag here.\"]}"
+  ],
+  [
+   "doc.json",
+   "doc-a1-u70",
+   "\"w\":[\"A piece of cake\",\"A bag\"]",
+   "\"w\":[\"Some flowers\",\"A bag\"]"
+  ],
+  [
+   "doc.json",
+   "doc-a1-u70",
+   "Cô có ít tiền euro",
+   "Cô có một ít tiền euro"
+  ],
+  [
+   "doc.json",
+   "doc-a1-u64",
+   "Her little son asks, Can you fly to space, Mum?",
+   "Her little son asks, 'Can you fly to space, Mum?'"
+  ],
+  [
+   "doc.json",
+   "doc-a1-u64",
+   "Cậu con trai nhỏ hỏi: Mẹ có bay lên vũ trụ được không?",
+   "Cậu con trai nhỏ hỏi: “Mẹ có bay lên vũ trụ được không?”"
+  ],
+  [
+   "nghe.json",
+   "nghe-a2-u41",
+   "vì chúng tôi có giường đôi đặc biệt",
+   "vì chúng tôi có giường đặc biệt cho trẻ sinh đôi"
+  ],
+  [
+   "nghe.json",
+   "nghe-a2-u54",
+   "Dear Mr Peter,",
+   "Dear Mr Brown,"
+  ],
+  [
+   "nghe.json",
+   "nghe-a2-u54",
+   "Kính gửi ông Peter,",
+   "Kính gửi ông Brown,"
+  ],
+  [
+   "noi.json",
+   "a1-s7",
+   "It is a city in the north of Vietnam.",
+   "It is a city in central Vietnam."
+  ],
+  [
+   "noi.json",
+   "a1-s1",
+   "\"pv\":\"Giới thiệu bản thân: tên, tuổi, quê, bạn làm gì.\"",
+   "\"pv\":\"Giới thiệu bản thân: tên, tuổi, quê, bạn làm gì và một sở thích.\""
+  ],
+  [
+   "noi.json",
+   "a1-s4",
+   "\"pv\":\"Nói về bạn thân: tên, ngoại hình, hai bạn làm gì cùng nhau.\"",
+   "\"pv\":\"Nói về bạn thân: tên, tuổi, ngoại hình, hai bạn làm gì cùng nhau.\""
+  ],
+  [
+   "noi.json",
+   "a1-s5",
+   "\"pv\":\"Hôm nay thời tiết thế nào? Bạn thích làm gì khi thời tiết như vậy?\"",
+   "\"pv\":\"Hôm nay thời tiết thế nào? Bạn thích làm gì khi thời tiết như vậy? Mùa bạn thích nhất là mùa nào?\""
+  ],
+  [
+   "noi.json",
+   "a1-s8",
+   "\"pv\":\"Nói về việc bạn thường làm cuối tuần: thứ Bảy và Chủ nhật.\"",
+   "\"pv\":\"Nói về việc bạn thường làm cuối tuần: thứ Bảy và Chủ nhật, với ai, bạn cảm thấy thế nào.\""
+  ]
+ ]
+}
