@@ -50,7 +50,7 @@ const imHit = (u, pass, now = Date.now()) => fcHit(ieSt().fo, u, pass, now);
 // ---------- ▶ chữa một chỗ ----------
 function imTeach(u, go) { const k = u[0], html = IE_TY[u] ? (typeof ieHow === 'function' ? ieHow([IM_HOWK[u]]).replace('<details', '<details open') : '')
     : `<div class="box"><b>${esc(IE_CR[k][+u.slice(2)])}</b>${IM_TIP[k][+u.slice(2)][1].map(s => `<p style="margin:4px 0">• ${esc(s)}</p>`).join('')}</div>`;
-  $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Học IELTS</button><span class="uname">📘 Trước khi thử</span></div><h1>📘 ${esc(imName(u))}</h1>
+  $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← IELTS</button><span class="uname">📘 Trước khi thử</span></div><h1>📘 ${esc(imName(u))}</h1>
     <p class="mute">Đọc lại cách làm rồi mới thử: làm thêm mà không đổi cách làm thì dễ sai như cũ.</p>${html}<button class="pri" data-im="go">Thử →</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return ieltsView(); if (e.target.closest('[data-im="go"]')) { scrollTo(0, 0); go(); } }; }
 async function imFix(u) { await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KIT.doc)]); const f = imFocus().act.find(w => w.u === u), d = dayOf(Date.now()), k = u[0];

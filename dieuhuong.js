@@ -12,15 +12,19 @@ async function cbView(lv) { BACK = null; window.CUR = { view: 'cambridge' }; EXA
   const stage = ovStage(); if (lv && OV_LV.includes(lv)) CB_LV = lv; lv = CB_LV && OV_LV.includes(CB_LV) ? CB_LV : (typeof plTop === 'function' && plTop(stage)) || stage;   // v99: chưa chọn cấp thì mở ở cấp 🧭 xếp được
   const ids = OV.filter(([id]) => ovIn(id, lv)), done = ids.filter(([id]) => ovPassed(id, lv)).length, ready = done >= Math.min(3, ids.length);
   const chip = l => `<button class="chip ${l === lv ? 'on' : ''}" data-cbl="${l}">${l === stage ? '▶ ' : ''}${LVN[l]}</button>`;
-  $app.innerHTML = `<div id="ie"></div>${typeof exSwitch === 'function' ? exSwitch('cefr') : ''}<h1>🎓 Thi Cambridge (CEFR)</h1>
-    <p class="mute" style="margin:0 0 6px">Đề thử theo khuôn Pre A1 Starters → C2 Proficiency, dạng đề thật, sẵn sàng thi. 🧱 Nền ở 📚 Học là chính; đây là phần riêng để luyện thi Cambridge.</p>
+  // v113: cùng khung với IELTS / TOEIC: cấp → MỘT nút chính (đề thử) → luyện dạng đề → thi thật (đề mẫu chính thức, sẵn sàng thi, đọc nghe thêm)
+  const M = typeof MOCK !== 'undefined' && MOCK[lv], nm = (S.mock && S.mock[lv] || []).length, tools = `${typeof uoeBox === 'function' ? uoeBox(lv) : ''}${typeof ngBox === 'function' ? ngBox(lv) : ''}${typeof capBox === 'function' ? capBox(lv) : ''}`;
+  $app.innerHTML = `<div id="ie"></div>${typeof exSwitch === 'function' ? exSwitch('cefr') : ''}
+    <h1 style="margin:4px 0">🎓 Cambridge ${LVN[lv]}</h1>
+    <p class="mute" style="margin:0 0 6px">${M ? esc(M.name) + ' · ' : ''}đề kiểu Cambridge do app soạn. Chọn cấp:</p>
     <div class="chips">${OV_LV.map(chip).join('')}</div>
-    <button data-cnv="cefr">📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết, thể loại bài Viết</button>
-    ${typeof MOCK !== 'undefined' && MOCK[lv] ? `<div class="box"><div class="row"><b>🎓 Đề thử ${esc(MOCK[lv].name)}</b><span class="mute">${(S.mock && S.mock[lv] || []).length ? `đã làm ${S.mock[lv].length} lần` : 'chưa làm'}</span></div><p class="mute" style="margin:6px 0">Khuôn, thời gian như đề thật; câu bốc ngẫu nhiên mỗi lần.</p><button class="pri" data-mock="${lv}">🎓 Làm đề thử</button></div>` : ''}
-    ${typeof uoeBox === 'function' ? uoeBox(lv) : ''}${typeof ngBox === 'function' ? ngBox(lv) : ''}${typeof capBox === 'function' ? capBox(lv) : ''}
-    ${ready && typeof realBox === 'function' ? realBox(lv) : `<p class="mute">📝 Đề mẫu chính thức và 🎯 Sẵn sàng thi mở khi ≥ 3 phần của ${LVN[lv]} qua 🚪 Thi chuyển cấp (đã qua ${done}/${ids.length}).</p>`}
+    ${M ? (typeof exHero === 'function' ? exHero('cefr', `data-mock="${lv}"`, `${M.name} · khuôn, giờ như đề thật${nm ? ` · đã làm ${nm} lần` : ''}`, '▶ Làm đề thử') : `<button class="btnbig" data-mock="${lv}">▶ Làm đề thử<small>${esc(M.name)}</small></button>`) : '<p class="mute">Cấp này chưa có đề thử.</p>'}
+    ${tools.trim() ? `<h2>Luyện dạng đề</h2>${tools}` : `<p class="mute">Cấp này luyện qua 🧱 Nền tiếng Anh. Từ A2 có thêm nghe điền, nói cặp; từ B1 có dạng đề thật.</p>`}
+    <h2>Thi thật</h2>
+    ${ready && typeof realBox === 'function' ? realBox(lv) : `<div class="box"><div class="row"><b>📝 Đề mẫu chính thức</b><span class="mute">🔒 ${done}/${Math.min(3, ids.length)}</span></div><p class="mute" style="margin:6px 0 0">Đề mẫu chính thức và 🎯 Sẵn sàng thi mở khi ≥ 3 phần của ${LVN[lv]} qua 🚪 Thi chuyển cấp (đã qua ${done}/${ids.length}).</p></div>`}
     ${typeof readyBox === 'function' ? (ready ? readyBox(lv) : '') + extBox(lv) : ''}
-    <p class="mute">Không phải đề Cambridge chính thức: câu do app soạn (🤖 chưa giáo viên kiểm). Đề mẫu chính thức ở ô 📝.</p>`;
+    <button data-cnv="cefr">📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết, thể loại bài Viết</button>
+    <p class="mute">Không phải đề Cambridge chính thức: câu do app soạn (🤖 chưa giáo viên kiểm). Đề mẫu chính thức ở mục 📝.</p>`;
   $app.onclick = e => { const c = e.target.closest('[data-cbl]'); if (c) { scrollTo(0, 0); return cbView(c.dataset.cbl); } const mk = e.target.closest('[data-mock]'); if (mk) return mockView(mk.dataset.mock); }; }
 
 // ---------- 👤 Của tôi: chỗ ở chính của tiến độ, chỗ yếu, sổ từ, sổ lỗi, kết quả thi thật, góp ý, dữ liệu ----------

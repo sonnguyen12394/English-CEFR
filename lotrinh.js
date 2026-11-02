@@ -20,7 +20,7 @@ const ltHasData = () => Object.keys(S.cards || {}).length || Object.values(S.k |
 let LT_FIX_ON = false, LT_EX_ON = false;
 { const t0 = actTick; actTick = function (now = Date.now()) { if (!S) return; const d = dayOf(now), A = actSt(), b = (A[d] || {}).ms || 0; t0(now);
     if (LT_FIX_ON || LT_EX_ON) { const L = ltSt(), k = LT_FIX_ON ? 'fx' : 'ex', o = L[k] = L[k] || {}; o[d] = (o[d] || 0) + (((A[d] || {}).ms || 0) - b); for (const x of Object.keys(o)) if (+x < d - 60) delete o[x]; } }; }
-for (const [n, c] of [['mapFix', 'fix'], ['mapRoot', 'fix'], ['mapRelearn', 'fix'], ['mapGapFix', 'fix'], ['errRun', 'fix'], ['ieltsView', 'ex:ielts'], ['toeicView', 'ex:toeic'], ['cbView', 'ex:cambridge'],
+for (const [n, c] of [['mapFix', 'fix'], ['mapRoot', 'fix'], ['mapRelearn', 'fix'], ['mapGapFix', 'fix'], ['errRun', 'fix'], ['ieltsView', 'ex:ielts'], ['ieSkView', 'ex:ielts'], ['toeicView', 'ex:toeic'], ['toSkView', 'ex:toeic'], ['cbView', 'ex:cambridge'],
   ['vwRun', ''], ['overview', ''], ['home', ''], ['partView', ''], ['kView', ''], ['learn', ''], ['mapView', ''], ['ltView', ''], ['ltPlanView', ''], ['dict', ''], ['minhView', '']]) {
   const f = window[n]; if (typeof f === 'function') window[n] = function (...a) { LT_FIX_ON = c === 'fix'; LT_EX_ON = c.startsWith('ex:') && !!(S && S.lt && S.lt.goal) && ltKind() === c.slice(3); return f.apply(this, a); }; }   // v109: chỉ kỳ thi của mục tiêu
 const ltExMin = d => Math.round(((ltSt().ex || {})[d] || 0) / 60000);
@@ -246,14 +246,14 @@ async function ltPlanView() { BACK = null; window.CUR = { view: 'lo-trinh-duong'
     ${i >= LT_D ? `<button class="btnbig" data-lt="chk">📝 Làm bài kiểm tra 10 ngày</button>` : ''}
     <div class="grid2" style="margin-top:16px"><button class="btnbig ghost" data-lt="place" style="font-size:16px;margin:0">🧭 Đo trình độ</button><button class="btnbig ghost" data-lt="edit" style="font-size:16px;margin:0">✏️ Đổi mục tiêu</button></div>
     ${re && re.k === 'first' ? `<p class="mute" style="margin:6px 0 0">🧭 Chưa đo trình độ: 5 phút để app bắt đầu đúng chỗ.</p>` : re && re.k !== 'real' ? `<p class="mute" style="margin:6px 0 0">🧭 Nên đo lại: ${esc(re.t).toLowerCase()}.</p>` : re ? `<p style="margin:6px 0 0">📝 ${esc(re.t)}. <button class="link" data-ltex>Mở ›</button></p>` : P ? `<p class="mute" style="margin:6px 0 0">Lần kiểm tra gần nhất ${ltFmt(dayOf(P.at))}: ${P.top ? `nắm khá vững ${LVN[P.top]}` : 'nên bắt đầu từ đầu'}.</p>` : ''}
-    ${f ? `<button class="btnbig ghost" data-mapv="lt" style="font-size:16px">🗺 Các chỗ hay sai${f.act.length ? ` · ${f.act.length}` : ''}</button>` : ''}
+    ${f ? `<button class="btnbig ghost" data-mapv="lt" style="font-size:16px">🗺 Bản đồ chỗ yếu${f.act.length ? ` · ${f.act.length} chỗ đang chữa` : ''}</button>` : ''}
     ${hist.length ? `<details class="box"><summary>📊 Các đợt 10 ngày trước (${hist.length})</summary>${hist.map(x => `<div style="margin:8px 0"><b>Đợt ${x.n}</b> <span class="mute">${ltFmt(x.d0)} → ${ltFmt(x.end)}</span>${ltSumHtml(x, L.d[L.d.indexOf(x) - 1])}</div>`).join('<hr style="border:0;border-top:1px solid var(--line)">')}</details>` : ''}
     <p class="mute" style="font-size:13px">Ước tính theo số giờ học Cambridge công bố; chỉ để tham khảo. Luật chi tiết: 👤 Tôi → 📘 Luật và cách dùng.</p>`; }
 
 // ---------- ▶ Học tiếp: làm việc kế tiếp; khi đang học dở ở màn khác thì có dải nhắc "🧭 Hôm nay: còn N việc" để quay về ----------
 let LT_SESS = false;
 function ltNextGo() { LT_SESS = true; const b = document.querySelector('#today .task.next'); if (b) { b.click(); return; } toast('🎉 Xong hết việc hôm nay'); }
-const LT_BANNER_ON = () => document.getElementById('grid') || document.getElementById('part') || document.getElementById('ov') || ['ielts', 'toeic', 'cambridge'].includes((window.CUR || {}).view);
+const LT_BANNER_ON = () => document.getElementById('grid') || document.getElementById('part') || document.getElementById('ov') || document.getElementById('ie') || ['ielts', 'toeic', 'cambridge'].includes((window.CUR || {}).view);
 function ltBanner() { if (!S || !LT_SESS || document.getElementById('lt') || document.getElementById('ltbanner') || !LT_BANNER_ON() || !(S.lt && S.lt.goal)) return;
   let n = 0; try { n = todayItems(ovStage()).filter(x => x.done === false).length; } catch (e) { return; }
   $app.insertAdjacentHTML('afterbegin', `<div id="ltbanner" class="ltbanner"><button class="link" data-ltgo>🧭 ${n ? `Hôm nay còn ${n} việc · ▶ Tiếp` : '🎉 Xong việc hôm nay · về Lộ trình'}</button><button class="link" data-ltx aria-label="Ẩn">✕</button></div>`); }

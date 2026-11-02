@@ -66,12 +66,12 @@ function todayItems(stage = ovStage(), o = {}) { const now = Date.now(), t = day
   if (!sp || sp.nen >= 70) add({ k: 'skill', ic: lowSk ? nm(lowSk[0])[1] : '🎧', title: 'Luyện kỹ năng', meta: sk ? 'Đã luyện hôm nay' : lowSk ? `${nm(lowSk[0])[2]}${mapSk ? ' · chỗ còn yếu' : ''}` : 'Nghe, Nói, Đọc, Viết', done: sk, attr: `data-today="skill"${lowSk ? ` data-tsk="${lowSk[0]}"` : ''}` });
   // 🎓 luyện đề của mục tiêu: đủ số phút đề là xong
   if (exK) { const en = { ielts: 'IELTS', toeic: 'TOEIC', cambridge: 'Cambridge' }[exK];
-    if (sp && !sp.ex) extra(`<p class="mute" style="margin:2px 0 6px">🎓 Chưa cần luyện đề ${en}: học nền trước. <button class="link" data-today="exam">Xem dạng đề ›</button></p>`);
+    if (sp && !sp.ex) extra(`<p class="mute" style="margin:2px 0 6px">🎓 Chưa cần luyện đề ${en}: học nền trước. <button class="link" data-ltex>Xem dạng đề ›</button></p>`);   // v113: chỉ mở màn kỳ thi, không tự vào bài
     else { let lab = ''; if (exK !== 'cambridge') try { lab = String((exK === 'ielts' ? ieToday() : toToday())[1] || '').replace(/<[^>]+>/g, '').replace(/^\W+\s*/, ''); } catch (e) {}
       const o2 = exK === 'ielts' ? S.ie || {} : exK === 'toeic' ? S.to || {} : {}, at = r => r && r.at && dayOf(r.at) === t, exM = sp ? sp.exM : 0, done = sp ? ltExMin(t) >= exM : Object.values(o2.r || {}).some(at) || ['w', 's', 'mock', 'spd'].some(k => (o2[k] || []).some(at));
       add({ k: 'exam', ic: '🎓', title: `Luyện ${en}`, meta: done ? (sp ? `Đủ ${exM} phút hôm nay` : 'Đã luyện hôm nay') : `${sp ? `${exM} phút · ` : ''}${TODAY_CUT(lab || (exK === 'cambridge' ? 'Đề thử, dạng đề' : 'Bài nên làm'), sp ? 26 : 34)}`, done, attr: 'data-today="exam"' }); } }
   if (typeof relearnUnits === 'function') for (const [u, ws] of relearnUnits().slice(0, 2)) extra(`<button class="link" data-relearn="${u.id}" style="margin:0 0 4px">🔁 Học lại ${esc(u.vi || uLabel(u))}: ${ws.length} từ hay quên ›</button>`);
-  if (mf) extra(`<button class="link" data-mapv${o.lt ? '="lt"' : ''} style="margin:0 0 4px">🗺 Xem các chỗ hay sai ›</button>`);
+  if (mf) extra(`<button class="link" data-mapv${o.lt ? '="lt"' : ''} style="margin:0 0 4px">🗺 Bản đồ chỗ yếu ›</button>`);
   return out; }
 const todayRow = (it, next) => `<button class="task${it.done ? ' done' : ''}${next ? ' next' : ''}" ${it.attr}><span class="c">${it.done ? '✓' : next ? '▶' : esc(it.ic)}</span><span class="t"><b>${esc(it.title)}</b><span>${esc(it.meta)}</span></span><span class="chev">›</span></button>`;
 // tương thích (v107–v111): [{ done, html }]

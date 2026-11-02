@@ -65,7 +65,7 @@ async function tmFix(u) { await toLoad(); if (!NCLIPS.size) try { NCLIPS = new S
     const n = /^(p3|p4|p6|p7)$/.test(u) ? 2 : 10, xs = (fr.length >= (n === 2 ? 1 : 5) ? fr : [...fr, ...old.filter(x => !fr.includes(x))]).slice(0, n);
     if (!fr.length) toast('Hết bài mới cho chỗ này: lượt này không tính lần thử (đã gặp trong 30 ngày).');
     const mk = x => u.startsWith('p5:') ? [toP5Q(x)] : u === 'p2' || u.startsWith('tr:') ? [toP2Q(x)] : u === 'p3' || u === 'p4' ? toTalkQs(x, u) : u === 'p6' ? toP6Qs(x) : toP7Qs(x);
-    ieRun('🗺 ' + tmName(u), xs.flatMap(mk), toeicView, 0, { R: toSt().r, home: 'Luyện TOEIC', done: (res, fresh) => toLog(res, 'luyen', fresh) }); };
+    ieRun('🗺 ' + tmName(u), xs.flatMap(mk), toeicView, 0, { R: toSt().r, home: 'TOEIC', done: (res, fresh) => toLog(res, 'luyen', fresh) }); };
   if (u.startsWith('spd:') || (f && f.tr >= 1 && f.td !== d)) return tmTeach(u, run);   // tốc độ: luôn xem cách làm nhanh; chỗ khác: từ lần thử 2
   run(); }
 

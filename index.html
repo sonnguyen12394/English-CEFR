@@ -144,47 +144,52 @@
   .days10 { display:grid; grid-template-columns:repeat(10,1fr); gap:5px; margin:8px 0 4px; } .days10 i { height:24px; border-radius:7px; background:var(--line); display:block; } .days10 i.ok { background:var(--good); } .days10 i.now { background:var(--accent); }
   .ltbanner { position:sticky; top:0; z-index:6; display:flex; gap:8px; align-items:center; justify-content:space-between; background:var(--accent2); border-radius:12px; padding:6px 12px; margin:0 0 8px; }
   .ltbanner button { margin:0; }
+  /* v113 màn kỳ thi (IELTS / TOEIC / Cambridge) cùng khung: hàng kỳ thi một dòng, ô điểm ước gọn */
+  .chipset.ex3 { flex-wrap:nowrap; } .chipset.ex3 button { flex:1; padding:8px 2px; font-size:15px; text-align:center; white-space:nowrap; }
+  .exscore { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin:8px 0 4px; }
+  .exscore div { background:var(--bg); border-radius:12px; padding:8px 4px; text-align:center; }
+  .exscore span { display:block; font-size:12px; color:var(--mute); white-space:nowrap; } .exscore b { display:block; font-size:22px; font-weight:800; } .exscore i { display:block; font-size:11px; color:var(--good); font-style:normal; }
 </style>
 </head>
 <body>
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=112"></script>
-<script src="tonghop.js?v=112"></script>
-<script src="exam.js?v=112"></script>
-<script src="gopy.js?v=112"></script>
-<script src="gop.js?v=112"></script>
-<script src="noi.js?v=112"></script>
-<script src="parts.js?v=112"></script>
-<script src="pa.js?v=112"></script>
-<script src="kit.js?v=112"></script>
-<script src="kparts.js?v=112"></script>
-<script src="backup.js?v=112"></script>
-<script src="mock.js?v=112"></script>
-<script src="mocknoi.js?v=112"></script>
-<script src="thi.js?v=112"></script>
-<script src="uoe.js?v=112"></script>
-<script src="nghe2.js?v=112"></script>
-<script src="cap.js?v=112"></script>
-<script src="lib.js?v=112"></script>
-<script src="homnay.js?v=112"></script>
-<script src="vuotcap.js?v=112"></script>
-<script src="nhanh.js?v=112"></script>
-<script src="bando.js?v=112"></script>
-<script src="soloi.js?v=112"></script>
-<script src="ielts.js?v=112"></script>
-<script src="focus.js?v=112"></script>
-<script src="ieplus.js?v=112"></script>
-<script src="iemap.js?v=112"></script>
-<script src="iethat.js?v=112"></script>
-<script src="tudien.js?v=112"></script>
-<script src="tracuu.js?v=112"></script>
-<script src="dieuhuong.js?v=112"></script>
-<script src="huongdan.js?v=112"></script>
-<script src="toeic.js?v=112"></script>
-<script src="tomap.js?v=112"></script>
-<script src="chandoan.js?v=112"></script>
-<script src="lotrinh.js?v=112"></script>
+<script src="app.js?v=113"></script>
+<script src="tonghop.js?v=113"></script>
+<script src="exam.js?v=113"></script>
+<script src="gopy.js?v=113"></script>
+<script src="gop.js?v=113"></script>
+<script src="noi.js?v=113"></script>
+<script src="parts.js?v=113"></script>
+<script src="pa.js?v=113"></script>
+<script src="kit.js?v=113"></script>
+<script src="kparts.js?v=113"></script>
+<script src="backup.js?v=113"></script>
+<script src="mock.js?v=113"></script>
+<script src="mocknoi.js?v=113"></script>
+<script src="thi.js?v=113"></script>
+<script src="uoe.js?v=113"></script>
+<script src="nghe2.js?v=113"></script>
+<script src="cap.js?v=113"></script>
+<script src="lib.js?v=113"></script>
+<script src="homnay.js?v=113"></script>
+<script src="vuotcap.js?v=113"></script>
+<script src="nhanh.js?v=113"></script>
+<script src="bando.js?v=113"></script>
+<script src="soloi.js?v=113"></script>
+<script src="ielts.js?v=113"></script>
+<script src="focus.js?v=113"></script>
+<script src="ieplus.js?v=113"></script>
+<script src="iemap.js?v=113"></script>
+<script src="iethat.js?v=113"></script>
+<script src="tudien.js?v=113"></script>
+<script src="tracuu.js?v=113"></script>
+<script src="dieuhuong.js?v=113"></script>
+<script src="huongdan.js?v=113"></script>
+<script src="toeic.js?v=113"></script>
+<script src="tomap.js?v=113"></script>
+<script src="chandoan.js?v=113"></script>
+<script src="lotrinh.js?v=113"></script>
 </body>
 </html>

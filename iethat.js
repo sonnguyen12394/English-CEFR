@@ -35,7 +35,7 @@ let TH = null;   // màn nhập đang làm: { sk, name, blocks: [[từ, đến, 
 // ---------- ① nhập kết quả đề thật theo từng câu ----------
 function ieThat(sk) { if (!TH || (sk && TH.sk !== sk)) TH = { sk: sk || (TH && TH.sk) || 'L', name: TH ? TH.name : '', blocks: TH_DEF[sk || 'L'].map(b => [...b]), wrong: new Set() };
   window.CUR = { view: 'ielts-de-that' }; const T = TH, tys = thTys(T.sk), cov = thCover(T), ok = 40 - T.wrong.size;
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-a="back">← Học IELTS</button><span class="uname">📝 Nhập đề thật</span></div><h1>📝 Kết quả đề thật</h1>
+  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-a="back">← IELTS</button><span class="uname">📝 Nhập đề thật</span></div><h1>📝 Kết quả đề thật</h1>
     <p class="mute">Làm đề chính thức (sách Cambridge IELTS, đề luyện của IELTS / British Council / IDP) đủ giờ, chấm theo đáp án của đề, rồi nhập ở đây. Mất ~3 phút.</p>
     <div class="chips">${Object.entries(TH_SK).map(([k, [ic, n]]) => `<button class="chip ${T.sk === k ? 'on' : ''}" data-ths="${k}">${ic} ${n}</button>`).join('')}</div>
     <label class="mute">Tên đề<input id="thn" value="${esc(T.name)}" placeholder="vd. Cambridge 18 · Test 2"></label>
@@ -78,7 +78,7 @@ function thResult(r, by) { window.CUR = { view: 'ielts-de-that-kq' };
     ${rows.length ? `<div class="box"><b>Theo dạng câu</b>${rows.map(([ty, b]) => { const p = Math.round(b.ok / b.n * 100); return `<div class="row" style="margin-top:6px"><span>${p < IE_TY_OK ? '⚠️' : '✅'} ${esc(IE_TY[ty])}</span><span class="mute">${b.ok}/${b.n} · ${p}%</span></div>`; }).join('')}
       <p class="mute" style="margin:6px 0 0">Dạng dưới ${IE_TY_OK}% vào 🗺 Bản đồ band (cần ≥ ${IE_TY_N} câu ở ≥ 2 đề mới chắc).</p></div>` : ''}
     ${r.wrong.length ? `<div class="box"><b>Câu sai: xem lại vì sao sai</b><p style="margin:6px 0">${r.wrong.join(', ')}</p><p class="mute" style="margin:0">Mở lại đề, đọc lời giải / bản ghi lời nghe: tìm chỗ bài diễn đạt lại ý của câu hỏi. Từ chưa biết thì 📥 lấy vào bộ thẻ.</p></div>` : ''}
-    <button class="pri" data-thv>📥 Lấy từ mới từ đề này</button><button data-a="back">← Học IELTS</button>`; scrollTo(0, 0);
+    <button class="pri" data-thv>📥 Lấy từ mới từ đề này</button><button data-a="back">← IELTS</button>`; scrollTo(0, 0);
   $app.onclick = e => { if (e.target.closest('[data-thv]')) return vwAdd(r.name); if (e.target.closest('[data-a="back"]')) ieltsView(); }; }
 
 // ---------- ② 📥 từ mới từ đề thật: bộ thẻ riêng, hộp Leitner ----------
@@ -97,7 +97,7 @@ function vwCands(text, now = Date.now()) { const sents = kSents(String(text || '
   const rank = c => c.lv ? LEVELS.indexOf(c.lv) : 99;   // từ app không có (thường khó, học thuật) lên đầu
   return [...seen.values()].sort((a, b) => rank(b) - rank(a)).slice(0, VW_MAX); }
 async function vwAdd(src) { window.CUR = { view: 'ielts-tu-de-that' }; if (typeof loadRef === 'function' && !REF) { try { await loadRef(); LIBW = null; } catch (e) {} }
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-a="back">← Học IELTS</button><span class="uname">📥 Từ mới từ đề thật</span></div><h1>📥 Lấy từ mới</h1>
+  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-a="back">← IELTS</button><span class="uname">📥 Từ mới từ đề thật</span></div><h1>📥 Lấy từ mới</h1>
     <p class="mute">Dán đoạn đọc hoặc lời nghe (bản ghi cuối sách) của đề vừa làm. App tách từ, bạn chọn từ chưa chắc để ôn cách quãng.</p>
     <label class="mute">Nguồn<input id="vws" value="${esc(src || '')}" placeholder="vd. Cambridge 18 · Test 2 · Reading 1"></label>
     <textarea id="vwt" rows="8" placeholder="Dán đoạn văn tiếng Anh vào đây…"></textarea><button class="pri" data-vwf>🔎 Tìm từ</button><div id="vwc"></div>
@@ -145,8 +145,8 @@ const ieParaRun = () => { const qs = ieParaQs(10); scrollTo(0, 0); return qs.len
 document.addEventListener('click', e => { if (S && e.target.closest('[data-iepara]')) ieParaRun(); });
 
 // ---------- ô 📝 Đề thật ở màn Học IELTS ----------
-function thBox() { const o = ieSt(), th = (o.th || []).slice(-3).reverse(), vd = vwDue().length, vn = vwSt().length;
-  return `<div class="box"><b>📝 Luyện bằng đề thật</b><p class="mute" style="margin:6px 0">Đề chính thức đáng tin hơn đề app tự soạn. Làm đề trong sách Cambridge IELTS hoặc đề luyện miễn phí, rồi nhập kết quả từng câu: app tìm dạng câu làm mất điểm và chỉnh band ước.</p>
+function thBox(inner) { const o = ieSt(), th = (o.th || []).slice(-3).reverse(), vd = vwDue().length, vn = vwSt().length;   // inner (v113): nằm trong ô gập "📝 Luyện bằng đề thật" của màn IELTS, bỏ khung + tiêu đề
+  return `${inner ? '<div>' : '<div class="box"><b>📝 Luyện bằng đề thật</b>'}<p class="mute" style="margin:6px 0">Đề chính thức đáng tin hơn đề app tự soạn. Làm đề trong sách Cambridge IELTS hoặc đề luyện miễn phí, rồi nhập kết quả từng câu: app tìm dạng câu làm mất điểm và chỉnh band ước.</p>
     ${th.map(r => `<p style="margin:2px 0;font-size:15px">${TH_SK[r.sk][0]} ${esc(r.name)} <span class="mute">· ${r.ok}/40 · band ${bandTxt(r.band)} · ${new Date(r.at).toLocaleDateString('vi-VN')}</span></p>`).join('')}
     <div class="duo"><button class="big2" data-th="L">🎧 Nhập Listening<small>40 câu</small></button><button class="big2" data-th="R">📖 Nhập Reading<small>40 câu</small></button></div>
     <button data-vwadd>📥 Lấy từ mới từ đề thật</button>${vn ? `<button ${vd ? 'class="pri"' : ''} data-vwrun>📌 Ôn sổ từ${vd ? `: ${vd} từ đến hạn` : ''} <span class="mute">· ${vn} từ (đề thật + từ điển)</span></button>` : ''}</div>`; }
