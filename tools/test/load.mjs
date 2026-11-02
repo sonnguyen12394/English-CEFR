@@ -16,5 +16,9 @@ export async function load() {
   const files = [...fs.readFileSync(root + 'index.html', 'utf8').matchAll(/<script src="([a-z0-9-]+\.js)\?v=\d+"/g)].map(m => m[1]);
   for (const f of files) vm.runInContext(fs.readFileSync(root + f, 'utf8'), ctx, { filename: f });
   await new Promise(r => setTimeout(r, 400));
+  // chờ app "đăng nhập giả" xong (fake-sb gọi onAuthStateChange → start → load đặt S). Trước đây chờ cứng 400 ms: máy chậm thì sự kiện tới muộn,
+  // đặt S = null giữa lúc test đang chạy (lỗi chập chờn "Cannot set properties of null" ở C24).
+  for (let i = 0; i < 300 && !vm.runInContext('typeof S !== "undefined" && !!S && typeof user !== "undefined" && !!user', ctx); i++) await new Promise(r => setTimeout(r, 50));
+  await new Promise(r => setTimeout(r, 100));
   return { ctx, run: code => vm.runInContext(code, ctx) };
 }

@@ -967,6 +967,28 @@ const R = await run(`(async () => {
     if (!kTeach(KIT.np, kItems(KIT.np, 'pre')[0]).includes('bài học, không tính') || !kTeach(KIT.doc, kItems(KIT.doc, 'pre')[0]).includes('🆕 bài mới (🏋️ Bài tập)')) bad.push('bài học chưa ghi không tính');
     S = blank();
     add('cefr', 'C31', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '📘 Bài học / 🏋️ Bài tập tách riêng: 🏋️ chỉ có lượt tính 🔁 Nhớ, luyện thêm ở 📘 (không cộng ôn chéo), Đọc / Nghe bài mới là bài tập (📘 = luyện thêm + xem lại bài vừa làm), ⚡ Từ vựng ghi rõ là bài tập, Phát âm, Hôm nay, Luật đều đúng'); }
+  // v117 mở khoá bài tập (người sáng lập 2/11/2026, chọn "tính như học"): 🏋️ mở khi chưa học; thiếu bài đã học thì lấy bài chưa học; làm = tính đã học, Nhớ từ ngày sau
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML), t = dayOf(Date.now());
+    S = blank();
+    for (const id of ['np', 'noi', 'viet']) { tryv('view ' + id, () => kView(id)); if (/data-k="menu"[^>]*disabled/.test(H())) bad.push(id + ': 🏋️ còn khoá'); }
+    tryv('home', () => home()); if (/data-a="practice"[^>]*disabled/.test(H())) bad.push('Từ vựng: 🏋️ còn khoá');
+    tryv('paView', () => paView()); if (/data-pa="menu"[^>]*disabled/.test(H())) bad.push('Phát âm: 🏋️ còn khoá');
+    // kit: chưa học bài nào → lấy bài đầu của cấp; Đọc / Nghe không lấy (bài mới riêng)
+    const T = kTargets(KIT.np, 'nhan', 5); if (T.length !== 5 || T[0].id !== kItems(KIT.np, 'pre')[0].id) bad.push('Ngữ pháp: chưa lấy bài chưa học theo thứ tự');
+    if (kTargets(KIT.doc, 'y', 4).length) bad.push('Đọc: không được lấy bài chưa gặp cho một mặt');
+    // làm đúng bài chưa học → có thẻ (📘 Học), chưa tính Nhớ hôm nay
+    const x = T[0]; kGrade(KIT.np, KIT.np.q(x, 'nhan', 'learn').map(q => ({ x, k: 'nhan', ok: true, q })));
+    const c = kSt('np').cards[x.id]; if (!c || c.d0 !== t || kParts(KIT.np, 'pre').learn !== 1 || (c.dm && c.dm.nhan && c.dm.nhan.pv)) bad.push('Ngữ pháp: làm bài chưa học chưa tính như học');
+    // Phát âm: lấy bộ chưa học, chấm tạo thẻ
+    S = blank(); const PT = paTargets('pb', 4); if (PT.length !== 4 || PT.some(y => y.lv !== paLevel())) bad.push('Phát âm: chưa lấy bộ chưa học');
+    paGrade([{ x: PT[0], ok: true }], 'pa_pb'); if (!paSt()[PT[0].id] || paSt()[PT[0].id].d0 !== t) bad.push('Phát âm: làm bộ chưa học chưa tạo thẻ');
+    // Từ vựng: lượt chung lấy từ chưa học (bậc 1), trả lời → thẻ mới, chưa tính Nhớ hôm nay
+    S = blank(); let it0 = null; const r0 = run; run = o => { it0 = o; }; tryv('practice', () => practice()); run = r0;
+    if (!it0 || it0.items.length !== ROUND || !it0.items.every(i => i.nw && i.type === 'w2vi')) bad.push('Từ vựng: lượt chung chưa lấy từ chưa học');
+    else { const w = it0.items[0].w; it0.first(it0.items[0], true, 'w2vi'); const cw = S.cards[w.id]; if (!cw || cw.d0 !== t || (cw.dm && cw.dm.nghia && cw.dm.nghia.pv)) bad.push('Từ vựng: từ chưa học làm đúng chưa tính như học'); }
+    const hb = HD.find(x => x[0] === 'baitap'); if (!hb || !hb[2]().includes('Không cần học trước')) bad.push('Luật chưa ghi mở khoá bài tập');
+    S = blank();
+    add('cefr', 'C32', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'mở khoá bài tập: 🏋️ mở khi chưa học (7 phần), lấy bài / bộ / từ chưa học theo thứ tự, làm = tính đã học, 🔁 Nhớ từ ngày sau; Đọc / Nghe giữ bài mới riêng đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V', 'T'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung)');

@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 116;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 117;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -383,7 +383,7 @@ function home() {
     <p class="mute" style="margin:0 0 6px">Trình độ <b>${LVN[lv]}</b> · đã học ${p.learn} / ${p.T} từ · <span id="sync">${esc(sync)}</span></p>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Bài học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
-      <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Bài tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
+      <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice">🏋️ Bài tập<small>${!p.learn ? 'Làm luôn, chưa cần học' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
     </div><p class="mute" style="margin:2px 0 10px;font-size:13px">📘 Bài học: dạy, không tính 🔁 Nhớ (trừ ⚡ bài tập nhanh đầu bài) · 🏋️ Bài tập: tính 🔁 Nhớ</p>
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ${p.Tu ? ` (gồm ${p.Tu} từ cấp trước cần ⬆️ nâng cấp)` : ''}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
@@ -511,12 +511,15 @@ function practice(k) {
   // luyện riêng một yêu cầu: chỉ từ có yêu cầu đó ở cấp đang học và đã được dạy (bài học hoặc ⬆️ Nâng cấp)
   const mem = new Set(memWords(curLevel(), now).map(w => w.id)), list = shuf(WORDS.filter(w => S.cards[w.id] && mem.has(w.id) && (!k || wDims(w).includes(k)))).sort((a, b) => pri(a) - pri(b)).slice(0, ROUND);   // chỉ từ đang tính 🔁 Nhớ
   if (k === 'noi') return noiTask('noi');
-  if (!list.length) { toast('Chưa có từ đã học cho yêu cầu này.'); return home(); }
+  // v117 (người sáng lập "mở khoá bài tập… làm được mà không cần học", chọn "tính như học"): lượt chung thiếu từ đã học thì lấy thêm từ CHƯA học
+  // theo thứ tự bài (bài kế tiếp trước), hỏi bậc 1 (thấy từ → nghĩa, xem nghĩa sau câu). Trả lời lần đầu = học bằng cách làm: tạo thẻ (tính 📘 Học), 🔁 Nhớ tính từ mai.
+  const nws = k ? [] : UNITS.filter(u => !locked(u)).flatMap(u => u.words).filter(w => !S.cards[w.id]).slice(0, Math.max(0, ROUND - list.length));
+  if (!list.length && !nws.length) { toast('Chưa có từ đã học cho yêu cầu này.'); return home(); }
   let ok = 0;
-  run({ title: k ? `🏋️ ${DIMS.find(x => x[0] === k)[1]}` : '🏋️ Bài tập', items: list.map(w => { const type = k ? TYPE_FOR[k]() : typeFor(S.cards[w.id], now, w); return { w, type, teach: (DIM_OF[type] || []).some(d => wDims(w).includes(d) && taughtDay(S.cards[w.id], w, d) == null), fresh: (DIM_OF[type] || []).some(d => wDims(w).includes(d) && !(S.cards[w.id].dm && S.cards[w.id].dm[d] && S.cards[w.id].dm[d].n)) }; }), retry: true,
-    first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) ok++; save(); },
+  run({ title: k ? `🏋️ ${DIMS.find(x => x[0] === k)[1]}` : '🏋️ Bài tập', items: [...nws.map(w => ({ w, type: 'w2vi', nw: true })), ...list.map(w => { const type = k ? TYPE_FOR[k]() : typeFor(S.cards[w.id], now, w); return { w, type, teach: (DIM_OF[type] || []).some(d => wDims(w).includes(d) && taughtDay(S.cards[w.id], w, d) == null), fresh: (DIM_OF[type] || []).some(d => wDims(w).includes(d) && !(S.cards[w.id].dm && S.cards[w.id].dm[d] && S.cards[w.id].dm[d].n)) }; })], retry: true,
+    first: (it, good, type) => { const t = Date.now(); if (!S.cards[it.w.id]) S.cards[it.w.id] = { S: 1, last: t, d0: dayOf(t), ok: 1, pv: 0, n: 0, lapse: 0 }; grade(S, it.w.id, good, t, type); if (good) ok++; save(); },
     done: () => { const p = parts(S, Date.now());
-      $app.innerHTML = `<div class="box"><b>Xong lượt bài tập</b><p>Đúng ngay lần đầu ${ok}/${list.length} từ. 🔁 Nhớ giờ là ${p.mq}% (${dimsAt().map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')}).</p></div><button class="pri" data-a="again">🏋️ Làm tiếp</button><button data-a="home">Về 📚 Từ vựng</button>`;
+      $app.innerHTML = `<div class="box"><b>Xong lượt bài tập</b><p>Đúng ngay lần đầu ${ok}/${list.length + nws.length} từ.${nws.length ? ` 🆕 ${nws.length} từ chưa học: lần này tính là đã học; 🔁 Nhớ tính từ mai.` : ''} 🔁 Nhớ giờ là ${p.mq}% (${dimsAt().map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')}).</p></div><button class="pri" data-a="again">🏋️ Làm tiếp</button><button data-a="home">Về 📚 Từ vựng</button>`;
       $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="again"]')) practice(k); }; } });
 }
 
@@ -584,7 +587,7 @@ function run({ title, items, retry, quiet, first, done }) {
     window.CUR = { view: title, unit: it.w.u, item: 'w:' + it.w.id + ':' + Q.type, prompt: String(Q.top).replace(/<[^>]*>|&[a-z#0-9]+;/g, '').slice(0, 200) }; window.CUR_Q = Q;   // bộ test e2e đọc đáp án
     $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${esc(title)} · ${solved}/${total}</span></div>
       ${bar(solved / total * 100, 0, 'var(--accent)')}
-      <p class="q">${Q.top}</p><p class="mute">${Q.sub}</p>${it.up && Q.type !== 'tiles' ? '<p class="mute">🪜 Làm lại bằng dạng dễ hơn; đúng rồi tự làm lại dạng khó.</p>' : ''}${!it.teach && it.fresh && !it.up ? `<p class="mute">🆕 Bậc mới cho từ này: làm thử rồi đọc giải thích sau câu.</p>` : ''}${it.teach ? `<p class="mute">🆕 Yêu cầu mới của ${LVN[curLevel()]} cho từ này: làm thử rồi đọc giải thích sau câu. Hôm nay là ngày học, từ mai làm đúng mới tính 🔁 Nhớ.</p>` : ''}
+      <p class="q">${Q.top}</p><p class="mute">${Q.sub}</p>${it.up && Q.type !== 'tiles' ? '<p class="mute">🪜 Làm lại bằng dạng dễ hơn; đúng rồi tự làm lại dạng khó.</p>' : ''}${it.nw ? '<p class="mute">🆕 Từ chưa học: đoán thử, xem nghĩa sau câu. Làm là tính đã học; 🔁 Nhớ tính từ mai.</p>' : ''}${!it.nw && !it.teach && it.fresh && !it.up ? `<p class="mute">🆕 Bậc mới cho từ này: làm thử rồi đọc giải thích sau câu.</p>` : ''}${it.teach ? `<p class="mute">🆕 Yêu cầu mới của ${LVN[curLevel()]} cho từ này: làm thử rồi đọc giải thích sau câu. Hôm nay là ngày học, từ mai làm đúng mới tính 🔁 Nhớ.</p>` : ''}
       ${Q.typed ? `<form id="tf" autocomplete="off"><input id="ti" class="tin" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="Gõ câu trả lời">
         ${Q.tiles ? `<div class="chips" id="tl">${Q.tiles.map((ch, i) => `<button type="button" class="chip" data-tile="${i}" style="min-width:40px;font-size:20px">${esc(ch)}</button>`).join('')}<button type="button" class="chip" data-tile="-1" aria-label="Xoá chữ cuối">⌫</button></div>` : ''}
         <button class="pri" type="submit">Kiểm tra</button><button type="button" data-a="skip">Không nhớ</button></form>`

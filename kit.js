@@ -63,7 +63,7 @@ function kView(id) { const P = KIT[id];
       ? `<button class="big2" data-k="hoc">📘 Bài học<small>Cách học · luyện thêm · xem lại</small></button>
       <button class="big2 pri" data-k="menu">🏋️ Bài tập<small>${nw ? '🆕 ' + esc(P.name(nw)) : p.due ? `${p.due} bài cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>`
       : `<button class="big2 ${p.due ? '' : 'pri'}" data-k="learn" ${nx ? '' : 'disabled'}>📘 Bài học<small>${nx ? esc(P.name(nx)) : `Đã học hết ${LVN[lv]}`}</small></button>
-      <button class="big2 ${p.due ? 'pri' : ''}" data-k="menu" ${p.learn ? '' : 'disabled'}>🏋️ Bài tập<small>${!p.learn ? 'Học 1 bài trước' : p.due ? `${p.due} bài cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>`}
+      <button class="big2 ${p.due ? 'pri' : ''}" data-k="menu">🏋️ Bài tập<small>${!p.learn ? 'Làm luôn, chưa cần học' : p.due ? `${p.due} bài cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>`}
     </div>${kDuoNote(P)}
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
@@ -159,11 +159,15 @@ function kNextNew(P) { const lv = kLv(P), st = kSt(P.id).cards, now = Date.now()
 // ---------- 🏋️ Bài tập (trước v116: Luyện tập) ----------
 function kTargets(P, k, n) { const now = Date.now(), st = kSt(P.id).cards, L = P.items.filter(x => !x.test && st[x.id] && !kLocked(P, x.lv) && kDimsOf(P, x).includes(k));
   const r = x => { const c = st[x.id]; return (kHeld(P, c, k, now) ? 2 : 0) + (dayOf(now) - c.d0 >= MEM_DAYS ? 0 : 1) + recall(c, now); };
-  return shuf(L).sort((a, b) => r(a) - r(b)).slice(0, n); }
+  const T = shuf(L).sort((a, b) => r(a) - r(b)).slice(0, n); return [...T, ...kUnl(P, k, n - T.length)]; }
+// v117 (người sáng lập 2/11/2026 "mở khoá bài tập để tôi xem và làm được mà không cần học", chọn "tính như học"): thiếu bài đã học thì lấy thêm bài CHƯA học
+// của cấp đang học (theo thứ tự). Làm bài tập trên bài chưa học = học bằng cách làm: kGrade tạo thẻ (tính 📘 Học); 🔁 Nhớ tính từ ngày sau như thường.
+// Đọc / Nghe không lấy thêm: bài chưa gặp là 🆕 bài mới (đo cả ý chính lẫn chi tiết một lần), làm riêng một mặt sẽ mất lần đo.
+const kUnl = (P, k, n) => n > 0 && !P.newQs ? kItems(P, kLv(P)).filter(x => !kSt(P.id).cards[x.id] && (!k || kDimsOf(P, x).includes(k))).slice(0, n) : [];
 // v116: 🏋️ Bài tập chỉ có lượt tính 🔁 Nhớ (P.menu có mặt); luyện thêm (không tính) ở 📘 Bài học (kExtraBox)
 function kMenu(P) { window.CUR = { view: P.id + '-luyen' }; const lv = kLv(P), p = kParts(P, lv);
   const low = P.dims.map(([k]) => k).sort((a, b) => p.dq[a] - p.dq[b])[0];
-  $app.innerHTML = `${backRow('🏋️ Bài tập · ' + P.t)}<h1>🏋️ Bài tập · ${P.t}</h1><p class="mute">Mọi lượt ở đây tính 🔁 Nhớ${P.fresh ? ` (💡 ý chính, 🔍 chi tiết chỉ tính trên bài chưa gặp hoặc gặp đã ≥ ${K_FRESH_D} ngày)` : ''}. ${P.dims.map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')} (cấp ${LVN[lv]}). Máy chọn bài đến hạn hoặc còn thiếu mặt.</p>
+  $app.innerHTML = `${backRow('🏋️ Bài tập · ' + P.t)}<h1>🏋️ Bài tập · ${P.t}</h1><p class="mute">Mọi lượt ở đây tính 🔁 Nhớ${P.fresh ? ` (💡 ý chính, 🔍 chi tiết chỉ tính trên bài chưa gặp hoặc gặp đã ≥ ${K_FRESH_D} ngày)` : ''}. ${P.dims.map(([k, l]) => `${l} ${p.dq[k]}%`).join(' · ')} (cấp ${LVN[lv]}). Máy chọn bài đến hạn hoặc còn thiếu mặt${P.newQs ? '' : '; thiếu bài đã học thì lấy bài chưa học: làm là tính đã học, 🔁 Nhớ tính từ mai'}.</p>
     ${P.menu.map(([m, t, sub, ks], i) => ks.length ? `<button class="opt ${ks.includes(low) ? 'pri' : ''}" data-km="${i}"><b>${t}</b>${ks.includes(low) ? ' · nên làm' : ''}<br><span style="font-size:14px;opacity:.85">${sub}</span></button>` : '').join('')}`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return kView(P.id); const b = e.target.closest('[data-km]'); if (!b) return;
     kRun(P, +b.dataset.km); };
@@ -171,21 +175,23 @@ function kMenu(P) { window.CUR = { view: P.id + '-luyen' }; const lv = kLv(P), p
 // v101: P.menuQs(m) cho lượt đặc biệt (🔀 trộn điểm dễ nhầm, ✍️ dùng…): trả { title, qs } hoặc false (đã báo lý do); 'bac' = luyện theo bậc (mọi mặt của bài)
 function kTargetsAll(P, n) { const now = Date.now(), st = kSt(P.id).cards, L = P.items.filter(x => !x.test && st[x.id] && !kLocked(P, x.lv));
   const r = x => { const c = st[x.id]; return (kDimsOf(P, x).every(k => kHeld(P, c, k, now)) ? 2 : 0) + (dayOf(now) - c.d0 >= MEM_DAYS ? 0 : 1) + recall(c, now); };
-  return shuf(L).sort((a, b) => r(a) - r(b)).slice(0, n); }
+  const T = shuf(L).sort((a, b) => r(a) - r(b)).slice(0, n); return [...T, ...kUnl(P, null, n - T.length)]; }
 // v116: mục không có mặt nào (ks rỗng) = 📘 luyện thêm: không chấm, không cộng ôn chéo cho từ (nomf); back = màn để quay về
 function kRun(P, mi, back) { const [m, t, , ks, n] = P.menu[mi], C = P.menuQs ? P.menuQs(m) : null, ex = !ks.length; if (C === false) return;
     const T = C ? [] : m === 'bac' ? kTargetsAll(P, n) : kTargets(P, ks[0], n), home = back || (() => kView(P.id));
-    if (!C && !T.length) return toast('Chưa có bài đã học cho mặt này: học thêm bài trước.');
+    if (!C && !T.length) return toast('Chưa có bài cho mặt này ở cấp đang học.');
+    const unl = new Set(T.filter(x => !kSt(P.id).cards[x.id]).map(x => x.id));   // v117: bài chưa học có trong lượt
     kQuiz({ P, title: C ? C.title : t, qs: C ? C.qs : T.flatMap(x => P.ask(x, m)), nomf: ex, back: home, done: res => {
       const ok = res.filter(r => r.ok).length;
       if (ex) { $app.innerHTML = `<div class="box"><b>Xong lượt luyện thêm</b><p>Đúng ${ok}/${res.length}. 📘 Luyện thêm: không tính 🔁 Nhớ.</p></div>
           <button class="pri" data-a="again">Luyện tiếp</button><button data-a="home">← Về</button>`;
         $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); if (e.target.closest('[data-a="again"]')) kRun(P, mi, back); }; return; }
-      const by = kGrade(P, res), q = kParts(P, kLv(P));
+      const by = kGrade(P, res), q = kParts(P, kLv(P)), bad = [...new Set(by.filter(b => unl.has(b[0].id) && b[2] === false).map(b => b[0]))].slice(0, 3);
       $app.innerHTML = `<div class="box"><b>Xong lượt bài tập</b><p>Đúng ${ok}/${res.length}. ${P.dims.map(([k, l]) => `${l} ${q.dq[k]}%`).join(' · ')}</p>
+        ${unl.size ? `<p>🆕 ${unl.size} bài chưa học: lần này tính là đã học (📘 Học); 🔁 Nhớ tính từ mai.</p>${bad.map(x => `<button data-kl2="${x.id}">📘 Xem bài học: ${esc(P.name(x))}</button>`).join('')}` : ''}
         <p class="mute">${by.map(([x, k, g]) => `${g == null ? '·' : g ? '✅' : '❌'} ${esc(P.name(x))} (${P.dims.find(d => d[0] === k)[1]}${g == null ? ', bài vừa gặp: luyện, không tính' : ''})`).join(' · ')}</p></div>
         <button class="pri" data-a="again">Làm tiếp</button><button data-a="home">Về ${P.ic} ${P.t}</button>`;
-      $app.onclick = e => { if (e.target.closest('[data-a="home"]')) kView(P.id); if (e.target.closest('[data-a="again"]')) kMenu(P); }; } }); }
+      $app.onclick = e => { const l2 = e.target.closest('[data-kl2]'); if (l2) return kLearn(P, P.by[l2.dataset.kl2]); if (e.target.closest('[data-a="home"]')) kView(P.id); if (e.target.closest('[data-a="again"]')) kMenu(P); }; } }); }
 // chấm mỗi đơn vị một lần mỗi mặt: đúng ≥ 80% câu của mặt trong lượt
 function kGrade(P, res) { const g = new Map(), now = Date.now(), dk = new Set(P.dims.map(d => d[0])), st = kSt(P.id).cards;
   // v101: câu bước đệm (🔎 hiểu, 🛠 chạm chỗ sai, 🔤 tách âm…) chỉ để luyện, không chấm mặt nào; chạm đúng chỗ sai thì ghi dấu (tp) để lần sau gõ lại cả câu
