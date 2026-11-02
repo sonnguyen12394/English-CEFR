@@ -87,4 +87,4 @@ function tmBox() { const f = tmFocus(), o = toSt(), has = Object.keys(o.ty || {}
     <p class="mute" style="margin:6px 0 0">Điểm cộng ước theo số câu đề thật (~4,9 điểm / câu), không phải bảng ETS. Ngưỡng 3 chỗ, 3 lần thử, 14 ngày gác là ước đoán, sẽ chỉnh theo dữ liệu thật.</p></div>`; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-tm]'); if (!b || !S) return; const v = b.dataset.tm, i = v.indexOf('|'), a = i < 0 ? v : v.slice(0, i), u = v.slice(i + 1);
   if (a === 'fix') { scrollTo(0, 0); return tmFix(u); }
-  if (a === 'rl') { fcRelease(toSt().fo, u); S.t = Date.now(); save(); return toeicView(); } });
+  if (a === 'rl') { fcRelease(toSt().fo, u); S.t = Date.now(); save(); return document.getElementById('bdo') ? mapView() : toeicView(); } });

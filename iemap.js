@@ -85,4 +85,4 @@ function imBox() { const f = imFocus(), hasData = Object.keys(ieSt().ty || {}).l
     <p class="mute" style="margin:6px 0 0">Ngưỡng (75%, 3 chỗ, 3 lần thử, 14 ngày gác) là ước đoán, sẽ chỉnh theo dữ liệu thật.</p></div>`; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-im]'); if (!b || !S) return; const v = b.dataset.im, i = v.indexOf('|'), a = i < 0 ? v : v.slice(0, i), u = v.slice(i + 1);
   if (a === 'fix') { scrollTo(0, 0); return imFix(u); }
-  if (a === 'rl') { fcRelease(ieSt().fo, u); S.t = Date.now(); save(); return ieltsView(); } });
+  if (a === 'rl') { fcRelease(ieSt().fo, u); S.t = Date.now(); save(); return document.getElementById('bdo') ? mapView() : ieltsView(); } });

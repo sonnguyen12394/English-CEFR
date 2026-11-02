@@ -127,14 +127,17 @@ for (let n = 0; n < 40; n++) { const it = await pg.evaluate(() => { const m = (w
 check('kiểm tra đầu bài ra kết quả', /Đã biết \d+\/\d+ từ/.test(await pg.innerText('#app')), (await pg.innerText('#app')).slice(0, 60));
 // 🗺 Bản đồ chỗ yếu (v78; v86 lối vào ở ô 📅 Hôm nay của Học CEFR): mở được, đủ 3 tầng, thanh dưới sáng 🎯
 await pg.evaluate(() => { S.lt = { d: [], fx: {}, goal: { kind: 'cefr', lv: 'a2', date: '', at: Date.now() } }; ltView(); }); await pg.waitForTimeout(800);
-check('ô Hôm nay có lối vào bản đồ chỗ yếu', (await pg.innerText('#app')).includes('Bản đồ chỗ yếu')); await pg.click('[data-mapv="lt"]'); await pg.waitForTimeout(1200);
-check('bản đồ một danh sách', /Việc cần chữa[\s\S]*Độ phủ/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="lt"].on'));
+// v114: Lộ trình 2 phần 📅 Hôm nay · 🗺 Chỗ yếu
+check('Lộ trình có 2 phần', await pg.isVisible('[data-ltseg="today"].on') && await pg.isVisible('[data-ltseg="map"]')); await pg.click('[data-ltseg="map"]'); await pg.waitForTimeout(1200);
+check('bản đồ một danh sách', /Việc cần chữa[\s\S]*Độ phủ/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="lt"].on') && await pg.isVisible('[data-ltseg="map"].on'));
+check('Chỗ yếu không tràn ngang', await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+await pg.click('[data-ltseg="today"]'); await pg.waitForTimeout(800); check('về 📅 Hôm nay', (await pg.innerText('#app')).includes('Việc hôm nay') && await pg.isVisible('[data-ltseg="today"].on'));
 await pg.click('#tabs [data-tab="dict"]'); await pg.waitForTimeout(600); check('Từ điển sáng đúng nút', await pg.isVisible('#tabs [data-tab="dict"].on') && !(await pg.$('#tabs [data-tab="bk"].on')));
 // v95: 📖 Tra cứu → 📘 Cẩm nang thi (thanh dưới vẫn sáng 📖); 👤 Của tôi → 🗺 bản đồ (sáng 👤, nút về Của tôi) → 💾 Dữ liệu
 await pg.click('[data-cnv="tc"]'); await pg.waitForTimeout(800); check('Cẩm nang từ Tra cứu', (await pg.innerText('#app')).includes('Cẩm nang thi') && await pg.isVisible('#tabs [data-tab="dict"].on'));
-await pg.click('#tabs [data-tab="bk"]'); await pg.waitForTimeout(800); check('Của tôi mở', /Tiến độ[\s\S]*Bản đồ chỗ yếu[\s\S]*Sổ từ/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="bk"].on'));
-await pg.click('[data-mapv="ct"]'); await pg.waitForTimeout(1200); check('bản đồ từ Của tôi', (await pg.innerText('#app')).includes('← Của tôi') && await pg.isVisible('#tabs [data-tab="bk"].on'));
-await pg.click('[data-a="bk"]'); await pg.waitForTimeout(600); await pg.click('[data-ct="data"]'); await pg.waitForTimeout(800); check('Dữ liệu từ Của tôi', (await pg.innerText('#app')).includes('Dữ liệu và tài khoản') && await pg.isVisible('#tabs [data-tab="bk"].on'));
+await pg.click('#tabs [data-tab="bk"]'); await pg.waitForTimeout(800); check('Của tôi mở', /Tiến độ[\s\S]*Chỗ yếu[\s\S]*Sổ từ/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="bk"].on'));
+await pg.click('[data-mapv="lt"]'); await pg.waitForTimeout(1200); check('lối tắt Tôi → 🗺 Chỗ yếu ở Lộ trình', await pg.isVisible('[data-ltseg="map"].on') && await pg.isVisible('#tabs [data-tab="lt"].on'));
+await pg.click('#tabs [data-tab="bk"]'); await pg.waitForTimeout(800); await pg.click('[data-ct="data"]'); await pg.waitForTimeout(800); check('Dữ liệu từ Của tôi', (await pg.innerText('#app')).includes('Dữ liệu và tài khoản') && await pg.isVisible('#tabs [data-tab="bk"].on'));
 // v105 🔄 Lộ trình: tab thứ 2; lần đầu hỏi mục tiêu → bắt đầu đợt 1; không tràn ngang
 await pg.evaluate(() => { delete S.lt; }); await pg.click('#tabs [data-tab="lt"]'); await pg.waitForTimeout(1200); check('Lộ trình hỏi mục tiêu (3 bước)', (await pg.innerText('#app')).includes('Bạn học tiếng Anh để làm gì'));
 await pg.click('[data-ltk="cefr"]'); await pg.waitForTimeout(300); await pg.click('[data-ltw="2"]'); await pg.waitForTimeout(300); await pg.click('[data-ltw="3"]'); await pg.waitForTimeout(400);
