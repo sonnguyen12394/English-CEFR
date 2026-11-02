@@ -102,7 +102,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
   const prevMq = ovMqLS(), nextMq = { ...prevMq }, drop = (id, s) => { const k = id + '|' + lv, o = prevMq[k]; if (loaded && s) nextMq[k] = s.mq; return o != null && s && s.mq < o ? o - s.mq : 0; };
   const ai = LEVELS.indexOf(lv) >= LEVELS.indexOf('b1');
   // v108: 📚 Học = 🎯 ô mục tiêu (phần riêng của kỳ thi đã chọn) + 🧱 nền CEFR; ô 📅 Hôm nay chuyển sang 🔄 Lộ trình (lotrinh.js)
-  $app.innerHTML = `<div id="ov"></div><h1>📚 Học</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
+  $app.innerHTML = `<div id="ov"></div><h1>📚 Học</h1>${typeof exSwitch === 'function' ? exSwitch('nen') : ''}<p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${S.fake ? '<p class="mute" style="margin:4px 0">🧪 Đang dùng dữ liệu thử (💾 Dữ liệu để quay lại dữ liệu thật).</p>' : ''}
     <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${typeof plTop === 'function' && plTop(stage) ? ` · 🧭 xếp cấp: ${LVN[plTop(stage)]}` : ''}</p>
     ${typeof ltGoalCard === 'function' ? ltGoalCard(stage) : typeof todayBox === 'function' ? todayBox(stage, tips) : ''}

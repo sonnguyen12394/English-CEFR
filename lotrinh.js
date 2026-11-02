@@ -20,9 +20,9 @@ const ltHasData = () => Object.keys(S.cards || {}).length || Object.values(S.k |
 let LT_FIX_ON = false, LT_EX_ON = false;
 { const t0 = actTick; actTick = function (now = Date.now()) { if (!S) return; const d = dayOf(now), A = actSt(), b = (A[d] || {}).ms || 0; t0(now);
     if (LT_FIX_ON || LT_EX_ON) { const L = ltSt(), k = LT_FIX_ON ? 'fx' : 'ex', o = L[k] = L[k] || {}; o[d] = (o[d] || 0) + (((A[d] || {}).ms || 0) - b); for (const x of Object.keys(o)) if (+x < d - 60) delete o[x]; } }; }
-for (const [n, c] of [['mapFix', 'fix'], ['mapRoot', 'fix'], ['mapRelearn', 'fix'], ['mapGapFix', 'fix'], ['errRun', 'fix'], ['ieltsView', 'ex'], ['toeicView', 'ex'], ['cbView', 'ex'],
+for (const [n, c] of [['mapFix', 'fix'], ['mapRoot', 'fix'], ['mapRelearn', 'fix'], ['mapGapFix', 'fix'], ['errRun', 'fix'], ['ieltsView', 'ex:ielts'], ['toeicView', 'ex:toeic'], ['cbView', 'ex:cambridge'],
   ['vwRun', ''], ['overview', ''], ['home', ''], ['partView', ''], ['kView', ''], ['learn', ''], ['mapView', ''], ['ltView', ''], ['dict', ''], ['minhView', '']]) {
-  const f = window[n]; if (typeof f === 'function') window[n] = function (...a) { LT_FIX_ON = c === 'fix'; LT_EX_ON = c === 'ex'; return f.apply(this, a); }; }
+  const f = window[n]; if (typeof f === 'function') window[n] = function (...a) { LT_FIX_ON = c === 'fix'; LT_EX_ON = c.startsWith('ex:') && !!(S && S.lt && S.lt.goal) && ltKind() === c.slice(3); return f.apply(this, a); }; }   // v109: chỉ kỳ thi của mục tiêu
 const ltExMin = d => Math.round(((ltSt().ex || {})[d] || 0) / 60000);
 
 // ---------- 🎯 mục tiêu (v108, người sáng lập: "học CEFR là nền, mục tiêu IELTS / TOEIC cung cấp thêm nội dung riêng; lộ trình đi từ mục tiêu → tìm điểm yếu → khắc phục → bài mới tới khi đạt") ----------
@@ -145,7 +145,7 @@ function ltGoalView(kind) { BACK = null; window.CUR = { view: 'lo-trinh-muc-tieu
       <p style="margin:6px 0">Mỗi ngày học</p><select id="ltmin">${[10, 15, 30, 45].map(x => `<option value="${x}"${x === mins ? ' selected' : ''}>${x} phút</option>`).join('')}</select></div>
     <p id="lthint" style="margin:6px 0"></p>
     <button class="pri" data-lt="goal">💾 Lưu mục tiêu và bắt đầu</button>
-    <p class="mute">🧱 Nền CEFR luôn là gốc; mục tiêu thi thêm phần riêng của kỳ thi đó (📚 Học chỉ hiện đúng kỳ thi bạn chọn). Cấp hoàn thành vẫn do 🚪 Thi chuyển cấp quyết.</p>`; ltHint(); }
+    <p class="mute">🧱 Nền CEFR luôn là gốc; mục tiêu thi thêm phần riêng của kỳ thi đó (📚 Học có mọi kỳ thi; mục tiêu được đánh dấu 🎯). Cấp hoàn thành vẫn do 🚪 Thi chuyển cấp quyết.</p>`; ltHint(); }
 // mục tiêu đang chọn trên màn (chưa lưu): { kind, lv = nền cần có, date }
 function ltFormGoal() { const v = id => (document.getElementById(id) || {}).value, k = v('ltkind') || 'cefr', d = v('ltdate');
   const lv = k === 'ielts' ? ieBase(+v('ltband') || 6.5) : k === 'toeic' ? toBase(+v('ltscore') || 600) : v('ltlv');
@@ -157,7 +157,7 @@ document.addEventListener('change', e => { if (S && e.target.closest && e.target
 
 // ---------- 🎯 ô mục tiêu ở 📚 Học: tên mục tiêu, việc hôm nay, ⚖️ chia thời gian, nút mở phần riêng của kỳ thi ----------
 function ltGoalCard(stage = ovStage()) { const g = S.lt && S.lt.goal;
-  if (!g) return `<div class="box"><b>🎯 Chưa đặt mục tiêu</b><p class="mute" style="margin:6px 0">Đặt mục tiêu ở 🔄 Lộ trình: app chia việc mỗi ngày và chỉ hiện nội dung đúng kỳ thi bạn chọn.</p><button class="pri" data-ltgo>🎯 Đặt mục tiêu ›</button></div>`;
+  if (!g) return `<div class="box"><b>🎯 Chưa đặt mục tiêu</b><p class="mute" style="margin:6px 0">Đặt mục tiêu ở 🔄 Lộ trình: app chia việc mỗi ngày theo mục tiêu. Mọi mục (nền, Cambridge, IELTS, TOEIC) vẫn mở được ở hàng trên.</p><button class="pri" data-ltgo>🎯 Đặt mục tiêu ›</button></div>`;
   const sp = ltSplit(g), TP = typeof todayPlan === 'function' ? todayPlan(stage).filter(x => x.done != null) : [], ok = TP.filter(x => x.done).length, ic = { cambridge: '🎓', ielts: '🌏', toeic: '💼' }[sp.k];
   return `<div class="box"><div class="row"><b>🎯 ${esc(ltGoalName(g))}</b><button class="link" data-ltgo>🔄 Lộ trình ›</button></div>
     <p class="mute" style="margin:4px 0">📅 Việc hôm nay: ${ok}/${TP.length} xong · ⚖️ nền ${sp.nen}%${sp.k !== 'cefr' ? ` · đề ${sp.ex}%` : ''}</p>
