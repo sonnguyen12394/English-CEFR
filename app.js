@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 111;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 112;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -377,27 +377,30 @@ function home() {
   $app.onclick = null; window.CUR = { view: 'home' };
   const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Luyện tập tới khi hết từ cần ôn để mọi yêu cầu lên ${GATE_MEM}%; 🗣 Nói ra từ luyện ở 🏋️ Luyện tập.`
     : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Luyện tập những từ cần ôn. Mỗi yêu cầu tính 🔁 Nhớ khi làm đúng ở một ngày sau ngày học; 🏋️ Luyện tập tự hỏi vào yêu cầu còn thiếu.`;
+  // v112 (giao diện trực quan): 2 nút chính lên đầu; tiến độ gọn 2 thanh; bài thi; chi tiết yêu cầu, cách học gập trong 📊 Chi tiết
   $app.innerHTML = `
     ${ovBack}<h1>📚 Từ vựng</h1>
-    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} từ${lvIdx(lv) >= lvIdx(MEM_FULL_FROM) ? `, gồm ${MEM_SAMPLE} từ mẫu của các cấp cũ, đổi mỗi tuần` : ''}` : ''})</p>
-    <p class="mute"><span id="sync">${esc(sync)}</span></p>
+    <p class="mute" style="margin:0 0 6px">Trình độ <b>${LVN[lv]}</b> · đã học ${p.learn} / ${p.T} từ · <span id="sync">${esc(sync)}</span></p>
+    <div class="duo">
+      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
+      <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
+    </div>
     <div class="box">
       <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ${p.Tu ? ` (gồm ${p.Tu} từ cấp trước cần ⬆️ nâng cấp)` : ''}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
       <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= yêu cầu thấp nhất · mỗi yêu cầu cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
+    </div>
+    ${examBox(p, lv)}
+    ${DUR_PREV[lv] && !xDurable(DUR_PREV[lv]) ? examBox(parts(S, now, DUR_PREV[lv]), DUR_PREV[lv]) : ''}
+    <details class="box"><summary>📊 Chi tiết từng yêu cầu và cách học</summary>
+    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} từ${lvIdx(lv) >= lvIdx(MEM_FULL_FROM) ? `, gồm ${MEM_SAMPLE} từ mẫu của các cấp cũ, đổi mỗi tuần` : ''}` : ''})</p>
       ${lvIdx(lv) > lvIdx(VPROD_MAX) ? `<p class="mute" style="margin:4px 0">💭 Nhớ ra từ, ✍️ Chính tả, 🧩 Tự điền chỉ tính trên từ cấp ≤ ${LVN[VPROD_MAX]} (≈ 1.900 từ thông dụng nhất); từ ${LVN[lv]} chỉ cần hiểu.</p>` : ''}
       ${(() => { const now2 = Date.now(), L = memWords(lv, now2).filter(w => S.cards[w.id]); if (!L.length) return ''; const n = [0, 0, 0, 0, 0]; for (const w of L) n[vStage(S.cards[w.id], w, lv)]++;
         return `<p class="mute" style="margin:4px 0">🪜 Bậc của từ đã học: ${VSTAGE.map((s, i) => `${s[0]} ${n[i]}`).join(' · ')} · vững cả 4 bậc ${n[4]}. Luyện tập hỏi mặt mới theo thứ tự này.</p>`; })()}
       ${vreqList(p, lv)}
       <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả ${dimsAt(lv).length} yêu cầu của ${LVN[lv]} (mỗi yêu cầu chỉ tính trên từ có yêu cầu đó). Bấm vào một yêu cầu để xem bài của nó.</p>
-    </div>
-    <div class="duo">
-      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
-      <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 unit trước' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
-    </div>
     <p class="mute">${tip}</p>
-    ${examBox(p, lv)}
-    ${DUR_PREV[lv] && !xDurable(DUR_PREV[lv]) ? examBox(parts(S, now, DUR_PREV[lv]), DUR_PREV[lv]) : ''}
-    <h2>Lộ trình</h2>
+    </details>
+    <h2>Các bài</h2>
     <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ yêu cầu · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
     <div id="grid">${roadmap(now, nu)}</div>
     ${voxHtml()}

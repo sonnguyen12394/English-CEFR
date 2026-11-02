@@ -6,16 +6,16 @@ const hdDays = a => a.join(' → ') + ' ngày';
 // [mã, tiêu đề, nội dung HTML]; nội dung là hàm: đọc hằng số lúc mở (tệp này nạp sau cùng)
 const HD = [
   ['batdau', '🚀 Bắt đầu trong 5 phút', () => `
-    <p>1. Mở app là vào <b>🔄 Lộ trình</b>. Lần đầu: chọn <b>🎯 mục tiêu</b> (lên trình, thi Cambridge, IELTS hoặc TOEIC), ngày thi nếu có, số phút mỗi ngày.</p>
-    <p>2. Người mới: bấm <b>🧭 Kiểm tra xếp cấp</b> (5–10 phút). Câu sai ở cấp bạn nắm vững được hỏi lại 2 câu; sai thật mới vào bản đồ chỗ yếu. Xếp cao hơn cấp đang học thì app gợi ý <b>🚀 thi vượt</b>.</p>
-    <p>3. Mỗi ngày làm theo ô <b>📅 Hôm nay</b> ở Lộ trình, từ trên xuống: ôn → chữa chỗ yếu → bài mới → luyện đề (nếu mục tiêu là kỳ thi).</p>
-    <p>4. Khi một phần đủ điều kiện, nút <b>🚪 Thi chuyển cấp</b> mở ở thẻ phần đó (📚 Học). Các phần bắt buộc đều qua thi là <b>hoàn thành cấp trong app</b>.</p>
-    <p>5. Gặp từ lạ: chạm vào từ trong bài, hoặc tìm ở tab <b>📖 Tra cứu</b>. Bấm 📌 để lưu vào Sổ từ.</p>`],
+    <p>1. Lần đầu mở app: trả lời <b>3 câu</b>, mỗi màn một câu: học để làm gì (giỏi lên, IELTS, TOEIC, Cambridge) → trình độ (kiểm tra nhanh 5 phút hoặc "mới bắt đầu") → mỗi ngày bao nhiêu phút.</p>
+    <p>2. Mỗi ngày mở app là vào <b>🧭 Lộ trình → Hôm nay</b>: vòng tròn số phút, danh sách việc (✓ xong, ▶ việc kế tiếp). Chỉ cần bấm <b>▶ Học tiếp</b>; xong một việc, quay lại bấm tiếp.</p>
+    <p>3. Bấm ô <b>🎯 mục tiêu</b> ở cuối màn Hôm nay để xem đường tới mục tiêu: các cấp, ước tính thời gian, mỗi ngày chia nền / luyện đề, 10 ngày này.</p>
+    <p>4. Muốn tự chọn bài: tab <b>📚 Học</b> (🧱 Nền tiếng Anh: 7 kỹ năng; 🎓 Luyện thi: Cambridge, IELTS, TOEIC). Mỗi kỹ năng: 📘 Học bài mới, 🏋️ Luyện tập, 🚪 bài thi lên cấp.</p>
+    <p>5. Gặp từ lạ: chạm vào từ trong bài, hoặc tìm ở tab <b>🔍 Tra cứu</b>. Bấm 📌 để lưu vào Sổ từ.</p>`],
   ['tab', '🧭 4 tab dùng làm gì', () => `
-    <p><b>🔄 Lộ trình</b> (mở đầu tiên): 🎯 mục tiêu, <b>📅 Hôm nay</b> (chỗ duy nhất bảo "làm gì"), đợt ${LT_D} ngày, 🧭 xếp cấp, kiểm tra cuối đợt, tổng kết. Chạy từ mục tiêu → tìm chỗ yếu → chữa → bài mới, tới khi đạt.</p>
+    <p><b>🧭 Lộ trình</b> (mở đầu tiên): màn <b>Hôm nay</b> (vòng phút, ▶ Học tiếp, việc hôm nay: chỗ duy nhất bảo "làm gì") và màn <b>Đường tới mục tiêu</b> (cấp, ước tính, chia nền / đề, đợt ${LT_D} ngày, đo trình độ, đổi mục tiêu). Chạy từ mục tiêu → tìm chỗ yếu → chữa → bài mới, tới khi đạt.</p>
     <p><b>📚 Học</b>: kho bài. 🧱 <b>Nền CEFR</b> (7 phần: Từ vựng, Phát âm, Ngữ pháp, Nghe, Nói, Đọc, Viết; Thư viện đọc) là gốc, chỗ duy nhất tính 📘 Học / 🔁 Nhớ / Thi chuyển cấp. 2 mục ở đầu: <b>🧱 Nền CEFR</b> · <b>🎓 Thi</b> (bên trong chọn 🎓 Cambridge, 🌏 IELTS hoặc 💼 TOEIC; mở được tất cả). Kỳ thi của mục tiêu có dấu 🎯. 📚 Học <b>chỉ chứa nội dung</b>; mục tiêu, ngày thi, giờ học, kế hoạch tuần và việc hôm nay đều ở 🔄 Lộ trình. Luyện đề không tính vào luật đo nền.</p>
-    <p><b>📖 Tra cứu</b>: tìm từ, ngữ pháp, lỗi hay gặp, phát âm, cụm từ; 📘 Cẩm nang thi (mẹo theo kỹ năng). Gõ tiếng Anh hoặc tiếng Việt.</p>
-    <p><b>👤 Của tôi</b>: tiến độ, 🗺 bản đồ chỗ yếu, 📌 sổ từ, 📒 sổ lỗi, kết quả thi thật, 💾 dữ liệu và tài khoản, góp ý, và trang này.</p>`],
+    <p><b>🔍 Tra cứu</b>: tìm từ, ngữ pháp, lỗi hay gặp, phát âm, cụm từ; 📘 Cẩm nang thi (mẹo theo kỹ năng). Gõ tiếng Anh hoặc tiếng Việt.</p>
+    <p><b>👤 Tôi</b>: tiến độ, 🗺 bản đồ chỗ yếu, 📌 sổ từ, 📒 sổ lỗi, kết quả thi thật, 💾 dữ liệu và tài khoản, góp ý, và trang này.</p>`],
   ['cap', '🪜 Cấp và phần', () => `
     <p>Cấp: Pre-A1 → A1 → A2 → A2+ → B1 → B1+ → B2 → B2+ → C1 → C2. Cấp "+" là nửa khó hơn của cấp đó.</p>
     <p>Mỗi cấp có các phần (Phát âm có Pre-A1 → C2; B1 → C2 là các cặp âm khó hơn: tr / ch, -ed, ng / nk…). Mỗi phần có 3 mục tiêu riêng: <b>📘 Học</b>, <b>🔁 Nhớ</b>, <b>🚪 Thi chuyển cấp</b>.</p>

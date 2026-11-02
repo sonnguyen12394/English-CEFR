@@ -57,7 +57,7 @@ function ngFill(lv) { const x = ngPick(ngLvs(lv), 1)[0]; if (!x) return toast('C
     ngRuns().nf[x.id] = { at: Date.now(), ok, n: r.length }; S.t = Date.now(); save();
     $app.innerHTML = `<h1>📝 ${ok}/${r.length} chỗ đúng</h1><div class="box">${r.map((y, i) => `<p style="margin:6px 0">${y.ok ? '✅' : '❌'} (${i + 1}) bạn: ${esc(y.v || '…')} · đáp án: <b>${esc(y.q.a)}</b></p>`).join('')}</div>
       <details class="box"><summary>Xem bài nghe</summary><p class="tdtap" style="white-space:pre-line">${kScript(x)}</p></details>
-      <p class="mute">Sai chính tả cũng mất điểm trong đề thật. Nghe lại bài, dò từng chỗ sai.</p><button class="pri" data-a="again">▶ Bài khác</button><button data-a="back">← Tổng quan</button>`; scrollTo(0, 0); };
+      <p class="mute">Sai chính tả cũng mất điểm trong đề thật. Nghe lại bài, dò từng chỗ sai.</p><button class="pri" data-a="again">▶ Bài khác</button><button data-a="back">‹ Luyện thi</button>`; scrollTo(0, 0); };
   $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { EXAM_VOX = false; return exHome(lv); } if (e.target.closest('[data-a="play"]')) return play(); if (e.target.closest('[data-a="again"]')) return ngFill(lv); };
   draw(); }
 // 🗣 nhại theo: câu 6–16 từ có giọng tự nhiên; khớp từ ≥ 80% và nhịp ≤ 1,3 lần giọng mẫu thì đạt
@@ -82,7 +82,7 @@ function ngShadow(lv) { const ls = ngLvs(lv), pool = (KIT.nghe.items || []).filt
   const end = () => { const R = ngRuns(); for (const r of res) R.sh.push({ at: Date.now(), lv, m: Math.round(r.m * 100), p: r.pace == null ? null : Math.round(r.pace * 100) / 100 }); if (R.sh.length > 500) R.sh.splice(0, R.sh.length - 500); S.t = Date.now(); save();
     const ok = res.filter(r => r.ok).length;
     $app.innerHTML = `<h1>🗣 ${ok}/${res.length || its.length} câu đạt</h1>${res.length ? `<div class="box">${res.map(r => `<p style="margin:6px 0">${r.ok ? '✅' : '🔁'} ${esc(r.s)}<br><span class="mute">khớp ${Math.round(r.m * 100)}% · nhịp ${r.pace == null ? '–' : r.pace.toFixed(1).replace('.', ',')}</span></p>`).join('')}</div>` : ''}
-      <p class="mute">Nhại theo mỗi ngày 5–10 phút giúp nghe nhanh hơn và nói trôi hơn. Nhịp càng gần 1,0 càng giống người bản xứ.</p><button class="pri" data-a="again">▶ 5 câu khác</button><button data-a="back">← Tổng quan</button>`;
+      <p class="mute">Nhại theo mỗi ngày 5–10 phút giúp nghe nhanh hơn và nói trôi hơn. Nhịp càng gần 1,0 càng giống người bản xứ.</p><button class="pri" data-a="again">▶ 5 câu khác</button><button data-a="back">‹ Luyện thi</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="again"]')) return ngShadow(lv); if (e.target.closest('[data-a="back"]')) return exHome(lv); }; scrollTo(0, 0); };
   show(); }
 document.addEventListener('click', e => { const b = e.target.closest('[data-ng]'); if (!b) return; const [k, lv] = b.dataset.ng.split('|'); ngStart(k, lv); });

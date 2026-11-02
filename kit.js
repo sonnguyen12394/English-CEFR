@@ -53,24 +53,28 @@ function kView(id) { const P = KIT[id];
   const now = Date.now(), lv = kLv(P), p = kParts(P, lv, now), st = kSt(id), L = kItems(P, lv), nx = L.find(x => !st.cards[x.id]);
   const open = gateOpen(p, id + '|' + lv, now), run = st.runs.filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, K_RETRY - (dayOf(now) - dayOf(run.at))) : 0;
   const view = P.view && P.lvs.includes(P.view) ? P.view : lv;
+  // v112 (giao diện trực quan): 2 nút chính lên đầu; tiến độ gọn 2 thanh; giải thích từng mặt, cách học gập trong 📊 Chi tiết
   $app.innerHTML = `<div id="part" data-p="${id}"></div>${ovBack}<h1>${P.ic} ${P.t}</h1>
-    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} ${P.unit} mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm}` : ''}). ${P.intro}</p>${P.how ? `<p class="mute" style="margin:4px 0">🪜 Cách học: ${P.how}</p>` : ''}
+    <p class="mute" style="margin:0 0 6px">Trình độ <b>${LVN[lv]}</b> · đã học ${p.learn} / ${p.T} ${P.unit}</p>
     ${P.needAsr && !SREC ? `<div class="box">⚠️ Trình duyệt này không chép được lời nói. Phần ${P.t} chấm bằng máy chép lời: mở trang bằng <b>Safari</b>.</div>` : ''}
-    <div class="box">
-      <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
-      <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
-      ${rqList(id, lv, k => { const [, l, d] = P.dims.find(x => x[0] === k); return `<div class="dimc" data-kdim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}<div class="mute" style="font-size:12px">${d}</div></div>`; })}
-      <p class="mute" style="margin:6px 0 0">Mỗi mặt tính khi làm đúng ở một ngày sau ngày học; giữ khi lần gần nhất đúng và khả năng nhớ ≥ 80%. Bấm vào một mặt để xem bài của mặt đó.</p>
-    </div>
     <div class="duo">
       <button class="big2 ${p.due ? '' : 'pri'}" data-k="learn" ${nx ? '' : 'disabled'}>📘 Học<small>${nx ? esc(P.name(nx)) : `Đã học hết ${LVN[lv]}`}</small></button>
       <button class="big2 ${p.due ? 'pri' : ''}" data-k="menu" ${p.learn ? '' : 'disabled'}>🏋️ Luyện tập<small>${!p.learn ? 'Học 1 bài trước' : p.due ? `${p.due} bài cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
+    </div>
+    <div class="box">
+      <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
+      <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
     </div>
     <div class="box"><b>🚪 Thi chuyển cấp ${P.t} ${LVN[lv]}</b>
       <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. ${P.examTxt} Qua khi đúng ≥ ${Math.round(P.pass * 100)}%.${P.ref ? ' Máy chấm gián tiếp nên phần này chỉ để tham khảo: không chặn hoàn thành cấp. Muốn chắc: 🧑‍🏫 AI chấm hoặc nhờ giáo viên.' : ''}</p>
       ${gateHoldTxt(p, open && !kPassed(P, lv))}${kPassed(P, lv) ? `<p>✅ Đã qua Thi chuyển cấp ${P.t} ${LVN[lv]} (trong app).</p>` : wait ? `<p class="mute">Lần trước chưa qua (${run.ok}/${run.n}). Thi lại sau ${wait} ngày; trong lúc chờ, luyện tiếp.</p>`
         : `<button class="${open ? 'pri' : ''}" data-k="exam" ${open ? '' : 'disabled'}>${open ? '🚪 Vào thi' : `🔒 Còn thiếu: ${p.lq < GATE_LEARN ? `học ${learnNeed(p)} bài` : ''}${p.lq < GATE_LEARN && p.mq < GATE_MEM ? ' · ' : ''}${p.mq < GATE_MEM ? `Nhớ ${p.mq}% / ${GATE_MEM}%` : ''}`}</button>`}</div>
-    <h2>Lộ trình</h2>
+    <details class="box"><summary>📊 Chi tiết từng mặt và cách học</summary>
+    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} ${P.unit} mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm}` : ''}). ${P.intro}</p>${P.how ? `<p class="mute" style="margin:4px 0">🪜 Cách học: ${P.how}</p>` : ''}
+      ${rqList(id, lv, k => { const [, l, d] = P.dims.find(x => x[0] === k); return `<div class="dimc" data-kdim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}<div class="mute" style="font-size:12px">${d}</div></div>`; })}
+      <p class="mute" style="margin:6px 0 0">Mỗi mặt tính khi làm đúng ở một ngày sau ngày học; giữ khi lần gần nhất đúng và khả năng nhớ ≥ 80%. Bấm vào một mặt để xem bài của mặt đó.</p>
+    </details>
+    <h2>Các bài</h2>
     <div class="chips">${P.lvs.map(l => `<button class="chip ${l === view ? 'on' : ''}" data-klv="${l}">${kPassed(P, l) ? '✅ ' : kLocked(P, l) ? '🔒 ' : ''}${LVN[l]} · ${kItems(P, l).length}</button>`).join('')}</div>
     <div id="klist">${kList(P, view, nx, now)}</div>`;
   $app.onclick = e => { const b = e.target.closest('[data-k]'), lb = e.target.closest('[data-klv]'), u = e.target.closest('[data-kx]'), dm = e.target.closest('[data-kdim]');

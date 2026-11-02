@@ -63,7 +63,7 @@ function capRun(lv, x) { if (!x) return; const steps = [x.open, ...x.turns, x.de
       <details class="box"><summary>Cụm hay dùng khi nói cặp</summary><p style="margin:6px 0 0">Đáp lời: I agree, because… · I see what you mean, but… · I'm not so sure about that.<br>Hỏi lại: What do you think? · Would you agree? · How do you feel about…?<br>Chốt: So, shall we go for…? · I think we should choose… · Let's agree on…</p></details>
       <p class="mute">Máy đo cách tương tác qua lời chép, không chấm ngữ pháp, phát âm. Muốn chấm như giám khảo: nút dưới (cần khoá AI).</p>
       ${typeof aiBtn === 'function' ? aiBtn('noi', capBase(lv), { prompt: `Collaborative discussion task with a partner (two candidates). Central question: ${x.q} Prompts: ${x.prompts.join(', ')}. Then the candidates decide together. Focus especially on Interactive Communication.` }, tr) : ''}
-      <button class="pri" data-a="list">👥 Đề khác</button><button data-a="home2">← Tổng quan</button>`; scrollTo(0, 0);
+      <button class="pri" data-a="list">👥 Đề khác</button><button data-a="home2">‹ Luyện thi</button>`; scrollTo(0, 0);
     $app.onclick = e => { if (e.target.closest('[data-a="list"]')) return capView(lv); if (e.target.closest('[data-a="home2"]')) return exHome(lv); }; };
   $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { kAsrStop(); try { speechSynthesis.cancel(); AUD && AUD.pause(); } catch (er) {} return capView(lv); } };
   turn(steps[0]); }

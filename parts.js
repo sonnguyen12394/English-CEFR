@@ -52,7 +52,7 @@ function partView(id) {
 // ---------- 🎯 Tổng quan học (người sáng lập 25/10/2026: "gộp 7 mục trừ từ điển thành tổng quan học") ----------
 // Thanh dưới còn 2 mục: 🎯 Học (màn này) · 📖 Từ điển. Mỗi phần mở từ đây, có "← Tổng quan" để quay lại. Chỉ hiển thị, không đổi luật đo của phần nào.
 const OV = [['tv', '📚', 'Từ vựng'], ['pa', '👄', 'Phát âm'], ['np', '🧱', 'Ngữ pháp'], ['nghe', '🎧', 'Nghe'], ['noi', '🗣', 'Nói'], ['doc', '📰', 'Đọc'], ['viet', '✍️', 'Viết']];
-const ovBack = '<div class="row top"><button class="link" data-ov="back">← Tổng quan</button><span></span></div>';
+const ovBack = '<div class="row top"><button class="link" data-ov="back">‹ Học</button><span></span></div>';
 document.addEventListener('click', e => { if (e.target.closest('[data-ov="back"]')) { BACK = null; overview(); } });
 // Người sáng lập 25/10/2026: "mỗi cấp học các mục không đều thì chia theo cấp cho rõ, để thế này lẫn lộn cấp độ".
 // Màn tổng quan lấy CẤP làm khung: chọn cấp (Pre-A1 · A1 · A2 · A2+), mỗi cấp liệt kê các phần có bài ở cấp đó và số liệu của phần ở đúng cấp đó.
@@ -101,25 +101,24 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
   const showLv = OV_ALL ? OV_LV : OV_LV.filter(l => OV_LV.indexOf(l) <= Math.max(OV_LV.indexOf(stage) + 1, OV_LV.indexOf(lv)));
   const prevMq = ovMqLS(), nextMq = { ...prevMq }, drop = (id, s) => { const k = id + '|' + lv, o = prevMq[k]; if (loaded && s) nextMq[k] = s.mq; return o != null && s && s.mq < o ? o - s.mq : 0; };
   const ai = LEVELS.indexOf(lv) >= LEVELS.indexOf('b1');
-  // v108: 📚 Học = 🎯 ô mục tiêu (phần riêng của kỳ thi đã chọn) + 🧱 nền CEFR; ô 📅 Hôm nay chuyển sang 🔄 Lộ trình (lotrinh.js)
-  $app.innerHTML = `<div id="ov"></div><h1>📚 Học</h1>${typeof exSwitch === 'function' ? exSwitch('nen') : ''}<p class="mute"><span id="sync">${esc(sync)}</span></p>
+  // v112 (giao diện trực quan): nút chuyển 🧱 Nền tiếng Anh · 🎓 Luyện thi; cấp; MỘT thanh "x / y kỹ năng xong"; 7 kỹ năng thành ô lớn (biểu tượng, thanh, một dòng trạng thái).
+  //   Chi tiết 📘 Học / 🔁 Nhớ từng mặt nằm trong màn của từng kỹ năng. Không đổi luật đo.
+  const pl = typeof plTop === 'function' ? plTop(stage) : null;
+  const tile = ([id, ic, t], s) => { const pass = s && s.gate === 'pass', open = s && s.gate === 'open', p = s ? Math.round((Math.min(1, s.lq / GATE_LEARN) + Math.min(1, s.mq / GATE_MEM)) / 2 * 100) : 0;
+    const meta = !s ? '…' : pass ? `✓ Xong ${LVN[lv]}` : open ? '🚪 Sẵn sàng thi' : s.due ? `🔁 ${s.due} bài cần ôn` : !s.lq ? 'Chưa học' : `${p}%`;
+    return `<button class="tile ${pass ? 'ok' : open ? 'open' : ''}" data-ovp="${id}" data-ovpl="${lv}"><span class="ic">${ic}</span><b>${t}</b>${bar(pass ? 100 : p, 100, pass ? 'var(--good)' : 'var(--accent)')}<span class="meta">${meta}${ovRef(id) ? ' · tham khảo' : ''}</span></button>`; };
+  $app.innerHTML = `<div id="ov"></div><div class="row"><h1 style="font-size:28px;margin:6px 0">Học</h1><span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span></div>
+    ${typeof exSwitch === 'function' ? exSwitch('nen') : ''}
     ${S.fake ? '<p class="mute" style="margin:4px 0">🧪 Đang dùng dữ liệu thử (💾 Dữ liệu để quay lại dữ liệu thật).</p>' : ''}
-    <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${typeof plTop === 'function' && plTop(stage) ? ` · 🧭 xếp cấp: ${LVN[plTop(stage)]}` : ''}</p>
-    <h2 style="margin:14px 0 4px">🧱 Nền CEFR</h2>
     <div class="chips">${showLv.map(chip).join('')}${OV_ALL ? '' : '<button class="chip" data-ovall>⋯ Mọi cấp</button>'}</div>
-    <div class="box"><div class="row"><b>Cấp ${LVN[lv]}: ${ids.length} phần</b><span class="mute">qua thi ${done}/${req.length} phần bắt buộc</span></div>${bar(Math.round(done / (req.length || 1) * 100), 100, 'var(--good)')}
-      <p class="mute" style="margin:6px 0 0">Hoàn thành ${LVN[lv]} trong app khi ${req.length} phần bắt buộc qua 🚪 Thi chuyển cấp.${refs.length ? ` ${refs.map(([, ic, t]) => ic + ' ' + t).join(', ')}: máy chấm gián tiếp nên chỉ để tham khảo, vẫn nên luyện.` : ''}${absent.length ? ` Cấp này chưa có: ${absent.join(', ')}.` : ''}
-        Hoàn thành trong app chưa phải bằng CEFR: muốn biết đã đạt ${LVN[lv]} thật chưa, làm 📝 đề mẫu chính thức <button class="link" data-cbgo="${lv}" style="padding:0">ở 🎓 Cambridge ›</button>.</p>
-      ${ai ? '<p class="mute" style="margin:6px 0 0">🤖 Nội dung cấp này do AI soạn, chưa giáo viên kiểm. Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p>' : ''}
-      ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<p class="mute" style="margin:6px 0 0">🔒 Xem trước: nên học khi đã hoàn thành ${LVN[stage]}. Vẫn mở để học trước nếu muốn.</p>${typeof vcView === 'function' ? `<button data-vcv="${lv}" style="margin-top:6px">🚀 Đã biết cấp này? Thi vượt lên ${LVN[lv]}</button>` : ''}` : ''}</div>
-    ${ids.map(([id, ic, t], i) => { const s = st[i], dr = drop(id, s);
-      return `<button class="box ovc" data-ovp="${id}" data-ovpl="${lv}" style="width:100%;text-align:left;display:block">
-        <div class="row"><b style="font-size:18px">${ic} ${t}</b><span class="mute">${ovRef(id) ? 'tham khảo · ' : ''}${s ? (s.gate === 'pass' ? '✅ qua thi' : s.gate === 'open' ? '🚪 thi được' : '') : '…'} ›</span></div>
-        ${s ? `<div class="dims" style="margin-top:4px"><div><div class="row"><span>📘 Học</span><span class="mute">${s.lq}%</span></div>${bar(s.lq, GATE_LEARN, 'var(--accent)')}</div>
-          <div><div class="row"><span>🔁 Nhớ</span><span class="mute">${s.mq}%</span></div>${bar(s.mq, GATE_MEM, 'var(--good)')}</div></div>
-          ${ovNeedLine(s, lv === stage)}${dr ? `<p class="mute" style="margin:4px 0 0">🔻 Nhớ giảm ${dr}% từ lần trước: có mục quá hạn ôn, khả năng nhớ xuống dưới ${GATE_MEM}%.${s.due ? ` Ôn ${s.due} bài để lấy lại.` : ''}</p>` : s.due ? `<p class="mute" style="margin:4px 0 0">${s.due} bài cần ôn</p>` : ''}` : '<p class="mute" style="margin:4px 0 0">Đang tải…</p>'}</button>`; }).join('')}
+    <div class="row" style="margin:12px 0 6px"><b style="font-size:19px">Trình độ ${LVN[lv]}</b><span class="mute">${done} / ${req.length} kỹ năng xong</span></div>
+    ${bar(Math.round(done / (req.length || 1) * 100), 100, 'var(--good)')}
+    <p class="mute" style="margin:6px 0 12px;font-size:14px">Hoàn thành ${LVN[lv]} trong app khi ${req.length} kỹ năng qua bài thi lên cấp.${pl ? ` · 🧭 xếp cấp: ${LVN[pl]}` : ''}</p>
+    ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<div class="box" style="margin:0 0 12px"><b>🔒 Cấp này sau ${LVN[stage]}</b><p class="mute" style="margin:4px 0">Vẫn xem và học trước được. Đã biết rồi thì thi vượt.</p>${typeof vcView === 'function' ? `<button data-vcv="${lv}" style="margin:4px 0 0">🚀 Thi vượt lên ${LVN[lv]}</button>` : ''}</div>` : ''}
+    <div class="grid2">${ids.map((o, i) => tile(o, st[i])).join('')}</div>
     ${typeof libBox === 'function' ? libBox(lv) : ''}
-    <p class="mute" style="margin:10px 0 0">🎯 Đề thử, dạng đề, sẵn sàng thi của kỳ thi: theo mục tiêu ở ô 🎯 trên (đổi ở 🔄 Lộ trình). 📌 Sổ từ, 📒 Sổ lỗi, 🗺 chỗ yếu, tiến độ, 📘 luật và cách dùng: tab 👤 Của tôi.</p>`;
+    ${ai ? '<p class="mute" style="margin:10px 0 0;font-size:13px">🤖 Nội dung cấp này do AI soạn, chưa giáo viên kiểm. Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p>' : ''}`;
+  for (const [id] of ids) drop(id, st[ids.findIndex(x => x[0] === id)]);   // giữ mốc 🔁 Nhớ để màn kỹ năng báo "Nhớ giảm"
   if (loaded) ovMqLS(nextMq);
   $app.onclick = e => { if (e.target.closest('[data-ovall]')) { OV_ALL = true; return overview(); } const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl);
     const b = e.target.closest('[data-ovp]'); if (!b) return; const id = b.dataset.ovp, l = b.dataset.ovpl; scrollTo(0, 0);

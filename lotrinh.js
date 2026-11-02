@@ -21,7 +21,7 @@ let LT_FIX_ON = false, LT_EX_ON = false;
 { const t0 = actTick; actTick = function (now = Date.now()) { if (!S) return; const d = dayOf(now), A = actSt(), b = (A[d] || {}).ms || 0; t0(now);
     if (LT_FIX_ON || LT_EX_ON) { const L = ltSt(), k = LT_FIX_ON ? 'fx' : 'ex', o = L[k] = L[k] || {}; o[d] = (o[d] || 0) + (((A[d] || {}).ms || 0) - b); for (const x of Object.keys(o)) if (+x < d - 60) delete o[x]; } }; }
 for (const [n, c] of [['mapFix', 'fix'], ['mapRoot', 'fix'], ['mapRelearn', 'fix'], ['mapGapFix', 'fix'], ['errRun', 'fix'], ['ieltsView', 'ex:ielts'], ['toeicView', 'ex:toeic'], ['cbView', 'ex:cambridge'],
-  ['vwRun', ''], ['overview', ''], ['home', ''], ['partView', ''], ['kView', ''], ['learn', ''], ['mapView', ''], ['ltView', ''], ['dict', ''], ['minhView', '']]) {
+  ['vwRun', ''], ['overview', ''], ['home', ''], ['partView', ''], ['kView', ''], ['learn', ''], ['mapView', ''], ['ltView', ''], ['ltPlanView', ''], ['dict', ''], ['minhView', '']]) {
   const f = window[n]; if (typeof f === 'function') window[n] = function (...a) { LT_FIX_ON = c === 'fix'; LT_EX_ON = c.startsWith('ex:') && !!(S && S.lt && S.lt.goal) && ltKind() === c.slice(3); return f.apply(this, a); }; }   // v109: chỉ kỳ thi của mục tiêu
 const ltExMin = d => Math.round(((ltSt().ex || {})[d] || 0) / 60000);
 
@@ -128,32 +128,54 @@ function ltSumView(c) { $app.onclick = null; const L = ltSt(), prev = L.d[L.d.in
     ${re && re.k !== 'real' ? `<div class="box"><b>🧭 Nên xếp cấp lại</b><p class="mute" style="margin:6px 0">${esc(re.t)}.</p><button data-lt="place">🧭 Xếp cấp lại</button></div>` : ''}
     <button class="pri" data-lt="home">▶ Bắt đầu đợt ${c.n + 1}</button>`; }
 
-// ---------- 🎯 màn mục tiêu (v108: 4 loại; đổi loại thì vẽ lại, giữ ngày và phút đang chọn) ----------
-function ltGoalView(kind) { BACK = null; window.CUR = { view: 'lo-trinh-muc-tieu' }; $app.onclick = null; const L = ltSt(), g = L.goal || {}, st = ovStage(), si = OV_LV.indexOf(st);
-  const v = id => (document.getElementById(id) || {}).value, k = kind || ltKind(L.goal ? g : { kind: S.ie && S.ie.set ? 'ielts' : S.exSel === 'toeic' ? 'toeic' : 'cefr' });
-  const date = kind ? (v('ltdate') || '') : ltGoalDate(L.goal ? g : { kind: k }), mins = +v('ltmin') || actGoal();
-  const lvs = OV_LV.filter((l, i) => i >= si), def = (L.goal && g.lv && OV_LV.indexOf(g.lv) >= si && g.lv) || OV_LV[Math.min(OV_LV.length - 1, si + 2)] || st, ie = S.ie || {}, to = S.to || {};
-  const field = k === 'ielts' ? `<p style="margin:6px 0">Loại thi</p><select id="ltiet">${Object.entries(IE_TYPE).map(([x, n]) => `<option value="${x}"${x === (ie.type || 'ac') ? ' selected' : ''}>${n}</option>`).join('')}</select>
-      <p style="margin:6px 0">Band mục tiêu</p><select id="ltband">${IE_BANDS.map(b => `<option value="${b}"${b === (ie.target || 6.5) ? ' selected' : ''}>${bandTxt(b)}</option>`).join('')}</select>`
-    : k === 'toeic' ? `<p style="margin:6px 0">Điểm mục tiêu (Nghe + Đọc, 10–990)</p><select id="ltscore">${TO_TG.map(x => `<option value="${x}"${x === (to.target || 600) ? ' selected' : ''}>${x}</option>`).join('')}</select>`
-    : `<p style="margin:6px 0">${k === 'cambridge' ? 'Cấp thi Cambridge' : 'Học tới cấp nào?'} <span class="mute">(đang học ${LVN[st]})</span></p>
-      <select id="ltlv">${lvs.map(l => `<option value="${l}"${l === def ? ' selected' : ''}>${LVN[l]}${k === 'cambridge' && typeof MOCK !== 'undefined' && MOCK[l] ? ' · ' + esc(MOCK[l].name) : ''}</option>`).join('')}</select>`;
-  $app.innerHTML = `<div id="lt"></div>${L.goal ? '<div class="row top"><button class="link" data-lt="home">← Lộ trình</button><span class="uname">🎯 Mục tiêu</span></div>' : ''}<h1>🎯 Mục tiêu học</h1>
-    <div class="box"><p style="margin:0 0 6px">Bạn học để làm gì?</p><div class="chips">${Object.entries(LT_KIND).map(([x, n]) => `<button class="chip ${x === k ? 'on' : ''}" data-ltk="${x}">${n}</button>`).join('')}</div>
-      <input type="hidden" id="ltkind" value="${k}">${field}
-      <p style="margin:6px 0">${k === 'cefr' ? 'Ngày cần đạt' : 'Ngày thi'} <span class="mute">· không bắt buộc</span></p><input id="ltdate" type="date" value="${esc(date || '')}">
-      <p style="margin:6px 0">Mỗi ngày học</p><select id="ltmin">${[10, 15, 30, 45].map(x => `<option value="${x}"${x === mins ? ' selected' : ''}>${x} phút</option>`).join('')}</select></div>
-    <p id="lthint" style="margin:6px 0"></p>
-    <button class="pri" data-lt="goal">💾 Lưu mục tiêu và bắt đầu</button>
-    <p class="mute">🧱 Nền CEFR luôn là gốc; mục tiêu thi thêm phần riêng của kỳ thi đó (📚 Học có mọi kỳ thi; mục tiêu được đánh dấu 🎯). Cấp hoàn thành vẫn do 🚪 Thi chuyển cấp quyết.</p>`; ltHint(); }
-// mục tiêu đang chọn trên màn (chưa lưu): { kind, lv = nền cần có, date }
+// ---------- 🎯 màn mục tiêu = 3 bước (v112, giao diện trực quan: mỗi màn MỘT câu hỏi, ô lớn có hình, một nút "Tiếp") ----------
+// ① học để làm gì (+ band / điểm / cấp) → ② trình độ (kiểm tra nhanh / đã kiểm tra / mới bắt đầu / học tiếp) → ③ mỗi ngày bao lâu + ngày thi + ước tính → "Bắt đầu học".
+// Giá trị đang chọn nằm ở LT_W và các ô ẩn #ltkind #ltlv #ltband #ltiet #ltscore #ltmin #ltdate (ltFormGoal đọc như trước).
+let LT_W = null;
+const LT_WK = [['cefr', '📈', 'Giỏi lên', 'Không cần thi'], ['ielts', '🌏', 'Thi IELTS', 'Du học, định cư'], ['toeic', '💼', 'Thi TOEIC', 'Đi làm, ra trường'], ['cambridge', '🎓', 'Thi Cambridge', 'Chứng chỉ A2 → C2']];
+const LT_WMIN = [[10, 'Nhẹ nhàng'], [15, 'Vừa sức · phổ biến'], [30, 'Nghiêm túc'], [45, 'Tăng tốc']];
+const ltWLvs = k => { const si = OV_LV.indexOf(ovStage()), L = (k === 'cambridge' ? ['a2', 'b1', 'b2', 'c1', 'c2'].filter(l => typeof MOCK === 'undefined' || MOCK[l]) : ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']).filter(l => OV_LV.indexOf(l) >= si); return L.length ? L : ['c2']; };
+function ltWInit() { const g = ltSt().goal, ie = S.ie || {}, to = S.to || {}, k = g ? ltKind(g) : ie.set ? 'ielts' : S.exSel === 'toeic' ? 'toeic' : 'cefr';
+  const W = { step: 1, kind: k, lv: g && g.lv, band: ie.target || 6.5, type: ie.type || 'ac', score: to.target || 600, mins: actGoal(), date: g ? ltGoalDate(g) : '' }; ltWFix(W); return W; }
+function ltWFix(W) { const L = ltWLvs(W.kind); if (!L.includes(W.lv)) W.lv = L[Math.min(L.length - 1, W.kind === 'cambridge' ? 0 : 1)]; }
+function ltGoalView(kind) { LT_W = ltWInit(); if (kind && LT_KIND[kind]) { LT_W.kind = kind; ltWFix(LT_W); } ltWizard(); }
+function ltWizard() { const W = LT_W, st = ovStage(); BACK = null; window.CUR = { view: 'lo-trinh-muc-tieu' }; $app.onclick = null;
+  const chips = (arr, key, cur) => `<div class="chipset">${arr.map(([v, n]) => `<button class="${String(v) === String(cur) ? 'on' : ''}" data-ltwv="${key}|${v}">${n}</button>`).join('')}</div>`;
+  let body;
+  if (W.step === 1) { const sub = W.kind === 'ielts' ? `<p class="mute" style="margin:0">Loại thi</p>${chips(Object.entries(IE_TYPE), 'type', W.type)}<p class="mute" style="margin:10px 0 0">Band muốn đạt</p>${chips(IE_BANDS.map(x => [x, bandTxt(x)]), 'band', W.band)}`
+      : W.kind === 'toeic' ? `<p class="mute" style="margin:0">Điểm muốn đạt (Nghe + Đọc)</p>${chips(TO_TG.map(x => [x, x]), 'score', W.score)}`
+      : `<p class="mute" style="margin:0">${W.kind === 'cambridge' ? 'Kỳ thi muốn đạt' : 'Muốn lên tới trình độ'}</p>${chips(ltWLvs(W.kind).map(l => [l, W.kind === 'cambridge' && typeof MOCK !== 'undefined' && MOCK[l] ? esc(MOCK[l].name) : LVN[l]]), 'lv', W.lv)}`;
+    body = `<h1>Bạn học tiếng Anh để làm gì?</h1><p class="mute">Chọn 1. Đổi lại lúc nào cũng được.</p>
+      <div class="grid2" style="margin-top:14px">${LT_WK.map(([k, ic, t, d]) => `<button class="optc ${k === W.kind ? 'on' : ''}" data-ltk="${k}"><span class="ic">${ic}</span><b>${t}</b><span class="s">${d}</span></button>`).join('')}</div>
+      <div class="box" style="margin-top:14px">${sub}</div>
+      <button class="btnbig" data-ltw="2">Tiếp</button>`; }
+  else if (W.step === 2) { const P = S.place, has = ltHasData();
+    body = `<h1>Bạn đang ở trình độ nào?</h1><p class="mute">Để app bắt đầu đúng chỗ, khỏi học lại cái đã biết.</p>
+      <button class="optr" data-ltwp><span class="ic">🧭</span><span><b>Kiểm tra nhanh · 5 phút</b><span class="s">Khuyên dùng: app hỏi vài câu rồi tự xếp</span></span></button>
+      ${P ? `<button class="optr on" data-ltw="3"><span class="ic">✅</span><span><b>Đã kiểm tra: ${P.top ? LVN[P.top] : 'mới bắt đầu'}</b><span class="s">Ngày ${ltFmt(dayOf(P.at))} · dùng kết quả này</span></span></button>` : ''}
+      ${has ? `<button class="optr" data-ltw="3"><span class="ic">📚</span><span><b>Học tiếp từ ${LVN[st]}</b><span class="s">Theo tiến độ đã có trong app</span></span></button>`
+        : `<button class="optr" data-ltw="3" data-ltself="new"><span class="ic">🌱</span><span><b>Tôi mới bắt đầu</b><span class="s">Học từ đầu</span></span></button>`}
+      <button class="link" data-ltw="1">‹ Quay lại</button>`; }
+  else body = `<h1>Mỗi ngày bạn học bao lâu?</h1><p class="mute">Đều đặn mỗi ngày nhớ lâu hơn học dồn.</p>
+      ${LT_WMIN.map(([m, n]) => `<button class="optr ${m === +W.mins ? 'on' : ''}" data-ltwv="mins|${m}"><span class="ic">⏱</span><span><b>${m} phút</b><span class="s">${n}</span></span></button>`).join('')}
+      <p style="margin:12px 0 4px">${W.kind === 'cefr' ? 'Ngày muốn đạt' : 'Ngày thi'} <span class="mute">· nếu đã biết</span></p><input id="ltdate" type="date" value="${esc(W.date || '')}">
+      <div class="box" id="lthint"></div>
+      <button class="btnbig" data-lt="goal">Bắt đầu học</button><button class="link" data-ltw="2">‹ Quay lại</button>`;
+  $app.innerHTML = `<div class="wiz">${ltSt().goal ? '<div class="row top"><span class="mute">🎯 Đổi mục tiêu</span><button class="link" data-lt="home">✕ Đóng</button></div>' : ''}<div class="wdots">${[1, 2, 3].map(i => `<i class="${i <= W.step ? 'on' : ''}"></i>`).join('')}</div>${body}
+    <input type="hidden" id="ltkind" value="${W.kind}"><input type="hidden" id="ltlv" value="${W.lv}"><input type="hidden" id="ltband" value="${W.band}"><input type="hidden" id="ltiet" value="${W.type}"><input type="hidden" id="ltscore" value="${W.score}"><input type="hidden" id="ltmin" value="${W.mins}">${W.step === 3 ? '' : `<input type="hidden" id="ltdate" value="${esc(W.date || '')}">`}</div>`;
+  scrollTo(0, 0); if (W.step === 3) ltHint(); }
 function ltFormGoal() { const v = id => (document.getElementById(id) || {}).value, k = v('ltkind') || 'cefr', d = v('ltdate');
   const lv = k === 'ielts' ? ieBase(+v('ltband') || 6.5) : k === 'toeic' ? toBase(+v('ltscore') || 600) : v('ltlv');
   return { kind: k, lv, date: /^\d{4}-\d{2}-\d{2}$/.test(d || '') ? d : '' }; }
+// ước tính ngắn (bước 3): bao lâu, có kịp ngày thi không, mỗi ngày chia nền / đề
+const ltEstTxt = fe => { const mo = fe.days / 30; return !fe.h ? 'bạn đã đủ trình độ cần' : mo >= 24 ? `khoảng ${Math.round(mo / 12)} năm` : mo >= 2 ? `khoảng ${Math.round(mo)} tháng` : `khoảng ${fe.days} ngày`; };
 function ltHint() { const el = document.getElementById('lthint'), f = ltFormGoal(), mn = +(document.getElementById('ltmin') || {}).value || actGoal(); if (!el || !LVN[f.lv]) return;
-  const m0 = S.goal; S.goal = mn; const sp = ltSplitFor(f.kind, f.lv); S.goal = m0;   // chia phút theo số phút đang chọn (chưa lưu)
-  el.innerHTML = `${f.kind === 'ielts' || f.kind === 'toeic' ? `<span class="mute">Nền CEFR cần có: <b>${LVN[f.lv]}</b>.</span><br>` : ''}${ltFeasTxt({ kind: 'cefr', lv: f.lv, date: f.date }, mn)}<br>${ltSplitTxt(sp)}`; }
-document.addEventListener('change', e => { if (S && e.target.closest && e.target.closest('#ltlv, #ltdate, #ltmin, #ltiet, #ltband, #ltscore')) ltHint(); });
+  const m0 = S.goal; S.goal = mn; const sp = ltSplitFor(f.kind, f.lv), fe = ltFeas({ kind: 'cefr', lv: f.lv, date: f.date }, mn); S.goal = m0;   // theo số phút đang chọn (chưa lưu)
+  el.innerHTML = `<p style="margin:0">⏳ Ước tính: <b>${ltEstTxt(fe)}</b>${f.kind === 'ielts' || f.kind === 'toeic' ? ` để có trình độ ${LVN[f.lv]}` : ''}</p>
+    ${fe.late ? `<p style="margin:6px 0 0">⚠️ Còn ${fe.left} ngày: <b>khó kịp</b>. Nên lùi ngày thi hoặc học nhiều phút hơn.</p>` : ''}
+    ${sp.k !== 'cefr' ? `<p class="mute" style="margin:6px 0 0">Mỗi ngày: nền ${sp.nenM} phút${sp.exM ? ` · luyện đề ${sp.exM} phút` : ' (chưa cần luyện đề)'}</p>` : ''}
+    <p class="mute" style="margin:6px 0 0;font-size:13px">Ước theo số giờ học Cambridge công bố; chỉ để tham khảo.</p>`; }
+document.addEventListener('change', e => { if (!S || !e.target.closest) return; if (e.target.closest('#ltdate') && LT_W) LT_W.date = e.target.value || ''; if (e.target.closest('#ltlv, #ltdate, #ltmin, #ltiet, #ltband, #ltscore')) ltHint(); });
 
 // ---------- 📅 kế hoạch kỳ thi ở ô mục tiêu (v111: chuyển từ màn IELTS / TOEIC về Lộ trình; phần học chỉ còn nội dung) ----------
 function ltExamPlan(k, sp) { try {
@@ -173,44 +195,90 @@ function ltGoalCard(stage = ovStage()) { const g = S.lt && S.lt.goal;
     <p class="mute" style="margin:4px 0">📅 Việc hôm nay: ${ok}/${TP.length} xong · ⚖️ nền ${sp.nen}%${sp.k !== 'cefr' ? ` · đề ${sp.ex}%` : ''}</p>
     ${sp.k !== 'cefr' ? `<button data-ltex style="margin:6px 0 0">${ic} Phần riêng cho mục tiêu: luyện ${LT_EXN[sp.k]} ›${sp.ex ? '' : '<small style="display:block;opacity:.85">chưa nên luyện đề, học nền trước; vẫn xem được dạng đề</small>'}</button>` : ''}</div>`; }
 
-// ---------- màn chính: mục tiêu · 📅 Hôm nay (danh sách việc duy nhất) · đợt · xếp cấp · tổng kết ----------
+// ---------- 🧭 màn chính = HÔM NAY (v112, giao diện trực quan): lời chào + 🔥 · vòng phút hôm nay · MỘT nút ▶ Học tiếp · danh sách việc ✓ / ▶ · ô 🎯 mục tiêu ----------
+// Mọi con số kế hoạch (ước thời gian, ⚖️ chia nền / đề, đợt 10 ngày, xếp cấp, tuần còn lại…) dồn vào màn "Đường tới mục tiêu" (ltPlanView), mở khi bấm ô 🎯.
+const ltRing = (m, g) => { const r = 38, C = 2 * Math.PI * r, f = Math.max(0, Math.min(1, g ? m / g : 0));
+  return `<svg width="92" height="92" viewBox="0 0 92 92" role="img" aria-label="${m} trên ${g} phút"><circle cx="46" cy="46" r="${r}" fill="none" style="stroke:var(--line)" stroke-width="10"/><circle cx="46" cy="46" r="${r}" fill="none" style="stroke:var(--good)" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C * (1 - f)).toFixed(1)}" transform="rotate(-90 46 46)"/><text x="46" y="45" text-anchor="middle" font-size="22" font-weight="800" style="fill:var(--fg)">${m}</text><text x="46" y="62" text-anchor="middle" font-size="12" style="fill:var(--mute)">/ ${g} phút</text></svg>`; };
+const ltHello = () => { const h = new Date().getHours(); return h < 11 ? 'Chào buổi sáng' : h < 14 ? 'Chào buổi trưa' : h < 18 ? 'Chào buổi chiều' : 'Chào buổi tối'; };
+// ô 🎯: tên mục tiêu, còn bao lâu, thanh từ trình độ đang có tới trình độ cần
+function ltGoalBox(g, stage) { const k = ltKind(g), need = ltGoalLv(g), date = ltGoalDate(g), left = date ? Math.ceil((Date.parse(date) - Date.now()) / DAY) : null;
+  const have = ltHave(stage), f = Math.max(0.04, Math.min(1, (have + 1) / (LV_SC[need] + 1))), wk = left != null && left >= 0 ? (left >= 14 ? `còn ${Math.ceil(left / 7)} tuần` : `còn ${left} ngày`) : '';
+  return `<button class="goalcard" data-ltplan><span style="font-size:30px">🎯</span><span style="flex:1;min-width:0"><b>${esc(ltGoalName(g))}</b>${wk ? ` <span class="mute">· ${wk}</span>` : ''}
+    <span style="display:block;margin:8px 0 4px">${bar(Math.round(f * 100), 100, ovDone(need) ? 'var(--good)' : 'var(--accent)')}</span><span class="mute" style="font-size:14px">Đang học ${LVN[stage]} → ${k === 'cefr' ? 'mục tiêu' : 'cần'} ${LVN[need]}</span></span><span class="chev">›</span></button>`; }
 async function ltView() { BACK = null; window.CUR = { view: 'lo-trinh' }; $app.onclick = null;
   if (!(PA && Object.values(KIT).every(P => P.items))) { $app.innerHTML = '<div id="lt"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); } catch (e) {} }
   const L = ltSt(); if (!L.goal) return ltGoalView();
   if (ltKind(L.goal) === 'ielts' && typeof ieLoad === 'function') try { await ieLoad(); } catch (e) {} if (ltKind(L.goal) === 'toeic' && typeof toLoad === 'function') try { await toLoad(); } catch (e) {}
-  const now = Date.now(), t = dayOf(now), stage = ovStage(), g = L.goal, k = ltKind(g), need = ltGoalLv(g), date = ltGoalDate(g), re = ltRe(now), P = S.place, plFirst = !!re && re.k === 'first'; let c = ltCur();
-  if (!c) { ltStart(now); c = ltCur(); }   // v107: có mục tiêu là có đợt
-  const sp = ltSplit(g), left = date ? Math.ceil((Date.parse(date) - now) / DAY) : null, gDone = (k === 'cefr' || k === 'cambridge') && ovDone(need);
-  const goalBox = `<div class="box"><div class="row"><b>🎯 ${esc(ltGoalName(g))}</b><button class="link" data-lt="edit">✏️ Đổi</button></div>
-    <p style="margin:4px 0">Đang học <b>${LVN[stage]}</b>${k !== 'cefr' ? ` · nền cần <b>${LVN[need]}</b>` : ''}${left != null ? ` · ${left >= 0 ? `còn <b>${left}</b> ngày` : 'đã qua ngày đặt'}` : ''}</p>
-    ${gDone ? `<p style="margin:4px 0">🎉 Đã hoàn thành ${LVN[need]} trong app. Làm 📝 đề mẫu chính thức ở màn 🎓 Cambridge để biết đạt thật chưa, rồi đặt mục tiêu mới.</p>` : `<p style="margin:4px 0">${ltFeasTxt(g)}</p>`}
-    <p style="margin:4px 0">${ltSplitTxt(sp)}</p>${ltExamPlan(k, sp)}${k !== 'cefr' ? `<button data-ltex style="margin:4px 0 0">${{ cambridge: '🎓', ielts: '🌏', toeic: '💼' }[k]} Mở bài luyện ${LT_EXN[k]} ›</button>` : ''}</div>`;
-  const plBox = `<div class="box"><b>🧭 Xếp cấp</b>${P ? `<p style="margin:4px 0">Lần gần nhất ${ltFmt(dayOf(P.at))}: ${P.top ? `nắm khá vững <b>${LVN[P.top]}</b>` : 'nên bắt đầu từ Pre-A1'}${P.no ? ' · bạn chọn học từ cấp đang học' : ''}.</p>` : ''}
-    ${re && re.k !== 'real' ? `<p class="mute" style="margin:4px 0">${esc(re.t)}.</p><button class="${plFirst ? 'pri' : ''}" data-lt="place">🧭 ${P ? 'Xếp cấp lại' : 'Kiểm tra xếp cấp'} (5–10 phút)</button>`
-      : re ? `<p style="margin:4px 0">📝 ${esc(re.t)}.</p><button data-ltex>📝 Mở màn ${LT_EXN[k] || 'Cambridge'}</button>` : `<p class="mute" style="margin:4px 0">Xếp lại sau ${ltReIn(now)} ngày, hoặc sớm hơn khi hoàn thành một cấp / trượt thi vượt.</p>`}</div>`;
-  const i = ltDay(c, now), days = [...Array(LT_D)].map((_, x) => c.d0 + x), f = typeof mapFocus === 'function' && ltHasData() ? mapFocus(now) : null, hist = L.d.filter(x => x.end).slice().reverse();
-  $app.innerHTML = `<div id="lt"></div><h1>🔄 Lộ trình</h1>${goalBox}
-    ${typeof todayBox === 'function' ? todayBox(stage, { lt: 1 }) : ''}
-    <div class="box"><div class="row"><b>📆 Đợt ${c.n} · ngày ${Math.min(i, LT_D)}/${LT_D}</b><span class="mute">${ltFmt(c.d0)} → ${ltFmt(c.d0 + LT_D - 1)}</span></div>
-      <div style="display:grid;grid-template-columns:repeat(${LT_D},1fr);gap:4px;margin:8px 0">${days.map(d => `<div title="${actMin(d)} phút" style="height:10px;border-radius:3px;background:${actMin(d) >= ACT_DAY_MIN ? 'var(--good)' : d === t ? 'var(--accent)' : 'var(--line)'}"></div>`).join('')}</div>
-      <p class="mute" style="margin:0">🩹 chữa lỗi hôm nay ${ltFixMin(t)}/${ltCap()} phút${k !== 'cefr' ? ` · 🎯 luyện ${LT_EXN[k]} ${ltExMin(t)}/${sp.exM} phút` : ''}</p>
-      ${i >= LT_D ? `<button class="pri" data-lt="chk" style="margin-top:8px">📝 Kiểm tra cuối đợt (~10 phút) → tổng kết</button>` : `<p class="mute" style="margin:8px 0 0">📝 Kiểm tra cuối đợt mở vào ngày ${LT_D} (còn ${LT_D - i} ngày).</p>`}</div>
-    ${plBox}
-    ${f ? `<button data-mapv="lt">🗺 Bản đồ chỗ yếu: đang chữa ${f.act.length}${f.queue.length ? ` · ${f.queue.length} chờ` : ''} · ✅ ${f.done} ›</button>` : ''}
-    ${hist.length ? `<details class="box"><summary>📊 Các đợt trước (${hist.length})</summary>${hist.map(x => `<div style="margin:8px 0"><b>Đợt ${x.n}</b> <span class="mute">${ltFmt(x.d0)} → ${ltFmt(x.end)}</span>${ltSumHtml(x, L.d[L.d.indexOf(x) - 1])}</div>`).join('<hr style="border:0;border-top:1px solid var(--line)">')}</details>` : ''}
-    <p class="mute">Bài làm ở đây tính 📘 Học / 🔁 Nhớ / Thi như ở 📚 Học (luyện đề không tính vào luật đo CEFR). Luật: 👤 Của tôi → 📘 Luật và cách dùng → 🔄 Lộ trình.</p>`; }
+  const now = Date.now(), t = dayOf(now), stage = ovStage(), g = L.goal; if (!ltCur()) ltStart(now);   // v107: có mục tiêu là có đợt
+  const m = actMin(t), gm = actGoal(), stk = actStreak(now), items = todayItems(stage, { lt: 1 }), main = items.filter(x => x.done != null), nx = main.find(x => !x.done), ok = main.filter(x => x.done).length;
+  $app.innerHTML = `<div id="lt"></div>
+    <div class="hello"><span class="mute">${ltHello()} 👋</span>${stk ? `<span class="pill">🔥 ${stk} ngày</span>` : ''}</div>
+    <h1 style="font-size:28px">Hôm nay</h1>
+    <div class="ringrow">${ltRing(m, gm)}<div><b style="font-size:18px">${m >= gm ? 'Đạt mục tiêu hôm nay 🎉' : `Còn ${gm - m} phút`}</b><p class="mute" style="margin:0">${m >= gm ? 'Học thêm nếu muốn' : 'để xong việc hôm nay'}</p></div></div>
+    ${nx ? `<button class="btnbig" data-ltnext>▶ Học tiếp<small>${esc(nx.title)} · ${esc(nx.meta)}</small></button>`
+      : `<button class="btnbig" data-ltmore style="background:var(--good)">🎉 Xong việc hôm nay<small>Muốn học thêm: mở 📚 Học</small></button>`}
+    <h2>Việc hôm nay <span class="mute" style="font-size:15px;font-weight:400">${ok}/${main.length}</span></h2>
+    ${todayBox(stage, { lt: 1, items })}
+    ${ltGoalBox(g, stage)}`; }
 
-document.addEventListener('click', e => { if (!S) return; let b = e.target.closest('[data-ltk]'); if (b) { scrollTo(0, 0); return ltGoalView(b.dataset.ltk); }
+// ---------- 🛣 Đường tới mục tiêu: đường cấp, ước tính, ⚖️ chia thời gian, 10 ngày này, kiểm tra trình độ, đổi mục tiêu, chỗ hay sai, các đợt trước ----------
+async function ltPlanView() { BACK = null; window.CUR = { view: 'lo-trinh-duong' }; $app.onclick = null;
+  const L = ltSt(); if (!L.goal) return ltGoalView();
+  const now = Date.now(), t = dayOf(now), stage = ovStage(), g = L.goal, k = ltKind(g), need = ltGoalLv(g), sp = ltSplit(g), fe = ltFeas(g), c = ltCur() || (ltStart(now), ltCur()), re = ltRe(now), P = S.place;
+  // đường cấp: từ cấp đã xong gần nhất tới cấp cần
+  const si = OV_LV.indexOf(stage), ni = Math.max(OV_LV.indexOf(need), si), from = Math.max(0, si - 1), steps = OV_LV.slice(from, ni + 1);
+  const pct = l => { const r = ovReq(l); return r.length ? Math.round(r.filter(([id]) => ovPassed(id, l)).length / r.length * 100) : 0; };
+  const path = steps.map(l => { const st = ovDone(l) ? 'ok' : l === stage ? 'cur' : l === need ? 'goal' : '';
+    return `<div class="lvstep ${st}${l === need && st !== 'ok' ? ' goal' : ''}"><div class="d">${st === 'ok' ? '✓' : l === need ? '🎯' : st === 'cur' ? '●' : ''}</div><b>${LVN[l]}</b><span>${st === 'ok' ? 'đã xong' : st === 'cur' ? `đang học · ${pct(l)}%` : l === need ? (k === 'cefr' ? 'mục tiêu' : `đủ trình độ cho ${esc(ltGoalName(g))}`) : ''}</span></div>`; }).join('');
+  const i = ltDay(c, now), days = [...Array(LT_D)].map((_, x) => c.d0 + x), f = typeof mapFocus === 'function' && ltHasData() ? mapFocus(now) : null, hist = L.d.filter(x => x.end).slice().reverse();
+  const why = k === 'cefr' ? 'Toàn bộ thời gian cho nền tiếng Anh.' : sp.gap >= 2 ? 'Trình độ còn xa mức cần: học nền trước, chưa cần luyện đề.' : sp.gap >= 1 ? 'Còn thiếu khoảng 1 cấp: chủ yếu học nền, luyện đề một ít.' : sp.gap > 0 ? 'Gần đủ trình độ: chuyển dần sang luyện đề.' : 'Đủ trình độ: dồn sức luyện đề, giữ ôn nền.';
+  $app.innerHTML = `<div id="lt"></div><div class="row top"><button class="link" data-lt="home">‹ Hôm nay</button><span></span></div>
+    <h1>Đường tới ${esc(ltGoalName(g))}</h1>
+    <p class="mute" style="margin:0 0 6px">${fe.h ? `Ước tính ${ltEstTxt(fe)} nếu học ${actGoal()} phút mỗi ngày` : 'Bạn đã đủ trình độ cần cho mục tiêu này'}${fe.late ? ` · <b style="color:var(--warn)">⚠️ khó kịp ngày thi (còn ${fe.left} ngày)</b>` : ''}</p>
+    <div class="lvpath">${path}</div>
+    <h2>Mỗi ngày ${actGoal()} phút chia thế nào</h2>
+    <div class="split">${sp.nen ? `<div style="width:${sp.nen}%;background:var(--accent)">Nền ${sp.nenM} phút</div>` : ''}${sp.ex ? `<div style="width:${sp.ex}%;background:var(--warn)">${LT_EXN[k]} ${sp.exM}’</div>` : ''}</div>
+    <p class="mute" style="margin:6px 0 0">${why}</p>
+    ${k === 'ielts' || k === 'toeic' ? ltExamPlan(k, sp) : ''}
+    <h2>10 ngày này</h2>
+    <div class="days10">${days.map(d => `<i class="${actMin(d) >= ACT_DAY_MIN ? 'ok' : d === t ? 'now' : ''}" title="${actMin(d)} phút"></i>`).join('')}</div>
+    <p class="mute" style="margin:0">Ngày ${Math.min(i, LT_D)} / ${LT_D} · ngày ${LT_D} làm bài kiểm tra ngắn</p>
+    ${i >= LT_D ? `<button class="btnbig" data-lt="chk">📝 Làm bài kiểm tra 10 ngày</button>` : ''}
+    <div class="grid2" style="margin-top:16px"><button class="btnbig ghost" data-lt="place" style="font-size:16px;margin:0">🧭 Đo trình độ</button><button class="btnbig ghost" data-lt="edit" style="font-size:16px;margin:0">✏️ Đổi mục tiêu</button></div>
+    ${re && re.k === 'first' ? `<p class="mute" style="margin:6px 0 0">🧭 Chưa đo trình độ: 5 phút để app bắt đầu đúng chỗ.</p>` : re && re.k !== 'real' ? `<p class="mute" style="margin:6px 0 0">🧭 Nên đo lại: ${esc(re.t).toLowerCase()}.</p>` : re ? `<p style="margin:6px 0 0">📝 ${esc(re.t)}. <button class="link" data-ltex>Mở ›</button></p>` : P ? `<p class="mute" style="margin:6px 0 0">Lần kiểm tra gần nhất ${ltFmt(dayOf(P.at))}: ${P.top ? `nắm khá vững ${LVN[P.top]}` : 'nên bắt đầu từ đầu'}.</p>` : ''}
+    ${f ? `<button class="btnbig ghost" data-mapv="lt" style="font-size:16px">🗺 Các chỗ hay sai${f.act.length ? ` · ${f.act.length}` : ''}</button>` : ''}
+    ${hist.length ? `<details class="box"><summary>📊 Các đợt 10 ngày trước (${hist.length})</summary>${hist.map(x => `<div style="margin:8px 0"><b>Đợt ${x.n}</b> <span class="mute">${ltFmt(x.d0)} → ${ltFmt(x.end)}</span>${ltSumHtml(x, L.d[L.d.indexOf(x) - 1])}</div>`).join('<hr style="border:0;border-top:1px solid var(--line)">')}</details>` : ''}
+    <p class="mute" style="font-size:13px">Ước tính theo số giờ học Cambridge công bố; chỉ để tham khảo. Luật chi tiết: 👤 Tôi → 📘 Luật và cách dùng.</p>`; }
+
+// ---------- ▶ Học tiếp: làm việc kế tiếp; khi đang học dở ở màn khác thì có dải nhắc "🧭 Hôm nay: còn N việc" để quay về ----------
+let LT_SESS = false;
+function ltNextGo() { LT_SESS = true; const b = document.querySelector('#today .task.next'); if (b) { b.click(); return; } toast('🎉 Xong hết việc hôm nay'); }
+const LT_BANNER_ON = () => document.getElementById('grid') || document.getElementById('part') || document.getElementById('ov') || ['ielts', 'toeic', 'cambridge'].includes((window.CUR || {}).view);
+function ltBanner() { if (!S || !LT_SESS || document.getElementById('lt') || document.getElementById('ltbanner') || !LT_BANNER_ON() || !(S.lt && S.lt.goal)) return;
+  let n = 0; try { n = todayItems(ovStage()).filter(x => x.done === false).length; } catch (e) { return; }
+  $app.insertAdjacentHTML('afterbegin', `<div id="ltbanner" class="ltbanner"><button class="link" data-ltgo>🧭 ${n ? `Hôm nay còn ${n} việc · ▶ Tiếp` : '🎉 Xong việc hôm nay · về Lộ trình'}</button><button class="link" data-ltx aria-label="Ẩn">✕</button></div>`); }
+new MutationObserver(() => { try { ltBanner(); } catch (e) {} }).observe($app, { childList: true });
+
+document.addEventListener('click', e => { if (!S) return; let b;
+  if ((b = e.target.closest('[data-ltk]'))) { if (!LT_W) LT_W = ltWInit(); LT_W.kind = b.dataset.ltk; ltWFix(LT_W); return ltWizard(); }
+  if ((b = e.target.closest('[data-ltwv]'))) { if (!LT_W) LT_W = ltWInit(); const [key, val] = b.dataset.ltwv.split('|'); LT_W[key] = ['band', 'score', 'mins'].includes(key) ? +val : val; return ltWizard(); }
+  if ((b = e.target.closest('[data-ltw]'))) { if (!LT_W) LT_W = ltWInit(); LT_W.step = +b.dataset.ltw; if (b.dataset.ltself) LT_W.self = b.dataset.ltself; return ltWizard(); }
+  if (e.target.closest('[data-ltwp]')) { if (!LT_W) LT_W = ltWInit(); return placeView(() => { LT_W.step = 3; ltWizard(); }, 'Tiếp ›'); }
+  if (e.target.closest('[data-ltnext]')) return ltNextGo();
+  if (e.target.closest('[data-ltmore]')) { scrollTo(0, 0); return overview(); }
+  if (e.target.closest('[data-ltplan]')) { scrollTo(0, 0); return ltPlanView(); }
+  if (e.target.closest('[data-ltx]')) { LT_SESS = false; const x = document.getElementById('ltbanner'); if (x) x.remove(); return; }
   b = e.target.closest('[data-lt]'); if (b) { const a = b.dataset.lt, L = ltSt(); scrollTo(0, 0);
-    if (a === 'home') return ltView();
+    if (a === 'home') { LT_W = null; return ltView(); }
     if (a === 'edit') return ltGoalView();
     if (a === 'goal') { const f = ltFormGoal(), v = id => (document.getElementById(id) || {}).value, mn = +v('ltmin');
       if (!LVN[f.lv]) return toast('Chọn mục tiêu.');
       if (f.kind === 'ielts') { const o = ieSt(); o.type = v('ltiet') || o.type; o.target = +v('ltband') || o.target; o.set = 1; o.date = f.date || null; }
       if (f.kind === 'toeic') { const o = toSt(); o.target = +v('ltscore') || o.target; o.date = f.date || null; }
       L.goal = { kind: f.kind, lv: f.lv, date: f.date, at: Date.now() }; S.exSel = f.kind === 'ielts' || f.kind === 'toeic' ? f.kind : 'cefr'; if (mn) S.goal = mn;
-      if (!ltCur()) ltStart(); S.t = Date.now(); save(); return ltView(); }
-    if (a === 'place') return placeView(ltView);
+      if (LT_W && LT_W.self) L.self = LT_W.self;   // tự chọn "mới bắt đầu": không nhắc kiểm tra trình độ nữa
+      LT_W = null; if (!ltCur()) ltStart(); S.t = Date.now(); save(); return ltView(); }
+    if (a === 'place') return placeView(ltPlanView);
     if (a === 'chk') return ltCheck(); }
   if (e.target.closest('[data-ltex]')) { scrollTo(0, 0); return exOpen(); }
   if (e.target.closest('[data-ltedit]')) { scrollTo(0, 0); return ltGoalView(); }

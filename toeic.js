@@ -143,9 +143,9 @@ document.addEventListener('change', e => { if (!S || !e.target.closest('#todate'
 // v110 (người sáng lập: "chia 2 mục: nền CEFR và thi: IELTS, TOEIC…"): hàng trên 2 mục 🧱 Nền CEFR · 🎓 Thi; trong 🎓 Thi có hàng con 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC (🎯 = mục tiêu).
 const EX_TABS = [['cefr', '🎓 Cambridge'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']];
 const exGoalK = () => { const g = S && S.lt && S.lt.goal; return g ? ({ ielts: 'ielts', toeic: 'toeic', cambridge: 'cefr' })[g.kind] || null : null; };
-const exSwitch = cur => { const gk = exGoalK(), nen = cur === 'nen';   // v111: chỉ điều hướng nội dung; mục tiêu / kế hoạch ở 🔄 Lộ trình (dấu 🎯 vẫn hiện)
-  return `<div class="chips" style="margin:4px 0 4px"><button class="chip ${nen ? 'on' : ''}" data-hocnen>🧱 Nền CEFR</button><button class="chip ${nen ? '' : 'on'}" data-exthi>🎓 Thi${gk ? ' 🎯' : ''}</button></div>
-    ${nen ? '' : `<div class="chips" style="margin:0 0 8px">${EX_TABS.map(([k, n]) => `<button class="chip ${k === cur ? 'on' : ''}" data-exsel="${k}" style="font-size:13px">${n}${k === gk ? ' 🎯' : ''}</button>`).join('')}</div>`}`; };
+const exSwitch = cur => { const gk = exGoalK(), nen = cur === 'nen';   // v112: nút chuyển 2 mục (🧱 Nền tiếng Anh · 🎓 Luyện thi); trong Luyện thi có hàng kỳ thi, 🎯 = mục tiêu
+  return `<div class="seg"><button class="${nen ? 'on' : ''}" data-hocnen>🧱 Nền tiếng Anh</button><button class="${nen ? '' : 'on'}" data-exthi>🎓 Luyện thi${gk ? ' 🎯' : ''}</button></div>
+    ${nen ? '' : `<div class="chipset" style="margin:0 0 10px">${EX_TABS.map(([k, n]) => `<button class="${k === cur ? 'on' : ''}" data-exsel="${k}">${n}${k === gk ? ' 🎯' : ''}</button>`).join('')}</div>`}`; };
 // việc 🎓 luyện đề ở ô Hôm nay (Lộ trình): mở màn kỳ thi của mục tiêu rồi vào thẳng bài nên làm (ieToday / toToday); không tìm thấy nút thì ở lại màn kỳ thi
 async function exGo() { const k = exSel(); await exOpen(); let a = null; try { a = k === 'ielts' ? ieToday()[0] : k === 'toeic' ? toToday()[0] : null; } catch (e) {}
   const m = a && String(a).match(/^(data-[\w-]+)(?:="([^"]*)")?$/), el = m && document.querySelector(`#app [${m[1]}${m[2] != null ? `="${m[2].replace(/"/g, '\\"')}"` : ''}]`); if (el) el.click(); }
