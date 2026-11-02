@@ -36,7 +36,7 @@ for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', '
   const q = await answerAll(); const done = (await pg.innerText('#app')).includes('✅ Xong'); check(`${lv} học bài Từ vựng (${q} câu)`, done);
   // mọi phần: màn chính, bài học đầu, mở thi
   for (const id of await pg.evaluate(lv => Object.values(KIT).filter(P => P.lvs.includes(lv)).map(P => P.id), lv)) {
-    await pg.evaluate(id => kView(id), id); await pg.waitForTimeout(500); check(`${lv} ${id} màn chính`, (await pg.innerText('#app')).includes('📘 Học'));
+    await pg.evaluate(id => kView(id), id); await pg.waitForTimeout(500); check(`${lv} ${id} màn chính`, (await pg.innerText('#app')).includes('📘 Bài học') && (await pg.innerText('#app')).includes('Ôn cho nhớ'));   // v118 khuôn 3 tầng
     await pg.evaluate(([id, lv]) => kLearn(KIT[id], kItems(KIT[id], lv)[0]), [id, lv]); await pg.waitForTimeout(200); check(`${lv} ${id} bài học`, (await pg.innerText('#app')).length > 50);
     if (id !== 'noi') { await pg.evaluate(([id, lv]) => kExam(KIT[id], lv), [id, lv]); await pg.waitForTimeout(300); check(`${lv} ${id} mở thi`, !!(await pg.$('[data-k], #ti, textarea, [data-kdlg], button'))); } }
   await pg.evaluate(() => paView()); await pg.waitForTimeout(500); check(`${lv} phát âm màn chính`, (await pg.innerText('#app')).includes('Phát âm'));

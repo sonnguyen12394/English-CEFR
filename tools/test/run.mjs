@@ -875,8 +875,9 @@ const R = await run(`(async () => {
     await tryA('Học', () => overview('pre')); h = H(); const nT = h.split('class="tile').length - 1;
     if (nT < 5 || !h.includes('class="seg"') || !h.includes('class="grid2"') || h.includes('Việc hôm nay')) bad.push('📚 Học chưa thành ô phần: ' + nT);
     const first = (x, a, b) => { const i = x.indexOf(a), j = x.indexOf(b); return i >= 0 && j >= 0 && i < j; };
-    await tryA('màn Ngữ pháp', () => kView('np')); h = H(); if (!first(h, 'data-k="menu"', '<details') || !first(h, '<details', '<h2>Các bài</h2>')) bad.push('màn phần: nút chính chưa lên đầu / giải thích chưa gập');
-    tryv('màn Từ vựng', () => home()); h = H(); if (!first(h, 'data-a="practice"', '<details') || !first(h, '<details', '<h2>Các bài</h2>')) bad.push('màn Từ vựng: nút chính chưa lên đầu / giải thích chưa gập');
+    // v118: khuôn 3 tầng: đường 3 bước → 2 nút → danh sách bài → "Thêm" gập ở cuối
+    await tryA('màn Ngữ pháp', () => kView('np')); h = H(); if (!first(h, 'class="steps3"', 'data-k="menu"') || !first(h, 'data-k="menu"', 'id="klist"') || !first(h, 'id="klist"', '<details class="box more"')) bad.push('màn phần: thứ tự khuôn 3 tầng sai');
+    tryv('màn Từ vựng', () => home()); h = H(); if (!first(h, 'class="steps3"', 'data-a="practice"') || !first(h, 'data-a="practice"', 'id="grid"') || !first(h, 'id="grid"', '<details class="box more"')) bad.push('màn Từ vựng: thứ tự khuôn 3 tầng sai');
     const bd = (HD.find(x => x[0] === 'batdau') || [, , () => ''])[2](); if (!bd.includes('Học tiếp') || !bd.includes('3 câu')) bad.push('Luật mục Bắt đầu chưa theo giao diện mới');
     S.place = null; delete S.lt; LT_SESS = false;
     add('cefr', 'C28', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'bắt đầu 3 bước, Hôm nay (vòng phút, 1 nút ▶ Học tiếp, việc ✓ / ▶, tự chọn mới bắt đầu), Đường tới mục tiêu, 📚 Học ô phần, màn phần nút chính lên đầu'); }
@@ -989,6 +990,34 @@ const R = await run(`(async () => {
     const hb = HD.find(x => x[0] === 'baitap'); if (!hb || !hb[2]().includes('Không cần học trước')) bad.push('Luật chưa ghi mở khoá bài tập');
     S = blank();
     add('cefr', 'C32', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'mở khoá bài tập: 🏋️ mở khi chưa học (7 phần), lấy bài / bộ / từ chưa học theo thứ tự, làm = tính đã học, 🔁 Nhớ từ ngày sau; Đọc / Nghe giữ bài mới riêng đều đúng'); }
+  // v118 khuôn màn phần 3 tầng (người sáng lập 2/11/2026 "sắp xếp lại phần học cho trực quan… nhiều chức năng rối mắt", chọn "một khuôn 3 tầng"; không đổi luật đo)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML), now = Date.now(), t = dayOf(now), D = 864e5;
+    const top = h => h.split('<details class="box more"')[0], lvAt = (h, a) => { const i = h.indexOf(a), j = h.indexOf('<details class="lvmore"'); return i < 0 || (j >= 0 && i > j); };
+    const JARGON = /mặt thấp nhất|yêu cầu thấp nhất|≥|chưa có bài|tham khảo|🔵|⚪|🟢|Trình độ <b>/;
+    const screens = [['Từ vựng', () => home(), 'data-lv="'], ['Phát âm', () => paView(), 'data-palv="'], ...Object.keys(KIT).map(id => [id, () => kView(id), 'data-klv="'])];
+    S = blank();
+    for (const [n, f, chip] of screens) { tryv(n, f); const h = H(), tp = top(h);
+      if (!h.includes('class="steps3"') || !h.includes('Ôn cho nhớ') || !h.includes('Thi lên cấp')) bad.push(n + ': thiếu đường 3 bước');
+      if (!h.includes('📘 Bài học') || !h.includes('🏋️ Bài tập')) bad.push(n + ': thiếu 2 nút');
+      if (JARGON.test(tp)) bad.push(n + ': màn đầu còn chữ luật / ký hiệu: ' + (tp.match(JARGON) || [])[0]);
+      if (!h.includes('<details class="box more"') || !/Nhớ từng/.test(h) || !h.includes('Bài thi lên cấp')) bad.push(n + ': thiếu "Thêm" gập');
+      if (!lvAt(h, chip)) bad.push(n + ': chip cấp chưa gập vào "Xem bài cấp khác"');
+      if (/data-(k|a|pa)="exam"/.test(tp)) bad.push(n + ': chưa đủ điều kiện mà có nút thi'); }
+    // Đọc / Nghe: bước 1 là "Làm bài"; danh sách dài chỉ hiện 6 dòng quanh bài kế tiếp
+    tryv('doc', () => kView('doc')); if (!H().includes('<b>Làm bài</b>')) bad.push('Đọc: bước 1 chưa ghi "Làm bài"');
+    tryv('np', () => kView('np')); { const n = kItems(KIT.np, 'pre').length, sh = (H().split('<details class="lvmore"')[0].match(/data-kx="/g) || []).length; if (n > P_WIN + 2 && (sh !== P_WIN || !H().includes('Xem thêm ' + (n - P_WIN) + ' bài'))) bad.push('Ngữ pháp: danh sách chưa gọn: ' + sh); }
+    // trạng thái bằng chữ: học tiếp / đã học / cần ôn / đã nhớ
+    { const xs = kItems(KIT.np, 'pre'), st = kSt('np').cards; st[xs[0].id] = { S: 300, last: now - D, d0: t - 9, ok: 1, pv: 1, n: 5, lapse: 0, dm: { nhan: { ok: 1, pv: 1, n: 3 }, dien: { ok: 1, pv: 1, n: 3 }, sua: { ok: 1, pv: 1, n: 3 }, hieu: { ok: 1, pv: 1, n: 3 } } };
+      st[xs[1].id] = { S: 0.5, last: now - 5 * D, d0: t - 9, ok: 0, pv: 1, n: 5, lapse: 1, dm: {} }; st[xs[2].id] = { S: 1, last: now, d0: t, ok: 1, pv: 0, n: 0, lapse: 0 };
+      const L = kList(KIT.np, 'pre', xs[3], now); if (!L.includes('đã nhớ') || !L.includes('cần ôn') || !L.includes('đã học') || !L.includes('học tiếp')) bad.push('danh sách chưa ghi trạng thái bằng chữ'); }
+    // đủ điều kiện: bước 3 thành nút thi; học hết thì 🏋️ là nút chính, 📘 không
+    S = blank(); for (const x of kItems(KIT.np, 'pre')) kSt('np').cards[x.id] = { S: 300, last: now - D, d0: t - 9, ok: 1, pv: 1, n: 5, lapse: 0, dm: { nhan: { ok: 1, pv: 1, n: 3 }, dien: { ok: 1, pv: 1, n: 3 }, sua: { ok: 1, pv: 1, n: 3 }, hieu: { ok: 1, pv: 1, n: 3 } } };
+    tryv('np mở thi', () => kView('np')); { const h = H(); if (!/<div class="st3 open">[^]*data-k="exam"/.test(h)) bad.push('đủ điều kiện mà bước 3 chưa thành nút thi'); if (/class="big2 pri" data-k="learn"/.test(h) || !/class="big2 pri" data-k="menu"/.test(h)) bad.push('học hết mà 📘 vẫn là nút chính'); }
+    // Từ vựng: một chặng mở sẵn, chặng khác gập; bước 3 theo trạng thái thi (chờ thi lại / đã qua)
+    S = blank(); tryv('home', () => home()); { const h = H(); if ((h.match(/class="ch cur"/g) || []).length !== 1 || !h.includes('Chặng khác')) bad.push('Từ vựng: chặng chưa gập'); }
+    { const st = n => steps3({ learn: [1, 2], unit: 'bài', lq: 50, mq: 10, need: 1, ex: n }); if (!st({ k: 'cho', v: '✓', sub: 'thi lại từ 9/11' }).includes('thi lại từ 9/11') || !st({ k: 'wait', v: '⏳', sub: 'thi lại sau 3 ngày' }).includes('⏳') || !st({ k: 'done', v: '✓', sub: 'đã qua' }).includes('st3 ok')) bad.push('bước 3 hiện sai trạng thái'); }
+    S = blank();
+    add('cefr', 'C33', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'khuôn màn phần 3 tầng (7 phần): đường 3 bước, 2 nút, danh sách bài ghi bằng chữ (gọn 6 dòng), cấp khác + "Thêm" gập, màn đầu không chữ luật / ký hiệu, bước 3 thành nút thi khi đủ, học hết thì 🏋️ là nút chính'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V', 'T'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung)');

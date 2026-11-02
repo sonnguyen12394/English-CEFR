@@ -149,47 +149,59 @@
   .exscore { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin:8px 0 4px; }
   .exscore div { background:var(--bg); border-radius:12px; padding:8px 4px; text-align:center; }
   .exscore span { display:block; font-size:12px; color:var(--mute); white-space:nowrap; } .exscore b { display:block; font-size:22px; font-weight:800; } .exscore i { display:block; font-size:11px; color:var(--good); font-style:normal; }
+  /* v118 khuôn màn phần 3 tầng: đường 3 bước ① Học bài → ② Ôn cho nhớ → ③ Thi; danh sách bài ghi trạng thái bằng chữ; "Thêm" gập */
+  .steps3 { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:10px 0 4px; }
+  .st3 { position:relative; background:var(--card); border-radius:14px; padding:10px 4px; text-align:center; min-width:0; }
+  .st3:not(:first-child)::before { content:"›"; position:absolute; left:-9px; top:50%; transform:translateY(-50%); color:var(--mute); font-size:18px; }
+  .st3 i { display:inline-flex; width:26px; height:26px; border-radius:50%; align-items:center; justify-content:center; font-style:normal; font-size:13px; font-weight:800; background:var(--bg); border:2px solid var(--line); }
+  .st3.ok i { background:var(--good); border-color:var(--good); color:#fff; } .st3.cur i { background:var(--accent); border-color:var(--accent); color:#fff; } .st3.lock i { border:0; background:none; font-size:16px; }
+  .st3 b { display:block; font-size:14px; margin:4px 0 0; white-space:nowrap; } .st3 .v { display:block; font-size:21px; font-weight:800; margin:2px 0 0; } .st3 .s { display:block; font-size:12px; color:var(--mute); }
+  .st3.ok .v { color:var(--good); } .st3.cur .v { color:var(--accent); } .st3.lock .v, .st3.lock b { color:var(--mute); }
+  .st3.open { background:var(--accent2); } .st3.open button { margin:6px 0 0; width:100%; padding:9px 2px; font-size:15px; }
+  .urow .tag { color:var(--mute); font-size:14px; font-weight:400; white-space:nowrap; } .urow .tag.next { color:var(--accent); font-weight:600; } .urow .tag.warn { color:var(--warn); font-weight:600; } .urow .tag.good { color:var(--good); }
+  details.lvmore { margin:6px 0 10px; } details.lvmore > summary { color:var(--accent); font-size:15px; padding:6px 0; }
+  details.more > summary { padding:2px 0; } details.more h3 { font-size:16px; margin:14px 0 6px; }
 </style>
 </head>
 <body>
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=117"></script>
-<script src="tonghop.js?v=117"></script>
-<script src="exam.js?v=117"></script>
-<script src="gopy.js?v=117"></script>
-<script src="gop.js?v=117"></script>
-<script src="noi.js?v=117"></script>
-<script src="parts.js?v=117"></script>
-<script src="pa.js?v=117"></script>
-<script src="kit.js?v=117"></script>
-<script src="kparts.js?v=117"></script>
-<script src="backup.js?v=117"></script>
-<script src="mock.js?v=117"></script>
-<script src="mocknoi.js?v=117"></script>
-<script src="thi.js?v=117"></script>
-<script src="uoe.js?v=117"></script>
-<script src="nghe2.js?v=117"></script>
-<script src="cap.js?v=117"></script>
-<script src="lib.js?v=117"></script>
-<script src="homnay.js?v=117"></script>
-<script src="vuotcap.js?v=117"></script>
-<script src="nhanh.js?v=117"></script>
-<script src="bando.js?v=117"></script>
-<script src="soloi.js?v=117"></script>
-<script src="ielts.js?v=117"></script>
-<script src="focus.js?v=117"></script>
-<script src="ieplus.js?v=117"></script>
-<script src="iemap.js?v=117"></script>
-<script src="iethat.js?v=117"></script>
-<script src="tudien.js?v=117"></script>
-<script src="tracuu.js?v=117"></script>
-<script src="dieuhuong.js?v=117"></script>
-<script src="huongdan.js?v=117"></script>
-<script src="toeic.js?v=117"></script>
-<script src="tomap.js?v=117"></script>
-<script src="chandoan.js?v=117"></script>
-<script src="lotrinh.js?v=117"></script>
+<script src="app.js?v=118"></script>
+<script src="tonghop.js?v=118"></script>
+<script src="exam.js?v=118"></script>
+<script src="gopy.js?v=118"></script>
+<script src="gop.js?v=118"></script>
+<script src="noi.js?v=118"></script>
+<script src="parts.js?v=118"></script>
+<script src="pa.js?v=118"></script>
+<script src="kit.js?v=118"></script>
+<script src="kparts.js?v=118"></script>
+<script src="backup.js?v=118"></script>
+<script src="mock.js?v=118"></script>
+<script src="mocknoi.js?v=118"></script>
+<script src="thi.js?v=118"></script>
+<script src="uoe.js?v=118"></script>
+<script src="nghe2.js?v=118"></script>
+<script src="cap.js?v=118"></script>
+<script src="lib.js?v=118"></script>
+<script src="homnay.js?v=118"></script>
+<script src="vuotcap.js?v=118"></script>
+<script src="nhanh.js?v=118"></script>
+<script src="bando.js?v=118"></script>
+<script src="soloi.js?v=118"></script>
+<script src="ielts.js?v=118"></script>
+<script src="focus.js?v=118"></script>
+<script src="ieplus.js?v=118"></script>
+<script src="iemap.js?v=118"></script>
+<script src="iethat.js?v=118"></script>
+<script src="tudien.js?v=118"></script>
+<script src="tracuu.js?v=118"></script>
+<script src="dieuhuong.js?v=118"></script>
+<script src="huongdan.js?v=118"></script>
+<script src="toeic.js?v=118"></script>
+<script src="tomap.js?v=118"></script>
+<script src="chandoan.js?v=118"></script>
+<script src="lotrinh.js?v=118"></script>
 </body>
 </html>

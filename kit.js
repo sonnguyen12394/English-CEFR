@@ -52,36 +52,29 @@ function kView(id) { const P = KIT[id];
   BACK = () => kView(id); window.CUR = { view: 'phan-' + id };
   const now = Date.now(), lv = kLv(P), p = kParts(P, lv, now), st = kSt(id), L = kItems(P, lv), nx = L.find(x => !st.cards[x.id]);
   const open = gateOpen(p, id + '|' + lv, now), run = st.runs.filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, K_RETRY - (dayOf(now) - dayOf(run.at))) : 0;
-  const view = P.view && P.lvs.includes(P.view) ? P.view : lv, nw = P.newQs ? kNextNew(P) : null;
-  // v112 (giao diện trực quan): 2 nút chính lên đầu; tiến độ gọn 2 thanh; giải thích từng mặt, cách học gập trong 📊 Chi tiết
-  // v116 (người sáng lập "tách phần bài học và phần bài tập ra riêng"): 📘 Bài học = dạy + luyện thêm, KHÔNG BAO GIỜ tính 🔁 Nhớ; 🏋️ Bài tập = mọi lượt tính 🔁 Nhớ.
-  //   📰 Đọc / 🎧 Nghe: bài mới là bài tập (làm trước, xem sau: lần đầu gặp bài là lần đo hiểu bài) nên 📘 mở màn Bài học riêng (kHoc): cách học, luyện thêm, xem lại bài vừa làm.
-  $app.innerHTML = `<div id="part" data-p="${id}"></div>${ovBack}<h1>${P.ic} ${P.t}</h1>
-    <p class="mute" style="margin:0 0 6px">Trình độ <b>${LVN[lv]}</b> · ${P.newQs ? 'đã làm' : 'đã học'} ${p.learn} / ${p.T} ${P.unit}</p>
+  const view = P.view && P.lvs.includes(P.view) ? P.view : lv, nw = P.newQs ? kNextNew(P) : null, passed = kPassed(P, lv);
+  // v112 (giao diện trực quan): 2 nút chính lên đầu. v116: 📘 Bài học (dạy + luyện thêm, không tính 🔁 Nhớ) · 🏋️ Bài tập (tính); 📰 Đọc / 🎧 Nghe: 📘 mở màn riêng kHoc.
+  // v118 khuôn 3 tầng (parts.js steps3 / pRow / pMore / pLvMore): đường 3 bước thay 2 thanh % + ô thi; danh sách bài của cấp đang xem ghi trạng thái bằng chữ; còn lại gập trong "Thêm"
+  const ex = passed ? { k: 'done', v: '✓', sub: 'đã qua' } : wait ? { k: 'wait', v: '⏳', sub: `thi lại sau ${wait} ngày` }
+    : open ? { k: 'open', btn: '<button class="pri" data-k="exam">🚪 Vào thi</button>' } : { k: 'lock', v: '', sub: 'sau bước 1 · 2' };
+  $app.innerHTML = `<div id="part" data-p="${id}"></div>${ovBack}<h1>${P.ic} ${P.t} <span class="mute" style="font-size:18px">· ${LVN[lv]}</span></h1>
     ${P.needAsr && !SREC ? `<div class="box">⚠️ Trình duyệt này không chép được lời nói. Phần ${P.t} chấm bằng máy chép lời: mở trang bằng <b>Safari</b>.</div>` : ''}
+    ${steps3({ t1: P.newQs ? 'Làm bài' : 'Học bài', learn: [p.learn, p.T], unit: 'bài', lq: p.lq, mq: p.mq, need: learnNeed(p), ex })}
     <div class="duo">${P.newQs
-      ? `<button class="big2" data-k="hoc">📘 Bài học<small>Cách học · luyện thêm · xem lại</small></button>
-      <button class="big2 pri" data-k="menu">🏋️ Bài tập<small>${nw ? '🆕 ' + esc(P.name(nw)) : p.due ? `${p.due} bài cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>`
-      : `<button class="big2 ${p.due ? '' : 'pri'}" data-k="learn" ${nx ? '' : 'disabled'}>📘 Bài học<small>${nx ? esc(P.name(nx)) : `Đã học hết ${LVN[lv]}`}</small></button>
-      <button class="big2 ${p.due ? 'pri' : ''}" data-k="menu">🏋️ Bài tập<small>${!p.learn ? 'Làm luôn, chưa cần học' : p.due ? `${p.due} bài cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>`}
-    </div>${kDuoNote(P)}
-    <div class="box">
-      <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
-      <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
+      ? `<button class="big2" data-k="hoc">📘 Bài học<small>xem lại, luyện thêm</small></button>
+      <button class="big2 pri" data-k="menu">🏋️ Bài tập<small>${nw ? '🆕 bài mới' : p.due ? `${p.due} bài cần ôn` : 'làm, ghi nhớ'}</small></button>`
+      : `<button class="big2 ${p.due || !nx ? '' : 'pri'}" data-k="learn" ${nx ? '' : 'disabled'}>📘 Bài học<small>${nx ? 'xem, học' : 'đã học hết'}</small></button>
+      <button class="big2 ${p.due || !nx ? 'pri' : ''}" data-k="menu">🏋️ Bài tập<small>${p.due ? `${p.due} bài cần ôn` : !p.learn ? 'làm luôn được' : 'làm, ghi nhớ'}</small></button>`}
     </div>
-    <div class="box"><b>🚪 Thi chuyển cấp ${P.t} ${LVN[lv]}</b>
-      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. ${P.examTxt} Qua khi đúng ≥ ${Math.round(P.pass * 100)}%.${P.ref ? ' Máy chấm gián tiếp nên phần này chỉ để tham khảo: không chặn hoàn thành cấp. Muốn chắc: 🧑‍🏫 AI chấm hoặc nhờ giáo viên.' : ''}</p>
-      ${gateHoldTxt(p, open && !kPassed(P, lv))}${kPassed(P, lv) ? `<p>✅ Đã qua Thi chuyển cấp ${P.t} ${LVN[lv]} (trong app).</p>` : wait ? `<p class="mute">Lần trước chưa qua (${run.ok}/${run.n}). Thi lại sau ${wait} ngày; trong lúc chờ, luyện tiếp.</p>`
-        : `<button class="${open ? 'pri' : ''}" data-k="exam" ${open ? '' : 'disabled'}>${open ? '🚪 Vào thi' : `🔒 Còn thiếu: ${p.lq < GATE_LEARN ? `học ${learnNeed(p)} bài` : ''}${p.lq < GATE_LEARN && p.mq < GATE_MEM ? ' · ' : ''}${p.mq < GATE_MEM ? `Nhớ ${p.mq}% / ${GATE_MEM}%` : ''}`}</button>`}</div>
-    <details class="box"><summary>📊 Chi tiết từng mặt và cách học</summary>
-    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} ${P.unit} mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm}` : ''}). ${P.intro}</p>${P.how ? `<p class="mute" style="margin:4px 0">🪜 Cách học: ${P.how}</p>` : ''}
-      ${rqList(id, lv, k => { const [, l, d] = P.dims.find(x => x[0] === k); return `<div class="dimc" data-kdim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}<div class="mute" style="font-size:12px">${d}</div></div>`; })}
-      <p class="mute" style="margin:6px 0 0">Mỗi mặt tính khi làm đúng ở một ngày sau ngày học; giữ khi lần gần nhất đúng và khả năng nhớ ≥ 80%. Bấm vào một mặt để xem bài của mặt đó.</p>
-    </details>
-    ${kExtraBox(P)}
-    <h2>Các bài</h2>${P.newQs ? `<p class="mute">⚪ chưa làm · 🆕 làm đã ≥ ${K_FRESH_D} ngày: bấm để làm (🏋️ tính 🔁 Nhớ). 🔵 vừa làm: bấm để xem lại (📘 không tính).</p>` : ''}
-    <div class="chips">${P.lvs.map(l => `<button class="chip ${l === view ? 'on' : ''}" data-klv="${l}">${kPassed(P, l) ? '✅ ' : kLocked(P, l) ? '🔒 ' : ''}${LVN[l]} · ${kItems(P, l).length}</button>`).join('')}</div>
-    <div id="klist">${kList(P, view, nx, now)}</div>`;
+    <h2 style="margin:16px 0 4px">Bài ${LVN[view]}</h2>
+    <div id="klist">${kList(P, view, nx, now)}</div>
+    ${pLvMore(P.lvs.map(l => `<button class="chip ${l === view ? 'on' : ''}" data-klv="${l}">${kPassed(P, l) ? '✅ ' : kLocked(P, l) ? '🔒 ' : ''}${LVN[l]} · ${kItems(P, l).length}</button>`).join(''), view !== lv)}
+    ${pMore([['📘 Luyện thêm', kExtra(P).length ? `<p class="mute" style="margin:0 0 4px">Không tính 🔁 Nhớ.</p>${kExtraBtns(P)}` : ''],
+      ['📊 Nhớ từng mặt', `<p class="mute" style="margin:0 0 6px">Bước 2 = mặt thấp nhất; mỗi mặt cần ${GATE_MEM}%. Một mặt tính khi làm đúng ở một ngày sau ngày học. Bấm một mặt để xem bài của mặt đó.</p>
+        ${rqNow(id, lv, k => { const [, l, d] = P.dims.find(x => x[0] === k); return `<div class="dimc" data-kdim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}<div class="mute" style="font-size:12px">${d}</div></div>`; })}`],
+      ['🚪 Bài thi lên cấp', `<p class="mute" style="margin:0">Mở khi đủ bước 1 (≥ ${GATE_LEARN}% bài) và bước 2 (mỗi mặt ≥ ${GATE_MEM}%). ${P.examTxt} Qua khi đúng ≥ ${Math.round(P.pass * 100)}%. Trượt thì ${K_RETRY} ngày sau thi lại.${P.ref ? ' Máy chấm gián tiếp nên phần này chỉ để tham khảo: không chặn hoàn thành cấp.' : ''}</p>
+        ${gateHoldTxt(p, open && !passed)}${run ? `<p class="mute" style="margin:4px 0 0">Lần gần nhất: ${run.ok}/${run.n} ${run.pass ? '✅ qua' : '❌ chưa qua'}.</p>` : ''}`],
+      ['🪜 Cách học', `<p class="mute" style="margin:0">Cấp đang học: ${LVN[lv]} (${p.T} ${P.unit} mới${p.Tm > p.T ? `; bước 2 và bài thi tính cả cấp trước: ${p.Tm}` : ''}). ${P.intro}</p>${P.how ? `<p class="mute" style="margin:6px 0 0">${P.how}</p>` : ''}`]])}`;
   $app.onclick = e => { const b = e.target.closest('[data-k]'), lb = e.target.closest('[data-klv]'), u = e.target.closest('[data-kx]'), dm = e.target.closest('[data-kdim]'), xe = e.target.closest('[data-kex]');
     if (dm) return kDimView(P, dm.dataset.kdim);
     if (xe) return kRun(P, +xe.dataset.kex, () => kView(id));
@@ -91,11 +84,14 @@ function kView(id) { const P = KIT[id];
     if (!b) return; const a = b.dataset.k;
     if (a === 'learn' && nx) kLearn(P, nx); if (a === 'hoc') kHoc(P); if (a === 'menu') kMenu(P); if (a === 'exam') kExam(P, lv); };
   window.scrollTo(0, 0); }
-function kList(P, lv, nx, now) { const st = kSt(P.id).cards;
-  return kItems(P, lv).map(x => { const c = st[x.id], m = P.dims.filter(([k]) => kDimsOf(P, x).includes(k)).map(([k, l]) => `<span class="dm ${kHeld(P, c, k, now) ? 'on' : ''}" title="${l}">${l.split(' ')[0]}</span>`).join('');
-    return `<button class="urow ${nx && nx.id === x.id ? 'next' : ''}" data-kx="${x.id}"><span>${c ? (P.newQs && kIsFresh(P, x, now) ? '🆕' : '🔵') : nx && nx.id === x.id ? '▶️' : '⚪'} ${esc(P.name(x))}</span><span>${c ? m : ''}</span></button>`; }).join(''); }
-// v116: dòng chú thích dưới 2 nút; bài "luyện thêm" (P.menu có danh sách mặt rỗng: không chấm mặt nào) thuộc 📘 Bài học, không còn ở 🏋️ Bài tập
-const kDuoNote = P => `<p class="mute" style="margin:2px 0 10px;font-size:13px">${P.newQs ? '📘 Bài học: cách học, luyện thêm, xem lại (không tính) · 🏋️ Bài tập: 🆕 bài mới và ôn (tính 🔁 Nhớ)' : '📘 Bài học: dạy, không tính 🔁 Nhớ · 🏋️ Bài tập: tính 🔁 Nhớ'}</p>`;
+// v118: một dòng = tên bài + trạng thái bằng chữ (trước: ký hiệu ⚪ 🔵 🟢 🆕 + dấu từng mặt, phải đọc dòng chú thích mới hiểu)
+function kList(P, lv, nx, now) { const st = kSt(P.id).cards, lock = kLocked(P, lv), xs = kItems(P, lv), at = xs.findIndex(x => nx ? x.id === nx.id : !st[x.id]);
+  return pWin(xs.map(x => { const c = st[x.id], isNx = nx && nx.id === x.id, held = c && kDimsOf(P, x).every(k => kHeld(P, c, k, now));
+    const [tag, cls] = !c ? (lock ? ['🔒', ''] : isNx ? [P.newQs ? 'làm tiếp' : 'học tiếp', 'next'] : ['', '']) : P.newQs && kIsFresh(P, x, now) ? ['làm lại được', '']
+      : held ? ['đã nhớ', 'good'] : isDue(c, now) && !P.newQs ? ['cần ôn', 'warn'] : [P.newQs ? 'đã làm' : 'đã học', ''];
+    return pRow(`data-kx="${x.id}"`, esc(P.name(x)), tag, isNx ? 'next' : cls); }), at); }
+const kExtraBtns = P => kExtra(P).map(([m, i]) => `<button class="opt" data-kex="${i}"><b>${m[1]}</b><br><span style="font-size:14px;opacity:.85">${m[2]}</span></button>`).join('');
+// v116: bài "luyện thêm" (P.menu có danh sách mặt rỗng: không chấm mặt nào) thuộc 📘 Bài học, không còn ở 🏋️ Bài tập
 const kExtra = P => P.menu.map((m, i) => [m, i]).filter(([m]) => !m[3].length && (!P.extraOk || P.extraOk(m[0])));
 const kExtraBox = (P, inHoc) => { const L = kExtra(P); return L.length ? `<div class="box"><b>${inHoc ? '🧩' : '📘'} Luyện thêm</b> <span class="mute">· không tính 🔁 Nhớ</span>${L.map(([m, i]) => `<button class="opt" data-kex="${i}"><b>${m[1]}</b><br><span style="font-size:14px;opacity:.85">${m[2]}</span></button>`).join('')}</div>` : ''; };
 // v116 📘 Bài học của 📰 Đọc / 🎧 Nghe: không có "bài mới để học trước" (bài mới là 🏋️ bài tập). Ở đây: luyện thêm theo bậc, xem lại bài vừa làm (gặp < K_FRESH_D ngày), cách học.

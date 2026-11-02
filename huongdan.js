@@ -18,7 +18,7 @@ const HD = [
     <p><b>👤 Tôi</b>: tiến độ, 📌 sổ từ, 📒 sổ lỗi, kết quả thi thật, 💾 dữ liệu và tài khoản, góp ý, và trang này.</p>`],
   ['cap', '🪜 Cấp và phần', () => `
     <p>Cấp: Pre-A1 → A1 → A2 → A2+ → B1 → B1+ → B2 → B2+ → C1 → C2. Cấp "+" là nửa khó hơn của cấp đó.</p>
-    <p>Mỗi cấp có các phần (Phát âm có Pre-A1 → C2; B1 → C2 là các cặp âm khó hơn: tr / ch, -ed, ng / nk…). Mỗi phần có 3 mục tiêu riêng: <b>📘 Học</b>, <b>🔁 Nhớ</b>, <b>🚪 Thi chuyển cấp</b>.</p>
+    <p>Mỗi cấp có các phần (Phát âm có Pre-A1 → C2; B1 → C2 là các cặp âm khó hơn: tr / ch, -ed, ng / nk…). Mỗi phần có 3 mục tiêu riêng: <b>📘 Học</b>, <b>🔁 Nhớ</b>, <b>🚪 Thi chuyển cấp</b>. Trên màn mỗi kỹ năng, 3 mục tiêu này hiện thành <b>đường 3 bước</b>: ① Học bài → ② Ôn cho nhớ → ③ Thi lên cấp (đủ bước 1 và 2 thì bước 3 thành nút 🚪 Vào thi). Chi tiết từng mặt, bài thi, cách học: bấm <b>Thêm</b> ở cuối màn.</p>
     <p><b>Hoàn thành cấp trong app</b> khi mọi phần <b>bắt buộc</b> của cấp đã qua Thi chuyển cấp. Bắt buộc: 📚 Từ vựng, 🧱 Ngữ pháp, 📰 Đọc, 🎧 Nghe; ✍️ Viết phần câu (🧩 xếp câu, 🔗 nối câu: máy chấm chắc); 👄 Phát âm phần nghe (máy đã tải bộ chấm âm thì cả phần đọc); 🗣 Nói khi máy chép được lời (mở bằng Safari). Chỉ để <b>tham khảo</b> (vẫn nên luyện, không chặn): bài viết dài (✅ đủ ý, 📝 đúng dạng), từ B1 bài nói một mạch, và 🗣 Nói trên máy không chép được lời.</p>
     <p><b>Hoàn thành trong app chưa phải bằng CEFR.</b> Đề trong app lấy từ kho bài của app. Chữ <b>"đạt A1, A2…"</b> chỉ dùng khi bạn làm <b>📝 đề mẫu chính thức</b> của Cambridge (📚 Học → 🎓 Luyện thi → Cambridge) và đúng đủ ngưỡng. Kết quả hiện ở 👤 Tôi.</p>
     <p>Mỗi phần lên cấp riêng: Ngữ pháp có thể ở B1 khi Từ vựng còn ở A2.</p>

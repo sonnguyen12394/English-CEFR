@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 117;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 118;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -272,11 +272,13 @@ function tts(t) { return new Promise(res => { try { const u = new SpeechSynthesi
 const vLang = l => /US/i.test(l) ? 'Mỹ' : /GB/i.test(l) ? 'Anh' : /AU/i.test(l) ? 'Úc' : /IN/i.test(l) ? 'Ấn' : l;
 const vOpts = () => [`<option value="clip"${VOX.src === 'clip' ? ' selected' : ''}>⭐ Giọng thu sẵn (nữ Mỹ, tự nhiên nhất)</option>`]
   .concat(enVoices().sort((a, b) => vRank(b) - vRank(a)).map(v => `<option value="${esc(v.voiceURI)}"${VOX.src === v.voiceURI ? ' selected' : ''}>${esc(v.name)} · ${vLang(v.lang)}${vSex(v) ? ' · ' + (vSex(v) === 'f' ? 'nữ' : 'nam') : ''}</option>`)).join('');
-const voxHtml = () => `<details class="box" id="vox"><summary>🔊 Giọng đọc: ${VOX.src === 'clip' ? 'thu sẵn (nữ Mỹ)' : esc((enVoices().find(v => v.voiceURI === VOX.src) || { name: 'giọng máy' }).name)}</summary>
+// v118: phần thân dùng lại trong "Thêm" của màn Từ vựng (không lồng thêm một ô gập)
+const voxHtml = () => `<details class="box" id="vox"><summary>🔊 Giọng đọc: ${VOX.src === 'clip' ? 'thu sẵn (nữ Mỹ)' : esc((enVoices().find(v => v.voiceURI === VOX.src) || { name: 'giọng máy' }).name)}</summary>${voxBody()}</details>`;
+const voxBody = () => `
   <label class="mute">Giọng (cả trang đọc bằng một giọng)<select data-vox="src">${vOpts()}</select></label>
   <label class="mute">Tốc độ<select data-vox="rate">${[[0.7, 'Chậm'], [0.9, 'Vừa'], [1, 'Thường']].map(([r, l]) => `<option value="${r}"${VOX.rate === r ? ' selected' : ''}>${l}</option>`).join('')}</select></label>
   <button class="chip" data-vox="test">🔊 Nghe thử</button>
-  <p class="mute" style="margin:6px 0 0">Giọng thu sẵn chỉ có giọng nữ. Muốn giọng nam: chọn giọng máy có chữ "nam". Danh sách giọng máy tuỳ theo điện thoại.</p></details>`;
+  <p class="mute" style="margin:6px 0 0">Giọng thu sẵn chỉ có giọng nữ. Muốn giọng nam: chọn giọng máy có chữ "nam". Danh sách giọng máy tuỳ theo điện thoại.</p>`;
 document.addEventListener('change', e => { const s = e.target.closest('[data-vox]'); if (!s) return;
   if (s.dataset.vox === 'src') VOX.src = s.value; if (s.dataset.vox === 'rate') VOX.rate = +s.value; voxSave();
   const sm = document.querySelector('#vox summary'); if (sm) sm.textContent = '🔊 Giọng đọc: ' + (VOX.src === 'clip' ? 'thu sẵn (nữ Mỹ)' : (enVoices().find(v => v.voiceURI === VOX.src) || { name: 'giọng máy' }).name);
@@ -347,18 +349,24 @@ function nextUnit() { return UNITS.find(u => !unitDone(u) && !locked(u)); }
 // Lộ trình: mỗi cấp chia chặng theo chủ đề (tools/extract-a1.mjs), bài đánh số trong chặng; chỉ mở chặng đang học.
 const uLabel = u => `${LVN[u.lv]} · Chặng ${u.ch + 1} · Bài ${u.bi}`;
 const HOME = { open: null, lv: null };   // chặng đang mở, cấp đang xem trên trang chính
+// v118 khuôn 3 tầng (parts.js): chặng đang học mở sẵn, mỗi bài ghi trạng thái bằng chữ; chặng khác và cấp khác gập.
+// Vẫn nằm trong #grid: nút data-un / data-ch / data-lv dùng trình nghe chung ở cuối tệp. Đổi cấp chỉ vẽ lại #grid nên tiêu đề "Bài <cấp>" nằm trong này.
 function roadmap(now, nu) {
-  const lv = HOME.lv || curLevel(), us0 = UNITS.filter(u => u.lv === lv), chs = [...new Set(us0.map(u => u.ch))];
-  const cur = nu && nu.lv === lv ? nu.ch : -1, open = HOME.open ?? cur, lock = lockedLv(lv);
-  const tabs = `<div class="chips">${LEVELS.map(l => { const n = WORDS.filter(w => UBY[w.u].lv === l).length;
-    return `<button class="chip ${lv === l ? 'on' : ''}" data-lv="${l}">${lockedLv(l) ? '🔒 ' : passed(l) ? '✅ ' : ''}${LVN[l]} · ${n} từ</button>`; }).join('')}</div>`;
-  return tabs + (lock ? `<p class="mute">🔒 Bài ${LVN[lv]} mở khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(lv) - 1]]}. Xem trước được, chưa học được.</p>` : '') + chs.map(i => { const us = us0.filter(u => u.ch === i), done = us.filter(unitDone).length;
-    const ws = us.flatMap(u => u.words), mem = ws.filter(w => held(S.cards[w.id], now, w)).length, f = us[0];
-    return `<div class="ch ${i === cur ? 'cur' : ''}"><button class="chh" data-ch="${i}" aria-expanded="${i === open}">
-      <span>${f.chIcon} <b>Chặng ${i + 1}</b> · ${esc(f.chName)}</span><span class="mute">${done === us.length ? '✅' : `${done}/${us.length} bài`}</span></button>
-      ${bar(done / us.length * 100, 0, 'var(--accent)')}
-      ${i === open ? `<p class="mute" style="margin:4px 0">${ws.length} từ · ${mem} từ nhớ đủ</p>${us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now, w)).length / u.words.length >= 0.8;
-        return `<button class="urow ${u === nu ? 'next' : ''}" data-un="${u.id}" ${lock ? 'disabled' : ''}><span>${m ? '🟢' : d ? '🔵' : u === nu ? '▶️' : lock ? '🔒' : '⚪'} Bài ${u.bi} · ${esc(u.vi)}</span><span class="mute">${u.words.length} từ</span></button>`; }).join('')}` : ''}</div>`; }).join(''); }
+  const lv = HOME.lv || curLevel(), us0 = UNITS.filter(u => u.lv === lv), chs = [...new Set(us0.map(u => u.ch))], lock = lockedLv(lv);
+  const cur = nu && nu.lv === lv ? nu.ch : -1, op = HOME.open ?? cur, show = chs.includes(op) ? op : cur >= 0 ? cur : chs[0];
+  const chOf = i => { const us = us0.filter(u => u.ch === i); return [us[0], us, us.filter(unitDone).length]; };
+  const [f, us, done] = chOf(show);
+  const rows = us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now, w)).length / u.words.length >= 0.8, isNx = u === nu;
+    const [tag, cls] = lock ? ['🔒', ''] : m ? ['đã nhớ', 'good'] : d ? ['đã học', ''] : isNx ? ['học tiếp', 'next'] : [`${u.words.length} từ`, ''];
+    return pRow(`data-un="${u.id}"`, `Bài ${u.bi} · ${esc(u.vi)}`, tag, isNx ? 'next' : cls, lock); }).join('');
+  const others = chs.filter(i => i !== show);
+  const chips = LEVELS.map(l => `<button class="chip ${lv === l ? 'on' : ''}" data-lv="${l}">${lockedLv(l) ? '🔒 ' : passed(l) ? '✅ ' : ''}${LVN[l]} · ${WORDS.filter(w => UBY[w.u].lv === l).length} từ</button>`).join('');
+  return `<h2 style="margin:16px 0 4px">Bài ${LVN[lv]}</h2>
+    ${lock ? `<p class="mute">🔒 Bài ${LVN[lv]} mở khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(lv) - 1]]}. Xem trước được, chưa học được.</p>` : ''}
+    ${f ? `<div class="ch cur"><div class="row"><b>${f.chIcon} Chặng ${show + 1} · ${esc(f.chName)}</b><span class="mute">${done}/${us.length} bài</span></div>${rows}</div>` : ''}
+    ${others.length ? `<details class="lvmore"><summary>Chặng khác (${others.length}) ›</summary>${others.map(i => { const [g, uu, dd] = chOf(i);
+      return `<button class="urow" data-ch="${i}"><span>${g.chIcon} Chặng ${i + 1} · ${esc(g.chName)}</span><span class="tag ${dd === uu.length ? 'good' : ''}">${dd === uu.length ? '✓ xong' : `${dd}/${uu.length} bài`}</span></button>`; }).join('')}</details>` : ''}
+    ${pLvMore(chips, lv !== curLevel())}`; }
 
 // 🔁 Nhớ dạng danh sách đủ 12 yêu cầu Pre-A1 → A2 (người sáng lập 26/10/2026): yêu cầu của cấp chưa tới hiện mờ, 🔒, không bấm được.
 const VREQ_LV = [['pre', 'Pre-A1'], ['a1', 'A1'], ['a2', 'A2'], ['b1', 'B1'], ['b2', 'B2'], ['c1', 'C1'], ['c2', 'C2']];
@@ -367,43 +375,42 @@ const VREQ_LV = [['pre', 'Pre-A1'], ['a1', 'A1'], ['a2', 'A2'], ['b1', 'B1'], ['
 function vreqList(p, lv) {
   return `<div class="dlist">${VREQ_LV.map(([L, name]) => { const on = lvIdx(L) <= lvIdx(lv), rs = VREQ.filter(r => r[2] === L);
     return `<div class="dlv ${on ? '' : 'lock'}">${on ? '' : '🔒 '}${L === 'pre' ? name : `${name}: thêm ${rs.length}`}${on ? '' : ` · mở khi lên ${name}`}</div>${rs.map(([k, l]) => on
-      ? `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}${VREF.has(k) ? ' <small class="mute">· tham khảo, không chặn thi</small>' : ''}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%${p.Tk[k] !== p.Tm ? ` <small>· ${p.Tk[k]} từ</small>` : ''}</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`
-      : rqRow(l, vreqDesc(k), '')).join('')}`; }).join('')}</div>`; }
+      ? vCell(p, k, l) : rqRow(l, vreqDesc(k), '')).join('')}`; }).join('')}</div>`; }
+const vCell = (p, k, l) => `<div class="dimc" data-dim="${k}" role="button" tabindex="0"><div class="row"><span>${l}${VREF.has(k) ? ' <small class="mute">· tham khảo, không chặn thi</small>' : ''}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%${p.Tk[k] !== p.Tm ? ` <small>· ${p.Tk[k]} từ</small>` : ''}</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`;
+// v118: ở "Thêm" chỉ hiện yêu cầu đang đo tới cấp đang học; các cấp sau gập riêng
+const vreqNow = (p, lv) => VREQ.filter(r => lvIdx(r[2]) <= lvIdx(lv)).map(([k, l]) => vCell(p, k, l)).join('') + `<details class="lvmore"><summary>Yêu cầu các cấp sau ›</summary>${vreqList(p, lv)}</details>`;
 // nội dung yêu cầu đã có bài nhưng cấp chưa mở: lấy từ DIM_INFO (tonghop.js) + ví dụ bằng một từ có dữ liệu
 const vreqDesc = k => { const I = DIM_INFO[k], w = shuf(WORDS.filter(VREQ_BY[k][3]))[0]; return I ? `${I.what}${w ? `<br>Ví dụ: ${I.ex(w).filter(Boolean)[0] || ''}` : ''}<br><span class="mute">Học ở: ${esc(I.learn)}.</span>` : ''; };
+
 function home() {
   const now = Date.now(), lv = curLevel(), p = parts(S, now), nu = nextUnit();
   const ph2 = p.lq >= GATE_LEARN;
   $app.onclick = null; window.CUR = { view: 'home' };
   const tip = ph2 ? `Giai đoạn ôn: mỗi ngày 🏋️ Bài tập tới khi hết từ cần ôn để mọi yêu cầu lên ${GATE_MEM}%; 🗣 Nói ra từ luyện ở 🏋️ Bài tập.`
     : `Giai đoạn học: mỗi ngày học unit mới, rồi 🏋️ Bài tập những từ cần ôn. Mỗi yêu cầu tính 🔁 Nhớ khi làm đúng ở một ngày sau ngày học; 🏋️ Bài tập tự hỏi vào yêu cầu còn thiếu.`;
-  // v112 (giao diện trực quan): 2 nút chính lên đầu; tiến độ gọn 2 thanh; bài thi; chi tiết yêu cầu, cách học gập trong 📊 Chi tiết
+  // v112: 2 nút chính lên đầu. v118 khuôn 3 tầng: đường 3 bước (bước 3 theo examState: khoá / mở / thi lại / đã qua / nhớ bền), 2 nút, danh sách bài; còn lại gập trong "Thêm"
+  const s = examState(p, lv), dp = DUR_PREV[lv], ds = dp && !xDurable(dp) ? examState(parts(S, now, dp), dp) : null, xb = (t, l = lv) => `<button class="pri" data-a="exam" data-lv="${l}">${t}</button>`;
+  const ex = s.k === 'mo' ? { k: 'open', btn: xb('🚪 Vào thi') } : s.k === 're' ? { k: 're', btn: xb('🔁 Thi lại') } : s.k === 'xong' || s.k === 'ben' ? { k: 'done', v: '✓', sub: s.k === 'ben' ? 'nhớ bền' : 'đã qua' }
+    : s.k === 'cho' ? { k: 'cho', v: '✓', sub: `thi lại từ ${fmtD(s.t)}` } : { k: 'lock', v: '', sub: ds && ds.k !== 'ben' ? `sau 1 · 2 + ${LVN[dp]} nhớ bền` : 'sau bước 1 · 2' };
+  const runs = l => runsOf(l).slice(-4).reverse().map(x => `<div class="mute">${fmtD(x.at)}${x.re ? ' (thi lại)' : ''}: ${x.ok}/${x.n} ${x.pass ? '✅ qua' : '❌ chưa qua'}</div>`).join('');
   $app.innerHTML = `
-    ${ovBack}<h1>📚 Từ vựng</h1>
-    <p class="mute" style="margin:0 0 6px">Trình độ <b>${LVN[lv]}</b> · đã học ${p.learn} / ${p.T} từ · <span id="sync">${esc(sync)}</span></p>
+    ${ovBack}<h1>📚 Từ vựng <span class="mute" style="font-size:18px">· ${LVN[lv]}</span></h1>
+    ${steps3({ learn: [p.learn, p.T], unit: 'từ', lq: p.lq, mq: p.mq, need: learnNeed(p), ex })}
+    ${ds && ds.k === 're' ? `<div class="box" style="padding:10px 14px;margin:8px 0"><b>🔁 Thi lại xác nhận ${LVN[dp]}</b><p class="mute" style="margin:2px 0 6px">Qua lần này mới mở thi ${LVN[lv]}.</p>${xb('Vào thi lại', dp)}</div>`
+      : ds && ds.k === 'cho' ? `<p class="mute" style="margin:6px 0">🔁 Thi lại xác nhận ${LVN[dp]} mở ngày ${fmtD(ds.t)}.</p>` : ''}
     <div class="duo">
-      <button class="big2 ${p.due ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Bài học<small>${nu ? `${uLabel(nu)} · ${esc(nu.vi)}` : `Đã học hết bài ${LVN[lv]}`}</small></button>
-      <button class="big2 ${p.due ? 'pri' : ''}" data-a="practice">🏋️ Bài tập<small>${!p.learn ? 'Làm luôn, chưa cần học' : p.due ? `${p.due} từ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
-    </div><p class="mute" style="margin:2px 0 10px;font-size:13px">📘 Bài học: dạy, không tính 🔁 Nhớ (trừ ⚡ bài tập nhanh đầu bài) · 🏋️ Bài tập: tính 🔁 Nhớ</p>
-    <div class="box">
-      <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} từ${p.Tu ? ` (gồm ${p.Tu} từ cấp trước cần ⬆️ nâng cấp)` : ''}</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
-      <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= yêu cầu thấp nhất · mỗi yêu cầu cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
+      <button class="big2 ${p.due || !nu ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Bài học<small>${nu ? 'xem, học' : 'đã học hết'}</small></button>
+      <button class="big2 ${p.due || !nu ? 'pri' : ''}" data-a="practice">🏋️ Bài tập<small>${p.due ? `${p.due} từ cần ôn` : !p.learn ? 'làm luôn được' : 'làm, ghi nhớ'}</small></button>
     </div>
-    ${examBox(p, lv)}
-    ${DUR_PREV[lv] && !xDurable(DUR_PREV[lv]) ? examBox(parts(S, now, DUR_PREV[lv]), DUR_PREV[lv]) : ''}
-    <details class="box"><summary>📊 Chi tiết từng yêu cầu và cách học</summary>
-    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} từ mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} từ${lvIdx(lv) >= lvIdx(MEM_FULL_FROM) ? `, gồm ${MEM_SAMPLE} từ mẫu của các cấp cũ, đổi mỗi tuần` : ''}` : ''})</p>
-      ${lvIdx(lv) > lvIdx(VPROD_MAX) ? `<p class="mute" style="margin:4px 0">💭 Nhớ ra từ, ✍️ Chính tả, 🧩 Tự điền chỉ tính trên từ cấp ≤ ${LVN[VPROD_MAX]} (≈ 1.900 từ thông dụng nhất); từ ${LVN[lv]} chỉ cần hiểu.</p>` : ''}
-      ${(() => { const now2 = Date.now(), L = memWords(lv, now2).filter(w => S.cards[w.id]); if (!L.length) return ''; const n = [0, 0, 0, 0, 0]; for (const w of L) n[vStage(S.cards[w.id], w, lv)]++;
-        return `<p class="mute" style="margin:4px 0">🪜 Bậc của từ đã học: ${VSTAGE.map((s, i) => `${s[0]} ${n[i]}`).join(' · ')} · vững cả 4 bậc ${n[4]}. 🏋️ Bài tập hỏi mặt mới theo thứ tự này.</p>`; })()}
-      ${vreqList(p, lv)}
-      <p class="mute" style="margin:6px 0 0">${p.full} từ nhớ đủ cả ${dimsAt(lv).length} yêu cầu của ${LVN[lv]} (mỗi yêu cầu chỉ tính trên từ có yêu cầu đó). Bấm vào một yêu cầu để xem bài của nó.</p>
-    <p class="mute">${tip}</p>
-    </details>
-    <h2>Các bài</h2>
-    <p class="mute">🔵 đã học · 🟢 ≥ 80% từ nhớ đủ yêu cầu · ▶️ bài kế tiếp. Bấm tên chặng để mở; bấm bài để học / xem lại.</p>
     <div id="grid">${roadmap(now, nu)}</div>
-    ${voxHtml()}
+    ${pMore([['📊 Nhớ từng yêu cầu', `<p class="mute" style="margin:0 0 6px">Bước 2 = yêu cầu thấp nhất; mỗi yêu cầu cần ${GATE_MEM}%. ${p.full} từ nhớ đủ cả ${dimsAt(lv).length} yêu cầu của ${LVN[lv]}. Bấm một yêu cầu để xem bài của nó.</p>
+        ${lvIdx(lv) > lvIdx(VPROD_MAX) ? `<p class="mute" style="margin:4px 0">💭 Nhớ ra từ, ✍️ Chính tả, 🧩 Tự điền chỉ tính trên từ cấp ≤ ${LVN[VPROD_MAX]} (≈ 1.900 từ thông dụng nhất); từ ${LVN[lv]} chỉ cần hiểu.</p>` : ''}
+        ${(() => { const L = memWords(lv, now).filter(w => S.cards[w.id]); if (!L.length) return ''; const n = [0, 0, 0, 0, 0]; for (const w of L) n[vStage(S.cards[w.id], w, lv)]++;
+          return `<p class="mute" style="margin:4px 0">🪜 Bậc của từ đã học: ${VSTAGE.map((x, i) => `${x[0]} ${n[i]}`).join(' · ')} · vững cả 4 bậc ${n[4]}. 🏋️ Bài tập hỏi mặt mới theo thứ tự này.</p>`; })()}
+        ${vreqNow(p, lv)}`],
+      ['🚪 Bài thi lên cấp', `<p class="mute" style="margin:0">${s.p}</p>${runs(lv)}${ds ? `<p class="mute" style="margin:8px 0 0"><b>${ds.h}</b>: ${ds.p}</p>${runs(dp)}` : ''}`],
+      ['🪜 Cách học', `<p class="mute" style="margin:0">Cấp đang học: ${LVN[lv]} (${p.T} từ mới${p.Tm > p.T ? `; bước 2 và bài thi tính cả cấp trước: ${p.Tm} từ${lvIdx(lv) >= lvIdx(MEM_FULL_FROM) ? `, gồm ${MEM_SAMPLE} từ mẫu của các cấp cũ, đổi mỗi tuần` : ''}` : ''}). ${tip} Bài học mở đầu bằng ⚡ bài tập nhanh (tính 🔁 Nhớ): từ đã biết thì bỏ qua.</p>`],
+      ['🔊 Giọng đọc', `<div id="vox">${voxBody()}</div>`]])}
     `;   // 🗂 góp ý ở màn 🎯 Tổng quan học
   setTimeout(maybeReload, 0);
 }

@@ -56,31 +56,30 @@ function paView() {
   if (!NO.vocab && !NO.loading && nHas()) nLoad();   // đã tải lần trước: nạp lại từ bộ nhớ máy (chỉ khi vào Phát âm, đỡ tốn bộ nhớ)
   const now = Date.now(), lv = paLevel(), p = paParts(lv, now), st = paSt(), L = PA.filter(x => x.lv === lv), nx = L.find(x => !st[x.id]);
   const open = gateOpen(p, 'pa|' + lv, now), run = paRuns().filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, 7 - (dayOf(now) - dayOf(run.at))) : 0;
-  $app.innerHTML = `<div id="part" data-p="pa"></div>${ovBack}<h1>👄 Phát âm</h1>
-    <p class="mute">Cấp đang học: <b>${LVN[lv]}</b> (${p.T} bộ cặp âm mới${p.Tm > p.T ? `; 🔁 Nhớ và thi tính cả cấp trước: ${p.Tm} bộ` : ''}). Mỗi bộ: một cặp âm người Việt hay nhầm, kèm cách đặt miệng.</p>
-    <div class="box">
-      <div class="row"><b>📘 Học ${p.lq}%</b><span class="mute">cần ${GATE_LEARN}% · ${p.learn}/${p.T} bộ</span></div>${bar(p.lq, GATE_LEARN, 'var(--accent)')}
-      <div class="row" style="margin-top:10px"><b>🔁 Nhớ ${p.mq}%</b><span class="mute">= mặt thấp nhất · mỗi mặt cần ${GATE_MEM}%</span></div>${bar(p.mq, GATE_MEM, 'var(--good)')}
-      ${rqList('pa', lv, k => { const l = PA_DIMS.find(x => x[0] === k)[1]; return `<div class="dimc" data-padim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`; })}
-      <p class="mute" style="margin:6px 0 0">👂 Phân biệt: nghe một từ, chọn đúng từ trong cặp. 👄 Đọc đúng: đọc từ có âm đó, bộ chấm âm ≥ ${PA_OK[lv]} (cấp ${LVN[lv]}). Tính khi đúng ở một ngày sau ngày học. Bấm vào một mặt để xem bài của mặt đó.</p>
-    </div>
+  // v118 khuôn 3 tầng (parts.js): đường 3 bước, 2 nút, danh sách bộ âm của cấp đang xem; yêu cầu các cấp sau, bài thi, luyện thêm, bộ chấm âm gập trong "Thêm"
+  const passed = paPassed(lv), view = PA_VIEW || lv;
+  const ex = passed ? { k: 'done', v: '✓', sub: 'đã qua' } : wait ? { k: 'wait', v: '⏳', sub: `thi lại sau ${wait} ngày` }
+    : open ? { k: 'open', btn: '<button class="pri" data-pa="exam">🚪 Vào thi</button>' } : { k: 'lock', v: '', sub: 'sau bước 1 · 2' };
+  $app.innerHTML = `<div id="part" data-p="pa"></div>${ovBack}<h1>👄 Phát âm <span class="mute" style="font-size:18px">· ${LVN[lv]}</span></h1>
+    ${steps3({ learn: [p.learn, p.T], unit: 'bộ', lq: p.lq, mq: p.mq, need: learnNeed(p), ex })}
     <div class="duo">
-      <button class="big2 ${p.due ? '' : 'pri'}" data-pa="learn" ${nx ? '' : 'disabled'}>📘 Bài học<small>${nx ? esc(nx.title) : `Đã học hết ${LVN[lv]}`}</small></button>
-      <button class="big2 ${p.due ? 'pri' : ''}" data-pa="menu">🏋️ Bài tập<small>${!p.learn ? 'Làm luôn, chưa cần học' : p.due ? `${p.due} bộ cần ôn` : 'Rèn 🔁 Nhớ'}</small></button>
-    </div><p class="mute" style="margin:2px 0 10px;font-size:13px">📘 Bài học: dạy, không tính 🔁 Nhớ · 🏋️ Bài tập: tính 🔁 Nhớ</p>
-    <div class="box"><b>🚪 Thi chuyển cấp Phát âm ${LVN[lv]}</b>
-      <p class="mute" style="margin:4px 0">Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt 🔁 Nhớ ≥ ${GATE_MEM}%. Mỗi bộ: 2 câu nghe + 1 từ đọc, toàn cặp chưa gặp. Qua khi đúng ≥ ${Math.round(PA_PASS * 100)}%. ${paGk().length > 1 ? 'Máy đã có bộ chấm âm: tính cả 👂 nghe và 👄 đọc.' : 'Máy chưa có bộ chấm âm: chỉ tính và thi phần 👂 nghe; tải bộ chấm để luyện cả phần đọc.'}</p>
-      ${gateHoldTxt(p, open && !paPassed(lv))}${paPassed(lv) ? `<p>✅ Đã qua Thi chuyển cấp Phát âm ${LVN[lv]} (trong app).</p>` : wait ? `<p class="mute">Lần trước chưa qua (${run.ok}/${run.n}). Thi lại sau ${wait} ngày; trong lúc chờ, luyện tiếp.</p>`
-        : `<button class="${open ? 'pri' : ''}" data-pa="exam" ${open ? '' : 'disabled'}>${open ? '🚪 Vào thi' : `🔒 Còn thiếu: ${p.lq < GATE_LEARN ? `học ${learnNeed(p)} bộ` : ''}${p.lq < GATE_LEARN && p.mq < GATE_MEM ? ' · ' : ''}${p.mq < GATE_MEM ? `Nhớ ${p.mq}% / ${GATE_MEM}%` : ''}`}</button>`}</div>
-    ${PA_EXTRA}
-    <h2>Lộ trình</h2>
-    <div class="chips">${PA_LV.map(l => `<button class="chip ${l === (PA_VIEW || lv) ? 'on' : ''}" data-palv="${l}">${paPassed(l) ? '✅ ' : paLocked(l) ? '🔒 ' : ''}${LVN[l]} · ${PA.filter(x => x.lv === l).length} bộ</button>`).join('')}</div>
-    <div id="palist">${paList(PA_VIEW || lv, nx, now)}</div>
-    ${nModelBox()}${paToolBox()}`;
+      <button class="big2 ${p.due || !nx ? '' : 'pri'}" data-pa="learn" ${nx ? '' : 'disabled'}>📘 Bài học<small>${nx ? 'xem, học' : 'đã học hết'}</small></button>
+      <button class="big2 ${p.due || !nx ? 'pri' : ''}" data-pa="menu">🏋️ Bài tập<small>${p.due ? `${p.due} bộ cần ôn` : !p.learn ? 'làm luôn được' : 'làm, ghi nhớ'}</small></button>
+    </div>
+    <h2 style="margin:16px 0 4px">Bộ âm ${LVN[view]}</h2>
+    <div id="palist">${paList(view, nx, now)}</div>
+    ${pLvMore(PA_LV.map(l => `<button class="chip ${l === view ? 'on' : ''}" data-palv="${l}">${paPassed(l) ? '✅ ' : paLocked(l) ? '🔒 ' : ''}${LVN[l]} · ${PA.filter(x => x.lv === l).length} bộ</button>`).join(''), view !== lv)}
+    ${pMore([['📘 Luyện thêm', `<p class="mute" style="margin:0 0 4px">Không tính 🔁 Nhớ.</p>${PA_EXTRA}`],
+      ['📊 Nhớ từng mặt', `<p class="mute" style="margin:0 0 6px">Bước 2 = mặt thấp nhất; mỗi mặt cần ${GATE_MEM}%. 👂 Phân biệt: nghe một từ, chọn đúng từ trong cặp. 👄 Đọc đúng: đọc từ có âm đó, bộ chấm âm ≥ ${PA_OK[lv]} (cấp ${LVN[lv]}). Tính khi đúng ở một ngày sau ngày học. Bấm một mặt để xem bài của mặt đó.</p>
+        ${rqNow('pa', lv, k => { const l = PA_DIMS.find(x => x[0] === k)[1]; return `<div class="dimc" data-padim="${k}" role="button" tabindex="0"><div class="row"><span>${l}</span><span class="${p.dq[k] >= GATE_MEM ? 'okc' : 'mute'}">${p.dq[k]}%</span></div>${bar(p.dq[k], GATE_MEM, 'var(--good)')}</div>`; })}`],
+      ['🚪 Bài thi lên cấp', `<p class="mute" style="margin:0">Mở khi đủ bước 1 (≥ ${GATE_LEARN}% bộ) và bước 2 (mỗi mặt ≥ ${GATE_MEM}%). Mỗi bộ: 2 câu nghe + 1 từ đọc, toàn cặp chưa gặp. Qua khi đúng ≥ ${Math.round(PA_PASS * 100)}%. ${paGk().length > 1 ? 'Máy đã có bộ chấm âm: tính cả 👂 nghe và 👄 đọc.' : 'Máy chưa có bộ chấm âm: chỉ tính và thi phần 👂 nghe.'} Trượt thì 7 ngày sau thi lại.</p>
+        ${gateHoldTxt(p, open && !passed)}${run ? `<p class="mute" style="margin:4px 0 0">Lần gần nhất: ${run.ok}/${run.n} ${run.pass ? '✅ qua' : '❌ chưa qua'}.</p>` : ''}`],
+      ['🧪 Bộ chấm âm', `${nModelBox()}${paToolBox()}`],
+      ['🪜 Cách học', `<p class="mute" style="margin:0">Cấp đang học: ${LVN[lv]} (${p.T} bộ cặp âm mới${p.Tm > p.T ? `; bước 2 và bài thi tính cả cấp trước: ${p.Tm} bộ` : ''}). Mỗi bộ: một cặp âm người Việt hay nhầm, kèm cách đặt miệng.</p>`]])}`;
   $app.onclick = e => { const b = e.target.closest('[data-pa]'), lb = e.target.closest('[data-palv]'), u = e.target.closest('[data-paset]'), dm = e.target.closest('[data-padim]'), pm = e.target.closest('[data-pm]');
     if (dm) return paDimView(dm.dataset.padim);
     if (pm) { const m = pm.dataset.pm; return m === 'cal' ? paCal() : m === 'val' ? paVal() : paDrill(m); }   // v116: luyện thêm + công cụ bộ chấm âm ở màn Phát âm
-    if (lb) { PA_VIEW = lb.dataset.palv; document.getElementById('palist').innerHTML = paList(PA_VIEW, nx, now); $app.querySelectorAll('[data-palv]').forEach(x => x.classList.toggle('on', x === lb)); return; }
+    if (lb) { PA_VIEW = lb.dataset.palv; return paView(); }   // v118: vẽ lại cả màn (tiêu đề "Bộ âm <cấp>" đổi theo)
     if (u) { if (paLocked(PABY[u.dataset.paset].lv)) return toast('Bộ này mở khi qua Thi chuyển cấp Phát âm cấp trước.'); return paLearn(PABY[u.dataset.paset]); }
     if (e.target.closest('[data-n="load"]')) return nLoad(), paView();
     if (!b) return; const a = b.dataset.pa;
@@ -88,9 +87,11 @@ function paView() {
   window.scrollTo(0, 0);
 }
 let PA_VIEW = null;
-function paList(lv, nx, now) { const st = paSt();
-  return PA.filter(x => x.lv === lv).map(x => { const c = st[x.id], m = PA_DIMS.map(([k, l]) => `<span class="dm ${heldDim(c, k, now) ? 'on' : ''}" title="${l}">${l.split(' ')[0]}</span>`).join('');
-    return `<button class="urow ${nx && nx.id === x.id ? 'next' : ''}" data-paset="${x.id}"><span>${c ? '🔵' : nx && nx.id === x.id ? '▶️' : '⚪'} ${esc(x.title)} <span class="mute">· ${esc(x.vi)}</span></span><span>${c ? m : ''}</span></button>`; }).join(''); }
+function paList(lv, nx, now) { const st = paSt(), lock = paLocked(lv), gk = paGk();   // v118: trạng thái bằng chữ (trước: ⚪ 🔵 + dấu từng mặt)
+  const xs = PA.filter(x => x.lv === lv), at = xs.findIndex(x => nx ? x.id === nx.id : !st[x.id]);
+  return pWin(xs.map(x => { const c = st[x.id], isNx = nx && nx.id === x.id, hd = c && gk.every(k => heldDim(c, k, now));
+    const [tag, cls] = !c ? (lock ? ['🔒', ''] : isNx ? ['học tiếp', 'next'] : ['', '']) : hd ? ['đã nhớ', 'good'] : isDue(c, now) ? ['cần ôn', 'warn'] : ['đã học', ''];
+    return pRow(`data-paset="${x.id}"`, `${esc(x.title)} <span class="mute">· ${esc(x.vi)}</span>`, tag, isNx ? 'next' : cls); }), at); }
 // ô bộ chấm âm (tải / đang tải / sẵn sàng): dùng chung trạng thái của noi.js
 const nModelBox = () => NO.vocab ? `<p class="mute">🧪 Bộ chấm âm đã sẵn sàng trên máy.</p>`
   : NO.loading ? `<p class="mute">⏳ Đang tải bộ chấm âm: <span id="nprog">${nProg()}</span></p>`
@@ -168,9 +169,8 @@ function paMenu() { window.CUR = { view: 'pa-luyen' }; const lv = paLevel(), p =
     const b = e.target.closest('[data-pm]'); if (b) return paRun(b.dataset.pm); };
   window.scrollTo(0, 0); }
 // v116 (tách 📘 Bài học / 🏋️ Bài tập): luyện thêm không tính 🔁 Nhớ thuộc 📘, không nằm ở 🏋️; hiệu chuẩn, đối chiếu giáo viên là công cụ của bộ chấm âm
-const PA_EXTRA = `<div class="box"><b>📘 Luyện thêm</b> <span class="mute">· không tính 🔁 Nhớ</span>
-    <button class="opt" data-pm="fin"><b>👂 Nghe đuôi từ (8 câu)</b><br><span style="font-size:14px;opacity:.85">-s, -ed, phụ âm cuối người Việt hay nuốt (bed / bet)</span></button>
-    <button class="opt" data-pm="tra"><b>🎵 Nghe trọng âm (8 từ)</b><br><span style="font-size:14px;opacity:.85">Nghe từ nhiều âm tiết, chọn âm tiết được nhấn</span></button></div>`;
+const PA_EXTRA = `<button class="opt" data-pm="fin"><b>👂 Nghe đuôi từ (8 câu)</b><br><span style="font-size:14px;opacity:.85">-s, -ed, phụ âm cuối người Việt hay nuốt (bed / bet)</span></button>
+    <button class="opt" data-pm="tra"><b>🎵 Nghe trọng âm (8 từ)</b><br><span style="font-size:14px;opacity:.85">Nghe từ nhiều âm tiết, chọn âm tiết được nhấn</span></button>`;
 const paToolBox = () => NO.vocab || nHas() ? (() => { const v = paValStat(), pc = x => x == null ? '—' : Math.round(x * 100) + '%'; return `<div class="box"><b>🎚 Bộ chấm âm</b> <span class="mute">· công cụ, không tính 🔁 Nhớ</span><p class="mute" style="margin:4px 0">${S.paBase ? `Mốc của bạn ${S.paBase.med}/100 (ngưỡng A2 thành ${paThr(PA_OK.a2)}).` : 'Chưa hiệu chuẩn: máy dùng ngưỡng chung.'} 🧑‍🏫 Đối chiếu giáo viên: ${v.n}/${PA_VAL_N} lần · chấm oan ${pc(v.fr)} (cần ≤ ${PA_VAL_FR * 100}%) · bỏ sót ${pc(v.miss)} (cần ≤ ${PA_VAL_MISS * 100}%).</p>
       <div class="duo"><button data-pm="cal">🎚 Hiệu chuẩn (10 từ)</button><button data-pm="val">🧑‍🏫 Đối chiếu giáo viên</button></div></div>`; })() : '';
 // v102 bậc nghe thêm của Phát âm (luyện, không tính 🔁 Nhớ): 👂 đuôi từ (-s / -es, -ed; phụ âm cuối) và 🎵 trọng âm (tự lấy từ phiên âm, tdSyl)

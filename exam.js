@@ -95,7 +95,7 @@ function examState(p, lv) {
   const at = C.retest ? xPassAt(lv) : null;
   if (at) { const lastRe = runsOf(lv).filter(x => x.re).slice(-1)[0], due = at + X.RETEST_D * DAY, wait = lastRe && !lastRe.pass ? lastRe.at + X.RETRY_D * DAY : 0, t = Math.max(due, wait);
     return now >= t ? { k: 're', h: `🔁 Thi lại để xác nhận nhớ bền ${name}`, p: 'Bài mới, từ khác. Qua lần này mới ghi "Nhớ bền".', btn: 'Vào thi lại', on: true, re: true }
-      : { k: 'cho', h: `✅ Đã qua Thi chuyển cấp ${name} lần 1`, p: `Thi lại xác nhận mở từ ${fmtD(t)}. Cứ luyện tập đều.`, btn: `🔒 Mở ngày ${fmtD(t)}`, on: false }; }
+      : { k: 'cho', h: `✅ Đã qua Thi chuyển cấp ${name} lần 1`, p: `Thi lại xác nhận mở từ ${fmtD(t)}. Cứ luyện tập đều.`, btn: `🔒 Mở ngày ${fmtD(t)}`, on: false, t }; }
   const dp = DUR_PREV[lv], needDur = !!dp && !xDurable(dp), g = gateOpen(p, 'tv|' + lv, now), open = g && !needDur;
   return { k: open ? 'mo' : 'khoa', h: `🚪 Thi chuyển cấp ${name}`, p: open ? `Đã mở. Tối đa 2 vòng × ${C.N} câu mới chưa gặp khi luyện; gõ không có gợi ý chữ.` : `Mở khi 📘 Học ${GATE_LEARN}% và mỗi mặt Nhớ ≥ ${GATE_MEM}% (trừ 🗣 Nói ra từ: tham khảo; Học: ${p.T} từ ${name}; Nhớ: ${p.Tm} từ, tính cả cấp trước)${dp ? `, và ${LVN[dp]} đã "Nhớ bền"` : ''}.${needDur && g ? ` Còn thiếu: ${LVN[dp]} "Nhớ bền".` : ''}`, btn: open ? 'Vào làm bài' : '🔒 Chưa mở', on: open };
 }

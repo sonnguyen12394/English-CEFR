@@ -54,6 +54,26 @@ function partView(id) {
 const OV = [['tv', '📚', 'Từ vựng'], ['pa', '👄', 'Phát âm'], ['np', '🧱', 'Ngữ pháp'], ['nghe', '🎧', 'Nghe'], ['noi', '🗣', 'Nói'], ['doc', '📰', 'Đọc'], ['viet', '✍️', 'Viết']];
 const ovBack = '<div class="row top"><button class="link" data-ov="back">‹ Học</button><span></span></div>';
 document.addEventListener('click', e => { if (e.target.closest('[data-ov="back"]')) { BACK = null; overview(); } });
+// ---------- v118 khuôn màn phần 3 tầng (người sáng lập 2/11/2026: "sắp xếp lại phần học cho trực quan… nhiều chức năng rối mắt"; chọn "một khuôn 3 tầng") ----------
+// Cả 7 màn (Từ vựng `home`, Phát âm `paView`, 5 phần `kView`) cùng một khuôn. Tầng 1: tên · cấp, đường 3 bước ① Học bài → ② Ôn cho nhớ → ③ Thi lên cấp
+// (thay 2 thanh % và ô thi), 2 nút lớn 📘 Bài học · 🏋️ Bài tập. Tầng 2: danh sách bài của cấp đang xem, trạng thái ghi bằng chữ (không cần chú thích ký hiệu),
+// cấp khác gập. Tầng 3: "Thêm" gập (luyện thêm, nhớ từng mặt, bài thi, cách học, cài đặt). KHÔNG đổi luật đo: ✓ theo đúng GATE_LEARN / GATE_MEM / kết quả thi.
+// o = { t1: tên bước 1 (mặc định 'Học bài'; Đọc / Nghe 'Làm bài'), learn: [đã học, tổng], unit: 'bài' | 'từ' | 'bộ', lq, mq, need: số bài còn thiếu tới GATE_LEARN, ex: { k: 'lock' | 'open' | 're' | 'done' | 'wait' | 'cho', btn (html nút khi mở), v, sub } }
+function steps3(o) { const s1 = o.lq >= GATE_LEARN, s2 = o.mq >= GATE_MEM, e = o.ex;
+  const st = (ok, cur, n, t, v, sub, cls = '') => `<div class="st3 ${ok ? 'ok' : cur ? 'cur' : ''} ${cls}"><i>${ok ? '✓' : n}</i><b>${t}</b><span class="v">${v}</span><span class="s">${sub}</span></div>`;
+  return `<div class="steps3">${st(s1, !s1, '1', o.t1 || 'Học bài', `${o.learn[0]}/${o.learn[1]}`, s1 ? 'đủ' : `còn ${o.need} ${o.unit}`)}${st(s2, s1 && !s2, '2', 'Ôn cho nhớ', `${o.mq}%`, s2 ? 'đủ' : `cần ${GATE_MEM}%`)}${e.k === 'open' || e.k === 're'
+    ? `<div class="st3 open"><i>3</i><b>Thi lên cấp</b>${e.btn}</div>` : st(e.k === 'done', false, e.k === 'lock' ? '🔒' : '3', 'Thi lên cấp', e.v || '', e.sub || '', e.k === 'lock' ? 'lock' : '')}</div>`; }
+// danh sách bài: một dòng = tên + trạng thái bằng chữ (cls: 'next' bài kế tiếp, 'warn' cần ôn, 'good' đã nhớ)
+const pRow = (attr, name, tag, cls = '', dis = false) => `<button class="urow ${cls === 'next' ? 'next' : ''}" ${attr} ${dis ? 'disabled' : ''}><span>${cls === 'next' ? '▶ ' : ''}${name}</span><span class="tag ${cls}">${tag}</span></button>`;
+// danh sách dài: hiện N dòng quanh bài kế tiếp (1 bài trước nó), các bài còn lại gập trong "Xem thêm" (vẫn bấm được như cũ)
+const P_WIN = 6;
+const pWin = (rows, at) => { if (rows.length <= P_WIN + 2) return rows.join(''); const a = Math.max(0, Math.min((at < 0 ? rows.length : at) - 1, rows.length - P_WIN)), b = a + P_WIN, rest = [...rows.slice(0, a), ...rows.slice(b)];
+  return rows.slice(a, b).join('') + `<details class="lvmore"><summary>Xem thêm ${rest.length} bài ›</summary>${rest.join('')}</details>`; };
+// tầng 3: "Thêm" gập; parts = [[tiêu đề, html]] (bỏ phần rỗng)
+const pMore = parts => { const L = parts.filter(x => x[1]); return L.length ? `<details class="box more"><summary><b>Thêm</b> <span class="mute">· ${L.map(x => x[0].replace(/^\S+\s/, '').toLowerCase()).join(', ')}</span></summary>${L.map(([t, h]) => `<h3>${t}</h3>${h}`).join('')}
+  <p class="mute" style="margin:12px 0 0;font-size:13px">📘 Bài học: dạy, không tính 🔁 Nhớ · 🏋️ Bài tập: tính 🔁 Nhớ. Luật đầy đủ: 👤 Tôi → 📘 Luật và cách dùng.</p></details>` : ''; };
+// chọn cấp khác (gập; mở sẵn khi đang xem cấp khác cấp đang học)
+const pLvMore = (chips, other) => `<details class="lvmore"${other ? ' open' : ''}><summary>Xem bài cấp khác ›</summary><div class="chips">${chips}</div></details>`;
 // Người sáng lập 25/10/2026: "mỗi cấp học các mục không đều thì chia theo cấp cho rõ, để thế này lẫn lộn cấp độ".
 // Màn tổng quan lấy CẤP làm khung: chọn cấp (Pre-A1 · A1 · A2 · A2+), mỗi cấp liệt kê các phần có bài ở cấp đó và số liệu của phần ở đúng cấp đó.
 // Cấp đang học = cấp thấp nhất còn phần chưa qua Thi chuyển cấp. "Nên làm" chỉ gợi ý bài mới trong cấp đang học (ôn thì mọi cấp).
@@ -273,6 +293,10 @@ function rqList(id, lv, cell) {
     return rs.length ? `<div class="dlv ${on ? '' : 'lock'}">${on ? '' : '🔒 '}${i ? `${name}: thêm ${rs.length}` : name}${on ? '' : has ? ` · mở khi lên ${name}` : ' · chưa có bài'}</div>${rs.map(([l, k]) => on && k ? cell(k)
       : rqRow(l, RQ_D[l], on ? 'chưa có bài' : '')).join('')}` : ''; }).join('')}</div>
     <p class="mute" style="margin:4px 0 0;font-size:12px">Bấm một dòng mờ để xem nội dung. Dòng mờ là yêu cầu dự kiến: chưa có bài, chưa tính 🔁 Nhớ.</p>`; }
+// v118: "Nhớ từng mặt" ở "Thêm" chỉ hiện mặt đang đo tới cấp đang học; yêu cầu dự kiến và các cấp sau gập riêng
+function rqNow(id, lv, cell) { const i0 = RQ_LV.findIndex(x => x[0] === lv), ks = [];
+  RQ_LV.forEach(([L], i) => { if (i <= i0) for (const [, k] of RQ[id][L] || []) if (k && !ks.includes(k)) ks.push(k); });
+  return ks.map(cell).join('') + `<details class="lvmore"><summary>Yêu cầu dự kiến, các cấp sau ›</summary>${rqList(id, lv, cell)}</details>`; }
 // dòng yêu cầu chưa đo: bấm mở ra nội dung (người sáng lập 26/10/2026: "mở ra để xem nội dung mỗi tiêu chí")
 const rqRow = (l, d, tag) => `<details class="dimx"><summary><span>${l}</span><span style="font-size:12px">${tag} ▾</span></summary><div class="dxd">${d || 'Chưa có mô tả.'}</div></details>`;
 
