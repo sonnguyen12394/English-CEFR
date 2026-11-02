@@ -87,7 +87,7 @@ document.addEventListener('click', e => { if (!S) return;
   if (k === 'fix') { if (typeof MAP_BACK !== 'undefined') MAP_BACK = document.getElementById('lt') ? 'lt' : 'hoc'; return mapToday(); }
   if (k === 'part') return ovOpenPart(b.dataset.tp, b.dataset.tpl);
   if (k === 'skill') { const id = b.dataset.tsk || 'nghe'; KIT[id].view = kLv(KIT[id]); return kView(id); }
-  if (k === 'exam') return exOpen(); });
+  if (k === 'exam') return typeof exGo === 'function' ? exGo() : exOpen(); });
 
 // ---------- ③ 🧭 kiểm tra xếp cấp: bậc thang, mỗi cấp 5 câu (3 nghĩa từ + 2 ngữ pháp) ----------
 // Đúng ≥ 4/5 → lên cấp; ≤ 2/5 → dừng; 3/5 → thêm 1 vòng ở cấp đó. Kết quả = cấp cao nhất đúng ≥ 4/5. Chỉ đo hiểu từ và ngữ pháp (thụ động), không đo nghe nói.

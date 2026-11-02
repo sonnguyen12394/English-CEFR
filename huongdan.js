@@ -13,7 +13,7 @@ const HD = [
     <p>5. Gặp từ lạ: chạm vào từ trong bài, hoặc tìm ở tab <b>📖 Tra cứu</b>. Bấm 📌 để lưu vào Sổ từ.</p>`],
   ['tab', '🧭 4 tab dùng làm gì', () => `
     <p><b>🔄 Lộ trình</b> (mở đầu tiên): 🎯 mục tiêu, <b>📅 Hôm nay</b> (chỗ duy nhất bảo "làm gì"), đợt ${LT_D} ngày, 🧭 xếp cấp, kiểm tra cuối đợt, tổng kết. Chạy từ mục tiêu → tìm chỗ yếu → chữa → bài mới, tới khi đạt.</p>
-    <p><b>📚 Học</b>: kho bài. 🧱 <b>Nền CEFR</b> (7 phần: Từ vựng, Phát âm, Ngữ pháp, Nghe, Nói, Đọc, Viết; Thư viện đọc) là gốc, chỗ duy nhất tính 📘 Học / 🔁 Nhớ / Thi chuyển cấp. 2 mục ở đầu: <b>🧱 Nền CEFR</b> · <b>🎓 Thi</b> (bên trong chọn 🎓 Cambridge, 🌏 IELTS hoặc 💼 TOEIC; mở được tất cả). Kỳ thi của mục tiêu có dấu 🎯. Luyện đề không tính vào luật đo nền.</p>
+    <p><b>📚 Học</b>: kho bài. 🧱 <b>Nền CEFR</b> (7 phần: Từ vựng, Phát âm, Ngữ pháp, Nghe, Nói, Đọc, Viết; Thư viện đọc) là gốc, chỗ duy nhất tính 📘 Học / 🔁 Nhớ / Thi chuyển cấp. 2 mục ở đầu: <b>🧱 Nền CEFR</b> · <b>🎓 Thi</b> (bên trong chọn 🎓 Cambridge, 🌏 IELTS hoặc 💼 TOEIC; mở được tất cả). Kỳ thi của mục tiêu có dấu 🎯. 📚 Học <b>chỉ chứa nội dung</b>; mục tiêu, ngày thi, giờ học, kế hoạch tuần và việc hôm nay đều ở 🔄 Lộ trình. Luyện đề không tính vào luật đo nền.</p>
     <p><b>📖 Tra cứu</b>: tìm từ, ngữ pháp, lỗi hay gặp, phát âm, cụm từ; 📘 Cẩm nang thi (mẹo theo kỹ năng). Gõ tiếng Anh hoặc tiếng Việt.</p>
     <p><b>👤 Của tôi</b>: tiến độ, 🗺 bản đồ chỗ yếu, 📌 sổ từ, 📒 sổ lỗi, kết quả thi thật, 💾 dữ liệu và tài khoản, góp ý, và trang này.</p>`],
   ['cap', '🪜 Cấp và phần', () => `

@@ -105,7 +105,6 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
   $app.innerHTML = `<div id="ov"></div><h1>📚 Học</h1>${typeof exSwitch === 'function' ? exSwitch('nen') : ''}<p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${S.fake ? '<p class="mute" style="margin:4px 0">🧪 Đang dùng dữ liệu thử (💾 Dữ liệu để quay lại dữ liệu thật).</p>' : ''}
     <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${typeof plTop === 'function' && plTop(stage) ? ` · 🧭 xếp cấp: ${LVN[plTop(stage)]}` : ''}</p>
-    ${typeof ltGoalCard === 'function' ? ltGoalCard(stage) : typeof todayBox === 'function' ? todayBox(stage, tips) : ''}
     <h2 style="margin:14px 0 4px">🧱 Nền CEFR</h2>
     <div class="chips">${showLv.map(chip).join('')}${OV_ALL ? '' : '<button class="chip" data-ovall>⋯ Mọi cấp</button>'}</div>
     <div class="box"><div class="row"><b>Cấp ${LVN[lv]}: ${ids.length} phần</b><span class="mute">qua thi ${done}/${req.length} phần bắt buộc</span></div>${bar(Math.round(done / (req.length || 1) * 100), 100, 'var(--good)')}

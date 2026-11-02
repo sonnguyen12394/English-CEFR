@@ -379,21 +379,8 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
   const sk = (k, ic, n) => `<div class="box" style="margin:0;text-align:center"><div class="mute" style="font-size:13px">${ic} ${n}</div><div style="font-size:22px;font-weight:800">${bandTxt(now.b[k])}</div><div class="mute" style="font-size:11px">${now.cal[k] ? `📏 đã chỉnh (${now.cal[k].n})` : 'chưa chỉnh'}</div></div>`;
   const setup = `<div class="chips">${Object.entries(IE_TYPE).map(([k, n]) => `<button class="chip ${o.type === k ? 'on' : ''}" data-iety="${k}">${n}</button>`).join('')}</div>
     <p style="margin:8px 0 2px">Band mục tiêu:</p><div class="chips">${IE_BANDS.map(b => `<button class="chip ${b === tg ? 'on' : ''}" data-ietg="${b}">${bandTxt(b)}</button>`).join('')}</div>`;
-  // v86 hiện dần: lần đầu chỉ hỏi loại thi, band mục tiêu, ngày thi; có dữ liệu luyện rồi thì coi như đã chọn
-  if (!o.set && !o.mock.length && !o.w.length && !o.s.length && !Object.keys(o.r).length && !Object.keys(o.ty || {}).length && !(o.cr || []).length) {
-    $app.innerHTML = `<div id="ie"></div>${typeof exSwitch === 'function' ? exSwitch('ielts') : ''}<h1>🌏 Học IELTS</h1><div class="box"><b>Bắt đầu: 3 câu hỏi</b>
-      <p style="margin:8px 0 2px">1. Bạn thi loại nào?</p>${setup.replace('<p style="margin:8px 0 2px">Band mục tiêu:</p>', '<p style="margin:8px 0 2px">2. Band mục tiêu?</p>')}
-      <p style="margin:8px 0 2px">3. Ngày thi (chưa biết thì bỏ trống):</p><input type="date" id="iedate" value="${esc(o.date || '')}">
-      <button class="pri" data-ieset style="margin-top:10px">▶ Bắt đầu</button></div>
-      <p class="mute">App không phải sản phẩm chính thức của IELTS. 🤖 Nội dung AI soạn, chưa giáo viên kiểm.</p>`;
-    $app.onclick = e => { const g = s => e.target.closest(s); let b;
-      if ((b = g('[data-iety]'))) { o.type = b.dataset.iety; S.t = Date.now(); save(); return ieltsView(); }
-      if ((b = g('[data-ietg]'))) { o.target = +b.dataset.ietg; S.t = Date.now(); save(); return ieltsView(); }
-      if (g('[data-ieset]')) { o.set = 1; S.t = Date.now(); save(); scrollTo(0, 0); return ieltsView(); } };
-    return; }
+  // v111 (người sáng lập: "thiết lập giờ học để ở Lộ trình; phần học chỉ chứa nội dung"): bỏ màn 3 câu hỏi lần đầu, ô 📅 kế hoạch, ⚙️ loại thi / band; đặt ở 🔄 Lộ trình (mục tiêu IELTS)
   $app.innerHTML = `<div id="ie"></div>${typeof exSwitch === 'function' ? exSwitch('ielts') : ''}<h1>🌏 Học IELTS</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
-    ${typeof iePlanBox === 'function' ? iePlanBox() : ''}
-    <details class="box"><summary><b>⚙️ ${IE_TYPE[o.type]} · band mục tiêu ${bandTxt(tg)}</b></summary>${setup}</details>
     ${typeof thBox === 'function' ? thBox() : ''}
     <button data-cnv="ielts">📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết</button>
     <div class="box"><div class="row"><b>📊 Band ước hiện tại</b><span class="${now.all != null && now.all >= tg ? 'okc' : 'mute'}">${now.all != null ? 'Overall ≈ ' + bandTxt(now.all) : 'chưa đủ 4 kỹ năng'}</span></div>

@@ -155,6 +155,16 @@ function ltHint() { const el = document.getElementById('lthint'), f = ltFormGoal
   el.innerHTML = `${f.kind === 'ielts' || f.kind === 'toeic' ? `<span class="mute">Nền CEFR cần có: <b>${LVN[f.lv]}</b>.</span><br>` : ''}${ltFeasTxt({ kind: 'cefr', lv: f.lv, date: f.date }, mn)}<br>${ltSplitTxt(sp)}`; }
 document.addEventListener('change', e => { if (S && e.target.closest && e.target.closest('#ltlv, #ltdate, #ltmin, #ltiet, #ltband, #ltscore')) ltHint(); });
 
+// ---------- 📅 kế hoạch kỳ thi ở ô mục tiêu (v111: chuyển từ màn IELTS / TOEIC về Lộ trình; phần học chỉ còn nội dung) ----------
+function ltExamPlan(k, sp) { try {
+  if (k === 'ielts') { const P = iePlan(), warn = P.wk != null && P.need && P.wk < P.need[0];
+    return `<p style="margin:4px 0">${P.wk != null ? `Còn <b>${P.wk} tuần</b> · ` : ''}${P.g != null ? `band ước (Overall) cách mục tiêu <b>${bandTxt(Math.max(0, P.g))}</b>` : 'chưa có band ước: làm 1 đề thử IELTS ở 📚 Học → 🎓 Thi'}</p>
+      ${sp.ex ? `<p class="mute" style="margin:2px 0">Mỗi tuần ~${String(Object.values(P.hrs).reduce((a, b) => a + b, 0)).replace('.', ',')} giờ luyện đề: ${Object.entries(P.hrs).map(([x, h]) => `${IE_SK[x][0]} ${String(h).replace('.', ',')} giờ`).join(' · ')} (Viết / Nói nặng hơn). Mỗi 2 tuần 1 đề thử app, mỗi 4 tuần 1 đề thật.</p>` : ''}
+      ${warn ? `<p style="margin:2px 0">⚠️ Còn ${P.wk} tuần, cần tăng ${bandTxt(P.g)} band: kinh nghiệm thường gặp (không phải số chính thức) là ${P.need[0]}–${P.need[1]} tuần. Cân nhắc lùi ngày thi hoặc hạ mục tiêu.</p>` : ''}`; }
+  if (k === 'toeic') { const o = toSt(), now = toNow(), wk = o.date ? Math.max(0, Math.ceil((new Date(o.date + 'T12:00:00') - Date.now()) / (7 * DAY))) : null;
+    return `<p style="margin:4px 0">${wk != null ? `Còn <b>${wk} tuần</b> · ` : ''}${now.tot != null ? `điểm ước cách mục tiêu <b>${Math.max(0, o.target - now.tot)}</b>` : 'chưa có điểm ước: làm 1 đề thử TOEIC ở 📚 Học → 🎓 Thi'}</p>`; }
+} catch (e) {} return ''; }
+
 // ---------- 🎯 ô mục tiêu ở 📚 Học: tên mục tiêu, việc hôm nay, ⚖️ chia thời gian, nút mở phần riêng của kỳ thi ----------
 function ltGoalCard(stage = ovStage()) { const g = S.lt && S.lt.goal;
   if (!g) return `<div class="box"><b>🎯 Chưa đặt mục tiêu</b><p class="mute" style="margin:6px 0">Đặt mục tiêu ở 🔄 Lộ trình: app chia việc mỗi ngày theo mục tiêu. Mục 🎓 Thi ở hàng trên vẫn mở được mọi kỳ thi.</p><button class="pri" data-ltgo>🎯 Đặt mục tiêu ›</button></div>`;
@@ -167,13 +177,14 @@ function ltGoalCard(stage = ovStage()) { const g = S.lt && S.lt.goal;
 async function ltView() { BACK = null; window.CUR = { view: 'lo-trinh' }; $app.onclick = null;
   if (!(PA && Object.values(KIT).every(P => P.items))) { $app.innerHTML = '<div id="lt"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); } catch (e) {} }
   const L = ltSt(); if (!L.goal) return ltGoalView();
+  if (ltKind(L.goal) === 'ielts' && typeof ieLoad === 'function') try { await ieLoad(); } catch (e) {} if (ltKind(L.goal) === 'toeic' && typeof toLoad === 'function') try { await toLoad(); } catch (e) {}
   const now = Date.now(), t = dayOf(now), stage = ovStage(), g = L.goal, k = ltKind(g), need = ltGoalLv(g), date = ltGoalDate(g), re = ltRe(now), P = S.place, plFirst = !!re && re.k === 'first'; let c = ltCur();
   if (!c) { ltStart(now); c = ltCur(); }   // v107: có mục tiêu là có đợt
   const sp = ltSplit(g), left = date ? Math.ceil((Date.parse(date) - now) / DAY) : null, gDone = (k === 'cefr' || k === 'cambridge') && ovDone(need);
   const goalBox = `<div class="box"><div class="row"><b>🎯 ${esc(ltGoalName(g))}</b><button class="link" data-lt="edit">✏️ Đổi</button></div>
     <p style="margin:4px 0">Đang học <b>${LVN[stage]}</b>${k !== 'cefr' ? ` · nền cần <b>${LVN[need]}</b>` : ''}${left != null ? ` · ${left >= 0 ? `còn <b>${left}</b> ngày` : 'đã qua ngày đặt'}` : ''}</p>
     ${gDone ? `<p style="margin:4px 0">🎉 Đã hoàn thành ${LVN[need]} trong app. Làm 📝 đề mẫu chính thức ở màn 🎓 Cambridge để biết đạt thật chưa, rồi đặt mục tiêu mới.</p>` : `<p style="margin:4px 0">${ltFeasTxt(g)}</p>`}
-    <p style="margin:4px 0">${ltSplitTxt(sp)}</p>${k !== 'cefr' ? `<button data-ltex style="margin:4px 0 0">${{ cambridge: '🎓', ielts: '🌏', toeic: '💼' }[k]} Phần riêng: luyện ${LT_EXN[k]} ›</button>` : ''}</div>`;
+    <p style="margin:4px 0">${ltSplitTxt(sp)}</p>${ltExamPlan(k, sp)}${k !== 'cefr' ? `<button data-ltex style="margin:4px 0 0">${{ cambridge: '🎓', ielts: '🌏', toeic: '💼' }[k]} Mở bài luyện ${LT_EXN[k]} ›</button>` : ''}</div>`;
   const plBox = `<div class="box"><b>🧭 Xếp cấp</b>${P ? `<p style="margin:4px 0">Lần gần nhất ${ltFmt(dayOf(P.at))}: ${P.top ? `nắm khá vững <b>${LVN[P.top]}</b>` : 'nên bắt đầu từ Pre-A1'}${P.no ? ' · bạn chọn học từ cấp đang học' : ''}.</p>` : ''}
     ${re && re.k !== 'real' ? `<p class="mute" style="margin:4px 0">${esc(re.t)}.</p><button class="${plFirst ? 'pri' : ''}" data-lt="place">🧭 ${P ? 'Xếp cấp lại' : 'Kiểm tra xếp cấp'} (5–10 phút)</button>`
       : re ? `<p style="margin:4px 0">📝 ${esc(re.t)}.</p><button data-ltex>📝 Mở màn ${LT_EXN[k] || 'Cambridge'}</button>` : `<p class="mute" style="margin:4px 0">Xếp lại sau ${ltReIn(now)} ngày, hoặc sớm hơn khi hoàn thành một cấp / trượt thi vượt.</p>`}</div>`;
