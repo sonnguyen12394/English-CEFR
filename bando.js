@@ -112,7 +112,7 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
     ${roots.length ? `<button data-map="root" style="margin:4px 0">📰 ${roots.length} bài yếu do thiếu từ<small style="display:block;font-weight:400;opacity:.85">${[...new Set(roots.flatMap(r => r.gap.map(w => w.w)))].slice(0, 10).map(esc).join(', ')}</small></button>` : ''}
     ${rootN.length ? `<p class="mute" style="margin:6px 0 2px">🧱 Cần học lại bài gốc (đã gác, quay lại vẫn kẹt):</p>${rootN.slice(0, 6).map(w => `<button data-map="rl|${esc(mapKey(w))}" style="margin:3px 0">🧱 ${nm(w.id)[1]} ${label(w)} <span class="mute">· ${esc(face(w.id, w.k))}</span></button>`).join('')}` : ''}`;
   $app.innerHTML = `<div id="bdo"></div>${MAP_BACK === 'ct' ? '<div id="bk"></div>' : MAP_BACK === 'lt' ? '<div id="lt"></div>' : ''}<div class="row top"><button class="link" data-a="bk">← ${MAP_BACK === 'ct' ? 'Của tôi' : MAP_BACK === 'lt' ? 'Lộ trình' : 'Học'}</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>
-    ${noData && !gaps.length ? '<div class="box"><b>Chưa có dữ liệu học.</b><p class="mute" style="margin:6px 0 0">Bản đồ lớn dần khi bạn học. Bắt đầu: 🎯 Học → ô 📅 Hôm nay → 🧭 Kiểm tra xếp cấp.</p></div>' : ''}
+    ${noData && !gaps.length ? '<div class="box"><b>Chưa có dữ liệu học.</b><p class="mute" style="margin:6px 0 0">Bản đồ lớn dần khi bạn học. Bắt đầu: 🔄 Lộ trình → ô 📅 Hôm nay → 🧭 Kiểm tra xếp cấp.</p></div>' : ''}
     <div class="box"><b>🎯 Việc cần chữa</b><p class="mute" style="margin:2px 0 0">Đang chữa ${fo.act.length}/${MAP_ACT} chỗ${nGoc ? ` · 🌱 gốc ${nGoc}` : ''} · ✅ đã chữa xong ${fo.done}</p>
       ${nAll ? `<button class="pri" data-map="today" style="margin-top:6px">▶ Chữa tiếp${gaps.some(g => !g.cho) ? ': chỗ hổng nền trước' : fo.act.length ? ` ${Math.min(MAP_TODAY, fo.act.length)} chỗ` : ''}</button>` : ''}
       ${gocHtml}
@@ -147,7 +147,7 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
 function mapFix(id, lim, now = Date.now()) { const d = dayOf(now), act = mapFocus(now).act.filter(w => w.id === id).sort((a, b) => (a.cho - b.cho) || ((b.p || 0) - (a.p || 0)));
   if (!act.length) return toast('Phần này không có chỗ đang chữa.');
   const fin = (head, extra) => { const f = mapFocus(); $app.innerHTML = `<div class="box"><b>${head}</b>${extra}<p>🎯 Đang chữa ${f.act.length} chỗ · ✅ đã chữa xong ${f.done} · ⏳ hàng chờ ${f.queue.length}${f.park.length ? ` · ⏸ tạm gác ${f.park.length}` : ''}.</p>
-      <p class="mute">Sai rồi đúng ngay trong buổi chưa tính xong: cần đúng thêm ở một ngày sau.</p></div><button class="pri" data-a="map">🗺 Về bản đồ</button><button data-a="ov">${MAP_BACK === 'lt' ? 'Về 🔄 Lộ trình' : 'Về 🎯 Học CEFR'}</button>`;
+      <p class="mute">Sai rồi đúng ngay trong buổi chưa tính xong: cần đúng thêm ở một ngày sau.</p></div><button class="pri" data-a="map">🗺 Về bản đồ</button><button data-a="ov">${MAP_BACK === 'lt' ? 'Về 🔄 Lộ trình' : 'Về 📚 Học'}</button>`;
     $app.onclick = e => { if (e.target.closest('[data-a="map"]')) mapView(); if (e.target.closest('[data-a="ov"]')) (MAP_BACK === 'lt' && typeof ltView === 'function' ? ltView : overview)(); }; };
   const teach = sel => sel.filter(w => !w.cho && w.t >= 1 && w.td !== d);
   if (id === 'tv') { const seen = new Set(), items = [], sel = [];

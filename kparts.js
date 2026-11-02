@@ -93,7 +93,7 @@ KIT.doc = { id: 'doc', ic: '📰', t: 'Đọc', file: 'doc.json?v=5', lvs: ['pre
   intro: 'Bài kiểu Cambridge: Pre-A1 bài ngắn 40–50 từ như Starters (chỉ dùng từ Pre-A1); A1 tin nhắn, thông báo, câu chuyện; A2 có bài dài 150–250 từ như A2 Key; B1 → C2 bài báo, thư, bình luận 180–290 từ như B1 Preliminary → C2 Proficiency, có câu hỏi ý kiến, suy luận.',
   dims: [['y', '💡 Ý chính', 'Bài nói về gì'], ['ct', '🔍 Chi tiết', 'Tìm thông tin trong bài'], ['to', '📖🗣 Đọc to', 'Đọc to bài đã học, máy chép ra ≥ 90% từ mỗi đoạn']],
   examTxt: '6 bài đọc chưa gặp: ý chính + chi tiết.',
-  how: '1 Hiểu câu (Pre-A1, A1) → 2 Dò chi tiết, có giờ → 3 Đọc lướt tìm ý → 4 Đoán nghĩa từ, suy luận (từ A2) → 5 Cấu trúc bài (từ B1: 🎓 Luyện thi → dạng đề thật). 💡 Ý chính và 🔍 chi tiết chỉ tính trên 🆕 bài mới (chưa gặp hoặc ≥ 30 ngày). Đọc rộng: 📚 Thư viện, chọn truyện bạn biết ≥ 95% từ. 📖🗣 Đọc to 4 bậc: Đ1 nghe mẫu rồi nhắc lại câu → Đ2 đọc một đoạn → Đ3 đọc cả bài theo đoạn, đo tốc độ → Đ4 đọc lại, so với lần trước (cần máy chép được lời; không có thì chỉ tham khảo).',
+  how: '1 Hiểu câu (Pre-A1, A1) → 2 Dò chi tiết, có giờ → 3 Đọc lướt tìm ý → 4 Đoán nghĩa từ, suy luận (từ A2) → 5 Cấu trúc bài (từ B1: dạng đề thật ở màn 🎓 Cambridge). 💡 Ý chính và 🔍 chi tiết chỉ tính trên 🆕 bài mới (chưa gặp hoặc ≥ 30 ngày). Đọc rộng: 📚 Thư viện, chọn truyện bạn biết ≥ 95% từ. 📖🗣 Đọc to 4 bậc: Đ1 nghe mẫu rồi nhắc lại câu → Đ2 đọc một đoạn → Đ3 đọc cả bài theo đoạn, đo tốc độ → Đ4 đọc lại, so với lần trước (cần máy chép được lời; không có thì chỉ tham khảo).',
   fresh: ['y', 'ct'], skill: ['to'], dimsOf: () => ['y', 'ct', 'to'], refK: () => SREC ? [] : ['to'], newQs: x => [...kRead(KIT.doc, x, 'y'), ...kRead(KIT.doc, x, 'ct')].map((q, i) => i ? q : { ...q, head: kCoverTxt(x.text) + q.head }),
   name: x => x.title, lesson: x => kReadLesson(x, false),
   q: (x, k) => kRead(KIT.doc, x, k, false), tryQs: x => [...kRead(KIT.doc, x, 'y'), ...kRead(KIT.doc, x, 'ct')],
@@ -284,7 +284,7 @@ KIT.viet = { id: 'viet', ic: '✍️', t: 'Viết', file: 'viet.json?v=4', lvs: 
   init: vietInit, refK: () => ['y', 'dang'], dimsOf: x => x.kind === 'cau' ? ['cau'] : x.kind === 'noi' ? ['noi'] : ['y', 'dang'],
   intro: 'A1, A2 tin nhắn, email ngắn; B1 → C2 email, truyện, bài luận, báo cáo, đề xuất, thư trang trọng theo độ dài đề Cambridge. Máy tìm ý bằng từ khoá và xem dạng bài (độ dài, lời chào / kết). Không chấm ngữ pháp, chính tả: đó là phần khác.',
   dims: [['cau', '🧩 Câu đúng', 'Xếp từ thành câu đúng (bậc 1)'], ['noi', '🔗 Nối câu', 'Nối 2 câu bằng từ cho sẵn (bậc 2, từ A1)'], ['y', '✅ Đủ ý (tham khảo)', 'Viết đủ các ý đề yêu cầu'], ['dang', '📝 Đúng dạng bài (tham khảo)', 'Độ dài, chào / kết khi là thư']],
-  examTxt: '2 bộ xếp câu + 1 bộ nối câu chưa gặp (Pre-A1: chỉ xếp câu). Bài viết dài luyện ở 🎓 Luyện thi, nhờ AI / giáo viên chấm.',
+  examTxt: '2 bộ xếp câu + 1 bộ nối câu chưa gặp (Pre-A1: chỉ xếp câu). Bài viết dài luyện ở màn kỳ thi của mục tiêu, nhờ AI / giáo viên chấm.',
   name: x => x.kind === 'cau' ? `🧩 Câu đúng · bộ ${x.n}` : x.kind === 'noi' ? `🔗 Nối câu · bộ ${x.n}` : x.vi,
   lesson: x => x.kind === 'cau' ? `<h1>🧩 Câu đúng · bộ ${x.n}</h1><div class="box"><b>Trật tự câu tiếng Anh</b><p style="margin:6px 0">Ai / cái gì (chủ ngữ) → làm gì (động từ) → cái gì / ai (tân ngữ) → ở đâu → khi nào.</p>
       <p class="mute" style="margin:0">Ví dụ: <b>I</b> · <b>play</b> · <b>football</b> · <b>in the park</b> · <b>on Sundays</b>. Câu hỏi: từ hỏi → trợ động từ → chủ ngữ → động từ (Where do you live?). Viết hoa chữ đầu câu, cuối câu có dấu chấm / chấm hỏi.</p></div>`

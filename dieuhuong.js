@@ -13,7 +13,7 @@ async function cbView(lv) { BACK = null; window.CUR = { view: 'cambridge' }; EXA
   const ids = OV.filter(([id]) => ovIn(id, lv)), done = ids.filter(([id]) => ovPassed(id, lv)).length, ready = done >= Math.min(3, ids.length);
   const chip = l => `<button class="chip ${l === lv ? 'on' : ''}" data-cbl="${l}">${l === stage ? '▶ ' : ''}${LVN[l]}</button>`;
   $app.innerHTML = `<div id="ie"></div>${typeof exSwitch === 'function' ? exSwitch('cefr') : ''}<h1>🎓 Thi Cambridge (CEFR)</h1>
-    <p class="mute" style="margin:0 0 6px">Đề thử theo khuôn Pre A1 Starters → C2 Proficiency, dạng đề thật, sẵn sàng thi. Học các phần ở 🎯 Học là chính; ở đây để luyện thi.</p>
+    <p class="mute" style="margin:0 0 6px">Đề thử theo khuôn Pre A1 Starters → C2 Proficiency, dạng đề thật, sẵn sàng thi. 🧱 Nền ở 📚 Học là chính; đây là phần riêng để luyện thi Cambridge.</p>
     <div class="chips">${OV_LV.map(chip).join('')}</div>
     <button data-cnv="cefr">📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết, thể loại bài Viết</button>
     ${typeof MOCK !== 'undefined' && MOCK[lv] ? `<div class="box"><div class="row"><b>🎓 Đề thử ${esc(MOCK[lv].name)}</b><span class="mute">${(S.mock && S.mock[lv] || []).length ? `đã làm ${S.mock[lv].length} lần` : 'chưa làm'}</span></div><p class="mute" style="margin:6px 0">Khuôn, thời gian như đề thật; câu bốc ngẫu nhiên mỗi lần.</p><button class="pri" data-mock="${lv}">🎓 Làm đề thử</button></div>` : ''}
@@ -40,7 +40,7 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
   $app.innerHTML = `<div id="bk"></div><h1>👤 Của tôi</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${typeof hdView === 'function' ? '<button data-hdv>📘 Luật và cách dùng: học thế nào, tính điểm ra sao</button>' : ''}
     <div class="box"><b>📈 Tiến độ</b><p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${typeof plTop === 'function' && plTop(stage) ? ` · 🧭 xếp cấp: ${LVN[plTop(stage)]}` : ''}${passedLv.length ? ` · hoàn thành trong app: ${passedLv.map(l => LVN[l]).join(', ')}` : ''}</p>
-      <p style="margin:0 0 6px">🎓 Đạt bằng đề mẫu chính thức: ${realLv.length ? `<b>${realLv.map(l => LVN[l]).join(', ')}</b>` : '<span class="mute">chưa có (làm ở 🎓 Luyện thi → Cambridge)</span>'}</p>
+      <p style="margin:0 0 6px">🎓 Đạt bằng đề mẫu chính thức: ${realLv.length ? `<b>${realLv.map(l => LVN[l]).join(', ')}</b>` : '<span class="mute">chưa có (làm ở màn 🎓 Cambridge)</span>'}</p>
       <p class="mute" style="margin:0">📚 ${nW} từ đã học · 🧩 ${nK} bài kỹ năng · ⏱ hôm nay ${actMin(t)} / ${actGoal()} phút · 7 ngày ${mins} phút · 🔥 ${actStreak(now)} ngày liền</p></div>
     <div class="box"><div class="row"><b>🗺 Bản đồ chỗ yếu</b><span class="mute">${f ? `🎯 ${f.act.length} · ⏳ ${f.queue.length} · ✅ ${f.done}` : 'chưa có dữ liệu'}</span></div>
       <p class="mute" style="margin:6px 0">Gom mọi lần làm sai / quên thành chỗ cần chữa, mỗi lần tối đa 15 chỗ.</p><button data-mapv="ct">🗺 Mở bản đồ</button></div>
@@ -48,7 +48,7 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
       <p class="mute" style="margin:6px 0">Từ bạn lưu khi tra, khi chạm trong bài và từ đề thật. Ôn cách quãng 1 → 35 ngày.</p>
       <div class="duo"><button data-ct="sotu">📌 Mở sổ từ</button>${vd ? `<button class="pri" data-ct="vwrun">🔁 Ôn ${Math.min(20, vd)} từ</button>` : ''}</div></div>
     ${typeof errBox === 'function' ? errBox('ct') : ''}
-    <div class="box"><b>📊 Kết quả thi thật</b>${real.length ? real.map(x => `<p style="margin:4px 0;font-size:15px">${x}</p>`).join('') : '<p class="mute" style="margin:6px 0 0">Chưa ghi đề thật nào. Làm đề chính thức (sách Cambridge IELTS, đề mẫu Cambridge, đề ETS) rồi ghi ở 🎓 Luyện thi: kết quả thật là thước đo đáng tin nhất.</p>'}</div>
+    <div class="box"><b>📊 Kết quả thi thật</b>${real.length ? real.map(x => `<p style="margin:4px 0;font-size:15px">${x}</p>`).join('') : '<p class="mute" style="margin:6px 0 0">Chưa ghi đề thật nào. Làm đề chính thức (sách Cambridge IELTS, đề mẫu Cambridge, đề ETS) rồi ghi ở màn kỳ thi của mục tiêu (📚 Học → ô 🎯): kết quả thật là thước đo đáng tin nhất.</p>'}</div>
     <button data-ct="data">💾 Dữ liệu, tài khoản và sao lưu</button>
     ${typeof gyHomeHtml === 'function' ? gyHomeHtml() : ''}`;
   $app.onclick = e => { const b = e.target.closest('[data-ct]'); if (!b) return; scrollTo(0, 0); const a = b.dataset.ct;
@@ -67,4 +67,5 @@ function revRun(back) { const R = revCount(), steps = [], quit = () => (typeof b
   if (R.e) steps.push(next => errRun(next, quit)); if (R.v) steps.push(next => vwRun(Date.now(), next, quit));
   const last = () => { const p = revPart(); if (p) return ovOpenPart(p[0], p[1]); toast('✅ Đã ôn hết mục đến hạn hôm nay.'); quit(); };
   const go = i => i < steps.length ? steps[i](() => go(i + 1)) : last(); scrollTo(0, 0); go(0); }
-document.addEventListener('click', e => { if (S && e.target.closest('[data-rev]')) revRun(); });
+document.addEventListener('click', e => { const b = S && e.target.closest('[data-cbgo]'); if (b) { scrollTo(0, 0); cbView(b.dataset.cbgo); } });   // 📝 đề mẫu chính thức từ thẻ cấp ở 📚 Học
+document.addEventListener('click', e => { if (S && e.target.closest('[data-rev]')) revRun(document.getElementById('lt') && typeof ltView === 'function' ? ltView : undefined); });   // v108: ô Hôm nay ở 🔄 Lộ trình thì về Lộ trình

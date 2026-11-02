@@ -139,11 +139,12 @@ function toInsights() { const o = toSt(), tags = toTagAcc().filter(t => t.n), ga
 document.addEventListener('change', e => { if (!S || !e.target.closest('#todate')) return; toSt().date = e.target.value || null; S.t = Date.now(); save(); toeicView(); });
 
 // ---------- màn chính ----------
-// chuyển giữa 🌏 IELTS và 💼 TOEIC trong mục 🎓 Luyện thi (nhớ lựa chọn: S.exSel)
-const exSwitch = cur => `<div class="chips" style="margin:4px 0 8px"><button class="chip ${cur === 'cefr' ? 'on' : ''}" data-exsel="cefr">🎓 Cambridge</button><button class="chip ${cur === 'ielts' ? 'on' : ''}" data-exsel="ielts">🌏 IELTS</button><button class="chip ${cur === 'toeic' ? 'on' : ''}" data-exsel="toeic">💼 TOEIC</button></div>`;
-// v95: 🎓 Cambridge (CEFR) là kỳ thi thứ ba (dieuhuong.js cbView); chưa chọn bao giờ: đã đặt IELTS thì IELTS, không thì Cambridge
-const exSel = () => S && (S.exSel || (S.ie && S.ie.set ? 'ielts' : 'cefr'));
-const exOpen = () => exSel() === 'toeic' ? toeicView() : exSel() === 'ielts' || typeof cbView !== 'function' ? ieltsView() : cbView();
+// v108: bỏ tab 🎓 Luyện thi; màn kỳ thi là "phần riêng" của mục tiêu trong 📚 Học (lotrinh.js S.lt.goal). Kỳ thi theo mục tiêu; chưa đặt mục tiêu thì như trước (S.exSel, IELTS đã đặt).
+// Đầu màn kỳ thi: dòng "🎯 Mục tiêu … · đổi ở 🔄 Lộ trình" thay cho hàng chuyển kỳ thi (chỉ hiện đúng kỳ thi của mục tiêu).
+const exSwitch = cur => { const g = S && S.lt && S.lt.goal; void cur;
+  return `<p class="mute" style="margin:4px 0 8px">${g && typeof ltGoalName === 'function' ? `🎯 Mục tiêu: <b>${esc(ltGoalName(g))}</b> · ` : ''}<button class="link" data-ltedit>${g ? 'đổi mục tiêu' : 'đặt mục tiêu'} ở 🔄 Lộ trình ›</button></p>`; };
+const exSel = () => { if (!S) return null; const g = S.lt && S.lt.goal; if (g) return g.kind === 'ielts' || g.kind === 'toeic' ? g.kind : 'cefr'; return S.exSel || (S.ie && S.ie.set ? 'ielts' : 'cefr'); };
+const exOpen = () => { const k = exSel(), g = S.lt && S.lt.goal; return k === 'toeic' ? toeicView() : k === 'ielts' || typeof cbView !== 'function' ? ieltsView() : cbView(g && typeof ltGoalLv === 'function' ? ltGoalLv(g) : undefined); };
 document.addEventListener('click', e => { const b = e.target.closest('[data-exsel]'); if (!b || !S) return; S.exSel = b.dataset.exsel; S.t = Date.now(); save(); scrollTo(0, 0); exOpen(); });
 async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_VOX = false;
   if (!TO || !KIT.np.items) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([toLoad(), kLoad(KIT.np)]); } catch (e) { $app.innerHTML = '<div id="ie"></div><p>Không tải được dữ liệu TOEIC. Thử lại sau.</p>'; return; } }

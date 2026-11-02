@@ -29,8 +29,11 @@ const todaySkill = () => { const t = dayOf(Date.now()); return TODAY_SK.some(id 
 //   🔄 Lộ trình chỉ giữ mục tiêu, đợt, tổng kết và lối tắt về đây; nút ▶ Chữa tiếp của bản đồ và "Nên làm hôm nay" của IELTS / TOEIC là cùng việc, không phải danh sách khác.
 //   Luật của Lộ trình áp ở đây cho mọi người: chữa lỗi tối đa LT_FIX số phút mục tiêu (đủ thì nhắc chuyển sang bài mới); ngày 10 của đợt có 📝 kiểm tra cuối đợt.
 //   Đang ôn IELTS / TOEIC thì thêm 1 việc luyện thi (nhãn lấy từ ieToday / toToday). Trả về [{ done (true / false; null = nút phụ, không đếm), html }].
-const TODAY_EXAM = () => S.exSel === 'toeic' && S.to ? 'toeic' : S.ie && S.ie.set && S.exSel !== 'cefr' && S.exSel !== 'toeic' ? 'ielts' : null;
+const TODAY_EXAM = () => S.exSel === 'toeic' && S.to ? 'toeic' : S.ie && S.ie.set && S.exSel !== 'cefr' && S.exSel !== 'toeic' ? 'ielts' : null;   // chưa đặt mục tiêu (cũ)
+// v108: có 🎯 mục tiêu thì việc luyện đề và tỉ lệ nền / đề theo ltSplit (lotrinh.js): nền thiếu ≥ 2 cấp → chưa luyện đề (chỉ một dòng xem dạng đề);
+//   nền chiếm ≤ 30 % → bỏ "luyện 1 bài kỹ năng" nền (luyện đề đã luyện kỹ năng); nền đủ (10 %) → bỏ cả "bài mới" nền, giữ ôn + chữa. Việc luyện đề xong khi đủ số phút đề.
 function todayPlan(stage = ovStage(), o = {}) { const now = Date.now(), t = dayOf(now), due = todayDue(), nw = todayNew(), sk = todaySkill(), out = [];
+  const sp = S.lt && S.lt.goal && typeof ltSplit === 'function' ? ltSplit() : null, exK = sp ? (sp.k === 'cefr' ? null : sp.k) : TODAY_EXAM();
   const has = Object.keys(S.cards || {}).length || Object.values(S.k || {}).some(k => Object.keys(k.cards || {}).length);
   const mf = typeof mapFocus === 'function' && has ? mapFocus() : null;
   const mapSk = mf && (mf.act.find(w => TODAY_SK.includes(w.id)) || mf.queue.find(w => TODAY_SK.includes(w.id)));
@@ -48,26 +51,27 @@ function todayPlan(stage = ovStage(), o = {}) { const now = Date.now(), t = dayO
     const fx = typeof ltFixMin === 'function' ? ltFixMin(t) : 0, cap = typeof ltCap === 'function' ? ltCap() : 0, full = cap && fx >= cap, pct = typeof LT_FIX !== 'undefined' ? Math.round(LT_FIX * 100) : 40;
     if (gn || act) step(full || (did && !gn), full ? `Đủ phần chữa lỗi hôm nay (${fx}/${cap} phút): chuyển sang bài mới` : gn ? `Chữa ${gn} chỗ hổng nền (bài xếp cấp phát hiện)` : did ? 'Đã chữa chỗ yếu hôm nay' : `Chữa ${Math.min(MAP_TODAY, act)} chỗ yếu đang chữa (kèm việc ôn)`, 'data-today="fix"', cap ? `🩹 ${fx}/${cap} phút · tối đa ${pct}% thời gian, để còn học cái mới` : '');
     if (mf && mf.root.length) extra(`<button data-map-rl="${esc(mapKey(mf.root[0]))}" style="margin:4px 0">🧱 Học lại bài gốc: ${mf.root.length} chỗ kẹt lâu</button>`);
-    if (mf) extra(`<button data-mapv style="margin:4px 0">🗺 Bản đồ chỗ yếu${act ? `: đang chữa ${act}${mf.queue.length ? ` · ${mf.queue.length} chờ` : ''}` : ''} ›</button>`); }
+    if (mf) extra(`<button data-mapv${o.lt ? '="lt"' : ''} style="margin:4px 0">🗺 Bản đồ chỗ yếu${act ? `: đang chữa ${act}${mf.queue.length ? ` · ${mf.queue.length} chờ` : ''}` : ''} ›</button>`); }
   // ③ bài mới (v99: xếp cấp cao hơn → thi vượt thay cho bài mới cấp thấp)
   { const pl = plTop(stage), left = pl && !nw ? plLeft(pl) : [];
     if (left.length) { step(false, `🚀 Bạn xếp cấp ${LVN[pl]}: thi vượt ${left.length} phần (${left.map(x => x[1]).join(' ')}) để khỏi học lại cấp dưới`, `data-vcv="${pl}"`); extra(`<button class="link" data-plno style="margin:0 0 4px">Không, tôi muốn học từ ${LVN[stage]}</button>`); }
-    else step(nw > 0, nw ? `Đã học ${nw} mục mới hôm nay` : `Học 1 bài mới ở cấp ${LVN[stage]}${low ? `: ${OV.find(x => x[0] === low[0])[1]} ${OV.find(x => x[0] === low[0])[2]}` : ''}`, low && !nw ? `data-ovp="${low[0]}" data-ovpl="${low[1]}"` : 'data-today="new"'); }
+    else if (!sp || sp.nen > 10) step(nw > 0, nw ? `Đã học ${nw} mục mới hôm nay` : `Học 1 bài mới ở cấp ${LVN[stage]}${low ? `: ${OV.find(x => x[0] === low[0])[1]} ${OV.find(x => x[0] === low[0])[2]}` : ''}`, low && !nw ? `data-today="part" data-tp="${low[0]}" data-tpl="${low[1]}"` : 'data-today="new"'); }
   // ④ kỹ năng
-  step(sk, sk ? 'Đã luyện kỹ năng hôm nay' : `Luyện 1 bài kỹ năng${lowSk ? `: ${OV.find(x => x[0] === lowSk[0])[1]} ${OV.find(x => x[0] === lowSk[0])[2]}${mapSk ? ' (chỗ yếu)' : ''}` : ''}`, `data-today="skill"${lowSk ? ` data-tsk="${lowSk[0]}"` : ''}`);
-  // ⑤ đang ôn IELTS / TOEIC: 1 việc luyện thi (chi tiết ở màn kỳ thi)
-  { const ex = TODAY_EXAM(); if (ex) { const o2 = ex === 'ielts' ? S.ie : S.to, at = r => r && r.at && dayOf(r.at) === t;
-      const did = Object.values(o2.r || {}).some(at) || ['w', 's', 'mock', 'spd'].some(k => (o2[k] || []).some(at));
-      let lab = ''; try { lab = String((ex === 'ielts' ? ieToday() : toToday())[1] || ''); } catch (e) {}
-      step(did, did ? `Đã luyện ${ex === 'ielts' ? 'IELTS' : 'TOEIC'} hôm nay` : `🎓 Luyện ${ex === 'ielts' ? 'IELTS' : 'TOEIC'}${lab ? ': ' + lab.replace(/<[^>]+>/g, '') : ''}`, 'data-today="exam"'); } }
+  if (!sp || sp.nen >= 70) step(sk, sk ? 'Đã luyện kỹ năng hôm nay' : `Luyện 1 bài kỹ năng${lowSk ? `: ${OV.find(x => x[0] === lowSk[0])[1]} ${OV.find(x => x[0] === lowSk[0])[2]}${mapSk ? ' (chỗ yếu)' : ''}` : ''}`, `data-today="skill"${lowSk ? ` data-tsk="${lowSk[0]}"` : ''}`);
+  // ⑤ luyện đề của mục tiêu (chi tiết ở màn kỳ thi): đủ số phút đề (ltSplit) là xong; chưa có mục tiêu thì như v107 (có luyện hôm nay là xong)
+  if (exK) { const nm = { ielts: 'IELTS', toeic: 'TOEIC', cambridge: 'Cambridge' }[exK];
+    if (sp && !sp.ex) extra(`<p class="mute" style="margin:6px 0 2px">🎓 Chưa luyện đề ${nm}: nền cần ${LVN[sp.need]}, học nền trước. <button class="link" data-today="exam">Xem dạng đề ›</button></p>`);
+    else { let lab = ''; if (exK !== 'cambridge') try { lab = String((exK === 'ielts' ? ieToday() : toToday())[1] || '').replace(/<[^>]+>/g, ''); } catch (e) {}
+      const o2 = exK === 'ielts' ? S.ie || {} : exK === 'toeic' ? S.to || {} : {}, at = r => r && r.at && dayOf(r.at) === t, exM = sp ? sp.exM : 0, done = sp ? ltExMin(t) >= exM : Object.values(o2.r || {}).some(at) || ['w', 's', 'mock', 'spd'].some(k => (o2[k] || []).some(at));
+      step(done, done ? `Đã luyện ${nm} đủ hôm nay` : `🎓 Luyện ${nm}${sp ? ` ~${exM} phút` : ''}${lab ? ': ' + lab : exK === 'cambridge' ? ': đề thử, dạng đề thật' : ''}`, 'data-today="exam"', sp ? `⚖️ ${sp.ex}% thời gian cho đề · đã luyện ${ltExMin(t)}/${exM} phút` : ''); } }
   if (typeof relearnUnits === 'function') for (const [u, ws] of relearnUnits().slice(0, 2)) extra(`<button data-relearn="${u.id}" style="margin:4px 0">🔁 Học lại ${esc(uLabel(u))}: ${ws.length} từ hay quên</button>`);
   if (!Object.keys(S.cards || {}).length && !S.place) extra('<button data-place style="margin-top:6px">🧭 Mới bắt đầu? Kiểm tra xếp cấp (5–10 phút) để biết nên học từ cấp nào</button>');
   return out; }
 function todayBox(stage, o = {}) { const t = dayOf(Date.now()), m = actMin(t), g = actGoal(), st = actStreak();
   const days = [...Array(7)].map((_, i) => t - 6 + i), mx = Math.max(g, ...days.map(actMin)), wd = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
-  const c = S.lt && S.lt.goal && typeof ltCur === 'function' ? ltCur() : null;
+  const c = !o.lt && S.lt && S.lt.goal && typeof ltCur === 'function' ? ltCur() : null;   // ở 🔄 Lộ trình (o.lt) đã có ô đợt riêng
   return `<div class="box" id="today"><div class="row"><b>📅 Hôm nay</b><span>${st ? `🔥 ${st} ngày liền` : '<span class="mute">chưa có chuỗi ngày</span>'}</span></div>
-    ${c ? `<button class="link" data-ltgo style="margin:2px 0">🔄 Đợt ${c.n} · ngày ${Math.min(ltDay(c), LT_D)}/${LT_D} · mục tiêu ${LVN[S.lt.goal.lv]} ›</button>` : ''}
+    ${c ? `<button class="link" data-ltgo style="margin:2px 0">🔄 Đợt ${c.n} · ngày ${Math.min(ltDay(c), LT_D)}/${LT_D} · mục tiêu ${esc(ltGoalName(S.lt.goal))} ›</button>` : ''}
     <div class="row" style="margin-top:6px"><span style="font-size:22px;font-weight:800">${m}<span class="mute" style="font-size:15px;font-weight:400"> / ${g} phút</span></span>
       <select data-goal aria-label="Mục tiêu phút mỗi ngày" style="width:auto;margin:0;padding:6px 10px">${[10, 15, 30, 45].map(x => `<option value="${x}"${x === g ? ' selected' : ''}>🎯 ${x} phút / ngày</option>`).join('')}</select></div>${bar(Math.round(Math.min(1, m / g) * 100), 100, 'var(--good)')}
     <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;align-items:end;height:46px;margin:8px 0 2px">${days.map(d => { const v = actMin(d); return `<div title="${v} phút" style="height:${Math.max(3, Math.round(v / mx * 40))}px;border-radius:3px;background:${v >= ACT_DAY_MIN ? 'var(--good)' : 'var(--line)'}"></div>`; }).join('')}</div>
@@ -80,7 +84,8 @@ document.addEventListener('click', e => { if (!S) return;
   if (e.target.closest('[data-plno]') && S.place) { S.place.no = 1; S.t = Date.now(); save(); scrollTo(0, 0); return overview(); }
   const b = e.target.closest('[data-today]'); if (!b) return; const k = b.dataset.today; scrollTo(0, 0);
   if (k === 'due' || k === 'new') { const nb = document.querySelector('#app [data-ovp].pri'); if (nb && k === 'due') return nb.click(); return k === 'new' ? (HOME.lv = curLevel(), HOME.open = null, home()) : overview(); }
-  if (k === 'fix') { if (typeof MAP_BACK !== 'undefined') MAP_BACK = 'hoc'; return mapToday(); }
+  if (k === 'fix') { if (typeof MAP_BACK !== 'undefined') MAP_BACK = document.getElementById('lt') ? 'lt' : 'hoc'; return mapToday(); }
+  if (k === 'part') return ovOpenPart(b.dataset.tp, b.dataset.tpl);
   if (k === 'skill') { const id = b.dataset.tsk || 'nghe'; KIT[id].view = kLv(KIT[id]); return kView(id); }
   if (k === 'exam') return exOpen(); });
 

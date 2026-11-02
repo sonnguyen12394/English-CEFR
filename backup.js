@@ -123,7 +123,7 @@ async function bkSetGo(part, lv, stage) { const pn = part === 'all' ? 'tất c�
   if (stage === 'chua') { if ((prompt(ask + '\nGõ XOA để xác nhận.') || '').trim().toUpperCase() !== 'XOA') return; } else if (!confirm(ask)) return;
   bkSnap(`trước khi đặt ${pn} · ${LVN[lv]} · ${sn}`); const done = await bkSet(part, lv, stage);
   const skip = (part === 'all' ? BK_PARTS.map(p => p[0]) : [part]).filter(id => !done.includes(id)).map(id => BK_PARTS.find(p => p[0] === id)[1]);
-  backup(`✅ Đã đặt: ${esc(pn)} · ${LVN[lv]} · ${sn}.${skip.length ? ` Bỏ qua (không có cấp này): ${skip.join(', ')}.` : ''} Mở 🎯 Học để học.`); }
+  backup(`✅ Đã đặt: ${esc(pn)} · ${LVN[lv]} · ${sn}.${skip.length ? ` Bỏ qua (không có cấp này): ${skip.join(', ')}.` : ''} Mở 📚 Học để học.`); }
 
 // ---------- 📋 sao chép / 📥 dán JSON (người sáng lập 26/10/2026: "tệp json có thể copy hoặc paste phục hồi được") ----------
 // Sao chép: JSON gọn (không thụt dòng) vào bộ nhớ tạm; máy không cho chép thì hiện ô chữ đã chọn sẵn để tự chép.

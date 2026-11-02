@@ -264,7 +264,7 @@ function ieRun(title, qs, back, min, o = {}) { const res = []; let i = 0, tq = 0
     Object.assign(R, by); ieTyLog(res, 'luyen', fresh); S.t = Date.now(); save(); const ok = res.filter(r => r.ok).length, wrong = res.filter(r => !r.ok);
     const mins = (Date.now() - t0) / 60000; clearInterval(tk);
     $app.innerHTML = `<h1>${ok}/${res.length} câu đúng</h1>${min ? `<p>⏱ ${mins.toFixed(1)} phút ${mins <= min ? '✅' : '⚠️'} <span class="mute">(đề thật ~${min} phút mỗi bài${mins > min ? '; luyện đọc lướt tìm từ khoá, đừng đọc kỹ từng câu' : ''})</span></p>` : ''}${o.endHtml ? o.endHtml(res) : ''}${wrong.length ? `<div class="box"><b>Câu sai</b>${wrong.map(r => `<p style="margin:8px 0 0">${r.q.q}<br>Bạn: ${esc(r.ans)} · Đáp án: <b>${esc(r.q.a)}</b>${r.q.why ? `<br><span class="mute">${esc(r.q.why)}</span>` : ''}</p>`).join('')}</div>` : '<p>Đúng hết.</p>'}
-      <p class="mute">Luyện ở đây không tính vào 🎯 Học CEFR.</p><button class="pri" data-a="back">← ${o.home || 'Học IELTS'}</button>`; scrollTo(0, 0); if (o.done) o.done(res, fresh); $app.onclick = e => { if (e.target.closest('[data-a="back"]')) back(); }; };
+      <p class="mute">Luyện đề không tính vào luật đo của 🧱 nền CEFR.</p><button class="pri" data-a="back">← ${o.home || 'Học IELTS'}</button>`; scrollTo(0, 0); if (o.done) o.done(res, fresh); $app.onclick = e => { if (e.target.closest('[data-a="back"]')) back(); }; };
   const tk = min || o.spd ? setInterval(() => { const el = document.getElementById('irt'); if (!el) return; if (!o.spd) { el.textContent = '⏱ ' + clk(); return; }
     const s = res.length > i ? Math.round(res[i].secs) : Math.round((Date.now() - tq) / 1000); el.textContent = `⏱ ${s} / ${o.spd}s`; el.style.color = s > o.spd ? 'var(--bad)' : ''; }, 500) : 0;
   show(); }
@@ -400,7 +400,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px">${sk('L', '🎧', 'Nghe')}${sk('R', '📖', 'Đọc')}${sk('W', '✍️', 'Viết')}${sk('S', '🗣', 'Nói')}</div>
       <p class="mute" style="margin:6px 0 0">Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. 📏 = đã chỉnh theo độ lệch riêng của bạn (Nghe / Đọc: so đề thật với đề thử app trong 14 ngày; Viết / Nói: so AI chấm, giáo viên với máy). Chưa chỉnh thì chỉ là máy ước. Mỗi tháng làm 1 đề thật (📝 ô Sẵn sàng thi) để band ước sát hơn. Band ${bandTxt(tg)} ≈ CEFR ${LVN[ieCefr(tg)]} (bảng đối chiếu IELTS công bố).</p></div>
     ${typeof imBox === 'function' ? `<details class="box"><summary><b>🗺 Bản đồ band</b> <span class="mute">· chỗ làm mất điểm, theo dạng câu</span></summary>${imBox()}${ieTyBox()}</details>` : ''}
-    <div class="box"><b>🧱 Nền cần có: CEFR ${LVN[base]}</b><p class="mute" style="margin:6px 0">Từ vựng và ngữ pháp là gốc của cả 4 kỹ năng. Học ở mục 🎯 Học CEFR; phần này không tính lại ở đây.</p>
+    <div class="box"><b>🧱 Nền cần có: CEFR ${LVN[base]}</b><p class="mute" style="margin:6px 0">Từ vựng và ngữ pháp là gốc của cả 4 kỹ năng. Học ở 📚 Học → 🧱 Nền CEFR; phần này không tính lại ở đây.</p>
       <p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🎯 Mở Học CEFR cấp ${LVN[base]}</button></div>
     <div class="box"><div class="row"><b>🎓 Đề thử IELTS ${IE_TYPE[o.type]}</b><span class="mute">${o.mock.length ? `đã làm ${o.mock.length} lần` : 'chưa làm'}</span></div>
       <p class="mute" style="margin:6px 0">Khuôn như đề thật: Nghe 30 phút (nghe 1 lần) · Đọc 60 phút · Viết 60 phút · Nói 11–14 phút. Câu bốc ngẫu nhiên mỗi lần, không báo đúng / sai giữa chừng.</p>

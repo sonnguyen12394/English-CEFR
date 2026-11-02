@@ -101,14 +101,16 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
   const showLv = OV_ALL ? OV_LV : OV_LV.filter(l => OV_LV.indexOf(l) <= Math.max(OV_LV.indexOf(stage) + 1, OV_LV.indexOf(lv)));
   const prevMq = ovMqLS(), nextMq = { ...prevMq }, drop = (id, s) => { const k = id + '|' + lv, o = prevMq[k]; if (loaded && s) nextMq[k] = s.mq; return o != null && s && s.mq < o ? o - s.mq : 0; };
   const ai = LEVELS.indexOf(lv) >= LEVELS.indexOf('b1');
-  $app.innerHTML = `<div id="ov"></div><h1>🎯 Học CEFR</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
+  // v108: 📚 Học = 🎯 ô mục tiêu (phần riêng của kỳ thi đã chọn) + 🧱 nền CEFR; ô 📅 Hôm nay chuyển sang 🔄 Lộ trình (lotrinh.js)
+  $app.innerHTML = `<div id="ov"></div><h1>📚 Học</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${S.fake ? '<p class="mute" style="margin:4px 0">🧪 Đang dùng dữ liệu thử (💾 Dữ liệu để quay lại dữ liệu thật).</p>' : ''}
     <p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${typeof plTop === 'function' && plTop(stage) ? ` · 🧭 xếp cấp: ${LVN[plTop(stage)]}` : ''}</p>
-    ${typeof todayBox === 'function' ? todayBox(stage, tips) : ''}
+    ${typeof ltGoalCard === 'function' ? ltGoalCard(stage) : typeof todayBox === 'function' ? todayBox(stage, tips) : ''}
+    <h2 style="margin:14px 0 4px">🧱 Nền CEFR</h2>
     <div class="chips">${showLv.map(chip).join('')}${OV_ALL ? '' : '<button class="chip" data-ovall>⋯ Mọi cấp</button>'}</div>
     <div class="box"><div class="row"><b>Cấp ${LVN[lv]}: ${ids.length} phần</b><span class="mute">qua thi ${done}/${req.length} phần bắt buộc</span></div>${bar(Math.round(done / (req.length || 1) * 100), 100, 'var(--good)')}
       <p class="mute" style="margin:6px 0 0">Hoàn thành ${LVN[lv]} trong app khi ${req.length} phần bắt buộc qua 🚪 Thi chuyển cấp.${refs.length ? ` ${refs.map(([, ic, t]) => ic + ' ' + t).join(', ')}: máy chấm gián tiếp nên chỉ để tham khảo, vẫn nên luyện.` : ''}${absent.length ? ` Cấp này chưa có: ${absent.join(', ')}.` : ''}
-        Hoàn thành trong app chưa phải bằng CEFR: muốn biết đã đạt ${LVN[lv]} thật chưa, làm 📝 đề mẫu chính thức ở 🎓 Luyện thi.</p>
+        Hoàn thành trong app chưa phải bằng CEFR: muốn biết đã đạt ${LVN[lv]} thật chưa, làm 📝 đề mẫu chính thức <button class="link" data-cbgo="${lv}" style="padding:0">ở 🎓 Cambridge ›</button>.</p>
       ${ai ? '<p class="mute" style="margin:6px 0 0">🤖 Nội dung cấp này do AI soạn, chưa giáo viên kiểm. Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p>' : ''}
       ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<p class="mute" style="margin:6px 0 0">🔒 Xem trước: nên học khi đã hoàn thành ${LVN[stage]}. Vẫn mở để học trước nếu muốn.</p>${typeof vcView === 'function' ? `<button data-vcv="${lv}" style="margin-top:6px">🚀 Đã biết cấp này? Thi vượt lên ${LVN[lv]}</button>` : ''}` : ''}</div>
     ${ids.map(([id, ic, t], i) => { const s = st[i], dr = drop(id, s);
@@ -118,7 +120,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
           <div><div class="row"><span>🔁 Nhớ</span><span class="mute">${s.mq}%</span></div>${bar(s.mq, GATE_MEM, 'var(--good)')}</div></div>
           ${ovNeedLine(s, lv === stage)}${dr ? `<p class="mute" style="margin:4px 0 0">🔻 Nhớ giảm ${dr}% từ lần trước: có mục quá hạn ôn, khả năng nhớ xuống dưới ${GATE_MEM}%.${s.due ? ` Ôn ${s.due} bài để lấy lại.` : ''}</p>` : s.due ? `<p class="mute" style="margin:4px 0 0">${s.due} bài cần ôn</p>` : ''}` : '<p class="mute" style="margin:4px 0 0">Đang tải…</p>'}</button>`; }).join('')}
     ${typeof libBox === 'function' ? libBox(lv) : ''}
-    <p class="mute" style="margin:10px 0 0">🎓 Đề thử Cambridge, dạng đề, sẵn sàng thi: tab 🎓 Luyện thi. 📌 Sổ từ, 📒 Sổ lỗi, 🗺 chỗ yếu, tiến độ, 📘 luật và cách dùng: tab 👤 Của tôi.</p>`;
+    <p class="mute" style="margin:10px 0 0">🎯 Đề thử, dạng đề, sẵn sàng thi của kỳ thi: theo mục tiêu ở ô 🎯 trên (đổi ở 🔄 Lộ trình). 📌 Sổ từ, 📒 Sổ lỗi, 🗺 chỗ yếu, tiến độ, 📘 luật và cách dùng: tab 👤 Của tôi.</p>`;
   if (loaded) ovMqLS(nextMq);
   $app.onclick = e => { if (e.target.closest('[data-ovall]')) { OV_ALL = true; return overview(); } const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl);
     const b = e.target.closest('[data-ovp]'); if (!b) return; const id = b.dataset.ovp, l = b.dataset.ovpl; scrollTo(0, 0);

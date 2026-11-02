@@ -26,7 +26,9 @@ const ieHow = ks => `<details style="margin-top:6px"><summary>📘 Cách làm</s
 // Kinh nghiệm thường gặp (KHÔNG phải số chính thức của IELTS): tăng 0,5 band cần khoảng 6–12 tuần học đều.
 const IE_WK = [6, 12];
 const IE_SK = { L: ['🎧', 'Nghe'], R: ['📖', 'Đọc'], W: ['✍️', 'Viết'], S: ['🗣', 'Nói'] };
-function iePlan() { const o = ieSt(), tg = o.target, now = ieNow(), hpw = o.hpw || 6, gap = k => now.b[k] == null ? null : tg - now.b[k];
+// v108: mục tiêu ở 🔄 Lộ trình là IELTS thì giờ / tuần lấy theo ⚖️ chia nền / đề (ltSplit), không đặt riêng ở đây (một con số duy nhất)
+const ieLtHpw = () => S.lt && S.lt.goal && S.lt.goal.kind === 'ielts' && typeof ltSplit === 'function' ? Math.round(ltSplit().exM * 7 / 60 * 2) / 2 : null;
+function iePlan() { const o = ieSt(), tg = o.target, now = ieNow(), lh = ieLtHpw(), hpw = lh != null ? Math.max(0.5, lh) : o.hpw || 6, gap = k => now.b[k] == null ? null : tg - now.b[k];
   // giờ mỗi tuần chia theo khoảng cách band; chưa có số đo thì coi như cách 1 band; Viết, Nói (kỹ năng sản sinh) nặng hơn một chút
   const w = Object.fromEntries(Object.keys(IE_SK).map(k => { const g = gap(k); return [k, Math.max(0.5, (g == null ? 1 : g) + 0.5) * (k === 'W' || k === 'S' ? 1.2 : 1)]; })), sw = Object.values(w).reduce((s, x) => s + x, 0);
   const hrs = Object.fromEntries(Object.keys(w).map(k => [k, Math.max(0.5, Math.round(hpw * w[k] / sw * 2) / 2)]));
@@ -46,7 +48,7 @@ function iePlanBox() { const o = ieSt(), P = iePlan(), [act, lab] = ieToday();
   const warn = P.wk != null && P.need && P.wk < P.need[0] ? `<p style="margin:6px 0 0">⚠️ Còn ${P.wk} tuần, cần tăng ${bandTxt(P.g)} band. Kinh nghiệm thường gặp (không phải số chính thức): mỗi 0,5 band cần khoảng ${IE_WK[0]}–${IE_WK[1]} tuần học đều, tức ${P.need[0]}–${P.need[1]} tuần. Cân nhắc lùi ngày thi, tăng giờ học, hoặc hạ mục tiêu.</p>` : '';
   return `<div class="box"><b>📅 Hôm nay & kế hoạch</b>
     <div class="row" style="margin-top:6px;gap:8px"><label class="mute" style="font-size:14px">Ngày thi<input type="date" id="iedate" value="${esc(o.date || '')}" style="margin:2px 0"></label>
-      <label class="mute" style="font-size:14px">Giờ học / tuần<input type="number" id="iehpw" min="1" max="40" value="${P.hpw}" style="margin:2px 0"></label></div>
+      ${ieLtHpw() != null ? `<p class="mute" style="margin:0;font-size:14px">⚖️ Giờ luyện IELTS / tuần theo 🔄 Lộ trình: ~${ieLtHpw()} giờ (${ltSplit().ex}% số phút mỗi ngày)</p>` : `<label class="mute" style="font-size:14px">Giờ học / tuần<input type="number" id="iehpw" min="1" max="40" value="${P.hpw}" style="margin:2px 0"></label>`}</div>
     ${P.wk != null ? `<p style="margin:6px 0 0">Còn <b>${P.wk} tuần</b>${P.g != null ? ` · cách mục tiêu <b>${bandTxt(Math.max(0, P.g))}</b> band (Overall)` : ''}.</p>` : '<p class="mute" style="margin:6px 0 0">Chọn ngày thi để app tính số tuần còn lại.</p>'}${warn}
     <p style="margin:8px 0 2px"><b>Mỗi tuần (${P.hpw} giờ):</b> ${Object.entries(P.hrs).map(([k, h]) => `${IE_SK[k][0]} ${h} giờ`).join(' · ')}</p>
     <p class="mute" style="margin:2px 0 0">Chia theo khoảng cách band từng kỹ năng; Viết / Nói nặng hơn. Mỗi ngày: Sổ lỗi đến hạn. Mỗi 2 tuần: 1 đề thử app. Mỗi 4 tuần: 1 đề thật (sách Cambridge IELTS) để hiệu chỉnh band.</p>
