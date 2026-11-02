@@ -141,14 +141,17 @@ document.addEventListener('change', e => { if (!S || !e.target.closest('#todate'
 // ---------- màn chính ----------
 // v108: bỏ tab 🎓 Luyện thi; màn kỳ thi thuộc 📚 Học. v109 (người sáng lập: "phần học chia ra nền CEFR, mục tiêu IELTS, TOEIC… chứ không giấu nội dung phần mục tiêu"):
 // 📚 Học có hàng mục ngang hàng 🧱 Nền CEFR · 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC, mở được mọi mục; mục tiêu đang chọn chỉ được đánh dấu 🎯 (mục tiêu vẫn quyết ⚖️ và việc luyện đề ở Lộ trình).
-const EX_TABS = [['nen', '🧱 Nền CEFR'], ['cefr', '🎓 Cambridge'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']];
-const exSwitch = cur => { const g = S && S.lt && S.lt.goal, gk = g ? ({ ielts: 'ielts', toeic: 'toeic', cambridge: 'cefr' })[g.kind] : null;
-  return `<div class="chips" style="margin:4px 0 4px">${EX_TABS.map(([k, n]) => `<button class="chip ${k === cur ? 'on' : ''}" ${k === 'nen' ? 'data-hocnen' : `data-exsel="${k}"`}>${n}${k === gk ? ' 🎯' : ''}</button>`).join('')}</div>
-    ${cur === 'nen' ? '' : `<p class="mute" style="margin:0 0 8px">${g && typeof ltGoalName === 'function' ? `🎯 Mục tiêu: <b>${esc(ltGoalName(g))}</b> · ` : ''}<button class="link" data-ltedit>${g ? 'đổi mục tiêu' : 'đặt mục tiêu'} ở 🔄 Lộ trình ›</button></p>`}`; };   // màn Nền đã có ô 🎯 mục tiêu: không lặp
+// v110 (người sáng lập: "chia 2 mục: nền CEFR và thi: IELTS, TOEIC…"): hàng trên 2 mục 🧱 Nền CEFR · 🎓 Thi; trong 🎓 Thi có hàng con 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC (🎯 = mục tiêu).
+const EX_TABS = [['cefr', '🎓 Cambridge'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']];
+const exGoalK = () => { const g = S && S.lt && S.lt.goal; return g ? ({ ielts: 'ielts', toeic: 'toeic', cambridge: 'cefr' })[g.kind] || null : null; };
+const exSwitch = cur => { const g = S && S.lt && S.lt.goal, gk = exGoalK(), nen = cur === 'nen';
+  return `<div class="chips" style="margin:4px 0 4px"><button class="chip ${nen ? 'on' : ''}" data-hocnen>🧱 Nền CEFR</button><button class="chip ${nen ? '' : 'on'}" data-exthi>🎓 Thi${gk ? ' 🎯' : ''}</button></div>
+    ${nen ? '' : `<div class="chips" style="margin:0 0 4px">${EX_TABS.map(([k, n]) => `<button class="chip ${k === cur ? 'on' : ''}" data-exsel="${k}" style="font-size:13px">${n}${k === gk ? ' 🎯' : ''}</button>`).join('')}</div>
+    <p class="mute" style="margin:0 0 8px">${g && typeof ltGoalName === 'function' ? `🎯 Mục tiêu: <b>${esc(ltGoalName(g))}</b> · ` : ''}<button class="link" data-ltedit>${g ? 'đổi mục tiêu' : 'đặt mục tiêu'} ở 🔄 Lộ trình ›</button></p>`}`; };
 const exOpenK = k => k === 'toeic' ? toeicView() : k === 'ielts' || typeof cbView !== 'function' ? ieltsView() : cbView();
 const exSel = () => { if (!S) return null; const g = S.lt && S.lt.goal; if (g) return g.kind === 'ielts' || g.kind === 'toeic' ? g.kind : 'cefr'; return S.exSel || (S.ie && S.ie.set ? 'ielts' : 'cefr'); };
 const exOpen = () => { const k = exSel(), g = S.lt && S.lt.goal; return k === 'toeic' ? toeicView() : k === 'ielts' || typeof cbView !== 'function' ? ieltsView() : cbView(g && typeof ltGoalLv === 'function' ? ltGoalLv(g) : undefined); };
-document.addEventListener('click', e => { if (!S) return; if (e.target.closest('[data-hocnen]')) { scrollTo(0, 0); return overview(); } const b = e.target.closest('[data-exsel]'); if (!b) return; S.exSel = b.dataset.exsel; S.t = Date.now(); save(); scrollTo(0, 0); exOpenK(b.dataset.exsel); });   // v109: mở đúng mục đã chọn (mục tiêu không đổi)
+document.addEventListener('click', e => { if (!S) return; if (e.target.closest('[data-hocnen]')) { scrollTo(0, 0); return overview(); } if (e.target.closest('[data-exthi]')) { scrollTo(0, 0); return exOpenK(exGoalK() || S.exSel || 'cefr'); } const b = e.target.closest('[data-exsel]'); if (!b) return; S.exSel = b.dataset.exsel; S.t = Date.now(); save(); scrollTo(0, 0); exOpenK(b.dataset.exsel); });   // v109: mở đúng mục đã chọn (mục tiêu không đổi)
 async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_VOX = false;
   if (!TO || !KIT.np.items) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([toLoad(), kLoad(KIT.np)]); } catch (e) { $app.innerHTML = '<div id="ie"></div><p>Không tải được dữ liệu TOEIC. Thử lại sau.</p>'; return; } }
   const o = toSt(), tg = o.target, now = toNow(), cs = toReady(), nOk = cs.filter(c => c[0]).length, [act, lab] = toToday(), base = toBase(tg), w5 = toWrong5().length, nv = TO.voc.reduce((s, t) => s + t.w.length, 0);

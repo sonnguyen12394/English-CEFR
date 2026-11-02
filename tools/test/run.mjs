@@ -444,7 +444,7 @@ const R = await run(`(async () => {
     const tabs = [...IDX_.matchAll(/data-tab="(\\w+)"><i>[^<]*<\\/i>([^<]+)</g)].map(m => m[1] + ':' + m[2]).join(' ');
     if (tabs !== 'lt:Lộ trình all:Học dict:Tra cứu bk:Của tôi') bad.push('thanh dưới (v108: 4 tab, Lộ trình đầu tiên, bỏ Luyện thi): ' + tabs);
     // 🎯 Học người mới: ≤ 14 nút (v101: Pre-A1 thêm thẻ ✍️ Viết, 🗣 Nói); công cụ luyện thi, sổ lỗi, góp ý ở tab khác; chưa học gì thì chưa có việc ôn
-    await tryA('Học', () => overview('pre')); const ho = H(), nh = nbt(ho) - (ho.match(/data-exsel=|data-hocnen/g) || []).length;   // v109: hàng mục (Nền · Cambridge · IELTS · TOEIC) là điều hướng, không tính if (nh > 14) bad.push('🎯 Học người mới ' + nh + ' nút');
+    await tryA('Học', () => overview('pre')); const ho = H(), nh = nbt(ho) - (ho.match(/data-exsel=|data-hocnen|data-exthi/g) || []).length;   // v109: hàng mục (Nền · Cambridge · IELTS · TOEIC) là điều hướng, không tính if (nh > 14) bad.push('🎯 Học người mới ' + nh + ' nút');
     if (/data-mock|id="ovtools"|id="gyhome"|Sổ lỗi của tôi|data-rev|data-sotu/.test(ho)) bad.push('🎯 Học người mới còn công cụ của tab khác / việc ôn khi chưa có gì để ôn');
     // 🎓 Luyện thi: chưa chọn kỳ thi → 🎓 Cambridge (đề thử, cẩm nang, chuyển IELTS / TOEIC); đã đặt IELTS → IELTS
     delete S.exSel; delete S.ie; CB_LV = null; await tryA('Luyện thi', () => exOpen()); const hc = H();
@@ -837,14 +837,15 @@ const R = await run(`(async () => {
     S.act = {}; ltSt().ex = {}; actTick(now); actTick(now + 60000); if ((ltSt().ex[t] || 0) < 60000) bad.push('phút đề không cộng');
     await tryA('về Học', () => overview('pre')); if (LT_EX_ON) bad.push('về 📚 Học vẫn tính phút đề'); const e0 = ltSt().ex[t]; actTick(now + 90000); if (ltSt().ex[t] !== e0) bad.push('ngoài màn đề vẫn cộng');
     // ⑤ kỳ thi theo mục tiêu; màn kỳ thi có dòng mục tiêu thay hàng chọn kỳ thi; IELTS giờ / tuần lấy theo Lộ trình
-    S.place.top = 'b2p'; await tryA('mở đề IELTS', () => exOpen()); if (CUR.view !== 'ielts' || !H().includes('data-ltedit') || !/data-exsel="ielts">🌏 IELTS 🎯/.test(H()) || !H().includes('data-exsel="toeic"') || !H().includes('theo 🔄 Lộ trình') || H().includes('id="iehpw"')) bad.push('màn IELTS sai (v109: hàng mục đủ kỳ thi, 🎯 ở mục tiêu)');
+    S.place.top = 'b2p'; await tryA('mở đề IELTS', () => exOpen()); if (CUR.view !== 'ielts' || !H().includes('data-ltedit') || !H().includes('🌏 IELTS 🎯') || !H().includes('data-exthi') || !H().includes('data-exsel="toeic"') || !H().includes('theo 🔄 Lộ trình') || H().includes('id="iehpw"')) bad.push('màn IELTS sai (v109: hàng mục đủ kỳ thi, 🎯 ở mục tiêu)');
     await tryA('xem TOEIC khi mục tiêu IELTS', () => toeicView()); if (LT_EX_ON || CUR.view !== 'toeic') bad.push('v109: xem kỳ thi khác vẫn mở được nhưng không tính phút đề'); await tryA('về IELTS', () => ieltsView()); if (!LT_EX_ON) bad.push('kỳ thi của mục tiêu chưa tính phút đề');
     if (iePlan().hpw !== Math.max(0.5, Math.round(ltSplit().exM * 7 / 60 * 2) / 2)) bad.push('giờ IELTS / tuần chưa theo Lộ trình');
     S.to = { target: 650 }; ltSt().goal = { kind: 'toeic', lv: toBase(650), date: '', at: now }; await tryA('mở đề TOEIC', () => exOpen()); if (CUR.view !== 'toeic' || ltGoalLv() !== toBase(650)) bad.push('mục tiêu TOEIC chưa mở TOEIC');
     ltSt().goal = { kind: 'cambridge', lv: 'b1', date: '', at: now }; await tryA('mở Cambridge', () => exOpen()); if (CUR.view !== 'cambridge' || CB_LV !== 'b1') bad.push('mục tiêu Cambridge chưa mở đúng cấp');
     // ⑥ 📚 Học: ô mục tiêu + nút phần riêng + 🧱 Nền CEFR, không có ô Hôm nay; Lộ trình có ô Hôm nay + ⚖️
     ltSt().goal = { kind: 'ielts', lv: ieBase(7), date: '', at: now }; await tryA('Học', () => overview('pre'));
-    if (!H().includes('📚 Học') || !H().includes('🧱 Nền CEFR') || !H().includes('data-ltex') || H().includes('id="today"') || !['data-hocnen', 'data-exsel="cefr"', 'data-exsel="ielts"', 'data-exsel="toeic"'].every(x => H().includes(x))) bad.push('📚 Học chưa đúng (v109: hàng mục nền + mọi kỳ thi, ô mục tiêu, nền)');
+    if (!H().includes('📚 Học') || !H().includes('🧱 Nền CEFR') || !H().includes('data-ltex') || H().includes('id="today"') || !H().includes('data-exthi>🎓 Thi 🎯') || !H().includes('data-hocnen>🧱 Nền CEFR') || H().includes('data-exsel')) bad.push('📚 Học chưa đúng (v110: 2 mục Nền · Thi, ô mục tiêu, nền)');
+    await tryA('mở mục Thi', () => exOpenK(exGoalK() || 'cefr')); if (CUR.view !== 'ielts' || !['data-exsel="cefr"', 'data-exsel="ielts"', 'data-exsel="toeic"'].every(x => H().includes(x))) bad.push('mục Thi chưa mở kỳ thi mục tiêu / thiếu hàng con'); await tryA('Học', () => overview('pre'));
     await tryA('Lộ trình', () => ltView()); if (!H().includes('id="today"') || !H().includes('⚖️ 🧱 Nền') || !H().includes('luyện IELTS')) bad.push('🔄 Lộ trình thiếu ô Hôm nay / ⚖️');
     delete S.lt; await tryA('Học chưa mục tiêu', () => overview('pre')); if (!H().includes('Chưa đặt mục tiêu') || !H().includes('data-ltgo')) bad.push('📚 Học chưa có mục tiêu: thiếu lời mời đặt mục tiêu');
     const hd = HD.map(x => x[2]()).join(' '); if (!hd.includes('4 tab') && !HD.some(x => /4 tab/.test(x[1]))) bad.push('Luật chưa ghi 4 tab'); if (!hd.includes('Chia thời gian nền / đề') || !hd.includes('mở đầu tiên')) bad.push('Luật thiếu ⚖️ / tab mới');

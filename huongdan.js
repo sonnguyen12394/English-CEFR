@@ -13,7 +13,7 @@ const HD = [
     <p>5. Gặp từ lạ: chạm vào từ trong bài, hoặc tìm ở tab <b>📖 Tra cứu</b>. Bấm 📌 để lưu vào Sổ từ.</p>`],
   ['tab', '🧭 4 tab dùng làm gì', () => `
     <p><b>🔄 Lộ trình</b> (mở đầu tiên): 🎯 mục tiêu, <b>📅 Hôm nay</b> (chỗ duy nhất bảo "làm gì"), đợt ${LT_D} ngày, 🧭 xếp cấp, kiểm tra cuối đợt, tổng kết. Chạy từ mục tiêu → tìm chỗ yếu → chữa → bài mới, tới khi đạt.</p>
-    <p><b>📚 Học</b>: kho bài. 🧱 <b>Nền CEFR</b> (7 phần: Từ vựng, Phát âm, Ngữ pháp, Nghe, Nói, Đọc, Viết; Thư viện đọc) là gốc, chỗ duy nhất tính 📘 Học / 🔁 Nhớ / Thi chuyển cấp. Hàng mục ở đầu: 🧱 Nền CEFR · 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC, mở được tất cả; kỳ thi của mục tiêu có dấu 🎯. Luyện đề không tính vào luật đo nền.</p>
+    <p><b>📚 Học</b>: kho bài. 🧱 <b>Nền CEFR</b> (7 phần: Từ vựng, Phát âm, Ngữ pháp, Nghe, Nói, Đọc, Viết; Thư viện đọc) là gốc, chỗ duy nhất tính 📘 Học / 🔁 Nhớ / Thi chuyển cấp. 2 mục ở đầu: <b>🧱 Nền CEFR</b> · <b>🎓 Thi</b> (bên trong chọn 🎓 Cambridge, 🌏 IELTS hoặc 💼 TOEIC; mở được tất cả). Kỳ thi của mục tiêu có dấu 🎯. Luyện đề không tính vào luật đo nền.</p>
     <p><b>📖 Tra cứu</b>: tìm từ, ngữ pháp, lỗi hay gặp, phát âm, cụm từ; 📘 Cẩm nang thi (mẹo theo kỹ năng). Gõ tiếng Anh hoặc tiếng Việt.</p>
     <p><b>👤 Của tôi</b>: tiến độ, 🗺 bản đồ chỗ yếu, 📌 sổ từ, 📒 sổ lỗi, kết quả thi thật, 💾 dữ liệu và tài khoản, góp ý, và trang này.</p>`],
   ['cap', '🪜 Cấp và phần', () => `
@@ -78,7 +78,7 @@ const HD = [
     <p><b>📒 Sổ lỗi</b>: lỗi AI hoặc giáo viên chỉ ra khi chấm bài Viết / Nói. Ôn bằng cách tự sửa lại câu; đúng thì giãn ${hdDays(ERR_DAYS)}, sai thì ôn lại ngày mai.</p>
     <p>Cả hai nằm ở 👤 Của tôi; việc ôn đến hạn tự vào nút ôn chung ở ô Hôm nay.</p>`],
   ['luyenthi', '🎯 Mục tiêu thi: Cambridge, IELTS, TOEIC', () => `
-    <p>Mọi kỳ thi đều mở được ở hàng mục của 📚 Học; mục tiêu (đổi ở 🔄 Lộ trình) được đánh dấu 🎯 và quyết việc luyện đề hằng ngày. Phút luyện đề chỉ tính khi luyện đúng kỳ thi của mục tiêu. <b>⚖️ Chia thời gian nền / đề</b> theo khoảng cách giữa nền đang có và nền kỳ thi cần (IELTS: 6.5 cần B2+; TOEIC: theo bảng ETS): thiếu ≥ 2 cấp → 100% nền (luyện đề chưa có ích); thiếu ≥ 1 cấp → 70% nền / 30% đề; thiếu &lt; 1 cấp → 30 / 70; đủ nền → 10 / 90. Đây là ý kiến của app, chưa có nghiên cứu xác nhận.</p>
+    <p>Mọi kỳ thi đều mở được ở mục 🎓 Thi của 📚 Học; mục tiêu (đổi ở 🔄 Lộ trình) được đánh dấu 🎯 và quyết việc luyện đề hằng ngày. Phút luyện đề chỉ tính khi luyện đúng kỳ thi của mục tiêu. <b>⚖️ Chia thời gian nền / đề</b> theo khoảng cách giữa nền đang có và nền kỳ thi cần (IELTS: 6.5 cần B2+; TOEIC: theo bảng ETS): thiếu ≥ 2 cấp → 100% nền (luyện đề chưa có ích); thiếu ≥ 1 cấp → 70% nền / 30% đề; thiếu &lt; 1 cấp → 30 / 70; đủ nền → 10 / 90. Đây là ý kiến của app, chưa có nghiên cứu xác nhận.</p>
     <p><b>🎓 Cambridge</b>: đề thử theo khuôn, thời gian của đề thật; câu bốc ngẫu nhiên từ kho app, không phải đề chính thức. 📝 Đề mẫu chính thức (chỗ duy nhất app ghi "đạt" một cấp) và 🎯 Sẵn sàng thi mở khi ≥ 3 phần của cấp qua Thi chuyển cấp.</p>
     <p><b>🌏 IELTS</b>: band là <b>máy ước</b> (Viết / Nói tối đa 7.0). Muốn chính xác: làm đề thật (sách Cambridge IELTS…) rồi nhập kết quả theo từng câu; app tự hiệu chỉnh band và lập 🗺 bản đồ band theo dạng câu.</p>
     <p><b>💼 TOEIC</b>: điểm ước theo tỉ lệ đúng, <b>không</b> phải bảng quy đổi của ETS. Nhập điểm đề thật để hiệu chỉnh.</p>

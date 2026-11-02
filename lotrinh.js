@@ -157,7 +157,7 @@ document.addEventListener('change', e => { if (S && e.target.closest && e.target
 
 // ---------- 🎯 ô mục tiêu ở 📚 Học: tên mục tiêu, việc hôm nay, ⚖️ chia thời gian, nút mở phần riêng của kỳ thi ----------
 function ltGoalCard(stage = ovStage()) { const g = S.lt && S.lt.goal;
-  if (!g) return `<div class="box"><b>🎯 Chưa đặt mục tiêu</b><p class="mute" style="margin:6px 0">Đặt mục tiêu ở 🔄 Lộ trình: app chia việc mỗi ngày theo mục tiêu. Mọi mục (nền, Cambridge, IELTS, TOEIC) vẫn mở được ở hàng trên.</p><button class="pri" data-ltgo>🎯 Đặt mục tiêu ›</button></div>`;
+  if (!g) return `<div class="box"><b>🎯 Chưa đặt mục tiêu</b><p class="mute" style="margin:6px 0">Đặt mục tiêu ở 🔄 Lộ trình: app chia việc mỗi ngày theo mục tiêu. Mục 🎓 Thi ở hàng trên vẫn mở được mọi kỳ thi.</p><button class="pri" data-ltgo>🎯 Đặt mục tiêu ›</button></div>`;
   const sp = ltSplit(g), TP = typeof todayPlan === 'function' ? todayPlan(stage).filter(x => x.done != null) : [], ok = TP.filter(x => x.done).length, ic = { cambridge: '🎓', ielts: '🌏', toeic: '💼' }[sp.k];
   return `<div class="box"><div class="row"><b>🎯 ${esc(ltGoalName(g))}</b><button class="link" data-ltgo>🔄 Lộ trình ›</button></div>
     <p class="mute" style="margin:4px 0">📅 Việc hôm nay: ${ok}/${TP.length} xong · ⚖️ nền ${sp.nen}%${sp.k !== 'cefr' ? ` · đề ${sp.ex}%` : ''}</p>
