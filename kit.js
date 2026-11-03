@@ -88,7 +88,7 @@ function kView(id) { const P = KIT[id];
 function kList(P, lv, nx, now) { const st = kSt(P.id).cards, lock = kLocked(P, lv), xs = kItems(P, lv), at = xs.findIndex(x => nx ? x.id === nx.id : !st[x.id]);
   return pWin(xs.map(x => { const c = st[x.id], isNx = nx && nx.id === x.id, held = c && kDimsOf(P, x).every(k => kHeld(P, c, k, now));
     const [tag, cls] = !c ? (lock ? ['🔒', ''] : isNx ? [P.newQs ? 'làm tiếp' : 'học tiếp', 'next'] : ['', '']) : P.newQs && kIsFresh(P, x, now) ? ['làm lại được', '']
-      : held ? ['đã nhớ', 'good'] : isDue(c, now) && !P.newQs ? ['cần ôn', 'warn'] : [P.newQs ? 'đã làm' : 'đã học', ''];
+      : typeof lsState === 'function' && lsState(P.id, x, now) === 'yeu' ? ['yếu', 'bad'] : held ? ['đã nhớ', 'good'] : isDue(c, now) && !P.newQs ? ['cần ôn', 'warn'] : [P.newQs ? 'đã làm' : 'đã học', ''];
     return pRow(`data-kx="${x.id}"`, esc(P.name(x)), tag, isNx ? 'next' : cls); }), at); }
 const kExtraBtns = P => kExtra(P).map(([m, i]) => `<button class="opt" data-kex="${i}"><b>${m[1]}</b><br><span style="font-size:14px;opacity:.85">${m[2]}</span></button>`).join('');
 // v116: bài "luyện thêm" (P.menu có danh sách mặt rỗng: không chấm mặt nào) thuộc 📘 Bài học, không còn ở 🏋️ Bài tập

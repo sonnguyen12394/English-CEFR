@@ -55,7 +55,8 @@ function todayItems(stage = ovStage(), o = {}) { const now = Date.now(), t = day
   // 🩹 sửa lỗi sai: chỗ cần học lại (xếp cấp phát hiện) trước, rồi chỗ hay sai; tối đa LT_FIX số phút
   { const gn = typeof plGaps === 'function' ? plGaps(now).filter(g => !g.cho).length : 0, act = mf ? mf.act.length : 0, did = mf && mf.act.some(w => w.td === t);
     const fx = typeof ltFixMin === 'function' ? ltFixMin(t) : 0, cap = typeof ltCap === 'function' ? ltCap() : 0, full = cap && fx >= cap;
-    if (gn || act) add({ k: 'fix', ic: '🩹', title: 'Sửa lỗi sai', meta: full ? `Đủ cho hôm nay (${fx}/${cap} phút)` : gn ? `${gn} chỗ cần học lại` : did ? 'Đã sửa hôm nay' : `${Math.min(MAP_TODAY, act)} chỗ hay sai`, done: !!(full || (did && !gn)), attr: 'data-today="fix"' });
+    const nr = has && typeof mapRed === 'function' ? mapRed(now).length : 0;   // v119: bản đồ theo bài: việc chữa ghi số bài yếu (mapToday chữa bài yếu nhất)
+    if (gn || act || nr) add({ k: 'fix', ic: '🩹', title: 'Sửa lỗi sai', meta: full ? `Đủ cho hôm nay (${fx}/${cap} phút)` : gn ? `${gn} chỗ cần học lại` : did && !nr ? 'Đã sửa hôm nay' : nr ? `${nr} bài yếu` : `${Math.min(MAP_TODAY, act)} chỗ hay quên`, done: !!(full || (did && !gn && !nr)), attr: 'data-today="fix"' });
     if (mf && mf.root.length) extra(`<button class="link" data-map-rl="${esc(mapKey(mf.root[0]))}" style="margin:0 0 4px">🧱 Học lại bài gốc: ${mf.root.length} chỗ kẹt lâu ›</button>`); }
   // 📘 bài mới (v99: xếp cấp cao hơn → thi vượt thay cho bài mới cấp thấp)
   { const pl = plTop(stage), left = pl && !nw ? plLeft(pl) : [];

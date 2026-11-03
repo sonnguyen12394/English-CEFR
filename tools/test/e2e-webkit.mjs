@@ -129,7 +129,7 @@ check('kiểm tra đầu bài ra kết quả', /Đã biết \d+\/\d+ từ/.test(
 await pg.evaluate(() => { S.lt = { d: [], fx: {}, goal: { kind: 'cefr', lv: 'a2', date: '', at: Date.now() } }; ltView(); }); await pg.waitForTimeout(800);
 // v114: Lộ trình 2 phần 📅 Hôm nay · 🗺 Chỗ yếu
 check('Lộ trình có 2 phần', await pg.isVisible('[data-ltseg="today"].on') && await pg.isVisible('[data-ltseg="map"]')); await pg.click('[data-ltseg="map"]'); await pg.waitForTimeout(1200);
-check('bản đồ một danh sách', /Việc cần chữa[\s\S]*Độ phủ/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="lt"].on') && await pg.isVisible('[data-ltseg="map"].on'));
+check('bản đồ theo bài (v119)', /Việc cần chữa[\s\S]*Bản đồ theo bài/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="lt"].on') && await pg.isVisible('[data-ltseg="map"].on'));
 check('Chỗ yếu không tràn ngang', await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
 await pg.click('[data-ltseg="today"]'); await pg.waitForTimeout(800); check('về 📅 Hôm nay', (await pg.innerText('#app')).includes('Việc hôm nay') && await pg.isVisible('[data-ltseg="today"].on'));
 await pg.click('#tabs [data-tab="dict"]'); await pg.waitForTimeout(600); check('Từ điển sáng đúng nút', await pg.isVisible('#tabs [data-tab="dict"].on') && !(await pg.$('#tabs [data-tab="bk"].on')));

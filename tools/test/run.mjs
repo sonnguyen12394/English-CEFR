@@ -1018,6 +1018,45 @@ const R = await run(`(async () => {
     { const st = n => steps3({ learn: [1, 2], unit: 'bài', lq: 50, mq: 10, need: 1, ex: n }); if (!st({ k: 'cho', v: '✓', sub: 'thi lại từ 9/11' }).includes('thi lại từ 9/11') || !st({ k: 'wait', v: '⏳', sub: 'thi lại sau 3 ngày' }).includes('⏳') || !st({ k: 'done', v: '✓', sub: 'đã qua' }).includes('st3 ok')) bad.push('bước 3 hiện sai trạng thái'); }
     S = blank();
     add('cefr', 'C33', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'khuôn màn phần 3 tầng (7 phần): đường 3 bước, 2 nút, danh sách bài ghi bằng chữ (gọn 6 dòng), cấp khác + "Thêm" gập, màn đầu không chữ luật / ký hiệu, bước 3 thành nút thi khi đủ, học hết thì 🏋️ là nút chính'); }
+  // v119 bản đồ chỗ yếu theo BÀI (người sáng lập 2/11/2026: lưới bài có màu, chữa trước không chặn; bộ máy chỗ yếu và luật đo không đổi)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
+    const H = () => String($app.innerHTML), now = Date.now(), D = 864e5, t = dayOf(now);
+    S = blank(); const us = UNITS.filter(u => u.lv === 'pre').slice(0, 3); for (const u of us) learnCards(S, u, now - 5 * D);
+    const mk = (w, ok) => { const c = S.cards[w.id]; Object.assign(c, { S: 300, last: now - D, pv: 1, n: 4 }); c.dm = {}; for (const k of wDims(w, 'pre')) c.dm[k] = { ok: 1, pv: 1, n: 3 }; if (!ok) c.dm.nghia = { ok: 0, pv: 1, n: 3 }; };
+    us[0].words.forEach((w, i) => mk(w, i >= 4)); us[1].words.forEach((w, i) => { mk(w, i >= 1); if (i >= 1 && i < 6) S.cards[w.id].dm = {}; }); us[2].words.forEach(w => mk(w, true));   // bài 2: 1 từ sai + 5 từ chưa có bằng chứng nhớ = đang ôn
+    const xn = kItems(KIT.np, 'pre'); kSt('np').cards[xn[0].id] = { S: 1, last: now - D, d0: t - 4, ok: 0, pv: 1, n: 3, lapse: 1, dm: { nhan: { ok: 0, pv: 1, n: 3 } } };
+    kSt('np').cards[xn[1].id] = { S: 1, last: now, d0: t, ok: 1, pv: 0, n: 0, lapse: 0 };
+    // trạng thái bài: Từ vựng ≥ 3 từ sai = yếu, 1 từ sai = đang ôn, nhớ hết = vững; Ngữ pháp mặt sai = yếu
+    if (lsState('tv', us[0], now) !== 'yeu' || lsState('tv', us[1], now) !== 'on' || lsState('tv', us[2], now) !== 'vung' || lsState('tv', UNITS.filter(u => u.lv === 'pre')[5], now) !== 'chua') bad.push('trạng thái bài Từ vựng sai: ' + us.map(u => lsState('tv', u, now)).join(','));
+    if (lsState('np', xn[0], now) !== 'yeu' || lsState('np', xn[1], now) !== 'on' || lsState('np', xn[2], now) !== 'chua') bad.push('trạng thái bài Ngữ pháp sai');
+    const red = mapRed(now); if (red.length !== 2 || red[0].x !== us[0] || red[1].x !== xn[0]) bad.push('danh sách bài yếu sai: ' + red.map(l => l.id + ':' + l.x.id).join(','));
+    // màn bản đồ: Việc cần chữa (nút chữa bài yếu nhất + học bài mới không chặn) → lưới bài → "Thêm" chứa phần cũ
+    MAP_BACK = 'lt'; await tryA('bản đồ', () => mapView()); { const h = H(), pos = x => h.indexOf(x);
+      if (!(pos('Việc cần chữa') >= 0 && pos('Việc cần chữa') < pos('Bản đồ theo bài') && pos('Bản đồ theo bài') < pos('<details class="box more"'))) bad.push('bản đồ: thứ tự phần sai');
+      if (!/class="pri" data-ml="0"/.test(h) || !h.includes('Chữa bài yếu nhất') || !h.includes('data-map="new"')) bad.push('bản đồ: thiếu nút chữa bài yếu nhất / học bài mới');
+      const g = (h.split('class="mgrid"')[1] || '').split('</div>')[0]; if ((g.match(/<i class="yeu">/g) || []).length !== 2 || (g.match(/data-mrow="/g) || []).length < 6) bad.push('lưới bài sai: ' + (g.match(/<i class="yeu">/g) || []).length);
+      if (!h.includes('6 từ hay sai') && !h.includes('4 từ hay sai')) bad.push('thiếu lý do bài yếu');
+      if (!h.split('<details class="box more"')[1] || !h.split('<details class="box more"')[1].includes('Từng chỗ đang chữa')) bad.push('phần cũ chưa gập vào Thêm'); }
+    // chữa một bài: chỉ hỏi chỗ sai của bài đó
+    { let got = null; const r0 = run, q0 = kQuiz; run = o => { got = o; }; kQuiz = o => { got = o; };
+      tryv('chữa Từ vựng', () => mapFixLesson(red[0], now)); const bw = new Set(us[0].words.slice(0, 4).map(w => w.id));
+      if (!got || !got.items || got.items.length !== 4 || got.items.some(it => !bw.has(it.w.id))) bad.push('chữa bài Từ vựng hỏi sai từ');
+      got = null; tryv('chữa Ngữ pháp', () => mapFixLesson(red[1], now)); if (!got || !got.qs || !got.qs.length || !got.qs.every(q => q.x === xn[0])) bad.push('chữa bài Ngữ pháp sai');
+      got = null; tryv('Hôm nay chữa', () => mapToday()); if (!got || !got.items) bad.push('Sửa lỗi sai ở Hôm nay chưa chữa bài yếu nhất');
+      // Đọc: ý chính / chi tiết sai thì chữa gốc / xem lại, không làm lại bài vừa gặp
+      const xd = kItems(KIT.doc, 'pre')[0]; kSt('doc').cards[xd.id] = { S: 1, last: now - D, seen: now - D, d0: t - 2, ok: 0, pv: 1, n: 1, lapse: 0, dm: { y: { ok: 0, pv: 1, n: 1, f: now - D, fq: [0, 1] } } };
+      got = null; tryv('chữa Đọc', () => mapFixLesson({ id: 'doc', x: xd, s: 'yeu' }, now)); if (got) bad.push('chữa Đọc lại làm lại bài vừa gặp');
+      run = r0; kQuiz = q0; }
+    // màn kỹ năng ghi "yếu"; ô Hôm nay ghi số bài yếu và vẫn có học bài mới (không chặn)
+    tryv('np', () => kView('np')); if (!H().includes('>yếu<')) bad.push('màn Ngữ pháp chưa ghi bài yếu');
+    tryv('tv', () => home()); if (!H().includes('>yếu<')) bad.push('màn Từ vựng chưa ghi bài yếu');
+    { const it = todayItems('pre'), fx = it.find(x => x.k === 'fix'); if (!fx || !/bài yếu/.test(fx.meta) || !it.some(x => x.k === 'new')) bad.push('ô Hôm nay: ' + (fx ? fx.meta : 'không có việc chữa')); }
+    // chỗ hổng nền (xếp cấp, chưa học) tô đỏ bài chứa nó và có nút riêng
+    { const u5 = UNITS.filter(u => u.lv === 'pre')[6], w5 = u5.words[0]; S.place = { at: now, top: 'pre', gap: [{ k: 'tv|' + w5.id, d: t - 1, wd: t - 1 }] };
+      const r = mapLessons(now).find(x => x.id === 'tv').ls.find(l => l.x === u5); if (!r || r.s !== 'yeu' || !r.gap) bad.push('chỗ hổng nền chưa tô đỏ bài');
+      await tryA('bản đồ có hổng', () => mapView()); if (!H().includes('Chữa tiếp: chỗ hổng nền trước') || !H().includes('1 chỗ hổng nền')) bad.push('bản đồ chưa đưa chỗ hổng nền lên trước'); }
+    S = blank();
+    add('cefr', 'C34', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'bản đồ chỗ yếu theo bài: trạng thái bài (yếu / đang ôn / vững / chưa học), lưới bài có màu, nút chữa bài yếu nhất chỉ hỏi chỗ sai, Đọc chữa gốc, Hôm nay chữa bài yếu nhất và không chặn bài mới, chỗ hổng nền lên trước, màn kỹ năng ghi "yếu" đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V', 'T'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung)');

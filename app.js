@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 118;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 119;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -357,7 +357,7 @@ function roadmap(now, nu) {
   const chOf = i => { const us = us0.filter(u => u.ch === i); return [us[0], us, us.filter(unitDone).length]; };
   const [f, us, done] = chOf(show);
   const rows = us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now, w)).length / u.words.length >= 0.8, isNx = u === nu;
-    const [tag, cls] = lock ? ['🔒', ''] : m ? ['đã nhớ', 'good'] : d ? ['đã học', ''] : isNx ? ['học tiếp', 'next'] : [`${u.words.length} từ`, ''];
+    const [tag, cls] = lock ? ['🔒', ''] : typeof lsState === 'function' && lsState('tv', u, now) === 'yeu' ? ['yếu', 'bad'] : m ? ['đã nhớ', 'good'] : d ? ['đã học', ''] : isNx ? ['học tiếp', 'next'] : [`${u.words.length} từ`, ''];
     return pRow(`data-un="${u.id}"`, `Bài ${u.bi} · ${esc(u.vi)}`, tag, isNx ? 'next' : cls, lock); }).join('');
   const others = chs.filter(i => i !== show);
   const chips = LEVELS.map(l => `<button class="chip ${lv === l ? 'on' : ''}" data-lv="${l}">${lockedLv(l) ? '🔒 ' : passed(l) ? '✅ ' : ''}${LVN[l]} · ${WORDS.filter(w => UBY[w.u].lv === l).length} từ</button>`).join('');

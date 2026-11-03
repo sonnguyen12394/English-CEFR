@@ -90,7 +90,7 @@ let PA_VIEW = null;
 function paList(lv, nx, now) { const st = paSt(), lock = paLocked(lv), gk = paGk();   // v118: trạng thái bằng chữ (trước: ⚪ 🔵 + dấu từng mặt)
   const xs = PA.filter(x => x.lv === lv), at = xs.findIndex(x => nx ? x.id === nx.id : !st[x.id]);
   return pWin(xs.map(x => { const c = st[x.id], isNx = nx && nx.id === x.id, hd = c && gk.every(k => heldDim(c, k, now));
-    const [tag, cls] = !c ? (lock ? ['🔒', ''] : isNx ? ['học tiếp', 'next'] : ['', '']) : hd ? ['đã nhớ', 'good'] : isDue(c, now) ? ['cần ôn', 'warn'] : ['đã học', ''];
+    const [tag, cls] = !c ? (lock ? ['🔒', ''] : isNx ? ['học tiếp', 'next'] : ['', '']) : typeof lsState === 'function' && lsState('pa', x, now) === 'yeu' ? ['yếu', 'bad'] : hd ? ['đã nhớ', 'good'] : isDue(c, now) ? ['cần ôn', 'warn'] : ['đã học', ''];
     return pRow(`data-paset="${x.id}"`, `${esc(x.title)} <span class="mute">· ${esc(x.vi)}</span>`, tag, isNx ? 'next' : cls); }), at); }
 // ô bộ chấm âm (tải / đang tải / sẵn sàng): dùng chung trạng thái của noi.js
 const nModelBox = () => NO.vocab ? `<p class="mute">🧪 Bộ chấm âm đã sẵn sàng trên máy.</p>`
