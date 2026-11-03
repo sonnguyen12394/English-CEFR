@@ -31,12 +31,30 @@ const IE_AB = 'ABCDEFGH';
 const iePass = x => `<details class="box" open style="margin-top:12px"><summary><b>${esc(x.title)}</b> <span class="mute">(${kWords(x.paras.join(' ')).length} từ)</span></summary>
   ${x.paras.map((p, i) => `<p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0"><b>${IE_AB[i]}</b> ${esc(p)}</p>`).join('')}</details>`;
 const IE_TFH = '<p class="mute">TRUE = bài nói đúng như vậy · FALSE = bài nói ngược lại · NOT GIVEN = bài không nói tới.</p>';
-const IE_RK = { h: ['🧭', 'Chọn tiêu đề cho đoạn'], tf: ['⚖️', 'TRUE / FALSE / NOT GIVEN'], comp: ['✏️', 'Điền không quá 2 từ'], mc: ['🔘', 'Trắc nghiệm'] };
-function ieRQs(x, kinds = ['h', 'tf', 'comp', 'mc']) { const foot = iePass(x), out = [];
+const IE_RK = { h: ['🧭', 'Chọn tiêu đề cho đoạn'], tf: ['⚖️', 'TRUE / FALSE / NOT GIVEN'], comp: ['✏️', 'Điền không quá 2 từ'], mc: ['🔘', 'Trắc nghiệm'],
+  // v123 (người sáng lập 3/11/2026: đủ nội dung theo mục tiêu, chọn "soạn thêm bài đọc mới"): 7 dạng còn lại của đề thật, có bài luyện trong app
+  yn: ['💭', 'YES / NO / NOT GIVEN'], mi: ['🔎', 'Tìm đoạn chứa thông tin'], mf: ['👤', 'Nối đặc điểm với tên'], se: ['🧩', 'Nối nửa câu'], sum: ['📝', 'Điền tóm tắt'], dia: ['🗂', 'Điền sơ đồ / quy trình'], sa: ['❓', 'Trả lời ngắn'] };
+// bài có dạng k không (tiêu đề cần đủ mỗi đoạn một tiêu đề; dạng có danh sách con: mf / se / sum / dia)
+const ieHasK = (x, k) => { const v = x[k]; return !!v && (Array.isArray(v) ? v.length > 0 : (v.qs || v.n || v.a || []).length > 0); };
+const IE_RQK = ['h', 'mi', 'tf', 'yn', 'mf', 'se', 'sum', 'dia', 'comp', 'sa', 'mc'];   // thứ tự dạng trong một bài (như đề thật: theo khối)
+const IE_YNH = '<p class="mute">YES = khớp ý tác giả · NO = trái ý tác giả · NOT GIVEN = không biết tác giả nghĩ gì.</p>';
+// sơ đồ / quy trình: các ô nối mũi tên, ô đang hỏi tô màu
+const ieDiaHtml = (d, cur) => `<div class="box" style="margin:6px 0"><b>${esc(d.t)}</b>${d.n.map((n, i) => `${i ? '<p style="text-align:center;margin:2px 0" aria-hidden="true">↓</p>' : ''}<p style="margin:4px 0;padding:6px 8px;border:1px solid var(--line);border-radius:8px${i === cur ? ';border-color:var(--accent);background:var(--accent2)' : ''}">${esc(n.s).replace('______', i === cur ? '<b>______</b>' : '______')}</p>`).join('')}</div>`;
+const ieSumHtml = (m, cur) => `<div class="box" style="margin:6px 0"><b>${esc(m.t)}</b><p style="margin:6px 0 0;line-height:1.7">${esc(m.s).replace(/\{(\d+)\}/g, (_, n) => +n - 1 === cur ? `<mark style="padding:1px 4px;border-radius:4px"><b>(${n})</b> ______</mark>` : `(${n}) ______`)}</p>${m.bank ? `<p class="mute" style="margin:6px 0 0">Khung từ: ${m.bank.map(esc).join(' · ')}</p>` : ''}</div>`;
+function ieRQs(x, kinds = IE_RQK) { const foot = iePass(x), out = []; kinds = IE_RQK.filter(k => kinds.includes(k) && ieHasK(x, k));
   if (kinds.includes('h')) { const hs = shuf([...x.h, ...x.hx]); x.h.forEach((h, i) => out.push({ x, k: 'h', ty: 'R-h', kind: 'mc', head: '<p class="mute">Chọn tiêu đề đúng cho đoạn. Mỗi tiêu đề dùng một lần; có tiêu đề thừa.</p>', q: `Đoạn ${IE_AB[i]}`, opts: hs, a: h, foot })); }
   if (kinds.includes('tf')) for (const t of x.tf) out.push({ x, k: 'tf', ty: 'R-tf', kind: 'mc', head: IE_TFH, q: esc(t.s), opts: ['TRUE', 'FALSE', 'NOT GIVEN'], a: t.a, why: t.why, foot });
   if (kinds.includes('comp')) for (const c of x.comp) out.push({ x, k: 'comp', ty: 'R-comp', kind: 'type', head: '<p class="mute">Điền KHÔNG QUÁ HAI TỪ, lấy đúng từ trong bài.</p>', q: esc(c.s).replace('______', '<b>______</b>'), a: c.a[0], acc: c.a, why: c.why, foot });
   if (kinds.includes('mc')) for (const m of x.mc) out.push({ x, k: 'mc', ty: 'R-mc', kind: 'mc', q: esc(m.q), opts: shuf([m.a, ...m.w]), a: m.a, why: m.why, foot });
+  // v123: 7 dạng còn lại
+  if (kinds.includes('yn')) for (const t of x.yn) out.push({ x, k: 'yn', ty: 'R-yn', kind: 'mc', head: IE_YNH, q: esc(t.s), opts: ['YES', 'NO', 'NOT GIVEN'], a: t.a, why: t.why, foot });
+  if (kinds.includes('mi')) { const L = x.paras.map((_, i) => IE_AB[i]); for (const t of x.mi) out.push({ x, k: 'mi', ty: 'R-mi', kind: 'mc', head: '<p class="mute">Đoạn nào có thông tin sau? Một đoạn có thể dùng nhiều lần.</p>', q: esc(t.s), opts: L, a: IE_AB[t.p], why: t.why, foot }); }
+  if (kinds.includes('mf')) { const F = x.mf.f.map((f, i) => IE_AB[i] + ' ' + f); for (const t of x.mf.qs) out.push({ x, k: 'mf', ty: 'R-mf', kind: 'mc', head: `<p class="mute">Nối mỗi nhận định với đúng ${esc(x.mf.t || 'người')}. Một tên có thể dùng nhiều lần.</p>`, q: esc(t.s), opts: F, a: F[t.a], why: t.why, foot }); }
+  if (kinds.includes('se')) { const E = x.se.e.map((e, i) => IE_AB[i] + ' ' + e); for (const t of x.se.qs) out.push({ x, k: 'se', ty: 'R-se', kind: 'mc', head: '<p class="mute">Chọn vế đúng để hoàn thành câu. Có vế thừa.</p>', q: esc(t.s) + ' …', opts: E, a: E[t.a], why: t.why, foot }); }
+  if (kinds.includes('sum')) x.sum.a.forEach((a, i) => out.push({ x, k: 'sum', ty: 'R-sum', head: `<p class="mute">${x.sum.bank ? 'Chọn từ trong khung để điền vào tóm tắt.' : 'Điền KHÔNG QUÁ HAI TỪ, lấy đúng từ trong bài.'}</p>${ieSumHtml(x.sum, i)}`, q: `Chỗ trống (${i + 1})`,
+    ...(x.sum.bank ? { kind: 'mc', opts: x.sum.bank, a: a[0] } : { kind: 'type', a: a[0], acc: a }), why: (x.sum.why || [])[i], foot }));
+  if (kinds.includes('dia')) x.dia.n.forEach((n, i) => { if (n.a) out.push({ x, k: 'dia', ty: 'R-dia', kind: 'type', head: `<p class="mute">Điền KHÔNG QUÁ HAI TỪ vào sơ đồ, lấy đúng từ trong bài.</p>${ieDiaHtml(x.dia, i)}`, q: 'Ô được tô màu', a: n.a[0], acc: n.a, why: n.why, foot }); });
+  if (kinds.includes('sa')) for (const t of x.sa) out.push({ x, k: 'sa', ty: 'R-sa', kind: 'type', head: '<p class="mute">Trả lời KHÔNG QUÁ BA TỪ và / hoặc một số, lấy từ trong bài.</p>', q: esc(t.q), a: t.a[0], acc: t.a, why: t.why, foot });
   return out; }
 // v99 (nhật ký trải nghiệm): đề thật mỗi bài đọc 13–14 câu (cả đề 40). Bài của app có ~18–22 câu: lượt "cả bài" và đề thử cắt còn n câu,
 // chia theo dạng (mỗi dạng ≥ 2 câu), giữ thứ tự dạng và thứ tự câu trong bài
@@ -293,9 +311,13 @@ const IE_PAPERS = [
   { t: '📖 Đọc (Reading)', k: 'R', min: 60, gen: () => ieSt().type === 'gt'
     ? [...KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)).sort(() => Math.random() - 0.5).slice(0, 2).flatMap(x => kRead(KIT.doc, x, 'ct', false).map(q => ({ part: 'Section 1–2: văn bản đời thường, công việc', q: Object.assign(q, { ty: 'R-gt' }) }))),
       ...iePick(IE.doc, 1).flatMap(x => ieCap(ieRQs(x), 14).map(q => ({ part: 'Section 3: bài dài', q })))]
-    : iePick(IE.doc, 3).flatMap((x, i) => ieCap(ieRQs(x), i === 2 ? 14 : 13).map(q => ({ part: `Passage ${i + 1}: ${x.title}`, q }))) },
+    : ieMk3().flatMap((x, i) => ieCap(ieRQs(x), i === 2 ? 14 : 13).map(q => ({ part: `Passage ${i + 1}: ${x.title}`, q }))) },
   { t: '✍️ Viết (Writing)', k: 'W', min: 60, gen: () => { const [t1, its] = ieT1(); return [{ part: IE_TASK[t1][0], q: ieWQ(t1, iePick(its, 1)[0]) }, { part: IE_TASK.t2[0], q: ieWQ('t2', ieWPick('t2')) }]; } },
   { t: '🗣 Nói (Speaking)', k: 'S', min: 14, speak: true, gen: () => ieSpeakQs() }];
+// v123: bài mới chỉ có 13–14 câu: 3 bài của đề thử phải có ít nhất một bài ≥ 14 câu (đặt cuối) để đủ 13 + 13 + 14 = 40
+function ieMk3() { const nq = x => ieRQs(x).length, ps = iePick(IE.doc, 3);
+  if (!ps.some(x => nq(x) >= 14)) { const big = iePick(IE.doc.filter(x => !ps.includes(x) && nq(x) >= 14), 1)[0]; if (big) ps[2] = big; }
+  return ps.sort((a, b) => nq(a) - nq(b)); }
 async function ieMock(idx) { $app.innerHTML = '<p class="mute">Đang tải kho câu…</p>'; await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KIT.doc)]);
   if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {}
   const T = ieSt().type; MK = { lv: 'ielts', C: { name: 'IELTS ' + IE_TYPE[T] + ' (kiểu)' }, papers: [], idx, plays: 1, done: ieMockResult, quit: ieltsView,
@@ -449,7 +471,7 @@ function ieSkView(k) { BACK = null; window.CUR = { view: 'ielts', sk: k }; EXAM_
     lt: { R: 'Bài đọc', L: 'Bài nghe', W: 'Đề viết', S: 'Chủ đề nói' }[k], rows, at, more });
   $app.onclick = ieClick; scrollTo(0, 0); }
 // 📘 Bài học của kỳ thi = cách làm từng dạng câu (IE_HOW), mỗi dạng có nút thử ngay; không tính band
-const IE_HK = { L: ['listen'], R: ['tf', 'h', 'comp', 'time'], S: ['p13', 'p2'] }, IE_TRY = { listen: 'data-iel="form"', tf: 'data-ier="tf"', h: 'data-ier="h"', comp: 'data-ier="comp"', p13: 'data-ies="p1"', p2: 'data-ies="p2"', t1: 'data-iew="t1"', gt1: 'data-iew="gt1"', t2: 'data-iew="t2"' };
+const IE_HK = { L: ['listen'], R: ['tf', 'yn', 'h', 'mi', 'mf', 'se', 'comp', 'sum', 'dia', 'sa', 'time'], S: ['p13', 'p2'] }, IE_TRY = { listen: 'data-iel="form"', tf: 'data-ier="tf"', h: 'data-ier="h"', comp: 'data-ier="comp"', yn: 'data-ier="yn"', mi: 'data-ier="mi"', mf: 'data-ier="mf"', se: 'data-ier="se"', sum: 'data-ier="sum"', dia: 'data-ier="dia"', sa: 'data-ier="sa"', p13: 'data-ies="p1"', p2: 'data-ies="p2"', t1: 'data-iew="t1"', gt1: 'data-iew="gt1"', t2: 'data-iew="t2"' };
 function ieHowView(k) { if (!IE_SKV[k]) return ieltsView(); BACK = null; window.CUR = { view: 'ielts', sk: k }; const [ic, vi] = IE_SKV[k], ks = k === 'W' ? [ieT1()[0], 't2'] : IE_HK[k];
   $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-iesk="${k}">‹ ${vi}</button><span></span></div><h1>📘 Cách làm · ${ic} ${vi}</h1><p class="mute">Đọc cách làm từng dạng, rồi thử ngay dạng đó. Không tính band.</p>
     ${ks.map(h => `<div class="box"><b>${IE_HOW[h][0]}</b>${IE_HOW[h][1].map(x => `<p style="margin:6px 0 0;font-size:15px">• ${esc(x)}</p>`).join('')}${IE_TRY[h] ? `<button ${IE_TRY[h]} style="margin-top:8px">▶ Thử dạng này</button>` : ''}</div>`).join('')}`;
@@ -464,7 +486,7 @@ function ieClick(e) { const g = s => e.target.closest(s), sk = (window.CUR || {}
   if ((b = g('[data-iecefr]'))) { scrollTo(0, 0); return overview(b.dataset.iecefr); }
   if ((b = g('[data-iemk]'))) return ieMock(b.dataset.iemk === 'all' ? [0, 1, 2, 3] : [+b.dataset.iemk]);
   if ((b = g('[data-iel]'))) { const qs = ieListen(b.dataset.iel === 'form' ? [shuf([0, 3])[0]] : [shuf([1, 2])[0]]).map(it => it.q); scrollTo(0, 0); return qs.length ? ieRun('🎧 Nghe', qs, back) : toast('Chưa có bài nghe hợp dạng này.'); }
-  if ((b = g('[data-ier]'))) { const k = b.dataset.ier, x = iePick(IE.doc, 1)[0]; scrollTo(0, 0); return ieRun('📰 ' + (k === 'all' ? x.title : IE_RK[k][1]), k === 'all' ? ieCap(ieRQs(x), 14) : ieRQs(x, [k]), back, k === 'all' ? 20 : 0); }
+  if ((b = g('[data-ier]'))) { const k = b.dataset.ier, x = iePick(k === 'all' ? IE.doc : IE.doc.filter(y => ieHasK(y, k)), 1)[0]; if (!x) return toast('Chưa có bài cho dạng này.'); scrollTo(0, 0); return ieRun('📰 ' + (k === 'all' ? x.title : IE_RK[k][1]), k === 'all' ? ieCap(ieRQs(x), 14) : ieRQs(x, [k]), back, k === 'all' ? 20 : 0); }
   if ((b = g('[data-iew]'))) { scrollTo(0, 0); return ieWrite(b.dataset.iew, null, null, back); }
   if ((b = g('[data-ies]'))) { scrollTo(0, 0); return ieSpeak(b.dataset.ies === 'all' ? ['p1', 'p2', 'p3'] : b.dataset.ies === 'p3' ? ['p3'] : [b.dataset.ies], null, back); } }
 ieLoad().catch(() => {});

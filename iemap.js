@@ -36,7 +36,7 @@ function imWeak() { const o = ieSt(), tg = o.target, T = o.ty || {}, fx = (o.fo 
 // số bài chưa gặp trong 30 ngày cho một dạng (kho nhỏ: hết bài mới thì lượt luyện không tính lần thử)
 const imFreshOk = (id, now = Date.now()) => { const r = ieSt().r[id]; return !r || now - r.at >= IM_FRESH_D * DAY; };
 function imPool(u) { if (u === 'R-para') return IE && IE.para || []; if (u === 'R-gt') return KIT.doc.items ? KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)) : [];
-  if (u[0] === 'R') return IE ? IE.doc : []; if (u === 'L-map' || u === 'L-match') return IE && IE.ln ? IE.ln.filter(x => x.qs.some(q => IE_LTY[q.k] === u)) : [];
+  if (u[0] === 'R') return IE ? IE.doc.filter(x => typeof ieHasK !== 'function' || ieHasK(x, u.slice(2))) : [];   // v123: bài có dạng đó if (u === 'L-map' || u === 'L-match') return IE && IE.ln ? IE.ln.filter(x => x.qs.some(q => IE_LTY[q.k] === u)) : [];
   if (u[0] === 'L') { const ln = IE && IE.ln ? IE.ln.filter(x => x.qs.some(q => IE_LTY[q.k] === u)) : []; return [...ln, ...(KIT.nghe.items ? KIT.nghe.items.filter(x => ['b1', 'b2', 'c1', 'c2'].includes(x.lv) && (u === 'L-form' ? ngForm(x) : true)) : [])]; } return []; }
 const imFreshN = u => imPool(u).filter(x => imFreshOk(x.id)).length;
 // nhóm đang chữa: S.ie.fo = { a: [{ u, at, tr (số ngày đã thử), td, pd (ngày đạt liền nhau), r (lần quay lại) }], p: [{ u, at, r, root }], n: số chỗ chữa xong }

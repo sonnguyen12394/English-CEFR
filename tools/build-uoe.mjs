@@ -2,14 +2,15 @@
 // Chạy: node tools/build-uoe.mjs   (thoát mã 1 nếu dữ liệu sai)
 import fs from 'node:fs';
 const root = new URL('../', import.meta.url).pathname, out = { long: [], mc: [], open: [], wf: [], kwt: [], sum: [] }, bad = [];
-const LIM = { b1: [2, 5, 300], b2: [2, 5, 500], c1: [3, 6, 600], c2: [3, 8, 700] };   // KWT ít / nhiều từ nhất; bài dài tối thiểu số từ
+const LIM = { a2: [2, 4, 200], b1: [2, 5, 300], b2: [2, 5, 500], c1: [3, 6, 600], c2: [3, 8, 700] };   // v123: + A2 (A2 Key Đọc phần 2: nối câu với người)   // KWT ít / nhiều từ nhất; bài dài tối thiểu số từ
 const words = s => (s.match(/[A-Za-z][A-Za-z'-]*/g) || []).length;
-for (const lv of ['b1', 'b2', 'c1', 'c2']) { const D = JSON.parse(fs.readFileSync(root + `content/bs/uoe-${lv}.json`, 'utf8'));
+for (const lv of ['a2', 'b1', 'b2', 'c1', 'c2']) { const D = JSON.parse(fs.readFileSync(root + `content/bs/uoe-${lv}.json`, 'utf8'));
   for (const k of Object.keys(out)) for (const x of D[k] || []) { if (x.lv !== lv) bad.push(x.id + ': sai cấp'); out[k].push(x);
-    if (k === 'long') { if (words(x.text) < LIM[lv][2] * (x.pm ? 0.8 : 1)) bad.push(x.id + ': bài ngắn ' + words(x.text) + ' từ');
+    if (k === 'long') { if (words(x.text) < LIM[lv][2] * (x.xt ? 0.7 : x.pm ? 0.8 : 1)) bad.push(x.id + ': bài ngắn ' + words(x.text) + ' từ');
       for (const q of x.qs || []) if (new Set([q.a, ...q.w]).size !== 4) bad.push(x.id + ': cần 4 phương án khác nhau: ' + q.q);
-      if (x.pm) { const n = x.text.split('\n').filter(l => /^[A-F]  /.test(l)).length; if (n !== x.secs.length) bad.push(x.id + ': số đoạn ' + n + ' ≠ ' + x.secs.length);
-        for (const q of x.pm) if (!(q.p >= 0 && q.p < x.secs.length)) bad.push(x.id + ': p sai'); } }
+      // nối (pm: nối câu / người với đoạn, A–H) · v123 xt: so ý giữa 4 văn bản (C1 phần 6); mọi đoạn phải có ít nhất một câu trỏ tới (trừ đoạn thừa của B1 phần 2)
+      for (const k2 of ['pm', 'xt']) if (x[k2]) { const n = x.text.split('\n').filter(l => /^[A-H]  /.test(l)).length; if (n !== x.secs.length) bad.push(x.id + ': số đoạn ' + n + ' ≠ ' + x.secs.length);
+        for (const q of x[k2]) if (!(q.p >= 0 && q.p < x.secs.length)) bad.push(x.id + ': p sai'); } }
     if (['mc', 'open', 'wf'].includes(k)) { const g = [...x.text.matchAll(/\{(\d+)\}/g)].map(m => +m[1]);
       if (g.length !== x.gaps.length || g.some((n, i) => n !== i + 1)) bad.push(x.id + ': số chỗ trống ' + g.length + ' ≠ ' + x.gaps.length);
       for (const y of x.gaps) { if (k === 'mc' && new Set([y.a, ...y.w]).size !== 4) bad.push(x.id + ': cần 4 phương án: ' + y.a);

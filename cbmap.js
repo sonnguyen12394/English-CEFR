@@ -7,18 +7,18 @@
 //   yếu = dưới ngưỡng đạt ước tính của kỳ thi (MOCK.pass: ~70% tới B1, ~60% từ B2; ngưỡng ước, không chính thức).
 // Chỉ đọc dữ liệu: không đổi luật đo; không có nhóm đang chữa / tạm gác như IELTS / TOEIC (ô hết yếu khi các lần làm gần đây ổn).
 const CB_N = 8, CB_WIN = 20, CB_ST = { yeu: 'yếu', on: 'chưa chắc', vung: 'ổn', chua: 'chưa làm' };
-const CB_UK = ['mc', 'open', 'wf', 'kwt', 'long', 'pm', 'sum'];
-const CB_KEY = [[/trắc nghiệm/, 'mc'], [/tạo dạng từ/, 'wf'], [/từ khoá/, 'kwt'], [/nối câu với đoạn/, 'pm'], [/bài dài/, 'long'], [/tóm tắt/, 'sum'], [/nghe điền/, 'nf'], [/khuyết câu/, 'gap'], [/điền từ/, 'open']];
+const CB_UK = ['mc', 'open', 'wf', 'kwt', 'long', 'pm', 'sum', 'xt'];
+const CB_KEY = [[/trắc nghiệm/, 'mc'], [/tạo dạng từ/, 'wf'], [/từ khoá/, 'kwt'], [/nối câu với (đoạn|người)|nối người/, 'pm'], [/so ý/, 'xt'], [/bài dài/, 'long'], [/tóm tắt/, 'sum'], [/nghe điền/, 'nf'], [/khuyết câu/, 'gap'], [/điền từ/, 'open']];
 const CB_SCORE = /email|bài luận|tóm tắt/;   // phần viết: máy chấm điểm 0–1 mỗi bài
 const CB_SHORT = { 'đọc tin nhắn, bài báo': 'Đọc tin, bài báo', 'chọn từ (cụm từ)': 'Chọn từ', 'điền từ (ngữ pháp)': 'Điền từ', 'viết email / chuyện': 'Viết email, chuyện',
   'nghe hội thoại, thông báo': 'Nghe hội thoại', 'nghe điền thông tin': 'Nghe điền', 'nghe điền câu': 'Nghe điền câu', 'đọc tin ngắn': 'Đọc tin ngắn', 'đoạn văn khuyết câu': 'Khuyết câu',
   'điền từ trắc nghiệm': 'Điền trắc nghiệm', 'điền từ': 'Điền một từ', 'viết lại câu dùng từ khoá': 'Câu từ khoá', 'nối câu với đoạn': 'Nối câu – đoạn', 'email, bài báo / truyện': 'Email, bài viết',
   'bài luận, thư, bài nhận xét': 'Bài luận, thư', 'bài luận, đề xuất, báo cáo': 'Bài luận, báo cáo', 'bài luận / bài báo / báo cáo': 'Bài luận, báo cáo', 'nghe': 'Nghe chọn đáp án',
-  'tóm tắt và đánh giá 2 đoạn văn (bắt buộc)': 'Tóm tắt 2 đoạn', 'Nghe bài, chọn đáp án': 'Nghe chọn đáp án', 'Đọc bài, trả lời': 'Đọc trả lời', 'Viết từ vào câu': 'Viết từ',
+  'tóm tắt và đánh giá 2 đoạn văn (bắt buộc)': 'Tóm tắt 2 đoạn', 'nối câu với người': 'Nối câu – người', 'nối người với văn bản': 'Nối người – văn bản', 'so ý giữa 4 văn bản': 'So ý 4 văn bản', 'Nghe bài, chọn đáp án': 'Nghe chọn đáp án', 'Đọc bài, trả lời': 'Đọc trả lời', 'Viết từ vào câu': 'Viết từ',
   'Hiểu nghĩa từ trong câu': 'Nghĩa từ', 'Chọn cụm đúng': 'Chọn cụm', 'Ngữ pháp: chọn từ đúng': 'Ngữ pháp', 'Nói': 'Nói' };
 const cbKey = (lab, p) => p.speak ? 'speak' : (CB_KEY.find(([re]) => re.test(lab)) || [0, ''])[1];
-const cbShort = lab => { const m = lab.match(/^Phần ([\d–-]+): (.*)$/), b = m ? m[2] : lab, s = CB_SHORT[b] || b; return s.charAt(0).toUpperCase() + s.slice(1); };
-const cbNum = lab => (lab.match(/^Phần ([\d–-]+):/) || [])[1] || '';
+const cbShort = lab => { const m = lab.match(/^Phần ([\d–, -]+): (.*)$/), b = m ? m[2] : lab, s = CB_SHORT[b] || b; return s.charAt(0).toUpperCase() + s.slice(1); };
+const cbNum = lab => (lab.match(/^Phần ([\d–, -]+):/) || [])[1] || '';
 // cấp của bản đồ: cấp người học chọn ở bản đồ → mục tiêu Cambridge → cấp đang xem ở màn 🎓 Cambridge → cấp 🧭 xếp được → cấp đang học
 let CBM_LV = null;
 const cbMapLv = () => { if (CBM_LV && MOCK[CBM_LV]) return CBM_LV; const g = S.lt && S.lt.goal; if (g && typeof ltKind === 'function' && ltKind(g) === 'cambridge' && MOCK[ltGoalLv(g)]) return ltGoalLv(g);

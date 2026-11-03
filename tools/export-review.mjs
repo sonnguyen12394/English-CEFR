@@ -21,6 +21,18 @@ add('👄 Phát âm B1 → C2 · cặp âm', 'Phiên âm (kiểu Anh) đúng kh�
 add('👄 Mẹo đặt miệng (âm người Việt hay sai)', 'Mô tả cách phát âm có đúng, dễ hiểu với người Việt không.', Object.entries(ctx.VN_TIP).map(([k, v]) => row(`tip:${k}`, `<b>/${esc(k)}/</b> ${esc(v)}`)));
 add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được từ bài không; phương án nhiễu có sai rõ không. Bấm "Bài" để xem bài.', Object.entries(SL).filter(([k]) => k !== '_note').map(([id, s]) => { const x = DOC[id] || {};
   return row(`sl:${id}`, `<b>${esc(x.title || x.tvi || id)}</b> <span class="mute">${esc(id)}</span><details><summary>Bài</summary><p class="t">${esc(x.lines ? x.lines.map(l => l[0] + ': ' + l[1]).join('\n') : x.text)}</p></details>❓ ${esc(s.q)}<br>✔ ${esc(s.a)} · ✗ ${s.w.map(esc).join(' · ✗ ')}`); }));
+// v123 (người sáng lập 3/11/2026 "bổ sung nội dung đủ theo mục tiêu"): 6 bài đọc IELTS mới (7 dạng câu còn thiếu) + bài Đọc Cambridge mới (A2 phần 2, B1 phần 2, C1 phần 6, bài dài / nối đoạn B2–C2)
+{ const IEJ = J('ielts.json'), AB = 'ABCDEFGH', li = (q, a, w) => `<br>• ${esc(q)} → <b>${esc(a)}</b>${w ? ` <span class="mute">(${esc(w)})</span>` : ''}`;
+  const ieQ = x => [...(x.yn || []).map(q => li(q.s, q.a, q.why)), ...(x.mi || []).map(q => li(q.s, 'đoạn ' + AB[q.p], q.why)), ...(x.mf ? x.mf.qs.map(q => li(q.s, x.mf.f[q.a], q.why)) : []),
+    ...(x.se ? x.se.qs.map(q => li(q.s + ' …', x.se.e[q.a], q.why)) : []), ...(x.sum ? x.sum.a.map((a, i) => li(`Tóm tắt (${i + 1})`, a.join(' / '), (x.sum.why || [])[i])) : []),
+    ...(x.dia ? x.dia.n.filter(n => n.a).map(n => li(n.s, n.a.join(' / '), n.why)) : []), ...(x.sa || []).map(q => li(q.q, q.a.join(' / '), q.why))].join('');
+  add('🌏 IELTS Đọc · 6 bài mới (v123)', 'Bài học thuật Claude soạn cho 7 dạng câu còn thiếu (Y/N/NG, tìm đoạn, nối đặc điểm, nối nửa câu, tóm tắt, sơ đồ, trả lời ngắn). Kiểm: đáp án đúng và duy nhất, YES / NO / NOT GIVEN đúng ý tác giả, người / số liệu trong bài là hư cấu nhưng hợp lý.',
+    IEJ.doc.filter(x => !x.h).map(x => row(`ie:${x.id}`, `<b>${esc(x.title)}</b> <span class="mute">${x.lv.toUpperCase()}</span><details><summary>Bài</summary><p class="t">${x.paras.map((p, i) => AB[i] + '. ' + esc(p)).join('\n\n')}</p></details>${ieQ(x)}`)));
+  const UO = J('uoe.json'), NEW = /^(pm-a2-|pm-b1-|lg-b1-3|lg-b2-[34]|pm-b2-[34]|lg-c1-[34]|pm-c1-[34]|xt-c1-|lg-c2-[34]|pm-c2-[34])/;
+  add('🎓 Cambridge Đọc · bài mới (v123)', 'A2 Key phần 2, B1 Preliminary phần 2, C1 Advanced phần 6 (so ý 4 văn bản), bài dài và nối đoạn B2 → C2. Kiểm: mỗi câu chỉ một đáp án đúng, phương án nhiễu sai rõ, độ khó hợp cấp.',
+    UO.long.filter(x => NEW.test(x.id)).map(x => row(`uoe:${x.id}`, `<b>${esc(x.title)}</b> <span class="mute">${x.lv.toUpperCase()} · ${x.qs ? 'bài dài' : x.xt ? 'so ý' : 'nối'}</span><details><summary>Bài</summary><p class="t">${esc(x.text)}</p></details>`
+      + (x.qs ? x.qs.map(q => li(q.q, q.a, q.why)).join('') : (x.pm || x.xt).map(q => li(q.q, x.secs[q.p], q.why)).join('')))));
+}
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}

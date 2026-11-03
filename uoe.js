@@ -7,15 +7,16 @@
 // Luyện ở đây không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp (không đổi luật đo); đề thử 🎓 dùng kho này thay câu lẻ.
 let UOE = null;
 const uLoad = async () => UOE || (UOE = await (await fetch('uoe.json?v=' + APP_V)).json());
-const U_LV = ['b1', 'b2', 'c1', 'c2'];
+const U_LV = ['a2', 'b1', 'b2', 'c1', 'c2'];   // v123: + A2 (A2 Key Đọc phần 2)
 const U_T = { long: ['📖', 'Bài dài, trắc nghiệm', 'Đọc bài 330–770 từ như đề thật, chọn 1 trong 4.'], pm: ['🧭', 'Nối câu với đoạn', 'Tìm đoạn (người) nói ý của câu hỏi. Đọc lướt, rồi đọc kỹ chỗ nghi.'],
   mc: ['🔤', 'Điền từ trắc nghiệm cả đoạn', 'Chọn từ đúng cụm, đúng giới từ đi kèm. Đọc cả câu trước và sau chỗ trống.'], open: ['✏️', 'Điền một từ', 'Mỗi chỗ một từ: giới từ, mạo từ, đại từ, từ nối, trợ động từ.'],
   wf: ['🧬', 'Tạo dạng từ', 'Đổi từ gốc in hoa thành dạng đúng: danh từ, tính từ, trạng từ, phủ định, số nhiều.'], kwt: ['🔁', 'Viết lại câu dùng từ khoá', 'Viết vào chỗ trống, có từ khoá, không đổi từ khoá, giữ nghĩa câu đầu.'],
-  sum: ['📝', 'Tóm tắt và đánh giá 2 đoạn văn', 'C2 Proficiency Viết phần 1 (bắt buộc): tóm ý hai đoạn bằng lời của mình, đánh giá, thêm ý riêng; 240–280 từ.'] };
+  sum: ['📝', 'Tóm tắt và đánh giá 2 đoạn văn', 'C2 Proficiency Viết phần 1 (bắt buộc): tóm ý hai đoạn bằng lời của mình, đánh giá, thêm ý riêng; 240–280 từ.'],
+  xt: ['🔀', 'So ý giữa 4 văn bản', 'C1 Advanced Đọc phần 6: bốn người viết về cùng một chủ đề. Câu hỏi hỏi ai đồng ý hay khác ý với ai về một khía cạnh: gạch ý của từng người về mỗi khía cạnh trước khi trả lời.'] };
 const uRuns = () => (S.uoe = S.uoe || {});
 // cấp có nội dung tới cấp đang chọn (B1+ → B1), cấp đang chọn trước
 const uLvs = lv => U_LV.filter(l => LEVELS.indexOf(l) <= LEVELS.indexOf(lv)).reverse();
-const uItems = (k, ls) => !UOE ? [] : k === 'pm' ? UOE.long.filter(x => x.pm && ls.includes(x.lv)) : k === 'long' ? UOE.long.filter(x => x.qs && ls.includes(x.lv)) : (UOE[k] || []).filter(x => ls.includes(x.lv));
+const uItems = (k, ls) => !UOE ? [] : k === 'pm' ? UOE.long.filter(x => x.pm && ls.includes(x.lv)) : k === 'xt' ? UOE.long.filter(x => x.xt && ls.includes(x.lv)) : k === 'long' ? UOE.long.filter(x => x.qs && ls.includes(x.lv)) : (UOE[k] || []).filter(x => ls.includes(x.lv));
 // chọn bài: cấp đầu danh sách trước, bài chưa làm / làm lâu nhất trước
 const uPick = (k, ls, n) => { const R = uRuns(); for (const l of ls) { const its = uItems(k, [l]); if (its.length) return shuf(its).sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0)).slice(0, n); } return []; };
 const uText = t => esc(t).replace(/\n/g, '<br><br>');
@@ -34,23 +35,28 @@ const uKwtQ = x => ({ x, k: 'kwt', kind: 'type', head: `<div class="box"><p styl
 const uLongBox = x => `<details class="box" open style="margin-top:12px"><summary><b>${esc(x.title)}</b> <span class="mute">(${kWords(x.text).length} từ)</span></summary><p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0">${uText(x.text)}</p></details>`;
 const uLongQs = x => x.qs.map(q => ({ x, k: 'long', kind: 'mc', foot: uLongBox(x), q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a, why: q.why }));
 const uPmQs = x => x.pm.map(q => ({ x, k: 'pm', kind: 'mc', foot: uLongBox(x), q: esc(q.q), opts: x.secs, a: x.secs[q.p], why: q.why }));
+const uXtQs = x => x.xt.map(q => ({ x, k: 'xt', kind: 'mc', head: '<p class="mute">Chọn người viết (A–D). Một người có thể được chọn nhiều lần.</p>', foot: uLongBox(x), q: esc(q.q), opts: x.secs, a: x.secs[q.p], why: q.why }));
 // 📝 tóm tắt 2 đoạn (C2): chấm như bài Viết (đủ ý bằng từ khoá, độ dài, 4 tiêu chí); AI chấm nhận cả hai đoạn trong đề
 function uSumQ(x) { const y = { ...x, p: x.p + '\n\nText 1: ' + x.texts[0] + '\n\nText 2: ' + x.texts[1] }, q = kWrite(y);
   q.head = `<div class="box"><b>${esc(x.en)}</b><p style="margin:6px 0">${esc(x.p)}</p><p class="mute" style="margin:0">${esc(x.pv)}</p></div>${x.texts.map((t, i) => `<div class="box"><b>Text ${i + 1}</b><p class="tdtap" style="margin:6px 0 0;font-size:16px;line-height:1.6">${esc(t)}</p></div>`).join('')}
     <p class="mute">Cần viết đủ: ${x.c.map(esc).join(' · ')}.</p>`; q.k2 = 'sum'; return q; }
-const uQs = (k, x) => k === 'long' ? uLongQs(x) : k === 'pm' ? uPmQs(x) : k === 'kwt' ? uKwtQ(x) : k === 'sum' ? [uSumQ(x)] : uGapQs(k, x);
+const uQs = (k, x) => k === 'long' ? uLongQs(x) : k === 'pm' ? uPmQs(x) : k === 'xt' ? uXtQs(x) : k === 'kwt' ? uKwtQ(x) : k === 'sum' ? [uSumQ(x)] : uGapQs(k, x);
 
 // ---------- 🎓 đề thử: thay câu lẻ bằng dạng đề thật trên cả đoạn ----------
 const uMk = (k, n) => () => { const ls = mkLvs().filter(l => U_LV.includes(l)).reverse(); return k === 'sum' ? uPick(k, ['c2'], n).map(uSumQ) : k === 'kwt' ? uPick(k, ls.length ? ls : uLvs(MK.lv), n).map(uKwtQ) : uPick(k, ls.length ? ls : uLvs(MK.lv), n).flatMap(x => uQs(k, x)); };
 { const R = (lv, parts) => { if (MOCK[lv]) MOCK[lv].papers[0].parts = parts; };
-  R('b1', [['Phần 1–2: đọc tin ngắn', () => mkRead(2)], ['Phần 3: bài dài', uMk('long', 1)], ['Phần 4: đoạn văn khuyết câu', () => mkGap(1)], ['Phần 5: điền từ trắc nghiệm', uMk('mc', 1)], ['Phần 6: điền từ', uMk('open', 1)]]);
+  R('b1', [['Phần 1: đọc tin ngắn', () => mkRead(1)], ['Phần 2: nối người với văn bản', uMk('pm', 1)], ['Phần 3: bài dài', uMk('long', 1)], ['Phần 4: đoạn văn khuyết câu', () => mkGap(1)], ['Phần 5: điền từ trắc nghiệm', uMk('mc', 1)], ['Phần 6: điền từ', uMk('open', 1)]]);
   const UE = (p7, gapN) => [['Phần 1: điền từ trắc nghiệm', uMk('mc', 1)], ['Phần 2: điền từ', uMk('open', 1)], ['Phần 3: tạo dạng từ', uMk('wf', 1)], ['Phần 4: viết lại câu dùng từ khoá', uMk('kwt', 6)],
     ['Phần 5: bài dài', uMk('long', 1)], [gapN, () => mkGap(1)], [p7, uMk('pm', 1)]];
-  R('b2', UE('Phần 7: nối câu với đoạn', 'Phần 6: đoạn văn khuyết câu')); R('c1', UE('Phần 8: nối câu với đoạn', 'Phần 7: đoạn văn khuyết câu')); R('c2', UE('Phần 7: nối câu với đoạn', 'Phần 6: đoạn văn khuyết câu'));
+  R('b2', UE('Phần 7: nối câu với đoạn', 'Phần 6: đoạn văn khuyết câu')); R('c1', UE('Phần 8: nối câu với đoạn', 'Phần 7: đoạn văn khuyết câu'));
+  if (MOCK.c1) MOCK.c1.papers[0].parts.splice(5, 0, ['Phần 6: so ý giữa 4 văn bản', uMk('xt', 1)]);   // v123: C1 Advanced Đọc phần 6
+  // v123: A2 Key Đọc và Viết phần 2 (nối câu với người, 3 văn bản)
+  if (MOCK.a2) { const P = MOCK.a2.papers[0]; P.parts[0] = ['Phần 1, 3: đọc tin nhắn, bài báo', () => mkRead(3)]; P.parts.splice(1, 0, ['Phần 2: nối câu với người', uMk('pm', 1)]); } R('c2', UE('Phần 7: nối câu với đoạn', 'Phần 6: đoạn văn khuyết câu'));
   if (MOCK.c2) MOCK.c2.papers[1].parts = [['Phần 1: tóm tắt và đánh giá 2 đoạn văn (bắt buộc)', uMk('sum', 1)], ['Phần 2: bài luận / bài báo / báo cáo', () => mkWrite(1)]]; }
 
 // ---------- 🧩 luyện từng dạng (có báo đúng / sai, giải thích; không tính giờ) ----------
-function uoeBox(lv) { if (LEVELS.indexOf(lv) < LEVELS.indexOf('b1')) return ''; const R = uRuns(), ls = uLvs(lv), all = UOE ? Object.keys(U_T).flatMap(k => uItems(k, ls)) : [], done = all.filter(x => R[x.id]).length;
+// v123: từ A2 (A2 Key Đọc phần 2)
+function uoeBox(lv) { if (LEVELS.indexOf(lv) < LEVELS.indexOf('a2')) return ''; const R = uRuns(), ls = uLvs(lv), all = UOE ? Object.keys(U_T).flatMap(k => uItems(k, ls)) : [], done = all.filter(x => R[x.id]).length;
   return `<div class="box"><div class="row"><b>🧩 Luyện dạng đề thật</b><span class="mute">${UOE ? `đã làm ${done}/${all.length}` : ''}</span></div><p class="mute" style="margin:6px 0">Bài đọc dài như đề, điền từ cả đoạn, tạo dạng từ, viết lại câu từ khoá. Báo đúng / sai từng câu, có giải thích.</p><button data-uoe="${lv}">🧩 Luyện</button></div>`; }
 async function uoeView(lv) { window.CUR = { view: 'dang-de', item: lv }; $app.innerHTML = '<p class="mute">Đang tải…</p>';
   try { await uLoad(); } catch (e) { $app.innerHTML = `${backRow('🧩 Dạng đề thật')}<p>Không tải được. Thử lại sau.</p>`; $app.onclick = e => { if (e.target.closest('[data-a="home"]')) exHome(lv); }; return; }
