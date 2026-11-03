@@ -53,6 +53,15 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
       J(f).items.filter(x => NEW.test(x.id)).map(x => row(`v125:${x.id}`, `<b>${esc(x.title)}</b> <span class="mute">${x.lv.toUpperCase()} · ${esc(x.tvi)}</span><details><summary>Bài</summary><p class="t">${esc(x.lines ? x.lines.map(l => l[0] + ': ' + l[1]).join('\n') : x.text)}</p></details>`
         + x.qs.map(q => li((q.sl ? '🧠 ' : '') + q.q, q.a, q.w)).join(''))));
 }
+// v126 (đợt 4): Nghe IELTS +3 phần (Part 2, 3, 4) + Cambridge nghe nối người nói B2 → C2 (9 bộ)
+{ const IL = J('ielts.json').ln.filter(x => ['il-p2-festival', 'il-p3-sleep', 'il-p4-kelp'].includes(x.id)), MM = J('nghe.json').mm || [], L8 = 'ABCDEFGH';
+  const qa = (x, q) => q.k === 'form' ? `${esc(q.s)} → <b>${esc(q.a.join(' / '))}</b>` : `${esc(q.q)} → <b>${esc(q.a)}</b>${q.w ? ` <span class="mute">(✗ ${q.w.map(esc).join(' · ✗ ')})</span>` : ''}`;
+  add('🌏 IELTS Nghe · 3 phần mới (v126)', 'Part 2 lễ hội âm nhạc (trắc nghiệm + ghép), Part 3 khảo sát giấc ngủ (3 người: A gia sư nữ, B Tom, C Hana), Part 4 bài giảng rừng tảo bẹ (điền ghi chú, ONE WORD ONLY). Kiểm: đáp án đúng và duy nhất, đáp án điền có nguyên văn trong lời nghe, số liệu thật đúng (rái cá ăn ~1/4 cân nặng mỗi ngày, sóng nhiệt biển Bắc California).',
+    IL.map(x => row(`v126:${x.id}`, `<b>Part ${x.part}: ${esc(x.title)}</b><details><summary>Lời</summary><p class="t">${esc(x.lines ? x.lines.map(l => l[0] + ': ' + l[1]).join('\n') : x.text)}</p></details>${x.opts ? `<span class="mute">Lựa chọn ghép: ${x.opts.map(esc).join(' · ')}</span>` : ''}` + x.qs.map(q => '<br>• ' + qa(x, q)).join(''))));
+  add('🎓 Cambridge Nghe · nối người nói (v126)', 'Kiểu B2 First Part 3 (1 nhiệm vụ) và C1 Advanced / C2 Proficiency Part 4 (2 nhiệm vụ). Mỗi bộ 5 người nói, 8 ý, 3 ý thừa. Kiểm: mỗi người khớp đúng một ý, ý thừa không khớp ai, bẫy từ ngữ hợp lý, độ khó hợp cấp.',
+    MM.map(x => row(`v126:${x.id}`, `<b>${esc(x.t)}</b> <span class="mute">${x.lv.toUpperCase()} · ${esc(x.tvi)}</span>${x.sp.map((t, i) => `<br>🗣 ${i + 1}. ${esc(t)}<br>&nbsp;&nbsp;→ ${x.tasks.map((k, j) => `<b>${x.tasks.length > 1 ? 'NV' + (j + 1) + ': ' : ''}${L8[k.a[i]]}. ${esc(k.o[k.a[i]])}</b>`).join(' · ')}`).join('')}`
+      + x.tasks.map((k, j) => `<br><span class="mute">${x.tasks.length > 1 ? 'Nhiệm vụ ' + (j + 1) + ' · ' : ''}${esc(k.q)}: ${k.o.map((o, m) => L8[m] + '. ' + esc(o)).join(' · ')}</span>`).join(''))));
+}
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}

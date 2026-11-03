@@ -191,7 +191,9 @@ const R = await run(`(async () => {
     for (const p of [1, 2, 3, 4]) if (!IE.ln.some(x => x.part === p)) bad.push('Nghe IELTS thiếu Part ' + p);
     for (const x of IE.ln) { const qs = ieLnQs(x); if (qs.length !== 10 || qs.some(q => q.kind === 'mc' ? !q.opts.includes(q.a) : !(q.acc || []).length)) bad.push('Nghe IELTS câu hỏng: ' + x.id);
       const ts = x.lines ? x.lines.map(l => l[1]) : kSents(x.text), miss = ts.filter(t => !NCLIPS.has(clipKey(t))); if (miss.length) bad.push('Nghe IELTS thiếu giọng ' + x.id + ': ' + miss.length + ' câu (chạy tools/build-audio.py)'); }
-    const lq = ieListen([0, 1, 2, 3]); if (lq.length !== 40 || !lq.some(it => it.q.ty === 'L-map') || !lq.some(it => it.q.ty === 'L-match')) bad.push('đề Nghe 4 phần chưa dùng bài IELTS: ' + lq.length);
+    // v126: mỗi Part có ≥ 2 bài nên câu bản đồ (chỉ ở một bài Part 2) không có ở mọi đề; bốc 20 lần phải gặp
+    const lq = ieListen([0, 1, 2, 3]); let seenMap = false; for (let i = 0; i < 20 && !seenMap; i++) seenMap = ieListen([0, 1, 2, 3]).some(it => it.q.ty === 'L-map');
+    if (lq.length !== 40 || !lq.every(it => it.q.x && /^il-/.test(it.q.x.id)) || !lq.some(it => it.q.ty === 'L-match') || !seenMap) bad.push('đề Nghe 4 phần chưa dùng bài IELTS: ' + lq.length);
     await ieltsView(); const h = String($app.innerHTML); ieSkView('R'); if (!h.includes('Luyện bằng đề thật') || !h.includes('data-th="L"') || !String($app.innerHTML).includes('data-iepara')) bad.push('màn IELTS thiếu đề thật / diễn đạt lại (v113: diễn đạt lại ở màn con 📖 Đọc)');
     add('ielts', 'I4', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đề thật theo từng câu, từ mới đề thật, diễn đạt lại, Task 1 bản đồ / quy trình, Nói mở rộng, Nghe kiểu IELTS có giọng đều đúng'); }
   // 📅 Hôm nay + 🧭 xếp cấp (homnay.js): phút học từ nhịp save(), chuỗi ngày, ô Hôm nay, câu xếp cấp hợp lệ mọi cấp, bậc thang lên / xuống / dừng
@@ -1197,6 +1199,34 @@ const R = await run(`(async () => {
     // câu suy luận B1 / B2 nằm ở content/suyluan.json (build-bac xoá câu sl ghi thẳng trong bài): mỗi bài mới đúng 1 câu
     for (const pid of ['doc', 'nghe']) for (const x of KIT[pid].items.filter(y => /-(b1|b2)-(1[6-9]|20)$/.test(y.id))) if (x.qs.filter(q => q.sl).length !== 1) bad.push(x.id + ': cần đúng 1 câu suy luận');
     add('cefr', 'C40', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ nội dung đợt 3: Đọc / Nghe Nền B1 → C2 mỗi cấp ≥ 11 bài luyện, câu ý chính + chi tiết hợp lệ, tên không trùng, B1 / B2 mỗi bài 1 câu suy luận'); }
+  // v126 đủ nội dung đợt 4: Nghe IELTS mỗi Part ≥ 2 phần (đề thử Nghe 40 câu); Cambridge nghe nối người nói B2 → C2 (≥ 3 bộ mỗi cấp, 1 / 2 nhiệm vụ, có trong đề thử, danh sách bài, bản đồ, giọng)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await ieLoad(); await kLoad(KIT.nghe);
+    if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json')).json()); } catch (e) {}
+    for (const pt of [1, 2, 3, 4]) if (IE.ln.filter(x => x.part === pt).length < 2) bad.push('IELTS Nghe Part ' + pt + ' < 2 phần');
+    for (const id of ['il-p2-festival', 'il-p3-sleep', 'il-p4-kelp']) { const x = IE.ln.find(y => y.id === id); if (!x) { bad.push('thiếu ' + id); continue; } const qs = ieLnQs(x); if (qs.length !== 10) bad.push(id + ': ' + qs.length + ' câu');
+      for (const q of qs) if (q.kind === 'mc' && (!q.opts.includes(q.a) || new Set(q.opts).size !== q.opts.length)) bad.push(id + ': câu hỏng ' + q.q); }
+    let lm = []; tryv('đề thử Nghe IELTS', () => { lm = IE_PAPERS.find(p => p.k === 'L').gen(); }); if (lm.length !== 40) bad.push('đề thử Nghe IELTS ' + lm.length + ' câu');
+    const MM = mmSets(); for (const lv of ['b2', 'c1', 'c2']) { const xs = MM.filter(x => x.lv === lv); if (xs.length < 3) bad.push('nối người nói ' + lv + ': ' + xs.length + ' bộ');
+      for (const x of xs) { const qs = mmQs(x), nt = lv === 'b2' ? 1 : 2; if (x.tasks.length !== nt || qs.length !== 5 * nt) bad.push(x.id + ': ' + qs.length + ' câu');
+        for (const q of qs) if (q.opts.length !== 8 || !q.opts.includes(q.a) || !q.play || q.play.max !== 2) bad.push(x.id + ': câu hỏng ' + q.q);
+        if (new Set(qs.map(q => q.play.key)).size !== 5) bad.push(x.id + ': khoá nghe phải theo người nói');
+        const miss = x.sp.flatMap(t => kSents(t)).filter(t => !NCLIPS.has(clipKey(t))); if (miss.length) bad.push(x.id + ': thiếu giọng ' + miss.length + ' câu (chạy tools/build-audio.py)'); }
+      const C = MOCK[lv], pi = C.papers.findIndex(p => /Nghe/.test(p.t)), pt = C.papers[pi].parts.findIndex(([lab]) => cbKey(lab, C.papers[pi]) === 'mm');
+      if (pt < 0) { bad.push(lv + ': đề thử thiếu phần nối người nói'); continue; }
+      MK = { lv, C, papers: [], idx: [pi] }; let g = []; tryv(lv + ' sinh phần', () => { g = C.papers[pi].parts[pt][1](); }); if (g.length !== (lv === 'b2' ? 5 : 10) || g.some(q => q.x.lv !== lv)) bad.push(lv + ': phần nối người nói sinh ' + g.length + ' câu');
+      const L = cbBai(lv, pi).filter(b => b.kind === 'mm'); if (L.length < 3) bad.push(lv + ': danh sách bài thiếu bộ nối người nói');
+      if (!CB_HOWT.mm || cbCat(C.papers[pi].parts[pt][0], C.papers[pi]) !== 'mm') bad.push(lv + ': thiếu cách làm phần nối người nói');
+      // làm một bộ như đề thi: kết quả vào S.cbx (danh sách bài) và đề thử theo phần (ô bản đồ)
+      const x0 = L[0].x, q0 = mmQs(x0), lab = C.papers[pi].parts[pt][0]; S.cbx = {}; S.mock = {};
+      MK = { lv, C, papers: [{ t: C.papers[pi].t, min: 6, qs: q0.map(q => ({ part: lab, q })), res: q0.map((q, i) => ({ part: lab, q, ok: i % 2 === 0, ans: q.a })) }], idx: [pi], one: 1, back: () => {} };
+      tryv(lv + ' kết quả', () => mkResult()); const r = S.cbx[x0.id], cell = cbRows(lv)[pi].cells[pt];
+      if (!r || r.n !== q0.length || !cbRes(lv, L[0], cbRows(lv)[pi].cells) || !cell || cell.n !== q0.length) bad.push(lv + ': kết quả nối người nói không vào danh sách / bản đồ'); }
+    // bài kế tiếp chia đều các phần của đề: đã làm 1 bài nghe thường thì lượt sau là bộ nối người nói (trước v126 phải làm hết ~20 bài nghe)
+    { const pB = MOCK.b2.papers.findIndex(p => /Nghe/.test(p.t)), LB = cbBai('b2', pB), nb = cbNext(LB, LB.map((b, k) => k === 0 ? { at: 1, ok: 1, n: 1 } : null));
+      const k2 = LB.findIndex(b => b.i !== LB[0].i && b.kind !== 'mm'), nc = cbNext(LB, LB.map((b, k) => k === 0 || k === k2 ? { at: 1, ok: 1, n: 1 } : null));
+      if (LB[0].kind === 'mm' || !nb || nb.i === LB[0].i || !nc || nc.kind !== 'mm') bad.push('bài kế tiếp không chia đều các phần: ' + (nb && nb.kind) + ' → ' + (nc && nc.kind)); }
+    MK = null; S.cbx = {}; S.mock = {};
+    add('cefr', 'C41', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ nội dung đợt 4: Nghe IELTS 2 phần mỗi Part (đề thử 40 câu); Cambridge nối người nói B2 → C2 ≥ 3 bộ mỗi cấp, trong đề thử, danh sách bài, bản đồ, giọng đủ'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');

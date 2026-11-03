@@ -1,5 +1,5 @@
 {
- "_note": "Nghe kiểu IELTS (v87, Claude soạn, chưa giáo viên kiểm; giọng Kokoro qua tools/build-audio.py). Mỗi phần 10 câu như đề thật. q.k: form = điền (a: các cách viết đúng), mc = trắc nghiệm, map = điền bản đồ (chọn chữ), match = ghép. Đáp án điền phải có nguyên văn trong lời nghe.",
+ "_note": "Nghe kiểu IELTS (v87, Claude soạn, chưa giáo viên kiểm; giọng Kokoro qua tools/build-audio.py). Mỗi phần 10 câu như đề thật. q.k: form = điền (a: các cách viết đúng), mc = trắc nghiệm, map = điền bản đồ (chọn chữ), match = ghép. Đáp án điền phải có nguyên văn trong lời nghe. v126: +1 phần mỗi Part 2, 3, 4 (lễ hội âm nhạc: trắc nghiệm + ghép; khảo sát giấc ngủ: 3 người, trắc nghiệm + ghép người làm việc; bài giảng rừng tảo bẹ: điền ghi chú).",
  "items": [
   {
    "id": "il-p1-gym",
@@ -592,6 +592,107 @@
    ]
   },
   {
+   "id": "il-p2-festival",
+   "part": 2,
+   "title": "Volunteering at a music festival",
+   "text": "Good evening, everyone, and thank you for coming to this information session. I'm Karen Doyle, and I coordinate the volunteers at the Riverside Music Festival. This will be our twelfth festival, and last year we had just over three hundred volunteers. Without them, the festival simply couldn't happen. First, some practical points. The festival runs for three days, from Friday the eighteenth to Sunday the twentieth of July. We ask every volunteer to work at least two shifts of six hours. In return, you get a free ticket for the whole weekend, meals during your shifts, and a festival T-shirt, which you must wear while you're working, so that visitors can recognise you. A lot of people ask about camping. Volunteers can stay at the staff campsite free of charge, but you need to bring your own tent. The campsite is quieter than the main one, although I can't promise you'll get much sleep! Training is compulsory. There's a two-hour session on Saturday the twelfth of July at the community hall. If you can't make that date, there's an online version, but you must complete it at least three days before the festival starts. Now, let me tell you about the different teams. The information team works in the tents near each entrance, answering questions and handing out maps. You don't need any experience, but you do need to be patient, because people ask the same questions all day. The stewarding team manages crowds near the stages. This is the only team where we ask for previous experience, because safety is involved. The recycling team collects and sorts rubbish around the site. It's hard physical work, but people say it's the most fun. The artist team looks after the performers backstage, and that involves working late, often until two in the morning. And finally, the children's area team runs games and craft activities. Everyone in that team needs a police check, which we arrange for you, but it takes around four weeks, so please apply early. Applications close at the end of this month.",
+   "opts": [
+    "A needs previous experience",
+    "B involves working late at night",
+    "C requires a police check",
+    "D needs a lot of patience",
+    "E involves hard physical work",
+    "F is the most popular team"
+   ],
+   "qs": [
+    {
+     "k": "mc",
+     "q": "Volunteers must wear the festival T-shirt so that",
+     "a": "visitors can recognise them.",
+     "w": [
+      "they can get free meals.",
+      "they can enter the campsite.",
+      "the organisers can count them."
+     ],
+     "why": "\"so that visitors can recognise you\""
+    },
+    {
+     "k": "mc",
+     "q": "What does the speaker say about the volunteers' campsite?",
+     "a": "Volunteers must bring their own tent.",
+     "w": [
+      "It costs a small fee.",
+      "It is next to the main campsite.",
+      "It is completely quiet at night."
+     ],
+     "why": "\"you need to bring your own tent\"; bẫy: yên hơn khu chính nhưng \"I can't promise you'll get much sleep\"."
+    },
+    {
+     "k": "mc",
+     "q": "The online training must be completed",
+     "a": "at least three days before the festival.",
+     "w": [
+      "on Saturday the twelfth of July.",
+      "after the first shift.",
+      "by the end of this month."
+     ],
+     "why": "\"at least three days before the festival starts\""
+    },
+    {
+     "k": "mc",
+     "q": "What is the minimum number of hours each volunteer works?",
+     "a": "Twelve",
+     "w": [
+      "Six",
+      "Eighteen",
+      "Twenty"
+     ],
+     "why": "\"at least two shifts of six hours\" = 12 giờ."
+    },
+    {
+     "k": "mc",
+     "q": "Applications to volunteer close",
+     "a": "at the end of this month.",
+     "w": [
+      "on the twelfth of July.",
+      "four weeks before the festival.",
+      "when three hundred people have applied."
+     ],
+     "why": "\"Applications close at the end of this month.\""
+    },
+    {
+     "k": "match",
+     "q": "the information team",
+     "a": "D needs a lot of patience",
+     "why": "\"you do need to be patient\""
+    },
+    {
+     "k": "match",
+     "q": "the stewarding team",
+     "a": "A needs previous experience",
+     "why": "\"the only team where we ask for previous experience\""
+    },
+    {
+     "k": "match",
+     "q": "the recycling team",
+     "a": "E involves hard physical work",
+     "why": "\"It's hard physical work\"; bẫy: \"the most fun\" không phải \"most popular\"."
+    },
+    {
+     "k": "match",
+     "q": "the artist team",
+     "a": "B involves working late at night",
+     "why": "\"often until two in the morning\""
+    },
+    {
+     "k": "match",
+     "q": "the children's area team",
+     "a": "C requires a police check",
+     "why": "\"needs a police check\""
+    }
+   ]
+  },
+  {
    "id": "il-p3-garden",
    "part": 3,
    "title": "Planning a project on urban gardens",
@@ -786,6 +887,209 @@
    ]
   },
   {
+   "id": "il-p3-sleep",
+   "part": 3,
+   "title": "Discussing a survey on students' sleep",
+   "lines": [
+    [
+     "A",
+     "Come in, Tom and Hana. You wanted to talk about your survey on students' sleep?"
+    ],
+    [
+     "B",
+     "Yes. We've collected the data, but we're not sure how to present it."
+    ],
+    [
+     "A",
+     "How many responses did you get in the end?"
+    ],
+    [
+     "C",
+     "A hundred and twenty. We were hoping for two hundred, but it was exam season, so a lot of people didn't reply."
+    ],
+    [
+     "A",
+     "That's still a reasonable sample. What surprised you most?"
+    ],
+    [
+     "B",
+     "I expected most students to sleep less than seven hours, and they did. What surprised me was how many said they slept badly even when they had time. Nearly half."
+    ],
+    [
+     "C",
+     "For me, the surprise was caffeine. I assumed coffee would be the main problem, but energy drinks were far more common than we thought."
+    ],
+    [
+     "A",
+     "Interesting. Did you ask about phones?"
+    ],
+    [
+     "C",
+     "We did. But almost everyone uses their phone in bed, so we can't compare people who do and people who don't. We can't really say anything about the effect."
+    ],
+    [
+     "A",
+     "That's an honest conclusion, and it's better than claiming more than your data shows. Now, the presentation. What were you thinking?"
+    ],
+    [
+     "B",
+     "I wanted to put all the results in one big table."
+    ],
+    [
+     "A",
+     "Tables are fine for the appendix, but in the talk you need something the audience can take in quickly."
+    ],
+    [
+     "C",
+     "Maybe a bar chart for sleep hours, and a pie chart for the drinks?"
+    ],
+    [
+     "A",
+     "A bar chart, yes. But pie charts are hard to read when there are more than three or four categories. How many types of drink did you have?"
+    ],
+    [
+     "C",
+     "Seven."
+    ],
+    [
+     "A",
+     "Then I'd use bars for that too. And include a few quotations from the open questions. They bring the numbers to life."
+    ],
+    [
+     "B",
+     "We've got some great ones. One student said she drinks coffee to wake up and herbal tea to fall asleep."
+    ],
+    [
+     "A",
+     "Perfect. Now, what will you each do before Friday?"
+    ],
+    [
+     "B",
+     "I'll redo the charts."
+    ],
+    [
+     "C",
+     "And I'll write the section on limitations: the sample size and the timing."
+    ],
+    [
+     "A",
+     "Who's choosing the quotations?"
+    ],
+    [
+     "B",
+     "We'll do that together, since we both read all the answers."
+    ],
+    [
+     "A",
+     "And someone needs to check that nothing in the quotations could identify a student."
+    ],
+    [
+     "C",
+     "I'll do that. I've already removed the names from the data."
+    ],
+    [
+     "A",
+     "Good. And practise the talk at least twice."
+    ],
+    [
+     "B",
+     "I'll book a room so we can practise together on Thursday."
+    ]
+   ],
+   "opts": [
+    "A Tom",
+    "B Hana",
+    "C both students"
+   ],
+   "qs": [
+    {
+     "k": "mc",
+     "q": "Why did fewer students reply than expected?",
+     "a": "It was during the exam period.",
+     "w": [
+      "The questionnaire was too long.",
+      "It was only available online.",
+      "Students were on holiday."
+     ],
+     "why": "\"it was exam season, so a lot of people didn't reply\""
+    },
+    {
+     "k": "mc",
+     "q": "What surprised Tom most?",
+     "a": "how many students slept badly despite having time",
+     "w": [
+      "how few students slept seven hours",
+      "how many students used phones in bed",
+      "how much coffee students drank"
+     ],
+     "why": "\"how many said they slept badly even when they had time\"; bẫy: ngủ dưới 7 giờ là điều Tom đã đoán trước."
+    },
+    {
+     "k": "mc",
+     "q": "What surprised Hana?",
+     "a": "Energy drinks were more common than expected.",
+     "w": [
+      "Few students drank coffee at night.",
+      "Most students avoided caffeine.",
+      "Coffee helped students sleep."
+     ],
+     "why": "\"energy drinks were far more common than we thought\""
+    },
+    {
+     "k": "mc",
+     "q": "What do the students conclude about phone use?",
+     "a": "Their data cannot show its effect.",
+     "w": [
+      "It is the main cause of poor sleep.",
+      "It has no effect on sleep.",
+      "Only a few students use phones in bed."
+     ],
+     "why": "\"We can't really say anything about the effect.\""
+    },
+    {
+     "k": "mc",
+     "q": "Why does the tutor advise against a pie chart for the drinks?",
+     "a": "There are too many categories.",
+     "w": [
+      "Pie charts look unprofessional.",
+      "The audience prefers tables.",
+      "The numbers are too small."
+     ],
+     "why": "\"hard to read when there are more than three or four categories\" (có 7 loại)."
+    },
+    {
+     "k": "match",
+     "q": "redo the charts",
+     "a": "A Tom",
+     "why": "Tom: \"I'll redo the charts.\""
+    },
+    {
+     "k": "match",
+     "q": "write the section on limitations",
+     "a": "B Hana",
+     "why": "Hana: \"I'll write the section on limitations\""
+    },
+    {
+     "k": "match",
+     "q": "choose the quotations",
+     "a": "C both students",
+     "why": "\"We'll do that together\""
+    },
+    {
+     "k": "match",
+     "q": "check that the quotations are anonymous",
+     "a": "B Hana",
+     "why": "Hana: \"I'll do that.\""
+    },
+    {
+     "k": "match",
+     "q": "book a room for practice",
+     "a": "A Tom",
+     "why": "Tom: \"I'll book a room\""
+    }
+   ]
+  },
+  {
    "id": "il-p4-light",
    "part": 4,
    "title": "Lecture: living things that make light",
@@ -875,6 +1179,97 @@
       "polluted"
      ],
      "why": "\"glow less when water is polluted\""
+    }
+   ]
+  },
+  {
+   "id": "il-p4-kelp",
+   "part": 4,
+   "title": "Lecture: kelp forests and sea otters",
+   "lim": "ONE WORD ONLY",
+   "form": "Kelp forests: lecture notes",
+   "text": "Good morning. Today I want to talk about one of the most productive habitats on the planet: kelp forests. Kelp is a type of large brown seaweed. It grows in cold, shallow water close to the coast, and in good conditions some species can grow up to half a metre in a single day. These underwater forests provide food and shelter for thousands of species, from tiny snails to fish and seals. Kelp forests also matter to humans. They protect coastlines by reducing the energy of waves during storms, and they support important fisheries. More recently, scientists have become interested in their role in storing carbon, although how much carbon kelp actually stores in the long term is still debated. To understand how these forests stay healthy, we need to look at a small animal: the sea urchin. Urchins feed on kelp, and when there are too many of them, they can destroy a forest, leaving what scientists call an urchin barren: bare rock with almost nothing growing on it. This is where sea otters come in. Otters eat urchins. An adult otter needs to eat about a quarter of its body weight every day, because it has no layer of fat to keep it warm. In the eighteenth and nineteenth centuries, otters were hunted almost to extinction for their fur. As otter numbers fell, urchin numbers rose, and large areas of kelp disappeared. Where otters have returned, the kelp has often recovered. Ecologists call an animal like this a keystone species: one whose effect on its environment is far greater than its numbers would suggest. Today, kelp faces new threats, particularly warmer water. In northern California, for example, a marine heatwave, combined with the loss of a starfish that also eats urchins, led to the disappearance of most of the region's kelp. Restoration projects now include removing urchins by hand, with the help of volunteer divers.",
+   "qs": [
+    {
+     "k": "form",
+     "s": "Kelp grows in cold, ______ water near the coast",
+     "a": [
+      "shallow"
+     ],
+     "why": "\"in cold, shallow water close to the coast\""
+    },
+    {
+     "k": "form",
+     "s": "Some species can grow half a ______ in one day",
+     "a": [
+      "metre",
+      "meter"
+     ],
+     "why": "\"up to half a metre in a single day\""
+    },
+    {
+     "k": "form",
+     "s": "Kelp forests reduce the energy of ______ during storms",
+     "a": [
+      "waves"
+     ],
+     "why": "\"reducing the energy of waves\""
+    },
+    {
+     "k": "form",
+     "s": "Scientists still debate how much ______ kelp stores",
+     "a": [
+      "carbon"
+     ],
+     "why": "\"how much carbon kelp actually stores… is still debated\""
+    },
+    {
+     "k": "form",
+     "s": "Too many urchins leave bare ______",
+     "a": [
+      "rock"
+     ],
+     "why": "\"bare rock with almost nothing growing on it\""
+    },
+    {
+     "k": "form",
+     "s": "Otters have no layer of ______ to keep them warm",
+     "a": [
+      "fat"
+     ],
+     "why": "\"it has no layer of fat\""
+    },
+    {
+     "k": "form",
+     "s": "Otters were once hunted for their ______",
+     "a": [
+      "fur"
+     ],
+     "why": "\"hunted almost to extinction for their fur\""
+    },
+    {
+     "k": "form",
+     "s": "An animal with a very large effect on its environment: a ______ species",
+     "a": [
+      "keystone"
+     ],
+     "why": "\"a keystone species\""
+    },
+    {
+     "k": "form",
+     "s": "In northern California, the loss of a ______ that eats urchins added to the problem",
+     "a": [
+      "starfish"
+     ],
+     "why": "\"the loss of a starfish that also eats urchins\""
+    },
+    {
+     "k": "form",
+     "s": "Urchins are now removed by hand with help from volunteer ______",
+     "a": [
+      "divers"
+     ],
+     "why": "\"with the help of volunteer divers\""
     }
    ]
   }

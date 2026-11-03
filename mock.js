@@ -21,17 +21,17 @@ const MOCK = {
     { t: '📖 Đọc và Dùng tiếng Anh', min: 75, parts: [['Phần 1: điền từ trắc nghiệm (cụm từ)', () => mkVocab('xC', 8)], ['Phần 2: điền từ (ngữ pháp)', () => mkGram('dien', 8)], ['Phần 3: tạo dạng từ', () => mkVocab('xD', 8)],
       ['Phần 4: viết lại câu đúng', () => mkGram('sua', 6)], ['Phần 5–7: đọc hiểu', () => mkRead(3)]] },
     { t: '✍️ Viết', min: 80, parts: [['Phần 1–2: bài luận, thư, bài nhận xét', () => mkWrite(2)]] },
-    { t: '🎧 Nghe', min: 40, parts: [['Phần 1–4: nghe', () => mkListen(5)]] }] },
+    { t: '🎧 Nghe', min: 40, parts: [['Phần 1, 4: nghe', () => mkListen(4)], ['Phần 3: nối người nói', () => mkMM(1)]] }] },
   c1: { name: 'C1 Advanced (kiểu)', lo: 'c1', pass: 0.6, papers: [
     { t: '📖 Đọc và Dùng tiếng Anh', min: 90, parts: [['Phần 1: điền từ trắc nghiệm (cụm từ)', () => mkVocab('xC', 8)], ['Phần 2: điền từ (ngữ pháp)', () => mkGram('dien', 8)], ['Phần 3: tạo dạng từ', () => mkVocab('xD', 8)],
       ['Phần 4: viết lại câu đúng', () => mkGram('sua', 6)], ['Thay từ cùng nghĩa', () => mkVocab('xY', 5)], ['Phần 5–8: đọc hiểu', () => mkRead(3)]] },
     { t: '✍️ Viết', min: 90, parts: [['Phần 1–2: bài luận, đề xuất, báo cáo', () => mkWrite(2)]] },
-    { t: '🎧 Nghe', min: 40, parts: [['Phần 1–4: nghe', () => mkListen(5)]] }] },
+    { t: '🎧 Nghe', min: 40, parts: [['Phần 1, 3: nghe', () => mkListen(4)], ['Phần 4: nối người nói (2 nhiệm vụ)', () => mkMM(1)]] }] },
   c2: { name: 'C2 Proficiency (kiểu)', lo: 'c2', pass: 0.6, papers: [
     { t: '📖 Đọc và Dùng tiếng Anh', min: 90, parts: [['Phần 1: điền từ trắc nghiệm (cụm từ)', () => mkVocab('xC', 8)], ['Phần 2: điền từ (ngữ pháp)', () => mkGram('dien', 8)], ['Phần 3: tạo dạng từ', () => mkVocab('xD', 8)],
       ['Phần 4: viết lại câu đúng', () => mkGram('sua', 6)], ['Thành ngữ, nghĩa bóng', () => mkVocab('xId', 5)], ['Phần 5–7: đọc hiểu', () => mkRead(3)]] },
     { t: '✍️ Viết', min: 90, parts: [['Phần 1–2: bài luận, bài báo, báo cáo', () => mkWrite(2)]] },
-    { t: '🎧 Nghe', min: 40, parts: [['Phần 1–4: nghe', () => mkListen(5)]] }] },
+    { t: '🎧 Nghe', min: 40, parts: [['Phần 1, 3: nghe', () => mkListen(4)], ['Phần 4: nối người nói (2 nhiệm vụ)', () => mkMM(1)]] }] },
 };
 MOCK.a2p = MOCK.a2; MOCK.b1p = MOCK.b1; MOCK.b2p = MOCK.b2;
 let MK = null;   // đề đang làm: { lv, C, papers: [{ t, min, qs: [{ part, q }] }] }
@@ -48,6 +48,14 @@ function mkGram(k, n) { const P = KIT.np, ls = mkKitLvs(P); return shuf(P.items.
 const mkPick = (P, n) => { const ls = mkKitLvs(P), its = P.items.filter(x => ls.includes(x.lv) && !x.kind); return [...shuf(its.filter(x => x.test)), ...shuf(its.filter(x => !x.test))].slice(0, n); };
 const mkRead = n => mkPick(KIT.doc, n).flatMap(x => [...kRead(KIT.doc, x, 'y', false), ...kRead(KIT.doc, x, 'ct', false)]);
 const mkListen = n => mkPick(KIT.nghe, n).flatMap((x, i) => ['y', 'ct', ...(i < 2 ? ['chep'] : [])].flatMap(k => kRead(KIT.nghe, x, k, true)));
+// v126 🎧 nối người nói (B2 First Part 3, C1 / C2 Part 4; nghe.json mm, Claude soạn): 5 người nói, mỗi nhiệm vụ chọn 1 trong 8 ý A–H (3 ý thừa);
+// C1 / C2 hai nhiệm vụ cùng một lần nghe nên lượt nghe của mỗi người dùng chung (khoá play theo người), tối đa 2 lần như đề thật
+const MM_L = 'ABCDEFGH';
+const mmQs = x => x.tasks.flatMap((t, ti) => x.sp.map((s, i) => ({ x, k: 'mm', kind: 'mc', q: 'Người nói ' + (i + 1),
+  head: `<p class="mute" style="margin:0 0 4px">🎧 ${esc(x.t)} · ${x.tasks.length > 1 ? `Nhiệm vụ ${ti + 1}/${x.tasks.length} · ` : ''}5 người nói, mỗi chữ chỉ dùng một lần, có 3 ý thừa.</p><p style="margin:0 0 6px"><b>${esc(t.q.replace(/^Task \d: /, ''))}</b></p>`,
+  opts: t.o.map((o, j) => MM_L[j] + '. ' + o), a: MM_L[t.a[i]] + '. ' + t.o[t.a[i]], play: { key: x.id + '|' + i, text: s, max: 2 }, why: `Người nói ${i + 1}: “${s}”` })));
+const mmSets = () => (KIT.nghe.raw && KIT.nghe.raw.mm) || [];
+const mkMM = n => { const ls = mkLvs(), X = S.cbx || {}; return shuf(mmSets().filter(x => ls.includes(x.lv))).sort((a, b) => (b.lv === MK.C.lo) - (a.lv === MK.C.lo) || ((X[a.id] || {}).at || 0) - ((X[b.id] || {}).at || 0)).slice(0, n).flatMap(mmQs); };
 const mkWrite = n => KIT.viet.lvs.some(l => mkLvs().includes(l)) ? mkPick(KIT.viet, n).map(x => kWrite(x)) : [];
 
 const mkRuns = lv => ((S.mock = S.mock || {})[lv] = S.mock[lv] || []);
@@ -103,7 +111,7 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
   const ps = MK.papers.map(p => p.sc ? { t: p.t, ok: p.sc.pct, n: 100, crit: p.sc.C } : { t: p.t, ok: Math.round(p.res.reduce((s, r) => s + (r.sc != null ? r.sc : r.ok ? 1 : 0), 0) * 10) / 10, n: p.res.length, pp: pp(p) }), full = MK.idx.length === C.papers.length;
   const pct = Math.round(ps.reduce((s, p) => s + p.ok / p.n, 0) / ps.length * 100), pass = pct >= C.pass * 100;
   // v122: kết quả từng bài (bài đọc / nghe, đề viết, bài dạng đề thật) cho danh sách bài ở màn Cambridge: S.cbx[id] = { at, ok, n } (bài viết: điểm máy 0–1)
-  { const X = S.cbx = S.cbx || {}, by = {}; for (const p of MK.papers) if (!p.speak) for (const r of p.res) { const x = r.q && r.q.x; if (!x || !x.id || !x.lv || !(x.text || x.lines || x.p || x.paras || x.gaps || x.s1)) continue;
+  { const X = S.cbx = S.cbx || {}, by = {}; for (const p of MK.papers) if (!p.speak) for (const r of p.res) { const x = r.q && r.q.x; if (!x || !x.id || !x.lv || !(x.text || x.lines || x.p || x.paras || x.gaps || x.s1 || x.sp)) continue;
       const o = by[x.id] = by[x.id] || { at: Date.now(), ok: 0, n: 0 }; o.n++; o.ok += r.sc != null ? r.sc : r.ok ? 1 : 0; } for (const [id, o] of Object.entries(by)) X[id] = { ...o, ok: Math.round(o.ok * 100) / 100 }; }
   mkRuns(lv).push({ at: Date.now(), papers: ps, pct: full ? pct : null, pass: full && pass, ...(MK.one ? { one: 1 } : {}) }); S.t = Date.now(); save(); const back = MK.back;   // one: chỉ làm một phần / một bài (không phải cả bài thi)
   const parts = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } return Object.entries(by).map(([k, [a, b]]) => `${esc(k)}: ${a}/${b}`).join('<br>'); };

@@ -19,7 +19,8 @@ function kGloss(s) { const seen = new Set(), out = [];
   for (const t of String(s).toLowerCase().match(/[a-z]+/g) || []) { const w = WBY[t] || WBY[t.replace(/(es|s)$/, '')] || WBY[t.replace(/ing$/, '')] || WBY[t.replace(/ed$/, '')];
     if (w && !S.cards[w.id] && !seen.has(w.id) && w.w.length > 2) { seen.add(w.id); out.push(`<b>${esc(w.w)}</b> = ${esc(w.vi)}`); } }
   return out.length ? `<p class="mute" style="margin:4px 0">Từ chưa học: ${out.slice(0, 4).join(' · ')}</p>` : ''; }
-const kOther = (P, x, f, n) => shuf(P.items.filter(y => y.lv === x.lv && y.id !== x.id && f(y) !== f(x))).slice(0, n).map(f);
+// v126: bỏ giá trị trùng (bài học và bài thi có thể cùng tên Việt → hai phương án giống nhau)
+const kOther = (P, x, f, n) => [...new Set(shuf(P.items.filter(y => y.lv === x.lv && y.id !== x.id && f(y) !== f(x))).map(f))].slice(0, n);
 
 // ---------- 🧱 Ngữ pháp ----------
 // v97 (người sáng lập duyệt 31/10/2026): ngưỡng qua thi 2 bậc: kiến thức từng mục (Từ vựng, Ngữ pháp, Phát âm) 85%; kỹ năng tổng hợp Đọc, Nghe 75%,

@@ -54,6 +54,8 @@ const BL = ['b1', 'b2', 'c1', 'c2'], keep = x => !BL.includes(x.lv);
 for (const [f, src] of [['doc.json', BL.map(l => `content/bs/doc-${l}.json`)], ['nghe.json', BL.map(l => `content/bs/nghe-${l}.json`)], ['noi.json', ['content/bs/noi.json']], ['viet.json', ['content/bs/viet.json']]]) {
   const D = J(f), add = src.flatMap(x => J(x).items).map(x => x.lines && !x.text ? { ...x, text: x.lines.map(l => l[1]).join(' '), vi: '' } : x);
   D.items = D.items.filter(keep).concat(add); if (f === 'noi.json') Object.assign(D.test, J('content/bs/noi.json').test);
+  // v126 🎧 Cambridge nghe nối người nói (content/bs/nghe-mm.json → nghe.json mm): 5 người nói, mỗi nhiệm vụ 8 ý (3 ý thừa), đáp án 5 chỉ số khác nhau
+  if (f === 'nghe.json') { D.mm = J('content/bs/nghe-mm.json').sets; for (const x of D.mm) if (x.sp.length !== 5 || !x.tasks.length || x.tasks.some(t => t.o.length !== 8 || t.a.length !== 5 || new Set(t.a).size !== 5 || t.a.some(a => !(a >= 0 && a < 8)))) throw new Error('bộ nối người nói hỏng: ' + x.id); }
   fs.writeFileSync(root + f, JSON.stringify(D)); console.log(`${f}: thêm ${add.length} mục B1 → C2`); }
 console.log(`ngữ pháp B1 → C2: ${G.length} điểm`); const ws = units.flatMap(u => u.words); console.log(`dữ liệu Nhớ: đồng nghĩa ${ws.filter(w => w.rel).length} · trang trọng ${ws.filter(w => w.reg).length} · mẫu câu ${ws.filter(w => w.pat).length} · thành ngữ ${ws.filter(w => w.idi).length}${miss.length ? ` · không khớp từ nào: ${miss.join(', ')}` : ''}`);
 for (const lv of LVS) console.log(' ', LVN[lv], units.filter(u => u.lv === lv).length, 'bài');
