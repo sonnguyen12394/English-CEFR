@@ -1184,6 +1184,19 @@ const R = await run(`(async () => {
     tryv('phát 3 giọng', () => kPlayDlg(t3[0].lines)); if (!TO_HOW.L[1].some(t => t.includes('Look at the graphic'))) bad.push('📘 cách làm thiếu mẹo câu có bảng');
     const seen = new Set(); for (let i = 0; i < 30; i++) toGen.p3(3).forEach(q => { if (q.x.g) seen.add(q.x.id); }); if (!seen.size) bad.push('Part 3 không bốc bài có bảng');
     add('cefr', 'C39', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ nội dung đợt 2: 12 điểm ngữ pháp Nền mới có câu luyện + thi mọi mặt; TOEIC Part 3 / 4 có bảng (≥ 3 bài mỗi Part), hội thoại 3 người, từ công sở ≥ 300'); }
+  // v125 đủ nội dung đợt 3: Nền Đọc / Nghe B1 → C2 mỗi cấp ≥ 11 bài luyện (thêm 5); câu ý chính / chi tiết hợp lệ, tên Việt không trùng trong cấp, B1 / B2 mỗi bài 1 câu suy luận
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } };
+    for (const pid of ['doc', 'nghe']) { const P = KIT[pid]; await kLoad(P);
+      for (const lv of ['b1', 'b2', 'c1', 'c2']) { const L = kItems(P, lv); if (L.length < 11) bad.push(pid + ' ' + lv + ': ' + L.length + ' bài luyện');
+        if (new Set(L.map(x => x.tvi)).size !== L.length) bad.push(pid + ' ' + lv + ': trùng tên Việt');
+        for (const n of [16, 17, 18, 19, 20]) { const id = (pid === 'doc' ? 'doc-' : 'ng-') + lv + '-' + n, x = L.find(y => y.id === id); if (!x) { bad.push('thiếu ' + id); continue; }
+          let qs = []; tryv(id, () => { qs = [...kRead(P, x, 'y', pid === 'nghe'), ...kRead(P, x, 'ct', pid === 'nghe')]; });
+          if (qs.length !== x.qs.length + 1) bad.push(id + ': ' + qs.length + ' câu');
+          for (const q of qs) if (!q.opts.includes(q.a) || new Set(q.opts).size !== q.opts.length) bad.push(id + ': câu hỏng ' + q.q);
+          if (pid === 'nghe' && !qs.every(q => q.play && (q.play.lines || q.play.text))) bad.push(id + ': thiếu bài phát'); } } }
+    // câu suy luận B1 / B2 nằm ở content/suyluan.json (build-bac xoá câu sl ghi thẳng trong bài): mỗi bài mới đúng 1 câu
+    for (const pid of ['doc', 'nghe']) for (const x of KIT[pid].items.filter(y => /-(b1|b2)-(1[6-9]|20)$/.test(y.id))) if (x.qs.filter(q => q.sl).length !== 1) bad.push(x.id + ': cần đúng 1 câu suy luận');
+    add('cefr', 'C40', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ nội dung đợt 3: Đọc / Nghe Nền B1 → C2 mỗi cấp ≥ 11 bài luyện, câu ý chính + chi tiết hợp lệ, tên không trùng, B1 / B2 mỗi bài 1 câu suy luận'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');

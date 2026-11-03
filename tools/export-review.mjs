@@ -46,6 +46,13 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
   add('💼 TOEIC · 180 từ công sở mới (v124)', '15 chủ đề mới (khách sạn, công nghệ, sản xuất, báo cáo, giao tiếp, đào tạo, an toàn, ngân hàng, bất động sản, bán lẻ, mua hàng, quản lý, môi trường, phúc lợi, truyền thông). Kiểm: nghĩa Việt đúng trong ngữ cảnh công sở, câu ví dụ tự nhiên.',
     TV.topics.slice(10).map(t => row(`tov:${t.id}`, `<b>${esc(t.t)}</b>` + t.w.map(w => `<br>• <b>${esc(w[0])}</b>: ${esc(w[1])} <span class="mute">· ${esc(w[2])}</span>`).join(''))));
 }
+// v125 (đợt 3): Nền Đọc / Nghe B1 → C2, mỗi cấp +5 bài luyện (id …-16 → …-20)
+{ const NEW = /^(doc|ng)-(b1|b2|c1|c2)-(1[6-9]|20)$/, li = (q, a, w) => `<br>• ${esc(q)} → <b>${esc(a)}</b> <span class="mute">(✗ ${w.map(esc).join(' · ✗ ')})</span>`;
+  for (const [f, t] of [['doc.json', '📰 Đọc Nền B1 → C2 · 20 bài luyện mới (v125)'], ['nghe.json', '🎧 Nghe Nền B1 → C2 · 20 bài luyện mới (v125)']])
+    add(t, 'Mỗi cấp 5 bài. Kiểm: độ khó hợp cấp, đáp án đúng và duy nhất, phương án nhiễu sai rõ, số liệu / sự kiện thật đúng (vd. Mercator, phán quyết 2014 của EU, nghiên cứu ví tiền thất lạc), câu suy luận (🧠) suy ra được từ bài.',
+      J(f).items.filter(x => NEW.test(x.id)).map(x => row(`v125:${x.id}`, `<b>${esc(x.title)}</b> <span class="mute">${x.lv.toUpperCase()} · ${esc(x.tvi)}</span><details><summary>Bài</summary><p class="t">${esc(x.lines ? x.lines.map(l => l[0] + ': ' + l[1]).join('\n') : x.text)}</p></details>`
+        + x.qs.map(q => li((q.sl ? '🧠 ' : '') + q.q, q.a, q.w)).join(''))));
+}
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}
