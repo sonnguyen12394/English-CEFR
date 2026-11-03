@@ -98,7 +98,9 @@ function mkBreak(pi) { $app.innerHTML = `<div class="box"><b>Xong ${esc(MK.paper
   $app.onclick = e => { if (e.target.closest('[data-a="next"]')) mkPaper(pi + 1); }; }
 function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.speak) p.sc = mkSpeakScore(p.res, lv);
   // bài viết tính theo điểm 4 tiêu chí (0–1) thay vì đạt / chưa (thi.js); câu khác 0 / 1
-  const ps = MK.papers.map(p => p.sc ? { t: p.t, ok: p.sc.pct, n: 100, crit: p.sc.C } : { t: p.t, ok: Math.round(p.res.reduce((s, r) => s + (r.sc != null ? r.sc : r.ok ? 1 : 0), 0) * 10) / 10, n: p.res.length }), full = MK.idx.length === C.papers.length;
+  // v121: lưu thêm kết quả từng phần (pp: { tên phần: [đúng, số câu] }, bài viết tính điểm 0–1) cho 🗺 bản đồ Cambridge (cbmap.js)
+  const pp = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; o[0] += r.sc != null ? r.sc : r.ok ? 1 : 0; } for (const k in by) by[k][0] = Math.round(by[k][0] * 100) / 100; return by; };
+  const ps = MK.papers.map(p => p.sc ? { t: p.t, ok: p.sc.pct, n: 100, crit: p.sc.C } : { t: p.t, ok: Math.round(p.res.reduce((s, r) => s + (r.sc != null ? r.sc : r.ok ? 1 : 0), 0) * 10) / 10, n: p.res.length, pp: pp(p) }), full = MK.idx.length === C.papers.length;
   const pct = Math.round(ps.reduce((s, p) => s + p.ok / p.n, 0) / ps.length * 100), pass = pct >= C.pass * 100;
   mkRuns(lv).push({ at: Date.now(), papers: ps, pct: full ? pct : null, pass: full && pass }); S.t = Date.now(); save();
   const parts = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } return Object.entries(by).map(([k, [a, b]]) => `${esc(k)}: ${a}/${b}`).join('<br>'); };
@@ -120,5 +122,5 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
     ${wrong.length ? `<details class="box"><summary>Xem lại ${wrong.length} câu sai</summary>${wrong.map(({ r }) => `<div style="margin:8px 0;border-top:1px solid var(--line, #ddd);padding-top:6px"><p class="mute" style="margin:0">${esc(r.part)}</p><p style="margin:2px 0">${r.q.q}</p>
       <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 300))}${r.q.kind === 'write' ? '' : ` · Đáp án: <b>${esc(r.q.a != null ? r.q.a : (r.q.acc || [])[0] || '')}</b>`}</p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
     <p class="mute">Máy chấm; bài viết chấm đủ ý và dạng bài bằng từ khoá, không chấm ngữ pháp. Ôn phần thấp nhất rồi bấm làm đề mới (câu đổi mỗi lần).</p>
-    <button class="pri" data-a="again">🎓 Làm đề mới</button><button data-a="home">‹ Luyện thi</button>`;
-  $app.onclick = e => { if (e.target.closest('[data-a="again"]')) mockView(lv); if (e.target.closest('[data-a="home"]')) exHome(lv); }; }
+    ${MK.map ? '<button class="pri" data-a="map">🗺 Về bản đồ</button><button data-a="again">🎓 Làm cả đề thử</button>' : '<button class="pri" data-a="again">🎓 Làm đề mới</button>'}<button data-a="home">‹ Luyện thi</button>`;
+  $app.onclick = e => { if (e.target.closest('[data-a="map"]')) { scrollTo(0, 0); return mapView('cb'); } if (e.target.closest('[data-a="again"]')) mockView(lv); if (e.target.closest('[data-a="home"]')) exHome(lv); }; }

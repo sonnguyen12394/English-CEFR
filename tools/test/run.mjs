@@ -135,7 +135,7 @@ const R = await run(`(async () => {
     const ai = cr.find(c => c.k === 'W' && c.src === 'ai'), my = cr.find(c => c.k === 'W' && c.src === 'may'); if (!ai || ai.c.join() !== '6,6,7,5' || !my || !my.c || my.c.length !== 4) bad.push('tiêu chí Viết sai');
     MK = { idx: [1], C: { name: 'IELTS thử' }, papers: [{ t: 'R', k: 'R', res: qs.map((q, j) => ({ part: 'p', q, ok: j % 2 === 0, ans: 'x' })) }] }; tryv('đề thử theo dạng', () => ieMockResult());
     if (!String($app.innerHTML).includes('Theo dạng câu (đề này)')) bad.push('kết quả đề thử thiếu bảng theo dạng');
-    await mapView(); if (!String($app.innerHTML).includes('📊 Theo dạng câu')) bad.push('🗺 Chỗ yếu thiếu ô theo dạng IELTS');
+    await mapView('ielts'); MAP_TAB = null; if (!String($app.innerHTML).includes('📊 Theo dạng câu')) bad.push('🗺 Chỗ yếu thiếu ô theo dạng IELTS');   // v121: mục 🌏 IELTS của 🗺 Chỗ yếu
     add('ielts', 'I2', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'ghi theo dạng câu + tiêu chí (máy / AI riêng), đề thử có bảng theo dạng, ô 📊 ở Học IELTS'); }
   // 🗺 Bản đồ band IELTS (iemap.js, v83): chỗ yếu theo dạng / tiêu chí, ưu tiên, nhóm 3 (mỗi kỹ năng 1), thử bằng bài mới, đạt 2 ngày = xong, gác, 🧱 nền CEFR
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await ieLoad(); await kLoad(KIT.nghe); await kLoad(KIT.doc);
@@ -161,7 +161,7 @@ const R = await run(`(async () => {
     for (let k = 0; k < 3; k++) imHit('L-form', false, now + (18 + k) * D); const rt = imFocus(now + 21 * D); if (!rt.root.some(w => w.u === 'L-form') || imFocus(now + 99 * D).act.some(w => w.u === 'L-form')) bad.push('kẹt lần 2 chưa sang nền CEFR');
     // tiêu chí: bài Viết AI chấm đạt → một lượt đạt
     const w0 = o.fo.a.find(a => a.u[0] === 'W'); if (w0) { const t0 = w0.tr || 0; ieCrLog('W', 't2', [7, 7, 7, 7], 'ai'); if (w0.tr !== t0 + 1 || !w0.pd.length) bad.push('bài Viết chưa ghi lượt'); } else bad.push('thiếu chỗ Viết trong nhóm');
-    await ieltsView(); if (!String($app.innerHTML).includes('data-mapv="lt"')) bad.push('màn IELTS thiếu lối tắt bản đồ band'); await mapView(); const h = String($app.innerHTML); if (!h.includes('Bản đồ band') || !h.includes('Kẹt lâu')) bad.push('🗺 Chỗ yếu thiếu bản đồ band / 🧱');
+    await ieltsView(); if (!String($app.innerHTML).includes('data-mapv="lt" data-mapk="ielts"')) bad.push('màn IELTS thiếu lối tắt bản đồ band'); await mapView('ielts'); MAP_TAB = null; const h = String($app.innerHTML);   // v121: lối tắt mở mục 🌏 IELTS if (!h.includes('Bản đồ band') || !h.includes('Kẹt lâu')) bad.push('🗺 Chỗ yếu thiếu bản đồ band / 🧱');
     await imFix('R-h'); if (!(h2 => h2.includes('Trước khi thử') || h2.includes(' · 1/'))(String($app.innerHTML))) bad.push('chữa dạng câu không mở bài');
     if (!o.fo.a.find(a => a.u === 'R-h')) bad.push('R-h mất'); else {o.fo.a.find(a => a.u === 'R-h').tr = 1; o.fo.a.find(a => a.u === 'R-h').td = dayOf(now) - 1; await imFix('R-h'); if (!String($app.innerHTML).includes('Trước khi thử')) bad.push('thiếu xem cách làm trước lần thử 2'); }
     add('ielts', 'I3', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'bản đồ band: chỗ yếu theo dạng / tiêu chí, nhóm 3 mỗi kỹ năng 1, chỉ bài mới tính, đạt 2 ngày = xong, gác 14 ngày, 🧱 nền CEFR, xem cách làm trước khi thử'); }
@@ -907,16 +907,17 @@ const R = await run(`(async () => {
     if (!h.includes('id="lt"') || !h.includes('data-ltseg="today" role="tab" aria-selected="true" class="on"') || !h.includes('data-ltseg="map"')) bad.push('Hôm nay thiếu hàng 2 phần');
     MAP_BACK = 'lt'; await tryA('Chỗ yếu', () => mapView()); h = H();
     if (!h.includes('id="lt"') || !h.includes('data-ltseg="map" role="tab" aria-selected="true" class="on"') || h.includes('data-a="bk"')) bad.push('🗺 Chỗ yếu chưa là phần của Lộ trình');
-    if (!h.includes('Bản đồ band') || !h.includes('Việc cần chữa') || !(pos(h, '<h2>🌏 IELTS') < pos(h, '<h2>🧱 Nền tiếng Anh'))) bad.push('mục tiêu IELTS, đủ nền: bản đồ band phải có và lên trước');   // v120: khối IELTS có Việc cần chữa riêng
-    S.place.top = 'a2'; await tryA('Chỗ yếu nền thiếu', () => mapView()); h = H(); if (!(pos(h, '<h2>🧱 Nền tiếng Anh') < pos(h, '<h2>🌏 IELTS'))) bad.push('nền thiếu xa: bản đồ nền phải lên trước');
-    ltSt().goal = { kind: 'cefr', lv: 'b1', date: '', at: now }; delete S.ie; await tryA('Chỗ yếu CEFR', () => mapView()); h = H(); if (h.includes('Bản đồ band') || h.includes('Bản đồ điểm')) bad.push('mục tiêu CEFR, chưa luyện đề: không cần bản đồ kỳ thi');
-    S.to = { target: 600, ty: { 'p5:verb': [{ at: now, ok: 3, n: 5, ids: ['x'], src: 'luyen' }] } }; await tryA('Chỗ yếu có TOEIC', () => mapView()); if (!H().includes('Bản đồ điểm')) bad.push('đã luyện TOEIC: thiếu bản đồ điểm');
+    // v121: mỗi mục một màn (hàng chọn 🧱 Nền · 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC); mục tiêu kỳ thi mà Lộ trình dồn ≥ 50% cho luyện đề thì mở đầu ở mục đó
+    MAP_TAB = null; if (!h.includes('Bản đồ band') || !h.includes('Việc cần chữa') || !h.includes('class="on" data-mtab="ielts"') || !h.includes('<i>🌏🎯</i>IELTS</button>')) bad.push('mục tiêu IELTS, đủ nền: phải mở đầu ở mục IELTS');
+    S.place.top = 'a2'; await tryA('Chỗ yếu nền thiếu', () => mapView()); h = H(); if (!h.includes('class="on" data-mtab="nen"') || !h.includes('Bản đồ theo bài') || h.includes('Bản đồ band')) bad.push('nền thiếu xa: phải mở đầu ở mục Nền');
+    ltSt().goal = { kind: 'cefr', lv: 'b1', date: '', at: now }; delete S.ie; await tryA('Chỗ yếu CEFR', () => mapView()); h = H(); if (h.includes('Bản đồ band') || h.includes('Bản đồ điểm') || !h.includes('<i>🧱🎯</i>Nền</button>') || !h.includes('data-mtab="ielts"')) bad.push('mục tiêu CEFR: mở đầu ở Nền, vẫn có hàng chọn kỳ thi');
+    S.to = { target: 600, ty: { 'p5:verb': [{ at: now, ok: 3, n: 5, ids: ['x'], src: 'luyen' }] } }; await tryA('Chỗ yếu có TOEIC', () => mapView('toeic')); MAP_TAB = null; if (!H().includes('Bản đồ điểm') || !H().includes('để xem')) bad.push('mục TOEIC: thiếu bản đồ điểm / ghi chú chỉ để xem');
     await tryA('Tôi', () => minhView()); h = H(); if (h.includes('Mở bản đồ') || !h.includes('data-mapv="lt"')) bad.push('👤 Tôi còn ô bản đồ riêng');
     await tryA('IELTS', () => ieltsView()); h = H(); if (h.includes('Ngưỡng (75%') || !h.includes('data-mapv="lt"')) bad.push('màn IELTS còn bản đồ band');
     await tryA('TOEIC', () => toeicView()); h = H(); if (h.includes('Điểm cộng ước theo số câu') || !h.includes('data-mapv="lt"')) bad.push('màn TOEIC còn bản đồ điểm');
     if (todayBox('pre', { lt: 1 }).includes('data-mapv')) bad.push('Hôm nay còn lối tắt bản đồ thừa');
     S.place = null; delete S.lt; delete S.to;
-    add('cefr', 'C30', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Lộ trình 2 phần (📅 Hôm nay · 🗺 Chỗ yếu); Chỗ yếu gồm bản đồ CEFR + band IELTS + điểm TOEIC, kỳ thi mục tiêu lên trước khi Lộ trình dồn ≥ 50% cho luyện đề; màn kỳ thi, 👤 Tôi chỉ lối tắt'); }
+    add('cefr', 'C30', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Lộ trình 2 phần (📅 Hôm nay · 🗺 Chỗ yếu); Chỗ yếu có mục Nền / Cambridge / IELTS / TOEIC, mở đầu ở kỳ thi mục tiêu khi Lộ trình dồn ≥ 50% cho luyện đề; màn kỳ thi, 👤 Tôi chỉ lối tắt'); }
   // v116 📘 Bài học / 🏋️ Bài tập tách riêng (người sáng lập 2/11/2026): 🔁 Nhớ chỉ tính ở bài tập (và bài thi); bài học, luyện thêm không bao giờ tính, kể cả ôn chéo cho từ
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML), now = Date.now(), t = dayOf(now), D = 864e5;
     const blankC = d0 => ({ S: 10, last: now - 3 * D, d0, ok: 1, pv: 1, n: 2, lapse: 0, dm: {} });
@@ -1075,9 +1076,47 @@ const R = await run(`(async () => {
     tryv('tmMap', () => { h = tmMap(true); }); if (!h.includes('Chữa chỗ mất điểm nhiều nhất') || !h.includes('data-tm="fix|p5:verb"') || !h.includes('Bản đồ điểm') || (h.match(/class="xchip /g) || []).length < 12) bad.push('TOEIC: khối bản đồ sai');
     // màn 🗺 Chỗ yếu: mục tiêu IELTS → khối IELTS mới, mỗi khối một việc cần chữa
     S = blank(); S.lt = { goal: { kind: 'ielts', lv: 'b2', at: now }, d: [], fx: {} }; S.ie = { set: 1, type: 'ac', target: 6.5, r: {}, ty: { 'R-tf': b(4, 10, ['a', 'b']) }, cr: [] };
-    MAP_BACK = 'lt'; await tryA('Chỗ yếu IELTS', () => mapView()); h = H(); if ((h.match(/🎯 Việc cần chữa/g) || []).length !== 2 || !h.includes('data-im="fix|R-tf"') || !h.includes('class="xchip yeu"')) bad.push('màn Chỗ yếu chưa có khối IELTS mới');
+    MAP_BACK = 'lt'; await tryA('Chỗ yếu IELTS', () => mapView('ielts')); MAP_TAB = null; h = H(); if ((h.match(/🎯 Việc cần chữa/g) || []).length !== 1 || !h.includes('data-im="fix|R-tf"') || !h.includes('class="xchip yeu"')) bad.push('màn Chỗ yếu chưa có khối IELTS mới');   // v121: mục IELTS một màn riêng
     S = blank();
     add('cefr', 'C35', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'bản đồ IELTS / TOEIC cùng khuôn: ô theo dạng câu / tiêu chí / Part (yếu / chưa chắc / đạt / chưa làm), việc cần chữa riêng với nút chữa chỗ mất điểm nhiều nhất, làm thêm khi chưa chắc, chi tiết cũ gập trong Thêm đều đúng'); }
+  // v121 🗺 bản đồ mọi mục tiêu: hàng chọn 🧱 Nền · 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC (mục nào cũng xem được, 🎯 = mục tiêu); bản đồ Cambridge theo phần của đề thử
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
+    const H = () => String($app.innerHTML), now = Date.now(), D = 864e5; await Promise.all([ieLoad(), toLoad(), cbMapLoad(), paLoad(), ...Object.values(KIT).map(kLoad)]);
+    S = blank(); S.lt = { goal: { at: now, lv: 'b1', date: '2026-12-01' }, d: [], fx: {} }; MAP_BACK = 'lt'; MAP_TAB = null; CBM_LV = null;   // như dữ liệu thật 3/11: mục tiêu không ghi loại = 📈 Lên trình
+    await tryA('Nền', () => mapView()); let h = H();
+    if (['nen', 'cb', 'ielts', 'toeic'].some(k => !h.includes('data-mtab="' + k + '"')) || !h.includes('class="on" data-mtab="nen"') || !h.includes('<i>🧱🎯</i>Nền</button>')) bad.push('thiếu hàng chọn 4 mục / mục mở đầu sai');
+    for (const [k, w] of [['ielts', 'Bản đồ band'], ['toeic', 'Bản đồ điểm'], ['cb', 'theo phần của đề']]) { await tryA('mục ' + k, () => mapView(k)); h = H();
+      if (!h.includes('class="on" data-mtab="' + k + '"') || !h.includes(w) || !h.includes('để xem') || h.includes('Bản đồ theo bài')) bad.push('mục ' + k + ': chưa hiện bản đồ kỳ thi / thiếu ghi chú chỉ để xem'); }
+    await tryA('nhớ mục đã chọn', () => mapView()); if (!H().includes('class="on" data-mtab="cb"')) bad.push('chưa nhớ mục đã chọn trong phiên');
+    h = H(); if (!h.includes('data-cbm="mock|') || !h.includes('Làm 1 đề thử')) bad.push('Cambridge chưa có dữ liệu: nút chính phải là làm 1 đề thử');
+    // ô Cambridge: đề thử lưu theo phần (pp) + dạng đề thật; yếu / ổn / chưa chắc / chưa làm theo ngưỡng của kỳ thi
+    const C = MOCK.b1, lab = C.papers[0].parts.map(p => p[0]), wt = C.papers[1].parts[0][0], mc = cbUItems('mc', 'b1');
+    const r = (at, a, b, w) => ({ at, papers: [{ t: C.papers[0].t, ok: 0, n: 0, pp: { [lab[0]]: [a, 6], [lab[1]]: [b, 6] } }, { t: C.papers[1].t, ok: 0, n: 2, pp: { [wt]: [w, 2] } }], pct: null, pass: false });
+    S.mock = { b1: [r(now - 3 * D, 2, 5, 0.8), r(now - D, 3, 6, 1.2)] }; S.uoe = {}; if (mc[0]) S.uoe[mc[0].id] = { at: now - D, ok: 2, n: 6 };
+    const cells = cbRows('b1').flatMap(x => x.cells), st = l => (cells.find(c => c.lab === l) || {}).s;
+    if (st(lab[0]) !== 'yeu' || st(lab[1]) !== 'vung' || st(lab[3]) !== 'on' || st(lab[4]) !== 'chua' || st(wt) !== 'yeu' || !mc.length) bad.push('ô Cambridge sai: ' + [lab[0], lab[1], lab[3], lab[4], wt].map(st).join(','));
+    tryv('cbMap', () => { h = cbMap(false, 'b1'); }); if (!h.includes('Chữa phần mất điểm nhiều nhất') || !h.includes('data-cbm="fix|b1|0|0" style') || (h.match(/class="xchip yeu"/g) || []).length !== 2 || !h.includes('cần ~70%')) bad.push('Cambridge: việc cần chữa / lưới sai');
+    if (cbMap(false, 'b2').indexOf('Làm 1 đề thử') < 0) bad.push('Cambridge B2 chưa có dữ liệu sai');
+    // bấm ô: dạng đề thật → luyện dạng đó; nghe điền; nói cặp; phần khác → làm riêng phần đó (có giờ), kết quả lưu theo phần, nút về bản đồ
+    await tryA('ô điền trắc nghiệm', () => cbFix('b1', 0, 3)); if (!H().includes('data-uo=')) bad.push('ô dạng đề thật chưa mở bài luyện dạng đó');
+    await tryA('ô nghe điền', () => cbFix('b1', 2, 1)); if (!H().includes('Nghe')) bad.push('ô nghe điền chưa mở nghe điền');
+    await tryA('ô Nói', () => cbFix('b1', 3, 0)); if (!H().includes('Nói theo cặp')) bad.push('ô Nói chưa mở nói cặp');
+    S.mock = {}; await tryA('ô đọc tin ngắn', () => cbFix('b1', 0, 0));
+    if (!MK || !MK.map || MK.papers.length !== 1 || MK.papers[0].qs.some(q => q.part !== lab[0])) bad.push('ô phần khác chưa làm riêng phần đó');
+    else { clearInterval(MK.tick); const P = MK.papers[0]; P.res = P.qs.map((q, j) => Object.assign({}, q, { ok: j % 2 === 0, ans: 'x' })); tryv('kết quả phần', () => mkResult());
+      const last = (S.mock.b1 || []).slice(-1)[0]; if (!last || last.pct !== null || !last.papers[0].pp || !last.papers[0].pp[lab[0]] || !H().includes('data-a="map"')) bad.push('làm riêng phần: chưa lưu theo phần / tính nhầm cả đề / thiếu nút về bản đồ'); }
+    // xem cấp khác; lối tắt từ màn kỳ thi mở đúng mục
+    CBM_LV = 'b2'; MAP_TAB = 'cb'; await tryA('Cambridge B2', () => mapView()); if (!H().includes('Cambridge B2')) bad.push('đổi cấp bản đồ Cambridge sai'); CBM_LV = null;
+    await tryA('IELTS', () => ieltsView()); if (!H().includes('data-mapk="ielts"')) bad.push('màn IELTS: lối tắt chưa mở mục IELTS');
+    await tryA('TOEIC', () => toeicView()); if (!H().includes('data-mapk="toeic"')) bad.push('màn TOEIC: lối tắt chưa mở mục TOEIC');
+    CB_LV = null; await tryA('Cambridge', () => cbView('b1')); if (!H().includes('data-mapk="cb"') || !H().includes('data-cbmlv="b1"')) bad.push('màn Cambridge thiếu lối tắt bản đồ'); CB_LV = null;
+    // mục tiêu Cambridge: 🎯 ở mục Cambridge; nền thiếu xa thì mở đầu ở Nền và ghi chưa xếp giờ luyện đề
+    S = blank(); S.lt = { goal: { at: now, kind: 'cambridge', lv: 'b1' }, d: [], fx: {} }; MAP_TAB = null; await tryA('mục tiêu Cambridge', () => mapView()); h = H();
+    if (!h.includes('class="on" data-mtab="nen"') || !h.includes('<i>🎓🎯</i>Cambridge</button>')) bad.push('mục tiêu Cambridge, nền thiếu xa: mở đầu ở Nền, 🎯 ở Cambridge');
+    await tryA('mục tiêu Cambridge, mục Cambridge', () => mapView('cb')); if (!H().includes('chưa xếp giờ luyện đề') || !H().includes('Cambridge B1 🎯')) bad.push('mục tiêu Cambridge: thiếu ghi chú ⚖️ / cấp mục tiêu');
+    if (!(HD.find(x => x[0] === 'bando') || [, , () => ''])[2]().includes('Cambridge')) bad.push('Luật mục bản đồ chưa nói Cambridge');
+    MAP_TAB = null; CBM_LV = null; S = blank();
+    add('cefr', 'C36', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'bản đồ mọi mục tiêu: hàng chọn Nền / Cambridge / IELTS / TOEIC xem được cả khi không phải mục tiêu (ghi chú chỉ để xem), nhớ mục trong phiên, bản đồ Cambridge theo phần (yếu / chưa chắc / ổn / chưa làm), bấm ô luyện đúng phần, làm riêng phần lưu theo phần, lối tắt mở đúng mục'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V', 'T'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung)');
@@ -1128,7 +1167,7 @@ const R = await run(`(async () => {
     const ra = o.fo.a.find(a => a.u === 'tr:rep'); if (ra) { ra.tr = 1; ra.td = dayOf(now) - 1; await tmFix('tr:rep'); if (!taught.includes('tr:rep')) bad.push('thiếu cách làm trước lần thử 2'); }
     tmTeach = tt0;
     try { await tmFix('p6'); await tmFix('p7'); await tmFix('p3'); } catch (e) { errs.push('chữa Part: ' + e.message); }
-    await toeicView(); if (!String($app.innerHTML).includes('data-mapv="lt"')) bad.push('màn TOEIC thiếu lối tắt bản đồ điểm'); await mapView(); if (!String($app.innerHTML).includes('Bản đồ điểm') || !String($app.innerHTML).includes('Phân tích điểm')) bad.push('🗺 Chỗ yếu thiếu bản đồ điểm');
+    await toeicView(); if (!String($app.innerHTML).includes('data-mapv="lt" data-mapk="toeic"')) bad.push('màn TOEIC thiếu lối tắt bản đồ điểm'); await mapView('toeic'); MAP_TAB = null; if (!String($app.innerHTML).includes('Bản đồ điểm') || !String($app.innerHTML).includes('Phân tích điểm')) bad.push('🗺 Chỗ yếu thiếu bản đồ điểm');
     add('toeic', 'T2', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'bản đồ điểm: dạng / bẫy có mẫu số, ngưỡng theo mục tiêu, nhóm 3 (Nghe ≤ 2, Đọc ≤ 2), chỉ câu mới tính, đạt 2 ngày = xong, tốc độ, kho ≥ 20 bộ'); }
   return out; })()`);
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }

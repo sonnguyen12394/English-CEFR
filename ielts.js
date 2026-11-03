@@ -401,7 +401,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
       <details><summary>Làm từng bài</summary>${IE_PAPERS.map((p, i) => `<button data-iemk="${i}">${p.t} · ${p.min} phút</button>`).join('')}</details></div>
     <h2>Thêm</h2>
     ${typeof thBox === 'function' ? `<details class="box"><summary><b>📝 Luyện bằng đề thật</b> <span class="mute">· nhập kết quả, lấy từ mới</span></summary>${thBox(true)}</details>` : ''}
-    ${typeof imBox === 'function' ? `<button class="link" data-mapv="lt" style="margin:4px 0 8px">🗺 Bản đồ band: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>` : ''}
+    ${typeof imBox === 'function' ? `<button class="link" data-mapv="lt" data-mapk="ielts" style="margin:4px 0 8px">🗺 Bản đồ band: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>` : ''}
     <details class="box"><summary><b>🎯 Sẵn sàng thi IELTS ${bandTxt(tg)}</b> <span class="${nOk === cs.length ? 'okc' : 'mute'}">${nOk}/${cs.length}</span></summary>
       ${cs.map(([ok, t, d]) => `<p style="margin:4px 0">${ok ? '✅' : '⬜'} ${t} <span class="mute">· ${esc(d)}</span></p>`).join('')}
       <p class="mute" style="margin:6px 0 0">${nOk === cs.length ? 'Đủ bằng chứng: có thể đăng ký thi.' : 'Đủ cả 5 mới nên đăng ký thi. Đề thử của app do AI soạn nên chưa đủ một mình; đề luyện chính thức và giáo viên là hai bằng chứng độc lập.'}</p>

@@ -131,6 +131,10 @@ await pg.evaluate(() => { S.lt = { d: [], fx: {}, goal: { kind: 'cefr', lv: 'a2'
 check('Lộ trình có 2 phần', await pg.isVisible('[data-ltseg="today"].on') && await pg.isVisible('[data-ltseg="map"]')); await pg.click('[data-ltseg="map"]'); await pg.waitForTimeout(1200);
 check('bản đồ theo bài (v119)', /Việc cần chữa[\s\S]*Bản đồ theo bài/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="lt"].on') && await pg.isVisible('[data-ltseg="map"].on'));
 check('Chỗ yếu không tràn ngang', await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+// v121: hàng chọn mục 🧱 Nền · 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC, mục nào cũng xem được
+await pg.click('[data-mtab="cb"]'); await pg.waitForTimeout(1500); check('mục 🎓 Cambridge của Chỗ yếu (v121)', (await pg.innerText('#app')).includes('theo phần của đề') && await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+await pg.click('[data-mtab="ielts"]'); await pg.waitForTimeout(1500); check('mục 🌏 IELTS của Chỗ yếu (v121)', (await pg.innerText('#app')).includes('theo dạng câu') && await pg.isVisible('[data-mtab="ielts"].on'));
+await pg.click('[data-mtab="nen"]'); await pg.waitForTimeout(1200);
 await pg.click('[data-ltseg="today"]'); await pg.waitForTimeout(800); check('về 📅 Hôm nay', (await pg.innerText('#app')).includes('Việc hôm nay') && await pg.isVisible('[data-ltseg="today"].on'));
 await pg.click('#tabs [data-tab="dict"]'); await pg.waitForTimeout(600); check('Từ điển sáng đúng nút', await pg.isVisible('#tabs [data-tab="dict"].on') && !(await pg.$('#tabs [data-tab="bk"].on')));
 // v95: 📖 Tra cứu → 📘 Cẩm nang thi (thanh dưới vẫn sáng 📖); 👤 Của tôi → 🗺 bản đồ (sáng 👤, nút về Của tôi) → 💾 Dữ liệu

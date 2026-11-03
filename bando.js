@@ -145,7 +145,15 @@ function mapLearnNew() { const st = ovStage(), r = OV.filter(([id]) => ovIn(id, 
   if (!r) return overview(); const P = KIT[r[0]], x = P && P.newQs && P.items ? kNextNew(P) : null; if (x) return kNew(P, x, () => kView(P.id)); return ovOpenPart(r[0], st); }
 
 // ---------- màn 🗺 Bản đồ chỗ yếu ----------
-async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.innerHTML = '<div id="bdo"></div><p class="mute">Đang tải…</p>';
+// v121 (người sáng lập: "Tôi muốn thấy bản đồ của các mục tiêu"; dữ liệu thật 3/11/2026: mục tiêu 📈 Lên trình B1, chưa làm bài IELTS / TOEIC nào, nên luật v114
+//   "bản đồ kỳ thi hiện khi là mục tiêu hoặc đã có dữ liệu" giấu hết): hàng chọn 🧱 Nền · 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC, mục nào cũng xem được, 🎯 = mục tiêu.
+//   Mở đầu ở mục của mục tiêu khi ⚖️ Lộ trình dồn ≥ 50% giờ cho luyện đề, không thì 🧱 Nền; nhớ mục đã chọn trong phiên (MAP_TAB). Chỉ tải dữ liệu của mục đang xem.
+const MAP_TABS = [['nen', '🧱 Nền'], ['cb', '🎓 Cambridge'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']];
+let MAP_TAB = null;
+const mapGoalTab = () => { const g = S && S.lt && S.lt.goal; return g && typeof ltKind === 'function' ? ({ cefr: 'nen', cambridge: 'cb', ielts: 'ielts', toeic: 'toeic' })[ltKind(g)] || null : null; };
+const mapTab = () => { if (MAP_TAB) return MAP_TAB; const gt = mapGoalTab(); let ex = 0; try { ex = gt && gt !== 'nen' && typeof ltSplit === 'function' ? ltSplit().ex : 0; } catch (e) {} return gt && gt !== 'nen' && ex >= 50 ? gt : 'nen'; };
+async function mapView(want) { window.CUR = { view: 'ban-do' }; BACK = null; $app.innerHTML = '<div id="bdo"></div><p class="mute">Đang tải…</p>';
+  if (typeof want === 'string' && MAP_TABS.some(t => t[0] === want)) MAP_TAB = want;   // gọi kèm mục (lối tắt từ màn IELTS / TOEIC / Cambridge); gọi làm hàm "về" thì không có
   try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); } catch (e) {}
   const now = Date.now(), weak = mapWeak(now), fo = mapFocus(now, weak), fby = {}, cov = mapCover(), roots = mapRoots(weak, now), by = {}; for (const w of weak) (by[w.id] = by[w.id] || []).push(w); for (const w of fo.act) (fby[w.id] = fby[w.id] || []).push(w); save();
   const nm = id => OV.find(o => o[0] === id), face = (id, k) => id === 'tv' ? (VREQ_BY[k] || [k, k])[1] : id === 'pa' ? (PA_DIMS.find(d => d[0] === k) || [k, k])[1] : (KIT[id].dims.find(d => d[0] === k) || [k, k])[1];
@@ -162,19 +170,24 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
     ${gapShow.length ? `<button data-map="gap" style="margin:4px 0">🧭 ${gapShow.length} chỗ hổng nền <span class="mute">(bài xếp cấp phát hiện, đã hỏi lại vẫn sai)</span><small style="display:block;font-weight:400;opacity:.85">${gapShow.slice(0, 8).map(g => `${g.cho ? '✔' : '❌'} ${gl(g)}`).join(' · ')}${gapShow.length > 8 ? ' …' : ''}</small></button>` : ''}
     ${roots.length ? `<button data-map="root" style="margin:4px 0">📰 ${roots.length} bài yếu do thiếu từ<small style="display:block;font-weight:400;opacity:.85">${[...new Set(roots.flatMap(r => r.gap.map(w => w.w)))].slice(0, 10).map(esc).join(', ')}</small></button>` : ''}
     ${rootN.length ? `<p class="mute" style="margin:6px 0 2px">🧱 Cần học lại bài gốc (đã gác, quay lại vẫn kẹt):</p>${rootN.slice(0, 6).map(w => `<button data-map="rl|${esc(mapKey(w))}" style="margin:3px 0">🧱 ${nm(w.id)[1]} ${label(w)} <span class="mute">· ${esc(face(w.id, w.k))}</span></button>`).join('')}` : ''}`;
-  // v114: bản đồ là phần 🗺 Chỗ yếu của 🧭 Lộ trình (hàng 📅 Hôm nay · 🗺 Chỗ yếu); gồm cả 🗺 bản đồ band IELTS / bản đồ điểm TOEIC khi mục tiêu là kỳ thi đó hoặc đã có dữ liệu
-  const inLt = MAP_BACK === 'lt' && typeof ltSeg === 'function' && !!(S.lt && S.lt.goal), gk = S.lt && S.lt.goal && typeof ltKind === 'function' ? ltKind(S.lt.goal) : null, ie = S.ie || {}, to = S.to || {};
-  const exs = [typeof imBox === 'function' && (gk === 'ielts' || Object.keys(ie.ty || {}).length || (ie.cr || []).length) ? 'ielts' : '', typeof tmBox === 'function' && (gk === 'toeic' || Object.keys(to.ty || {}).length || (to.spd || []).length) ? 'toeic' : ''].filter(Boolean);
-  for (const k of exs) try { await (k === 'ielts' ? ieLoad() : toLoad()); } catch (e) {}
-  const exHtml = exs.map(k => k === 'ielts' ? imMap(gk === 'ielts') : tmMap(gk === 'toeic')).join('');   // v120: IELTS / TOEIC cùng khuôn: việc cần chữa + lưới dạng câu / tiêu chí + "Thêm"
-  const exFirst = exs.includes(gk) && typeof ltSplit === 'function' && ltSplit(S.lt.goal).ex >= 50;   // mục tiêu là kỳ thi và Lộ trình dồn ≥ 50% giờ cho luyện đề: bản đồ kỳ thi lên trước
-  const head = inLt ? `<div id="bdo"></div><div id="lt"></div>${ltSeg('map')}<h1>🗺 Chỗ yếu</h1><p class="mute" style="margin:0 0 6px">Bài nào yếu thì chữa trước, rồi học tiếp. Việc chữa hằng ngày cũng có trong 📅 Hôm nay.</p>`
-    : `<div id="bdo"></div>${MAP_BACK === 'ct' ? '<div id="bk"></div>' : MAP_BACK === 'lt' ? '<div id="lt"></div>' : ''}<div class="row top"><button class="link" data-a="bk">← ${MAP_BACK === 'ct' ? 'Của tôi' : MAP_BACK === 'lt' ? 'Lộ trình' : 'Học'}</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>`;
+  // v114: bản đồ là phần 🗺 Chỗ yếu của 🧭 Lộ trình (hàng 📅 Hôm nay · 🗺 Chỗ yếu). v120: IELTS / TOEIC cùng khuôn (việc cần chữa + lưới dạng câu / tiêu chí + "Thêm").
+  //   v121: mỗi mục một màn (hàng chọn), Cambridge có bản đồ riêng theo phần của đề (cbmap.js)
+  const inLt = MAP_BACK === 'lt' && typeof ltSeg === 'function' && !!(S.lt && S.lt.goal), gt = mapGoalTab(), tab = mapTab(); let exHtml = '', sp = null;
+  if (tab === 'ielts') { try { await ieLoad(); } catch (e) {} exHtml = IE && typeof imMap === 'function' ? imMap(gt === 'ielts') : '<p class="mute">Không tải được dữ liệu IELTS. Thử lại sau.</p>'; }
+  if (tab === 'toeic') { try { await toLoad(); } catch (e) {} exHtml = TO && typeof tmMap === 'function' ? tmMap(gt === 'toeic') : '<p class="mute">Không tải được dữ liệu TOEIC. Thử lại sau.</p>'; }
+  if (tab === 'cb') { try { await cbMapLoad(); } catch (e) {} exHtml = typeof cbMap === 'function' ? cbMap(gt === 'cb') : ''; }
+  try { sp = gt && gt !== 'nen' && typeof ltSplit === 'function' ? ltSplit() : null; } catch (e) {}
+  // mục không phải mục tiêu: chỉ để xem (Lộ trình không xếp giờ luyện kỳ thi đó); mục tiêu mà nền thiếu ≥ 2 cấp: Lộ trình chưa xếp giờ luyện đề
+  const exNote = tab === 'nen' || !gt ? '' : gt !== tab ? `<p class="mute" style="margin:0 0 8px">🎯 Mục tiêu của bạn: ${esc(typeof ltGoalName === 'function' ? ltGoalName() : '')}. Bản đồ ${MAP_TABS.find(t => t[0] === tab)[1].replace(/^\S+ /, '')} này để xem: 🧭 Lộ trình không xếp giờ luyện kỳ thi này.</p>`
+    : sp && !sp.ex ? '<p class="mute" style="margin:0 0 8px">⚖️ Nền còn thiếu ≥ 2 cấp nên 🧭 Lộ trình chưa xếp giờ luyện đề: chữa ở 🧱 Nền trước, bản đồ này để xem.</p>' : '';
+  const tabs = `<div class="chipset ex4" role="tablist">${MAP_TABS.map(([k, t]) => { const [ic, ...nm] = t.split(' '); return `<button class="${k === tab ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${k === tab}"><i>${ic}${k === gt ? '🎯' : ''}</i>${nm.join(' ')}</button>`; }).join('')}</div>`;   // 4 ô một hàng: biểu tượng trên, tên dưới (🎯 = mục tiêu)
+  const head = inLt ? `<div id="bdo"></div><div id="lt"></div>${ltSeg('map')}<h1>🗺 Chỗ yếu</h1>${tabs}`
+    : `<div id="bdo"></div>${MAP_BACK === 'ct' ? '<div id="bk"></div>' : MAP_BACK === 'lt' ? '<div id="lt"></div>' : ''}<div class="row top"><button class="link" data-a="bk">← ${MAP_BACK === 'ct' ? 'Của tôi' : MAP_BACK === 'lt' ? 'Lộ trình' : 'Học'}</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>${tabs}`;
   // v119: trên cùng là bản đồ theo BÀI: 🎯 Việc cần chữa (MỘT nút: chỗ hổng nền → bài yếu nhất → chỗ hay quên → học bài mới; bài yếu không chặn bài mới) + lưới bài có màu;
   //   phần cũ (từng chỗ đang chữa, gốc, độ phủ, quét lại, hàng chờ, tạm gác, cân bằng, cách tính) gập trong "Thêm"
   const rows = mapLessons(now), red = mapRed(now), cnt = { yeu: 0, on: 0, vung: 0, chua: 0 }; for (const r of rows) for (const l of r.ls) cnt[l.s]++;
   const gOpen = gaps.some(g => !g.cho), redRow = (l, i) => `<button class="urow" data-ml="${i}"><span>${nm(l.id)[1]} ${esc(lsName(l))}<small class="why">${esc(lsWhy(l))}</small></span><span class="tag bad">chữa ›</span></button>`;
-  const top = `${exs.length ? '<h2>🧱 Nền tiếng Anh <span class="mute" style="font-size:15px;font-weight:400">· CEFR</span></h2>' : ''}
+  const top = `<p class="mute" style="margin:0 0 6px">Bài nào yếu thì chữa trước, rồi học tiếp. Việc chữa hằng ngày cũng có trong 📅 Hôm nay.</p>
     ${noData && !gaps.length ? '<div class="box"><b>Chưa có dữ liệu học.</b><p class="mute" style="margin:6px 0 0">Bản đồ lớn dần khi bạn học. Bắt đầu: 🧭 Lộ trình → Hôm nay → Kiểm tra trình độ.</p></div>' : ''}
     <div class="box"><div class="row"><b>🎯 Việc cần chữa</b><span class="mute">${red.length} bài yếu</span></div>
       ${gOpen ? '<button class="pri" data-map="gap" style="margin-top:8px">▶ Chữa tiếp: chỗ hổng nền trước</button>' : red.length ? `<button class="pri" data-ml="0" style="margin-top:8px">▶ Chữa bài yếu nhất<small style="display:block;font-weight:400;opacity:.9">${nm(red[0].id)[1]} ${esc(lsName(red[0]))}</small></button>`
@@ -211,8 +224,9 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
       ${(() => { const h = (S.focus.h || []).filter(([d]) => d > dayOf(now) - MAP_LOG_D); return h.length ? `<p class="mute" style="margin:4px 0 0">${MAP_LOG_D} ngày qua chữa xong: ${MAP_TIER_N.map(([t, n]) => `${n} ${h.filter(([, id]) => MAP_TIER[id] === t).length}`).join(' · ')}</p>` : ''; })()}
       <p class="mute" style="margin:6px 0 0">Mỗi chỗ thử ${MAP_TRY} ngày (làm ở đâu cũng tính); từ lần 2 app cho 📘 xem lại trước khi thử. Chưa qua thì ⏸ tạm gác ${MAP_PARK_D} ngày rồi quay lại hàng chờ; kẹt lần nữa thì 🧱 học lại bài gốc. Chữa xong khi làm đúng ở một ngày sau lần sai gần nhất và khả năng nhớ ≥ ${Math.round(MEM_R * 100)}%.</p>
       <p class="mute" style="margin:6px 0 0">🧭 Câu sai ở bài xếp cấp chỉ là giả thuyết: app hỏi thêm ${typeof PL_CF_N !== 'undefined' ? PL_CF_N : 2} câu dạng khác, sai thật mới vào bản đồ. Bản đồ chỉ đọc dữ liệu, không đổi luật đo.</p></details></details>`;
-  $app.innerHTML = head + (exFirst ? exHtml + cefr : cefr + exHtml);
+  $app.innerHTML = head + (tab === 'nen' ? cefr : exNote + exHtml);
   $app.onclick = e => { let x;
+    if ((x = e.target.closest('[data-mtab]'))) { MAP_TAB = x.dataset.mtab; scrollTo(0, 0); return mapView(); }   // v121: chọn mục
     if ((x = e.target.closest('[data-iecefr]'))) { scrollTo(0, 0); return overview(x.dataset.iecefr); }   // nút của bản đồ IELTS / TOEIC
     if ((x = e.target.closest('[data-ml]'))) { scrollTo(0, 0); return mapFixLesson(red[+x.dataset.ml]); }   // v119: chữa một bài yếu
     if ((x = e.target.closest('[data-mapex]'))) { scrollTo(0, 0); return x.dataset.mapex === 'toeic' ? toeicView() : ieltsView(); }   // v120: luyện tiếp IELTS / TOEIC
@@ -288,4 +302,4 @@ function mapScan(now = Date.now(), done) { const lv = curLevel(), held = shuf(me
   if (!held.length) return after();
   run({ title: '🔎 Quét lại · từ đang nhớ', items: held.map(w => ({ w, type: 'spell' })), first: (it, good, type) => { grade(S, it.w.id, good, Date.now(), type); if (good) okH++; save(); }, done: after }); }
 let MAP_BACK = 'lt';   // v114: mặc định là phần 🗺 Chỗ yếu của 🧭 Lộ trình   // v95: mở từ 👤 Của tôi (data-mapv="ct") thì nút về và tab sáng là Của tôi; từ ô Hôm nay thì về 🎯 Học
-document.addEventListener('click', e => { if (!S) return; const mv = e.target.closest('[data-mapv]'); if (mv) { MAP_BACK = mv.dataset.mapv || 'lt'; scrollTo(0, 0); mapView(); } const r = e.target.closest('[data-map-rl]'); if (r) { scrollTo(0, 0); mapRelearn(r.dataset.mapRl); } });
+document.addEventListener('click', e => { if (!S) return; const mv = e.target.closest('[data-mapv]'); if (mv) { MAP_BACK = mv.dataset.mapv || 'lt'; if (mv.dataset.cbmlv && typeof CBM_LV !== 'undefined') CBM_LV = mv.dataset.cbmlv; scrollTo(0, 0); mapView(mv.dataset.mapk); } const r = e.target.closest('[data-map-rl]'); if (r) { scrollTo(0, 0); mapRelearn(r.dataset.mapRl); } });

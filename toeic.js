@@ -183,7 +183,7 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
       <button class="pri" data-tomk="all">▶ Làm cả đề</button>
       <details><summary>Làm từng phần</summary>${TO_PAPERS.map((p, i) => `<button data-tomk="${i}">${p.t} · ${p.min} phút</button>`).join('')}</details></div>
     <h2>Thêm</h2>
-    <button class="link" data-mapv="lt" style="margin:4px 0 8px">🗺 Bản đồ điểm: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>
+    <button class="link" data-mapv="lt" data-mapk="toeic" style="margin:4px 0 8px">🗺 Bản đồ điểm: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>
     <details class="box"><summary><b>🎯 Sẵn sàng thi ${tg}</b> <span class="${nOk === cs.length ? 'okc' : 'mute'}">${nOk}/${cs.length}</span></summary>
       ${cs.map(([ok, t, d]) => `<p style="margin:4px 0">${ok ? '✅' : '⬜'} ${t} <span class="mute">· ${esc(d)}</span></p>`).join('')}
       <p class="mute" style="margin:6px 0 0">Đủ cả 4 mới nên đăng ký thi. Đề của app do AI soạn; đề luyện thật (sách ETS) là bằng chứng độc lập.</p>

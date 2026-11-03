@@ -20,6 +20,7 @@ async function cbView(lv) { BACK = null; window.CUR = { view: 'cambridge' }; EXA
     <div class="chips">${OV_LV.map(chip).join('')}</div>
     ${M ? (typeof exHero === 'function' ? exHero('cefr', `data-mock="${lv}"`, `${M.name} · khuôn, giờ như đề thật${nm ? ` · đã làm ${nm} lần` : ''}`, '▶ Làm đề thử') : `<button class="btnbig" data-mock="${lv}">▶ Làm đề thử<small>${esc(M.name)}</small></button>`) : '<p class="mute">Cấp này chưa có đề thử.</p>'}
     ${tools.trim() ? `<h2>Luyện dạng đề</h2>${tools}` : `<p class="mute">Cấp này luyện qua 🧱 Nền tiếng Anh. Từ A2 có thêm nghe điền, nói cặp; từ B1 có dạng đề thật.</p>`}
+    ${typeof cbMap === 'function' ? `<button class="link" data-mapv="lt" data-mapk="cb" data-cbmlv="${lv}" style="margin:4px 0 8px">🗺 Bản đồ phần yếu: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>` : ''}
     <h2>Thi thật</h2>
     ${ready && typeof realBox === 'function' ? realBox(lv) : `<div class="box"><div class="row"><b>📝 Đề mẫu chính thức</b><span class="mute">🔒 ${done}/${Math.min(3, ids.length)}</span></div><p class="mute" style="margin:6px 0 0">Đề mẫu chính thức và 🎯 Sẵn sàng thi mở khi ≥ 3 phần của ${LVN[lv]} qua 🚪 Thi chuyển cấp (đã qua ${done}/${ids.length}).</p></div>`}
     ${typeof readyBox === 'function' ? (ready ? readyBox(lv) : '') + extBox(lv) : ''}
