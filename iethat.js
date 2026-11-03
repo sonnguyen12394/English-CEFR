@@ -24,7 +24,7 @@ Object.assign(IE_HOW, {
   match: ['🔗 Nghe ghép', ['Đọc kỹ danh sách phương án trước: thường có phương án thừa và phương án được nhắc tới để đánh lạc hướng.', 'Đáp án theo thứ tự câu hỏi, nghe ý được diễn đạt lại, không chờ đúng từ.']] });
 Object.assign(IM_HOWK, { 'R-para': 'para', 'R-mi': 'mi', 'R-mf': 'mf', 'R-se': 'se', 'R-yn': 'yn', 'R-sum': 'sum', 'R-dia': 'dia', 'R-sa': 'sa', 'L-map': 'map', 'L-match': 'match', 'L-sa': 'listen' });
 // dạng nào app có bài luyện riêng (còn lại: chữa bằng đề thật)
-const TH_APP = new Set(['R-h', 'R-tf', 'R-comp', 'R-mc', 'R-gt', 'L-form', 'L-mc', 'L-map', 'L-match', 'R-yn', 'R-mi', 'R-mf', 'R-se', 'R-sum', 'R-dia', 'R-sa']);   // v123: đủ 11 dạng Đọc
+const TH_APP = new Set(['R-h', 'R-tf', 'R-comp', 'R-mc', 'R-gt', 'L-form', 'L-mc', 'L-map', 'L-match', 'R-yn', 'R-mi', 'R-mf', 'R-se', 'R-sum', 'R-dia', 'R-sa', 'L-sa']);   // v130: Nghe trả lời ngắn có bài trong app   // v123: đủ 11 dạng Đọc
 const TH_SK = { L: ['🎧', 'Listening'], R: ['📖', 'Reading'] };
 // v99 (nhật ký trải nghiệm: bấm Lưu với dạng điền sẵn → bản đồ band học từ dạng sai): khối chỉ gợi ý cách chia câu, dạng để trống, người học tự chọn theo đề
 const TH_DEF = { L: [[1, 10, ''], [11, 20, ''], [21, 30, ''], [31, 40, '']], R: [[1, 13, ''], [14, 26, ''], [27, 40, '']] };

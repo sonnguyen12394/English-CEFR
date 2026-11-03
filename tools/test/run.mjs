@@ -48,7 +48,7 @@ const R = await run(`(async () => {
     if (MOCK[lv]) { MK = { lv, C: MOCK[lv] }; for (const P of MOCK[lv].papers) for (const [t, g] of P.parts) { const qs = g(); if (!qs.length) bad.push('đề thử trống:' + t);
       for (const q of qs) if ((q.kind === 'mc' && !q.opts.includes(q.a)) || (q.kind === 'type' && !q.check && !(q.acc && q.acc[0]))) bad.push('đề thử:' + t);
       // 🗣 Nói: trả lời đúng câu mẫu (nhắc lại = câu gốc, đóng vai = câu mẫu, nói dài = bài mẫu) phải ≥ 60% ở ②③④; im lặng phải < 10%
-      if (P.speak) { const r = qs.map(it => ({ ...it, ans: it.q.mode === 'eit' ? it.q.s : it.q.mode === 'rp' ? it.q.st.t : it.q.mode === 'talk' ? it.q.x.m : '', secs: 30, lat: 1 })), z = mkSpeakScore(qs.map(it => ({ ...it, ans: '', secs: 5, lat: 99 })), lv);
+      if (P.speak) { const r = qs.map(it => ({ ...it, ans: it.q.mode === 'eit' ? it.q.s : it.q.mode === 'rp' || it.q.mode === 'pq' ? it.q.st.t : it.q.mode === 'talk' ? it.q.x.m : '', secs: 30, lat: 1 })), z = mkSpeakScore(qs.map(it => ({ ...it, ans: '', secs: 5, lat: 99 })), lv);
         const s = mkSpeakScore(r, lv); if (s.C[2][1] < 60 || s.C[3][1] < 60 || z.pct >= 10) bad.push('chấm Nói lệch:' + JSON.stringify(s.C) + ' im lặng ' + z.pct); } } }
     // 🧩 dạng đề thật (uoe.js): mọi bài sinh câu hợp lệ; đáp án viết lại câu qua bộ chấm (cả khi gõ nguyên câu)
     if (LEVELS.indexOf(lv) >= LEVELS.indexOf('b1')) { const ls = uLvs(lv); for (const k of Object.keys(U_T)) for (const x of uItems(k, ls)) { const qs = k === 'kwt' ? [uKwtQ(x)] : uQs(k, x); if (!qs.length) bad.push('uoe trống:' + x.id);
@@ -1270,6 +1270,21 @@ const R = await run(`(async () => {
     MK = { lv: 'a1', C: MOCK.a1, papers: [], idx: [1] }; const df = dtDef(5); if (df.length !== 5 || df.some(q => q.q.toLowerCase().includes(q.a))) bad.push('định nghĩa Movers hỏng');
     MK = null;
     add('cefr', 'C44', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ dạng đề Cambridge: Starters 9 phần, Movers 11 phần, A2 nghe chọn tranh / nối người với vật / viết truyện theo tranh, B1 nghe chọn tranh; câu hợp lệ, giọng, dòng bài, cách làm'); }
+  // v130 đủ dạng: Nói Starters (hỏi đáp về tranh), Nói phần 2 có ảnh (B1 1 ảnh, B2 2 ảnh, C1 3 ảnh), IELTS Nghe điền bảng / điền câu / trả lời ngắn, TOEIC Part 4 câu hàm ý; bản đồ band chọn đúng bài cho dạng chỉ IELTS có
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await Promise.all(Object.values(KIT).map(kLoad)); await ieLoad(); await toLoad(); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json')).json()); } catch (e) {}
+    const sp = MOCK.pre.papers.find(p => p.speak); if (!sp) bad.push('Starters thiếu bài Nói'); else { MK = { lv: 'pre', C: MOCK.pre, papers: [], idx: [0] }; let qs = []; tryv('Nói Starters', () => { qs = sp.parts[0][1](); });
+      const pq = qs.filter(it => it.q.mode === 'pq'); if (pq.length < 4 || pq.some(it => !/<svg/.test(it.q.pic) || !it.q.st.need.any.length) || !qs.some(it => it.q.mode === 'q')) bad.push('Nói Starters thiếu hỏi đáp về tranh');
+      let sc = null; tryv('chấm Nói Starters', () => { sc = mkSpeakScore(qs.map(it => ({ ...it, ans: it.q.mode === 'pq' ? it.q.st.need.any[0] : it.q.mode === 'eit' ? it.q.s : 'my name is Lan', secs: 3, lat: 1 })), 'pre'); }); if (!sc || !(sc.pct > 50)) bad.push('chấm Nói Starters sai: ' + (sc && sc.pct)); }
+    for (const [lv, n] of [['b1', 1], ['b2', 2], ['c1', 3]]) { MK = { lv, C: MOCK[lv], papers: [], idx: [0] }; let qs = []; tryv('Nói ' + lv, () => { qs = mkSpeak(); }); const ph = qs.find(it => /ảnh/.test(it.part));
+      if (!ph || (ph.q.pic.match(/<svg/g) || []).length !== n || !ph.q.x.k.length || ph.q.mode !== 'talk') bad.push(lv + ': phần 2 thiếu ảnh (' + n + ')'); }
+    const hx = IE.ln.find(x => x.id === 'il-p4-heat'); if (!hx) bad.push('IELTS thiếu bài điền bảng'); else { const qs = ieLnQs(hx), ty = new Set(qs.map(q => q.k));
+      if (qs.length !== 10 || !['ln-tab', 'ln-sent', 'ln-sa'].every(k => ty.has(k)) || qs.some(q => q.kind !== 'type' || !q.acc.length) || !/<mark/.test(qs[0].head) || !qs.some(q => q.ty === 'L-sa')) bad.push('IELTS điền bảng / câu / trả lời ngắn hỏng');
+      const miss = kSents(hx.text).filter(t => !NCLIPS.has(clipKey(t))); if (miss.length) bad.push('IELTS bài mới thiếu giọng ' + miss.length + ' câu'); }
+    if (!TH_APP.has('L-sa') || imPool('L-sa').some(x => !/^il-/.test(x.id)) || !imPool('L-sa').length || imPool('L-map').some(x => !x.map)) bad.push('bản đồ band chọn sai bài cho dạng chỉ IELTS có');
+    const imp = TO.p4.filter(x => x.qs.some(q => /imply|mean when|Why does the speaker say/i.test(q.q))); if (imp.length < 2) bad.push('TOEIC Part 4 thiếu câu hàm ý');
+    for (const x of TO.p4.filter(x => ['t4-24', 't4-25'].includes(x.id))) if (kSents(x.text).some(t => !NCLIPS.has(clipKey(t)))) bad.push(x.id + ': thiếu giọng');
+    MK = null;
+    add('cefr', 'C45', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ dạng: Nói Starters hỏi đáp về tranh, Nói phần 2 có ảnh B1 / B2 / C1, IELTS Nghe điền bảng / điền câu / trả lời ngắn, TOEIC Part 4 câu hàm ý'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');

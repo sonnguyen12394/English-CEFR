@@ -1,5 +1,5 @@
 {
- "_note": "Nghe kiểu IELTS (v87, Claude soạn, chưa giáo viên kiểm; giọng Kokoro qua tools/build-audio.py). Mỗi phần 10 câu như đề thật. q.k: form = điền (a: các cách viết đúng), mc = trắc nghiệm, map = điền bản đồ (chọn chữ), match = ghép. Đáp án điền phải có nguyên văn trong lời nghe. v126: +1 phần mỗi Part 2, 3, 4 (lễ hội âm nhạc: trắc nghiệm + ghép; khảo sát giấc ngủ: 3 người, trắc nghiệm + ghép người làm việc; bài giảng rừng tảo bẹ: điền ghi chú).",
+ "_note": "Nghe kiểu IELTS (v87, Claude soạn, chưa giáo viên kiểm; giọng Kokoro qua tools/build-audio.py). Mỗi phần 10 câu như đề thật. q.k: form = điền (a: các cách viết đúng), mc = trắc nghiệm, map = điền bản đồ (chọn chữ), match = ghép. Đáp án điền phải có nguyên văn trong lời nghe. v126: +1 phần mỗi Part 2, 3, 4 (lễ hội âm nhạc: trắc nghiệm + ghép; khảo sát giấc ngủ: 3 người, trắc nghiệm + ghép người làm việc; bài giảng rừng tảo bẹ: điền ghi chú). v130: k = tab (điền bảng: tab { t, h, r } có ______, i = thứ tự ô trống), sent (điền câu), sa (trả lời ngắn; lim riêng từng câu); bài il-p4-heat.",
  "items": [
   {
    "id": "il-p1-gym",
@@ -1270,6 +1270,132 @@
       "divers"
      ],
      "why": "\"with the help of volunteer divers\""
+    }
+   ]
+  },
+  {
+   "id": "il-p4-heat",
+   "part": 4,
+   "title": "Lecture: why cities are hotter",
+   "lim": "ONE WORD ONLY",
+   "tab": {
+    "t": "Solutions in three cities",
+    "h": [
+     "City",
+     "Solution",
+     "Detail"
+    ],
+    "r": [
+     [
+      "Singapore",
+      "gardens on roofs and ______",
+      "required for new buildings"
+     ],
+     [
+      "Los Angeles",
+      "streets coated with light grey ______",
+      "surface about ______ degrees cooler"
+     ],
+     [
+      "Paris",
+      "\"cool islands\": parks stay open late",
+      "during heatwaves"
+     ]
+    ]
+   },
+   "text": "Good afternoon. Today's lecture is about urban heat islands: the reason why cities are often warmer than the countryside around them. On a summer night, the centre of a large city can be as much as ten degrees warmer than nearby farmland. There are three main causes. The first is materials. Concrete and asphalt absorb heat from the sun during the day and release it slowly at night. The second is the lack of plants. In the countryside, trees and fields cool the air as water evaporates from their leaves, but cities have far fewer green spaces. The third is waste heat from human activity: air conditioners, cars and factories all add heat to the air. Let's look at three cities that have tried different solutions. In Singapore, new buildings are expected to include green spaces, so many towers now have gardens on their roofs and walls. In Los Angeles, some streets have been coated with a light grey paint that reflects sunlight, and tests found the road surface was around six degrees cooler. And in Paris, the city has opened what it calls cool islands: parks that stay open late into the night during heatwaves. Why does this matter? Heat is not only uncomfortable. During heatwaves, hospital admissions rise, and older people are most at risk, particularly those who live alone. Hot nights are especially dangerous, because the body cannot recover from the heat of the day. Finally, a word about the future. Planners increasingly measure the temperature of every street using sensors on buses, which allows them to plant trees where they are needed most. For next week, please read the chapter on urban water management.",
+   "qs": [
+    {
+     "k": "tab",
+     "s": "Singapore: gardens on roofs and ______",
+     "a": [
+      "walls"
+     ],
+     "why": "\"gardens on their roofs and walls\"",
+     "i": 0
+    },
+    {
+     "k": "tab",
+     "s": "Los Angeles: streets coated with light grey ______",
+     "a": [
+      "paint"
+     ],
+     "why": "\"coated with a light grey paint\"",
+     "i": 1
+    },
+    {
+     "k": "tab",
+     "s": "Los Angeles: surface about ______ degrees cooler",
+     "a": [
+      "six",
+      "6"
+     ],
+     "why": "\"around six degrees cooler\"",
+     "i": 2
+    },
+    {
+     "k": "sent",
+     "s": "At night, a city centre can be up to ten degrees warmer than nearby ______.",
+     "a": [
+      "farmland"
+     ],
+     "why": "\"ten degrees warmer than nearby farmland\""
+    },
+    {
+     "k": "sent",
+     "s": "Concrete and ______ release heat slowly at night.",
+     "a": [
+      "asphalt"
+     ],
+     "why": "\"Concrete and asphalt absorb heat… release it slowly\""
+    },
+    {
+     "k": "sent",
+     "s": "Plants cool the air when water ______ from their leaves.",
+     "a": [
+      "evaporates"
+     ],
+     "why": "\"as water evaporates from their leaves\""
+    },
+    {
+     "k": "sent",
+     "s": "Air conditioners, cars and ______ produce waste heat.",
+     "a": [
+      "factories"
+     ],
+     "why": "\"air conditioners, cars and factories\""
+    },
+    {
+     "k": "sa",
+     "s": "Which group of people is most at risk during heatwaves?",
+     "a": [
+      "older people",
+      "old people",
+      "the elderly",
+      "elderly people"
+     ],
+     "why": "\"older people are most at risk\"",
+     "lim": "NO MORE THAN TWO WORDS"
+    },
+    {
+     "k": "sa",
+     "s": "Where do planners put the sensors that measure street temperatures?",
+     "a": [
+      "buses",
+      "on buses"
+     ],
+     "why": "\"sensors on buses\"",
+     "lim": "NO MORE THAN TWO WORDS"
+    },
+    {
+     "k": "sa",
+     "s": "What should students read about for next week?",
+     "a": [
+      "urban water management",
+      "water management"
+     ],
+     "why": "\"the chapter on urban water management\"",
+     "lim": "NO MORE THAN THREE WORDS"
     }
    ]
   }

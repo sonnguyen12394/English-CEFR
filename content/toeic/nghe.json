@@ -2943,6 +2943,72 @@
      ]
     }
    ]
+  },
+  {
+   "id": "t4-24",
+   "text": "Hi, Daniel, it's Rachel from the design team. I've just looked at the brochure layout you sent this morning. The photos look great, and the colours are exactly what the client asked for. About the text on the back page, though. Well, it's a first draft. Could you call me when you get a chance? I'd like to go through it with you before we send anything to the printer on Thursday.",
+   "qs": [
+    {
+     "q": "What did the listener send this morning?",
+     "a": "A brochure layout",
+     "w": [
+      "Some photographs",
+      "A printing invoice",
+      "A client contract"
+     ]
+    },
+    {
+     "q": "What does the speaker imply when she says, \"Well, it's a first draft\"?",
+     "a": "The text needs more work.",
+     "w": [
+      "The photos should be changed.",
+      "The client has approved the text.",
+      "The printer has made a mistake."
+     ]
+    },
+    {
+     "q": "What does the speaker want to do before Thursday?",
+     "a": "Discuss the text with the listener",
+     "w": [
+      "Meet the client",
+      "Take new photos",
+      "Order more brochures"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-25",
+   "text": "Good morning, everyone. Before we start the workshop, a quick note about lunch. We'd planned to eat in the garden today, but have you seen the sky? So lunch will be served in the main hall instead. Also, the afternoon session on social media marketing has moved from room four to room two, because twice as many people signed up as we expected. Please keep your name badges with you. You'll need them to get back into the building after lunch.",
+   "qs": [
+    {
+     "q": "Where is the talk most likely taking place?",
+     "a": "At a workshop",
+     "w": [
+      "At a restaurant",
+      "At a garden centre",
+      "At a hospital"
+     ]
+    },
+    {
+     "q": "Why does the speaker say, \"but have you seen the sky\"?",
+     "a": "To suggest that it might rain",
+     "w": [
+      "To point out a beautiful view",
+      "To ask people to take photos",
+      "To explain why the session is late"
+     ]
+    },
+    {
+     "q": "Why has the afternoon session been moved?",
+     "a": "More people signed up than expected.",
+     "w": [
+      "Room four is being repaired.",
+      "The speaker arrived late.",
+      "The garden is closed."
+     ]
+    }
+   ]
   }
  ]
 }

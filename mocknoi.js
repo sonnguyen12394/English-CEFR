@@ -26,18 +26,27 @@ const SPK_Q = {
     p4: [['To what extent should individuals be responsible for protecting the environment, rather than governments?', 'Cá nhân chịu trách nhiệm bảo vệ môi trường tới đâu, so với nhà nước?', ['opinion', 'contrast', 'reason'], 60], ['Why do you think some traditions disappear while others survive?', 'Vì sao có truyền thống mất đi, có truyền thống còn lại?', ['spec', 'reason'], 55], ['How is success measured in your society, and is that fair?', 'Xã hội bạn đo thành công thế nào, như vậy có công bằng?', ['passive', 'opinion', 'contrast'], 55]] },
   c2: { p1: [['What aspects of your culture do you think are most often misunderstood by outsiders?', 'Điều gì trong văn hoá bạn hay bị người ngoài hiểu sai?', ['opinion', 'passive'], 50], ['Looking back, what decision has shaped your life most, and why?', 'Nhìn lại, quyết định nào định hình đời bạn nhất, vì sao?', ['perfect', 'reason'], 50], ['What might have happened if the internet had never been invented?', 'Chuyện gì có thể đã xảy ra nếu chưa từng có internet?', ['cond3', 'spec'], 45]],
     p4: [['Is it ever right to break a rule? Give examples.', 'Có khi nào phá luật là đúng? Cho ví dụ.', ['opinion', 'contrast', 'cond2'], 70], ['"The more connected we are, the lonelier we become." Discuss.', '“Càng kết nối càng cô đơn.” Bàn luận.', ['opinion', 'contrast', 'spec'], 70], ["Should we judge historical figures by today's moral standards?", 'Có nên đánh giá nhân vật lịch sử bằng chuẩn đạo đức ngày nay?', ['opinion', 'contrast', 'reason'], 70]] } };
-const SPK_EX = { a1: 'a1', a2: 'a2', a2p: 'a2', b1: 'b1', b1p: 'b1', b2: 'b2', b2p: 'b2', c1: 'c1', c2: 'c2' };
+// v130 Starters: phỏng vấn 2 câu ngắn (p1) + hỏi đáp về tranh (dangthi.js k spk); không có thảo luận (p4)
+SPK_Q.pre = { p1: [["What's your name?", 'Bạn tên gì?', [], 1], ['How old are you?', 'Bạn bao nhiêu tuổi?', [], 1], ["What's your favourite animal?", 'Con vật bạn thích nhất là gì?', [], 1], ['Have you got a pet?', 'Bạn có nuôi con vật nào không?', [], 2]], p4: [] };
+const SPK_EX = { pre: 'pre', a1: 'a1', a2: 'a2', a2p: 'a2', b1: 'b1', b1p: 'b1', b2: 'b2', b2p: 'b2', c1: 'c1', c2: 'c2' };
 // mục tiêu theo kỳ thi: [từ nối khác nhau, từ / phút, số từ khác nhau đúng cấp trở lên trong cả bài nói]
-const SPK_T = { a1: [2, 55, 3], a2: [3, 65, 5], b1: [4, 80, 8], b2: [6, 95, 12], c1: [7, 105, 15], c2: [8, 115, 18] };
+const SPK_T = { pre: [1, 40, 2], a1: [2, 55, 3], a2: [3, 65, 5], b1: [4, 80, 8], b2: [6, 95, 12], c1: [7, 105, 15], c2: [8, 115, 18] };
 const SPK_LINK = ['and', 'but', 'because', 'so', 'then', 'also', 'although', 'however', 'for example', 'for instance', 'on the other hand', 'whereas', 'while', 'moreover', 'furthermore', 'in addition', 'as a result', 'therefore',
   'in my opinion', 'first', 'firstly', 'finally', 'after that', 'even though', 'despite', 'in spite of', 'nevertheless', 'that said', 'having said that', 'overall', 'in conclusion', 'on balance', 'apart from', 'unless', 'otherwise', 'instead'];
 // sinh bài Nói: phỏng vấn 2 câu · nhắc lại 6 câu (ngắn → dài) · nói dài 1 đề · đóng vai 1 tình huống · thảo luận 2 câu
 function mkSpeak() { const ex = SPK_EX[MK.lv], B = SPK_Q[ex], P = KIT.noi, ls = mkKitLvs(P); if (!B || !ls.length) return [];
   const pick = (a, n) => shuf(a).slice(0, n), out = [];
   for (const [q, vi, need, minW] of pick(B.p1, 2)) out.push({ part: 'Phần 1: phỏng vấn', q: { kind: 'say', mode: 'q', q, vi, need, minW } });
+  // v130 Starters: nhắc lại 3 câu ngắn + hỏi đáp về tranh (câu trả lời cần có từ đúng, chấm như lượt đóng vai)
+  if (ex === 'pre') { const ss = (P.raw.test.pre || []).filter(s => kWords(s).length >= 3); for (const s of pick(ss, 3)) out.push({ part: 'Nhắc lại câu (nghe, nói lại, không nhìn chữ)', q: { kind: 'say', mode: 'eit', q: 'Nghe câu rồi nói lại đúng như vậy.', s, a: s } });
+    const sp = typeof dtSet === 'function' ? dtSet('spk', 'pre') : null; if (sp) for (const t of sp.qs) out.push({ part: 'Phần 2: hỏi đáp về tranh', q: { kind: 'say', mode: 'pq', q: t.q, vi: t.vi, st: { need: { any: t.any }, t: t.t }, minW: 1, pic: toPic(sp.pic) } });
+    return out; }
   const ss = ls.flatMap(l => P.raw.test[l] || []).filter(s => kWords(s).length >= 5), es = pick(ss, 6).sort((a, b) => kWords(a).length - kWords(b).length);
   for (const s of es) out.push({ part: 'Nhắc lại câu (nghe, nói lại, không nhìn chữ)', q: { kind: 'say', mode: 'eit', q: 'Nghe câu rồi nói lại đúng như vậy.', s, a: s } });
-  const talk = pick(P.items.filter(x => ls.includes(x.lv) && x.type !== 'rp'), 1)[0];
+  // v130 phần 2 có ảnh như đề thật: B1 tả 1 ảnh, B2 so sánh 2 ảnh, C1 chọn 2 trong 3 ảnh (dangthi.js k photo; ý chấm theo kw); cấp khác: đề nói dài của kho
+  const ph = typeof dtSet === 'function' && ['b1', 'b2', 'c1'].includes(ex) ? dtSet('photo', ex) : null;
+  if (ph) out.push({ part: 'Phần 2: nói về ảnh', q: { kind: 'say', mode: 'talk', x: { id: ph.id, lv: ex, c: ph.c, k: ph.kw, m: ph.m }, q: ph.p, vi: ph.pv, minW: K_MINW[ex], pic: ph.pics.map((p, i) => `<div><span class="mute">Ảnh ${'ABC'[i]}</span>${toPic(p)}</div>`).join('') } });
+  const talk = ph ? null : pick(P.items.filter(x => ls.includes(x.lv) && x.type !== 'rp'), 1)[0];
   if (talk) out.push({ part: 'Phần 2: nói dài', q: { kind: 'say', mode: 'talk', x: talk, q: talk.p, vi: talk.pv, minW: K_MINW[talk.lv] } });
   const rp = pick(P.items.filter(x => ls.includes(x.lv) && x.type === 'rp'), 1)[0];
   if (rp) { const v = (rp.tests || rp.learn)[0]; let prev = ''; for (const st of v) { if (st.s) { prev = st.t; continue; } out.push({ part: 'Phần 3: đóng vai, tương tác', q: { kind: 'say', mode: 'rp', x: rp, st, prev, q: st.vi, a: st.t } }); prev = ''; } }
@@ -48,7 +57,7 @@ function mkSpeakRun(pi, finish) { const P = MK.papers[pi]; let i = 0;
   const show = () => { if (i >= P.qs.length) return finish(); const { part, q } = P.qs[i]; window.CUR = { view: 'de-thu-noi', item: MK.lv + ':' + i, prompt: q.q };
     const head = q.mode === 'eit' ? '<p class="mute">Máy đọc một câu. Không có chữ. Nói lại y như vậy (được nghe tối đa 2 lần).</p><button class="chip" data-say>🔊 Nghe câu</button>'
       : q.mode === 'rp' ? `<div class="box"><b>${q.x.ic} ${esc(q.x.vi)}</b>${q.prev ? `<p style="margin:6px 0">👤 ${esc(q.prev)}</p>` : ''}<p style="margin:6px 0 0"><b>Bạn:</b> ${esc(q.st.vi)}</p></div>`
-      : `<div class="box"><p style="margin:0;font-size:18px">${esc(q.q)}</p>${q.vi ? `<p class="mute" style="margin:4px 0 0">${esc(q.vi)}</p>` : ''}${q.mode === 'talk' ? `<p class="mute" style="margin:4px 0 0">Nói khoảng ${K_SECS[q.x.lv]}: ${q.x.c.map(esc).join(' · ')}.</p>` : ''}</div>`;
+      : `${q.pic || ''}<div class="box"><p style="margin:0;font-size:18px">${esc(q.q)}</p>${q.vi ? `<p class="mute" style="margin:4px 0 0">${esc(q.vi)}</p>` : ''}${q.mode === 'talk' ? `<p class="mute" style="margin:4px 0 0">Nói khoảng ${K_SECS[q.x.lv]}: ${q.x.c.map(esc).join(' · ')}.</p>` : ''}</div>`;
     $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Bỏ</button><span class="uname">${esc(P.t)} · ${i + 1}/${P.qs.length}</span><b id="mkt"></b></div>
       <p class="mute" style="margin:4px 0">${esc(part)}</p>${head}<button class="pri" data-rec>🎤 Bấm rồi nói</button><div class="box"><b>📝 Máy nghe ra:</b> <span id="kheard">…</span></div>`;
     let plays = 0, t0 = 0, tFirst = 0, done = false;
@@ -65,16 +74,17 @@ function mkSpeakRun(pi, finish) { const P = MK.papers[pi]; let i = 0;
 // chấm bài Nói: 4 tiêu chí 0–100%; bài Nói = trung bình 4 tiêu chí
 function mkSpeakScore(res, lv) { const ex = SPK_EX[lv], [tL, tW, tV] = SPK_T[ex], avg = a => a.length ? a.reduce((s, x) => s + x, 0) / a.length : null, cap = x => Math.max(0, Math.min(1, x));
   WBY_W = WBY_W || Object.fromEntries(WORDS.map(w => [w.w.toLowerCase(), w]));
-  const low = r => String(r.ans || '').toLowerCase(), free = res.filter(r => r.q.mode === 'q' || r.q.mode === 'talk'), eit = res.filter(r => r.q.mode === 'eit'), rp = res.filter(r => r.q.mode === 'rp'), all = res.map(low).join(' ');
+  const low = r => String(r.ans || '').toLowerCase(), free = res.filter(r => r.q.mode === 'q' || r.q.mode === 'talk'), eit = res.filter(r => r.q.mode === 'eit'), rp = res.filter(r => r.q.mode === 'rp' || r.q.mode === 'pq'), all = res.map(low).join(' ');
   const eitM = eit.map(r => kMatch(r.q.s, r.ans || '')), eitOk = avg(eitM.map(m => m >= 0.8 ? 1 : m >= 0.5 ? 0.5 : 0));
   const struct = avg(res.filter(r => r.q.mode === 'q' && r.q.need.length).map(r => avg(r.q.need.map(k => SPK_RE[k].test(low(r)) ? 1 : 0))));
   const lo = Math.max(0, LEVELS.indexOf(MOCK[lv].lo) - 2), voc = new Set(kWords(all).filter(t => { if (t.length < 4) return false; const L = xLvOf(t); return L && LEVELS.indexOf(L) >= lo; }));
   const len = avg(free.map(r => cap(kWords(r.ans || '').length / (r.q.minW || 20)))), links = SPK_LINK.filter(l => new RegExp(`\\b${l}\\b`).test(all)).length;
   const fw = free.reduce((s, r) => s + kWords(r.ans || '').length, 0), fs = free.reduce((s, r) => s + Math.max(1, r.secs || 0), 0), wpm = fs ? fw / (fs / 60) : 0;
   const ideas = avg(free.filter(r => r.q.mode === 'talk').map(r => { const k = r.q.x.k || []; return k.length ? k.filter(g => kHit(r.ans || '', g)).length / k.length : 0; }));
-  const heard = avg(free.map(r => kWords(r.ans || '').length >= (r.q.minW || 10) * 0.5 ? 1 : 0)), rpOk = avg(rp.map(r => kNeedOk(r.q.st.need, r.ans || '') ? 1 : 0)), quick = avg([...rp, ...free].map(r => r.lat <= 4 ? 1 : 0));
+  const heard = avg([...free, ...res.filter(r => r.q.mode === 'pq')].map(r => kWords(r.ans || '').length >= (r.q.minW || 10) * 0.5 ? 1 : 0)),   // v130: câu trả lời về tranh (Starters) cũng tính máy nghe ra
+    rpOk = avg(rp.map(r => kNeedOk(r.q.st.need, r.ans || '') ? 1 : 0)), quick = avg([...rp, ...free].map(r => r.lat <= 4 ? 1 : 0));
   const C = [['① Ngữ pháp & từ vựng', [eitOk, struct, cap(voc.size / tV)]], ['② Mạch lạc', [len, cap(links / tL), cap(wpm / tW), ideas]], ['③ Phát âm (dễ hiểu)', [avg(eitM), heard]], ['④ Tương tác', [rpOk, quick]]]
     .map(([n, xs]) => [n, Math.round((avg(xs.filter(x => x != null)) || 0) * 100)]);
   return { pct: Math.round(avg(C.map(c => c[1]))), C, d: { eit: Math.round((avg(eitM) || 0) * 100), struct: struct == null ? null : Math.round(struct * 100), voc: voc.size, tV, links, tL, wpm: Math.round(wpm), tW, rp: rpOk == null ? null : Math.round(rpOk * 100) } }; }
 // gắn bài Nói vào khuôn đề (Starters không có: phần Nói của app bắt đầu từ A1)
-for (const [lv, min] of [['a1', 7], ['a2', 10], ['b1', 12], ['b2', 14], ['c1', 15], ['c2', 16]]) MOCK[lv].papers.push({ t: '🗣 Nói', min, speak: true, parts: [['Nói', () => mkSpeak()]] });
+for (const [lv, min] of [['pre', 5], ['a1', 7], ['a2', 10], ['b1', 12], ['b2', 14], ['c1', 15], ['c2', 16]]) MOCK[lv].papers.push({ t: '🗣 Nói', min, speak: true, parts: [['Nói', () => mkSpeak()]] });

@@ -40,6 +40,8 @@ for x in J('nghe.json')['items']:
         for s in sents(x['text']): add(s, v)
 for x in J('nghe.json').get('dt', []):   # 🎓 dạng đề còn thiếu (v129): lời hội thoại, A nữ / B nam
     fv, mv = pick(F, x['id'], 'f'), pick(M, x['id'], 'm')
+    if x.get('k') == 'spk':
+        for q in x['qs']: add(q['q'], fv)
     for ls in [x.get('lines') or []] + [q.get('lines') or [] for q in x.get('qs', [])]:
         for sp, t in ls: add(t, fv if sp == 'A' else mv)
 for i, x in enumerate(J('nghe.json').get('pic', [])):   # 🖼 Starters / Movers (v128): câu nghe chọn tranh, giọng Anh–Anh xen nam / nữ

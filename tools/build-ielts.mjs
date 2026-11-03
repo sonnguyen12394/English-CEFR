@@ -46,7 +46,9 @@ for (const x of N.p2) { id(x); if (x.b.length !== 4 || x.p3.length < 3) err.push
 for (const x of P.items) { id(x); if (x.w.length !== 3 || x.w.includes(x.a) || new Set(x.w).size !== 3) err.push(x.id + ': cần 3 câu bẫy khác đáp án'); if (!x.p.length || !x.why) err.push(x.id + ': thiếu cặp từ / giải thích'); }
 // v87 nghe kiểu IELTS: đúng 10 câu; đáp án điền có nguyên văn trong lời nghe; trắc nghiệm 3 bẫy; bản đồ: chữ có trên bản đồ; ghép: đáp án nằm trong danh sách
 for (const x of L.items) { id(x); const tr = (x.text || x.lines.map(l => l[1]).join(' ')).toLowerCase(); if (x.qs.length !== 10) err.push(x.id + ': cần 10 câu');
-  for (const q of x.qs) { if (q.k === 'form' && !q.a.some(a => tr.includes(a.toLowerCase()))) err.push(x.id + ': đáp án không có trong lời nghe: ' + q.a[0]);
+  for (const q of x.qs) { if (['form', 'tab', 'sent', 'sa'].includes(q.k) && !q.a.some(a => tr.includes(a.toLowerCase()))) err.push(x.id + ': đáp án không có trong lời nghe: ' + q.a[0]);
+    if (q.k === 'tab' && (!x.tab || !(q.i >= 0) || q.i >= x.tab.r.flat().join(' ').split('______').length - 1)) err.push(x.id + ': ô trống bảng hỏng');
+    if (q.k === 'sent' && (q.s.match(/______/g) || []).length !== 1) err.push(x.id + ': câu điền cần đúng một chỗ trống: ' + q.s);
     if (q.k === 'form' && (q.s.match(/______/g) || []).length !== 1) err.push(x.id + ': câu điền cần đúng một chỗ trống: ' + q.s);
     if (q.k === 'mc' && (q.w.length !== 3 || q.w.includes(q.a))) err.push(x.id + ': trắc nghiệm hỏng: ' + q.q);
     if (q.k === 'map' && !x.map.items.some(i => i.t === q.a)) err.push(x.id + ': chữ bản đồ không có: ' + q.a);

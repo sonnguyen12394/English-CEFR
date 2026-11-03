@@ -71,12 +71,16 @@ const iePick = (its, n) => { const R = ieSt().r; return shuf(its).sort((a, b) =>
 const IE_LH = '<p class="mute">🎧 Đọc câu hỏi trước, rồi nghe. Đề thật: mỗi bài chỉ nghe 1 lần (đề thử của app cũng vậy); luyện thì được nghe 2 lần.</p>';
 const IE_LP = [['Part 1: hội thoại, điền phiếu', ['b1', 'b2'], 'form', true], ['Part 2: một người nói, trắc nghiệm', ['b1', 'b2'], 'mc', false], ['Part 3: hội thoại, trắc nghiệm', ['b2', 'c1'], 'mc', true], ['Part 4: bài nói chuyên đề, điền phiếu', ['c1', 'c2'], 'form', false]];
 // v87: bài nghe soạn đúng kiểu IELTS (IE.ln: điền phiếu, trắc nghiệm, bản đồ, ghép) dùng trước; hết thì lấy bài Nghe B1 → C2 của CEFR như cũ
-const IE_LTY = { form: 'L-form', mc: 'L-mc', map: 'L-map', match: 'L-match' };
+// v130: tab (điền bảng) và sent (điền câu) thuộc nhóm điền; sa (trả lời ngắn) là dạng riêng L-sa
+const IE_LTY = { form: 'L-form', mc: 'L-mc', map: 'L-map', match: 'L-match', tab: 'L-form', sent: 'L-form', sa: 'L-sa' };
+const ieTabHtml = (t, cur) => { let n = 0; return `<div class="box" style="overflow-x:auto"><b>${esc(t.t)}</b><table style="width:100%;border-collapse:collapse;margin-top:6px;font-size:14px"><tr>${t.h.map(c => `<th style="text-align:left;padding:4px">${esc(c)}</th>`).join('')}</tr>${t.r.map(r => `<tr style="border-top:1px solid var(--line)">${r.map(c => `<td style="padding:4px">${esc(c).replace(/______/g, () => { const k = n++; return k === cur ? `<mark style="padding:0 3px"><b>(${k + 1})</b> ____</mark>` : `<b>(${k + 1})</b> ____`; })}</td>`).join('')}</tr>`).join('')}</table></div>`; };
 function ieLnQs(x) { const play = { key: x.id, ...(x.lines ? { lines: x.lines } : { text: x.text }) }, letters = x.map ? x.map.items.map(i => i.t).filter(t => /^[A-H]$/.test(t)).sort() : [];
   const head = q => `${IE_LH}<p style="margin:4px 0"><b>Part ${x.part}: ${esc(x.title)}</b></p>` + (q.k === 'form' ? `<p class="mute" style="margin:0">${esc(x.form || '')} · viết ${esc(x.lim || 'ONE WORD AND/OR A NUMBER')}</p>`
+    : q.k === 'tab' ? `<p class="mute" style="margin:0">Điền bảng · viết ${esc(q.lim || x.lim || 'ONE WORD ONLY')}</p>${ieTabHtml(x.tab, q.i)}`
+    : q.k === 'sent' ? `<p class="mute" style="margin:0">Hoàn thành câu · viết ${esc(q.lim || x.lim || 'ONE WORD ONLY')}</p>` : q.k === 'sa' ? `<p class="mute" style="margin:0">Trả lời câu hỏi · viết ${esc(q.lim || x.lim || 'NO MORE THAN THREE WORDS')}</p>`
     : q.k === 'map' ? `<p class="mute" style="margin:0">Chọn chữ đúng trên bản đồ (A–${letters[letters.length - 1]}).</p>${ieMapSvg(x.map)}` : q.k === 'match' ? `<p class="mute" style="margin:0">Mỗi nguồn được nhận xét thế nào? Có phương án thừa.</p>` : '');
   return x.qs.map(q => ({ x, k: 'ln-' + q.k, ty: IE_LTY[q.k], play, head: head(q), why: q.why,
-    ...(q.k === 'form' ? { kind: 'type', q: esc(q.s).replace('______', '<b>______</b>'), a: q.a[0], acc: q.a } : q.k === 'mc' ? { kind: 'mc', q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a }
+    ...(['form', 'tab', 'sent', 'sa'].includes(q.k) ? { kind: 'type', q: esc(q.s).replace('______', '<b>______</b>'), a: q.a[0], acc: q.a } : q.k === 'mc' ? { kind: 'mc', q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a }
       : q.k === 'map' ? { kind: 'mc', q: esc(q.q), opts: letters, a: q.a } : { kind: 'mc', q: esc(q.q), opts: x.opts, a: q.a }) })); }
 function ieListen(parts = [0, 1, 2, 3]) { const used = new Set(), out = [];
   for (const i of parts) { const ln = IE && IE.ln ? iePick(IE.ln.filter(x => x.part === i + 1 && !used.has(x.id)), 1)[0] : null; if (ln) { used.add(ln.id); out.push(...ieLnQs(ln).map(q => ({ part: IE_LP[i][0], q }))); continue; } const [part, lvs, k, dlg] = IE_LP[i], its = KIT.nghe.items.filter(x => lvs.includes(x.lv) && !used.has(x.id) && !!x.lines === dlg && (k !== 'form' || ngForm(x)));
