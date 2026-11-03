@@ -1227,6 +1227,16 @@ const R = await run(`(async () => {
       if (LB[0].kind === 'mm' || !nb || nb.i === LB[0].i || !nc || nc.kind !== 'mm') bad.push('bài kế tiếp không chia đều các phần: ' + (nb && nb.kind) + ' → ' + (nc && nc.kind)); }
     MK = null; S.cbx = {}; S.mock = {};
     add('cefr', 'C41', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ nội dung đợt 4: Nghe IELTS 2 phần mỗi Part (đề thử 40 câu); Cambridge nối người nói B2 → C2 ≥ 3 bộ mỗi cấp, trong đề thử, danh sách bài, bản đồ, giọng đủ'); }
+  // v127 💼 TOEIC Part 1 tả tranh (tranh vẽ SVG thay ảnh chụp): ≥ 12 câu, 4 lời tả chỉ nghe, đúng một; trong đề thử Nghe, danh sách bài, bản đồ điểm, cách làm; giọng đủ
+  { const bad = [], errs = []; await toLoad(); delete S.to; if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json')).json()); } catch (e) {}
+    if (!TO.p1 || TO.p1.length < 12) bad.push('Part 1 < 12 câu');
+    for (const x of TO.p1 || []) { const q = toP1Q(x); if (!/<svg class="topic"/.test(q.head) || q.opts.join('') !== 'ABCD' || q.a !== 'ABCD'[x.a] || q.play.lines.length !== 4 || !/✅/.test(q.why)) bad.push(x.id + ': câu Part 1 hỏng');
+      const miss = x.lines.map(l => l[1]).filter(t => !NCLIPS.has(clipKey(t))); if (miss.length) bad.push(x.id + ': thiếu giọng ' + miss.length + ' câu (chạy tools/build-audio.py)'); }
+    const tl = TO_PAPERS.find(p => p.k === 'L').gen(); if (tl.filter(it => it.part === TO_SEC.p1[1]).length !== 3) bad.push('đề thử Nghe TOEIC thiếu Part 1');
+    if (!toBai('L').some(b => b.sec === 'p1') || !tmRows()[0][1].includes('p1') || tmSk('p1') !== 'L' || !TO_HOW.L[1].some(t => /Part 1/.test(t))) bad.push('Part 1 thiếu ở danh sách bài / bản đồ / cách làm');
+    toLog(TO.p1.slice(0, 3).map(x => ({ q: toP1Q(x), ok: true, ans: 'ABCD'[x.a] })), 'luyen'); if (!S.to.ty || !S.to.ty.p1) bad.push('Part 1 không ghi vào bản đồ điểm');
+    delete S.to;
+    add('toeic', 'C42', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'TOEIC Part 1 tả tranh: 12 câu tranh vẽ, 4 lời tả chỉ nghe, trong đề thử Nghe, danh sách bài, bản đồ điểm, cách làm, giọng đủ'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');
@@ -1252,7 +1262,7 @@ const R = await run(`(async () => {
     S.to.r = { a: { at: 1, ok: 1, n: 10, k: 'p7' }, b: { at: 1, ok: 9, n: 10, k: 'p5' } }; const gn = toGain(); if (gn[0].s !== 'p7' || gn[0].g !== 55 || gn[1].g !== 15) bad.push('tăng điểm sai: ' + JSON.stringify(gn));
     tryv('tốc độ', () => toSpeed('p5')); tryv('tốc độ p7', () => toSpeed('p7')); S.to.date = new Date(Date.now() + 21 * 864e5).toISOString().slice(0, 10); if (!/Còn <b>[34] tuần/.test(toInsights())) bad.push('ngày thi sai');
     S.to.r = {}; for (const x of TO.p5.filter(x => x.t === 'prep')) S.to.r[x.id] = { at: 1, ok: 0, n: 1, k: 'p5' }; for (const x of TO.p5.filter(x => x.t !== 'prep')) S.to.r[x.id] = { at: 1, ok: 1, n: 1, k: 'p5' };
-    for (const k of ['p2', 'p3', 'p4', 'p6', 'p7']) S.to.r['z' + k] = { at: 1, ok: 5, n: 5, k };
+    for (const k of ['p1', 'p2', 'p3', 'p4', 'p6', 'p7']) S.to.r['z' + k] = { at: 1, ok: 5, n: 5, k };   // v127: có Part 1
     S.to.voc = {}; const td = toToday(); if (td[0] !== 'data-top="t:prep"') bad.push('nên làm hôm nay không chỉ dạng yếu: ' + td[0]);
     add('toeic', 'T1', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...new Set(bad)].slice(0, 8).join(' | ') : 'màn, 6 Part, đề thử, quy đổi ước, mốc CEFR, hiệu chỉnh, từ vựng, giọng đọc đều đúng'); }
   // 🗺 Bản đồ điểm TOEIC (tomap.js + focus.js, v84): lịch sử theo dạng / bẫy (có mẫu số), ngưỡng theo mục tiêu, nhóm 3 (Nghe ≤ 2, Đọc ≤ 2), chỉ bài mới tính, tốc độ, kho ≥ 20 bộ

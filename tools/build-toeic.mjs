@@ -3,7 +3,7 @@
 // Part 2: xáo thứ tự 3 lời đáp theo id (cố định, để tệp giọng khớp), mỗi lời đọc kèm chữ cái "A. …" như đề thật.
 import fs from 'node:fs'; import crypto from 'node:crypto';
 const root = new URL('..', import.meta.url).pathname, rd = f => JSON.parse(fs.readFileSync(root + f, 'utf8'));
-const P5 = rd('content/toeic/p5.json').items, D = rd('content/toeic/doc.json'), N = rd('content/toeic/nghe.json'), V = rd('content/toeic/vocab.json').topics, err = [], ids = new Set();
+const P1 = rd('content/toeic/p1.json').items, P5 = rd('content/toeic/p5.json').items, D = rd('content/toeic/doc.json'), N = rd('content/toeic/nghe.json'), V = rd('content/toeic/vocab.json').topics, err = [], ids = new Set();
 const id = x => { if (ids.has(x.id)) err.push('trùng id ' + x.id); ids.add(x.id); };
 const mcOk = (x, q) => { if (q.w.length !== 3 || q.w.includes(q.a) || new Set(q.w).size !== 3) err.push(x.id + ': trắc nghiệm hỏng: ' + q.q); };
 const h = s => parseInt(crypto.createHash('md5').update(s).digest('hex').slice(0, 8), 16);
@@ -17,6 +17,11 @@ const p2 = N.p2.map(x => { id(x); if (x.o.length !== 3 || !(x.a >= 0 && x.a < 3)
   if (!x.tr || x.tr.length !== 3 || x.tr[x.a] !== null || x.tr.some((t, i) => i !== x.a && !TR.includes(t))) err.push(x.id + ': nhãn bẫy tr hỏng');
   const r = h(x.id) % 6, perm = [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]][r], o = perm.map(i => x.o[i]), a = perm.indexOf(x.a);
   return { id: x.id, q: x.q, o, a, tr: perm.map(i => x.tr[i]), lines: [['A', x.q], ...o.map((t, i) => ['B', 'ABC'[i] + '. ' + t])] }; });
+// v127 Part 1 (tranh vẽ thay ảnh chụp): 4 câu tả khác nhau, đúng một câu, tranh có khối / emoji; lời đọc kèm chữ cái "A. …" như Part 2
+const p1 = P1.map(x => { id(x); if (x.o.length !== 4 || new Set(x.o).size !== 4 || !(x.a >= 0 && x.a < 4) || !x.why) err.push(x.id + ': Part 1 hỏng');
+  if (!x.pic || !['in', 'out', 'sea'].includes(x.pic.bg) || !(x.pic.e || []).length || x.pic.e.some(e => e.length !== 4 || e[1] < 0 || e[1] > 320 || e[2] < 0 || e[2] > 200)) err.push(x.id + ': tranh hỏng');
+  return { ...x, lines: x.o.map((t, i) => ['A', 'ABCD'[i] + '. ' + t]) }; });
+if (Math.max(...[0, 1, 2, 3].map(i => p1.filter(x => x.a === i).length)) > p1.length * 0.4) err.push('Part 1: đáp án dồn một chữ cái');
 for (const x of [...N.p3, ...N.p4]) { id(x); if (x.qs.length !== 3) err.push(x.id + ': cần 3 câu hỏi'); for (const q of x.qs) mcOk(x, q);
   // v124: câu "Look at the graphic" cần bảng g { t, h, r }; mọi phương án phải có trong bảng (đáp án suy từ bảng + lời nghe)
   const gq = x.qs.filter(q => /^Look at the graphic\./.test(q.q)), cells = x.g ? x.g.r.flat() : [];
@@ -27,5 +32,5 @@ for (const x of [...N.p3, ...N.p4]) { id(x); if (x.qs.length !== 3) err.push(x.i
 const seen = new Set(); for (const t of V) for (const [w, vi, ex] of t.w) { if (seen.has(w)) err.push('từ trùng: ' + w); seen.add(w); if (!vi || !ex || !ex.toLowerCase().includes(w.toLowerCase().split(' ')[0].slice(0, 4))) err.push('từ thiếu nghĩa / ví dụ: ' + w); }
 if (err.length) { console.error(err.join('\n')); process.exit(1); }
 const ans = p2.map(x => x.a); if (Math.max(...[0, 1, 2].map(i => ans.filter(a => a === i).length)) > ans.length * 0.5) { console.error('Part 2: đáp án dồn một chữ cái'); process.exit(1); }
-fs.writeFileSync(root + 'toeic.json', JSON.stringify({ _note: 'Dựng bởi tools/build-toeic.mjs từ content/toeic/*.json. Không sửa tay.', p5: P5, p6: D.p6, p7: D.p7, p2, p3: N.p3, p4: N.p4, voc: V }));
-console.log(`toeic.json: Part 2 ${p2.length} · Part 3 ${N.p3.length} bài (có bảng ${N.p3.filter(x => x.g).length}, 3 người ${N.p3.filter(x => new Set(x.lines.map(l => l[0])).size > 2).length}) · Part 4 ${N.p4.length} bài (có bảng ${N.p4.filter(x => x.g).length}) · Part 5 ${P5.length} · Part 6 ${D.p6.length} bài · Part 7 ${D.p7.length} bộ (${D.p7.reduce((s, x) => s + x.qs.length, 0)} câu) · từ vựng ${seen.size} từ / ${V.length} chủ đề · đáp án Part 2 A/B/C: ${[0, 1, 2].map(i => ans.filter(a => a === i).length).join('/')}`);
+fs.writeFileSync(root + 'toeic.json', JSON.stringify({ _note: 'Dựng bởi tools/build-toeic.mjs từ content/toeic/*.json. Không sửa tay.', p1, p5: P5, p6: D.p6, p7: D.p7, p2, p3: N.p3, p4: N.p4, voc: V }));
+console.log(`toeic.json: Part 1 ${p1.length} · Part 2 ${p2.length} · Part 3 ${N.p3.length} bài (có bảng ${N.p3.filter(x => x.g).length}, 3 người ${N.p3.filter(x => new Set(x.lines.map(l => l[0])).size > 2).length}) · Part 4 ${N.p4.length} bài (có bảng ${N.p4.filter(x => x.g).length}) · Part 5 ${P5.length} · Part 6 ${D.p6.length} bài · Part 7 ${D.p7.length} bộ (${D.p7.reduce((s, x) => s + x.qs.length, 0)} câu) · từ vựng ${seen.size} từ / ${V.length} chủ đề · đáp án Part 2 A/B/C: ${[0, 1, 2].map(i => ans.filter(a => a === i).length).join('/')}`);

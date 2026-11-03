@@ -71,6 +71,9 @@ T = J('toeic.json') if os.path.exists(os.path.join(ROOT, 'toeic.json')) else Non
 if T:
     TF, TM = ['af_heart', 'af_bella', 'af_sarah', 'bf_emma', 'bf_isabella'], ['am_michael', 'am_adam', 'am_eric', 'bm_george', 'bm_lewis']
     tp = lambda seq, sid, salt: seq[int(hashlib.md5((sid + salt).encode()).hexdigest(), 16) % len(seq)]
+    for x in T.get('p1', []):   # v127 Part 1: 4 câu tả tranh, một giọng mỗi tranh
+        v = tp(TF + TM, x['id'], 'p1')
+        for _, t in x['lines']: add(t, v)
     for x in T['p2']:   # câu hỏi một giọng, 3 lời đáp giọng khác giới
         q, a = (TF, TM) if int(hashlib.md5(x['id'].encode()).hexdigest(), 16) % 2 else (TM, TF)
         add(x['lines'][0][1], tp(q, x['id'], 'q'))

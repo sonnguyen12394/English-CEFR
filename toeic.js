@@ -15,10 +15,10 @@ const toScale = (ok, n) => Math.max(5, Math.min(495, 5 + Math.round(490 * ok / M
 const TO_CEFR = { L: [['c1', 490], ['b2', 400], ['b1', 275], ['a2', 110]], R: [['c1', 455], ['b2', 385], ['b1', 275], ['a2', 115]] };
 const toCefr = (k, sc) => (TO_CEFR[k].find(([, m]) => sc >= m) || ['a1'])[0];
 const toBase = tg => toCefr('L', tg / 2);   // nền CEFR cần có cho tổng điểm mục tiêu (chia đều hai phần, suy ra)
-const TO_SEC = { p2: ['🗣', 'Part 2: Hỏi – đáp', 'L'], p3: ['👥', 'Part 3: Hội thoại', 'L'], p4: ['📢', 'Part 4: Bài nói ngắn', 'L'], p5: ['✏️', 'Part 5: Điền câu', 'R'], p6: ['📝', 'Part 6: Điền đoạn văn', 'R'], p7: ['📰', 'Part 7: Đọc hiểu', 'R'] };
+const TO_SEC = { p1: ['🖼', 'Part 1: Tả tranh', 'L'], p2: ['🗣', 'Part 2: Hỏi – đáp', 'L'], p3: ['👥', 'Part 3: Hội thoại', 'L'], p4: ['📢', 'Part 4: Bài nói ngắn', 'L'], p5: ['✏️', 'Part 5: Điền câu', 'R'], p6: ['📝', 'Part 6: Điền đoạn văn', 'R'], p7: ['📰', 'Part 7: Đọc hiểu', 'R'] };
 const TO_HOW = {
   L: ['🎧 Nghe', ['Đề thật chỉ phát mỗi bài một lần. Dùng lúc đọc hướng dẫn để xem trước câu hỏi Part 3–4.', 'Part 2: nghe kỹ từ hỏi đầu câu (When, Where, Who, Why…). Bẫy hay gặp: lời đáp lặp lại từ trong câu hỏi hoặc từ phát âm gần giống ("copy" – "coffee").',
-    'Part 2 có lời đáp gián tiếp đúng ("I\'m not sure, ask Tom"), không nhất thiết trả lời thẳng.', 'Part 3–4: câu hỏi theo thứ tự lời nói; trả lời ngay khi nghe được, không chờ hết bài.',
+    'Part 1: nhìn tranh trước khi nghe (ai, đang làm gì, vật ở đâu). "Is being + V3" = đang có người làm việc đó; "has been + V3" = đã xong, tranh không cần có người. Câu nói về người khi tranh không có người là sai.', 'Part 2 có lời đáp gián tiếp đúng ("I\'m not sure, ask Tom"), không nhất thiết trả lời thẳng.', 'Part 3–4: câu hỏi theo thứ tự lời nói; trả lời ngay khi nghe được, không chờ hết bài.',
     'Câu "Look at the graphic": nhìn bảng trước khi nghe. Bài nói thường nhắc cột này (giờ, số người, tên phòng…), còn đáp án nằm ở cột kia; đừng chọn ngay ô được đọc lên.', 'Hội thoại 3 người: câu hỏi gọi tên ("What does Lisa say…?") hoặc "the man" khi chỉ có một nam; nhớ ai nói gì theo giọng.']],
   R: ['📖 Đọc', ['75 phút cho 100 câu: Part 5 khoảng 20 giây một câu, để dành thời gian cho Part 7.', 'Part 5: nhìn 4 phương án trước. Cùng gốc khác đuôi (-tion, -ive, -ly) → câu hỏi dạng từ: xem vị trí cần danh từ, tính từ hay trạng từ.',
     'Part 6: câu chèn phải nối ý câu trước và câu sau; đọc cả đoạn, không chỉ câu chứa chỗ trống.', 'Part 7 nhiều văn bản: câu hỏi "đối chiếu" cần thông tin từ 2 văn bản (vd. số người trong đơn + số bàn trong quảng cáo).']] };
@@ -28,6 +28,12 @@ const TO_LH = '<p class="mute">🎧 Nghe rồi chọn. Đề thật chỉ nghe 1
 // v73: Part 2 hiện lời bài kèm loại bẫy của từng lời đáp sai (content: tr)
 const TO_TRAP = { rep: ['Lặp từ / từ gần âm', 'Lời đáp dùng lại từ (hoặc từ nghe giống) trong câu hỏi nhưng không trả lời.'], type: ['Sai loại thông tin', 'Câu hỏi hỏi một loại thông tin (khi nào, ở đâu, ai…) nhưng lời đáp nói loại khác.'],
   yn: ['Yes / No cho câu Wh-', 'Câu hỏi When, Where, Why… không trả lời bằng Yes / No.'], rel: ['Cùng chủ đề, không trả lời', 'Nghe có vẻ liên quan nhưng không trả lời điều được hỏi.'] };
+// v127 Part 1: tranh vẽ đơn giản (SVG: nền + khối + emoji) thay ảnh chụp của đề thật; khung 320 × 200 (content/toeic/p1.json)
+const TO_BG = { in: ['#efe9df', '#d8c6aa', 140], out: ['#dcefff', '#cfe5bf', 125], sea: ['#dcefff', '#8ec9ea', 120] };
+const toPic = p => { const [sky, gr, h] = TO_BG[p.bg] || TO_BG.in;
+  return `<svg class="topic" viewBox="0 0 320 200" role="img" aria-label="Tranh Part 1" style="width:100%;max-width:420px;display:block;margin:6px auto;border-radius:12px;background:${sky}"><rect x="0" y="${h}" width="320" height="${200 - h}" fill="${gr}"/>${(p.r || []).map(([x, y, w, hh, c]) => `<rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="2" fill="${c}"/>`).join('')}${(p.e || []).map(([t, x, y, s]) => `<text x="${x}" y="${y}" font-size="${s}" text-anchor="middle" dominant-baseline="central">${t}</text>`).join('')}</svg>`; };
+const toP1Q = x => ({ x, sec: 'p1', kind: 'mc', head: TO_LH + '<p class="mute">Part 1: nhìn tranh, nghe 4 câu (đề thật không in chữ), chọn câu tả đúng nhất.</p>' + toPic(x.pic), q: 'Câu nào tả đúng tranh?', opts: ['A', 'B', 'C', 'D'], a: 'ABCD'[x.a],
+  play: { key: x.id, lines: x.lines }, why: x.o.map((t, i) => `${'ABCD'[i]}. ${t} ${i === x.a ? '✅' : '❌'}`).join(' · ') + ' · ' + x.why });
 const toP2Q = x => ({ x, sec: 'p2', kind: 'mc', head: TO_LH + '<p class="mute">Part 2: nghe câu hỏi và 3 lời đáp (đề thật không in chữ). Chọn lời đáp hợp nhất.</p>', q: 'Lời đáp nào đúng?', opts: ['A', 'B', 'C'], a: 'ABC'[x.a],
   play: { key: x.id, lines: x.lines }, why: x.q + ' → ' + x.o.map((t, i) => `${'ABC'[i]}. ${t} ${i === x.a ? '✅' : '❌ ' + (x.tr ? TO_TRAP[x.tr[i]][0] : '')}`).join(' · ') });
 // bảng / biểu đồ in trong đề cho câu "Look at the graphic" (content: g, v124); hiện ở cả 3 câu như đề thật
@@ -41,11 +47,11 @@ const toDocs = x => x.docs.map(d => `<div class="box"><b style="font-size:15px">
 const toP7Qs = x => x.qs.map((q, i) => ({ x, sec: 'p7', kind: 'mc', head: `<p class="mute">Part 7 · ${esc(x.kind)} · câu ${i + 1}/${x.qs.length}${x.docs.length > 1 ? ' · có câu phải đối chiếu nhiều văn bản' : ''}</p>`, q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a, why: q.why, foot: toDocs(x) }));
 // chọn bài: chưa làm / làm lâu nhất / sai nhiều trước
 const toPick = (its, n) => { const R = toSt().r; return shuf(its).sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0)).slice(0, n); };
-const toGen = { p2: n => toPick(TO.p2, n).map(toP2Q), p3: n => toPick(TO.p3, n).flatMap(x => toTalkQs(x, 'p3')), p4: n => toPick(TO.p4, n).flatMap(x => toTalkQs(x, 'p4')),
+const toGen = { p1: n => toPick(TO.p1 || [], n).map(toP1Q), p2: n => toPick(TO.p2, n).map(toP2Q), p3: n => toPick(TO.p3, n).flatMap(x => toTalkQs(x, 'p3')), p4: n => toPick(TO.p4, n).flatMap(x => toTalkQs(x, 'p4')),
   p5: n => toPick(TO.p5, n).map(toP5Q), p6: n => toPick(TO.p6, n).flatMap(toP6Qs), p7: n => toPick(TO.p7.filter(x => x.docs.length === 1), n).flatMap(toP7Qs), p7m: n => toPick(TO.p7.filter(x => x.docs.length > 1), n).flatMap(toP7Qs) };
 // dạng Part 5 (content: t)
 const TO_T5 = { form: 'Dạng từ', verb: 'Động từ (thì, bị động, V-ing / to V)', prep: 'Giới từ', conj: 'Liên từ, từ nối', pron: 'Đại từ, mệnh đề quan hệ', struct: 'So sánh, đảo ngữ', voc: 'Từ vựng, cụm từ' };
-const TO_PRAC = { p2: 10, p3: 2, p4: 2, p5: 15, p6: 1, p7: 2 };
+const TO_PRAC = { p1: 6, p2: 10, p3: 2, p4: 2, p5: 15, p6: 1, p7: 2 };
 // ôn câu Part 5 làm sai gần nhất
 const toWrong5 = () => TO.p5.filter(x => { const r = toSt().r[x.id]; return r && r.ok < r.n; });
 
@@ -64,7 +70,7 @@ function toVocRun(tid, back = toeicView) { const V = toSt().voc, due = toVocDue(
 
 // ---------- 🎓 đề thử (khuôn mock.js; tỉ lệ các Part như đề thật, số câu ít hơn) ----------
 const TO_PAPERS = [
-  { t: '🎧 Nghe (Listening)', k: 'L', min: 20, gen: () => [...toGen.p2(10).map(q => ({ part: TO_SEC.p2[1], q })), ...toGen.p3(3).map(q => ({ part: TO_SEC.p3[1], q })), ...toGen.p4(3).map(q => ({ part: TO_SEC.p4[1], q }))] },
+  { t: '🎧 Nghe (Listening)', k: 'L', min: 20, gen: () => [...toGen.p1(3).map(q => ({ part: TO_SEC.p1[1], q })), ...toGen.p2(10).map(q => ({ part: TO_SEC.p2[1], q })), ...toGen.p3(3).map(q => ({ part: TO_SEC.p3[1], q })), ...toGen.p4(3).map(q => ({ part: TO_SEC.p4[1], q }))] },
   { t: '📖 Đọc (Reading)', k: 'R', min: 30, gen: () => [...toGen.p5(15).map(q => ({ part: TO_SEC.p5[1], q })), ...toGen.p6(2).map(q => ({ part: TO_SEC.p6[1], q })), ...toGen.p7(2).map(q => ({ part: TO_SEC.p7[1], q })), ...toGen.p7m(1).map(q => ({ part: TO_SEC.p7[1] + ' (nhiều văn bản)', q }))] }];
 async function toMock(idx) { $app.innerHTML = '<p class="mute">Đang tải…</p>'; await toLoad(); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {}
   MK = { lv: 'toeic', C: { name: 'TOEIC Listening & Reading (kiểu)' }, papers: [], idx, plays: 1, done: toMockResult, quit: toeicView };
@@ -118,7 +124,7 @@ const toTagAcc = () => Object.keys(TO_T5).map(t => { const its = TO.p5.filter(x 
 // bẫy Part 2 đã mắc (đếm từ luyện và đề thử)
 function toTrapLog(res) { const T = toSt().trap; for (const r of res) { const x = r.q && r.q.x; if (!x || r.q.sec !== 'p2' || r.ok || !x.tr) continue; const t = x.tr['ABC'.indexOf(r.ans)]; if (t) T[t] = (T[t] || 0) + 1; } }
 // nơi tăng điểm nhanh nhất: số câu mỗi Part trong đề thật × phần còn có thể đúng thêm (tối đa +20 điểm %) × ~4,9 điểm / câu (thang 495 / 100 câu)
-const TO_REAL = { p2: 25, p3: 39, p4: 30, p5: 30, p6: 16, p7: 54 };
+const TO_REAL = { p1: 6, p2: 25, p3: 39, p4: 30, p5: 30, p6: 16, p7: 54 };
 function toGain() { const R = Object.values(toSt().r); return Object.keys(TO_REAL).map(s => { const a = R.filter(r => r.k === s), n = a.reduce((t, r) => t + r.n, 0), p = n ? a.reduce((t, r) => t + r.ok, 0) / n : null;
   return { s, n, p, g: p == null ? null : Math.round(Math.min(0.2, 1 - p) * TO_REAL[s] * 4.9 / 5) * 5 }; }).filter(x => x.n >= 5).sort((a, b) => b.g - a.g); }
 // tốc độ: luyện có đồng hồ từng câu (Part 5: 20 giây; Part 7: 60 giây, tính cả thời gian đọc)
@@ -171,7 +177,7 @@ const TO_SKV = { L: ['🎧', 'Nghe', 'Listening'], R: ['📰', 'Đọc', 'Readin
 const toSets = (its, n, sec, lab) => { const out = []; for (let i = 0; i < its.length; i += n) out.push({ id: `${sec}:${i / n + 1}`, ids: its.slice(i, i + n).map(x => x.id), sec, name: `${lab} · bộ ${i / n + 1} (${Math.min(n, its.length - i)} câu)` }); return out; };
 const toP6Name = x => (String(x.title).match(/Subject: (.*)$/) || [])[1] || (/^(To|Dear)\b/.test(x.title) ? x.kind : x.title);
 function toBai(k) { if (!TO) return [];
-  if (k === 'L') return [...toSets(TO.p2, 10, 'p2', 'Part 2'), ...TO.p3.map((x, i) => ({ id: x.id, x, sec: 'p3', name: `Part 3 · Hội thoại ${i + 1}` })), ...TO.p4.map((x, i) => ({ id: x.id, x, sec: 'p4', name: `Part 4 · Bài nói ${i + 1}` }))];
+  if (k === 'L') return [...toSets(TO.p1 || [], 6, 'p1', 'Part 1'), ...toSets(TO.p2, 10, 'p2', 'Part 2'), ...TO.p3.map((x, i) => ({ id: x.id, x, sec: 'p3', name: `Part 3 · Hội thoại ${i + 1}` })), ...TO.p4.map((x, i) => ({ id: x.id, x, sec: 'p4', name: `Part 4 · Bài nói ${i + 1}` }))];
   if (k === 'R') return [...toSets(TO.p5, 10, 'p5', 'Part 5'), ...TO.p6.map(x => ({ id: x.id, x, sec: 'p6', name: `Part 6 · ${x.kind}: ${toP6Name(x)}` })), ...TO.p7.map(x => ({ id: x.id, x, sec: x.docs.length > 1 ? 'p7m' : 'p7', name: `Part 7 · ${x.kind}${x.docs.length > 1 ? ' (nhiều văn bản)' : ''}` }))];
   return TO.voc.map(t => ({ id: t.id, x: t, sec: 'voc', name: t.t })); }
 // kết quả của một bài: bộ câu = cộng các câu đã làm; Từ công sở = số từ nhớ vững của chủ đề
@@ -182,7 +188,7 @@ const toNeed = () => Math.max(0.3, Math.min(0.95, (toSt().target / 2 - 5) / 490)
 const toNext = k => { const L = toBai(k); return L.find(b => !toRes(b)) || L.slice().sort((a, c) => ((toRes(a) || {}).at || 0) - ((toRes(c) || {}).at || 0))[0] || null; };
 function toDo(k, b) { const o = toSt(), back = () => toSkView(k); scrollTo(0, 0); if (!b) return toast('Chưa có bài.'); if (b.sec === 'voc') return toVocRun(b.id, back);
   if (!NCLIPS.size) fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(x => { NCLIPS = new Set(x); }).catch(() => {});
-  const qs = b.ids ? b.ids.map(id => (b.sec === 'p2' ? TO.p2 : TO.p5).find(x => x.id === id)).filter(Boolean).map(b.sec === 'p2' ? toP2Q : toP5Q)
+  const qs = b.ids ? b.ids.map(id => TO[b.sec].find(x => x.id === id)).filter(Boolean).map({ p1: toP1Q, p2: toP2Q, p5: toP5Q }[b.sec])
     : b.sec === 'p3' || b.sec === 'p4' ? toTalkQs(b.x, b.sec) : b.sec === 'p6' ? toP6Qs(b.x) : toP7Qs(b.x);
   return ieRun(`${(TO_SEC[b.sec] || TO_SEC.p7)[0]} ${b.name}`, qs, back, 0, { R: o.r, home: 'TOEIC', done: (res, fr) => toLog(res, 'luyen', fr) }); }
 async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_VOX = false;
@@ -219,7 +225,7 @@ function toSkView(k) { BACK = null; if (k === 'T') k = 'R'; window.CUR = { view:
     steps = [{ t: 'Làm bài', v: `${done}/${L.length}`, sub: done >= L.length ? 'đủ' : `còn ${L.length - done} bài`, ok: L.length > 0 && done >= L.length, cur: done < L.length },
       { t: 'Điểm ước', v: b != null ? String(b) : '–', sub: `cần ${half}`, ok: b != null && b >= half, cur: b != null && b < half },
       { t: 'Thi thử', btn: `<button class="pri" data-tomk="${k === 'L' ? 0 : 1}">▶ ${P.min} phút</button>`, sub: lm ? `lần trước ≈ ${lm.b[k]}` : 'chưa làm' }];
-    more = k === 'L' ? [['📝 Luyện theo Part', `<div class="duo">${['p2', 'p3', 'p4'].map(sec).join('')}</div>`], ['🎧 Về bài nghe', '<p class="mute" style="margin:0">Giọng Mỹ và Anh tự nhiên. Chưa có Part 1 (tả ảnh). Luyện được nghe 2 lần; đề thật chỉ 1 lần.</p>']]
+    more = k === 'L' ? [['📝 Luyện theo Part', `<div class="duo">${['p1', 'p2', 'p3', 'p4'].map(sec).join('')}</div>`], ['🎧 Về bài nghe', '<p class="mute" style="margin:0">Giọng Mỹ và Anh tự nhiên. Part 1 dùng tranh vẽ đơn giản thay ảnh chụp của đề thật. Luyện được nghe 2 lần; đề thật chỉ 1 lần.</p>']]
       : [['📝 Luyện theo Part', `<div class="duo">${['p5', 'p6', 'p7'].map(sec).join('')}<button class="big2" data-top="p7m">📑 Nhiều văn bản<small>Part 7, đối chiếu</small></button></div>`],
         ['✏️ Part 5 theo dạng ngữ pháp', `<div class="chips">${Object.entries(TO_T5).map(([t, n]) => `<button class="chip" data-top="t:${t}">${n}</button>`).join('')}</div>${w5 ? `<button data-top="w5">🔁 Làm lại ${Math.min(15, w5)} câu Part 5 từng sai</button>` : ''}`],
         ['⏱ Luyện tốc độ', `<p class="mute" style="margin:0 0 6px">Đề thật 200 câu / 120 phút nên thiếu giờ là chuyện thường. Part 5 ~${TO_SPD.p5[0]} giây / câu, Part 7 ~${TO_SPD.p7[0]} giây / câu.</p><div class="duo">${Object.entries(TO_SPD).map(([s, [secs]]) => { const r = o.spd.filter(x => x.s === s).slice(-1)[0]; return `<button class="big2" data-tospd="${s}">${TO_SEC[s][1].replace(/: .*/, '')} · ${secs}s/câu<small>${r ? `lần trước ${r.avg}s, đúng ${r.ok}/${r.n}` : 'chưa làm'}</small></button>`; }).join('')}</div>`]]; }

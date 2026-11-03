@@ -9,7 +9,7 @@
 // Chữa xong / gác / 🧱 như focus.js. Truy gốc: dạng ngữ pháp → Ngữ pháp CEFR; từ vựng, đọc, nghe → 📚 từ vựng công sở + nền CEFR.
 const TM_ACT = 3, TM_TRY = 3, TM_PARK_D = 14, TM_FRESH_D = 30;
 const TM_SK = { L: '🎧 Nghe', R: '📖 Đọc' };
-const tmSk = u => /^(p2|p3|p4|tr:)/.test(u) ? 'L' : 'R';
+const tmSk = u => /^(p1|p2|p3|p4|tr:)/.test(u) ? 'L' : 'R';
 const tmMinQ = u => /^(p3|p4|p6|p7)$/.test(u) ? 3 : 5;
 const toTh = () => Math.max(0.5, Math.min(0.9, Math.round((toSt().target / 2 - 5) / 490 * 20) / 20));
 const tmName = u => u.startsWith('p5:') ? 'Part 5 · ' + TO_T5[u.slice(3)] : u.startsWith('tr:') ? 'Bẫy Part 2 · ' + TO_TRAP[u.slice(3)][0] : u.startsWith('spd:') ? '⏱ Tốc độ ' + TO_SEC[u.slice(4)][1].replace(/: .*/, '') : TO_SEC[u][1];
@@ -62,9 +62,9 @@ async function tmFix(u) { await toLoad(); if (!NCLIPS.size) try { NCLIPS = new S
   const f = tmFocus().act.find(w => w.u === u), d = dayOf(Date.now());
   const run = () => { if (u.startsWith('spd:')) return toSpeed(u.slice(4));
     const pool = tmPool(u), fr = shuf(pool.filter(tmFresh)), R = toSt().r, old = [...pool].sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0));
-    const n = /^(p3|p4|p6|p7)$/.test(u) ? 2 : 10, xs = (fr.length >= (n === 2 ? 1 : 5) ? fr : [...fr, ...old.filter(x => !fr.includes(x))]).slice(0, n);
+    const n = /^(p3|p4|p6|p7)$/.test(u) ? 2 : u === 'p1' ? 6 : 10, xs = (fr.length >= (n === 2 ? 1 : 5) ? fr : [...fr, ...old.filter(x => !fr.includes(x))]).slice(0, n);
     if (!fr.length) toast('Hết bài mới cho chỗ này: lượt này không tính lần thử (đã gặp trong 30 ngày).');
-    const mk = x => u.startsWith('p5:') ? [toP5Q(x)] : u === 'p2' || u.startsWith('tr:') ? [toP2Q(x)] : u === 'p3' || u === 'p4' ? toTalkQs(x, u) : u === 'p6' ? toP6Qs(x) : toP7Qs(x);
+    const mk = x => u.startsWith('p5:') ? [toP5Q(x)] : u === 'p1' ? [toP1Q(x)] : u === 'p2' || u.startsWith('tr:') ? [toP2Q(x)] : u === 'p3' || u === 'p4' ? toTalkQs(x, u) : u === 'p6' ? toP6Qs(x) : toP7Qs(x);
     ieRun('🗺 ' + tmName(u), xs.flatMap(mk), toeicView, 0, { R: toSt().r, home: 'TOEIC', done: (res, fresh) => toLog(res, 'luyen', fresh) }); };
   if (u.startsWith('spd:') || (f && f.tr >= 1 && f.td !== d)) return tmTeach(u, run);   // tốc độ: luôn xem cách làm nhanh; chỗ khác: từ lần thử 2
   run(); }
@@ -79,7 +79,7 @@ function tmCell(u) { const o = toSt(), fx = (o.fo || {}).fx || {};
     const avg = a.reduce((t, r) => t + r.avg, 0) / a.length; return { u, s: a.length < 2 ? 'on' : avg > TO_SPD[k][0] ? 'yeu' : 'vung', v: Math.round(avg) + ' giây' }; }
   const a = ((o.ty || {})[u] || []).filter(b => b.at > (fx[u] || 0)).slice(-10), n = a.reduce((t, b) => t + b.n, 0); if (!n) return { u, s: fx[u] ? 'vung' : 'chua', v: '' };
   const p = a.reduce((t, b) => t + b.ok, 0) / n, sure = n >= 8 && new Set(a.flatMap(b => b.ids)).size >= 2; return { u, s: !sure ? 'on' : p < toTh() ? 'yeu' : 'vung', v: Math.round(p * 100) + '%' }; }
-const tmRows = () => [['L', ['p2', ...Object.keys(TO_TRAP).map(k => 'tr:' + k), 'p3', 'p4']], ['R', [...Object.keys(TO_T5).map(k => 'p5:' + k), 'p6', 'p7', ...Object.keys(TO_SPD).map(k => 'spd:' + k)]]];
+const tmRows = () => [['L', ['p1', 'p2', ...Object.keys(TO_TRAP).map(k => 'tr:' + k), 'p3', 'p4']], ['R', [...Object.keys(TO_T5).map(k => 'p5:' + k), 'p6', 'p7', ...Object.keys(TO_SPD).map(k => 'spd:' + k)]]];
 function tmMap(goal) { const o = toSt(), f = tmFocus(), W = tmWeak(), sure = W.filter(w => w.sure), unsure = W.filter(w => !w.sure), cells = tmRows().map(([k, us]) => [k, us.map(tmCell)]);
   const has = Object.keys(o.ty || {}).length || (o.spd || []).length, cnt = { yeu: 0, on: 0, vung: 0, chua: 0 }; for (const [, cs] of cells) for (const c of cs) cnt[c.s]++;
   const top = f.act[0] || sure[0], fix = u => `data-tm="fix|${u}"`, sk = u => TM_SK[tmSk(u)].split(' ')[0];

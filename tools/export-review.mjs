@@ -62,6 +62,10 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
     MM.map(x => row(`v126:${x.id}`, `<b>${esc(x.t)}</b> <span class="mute">${x.lv.toUpperCase()} · ${esc(x.tvi)}</span>${x.sp.map((t, i) => `<br>🗣 ${i + 1}. ${esc(t)}<br>&nbsp;&nbsp;→ ${x.tasks.map((k, j) => `<b>${x.tasks.length > 1 ? 'NV' + (j + 1) + ': ' : ''}${L8[k.a[i]]}. ${esc(k.o[k.a[i]])}</b>`).join(' · ')}`).join('')}`
       + x.tasks.map((k, j) => `<br><span class="mute">${x.tasks.length > 1 ? 'Nhiệm vụ ' + (j + 1) + ' · ' : ''}${esc(k.q)}: ${k.o.map((o, m) => L8[m] + '. ' + esc(o)).join(' · ')}</span>`).join(''))));
 }
+// v127 💼 TOEIC Part 1 tả tranh: tranh vẽ (toPic của toeic.js) + 4 câu tả + giải thích
+{ const src = fs.readFileSync(root + 'toeic.js', 'utf8'), cx = {}; vm.runInNewContext(src.match(/const TO_BG = [^\n]*/)[0].replace('const TO_BG', 'this.TO_BG') + '\n' + src.match(/const toPic = p => \{[\s\S]*?<\/svg>`; \};/)[0].replace('const toPic', 'this.toPic'), cx);
+  add('💼 TOEIC Part 1 · tả tranh (v127)', 'Đề thật dùng ảnh chụp; app dùng tranh vẽ đơn giản (emoji trên iPhone trông khác một chút). Kiểm: tranh có cho thấy rõ câu đúng không, 3 câu sai có sai rõ với tranh không (nhất là bẫy is being / has been), tiếng Anh tự nhiên.',
+    J('toeic.json').p1.map(x => row(`v127:${x.id}`, `<b>${esc(x.id)}</b><div style="max-width:320px">${cx.toPic(x.pic)}</div>` + x.o.map((t, i) => `<br>${'ABCD'[i]}. ${esc(t)} ${i === x.a ? '✅' : ''}`).join('') + `<br><span class="mute">${esc(x.why)}</span>`))); }
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}
