@@ -8,13 +8,13 @@
 // Chỉ đọc dữ liệu: không đổi luật đo; không có nhóm đang chữa / tạm gác như IELTS / TOEIC (ô hết yếu khi các lần làm gần đây ổn).
 const CB_N = 8, CB_WIN = 20, CB_ST = { yeu: 'yếu', on: 'chưa chắc', vung: 'ổn', chua: 'chưa làm' };
 const CB_UK = ['mc', 'open', 'wf', 'kwt', 'long', 'pm', 'sum', 'xt'];
-const CB_KEY = [[/nối người nói/, 'mm'], [/trắc nghiệm/, 'mc'], [/tạo dạng từ/, 'wf'], [/từ khoá/, 'kwt'], [/nối câu với (đoạn|người)|nối người/, 'pm'], [/so ý/, 'xt'], [/bài dài/, 'long'], [/tóm tắt/, 'sum'], [/nghe điền/, 'nf'], [/khuyết câu/, 'gap'], [/điền từ/, 'open']];
+const CB_KEY = [[/nối người nói/, 'mm'], [/chọn tranh/i, 'picl'], [/nhìn tranh/i, 'picr'], [/trắc nghiệm/, 'mc'], [/tạo dạng từ/, 'wf'], [/từ khoá/, 'kwt'], [/nối câu với (đoạn|người)|nối người/, 'pm'], [/so ý/, 'xt'], [/bài dài/, 'long'], [/tóm tắt/, 'sum'], [/nghe điền/, 'nf'], [/khuyết câu/, 'gap'], [/điền từ/, 'open']];
 const CB_SCORE = /email|bài luận|tóm tắt/;   // phần viết: máy chấm điểm 0–1 mỗi bài
 const CB_SHORT = { 'đọc tin nhắn, bài báo': 'Đọc tin, bài báo', 'chọn từ (cụm từ)': 'Chọn từ', 'điền từ (ngữ pháp)': 'Điền từ', 'viết email / chuyện': 'Viết email, chuyện',
   'nghe hội thoại, thông báo': 'Nghe hội thoại', 'nghe điền thông tin': 'Nghe điền', 'nghe điền câu': 'Nghe điền câu', 'đọc tin ngắn': 'Đọc tin ngắn', 'đoạn văn khuyết câu': 'Khuyết câu',
   'điền từ trắc nghiệm': 'Điền trắc nghiệm', 'điền từ': 'Điền một từ', 'viết lại câu dùng từ khoá': 'Câu từ khoá', 'nối câu với đoạn': 'Nối câu – đoạn', 'email, bài báo / truyện': 'Email, bài viết',
   'bài luận, thư, bài nhận xét': 'Bài luận, thư', 'bài luận, đề xuất, báo cáo': 'Bài luận, báo cáo', 'bài luận / bài báo / báo cáo': 'Bài luận, báo cáo', 'nghe': 'Nghe chọn đáp án',
-  'tóm tắt và đánh giá 2 đoạn văn (bắt buộc)': 'Tóm tắt 2 đoạn', 'nối người nói (2 nhiệm vụ)': 'Nối người nói', 'nối câu với người': 'Nối câu – người', 'nối người với văn bản': 'Nối người – văn bản', 'so ý giữa 4 văn bản': 'So ý 4 văn bản', 'Nghe bài, chọn đáp án': 'Nghe chọn đáp án', 'Đọc bài, trả lời': 'Đọc trả lời', 'Viết từ vào câu': 'Viết từ',
+  'tóm tắt và đánh giá 2 đoạn văn (bắt buộc)': 'Tóm tắt 2 đoạn', 'nối người nói (2 nhiệm vụ)': 'Nối người nói', 'Nghe, chọn tranh': 'Nghe chọn tranh', 'Nhìn tranh, đúng hay sai': 'Tranh đúng / sai', 'nối câu với người': 'Nối câu – người', 'nối người với văn bản': 'Nối người – văn bản', 'so ý giữa 4 văn bản': 'So ý 4 văn bản', 'Nghe bài, chọn đáp án': 'Nghe chọn đáp án', 'Đọc bài, trả lời': 'Đọc trả lời', 'Viết từ vào câu': 'Viết từ',
   'Hiểu nghĩa từ trong câu': 'Nghĩa từ', 'Chọn cụm đúng': 'Chọn cụm', 'Ngữ pháp: chọn từ đúng': 'Ngữ pháp', 'Nói': 'Nói' };
 const cbKey = (lab, p) => p.speak ? 'speak' : (CB_KEY.find(([re]) => re.test(lab)) || [0, ''])[1];
 const cbShort = lab => { const m = lab.match(/^Phần ([\d–, -]+): (.*)$/), b = m ? m[2] : lab, s = CB_SHORT[b] || b; return s.charAt(0).toUpperCase() + s.slice(1); };
@@ -99,9 +99,10 @@ const CB_HOWT = {
   tu: ['Đọc cả câu trước khi chọn: từ đúng phải hợp nghĩa và hợp cụm (giới từ, từ hay đi kèm).', 'Câu điền một từ thường hỏi từ ngữ pháp: giới từ, mạo từ, đại từ, trợ động từ.'],
   gap: ['Đọc câu trước và sau chỗ trống: câu chèn phải nối được cả hai.', 'Để ý từ nối và đại từ (this, they, such) chỉ về ý ngay trước chỗ trống.'],
   nf: ['Đọc phiếu trước khi nghe, đoán loại thông tin mỗi chỗ trống (số, tên, ngày, giờ).', 'Viết đúng chính tả và số ít / số nhiều: sai chính tả là mất điểm.'],
+  pic: ['Nhìn hết các tranh trước khi nghe / đọc: mỗi tranh là cái gì, gọi tên bằng tiếng Anh trong đầu.', 'Nghe từ chính trong câu (con vật, đồ ăn, đồ vật); các từ khác trong câu chỉ là phần phụ.', 'Câu "This is a …" chỉ đúng khi tranh đúng là vật đó; tranh giống nhóm (cùng là con vật) vẫn có thể sai.'],
   mm: ['Đọc kỹ 8 ý trước khi nghe, gạch từ khoá của mỗi ý; 3 ý không dùng.', 'Người nói hay nhắc đúng từ của một ý sai (bẫy): nghe ý chính người đó muốn nói, đừng bắt từ.', 'C1 / C2 có 2 nhiệm vụ cùng một lần nghe: lượt 1 làm nhiệm vụ 1, lượt 2 làm nhiệm vụ 2 và soát lại.'] };
 // loại phần (chọn bài luyện và mẹo): Nói · khuyết câu · nghe · viết · đọc · câu lẻ từ / ngữ pháp
-const cbCat = (lab, p) => p.speak ? 'noi' : cbKey(lab, p) === 'gap' ? 'gap' : cbKey(lab, p) === 'mm' ? 'mm' : /Nghe/.test(p.t) && !/điền/.test(lab) ? 'nghe' : CB_SCORE.test(lab) ? 'viet' : /đọc|bài dài|nối câu/i.test(lab) ? 'doc' : 'tu';
+const cbCat = (lab, p) => p.speak ? 'noi' : cbKey(lab, p) === 'gap' ? 'gap' : cbKey(lab, p) === 'mm' ? 'mm' : /^pic/.test(cbKey(lab, p)) ? 'pic' : /Nghe/.test(p.t) && !/điền/.test(lab) ? 'nghe' : CB_SCORE.test(lab) ? 'viet' : /đọc|bài dài|nối câu/i.test(lab) ? 'doc' : 'tu';
 const cbKitLvs = (P, lv) => LEVELS.slice(LEVELS.indexOf(MOCK[lv].lo), LEVELS.indexOf(lv) + 1).filter(l => P.lvs.includes(l));
 const cbIc = t => { const i = t.split(' ')[0]; return i === '📖' ? '📰' : i; }, cbPn = t => t.split(' ').slice(1).join(' ').replace('Dùng tiếng Anh', 'Dùng TA');
 function cbBai(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) return []; const out = [], seen = new Set(), add = b => { if (!seen.has(b.id)) { seen.add(b.id); out.push(b); } };
@@ -110,6 +111,7 @@ function cbBai(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) retu
     if (k === 'kwt' && its.length) { for (let j = 0; j < its.length; j += 6) add({ id: 'kwt:' + its[j].id, kind: 'kwt', xs: its.slice(j, j + 6), i, name: `${U_T.kwt[0]} Viết lại câu · bộ ${j / 6 + 1}` }); return; }
     if (its.length) return its.forEach(x => add({ id: 'u:' + x.id, kind: 'u', k, x, i, name: `${U_T[k][0]} ${x.title || U_T[k][1]}` }));
     if (k === 'nf') { const ns = cbNfItems(lv); if (ns.length) return ns.forEach(x => add({ id: 'nf:' + x.id, kind: 'nf', x, i, name: '📝 Nghe điền: ' + (x.tvi || x.title || x.id) })); }
+    if (k === 'picl' || k === 'picr') return add({ id: 'part:' + i, kind: 'part', i, name: `🖼 ${cbShort(lab)} · câu ngẫu nhiên` });
     if (k === 'mm') { const ms = cbMmItems(lv); if (ms.length) return ms.forEach(x => add({ id: 'mm:' + x.id, kind: 'mm', x, i, name: '🎧 Nối người nói: ' + x.tvi })); }
     const P = c === 'doc' ? KIT.doc : c === 'nghe' ? KIT.nghe : c === 'viet' ? KIT.viet : null, xs = P && P.items ? P.items.filter(x => cbKitLvs(P, lv).includes(x.lv) && !x.kind) : [];
     if (xs.length) return xs.forEach(x => add({ id: 'kit:' + x.id, kind: 'kit', P, x, i, name: `${P.ic} ${P.name ? P.name(x) : x.title || x.id}` }));

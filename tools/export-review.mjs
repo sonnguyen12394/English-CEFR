@@ -66,6 +66,10 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
 { const src = fs.readFileSync(root + 'toeic.js', 'utf8'), cx = {}; vm.runInNewContext(src.match(/const TO_BG = [^\n]*/)[0].replace('const TO_BG', 'this.TO_BG') + '\n' + src.match(/const toPic = p => \{[\s\S]*?<\/svg>`; \};/)[0].replace('const toPic', 'this.toPic'), cx);
   add('💼 TOEIC Part 1 · tả tranh (v127)', 'Đề thật dùng ảnh chụp; app dùng tranh vẽ đơn giản (emoji trên iPhone trông khác một chút). Kiểm: tranh có cho thấy rõ câu đúng không, 3 câu sai có sai rõ với tranh không (nhất là bẫy is being / has been), tiếng Anh tự nhiên.',
     J('toeic.json').p1.map(x => row(`v127:${x.id}`, `<b>${esc(x.id)}</b><div style="max-width:320px">${cx.toPic(x.pic)}</div>` + x.o.map((t, i) => `<br>${'ABCD'[i]}. ${esc(t)} ${i === x.a ? '✅' : ''}`).join('') + `<br><span class="mute">${esc(x.why)}</span>`))); }
+// v128 🖼 từ có tranh Starters / Movers: emoji có đúng là vật đó không, câu nghe tự nhiên không, cụm a / an đúng không
+{ const PIC = J('nghe.json').pic || [];
+  for (const lv of ['pre', 'a1']) add(`🖼 ${lv === 'pre' ? 'Starters (Pre-A1)' : 'Movers (A1)'} · từ có tranh (v128)`, 'Mỗi dòng: tranh (emoji, trên iPhone là emoji Apple), từ, cụm dùng trong câu "This is …" (trống = không đếm được), câu nghe. Kiểm: tranh đúng là vật đó, không lẫn với từ khác trong nhóm, câu nghe tự nhiên với trẻ.',
+    PIC.filter(x => x.lv === lv).map(x => row(`v128:${x.w}`, `<span style="font-size:32px">${x.e}</span> <b>${esc(x.w)}</b> <span class="mute">· ${esc(x.c)} · ${esc(x.a || '(không đếm được)')}</span><br>🎧 ${esc(x.s)}`))); }
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}

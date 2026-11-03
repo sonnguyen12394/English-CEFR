@@ -38,6 +38,8 @@ for x in J('nghe.json')['items']:
     else:
         v = (F[:4] + M[:4])[int(hashlib.md5(x['id'].encode()).hexdigest(), 16) % 8]
         for s in sents(x['text']): add(s, v)
+for i, x in enumerate(J('nghe.json').get('pic', [])):   # 🖼 Starters / Movers (v128): câu nghe chọn tranh, giọng Anh–Anh xen nam / nữ
+    add(x['s'], (F[:4] + M[:4])[i % 8])
 for x in J('nghe.json').get('mm', []):   # 🎧 nối người nói (v126): 5 người, giọng xen nam / nữ, chủ yếu Anh–Anh như đề Cambridge
     h = int(hashlib.md5(x['id'].encode()).hexdigest(), 16); seq = [F[0], M[0], F[1], M[1], F[2], M[2], F[3], M[3]]
     for i, t in enumerate(x['sp']):

@@ -1237,6 +1237,20 @@ const R = await run(`(async () => {
     toLog(TO.p1.slice(0, 3).map(x => ({ q: toP1Q(x), ok: true, ans: 'ABCD'[x.a] })), 'luyen'); if (!S.to.ty || !S.to.ty.p1) bad.push('Part 1 không ghi vào bản đồ điểm');
     delete S.to;
     add('toeic', 'C42', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'TOEIC Part 1 tả tranh: 12 câu tranh vẽ, 4 lời tả chỉ nghe, trong đề thử Nghe, danh sách bài, bản đồ điểm, cách làm, giọng đủ'); }
+  // v128 🖼 Starters / Movers có tranh: từ chọn tay (emoji không trùng), đề thử Pre-A1 / A1 có "Nghe, chọn tranh" (3 tranh, câu nghe có từ) và "Nhìn tranh, đúng hay sai" (đáp án khớp câu); danh sách bài, cách làm, giọng
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await kLoad(KIT.nghe); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json')).json()); } catch (e) {}
+    const PS = picSet(); if (PS.filter(x => x.lv === 'pre').length < 60 || PS.filter(x => x.lv === 'a1').length < 30 || new Set(PS.map(x => x.e)).size !== PS.length) bad.push('kho từ có tranh chưa đủ / trùng emoji');
+    const miss = PS.filter(x => !NCLIPS.has(clipKey(x.s))); if (miss.length) bad.push('thiếu giọng ' + miss.length + ' câu (chạy tools/build-audio.py)');
+    for (const lv of ['pre', 'a1']) { const C = MOCK[lv], fd = (re) => { for (const [pi, p] of C.papers.entries()) { const k = p.parts.findIndex(([lab]) => re.test(lab)); if (k >= 0) return [pi, k]; } return null; };
+      const L = fd(/chọn tranh/i), R = fd(/nhìn tranh/i); if (!L || !R) { bad.push(lv + ': đề thử thiếu phần có tranh'); continue; }
+      MK = { lv, C, papers: [], idx: [0] }; let ql = [], qr = []; tryv(lv + ' sinh', () => { ql = C.papers[L[0]].parts[L[1]][1](); qr = C.papers[R[0]].parts[R[1]][1](); });
+      if (ql.length !== 5 || qr.length !== 5) bad.push(lv + ': số câu ' + ql.length + '/' + qr.length);
+      for (const q of ql) if (!q.emo || q.opts.length !== 3 || new Set(q.opts).size !== 3 || q.opts[0] === undefined || !q.opts.includes(q.a) || q.a !== q.x.e || !q.play || !q.play.text.toLowerCase().includes(q.x.w.toLowerCase().replace(/s$/, ''))) bad.push(lv + ': câu chọn tranh hỏng ' + (q.x && q.x.w));
+      for (const q of qr) { const yes = q.a === MK_YES, th = picThis(q.x); if (yes !== (q.q === esc(th)) || !q.head.includes(q.x.e)) bad.push(lv + ': câu đúng / sai hỏng ' + q.x.w + ' · ' + q.q); }
+      if (lv === 'pre' && qr.some(q => q.a === MK_NO && !PS.some(y => y.lv === 'pre' && q.q === esc(picThis(y))))) bad.push('pre: câu sai dùng từ ngoài Starters');
+      for (const [pi, k] of [L, R]) { const p = C.papers[pi], lab = p.parts[k][0]; if (!cbBai(lv, pi).some(b => b.kind === 'part' && b.i === k && /tranh/i.test(b.name)) || cbCat(lab, p) !== 'pic' || !/^pic/.test(cbKey(lab, p)) || !CB_HOWT.pic) bad.push(lv + ': thiếu dòng bài / cách làm / khoá bản đồ phần ' + lab); } }
+    MK = null;
+    add('cefr', 'C43', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Starters / Movers có tranh: 122 từ chọn tay, nghe chọn tranh + nhìn tranh đúng / sai trong đề thử, danh sách bài, cách làm, giọng đủ'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');

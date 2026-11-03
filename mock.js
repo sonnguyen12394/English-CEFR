@@ -5,11 +5,11 @@
 // Bằng chứng cuối vẫn là đề mẫu chính thức ở ô 📝 Kiểm bằng đề thật.
 const MOCK = {
   pre: { name: 'Pre A1 Starters (kiểu)', lo: 'pre', pass: 0.7, papers: [
-    { t: '🎧 Nghe', min: 20, parts: [['Nghe bài, chọn đáp án', () => mkListen(4)]] },
-    { t: '📖 Đọc và Viết', min: 20, parts: [['Đọc bài, trả lời', () => mkRead(3)], ['Viết từ vào câu', () => mkVocab('xT', 6)], ['Hiểu nghĩa từ trong câu', () => mkVocab('xN', 5)]] }] },
+    { t: '🎧 Nghe', min: 20, parts: [['Nghe bài, chọn đáp án', () => mkListen(3)], ['Nghe, chọn tranh', () => mkPicL(5)]] },
+    { t: '📖 Đọc và Viết', min: 20, parts: [['Nhìn tranh, đúng hay sai', () => mkPicR(5)], ['Đọc bài, trả lời', () => mkRead(3)], ['Viết từ vào câu', () => mkVocab('xT', 6)], ['Hiểu nghĩa từ trong câu', () => mkVocab('xN', 5)]] }] },
   a1: { name: 'A1 Movers (kiểu)', lo: 'a1', pass: 0.7, papers: [
-    { t: '🎧 Nghe', min: 25, parts: [['Nghe bài, chọn đáp án', () => mkListen(4)]] },
-    { t: '📖 Đọc và Viết', min: 30, parts: [['Đọc bài, trả lời', () => mkRead(3)], ['Viết từ vào câu', () => mkVocab('xT', 6)], ['Chọn cụm đúng', () => mkVocab('xC', 4)], ['Ngữ pháp: chọn từ đúng', () => mkGram('nhan', 5)]] }] },
+    { t: '🎧 Nghe', min: 25, parts: [['Nghe bài, chọn đáp án', () => mkListen(3)], ['Nghe, chọn tranh', () => mkPicL(5)]] },
+    { t: '📖 Đọc và Viết', min: 30, parts: [['Nhìn tranh, đúng hay sai', () => mkPicR(5)], ['Đọc bài, trả lời', () => mkRead(3)], ['Viết từ vào câu', () => mkVocab('xT', 6)], ['Chọn cụm đúng', () => mkVocab('xC', 4)], ['Ngữ pháp: chọn từ đúng', () => mkGram('nhan', 5)]] }] },
   a2: { name: 'A2 Key (kiểu)', lo: 'a2', pass: 0.7, papers: [
     { t: '📖 Đọc và Viết', min: 60, parts: [['Phần 1–3: đọc tin nhắn, bài báo', () => mkRead(4)], ['Phần 4: chọn từ (cụm từ)', () => mkVocab('xC', 6)], ['Phần 5: điền từ (ngữ pháp)', () => mkGram('dien', 6)], ['Phần 6–7: viết email / chuyện', () => mkWrite(1)]] },
     { t: '🎧 Nghe', min: 30, parts: [['Phần 1–5: nghe hội thoại, thông báo', () => mkListen(5)]] }] },
@@ -55,6 +55,17 @@ const mmQs = x => x.tasks.flatMap((t, ti) => x.sp.map((s, i) => ({ x, k: 'mm', k
   head: `<p class="mute" style="margin:0 0 4px">🎧 ${esc(x.t)} · ${x.tasks.length > 1 ? `Nhiệm vụ ${ti + 1}/${x.tasks.length} · ` : ''}5 người nói, mỗi chữ chỉ dùng một lần, có 3 ý thừa.</p><p style="margin:0 0 6px"><b>${esc(t.q.replace(/^Task \d: /, ''))}</b></p>`,
   opts: t.o.map((o, j) => MM_L[j] + '. ' + o), a: MM_L[t.a[i]] + '. ' + t.o[t.a[i]], play: { key: x.id + '|' + i, text: s, max: 2 }, why: `Người nói ${i + 1}: “${s}”` })));
 const mmSets = () => (KIT.nghe.raw && KIT.nghe.raw.mm) || [];
+// v128 🖼 Starters / Movers có tranh (nghe.json pic ← content/bs/tranh.json: danh từ cụ thể có emoji, chọn tay, Claude soạn): 🎧 nghe câu, chọn 1 trong 3 tranh (kiểu Listening Part 4);
+// 📖 nhìn tranh, câu "This is …" đúng hay sai (kiểu Reading & Writing Part 1). Nhiễu cùng nhóm (con vật, đồ ăn…); Movers lấy thêm từ Starters (~1/3); câu sai của Starters chỉ dùng từ Starters
+const picSet = () => (KIT.nghe.raw && KIT.nghe.raw.pic) || [];
+const picPool = () => { const lo = MK.C.lo, P = picSet(), own = P.filter(x => x.lv === lo); return lo === 'pre' ? own : [...own, ...shuf(P.filter(x => x.lv === 'pre')).slice(0, Math.ceil(own.length / 2))]; };
+const picDis = (x, n) => { const P = picSet().filter(y => y.w !== x.w && y.e !== x.e && (MK.C.lo !== 'pre' || y.lv === 'pre')); return [...shuf(P.filter(y => y.c === x.c)), ...shuf(P.filter(y => y.c !== x.c))].slice(0, n); };
+const MK_YES = '✓ Đúng (Yes)', MK_NO = '✗ Sai (No)', picThis = y => y.a ? `This is ${y.a}.` : /s$/.test(y.w) ? `These are ${y.w}.` : `This is ${y.w}.`;
+const mkPicL = n => shuf(picPool()).slice(0, n).map(x => ({ x, k: 'picl', kind: 'mc', emo: 1, head: '<p class="mute">🎧 Nghe, chọn tranh đúng.</p>', q: 'Tranh nào?', opts: shuf([x.e, ...picDis(x, 2).map(y => y.e)]), a: x.e,
+  play: { key: 'pic|' + x.w, text: x.s, max: 2 }, why: `“${x.s}” → ${x.e} ${x.w}` }));
+const mkPicR = n => shuf(picPool()).slice(0, n).map((x, i) => { const yes = Math.random() < (i % 2 ? 0.4 : 0.6), y = yes ? x : picDis(x, 1)[0] || x, ok = y === x;
+  return { x, k: 'picr', kind: 'mc', head: `<p class="mute">📖 Nhìn tranh, đọc câu: đúng hay sai?</p><p style="font-size:76px;line-height:1.1;text-align:center;margin:6px 0">${x.e}</p>`, q: esc(picThis(y)), opts: [MK_YES, MK_NO], a: ok ? MK_YES : MK_NO,
+    why: `Tranh: ${x.e} ${x.w}${ok ? '' : ' · câu nói: ' + y.w}` }; });
 const mkMM = n => { const ls = mkLvs(), X = S.cbx || {}; return shuf(mmSets().filter(x => ls.includes(x.lv))).sort((a, b) => (b.lv === MK.C.lo) - (a.lv === MK.C.lo) || ((X[a.id] || {}).at || 0) - ((X[b.id] || {}).at || 0)).slice(0, n).flatMap(mmQs); };
 const mkWrite = n => KIT.viet.lvs.some(l => mkLvs().includes(l)) ? mkPick(KIT.viet, n).map(x => kWrite(x)) : [];
 
@@ -86,7 +97,7 @@ function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000
     return pi + 1 < MK.papers.length ? mkBreak(pi) : MK.done ? MK.done() : mkResult(); };
   if (P.speak) return (MK.speakRun || mkSpeakRun)(pi, finish);
   const show = () => { if (i >= P.qs.length) return finish(); const { part, q } = P.qs[i]; window.CUR = { view: 'de-thu-cau', item: MK.lv + ':' + P.t + ':' + i, prompt: String(q.q).replace(/<[^>]*>/g, '').slice(0, 200) };
-    const body = q.kind === 'mc' ? q.opts.map((o, k) => `<button class="opt" data-ko="${k}">${esc(o)}</button>`).join('')
+    const body = q.kind === 'mc' ? (q.emo ? '<div class="emo3">' : '') + q.opts.map((o, k) => `<button class="opt${q.emo ? ' emo' : ''}" data-ko="${k}">${esc(o)}</button>`).join('') + (q.emo ? '</div>' : '')
       : q.kind === 'write' ? `<form id="kf" autocomplete="off"><textarea id="kt" rows="9" autocapitalize="sentences" spellcheck="false" aria-label="Bài viết"></textarea><p class="mute" id="kwc">0 từ</p><button class="pri" type="submit">Nộp bài viết</button></form>`
       : `<form id="kf" autocomplete="off"><input id="kt" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Câu trả lời"><button class="pri" type="submit">Trả lời</button></form>`;
     const pk = q.play && q.play.key, left = () => (MK.plays || K_PLAYS) - (plays[pk] || 0);   // MK.plays: đề IELTS chỉ nghe 1 lần (ielts.js)
