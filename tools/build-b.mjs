@@ -57,6 +57,12 @@ for (const [f, src] of [['doc.json', BL.map(l => `content/bs/doc-${l}.json`)], [
   // v126 🎧 Cambridge nghe nối người nói (content/bs/nghe-mm.json → nghe.json mm): 5 người nói, mỗi nhiệm vụ 8 ý (3 ý thừa), đáp án 5 chỉ số khác nhau
   // v128 🖼 từ có tranh cho Starters / Movers (content/bs/tranh.json → nghe.json pic): emoji không trùng, câu nghe có từ đó
   if (f === 'nghe.json') { D.pic = J('content/bs/tranh.json').items; const es = new Set(); for (const x of D.pic) { if (!x.w || !x.e || !x.c || !['pre', 'a1'].includes(x.lv) || !x.s || es.has(x.e) || !x.s.toLowerCase().includes(x.w.toLowerCase().replace(/s$/, ''))) throw new Error('từ có tranh hỏng: ' + x.w); es.add(x.e); } }
+  // v129 🎓 dạng đề Cambridge còn thiếu (content/bs/dangthi.json → nghe.json dt): mỗi bộ có câu hỏi; câu nghe có lời; chỗ trống khớp số đáp án
+  if (f === 'nghe.json') { D.dt = J('content/bs/dangthi.json').sets; const ks = ['line', 'name', 'colour', 'yn', 'box', 'story', 'match5', 'resp', 'mcc', 'pdesc', 'pmc', 'pstory'];
+    for (const x of D.dt) { const gaps = (x.text || '').match(/\{\d\}/g) || [], bad = !ks.includes(x.k) || !['pre', 'a1', 'a2', 'b1'].includes(x.lv)
+      || (['line', 'name', 'colour', 'pmc'].includes(x.k) && x.qs.some(q => !(q.lines || []).length)) || (x.k === 'box' && (gaps.length !== x.a.length || x.a.some(a => !x.bank.includes(a))))
+      || (x.k === 'mcc' && gaps.length !== x.gaps.length) || (x.k === 'match5' && (x.names.length !== 5 || x.o.length !== 8 || new Set(x.a).size !== 5 || !x.lines.length)) || (x.k === 'pstory' && x.items.some(it => it.panels.length !== 3 || !it.k.length));
+      if (bad) throw new Error('dạng đề thiếu hỏng: ' + x.id); } }
   if (f === 'nghe.json') { D.mm = J('content/bs/nghe-mm.json').sets; for (const x of D.mm) if (x.sp.length !== 5 || !x.tasks.length || x.tasks.some(t => t.o.length !== 8 || t.a.length !== 5 || new Set(t.a).size !== 5 || t.a.some(a => !(a >= 0 && a < 8)))) throw new Error('bộ nối người nói hỏng: ' + x.id); }
   fs.writeFileSync(root + f, JSON.stringify(D)); console.log(`${f}: thêm ${add.length} mục B1 → C2`); }
 console.log(`ngữ pháp B1 → C2: ${G.length} điểm`); const ws = units.flatMap(u => u.words); console.log(`dữ liệu Nhớ: đồng nghĩa ${ws.filter(w => w.rel).length} · trang trọng ${ws.filter(w => w.reg).length} · mẫu câu ${ws.filter(w => w.pat).length} · thành ngữ ${ws.filter(w => w.idi).length}${miss.length ? ` · không khớp từ nào: ${miss.join(', ')}` : ''}`);

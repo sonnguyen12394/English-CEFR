@@ -70,6 +70,16 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
 { const PIC = J('nghe.json').pic || [];
   for (const lv of ['pre', 'a1']) add(`🖼 ${lv === 'pre' ? 'Starters (Pre-A1)' : 'Movers (A1)'} · từ có tranh (v128)`, 'Mỗi dòng: tranh (emoji, trên iPhone là emoji Apple), từ, cụm dùng trong câu "This is …" (trống = không đếm được), câu nghe. Kiểm: tranh đúng là vật đó, không lẫn với từ khác trong nhóm, câu nghe tự nhiên với trẻ.',
     PIC.filter(x => x.lv === lv).map(x => row(`v128:${x.w}`, `<span style="font-size:32px">${x.e}</span> <b>${esc(x.w)}</b> <span class="mute">· ${esc(x.c)} · ${esc(x.a || '(không đếm được)')}</span><br>🎧 ${esc(x.s)}`))); }
+// v129 🎓 dạng đề Cambridge còn thiếu (content/bs/dangthi.json): mỗi bộ một dòng, kèm tranh
+{ const src = fs.readFileSync(root + 'toeic.js', 'utf8'), cx = {}; vm.runInNewContext(src.match(/const TO_BG = [^\n]*/)[0].replace('const TO_BG', 'this.TO_BG') + '\n' + src.match(/const toPic = p => \{[\s\S]*?<\/svg>`; \};/)[0].replace('const toPic', 'this.toPic'), cx);
+  const pic = p => `<div style="max-width:300px">${cx.toPic(p)}</div>`, ln = ls => (ls || []).map(l => l[0] + ': ' + esc(l[1])).join('<br>');
+  const body = x => (x.pic ? pic(x.pic) : '') + (x.panels || []).map(pic).join('') + (x.text ? `<p class="t">${esc(x.text)}</p>` : '') + (x.bank ? `<br>Khung: ${x.bank.map(esc).join(' · ')} → <b>${x.a.map(esc).join(' · ')}</b>` : '')
+    + (x.lines ? `<details><summary>Lời</summary><p class="t">${ln(x.lines)}</p></details>` : '') + (x.names ? x.names.map((n, i) => `<br>• ${esc(n)} → <b>${esc(x.o[x.a[i]])}</b>`).join('') + `<br><span class="mute">Lựa chọn: ${x.o.map(esc).join(' · ')}</span>` : '')
+    + (x.gaps ? x.gaps.map((g, i) => `<br>(${i + 1}) <b>${esc(g.a)}</b> <span class="mute">✗ ${g.w.map(esc).join(' · ✗ ')}</span>`).join('') : '') + (x.title ? `<br>Tên truyện: <b>${esc(x.title.a)}</b>` : '')
+    + (x.qs || []).map(q => `<br>• ${esc(q.n || q.q || q.s || q.w || '')} → <b>${esc(String(q.a === true ? 'Yes' : q.a === false ? 'No' : Array.isArray(q.a) ? q.a.join(' / ') : q.o && typeof q.a === 'number' ? q.o[q.a] : q.write ? q.write[0] : q.a))}</b>${q.w && Array.isArray(q.w) ? ` <span class="mute">✗ ${q.w.map(esc).join(' · ✗ ')}</span>` : ''}${q.lines ? `<br><span class="mute">${ln(q.lines)}</span>` : ''}`).join('')
+    + (x.items || []).map(it => `<br><b>${esc(it.en)}</b>${it.panels.map(pic).join('')}<span class="mute">Ý cần có: ${it.c.map(esc).join(' · ')}</span>`).join('');
+  add('🎓 Cambridge · dạng đề còn thiếu (v129)', 'Starters / Movers (nối tên, viết tên / số, tô màu, tranh lớn yes / no, chọn từ điền, truyện tranh, nối ngày với tranh, câu đáp, điền trắc nghiệm, nhìn tranh viết), A2 Key (nghe chọn tranh, nối người với vật, truyện theo tranh), B1 (nghe chọn tranh). Kiểm: đúng kiểu đề thật, đáp án duy nhất, lời nghe tự nhiên, tranh khớp câu.',
+    J('nghe.json').dt.map(x => row(`v129:${x.id}`, `<b>${esc(x.t)}</b> <span class="mute">${x.lv.toUpperCase()} · ${esc(x.k)}</span><br>${body(x)}`))); }
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}

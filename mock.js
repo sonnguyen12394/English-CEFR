@@ -5,18 +5,20 @@
 // Bằng chứng cuối vẫn là đề mẫu chính thức ở ô 📝 Kiểm bằng đề thật.
 const MOCK = {
   pre: { name: 'Pre A1 Starters (kiểu)', lo: 'pre', pass: 0.7, papers: [
-    { t: '🎧 Nghe', min: 20, parts: [['Nghe bài, chọn đáp án', () => mkListen(3)], ['Nghe, chọn tranh', () => mkPicL(5)]] },
-    { t: '📖 Đọc và Viết', min: 20, parts: [['Nhìn tranh, đúng hay sai', () => mkPicR(5)], ['Đọc bài, trả lời', () => mkRead(3)], ['Viết từ vào câu', () => mkVocab('xT', 6)], ['Hiểu nghĩa từ trong câu', () => mkVocab('xN', 5)]] }] },
+    // v129: các phần theo đề thật Starters (dangthi.js)
+    { t: '🎧 Nghe', min: 20, parts: [['Phần 1: nghe, nối tên với người', () => dtQ('line')], ['Phần 2: nghe, viết tên và số', () => dtQ('name')], ['Phần 3: nghe, chọn tranh', () => mkPicL(5)], ['Phần 4: nghe, tô màu', () => dtQ('colour')]] },
+    { t: '📖 Đọc và Viết', min: 20, parts: [['Phần 1: nhìn tranh, đúng hay sai', () => mkPicR(5)], ['Phần 2: tranh lớn, viết yes / no', () => dtQ('yn')], ['Phần 3: xếp chữ thành từ', () => dtSpell(5)], ['Phần 4: chọn từ điền vào bài', () => dtQ('box')], ['Phần 5: truyện tranh, trả lời', () => dtQ('story')]] }] },
   a1: { name: 'A1 Movers (kiểu)', lo: 'a1', pass: 0.7, papers: [
-    { t: '🎧 Nghe', min: 25, parts: [['Nghe bài, chọn đáp án', () => mkListen(3)], ['Nghe, chọn tranh', () => mkPicL(5)]] },
-    { t: '📖 Đọc và Viết', min: 30, parts: [['Nhìn tranh, đúng hay sai', () => mkPicR(5)], ['Đọc bài, trả lời', () => mkRead(3)], ['Viết từ vào câu', () => mkVocab('xT', 6)], ['Chọn cụm đúng', () => mkVocab('xC', 4)], ['Ngữ pháp: chọn từ đúng', () => mkGram('nhan', 5)]] }] },
+    // v129: các phần theo đề thật Movers (dangthi.js)
+    { t: '🎧 Nghe', min: 25, parts: [['Phần 1: nghe, nối tên với người', () => dtQ('line')], ['Phần 2: nghe, viết tên và số', () => dtQ('name')], ['Phần 3: nghe, nối ngày với tranh', () => dtQ('match5')], ['Phần 4: nghe, chọn tranh', () => mkPicL(5)], ['Phần 5: nghe, tô màu và viết', () => dtQ('colour')]] },
+    { t: '📖 Đọc và Viết', min: 30, parts: [['Phần 1: đọc định nghĩa, viết từ', () => dtDef(5)], ['Phần 2: chọn câu đáp', () => dtQ('resp')], ['Phần 3: truyện, chọn từ điền và tên truyện', () => dtQ('box')], ['Phần 4: đọc, chọn từ đúng', () => dtQ('mcc')], ['Phần 5: truyện tranh, điền câu', () => dtQ('story')], ['Phần 6: nhìn tranh, viết', () => dtQ('pdesc')]] }] },
   a2: { name: 'A2 Key (kiểu)', lo: 'a2', pass: 0.7, papers: [
-    { t: '📖 Đọc và Viết', min: 60, parts: [['Phần 1–3: đọc tin nhắn, bài báo', () => mkRead(4)], ['Phần 4: chọn từ (cụm từ)', () => mkVocab('xC', 6)], ['Phần 5: điền từ (ngữ pháp)', () => mkGram('dien', 6)], ['Phần 6–7: viết email / chuyện', () => mkWrite(1)]] },
-    { t: '🎧 Nghe', min: 30, parts: [['Phần 1–5: nghe hội thoại, thông báo', () => mkListen(5)]] }] },
+    { t: '📖 Đọc và Viết', min: 60, parts: [['Phần 1–3: đọc tin nhắn, bài báo', () => mkRead(4)], ['Phần 4: chọn từ (cụm từ)', () => mkVocab('xC', 6)], ['Phần 5: điền từ (ngữ pháp)', () => mkGram('dien', 6)], ['Phần 6: viết email', () => mkWrite(9).filter(q => /email|tin nhắn/.test(q.x.genre)).slice(0, 1)], ['Phần 7: viết truyện theo tranh', () => dtQ('pstory')]] },
+    { t: '🎧 Nghe', min: 30, parts: [['Phần 1: nghe hội thoại, chọn tranh', () => dtQ('pmc')], ['Phần 3, 4: nghe hội thoại, thông báo', () => mkListen(3)], ['Phần 5: nghe, nối người với vật', () => dtQ('match5')]] }] },
   b1: { name: 'B1 Preliminary (kiểu)', lo: 'b1', pass: 0.7, papers: [
     { t: '📖 Đọc', min: 45, parts: [['Phần 1–4: đọc hiểu', () => mkRead(4)], ['Phần 5: điền từ trắc nghiệm (cụm từ)', () => mkVocab('xC', 6)], ['Phần 6: điền từ (ngữ pháp)', () => mkGram('dien', 6)]] },
     { t: '✍️ Viết', min: 45, parts: [['Phần 1–2: email, bài báo / truyện', () => mkWrite(2)]] },
-    { t: '🎧 Nghe', min: 30, parts: [['Phần 1–4: nghe', () => mkListen(5)]] }] },
+    { t: '🎧 Nghe', min: 30, parts: [['Phần 1: nghe hội thoại, chọn tranh', () => dtQ('pmc')], ['Phần 2, 4: nghe', () => mkListen(4)]] }] },
   b2: { name: 'B2 First (kiểu)', lo: 'b2', pass: 0.6, papers: [
     { t: '📖 Đọc và Dùng tiếng Anh', min: 75, parts: [['Phần 1: điền từ trắc nghiệm (cụm từ)', () => mkVocab('xC', 8)], ['Phần 2: điền từ (ngữ pháp)', () => mkGram('dien', 8)], ['Phần 3: tạo dạng từ', () => mkVocab('xD', 8)],
       ['Phần 4: viết lại câu đúng', () => mkGram('sua', 6)], ['Phần 5–7: đọc hiểu', () => mkRead(3)]] },

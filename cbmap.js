@@ -8,8 +8,11 @@
 // Chỉ đọc dữ liệu: không đổi luật đo; không có nhóm đang chữa / tạm gác như IELTS / TOEIC (ô hết yếu khi các lần làm gần đây ổn).
 const CB_N = 8, CB_WIN = 20, CB_ST = { yeu: 'yếu', on: 'chưa chắc', vung: 'ổn', chua: 'chưa làm' };
 const CB_UK = ['mc', 'open', 'wf', 'kwt', 'long', 'pm', 'sum', 'xt'];
-const CB_KEY = [[/nối người nói/, 'mm'], [/chọn tranh/i, 'picl'], [/nhìn tranh/i, 'picr'], [/trắc nghiệm/, 'mc'], [/tạo dạng từ/, 'wf'], [/từ khoá/, 'kwt'], [/nối câu với (đoạn|người)|nối người/, 'pm'], [/so ý/, 'xt'], [/bài dài/, 'long'], [/tóm tắt/, 'sum'], [/nghe điền/, 'nf'], [/khuyết câu/, 'gap'], [/điền từ/, 'open']];
-const CB_SCORE = /email|bài luận|tóm tắt/;   // phần viết: máy chấm điểm 0–1 mỗi bài
+// v129 dạng đề còn thiếu (dangthi.js): khoá theo nhãn phần, đặt trước khoá chung ("nối người", "chọn tranh", "nhìn tranh", "điền từ")
+const CB_DT = ['line', 'name', 'colour', 'yn', 'spell', 'box', 'story', 'match5', 'def', 'resp', 'mcc', 'pdesc', 'pmc', 'pstory'];
+const CB_KEY = [[/nối người nói/, 'mm'], [/nối tên/i, 'line'], [/viết tên/i, 'name'], [/tô màu/i, 'colour'], [/yes \/ no/i, 'yn'], [/xếp chữ/i, 'spell'], [/chọn từ điền/i, 'box'], [/truyện tranh/i, 'story'],
+  [/nối ngày|nối người với vật/i, 'match5'], [/định nghĩa/i, 'def'], [/câu đáp/i, 'resp'], [/đọc, chọn từ đúng/i, 'mcc'], [/nhìn tranh, viết/i, 'pdesc'], [/hội thoại, chọn tranh/i, 'pmc'], [/truyện theo tranh/i, 'pstory'], [/chọn tranh/i, 'picl'], [/nhìn tranh/i, 'picr'], [/trắc nghiệm/, 'mc'], [/tạo dạng từ/, 'wf'], [/từ khoá/, 'kwt'], [/nối câu với (đoạn|người)|nối người/, 'pm'], [/so ý/, 'xt'], [/bài dài/, 'long'], [/tóm tắt/, 'sum'], [/nghe điền/, 'nf'], [/khuyết câu/, 'gap'], [/điền từ/, 'open']];
+const CB_SCORE = /email|bài luận|tóm tắt|truyện theo tranh/;   // phần viết: máy chấm điểm 0–1 mỗi bài
 const CB_SHORT = { 'đọc tin nhắn, bài báo': 'Đọc tin, bài báo', 'chọn từ (cụm từ)': 'Chọn từ', 'điền từ (ngữ pháp)': 'Điền từ', 'viết email / chuyện': 'Viết email, chuyện',
   'nghe hội thoại, thông báo': 'Nghe hội thoại', 'nghe điền thông tin': 'Nghe điền', 'nghe điền câu': 'Nghe điền câu', 'đọc tin ngắn': 'Đọc tin ngắn', 'đoạn văn khuyết câu': 'Khuyết câu',
   'điền từ trắc nghiệm': 'Điền trắc nghiệm', 'điền từ': 'Điền một từ', 'viết lại câu dùng từ khoá': 'Câu từ khoá', 'nối câu với đoạn': 'Nối câu – đoạn', 'email, bài báo / truyện': 'Email, bài viết',
@@ -99,6 +102,20 @@ const CB_HOWT = {
   tu: ['Đọc cả câu trước khi chọn: từ đúng phải hợp nghĩa và hợp cụm (giới từ, từ hay đi kèm).', 'Câu điền một từ thường hỏi từ ngữ pháp: giới từ, mạo từ, đại từ, trợ động từ.'],
   gap: ['Đọc câu trước và sau chỗ trống: câu chèn phải nối được cả hai.', 'Để ý từ nối và đại từ (this, they, such) chỉ về ý ngay trước chỗ trống.'],
   nf: ['Đọc phiếu trước khi nghe, đoán loại thông tin mỗi chỗ trống (số, tên, ngày, giờ).', 'Viết đúng chính tả và số ít / số nhiều: sai chính tả là mất điểm.'],
+  line: ['Trước khi nghe, nhìn tranh: mỗi người đang làm gì, ở đâu.', 'Tên được đọc rõ; nghe việc người đó làm để chọn đúng người. Luôn có 1 người thừa.'],
+  name: ['Câu trả lời là tên hoặc số; tên thường được đánh vần từng chữ, viết đúng chính tả.', 'Số viết bằng chữ hay bằng số đều được (7 / seven). Cẩn thận người nói đổi ý ("not fifty, fifteen").'],
+  colour: ['Nghe tên vật và màu. Vật có thể được nhắc 2 màu ("Can I colour it red? No, yellow"): chọn màu cuối cùng.', 'Ôn tên màu: red, blue, green, yellow, orange, purple, brown, pink, black, white, grey.'],
+  yn: ['Nhìn kỹ tranh lớn: vật ở đâu (on, under, next to), có mấy cái.', 'Chỉ chọn Yes khi tranh đúng hệt câu; sai một chi tiết là No.'],
+  spell: ['Nhìn tranh, nói tên vật trong đầu, rồi xếp các chữ cái cho đúng.', 'Dùng đủ mọi chữ cái đã cho, không thêm, không bớt.'],
+  box: ['Đọc cả đoạn trước khi chọn; từ điền phải hợp nghĩa và hợp ngữ pháp (số ít / số nhiều).', 'Có 3 từ thừa; mỗi từ chỉ dùng một lần. Movers: chọn thêm tên truyện hợp với cả bài.'],
+  story: ['Xem tranh theo thứ tự; câu hỏi đi theo từng tranh.', 'Trả lời ngắn: Starters 1 từ, Movers 1–3 từ chép từ truyện, đúng chính tả.'],
+  match5: ['Đọc trước 8 lựa chọn; bài nghe thường nhắc cả lựa chọn sai ("I wanted to… but…", "Not this time").', 'Nghe theo thứ tự người / ngày; mỗi lựa chọn dùng một lần.'],
+  def: ['Đọc định nghĩa, tìm từ trong khung có nghĩa đó; chép đúng chính tả.', 'Có từ thừa trong khung.'],
+  resp: ['Đọc câu người kia nói, chọn câu đáp hợp: Where → nơi chốn, When → thời gian, câu hỏi Yes / No → Yes / No.'],
+  mcc: ['Đọc cả câu; chọn từ hợp ngữ pháp (live / lives, their / they, in / on / at).'],
+  pdesc: ['Hoàn thành câu và trả lời câu hỏi về tranh: viết ngắn, đúng chính tả.', 'Đếm kỹ số lượng; dùng từ chỉ vị trí (under, on, next to).'],
+  pmc: ['Đọc câu hỏi và nhìn 3 tranh trước khi nghe.', 'Cả 3 tranh thường đều được nhắc tới; nghe kỹ chỗ đổi ý (but, instead, not any more).'],
+  pstory: ['Viết đủ 3 tranh, mỗi tranh ít nhất một câu; dùng thì quá khứ.', 'Dùng từ nối: first, then, after that, in the end. Viết từ 35 từ trở lên.'],
   pic: ['Nhìn hết các tranh trước khi nghe / đọc: mỗi tranh là cái gì, gọi tên bằng tiếng Anh trong đầu.', 'Nghe từ chính trong câu (con vật, đồ ăn, đồ vật); các từ khác trong câu chỉ là phần phụ.', 'Câu "This is a …" chỉ đúng khi tranh đúng là vật đó; tranh giống nhóm (cùng là con vật) vẫn có thể sai.'],
   mm: ['Đọc kỹ 8 ý trước khi nghe, gạch từ khoá của mỗi ý; 3 ý không dùng.', 'Người nói hay nhắc đúng từ của một ý sai (bẫy): nghe ý chính người đó muốn nói, đừng bắt từ.', 'C1 / C2 có 2 nhiệm vụ cùng một lần nghe: lượt 1 làm nhiệm vụ 1, lượt 2 làm nhiệm vụ 2 và soát lại.'] };
 // loại phần (chọn bài luyện và mẹo): Nói · khuyết câu · nghe · viết · đọc · câu lẻ từ / ngữ pháp
@@ -111,6 +128,7 @@ function cbBai(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) retu
     if (k === 'kwt' && its.length) { for (let j = 0; j < its.length; j += 6) add({ id: 'kwt:' + its[j].id, kind: 'kwt', xs: its.slice(j, j + 6), i, name: `${U_T.kwt[0]} Viết lại câu · bộ ${j / 6 + 1}` }); return; }
     if (its.length) return its.forEach(x => add({ id: 'u:' + x.id, kind: 'u', k, x, i, name: `${U_T[k][0]} ${x.title || U_T[k][1]}` }));
     if (k === 'nf') { const ns = cbNfItems(lv); if (ns.length) return ns.forEach(x => add({ id: 'nf:' + x.id, kind: 'nf', x, i, name: '📝 Nghe điền: ' + (x.tvi || x.title || x.id) })); }
+    if (CB_DT.includes(k)) return add({ id: 'part:' + i, kind: 'part', i, name: `${/Nghe/.test(p.t) ? '🎧' : k === 'pstory' || k === 'pdesc' ? '✍️' : '📖'} ${cbShort(lab)}` });
     if (k === 'picl' || k === 'picr') return add({ id: 'part:' + i, kind: 'part', i, name: `🖼 ${cbShort(lab)} · câu ngẫu nhiên` });
     if (k === 'mm') { const ms = cbMmItems(lv); if (ms.length) return ms.forEach(x => add({ id: 'mm:' + x.id, kind: 'mm', x, i, name: '🎧 Nối người nói: ' + x.tvi })); }
     const P = c === 'doc' ? KIT.doc : c === 'nghe' ? KIT.nghe : c === 'viet' ? KIT.viet : null, xs = P && P.items ? P.items.filter(x => cbKitLvs(P, lv).includes(x.lv) && !x.kind) : [];
@@ -169,7 +187,7 @@ function cbSkView(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) r
   $app.onclick = cbClick; scrollTo(0, 0); }
 // 📘 Bài học của Cambridge = cách làm từng phần của bài thi; mỗi phần có nút thử ngay
 function cbHowView(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) return cbView(lv); BACK = null; window.CUR = { view: 'cambridge', sk: lv + '|' + pi };
-  const tips = (lab, k, c) => CB_UK.includes(k) && U_T[k] && (k !== 'open' || LEVELS.indexOf(lv) >= LEVELS.indexOf('b1')) ? [U_T[k][2]] : CB_HOWT[k === 'nf' ? 'nf' : c] || [];
+  const tips = (lab, k, c) => CB_UK.includes(k) && U_T[k] && (k !== 'open' || LEVELS.indexOf(lv) >= LEVELS.indexOf('b1')) ? [U_T[k][2]] : CB_HOWT[k] || CB_HOWT[c] || [];
   $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-cbsk="${lv}|${pi}">‹ ${cbPn(p.t)}</button><span></span></div><h1>📘 Cách làm · ${cbIc(p.t)} ${cbPn(p.t)}</h1>
     <p class="mute">${esc(C.name)} · ${p.min} phút. Đọc cách làm từng phần, rồi thử ngay phần đó. Không tính luật đo. 🤖 Mẹo do Claude soạn, chưa giáo viên kiểm.</p>
     ${p.parts.map(([lab], i) => { const k = cbKey(lab, p), c = cbCat(lab, p); return `<div class="box"><b>${esc(lab)}</b>${tips(lab, k, c).map(x => `<p style="margin:6px 0 0;font-size:15px">• ${esc(x)}</p>`).join('')}<button data-cbx="try|${lv}|${pi}|${i}" style="margin-top:8px">▶ Thử phần này</button></div>`; }).join('')}

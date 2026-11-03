@@ -1242,15 +1242,34 @@ const R = await run(`(async () => {
     const PS = picSet(); if (PS.filter(x => x.lv === 'pre').length < 60 || PS.filter(x => x.lv === 'a1').length < 30 || new Set(PS.map(x => x.e)).size !== PS.length) bad.push('kho từ có tranh chưa đủ / trùng emoji');
     const miss = PS.filter(x => !NCLIPS.has(clipKey(x.s))); if (miss.length) bad.push('thiếu giọng ' + miss.length + ' câu (chạy tools/build-audio.py)');
     for (const lv of ['pre', 'a1']) { const C = MOCK[lv], fd = (re) => { for (const [pi, p] of C.papers.entries()) { const k = p.parts.findIndex(([lab]) => re.test(lab)); if (k >= 0) return [pi, k]; } return null; };
-      const L = fd(/chọn tranh/i), R = fd(/nhìn tranh/i); if (!L || !R) { bad.push(lv + ': đề thử thiếu phần có tranh'); continue; }
-      MK = { lv, C, papers: [], idx: [0] }; let ql = [], qr = []; tryv(lv + ' sinh', () => { ql = C.papers[L[0]].parts[L[1]][1](); qr = C.papers[R[0]].parts[R[1]][1](); });
-      if (ql.length !== 5 || qr.length !== 5) bad.push(lv + ': số câu ' + ql.length + '/' + qr.length);
+      // v129: Movers theo đề thật không có phần "đúng hay sai" của Starters (chỉ nghe chọn tranh)
+      const L = fd(/nghe, chọn tranh/i), R = lv === 'pre' ? fd(/nhìn tranh, đúng hay sai/i) : null; if (!L || (lv === 'pre' && !R)) { bad.push(lv + ': đề thử thiếu phần có tranh'); continue; }
+      MK = { lv, C, papers: [], idx: [0] }; let ql = [], qr = []; tryv(lv + ' sinh', () => { ql = C.papers[L[0]].parts[L[1]][1](); qr = R ? C.papers[R[0]].parts[R[1]][1]() : []; });
+      if (ql.length !== 5 || (R && qr.length !== 5)) bad.push(lv + ': số câu ' + ql.length + '/' + qr.length);
       for (const q of ql) if (!q.emo || q.opts.length !== 3 || new Set(q.opts).size !== 3 || q.opts[0] === undefined || !q.opts.includes(q.a) || q.a !== q.x.e || !q.play || !q.play.text.toLowerCase().includes(q.x.w.toLowerCase().replace(/s$/, ''))) bad.push(lv + ': câu chọn tranh hỏng ' + (q.x && q.x.w));
       for (const q of qr) { const yes = q.a === MK_YES, th = picThis(q.x); if (yes !== (q.q === esc(th)) || !q.head.includes(q.x.e)) bad.push(lv + ': câu đúng / sai hỏng ' + q.x.w + ' · ' + q.q); }
       if (lv === 'pre' && qr.some(q => q.a === MK_NO && !PS.some(y => y.lv === 'pre' && q.q === esc(picThis(y))))) bad.push('pre: câu sai dùng từ ngoài Starters');
-      for (const [pi, k] of [L, R]) { const p = C.papers[pi], lab = p.parts[k][0]; if (!cbBai(lv, pi).some(b => b.kind === 'part' && b.i === k && /tranh/i.test(b.name)) || cbCat(lab, p) !== 'pic' || !/^pic/.test(cbKey(lab, p)) || !CB_HOWT.pic) bad.push(lv + ': thiếu dòng bài / cách làm / khoá bản đồ phần ' + lab); } }
+      for (const [pi, k] of [L, R].filter(Boolean)) { const p = C.papers[pi], lab = p.parts[k][0]; if (!cbBai(lv, pi).some(b => b.kind === 'part' && b.i === k && /tranh/i.test(b.name)) || cbCat(lab, p) !== 'pic' || !/^pic/.test(cbKey(lab, p)) || !CB_HOWT.pic) bad.push(lv + ': thiếu dòng bài / cách làm / khoá bản đồ phần ' + lab); } }
     MK = null;
     add('cefr', 'C43', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Starters / Movers có tranh: 122 từ chọn tay, nghe chọn tranh + nhìn tranh đúng / sai trong đề thử, danh sách bài, cách làm, giọng đủ'); }
+  // v129 🎓 dạng đề Cambridge còn thiếu (dangthi.js): mỗi dạng có bộ ở đúng cấp, phần đề thử theo đề thật Starters / Movers / A2 / B1, câu hợp lệ, lời nghe có giọng, khoá bản đồ, dòng bài, cách làm
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await Promise.all(Object.values(KIT).map(kLoad)); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json')).json()); } catch (e) {}
+    const WANT = { pre: ['line', 'name', 'colour', 'yn', 'spell', 'box', 'story', 'picl', 'picr'], a1: ['line', 'name', 'match5', 'picl', 'colour', 'def', 'resp', 'box', 'mcc', 'story', 'pdesc'], a2: ['pmc', 'match5', 'pstory'], b1: ['pmc'] };
+    for (const [lv, ks] of Object.entries(WANT)) { const C = MOCK[lv], have = {};
+      C.papers.forEach((p, pi) => p.parts.forEach(([lab], i) => { const k = cbKey(lab, p); if (k) have[k] = [pi, i, lab]; }));
+      for (const k of ks) { if (!have[k]) { bad.push(lv + ': đề thử thiếu phần ' + k); continue; } const [pi, i, lab] = have[k], p = C.papers[pi];
+        MK = { lv, C, papers: [], idx: [pi] }; let qs = []; tryv(lv + ' ' + k, () => { qs = p.parts[i][1](); }); if (!qs.length) { bad.push(lv + ' ' + k + ': không sinh câu'); continue; }
+        for (const q of qs) { if (q.kind === 'mc' && (!q.opts.includes(q.a) || new Set(q.opts).size !== q.opts.length)) bad.push(lv + ' ' + k + ': câu trắc nghiệm hỏng ' + String(q.q).slice(0, 40));
+          if (q.kind === 'type' && !(q.acc || [q.a]).filter(Boolean).length) bad.push(lv + ' ' + k + ': câu gõ thiếu đáp án');
+          if (q.kind === 'write' && !(q.x && q.x.k && q.x.k.length && /<svg/.test(q.head))) bad.push(lv + ' ' + k + ': bài viết theo tranh thiếu tranh / ý');
+          if (q.play && q.play.lines && q.play.lines.some(l => !NCLIPS.has(clipKey(l[1])))) bad.push(lv + ' ' + k + ': thiếu giọng (chạy tools/build-audio.py)'); }
+        if (!cbBai(lv, pi).some(b => b.i === i)) bad.push(lv + ' ' + k + ': thiếu dòng bài ở màn bài thi');
+        if (!(CB_HOWT[k] || CB_HOWT[cbCat(lab, p)])) bad.push(lv + ' ' + k + ': thiếu cách làm'); } }
+    // xếp chữ không lộ đáp án; định nghĩa Movers không chứa chính từ đó
+    MK = { lv: 'pre', C: MOCK.pre, papers: [], idx: [1] }; for (const q of dtSpell(5)) if (q.head.includes('<b>' + q.a.split('').join(' ') + '</b>')) bad.push('xếp chữ lộ đáp án ' + q.a);
+    MK = { lv: 'a1', C: MOCK.a1, papers: [], idx: [1] }; const df = dtDef(5); if (df.length !== 5 || df.some(q => q.q.toLowerCase().includes(q.a))) bad.push('định nghĩa Movers hỏng');
+    MK = null;
+    add('cefr', 'C44', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ dạng đề Cambridge: Starters 9 phần, Movers 11 phần, A2 nghe chọn tranh / nối người với vật / viết truyện theo tranh, B1 nghe chọn tranh; câu hợp lệ, giọng, dòng bài, cách làm'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');
