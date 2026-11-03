@@ -153,66 +153,92 @@ function exHero(k, act, lab, title = '▶ Luyện tiếp') { let sp = null; try 
   return `<button class="btnbig" ${act}>${title}<small>${esc(lab)}</small></button>`; }
 // việc 🎓 luyện đề ở ô Hôm nay (Lộ trình): mở màn kỳ thi của mục tiêu rồi vào thẳng bài nên làm (ieToday / toToday); không tìm thấy nút thì ở lại màn kỳ thi
 async function exGo() { const k = exSel(); await exOpen(); let a = null; try { a = k === 'ielts' ? ieToday()[0] : k === 'toeic' ? toToday()[0] : null; } catch (e) {}
-  const m = a && String(a).match(/^(data-[\w-]+)(?:="([^"]*)")?$/), el = m && document.querySelector(`#app [${m[1]}${m[2] != null ? `="${m[2].replace(/"/g, '\\"')}"` : ''}]`); if (el) el.click(); }
+  const m = a && String(a).match(/^(data-[\w-]+)(?:="([^"]*)")?$/); if (!m) return; let el = document.querySelector(`#app [${m[1]}${m[2] != null ? `="${m[2].replace(/"/g, '\\"')}"` : ''}]`);
+  if (!el && document.createElement) { el = document.createElement('button'); el.hidden = true; el.setAttribute(m[1], m[2] != null ? m[2] : ''); $app.appendChild(el); }   // v122: màn kỳ thi không còn nút ▶ Luyện tiếp: bấm việc qua nút ẩn
+  if (el && el.click) el.click(); }
 const exOpenK = k => k === 'toeic' ? toeicView() : k === 'ielts' || typeof cbView !== 'function' ? ieltsView() : cbView();
 const exSel = () => { if (!S) return null; const g = S.lt && S.lt.goal; if (g) return g.kind === 'ielts' || g.kind === 'toeic' ? g.kind : 'cefr'; return S.exSel || (S.ie && S.ie.set ? 'ielts' : 'cefr'); };
 const exOpen = () => { const k = exSel(), g = S.lt && S.lt.goal; return k === 'toeic' ? toeicView() : k === 'ielts' || typeof cbView !== 'function' ? ieltsView() : cbView(g && typeof ltGoalLv === 'function' ? ltGoalLv(g) : undefined); };
 document.addEventListener('click', e => { if (!S) return; if (e.target.closest('[data-hocnen]')) { scrollTo(0, 0); return overview(); } if (e.target.closest('[data-exthi]')) { scrollTo(0, 0); return exOpenK(exGoalK() || S.exSel || 'cefr'); } const b = e.target.closest('[data-exsel]'); if (!b) return; S.exSel = b.dataset.exsel; S.t = Date.now(); save(); scrollTo(0, 0); exOpenK(b.dataset.exsel); });   // v109: mở đúng mục đã chọn (mục tiêu không đổi)
+// v122 kỳ thi theo khuôn Nền (parts.js xHome / xSkill; người sáng lập 3/11/2026): màn TOEIC = dòng điểm ước có thanh + 3 ô (🎧 Nghe · 📰 Đọc · 📚 Từ công sở) + "Thêm" gập;
+// màn một kỹ năng = ① Làm bài → ② Điểm ước (so mục tiêu mỗi phần = tổng / 2) → ③ Thi thử phần đó, 📘 Bài học = cách làm, 🏋️ Bài tập = bài kế tiếp, danh sách bài cụ thể
+// (Nghe: bộ 10 câu Part 2, từng hội thoại Part 3, bài nói Part 4 · Đọc: bộ 10 câu Part 5, từng đoạn Part 6, bộ văn bản Part 7 · Từ công sở: chủ đề); luyện theo Part,
+// Part 5 theo dạng, câu từng sai, ⏱ tốc độ trong "Thêm". Bỏ nút ▶ Luyện tiếp (việc nên làm ở 🧭 Lộ trình). Không đổi cách chấm, cách ghi.
+const TO_SKV = { L: ['🎧', 'Nghe', 'Listening'], R: ['📰', 'Đọc', 'Reading'], V: ['📚', 'Từ công sở', ''] };
+const toSets = (its, n, sec, lab) => { const out = []; for (let i = 0; i < its.length; i += n) out.push({ id: `${sec}:${i / n + 1}`, ids: its.slice(i, i + n).map(x => x.id), sec, name: `${lab} · bộ ${i / n + 1} (${Math.min(n, its.length - i)} câu)` }); return out; };
+const toP6Name = x => (String(x.title).match(/Subject: (.*)$/) || [])[1] || (/^(To|Dear)\b/.test(x.title) ? x.kind : x.title);
+function toBai(k) { if (!TO) return [];
+  if (k === 'L') return [...toSets(TO.p2, 10, 'p2', 'Part 2'), ...TO.p3.map((x, i) => ({ id: x.id, x, sec: 'p3', name: `Part 3 · Hội thoại ${i + 1}` })), ...TO.p4.map((x, i) => ({ id: x.id, x, sec: 'p4', name: `Part 4 · Bài nói ${i + 1}` }))];
+  if (k === 'R') return [...toSets(TO.p5, 10, 'p5', 'Part 5'), ...TO.p6.map(x => ({ id: x.id, x, sec: 'p6', name: `Part 6 · ${x.kind}: ${toP6Name(x)}` })), ...TO.p7.map(x => ({ id: x.id, x, sec: x.docs.length > 1 ? 'p7m' : 'p7', name: `Part 7 · ${x.kind}${x.docs.length > 1 ? ' (nhiều văn bản)' : ''}` }))];
+  return TO.voc.map(t => ({ id: t.id, x: t, sec: 'voc', name: t.t })); }
+// kết quả của một bài: bộ câu = cộng các câu đã làm; Từ công sở = số từ nhớ vững của chủ đề
+function toRes(b) { const o = toSt();
+  if (b.sec === 'voc') { const seen = b.x.w.filter(w => o.voc[w[0]]), kn = b.x.w.filter(w => (o.voc[w[0]] || {}).box >= 3).length; return seen.length ? { at: Math.max(...seen.map(w => o.voc[w[0]].due || 0)), t: `${kn}/${b.x.w.length} từ nhớ vững`, bad: false } : null; }
+  if (!b.ids) return o.r[b.id] || null; const rs = b.ids.map(id => o.r[id]).filter(Boolean); return rs.length ? { at: Math.max(...rs.map(r => r.at)), ok: rs.reduce((t, r) => t + r.ok, 0), n: rs.reduce((t, r) => t + r.n, 0) } : null; }
+const toNeed = () => Math.max(0.3, Math.min(0.95, (toSt().target / 2 - 5) / 490));   // tỉ lệ đúng cho điểm mục tiêu mỗi phần (thang ước 5–495)
+const toNext = k => { const L = toBai(k); return L.find(b => !toRes(b)) || L.slice().sort((a, c) => ((toRes(a) || {}).at || 0) - ((toRes(c) || {}).at || 0))[0] || null; };
+function toDo(k, b) { const o = toSt(), back = () => toSkView(k); scrollTo(0, 0); if (!b) return toast('Chưa có bài.'); if (b.sec === 'voc') return toVocRun(b.id, back);
+  if (!NCLIPS.size) fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(x => { NCLIPS = new Set(x); }).catch(() => {});
+  const qs = b.ids ? b.ids.map(id => (b.sec === 'p2' ? TO.p2 : TO.p5).find(x => x.id === id)).filter(Boolean).map(b.sec === 'p2' ? toP2Q : toP5Q)
+    : b.sec === 'p3' || b.sec === 'p4' ? toTalkQs(b.x, b.sec) : b.sec === 'p6' ? toP6Qs(b.x) : toP7Qs(b.x);
+  return ieRun(`${(TO_SEC[b.sec] || TO_SEC.p7)[0]} ${b.name}`, qs, back, 0, { R: o.r, home: 'TOEIC', done: (res, fr) => toLog(res, 'luyen', fr) }); }
 async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_VOX = false;
   if (!TO || !KIT.np.items) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([toLoad(), kLoad(KIT.np)]); } catch (e) { $app.innerHTML = '<div id="ie"></div><p>Không tải được dữ liệu TOEIC. Thử lại sau.</p>'; return; } }
-  // v113: cùng khung với màn IELTS: điểm ước gọn → ▶ Luyện tiếp → 4 ô (Nghe · Đọc · Từ công sở · Tốc độ, mỗi ô mở màn con toSkView) → thi thử → "Thêm" gập
-  const o = toSt(), tg = o.target, now = toNow(), cs = toReady(), nOk = cs.filter(c => c[0]).length, base = toBase(tg), nv = TO.voc.reduce((s, t) => s + t.w.length, 0), due = toVocDue().length;
-  let act = 'data-top="p5"', lab = '✏️ Luyện Part 5'; try { [act, lab] = toToday(); } catch (e) {}
-  const pct = ks => { const a = Object.values(o.r).filter(r => ks.includes(r.k)), n = a.reduce((t, r) => t + r.n, 0); return n ? Math.round(a.reduce((t, r) => t + r.ok, 0) / n * 100) : null; }, pL = pct(['p2', 'p3', 'p4']), pR = pct(['p5', 'p6', 'p7']), lsp = o.spd.slice(-1)[0];
-  const wk = o.date ? Math.max(0, Math.ceil((new Date(o.date + 'T12:00:00') - Date.now()) / (7 * 864e5))) : null;
-  const sc = (k, n) => `<div><span>${n}</span><b>${now.b[k] != null ? now.b[k] : '–'}</b>${now.cal[k] ? '<i>📏 đã chỉnh</i>' : ''}</div>`;
-  const tiles = [['L', '🎧', 'Nghe', `Part 2–4${pL != null ? ` · đúng ${pL}%` : ''}`], ['R', '📖', 'Đọc', `Part 5–7${pR != null ? ` · đúng ${pR}%` : ''}`],
-    ['V', '📚', 'Từ công sở', `${toVocKnown()}/${nv} nhớ vững${due ? ` · ${due} đến hạn` : ''}`], ['T', '⏱', 'Tốc độ', lsp ? `lần trước ${lsp.avg}s / câu` : 'Chưa làm']];
-  $app.innerHTML = `<div id="ie"></div>${exSwitch('toeic')}
-    <div class="row"><h1 style="margin:4px 0">💼 TOEIC ${tg}</h1><span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span></div>
-    <p class="mute" style="margin:0 0 6px">Listening + Reading · cần nền ${LVN[base]}${wk != null ? ` · còn ${wk} tuần` : ''}</p>
-    <div class="box"><div class="row"><b>📊 Điểm ước</b><span class="${now.tot != null && now.tot >= tg ? 'okc' : 'mute'}">${now.tot != null ? 'Tổng ≈ ' + now.tot : 'chưa đủ số đo'}</span></div>
-      <div class="exscore" style="grid-template-columns:1fr 1fr">${sc('L', '🎧 Listening')}${sc('R', '📖 Reading')}</div>
-      <details><summary class="mute" style="font-size:14px">Cách tính</summary><p class="mute" style="margin:6px 0 0;font-size:14px">Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. Ước theo tỉ lệ đúng, không phải bảng ETS. 📏 = đã chỉnh theo đề thật bạn nhập (so đề thử app trong 14 ngày).</p></details></div>
-    ${exHero('toeic', act, lab)}
-    <h2>Luyện theo phần</h2>
-    <div class="grid2">${tiles.map(([k, ic, n, m]) => `<button class="tile" data-tosk="${k}"><span class="ic">${ic}</span><b>${n}</b><span class="meta">${m}</span></button>`).join('')}</div>
-    <h2>Thi thử</h2>
-    <div class="box"><div class="row"><b>🎓 Đề thử TOEIC</b><span class="mute">${o.mock.length ? `đã làm ${o.mock.length} lần` : 'chưa làm'}</span></div>
-      <p class="mute" style="margin:6px 0">Tỉ lệ các Part như đề thật, ít câu hơn (đề thật 200 câu / 120 phút). Nghe 1 lần, không báo đúng / sai giữa chừng.</p>
-      <button class="pri" data-tomk="all">▶ Làm cả đề</button>
-      <details><summary>Làm từng phần</summary>${TO_PAPERS.map((p, i) => `<button data-tomk="${i}">${p.t} · ${p.min} phút</button>`).join('')}</details></div>
-    <h2>Thêm</h2>
-    <button class="link" data-mapv="lt" data-mapk="toeic" style="margin:4px 0 8px">🗺 Bản đồ điểm: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>
-    <details class="box"><summary><b>🎯 Sẵn sàng thi ${tg}</b> <span class="${nOk === cs.length ? 'okc' : 'mute'}">${nOk}/${cs.length}</span></summary>
-      ${cs.map(([ok, t, d]) => `<p style="margin:4px 0">${ok ? '✅' : '⬜'} ${t} <span class="mute">· ${esc(d)}</span></p>`).join('')}
-      <p class="mute" style="margin:6px 0 0">Đủ cả 4 mới nên đăng ký thi. Đề của app do AI soạn; đề luyện thật (sách ETS) là bằng chứng độc lập.</p>
-      <button class="chip" data-toadd>📝 Ghi điểm đề luyện thật (Listening, Reading)</button></details>
-    <details class="box"><summary><b>🧱 Nền cần có: CEFR ${LVN[base]}</b> <span class="${cs[0][0] ? 'okc' : 'mute'}">${cs[0][0] ? '✅' : ''}</span></summary><p class="mute" style="margin:6px 0">Suy từ bảng ETS (Nghe B1 ≥ 275, B2 ≥ 400, C1 ≥ 490; Đọc B1 ≥ 275, B2 ≥ 385, C1 ≥ 455; nên đối chiếu tài liệu ETS). ${tg} điểm ≈ mỗi phần ${tg / 2}.</p>
-      <p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🧱 Mở Nền tiếng Anh cấp ${LVN[base]}</button></details>
-    <button data-cnv="toeic">📘 Cẩm nang thi: mẹo Nghe · Đọc, bẫy Part 2, từ công sở</button>
-    <p class="mute">TOEIC là thương hiệu của ETS; app không phải sản phẩm chính thức, không chép đề ETS. 🤖 Nội dung AI soạn, chưa giáo viên kiểm (thấy câu sai: 💬 → ⚑ Câu sai). Không tính vào 🧱 Nền tiếng Anh. Đăng ký thi tại Việt Nam: IIG Việt Nam (đại diện ETS).</p>`;
+  const o = toSt(), tg = o.target, now = toNow(), cs = toReady(), nOk = cs.filter(c => c[0]).length, base = toBase(tg), nv = TO.voc.reduce((t, x) => t + x.w.length, 0), due = toVocDue().length;
+  const wk = o.date ? Math.max(0, Math.ceil((new Date(o.date + 'T12:00:00') - Date.now()) / (7 * 864e5))) : null, half = tg / 2;
+  const tile = k => { if (k === 'V') { const kn = toVocKnown(); return { attr: 'data-tosk="V"', ic: '📚', t: 'Từ công sở', pct: Math.round(kn / Math.max(1, nv) * 100), cls: kn >= nv * 0.8 ? 'ok' : '', meta: due ? `🔁 ${due} từ cần ôn` : kn ? `${kn}/${nv} nhớ vững` : Object.keys(o.voc).length ? 'đang học' : 'Chưa học' }; }
+    const L = toBai(k), done = L.filter(b => toRes(b)).length, b = now.b[k], ok = b != null && b >= half;
+    return { attr: `data-tosk="${k}"`, ic: TO_SKV[k][0], t: TO_SKV[k][1], cls: ok ? 'ok' : '', pct: Math.round(((L.length ? done / L.length : 0) + (b != null ? Math.min(1, b / half) : 0)) / 2 * 100), meta: b != null ? `${ok ? '✓ ' : ''}≈ ${b} điểm${now.cal[k] ? ' 📏' : ''}` : done ? `${done}/${L.length} bài` : 'Chưa làm' }; };
+  const tiles = ['L', 'R', 'V'].map(tile); let sp = null; try { sp = exGoalK() === 'toeic' && typeof ltSplit === 'function' ? ltSplit() : null; } catch (e) {}
+  $app.innerHTML = '<div id="ie"></div>' + xHome({ sw: exSwitch('toeic'), t: `💼 TOEIC ${tg}`, pv: now.tot != null ? `Tổng ≈ ${now.tot}` : 'điểm ước: chưa đủ số đo',
+    pct: now.tot != null ? Math.min(100, Math.round(now.tot / tg * 100)) : Math.round(tiles.reduce((t, x) => t + x.pct, 0) / 3), sub: `Listening + Reading · cần nền ${LVN[base]}${wk != null ? ` · còn ${wk} tuần` : ''}`,
+    note: sp && !sp.ex ? `<div class="box" style="margin:0 0 12px"><b>⚖️ Nền còn thiếu xa (cần ${LVN[ltGoalLv()]})</b><p class="mute" style="margin:4px 0">🧭 Lộ trình chưa xếp giờ luyện đề: học nền trước. Vẫn xem và thử được.</p><button data-hocnen style="margin:4px 0 0">🧱 Học nền trước</button></div>` : '',
+    tiles, more: [['🎓 Thi thử cả đề', `<p class="mute" style="margin:0 0 6px">Tỉ lệ các Part như đề thật, ít câu hơn (đề thật 200 câu / 120 phút). Nghe 1 lần, không báo đúng / sai giữa chừng.${o.mock.length ? ` Đã làm ${o.mock.length} lần.` : ''} Làm từng phần: bước ③ ở màn Nghe / Đọc.</p><button class="pri" data-tomk="all">▶ Làm cả đề</button>`],
+      ['🎯 Sẵn sàng thi', `<p style="margin:0 0 4px"><b>${tg} điểm: ${nOk}/${cs.length}</b></p>${cs.map(([ok, t, d]) => `<p style="margin:4px 0">${ok ? '✅' : '⬜'} ${t} <span class="mute">· ${esc(d)}</span></p>`).join('')}
+        <p class="mute" style="margin:6px 0 0">Đủ cả 4 mới nên đăng ký thi. Đề của app do AI soạn; đề luyện thật (sách ETS) là bằng chứng độc lập.</p><button class="chip" data-toadd>📝 Ghi điểm đề luyện thật (Listening, Reading)</button>`],
+      ['🧱 Nền cần có', `<p class="mute" style="margin:0 0 4px">CEFR ${LVN[base]}${cs[0][0] ? ' ✅' : ''}. Suy từ bảng ETS (Nghe B1 ≥ 275, B2 ≥ 400, C1 ≥ 490; Đọc B1 ≥ 275, B2 ≥ 385, C1 ≥ 455; nên đối chiếu tài liệu ETS). ${tg} điểm ≈ mỗi phần ${half}.</p><p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🧱 Mở Nền tiếng Anh cấp ${LVN[base]}</button>`],
+      ['🗺 Bản đồ điểm', '<button class="link" data-mapv="lt" data-mapk="toeic" style="margin:0">🗺 Bản đồ điểm: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>'],
+      ['📘 Cẩm nang thi', '<button data-cnv="toeic">📘 Cẩm nang thi: mẹo Nghe · Đọc, bẫy Part 2, từ công sở</button>'],
+      ['📊 Cách tính điểm ước', `<p class="mute" style="margin:0">Nghe ${now.b.L != null ? now.b.L : '–'}${now.cal.L ? ' 📏' : ''} · Đọc ${now.b.R != null ? now.b.R : '–'}${now.cal.R ? ' 📏' : ''}. Lấy từ đề thử gần nhất; chưa có thì từ bài luyện. Ước theo tỉ lệ đúng, không phải bảng ETS. 📏 = đã chỉnh theo đề thật bạn nhập (so đề thử app trong 14 ngày).</p>`]],
+    foot: 'TOEIC là thương hiệu của ETS; app không phải sản phẩm chính thức, không chép đề ETS. 🤖 Nội dung AI soạn, chưa giáo viên kiểm (thấy câu sai: 💬 → ⚑ Câu sai). Đăng ký thi tại Việt Nam: IIG Việt Nam (đại diện ETS).' });
   $app.onclick = toClick; }
-// màn con: Nghe (Part 2–4) · Đọc (Part 5–7, Part 5 theo dạng, làm lại câu sai) · Từ công sở · Tốc độ
-const TO_SKV = { L: ['🎧', 'Nghe', 'Listening'], R: ['📖', 'Đọc', 'Reading'], V: ['📚', 'Từ vựng công sở', ''], T: ['⏱', 'Luyện tốc độ', ''] };
-function toSkView(k) { BACK = null; window.CUR = { view: 'toeic', sk: k }; EXAM_VOX = false; if (!TO_SKV[k]) return toeicView();
-  const o = toSt(), w5 = toWrong5().length, nv = TO.voc.reduce((s, t) => s + t.w.length, 0), due = toVocDue().length, [ic, vi, en] = TO_SKV[k];
+// màn một kỹ năng (khuôn xSkill như màn phần của Nền)
+function toSkView(k) { BACK = null; if (k === 'T') k = 'R'; window.CUR = { view: 'toeic', sk: k }; EXAM_VOX = false; if (!TO_SKV[k] || !TO) return toeicView();   // ⏱ tốc độ (v113 ô riêng) nằm trong "Thêm" của Đọc
+  const o = toSt(), tg = o.target, half = tg / 2, [ic, vi] = TO_SKV[k], L = toBai(k), done = L.filter(b => toRes(b)).length, nx = toNext(k), need = k === 'V' ? null : toNeed();
+  const at = nx ? L.findIndex(x => x.id === nx.id) : -1, rows = L.map((x, i) => { const r = toRes(x), nxt = i === at && !r, [tag, cls] = xTag(r, need); return pRow(`data-tobai="${k}|${x.id}"`, esc(x.name), nxt ? 'làm tiếp' : tag, nxt ? 'next' : cls); });
   const sec = s => { const a = Object.values(o.r).filter(r => r.k === s), n = a.reduce((t, r) => t + r.n, 0); return `<button class="big2" data-top="${s}">${TO_SEC[s][0]} ${TO_SEC[s][1].replace(/^Part \d: /, '')}<small>${TO_SEC[s][1].match(/^Part \d/)[0]}${n ? ` · đúng ${Math.round(a.reduce((t, r) => t + r.ok, 0) / n * 100)}%` : ''}</small></button>`; };
-  const body = {
-    L: `<p class="mute">Giọng Mỹ và Anh tự nhiên. Chưa có Part 1 (tả ảnh).</p><div class="duo">${['p2', 'p3', 'p4'].map(sec).join('')}</div>${toHow('L')}`,
-    R: `<div class="duo">${['p5', 'p6', 'p7'].map(sec).join('')}<button class="big2" data-top="p7m">📑 Nhiều văn bản<small>Part 7, đối chiếu</small></button></div>
-      ${w5 ? `<button data-top="w5">🔁 Làm lại ${Math.min(15, w5)} câu Part 5 từng sai</button>` : ''}
-      <p class="mute" style="margin:10px 0 4px">✏️ Part 5 theo dạng ngữ pháp:</p><div class="chips">${Object.entries(TO_T5).map(([t, n]) => `<button class="chip" data-top="t:${t}">${n}</button>`).join('')}</div>${toHow('R')}`,
-    V: `<p class="mute">${TO.voc.length} chủ đề, ôn cách quãng 1 → 35 ngày. ${toVocKnown()}/${nv} từ nhớ vững.${due ? ` <b>${due} từ đến hạn.</b>` : ''}</p>${due ? `<button class="pri" data-tovoc="">🔁 Ôn ${Math.min(10, due)} từ đến hạn</button>` : ''}
-      <div class="chips">${TO.voc.map(t => { const n = t.w.filter(w => o.voc[w[0]]).length; return `<button class="chip" data-tovoc="${t.id}">${t.t} ${n}/${t.w.length}</button>`; }).join('')}</div>`,
-    T: `<p class="mute">Đề thật 200 câu / 120 phút nên thiếu giờ là chuyện thường. Luyện có đồng hồ từng câu: Part 5 ~${TO_SPD.p5[0]} giây / câu, Part 7 ~${TO_SPD.p7[0]} giây / câu (tính cả thời gian đọc).</p>
-      <div class="duo">${Object.entries(TO_SPD).map(([s, [secs]]) => { const r = o.spd.filter(x => x.s === s).slice(-1)[0]; return `<button class="big2" data-tospd="${s}">${TO_SEC[s][1].replace(/: .*/, '')} · ${secs}s/câu<small>${r ? `lần trước ${r.avg}s, đúng ${r.ok}/${r.n}` : 'chưa làm'}</small></button>`; }).join('')}</div>` }[k];
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-tohome>‹ TOEIC</button><span></span></div><h1>${ic} ${vi}${en ? ` <span class="mute" style="font-weight:400;font-size:18px">${en}</span>` : ''}</h1>${body}`;
+  let steps, more;
+  if (k === 'V') { const nv = L.reduce((t, b) => t + b.x.w.length, 0), seen = Object.keys(o.voc).length, kn = toVocKnown(), due = toVocDue().length, pk = Math.round(kn / Math.max(1, nv) * 100);
+    steps = [{ t: 'Học từ', v: `${seen}/${nv}`, sub: seen >= nv ? 'đủ' : `còn ${nv - seen} từ`, ok: seen >= nv, cur: seen < nv }, { t: 'Nhớ vững', v: `${pk}%`, sub: 'cần 80%', ok: pk >= 80, cur: seen > 0 && pk < 80 },
+      due ? { t: 'Ôn đến hạn', btn: `<button class="pri" data-tovoc="">🔁 ${Math.min(10, due)} từ</button>`, sub: `${due} từ đến hạn` } : { t: 'Ôn đến hạn', v: seen ? '✓' : '–', sub: seen ? 'chưa có từ đến hạn' : 'học từ trước', ok: seen > 0 }];
+    more = [['📚 Về từ công sở', `<p class="mute" style="margin:0">${TO.voc.length} chủ đề, ${nv} từ hay gặp trong đề (văn phòng, họp, đi công tác…). Ôn cách quãng 1 → 35 ngày; nhớ vững = nhớ đúng ≥ 3 lần cách ngày.</p>`]]; }
+  else { const b = toNow().b[k], P = TO_PAPERS[k === 'L' ? 0 : 1], lm = o.mock.filter(m => m.b && m.b[k] != null).pop(), w5 = toWrong5().length;
+    steps = [{ t: 'Làm bài', v: `${done}/${L.length}`, sub: done >= L.length ? 'đủ' : `còn ${L.length - done} bài`, ok: L.length > 0 && done >= L.length, cur: done < L.length },
+      { t: 'Điểm ước', v: b != null ? String(b) : '–', sub: `cần ${half}`, ok: b != null && b >= half, cur: b != null && b < half },
+      { t: 'Thi thử', btn: `<button class="pri" data-tomk="${k === 'L' ? 0 : 1}">▶ ${P.min} phút</button>`, sub: lm ? `lần trước ≈ ${lm.b[k]}` : 'chưa làm' }];
+    more = k === 'L' ? [['📝 Luyện theo Part', `<div class="duo">${['p2', 'p3', 'p4'].map(sec).join('')}</div>`], ['🎧 Về bài nghe', '<p class="mute" style="margin:0">Giọng Mỹ và Anh tự nhiên. Chưa có Part 1 (tả ảnh). Luyện được nghe 2 lần; đề thật chỉ 1 lần.</p>']]
+      : [['📝 Luyện theo Part', `<div class="duo">${['p5', 'p6', 'p7'].map(sec).join('')}<button class="big2" data-top="p7m">📑 Nhiều văn bản<small>Part 7, đối chiếu</small></button></div>`],
+        ['✏️ Part 5 theo dạng ngữ pháp', `<div class="chips">${Object.entries(TO_T5).map(([t, n]) => `<button class="chip" data-top="t:${t}">${n}</button>`).join('')}</div>${w5 ? `<button data-top="w5">🔁 Làm lại ${Math.min(15, w5)} câu Part 5 từng sai</button>` : ''}`],
+        ['⏱ Luyện tốc độ', `<p class="mute" style="margin:0 0 6px">Đề thật 200 câu / 120 phút nên thiếu giờ là chuyện thường. Part 5 ~${TO_SPD.p5[0]} giây / câu, Part 7 ~${TO_SPD.p7[0]} giây / câu.</p><div class="duo">${Object.entries(TO_SPD).map(([s, [secs]]) => { const r = o.spd.filter(x => x.s === s).slice(-1)[0]; return `<button class="big2" data-tospd="${s}">${TO_SEC[s][1].replace(/: .*/, '')} · ${secs}s/câu<small>${r ? `lần trước ${r.avg}s, đúng ${r.ok}/${r.n}` : 'chưa làm'}</small></button>`; }).join('')}</div>`]]; }
+  $app.innerHTML = '<div id="ie"></div>' + xSkill({ back: '<div class="row top"><button class="link" data-tohome>‹ TOEIC</button><span></span></div>', h1: `${ic} ${vi} <span class="mute" style="font-size:18px">· TOEIC ${tg}</span>`,
+    steps, learn: { attr: `data-tohow="${k}"`, sub: k === 'V' ? 'cách học từ' : 'cách làm từng Part' }, prac: { attr: `data-tobt="${k}"`, sub: !nx ? 'chưa có bài' : toRes(nx) ? 'làm lại bài cũ nhất' : 'bài kế tiếp' },
+    lt: { L: 'Bài nghe', R: 'Bài đọc', V: 'Chủ đề' }[k], rows, at, more });
+  $app.onclick = toClick; scrollTo(0, 0); }
+// 📘 Bài học của TOEIC = cách làm (TO_HOW, bẫy Part 2, dạng Part 5); không tính điểm
+function toHowView(k) { if (!TO_SKV[k]) return toeicView(); BACK = null; window.CUR = { view: 'toeic', sk: k }; const [ic, vi] = TO_SKV[k];
+  const tips = k === 'V' ? ['Học theo chủ đề, mỗi lần 10–12 từ; đọc câu ví dụ thành tiếng.', 'Ôn đúng hạn (1 → 35 ngày); từ đến hạn hiện ở bước ③.', 'Đề TOEIC hay hỏi từ trong ngữ cảnh công sở: nhớ cả cụm (submit a report, attend a meeting).'] : TO_HOW[k][1];
+  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-tosk="${k}">‹ ${vi}</button><span></span></div><h1>📘 Cách làm · ${ic} ${vi}</h1><p class="mute">Đọc cách làm, rồi thử ngay. Không tính điểm.</p>
+    <div class="box">${tips.map(x => `<p style="margin:6px 0 0;font-size:15px">• ${esc(x)}</p>`).join('')}</div>
+    ${k === 'L' ? `<div class="box"><b>🪤 Bẫy Part 2</b>${Object.values(TO_TRAP).map(([t, d]) => `<p style="margin:6px 0 0;font-size:15px"><b>${t}</b> · ${esc(d)}</p>`).join('')}<button data-top="p2" style="margin-top:8px">▶ Thử Part 2</button></div>` : ''}
+    ${k === 'R' ? `<div class="box"><b>✏️ Part 5 theo dạng</b><p class="mute" style="margin:4px 0">Nhìn 4 phương án trước để biết câu hỏi dạng gì, rồi luyện riêng dạng đó.</p><div class="chips">${Object.entries(TO_T5).map(([t, n]) => `<button class="chip" data-top="t:${t}">${n}</button>`).join('')}</div></div>` : ''}`;
   $app.onclick = toClick; scrollTo(0, 0); }
 // bấm ở màn TOEIC và màn con; luyện xong về màn đã mở (màn con thì về màn con)
 function toClick(e) { const g = s => e.target.closest(s), o = toSt(), sk = (window.CUR || {}).sk, back = sk ? () => toSkView(sk) : toeicView; let b;
   if (g('[data-tohome]')) { scrollTo(0, 0); return toeicView(); }
   if ((b = g('[data-tosk]'))) return toSkView(b.dataset.tosk);
+  if ((b = g('[data-tohow]'))) return toHowView(b.dataset.tohow);
+  if ((b = g('[data-tobt]'))) return toDo(b.dataset.tobt, toNext(b.dataset.tobt));
+  if ((b = g('[data-tobai]'))) { const [k, id] = b.dataset.tobai.split('|'); return toDo(k, toBai(k).find(x => x.id === id)); }
   if ((b = g('[data-iecefr]'))) { scrollTo(0, 0); return overview(b.dataset.iecefr); }
   if ((b = g('[data-tomk]'))) return toMock(b.dataset.tomk === 'all' ? [0, 1] : [+b.dataset.tomk]);
   if ((b = g('[data-tovoc]'))) { scrollTo(0, 0); return toVocRun(b.dataset.tovoc, back); }

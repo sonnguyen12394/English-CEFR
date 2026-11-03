@@ -90,7 +90,7 @@ function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000
     if (f) { if (q.kind === 'write') t.oninput = () => { document.getElementById('kwc').textContent = kWords(t.value).length + ' từ'; };
       f.onsubmit = e => { e.preventDefault(); if (!t.value.trim()) return t.focus(); const v = t.value;
         if (q.check) { const r = q.check(v); return rec(r.ok, v, r.sc); } rec((q.acc || [q.a]).some(a => kNorm(a) === kNorm(v)), v); }; }
-    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (!confirm('Bỏ đề thử? Lần này không lưu.')) return; clearInterval(MK.tick); EXAM_VOX = false; return MK.quit ? MK.quit() : mockView(MK.lv); }
+    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (!confirm('Bỏ đề thử? Lần này không lưu.')) return; clearInterval(MK.tick); EXAM_VOX = false; return MK.quit ? MK.quit() : MK.back ? MK.back() : mockView(MK.lv); }
       const pb = e.target.closest('[data-kplay]'); if (pb) { if (left() > 0) { plays[pk]++; kPlay(q.play); } pb.textContent = `🔊 Nghe lại (còn ${left()} lần)`; pb.disabled = left() <= 0; return; }
       const o = e.target.closest('[data-ko]'); if (o && q.kind === 'mc') rec(q.opts[+o.dataset.ko] === q.a, q.opts[+o.dataset.ko]); }; };
   show(); }
@@ -102,7 +102,10 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
   const pp = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; o[0] += r.sc != null ? r.sc : r.ok ? 1 : 0; } for (const k in by) by[k][0] = Math.round(by[k][0] * 100) / 100; return by; };
   const ps = MK.papers.map(p => p.sc ? { t: p.t, ok: p.sc.pct, n: 100, crit: p.sc.C } : { t: p.t, ok: Math.round(p.res.reduce((s, r) => s + (r.sc != null ? r.sc : r.ok ? 1 : 0), 0) * 10) / 10, n: p.res.length, pp: pp(p) }), full = MK.idx.length === C.papers.length;
   const pct = Math.round(ps.reduce((s, p) => s + p.ok / p.n, 0) / ps.length * 100), pass = pct >= C.pass * 100;
-  mkRuns(lv).push({ at: Date.now(), papers: ps, pct: full ? pct : null, pass: full && pass }); S.t = Date.now(); save();
+  // v122: kết quả từng bài (bài đọc / nghe, đề viết, bài dạng đề thật) cho danh sách bài ở màn Cambridge: S.cbx[id] = { at, ok, n } (bài viết: điểm máy 0–1)
+  { const X = S.cbx = S.cbx || {}, by = {}; for (const p of MK.papers) if (!p.speak) for (const r of p.res) { const x = r.q && r.q.x; if (!x || !x.id || !x.lv || !(x.text || x.lines || x.p || x.paras || x.gaps || x.s1)) continue;
+      const o = by[x.id] = by[x.id] || { at: Date.now(), ok: 0, n: 0 }; o.n++; o.ok += r.sc != null ? r.sc : r.ok ? 1 : 0; } for (const [id, o] of Object.entries(by)) X[id] = { ...o, ok: Math.round(o.ok * 100) / 100 }; }
+  mkRuns(lv).push({ at: Date.now(), papers: ps, pct: full ? pct : null, pass: full && pass, ...(MK.one ? { one: 1 } : {}) }); S.t = Date.now(); save(); const back = MK.back;   // one: chỉ làm một phần / một bài (không phải cả bài thi)
   const parts = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } return Object.entries(by).map(([k, [a, b]]) => `${esc(k)}: ${a}/${b}`).join('<br>'); };
   const wrong = MK.papers.filter(p => !p.speak).flatMap(p => p.res.filter(r => !r.ok && r.q.kind !== 'write').map(r => ({ p, r })));
   // ✍️ bài viết: điểm 4 tiêu chí của máy + nút nhờ AI chấm như giám khảo (thi.js)
@@ -122,5 +125,5 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
     ${wrong.length ? `<details class="box"><summary>Xem lại ${wrong.length} câu sai</summary>${wrong.map(({ r }) => `<div style="margin:8px 0;border-top:1px solid var(--line, #ddd);padding-top:6px"><p class="mute" style="margin:0">${esc(r.part)}</p><p style="margin:2px 0">${r.q.q}</p>
       <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 300))}${r.q.kind === 'write' ? '' : ` · Đáp án: <b>${esc(r.q.a != null ? r.q.a : (r.q.acc || [])[0] || '')}</b>`}</p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
     <p class="mute">Máy chấm; bài viết chấm đủ ý và dạng bài bằng từ khoá, không chấm ngữ pháp. Ôn phần thấp nhất rồi bấm làm đề mới (câu đổi mỗi lần).</p>
-    ${MK.map ? '<button class="pri" data-a="map">🗺 Về bản đồ</button><button data-a="again">🎓 Làm cả đề thử</button>' : '<button class="pri" data-a="again">🎓 Làm đề mới</button>'}<button data-a="home">‹ Luyện thi</button>`;
-  $app.onclick = e => { if (e.target.closest('[data-a="map"]')) { scrollTo(0, 0); return mapView('cb'); } if (e.target.closest('[data-a="again"]')) mockView(lv); if (e.target.closest('[data-a="home"]')) exHome(lv); }; }
+    ${back ? '<button class="pri" data-a="mkback">‹ Về bài thi</button><button data-a="again">🎓 Làm cả đề thử</button>' : MK.map ? '<button class="pri" data-a="map">🗺 Về bản đồ</button><button data-a="again">🎓 Làm cả đề thử</button>' : '<button class="pri" data-a="again">🎓 Làm đề mới</button>'}<button data-a="home">‹ Luyện thi</button>`;
+  $app.onclick = e => { if (e.target.closest('[data-a="mkback"]')) { scrollTo(0, 0); return back(); } if (e.target.closest('[data-a="map"]')) { scrollTo(0, 0); return mapView('cb'); } if (e.target.closest('[data-a="again"]')) mockView(lv); if (e.target.closest('[data-a="home"]')) exHome(lv); }; }

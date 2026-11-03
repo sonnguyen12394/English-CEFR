@@ -61,7 +61,8 @@ async function uoeView(lv) { window.CUR = { view: 'dang-de', item: lv }; $app.in
     ${Object.keys(U_T).map(row).join('')}<p class="mute">Không tính vào 📘 Học / 🔁 Nhớ. Muốn làm có giờ như thi thật: 🎓 Đề thử.</p>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return exHome(lv); const b = e.target.closest('[data-ut]'); if (!b) return; const k = b.dataset.ut;
     const xs = k === 'kwt' ? uPick(k, ls, 6) : uPick(k, ls, 1); if (xs.length) uRun(lv, k, xs); }; }
-function uRun(lv, k, xs) { const qs = k === 'kwt' ? xs.map(uKwtQ) : uQs(k, xs[0]), res = []; let i = 0;
+// v122: back = về màn đã mở (danh sách bài Cambridge); không có thì về màn dạng đề
+function uRun(lv, k, xs, back) { const qs = k === 'kwt' ? xs.map(uKwtQ) : uQs(k, xs[0]), res = []; let i = 0;
   const show = () => { if (i >= qs.length) return end(); const q = qs[i]; window.CUR = { view: 'dang-de-cau', item: (q.x.id || '') + ':' + i, prompt: String(q.q).replace(/<[^>]*>/g, '').slice(0, 200) };
     const body = q.kind === 'mc' ? q.opts.map((o, j) => `<button class="opt" data-uo="${j}">${esc(o)}</button>`).join('')
       : q.kind === 'write' ? `<form id="uf" autocomplete="off"><textarea id="ut" rows="12" autocapitalize="sentences" spellcheck="false" aria-label="Bài viết"></textarea><p class="mute" id="uwc">0 từ</p><button class="pri" type="submit">Nộp bài</button></form>`
@@ -76,9 +77,9 @@ function uRun(lv, k, xs) { const qs = k === 'kwt' ? xs.map(uKwtQ) : uQs(k, xs[0]
   const end = () => { const R = uRuns(), by = {}; for (const r of res) { const o = by[r.q.x.id] = by[r.q.x.id] || { at: Date.now(), ok: 0, n: 0 }; o.n++; if (r.ok) o.ok++; } Object.assign(R, by); S.t = Date.now(); save();
     const ok = res.filter(r => r.ok).length, wrong = res.filter(r => !r.ok);
     $app.innerHTML = `<h1>${U_T[k][0]} ${ok}/${res.length} câu đúng</h1>${wrong.length ? `<div class="box"><b>Câu sai</b>${wrong.map(r => `<p style="margin:8px 0 0">${r.q.q}<br>Bạn: ${esc(r.ans)} · Đáp án: <b>${esc(r.q.a)}</b>${r.q.why ? `<br><span class="mute">${esc(r.q.why)}</span>` : ''}</p>`).join('')}</div>` : '<p>Đúng hết. Thử dạng khó hơn hoặc 🎓 Đề thử.</p>'}
-      <button class="pri" data-a="again">▶ Bài khác cùng dạng</button><button data-a="back">← Các dạng đề</button>`; scrollTo(0, 0); };
-  $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return uoeView(lv); if (e.target.closest('[data-a="next"]')) { i++; scrollTo(0, 0); return show(); }
-    if (e.target.closest('[data-a="again"]')) { const ys = k === 'kwt' ? uPick(k, uLvs(lv), 6) : uPick(k, uLvs(lv), 1); return uRun(lv, k, ys); }
+      <button class="pri" data-a="again">▶ Bài khác cùng dạng</button><button data-a="back">${back ? '‹ Về' : '← Các dạng đề'}</button>`; scrollTo(0, 0); };
+  $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return back ? back() : uoeView(lv); if (e.target.closest('[data-a="next"]')) { i++; scrollTo(0, 0); return show(); }
+    if (e.target.closest('[data-a="again"]')) { const ys = k === 'kwt' ? uPick(k, uLvs(lv), 6) : uPick(k, uLvs(lv), 1); return uRun(lv, k, ys, back); }
     const o = e.target.closest('[data-uo]'); if (o && !o.disabled && res.length === i) { const q = qs[i], v = q.opts[+o.dataset.uo]; fb(v === q.a, v); } };
   show(); }
 document.addEventListener('click', e => { const b = e.target.closest('[data-uoe]'); if (b) uoeView(b.dataset.uoe); });

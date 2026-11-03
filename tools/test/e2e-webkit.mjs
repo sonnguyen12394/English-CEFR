@@ -48,27 +48,27 @@ for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', '
   await pg.evaluate(lv => overview(lv), lv); await pg.waitForTimeout(400); check(`${lv} tổng quan`, (await pg.innerText('#app')).includes('Nền tiếng Anh'));   // v112: 📚 Học → 🧱 Nền tiếng Anh
 }
 // 🎓 đề thử B1: mở từ 🎓 Luyện thi → Cambridge (v95), làm trọn bài Đọc (chọn đáp án đầu / gõ chữ), phải ra màn kết quả
-await pg.evaluate(() => cbView('b1')); await pg.waitForTimeout(400); await pg.click('[data-mock="b1"]'); await pg.waitForTimeout(1500);
+await pg.evaluate(() => cbView('b1')); await pg.waitForTimeout(600); check('Cambridge theo khuôn Nền (v122)', !!(await pg.$('[data-cbsk="b1|0"]')) && !(await pg.$('.btnbig'))); await pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; })); await pg.click('[data-mock="b1"]'); await pg.waitForTimeout(1500);   // v122: đề thử cả đề trong "Thêm" 
 check('đề thử mở', (await pg.innerText('#app')).includes('B1 Preliminary'));
 await pg.click('[data-mk="0"]'); await pg.waitForTimeout(400);
 for (let n = 0; n < 80; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else if (await pg.$('#kt')) { await pg.fill('#kt', 'test answer'); await pg.click('#kf button[type=submit]'); } else break; await pg.waitForTimeout(30); }
 check('đề thử ra kết quả', (await pg.innerText('#app')).includes('Kết quả'));
-await pg.evaluate(() => cbView('b1')); await pg.waitForTimeout(400); { const tx = await pg.innerText('#app'); check('ô Sẵn sàng thi + Đọc nghe thêm', tx.includes('Sẵn sàng thi') && tx.includes('Đọc nghe thêm')); }
+await pg.evaluate(() => cbView('b1')); await pg.waitForTimeout(600); await pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; })); { const tx = await pg.innerText('#app'); check('ô Sẵn sàng thi + Đọc nghe thêm', tx.includes('Sẵn sàng thi') && tx.includes('Đọc nghe thêm')); }
 // 🧩 dạng đề thật B2: mở từ 🎓 Luyện thi → Cambridge, làm trọn một lượt viết lại câu và một bài nối đoạn
-await pg.evaluate(() => cbView('b2')); await pg.waitForTimeout(600); await pg.click('[data-uoe="b2"]'); await pg.waitForTimeout(800);
+await pg.evaluate(() => cbSkView('b2', 0)); await pg.waitForTimeout(600); await pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; })); await pg.click('[data-uoe="b2"]'); await pg.waitForTimeout(800);   // v122: dạng đề thật trong "Thêm" của bài thi Đọc
 check('dạng đề thật mở', (await pg.innerText('#app')).includes('Luyện dạng đề thật'));
 for (const k of ['kwt', 'pm']) { await pg.click(`[data-ut="${k}"]`); await pg.waitForTimeout(300);
   for (let n = 0; n < 20; n++) { if (await pg.$('#ut')) { await pg.fill('#ut', 'x'); await pg.click('#uf button[type=submit]'); }
     else if (await pg.$('[data-uo]:not([disabled])')) await pg.click('[data-uo="0"]'); else break; await pg.waitForTimeout(50); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(50); }
   const tx = await pg.innerText('#app'); check(`dạng đề ${k} ra kết quả`, /câu đúng/.test(tx), tx.slice(0, 80)); await pg.click('[data-a="back"]'); await pg.waitForTimeout(300); }
 // 🎧 nghe điền thông tin B1: mở từ Tổng quan, điền phiếu, nộp → ra kết quả; nhại theo mở được
-await pg.evaluate(() => cbView('b1')); await pg.waitForTimeout(600); await pg.click('[data-ng="nf|b1"]'); await pg.waitForTimeout(1200);
+await pg.evaluate(() => cbSkView('b1', 2)); await pg.waitForTimeout(600); await pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; })); await pg.click('[data-ng="nf|b1"]'); await pg.waitForTimeout(1200);
 check('nghe điền mở', !!(await pg.$('[data-nf="0"]'))); await pg.fill('[data-nf="0"]', 'x'); await pg.click('#nf button[type=submit]'); await pg.waitForTimeout(300);
 check('nghe điền ra kết quả', /chỗ đúng/.test(await pg.innerText('#app')));
-await pg.evaluate(() => cbView('b1')); await pg.waitForTimeout(600); await pg.click('[data-ng="sh|b1"]'); await pg.waitForTimeout(1200);
+await pg.evaluate(() => cbSkView('b1', 2)); await pg.waitForTimeout(600); await pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; })); await pg.click('[data-ng="sh|b1"]'); await pg.waitForTimeout(1200);
 check('nhại theo mở', (await pg.innerText('#app')).includes('Nhại theo'));
 // 👥 nói theo cặp B2: mở, chọn đề (WebKit giả lập không chép lời: gõ lượt), làm trọn 6 lượt → ra kết quả
-await pg.evaluate(() => cbView('b2')); await pg.waitForTimeout(600); await pg.click('[data-cap="b2"]'); await pg.waitForTimeout(1000);
+await pg.evaluate(() => cbSkView('b2', 3)); await pg.waitForTimeout(600); await pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; })); await pg.click('[data-cap="b2"]'); await pg.waitForTimeout(1000);
 check('nói cặp mở', (await pg.innerText('#app')).includes('Nói theo cặp')); await pg.click('[data-capt]'); 
 for (let n = 0; n < 6; n++) { await pg.waitForSelector('#capt, [data-a="rec"]', { timeout: 30000 }).catch(() => {}); if (!(await pg.$('#capt'))) break; await pg.fill('#capt', 'I agree because it is cheap. What do you think?'); await pg.click('[data-a="typed"]'); }
 await pg.waitForTimeout(800); check('nói cặp ra kết quả', /tương tác|luyện thêm/.test(await pg.innerText('#app')));
@@ -89,27 +89,27 @@ check('📚 Học có 2 mục Nền · Luyện thi', /Nền tiếng Anh[\s\S]*Lu
 const openAll = () => pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; }));
 check('IELTS chỉ nội dung (v111)', !(await pg.innerText('#app')).includes('Hôm nay & kế hoạch')); await openAll();
 check('IELTS mở từ 📚 Học', !!(await pg.$('#ie')) && await pg.isVisible('#tabs [data-tab="all"].on')); check('IELTS có bản đồ band', (await pg.innerText('#app')).includes('Bản đồ band'));
-await pg.click('[data-iesk="R"]'); await pg.waitForTimeout(400); await pg.click('[data-ier="all"]'); await pg.waitForTimeout(400);   // v113: ô kỹ năng mở màn con
+await pg.click('[data-iesk="R"]'); await pg.waitForTimeout(400); check('IELTS Đọc theo khuôn Nền (v122)', !!(await pg.$('.steps3')) && /Bài đọc/.test(await pg.innerText('#app'))); await pg.click('[data-iebt="R"]'); await pg.waitForTimeout(400);   // v122: 🏋️ Bài tập = bài kế tiếp
 for (let n = 0; n < 30; n++) { if (await pg.$('#it:not([disabled])')) { await pg.fill('#it', 'x'); await pg.click('#if button[type=submit]'); } else if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break;
   await pg.waitForTimeout(50); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(50); }
 check('IELTS đọc ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
 check('IELTS luyện xong về màn con Đọc', !!(await pg.$('[data-iehome]')) && await pg.isVisible('#tabs [data-tab="all"].on'));
-await pg.click('[data-iehome]'); await pg.waitForTimeout(500); await pg.click('[data-iesk="W"]'); await pg.waitForTimeout(400); await pg.click('[data-iew="t2"]'); await pg.waitForTimeout(300); await pg.fill('#iwt', await pg.evaluate(() => IE.t2[0].m)); await pg.click('#iwf button[type=submit]'); await pg.waitForTimeout(300);
+await pg.click('[data-iehome]'); await pg.waitForTimeout(500); await pg.click('[data-iesk="W"]'); await pg.waitForTimeout(400); await openAll(); await pg.click('[data-iew="t2"]'); await pg.waitForTimeout(300); await pg.fill('#iwt', await pg.evaluate(() => IE.t2[0].m)); await pg.click('#iwf button[type=submit]'); await pg.waitForTimeout(300);
 check('IELTS viết máy ước band', /Máy ước: band/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
-await pg.evaluate(() => ieltsView()); await pg.waitForTimeout(600); await openAll(); await pg.click('[data-iemk="1"]'); await pg.waitForTimeout(1500);
+await pg.evaluate(() => ieSkView('R')); await pg.waitForTimeout(600); await pg.click('[data-iemk="1"]'); await pg.waitForTimeout(1500);   // v122: ③ Thi thử ở màn kỹ năng
 for (let n = 0; n < 80; n++) { if (await pg.$('#kt')) { await pg.fill('#kt', 'x'); await pg.click('#kf button[type=submit]'); } else if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('IELTS đề thử Đọc ra band', /Kết quả IELTS/.test(await pg.innerText('#app')));
 // 💼 TOEIC (v72): chuyển từ IELTS sang TOEIC trong 🎓 Luyện thi; luyện Part 5 trọn bài → ra kết quả; đề thử Đọc → ra điểm
 await pg.evaluate(() => { S.lt.goal = { kind: 'toeic', lv: 'b1', date: '', at: Date.now() }; overview(); }); await pg.waitForTimeout(800); await pg.click('[data-exthi]'); await pg.waitForTimeout(1200);
 check('TOEIC mở', (await pg.innerText('#app')).includes('💼 TOEIC') && await pg.isVisible('#tabs [data-tab="all"].on'));
-await pg.click('[data-tosk="R"]'); await pg.waitForTimeout(400); await pg.click('[data-top="p5"]'); await pg.waitForTimeout(300);
+await pg.click('[data-tosk="R"]'); await pg.waitForTimeout(400); await openAll(); await pg.click('[data-top="p5"]'); await pg.waitForTimeout(300);   // v122: luyện theo Part trong "Thêm" 
 for (let n = 0; n < 20; n++) { if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break; await pg.waitForTimeout(40); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(40); }
-check('TOEIC Part 5 ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(600); await pg.click('[data-tohome]'); await pg.waitForTimeout(600); check('TOEIC có bản đồ điểm', (await pg.innerText('#app')).includes('Bản đồ điểm'));
-await openAll(); await pg.click('[data-tospd="p5"]'); await pg.waitForTimeout(300);
+check('TOEIC Part 5 ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(600); await pg.click('[data-tohome]'); await pg.waitForTimeout(600); await openAll(); check('TOEIC có bản đồ điểm', (await pg.innerText('#app')).includes('Bản đồ điểm'));
+await pg.evaluate(() => toSkView('R')); await pg.waitForTimeout(500); await openAll(); await pg.click('[data-tospd="p5"]'); await pg.waitForTimeout(300);
 for (let n = 0; n < 20; n++) { if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break; await pg.waitForTimeout(40); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(40); }
 check('TOEIC luyện tốc độ ra kết quả', /giây \/ câu/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(600);
-await openAll(); check('TOEIC phân tích điểm yếu', /Phân tích điểm yếu/.test(await pg.innerText('#app')));
-await openAll(); await pg.click('[data-tomk="1"]'); await pg.waitForTimeout(800);
+await pg.evaluate(() => mapView('toeic')); await pg.waitForTimeout(1200); await openAll(); check('TOEIC phân tích điểm yếu (🗺 Chỗ yếu)', /Phân tích điểm yếu/.test(await pg.innerText('#app')));
+await pg.evaluate(() => { MAP_TAB = null; toSkView('R'); }); await pg.waitForTimeout(500); await pg.click('[data-tomk="1"]'); await pg.waitForTimeout(800);
 for (let n = 0; n < 60; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('TOEIC đề thử Đọc ra điểm', /Kết quả TOEIC/.test(await pg.innerText('#app')));
 // 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả

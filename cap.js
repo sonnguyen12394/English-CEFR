@@ -37,7 +37,8 @@ async function capAi(lv, x, hist, step, total) { if (!S.capAi || typeof sb === '
   try { const { data, error } = await sb.functions.invoke('el-ban', { body: { lv: capBase(lv), uid: (user && user.id) || 'khach', task: { q: x.q, prompts: x.prompts }, hist, step, total } });
     if (error || !data || !data.reply) { let m = data && data.error; if (error && !m) try { m = (await error.context.json()).error; } catch (er) {} toast('🤖 ' + (m || 'Bạn AI không trả lời được') + ': dùng lời soạn sẵn.'); S.capAi = false; return null; }
     return String(data.reply).slice(0, 600); } catch (e) { toast('🤖 Không gọi được bạn AI: dùng lời soạn sẵn.'); S.capAi = false; return null; } }
-function capRun(lv, x) { if (!x) return; const steps = [x.open, ...x.turns, x.decide], hist = [], turns = [], react = (CAP.react[x.lv] || CAP.react.b1); let i = 0;
+// v122: back = về màn đã mở (danh sách bài Cambridge)
+function capRun(lv, x, back) { if (!x) return; const steps = [x.open, ...x.turns, x.decide], hist = [], turns = [], react = (CAP.react[x.lv] || CAP.react.b1); let i = 0;
   window.CUR = { view: 'noi-cap-lam', item: x.id };
   const head = () => `<div class="row top"><button class="link" data-a="back">← Thôi</button><span class="uname">👥 Lượt ${Math.min(i + 1, steps.length)}/${steps.length}</span></div>
     <div class="box"><b>${esc(x.q)}</b><div class="chips" style="margin-top:6px">${x.prompts.map(p => `<span class="chip" style="cursor:default">${esc(p)}</span>`).join('')}</div></div>`;
@@ -63,8 +64,8 @@ function capRun(lv, x) { if (!x) return; const steps = [x.open, ...x.turns, x.de
       <details class="box"><summary>Cụm hay dùng khi nói cặp</summary><p style="margin:6px 0 0">Đáp lời: I agree, because… · I see what you mean, but… · I'm not so sure about that.<br>Hỏi lại: What do you think? · Would you agree? · How do you feel about…?<br>Chốt: So, shall we go for…? · I think we should choose… · Let's agree on…</p></details>
       <p class="mute">Máy đo cách tương tác qua lời chép, không chấm ngữ pháp, phát âm. Muốn chấm như giám khảo: nút dưới (cần khoá AI).</p>
       ${typeof aiBtn === 'function' ? aiBtn('noi', capBase(lv), { prompt: `Collaborative discussion task with a partner (two candidates). Central question: ${x.q} Prompts: ${x.prompts.join(', ')}. Then the candidates decide together. Focus especially on Interactive Communication.` }, tr) : ''}
-      <button class="pri" data-a="list">👥 Đề khác</button><button data-a="home2">‹ Luyện thi</button>`; scrollTo(0, 0);
-    $app.onclick = e => { if (e.target.closest('[data-a="list"]')) return capView(lv); if (e.target.closest('[data-a="home2"]')) return exHome(lv); }; };
-  $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { kAsrStop(); try { speechSynthesis.cancel(); AUD && AUD.pause(); } catch (er) {} return capView(lv); } };
+      <button class="pri" data-a="list">👥 Đề khác</button><button data-a="home2">${back ? '‹ Về' : '‹ Luyện thi'}</button>`; scrollTo(0, 0);
+    $app.onclick = e => { if (e.target.closest('[data-a="list"]')) return capView(lv); if (e.target.closest('[data-a="home2"]')) return back ? back() : exHome(lv); }; };
+  $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { kAsrStop(); try { speechSynthesis.cancel(); AUD && AUD.pause(); } catch (er) {} return back ? back() : capView(lv); } };
   turn(steps[0]); }
 document.addEventListener('click', e => { const b = e.target.closest('[data-cap]'); if (b) capView(b.dataset.cap); });

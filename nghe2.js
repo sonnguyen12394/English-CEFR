@@ -42,9 +42,10 @@ function ngBox(lv) { if (LEVELS.indexOf(lv) < LEVELS.indexOf('a2')) return ''; c
   return `<div class="box"><div class="row"><b>🎧 Nghe kiểu đề thật</b><span class="mute">${Object.keys(R.nf).length ? `điền ${Object.keys(R.nf).length} bài` : ''}${R.sh.length ? ` · nhại ${R.sh.length} câu` : ''}</span></div>
     <p class="mute" style="margin:6px 0">📝 Nghe điền thông tin (số, giờ, tên, từ khoá) như đề. 🗣 Nhại theo giọng tự nhiên: máy đo khớp từ và nhịp nói.</p>
     <div class="duo"><button class="big2" data-ng="nf|${lv}">📝 Nghe điền<small>phiếu ghi chú</small></button><button class="big2" data-ng="sh|${lv}">🗣 Nhại theo<small>5 câu, đo nhịp</small></button></div></div>`; }
-async function ngStart(k, lv) { $app.innerHTML = '<p class="mute">Đang tải…</p>'; await kLoad(KIT.nghe); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {}
-  return k === 'nf' ? ngFill(lv) : ngShadow(lv); }
-function ngFill(lv) { const x = ngPick(ngLvs(lv), 1)[0]; if (!x) return toast('Chưa có bài nghe hợp dạng này.'), exHome(lv);
+// v122: x0 = bài chọn từ danh sách bài Cambridge, back = về màn đó
+async function ngStart(k, lv, x0, back) { $app.innerHTML = '<p class="mute">Đang tải…</p>'; await kLoad(KIT.nghe); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {}
+  return k === 'nf' ? ngFill(lv, x0, back) : ngShadow(lv); }
+function ngFill(lv, x0, back) { const x = x0 || ngPick(ngLvs(lv), 1)[0], home = back || (() => exHome(lv)); if (!x) return toast('Chưa có bài nghe hợp dạng này.'), home();
   const qs = ngQs(x), ans = []; let plays = 0; EXAM_VOX = true; window.CUR = { view: 'nghe-dien', item: x.id };
   const left = () => K_PLAYS - plays, play = () => { if (left() <= 0) return; plays++; kPlay(qs[0].play); draw(); };
   const draw = () => { const G = ngForm(x); $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Thôi</button><span class="uname">📝 ${esc(LVN[x.lv])} · ${esc(x.tvi)}</span></div>
@@ -57,8 +58,8 @@ function ngFill(lv) { const x = ngPick(ngLvs(lv), 1)[0]; if (!x) return toast('C
     ngRuns().nf[x.id] = { at: Date.now(), ok, n: r.length }; S.t = Date.now(); save();
     $app.innerHTML = `<h1>📝 ${ok}/${r.length} chỗ đúng</h1><div class="box">${r.map((y, i) => `<p style="margin:6px 0">${y.ok ? '✅' : '❌'} (${i + 1}) bạn: ${esc(y.v || '…')} · đáp án: <b>${esc(y.q.a)}</b></p>`).join('')}</div>
       <details class="box"><summary>Xem bài nghe</summary><p class="tdtap" style="white-space:pre-line">${kScript(x)}</p></details>
-      <p class="mute">Sai chính tả cũng mất điểm trong đề thật. Nghe lại bài, dò từng chỗ sai.</p><button class="pri" data-a="again">▶ Bài khác</button><button data-a="back">‹ Luyện thi</button>`; scrollTo(0, 0); };
-  $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { EXAM_VOX = false; return exHome(lv); } if (e.target.closest('[data-a="play"]')) return play(); if (e.target.closest('[data-a="again"]')) return ngFill(lv); };
+      <p class="mute">Sai chính tả cũng mất điểm trong đề thật. Nghe lại bài, dò từng chỗ sai.</p><button class="pri" data-a="again">▶ Bài khác</button><button data-a="back">${back ? '‹ Về' : '‹ Luyện thi'}</button>`; scrollTo(0, 0); };
+  $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { EXAM_VOX = false; return home(); } if (e.target.closest('[data-a="play"]')) return play(); if (e.target.closest('[data-a="again"]')) return ngFill(lv, null, back); };
   draw(); }
 // 🗣 nhại theo: câu 6–16 từ có giọng tự nhiên; khớp từ ≥ 80% và nhịp ≤ 1,3 lần giọng mẫu thì đạt
 const NG_SH = { n: 5, match: 0.8, pace: 1.3 };

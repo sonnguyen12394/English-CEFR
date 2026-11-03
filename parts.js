@@ -70,8 +70,28 @@ const P_WIN = 6;
 const pWin = (rows, at) => { if (rows.length <= P_WIN + 2) return rows.join(''); const a = Math.max(0, Math.min((at < 0 ? rows.length : at) - 1, rows.length - P_WIN)), b = a + P_WIN, rest = [...rows.slice(0, a), ...rows.slice(b)];
   return rows.slice(a, b).join('') + `<details class="lvmore"><summary>Xem thêm ${rest.length} bài ›</summary>${rest.join('')}</details>`; };
 // tầng 3: "Thêm" gập; parts = [[tiêu đề, html]] (bỏ phần rỗng)
-const pMore = parts => { const L = parts.filter(x => x[1]); return L.length ? `<details class="box more"><summary><b>Thêm</b> <span class="mute">· ${L.map(x => x[0].replace(/^\S+\s/, '').toLowerCase()).join(', ')}</span></summary>${L.map(([t, h]) => `<h3>${t}</h3>${h}`).join('')}
-  <p class="mute" style="margin:12px 0 0;font-size:13px">📘 Bài học: dạy, không tính 🔁 Nhớ · 🏋️ Bài tập: tính 🔁 Nhớ. Luật đầy đủ: 👤 Tôi → 📘 Luật và cách dùng.</p></details>` : ''; };
+const pMore = (parts, foot = '📘 Bài học: dạy, không tính 🔁 Nhớ · 🏋️ Bài tập: tính 🔁 Nhớ.') => { const L = parts.filter(x => x[1]); return L.length ? `<details class="box more"><summary><b>Thêm</b> <span class="mute">· ${L.map(x => { const t = x[0].replace(/^\S+\s/, ''); return /^(Part|IELTS|TOEIC|Cambridge)\b/.test(t) ? t : t.charAt(0).toLowerCase() + t.slice(1); }).join(', ')}</span></summary>${L.map(([t, h]) => `<h3>${t}</h3>${h}`).join('')}
+  <p class="mute" style="margin:12px 0 0;font-size:13px">${foot} Luật đầy đủ: 👤 Tôi → 📘 Luật và cách dùng.</p></details>` : ''; };
+// ---------- v122 kỳ thi theo khuôn Nền (người sáng lập 3/11/2026: "thiết kế bài học ở nền và mục tiêu ko đồng nhất, nên quy về 1 kiểu"; chọn "kỳ thi theo khuôn Nền" + "bài cụ thể như Nền") ----------
+// Màn đầu kỳ thi (xHome) giống màn 🧱 Nền: "Học" + hàng chọn + dòng tiến độ có thanh + lưới ô kỹ năng có thanh + "Thêm" gập (thi thử cả đề, đề thật, sẵn sàng thi…).
+// Màn một kỹ năng (xSkill) giống màn phần của Nền: đường 3 bước (① Làm bài → ② Đạt band / điểm / mức → ③ Thi thử), 2 nút 📘 Bài học (cách làm) · 🏋️ Bài tập (bài kế tiếp),
+// danh sách bài cụ thể ghi trạng thái bằng chữ, "Thêm" gập (luyện theo dạng câu…). Nút ▶ Luyện tiếp chỉ còn ở 🧭 Lộ trình. Luyện thi vẫn không tính luật đo.
+const X_FOOT = 'Luyện thi không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp của 🧱 Nền.';
+// a = 3 bước { t, v, sub, ok, cur, lock, btn (html nút: bước mở) }
+const stepsX = a => `<div class="steps3">${a.map((s, i) => s.btn ? `<div class="st3 open"><i>${i + 1}</i><b>${s.t}</b>${s.btn}${s.sub ? `<span class="s">${s.sub}</span>` : ''}</div>`
+  : `<div class="st3 ${s.ok ? 'ok' : s.cur ? 'cur' : ''} ${s.lock ? 'lock' : ''}"><i>${s.ok ? '✓' : s.lock ? '🔒' : i + 1}</i><b>${s.t}</b><span class="v">${s.v}</span><span class="s">${s.sub}</span></div>`).join('')}</div>`;
+// o = { sw: hàng chọn, chips: chip cấp (Cambridge), t: tên kỳ thi, pv: số đo bên phải, pct, sub: dòng phụ, note: ô nhắc, tiles: [{ attr, ic, t, pct, meta, cls }], more: [[tiêu đề, html]], foot }
+const xHome = o => `<div class="row"><h1 style="font-size:28px;margin:6px 0">Học</h1><span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span></div>${o.sw}${o.chips || ''}
+  <div class="row" style="margin:12px 0 6px"><b style="font-size:19px">${o.t}</b><span class="mute">${o.pv}</span></div>${bar(o.pct, 100, 'var(--good)')}
+  <p class="mute" style="margin:6px 0 12px;font-size:14px">${o.sub}</p>${o.note || ''}
+  <div class="grid2">${o.tiles.map(t => `<button class="tile ${t.cls || ''}" ${t.attr}><span class="ic">${t.ic}</span><b>${t.t}</b>${bar(t.pct, 100, t.cls === 'ok' ? 'var(--good)' : 'var(--accent)')}<span class="meta">${t.meta}</span></button>`).join('')}</div>
+  ${pMore(o.more, X_FOOT)}${o.foot ? `<p class="mute" style="margin:10px 0 0;font-size:13px">${o.foot}</p>` : ''}`;
+// o = { back: dòng nút về, h1, note, steps, learn: { attr, sub }, prac: { attr, sub }, lt: tên danh sách, rows: [pRow], at: dòng kế tiếp, empty, more }
+const xSkill = o => `${o.back}<h1>${o.h1}</h1>${o.note || ''}${stepsX(o.steps)}
+  <div class="duo"><button class="big2" ${o.learn.attr}>📘 Bài học<small>${o.learn.sub}</small></button><button class="big2 pri" ${o.prac.attr}>🏋️ Bài tập<small>${o.prac.sub}</small></button></div>
+  <h2 style="margin:16px 0 4px">${o.lt}</h2><div id="klist">${o.rows.length ? pWin(o.rows, o.at) : `<p class="mute">${o.empty || 'Chưa có bài.'}</p>`}</div>${pMore(o.more, X_FOOT)}`;
+// trạng thái một bài kỳ thi: chưa làm = để trống như danh sách bài của Nền / đúng a/b (yếu khi dưới mức cần) / band
+const xTag = (r, need) => !r ? ['', ''] : r.n ? [`${r.ok}/${r.n} câu${need != null && r.ok / r.n < need ? ' · yếu' : ''}`, need != null && r.ok / r.n < need ? 'bad' : 'good'] : [r.t || 'đã làm', r.bad ? 'bad' : 'good'];
 // chọn cấp khác (gập; mở sẵn khi đang xem cấp khác cấp đang học)
 const pLvMore = (chips, other) => `<details class="lvmore"${other ? ' open' : ''}><summary>Xem bài cấp khác ›</summary><div class="chips">${chips}</div></details>`;
 // Người sáng lập 25/10/2026: "mỗi cấp học các mục không đều thì chia theo cấp cho rõ, để thế này lẫn lộn cấp độ".

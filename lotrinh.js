@@ -20,7 +20,7 @@ const ltHasData = () => Object.keys(S.cards || {}).length || Object.values(S.k |
 let LT_FIX_ON = false, LT_EX_ON = false;
 { const t0 = actTick; actTick = function (now = Date.now()) { if (!S) return; const d = dayOf(now), A = actSt(), b = (A[d] || {}).ms || 0; t0(now);
     if (LT_FIX_ON || LT_EX_ON) { const L = ltSt(), k = LT_FIX_ON ? 'fx' : 'ex', o = L[k] = L[k] || {}; o[d] = (o[d] || 0) + (((A[d] || {}).ms || 0) - b); for (const x of Object.keys(o)) if (+x < d - 60) delete o[x]; } }; }
-for (const [n, c] of [['mapFix', 'fix'], ['mapRoot', 'fix'], ['mapRelearn', 'fix'], ['mapGapFix', 'fix'], ['errRun', 'fix'], ['ieltsView', 'ex:ielts'], ['imFix', 'ex:ielts'], ['tmFix', 'ex:toeic'], ['ieSkView', 'ex:ielts'], ['toeicView', 'ex:toeic'], ['toSkView', 'ex:toeic'], ['cbView', 'ex:cambridge'],
+for (const [n, c] of [['mapFix', 'fix'], ['mapRoot', 'fix'], ['mapRelearn', 'fix'], ['mapGapFix', 'fix'], ['errRun', 'fix'], ['ieltsView', 'ex:ielts'], ['imFix', 'ex:ielts'], ['tmFix', 'ex:toeic'], ['ieSkView', 'ex:ielts'], ['toeicView', 'ex:toeic'], ['toSkView', 'ex:toeic'], ['cbView', 'ex:cambridge'], ['ieHowView', 'ex:ielts'], ['toHowView', 'ex:toeic'], ['cbSkView', 'ex:cambridge'], ['cbHowView', 'ex:cambridge'],
   ['vwRun', ''], ['overview', ''], ['home', ''], ['partView', ''], ['kView', ''], ['learn', ''], ['mapView', ''], ['ltView', ''], ['ltPlanView', ''], ['dict', ''], ['minhView', '']]) {
   const f = window[n]; if (typeof f === 'function') window[n] = function (...a) { LT_FIX_ON = c === 'fix'; LT_EX_ON = c.startsWith('ex:') && !!(S && S.lt && S.lt.goal) && ltKind() === c.slice(3); return f.apply(this, a); }; }   // v109: chỉ kỳ thi của mục tiêu
 const ltExMin = d => Math.round(((ltSt().ex || {})[d] || 0) / 60000);

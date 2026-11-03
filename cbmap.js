@@ -74,12 +74,103 @@ async function cbFix(lv, pi, i) { const C = MOCK[lv], p = C && C.papers[pi], par
   if (k === 'nf' && cbNfItems(lv).length) return ngStart('nf', lv);
   if (k === 'speak' && cbCapItems(lv).length) return capView(lv);
   return cbPart(lv, pi, i); }
-async function cbPart(lv, pi, i) { const C = MOCK[lv], p = C.papers[pi], [lab, gen] = p.parts[i];
+async function cbPart(lv, pi, i, back) { const C = MOCK[lv], p = C.papers[pi], [lab, gen] = p.parts[i];   // back: về màn bài thi (v122); không có thì về bản đồ
   $app.innerHTML = '<p class="mute">Đang tải kho câu…</p>'; try { await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad), typeof uLoad === 'function' ? uLoad() : 0]); } catch (e) {}
-  if (p.speak) { mkStart(lv, [pi]); if (MK) MK.map = true; return; }
-  MK = { lv, C, papers: [], idx: [pi], map: true };   // bộ sinh câu của đề thử đọc MK (cấp, khuôn) nên đặt trước
-  const qs = gen().map(q => q.part && q.q ? q : { part: lab, q }), min = Math.max(3, Math.round(p.min / p.parts.length)); if (!qs.length) { toast('Kho chưa đủ câu cho phần này.'); return mapView('cb'); }
-  if (!confirm(`${C.name} · ${p.t} · ${lab}: ${qs.length} câu, ${min} phút. Không báo đúng / sai giữa chừng. Bắt đầu?`)) return mapView('cb');
+  if (p.speak) { mkStart(lv, [pi]); if (MK) { MK.map = !back; MK.back = back; } return; }
+  MK = { lv, C, papers: [], idx: [pi], map: !back, back, one: 1 };   // bộ sinh câu của đề thử đọc MK (cấp, khuôn) nên đặt trước
+  const qs = gen().map(q => q.part && q.q ? q : { part: lab, q }), min = Math.max(3, Math.round(p.min / p.parts.length)), home = back || (() => mapView('cb')); if (!qs.length) { toast('Kho chưa đủ câu cho phần này.'); return home(); }
+  if (!confirm(`${C.name} · ${p.t} · ${lab}: ${qs.length} câu, ${min} phút. Không báo đúng / sai giữa chừng. Bắt đầu?`)) return home();
   MK.papers.push({ t: p.t, min, qs, res: [] }); mkPaper(0); }
+
+// ---------- v122 màn một bài thi Cambridge theo khuôn Nền (parts.js xSkill; người sáng lập 3/11/2026 "quy về 1 kiểu", danh sách = bài cụ thể) ----------
+// ① Làm bài (bài đã làm / tổng) → ② Mức đúng (trung bình các phần của bài thi, như ô bản đồ; cần ~ ngưỡng đạt ước MOCK.pass) → ③ Thi thử cả bài thi (có giờ).
+// 📘 Bài học = cách làm từng phần (U_T của dạng đề thật, mẹo theo loại phần; Claude soạn, chưa giáo viên kiểm) · 🏋️ Bài tập = bài kế tiếp.
+// Danh sách bài theo từng phần của khuôn đề: dạng đề thật (mỗi bài; viết lại câu từ khoá: bộ 6 câu) · nghe điền (mỗi bài nghe) · Nói: mỗi đề nói cặp ·
+// phần đọc hiểu / nghe / viết: bài Đọc / Nghe / đề Viết của các cấp trong đề, làm như đề thi (không báo đúng sai giữa chừng, có giờ, lưu S.cbx) ·
+// phần câu lẻ (từ, ngữ pháp) và đoạn văn khuyết câu: một dòng "câu ngẫu nhiên" làm riêng phần đó. Không tính luật đo của 🧱 Nền.
+const CB_HOWT = {
+  doc: ['Đọc câu hỏi trước, gạch từ khoá (tên, số, từ phủ định), rồi tìm chỗ đó trong bài.', 'Đáp án đúng thường diễn đạt lại ý trong bài, ít khi chép nguyên từ; phương án chép nguyên từ hay là bẫy.', 'Câu nào quá lâu thì đoán, đánh dấu, quay lại sau.'],
+  nghe: ['Dùng thời gian trước khi nghe để đọc câu hỏi, đoán loại thông tin cần nghe (số, tên, nơi, lý do).', 'Đề thật nghe 2 lần: lần 1 chọn tạm, lần 2 kiểm lại.', 'Cẩn thận bẫy sửa lời ("Tuesday… no, Wednesday") và phương án có từ nghe giống trong bài.'],
+  viet: ['Viết đủ mọi ý đề yêu cầu: thiếu ý mất điểm nhiều nhất.', 'Đúng thể loại và giọng văn: thư bạn bè thân mật, thư công việc trang trọng, bài luận có mở bài, thân bài, kết bài.', 'Chừa 5 phút soát lỗi: thì, mạo từ, số ít / số nhiều, chính tả.'],
+  noi: ['Trả lời đủ ý, thêm lý do và ví dụ; đừng trả lời một từ.', 'Phần nói cặp: đáp lời bạn, hỏi lại ý bạn ("What do you think?"), cùng chốt lựa chọn.', 'Không nghe rõ thì hỏi lại: "Could you repeat that, please?" không bị trừ điểm.'],
+  tu: ['Đọc cả câu trước khi chọn: từ đúng phải hợp nghĩa và hợp cụm (giới từ, từ hay đi kèm).', 'Câu điền một từ thường hỏi từ ngữ pháp: giới từ, mạo từ, đại từ, trợ động từ.'],
+  gap: ['Đọc câu trước và sau chỗ trống: câu chèn phải nối được cả hai.', 'Để ý từ nối và đại từ (this, they, such) chỉ về ý ngay trước chỗ trống.'],
+  nf: ['Đọc phiếu trước khi nghe, đoán loại thông tin mỗi chỗ trống (số, tên, ngày, giờ).', 'Viết đúng chính tả và số ít / số nhiều: sai chính tả là mất điểm.'] };
+// loại phần (chọn bài luyện và mẹo): Nói · khuyết câu · nghe · viết · đọc · câu lẻ từ / ngữ pháp
+const cbCat = (lab, p) => p.speak ? 'noi' : cbKey(lab, p) === 'gap' ? 'gap' : /Nghe/.test(p.t) && !/điền/.test(lab) ? 'nghe' : CB_SCORE.test(lab) ? 'viet' : /đọc|bài dài|nối câu/i.test(lab) ? 'doc' : 'tu';
+const cbKitLvs = (P, lv) => LEVELS.slice(LEVELS.indexOf(MOCK[lv].lo), LEVELS.indexOf(lv) + 1).filter(l => P.lvs.includes(l));
+const cbIc = t => { const i = t.split(' ')[0]; return i === '📖' ? '📰' : i; }, cbPn = t => t.split(' ').slice(1).join(' ').replace('Dùng tiếng Anh', 'Dùng TA');
+function cbBai(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) return []; const out = [], seen = new Set(), add = b => { if (!seen.has(b.id)) { seen.add(b.id); out.push(b); } };
+  p.parts.forEach(([lab], i) => { const k = cbKey(lab, p), c = cbCat(lab, p), its = CB_UK.includes(k) ? cbUItems(k, lv) : [];
+    if (k === 'speak') { const ts = cbCapItems(lv); return ts.length ? ts.forEach(x => add({ id: 'cap:' + x.id, kind: 'cap', x, i, name: '👥 Nói cặp: ' + x.title })) : add({ id: 'part:' + i, kind: 'part', i, name: '🗣 Nói như đề thi' }); }
+    if (k === 'kwt' && its.length) { for (let j = 0; j < its.length; j += 6) add({ id: 'kwt:' + its[j].id, kind: 'kwt', xs: its.slice(j, j + 6), i, name: `${U_T.kwt[0]} Viết lại câu · bộ ${j / 6 + 1}` }); return; }
+    if (its.length) return its.forEach(x => add({ id: 'u:' + x.id, kind: 'u', k, x, i, name: `${U_T[k][0]} ${x.title || U_T[k][1]}` }));
+    if (k === 'nf') { const ns = cbNfItems(lv); if (ns.length) return ns.forEach(x => add({ id: 'nf:' + x.id, kind: 'nf', x, i, name: '📝 Nghe điền: ' + (x.tvi || x.title || x.id) })); }
+    const P = c === 'doc' ? KIT.doc : c === 'nghe' ? KIT.nghe : c === 'viet' ? KIT.viet : null, xs = P && P.items ? P.items.filter(x => cbKitLvs(P, lv).includes(x.lv) && !x.kind) : [];
+    if (xs.length) return xs.forEach(x => add({ id: 'kit:' + x.id, kind: 'kit', P, x, i, name: `${P.ic} ${P.name ? P.name(x) : x.title || x.id}` }));
+    add({ id: 'part:' + i, kind: 'part', i, name: `${cbNum(lab) ? 'Phần ' + cbNum(lab) + ': ' : ''}${cbShort(lab)} · câu ngẫu nhiên` }); });
+  return out; }
+// kết quả gần nhất của một bài (luyện có báo đúng sai và làm như đề thi đều tính); phần câu ngẫu nhiên: lấy ô bản đồ của phần
+function cbRes(lv, b, cells) { const X = S.cbx || {}, U = S.uoe || {}, pass = MOCK[lv].pass, last = (...rs) => rs.filter(r => r && r.n).sort((a, c) => c.at - a.at)[0] || null;
+  const sc = r => r ? { at: r.at, t: `${Math.round(r.ok / Math.max(1, r.n) * 100)}%`, bad: r.ok / Math.max(1, r.n) < pass } : null;
+  if (b.kind === 'u') { const r = last(U[b.x.id], X[b.x.id]); return b.k === 'sum' ? sc(r) : r; }
+  if (b.kind === 'kwt') { const rs = b.xs.map(x => last(U[x.id], X[x.id])).filter(Boolean); return rs.length ? { at: Math.max(...rs.map(r => r.at)), ok: Math.round(rs.reduce((t, r) => t + r.ok, 0) * 10) / 10, n: rs.reduce((t, r) => t + r.n, 0) } : null; }
+  if (b.kind === 'nf') return last(((S.ng || {}).nf || {})[b.x.id], X[b.x.id]);
+  if (b.kind === 'cap') { const r = (S.cap || {})[b.x.id]; return r ? { at: r.at, t: `${r.pct}%`, bad: r.pct < pass * 100 } : null; }
+  if (b.kind === 'kit') { const r = X[b.x.id]; return r && r.n ? (b.P === KIT.viet ? sc(r) : r) : null; }
+  const c = cells[b.i]; if (!c || !c.m) return null; const at = Math.max(...c.at.map(a => a.at)); return c.score ? { at, t: c.v, bad: c.s === 'yeu' } : { at, ok: Math.round(c.p * c.n), n: c.n }; }
+const cbNext = (L, R) => { const i = R.findIndex(r => !r); if (i >= 0) return L[i]; let j = 0; R.forEach((r, k) => { if ((r.at || 0) < (R[j].at || 0)) j = k; }); return L[j] || null; };
+// số đo của một bài thi: mức đúng trung bình các phần đã có số đo (như ô bản đồ); đủ = mọi phần ổn
+const cbPaperQ = cells => { const ms = cells.filter(c => c.m); return { q: ms.length ? ms.reduce((t, c) => t + c.p, 0) / ms.length : null, ok: cells.length > 0 && cells.every(c => c.s === 'vung') }; };
+function cbTile(lv, pi) { const C = MOCK[lv], p = C.papers[pi], cells = cbRows(lv)[pi].cells, L = cbBai(lv, pi), d = L.filter(b => cbRes(lv, b, cells)).length, { q, ok } = cbPaperQ(cells);
+  return { attr: `data-cbsk="${lv}|${pi}"`, ic: cbIc(p.t), t: cbPn(p.t), cls: ok ? 'ok' : '', pct: Math.round(((L.length ? d / L.length : 0) + (q != null ? Math.min(1, q / C.pass) : 0)) / 2 * 100),
+    meta: q != null ? `${ok ? '✓ ' : ''}đúng ${Math.round(q * 100)}%` : d ? `${d}/${L.length} bài` : p.speak && !SREC ? 'Cần Safari' : 'Chưa làm' }; }
+async function cbDo(lv, pi, b) { const back = () => cbSkView(lv, pi); scrollTo(0, 0); if (!b) return toast('Chưa có bài.');
+  if (b.kind === 'u') return uRun(lv, b.k, [b.x], back);
+  if (b.kind === 'kwt') return uRun(lv, 'kwt', b.xs, back);
+  if (b.kind === 'nf') return ngStart('nf', lv, b.x, back);
+  if (b.kind === 'cap') { $app.innerHTML = '<p class="mute">Đang tải…</p>'; try { await capLoad(); if (!NCLIPS.size) NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {} return capRun(lv, b.x, back); }
+  if (b.kind === 'kit') return cbOne(lv, pi, b, back);
+  return cbPart(lv, pi, b.i, back); }
+// một bài Đọc / Nghe / đề Viết làm như đề thi: không báo đúng sai giữa chừng, có giờ; kết quả vào đề thử (theo phần) và S.cbx (theo bài)
+async function cbOne(lv, pi, b, back) { const C = MOCK[lv], p = C.papers[pi], lab = p.parts[b.i][0];
+  $app.innerHTML = '<p class="mute">Đang tải…</p>'; try { await Promise.all([loadEB(), kLoad(b.P)]); if (b.P === KIT.nghe && !NCLIPS.size) NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {}
+  MK = { lv, C, papers: [], idx: [pi], back, one: 1 };
+  const qs = b.P === KIT.viet ? [kWrite(b.x)] : ['y', 'ct'].flatMap(k => kRead(b.P, b.x, k, b.P === KIT.nghe)), min = b.P === KIT.viet ? Math.max(15, Math.round(p.min / 2)) : b.P === KIT.nghe ? 6 : 10;
+  if (!qs.length) { toast('Bài này chưa có câu hỏi.'); return back(); }
+  if (!confirm(`${C.name} · ${b.name}: ${qs.length} câu, ${min} phút. Không báo đúng / sai giữa chừng. Bắt đầu?`)) return back();
+  MK.papers.push({ t: p.t, min, qs: qs.map(q => ({ part: lab, q })), res: [] }); mkPaper(0); }
+function cbSkView(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) return cbView(lv); BACK = null; window.CUR = { view: 'cambridge', sk: lv + '|' + pi }; EXAM_VOX = false;
+  const cells = cbRows(lv)[pi].cells, L = cbBai(lv, pi), R = L.map(b => cbRes(lv, b, cells)), done = R.filter(Boolean).length, nx = cbNext(L, R), { q, ok } = cbPaperQ(cells);
+  const lr = cbRuns(lv).filter(r => !r.one && (r.papers || []).some(x => x.t === p.t)).pop(), lp = lr ? (x => x.crit ? x.ok : Math.round(x.ok / Math.max(1, x.n) * 100))(lr.papers.find(x => x.t === p.t)) : null;
+  const rows = L.map((b, i) => { const r = R[i], nxt = b === nx && !r, [tag, cls] = xTag(r, C.pass); return pRow(`data-cbx="bai|${lv}|${pi}|${b.id}"`, esc(b.name), nxt ? 'làm tiếp' : tag, nxt ? 'next' : cls); });
+  const cat = new Set(p.parts.map(([lab]) => cbCat(lab, p))), tools = `${cat.has('doc') || cat.has('tu') || cat.has('viet') ? (typeof uoeBox === 'function' ? uoeBox(lv) : '') : ''}${cat.has('nghe') && typeof ngBox === 'function' ? ngBox(lv) : ''}${cat.has('noi') && typeof capBox === 'function' ? capBox(lv) : ''}`;
+  $app.innerHTML = '<div id="ie"></div>' + xSkill({ back: `<div class="row top"><button class="link" data-cbl="${lv}">‹ Cambridge ${LVN[lv]}</button><span></span></div>`, h1: `${cbIc(p.t)} ${cbPn(p.t)} <span class="mute" style="font-size:18px">· Cambridge ${LVN[lv]}</span>`,
+    note: p.speak && !SREC ? '<div class="box">⚠️ Trình duyệt này không chép được lời nói: mở bằng Safari trên iPhone để nói và được chấm.</div>' : '',
+    steps: [{ t: 'Làm bài', v: `${done}/${L.length}`, sub: L.length && done >= L.length ? 'đủ' : `còn ${L.length - done} bài`, ok: L.length > 0 && done >= L.length, cur: done < L.length },
+      { t: 'Mức đúng', v: q != null ? Math.round(q * 100) + '%' : '–', sub: `cần ~${Math.round(C.pass * 100)}%`, ok, cur: q != null && !ok },
+      { t: 'Thi thử', btn: `<button class="pri" data-cbx="paper|${lv}|${pi}">▶ ${p.min} phút</button>`, sub: lp != null ? `lần trước ${lp}%` : 'chưa làm' }],
+    learn: { attr: `data-cbx="how|${lv}|${pi}"`, sub: 'cách làm từng phần' }, prac: { attr: `data-cbx="next|${lv}|${pi}"`, sub: !nx ? 'chưa có bài' : R[L.indexOf(nx)] ? 'làm lại bài cũ nhất' : 'bài kế tiếp' },
+    lt: 'Bài', rows, at: L.indexOf(nx), more: [['🧩 Luyện theo dạng đề', tools],
+      ['🗺 Bản đồ phần yếu', `<button class="link" data-mapv="lt" data-mapk="cb" data-cbmlv="${lv}" style="margin:0">🗺 Bản đồ phần yếu: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>`],
+      ['📋 Các phần của bài thi', `<p class="mute" style="margin:0">${p.parts.map(([lab]) => esc(lab)).join(' · ')}. ${p.min} phút như đề thật.</p>`]] });
+  $app.onclick = cbClick; scrollTo(0, 0); }
+// 📘 Bài học của Cambridge = cách làm từng phần của bài thi; mỗi phần có nút thử ngay
+function cbHowView(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) return cbView(lv); BACK = null; window.CUR = { view: 'cambridge', sk: lv + '|' + pi };
+  const tips = (lab, k, c) => CB_UK.includes(k) && U_T[k] && (k !== 'open' || LEVELS.indexOf(lv) >= LEVELS.indexOf('b1')) ? [U_T[k][2]] : CB_HOWT[k === 'nf' ? 'nf' : c] || [];
+  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-cbsk="${lv}|${pi}">‹ ${cbPn(p.t)}</button><span></span></div><h1>📘 Cách làm · ${cbIc(p.t)} ${cbPn(p.t)}</h1>
+    <p class="mute">${esc(C.name)} · ${p.min} phút. Đọc cách làm từng phần, rồi thử ngay phần đó. Không tính luật đo. 🤖 Mẹo do Claude soạn, chưa giáo viên kiểm.</p>
+    ${p.parts.map(([lab], i) => { const k = cbKey(lab, p), c = cbCat(lab, p); return `<div class="box"><b>${esc(lab)}</b>${tips(lab, k, c).map(x => `<p style="margin:6px 0 0;font-size:15px">• ${esc(x)}</p>`).join('')}<button data-cbx="try|${lv}|${pi}|${i}" style="margin-top:8px">▶ Thử phần này</button></div>`; }).join('')}
+    <button data-cnv="cefr">📘 Cẩm nang thi đầy đủ</button>`;
+  $app.onclick = cbClick; scrollTo(0, 0); }
+async function cbClick(e) { const g = s => e.target.closest(s); let b;
+  if ((b = g('[data-cbl]'))) { scrollTo(0, 0); return cbView(b.dataset.cbl); }
+  if ((b = g('[data-mock]'))) return mockView(b.dataset.mock);
+  if ((b = g('[data-cbsk]'))) { const [lv, pi] = b.dataset.cbsk.split('|'); return cbSkView(lv, +pi); }
+  if (!(b = g('[data-cbx]'))) return; const [a, lv, pi, x] = b.dataset.cbx.split('|'), L = () => cbBai(lv, +pi), back = () => cbSkView(lv, +pi);
+  if (a === 'how') return cbHowView(lv, +pi);
+  if (a === 'bai') return cbDo(lv, +pi, L().find(y => y.id === x));
+  if (a === 'next' || a === 'try') { const cells = cbRows(lv)[+pi].cells, M = a === 'try' ? L().filter(y => y.i === +x) : L(), R = M.map(y => cbRes(lv, y, cells)); return cbDo(lv, +pi, cbNext(M, R)); }
+  if (a === 'paper') { $app.innerHTML = '<p class="mute">Đang tải kho câu…</p>'; try { await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad), typeof uLoad === 'function' ? uLoad() : 0]); } catch (er) {} mkStart(lv, [+pi]); if (MK) MK.back = back; } }
 document.addEventListener('click', e => { if (!S) return; const b = e.target.closest('[data-cbm]'); if (!b) return; const [a, lv, pi, i] = b.dataset.cbm.split('|'); scrollTo(0, 0);
   if (a === 'lv') { CBM_LV = lv; return mapView('cb'); } if (a === 'mock') return mockView(lv); if (a === 'fix') return cbFix(lv, +pi, +i); });

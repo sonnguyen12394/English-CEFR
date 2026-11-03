@@ -7,26 +7,29 @@
 let CB_LV = null;
 // nút "về" của các công cụ luyện thi Cambridge (đề thử, dạng đề, nghe điền, nói cặp, đề mẫu, đọc nghe thêm)
 const exHome = lv => cbView(lv);
+// v122 (người sáng lập: "thiết kế bài học ở nền và mục tiêu ko đồng nhất"): màn Cambridge theo khuôn Nền (parts.js xHome): chip cấp → dòng đề thử có thanh →
+// ô theo bài thi của khuôn đề thử (MOCK[cấp]: Đọc / Viết / Nghe / Nói) → "Thêm" gập (thi thử cả đề, đề mẫu chính thức, sẵn sàng thi, đọc nghe thêm, bản đồ, cẩm nang).
+// Mỗi ô mở màn bài thi cbSkView (cbmap.js). Bỏ nút to ▶ Làm đề thử (v113): việc nên làm ở 🧭 Lộ trình.
 async function cbView(lv) { BACK = null; window.CUR = { view: 'cambridge' }; EXAM_VOX = false;
   if (!(PA && Object.values(KIT).every(P => P.items))) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); } catch (e) {} }
+  try { await cbMapLoad(); } catch (e) {}
   const stage = ovStage(); if (lv && OV_LV.includes(lv)) CB_LV = lv; lv = CB_LV && OV_LV.includes(CB_LV) ? CB_LV : (typeof plTop === 'function' && plTop(stage)) || stage;   // v99: chưa chọn cấp thì mở ở cấp 🧭 xếp được
   const ids = OV.filter(([id]) => ovIn(id, lv)), done = ids.filter(([id]) => ovPassed(id, lv)).length, ready = done >= Math.min(3, ids.length);
-  const chip = l => `<button class="chip ${l === lv ? 'on' : ''}" data-cbl="${l}">${l === stage ? '▶ ' : ''}${LVN[l]}</button>`;
-  // v113: cùng khung với IELTS / TOEIC: cấp → MỘT nút chính (đề thử) → luyện dạng đề → thi thật (đề mẫu chính thức, sẵn sàng thi, đọc nghe thêm)
-  const M = typeof MOCK !== 'undefined' && MOCK[lv], nm = (S.mock && S.mock[lv] || []).length, tools = `${typeof uoeBox === 'function' ? uoeBox(lv) : ''}${typeof ngBox === 'function' ? ngBox(lv) : ''}${typeof capBox === 'function' ? capBox(lv) : ''}`;
-  $app.innerHTML = `<div id="ie"></div>${typeof exSwitch === 'function' ? exSwitch('cefr') : ''}
-    <h1 style="margin:4px 0">🎓 Cambridge ${LVN[lv]}</h1>
-    <p class="mute" style="margin:0 0 6px">${M ? esc(M.name) + ' · ' : ''}đề kiểu Cambridge do app soạn. Chọn cấp:</p>
-    <div class="chips">${OV_LV.map(chip).join('')}</div>
-    ${M ? (typeof exHero === 'function' ? exHero('cefr', `data-mock="${lv}"`, `${M.name} · khuôn, giờ như đề thật${nm ? ` · đã làm ${nm} lần` : ''}`, '▶ Làm đề thử') : `<button class="btnbig" data-mock="${lv}">▶ Làm đề thử<small>${esc(M.name)}</small></button>`) : '<p class="mute">Cấp này chưa có đề thử.</p>'}
-    ${tools.trim() ? `<h2>Luyện dạng đề</h2>${tools}` : `<p class="mute">Cấp này luyện qua 🧱 Nền tiếng Anh. Từ A2 có thêm nghe điền, nói cặp; từ B1 có dạng đề thật.</p>`}
-    ${typeof cbMap === 'function' ? `<button class="link" data-mapv="lt" data-mapk="cb" data-cbmlv="${lv}" style="margin:4px 0 8px">🗺 Bản đồ phần yếu: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>` : ''}
-    <h2>Thi thật</h2>
-    ${ready && typeof realBox === 'function' ? realBox(lv) : `<div class="box"><div class="row"><b>📝 Đề mẫu chính thức</b><span class="mute">🔒 ${done}/${Math.min(3, ids.length)}</span></div><p class="mute" style="margin:6px 0 0">Đề mẫu chính thức và 🎯 Sẵn sàng thi mở khi ≥ 3 phần của ${LVN[lv]} qua 🚪 Thi chuyển cấp (đã qua ${done}/${ids.length}).</p></div>`}
-    ${typeof readyBox === 'function' ? (ready ? readyBox(lv) : '') + extBox(lv) : ''}
-    <button data-cnv="cefr">📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết, thể loại bài Viết</button>
-    <p class="mute">Không phải đề Cambridge chính thức: câu do app soạn (🤖 chưa giáo viên kiểm). Đề mẫu chính thức ở mục 📝.</p>`;
-  $app.onclick = e => { const c = e.target.closest('[data-cbl]'); if (c) { scrollTo(0, 0); return cbView(c.dataset.cbl); } const mk = e.target.closest('[data-mock]'); if (mk) return mockView(mk.dataset.mock); }; }
+  const chip = l => `<button class="chip ${l === lv ? 'on' : ''}" data-cbl="${l}">${l === stage ? '▶ ' : ''}${LVN[l]}</button>`, M = typeof MOCK !== 'undefined' && MOCK[lv];
+  const runs = M ? cbRuns(lv) : [], last = runs.filter(r => r.pct != null).pop(), tiles = M ? M.papers.map((p, pi) => cbTile(lv, pi)) : [];
+  let sp = null; try { sp = exGoalK() === 'cefr' && typeof ltSplit === 'function' ? ltSplit() : null; } catch (e) {}
+  $app.innerHTML = '<div id="ie"></div>' + xHome({ sw: exSwitch('cefr'), chips: `<div class="chips">${OV_LV.map(chip).join('')}</div>`, t: `🎓 Cambridge ${LVN[lv]}`,
+    pv: last ? `đề thử ${last.pct}% · cần ~${Math.round(M.pass * 100)}%` : 'chưa làm đề thử', pct: last ? Math.min(100, Math.round(last.pct / (M.pass * 100) * 100)) : tiles.length ? Math.round(tiles.reduce((t, x) => t + x.pct, 0) / tiles.length) : 0,
+    sub: `${M ? esc(M.name) + ' · ' : ''}đề kiểu Cambridge do app soạn`,
+    note: sp && !sp.ex ? `<div class="box" style="margin:0 0 12px"><b>⚖️ Nền còn thiếu xa (cần ${LVN[ltGoalLv()]})</b><p class="mute" style="margin:4px 0">🧭 Lộ trình chưa xếp giờ luyện đề: học nền trước. Vẫn xem và thử được.</p><button data-hocnen style="margin:4px 0 0">🧱 Học nền trước</button></div>` : M ? '' : '<p class="mute">Cấp này chưa có khuôn đề thử.</p>',
+    tiles, more: [['🎓 Thi thử cả đề', M ? `<p class="mute" style="margin:0 0 6px">Khuôn, giờ như đề thật: ${M.papers.map(p => `${p.t} ${p.min} phút`).join(' · ')}. Câu bốc ngẫu nhiên từ kho app.${runs.length ? ` Đã làm ${runs.length} lần.` : ''} Làm từng bài thi: bước ③ ở màn mỗi bài thi.</p><button class="pri" data-mock="${lv}">▶ Làm đề thử</button>` : ''],
+      ['📝 Đề mẫu chính thức', ready && typeof realBox === 'function' ? realBox(lv) : `<p class="mute" style="margin:0">🔒 ${done}/${Math.min(3, ids.length)} · Đề mẫu chính thức và 🎯 Sẵn sàng thi mở khi ≥ 3 phần của ${LVN[lv]} qua 🚪 Thi chuyển cấp ở 🧱 Nền (đã qua ${done}/${ids.length}).</p>`],
+      ['🎯 Sẵn sàng thi', ready && typeof readyBox === 'function' ? readyBox(lv) : ''],
+      ['📚 Đọc nghe thêm ngoài app', typeof extBox === 'function' ? extBox(lv) : ''],
+      ['🗺 Bản đồ phần yếu', typeof cbMap === 'function' ? `<button class="link" data-mapv="lt" data-mapk="cb" data-cbmlv="${lv}" style="margin:0">🗺 Bản đồ phần yếu: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>` : ''],
+      ['📘 Cẩm nang thi', '<button data-cnv="cefr">📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết, thể loại bài Viết</button>']],
+    foot: 'Không phải đề Cambridge chính thức: câu do app soạn (🤖 chưa giáo viên kiểm). Đề mẫu chính thức ở mục 📝 (trong Thêm).' });
+  $app.onclick = cbClick; }
 
 // ---------- 👤 Của tôi: chỗ ở chính của tiến độ, chỗ yếu, sổ từ, sổ lỗi, kết quả thi thật, góp ý, dữ liệu ----------
 async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
