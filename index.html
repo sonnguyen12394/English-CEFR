@@ -171,47 +171,54 @@
   .mrow .mc { flex:1; display:flex; flex-wrap:wrap; gap:3px; padding-top:2px; }
   .mc i, .mleg i { width:13px; height:13px; border-radius:3px; display:block; background:var(--line); } .mleg i { display:inline-block; width:11px; height:11px; }
   i.yeu { background:var(--bad) !important; } i.on { background:var(--mid) !important; } i.vung { background:var(--good) !important; } i.chua { background:var(--line); }
+  /* v120 bản đồ IELTS / TOEIC: ô có tên (dạng câu / tiêu chí / Part) + số đo */
+  :root { --bad2:#fdecec; } @media (prefers-color-scheme: dark) { :root { --bad2:#3a1a1a; } }
+  .xrow { display:flex; align-items:flex-start; gap:8px; padding:9px 0; border-bottom:1px solid var(--line); } .xrow .ml { flex:0 0 78px; font-size:15px; font-weight:600; } .xrow .ml small { display:block; color:var(--mute); font-size:12px; font-weight:400; }
+  .xc { flex:1; display:flex; flex-wrap:wrap; gap:6px; }
+  button.xchip { width:auto; margin:0; padding:6px 9px; border-radius:10px; font-size:13px; line-height:1.25; text-align:left; border:1px solid var(--line); background:var(--card); color:var(--mute); }
+  button.xchip b { display:block; font-size:14px; } button.xchip.yeu { background:var(--bad2); border-color:var(--bad); color:var(--bad); } button.xchip.on { background:var(--warn2); border-color:var(--mid); color:var(--warn); }
+  button.xchip.vung { background:var(--good2); border-color:var(--good); color:var(--good); }
 </style>
 </head>
 <body>
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=119"></script>
-<script src="tonghop.js?v=119"></script>
-<script src="exam.js?v=119"></script>
-<script src="gopy.js?v=119"></script>
-<script src="gop.js?v=119"></script>
-<script src="noi.js?v=119"></script>
-<script src="parts.js?v=119"></script>
-<script src="pa.js?v=119"></script>
-<script src="kit.js?v=119"></script>
-<script src="kparts.js?v=119"></script>
-<script src="backup.js?v=119"></script>
-<script src="mock.js?v=119"></script>
-<script src="mocknoi.js?v=119"></script>
-<script src="thi.js?v=119"></script>
-<script src="uoe.js?v=119"></script>
-<script src="nghe2.js?v=119"></script>
-<script src="cap.js?v=119"></script>
-<script src="lib.js?v=119"></script>
-<script src="homnay.js?v=119"></script>
-<script src="vuotcap.js?v=119"></script>
-<script src="nhanh.js?v=119"></script>
-<script src="bando.js?v=119"></script>
-<script src="soloi.js?v=119"></script>
-<script src="ielts.js?v=119"></script>
-<script src="focus.js?v=119"></script>
-<script src="ieplus.js?v=119"></script>
-<script src="iemap.js?v=119"></script>
-<script src="iethat.js?v=119"></script>
-<script src="tudien.js?v=119"></script>
-<script src="tracuu.js?v=119"></script>
-<script src="dieuhuong.js?v=119"></script>
-<script src="huongdan.js?v=119"></script>
-<script src="toeic.js?v=119"></script>
-<script src="tomap.js?v=119"></script>
-<script src="chandoan.js?v=119"></script>
-<script src="lotrinh.js?v=119"></script>
+<script src="app.js?v=120"></script>
+<script src="tonghop.js?v=120"></script>
+<script src="exam.js?v=120"></script>
+<script src="gopy.js?v=120"></script>
+<script src="gop.js?v=120"></script>
+<script src="noi.js?v=120"></script>
+<script src="parts.js?v=120"></script>
+<script src="pa.js?v=120"></script>
+<script src="kit.js?v=120"></script>
+<script src="kparts.js?v=120"></script>
+<script src="backup.js?v=120"></script>
+<script src="mock.js?v=120"></script>
+<script src="mocknoi.js?v=120"></script>
+<script src="thi.js?v=120"></script>
+<script src="uoe.js?v=120"></script>
+<script src="nghe2.js?v=120"></script>
+<script src="cap.js?v=120"></script>
+<script src="lib.js?v=120"></script>
+<script src="homnay.js?v=120"></script>
+<script src="vuotcap.js?v=120"></script>
+<script src="nhanh.js?v=120"></script>
+<script src="bando.js?v=120"></script>
+<script src="soloi.js?v=120"></script>
+<script src="ielts.js?v=120"></script>
+<script src="focus.js?v=120"></script>
+<script src="ieplus.js?v=120"></script>
+<script src="iemap.js?v=120"></script>
+<script src="iethat.js?v=120"></script>
+<script src="tudien.js?v=120"></script>
+<script src="tracuu.js?v=120"></script>
+<script src="dieuhuong.js?v=120"></script>
+<script src="huongdan.js?v=120"></script>
+<script src="toeic.js?v=120"></script>
+<script src="tomap.js?v=120"></script>
+<script src="chandoan.js?v=120"></script>
+<script src="lotrinh.js?v=120"></script>
 </body>
 </html>

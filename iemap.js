@@ -68,9 +68,46 @@ async function imFix(u) { await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KI
   if (k === 'W' || k === 'S' || (f && f.tr >= 1 && f.td !== d)) return imTeach(u, run);   // Viết / Nói: luôn xem cách nâng tiêu chí trước; dạng câu: từ lần thử 2
   run(); }
 
+// ---------- v120 bản đồ IELTS ở 🗺 Chỗ yếu (người sáng lập 3/11/2026: "bản đồ mới có theo phần học nền, còn theo mục tiêu như IELTS chưa có"; chọn "mỗi phần một việc cần chữa") ----------
+// Cùng khuôn với bản đồ nền (v119) nhưng ô = DẠNG CÂU (Đọc / Nghe) hoặc TIÊU CHÍ CHẤM (Viết / Nói), vì IELTS chấm theo dạng / tiêu chí, không theo bài
+// (làm lại bài cũ = nhớ đáp án). Dữ liệu và luật như imWeak / imFocus (không đổi): 🟥 yếu = dưới ngưỡng (dạng < IE_TY_OK%, tiêu chí < band mục tiêu) và đủ chắc;
+// 🟨 chưa chắc = có dữ liệu nhưng chưa đủ (dạng < IE_TY_N câu hoặc 1 bài; Viết / Nói 1 bài máy chấm); 🟩 đạt = đủ ngưỡng và đủ chắc, hoặc đã chữa xong; ⬜ chưa làm.
+const IM_SHORT = { 'R-h': 'Tiêu đề', 'R-tf': 'T/F/NG', 'R-yn': 'Y/N/NG', 'R-comp': 'Điền từ', 'R-sum': 'Tóm tắt', 'R-mc': 'Trắc nghiệm', 'R-mi': 'Tìm đoạn', 'R-mf': 'Nối đặc điểm', 'R-se': 'Nối câu',
+  'R-dia': 'Sơ đồ', 'R-sa': 'Trả lời ngắn', 'R-para': 'Diễn đạt lại', 'R-gt': 'Văn bản GT', 'L-form': 'Điền phiếu', 'L-mc': 'Trắc nghiệm', 'L-map': 'Bản đồ', 'L-match': 'Ghép', 'L-sa': 'Trả lời ngắn' };
+const imShort = u => IE_TY[u] ? IM_SHORT[u] || IE_TY[u].replace(/ \(.*$/, '') : IE_CR[u[0]][+u.slice(2)];
+const IM_ST = { yeu: 'yếu', on: 'chưa chắc', vung: 'đạt', chua: 'chưa làm' };
+function imCell(u) { const o = ieSt(), fx = (o.fo || {}).fx || {}, tg = o.target;
+  if (IE_TY[u]) { const a = ((o.ty || {})[u] || []).filter(b => b.at > (fx[u] || 0)).slice(-10), n = a.reduce((t, b) => t + b.n, 0);
+    if (!n) return { u, s: fx[u] ? 'vung' : 'chua', v: '' };
+    const pct = Math.round(a.reduce((t, b) => t + b.ok, 0) / n * 100), sure = n >= IE_TY_N && new Set(a.flatMap(b => b.ids)).size >= 2;
+    return { u, s: !sure ? 'on' : pct < IE_TY_OK ? 'yeu' : 'vung', v: pct + '%' }; }
+  const k = u[0], i = +u.slice(2), cs = (o.cr || []).filter(r => r.k === k && r.at > (fx[u] || 0)), ai = cs.filter(r => r.src === 'ai').slice(-5), a = ai.length ? ai : cs.filter(r => r.src === 'may').slice(-5);
+  if (!a.length) return { u, s: fx[u] ? 'vung' : 'chua', v: '' };
+  const b = ieRound(a.reduce((t, r) => t + (r.c[i] || 0), 0) / a.length), sure = !!ai.length || a.length >= 2;
+  return { u, s: !sure ? 'on' : b < (ai.length ? tg : Math.min(tg, IE_MAXM)) ? 'yeu' : 'vung', v: bandTxt(b) }; }
+const imRows = () => { const gt = ieSt().type === 'gt', ks = Object.keys(IE_TY).filter(k => k !== 'R-gt' || gt);
+  return [['R', ks.filter(k => k[0] === 'R')], ['L', ks.filter(k => k[0] === 'L')], ['W', [0, 1, 2, 3].map(i => 'W:' + i)], ['S', [0, 1, 2, 3].map(i => 'S:' + i)]]; };
+// khối IELTS của màn 🗺 Chỗ yếu: 🎯 Việc cần chữa (MỘT nút) → lưới dạng câu / tiêu chí → "Thêm" (ô 🗺 Bản đồ band cũ: thử, đạt liền, hàng chờ, tạm gác, kẹt cần học nền; bảng theo dạng)
+function imMap(goal) { const o = ieSt(), f = imFocus(), W = imWeak(), sure = W.filter(w => w.sure), unsure = W.filter(w => !w.sure), rows = imRows(), cells = rows.map(([k, us]) => [k, us.map(imCell)]);
+  const has = Object.keys(o.ty || {}).length || (o.cr || []).length, cnt = { yeu: 0, on: 0, vung: 0, chua: 0 }; for (const [, cs] of cells) for (const c of cs) cnt[c.s]++;
+  const top = f.act[0] || sure[0], fix = u => `data-im="fix|${u}"`, lab = u => IE_TY[u] ? IM_SK[u[0]].split(' ')[0] + ' ' + imName(u) : imName(u);   // tên tiêu chí Viết / Nói đã có biểu tượng
+  const main = top ? `<button class="pri" ${fix(top.u)} style="margin-top:8px">▶ Chữa chỗ mất band nhiều nhất<small style="display:block;font-weight:400;opacity:.9">${esc(lab(top.u))}</small></button>`
+    : unsure[0] ? `<button class="pri" ${fix(unsure[0].u)} style="margin-top:8px">▶ Làm thêm để biết chắc<small style="display:block;font-weight:400;opacity:.9">${esc(lab(unsure[0].u))} · ${esc(unsure[0].v)}</small></button>`
+    : `<button class="pri" data-mapex="ielts" style="margin-top:8px">▶ ${has ? 'Luyện tiếp IELTS' : 'Làm đề thử / luyện IELTS để tìm chỗ yếu'}</button>`;
+  const row = w => `<button class="urow" ${fix(w.u)}><span>${esc(lab(w.u))}<small class="why">${esc(w.v)}${w.p ? ` · ≈ +${w.p} band nếu đạt` : ''}</small></span><span class="tag bad">chữa ›</span></button>`;
+  return `<h2>🌏 IELTS${goal ? ' 🎯' : ''} <span class="mute" style="font-size:15px;font-weight:400">· theo dạng câu và tiêu chí chấm</span></h2>
+    <div class="box"><div class="row"><b>🎯 Việc cần chữa</b><span class="mute">${sure.length} chỗ yếu</span></div>${main}
+      ${top || unsure.length ? '<button class="link" data-mapex="ielts" style="margin:2px 0 6px">hoặc ▶ Luyện tiếp IELTS (không cần đợi chữa xong)</button>' : `<p class="mute" style="margin:6px 0 0">${has ? `Chưa thấy chỗ yếu chắc chắn: các dạng ≥ ${IE_TY_OK}%, tiêu chí đạt band mục tiêu ${bandTxt(o.target)}.` : 'Chưa có dữ liệu. Làm 1 đề thử hoặc vài bài luyện: app tự tìm dạng câu làm mất điểm.'}</p>`}
+      ${sure.slice(0, 5).map(row).join('')}${sure.length > 5 ? `<details class="lvmore"><summary>Xem thêm ${sure.length - 5} chỗ yếu ›</summary>${sure.slice(5).map(row).join('')}</details>` : ''}
+      ${unsure.length ? `<p class="mute" style="margin:8px 0 0;font-size:13px">🟨 ${unsure.length} chỗ có thể yếu nhưng chưa đủ dữ liệu (dạng câu: ≥ ${IE_TY_N} câu ở ≥ 2 bài; Viết / Nói: AI chấm hoặc ≥ 2 bài máy chấm).</p>` : ''}</div>
+    <p class="mleg mute">${Object.keys(IM_ST).map(k => `<span><i class="${k}"></i>${IM_ST[k]} ${cnt[k]}</span>`).join('')}</p>
+    <div class="mgrid">${cells.map(([k, cs]) => `<div class="xrow"><span class="ml">${IM_SK[k]}<small>${k === 'W' || k === 'S' ? 'tiêu chí' : 'dạng câu'}</small></span><span class="xc">${cs.map(c => `<button class="xchip ${c.s}" ${fix(c.u)}>${esc(imShort(c.u))}${c.v ? `<b>${esc(c.v)}</b>` : ''}</button>`).join('')}</span></div>`).join('')}</div>
+    <p class="mute" style="font-size:13px;margin:4px 0 10px">Bấm một ô để luyện đúng dạng / tiêu chí đó (bài mới cùng dạng; Viết / Nói: xem cách nâng tiêu chí rồi làm 1 bài).</p>
+    <details class="box more"><summary><b>Thêm</b> <span class="mute">· đang chữa, hàng chờ, tạm gác, kết quả theo dạng, cách tính</span></summary>${imBox()}${(t => t ? `<details class="box"><summary>📊 Kết quả theo dạng câu / tiêu chí</summary>${t}</details>` : '')(typeof ieTyBox === 'function' ? ieTyBox() : '')}</details>`; }
+
 // ---------- ô 🗺 Bản đồ band ở màn Học IELTS ----------
 function imBox() { const f = imFocus(), hasData = Object.keys(ieSt().ty || {}).length || (ieSt().cr || []).length;
-  const row = w => `<div style="margin:8px 0;border-top:1px solid var(--line);padding-top:6px"><div class="row"><b>${IM_SK[w.sk].split(' ')[0]} ${esc(w.t)}</b><span class="mute">${esc(w.v)}</span></div>
+  const row = w => `<div style="margin:8px 0;border-top:1px solid var(--line);padding-top:6px"><div class="row"><b>${IE_TY[w.u] ? IM_SK[w.sk].split(' ')[0] + ' ' : ''}${esc(w.t)}</b><span class="mute">${esc(w.v)}</span></div>
     <p class="mute" style="margin:2px 0">thử ${w.tr}/${IM_TRY} · đạt liền ${w.pd}/2${w.r ? ` · quay lại lần ${w.r}` : ''}${IE_TY[w.u] ? (typeof TH_APP === 'undefined' || TH_APP.has(w.u) || w.u === 'R-para' ? ` · còn ${imFreshN(w.u)} bài mới` : ' · chữa bằng đề thật') : ''}${w.sure ? '' : ' · bằng chứng chưa chắc'}</p>
     <button class="pri" data-im="fix|${w.u}" style="margin-top:4px">▶ Chữa</button></div>`;
   return `<div class="box"><div class="row"><b>🗺 Bản đồ band</b><span class="mute">🎯 ${f.act.length}/${IM_ACT} · ⏳ ${f.queue.length} · ✅ ${f.done}</span></div>
@@ -78,7 +115,7 @@ function imBox() { const f = imFocus(), hasData = Object.keys(ieSt().ty || {}).l
       : f.act.length ? `<p class="mute" style="margin:6px 0 0">Chữa tối đa ${IM_ACT} chỗ, mỗi kỹ năng 1. Mỗi lần thử phải là bài mới cùng dạng. Đạt 2 lượt liền ở 2 ngày khác nhau (sau ngày trượt gần nhất) là xong.</p>${f.act.map(row).join('')}`
       : (n => n ? `<p class="mute" style="margin:6px 0 0">Có ${n} chỗ có thể yếu nhưng chưa đủ dữ liệu (dạng câu: ≥ ${IE_TY_N} câu ở ≥ 2 bài; Viết / Nói: AI chấm hoặc ≥ 2 bài máy chấm). Làm thêm rồi app mới đưa vào chữa.</p>`
         : '<p class="mute" style="margin:6px 0 0">Chưa thấy chỗ yếu: các dạng đều ≥ 75% và tiêu chí đạt band mục tiêu. Làm thêm đề thử để chắc.</p>')(imWeak().filter(w => !w.sure).length)}
-    ${f.queue.length ? `<details style="margin:6px 0"><summary>⏳ Hàng chờ: <b>${f.queue.length}</b> chỗ</summary>${f.queue.slice(0, 8).map(w => `<p style="margin:2px 0;font-size:15px">${IM_SK[w.sk].split(' ')[0]} ${esc(w.t)} <span class="mute">· ${esc(w.v)}</span></p>`).join('')}</details>` : ''}
+    ${f.queue.length ? `<details style="margin:6px 0"><summary>⏳ Hàng chờ: <b>${f.queue.length}</b> chỗ</summary>${f.queue.slice(0, 8).map(w => `<p style="margin:2px 0;font-size:15px">${IE_TY[w.u] ? IM_SK[w.sk].split(' ')[0] + ' ' : ''}${esc(w.t)} <span class="mute">· ${esc(w.v)}</span></p>`).join('')}</details>` : ''}
     ${f.park.length ? `<details style="margin:6px 0"><summary>⏸ Tạm gác: <b>${f.park.length}</b> chỗ</summary>${f.park.map(w => `<p style="margin:2px 0;font-size:15px">${esc(w.t)} <span class="mute">· quay lại ${new Date(w.at + IM_PARK_D * DAY).toLocaleDateString('vi-VN')}</span></p>`).join('')}</details>` : ''}
     ${f.root.length ? `<div style="margin:8px 0"><b>🧱 Kẹt lâu, cần học nền CEFR: ${f.root.length} chỗ</b><p class="mute" style="margin:2px 0">Đã gác, quay lại vẫn kẹt: thường do thiếu từ / ngữ pháp, luyện thêm dạng câu không giúp. Học nền ở 📚 Học → 🧱 Nền tiếng Anh (🗺 các chỗ hay sai), xong bấm "Đã học nền" để thử lại.</p>
       <button data-iecefr="${ieBase(ieSt().target)}">🧱 Học nền CEFR ${LVN[ieBase(ieSt().target)]}</button>${f.root.map(w => `<button data-im="rl|${w.u}" style="margin:3px 0">✅ Đã học nền: ${esc(w.t)}</button>`).join('')}</div>` : ''}

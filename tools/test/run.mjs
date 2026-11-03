@@ -907,8 +907,8 @@ const R = await run(`(async () => {
     if (!h.includes('id="lt"') || !h.includes('data-ltseg="today" role="tab" aria-selected="true" class="on"') || !h.includes('data-ltseg="map"')) bad.push('Hôm nay thiếu hàng 2 phần');
     MAP_BACK = 'lt'; await tryA('Chỗ yếu', () => mapView()); h = H();
     if (!h.includes('id="lt"') || !h.includes('data-ltseg="map" role="tab" aria-selected="true" class="on"') || h.includes('data-a="bk"')) bad.push('🗺 Chỗ yếu chưa là phần của Lộ trình');
-    if (!h.includes('Bản đồ band') || !h.includes('Việc cần chữa') || !(pos(h, 'Bản đồ band') < pos(h, 'Việc cần chữa'))) bad.push('mục tiêu IELTS, đủ nền: bản đồ band phải có và lên trước');
-    S.place.top = 'a2'; await tryA('Chỗ yếu nền thiếu', () => mapView()); h = H(); if (!(pos(h, 'Việc cần chữa') < pos(h, 'Bản đồ band'))) bad.push('nền thiếu xa: bản đồ nền phải lên trước');
+    if (!h.includes('Bản đồ band') || !h.includes('Việc cần chữa') || !(pos(h, '<h2>🌏 IELTS') < pos(h, '<h2>🧱 Nền tiếng Anh'))) bad.push('mục tiêu IELTS, đủ nền: bản đồ band phải có và lên trước');   // v120: khối IELTS có Việc cần chữa riêng
+    S.place.top = 'a2'; await tryA('Chỗ yếu nền thiếu', () => mapView()); h = H(); if (!(pos(h, '<h2>🧱 Nền tiếng Anh') < pos(h, '<h2>🌏 IELTS'))) bad.push('nền thiếu xa: bản đồ nền phải lên trước');
     ltSt().goal = { kind: 'cefr', lv: 'b1', date: '', at: now }; delete S.ie; await tryA('Chỗ yếu CEFR', () => mapView()); h = H(); if (h.includes('Bản đồ band') || h.includes('Bản đồ điểm')) bad.push('mục tiêu CEFR, chưa luyện đề: không cần bản đồ kỳ thi');
     S.to = { target: 600, ty: { 'p5:verb': [{ at: now, ok: 3, n: 5, ids: ['x'], src: 'luyen' }] } }; await tryA('Chỗ yếu có TOEIC', () => mapView()); if (!H().includes('Bản đồ điểm')) bad.push('đã luyện TOEIC: thiếu bản đồ điểm');
     await tryA('Tôi', () => minhView()); h = H(); if (h.includes('Mở bản đồ') || !h.includes('data-mapv="lt"')) bad.push('👤 Tôi còn ô bản đồ riêng');
@@ -1057,6 +1057,27 @@ const R = await run(`(async () => {
       await tryA('bản đồ có hổng', () => mapView()); if (!H().includes('Chữa tiếp: chỗ hổng nền trước') || !H().includes('1 chỗ hổng nền')) bad.push('bản đồ chưa đưa chỗ hổng nền lên trước'); }
     S = blank();
     add('cefr', 'C34', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'bản đồ chỗ yếu theo bài: trạng thái bài (yếu / đang ôn / vững / chưa học), lưới bài có màu, nút chữa bài yếu nhất chỉ hỏi chỗ sai, Đọc chữa gốc, Hôm nay chữa bài yếu nhất và không chặn bài mới, chỗ hổng nền lên trước, màn kỹ năng ghi "yếu" đều đúng'); }
+  // v120 bản đồ IELTS / TOEIC cùng khuôn (người sáng lập 3/11/2026, chọn "mỗi phần một việc cần chữa"): ô = dạng câu / tiêu chí / Part; dữ liệu như imWeak / tmWeak (không đổi)
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
+    const H = () => String($app.innerHTML), now = Date.now(), D = 864e5; await ieLoad(); await toLoad();
+    const b = (ok, n, ids) => [{ at: now - D, ok, n, ids, src: 'luyen' }];
+    S = blank(); S.ie = { set: 1, type: 'ac', target: 6.5, r: {}, ty: { 'R-tf': b(4, 10, ['a', 'b']), 'R-h': b(7, 8, ['c', 'd']), 'L-form': b(3, 6, ['e']) }, cr: [{ k: 'W', c: [5.5, 6, 5, 5.5], src: 'may', at: now - 3 * D }, { k: 'W', c: [5, 6, 5.5, 5], src: 'may', at: now - D }] };
+    const st = u => imCell(u).s; if (st('R-tf') !== 'yeu' || st('R-h') !== 'vung' || st('L-form') !== 'on' || st('R-mc') !== 'chua' || st('W:0') !== 'yeu' || st('S:0') !== 'chua') bad.push('ô IELTS sai: ' + ['R-tf', 'R-h', 'L-form', 'R-mc', 'W:0', 'S:0'].map(st).join(','));
+    let h = ''; tryv('imMap', () => { h = imMap(true); });
+    if (!h.includes('🎯 Việc cần chữa') || !/class="pri" data-im="fix\|/.test(h) || !h.includes('Chữa chỗ mất band nhiều nhất') || !h.includes('data-mapex="ielts"')) bad.push('IELTS: thiếu việc cần chữa / nút');
+    const ny = (h.match(/class="xchip yeu"/g) || []).length, nc = imRows().flatMap(r => r[1]).filter(u => imCell(u).s === 'yeu').length; if (!ny || ny !== nc) bad.push('IELTS: lưới sai ' + ny + '/' + nc);
+    if (h.includes('✍️ ✍️') || !h.split('<details class="box more"')[1] || !h.split('<details class="box more"')[1].includes('Bản đồ band')) bad.push('IELTS: lặp biểu tượng / thiếu phần chi tiết trong Thêm');
+    S.ie = { set: 1, type: 'ac', target: 6.5, r: {}, ty: { 'L-form': b(3, 6, ['e']) }, cr: [] }; tryv('IELTS chưa chắc', () => { h = imMap(true); }); if (!h.includes('Làm thêm để biết chắc')) bad.push('IELTS: chỗ chưa chắc chưa gợi ý làm thêm');
+    S.ie = { set: 1, type: 'ac', target: 6.5, r: {}, ty: {}, cr: [] }; tryv('IELTS trống', () => { h = imMap(true); }); if (!h.includes('Chưa có dữ liệu') || !h.includes('data-mapex="ielts"')) bad.push('IELTS: chưa có dữ liệu sai');
+    // TOEIC
+    S = blank(); S.to = { target: 600, r: {}, ty: { 'p5:verb': b(3, 10, ['a', 'b']), p3: b(5, 6, ['x']) }, spd: [] };
+    const ts = u => tmCell(u).s; if (ts('p5:verb') !== 'yeu' || ts('p3') !== 'on' || ts('p2') !== 'chua') bad.push('ô TOEIC sai: ' + ['p5:verb', 'p3', 'p2'].map(ts).join(','));
+    tryv('tmMap', () => { h = tmMap(true); }); if (!h.includes('Chữa chỗ mất điểm nhiều nhất') || !h.includes('data-tm="fix|p5:verb"') || !h.includes('Bản đồ điểm') || (h.match(/class="xchip /g) || []).length < 12) bad.push('TOEIC: khối bản đồ sai');
+    // màn 🗺 Chỗ yếu: mục tiêu IELTS → khối IELTS mới, mỗi khối một việc cần chữa
+    S = blank(); S.lt = { goal: { kind: 'ielts', lv: 'b2', at: now }, d: [], fx: {} }; S.ie = { set: 1, type: 'ac', target: 6.5, r: {}, ty: { 'R-tf': b(4, 10, ['a', 'b']) }, cr: [] };
+    MAP_BACK = 'lt'; await tryA('Chỗ yếu IELTS', () => mapView()); h = H(); if ((h.match(/🎯 Việc cần chữa/g) || []).length !== 2 || !h.includes('data-im="fix|R-tf"') || !h.includes('class="xchip yeu"')) bad.push('màn Chỗ yếu chưa có khối IELTS mới');
+    S = blank();
+    add('cefr', 'C35', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'bản đồ IELTS / TOEIC cùng khuôn: ô theo dạng câu / tiêu chí / Part (yếu / chưa chắc / đạt / chưa làm), việc cần chữa riêng với nút chữa chỗ mất điểm nhiều nhất, làm thêm khi chưa chắc, chi tiết cũ gập trong Thêm đều đúng'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V', 'T'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung)');

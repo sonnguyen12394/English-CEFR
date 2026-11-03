@@ -166,8 +166,7 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
   const inLt = MAP_BACK === 'lt' && typeof ltSeg === 'function' && !!(S.lt && S.lt.goal), gk = S.lt && S.lt.goal && typeof ltKind === 'function' ? ltKind(S.lt.goal) : null, ie = S.ie || {}, to = S.to || {};
   const exs = [typeof imBox === 'function' && (gk === 'ielts' || Object.keys(ie.ty || {}).length || (ie.cr || []).length) ? 'ielts' : '', typeof tmBox === 'function' && (gk === 'toeic' || Object.keys(to.ty || {}).length || (to.spd || []).length) ? 'toeic' : ''].filter(Boolean);
   for (const k of exs) try { await (k === 'ielts' ? ieLoad() : toLoad()); } catch (e) {}
-  const exHtml = exs.map(k => k === 'ielts' ? `<h2>🌏 IELTS${gk === 'ielts' ? ' 🎯' : ''} <span class="mute" style="font-size:15px;font-weight:400">· chỗ làm mất band</span></h2>${imBox()}${(t => t ? `<details class="box"><summary>📊 Kết quả theo dạng câu / tiêu chí</summary>${t}</details>` : '')(ieTyBox())}`
-    : `<h2>💼 TOEIC${gk === 'toeic' ? ' 🎯' : ''} <span class="mute" style="font-size:15px;font-weight:400">· chỗ làm mất điểm</span></h2>${tmBox()}<details class="box"><summary>🔍 Phân tích điểm</summary>${toInsights()}</details>`).join('');
+  const exHtml = exs.map(k => k === 'ielts' ? imMap(gk === 'ielts') : tmMap(gk === 'toeic')).join('');   // v120: IELTS / TOEIC cùng khuôn: việc cần chữa + lưới dạng câu / tiêu chí + "Thêm"
   const exFirst = exs.includes(gk) && typeof ltSplit === 'function' && ltSplit(S.lt.goal).ex >= 50;   // mục tiêu là kỳ thi và Lộ trình dồn ≥ 50% giờ cho luyện đề: bản đồ kỳ thi lên trước
   const head = inLt ? `<div id="bdo"></div><div id="lt"></div>${ltSeg('map')}<h1>🗺 Chỗ yếu</h1><p class="mute" style="margin:0 0 6px">Bài nào yếu thì chữa trước, rồi học tiếp. Việc chữa hằng ngày cũng có trong 📅 Hôm nay.</p>`
     : `<div id="bdo"></div>${MAP_BACK === 'ct' ? '<div id="bk"></div>' : MAP_BACK === 'lt' ? '<div id="lt"></div>' : ''}<div class="row top"><button class="link" data-a="bk">← ${MAP_BACK === 'ct' ? 'Của tôi' : MAP_BACK === 'lt' ? 'Lộ trình' : 'Học'}</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>`;
@@ -216,6 +215,7 @@ async function mapView() { window.CUR = { view: 'ban-do' }; BACK = null; $app.in
   $app.onclick = e => { let x;
     if ((x = e.target.closest('[data-iecefr]'))) { scrollTo(0, 0); return overview(x.dataset.iecefr); }   // nút của bản đồ IELTS / TOEIC
     if ((x = e.target.closest('[data-ml]'))) { scrollTo(0, 0); return mapFixLesson(red[+x.dataset.ml]); }   // v119: chữa một bài yếu
+    if ((x = e.target.closest('[data-mapex]'))) { scrollTo(0, 0); return x.dataset.mapex === 'toeic' ? toeicView() : ieltsView(); }   // v120: luyện tiếp IELTS / TOEIC
     if ((x = e.target.closest('[data-mrow]'))) { scrollTo(0, 0); return ovOpenPart(x.dataset.mrow, mapLv(x.dataset.mrow)); }
     if ((x = e.target.closest('[data-tovoc]'))) { scrollTo(0, 0); return toVocRun(x.dataset.tovoc, mapView); }
     if ((x = e.target.closest('[data-tospd]'))) { scrollTo(0, 0); return toSpeed(x.dataset.tospd, mapView); }

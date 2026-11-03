@@ -69,6 +69,34 @@ async function tmFix(u) { await toLoad(); if (!NCLIPS.size) try { NCLIPS = new S
   if (u.startsWith('spd:') || (f && f.tr >= 1 && f.td !== d)) return tmTeach(u, run);   // tốc độ: luôn xem cách làm nhanh; chỗ khác: từ lần thử 2
   run(); }
 
+// ---------- v120 bản đồ TOEIC ở 🗺 Chỗ yếu (cùng khuôn với IELTS imMap): ô = Part, dạng câu Part 5, bẫy Part 2, tốc độ; dữ liệu và luật như tmWeak / tmFocus (không đổi).
+// 🟥 yếu = dưới ngưỡng theo điểm mục tiêu (toTh) và đủ chắc (≥ 8 câu ở ≥ 2 bài; tốc độ ≥ 2 lượt) · 🟨 chưa chắc · 🟩 đạt (hoặc đã chữa xong) · ⬜ chưa làm
+const TM_SHORT = { form: 'Dạng từ', verb: 'Động từ', prep: 'Giới từ', conj: 'Liên từ', pron: 'Đại từ', struct: 'So sánh', voc: 'Từ vựng' };
+const TM_TRAP_SHORT = { rep: 'Lặp từ', type: 'Sai loại thông tin', yn: 'Yes/No cho Wh-', rel: 'Cùng chủ đề' };
+const tmShort = u => u.startsWith('p5:') ? 'P5 · ' + (TM_SHORT[u.slice(3)] || u.slice(3)) : u.startsWith('tr:') ? 'Bẫy · ' + (TM_TRAP_SHORT[u.slice(3)] || (TO_TRAP[u.slice(3)] || [u])[0]) : u.startsWith('spd:') ? '⏱ Part ' + u.slice(5) : 'Part ' + u.slice(1);
+function tmCell(u) { const o = toSt(), fx = (o.fo || {}).fx || {};
+  if (u.startsWith('spd:')) { const k = u.slice(4), a = (o.spd || []).filter(r => r.s === k && r.at > (fx[u] || 0)).slice(-3); if (!a.length) return { u, s: fx[u] ? 'vung' : 'chua', v: '' };
+    const avg = a.reduce((t, r) => t + r.avg, 0) / a.length; return { u, s: a.length < 2 ? 'on' : avg > TO_SPD[k][0] ? 'yeu' : 'vung', v: Math.round(avg) + ' giây' }; }
+  const a = ((o.ty || {})[u] || []).filter(b => b.at > (fx[u] || 0)).slice(-10), n = a.reduce((t, b) => t + b.n, 0); if (!n) return { u, s: fx[u] ? 'vung' : 'chua', v: '' };
+  const p = a.reduce((t, b) => t + b.ok, 0) / n, sure = n >= 8 && new Set(a.flatMap(b => b.ids)).size >= 2; return { u, s: !sure ? 'on' : p < toTh() ? 'yeu' : 'vung', v: Math.round(p * 100) + '%' }; }
+const tmRows = () => [['L', ['p2', ...Object.keys(TO_TRAP).map(k => 'tr:' + k), 'p3', 'p4']], ['R', [...Object.keys(TO_T5).map(k => 'p5:' + k), 'p6', 'p7', ...Object.keys(TO_SPD).map(k => 'spd:' + k)]]];
+function tmMap(goal) { const o = toSt(), f = tmFocus(), W = tmWeak(), sure = W.filter(w => w.sure), unsure = W.filter(w => !w.sure), cells = tmRows().map(([k, us]) => [k, us.map(tmCell)]);
+  const has = Object.keys(o.ty || {}).length || (o.spd || []).length, cnt = { yeu: 0, on: 0, vung: 0, chua: 0 }; for (const [, cs] of cells) for (const c of cs) cnt[c.s]++;
+  const top = f.act[0] || sure[0], fix = u => `data-tm="fix|${u}"`, sk = u => TM_SK[tmSk(u)].split(' ')[0];
+  const main = top ? `<button class="pri" ${fix(top.u)} style="margin-top:8px">▶ Chữa chỗ mất điểm nhiều nhất<small style="display:block;font-weight:400;opacity:.9">${sk(top.u)} ${esc(tmName(top.u))}</small></button>`
+    : unsure[0] ? `<button class="pri" ${fix(unsure[0].u)} style="margin-top:8px">▶ Làm thêm để biết chắc<small style="display:block;font-weight:400;opacity:.9">${sk(unsure[0].u)} ${esc(tmName(unsure[0].u))} · ${esc(unsure[0].v)}</small></button>`
+    : `<button class="pri" data-mapex="toeic" style="margin-top:8px">▶ ${has ? 'Luyện tiếp TOEIC' : 'Làm đề thử / luyện TOEIC để tìm chỗ yếu'}</button>`;
+  const row = w => `<button class="urow" ${fix(w.u)}><span>${sk(w.u)} ${esc(tmName(w.u))}<small class="why">${esc(w.v)}${w.p ? ` · ≈ +${w.p} điểm nếu đạt` : ''}</small></span><span class="tag bad">chữa ›</span></button>`;
+  return `<h2>💼 TOEIC${goal ? ' 🎯' : ''} <span class="mute" style="font-size:15px;font-weight:400">· theo Part và dạng câu</span></h2>
+    <div class="box"><div class="row"><b>🎯 Việc cần chữa</b><span class="mute">${sure.length} chỗ yếu</span></div>${main}
+      ${top || unsure.length ? '<button class="link" data-mapex="toeic" style="margin:2px 0 6px">hoặc ▶ Luyện tiếp TOEIC (không cần đợi chữa xong)</button>' : `<p class="mute" style="margin:6px 0 0">${has ? `Chưa thấy chỗ yếu chắc chắn so với ngưỡng mục tiêu ${o.target} (đúng ≥ ${Math.round(toTh() * 100)}%).` : 'Chưa có dữ liệu. Làm 1 đề thử hoặc vài lượt luyện: app tự tìm chỗ làm mất điểm.'}</p>`}
+      ${sure.slice(0, 5).map(row).join('')}${sure.length > 5 ? `<details class="lvmore"><summary>Xem thêm ${sure.length - 5} chỗ yếu ›</summary>${sure.slice(5).map(row).join('')}</details>` : ''}
+      ${unsure.length ? `<p class="mute" style="margin:8px 0 0;font-size:13px">🟨 ${unsure.length} chỗ có thể yếu nhưng chưa đủ dữ liệu (≥ 8 câu ở ≥ 2 bài; tốc độ ≥ 2 lượt).</p>` : ''}</div>
+    <p class="mleg mute">${Object.keys(IM_ST).map(k => `<span><i class="${k}"></i>${IM_ST[k]} ${cnt[k]}</span>`).join('')}</p>
+    <div class="mgrid">${cells.map(([k, cs]) => `<div class="xrow"><span class="ml">${TM_SK[k]}<small>${k === 'L' ? 'Part 2–4' : 'Part 5–7'}</small></span><span class="xc">${cs.map(c => `<button class="xchip ${c.s}" ${fix(c.u)}>${esc(tmShort(c.u))}${c.v ? `<b>${esc(c.v)}</b>` : ''}</button>`).join('')}</span></div>`).join('')}</div>
+    <p class="mute" style="font-size:13px;margin:4px 0 10px">Bấm một ô để luyện đúng Part / dạng đó bằng câu mới.</p>
+    <details class="box more"><summary><b>Thêm</b> <span class="mute">· đang chữa, hàng chờ, tạm gác, phân tích điểm, cách tính</span></summary>${tmBox()}<details class="box"><summary>🔍 Phân tích điểm</summary>${toInsights()}</details></details>`; }
+
 // ---------- ô 🗺 Bản đồ điểm ở màn Luyện TOEIC ----------
 function tmBox() { const f = tmFocus(), o = toSt(), has = Object.keys(o.ty || {}).length || (o.spd || []).length, base = toBase(o.target);
   const row = w => { const fn = tmFreshN(w.u); return `<div style="margin:8px 0;border-top:1px solid var(--line);padding-top:6px"><div class="row"><b>${TM_SK[w.sk].split(' ')[0]} ${esc(w.t)}</b><span class="mute">${esc(w.v)}</span></div>
