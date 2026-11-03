@@ -1,7 +1,7 @@
 // 📖 Tra cứu ngoài từ vựng (v90, 30/10/2026, người sáng lập: "nếu có từ điển từ vựng thì có thể bổ sung từ điển ở những mặt khác… làm hết đi").
 // Một ô tìm của 📖 Từ điển, chọn loại: 📚 Từ · 🧱 Ngữ pháp · 🔗 Cụm từ · ❗ Lỗi hay gặp · 👄 Phát âm · ✍️ Cụm câu. Ở loại 📚 Từ, đang tìm thì hiện thêm
 // "Cũng có" (ngữ pháp / lỗi / cụm câu khớp) để một lần gõ ra mọi mặt; mục từ có "🧱 Ngữ pháp liên quan".
-//   🧱 106 điểm ngữ pháp (np.json, có sẵn) · 🔗 cụm động từ, thành ngữ, cụm hay dùng, mẫu câu, trang trọng / thân mật (dữ liệu từ có sẵn)
+//   🧱 điểm ngữ pháp của np.json (106, v124: 118) · 🔗 cụm động từ, thành ngữ, cụm hay dùng, mẫu câu, trang trọng / thân mật (dữ liệu từ có sẵn)
 //   ❗ lỗi hay gặp, ✍️ cụm câu Viết / Nói, 👄 bảng 44 âm (tracuu.json, Claude soạn, chưa giáo viên kiểm) + 26 cặp âm dễ nhầm (pa.json).
 // Chỉ để tra: không tính vào luật đo.
 let TC = null;

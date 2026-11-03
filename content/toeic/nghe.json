@@ -1,5 +1,5 @@
 {
- "_note": "TOEIC Part 2–4 kiểu (Claude soạn 28/10/2026, chưa người thật kiểm; tên người, công ty bịa; không chép đề ETS). Giọng: tools/build-audio.py (Kokoro, giọng Mỹ + Anh). p2: câu hỏi + 3 lời đáp (đề thật không in chữ, chỉ nghe); tr: loại bẫy của lời đáp sai (rep lặp từ / gần âm · type sai loại thông tin · yn đáp Yes/No cho câu Wh- · rel cùng chủ đề nhưng không trả lời). p3: hội thoại (A nữ, B nam), p4: một người nói; mỗi bài 3 câu hỏi.",
+ "_note": "TOEIC Part 2–4 kiểu (Claude soạn 28/10/2026, chưa người thật kiểm; tên người, công ty bịa; không chép đề ETS). Giọng: tools/build-audio.py (Kokoro, giọng Mỹ + Anh). p2: câu hỏi + 3 lời đáp (đề thật không in chữ, chỉ nghe); tr: loại bẫy của lời đáp sai (rep lặp từ / gần âm · type sai loại thông tin · yn đáp Yes/No cho câu Wh- · rel cùng chủ đề nhưng không trả lời). p3: hội thoại (A nữ, B nam), p4: một người nói; mỗi bài 3 câu hỏi. v124 (3/11/2026): g = bảng / biểu đồ in trong đề cho câu \"Look at the graphic\" ({t, h: [cột], r: [[ô]]}); hội thoại 3 người: A nữ, B nam, C nữ thứ hai (giọng khác).",
  "p2": [
   {
    "id": "t2-01",
@@ -1752,6 +1752,352 @@
      ]
     }
    ]
+  },
+  {
+   "id": "t3-21",
+   "g": {
+    "t": "Room availability: Thursday",
+    "h": [
+     "Room",
+     "Seats",
+     "Free"
+    ],
+    "r": [
+     [
+      "101",
+      "6",
+      "9:00–11:00"
+     ],
+     [
+      "204",
+      "12",
+      "1:00–3:00"
+     ],
+     [
+      "305",
+      "20",
+      "10:00–12:00"
+     ],
+     [
+      "410",
+      "30",
+      "2:00–5:00"
+     ]
+    ]
+   },
+   "lines": [
+    [
+     "A",
+     "Hi, Daniel. I'm organizing the training session on the new expense software this Thursday. Could you help me book a room?"
+    ],
+    [
+     "B",
+     "Sure. How many people are coming?"
+    ],
+    [
+     "A",
+     "Eighteen so far, and it has to be after lunch, because the sales team is out of the office until noon."
+    ],
+    [
+     "B",
+     "Then there's only one room that works. I'll reserve it now. Do you need a projector?"
+    ],
+    [
+     "A",
+     "Yes, please. And could you ask the café to send up coffee at three?"
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What is the woman organizing?",
+     "a": "A training session",
+     "w": [
+      "A sales meeting",
+      "A product launch",
+      "A team lunch"
+     ]
+    },
+    {
+     "q": "Look at the graphic. Which room will the speakers most likely use?",
+     "a": "Room 410",
+     "w": [
+      "Room 101",
+      "Room 204",
+      "Room 305"
+     ]
+    },
+    {
+     "q": "What does the woman ask the man to do?",
+     "a": "Arrange for coffee",
+     "w": [
+      "Install some software",
+      "Contact the sales team",
+      "Print some handouts"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-22",
+   "g": {
+    "t": "Trains to Riverside: Friday",
+    "h": [
+     "Departs",
+     "Arrives"
+    ],
+    "r": [
+     [
+      "7:15",
+      "9:40"
+     ],
+     [
+      "8:05",
+      "10:20"
+     ],
+     [
+      "8:50",
+      "11:05"
+     ],
+     [
+      "9:30",
+      "11:55"
+     ]
+    ]
+   },
+   "lines": [
+    [
+     "A",
+     "Ken, are we still meeting the clients in Riverside on Friday?"
+    ],
+    [
+     "B",
+     "Yes, at eleven. Their office is about a ten-minute walk from the station, so we should arrive by half past ten."
+    ],
+    [
+     "A",
+     "OK. I'd take the earliest train, but I have a video call with our Tokyo office until seven-thirty."
+    ],
+    [
+     "B",
+     "Then we'll take the next one. I'll buy the tickets online tonight and e-mail yours to you."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "Why are the speakers going to Riverside?",
+     "a": "To meet some clients",
+     "w": [
+      "To attend a conference",
+      "To visit a factory",
+      "To interview a job applicant"
+     ]
+    },
+    {
+     "q": "Look at the graphic. Which train will the speakers take?",
+     "a": "The 8:05 train",
+     "w": [
+      "The 7:15 train",
+      "The 8:50 train",
+      "The 9:30 train"
+     ]
+    },
+    {
+     "q": "What will the man do tonight?",
+     "a": "Buy tickets",
+     "w": [
+      "Call the Tokyo office",
+      "Prepare a presentation",
+      "Book a hotel"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-23",
+   "g": {
+    "t": "Folding chairs: quantity discounts",
+    "h": [
+     "Chairs ordered",
+     "Discount"
+    ],
+    "r": [
+     [
+      "1–49",
+      "0%"
+     ],
+     [
+      "50–99",
+      "5%"
+     ],
+     [
+      "100–199",
+      "10%"
+     ],
+     [
+      "200 or more",
+      "15%"
+     ]
+    ]
+   },
+   "lines": [
+    [
+     "A",
+     "Hello, this is Mira Chen from the Lakeside Hotel. I'd like to order some folding chairs for our ballroom."
+    ],
+    [
+     "B",
+     "Certainly. How many do you need?"
+    ],
+    [
+     "A",
+     "We're expecting eighty guests at a conference, and we want forty more for a second room. So, a hundred and twenty in total."
+    ],
+    [
+     "B",
+     "Great. I'll e-mail you an order form. Delivery usually takes five business days."
+    ],
+    [
+     "A",
+     "That's fine. The conference isn't until the end of next month."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "Where does the woman work?",
+     "a": "At a hotel",
+     "w": [
+      "At a furniture store",
+      "At a university",
+      "At a delivery company"
+     ]
+    },
+    {
+     "q": "Look at the graphic. What discount will the woman most likely receive?",
+     "a": "10%",
+     "w": [
+      "0%",
+      "5%",
+      "15%"
+     ]
+    },
+    {
+     "q": "What does the man say he will send?",
+     "a": "An order form",
+     "w": [
+      "A product catalog",
+      "A discount code",
+      "A delivery schedule"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-24",
+   "lines": [
+    [
+     "A",
+     "Thanks for joining me, Tom and Lisa. As you know, we're moving to the new building on the fifteenth."
+    ],
+    [
+     "B",
+     "Do we know who's packing the computers? Last time it took the IT team two days to set everything up again."
+    ],
+    [
+     "C",
+     "I spoke to the IT manager this morning. They'll come in over the weekend, so nothing will be down on Monday."
+    ],
+    [
+     "A",
+     "Perfect. Then, Tom, could you make sure every box has a label with the employee's name and new desk number?"
+    ],
+    [
+     "B",
+     "Sure. I'll pick up some labels from the supply room this afternoon."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What are the speakers mainly discussing?",
+     "a": "An office move",
+     "w": [
+      "A computer upgrade",
+      "A new employee",
+      "A weekend event"
+     ]
+    },
+    {
+     "q": "What does Lisa say about the IT team?",
+     "a": "They will work over the weekend.",
+     "w": [
+      "They need two more days.",
+      "They are short of staff.",
+      "They will buy new computers."
+     ]
+    },
+    {
+     "q": "What will the man do this afternoon?",
+     "a": "Get some labels",
+     "w": [
+      "Pack his computer",
+      "Visit the new building",
+      "Call the IT manager"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-25",
+   "lines": [
+    [
+     "A",
+     "Excuse me. I booked a room with a sea view, but the room I was given faces the parking lot."
+    ],
+    [
+     "B",
+     "I'm very sorry about that. Let me ask my manager. Ms. Park, do we have any sea-view rooms left?"
+    ],
+    [
+     "C",
+     "I'm afraid they're all taken tonight. But we can move you tomorrow morning, and tonight's dinner at our restaurant will be on us."
+    ],
+    [
+     "A",
+     "That sounds fair. What time can I move?"
+    ],
+    [
+     "B",
+     "Any time after ten. I'll have someone carry your bags to the new room."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What problem does the guest mention?",
+     "a": "Her room does not have the view she booked.",
+     "w": [
+      "Her room is too noisy.",
+      "Her bags were lost.",
+      "Her booking was canceled."
+     ]
+    },
+    {
+     "q": "What does the manager offer?",
+     "a": "A free dinner",
+     "w": [
+      "A cheaper room",
+      "A late checkout",
+      "Free parking"
+     ]
+    },
+    {
+     "q": "What will happen after ten o'clock?",
+     "a": "The guest can change rooms.",
+     "w": [
+      "The restaurant will open.",
+      "The manager will call the guest.",
+      "A taxi will arrive."
+     ]
+    }
+   ]
   }
  ],
  "p4": [
@@ -2411,6 +2757,189 @@
       "Test a new design",
       "Attend a meeting",
       "Contact the developers"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-21",
+   "g": {
+    "t": "Green Business Forum: program",
+    "h": [
+     "Time",
+     "Talk",
+     "Speaker"
+    ],
+    "r": [
+     [
+      "9:30",
+      "Opening remarks",
+      "Lena Ortiz"
+     ],
+     [
+      "11:00",
+      "Green packaging",
+      "Amir Patel"
+     ],
+     [
+      "1:30",
+      "Saving energy in offices",
+      "Mark Hill"
+     ],
+     [
+      "3:00",
+      "Smart transport",
+      "Sofia Grant"
+     ]
+    ]
+   },
+   "text": "Good morning, everyone, and welcome to the Green Business Forum. Before we begin, there's a change to today's program. Dr. Amir Patel's train from Boston has been delayed, so he won't arrive until around noon. He'll give his talk in the one-thirty slot, and the speaker who was scheduled for that time has kindly agreed to present at eleven instead. Lunch will be served in the main hall at twelve-thirty. Now, let's begin with our opening remarks.",
+   "qs": [
+    {
+     "q": "Where is the talk most likely taking place?",
+     "a": "At a business conference",
+     "w": [
+      "At a train station",
+      "On a factory tour",
+      "At a job fair"
+     ]
+    },
+    {
+     "q": "Why has the schedule changed?",
+     "a": "A speaker's train is late.",
+     "w": [
+      "A room is not available.",
+      "A session was canceled.",
+      "The opening started late."
+     ]
+    },
+    {
+     "q": "Look at the graphic. Who will speak at eleven o'clock?",
+     "a": "Mark Hill",
+     "w": [
+      "Lena Ortiz",
+      "Amir Patel",
+      "Sofia Grant"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-22",
+   "g": {
+    "t": "Building directory",
+    "h": [
+     "Floor",
+     "Tenant / room"
+    ],
+    "r": [
+     [
+      "1",
+      "Reception, café"
+     ],
+     [
+      "2",
+      "Training center"
+     ],
+     [
+      "3",
+      "Brightline Law"
+     ],
+     [
+      "4",
+      "Conference rooms"
+     ],
+     [
+      "5",
+      "Northpoint Media"
+     ]
+    ]
+   },
+   "text": "Hello, Mr. Romero. This is Julia Brooks from building management. I'm calling about your team meeting next Tuesday morning. The conference rooms will be closed that day because we're replacing the carpets, so we've moved your meeting to the training center. It has the same equipment, including a projector and a large screen. Also, please note that the café will open late that day, at eleven. If you have any questions, call me at extension three-one-two.",
+   "qs": [
+    {
+     "q": "Why is the speaker calling?",
+     "a": "To report a change of location",
+     "w": [
+      "To book a training course",
+      "To ask about a projector",
+      "To complain about noise"
+     ]
+    },
+    {
+     "q": "Look at the graphic. On which floor will the meeting be held?",
+     "a": "Floor 2",
+     "w": [
+      "Floor 1",
+      "Floor 3",
+      "Floor 4"
+     ]
+    },
+    {
+     "q": "What does the speaker say about the café?",
+     "a": "It will open later than usual.",
+     "w": [
+      "It will be closed all day.",
+      "It will serve free coffee.",
+      "It has moved to another floor."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-23",
+   "g": {
+    "t": "Running shoe sales (pairs)",
+    "h": [
+     "Month",
+     "Sales"
+    ],
+    "r": [
+     [
+      "January",
+      "420"
+     ],
+     [
+      "February",
+      "510"
+     ],
+     [
+      "March",
+      "260"
+     ],
+     [
+      "April",
+      "640"
+     ]
+    ]
+   },
+   "text": "Good afternoon. Let's look at the sales figures for our new line of running shoes. Overall, the results are encouraging. The one weak month was when our largest store, on Main Street, closed for two weeks for renovation. Sales picked up again right after it reopened, and April was our best month so far. Because of this success, we're going to offer the shoes in two new colors this summer. Before our next meeting, I'd like each of you to come up with ideas for an advertising campaign.",
+   "qs": [
+    {
+     "q": "What product is the speaker discussing?",
+     "a": "Running shoes",
+     "w": [
+      "Sports clothing",
+      "Store furniture",
+      "Fitness equipment"
+     ]
+    },
+    {
+     "q": "Look at the graphic. When was the Main Street store closed?",
+     "a": "March",
+     "w": [
+      "January",
+      "February",
+      "April"
+     ]
+    },
+    {
+     "q": "What are the listeners asked to do?",
+     "a": "Think of ideas for advertising",
+     "w": [
+      "Visit the Main Street store",
+      "Choose two new colors",
+      "Prepare a sales report"
      ]
     }
    ]

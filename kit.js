@@ -302,8 +302,10 @@ function kPlayDlg(lines) { if ((VOX.src === 'clip' || EXAM_VOX) && lines.every(l
   sayTok++;   // dừng chuỗi speak() đang đọc
   try { const vs = EXAM_VOX && vGB(enVoices()).length ? vGB(enVoices()) : enVoices(), us = v => /en[-_](US|GB)/i.test(v.lang);
     const f = vs.find(v => vSex(v) === 'f' && us(v)) || vs.find(v => vSex(v) === 'f') || vs[0], m = vs.find(v => vSex(v) === 'm' && us(v)) || vs.find(v => vSex(v) === 'm') || vs.find(v => v !== f) || f;
-    for (const [sp, t] of lines) { const u = new SpeechSynthesisUtterance(t), v = sp === 'A' ? f : m; u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = EXAM_VOX ? 1 : VOX.rate;
-      if (sp !== 'A' && m === f) u.pitch = 0.7; speechSynthesis.speak(u); } } catch (e) {} }
+    // người nói thứ ba (C, hội thoại 3 người TOEIC / bài cũ): nữ thứ hai, máy chỉ có một giọng nữ thì đổi cao độ
+    const f2 = vs.find(v => vSex(v) === 'f' && v !== f) || f;
+    for (const [sp, t] of lines) { const u = new SpeechSynthesisUtterance(t), v = sp === 'A' ? f : sp === 'C' ? f2 : m; u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v; u.rate = EXAM_VOX ? 1 : VOX.rate;
+      if (sp === 'B' && m === f) u.pitch = 0.7; if (sp === 'C' && f2 === f) u.pitch = 1.3; speechSynthesis.speak(u); } } catch (e) {} }
 document.addEventListener('click', e => { const b = e.target.closest('[data-kdlg]'); if (!b) return; const [pid, id] = b.dataset.kdlg.split('|'), x = KIT[pid] && KIT[pid].by[id]; if (x) kPlay(x.lines ? { lines: x.lines } : { text: x.text }); });
 // luật chấm lượt đóng vai (như game: need.all phải có đủ, need.any có ít nhất một; số viết bằng chữ cũng tính như chữ số)
 const K_NW = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'twenty-one', 'twenty-two', 'twenty-three', 'twenty-four', 'twenty-five', 'twenty-six', 'twenty-seven', 'twenty-eight', 'twenty-nine', 'thirty'];

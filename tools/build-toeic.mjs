@@ -17,9 +17,15 @@ const p2 = N.p2.map(x => { id(x); if (x.o.length !== 3 || !(x.a >= 0 && x.a < 3)
   if (!x.tr || x.tr.length !== 3 || x.tr[x.a] !== null || x.tr.some((t, i) => i !== x.a && !TR.includes(t))) err.push(x.id + ': nhãn bẫy tr hỏng');
   const r = h(x.id) % 6, perm = [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]][r], o = perm.map(i => x.o[i]), a = perm.indexOf(x.a);
   return { id: x.id, q: x.q, o, a, tr: perm.map(i => x.tr[i]), lines: [['A', x.q], ...o.map((t, i) => ['B', 'ABC'[i] + '. ' + t])] }; });
-for (const x of [...N.p3, ...N.p4]) { id(x); if (x.qs.length !== 3) err.push(x.id + ': cần 3 câu hỏi'); for (const q of x.qs) mcOk(x, q); }
+for (const x of [...N.p3, ...N.p4]) { id(x); if (x.qs.length !== 3) err.push(x.id + ': cần 3 câu hỏi'); for (const q of x.qs) mcOk(x, q);
+  // v124: câu "Look at the graphic" cần bảng g { t, h, r }; mọi phương án phải có trong bảng (đáp án suy từ bảng + lời nghe)
+  const gq = x.qs.filter(q => /^Look at the graphic\./.test(q.q)), cells = x.g ? x.g.r.flat() : [];
+  if (x.g && (!x.g.t || x.g.h.length < 2 || x.g.r.length < 3 || x.g.r.some(r => r.length !== x.g.h.length))) err.push(x.id + ': bảng g hỏng');
+  if (!!x.g !== (gq.length === 1)) err.push(x.id + ': bảng g cần đúng một câu "Look at the graphic"');
+  for (const q of gq) for (const o of [q.a, ...q.w]) if (!cells.some(c => o === c || o.includes(c))) err.push(x.id + ': phương án không có trong bảng: ' + o);
+  if (x.lines && x.lines.some(l => !['A', 'B', 'C'].includes(l[0]))) err.push(x.id + ': người nói chỉ A / B / C'); }
 const seen = new Set(); for (const t of V) for (const [w, vi, ex] of t.w) { if (seen.has(w)) err.push('từ trùng: ' + w); seen.add(w); if (!vi || !ex || !ex.toLowerCase().includes(w.toLowerCase().split(' ')[0].slice(0, 4))) err.push('từ thiếu nghĩa / ví dụ: ' + w); }
 if (err.length) { console.error(err.join('\n')); process.exit(1); }
 const ans = p2.map(x => x.a); if (Math.max(...[0, 1, 2].map(i => ans.filter(a => a === i).length)) > ans.length * 0.5) { console.error('Part 2: đáp án dồn một chữ cái'); process.exit(1); }
 fs.writeFileSync(root + 'toeic.json', JSON.stringify({ _note: 'Dựng bởi tools/build-toeic.mjs từ content/toeic/*.json. Không sửa tay.', p5: P5, p6: D.p6, p7: D.p7, p2, p3: N.p3, p4: N.p4, voc: V }));
-console.log(`toeic.json: Part 2 ${p2.length} · Part 3 ${N.p3.length} bài · Part 4 ${N.p4.length} bài · Part 5 ${P5.length} · Part 6 ${D.p6.length} bài · Part 7 ${D.p7.length} bộ (${D.p7.reduce((s, x) => s + x.qs.length, 0)} câu) · từ vựng ${seen.size} từ / ${V.length} chủ đề · đáp án Part 2 A/B/C: ${[0, 1, 2].map(i => ans.filter(a => a === i).length).join('/')}`);
+console.log(`toeic.json: Part 2 ${p2.length} · Part 3 ${N.p3.length} bài (có bảng ${N.p3.filter(x => x.g).length}, 3 người ${N.p3.filter(x => new Set(x.lines.map(l => l[0])).size > 2).length}) · Part 4 ${N.p4.length} bài (có bảng ${N.p4.filter(x => x.g).length}) · Part 5 ${P5.length} · Part 6 ${D.p6.length} bài · Part 7 ${D.p7.length} bộ (${D.p7.reduce((s, x) => s + x.qs.length, 0)} câu) · từ vựng ${seen.size} từ / ${V.length} chủ đề · đáp án Part 2 A/B/C: ${[0, 1, 2].map(i => ans.filter(a => a === i).length).join('/')}`);

@@ -72,7 +72,8 @@ if T:
         for _, t in x['lines'][1:]: add(t, tp(a, x['id'], 'a'))
     for x in T['p3']:
         fv, mv = tp(TF, x['id'], 'f'), tp(TM, x['id'], 'm')
-        cv = tp(TF if len(set(sp for sp, _ in x['lines'])) > 2 else TM, x['id'], 'c')   # người nói thứ ba (C): giọng khác
+        cv = tp(TF if len(set(sp for sp, _ in x['lines'])) > 2 else TM, x['id'], 'c')   # người nói thứ ba (C, nữ thứ hai): giọng khác
+        if cv == fv: cv = next(v for v in TF if v != fv)
         for sp, t in x['lines']: add(t, fv if sp == 'A' else mv if sp == 'B' else cv)
     for x in T['p4']:
         v = tp(TF + TM, x['id'], 'v')

@@ -1167,6 +1167,23 @@ const R = await run(`(async () => {
     MK = null; if (cbKey('Phần 6: so ý giữa 4 văn bản', { parts: [] }) !== 'xt' || cbKey('Phần 2: nối người với văn bản', { parts: [] }) !== 'pm') bad.push('bản đồ Cambridge chưa nhận phần mới');
     if (!uoeBox('a2')) bad.push('A2 chưa có ô dạng đề thật');
     add('cefr', 'C38', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ nội dung Đọc theo mục tiêu: IELTS 11 dạng câu (mỗi dạng ≥ 3 bài, đề thử dùng được), Cambridge A2 / B1 phần 2, C1 phần 6, bài dài / nối đoạn mỗi cấp ≥ 3, đáp án hợp lệ'); }
+  // v124 đủ nội dung đợt 2: 12 điểm ngữ pháp Nền mới (mỗi mặt đủ câu luyện + thi); TOEIC câu có bảng Part 3 / 4, hội thoại 3 người, từ công sở ≥ 300
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, P = KIT.np;
+    const NEW = ['g-xa1-1', 'g-xa2-1', 'g-xa2-2', 'g-xa2-3', 'g-xa2-4', 'g-xa2-5', 'g-xa2-6', 'g-xb1-1', 'g-xb1-2', 'g-xb1-3', 'g-xb1-4', 'g-xb2-1'];
+    for (const id of NEW) { const x = P.items.find(y => y.id === id); if (!x) { bad.push('thiếu điểm ' + id); continue; } if (x.lv !== id.slice(3, 5)) bad.push(id + ': sai cấp ' + x.lv);
+      for (const ph of ['learn', 'test']) for (const k of ['nhan', 'dien', 'sua']) { let qs = []; tryv(id + ' ' + k, () => { qs = P.q(x, k, ph); }); if (!qs.length) bad.push(id + ': thiếu câu ' + k + ' ' + ph);
+        for (const q of qs) if (q.kind === 'mc' ? !q.opts.includes(q.a) || new Set(q.opts).size !== q.opts.length : !(q.acc && q.acc.length)) bad.push(id + ': câu hỏng ' + k); }
+      if (['a1', 'a2'].includes(x.lv)) { const hq = P.q(x, 'hieu', 'learn'); if (hq.length < 2 || hq.some(q => !q.opts.includes(q.a))) bad.push(id + ': câu hiểu hỏng'); }
+      if (!kItems(P, x.lv).some(y => y.id === id)) bad.push(id + ': không có trong bài cấp ' + x.lv); }
+    await toLoad(); delete S.to; const nv = TO.voc.reduce((t, x) => t + x.w.length, 0); if (nv < 300 || TO.voc.length < 25) bad.push('từ công sở chưa đủ 300: ' + nv);
+    const g3 = TO.p3.filter(x => x.g), g4 = TO.p4.filter(x => x.g), t3 = TO.p3.filter(x => new Set(x.lines.map(l => l[0])).size > 2);
+    if (g3.length < 3 || g4.length < 3 || t3.length < 2) bad.push('Part 3 / 4 thiếu bài có bảng / 3 người: ' + [g3.length, g4.length, t3.length].join('/'));
+    for (const x of [...g3, ...g4]) { const qs = toTalkQs(x, x.lines ? 'p3' : 'p4'); if (qs.some(q => !String(q.head).includes('class="tograph"'))) bad.push(x.id + ': thiếu bảng ở câu hỏi');
+      const gq = qs.filter(q => /^Look at the graphic/.test(q.q)); if (gq.length !== 1 || gq[0].opts.length !== 4) bad.push(x.id + ': câu bảng hỏng'); }
+    for (const x of t3) if (!String(toTalkQs(x, 'p3')[0].head).includes('3 người nói')) bad.push(x.id + ': thiếu nhãn 3 người');
+    tryv('phát 3 giọng', () => kPlayDlg(t3[0].lines)); if (!TO_HOW.L[1].some(t => t.includes('Look at the graphic'))) bad.push('📘 cách làm thiếu mẹo câu có bảng');
+    const seen = new Set(); for (let i = 0; i < 30; i++) toGen.p3(3).forEach(q => { if (q.x.g) seen.add(q.x.id); }); if (!seen.size) bad.push('Part 3 không bốc bài có bảng');
+    add('cefr', 'C39', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'đủ nội dung đợt 2: 12 điểm ngữ pháp Nền mới có câu luyện + thi mọi mặt; TOEIC Part 3 / 4 có bảng (≥ 3 bài mỗi Part), hội thoại 3 người, từ công sở ≥ 300'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');

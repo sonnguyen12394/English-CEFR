@@ -33,6 +33,19 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
     UO.long.filter(x => NEW.test(x.id)).map(x => row(`uoe:${x.id}`, `<b>${esc(x.title)}</b> <span class="mute">${x.lv.toUpperCase()} · ${x.qs ? 'bài dài' : x.xt ? 'so ý' : 'nối'}</span><details><summary>Bài</summary><p class="t">${esc(x.text)}</p></details>`
       + (x.qs ? x.qs.map(q => li(q.q, q.a, q.why)).join('') : (x.pm || x.xt).map(q => li(q.q, x.secs[q.p], q.why)).join('')))));
 }
+// v124 (đợt 2): 12 điểm ngữ pháp Nền mới (content/np-add.json) + TOEIC Part 3 / 4 có bảng, hội thoại 3 người, 180 từ công sở mới
+{ const NA = J('content/np-add.json'), li = (q, a, w) => `<br>• ${esc(q)} → <b>${esc(a)}</b>${w ? ` <span class="mute">(${esc(w)})</span>` : ''}`;
+  add('🧱 Ngữ pháp Nền · 12 điểm mới (v124)', 'Điểm còn thiếu so với khung A1 → B2 (gợi ý, đại từ phản thân, -ed / -ing, tính từ + giới từ, for / since, câu hỏi chủ ngữ, can / could / be able to, mệnh đề thời gian tương lai, make / let / allow, both / either / neither, may / might / could, quá khứ hoàn thành tiếp diễn). Kiểm: công thức, cách dùng đúng; mỗi câu chỉ một đáp án; câu "sai" thật sự sai.',
+    (NA.items || NA).map(x => row(`npx:${x.id}`, `<b>${esc(x.title)}</b> <span class="mute">${x.lv.toUpperCase()}</span><br>${x.form.map(esc).join('<br>')}<br><span class="mute">${x.use.map(esc).join(' · ')}${x.note ? ' · ' + esc(x.note) : ''}</span>`
+      + [...x.mc.learn, ...x.mc.test].map(m => li(m.s, m.a, '✗ ' + m.w.join(' · ✗ '))).join('') + [...x.ty.learn, ...x.ty.test].map(m => li(m.s, m.a.join(' / '))).join('')
+      + [...x.fx.learn, ...x.fx.test].map(m => li('❌ ' + m.bad, m.good, m.why)).join('') + (x.hieu || []).map(h => li(h.s + ' ❓ ' + h.q, h.a, '✗ ' + h.w.join(' · ✗ '))).join(''))));
+  const TN = J('content/toeic/nghe.json'), TV = J('content/toeic/vocab.json'), tg = g => `<br><span class="mute">Bảng: ${esc(g.t)} · ${esc(g.h.join(' | '))} · ${g.r.map(r => esc(r.join(' | '))).join(' · ')}</span>`;
+  add('💼 TOEIC Nghe · Part 3 / 4 có bảng và hội thoại 3 người (v124)', 'Câu "Look at the graphic" (đề thật từ 2016) và hội thoại 3 người. Kiểm: đáp án câu bảng phải cần CẢ bảng và lời nghe; tên người / giới tính khớp câu hỏi (A nữ, B nam, C nữ thứ hai); lời tự nhiên.',
+    [...TN.p3, ...TN.p4].filter(x => x.g || (x.lines && new Set(x.lines.map(l => l[0])).size > 2)).map(x => row(`to:${x.id}`, `<b>${esc(x.id)}</b> <span class="mute">${x.lines ? 'Part 3' : 'Part 4'}</span>${x.g ? tg(x.g) : ''}<details><summary>Lời</summary><p class="t">${esc(x.lines ? x.lines.map(l => l[0] + ': ' + l[1]).join('\n') : x.text)}</p></details>`
+      + x.qs.map(q => li(q.q, q.a, '✗ ' + q.w.join(' · ✗ '))).join(''))));
+  add('💼 TOEIC · 180 từ công sở mới (v124)', '15 chủ đề mới (khách sạn, công nghệ, sản xuất, báo cáo, giao tiếp, đào tạo, an toàn, ngân hàng, bất động sản, bán lẻ, mua hàng, quản lý, môi trường, phúc lợi, truyền thông). Kiểm: nghĩa Việt đúng trong ngữ cảnh công sở, câu ví dụ tự nhiên.',
+    TV.topics.slice(10).map(t => row(`tov:${t.id}`, `<b>${esc(t.t)}</b>` + t.w.map(w => `<br>• <b>${esc(w[0])}</b>: ${esc(w[1])} <span class="mute">· ${esc(w[2])}</span>`).join(''))));
+}
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}
