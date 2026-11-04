@@ -231,6 +231,8 @@ function toSkView(k) { BACK = null; if (k === 'T') k = 'R'; window.CUR = { view:
         ['⏱ Luyện tốc độ', `<p class="mute" style="margin:0 0 6px">Đề thật 200 câu / 120 phút nên thiếu giờ là chuyện thường. Part 5 ~${TO_SPD.p5[0]} giây / câu, Part 7 ~${TO_SPD.p7[0]} giây / câu.</p><div class="duo">${Object.entries(TO_SPD).map(([s, [secs]]) => { const r = o.spd.filter(x => x.s === s).slice(-1)[0]; return `<button class="big2" data-tospd="${s}">${TO_SEC[s][1].replace(/: .*/, '')} · ${secs}s/câu<small>${r ? `lần trước ${r.avg}s, đúng ${r.ok}/${r.n}` : 'chưa làm'}</small></button>`; }).join('')}</div>`]]; }
   $app.innerHTML = '<div id="ie"></div>' + xSkill({ back: '<div class="row top"><button class="link" data-tohome>‹ TOEIC</button><span></span></div>', h1: `${ic} ${vi} <span class="mute" style="font-size:18px">· TOEIC ${tg}</span>`,
     steps, learn: xl.learn, prac: { attr: `data-tobt="${k}"`, sub: !nx ? 'chưa có bài' : toRes(nx) ? 'làm lại bài cũ nhất' : 'bài kế tiếp' }, les: xl,
+    intro: { L: 'Học từng dạng câu (Part 1–4), rồi nghe bộ bài như thi thật. Điểm ước tính từ các bài bạn làm.', R: 'Học từng dạng câu (Part 5–7), rồi làm bộ bài đọc như thi thật. Điểm ước tính từ các bài bạn làm.', V: 'Học từ công sở theo chủ đề; app nhắc ôn đúng lúc để nhớ lâu.' }[k],
+    pracT: { L: 'Làm bộ bài nghe', R: 'Làm bộ bài đọc', V: 'Học từ công sở' }[k], nxName: nx ? nx.name : '',
     lt: { L: 'Bài nghe', R: 'Bài đọc', V: 'Chủ đề' }[k], lsub: `${done}/${L.length} đã làm`, rows, at, more });
   $app.onclick = toClick; scrollTo(0, 0); }
 // v131: màn "cách làm" (v122 toHowView) thay bằng 📘 bài học từng Part / dạng (baihoc.js xlView)

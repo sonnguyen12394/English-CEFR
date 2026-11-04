@@ -181,7 +181,8 @@ function cbSkView(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) r
       { t: 'Mức đúng', v: q != null ? Math.round(q * 100) + '%' : '–', sub: `cần ~${Math.round(C.pass * 100)}%`, ok, cur: q != null && !ok },
       { t: 'Thi thử', btn: `<button class="pri" data-cbx="paper|${lv}|${pi}">▶ ${p.min} phút</button>`, sub: lp != null ? `lần trước ${lp}%` : 'chưa làm' }],
     learn: xl.learn, prac: { attr: `data-cbx="next|${lv}|${pi}"`, sub: !nx ? 'chưa có bài' : R[L.indexOf(nx)] ? 'làm lại bài cũ nhất' : 'bài kế tiếp' }, les: xl,
-    lt: '', lsub: `${done}/${L.length} đã làm`, rows, at: L.indexOf(nx), more: [['🧩 Luyện theo dạng đề', tools],
+    intro: 'Học từng phần của bài thi, rồi làm từng phần như thi thật. Mức đúng tính từ các bài bạn làm.', lesT: 'Phần thi', pracT: 'Làm bài kế tiếp', nxName: nx ? nx.name : '',
+    lt: 'Bài luyện', lsub: `${done}/${L.length} đã làm`, rows, at: L.indexOf(nx), more: [['🧩 Luyện theo dạng đề', tools],
       ['🗺 Bản đồ phần yếu', `<button class="link" data-mapv="lt" data-mapk="cb" data-cbmlv="${lv}" style="margin:0">🗺 Bản đồ phần yếu: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>`],
       ['📋 Các phần của bài thi', `<p class="mute" style="margin:0">${p.parts.map(([lab]) => esc(lab)).join(' · ')}. ${p.min} phút như đề thật.</p>`]] });
   $app.onclick = cbClick; scrollTo(0, 0); }

@@ -19,11 +19,17 @@ function ptRun(u, done, title) { const T = title || `${uLabel(u)} · ${u.vi}`; c
   if (!ws.length) return done(known);
   // v116 (tách 📘 Bài học / 🏋️ Bài tập): trong bài học Từ vựng, bước này là 🏋️ bài tập (tính 🔁 Nhớ) đặt TRƯỚC phần dạy; phần dạy sau đó không tính. Cách chấm không đổi.
   const lesson = !title, mins = Math.max(1, Math.round(ws.length * 12 / 60));
-  $app.innerHTML = `${backRow(T)}<h1>⚡ ${lesson ? 'Bài tập nhanh trước bài học' : 'Biết rồi thì bỏ qua'}</h1><div class="box">${lesson
-      ? `<p style="margin:0">Đây là <b>🏋️ bài tập</b> (tính 🔁 Nhớ), làm trước phần dạy. Bài có ${ws.length} từ (~${mins} phút): mỗi từ chọn nghĩa rồi tự gõ từ. Từ nào đúng cả 2 thì tính đã học, 📖 nghĩa, 💭 nhớ ra từ, ✍️ chính tả tính vào 🔁 Nhớ, và bỏ khỏi bài học. Bài học sau đó chỉ dạy từ chưa biết, không tính 🔁 Nhớ.</p>`
-      : `<p style="margin:0">Bài có ${ws.length} từ. Kiểm tra nhanh (~${mins} phút): mỗi từ 2 câu, chọn nghĩa rồi tự gõ từ. Từ nào đúng cả 2 thì bỏ khỏi bài, chỉ học từ chưa biết.</p>`}
+  // v134 (bản mẫu "Đề xuất · Một bài"): trang mở đầu bài học = tên bài, từ trong bài, 2 bước (① học, không chấm · ② từ mai ôn bằng bài tập, mới tính nhớ), MỘT nút "Bắt đầu học";
+  //   bài tập nhanh (đúng cả 2 câu = bỏ qua từ đã biết, tính 🔁 Nhớ như trước) thành lối phụ "Biết một số từ rồi?". Cách chấm không đổi.
+  const ui = UNITS.filter(x => x.lv === u.lv).indexOf(u) + 1, lm = Math.max(2, Math.round(ws.length * 50 / 60));
+  $app.innerHTML = lesson ? `${backRow(`${LVN[u.lv]} · Bài ${ui}`)}<h1 style="font-size:28px;margin:4px 0 2px">Bài ${ui}</h1><p class="mute" style="margin:0 0 10px">Từ vựng ${LVN[u.lv]} · ${ws.length} từ · khoảng ${lm} phút</p>
+      <div class="chips">${ws.map(w => `<span class="chip">${esc(w.w)}</span>`).join('')}</div>
+      <div class="box lsteps"><div class="ls"><i>1</i><div><b>Học ${ws.length} từ</b><span class="mute">Xem nghĩa, nghe đọc, câu ví dụ, làm thử vài câu. Không chấm điểm.</span></div></div>
+        <div class="ls"><i>2</i><div><b>Từ ngày mai: ôn bằng bài tập</b><span class="mute">App tự đưa vào việc Hôm nay. Làm đúng ở ngày sau mới tính là nhớ.</span></div></div></div>
+      <button class="btnbig" data-pt="skip">▶ Bắt đầu học</button><button class="link" data-pt="go" style="display:block;margin:6px auto;text-align:center">Biết một số từ rồi? Làm bài tập nhanh để bỏ qua từ đã biết ›</button>`
+    : `${backRow(T)}<h1>⚡ Biết rồi thì bỏ qua</h1><div class="box"><p style="margin:0">Bài có ${ws.length} từ. Kiểm tra nhanh (~${mins} phút): mỗi từ 2 câu, chọn nghĩa rồi tự gõ từ. Từ nào đúng cả 2 thì bỏ khỏi bài, chỉ học từ chưa biết.</p>
     <p class="mute" style="margin:6px 0 0">Không đoán bừa: không biết thì bấm "Chưa biết". Đoán trúng chỉ làm sau này quên và phải học lại.</p></div>
-    <button class="pri" data-pt="go">⚡ ${lesson ? 'Làm bài tập nhanh' : 'Kiểm tra trước'}</button><button data-pt="skip">📘 ${lesson ? 'Bỏ qua, vào bài học' : 'Học hết bài'}</button>`;
+    <button class="pri" data-pt="go">⚡ Kiểm tra trước</button><button data-pt="skip">📘 Học hết bài</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return home(); if (e.target.closest('[data-pt="skip"]')) return done(known); if (e.target.closest('[data-pt="go"]')) show(); };
   const next = ok => { res.push(ok); if (step === 0 && ok) { step = 1; return show(); } if (step === 1 && ok) known.add(ws[i].id); step = 0; i++; show(); };
   const show = () => { if (i >= ws.length) return end(); const w = ws[i]; window.CUR = { view: 'kiem-tra-dau-bai', item: u.id + ':' + w.id };

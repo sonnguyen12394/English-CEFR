@@ -55,19 +55,22 @@ function kView(id) { const P = KIT[id];
   const view = P.view && P.lvs.includes(P.view) ? P.view : lv, nw = P.newQs ? kNextNew(P) : null, passed = kPassed(P, lv);
   // v112 (giao diện trực quan): 2 nút chính lên đầu. v116: 📘 Bài học (dạy + luyện thêm, không tính 🔁 Nhớ) · 🏋️ Bài tập (tính); 📰 Đọc / 🎧 Nghe: 📘 mở màn riêng kHoc.
   // v118 khuôn 3 tầng (parts.js steps3 / pRow / pMore / pLvMore): đường 3 bước thay 2 thanh % + ô thi; danh sách bài của cấp đang xem ghi trạng thái bằng chữ; còn lại gập trong "Thêm"
-  const ex = passed ? { k: 'done', v: '✓', sub: 'đã qua' } : wait ? { k: 'wait', v: '⏳', sub: `thi lại sau ${wait} ngày` }
-    : open ? { k: 'open', btn: '<button class="pri" data-k="exam">🚪 Vào thi</button>' } : { k: 'lock', v: '', sub: 'sau bước 1 · 2' };
+  // v134 (khuôn mới, parts.js pTop / pExam): một câu cách học, ô tiến độ, MỘT nút chính ghi rõ bài sẽ mở, nút phụ; ô bài thi lên cấp ở cuối danh sách
+  const exT = pExamT(P.lvs, lv, P.t), u = P.unit || 'bài';
+  const ex = passed ? { k: 'done', t: exT, sub: 'Đã qua.' } : wait ? { k: 'wait', t: exT, sub: `Thi lại sau ${wait} ngày.` }
+    : open ? { k: 'open', t: exT, sub: 'Đã mở: bạn đủ điều kiện thi.', btn: '<button class="pri" data-k="exam" style="margin-top:8px">🚪 Vào thi</button>' } : { ...pLock(p, 'bài'), t: exT };
+  const pri = P.newQs ? (nw ? { attr: 'data-k="new"', t: `▶ Làm bài mới: ${esc(P.name(nw))}`, sub: `${id === 'nghe' ? 'nghe' : 'đọc'} và trả lời · khoảng ${(typeof TODAY_MIN !== 'undefined' && TODAY_MIN[id]) || 6} phút` }
+      : { attr: 'data-k="menu"', t: `🏋️ ${p.due ? `Ôn ${p.due} bài đến hạn` : 'Làm bài tập'}`, sub: 'đã làm hết bài mới của cấp' })
+    : nx ? { attr: 'data-k="learn"', t: `▶ Học bài: ${esc(P.name(nx))}`, sub: 'xem giải thích, ví dụ · rồi làm bài tập' }
+    : { attr: 'data-k="menu"', t: `🏋️ ${p.due ? `Ôn ${p.due} bài đến hạn` : 'Làm bài tập'}`, sub: 'đã học hết bài của cấp · app đo bạn nhớ tới đâu' };
+  const sec = P.newQs ? (p.due && nw ? { attr: 'data-k="menu"', t: `🏋️ Ôn ${p.due} bài đến hạn`, sub: 'ôn đúng lúc để không quên' } : { attr: 'data-k="hoc"', t: '📘 Xem lại bài đã làm, luyện thêm', sub: 'không tính điểm' })
+    : nx ? { attr: 'data-k="menu"', t: p.due ? `🏋️ Ôn ${p.due} bài đến hạn` : p.learn ? '🏋️ Làm bài tập' : '🏋️ Làm luôn bài tập', sub: p.due ? 'ôn đúng lúc để không quên' : p.learn ? 'app đo bạn nhớ tới đâu' : 'biết rồi thì làm luôn, khỏi học' } : null;
   $app.innerHTML = `<div id="part" data-p="${id}"></div>${ovBack}<h1>${P.ic} ${P.t} <span class="mute" style="font-size:18px">· ${LVN[lv]}</span></h1>
     ${P.needAsr && !SREC ? `<div class="box">⚠️ Trình duyệt này không chép được lời nói. Phần ${P.t} chấm bằng máy chép lời: mở trang bằng <b>Safari</b>.</div>` : ''}
-    ${steps3({ t1: P.newQs ? 'Làm bài' : 'Học bài', learn: [p.learn, p.T], unit: 'bài', lq: p.lq, mq: p.mq, need: learnNeed(p), ex })}
-    <div class="duo">${P.newQs
-      ? `<button class="big2" data-k="hoc">📘 Bài học<small>xem lại, luyện thêm</small></button>
-      <button class="big2 pri" data-k="menu">🏋️ Bài tập<small>${nw ? '🆕 bài mới' : p.due ? `${p.due} bài cần ôn` : 'làm, ghi nhớ'}</small></button>`
-      : `<button class="big2 ${p.due || !nx ? '' : 'pri'}" data-k="learn" ${nx ? '' : 'disabled'}>📘 Bài học<small>${nx ? 'xem, học' : 'đã học hết'}</small></button>
-      <button class="big2 ${p.due || !nx ? 'pri' : ''}" data-k="menu">🏋️ Bài tập<small>${p.due ? `${p.due} bài cần ôn` : !p.learn ? 'làm luôn được' : 'làm, ghi nhớ'}</small></button>`}
-    </div>
+    ${pTop({ intro: P_INTRO[id] || P.intro || '', prog: `Đã ${P.newQs ? 'làm' : 'học'} ${p.learn} / ${p.T} ${u}`, pct: p.lq, mem: pMem(p), pri, sec })}
     <h2 style="margin:16px 0 4px">Bài ${LVN[view]}</h2>
     <div id="klist">${kList(P, view, nx, now)}</div>
+    ${view === lv ? pExam(ex) : ''}
     ${pLvMore(P.lvs.map(l => `<button class="chip ${l === view ? 'on' : ''}" data-klv="${l}">${kPassed(P, l) ? '✅ ' : kLocked(P, l) ? '🔒 ' : ''}${LVN[l]} · ${kItems(P, l).length}</button>`).join(''), view !== lv)}
     ${pMore([['📘 Luyện thêm', kExtra(P).length ? `<p class="mute" style="margin:0 0 4px">Không tính 🔁 Nhớ.</p>${kExtraBtns(P)}` : ''],
       ['📊 Nhớ từng mặt', `<p class="mute" style="margin:0 0 6px">Bước 2 = mặt thấp nhất; mỗi mặt cần ${GATE_MEM}%. Một mặt tính khi làm đúng ở một ngày sau ngày học. Bấm một mặt để xem bài của mặt đó.</p>
@@ -82,7 +85,7 @@ function kView(id) { const P = KIT[id];
     if (u) { const x = P.by[u.dataset.kx]; if (kLocked(P, x.lv)) return toast(`Bài này mở khi qua Thi chuyển cấp ${P.t} cấp trước.`);
       return P.newQs && kIsFresh(P, x) ? kNew(P, x, () => kView(id)) : kLearn(P, x); }   // v116: Đọc / Nghe bài chưa gặp = 🏋️ bài tập
     if (!b) return; const a = b.dataset.k;
-    if (a === 'learn' && nx) kLearn(P, nx); if (a === 'hoc') kHoc(P); if (a === 'menu') kMenu(P); if (a === 'exam') kExam(P, lv); };
+    if (a === 'learn' && nx) kLearn(P, nx); if (a === 'new' && nw) return kNew(P, nw, () => kView(id)); if (a === 'hoc') kHoc(P); if (a === 'menu') kMenu(P); if (a === 'exam') kExam(P, lv); };
   window.scrollTo(0, 0); }
 // v118: một dòng = tên bài + trạng thái bằng chữ (trước: ký hiệu ⚪ 🔵 🟢 🆕 + dấu từng mặt, phải đọc dòng chú thích mới hiểu)
 function kList(P, lv, nx, now) { const st = kSt(P.id).cards, lock = kLocked(P, lv), xs = kItems(P, lv), at = xs.findIndex(x => nx ? x.id === nx.id : !st[x.id]);

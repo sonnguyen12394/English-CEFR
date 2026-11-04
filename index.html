@@ -152,6 +152,18 @@
   button.fixrow { display:flex; align-items:center; gap:10px; width:100%; background:none; border:0; border-top:1px solid var(--line); border-radius:0; padding:10px 0; margin:0; text-align:left; color:var(--fg); }
   button.fixrow small { display:block; font-size:14px; color:var(--mute); } button.fixrow .go { margin-left:auto; background:var(--accent); color:#fff; border-radius:10px; padding:7px 12px; font-size:15px; font-weight:600; white-space:nowrap; }
   .lvstep small { display:block; color:var(--mute); font-size:14px; margin-top:2px; }
+  /* v134 📚 Học một trang: thẻ "Tiếng Anh {cấp}" / "Luyện {kỳ thi}" với dòng kỹ năng (tên + số bài + trạng thái) */
+  .hcard { padding:14px 14px 4px; } .hcard.ex { background:var(--warn2); }
+  button.hrow { display:flex; align-items:center; gap:12px; width:100%; background:none; border:0; border-top:1px solid var(--line); border-radius:0; padding:11px 0; margin:0; text-align:left; color:var(--fg); }
+  button.hrow .ic { font-size:22px; width:28px; text-align:center; flex:none; } button.hrow .t { flex:1; min-width:0; } button.hrow .t b { display:block; font-size:17px; } button.hrow .t small { display:block; font-size:14px; color:var(--mute); }
+  button.hrow.ok .t small { color:var(--good); } button.hrow .chev { color:var(--mute); font-size:20px; flex:none; }
+  /* v134 màn kỹ năng một kiểu: ô bài thi lên cấp, 2 ô số đo kỳ thi, dòng thi thử */
+  .examc { display:flex; gap:12px; align-items:flex-start; } .examc .ic { font-size:22px; } .examc.lock { background:none; border:1px solid var(--line); } .examc.open { background:var(--accent2); } .examc.done { background:var(--good2); }
+  .statc { background:var(--card); border-radius:14px; padding:10px 12px; display:flex; flex-direction:column; } .statc b { font-size:22px; line-height:1.2; }
+  .mockr { display:flex; gap:10px; align-items:center; } .mockr button { width:auto; margin:0; }
+  .lsteps { padding:6px 14px; } .lsteps .ls { display:flex; gap:12px; padding:10px 0; } .lsteps .ls + .ls { border-top:1px solid var(--line); }
+  .lsteps .ls i { width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-style:normal; font-weight:700; display:flex; align-items:center; justify-content:center; flex:none; }
+  .lsteps .ls + .ls i { background:none; border:2px solid var(--accent); color:var(--accent); } .lsteps b { display:block; } .lsteps span { display:block; font-size:14px; }
   .days10 { display:grid; grid-template-columns:repeat(10,1fr); gap:5px; margin:8px 0 4px; } .days10 i { height:24px; border-radius:7px; background:var(--line); display:block; } .days10 i.ok { background:var(--good); } .days10 i.now { background:var(--accent); }
   .ltbanner { position:sticky; top:0; z-index:6; display:flex; gap:8px; align-items:center; justify-content:space-between; background:var(--accent2); border-radius:12px; padding:6px 12px; margin:0 0 8px; }
   .ltbanner button { margin:0; }
@@ -198,44 +210,44 @@
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=133"></script>
-<script src="tonghop.js?v=133"></script>
-<script src="exam.js?v=133"></script>
-<script src="gopy.js?v=133"></script>
-<script src="gop.js?v=133"></script>
-<script src="noi.js?v=133"></script>
-<script src="parts.js?v=133"></script>
-<script src="pa.js?v=133"></script>
-<script src="kit.js?v=133"></script>
-<script src="kparts.js?v=133"></script>
-<script src="backup.js?v=133"></script>
-<script src="mock.js?v=133"></script>
-<script src="mocknoi.js?v=133"></script>
-<script src="thi.js?v=133"></script>
-<script src="uoe.js?v=133"></script>
-<script src="nghe2.js?v=133"></script>
-<script src="cap.js?v=133"></script>
-<script src="lib.js?v=133"></script>
-<script src="homnay.js?v=133"></script>
-<script src="vuotcap.js?v=133"></script>
-<script src="nhanh.js?v=133"></script>
-<script src="bando.js?v=133"></script>
-<script src="soloi.js?v=133"></script>
-<script src="ielts.js?v=133"></script>
-<script src="focus.js?v=133"></script>
-<script src="ieplus.js?v=133"></script>
-<script src="iemap.js?v=133"></script>
-<script src="iethat.js?v=133"></script>
-<script src="tudien.js?v=133"></script>
-<script src="tracuu.js?v=133"></script>
-<script src="dieuhuong.js?v=133"></script>
-<script src="huongdan.js?v=133"></script>
-<script src="toeic.js?v=133"></script>
-<script src="tomap.js?v=133"></script>
-<script src="cbmap.js?v=133"></script>
-<script src="dangthi.js?v=133"></script>
-<script src="baihoc.js?v=133"></script>
-<script src="chandoan.js?v=133"></script>
-<script src="lotrinh.js?v=133"></script>
+<script src="app.js?v=134"></script>
+<script src="tonghop.js?v=134"></script>
+<script src="exam.js?v=134"></script>
+<script src="gopy.js?v=134"></script>
+<script src="gop.js?v=134"></script>
+<script src="noi.js?v=134"></script>
+<script src="parts.js?v=134"></script>
+<script src="pa.js?v=134"></script>
+<script src="kit.js?v=134"></script>
+<script src="kparts.js?v=134"></script>
+<script src="backup.js?v=134"></script>
+<script src="mock.js?v=134"></script>
+<script src="mocknoi.js?v=134"></script>
+<script src="thi.js?v=134"></script>
+<script src="uoe.js?v=134"></script>
+<script src="nghe2.js?v=134"></script>
+<script src="cap.js?v=134"></script>
+<script src="lib.js?v=134"></script>
+<script src="homnay.js?v=134"></script>
+<script src="vuotcap.js?v=134"></script>
+<script src="nhanh.js?v=134"></script>
+<script src="bando.js?v=134"></script>
+<script src="soloi.js?v=134"></script>
+<script src="ielts.js?v=134"></script>
+<script src="focus.js?v=134"></script>
+<script src="ieplus.js?v=134"></script>
+<script src="iemap.js?v=134"></script>
+<script src="iethat.js?v=134"></script>
+<script src="tudien.js?v=134"></script>
+<script src="tracuu.js?v=134"></script>
+<script src="dieuhuong.js?v=134"></script>
+<script src="huongdan.js?v=134"></script>
+<script src="toeic.js?v=134"></script>
+<script src="tomap.js?v=134"></script>
+<script src="cbmap.js?v=134"></script>
+<script src="dangthi.js?v=134"></script>
+<script src="baihoc.js?v=134"></script>
+<script src="chandoan.js?v=134"></script>
+<script src="lotrinh.js?v=134"></script>
 </body>
 </html>

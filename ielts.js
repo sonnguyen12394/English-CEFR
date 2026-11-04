@@ -488,6 +488,9 @@ function ieSkView(k) { BACK = null; window.CUR = { view: 'ielts', sk: k }; EXAM_
     steps: [xl.step, { t: 'Band ước', v: bandTxt(b), sub: `cần ${bandTxt(tg)}`, ok: b != null && b >= tg, cur: b != null && b < tg },
       { t: 'Thi thử', btn: `<button class="pri" data-iemk="${IE_PI[k]}">▶ ${P.min} phút</button>`, sub: lm ? `lần trước ≈ ${bandTxt(lm.b[k])}` : 'chưa làm' }],
     learn: xl.learn, prac: { attr: `data-iebt="${k}"`, sub: !nx ? 'chưa có bài' : ieRes(k, nx) ? 'làm lại bài cũ nhất' : 'bài kế tiếp' }, les: xl,
+    intro: { R: 'Học từng dạng câu, rồi làm bài đọc 20 phút như thi thật. Band ước tính từ các bài đọc bạn làm.', L: 'Học từng dạng câu, rồi nghe bài như thi thật. Band ước tính từ các bài nghe bạn làm.',
+      W: 'Học bố cục từng dạng bài, rồi viết theo đề. Máy ước band; nhờ AI chấm để biết chắc hơn.', S: 'Học từng phần thi nói, rồi nói theo chủ đề. Máy chép lời để ước band.' }[k],
+    lesT: { R: 'Dạng câu', L: 'Dạng câu', W: 'Dạng bài', S: 'Phần thi' }[k], pracT: { R: 'Làm bài đọc · 20 phút', L: 'Làm bài nghe', W: 'Viết một đề', S: 'Nói một chủ đề' }[k], nxName: nx ? nx.name : '',
     lt: { R: 'Bài đọc', L: 'Bài nghe', W: 'Đề viết', S: 'Chủ đề nói' }[k], lsub: `${done}/${L.length} đã làm`, rows, at, more });
   $app.onclick = ieClick; scrollTo(0, 0); }
 // v131: màn "cách làm" (v122 ieHowView) thay bằng 📘 bài học từng dạng (baihoc.js xlView): cách làm + ví dụ có lời giải + làm thử

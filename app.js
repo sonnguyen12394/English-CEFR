@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 133;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 134;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -359,7 +359,8 @@ function roadmap(now, nu) {
   const [f, us, done] = chOf(show);
   const rows = us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now, w)).length / u.words.length >= 0.8, isNx = u === nu;
     const [tag, cls] = lock ? ['🔒', ''] : typeof lsState === 'function' && lsState('tv', u, now) === 'yeu' ? ['yếu', 'bad'] : m ? ['đã nhớ', 'good'] : d ? ['đã học', ''] : isNx ? ['học tiếp', 'next'] : [`${u.words.length} từ`, ''];
-    return pRow(`data-un="${u.id}"`, `Bài ${u.bi} · ${esc(u.vi)}`, tag, isNx ? 'next' : cls, lock); }).join('');
+    const gen = /chặng \d+ · bài \d+$/.test(u.vi || '');   // v134: tên bài chung chung (B1 → C2) thì chỉ ghi số bài; mọi bài có từ mẫu để biết bài có gì
+    return pRow(`data-un="${u.id}"`, `Bài ${u.bi}${gen ? '' : ' · ' + esc(u.vi)}<small class="why">${esc(u.words.slice(0, 3).map(w => w.w).join(', '))}…</small>`, tag, isNx ? 'next' : cls, lock); }).join('');
   const others = chs.filter(i => i !== show);
   const chips = LEVELS.map(l => `<button class="chip ${lv === l ? 'on' : ''}" data-lv="${l}">${lockedLv(l) ? '🔒 ' : passed(l) ? '✅ ' : ''}${LVN[l]} · ${WORDS.filter(w => UBY[w.u].lv === l).length} từ</button>`).join('');
   return `<h2 style="margin:16px 0 4px">Bài ${LVN[lv]}</h2>
@@ -394,16 +395,22 @@ function home() {
   const ex = s.k === 'mo' ? { k: 'open', btn: xb('🚪 Vào thi') } : s.k === 're' ? { k: 're', btn: xb('🔁 Thi lại') } : s.k === 'xong' || s.k === 'ben' ? { k: 'done', v: '✓', sub: s.k === 'ben' ? 'nhớ bền' : 'đã qua' }
     : s.k === 'cho' ? { k: 'cho', v: '✓', sub: `thi lại từ ${fmtD(s.t)}` } : { k: 'lock', v: '', sub: ds && ds.k !== 'ben' ? `sau 1 · 2 + ${LVN[dp]} nhớ bền` : 'sau bước 1 · 2' };
   const runs = l => runsOf(l).slice(-4).reverse().map(x => `<div class="mute">${fmtD(x.at)}${x.re ? ' (thi lại)' : ''}: ${x.ok}/${x.n} ${x.pass ? '✅ qua' : '❌ chưa qua'}</div>`).join('');
+  // v134 khuôn mới (parts.js pTop / pExam): một câu cách học, ô tiến độ, MỘT nút "▶ Học bài N · 8 từ", nút phụ ôn / làm bài tập; ô bài thi lên cấp ở cuối danh sách
+  const LU = UNITS.filter(u => u.lv === lv), ui = nu && nu.lv === lv ? LU.indexOf(nu) + 1 : 0, exT = pExamT(LEVELS, lv, 'Từ vựng');
+  const exv = s.k === 'mo' ? { k: 'open', t: exT, sub: 'Đã mở: bạn đủ điều kiện thi.', btn: xb('🚪 Vào thi').replace('class="pri"', 'class="pri" style="margin-top:8px"') }
+    : s.k === 're' ? { k: 'open', t: `Thi lại để xác nhận nhớ bền ${LVN[lv]}`, sub: 'Bài mới, từ khác.', btn: xb('🔁 Thi lại').replace('class="pri"', 'class="pri" style="margin-top:8px"') }
+    : s.k === 'cho' ? { k: 'wait', t: exT, sub: `Đã qua lần 1. Thi lại xác nhận từ ${fmtD(s.t)}.` } : s.k === 'xong' || s.k === 'ben' ? { k: 'done', t: exT, sub: s.k === 'ben' ? 'Đã qua, nhớ bền.' : 'Đã qua.' }
+    : { ...pLock(p, 'từ'), t: exT, ...(LEVELS.indexOf(lv) > 0 && !passed(LEVELS[LEVELS.indexOf(lv) - 1]) ? { sub: s.p } : {}) };
+  const pri = nu ? { attr: `data-a="learn" data-u="${nu.id}"`, t: ui ? `▶ Học bài ${ui}` : `▶ Học tiếp: ${esc(uLabel(nu))}`, sub: `${nu.words.length} từ · khoảng 7 phút` }
+    : { attr: 'data-a="practice"', t: `🏋️ ${p.due ? `Ôn ${p.due} từ đến hạn` : 'Làm bài tập'}`, sub: 'đã học hết bài của cấp · app đo bạn nhớ tới đâu' };
+  const sec = nu ? { attr: 'data-a="practice"', t: p.due ? `🏋️ Ôn ${p.due} từ đến hạn` : p.learn ? '🏋️ Làm bài tập' : '🏋️ Làm luôn bài tập', sub: p.due ? 'ôn đúng lúc để không quên' : p.learn ? 'luyện từ đã học, app đo bạn nhớ tới đâu' : 'biết rồi thì làm luôn, khỏi học' } : null;
   $app.innerHTML = `
     ${ovBack}<h1>📚 Từ vựng <span class="mute" style="font-size:18px">· ${LVN[lv]}</span></h1>
-    ${steps3({ learn: [p.learn, p.T], unit: 'từ', lq: p.lq, mq: p.mq, need: learnNeed(p), ex })}
+    ${pTop({ intro: P_INTRO.tv, prog: `Đã học ${p.learn} / ${p.T} từ`, pct: p.lq, mem: `Nhớ chắc ${levelWords(lv).filter(w => S.cards[w.id] && held(S.cards[w.id], now, w)).length} / ${p.T} từ ${LVN[lv]}. Một từ thành "nhớ chắc" khi ôn đúng qua vài ngày.`, pri, sec })}
     ${ds && ds.k === 're' ? `<div class="box" style="padding:10px 14px;margin:8px 0"><b>🔁 Thi lại xác nhận ${LVN[dp]}</b><p class="mute" style="margin:2px 0 6px">Qua lần này mới mở thi ${LVN[lv]}.</p>${xb('Vào thi lại', dp)}</div>`
       : ds && ds.k === 'cho' ? `<p class="mute" style="margin:6px 0">🔁 Thi lại xác nhận ${LVN[dp]} mở ngày ${fmtD(ds.t)}.</p>` : ''}
-    <div class="duo">
-      <button class="big2 ${p.due || !nu ? '' : 'pri'}" data-a="learn" data-u="${nu ? nu.id : ''}" ${nu ? '' : 'disabled'}>📘 Bài học<small>${nu ? 'xem, học' : 'đã học hết'}</small></button>
-      <button class="big2 ${p.due || !nu ? 'pri' : ''}" data-a="practice">🏋️ Bài tập<small>${p.due ? `${p.due} từ cần ôn` : !p.learn ? 'làm luôn được' : 'làm, ghi nhớ'}</small></button>
-    </div>
     <div id="grid">${roadmap(now, nu)}</div>
+    ${(HOME.lv || lv) === lv ? pExam(exv) : ''}
     ${pMore([['📊 Nhớ từng yêu cầu', `<p class="mute" style="margin:0 0 6px">Bước 2 = yêu cầu thấp nhất; mỗi yêu cầu cần ${GATE_MEM}%. ${p.full} từ nhớ đủ cả ${dimsAt(lv).length} yêu cầu của ${LVN[lv]}. Bấm một yêu cầu để xem bài của nó.</p>
         ${lvIdx(lv) > lvIdx(VPROD_MAX) ? `<p class="mute" style="margin:4px 0">💭 Nhớ ra từ, ✍️ Chính tả, 🧩 Tự điền chỉ tính trên từ cấp ≤ ${LVN[VPROD_MAX]} (≈ 1.900 từ thông dụng nhất); từ ${LVN[lv]} chỉ cần hiểu.</p>` : ''}
         ${(() => { const L = memWords(lv, now).filter(w => S.cards[w.id]); if (!L.length) return ''; const n = [0, 0, 0, 0, 0]; for (const w of L) n[vStage(S.cards[w.id], w, lv)]++;

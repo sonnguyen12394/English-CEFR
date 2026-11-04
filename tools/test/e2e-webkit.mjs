@@ -36,7 +36,7 @@ for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', '
   const q = await answerAll(); const done = (await pg.innerText('#app')).includes('✅ Xong'); check(`${lv} học bài Từ vựng (${q} câu)`, done);
   // mọi phần: màn chính, bài học đầu, mở thi
   for (const id of await pg.evaluate(lv => Object.values(KIT).filter(P => P.lvs.includes(lv)).map(P => P.id), lv)) {
-    await pg.evaluate(id => kView(id), id); await pg.waitForTimeout(500); check(`${lv} ${id} màn chính`, (await pg.innerText('#app')).includes('📘 Bài học') && (await pg.innerText('#app')).includes('Ôn cho nhớ'));   // v118 khuôn 3 tầng
+    await pg.evaluate(id => kView(id), id); await pg.waitForTimeout(500); check(`${lv} ${id} màn chính`, (await pg.innerText('#app')).includes('🏋️') && /Bài thi/.test(await pg.innerText('#app')));   // v134: nút chính + ô bài thi lên cấp
     await pg.evaluate(([id, lv]) => kLearn(KIT[id], kItems(KIT[id], lv)[0]), [id, lv]); await pg.waitForTimeout(200); check(`${lv} ${id} bài học`, (await pg.innerText('#app')).length > 50);
     if (id !== 'noi') { await pg.evaluate(([id, lv]) => kExam(KIT[id], lv), [id, lv]); await pg.waitForTimeout(300); check(`${lv} ${id} mở thi`, !!(await pg.$('[data-k], #ti, textarea, [data-kdlg], button'))); } }
   await pg.evaluate(() => paView()); await pg.waitForTimeout(500); check(`${lv} phát âm màn chính`, (await pg.innerText('#app')).includes('Phát âm'));
@@ -45,7 +45,7 @@ for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', '
   await pg.waitForTimeout(400); let t = await answerAll(120); let tx = await pg.innerText('#app');
   if (tx.includes('Làm vòng 2')) { await pg.click('[data-a="r2"]'); t += await answerAll(120); tx = await pg.innerText('#app'); }
   check(`${lv} thi Từ vựng (${t} câu)`, /Qua/.test(tx), tx.slice(0, 80).replace(/\n/g, ' '));
-  await pg.evaluate(lv => overview(lv), lv); await pg.waitForTimeout(400); check(`${lv} tổng quan`, (await pg.innerText('#app')).includes('Nền tiếng Anh'));   // v112: 📚 Học → 🧱 Nền tiếng Anh
+  await pg.evaluate(lv => overview(lv), lv); await pg.waitForTimeout(400); check(`${lv} tổng quan`, (await pg.innerText('#app')).includes('Tiếng Anh '));   // v134: 📚 Học một trang: "Tiếng Anh {cấp}"
 }
 // 🎓 đề thử B1: mở từ 🎓 Luyện thi → Cambridge (v95), làm trọn bài Đọc (chọn đáp án đầu / gõ chữ), phải ra màn kết quả
 await pg.evaluate(() => cbView('b1')); await pg.waitForTimeout(600); check('Cambridge theo khuôn Nền (v122)', !!(await pg.$('[data-cbsk="b1|0"]')) && !(await pg.$('.btnbig'))); await pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; })); await pg.click('[data-mock="b1"]'); await pg.waitForTimeout(1500);   // v122: đề thử cả đề trong "Thêm" 

@@ -63,6 +63,23 @@ function steps3(o) { const s1 = o.lq >= GATE_LEARN, s2 = o.mq >= GATE_MEM, e = o
   const st = (ok, cur, n, t, v, sub, cls = '') => `<div class="st3 ${ok ? 'ok' : cur ? 'cur' : ''} ${cls}"><i>${ok ? '✓' : n}</i><b>${t}</b><span class="v">${v}</span><span class="s">${sub}</span></div>`;
   return `<div class="steps3">${st(s1, !s1, '1', o.t1 || 'Học bài', `${o.learn[0]}/${o.learn[1]}`, s1 ? 'đủ' : `còn ${o.need} ${o.unit}`)}${st(s2, s1 && !s2, '2', 'Ôn cho nhớ', `${o.mq}%`, s2 ? 'đủ' : `cần ${GATE_MEM}%`)}${e.k === 'open' || e.k === 're'
     ? `<div class="st3 open"><i>3</i><b>Thi lên cấp</b>${e.btn}</div>` : st(e.k === 'done', false, e.k === 'lock' ? '🔒' : '3', 'Thi lên cấp', e.v || '', e.sub || '', e.k === 'lock' ? 'lock' : '')}</div>`; }
+// v134 (bản mẫu "Đề xuất · Từ vựng B1"; người sáng lập "nhìn vào là hiểu"): đầu màn kỹ năng của 🧱 Nền = MỘT câu cách học + ô tiến độ (đã học a / b + thanh + một dòng nhớ)
+//   + MỘT nút chính ghi rõ sẽ mở gì ("▶ Học bài 4 · 8 từ") + một nút phụ (ôn / làm bài tập). Ô bài thi lên cấp ở cuối danh sách nói khi nào mở. Thay đường 3 bước + 2 nút của v118.
+//   Luật đo không đổi: 📘 Học / 🔁 Nhớ / Thi chuyển cấp như cũ, chỉ cách hiện.
+const P_INTRO = { tv: 'Mỗi bài 8 từ: học trước, làm bài tập sau. App nhắc ôn đúng lúc để bạn nhớ lâu.', pa: 'Mỗi bộ một cặp âm dễ nhầm: nghe phân biệt, rồi đọc to cho máy chấm.',
+  np: 'Mỗi bài một điểm ngữ pháp: đọc giải thích và ví dụ, rồi làm bài tập. App nhắc ôn đúng lúc.', nghe: 'Mỗi bài một đoạn nghe: nghe và trả lời trước, xem lời và chỗ sai sau. App chỉ chấm lần đầu nghe bài.',
+  doc: 'Mỗi bài một bài đọc: đọc và trả lời trước, xem lại sau. App chỉ chấm lần đầu đọc bài.', noi: 'Mỗi đề một tình huống: nghe câu hỏi rồi nói trả lời. Máy chép lời để chấm.', viet: 'Xếp từ thành câu, nối câu cho đúng, rồi viết đoạn theo đề.' };
+// o = { intro, prog, pct, mem, pri: { attr, t, sub }, sec: { attr, t, sub } | null }
+const pTop = o => `<p class="mute" style="margin:0 0 10px;font-size:15px">${o.intro}</p>
+  <div class="box" style="margin:0 0 10px;padding:12px 14px"><div class="row"><b>${o.prog}</b><span class="mute">${Math.min(100, o.pct)}%</span></div>${bar(Math.min(100, o.pct), 100, 'var(--accent)')}${o.mem ? `<p class="mute" style="margin:6px 0 0;font-size:14px">${o.mem}</p>` : ''}</div>
+  ${o.pri ? `<button class="btnbig" ${o.pri.attr}>${o.pri.t}${o.pri.sub ? `<small>${o.pri.sub}</small>` : ''}</button>` : ''}
+  ${o.sec ? `<button class="btnbig ghost" ${o.sec.attr} style="font-size:17px">${o.sec.t}${o.sec.sub ? `<small>${o.sec.sub}</small>` : ''}</button>` : ''}`;
+// e = { k: 'lock' | 'open' | 'done' | 'wait', t: tên bài thi, sub, now: số hiện tại, btn }
+const pExam = e => `<div class="box examc ${e.k}"><span class="ic" aria-hidden="true">${e.k === 'lock' ? '🔒' : e.k === 'done' ? '✅' : e.k === 'wait' ? '⏳' : '🚪'}</span><div style="flex:1;min-width:0"><b>${e.t}</b><p style="margin:2px 0 0;font-size:15px">${e.sub}</p>${e.now ? `<p class="mute" style="margin:2px 0 0;font-size:14px">${e.now}</p>` : ''}${e.btn || ''}</div></div>`;
+const pExamT = (lvs, lv, t) => { const nx = lvs[lvs.indexOf(lv) + 1]; return nx ? `Bài thi lên ${LVN[nx]}` : `Bài thi ${t} ${LVN[lv]}`; };
+const pLock = (p, u) => ({ k: 'lock', sub: `Mở khi học ${GATE_LEARN}% số ${u} và nhớ ${GATE_MEM}%.`, now: `Hiện: học ${p.lq}%${p.learn ? ` · nhớ ${p.mq}%` : ''}` });
+// dòng nhớ ở ô tiến độ (Nhớ dồn cả cấp trước: chưa học bài nào của cấp thì chưa hiện %)
+const pMem = p => p.learn ? `Nhớ: ${p.mq}% (tính cả bài cấp trước) · cần ${GATE_MEM}% để mở bài thi` : 'Nhớ: chưa có. Học vài bài rồi làm bài tập để app đo.';
 // danh sách bài: một dòng = tên + trạng thái bằng chữ (cls: 'next' bài kế tiếp, 'warn' cần ôn, 'good' đã nhớ)
 const pRow = (attr, name, tag, cls = '', dis = false) => `<button class="urow ${cls === 'next' ? 'next' : ''}" ${attr} ${dis ? 'disabled' : ''}><span>${cls === 'next' ? '▶ ' : ''}${name}</span><span class="tag ${cls}">${tag}</span></button>`;
 // danh sách dài: hiện N dòng quanh bài kế tiếp (1 bài trước nó), các bài còn lại gập trong "Xem thêm" (vẫn bấm được như cũ)
@@ -81,19 +98,30 @@ const X_FOOT = 'Luyện thi không tính vào 📘 Học / 🔁 Nhớ / Thi chuy
 const stepsX = a => `<div class="steps3">${a.map((s, i) => s.btn ? `<div class="st3 open"><i>${i + 1}</i><b>${s.t}</b>${s.btn}${s.sub ? `<span class="s">${s.sub}</span>` : ''}</div>`
   : `<div class="st3 ${s.ok ? 'ok' : s.cur ? 'cur' : ''} ${s.lock ? 'lock' : ''}"><i>${s.ok ? '✓' : s.lock ? '🔒' : i + 1}</i><b>${s.t}</b><span class="v">${s.v}</span><span class="s">${s.sub}</span></div>`).join('')}</div>`;
 // o = { sw: hàng chọn, chips: chip cấp (Cambridge), t: tên kỳ thi, pv: số đo bên phải, pct, sub: dòng phụ, note: ô nhắc, tiles: [{ attr, ic, t, pct, meta, cls }], more: [[tiêu đề, html]], foot }
-const xHome = o => `<div class="row"><h1 style="font-size:28px;margin:6px 0">Học</h1><span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span></div>${o.sw}${o.chips || ''}
-  <div class="row" style="margin:12px 0 6px"><b style="font-size:19px">${o.t}</b><span class="mute">${o.pv}</span></div>${bar(o.pct, 100, 'var(--good)')}
+// v134: 📚 Học là một trang nên màn kỳ thi có nút "‹ Học" thay hàng chọn Nền / Luyện thi (kỳ thi khác ở 📚 Học → Xem thêm); o.sw không còn dùng
+const xHome = o => `<div class="row top"><button class="link" data-hocnen>‹ Học</button><span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span></div>${o.chips || ''}
+  <div class="row" style="margin:8px 0 6px"><h1 style="font-size:24px;margin:0">${o.t}</h1><span class="mute">${o.pv}</span></div>${bar(o.pct, 100, 'var(--good)')}
   <p class="mute" style="margin:6px 0 12px;font-size:14px">${o.sub}</p>${o.note || ''}
   <div class="grid2">${o.tiles.map(t => `<button class="tile ${t.cls || ''}" ${t.attr}><span class="ic">${t.ic}</span><b>${t.t}</b>${bar(t.pct, 100, t.cls === 'ok' ? 'var(--good)' : 'var(--accent)')}<span class="meta">${t.meta}</span></button>`).join('')}</div>
   ${pMore(o.more, X_FOOT)}${o.foot ? `<p class="mute" style="margin:10px 0 0;font-size:13px">${o.foot}</p>` : ''}`;
 // o = { back: dòng nút về, h1, note, steps, learn: { attr, sub, pri }, prac: { attr, sub }, les: { rows, at, done } (📘 bài học, v131), lt: tên danh sách bài tập, lsub, rows: [pRow], at: dòng kế tiếp, empty, more }
 // v131 (người sáng lập: "tách ra 2 dạng học và bài tập như nền CEFR"): 2 danh sách: 📘 Bài học (mỗi dạng câu / phần một bài, baihoc.js) · 🏋️ Bài tập (bài cụ thể, ghi kết quả).
 // Học hết bài học thì danh sách bài học gập lại; 📘 là nút chính khi còn bài học chưa học.
-const xLes = l => !l || !l.rows.length ? '' : l.done >= l.rows.length ? `<details class="lvmore" style="margin-top:14px"><summary>📘 Bài học · đã học hết ${l.rows.length} bài ›</summary>${l.rows.join('')}</details>`
-  : `<h2 style="margin:16px 0 4px">📘 Bài học <span class="mute" style="font-size:15px;font-weight:400">· ${l.done}/${l.rows.length} đã học</span></h2><div id="xllist">${pWin(l.rows, l.at)}</div>`;
-const xSkill = o => `${o.back}<h1>${o.h1}</h1>${o.note || ''}${stepsX(o.steps)}
-  <div class="duo"><button class="big2 ${o.learn.pri ? 'pri' : ''}" ${o.learn.attr}>📘 Bài học<small>${o.learn.sub}</small></button><button class="big2 ${o.learn.pri ? '' : 'pri'}" ${o.prac.attr}>🏋️ Bài tập<small>${o.prac.sub}</small></button></div>
-  ${xLes(o.les)}<h2 style="margin:16px 0 4px">🏋️ Bài tập${o.lt ? ' · ' + o.lt.charAt(0).toLowerCase() + o.lt.slice(1) : ''}${o.lsub ? ` <span class="mute" style="font-size:15px;font-weight:400">· ${o.lsub}</span>` : ''}</h2><div id="klist">${o.rows.length ? pWin(o.rows, o.at) : `<p class="mute">${o.empty || 'Chưa có bài.'}</p>`}</div>${pMore(o.more, X_FOOT)}`;
+const xLes = (l, t = 'Dạng câu') => !l || !l.rows.length ? '' : l.done >= l.rows.length ? `<details class="lvmore" style="margin-top:14px"><summary>📘 ${t} · đã học hết ${l.rows.length} bài ›</summary>${l.rows.join('')}</details>`
+  : `<h2 style="margin:16px 0 4px">📘 ${t} <span class="mute" style="font-size:15px;font-weight:400">· ${l.done}/${l.rows.length} đã học</span></h2><div id="xllist">${pWin(l.rows, l.at)}</div>`;
+// v134 (bản mẫu "Đề xuất · IELTS Đọc"): màn kỹ năng của kỳ thi = một câu cách học + 2 ô số đo (dạng câu đã học · band / điểm / mức ước) + MỘT nút chính ghi rõ
+//   (▶ Học dạng: … khi còn bài học; không thì ▶ Làm bài kế tiếp) + nút phụ + 📘 danh sách dạng câu + 🏋️ danh sách bài (tên cụ thể) + dòng 🎓 thi thử. Thay đường 3 bước + 2 nút của v122.
+//   o thêm (tuỳ chọn): intro, lesT (tên danh sách bài học: 'Dạng câu' / 'Phần thi'…), pracT (tên nút bài tập), nxName (tên bài kế tiếp)
+const xStat = s => `<div class="statc"><span class="mute">${s.t}</span><b>${s.v}</b><span class="mute" style="font-size:13px">${s.sub || ''}</span></div>`;
+const xSkill = o => { const [s1, s2, s3] = o.steps, lesNext = !!(o.learn && o.learn.pri), hasLes = !!(o.les && o.les.rows && o.les.rows.length), lesT = o.lesT || 'Dạng câu';
+  const lab = String(o.learn.sub || '').replace(/^học tiếp: /, `Học ${lesT.toLowerCase()}: `).replace(/^xem lại: /, 'Xem lại: ');
+  const v2 = s2.v && s2.v !== '–' ? s2.v : 'chưa có', st1 = { t: hasLes ? `${lesT} đã học` : s1.t, v: s1.v, sub: s1.sub }, st2 = { t: s2.t, v: v2, sub: (v2 === 'chưa có' ? 'làm vài bài để có · ' : '') + (s2.sub || '') };
+  const pri = lesNext ? `<button class="btnbig" ${o.learn.attr}>▶ ${lab}<small>khoảng 5 phút · có ví dụ và làm thử 3 câu</small></button>` : '';
+  const prac = `<button class="btnbig${lesNext ? ' ghost' : ''}" ${o.prac.attr}${lesNext ? ' style="font-size:17px"' : ''}>${lesNext ? '🏋️ ' : '▶ '}${o.pracT || 'Làm bài kế tiếp'}<small>${o.nxName ? esc(o.nxName) : o.prac.sub}</small></button>`;
+  const mock = s3 ? `<div class="box mockr"><div style="flex:1;min-width:0"><b>${s3.btn ? '🎓 ' : ''}${s3.t}</b><p class="mute" style="margin:2px 0 0;font-size:14px">${s3.sub || ''}</p></div>${s3.btn || `<b>${s3.v || ''}</b>`}</div>` : '';
+  return `${o.back}<h1>${o.h1}</h1>${o.note || ''}<p class="mute" style="margin:0 0 10px;font-size:15px">${o.intro || 'Học từng dạng câu của đề, rồi làm bài như thi thật.'}</p>
+  <div class="grid2" style="margin:0 0 10px">${xStat(st1)}${xStat(st2)}</div>${pri}${prac}
+  ${xLes(o.les, lesT)}<h2 style="margin:16px 0 4px">🏋️ ${o.lt || 'Bài luyện'}${o.lsub ? ` <span class="mute" style="font-size:15px;font-weight:400">· ${o.lsub}</span>` : ''}</h2><div id="klist">${o.rows.length ? pWin(o.rows, o.at) : `<p class="mute">${o.empty || 'Chưa có bài.'}</p>`}</div>${mock}${pMore(o.more, X_FOOT)}`; };
 // trạng thái một bài kỳ thi: chưa làm = để trống như danh sách bài của Nền / đúng a/b (yếu khi dưới mức cần) / band
 const xTag = (r, need) => !r ? ['', ''] : r.n ? [`${r.ok}/${r.n} câu${need != null && r.ok / r.n < need ? ' · yếu' : ''}`, need != null && r.ok / r.n < need ? 'bad' : 'good'] : [r.t || 'đã làm', r.bad ? 'bad' : 'good'];
 // chọn cấp khác (gập; mở sẵn khi đang xem cấp khác cấp đang học)
@@ -128,43 +156,62 @@ const ovRef = id => id === 'pa' ? typeof PA_REF !== 'undefined' && PA_REF : !!(K
 const ovReq = lv => OV.filter(([id]) => ovIn(id, lv) && !ovRef(id));   // phần bắt buộc để hoàn thành cấp
 const ovDone = lv => { const r = ovReq(lv); return r.length > 0 && r.every(([id]) => ovPassed(id, lv)); };
 const ovStage = () => OV_LV.find(lv => !ovDone(lv)) || OV_LV[OV_LV.length - 1];
+// v134 (bản mẫu "Đề xuất · Học"; người sáng lập 4/11/2026 "nhìn vào là hiểu" → "bạn tự tính cho hợp lý đi"): 📚 Học là MỘT trang, không còn 2 mục Nền / Luyện thi.
+//   ① "Tiếng Anh {cấp}": 7 kỹ năng thành dòng (tên + đã học a / b + cần ôn / bài thi đã mở / đã qua) và một câu nói cách lên cấp;
+//   ② "Luyện {kỳ thi mục tiêu}" (khi mục tiêu là kỳ thi): các kỹ năng của kỳ thi (dạng câu đã học + số bài) + dòng thi thử cả đề, đề thật;
+//   ③ "Xem thêm" gập: cấp khác, kỳ thi khác, thư viện. Kết quả kiểm tra chưa chọn nơi bắt đầu thì có ô "Chọn". Không đổi luật đo.
+const OV_UNIT = { tv: 'bài', pa: 'bộ âm', np: 'điểm ngữ pháp', nghe: 'bài nghe', noi: 'đề nói', doc: 'bài đọc', viet: 'bài viết' };
+function ovCount(id, lv) { if (id === 'tv') { const us = UNITS.filter(u => u.lv === lv); return [us.filter(unitDone).length, us.length]; }
+  if (id === 'pa') { const xs = (PA || []).filter(x => x.lv === lv), st = paSt(); return [xs.filter(x => st[x.id]).length, xs.length]; }
+  const P = KIT[id]; if (!P.items) return [0, 0]; const xs = kItems(P, lv), st = kSt(id).cards; return [xs.filter(x => st[x.id]).length, xs.length]; }
+const ovNextLv = (id, lv) => { const L = ovLvs(id); return L[L.indexOf(lv) + 1] || null; };
+function ovRow(id, ic, t, lv, s) { const [a, b] = ovCount(id, lv), nx = ovNextLv(id, lv), pass = s && s.gate === 'pass', open = s && s.gate === 'open';
+  const ws = id === 'tv' ? (() => { const p = parts(S, Date.now(), lv); return ` · ${p.learn} / ${p.T} từ`; })() : '';
+  const sub = !s ? '…' : pass ? `✓ Đã qua bài thi${nx ? ' lên ' + LVN[nx] : ''}` : open ? '🚪 Bài thi lên cấp đã mở' : `Đã ${KIT[id] && KIT[id].newQs ? 'làm' : 'học'} ${a} / ${b} ${OV_UNIT[id]}${ws}${s.due ? ` · ${s.due} cần ôn` : ''}`;
+  return `<button class="hrow${pass ? ' ok' : ''}" data-ovp="${id}" data-ovpl="${lv}"><span class="ic">${ic}</span><span class="t"><b>${t}</b><small>${sub}${id === 'noi' && ovRef(id) ? ' · không bắt buộc trên máy này' : ''}</small></span><span class="chev">›</span></button>`; }
+// các kỹ năng của kỳ thi: [{ attr, ic, t, sub }]; null khi chưa tải dữ liệu
+function ovExRows(k, lv) { const n = (L, St = xlSt()) => [L.filter(d => St[d.id]).length, L.length];
+  try { if (k === 'ielts') { if (typeof IE === 'undefined' || !IE) return null; const N = { L: 'bài nghe', R: 'bài đọc', W: 'đề viết', S: 'chủ đề nói' };
+      const D = { L: 'dạng câu', R: 'dạng câu', W: 'dạng bài', S: 'phần thi' };
+      return Object.keys(IE_SKV).map(x => { const [a, b] = n(xlList('ielts', x)); return { attr: `data-ovx="ielts|${x}"`, ic: IE_SKV[x][0], t: IE_SKV[x][1], sub: `${a} / ${b} ${D[x]} đã học · ${ieBai(x).length} ${N[x]}` }; }); }
+    if (k === 'toeic') { if (typeof TO === 'undefined' || !TO) return null; const N = { L: 'bộ bài nghe', R: 'bộ bài đọc', V: 'chủ đề' };
+      return Object.keys(TO_SKV).map(x => { const [a, b] = n(xlList('toeic', x)); return { attr: `data-ovx="toeic|${x}"`, ic: TO_SKV[x][0], t: TO_SKV[x][1], sub: `${b ? `${a} / ${b} dạng câu đã học · ` : ''}${toBai(x).length} ${N[x]}` }; }); }
+    if (k === 'cambridge' && typeof MOCK !== 'undefined' && MOCK[lv]) return MOCK[lv].papers.map((p, i) => { const [a, b] = n(xlList('cambridge', lv + '~' + i));
+      return { attr: `data-ovx="cambridge|${lv}|${i}"`, ic: typeof cbIc === 'function' ? cbIc(p.t) : '📄', t: typeof cbPn === 'function' ? cbPn(p.t) : p.t, sub: `${a} / ${b} phần thi đã học · ${p.min} phút` }; });
+  } catch (e) {} return null; }
 function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
-  const loaded = PA && Object.values(KIT).every(P => P.items);
-  if (!loaded) Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]).then(() => { if (document.getElementById('ov')) overview(sel); }).catch(() => {});
-  const stage = ovStage(); if (sel) OV_SEL = sel; const lv = OV_SEL && OV_LV.includes(OV_SEL) ? OV_SEL : stage;
-  const ids = OV.filter(([id]) => ovIn(id, lv)), st = ids.map(([id]) => ovStat(id, lv)), req = ovReq(lv), done = req.filter(([id]) => ovPassed(id, lv)).length, refs = ids.filter(([id]) => ovRef(id));
-  const absent = OV.filter(([id]) => !ovIn(id, lv)).map(([, ic, t]) => ic + ' ' + t);
-  // Nên làm: bài cần ôn (mọi phần, cấp đang học của phần); không có thì bài mới của phần có 📘 Học thấp nhất trong cấp đang học
-  const dueAll = loaded ? OV.map(([id, ic, t]) => { const l = id === 'tv' ? curLevel() : id === 'pa' ? paLevel() : kLv(KIT[id]); return [[id, ic, t], ovStat(id, l), l]; }).filter(([, s]) => s && s.due).sort((a, b) => b[1].due - a[1].due)[0] : null;
-  const lowS = OV.filter(([id]) => ovIn(id, stage) && !ovPassed(id, stage)).map(o => [o, ovStat(o[0], stage)]).filter(([, s]) => s && s.lq < 100).sort((a, b) => a[1].lq - b[1].lq)[0];
-  // v86: một chỗ bảo "làm gì" = ô 📅 Hôm nay (bỏ ▶ Nên làm, 🗓 Gợi ý mỗi ngày ~45 phút: trái với mục tiêu phút); việc ôn / bài mới mở thẳng phần cần làm
-  const chip = l => { const ok = ovDone(l), cur = l === stage;
-    return `<button class="chip ${l === lv ? 'on' : ''}" data-ovl="${l}">${ok ? '✅ ' : cur ? '▶ ' : OV_LV.indexOf(l) > OV_LV.indexOf(stage) ? '🔒 ' : ''}${LVN[l]}</button>`; };
-  const tips = { due: dueAll ? [dueAll[0][0], dueAll[2]] : null, low: lowS ? [lowS[0][0], stage] : null };
-  // hiện dần: người mới chỉ thấy Hôm nay + xếp cấp + các phần; 🧰 luyện thi mở khi có phần đầu tiên qua thi hoặc từ A2; sẵn sàng thi khi ≥ 3 phần của cấp qua thi
-  const showLv = OV_ALL ? OV_LV : OV_LV.filter(l => OV_LV.indexOf(l) <= Math.max(OV_LV.indexOf(stage) + 1, OV_LV.indexOf(lv)));
-  const prevMq = ovMqLS(), nextMq = { ...prevMq }, drop = (id, s) => { const k = id + '|' + lv, o = prevMq[k]; if (loaded && s) nextMq[k] = s.mq; return o != null && s && s.mq < o ? o - s.mq : 0; };
+  const g = S.lt && S.lt.goal, k = g && typeof ltKind === 'function' ? ltKind(g) : 'cefr';
+  const loaded = PA && Object.values(KIT).every(P => P.items), exLoaded = k === 'ielts' ? typeof IE !== 'undefined' && !!IE : k === 'toeic' ? typeof TO !== 'undefined' && !!TO : true;
+  if (!loaded || !exLoaded) Promise.all([paLoad(), ...Object.values(KIT).map(kLoad), k === 'ielts' && typeof ieLoad === 'function' ? ieLoad() : null, k === 'toeic' && typeof toLoad === 'function' ? toLoad() : null])
+    .then(() => { if (document.getElementById('ov')) overview(sel); }).catch(() => {});
+  const stage = ovStage(); if (sel) OV_SEL = sel; const lv = OV_SEL && OV_LV.includes(OV_SEL) ? OV_SEL : stage, other = lv !== stage;
+  const ids = OV.filter(([id]) => ovIn(id, lv)), st = ids.map(([id]) => ovStat(id, lv)), req = ovReq(lv), nx = OV_LV[OV_LV.indexOf(lv) + 1];
+  const pend = typeof plPend === 'function' ? plPend(stage) : null, need = g && typeof ltGoalLv === 'function' ? ltGoalLv(g) : null;
+  const sp = g && k !== 'cefr' && typeof ltSplit === 'function' ? ltSplit(g) : null, exLv = k === 'cambridge' ? need : null, exR = k !== 'cefr' ? ovExRows(k, exLv) : null;
+  const pct = typeof ltLvPct === 'function' ? ltLvPct(lv) : 0, en = { ielts: 'IELTS', toeic: 'TOEIC', cambridge: 'Cambridge' }[k];
+  const exCard = k === 'cefr' ? '' : `<div class="box hcard ex"><div class="row"><b style="font-size:19px">Luyện ${esc(ltGoalName(g))}</b><span class="mute" style="font-size:14px">🎯 mục tiêu</span></div>
+      <p class="mute" style="margin:2px 0 4px;font-size:15px">Học từng ${k === 'cambridge' ? 'phần của đề' : 'dạng câu của đề'}, rồi làm bài như thi thật.</p>
+      ${sp && !sp.ex ? `<p style="margin:4px 0;font-size:15px">⚖️ Chưa cần luyện đề: trình độ còn xa mức ${en} cần (${LVN[need]}). Lộ trình dồn giờ cho tiếng Anh trước; vẫn xem được.</p>` : ''}
+      ${exR ? exR.map(r => `<button class="hrow" ${r.attr}><span class="ic">${r.ic}</span><span class="t"><b>${esc(r.t)}</b><small>${r.sub}</small></span><span class="chev">›</span></button>`).join('') : '<p class="mute">Đang tải…</p>'}
+      <button class="hrow" data-exthi><span class="ic">🎓</span><span class="t"><b>Thi thử cả đề, đề thật</b><small>Làm như thi thật, ra ${k === 'ielts' ? 'band' : k === 'toeic' ? 'điểm' : 'mức đúng'} ước</small></span><span class="chev">›</span></button></div>`;
+  const others = [['cefr', '🎓 Cambridge'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']].filter(([x]) => x !== (k === 'cambridge' ? 'cefr' : k));
   const ai = LEVELS.indexOf(lv) >= LEVELS.indexOf('b1');
-  // v112 (giao diện trực quan): nút chuyển 🧱 Nền tiếng Anh · 🎓 Luyện thi; cấp; MỘT thanh "x / y kỹ năng xong"; 7 kỹ năng thành ô lớn (biểu tượng, thanh, một dòng trạng thái).
-  //   Chi tiết 📘 Học / 🔁 Nhớ từng mặt nằm trong màn của từng kỹ năng. Không đổi luật đo.
-  const pl = typeof plTop === 'function' ? plTop(stage) : null;
-  const tile = ([id, ic, t], s) => { const pass = s && s.gate === 'pass', open = s && s.gate === 'open', p = s ? Math.round((Math.min(1, s.lq / GATE_LEARN) + Math.min(1, s.mq / GATE_MEM)) / 2 * 100) : 0;
-    const meta = !s ? '…' : pass ? `✓ Xong ${LVN[lv]}` : open ? '🚪 Sẵn sàng thi' : s.due ? `🔁 ${s.due} bài cần ôn` : !s.lq ? 'Chưa học' : `${p}%`;
-    return `<button class="tile ${pass ? 'ok' : open ? 'open' : ''}" data-ovp="${id}" data-ovpl="${lv}"><span class="ic">${ic}</span><b>${t}</b>${bar(pass ? 100 : p, 100, pass ? 'var(--good)' : 'var(--accent)')}<span class="meta">${meta}${ovRef(id) ? ' · tham khảo' : ''}</span></button>`; };
   $app.innerHTML = `<div id="ov"></div><div class="row"><h1 style="font-size:28px;margin:6px 0">Học</h1><span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span></div>
-    ${typeof exSwitch === 'function' ? exSwitch('nen') : ''}
+    <p class="mute" style="margin:0 0 10px">Trình độ ${LVN[stage]}${g ? ` · mục tiêu ${esc(ltGoalName(g))}` : ''}</p>
     ${S.fake ? '<p class="mute" style="margin:4px 0">🧪 Đang dùng dữ liệu thử (💾 Dữ liệu để quay lại dữ liệu thật).</p>' : ''}
-    <div class="chips">${showLv.map(chip).join('')}${OV_ALL ? '' : '<button class="chip" data-ovall>⋯ Mọi cấp</button>'}</div>
-    <div class="row" style="margin:12px 0 6px"><b style="font-size:19px">Trình độ ${LVN[lv]}</b><span class="mute">${done} / ${req.length} kỹ năng xong</span></div>
-    ${bar(Math.round(done / (req.length || 1) * 100), 100, 'var(--good)')}
-    <p class="mute" style="margin:6px 0 12px;font-size:14px">Hoàn thành ${LVN[lv]} trong app khi ${req.length} kỹ năng qua bài thi lên cấp.${pl ? ` · 🧭 xếp cấp: ${LVN[pl]}` : ''}</p>
-    ${OV_LV.indexOf(lv) > OV_LV.indexOf(stage) ? `<div class="box" style="margin:0 0 12px"><b>🔒 Cấp này sau ${LVN[stage]}</b><p class="mute" style="margin:4px 0">Vẫn xem và học trước được. Đã biết rồi thì thi vượt.</p>${typeof vcView === 'function' ? `<button data-vcv="${lv}" style="margin:4px 0 0">🚀 Thi vượt lên ${LVN[lv]}</button>` : ''}</div>` : ''}
-    <div class="grid2">${ids.map((o, i) => tile(o, st[i])).join('')}</div>
-    ${typeof libBox === 'function' ? libBox(lv) : ''}
+    ${pend ? `<div class="box"><b>Bài kiểm tra: bạn khoảng ${LVN[pend]}</b><p class="mute" style="margin:4px 0">Chọn nơi bắt đầu để không phải học lại cấp dưới.</p><button class="pri" data-plstart>Chọn nơi bắt đầu ›</button></div>` : ''}
+    ${other ? `<div class="row" style="margin:0 0 8px"><span class="mute">Đang xem cấp ${LVN[lv]}</span><button class="link" data-ovl="${stage}">‹ Về ${LVN[stage]}</button></div>` : ''}
+    <div class="box hcard"><div class="row"><b style="font-size:19px">Tiếng Anh ${LVN[lv]}</b><span class="mute" style="font-size:14px">${pct}%</span></div>
+      <p class="mute" style="margin:2px 0 4px;font-size:15px">${nx ? `Học đủ các kỹ năng. Qua bài thi của ${req.length} kỹ năng để lên ${LVN[nx]}.` : `Qua bài thi của ${req.length} kỹ năng là xong cấp cuối.`}</p>
+      ${ids.map((o, i) => ovRow(o[0], o[1], o[2], lv, st[i])).join('')}</div>
+    ${other ? '' : exCard}
+    <details class="box more"><summary><b>Xem thêm</b> <span class="mute">· cấp khác, kỳ thi khác, thư viện</span></summary>
+      <p style="margin:10px 0 4px"><b>Cấp khác</b></p><div class="chips">${OV_LV.map(l => `<button class="chip ${l === lv ? 'on' : ''}" data-ovl="${l}">${ovDone(l) ? '✓ ' : l === stage ? '● ' : ''}${LVN[l]}</button>`).join('')}</div>
+      <p style="margin:12px 0 4px"><b>Kỳ thi khác</b></p><div class="chipset ex3">${others.map(([x, nme]) => `<button data-exsel="${x}">${nme}</button>`).join('')}</div>
+      ${typeof libBox === 'function' ? libBox(lv) : ''}</details>
     ${ai ? '<p class="mute" style="margin:10px 0 0;font-size:13px">🤖 Nội dung cấp này do AI soạn, chưa giáo viên kiểm. Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p>' : ''}`;
-  for (const [id] of ids) drop(id, st[ids.findIndex(x => x[0] === id)]);   // giữ mốc 🔁 Nhớ để màn kỹ năng báo "Nhớ giảm"
-  if (loaded) ovMqLS(nextMq);
-  $app.onclick = e => { if (e.target.closest('[data-ovall]')) { OV_ALL = true; return overview(); } const c = e.target.closest('[data-ovl]'); if (c) return overview(c.dataset.ovl);
+  $app.onclick = e => { const c = e.target.closest('[data-ovl]'); if (c) { scrollTo(0, 0); return overview(c.dataset.ovl); }
+    const x = e.target.closest('[data-ovx]'); if (x) { const [ek, a, b2] = x.dataset.ovx.split('|'); scrollTo(0, 0); return ek === 'ielts' ? ieSkView(a) : ek === 'toeic' ? toSkView(a) : cbSkView(a, +b2); }
     const b = e.target.closest('[data-ovp]'); if (!b) return; const id = b.dataset.ovp, l = b.dataset.ovpl; scrollTo(0, 0);
     if (id === 'tv') { HOME.lv = l; HOME.open = null; return home(); }
     if (id === 'pa') PA_VIEW = l; else if (KIT[id]) KIT[id].view = l;

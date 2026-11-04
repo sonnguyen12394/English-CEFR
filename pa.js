@@ -58,16 +58,18 @@ function paView() {
   const open = gateOpen(p, 'pa|' + lv, now), run = paRuns().filter(r => r.lv === lv).slice(-1)[0], wait = run && !run.pass ? Math.max(0, 7 - (dayOf(now) - dayOf(run.at))) : 0;
   // v118 khuôn 3 tầng (parts.js): đường 3 bước, 2 nút, danh sách bộ âm của cấp đang xem; yêu cầu các cấp sau, bài thi, luyện thêm, bộ chấm âm gập trong "Thêm"
   const passed = paPassed(lv), view = PA_VIEW || lv;
-  const ex = passed ? { k: 'done', v: '✓', sub: 'đã qua' } : wait ? { k: 'wait', v: '⏳', sub: `thi lại sau ${wait} ngày` }
-    : open ? { k: 'open', btn: '<button class="pri" data-pa="exam">🚪 Vào thi</button>' } : { k: 'lock', v: '', sub: 'sau bước 1 · 2' };
+  // v134 khuôn mới (parts.js pTop / pExam): một câu cách học, ô tiến độ, MỘT nút "▶ Học bộ âm: …", nút phụ; ô bài thi lên cấp ở cuối danh sách
+  const exT = pExamT(PA_LV, lv, 'Phát âm');
+  const ex = passed ? { k: 'done', t: exT, sub: 'Đã qua.' } : wait ? { k: 'wait', t: exT, sub: `Thi lại sau ${wait} ngày.` }
+    : open ? { k: 'open', t: exT, sub: 'Đã mở: bạn đủ điều kiện thi.', btn: '<button class="pri" data-pa="exam" style="margin-top:8px">🚪 Vào thi</button>' } : { ...pLock(p, 'bộ âm'), t: exT };
+  const pri = nx ? { attr: 'data-pa="learn"', t: `▶ Học bộ âm: ${esc(nx.title || nx.id)}`, sub: 'nghe mẫu, cách đặt miệng · rồi làm bài tập' }
+    : { attr: 'data-pa="menu"', t: `🏋️ ${p.due ? `Ôn ${p.due} bộ đến hạn` : 'Làm bài tập'}`, sub: 'đã học hết bộ âm của cấp' };
+  const sec = nx ? { attr: 'data-pa="menu"', t: p.due ? `🏋️ Ôn ${p.due} bộ đến hạn` : p.learn ? '🏋️ Làm bài tập' : '🏋️ Làm luôn bài tập', sub: p.due ? 'ôn đúng lúc để không quên' : p.learn ? 'nghe phân biệt, đọc to' : 'biết rồi thì làm luôn, khỏi học' } : null;
   $app.innerHTML = `<div id="part" data-p="pa"></div>${ovBack}<h1>👄 Phát âm <span class="mute" style="font-size:18px">· ${LVN[lv]}</span></h1>
-    ${steps3({ learn: [p.learn, p.T], unit: 'bộ', lq: p.lq, mq: p.mq, need: learnNeed(p), ex })}
-    <div class="duo">
-      <button class="big2 ${p.due || !nx ? '' : 'pri'}" data-pa="learn" ${nx ? '' : 'disabled'}>📘 Bài học<small>${nx ? 'xem, học' : 'đã học hết'}</small></button>
-      <button class="big2 ${p.due || !nx ? 'pri' : ''}" data-pa="menu">🏋️ Bài tập<small>${p.due ? `${p.due} bộ cần ôn` : !p.learn ? 'làm luôn được' : 'làm, ghi nhớ'}</small></button>
-    </div>
+    ${pTop({ intro: P_INTRO.pa, prog: `Đã học ${p.learn} / ${p.T} bộ âm`, pct: p.lq, mem: pMem(p), pri, sec })}
     <h2 style="margin:16px 0 4px">Bộ âm ${LVN[view]}</h2>
     <div id="palist">${paList(view, nx, now)}</div>
+    ${view === lv ? pExam(ex) : ''}
     ${pLvMore(PA_LV.map(l => `<button class="chip ${l === view ? 'on' : ''}" data-palv="${l}">${paPassed(l) ? '✅ ' : paLocked(l) ? '🔒 ' : ''}${LVN[l]} · ${PA.filter(x => x.lv === l).length} bộ</button>`).join(''), view !== lv)}
     ${pMore([['📘 Luyện thêm', `<p class="mute" style="margin:0 0 4px">Không tính 🔁 Nhớ.</p>${PA_EXTRA}`],
       ['📊 Nhớ từng mặt', `<p class="mute" style="margin:0 0 6px">Bước 2 = mặt thấp nhất; mỗi mặt cần ${GATE_MEM}%. 👂 Phân biệt: nghe một từ, chọn đúng từ trong cặp. 👄 Đọc đúng: đọc từ có âm đó, bộ chấm âm ≥ ${PA_OK[lv]} (cấp ${LVN[lv]}). Tính khi đúng ở một ngày sau ngày học. Bấm một mặt để xem bài của mặt đó.</p>
