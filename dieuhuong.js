@@ -35,9 +35,9 @@ async function cbView(lv) { BACK = null; window.CUR = { view: 'cambridge' }; EXA
 async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
   if (!(PA && Object.values(KIT).every(P => P.items))) { $app.innerHTML = '<div id="bk"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); } catch (e) {} }
   const now = Date.now(), t = dayOf(now), stage = ovStage(), mins = [...Array(7)].reduce((s, _, i) => s + actMin(t - i), 0);
-  const nW = Object.keys(S.cards || {}).length, nK = Object.values(S.k || {}).reduce((s, k) => s + Object.keys(k.cards || {}).length, 0);
+  const nW = Object.values(S.cards || {}).filter(c => !c.vc).length, nK = Object.values(S.k || {}).reduce((s, k) => s + Object.values(k.cards || {}).filter(c => !c.vc).length, 0);   // v135: thẻ tạo khi bỏ qua theo kiểm tra / thi vượt (vc) không phải đã học trong app
   // v97: "hoàn thành trong app" (phần bắt buộc qua thi) tách khỏi "đạt" (đề mẫu chính thức của Cambridge, realOk)
-  const passedLv = OV_LV.filter(ovDone), realLv = typeof realOk === 'function' ? OV_LV.filter(l => (S.real && S.real[l] || []).some(realOk)) : [];
+  const apL = S.place && S.place.ap ? S.place.ap.lv : null, skipLv = apL ? OV_LV.filter(l => ovDone(l) && OV_LV.indexOf(l) < OV_LV.indexOf(apL)) : [], passedLv = OV_LV.filter(l => ovDone(l) && !skipLv.includes(l)), realLv = typeof realOk === 'function' ? OV_LV.filter(l => (S.real && S.real[l] || []).some(realOk)) : [];
   const f = typeof mapFocus === 'function' && (nW || nK) ? mapFocus(now) : null, vn = typeof vwSt === 'function' ? vwSt().length : 0, vd = typeof vwDue === 'function' ? vwDue(now).length : 0;
   // kết quả đề thật: IELTS (nhập theo từng câu / tổng), TOEIC, Cambridge (đề mẫu chính thức)
   const ie = S.ie || {}, th = (ie.th || []).slice(-3).reverse(), ioff = (ie.off || []).filter(r => !r.name).slice(-2).reverse(), toff = ((S.to || {}).off || []).slice(-2).reverse();
@@ -47,15 +47,15 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
     ...toff.map(r => `💼 TOEIC đề thật: L ${r.L} · R ${r.R}`), ...cb.map(([l, r]) => `🎓 ${esc((RN[l] || {}).name || LVN[l])}: Nghe ${r.l}/${r.L} · Đọc / Viết ${r.rw}/${r.RW}`)];
   $app.innerHTML = `<div id="bk"></div><h1>👤 Của tôi</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
     ${typeof hdView === 'function' ? '<button data-hdv>📘 Luật và cách dùng: học thế nào, tính điểm ra sao</button>' : ''}
-    <div class="box"><b>📈 Tiến độ</b><p style="margin:6px 0">Cấp đang học: <b>${LVN[stage]}</b>${typeof plTop === 'function' && plTop(stage) ? ` · 🧭 xếp cấp: ${LVN[plTop(stage)]}` : ''}${passedLv.length ? ` · hoàn thành trong app: ${passedLv.map(l => LVN[l]).join(', ')}` : ''}</p>
-      <p style="margin:0 0 6px">🎓 Đạt bằng đề mẫu chính thức: ${realLv.length ? `<b>${realLv.map(l => LVN[l]).join(', ')}</b>` : '<span class="mute">chưa có (làm ở màn 🎓 Cambridge)</span>'}</p>
-      <p class="mute" style="margin:0">📚 ${nW} từ đã học · 🧩 ${nK} bài kỹ năng · ⏱ hôm nay ${actMin(t)} / ${actGoal()} phút · 7 ngày ${mins} phút · 🔥 ${actStreak(now)} ngày liền</p></div>
-    <p class="mute" style="margin:4px 0 10px">🗺 Chỗ yếu${f ? ` (${f.act.length} chỗ đang chữa)` : ''} nằm ở <button class="link" data-mapv="lt">🧭 Lộ trình → 🗺 Chỗ yếu ›</button></p>
+    <div class="box"><b>📈 Tiến độ</b><p style="margin:6px 0">Trình độ của bạn: <b>${LVN[(typeof plPend === 'function' && plPend(stage)) || stage]}</b>${skipLv.length ? ` · bỏ qua theo bài kiểm tra: ${LVN[skipLv[0]]}${skipLv.length > 1 ? ' → ' + LVN[skipLv[skipLv.length - 1]] : ''}` : ''}${passedLv.length ? ` · hoàn thành trong app: ${passedLv.map(l => LVN[l]).join(', ')}` : ''}</p>
+      ${realLv.length || passedLv.length || (typeof ltKind === 'function' && ltKind() === 'cambridge') ? `<p style="margin:0 0 6px">🎓 Đạt bằng đề mẫu chính thức: ${realLv.length ? `<b>${realLv.map(l => LVN[l]).join(', ')}</b>` : '<span class="mute">chưa có (làm ở màn 🎓 Cambridge)</span>'}</p>` : ''}
+      <p class="mute" style="margin:0">📚 ${nW} từ đã học trong app · 🧩 ${nK} bài kỹ năng · ⏱ hôm nay ${actMin(t)} / ${actGoal()} phút · 7 ngày ${mins} phút · 🔥 ${actStreak(now)} ngày liền</p>${S.lt && S.lt.goal ? '<button class="link" data-ltseg="map" style="margin-top:6px">Xem đường tới mục tiêu ›</button>' : ''}</div>
+    <p class="mute" style="margin:4px 0 10px">🗺 Chỗ yếu${f && f.act.length ? ` (${f.act.length} chỗ đang chữa)` : ''} nằm ở 🧭 Lộ trình → 📈 Tiến độ. <button class="link" data-mapv="lt">Xem bản đồ chỗ yếu ›</button></p>
     <div class="box"><div class="row"><b>📌 Sổ từ</b><span class="mute">${vn} từ${vd ? ` · ${vd} đến hạn` : ''}</span></div>
       <p class="mute" style="margin:6px 0">Từ bạn lưu khi tra, khi chạm trong bài và từ đề thật. Ôn cách quãng 1 → 35 ngày.</p>
       <div class="duo"><button data-ct="sotu">📌 Mở sổ từ</button>${vd ? `<button class="pri" data-ct="vwrun">🔁 Ôn ${Math.min(20, vd)} từ</button>` : ''}</div></div>
     ${typeof errBox === 'function' ? errBox('ct') : ''}
-    <div class="box"><b>📊 Kết quả thi thật</b>${real.length ? real.map(x => `<p style="margin:4px 0;font-size:15px">${x}</p>`).join('') : '<p class="mute" style="margin:6px 0 0">Chưa ghi đề thật nào. Làm đề chính thức (sách Cambridge IELTS, đề mẫu Cambridge, đề ETS) rồi ghi ở màn kỳ thi của mục tiêu (📚 Học → ô 🎯): kết quả thật là thước đo đáng tin nhất.</p>'}</div>
+    <div class="box"><b>📊 Kết quả thi thật</b>${real.length ? real.map(x => `<p style="margin:4px 0;font-size:15px">${x}</p>`).join('') : '<p class="mute" style="margin:6px 0 0">Chưa ghi đề thật nào. Làm đề chính thức (sách Cambridge IELTS, đề mẫu Cambridge, đề ETS) rồi ghi ở màn kỳ thi (📚 Học → Thi thử cả đề, đề thật): kết quả thật là thước đo đáng tin nhất.</p>'}</div>
     <button data-ct="data">💾 Dữ liệu, tài khoản và sao lưu</button>
     ${typeof gyHomeHtml === 'function' ? gyHomeHtml() : ''}`;
   $app.onclick = e => { const b = e.target.closest('[data-ct]'); if (!b) return; scrollTo(0, 0); const a = b.dataset.ct;

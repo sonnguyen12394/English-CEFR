@@ -27,8 +27,8 @@ wr('version.json', `{"v": ${v}}\n`);
 console.log(`③ Đã tăng phiên bản ${v0} → ${v} (app.js, index.html, version.json).`);
 console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy lên:
   1. Mở trang, đợi tự cập nhật; 👤 Tôi → 💾 Dữ liệu thấy đúng bản ${v}? (góc dưới / dòng phiên bản)
-  2. 🧭 Lộ trình → màn Hôm nay: vòng phút, bấm ▶ Học tiếp mở đúng việc; ở màn bài có dải "🧭 Hôm nay còn N việc" bấm về được; bấm ô 🎯 ra "Đường tới mục tiêu".
+  2. 🧭 Lộ trình → 📅 Hôm nay: vòng phút, bấm ▶ Học tiếp mở đúng việc; ở màn bài có dải "🧭 Hôm nay còn N việc" bấm về được; 📈 Tiến độ ra trình độ, đường cấp, chỗ yếu, "Xem bản đồ chỗ yếu đầy đủ".
   3. Làm 5 câu 📚 Từ vựng: "Đã lưu" hiện, tắt mở lại app vẫn còn.
-  4. 📚 Học → 🎓 Luyện thi → Cambridge, IELTS, TOEIC mở được; 🔍 Tra cứu → 📘 Cẩm nang thi; 🧭 Lộ trình → 🗺 Chỗ yếu (bản đồ); 👤 Tôi → sổ từ, dữ liệu, nút về đúng; 💬 Góp ý gửi được.
+  4. 📚 Học: thẻ "Tiếng Anh {cấp}" mở được 7 kỹ năng, thẻ "Luyện {kỳ thi}" (mục tiêu là kỳ thi) mở được màn kỹ năng, Xem thêm → kỳ thi khác; 🔍 Tra cứu → 📘 Cẩm nang thi; 👤 Tôi → sổ từ, dữ liệu, nút về đúng; 💬 Góp ý gửi được.
   5. Không có chữ tràn ngang, nút bấm được bằng ngón cái.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);

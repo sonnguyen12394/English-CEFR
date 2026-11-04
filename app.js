@@ -349,6 +349,9 @@ const unitDone = u => u.words.every(w => S.cards[w.id]);
 function nextUnit() { const lv = curLevel(); return UNITS.find(u => u.lv === lv && !unitDone(u) && !locked(u)) || UNITS.find(u => !unitDone(u) && !locked(u)); }
 // Lộ trình: mỗi cấp chia chặng theo chủ đề (tools/extract-a1.mjs), bài đánh số trong chặng; chỉ mở chặng đang học.
 const uLabel = u => `${LVN[u.lv]} · Chặng ${u.ch + 1} · Bài ${u.bi}`;
+// v135: tên bài cho người học: số bài trong cấp (như danh sách, nút "▶ Học bài 4"), kèm chủ đề nếu tên bài không chung chung
+const uNo = u => UNITS.filter(x => x.lv === u.lv).indexOf(u) + 1;
+const uTitle = u => `Từ vựng ${LVN[u.lv]} · Bài ${uNo(u)}${/chặng \d+ · bài \d+$/.test(u.vi || '') ? '' : ' · ' + u.vi}`;
 const HOME = { open: null, lv: null };   // chặng đang mở, cấp đang xem trên trang chính
 // v118 khuôn 3 tầng (parts.js): chặng đang học mở sẵn, mỗi bài ghi trạng thái bằng chữ; chặng khác và cấp khác gập.
 // Vẫn nằm trong #grid: nút data-un / data-ch / data-lv dùng trình nghe chung ở cuối tệp. Đổi cấp chỉ vẽ lại #grid nên tiêu đề "Bài <cấp>" nằm trong này.
@@ -481,12 +484,12 @@ const TYPE_VI = { w2vi: '📖 thấy từ chọn nghĩa', listen: '🔊 nghe ch�
   fam: '🔧 họ từ', pat: '🧱 mẫu câu', colT: '🔗 gõ từ trong cụm', famQ: '🛠 gõ dạng từ', reg: '🎚 trang trọng / thân mật', synT: '🔄 gõ từ cùng nghĩa', style: '🎩 chọn văn phong', idi: '🌫 thành ngữ', fast: '⚡ nhận ra nhanh' };
 function lessonRun(u, words, reqs, title, onDone) {
   let i = 0; const items = LESSON_ORDER.flatMap(type => shuf(words.filter(w => lessonTypes(w, reqs).includes(type)).map(w => ({ w, type }))));
-  const kinds = LESSON_ORDER.filter(t => items.some(x => x.type === t)), speakStep = reqs.includes('noi') && !!SREC;
+  const speakStep = reqs.includes('noi') && !!SREC;
   const card = () => { const w = words[i];
     window.CUR = { view: 'the', unit: u.id, item: 'w:' + w.id, prompt: w.w };
     $app.innerHTML = `<div class="row top"><button class="link" data-a="home">← Về</button><span class="uname">${esc(title)}</span></div>
       <div class="dots">${words.map((_, k) => `<i class="${k < i ? 'd' : k === i ? 'c' : ''}"></i>`).join('')}</div>${wordCard(w, reqs)}
-      ${i === 0 ? `<p class="mute">🎯 Xem hết thẻ rồi luyện ${items.length}${speakStep ? ` + ${words.length} câu nói` : ''} câu, dạy đủ yêu cầu của 🔁 Nhớ: ${kinds.map(t => TYPE_VI[t]).join(' · ')}${speakStep ? ' · 🗣 nói ra từ' : ''}. 📘 Bài học: câu ở đây không tính 🔁 Nhớ.</p>` : ''}
+      ${i === 0 ? `<p class="mute">Xem ${words.length} thẻ rồi làm thử ${items.length} câu${speakStep ? ` + ${words.length} câu nói` : ''}. Không chấm điểm.</p>` : ''}
       <button class="pri" data-a="next">${i + 1 < words.length ? 'Tiếp →' : `Luyện ${items.length} câu →`}</button>`;
     speak(w.w);
     $app.onclick = e => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'next') { if (++i < words.length) card(); else quiz(); } if (a === 'home') home(); }; };
@@ -498,12 +501,14 @@ function lessonRun(u, words, reqs, title, onDone) {
   card(); }
 // v76: bài mới bắt đầu bằng ⚡ kiểm tra đầu bài (nhanh.js ptRun): từ đã biết bỏ khỏi bài, chỉ học từ chưa biết
 function learn(u) { const again = unitDone(u), reqs = reqsUpTo(u.lv), fin = () => { if (!again) { learnCards(S, u, Date.now()); save(); }
-    $app.innerHTML = `<div class="box"><b>✅ Xong ${uLabel(u)}: ${esc(u.vi)}</b><p class="mute">${again ? 'Xem lại không đổi lịch ôn.' : `${u.words.length} từ đã vào lịch ôn. Câu trong bài học không tính 🔁 Nhớ; từ mai, 🏋️ Bài tập mà đúng thì tính.`}</p></div>
-      <div class="box"><b>🎯 Bài vừa học đã dạy ${dimsAt(u.lv).length} yêu cầu của 🔁 Nhớ ${LVN[u.lv]}</b><p style="margin:6px 0">${dimsAt(u.lv).map(d => d[1]).join(' · ')}</p>${SREC ? '' : '<p class="mute" style="margin:0">Trình duyệt này không chép được lời nên bước 🗣 đã bỏ qua: mở bằng Safari để luyện nói.</p>'}</div>
-      <button class="pri" data-a="home">Về 📚 Từ vựng</button>`;
-    $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; };
-  if (!again && typeof ptRun === 'function') return ptRun(u, () => { const ws = u.words.filter(w => !S.cards[w.id]); return ws.length ? lessonRun(u, ws, reqs, `${uLabel(u)} · ${u.vi}`, fin) : fin(); });
-  lessonRun(u, u.words, reqs, `${uLabel(u)} · ${u.vi}`, fin); }
+    // v135: màn xong bài nói bằng lời thường (trước: "đã dạy N yêu cầu của 🔁 Nhớ …"); nút học bài kế tiếp ngay; yêu cầu nhớ của cấp gập lại
+    const nx = nextUnit(), nxOk = nx && nx !== u && nx.lv === u.lv;
+    $app.innerHTML = `<div class="box"><b>✅ Xong ${esc(uTitle(u))}</b><p style="margin:6px 0 0">${again ? 'Xem lại không đổi lịch ôn.' : `${u.words.length} từ đã vào lịch ôn. Từ ngày mai, app nhắc ôn trong 📅 Hôm nay; ôn đúng qua vài ngày thì từ thành "nhớ chắc".`}</p>
+      <details style="margin:8px 0 0"><summary>Bài này dạy những gì</summary><p class="mute" style="margin:6px 0">${dimsAt(u.lv).map(d => d[1]).join(' · ')}</p>${SREC ? '' : '<p class="mute" style="margin:0">Trình duyệt này không chép được lời nên bước 🗣 đã bỏ qua: mở bằng Safari để luyện nói.</p>'}</details></div>
+      ${nxOk ? `<button class="btnbig" data-a="nxu">▶ Học bài ${uNo(nx)}<small>${nx.words.length} từ · khoảng 7 phút</small></button>` : ''}<button class="${nxOk ? '' : 'pri'}" data-a="home">Về 📚 Từ vựng</button>`;
+    $app.onclick = e => { if (e.target.closest('[data-a="nxu"]') && nxOk) { scrollTo(0, 0); return learn(nx); } if (e.target.closest('[data-a="home"]')) home(); }; };
+  if (!again && typeof ptRun === 'function') return ptRun(u, () => { const ws = u.words.filter(w => !S.cards[w.id]); return ws.length ? lessonRun(u, ws, reqs, uTitle(u), fin) : fin(); });
+  lessonRun(u, u.words, reqs, uTitle(u), fin); }
 // ⬆️ Nâng cấp một unit cấp trước lên cấp đang học: chỉ các từ cần, chỉ yêu cầu mới; xong ghi c.du[cấp yêu cầu] = hôm nay
 const upUnits = (lv = curLevel()) => UNITS.filter(u => lvIdx(u.lv) < lvIdx(lv) && unitDone(u) && u.words.some(w => upNeed(w, lv).length));
 function upgradeUnit(u) { const lv = curLevel(), words = u.words.filter(w => upNeed(w, lv).length), Ls = [...new Set(words.flatMap(w => upNeed(w, lv)))];

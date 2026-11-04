@@ -1432,6 +1432,28 @@ const R = await run(`(async () => {
     const hd = HD.map(x => x[2]()).join(' '); if (!hd.includes('📚 Học là một trang') || !hd.includes('một nút chính ghi rõ')) bad.push('Luật chưa ghi màn mới');
     S = blank(); OV_SEL = null;
     add('cefr', 'C50', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '📚 Học một trang (Tiếng Anh + Luyện kỳ thi mục tiêu + Xem thêm), màn kỹ năng Nền và kỳ thi một kiểu (câu cách học, ô tiến độ / số đo, một nút chính ghi rõ, ô bài thi lên cấp, dòng thi thử), trang mở đầu bài 2 bước'); }
+  // v135 gọt chữ: tên bài như danh sách, màn xong bài lời thường + nút học bài kế tiếp, thẻ đầu không chữ nội bộ, 👤 Tôi tách cấp bỏ qua theo kiểm tra, chỉ đếm thẻ học trong app; không đổi luật đo
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
+    await Promise.all([paLoad(), loadEB(), ...Object.values(KIT).map(kLoad)]); const H = () => String($app.innerHTML), now = Date.now();
+    S = blank(); const u1 = UNITS.find(u => u.lv === 'pre'), u2 = UNITS.filter(u => u.lv === 'pre')[1], b1 = UNITS.find(u => u.lv === 'b1');
+    if (uTitle(b1) !== 'Từ vựng B1 · Bài 1') bad.push('tên bài B1 chung chung phải là "Từ vựng B1 · Bài 1": ' + uTitle(b1));
+    if (!uTitle(u1).startsWith('Từ vựng Pre-A1 · Bài 1') || uTitle(u1).includes('Chặng')) bad.push('tên bài Pre-A1: ' + uTitle(u1));
+    tryv('mở bài', () => learn(u1)); if (!H().includes('‹ Từ vựng Pre-A1') || !H().includes('data-pt="skip"')) bad.push('trang mở đầu bài thiếu nút ‹ Từ vựng {cấp}');
+    const LR = lessonRun; lessonRun = (u, ws, reqs, title, onDone) => { if (title !== uTitle(u)) bad.push('tên bài trong bài học: ' + title); onDone(); };
+    try { tryv('bắt đầu học', () => $app.onclick({ target: { closest: x => x === '[data-pt="skip"]' ? {} : null } }));
+      { const h = H(); if (!h.includes('✅ Xong ' + esc(uTitle(u1))) || /yêu cầu của 🔁 Nhớ/.test(h) || !h.includes('Bài này dạy những gì') || !h.includes('data-a="nxu"') || !h.includes('▶ Học bài 2') || h.includes('data-a="next"')) bad.push('màn xong bài chưa lời thường / thiếu nút học bài kế tiếp'); }
+      if (!u1.words.every(w => S.cards[w.id])) bad.push('xong bài chưa tạo thẻ');
+      tryv('học bài 2', () => $app.onclick({ target: { closest: x => x === '[data-a="nxu"]' ? {} : null } })); if (!H().includes('Bài 2') || !H().includes('data-pt="skip"') || CUR.view === 'the') bad.push('nút ▶ Học bài 2 chưa mở trang mở đầu bài 2'); }
+    finally { lessonRun = LR; }
+    tryv('thẻ đầu', () => lessonRun(u2, u2.words, reqsUpTo('pre'), uTitle(u2), () => {})); if (!H().includes('Không chấm điểm') || /dạy đủ yêu cầu|🔁 Nhớ/.test(H())) bad.push('thẻ đầu của bài học còn chữ nội bộ');
+    // 👤 Tôi: kiểm tra ra B1, chọn bắt đầu ở B1 → cấp dưới "bỏ qua theo bài kiểm tra", không phải "hoàn thành trong app"; thẻ bỏ qua không tính là từ đã học
+    S = blank(); S.place = { at: now, top: 'b1', start: 'b1', R: { a2: [5, 5], b1: [5, 5] }, st: 'pre', gap: [] }; ltSt().goal = { kind: 'ielts', lv: 'b2p', date: '', at: now };
+    tryv('áp dụng', () => plApply('b1')); const vcN = Object.values(S.cards).filter(c => c.vc).length;
+    await tryA('Tôi', () => minhView()); { const h = H();
+      if (!vcN || !h.includes('Trình độ của bạn: <b>B1</b>') || !h.includes('bỏ qua theo bài kiểm tra: Pre-A1 → A2+') || h.includes('hoàn thành trong app') || !h.includes('📚 0 từ đã học trong app') || !h.includes('🧩 0 bài kỹ năng') || h.includes('Đạt bằng đề mẫu chính thức') || !h.includes('data-ltseg="map"') || !h.includes('data-mapv="lt"') || /\\(0 chỗ đang chữa\\)/.test(h)) bad.push('👤 Tôi chưa tách cấp bỏ qua / còn đếm thẻ bỏ qua'); }
+    S.real = { a1: [{ at: now, l: 25, L: 25, rw: 40, RW: 40 }] }; await tryA('Tôi có đề mẫu', () => minhView()); if (typeof realOk === 'function' && !H().includes('Đạt bằng đề mẫu chính thức')) bad.push('có kết quả đề mẫu mà không hiện');
+    S = blank();
+    add('cefr', 'C51', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'tên bài như danh sách, màn xong bài lời thường + nút học bài kế tiếp, thẻ đầu không chữ nội bộ, 👤 Tôi tách cấp bỏ qua theo kiểm tra và chỉ đếm thẻ học trong app'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-hocnen') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');

@@ -15,14 +15,14 @@ const PT_DIMS = ['nghia', 'nhora', 'viet'];
 function ptCard(now) { const c = { S: 4, last: now, d0: dayOf(now) - 1, ok: 1, pv: 1, n: 2, lapse: 0, pt: 1, dm: {} }; for (const k of PT_DIMS) c.dm[k] = { ok: 1, pv: 1, n: 1 }; return c; }
 const ptNorm = s => String(s || '').toLowerCase().replace(/[‘’]/g, "'").replace(/\s+/g, ' ').trim();
 // chạy kiểm tra cho bài u; xong gọi done(known: Set id từ đã biết)
-function ptRun(u, done, title) { const T = title || `${uLabel(u)} · ${u.vi}`; const ws = u.words.filter(w => !S.cards[w.id]); let i = 0, step = 0; const known = new Set(), res = [];
+function ptRun(u, done, title) { const T = title || uTitle(u); const ws = u.words.filter(w => !S.cards[w.id]); let i = 0, step = 0; const known = new Set(), res = [];
   if (!ws.length) return done(known);
   // v116 (tách 📘 Bài học / 🏋️ Bài tập): trong bài học Từ vựng, bước này là 🏋️ bài tập (tính 🔁 Nhớ) đặt TRƯỚC phần dạy; phần dạy sau đó không tính. Cách chấm không đổi.
   const lesson = !title, mins = Math.max(1, Math.round(ws.length * 12 / 60));
   // v134 (bản mẫu "Đề xuất · Một bài"): trang mở đầu bài học = tên bài, từ trong bài, 2 bước (① học, không chấm · ② từ mai ôn bằng bài tập, mới tính nhớ), MỘT nút "Bắt đầu học";
   //   bài tập nhanh (đúng cả 2 câu = bỏ qua từ đã biết, tính 🔁 Nhớ như trước) thành lối phụ "Biết một số từ rồi?". Cách chấm không đổi.
-  const ui = UNITS.filter(x => x.lv === u.lv).indexOf(u) + 1, lm = Math.max(2, Math.round(ws.length * 50 / 60));
-  $app.innerHTML = lesson ? `${backRow(`${LVN[u.lv]} · Bài ${ui}`)}<h1 style="font-size:28px;margin:4px 0 2px">Bài ${ui}</h1><p class="mute" style="margin:0 0 10px">Từ vựng ${LVN[u.lv]} · ${ws.length} từ · khoảng ${lm} phút</p>
+  const ui = uNo(u), lm = Math.max(2, Math.round(ws.length * 50 / 60));
+  $app.innerHTML = lesson ? `<div class="row top"><button class="link" data-a="home">‹ Từ vựng ${LVN[u.lv]}</button><span></span></div><h1 style="font-size:28px;margin:4px 0 2px">Bài ${ui}</h1><p class="mute" style="margin:0 0 10px">Từ vựng ${LVN[u.lv]} · ${ws.length} từ · khoảng ${lm} phút</p>
       <div class="chips">${ws.map(w => `<span class="chip">${esc(w.w)}</span>`).join('')}</div>
       <div class="box lsteps"><div class="ls"><i>1</i><div><b>Học ${ws.length} từ</b><span class="mute">Xem nghĩa, nghe đọc, câu ví dụ, làm thử vài câu. Không chấm điểm.</span></div></div>
         <div class="ls"><i>2</i><div><b>Từ ngày mai: ôn bằng bài tập</b><span class="mute">App tự đưa vào việc Hôm nay. Làm đúng ở ngày sau mới tính là nhớ.</span></div></div></div>
