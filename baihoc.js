@@ -485,6 +485,13 @@ document.addEventListener('click', e => { if (!S) return; const b = e.target.clo
 function xlWeak(d) { try { if (d.ex === 'ielts') return !!d.u && typeof imCell === 'function' && imCell(d.u).s === 'yeu';
   if (d.ex === 'toeic') return !!d.u && typeof tmCell === 'function' && [].concat(d.u).some(u => tmCell(u).s === 'yeu');
   if (d.ex === 'cambridge' && !d.sp) { const c = (cbRows(d.lv)[d.pi] || { cells: [] }).cells[d.i]; return !!c && c.s === 'yeu'; } } catch (e) {} return false; }
+// v133: việc luyện đề ở 📅 Hôm nay = bài học kế tiếp của kỳ thi (một dạng câu / một phần đề), lấy ở kỹ năng có ít bài đã học nhất; học hết thì null (Hôm nay dùng ieToday / toToday)
+const XL_SKS = { ielts: ['R', 'L', 'W', 'S'], toeic: ['L', 'R'] };
+function exNextLesson(ex, lv) { try { const sks = ex === 'cambridge' ? (typeof MOCK !== 'undefined' && MOCK[lv] ? MOCK[lv].papers.map((_, i) => lv + '~' + i) : []) : XL_SKS[ex] || [], St = xlSt(); let best = null;
+  for (const sk of sks) { const L = xlList(ex, sk); if (!L.length) continue; const done = L.filter(d => St[d.id]).length, i = L.findIndex(d => !St[d.id]); if (i < 0) continue;
+    if (!best || done < best.done) best = { ex, sk, i, d: L[i], done }; }
+  if (best) best.skn = ex === 'ielts' ? IE_SKV[best.sk][1] : ex === 'toeic' ? TO_SKV[best.sk][1] : String((MOCK[lv].papers[+best.sk.split('~')[1]] || {}).t || '').replace(/^\S+\s/, '');
+  return best; } catch (e) { return null; } }
 function xlBlock(ex, sk) { const L = xlList(ex, sk), St = xlSt(), done = L.filter(d => St[d.id]).length;
   let cells = null; if (ex === 'cambridge' && L[0] && !L[0].sp) try { cells = (cbRows(L[0].lv)[L[0].pi] || {}).cells || []; } catch (e) { cells = []; }   // ô bản đồ của bài thi: tính một lần
   const W = L.map(d => cells ? !!(cells[d.i] && cells[d.i].s === 'yeu') : xlWeak(d));

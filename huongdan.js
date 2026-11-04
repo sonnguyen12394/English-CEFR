@@ -8,11 +8,12 @@ const HD = [
   ['batdau', '🚀 Bắt đầu trong 5 phút', () => `
     <p>1. Lần đầu mở app: trả lời <b>3 câu</b>, mỗi màn một câu: học để làm gì (giỏi lên, IELTS, TOEIC, Cambridge) → trình độ (kiểm tra nhanh 5 phút hoặc "mới bắt đầu") → mỗi ngày bao nhiêu phút.</p>
     <p>2. Mỗi ngày mở app là vào <b>🧭 Lộ trình → Hôm nay</b>: vòng tròn số phút, danh sách việc (✓ xong, ▶ việc kế tiếp). Chỉ cần bấm <b>▶ Học tiếp</b>; xong một việc, quay lại bấm tiếp.</p>
-    <p>3. Bấm ô <b>🎯 mục tiêu</b> ở cuối màn Hôm nay để xem đường tới mục tiêu: các cấp, ước tính thời gian, mỗi ngày chia nền / luyện đề, 10 ngày này.</p>
+    <p>3. Bấm ô <b>🎯 mục tiêu</b> ở cuối màn Hôm nay (hoặc phần <b>📈 Tiến độ</b>) để xem: trình độ của bạn, đường tới mục tiêu, bao lâu, mỗi ngày chia giờ thế nào, chỗ yếu cần sửa.</p>
+    <p>Kiểm tra trình độ ra cấp nào thì <b>học từ cấp đó</b>: các cấp dưới tính là đã qua (xem mục 🧭 Lộ trình).</p>
     <p>4. Muốn tự chọn bài: tab <b>📚 Học</b> (🧱 Nền tiếng Anh: 7 kỹ năng; 🎓 Luyện thi: Cambridge, IELTS, TOEIC). Mỗi kỹ năng có 2 cửa: <b>📘 Bài học</b> (dạy, không tính 🔁 Nhớ) và <b>🏋️ Bài tập</b> (tính 🔁 Nhớ), cùng 🚪 bài thi lên cấp.</p>
     <p>5. Gặp từ lạ: chạm vào từ trong bài, hoặc tìm ở tab <b>🔍 Tra cứu</b>. Bấm 📌 để lưu vào Sổ từ.</p>`],
   ['tab', '🧭 4 tab dùng làm gì', () => `
-    <p><b>🧭 Lộ trình</b> (mở đầu tiên) có 2 phần ở đầu màn: <b>📅 Hôm nay</b> và <b>🗺 Chỗ yếu</b> (mọi bản đồ chỗ yếu: nền CEFR, band IELTS, điểm TOEIC). Màn <b>Hôm nay</b> (vòng phút, ▶ Học tiếp, việc hôm nay: chỗ duy nhất bảo "làm gì") và màn <b>Đường tới mục tiêu</b> (cấp, ước tính, chia nền / đề, đợt ${LT_D} ngày, đo trình độ, đổi mục tiêu). Chạy từ mục tiêu → tìm chỗ yếu → chữa → bài mới, tới khi đạt.</p>
+    <p><b>🧭 Lộ trình</b> (mở đầu tiên) có 2 phần ở đầu màn: <b>📅 Hôm nay</b> (vòng phút, ▶ Học tiếp, việc hôm nay có số phút và vì sao: chỗ duy nhất bảo "làm gì") và <b>📈 Tiến độ</b> (trình độ của bạn, đường tới mục tiêu, bao lâu, chia giờ, chỗ yếu cần sửa, đợt ${LT_D} ngày, đo lại trình độ, đổi mục tiêu; bản đồ chỗ yếu đầy đủ: nền CEFR, Cambridge, band IELTS, điểm TOEIC, là màn con). Chạy từ mục tiêu → tìm chỗ yếu → chữa → bài mới, tới khi đạt.</p>
     <p><b>📚 Học</b>: kho bài, 2 mục ở đầu: <b>🧱 Nền tiếng Anh</b> (7 kỹ năng theo cấp CEFR: Từ vựng, Phát âm, Ngữ pháp, Nghe, Nói, Đọc, Viết; Thư viện đọc) là gốc, chỗ duy nhất tính 📘 Học / 🔁 Nhớ / Thi chuyển cấp · <b>🎓 Luyện thi</b> (bên trong chọn 🎓 Cambridge, 🌏 IELTS hoặc 💼 TOEIC; mở được tất cả). Kỳ thi của mục tiêu có dấu 🎯. 📚 Học <b>chỉ chứa nội dung</b>; mục tiêu, ngày thi, giờ học, kế hoạch và việc hôm nay đều ở 🧭 Lộ trình. Luyện đề không tính vào luật đo nền.</p>
     <p><b>🔍 Tra cứu</b>: tìm từ, ngữ pháp, lỗi hay gặp, phát âm, cụm từ; 📘 Cẩm nang thi (mẹo theo kỹ năng). Gõ tiếng Anh hoặc tiếng Việt.</p>
     <p><b>👤 Tôi</b>: tiến độ, 📌 sổ từ, 📒 sổ lỗi, kết quả thi thật, 💾 dữ liệu và tài khoản, góp ý, và trang này.</p>`],
@@ -63,7 +64,7 @@ const HD = [
     <p><b>Nhớ bền</b> (Từ vựng từ A1): qua lần đầu rồi thi lại sau ≥ ${X.RETEST_D} ngày với câu mới. Muốn thi Từ vựng cấp sau (A2, A2+…) cần cấp trước "Nhớ bền".</p>
     <p><b>Trượt</b>: không mất gì; luyện tiếp, ${K_RETRY} ngày sau thi lại.</p>`],
   ['vuot', '🚀 Thi vượt cấp', () => `
-    <p>Đã biết sẵn? Bấm vào ô cấp chưa tới ở 📚 Học (hoặc từ kết quả 🧭 xếp cấp) để thi vượt từng phần, không cần đủ 📘 Học / 🔁 Nhớ.</p>
+    <p>Thấy cấp đang học dễ? Ở <b>📈 Tiến độ</b> bấm "Thi vượt …" (hoặc ô cấp chưa tới ở 📚 Học) để thi vượt từng phần, không cần đủ 📘 Học / 🔁 Nhớ.</p>
     <p><b>Qua</b>: phần đó hoàn thành mọi cấp ≤ cấp vừa thi (trong app); bài chưa học của các cấp đó tính là đã học, sẽ quay lại ôn rải trong ${VC_S.join('–')} ngày.</p>
     <p><b>Trượt</b>: không đổi gì; thi vượt lại sau ${VC_WAIT} ngày.</p>`],
   ['homnay', '📅 Ô Hôm nay', () => `
@@ -109,7 +110,7 @@ const HD = [
     <p>🎚 Đặt tiến độ (trong 💾 Dữ liệu) dùng để học lại hoặc thử; có bản chụp để quay lại.</p>`],
   ['lotrinh', () => `🧭 Lộ trình: mục tiêu, xếp cấp, đợt ${LT_D} ngày`, () => `
     <p><b>Chu trình</b>: 🎯 mục tiêu → 🧭 xếp cấp → 📆 đợt ${LT_D} ngày → 📝 kiểm tra nhẹ cuối đợt → 📊 tổng kết → đợt sau.</p>
-    <p><b>🧭 Xếp cấp</b> chỉ chọn chỗ bắt đầu, <b>không</b> trao hoàn thành cấp. Hoàn thành cấp chỉ do 🚪 Thi chuyển cấp hoặc 🚀 thi vượt. Xếp cấp lại khi: đã ${LT_RE_D} ngày, vừa hoàn thành một cấp, có phần trượt thi vượt, hoặc chưa xếp lần nào. Còn ≤ ${LT_EXAM_D} ngày tới ngày thi và chỉ còn cách mục tiêu ≤ 1 cấp thì làm 📝 đề mẫu chính thức thay xếp cấp.</p>
+    <p><b>🧭 Kiểm tra trình độ là nơi bắt đầu học</b> (từ v133): xếp được cấp L (đúng ≥ 80% câu của cấp đó) và bấm <b>Tiếp</b> → mọi phần tính đã qua <b>các cấp dưới L</b>, như 🚀 thi vượt: bài chưa học của cấp dưới tính là đã học, quay lại ôn rải trong ${VC_S.join('–')} ngày để kiểm dần. Chỗ bạn sai thật ở cấp dưới (đã hỏi lại vẫn sai) không tính, vào 🧭 chỗ hổng nền để học lại. <b>Cấp L vẫn học và thi như thường</b>: bài kiểm tra chỉ đo hiểu từ và ngữ pháp, không đo nghe, nói, viết. Chọn "Tôi muốn học lại từ đầu" thì không đổi gì. Xếp cấp lại khi: đã ${LT_RE_D} ngày, vừa hoàn thành một cấp, có phần trượt thi vượt, hoặc chưa xếp lần nào. Còn ≤ ${LT_EXAM_D} ngày tới ngày thi và chỉ còn cách mục tiêu ≤ 1 cấp thì làm 📝 đề mẫu chính thức thay xếp cấp.</p>
     <p><b>⏳ Ước thời gian</b>: số giờ học có hướng dẫn Cambridge công bố cho từng cấp (tính từ đầu: A1 ~90–100, A2 ~180–200, B1 ~350–400, B2 ~500–600, C1 ~700–800, C2 ~1.000–1.200 giờ; Pre-A1 và cấp "+" là nội suy) chia cho số phút mỗi ngày. Không kịp ngày đặt thì app báo "khó kịp" và gợi ý cấp vừa sức. Chỉ để tham khảo: tự học có thể nhanh hoặc chậm hơn nhiều.</p>
     <p><b>Vì sao không xếp cấp lại mỗi ${LT_D} ngày?</b> Lên một cấp cần khoảng 200 giờ học (ước của Cambridge). ${LT_D} ngày × 15–30 phút tiến bộ nhỏ hơn sai số của bài 15–30 câu: điểm lên xuống ngẫu nhiên, dễ nản hoặc tin nhầm.</p>
     <p><b>Mỗi ngày</b>: làm theo màn <b>Hôm nay</b> ở 🧭 Lộ trình, bấm ▶ Học tiếp (chỗ duy nhất bảo "làm gì"): ① ôn mục đến hạn → ② chữa chỗ yếu của 🗺 bản đồ, tối đa <b>${Math.round(LT_FIX * 100)}% số phút</b> mục tiêu → ③ bài mới (≥ ${100 - Math.round(LT_FIX * 100)}%). Đặt mục tiêu là bắt đầu đợt 1. Mục tiêu là kỳ thi thì có thêm việc luyện đề theo tỉ lệ ⚖️ nền / đề (xem mục 🎯 Mục tiêu thi). Mọi câu trả lời hằng ngày tự cập nhật bản đồ.</p>

@@ -18,15 +18,18 @@ const vcBlock = id => id === 'noi' && !SREC ? 'cần mở bằng Safari trên iP
 // thẻ "đã học + đã nhớ" như 🎚 Đặt tiến độ (bkCard) nhưng hạn ôn rải 30–150 ngày
 function vcCard(ks, now) { const c = { S: VC_S[0] + Math.floor(Math.random() * (VC_S[1] - VC_S[0] + 1)), last: now, d0: dayOf(now) - 1, ok: 1, pv: 1, n: 1, lapse: 0, dm: {}, vc: 1 };
   for (const k of ks) c.dm[k] = { ok: 1, pv: 1, n: 1 }; return c; }
-function vcApply(id, lv, now = Date.now()) { const ls = vcLvs(id).filter(l => LEVELS.indexOf(l) <= LEVELS.indexOf(lv)), runs = vcRuns(id); let seeded = 0;
+// v133 kết quả kiểm tra trình độ là nơi bắt đầu học (homnay.js plApply): pl = true → ghi cả lần thi đạt của cấp lv (không có bài thi thật), đánh dấu pl;
+//   skip = khoá 'phần|mục' không tạo thẻ (🧭 chỗ hổng nền đã xác nhận: để học lại)
+function vcApply(id, lv, now = Date.now(), skip = null, pl = false) { const ls = vcLvs(id).filter(l => LEVELS.indexOf(l) <= LEVELS.indexOf(lv)), runs = vcRuns(id), tag = pl ? { vc: true, pl: true } : { vc: true }; let seeded = 0;
+  const no = k => !!skip && skip.has(k);
   for (const l of ls) {
-    if (l !== lv && !runs.some(r => (r.lv || 'a1') === l && r.pass)) runs.push({ lv: l, at: now, n: 0, ok: 0, pass: true, vc: true });
-    if (l !== lv && id === 'tv' && !runs.some(r => (r.lv || 'a1') === l && r.pass && r.re)) runs.push({ lv: l, at: now, n: 0, ok: 0, pass: true, re: true, vc: true });
+    if ((pl || l !== lv) && !runs.some(r => (r.lv || 'a1') === l && r.pass)) runs.push({ lv: l, at: now, n: 0, ok: 0, pass: true, ...tag });
+    if ((pl || l !== lv) && id === 'tv' && !runs.some(r => (r.lv || 'a1') === l && r.pass && r.re)) runs.push({ lv: l, at: now, n: 0, ok: 0, pass: true, re: true, ...tag });
     if (id === 'tv') { for (const u of UNITS.filter(u => u.lv === l)) if (!S.units[u.id]) S.units[u.id] = { d: dayOf(now) - 1, vc: 1 };
-      for (const w of levelWords(l)) if (!S.cards[w.id]) { const c = S.cards[w.id] = vcCard(DIMS.map(d => d[0]), now); seeded++;
+      for (const w of levelWords(l)) if (!S.cards[w.id] && !no('tv|' + w.id)) { const c = S.cards[w.id] = vcCard(DIMS.map(d => d[0]), now); seeded++;
         for (const L of ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']) if (lvIdx(L) > lvIdx(l) && lvIdx(L) <= lvIdx(lv)) (c.du = c.du || {})[L] = c.d0; } }
-    else if (id === 'pa') { for (const x of PA.filter(x => x.lv === l)) if (!paSt()[x.id]) { paSt()[x.id] = vcCard(PA_DIMS.map(d => d[0]), now); seeded++; } }
-    else { const P = KIT[id], st = kSt(id).cards; for (const x of kItems(P, l)) if (!st[x.id]) { st[x.id] = vcCard(kDimsOf(P, x), now); seeded++; } } }
+    else if (id === 'pa') { for (const x of PA.filter(x => x.lv === l)) if (!paSt()[x.id] && !no('pa|' + x.id)) { paSt()[x.id] = vcCard(PA_DIMS.map(d => d[0]), now); seeded++; } }
+    else { const P = KIT[id], st = kSt(id).cards; for (const x of kItems(P, l)) if (!st[x.id] && !no(id + '|' + x.id)) { st[x.id] = vcCard(kDimsOf(P, x), now); seeded++; } } }
   return seeded; }
 // gọi trong save(): lần thi vượt đang chờ có kết quả (lần thi mới của đúng phần, đúng cấp) → ghi nhật ký, qua thì áp dụng; chờ > 1 ngày không thi thì bỏ
 function vcCheck(now = Date.now()) { if (!S || !S.vc || !S.vc.pend.length) return; const V = S.vc;

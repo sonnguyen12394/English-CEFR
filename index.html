@@ -142,6 +142,16 @@
   .lvstep.ok .d { background:var(--good); border-color:var(--good); color:#fff; } .lvstep.cur .d { background:var(--accent); border-color:var(--accent); color:#fff; } .lvstep.goal .d { border-color:var(--warn); background:var(--warn2); }
   .lvstep b { font-size:17px; } .lvstep span { color:var(--mute); font-size:14px; margin-left:6px; } .lvstep.cur b { color:var(--accent); }
   .split { display:flex; height:32px; border-radius:10px; overflow:hidden; font-size:14px; font-weight:700; color:#fff; } .split div { display:flex; align-items:center; justify-content:center; white-space:nowrap; overflow:hidden; }
+  /* v133 một trình độ: thang cấp ở kết quả kiểm tra, số phút ở việc hôm nay, trình độ lớn ở Tiến độ, dòng chỗ yếu có nút sửa */
+  .lvladder { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:4px; margin:12px 0; text-align:center; font-size:12px; }
+  .lvchip { padding:8px 0; border-radius:8px; background:var(--card); color:var(--mute); white-space:nowrap; overflow:hidden; } .lvchip.lo { background:var(--accent2); color:var(--accent); } .lvchip.on { background:var(--accent); color:#fff; font-weight:800; }
+  .task .min { font-size:14px; color:var(--mute); white-space:nowrap; align-self:flex-start; margin-top:4px; }
+  .task .t span { white-space:normal; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+  .lvbig { display:block; font-size:40px; font-weight:800; line-height:1.1; }
+  .lvlabels { display:flex; justify-content:space-between; font-size:13px; color:var(--mute); } .lvlabels .on { color:var(--accent); font-weight:700; }
+  button.fixrow { display:flex; align-items:center; gap:10px; width:100%; background:none; border:0; border-top:1px solid var(--line); border-radius:0; padding:10px 0; margin:0; text-align:left; color:var(--fg); }
+  button.fixrow small { display:block; font-size:14px; color:var(--mute); } button.fixrow .go { margin-left:auto; background:var(--accent); color:#fff; border-radius:10px; padding:7px 12px; font-size:15px; font-weight:600; white-space:nowrap; }
+  .lvstep small { display:block; color:var(--mute); font-size:14px; margin-top:2px; }
   .days10 { display:grid; grid-template-columns:repeat(10,1fr); gap:5px; margin:8px 0 4px; } .days10 i { height:24px; border-radius:7px; background:var(--line); display:block; } .days10 i.ok { background:var(--good); } .days10 i.now { background:var(--accent); }
   .ltbanner { position:sticky; top:0; z-index:6; display:flex; gap:8px; align-items:center; justify-content:space-between; background:var(--accent2); border-radius:12px; padding:6px 12px; margin:0 0 8px; }
   .ltbanner button { margin:0; }
@@ -188,44 +198,44 @@
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=132"></script>
-<script src="tonghop.js?v=132"></script>
-<script src="exam.js?v=132"></script>
-<script src="gopy.js?v=132"></script>
-<script src="gop.js?v=132"></script>
-<script src="noi.js?v=132"></script>
-<script src="parts.js?v=132"></script>
-<script src="pa.js?v=132"></script>
-<script src="kit.js?v=132"></script>
-<script src="kparts.js?v=132"></script>
-<script src="backup.js?v=132"></script>
-<script src="mock.js?v=132"></script>
-<script src="mocknoi.js?v=132"></script>
-<script src="thi.js?v=132"></script>
-<script src="uoe.js?v=132"></script>
-<script src="nghe2.js?v=132"></script>
-<script src="cap.js?v=132"></script>
-<script src="lib.js?v=132"></script>
-<script src="homnay.js?v=132"></script>
-<script src="vuotcap.js?v=132"></script>
-<script src="nhanh.js?v=132"></script>
-<script src="bando.js?v=132"></script>
-<script src="soloi.js?v=132"></script>
-<script src="ielts.js?v=132"></script>
-<script src="focus.js?v=132"></script>
-<script src="ieplus.js?v=132"></script>
-<script src="iemap.js?v=132"></script>
-<script src="iethat.js?v=132"></script>
-<script src="tudien.js?v=132"></script>
-<script src="tracuu.js?v=132"></script>
-<script src="dieuhuong.js?v=132"></script>
-<script src="huongdan.js?v=132"></script>
-<script src="toeic.js?v=132"></script>
-<script src="tomap.js?v=132"></script>
-<script src="cbmap.js?v=132"></script>
-<script src="dangthi.js?v=132"></script>
-<script src="baihoc.js?v=132"></script>
-<script src="chandoan.js?v=132"></script>
-<script src="lotrinh.js?v=132"></script>
+<script src="app.js?v=133"></script>
+<script src="tonghop.js?v=133"></script>
+<script src="exam.js?v=133"></script>
+<script src="gopy.js?v=133"></script>
+<script src="gop.js?v=133"></script>
+<script src="noi.js?v=133"></script>
+<script src="parts.js?v=133"></script>
+<script src="pa.js?v=133"></script>
+<script src="kit.js?v=133"></script>
+<script src="kparts.js?v=133"></script>
+<script src="backup.js?v=133"></script>
+<script src="mock.js?v=133"></script>
+<script src="mocknoi.js?v=133"></script>
+<script src="thi.js?v=133"></script>
+<script src="uoe.js?v=133"></script>
+<script src="nghe2.js?v=133"></script>
+<script src="cap.js?v=133"></script>
+<script src="lib.js?v=133"></script>
+<script src="homnay.js?v=133"></script>
+<script src="vuotcap.js?v=133"></script>
+<script src="nhanh.js?v=133"></script>
+<script src="bando.js?v=133"></script>
+<script src="soloi.js?v=133"></script>
+<script src="ielts.js?v=133"></script>
+<script src="focus.js?v=133"></script>
+<script src="ieplus.js?v=133"></script>
+<script src="iemap.js?v=133"></script>
+<script src="iethat.js?v=133"></script>
+<script src="tudien.js?v=133"></script>
+<script src="tracuu.js?v=133"></script>
+<script src="dieuhuong.js?v=133"></script>
+<script src="huongdan.js?v=133"></script>
+<script src="toeic.js?v=133"></script>
+<script src="tomap.js?v=133"></script>
+<script src="cbmap.js?v=133"></script>
+<script src="dangthi.js?v=133"></script>
+<script src="baihoc.js?v=133"></script>
+<script src="chandoan.js?v=133"></script>
+<script src="lotrinh.js?v=133"></script>
 </body>
 </html>

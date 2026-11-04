@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 132;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 133;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -345,7 +345,8 @@ const gateWords = (lv, now) => memWords(lv, now);
 const lockedLv = l => { const i = LEVELS.indexOf(l); return i > 0 && !passed(LEVELS[i - 1]); };
 const locked = u => lockedLv(u.lv);
 const unitDone = u => u.words.every(w => S.cards[w.id]);
-function nextUnit() { return UNITS.find(u => !unitDone(u) && !locked(u)); }
+// v133: bài kế tiếp ưu tiên cấp đang học (học từ cấp kiểm tra xếp được: bài cấp dưới còn chỗ hổng nền không chen lên trước; chỗ hổng có việc sửa riêng)
+function nextUnit() { const lv = curLevel(); return UNITS.find(u => u.lv === lv && !unitDone(u) && !locked(u)) || UNITS.find(u => !unitDone(u) && !locked(u)); }
 // Lộ trình: mỗi cấp chia chặng theo chủ đề (tools/extract-a1.mjs), bài đánh số trong chặng; chỉ mở chặng đang học.
 const uLabel = u => `${LVN[u.lv]} · Chặng ${u.ch + 1} · Bài ${u.bi}`;
 const HOME = { open: null, lv: null };   // chặng đang mở, cấp đang xem trên trang chính
