@@ -171,28 +171,21 @@ async function cbOne(lv, pi, b, back) { const C = MOCK[lv], p = C.papers[pi], la
   if (!confirm(`${C.name} · ${b.name}: ${qs.length} câu, ${min} phút. Không báo đúng / sai giữa chừng. Bắt đầu?`)) return back();
   MK.papers.push({ t: p.t, min, qs: qs.map(q => ({ part: lab, q })), res: [] }); mkPaper(0); }
 function cbSkView(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) return cbView(lv); BACK = null; window.CUR = { view: 'cambridge', sk: lv + '|' + pi }; EXAM_VOX = false;
-  const cells = cbRows(lv)[pi].cells, L = cbBai(lv, pi), R = L.map(b => cbRes(lv, b, cells)), done = R.filter(Boolean).length, nx = cbNext(L, R), { q, ok } = cbPaperQ(cells);
+  const cells = cbRows(lv)[pi].cells, L = cbBai(lv, pi), R = L.map(b => cbRes(lv, b, cells)), done = R.filter(Boolean).length, nx = cbNext(L, R), { q, ok } = cbPaperQ(cells), xl = xlBlock('cambridge', lv + '~' + pi);   // v131: 📘 bài học từng phần (baihoc.js)
   const lr = cbRuns(lv).filter(r => !r.one && (r.papers || []).some(x => x.t === p.t)).pop(), lp = lr ? (x => x.crit ? x.ok : Math.round(x.ok / Math.max(1, x.n) * 100))(lr.papers.find(x => x.t === p.t)) : null;
   const rows = L.map((b, i) => { const r = R[i], nxt = b === nx && !r, [tag, cls] = xTag(r, C.pass); return pRow(`data-cbx="bai|${lv}|${pi}|${b.id}"`, esc(b.name), nxt ? 'làm tiếp' : tag, nxt ? 'next' : cls); });
   const cat = new Set(p.parts.map(([lab]) => cbCat(lab, p))), tools = `${cat.has('doc') || cat.has('tu') || cat.has('viet') ? (typeof uoeBox === 'function' ? uoeBox(lv) : '') : ''}${cat.has('nghe') && typeof ngBox === 'function' ? ngBox(lv) : ''}${cat.has('noi') && typeof capBox === 'function' ? capBox(lv) : ''}`;
   $app.innerHTML = '<div id="ie"></div>' + xSkill({ back: `<div class="row top"><button class="link" data-cbl="${lv}">‹ Cambridge ${LVN[lv]}</button><span></span></div>`, h1: `${cbIc(p.t)} ${cbPn(p.t)} <span class="mute" style="font-size:18px">· Cambridge ${LVN[lv]}</span>`,
     note: p.speak && !SREC ? '<div class="box">⚠️ Trình duyệt này không chép được lời nói: mở bằng Safari trên iPhone để nói và được chấm.</div>' : '',
-    steps: [{ t: 'Làm bài', v: `${done}/${L.length}`, sub: L.length && done >= L.length ? 'đủ' : `còn ${L.length - done} bài`, ok: L.length > 0 && done >= L.length, cur: done < L.length },
+    steps: [xl.step,
       { t: 'Mức đúng', v: q != null ? Math.round(q * 100) + '%' : '–', sub: `cần ~${Math.round(C.pass * 100)}%`, ok, cur: q != null && !ok },
       { t: 'Thi thử', btn: `<button class="pri" data-cbx="paper|${lv}|${pi}">▶ ${p.min} phút</button>`, sub: lp != null ? `lần trước ${lp}%` : 'chưa làm' }],
-    learn: { attr: `data-cbx="how|${lv}|${pi}"`, sub: 'cách làm từng phần' }, prac: { attr: `data-cbx="next|${lv}|${pi}"`, sub: !nx ? 'chưa có bài' : R[L.indexOf(nx)] ? 'làm lại bài cũ nhất' : 'bài kế tiếp' },
-    lt: 'Bài', rows, at: L.indexOf(nx), more: [['🧩 Luyện theo dạng đề', tools],
+    learn: xl.learn, prac: { attr: `data-cbx="next|${lv}|${pi}"`, sub: !nx ? 'chưa có bài' : R[L.indexOf(nx)] ? 'làm lại bài cũ nhất' : 'bài kế tiếp' }, les: xl,
+    lt: '', lsub: `${done}/${L.length} đã làm`, rows, at: L.indexOf(nx), more: [['🧩 Luyện theo dạng đề', tools],
       ['🗺 Bản đồ phần yếu', `<button class="link" data-mapv="lt" data-mapk="cb" data-cbmlv="${lv}" style="margin:0">🗺 Bản đồ phần yếu: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>`],
       ['📋 Các phần của bài thi', `<p class="mute" style="margin:0">${p.parts.map(([lab]) => esc(lab)).join(' · ')}. ${p.min} phút như đề thật.</p>`]] });
   $app.onclick = cbClick; scrollTo(0, 0); }
-// 📘 Bài học của Cambridge = cách làm từng phần của bài thi; mỗi phần có nút thử ngay
-function cbHowView(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) return cbView(lv); BACK = null; window.CUR = { view: 'cambridge', sk: lv + '|' + pi };
-  const tips = (lab, k, c) => CB_UK.includes(k) && U_T[k] && (k !== 'open' || LEVELS.indexOf(lv) >= LEVELS.indexOf('b1')) ? [U_T[k][2]] : CB_HOWT[k] || CB_HOWT[c] || [];
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-cbsk="${lv}|${pi}">‹ ${cbPn(p.t)}</button><span></span></div><h1>📘 Cách làm · ${cbIc(p.t)} ${cbPn(p.t)}</h1>
-    <p class="mute">${esc(C.name)} · ${p.min} phút. Đọc cách làm từng phần, rồi thử ngay phần đó. Không tính luật đo. 🤖 Mẹo do Claude soạn, chưa giáo viên kiểm.</p>
-    ${p.parts.map(([lab], i) => { const k = cbKey(lab, p), c = cbCat(lab, p); return `<div class="box"><b>${esc(lab)}</b>${tips(lab, k, c).map(x => `<p style="margin:6px 0 0;font-size:15px">• ${esc(x)}</p>`).join('')}<button data-cbx="try|${lv}|${pi}|${i}" style="margin-top:8px">▶ Thử phần này</button></div>`; }).join('')}
-    <button data-cnv="cefr">📘 Cẩm nang thi đầy đủ</button>`;
-  $app.onclick = cbClick; scrollTo(0, 0); }
+// v131: màn "cách làm" (v122 cbHowView) thay bằng 📘 bài học từng phần (baihoc.js xlView); mẹo CB_HOWT dùng ở bài học
 // v126 một bộ nghe nối người nói làm như đề thi (không báo đúng sai giữa chừng; mỗi người nói nghe tối đa 2 lần); kết quả vào đề thử theo phần + S.cbx. back trống = mở từ bản đồ
 async function cbMM(lv, pi, b, back) { const C = MOCK[lv], p = C.papers[pi], lab = p.parts[b.i][0], home = back || (() => mapView('cb'));
   $app.innerHTML = '<p class="mute">Đang tải…</p>'; try { await kLoad(KIT.nghe); if (!NCLIPS.size) NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {}
@@ -204,7 +197,6 @@ async function cbClick(e) { const g = s => e.target.closest(s); let b;
   if ((b = g('[data-mock]'))) return mockView(b.dataset.mock);
   if ((b = g('[data-cbsk]'))) { const [lv, pi] = b.dataset.cbsk.split('|'); return cbSkView(lv, +pi); }
   if (!(b = g('[data-cbx]'))) return; const [a, lv, pi, x] = b.dataset.cbx.split('|'), L = () => cbBai(lv, +pi), back = () => cbSkView(lv, +pi);
-  if (a === 'how') return cbHowView(lv, +pi);
   if (a === 'bai') return cbDo(lv, +pi, L().find(y => y.id === x));
   if (a === 'next' || a === 'try') { const cells = cbRows(lv)[+pi].cells, M = a === 'try' ? L().filter(y => y.i === +x) : L(), R = M.map(y => cbRes(lv, y, cells)); return cbDo(lv, +pi, cbNext(M, R)); }
   if (a === 'paper') { $app.innerHTML = '<p class="mute">Đang tải kho câu…</p>'; try { await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad), typeof uLoad === 'function' ? uLoad() : 0]); } catch (er) {} mkStart(lv, [+pi]); if (MK) MK.back = back; } }

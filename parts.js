@@ -86,10 +86,14 @@ const xHome = o => `<div class="row"><h1 style="font-size:28px;margin:6px 0">H�
   <p class="mute" style="margin:6px 0 12px;font-size:14px">${o.sub}</p>${o.note || ''}
   <div class="grid2">${o.tiles.map(t => `<button class="tile ${t.cls || ''}" ${t.attr}><span class="ic">${t.ic}</span><b>${t.t}</b>${bar(t.pct, 100, t.cls === 'ok' ? 'var(--good)' : 'var(--accent)')}<span class="meta">${t.meta}</span></button>`).join('')}</div>
   ${pMore(o.more, X_FOOT)}${o.foot ? `<p class="mute" style="margin:10px 0 0;font-size:13px">${o.foot}</p>` : ''}`;
-// o = { back: dòng nút về, h1, note, steps, learn: { attr, sub }, prac: { attr, sub }, lt: tên danh sách, rows: [pRow], at: dòng kế tiếp, empty, more }
+// o = { back: dòng nút về, h1, note, steps, learn: { attr, sub, pri }, prac: { attr, sub }, les: { rows, at, done } (📘 bài học, v131), lt: tên danh sách bài tập, lsub, rows: [pRow], at: dòng kế tiếp, empty, more }
+// v131 (người sáng lập: "tách ra 2 dạng học và bài tập như nền CEFR"): 2 danh sách: 📘 Bài học (mỗi dạng câu / phần một bài, baihoc.js) · 🏋️ Bài tập (bài cụ thể, ghi kết quả).
+// Học hết bài học thì danh sách bài học gập lại; 📘 là nút chính khi còn bài học chưa học.
+const xLes = l => !l || !l.rows.length ? '' : l.done >= l.rows.length ? `<details class="lvmore" style="margin-top:14px"><summary>📘 Bài học · đã học hết ${l.rows.length} bài ›</summary>${l.rows.join('')}</details>`
+  : `<h2 style="margin:16px 0 4px">📘 Bài học <span class="mute" style="font-size:15px;font-weight:400">· ${l.done}/${l.rows.length} đã học</span></h2><div id="xllist">${pWin(l.rows, l.at)}</div>`;
 const xSkill = o => `${o.back}<h1>${o.h1}</h1>${o.note || ''}${stepsX(o.steps)}
-  <div class="duo"><button class="big2" ${o.learn.attr}>📘 Bài học<small>${o.learn.sub}</small></button><button class="big2 pri" ${o.prac.attr}>🏋️ Bài tập<small>${o.prac.sub}</small></button></div>
-  <h2 style="margin:16px 0 4px">${o.lt}</h2><div id="klist">${o.rows.length ? pWin(o.rows, o.at) : `<p class="mute">${o.empty || 'Chưa có bài.'}</p>`}</div>${pMore(o.more, X_FOOT)}`;
+  <div class="duo"><button class="big2 ${o.learn.pri ? 'pri' : ''}" ${o.learn.attr}>📘 Bài học<small>${o.learn.sub}</small></button><button class="big2 ${o.learn.pri ? '' : 'pri'}" ${o.prac.attr}>🏋️ Bài tập<small>${o.prac.sub}</small></button></div>
+  ${xLes(o.les)}<h2 style="margin:16px 0 4px">🏋️ Bài tập${o.lt ? ' · ' + o.lt.charAt(0).toLowerCase() + o.lt.slice(1) : ''}${o.lsub ? ` <span class="mute" style="font-size:15px;font-weight:400">· ${o.lsub}</span>` : ''}</h2><div id="klist">${o.rows.length ? pWin(o.rows, o.at) : `<p class="mute">${o.empty || 'Chưa có bài.'}</p>`}</div>${pMore(o.more, X_FOOT)}`;
 // trạng thái một bài kỳ thi: chưa làm = để trống như danh sách bài của Nền / đúng a/b (yếu khi dưới mức cần) / band
 const xTag = (r, need) => !r ? ['', ''] : r.n ? [`${r.ok}/${r.n} câu${need != null && r.ok / r.n < need ? ' · yếu' : ''}`, need != null && r.ok / r.n < need ? 'bad' : 'good'] : [r.t || 'đã làm', r.bad ? 'bad' : 'good'];
 // chọn cấp khác (gập; mở sẵn khi đang xem cấp khác cấp đang học)

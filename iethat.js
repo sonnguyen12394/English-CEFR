@@ -139,8 +139,9 @@ function vwRun(now = Date.now(), back = ieltsView, quit = back) { const due = sh
   show(); }
 
 // ---------- ③ 🔁 luyện diễn đạt lại: câu hỏi ↔ câu trong bài cùng ý (kho IE.para, Claude soạn) ----------
-const ieParaQs = (n = 10) => iePick(IE.para || [], n).map(x => ({ x, k: 'para', ty: 'R-para', kind: 'mc', head: `<p class="mute">Câu hỏi trong đề hay DIỄN ĐẠT LẠI ý của bài bằng từ khác. Chọn câu trong bài nói <b>CÙNG Ý</b> với câu hỏi.</p>`,
-  q: `Câu hỏi: «${esc(x.s)}»`, opts: shuf([x.a, ...x.w]), a: x.a, why: `${x.why} Cặp từ: ${x.p.map(([a, b]) => a + ' → ' + b).join(' · ')}.` }));
+const iePQ = x => ({ x, k: 'para', ty: 'R-para', kind: 'mc', head: `<p class="mute">Câu hỏi trong đề hay DIỄN ĐẠT LẠI ý của bài bằng từ khác. Chọn câu trong bài nói <b>CÙNG Ý</b> với câu hỏi.</p>`,
+  q: `Câu hỏi: «${esc(x.s)}»`, opts: shuf([x.a, ...x.w]), a: x.a, why: `${x.why} Cặp từ: ${x.p.map(([a, b]) => a + ' → ' + b).join(' · ')}.` });   // v131: một câu (bài học dùng lại)
+const ieParaQs = (n = 10) => iePick(IE.para || [], n).map(iePQ);
 const ieParaRun = () => { const qs = ieParaQs(10); scrollTo(0, 0); return qs.length ? ieRun('🔁 Diễn đạt lại', qs, ieltsView) : toast('Chưa có bài.'); };
 document.addEventListener('click', e => { if (S && e.target.closest('[data-iepara]')) ieParaRun(); });
 

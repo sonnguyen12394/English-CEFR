@@ -268,8 +268,8 @@ function ieTyBox() { const { ty, cr } = ieTyStats(), has = ty.filter(t => t.n), 
     <p class="mute" style="margin:6px 0 0">Bước 1: app mới ghi dữ liệu. Dạng dưới ${IE_TY_OK}% với ≥ ${IE_TY_N} câu ở ≥ 2 bài là chỗ yếu đủ chắc. Viết / Nói nên tin 🧑‍🏫 AI chấm hơn máy ước.</p></details>`; }
 function ieRun(title, qs, back, min, o = {}) { const res = []; let i = 0, tq = 0; const plays = {}, t0 = Date.now(), clk = () => { const s = Math.round((Date.now() - t0) / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
   const show = () => { if (i >= qs.length) return end(); const q = qs[i]; tq = Date.now(); window.CUR = { view: 'ielts-cau', item: (q.x && q.x.id || '') + ':' + i, prompt: String(q.q).replace(/<[^>]*>/g, '').slice(0, 200) };
-    const pk = q.play && q.play.key, left = () => K_PLAYS - (plays[pk] || 0);
-    const body = q.kind === 'mc' ? q.opts.map((o, j) => `<button class="opt" data-io="${j}">${esc(o)}</button>`).join('')
+    const pk = q.play && q.play.key, left = () => (o.plays || K_PLAYS) - (plays[pk] || 0);   // v131: bài học (o.plays) nghe được 3 lần
+    const body = q.kind === 'mc' ? (q.emo ? '<div class="emo3">' : '') + q.opts.map((x, j) => `<button class="opt${q.emo ? ' emo' : ''}" data-io="${j}">${esc(x)}</button>`).join('') + (q.emo ? '</div>' : '')
       : `<form id="if" autocomplete="off"><input id="it" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Câu trả lời"><button class="pri" type="submit">Trả lời</button></form>`;
     $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Thôi</button><span class="uname">${esc(title)} · ${i + 1}/${qs.length}</span>${o.spd ? `<b id="irt">⏱ 0 / ${o.spd}s</b>` : min ? `<b id="irt">⏱ ${clk()}</b>` : ''}</div>${q.head || ''}
       ${q.play ? `<button class="chip" data-iplay>🔊 Nghe (còn ${left()} lần)</button>` : ''}<p class="q" style="font-size:20px">${q.q}</p>${body}<div id="ifb"></div>${q.foot || ''}`;
@@ -280,13 +280,13 @@ function ieRun(title, qs, back, min, o = {}) { const res = []; let i = 0, tq = 0
       const o = e.target.closest('[data-io]'); if (o && !o.disabled && res.length === i) { const v = q.opts[+o.dataset.io]; fb(v === q.a, v); } }; };
   const fb = (ok, ans, html) => { const q = qs[i]; res.push({ q, ok, ans, secs: (Date.now() - tq) / 1000 });
     if (q.kind === 'mc') $app.querySelectorAll('[data-io]').forEach(b => { b.disabled = true; const o = q.opts[+b.dataset.io]; if (o === q.a) b.classList.add('ok'); else if (o === ans) b.classList.add('no'); });
-    document.getElementById('ifb').innerHTML = `<div class="box"><b>${ok ? '✅ Đúng' : '❌ Chưa đúng'}</b>${html ? `<p style="margin:4px 0">${html}</p>` : q.kind === 'mc' ? '' : `<p style="margin:4px 0">Đáp án: <b>${esc((q.acc || [q.a]).join(' / '))}</b></p>`}${q.why ? `<p class="mute" style="margin:4px 0 0">${esc(q.why)}</p>` : ''}</div><button class="pri" data-a="next">Tiếp ›</button>`;
+    document.getElementById('ifb').innerHTML = `<div class="box"><b>${ok ? '✅ Đúng' : '❌ Chưa đúng'}</b>${html ? `<p style="margin:4px 0">${html}</p>` : q.kind === 'mc' ? '' : `<p style="margin:4px 0">Đáp án: <b>${esc((q.acc || [q.a]).join(' / '))}</b></p>`}${q.why ? `<p class="mute" style="margin:4px 0 0">${esc(q.why)}</p>` : ''}${o.nolog && q.after ? q.after : ''}</div><button class="pri" data-a="next">Tiếp ›</button>`;
     const n = $app.querySelector('[data-a="next"]'); if (n && n.scrollIntoView) n.scrollIntoView({ block: 'nearest' }); };
   const end = () => { EXAM_VOX = false; const R = o.R || ieSt().r, by = {}, fresh = new Set(res.map(r => r.q.x && r.q.x.id).filter(id => id && (!R[id] || Date.now() - R[id].at >= 30 * DAY))); for (const r of res) { const id = r.q.x && r.q.x.id; if (!id) continue; const o = by[id] = by[id] || { at: Date.now(), ok: 0, n: 0, k: r.q.sec || (r.q.x.paras ? 'r' : 'l'), ...(min ? { secs: Math.round((Date.now() - t0) / 1000) } : {}) }; o.n++; if (r.ok) o.ok++; }
-    Object.assign(R, by); ieTyLog(res, 'luyen', fresh); S.t = Date.now(); save(); const ok = res.filter(r => r.ok).length, wrong = res.filter(r => !r.ok);
+    if (!o.nolog) { Object.assign(R, by); ieTyLog(res, 'luyen', fresh); } S.t = Date.now(); save(); const ok = res.filter(r => r.ok).length, wrong = res.filter(r => !r.ok);   // v131: làm thử của 📘 bài học (o.nolog) không ghi kết quả bài, band ước, bản đồ
     const mins = (Date.now() - t0) / 60000; clearInterval(tk);
     $app.innerHTML = `<h1>${ok}/${res.length} câu đúng</h1>${min ? `<p>⏱ ${mins.toFixed(1)} phút ${mins <= min ? '✅' : '⚠️'} <span class="mute">(đề thật ~${min} phút mỗi bài${mins > min ? '; luyện đọc lướt tìm từ khoá, đừng đọc kỹ từng câu' : ''})</span></p>` : ''}${o.endHtml ? o.endHtml(res) : ''}${wrong.length ? `<div class="box"><b>Câu sai</b>${wrong.map(r => `<p style="margin:8px 0 0">${r.q.q}<br>Bạn: ${esc(r.ans)} · Đáp án: <b>${esc(r.q.a)}</b>${r.q.why ? `<br><span class="mute">${esc(r.q.why)}</span>` : ''}</p>`).join('')}</div>` : '<p>Đúng hết.</p>'}
-      <p class="mute">Luyện đề không tính vào luật đo của 🧱 nền CEFR.</p><button class="pri" data-a="back">← ${o.home || 'IELTS'}</button>`; scrollTo(0, 0); if (o.done) o.done(res, fresh); $app.onclick = e => { if (e.target.closest('[data-a="back"]')) back(); }; };
+      <p class="mute">${o.nolog ? '📘 Bài học: không ghi vào kết quả bài, band / điểm ước, bản đồ.' : 'Luyện đề không tính vào luật đo của 🧱 nền CEFR.'}</p><button class="pri" data-a="back">← ${o.home || 'IELTS'}</button>`; scrollTo(0, 0); if (o.done) o.done(res, fresh); $app.onclick = e => { if (o.endClick && o.endClick(e)) return; if (e.target.closest('[data-a="back"]')) back(); }; };
   const tk = min || o.spd ? setInterval(() => { const el = document.getElementById('irt'); if (!el) return; if (!o.spd) { el.textContent = '⏱ ' + clk(); return; }
     const s = res.length > i ? Math.round(res[i].secs) : Math.round((Date.now() - tq) / 1000); el.textContent = `⏱ ${s} / ${o.spd}s`; el.style.color = s > o.spd ? 'var(--bad)' : ''; }, 500) : 0;
   show(); }
@@ -454,7 +454,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
 // màn một kỹ năng (khuôn xSkill như màn phần của Nền)
 function ieSkView(k) { BACK = null; window.CUR = { view: 'ielts', sk: k }; EXAM_VOX = false; if (!IE_SKV[k] || !IE) return ieltsView();
   const o = ieSt(), tg = o.target, [ic, vi] = IE_SKV[k], [t1] = ieT1(), L = ieBai(k), done = L.filter(x => ieRes(k, x)).length, nx = ieNext(k), need = k === 'R' || k === 'L' ? ieNeed(k) : null;
-  const b = ieNow().b[k], P = IE_PAPERS[IE_PI[k]], lm = o.mock.filter(m => m.b && m.b[k] != null).pop();
+  const b = ieNow().b[k], P = IE_PAPERS[IE_PI[k]], lm = o.mock.filter(m => m.b && m.b[k] != null).pop(), xl = xlBlock('ielts', k);   // v131: 📘 bài học theo dạng (baihoc.js)
   const at = nx ? L.findIndex(x => x.id === nx.id) : -1, rows = L.map((x, i) => { const r = ieRes(k, x), nxt = i === at && !r, [tag, cls] = xTag(r, need); return pRow(`data-iebai="${k}|${x.id}"`, esc(x.name), nxt ? 'làm tiếp' : tag, nxt ? 'next' : cls); });
   const more = {
     L: [['📝 Luyện theo dạng câu', `<div class="duo"><button class="big2" data-iel="form">📝 Điền phiếu<small>Part 1, 4</small></button><button class="big2" data-iel="mc">🔘 Trắc nghiệm<small>Part 2, 3</small></button></div>`],
@@ -468,23 +468,16 @@ function ieSkView(k) { BACK = null; window.CUR = { view: 'ielts', sk: k }; EXAM_
       ['🗣 Về bài nói', '<p class="mute" style="margin:0">Thi thật là nói 1–1 với giám khảo. Máy đo gián tiếp (chép lời, độ dài, từ nối, tốc độ); nên nói thử với giáo viên 1 buổi.</p>']] }[k];
   $app.innerHTML = '<div id="ie"></div>' + xSkill({ back: '<div class="row top"><button class="link" data-iehome>‹ IELTS</button><span></span></div>', h1: `${ic} ${vi} <span class="mute" style="font-size:18px">· IELTS ${bandTxt(tg)}</span>`,
     note: k === 'S' && !SREC ? '<div class="box">⚠️ Trình duyệt này không chép được lời nói: mở bằng Safari trên iPhone để nói và được chấm.</div>' : '',
-    steps: [{ t: 'Làm bài', v: `${done}/${L.length}`, sub: L.length && done >= L.length ? 'đủ' : `còn ${L.length - done} bài`, ok: L.length > 0 && done >= L.length, cur: done < L.length },
-      { t: 'Band ước', v: bandTxt(b), sub: `cần ${bandTxt(tg)}`, ok: b != null && b >= tg, cur: b != null && b < tg },
+    steps: [xl.step, { t: 'Band ước', v: bandTxt(b), sub: `cần ${bandTxt(tg)}`, ok: b != null && b >= tg, cur: b != null && b < tg },
       { t: 'Thi thử', btn: `<button class="pri" data-iemk="${IE_PI[k]}">▶ ${P.min} phút</button>`, sub: lm ? `lần trước ≈ ${bandTxt(lm.b[k])}` : 'chưa làm' }],
-    learn: { attr: `data-iehow="${k}"`, sub: 'cách làm từng dạng' }, prac: { attr: `data-iebt="${k}"`, sub: !nx ? 'chưa có bài' : ieRes(k, nx) ? 'làm lại bài cũ nhất' : 'bài kế tiếp' },
-    lt: { R: 'Bài đọc', L: 'Bài nghe', W: 'Đề viết', S: 'Chủ đề nói' }[k], rows, at, more });
+    learn: xl.learn, prac: { attr: `data-iebt="${k}"`, sub: !nx ? 'chưa có bài' : ieRes(k, nx) ? 'làm lại bài cũ nhất' : 'bài kế tiếp' }, les: xl,
+    lt: { R: 'Bài đọc', L: 'Bài nghe', W: 'Đề viết', S: 'Chủ đề nói' }[k], lsub: `${done}/${L.length} đã làm`, rows, at, more });
   $app.onclick = ieClick; scrollTo(0, 0); }
-// 📘 Bài học của kỳ thi = cách làm từng dạng câu (IE_HOW), mỗi dạng có nút thử ngay; không tính band
-const IE_HK = { L: ['listen'], R: ['tf', 'yn', 'h', 'mi', 'mf', 'se', 'comp', 'sum', 'dia', 'sa', 'time'], S: ['p13', 'p2'] }, IE_TRY = { listen: 'data-iel="form"', tf: 'data-ier="tf"', h: 'data-ier="h"', comp: 'data-ier="comp"', yn: 'data-ier="yn"', mi: 'data-ier="mi"', mf: 'data-ier="mf"', se: 'data-ier="se"', sum: 'data-ier="sum"', dia: 'data-ier="dia"', sa: 'data-ier="sa"', p13: 'data-ies="p1"', p2: 'data-ies="p2"', t1: 'data-iew="t1"', gt1: 'data-iew="gt1"', t2: 'data-iew="t2"' };
-function ieHowView(k) { if (!IE_SKV[k]) return ieltsView(); BACK = null; window.CUR = { view: 'ielts', sk: k }; const [ic, vi] = IE_SKV[k], ks = k === 'W' ? [ieT1()[0], 't2'] : IE_HK[k];
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-iesk="${k}">‹ ${vi}</button><span></span></div><h1>📘 Cách làm · ${ic} ${vi}</h1><p class="mute">Đọc cách làm từng dạng, rồi thử ngay dạng đó. Không tính band.</p>
-    ${ks.map(h => `<div class="box"><b>${IE_HOW[h][0]}</b>${IE_HOW[h][1].map(x => `<p style="margin:6px 0 0;font-size:15px">• ${esc(x)}</p>`).join('')}${IE_TRY[h] ? `<button ${IE_TRY[h]} style="margin-top:8px">▶ Thử dạng này</button>` : ''}</div>`).join('')}`;
-  $app.onclick = ieClick; scrollTo(0, 0); }
+// v131: màn "cách làm" (v122 ieHowView) thay bằng 📘 bài học từng dạng (baihoc.js xlView): cách làm + ví dụ có lời giải + làm thử
 // bấm ở màn IELTS và màn con kỹ năng; luyện xong về màn đã mở (màn con thì về màn con)
 function ieClick(e) { const g = s => e.target.closest(s), sk = (window.CUR || {}).sk, back = sk ? () => ieSkView(sk) : ieltsView; let b;
   if (g('[data-iehome]')) { scrollTo(0, 0); return ieltsView(); }
   if ((b = g('[data-iesk]'))) return ieSkView(b.dataset.iesk);
-  if ((b = g('[data-iehow]'))) return ieHowView(b.dataset.iehow);
   if ((b = g('[data-iebt]'))) return ieDo(b.dataset.iebt, ieNext(b.dataset.iebt));
   if ((b = g('[data-iebai]'))) { const [k, id] = b.dataset.iebai.split('|'); return ieDo(k, ieBai(k).find(x => x.id === id)); }
   if ((b = g('[data-iecefr]'))) { scrollTo(0, 0); return overview(b.dataset.iecefr); }

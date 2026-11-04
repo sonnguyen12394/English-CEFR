@@ -213,7 +213,7 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
   $app.onclick = toClick; }
 // màn một kỹ năng (khuôn xSkill như màn phần của Nền)
 function toSkView(k) { BACK = null; if (k === 'T') k = 'R'; window.CUR = { view: 'toeic', sk: k }; EXAM_VOX = false; if (!TO_SKV[k] || !TO) return toeicView();   // ⏱ tốc độ (v113 ô riêng) nằm trong "Thêm" của Đọc
-  const o = toSt(), tg = o.target, half = tg / 2, [ic, vi] = TO_SKV[k], L = toBai(k), done = L.filter(b => toRes(b)).length, nx = toNext(k), need = k === 'V' ? null : toNeed();
+  const o = toSt(), tg = o.target, half = tg / 2, [ic, vi] = TO_SKV[k], L = toBai(k), done = L.filter(b => toRes(b)).length, nx = toNext(k), need = k === 'V' ? null : toNeed(), xl = xlBlock('toeic', k);   // v131: 📘 bài học (baihoc.js)
   const at = nx ? L.findIndex(x => x.id === nx.id) : -1, rows = L.map((x, i) => { const r = toRes(x), nxt = i === at && !r, [tag, cls] = xTag(r, need); return pRow(`data-tobai="${k}|${x.id}"`, esc(x.name), nxt ? 'làm tiếp' : tag, nxt ? 'next' : cls); });
   const sec = s => { const a = Object.values(o.r).filter(r => r.k === s), n = a.reduce((t, r) => t + r.n, 0); return `<button class="big2" data-top="${s}">${TO_SEC[s][0]} ${TO_SEC[s][1].replace(/^Part \d: /, '')}<small>${TO_SEC[s][1].match(/^Part \d/)[0]}${n ? ` · đúng ${Math.round(a.reduce((t, r) => t + r.ok, 0) / n * 100)}%` : ''}</small></button>`; };
   let steps, more;
@@ -222,7 +222,7 @@ function toSkView(k) { BACK = null; if (k === 'T') k = 'R'; window.CUR = { view:
       due ? { t: 'Ôn đến hạn', btn: `<button class="pri" data-tovoc="">🔁 ${Math.min(10, due)} từ</button>`, sub: `${due} từ đến hạn` } : { t: 'Ôn đến hạn', v: seen ? '✓' : '–', sub: seen ? 'chưa có từ đến hạn' : 'học từ trước', ok: seen > 0 }];
     more = [['📚 Về từ công sở', `<p class="mute" style="margin:0">${TO.voc.length} chủ đề, ${nv} từ hay gặp trong đề (văn phòng, họp, đi công tác…). Ôn cách quãng 1 → 35 ngày; nhớ vững = nhớ đúng ≥ 3 lần cách ngày.</p>`]]; }
   else { const b = toNow().b[k], P = TO_PAPERS[k === 'L' ? 0 : 1], lm = o.mock.filter(m => m.b && m.b[k] != null).pop(), w5 = toWrong5().length;
-    steps = [{ t: 'Làm bài', v: `${done}/${L.length}`, sub: done >= L.length ? 'đủ' : `còn ${L.length - done} bài`, ok: L.length > 0 && done >= L.length, cur: done < L.length },
+    steps = [xl.step,
       { t: 'Điểm ước', v: b != null ? String(b) : '–', sub: `cần ${half}`, ok: b != null && b >= half, cur: b != null && b < half },
       { t: 'Thi thử', btn: `<button class="pri" data-tomk="${k === 'L' ? 0 : 1}">▶ ${P.min} phút</button>`, sub: lm ? `lần trước ≈ ${lm.b[k]}` : 'chưa làm' }];
     more = k === 'L' ? [['📝 Luyện theo Part', `<div class="duo">${['p1', 'p2', 'p3', 'p4'].map(sec).join('')}</div>`], ['🎧 Về bài nghe', '<p class="mute" style="margin:0">Giọng Mỹ và Anh tự nhiên. Part 1 dùng tranh vẽ đơn giản thay ảnh chụp của đề thật. Luyện được nghe 2 lần; đề thật chỉ 1 lần.</p>']]
@@ -230,22 +230,14 @@ function toSkView(k) { BACK = null; if (k === 'T') k = 'R'; window.CUR = { view:
         ['✏️ Part 5 theo dạng ngữ pháp', `<div class="chips">${Object.entries(TO_T5).map(([t, n]) => `<button class="chip" data-top="t:${t}">${n}</button>`).join('')}</div>${w5 ? `<button data-top="w5">🔁 Làm lại ${Math.min(15, w5)} câu Part 5 từng sai</button>` : ''}`],
         ['⏱ Luyện tốc độ', `<p class="mute" style="margin:0 0 6px">Đề thật 200 câu / 120 phút nên thiếu giờ là chuyện thường. Part 5 ~${TO_SPD.p5[0]} giây / câu, Part 7 ~${TO_SPD.p7[0]} giây / câu.</p><div class="duo">${Object.entries(TO_SPD).map(([s, [secs]]) => { const r = o.spd.filter(x => x.s === s).slice(-1)[0]; return `<button class="big2" data-tospd="${s}">${TO_SEC[s][1].replace(/: .*/, '')} · ${secs}s/câu<small>${r ? `lần trước ${r.avg}s, đúng ${r.ok}/${r.n}` : 'chưa làm'}</small></button>`; }).join('')}</div>`]]; }
   $app.innerHTML = '<div id="ie"></div>' + xSkill({ back: '<div class="row top"><button class="link" data-tohome>‹ TOEIC</button><span></span></div>', h1: `${ic} ${vi} <span class="mute" style="font-size:18px">· TOEIC ${tg}</span>`,
-    steps, learn: { attr: `data-tohow="${k}"`, sub: k === 'V' ? 'cách học từ' : 'cách làm từng Part' }, prac: { attr: `data-tobt="${k}"`, sub: !nx ? 'chưa có bài' : toRes(nx) ? 'làm lại bài cũ nhất' : 'bài kế tiếp' },
-    lt: { L: 'Bài nghe', R: 'Bài đọc', V: 'Chủ đề' }[k], rows, at, more });
+    steps, learn: xl.learn, prac: { attr: `data-tobt="${k}"`, sub: !nx ? 'chưa có bài' : toRes(nx) ? 'làm lại bài cũ nhất' : 'bài kế tiếp' }, les: xl,
+    lt: { L: 'Bài nghe', R: 'Bài đọc', V: 'Chủ đề' }[k], lsub: `${done}/${L.length} đã làm`, rows, at, more });
   $app.onclick = toClick; scrollTo(0, 0); }
-// 📘 Bài học của TOEIC = cách làm (TO_HOW, bẫy Part 2, dạng Part 5); không tính điểm
-function toHowView(k) { if (!TO_SKV[k]) return toeicView(); BACK = null; window.CUR = { view: 'toeic', sk: k }; const [ic, vi] = TO_SKV[k];
-  const tips = k === 'V' ? ['Học theo chủ đề, mỗi lần 10–12 từ; đọc câu ví dụ thành tiếng.', 'Ôn đúng hạn (1 → 35 ngày); từ đến hạn hiện ở bước ③.', 'Đề TOEIC hay hỏi từ trong ngữ cảnh công sở: nhớ cả cụm (submit a report, attend a meeting).'] : TO_HOW[k][1];
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-tosk="${k}">‹ ${vi}</button><span></span></div><h1>📘 Cách làm · ${ic} ${vi}</h1><p class="mute">Đọc cách làm, rồi thử ngay. Không tính điểm.</p>
-    <div class="box">${tips.map(x => `<p style="margin:6px 0 0;font-size:15px">• ${esc(x)}</p>`).join('')}</div>
-    ${k === 'L' ? `<div class="box"><b>🪤 Bẫy Part 2</b>${Object.values(TO_TRAP).map(([t, d]) => `<p style="margin:6px 0 0;font-size:15px"><b>${t}</b> · ${esc(d)}</p>`).join('')}<button data-top="p2" style="margin-top:8px">▶ Thử Part 2</button></div>` : ''}
-    ${k === 'R' ? `<div class="box"><b>✏️ Part 5 theo dạng</b><p class="mute" style="margin:4px 0">Nhìn 4 phương án trước để biết câu hỏi dạng gì, rồi luyện riêng dạng đó.</p><div class="chips">${Object.entries(TO_T5).map(([t, n]) => `<button class="chip" data-top="t:${t}">${n}</button>`).join('')}</div></div>` : ''}`;
-  $app.onclick = toClick; scrollTo(0, 0); }
+// v131: màn "cách làm" (v122 toHowView) thay bằng 📘 bài học từng Part / dạng (baihoc.js xlView)
 // bấm ở màn TOEIC và màn con; luyện xong về màn đã mở (màn con thì về màn con)
 function toClick(e) { const g = s => e.target.closest(s), o = toSt(), sk = (window.CUR || {}).sk, back = sk ? () => toSkView(sk) : toeicView; let b;
   if (g('[data-tohome]')) { scrollTo(0, 0); return toeicView(); }
   if ((b = g('[data-tosk]'))) return toSkView(b.dataset.tosk);
-  if ((b = g('[data-tohow]'))) return toHowView(b.dataset.tohow);
   if ((b = g('[data-tobt]'))) return toDo(b.dataset.tobt, toNext(b.dataset.tobt));
   if ((b = g('[data-tobai]'))) { const [k, id] = b.dataset.tobai.split('|'); return toDo(k, toBai(k).find(x => x.id === id)); }
   if ((b = g('[data-iecefr]'))) { scrollTo(0, 0); return overview(b.dataset.iecefr); }
