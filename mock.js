@@ -36,6 +36,9 @@ const MOCK = {
     { t: '🎧 Nghe', min: 40, parts: [['Phần 1, 3: nghe', () => mkListen(4)], ['Phần 4: nối người nói (2 nhiệm vụ)', () => mkMM(1)]] }] },
 };
 MOCK.a2p = MOCK.a2; MOCK.b1p = MOCK.b1; MOCK.b2p = MOCK.b2;
+// v132 "chọn HAI" (IELTS Choose TWO letters): q.any = 2 đáp án đúng, thứ tự nào cũng được, mỗi chữ đúng 1 điểm; câu thứ 2 của cặp (q.two === 2, cùng q.pid) không được trùng lựa chọn của câu 1
+const mcOk = (q, v, res) => !q.any ? v === q.a : q.any.includes(v) && !(q.two === 2 && (res || []).some(r => r && r.q && r.q.pid === q.pid && r.q.two === 1 && r.ans === v));
+const mcAns = q => q.any ? q.any.join(' + ') : q.a;
 let MK = null;   // đề đang làm: { lv, C, papers: [{ t, min, qs: [{ part, q }] }] }
 // cấp lấy câu: cấp của kỳ thi tới cấp người học đang chọn (vd. B1+ lấy B1 + B1+); kỹ năng không có cấp "+" nên lấy cấp gốc
 const mkLvs = () => LEVELS.slice(LEVELS.indexOf(MK.C.lo), LEVELS.indexOf(MK.lv) + 1);
@@ -113,7 +116,7 @@ function mkPaper(pi) { const P = MK.papers[pi], end = Date.now() + P.min * 60000
         if (q.check) { const r = q.check(v); return rec(r.ok, v, r.sc); } rec((q.acc || [q.a]).some(a => kNorm(a) === kNorm(v)), v); }; }
     $app.onclick = e => { if (e.target.closest('[data-a="home"]')) { if (!confirm('Bỏ đề thử? Lần này không lưu.')) return; clearInterval(MK.tick); EXAM_VOX = false; return MK.quit ? MK.quit() : MK.back ? MK.back() : mockView(MK.lv); }
       const pb = e.target.closest('[data-kplay]'); if (pb) { if (left() > 0) { plays[pk]++; kPlay(q.play); } pb.textContent = `🔊 Nghe lại (còn ${left()} lần)`; pb.disabled = left() <= 0; return; }
-      const o = e.target.closest('[data-ko]'); if (o && q.kind === 'mc') rec(q.opts[+o.dataset.ko] === q.a, q.opts[+o.dataset.ko]); }; };
+      const o = e.target.closest('[data-ko]'); if (o && q.kind === 'mc') rec(mcOk(q, q.opts[+o.dataset.ko], P.res), q.opts[+o.dataset.ko]); }; };
   show(); }
 function mkBreak(pi) { $app.innerHTML = `<div class="box"><b>Xong ${esc(MK.papers[pi].t)}</b><p>Bài tiếp: ${esc(MK.papers[pi + 1].t)} (${MK.papers[pi + 1].min} phút). Nghỉ một chút nếu cần.</p></div><button class="pri" data-a="next">▶ Bắt đầu</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="next"]')) mkPaper(pi + 1); }; }
@@ -144,7 +147,7 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
       ${full ? `<p style="margin:6px 0 0"><b>Trung bình ${pct}% · ${pass ? '✅ ước đạt' : '❌ ước chưa đạt'}</b> (cần ${C.pass * 100}%, ngưỡng ước tính)</p>` : '<p class="mute">Chỉ làm một phần đề: chưa tính đạt.</p>'}</div>
     ${spk}${wHtml}${MK.papers.filter(p => !p.speak).map(p => `<details class="box"><summary>${p.t}: theo phần</summary><p class="mute">${parts(p)}</p></details>`).join('')}
     ${wrong.length ? `<details class="box"><summary>Xem lại ${wrong.length} câu sai</summary>${wrong.map(({ r }) => `<div style="margin:8px 0;border-top:1px solid var(--line, #ddd);padding-top:6px"><p class="mute" style="margin:0">${esc(r.part)}</p><p style="margin:2px 0">${r.q.q}</p>
-      <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 300))}${r.q.kind === 'write' ? '' : ` · Đáp án: <b>${esc(r.q.a != null ? r.q.a : (r.q.acc || [])[0] || '')}</b>`}</p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
+      <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 300))}${r.q.kind === 'write' ? '' : ` · Đáp án: <b>${esc(r.q.a != null ? mcAns(r.q) : (r.q.acc || [])[0] || '')}</b>`}</p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
     <p class="mute">Máy chấm; bài viết chấm đủ ý và dạng bài bằng từ khoá, không chấm ngữ pháp. Ôn phần thấp nhất rồi bấm làm đề mới (câu đổi mỗi lần).</p>
     ${back ? '<button class="pri" data-a="mkback">‹ Về bài thi</button><button data-a="again">🎓 Làm cả đề thử</button>' : MK.map ? '<button class="pri" data-a="map">🗺 Về bản đồ</button><button data-a="again">🎓 Làm cả đề thử</button>' : '<button class="pri" data-a="again">🎓 Làm đề mới</button>'}<button data-a="home">‹ Luyện thi</button>`;
   $app.onclick = e => { if (e.target.closest('[data-a="mkback"]')) { scrollTo(0, 0); return back(); } if (e.target.closest('[data-a="map"]')) { scrollTo(0, 0); return mapView('cb'); } if (e.target.closest('[data-a="again"]')) mockView(lv); if (e.target.closest('[data-a="home"]')) exHome(lv); }; }

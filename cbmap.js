@@ -9,12 +9,12 @@
 const CB_N = 8, CB_WIN = 20, CB_ST = { yeu: 'yếu', on: 'chưa chắc', vung: 'ổn', chua: 'chưa làm' };
 const CB_UK = ['mc', 'open', 'wf', 'kwt', 'long', 'pm', 'sum', 'xt'];
 // v129 dạng đề còn thiếu (dangthi.js): khoá theo nhãn phần, đặt trước khoá chung ("nối người", "chọn tranh", "nhìn tranh", "điền từ")
-const CB_DT = ['line', 'name', 'colour', 'yn', 'spell', 'box', 'story', 'match5', 'def', 'resp', 'mcc', 'pdesc', 'pmc', 'pstory'];
-const CB_KEY = [[/nối người nói/, 'mm'], [/nối tên/i, 'line'], [/viết tên/i, 'name'], [/tô màu/i, 'colour'], [/yes \/ no/i, 'yn'], [/xếp chữ/i, 'spell'], [/chọn từ điền/i, 'box'], [/truyện tranh/i, 'story'],
+const CB_DT = ['line', 'name', 'colour', 'yn', 'spell', 'box', 'story', 'match5', 'def', 'resp', 'mcc', 'pdesc', 'pmc', 'pstory', 'gpara'];   // v132: + khuyết đoạn C1 / C2
+const CB_KEY = [[/nối người nói/, 'mm'], [/khuyết đoạn/, 'gpara'], [/nối tên/i, 'line'], [/viết tên/i, 'name'], [/tô màu/i, 'colour'], [/yes \/ no/i, 'yn'], [/xếp chữ/i, 'spell'], [/chọn từ điền/i, 'box'], [/truyện tranh/i, 'story'],
   [/nối ngày|nối người với vật/i, 'match5'], [/định nghĩa/i, 'def'], [/câu đáp/i, 'resp'], [/đọc, chọn từ đúng/i, 'mcc'], [/nhìn tranh, viết/i, 'pdesc'], [/hội thoại, chọn tranh/i, 'pmc'], [/truyện theo tranh/i, 'pstory'], [/chọn tranh/i, 'picl'], [/nhìn tranh/i, 'picr'], [/trắc nghiệm/, 'mc'], [/tạo dạng từ/, 'wf'], [/từ khoá/, 'kwt'], [/nối câu với (đoạn|người)|nối người/, 'pm'], [/so ý/, 'xt'], [/bài dài/, 'long'], [/tóm tắt/, 'sum'], [/nghe điền/, 'nf'], [/khuyết câu/, 'gap'], [/điền từ/, 'open']];
 const CB_SCORE = /email|bài luận|tóm tắt|truyện theo tranh/;   // phần viết: máy chấm điểm 0–1 mỗi bài
 const CB_SHORT = { 'đọc tin nhắn, bài báo': 'Đọc tin, bài báo', 'chọn từ (cụm từ)': 'Chọn từ', 'điền từ (ngữ pháp)': 'Điền từ', 'viết email / chuyện': 'Viết email, chuyện',
-  'nghe hội thoại, thông báo': 'Nghe hội thoại', 'nghe điền thông tin': 'Nghe điền', 'nghe điền câu': 'Nghe điền câu', 'đọc tin ngắn': 'Đọc tin ngắn', 'đoạn văn khuyết câu': 'Khuyết câu',
+  'nghe hội thoại, thông báo': 'Nghe hội thoại', 'nghe điền thông tin': 'Nghe điền', 'nghe điền câu': 'Nghe điền câu', 'đọc tin ngắn': 'Đọc tin ngắn', 'đoạn văn khuyết câu': 'Khuyết câu', 'đoạn văn khuyết đoạn': 'Khuyết đoạn',
   'điền từ trắc nghiệm': 'Điền trắc nghiệm', 'điền từ': 'Điền một từ', 'viết lại câu dùng từ khoá': 'Câu từ khoá', 'nối câu với đoạn': 'Nối câu – đoạn', 'email, bài báo / truyện': 'Email, bài viết',
   'bài luận, thư, bài nhận xét': 'Bài luận, thư', 'bài luận, đề xuất, báo cáo': 'Bài luận, báo cáo', 'bài luận / bài báo / báo cáo': 'Bài luận, báo cáo', 'nghe': 'Nghe chọn đáp án',
   'tóm tắt và đánh giá 2 đoạn văn (bắt buộc)': 'Tóm tắt 2 đoạn', 'nối người nói (2 nhiệm vụ)': 'Nối người nói', 'Nghe, chọn tranh': 'Nghe chọn tranh', 'Nhìn tranh, đúng hay sai': 'Tranh đúng / sai', 'nối câu với người': 'Nối câu – người', 'nối người với văn bản': 'Nối người – văn bản', 'so ý giữa 4 văn bản': 'So ý 4 văn bản', 'Nghe bài, chọn đáp án': 'Nghe chọn đáp án', 'Đọc bài, trả lời': 'Đọc trả lời', 'Viết từ vào câu': 'Viết từ',

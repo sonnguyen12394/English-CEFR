@@ -36,6 +36,17 @@ const SPK_LINK = ['and', 'but', 'because', 'so', 'then', 'also', 'although', 'ho
 // sinh bài Nói: phỏng vấn 2 câu · nhắc lại 6 câu (ngắn → dài) · nói dài 1 đề · đóng vai 1 tình huống · thảo luận 2 câu
 function mkSpeak() { const ex = SPK_EX[MK.lv], B = SPK_Q[ex], P = KIT.noi, ls = mkKitLvs(P); if (!B || !ls.length) return [];
   const pick = (a, n) => shuf(a).slice(0, n), out = [];
+  // v132 Movers (A1) như đề thật: 1 tìm điểm khác giữa 2 tranh · 2 kể chuyện theo 4 tranh · 3 chọn tranh khác loại và nói vì sao · 4 câu hỏi về bạn
+  // (dangthi.js k spk, part diff / story / odd; câu trả lời cần có từ đúng như lượt hỏi về tranh của Starters); thêm nhắc lại câu (cách app đo ngữ pháp)
+  const mv = k => typeof dtAll === 'function' ? dtAll().filter(x => x.k === 'spk' && x.lv === 'a1' && x.part === k)[0] : null;
+  if (ex === 'a1' && mv('diff') && mv('story') && mv('odd')) { const df = mv('diff'), st = mv('story'), od = mv('odd'), grid = h => `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">${h}</div>`;
+    const pq = (part, t, pic) => out.push({ part, q: { kind: 'say', mode: 'pq', q: t.q, vi: t.vi, st: { need: { any: t.any }, t: t.t }, minW: 1, pic } });
+    const pd = (h => `<div style="display:grid;grid-template-columns:1fr;gap:6px">${h}</div>`)(df.pics.map((p, i) => `<div><span class="mute">Tranh ${'AB'[i]}</span>${toPic(p)}</div>`).join('')); for (const t of df.qs) pq('Phần 1: tìm điểm khác nhau', t, pd);
+    const ps = `<p class="mute" style="margin:0 0 4px">${esc(st.intro)}</p>` + grid(st.panels.map((p, i) => `<div><span class="mute">Tranh ${i + 1}</span>${toPic(p)}</div>`).join('')); for (const t of st.qs) pq('Phần 2: kể chuyện theo tranh', t, ps);
+    for (const t of pick(od.qs, 2)) pq('Phần 3: chọn tranh khác loại', t, `<p style="font-size:44px;text-align:center;letter-spacing:10px;margin:6px 0">${t.e.join(' ')}</p>`);
+    const ss = ls.flatMap(l => P.raw.test[l] || []).filter(s => kWords(s).length >= 4); for (const s of pick(ss, 3).sort((a, b) => kWords(a).length - kWords(b).length)) out.push({ part: 'Nhắc lại câu (nghe, nói lại, không nhìn chữ)', q: { kind: 'say', mode: 'eit', q: 'Nghe câu rồi nói lại đúng như vậy.', s, a: s } });
+    for (const [q, vi, need, minW] of pick(B.p1, 2)) out.push({ part: 'Phần 4: câu hỏi về bạn', q: { kind: 'say', mode: 'q', q, vi, need, minW } });
+    return out; }
   for (const [q, vi, need, minW] of pick(B.p1, 2)) out.push({ part: 'Phần 1: phỏng vấn', q: { kind: 'say', mode: 'q', q, vi, need, minW } });
   // v130 Starters: nhắc lại 3 câu ngắn + hỏi đáp về tranh (câu trả lời cần có từ đúng, chấm như lượt đóng vai)
   if (ex === 'pre') { const ss = (P.raw.test.pre || []).filter(s => kWords(s).length >= 3); for (const s of pick(ss, 3)) out.push({ part: 'Nhắc lại câu (nghe, nói lại, không nhìn chữ)', q: { kind: 'say', mode: 'eit', q: 'Nghe câu rồi nói lại đúng như vậy.', s, a: s } });

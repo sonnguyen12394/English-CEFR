@@ -13,7 +13,7 @@ for (const lv of ['a2', 'b1', 'b2', 'c1', 'c2']) { const D = JSON.parse(fs.readF
         for (const q of x[k2]) if (!(q.p >= 0 && q.p < x.secs.length)) bad.push(x.id + ': p sai'); } }
     if (['mc', 'open', 'wf'].includes(k)) { const g = [...x.text.matchAll(/\{(\d+)\}/g)].map(m => +m[1]);
       if (g.length !== x.gaps.length || g.some((n, i) => n !== i + 1)) bad.push(x.id + ': số chỗ trống ' + g.length + ' ≠ ' + x.gaps.length);
-      for (const y of x.gaps) { if (k === 'mc' && new Set([y.a, ...y.w]).size !== 4) bad.push(x.id + ': cần 4 phương án: ' + y.a);
+      for (const y of x.gaps) { if (k === 'mc' && new Set([y.a, ...y.w]).size !== (lv === 'a2' ? 3 : 4)) bad.push(x.id + ': cần ' + (lv === 'a2' ? 3 : 4) + ' phương án: ' + y.a);   // v132: A2 Key phần 4 có 3 phương án
         if (k !== 'mc' && (!Array.isArray(y.a) || !y.a.length || y.a.some(a => /\s/.test(a)))) bad.push(x.id + ': đáp án phải là 1 từ: ' + y.a);
         if (k === 'wf' && !y.stem) bad.push(x.id + ': thiếu từ gốc'); } }
     if (k === 'sum') { const n = words(x.m.join(' ')); if (n < x.min || n > x.max) bad.push(x.id + ': bài mẫu ' + n + ' từ'); if (x.texts.length !== 2 || x.k.length !== x.c.length) bad.push(x.id + ': cần 2 đoạn, ý = từ khoá'); }

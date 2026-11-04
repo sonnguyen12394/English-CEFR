@@ -711,6 +711,58 @@
     "homes"
    ],
    "m": "The diagram illustrates how rainwater is collected and treated so that it can be used as drinking water.\n\nOverall, the process consists of seven stages, which can be divided into collection, storage and treatment, beginning with rain falling on a roof and ending with clean water being supplied to homes.\n\nAt the start of the process, rain falls on the roof of a building. The water then flows through pipes towards a storage system, and on the way, leaves and dirt are removed by a filter. After this, the filtered water is kept in a large underground tank, where it is stored until it is needed.\n\nIn the next stage, the water is pumped from the tank to a treatment unit. There, it is cleaned with chemicals and then exposed to UV light in order to kill any remaining bacteria. Finally, once it has been treated, the clean water is piped to people's homes, where it is safe to drink. Unlike natural processes, this one depends on electricity for pumping and treatment."
+  },
+  {
+   "id": "t1-mix-water",
+   "kind": "mixed",
+   "title": "Water use in one country",
+   "p": "The pie chart shows how water was used in one country in 2020, and the bar chart shows the average amount of water used per person each day in homes in 2000, 2010 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "pv": "Biểu đồ tròn: nước được dùng vào việc gì ở một nước năm 2020; biểu đồ cột: mỗi người dùng bao nhiêu lít nước ở nhà mỗi ngày (2000, 2010, 2020). Tóm tắt đặc điểm chính, so sánh khi cần.",
+   "parts": [
+    {
+     "kind": "pie",
+     "title": "How water was used, 2020",
+     "unit": "%",
+     "cats": [
+      "Agriculture",
+      "Industry",
+      "Homes",
+      "Other"
+     ],
+     "series": [
+      [
+       "2020",
+       [
+        62,
+        20,
+        14,
+        4
+       ]
+      ]
+     ]
+    },
+    {
+     "kind": "bar",
+     "title": "Water used at home per person per day",
+     "unit": "litres",
+     "cats": [
+      "2000",
+      "2010",
+      "2020"
+     ],
+     "series": [
+      [
+       "Litres",
+       [
+        160,
+        145,
+        128
+       ]
+      ]
+     ]
+    }
+   ],
+   "m": "The pie chart shows the proportion of water used for different purposes in one country in 2020, while the bar chart illustrates how much water each person used at home per day in 2000, 2010 and 2020.\n\nOverall, agriculture was by far the largest user of water, and household consumption per person fell steadily over the twenty-year period.\n\nIn 2020, farming accounted for 62% of all the water used, more than three times the share of industry, at 20%. Homes used 14% of the total, while other purposes made up only 4%.\n\nTurning to domestic use, the average person used 160 litres of water a day in 2000. This figure dropped to 145 litres in 2010 and fell further to 128 litres in 2020, a decrease of 32 litres, or around 20%, over the period. Despite this decline, homes still accounted for a relatively small share of the country's total water use."
   }
  ],
  "gt1": [

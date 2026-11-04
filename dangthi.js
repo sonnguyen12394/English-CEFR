@@ -9,6 +9,8 @@ const dtAll = () => (KIT.nghe.raw && KIT.nghe.raw.dt) || [];
 const dtSet = (k, lv = MK.C.lo) => { const xs = dtAll().filter(x => x.k === k && x.lv === lv); return xs.length ? xs[Math.floor(Math.random() * xs.length)] : null; };
 const dtPlay = (x, i, lines) => ({ key: x.id + '|' + i, lines });
 const dtTxt = (x, cur) => `<div class="box"><b>${esc(x.t)}</b><p style="font-size:16px;line-height:1.7;margin:6px 0 0">${esc(x.text).replace(/\{(\d)\}/g, (_, n) => +n - 1 === cur ? `<mark style="padding:1px 4px;border-radius:4px"><b>(${n})</b> ______</mark>` : `<b>(${n})</b> ______`)}</p></div>`;
+const dtParaTxt = (x, cur) => `<div class="box"><b>${esc(x.t)}</b>${x.text.split('\n').map(p => { const m = p.match(/^\{(\d)\}$/); return m ? `<p style="margin:8px 0;padding:6px 8px;border:1px dashed var(--line);border-radius:8px${+m[1] - 1 === cur ? ';border-color:var(--accent);background:var(--accent2)' : ''}"><b>(${m[1]})</b> ______</p>` : `<p class="tdtap" style="font-size:16px;line-height:1.6;margin:8px 0 0">${esc(p)}</p>`; }).join('')}</div>`;
+const dtParaOpts = x => `<div class="box"><b>Các đoạn A–${'ABCDEFGH'[x.opts.length - 1]}</b>${x.opts.map((o, j) => `<p class="tdtap" style="font-size:15px;line-height:1.55;margin:8px 0 0"><b>${'ABCDEFGH'[j]}</b> ${esc(o)}</p>`).join('')}</div>`;
 const dtPanels = ps => `<div style="display:grid;grid-template-columns:1fr;gap:6px">${ps.map((p, i) => `<div><span class="mute">Tranh ${i + 1}</span>${toPic(p)}</div>`).join('')}</div>`;
 // một bộ → câu hỏi theo khuôn đề thử (mkPaper: mc / type / write)
 const DT_Q = {
@@ -31,6 +33,9 @@ const DT_Q = {
   mcc: x => x.gaps.map((g, i) => ({ x, k: 'mcc', kind: 'mc', head: '<p class="mute">📖 Chọn từ đúng cho chỗ được tô.</p>' + dtTxt(x, i), q: `Chỗ (${i + 1})`, opts: shuf([g.a, ...g.w]), a: g.a, why: '' })),
   pdesc: x => x.qs.map(q => ({ x, k: 'pdesc', kind: 'type', head: '<p class="mute">✍️ Nhìn tranh, hoàn thành câu hoặc trả lời câu hỏi.</p>' + toPic(x.pic), q: esc(q.q), a: q.a[0], acc: q.a, why: 'Ví dụ: ' + q.a[0] })),
   pmc: x => x.qs.map((q, i) => ({ x, k: 'pmc', kind: 'mc', head: '<p class="mute">🎧 Đọc câu hỏi, nhìn 3 tranh, nghe rồi chọn.</p>', q: esc(q.q), opts: q.o.slice(), a: q.o[q.a], play: dtPlay(x, i, q.lines), why: q.lines.map(l => l[1]).join(' ') })),
+  // v132 khuyết ĐOẠN (C1 phần 7, C2 phần 6): chọn đoạn A–E cho chỗ trống được tô; 1 đoạn thừa; các đoạn in ở dưới như đề thật
+  gpara: x => x.a.map((ai, i) => ({ x, k: 'gpara', kind: 'mc', head: '<p class="mute">📖 Chọn đoạn (A–E) cho chỗ trống được tô. Có 1 đoạn thừa; mỗi đoạn dùng một lần.</p>' + dtParaTxt(x, i), q: `Chỗ (${i + 1})`,
+    opts: x.opts.map((o, j) => 'ABCDEFGH'[j]), a: 'ABCDEFGH'[ai], why: (x.why || [])[i] || '', foot: dtParaOpts(x) })),
   pstory: x => { const it = x.items[Math.floor(Math.random() * x.items.length)], w = { ...it, lv: x.lv, genre: 'truyện theo tranh', min: 35, max: 80 }, q = kWrite(w); q.head = dtPanels(it.panels) + q.head; return [q]; } };
 // phần đề thử: một bộ ngẫu nhiên của dạng ở cấp của đề
 const dtQ = k => { const x = dtSet(k); return x ? DT_Q[k](x) : []; };

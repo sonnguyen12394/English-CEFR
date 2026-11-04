@@ -14,6 +14,10 @@ const XL_TXT = {
       { k: 'para', ic: '🔁', t: 'Diễn đạt lại: kỹ năng gốc', what: 'Câu hỏi IELTS hầu như không chép nguyên câu trong bài. Người ra đề dùng từ đồng nghĩa, đổi loại từ, đổi cấu trúc câu. Nhận ra hai câu cùng ý là kỹ năng gốc của mọi dạng Đọc và Nghe.',
         how: ['Gạch các ý chính của câu: ai, làm gì, khi nào, bao nhiêu.', 'Nghĩ sẵn cách nói khác: từ đồng nghĩa (rise → increase), đổi loại từ (popular → popularity), chủ động ↔ bị động.', 'So từng ý: câu cùng ý phải khớp ĐỦ các ý, không thêm, không ngược.'],
         trap: ['Câu bẫy giữ nguyên vài từ của câu gốc nhưng đổi ý (đổi người làm, đổi chiều so sánh).', 'Từ giống nhau chưa chắc cùng nghĩa; từ khác nhau vẫn có thể cùng nghĩa.'] },
+      // v132 (rà dạng còn thiếu): văn bản General Training, điền bảng, chọn HAI
+      { k: 'gt', ic: '🏢', t: 'Văn bản General Training (Section 1, 2)', only: 'gt', u: 'R-gt', what: 'Đề General Training có 3 phần: Section 1 là vài văn bản ngắn đời thường (quảng cáo, thông báo, lịch), Section 2 là văn bản công việc (nội quy, hướng dẫn nhân viên), Section 3 là một bài dài. Dạng câu giống bài Academic; chữ dễ hơn nhưng phải đọc nhanh nhiều văn bản.',
+        how: ['Section 1: đọc tiêu đề từng văn bản (A–E); câu hỏi "Which…?" thì dò tên, giá, giờ, điều kiện.', 'Section 2: đọc câu đầu mỗi đoạn để biết đoạn nói gì, tìm đúng đoạn rồi chép từ cho câu điền, trả lời ngắn.', 'Làm nhanh Section 1–2 (khoảng 30 phút) để dành thời gian cho Section 3.'],
+        trap: ['Thông tin gần giống nằm ở văn bản bên cạnh (giờ, giá của khoá khác).', 'Câu hỏi hỏi điều kiện ("must", "only"): đọc kỹ chữ nhỏ.'] },
       { k: 'tf', ic: '⚖️', t: 'TRUE / FALSE / NOT GIVEN', what: 'Đề cho một số câu nói về bài. Câu khớp thông tin trong bài: TRUE. Bài nói ngược lại: FALSE. Bài không có thông tin để biết đúng hay sai: NOT GIVEN. Câu hỏi đi theo thứ tự của bài.', hw: 'tf',
         trap: ['FALSE cần một câu trong bài nói NGƯỢC lại. Không tìm được câu đó thì là NOT GIVEN.', 'Câu hỏi thêm một chi tiết bài không nói (lần đầu, duy nhất, một con số) thường là NOT GIVEN hoặc FALSE.'] },
       { k: 'yn', ic: '💭', t: 'YES / NO / NOT GIVEN', what: 'Giống TRUE / FALSE / NOT GIVEN nhưng hỏi về Ý KIẾN, nhận định của tác giả. YES: tác giả nghĩ vậy. NO: tác giả nghĩ ngược lại. NOT GIVEN: không biết tác giả nghĩ gì.',
@@ -33,18 +37,24 @@ const XL_TXT = {
       { k: 'mc', ic: '🔘', t: 'Trắc nghiệm', what: 'Chọn 1 trong 4 phương án (A–D); có đề chọn 2 trong 5. Câu hỏi theo thứ tự bài.',
         how: ['Đọc câu hỏi trước (chưa đọc phương án), tìm chỗ trong bài, hiểu ý chỗ đó.', 'So từng phương án: loại cái sai một phần, ngược ý, hoặc bài không nói.', 'Phương án đúng thường diễn đạt lại; phương án chép nguyên từ trong bài hay là bẫy.'],
         trap: ['Phương án đúng ngoài đời nhưng bài không nói.', 'Phương án đúng một nửa: đúng người, sai việc.'] },
+      { k: 'mc2', ic: '✌️', t: 'Chọn HAI đáp án', u: 'R-mc', what: 'Câu hỏi có 5 phương án (A–E), đề ghi "Choose TWO letters". Mỗi chữ đúng được 1 điểm; thứ tự nào cũng được.',
+        how: ['Gạch chữ TWO và từ khoá của câu hỏi; tìm đoạn nói về ý đó.', 'Xét cả 5 phương án: bài nói rõ / bài nói khác / bài không nói; chỉ giữ hai phương án bài nói rõ.', 'Hai đáp án thường nằm gần nhau trong bài, nhưng cũng có khi ở hai câu khác nhau.'],
+        trap: ['Phương án lấy ý của đoạn khác hoặc của người khác trong bài.', 'Phương án đúng một phần ("tăng mạnh" khi bài nói "giữ ổn định").'] },
       { k: 'comp', ic: '✏️', t: 'Điền câu (không quá 2 từ)', what: 'Hoàn thành câu bằng từ lấy đúng trong bài, không quá số từ đề cho (vd. NO MORE THAN TWO WORDS).', hw: 'comp', how: ['Câu hỏi theo thứ tự bài.'],
         trap: ['Viết thừa từ (quá giới hạn) là sai cả câu.', 'Sai số ít / số nhiều hay sai chính tả đều mất điểm.'] },
       { k: 'sum', ic: '📝', t: 'Điền tóm tắt', what: 'Một đoạn tóm tắt một phần bài, có chỗ trống. Điền từ trong bài, hoặc chọn từ trong khung (có từ thừa).',
         how: ['Đọc cả đoạn tóm tắt trước để biết nó tóm phần nào của bài.', 'Đoán loại từ cần điền (danh từ, tính từ, số) nhờ từ đứng trước và sau chỗ trống.', 'Có khung từ: từ trong khung thường là từ đồng nghĩa, không phải từ chép từ bài.'],
         trap: ['Từ đúng nghĩa nhưng sai loại từ (cần danh từ mà điền tính từ).'] },
+      { k: 'rtab', ic: '📋', t: 'Điền bảng, ghi chú', u: 'R-sum', what: 'Một bảng (hoặc ghi chú) tóm tắt thông tin của bài, có ô trống. Điền từ lấy đúng trong bài, không quá số từ đề cho. Cùng họ với điền tóm tắt và lưu đồ.',
+        how: ['Đọc tên cột và hàng trước: biết mỗi ô cần loại thông tin gì (ưu điểm, nhược điểm, số, tên).', 'Thông tin trong bảng thường theo thứ tự bài; tìm đoạn nói về từng hàng.', 'Chép đúng từ trong bài, đúng số từ, đúng chính tả.'],
+        trap: ['Từ đúng nghĩa nhưng thuộc hàng khác (ưu điểm của cách này, nhược điểm của cách kia).'] },
       { k: 'dia', ic: '🗂', t: 'Điền sơ đồ, quy trình', what: 'Sơ đồ hoặc các bước của một quy trình có ô trống. Điền từ lấy trong bài, đúng giới hạn số từ.',
         how: ['Xem mũi tên, thứ tự các bước trước: biết ô trống ở bước nào.', 'Phần bài tả quy trình thường gọn trong 1–2 đoạn: tìm đoạn đó, đọc theo thứ tự.', 'Đúng chính tả, đúng số từ.'] },
       { k: 'sa', ic: '❓', t: 'Trả lời ngắn', what: 'Trả lời câu hỏi (What, Which, How many…) bằng từ trong bài, không quá số từ đề cho (vd. NO MORE THAN THREE WORDS AND/OR A NUMBER).',
         how: ['Từ hỏi cho biết loại đáp án: How many → số, Where → nơi, Who → người.', 'Chép đúng từ trong bài, không viết cả câu.', 'Câu hỏi theo thứ tự bài.'] },
       { k: 'time', ic: '⏱', t: 'Quản lý giờ Đọc', what: 'Bài Đọc có 3 bài, 40 câu, 60 phút, không thêm giờ chép đáp án. Sai không bị trừ điểm: đừng bỏ trống câu nào.', hw: 'time' }],
     L: [
-      { k: 'form', ic: '📝', t: 'Điền phiếu, ghi chú, bảng', ks: ['form', 'tab'], u: 'L-form', what: 'Nghe rồi điền phiếu đăng ký, ghi chú hoặc bảng. Mỗi chỗ viết đúng số từ đề cho (vd. ONE WORD AND/OR A NUMBER). Hay gặp ở Part 1 và Part 4.', hw: 'listen',
+      { k: 'form', ic: '📝', t: 'Điền phiếu, ghi chú, bảng, lưu đồ', ks: ['form', 'tab', 'flow'], u: 'L-form', what: 'Nghe rồi điền phiếu đăng ký, ghi chú, bảng hoặc lưu đồ (các bước nối mũi tên). Mỗi chỗ viết đúng số từ đề cho (vd. ONE WORD AND/OR A NUMBER). Hay gặp ở Part 1 và Part 4.', hw: 'listen',
         how: ['Trước khi nghe: đoán mỗi chỗ cần số, tên, ngày hay danh từ.', 'Tên riêng hay được đánh vần: viết từng chữ khi nghe.'],
         trap: ['Người nói sửa lời: "It\'s 15… sorry, 50 pounds".', 'Nghe hai con số; chỉ một con số trả lời đúng câu hỏi.'] },
       { k: 'sent', ic: '💬', t: 'Điền câu, trả lời ngắn', ks: ['sent', 'sa'], u: 'L-sa', what: 'Hoàn thành câu, hoặc trả lời câu hỏi ngắn, bằng từ nghe được, đúng giới hạn số từ (vd. NO MORE THAN THREE WORDS).',
@@ -52,6 +62,9 @@ const XL_TXT = {
       { k: 'mc', ic: '🔘', t: 'Nghe trắc nghiệm', ks: ['mc'], u: 'L-mc', what: 'Chọn 1 trong 3 phương án (A–C); có đề chọn 2 trong 5. Hay gặp ở Part 2 và Part 3.',
         how: ['Đọc câu hỏi và phương án trước, gạch chỗ khác nhau giữa các phương án.', 'Người nói thường nhắc cả 3 phương án: nghe cái nào bị loại (but, actually, not any more).', 'Câu hỏi đi theo thứ tự lời nói.'],
         trap: ['Phương án nghe được đúng từ nhưng là ý bị gạt đi.'] },
+      { k: 'mc2', ic: '✌️', t: 'Nghe chọn HAI đáp án', ks: ['mc2'], u: 'L-mc', what: 'Câu hỏi có 5 phương án (A–E), chọn HAI. Mỗi chữ đúng được 1 điểm; thứ tự nào cũng được. Hay gặp ở Part 2 và Part 3.',
+        how: ['Trước khi nghe: đọc 5 phương án, gạch chỗ khác nhau.', 'Người nói thường nhắc gần hết 5 phương án: đánh dấu cái nào được xác nhận, cái nào bị gạt đi.', 'Hai đáp án có thể đến theo bất kỳ thứ tự nào.'],
+        trap: ['Phương án được nhắc rồi bị phủ định ("you need to bring your own tent").'] },
       { k: 'map', ic: '🗺', t: 'Bản đồ, sơ đồ', ks: ['map'], u: 'L-map', what: 'Nhìn bản đồ hoặc sơ đồ có các chữ cái. Nghe người nói chỉ đường, tả vị trí, rồi chọn chữ cho mỗi địa điểm.',
         how: ['Trước khi nghe: tìm điểm bắt đầu (lối vào, "You are here"), hướng Bắc, các vật làm mốc.', 'Học từ chỉ vị trí: opposite, next to, behind, in the corner, at the end of, on your left.', 'Nghe tới đâu, lấy ngón tay đi theo tới đó trên bản đồ.'] },
       { k: 'match', ic: '🔗', t: 'Ghép (matching)', ks: ['match'], u: 'L-match', what: 'Nối mỗi mục (người, nơi, việc) với một lựa chọn trong danh sách. Có lựa chọn thừa.',
@@ -66,6 +79,8 @@ const XL_TXT = {
         how: ['Câu tổng quan: thay đổi lớn nhất (thêm nhà ở, mất cây xanh, đường mới).', 'Dùng bị động: was replaced by, was built, were demolished, was extended.', 'Chỉ vị trí: in the north, to the east of, next to, opposite.'] },
       { k: 'w1-proc', ic: '🔄', t: 'Task 1: quy trình', only: 'ac', kinds: ['process'], what: 'Sơ đồ các bước làm ra một thứ (quy trình nhân tạo) hoặc một chu trình tự nhiên. Tả lần lượt từng bước.',
         how: ['Câu tổng quan: có mấy bước, bắt đầu và kết thúc thế nào.', 'Quy trình nhân tạo dùng bị động (is heated, are packed); chu trình tự nhiên dùng chủ động (the tadpole grows).', 'Từ nối thứ tự: first, next, after that, once…, finally.'] },
+      { k: 'w1-mixed', ic: '📊', t: 'Task 1: hai biểu đồ kết hợp', only: 'ac', kinds: ['mixed'], what: 'Đề cho hai hình cùng chủ đề (vd. biểu đồ tròn + biểu đồ cột, bảng + biểu đồ đường). Vẫn viết một bài ít nhất 150 từ trong khoảng 20 phút.', hw: 't1',
+        how: ['Mở bài nêu cả hai hình; câu tổng quan nêu nét chính của CẢ HAI hình.', 'Mỗi hình một đoạn chi tiết; nối bằng câu chuyển ý (Turning to…, As for…).', 'Có liên hệ giữa hai hình (cùng năm, cùng nhóm) thì nêu ra.'] },
       { k: 'w1-gt', ic: '✉️', t: 'Task 1: viết thư', only: 'gt', what: 'Viết thư ít nhất 150 từ trong khoảng 20 phút, theo đủ 3 ý gạch đầu dòng của đề. Giọng thư theo người nhận: trang trọng, nửa trang trọng hay thân mật.', hw: 'gt1' },
       { k: 'w2-type', ic: '🧭', t: 'Task 2: nhận kiểu đề', what: 'Task 2 là bài luận ít nhất 250 từ trong khoảng 40 phút, điểm tính gấp đôi Task 1. Có 5 kiểu đề hay gặp; mỗi kiểu cần một cách trả lời.',
         how: ['Đồng ý hay không (To what extent do you agree?): nêu rõ mức đồng ý, giữ một quan điểm suốt bài.', 'Bàn hai quan điểm (Discuss both views and give your opinion): viết cả hai bên, rồi nêu ý mình.', 'Lợi và hại (advantages, disadvantages): viết cả hai; đề hỏi bên nào hơn thì phải nói rõ.', 'Vấn đề và giải pháp (causes, problems, solutions): giải pháp phải khớp vấn đề.', 'Hai câu hỏi: trả lời đủ CẢ HAI, mỗi câu một đoạn.'],
@@ -118,6 +133,9 @@ const XL_TXT = {
         how: ['Đọc câu hỏi trước, rồi tìm chỗ trả lời trong bài (dò tên, số, ngày).', 'Câu "NOT true / NOT mentioned": loại dần 3 phương án có trong bài.', 'Câu chèn câu ("In which position…?"): xem từ nối và đại từ của câu được chèn.'] },
       { k: 'p7m', ic: '📑', t: 'Part 7: Nhiều văn bản', u: 'p7', what: '2–3 văn bản liên quan (email + lịch, quảng cáo + đơn hàng), 5 câu hỏi. Ít nhất một câu phải ĐỐI CHIẾU thông tin của hai văn bản.',
         how: ['Đọc tiêu đề từng văn bản: mỗi văn bản là gì, ai gửi ai.', 'Câu đối chiếu: tìm ý ở văn bản 1, rồi dò chi tiết khớp ở văn bản 2 (vd. số người trong đơn + số bàn trong quảng cáo).'] },
+      { k: 'p7c', ic: '💬', t: 'Part 7: Chuỗi tin nhắn, câu ý định', u: 'p7', what: 'Part 7 có chuỗi tin nhắn hoặc trò chuyện trực tuyến (2–4 người, có giờ gửi). Luôn có câu hỏi ý định: "At 10:15, what does Ms Lee most likely mean when she writes, \'…\'?"',
+        how: ['Đọc tin trước và sau câu được trích: nghĩa nằm ở ngữ cảnh, không ở nghĩa đen.', 'Nhớ ai nói với ai: mỗi tin có tên và giờ.', 'Câu trích thường ngắn, thân mật ("Sure thing", "That works"): đoán ý định (đồng ý, từ chối, nhắc việc…).'],
+        trap: ['Phương án dịch đúng nghĩa đen của câu trích nhưng sai ý trong cuộc trò chuyện.'] },
       { k: 'time', ic: '⏱', t: 'Quản lý giờ Đọc', u: ['spd:p5', 'spd:p7'], what: 'Phần Đọc 100 câu trong 75 phút. Sai không bị trừ điểm: đừng bỏ trống câu nào.',
         how: ['Part 5 khoảng 20 giây một câu (~10 phút), Part 6 ~8 phút, dành phần còn lại (~55 phút) cho Part 7.', 'Câu nào quá lâu thì đoán, đánh dấu, làm tiếp.'] }],
     V: [
@@ -125,7 +143,7 @@ const XL_TXT = {
         how: ['Học theo chủ đề, mỗi lần 10–12 từ; đọc to câu ví dụ.', 'Ôn đúng hạn (1 → 35 ngày); từ đến hạn hiện ở bước ③.', 'Nhớ cả cụm: submit a report, attend a meeting.'] }] },
   cb: {
     ic: { line: '👥', name: '✍️', picl: '🖼', colour: '🎨', picr: '🖼', yn: '✅', spell: '🔤', box: '📦', story: '📚', def: '📖', resp: '💬', mcc: '🔘', pdesc: '✍️', match5: '🔗', pmc: '🖼', nf: '📝', nghe: '🎧',
-      pstory: '✍️', viet: '✍️', doc: '📰', tu: '🔤', pm: '🧭', open: '✏️', mc: '🔤', long: '📖', gap: '🧩', wf: '🧬', kwt: '🔁', xt: '🔀', mm: '🎧', sum: '📝' },
+      pstory: '✍️', viet: '✍️', doc: '📰', tu: '🔤', pm: '🧭', open: '✏️', mc: '🔤', long: '📖', gap: '🧩', wf: '🧬', kwt: '🔁', xt: '🔀', mm: '🎧', sum: '📝', gpara: '🧩' },
     what: {
       line: 'Nhìn một tranh lớn có nhiều người, nghe hội thoại rồi nối mỗi tên với đúng người. Có 1 người thừa.',
       name: 'Nghe hội thoại, viết tên hoặc số vào chỗ trống. Tên được đánh vần từng chữ.',
@@ -150,7 +168,8 @@ const XL_TXT = {
       tu: 'Chọn từ hoặc cụm từ đúng cho mỗi câu: kiểm tra nghĩa từ, từ hay đi kèm, cụm động từ.',
       pm: 'Đọc vài văn bản hoặc đoạn (A, B, C…), nối mỗi câu hỏi hay mỗi người với đúng văn bản.',
       open: 'Đoạn văn có chỗ trống, mỗi chỗ điền MỘT từ (không có phương án). Thường là từ ngữ pháp: giới từ, mạo từ, đại từ, trợ động từ, từ nối.',
-      mc: 'Đoạn văn có chỗ trống, mỗi chỗ chọn 1 trong 4 từ. Kiểm tra từ vựng: nghĩa gần nhau, cụm từ cố định, giới từ đi kèm.',
+      mc: 'Đoạn văn có chỗ trống, mỗi chỗ chọn 1 trong 3 từ (A2 Key) hoặc 4 từ (B1 trở lên). Kiểm tra từ vựng: nghĩa gần nhau, cụm từ cố định, giới từ đi kèm.',
+      gpara: 'Một bài dài bị rút ra một số ĐOẠN (C1 Advanced 6 đoạn, C2 Proficiency 7 đoạn) và có thêm 1 đoạn thừa. Chọn đoạn đúng cho mỗi chỗ trống. Bộ của app rút 4 đoạn để luyện.',
       long: 'Một bài dài (bài báo, trích truyện…), câu hỏi trắc nghiệm 4 phương án về ý chính, chi tiết, thái độ người viết, nghĩa của từ trong bài.',
       gap: 'Một bài bị rút ra một số câu; chọn câu đúng cho mỗi chỗ trống, có câu thừa. Kiểm tra mạch văn.',
       wf: 'Đoạn văn có chỗ trống, cuối dòng có từ gốc in hoa. Đổi từ gốc thành dạng đúng (danh từ, tính từ, trạng từ, phủ định…) để điền.',
@@ -159,7 +178,8 @@ const XL_TXT = {
       mm: 'Năm người nói ngắn về cùng một chủ đề; chọn cho mỗi người một ý trong 8 ý (A–H), 3 ý thừa. C1, C2 có 2 nhiệm vụ cùng một lần nghe.',
       sum: 'Đọc 2 đoạn văn cùng chủ đề, viết bài 240–280 từ tóm tắt và đánh giá ý của cả hai, thêm ý của mình.' },
     how: {
-      mc: ['Đọc cả câu, nhìn từ đứng ngay sau chỗ trống: nhiều câu hỏi cụm cố định (take part in, depend on).', 'Bốn phương án thường gần nghĩa nhau: chọn từ hợp cụm, hợp sắc thái.', 'Đọc lại cả đoạn với từ đã chọn.'],
+      mc: ['Đọc cả câu, nhìn từ đứng ngay sau chỗ trống: nhiều câu hỏi cụm cố định (take part in, depend on).', 'Các phương án thường gần nghĩa nhau: chọn từ hợp cụm, hợp sắc thái.', 'Đọc lại cả đoạn với từ đã chọn.'],
+      gpara: ['Đọc lướt cả bài trước để nắm mạch (thứ tự thời gian, lập luận).', 'Nhìn câu cuối đoạn trước và câu đầu đoạn sau chỗ trống: đại từ (this, that moment), từ nối (however, then), tên riêng phải khớp với đoạn chọn.', 'Làm chỗ chắc trước; đoạn thừa thường cùng chủ đề nhưng không nối được vào đâu.'],
       open: ['Đoán loại từ thiếu: giới từ, mạo từ, đại từ quan hệ, trợ động từ, từ nối.', 'Nhìn cả câu và câu sau: chỗ trống có thể là một phần của cụm (as well as, in spite of).', 'Chỉ một từ; không viết từ rút gọn.'],
       wf: ['Xác định loại từ cần: sau mạo từ, tính từ → danh từ; trước danh từ → tính từ; bổ nghĩa động từ → trạng từ.', 'Xem nghĩa câu có cần phủ định không (un-, in-, dis-, -less).', 'Xem có cần số nhiều không (many, several + danh từ -s).'],
       kwt: ['Tìm cấu trúc mà từ khoá kéo theo (unless, used to, regret, such…).', 'Giữ đúng nghĩa và thì của câu đầu; không đổi từ khoá.', 'Đếm số từ: từ rút gọn tính là 2 từ (trừ can\'t).'],
@@ -173,12 +193,20 @@ const XL_TXT = {
       kwt: ['Đổi dạng từ khoá (viết "suggested" khi từ khoá là SUGGESTION) là mất điểm.'],
       open: ['Điền từ đúng nghĩa nhưng thừa từ (2 từ trong một chỗ).'],
       gap: ['Câu thừa thường cùng chủ đề nhưng không nối được câu trước và câu sau.'],
+      gpara: ['Đoạn có từ khoá trùng với đoạn bên cạnh nhưng "this / that" lại chỉ về điều chưa được nói tới trước đó.'],
       long: ['Phương án lặp đúng từ trong bài nhưng nói ý khác.'],
       nghe: ['Phương án có từ nghe được trong bài nhưng không trả lời đúng câu hỏi.'],
       pmc: ['Cả 3 tranh thường đều được nhắc tới; tranh đúng là cái được chốt cuối cùng.'],
       match5: ['Bài nghe nhắc cả lựa chọn sai ("I wanted to… but…").'] },
     // 🗣 Nói của đề thử: bài học theo từng phần (mkSpeak); sp = cấp có phần đó; m: câu trả lời mẫu theo kỳ thi (SPK_EX)
     spk: {
+      // v132 Movers (A1) như đề thật: tìm điểm khác · kể chuyện theo tranh · chọn tranh khác loại · câu hỏi về bạn
+      diff: { ic: '🔍', t: 'Phần 1: tìm điểm khác nhau', what: 'Movers: giám khảo cho xem hai tranh gần giống nhau, nói một điều ở tranh A rồi hỏi tranh B khác thế nào. Trả lời bằng câu ngắn.',
+        how: ['Nhìn kỹ cả hai tranh: số lượng, vị trí (on, under, next to), con vật, đồ vật, thời tiết.', 'Trả lời theo mẫu câu của giám khảo: "In picture B, the cat is under the chair."', 'Nói rõ số và từ chỉ vị trí: two / three, on / under.'] },
+      story: { ic: '📚', t: 'Phần 2: kể chuyện theo tranh', what: 'Movers: 4 tranh kể một câu chuyện. Giám khảo kể tranh 1, bạn kể tiếp tranh 2–4, mỗi tranh 1–2 câu.',
+        how: ['Nhìn hết 4 tranh trước để hiểu câu chuyện.', 'Mỗi tranh nói ai, làm gì, cảm thấy thế nào: "The kite is in the tree. Sally is sad."', 'Dùng thì như giám khảo (hiện tại đơn / tiếp diễn); nối tranh bằng then, now.'] },
+      odd: { ic: '🧺', t: 'Phần 3: chọn tranh khác loại', what: 'Movers: mỗi lần 4 tranh nhỏ, 3 tranh cùng loại. Nói tranh nào khác và vì sao.',
+        how: ['Tìm điểm chung của 3 tranh: con vật, đồ ăn, quần áo, xe cộ, màu…', 'Trả lời: "The car, because the others are fruit."', 'Nhớ nói "because…": phần lý do cũng được tính.'] },
       noi1: { ic: '🗣', t: 'Phần 1: phỏng vấn', what: 'Giám khảo hỏi về bạn: tên, nơi sống, việc học, sở thích. Starters, Movers trả lời ngắn; từ A2 trả lời 2–3 câu.',
         how: ['Trả lời đủ ý câu hỏi, đúng thì của câu hỏi.', 'Từ A2: thêm lý do hoặc chi tiết (because…, for example…).', 'Không nghe rõ: "Sorry, can you say that again?" không bị trừ điểm.'] },
       eit: { ic: '🔁', t: 'Nhắc lại câu (cách app đo)', what: 'Phần này KHÔNG có trong đề thật. App dùng nó để đo ngữ pháp khi nói: nghe một câu, nói lại đúng như vậy, không nhìn chữ. Câu dài dần; chỉ nhắc lại đúng được câu dài khi nắm được ngữ pháp của nó.',
@@ -249,15 +277,19 @@ const xlTag = t => `<span style="display:inline-block;font-size:13px;font-weight
 function xlList(ex, sk) { try { return ex === 'ielts' ? xlIe(sk) : ex === 'toeic' ? xlTo(sk) : ex === 'cambridge' ? xlCb(sk) : []; } catch (e) { return []; } }
 function xlIe(sk) { if (typeof IE === 'undefined' || !IE) return []; const gt = ieSt().type === 'gt', R = ieSt().r;
   return (XL_TXT.ie[sk] || []).filter(d => !d.only || d.only === (gt ? 'gt' : 'ac')).map(d => { const o = { ...d, id: 'ie:' + sk + ':' + d.k, ex: 'ielts', sk, how: [...(d.hw && IE_HOW[d.hw] ? IE_HOW[d.hw][1] : []), ...(d.how || [])] };
-    if (sk === 'R') { o.u = d.k === 'time' ? null : 'R-' + d.k; o.go = d.k === 'para' ? 'data-iepara' : d.k === 'time' ? 'data-ier="all"' : `data-ier="${d.k}"`; if (d.k === 'para') o.qs = xlIePara; else if (d.k !== 'time') o.qs = () => xlIeR(d.k); }
+    if (sk === 'R') { o.u = d.u || (d.k === 'time' ? null : 'R-' + d.k); o.go = d.k === 'para' ? 'data-iepara' : d.k === 'time' ? 'data-ier="all"' : d.k === 'gt' ? `data-iebai="R|${((IE.doc.filter(x => x.gt).find(x => !R[x.id])) || IE.doc.find(x => x.gt) || {}).id}"` : `data-ier="${d.k}"`;
+      if (d.k === 'para') o.qs = xlIePara; else if (d.k === 'gt') o.qs = xlIeGT; else if (d.k !== 'time') o.qs = () => xlIeR(d.k); }
     if (sk === 'L') { o.qs = () => xlIeL(d.ks); const it = (IE.ln || []).filter(x => x.qs.some(q => d.ks.includes(q.k))); o.go = d.k === 'form' ? 'data-iel="form"' : d.k === 'mc' ? 'data-iel="mc"' : it.length ? `data-iebai="L|${(it.find(x => !R[x.id]) || it[0]).id}"` : ''; }
     if (sk === 'W') { o.w = () => xlIeW(d); o.go = `data-iew="${d.k === 'w1-gt' ? 'gt1' : /^w1/.test(d.k) ? 't1' : 't2'}"`; }
     if (sk === 'S') { o.w = () => xlIeS(d); o.go = `data-ies="${d.k}"`; }
     return o; }); }
 // 📰 Đọc: ví dụ = câu đầu của dạng đó trong bài cuối danh sách có dạng đó; làm thử = 3 câu cùng dạng của một bài khác (ưu tiên bài đã làm)
-function xlIeR(k) { const its = IE.doc.filter(x => ieHasK(x, k)); if (!its.length) return [];
+function xlIeR(k) { const its = IE.doc.filter(x => !x.gt && ieHasK(x, k)); if (!its.length) return [];   // v132: dạng câu lấy ví dụ ở bài học thuật; bộ GT có bài học riêng
   const ex = xlLast(its), rest = its.filter(x => x !== ex), tx = rest.length ? xlPrefer(rest, ieSt().r)[0] : ex, qe = ieRQs(ex, [k]);
   return [qe[0], ...(tx === ex ? qe.slice(1) : ieRQs(tx, [k])).slice(0, XL_TRY)]; }
+// v132 văn bản GT: ví dụ = câu đầu của bộ GT cuối danh sách; làm thử = 3 câu của bộ GT còn lại
+function xlIeGT() { const its = IE.doc.filter(x => x.gt); if (!its.length) return []; const ex = xlLast(its), tx = its.length > 1 ? xlPrefer(its.slice(0, -1), ieSt().r)[0] : ex, qe = ieRQs(ex);
+  return [qe[0], ...(tx === ex ? qe.slice(1) : shuf(ieRQs(tx))).slice(0, XL_TRY)]; }
 function xlIePara() { const P = IE.para || []; if (!P.length) return []; return [iePQ(xlLast(P)), ...iePick(P.slice(0, -1), XL_TRY).map(iePQ)]; }
 // 🎧 Nghe: câu của các dạng ks; nghe đoạn quanh câu chứa đáp án (bài IELTS dài 3–5 phút, bài học chỉ cần đoạn đó)
 function xlIeL(ks) { const its = (IE.ln || []).filter(x => x.qs.some(q => ks.includes(q.k))); if (!its.length) return [];
@@ -267,7 +299,7 @@ function xlIeL(ks) { const its = (IE.ln || []).filter(x => x.qs.some(q => ks.inc
 const XL_T1R = ['Mở bài: viết lại đề', 'Tổng quan: nét chính, không số liệu', 'Chi tiết: số liệu và so sánh', 'Kết luận: ý kiến riêng'];
 const XL_OPEN = { formal: 'Dear Sir or Madam,', semi: 'Dear Mr Brown,', informal: 'Dear Tom,' }, XL_CLOSE = { formal: 'Yours faithfully,', semi: 'Yours sincerely,', informal: 'Best wishes,' };
 function xlIeW(d) { const task = d.k === 'w1-gt' ? 'gt1' : /^w1/.test(d.k) ? 't1' : 't2', pool = task === 'gt1' ? IE.gt1 : task === 't2' ? IE.t2 : IE.t1.filter(x => d.kinds.includes(x.kind)); if (!pool.length) return null;
-  const x = xlLast(pool), rest = pool.length > 1 ? pool.slice(0, -1) : pool, y = shuf(rest)[0], P = xlParas2(x.m), n = P.length;
+  const x = xlLast(pool), rest = pool.length > 1 ? pool.slice(0, -1) : task === 't1' ? IE.t1.filter(z => z !== x && !['map', 'process', 'mixed'].includes(z.kind)) : pool, y = shuf(rest)[0] || x, P = xlParas2(x.m), n = P.length;   // v132: chỉ một đề thì làm thử bằng đề biểu đồ khác
   const role = i => task === 't1' ? XL_T1R[Math.min(i, 2)] : task === 't2' ? (i === 0 ? 'Mở bài: viết lại đề + quan điểm' : i === n - 1 ? 'Kết luận: nhắc lại quan điểm' : `Thân bài ${i}: ý chính + giải thích + ví dụ`)
     : (i === 0 ? 'Lời mở thư (đúng giọng)' : i === n - 1 ? 'Lời chào cuối thư' : i === n - 2 ? 'Câu kết' : i === 1 ? 'Lý do viết thư' : 'Ý trong đề');
   const T = XL_TXT.t2[x.type], card = d.k === 'w2-type' && T ? `<div class="box"><b>🧭 Kiểu đề: ${esc(T[0])}</b><p style="margin:6px 0 0">${esc(T[1])}</p></div>` : '';
@@ -321,6 +353,9 @@ function xlTo(sk) { if (typeof TO === 'undefined' || !TO) return []; const R = t
       o.go = its.length ? `data-tobai="L|${undone(its.map(a => a[0]))}"` : ''; }
     if (/^p5-/.test(k)) { const t = k.slice(3); o.qs = () => { const L = TO.p5.filter(x => x.t === t); return L.length ? [xlLast(L), ...xlPrefer(L.slice(0, -1), R).slice(0, XL_TRY)].map(toP5Q) : []; }; o.go = `data-top="t:${t}"`; }
     if (k === 'p6') { o.qs = () => set(TO.p6, toP6Qs, qs => qs.find(q => q.opts.every(s => kWords(s).length >= 5))); o.go = 'data-top="p6"'; }
+    if (k === 'p7c') { const its = TO.p7.filter(x => /message|chat/i.test(x.kind)), isInt = q => /mean when|writes,/i.test(q.q);
+      o.qs = () => { const all = its.flatMap(toP7Qs), e = all.find(isInt) || all[0]; return e ? [e, ...[...all.filter(q => q !== e && isInt(q)), ...shuf(all.filter(q => q !== e && !isInt(q)))].slice(0, XL_TRY)] : []; };
+      o.go = its.length ? `data-tobai="R|${undone(its)}"` : ''; }
     if (k === 'p7' || k === 'p7m') { o.qs = () => set(TO.p7.filter(x => (x.docs.length > 1) === (k === 'p7m')), toP7Qs, k === 'p7m' ? qs => qs.find(q => /Đối chiếu|both/i.test(q.why || '')) : null); o.go = `data-top="${k}"`; }
     if (k === 'time') o.go = 'data-tospd="p5"';
     if (k === 'voc') { o.qs = () => { const V = toSt().voc, T = TO.voc.find(t => t.w.some(w => !V[w[0]])) || TO.voc[0], ws = T.w, mk = w => ({ x: { id: 'voc:' + w[0] }, kind: 'mc', head: `<p class="mute" style="margin:0">${esc(T.t)}</p><p style="margin:6px 0 0">${esc(w[2] || '')}</p>`, q: `“${esc(w[0])}” nghĩa là gì?`, opts: shuf([w[1], ...shuf(ws.filter(z => z !== w)).slice(0, 2).map(z => z[1])]), a: w[1], why: w[2] || '' });
@@ -328,9 +363,9 @@ function xlTo(sk) { if (typeof TO === 'undefined' || !TO) return []; const R = t
     return o; }); }
 
 // Cambridge: một bài học cho mỗi PHẦN của bài thi (khuôn MOCK); bài Nói chia theo các phần của mkSpeak
-const XL_CBS = { pre: ['noi1', 'eit', 'pic'], a1: ['noi1', 'eit', 'talk', 'rp', 'noi4'], a2: ['noi1', 'eit', 'talk', 'rp', 'noi4'], b1: ['noi1', 'eit', 'photo', 'rp', 'noi4'], b2: ['noi1', 'eit', 'photo', 'rp', 'noi4'], c1: ['noi1', 'eit', 'photo', 'rp', 'noi4'], c2: ['noi1', 'eit', 'talk', 'rp', 'noi4'] };
+const XL_CBS = { pre: ['noi1', 'eit', 'pic'], a1: ['diff', 'story', 'odd', 'noi1', 'eit'], a2: ['noi1', 'eit', 'talk', 'rp', 'noi4'], b1: ['noi1', 'eit', 'photo', 'rp', 'noi4'], b2: ['noi1', 'eit', 'photo', 'rp', 'noi4'], c1: ['noi1', 'eit', 'photo', 'rp', 'noi4'], c2: ['noi1', 'eit', 'talk', 'rp', 'noi4'] };
 function xlCb(sk) { const [lv, ps] = String(sk).split('~'), pi = +ps, C = MOCK[lv], p = C && C.papers[pi]; if (!p) return []; const T = XL_TXT.cb;
-  if (p.speak) return (XL_CBS[SPK_EX[lv]] || []).map(k => { const s = T.spk[k]; return { ...s, k, id: `cb:${C.lo}:${p.t}:${k}`, ex: 'cambridge', sk, i: 0, lv, pi, trap: [], go: `data-cbx="try|${lv}|${pi}|0"`, sp: 1 }; });
+  if (p.speak) return (XL_CBS[SPK_EX[lv]] || []).map(k => { const s = T.spk[k]; return { ...s, t: SPK_EX[lv] === 'a1' && k === 'noi1' ? 'Phần 4: câu hỏi về bạn' : s.t, k, id: `cb:${C.lo}:${p.t}:${k}`, ex: 'cambridge', sk, i: 0, lv, pi, trap: [], go: `data-cbx="try|${lv}|${pi}|0"`, sp: 1 }; });
   return p.parts.map(([lab, gen], i) => { const k = cbKey(lab, p), c = cbCat(lab, p), kk = T.what[k] ? k : c;
     const how = T.how[k] || CB_HOWT[k] || (CB_UK.includes(k) && U_T[k] ? [U_T[k][2]] : null) || CB_HOWT[c] || [];
     return { id: `cb:${C.lo}:${p.t}:${lab}`, ex: 'cambridge', sk, i, lv, pi, k: kk, ic: T.ic[kk] || cbIc(p.t), t: (cbNum(lab) ? 'Phần ' + cbNum(lab) + ': ' : '') + cbShort(lab), what: T.what[kk] || '', how, trap: T.trap[kk] || [],
@@ -347,6 +382,12 @@ function xlCbSpk(d) { const ex = SPK_EX[d.lv], T = XL_TXT.cb, P = KIT.noi, ls = 
   if (d.k === 'pic') { const sp = dtAll().filter(x => x.k === 'spk' && x.lv === 'pre')[0]; if (!sp) return { html: '', tq: [] }; const qs = sp.qs, pic = toPic(sp.pic);
     return { html: `<div class="box">${pic}<p style="margin:6px 0 0"><b>${esc(qs[0].q)}</b> <span class="mute">${esc(qs[0].vi || '')}</span></p><p style="margin:4px 0 0">🗣 ${esc(qs[0].t)}</p></div>`,
       tq: qs.slice(1, 1 + XL_TRY).map(t => ({ kind: 'mc', head: pic, q: esc(t.q), opts: shuf([t.t, ...shuf([...new Set(qs.map(z => z.t))].filter(a => a !== t.t)).slice(0, 2)]), a: t.t, why: 'Câu trả lời đúng với câu hỏi và với tranh.' })) }; }
+  if (['diff', 'story', 'odd'].includes(d.k)) { const st = dtAll().filter(x => x.k === 'spk' && x.lv === 'a1' && x.part === d.k)[0]; if (!st) return { html: '', tq: [] };
+    const grid = h => `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">${h}</div>`, pic = d.k === 'diff' ? `<div style="display:grid;grid-template-columns:1fr;gap:6px">${st.pics.map((p, i) => `<div><span class="mute">Tranh ${'AB'[i]}</span>${toPic(p)}</div>`).join('')}</div>`
+      : d.k === 'story' ? `<p class="mute" style="margin:0 0 4px">${esc(st.intro)}</p>` + grid(st.panels.map((p, i) => `<div><span class="mute">Tranh ${i + 1}</span>${toPic(p)}</div>`).join('')) : '';
+    const pq = t => d.k === 'odd' ? `<p style="font-size:40px;text-align:center;letter-spacing:10px;margin:6px 0">${t.e.join(' ')}</p>` : pic, t0 = st.qs[0];
+    return { html: `<div class="box">${pq(t0)}<p style="margin:6px 0 0"><b>${esc(t0.q)}</b> <span class="mute">${esc(t0.vi || '')}</span></p><p style="margin:4px 0 0">🗣 ${esc(t0.t)} ${kSay(t0.t)}</p></div>`,
+      tq: st.qs.slice(1).map(t => ({ kind: 'mc', head: pq(t), q: esc(t.q), opts: shuf([t.t, ...shuf(st.qs.filter(z => z !== t).map(z => z.t)).slice(0, 2)]), a: t.t, why: 'Câu đúng trả lời đúng câu hỏi và khớp với tranh.' })) }; }
   if (d.k === 'photo') { const ph = dtAll().filter(x => x.k === 'photo' && x.lv === ex)[0]; if (!ph) return { html: '', tq: [] };
     return { html: `<div class="box"><b>${esc(ph.p)}</b><p class="mute" style="margin:4px 0">${esc(ph.pv || '')}</p>${ph.pics.map((p, i) => `<div><span class="mute">Ảnh ${'ABC'[i]}</span>${toPic(p)}</div>`).join('')}</div>${say(ph.m)}`, tq: xlStructQ(ph.m) }; }
   if (d.k === 'talk') { const x = P.items.filter(y => ls.includes(y.lv) && y.type !== 'rp' && y.m)[0]; if (!x) return { html: '', tq: [] };
@@ -386,10 +427,10 @@ const xlClickOf = ex => ex === 'ielts' ? ieClick : ex === 'toeic' ? toClick : cb
 // ví dụ có lời giải (câu hỏi thường): đề + ngữ cảnh + phương án; lời giải gập: đáp án, vì sao, câu chứa đáp án, lời nghe
 function xlExQ(q, d) { const x = q.x || {}, ps = xlParas(q), lettered = (q.opts || []).some(o => /^[A-H][.\s]/.test(o));
   const ctx = x.paras ? (ps.length ? `<div class="box">${ps.map(i => `<p class="tdtap" style="margin:4px 0;font-size:16px;line-height:1.6"><b>${IE_AB[i]}</b> ${esc(x.paras[i])}</p>`).join('')}</div>` : (q.foot || '').replace('<details class="box" open', '<details class="box"')) : (q.foot || '');
-  const bare = q.kind === 'mc' && q.opts.every(o => /^[A-H]$/.test(o)) && !x.paras;   // TOEIC Part 1, 2: phương án chỉ nghe, đề không in chữ
+  const bare = q.kind === 'mc' && !!q.play && q.opts.every(o => /^[A-H]$/.test(o)) && !x.paras;   // TOEIC Part 1, 2: phương án chỉ nghe, đề không in chữ
   const opts = q.kind !== 'mc' ? '<p class="mute" style="margin:4px 0">✍️ Câu này phải gõ câu trả lời.</p>' : q.emo ? `<p style="font-size:44px;text-align:center;margin:6px 0;letter-spacing:12px">${q.opts.map(esc).join(' ')}</p>`
     : bare ? `<p class="mute" style="margin:4px 0">Phương án ${q.opts.join(' · ')}: chỉ nghe, đề không in chữ.</p>` : `<div style="margin:6px 0">${q.opts.map((o, j) => `<p style="margin:4px 0;font-size:15px">${lettered ? '' : 'ABCDEFGH'[j] + '. '}${esc(o)}</p>`).join('')}</div>`;
-  const ans = q.kind === 'mc' ? q.a : (q.acc || [q.a]).join(' / '), ev = xlEvid(q), seg = q.seg ? `<div class="box" style="margin:8px 0 0"><b>🗒 Lời nghe đoạn này</b>${q.seg.lines.map((l, i) => `<p style="margin:4px 0 0;${i === q.seg.at ? 'font-weight:700' : ''}">${l[0] ? esc(l[0]) + ': ' : ''}${esc(l[1])}</p>`).join('')}</div>` : '';
+  const ans = q.kind === 'mc' ? mcAns(q) : (q.acc || [q.a]).join(' / '), ev = xlEvid(q), seg = q.seg ? `<div class="box" style="margin:8px 0 0"><b>🗒 Lời nghe đoạn này</b>${q.seg.lines.map((l, i) => `<p style="margin:4px 0 0;${i === q.seg.at ? 'font-weight:700' : ''}">${l[0] ? esc(l[0]) + ': ' : ''}${esc(l[1])}</p>`).join('')}</div>` : '';
   const why = d.k === 'p2t' && x.tr ? x.o.map((t, i) => `<p style="margin:4px 0">${'ABC'[i]}. ${esc(t)} ${i === x.a ? '✅' : `❌ <b>${esc((TO_TRAP[x.tr[i]] || [''])[0])}</b>${TO_TRAP[x.tr[i]] ? ': ' + esc(TO_TRAP[x.tr[i]][1]) : ''}`}</p>`).join('') : q.why ? `<p style="margin:4px 0">💡 ${esc(q.why)}</p>` : '';
   return `<div class="box"><b>🔍 Ví dụ có lời giải</b> <span class="mute">· câu thật trong kho của app</span>
     <div style="margin-top:6px">${q.head || ''}${ctx}${q.play ? `<button class="chip" data-xlplay>🔊 Nghe${q.seg ? ' đoạn có đáp án' : ''}</button>` : ''}<p class="q" style="font-size:18px;margin:8px 0 4px">${q.q}</p>${opts}</div>

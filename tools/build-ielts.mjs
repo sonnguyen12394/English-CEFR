@@ -8,6 +8,10 @@ const id = x => { if (ids.has(x.id)) err.push('trùng id ' + x.id); ids.add(x.id
 const words = s => s.trim().split(/\s+/).length;
 for (const x of D.items) { id(x); const txt = x.paras.join(' ').toLowerCase(), P = x.paras.length, inTxt = a => new RegExp(`\\b${a.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`).test(txt);
   if (P < 5 || P > 8) err.push(x.id + ': số đoạn ' + P);
+  // v132: bảng Đọc (rtab, họ điền tóm tắt / ghi chú / bảng): số ô trống = số đáp án, đáp án ≤ 2 từ có trong bài · chọn HAI (mc2): 2 đáp án + 3 nhiễu, không trùng
+  if (x.rtab) { const g = x.rtab.r.flat().join(' ').split('______').length - 1; if (g !== x.rtab.a.length) err.push(x.id + ': số ô trống bảng ≠ số đáp án');
+    for (const a of x.rtab.a) { if (words(a[0]) > 2) err.push(x.id + ': đáp án bảng quá 2 từ: ' + a[0]); if (!inTxt(a[0])) err.push(x.id + ': đáp án bảng không có trong bài: ' + a[0]); } }
+  for (const q of x.mc2 || []) if (q.a.length !== 2 || q.w.length !== 3 || new Set([...q.a, ...q.w]).size !== 5) err.push(x.id + ': chọn HAI cần 2 đáp án + 3 nhiễu khác nhau: ' + q.q);
   // v123: dạng nào cũng tuỳ chọn (bài mới có 3–5 dạng như đề thật); có tiêu đề thì đủ mỗi đoạn một tiêu đề
   if (x.h) { if (x.h.length !== P) err.push(x.id + ': số tiêu đề ≠ số đoạn'); if (new Set([...x.h, ...x.hx]).size !== x.h.length + x.hx.length) err.push(x.id + ': tiêu đề trùng'); }
   for (const q of x.tf || []) if (!['TRUE', 'FALSE', 'NOT GIVEN'].includes(q.a)) err.push(x.id + ': đáp án T/F/NG sai ' + q.s);
@@ -27,10 +31,15 @@ for (const x of D.items) { id(x); const txt = x.paras.join(' ').toLowerCase(), P
   if (x.dia) { const gs = x.dia.n.filter(n => n.a); if (gs.length < 3) err.push(x.id + ': sơ đồ cần ≥ 3 ô trống');
     for (const n of gs) { if ((n.s.match(/______/g) || []).length !== 1) err.push(x.id + ': ô sơ đồ cần đúng một chỗ trống: ' + n.s); if (words(n.a[0]) > 2) err.push(x.id + ': đáp án sơ đồ quá 2 từ: ' + n.a[0]); if (!inTxt(n.a[0])) err.push(x.id + ': đáp án sơ đồ không có trong bài: ' + n.a[0]); } }
   for (const q of x.sa || []) { if (words(q.a[0]) > 3) err.push(x.id + ': trả lời ngắn quá 3 từ: ' + q.a[0]); if (!inTxt(q.a[0])) err.push(x.id + ': trả lời ngắn không có trong bài: ' + q.a[0]); }
-  const nq = ['h', 'tf', 'comp', 'mc', 'yn', 'mi', 'sa'].reduce((t, k) => t + (x[k] || []).length, 0) + (x.mf ? x.mf.qs.length : 0) + (x.se ? x.se.qs.length : 0) + (x.sum ? x.sum.a.length : 0) + (x.dia ? x.dia.n.filter(n => n.a).length : 0);
-  if (nq < 13) err.push(x.id + ': cần ≥ 13 câu (đề thật 13–14 câu / bài), có ' + nq); x._nq = nq;
-  const n = words(x.paras.join(' ')); if (n < 400 || n > 900) err.push(x.id + ': độ dài ' + n + ' từ'); }
-for (const x of V.t1) { id(x); if (!['bar', 'line', 'table', 'pie', 'map', 'process'].includes(x.kind)) err.push(x.id + ': kind ' + x.kind);
+  const nq = ['h', 'tf', 'comp', 'mc', 'yn', 'mi', 'sa'].reduce((t, k) => t + (x[k] || []).length, 0) + (x.mf ? x.mf.qs.length : 0) + (x.se ? x.se.qs.length : 0) + (x.sum ? x.sum.a.length : 0) + (x.dia ? x.dia.n.filter(n => n.a).length : 0) + (x.rtab ? x.rtab.a.length : 0) + (x.mc2 || []).length * 2;
+  // v132 General Training (gt): Section 1 văn bản ngắn đời thường, Section 2 văn bản công việc: ngắn hơn, ít câu hơn bài học thuật
+  if (nq < (x.gt ? 6 : 13)) err.push(x.id + ': cần ≥ ' + (x.gt ? 6 : 13) + ' câu, có ' + nq); x._nq = nq;
+  const n = words(x.paras.join(' ')); if (x.gt ? n < 250 || n > 700 : n < 400 || n > 900) err.push(x.id + ': độ dài ' + n + ' từ'); }
+for (const x of V.t1) { id(x); if (!['bar', 'line', 'table', 'pie', 'map', 'process', 'mixed'].includes(x.kind)) err.push(x.id + ': kind ' + x.kind);
+  // v132 hai biểu đồ kết hợp (mixed): mỗi phần là biểu đồ cột / đường / bảng / tròn đủ số liệu; bài mẫu dẫn ≥ 4 số của cả hai
+  if (x.kind === 'mixed') { if (!x.parts || x.parts.length !== 2 || x.parts.some(c => !['bar', 'line', 'table', 'pie'].includes(c.kind) || c.series.some(([, v]) => v.length !== c.cats.length))) err.push(x.id + ': hai biểu đồ hỏng');
+    if (x.m) { const nums = new Set(x.parts.flatMap(c => c.series.flatMap(([, v]) => v)).map(String)), hit = (x.m.match(/\d+(\.\d+)?/g) || []).filter(d => nums.has(d)).length; if (hit < 4) err.push(x.id + ': bài mẫu ít số liệu'); if (words(x.m) < 150) err.push(x.id + ': bài mẫu < 150 từ'); }
+    continue; }
   // v87 bản đồ / quy trình: 2 bản đồ, mọi ô nằm trong lưới 10 × 10; quy trình ≥ 5 bước; bài mẫu nhắc ≥ 70% từ khoá
   if (x.kind === 'map' || x.kind === 'process') { if (x.kind === 'map' && (x.maps.length !== 2 || x.maps.some(m => m.items.some(i => i.x < 0 || i.y < 0 || i.x + i.w > 10 || i.y + i.h > 10)))) err.push(x.id + ': bản đồ hỏng');
     if (x.kind === 'process' && x.steps.length < 5) err.push(x.id + ': quy trình ít bước');
@@ -45,16 +54,21 @@ for (const x of N.p2) { id(x); if (x.b.length !== 4 || x.p3.length < 3) err.push
 // v87 luyện diễn đạt lại: đúng 3 câu bẫy, không trùng đáp án, có cặp từ thay thế
 for (const x of P.items) { id(x); if (x.w.length !== 3 || x.w.includes(x.a) || new Set(x.w).size !== 3) err.push(x.id + ': cần 3 câu bẫy khác đáp án'); if (!x.p.length || !x.why) err.push(x.id + ': thiếu cặp từ / giải thích'); }
 // v87 nghe kiểu IELTS: đúng 10 câu; đáp án điền có nguyên văn trong lời nghe; trắc nghiệm 3 bẫy; bản đồ: chữ có trên bản đồ; ghép: đáp án nằm trong danh sách
-for (const x of L.items) { id(x); const tr = (x.text || x.lines.map(l => l[1]).join(' ')).toLowerCase(); if (x.qs.length !== 10) err.push(x.id + ': cần 10 câu');
+// v132: chọn HAI (mc2) tính 2 câu; lưu đồ (flow): ô có đúng một chỗ trống, đáp án có trong lời nghe
+for (const x of L.items) { id(x); const tr = (x.text || x.lines.map(l => l[1]).join(' ')).toLowerCase(), nq = x.qs.reduce((t, q) => t + (q.k === 'mc2' ? 2 : 1), 0); if (nq !== 10) err.push(x.id + ': cần 10 câu, có ' + nq);
   for (const q of x.qs) { if (['form', 'tab', 'sent', 'sa'].includes(q.k) && !q.a.some(a => tr.includes(a.toLowerCase()))) err.push(x.id + ': đáp án không có trong lời nghe: ' + q.a[0]);
     if (q.k === 'tab' && (!x.tab || !(q.i >= 0) || q.i >= x.tab.r.flat().join(' ').split('______').length - 1)) err.push(x.id + ': ô trống bảng hỏng');
     if (q.k === 'sent' && (q.s.match(/______/g) || []).length !== 1) err.push(x.id + ': câu điền cần đúng một chỗ trống: ' + q.s);
     if (q.k === 'form' && (q.s.match(/______/g) || []).length !== 1) err.push(x.id + ': câu điền cần đúng một chỗ trống: ' + q.s);
     if (q.k === 'mc' && (q.w.length !== 3 || q.w.includes(q.a))) err.push(x.id + ': trắc nghiệm hỏng: ' + q.q);
     if (q.k === 'map' && !x.map.items.some(i => i.t === q.a)) err.push(x.id + ': chữ bản đồ không có: ' + q.a);
-    if (q.k === 'match' && !x.opts.includes(q.a)) err.push(x.id + ': đáp án ghép không có trong danh sách: ' + q.a); } }
+    if (q.k === 'match' && !x.opts.includes(q.a)) err.push(x.id + ': đáp án ghép không có trong danh sách: ' + q.a);
+    if (q.k === 'mc2' && (q.a.length !== 2 || q.w.length !== 3 || new Set([...q.a, ...q.w]).size !== 5)) err.push(x.id + ': chọn HAI hỏng: ' + q.q);
+    if (q.k === 'flow') { const nd = x.flow && x.flow.n[q.i]; if (!nd || (nd.s.match(/______/g) || []).length !== 1 || JSON.stringify(nd.a) !== JSON.stringify(q.a)) err.push(x.id + ': ô lưu đồ hỏng ' + q.i);
+      if (!q.a.some(a => tr.includes(a.toLowerCase()))) err.push(x.id + ': đáp án lưu đồ không có trong lời nghe: ' + q.a[0]); } } }
 if (err.length) { console.error(err.join('\n')); process.exit(1); }
+const NQ = D.items.reduce((t, x) => t + x._nq, 0), NL = L.items.reduce((t, x) => t + x.qs.reduce((u, q) => u + (q.k === 'mc2' ? 2 : 1), 0), 0);
 for (const x of D.items) delete x._nq;
 const out = { _note: 'Dựng bởi tools/build-ielts.mjs từ content/ielts/*.json. Không sửa tay.', doc: D.items, t1: V.t1, gt1: V.gt1, t2: V.t2, p1: N.p1, p2: N.p2, para: P.items, ln: L.items };
 fs.writeFileSync(root + 'ielts.json', JSON.stringify(out));
-console.log(`ielts.json: ${D.items.length} bài đọc (${D.items.reduce((s, x) => s + ['h', 'tf', 'comp', 'mc', 'yn', 'mi', 'sa'].reduce((t, k) => t + (x[k] || []).length, 0) + (x.mf ? x.mf.qs.length : 0) + (x.se ? x.se.qs.length : 0) + (x.sum ? x.sum.a.length : 0) + (x.dia ? x.dia.n.filter(n => n.a).length : 0), 0)} câu), Task 1 ${V.t1.length} + ${V.gt1.length} thư, Task 2 ${V.t2.length}, Nói ${N.p1.length} chủ đề Part 1 + ${N.p2.length} thẻ Part 2, diễn đạt lại ${P.items.length} câu, nghe ${L.items.length} phần (${L.items.reduce((s, x) => s + x.qs.length, 0)} câu)`);
+console.log(`ielts.json: ${D.items.length} bài đọc (${NQ} câu), Task 1 ${V.t1.length} + ${V.gt1.length} thư, Task 2 ${V.t2.length}, Nói ${N.p1.length} chủ đề Part 1 + ${N.p2.length} thẻ Part 2, diễn đạt lại ${P.items.length} câu, nghe ${L.items.length} phần (${NL} câu)`);

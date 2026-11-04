@@ -1327,6 +1327,54 @@ const R = await run(`(async () => {
     if (!(HD.find(x => x[0] === 'luyenthi') || [, , () => ''])[2]().includes('ví dụ có lời giải')) bad.push('Luật mục Luyện thi chưa nói bài học');
     S = blank(); MK = null;
     add('cefr', 'C46', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'bài học kỳ thi (' + nL + ' bài, ' + nTry + ' có làm thử): mỗi dạng câu / phần một bài (dạng là gì, cách làm, ví dụ có lời giải, làm thử không ghi kết quả), màn kỹ năng 2 danh sách 📘 / 🏋️, dạng yếu lên trước, học hết thì gập'); }
+  // v132 IELTS đủ dạng còn thiếu: Đọc General Training (Section 1, 2), chọn HAI (Đọc + Nghe), điền bảng Đọc, lưu đồ Nghe, Task 1 hai biểu đồ; bài học + TOEIC chuỗi tin nhắn
+  { const bad = [], errs = [], tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML);
+    await Promise.all([ieLoad(), toLoad(), loadEB(), ...Object.values(KIT).map(kLoad)]); S = blank(); S.ie = { set: 1, type: 'gt', target: 6.5 };
+    const G = IE.doc.filter(x => x.gt); if (![1, 2].every(n => G.some(x => x.sec === n)) || G.some(x => ieRQs(x).length < 6 || ieRQs(x).some(q => q.ty !== 'R-gt'))) bad.push('Đọc GT: thiếu Section 1 / 2 hoặc câu chưa ghi R-gt');
+    const R = IE_PAPERS[1].gen(); if (![1, 2].every(n => R.some(it => it.part.startsWith('Section ' + n) && it.q.x && it.q.x.gt)) || !R.some(it => it.part.startsWith('Section 3') && !it.q.x.gt)) bad.push('đề thử Đọc GT chưa dùng bộ GT');
+    if (!ieBai('R')[0].x.gt || imPool('R-gt').some(x => !x.gt)) bad.push('GT: danh sách bài / bản đồ chưa lấy bộ GT');
+    S.ie.type = 'ac'; if (ieBai('R').some(b => b.x.gt) || IE_PAPERS[1].gen().length !== 40 || imPool('R-tf').some(x => x.gt)) bad.push('Academic thấy bộ GT hoặc đề thử Đọc ≠ 40 câu');
+    // chọn HAI: 2 câu cùng danh sách A–E, mỗi chữ đúng 1 điểm, câu 2 không được trùng câu 1
+    const M2 = IE.doc.filter(x => x.mc2).flatMap(x => ieRQs(x, ['mc2'])), L2 = IE.ln.flatMap(ieLnQs).filter(q => q.k === 'ln-mc2');
+    if (M2.length < 4 || L2.length < 4 || [...M2, ...L2].some(q => q.any.length !== 2 || q.opts.length !== 5 || !q.any.every(a => q.opts.includes(a)) || !q.any.includes(q.a))) bad.push('chọn HAI: thiếu câu / sai cấu trúc');
+    { const [a, b] = M2; if (a.opts !== b.opts || !mcOk(a, a.any[1], []) || mcOk(b, a.any[1], [{ q: a, ans: a.any[1] }]) || !mcOk(b, a.any[0], [{ q: a, ans: a.any[1] }]) || mcOk(a, a.opts.find(o => !a.any.includes(o)), [])) bad.push('chọn HAI: chấm sai'); }
+    // bảng Đọc, lưu đồ Nghe
+    const RT = IE.doc.filter(x => x.rtab).flatMap(x => ieRQs(x, ['rtab'])); if (RT.length < 4 || RT.some(q => q.ty !== 'R-sum' || !/<table/.test(q.head) || !/<mark/.test(q.head))) bad.push('bảng Đọc hỏng');
+    const FL = IE.ln.flatMap(ieLnQs).filter(q => q.k === 'ln-flow'); if (FL.length < 4 || FL.some(q => q.ty !== 'L-form' || q.kind !== 'type' || !/______/.test(q.head))) bad.push('lưu đồ Nghe hỏng');
+    if (IE.ln.some(x => ieLnQs(x).length !== 10)) bad.push('bài Nghe IELTS không còn đủ 10 câu');
+    // Task 1 hai biểu đồ: vẽ đủ 2 hình, máy chấm nhận số của cả hai, AI nhận dữ liệu cả hai
+    const MX = IE.t1.find(x => x.kind === 'mixed'); if (!MX || (ieChart(MX).match(/<svg/g) || []).length !== 2 || ieFeat('t1', MX, MX.m).some(f => !f[1]) || MX.parts.some(c => !ieT1Text(MX).includes(c.title))) bad.push('Task 1 hai biểu đồ hỏng');
+    // bài học
+    const need = { R: ['rtab', 'mc2'], L: ['mc2'], W: ['w1-mixed'] };
+    for (const [sk, ks] of Object.entries(need)) { const L = xlList('ielts', sk); for (const k of ks) { const i = L.findIndex(d => d.k === k); if (i < 0) { bad.push('thiếu bài học IELTS ' + sk + ' ' + k); continue; } await tryA(k, () => xlView('ielts', sk, i)); if (!H().includes('Ví dụ') || !(XL_CUR.tq || []).length) bad.push('bài học ' + k + ' thiếu ví dụ / làm thử'); } }
+    if (!xlList('ielts', 'L').find(d => d.k === 'form').ks.includes('flow')) bad.push('bài học điền phiếu chưa có lưu đồ');
+    if (xlList('ielts', 'R').some(d => d.k === 'gt')) bad.push('Academic thấy bài học GT');
+    S.ie.type = 'gt'; { const L = xlList('ielts', 'R'), i = L.findIndex(d => d.k === 'gt'); if (i < 0) bad.push('GT thiếu bài học văn bản GT'); else { await tryA('gt', () => xlView('ielts', 'R', i)); if (!(XL_CUR.tq || []).length || !H().includes('Ví dụ')) bad.push('bài học GT thiếu ví dụ / làm thử'); }
+      if (xlList('ielts', 'W').some(d => d.k === 'w1-mixed')) bad.push('GT thấy bài học hai biểu đồ'); }
+    S.ie.type = 'ac'; { const T = xlList('toeic', 'R'), i = T.findIndex(d => d.k === 'p7c'); if (i < 0) bad.push('TOEIC thiếu bài học chuỗi tin nhắn'); else { await tryA('p7c', () => xlView('toeic', 'R', i)); if (!/mean when|writes/.test(H()) || !(XL_CUR.tq || []).length) bad.push('bài học chuỗi tin nhắn thiếu câu ý định'); } }
+    S = blank(); MK = null;
+    add('cefr', 'C47', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'IELTS đủ dạng: Đọc General Training Section 1 / 2 (đề thử, danh sách, bản đồ), chọn HAI (Đọc + Nghe, chấm từng chữ), điền bảng Đọc, lưu đồ Nghe, Task 1 hai biểu đồ; bài học từng dạng + TOEIC chuỗi tin nhắn'); }
+  // v132 Cambridge đủ dạng còn thiếu: A2 Key Đọc phần 4 / 5 điền từ cả đoạn, C1 phần 7 / C2 phần 6 khuyết ĐOẠN, Movers Nói 4 phần như đề thật; bài học, giọng
+  { const bad = [], errs = [], tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML);
+    await Promise.all([loadEB(), uLoad(), ...Object.values(KIT).map(kLoad)]); S = blank(); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json')).json()); } catch (e) {}
+    const gen = (lv, pi, re) => { const P = MOCK[lv].papers[pi], part = P.parts.find(([lab]) => re.test(lab)); if (!part) return null; MK = { lv, C: MOCK[lv], papers: [], idx: [pi] }; let qs = []; try { qs = part[1](); } catch (e) { errs.push(lv + ': ' + e.message); } MK = null; return { lab: part[0], k: cbKey(part[0], P), qs }; };
+    const p4 = gen('a2', 0, /^Phần 4/), p5 = gen('a2', 0, /^Phần 5/);
+    if (!p4 || p4.k !== 'mc' || p4.qs.length !== 6 || p4.qs.some(q => q.kind !== 'mc' || q.opts.length !== 3 || !q.opts.includes(q.a) || q.x.lv !== 'a2')) bad.push('A2 phần 4 chưa là trắc nghiệm 3 phương án cả đoạn');
+    if (!p5 || p5.k !== 'open' || p5.qs.length !== 6 || p5.qs.some(q => q.kind !== 'type' || !q.acc.length || q.x.lv !== 'a2')) bad.push('A2 phần 5 chưa là điền một từ cả đoạn');
+    if (uItems('mc', ['a2']).length < 2 || uItems('open', ['a2']).length < 2) bad.push('A2: cần ≥ 2 bộ mỗi dạng');
+    for (const [lv, n] of [['c1', 7], ['c2', 6]]) { const g = gen(lv, 0, /khuyết/); if (!g || g.k !== 'gpara' || !g.lab.startsWith('Phần ' + n + ':') || g.qs.length < 4 || g.qs.some(q => q.opts.join('') !== 'ABCDE' || !q.opts.includes(q.a) || !/Các đoạn A–E/.test(q.foot) || !/<mark|dashed/.test(q.head))) bad.push(lv + ': phần khuyết đoạn hỏng'); }
+    { const g = gen('b2', 0, /khuyết/); if (!g || g.k !== 'gap') bad.push('B2 phần 6 phải giữ khuyết câu'); }
+    // Movers Nói: 4 phần như đề thật (+ nhắc lại câu của app)
+    MK = { lv: 'a1', C: MOCK.a1, papers: [], idx: [2] }; let sp = []; try { sp = mkSpeak(); } catch (e) { errs.push('Nói Movers: ' + e.message); } MK = null;
+    const parts = [...new Set(sp.map(x => x.part))]; if (!['Phần 1: tìm điểm khác nhau', 'Phần 2: kể chuyện theo tranh', 'Phần 3: chọn tranh khác loại', 'Phần 4: câu hỏi về bạn'].every(t => parts.includes(t))) bad.push('Nói Movers thiếu phần: ' + parts.join(' / '));
+    if (sp.filter(x => x.q.mode === 'pq').some(x => !x.q.st.need.any.length || !(x.q.pic || '').length)) bad.push('Nói Movers: câu thiếu tranh / từ cần nói');
+    const miss = dtAll().filter(x => x.k === 'spk' && x.lv === 'a1').flatMap(x => x.qs.map(q => q.q)).filter(t => !NCLIPS.has(clipKey(t))); if (miss.length) bad.push('Nói Movers thiếu giọng ' + miss.length + ' câu');
+    // bài học
+    const A1 = xlList('cambridge', 'a1~2'); if (A1.map(d => d.k).join(',') !== 'diff,story,odd,noi1,eit' || A1[3].t !== 'Phần 4: câu hỏi về bạn') bad.push('bài học Nói Movers sai: ' + A1.map(d => d.k).join(','));
+    for (const [sk, ks] of [['a1~2', ['diff', 'story', 'odd']], ['a2~0', ['mc', 'open']], ['c1~0', ['gpara']], ['c2~0', ['gpara']]]) { const L = xlList('cambridge', sk);
+      for (const k of ks) { const i = L.findIndex(d => d.k === k); if (i < 0) { bad.push('thiếu bài học ' + sk + ' ' + k); continue; } await tryA(sk + k, () => xlView('cambridge', sk, i)); if (!H().includes('Ví dụ') || !(XL_CUR.tq || []).length) bad.push('bài học ' + sk + ' ' + k + ' thiếu ví dụ / làm thử'); } }
+    S = blank(); MK = null;
+    add('cefr', 'C48', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Cambridge đủ dạng: A2 Key phần 4 / 5 điền từ cả đoạn, C1 phần 7 / C2 phần 6 khuyết đoạn (B2 giữ khuyết câu), Movers Nói tìm điểm khác / kể chuyện theo tranh / chọn tranh khác loại / câu hỏi về bạn; bài học, giọng đủ'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-exthi') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');

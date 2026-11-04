@@ -35,8 +35,10 @@ function imWeak() { const o = ieSt(), tg = o.target, T = o.ty || {}, fx = (o.fo 
   return out.sort((a, b) => b.p - a.p); }
 // số bài chưa gặp trong 30 ngày cho một dạng (kho nhỏ: hết bài mới thì lượt luyện không tính lần thử)
 const imFreshOk = (id, now = Date.now()) => { const r = ieSt().r[id]; return !r || now - r.at >= IM_FRESH_D * DAY; };
-function imPool(u) { if (u === 'R-para') return IE && IE.para || []; if (u === 'R-gt') return KIT.doc.items ? KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)) : [];
-  if (u[0] === 'R') return IE ? IE.doc.filter(x => typeof ieHasK !== 'function' || ieHasK(x, u.slice(2))) : [];   // v123: bài có dạng đó
+function imPool(u) { if (u === 'R-para') return IE && IE.para || [];
+  // v132: văn bản GT = bộ General Training soạn riêng (chưa có thì bài Đọc B1–B2 của Nền); dạng câu Đọc chỉ lấy bài học thuật (câu của bộ GT ghi vào R-gt)
+  if (u === 'R-gt') { const g = IE ? IE.doc.filter(x => x.gt) : []; return g.length ? g : KIT.doc.items ? KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)) : []; }
+  if (u[0] === 'R') return IE ? IE.doc.filter(x => !x.gt && (typeof ieHasK !== 'function' || ieHasK(x, u.slice(2)))) : [];   // v123: bài có dạng đó
   // v130: dòng dưới từng bị chú thích ở trên nuốt mất (bản đồ / ghép / trả lời ngắn chỉ có ở bài IELTS, không lấy bài Nghe CEFR)
   if (u === 'L-map' || u === 'L-match' || u === 'L-sa') return IE && IE.ln ? IE.ln.filter(x => x.qs.some(q => IE_LTY[q.k] === u)) : [];
   if (u[0] === 'L') { const ln = IE && IE.ln ? IE.ln.filter(x => x.qs.some(q => IE_LTY[q.k] === u)) : []; return [...ln, ...(KIT.nghe.items ? KIT.nghe.items.filter(x => ['b1', 'b2', 'c1', 'c2'].includes(x.lv) && (u === 'L-form' ? ngForm(x) : true)) : [])]; } return []; }
@@ -64,7 +66,7 @@ async function imFix(u) { await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KI
     if (k === 'L') { const qs = ieListen(u === 'L-form' ? [0, 3] : u === 'L-map' ? [1] : u === 'L-match' ? [2] : [1, 2]).map(it => it.q); return qs.length ? ieRun('🗺 ' + IE_TY[u], qs, ieltsView) : toast('Chưa có bài nghe hợp dạng này.'); }
     const pool = imPool(u), fresh = shuf(pool.filter(x => imFreshOk(x.id))), xs = (fresh.length ? fresh : [...pool].sort((a, b) => (ieSt().r[a.id] || {}).at - (ieSt().r[b.id] || {}).at)).slice(0, 2);
     if (!fresh.length) toast('Hết bài mới cho dạng này: lượt này không tính lần thử (đã gặp bài trong 30 ngày).');
-    const qs = u === 'R-gt' ? xs.flatMap(x => kRead(KIT.doc, x, 'ct', false).map(q => Object.assign(q, { ty: 'R-gt' }))) : xs.flatMap(x => ieRQs(x, [u.slice(2)]));
+    const qs = u === 'R-gt' ? xs.flatMap(x => x.paras ? ieRQs(x) : kRead(KIT.doc, x, 'ct', false).map(q => Object.assign(q, { ty: 'R-gt' }))) : xs.flatMap(x => ieRQs(x, [u.slice(2)]));
     return ieRun('🗺 ' + IE_TY[u], qs, ieltsView); };
   if (k === 'S' && !SREC) return toast('Phần Nói cần máy chép lời: mở trang bằng Safari trên iPhone.');
   if (k === 'W' || k === 'S' || (f && f.tr >= 1 && f.td !== d)) return imTeach(u, run);   // Viết / Nói: luôn xem cách nâng tiêu chí trước; dạng câu: từ lần thử 2

@@ -607,14 +607,28 @@
    "qs": [
     {
      "k": "mc",
-     "q": "Volunteers must wear the festival T-shirt so that",
-     "a": "visitors can recognise them.",
+     "q": "What is the minimum number of hours each volunteer works?",
+     "a": "Twelve",
      "w": [
-      "they can get free meals.",
-      "they can enter the campsite.",
-      "the organisers can count them."
+      "Six",
+      "Eighteen",
+      "Twenty"
      ],
-     "why": "\"so that visitors can recognise you\""
+     "why": "\"at least two shifts of six hours\" = 12 giờ."
+    },
+    {
+     "k": "mc2",
+     "q": "Which TWO things do volunteers receive in return for their work?",
+     "a": [
+      "a ticket for the whole weekend",
+      "meals during their shifts"
+     ],
+     "w": [
+      "a tent for the staff campsite",
+      "money for travel costs",
+      "a payment for each shift"
+     ],
+     "why": "\"you get a free ticket for the whole weekend, meals during your shifts, and a festival T-shirt\". Bẫy: lều phải tự mang (\"you need to bring your own tent\")."
     },
     {
      "k": "mc",
@@ -637,28 +651,6 @@
       "by the end of this month."
      ],
      "why": "\"at least three days before the festival starts\""
-    },
-    {
-     "k": "mc",
-     "q": "What is the minimum number of hours each volunteer works?",
-     "a": "Twelve",
-     "w": [
-      "Six",
-      "Eighteen",
-      "Twenty"
-     ],
-     "why": "\"at least two shifts of six hours\" = 12 giờ."
-    },
-    {
-     "k": "mc",
-     "q": "Applications to volunteer close",
-     "a": "at the end of this month.",
-     "w": [
-      "on the twelfth of July.",
-      "four weeks before the festival.",
-      "when three hundred people have applied."
-     ],
-     "why": "\"Applications close at the end of this month.\""
     },
     {
      "k": "match",
@@ -1014,26 +1006,18 @@
      "why": "\"it was exam season, so a lot of people didn't reply\""
     },
     {
-     "k": "mc",
-     "q": "What surprised Tom most?",
-     "a": "how many students slept badly despite having time",
+     "k": "mc2",
+     "q": "Which TWO findings surprised the students?",
+     "a": [
+      "how many students slept badly even when they had time",
+      "how common energy drinks were"
+     ],
      "w": [
-      "how few students slept seven hours",
-      "how many students used phones in bed",
+      "how many students slept more than eight hours",
+      "how few students used their phones in bed",
       "how much coffee students drank"
      ],
-     "why": "\"how many said they slept badly even when they had time\"; bẫy: ngủ dưới 7 giờ là điều Tom đã đoán trước."
-    },
-    {
-     "k": "mc",
-     "q": "What surprised Hana?",
-     "a": "Energy drinks were more common than expected.",
-     "w": [
-      "Few students drank coffee at night.",
-      "Most students avoided caffeine.",
-      "Coffee helped students sleep."
-     ],
-     "why": "\"energy drinks were far more common than we thought\""
+     "why": "Tom: \"how many said they slept badly even when they had time\". Hana: \"energy drinks were far more common than we thought\". Bẫy: Hana tưởng cà phê là vấn đề chính; gần như ai cũng dùng điện thoại trên giường."
     },
     {
      "k": "mc",
@@ -1240,38 +1224,70 @@
      "why": "\"it has no layer of fat\""
     },
     {
-     "k": "form",
-     "s": "Otters were once hunted for their ______",
+     "k": "flow",
+     "i": 0,
      "a": [
       "fur"
      ],
-     "why": "\"hunted almost to extinction for their fur\""
+     "why": "\"otters were hunted almost to extinction for their fur\""
     },
     {
-     "k": "form",
-     "s": "An animal with a very large effect on its environment: a ______ species",
+     "k": "flow",
+     "i": 1,
+     "a": [
+      "rose"
+     ],
+     "why": "\"As otter numbers fell, urchin numbers rose\""
+    },
+    {
+     "k": "flow",
+     "i": 3,
+     "a": [
+      "recovered"
+     ],
+     "why": "\"Where otters have returned, the kelp has often recovered\""
+    },
+    {
+     "k": "flow",
+     "i": 4,
      "a": [
       "keystone"
      ],
-     "why": "\"a keystone species\""
-    },
-    {
-     "k": "form",
-     "s": "In northern California, the loss of a ______ that eats urchins added to the problem",
-     "a": [
-      "starfish"
-     ],
-     "why": "\"the loss of a starfish that also eats urchins\""
-    },
-    {
-     "k": "form",
-     "s": "Urchins are now removed by hand with help from volunteer ______",
-     "a": [
-      "divers"
-     ],
-     "why": "\"with the help of volunteer divers\""
+     "why": "\"Ecologists call an animal like this a keystone species\""
     }
-   ]
+   ],
+   "flow": {
+    "t": "How otters affect kelp forests",
+    "n": [
+     {
+      "s": "Otters hunted almost to extinction for their ______",
+      "a": [
+       "fur"
+      ]
+     },
+     {
+      "s": "Otter numbers fell; urchin numbers ______",
+      "a": [
+       "rose"
+      ]
+     },
+     {
+      "s": "Large areas of kelp disappeared"
+     },
+     {
+      "s": "Where otters have returned, the kelp has often ______",
+      "a": [
+       "recovered"
+      ]
+     },
+     {
+      "s": "Ecologists call the otter a ______ species",
+      "a": [
+       "keystone"
+      ]
+     }
+    ]
+   }
   },
   {
    "id": "il-p4-heat",

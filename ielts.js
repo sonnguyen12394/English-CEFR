@@ -33,10 +33,12 @@ const iePass = x => `<details class="box" open style="margin-top:12px"><summary>
 const IE_TFH = '<p class="mute">TRUE = bài nói đúng như vậy · FALSE = bài nói ngược lại · NOT GIVEN = bài không nói tới.</p>';
 const IE_RK = { h: ['🧭', 'Chọn tiêu đề cho đoạn'], tf: ['⚖️', 'TRUE / FALSE / NOT GIVEN'], comp: ['✏️', 'Điền không quá 2 từ'], mc: ['🔘', 'Trắc nghiệm'],
   // v123 (người sáng lập 3/11/2026: đủ nội dung theo mục tiêu, chọn "soạn thêm bài đọc mới"): 7 dạng còn lại của đề thật, có bài luyện trong app
-  yn: ['💭', 'YES / NO / NOT GIVEN'], mi: ['🔎', 'Tìm đoạn chứa thông tin'], mf: ['👤', 'Nối đặc điểm với tên'], se: ['🧩', 'Nối nửa câu'], sum: ['📝', 'Điền tóm tắt'], dia: ['🗂', 'Điền sơ đồ / quy trình'], sa: ['❓', 'Trả lời ngắn'] };
+  yn: ['💭', 'YES / NO / NOT GIVEN'], mi: ['🔎', 'Tìm đoạn chứa thông tin'], mf: ['👤', 'Nối đặc điểm với tên'], se: ['🧩', 'Nối nửa câu'], sum: ['📝', 'Điền tóm tắt'], dia: ['🗂', 'Điền sơ đồ / quy trình'], sa: ['❓', 'Trả lời ngắn'],
+  // v132 (rà dạng còn thiếu): điền bảng (họ "summary, note, table, flow-chart completion") · chọn HAI đáp án (Choose TWO letters)
+  rtab: ['📋', 'Điền bảng'], mc2: ['✌️', 'Chọn HAI đáp án'] };
 // bài có dạng k không (tiêu đề cần đủ mỗi đoạn một tiêu đề; dạng có danh sách con: mf / se / sum / dia)
 const ieHasK = (x, k) => { const v = x[k]; return !!v && (Array.isArray(v) ? v.length > 0 : (v.qs || v.n || v.a || []).length > 0); };
-const IE_RQK = ['h', 'mi', 'tf', 'yn', 'mf', 'se', 'sum', 'dia', 'comp', 'sa', 'mc'];   // thứ tự dạng trong một bài (như đề thật: theo khối)
+const IE_RQK = ['h', 'mi', 'tf', 'yn', 'mf', 'se', 'sum', 'rtab', 'dia', 'comp', 'sa', 'mc', 'mc2'];   // thứ tự dạng trong một bài (như đề thật: theo khối)
 const IE_YNH = '<p class="mute">YES = khớp ý tác giả · NO = trái ý tác giả · NOT GIVEN = không biết tác giả nghĩ gì.</p>';
 // sơ đồ / quy trình: các ô nối mũi tên, ô đang hỏi tô màu
 const ieDiaHtml = (d, cur) => `<div class="box" style="margin:6px 0"><b>${esc(d.t)}</b>${d.n.map((n, i) => `${i ? '<p style="text-align:center;margin:2px 0" aria-hidden="true">↓</p>' : ''}<p style="margin:4px 0;padding:6px 8px;border:1px solid var(--line);border-radius:8px${i === cur ? ';border-color:var(--accent);background:var(--accent2)' : ''}">${esc(n.s).replace('______', i === cur ? '<b>______</b>' : '______')}</p>`).join('')}</div>`;
@@ -55,7 +57,15 @@ function ieRQs(x, kinds = IE_RQK) { const foot = iePass(x), out = []; kinds = IE
     ...(x.sum.bank ? { kind: 'mc', opts: x.sum.bank, a: a[0] } : { kind: 'type', a: a[0], acc: a }), why: (x.sum.why || [])[i], foot }));
   if (kinds.includes('dia')) x.dia.n.forEach((n, i) => { if (n.a) out.push({ x, k: 'dia', ty: 'R-dia', kind: 'type', head: `<p class="mute">Điền KHÔNG QUÁ HAI TỪ vào sơ đồ, lấy đúng từ trong bài.</p>${ieDiaHtml(x.dia, i)}`, q: 'Ô được tô màu', a: n.a[0], acc: n.a, why: n.why, foot }); });
   if (kinds.includes('sa')) for (const t of x.sa) out.push({ x, k: 'sa', ty: 'R-sa', kind: 'type', head: '<p class="mute">Trả lời KHÔNG QUÁ BA TỪ và / hoặc một số, lấy từ trong bài.</p>', q: esc(t.q), a: t.a[0], acc: t.a, why: t.why, foot });
+  // v132 điền bảng (tính như điền tóm tắt R-sum) · chọn HAI (2 câu cùng một danh sách A–E, mỗi chữ đúng 1 điểm, thứ tự nào cũng được: mcOk ở mock.js)
+  if (kinds.includes('rtab')) x.rtab.a.forEach((a, i) => out.push({ x, k: 'rtab', ty: 'R-sum', kind: 'type', head: `<p class="mute">Điền bảng: KHÔNG QUÁ HAI TỪ, lấy đúng từ trong bài.</p>${ieTabHtml(x.rtab, i)}`, q: `Ô trống (${i + 1})`, a: a[0], acc: a, why: (x.rtab.why || [])[i], foot }));
+  if (kinds.includes('mc2')) x.mc2.forEach((m, j) => { const opts = shuf([...m.a, ...m.w]).map((o, k) => IE_AB[k] + ' ' + o), L = o => opts.find(t => t.slice(2) === o);
+    [1, 2].forEach(n => out.push({ x, k: 'mc2', ty: 'R-mc', kind: 'mc', head: '<p class="mute">Chọn HAI chữ cái (A–E). Mỗi chữ đúng được 1 điểm; thứ tự nào cũng được.</p>', q: esc(m.q) + ` <span class="mute">· lựa chọn ${n}/2</span>`,
+      opts, a: L(m.a[n - 1]), any: m.a.map(L), two: n, pid: x.id + ':mc2:' + j, why: m.why, foot })); });
+  if (x.gt) for (const q of out) q.ty = 'R-gt';   // v132 bộ Đọc General Training (Section 1, 2): một ô "Văn bản GT" trên bản đồ band
   return out; }
+// v132: bài đọc theo loại thi: Academic không thấy bộ General Training (gt); General Training thấy bộ GT trước rồi tới bài dài (Section 3)
+const ieDocs = () => { const gt = ieSt().type === 'gt'; return gt ? [...IE.doc.filter(x => x.gt), ...IE.doc.filter(x => !x.gt)] : IE.doc.filter(x => !x.gt); };
 // v99 (nhật ký trải nghiệm): đề thật mỗi bài đọc 13–14 câu (cả đề 40). Bài của app có ~18–22 câu: lượt "cả bài" và đề thử cắt còn n câu,
 // chia theo dạng (mỗi dạng ≥ 2 câu), giữ thứ tự dạng và thứ tự câu trong bài
 function ieCap(qs, n) { if (qs.length <= n) return qs; const g = [...new Set(qs.map(q => q.k))].map(k => qs.filter(q => q.k === k));
@@ -72,16 +82,20 @@ const IE_LH = '<p class="mute">🎧 Đọc câu hỏi trước, rồi nghe. Đ�
 const IE_LP = [['Part 1: hội thoại, điền phiếu', ['b1', 'b2'], 'form', true], ['Part 2: một người nói, trắc nghiệm', ['b1', 'b2'], 'mc', false], ['Part 3: hội thoại, trắc nghiệm', ['b2', 'c1'], 'mc', true], ['Part 4: bài nói chuyên đề, điền phiếu', ['c1', 'c2'], 'form', false]];
 // v87: bài nghe soạn đúng kiểu IELTS (IE.ln: điền phiếu, trắc nghiệm, bản đồ, ghép) dùng trước; hết thì lấy bài Nghe B1 → C2 của CEFR như cũ
 // v130: tab (điền bảng) và sent (điền câu) thuộc nhóm điền; sa (trả lời ngắn) là dạng riêng L-sa
-const IE_LTY = { form: 'L-form', mc: 'L-mc', map: 'L-map', match: 'L-match', tab: 'L-form', sent: 'L-form', sa: 'L-sa' };
+const IE_LTY = { form: 'L-form', mc: 'L-mc', map: 'L-map', match: 'L-match', tab: 'L-form', sent: 'L-form', sa: 'L-sa', flow: 'L-form', mc2: 'L-mc' };   // v132: lưu đồ (flow) thuộc nhóm điền; chọn HAI thuộc trắc nghiệm
 const ieTabHtml = (t, cur) => { let n = 0; return `<div class="box" style="overflow-x:auto"><b>${esc(t.t)}</b><table style="width:100%;border-collapse:collapse;margin-top:6px;font-size:14px"><tr>${t.h.map(c => `<th style="text-align:left;padding:4px">${esc(c)}</th>`).join('')}</tr>${t.r.map(r => `<tr style="border-top:1px solid var(--line)">${r.map(c => `<td style="padding:4px">${esc(c).replace(/______/g, () => { const k = n++; return k === cur ? `<mark style="padding:0 3px"><b>(${k + 1})</b> ____</mark>` : `<b>(${k + 1})</b> ____`; })}</td>`).join('')}</tr>`).join('')}</table></div>`; };
 function ieLnQs(x) { const play = { key: x.id, ...(x.lines ? { lines: x.lines } : { text: x.text }) }, letters = x.map ? x.map.items.map(i => i.t).filter(t => /^[A-H]$/.test(t)).sort() : [];
   const head = q => `${IE_LH}<p style="margin:4px 0"><b>Part ${x.part}: ${esc(x.title)}</b></p>` + (q.k === 'form' ? `<p class="mute" style="margin:0">${esc(x.form || '')} · viết ${esc(x.lim || 'ONE WORD AND/OR A NUMBER')}</p>`
     : q.k === 'tab' ? `<p class="mute" style="margin:0">Điền bảng · viết ${esc(q.lim || x.lim || 'ONE WORD ONLY')}</p>${ieTabHtml(x.tab, q.i)}`
     : q.k === 'sent' ? `<p class="mute" style="margin:0">Hoàn thành câu · viết ${esc(q.lim || x.lim || 'ONE WORD ONLY')}</p>` : q.k === 'sa' ? `<p class="mute" style="margin:0">Trả lời câu hỏi · viết ${esc(q.lim || x.lim || 'NO MORE THAN THREE WORDS')}</p>`
-    : q.k === 'map' ? `<p class="mute" style="margin:0">Chọn chữ đúng trên bản đồ (A–${letters[letters.length - 1]}).</p>${ieMapSvg(x.map)}` : q.k === 'match' ? `<p class="mute" style="margin:0">Mỗi nguồn được nhận xét thế nào? Có phương án thừa.</p>` : '');
-  return x.qs.map(q => ({ x, k: 'ln-' + q.k, ty: IE_LTY[q.k], play, head: head(q), why: q.why,
-    ...(['form', 'tab', 'sent', 'sa'].includes(q.k) ? { kind: 'type', q: esc(q.s).replace('______', '<b>______</b>'), a: q.a[0], acc: q.a } : q.k === 'mc' ? { kind: 'mc', q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a }
-      : q.k === 'map' ? { kind: 'mc', q: esc(q.q), opts: letters, a: q.a } : { kind: 'mc', q: esc(q.q), opts: x.opts, a: q.a }) })); }
+    : q.k === 'map' ? `<p class="mute" style="margin:0">Chọn chữ đúng trên bản đồ (A–${letters[letters.length - 1]}).</p>${ieMapSvg(x.map)}` : q.k === 'match' ? `<p class="mute" style="margin:0">Mỗi nguồn được nhận xét thế nào? Có phương án thừa.</p>`
+    : q.k === 'flow' ? `<p class="mute" style="margin:0">Hoàn thành lưu đồ · viết ${esc(x.lim || 'ONE WORD ONLY')}</p>${ieDiaHtml(x.flow, q.i)}` : q.k === 'mc2' ? '<p class="mute" style="margin:0">Chọn HAI chữ cái (A–E). Mỗi chữ đúng được 1 điểm; thứ tự nào cũng được.</p>' : '');
+  return x.qs.flatMap((q, j) => { const base = { x, k: 'ln-' + q.k, ty: IE_LTY[q.k], play, head: head(q), why: q.why };
+    if (q.k === 'mc2') { const opts = shuf([...q.a, ...q.w]).map((o, k) => IE_AB[k] + ' ' + o), L = o => opts.find(t => t.slice(2) === o);
+      return [1, 2].map(n => ({ ...base, kind: 'mc', q: esc(q.q) + ` <span class="mute">· lựa chọn ${n}/2</span>`, opts, a: L(q.a[n - 1]), any: q.a.map(L), two: n, pid: x.id + ':mc2:' + j })); }
+    if (q.k === 'flow') return [{ ...base, kind: 'type', q: esc(x.flow.n[q.i].s).replace('______', '<b>______</b>'), a: q.a[0], acc: q.a }];
+    return [{ ...base, ...(['form', 'tab', 'sent', 'sa'].includes(q.k) ? { kind: 'type', q: esc(q.s).replace('______', '<b>______</b>'), a: q.a[0], acc: q.a } : q.k === 'mc' ? { kind: 'mc', q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a }
+      : q.k === 'map' ? { kind: 'mc', q: esc(q.q), opts: letters, a: q.a } : { kind: 'mc', q: esc(q.q), opts: x.opts, a: q.a }) }]; }); }
 function ieListen(parts = [0, 1, 2, 3]) { const used = new Set(), out = [];
   for (const i of parts) { const ln = IE && IE.ln ? iePick(IE.ln.filter(x => x.part === i + 1 && !used.has(x.id)), 1)[0] : null; if (ln) { used.add(ln.id); out.push(...ieLnQs(ln).map(q => ({ part: IE_LP[i][0], q }))); continue; } const [part, lvs, k, dlg] = IE_LP[i], its = KIT.nghe.items.filter(x => lvs.includes(x.lv) && !used.has(x.id) && !!x.lines === dlg && (k !== 'form' || ngForm(x)));
     const x = iePick(its.length ? its : KIT.nghe.items.filter(x => lvs.includes(x.lv) && !used.has(x.id)), 1)[0]; if (!x) continue; used.add(x.id);
@@ -97,9 +111,10 @@ function ieMapSvg(m) { const u = 15, pad = 4, S = 10 * u + pad * 2;
     <rect x="${pad}" y="${pad}" width="${10 * u}" height="${10 * u}" fill="none" stroke="currentColor" stroke-opacity=".3"/>
     ${m.items.map(i => `<rect x="${pad + i.x * u}" y="${pad + i.y * u}" width="${i.w * u}" height="${i.h * u}" fill="${IE_MC[i.c] || IE_MC.b}" stroke="#fff" stroke-width="1"/><text x="${pad + (i.x + i.w / 2) * u}" y="${pad + (i.y + i.h / 2) * u + 3}" font-size="${i.w * u < 50 ? 7 : 8.5}" text-anchor="middle" fill="#111">${esc(i.t)}</text>`).join('')}
     <text x="${S - 10}" y="${S + 10}" font-size="9" text-anchor="middle" fill="currentColor">N ↑</text></svg></div>`; }
-const ieT1Text = x => x.kind === 'map' ? 'Maps: ' + x.maps.map(m => m.t + ': ' + m.items.map(i => `${i.t} (x${i.x}–${i.x + i.w}, y${i.y}–${i.y + i.h}; north = top)`).join(', ')).join(' | ')
+const ieT1Text = x => x.kind === 'mixed' ? x.parts.map(c => c.title + ' — ' + ieT1Text(c)).join(' || ') : x.kind === 'map' ? 'Maps: ' + x.maps.map(m => m.t + ': ' + m.items.map(i => `${i.t} (x${i.x}–${i.x + i.w}, y${i.y}–${i.y + i.h}; north = top)`).join(', ')).join(' | ')
   : x.kind === 'process' ? 'Process stages: ' + x.steps.map((s, i) => `${i + 1}. ${s}`).join(' ') : 'Chart data (' + x.unit + '): ' + x.series.map(s => s[0] + ': ' + x.cats.map((c, i) => c + ' ' + s[1][i]).join(', ')).join(' | ');
-function ieChart(x) { if (x.kind === 'map') return `<div class="box" style="margin:8px 0"><b style="font-size:15px">${esc(x.title)}</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">${x.maps.map(ieMapSvg).join('')}</div><p class="mute" style="margin:6px 0 0">Phía trên = hướng bắc. Bản đồ minh hoạ, không phải nơi thật.</p></div>`;
+function ieChart(x) { if (x.kind === 'mixed') return x.parts.map(ieChart).join('');   // v132 hai biểu đồ kết hợp: vẽ từng biểu đồ
+  if (x.kind === 'map') return `<div class="box" style="margin:8px 0"><b style="font-size:15px">${esc(x.title)}</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">${x.maps.map(ieMapSvg).join('')}</div><p class="mute" style="margin:6px 0 0">Phía trên = hướng bắc. Bản đồ minh hoạ, không phải nơi thật.</p></div>`;
   if (x.kind === 'process') return `<div class="box" style="margin:8px 0"><b style="font-size:15px">${esc(x.title)}</b>${x.steps.map((s, i) => `${i ? '<div style="text-align:center;line-height:1.1" class="mute">↓</div>' : ''}<div style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:2px 0"><b>${i + 1}</b> · ${esc(s)}</div>`).join('')}</div>`;
   const W = 340, H = 200, L = 34, B = 26, T = 8, all = x.series.flatMap(s => s[1]), max = Math.max(...all) * 1.1, y = v => T + (H - T - B) * (1 - v / max);
   const leg = (names, cols) => `<div class="chips" style="margin:4px 0 0">${names.map((n, i) => `<span style="font-size:13px"><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${cols[i]};margin-right:4px"></i>${esc(n)}</span>`).join(' ')}</div>`;
@@ -112,7 +127,8 @@ function ieChart(x) { if (x.kind === 'map') return `<div class="box" style="marg
   if (x.kind === 'pie') { const pie = (vals, cx) => { let a = -Math.PI / 2; const tot = vals.reduce((s, v) => s + v, 0), r = 62;
       return vals.map((v, i) => { const a2 = a + v / tot * 2 * Math.PI, p = `M${cx},95 L${cx + r * Math.cos(a)},${95 + r * Math.sin(a)} A${r},${r} 0 ${a2 - a > Math.PI ? 1 : 0} 1 ${cx + r * Math.cos(a2)},${95 + r * Math.sin(a2)} Z`, m = (a + a2) / 2;
         a = a2; return `<path d="${p}" fill="${IE_COL[i]}"/><text x="${cx + r * 0.68 * Math.cos(m)}" y="${95 + r * 0.68 * Math.sin(m) + 4}" font-size="10" text-anchor="middle" fill="#fff">${v}</text>`; }).join(''); };
-    return box(x.series.map((s, i) => `${pie(s[1], 85 + i * 170)}<text x="${85 + i * 170}" y="190" font-size="12" text-anchor="middle" fill="currentColor">${esc(s[0])}</text>`).join('')) + leg(x.cats, IE_COL) + `<p class="mute" style="margin:6px 0 0">Đơn vị: ${esc(x.unit)}. Số minh hoạ, không phải số thật.</p></div>`; }
+    const c0 = x.series.length === 1 ? 170 : 85;   // v132: một biểu đồ tròn thì đặt giữa
+    return box(x.series.map((s, i) => `${pie(s[1], c0 + i * 170)}<text x="${c0 + i * 170}" y="190" font-size="12" text-anchor="middle" fill="currentColor">${esc(s[0])}</text>`).join('')) + leg(x.cats, IE_COL) + `<p class="mute" style="margin:6px 0 0">Đơn vị: ${esc(x.unit)}. Số minh hoạ, không phải số thật.</p></div>`; }
   const n = x.cats.length, step = (W - L) / n;
   const xl = x.cats.map((c, i) => `<text x="${L + step * (i + 0.5)}" y="${H - 8}" font-size="10" text-anchor="middle" fill="currentColor">${esc(c)}</text>`).join('');
   const body = x.kind === 'line' ? x.series.map(([, v], k) => `<polyline fill="none" stroke="${IE_COL[k]}" stroke-width="2.5" points="${v.map((d, i) => `${L + step * (i + 0.5)},${y(d)}`).join(' ')}"/>${v.map((d, i) => `<circle cx="${L + step * (i + 0.5)}" cy="${y(d)}" r="3" fill="${IE_COL[k]}"/>`).join('')}`).join('')
@@ -142,9 +158,9 @@ function ieFeat(task, x, t) { const low = t.toLowerCase();
       [`Nhắc đủ ${x.kind === 'map' ? 'địa điểm' : 'bước'} chính (${hit}/${(x.k || []).length})`, hit >= need],
       ...(x.kind === 'process' ? [['Từ chỉ thứ tự bước (first, then, finally…)', seq >= 3], ...(x.nat ? [] : [[`Câu bị động (${pas})`, pas >= 3]])] : [['Động từ chỉ thay đổi (replaced, built…)', chg], ['Từ chỉ vị trí (north, next to…)', loc]]),   // quy trình tự nhiên (nat: vòng đời…) viết chủ động, không bắt bị động
       ['Không nêu ý kiến riêng (I think…)', !IE_POS.test(low)]]; }
-  if (task === 't1') { const nums = new Set(x.series.flatMap(s => s[1]).map(String)), hit = (t.match(/\d+(\.\d+)?/g) || []).filter(d => nums.has(d)).length;
+  if (task === 't1') { const ser = x.kind === 'mixed' ? x.parts.flatMap(c => c.series) : x.series, nums = new Set(ser.flatMap(s => s[1]).map(String)), hit = (t.match(/\d+(\.\d+)?/g) || []).filter(d => nums.has(d)).length, still = x.kind === 'table' || (x.kind === 'mixed' && x.parts.every(c => ['table', 'pie'].includes(c.kind)));
     return [['Câu mở: nói biểu đồ cho thấy gì', /\b(shows?|illustrates?|compares?|gives information|presents?|depicts?)\b/.test(low)], ['Có câu tổng quan (overall…)', IE_OVER.test(low)],
-      [`Dẫn số liệu (${hit}/4 số)`, hit >= 4], ['Có so sánh (higher, whereas…)', IE_CMP.test(low)], ['Tả xu hướng / thay đổi', IE_TREND.test(low) || x.kind === 'table'], ['Không nêu ý kiến riêng (I think…)', !IE_POS.test(low)]]; }
+      [`Dẫn số liệu (${hit}/4 số)`, hit >= 4], ['Có so sánh (higher, whereas…)', IE_CMP.test(low)], ['Tả xu hướng / thay đổi', IE_TREND.test(low) || still], ['Không nêu ý kiến riêng (I think…)', !IE_POS.test(low)]]; }
   if (task === 'gt1') { const close = { formal: /yours faithfully|yours sincerely/, semi: /yours sincerely|kind regards|best regards/, informal: /\b(love|best wishes|take care|see you|cheers|all the best|speak soon|write soon)\b/ }[x.reg];
     const contr = (t.match(/\b\w+'(s|re|ve|ll|d|t|m)\b/gi) || []).length;
     return [...x.c.map((c, i) => [c, kHit(t, x.k[i])]), ['Mở thư: Dear …', /^\s*dear\b/i.test(t)], ['Kết thư đúng kiểu', close.test(low)],
@@ -277,15 +293,15 @@ function ieRun(title, qs, back, min, o = {}) { const res = []; let i = 0, tq = 0
       const r = q.check ? q.check(t.value) : { ok: (q.acc || [q.a]).some(a => kNorm(a) === kNorm(t.value)) }; t.disabled = true; f.querySelector('button').remove(); fb(r.ok, t.value, r.html); }; }
     $app.onclick = e => { if (e.target.closest('[data-a="back"]')) { EXAM_VOX = false; clearInterval(tk); return back(); } if (e.target.closest('[data-a="next"]')) { i++; scrollTo(0, 0); return show(); }
       const pb = e.target.closest('[data-iplay]'); if (pb) { if (left() > 0) { plays[pk] = (plays[pk] || 0) + 1; EXAM_VOX = true; kPlay(q.play); } pb.textContent = `🔊 Nghe lại (còn ${left()} lần)`; pb.disabled = left() <= 0; return; }
-      const o = e.target.closest('[data-io]'); if (o && !o.disabled && res.length === i) { const v = q.opts[+o.dataset.io]; fb(v === q.a, v); } }; };
+      const o = e.target.closest('[data-io]'); if (o && !o.disabled && res.length === i) { const v = q.opts[+o.dataset.io]; fb(mcOk(q, v, res), v); } }; };
   const fb = (ok, ans, html) => { const q = qs[i]; res.push({ q, ok, ans, secs: (Date.now() - tq) / 1000 });
-    if (q.kind === 'mc') $app.querySelectorAll('[data-io]').forEach(b => { b.disabled = true; const o = q.opts[+b.dataset.io]; if (o === q.a) b.classList.add('ok'); else if (o === ans) b.classList.add('no'); });
+    if (q.kind === 'mc') $app.querySelectorAll('[data-io]').forEach(b => { b.disabled = true; const o = q.opts[+b.dataset.io]; if ((q.any || [q.a]).includes(o) && !(q.two === 2 && !mcOk(q, o, res.slice(0, -1)))) b.classList.add('ok'); else if (o === ans) b.classList.add('no'); });
     document.getElementById('ifb').innerHTML = `<div class="box"><b>${ok ? '✅ Đúng' : '❌ Chưa đúng'}</b>${html ? `<p style="margin:4px 0">${html}</p>` : q.kind === 'mc' ? '' : `<p style="margin:4px 0">Đáp án: <b>${esc((q.acc || [q.a]).join(' / '))}</b></p>`}${q.why ? `<p class="mute" style="margin:4px 0 0">${esc(q.why)}</p>` : ''}${o.nolog && q.after ? q.after : ''}</div><button class="pri" data-a="next">Tiếp ›</button>`;
     const n = $app.querySelector('[data-a="next"]'); if (n && n.scrollIntoView) n.scrollIntoView({ block: 'nearest' }); };
   const end = () => { EXAM_VOX = false; const R = o.R || ieSt().r, by = {}, fresh = new Set(res.map(r => r.q.x && r.q.x.id).filter(id => id && (!R[id] || Date.now() - R[id].at >= 30 * DAY))); for (const r of res) { const id = r.q.x && r.q.x.id; if (!id) continue; const o = by[id] = by[id] || { at: Date.now(), ok: 0, n: 0, k: r.q.sec || (r.q.x.paras ? 'r' : 'l'), ...(min ? { secs: Math.round((Date.now() - t0) / 1000) } : {}) }; o.n++; if (r.ok) o.ok++; }
     if (!o.nolog) { Object.assign(R, by); ieTyLog(res, 'luyen', fresh); } S.t = Date.now(); save(); const ok = res.filter(r => r.ok).length, wrong = res.filter(r => !r.ok);   // v131: làm thử của 📘 bài học (o.nolog) không ghi kết quả bài, band ước, bản đồ
     const mins = (Date.now() - t0) / 60000; clearInterval(tk);
-    $app.innerHTML = `<h1>${ok}/${res.length} câu đúng</h1>${min ? `<p>⏱ ${mins.toFixed(1)} phút ${mins <= min ? '✅' : '⚠️'} <span class="mute">(đề thật ~${min} phút mỗi bài${mins > min ? '; luyện đọc lướt tìm từ khoá, đừng đọc kỹ từng câu' : ''})</span></p>` : ''}${o.endHtml ? o.endHtml(res) : ''}${wrong.length ? `<div class="box"><b>Câu sai</b>${wrong.map(r => `<p style="margin:8px 0 0">${r.q.q}<br>Bạn: ${esc(r.ans)} · Đáp án: <b>${esc(r.q.a)}</b>${r.q.why ? `<br><span class="mute">${esc(r.q.why)}</span>` : ''}</p>`).join('')}</div>` : '<p>Đúng hết.</p>'}
+    $app.innerHTML = `<h1>${ok}/${res.length} câu đúng</h1>${min ? `<p>⏱ ${mins.toFixed(1)} phút ${mins <= min ? '✅' : '⚠️'} <span class="mute">(đề thật ~${min} phút mỗi bài${mins > min ? '; luyện đọc lướt tìm từ khoá, đừng đọc kỹ từng câu' : ''})</span></p>` : ''}${o.endHtml ? o.endHtml(res) : ''}${wrong.length ? `<div class="box"><b>Câu sai</b>${wrong.map(r => `<p style="margin:8px 0 0">${r.q.q}<br>Bạn: ${esc(r.ans)} · Đáp án: <b>${esc(mcAns(r.q))}</b>${r.q.why ? `<br><span class="mute">${esc(r.q.why)}</span>` : ''}</p>`).join('')}</div>` : '<p>Đúng hết.</p>'}
       <p class="mute">${o.nolog ? '📘 Bài học: không ghi vào kết quả bài, band / điểm ước, bản đồ.' : 'Luyện đề không tính vào luật đo của 🧱 nền CEFR.'}</p><button class="pri" data-a="back">← ${o.home || 'IELTS'}</button>`; scrollTo(0, 0); if (o.done) o.done(res, fresh); $app.onclick = e => { if (o.endClick && o.endClick(e)) return; if (e.target.closest('[data-a="back"]')) back(); }; };
   const tk = min || o.spd ? setInterval(() => { const el = document.getElementById('irt'); if (!el) return; if (!o.spd) { el.textContent = '⏱ ' + clk(); return; }
     const s = res.length > i ? Math.round(res[i].secs) : Math.round((Date.now() - tq) / 1000); el.textContent = `⏱ ${s} / ${o.spd}s`; el.style.color = s > o.spd ? 'var(--bad)' : ''; }, 500) : 0;
@@ -313,14 +329,15 @@ function ieSpeak(parts, pick, back = ieBackSk()) { if (!SREC) return toast('Ph�
 const IE_PAPERS = [
   { t: '🎧 Nghe (Listening)', k: 'L', min: 30, gen: () => ieListen() },
   { t: '📖 Đọc (Reading)', k: 'R', min: 60, gen: () => ieSt().type === 'gt'
-    ? [...KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)).sort(() => Math.random() - 0.5).slice(0, 2).flatMap(x => kRead(KIT.doc, x, 'ct', false).map(q => ({ part: 'Section 1–2: văn bản đời thường, công việc', q: Object.assign(q, { ty: 'R-gt' }) }))),
-      ...iePick(IE.doc, 1).flatMap(x => ieCap(ieRQs(x), 14).map(q => ({ part: 'Section 3: bài dài', q })))]
+    ? [...[1, 2].flatMap(sec => { const g = iePick(IE.doc.filter(x => x.gt && x.sec === sec), 1)[0];   // v132: bộ GT soạn riêng (Section 1 đời thường, 2 công việc); chưa có thì bài Đọc B1–B2 của Nền
+        return g ? ieRQs(g).map(q => ({ part: `Section ${sec}: ${g.title}`, q })) : KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)).sort(() => Math.random() - 0.5).slice(0, 1).flatMap(x => kRead(KIT.doc, x, 'ct', false).map(q => ({ part: `Section ${sec}: văn bản ${sec === 1 ? 'đời thường' : 'công việc'}`, q: Object.assign(q, { ty: 'R-gt' }) }))); }),
+      ...iePick(IE.doc.filter(x => !x.gt), 1).flatMap(x => ieCap(ieRQs(x), 14).map(q => ({ part: 'Section 3: bài dài', q })))]
     : ieMk3().flatMap((x, i) => ieCap(ieRQs(x), i === 2 ? 14 : 13).map(q => ({ part: `Passage ${i + 1}: ${x.title}`, q }))) },
   { t: '✍️ Viết (Writing)', k: 'W', min: 60, gen: () => { const [t1, its] = ieT1(); return [{ part: IE_TASK[t1][0], q: ieWQ(t1, iePick(its, 1)[0]) }, { part: IE_TASK.t2[0], q: ieWQ('t2', ieWPick('t2')) }]; } },
   { t: '🗣 Nói (Speaking)', k: 'S', min: 14, speak: true, gen: () => ieSpeakQs() }];
 // v123: bài mới chỉ có 13–14 câu: 3 bài của đề thử phải có ít nhất một bài ≥ 14 câu (đặt cuối) để đủ 13 + 13 + 14 = 40
-function ieMk3() { const nq = x => ieRQs(x).length, ps = iePick(IE.doc, 3);
-  if (!ps.some(x => nq(x) >= 14)) { const big = iePick(IE.doc.filter(x => !ps.includes(x) && nq(x) >= 14), 1)[0]; if (big) ps[2] = big; }
+function ieMk3() { const D = IE.doc.filter(x => !x.gt), nq = x => ieRQs(x).length, ps = iePick(D, 3);
+  if (!ps.some(x => nq(x) >= 14)) { const big = iePick(D.filter(x => !ps.includes(x) && nq(x) >= 14), 1)[0]; if (big) ps[2] = big; }
   return ps.sort((a, b) => nq(a) - nq(b)); }
 async function ieMock(idx) { $app.innerHTML = '<p class="mute">Đang tải kho câu…</p>'; await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KIT.doc)]);
   if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {}
@@ -351,7 +368,7 @@ function ieMockResult() { const T = ieSt().type, b = {}, out = [];
       <p class="mute" style="margin:4px 0 0">Dạng dưới 75% là ứng viên chỗ yếu. Cần ≥ 8 câu ở ≥ 2 bài mới đủ chắc (xem 🗺 Bản đồ band ở màn IELTS).</p></div>` : ''}
     ${wr}${sp}
     ${wrong.length ? `<details class="box"><summary>Xem lại ${wrong.length} câu sai (Nghe / Đọc)</summary>${wrong.map(r => `<div style="margin:8px 0;border-top:1px solid var(--line);padding-top:6px"><p class="mute" style="margin:0">${esc(r.part)}</p><p style="margin:2px 0">${r.q.q}</p>
-      <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 200))} · Đáp án: <b>${esc(r.q.a != null ? r.q.a : (r.q.acc || [])[0] || '')}</b></p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
+      <p style="margin:2px 0">Bạn: ${esc(String(r.ans).slice(0, 200))} · Đáp án: <b>${esc(r.q.a != null ? mcAns(r.q) : (r.q.acc || [])[0] || '')}</b></p>${r.q.why && typeof r.q.why === 'string' ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
     <button class="pri" data-a="again">🎓 Làm đề mới</button><button data-a="home">← IELTS</button>`; scrollTo(0, 0);
   $app.onclick = e => { if (e.target.closest('[data-a="again"]')) ieMock(MK.idx); if (e.target.closest('[data-a="home"]')) ieltsView(); }; }
 
@@ -411,7 +428,7 @@ const IE_SKV = { L: ['🎧', 'Nghe', 'Listening'], R: ['📰', 'Đọc', 'Readin
 const IE_PI = { L: 0, R: 1, W: 2, S: 3 };   // bài thi của kỹ năng trong IE_PAPERS
 const ieShort = (s, n = 8) => { const w = String(s || '').split(/\s+/); return w.slice(0, n).join(' ') + (w.length > n ? '…' : ''); };
 function ieBai(k) { if (!IE) return [];
-  if (k === 'R') return IE.doc.map(x => ({ id: x.id, x, name: x.title }));
+  if (k === 'R') return ieDocs().map(x => ({ id: x.id, x, name: (x.gt ? `GT Section ${x.sec}: ` : '') + x.title }));
   if (k === 'L') return (IE.ln || []).map(x => ({ id: x.id, x, name: `Part ${x.part}: ${x.title}` }));
   if (k === 'W') { const [t1, a] = ieT1(), out = []; for (let i = 0; i < Math.max(a.length, IE.t2.length); i++) { if (a[i]) out.push({ id: a[i].id, x: a[i], task: t1, name: `${t1 === 'gt1' ? 'Thư' : 'Task 1'}: ${a[i].title || ieShort(a[i].p)}` }); if (IE.t2[i]) out.push({ id: IE.t2[i].id, x: IE.t2[i], task: 't2', name: 'Task 2: ' + ieShort(IE.t2[i].p) }); } return out; }
   return [...IE.p1.map(x => ({ id: x.id, x, part: 'p1', name: 'Part 1: ' + x.topic })), ...IE.p2.map(x => ({ id: x.id, x, part: 'p2', name: 'Part 2: ' + ieShort(x.t) }))]; }
@@ -461,7 +478,7 @@ function ieSkView(k) { BACK = null; window.CUR = { view: 'ielts', sk: k }; EXAM_
       ['🎧 Về bài nghe', `<p class="mute" style="margin:0">${(IE.ln || []).length} bài soạn đúng kiểu IELTS (phiếu, bản đồ, ghép, bài giảng); làm hết thì app lấy thêm bài nghe B1 → C2 của Nền. Đề thật có nhiều giọng (Anh, Úc, Mỹ…); app chủ yếu giọng Anh. Luyện chính bằng đề Cambridge rồi nhập kết quả ở 📝 Luyện bằng đề thật.</p>`]],
     R: [['📝 Luyện theo dạng câu', `<div class="duo">${Object.entries(IE_RK).map(([x, [i, n]]) => `<button class="big2" data-ier="${x}">${i} ${n}</button>`).join('')}</div><button data-iepara>🔁 Diễn đạt lại: kỹ năng gốc của Đọc / Nghe</button>`],
       ['⏱ Cả bài có giờ', `<p class="mute" style="margin:0 0 6px">Bài ngẫu nhiên, 13–14 câu như đề thật, 20 phút.</p><button data-ier="all">📄 Làm một bài có giờ</button>`],
-      ['📰 Về bài đọc', `<p class="mute" style="margin:0">${IE.doc.length} bài học thuật kiểu IELTS (${(() => { const n = IE.doc.map(x => kWords(x.paras.join(' ')).length); return Math.min(...n) + '–' + Math.max(...n); })()} từ; đề thật ~700–900 từ). Mỗi bài làm như đề thật: 13–14 câu, 20 phút.</p>`]],
+      ['📰 Về bài đọc', `<p class="mute" style="margin:0">${o.type === 'gt' ? `${IE.doc.filter(x => x.gt).length} bộ General Training (Section 1 văn bản đời thường, Section 2 văn bản công việc) và ` : ''}${IE.doc.filter(x => !x.gt).length} bài học thuật kiểu IELTS (${(() => { const n = IE.doc.filter(x => !x.gt).map(x => kWords(x.paras.join(' ')).length); return Math.min(...n) + '–' + Math.max(...n); })()} từ; đề thật ~700–900 từ). Mỗi bài làm như đề thật: 13–14 câu, 20 phút.</p>`]],
     W: [['📝 Viết theo Task', `<div class="duo"><button class="big2" data-iew="${t1}">${t1 === 't1' ? '📊 Task 1<small>tả biểu đồ, 150 từ</small>' : '✉️ Task 1<small>viết thư, 150 từ</small>'}</button><button class="big2" data-iew="t2">📝 Task 2<small>bài luận, 250 từ</small></button></div>`],
       ['🧑‍🏫 Chấm bài', `<p class="mute" style="margin:0">Máy chấm 4 tiêu chí IELTS (gián tiếp, tối đa ${IE_MAXM}.0); sau khi nộp có nút 🧑‍🏫 AI chấm theo thang band và ✍️ viết lại bài.</p>`]],
     S: [['🗣 Luyện theo Part', `<div class="duo"><button class="big2" data-ies="p1">Part 1<small>4 câu ngắn</small></button><button class="big2" data-ies="p2">Part 2<small>thẻ đề, 2 phút</small></button><button class="big2" data-ies="p3">Part 3<small>bàn luận</small></button><button class="big2" data-ies="all">Cả bài<small>Part 1–3</small></button></div>`],
@@ -483,7 +500,7 @@ function ieClick(e) { const g = s => e.target.closest(s), sk = (window.CUR || {}
   if ((b = g('[data-iecefr]'))) { scrollTo(0, 0); return overview(b.dataset.iecefr); }
   if ((b = g('[data-iemk]'))) return ieMock(b.dataset.iemk === 'all' ? [0, 1, 2, 3] : [+b.dataset.iemk]);
   if ((b = g('[data-iel]'))) { const qs = ieListen(b.dataset.iel === 'form' ? [shuf([0, 3])[0]] : [shuf([1, 2])[0]]).map(it => it.q); scrollTo(0, 0); return qs.length ? ieRun('🎧 Nghe', qs, back) : toast('Chưa có bài nghe hợp dạng này.'); }
-  if ((b = g('[data-ier]'))) { const k = b.dataset.ier, x = iePick(k === 'all' ? IE.doc : IE.doc.filter(y => ieHasK(y, k)), 1)[0]; if (!x) return toast('Chưa có bài cho dạng này.'); scrollTo(0, 0); return ieRun('📰 ' + (k === 'all' ? x.title : IE_RK[k][1]), k === 'all' ? ieCap(ieRQs(x), 14) : ieRQs(x, [k]), back, k === 'all' ? 20 : 0); }
+  if ((b = g('[data-ier]'))) { const k = b.dataset.ier, x = iePick(k === 'all' ? ieDocs().filter(y => !y.gt) : ieDocs().filter(y => ieHasK(y, k)), 1)[0]; if (!x) return toast('Chưa có bài cho dạng này.'); scrollTo(0, 0); return ieRun('📰 ' + (k === 'all' ? x.title : IE_RK[k][1]), k === 'all' ? ieCap(ieRQs(x), 14) : ieRQs(x, [k]), back, k === 'all' ? 20 : 0); }
   if ((b = g('[data-iew]'))) { scrollTo(0, 0); return ieWrite(b.dataset.iew, null, null, back); }
   if ((b = g('[data-ies]'))) { scrollTo(0, 0); return ieSpeak(b.dataset.ies === 'all' ? ['p1', 'p2', 'p3'] : b.dataset.ies === 'p3' ? ['p3'] : [b.dataset.ies], null, back); } }
 ieLoad().catch(() => {});

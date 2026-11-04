@@ -46,12 +46,16 @@ const uQs = (k, x) => k === 'long' ? uLongQs(x) : k === 'pm' ? uPmQs(x) : k === 
 const uMk = (k, n) => () => { const ls = mkLvs().filter(l => U_LV.includes(l)).reverse(); return k === 'sum' ? uPick(k, ['c2'], n).map(uSumQ) : k === 'kwt' ? uPick(k, ls.length ? ls : uLvs(MK.lv), n).map(uKwtQ) : uPick(k, ls.length ? ls : uLvs(MK.lv), n).flatMap(x => uQs(k, x)); };
 { const R = (lv, parts) => { if (MOCK[lv]) MOCK[lv].papers[0].parts = parts; };
   R('b1', [['Phần 1: đọc tin ngắn', () => mkRead(1)], ['Phần 2: nối người với văn bản', uMk('pm', 1)], ['Phần 3: bài dài', uMk('long', 1)], ['Phần 4: đoạn văn khuyết câu', () => mkGap(1)], ['Phần 5: điền từ trắc nghiệm', uMk('mc', 1)], ['Phần 6: điền từ', uMk('open', 1)]]);
-  const UE = (p7, gapN) => [['Phần 1: điền từ trắc nghiệm', uMk('mc', 1)], ['Phần 2: điền từ', uMk('open', 1)], ['Phần 3: tạo dạng từ', uMk('wf', 1)], ['Phần 4: viết lại câu dùng từ khoá', uMk('kwt', 6)],
-    ['Phần 5: bài dài', uMk('long', 1)], [gapN, () => mkGap(1)], [p7, uMk('pm', 1)]];
-  R('b2', UE('Phần 7: nối câu với đoạn', 'Phần 6: đoạn văn khuyết câu')); R('c1', UE('Phần 8: nối câu với đoạn', 'Phần 7: đoạn văn khuyết câu'));
+  // v132: C1 phần 7 / C2 phần 6 của đề thật rút ĐOẠN (không phải câu): bộ khuyết đoạn soạn riêng (dangthi.js gpara), chưa có thì khuyết câu như cũ
+  const gpara = () => { const q = typeof dtQ === 'function' ? dtQ('gpara') : []; return q.length ? q : mkGap(1); };
+  const UE = (p7, gapN, para) => [['Phần 1: điền từ trắc nghiệm', uMk('mc', 1)], ['Phần 2: điền từ', uMk('open', 1)], ['Phần 3: tạo dạng từ', uMk('wf', 1)], ['Phần 4: viết lại câu dùng từ khoá', uMk('kwt', 6)],
+    ['Phần 5: bài dài', uMk('long', 1)], [gapN, para ? gpara : () => mkGap(1)], [p7, uMk('pm', 1)]];
+  R('b2', UE('Phần 7: nối câu với đoạn', 'Phần 6: đoạn văn khuyết câu')); R('c1', UE('Phần 8: nối câu với đoạn', 'Phần 7: đoạn văn khuyết đoạn', 1));
   if (MOCK.c1) MOCK.c1.papers[0].parts.splice(5, 0, ['Phần 6: so ý giữa 4 văn bản', uMk('xt', 1)]);   // v123: C1 Advanced Đọc phần 6
   // v123: A2 Key Đọc và Viết phần 2 (nối câu với người, 3 văn bản)
-  if (MOCK.a2) { const P = MOCK.a2.papers[0]; P.parts[0] = ['Phần 1, 3: đọc tin nhắn, bài báo', () => mkRead(3)]; P.parts.splice(1, 0, ['Phần 2: nối câu với người', uMk('pm', 1)]); } R('c2', UE('Phần 7: nối câu với đoạn', 'Phần 6: đoạn văn khuyết câu'));
+  if (MOCK.a2) { const P = MOCK.a2.papers[0]; P.parts[0] = ['Phần 1, 3: đọc tin nhắn, bài báo', () => mkRead(3)]; P.parts.splice(1, 0, ['Phần 2: nối câu với người', uMk('pm', 1)]);
+    P.parts[2] = ['Phần 4: điền từ trắc nghiệm', uMk('mc', 1)]; P.parts[3] = ['Phần 5: điền từ', uMk('open', 1)]; }   // v132: A2 Key phần 4, 5 là đoạn văn (trước: câu lẻ)
+  R('c2', UE('Phần 7: nối câu với đoạn', 'Phần 6: đoạn văn khuyết đoạn', 1));
   if (MOCK.c2) MOCK.c2.papers[1].parts = [['Phần 1: tóm tắt và đánh giá 2 đoạn văn (bắt buộc)', uMk('sum', 1)], ['Phần 2: bài luận / bài báo / báo cáo', () => mkWrite(1)]]; }
 
 // ---------- 🧩 luyện từng dạng (có báo đúng / sai, giải thích; không tính giờ) ----------
