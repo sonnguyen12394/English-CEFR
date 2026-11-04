@@ -331,7 +331,7 @@ const IE_PAPERS = [
   { t: '📖 Đọc (Reading)', k: 'R', min: 60, gen: () => ieSt().type === 'gt'
     ? [...[1, 2].flatMap(sec => { const g = iePick(IE.doc.filter(x => x.gt && x.sec === sec), 1)[0];   // v132: bộ GT soạn riêng (Section 1 đời thường, 2 công việc); chưa có thì bài Đọc B1–B2 của Nền
         return g ? ieRQs(g).map(q => ({ part: `Section ${sec}: ${g.title}`, q })) : KIT.doc.items.filter(x => ['b1', 'b2'].includes(x.lv)).sort(() => Math.random() - 0.5).slice(0, 1).flatMap(x => kRead(KIT.doc, x, 'ct', false).map(q => ({ part: `Section ${sec}: văn bản ${sec === 1 ? 'đời thường' : 'công việc'}`, q: Object.assign(q, { ty: 'R-gt' }) }))); }),
-      ...iePick(IE.doc.filter(x => !x.gt), 1).flatMap(x => ieCap(ieRQs(x), 14).map(q => ({ part: 'Section 3: bài dài', q })))]
+      ...iePick(IE.doc.filter(x => !x.gt && ieRQs(x).length >= 14), 1).flatMap(x => ieCap(ieRQs(x), 14).map(q => ({ part: 'Section 3: bài dài', q })))]   // bài ≥ 14 câu: 13 + 13 + 14 = 40
     : ieMk3().flatMap((x, i) => ieCap(ieRQs(x), i === 2 ? 14 : 13).map(q => ({ part: `Passage ${i + 1}: ${x.title}`, q }))) },
   { t: '✍️ Viết (Writing)', k: 'W', min: 60, gen: () => { const [t1, its] = ieT1(); return [{ part: IE_TASK[t1][0], q: ieWQ(t1, iePick(its, 1)[0]) }, { part: IE_TASK.t2[0], q: ieWQ('t2', ieWPick('t2')) }]; } },
   { t: '🗣 Nói (Speaking)', k: 'S', min: 14, speak: true, gen: () => ieSpeakQs() }];

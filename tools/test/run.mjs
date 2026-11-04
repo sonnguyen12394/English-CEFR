@@ -1330,7 +1330,8 @@ const R = await run(`(async () => {
   // v132 IELTS đủ dạng còn thiếu: Đọc General Training (Section 1, 2), chọn HAI (Đọc + Nghe), điền bảng Đọc, lưu đồ Nghe, Task 1 hai biểu đồ; bài học + TOEIC chuỗi tin nhắn
   { const bad = [], errs = [], tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML);
     await Promise.all([ieLoad(), toLoad(), loadEB(), ...Object.values(KIT).map(kLoad)]); S = blank(); S.ie = { set: 1, type: 'gt', target: 6.5 };
-    const G = IE.doc.filter(x => x.gt); if (![1, 2].every(n => G.some(x => x.sec === n)) || G.some(x => ieRQs(x).length < 6 || ieRQs(x).some(q => q.ty !== 'R-gt'))) bad.push('Đọc GT: thiếu Section 1 / 2 hoặc câu chưa ghi R-gt');
+    const G = IE.doc.filter(x => x.gt); if (![1, 2].every(n => G.some(x => x.sec === n)) || G.some(x => ieRQs(x).length < 13 || ieRQs(x).some(q => q.ty !== 'R-gt'))) bad.push('Đọc GT: thiếu Section 1 / 2 hoặc câu chưa ghi R-gt');
+    for (let i = 0; i < 10; i++) { const n = IE_PAPERS[1].gen().length; if (n !== 40) { bad.push('đề thử Đọc GT ' + n + ' câu (cần 40)'); break; } }   // 13 + 13 + 14 như đề thật
     const R = IE_PAPERS[1].gen(); if (![1, 2].every(n => R.some(it => it.part.startsWith('Section ' + n) && it.q.x && it.q.x.gt)) || !R.some(it => it.part.startsWith('Section 3') && !it.q.x.gt)) bad.push('đề thử Đọc GT chưa dùng bộ GT');
     if (!ieBai('R')[0].x.gt || imPool('R-gt').some(x => !x.gt)) bad.push('GT: danh sách bài / bản đồ chưa lấy bộ GT');
     S.ie.type = 'ac'; if (ieBai('R').some(b => b.x.gt) || IE_PAPERS[1].gen().length !== 40 || imPool('R-tf').some(x => x.gt)) bad.push('Academic thấy bộ GT hoặc đề thử Đọc ≠ 40 câu');

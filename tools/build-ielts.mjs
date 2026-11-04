@@ -32,8 +32,8 @@ for (const x of D.items) { id(x); const txt = x.paras.join(' ').toLowerCase(), P
     for (const n of gs) { if ((n.s.match(/______/g) || []).length !== 1) err.push(x.id + ': ô sơ đồ cần đúng một chỗ trống: ' + n.s); if (words(n.a[0]) > 2) err.push(x.id + ': đáp án sơ đồ quá 2 từ: ' + n.a[0]); if (!inTxt(n.a[0])) err.push(x.id + ': đáp án sơ đồ không có trong bài: ' + n.a[0]); } }
   for (const q of x.sa || []) { if (words(q.a[0]) > 3) err.push(x.id + ': trả lời ngắn quá 3 từ: ' + q.a[0]); if (!inTxt(q.a[0])) err.push(x.id + ': trả lời ngắn không có trong bài: ' + q.a[0]); }
   const nq = ['h', 'tf', 'comp', 'mc', 'yn', 'mi', 'sa'].reduce((t, k) => t + (x[k] || []).length, 0) + (x.mf ? x.mf.qs.length : 0) + (x.se ? x.se.qs.length : 0) + (x.sum ? x.sum.a.length : 0) + (x.dia ? x.dia.n.filter(n => n.a).length : 0) + (x.rtab ? x.rtab.a.length : 0) + (x.mc2 || []).length * 2;
-  // v132 General Training (gt): Section 1 văn bản ngắn đời thường, Section 2 văn bản công việc: ngắn hơn, ít câu hơn bài học thuật
-  if (nq < (x.gt ? 6 : 13)) err.push(x.id + ': cần ≥ ' + (x.gt ? 6 : 13) + ' câu, có ' + nq); x._nq = nq;
+  // v132 General Training (gt): Section 1 văn bản ngắn đời thường, Section 2 văn bản công việc: chữ ngắn hơn bài học thuật, vẫn 13 câu mỗi Section như đề thật
+  if (nq < 13) err.push(x.id + ': cần ≥ 13 câu, có ' + nq); x._nq = nq;
   const n = words(x.paras.join(' ')); if (x.gt ? n < 250 || n > 700 : n < 400 || n > 900) err.push(x.id + ': độ dài ' + n + ' từ'); }
 for (const x of V.t1) { id(x); if (!['bar', 'line', 'table', 'pie', 'map', 'process', 'mixed'].includes(x.kind)) err.push(x.id + ': kind ' + x.kind);
   // v132 hai biểu đồ kết hợp (mixed): mỗi phần là biểu đồ cột / đường / bảng / tròn đủ số liệu; bài mẫu dẫn ≥ 4 số của cả hai
