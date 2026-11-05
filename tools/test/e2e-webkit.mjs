@@ -36,7 +36,7 @@ for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', '
   const q = await answerAll(); const done = (await pg.innerText('#app')).includes('✅ Xong'); check(`${lv} học bài Từ vựng (${q} câu)`, done);
   // mọi phần: màn chính, bài học đầu, mở thi
   for (const id of await pg.evaluate(lv => Object.values(KIT).filter(P => P.lvs.includes(lv)).map(P => P.id), lv)) {
-    await pg.evaluate(id => kView(id), id); await pg.waitForTimeout(500); check(`${lv} ${id} màn chính`, (await pg.innerText('#app')).includes('🏋️') && /Bài thi/.test(await pg.innerText('#app')));   // v134: nút chính + ô bài thi lên cấp
+    await pg.evaluate(id => kView(id), id); await pg.waitForTimeout(500); check(`${lv} ${id} màn chính`, /🏋️|Làm bài mới/.test(await pg.innerText('#app')) && /Bài thi/.test(await pg.innerText('#app')));   // v134: nút chính + ô bài thi lên cấp
     await pg.evaluate(([id, lv]) => kLearn(KIT[id], kItems(KIT[id], lv)[0]), [id, lv]); await pg.waitForTimeout(200); check(`${lv} ${id} bài học`, (await pg.innerText('#app')).length > 50);
     if (id !== 'noi') { await pg.evaluate(([id, lv]) => kExam(KIT[id], lv), [id, lv]); await pg.waitForTimeout(300); check(`${lv} ${id} mở thi`, !!(await pg.$('[data-k], #ti, textarea, [data-kdlg], button'))); } }
   await pg.evaluate(() => paView()); await pg.waitForTimeout(500); check(`${lv} phát âm màn chính`, (await pg.innerText('#app')).includes('Phát âm'));
@@ -73,7 +73,7 @@ check('nói cặp mở', (await pg.innerText('#app')).includes('Nói theo cặp'
 for (let n = 0; n < 6; n++) { await pg.waitForSelector('#capt, [data-a="rec"]', { timeout: 30000 }).catch(() => {}); if (!(await pg.$('#capt'))) break; await pg.fill('#capt', 'I agree because it is cheap. What do you think?'); await pg.click('[data-a="typed"]'); }
 await pg.waitForTimeout(800); check('nói cặp ra kết quả', /tương tác|luyện thêm/.test(await pg.innerText('#app')));
 // 📚 thư viện: mở từ Tổng quan B2, mở truyện, chạm một từ → hiện ô tra từ, lật trang
-await pg.evaluate(() => overview('b2')); await pg.waitForTimeout(600); await pg.click('[data-lib="b2"]'); await pg.waitForTimeout(800);
+await pg.evaluate(() => overview('b2')); await pg.waitForTimeout(600); await pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; })); await pg.click('[data-lib="b2"]'); await pg.waitForTimeout(800);
 check('thư viện mở', (await pg.innerText('#app')).includes('Thư viện đọc')); await pg.click('[data-lb]'); await pg.waitForTimeout(800);
 await pg.click('#libp [data-lw]:nth-child(3)'); await pg.waitForTimeout(200); check('thư viện tra từ', await pg.isVisible('#libw'));
 await pg.click('[data-a="next"]'); await pg.waitForTimeout(400); check('thư viện lật trang', /· 2\//.test(await pg.innerText('.uname')));
@@ -83,13 +83,13 @@ await pg.fill('#ut', await pg.evaluate(() => kModel(UOE.sum.find(x => document.b
 check('tóm tắt C2 chấm bài mẫu', /Đúng/.test(await pg.innerText('#ufb')));
 // 🌏 Học IELTS (v68): mở từ thanh dưới; luyện cả bài Đọc → ra kết quả; Viết Task 2 nộp bài mẫu → máy ước band; đề thử bài Đọc làm trọn → ra band
 // v108: không còn tab Luyện thi; mục tiêu IELTS → 📚 Học có nút "Phần riêng" mở màn IELTS (thanh dưới sáng 📚)
-await pg.evaluate(() => { S.lt = { d: [], fx: {}, goal: { kind: 'ielts', lv: 'b2p', date: '', at: Date.now() } }; delete S.ie; overview(); }); await pg.waitForTimeout(800);
-check('📚 Học có 2 mục Nền · Luyện thi', /Nền tiếng Anh[\s\S]*Luyện thi/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="all"].on')); await pg.click('[data-exthi]'); await pg.waitForTimeout(1500);
+await pg.evaluate(() => { S.lt = { d: [], fx: {}, goal: { kind: 'ielts', lv: 'b2p', date: '', at: Date.now() } }; delete S.ie; overview(ovStage()); }); await pg.waitForTimeout(1500);
+check('📚 Học một trang: Tiếng Anh + Luyện IELTS (v134)', /Tiếng Anh[\s\S]*Luyện IELTS/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="all"].on')); await pg.evaluate(() => exOpenK('ielts')); await pg.waitForTimeout(1500);
 // v86: lần đầu IELTS hỏi 3 câu (loại thi, band, ngày thi); các mục kỹ năng gập lại → mở hết để bấm
 const openAll = () => pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; }));
 check('IELTS chỉ nội dung (v111)', !(await pg.innerText('#app')).includes('Hôm nay & kế hoạch')); await openAll();
 check('IELTS mở từ 📚 Học', !!(await pg.$('#ie')) && await pg.isVisible('#tabs [data-tab="all"].on')); check('IELTS có bản đồ band', (await pg.innerText('#app')).includes('Bản đồ band'));
-await pg.click('[data-iesk="R"]'); await pg.waitForTimeout(400); check('IELTS Đọc theo khuôn Nền (v122)', !!(await pg.$('.steps3')) && /Bài đọc/.test(await pg.innerText('#app'))); await pg.click('[data-iebt="R"]'); await pg.waitForTimeout(400);   // v122: 🏋️ Bài tập = bài kế tiếp
+await pg.click('[data-iesk="R"]'); await pg.waitForTimeout(400); check('IELTS Đọc theo khuôn Nền (v134: ô số đo + một nút chính)', !!(await pg.$('.statc')) && /Bài đọc/.test(await pg.innerText('#app'))); await pg.click('[data-iebt="R"]'); await pg.waitForTimeout(400);   // v122: 🏋️ Bài tập = bài kế tiếp
 for (let n = 0; n < 30; n++) { if (await pg.$('#it:not([disabled])')) { await pg.fill('#it', 'x'); await pg.click('#if button[type=submit]'); } else if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break;
   await pg.waitForTimeout(50); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(50); }
 check('IELTS đọc ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
@@ -100,7 +100,7 @@ await pg.evaluate(() => ieSkView('R')); await pg.waitForTimeout(600); await pg.c
 for (let n = 0; n < 80; n++) { if (await pg.$('#kt')) { await pg.fill('#kt', 'x'); await pg.click('#kf button[type=submit]'); } else if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('IELTS đề thử Đọc ra band', /Kết quả IELTS/.test(await pg.innerText('#app')));
 // 💼 TOEIC (v72): chuyển từ IELTS sang TOEIC trong 🎓 Luyện thi; luyện Part 5 trọn bài → ra kết quả; đề thử Đọc → ra điểm
-await pg.evaluate(() => { S.lt.goal = { kind: 'toeic', lv: 'b1', date: '', at: Date.now() }; overview(); }); await pg.waitForTimeout(800); await pg.click('[data-exthi]'); await pg.waitForTimeout(1200);
+await pg.evaluate(() => { S.lt.goal = { kind: 'toeic', lv: 'b1', date: '', at: Date.now() }; exOpenK('toeic'); }); await pg.waitForTimeout(800); await pg.waitForTimeout(1200);
 check('TOEIC mở', (await pg.innerText('#app')).includes('💼 TOEIC') && await pg.isVisible('#tabs [data-tab="all"].on'));
 await pg.click('[data-tosk="R"]'); await pg.waitForTimeout(400); await openAll(); await pg.click('[data-top="p5"]'); await pg.waitForTimeout(300);   // v122: luyện theo Part trong "Thêm" 
 for (let n = 0; n < 20; n++) { if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break; await pg.waitForTimeout(40); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(40); }
@@ -117,7 +117,7 @@ await pg.evaluate(() => { S = blank(); S.lt = { d: [], fx: {}, goal: { kind: 'ce
 await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }
 check('xếp cấp ra kết quả (v133: nơi bắt đầu học)', /Bạn (đang ở khoảng|học từ đầu)/.test(await pg.innerText('#app')) && !!(await pg.$('[data-pla="go"]')));
 // 🚀 thi vượt cấp (v75): từ Tổng quan cấp B1 (chưa học) → màn thi vượt → bấm thi Ngữ pháp B1 mở đề thi
-await pg.evaluate(() => { S = blank(); overview('b1'); }); await pg.waitForTimeout(600); await pg.click('[data-vcv="b1"]'); await pg.waitForTimeout(800);
+await pg.evaluate(() => { S = blank(); vcView('b1'); }); await pg.waitForTimeout(600); await pg.waitForTimeout(800);
 check('màn thi vượt', (await pg.innerText('#app')).includes('Thi vượt lên B1')); await pg.click('[data-vc="np|b1"]'); await pg.waitForTimeout(800);
 check('thi vượt mở đề', !!(await pg.$('[data-ko], [data-k], #ti, #kt, input, textarea')));
 // ⚡ kiểm tra đầu bài (v76): mở bài A1 mới, trả lời đúng hết (chọn nghĩa đúng, gõ đúng từ) → bỏ qua hết, hoàn thành bài
@@ -134,13 +134,13 @@ await pg.click('[data-mapv="lt"]'); await pg.waitForTimeout(1200);
 check('bản đồ theo bài (v119)', /Việc cần chữa[\s\S]*Bản đồ theo bài/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="lt"].on') && await pg.isVisible('[data-ltseg="map"]'));
 check('Chỗ yếu không tràn ngang', await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
 // v121: hàng chọn mục 🧱 Nền · 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC, mục nào cũng xem được
-await pg.click('[data-mtab="cb"]'); await pg.waitForTimeout(1500); check('mục 🎓 Cambridge của Chỗ yếu (v121)', (await pg.innerText('#app')).includes('theo phần của đề') && await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
-await pg.click('[data-mtab="ielts"]'); await pg.waitForTimeout(1500); check('mục 🌏 IELTS của Chỗ yếu (v121)', (await pg.innerText('#app')).includes('theo dạng câu') && await pg.isVisible('[data-mtab="ielts"].on'));
-await pg.click('[data-mtab="nen"]'); await pg.waitForTimeout(1200);
+await pg.evaluate(() => document.querySelectorAll('#app details.lvmore').forEach(d => { d.open = true; })); await pg.click('[data-mtab="cb"]'); await pg.waitForTimeout(1500); check('mục 🎓 Cambridge của Chỗ yếu (v121)', (await pg.innerText('#app')).includes('theo phần của đề') && await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+await pg.evaluate(() => document.querySelectorAll('#app details.lvmore').forEach(d => { d.open = true; })); await pg.click('[data-mtab="ielts"]'); await pg.waitForTimeout(1500); check('mục 🌏 IELTS của Chỗ yếu (v121)', (await pg.innerText('#app')).includes('theo dạng câu') && await pg.isVisible('[data-mtab="ielts"].on'));
+await pg.evaluate(() => document.querySelectorAll('#app details.lvmore').forEach(d => { d.open = true; })); await pg.click('[data-mtab="nen"]'); await pg.waitForTimeout(1200);
 await pg.click('[data-ltseg="map"]'); await pg.waitForTimeout(800); await pg.click('[data-ltseg="today"]'); await pg.waitForTimeout(800); check('về 📅 Hôm nay', (await pg.innerText('#app')).includes('Việc hôm nay') && await pg.isVisible('[data-ltseg="today"].on'));
 await pg.click('#tabs [data-tab="dict"]'); await pg.waitForTimeout(600); check('Từ điển sáng đúng nút', await pg.isVisible('#tabs [data-tab="dict"].on') && !(await pg.$('#tabs [data-tab="bk"].on')));
 // v95: 📖 Tra cứu → 📘 Cẩm nang thi (thanh dưới vẫn sáng 📖); 👤 Của tôi → 🗺 bản đồ (sáng 👤, nút về Của tôi) → 💾 Dữ liệu
-await pg.click('[data-cnv="tc"]'); await pg.waitForTimeout(800); check('Cẩm nang từ Tra cứu', (await pg.innerText('#app')).includes('Cẩm nang thi') && await pg.isVisible('#tabs [data-tab="dict"].on'));
+check('Tra cứu không còn thẻ Cẩm nang (v136)', !(await pg.$('[data-cnv]')));
 await pg.click('#tabs [data-tab="bk"]'); await pg.waitForTimeout(800); check('Của tôi mở', /Tiến độ[\s\S]*Chỗ yếu[\s\S]*Sổ từ/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="bk"].on'));
 await pg.click('[data-mapv="lt"]'); await pg.waitForTimeout(1200); check('lối tắt Tôi → 🗺 bản đồ ở Lộ trình', /Bản đồ chỗ yếu/.test(await pg.innerText('#app')) && await pg.isVisible('#tabs [data-tab="lt"].on'));
 await pg.click('#tabs [data-tab="bk"]'); await pg.waitForTimeout(800); await pg.click('[data-ct="data"]'); await pg.waitForTimeout(800); check('Dữ liệu từ Của tôi', (await pg.innerText('#app')).includes('Dữ liệu và tài khoản') && await pg.isVisible('#tabs [data-tab="bk"].on'));

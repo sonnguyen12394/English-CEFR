@@ -26,7 +26,7 @@ function extBox(lv) { const src = EXT_SRC[lv]; if (!src) return ''; const m = ex
     <div class="chips" style="margin-top:6px"><button class="chip" data-ext="${lv}|doc">➕ Ghi giờ đọc</button><button class="chip" data-ext="${lv}|nghe">➕ Ghi giờ nghe</button></div></details>`; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-ext]'); if (!b) return; const [lv, kind] = b.dataset.ext.split('|');
   const v = prompt(`${kind === 'doc' ? 'Đọc' : 'Nghe'} bao nhiêu phút?`, '15'); if (v == null) return; const min = parseInt(v, 10); if (!(min > 0 && min <= 300)) return alert('Số phút 1–300.');
-  extLog().push({ at: Date.now(), lv, kind, min }); S.t = Date.now(); save(); toast(`Đã ghi ${min} phút.`); exHome(lv); });
+  extLog().push({ at: Date.now(), lv, kind, min }); S.t = Date.now(); save(); toast(`Đã ghi ${min} phút.`); (window.CUR && CUR.view === 'thu-vien' && typeof libView === 'function' ? libView(CUR.item) : exHome(lv)); });
 
 // ---------- 🎯 Sẵn sàng thi ----------
 // Chỉ nên đăng ký thi thật khi đủ cả 5 bằng chứng (đề thử của app do AI soạn nên không đủ một mình).

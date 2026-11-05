@@ -1,6 +1,6 @@
 # Kiểm kê chức năng (5/11/2026, sau v135)
 
-Bước 1 của kế hoạch "gọt app": liệt kê chức năng người học nhìn thấy, chỗ trùng, dữ liệu dùng thật, đề xuất. **Chưa sửa gì.** Đề xuất có dấu ⚖️ là chạm luật đo: người sáng lập duyệt trước.
+Bước 1 của kế hoạch "gọt app": liệt kê chức năng người học nhìn thấy, chỗ trùng, dữ liệu dùng thật, đề xuất. **Đã làm ở v136** (xem mục 7). Đề xuất có dấu ⚖️ là chạm luật đo: người sáng lập duyệt trước.
 
 Vai trò khi đánh giá: thiết kế sản phẩm di động (mỗi việc một chỗ), khoa học ghi nhớ (ôn một lịch), giáo viên luyện thi (người học cần bài, không cần nhiều cách đo).
 
@@ -124,3 +124,19 @@ Việc 1–4 không chạm luật đo, không bỏ nội dung học, rủi ro th
 ## 6. Bước 2 (người sáng lập làm)
 
 3–5 người học thật, 2 tuần, 15 phút / ngày. Ghi: màn mở nhiều nhất, nút không ai bấm, câu hỏi "cái này là gì". Tiêu chí: mỗi người nói được "màn này để làm gì" trong 5 giây; quay lại ≥ 5 / 7 ngày. Sau 2 tuần, mục nào 0 lần dùng ở mọi người → ✂️ bỏ thật.
+
+## 7. Đã làm ở v136 (5/11/2026)
+
+| # | Việc | Kết quả |
+|---|---|---|
+| 1 | 🛠 Công cụ người sáng lập / giáo viên | gom một chỗ gập ở cuối 💾 Dữ liệu |
+| 2 | Cẩm nang | bỏ thẻ ở Tra cứu; còn lối vào trong "Thêm" của màn kỳ thi (giữ nội dung riêng: thể loại bài Viết, chủ đề Nói) |
+| 3 | Kiểm tra cuối đợt 10 ngày | bỏ; ngày 10 chỉ xem tổng kết (~1 phút) |
+| 4 | Ôn chung | thêm từ công sở TOEIC khi mục tiêu TOEIC. Chưa làm: nút ôn vẫn mở từng phần một (bấm lại để sang phần sau) |
+| 5 | Bản đồ | hàng chọn chỉ Nền + kỳ thi mục tiêu / đã luyện; kỳ thi khác gập; bỏ ô "chưa có dữ liệu" trùng. Mục "Thêm" kỹ thuật vẫn gập như cũ |
+| 6 | Đọc thêm | một chỗ ở Thư viện |
+| — | 👤 Tôi | không còn hộp rỗng; 1.503 → 996 px |
+
+Xét lại, không làm: luật "chữa xong" chung (v107 đã chung; khác biệt còn lại có lý do khảo thí), Cambridge "làm từng phần" (đã một cửa từ v122). Ở mục 2.2 tôi từng ghi việc này "chạm luật đo": sai, bản đồ không thuộc luật đo 📘 / 🔁 / Thi.
+
+**Chặn bước 2:** mọi máy đang dùng chung một tài khoản (Supabase chưa bật "Allow anonymous sign-ins"). Thử với 3–5 người thì tiến độ của họ sẽ lẫn vào nhau. Bật trước khi thử: Supabase → Authentication → Sign In / Providers → Allow anonymous sign-ins.

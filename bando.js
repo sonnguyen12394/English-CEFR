@@ -150,6 +150,8 @@ function mapLearnNew() { const st = ovStage(), r = OV.filter(([id]) => ovIn(id, 
 //   Mở đầu ở mục của mục tiêu khi ⚖️ Lộ trình dồn ≥ 50% giờ cho luyện đề, không thì 🧱 Nền; nhớ mục đã chọn trong phiên (MAP_TAB). Chỉ tải dữ liệu của mục đang xem.
 const MAP_TABS = [['nen', '🧱 Nền'], ['cb', '🎓 Cambridge'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']];
 let MAP_TAB = null;
+// kỳ thi đã có dữ liệu luyện (thì luôn hiện ở hàng chọn bản đồ)
+const mapExHas = k => { const o = v => !!(v && Object.keys(v).length); return k === 'ielts' ? o(S.ie && S.ie.ty) || o(S.ie && S.ie.cr) : k === 'toeic' ? o(S.to && S.to.ty) : k === 'cb' ? o(S.cbx) || o(S.uoe) || o(S.cap) : false; };
 const mapGoalTab = () => { const g = S && S.lt && S.lt.goal; return g && typeof ltKind === 'function' ? ({ cefr: 'nen', cambridge: 'cb', ielts: 'ielts', toeic: 'toeic' })[ltKind(g)] || null : null; };
 const mapTab = () => { if (MAP_TAB) return MAP_TAB; const gt = mapGoalTab(); let ex = 0; try { ex = gt && gt !== 'nen' && typeof ltSplit === 'function' ? ltSplit().ex : 0; } catch (e) {} return gt && gt !== 'nen' && ex >= 50 ? gt : 'nen'; };
 async function mapView(want) { window.CUR = { view: 'ban-do' }; BACK = null; $app.innerHTML = '<div id="bdo"></div><p class="mute">Đang tải…</p>';
@@ -180,7 +182,11 @@ async function mapView(want) { window.CUR = { view: 'ban-do' }; BACK = null; $ap
   // mục không phải mục tiêu: chỉ để xem (Lộ trình không xếp giờ luyện kỳ thi đó); mục tiêu mà nền thiếu ≥ 2 cấp: Lộ trình chưa xếp giờ luyện đề
   const exNote = tab === 'nen' || !gt ? '' : gt !== tab ? `<p class="mute" style="margin:0 0 8px">🎯 Mục tiêu của bạn: ${esc(typeof ltGoalName === 'function' ? ltGoalName() : '')}. Bản đồ ${MAP_TABS.find(t => t[0] === tab)[1].replace(/^\S+ /, '')} này để xem: 🧭 Lộ trình không xếp giờ luyện kỳ thi này.</p>`
     : sp && !sp.ex ? '<p class="mute" style="margin:0 0 8px">⚖️ Nền còn thiếu ≥ 2 cấp nên 🧭 Lộ trình chưa xếp giờ luyện đề: chữa ở 🧱 Nền trước, bản đồ này để xem.</p>' : '';
-  const tabs = `<div class="chipset ex4" role="tablist">${MAP_TABS.map(([k, t]) => { const [ic, ...nm] = t.split(' '); return `<button class="${k === tab ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${k === tab}"><i>${ic}${k === gt ? '🎯' : ''}</i>${nm.join(' ')}</button>`; }).join('')}</div>`;   // 4 ô một hàng: biểu tượng trên, tên dưới (🎯 = mục tiêu)
+  // v136: hàng chọn chỉ có 🧱 Nền + kỳ thi mục tiêu + kỳ thi đã có dữ liệu + mục đang xem; kỳ thi khác gập trong "Bản đồ kỳ thi khác" (vẫn xem được, như v121)
+  const tabBtn = ([k, t]) => { const [ic, ...nm] = t.split(' '); return `<button class="${k === tab ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${k === tab}"><i>${ic}${k === gt ? '🎯' : ''}</i>${nm.join(' ')}</button>`; };
+  const tMain = MAP_TABS.filter(([k]) => k === 'nen' || k === gt || k === tab || mapExHas(k)), tMore = MAP_TABS.filter(x => !tMain.includes(x));
+  const tabs = `<div class="chipset ex4" role="tablist" style="grid-template-columns:repeat(${Math.max(2, tMain.length)}, minmax(0, 1fr))">${tMain.map(tabBtn).join('')}</div>`
+    + (tMore.length ? `<details class="lvmore" style="margin:-6px 0 10px"><summary>Bản đồ kỳ thi khác (${tMore.map(x => x[1].replace(/^\S+ /, '')).join(', ')}) ›</summary><div class="chipset ex4" role="tablist">${tMore.map(tabBtn).join('')}</div></details>` : '');   // biểu tượng trên, tên dưới (🎯 = mục tiêu)
   const head = inLt ? `<div id="bdo"></div><div id="lt"></div><div class="row top"><button class="link" data-ltseg="map">‹ Tiến độ</button><span></span></div><h1>🗺 Bản đồ chỗ yếu</h1>${tabs}`   // v133: màn con của 📈 Tiến độ
     : `<div id="bdo"></div>${MAP_BACK === 'ct' ? '<div id="bk"></div>' : MAP_BACK === 'lt' ? '<div id="lt"></div>' : ''}<div class="row top"><button class="link" data-a="bk">← ${MAP_BACK === 'ct' ? 'Của tôi' : MAP_BACK === 'lt' ? 'Lộ trình' : 'Học'}</button><span class="uname">🗺 Bản đồ chỗ yếu</span></div><h1>🗺 Bản đồ chỗ yếu</h1>${tabs}`;
   // v119: trên cùng là bản đồ theo BÀI: 🎯 Việc cần chữa (MỘT nút: chỗ hổng nền → bài yếu nhất → chỗ hay quên → học bài mới; bài yếu không chặn bài mới) + lưới bài có màu;
@@ -188,11 +194,10 @@ async function mapView(want) { window.CUR = { view: 'ban-do' }; BACK = null; $ap
   const rows = mapLessons(now), red = mapRed(now), cnt = { yeu: 0, on: 0, vung: 0, chua: 0 }; for (const r of rows) for (const l of r.ls) cnt[l.s]++;
   const gOpen = gaps.some(g => !g.cho), redRow = (l, i) => `<button class="urow" data-ml="${i}"><span>${nm(l.id)[1]} ${esc(lsName(l))}<small class="why">${esc(lsWhy(l))}</small></span><span class="tag bad">chữa ›</span></button>`;
   const top = `<p class="mute" style="margin:0 0 6px">Bài nào yếu thì chữa trước, rồi học tiếp. Việc chữa hằng ngày cũng có trong 📅 Hôm nay.</p>
-    ${noData && !gaps.length ? '<div class="box"><b>Chưa có dữ liệu học.</b><p class="mute" style="margin:6px 0 0">Bản đồ lớn dần khi bạn học. Bắt đầu: 🧭 Lộ trình → Hôm nay → Kiểm tra trình độ.</p></div>' : ''}
     <div class="box"><div class="row"><b>🎯 Việc cần chữa</b><span class="mute">${red.length} bài yếu</span></div>
       ${gOpen ? '<button class="pri" data-map="gap" style="margin-top:8px">▶ Chữa tiếp: chỗ hổng nền trước</button>' : red.length ? `<button class="pri" data-ml="0" style="margin-top:8px">▶ Chữa bài yếu nhất<small style="display:block;font-weight:400;opacity:.9">${nm(red[0].id)[1]} ${esc(lsName(red[0]))}</small></button>`
         : fo.act.length ? `<button class="pri" data-map="today" style="margin-top:8px">▶ Ôn chỗ hay quên (${Math.min(MAP_TODAY, fo.act.length)} chỗ)</button>` : '<button class="pri" data-map="new" style="margin-top:8px">▶ Học bài mới</button>'}
-      ${gOpen || red.length ? '<button class="link" data-map="new" style="margin:2px 0 6px">hoặc ▶ Học bài mới (không cần đợi chữa xong)</button>' : `<p class="mute" style="margin:6px 0 0">${noData ? 'Học vài bài, làm 🏋️ Bài tập: bài nào làm sai sẽ hiện ở đây.' : 'Không có bài yếu. Học tiếp bài mới.'}</p>`}
+      ${gOpen || red.length ? '<button class="link" data-map="new" style="margin:2px 0 6px">hoặc ▶ Học bài mới (không cần đợi chữa xong)</button>' : `<p class="mute" style="margin:6px 0 0">${noData ? 'Chưa có dữ liệu. Học vài bài, làm 🏋️ Bài tập: bài nào làm sai sẽ hiện ở đây.' : 'Không có bài yếu. Học tiếp bài mới.'}</p>`}
       ${gaps.length ? `<button class="urow" data-map="gap"><span>🧭 ${gaps.length} chỗ hổng nền<small class="why">kiểm tra trình độ phát hiện, đã hỏi lại vẫn sai</small></span><span class="tag bad">chữa ›</span></button>` : ''}
       ${red.slice(0, 5).map(redRow).join('')}${red.length > 5 ? `<details class="lvmore"><summary>Xem thêm ${red.length - 5} bài yếu ›</summary>${red.slice(5).map((l, i) => redRow(l, i + 5)).join('')}</details>` : ''}</div>
     <h2 style="margin:16px 0 2px">Bản đồ theo bài</h2>

@@ -4,7 +4,7 @@
 // một cấp, trượt thi vượt, hoặc chưa xếp lần nào; còn ≤ 30 ngày tới ngày thi thì làm 📝 đề mẫu chính thức thay xếp cấp.
 // Vì sao không xếp cấp lại mỗi 10 ngày: ~200 giờ học / cấp (ước của Cambridge) nên 10 ngày × 15–30 phút tiến bộ nhỏ hơn sai số của bài 15–30 câu.
 // KHÔNG đổi luật đo: xếp cấp và kiểm tra nhẹ chỉ để chọn chỗ học; cấp hoàn thành vẫn do 🚪 Thi chuyển cấp / 🚀 thi vượt quyết. Mọi việc học vẫn ghi như thường.
-const LT_D = 10, LT_FIX = 0.4, LT_RE_D = 60, LT_EXAM_D = 30, LT_FIX_OK = 0.5, LT_DAYS_OK = 3, LT_MINI = 5, LT_CF = 4;
+const LT_D = 10, LT_FIX = 0.4, LT_RE_D = 60, LT_EXAM_D = 30, LT_FIX_OK = 0.5, LT_DAYS_OK = 3, LT_MINI = 5;   // LT_MINI: chỉ để đọc kết quả đợt cũ (kiểm tra nhẹ bỏ ở v136)
 const ltSt = () => (S.lt = S.lt || { d: [], fx: {} });
 const ltCur = () => { const L = ltSt(), c = L.d[L.d.length - 1]; return c && !c.end ? c : null; };
 const ltDay = (c, now = Date.now()) => dayOf(now) - c.d0 + 1;
@@ -95,25 +95,9 @@ function ltSum(c, end) { const days = [...Array(end - c.d0 + 1)].map((_, i) => c
 function ltClose(c, now = Date.now()) { const end = dayOf(now); c.end = end; c.sum = ltSum(c, end); ltStart(now); return c; }
 
 // ---------- 📝 kiểm tra nhẹ cuối đợt: 10 câu kiểu xếp cấp (cấp đang học + cấp kế), chỉ đo xu hướng ----------
-async function ltMini(done) { $app.innerHTML = '<p class="mute">Đang tải…</p>'; await Promise.all([loadEB(), kLoad(KIT.np)]); window.CUR = { view: 'lt-kiem-tra' };
-  const b = ltBase(ovStage()), lvs = [b, PL_LV[PL_LV.indexOf(b) + 1]].filter(Boolean), qs = lvs.flatMap(l => plQs(l).slice(0, LT_MINI).map(x => ({ ...x, lv: l }))), R = {}, W = []; let i = 0;
-  for (const l of lvs) R[l] = [0, 0];
-  const show = () => { if (i >= qs.length) return done(R, W, b); const it = qs[i], q = it.q;
-    $app.innerHTML = `<div class="row top"><button class="link" data-a="back">← Thôi</button><span class="uname">📝 Kiểm tra cuối đợt · ${i + 1}/${qs.length}</span></div>
-      <p class="mute">Không đoán bừa: không biết thì chọn "Chưa biết".</p>${it.w ? `<p class="q">${q.top}</p><p class="mute">${q.sub}</p>` : `${q.head || ''}<p class="q">${q.q}</p>`}
-      ${q.opts.map((o, k) => `<button class="opt" data-po="${k}">${esc(o)}</button>`).join('')}<button class="opt" data-po="-1" style="opacity:.75">🤷 Chưa biết</button>`;
-    $app.onclick = e => { if (e.target.closest('[data-a="back"]')) return ltView(); const bt = e.target.closest('[data-po]'); if (!bt) return; const k = +bt.dataset.po;
-      R[it.lv][1]++; if (k >= 0 && q.opts[k] === q.a) R[it.lv][0]++; else W.push(it); i++; show(); }; };
-  show(); }
-function ltCheck() { const c = ltCur(); if (!c) return ltView();
-  ltMini((R, W, b) => { c.chk = { R }; S.t = Date.now(); save();
-    const fin = sc => { if (sc) c.chk.scan = sc; ltClose(c); scrollTo(0, 0); ltSumView(c); };
-    const scan = () => typeof mapScan === 'function' && ltHasData() ? mapScan(Date.now(), fin) : fin(null);
-    // v106: câu sai ở mục ĐÃ HỌC của cấp đang học → 🔎 hỏi thêm 2 câu (chấm như luyện tập, bản đồ tự thấy); mục chưa học là việc học mới, không xác nhận
-    const cands = typeof plConfirm === 'function' ? (W || []).filter(r => r.lv === b && plHas(r)).slice(0, LT_CF) : [];
-    if (!cands.length) return scan();
-    plConfirm(cands, { gap: false, intro: `Bạn sai ${cands.length} câu ở bài đã học. Hỏi thêm ${PL_CF_N} câu mỗi chỗ để biết sai thật hay chỉ bấm nhầm; sai thật thì 🗺 bản đồ tự đưa vào chỗ cần chữa.` },
-      cf => { c.chk.cf = cf; S.t = Date.now(); save(); scan(); }); }); }
+// v136: ngày 10 chỉ xem tổng kết (bỏ 📝 kiểm tra nhẹ 5 + 5 câu của v105: tiến bộ 10 ngày nhỏ hơn sai số bài, chỉ cho "xu hướng").
+// 🔎 quét lại từ vẫn có ở 🗺 bản đồ (mỗi 21 ngày). Đợt cũ có `c.chk` vẫn hiện số trong tổng kết.
+function ltCheck() { const c = ltCur(); if (!c) return ltView(); ltClose(c); scrollTo(0, 0); ltSumView(c); }
 
 // ---------- 📊 tổng kết đợt ----------
 function ltSumHtml(c, prev) { const s = c.sum, R = (c.chk || {}).R || {}, P = prev && prev.chk && prev.chk.R || {}, sc = (c.chk || {}).scan;
@@ -125,7 +109,7 @@ function ltSumHtml(c, prev) { const s = c.sum, R = (c.chk || {}).R || {}, P = pr
     ${(c.chk || {}).cf && c.chk.cf.n ? `<p style="margin:4px 0">${plCfTxt(c.chk.cf)}</p>` : ''}
     ${sc ? `<p style="margin:4px 0">🔎 Quét lại: từ đang nhớ đúng ${sc.heldOk}/${sc.held}${sc.unl ? ` · từ chưa học đã biết ${sc.known}/${sc.unl}` : ''}</p>` : ''}
     <p style="margin:6px 0 0">${s.okFix == null ? '⬜ Đầu đợt chưa có chỗ yếu để đo' : `${s.okFix ? '✅' : '⚠️'} Chữa xong ≥ ${Math.round(LT_FIX_OK * 100)}% chỗ đã chọn`} · ${s.okDays ? '✅' : '⚠️'} Học ≥ ${LT_DAYS_OK} ngày trong đợt</p>
-    <p class="mute" style="margin:4px 0 0">Kiểm tra nhẹ chỉ ${LT_MINI} câu mỗi cấp: lên xuống 20% giữa 2 đợt là bình thường, xem xu hướng qua nhiều đợt.</p>`; }
+    ${Object.keys(R).length ? `<p class="mute" style="margin:4px 0 0">Kiểm tra nhẹ chỉ ${LT_MINI} câu mỗi cấp: lên xuống 20% giữa 2 đợt là bình thường.</p>` : ''}`; }
 function ltSumView(c) { $app.onclick = null; const L = ltSt(), prev = L.d[L.d.indexOf(c) - 1], re = ltRe();
   $app.innerHTML = `<div id="lt"></div><h1>📊 Tổng kết đợt ${c.n}</h1><div class="box">${ltSumHtml(c, prev)}</div>
     ${re && re.k !== 'real' ? `<div class="box"><b>🧭 Nên xếp cấp lại</b><p class="mute" style="margin:6px 0">${esc(re.t)}.</p><button data-lt="place">🧭 Xếp cấp lại</button></div>` : ''}
@@ -285,7 +269,7 @@ async function ltPlanView() { BACK = null; window.CUR = { view: 'lo-trinh-tien-d
     <div class="box"><b>Chỗ yếu cần sửa</b>${fix.length ? `<div style="margin-top:6px">${fix.join('')}</div>` : '<p class="mute" style="margin:4px 0">Chưa có. Làm bài tập, chỗ nào sai nhiều sẽ hiện ở đây.</p>'}
       <button class="link" data-mapv="lt" style="margin-top:4px">Xem bản đồ chỗ yếu đầy đủ ›</button></div>
     <div class="box"><b>10 ngày này</b><div class="days10">${days.map(d => `<i class="${actMin(d) >= ACT_DAY_MIN ? 'ok' : d === t ? 'now' : ''}" title="${actMin(d)} phút"></i>`).join('')}</div>
-      <p class="mute" style="margin:0">Ngày ${Math.min(i, LT_D)} / ${LT_D} · ngày ${LT_D} có bài kiểm tra ngắn</p>${i >= LT_D ? '<button class="pri" data-lt="chk" style="margin-top:8px">📝 Làm bài kiểm tra 10 ngày</button>' : ''}</div>
+      <p class="mute" style="margin:0">Ngày ${Math.min(i, LT_D)} / ${LT_D} · ngày ${LT_D} xem tổng kết</p>${i >= LT_D ? '<button class="pri" data-lt="chk" style="margin-top:8px">📊 Xem tổng kết 10 ngày</button>' : ''}</div>
     ${vcOk ? `<p class="mute" style="margin:6px 0">Thấy bài ${LVN[cur]} dễ? <button class="link" data-vcv="${cur}">🚀 Thi vượt ${LVN[cur]} ›</button></p>` : ''}
     ${re && re.k === 'first' ? '' : re && re.k !== 'real' ? `<p class="mute" style="margin:6px 0">🧭 Nên đo lại trình độ: ${esc(re.t).toLowerCase()}.</p>` : re ? `<p style="margin:6px 0">📝 ${esc(re.t)}. <button class="link" data-ltex>Mở ›</button></p>` : ''}
     <button class="btnbig ghost" data-lt="edit" style="font-size:16px">✏️ Đổi mục tiêu</button>

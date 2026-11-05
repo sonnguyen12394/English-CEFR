@@ -26,7 +26,23 @@ function bkAcct() { if (typeof isAnon !== 'function' || !user) return '';
     Hãy ⬇️ tải tệp JSON để cất; sang máy mới thì 📥 dán JSON để khôi phục.</p></div>`;
   return `<div class="box"><b>👥 Đang dùng tài khoản chung</b> <span class="mute">· ${esc(user.email || '')}</span>
     <p class="mute" style="margin:6px 0">Mọi máy dùng tài khoản này chung một tiến độ. Người học khác nên dùng máy riêng (app tự tạo tài khoản riêng), hoặc tách máy này ra.</p>
-    <button data-bk="split">👤 Tách máy này ra tài khoản riêng</button>${typeof tdMissView === 'function' ? '<button data-bk="miss">📊 Từ người học tra mà app chưa có</button>' : ''}</div>`; }
+    <button data-bk="split">👤 Tách máy này ra tài khoản riêng</button></div>`; }
+// v136: việc của người sáng lập / giáo viên gom MỘT chỗ (gập ở cuối 💾 Dữ liệu), không nằm trên đường của người học
+const bkTools = () => { const shared = !(typeof isAnon === 'function' && isAnon());
+  return `<details class="box"><summary><b>🛠 Công cụ người sáng lập / giáo viên</b></summary>
+    <p class="mute" style="margin:6px 0">Không cần cho việc học. Dùng để kiểm nội dung, kiểm bộ chấm âm và thử tiến độ.</p>
+    ${shared && typeof gyAdmin === 'function' ? '<button data-g="admin">🗂 Quản lý góp ý</button>' : ''}
+    ${shared && typeof tdMissView === 'function' ? '<button data-bk="miss">📊 Từ người học tra mà app chưa có</button>' : ''}
+    ${typeof paVal === 'function' ? '<button data-bk="paval">🧑‍🏫 Đối chiếu bộ chấm âm với giáo viên</button>' : ''}
+    <button data-bk="kiem">📋 Bảng kiểm nội dung cho giáo viên</button>
+    <button data-bk="edit">✏️ Xem và sửa JSON</button>
+    <h2>🎚 Đặt tiến độ (học lại hoặc thử)</h2>
+    <p class="mute">Chọn phần, cấp và mức. Cấp trước cấp đã chọn: ghi là đã qua thi. Cấp đã chọn: đặt đúng mức. Cấp sau: xoá sạch.
+      Học lại từ đầu = Tất cả 7 phần · Pre-A1 · 🗑 Chưa học. Máy chụp lại dữ liệu trước khi đặt (khôi phục được ở dưới).</p>
+    <div class="sels"><label>Phần<select id="fkp"><option value="all">Tất cả 7 phần</option>${BK_PARTS.map(([id, l]) => `<option value="${id}">${l} (${bkCount(id)})</option>`).join('')}</select></label>
+      <label>Cấp<select id="fkl">${BK_LV.map(l => `<option value="${l}">${LVN[l]}</option>`).join('')}</select></label>
+      <label>Mức<select id="fks"><option value="chua">🗑 Chưa học (xoá để học lại)</option><option value="hoc">📘 Học xong (chưa nhớ)</option><option value="nho">🔁 Nhớ đủ (thi mở)</option><option value="dat">✅ Qua thi (mở cấp sau)</option></select></label></div>
+    <button data-bk="set">🎚 Đặt tiến độ</button></details>`; };
 function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
   const raw = JSON.stringify(S), sn = bkSnaps();
   $app.innerHTML = `<div id="bk"></div><div class="row top"><button class="link" data-bk="ct">← Của tôi</button><span class="uname">💾 Dữ liệu</span></div><h1>💾 Dữ liệu và tài khoản</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
@@ -41,17 +57,10 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
     <label class="mute" style="display:block;margin-top:6px">⬆️ Nhập tệp JSON (thay toàn bộ dữ liệu hiện tại)<input type="file" id="bkfile" accept="application/json,.json"></label>
     <button data-bk="copy">📋 Sao chép JSON (dán vào Ghi chú, Zalo… để cất)</button>
     <button data-bk="paste">📥 Dán JSON để khôi phục</button>
-    <button data-bk="edit">✏️ Xem và sửa JSON</button>
-    <h2>🎚 Đặt tiến độ (học lại hoặc thử)</h2>
-    <p class="mute">Chọn phần, cấp và mức. Cấp trước cấp đã chọn: ghi là đã qua thi. Cấp đã chọn: đặt đúng mức. Cấp sau: xoá sạch.
-      Học lại từ đầu = Tất cả 7 phần · Pre-A1 · 🗑 Chưa học. Máy chụp lại dữ liệu trước khi đặt (khôi phục được ở dưới).</p>
-    <div class="sels"><label>Phần<select id="fkp"><option value="all">Tất cả 7 phần</option>${BK_PARTS.map(([id, l]) => `<option value="${id}">${l} (${bkCount(id)})</option>`).join('')}</select></label>
-      <label>Cấp<select id="fkl">${BK_LV.map(l => `<option value="${l}">${LVN[l]}</option>`).join('')}</select></label>
-      <label>Mức<select id="fks"><option value="chua">🗑 Chưa học (xoá để học lại)</option><option value="hoc">📘 Học xong (chưa nhớ)</option><option value="nho">🔁 Nhớ đủ (thi mở)</option><option value="dat">✅ Qua thi (mở cấp sau)</option></select></label></div>
-    <button data-bk="set">🎚 Đặt tiến độ</button>
     <h2>Bản chụp tự động (${sn.length}/${BK_N})</h2>
     ${sn.length ? sn.map((s, i) => `<div class="row urow"><span>${bkDate(s.at)} · ${esc(s.why)} <span class="mute">${bkKB(s.data)}</span></span><span><button class="link" data-bkres="${i}">Khôi phục</button> · <button class="link" data-bkdl="${i}">Tải</button></span></div>`).join('')
-      : '<p class="mute">Chưa có. Mỗi lần nhập, sửa hay xoá sẽ tự chụp một bản.</p>'}`;
+      : '<p class="mute">Chưa có. Mỗi lần nhập, sửa hay xoá sẽ tự chụp một bản.</p>'}
+    ${bkTools()}`;
   const f = document.getElementById('bkfile');
   if (f) f.onchange = async () => { const file = f.files && f.files[0]; if (!file) return; let o;
     try { o = JSON.parse(await file.text()); } catch (e) { return backup('❌ Không đọc được tệp: không phải JSON.'); }
@@ -62,6 +71,8 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
     if (b && b.dataset.bk === 'down') return bkDown(JSON.stringify(S, null, 1), 'hoc-tieng-anh');
     if (b && b.dataset.bk === 'edit') return bkEdit();
     if (b && b.dataset.bk === 'miss') return tdMissView();
+    if (b && b.dataset.bk === 'kiem') return window.open('docs/kiem-noi-dung.html', '_blank', 'noopener');
+    if (b && b.dataset.bk === 'paval') return Promise.resolve(typeof paLoad === 'function' ? paLoad() : 0).then(() => paVal());
     if (b && b.dataset.bk === 'ct') { scrollTo(0, 0); return typeof minhView === 'function' ? minhView() : 0; }
     if (b && b.dataset.bk === 'split') return confirm('Tách máy này ra tài khoản riêng? Tiến độ hiện tại đi theo máy này; tài khoản chung giữ nguyên.') && acctSplit();
     if (b && b.dataset.bk === 'copy') return bkCopy();

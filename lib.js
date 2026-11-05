@@ -10,6 +10,7 @@ const libBase = lv => ({ a2p: 'a2', b1p: 'b1', b2p: 'b2' }[lv] || lv);
 const LIB_LV = ['b1', 'b2', 'c1', 'c2'];
 function libBox(lv) { if (LEVELS.indexOf(lv) < LEVELS.indexOf('a2p')) return ''; const R = libRuns(), n = Object.values(R).filter(r => r.done).length, m = Math.round(extLog().filter(e => e.src === 'lib').reduce((s, e) => s + e.min, 0));
   return `<div class="box"><div class="row"><b>📚 Thư viện đọc</b><span class="mute">${n ? `đọc xong ${n} truyện · ` : ''}${m ? `${m} phút` : ''}</span></div><p class="mute" style="margin:6px 0">23 truyện tiếng Anh nguyên bản (Andersen, Wilde, O. Henry, Sherlock Holmes, Chekhov, Austen…). Chạm từ để tra. Giờ đọc tự ghi vào 📚 Đọc nghe thêm.</p><button data-lib="${lv}">📚 Mở thư viện</button></div>`; }
+// v136: MỘT chỗ "đọc nghe thêm": thư viện + ghi giờ đọc / nghe ngoài app (extBox, S.ext; giờ đọc thư viện tự cộng vào đây)
 async function libView(lv) { libStop(); window.CUR = { view: 'thu-vien', item: lv }; $app.innerHTML = '<p class="mute">Đang tải…</p>';
   try { await libLoad(); } catch (e) { $app.innerHTML = `${backRow('📚 Thư viện')}<p>Không tải được. Thử lại sau.</p>`; $app.onclick = e => { if (e.target.closest('[data-a="home"]')) overview(lv); }; return; }
   const R = libRuns(), b = libBase(lv), me = LIB_LV.includes(b) ? b : 'b1', k = LIB_LV.indexOf(me), cov = x => x.cov[me] != null ? x.cov[me] : x.cov.c2;
@@ -18,6 +19,7 @@ async function libView(lv) { libStop(); window.CUR = { view: 'thu-vien', item: l
   const grp = (t, xs) => xs.length ? `<h2>${t}</h2>${xs.map(card).join('')}` : '';
   $app.innerHTML = `${backRow('📚 Thư viện')}<h1>📚 Thư viện đọc</h1>
     <p class="mute">Truyện nguyên bản (không rút gọn), tiếng Anh cổ hơn tiếng Anh ngày nay một chút. Cách đọc: đọc nhanh cho hiểu ý, chỉ chạm tra từ khi mất mạch. Đọc thấy dưới 2 từ lạ mỗi dòng là vừa sức.</p>
+    ${typeof extBox === 'function' ? extBox(EXT_SRC && EXT_SRC[lv] ? lv : me) : ''}
     ${grp('🌱 Đọc rộng: vừa sức (≥ 95% từ có trong app tới cấp của bạn)', LIB.books.filter(x => cov(x) >= 95 && x.lv !== me))}${grp(`Hợp cấp ${LVN[me]}`, LIB.books.filter(x => x.lv === me))}${grp('Dễ hơn (đọc nhanh, luyện tốc độ)', LIB.books.filter(x => LIB_LV.indexOf(x.lv) < k && cov(x) < 95))}${grp('Khó hơn (đọc thử)', LIB.books.filter(x => LIB_LV.indexOf(x.lv) > k && cov(x) < 95))}
     <p class="mute">Nguồn: Project Gutenberg (truyện hết bản quyền ở Mỹ). Cấp gợi ý theo thói quen chọn sách của giáo viên; % từ đo bằng danh sách từ của app.</p>`;
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return overview(lv); const c = e.target.closest('[data-lb]'); if (c) libRead(lv, c.dataset.lb, (R[c.dataset.lb] || {}).done ? 0 : (R[c.dataset.lb] || {}).p || 0); }; }

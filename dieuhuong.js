@@ -25,13 +25,15 @@ async function cbView(lv) { BACK = null; window.CUR = { view: 'cambridge' }; EXA
     tiles, more: [['🎓 Thi thử cả đề', M ? `<p class="mute" style="margin:0 0 6px">Khuôn, giờ như đề thật: ${M.papers.map(p => `${p.t} ${p.min} phút`).join(' · ')}. Câu bốc ngẫu nhiên từ kho app.${runs.length ? ` Đã làm ${runs.length} lần.` : ''} Làm từng bài thi: bước ③ ở màn mỗi bài thi.</p><button class="pri" data-mock="${lv}">▶ Làm đề thử</button>` : ''],
       ['📝 Đề mẫu chính thức', ready && typeof realBox === 'function' ? realBox(lv) : `<p class="mute" style="margin:0">🔒 ${done}/${Math.min(3, ids.length)} · Đề mẫu chính thức và 🎯 Sẵn sàng thi mở khi ≥ 3 phần của ${LVN[lv]} qua 🚪 Thi chuyển cấp ở 🧱 Nền (đã qua ${done}/${ids.length}).</p>`],
       ['🎯 Sẵn sàng thi', ready && typeof readyBox === 'function' ? readyBox(lv) : ''],
-      ['📚 Đọc nghe thêm ngoài app', typeof extBox === 'function' ? extBox(lv) : ''],
+      ['📚 Đọc nghe thêm', typeof libView === 'function' ? `<button data-lib="${lv}">📚 Đọc nghe thêm: thư viện truyện + ghi giờ ngoài app${typeof extMin === 'function' && EXT_H[lv] ? ` · ${(extMin(lv) / 60).toFixed(1)}/${EXT_H[lv]} giờ` : ''}</button>` : ''],   // v136: một chỗ ở 📚 Thư viện
       ['🗺 Bản đồ phần yếu', typeof cbMap === 'function' ? `<button class="link" data-mapv="lt" data-mapk="cb" data-cbmlv="${lv}" style="margin:0">🗺 Bản đồ phần yếu: ở 🧭 Lộ trình → 🗺 Chỗ yếu ›</button>` : ''],
       ['📘 Cẩm nang thi', '<button data-cnv="cefr">📘 Cẩm nang thi: mẹo Nghe · Nói · Đọc · Viết, thể loại bài Viết</button>']],
     foot: 'Không phải đề Cambridge chính thức: câu do app soạn (🤖 chưa giáo viên kiểm). Đề mẫu chính thức ở mục 📝 (trong Thêm).' });
   $app.onclick = cbClick; }
 
 // ---------- 👤 Của tôi: chỗ ở chính của tiến độ, chỗ yếu, sổ từ, sổ lỗi, kết quả thi thật, góp ý, dữ liệu ----------
+// v136: 👤 Tôi gọn: tiến độ (+ lối tắt đường tới mục tiêu, chỗ yếu) · sổ từ · sổ lỗi khi có lỗi · kết quả thi thật khi có · luật · dữ liệu · góp ý.
+// Công cụ người sáng lập / giáo viên ở 💾 Dữ liệu → 🛠 (bkTools).
 async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
   if (!(PA && Object.values(KIT).every(P => P.items))) { $app.innerHTML = '<div id="bk"></div><p class="mute">Đang tải…</p>'; try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); } catch (e) {} }
   const now = Date.now(), t = dayOf(now), stage = ovStage(), mins = [...Array(7)].reduce((s, _, i) => s + actMin(t - i), 0);
@@ -46,16 +48,16 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
     ...ioff.map(r => `🌏 IELTS đề thật: ${r.L != null ? 'L ' + bandTxt(r.L) : ''} ${r.R != null ? 'R ' + bandTxt(r.R) : ''}`),
     ...toff.map(r => `💼 TOEIC đề thật: L ${r.L} · R ${r.R}`), ...cb.map(([l, r]) => `🎓 ${esc((RN[l] || {}).name || LVN[l])}: Nghe ${r.l}/${r.L} · Đọc / Viết ${r.rw}/${r.RW}`)];
   $app.innerHTML = `<div id="bk"></div><h1>👤 Của tôi</h1><p class="mute"><span id="sync">${esc(sync)}</span></p>
-    ${typeof hdView === 'function' ? '<button data-hdv>📘 Luật và cách dùng: học thế nào, tính điểm ra sao</button>' : ''}
     <div class="box"><b>📈 Tiến độ</b><p style="margin:6px 0">Trình độ của bạn: <b>${LVN[(typeof plPend === 'function' && plPend(stage)) || stage]}</b>${skipLv.length ? ` · bỏ qua theo bài kiểm tra: ${LVN[skipLv[0]]}${skipLv.length > 1 ? ' → ' + LVN[skipLv[skipLv.length - 1]] : ''}` : ''}${passedLv.length ? ` · hoàn thành trong app: ${passedLv.map(l => LVN[l]).join(', ')}` : ''}</p>
       ${realLv.length || passedLv.length || (typeof ltKind === 'function' && ltKind() === 'cambridge') ? `<p style="margin:0 0 6px">🎓 Đạt bằng đề mẫu chính thức: ${realLv.length ? `<b>${realLv.map(l => LVN[l]).join(', ')}</b>` : '<span class="mute">chưa có (làm ở màn 🎓 Cambridge)</span>'}</p>` : ''}
-      <p class="mute" style="margin:0">📚 ${nW} từ đã học trong app · 🧩 ${nK} bài kỹ năng · ⏱ hôm nay ${actMin(t)} / ${actGoal()} phút · 7 ngày ${mins} phút · 🔥 ${actStreak(now)} ngày liền</p>${S.lt && S.lt.goal ? '<button class="link" data-ltseg="map" style="margin-top:6px">Xem đường tới mục tiêu ›</button>' : ''}</div>
-    <p class="mute" style="margin:4px 0 10px">🗺 Chỗ yếu${f && f.act.length ? ` (${f.act.length} chỗ đang chữa)` : ''} nằm ở 🧭 Lộ trình → 📈 Tiến độ. <button class="link" data-mapv="lt">Xem bản đồ chỗ yếu ›</button></p>
+      <p class="mute" style="margin:0">📚 ${nW} từ đã học trong app · 🧩 ${nK} bài kỹ năng · ⏱ hôm nay ${actMin(t)} / ${actGoal()} phút · 7 ngày ${mins} phút · 🔥 ${actStreak(now)} ngày liền</p>
+      <div class="duo" style="margin-top:6px">${S.lt && S.lt.goal ? '<button class="link" data-ltseg="map" style="min-height:44px">🎯 Mục tiêu ›</button>' : ''}<button class="link" data-mapv="lt" style="min-height:44px">🗺 Chỗ yếu${f && f.act.length ? ` (${f.act.length})` : ''} ›</button></div></div>
     <div class="box"><div class="row"><b>📌 Sổ từ</b><span class="mute">${vn} từ${vd ? ` · ${vd} đến hạn` : ''}</span></div>
       <p class="mute" style="margin:6px 0">Từ bạn lưu khi tra, khi chạm trong bài và từ đề thật. Ôn cách quãng 1 → 35 ngày.</p>
       <div class="duo"><button data-ct="sotu">📌 Mở sổ từ</button>${vd ? `<button class="pri" data-ct="vwrun">🔁 Ôn ${Math.min(20, vd)} từ</button>` : ''}</div></div>
-    ${typeof errBox === 'function' ? errBox('ct') : ''}
-    <div class="box"><b>📊 Kết quả thi thật</b>${real.length ? real.map(x => `<p style="margin:4px 0;font-size:15px">${x}</p>`).join('') : '<p class="mute" style="margin:6px 0 0">Chưa ghi đề thật nào. Làm đề chính thức (sách Cambridge IELTS, đề mẫu Cambridge, đề ETS) rồi ghi ở màn kỳ thi (📚 Học → Thi thử cả đề, đề thật): kết quả thật là thước đo đáng tin nhất.</p>'}</div>
+    ${typeof errBox === 'function' && typeof errSt === 'function' && errSt().length ? errBox('ct') : ''}
+    ${real.length ? `<div class="box"><b>📊 Kết quả thi thật</b>${real.map(x => `<p style="margin:4px 0;font-size:15px">${x}</p>`).join('')}</div>` : ''}
+    ${typeof hdView === 'function' ? '<button data-hdv>📘 Luật và cách dùng</button>' : ''}
     <button data-ct="data">💾 Dữ liệu, tài khoản và sao lưu</button>
     ${typeof gyHomeHtml === 'function' ? gyHomeHtml() : ''}`;
   $app.onclick = e => { const b = e.target.closest('[data-ct]'); if (!b) return; scrollTo(0, 0); const a = b.dataset.ct;
@@ -63,15 +65,17 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
 
 // ---------- 📅 Hôm nay: MỘT hàng ôn chung (sổ lỗi → sổ từ → bài CEFR đến hạn) ----------
 // Mỗi loại vẫn chấm và xếp lịch theo cách riêng; chỉ gom lối vào. Dừng giữa chừng ("← Thôi") thì về Tổng quan.
-function revCount(now = Date.now()) { const e = typeof errDue === 'function' ? errDue(now).length : 0, v = typeof vwDue === 'function' ? vwDue(now).length : 0, c = typeof todayDue === 'function' ? todayDue() : null;
-  return { e, v, c, n: e + v + (c || 0) }; }
+// v136: từ công sở TOEIC (lịch Leitner riêng) vào nút ôn chung khi mục tiêu là TOEIC và dữ liệu TOEIC đã tải (ltView tải sẵn)
+const revToeic = () => typeof TO !== 'undefined' && TO && TO.voc && typeof ltKind === 'function' && ltKind() === 'toeic' && typeof toVocDue === 'function' ? toVocDue().length : 0;
+function revCount(now = Date.now()) { const e = typeof errDue === 'function' ? errDue(now).length : 0, v = typeof vwDue === 'function' ? vwDue(now).length : 0, to = revToeic(), c = typeof todayDue === 'function' ? todayDue() : null;
+  return { e, v, c, to, n: e + v + to + (c || 0) }; }
 // phần có nhiều bài CEFR đến hạn nhất (cấp đang học của phần), như "Nên làm" cũ
 function revPart() { if (!(PA && Object.values(KIT).every(P => P.items))) return null;
   const r = OV.map(([id]) => { const l = id === 'tv' ? curLevel() : id === 'pa' ? paLevel() : kLv(KIT[id]), s = ovStat(id, l); return [id, l, s ? s.due : 0]; }).filter(x => x[2]).sort((a, b) => b[2] - a[2])[0];
   return r ? [r[0], r[1]] : null; }
 function ovOpenPart(id, l) { scrollTo(0, 0); if (id === 'tv') { HOME.lv = l; HOME.open = null; return home(); } if (id === 'pa') PA_VIEW = l; else if (KIT[id]) KIT[id].view = l; partView(id); }
 function revRun(back) { const R = revCount(), steps = [], quit = () => (typeof back === 'function' ? back : overview)();
-  if (R.e) steps.push(next => errRun(next, quit)); if (R.v) steps.push(next => vwRun(Date.now(), next, quit));
+  if (R.e) steps.push(next => errRun(next, quit)); if (R.v) steps.push(next => vwRun(Date.now(), next, quit)); if (R.to) steps.push(next => toVocRun(null, next));
   const last = () => { const p = revPart(); if (p) return ovOpenPart(p[0], p[1]); toast('✅ Đã ôn hết mục đến hạn hôm nay.'); quit(); };
   const go = i => i < steps.length ? steps[i](() => go(i + 1)) : last(); scrollTo(0, 0); go(0); }
 document.addEventListener('click', e => { const b = S && e.target.closest('[data-cbgo]'); if (b) { scrollTo(0, 0); cbView(b.dataset.cbgo); } });   // 📝 đề mẫu chính thức từ thẻ cấp ở 📚 Học

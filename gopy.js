@@ -75,7 +75,7 @@ function gyHomeInner() { const s = gyLS(GY_SENT), q = gyLS(GY_LS);
   return `<h2>💬 Góp ý</h2><p class="mute">Thấy lỗi, khó hiểu hay có ý tưởng: bấm nút 💬 ở góc dưới phải, ở màn nào cũng được.</p>
     ${q.length ? `<p class="mute">${q.length} góp ý chờ gửi (mất mạng). <button class="link" data-g="flush">Gửi lại</button></p>` : ''}
     ${s.length ? `<div class="mute">Đã gửi:</div>${s.slice(-5).reverse().map(x => `<div class="mute">${x.id ? '#' + x.id + ' · ' : ''}${esc(gaKind(x.kind))} · ${esc(x.txt)}${x.n ? ` · ${x.n} ảnh` : ''}</div>`).join('')}` : ''}
-    ${typeof isAnon === 'function' && isAnon() ? '' : '<button data-g="admin">🗂 Quản lý góp ý</button>'}`; }
+`; }   // v136: 🗂 Quản lý góp ý chuyển vào 💾 Dữ liệu → 🛠 Công cụ người sáng lập (bkTools)
 const gyHomeHtml = () => `<div class="box" id="gyhome">${gyHomeInner()}</div>`;
 
 // ---------- 🗂 Quản lý góp ý ----------

@@ -43,7 +43,7 @@ const TODAY_EXAM = () => S.exSel === 'toeic' && S.to ? 'toeic' : S.ie && S.ie.se
 // v108: có 🎯 mục tiêu thì việc luyện đề và tỉ lệ nền / đề theo ltSplit (lotrinh.js): nền thiếu ≥ 2 cấp → chưa luyện đề (chỉ một dòng xem dạng đề);
 //   nền chiếm ≤ 30 % → bỏ "luyện 1 bài kỹ năng" nền (luyện đề đã luyện kỹ năng); nền đủ (10 %) → bỏ cả "bài mới" nền, giữ ôn + chữa. Việc luyện đề xong khi đủ số phút đề.
 // v112 (giao diện trực quan): việc hôm nay là dữ liệu có cấu trúc { k, ic, title (tên việc ngắn, lời thường), meta (một dòng), done (true / false; null = phần phụ), attr (data-* để bấm), extra (html phụ) }.
-//   Thứ tự: kiểm tra trình độ (người mới) → ôn bài cũ → bài kiểm tra 10 ngày → sửa lỗi sai → bài mới / thi vượt → luyện kỹ năng → luyện đề. Luật như v107–v111.
+//   Thứ tự: kiểm tra trình độ (người mới) → ôn bài cũ → tổng kết 10 ngày → sửa lỗi sai → bài mới / thi vượt → luyện kỹ năng → luyện đề. Luật như v107–v111.
 const TODAY_CUT = (s, n = 34) => { s = String(s || ''); return s.length > n ? s.slice(0, n - 1) + '…' : s; };
 // v133: số phút ước của một bài mới (chỉ để người học biết việc dài bao lâu) và tên việc bằng chữ thường: "Từ vựng B1 · Bài 4" + dòng vì sao
 const TODAY_MIN = { tv: 7, pa: 5, np: 6, nghe: 6, doc: 6, noi: 5, viet: 8 };
@@ -63,11 +63,11 @@ function todayItems(stage = ovStage(), o = {}) { const now = Date.now(), t = day
   // 🧭 người mới: kiểm tra trình độ trước
   if (!Object.keys(S.cards || {}).length && !S.place && !(S.lt && S.lt.self)) add({ k: 'place', ic: '🧭', title: 'Kiểm tra trình độ', sub: 'Để app bắt đầu đúng chỗ, khỏi học lại cái đã biết', min: 5, done: false, attr: 'data-place' });
   // 🔁 ôn: MỘT nút ôn chung (dieuhuong.js revRun: sổ lỗi → sổ từ → bài đến hạn)
-  { const R = typeof revCount === 'function' ? revCount() : { n: due || 0, c: due, e: 0, v: 0 }, what = [R.c ? `${R.c} bài` : '', R.v ? `${R.v} từ đã lưu` : '', R.e ? `${R.e} lỗi viết / nói` : ''].filter(Boolean).join(' · ');
+  { const R = typeof revCount === 'function' ? revCount() : { n: due || 0, c: due, e: 0, v: 0 }, what = [R.c ? `${R.c} bài` : '', R.v ? `${R.v} từ đã lưu` : '', R.to ? `${R.to} từ công sở` : '', R.e ? `${R.e} lỗi viết / nói` : ''].filter(Boolean).join(' · ');
     if (R.n) S.rvd = t;   // v133: hôm nay có bài cần ôn → ôn xong vẫn hiện ✓; chưa có bài nào cần ôn thì không hiện việc ôn (khỏi ✓ "xong" khi chưa làm gì)
     if (R.n || (has && S.rvd === t)) add({ k: 'rev', ic: '🔁', title: R.n ? `Ôn ${R.n} mục cũ` : 'Ôn bài cũ', sub: R.n ? `${what} · ôn đúng lúc để không quên` : 'Xong. App tự nhắc khi tới ngày ôn.', min: R.n ? Math.max(1, Math.min(actGoal(), Math.ceil(R.n / 6))) : 0, done: !R.n && due != null, attr: R.n && typeof revRun === 'function' ? 'data-rev' : 'data-today="due"' }); }
   // 📝 ngày 10 của đợt
-  { const c = S.lt && S.lt.goal && typeof ltCur === 'function' ? ltCur() : null; if (c && ltDay(c, now) >= LT_D) add({ k: 'chk', ic: '📝', title: 'Bài kiểm tra 10 ngày', sub: 'Xem bạn tiến bộ tới đâu sau 10 ngày', min: 10, done: false, attr: 'data-lt="chk"' }); }
+  { const c = S.lt && S.lt.goal && typeof ltCur === 'function' ? ltCur() : null; if (c && ltDay(c, now) >= LT_D) add({ k: 'chk', ic: '📊', title: 'Xem tổng kết 10 ngày', sub: 'Bạn đã học bao nhiêu, chữa được bao nhiêu chỗ yếu', min: 1, done: false, attr: 'data-lt="chk"' }); }
   // 🩹 sửa lỗi sai: chỗ cần học lại (xếp cấp phát hiện) trước, rồi chỗ hay sai; tối đa LT_FIX số phút
   { const gn = typeof plGaps === 'function' ? plGaps(now).filter(g => !g.cho).length : 0, act = mf ? mf.act.length : 0, did = mf && mf.act.some(w => w.td === t);
     const fx = typeof ltFixMin === 'function' ? ltFixMin(t) : 0, cap = typeof ltCap === 'function' ? ltCap() : 0, full = cap && fx >= cap;

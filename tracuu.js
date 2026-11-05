@@ -197,8 +197,7 @@ function tcHome() { const df = document.getElementById('df'), dl = document.getE
   dl.innerHTML = `<p class="mute" style="margin:10px 0 2px">Gõ tiếng Anh khi gặp từ lạ; gõ tiếng Việt khi muốn nói / viết một ý.</p>
     ${card('tu', '📚', 'Từ & cụm từ', `${WORDS.length.toLocaleString('vi-VN')} từ theo cấp, từ dễ nhầm, cụm động từ, thành ngữ, từ nối, tiền tố / hậu tố`)}
     ${card('np', '🧱', 'Ngữ pháp & lỗi hay gặp', `${tcNp().length || 106} điểm ngữ pháp, ${(TC && TC.loi || []).length || 42} lỗi người Việt hay mắc`)}
-    ${card('pa', '👄', 'Phát âm', '44 âm, trọng âm, đuôi -s / -ed, âm cuối, ngữ điệu, cặp âm dễ nhầm')}
-    <button class="box" data-cnv="tc" style="margin:6px 0;text-align:left;display:block;width:100%"><b style="font-size:17px">📘 Cẩm nang thi</b><br><span class="mute" style="font-size:14px">Mẹo Nghe · Nói · Đọc · Viết theo Cambridge / IELTS / TOEIC: dạng câu, bố cục bài, cụm câu, bẫy hay gặp</span></button>`; }
+    ${card('pa', '👄', 'Phát âm', '44 âm, trọng âm, đuôi -s / -ed, âm cuối, ngữ điệu, cặp âm dễ nhầm')}`; }
 // điều hướng của dictList: true = đã vẽ (màn đầu / tìm gộp / mục khác); false = để app.js vẽ 📚 danh sách từ theo cấp
 function tcRoute() { if (!TC) tcLoad().then(() => { tcRe(); }).catch(() => {}); const k = tcKind(), q = (DICT.q || '').trim();
   if (k === 'home') { q ? tcSearch(q) : tcHome(); return true; }
@@ -207,7 +206,8 @@ function tcRoute() { if (!TC) tcLoad().then(() => { tcRe(); }).catch(() => {}); 
 
 // 📘 Cẩm nang thi: mẹo theo kỹ năng × kỳ thi. v91–v92 ở Từ điển, v93 chuyển sang 🎓 Luyện thi, v95 chỗ ở chính là 📖 Tra cứu (thẻ thứ 4),
 // 🎓 Luyện thi giữ lối tắt "📘 Cẩm nang thi" ở mỗi kỳ thi (chọn sẵn kỳ thi đó)
-let CN_K = 'nghe', CN_FROM = 'tc';   // v95: from 'tc' = 📖 Tra cứu (chỗ ở chính) · 'ex' = 🎓 Luyện thi (lối tắt, chọn sẵn kỳ thi)
+let CN_K = 'nghe', CN_FROM = 'ex';   // v136: bỏ thẻ ở Tra cứu (trùng 📘 bài học kỳ thi); chỉ còn lối vào ở "Thêm" của màn kỳ thi
+   // v95: from 'tc' = 📖 Tra cứu (chỗ ở chính) · 'ex' = 🎓 Luyện thi (lối tắt, chọn sẵn kỳ thi)
 function camnangView(k, from, ex) { if (k) CN_K = k; if (from) CN_FROM = from; if (ex) DICT.ex = ex; window.CUR = { view: 'cam-nang' }; const mk = CN_FROM === 'ex' ? '<div id="ie"></div>' : '<div id="tcv"></div>'; const need = [typeof ieLoad === 'function' && (typeof IE === 'undefined' || !IE) ? ieLoad() : 0, !TC ? tcLoad() : 0].filter(Boolean);
   if (need.length) { $app.innerHTML = mk + '<p class="mute">Đang tải…</p>'; Promise.all(need).then(() => camnangView()).catch(() => {}); return; }
   $app.innerHTML = `${mk}<div id="cnv"></div><div class="row top"><button class="link" data-a="back">← ${CN_FROM === 'ex' ? 'Luyện thi' : 'Tra cứu'}</button><span class="uname">📘 Cẩm nang thi</span></div><h1>📘 Cẩm nang thi</h1>
