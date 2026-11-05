@@ -17,4 +17,4 @@ fi
 
 # Dựng / cập nhật bản đồ: chỉ đọc mã (AST), không tốn tiền, có cache nên lần sau nhanh.
 # Lỗi dựng bản đồ không chặn phiên.
-graphify update . >/dev/null 2>&1 || echo "graphify update lỗi; chạy tay: graphify update ." >&2
+{ graphify update . && python3 tools/graph-vung.py; } >/dev/null 2>&1 || echo "graphify update lỗi; chạy tay: graphify update . && python3 tools/graph-vung.py" >&2

@@ -8,3 +8,5 @@ content/bd/
 content/exam*.txt
 # Bảng kiểm giáo viên, sinh tự động bằng tools/export-review.mjs
 docs/kiem-noi-dung.html
+# Kỹ năng thiết kế chép từ Anthropic: không phải mã / luật của app
+.claude/skills/
