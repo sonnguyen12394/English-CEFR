@@ -11,3 +11,7 @@ When the user types `/graphify`, use the installed graphify skill or instruction
   3. Chữ trên nút, câu giải thích: theo `ux-copy` (tiếng Việt có dấu, câu ngắn).
   4. Sau khi sửa: `accessibility-review` nhanh (tương phản, vùng bấm ≥ 44 px, cỡ chữ), báo kết quả trước / sau.
   Việc nhỏ (sửa 1 chữ, 1 màu) thì chỉ bước 2–3. Vẫn ghi "chưa kiểm trên iPhone" nếu chưa thử máy thật.
+
+# Spec Kit (github.com/github/spec-kit, MIT, commit ec9a6f3, cài 5/11/2026)
+- Lệnh: `/speckit-specify` viết đặc tả · `/speckit-clarify` hỏi chỗ thiếu · `/speckit-plan` kế hoạch · `/speckit-tasks` chia việc · `/speckit-implement` làm · `/speckit-analyze`, `/speckit-checklist` soát. Hiến pháp: `.specify/memory/constitution.md` (chép từ CLAUDE.md).
+- Chỉ dùng cho tính năng MỚI hoặc thay đổi lớn; sửa nhỏ làm thẳng. Đặc tả đổi luật đo phải dừng chờ người sáng lập duyệt.
