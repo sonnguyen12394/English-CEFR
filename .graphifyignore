@@ -1,0 +1,8 @@
+# Graphify bỏ qua (cú pháp như .gitignore)
+# Âm thanh giọng máy dựng từ chữ đã có trong repo: chép lời là vô ích
+n/
+a/
+# Danh sách từ dạng dữ liệu, không phải tài liệu
+content/bx/
+content/bd/
+content/exam*.txt
