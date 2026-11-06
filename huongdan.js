@@ -26,7 +26,7 @@ const HD = [
     <p>Cấp sau xem trước và học trước được, không khoá cứng.</p>`],
   ['cachhoc', '🪜 Cách học từng phần (theo bậc)', () => `
     <p>Mỗi phần đi từ dễ đến khó theo <b>bậc</b>. Bạn không cần tự chọn bậc: màn Hôm nay và ▶ Luyện theo bậc tự chọn. Bước làm quen trong bài tập và mọi bài <b>📘 Luyện thêm</b> không tính 🔁 Nhớ.</p>
-    <p><b>📚 Từ vựng (${VSTAGE.length} bậc)</b>: ${VSTAGE.map(s => s[0]).join(' → ')}. Bài học ngày đầu chỉ hỏi bậc 1 (nghĩa, nghe, chọn đúng chữ). 🏋️ Bài tập chỉ hỏi bậc trên khi bậc 1 của từ đã vững. Sai câu tự gõ thì làm lại bằng dạng dễ hơn (🧩 xếp chữ cái, chọn từ điền câu), đúng rồi tự gõ lại.</p>
+    <p><b>📚 Từ vựng (${VSTAGE.length} bậc)</b>: ${VSTAGE.map(s => s[0]).join(' → ')}. Bài học: xem thẻ rồi làm thử 3 câu mỗi từ (chọn nghĩa, nghe chọn nghĩa, tự gõ từ), không chấm. Học xong bài (hoặc chọn đúng nghĩa ở bài tập) thì 🏋️ Bài tập hỏi cả bậc trên, có câu tự gõ. Sai câu tự gõ thì làm lại bằng dạng dễ hơn (🧩 xếp chữ cái, chọn từ điền câu), đúng rồi tự gõ lại.</p>
     <p><b>🧱 Ngữ pháp</b>: ${esc(KIT.np.how)}</p>
     <p><b>👄 Phát âm</b>: nghe phân biệt cặp âm (ship / sheep) → đọc từ có âm đó (cần bộ chấm âm). Máy chưa tải bộ chấm âm thì chỉ tính phần nghe. 📘 Luyện thêm (không tính): 👂 nghe đuôi từ (-s, -ed, phụ âm cuối người Việt hay nuốt), 🎵 nghe trọng âm. Đọc sai âm nào thì có mẹo đặt miệng cho âm đó. Câu đọc to (Nói, Đọc to) có thể 👄 chấm âm cả câu khi máy đã tải bộ chấm âm: thử nghiệm, chưa tính.</p>
     <h3 style="margin:10px 0 4px">4 kỹ năng</h3>

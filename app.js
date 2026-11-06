@@ -155,7 +155,12 @@ const TYPE_FOR = { nghia: () => 'w2vi', nghe: () => 'listen', chu: () => 'form',
 // 27/10/2026: yêu cầu hiếm (ít từ có, vd. 🧱 mẫu câu ~25 từ / cấp) chọn ngẫu nhiên đều thì gần như không được hỏi (mô phỏng B1: ~50 lần / 720 ngày).
 // Từ B1: chọn có trọng số 1 / √(số từ có yêu cầu đó): yêu cầu hiếm được hỏi đủ. Pre-A1 → A2+ giữ chọn đều (mô phỏng: trọng số làm A1 chậm từ 147 lên 303 ngày).
 const DIM_N = {}; const dimN = (k, lv = curLevel()) => { const key = lv + '|' + k; if (DIM_N[key] == null) DIM_N[key] = WORDS.filter(w => wDims(w, lv).includes(k)).length || 1; return DIM_N[key]; };
-function typeFor(c, now, w) { const all = wDims(w).filter(k => k !== 'noi'), st = vStage(c, w), g = st < VSTAGE.length ? VGRP[st] : 9,
+// v137 (người sáng lập 6/11/2026: "khi tôi học từ vựng thì phần bài tập thiếu dạng bài tự gõ"): bậc 1 coi như qua, mở câu tự gõ, khi đã chọn đúng nghĩa
+// của từ một lần: học xong bài của từ (làm thử của bài học phải đúng hết mới xong) hoặc câu 📖 nghĩa đúng ở lần gần nhất. Trước: phải đúng cả 3 mặt bậc 1
+// (nghĩa, nghe, chọn chữ) ở bài tập, mỗi lượt hỏi một mặt ngẫu nhiên → lượt đầu sau bài học toàn trắc nghiệm, khoảng 5 lượt mới có câu gõ.
+// Chỉ đổi thứ tự hỏi: vStage vẫn là bậc thật (hiển thị "🪜 Bậc của từ"); 🔁 Nhớ tính từng mặt như cũ.
+const vSeen = (c, w) => vSure(c, 'nghia') || !!(w && S && S.units && S.units[w.u]);
+function typeFor(c, now, w) { const all = wDims(w).filter(k => k !== 'noi'), st0 = vStage(c, w), st = st0 === 0 && vSeen(c, w) ? 1 : st0, g = st < VSTAGE.length ? VGRP[st] : 9,
     open = all.filter(k => VGRP[VSTAGE.findIndex(s => s[1].includes(k))] <= g);
   // tầng quyết định THỨ TỰ GIỚI THIỆU mặt mới; khi ôn thì hỏi đều mọi mặt đã mở mà đang quên (mô phỏng: luôn ưu tiên bậc thấp nhất làm mặt bậc 2 bị bỏ đói)
   const ks = open.length ? open : all, miss = ks.filter(k => !heldDim(c, k, now)), L = miss.length ? miss : ks;
@@ -464,9 +469,12 @@ function lessonTypes(w, reqs) { const r = new Set(reqs.filter(k => VREQ_BY[k] &&
   // B1 → C2: yêu cầu nào dạy bằng dạng câu đó; câu sau dạy kèm yêu cầu trước (🛠 tạo dạng dạy cả 🔧 họ từ; 🔄 thay từ dạy cả ↔️; 🎩 văn phong dạy cả 🎚)
   if (r.has('ho') && !r.has('taodang')) t.add('fam'); if (r.has('mau')) t.add('pat'); if (r.has('cumtu')) t.add('colT'); if (r.has('taodang')) t.add('famQ');
   if (r.has('sacthai') && !r.has('vanphong')) t.add('reg'); if (r.has('thay')) t.add('synT'); if (r.has('vanphong')) t.add('style'); if (r.has('thanhngu')) t.add('idi'); if (r.has('tucthi')) t.add('fast');
-  return LESSON_ORDER.filter(x => t.has(x) && (!VLESSON1 || ['w2vi', 'listen', 'form'].includes(x))); }
-// v101: bài học ngày đầu chỉ hỏi bậc 1 (nhận ra); thẻ từ vẫn dạy đủ thông tin; bậc 2–4 hỏi dần trong 🏋️ Luyện tập khi bậc dưới vững
-const VLESSON1 = true;
+  if (VLESSON1) return LESSON1.filter(x => x === 'w2vi' ? r.has('nghia') : x === 'listen' ? r.has('nghe') : r.has('viet') || r.has('nhora'));
+  return LESSON_ORDER.filter(x => t.has(x)); }
+// v101: bài học ngày đầu chỉ hỏi bậc 1 (nhận ra); thẻ từ vẫn dạy đủ thông tin; bậc 2–4 hỏi dần trong 🏋️ Luyện tập khi bậc dưới vững.
+// v137 (người sáng lập: "phần bài tập thiếu dạng bài tự gõ"): làm thử của bài học = 📖 chọn nghĩa · 🔊 nghe chọn nghĩa · ✍️ tự gõ từ (thay 🔤 chọn đúng chữ:
+// gõ đúng thì cũng nhận ra đúng chữ). Gõ sai thì làm lại bằng 🧩 xếp chữ cái rồi gõ lại. Vẫn 3 câu / từ, vẫn không chấm (bài học không tính 🔁 Nhớ).
+const VLESSON1 = true, LESSON1 = ['w2vi', 'listen', 'spell'];
 const reqsUpTo = L => VREQ.filter(r => lvIdx(r[2]) <= lvIdx(L)).map(r => r[0]);
 const reqsOf = Ls => VREQ.filter(r => Ls.includes(r[2])).map(r => r[0]);
 // thẻ từ: phần chung + phần dạy cho yêu cầu mới (dạng bất quy tắc, cặp từ, nghĩa thứ hai) khi bài có yêu cầu đó
