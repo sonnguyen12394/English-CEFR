@@ -1506,6 +1506,21 @@ const R = await run(`(async () => {
     } catch (e) { errs.push(e.message); }
     S = blank();
     add('cefr', 'C53', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'làm thử bài học Từ vựng có tự gõ từ; học xong bài thì bài tập có câu tự gõ ngay; chưa học bài thì vẫn nhận ra trước; bậc hiển thị không đổi'); }
+  // v138 (người sáng lập: "mở khoá tất cả bài học mới… để tôi xem nội dung"): bài cấp chưa mở bấm được, 👁 xem trước không tạo thẻ, không làm thử
+  { const bad = [], errs = [], H = () => String($app.innerHTML), rowOf = (h, attr) => (h.match(new RegExp('<button class="urow[^"]*" ' + attr + '[^>]*>[\\\\s\\\\S]*?</button>')) || [''])[0]; S = blank();
+    try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]);
+      const u = UNITS.find(x => x.lv === 'b1'); if (!locked(u)) bad.push('bài B1 không khoá với người mới');
+      HOME.lv = 'b1'; home(); const r0 = rowOf(H(), 'data-un="' + u.id + '"'); if (!r0 || /disabled/.test(r0) || !r0.includes('👁 xem')) bad.push('dòng bài B1 khoá cứng / không ghi xem: ' + r0.slice(0, 120));
+      uPreview(u); if (!H().includes('Xem trước') || H().includes('data-a="next"') || u.words.some(w => !H().includes(esc(w.w)))) bad.push('xem trước Từ vựng thiếu từ hoặc còn nút học');
+      if (Object.keys(S.cards).length || S.units[u.id]) bad.push('xem trước Từ vựng tạo thẻ'); HOME.lv = null;
+      for (const P of Object.values(KIT)) { const L = P.lvs.find(l => kLocked(P, l)); if (!L) continue; const x = kItems(P, L)[0]; if (!x) continue;
+        P.view = L; kView(P.id); const r = rowOf(H(), 'data-kx="' + x.id + '"'); if (!r.includes('👁 xem')) bad.push(P.id + ': dòng bài cấp khoá không ghi xem');
+        kPreview(P, x, () => {}); if (!H().includes('Xem trước') || H().includes('data-kl="try"') || kSt(P.id).cards[x.id]) bad.push(P.id + ': xem trước hỏng'); P.view = null; }
+      const L = PA_LV.find(l => paLocked(l)), x = PA.find(y => y.lv === L); PA_VIEW = L; paView(); if (!rowOf(H(), 'data-paset="' + x.id + '"').includes('👁 xem')) bad.push('Phát âm: dòng bộ cấp khoá không ghi xem');
+      paPreview(x); if (!H().includes('Xem trước') || H().includes('data-pl="quiz"') || H().includes('Bài này dạy gì') || !H().includes('data-a="home"') || paSt()[x.id]) bad.push('Phát âm: xem trước hỏng'); PA_VIEW = null;
+    } catch (e) { errs.push(e.message); }
+    S = blank();
+    add('cefr', 'C54', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'bài cấp chưa mở bấm được để xem trước (Từ vựng, 5 phần kit, Phát âm); xem trước không làm thử, không tạo thẻ'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-hocnen') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');

@@ -23,7 +23,7 @@ const HD = [
     <p><b>Hoàn thành cấp trong app</b> khi mọi phần <b>bắt buộc</b> của cấp đã qua Thi chuyển cấp. Bắt buộc: 📚 Từ vựng, 🧱 Ngữ pháp, 📰 Đọc, 🎧 Nghe; ✍️ Viết phần câu (🧩 xếp câu, 🔗 nối câu: máy chấm chắc); 👄 Phát âm phần nghe (máy đã tải bộ chấm âm thì cả phần đọc); 🗣 Nói khi máy chép được lời (mở bằng Safari). Chỉ để <b>tham khảo</b> (vẫn nên luyện, không chặn): bài viết dài (✅ đủ ý, 📝 đúng dạng), từ B1 bài nói một mạch, và 🗣 Nói trên máy không chép được lời.</p>
     <p><b>Hoàn thành trong app chưa phải bằng CEFR.</b> Đề trong app lấy từ kho bài của app. Chữ <b>"đạt A1, A2…"</b> chỉ dùng khi bạn làm <b>📝 đề mẫu chính thức</b> của Cambridge (📚 Học → 🎓 Luyện thi → Cambridge) và đúng đủ ngưỡng. Kết quả hiện ở 👤 Tôi.</p>
     <p>Mỗi phần lên cấp riêng: Ngữ pháp có thể ở B1 khi Từ vựng còn ở A2.</p>
-    <p>Cấp sau xem trước và học trước được, không khoá cứng.</p>`],
+    <p>Bài của cấp chưa mở: bấm vào để <b>👁 xem trước</b> nội dung (từ, ngữ pháp, bài đọc, bộ âm). Xem trước không làm thử, không ghi là đã học, không tính 🔁 Nhớ. Học thật mở khi qua Thi chuyển cấp của cấp trước (hoặc 🚀 thi vượt).</p>`],
   ['cachhoc', '🪜 Cách học từng phần (theo bậc)', () => `
     <p>Mỗi phần đi từ dễ đến khó theo <b>bậc</b>. Bạn không cần tự chọn bậc: màn Hôm nay và ▶ Luyện theo bậc tự chọn. Bước làm quen trong bài tập và mọi bài <b>📘 Luyện thêm</b> không tính 🔁 Nhớ.</p>
     <p><b>📚 Từ vựng (${VSTAGE.length} bậc)</b>: ${VSTAGE.map(s => s[0]).join(' → ')}. Bài học: xem thẻ rồi làm thử 3 câu mỗi từ (chọn nghĩa, nghe chọn nghĩa, tự gõ từ), không chấm. Học xong bài (hoặc chọn đúng nghĩa ở bài tập) thì 🏋️ Bài tập hỏi cả bậc trên, có câu tự gõ. Sai câu tự gõ thì làm lại bằng dạng dễ hơn (🧩 xếp chữ cái, chọn từ điền câu), đúng rồi tự gõ lại.</p>

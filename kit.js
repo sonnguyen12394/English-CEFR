@@ -82,7 +82,7 @@ function kView(id) { const P = KIT[id];
     if (dm) return kDimView(P, dm.dataset.kdim);
     if (xe) return kRun(P, +xe.dataset.kex, () => kView(id));
     if (lb) { P.view = lb.dataset.klv; return kView(id); }
-    if (u) { const x = P.by[u.dataset.kx]; if (kLocked(P, x.lv)) return toast(`Bài này mở khi qua Thi chuyển cấp ${P.t} cấp trước.`);
+    if (u) { const x = P.by[u.dataset.kx]; if (kLocked(P, x.lv)) return kPreview(P, x, () => kView(id));
       return P.newQs && kIsFresh(P, x) ? kNew(P, x, () => kView(id)) : kLearn(P, x); }   // v116: Đọc / Nghe bài chưa gặp = 🏋️ bài tập
     if (!b) return; const a = b.dataset.k;
     if (a === 'learn' && nx) kLearn(P, nx); if (a === 'new' && nw) return kNew(P, nw, () => kView(id)); if (a === 'hoc') kHoc(P); if (a === 'menu') kMenu(P); if (a === 'exam') kExam(P, lv); };
@@ -90,7 +90,7 @@ function kView(id) { const P = KIT[id];
 // v118: một dòng = tên bài + trạng thái bằng chữ (trước: ký hiệu ⚪ 🔵 🟢 🆕 + dấu từng mặt, phải đọc dòng chú thích mới hiểu)
 function kList(P, lv, nx, now) { const st = kSt(P.id).cards, lock = kLocked(P, lv), xs = kItems(P, lv), at = xs.findIndex(x => nx ? x.id === nx.id : !st[x.id]);
   return pWin(xs.map(x => { const c = st[x.id], isNx = nx && nx.id === x.id, held = c && kDimsOf(P, x).every(k => kHeld(P, c, k, now));
-    const [tag, cls] = !c ? (lock ? ['🔒', ''] : isNx ? [P.newQs ? 'làm tiếp' : 'học tiếp', 'next'] : ['', '']) : P.newQs && kIsFresh(P, x, now) ? ['làm lại được', '']
+    const [tag, cls] = !c ? (lock ? ['👁 xem', ''] : isNx ? [P.newQs ? 'làm tiếp' : 'học tiếp', 'next'] : ['', '']) : P.newQs && kIsFresh(P, x, now) ? ['làm lại được', '']
       : typeof lsState === 'function' && lsState(P.id, x, now) === 'yeu' ? ['yếu', 'bad'] : held ? ['đã nhớ', 'good'] : isDue(c, now) && !P.newQs ? ['cần ôn', 'warn'] : [P.newQs ? 'đã làm' : 'đã học', ''];
     return pRow(`data-kx="${x.id}"`, esc(P.name(x)), tag, isNx ? 'next' : cls); }), at); }
 const kExtraBtns = P => kExtra(P).map(([m, i]) => `<button class="opt" data-kex="${i}"><b>${m[1]}</b><br><span style="font-size:14px;opacity:.85">${m[2]}</span></button>`).join('');
@@ -115,6 +115,13 @@ function kHoc(P) { window.CUR = { view: P.id + '-bai-hoc' }; const now = Date.no
     const xe = e.target.closest('[data-kex]'); if (xe) return kRun(P, +xe.dataset.kex, back); };
   window.scrollTo(0, 0); }
 
+// v138 (người sáng lập: "mở khoá tất cả bài học mới mặc dù chưa học tới để tôi xem nội dung"): bài của cấp chưa mở bấm vào được, mở chế độ 👁 xem trước:
+// chỉ đọc nội dung, không làm thử, không tạo thẻ, không tính 📘 Học / 🔁 Nhớ (luật đo không đổi; học thật vẫn mở khi qua Thi chuyển cấp cấp trước).
+function kPreview(P, x, back) { window.CUR = { view: P.id + '-xem-truoc', item: x.id };
+  $app.innerHTML = `${backRow('👁 Xem trước · ' + P.name(x))}<p class="mute">👁 Xem trước: chỉ đọc, không làm thử, không ghi là đã học. Học thật mở khi qua Thi chuyển cấp ${P.t} cấp trước.${P.newQs ? ` Lưu ý: bài ${P.t.toLowerCase()} đã xem trước thì lần làm thật sau này không còn đo đúng khả năng hiểu bài mới.` : ''}</p>
+    ${P.lesson(x)}<button class="pri" data-a="home">‹ Về ${P.ic} ${P.t}</button>`;
+  $app.onclick = e => { if (e.target.closest('[data-kl="vi"]')) { const v = document.getElementById('kvi'); if (v) v.hidden = !v.hidden; return; } if (e.target.closest('[data-a="home"]')) back(); };
+  window.scrollTo(0, 0); }
 // ---------- 📘 Học một bài: phần giảng (P.lesson) + làm thử (không tính) ----------
 // v116: bài học không bao giờ tính 🔁 Nhớ: làm thử không chấm mặt nào và không cộng ôn chéo cho từ (nomf). back = màn để quay về (mặc định màn phần).
 function kLearn(P, x, back) { window.CUR = { view: P.id + '-hoc', item: x.id }; const home = back || (() => kView(P.id));

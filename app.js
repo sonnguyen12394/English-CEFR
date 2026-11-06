@@ -366,13 +366,13 @@ function roadmap(now, nu) {
   const chOf = i => { const us = us0.filter(u => u.ch === i); return [us[0], us, us.filter(unitDone).length]; };
   const [f, us, done] = chOf(show);
   const rows = us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now, w)).length / u.words.length >= 0.8, isNx = u === nu;
-    const [tag, cls] = lock ? ['🔒', ''] : typeof lsState === 'function' && lsState('tv', u, now) === 'yeu' ? ['yếu', 'bad'] : m ? ['đã nhớ', 'good'] : d ? ['đã học', ''] : isNx ? ['học tiếp', 'next'] : [`${u.words.length} từ`, ''];
+    const [tag, cls] = lock ? ['👁 xem', ''] : typeof lsState === 'function' && lsState('tv', u, now) === 'yeu' ? ['yếu', 'bad'] : m ? ['đã nhớ', 'good'] : d ? ['đã học', ''] : isNx ? ['học tiếp', 'next'] : [`${u.words.length} từ`, ''];
     const gen = /chặng \d+ · bài \d+$/.test(u.vi || '');   // v134: tên bài chung chung (B1 → C2) thì chỉ ghi số bài; mọi bài có từ mẫu để biết bài có gì
-    return pRow(`data-un="${u.id}"`, `Bài ${u.bi}${gen ? '' : ' · ' + esc(u.vi)}<small class="why">${esc(u.words.slice(0, 3).map(w => w.w).join(', '))}…</small>`, tag, isNx ? 'next' : cls, lock); }).join('');
+    return pRow(`data-un="${u.id}"`, `Bài ${u.bi}${gen ? '' : ' · ' + esc(u.vi)}<small class="why">${esc(u.words.slice(0, 3).map(w => w.w).join(', '))}…</small>`, tag, isNx ? 'next' : cls); }).join('');
   const others = chs.filter(i => i !== show);
   const chips = LEVELS.map(l => `<button class="chip ${lv === l ? 'on' : ''}" data-lv="${l}">${lockedLv(l) ? '🔒 ' : passed(l) ? '✅ ' : ''}${LVN[l]} · ${WORDS.filter(w => UBY[w.u].lv === l).length} từ</button>`).join('');
   return `<h2 style="margin:16px 0 4px">Bài ${LVN[lv]}</h2>
-    ${lock ? `<p class="mute">🔒 Bài ${LVN[lv]} mở khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(lv) - 1]]}. Xem trước được, chưa học được.</p>` : ''}
+    ${lock ? `<p class="mute">🔒 Học bài ${LVN[lv]} khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(lv) - 1]]}. Bấm bài để 👁 xem trước nội dung.</p>` : ''}
     ${f ? `<div class="ch cur"><div class="row"><b>${f.chIcon} Chặng ${show + 1} · ${esc(f.chName)}</b><span class="mute">${done}/${us.length} bài</span></div>${rows}</div>` : ''}
     ${others.length ? `<details class="lvmore"><summary>Chặng khác (${others.length}) ›</summary>${others.map(i => { const [g, uu, dd] = chOf(i);
       return `<button class="urow" data-ch="${i}"><span>${g.chIcon} Chặng ${i + 1} · ${esc(g.chName)}</span><span class="tag ${dd === uu.length ? 'good' : ''}">${dd === uu.length ? '✓ xong' : `${dd}/${uu.length} bài`}</span></button>`; }).join('')}</details>` : ''}
@@ -508,6 +508,13 @@ function lessonRun(u, words, reqs, title, onDone) {
       noiOpen(NO.ses.list[0], true); } });
   card(); }
 // v76: bài mới bắt đầu bằng ⚡ kiểm tra đầu bài (nhanh.js ptRun): từ đã biết bỏ khỏi bài, chỉ học từ chưa biết
+// v138 (người sáng lập: "mở khoá tất cả bài học mới mặc dù chưa học tới để tôi xem nội dung"): bài của cấp chưa mở bấm vào được, mở chế độ 👁 xem trước:
+// chỉ đọc nội dung, không làm thử, không tạo thẻ, không tính 📘 Học / 🔁 Nhớ (luật đo không đổi; học thật vẫn mở khi qua Thi chuyển cấp cấp trước).
+function uPreview(u) { window.CUR = { view: 'tv-xem-truoc', unit: u.id }; const reqs = reqsUpTo(u.lv);
+  $app.innerHTML = `${backRow('👁 Xem trước · ' + uTitle(u))}<h1>${esc(uTitle(u))}</h1>
+    <p class="mute">👁 Xem trước: chỉ đọc, không làm thử, không ghi là đã học. Học thật mở khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(u.lv) - 1]]}.</p>
+    ${u.words.map(w => wordCard(w, reqs)).join('')}<button class="pri" data-a="home">‹ Về 📚 Từ vựng</button>`;
+  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; window.scrollTo(0, 0); }
 function learn(u) { const again = unitDone(u), reqs = reqsUpTo(u.lv), fin = () => { if (!again) { learnCards(S, u, Date.now()); save(); }
     // v135: màn xong bài nói bằng lời thường (trước: "đã dạy N yêu cầu của 🔁 Nhớ …"); nút học bài kế tiếp ngay; yêu cầu nhớ của cấp gập lại
     const nx = nextUnit(), nxOk = nx && nx !== u && nx.lv === u.lv;
@@ -689,7 +696,7 @@ document.addEventListener('click', e => {
   if (a === 'dict') dict();
 });
 document.addEventListener('click', e => { if (!S || !document.getElementById('grid')) return; const d = e.target.closest('[data-dim]'); if (d) dimView(d.dataset.dim); });
-document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('#grid [data-un]'); if (g) return learn(UBY[g.dataset.un]);
+document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('#grid [data-un]'); if (g) return locked(UBY[g.dataset.un]) ? uPreview(UBY[g.dataset.un]) : learn(UBY[g.dataset.un]);
   const l = e.target.closest('#grid [data-lv]'); if (l) { HOME.lv = l.dataset.lv; HOME.open = null; document.getElementById('grid').innerHTML = roadmap(Date.now(), nextUnit()); return; }
   const c = e.target.closest('#grid [data-ch]'); if (c) { const nu = nextUnit(), lv = HOME.lv || curLevel(), i = +c.dataset.ch; HOME.open = (HOME.open ?? (nu && nu.lv === lv ? nu.ch : -1)) === i ? -1 : i; document.getElementById('grid').innerHTML = roadmap(Date.now(), nu); } });
 
