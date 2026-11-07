@@ -3,7 +3,7 @@ import { load } from './load.mjs';
 const { run, ctx } = await load(); ctx.ALLMISS = !!process.env.ALL; ctx.LVS_ = process.env.LVS;
 ctx.IDX_ = (await import('node:fs')).readFileSync(new URL('../../index.html', import.meta.url), 'utf8');   // v95: kiểm nhãn thanh dưới
 const R = await run(`(async () => {
-  S = blank(); user = { id: 'test' }; await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); await loadEB(); await uLoad(); await capLoad();
+  S = blank(); user = { id: 'test' }; EX_PART = 'san'; await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]); await loadEB(); await uLoad(); await capLoad();
   const out = [], add = (lv, id, ok, msg) => out.push({ lv, id, ok, msg });
   const Y = await (await fetch('content/cambridge-yle.json')).json(), low = s => s.toLowerCase();
   // từ không tính khi so với danh sách Cambridge: tên riêng, từ chỉ dành cho trẻ em / truyện tranh (người lớn học không cần)
@@ -80,7 +80,7 @@ const R = await run(`(async () => {
   // 🌏 Học IELTS (ielts.js): màn mở được; đề thử mọi bài sinh câu hợp lệ (Academic + General Training); bài mẫu Viết máy ước ≥ 6.0, bài rác ≤ 4.5;
   // bài nói mẫu ≥ 5.5, im lặng không chấm; bảng quy đổi điểm thô → band và cách làm tròn đúng quy ước IELTS
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await ieLoad(); delete S.ie;
-    for (const ty of ['ac', 'gt']) { ieSt().type = ty; await ieltsView(); { const h0 = String($app.innerHTML); if (!h0.includes('🌏 IELTS ') || !['L', 'R', 'W', 'S'].every(k => h0.includes('data-iesk="' + k + '"')) || h0.includes('class="btnbig') || !h0.includes('class="grid2"') || !h0.includes('data-iemk="all"')) bad.push('màn IELTS ' + ty + ' (v122: như màn Nền: lưới 4 ô, không nút to, thi thử trong Thêm)'); }
+    EX_PART = 'san'; for (const ty of ['ac', 'gt']) { ieSt().type = ty; await ieltsView(); { const h0 = String($app.innerHTML); if (!h0.includes('🌏 IELTS ') || !['L', 'R', 'W', 'S'].every(k => h0.includes('data-iesk="' + k + '"')) || ((x => (x.match(/class="btnbig/g) || []).length !== (/class="btnbig" data-daigo/.test(x) ? 1 : 0))(h0)) || !h0.includes('class="grid2"') || !h0.includes('data-iemk="all"')) bad.push('màn IELTS ' + ty + ' (v122: như màn Nền: lưới 4 ô, thi thử trong Thêm; v141: nút to duy nhất là 🤖 Đề AI)'); }
       for (const k of ['L', 'R', 'W', 'S']) { try { ieSkView(k); const hk = String($app.innerHTML); if (!hk.includes('data-iehome') || !/data-ie(?:[rws]|lk?)=/.test(hk) || !hk.includes('class="statc"') || !hk.includes('data-xl="ielts|' + k + '|') || !hk.includes('data-iebt="' + k + '"') || !hk.includes('data-iebai="' + k + '|')) bad.push('màn con IELTS ' + k + ' thiếu nút / khuôn 3 bước'); } catch (e) { bad.push('màn con IELTS ' + k + ': ' + e.message); } }
       for (const P of IE_PAPERS) { let qs = []; tryv('đề ' + ty + ' ' + P.k, () => { qs = P.gen(); }); if (!qs.length) bad.push('đề thử trống: ' + ty + ' ' + P.k);
         for (const it of qs) { const q = it.q; if (!it.part || !q) { bad.push('câu thiếu phần: ' + P.k); continue; }
@@ -125,7 +125,7 @@ const R = await run(`(async () => {
     const ps = errParse('1. I am agree => I agree | agree là động từ\\nHe go → He goes\\nkhông phải dòng lỗi'); if (ps.length !== 2 || ps[0].wrong !== 'I am agree' || ps[0].why_vi !== 'agree là động từ' || ps[1].correct !== 'He goes') bad.push('đọc lỗi giáo viên sai: ' + JSON.stringify(ps));
     tryv('dán lỗi', () => errPaste('ie')); if (!/data-ieshare/.test(ieShareBtn('t', 'p', 'x'))) bad.push('nút gửi giáo viên'); tryv('cách làm', () => ieHow(Object.keys(IE_HOW)));
     S.ie.tw = [{ at: Date.now(), band: 5 }]; S.ie.w = [{ at: Date.now() - 864e5, id: 'x', task: 't2', band: 6 }]; if (!ieCal().W || ieReady()[2][2].indexOf('5.0') < 0) bad.push('band giáo viên không vào hiệu chuẩn / sẵn sàng thi');
-    add('ielts', 'I1', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...new Set(bad)].slice(0, 10).join(' | ') : 'màn, đề thử Academic + General Training, chấm Viết / Nói, quy đổi band đều đúng'); }
+    EX_PART = 'san'; add('ielts', 'I1', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...new Set(bad)].slice(0, 10).join(' | ') : 'màn, đề thử Academic + General Training, chấm Viết / Nói, quy đổi band đều đúng'); }
   // 📊 IELTS bước 1 (v82): ghi theo dạng câu (Đọc / Nghe) + tiêu chí (Viết / Nói), máy và AI tách riêng; đề thử hiện bảng theo dạng
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; S = blank(); await ieLoad(); await kLoad(KIT.nghe); await kLoad(KIT.doc);
     const qs = [...ieRQs(IE.doc[0]), ...ieRQs(IE.doc[1])], lq = ieListen(); if (qs.some(q => !IE_TY[q.ty])) bad.push('câu Đọc thiếu dạng'); if (!lq.length || lq.some(it => !IE_TY[it.q.ty])) bad.push('câu Nghe thiếu dạng');
@@ -204,7 +204,7 @@ const R = await run(`(async () => {
     actTick(Date.now() + 10 * 60000); if (actMin(dayOf(Date.now())) > 2) bad.push('khoảng nghỉ dài vẫn tính phút');
     // v108: ô 📅 Hôm nay ở 🔄 Lộ trình (cần mục tiêu); 📚 Học = ô 🎯 mục tiêu + 🧱 nền CEFR
     ltSt().goal = { kind: 'cefr', lv: 'a2', date: '', at: Date.now() }; await ltView(); const lt0 = String($app.innerHTML); if (!lt0.includes('id="today"') || !lt0.includes('Việc hôm nay') || !lt0.includes('data-ltnext')) bad.push('Lộ trình thiếu màn Hôm nay (v112: vòng phút, ▶ Học tiếp, việc hôm nay)');
-    await overview('a1'); const ov = String($app.innerHTML); if (ov.includes('📅 Hôm nay') || ov.includes('Việc hôm nay') || !ov.includes('data-exsel=')) bad.push('📚 Học còn ô Hôm nay / kế hoạch (v111: chỉ nội dung; v134: kỳ thi khác ở Xem thêm)'); delete S.lt;
+    await overview('a1'); const ov = String($app.innerHTML); if (ov.includes('📅 Hôm nay') || ov.includes('Việc hôm nay') || ov.includes('data-exsel=')) bad.push('📚 Học còn ô Hôm nay / kế hoạch / hàng kỳ thi (v111: chỉ nội dung; v141: kỳ thi ở tab 🎯 Luyện đề)'); delete S.lt;
     // v86 hiện dần: người mới chưa thấy 🧰 luyện thi (chỉ một dòng báo), không còn ▶ Nên làm / 🗓 Gợi ý ~45 phút trái mục tiêu phút
     if (ov.includes('id="ovtools"') || ov.includes('data-mock') || !ov.includes('Tiếng Anh A1') || ov.includes('Gợi ý mỗi ngày') || ov.includes('▶ Nên làm')) bad.push('Tổng quan người mới chưa gọn');
     for (const lv of PL_LV) { const qs = plQs(lv); if (qs.length !== 5 || qs.some(it => !it.q.opts.includes(it.q.a))) bad.push('xếp cấp ' + lv + ': ' + qs.length + ' câu'); }
@@ -445,13 +445,13 @@ const R = await run(`(async () => {
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
     S = blank(); await Promise.all([tcLoad(), ieLoad()]); const H = () => String($app.innerHTML), nbt = h => (h.match(/<button/g) || []).length;
     const tabs = [...IDX_.matchAll(/data-tab="(\\w+)"><i>[^<]*<\\/i>([^<]+)</g)].map(m => m[1] + ':' + m[2]).join(' ');
-    if (tabs !== 'lt:Lộ trình all:Học dict:Tra cứu bk:Tôi') bad.push('thanh dưới (v108: 4 tab, Lộ trình đầu tiên, bỏ Luyện thi): ' + tabs);
+    if (tabs !== 'lt:Lộ trình all:Học ld:Luyện đề dict:Tra cứu bk:Tôi') bad.push('thanh dưới (v141: 5 tab, 🎯 Luyện đề sau 📚 Học): ' + tabs);
     // 🎯 Học người mới: ≤ 14 nút (v101: Pre-A1 thêm thẻ ✍️ Viết, 🗣 Nói); công cụ luyện thi, sổ lỗi, góp ý ở tab khác; chưa học gì thì chưa có việc ôn
     await tryA('Học', () => overview('pre')); const ho = H(), nh = nbt(ho) - (ho.match(/data-exsel=|data-hocnen|data-exthi/g) || []).length;   // v109: hàng mục (Nền · Cambridge · IELTS · TOEIC) là điều hướng, không tính if (nh > 14) bad.push('🎯 Học người mới ' + nh + ' nút');
     if (/data-mock|id="ovtools"|id="gyhome"|Sổ lỗi của tôi|data-rev|data-sotu/.test(ho)) bad.push('🎯 Học người mới còn công cụ của tab khác / việc ôn khi chưa có gì để ôn');
     // 🎓 Luyện thi: chưa chọn kỳ thi → 🎓 Cambridge (đề thử, cẩm nang, chuyển IELTS / TOEIC); đã đặt IELTS → IELTS
-    delete S.exSel; delete S.ie; CB_LV = null; await tryA('Luyện thi', () => exOpen()); const hc = H();
-    if (!hc.includes('🎓 Cambridge ') || hc.includes('class="btnbig') || !/data-mock="/.test(hc) || !hc.includes('data-cbsk=') || !hc.includes('data-cnv="cefr"') || !hc.includes('data-hocnen') || !hc.includes('id="ie"')) bad.push('màn Cambridge chưa đủ (v122: như màn Nền, ô theo bài thi, đề thử trong Thêm)');
+    delete S.exSel; delete S.ie; CB_LV = null; EX_PART = null; await tryA('Luyện thi', () => exOpen()); const h2 = H(); if (!h2.includes('exrow') || !h2.includes('data-expart="san"') || !h2.includes('data-expart="ai"')) bad.push('màn Luyện đề chưa có 2 nút 📚 · 🤖 (v142)'); EX_PART = 'san'; await tryA('Luyện thi 📚', () => cbView()); const hc = H();
+    if (!hc.includes('🎓 Cambridge ') || ((x => (x.match(/class="btnbig/g) || []).length !== (/class="btnbig" data-daigo/.test(x) ? 1 : 0))(hc)) || !/data-mock="/.test(hc) || !hc.includes('data-cbsk=') || !hc.includes('data-cnv="cefr"') || !hc.includes('data-expart=""') || !hc.includes('id="ie"')) bad.push('màn Cambridge chưa đủ (v122: như màn Nền, ô theo bài thi, đề thử trong Thêm)');
     ieSt().set = 1; if (exSel() !== 'ielts') bad.push('đã đặt IELTS mà Luyện thi không mở IELTS'); S.exSel = 'cefr'; if (exSel() !== 'cefr') bad.push('chọn Cambridge không giữ');
     await tryA('về Cambridge', () => exHome('a2')); if (!/class="chip on" data-cbl="a2"/.test(H())) bad.push('nút về của công cụ Cambridge không giữ cấp');
     // 📘 Cẩm nang: chỗ ở chính 📖 Tra cứu (sáng 📖, về Tra cứu); từ Luyện thi là lối tắt (sáng 🎓, về Luyện thi)
@@ -843,7 +843,7 @@ const R = await run(`(async () => {
     S.act = {}; ltSt().ex = {}; actTick(now); actTick(now + 60000); if ((ltSt().ex[t] || 0) < 60000) bad.push('phút đề không cộng');
     await tryA('về Học', () => overview('pre')); if (LT_EX_ON) bad.push('về 📚 Học vẫn tính phút đề'); const e0 = ltSt().ex[t]; actTick(now + 90000); if (ltSt().ex[t] !== e0) bad.push('ngoài màn đề vẫn cộng');
     // ⑤ kỳ thi theo mục tiêu; màn kỳ thi có dòng mục tiêu thay hàng chọn kỳ thi; IELTS giờ / tuần lấy theo Lộ trình
-    S.place.top = 'b2p'; await tryA('mở đề IELTS', () => exOpen()); if (CUR.view !== 'ielts' || !H().includes('data-hocnen') || H().includes('Hôm nay & kế hoạch') || H().includes('id="iehpw"')) bad.push('màn IELTS sai (v111: không có kế hoạch; v134: nút ‹ Học)');
+    S.place.top = 'b2p'; EX_PART = null; await tryA('mở đề IELTS', () => exOpen()); if (CUR.view !== 'ielts' || !H().includes('exrow') || H().includes('Hôm nay & kế hoạch') || H().includes('id="iehpw"')) bad.push('màn IELTS sai (v111: không có kế hoạch; v141: hàng chọn kỳ thi)');
     await tryA('việc luyện đề vào thẳng bài', () => exGo()); if (!/ielts|de-thu|luyen|ie/.test(String(CUR.view))) bad.push('exGo không mở bài IELTS: ' + CUR.view);
     await tryA('xem TOEIC khi mục tiêu IELTS', () => toeicView()); if (LT_EX_ON || CUR.view !== 'toeic') bad.push('v109: xem kỳ thi khác vẫn mở được nhưng không tính phút đề'); await tryA('về IELTS', () => ieltsView()); if (!LT_EX_ON) bad.push('kỳ thi của mục tiêu chưa tính phút đề');
     if (iePlan().hpw !== Math.max(0.5, Math.round(ltSplit().exM * 7 / 60 * 2) / 2)) bad.push('giờ IELTS / tuần chưa theo Lộ trình');
@@ -851,12 +851,12 @@ const R = await run(`(async () => {
     ltSt().goal = { kind: 'cambridge', lv: 'b1', date: '', at: now }; await tryA('mở Cambridge', () => exOpen()); if (CUR.view !== 'cambridge' || CB_LV !== 'b1') bad.push('mục tiêu Cambridge chưa mở đúng cấp');
     // ⑥ 📚 Học: ô mục tiêu + nút phần riêng + 🧱 Nền CEFR, không có ô Hôm nay; Lộ trình có ô Hôm nay + ⚖️
     ltSt().goal = { kind: 'ielts', lv: ieBase(7), date: '', at: now }; await tryA('Học', () => overview('pre'));
-    if (!H().includes('id="ov"') || !H().includes('>Học</h1>') || !H().includes('class="hrow') || H().includes('data-ltex') || H().includes('Việc hôm nay') || H().includes('id="today"') || !H().includes('Luyện IELTS') || !H().includes('data-ovx="ielts|R"') || H().includes('data-exsel="ielts"')) bad.push('📚 Học chưa đúng (v134: một trang: Tiếng Anh + Luyện kỳ thi mục tiêu, kỳ thi khác ở Xem thêm)');
-    await tryA('mở mục Thi', () => exOpenK(exGoalK() || 'cefr')); if (CUR.view !== 'ielts' || !H().includes('data-hocnen')) bad.push('mục Thi chưa mở kỳ thi mục tiêu / thiếu nút về Học'); await tryA('Học', () => overview('pre'));
+    if (!H().includes('id="ov"') || !H().includes('>Học</h1>') || !H().includes('class="hrow') || H().includes('data-ltex') || H().includes('Việc hôm nay') || H().includes('id="today"') || !H().includes('🎯 Luyện IELTS') || !H().includes('data-exthi') || H().includes('data-ovx=') || H().includes('data-exsel=')) bad.push('📚 Học chưa đúng (v141: chỉ Tiếng Anh + một dòng chỉ sang tab 🎯 Luyện đề)');
+    EX_PART = null; await tryA('mở mục Thi', () => exOpenK(exGoalK() || 'cefr')); if (CUR.view !== 'ielts' || !H().includes('exrow')) bad.push('mục Thi chưa mở kỳ thi mục tiêu / thiếu hàng chọn kỳ thi'); EX_PART = 'san'; await tryA('Học', () => overview('pre'));
     await tryA('Lộ trình', () => ltView()); if (!H().includes('id="today"') || !H().includes('data-ltplan')) bad.push('🧭 Lộ trình thiếu màn Hôm nay / ô mục tiêu');
     await tryA('Đường tới mục tiêu', () => ltPlanView()); if (!H().includes('chia thế nào') || !H().includes('IELTS')) bad.push('màn Đường tới mục tiêu thiếu ⚖️ chia nền / đề');
     S.ie.date = new Date(now + 70 * 864e5).toISOString().slice(0, 10); await tryA('Lộ trình kế hoạch IELTS', () => ltPlanView()); if (!/Còn <b>1[01] tuần/.test(H())) bad.push('Lộ trình thiếu số tuần còn lại của kỳ thi'); delete S.ie.date; delete S.lt;
-    const hd = HD.map(x => x[2]()).join(' '); if (!hd.includes('4 tab') && !HD.some(x => /4 tab/.test(x[1]))) bad.push('Luật chưa ghi 4 tab'); if (!hd.includes('Chia thời gian nền / đề') || !hd.includes('mở đầu tiên')) bad.push('Luật thiếu ⚖️ / tab mới');
+    const hd = HD.map(x => x[2]()).join(' '); if (!hd.includes('5 tab') && !HD.some(x => /5 tab/.test(x[1]))) bad.push('Luật chưa ghi 5 tab (v141)'); if (!hd.includes('Chia thời gian nền / đề') || !hd.includes('mở đầu tiên')) bad.push('Luật thiếu ⚖️ / tab mới');
     S.place = null; S.exSel = null; delete S.ie; delete S.to;
     add('cefr', 'C27', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '4 tab (Lộ trình đầu tiên), mục tiêu 4 loại + nền cần có, ⚖️ nền / đề 100–70–30–10, ô Hôm nay theo tỉ lệ, phút luyện đề, màn kỳ thi theo mục tiêu, giờ IELTS theo Lộ trình, 📚 Học = mục tiêu + nền'); }
   // v112 giao diện trực quan: bắt đầu 3 bước (mục đích → trình độ → phút / ngày), 🧭 Hôm nay (vòng phút, MỘT nút ▶ Học tiếp, việc ✓ / ▶, ô 🎯), 🛣 Đường tới mục tiêu, 📚 Học = ô phần, màn phần nút chính lên đầu
@@ -889,11 +889,11 @@ const R = await run(`(async () => {
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
     S = blank(); await Promise.all([ieLoad(), toLoad(), kLoad(KIT.np)]); const H = () => String($app.innerHTML), now = Date.now();
     S.ie = { target: 7, type: 'ac', set: 1 }; ltSt().goal = { kind: 'ielts', lv: ieBase(7), date: '', at: now }; S.place = { at: now, top: 'a2', st: 'pre' };
-    await tryA('IELTS nền thiếu xa', () => ieltsView()); let h = H();
+    EX_PART = null; await tryA('IELTS nền thiếu xa', () => ieltsView()); let h = H();
     // v122 (khuôn Nền): không còn nút to ▶ Luyện tiếp; nền thiếu ≥ 2 cấp thì ô nhắc ⚖️ có nút 🧱 Học nền trước
-    if (!h.includes('<button data-hocnen style="margin:4px 0 0">🧱 Học nền trước') || h.includes('class="btnbig') || h.includes('▶ Luyện tiếp')) bad.push('nền thiếu ≥ 2 cấp: thiếu ô nhắc Học nền trước / còn nút to');
-    if (!h.includes('data-hocnen') || !h.includes('class="grid2"') || !h.includes('<details class="box more">')) bad.push('thiếu nút ‹ Học / lưới ô / mục Thêm gập');
-    S.place.top = 'b2p'; await tryA('IELTS gần đủ nền', () => ieltsView()); h = H(); if (h.includes('Học nền trước') || h.includes('class="btnbig')) bad.push('đủ gần nền: không nhắc học nền, không nút to');
+    if (!h.includes('⚖️ Nền còn thiếu xa') || !h.includes('data-hocnen') || (h.match(/class="btnbig/g) || []).length !== 2 || /class="btnbig" data-daigo/.test(h) || h.includes('▶ Luyện tiếp')) bad.push('nền thiếu ≥ 2 cấp: thiếu dòng nhắc học nền / màn 2 nút sai (v142)');
+    EX_PART = 'san'; await tryA('IELTS phần 📚', () => ieltsView()); h = H(); if (!h.includes('data-expart=""') || !h.includes('class="grid2"') || !h.includes('<details class="box more">')) bad.push('phần 📚 thiếu nút ‹ Luyện đề / lưới ô / mục Thêm gập');
+    S.place.top = 'b2p'; await tryA('IELTS gần đủ nền', () => ieltsView()); h = H(); if (h.includes('⚖️ Nền còn thiếu xa') || ((x => (x.match(/class="btnbig/g) || []).length !== (/class="btnbig" data-daigo/.test(x) ? 1 : 0))(h))) bad.push('đủ gần nền: không nhắc học nền, không nút to ngoài 🤖');
     // màn con kỹ năng: tính phút đề khi là kỳ thi của mục tiêu; nút ‹ IELTS về màn IELTS
     tryv('màn con Viết', () => ieSkView('W')); if (!LT_EX_ON || !H().includes('data-iew="t2"') || CUR.sk !== 'W') bad.push('màn con IELTS Viết sai / chưa tính phút đề');
     await tryA('về IELTS', () => ieClick({ target: { closest: x => x === '[data-iehome]' ? {} : null } })); if (!H().includes('data-iesk="W"') || CUR.sk) bad.push('‹ IELTS chưa về màn IELTS');
@@ -901,7 +901,7 @@ const R = await run(`(async () => {
     // ô Hôm nay: "Xem dạng đề" chỉ mở màn kỳ thi (không tự vào bài)
     S.place.top = 'a2'; { const tb = todayBox('pre'); if (!tb.includes('Chưa cần luyện đề IELTS') || !tb.includes('data-ltex>Xem dạng đề') || tb.includes('data-today="exam"')) bad.push('Xem dạng đề còn tự vào bài'); }
     // Cambridge: nút chính = đề thử; đề mẫu chính thức khoá tới khi ≥ 3 phần qua thi
-    delete S.lt; CB_LV = null; await tryA('Cambridge A2', () => cbView('a2')); h = H(); if (!h.includes('data-mock="a2"') || !h.includes('🔒') || !h.includes('data-cbsk="a2|0"') || h.includes('class="btnbig')) bad.push('màn Cambridge (v122) sai'); CB_LV = null;
+    delete S.lt; CB_LV = null; EX_PART = 'san'; await tryA('Cambridge A2', () => cbView('a2')); h = H(); if (!h.includes('data-mock="a2"') || !h.includes('🔒') || !h.includes('data-cbsk="a2|0"') || ((x => (x.match(/class="btnbig/g) || []).length !== (/class="btnbig" data-daigo/.test(x) ? 1 : 0))(h))) bad.push('màn Cambridge (v122) sai'); CB_LV = null;
     S.place = null; delete S.ie;
     add('cefr', 'C29', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'màn kỳ thi cùng khung: điểm ước gọn, 1 nút chính (nền thiếu xa → Học nền trước), ô kỹ năng mở màn con, phút đề đúng kỳ thi mục tiêu, Xem dạng đề không tự vào bài, Cambridge đề thử + đề mẫu khoá'); }
   // v114 🧭 Lộ trình 2 phần: 📅 Hôm nay · 🗺 Chỗ yếu; mọi bản đồ (CEFR, band IELTS, điểm TOEIC) ở phần 🗺 Chỗ yếu; màn kỳ thi / 👤 Tôi chỉ lối tắt
@@ -1127,7 +1127,7 @@ const R = await run(`(async () => {
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
     const H = () => String($app.innerHTML), now = Date.now(), D = 864e5; await Promise.all([ieLoad(), toLoad(), cbMapLoad(), loadEB(), ...Object.values(KIT).map(kLoad)]);
     S = blank(); S.ie = { set: 1, type: 'ac', target: 6.5 }; MAP_TAB = null; CB_LV = null;
-    const homeOk = h => h.includes('data-hocnen') && h.includes('class="grid2"') && (h.match(/class="tile /g) || []).length >= 3 && h.includes('<details class="box more">') && !h.includes('class="btnbig') && !h.includes('class="exscore"');
+    EX_PART = 'san'; const homeOk = h => h.includes('data-expart=""') && h.includes('class="grid2"') && (h.match(/class="tile /g) || []).length >= 3 && h.includes('<details class="box more">') && !((x => (x.match(/class="btnbig/g) || []).length !== (/class="btnbig" data-daigo/.test(x) ? 1 : 0))(h)) && !h.includes('class="exscore"');   // v141: hàng chọn kỳ thi thay nút ‹ Học; nút to duy nhất là 🤖 Đề AI
     const skOk = (h, open = true) => (h.match(/class="statc"/g) || []).length === 2 && h.includes('class="btnbig') && h.includes('class="box mockr"') && (!open || /class="box mockr"[^]*<button/.test(h)) && h.includes('🏋️ ') && h.includes('class="urow next"') && h.includes('Luyện thi không tính');   // v134: 2 ô số đo, nút chính ghi rõ, dòng thi thử
     await tryA('IELTS', () => ieltsView()); if (!homeOk(H())) bad.push('màn IELTS chưa theo khuôn Nền');
     await tryA('TOEIC', () => toeicView()); if (!homeOk(H()) || H().includes('data-tosk="T"')) bad.push('màn TOEIC chưa theo khuôn Nền');
@@ -1154,7 +1154,7 @@ const R = await run(`(async () => {
     if (MK) clearInterval(MK.tick);
     if (!(HD.find(x => x[0] === 'luyenthi') || [, , () => ''])[2]().includes('Bài học')) bad.push('Luật mục Luyện thi chưa ghi khuôn mới');
     S = blank(); MK = null;
-    add('cefr', 'C37', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'kỳ thi theo khuôn Nền: màn đầu lưới ô + Thêm (không nút to), màn kỹ năng 3 bước + 📘 cách làm / 🏋️ bài kế tiếp + danh sách bài có trạng thái (IELTS, TOEIC, Cambridge), làm một bài như đề thi lưu theo bài, nút về đúng màn'); }
+    EX_PART = 'san'; add('cefr', 'C37', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'kỳ thi theo khuôn Nền: màn đầu lưới ô + Thêm (không nút to), màn kỹ năng 3 bước + 📘 cách làm / 🏋️ bài kế tiếp + danh sách bài có trạng thái (IELTS, TOEIC, Cambridge), làm một bài như đề thi lưu theo bài, nút về đúng màn'); }
   // v123 đủ nội dung theo mục tiêu (đợt 1, Đọc): IELTS đủ 11 dạng câu, mỗi dạng ≥ 3 bài; Cambridge mỗi cấp mỗi loại phần Đọc ≥ 3 bài; khuôn đề thử có đủ phần; đáp án hợp lệ
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } };
     await Promise.all([ieLoad(), uLoad(), loadEB(), ...Object.values(KIT).map(kLoad)]); S = blank();
@@ -1416,7 +1416,7 @@ const R = await run(`(async () => {
     await Promise.all([ieLoad(), toLoad(), paLoad(), loadEB(), ...Object.values(KIT).map(kLoad)]); const H = () => String($app.innerHTML), now = Date.now();
     S = blank(); S.ie = { set: 1, type: 'ac', target: 6.5 }; ltSt().goal = { kind: 'ielts', lv: ieBase(6.5), date: '', at: now }; OV_SEL = null;
     await tryA('Học', () => overview()); { const h = H(), nR = (h.split('Luyện IELTS')[0].match(/class="hrow/g) || []).length;
-      if (h.includes('class="seg"') || !h.includes('Tiếng Anh Pre-A1') || nR !== OV.filter(([id]) => ovIn(id, 'pre')).length || !['L', 'R', 'W', 'S'].every(k => h.includes('data-ovx="ielts|' + k + '"')) || !h.includes('data-exthi') || !h.includes('<details class="box more">') || (h.match(/data-exsel="/g) || []).length !== 2 || !h.includes('data-ovl="b1"')) bad.push('📚 Học chưa là một trang (Tiếng Anh + Luyện IELTS + Xem thêm)'); }
+      if (h.includes('class="seg"') || !h.includes('Tiếng Anh Pre-A1') || nR !== OV.filter(([id]) => ovIn(id, 'pre')).length || h.includes('data-ovx=') || !h.includes('data-exthi') || !h.includes('<details class="box more">') || h.includes('data-exsel="') || !h.includes('data-ovl="b1"')) bad.push('📚 Học chưa là một trang (Tiếng Anh + dòng chỉ sang 🎯 Luyện đề + Xem thêm; v141)'); }
     tryv('bấm kỹ năng IELTS', () => $app.onclick({ target: { closest: x => x === '[data-ovx]' ? { dataset: { ovx: 'ielts|R' } } : null } })); if (CUR.view !== 'ielts' || CUR.sk !== 'R') bad.push('dòng IELTS Đọc chưa mở màn kỹ năng');
     ltSt().goal = { kind: 'cefr', lv: 'b1', date: '', at: now }; await tryA('Học mục tiêu không thi', () => overview()); if (H().includes('Luyện ') || H().includes('data-ovx=')) bad.push('mục tiêu không thi vẫn có thẻ luyện đề');
     // màn kỹ năng Nền: câu cách học, ô tiến độ, nút chính ghi rõ, ô bài thi khoá nói khi nào mở; đủ điều kiện thì có nút thi
@@ -1430,8 +1430,8 @@ const R = await run(`(async () => {
     // màn kỹ năng kỳ thi: 2 ô số đo, nút chính "Học dạng câu: …", nút bài tập ghi tên bài, danh sách tên cụ thể, dòng thi thử
     S.exl = {}; tryv('IELTS Đọc', () => ieSkView('R')); { const h = H(); if ((h.match(/class="statc"/g) || []).length !== 2 || !h.includes('▶ Học dạng câu: ') || !h.includes('Làm bài đọc · 20 phút') || !h.includes(esc(ieNext('R').name)) || !h.includes('📘 Dạng câu') || !h.includes('🏋️ Bài đọc') || !/class="box mockr"[^]*data-iemk=/.test(h)) bad.push('màn IELTS Đọc chưa theo khuôn mới'); }
     tryv('Cambridge B1 Đọc', () => cbSkView('b1', 0)); if (!H().includes('▶ Học phần thi: ') || !H().includes('📘 Phần thi')) bad.push('màn Cambridge chưa theo khuôn mới');
-    await tryA('màn IELTS', () => ieltsView()); if (!H().includes('data-hocnen') || H().includes('class="seg"')) bad.push('màn kỳ thi chưa có nút ‹ Học thay hàng chọn');
-    const hd = HD.map(x => x[2]()).join(' '); if (!hd.includes('📚 Học là một trang') || !hd.includes('một nút chính ghi rõ')) bad.push('Luật chưa ghi màn mới');
+    EX_PART = null; await tryA('màn IELTS', () => ieltsView()); if (!H().includes('exrow') || H().includes('class="seg"')) bad.push('màn 2 nút chưa có hàng chọn kỳ thi / còn hàng chọn phần (v142)'); EX_PART = 'san';
+    const hd = HD.map(x => x[2]()).join(' '); if (!hd.includes('🎯 Luyện đề') || !hd.includes('một nút chính ghi rõ') || !hd.includes('Đề mới do AI soạn')) bad.push('Luật chưa ghi màn mới (v141: tab 🎯 Luyện đề, ô 🤖)');
     S = blank(); OV_SEL = null;
     add('cefr', 'C50', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '📚 Học một trang (Tiếng Anh + Luyện kỳ thi mục tiêu + Xem thêm), màn kỹ năng Nền và kỳ thi một kiểu (câu cách học, ô tiến độ / số đo, một nút chính ghi rõ, ô bài thi lên cấp, dòng thi thử), trang mở đầu bài 2 bước'); }
   // v135 gọt chữ: tên bài như danh sách, màn xong bài lời thường + nút học bài kế tiếp, thẻ đầu không chữ nội bộ, 👤 Tôi tách cấp bỏ qua theo kiểm tra, chỉ đếm thẻ học trong app; không đổi luật đo
@@ -1644,7 +1644,7 @@ const R = await run(`(async () => {
     add('ielts', 'C56', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'IELTS đủ dạng: 48 dạng có bài học (ví dụ + 3 câu làm thử đúng dạng) và bài tập đúng dạng (Nghe 6 dạng làm cả phần, Viết theo loại / kiểu đề), 5 kiểu Task 2 có nhãn vai trò, 8 tiêu chí nối bản đồ, nhóm thẻ Part 2 / kiểu câu hỏi Part 3 phủ hết kho, bản đồ chữa Nghe đúng phần, kho tối thiểu, giọng đủ'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
-    await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-hocnen') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');
+    EX_PART = 'san'; await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-expart=""') || /data-totg|id="todate"|Nên làm hôm nay/.test(String($app.innerHTML)) || ((x => (x.match(/class="btnbig/g) || []).length !== (/class="btnbig" data-daigo/.test(x) ? 1 : 0))(String($app.innerHTML)))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô; v141: hàng chọn kỳ thi, nút to duy nhất 🤖)');
     for (const k of ['L', 'R', 'V']) { try { toSkView(k); const h = String($app.innerHTML); if (!h.includes('data-tohome') || !h.includes('class="statc"') || !h.includes('data-xl="toeic|' + k + '|') || !h.includes('data-tobt="' + k + '"') || !h.includes('data-tobai="' + k + '|') || (k !== 'V' && !/data-to(p|spd)=/.test(h))) bad.push('màn con TOEIC ' + k + ' thiếu nút / khuôn 3 bước'); } catch (e) { bad.push('màn con TOEIC ' + k + ': ' + e.message); } }
     toSkView('T'); if (!String($app.innerHTML).includes('data-tospd="p5"')) bad.push('⏱ tốc độ (ô cũ) phải về màn Đọc');
     for (const k of Object.keys(toGen)) { let qs = []; tryv('sinh ' + k, () => { qs = toGen[k](99); }); if (!qs.length) bad.push('Part trống: ' + k);
@@ -1695,6 +1695,111 @@ const R = await run(`(async () => {
     try { await tmFix('p6'); await tmFix('p7'); await tmFix('p3'); } catch (e) { errs.push('chữa Part: ' + e.message); }
     await toeicView(); if (!String($app.innerHTML).includes('data-mapv="lt" data-mapk="toeic"')) bad.push('màn TOEIC thiếu lối tắt bản đồ điểm'); await mapView('toeic'); MAP_TAB = null; if (!String($app.innerHTML).includes('Bản đồ điểm') || !String($app.innerHTML).includes('Phân tích điểm')) bad.push('🗺 Chỗ yếu thiếu bản đồ điểm');
     add('toeic', 'T2', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 6).join(' | ') : 'bản đồ điểm: dạng / bẫy có mẫu số, ngưỡng theo mục tiêu, nhóm 3 (Nghe ≤ 2, Đọc ≤ 2), chỉ câu mới tính, đạt 2 ngày = xong, tốc độ, kho ≥ 20 bộ'); }
+  // v141 🎯 Luyện đề do AI soạn và chấm (deai.js; hàm máy chủ de-ai / el-cham giả ở fake-sb.js, không gọi AI thật)
+  { const bad = [], errs = [], tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML), tick0 = () => new Promise(r => setTimeout(r, 0));
+    const ans = qs => { for (const q of qs) { if (q.kind === 'mc') $app.onclick({ target: { closest: s => s === '[data-io]' ? { dataset: { io: String(q.opts.indexOf(q.a)) }, disabled: false } : null } }); $app.onclick({ target: { closest: s => s === '[data-a="next"]' ? {} : null } }); } };
+    await Promise.all([ieLoad(), toLoad(), cbMapLoad(), ...Object.values(KIT).map(kLoad)]);
+    S = blank(); S.lt = { goal: { kind: 'ielts', at: Date.now() }, self: 1 }; S.ie = { set: 1, type: 'ac', target: 6.5 }; FAKE_DAI = null; FAKE_DE_ST = null; FAKE_CALLS = []; DAI.tk = {}; DAI.cur = null; DAI.off = true;
+    const law = () => JSON.stringify([S.cards, S.units, S.exams]), law0 = law();
+    // ① tab thứ 5 ngay sau 📚 Học; 📚 Học không còn luyện thi; tab mở màn kỳ thi của mục tiêu; ô 🤖 một nút chính
+    if (!IDX_.includes('<button data-tab="all"><i>📚</i>Học</button><button data-tab="ld"><i>🎯</i>Luyện đề</button>')) bad.push('tab 🎯 Luyện đề không đứng ngay sau 📚 Học');
+    if (!String(syncTabs).includes("getElementById('dai') ? 'ld'")) bad.push('syncTabs chưa gắn màn kỳ thi / đề AI vào tab ld');
+    await tryA('Học', () => overview()); if (H().includes('data-exsel=') || H().includes('data-ovx=') || !H().includes('data-exthi')) bad.push('📚 Học còn luyện thi');
+    EX_PART = null; await tryA('tab Luyện đề', () => exOpen()); if (CUR.view !== 'ielts' || !H().includes('exrow') || (H().match(/class="btnbig/g) || []).length !== 2 || !H().includes('data-expart="san"') || !H().includes('data-expart="ai"') || H().includes('data-daigo=')) bad.push('màn Luyện đề phải có 2 nút 📚 · 🤖 và chưa gọi AI (v142)');
+    EX_PART = 'ai'; await tryA('phần 🤖', () => ieltsView()); if ((H().match(/class="btnbig/g) || []).length !== 1 || !H().includes('data-daigo="ielts|') || !H().includes('chưa giáo viên kiểm') || !H().includes('Bài có sẵn · miễn phí') || !H().includes('bài chưa làm')) bad.push('phần 🤖: một nút chính + nhãn AI + nhắc bài có sẵn');
+    EX_PART = 'san'; await tryA('phần 📚', () => ieltsView()); if (H().includes('data-daigo=') || !H().includes('data-iesk=')) bad.push('phần 📚 có nút gọi AI / thiếu ô kỹ năng'); EX_PART = null;
+    // ② đề Đọc: gọi đúng tham số → màn chờ → soạn xong → làm → kết quả (đáp án, giải thích, band ước, nhãn AI) → S.dai + bản đồ nguồn ai; không đụng luật đo
+    await tryA('đề AI Đọc', () => daiGo('ielts', 'R-tf')); const key = 'ielts-ac|R-tf', w = daiSt().wait[key];
+    if (!w || !H().includes('AI đang soạn đề')) bad.push('không có màn chờ');
+    if (!FAKE_CALLS.some(c => c.name === 'de-ai' && c.body.act === 'tao' && c.body.ky === 'ielts-ac' && c.body.sk === 'doc' && c.body.dang === 'R-tf' && c.body.muc === '6.5')) bad.push('gọi de-ai sai: ' + JSON.stringify(FAKE_CALLS));
+    if (w) { await tryA('soạn xong', () => daiTick(w.id)); if (!H().includes('Saving coral reefs') || !H().includes('TRUE')) bad.push('đề không hiện sau khi soạn xong');
+      await tryA('làm đề', async () => ans(daiQs(FAKE_DE_ROW(w.id)))); await tick0();
+      if (!H().includes('6/6 câu đúng') || !H().includes('band') || !H().includes('AI soạn, chưa giáo viên kiểm')) bad.push('kết quả sai: ' + H().replace(/<[^>]+>/g, ' ').slice(0, 200));
+      const r = daiSt().r.find(x => x.id === w.id); if (!r || r.ok !== 6 || r.n !== 6 || r.band == null) bad.push('S.dai.r sai: ' + JSON.stringify(r));
+      if (!((ieSt().ty || {})['R-tf'] || []).some(b => b.src === 'ai' && b.n === 6)) bad.push('bản đồ IELTS chưa nhận nguồn ai');
+      if (FAKE_CALLS.some(c => c.name === 'de-ai' && c.body.du)) bad.push('đề AI đầu tiên trong ngày không được soạn sẵn đề dự trữ (v142)'); }
+    if (law() !== law0) bad.push('đề AI đụng luật đo (cards / units / exams)');
+    // ③ v142: làm liền đề AI thứ 2 cùng dạng trong ngày mới soạn sẵn đề dự trữ; dự trữ soạn xong → bấm là mở ngay, không gọi máy chủ soạn đề mới
+    FAKE_CALLS = []; await tryA('đề AI thứ 2', () => daiGo('ielts', 'R-tf')); const w2 = daiSt().wait[key];
+    if (w2) { await tryA('đề 2 xong', () => daiTick(w2.id)); await tryA('làm đề 2', async () => ans(daiQs(FAKE_DE_ROW(w2.id)))); await tick0(); } else bad.push('đề AI thứ 2 không gọi de-ai');
+    if (!FAKE_CALLS.some(c => c.name === 'de-ai' && c.body.du)) bad.push('làm liền 2 đề AI cùng dạng chưa soạn sẵn đề dự trữ');
+    const wd = daiSt().wait[key]; if (wd) { await tryA('dự trữ xong', () => daiTick(wd.id)); if (!daiSt().du[key]) bad.push('đề dự trữ chưa vào S.dai.du'); } else bad.push('không có đề dự trữ đang soạn');
+    FAKE_CALLS = []; await tryA('dùng đề dự trữ', () => daiGo('ielts', 'R-tf')); if (FAKE_CALLS.some(c => c.name === 'de-ai' && !c.body.du) || !H().includes('1/6')) bad.push('đề dự trữ không mở ngay');
+    // ④ TOEIC Part 5 → điểm ước + bản đồ TOEIC; Cambridge B1 → mức đúng so ngưỡng
+    S.lt.goal = { kind: 'toeic', at: Date.now() }; toSt().target = 650; await tryA('TOEIC', () => daiGo('toeic', 'p5')); const wt = daiSt().wait['toeic|p5'];
+    if (wt) { await tryA('TOEIC xong', () => daiTick(wt.id)); await tryA('làm TOEIC', async () => ans(daiQs(FAKE_DE_ROW(wt.id)))); if (!H().includes('/ 495') || !((toSt().ty || {})['p5:form'] || []).some(b => b.src === 'ai')) bad.push('TOEIC: thiếu điểm ước / bản đồ'); } else bad.push('TOEIC không gọi de-ai');
+    await tryA('Cambridge', () => daiGo('cefr', 'mc', 'b1')); const wc = daiSt().wait['cb-b1|mc'];
+    if (wc) { await tryA('Cambridge xong', () => daiTick(wc.id)); await tryA('làm Cambridge', async () => ans(daiQs(FAKE_DE_ROW(wc.id)))); if (!H().includes('mức cần khoảng 70%')) bad.push('Cambridge: thiếu so ngưỡng'); } else bad.push('Cambridge không gọi de-ai');
+    // ⑤ lỗi: 429 / 503 báo lời thường + thử lại; đề lỗi; máy kiểm phía trang loại đáp án ngoài lựa chọn
+    S.lt.goal = { kind: 'ielts', at: Date.now() };
+    FAKE_DAI = 'err429'; await tryA('429', () => daiGo('ielts', 'R-mc')); if (!H().includes('hết lượt AI hôm nay') || !H().includes('Thử lại')) bad.push('429 báo sai');
+    FAKE_DAI = 'err503'; await tryA('503', () => daiGo('ielts', 'R-mc')); if (!H().includes('Chưa cài khoá AI')) bad.push('503 báo sai'); FAKE_DAI = null;
+    FAKE_DE_ST = 'loi'; await tryA('đề lỗi', () => daiGo('ielts', 'R-mc')); const wl = daiSt().wait['ielts-ac|R-mc'];
+    if (wl) { await tryA('đề lỗi tick', () => daiTick(wl.id)); if (!H().includes('Chưa tạo được đề') || !H().includes('chưa đúng khuôn')) bad.push('đề lỗi báo sai'); } else bad.push('đề lỗi: không có lượt chờ'); FAKE_DE_ST = null;
+    const hong = FAKE_DE_ROW('fake~ielts-ac~doc~R-tf~9').de; hong.groups[0].items[0].a = 'MAYBE'; if (!daiCheck(hong).length) bad.push('máy kiểm phía trang không loại đáp án ngoài lựa chọn');
+    // ⑥ Viết: đề AI → màn viết (không nút đổi đề); Nói khi máy không chép lời → ô gõ; TOEIC không có Viết / Nói
+    await tryA('Viết', () => daiGo('ielts', 't2')); const ww = daiSt().wait['ielts-ac|t2'];
+    if (ww) { await tryA('Viết xong', () => daiTick(ww.id)); if (!H().includes('Task 2') || H().includes('data-a="other"') || !H().includes('ban cars')) bad.push('màn Viết đề AI sai'); } else bad.push('Viết không gọi de-ai');
+    await tryA('Nói', () => daiGo('ielts', 'p1')); const wn = daiSt().wait['ielts-ac|p1'];
+    if (wn) { await tryA('Nói xong', () => daiTick(wn.id)); if (!SREC && (!H().includes('gõ câu trả lời') || !H().includes('Where is your hometown'))) bad.push('Nói khi không chép lời: thiếu ô gõ'); } else bad.push('Nói không gọi de-ai');
+    if (daiDangs('toeic', 'W').length || daiSks('toeic').includes('W')) bad.push('TOEIC không có Viết / Nói');
+    // ⑦ danh sách đề đã làm; ô 🤖 ở màn kỹ năng
+    await tryA('danh sách', () => daiList('ielts')); if (!H().includes('Đề AI đã làm') || !H().includes('data-daiopen=')) bad.push('danh sách đề AI sai');
+    await tryA('màn kỹ năng', () => ieSkView('R')); if (!H().includes('data-daisk="ielts|R|')) bad.push('màn kỹ năng thiếu hàng 🤖 Đề AI mới');
+    await tryA('chọn dạng', () => daiSkView('ielts', 'R')); if ((H().match(/data-daigo="ielts\\|R-/g) || []).length < 6) bad.push('màn chọn dạng thiếu dạng');
+    // ⑧ Nghe: có nút nghe, lời nghe không lộ trước khi nộp, ghi rõ giọng máy; làm dở: ô 🤖 có "Làm tiếp đề đang dở"
+    const ln = daiQs(FAKE_DE_ROW('fake~ielts-ac~nghe~L-form~7')); if (!ln.length || !ln[0].play || !ln[0].play.lines || ln.some(q => String(q.head + q.q + (q.foot || '')).includes('book a table')) || !ln[0].head.includes('Giọng máy')) bad.push('đề Nghe AI: thiếu nút nghe / lộ lời nghe / thiếu ghi chú giọng máy');
+    daiSt().mo = { id: 'fake~ielts-ac~doc~R-mc~8', at: Date.now(), ky: 'ielts-ac', dang: 'R-mc' }; if (!daiBox('ielts').includes('Làm tiếp đề đang dở')) bad.push('thiếu lối làm tiếp đề dở'); daiSt().mo = null;
+    DAI.off = false; DAI.cur = null; EX_PART = 'san';
+    add('cefr', 'C57', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '🎯 Luyện đề AI: tab thứ 5 sau 📚 Học, Học chỉ còn Nền, ô 🤖 một nút chính, gọi de-ai đúng tham số, màn chờ, làm đề, kết quả + band / điểm / mức ước, bản đồ nguồn ai, đề dự trữ, lỗi 429 / 503 / đề lỗi, máy kiểm phía trang, Viết / Nói, không đụng luật đo');
+    S = blank(); }
+  // v142 tách 📚 Đề có sẵn · 🤖 Đề AI (người sáng lập: "tách ra làm 2 phần… đỡ tốn chi phí gọi AI"; "hiện cả 2 nút chức năng để bấm"; đề dự trữ chỉ khi làm liền ≥ 2 đề AI cùng dạng)
+  { const bad = [], errs = [], tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML), big = h => (h.match(/class="btnbig/g) || []).length;
+    await Promise.all([ieLoad(), toLoad(), cbMapLoad(), ...Object.values(KIT).map(kLoad)]);
+    S = blank(); S.lt = { goal: { kind: 'ielts', at: Date.now() }, self: 1 }; S.ie = { set: 1, type: 'ac', target: 6.5 }; DAI.off = true; FAKE_CALLS = [];
+    for (const [k, view] of [['ielts', () => ieltsView()], ['toeic', () => toeicView()], ['cefr', () => cbView('b1')]]) {
+      // ① màn 2 nút: đúng 2 nút to (📚 chính, 🤖 phụ), chưa có nút gọi AI, có hàng chọn kỳ thi, 📚 ghi số bài chưa làm
+      EX_PART = null; await tryA(k + ' màn 2 nút', view); let h = H();
+      if (big(h) !== 2 || !h.includes('<button class="btnbig" data-expart="san">') || !h.includes('<button class="btnbig ghost" data-expart="ai">') || h.includes('data-daigo=') || !h.includes('exrow') || !h.includes('bài chưa làm') || h.includes('class="tile')) bad.push(k + ': màn 2 nút sai');
+      // ② phần 📚: hàng chọn 2 phần, nút về màn 2 nút, ô kỹ năng, không có nút gọi AI
+      EX_PART = 'san'; await tryA(k + ' phần 📚', view); h = H();
+      if (!h.includes('data-expart=""') || !h.includes('class="on" data-expart="san"') || !h.includes('class="tile') || h.includes('data-daigo=') || big(h)) bad.push(k + ': phần 📚 sai');
+      // ③ phần 🤖: ô đề AI (một nút chính), nhắc chi phí, ô "bài có sẵn chưa làm" bấm được sang màn kỹ năng
+      EX_PART = 'ai'; await tryA(k + ' phần 🤖', view); h = H();
+      if (big(h) !== 1 || !h.includes('data-daigo=') || !h.includes('tốn phí gọi AI') || !h.includes('Bài có sẵn · miễn phí') || !h.includes('data-daileft=') || h.includes('class="tile')) bad.push(k + ': phần 🤖 sai');
+      const L = daiLeft(k, 'b1'); if (!L.length || L.some(x => !(x.tot > 0) || x.n > x.tot)) bad.push(k + ': đếm bài có sẵn sai ' + JSON.stringify(L)); }
+    // ④ bấm "còn N bài": sang màn kỹ năng phần 📚
+    EX_PART = 'ai'; await tryA('sang bài có sẵn', () => daiLeftGo('ielts', 'R')); if (EX_PART !== 'san' || CUR.view !== 'ielts' || CUR.sk !== 'R') bad.push('nhắc bài có sẵn không mở màn kỹ năng phần 📚');
+    if (!H().includes('data-daisk="ielts|R|') || H().indexOf('data-daisk="ielts|R|') < H().indexOf('id="klist"')) bad.push('màn kỹ năng: hàng 🤖 phải nằm sau danh sách bài có sẵn');
+    // ⑤ lối vào: việc luyện đề ở Hôm nay → phần 📚; về từ đề AI → phần 🤖; đổi phần vẽ lại đúng kỳ thi
+    EX_PART = null; await tryA('Hôm nay luyện đề', () => exGo()); if (EX_PART !== 'san') bad.push('Hôm nay chưa mở phần 📚');
+    EX_PART = 'san'; await tryA('về từ đề AI', () => daiBack('toeic')()); if (EX_PART !== 'ai' || CUR.view !== 'toeic') bad.push('về từ đề AI chưa mở phần 🤖');
+    EX_PART = 'san'; window.CUR = { view: 'cambridge' }; await tryA('đổi phần', () => exRedraw()); if (CUR.view !== 'cambridge' || !H().includes('class="on" data-expart="san"')) bad.push('đổi phần vẽ lại sai kỳ thi');
+    // ⑥ đề AI xong khi đang ở màn 2 nút: hiện dòng nhắc, không tự chuyển phần
+    daiSt().wait['ielts-ac|R-mc'] = { id: 'fake~ielts-ac~doc~R-mc~55', at: Date.now(), ky: 'ielts-ac', st: 'xong', k: 'ielts', lv: '' };
+    EX_PART = null; await tryA('nhắc đề AI xong', () => ieltsView()); if (!H().includes('Đề AI đã soạn xong') || !H().includes('data-daiopen="fake~ielts-ac~doc~R-mc~55"') || EX_PART !== null) bad.push('màn 2 nút thiếu dòng đề AI đã xong');
+    delete daiSt().wait['ielts-ac|R-mc'];
+    EX_PART = 'san'; DAI.off = false; S = blank();
+    add('cefr', 'C59', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'tách 📚 Đề có sẵn · 🤖 Đề AI: màn 2 nút (📚 chính ghi số bài chưa làm, 🤖 phụ, chưa gọi AI) ở IELTS / TOEIC / Cambridge, phần 📚 không có nút gọi AI, phần 🤖 có ô AI + nhắc bài có sẵn bấm sang đúng màn kỹ năng, hàng 🤖 ở màn kỹ năng nằm sau bài có sẵn, Hôm nay mở 📚, về từ đề AI mở 🤖, đề AI xong hiện dòng nhắc');
+    }
   return out; })()`);
+// v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
+{ const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];
+  const A = 'The Silk Road was not a single road but a network of routes that linked China with Central Asia, India, Persia and the Mediterranean. Merchants rarely travelled the whole length; instead goods passed from hand to hand across many markets. Silk, spices, paper and glass moved along these routes, and so did ideas and inventions. Historians now argue that the exchange of knowledge was at least as important as the exchange of goods.';
+  const B = 'Coral reefs cover less than one percent of the ocean floor, yet they support about a quarter of all marine species. Rising sea temperatures cause corals to expel the algae that feed them, a process known as bleaching. Scientists are now growing fragments of heat-tolerant coral in underwater nurseries and transplanting them to damaged reefs. Early results suggest that restored areas can recover fish populations within a few years, although the work is slow.';
+  const d1 = { title: 'Trade on the Silk Road', topic: 'Trade along the Silk Road', text: A, groups: [{ items: [{ q: 'Merchants usually travelled the entire route.' }] }] };
+  const d2 = { title: 'Restoring coral reefs', topic: 'Restoring damaged coral reefs', text: B, groups: [{ items: [{ q: 'Corals expel algae when water gets warmer.' }] }] };
+  if (T.isDup(d2, [{ chude: 'ac-silk', de: d1 }], { chude: 'ac-coral' })) bad.push('hai bài khác chủ đề bị coi là trùng');
+  if (!T.isDup(d2, [{ chude: 'ac-coral', de: d1 }], { chude: 'ac-coral' })) bad.push('cùng chủ đề không bị bắt');
+  if (T.isDup(d2, [{ chude: 'ac-coral', de: d1 }], { chude: 'ac-coral', goc: true })) bad.push('hết chủ đề, cố ý dùng lại (goc) vẫn bị chặn');
+  const half = A.split('. ').slice(0, 2).join('. ') + '. ' + B; if (!T.isDup({ title: 'x y z', text: half, groups: [] }, [{ de: d1 }], {})) bad.push('bài chép lại ~30% không bị bắt');
+  if (!T.isDup({ title: 'Other title here', text: B, groups: [{ items: [{ q: 'merchants usually travelled the ENTIRE route!' }] }] }, [{ de: d1 }], {})) bad.push('câu hỏi giống hệt không bị bắt');
+  if (!T.isDup({ title: 'Trade on the Silk Road', text: B, groups: [] }, [{ de: d1 }], {})) bad.push('tên đề giống không bị bắt');
+  const olds = [1, 2, 3].map(i => ({ chude: 'x' + i, de: { title: 'T' + i } })); if (!T.isDup({ title: 'T3' }, olds, {})) bad.push('không so tới đề thứ 3');
+  const p = T.pickTopic(C.AC, new Map(C.AC.slice(1).map((x, i) => [x.k, i + 1]))); if (p.k !== C.AC[0].k || p.goc) bad.push('pickTopic không lấy chủ đề chưa gặp');
+  const q = T.pickTopic(C.AC, new Map(C.AC.map((x, i) => [x.k, i === 5 ? 1 : 100 + i]))); if (q.k !== C.AC[5].k || !q.goc) bad.push('hết chủ đề: không lấy chủ đề cũ nhất + goc');
+  const all = ['AC', 'GT', 'W1', 'W2', 'W3', 'S1', 'S2', 'TO', 'CL', 'CM', 'CH'].flatMap(k => C[k].map(x => x.k)); if (new Set(all).size !== all.length || all.some(k => k.length > 40)) bad.push('CHU_DE trùng khoá / khoá quá dài');
+  if (C.AC.length < 40 || C.TO.length < 25 || C.CL.length < 20 || C.chuDe('ielts-gt', 'doc', 'R-gt') !== C.GT || C.chuDe('cb-c1', 'doc', 'mc') !== C.CH) bad.push('danh sách chủ đề thiếu / chọn sai');
+  R.push({ lv: 'cefr', id: 'C58', ok: !bad.length, msg: bad.length ? bad.join(' | ') : 'chống đề trùng: so ≥ 3 đề gần nhất (tới 50), cùng chủ đề / tên / câu hỏi / ≥ 15% cụm 5 từ là trùng, bài khác chủ đề không trùng, chọn chủ đề chưa gặp, hết thì lấy chủ đề cũ nhất + đổi góc nhìn; ' + all.length + ' chủ đề không trùng khoá' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Học tiếng Anh</title>
 <style>
-  :root { --bg:#fff; --fg:#1d1d1f; --mute:#6e6e73; --line:#e5e5ea; --card:#f5f5f7; --accent:#2f6fde; --good:#1a8f3c; --bad:#c62828; }
+  :root { --bg:#fff; --fg:#1d1d1f; --mute:#6e6e73; --line:#e5e5ea; --card:#f5f5f7; --accent:#2a64c9; --good:#1a8f3c; --bad:#c62828; }
   @media (prefers-color-scheme: dark) { :root { --bg:#111; --fg:#f2f2f2; --mute:#a0a0a6; --line:#2c2c2e; --card:#1c1c1e; --accent:#5b8ff0; --good:#3fbf62; --bad:#ef5350; } }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.5 system-ui,-apple-system,sans-serif; }
@@ -17,7 +17,7 @@
   .bar b { position:absolute; top:0; bottom:0; width:2px; background:var(--fg); opacity:.5; }
   .box { background:var(--card); border-radius:12px; padding:14px; margin:12px 0; }
   button { font:inherit; border:1px solid var(--line); background:var(--card); color:var(--fg); border-radius:10px; padding:12px 14px; cursor:pointer; width:100%; text-align:left; margin:6px 0; }
-  button.pri { background:var(--accent); border-color:var(--accent); color:#fff; text-align:center; font-weight:600; }
+  button.pri { background:var(--accentbg); border-color:var(--accentbg); color:#fff; text-align:center; font-weight:600; }
   button:disabled { opacity:.45; cursor:default; }
   button.ok { border-color:var(--good); background:color-mix(in srgb,var(--good) 15%,var(--card)); }
   button.no { border-color:var(--bad); background:color-mix(in srgb,var(--bad) 15%,var(--card)); }
@@ -48,7 +48,7 @@
   textarea, select { font:inherit; font-size:16px; width:100%; padding:10px; border:1px solid var(--line); border-radius:10px; background:var(--bg); color:var(--fg); margin:4px 0 8px; }
   .chips { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0; }
   .chip { width:auto; margin:0; padding:8px 12px; border-radius:999px; font-size:14px; display:inline-block; cursor:pointer; border:1px solid var(--line); background:var(--card); }
-  .chip.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .chip.on { background:var(--accentbg); border-color:var(--accentbg); color:#fff; }
   .chips.tap .chip { min-height:44px; }   /* v139: nút viên bấm bằng ngón tay (≥ 44 px), dùng ở luyện theo dạng câu */
   .thumbs { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0; }
   .thumbs span, .thumbs a { position:relative; display:inline-block; }
@@ -101,12 +101,14 @@
   .sels select { margin:2px 0 0; padding:9px 10px; color:var(--fg); }
   .drow { padding:10px 0; border-bottom:1px solid var(--line); cursor:pointer; }
   /* v112 giao diện trực quan (người sáng lập: "vô app nhìn thấy chữ không hiểu gì… thiết kế cho trực quan dễ hiểu dễ sử dụng"): ít chữ, hình thay chữ, mỗi màn một nút chính */
-  :root { --accent2:#e8f0fe; --good2:#e6f4ea; --warn:#b26a00; --warn2:#fff4e0; }
-  @media (prefers-color-scheme: dark) { :root { --accent2:#1d2a44; --good2:#16301f; --warn:#f0a43a; --warn2:#3a2a12; } }
+  :root { --accent2:#e8f0fe; --good2:#e6f4ea; --warn:#b26a00; --warn2:#fff4e0; --accentbg:#2a64c9; }
+  @media (prefers-color-scheme: dark) { :root { --accent2:#1d2a44; --good2:#16301f; --warn:#f0a43a; --warn2:#3a2a12; --accentbg:#2f6fde; } }
+  /* v142 tương phản: --accentbg = nền nút / chip đậm có chữ trắng (nền tối #5b8ff0 chỉ 3,17 : 1 → #2f6fde 4,72 : 1); --accent cho chữ, viền, chấm (nền sáng #2f6fde trên ô xám 4,33 : 1 → #2a64c9 5,1 : 1). Link dùng --accent (trước: xanh mặc định, nền tối 1,81 : 1). */
+  a { color:var(--accent); }
   .hello { display:flex; justify-content:space-between; align-items:center; gap:8px; }
   .pill { display:inline-block; font-size:14px; background:var(--warn2); color:var(--warn); border-radius:999px; padding:4px 10px; font-weight:600; white-space:nowrap; }
   .ringrow { display:flex; align-items:center; gap:16px; margin:10px 0 14px; }
-  button.btnbig { display:block; width:100%; border:0; border-radius:16px; padding:16px; font-size:19px; font-weight:700; text-align:center; background:var(--accent); color:#fff; margin:8px 0; }
+  button.btnbig { display:block; width:100%; border:0; border-radius:16px; padding:16px; font-size:19px; font-weight:700; text-align:center; background:var(--accentbg); color:#fff; margin:8px 0; }
   button.btnbig small { display:block; font-size:14px; font-weight:400; opacity:.92; margin-top:2px; }
   button.btnbig.ghost { background:var(--card); color:var(--fg); border:1px solid var(--line); font-weight:600; }
   .tasks { background:var(--card); border-radius:18px; padding:2px 14px; margin:8px 0 12px; }
@@ -114,7 +116,7 @@
   button.task:last-child { border-bottom:0; }
   .task .c { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; flex:none; background:var(--bg); border:2px solid var(--line); }
   .task.done .c { background:var(--good2); border-color:var(--good2); color:var(--good); font-weight:800; }
-  .task.next .c { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .task.next .c { background:var(--accentbg); border-color:var(--accentbg); color:#fff; }
   .task .t { flex:1; min-width:0; } .task .t b { display:block; font-size:17px; } .task .t span { display:block; font-size:14px; color:var(--mute); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .task.done .t b { color:var(--mute); }
   .chev { color:var(--mute); font-size:20px; flex:none; }
@@ -125,12 +127,12 @@
   button.optc { border:2px solid var(--line); border-radius:18px; padding:14px; background:var(--bg); position:relative; min-height:116px; text-align:left; margin:0; width:auto; color:var(--fg); }
   button.optc .ic { font-size:32px; line-height:1; display:block; } button.optc b { display:block; font-size:17px; margin-top:8px; } button.optc .s { display:block; color:var(--mute); font-size:14px; }
   button.optc.on { border-color:var(--accent); background:var(--accent2); }
-  button.optc.on::after { content:"✓"; position:absolute; top:10px; right:12px; width:24px; height:24px; border-radius:50%; background:var(--accent); color:#fff; font-size:15px; text-align:center; line-height:24px; font-weight:700; }
+  button.optc.on::after { content:"✓"; position:absolute; top:10px; right:12px; width:24px; height:24px; border-radius:50%; background:var(--accentbg); color:#fff; font-size:15px; text-align:center; line-height:24px; font-weight:700; }
   button.optr { display:flex; align-items:center; gap:12px; border:2px solid var(--line); border-radius:16px; padding:12px 14px; background:var(--bg); margin:8px 0; color:var(--fg); }
   button.optr .ic { font-size:28px; flex:none; } button.optr b { display:block; font-size:17px; } button.optr .s { display:block; color:var(--mute); font-size:14px; }
   button.optr.on { border-color:var(--accent); background:var(--accent2); }
   .chipset { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 2px; } .chipset button { width:auto; margin:0; padding:9px 14px; border-radius:999px; background:var(--bg); }
-  .chipset button.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .chipset button.on { background:var(--accentbg); color:#fff; border-color:var(--accentbg); }
   .seg { display:flex; background:var(--card); border-radius:12px; padding:4px; margin:10px 0 12px; }
   .seg button { flex:1; width:auto; margin:0; border:0; background:none; text-align:center; padding:9px 4px; border-radius:9px; font-weight:600; font-size:16px; color:var(--mute); }
   .seg button.on { background:var(--bg); color:var(--fg); box-shadow:0 1px 3px rgba(0,0,0,.15); }
@@ -140,18 +142,18 @@
   .lvpath { position:relative; padding-left:38px; margin:8px 0 4px; }
   .lvpath::before { content:""; position:absolute; left:14px; top:10px; bottom:10px; width:3px; background:var(--line); border-radius:2px; }
   .lvstep { position:relative; padding:7px 0; } .lvstep .d { position:absolute; left:-38px; top:6px; width:31px; height:31px; border-radius:50%; background:var(--bg); border:3px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; }
-  .lvstep.ok .d { background:var(--good); border-color:var(--good); color:#fff; } .lvstep.cur .d { background:var(--accent); border-color:var(--accent); color:#fff; } .lvstep.goal .d { border-color:var(--warn); background:var(--warn2); }
+  .lvstep.ok .d { background:var(--good); border-color:var(--good); color:#fff; } .lvstep.cur .d { background:var(--accentbg); border-color:var(--accentbg); color:#fff; } .lvstep.goal .d { border-color:var(--warn); background:var(--warn2); }
   .lvstep b { font-size:17px; } .lvstep span { color:var(--mute); font-size:14px; margin-left:6px; } .lvstep.cur b { color:var(--accent); }
   .split { display:flex; height:32px; border-radius:10px; overflow:hidden; font-size:14px; font-weight:700; color:#fff; } .split div { display:flex; align-items:center; justify-content:center; white-space:nowrap; overflow:hidden; }
   /* v133 một trình độ: thang cấp ở kết quả kiểm tra, số phút ở việc hôm nay, trình độ lớn ở Tiến độ, dòng chỗ yếu có nút sửa */
   .lvladder { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:4px; margin:12px 0; text-align:center; font-size:12px; }
-  .lvchip { padding:8px 0; border-radius:8px; background:var(--card); color:var(--mute); white-space:nowrap; overflow:hidden; } .lvchip.lo { background:var(--accent2); color:var(--accent); } .lvchip.on { background:var(--accent); color:#fff; font-weight:800; }
+  .lvchip { padding:8px 0; border-radius:8px; background:var(--card); color:var(--mute); white-space:nowrap; overflow:hidden; } .lvchip.lo { background:var(--accent2); color:var(--accent); } .lvchip.on { background:var(--accentbg); color:#fff; font-weight:800; }
   .task .min { font-size:14px; color:var(--mute); white-space:nowrap; align-self:flex-start; margin-top:4px; }
   .task .t span { white-space:normal; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
   .lvbig { display:block; font-size:40px; font-weight:800; line-height:1.1; }
   .lvlabels { display:flex; justify-content:space-between; font-size:13px; color:var(--mute); } .lvlabels .on { color:var(--accent); font-weight:700; }
   button.fixrow { display:flex; align-items:center; gap:10px; width:100%; background:none; border:0; border-top:1px solid var(--line); border-radius:0; padding:10px 0; margin:0; text-align:left; color:var(--fg); }
-  button.fixrow small { display:block; font-size:14px; color:var(--mute); } button.fixrow .go { margin-left:auto; background:var(--accent); color:#fff; border-radius:10px; padding:7px 12px; font-size:15px; font-weight:600; white-space:nowrap; }
+  button.fixrow small { display:block; font-size:14px; color:var(--mute); } button.fixrow .go { margin-left:auto; background:var(--accentbg); color:#fff; border-radius:10px; padding:7px 12px; font-size:15px; font-weight:600; white-space:nowrap; }
   .lvstep small { display:block; color:var(--mute); font-size:14px; margin-top:2px; }
   /* v134 📚 Học một trang: thẻ "Tiếng Anh {cấp}" / "Luyện {kỳ thi}" với dòng kỹ năng (tên + số bài + trạng thái) */
   .hcard { padding:14px 14px 4px; } .hcard.ex { background:var(--warn2); }
@@ -163,13 +165,20 @@
   .statc { background:var(--card); border-radius:14px; padding:10px 12px; display:flex; flex-direction:column; } .statc b { font-size:22px; line-height:1.2; }
   .mockr { display:flex; gap:10px; align-items:center; } .mockr button { width:auto; margin:0; }
   .lsteps { padding:6px 14px; } .lsteps .ls { display:flex; gap:12px; padding:10px 0; } .lsteps .ls + .ls { border-top:1px solid var(--line); }
-  .lsteps .ls i { width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-style:normal; font-weight:700; display:flex; align-items:center; justify-content:center; flex:none; }
+  .lsteps .ls i { width:28px; height:28px; border-radius:50%; background:var(--accentbg); color:#fff; font-style:normal; font-weight:700; display:flex; align-items:center; justify-content:center; flex:none; }
   .lsteps .ls + .ls i { background:none; border:2px solid var(--accent); color:var(--accent); } .lsteps b { display:block; } .lsteps span { display:block; font-size:14px; }
   .days10 { display:grid; grid-template-columns:repeat(10,1fr); gap:5px; margin:8px 0 4px; } .days10 i { height:24px; border-radius:7px; background:var(--line); display:block; } .days10 i.ok { background:var(--good); } .days10 i.now { background:var(--accent); }
   .ltbanner { position:sticky; top:0; z-index:6; display:flex; gap:8px; align-items:center; justify-content:space-between; background:var(--accent2); border-radius:12px; padding:6px 12px; margin:0 0 8px; }
   .ltbanner button { margin:0; }
   /* v113 màn kỳ thi (IELTS / TOEIC / Cambridge) cùng khung: hàng kỳ thi một dòng, ô điểm ước gọn */
-  .chipset.ex3 { flex-wrap:nowrap; } .chipset.ex3 button { flex:1; padding:8px 2px; font-size:15px; text-align:center; white-space:nowrap; }
+  .chipset.ex3 { flex-wrap:nowrap; } .chipset.ex3 button { flex:1; padding:8px 2px; font-size:15px; text-align:center; white-space:nowrap; min-height:44px; }
+  /* v141: hàng chọn kỳ thi (màn đầu tab 🎯 Luyện đề) và ô 🤖 Đề AI (deai.js); khổ 320 px không cắt chữ */
+  .chipset.exrow button { flex:1 1 0; min-width:0; padding:8px 4px; font-size:14px; overflow:hidden; text-overflow:ellipsis; }
+  .box.dai { border:1px solid var(--accent); } .box.dai .btnbig { margin:10px 0 8px; }
+  .chipset.daisk { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:6px; } .chipset.daisk button { padding:6px 2px; font-size:13px; white-space:normal; line-height:1.25; }
+  /* v142: hàng chọn 2 phần 📚 Đề có sẵn · 🤖 Đề AI trong màn kỳ thi */
+  .seg.exseg { margin:4px 0 8px; } .seg.exseg button { min-height:44px; font-size:15px; }
+  button.link.tap { min-height:44px; padding:0 12px 0 0; }   /* v142: link đứng riêng cần vùng bấm 44 px */
   .chipset.ex4 { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:6px; margin:2px 0 12px; }
   .chipset.ex4 button { padding:6px 1px 7px; border-radius:12px; font-size:clamp(11px, 3.4vw, 13px); line-height:1.25; text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .chipset.ex4 button i { display:block; font-style:normal; font-size:19px; line-height:1.25; }
@@ -181,7 +190,7 @@
   .st3 { position:relative; background:var(--card); border-radius:14px; padding:10px 4px; text-align:center; min-width:0; }
   .st3:not(:first-child)::before { content:"›"; position:absolute; left:-9px; top:50%; transform:translateY(-50%); color:var(--mute); font-size:18px; }
   .st3 i { display:inline-flex; width:26px; height:26px; border-radius:50%; align-items:center; justify-content:center; font-style:normal; font-size:13px; font-weight:800; background:var(--bg); border:2px solid var(--line); }
-  .st3.ok i { background:var(--good); border-color:var(--good); color:#fff; } .st3.cur i { background:var(--accent); border-color:var(--accent); color:#fff; } .st3.lock i { border:0; background:none; font-size:16px; }
+  .st3.ok i { background:var(--good); border-color:var(--good); color:#fff; } .st3.cur i { background:var(--accentbg); border-color:var(--accentbg); color:#fff; } .st3.lock i { border:0; background:none; font-size:16px; }
   .st3 b { display:block; font-size:14px; margin:4px 0 0; white-space:nowrap; } .st3 .v { display:block; font-size:21px; font-weight:800; margin:2px 0 0; } .st3 .s { display:block; font-size:12px; color:var(--mute); }
   .st3.ok .v { color:var(--good); } .st3.cur .v { color:var(--accent); } .st3.lock .v, .st3.lock b { color:var(--mute); }
   .st3.open { background:var(--accent2); } .st3.open button { margin:6px 0 0; width:100%; padding:9px 2px; font-size:15px; }
@@ -209,46 +218,47 @@
 </head>
 <body>
 <main id="app"><p class="mute">Đang tải…</p></main>
-<nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
+<nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="ld"><i>🎯</i>Luyện đề</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=139"></script>
-<script src="tonghop.js?v=139"></script>
-<script src="exam.js?v=139"></script>
-<script src="gopy.js?v=139"></script>
-<script src="gop.js?v=139"></script>
-<script src="noi.js?v=139"></script>
-<script src="parts.js?v=139"></script>
-<script src="pa.js?v=139"></script>
-<script src="kit.js?v=139"></script>
-<script src="kparts.js?v=139"></script>
-<script src="backup.js?v=139"></script>
-<script src="mock.js?v=139"></script>
-<script src="mocknoi.js?v=139"></script>
-<script src="thi.js?v=139"></script>
-<script src="uoe.js?v=139"></script>
-<script src="nghe2.js?v=139"></script>
-<script src="cap.js?v=139"></script>
-<script src="lib.js?v=139"></script>
-<script src="homnay.js?v=139"></script>
-<script src="vuotcap.js?v=139"></script>
-<script src="nhanh.js?v=139"></script>
-<script src="bando.js?v=139"></script>
-<script src="soloi.js?v=139"></script>
-<script src="ielts.js?v=139"></script>
-<script src="focus.js?v=139"></script>
-<script src="ieplus.js?v=139"></script>
-<script src="iemap.js?v=139"></script>
-<script src="iethat.js?v=139"></script>
-<script src="tudien.js?v=139"></script>
-<script src="tracuu.js?v=139"></script>
-<script src="dieuhuong.js?v=139"></script>
-<script src="huongdan.js?v=139"></script>
-<script src="toeic.js?v=139"></script>
-<script src="tomap.js?v=139"></script>
-<script src="cbmap.js?v=139"></script>
-<script src="dangthi.js?v=139"></script>
-<script src="baihoc.js?v=139"></script>
-<script src="chandoan.js?v=139"></script>
-<script src="lotrinh.js?v=139"></script>
+<script src="app.js?v=140"></script>
+<script src="tonghop.js?v=140"></script>
+<script src="exam.js?v=140"></script>
+<script src="gopy.js?v=140"></script>
+<script src="gop.js?v=140"></script>
+<script src="noi.js?v=140"></script>
+<script src="parts.js?v=140"></script>
+<script src="pa.js?v=140"></script>
+<script src="kit.js?v=140"></script>
+<script src="kparts.js?v=140"></script>
+<script src="backup.js?v=140"></script>
+<script src="mock.js?v=140"></script>
+<script src="mocknoi.js?v=140"></script>
+<script src="thi.js?v=140"></script>
+<script src="uoe.js?v=140"></script>
+<script src="nghe2.js?v=140"></script>
+<script src="cap.js?v=140"></script>
+<script src="lib.js?v=140"></script>
+<script src="homnay.js?v=140"></script>
+<script src="vuotcap.js?v=140"></script>
+<script src="nhanh.js?v=140"></script>
+<script src="bando.js?v=140"></script>
+<script src="soloi.js?v=140"></script>
+<script src="ielts.js?v=140"></script>
+<script src="focus.js?v=140"></script>
+<script src="ieplus.js?v=140"></script>
+<script src="iemap.js?v=140"></script>
+<script src="iethat.js?v=140"></script>
+<script src="tudien.js?v=140"></script>
+<script src="tracuu.js?v=140"></script>
+<script src="dieuhuong.js?v=140"></script>
+<script src="huongdan.js?v=140"></script>
+<script src="toeic.js?v=140"></script>
+<script src="tomap.js?v=140"></script>
+<script src="cbmap.js?v=140"></script>
+<script src="dangthi.js?v=140"></script>
+<script src="baihoc.js?v=140"></script>
+<script src="deai.js?v=140"></script>
+<script src="chandoan.js?v=140"></script>
+<script src="lotrinh.js?v=140"></script>
 </body>
 </html>

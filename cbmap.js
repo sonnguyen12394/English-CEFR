@@ -38,13 +38,16 @@ function cbCell(o) { const at = o.at.slice().sort((a, b) => b.at - a.at); let ok
   for (const a of at) { if (o.score ? m >= 3 : n >= CB_WIN) break; ok += o.score ? a.ok / (a.n || 1) : a.ok; n += o.score ? 1 : a.n; m++; }
   const p = n ? ok / n : null, sure = o.score ? m >= 2 : n >= CB_N && m >= 2, s = !m ? 'chua' : !sure ? 'on' : p < o.pass ? 'yeu' : 'vung';
   return { ...o, p, n, m, sure, s, v: p == null ? '' : Math.round(p * 100) + '%' }; }
-function cbRows(lv) { const C = MOCK[lv]; if (!C) return []; const runs = cbRuns(lv), R = S.uoe || {}, NF = (S.ng || {}).nf || {}, CP = S.cap || {};
+// v141 🤖 đề AI (deai.js S.dai.r): cùng khuôn đề (cấp), đúng bài thi theo kỹ năng, đúng loại phần (Viết / Nói AI chấm riêng, không vào ô)
+const CB_AI = { doc: { mc: ['mc'], cloze: ['mc'], open: ['open'], wf: ['wf'], kwt: ['kwt'] }, nghe: { mc: ['', 'mc'], gap: ['nf'] } };
+function cbRows(lv) { const C = MOCK[lv]; if (!C) return []; const runs = cbRuns(lv), R = S.uoe || {}, NF = (S.ng || {}).nf || {}, CP = S.cap || {}, AI = ((S.dai || {}).r || []).filter(r => r.n && String(r.ky).startsWith('cb-') && MOCK[r.ky.slice(3)] === C);
   return C.papers.map((p, pi) => ({ pi, t: p.t, cells: p.parts.map(([lab], i) => { const k = cbKey(lab, p), score = !!p.speak || CB_SCORE.test(lab), at = [];
     for (const r of runs) { const pr = (r.papers || []).find(x => x.t === p.t); if (!pr) continue;
       if (p.speak && pr.crit) at.push({ at: r.at, ok: pr.ok / 100, n: 1 }); else if (pr.pp && pr.pp[lab]) { const [a, b] = pr.pp[lab]; at.push(score ? { at: r.at, ok: b ? a / b : 0, n: 1 } : { at: r.at, ok: a, n: b }); } }
     if (CB_UK.includes(k)) for (const x of cbUItems(k, lv)) { const r = R[x.id]; if (r && r.n) at.push(score ? { at: r.at, ok: r.ok / r.n, n: 1 } : { at: r.at, ok: r.ok, n: r.n }); }
     if (k === 'nf') for (const x of cbNfItems(lv)) { const r = NF[x.id]; if (r && r.n) at.push({ at: r.at, ok: r.ok, n: r.n }); }
     if (k === 'speak') for (const x of cbCapItems(lv)) { const r = CP[x.id]; if (r && r.pct != null) at.push({ at: r.at, ok: r.pct / 100, n: 1 }); }
+    if (!score) { const sk = /Nghe/.test(p.t) ? 'nghe' : 'doc'; for (const r of AI) if (r.sk === sk && ((CB_AI[sk] || {})[r.dang] || []).includes(k)) at.push({ at: r.at, ok: r.ok, n: r.n }); }
     return cbCell({ pi, i, lab, k, score, at, pass: C.pass }); }) })); }
 // lý do một dòng: "đúng 9/20 câu gần nhất · cần ~70%" / "điểm 55% (2 lần) · cần ~60%"
 const cbWhy = c => `${c.score ? `điểm ${c.v} (${c.m} lần gần nhất)` : `đúng ${Math.round(c.p * c.n)}/${c.n} câu gần nhất`} · cần ~${Math.round(c.pass * 100)}%`;
@@ -175,7 +178,7 @@ function cbSkView(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) r
   const lr = cbRuns(lv).filter(r => !r.one && (r.papers || []).some(x => x.t === p.t)).pop(), lp = lr ? (x => x.crit ? x.ok : Math.round(x.ok / Math.max(1, x.n) * 100))(lr.papers.find(x => x.t === p.t)) : null;
   const rows = L.map((b, i) => { const r = R[i], nxt = b === nx && !r, [tag, cls] = xTag(r, C.pass); return pRow(`data-cbx="bai|${lv}|${pi}|${b.id}"`, esc(b.name), nxt ? 'làm tiếp' : tag, nxt ? 'next' : cls); });
   const cat = new Set(p.parts.map(([lab]) => cbCat(lab, p))), tools = `${cat.has('doc') || cat.has('tu') || cat.has('viet') ? (typeof uoeBox === 'function' ? uoeBox(lv) : '') : ''}${cat.has('nghe') && typeof ngBox === 'function' ? ngBox(lv) : ''}${cat.has('noi') && typeof capBox === 'function' ? capBox(lv) : ''}`;
-  $app.innerHTML = '<div id="ie"></div>' + xSkill({ back: `<div class="row top"><button class="link" data-cbl="${lv}">‹ Cambridge ${LVN[lv]}</button><span></span></div>`, h1: `${cbIc(p.t)} ${cbPn(p.t)} <span class="mute" style="font-size:18px">· Cambridge ${LVN[lv]}</span>`,
+  $app.innerHTML = '<div id="ie"></div>' + xSkill({ ai: typeof daiSkRow === 'function' ? daiSkRow('cefr', /Nghe/.test(p.t) ? 'L' : /Nói/.test(p.t) ? 'S' : /Viết/.test(p.t) && !/Đọc/.test(p.t) ? 'W' : 'R', lv) : '', back: `<div class="row top"><button class="link" data-cbl="${lv}">‹ Cambridge ${LVN[lv]}</button><span></span></div>`, h1: `${cbIc(p.t)} ${cbPn(p.t)} <span class="mute" style="font-size:18px">· Cambridge ${LVN[lv]}</span>`,
     note: p.speak && !SREC ? '<div class="box">⚠️ Trình duyệt này không chép được lời nói: mở bằng Safari trên iPhone để nói và được chấm.</div>' : '',
     steps: [xl.step,
       { t: 'Mức đúng', v: q != null ? Math.round(q * 100) + '%' : '–', sub: `cần ~${Math.round(C.pass * 100)}%`, ok, cur: q != null && !ok },
