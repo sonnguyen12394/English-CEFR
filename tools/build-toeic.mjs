@@ -1,7 +1,7 @@
 // Dựng toeic.json (🎓 Luyện thi → TOEIC, toeic.js) từ content/toeic/{p5,doc,nghe,vocab}.json và kiểm lỗi soạn. Chạy: node tools/build-toeic.mjs
 // Không sửa tay toeic.json. Sau khi sửa câu nghe (Part 2–4) hoặc từ vựng: chạy lại tools/build-audio.py để dựng giọng (n/).
 // Part 2: xáo thứ tự 3 lời đáp theo id (cố định, để tệp giọng khớp), mỗi lời đọc kèm chữ cái "A. …" như đề thật.
-// v137 (7/11/2026, "TOEIC đủ dạng câu"): nhãn dạng câu cho 📘 bài học và 🏋️ bài tập theo dạng (baihoc.js xlTo, toeic.js TO_DR). Suy từ câu hỏi; nhãn ghi tay trong content/ thắng nhãn suy.
+// v139 (7/11/2026, "TOEIC đủ dạng câu"): nhãn dạng câu cho 📘 bài học và 🏋️ bài tập theo dạng (baihoc.js xlTo, toeic.js TO_DR). Suy từ câu hỏi; nhãn ghi tay trong content/ thắng nhãn suy.
 //   Part 1 k: people (tranh có người) | scene (đồ vật, cảnh) · Part 2 ty: wh | yn (cả phủ định, câu đuôi, câu hỏi gián tiếp) | or | req (đề nghị, nhờ vả, mời) | stmt (câu trần thuật)
 //   Part 3–4 câu hỏi ty: gist (chủ đề, mục đích, nơi, người) | next (việc sắp làm, đề nghị, yêu cầu) | imp (hàm ý) | graphic | detail · Part 4 bài ty (GHI TAY): msg | ann | ad | news | intro | tour | meet
 //   Part 6 chỗ trống t: insert (chèn câu) | conn (từ nối giữa câu) | tense (thì theo ngữ cảnh, GHI TAY) | word · Part 7 câu hỏi ty: purpose | not | true | infer | syn | insert | intent | detail
@@ -13,7 +13,7 @@ const mcOk = (x, q) => { if (q.w.length !== 3 || q.w.includes(q.a) || new Set(q.
 const h = s => parseInt(crypto.createHash('md5').update(s).digest('hex').slice(0, 8), 16);
 const cnt = (a, f) => a.reduce((m, x) => { const k = f(x); m[k] = (m[k] || 0) + 1; return m; }, {}), fmt = m => Object.entries(m).map(([k, n]) => `${k} ${n}`).join(' · ');
 
-// ---------- nhãn dạng (v137) ----------
+// ---------- nhãn dạng (v139) ----------
 const P1_PPL = /\b(person|people|man|men|woman|women|worker|workers|cook|chef|waiter|waitress|shopper|shoppers|customer|customers|passenger|passengers|student|students|someone|they)\b/i;
 function p2Ty(q) { const s = String(q).trim();
   if (/\?$/.test(s) && /\bor\b/i.test(s)) return 'or';
@@ -40,7 +40,7 @@ for (const x of P5) { id(x); if (x.o.length !== 4 || new Set(x.o).size !== 4 || 
 const p6 = D.p6.map(x => { id(x); const n = (x.text.match(/\{\d\}/g) || []).length; if (n !== x.gaps.length) err.push(x.id + ': số chỗ trống ≠ số câu');
   for (const g of x.gaps) { if (g.o.length !== 4 || new Set(g.o).size !== 4 || !g.o.includes(g.a)) err.push(x.id + ': phương án hỏng'); if (g.t && !P6T.includes(g.t)) err.push(x.id + ': nhãn chỗ trống t sai: ' + g.t); }
   const gaps = x.gaps.map(g => ({ ...g, t: p6T(g) })); if (gaps.filter(g => g.t === 'insert').length !== 1) err.push(x.id + ': cần đúng một câu chèn');
-  // v137: 3 phương án sai của câu chèn phải cùng chủ đề đoạn văn (có từ nội dung chung với đoạn); phương án lạc đề ("Water boils at 100 degrees") làm câu quá dễ
+  // v139: 3 phương án sai của câu chèn phải cùng chủ đề đoạn văn (có từ nội dung chung với đoạn); phương án lạc đề ("Water boils at 100 degrees") làm câu quá dễ
   const tw = new Set(cw(x.title + ' ' + x.text)); for (const g of gaps.filter(g => g.t === 'insert')) for (const s of g.o.filter(s => s !== g.a)) if (!cw(s).some(w => tw.has(w))) err.push(x.id + ': phương án câu chèn lạc đề: ' + s);
   return { ...x, gaps }; });
 const p7 = D.p7.map(x => { id(x); if (!x.docs.length || x.qs.length < 2) err.push(x.id + ': thiếu văn bản / câu hỏi'); const T = docText(x);

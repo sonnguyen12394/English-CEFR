@@ -22,7 +22,7 @@ Kỳ vọng: "N cần dựng" bằng số câu nghe mới; chạy lần hai "0 c
 node tools/test/run.mjs
 ```
 
-Kỳ vọng: xanh hết, có C53 "TOEIC đủ dạng câu" (33 dạng có bài học + bài tập; kho tối thiểu; câu chèn Part 6 có phương án cùng chủ đề; câu chèn [1]–[4] giữ thứ tự; bài tập theo dạng chỉ có câu / bài đúng dạng và ghi kết quả như luyện thường).
+Kỳ vọng: xanh hết, có C55 "TOEIC đủ dạng câu" (33 dạng có bài học + bài tập; kho tối thiểu; câu chèn Part 6 có phương án cùng chủ đề; câu chèn [1]–[4] giữ thứ tự; bài tập theo dạng chỉ có câu / bài đúng dạng và ghi kết quả như luyện thường).
 
 ## 4. Soát tay (Chromium khổ iPhone SE, chỉ sơ bộ)
 

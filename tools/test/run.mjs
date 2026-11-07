@@ -574,9 +574,11 @@ const R = await run(`(async () => {
     await bkSet('tv', 'a2p', 'dat');   // đang học B1: chưa vững bậc 1 thì chỉ hỏi bậc 1; sai câu bậc trên thì làm lại bằng dạng dễ hơn
     const wb = levelWords('b1').find(x => wDims(x, 'b1').some(k => VSTAGE[3][1].includes(k)));
     if (wb) { const cb = { S: 2, last: now - 864e5, d0: dayOf(now) - 1, ok: 1, pv: 0, n: 1, lapse: 0, dm: { nghia: { ok: 1 } } };
-      const tb = new Set(); for (let i = 0; i < 60; i++) tb.add(typeFor(cb, now, wb)); if ([...tb].some(t => !['w2vi', 'listen', 'form'].includes(t))) bad.push('B1: chưa vững bậc 1 mà hỏi ' + [...tb].join(',')); }
+      // v137: chọn đúng nghĩa một lần là mở bậc trên (trước v137: phải vững cả 3 mặt bậc 1)
+      const tb = new Set(); for (let i = 0; i < 60; i++) tb.add(typeFor(cb, now, wb)); if (![...tb].some(t => !['w2vi', 'listen', 'form'].includes(t))) bad.push('B1: đúng nghĩa rồi mà chưa mở bậc trên: ' + [...tb].join(','));
+      cb.dm = {}; const tb0 = new Set(); for (let i = 0; i < 60; i++) tb0.add(typeFor(cb, now, wb)); if ([...tb0].some(t => !['w2vi', 'listen', 'form'].includes(t))) bad.push('B1: chưa học bài, chưa đúng nghĩa mà hỏi ' + [...tb0].join(',')); }
     const wc = WORDS.find(x => x.col && x.cloze); if (!wc || vEasy(wc, 'colT') !== 'col' || vEasy(wc, 'clozeT') !== 'cloze' || vEasy(wc, 'w2vi') !== null) bad.push('dạng dễ hơn khi làm lại sai');
-    if (lessonTypes(w, reqsUpTo('a1')).some(t => !['w2vi', 'listen', 'form'].includes(t))) bad.push('bài học còn hỏi bậc 2+');
+    if (lessonTypes(w, reqsUpTo('a1')).join() !== 'w2vi,listen,spell') bad.push('bài học không phải chọn nghĩa · nghe · tự gõ: ' + lessonTypes(w, reqsUpTo('a1')).join());
     // Ngữ pháp
     const P = KIT.np, A = P.items.filter(x => ['pre', 'a1', 'a2'].includes(x.lv));
     if (A.some(x => !x.hieu || x.hieu.length < 2)) bad.push('thiếu câu kiểm tra hiểu: ' + A.filter(x => !x.hieu).map(x => x.id).join(','));
@@ -1485,7 +1487,41 @@ const R = await run(`(async () => {
     await tryA('Cambridge', () => cbView('a2')); if (H().includes('data-ext=') || !H().includes('data-lib="a2"')) bad.push('Cambridge phải trỏ sang Thư viện, không ghi giờ riêng');
     user = u0; S = blank();
     add('cefr', 'C52', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'gọt chỗ trùng: công cụ người sáng lập gom ở 🛠, bỏ Cẩm nang ở Tra cứu, ngày 10 chỉ xem tổng kết, ôn chung có từ công sở TOEIC, bản đồ gọn hàng chọn, 👤 Tôi không hộp rỗng, đọc thêm ở Thư viện'); }
-  // v137 TOEIC đủ dạng câu (specs/001-toeic-du-dang): 33 dạng của đề thật, mỗi dạng một 📘 bài học (ví dụ + 3 câu làm thử ĐÚNG dạng) và 🏋️ bài tập theo dạng (TO_DR);
+  // v137 (người sáng lập: "khi tôi học từ vựng thì phần bài tập thiếu dạng bài tự gõ"): làm thử của bài học có ✍️ tự gõ từ; học xong bài thì 🏋️ Bài tập
+  //   có câu tự gõ ngay (trước: cần đúng cả 3 mặt bậc 1 ở bài tập); chỉ đổi thứ tự hỏi, bài học vẫn không chấm, vStage vẫn là bậc thật
+  { const bad = [], errs = [], now = Date.now(); S = blank();
+    try { const u = UNITS.find(x => x.lv === 'pre'), wb = levelWords('b1')[0];
+      for (const [w, L] of [[u.words[0], 'pre'], [levelWords('a1').find(x => x.cloze), 'a1'], [wb, 'b1']]) { const t = lessonTypes(w, reqsUpTo(L)).join();
+        if (t !== 'w2vi,listen,spell') bad.push('làm thử bài học ' + L + ' không phải chọn nghĩa · nghe · tự gõ: ' + t); }
+      for (const w of u.words) S.cards[w.id] = { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0 };   // thẻ có, chưa học bài, chưa làm bài tập
+      const draw = () => { let ty = 0, n = 0; const seen = new Set(); for (let i = 0; i < 30; i++) for (const w of u.words) { const t = typeFor(S.cards[w.id], now, w); seen.add(t); n++; if (question(w, t).typed) ty++; } return { r: ty / n, seen }; };
+      let d = draw(); if (d.r > 0) bad.push('chưa học bài, chưa đúng nghĩa mà đã hỏi câu gõ: ' + [...d.seen].join(','));
+      learnCards(S, u, now); if (!S.units[u.id]) bad.push('học xong bài không ghi bài');
+      d = draw(); if (!d.seen.has('spell') || d.r < 0.15 || d.r > 0.6) bad.push('học xong bài: tỉ lệ câu tự gõ ' + Math.round(d.r * 100) + '% (' + [...d.seen].join(',') + ')');
+      if (u.words.some(w => vStage(S.cards[w.id], w, 'pre') !== 0)) bad.push('bậc hiển thị đổi dù chưa vững bậc 1');
+      delete S.units[u.id]; const c = S.cards[u.words[0].id]; c.dm = { nghia: { ok: 1, n: 1 } };
+      const s1 = new Set(); for (let i = 0; i < 60; i++) s1.add(typeFor(c, now, u.words[0])); if (!s1.has('spell')) bad.push('đúng nghĩa ở bài tập mà chưa mở câu gõ');
+      c.dm.nghia.ok = 0; const s0 = new Set(); for (let i = 0; i < 60; i++) s0.add(typeFor(c, now, u.words[0])); if ([...s0].some(t => !['w2vi', 'listen', 'form'].includes(t))) bad.push('sai nghĩa lần gần nhất mà vẫn hỏi bậc trên: ' + [...s0].join(','));
+      if (!HD.map(x => x[2]()).join(' ').includes('tự gõ từ')) bad.push('📘 Luật chưa ghi làm thử có tự gõ từ');
+    } catch (e) { errs.push(e.message); }
+    S = blank();
+    add('cefr', 'C53', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'làm thử bài học Từ vựng có tự gõ từ; học xong bài thì bài tập có câu tự gõ ngay; chưa học bài thì vẫn nhận ra trước; bậc hiển thị không đổi'); }
+  // v138 (người sáng lập: "mở khoá tất cả bài học mới… để tôi xem nội dung"): bài cấp chưa mở bấm được, 👁 xem trước không tạo thẻ, không làm thử
+  { const bad = [], errs = [], H = () => String($app.innerHTML), rowOf = (h, attr) => (h.match(new RegExp('<button class="urow[^"]*" ' + attr + '[^>]*>[\\\\s\\\\S]*?</button>')) || [''])[0]; S = blank();
+    try { await Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)]);
+      const u = UNITS.find(x => x.lv === 'b1'); if (!locked(u)) bad.push('bài B1 không khoá với người mới');
+      HOME.lv = 'b1'; home(); const r0 = rowOf(H(), 'data-un="' + u.id + '"'); if (!r0 || /disabled/.test(r0) || !r0.includes('👁 xem')) bad.push('dòng bài B1 khoá cứng / không ghi xem: ' + r0.slice(0, 120));
+      uPreview(u); if (!H().includes('Xem trước') || H().includes('data-a="next"') || u.words.some(w => !H().includes(esc(w.w)))) bad.push('xem trước Từ vựng thiếu từ hoặc còn nút học');
+      if (Object.keys(S.cards).length || S.units[u.id]) bad.push('xem trước Từ vựng tạo thẻ'); HOME.lv = null;
+      for (const P of Object.values(KIT)) { const L = P.lvs.find(l => kLocked(P, l)); if (!L) continue; const x = kItems(P, L)[0]; if (!x) continue;
+        P.view = L; kView(P.id); const r = rowOf(H(), 'data-kx="' + x.id + '"'); if (!r.includes('👁 xem')) bad.push(P.id + ': dòng bài cấp khoá không ghi xem');
+        kPreview(P, x, () => {}); if (!H().includes('Xem trước') || H().includes('data-kl="try"') || kSt(P.id).cards[x.id]) bad.push(P.id + ': xem trước hỏng'); P.view = null; }
+      const L = PA_LV.find(l => paLocked(l)), x = PA.find(y => y.lv === L); PA_VIEW = L; paView(); if (!rowOf(H(), 'data-paset="' + x.id + '"').includes('👁 xem')) bad.push('Phát âm: dòng bộ cấp khoá không ghi xem');
+      paPreview(x); if (!H().includes('Xem trước') || H().includes('data-pl="quiz"') || H().includes('Bài này dạy gì') || !H().includes('data-a="home"') || paSt()[x.id]) bad.push('Phát âm: xem trước hỏng'); PA_VIEW = null;
+    } catch (e) { errs.push(e.message); }
+    S = blank();
+    add('cefr', 'C54', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'bài cấp chưa mở bấm được để xem trước (Từ vựng, 5 phần kit, Phát âm); xem trước không làm thử, không tạo thẻ'); }
+  // v139 TOEIC đủ dạng câu (specs/001-toeic-du-dang): 33 dạng của đề thật, mỗi dạng một 📘 bài học (ví dụ + 3 câu làm thử ĐÚNG dạng) và 🏋️ bài tập theo dạng (TO_DR);
   //   kho tối thiểu theo dạng (FR-010); câu chèn Part 6 có phương án cùng chủ đề; câu chèn [1]–[4] Part 7 giữ thứ tự; bài tập theo dạng ghi kết quả như luyện theo Part
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML);
     await toLoad(); S = blank(); S.to = { target: 650 };
@@ -1540,7 +1576,7 @@ const R = await run(`(async () => {
     if (!tmRows()[1][1].includes('p5:det') || tmShort('p5:det') !== 'P5 · Lượng từ') bad.push('bản đồ điểm thiếu ô Part 5 lượng từ'); tryv('mẹo lượng từ', () => { if (!tmTipHtml('p5:det').includes('each / every')) bad.push('thiếu mẹo chữa lượng từ'); });
     DICT.ex = 'toeic'; if (!tcSkill('doc', '').includes('Từ hạn định, lượng từ')) bad.push('cẩm nang thiếu Part 5 lượng từ');
     S = blank();
-    add('toeic', 'C53', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'TOEIC đủ dạng câu: ' + (L.length + Rl.length + V.length) + ' bài học theo thứ tự đề (ví dụ + làm thử đúng dạng), ' + Object.keys(TO_DR).length + ' bài tập theo dạng (câu lẻ đúng dạng, bài nhiều câu làm cả bài, ghi kết quả như luyện), kho tối thiểu mọi dạng, câu chèn Part 6 cùng chủ đề, [1]–[4] giữ thứ tự, giọng câu nghe mới đủ'); }
+    add('toeic', 'C55', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'TOEIC đủ dạng câu: ' + (L.length + Rl.length + V.length) + ' bài học theo thứ tự đề (ví dụ + làm thử đúng dạng), ' + Object.keys(TO_DR).length + ' bài tập theo dạng (câu lẻ đúng dạng, bài nhiều câu làm cả bài, ghi kết quả như luyện), kho tối thiểu mọi dạng, câu chèn Part 6 cùng chủ đề, [1]–[4] giữ thứ tự, giọng câu nghe mới đủ'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-hocnen') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');
@@ -1560,7 +1596,7 @@ const R = await run(`(async () => {
     if (miss.length) bad.push('thiếu giọng (chạy tools/build-audio.py): ' + miss.length + ' câu, vd. ' + miss.slice(0, 2).join(' | '));
     S.exSel = 'ielts'; tryv('chuyển IELTS', () => exOpen()); S.exSel = 'toeic';
     // v73: Part 5 theo dạng, bẫy Part 2, nơi tăng điểm, tốc độ, ngày thi
-    const tg = toTagAcc(); if (tg.length !== 8 || tg.reduce((t, x) => t + x.tot, 0) !== TO.p5.length) bad.push('dạng Part 5 sai');   // v137: 8 dạng (thêm det lượng từ)
+    const tg = toTagAcc(); if (tg.length !== 8 || tg.reduce((t, x) => t + x.tot, 0) !== TO.p5.length) bad.push('dạng Part 5 sai');   // v139: 8 dạng (thêm det lượng từ)
     const p2 = TO.p2.find(x => x.a !== 0), q2 = toP2Q(p2); if (!/❌/.test(q2.why) || !p2.tr || p2.tr[p2.a] !== null) bad.push('bẫy Part 2 thiếu');
     S.to.trap = {}; toTrapLog([{ q: q2, ok: false, ans: 'A' }]); if (S.to.trap[p2.tr[0]] !== 1) bad.push('đếm bẫy sai: ' + JSON.stringify(S.to.trap));
     S.to.r = { a: { at: 1, ok: 1, n: 10, k: 'p7' }, b: { at: 1, ok: 9, n: 10, k: 'p5' } }; const gn = toGain(); if (gn[0].s !== 'p7' || gn[0].g !== 55 || gn[1].g !== 15) bad.push('tăng điểm sai: ' + JSON.stringify(gn));

@@ -44,7 +44,7 @@ const toP5Q = x => ({ x, sec: 'p5', kind: 'mc', head: `<p class="mute">Part 5 ·
 const toP6Text = (x, cur) => `<div class="box"><p class="mute" style="margin:0">${esc(x.kind)}</p><b style="font-size:15px">${esc(x.title)}</b><p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0">${esc(x.text).replace(/\{(\d)\}/g, (_, n) => +n - 1 === cur ? `<mark style="padding:1px 4px;border-radius:4px"><b>(${n})</b> -------</mark>` : `<b>(${n})</b> -------`)}</p></div>`;
 const toP6Qs = x => x.gaps.map((g, i) => ({ x, sec: 'p6', gt: g.t, kind: 'mc', head: '<p class="mute">Part 6: chọn phương án cho chỗ trống được tô. Có một chỗ phải chèn cả câu.</p>' + toP6Text(x, i), q: `Chỗ (${i + 1})`, opts: shuf(g.o), a: g.a, why: g.why }));
 const toDocs = x => x.docs.map(d => `<div class="box"><b style="font-size:15px">${esc(d.title)}</b><p class="tdtap" style="font-size:16px;line-height:1.6;margin:6px 0 0;white-space:pre-line">${esc(d.text)}</p></div>`).join('');
-// v137: câu chèn [1]–[4] giữ thứ tự phương án như đề thật (không xáo)
+// v139: câu chèn [1]–[4] giữ thứ tự phương án như đề thật (không xáo)
 const toOpts = q => { const o = [q.a, ...q.w]; return o.every(s => /^\[\d\]$/.test(s)) ? o.sort() : shuf(o); };
 const toP7Qs = x => x.qs.map((q, i) => ({ x, sec: 'p7', qt: q.ty, kind: 'mc', head: `<p class="mute">Part 7 · ${esc(x.kind)} · câu ${i + 1}/${x.qs.length}${x.docs.length > 1 ? ' · có câu phải đối chiếu nhiều văn bản' : ''}</p>`, q: esc(q.q), opts: toOpts(q), a: q.a, why: q.why, foot: toDocs(x) }));
 // chọn bài: chưa làm / làm lâu nhất / sai nhiều trước
@@ -54,7 +54,7 @@ const toGen = { p1: n => toPick(TO.p1 || [], n).map(toP1Q), p2: n => toPick(TO.p
 // dạng Part 5 (content: t)
 const TO_T5 = { form: 'Dạng từ', verb: 'Động từ (thì, bị động, V-ing / to V)', prep: 'Giới từ', conj: 'Liên từ, từ nối', pron: 'Đại từ, mệnh đề quan hệ', det: 'Từ hạn định, lượng từ', struct: 'So sánh, đảo ngữ', voc: 'Từ vựng, cụm từ' };
 const TO_PRAC = { p1: 6, p2: 10, p3: 2, p4: 2, p5: 15, p6: 1, p7: 2 };
-// v137 🏋️ bài tập theo dạng câu (tools/build-toeic.mjs gắn nhãn dạng): câu lẻ (Part 1, 2) lấy câu đúng dạng; bài nhiều câu (Part 3, 4, 6, 7) lấy 2 bài có dạng đó và làm CẢ bài
+// v139 🏋️ bài tập theo dạng câu (tools/build-toeic.mjs gắn nhãn dạng): câu lẻ (Part 1, 2) lấy câu đúng dạng; bài nhiều câu (Part 3, 4, 6, 7) lấy 2 bài có dạng đó và làm CẢ bài
 // (kết quả lưu theo bài như luyện theo Part: hỏi một câu của bài 3 câu sẽ ghi sai số đo). Bài chưa làm / làm lâu nhất trước (toPick). [kỹ năng, biểu tượng, tên, kho, số câu / bài, cách tạo câu]
 // loại bài nói Part 4 (nhãn ty trong content/toeic/nghe.json): bài học "Part 4: Các loại bài nói" (baihoc.js)
 const TO_P4TY = { msg: 'Tin nhắn thoại', ann: 'Thông báo nơi công cộng', ad: 'Quảng cáo', news: 'Bản tin', intro: 'Giới thiệu, khai mạc, hội thảo', tour: 'Hướng dẫn tham quan', meet: 'Họp, thông báo nội bộ' };
@@ -271,7 +271,7 @@ function toClick(e) { const g = s => e.target.closest(s), o = toSt(), sk = (wind
   if ((b = g('[data-tomk]'))) return toMock(b.dataset.tomk === 'all' ? [0, 1] : [+b.dataset.tomk]);
   if ((b = g('[data-tovoc]'))) { scrollTo(0, 0); return toVocRun(b.dataset.tovoc, back); }
   if ((b = g('[data-tospd]'))) { scrollTo(0, 0); return toSpeed(b.dataset.tospd, back); }
-  if ((b = g('[data-todr]'))) { scrollTo(0, 0); return toDrill(b.dataset.todr, back); }   // v137 bài tập theo dạng câu
+  if ((b = g('[data-todr]'))) { scrollTo(0, 0); return toDrill(b.dataset.todr, back); }   // v139 bài tập theo dạng câu
   if ((b = g('[data-top]'))) { const s = b.dataset.top; scrollTo(0, 0); if (!NCLIPS.size) fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(k => { NCLIPS = new Set(k); }).catch(() => {});
     if (s.startsWith('t:')) { const t = s.slice(2), qs = toPick(TO.p5.filter(x => x.t === t), 15).map(toP5Q); return ieRun('✏️ Part 5 · ' + TO_T5[t], qs, back, 0, { R: o.r, home: 'TOEIC', done: (res, fr) => toLog(res, 'luyen', fr) }); }
     const qs = s === 'w5' ? shuf(toWrong5()).slice(0, 15).map(toP5Q) : toGen[s](s === 'p7m' ? 1 : TO_PRAC[s]); if (!qs.length) return toast('Chưa có bài.');

@@ -16,7 +16,7 @@
 
 **Storage**: `toeic.json` dựng từ `content/toeic/*.json`; tệp giọng `n/*.mp3` + `n/index.json`; trạng thái người học `S.to` (kết quả bài `r`, lịch sử bản đồ `ty`), `S.exl` (bài học đã học) trên Supabase: không đổi lược đồ.
 
-**Testing**: `node tools/build-toeic.mjs` (kiểm dạng mới), `node tools/test/run.mjs` (test C53 mới + test cũ), `tools/test/e2e-webkit.mjs` (máy soạn không có WebKit → ghi "chưa kiểm trên iPhone"); Chromium khổ iPhone SE để soát sơ bộ.
+**Testing**: `node tools/build-toeic.mjs` (kiểm dạng mới), `node tools/test/run.mjs` (test C55 mới + test cũ), `tools/test/e2e-webkit.mjs` (máy soạn không có WebKit → ghi "chưa kiểm trên iPhone"); Chromium khổ iPhone SE để soát sơ bộ.
 
 **Target Platform**: web trên iPhone (Safari / WebKit).
 
@@ -36,7 +36,7 @@
 |---|---|---|
 | I. Luật đo của người sáng lập | Không chạm 📘 Học / 🔁 Nhớ / Thi chuyển cấp; luyện TOEIC vẫn không tính. Bản đồ điểm TOEIC thêm 1 ô (Part 5 lượng từ) theo luật cũ. | ✅ Qua (không ĐỔI LUẬT ĐO) |
 | II. Kiểm giao diện chỉ trên iPhone | Đổi giao diện: khối "🎯 Luyện theo dạng câu" trong "Thêm", danh sách bài học dài hơn. Theo luật thiết kế: design-critique trước, frontend-design + design-system, ux-copy, accessibility-review sau. Máy soạn không có WebKit → báo "chưa kiểm trên iPhone". | ✅ Qua (có điều kiện) |
-| III. Test xanh trước khi phát hành | Thêm test C53; sửa test cũ nếu đổi chữ; phát hành bằng `tools/release.mjs`. | ✅ Qua |
+| III. Test xanh trước khi phát hành | Thêm test C55; sửa test cũ nếu đổi chữ; phát hành bằng `tools/release.mjs`. | ✅ Qua |
 | IV. Sửa qua nguồn | Sửa `content/toeic/*.json`, dựng `toeic.json` bằng `build-toeic.mjs`; giọng bằng `build-audio.py`. | ✅ Qua |
 | V. Trung thực về độ tin cậy | Nội dung mới ghi "Claude soạn, chưa giáo viên kiểm", vào bảng kiểm giáo viên; tên bịa; không chép ETS. | ✅ Qua |
 
@@ -67,14 +67,14 @@ content/toeic/
 tools/
 ├── build-toeic.mjs    # suy nhãn dạng (k, ty, t), kiểm dạng mới, in số câu theo dạng
 ├── export-review.mjs  # thêm mục kiểm cho nội dung mới
-└── test/run.mjs       # test C53; sửa test cũ nếu cần
+└── test/run.mjs       # test C55; sửa test cũ nếu cần
 toeic.js       # TO_T5 + det; TO_DR (bài tập theo dạng) + toDrill; khối "🎯 Luyện theo dạng câu" ở "Thêm"; câu chèn [1]–[4] giữ thứ tự phương án
 baihoc.js      # XL_TXT.to: 13 bài học mới, sửa mô tả bài cũ; xlTo chọn ví dụ / làm thử theo nhãn dạng; go = data-todr
 tomap.js       # TM_SHORT / TM_TIP thêm det
 tracuu.json    # t5tip.det (cẩm nang)
 huongdan.js    # 📘 Luật: một câu về bài tập theo dạng TOEIC
 n/             # giọng câu nghe mới (build-audio.py)
-CLAUDE.md      # đoạn v137
+CLAUDE.md      # đoạn v139
 app.js, index.html, version.json   # release.mjs tăng phiên bản
 ```
 

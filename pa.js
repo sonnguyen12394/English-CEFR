@@ -82,7 +82,7 @@ function paView() {
     if (dm) return paDimView(dm.dataset.padim);
     if (pm) { const m = pm.dataset.pm; return m === 'cal' ? paCal() : m === 'val' ? paVal() : paDrill(m); }   // v116: luyện thêm + công cụ bộ chấm âm ở màn Phát âm
     if (lb) { PA_VIEW = lb.dataset.palv; return paView(); }   // v118: vẽ lại cả màn (tiêu đề "Bộ âm <cấp>" đổi theo)
-    if (u) { if (paLocked(PABY[u.dataset.paset].lv)) return toast('Bộ này mở khi qua Thi chuyển cấp Phát âm cấp trước.'); return paLearn(PABY[u.dataset.paset]); }
+    if (u) { if (paLocked(PABY[u.dataset.paset].lv)) return paPreview(PABY[u.dataset.paset]); return paLearn(PABY[u.dataset.paset]); }
     if (e.target.closest('[data-n="load"]')) return nLoad(), paView();
     if (!b) return; const a = b.dataset.pa;
     if (a === 'learn' && nx) paLearn(nx); if (a === 'menu') paMenu(); if (a === 'exam') paExam(lv); };
@@ -92,7 +92,7 @@ let PA_VIEW = null;
 function paList(lv, nx, now) { const st = paSt(), lock = paLocked(lv), gk = paGk();   // v118: trạng thái bằng chữ (trước: ⚪ 🔵 + dấu từng mặt)
   const xs = PA.filter(x => x.lv === lv), at = xs.findIndex(x => nx ? x.id === nx.id : !st[x.id]);
   return pWin(xs.map(x => { const c = st[x.id], isNx = nx && nx.id === x.id, hd = c && gk.every(k => heldDim(c, k, now));
-    const [tag, cls] = !c ? (lock ? ['🔒', ''] : isNx ? ['học tiếp', 'next'] : ['', '']) : typeof lsState === 'function' && lsState('pa', x, now) === 'yeu' ? ['yếu', 'bad'] : hd ? ['đã nhớ', 'good'] : isDue(c, now) ? ['cần ôn', 'warn'] : ['đã học', ''];
+    const [tag, cls] = !c ? (lock ? ['👁 xem', ''] : isNx ? ['học tiếp', 'next'] : ['', '']) : typeof lsState === 'function' && lsState('pa', x, now) === 'yeu' ? ['yếu', 'bad'] : hd ? ['đã nhớ', 'good'] : isDue(c, now) ? ['cần ôn', 'warn'] : ['đã học', ''];
     return pRow(`data-paset="${x.id}"`, `${esc(x.title)} <span class="mute">· ${esc(x.vi)}</span>`, tag, isNx ? 'next' : cls); }), at); }
 // ô bộ chấm âm (tải / đang tải / sẵn sàng): dùng chung trạng thái của noi.js
 const nModelBox = () => NO.vocab ? `<p class="mute">🧪 Bộ chấm âm đã sẵn sàng trên máy.</p>`
@@ -126,6 +126,11 @@ function paGrade(res, type) { const by = new Map(), now = Date.now(); for (const
   for (const [id, ok] of by) { const st = paSt(); if (!st[id]) st[id] = { S: 1, last: now, d0: dayOf(now), ok: 1, pv: 0, n: 0, lapse: 0 }; grade({ cards: st }, id, ok, now, type); } save(); return by; }
 
 // ---------- 📘 Học một bộ: cách đặt miệng + nghe các cặp + 6 câu nghe thử ----------
+// v138 (người sáng lập: "mở khoá tất cả bài học mới mặc dù chưa học tới để tôi xem nội dung"): bài của cấp chưa mở bấm vào được, mở chế độ 👁 xem trước:
+// chỉ đọc nội dung, không làm thử, không tạo thẻ, không tính 📘 Học / 🔁 Nhớ (luật đo không đổi; học thật vẫn mở khi qua Thi chuyển cấp cấp trước).
+function paPreview(x) { paLearn(x); window.CUR = { view: 'pa-xem-truoc', item: x.id };
+  $app.innerHTML = String($app.innerHTML).replace(/<div class="box"><b>🎯 Bài này dạy gì[\s\S]*?<\/div>/, '').replace(/<button class="pri" data-pl="quiz">[\s\S]*?<\/button>/, '<button class="pri" data-a="home">‹ Về 👄 Phát âm</button>')
+    .replace('</h1>', '</h1><p class="mute">👁 Xem trước: nghe và đọc theo được, không làm thử, không ghi là đã học. Học thật mở khi qua Thi chuyển cấp Phát âm cấp trước.</p>'); }
 function paLearn(x) { window.CUR = { view: 'pa-hoc', item: x.id };
   $app.innerHTML = `${backRow('👄 ' + x.title)}<h1>${esc(x.title)}</h1><p class="mute">${esc(x.a)} – ${esc(x.b)} · ${esc(x.vi)}</p>
     <div class="box"><b>👄 Cách đặt miệng</b><p style="margin:6px 0 0">${esc(x.tip)}</p></div>

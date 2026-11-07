@@ -97,7 +97,7 @@ const XL_TXT = {
         how: ['Nêu ý kiến → giải thích → ví dụ → nhìn mặt kia ("On the other hand…").', 'Nói về con người nói chung (people, society), không chỉ chuyện riêng của mình.', "Dùng câu nêu ý kiến, so sánh: I'd say…, compared with…, it depends on…"],
         ex: { q: 'What qualities make someone a good role model?', m: "I'd say the most important quality is consistency. A good role model doesn't just give advice; they actually live by it. For example, a teacher who tells students to read more should be a keen reader too. Honesty matters as well, because young people quickly notice when adults say one thing and do another.", note: 'Ý kiến (consistency) → giải thích → ví dụ (a teacher…) → thêm ý thứ hai (honesty) có lý do.' } }] },
   to: {
-    // v137 (TOEIC đủ dạng câu): 33 bài theo thứ tự đề thật; mỗi dạng của bảng dạng câu (specs/001-toeic-du-dang) một bài, ví dụ + làm thử lấy theo nhãn dạng (tools/build-toeic.mjs)
+    // v139 (TOEIC đủ dạng câu): 33 bài theo thứ tự đề thật; mỗi dạng của bảng dạng câu (specs/001-toeic-du-dang) một bài, ví dụ + làm thử lấy theo nhãn dạng (tools/build-toeic.mjs)
     L: [
       { k: 'p1', ic: '🖼', t: 'Part 1: Tranh có người', u: 'p1', what: 'Đề thật 6 câu, mỗi câu một ảnh (app dùng tranh vẽ). Phần lớn là tranh có người: nghe 4 câu tả (đề không in chữ), chọn câu tả đúng việc người trong tranh đang làm.',
         how: ['Trước khi nghe: nhìn ai, đang làm gì, cầm gì, ở đâu; nghĩ sẵn động từ (typing, holding, reaching for, shaking hands).', 'Câu đúng thường ở hiện tại tiếp diễn: "A woman is standing…", "They are looking at…".', 'Nghe từng câu, loại ngay câu sai một chi tiết: sai người, sai việc, sai vị trí.'],
@@ -376,7 +376,7 @@ function xlIeS(d) { let html = '';
   else if (d.ex) html = `<div class="box"><b>❓ ${esc(d.ex.q)}</b></div><details class="box" open><summary><b>🗣 Câu trả lời mẫu</b> ${kSay(d.ex.m)}</summary><p style="margin:6px 0 0">${esc(d.ex.m)}</p><p class="mute" style="margin:6px 0 0">${esc(d.ex.note)}</p></details>`;
   return { html, tq: xlMcq(XL_TXT.mcq[d.k]) }; }
 
-// TOEIC (v137, đủ dạng câu): ví dụ + làm thử lấy theo nhãn dạng (tools/build-toeic.mjs). Câu lẻ (Part 1, 2, 5) = câu cuối của dạng + 3 câu khác cùng dạng (ưu tiên câu đã làm);
+// TOEIC (v139, đủ dạng câu): ví dụ + làm thử lấy theo nhãn dạng (tools/build-toeic.mjs). Câu lẻ (Part 1, 2, 5) = câu cuối của dạng + 3 câu khác cùng dạng (ưu tiên câu đã làm);
 // dạng nằm trong bài nhiều câu (Part 3, 4, 6, 7) = câu dạng đó của bài cuối có dạng đó + câu dạng đó của 3 bài khác. "🏋️ Bài tập dạng này" mở bài tập theo dạng (toeic.js TO_DR) khi có.
 function xlTo(sk) { if (typeof TO === 'undefined' || !TO) return []; const R = toSt().r;
   const one = (L, mk) => L.length ? [xlLast(L), ...xlPrefer(L.slice(0, -1), R).slice(0, XL_TRY)].map(mk) : [];

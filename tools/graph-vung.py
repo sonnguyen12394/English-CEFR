@@ -48,7 +48,7 @@ VUNG = [
     ('Máy chủ AI chấm bài (Supabase)', ['supabase/']),
     ('Test và phát hành', ['tools/test/', 'tools/release.mjs']),
     ('Công cụ dựng dữ liệu (tools/)', ['tools/']),
-    ('Tài liệu và luật dự án', ['README.md', 'CLAUDE.md', 'docs/', '.claude/', '.specify/', 'specs/']),   # v137: Spec Kit + đặc tả từng tính năng
+    ('Tài liệu và luật dự án', ['README.md', 'CLAUDE.md', 'docs/', '.claude/', '.specify/', 'specs/']),   # v139: Spec Kit + đặc tả từng tính năng
 ]
 KHAC = 'Khác (chưa xếp khu vực)'
 
