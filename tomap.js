@@ -44,6 +44,7 @@ const TM_TIP = { form: ['Xem chỗ trống đứng đâu: sau mạo từ / tính
   prep: ['Học giới từ theo cụm cố định: responsible for, in charge of, on behalf of, according to.', 'Thời gian: at + giờ, on + ngày, in + tháng / năm; by = hạn chót, until = kéo dài tới.'],
   conj: ['Sau chỗ trống là mệnh đề (S + V) → liên từ (because, although); cụm danh từ → giới từ (because of, despite).', 'Xem quan hệ ý: nguyên nhân, nhượng bộ, điều kiện, thời gian.'],
   pron: ['Chủ ngữ → he / they; tân ngữ → him / them; trước danh từ → his / their; tự làm → himself.', 'Mệnh đề quan hệ: người → who, vật → which / that, sở hữu → whose.'],
+  det: ['each / every + danh từ số ít (every employee); all / most / some of the + danh từ số nhiều hoặc không đếm được.', 'another + số ít, other + số nhiều, the others = phần còn lại; few / many với danh từ đếm được, little / much với không đếm được; the number of + số nhiều đi với động từ số ít.'],
   struct: ['Có than → so sánh hơn; the + most / -est → so sánh nhất; as … as → nguyên dạng.', 'Never, Rarely, Only after, Not only đứng đầu câu → đảo trợ động từ lên trước chủ ngữ.'],
   voc: ['Đọc cả câu để hiểu nghĩa; các phương án cùng loại từ nên phải chọn theo nghĩa và cụm hay đi kèm.', 'Học từ theo cụm công sở (meet a deadline, place an order, submit a report) ở 📚 Từ vựng công sở.'] };
 function tmTipHtml(u) { const k = u.split(':')[1];
@@ -71,7 +72,7 @@ async function tmFix(u) { await toLoad(); if (!NCLIPS.size) try { NCLIPS = new S
 
 // ---------- v120 bản đồ TOEIC ở 🗺 Chỗ yếu (cùng khuôn với IELTS imMap): ô = Part, dạng câu Part 5, bẫy Part 2, tốc độ; dữ liệu và luật như tmWeak / tmFocus (không đổi).
 // 🟥 yếu = dưới ngưỡng theo điểm mục tiêu (toTh) và đủ chắc (≥ 8 câu ở ≥ 2 bài; tốc độ ≥ 2 lượt) · 🟨 chưa chắc · 🟩 đạt (hoặc đã chữa xong) · ⬜ chưa làm
-const TM_SHORT = { form: 'Dạng từ', verb: 'Động từ', prep: 'Giới từ', conj: 'Liên từ', pron: 'Đại từ', struct: 'So sánh', voc: 'Từ vựng' };
+const TM_SHORT = { form: 'Dạng từ', verb: 'Động từ', prep: 'Giới từ', conj: 'Liên từ', pron: 'Đại từ', det: 'Lượng từ', struct: 'So sánh', voc: 'Từ vựng' };
 const TM_TRAP_SHORT = { rep: 'Lặp từ', type: 'Sai loại thông tin', yn: 'Yes/No cho Wh-', rel: 'Cùng chủ đề' };
 const tmShort = u => u.startsWith('p5:') ? 'P5 · ' + (TM_SHORT[u.slice(3)] || u.slice(3)) : u.startsWith('tr:') ? 'Bẫy · ' + (TM_TRAP_SHORT[u.slice(3)] || (TO_TRAP[u.slice(3)] || [u])[0]) : u.startsWith('spd:') ? '⏱ Part ' + u.slice(5) : 'Part ' + u.slice(1);
 function tmCell(u) { const o = toSt(), fx = (o.fo || {}).fx || {};

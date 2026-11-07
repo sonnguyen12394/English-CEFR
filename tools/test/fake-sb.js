@@ -1,7 +1,7 @@
 window.supabase = { createClient: () => { const q = tb => { const f = {}; const o = { select: () => o, eq: (k, v) => { f[k] = v; return o; }, order: () => o, limit: () => o, single: async () => ({ data: { id: 1 }, error: null }), maybeSingle: async () => ({ data: tb === 'de_ai' && window.FAKE_DE_ROW ? window.FAKE_DE_ROW(f.id) : null, error: null }), upsert: async () => ({ error: null }), insert: () => o, update: () => o, delete: () => o, then: (r) => r({ data: [], error: null }) }; return o; };
   return { auth: { onAuthStateChange: cb => setTimeout(() => cb('SIGNED_IN', { user: { id: 'test-user', email: 't@t' } }), 50), signInWithPassword: async () => ({ error: null }), signInAnonymously: async () => ({ error: null }), signOut: async () => ({}) , getSession: async () => ({ data: { session: { user: { id: 'test-user' } } } }) },
     from: q, rpc: async () => ({ data: null, error: null }), storage: { from: () => ({ upload: async () => ({}), createSignedUrls: async () => ({ data: [] }), remove: async () => ({}) }) },
-    // v137: hàm máy chủ giả (không gọi AI thật): de-ai trả mã đề, el-cham trả điểm mẫu. window.FAKE_DAI = 'err429' | 'err503' để thử lỗi.
+    // v141: hàm máy chủ giả (không gọi AI thật): de-ai trả mã đề, el-cham trả điểm mẫu. window.FAKE_DAI = 'err429' | 'err503' để thử lỗi.
     functions: { invoke: async (name, { body } = {}) => { window.FAKE_CALLS = [...(window.FAKE_CALLS || []), { name, body }];
       if (name === 'de-ai') { if (window.FAKE_DAI === 'err429') return { data: { error: 'App đã dùng hết lượt AI hôm nay. Mai làm tiếp; bài có sẵn vẫn dùng được.' }, error: null };
         if (window.FAKE_DAI === 'err503') return { data: { error: 'Chưa cài khoá AI (ANTHROPIC_API_KEY) trên Supabase.' }, error: null };
@@ -10,7 +10,7 @@ window.supabase = { createClient: () => { const q = tb => { const f = {}; const 
         return { data: { ok: true, grade: { criteria: [c('Tiêu chí 1'), c('Tiêu chí 2'), c('Tiêu chí 3'), c('Tiêu chí 4')], overall_pct: 67, reaches_level: false, errors: [{ wrong: 'I goes', correct: 'I go', why_vi: 'Chủ ngữ I đi với go.' }], strengths_vi: ['Đủ ý'], next_steps_vi: ['Dùng thêm từ nối'], improved: 'Better text.', ...(ie ? { band: 6 } : {}) } }, error: null }; }
       return { data: null, error: null }; } } }; } };
 
-// v137: đề AI mẫu cho test (tools/test/run.mjs C53, e2e). Mã đề "fake~ky~sk~dang~n" → một dòng bảng de_ai đã soạn xong. window.FAKE_DE_ST = 'loi' để thử đề lỗi.
+// v141: đề AI mẫu cho test (tools/test/run.mjs C57, e2e). Mã đề "fake~ky~sk~dang~n" → một dòng bảng de_ai đã soạn xong. window.FAKE_DE_ST = 'loi' để thử đề lỗi.
 window.FAKE_DE_ROW = id => { const [, ky, sk, dang] = String(id || '').split('~'); if (!ky) return null;
   if (window.FAKE_DE_ST === 'loi') return { id, ky, sk, dang, st: 'loi', err: 'AI soạn đề chưa đúng khuôn. Thử lại.', at: new Date().toISOString() };
   const it = (q, a, o = [], why = 'Vì bài nói rõ như vậy.') => ({ q, o, a, why_vi: why, ev: '' });

@@ -1,11 +1,11 @@
-// ---------- 🎯 Luyện đề do AI soạn và chấm (v137, 7/11/2026) ----------
+// ---------- 🎯 Luyện đề do AI soạn và chấm (v141, 7/11/2026) ----------
 // Người sáng lập: "thêm 1 mục luyện đề theo mục tiêu để kế bên mục học. Ở mục này thì AI sẽ tạo bài để làm rồi chấm điểm"; chọn "AI soạn mọi đề",
 // tab thứ 5 cạnh 📚 Học, kỳ thi theo mục tiêu, không giới hạn lượt mỗi người (trần chung 200 lượt / ngày cả app ở máy chủ).
-// Đặc tả: specs/001-luyen-de-ai/. Máy chủ: supabase/functions/de-ai (soạn nền, máy kiểm khuôn, chống trùng, AI khác giải kiểm chéo); bảng de_ai giữ đề lâu dài.
+// Đặc tả: specs/003-luyen-de-ai/. Máy chủ: supabase/functions/de-ai (soạn nền, máy kiểm khuôn, chống trùng, AI khác giải kiểm chéo); bảng de_ai giữ đề lâu dài.
 // Trang: gọi de-ai → nhận mã đề → hỏi trạng thái mỗi 3 giây (tối đa 160 giây) → làm đề bằng bộ chạy câu hỏi có sẵn (ieRun, ielts.js) / ieWrite / ieSpeak.
 // Câu Đọc / Nghe / câu lẻ chấm bằng đáp án AI đưa; Viết / Nói chấm bằng AI (el-cham, thi.js aiBtn). Kết quả ghi S.dai (nhỏ) + bản đồ kỳ thi nguồn 'ai'.
 // KHÔNG tính luật đo CEFR (không tạo thẻ, không đụng S.cards / S.units / S.exams). Mọi đề / lời chấm ghi "AI soạn, chưa giáo viên kiểm".
-const DAI_POLL = 3000, DAI_WAIT = 160000, DAI_MAX_R = 100, DAI_DU_D = 7, DAI_MO_H = 24, DAI_DU_N = 2;   // DAI_DU_N (v138): số đề AI cùng dạng trong ngày để soạn sẵn đề kế tiếp
+const DAI_POLL = 3000, DAI_WAIT = 160000, DAI_MAX_R = 100, DAI_DU_D = 7, DAI_MO_H = 24, DAI_DU_N = 2;   // DAI_DU_N (v142): số đề AI cùng dạng trong ngày để soạn sẵn đề kế tiếp
 const DAI = { tk: {}, cur: null };   // tk: id → đang hỏi trạng thái; cur: id đề đang chờ ở màn chờ
 const daiSt = () => { const o = (S.dai = S.dai || {}); o.r = o.r || []; o.du = o.du || {}; o.wait = o.wait || {}; if (!('mo' in o)) o.mo = null; return o; };
 const DAI_EX = { ielts: 'IELTS', toeic: 'TOEIC', cefr: 'Cambridge' };
@@ -54,7 +54,7 @@ function daiBox(k, lv) { const o = daiSt(), p = daiPick(k, lv), { ky } = daiKy(k
     ${done ? `<button class="hrow" data-dailist="${k}"><span class="ic">🗂</span><span class="t"><b>${done} đề AI đã làm</b><small>Xem lại lời giải, làm lại</small></span><span class="chev">›</span></button>` : ''}</div>`; }
 const daiSkRow = (k, s, lv) => daiDangs(k, s, lv).length ? `<button class="hrow" data-daisk="${k}|${s}|${lv || ''}"><span class="ic">🤖</span><span class="t"><b>Đề AI mới</b><small>Khi làm hết bài có sẵn hoặc muốn bài mới · tốn phí AI</small></span><span class="chev">›</span></button>` : '';
 
-// ---------- v138: 📚 bài có sẵn chưa làm (nhắc ở phần 🤖, đếm ở nút 📚 của màn 2 nút) ----------
+// ---------- v142: 📚 bài có sẵn chưa làm (nhắc ở phần 🤖, đếm ở nút 📚 của màn 2 nút) ----------
 // cùng danh sách bài của màn kỹ năng (IELTS ieBai / ieRes, TOEIC toBai / toRes, Cambridge cbBai / cbRes theo bài thi)
 const daiCbS = p => /Nghe/.test(p.t) ? 'L' : p.speak || /Nói/.test(p.t) ? 'S' : /Viết/.test(p.t) && !/Đọc/.test(p.t) ? 'W' : 'R';
 function daiLeft(k, lv) { const out = [];
@@ -110,7 +110,7 @@ async function daiTick(id) { const o = daiSt(), key = Object.keys(o.wait).find(k
   if (DAI.cur === id && document.getElementById('dai')) { if (w.st === 'xong') { delete o.wait[key]; save(); return daiRun(row); } return daiWaitView(w, key); }
   if (w.st === 'xong' && !w.du && typeof toast === 'function') toast('🤖 Đề AI đã soạn xong: mở 🎯 Luyện đề để làm.');
   return w.st; }
-function daiWatch(id) { if (DAI.tk[id] || DAI.off) return;   // DAI.off: test tắt hỏi nền (tools/test/run.mjs C53)
+function daiWatch(id) { if (DAI.tk[id] || DAI.off) return;   // DAI.off: test tắt hỏi nền (tools/test/run.mjs C57)
    DAI.tk[id] = 1; const go = async () => { if (!DAI.tk[id]) return; const st = await daiTick(id); if (st === 'dang') setTimeout(go, DAI_POLL); }; setTimeout(go, DAI_POLL); }
 
 // máy kiểm phía trang (lớp cuối; máy chủ đã kiểm kỹ): đề phải có câu, đáp án nằm trong lựa chọn
@@ -145,7 +145,7 @@ function daiWaitView(w, key) { const k = w.k || daiKOf(w.ky), lv = w.lv, s = Mat
   const t = setTimeout(function upd() { const el = document.getElementById('daiT'); if (!el || DAI.cur !== w.id) return; const s2 = Math.round((Date.now() - w.at) / 1000); el.textContent = `Đã chờ ${s2} giây. Đề đầu tiên mất khoảng 1–2 phút: AI soạn, máy kiểm đáp án, rồi một lượt AI khác giải lại để bỏ câu sai.`; const b = $app.querySelector('.bar i'); if (b) b.style.width = Math.min(95, Math.round(s2 / 90 * 100)) + '%'; setTimeout(upd, 1000); }, 1000); scrollTo(0, 0); return t; }
 
 // ---------- làm đề ----------
-// v138: về màn kỳ thi ở phần 🤖 Đề AI (EX_PART, toeic.js)
+// v142: về màn kỳ thi ở phần 🤖 Đề AI (EX_PART, toeic.js)
 const daiBack = (k, lv) => () => { if (typeof EX_PART !== 'undefined') EX_PART = 'ai'; return k === 'toeic' ? toeicView() : k === 'ielts' ? ieltsView() : cbView(lv || undefined); };
 // giọng: người nói nữ → A / C, nam → B (kPlayDlg: A nữ, B nam, C nữ thứ hai)
 function daiLines(de) { const sex = de.sex || {}, map = {}; let f = 0; for (const [w] of de.lines || []) if (!(w in map)) map[w] = (sex[w] || (w === 'B' ? 'm' : 'f')) === 'm' ? 'B' : (f++ ? 'C' : 'A');
@@ -184,7 +184,7 @@ function daiEnd(row, res, k, S0) { const de = row.de, ok = res.filter(r => r.ok)
   const chk = row.chk || {}, ck = chk.bo === 'het-gio' ? '⚠️ Đề này chưa kịp kiểm chéo.' : chk.n ? `Đã kiểm chéo: ${chk.khop}/${chk.n} câu khớp, bỏ ${chk.n - chk.khop} câu lệch.` : '';
   return `${est}${tr}<p class="mute" style="font-size:13px">🤖 AI soạn, chưa giáo viên kiểm. ${ck} Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p><button class="pri" data-daigo="${k}|${de.dang}|${de.ky.startsWith('cb-') ? lv : ''}">▶ Làm đề AI mới cùng dạng</button>`; }
 function daiSave(row, r) { const o = daiSt(), de = row.de; o.r = [...o.r.filter(x => x.id !== row.id), { id: row.id, ky: de.ky, sk: de.sk, dang: de.dang, at: Date.now(), t: de.title, ...r }].slice(-DAI_MAX_R); o.mo = null; S.t = Date.now(); save();
-  // v138 (người sáng lập chọn): chỉ soạn sẵn đề AI kế tiếp khi đã làm xong ≥ DAI_DU_N đề AI cùng kỳ thi + dạng trong hôm nay (đang luyện thật), đỡ tốn phí cho đề không ai làm
+  // v142 (người sáng lập chọn): chỉ soạn sẵn đề AI kế tiếp khi đã làm xong ≥ DAI_DU_N đề AI cùng kỳ thi + dạng trong hôm nay (đang luyện thật), đỡ tốn phí cho đề không ai làm
   const k = daiKOf(de.ky), today = dayOf(Date.now()), nToday = o.r.filter(x => x.ky === de.ky && x.dang === de.dang && dayOf(x.at) === today).length;
   if (nToday >= DAI_DU_N) daiPrefetch(k, de.dang, de.ky.startsWith('cb-') ? de.ky.slice(3) : ''); }
 
@@ -194,7 +194,7 @@ function daiIeX(row) { const de = row.de, t = de.task, id = 'ai:' + row.id;
   if (de.dang === 'gt1') return { id, reg: IE_REG[t.genre] ? t.genre : 'formal', p: t.p, pv: t.pv, m: t.m };
   return { id, type: IE_T2T[t.genre] ? t.genre : 'opinion', p: t.p, pv: t.pv, k: [], m: t.m }; }
 function daiWrite(row, k, lv, back) { const de = row.de, t = de.task;
-  if (k === 'ielts') return ieWrite(de.dang, daiIeX(row), null, back, { ai: 1, auto: 1, done: r => daiSave(row, { band: r.band, n: 0 }) });
+  if (k === 'ielts') return ieWrite(de.dang, daiIeX(row), null, back, null, { ai: 1, auto: 1, done: r => daiSave(row, { band: r.band, n: 0 }) });
   const lvA = lv === 'pre' ? 'a1' : lv, t0 = Date.now();
   $app.innerHTML = `<div id="dai"></div><div class="row top"><button class="link" data-a="back">← Thôi</button><span class="uname">✍️ ${esc(t.genre || 'Bài viết')}</span></div>
     <div class="box"><b>✍️ ${esc(de.title)}</b> <span class="mute">· ${t.min}${t.max ? '–' + t.max : '+'} từ</span><p style="margin:6px 0;white-space:pre-line">${esc(t.p)}</p>${t.pv ? `<p class="mute" style="margin:0">${esc(t.pv)}</p>` : ''}</div>

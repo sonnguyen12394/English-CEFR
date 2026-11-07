@@ -48,9 +48,9 @@ for (const lv of (process.env.LVS ? process.env.LVS.split(',') : ['pre', 'a1', '
   await pg.evaluate(lv => overview(lv), lv); await pg.waitForTimeout(400); check(`${lv} tổng quan`, (await pg.innerText('#app')).includes('Tiếng Anh '));   // v134: 📚 Học một trang: "Tiếng Anh {cấp}"
 }
 // 🎓 đề thử B1: mở từ 🎓 Luyện thi → Cambridge (v95), làm trọn bài Đọc (chọn đáp án đầu / gõ chữ), phải ra màn kết quả
-// v138: màn đầu kỳ thi = 2 nút 📚 Đề có sẵn · 🤖 Đề AI soạn (chưa gọi AI); bấm 📚 mới ra lưới bài thi + "Thêm"
-await pg.evaluate(() => { EX_PART = null; cbView('b1'); }); await pg.waitForTimeout(600); check('Cambridge: màn 2 nút 📚 · 🤖 (v138)', (await pg.$$('#app .btnbig[data-expart]')).length === 2 && !(await pg.$('#app [data-daigo]')));
-await pg.click('#app [data-expart="san"]'); await pg.waitForTimeout(600); check('Cambridge phần 📚 theo khuôn Nền, không nút gọi AI (v122, v138)', !!(await pg.$('[data-cbsk="b1|0"]')) && !(await pg.$('#app .btnbig')) && !(await pg.$('#app [data-daigo]')));
+// v142: màn đầu kỳ thi = 2 nút 📚 Đề có sẵn · 🤖 Đề AI soạn (chưa gọi AI); bấm 📚 mới ra lưới bài thi + "Thêm"
+await pg.evaluate(() => { EX_PART = null; cbView('b1'); }); await pg.waitForTimeout(600); check('Cambridge: màn 2 nút 📚 · 🤖 (v142)', (await pg.$$('#app .btnbig[data-expart]')).length === 2 && !(await pg.$('#app [data-daigo]')));
+await pg.click('#app [data-expart="san"]'); await pg.waitForTimeout(600); check('Cambridge phần 📚 theo khuôn Nền, không nút gọi AI (v122, v142)', !!(await pg.$('[data-cbsk="b1|0"]')) && !(await pg.$('#app .btnbig')) && !(await pg.$('#app [data-daigo]')));
 await pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; })); await pg.click('[data-mock="b1"]'); await pg.waitForTimeout(1500);
 // v122: đề thử cả đề trong "Thêm"
 check('đề thử mở', (await pg.innerText('#app')).includes('B1 Preliminary'));
@@ -88,14 +88,14 @@ check('tóm tắt C2 chấm bài mẫu', /Đúng/.test(await pg.innerText('#ufb'
 // 🌏 Học IELTS (v68): mở từ thanh dưới; luyện cả bài Đọc → ra kết quả; Viết Task 2 nộp bài mẫu → máy ước band; đề thử bài Đọc làm trọn → ra band
 // v108: không còn tab Luyện thi; mục tiêu IELTS → 📚 Học có nút "Phần riêng" mở màn IELTS (thanh dưới sáng 📚)
 await pg.evaluate(() => { S.lt = { d: [], fx: {}, goal: { kind: 'ielts', lv: 'b2p', date: '', at: Date.now() } }; delete S.ie; overview(ovStage()); }); await pg.waitForTimeout(1500);
-check('📚 Học chỉ còn Nền + dòng chỉ sang 🎯 Luyện đề (v137)', /Tiếng Anh[\s\S]*Luyện IELTS[\s\S]*Luyện đề/.test(await pg.innerText('#app')) && !(await pg.$('#app [data-exsel]')) && await pg.isVisible('#tabs [data-tab="all"].on')); await pg.click('#tabs [data-tab="ld"]'); await pg.waitForTimeout(1500);
+check('📚 Học chỉ còn Nền + dòng chỉ sang 🎯 Luyện đề (v141)', /Tiếng Anh[\s\S]*Luyện IELTS[\s\S]*Luyện đề/.test(await pg.innerText('#app')) && !(await pg.$('#app [data-exsel]')) && await pg.isVisible('#tabs [data-tab="all"].on')); await pg.click('#tabs [data-tab="ld"]'); await pg.waitForTimeout(1500);
 // v86: lần đầu IELTS hỏi 3 câu (loại thi, band, ngày thi); các mục kỹ năng gập lại → mở hết để bấm
 const openAll = () => pg.evaluate(() => document.querySelectorAll('#app details').forEach(d => { d.open = true; }));
 check('IELTS chỉ nội dung (v111)', !(await pg.innerText('#app')).includes('Hôm nay & kế hoạch')); await openAll();
-check('IELTS mở từ tab 🎯 Luyện đề (v137)', !!(await pg.$('#ie')) && await pg.isVisible('#tabs [data-tab="ld"].on') && !!(await pg.$('#app .exrow')));
-// v138: màn đầu có 2 nút 📚 Đề có sẵn · 🤖 Đề AI soạn, chưa có nút gọi AI
-check('Luyện đề: màn 2 nút 📚 · 🤖 (v138)', (await pg.$$('#app .btnbig[data-expart]')).length === 2 && !(await pg.$('#app [data-daigo]')));
-// v137 🤖 đề AI (máy chủ giả fake-sb.js): bấm 🤖 → ▶ Làm đề AI mới → màn chờ → soạn xong → làm hết → kết quả có nhãn AI
+check('IELTS mở từ tab 🎯 Luyện đề (v141)', !!(await pg.$('#ie')) && await pg.isVisible('#tabs [data-tab="ld"].on') && !!(await pg.$('#app .exrow')));
+// v142: màn đầu có 2 nút 📚 Đề có sẵn · 🤖 Đề AI soạn, chưa có nút gọi AI
+check('Luyện đề: màn 2 nút 📚 · 🤖 (v142)', (await pg.$$('#app .btnbig[data-expart]')).length === 2 && !(await pg.$('#app [data-daigo]')));
+// v141 🤖 đề AI (máy chủ giả fake-sb.js): bấm 🤖 → ▶ Làm đề AI mới → màn chờ → soạn xong → làm hết → kết quả có nhãn AI
 await pg.click('#app [data-expart="ai"]'); await pg.waitForTimeout(600); check('phần 🤖 có nhắc bài có sẵn', (await pg.innerText('#app')).includes('Bài có sẵn · miễn phí'));
 await pg.evaluate(() => { DAI.off = true; }); await pg.click('#app [data-daigo]'); await pg.waitForTimeout(600); check('đề AI: màn chờ', (await pg.innerText('#app')).includes('AI đang soạn đề') && await pg.isVisible('#tabs [data-tab="ld"].on'));
 await pg.evaluate(async () => { const w = Object.values(daiSt().wait).find(x => x.st === 'dang'); if (w) await daiTick(w.id); }); await pg.waitForTimeout(400);

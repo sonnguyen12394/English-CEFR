@@ -49,6 +49,7 @@
   .chips { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0; }
   .chip { width:auto; margin:0; padding:8px 12px; border-radius:999px; font-size:14px; display:inline-block; cursor:pointer; border:1px solid var(--line); background:var(--card); }
   .chip.on { background:var(--accentbg); border-color:var(--accentbg); color:#fff; }
+  .chips.tap .chip { min-height:44px; }   /* v139: nút viên bấm bằng ngón tay (≥ 44 px), dùng ở luyện theo dạng câu */
   .thumbs { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0; }
   .thumbs span, .thumbs a { position:relative; display:inline-block; }
   .thumbs img { width:84px; height:84px; object-fit:cover; border-radius:8px; border:1px solid var(--line); }
@@ -102,7 +103,7 @@
   /* v112 giao diện trực quan (người sáng lập: "vô app nhìn thấy chữ không hiểu gì… thiết kế cho trực quan dễ hiểu dễ sử dụng"): ít chữ, hình thay chữ, mỗi màn một nút chính */
   :root { --accent2:#e8f0fe; --good2:#e6f4ea; --warn:#b26a00; --warn2:#fff4e0; --accentbg:#2a64c9; }
   @media (prefers-color-scheme: dark) { :root { --accent2:#1d2a44; --good2:#16301f; --warn:#f0a43a; --warn2:#3a2a12; --accentbg:#2f6fde; } }
-  /* v138 tương phản: --accentbg = nền nút / chip đậm có chữ trắng (nền tối #5b8ff0 chỉ 3,17 : 1 → #2f6fde 4,72 : 1); --accent cho chữ, viền, chấm (nền sáng #2f6fde trên ô xám 4,33 : 1 → #2a64c9 5,1 : 1). Link dùng --accent (trước: xanh mặc định, nền tối 1,81 : 1). */
+  /* v142 tương phản: --accentbg = nền nút / chip đậm có chữ trắng (nền tối #5b8ff0 chỉ 3,17 : 1 → #2f6fde 4,72 : 1); --accent cho chữ, viền, chấm (nền sáng #2f6fde trên ô xám 4,33 : 1 → #2a64c9 5,1 : 1). Link dùng --accent (trước: xanh mặc định, nền tối 1,81 : 1). */
   a { color:var(--accent); }
   .hello { display:flex; justify-content:space-between; align-items:center; gap:8px; }
   .pill { display:inline-block; font-size:14px; background:var(--warn2); color:var(--warn); border-radius:999px; padding:4px 10px; font-weight:600; white-space:nowrap; }
@@ -171,13 +172,13 @@
   .ltbanner button { margin:0; }
   /* v113 màn kỳ thi (IELTS / TOEIC / Cambridge) cùng khung: hàng kỳ thi một dòng, ô điểm ước gọn */
   .chipset.ex3 { flex-wrap:nowrap; } .chipset.ex3 button { flex:1; padding:8px 2px; font-size:15px; text-align:center; white-space:nowrap; min-height:44px; }
-  /* v137: hàng chọn kỳ thi (màn đầu tab 🎯 Luyện đề) và ô 🤖 Đề AI (deai.js); khổ 320 px không cắt chữ */
+  /* v141: hàng chọn kỳ thi (màn đầu tab 🎯 Luyện đề) và ô 🤖 Đề AI (deai.js); khổ 320 px không cắt chữ */
   .chipset.exrow button { flex:1 1 0; min-width:0; padding:8px 4px; font-size:14px; overflow:hidden; text-overflow:ellipsis; }
   .box.dai { border:1px solid var(--accent); } .box.dai .btnbig { margin:10px 0 8px; }
   .chipset.daisk { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:6px; } .chipset.daisk button { padding:6px 2px; font-size:13px; white-space:normal; line-height:1.25; }
-  /* v138: hàng chọn 2 phần 📚 Đề có sẵn · 🤖 Đề AI trong màn kỳ thi */
+  /* v142: hàng chọn 2 phần 📚 Đề có sẵn · 🤖 Đề AI trong màn kỳ thi */
   .seg.exseg { margin:4px 0 8px; } .seg.exseg button { min-height:44px; font-size:15px; }
-  button.link.tap { min-height:44px; padding:0 12px 0 0; }   /* v138: link đứng riêng cần vùng bấm 44 px */
+  button.link.tap { min-height:44px; padding:0 12px 0 0; }   /* v142: link đứng riêng cần vùng bấm 44 px */
   .chipset.ex4 { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:6px; margin:2px 0 12px; }
   .chipset.ex4 button { padding:6px 1px 7px; border-radius:12px; font-size:clamp(11px, 3.4vw, 13px); line-height:1.25; text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .chipset.ex4 button i { display:block; font-style:normal; font-size:19px; line-height:1.25; }
@@ -219,45 +220,45 @@
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="ld"><i>🎯</i>Luyện đề</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=138"></script>
-<script src="tonghop.js?v=138"></script>
-<script src="exam.js?v=138"></script>
-<script src="gopy.js?v=138"></script>
-<script src="gop.js?v=138"></script>
-<script src="noi.js?v=138"></script>
-<script src="parts.js?v=138"></script>
-<script src="pa.js?v=138"></script>
-<script src="kit.js?v=138"></script>
-<script src="kparts.js?v=138"></script>
-<script src="backup.js?v=138"></script>
-<script src="mock.js?v=138"></script>
-<script src="mocknoi.js?v=138"></script>
-<script src="thi.js?v=138"></script>
-<script src="uoe.js?v=138"></script>
-<script src="nghe2.js?v=138"></script>
-<script src="cap.js?v=138"></script>
-<script src="lib.js?v=138"></script>
-<script src="homnay.js?v=138"></script>
-<script src="vuotcap.js?v=138"></script>
-<script src="nhanh.js?v=138"></script>
-<script src="bando.js?v=138"></script>
-<script src="soloi.js?v=138"></script>
-<script src="ielts.js?v=138"></script>
-<script src="focus.js?v=138"></script>
-<script src="ieplus.js?v=138"></script>
-<script src="iemap.js?v=138"></script>
-<script src="iethat.js?v=138"></script>
-<script src="tudien.js?v=138"></script>
-<script src="tracuu.js?v=138"></script>
-<script src="dieuhuong.js?v=138"></script>
-<script src="huongdan.js?v=138"></script>
-<script src="toeic.js?v=138"></script>
-<script src="tomap.js?v=138"></script>
-<script src="cbmap.js?v=138"></script>
-<script src="dangthi.js?v=138"></script>
-<script src="baihoc.js?v=138"></script>
-<script src="deai.js?v=138"></script>
-<script src="chandoan.js?v=138"></script>
-<script src="lotrinh.js?v=138"></script>
+<script src="app.js?v=139"></script>
+<script src="tonghop.js?v=139"></script>
+<script src="exam.js?v=139"></script>
+<script src="gopy.js?v=139"></script>
+<script src="gop.js?v=139"></script>
+<script src="noi.js?v=139"></script>
+<script src="parts.js?v=139"></script>
+<script src="pa.js?v=139"></script>
+<script src="kit.js?v=139"></script>
+<script src="kparts.js?v=139"></script>
+<script src="backup.js?v=139"></script>
+<script src="mock.js?v=139"></script>
+<script src="mocknoi.js?v=139"></script>
+<script src="thi.js?v=139"></script>
+<script src="uoe.js?v=139"></script>
+<script src="nghe2.js?v=139"></script>
+<script src="cap.js?v=139"></script>
+<script src="lib.js?v=139"></script>
+<script src="homnay.js?v=139"></script>
+<script src="vuotcap.js?v=139"></script>
+<script src="nhanh.js?v=139"></script>
+<script src="bando.js?v=139"></script>
+<script src="soloi.js?v=139"></script>
+<script src="ielts.js?v=139"></script>
+<script src="focus.js?v=139"></script>
+<script src="ieplus.js?v=139"></script>
+<script src="iemap.js?v=139"></script>
+<script src="iethat.js?v=139"></script>
+<script src="tudien.js?v=139"></script>
+<script src="tracuu.js?v=139"></script>
+<script src="dieuhuong.js?v=139"></script>
+<script src="huongdan.js?v=139"></script>
+<script src="toeic.js?v=139"></script>
+<script src="tomap.js?v=139"></script>
+<script src="cbmap.js?v=139"></script>
+<script src="dangthi.js?v=139"></script>
+<script src="baihoc.js?v=139"></script>
+<script src="deai.js?v=139"></script>
+<script src="chandoan.js?v=139"></script>
+<script src="lotrinh.js?v=139"></script>
 </body>
 </html>

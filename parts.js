@@ -94,15 +94,15 @@ const pMore = (parts, foot = '📘 Bài học: dạy, không tính 🔁 Nhớ ·
 // Màn một kỹ năng (xSkill) giống màn phần của Nền: đường 3 bước (① Làm bài → ② Đạt band / điểm / mức → ③ Thi thử), 2 nút 📘 Bài học (cách làm) · 🏋️ Bài tập (bài kế tiếp),
 // danh sách bài cụ thể ghi trạng thái bằng chữ, "Thêm" gập (luyện theo dạng câu…). Nút ▶ Luyện tiếp chỉ còn ở 🧭 Lộ trình. Luyện thi vẫn không tính luật đo.
 const X_FOOT = 'Luyện thi không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp của 🧱 Nền.';
-// v137: nhắc ⚖️ nền còn thiếu xa thành một dòng (chấm màn: ô cảnh báo cùng cỡ nội dung làm loãng việc chính)
+// v141: nhắc ⚖️ nền còn thiếu xa thành một dòng (chấm màn: ô cảnh báo cùng cỡ nội dung làm loãng việc chính)
 const xNoteNen = sp => sp && !sp.ex ? `<p class="mute" style="margin:0 0 10px">⚖️ Nền còn thiếu xa (cần ${LVN[ltGoalLv()]}): 🧭 Lộ trình dồn giờ cho nền trước. <button class="link tap" data-hocnen>🧱 Học nền ›</button></p>` : '';
 // a = 3 bước { t, v, sub, ok, cur, lock, btn (html nút: bước mở) }
 const stepsX = a => `<div class="steps3">${a.map((s, i) => s.btn ? `<div class="st3 open"><i>${i + 1}</i><b>${s.t}</b>${s.btn}${s.sub ? `<span class="s">${s.sub}</span>` : ''}</div>`
   : `<div class="st3 ${s.ok ? 'ok' : s.cur ? 'cur' : ''} ${s.lock ? 'lock' : ''}"><i>${s.ok ? '✓' : s.lock ? '🔒' : i + 1}</i><b>${s.t}</b><span class="v">${s.v}</span><span class="s">${s.sub}</span></div>`).join('')}</div>`;
 // o = { sw: hàng chọn, chips: chip cấp (Cambridge), t: tên kỳ thi, pv: số đo bên phải, pct, sub: dòng phụ, note: ô nhắc, tiles: [{ attr, ic, t, pct, meta, cls }], more: [[tiêu đề, html]], foot }
 // v134: 📚 Học là một trang nên màn kỳ thi có nút "‹ Học" thay hàng chọn Nền / Luyện thi (kỳ thi khác ở 📚 Học → Xem thêm); o.sw không còn dùng
-// v137: màn kỳ thi là màn đầu của tab 🎯 Luyện đề: hàng chọn kỳ thi (o.sw = exSwitch) thay nút "‹ Học"; o.ai = ô 🤖 Đề mới do AI soạn (deai.js daiBox) ngay dưới tiêu đề
-// v138 (người sáng lập: tách đề AI và đề có sẵn để đỡ tốn phí AI; "hiện cả 2 nút chức năng để bấm"): 3 chế độ theo EX_PART (toeic.js)
+// v141: màn kỳ thi là màn đầu của tab 🎯 Luyện đề: hàng chọn kỳ thi (o.sw = exSwitch) thay nút "‹ Học"; o.ai = ô 🤖 Đề mới do AI soạn (deai.js daiBox) ngay dưới tiêu đề
+// v142 (người sáng lập: tách đề AI và đề có sẵn để đỡ tốn phí AI; "hiện cả 2 nút chức năng để bấm"): 3 chế độ theo EX_PART (toeic.js)
 //   null = màn 2 nút: 📚 Đề có sẵn (nút chính, miễn phí, còn N bài chưa làm) · 🤖 Đề AI soạn (nút phụ, tốn phí AI) + dòng đề AI đã xong / đang soạn + nhắc ⚖️
 //   'san' = bài có sẵn: ô kỹ năng + "Thêm" (không có nút gọi AI) · 'ai' = ô đề AI (o.ai) + ô nhắc bài có sẵn chưa làm (o.remind)
 //   o thêm: left = [{ n }] số bài có sẵn chưa làm theo kỹ năng (deai.js daiLeft), notice = dòng đề AI đã xong / đang soạn
@@ -137,7 +137,7 @@ const xSkill = o => { const [s1, s2, s3] = o.steps, lesNext = !!(o.learn && o.le
   const mock = s3 ? `<div class="box mockr"><div style="flex:1;min-width:0"><b>${s3.btn ? '🎓 ' : ''}${s3.t}</b><p class="mute" style="margin:2px 0 0;font-size:14px">${s3.sub || ''}</p></div>${s3.btn || `<b>${s3.v || ''}</b>`}</div>` : '';
   return `${o.back}<h1>${o.h1}</h1>${o.note || ''}<p class="mute" style="margin:0 0 10px;font-size:15px">${o.intro || 'Học từng dạng câu của đề, rồi làm bài như thi thật.'}</p>
   <div class="grid2" style="margin:0 0 10px">${xStat(st1)}${xStat(st2)}</div>${pri}${prac}
-  ${xLes(o.les, lesT)}<h2 style="margin:16px 0 4px">🏋️ ${o.lt || 'Bài luyện'}${o.lsub ? ` <span class="mute" style="font-size:15px;font-weight:400">· ${o.lsub}</span>` : ''}</h2><div id="klist">${o.rows.length ? pWin(o.rows, o.at) : `<p class="mute">${o.empty || 'Chưa có bài.'}</p>`}</div>${o.ai || ''}${mock}${pMore(o.more, X_FOOT)}`; };   // v138: hàng 🤖 Đề AI sau danh sách bài có sẵn
+  ${xLes(o.les, lesT)}<h2 style="margin:16px 0 4px">🏋️ ${o.lt || 'Bài luyện'}${o.lsub ? ` <span class="mute" style="font-size:15px;font-weight:400">· ${o.lsub}</span>` : ''}</h2><div id="klist">${o.rows.length ? pWin(o.rows, o.at) : `<p class="mute">${o.empty || 'Chưa có bài.'}</p>`}</div>${o.ai || ''}${mock}${pMore(o.more, X_FOOT)}`; };   // v142: hàng 🤖 Đề AI sau danh sách bài có sẵn
 // trạng thái một bài kỳ thi: chưa làm = để trống như danh sách bài của Nền / đúng a/b (yếu khi dưới mức cần) / band
 const xTag = (r, need) => !r ? ['', ''] : r.n ? [`${r.ok}/${r.n} câu${need != null && r.ok / r.n < need ? ' · yếu' : ''}`, need != null && r.ok / r.n < need ? 'bad' : 'good'] : [r.t || 'đã làm', r.bad ? 'bad' : 'good'];
 // chọn cấp khác (gập; mở sẵn khi đang xem cấp khác cấp đang học)
@@ -204,7 +204,7 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
   const ids = OV.filter(([id]) => ovIn(id, lv)), st = ids.map(([id]) => ovStat(id, lv)), req = ovReq(lv), nx = OV_LV[OV_LV.indexOf(lv) + 1];
   const pend = typeof plPend === 'function' ? plPend(stage) : null, need = g && typeof ltGoalLv === 'function' ? ltGoalLv(g) : null;
   const pct = typeof ltLvPct === 'function' ? ltLvPct(lv) : 0, en = { ielts: 'IELTS', toeic: 'TOEIC', cambridge: 'Cambridge' }[k];
-  // v137: 📚 Học chỉ còn 🧱 Nền; luyện thi chuyển sang tab 🎯 Luyện đề (bỏ thẻ "Luyện {kỳ thi}" và hàng "Kỳ thi khác"), ở đây chỉ còn một dòng chỉ đường
+  // v141: 📚 Học chỉ còn 🧱 Nền; luyện thi chuyển sang tab 🎯 Luyện đề (bỏ thẻ "Luyện {kỳ thi}" và hàng "Kỳ thi khác"), ở đây chỉ còn một dòng chỉ đường
   const exCard = k === 'cefr' ? '' : `<p class="mute" style="margin:8px 0">🎯 Luyện ${esc(ltGoalName(g))}: ở tab <button class="link tap" data-exthi>🎯 Luyện đề ›</button></p>`;
   const ai = LEVELS.indexOf(lv) >= LEVELS.indexOf('b1');
   $app.innerHTML = `<div id="ov"></div><div class="row"><h1 style="font-size:28px;margin:6px 0">Học</h1><span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span></div>

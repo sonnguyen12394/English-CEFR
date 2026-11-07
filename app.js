@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 138;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 139;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -155,7 +155,12 @@ const TYPE_FOR = { nghia: () => 'w2vi', nghe: () => 'listen', chu: () => 'form',
 // 27/10/2026: yêu cầu hiếm (ít từ có, vd. 🧱 mẫu câu ~25 từ / cấp) chọn ngẫu nhiên đều thì gần như không được hỏi (mô phỏng B1: ~50 lần / 720 ngày).
 // Từ B1: chọn có trọng số 1 / √(số từ có yêu cầu đó): yêu cầu hiếm được hỏi đủ. Pre-A1 → A2+ giữ chọn đều (mô phỏng: trọng số làm A1 chậm từ 147 lên 303 ngày).
 const DIM_N = {}; const dimN = (k, lv = curLevel()) => { const key = lv + '|' + k; if (DIM_N[key] == null) DIM_N[key] = WORDS.filter(w => wDims(w, lv).includes(k)).length || 1; return DIM_N[key]; };
-function typeFor(c, now, w) { const all = wDims(w).filter(k => k !== 'noi'), st = vStage(c, w), g = st < VSTAGE.length ? VGRP[st] : 9,
+// v137 (người sáng lập 6/11/2026: "khi tôi học từ vựng thì phần bài tập thiếu dạng bài tự gõ"): bậc 1 coi như qua, mở câu tự gõ, khi đã chọn đúng nghĩa
+// của từ một lần: học xong bài của từ (làm thử của bài học phải đúng hết mới xong) hoặc câu 📖 nghĩa đúng ở lần gần nhất. Trước: phải đúng cả 3 mặt bậc 1
+// (nghĩa, nghe, chọn chữ) ở bài tập, mỗi lượt hỏi một mặt ngẫu nhiên → lượt đầu sau bài học toàn trắc nghiệm, khoảng 5 lượt mới có câu gõ.
+// Chỉ đổi thứ tự hỏi: vStage vẫn là bậc thật (hiển thị "🪜 Bậc của từ"); 🔁 Nhớ tính từng mặt như cũ.
+const vSeen = (c, w) => vSure(c, 'nghia') || !!(w && S && S.units && S.units[w.u]);
+function typeFor(c, now, w) { const all = wDims(w).filter(k => k !== 'noi'), st0 = vStage(c, w), st = st0 === 0 && vSeen(c, w) ? 1 : st0, g = st < VSTAGE.length ? VGRP[st] : 9,
     open = all.filter(k => VGRP[VSTAGE.findIndex(s => s[1].includes(k))] <= g);
   // tầng quyết định THỨ TỰ GIỚI THIỆU mặt mới; khi ôn thì hỏi đều mọi mặt đã mở mà đang quên (mô phỏng: luôn ưu tiên bậc thấp nhất làm mặt bậc 2 bị bỏ đói)
   const ks = open.length ? open : all, miss = ks.filter(k => !heldDim(c, k, now)), L = miss.length ? miss : ks;
@@ -361,13 +366,13 @@ function roadmap(now, nu) {
   const chOf = i => { const us = us0.filter(u => u.ch === i); return [us[0], us, us.filter(unitDone).length]; };
   const [f, us, done] = chOf(show);
   const rows = us.map(u => { const d = unitDone(u), m = d && u.words.filter(w => held(S.cards[w.id], now, w)).length / u.words.length >= 0.8, isNx = u === nu;
-    const [tag, cls] = lock ? ['🔒', ''] : typeof lsState === 'function' && lsState('tv', u, now) === 'yeu' ? ['yếu', 'bad'] : m ? ['đã nhớ', 'good'] : d ? ['đã học', ''] : isNx ? ['học tiếp', 'next'] : [`${u.words.length} từ`, ''];
+    const [tag, cls] = lock ? ['👁 xem', ''] : typeof lsState === 'function' && lsState('tv', u, now) === 'yeu' ? ['yếu', 'bad'] : m ? ['đã nhớ', 'good'] : d ? ['đã học', ''] : isNx ? ['học tiếp', 'next'] : [`${u.words.length} từ`, ''];
     const gen = /chặng \d+ · bài \d+$/.test(u.vi || '');   // v134: tên bài chung chung (B1 → C2) thì chỉ ghi số bài; mọi bài có từ mẫu để biết bài có gì
-    return pRow(`data-un="${u.id}"`, `Bài ${u.bi}${gen ? '' : ' · ' + esc(u.vi)}<small class="why">${esc(u.words.slice(0, 3).map(w => w.w).join(', '))}…</small>`, tag, isNx ? 'next' : cls, lock); }).join('');
+    return pRow(`data-un="${u.id}"`, `Bài ${u.bi}${gen ? '' : ' · ' + esc(u.vi)}<small class="why">${esc(u.words.slice(0, 3).map(w => w.w).join(', '))}…</small>`, tag, isNx ? 'next' : cls); }).join('');
   const others = chs.filter(i => i !== show);
   const chips = LEVELS.map(l => `<button class="chip ${lv === l ? 'on' : ''}" data-lv="${l}">${lockedLv(l) ? '🔒 ' : passed(l) ? '✅ ' : ''}${LVN[l]} · ${WORDS.filter(w => UBY[w.u].lv === l).length} từ</button>`).join('');
   return `<h2 style="margin:16px 0 4px">Bài ${LVN[lv]}</h2>
-    ${lock ? `<p class="mute">🔒 Bài ${LVN[lv]} mở khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(lv) - 1]]}. Xem trước được, chưa học được.</p>` : ''}
+    ${lock ? `<p class="mute">🔒 Học bài ${LVN[lv]} khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(lv) - 1]]}. Bấm bài để 👁 xem trước nội dung.</p>` : ''}
     ${f ? `<div class="ch cur"><div class="row"><b>${f.chIcon} Chặng ${show + 1} · ${esc(f.chName)}</b><span class="mute">${done}/${us.length} bài</span></div>${rows}</div>` : ''}
     ${others.length ? `<details class="lvmore"><summary>Chặng khác (${others.length}) ›</summary>${others.map(i => { const [g, uu, dd] = chOf(i);
       return `<button class="urow" data-ch="${i}"><span>${g.chIcon} Chặng ${i + 1} · ${esc(g.chName)}</span><span class="tag ${dd === uu.length ? 'good' : ''}">${dd === uu.length ? '✓ xong' : `${dd}/${uu.length} bài`}</span></button>`; }).join('')}</details>` : ''}
@@ -464,9 +469,12 @@ function lessonTypes(w, reqs) { const r = new Set(reqs.filter(k => VREQ_BY[k] &&
   // B1 → C2: yêu cầu nào dạy bằng dạng câu đó; câu sau dạy kèm yêu cầu trước (🛠 tạo dạng dạy cả 🔧 họ từ; 🔄 thay từ dạy cả ↔️; 🎩 văn phong dạy cả 🎚)
   if (r.has('ho') && !r.has('taodang')) t.add('fam'); if (r.has('mau')) t.add('pat'); if (r.has('cumtu')) t.add('colT'); if (r.has('taodang')) t.add('famQ');
   if (r.has('sacthai') && !r.has('vanphong')) t.add('reg'); if (r.has('thay')) t.add('synT'); if (r.has('vanphong')) t.add('style'); if (r.has('thanhngu')) t.add('idi'); if (r.has('tucthi')) t.add('fast');
-  return LESSON_ORDER.filter(x => t.has(x) && (!VLESSON1 || ['w2vi', 'listen', 'form'].includes(x))); }
-// v101: bài học ngày đầu chỉ hỏi bậc 1 (nhận ra); thẻ từ vẫn dạy đủ thông tin; bậc 2–4 hỏi dần trong 🏋️ Luyện tập khi bậc dưới vững
-const VLESSON1 = true;
+  if (VLESSON1) return LESSON1.filter(x => x === 'w2vi' ? r.has('nghia') : x === 'listen' ? r.has('nghe') : r.has('viet') || r.has('nhora'));
+  return LESSON_ORDER.filter(x => t.has(x)); }
+// v101: bài học ngày đầu chỉ hỏi bậc 1 (nhận ra); thẻ từ vẫn dạy đủ thông tin; bậc 2–4 hỏi dần trong 🏋️ Luyện tập khi bậc dưới vững.
+// v137 (người sáng lập: "phần bài tập thiếu dạng bài tự gõ"): làm thử của bài học = 📖 chọn nghĩa · 🔊 nghe chọn nghĩa · ✍️ tự gõ từ (thay 🔤 chọn đúng chữ:
+// gõ đúng thì cũng nhận ra đúng chữ). Gõ sai thì làm lại bằng 🧩 xếp chữ cái rồi gõ lại. Vẫn 3 câu / từ, vẫn không chấm (bài học không tính 🔁 Nhớ).
+const VLESSON1 = true, LESSON1 = ['w2vi', 'listen', 'spell'];
 const reqsUpTo = L => VREQ.filter(r => lvIdx(r[2]) <= lvIdx(L)).map(r => r[0]);
 const reqsOf = Ls => VREQ.filter(r => Ls.includes(r[2])).map(r => r[0]);
 // thẻ từ: phần chung + phần dạy cho yêu cầu mới (dạng bất quy tắc, cặp từ, nghĩa thứ hai) khi bài có yêu cầu đó
@@ -500,6 +508,13 @@ function lessonRun(u, words, reqs, title, onDone) {
       noiOpen(NO.ses.list[0], true); } });
   card(); }
 // v76: bài mới bắt đầu bằng ⚡ kiểm tra đầu bài (nhanh.js ptRun): từ đã biết bỏ khỏi bài, chỉ học từ chưa biết
+// v138 (người sáng lập: "mở khoá tất cả bài học mới mặc dù chưa học tới để tôi xem nội dung"): bài của cấp chưa mở bấm vào được, mở chế độ 👁 xem trước:
+// chỉ đọc nội dung, không làm thử, không tạo thẻ, không tính 📘 Học / 🔁 Nhớ (luật đo không đổi; học thật vẫn mở khi qua Thi chuyển cấp cấp trước).
+function uPreview(u) { window.CUR = { view: 'tv-xem-truoc', unit: u.id }; const reqs = reqsUpTo(u.lv);
+  $app.innerHTML = `${backRow('👁 Xem trước · ' + uTitle(u))}<h1>${esc(uTitle(u))}</h1>
+    <p class="mute">👁 Xem trước: chỉ đọc, không làm thử, không ghi là đã học. Học thật mở khi qua Thi chuyển cấp ${LVN[LEVELS[LEVELS.indexOf(u.lv) - 1]]}.</p>
+    ${u.words.map(w => wordCard(w, reqs)).join('')}<button class="pri" data-a="home">‹ Về 📚 Từ vựng</button>`;
+  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); }; window.scrollTo(0, 0); }
 function learn(u) { const again = unitDone(u), reqs = reqsUpTo(u.lv), fin = () => { if (!again) { learnCards(S, u, Date.now()); save(); }
     // v135: màn xong bài nói bằng lời thường (trước: "đã dạy N yêu cầu của 🔁 Nhớ …"); nút học bài kế tiếp ngay; yêu cầu nhớ của cấp gập lại
     const nx = nextUnit(), nxOk = nx && nx !== u && nx.lv === u.lv;
@@ -681,7 +696,7 @@ document.addEventListener('click', e => {
   if (a === 'dict') dict();
 });
 document.addEventListener('click', e => { if (!S || !document.getElementById('grid')) return; const d = e.target.closest('[data-dim]'); if (d) dimView(d.dataset.dim); });
-document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('#grid [data-un]'); if (g) return learn(UBY[g.dataset.un]);
+document.addEventListener('click', e => { if (!S) return; const g = e.target.closest('#grid [data-un]'); if (g) return locked(UBY[g.dataset.un]) ? uPreview(UBY[g.dataset.un]) : learn(UBY[g.dataset.un]);
   const l = e.target.closest('#grid [data-lv]'); if (l) { HOME.lv = l.dataset.lv; HOME.open = null; document.getElementById('grid').innerHTML = roadmap(Date.now(), nextUnit()); return; }
   const c = e.target.closest('#grid [data-ch]'); if (c) { const nu = nextUnit(), lv = HOME.lv || curLevel(), i = +c.dataset.ch; HOME.open = (HOME.open ?? (nu && nu.lv === lv ? nu.ch : -1)) === i ? -1 : i; document.getElementById('grid').innerHTML = roadmap(Date.now(), nu); } });
 
@@ -691,7 +706,7 @@ const $tabs = document.getElementById('tabs');
 // v68 (28/10/2026): 4 mục 🎯 Học CEFR · 🌏 Học IELTS (ielts.js, màn #ie) · 📖 Từ điển · 💾 Sao lưu. v72: mục 2 thành 🎓 Luyện thi (IELTS / TOEIC, toeic.js exOpen; cả hai màn có #ie). v78: mục 4 đổi tên 💾 Dữ liệu (Sao lưu + 🗺 Bản đồ chỗ yếu bando.js, màn #dl).
 // v95 (dieuhuong.js): 🎯 Học · 🎓 Luyện thi (🎓 Cambridge cbView · 🌏 IELTS · 💼 TOEIC) · 📖 Tra cứu (#dq, #tcv) · 👤 Của tôi (minhView, #bk: tiến độ, bản đồ, sổ từ, sổ lỗi, đề thật, dữ liệu, góp ý).
 // v108 (người sáng lập "học CEFR là nền, mục tiêu thi là phần riêng; lộ trình chạy tới khi đạt"): 4 tab 🔄 Lộ trình (mở đầu tiên) · 📚 Học (nền CEFR + phần riêng của mục tiêu: màn kỳ thi #ie thuộc tab Học) · 📖 Tra cứu · 👤 Của tôi; bỏ tab 🎓 Luyện thi.
-// v137 (người sáng lập: "thêm 1 mục luyện đề theo mục tiêu để kế bên mục học"): 5 tab, 🎯 Luyện đề (tab 'ld') sau 📚 Học; màn kỳ thi #ie và màn đề AI #dai (deai.js) thuộc tab này.
+// v141 (người sáng lập: "thêm 1 mục luyện đề theo mục tiêu để kế bên mục học"): 5 tab, 🎯 Luyện đề (tab 'ld') sau 📚 Học; màn kỳ thi #ie và màn đề AI #dai (deai.js) thuộc tab này.
 function syncTabs() { const t = document.getElementById('bk') ? 'bk' : document.getElementById('lt') ? 'lt' : document.getElementById('ie') || document.getElementById('dai') ? 'ld' : document.getElementById('dq') || document.getElementById('tcv') ? 'dict' : (document.getElementById('ov') || document.getElementById('bdo') || document.getElementById('grid') || document.getElementById('part')) ? 'all' : null;
   document.body.classList.toggle('has-tabs', !!t); $tabs.hidden = !t; document.body.classList.toggle('nogy', !!$app.querySelector('.wiz'));   // v112: 3 bước bắt đầu không có nút 💬 đè nút Tiếp
   $tabs.querySelectorAll('[data-tab]').forEach(b => { const on = b.dataset.tab === t; b.classList.toggle('on', on); b.setAttribute('aria-current', on ? 'page' : 'false'); if (on) try { b.scrollIntoView({ inline: 'nearest', block: 'nearest' }); } catch (e) {} }); }
