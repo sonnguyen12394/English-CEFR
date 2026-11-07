@@ -1,5 +1,5 @@
 {
- "_note": "TOEIC Part 6–7 kiểu (Claude soạn 28/10/2026, chưa người thật kiểm; tên người, công ty đều bịa; không chép đề ETS). p6: văn bản có {1}…{4}, mỗi chỗ 4 phương án (một chỗ là chèn câu). p7: một văn bản (one) hoặc 2–3 văn bản (multi), câu hỏi trắc nghiệm.",
+ "_note": "TOEIC Part 6–7 kiểu (Claude soạn 28/10/2026, chưa người thật kiểm; tên người, công ty đều bịa; không chép đề ETS). p6: văn bản có {1}…{4}, mỗi chỗ 4 phương án (một chỗ là chèn câu). p7: một văn bản (one) hoặc 2–3 văn bản (multi), câu hỏi trắc nghiệm. v137 (7/11/2026): câu chèn Part 6 có 4 phương án cùng chủ đề, sai vì mạch văn (sai thời gian, ngược ý câu trước / sau, nhắc điều chưa có); chỗ trống t: \"tense\" = thì theo ngữ cảnh (ghi tay). Part 7: câu từ gần nghĩa (\"closest in meaning to\"), chèn câu [1]–[4], câu NOT, câu ý định trong tin nhắn.",
  "p6": [
   {
    "id": "t6-memo",
@@ -20,12 +20,12 @@
     {
      "o": [
       "Please display your staff permit on the dashboard.",
-      "The garage was built ten years ago.",
-      "Grant Street is famous for its restaurants.",
-      "Visitors are welcome to join the company."
+      "The repairs were completed ahead of schedule last week.",
+      "Visitors should therefore park in the east garage instead.",
+      "The shuttle buses will be replaced by a newer model next year."
      ],
      "a": "Please display your staff permit on the dashboard.",
-     "why": "Câu chèn phải nối ý đỗ xe ở bãi khách: dặn đặt thẻ nhân viên trên xe."
+     "why": "Câu chèn nối ý đỗ xe ở bãi khách (câu trước): dặn đặt thẻ nhân viên trên xe. \"repairs were completed\" sai thời gian (từ 3/3 mới sửa); \"park in the east garage\" ngược ý (bãi phía đông đóng cửa); \"The shuttle buses\" nhắc xe đưa đón trước khi câu sau giới thiệu."
     },
     {
      "o": [
@@ -78,12 +78,12 @@
     {
      "o": [
       "It comes with an adjustable headrest and a five-year warranty.",
-      "Our store will be closed next week.",
-      "We hope you enjoyed your visit to our factory.",
-      "Your payment has been refunded in full."
+      "Your new chairs were delivered to your office yesterday.",
+      "Unfortunately, the Ergo Plus is no longer available either.",
+      "We will therefore cancel your order unless you reply today."
      ],
      "a": "It comes with an adjustable headrest and a five-year warranty.",
-     "why": "Câu chèn mô tả thêm mẫu ghế thay thế vừa nhắc."
+     "why": "\"It\" = mẫu Ergo Plus vừa nhắc: câu chèn tả thêm mẫu thay thế. Ghế đã giao ngược với hết hàng; Ergo Plus cũng hết hàng ngược với lời đề nghị; tự huỷ đơn ngược với câu sau mời khách chọn."
     },
     {
      "o": [
@@ -116,12 +116,12 @@
     {
      "o": [
       "In addition, every new member gets a free fitness assessment.",
-      "The center was closed for repairs last year.",
-      "Swimming is not allowed in winter.",
-      "Please return your towels to the front desk."
+      "The heated indoor pool will close for the winter.",
+      "However, group classes are no longer available.",
+      "These trainers have helped thousands of people reach their goals."
      ],
      "a": "In addition, every new member gets a free fitness assessment.",
-     "why": "Câu chèn nối với câu sau (huấn luyện viên lập kế hoạch theo mục tiêu)."
+     "why": "\"In addition\" thêm một quà nữa cho hội viên mới, nối ưu đãi tháng đầu với câu huấn luyện viên lập kế hoạch. Hồ bơi đóng mùa đông và hết lớp nhóm ngược với câu đầu; \"These trainers\" nhắc huấn luyện viên trước khi câu sau giới thiệu."
     },
     {
      "o": [
@@ -164,12 +164,12 @@
     {
      "o": [
       "Dinner will be served at 7:00 P.M., followed by the presentation.",
-      "The bakery opens at 6:00 A.M. every day.",
-      "The hotel is looking for new staff.",
-      "Last year's winner moved to another city."
+      "Unfortunately, the ceremony has been canceled this year.",
+      "The ceremony took place last month at the same hotel.",
+      "We regret that your bakery was not chosen this year."
      ],
      "a": "Dinner will be served at 7:00 P.M., followed by the presentation.",
-     "why": "Câu chèn nói thêm chi tiết buổi lễ."
+     "why": "Câu chèn nói thêm chương trình buổi lễ (bữa tối rồi trao giải), nối với câu sau mời phát biểu sau khi nhận giải. Ba câu kia ngược với thư: lễ bị huỷ, lễ đã diễn ra, tiệm không được chọn."
     },
     {
      "o": [
@@ -222,12 +222,12 @@
     {
      "o": [
       "Closing times will remain the same.",
-      "The library was built in 1965.",
-      "Many users enjoy reading novels.",
-      "Please do not eat in the reading room."
+      "Weekday opening hours will also start two hours earlier.",
+      "As a result, the library will now open later on Saturdays.",
+      "Many users have asked us to close the library in the mornings."
      ],
      "a": "Closing times will remain the same.",
-     "why": "Câu chèn hợp mạch: giờ mở sớm hơn, giờ đóng giữ nguyên, trước câu nói ngày thường không đổi."
+     "why": "Câu chèn nói tiếp phần không đổi (giờ đóng cửa), dẫn sang câu sau \"không đổi giờ ngày thường\". Giờ ngày thường cũng sớm hơn ngược với câu sau; mở muộn hơn và người dùng muốn đóng buổi sáng ngược với các câu trước."
     },
     {
      "o": [
@@ -270,12 +270,12 @@
     {
      "o": [
       "Once open, the plant will employ about 300 people.",
-      "Solmar Foods was founded by a group of farmers.",
-      "Dalton has a population of 50,000.",
-      "The company sells products in twelve countries."
+      "The plant has already been producing food for ten years.",
+      "Construction was finished last month, ahead of schedule.",
+      "As a result, the company has decided to cancel the project."
      ],
      "a": "Once open, the plant will employ about 300 people.",
-     "why": "Câu chèn nối tiếp ý xây xong nhà máy: số việc làm tạo ra; câu sau giải thích lý do chọn Dalton."
+     "why": "Câu chèn nói kết quả khi nhà máy xong (khoảng 300 việc làm), trước câu giải thích lý do chọn Dalton. Nhà máy đã chạy 10 năm, đã xây xong, huỷ dự án đều ngược với bản tin."
     },
     {
      "o": [
@@ -308,12 +308,12 @@
     {
      "o": [
       "The portal also offers discounted rates with several airlines.",
-      "Our company was founded in 1998.",
-      "Many employees enjoy traveling abroad.",
-      "The office will be closed on July 4."
+      "Employees may therefore book flights through any Web site they like.",
+      "The portal was closed permanently on June 30.",
+      "As a result, business travel costs have doubled this year."
      ],
      "a": "The portal also offers discounted rates with several airlines.",
-     "why": "Câu chèn nói thêm lợi ích của cổng đặt vé, nối ý giảm chi phí."
+     "why": "Câu chèn nói thêm lợi ích của cổng đặt vé (\"also\"), nối với ý giảm chi phí. Đặt ở trang nào cũng được ngược với quy định; cổng đóng cửa ngược với \"từ 1/7\"; chi phí đã tăng gấp đôi \"do đó\" không nối được vì chính sách chưa áp dụng."
     },
     {
      "o": [
@@ -356,12 +356,12 @@
     {
      "o": [
       "Simply twist the old cartridge to remove it and insert the new one.",
-      "Our company also makes coffee machines.",
-      "Water is essential for good health.",
-      "The light can be switched off at night."
+      "The light will turn green when the filter needs to be replaced.",
+      "The filter cartridge never needs to be replaced.",
+      "Replacement cartridges are not sold in stores."
      ],
      "a": "Simply twist the old cartridge to remove it and insert the new one.",
-     "why": "Câu chèn hướng dẫn cách thay lõi lọc, nối với câu trước về đèn báo thay."
+     "why": "Câu chèn hướng dẫn thay lõi ngay sau câu đèn báo cần thay, trước câu nói chỗ mua lõi. Đèn xanh, không bao giờ cần thay, không bán ở cửa hàng đều ngược với hướng dẫn."
     },
     {
      "o": [
@@ -404,12 +404,12 @@
     {
      "o": [
       "You will meet the operations manager and two team leaders.",
-      "Our warehouse was built in 1995.",
-      "Many supervisors enjoy their work.",
-      "Please send your payment by May 12."
+      "Unfortunately, we have decided not to offer you an interview.",
+      "Your interview with our team took place last Tuesday.",
+      "We have already filled the warehouse supervisor position."
      ],
      "a": "You will meet the operations manager and two team leaders.",
-     "why": "Câu chèn nói tiếp về buổi phỏng vấn (gặp ai), nối với câu sau về thời lượng."
+     "why": "Câu chèn nói ai sẽ phỏng vấn, nối với câu sau về thời lượng buổi phỏng vấn. Ba câu kia ngược với thư mời: không mời phỏng vấn, phỏng vấn đã diễn ra, đã tuyển xong."
     },
     {
      "o": [
@@ -452,12 +452,12 @@
     {
      "o": [
       "More than 400 employees took part in the survey.",
-      "The cafeteria was painted last year.",
-      "Lunch is the most important meal.",
-      "Please park in the visitor lot."
+      "No employees responded to last month's survey.",
+      "The cafeteria will now close at 2:00 P.M., one hour earlier than before.",
+      "Most employees asked for fewer vegetarian dishes."
      ],
      "a": "More than 400 employees took part in the survey.",
-     "why": "Câu chèn nói thêm về cuộc khảo sát vừa nhắc."
+     "why": "Câu chèn nói thêm về cuộc khảo sát vừa nhắc. Không ai trả lời khảo sát, quán đóng sớm hơn, nhân viên muốn ít món chay đều ngược với thông báo."
     },
     {
      "o": [
@@ -500,12 +500,12 @@
     {
      "o": [
       "The work will make your connection faster and more reliable.",
-      "Our office is closed on Sundays.",
-      "Customers can pay their bills online.",
-      "Bluewave was founded in 2005."
+      "The maintenance was completed successfully last Saturday.",
+      "Most of our customers are online at this time of night.",
+      "Your service will therefore not be affected at all."
      ],
      "a": "The work will make your connection faster and more reliable.",
-     "why": "Câu chèn nói lợi ích của việc bảo trì, nối mạch văn."
+     "why": "Câu chèn nói lợi ích của việc bảo trì, trước câu dặn khởi động lại modem. Bảo trì đã xong ngược với \"will carry out\"; nhiều khách online ngược với câu trước; \"không ảnh hưởng gì\" ngược với \"may be unavailable\"."
     },
     {
      "o": [
@@ -548,12 +548,12 @@
     {
      "o": [
       "Today, its bread is sold in more than twenty local supermarkets.",
-      "Elm Street is closed for repairs.",
-      "Ovens are very expensive to repair.",
-      "Many people prefer coffee to tea."
+      "The bakery still has only one small oven and no plans to grow.",
+      "Ms. Ito plans to close the Elm Street shop next month.",
+      "The new shop opened in the city center last year."
      ],
      "a": "Today, its bread is sold in more than twenty local supermarkets.",
-     "why": "Câu chèn nối từ lúc bắt đầu nhỏ tới thành công hôm nay."
+     "why": "Câu chèn nối từ lúc mới mở (một lò) tới thành công hôm nay, trước câu tả tiệm mới. Vẫn một lò không định mở rộng, đóng tiệm Elm Street (đây là tiệm \"thứ hai\"), tiệm mới mở năm ngoái đều ngược với bài."
     },
     {
      "o": [
@@ -606,12 +606,12 @@
     {
      "o": [
       "This will help the finance team process payments more quickly.",
-      "Many employees enjoy traveling abroad.",
-      "The intranet was updated last year.",
-      "Receipts are printed on paper."
+      "Paper forms can still be used for trips abroad.",
+      "There is no deadline for uploading receipts.",
+      "Receipts should therefore be mailed to the finance team."
      ],
      "a": "This will help the finance team process payments more quickly.",
-     "why": "Câu chèn giải thích lý do của hạn 10 ngày."
+     "why": "\"This\" = hạn nộp 10 ngày ở câu trước; câu chèn nói lý do, rồi câu sau nói nộp trễ có thể không được trả. Dùng giấy, không có hạn, gửi hoá đơn qua bưu điện đều ngược với quy định mới."
     },
     {
      "o": [
@@ -644,12 +644,12 @@
     {
      "o": [
       "Classes range from yoga to high-intensity training.",
-      "Harbor Road is near the station.",
-      "The building used to be a bank.",
-      "Swimming is a popular sport."
+      "The gym has been open on Harbor Road for ten years.",
+      "Unfortunately, the swimming pool will not open until next year.",
+      "These machines were sold to another gym last month."
      ],
      "a": "Classes range from yoga to high-intensity training.",
-     "why": "Câu chèn nói thêm về các lớp tập vừa nhắc."
+     "why": "Câu chèn nói thêm về các lớp nhóm vừa nhắc (three studios for group classes). Phòng tập mở 10 năm ngược với \"khai trương\"; hồ bơi chưa mở, máy đã bán ngược với câu trước."
     },
     {
      "o": [
@@ -692,12 +692,12 @@
     {
      "o": [
       "The problem has now been solved, and production has started again.",
-      "Our showroom is open seven days a week.",
-      "Sofas come in many colors.",
-      "Mr. Novak has been a customer for years."
+      "Your sofa and armchairs were delivered on March 3.",
+      "We are still not sure when the factory will reopen.",
+      "As a result, we have canceled your furniture delivery."
      ],
      "a": "The problem has now been solved, and production has started again.",
-     "why": "Câu chèn nói vấn đề đã giải quyết, nối tới ngày giao mới."
+     "why": "Câu chèn nói sự cố đã xong nên có ngày giao mới ở câu sau. Đã giao ngày 3/3, chưa biết khi nào nhà máy mở lại, đã huỷ đơn đều ngược với câu sau."
     },
     {
      "o": [
@@ -740,12 +740,12 @@
     {
      "o": [
       "We hope to welcome even more volunteers this year.",
-      "Riverside Park has a large lake.",
-      "Rubbish trucks come every Monday.",
-      "Our company sells sports equipment."
+      "This is the first time our company has taken part in the event.",
+      "Volunteers must bring their own gloves and bags.",
+      "Unfortunately, this year's event has been canceled."
      ],
      "a": "We hope to welcome even more volunteers this year.",
-     "why": "Câu chèn nối kết quả năm ngoái với lời mời năm nay."
+     "why": "Câu chèn nối kết quả năm ngoái với lời mời năm nay. Lần đầu tham gia ngược với \"once again\"; tự mang găng / túi ngược với câu sau; sự kiện bị huỷ ngược với cả thư."
     },
     {
      "o": [
@@ -788,12 +788,12 @@
     {
      "o": [
       "No injuries have been reported so far.",
-      "Kettles are popular wedding gifts.",
-      "Homeline also sells toasters.",
-      "Water boils at 100 degrees."
+      "The kettle has passed every safety test without any problems.",
+      "Customers may continue to use the kettle as usual.",
+      "A receipt is required for every refund."
      ],
      "a": "No injuries have been reported so far.",
-     "why": "Câu chèn nói về hậu quả (chưa ai bị thương), hợp mạch thông báo an toàn."
+     "why": "Câu chèn nói hậu quả của lỗi công tắc (chưa ai bị thương), trước lời dặn ngừng dùng. Qua mọi kiểm tra an toàn, cứ dùng bình thường, phải có hoá đơn đều ngược với thông báo thu hồi."
     },
     {
      "o": [
@@ -836,12 +836,12 @@
     {
      "o": [
       "Please label each box with your name and new desk number.",
-      "The fifth floor has a nice view.",
-      "Marketing is a large department.",
-      "Movers are expensive in the summer."
+      "Please pack your computer in the same box as your personal items.",
+      "The movers arrived last Thursday and finished the job.",
+      "Boxes will not be provided, so please bring your own."
      ],
      "a": "Please label each box with your name and new desk number.",
-     "why": "Câu chèn tiếp tục hướng dẫn đóng thùng."
+     "why": "Câu chèn tiếp tục hướng dẫn đóng thùng (dán nhãn thùng). Tự đóng máy tính ngược với câu sau; thợ đã chuyển xong ngược với \"tuần sau\"; tự mang thùng ngược với \"boxes provided\"."
     },
     {
      "o": [
@@ -884,12 +884,12 @@
     {
      "o": [
       "Renewing early also gives you the best price.",
-      "Our office is located downtown.",
-      "Magazines are delivered by mail.",
-      "October is a busy month."
+      "Your subscription ended last month.",
+      "Two-year subscriptions are no longer available.",
+      "You do not need to renew to keep receiving the magazine."
      ],
      "a": "Renewing early also gives you the best price.",
-     "why": "Câu chèn dẫn tới ưu đãi giá 2 năm ở câu sau."
+     "why": "Câu chèn dẫn tới ưu đãi giá ở câu sau (\"also … the best price\"). Đã hết hạn tháng trước, không còn gói 2 năm, không cần gia hạn đều ngược với thư."
     },
     {
      "o": [
@@ -932,12 +932,12 @@
     {
      "o": [
       "For example, we may extend opening hours or buy more e-books.",
-      "The library was built in 1960.",
-      "Tablets are useful for reading.",
-      "Pine Street is very busy."
+      "The survey can only be completed online.",
+      "Next year's budget has already been spent.",
+      "The survey takes about an hour to complete."
      ],
      "a": "For example, we may extend opening hours or buy more e-books.",
-     "why": "Câu chèn cho ví dụ về cách dùng ngân sách vừa nhắc."
+     "why": "\"For example\" cho ví dụ về cách dùng ngân sách vừa nhắc. Chỉ làm trực tuyến ngược với câu sau (có bản giấy); ngân sách đã tiêu hết, làm mất một giờ ngược với các câu trước."
     },
     {
      "o": [
@@ -958,6 +958,202 @@
      ],
      "a": "drawing",
      "why": "a + danh từ: a drawing (cuộc rút thăm)."
+    }
+   ]
+  },
+  {
+   "id": "t6-launch",
+   "kind": "E-mail",
+   "title": "To: Valued customers · From: Nordic Home · Subject: Thank you for visiting",
+   "text": "Dear customer, Thank you for attending the launch of our new kitchen collection at the Nordic Home showroom last Saturday. More than 300 guests {1} the event, and many of them tried our cooking demonstrations. {2} As promised, we are sending you a voucher for 15 percent off any item from the new collection. The voucher is valid until June 30. {3}, it cannot be combined with other offers. If you have any questions, our staff will be happy to {4} you. Kind regards, Nordic Home Customer Service",
+   "gaps": [
+    {
+     "o": [
+      "attended",
+      "will attend",
+      "are attending",
+      "attend"
+     ],
+     "a": "attended",
+     "t": "tense",
+     "why": "Thì theo ngữ cảnh: buổi ra mắt diễn ra \"last Saturday\" (câu trước) → quá khứ: attended. Câu này đứng riêng thì không biết thì nào."
+    },
+    {
+     "o": [
+      "We hope you enjoyed the dishes our chefs prepared.",
+      "We look forward to seeing you at the launch next Saturday.",
+      "Unfortunately, the cooking demonstrations had to be canceled.",
+      "The voucher you received at the door has now expired."
+     ],
+     "a": "We hope you enjoyed the dishes our chefs prepared.",
+     "why": "Câu chèn nối với phần trình diễn nấu ăn vừa nhắc, trước câu gửi phiếu giảm giá. Buổi ra mắt \"next Saturday\" sai thời gian; trình diễn bị huỷ ngược với câu trước; phiếu đã hết hạn ngược với câu sau (hạn tới 30/6)."
+    },
+    {
+     "o": [
+      "However",
+      "Therefore",
+      "For example",
+      "Similarly"
+     ],
+     "a": "However",
+     "why": "Từ nối giữa câu: phiếu còn hạn tới 30/6 NHƯNG không dùng chung ưu đãi khác → However (đối lập)."
+    },
+    {
+     "o": [
+      "assist",
+      "assistance",
+      "assistant",
+      "assisted"
+     ],
+     "a": "assist",
+     "why": "be happy to + động từ nguyên mẫu: assist (giúp)."
+    }
+   ]
+  },
+  {
+   "id": "t6-workshop",
+   "kind": "Notice",
+   "title": "Notice to all sales staff — Customer service workshop",
+   "text": "The customer service workshop planned for March 14 has been moved to March 21 because the trainer is ill. The workshop {1} in Meeting Room 2 from 9:00 A.M. to 12:00 P.M. {2} Staff who registered for the original date do not need to register again. {3}, anyone who cannot attend on the new date should inform their manager by March 17. Please bring a notebook and a list of questions from your own {4} with customers. — Training Department",
+   "gaps": [
+    {
+     "o": [
+      "will be held",
+      "was held",
+      "has been held",
+      "is holding"
+     ],
+     "a": "will be held",
+     "t": "tense",
+     "why": "Thì theo ngữ cảnh: buổi học đã dời sang ngày 21/3 (chưa diễn ra) → tương lai bị động: will be held."
+    },
+    {
+     "o": [
+      "Lunch will be provided after the session.",
+      "The trainer has recovered and taught the workshop yesterday.",
+      "All staff must therefore register again for March 21.",
+      "The workshop will now take place in the afternoon."
+     ],
+     "a": "Lunch will be provided after the session.",
+     "why": "Câu chèn nói thêm chi tiết buổi học (sau giờ học có ăn trưa). Đã dạy hôm qua ngược với \"dời sang 21/3\"; phải đăng ký lại ngược với câu sau; học buổi chiều ngược với 9:00 – 12:00."
+    },
+    {
+     "o": [
+      "However",
+      "For instance",
+      "As a result",
+      "Instead"
+     ],
+     "a": "However",
+     "why": "Từ nối giữa câu: không cần đăng ký lại, NHƯNG ai không đến được thì báo quản lý → However."
+    },
+    {
+     "o": [
+      "experiences",
+      "experienced",
+      "experiencing",
+      "experiment"
+     ],
+     "a": "experiences",
+     "why": "Sau \"your own\" cần danh từ: experiences (trải nghiệm); experiment = thí nghiệm, sai nghĩa."
+    }
+   ]
+  },
+  {
+   "id": "t6-stay",
+   "kind": "E-mail",
+   "title": "To: Laura Kent · From: Bayview Hotel · Subject: Your recent stay",
+   "text": "Dear Ms. Kent, Thank you for your comments about your stay at the Bayview Hotel from August 2 to 5. We are sorry that the air conditioner in your room {1} properly during your visit. {2} Our maintenance team has since replaced the units in all rooms on the sixth floor. {3}, we would like to offer you a free night on your next stay. Simply mention this e-mail when you make your {4}. Sincerely, Paul Grant, Guest Relations Manager",
+   "gaps": [
+    {
+     "o": [
+      "did not work",
+      "does not work",
+      "will not work",
+      "has not worked"
+     ],
+     "a": "did not work",
+     "t": "tense",
+     "why": "Thì theo ngữ cảnh: kỳ nghỉ đã qua (2–5/8, \"during your visit\") → quá khứ đơn: did not work."
+    },
+    {
+     "o": [
+      "We understand how uncomfortable this must have been in such hot weather.",
+      "We are glad that everything in your room worked perfectly.",
+      "The air conditioners on your floor were replaced just before your arrival.",
+      "Unfortunately, we are unable to offer any compensation."
+     ],
+     "a": "We understand how uncomfortable this must have been in such hot weather.",
+     "why": "Câu chèn tiếp lời xin lỗi về máy lạnh hỏng, trước câu nói đã thay máy. Mọi thứ hoạt động tốt ngược với lời xin lỗi; thay máy \"trước khi chị đến\" ngược với \"has since replaced\" (thay sau đó); không bồi thường ngược với câu tặng một đêm."
+    },
+    {
+     "o": [
+      "In addition",
+      "Otherwise",
+      "Instead",
+      "On the other hand"
+     ],
+     "a": "In addition",
+     "why": "Từ nối giữa câu: đã thay máy, THÊM NỮA tặng một đêm miễn phí → In addition."
+    },
+    {
+     "o": [
+      "reservation",
+      "reserve",
+      "reserved",
+      "reserving"
+     ],
+     "a": "reservation",
+     "why": "make your + danh từ: make a reservation (đặt phòng)."
+    }
+   ]
+  },
+  {
+   "id": "t6-supplier",
+   "kind": "Memo",
+   "title": "To: All kitchen staff · From: Restaurant Manager · Subject: New vegetable supplier",
+   "text": "Starting next month, our vegetables will come from Green Field Farms instead of City Produce. The farm is only fifteen kilometers away, and its trucks {1} early every morning. {2} The first delivery is scheduled for Monday, May 5. {3}, mistakes can happen with a new supplier, so please check every box against the delivery list and report any missing items to me {4}. Thank you for your help.",
+   "gaps": [
+    {
+     "o": [
+      "will arrive",
+      "arrived",
+      "have arrived",
+      "were arriving"
+     ],
+     "a": "will arrive",
+     "t": "tense",
+     "why": "Thì theo ngữ cảnh: nhà cung cấp mới bắt đầu từ \"next month\" (câu trước) → tương lai: will arrive. Đứng riêng thì \"arrived early every morning\" cũng đúng ngữ pháp."
+    },
+    {
+     "o": [
+      "This means our salads and soups will be made with fresher produce.",
+      "City Produce will continue to deliver our vegetables after May 5.",
+      "The farm's trucks have been delivering to us for years.",
+      "Unfortunately, the farm is too far away to deliver in the morning."
+     ],
+     "a": "This means our salads and soups will be made with fresher produce.",
+     "why": "\"This\" = rau tới sớm mỗi sáng từ trang trại gần: câu chèn nói lợi ích. City Produce vẫn giao ngược với câu đầu; giao \"nhiều năm\" ngược với \"nhà cung cấp mới\"; quá xa ngược với \"only fifteen kilometers\"."
+    },
+    {
+     "o": [
+      "Of course",
+      "Instead",
+      "As a result",
+      "For example"
+     ],
+     "a": "Of course",
+     "why": "Từ nối giữa câu: \"Of course\" (tất nhiên) mở ý nhắc nhở: nhà cung cấp mới có thể giao nhầm, nên kiểm từng thùng."
+    },
+    {
+     "o": [
+      "immediately",
+      "immediate",
+      "immediacy",
+      "more immediate"
+     ],
+     "a": "immediately",
+     "why": "Bổ nghĩa cho động từ report → trạng từ: immediately (ngay)."
     }
    ]
   }
@@ -1904,6 +2100,330 @@
       "They will be printed by another company."
      ],
      "why": "they will still arrive before your deadline."
+    }
+   ]
+  },
+  {
+   "id": "t7-notice2",
+   "kind": "Notice",
+   "docs": [
+    {
+     "title": "Riverside Public Library: New Opening Hours",
+     "text": "Beginning on Monday, May 5, the Riverside Public Library will open at 8:00 A.M. on weekdays, one hour earlier than before. [1] The change follows a survey in which many residents said they would like to visit the library before work. [2] Weekend hours will stay the same. [3] During the first week of the new schedule, staff will be at the front desk from 8:00 A.M. to help visitors set up online accounts, which can be used to reserve books and study rooms. [4] For more information, call 555-0172 or visit our Web site."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the purpose of the notice?",
+     "a": "To announce new opening hours",
+     "w": [
+      "To advertise a book sale",
+      "To request volunteers",
+      "To explain a building repair"
+     ],
+     "why": "will open at 8:00 A.M. on weekdays, one hour earlier than before."
+    },
+    {
+     "q": "What is NOT mentioned about the library?",
+     "a": "It will add a parking area.",
+     "w": [
+      "It will open earlier on weekdays.",
+      "It asked residents for their opinions.",
+      "It offers study rooms that can be reserved."
+     ],
+     "why": "Câu NOT: 3 phương án kia đều có trong thông báo (giờ mở sớm hơn, cuộc khảo sát, đặt phòng học); bãi đỗ xe không được nhắc."
+    },
+    {
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Many of them also asked for more places to study quietly.\"",
+     "a": "[2]",
+     "w": [
+      "[1]",
+      "[3]",
+      "[4]"
+     ],
+     "why": "\"them\" = residents ở câu khảo sát ngay trước; \"also asked\" nối với \"said they would like to visit the library before work\". Vị trí [4] có \"study rooms\" nhưng visitors không \"asked\" gì cả."
+    },
+    {
+     "q": "In the notice, the word \"follows\" in the second sentence is closest in meaning to",
+     "a": "comes after",
+     "w": [
+      "walks behind",
+      "obeys",
+      "understands"
+     ],
+     "why": "The change follows a survey = sự thay đổi đến sau (là kết quả của) một cuộc khảo sát. follow còn nghĩa \"tuân theo\" (obey), \"hiểu\" (understand) nhưng không hợp ở đây."
+    }
+   ]
+  },
+  {
+   "id": "t7-email3",
+   "kind": "E-mail",
+   "docs": [
+    {
+     "title": "To: All Harlow Design staff · From: Maria Lopez, Office Manager · Subject: Kitchen renovation",
+     "text": "Dear colleagues,\nThe second-floor kitchen will be renovated from June 9 to June 20. [1] During this time, please use the kitchen on the fourth floor, which will stay open as usual. [2] The work will include new cabinets, a larger refrigerator, and a second sink. [3] We expect the project to address the long lines at lunchtime that many of you have mentioned. [4] I apologize for any inconvenience, and thank you for your patience.\nMaria Lopez"
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why was the e-mail sent?",
+     "a": "To inform staff about renovation work",
+     "w": [
+      "To invite staff to a lunch",
+      "To announce a new office manager",
+      "To ask staff for kitchen design ideas"
+     ],
+     "why": "The second-floor kitchen will be renovated from June 9 to June 20."
+    },
+    {
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Coffee and tea will also be available in the reception area on the first floor.\"",
+     "a": "[2]",
+     "w": [
+      "[1]",
+      "[3]",
+      "[4]"
+     ],
+     "why": "Câu chèn nói thêm một chỗ dùng tạm (\"also available\") trong lúc sửa bếp: đứng ngay sau câu bảo dùng bếp tầng 4."
+    },
+    {
+     "q": "In the e-mail, the word \"address\" is closest in meaning to",
+     "a": "deal with",
+     "w": [
+      "send",
+      "speak to",
+      "locate"
+     ],
+     "why": "address the long lines = giải quyết chuyện xếp hàng dài. address còn nghĩa \"ghi địa chỉ / gửi\" và \"nói với (khán giả)\" nhưng không hợp ở đây."
+    },
+    {
+     "q": "What is suggested about the second-floor kitchen?",
+     "a": "It is often crowded at lunchtime.",
+     "w": [
+      "It will close permanently.",
+      "It was renovated last year.",
+      "It is larger than the fourth-floor kitchen."
+     ],
+     "why": "the long lines at lunchtime that many of you have mentioned."
+    }
+   ]
+  },
+  {
+   "id": "t7-article3",
+   "kind": "Article",
+   "docs": [
+    {
+     "title": "Article — Westbrook Business Journal",
+     "text": "WESTBROOK (October 2) — Greenline Bikes, a bicycle rental company founded in Westbrook four years ago, will open stations in two more cities next spring. [1] The company currently runs 60 stations across Westbrook, where riders unlock bikes with a mobile app and pay by the minute. [2] According to chief executive Hana Sato, the expansion was made possible by a new agreement with the regional train operator. [3] Under the agreement, Greenline stations will be placed outside every major train station, and train passengers will receive a 20 percent discount on rides. [4] Ms. Sato said the company also plans to add electric bikes to its fleet by the end of next year."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the article mainly about?",
+     "a": "A company's plans to expand",
+     "w": [
+      "The opening of a train station",
+      "A new type of bicycle",
+      "A change in company leadership"
+     ],
+     "why": "will open stations in two more cities next spring."
+    },
+    {
+     "q": "What is NOT mentioned about Greenline Bikes?",
+     "a": "It sells bicycles to businesses.",
+     "w": [
+      "It was founded four years ago.",
+      "Its riders use a mobile app.",
+      "It will offer discounts to train passengers."
+     ],
+     "why": "Câu NOT: thành lập 4 năm trước, mở khoá bằng ứng dụng, giảm 20% cho hành khách tàu đều có trong bài; bán xe cho doanh nghiệp thì không."
+    },
+    {
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"On average, each of those stations is used more than 40 times a day.\"",
+     "a": "[2]",
+     "w": [
+      "[1]",
+      "[3]",
+      "[4]"
+     ],
+     "why": "\"those stations\" chỉ 60 trạm đang chạy ở câu ngay trước. Trạm ở thành phố mới hay ở ga tàu chưa mở nên chưa thể \"được dùng 40 lần mỗi ngày\"."
+    },
+    {
+     "q": "In the article, the word \"placed\" is closest in meaning to",
+     "a": "put",
+     "w": [
+      "ranked",
+      "ordered",
+      "hired"
+     ],
+     "why": "stations will be placed outside every major train station = trạm sẽ được đặt bên ngoài ga. place còn nghĩa \"xếp hạng\", \"đặt hàng\" (place an order), \"xếp việc cho người\"."
+    }
+   ]
+  },
+  {
+   "id": "t7-web",
+   "kind": "Web page",
+   "docs": [
+    {
+     "title": "Harbor View Hotel — Meeting Rooms",
+     "text": "Planning a business event in Lisbon? Harbor View Hotel offers six meeting rooms for groups of 10 to 200 people. Every room comes with free Wi-Fi, a projector, and bottled water. Catering can be arranged through our restaurant, which serves breakfast, lunch, and afternoon snacks. Guests who book a room for a full day receive free parking for up to 20 cars.\nTo make a reservation, complete the form below at least 14 days before your event. A deposit of 30 percent is required to confirm a booking, and it is refunded in full if the booking is canceled more than seven days in advance."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is NOT included with every meeting room?",
+     "a": "Free parking",
+     "w": [
+      "Wi-Fi access",
+      "A projector",
+      "Bottled water"
+     ],
+     "why": "Wi-Fi, máy chiếu, nước có ở mọi phòng; đỗ xe miễn phí chỉ cho khách đặt phòng cả ngày."
+    },
+    {
+     "q": "On the Web page, the word \"arranged\" is closest in meaning to",
+     "a": "organized",
+     "w": [
+      "listed",
+      "decorated",
+      "played"
+     ],
+     "why": "Catering can be arranged = có thể sắp xếp (tổ chức) tiệc ăn. arrange còn nghĩa \"xếp (hoa) cho đẹp\", \"phối (nhạc)\"."
+    },
+    {
+     "q": "What will most likely happen if a booking is canceled five days before an event?",
+     "a": "The deposit will not be fully returned.",
+     "w": [
+      "The hotel will charge for parking.",
+      "The room will be given to another group for free.",
+      "The guest will receive a full refund."
+     ],
+     "why": "Chỉ hoàn đủ tiền cọc khi huỷ trước hơn 7 ngày; huỷ trước 5 ngày thì không được hoàn đủ (suy luận)."
+    }
+   ]
+  },
+  {
+   "id": "t7-letter4",
+   "kind": "Letter",
+   "docs": [
+    {
+     "title": "Letter — Crestwood Dental Group",
+     "text": "Dear Mr. Haddad,\nThank you for choosing Crestwood Dental Group. Our records show that it has been twelve months since your last check-up. Regular visits help us identify small problems before they become serious, so we recommend a check-up once a year.\nThis year, we have extended our opening hours. Our clinic on Bay Street is now open until 7:00 P.M. on Tuesdays and Thursdays, and we see patients on Saturday mornings.\nTo book an appointment, please call our front desk at 555-0193 or use our online booking page. Please bring your insurance card to your visit, as our patient system was recently updated.\nSincerely,\nAnna Brooks, Patient Services"
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why was the letter sent?",
+     "a": "To remind a patient to make an appointment",
+     "w": [
+      "To confirm a payment",
+      "To announce a new clinic location",
+      "To introduce a new dentist"
+     ],
+     "why": "it has been twelve months since your last check-up … we recommend a check-up once a year."
+    },
+    {
+     "q": "In the letter, the word \"identify\" in paragraph 1 is closest in meaning to",
+     "a": "find",
+     "w": [
+      "name",
+      "copy",
+      "prove"
+     ],
+     "why": "identify small problems = phát hiện vấn đề nhỏ. identify còn nghĩa \"nhận ra, gọi tên (ai đó)\" nhưng ở đây là tìm ra."
+    },
+    {
+     "q": "What is suggested about Mr. Haddad's insurance information?",
+     "a": "It may need to be entered again.",
+     "w": [
+      "It has expired.",
+      "It only covers Saturday visits.",
+      "It was sent by mail."
+     ],
+     "why": "bring your insurance card … as our patient system was recently updated: hệ thống mới nên có thể phải nhập lại."
+    }
+   ]
+  },
+  {
+   "id": "t7-chat3",
+   "kind": "Text message chain",
+   "docs": [
+    {
+     "title": "Text messages",
+     "text": "Leo Brandt (10:02 A.M.): Hi Nina, the delivery van for the Ortega order just broke down on Route 9.\nNina Ruiz (10:04 A.M.): Oh no. Mr. Ortega needs those chairs for his restaurant opening at 6 tonight.\nLeo Brandt (10:05 A.M.): I know. The repair shop says the van won't be ready until tomorrow.\nNina Ruiz (10:07 A.M.): Our second van is free this afternoon. I'll ask Sam to drive it out to you.\nLeo Brandt (10:08 A.M.): That would save the day. I'll wait here with the chairs.\nNina Ruiz (10:09 A.M.): Great. I'll call Mr. Ortega and let him know they'll arrive by three."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What problem does Mr. Brandt report?",
+     "a": "A vehicle has stopped working.",
+     "w": [
+      "An order has been canceled.",
+      "Some chairs were damaged.",
+      "A road has been closed."
+     ],
+     "why": "the delivery van … just broke down on Route 9."
+    },
+    {
+     "q": "At 10:08 A.M., what does Mr. Brandt mean when he writes, \"That would save the day\"?",
+     "a": "He thinks Ms. Ruiz's plan will solve the problem.",
+     "w": [
+      "He wants to finish work early.",
+      "He plans to repair the van himself.",
+      "He is worried about the cost."
+     ],
+     "why": "Câu trả lời cho đề nghị dùng xe thứ hai: \"save the day\" = cứu nguy, giải quyết được việc gấp."
+    },
+    {
+     "q": "What will Ms. Ruiz most likely do next?",
+     "a": "Contact a customer",
+     "w": [
+      "Drive a van to Route 9",
+      "Visit a repair shop",
+      "Cancel the delivery"
+     ],
+     "why": "I'll call Mr. Ortega … (Sam mới là người lái xe)."
+    }
+   ]
+  },
+  {
+   "id": "t7-chat4",
+   "kind": "Online chat discussion",
+   "docs": [
+    {
+     "title": "Online chat",
+     "text": "Grace Kim (3:15 P.M.): Has anyone booked a room for Friday's training session yet?\nOmar Haddad (3:16 P.M.): Not yet. Room 4B is free, but it only holds twelve people.\nGrace Kim (3:17 P.M.): We have eighteen people signed up.\nIvy Chen (3:19 P.M.): What about the conference room on the first floor?\nOmar Haddad (3:20 P.M.): It's being painted this week.\nIvy Chen (3:21 P.M.): Then we could split the group and run the session twice.\nGrace Kim (3:22 P.M.): I'm not sure the trainer can stay that long. I'll check with her and get back to you both."
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why is Room 4B unsuitable?",
+     "a": "It is too small.",
+     "w": [
+      "It is being painted.",
+      "It is already booked.",
+      "It has no projector."
+     ],
+     "why": "it only holds twelve people … We have eighteen people signed up."
+    },
+    {
+     "q": "At 3:20 P.M., what does Mr. Haddad mean when he writes, \"It's being painted this week\"?",
+     "a": "The conference room cannot be used.",
+     "w": [
+      "The conference room will look better soon.",
+      "He has hired a painter.",
+      "The training session should be postponed."
+     ],
+     "why": "Câu trả lời cho gợi ý dùng phòng hội nghị: đang sơn nên không dùng được (không phải nói chuyện màu sơn)."
+    },
+    {
+     "q": "What will Ms. Kim most likely do next?",
+     "a": "Speak with the trainer",
+     "w": [
+      "Book Room 4B",
+      "Paint a room",
+      "Cancel the session"
+     ],
+     "why": "I'll check with her (the trainer) and get back to you both."
     }
    ]
   }

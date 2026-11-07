@@ -33,6 +33,7 @@ Mỗi bài học chọn ví dụ + 3 câu làm thử theo nhãn dạng ở bản
 | `q:gist`, `q:next`, `q:imp`, `q:graphic` | Part 3–4 | 2 bài (Part 3 hoặc 4) có câu loại đó, cả bài |
 | `t3` | Part 3 | 2 hội thoại 3 người |
 | `p6:ctx` | Part 6 | 2 đoạn có chỗ `tense` / `conn` |
+| `p6:ins` | Part 6 | 2 đoạn (mỗi đoạn có 1 câu chèn), cả bài |
 | `q7:infer`, `q7:syn`, `q7:insert`, `q7:intent` | Part 7 | 2 bộ có câu loại đó (`infer` gồm cả `not`), cả bộ |
 
 Dạng còn lại dùng bài tập có sẵn: Part 2 bẫy / Part 3 / Part 4 / Part 6 / Part 7 / nhiều văn bản theo Part (`data-top`), Part 5 theo dạng (`data-top="t:<dạng>"`, có `det`), tốc độ (`data-tospd`), từ công sở (`data-tovoc`).

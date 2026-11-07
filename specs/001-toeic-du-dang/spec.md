@@ -141,7 +141,7 @@ Câu chèn Part 6 của đề thật có 4 câu cùng chủ đề; chọn đúng
 - **FR-008**: Part 4 MUST có ít nhất 2 bài quảng cáo; mỗi bài nói Part 4 có nhãn loại bài nói để bài học loại bài nói chọn ví dụ và câu làm thử.
 - **FR-009**: Part 5 MUST có dạng thứ 8 "Từ hạn định, lượng từ" (≥ 8 câu), có mẹo chữa ở bản đồ điểm và ở cẩm nang như 7 dạng cũ.
 - **FR-010**: Kho tối thiểu theo dạng: Part 1 mỗi loại tranh ≥ 5 · Part 2 mỗi loại câu hỏi ≥ 7 (câu trần thuật ≥ 8) · câu hàm ý Part 3–4 ≥ 6 (Part 3 ≥ 3) · bài quảng cáo Part 4 ≥ 2 · Part 5 lượng từ ≥ 8 · Part 6: câu thì theo ngữ cảnh ≥ 4, câu từ nối giữa câu ≥ 4 · Part 7: từ gần nghĩa ≥ 6, chèn câu [1]–[4] ≥ 4, câu NOT ≥ 4, câu ý định ≥ 4 (mỗi loại ở ≥ 3 bộ).
-- **FR-011**: Câu chèn Part 6 MUST có 4 phương án cùng chủ đề đoạn văn; 3 phương án sai vì không nối được mạch (nhắc điều chưa có, sai thời gian, ngược ý câu trước / sau), không vì lạc đề. Áp cho cả 19 đoạn cũ (viết lại phương án sai, giữ đáp án đúng và mã bài) và mọi đoạn mới; lời giải nói vì sao 3 câu kia không nối được.
+- **FR-011**: Câu chèn Part 6 MUST có 4 phương án cùng chủ đề đoạn văn; 3 phương án sai vì không nối được mạch (nhắc điều chưa có, sai thời gian, ngược ý câu trước / sau), không vì lạc đề. Áp cho cả 20 đoạn cũ (lúc kiểm kê đếm 19; soát kỹ thấy t6-recall cũng lạc đề) (viết lại phương án sai, giữ đáp án đúng và mã bài) và mọi đoạn mới; lời giải nói vì sao 3 câu kia không nối được.
 - **FR-012**: Công cụ dựng kho MUST kiểm dạng mới: câu Part 2 phân loại được, câu từ gần nghĩa có từ được hỏi trong văn bản, câu chèn [1]–[4] có đủ 4 vị trí trong văn bản, câu chèn Part 6 có phương án cùng chủ đề (có từ chung với đoạn), không trùng mã, đáp án có trong phương án.
 - **FR-013**: Câu nghe mới (Part 2, 3, 4) MUST có giọng đọc tự nhiên như câu cũ.
 - **FR-014**: Nội dung mới MUST ghi "Claude soạn, chưa giáo viên kiểm", vào bảng kiểm giáo viên; tên người / công ty bịa; không chép đề ETS.
@@ -162,7 +162,7 @@ Câu chèn Part 6 của đề thật có 4 câu cùng chủ đề; chọn đúng
 - **SC-001**: 33 / 33 dạng trong bảng có bài học riêng (hoặc nằm trong bài nói rõ dạng đó) với ví dụ có lời giải và 3 câu làm thử đúng dạng (hiện 16 / 33).
 - **SC-002**: 33 / 33 dạng có bài tập riêng mở được trong ≤ 2 chạm từ màn kỹ năng và 1 chạm từ bài học (hiện 7 / 33, chỉ Part 5).
 - **SC-003**: Mọi dạng đạt kho tối thiểu FR-010 (kiểm tự động).
-- **SC-004**: 0 / 23 câu chèn Part 6 (19 cũ + 4 mới) có phương án lạc đề; 0 câu có 2 đáp án đúng khi Claude soát lại.
+- **SC-004**: 0 / 24 câu chèn Part 6 (20 cũ + 4 mới) có phương án lạc đề; 0 câu có 2 đáp án đúng khi Claude soát lại.
 - **SC-005**: Kiểm dựng kho và bộ test tự động qua hết; chưa kiểm trên iPhone thì ghi rõ.
 - **SC-006**: 100% câu nghe mới có tệp giọng tự nhiên.
 - **SC-007** (sau phát hành, cần người học thật): ≥ 2 người ôn TOEIC thật học ≥ 5 bài học mới trong 2 tuần; hỏi lại: bài nào khó hiểu, dạng nào còn thiếu.

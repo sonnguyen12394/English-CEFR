@@ -6,7 +6,7 @@
 
 ## Summary
 
-Đủ 33 dạng câu của đề TOEIC L&R: 13 bài học mới (20 → 33), bài tập riêng theo dạng cho mọi dạng (17 lượt luyện theo dạng mới, mở từ bài học và từ "Thêm"), kho thêm ~75 câu (Part 2 +10, Part 3 +3 bài, Part 4 +2 quảng cáo, Part 5 +10 lượng từ, Part 6 +4 đoạn, Part 7 +7 bộ) và viết lại 57 phương án sai của câu chèn Part 6 cũ. Nhận dạng câu suy từ câu hỏi lúc dựng kho (`tools/build-toeic.mjs`), chỉ nhãn tay chỗ không suy được (loại bài nói Part 4, câu thì theo ngữ cảnh Part 6). Không đổi luật đo CEFR, cách ước điểm, luật bản đồ (chỉ thêm ô Part 5 lượng từ).
+Đủ 33 dạng câu của đề TOEIC L&R: 13 bài học mới (20 → 33), bài tập riêng theo dạng cho mọi dạng (18 lượt luyện theo dạng mới, mở từ bài học và từ "Thêm"), kho thêm ~75 câu (Part 2 +10, Part 3 +3 bài, Part 4 +2 quảng cáo, Part 5 +10 lượng từ, Part 6 +4 đoạn, Part 7 +7 bộ) và viết lại 60 phương án sai của câu chèn Part 6 cũ (20 đoạn). Nhận dạng câu suy từ câu hỏi lúc dựng kho (`tools/build-toeic.mjs`), chỉ nhãn tay chỗ không suy được (loại bài nói Part 4, câu thì theo ngữ cảnh Part 6). Không đổi luật đo CEFR, cách ước điểm, luật bản đồ (chỉ thêm ô Part 5 lượng từ).
 
 ## Technical Context
 
@@ -26,7 +26,7 @@
 
 **Constraints**: câu / bài cũ giữ mã; câu Part 2, Part 5 mới thêm vào CUỐI kho (bộ 10 câu đánh số theo vị trí); bài học cũ giữ mã (`to:L:p2`, `to:R:p6`, `to:R:p7`…); không chép đề ETS; nội dung ghi "Claude soạn, chưa giáo viên kiểm".
 
-**Scale/Scope**: 33 dạng · 33 bài học · 17 bài tập theo dạng mới · ~75 câu mới · 57 phương án viết lại · ~70 câu giọng mới.
+**Scale/Scope**: 33 dạng · 33 bài học · 18 bài tập theo dạng mới · ~75 câu mới · 60 phương án viết lại · ~70 câu giọng mới.
 
 ## Constitution Check
 
