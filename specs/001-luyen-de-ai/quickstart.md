@@ -19,13 +19,15 @@ C53 kiểm:
 - Máy kiểm phía trang loại đề hỏng (đáp án không có trong lựa chọn).
 - Lỗi 429 / 503 / quá giờ: báo bằng lời thường, màn kỳ thi vẫn dùng được.
 - Việc luyện đề ở 📅 Hôm nay mở đúng màn trong tab 🎯.
+- Chống trùng (hàm thuần `supabase/functions/_shared/trung.js`, test bằng node): đề cùng chủ đề / trùng câu hỏi / chung ≥ 15% cụm 5 từ bị báo trùng; hai bài khác chủ đề không bị báo; chọn chủ đề bỏ qua chủ đề đã gặp, hết thì lấy chủ đề lâu nhất.
 
 ## 2. Thử thật một lần (TỐN TIỀN, ~$0,15 mỗi đề; cần người sáng lập đồng ý)
 
 1. Mở app, đặt mục tiêu IELTS 6.5 ở 🧭 Lộ trình.
 2. Tab 🎯 Luyện đề → ▶ Làm đề AI mới (Đọc). Ghi số giây tới khi đề hiện (mục tiêu ≤ 120 giây).
 3. Làm bài; đối chiếu từng đáp án với bài đọc bằng mắt; ghi số câu sai đáp án / có hai đáp án đúng (mục tiêu ≤ 1 câu / đề).
-4. Làm đề thứ hai cùng kỹ năng: phải hiện gần như ngay (đề dự trữ).
+4. Làm đề thứ hai cùng kỹ năng: phải hiện gần như ngay (đề dự trữ). Chủ đề phải khác đề thứ nhất.
+4b. Tạo liền 5 đề Đọc IELTS: 5 chủ đề khác nhau; xem cột `lan` trong `de_ai` (số đề phải soạn lại vì trùng).
 5. Viết 1 bài Task 2 → AI chấm → có band 4 tiêu chí.
 6. Supabase: `select kind, count(*), sum(tin), sum(tout) from el_cham group by kind;` → tính tiền theo bảng giá ở research.md R6.
 

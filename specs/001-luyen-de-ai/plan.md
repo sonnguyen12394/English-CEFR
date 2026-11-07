@@ -59,7 +59,8 @@ specs/001-luyen-de-ai/
 supabase/
 ├── migrations/20261107_v137_de_ai.sql      # MỚI: bảng de_ai + RLS + chỉ mục
 └── functions/
-    ├── de-ai/index.ts                      # MỚI: soạn đề nền, máy kiểm, giải độc lập, ghi el_cham
+    ├── _shared/trung.js                    # MỚI: hàm thuần chống trùng (chọn chủ đề, cụm 5 từ, so câu hỏi), test được bằng node
+    ├── de-ai/index.ts                      # MỚI: soạn đề nền, chọn chủ đề + danh sách tránh, máy kiểm, kiểm trùng, giải độc lập, ghi el_cham
     └── el-cham/index.ts                    # SỬA: bỏ PER_USER, trần chung đếm cả kind 'de'
 
 deai.js        # MỚI: S.dai, gọi de-ai + hỏi trạng thái, màn chờ, máy kiểm phía trang, chuyển đề → câu ieRun,
@@ -97,6 +98,7 @@ CLAUDE.md, README.md                             # SỬA: đoạn v137
 | Tốn tiền | trần 200 / ngày; khuyên đặt giới hạn chi tiêu tháng ở Anthropic Console; đếm token mỗi đề |
 | Quá 150 giây | chạy nền + hạn chờ AI; đề ngắn theo dạng |
 | Khoá AI chưa cài | bước thử 1 phát hiện sớm; báo lời thường, bài có sẵn vẫn dùng |
+| AI soạn đề trùng đề cũ | lưu mọi đề; máy chọn chủ đề chưa gặp; kiểm trùng toàn văn với ≥ 3 đề gần nhất (tới 50); soạn lại 1 lần (R16) |
 | Người học không dùng | SC-007: xét lại sau 1 quý |
 
 ## Theo dõi độ phức tạp

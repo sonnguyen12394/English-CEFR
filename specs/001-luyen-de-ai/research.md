@@ -35,7 +35,7 @@ Ký hiệu: **[đã kiểm]** = tra được ngay lúc soạn (tài liệu, dữ
 ## R5. Độ dài đề và tốc độ
 
 - **Quyết định**: đề AI là **bài luyện theo dạng**, không phải cả bài thi: IELTS Đọc 1 bài 450–650 từ + 6–8 câu thuộc 1–2 dạng; IELTS Nghe 1 phần (lời ~350–500 từ) + 6–10 câu; TOEIC Part 5 bộ 10 câu, Part 6 một đoạn 4 câu, Part 7 1–2 văn bản 3–5 câu, Part 2 bộ 8 câu, Part 3 / 4 một bài 3 câu; Cambridge theo phần của cấp (một phần mỗi đề). Đề cả bài (40 câu) ngoài phạm vi đợt này (đã ghi ở spec).
-- **Ước tính [suy luận]**: đầu ra ~3–6 nghìn token kể cả suy nghĩ; Opus ra chữ cỡ 50–100 token / giây → 40–100 giây cho đề Đọc, cộng 10–30 giây giải kiểm chéo. **SC-001 cũ (≤ 30 giây) không thực tế** → sửa ở spec thành: đề đầu tiên của một kỹ năng ≤ 120 giây ở ≥ 90% lần; từ đề thứ hai ≤ 3 giây nhờ đề dự trữ (R7). Đo thật ở bước thử đầu tiên (T003 trong tasks) rồi chốt.
+- **Ước tính [suy luận]**: đầu ra ~3–6 nghìn token kể cả suy nghĩ; Opus ra chữ cỡ 50–100 token / giây → 40–100 giây cho đề Đọc, cộng 10–30 giây giải kiểm chéo. **SC-001 cũ (≤ 30 giây) không thực tế** → sửa ở spec thành: đề đầu tiên của một kỹ năng ≤ 120 giây ở ≥ 90% lần; từ đề thứ hai ≤ 3 giây nhờ đề dự trữ (R7). Đo thật ở bước thử đầu tiên (T004 trong tasks) rồi chốt.
 
 ## R6. Chi phí
 
@@ -92,3 +92,11 @@ Ký hiệu: **[đã kiểm]** = tra được ngay lúc soạn (tài liệu, dữ
 - **Quyết định**: tab `ld` "🎯 Luyện đề" mở `exOpen()` (màn kỳ thi của mục tiêu); `#ie` chuyển sang tab `ld`. Đầu màn kỳ thi: hàng chọn 🎓 Cambridge · 🌏 IELTS · 💼 TOEIC (🎯 = mục tiêu) thay nút "‹ Học", rồi ô **🤖 Đề mới do AI soạn** (MỘT nút chính "▶ Làm đề AI mới: {kỹ năng · dạng nên luyện}" + hàng kỹ năng), rồi phần bài có sẵn như cũ. Màn kỹ năng có thêm nút "🤖 Đề AI mới" của kỹ năng đó. 📚 Học bỏ thẻ "Luyện {kỳ thi}" và hàng "Kỳ thi khác".
 - **Đã xét**: màn trang chủ riêng cho tab (thêm một màn trùng với màn kỳ thi).
 - Giao diện theo luật thiết kế của dự án (chụp + chấm màn trước khi sửa, biến CSS chung, chữ theo ux-copy, kiểm khả năng tiếp cận sau). 5 nút thanh dưới ở khổ 320 px: mỗi nút 64 px, đủ vùng bấm 44 px **[suy luận, đo khi làm]**.
+
+## R16. Chống đề trùng (người sáng lập 7/11/2026: "lưu lại đề đã tạo ít nhất 3 phiên bản để AI không tạo trùng đề")
+
+- **Quyết định**: 3 lớp. (1) **Lưu mọi đề** lâu dài trong `de_ai` (không xoá). (2) **Máy chọn chủ đề trước** từ danh sách chủ đề theo kỳ thi + kỹ năng, ưu tiên chủ đề người học chưa gặp; AI viết về chủ đề đó và được xem danh sách tên + chủ đề + ý chính của ≤ 30 đề cũ để tránh. (3) **Máy kiểm trùng** sau khi soạn: so với ít nhất 3 đề gần nhất cùng kỳ thi + kỹ năng bằng toàn văn (thực tế tới 50 đề, chạy trong mã nên không tốn tiền AI): trùng chủ đề / tên, trùng câu hỏi, hoặc ≥ 15% cụm 5 từ → soạn lại 1 lần.
+- **Lý do**: chỉ đưa 3 đề gần nhất cho AI xem thì AI tránh được 3 đề đó nhưng dễ quay về chủ đề quen của nó ở đề thứ 4, thứ 5 (mô hình có chủ đề "ruột": đảo nhiệt đô thị, ong, làm việc từ xa…). Bảo AI "viết về X" chắc hơn bảo "đừng viết về A, B, C". Kiểm bằng máy bắt được cả khi AI vẫn lặp.
+- **Chi phí [suy luận]**: danh sách tránh ~30 dòng × ~25 token ≈ 750 token vào ≈ $0,003 / đề; soạn lại vì trùng ước < 10% số đề → thêm < $0,02 / đề trung bình.
+- **Đã xét**: chỉ lưu 3 đề và đưa nguyên văn cho AI (tốn ~2–3 nghìn token mỗi lần, vẫn lặp chủ đề cũ hơn); so nghĩa bằng AI (tốn thêm một lượt mỗi đề); tránh cả chủ đề của ~800 bài có sẵn trong kho (máy chủ không có sẵn kho này; để sau nếu cần).
+- **Phạm vi**: theo tài khoản. Hiện mọi máy dùng chung một tài khoản nên lịch sử chung cả app.

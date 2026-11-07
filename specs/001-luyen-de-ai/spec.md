@@ -93,6 +93,8 @@ Thanh dưới có 5 mục: 🧭 Lộ trình · 📚 Học · 🎯 Luyện đề 
 - Người học bỏ dở đề: đề giữ lại để làm tiếp trong 24 giờ.
 - Người học bấm "Tạo đề mới" liên tục: không giới hạn theo người (người sáng lập chọn), nhưng trần chung cả app ở FR-012.
 - Bài Viết quá dài (> 6.000 ký tự): báo như AI chấm hiện có.
+- Đã dùng hết danh sách chủ đề của một kỹ năng: lấy chủ đề lâu nhất chưa gặp, yêu cầu góc nhìn khác; kiểm trùng FR-017 vẫn chặn bài giống bài cũ.
+- Mọi máy đang dùng chung một tài khoản: lịch sử chống trùng là chung cho cả app (khi bật đăng nhập ẩn danh thì mỗi máy một lịch sử).
 
 ## Yêu cầu *(bắt buộc)*
 
@@ -112,10 +114,14 @@ Thanh dưới có 5 mục: 🧭 Lộ trình · 📚 Học · 🎯 Luyện đề 
 - **FR-012**: Không giới hạn số lượt AI cho mỗi người (người sáng lập chọn). Giữ một trần an toàn cho CẢ app: 200 lượt AI / ngày (soạn đề + chấm, tính chung với AI chấm hiện có); chạm trần thì báo "App đã dùng hết lượt AI hôm nay", bài kho cũ vẫn dùng được (người sáng lập chọn 7/11/2026, vì mọi máy đang dùng chung một tài khoản).
 - **FR-013**: Lời nhắc soạn đề PHẢI cấm chép đề chính thức của Cambridge / IELTS / ETS và cấm nội dung nhạy cảm.
 - **FR-014**: Lỗi mạng / máy chủ PHẢI báo bằng lời thường và không làm mất bài đang làm dở.
+- **FR-015** (người sáng lập 7/11/2026: "lưu lại đề đã tạo ít nhất 3 phiên bản để AI không tạo trùng đề"): mọi đề AI đã tạo (kể cả đề dự trữ chưa làm, đề bị loại) PHẢI được lưu lâu dài, không tự xoá.
+- **FR-016**: Trước khi soạn, hệ thống PHẢI chọn một chủ đề mà người học chưa gặp ở cùng kỳ thi + kỹ năng (hết chủ đề chưa gặp thì lấy chủ đề lâu nhất chưa gặp và đổi góc nhìn), và PHẢI cho AI xem danh sách tên + chủ đề + ý chính của các đề cũ cùng kỳ thi + kỹ năng (tối đa 30 đề gần nhất) để tránh.
+- **FR-017**: Sau khi soạn, hệ thống PHẢI so đề mới với các đề cũ cùng kỳ thi + kỹ năng của người học, đọc toàn văn ÍT NHẤT 3 đề gần nhất (thực tế so tới 50 đề): trùng chủ đề hoặc tên đề, trùng nguyên văn một câu hỏi, hoặc bài đọc / lời nghe giống nhau ≥ 15% cụm 5 từ liên tiếp → soạn lại 1 lần với chủ đề khác; vẫn trùng thì báo "Chưa tạo được đề mới khác đề cũ, thử lại sau".
 
 ### Thực thể chính
 
-- **Đề AI**: kỳ thi, cấp / band, kỹ năng, dạng câu / phần, bài đọc hoặc lời nghe (theo người nói), danh sách câu (câu hỏi, lựa chọn, đáp án, giải thích, câu chứa đáp án), ngày tạo.
+- **Đề AI**: kỳ thi, cấp / band, kỹ năng, dạng câu / phần, chủ đề, ý chính một dòng, bài đọc hoặc lời nghe (theo người nói), danh sách câu (câu hỏi, lựa chọn, đáp án, giải thích, câu chứa đáp án), ngày tạo. Lưu lâu dài để chống trùng.
+- **Danh sách chủ đề**: theo kỳ thi + kỹ năng (vd. IELTS học thuật ~40 lĩnh vực, TOEIC ~25 tình huống công sở, Cambridge theo cấp), dùng để chọn chủ đề chưa gặp.
 - **Lượt làm đề AI**: đề, câu trả lời, điểm theo câu, điểm ước (band / điểm), thời gian làm, đã nộp chưa.
 - **Lượt chấm AI**: bài Viết / bản chép Nói, điểm tiêu chí, lỗi chính, lời góp ý.
 
@@ -129,6 +135,7 @@ Thanh dưới có 5 mục: 🧭 Lộ trình · 📚 Học · 🎯 Luyện đề 
 - **SC-004**: Từ mở tab tới bắt đầu làm đề ≤ 3 lần chạm.
 - **SC-005**: 📚 Học không còn mục luyện thi nào; mọi lối luyện thi cũ vẫn mở được trong tab mới (test tự động kiểm).
 - **SC-006**: Chi phí AI mỗi đề được ghi lại để người sáng lập xem tổng tiền / ngày ở 🛠 công cụ.
+- **SC-008**: Trong 20 đề AI liên tiếp cùng kỳ thi + kỹ năng của một người: 0 đề trùng chủ đề với các đề trước; 0 cặp đề giống nhau ≥ 15% cụm 5 từ; số lần phải soạn lại vì trùng được ghi lại (mốc xét lại: > 20% số đề).
 - **SC-007** (sau 1 quý): có ≥ 3 người học thật làm ≥ 5 đề AI; nếu dưới mức này, xét lại tính năng trước khi mở rộng.
 
 ## Giả định
