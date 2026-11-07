@@ -1,5 +1,5 @@
 {
- "_note": "TOEIC Part 2–4 kiểu (Claude soạn 28/10/2026, chưa người thật kiểm; tên người, công ty bịa; không chép đề ETS). Giọng: tools/build-audio.py (Kokoro, giọng Mỹ + Anh). p2: câu hỏi + 3 lời đáp (đề thật không in chữ, chỉ nghe); tr: loại bẫy của lời đáp sai (rep lặp từ / gần âm · type sai loại thông tin · yn đáp Yes/No cho câu Wh- · rel cùng chủ đề nhưng không trả lời). p3: hội thoại (A nữ, B nam), p4: một người nói; mỗi bài 3 câu hỏi. v124 (3/11/2026): g = bảng / biểu đồ in trong đề cho câu \"Look at the graphic\" ({t, h: [cột], r: [[ô]]}); hội thoại 3 người: A nữ, B nam, C nữ thứ hai (giọng khác).",
+ "_note": "TOEIC Part 2–4 kiểu (Claude soạn 28/10/2026, chưa người thật kiểm; tên người, công ty bịa; không chép đề ETS). Giọng: tools/build-audio.py (Kokoro, giọng Mỹ + Anh). p2: câu hỏi + 3 lời đáp (đề thật không in chữ, chỉ nghe); tr: loại bẫy của lời đáp sai (rep lặp từ / gần âm · type sai loại thông tin · yn đáp Yes/No cho câu Wh- · rel cùng chủ đề nhưng không trả lời). p3: hội thoại (A nữ, B nam), p4: một người nói; mỗi bài 3 câu hỏi. v124 (3/11/2026): g = bảng / biểu đồ in trong đề cho câu \"Look at the graphic\" ({t, h: [cột], r: [[ô]]}); hội thoại 3 người: A nữ, B nam, C nữ thứ hai (giọng khác). v139 (7/11/2026): p4 ty = loại bài nói (msg tin nhắn thoại · ann thông báo nơi công cộng · ad quảng cáo · news bản tin · intro giới thiệu, khai mạc, hội thảo · tour hướng dẫn tham quan · meet họp, thông báo nội bộ).",
  "p2": [
   {
    "id": "t2-01",
@@ -749,6 +749,156 @@
     null,
     "rep",
     "yn"
+   ]
+  },
+  {
+   "id": "t2-51",
+   "q": "The printer on the third floor is out of toner again.",
+   "o": [
+    "I'll order some more this afternoon.",
+    "The meeting is on the third floor.",
+    "This printer is easy to use."
+   ],
+   "a": 0,
+   "tr": [
+    null,
+    "rep",
+    "rel"
+   ]
+  },
+  {
+   "id": "t2-52",
+   "q": "I'm having trouble logging in to the new payroll system.",
+   "o": [
+    "Have you tried resetting your password?",
+    "The payroll was sent on Friday.",
+    "The new system was expensive."
+   ],
+   "a": 0,
+   "tr": [
+    null,
+    "rep",
+    "rel"
+   ]
+  },
+  {
+   "id": "t2-53",
+   "q": "We've run out of chairs for the training session.",
+   "o": [
+    "The training starts at nine.",
+    "There are some extra ones in the storage room.",
+    "I ran into Ms. Lopez this morning."
+   ],
+   "a": 1,
+   "tr": [
+    "rel",
+    null,
+    "rep"
+   ]
+  },
+  {
+   "id": "t2-54",
+   "q": "The client wants the proposal by Thursday instead of Friday.",
+   "o": [
+    "I propose we take a short break.",
+    "The proposal was approved last March.",
+    "Then we'd better start on it today."
+   ],
+   "a": 2,
+   "tr": [
+    "rep",
+    "rep",
+    null
+   ]
+  },
+  {
+   "id": "t2-55",
+   "q": "I heard the cafeteria is closing early today.",
+   "o": [
+    "That's right, because of the staff meeting.",
+    "I'd like the chicken salad, please.",
+    "It's very close to the station."
+   ],
+   "a": 0,
+   "tr": [
+    null,
+    "rel",
+    "rep"
+   ]
+  },
+  {
+   "id": "t2-56",
+   "q": "Ms. Patel will be out of the office all next week.",
+   "o": [
+    "The office is on Grant Street.",
+    "Who should I contact while she's away?",
+    "She's always very patient."
+   ],
+   "a": 1,
+   "tr": [
+    "rep",
+    null,
+    "rep"
+   ]
+  },
+  {
+   "id": "t2-57",
+   "q": "Would you like to meet on Tuesday or Wednesday?",
+   "o": [
+    "Yes, I'd like to.",
+    "We met last month.",
+    "Either day works for me."
+   ],
+   "a": 2,
+   "tr": [
+    "yn",
+    "rep",
+    null
+   ]
+  },
+  {
+   "id": "t2-58",
+   "q": "Is the conference in the main hall or the east wing?",
+   "o": [
+    "It's been moved to the hotel next door.",
+    "Yes, it's very large.",
+    "The conference lasts two days."
+   ],
+   "a": 0,
+   "tr": [
+    null,
+    "yn",
+    "rep"
+   ]
+  },
+  {
+   "id": "t2-59",
+   "q": "Haven't you finished the budget report yet?",
+   "o": [
+    "A budget of ten thousand dollars.",
+    "I'm just checking the last few figures.",
+    "I finished second in the race."
+   ],
+   "a": 1,
+   "tr": [
+    "rep",
+    null,
+    "rep"
+   ]
+  },
+  {
+   "id": "t2-60",
+   "q": "You're coming to the client dinner tonight, aren't you?",
+   "o": [
+    "I usually have dinner at seven.",
+    "The client signed the contract.",
+    "Yes, I'll meet you at the restaurant."
+   ],
+   "a": 2,
+   "tr": [
+    "rel",
+    "rep",
+    null
    ]
   }
  ],
@@ -2098,11 +2248,174 @@
      ]
     }
    ]
+  },
+  {
+   "id": "t3-26",
+   "lines": [
+    [
+     "A",
+     "Hi, Daniel. The caterer just called. They can't deliver the lunch for tomorrow's board meeting until one o'clock."
+    ],
+    [
+     "B",
+     "One o'clock? The meeting starts at eleven thirty, and the directors usually eat during the break at noon."
+    ],
+    [
+     "A",
+     "I know. I asked them to come earlier, but they're short of drivers this week."
+    ],
+    [
+     "B",
+     "Well, there's a sandwich shop right across the street."
+    ],
+    [
+     "A",
+     "Good idea. I'll call them now and see if they can prepare something for twelve people."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What problem does the woman mention?",
+     "a": "A delivery will arrive late.",
+     "w": [
+      "A meeting has been canceled.",
+      "A caterer has raised its prices.",
+      "Some directors cannot attend."
+     ]
+    },
+    {
+     "q": "What does the man imply when he says, \"there's a sandwich shop right across the street\"?",
+     "a": "The speakers could order food nearby.",
+     "w": [
+      "The meeting should be moved.",
+      "He is going out for lunch.",
+      "The caterer is located nearby."
+     ]
+    },
+    {
+     "q": "What will the woman do next?",
+     "a": "Contact a shop",
+     "w": [
+      "Visit the caterer",
+      "Reschedule a meeting",
+      "Hire a driver"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-27",
+   "lines": [
+    [
+     "A",
+     "Paul, I've finished the slides for Friday's presentation to Brightline Foods. Could you take a look before I send them to the client?"
+    ],
+    [
+     "B",
+     "Sure. Hmm, the sales figures on slide six are from last year."
+    ],
+    [
+     "A",
+     "Oh, are they? I copied that chart from an old report."
+    ],
+    [
+     "B",
+     "Brightline's new figures came out on Monday. They're in the shared folder."
+    ],
+    [
+     "A",
+     "Thanks. I'll update the chart this afternoon and send everything tomorrow morning."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "What are the speakers mainly discussing?",
+     "a": "A presentation for a client",
+     "w": [
+      "A new sales office",
+      "A food delivery",
+      "A training course"
+     ]
+    },
+    {
+     "q": "Why does the man say, \"the sales figures on slide six are from last year\"?",
+     "a": "To point out a mistake",
+     "w": [
+      "To praise the woman's work",
+      "To ask for a copy of a report",
+      "To explain a delay"
+     ]
+    },
+    {
+     "q": "What will the woman do this afternoon?",
+     "a": "Revise a chart",
+     "w": [
+      "Meet with a client",
+      "Print some slides",
+      "Send a report to Brightline"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3-28",
+   "lines": [
+    [
+     "A",
+     "Thanks for coming, Tom and Grace. The hotel just told me the garden won't be available for our team dinner on the fifteenth. They're repairing the fountain."
+    ],
+    [
+     "B",
+     "That's a shame. We've already sent the invitations with the hotel's address."
+    ],
+    [
+     "C",
+     "The hotel has a rooftop terrace, doesn't it? I went to a wedding there last year."
+    ],
+    [
+     "A",
+     "Grace, that's perfect. I'll ask the manager if it's free that evening."
+    ],
+    [
+     "B",
+     "And I'll e-mail everyone if anything changes."
+    ]
+   ],
+   "qs": [
+    {
+     "q": "Why is the garden unavailable?",
+     "a": "Repairs are being made.",
+     "w": [
+      "It is too small.",
+      "It is booked for a wedding.",
+      "The weather will be bad."
+     ]
+    },
+    {
+     "q": "What does Grace imply when she says, \"The hotel has a rooftop terrace, doesn't it\"?",
+     "a": "The dinner could be held in another part of the hotel.",
+     "w": [
+      "She would prefer a different hotel.",
+      "She has never visited the hotel.",
+      "The invitations need to be printed again."
+     ]
+    },
+    {
+     "q": "What does the man offer to do?",
+     "a": "Send an update to the guests",
+     "w": [
+      "Call the hotel manager",
+      "Repair a fountain",
+      "Print new invitations"
+     ]
+    }
+   ]
   }
  ],
  "p4": [
   {
    "id": "t4-01",
+   "ty": "ann",
    "text": "Attention, shoppers. Our store will be closing in fifteen minutes. Please bring your final purchases to the registers at the front of the store. We'd also like to remind you that our annual summer sale begins tomorrow morning at eight o'clock. All outdoor furniture will be thirty percent off, and members of our rewards program will receive an extra ten percent discount. Thank you for shopping with us.",
    "qs": [
     {
@@ -2136,6 +2449,7 @@
   },
   {
    "id": "t4-02",
+   "ty": "msg",
    "text": "Hello, this is Paul Turner from Kendall Dental Clinic. I'm calling to remind you of your appointment with Dr. Silva this Thursday at two thirty. Please arrive ten minutes early to complete a short health form. If you need to change the time, call us at least twenty-four hours in advance, or a cancellation fee may apply. Our number is five five five, zero one nine eight. We look forward to seeing you.",
    "qs": [
     {
@@ -2169,6 +2483,7 @@
   },
   {
    "id": "t4-03",
+   "ty": "intro",
    "text": "Good morning, everyone, and welcome to your first day at Norland Engineering. My name is Rachel Kim, and I'm the head of human resources. This morning, we'll start with a short tour of the building. After that, you'll meet your team leaders, who will explain your responsibilities. Lunch will be provided in the staff cafeteria at twelve thirty. In the afternoon, the IT department will set up your computers and e-mail accounts. Please make sure you have your photo identification with you, as you'll need it to receive your security badge.",
    "qs": [
     {
@@ -2202,6 +2517,7 @@
   },
   {
    "id": "t4-04",
+   "ty": "news",
    "text": "And now for the traffic report. Drivers heading into the city on Highway Nine should expect delays of up to thirty minutes this morning because of road repairs near the river bridge. One lane will be closed until Friday. If possible, consider taking the Coastal Road instead, which is moving smoothly. Commuters may also want to use the express bus service, which has added extra buses this week. I'll be back with another update in fifteen minutes.",
    "qs": [
     {
@@ -2235,6 +2551,7 @@
   },
   {
    "id": "t4-05",
+   "ty": "intro",
    "text": "Thanks for joining today's webinar on time management. I'm Lucas Brandt, and I've been training managers for over fifteen years. Today, I'll share three simple techniques that you can start using immediately. First, plan tomorrow's tasks before you leave work today. Second, check your e-mail at fixed times rather than all day long. And third, schedule your most difficult work for the time of day when you have the most energy. At the end of the session, I'll answer your questions, so please type them in the chat box as we go.",
    "qs": [
     {
@@ -2268,6 +2585,7 @@
   },
   {
    "id": "t4-06",
+   "ty": "ann",
    "text": "Welcome aboard the Harbor City ferry. Our trip to Pine Island will take approximately forty minutes. Snacks and drinks are available at the café on the lower deck. For your safety, please do not stand near the railings while the ferry is moving. Life jackets are located under every seat. When we arrive, please wait until the ferry has stopped completely before moving to the exit. We hope you enjoy the journey and the beautiful views of the coast.",
    "qs": [
     {
@@ -2301,6 +2619,7 @@
   },
   {
    "id": "t4-07",
+   "ty": "msg",
    "text": "Hi, this is Marcus from the IT department. I'm calling to let you know that we'll be upgrading the company's e-mail system this Saturday from eight A.M. to noon. During that time, you won't be able to send or receive messages. Any e-mails sent to you during the upgrade will be delivered once the system is back online. If you have any urgent matters, please contact clients by phone instead. Thanks for your patience.",
    "qs": [
     {
@@ -2334,6 +2653,7 @@
   },
   {
    "id": "t4-08",
+   "ty": "intro",
    "text": "Good evening, and welcome to the Bayside Business Awards. I'm delighted to see so many local business owners here tonight. This year, we received over two hundred nominations, which is a new record. Before we announce the winners, I'd like to thank our sponsor, Coastline Bank, for making this event possible. Dinner will be served shortly, and the first award, for best new business, will be presented at eight o'clock.",
    "qs": [
     {
@@ -2367,6 +2687,7 @@
   },
   {
    "id": "t4-09",
+   "ty": "news",
    "text": "You're listening to Business Today. Retail sales across the country rose by three percent last month, the biggest increase this year. Experts say the rise was mainly due to warmer weather, which encouraged people to buy summer clothing and garden equipment. However, sales of electronics continued to fall. After the break, we'll speak with economist Dr. Helen Park about what this means for small businesses.",
    "qs": [
     {
@@ -2400,6 +2721,7 @@
   },
   {
    "id": "t4-10",
+   "ty": "tour",
    "text": "Hello, everyone. Before we begin today's tour of the chocolate factory, I'd like to go over a few rules. For hygiene reasons, please put on the hair nets and coats provided at the entrance. Photography is allowed in the visitor area, but not on the production floor. The tour will last about one hour, and at the end, you'll be able to taste some of our newest products in the gift shop. Please stay with the group at all times.",
    "qs": [
     {
@@ -2433,6 +2755,7 @@
   },
   {
    "id": "t4-11",
+   "ty": "intro",
    "text": "Good morning, everyone, and welcome to your first day at Norland Bank. My name is Jessica Park, and I'll be leading your orientation today. This morning, we'll tour the building and you'll receive your staff ID cards. After lunch, which will be served in the cafeteria on the second floor, you'll meet your team leaders. Please make sure you have a copy of your signed contract, as human resources needs to collect it before five o'clock.",
    "qs": [
     {
@@ -2466,6 +2789,7 @@
   },
   {
    "id": "t4-12",
+   "ty": "news",
    "text": "This is the Riverside Weekly traffic report. Drivers heading downtown should expect delays on Highway 9 this morning, where one lane is closed for road repairs. The work is scheduled to finish by Thursday. If possible, use Bridge Road instead. Also, remember that the city marathon takes place this Sunday, so several streets near Central Park will be closed from six A.M. until two P.M.",
    "qs": [
     {
@@ -2499,6 +2823,7 @@
   },
   {
    "id": "t4-13",
+   "ty": "msg",
    "text": "Hi, this message is for Daniel Ruiz. This is Amy from Brightway Office Supplies. You ordered fifty desk chairs for your new office, but the model you chose is currently out of stock. We can deliver a very similar model next Monday at the same price, or wait three weeks for the original chairs. Please call me back at 555-0187 before Friday so we can arrange delivery.",
    "qs": [
     {
@@ -2532,6 +2857,7 @@
   },
   {
    "id": "t4-14",
+   "ty": "intro",
    "text": "Thank you all for coming to today's workshop on time management. Before we start, please turn off your mobile phones. The session will last about two hours, with a fifteen-minute break in the middle. Coffee and snacks will be available in the hallway. At the end, I'll ask you to complete a short survey about the workshop, so we can improve future sessions.",
    "qs": [
     {
@@ -2565,6 +2891,7 @@
   },
   {
    "id": "t4-15",
+   "ty": "ann",
    "text": "Attention, passengers on Flight 482 to Toronto. Due to strong winds, our departure has been delayed by one hour. The new departure time is three forty-five. Passengers who have connecting flights in Toronto should speak to an agent at the service desk near Gate 12. We're sorry for the delay, and we'll provide meal vouchers at the gate in a few minutes.",
    "qs": [
     {
@@ -2598,6 +2925,7 @@
   },
   {
    "id": "t4-16",
+   "ty": "tour",
    "text": "Welcome to Green Valley Farm. Today's tour will take about an hour. We'll start in the greenhouse, where we grow tomatoes all year round. Then you'll see how our cheese is made. Please don't touch the animals in the fields, as some of them are very young. At the end of the tour, you can visit our shop, where all of our products are ten percent off for visitors today.",
    "qs": [
     {
@@ -2631,6 +2959,7 @@
   },
   {
    "id": "t4-17",
+   "ty": "meet",
    "text": "I'm pleased to announce that our company has won this year's Green Business Award. The judges were impressed by how much we reduced our energy use, almost thirty percent in two years. I'd like to thank the facilities team, who installed the new lighting system. To celebrate, there will be a reception in the main hall on Friday afternoon, and everyone is invited.",
    "qs": [
     {
@@ -2664,6 +2993,7 @@
   },
   {
    "id": "t4-18",
+   "ty": "msg",
    "text": "You've reached Coleman Dental Clinic. Our office is currently closed. Our regular hours are Monday to Friday, eight A.M. to six P.M., and Saturday mornings from nine to twelve. If you'd like to make an appointment, you can now book online through our website. If you have a dental emergency, please call Dr. Coleman's emergency number at 555-0144.",
    "qs": [
     {
@@ -2697,6 +3027,7 @@
   },
   {
    "id": "t4-19",
+   "ty": "news",
    "text": "Good afternoon, and thank you for listening to Business Today. My guest this afternoon is Carl Jensen, the founder of Jensen Bikes. Ten years ago, Carl started repairing bicycles in his garage. Today, his company sells electric bikes in twelve countries. Later in the show, Carl will talk about his plans to open a factory in Vietnam and answer questions from our listeners.",
    "qs": [
     {
@@ -2730,6 +3061,7 @@
   },
   {
    "id": "t4-20",
+   "ty": "meet",
    "text": "Hello, team. I want to give you a quick update on the website project. The design is finished, but testing is taking longer than planned because we found problems with the payment page. Because of this, the launch will be moved from June first to June fifteenth. I need everyone to send me a list of the problems you've found by Wednesday, so the developers can fix them.",
    "qs": [
     {
@@ -2763,6 +3095,7 @@
   },
   {
    "id": "t4-21",
+   "ty": "intro",
    "g": {
     "t": "Green Business Forum: program",
     "h": [
@@ -2826,6 +3159,7 @@
   },
   {
    "id": "t4-22",
+   "ty": "msg",
    "g": {
     "t": "Building directory",
     "h": [
@@ -2888,6 +3222,7 @@
   },
   {
    "id": "t4-23",
+   "ty": "meet",
    "g": {
     "t": "Running shoe sales (pairs)",
     "h": [
@@ -2946,6 +3281,7 @@
   },
   {
    "id": "t4-24",
+   "ty": "msg",
    "text": "Hi, Daniel, it's Rachel from the design team. I've just looked at the brochure layout you sent this morning. The photos look great, and the colours are exactly what the client asked for. About the text on the back page, though. Well, it's a first draft. Could you call me when you get a chance? I'd like to go through it with you before we send anything to the printer on Thursday.",
    "qs": [
     {
@@ -2979,6 +3315,7 @@
   },
   {
    "id": "t4-25",
+   "ty": "intro",
    "text": "Good morning, everyone. Before we start the workshop, a quick note about lunch. We'd planned to eat in the garden today, but have you seen the sky? So lunch will be served in the main hall instead. Also, the afternoon session on social media marketing has moved from room four to room two, because twice as many people signed up as we expected. Please keep your name badges with you. You'll need them to get back into the building after lunch.",
    "qs": [
     {
@@ -3006,6 +3343,74 @@
       "Room four is being repaired.",
       "The speaker arrived late.",
       "The garden is closed."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-26",
+   "ty": "ad",
+   "text": "Is your office running out of space? Let Stackwell Storage help. We offer secure, climate-controlled storage units in three sizes, and we can pick up your boxes, furniture, and files on the same day you call. Our units are open seven days a week, and every customer receives an access card that works at any of our five locations in the city. This month only, businesses that sign a six-month contract get the first month free. Call us at 555-0148 or book a pick-up on our Web site today.",
+   "qs": [
+    {
+     "q": "What is being advertised?",
+     "a": "A storage service",
+     "w": [
+      "An office cleaning company",
+      "A furniture store",
+      "A printing service"
+     ]
+    },
+    {
+     "q": "What is mentioned about the access card?",
+     "a": "It can be used at several locations.",
+     "w": [
+      "It must be renewed every month.",
+      "It is only for large units.",
+      "It costs extra."
+     ]
+    },
+    {
+     "q": "What is offered to some businesses this month?",
+     "a": "A free month",
+     "w": [
+      "A larger unit",
+      "A free access card",
+      "A discount on furniture"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t4-27",
+   "ty": "ad",
+   "text": "Thinking about learning a new language this year? At Pathway Language Center, our classes are small, with no more than eight students, so you'll speak from the very first lesson. We offer evening and weekend courses in Spanish, Japanese, and Korean, and all of our teachers are native speakers. Not sure which level is right for you? Our free online test takes just ten minutes. And here's the best part: you don't have to wait until the next term. New groups start every Monday. Visit pathwaylanguage.com to sign up.",
+   "qs": [
+    {
+     "q": "What is being advertised?",
+     "a": "A language school",
+     "w": [
+      "A travel agency",
+      "A translation service",
+      "A bookstore"
+     ]
+    },
+    {
+     "q": "Why does the speaker say, \"you don't have to wait until the next term\"?",
+     "a": "To emphasize that students can start soon",
+     "w": [
+      "To explain why the classes are small",
+      "To announce that a term has been canceled",
+      "To recommend an online test"
+     ]
+    },
+    {
+     "q": "According to the speaker, what can listeners do in ten minutes?",
+     "a": "Find out their level",
+     "w": [
+      "Watch a sample lesson",
+      "Talk to a teacher",
+      "Buy a textbook"
      ]
     }
    ]

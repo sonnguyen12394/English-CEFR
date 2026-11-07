@@ -27,7 +27,7 @@ const TO_HOW = {
 const TO_LH = '<p class="mute">🎧 Nghe rồi chọn. Đề thật chỉ nghe 1 lần (đề thử của app cũng vậy); luyện được nghe 2 lần.</p>';
 // v73: Part 2 hiện lời bài kèm loại bẫy của từng lời đáp sai (content: tr)
 const TO_TRAP = { rep: ['Lặp từ / từ gần âm', 'Lời đáp dùng lại từ (hoặc từ nghe giống) trong câu hỏi nhưng không trả lời.'], type: ['Sai loại thông tin', 'Câu hỏi hỏi một loại thông tin (khi nào, ở đâu, ai…) nhưng lời đáp nói loại khác.'],
-  yn: ['Yes / No cho câu Wh-', 'Câu hỏi When, Where, Why… không trả lời bằng Yes / No.'], rel: ['Cùng chủ đề, không trả lời', 'Nghe có vẻ liên quan nhưng không trả lời điều được hỏi.'] };
+  yn: ['Yes / No cho câu Wh-', 'Câu hỏi When, Where, Why… và câu hỏi lựa chọn "A hay B?" không trả lời bằng Yes / No.'], rel: ['Cùng chủ đề, không trả lời', 'Nghe có vẻ liên quan nhưng không trả lời điều được hỏi.'] };
 // v127 Part 1: tranh vẽ đơn giản (SVG: nền + khối + emoji) thay ảnh chụp của đề thật; khung 320 × 200 (content/toeic/p1.json)
 const TO_BG = { in: ['#efe9df', '#d8c6aa', 140], out: ['#dcefff', '#cfe5bf', 125], sea: ['#dcefff', '#8ec9ea', 120] };
 const toPic = p => { const [sky, gr, h] = TO_BG[p.bg] || TO_BG.in;
@@ -38,20 +38,43 @@ const toP2Q = x => ({ x, sec: 'p2', kind: 'mc', head: TO_LH + '<p class="mute">P
   play: { key: x.id, lines: x.lines }, why: x.q + ' → ' + x.o.map((t, i) => `${'ABC'[i]}. ${t} ${i === x.a ? '✅' : '❌ ' + (x.tr ? TO_TRAP[x.tr[i]][0] : '')}`).join(' · ') });
 // bảng / biểu đồ in trong đề cho câu "Look at the graphic" (content: g, v124); hiện ở cả 3 câu như đề thật
 const toGraph = g => `<div class="box" style="overflow-x:auto"><b style="font-size:15px">${esc(g.t)}</b><table class="tograph" style="width:100%;border-collapse:collapse;margin-top:6px;font-size:15px"><tr>${g.h.map(c => `<th style="text-align:left;padding:4px 6px">${esc(c)}</th>`).join('')}</tr>${g.r.map(r => `<tr style="border-top:1px solid var(--line)">${r.map(c => `<td style="padding:4px 6px">${esc(c)}</td>`).join('')}</tr>`).join('')}</table></div>`;
-const toTalkQs = (x, sec) => x.qs.map((q, i) => ({ x, sec, kind: 'mc', head: TO_LH + (x.g ? toGraph(x.g) : '') + `<div class="box"><p class="mute" style="margin:0">Câu ${i + 1}/${x.qs.length} của bài này${x.lines && new Set(x.lines.map(l => l[0])).size > 2 ? ' · 3 người nói' : ''}</p></div>`, q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a,
+const toTalkQs = (x, sec) => x.qs.map((q, i) => ({ x, sec, qt: q.ty, kind: 'mc', head: TO_LH + (x.g ? toGraph(x.g) : '') + `<div class="box"><p class="mute" style="margin:0">Câu ${i + 1}/${x.qs.length} của bài này${x.lines && new Set(x.lines.map(l => l[0])).size > 2 ? ' · 3 người nói' : ''}</p></div>`, q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a,
   play: x.lines ? { key: x.id, lines: x.lines } : { key: x.id, text: x.text }, why: 'Lời bài: ' + (x.lines ? x.lines.map(l => l[1]).join(' ') : x.text) }));
 const toP5Q = x => ({ x, sec: 'p5', kind: 'mc', head: `<p class="mute">Part 5 · ${TO_T5[x.t] || ''}: chọn từ / cụm điền vào chỗ trống.</p>`, q: esc(x.s).replace('-------', '<b>-------</b>'), opts: shuf(x.o), a: x.a, why: x.why });
 const toP6Text = (x, cur) => `<div class="box"><p class="mute" style="margin:0">${esc(x.kind)}</p><b style="font-size:15px">${esc(x.title)}</b><p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0">${esc(x.text).replace(/\{(\d)\}/g, (_, n) => +n - 1 === cur ? `<mark style="padding:1px 4px;border-radius:4px"><b>(${n})</b> -------</mark>` : `<b>(${n})</b> -------`)}</p></div>`;
-const toP6Qs = x => x.gaps.map((g, i) => ({ x, sec: 'p6', kind: 'mc', head: '<p class="mute">Part 6: chọn phương án cho chỗ trống được tô. Có một chỗ phải chèn cả câu.</p>' + toP6Text(x, i), q: `Chỗ (${i + 1})`, opts: shuf(g.o), a: g.a, why: g.why }));
+const toP6Qs = x => x.gaps.map((g, i) => ({ x, sec: 'p6', gt: g.t, kind: 'mc', head: '<p class="mute">Part 6: chọn phương án cho chỗ trống được tô. Có một chỗ phải chèn cả câu.</p>' + toP6Text(x, i), q: `Chỗ (${i + 1})`, opts: shuf(g.o), a: g.a, why: g.why }));
 const toDocs = x => x.docs.map(d => `<div class="box"><b style="font-size:15px">${esc(d.title)}</b><p class="tdtap" style="font-size:16px;line-height:1.6;margin:6px 0 0;white-space:pre-line">${esc(d.text)}</p></div>`).join('');
-const toP7Qs = x => x.qs.map((q, i) => ({ x, sec: 'p7', kind: 'mc', head: `<p class="mute">Part 7 · ${esc(x.kind)} · câu ${i + 1}/${x.qs.length}${x.docs.length > 1 ? ' · có câu phải đối chiếu nhiều văn bản' : ''}</p>`, q: esc(q.q), opts: shuf([q.a, ...q.w]), a: q.a, why: q.why, foot: toDocs(x) }));
+// v139: câu chèn [1]–[4] giữ thứ tự phương án như đề thật (không xáo)
+const toOpts = q => { const o = [q.a, ...q.w]; return o.every(s => /^\[\d\]$/.test(s)) ? o.sort() : shuf(o); };
+const toP7Qs = x => x.qs.map((q, i) => ({ x, sec: 'p7', qt: q.ty, kind: 'mc', head: `<p class="mute">Part 7 · ${esc(x.kind)} · câu ${i + 1}/${x.qs.length}${x.docs.length > 1 ? ' · có câu phải đối chiếu nhiều văn bản' : ''}</p>`, q: esc(q.q), opts: toOpts(q), a: q.a, why: q.why, foot: toDocs(x) }));
 // chọn bài: chưa làm / làm lâu nhất / sai nhiều trước
 const toPick = (its, n) => { const R = toSt().r; return shuf(its).sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0)).slice(0, n); };
 const toGen = { p1: n => toPick(TO.p1 || [], n).map(toP1Q), p2: n => toPick(TO.p2, n).map(toP2Q), p3: n => toPick(TO.p3, n).flatMap(x => toTalkQs(x, 'p3')), p4: n => toPick(TO.p4, n).flatMap(x => toTalkQs(x, 'p4')),
   p5: n => toPick(TO.p5, n).map(toP5Q), p6: n => toPick(TO.p6, n).flatMap(toP6Qs), p7: n => toPick(TO.p7.filter(x => x.docs.length === 1), n).flatMap(toP7Qs), p7m: n => toPick(TO.p7.filter(x => x.docs.length > 1), n).flatMap(toP7Qs) };
 // dạng Part 5 (content: t)
-const TO_T5 = { form: 'Dạng từ', verb: 'Động từ (thì, bị động, V-ing / to V)', prep: 'Giới từ', conj: 'Liên từ, từ nối', pron: 'Đại từ, mệnh đề quan hệ', struct: 'So sánh, đảo ngữ', voc: 'Từ vựng, cụm từ' };
+const TO_T5 = { form: 'Dạng từ', verb: 'Động từ (thì, bị động, V-ing / to V)', prep: 'Giới từ', conj: 'Liên từ, từ nối', pron: 'Đại từ, mệnh đề quan hệ', det: 'Từ hạn định, lượng từ', struct: 'So sánh, đảo ngữ', voc: 'Từ vựng, cụm từ' };
 const TO_PRAC = { p1: 6, p2: 10, p3: 2, p4: 2, p5: 15, p6: 1, p7: 2 };
+// v139 🏋️ bài tập theo dạng câu (tools/build-toeic.mjs gắn nhãn dạng): câu lẻ (Part 1, 2) lấy câu đúng dạng; bài nhiều câu (Part 3, 4, 6, 7) lấy 2 bài có dạng đó và làm CẢ bài
+// (kết quả lưu theo bài như luyện theo Part: hỏi một câu của bài 3 câu sẽ ghi sai số đo). Bài chưa làm / làm lâu nhất trước (toPick). [kỹ năng, biểu tượng, tên, kho, số câu / bài, cách tạo câu]
+// loại bài nói Part 4 (nhãn ty trong content/toeic/nghe.json): bài học "Part 4: Các loại bài nói" (baihoc.js)
+const TO_P4TY = { msg: 'Tin nhắn thoại', ann: 'Thông báo nơi công cộng', ad: 'Quảng cáo', news: 'Bản tin', intro: 'Giới thiệu, khai mạc, hội thảo', tour: 'Hướng dẫn tham quan', meet: 'Họp, thông báo nội bộ' };
+const toTalks = () => [...TO.p3, ...TO.p4], toTalkMk = x => toTalkQs(x, TO.p3.includes(x) ? 'p3' : 'p4'), toHasQ = (x, ...ty) => x.qs.some(q => ty.includes(q.ty));
+const TO_DR = { 'p1:people': ['L', '🖼', 'Part 1 · Tranh có người', () => TO.p1.filter(x => x.k === 'people'), 5, toP1Q], 'p1:scene': ['L', '🖼', 'Part 1 · Tranh đồ vật, cảnh', () => TO.p1.filter(x => x.k === 'scene'), 5, toP1Q],
+  'p2:wh': ['L', '🗣', 'Part 2 · Câu Wh-', () => TO.p2.filter(x => x.ty === 'wh'), 8, toP2Q], 'p2:yn': ['L', '🗣', 'Part 2 · Câu Yes / No', () => TO.p2.filter(x => x.ty === 'yn'), 8, toP2Q],
+  'p2:or': ['L', '🗣', 'Part 2 · Câu lựa chọn', () => TO.p2.filter(x => x.ty === 'or'), 8, toP2Q], 'p2:req': ['L', '🗣', 'Part 2 · Đề nghị, nhờ vả', () => TO.p2.filter(x => x.ty === 'req'), 8, toP2Q],
+  'p2:stmt': ['L', '🗣', 'Part 2 · Câu trần thuật', () => TO.p2.filter(x => x.ty === 'stmt'), 8, toP2Q],
+  'q:gist': ['L', '👥', 'Part 3–4 · Câu hỏi chung', () => toTalks().filter(x => toHasQ(x, 'gist')), 2, toTalkMk], 'q:next': ['L', '👥', 'Part 3–4 · Việc sắp làm', () => toTalks().filter(x => toHasQ(x, 'next')), 2, toTalkMk],
+  'q:imp': ['L', '💬', 'Part 3–4 · Câu hàm ý', () => toTalks().filter(x => toHasQ(x, 'imp')), 2, toTalkMk], 'q:graphic': ['L', '📊', 'Part 3–4 · Câu có bảng', () => toTalks().filter(x => toHasQ(x, 'graphic')), 2, toTalkMk],
+  t3: ['L', '👥', 'Part 3 · 3 người nói', () => TO.p3.filter(x => new Set(x.lines.map(l => l[0])).size > 2), 2, x => toTalkQs(x, 'p3')],
+  'p6:ctx': ['R', '📝', 'Part 6 · Chọn từ theo đoạn', () => TO.p6.filter(x => x.gaps.some(g => g.t === 'tense' || g.t === 'conn')), 2, toP6Qs], 'p6:ins': ['R', '📝', 'Part 6 · Chèn câu', () => TO.p6, 2, toP6Qs],
+  'q7:infer': ['R', '📰', 'Part 7 · Suy luận, câu NOT', () => TO.p7.filter(x => toHasQ(x, 'not', 'true', 'infer')), 2, toP7Qs], 'q7:syn': ['R', '📰', 'Part 7 · Từ gần nghĩa', () => TO.p7.filter(x => toHasQ(x, 'syn')), 2, toP7Qs],
+  'q7:insert': ['R', '📰', 'Part 7 · Chèn câu [1]–[4]', () => TO.p7.filter(x => toHasQ(x, 'insert')), 2, toP7Qs], 'q7:intent': ['R', '💬', 'Part 7 · Tin nhắn: ý định', () => TO.p7.filter(x => toHasQ(x, 'intent')), 2, toP7Qs] };
+function toDrill(k, back) { const D = TO && TO_DR[k]; if (!D) return toast('Chưa có bài.'); const [sk, ic, name, pool, n, mk] = D, qs = toPick(pool(), n).flatMap(mk); if (!qs.length) return toast('Chưa có bài.');
+  if (!NCLIPS.size) fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(x => { NCLIPS = new Set(x); }).catch(() => {});
+  return ieRun(`${ic} ${name}`, qs, back || (() => toSkView(sk)), 0, { R: toSt().r, home: 'TOEIC', done: (res, fr) => toLog(res, 'luyen', fr) }); }
+// khối "🎯 Luyện theo dạng câu" ở Thêm của màn Nghe / Đọc: một hàng mỗi Part, cùng một kiểu nút (.chips.tap: vùng bấm ≥ 44 px)
+const toDrRow = (lab, html) => `<p class="mute" style="margin:10px 0 2px;font-size:13px">${lab}</p><div class="chips tap">${html}</div>`;
+const toDrChips = ks => ks.map(k => `<button class="chip" data-todr="${k}">${esc(TO_DR[k][2].replace(/^Part [\d–]+ · /, ''))}</button>`).join('');
 // ôn câu Part 5 làm sai gần nhất
 const toWrong5 = () => TO.p5.filter(x => { const r = toSt().r[x.id]; return r && r.ok < r.n; });
 
@@ -225,9 +248,11 @@ function toSkView(k) { BACK = null; if (k === 'T') k = 'R'; window.CUR = { view:
     steps = [xl.step,
       { t: 'Điểm ước', v: b != null ? String(b) : '–', sub: `cần ${half}`, ok: b != null && b >= half, cur: b != null && b < half },
       { t: 'Thi thử', btn: `<button class="pri" data-tomk="${k === 'L' ? 0 : 1}">▶ ${P.min} phút</button>`, sub: lm ? `lần trước ≈ ${lm.b[k]}` : 'chưa làm' }];
-    more = k === 'L' ? [['📝 Luyện theo Part', `<div class="duo">${['p1', 'p2', 'p3', 'p4'].map(sec).join('')}</div>`], ['🎧 Về bài nghe', '<p class="mute" style="margin:0">Giọng Mỹ và Anh tự nhiên. Part 1 dùng tranh vẽ đơn giản thay ảnh chụp của đề thật. Luyện được nghe 2 lần; đề thật chỉ 1 lần.</p>']]
+    more = k === 'L' ? [['📝 Luyện theo Part', `<div class="duo">${['p1', 'p2', 'p3', 'p4'].map(sec).join('')}</div>`],
+      ['🎯 Luyện theo dạng câu', toDrRow('Part 1', toDrChips(['p1:people', 'p1:scene'])) + toDrRow('Part 2', toDrChips(['p2:wh', 'p2:yn', 'p2:or', 'p2:req', 'p2:stmt'])) + toDrRow('Part 3–4', toDrChips(['q:gist', 'q:next', 'q:imp', 'q:graphic', 't3']))], ['🎧 Về bài nghe', '<p class="mute" style="margin:0">Giọng Mỹ và Anh tự nhiên. Part 1 dùng tranh vẽ đơn giản thay ảnh chụp của đề thật. Luyện được nghe 2 lần; đề thật chỉ 1 lần.</p>']]
       : [['📝 Luyện theo Part', `<div class="duo">${['p5', 'p6', 'p7'].map(sec).join('')}<button class="big2" data-top="p7m">📑 Nhiều văn bản<small>Part 7, đối chiếu</small></button></div>`],
-        ['✏️ Part 5 theo dạng ngữ pháp', `<div class="chips">${Object.entries(TO_T5).map(([t, n]) => `<button class="chip" data-top="t:${t}">${n}</button>`).join('')}</div>${w5 ? `<button data-top="w5">🔁 Làm lại ${Math.min(15, w5)} câu Part 5 từng sai</button>` : ''}`],
+        ['🎯 Luyện theo dạng câu', toDrRow('Part 5', Object.entries(TO_T5).map(([t, n]) => `<button class="chip" data-top="t:${t}">${n}</button>`).join('')) + toDrRow('Part 6', toDrChips(['p6:ctx', 'p6:ins'])) + toDrRow('Part 7', toDrChips(['q7:infer', 'q7:syn', 'q7:insert', 'q7:intent']))
+          + (w5 ? `<button data-top="w5" style="margin-top:10px">🔁 Làm lại ${Math.min(15, w5)} câu Part 5 từng sai</button>` : '')],
         ['⏱ Luyện tốc độ', `<p class="mute" style="margin:0 0 6px">Đề thật 200 câu / 120 phút nên thiếu giờ là chuyện thường. Part 5 ~${TO_SPD.p5[0]} giây / câu, Part 7 ~${TO_SPD.p7[0]} giây / câu.</p><div class="duo">${Object.entries(TO_SPD).map(([s, [secs]]) => { const r = o.spd.filter(x => x.s === s).slice(-1)[0]; return `<button class="big2" data-tospd="${s}">${TO_SEC[s][1].replace(/: .*/, '')} · ${secs}s/câu<small>${r ? `lần trước ${r.avg}s, đúng ${r.ok}/${r.n}` : 'chưa làm'}</small></button>`; }).join('')}</div>`]]; }
   $app.innerHTML = '<div id="ie"></div>' + xSkill({ back: '<div class="row top"><button class="link" data-tohome>‹ TOEIC</button><span></span></div>', h1: `${ic} ${vi} <span class="mute" style="font-size:18px">· TOEIC ${tg}</span>`,
     steps, learn: xl.learn, prac: { attr: `data-tobt="${k}"`, sub: !nx ? 'chưa có bài' : toRes(nx) ? 'làm lại bài cũ nhất' : 'bài kế tiếp' }, les: xl,
@@ -246,6 +271,7 @@ function toClick(e) { const g = s => e.target.closest(s), o = toSt(), sk = (wind
   if ((b = g('[data-tomk]'))) return toMock(b.dataset.tomk === 'all' ? [0, 1] : [+b.dataset.tomk]);
   if ((b = g('[data-tovoc]'))) { scrollTo(0, 0); return toVocRun(b.dataset.tovoc, back); }
   if ((b = g('[data-tospd]'))) { scrollTo(0, 0); return toSpeed(b.dataset.tospd, back); }
+  if ((b = g('[data-todr]'))) { scrollTo(0, 0); return toDrill(b.dataset.todr, back); }   // v139 bài tập theo dạng câu
   if ((b = g('[data-top]'))) { const s = b.dataset.top; scrollTo(0, 0); if (!NCLIPS.size) fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(k => { NCLIPS = new Set(k); }).catch(() => {});
     if (s.startsWith('t:')) { const t = s.slice(2), qs = toPick(TO.p5.filter(x => x.t === t), 15).map(toP5Q); return ieRun('✏️ Part 5 · ' + TO_T5[t], qs, back, 0, { R: o.r, home: 'TOEIC', done: (res, fr) => toLog(res, 'luyen', fr) }); }
     const qs = s === 'w5' ? shuf(toWrong5()).slice(0, 15).map(toP5Q) : toGen[s](s === 'p7m' ? 1 : TO_PRAC[s]); if (!qs.length) return toast('Chưa có bài.');

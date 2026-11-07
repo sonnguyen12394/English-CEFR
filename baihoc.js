@@ -97,21 +97,46 @@ const XL_TXT = {
         how: ['Nêu ý kiến → giải thích → ví dụ → nhìn mặt kia ("On the other hand…").', 'Nói về con người nói chung (people, society), không chỉ chuyện riêng của mình.', "Dùng câu nêu ý kiến, so sánh: I'd say…, compared with…, it depends on…"],
         ex: { q: 'What qualities make someone a good role model?', m: "I'd say the most important quality is consistency. A good role model doesn't just give advice; they actually live by it. For example, a teacher who tells students to read more should be a keen reader too. Honesty matters as well, because young people quickly notice when adults say one thing and do another.", note: 'Ý kiến (consistency) → giải thích → ví dụ (a teacher…) → thêm ý thứ hai (honesty) có lý do.' } }] },
   to: {
+    // v139 (TOEIC đủ dạng câu): 33 bài theo thứ tự đề thật; mỗi dạng của bảng dạng câu (specs/001-toeic-du-dang) một bài, ví dụ + làm thử lấy theo nhãn dạng (tools/build-toeic.mjs)
     L: [
-      { k: 'p1', ic: '🖼', t: 'Part 1: Tả tranh', u: 'p1', what: 'Đề thật 6 câu. Mỗi câu một ảnh (app dùng tranh vẽ). Nghe 4 câu tả (đề không in chữ), chọn câu tả đúng nhất.',
-        how: ['Trước khi nghe: nhìn ai, đang làm gì, vật ở đâu; nghĩ sẵn động từ (typing, holding, stacked).', 'Nghe từng câu, loại ngay câu sai một chi tiết: sai người, sai việc, sai vị trí.', '"Is being + V3" = đang có người làm việc đó; "has been + V3" = đã xong, tranh không cần có người.'],
-        trap: ['Câu có tên vật trong tranh nhưng sai hành động (cây có trong tranh, nhưng không ai đang tưới).', 'Câu nói về người khi tranh không có người.'] },
-      { k: 'p2', ic: '🗣', t: 'Part 2: Hỏi – đáp', u: 'p2', what: 'Đề thật 25 câu. Nghe một câu hỏi hoặc câu nói và 3 lời đáp (không in chữ), chọn lời đáp hợp nhất.',
-        how: ['Nghe kỹ 1–2 từ đầu câu: When → thời gian, Where → nơi, Who → người, Why → lý do, How long / How much → số.', "Câu đề nghị, nhờ vả (Could you…? Why don't we…?) có lời đáp riêng: Sure. / That's a good idea. / I'm afraid I can't.", "Lời đáp gián tiếp vẫn đúng: \"I'm not sure, ask Tom.\" / \"It hasn't been decided yet.\""] },
+      { k: 'p1', ic: '🖼', t: 'Part 1: Tranh có người', u: 'p1', what: 'Đề thật 6 câu, mỗi câu một ảnh (app dùng tranh vẽ). Phần lớn là tranh có người: nghe 4 câu tả (đề không in chữ), chọn câu tả đúng việc người trong tranh đang làm.',
+        how: ['Trước khi nghe: nhìn ai, đang làm gì, cầm gì, ở đâu; nghĩ sẵn động từ (typing, holding, reaching for, shaking hands).', 'Câu đúng thường ở hiện tại tiếp diễn: "A woman is standing…", "They are looking at…".', 'Nghe từng câu, loại ngay câu sai một chi tiết: sai người, sai việc, sai vị trí.'],
+        trap: ['Câu có tên vật trong tranh nhưng sai hành động (cây có trong tranh, nhưng không ai đang tưới).', '"wearing" (đang mặc sẵn) khác "putting on" (đang mặc vào): tranh người đang đội mũ sẵn thì "is putting on a hat" là sai.'] },
+      { k: 'p1o', ic: '🖼', t: 'Part 1: Tranh đồ vật, cảnh', what: 'Tranh không có người, hoặc người chỉ là phụ: hàng hoá, bàn ghế, xe cộ, cảnh ngoài trời. Câu đúng tả vị trí và trạng thái của vật.',
+        how: ['Nhìn vật chính và vị trí: on the shelf, in a row, next to, along the path.', '"has been / have been + V3" (Some boxes have been stacked) = việc đã xong, giờ chỉ còn trạng thái: không cần có người.', '"There is / There are…", "be + V3" (The table is set) cũng tả trạng thái.'],
+        trap: ['"is being + V3" (A table is being set) = đang có người làm việc đó: tranh không có người thì câu này sai.', 'Câu nói về người ("A man is riding…") khi tranh không có người.'] },
+      { k: 'p2', ic: '🗣', t: 'Part 2: Câu hỏi Wh-', u: 'p2', what: 'Đề thật 25 câu: nghe một câu hỏi hoặc câu nói và 3 lời đáp (không in chữ), chọn lời đáp hợp nhất. Gần một nửa là câu hỏi Wh- (Who, When, Where, What, Which, How, Why).',
+        how: ['Nghe kỹ 1–2 từ đầu câu: When → thời gian, Where → nơi, Who → người, Why → lý do, How long / How much / How many → số.', 'Câu Wh- không trả lời bằng Yes / No: lời đáp mở đầu bằng Yes, No là loại ngay.', 'Lời đáp gián tiếp vẫn đúng: "I\'m not sure, ask Tom." / "It hasn\'t been decided yet."'] },
+      { k: 'p2-yn', ic: '🗣', t: 'Part 2: Câu hỏi Yes / No', what: 'Câu hỏi mở đầu bằng trợ động từ (Is, Do, Have, Can, Will…), câu hỏi phủ định (Isn\'t…? Didn\'t…?), câu hỏi đuôi (…, isn\'t it?) và câu hỏi gián tiếp (Do you know where…?).',
+        how: ['Lời đáp có thể có Yes / No, hoặc bỏ Yes / No mà đáp thẳng ý: "Have you sent the invoice?" → "I\'ll do it this afternoon."', 'Câu hỏi phủ định, câu hỏi đuôi: đáp như câu hỏi thường (đúng là Yes, không là No); đừng để chữ "not" làm rối.', 'Câu hỏi gián tiếp "Do you know where…?": lời đáp tốt cho luôn thông tin (nơi, giờ), không chỉ "Yes, I do".'],
+        trap: ['Lời đáp có Yes / No nhưng phần sau nói chuyện khác.', 'Lời đáp lặp lại từ trong câu hỏi (budget, finished) mà không trả lời.'] },
+      { k: 'p2-or', ic: '🗣', t: 'Part 2: Câu hỏi lựa chọn', what: 'Câu hỏi có "A or B?" ("Should we order now or wait for Tom?"). Lời đáp chọn A, chọn B, cả hai, không cái nào, hoặc đưa cách thứ ba.',
+        how: ['Nghe và nhớ cả hai lựa chọn A, B.', 'Lời đáp đúng ít khi lặp nguyên chữ: "Either day works for me." / "Neither, I have to stay here." / "The second one, please."', 'Lời đáp đưa cách thứ ba vẫn đúng: "It\'s been moved to the hotel next door."'],
+        trap: ['Lời đáp mở đầu bằng Yes / No: câu hỏi lựa chọn không trả lời Yes / No.', 'Lời đáp lặp một từ trong câu hỏi (conference, meet) nhưng không chọn gì.'] },
+      { k: 'p2-req', ic: '🗣', t: 'Part 2: Đề nghị, nhờ vả, mời', what: 'Câu nhờ (Could you…? Would you mind…?), câu gợi ý (Why don\'t we…? Let\'s… How about…?), câu mời, đề nghị giúp (Would you like…? Do you want me to…?).',
+        how: ['Đây không phải câu hỏi lấy thông tin: lời đáp là đồng ý, từ chối, hoặc hỏi lại cho rõ.', 'Đồng ý: "Sure." / "No problem." / "That\'s a good idea." Từ chối lịch sự: "I\'m afraid I can\'t." / "Thanks, but I\'ve already…".', '"Why don\'t we…?" là gợi ý, không hỏi lý do: lời đáp "Because…" là bẫy.', '"Would you mind…?" muốn đồng ý thì nói "Not at all." / "No, go ahead."'],
+        trap: ['Lời đáp hiểu nhầm "Why don\'t we…?" là câu hỏi lý do.', 'Lời đáp lặp từ trong câu (taxi, boxes) nhưng không đồng ý hay từ chối.'] },
+      { k: 'p2-st', ic: '🗣', t: 'Part 2: Câu trần thuật', what: 'Người nói không hỏi mà nêu một việc: "The printer is out of toner again." Đề thật có khoảng 3–4 câu như vậy, thường là câu khó nhất của Part 2.',
+        how: ['Nghĩ xem người nói đang báo tin, phàn nàn hay cần giúp. Lời đáp tự nhiên là đề nghị giúp, hỏi lại, hoặc cho thêm thông tin.', '"I can\'t find my badge." → "Have you checked your desk?"; "Ms. Patel will be away next week." → "Who should I contact while she\'s away?"', 'Lời đáp là một câu hỏi vẫn có thể đúng: kiểu này rất hay gặp.'],
+        trap: ['Lời đáp lặp lại từ trong câu nói (third floor, office) nhưng không đáp lại ý.', 'Lời đáp cùng chủ đề nhưng không nối được ý ("This printer is easy to use.").'] },
       { k: 'p2t', ic: '🪤', t: 'Part 2: 4 kiểu bẫy', u: ['tr:rep', 'tr:type', 'tr:yn', 'tr:rel'], what: 'Mỗi câu Part 2 có 2 lời đáp sai, thường rơi vào 4 kiểu bẫy (ô 🪤 bên dưới). Nhận ra bẫy là loại được lời đáp sai rất nhanh.' },
-      { k: 'p3', ic: '👥', t: 'Part 3: Hội thoại', u: 'p3', what: 'Đề thật 13 đoạn hội thoại (2 hoặc 3 người), mỗi đoạn 3 câu hỏi in sẵn, 4 phương án.',
-        how: ['Lúc đề đọc hướng dẫn: đọc trước 3 câu hỏi, gạch từ hỏi (what problem, where, what will … do next).', 'Câu hỏi theo thứ tự lời nói: câu 1 ở đầu bài, câu 3 ở cuối (hay hỏi việc sắp làm).', 'Phương án đúng thường diễn đạt lại lời nói ("the printer keeps jamming" → A printer is not working).', 'Hội thoại 3 người: câu hỏi gọi tên ("What does Lisa say…?"); nhớ ai nói gì theo giọng.'] },
-      { k: 'g', ic: '📊', t: 'Câu có bảng (Part 3, 4)', what: 'Một số bài Part 3, 4 đi kèm bảng, lịch hay sơ đồ nhỏ. Câu hỏi mở đầu bằng "Look at the graphic."',
-        how: ['Nhìn bảng trước khi nghe: có những cột nào.', 'Phương án là các ô của MỘT cột; lời nói thường nhắc ô ở CỘT KHÁC cùng hàng (giờ, số chỗ, tên phòng).', 'Đừng chọn ngay ô vừa nghe đọc lên: dò sang cột của phương án.'] },
+      { k: 'p3', ic: '👥', t: 'Part 3: Hội thoại', u: 'p3', what: 'Đề thật 13 đoạn hội thoại (2 hoặc 3 người), mỗi đoạn 3 câu hỏi in sẵn, 4 phương án. Câu hỏi chi tiết (ai, khi nào, vì sao, vấn đề gì) chiếm nhiều nhất.',
+        how: ['Lúc đề đọc hướng dẫn: đọc trước 3 câu hỏi, gạch từ hỏi (what problem, where, what will … do next).', 'Câu hỏi theo thứ tự lời nói: câu 1 ở đầu bài, câu 3 ở cuối (hay hỏi việc sắp làm).', 'Phương án đúng thường diễn đạt lại lời nói ("the printer keeps jamming" → A machine is not working).', 'Hội thoại 3 người: câu hỏi gọi tên ("What does Lisa say…?"); nhớ ai nói gì theo giọng.'] },
+      { k: 'gist', ic: '🎯', t: 'Part 3–4: Câu hỏi chung', what: 'Câu hỏi về cả bài: nói về chuyện gì, gọi điện để làm gì, ở đâu, người nói / người nghe là ai. Thường là câu đầu tiên của mỗi bài.',
+        how: ['Nghe kỹ 1–2 câu đầu: chủ đề, nơi chốn, mục đích hay được nói ngay.', 'Đáp án thường là từ khái quát: "the printer won\'t print at all" → "A machine is broken"; "Good afternoon, Riverside Hotel" → "At a hotel".', 'Nơi chốn, nghề nghiệp đoán qua từ khoá: reservation, check-in → khách sạn; return, receipt → cửa hàng; webinar, workshop → buổi học.'],
+        trap: ['Phương án nhắc đúng một chi tiết trong bài nhưng không phải ý chính của cả bài.'] },
+      { k: 'next', ic: '⏭', t: 'Part 3–4: Việc sắp làm, đề nghị', what: 'Câu hỏi về việc người nói sẽ làm, điều họ gợi ý hay đề nghị giúp, hoặc việc người nghe được yêu cầu làm: "What will the man do next?", "What does the woman suggest?", "What are listeners asked to do?". Thường là câu cuối của bài.',
+        how: ['Nghe kỹ 1–2 câu cuối: việc sắp làm hay nằm ở đó (I\'ll…, Let me…, I\'m going to…).', 'Gợi ý, đề nghị có dấu hiệu: Why don\'t you…, You should…, I can…, Would you like me to…; yêu cầu: Please…, Make sure you…', 'Phân biệt AI làm: hỏi "What will the man do?" thì tìm câu người nam nói "I\'ll…", không lấy việc người nữ làm.'],
+        trap: ['Phương án là việc NGƯỜI KIA sẽ làm.', 'Phương án là việc đã làm xong, không phải việc sắp làm.'] },
       { k: 'imp', ic: '💬', t: 'Câu hàm ý (Part 3, 4)', what: 'Câu hỏi trích một câu nói và hỏi người nói ngụ ý gì: "What does the woman imply when she says, \'…\'?" hoặc "Why does the speaker say, \'…\'?"',
         how: ['Đọc trước câu được trích; nghĩ vài nghĩa có thể có.', 'Nghe câu trước và sau câu được trích: nghĩa nằm ở ngữ cảnh, không ở nghĩa đen.', 'Phương án dịch đúng nghĩa đen của câu trích thường là bẫy.'] },
+      { k: 'g', ic: '📊', t: 'Câu có bảng (Part 3, 4)', what: 'Một số bài Part 3, 4 đi kèm bảng, lịch hay sơ đồ nhỏ. Câu hỏi mở đầu bằng "Look at the graphic."',
+        how: ['Nhìn bảng trước khi nghe: có những cột nào.', 'Phương án là các ô của MỘT cột; lời nói thường nhắc ô ở CỘT KHÁC cùng hàng (giờ, số chỗ, tên phòng).', 'Đừng chọn ngay ô vừa nghe đọc lên: dò sang cột của phương án.'] },
       { k: 'p4', ic: '📢', t: 'Part 4: Bài nói ngắn', u: 'p4', what: 'Đề thật 10 bài nói của một người (thông báo, tin nhắn thoại, quảng cáo, giới thiệu diễn giả), mỗi bài 3 câu hỏi.',
-        how: ['Câu 1 hay hỏi mục đích hoặc người nói là ai: nghe kỹ 1–2 câu đầu.', 'Đọc câu hỏi trước để đoán loại bài (thông báo ở sân bay, tin nhắn công việc…).', 'Câu cuối hay hỏi người nghe nên làm gì tiếp (call back, visit the website).'] }],
+        how: ['Câu 1 hay hỏi mục đích hoặc người nói là ai: nghe kỹ 1–2 câu đầu.', 'Đọc câu hỏi trước để đoán loại bài (thông báo ở sân bay, tin nhắn công việc…).', 'Câu cuối hay hỏi người nghe nên làm gì tiếp (call back, visit the website).'] },
+      { k: 'p4-ty', ic: '📻', t: 'Part 4: Các loại bài nói', what: 'Bài nói Part 4 lặp lại vài loại: tin nhắn thoại, thông báo nơi công cộng, quảng cáo, bản tin (giao thông, kinh doanh), giới thiệu / khai mạc / hội thảo, hướng dẫn tham quan, họp nội bộ. Nhận ra loại bài từ câu mở đầu thì đoán trước được câu hỏi.',
+        how: ['Tin nhắn thoại ("Hi, this is… I\'m calling about…"): ai gọi → vì sao gọi → muốn người nghe làm gì (gọi lại, xác nhận).', 'Thông báo ("Attention, passengers / shoppers"): ở đâu → thay đổi gì (trễ, đóng cửa) → người nghe nên làm gì.', 'Quảng cáo ("Are you looking for…?"): bán gì → điểm hay → ưu đãi (giảm giá, miễn phí) → liên hệ thế nào.', 'Bản tin ("And now for the traffic report"): chủ đề → nguyên nhân → lời khuyên → tin tiếp sau quảng cáo.', 'Giới thiệu, hội thảo, tham quan ("Welcome to…"): người nghe là ai → lịch trình → lưu ý (mang gì, không được làm gì).'],
+        trap: ['Nhận sai loại bài thì đoán sai người nghe ("Who most likely are the listeners?") và nơi chốn.'] }],
     R: [
       { k: 'p5-form', ic: '✏️', t: 'Part 5: Dạng từ', u: 'p5:form', what: 'Part 5 đề thật 30 câu: điền một từ hay cụm vào câu. Dạng từ: 4 phương án cùng gốc khác đuôi (-tion, -ive, -ly, -ed).',
         how: ['Không cần dịch cả câu: nhìn từ ngay trước và sau chỗ trống.', 'Trước danh từ → tính từ; sau mạo từ hay tính từ → danh từ; bổ nghĩa cho động từ, tính từ → trạng từ (-ly).', 'Sau "be", "become", "seem" → tính từ.'] },
@@ -123,19 +148,35 @@ const XL_TXT = {
         how: ['Xem quan hệ hai vế: ngược ý → although / however; nguyên nhân → because / since; điều kiện → unless / if.', 'Sau chỗ trống là mệnh đề (có động từ) → liên từ (although, because); chỉ là danh từ → giới từ (despite, because of).'] },
       { k: 'p5-pron', ic: '✏️', t: 'Part 5: Đại từ, mệnh đề quan hệ', u: 'p5:pron', what: 'Chọn đại từ (he, him, his, himself) hoặc từ quan hệ (who, which, whose, that).',
         how: ['Chủ ngữ → he / they; tân ngữ → him / them; trước danh từ → his / their; tự làm cho mình → himself.', 'Người → who; vật → which; sở hữu → whose.'] },
+      { k: 'p5-det', ic: '✏️', t: 'Part 5: Từ hạn định, lượng từ', u: 'p5:det', what: 'Chọn từ đứng trước danh từ để chỉ số lượng: each, every, all, most, some, another, other, the others, few, little, much, many, the number of.',
+        how: ['Nhìn danh từ sau chỗ trống: số ít, số nhiều hay không đếm được.', 'each / every / another + số ít; all / most / many / few / other + số nhiều; much / little + không đếm được.', 'Có "of the" phía sau: most of the, all of the, each of the, some of the (không nói every of, almost of).', 'the others đứng một mình (= những cái còn lại); other cần danh từ theo sau.'],
+        trap: ['almost là trạng từ: nói "almost all of", không nói "almost of".', 'the number of + danh từ số nhiều nhưng động từ chia số ít: "The number of customers has doubled."'] },
       { k: 'p5-struct', ic: '✏️', t: 'Part 5: So sánh, đảo ngữ', u: 'p5:struct', what: 'So sánh hơn và nhất (more efficient than, the most), cấu trúc đặc biệt (not only … but also, hardly had …).',
         how: ['Có "than" → so sánh hơn; có "the … of / in" → so sánh nhất.', 'Đầu câu là Not only / Rarely / Hardly / Only after → trợ động từ đứng trước chủ ngữ.'] },
       { k: 'p5-voc', ic: '✏️', t: 'Part 5: Từ vựng, cụm từ', u: 'p5:voc', what: '4 phương án cùng loại từ, khác nghĩa. Chọn từ hợp nghĩa và hợp cụm (meet a deadline, place an order).',
         how: ['Đọc cả câu, xem từ đi kèm chỗ trống.', 'Học từ theo cụm công sở, không học từng từ lẻ.'] },
-      { k: 'p6', ic: '📝', t: 'Part 6: Điền đoạn văn', u: 'p6', what: 'Đề thật 4 đoạn văn (email, thông báo), mỗi đoạn 4 chỗ trống. Có một chỗ phải chọn CẢ CÂU hợp mạch văn.',
-        how: ['Chỗ chọn từ: như Part 5, nhưng phải xem câu trước và sau (thì của cả đoạn, đại từ chỉ ai).', 'Chỗ chọn câu: câu chèn phải nối ý câu trước và câu sau; đọc cả đoạn.'] },
-      { k: 'p7', ic: '📰', t: 'Part 7: Một văn bản', u: 'p7', what: 'Đọc email, quảng cáo, thông báo, chuỗi tin nhắn…, mỗi văn bản 2–4 câu hỏi.',
-        how: ['Đọc câu hỏi trước, rồi tìm chỗ trả lời trong bài (dò tên, số, ngày).', 'Câu "NOT true / NOT mentioned": loại dần 3 phương án có trong bài.', 'Câu chèn câu ("In which position…?"): xem từ nối và đại từ của câu được chèn.'] },
-      { k: 'p7m', ic: '📑', t: 'Part 7: Nhiều văn bản', u: 'p7', what: '2–3 văn bản liên quan (email + lịch, quảng cáo + đơn hàng), 5 câu hỏi. Ít nhất một câu phải ĐỐI CHIẾU thông tin của hai văn bản.',
-        how: ['Đọc tiêu đề từng văn bản: mỗi văn bản là gì, ai gửi ai.', 'Câu đối chiếu: tìm ý ở văn bản 1, rồi dò chi tiết khớp ở văn bản 2 (vd. số người trong đơn + số bàn trong quảng cáo).'] },
+      { k: 'p6', ic: '📝', t: 'Part 6: Chọn từ theo cả đoạn', u: 'p6', what: 'Đề thật 4 đoạn văn (email, thông báo), mỗi đoạn 4 chỗ trống: 3 chỗ chọn từ / cụm, 1 chỗ chọn cả câu. Nhiều chỗ chọn từ phải đọc câu trước, câu sau mới làm được: thì của động từ, từ nối giữa hai câu, đại từ chỉ ai.',
+        how: ['Thì theo ngữ cảnh: câu chứa chỗ trống không có dấu hiệu thời gian thì tìm ở câu trước / sau (last Saturday → quá khứ; starting next month → tương lai).', 'Từ nối đầu câu (However, In addition, As a result, For example): xem câu trước và câu này quan hệ thế nào: đối lập, thêm ý, kết quả, ví dụ.', 'Đại từ (it, they, this): tìm danh từ được nhắc trước đó.'],
+        trap: ['Chọn thì chỉ theo câu chứa chỗ trống: phương án đúng ngữ pháp trong câu nhưng sai thời gian của cả đoạn.'] },
+      { k: 'p6-ins', ic: '🧩', t: 'Part 6: Chèn câu', what: 'Mỗi đoạn Part 6 có một chỗ phải chọn CẢ CÂU. Cả 4 câu đều nói về chủ đề của đoạn; chỉ một câu nối được câu trước và câu sau.',
+        how: ['Đọc câu ngay trước và ngay sau chỗ trống; câu đúng phải nối được CẢ HAI.', 'Soát dấu hiệu nối: đại từ (it, this, these), từ nối (also, in addition, for example, however), thì của động từ.', 'Loại câu ngược ý đoạn văn: sai thời gian (đã xong / chưa làm), trái với câu trước hoặc câu sau, nhắc điều chưa được giới thiệu.'],
+        trap: ['Câu cùng chủ đề, có từ giống trong đoạn, nhưng ngược với một chi tiết ở câu sau.', '"These / The…" nhắc tới thứ chỉ được giới thiệu ở câu SAU chỗ trống.'] },
+      { k: 'p7', ic: '📰', t: 'Part 7: Mục đích, chi tiết', u: 'p7', what: 'Đọc email, quảng cáo, thông báo, bài báo…, mỗi văn bản 2–4 câu hỏi. Hay gặp nhất: hỏi mục đích văn bản và hỏi chi tiết (ai, khi nào, bao nhiêu).',
+        how: ['Đọc câu hỏi trước, rồi tìm chỗ trả lời trong bài (dò tên, số, ngày).', 'Câu mục đích ("What is the purpose of…?", "Why was the e-mail sent?"): thường nằm ở 1–2 câu đầu.', 'Phương án đúng diễn đạt lại lời trong bài, ít khi chép nguyên văn.'] },
+      { k: 'p7-inf', ic: '🔍', t: 'Part 7: Câu suy luận, câu NOT', what: 'Câu suy luận: "What is suggested / implied about…?", "Who most likely…?". Câu xác nhận: "What is indicated / stated about…?". Câu NOT: "What is NOT mentioned…?". Cả ba loại phải soát từng phương án với bài.',
+        how: ['Câu NOT: tìm 3 phương án CÓ trong bài, phương án còn lại là đáp án.', 'Câu "indicated / stated": phương án đúng là điều bài nói rõ (được diễn đạt lại).', 'Câu suy luận: không câu nào nói thẳng; ghép 1–2 chi tiết (hoàn đủ tiền cọc khi huỷ trước hơn 7 ngày → huỷ trước 5 ngày thì không được hoàn đủ).', 'Làm các câu này sau câu chi tiết: lúc đó đã đọc phần lớn bài.'],
+        trap: ['Câu suy luận: phương án đúng ngoài đời nhưng bài không cho biết.', 'Câu NOT: chọn nhầm một điều có trong bài vì không soát hết các phương án.'] },
+      { k: 'p7-syn', ic: '🔤', t: 'Part 7: Từ gần nghĩa nhất', what: '"In the e-mail, the word "address" is closest in meaning to…". Từ được hỏi thường có nhiều nghĩa; phải chọn nghĩa đúng ở câu đó.',
+        how: ['Tìm từ trong bài, đọc cả câu chứa nó.', 'Thay từng phương án vào câu: phương án đúng giữ nguyên ý câu.', 'Xem từ ở đây nói về việc gì: address a problem = giải quyết; address a letter = ghi địa chỉ.'],
+        trap: ['Phương án là nghĩa quen nhất của từ nhưng không hợp câu này ("The change follows a survey": follow ≠ obey).'] },
+      { k: 'p7-ins', ic: '🧩', t: 'Part 7: Chèn câu vào [1]–[4]', what: '"In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?" Bài có 4 vị trí đánh dấu; chọn chỗ câu cho sẵn nối được nhất.',
+        how: ['Đọc câu cho sẵn trước: tìm đại từ (them, those, this), từ nối (also, however), chi tiết nối được với câu nào.', 'Thử câu ở từng vị trí: câu trước phải giới thiệu điều câu chèn nhắc tới; câu sau phải đi tiếp được.', 'Làm câu này sau cùng của bài: lúc đó đã hiểu ý từng đoạn.'],
+        trap: ['Vị trí có từ giống câu chèn (study rooms – study quietly) nhưng đại từ không chỉ được về ai.'] },
       { k: 'p7c', ic: '💬', t: 'Part 7: Chuỗi tin nhắn, câu ý định', u: 'p7', what: 'Part 7 có chuỗi tin nhắn hoặc trò chuyện trực tuyến (2–4 người, có giờ gửi). Luôn có câu hỏi ý định: "At 10:15, what does Ms Lee most likely mean when she writes, \'…\'?"',
         how: ['Đọc tin trước và sau câu được trích: nghĩa nằm ở ngữ cảnh, không ở nghĩa đen.', 'Nhớ ai nói với ai: mỗi tin có tên và giờ.', 'Câu trích thường ngắn, thân mật ("Sure thing", "That works"): đoán ý định (đồng ý, từ chối, nhắc việc…).'],
         trap: ['Phương án dịch đúng nghĩa đen của câu trích nhưng sai ý trong cuộc trò chuyện.'] },
+      { k: 'p7m', ic: '📑', t: 'Part 7: Nhiều văn bản', u: 'p7', what: '2–3 văn bản liên quan (email + lịch, quảng cáo + đơn hàng), 5 câu hỏi. Ít nhất một câu phải ĐỐI CHIẾU thông tin của hai văn bản.',
+        how: ['Đọc tiêu đề từng văn bản: mỗi văn bản là gì, ai gửi ai.', 'Câu đối chiếu: tìm ý ở văn bản 1, rồi dò chi tiết khớp ở văn bản 2 (vd. số người trong đơn + số bàn trong quảng cáo).'] },
       { k: 'time', ic: '⏱', t: 'Quản lý giờ Đọc', u: ['spd:p5', 'spd:p7'], what: 'Phần Đọc 100 câu trong 75 phút. Sai không bị trừ điểm: đừng bỏ trống câu nào.',
         how: ['Part 5 khoảng 20 giây một câu (~10 phút), Part 6 ~8 phút, dành phần còn lại (~55 phút) cho Part 7.', 'Câu nào quá lâu thì đoán, đánh dấu, làm tiếp.'] }],
     V: [
@@ -335,28 +376,37 @@ function xlIeS(d) { let html = '';
   else if (d.ex) html = `<div class="box"><b>❓ ${esc(d.ex.q)}</b></div><details class="box" open><summary><b>🗣 Câu trả lời mẫu</b> ${kSay(d.ex.m)}</summary><p style="margin:6px 0 0">${esc(d.ex.m)}</p><p class="mute" style="margin:6px 0 0">${esc(d.ex.note)}</p></details>`;
   return { html, tq: xlMcq(XL_TXT.mcq[d.k]) }; }
 
-// TOEIC: ví dụ = bài cuối danh sách của dạng đó; làm thử = 3 câu cùng dạng (ưu tiên bài đã làm)
+// TOEIC (v139, đủ dạng câu): ví dụ + làm thử lấy theo nhãn dạng (tools/build-toeic.mjs). Câu lẻ (Part 1, 2, 5) = câu cuối của dạng + 3 câu khác cùng dạng (ưu tiên câu đã làm);
+// dạng nằm trong bài nhiều câu (Part 3, 4, 6, 7) = câu dạng đó của bài cuối có dạng đó + câu dạng đó của 3 bài khác. "🏋️ Bài tập dạng này" mở bài tập theo dạng (toeic.js TO_DR) khi có.
 function xlTo(sk) { if (typeof TO === 'undefined' || !TO) return []; const R = toSt().r;
-  const talks = () => [...TO.p3.map(x => [x, 'p3']), ...TO.p4.map(x => [x, 'p4'])], isImp = q => /\bimply\b|Why does the (wo)?man say|Why does the speaker say|mean when/i.test(q.q), isG = q => /^Look at the graphic/i.test(q.q);
-  const undone = (L, f) => (L.find(x => !R[x.id]) || L[0] || {}).id;
-  return (XL_TXT.to[sk] || []).map(d => { const o = { ...d, id: 'to:' + sk + ':' + d.k, ex: 'toeic', sk, how: d.how || [] };
-    const set = (its, mk, pickQ) => { if (!its.length) return []; const ex = xlLast(its), rest = its.filter(x => x !== ex), tx = rest.length ? xlPrefer(rest, R)[0] : ex, eq = mk(ex), e = pickQ ? pickQ(eq) || eq[0] : eq[0];
-      return [e, ...(tx === ex ? eq.filter(q => q !== e) : mk(tx)).slice(0, XL_TRY)]; };
-    const k = d.k;
-    if (k === 'p1') { o.qs = () => [xlLast(TO.p1 || []), ...xlPrefer((TO.p1 || []).slice(0, -1), R).slice(0, XL_TRY)].filter(Boolean).map(toP1Q); o.go = 'data-top="p1"'; }
-    if (k === 'p2' || k === 'p2t') { o.qs = () => { const L = k === 'p2t' ? TO.p2.filter(x => (x.tr || []).filter(Boolean).length >= 2) : TO.p2.filter(x => /^(When|Where|Who|Why|How|What|Which)\b/.test(x.q)); const e = xlLast(L.length ? L : TO.p2);
-      return [e, ...xlPrefer(TO.p2.filter(x => x !== e), R).slice(0, XL_TRY)].map(toP2Q); }; o.go = 'data-top="p2"'; if (k === 'p2t') { o.how = ['Nghe câu hỏi trước, đoán loại thông tin cần (thời gian, nơi, người, lý do).', 'Với mỗi lời đáp, hỏi: "nó có trả lời đúng điều được hỏi không?" Rơi vào một kiểu bẫy thì loại ngay.']; o.trap = Object.values(TO_TRAP).map(([t, s]) => t + ': ' + s); } }
-    if (k === 'p3' || k === 'p4') { const its = () => TO[k].filter(x => !x.g && !x.qs.some(isImp) && (k === 'p4' || new Set((x.lines || []).map(l => l[0])).size <= 2)); o.qs = () => set(its(), x => toTalkQs(x, k)); o.go = `data-top="${k}"`; }
-    if (k === 'g') { const its = talks().filter(([x]) => x.g); o.qs = () => { if (!its.length) return []; const gq = ([x, s]) => toTalkQs(x, s).find(isG), e = gq(xlLast(its)); return [e, ...xlPrefer(its.slice(0, -1).map(a => a[0]), R).map(x => its.find(a => a[0] === x)).slice(0, XL_TRY).map(gq)].filter(Boolean); };
-      o.go = its.length ? `data-tobai="L|${undone(its.map(a => a[0]))}"` : ''; }
-    if (k === 'imp') { const its = talks().filter(([x]) => x.qs.some(isImp)); o.qs = () => { const iq = ([x, s]) => toTalkQs(x, s).find(q => isImp(q)); return [...its.slice(-1), ...its.slice(0, -1)].slice(0, XL_TRY + 1).map(iq).filter(Boolean); };
-      o.go = its.length ? `data-tobai="L|${undone(its.map(a => a[0]))}"` : ''; }
-    if (/^p5-/.test(k)) { const t = k.slice(3); o.qs = () => { const L = TO.p5.filter(x => x.t === t); return L.length ? [xlLast(L), ...xlPrefer(L.slice(0, -1), R).slice(0, XL_TRY)].map(toP5Q) : []; }; o.go = `data-top="t:${t}"`; }
-    if (k === 'p6') { o.qs = () => set(TO.p6, toP6Qs, qs => qs.find(q => q.opts.every(s => kWords(s).length >= 5))); o.go = 'data-top="p6"'; }
-    if (k === 'p7c') { const its = TO.p7.filter(x => /message|chat/i.test(x.kind)), isInt = q => /mean when|writes,/i.test(q.q);
-      o.qs = () => { const all = its.flatMap(toP7Qs), e = all.find(isInt) || all[0]; return e ? [e, ...[...all.filter(q => q !== e && isInt(q)), ...shuf(all.filter(q => q !== e && !isInt(q)))].slice(0, XL_TRY)] : []; };
-      o.go = its.length ? `data-tobai="R|${undone(its)}"` : ''; }
-    if (k === 'p7' || k === 'p7m') { o.qs = () => set(TO.p7.filter(x => (x.docs.length > 1) === (k === 'p7m')), toP7Qs, k === 'p7m' ? qs => qs.find(q => /Đối chiếu|both/i.test(q.why || '')) : null); o.go = `data-top="${k}"`; }
+  const one = (L, mk) => L.length ? [xlLast(L), ...xlPrefer(L.slice(0, -1), R).slice(0, XL_TRY)].map(mk) : [];
+  const pick = (its, mkQs, f, fe = f) => { const qOf = (x, g) => mkQs(x).filter(g), ok = its.filter(x => qOf(x, f).length), es = ok.filter(x => qOf(x, fe).length); if (!es.length) return [];
+    const e = xlLast(es); return [qOf(e, fe)[0], ...xlPrefer(ok.filter(x => x !== e), R).slice(0, XL_TRY).map(x => qOf(x, f)[0])]; };
+  const set = (its, mk, pickQ) => { if (!its.length) return []; const ex = xlLast(its), rest = its.filter(x => x !== ex), tx = rest.length ? xlPrefer(rest, R)[0] : ex, eq = mk(ex), e = pickQ ? pickQ(eq) || eq[0] : eq[0];
+    return [e, ...(tx === ex ? eq.filter(q => q !== e) : mk(tx)).slice(0, XL_TRY)]; };
+  const P2 = { p2: 'wh', 'p2-yn': 'yn', 'p2-or': 'or', 'p2-req': 'req', 'p2-st': 'stmt' }, Q34 = { gist: 'gist', next: 'next', imp: 'imp', g: 'graphic' }, chat = x => /message|chat/i.test(x.kind);
+  return (XL_TXT.to[sk] || []).map(d => { const o = { ...d, id: 'to:' + sk + ':' + d.k, ex: 'toeic', sk, how: d.how || [] }, k = d.k;
+    if (k === 'p1' || k === 'p1o') { const kk = k === 'p1' ? 'people' : 'scene'; o.qs = () => one((TO.p1 || []).filter(x => x.k === kk), toP1Q); o.go = `data-todr="p1:${kk}"`; }
+    if (P2[k]) { o.qs = () => one(TO.p2.filter(x => x.ty === P2[k]), toP2Q); o.go = `data-todr="p2:${P2[k]}"`; }
+    if (k === 'p2t') { o.qs = () => { const L = TO.p2.filter(x => (x.tr || []).filter(Boolean).length >= 2), e = xlLast(L.length ? L : TO.p2); return [e, ...xlPrefer(TO.p2.filter(x => x !== e), R).slice(0, XL_TRY)].map(toP2Q); }; o.go = 'data-top="p2"';
+      o.how = ['Nghe câu hỏi trước, đoán loại thông tin cần (thời gian, nơi, người, lý do).', 'Với mỗi lời đáp, hỏi: "nó có trả lời đúng điều được hỏi không?" Rơi vào một kiểu bẫy thì loại ngay.']; o.trap = Object.values(TO_TRAP).map(([t, s]) => t + ': ' + s); }
+    if (k === 'p3' || k === 'p4') { const its = () => TO[k].filter(x => !x.g && !x.qs.some(q => q.ty === 'imp') && (k === 'p4' || new Set((x.lines || []).map(l => l[0])).size <= 2)); o.qs = () => set(its(), x => toTalkQs(x, k)); o.go = `data-top="${k}"`; }
+    if (Q34[k]) { o.qs = () => pick(toTalks(), toTalkMk, q => q.qt === Q34[k]); o.go = `data-todr="q:${Q34[k]}"`; }
+    if (k === 'p4-ty') { o.qs = () => { const N = TO_P4TY, its = TO.p4.filter(x => N[x.ty]); if (!its.length) return [];   // làm thử: nghe 2 câu mở đầu, chọn loại bài nói
+        const mk = x => { const ss = kSents(x.text).slice(0, 2).join(' '), oth = shuf(Object.keys(N).filter(t => t !== x.ty)).slice(0, 3);
+          return { x, sec: 'p4', kind: 'mc', head: TO_LH + '<p class="mute">Nghe 2 câu mở đầu của một bài nói Part 4.</p>', q: 'Đây là loại bài nói nào?', opts: shuf([N[x.ty], ...oth.map(t => N[t])]), a: N[x.ty], play: { key: x.id + '|mo', text: ss }, why: `Câu mở đầu: “${ss}” → ${N[x.ty]}.` }; };
+        const e = xlLast(its.filter(x => x.ty === 'ad')) || xlLast(its), seen = new Set([e.ty]), rest = [];
+        for (const x of xlPrefer(its.filter(x => x !== e), R)) if (!seen.has(x.ty) && rest.length < XL_TRY) { seen.add(x.ty); rest.push(x); }
+        return [e, ...rest].map(mk); }; o.go = 'data-top="p4"'; }
+    if (/^p5-/.test(k)) { const t = k.slice(3); o.qs = () => one(TO.p5.filter(x => x.t === t), toP5Q); o.go = `data-top="t:${t}"`; }
+    if (k === 'p6') { o.qs = () => pick(TO.p6, toP6Qs, q => q.gt === 'tense' || q.gt === 'conn', q => q.gt === 'tense'); o.go = 'data-todr="p6:ctx"'; }
+    if (k === 'p6-ins') { o.qs = () => pick(TO.p6, toP6Qs, q => q.gt === 'insert'); o.go = 'data-todr="p6:ins"'; }
+    if (k === 'p7') { o.qs = () => pick(TO.p7.filter(x => x.docs.length === 1 && !chat(x)), toP7Qs, q => q.qt === 'purpose' || q.qt === 'detail', q => q.qt === 'purpose'); o.go = 'data-top="p7"'; }
+    if (k === 'p7-inf') { o.qs = () => pick(TO.p7, toP7Qs, q => ['not', 'true', 'infer'].includes(q.qt), q => q.qt === 'not'); o.go = 'data-todr="q7:infer"'; }
+    if (k === 'p7-syn') { o.qs = () => pick(TO.p7, toP7Qs, q => q.qt === 'syn'); o.go = 'data-todr="q7:syn"'; }
+    if (k === 'p7-ins') { o.qs = () => pick(TO.p7, toP7Qs, q => q.qt === 'insert'); o.go = 'data-todr="q7:insert"'; }
+    if (k === 'p7c') { o.qs = () => pick(TO.p7.filter(chat), toP7Qs, q => q.qt === 'intent'); o.go = 'data-todr="q7:intent"'; }
+    if (k === 'p7m') { o.qs = () => set(TO.p7.filter(x => x.docs.length > 1), toP7Qs, qs => qs.find(q => /Đối chiếu|both/i.test(q.why || ''))); o.go = 'data-top="p7m"'; }
     if (k === 'time') o.go = 'data-tospd="p5"';
     if (k === 'voc') { o.qs = () => { const V = toSt().voc, T = TO.voc.find(t => t.w.some(w => !V[w[0]])) || TO.voc[0], ws = T.w, mk = w => ({ x: { id: 'voc:' + w[0] }, kind: 'mc', head: `<p class="mute" style="margin:0">${esc(T.t)}</p><p style="margin:6px 0 0">${esc(w[2] || '')}</p>`, q: `“${esc(w[0])}” nghĩa là gì?`, opts: shuf([w[1], ...shuf(ws.filter(z => z !== w)).slice(0, 2).map(z => z[1])]), a: w[1], why: w[2] || '' });
       return [mk(ws[0]), ...shuf(ws.slice(1)).slice(0, XL_TRY).map(mk)]; }; o.go = 'data-tobt="V"'; }
