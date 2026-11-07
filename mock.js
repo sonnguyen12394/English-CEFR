@@ -84,8 +84,8 @@ async function mockView(lv) { window.CUR = { view: 'de-thu', item: lv }; const C
     ${C.papers.map((p, i) => `<button class="pri" data-mk="${i}" style="margin-top:8px">${p.t} (${p.min} phút)</button>`).join('')}
     <button data-mk="all" style="margin-top:8px">▶ Làm cả đề (${C.papers.length} bài thi liền nhau)</button>
     ${last ? `<div class="box"><b>Lần gần nhất</b> (${new Date(last.at).toLocaleDateString('vi-VN')}): ${last.papers.map(p => `${p.t} ${p.ok}/${p.n}`).join(' · ')}${last.pct != null ? ` → <b>${last.pct}%</b> ${last.pass ? '✅' : '❌'}` : ''}<p class="mute" style="margin:4px 0 0">Đã làm ${rs.length} lần.</p></div>` : ''}`;
-  $app.onclick = e => { if (e.target.closest('[data-a="home"]')) return exHome(lv); const b = e.target.closest('[data-mk]'); if (!b) return;
-    const idx = b.dataset.mk === 'all' ? C.papers.map((_, i) => i) : [+b.dataset.mk]; mkStart(lv, idx); }; }
+  $app.onclick = async e => { if (e.target.closest('[data-a="home"]')) return exHome(lv); const b = e.target.closest('[data-mk]'); if (!b) return;
+    const idx = b.dataset.mk === 'all' ? C.papers.map((_, i) => i) : [+b.dataset.mk]; try { if (typeof capLoad === 'function') await capLoad(); } catch (er) {} mkStart(lv, idx); }; }   // v143: phần Nói thảo luận cặp cần cap.json
 function mkStart(lv, idx) { const C = MOCK[lv]; MK = { lv, C, papers: [], idx };
   for (const i of idx) { const p = C.papers[i]; if (p.speak && !SREC) { toast('Bài Nói cần máy chép lời: mở trang bằng Safari trên iPhone.'); continue; }
     MK.papers.push({ t: p.t, min: p.min, speak: p.speak, qs: p.parts.flatMap(([part, gen]) => gen().map(q => q.part && q.q ? q : { part, q })), res: [] }); }
@@ -127,7 +127,7 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
   const ps = MK.papers.map(p => p.sc ? { t: p.t, ok: p.sc.pct, n: 100, crit: p.sc.C } : { t: p.t, ok: Math.round(p.res.reduce((s, r) => s + (r.sc != null ? r.sc : r.ok ? 1 : 0), 0) * 10) / 10, n: p.res.length, pp: pp(p) }), full = MK.idx.length === C.papers.length;
   const pct = Math.round(ps.reduce((s, p) => s + p.ok / p.n, 0) / ps.length * 100), pass = pct >= C.pass * 100;
   // v122: kết quả từng bài (bài đọc / nghe, đề viết, bài dạng đề thật) cho danh sách bài ở màn Cambridge: S.cbx[id] = { at, ok, n } (bài viết: điểm máy 0–1)
-  { const X = S.cbx = S.cbx || {}, by = {}; for (const p of MK.papers) if (!p.speak) for (const r of p.res) { const x = r.q && r.q.x; if (!x || !x.id || !x.lv || !(x.text || x.lines || x.p || x.paras || x.gaps || x.s1 || x.sp)) continue;
+  { const X = S.cbx = S.cbx || {}, by = {}; for (const p of MK.papers) if (!p.speak) for (const r of p.res) { const x = r.q && r.q.x; if (!x || !x.id || !x.lv || !(x.text || x.lines || x.p || x.paras || x.gaps || x.s1 || x.sp || x.items)) continue;   // v143: + bộ tin ngắn (items)
       const o = by[x.id] = by[x.id] || { at: Date.now(), ok: 0, n: 0 }; o.n++; o.ok += r.sc != null ? r.sc : r.ok ? 1 : 0; } for (const [id, o] of Object.entries(by)) X[id] = { ...o, ok: Math.round(o.ok * 100) / 100 }; }
   mkRuns(lv).push({ at: Date.now(), papers: ps, pct: full ? pct : null, pass: full && pass, ...(MK.one ? { one: 1 } : {}) }); S.t = Date.now(); save(); const back = MK.back;   // one: chỉ làm một phần / một bài (không phải cả bài thi)
   const parts = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } return Object.entries(by).map(([k, [a, b]]) => `${esc(k)}: ${a}/${b}`).join('<br>'); };
@@ -137,7 +137,7 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
     <p class="tdtap" style="white-space:pre-line;font-size:14px">${esc(r.ans)}</p>${typeof aiBtn === 'function' ? aiBtn('viet', lv, { prompt: r.q.x.p, genre: r.q.x.genre, min: r.q.x.min, max: r.q.x.max }, r.ans) : ''}</details>`).join('');
   const spk = MK.papers.filter(p => p.sc).map(p => { const d = p.sc.d; return `<details class="box" open><summary>🗣 Nói: ${p.sc.pct}% theo 4 tiêu chí giám khảo (máy đo gián tiếp)</summary>
     ${p.sc.C.map(([n, v]) => `<p style="margin:4px 0">${n}: <b>${v}%</b></p>${bar(v, C.pass * 100, 'var(--good)')}`).join('')}
-    <p class="mute" style="margin:6px 0 0">🔁 Nhắc lại câu đúng ${d.eit}% từ · cấu trúc đề đòi ${d.struct == null ? '–' : d.struct + '%'} · từ đúng cấp trở lên ${d.voc}/${d.tV} · từ nối khác nhau ${d.links}/${d.tL} · tốc độ ${d.wpm}/${d.tW} từ/phút · đóng vai đúng việc ${d.rp == null ? '–' : d.rp + '%'}.</p>
+    <p class="mute" style="margin:6px 0 0">🔁 Nhắc lại câu đúng ${d.eit}% từ · cấu trúc đề đòi ${d.struct == null ? '–' : d.struct + '%'} · từ đúng cấp trở lên ${d.voc}/${d.tV} · từ nối khác nhau ${d.links}/${d.tL} · tốc độ ${d.wpm}/${d.tW} từ/phút · lượt tương tác đạt ${d.rp == null ? '–' : d.rp + '%'}.</p>
     ${p.res.map(r => `<p style="margin:6px 0 0;font-size:14px"><span class="mute">${esc(r.part)}:</span> ${r.q.mode === 'eit' ? `câu gốc “${esc(r.q.s)}” · ` : ''}bạn nói “${esc(r.ans || '…')}”${r.q.mode === 'q' && r.q.need.length ? ` <span class="mute">(cần: ${r.q.need.map(k => (SPK_RE[k].test(String(r.ans || '').toLowerCase()) ? '✅ ' : '⬜ ') + SPK_REVI[k]).join(', ')})</span>` : ''}</p>`).join('')}
     <p class="mute" style="margin:6px 0 0">Máy không chấm được lỗi ngữ pháp trong lời nói tự do, nên đo qua nhắc lại câu, cấu trúc, độ dài, tốc độ. Chưa đối chiếu giám khảo thật: nên nói thử với giáo viên 1 buổi mỗi cấp.</p>
     ${typeof aiBtn === 'function' ? aiBtn('noi', lv, { prompt: 'Cambridge-style speaking test: interview, long turn, role play, discussion. Each answer below follows its question.' },

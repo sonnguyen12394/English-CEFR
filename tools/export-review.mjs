@@ -79,7 +79,7 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
     + (x.qs || []).map(q => `<br>• ${esc(q.n || q.q || q.s || q.w || '')} → <b>${esc(String(q.any ? q.t + ' (cần nghe ra: ' + q.any.join(' / ') + ')' : q.a === true ? 'Yes' : q.a === false ? 'No' : Array.isArray(q.a) ? q.a.join(' / ') : q.o && typeof q.a === 'number' ? q.o[q.a] : q.write ? q.write[0] : q.a))}</b>${q.w && Array.isArray(q.w) ? ` <span class="mute">✗ ${q.w.map(esc).join(' · ✗ ')}</span>` : ''}${q.lines ? `<br><span class="mute">${ln(q.lines)}</span>` : ''}`).join('')
     + (x.items || []).map(it => `<br><b>${esc(it.en)}</b>${it.panels.map(pic).join('')}<span class="mute">Ý cần có: ${it.c.map(esc).join(' · ')}</span>`).join('');
   add('🎓 Cambridge · dạng đề còn thiếu (v129, v130: Nói có ảnh, Starters Nói)', 'Starters / Movers (nối tên, viết tên / số, tô màu, tranh lớn yes / no, chọn từ điền, truyện tranh, nối ngày với tranh, câu đáp, điền trắc nghiệm, nhìn tranh viết), A2 Key (nghe chọn tranh, nối người với vật, truyện theo tranh), B1 (nghe chọn tranh). Kiểm: đúng kiểu đề thật, đáp án duy nhất, lời nghe tự nhiên, tranh khớp câu.',
-    J('nghe.json').dt.map(x => row(`v129:${x.id}`, `<b>${esc(x.t)}</b> <span class="mute">${x.lv.toUpperCase()} · ${esc(x.k)}</span><br>${body(x)}`))); }
+    J('nghe.json').dt.filter(x => x.k !== 'sn').map(x => row(`v129:${x.id}`, `<b>${esc(x.t)}</b> <span class="mute">${x.lv.toUpperCase()} · ${esc(x.k)}</span><br>${body(x)}`))); }   // v143: tin ngắn (sn) ở mục v143
 // v130 IELTS Nghe điền bảng / điền câu / trả lời ngắn + TOEIC Part 4 câu hàm ý
 { const hx = J('ielts.json').ln.filter(x => x.id === 'il-p4-heat'), tt = J('toeic.json').p4.filter(x => ['t4-24', 't4-25'].includes(x.id));
   add('🌏 IELTS Nghe · điền bảng, điền câu, trả lời ngắn (v130) · 💼 TOEIC Part 4 câu hàm ý', 'Kiểm: đáp án có nguyên văn trong lời nghe và đúng giới hạn số từ; câu hàm ý TOEIC chỉ một cách hiểu hợp lý; số liệu thật (đảo nhiệt đô thị, sơn phản xạ, "cool islands" ở Paris) đúng.',
@@ -153,6 +153,22 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
     long.map(x => row('v140:' + x.id, `<b>${esc(x.title)}</b> <span class="mute">${x.lv.toUpperCase()} · ${x.paras.join(' ').split(/\s+/).length} từ</span><details><summary>Bài</summary><p class="t">${x.paras.map((p, i) => AB[i] + '. ' + esc(p)).join('\n\n')}</p></details>`
       + (x.h || []).map((h, i) => li('Tiêu đề đoạn ' + AB[i], h)).join('') + (x.hx ? `<br><span class="mute">Tiêu đề thừa: ${x.hx.map(esc).join(' · ')}</span>` : '') + (x.tf || []).map(q => li(q.s, q.a, q.why)).join('') + (x.comp || []).map(q => li(q.s, q.a.join(' / '), q.why)).join('')
       + (x.mi || []).map(q => li(q.s, 'đoạn ' + AB[q.p], q.why)).join('') + (x.mf ? x.mf.qs.map(q => li(q.s, x.mf.f[q.a], q.why)).join('') : '') + (x.mc || []).map(q => li(q.q, q.a, '✗ ' + q.w.join(' · ✗ '))).join('') + (x.sa || []).map(q => li(q.q, q.a.join(' / '), q.why)).join(''))));
+}
+// v143 Cambridge đủ dạng (specs/005-cambridge-du-dang): đọc tin ngắn A2 / B1, thể loại Viết (bố cục + câu làm thử), tiêu chí Viết / Nói, thảo luận cặp (câu đáp mẫu + làm thử), đề thi truyện B1 mới
+{ const N = J('nghe.json'), VJ = J('viet.json'), li = (q, a, w) => `<br>• ${esc(q)} → <b>${esc(a)}</b>${w ? ` <span class="mute">(${esc(w)})</span>` : ''}`;
+  const bs = fs.readFileSync(root + 'baihoc.js', 'utf8'), cb = {}; vm.runInNewContext(bs.slice(bs.indexOf('const XL_TXT = '), bs.indexOf('// ---------- dữ liệu người học')).replace('const XL_TXT', 'this.XL_TXT'), cb); const T = cb.XL_TXT.cb;
+  add('🎓 Cambridge Đọc · tin ngắn A2 / B1 phần 1 (v143)', 'Mỗi câu một văn bản ngắn (≤ 40 từ), 3 phương án. Kiểm: chỉ một phương án đúng với văn bản; phương án sai thật sự sai (không phải "không nói"); giải thích đúng.',
+    (N.dt || []).filter(x => x.k === 'sn').flatMap(x => x.items.map((it, i) => row(`v143:${x.id}:${i}`, `<b>${x.lv.toUpperCase()} · ${esc(x.t)}</b> <span class="mute">${esc(it.kind)}</span><p class="t">${esc(it.txt)}</p>✅ <b>${esc(it.a)}</b>${it.w.map(w => '<br>✗ ' + esc(w)).join('')}<br><span class="mute">${esc(it.why)}</span>`))));
+  add('🎓 Cambridge Viết · bài học theo thể loại (v143)', 'Email / thư, bài báo, truyện, bài luận, nhận xét, báo cáo, đề xuất. Kiểm: mô tả đúng đề thật từng cấp, bố cục thường gặp đúng, câu làm thử chỉ một đáp án đúng.',
+    Object.entries(T.the).map(([g, d]) => row('v143:the:' + g, `<b>${esc(d.ic)} ${esc(d.t)}</b> <span class="mute">cấp: ${Object.entries(T.theLv).filter(([, a]) => a.includes(g)).map(([l]) => l.toUpperCase()).join(', ')}</span><br>${esc(d.what)}<br><span class="mute">Bố cục:</span> ${d.bo.map(esc).join(' → ')}`
+      + d.mcq.map(m => li(m.q, m.a, '✗ ' + m.w.join(' · ✗ '))).join(''))));
+  add('🎓 Cambridge · 8 bài tiêu chí chấm Viết / Nói (v143)', 'Diễn giải của Claude, không chép thang chấm Cambridge. Kiểm: ví dụ thấp / cao khác nhau đúng ở tiêu chí đó; đáp án làm thử đúng duy nhất.',
+    [...T.tcW.map((c, i) => ['W', c, i]), ...T.tcS.map((c, i) => ['S', c, i])].map(([sk, c, i]) => row(`v143:tc:${sk}:${i}`, `<b>${esc(c.ic)} ${esc(c.t)}</b><br>${esc(c.what)}${c.ex.p ? `<br><span class="mute">${esc(c.ex.p)}</span>` : ''}<br>📉 ${esc(c.ex.lo)}<br>📈 ${esc(c.ex.hi)}<br><span class="mute">${esc(c.ex.why)}</span>`
+      + c.mcq.map(m => li(m.q, m.a, '✗ ' + m.w.join(' · ✗ '))).join(''))));
+  add('🎓 Cambridge Nói · thảo luận cặp (v143)', 'Câu đáp mẫu cho nhiệm vụ đầu tiên mỗi cấp (cap.json) và 3 câu làm thử mỗi cấp (lời bạn thi lấy nguyên văn từ cap.json). Kiểm: câu mẫu tự nhiên, đúng cấp; đáp án làm thử là câu đáp tốt nhất.',
+    Object.keys(T.capq).map(lv => row('v143:cap:' + lv, `<b>${lv.toUpperCase()}</b>${(T.capm[lv] || []).map(m => `<br>🗣 ${esc(m)}`).join('')}` + T.capq[lv].map(c => li('Bạn thi: ' + c.who, c.a, '✗ ' + c.w.join(' · ✗ '))).join(''))));
+  const w6 = VJ.items.find(x => x.id === 'b1-w6');
+  add('✍️ Viết B1 · đề thi truyện thay mới (v143)', 'Đề thi cũ trùng ý với đề học "The Wrong Bus". Kiểm: đề rõ, bài mẫu đúng B1, 90–120 từ.', w6 ? [row('v143:b1-w6', `<b>${esc(w6.en)}</b><br>${esc(w6.p)}<p class="t">${esc(w6.m)}</p>`)] : []);
 }
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
