@@ -48,7 +48,11 @@ for (const x of V.t1) { id(x); if (!['bar', 'line', 'table', 'pie', 'map', 'proc
   for (const [, v] of x.series) if (v.length !== x.cats.length) err.push(x.id + ': số liệu không khớp nhãn');
   if (x.m) { const nums = new Set(x.series.flatMap(([, v]) => v).map(String)), hit = (x.m.match(/\d+(\.\d+)?/g) || []).filter(d => nums.has(d)).length; if (hit < 4) err.push(x.id + ': bài mẫu ít số liệu'); if (words(x.m) < 150) err.push(x.id + ': bài mẫu < 150 từ'); } }
 for (const x of V.gt1) { id(x); if (x.c.length !== 3 || x.k.length !== 3) err.push(x.id + ': cần đúng 3 ý'); if (x.m && words(x.m) < 150) err.push(x.id + ': bài mẫu < 150 từ'); }
-for (const x of V.t2) { id(x); if (!['opinion', 'discuss', 'advdis', 'probsol', 'twopart'].includes(x.type)) err.push(x.id + ': type ' + x.type); if (x.m && words(x.m) < 250) err.push(x.id + ': bài mẫu < 250 từ'); }
+for (const x of V.t2) { id(x); if (!['opinion', 'discuss', 'advdis', 'probsol', 'twopart'].includes(x.type)) err.push(x.id + ': type ' + x.type); if (x.m && words(x.m) < 250) err.push(x.id + ': bài mẫu < 250 từ');
+  // v140: nhãn vai trò từng đoạn của bài mẫu (bài học Task 2 theo kiểu): số nhãn = số đoạn, nhãn thuộc bộ nhãn của kiểu đề
+  if (x.m) { const np = x.m.split(/\n\s*\n/).map(s => s.trim()).filter(Boolean).length, rs = (V.t2roles || {})[x.type] || [];
+    if (!x.roles || x.roles.length !== np) err.push(x.id + ': số nhãn vai trò ≠ số đoạn (' + np + ')');
+    for (const r of x.roles || []) if (!r || !rs.includes(r)) err.push(x.id + ': nhãn vai trò lạ: ' + r); } }
 for (const x of N.p1) { id(x); if (x.qs.length < 3) err.push(x.id + ': ít câu'); }
 for (const x of N.p2) { id(x); if (x.b.length !== 4 || x.p3.length < 3) err.push(x.id + ': thẻ Part 2 thiếu gợi ý / câu Part 3'); }
 // v87 luyện diễn đạt lại: đúng 3 câu bẫy, không trùng đáp án, có cặp từ thay thế
@@ -69,6 +73,6 @@ for (const x of L.items) { id(x); const tr = (x.text || x.lines.map(l => l[1]).j
 if (err.length) { console.error(err.join('\n')); process.exit(1); }
 const NQ = D.items.reduce((t, x) => t + x._nq, 0), NL = L.items.reduce((t, x) => t + x.qs.reduce((u, q) => u + (q.k === 'mc2' ? 2 : 1), 0), 0);
 for (const x of D.items) delete x._nq;
-const out = { _note: 'Dựng bởi tools/build-ielts.mjs từ content/ielts/*.json. Không sửa tay.', doc: D.items, t1: V.t1, gt1: V.gt1, t2: V.t2, p1: N.p1, p2: N.p2, para: P.items, ln: L.items };
+const out = { _note: 'Dựng bởi tools/build-ielts.mjs từ content/ielts/*.json. Không sửa tay.', doc: D.items, t1: V.t1, gt1: V.gt1, t2: V.t2, t2roles: V.t2roles, p1: N.p1, p2: N.p2, para: P.items, ln: L.items };
 fs.writeFileSync(root + 'ielts.json', JSON.stringify(out));
 console.log(`ielts.json: ${D.items.length} bài đọc (${NQ} câu), Task 1 ${V.t1.length} + ${V.gt1.length} thư, Task 2 ${V.t2.length}, Nói ${N.p1.length} chủ đề Part 1 + ${N.p2.length} thẻ Part 2, diễn đạt lại ${P.items.length} câu, nghe ${L.items.length} phần (${NL} câu)`);

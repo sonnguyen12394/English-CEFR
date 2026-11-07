@@ -63,7 +63,9 @@ async function imFix(u) { await Promise.all([ieLoad(), kLoad(KIT.nghe), kLoad(KI
     if (u === 'R-para') return ieRun('🗺 ' + IE_TY[u], ieParaQs(10), ieltsView);
     if (k === 'W') return ieWrite('t2');
     if (k === 'S') return ieSpeak(['p1', 'p2', 'p3']);
-    if (k === 'L') { const qs = ieListen(u === 'L-form' ? [0, 3] : u === 'L-map' ? [1] : u === 'L-match' ? [2] : [1, 2]).map(it => it.q); return qs.length ? ieRun('🗺 ' + IE_TY[u], qs, ieltsView) : toast('Chưa có bài nghe hợp dạng này.'); }
+    if (k === 'L' && ['L-map', 'L-match', 'L-sa'].includes(u)) { const pool = imPool(u), R = ieSt().r, fresh = shuf(pool.filter(x => imFreshOk(x.id))), x = fresh[0] || [...pool].sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0))[0];   // v140: đúng phần có dạng đó, làm cả phần
+      if (!x) return toast('Chưa có bài nghe hợp dạng này.'); if (!fresh.length) toast('Hết bài mới cho dạng này: lượt này không tính lần thử (đã gặp bài trong 30 ngày).'); return ieRun('🗺 ' + IE_TY[u], ieLnQs(x), ieltsView); }
+    if (k === 'L') { const qs = ieListen(u === 'L-form' ? [0, 3] : [1, 2]).map(it => it.q); return qs.length ? ieRun('🗺 ' + IE_TY[u], qs, ieltsView) : toast('Chưa có bài nghe hợp dạng này.'); }
     const pool = imPool(u), fresh = shuf(pool.filter(x => imFreshOk(x.id))), xs = (fresh.length ? fresh : [...pool].sort((a, b) => (ieSt().r[a.id] || {}).at - (ieSt().r[b.id] || {}).at)).slice(0, 2);
     if (!fresh.length) toast('Hết bài mới cho dạng này: lượt này không tính lần thử (đã gặp bài trong 30 ngày).');
     const qs = u === 'R-gt' ? xs.flatMap(x => x.paras ? ieRQs(x) : kRead(KIT.doc, x, 'ct', false).map(q => Object.assign(q, { ty: 'R-gt' }))) : xs.flatMap(x => ieRQs(x, [u.slice(2)]));

@@ -129,6 +129,31 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
   add('💼 TOEIC Đọc · Part 7 từ gần nghĩa, chèn câu [1]–[4], câu NOT, câu ý định (v139)', 'Kiểm: từ gần nghĩa đúng nghĩa TRONG câu; câu chèn chỉ một vị trí hợp; câu NOT đúng 3 phương án có trong bài; câu ý định một cách hiểu.',
     TD.p7.filter(x => ['t7-notice2', 't7-email3', 't7-article3', 't7-web', 't7-letter4', 't7-chat3', 't7-chat4'].includes(x.id)).map(x => row('v139:' + x.id, `<b>${esc(x.id)}</b> <span class="mute">${esc(x.kind)}</span>${x.docs.map(d => `<p class="t"><b>${esc(d.title)}</b>\n${esc(d.text)}</p>`).join('')}` + x.qs.map(q => li(q.q, q.a, q.w) + `<br><span class="mute">${esc(q.why)}</span>`).join(''))));
 }
+// v140 IELTS đủ dạng (specs/002-ielts-du-dang): nhãn vai trò đoạn bài mẫu Task 2, ví dụ band thấp / cao + câu làm thử 8 tiêu chí, nhóm thẻ Part 2 / kiểu câu hỏi Part 3 (máy xếp),
+// phần nghe mặt bằng tòa nhà, 2 bài đọc dài. Mô tả 15 bài học mới đã ở mục "📘 Bài học IELTS · TOEIC (v131)" (đọc thẳng XL_TXT).
+{ const I = J('ielts.json'), AB = 'ABCDEFGH', li = (q, a, w) => `<br>• ${esc(q)} → <b>${esc(a)}</b>${w ? ` <span class="mute">(${esc(w)})</span>` : ''}`;
+  const bs = fs.readFileSync(root + 'baihoc.js', 'utf8'), cb = {}; vm.runInNewContext(bs.slice(bs.indexOf('const XL_TXT = '), bs.indexOf('// ---------- dữ liệu người học')).replace('const XL_TXT', 'this.XL_TXT'), cb); const T = cb.XL_TXT;
+  const is = fs.readFileSync(root + 'ielts.js', 'utf8'), ci = {}; vm.runInNewContext(is.slice(is.indexOf('const IE_P2CAT = '), is.indexOf('function ieSpeakQs')).replace(/^const (\w+)/gm, 'this.$1'), ci);
+  const paras = m => String(m).split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+  add('🌏 IELTS Viết · nhãn vai trò đoạn của bài mẫu Task 2 (v140)', 'Dùng cho 5 bài học Task 2 theo kiểu đề (ví dụ + câu làm thử "Đoạn này làm nhiệm vụ gì?"). Kiểm: nhãn đúng việc đoạn đó làm; bài mẫu đúng kiểu đề.',
+    I.t2.map(x => row('v140:' + x.id, `<b>${esc((T.t2[x.type] || [x.type])[0])}</b> <span class="mute">${esc(x.id)}</span><br>${esc(x.p)}${paras(x.m).map((p, i) => `<p class="t"><b>[${esc(x.roles[i])}]</b> ${esc(p)}</p>`).join('')}`)));
+  add('🌏 IELTS · 8 bài tiêu chí chấm Viết / Nói (v140)', 'Ví dụ band thấp / band cao cùng một ý và 3 câu làm thử mỗi tiêu chí. Mô tả là diễn giải của Claude, không chép band descriptors. Kiểm: hai ví dụ khác band đúng ở tiêu chí đó; đáp án làm thử đúng duy nhất.',
+    ['W', 'S'].flatMap(sk => T.crit[sk].map((c, i) => { const d = T.ie[sk].find(z => z.cr === i) || {};
+      return row(`v140:crit:${sk}:${i}`, `<b>${esc(d.ic || '')} ${esc(d.t || '')}</b>${c.ex.p ? `<br><span class="mute">${esc(c.ex.p)}</span>` : ''}<br>📉 ${esc(c.ex.lo)}<br>📈 ${esc(c.ex.hi)}<br><span class="mute">${esc(c.ex.why)}</span>` + c.mcq.map(m => li(m.q, m.a, '✗ ' + m.w.join(' · ✗ '))).join('')); })));
+  const p2 = I.p2.map(c => [c, ci.ieP2Cat(c.t)]), lab = (G, g) => G[g] ? G[g][0] + ' ' + G[g][1] : '(chưa xếp)';
+  add('🌏 IELTS Nói · nhóm thẻ Part 2, kiểu câu hỏi Part 3 (v140)', 'Máy xếp theo câu chữ của thẻ / câu hỏi (ielts.js IE_P2CAT, IE_P3TY) cho 2 bài học nhận nhóm / kiểu. Kiểm: xếp đúng nhóm; khung trả lời mỗi nhóm đúng và dùng được.',
+    [...Object.entries(ci.IE_P2CAT).map(([g, v]) => row('v140:p2cat:' + g, `<b>${esc(v[0] + ' ' + v[1])}</b><br>${esc(v[2])}<br><span class="mute">Thẻ:</span> ${p2.filter(([, k]) => k === g).map(([c]) => esc(c.t)).join(' · ')}`)),
+     ...Object.entries(ci.IE_P3TY).map(([g, v]) => row('v140:p3ty:' + g, `<b>${esc(v[0] + ' ' + v[1])}</b><br>${esc(v[2])}<br><span class="mute">Câu hỏi:</span> ${I.p2.flatMap(c => c.p3.map(q => q[0])).filter(q => ci.ieP3Ty(q) === g).map(esc).join(' · ')}`))]);
+  const pl = I.ln.find(x => x.id === 'il-p2-plan');
+  add('🌏 IELTS Nghe · phần mặt bằng tòa nhà (v140)', 'Part 2 một người nói: 2 câu chọn HAI + 3 trắc nghiệm, 5 câu mặt bằng (chữ A–H, 3 chữ thừa). Phía trên mặt bằng = hướng bắc; lối vào ở dưới. Kiểm: lời chỉ đường dẫn tới đúng chữ; đáp án duy nhất.',
+    pl ? [row('v140:' + pl.id, `<b>${esc(pl.title)}</b><details><summary>Lời</summary><p class="t">${esc(pl.text)}</p></details><span class="mute">Mặt bằng (x, y, rộng, cao trên lưới 10 × 10):</span> ${pl.map.items.map(i => `${esc(i.t)} (${i.x}, ${i.y}, ${i.w}, ${i.h})`).join(' · ')}`
+      + pl.qs.map(q => q.k === 'map' ? li(q.q, q.a, q.why) : q.k === 'mc2' ? li(q.q, q.a.join(' + '), '✗ ' + q.w.join(' · ✗ ')) : li(q.q, q.a, '✗ ' + q.w.join(' · ✗ '))).join(''))] : []);
+  const long = I.doc.filter(x => ['ir-queue', 'ir-fungi'].includes(x.id));
+  add('🌏 IELTS Đọc · 2 bài dài 750–900 từ (v140)', 'Bài học thuật dài như đề thật; người / nghiên cứu trong bài là hư cấu, sự kiện thật chỉ nêu chung. Kiểm: đáp án đúng và duy nhất; NOT GIVEN không suy ra được; tiêu đề thừa không khớp đoạn nào.',
+    long.map(x => row('v140:' + x.id, `<b>${esc(x.title)}</b> <span class="mute">${x.lv.toUpperCase()} · ${x.paras.join(' ').split(/\s+/).length} từ</span><details><summary>Bài</summary><p class="t">${x.paras.map((p, i) => AB[i] + '. ' + esc(p)).join('\n\n')}</p></details>`
+      + (x.h || []).map((h, i) => li('Tiêu đề đoạn ' + AB[i], h)).join('') + (x.hx ? `<br><span class="mute">Tiêu đề thừa: ${x.hx.map(esc).join(' · ')}</span>` : '') + (x.tf || []).map(q => li(q.s, q.a, q.why)).join('') + (x.comp || []).map(q => li(q.s, q.a.join(' / '), q.why)).join('')
+      + (x.mi || []).map(q => li(q.s, 'đoạn ' + AB[q.p], q.why)).join('') + (x.mf ? x.mf.qs.map(q => li(q.s, x.mf.f[q.a], q.why)).join('') : '') + (x.mc || []).map(q => li(q.q, q.a, '✗ ' + q.w.join(' · ✗ '))).join('') + (x.sa || []).map(q => li(q.q, q.a.join(' / '), q.why)).join(''))));
+}
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}

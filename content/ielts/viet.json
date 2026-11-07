@@ -1,5 +1,6 @@
 {
  "_note": "Đề Viết kiểu IELTS (Claude soạn 28/10/2026, chưa người thật kiểm; số liệu biểu đồ là số minh hoạ, không phải số thật). t1: Academic Task 1 (biểu đồ: bar, line, table, pie). gt1: General Training Task 1 (thư, 3 ý cần viết, k = từ khoá mỗi ý). t2: Task 2 (type: opinion · discuss · advdis · probsol · twopart; k = từ khoá chủ đề). m = bài mẫu.",
+ "t2roles": {"opinion": ["Mở bài: viết lại đề + nêu quan điểm", "Thân bài: lý do ủng hộ quan điểm", "Thân bài: nhìn mặt kia (thừa nhận hoặc bác bỏ)", "Thân bài: đề xuất của người viết", "Kết luận: nhắc lại quan điểm"], "discuss": ["Mở bài: viết lại đề + nêu ý mình", "Thân bài: quan điểm thứ nhất", "Thân bài: quan điểm thứ hai", "Thân bài: ý của người viết", "Kết luận: tóm hai bên + ý mình", "Ý của người viết + kết luận"], "advdis": ["Mở bài: viết lại đề + nêu bên nào hơn", "Thân bài: lợi ích", "Thân bài: tác hại", "Thân bài: cách giảm tác hại", "Kết luận: nhắc lại bên nào hơn"], "probsol": ["Mở bài: viết lại đề + nói bài sẽ làm gì", "Thân bài: nguyên nhân, vấn đề", "Thân bài: giải pháp", "Kết luận: tóm nguyên nhân và giải pháp"], "twopart": ["Mở bài: viết lại đề + nói sẽ trả lời hai câu hỏi", "Thân bài: trả lời câu hỏi 1", "Thân bài: trả lời câu hỏi 2", "Thân bài: mặt kia của câu trả lời 2", "Kết luận: tóm câu trả lời hai câu hỏi"]},
  "t1": [
   {
    "id": "t1-travel",
@@ -1045,6 +1046,7 @@
   {
    "id": "t2-online",
    "type": "opinion",
+   "roles": ["Mở bài: viết lại đề + nêu quan điểm", "Thân bài: nhìn mặt kia (thừa nhận hoặc bác bỏ)", "Thân bài: lý do ủng hộ quan điểm", "Kết luận: nhắc lại quan điểm"],
    "p": "Some people believe that online learning will soon replace traditional classroom teaching. To what extent do you agree or disagree?",
    "pv": "Có người tin học trực tuyến sẽ sớm thay thế lớp học truyền thống. Bạn đồng ý tới mức nào?",
    "k": [
@@ -1071,6 +1073,7 @@
   {
    "id": "t2-cars",
    "type": "discuss",
+   "roles": ["Mở bài: viết lại đề + nêu ý mình", "Thân bài: quan điểm thứ nhất", "Thân bài: quan điểm thứ hai", "Ý của người viết + kết luận"],
    "p": "Some people think that city centres should be closed to private cars, while others believe that this would cause too many problems. Discuss both views and give your own opinion.",
    "pv": "Có người cho rằng nên cấm xe riêng vào trung tâm thành phố, người khác cho rằng việc này gây quá nhiều vấn đề. Bàn cả hai quan điểm và nêu ý kiến của bạn.",
    "k": [
@@ -1098,6 +1101,7 @@
   {
    "id": "t2-tourism",
    "type": "advdis",
+   "roles": ["Mở bài: viết lại đề + nêu bên nào hơn", "Thân bài: lợi ích", "Thân bài: tác hại", "Thân bài: cách giảm tác hại", "Kết luận: nhắc lại bên nào hơn"],
    "p": "International tourism has grown rapidly in recent decades. Do the advantages of this development outweigh the disadvantages?",
    "pv": "Du lịch quốc tế tăng nhanh mấy thập kỷ qua. Lợi ích có lớn hơn bất lợi không?",
    "k": [
@@ -1125,6 +1129,7 @@
   {
    "id": "t2-obesity",
    "type": "probsol",
+   "roles": ["Mở bài: viết lại đề + nói bài sẽ làm gì", "Thân bài: nguyên nhân, vấn đề", "Thân bài: giải pháp", "Kết luận: tóm nguyên nhân và giải pháp"],
    "p": "In many countries, the number of children who are overweight is increasing. What are the causes of this problem, and what measures could be taken to solve it?",
    "pv": "Ở nhiều nước, số trẻ thừa cân đang tăng. Nguyên nhân là gì và có thể làm gì để giải quyết?",
    "k": [
@@ -1151,6 +1156,7 @@
   {
    "id": "t2-elderly",
    "type": "twopart",
+   "roles": ["Mở bài: viết lại đề + nói sẽ trả lời hai câu hỏi", "Thân bài: trả lời câu hỏi 1", "Thân bài: trả lời câu hỏi 2", "Kết luận: tóm câu trả lời hai câu hỏi"],
    "p": "In many countries, people are living longer than ever before. What problems does this cause for society? How can these problems be reduced?",
    "pv": "Ở nhiều nước, người ta sống lâu hơn bao giờ hết. Điều này gây vấn đề gì cho xã hội? Làm sao giảm bớt?",
    "k": [
@@ -1180,6 +1186,7 @@
   {
    "id": "t2-uni",
    "type": "opinion",
+   "roles": ["Mở bài: viết lại đề + nêu quan điểm", "Thân bài: lý do ủng hộ quan điểm", "Thân bài: nhìn mặt kia (thừa nhận hoặc bác bỏ)", "Thân bài: đề xuất của người viết", "Kết luận: nhắc lại quan điểm"],
    "p": "Some people think that university education should be free for all students. To what extent do you agree or disagree?",
    "pv": "Có người cho rằng đại học nên miễn phí cho mọi sinh viên. Bạn đồng ý tới mức nào?",
    "k": [
@@ -1207,6 +1214,7 @@
   {
    "id": "t2-ads",
    "type": "opinion",
+   "roles": ["Mở bài: viết lại đề + nêu quan điểm", "Thân bài: lý do ủng hộ quan điểm", "Thân bài: lý do ủng hộ quan điểm", "Thân bài: nhìn mặt kia (thừa nhận hoặc bác bỏ)", "Kết luận: nhắc lại quan điểm"],
    "p": "Advertising aimed at children should be banned. To what extent do you agree or disagree?",
    "pv": "Nên cấm quảng cáo nhắm vào trẻ em. Bạn đồng ý tới mức nào?",
    "k": [
@@ -1233,6 +1241,7 @@
   {
    "id": "t2-work",
    "type": "discuss",
+   "roles": ["Mở bài: viết lại đề + nêu ý mình", "Thân bài: quan điểm thứ nhất", "Thân bài: quan điểm thứ hai", "Thân bài: ý của người viết", "Kết luận: tóm hai bên + ý mình"],
    "p": "Some people prefer to work for a large company, while others prefer to work for a small one. Discuss both views and give your own opinion.",
    "pv": "Có người thích làm cho công ty lớn, người khác thích công ty nhỏ. Bàn cả hai quan điểm và nêu ý kiến của bạn.",
    "k": [
@@ -1259,6 +1268,7 @@
   {
    "id": "t2-phone",
    "type": "advdis",
+   "roles": ["Mở bài: viết lại đề + nêu bên nào hơn", "Thân bài: lợi ích", "Thân bài: tác hại", "Thân bài: cách giảm tác hại", "Kết luận: nhắc lại bên nào hơn"],
    "p": "More and more people now use smartphones to manage almost every part of their lives. Do the advantages of this outweigh the disadvantages?",
    "pv": "Ngày càng nhiều người dùng điện thoại thông minh cho hầu hết mọi việc. Lợi có lớn hơn hại không?",
    "k": [
@@ -1285,6 +1295,7 @@
   {
    "id": "t2-crime",
    "type": "probsol",
+   "roles": ["Mở bài: viết lại đề + nói bài sẽ làm gì", "Thân bài: nguyên nhân, vấn đề", "Thân bài: giải pháp", "Kết luận: tóm nguyên nhân và giải pháp"],
    "p": "Crime rates among young people are rising in some cities. What are the reasons for this, and what can be done about it?",
    "pv": "Tội phạm trong giới trẻ tăng ở một số thành phố. Lý do là gì và có thể làm gì?",
    "k": [
@@ -1311,6 +1322,7 @@
   {
    "id": "t2-env",
    "type": "discuss",
+   "roles": ["Mở bài: viết lại đề + nêu ý mình", "Thân bài: quan điểm thứ nhất", "Thân bài: quan điểm thứ hai", "Thân bài: ý của người viết", "Kết luận: tóm hai bên + ý mình"],
    "p": "Some people believe that individuals can do little to protect the environment and that only governments and large companies can make a difference. Others think that every individual should take responsibility. Discuss both views and give your own opinion.",
    "pv": "Có người tin cá nhân làm được rất ít cho môi trường, chỉ nhà nước và doanh nghiệp lớn mới tạo khác biệt. Người khác cho rằng mỗi cá nhân phải có trách nhiệm. Bàn cả hai và nêu ý kiến.",
    "k": [
@@ -1339,6 +1351,7 @@
   {
    "id": "t2-home",
    "type": "twopart",
+   "roles": ["Mở bài: viết lại đề + nói sẽ trả lời hai câu hỏi", "Thân bài: trả lời câu hỏi 1", "Thân bài: trả lời câu hỏi 2", "Thân bài: mặt kia của câu trả lời 2", "Kết luận: tóm câu trả lời hai câu hỏi"],
    "p": "Nowadays, many people work from home rather than in an office. Why is this happening? Is it a positive or negative development?",
    "pv": "Ngày nay nhiều người làm ở nhà thay vì văn phòng. Vì sao? Đây là thay đổi tích cực hay tiêu cực?",
    "k": [
