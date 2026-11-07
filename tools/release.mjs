@@ -36,4 +36,6 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
   7. (v142) Tab 🎯 Luyện đề mở màn 2 nút 📚 Đề có sẵn · 🤖 Đề AI soạn, thấy cả 2 nút không cuộn (Cambridge: chip cấp ở dưới); bấm 📚 ra ô kỹ năng, không có nút gọi AI;
      "‹ Luyện đề" về màn 2 nút; bấm 🤖 ra ô AI + ô "Bài có sẵn · miễn phí" bấm sang đúng kỹ năng; bật giao diện tối: chữ trắng trên nút xanh đọc rõ, link không còn xanh đậm khó đọc.
   8. (v143) 🎯 Luyện đề → Cambridge B1 → 📚 Đề có sẵn → ✍️ Viết: bài học theo thể loại (email, bài báo, truyện) + tiêu chí chấm; 🗣 Nói A2 trở lên: thảo luận cặp 4 lượt với bạn thi máy.
+  9. (v144) 🎯 Luyện đề → IELTS → 🤖 Đề AI soạn → 📰 Đọc: có câu "1 bài đọc như đề thật: 13 câu, 20 phút"; Cambridge Starters / Movers: không có ô ✍️ Viết AI;
+     (cần khoá AI) làm 1 đề Đọc IELTS: đầu đề ghi "📋 IELTS Academic Reading · one passage", câu theo thứ tự bài, cuộn bài dài không giật.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);

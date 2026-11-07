@@ -30,5 +30,5 @@ export function chuDe(ky, sk, dang) {
   if (ky.startsWith('cb-')) { const lv = ky.slice(3); return ['pre', 'a1', 'a2', 'a2p'].includes(lv) ? CL : ['c1', 'c2'].includes(lv) ? CH : CM; }
   if (sk === 'viet') return dang === 't1' ? W1 : dang === 'gt1' ? W3 : W2;
   if (sk === 'noi') return dang === 'p2' ? S2 : S1;
-  if (sk === 'nghe') return dang === 'L-form' ? GT : [...GT, ...AC];
+  if (sk === 'nghe') return dang === 'L-form' || dang === 'L-match' ? GT : dang === 'L-mc' || dang === 'L-note' ? AC : [...GT, ...AC];   // v144: Part 1 / 2 đời thường, Part 3 / 4 học thuật
   return dang === 'R-gt' ? GT : AC; }
