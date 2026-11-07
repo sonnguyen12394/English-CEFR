@@ -168,7 +168,8 @@
   .ltbanner { position:sticky; top:0; z-index:6; display:flex; gap:8px; align-items:center; justify-content:space-between; background:var(--accent2); border-radius:12px; padding:6px 12px; margin:0 0 8px; }
   .ltbanner button { margin:0; }
   /* v113 màn kỳ thi (IELTS / TOEIC / Cambridge) cùng khung: hàng kỳ thi một dòng, ô điểm ước gọn */
-  .chipset.ex3 { flex-wrap:nowrap; } .chipset.ex3 button { flex:1; padding:8px 2px; font-size:15px; text-align:center; white-space:nowrap; }
+  .chipset.ex3 { flex-wrap:nowrap; } .chipset.ex3 button { flex:1; padding:8px 2px; font-size:15px; text-align:center; white-space:nowrap; min-height:44px; }
+  /* v137: ô 🤖 Đề AI (deai.js) */ .box.dai { border:1px solid var(--accent); } .box.dai .btnbig { margin:10px 0 8px; } .chipset.daisk button { font-size:14px; }
   .chipset.ex4 { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:6px; margin:2px 0 12px; }
   .chipset.ex4 button { padding:6px 1px 7px; border-radius:12px; font-size:clamp(11px, 3.4vw, 13px); line-height:1.25; text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .chipset.ex4 button i { display:block; font-style:normal; font-size:19px; line-height:1.25; }
@@ -208,7 +209,7 @@
 </head>
 <body>
 <main id="app"><p class="mute">Đang tải…</p></main>
-<nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
+<nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="ld"><i>🎯</i>Luyện đề</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script src="app.js?v=136"></script>
 <script src="tonghop.js?v=136"></script>
@@ -247,6 +248,7 @@
 <script src="cbmap.js?v=136"></script>
 <script src="dangthi.js?v=136"></script>
 <script src="baihoc.js?v=136"></script>
+<script src="deai.js?v=136"></script>
 <script src="chandoan.js?v=136"></script>
 <script src="lotrinh.js?v=136"></script>
 </body>

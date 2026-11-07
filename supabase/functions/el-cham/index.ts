@@ -1,7 +1,8 @@
 // 🧑‍🏫 AI chấm Viết / Nói như giám khảo Cambridge (27/10/2026, người sáng lập: "làm, tôi sẽ tạo khoá").
 // Vào: { kind: 'viet' | 'noi', lv, uid, task: { prompt, genre?, min?, max? }, text }  (noi: text = lời đã chép, kèm từng phần)
 // Ra: JSON theo khuôn (4 tiêu chí 0–5, lỗi + cách sửa, điểm mạnh, việc cần làm, bài viết lại). Khoá API: secret ANTHROPIC_API_KEY (không lộ ra trang).
-// Giới hạn chi phí: mỗi người ≤ 20 lần / ngày, cả app ≤ 200 lần / ngày (bảng el_cham).
+// Giới hạn chi phí: cả app ≤ 200 lượt AI / ngày (bảng el_cham, mọi kind trừ 'ban': chấm Viết / Nói + soạn đề 'de' của de-ai).
+// v137: bỏ trần mỗi người (20 / ngày; người sáng lập chọn "không giới hạn mỗi người"; mọi máy đang dùng chung một tài khoản nên trần này thực chất là trần cả app).
 // v68: IELTS (lv 'ielts-ac' / 'ielts-gt', mục 🌏 Học IELTS): chấm theo band descriptors công khai, mỗi tiêu chí 0–9, trả thêm band (trung bình, làm tròn 0,5); task.target = band mục tiêu.
 import Anthropic from "npm:@anthropic-ai/sdk@1.3.0";
 import { betaZodOutputFormat } from "npm:@anthropic-ai/sdk@1.3.0/helpers/beta/zod";
@@ -12,7 +13,7 @@ const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers
 const out = (b: unknown, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { ...CORS, "content-type": "application/json" } });
 const EXAM: Record<string, string> = { a1: "A1 Movers", a2: "A2 Key", a2p: "A2 Key", b1: "B1 Preliminary", b1p: "B1 Preliminary", b2: "B2 First", b2p: "B2 First", c1: "C1 Advanced", c2: "C2 Proficiency" };
 const IELTS: Record<string, string> = { "ielts-ac": "IELTS Academic", "ielts-gt": "IELTS General Training" };
-const PER_USER = 20, PER_APP = 200;
+const PER_APP = 200;
 
 // khuôn đơn giản (không ràng buộc min / max trong lược đồ; kẹp số ở dưới)
 const Crit = z.object({ name_vi: z.string(), score: z.number(), comment_vi: z.string() });
@@ -48,10 +49,8 @@ Deno.serve(async (req) => {
     if (!Deno.env.get("ANTHROPIC_API_KEY")) return out({ error: "Chưa cài khoá AI (ANTHROPIC_API_KEY) trên Supabase." }, 503);
     const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
     const since = new Date(Date.now() - 864e5).toISOString(), who = String(uid || "khach").slice(0, 80);
-    const { count: nU } = await db.from("el_cham").select("id", { count: "exact", head: true }).eq("uid", who).neq("kind", "ban").gte("at", since);
     const { count: nA } = await db.from("el_cham").select("id", { count: "exact", head: true }).neq("kind", "ban").gte("at", since);
-    if ((nU ?? 0) >= PER_USER) return out({ error: `Hôm nay đã chấm ${PER_USER} bài. Mai chấm tiếp.` }, 429);
-    if ((nA ?? 0) >= PER_APP) return out({ error: "App đã dùng hết lượt chấm hôm nay." }, 429);
+    if ((nA ?? 0) >= PER_APP) return out({ error: "App đã dùng hết lượt AI hôm nay. Mai làm tiếp." }, 429);
 
     const client = new Anthropic();
     const user = `Exam: ${ie ? IELTS[lv] : "Cambridge " + EXAM[lv]} — ${kind === "viet" ? "Writing" + (ie && task.part ? " " + task.part : "") : "Speaking"}.${ie && task.target ? `\nLearner's target band: ${task.target}` : ""}

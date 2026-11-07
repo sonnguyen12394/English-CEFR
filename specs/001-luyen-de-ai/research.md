@@ -100,3 +100,11 @@ Ký hiệu: **[đã kiểm]** = tra được ngay lúc soạn (tài liệu, dữ
 - **Chi phí [suy luận]**: danh sách tránh ~30 dòng × ~25 token ≈ 750 token vào ≈ $0,003 / đề; soạn lại vì trùng ước < 10% số đề → thêm < $0,02 / đề trung bình.
 - **Đã xét**: chỉ lưu 3 đề và đưa nguyên văn cho AI (tốn ~2–3 nghìn token mỗi lần, vẫn lặp chủ đề cũ hơn); so nghĩa bằng AI (tốn thêm một lượt mỗi đề); tránh cả chủ đề của ~800 bài có sẵn trong kho (máy chủ không có sẵn kho này; để sau nếu cần).
 - **Phạm vi**: theo tài khoản. Hiện mọi máy dùng chung một tài khoản nên lịch sử chung cả app.
+
+## R15. Chấm màn trước khi sửa (Chromium khổ iPhone SE 320 px, 7/11/2026)
+
+Ảnh: màn 📚 Học (1.587 px, 28 nút), màn IELTS (1.008 px, 19 nút), màn IELTS Đọc (1.699 px, 53 nút); không lỗi trang, không tràn ngang.
+1. 🔴 **Sai chỗ trên thanh dưới**: đang ở màn IELTS mà tab 📚 Học sáng, nút về "‹ Học" (cao < 44 px) — người học không biết mình đang ở "học" hay "luyện đề". Sửa: màn kỳ thi thuộc tab 🎯 Luyện đề, đầu màn là hàng chọn kỳ thi (vùng bấm ≥ 44 px) thay nút về.
+2. 🟡 **Không có một việc chính**: điều nhìn thấy đầu tiên là tiêu đề xuống dòng + thanh tiến độ rỗng + ô cảnh báo ⚖️ cùng cỡ với nội dung; nút to duy nhất là "🧱 Học nền trước" (rời màn). Sửa: ô 🤖 Đề AI với MỘT nút chính đứng ngay dưới tiêu đề; cảnh báo ⚖️ thu thành một dòng.
+3. 🟡 **Nhiễu**: 4 ô kỹ năng "Chưa làm" với thanh rỗng + dòng tóm tắt "Thêm" dài 4 dòng. Sửa: giữ ô kỹ năng (đã quen từ v122) nhưng đặt sau ô 🤖; không thêm ô mới nào khác.
+Giữ: lưới ô 2 cột dễ bấm, chữ đủ to, "Thêm" gập các phần ít dùng.
