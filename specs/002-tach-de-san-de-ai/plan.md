@@ -34,3 +34,10 @@ Màn đầu mỗi kỳ thi ở tab 🎯 Luyện đề thành màn chọn: tên k
 | Thêm 1 lần chạm tới bài có sẵn | Hôm nay vẫn mở thẳng bài; nút 📚 là nút chính |
 | Người học không thấy phần 🤖 có gì | Nút 🤖 ghi rõ "mỗi lần một đề mới"; đề AI đã xong hiện dòng nhắc ở màn 2 nút |
 | Test cũ dựa vào ô kỹ năng ở màn đầu | Sửa test đặt `EX_PART = 'san'`; thêm C55 cho màn 2 nút |
+
+## Chấm màn (v137, Chromium khổ iPhone SE, ảnh v3-toeic / v-ielts ở lượt trước)
+
+1. 🔴 Việc nổi nhất là nút to "▶ Làm đề AI mới" (tốn phí) ngay dưới tiêu đề; bài có sẵn (miễn phí) không có nút chính, nằm dưới nếp gấp.
+2. 🟡 Ô 🤖 và lưới ô kỹ năng tranh nhau: hai hàng kỹ năng (chip trong ô 🤖 và ô kỹ năng) cùng tên Đọc / Nghe / Viết / Nói nhưng dẫn tới hai nơi khác nhau.
+3. 🟡 Màn dài 1.150–1.260 px; người học phải cuộn mới thấy kho bài có sẵn.
+Sửa: màn 2 nút (📚 chính, 🤖 phụ) thấy ngay không cuộn; mỗi phần một nội dung.

@@ -161,14 +161,20 @@ function exHero(k, act, lab, title = '▶ Luyện tiếp') { let sp = null; try 
   if (sp && !sp.ex) return `<button class="btnbig" data-hocnen>🧱 Học nền trước<small>Còn xa trình độ cần (${LVN[ltGoalLv()]}): Lộ trình chưa xếp giờ luyện đề</small></button><button class="btnbig ghost" ${act} style="font-size:16px">Vẫn thử: ${esc(lab)}</button>`;
   return `<button class="btnbig" ${act}>${title}<small>${esc(lab)}</small></button>`; }
 // việc 🎓 luyện đề ở ô Hôm nay (Lộ trình): mở màn kỳ thi của mục tiêu rồi vào thẳng bài nên làm (ieToday / toToday); không tìm thấy nút thì ở lại màn kỳ thi
-async function exGo() { const k = exSel(); await exOpen(); let a = null; try { a = k === 'ielts' ? ieToday()[0] : k === 'toeic' ? toToday()[0] : null; } catch (e) {}
+// v138: việc luyện đề ở Hôm nay = bài có sẵn (miễn phí): mở thẳng phần 📚
+async function exGo() { const k = exSel(); EX_PART = 'san'; await exOpen(); let a = null; try { a = k === 'ielts' ? ieToday()[0] : k === 'toeic' ? toToday()[0] : null; } catch (e) {}
   const m = a && String(a).match(/^(data-[\w-]+)(?:="([^"]*)")?$/); if (!m) return; let el = document.querySelector(`#app [${m[1]}${m[2] != null ? `="${m[2].replace(/"/g, '\\"')}"` : ''}]`);
   if (!el && document.createElement) { el = document.createElement('button'); el.hidden = true; el.setAttribute(m[1], m[2] != null ? m[2] : ''); $app.appendChild(el); }   // v122: màn kỳ thi không còn nút ▶ Luyện tiếp: bấm việc qua nút ẩn
   if (el && el.click) el.click(); }
 const exOpenK = k => k === 'toeic' ? toeicView() : k === 'ielts' || typeof cbView !== 'function' ? ieltsView() : cbView();
 const exSel = () => { if (!S) return null; const g = S.lt && S.lt.goal; if (g) return g.kind === 'ielts' || g.kind === 'toeic' ? g.kind : 'cefr'; return S.exSel || (S.ie && S.ie.set ? 'ielts' : 'cefr'); };
 const exOpen = () => { const k = exSel(), g = S.lt && S.lt.goal; return k === 'toeic' ? toeicView() : k === 'ielts' || typeof cbView !== 'function' ? ieltsView() : cbView(g && typeof ltGoalLv === 'function' ? ltGoalLv(g) : undefined); };
-document.addEventListener('click', e => { if (!S) return; if (e.target.closest('[data-hocnen]')) { scrollTo(0, 0); return overview(); } if (e.target.closest('[data-exthi]')) { scrollTo(0, 0); return exOpenK(exGoalK() || S.exSel || 'cefr'); } const b = e.target.closest('[data-exsel]'); if (!b) return; S.exSel = b.dataset.exsel; S.t = Date.now(); save(); scrollTo(0, 0); exOpenK(b.dataset.exsel); });   // v109: mở đúng mục đã chọn (mục tiêu không đổi)
+// v138 (người sáng lập: "tách ra làm 2 phần là đề do AI soạn và đề mẫu có sẵn trong app… đỡ tốn chi phí gọi AI"; "hiện cả 2 nút chức năng để bấm"):
+// màn đầu kỳ thi = 2 nút 📚 Đề có sẵn · 🤖 Đề AI soạn; EX_PART = phần đang mở trong phiên: null (màn 2 nút) · 'san' (bài có sẵn) · 'ai' (đề AI). Không lưu vào S.
+let EX_PART = null;
+const exRedraw = () => { const v = (window.CUR || {}).view; return v === 'toeic' ? toeicView() : v === 'cambridge' && typeof cbView === 'function' ? cbView() : ieltsView(); };
+document.addEventListener('click', e => { if (!S) return; const b = e.target.closest('[data-expart]'); if (!b) return; EX_PART = b.dataset.expart || null; scrollTo(0, 0); exRedraw(); });
+document.addEventListener('click', e => { if (!S) return; if (e.target.closest('[data-hocnen]')) { scrollTo(0, 0); return overview(); } if (e.target.closest('[data-exthi]')) { EX_PART = null; scrollTo(0, 0); return exOpenK(exGoalK() || S.exSel || 'cefr'); } const b = e.target.closest('[data-exsel]'); if (!b) return; S.exSel = b.dataset.exsel; S.t = Date.now(); save(); scrollTo(0, 0); exOpenK(b.dataset.exsel); });   // v109: mở đúng mục đã chọn (mục tiêu không đổi)
 // v122 kỳ thi theo khuôn Nền (parts.js xHome / xSkill; người sáng lập 3/11/2026): màn TOEIC = dòng điểm ước có thanh + 3 ô (🎧 Nghe · 📰 Đọc · 📚 Từ công sở) + "Thêm" gập;
 // màn một kỹ năng = ① Làm bài → ② Điểm ước (so mục tiêu mỗi phần = tổng / 2) → ③ Thi thử phần đó, 📘 Bài học = cách làm, 🏋️ Bài tập = bài kế tiếp, danh sách bài cụ thể
 // (Nghe: bộ 10 câu Part 2, từng hội thoại Part 3, bài nói Part 4 · Đọc: bộ 10 câu Part 5, từng đoạn Part 6, bộ văn bản Part 7 · Từ công sở: chủ đề); luyện theo Part,
@@ -201,7 +207,7 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
   const tiles = ['L', 'R', 'V'].map(tile); let sp = null; try { sp = exGoalK() === 'toeic' && typeof ltSplit === 'function' ? ltSplit() : null; } catch (e) {}
   $app.innerHTML = '<div id="ie"></div>' + xHome({ sw: exSwitch('toeic'), t: `💼 TOEIC ${tg}`, pv: now.tot != null ? `Tổng ≈ ${now.tot}` : 'điểm ước: chưa đủ số đo',
     pct: now.tot != null ? Math.min(100, Math.round(now.tot / tg * 100)) : Math.round(tiles.reduce((t, x) => t + x.pct, 0) / 3), sub: `Listening + Reading · cần nền ${LVN[base]}${wk != null ? ` · còn ${wk} tuần` : ''}`,
-    note: xNoteNen(sp), ai: typeof daiBox === 'function' ? daiBox('toeic') : '',
+    note: xNoteNen(sp), ...(typeof daiX === 'function' ? daiX('toeic') : {}),
     tiles, more: [['🎓 Thi thử cả đề', `<p class="mute" style="margin:0 0 6px">Tỉ lệ các Part như đề thật, ít câu hơn (đề thật 200 câu / 120 phút). Nghe 1 lần, không báo đúng / sai giữa chừng.${o.mock.length ? ` Đã làm ${o.mock.length} lần.` : ''} Làm từng phần: bước ③ ở màn Nghe / Đọc.</p><button class="pri" data-tomk="all">▶ Làm cả đề</button>`],
       ['🎯 Sẵn sàng thi', `<p style="margin:0 0 4px"><b>${tg} điểm: ${nOk}/${cs.length}</b></p>${cs.map(([ok, t, d]) => `<p style="margin:4px 0">${ok ? '✅' : '⬜'} ${t} <span class="mute">· ${esc(d)}</span></p>`).join('')}
         <p class="mute" style="margin:6px 0 0">Đủ cả 4 mới nên đăng ký thi. Đề của app do AI soạn; đề luyện thật (sách ETS) là bằng chứng độc lập.</p><button class="chip" data-toadd>📝 Ghi điểm đề luyện thật (Listening, Reading)</button>`],

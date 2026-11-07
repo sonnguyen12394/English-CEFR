@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 137;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 138;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -696,7 +696,7 @@ function syncTabs() { const t = document.getElementById('bk') ? 'bk' : document.
   document.body.classList.toggle('has-tabs', !!t); $tabs.hidden = !t; document.body.classList.toggle('nogy', !!$app.querySelector('.wiz'));   // v112: 3 bước bắt đầu không có nút 💬 đè nút Tiếp
   $tabs.querySelectorAll('[data-tab]').forEach(b => { const on = b.dataset.tab === t; b.classList.toggle('on', on); b.setAttribute('aria-current', on ? 'page' : 'false'); if (on) try { b.scrollIntoView({ inline: 'nearest', block: 'nearest' }); } catch (e) {} }); }
 new MutationObserver(syncTabs).observe($app, { childList: true });
-$tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; BACK = null; if (b.dataset.tab === 'dict') dict(); else if (b.dataset.tab === 'bk') (typeof minhView === 'function' ? minhView() : backup()); else if (b.dataset.tab === 'lt' && typeof ltView === 'function') ltView(); else if (b.dataset.tab === 'ld' && typeof exOpen === 'function') exOpen(); else overview(); scrollTo(0, 0); });
+$tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; BACK = null; if (b.dataset.tab === 'dict') dict(); else if (b.dataset.tab === 'bk') (typeof minhView === 'function' ? minhView() : backup()); else if (b.dataset.tab === 'lt' && typeof ltView === 'function') ltView(); else if (b.dataset.tab === 'ld' && typeof exOpen === 'function') { if (typeof EX_PART !== 'undefined') EX_PART = null; exOpen(); } else overview(); scrollTo(0, 0); });
 
 // Tự cập nhật (người sáng lập 23/10/2026: "web tự cập nhật nếu có thay đổi, không phải bấm tải lại"). iPhone giữ trang cũ trong bộ nhớ khi mở lại tab
 // và GitHub Pages cho giữ trang ~10 phút, nên hỏi version.json (không qua bộ nhớ đệm) khi mở / quay lại tab và mỗi 5 phút.

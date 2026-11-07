@@ -458,7 +458,7 @@ async function ieltsView() { BACK = null; window.CUR = { view: 'ielts' }; EXAM_V
   const tiles = ['L', 'R', 'W', 'S'].map(tile); let sp = null; try { sp = exGoalK() === 'ielts' && typeof ltSplit === 'function' ? ltSplit() : null; } catch (e) {}
   $app.innerHTML = '<div id="ie"></div>' + xHome({ sw: exSwitch('ielts'), t: `🌏 IELTS ${bandTxt(tg)}`, pv: now.all != null ? `Overall ≈ ${bandTxt(now.all)}` : 'band ước: chưa đủ 4 kỹ năng',
     pct: now.all != null ? Math.min(100, Math.round(now.all / tg * 100)) : Math.round(tiles.reduce((t, x) => t + x.pct, 0) / 4), sub: `${IE_TYPE[o.type]} · cần nền ${LVN[base]}${wk != null ? ` · còn ${wk} tuần` : ''}`,
-    note: xNoteNen(sp), ai: typeof daiBox === 'function' ? daiBox('ielts') : '',
+    note: xNoteNen(sp), ...(typeof daiX === 'function' ? daiX('ielts') : {}),
     tiles, more: [['🎓 Thi thử cả đề', `<p class="mute" style="margin:0 0 6px">${IE_TYPE[o.type]} như đề thật: Nghe 30 phút (nghe 1 lần) · Đọc 60 · Viết 60 · Nói 11–14 phút. Không báo đúng / sai giữa chừng.${o.mock.length ? ` Đã làm ${o.mock.length} lần.` : ''} Làm từng bài thi: bước ③ ở màn mỗi kỹ năng.</p><button class="pri" data-iemk="all">▶ Làm cả đề (4 bài liền)</button>`],
       ['📝 Luyện bằng đề thật', typeof thBox === 'function' ? thBox(true) : ''],
       ['🎯 Sẵn sàng thi', `<p style="margin:0 0 4px"><b>IELTS ${bandTxt(tg)}: ${nOk}/${cs.length}</b></p>${cs.map(([ok, t, d]) => `<p style="margin:4px 0">${ok ? '✅' : '⬜'} ${t} <span class="mute">· ${esc(d)}</span></p>`).join('')}
