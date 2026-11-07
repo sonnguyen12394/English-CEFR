@@ -685,6 +685,192 @@
    ]
   },
   {
+   "id": "il-p2-plan",
+   "part": 2,
+   "title": "Volunteering at a community centre",
+   "text": "Good morning, everyone, and thank you for coming to this welcome session for new volunteers. My name's Sarah Okafor, and I'm the manager here at Westbury Community Centre. As most of you know, the centre has just reopened after eight months of building work. The old building was more than fifty years old, and the main problem was the heating, which broke down almost every winter. So the biggest change is one you won't actually see: a completely new heating system. We've also put in a lift, so every part of the building can now be reached by wheelchair users. Our opening hours have changed slightly. We used to stay open until nine in the evening, but so few people came in late that we now close at eight o'clock from Monday to Friday. At weekends we're open from ten until four, the same as before. Now, a word about what we'd like you to do. You won't need to deal with room bookings or payments, because the office staff look after all of that. Your main job is to welcome visitors and help them find the activity or room they've come for. On busy days, we may also ask you to help set out chairs in the main hall. Parking is a bit of a problem here. The small car park behind the centre is only for visitors with disabilities and for deliveries, so please use the public car park on Mill Street. It's free after six, but better still, come by bus or bike if you can. And if the fire alarm ever goes off, everyone should leave by the nearest door and meet on the grass area across the road. Please don't wait in the car park, because the fire engines need that space. Right, let's look at the plan of the ground floor. We're in the entrance area at the bottom of the plan, and reception is straight in front of you. Behind reception, a corridor runs all the way up to the main hall at the top. As you walk along the corridor, the first room on your left is the café. It's run by a local charity, and volunteers get a ten per cent discount. People often expect the first aid room to be next to reception, but in fact it's directly opposite the café, on the right-hand side of the corridor. Carry on along the corridor, and the next room on the left is the computer room, where we run free classes for older residents. The art studio can only be reached through the main hall. Go into the hall and you'll see a door on the right-hand side. The studio is through there, in the top right-hand corner of the building. And finally, if you're helping families, the children's play room is easy to find. As you come in through the entrance, turn right straight away, before you get to reception. It's in the bottom right-hand corner. OK, any questions so far?",
+   "map": {
+    "t": "Westbury Community Centre: ground floor",
+    "items": [
+     {
+      "t": "Main hall",
+      "x": 2,
+      "y": 0,
+      "w": 6,
+      "h": 3,
+      "c": "r"
+     },
+     {
+      "t": "Corridor",
+      "x": 4,
+      "y": 3,
+      "w": 2,
+      "h": 4,
+      "c": "r"
+     },
+     {
+      "t": "Reception",
+      "x": 4,
+      "y": 7,
+      "w": 2,
+      "h": 2,
+      "c": "r"
+     },
+     {
+      "t": "Entrance",
+      "x": 4,
+      "y": 9,
+      "w": 2,
+      "h": 1,
+      "c": "r"
+     },
+     {
+      "t": "A",
+      "x": 0,
+      "y": 0,
+      "w": 2,
+      "h": 3,
+      "c": "b"
+     },
+     {
+      "t": "B",
+      "x": 8,
+      "y": 0,
+      "w": 2,
+      "h": 3,
+      "c": "b"
+     },
+     {
+      "t": "C",
+      "x": 0,
+      "y": 3,
+      "w": 4,
+      "h": 2,
+      "c": "b"
+     },
+     {
+      "t": "D",
+      "x": 6,
+      "y": 3,
+      "w": 4,
+      "h": 2,
+      "c": "b"
+     },
+     {
+      "t": "E",
+      "x": 0,
+      "y": 5,
+      "w": 4,
+      "h": 2,
+      "c": "b"
+     },
+     {
+      "t": "F",
+      "x": 6,
+      "y": 5,
+      "w": 4,
+      "h": 2,
+      "c": "b"
+     },
+     {
+      "t": "G",
+      "x": 0,
+      "y": 8,
+      "w": 3,
+      "h": 2,
+      "c": "b"
+     },
+     {
+      "t": "H",
+      "x": 7,
+      "y": 8,
+      "w": 3,
+      "h": 2,
+      "c": "b"
+     }
+    ]
+   },
+   "qs": [
+    {
+     "k": "mc2",
+     "q": "Which TWO changes have been made to the building?",
+     "a": [
+      "a new heating system",
+      "a lift"
+     ],
+     "w": [
+      "a bigger car park",
+      "solar panels on the roof",
+      "longer opening hours"
+     ],
+     "why": "\"a completely new heating system\" và \"We've also put in a lift\"; giờ mở cửa ngắn lại (đóng 8 giờ thay vì 9), bãi xe vẫn nhỏ."
+    },
+    {
+     "k": "mc",
+     "q": "From Monday to Friday, the centre now closes at",
+     "a": "8 pm.",
+     "w": [
+      "9 pm.",
+      "4 pm.",
+      "6 pm."
+     ],
+     "why": "Trước đây 9 giờ tối, nay \"we now close at eight o'clock\"; 4 giờ là giờ đóng cửa cuối tuần, 6 giờ là giờ bãi xe miễn phí."
+    },
+    {
+     "k": "mc",
+     "q": "The main job of the volunteers is to",
+     "a": "help visitors find where to go.",
+     "w": [
+      "take room bookings.",
+      "collect payments.",
+      "set out chairs in the hall."
+     ],
+     "why": "Đặt phòng, thu tiền do nhân viên văn phòng làm; xếp ghế chỉ vào ngày đông khách."
+    },
+    {
+     "k": "mc",
+     "q": "Volunteers who drive should park",
+     "a": "on Mill Street.",
+     "w": [
+      "behind the centre.",
+      "outside the main entrance.",
+      "at the bus station."
+     ],
+     "why": "Bãi sau toà nhà chỉ cho khách khuyết tật và xe giao hàng: \"please use the public car park on Mill Street\"."
+    },
+    {
+     "k": "map",
+     "q": "Café",
+     "a": "E",
+     "why": "Đi dọc hành lang từ quầy lễ tân: phòng đầu tiên bên trái."
+    },
+    {
+     "k": "map",
+     "q": "First aid room",
+     "a": "F",
+     "why": "Đối diện quán cà phê, bên phải hành lang; bẫy: không ở cạnh quầy lễ tân."
+    },
+    {
+     "k": "map",
+     "q": "Computer room",
+     "a": "C",
+     "why": "Đi tiếp hành lang: phòng kế tiếp bên trái."
+    },
+    {
+     "k": "map",
+     "q": "Art studio",
+     "a": "B",
+     "why": "Chỉ vào được qua hội trường: cửa bên phải hội trường, góc trên bên phải."
+    },
+    {
+     "k": "map",
+     "q": "Children's play room",
+     "a": "H",
+     "why": "Vào cửa là rẽ phải ngay, trước quầy lễ tân: góc dưới bên phải."
+    }
+   ]
+  },
+  {
    "id": "il-p3-garden",
    "part": 3,
    "title": "Planning a project on urban gardens",

@@ -19,14 +19,14 @@ description: "Chia việc: IELTS đủ dạng"
 
 ## Phase 1: Setup
 
-- [ ] T001 Kiểm bộ đọc giọng Kokoro tạm còn dùng được (venv + mô hình ở scratchpad), không commit
+- [X] T001 Kiểm bộ đọc giọng Kokoro tạm còn dùng được (venv + mô hình ở scratchpad), không commit
 
 ---
 
 ## Phase 2: Foundational
 
-- [ ] T002 Ghi nhãn vai trò `roles` cho 12 bài mẫu Task 2 trong content/ielts/viet.json (đọc từng đoạn, nhãn đúng nội dung: "Mở bài…", "Thân bài 1: …", "Kết luận…"); tools/build-ielts.mjs kiểm "số nhãn = số đoạn; nhãn không rỗng"
-- [ ] T003 Dựng ielts.json (`node tools/build-ielts.mjs`); `node tools/test/run.mjs` vẫn xanh
+- [X] T002 Ghi nhãn vai trò `roles` cho 12 bài mẫu Task 2 trong content/ielts/viet.json (đọc từng đoạn, nhãn đúng nội dung: "Mở bài…", "Thân bài 1: …", "Kết luận…"); tools/build-ielts.mjs kiểm "số nhãn = số đoạn; nhãn không rỗng"
+- [X] T003 Dựng ielts.json (`node tools/build-ielts.mjs`); `node tools/test/run.mjs` vẫn xanh
 
 ---
 
@@ -36,8 +36,8 @@ description: "Chia việc: IELTS đủ dạng"
 
 **Independent Test**: mỗi bài: ví dụ là bài mẫu đúng kiểu có nhãn vai trò; làm thử 3 câu nhận vai trò đoạn của bài mẫu khác cùng kiểu.
 
-- [ ] T004 [US1] Viết 5 bài học `w2-op`, `w2-dis`, `w2-ad`, `w2-ps`, `w2-tq` (sau `w2-type`) trong XL_TXT.ie.W ở baihoc.js: dạng này là gì, nhận ra đề thế nào, bố cục riêng, bẫy
-- [ ] T005 [US1] xlIeW ở baihoc.js: bài theo kiểu → ví dụ = bài mẫu cuối của kiểu, đoạn ghi nhãn `roles`; làm thử = 3 câu "Đoạn này làm nhiệm vụ gì?" lấy đoạn bài mẫu khác cùng kiểu, phương án = nhãn của kiểu đó (không trùng); `go` = `data-iew="t2:<kiểu>"`
+- [X] T004 [US1] Viết 5 bài học `w2-op`, `w2-dis`, `w2-ad`, `w2-ps`, `w2-tq` (sau `w2-type`) trong XL_TXT.ie.W ở baihoc.js: dạng này là gì, nhận ra đề thế nào, bố cục riêng, bẫy
+- [X] T005 [US1] xlIeW ở baihoc.js: bài theo kiểu → ví dụ = bài mẫu cuối của kiểu, đoạn ghi nhãn `roles`; làm thử = 3 câu "Đoạn này làm nhiệm vụ gì?" lấy đoạn bài mẫu khác cùng kiểu, phương án = nhãn của kiểu đó (không trùng); `go` = `data-iew="t2:<kiểu>"`
 
 ---
 
@@ -47,10 +47,10 @@ description: "Chia việc: IELTS đủ dạng"
 
 **Independent Test**: bấm bài tập ở mỗi bài học / nút Thêm → đề / phần nghe đúng dạng; chữa "Nghe trả lời ngắn" mở phần có trả lời ngắn.
 
-- [ ] T006 [US2] ielts.js: `data-ielk="<dạng>"` (nhóm form = form / tab / flow, sent = sent / sa, mc, mc2, map, match) chọn phần nghe IELTS có dạng đó, chưa làm / làm lâu nhất trước, làm cả phần (`ieRun`, ghi như luyện thường); `data-iew="t1:<loại,…>"` / `"t2:<kiểu>"` chọn đề đúng loại / kiểu (đề viết lâu nhất trước)
-- [ ] T007 [US2] baihoc.js xlIe: `go` của 6 bài học Nghe → `data-ielk`, của 5 bài Task 1 → `data-iew="t1:<loại>"`, thư GT → `gt1`, nhận kiểu đề / bố cục → `t2`
-- [ ] T008 [US2] iemap.js imFix: L-map / L-match / L-sa dùng phần nghe IELTS trong `imPool(u)` (mới trước), làm cả phần; L-form / L-mc như cũ
-- [ ] T009 [US2] Thêm của màn Nghe (6 nút `.big2` `data-ielk`) và màn Viết (hàng Task 1 theo loại, chỉ Academic; hàng Task 2 theo kiểu; `.chips.tap`) trong ielts.js ieSkView: design-critique trước (Chromium khổ iPhone SE) → frontend-design + design-system → ux-copy → accessibility-review sau
+- [X] T006 [US2] ielts.js: `data-ielk="<dạng>"` (nhóm form = form / tab / flow, sent = sent / sa, mc, mc2, map, match) chọn phần nghe IELTS có dạng đó, chưa làm / làm lâu nhất trước, làm cả phần (`ieRun`, ghi như luyện thường); `data-iew="t1:<loại,…>"` / `"t2:<kiểu>"` chọn đề đúng loại / kiểu (đề viết lâu nhất trước)
+- [X] T007 [US2] baihoc.js xlIe: `go` của 6 bài học Nghe → `data-ielk`, của 5 bài Task 1 → `data-iew="t1:<loại>"`, thư GT → `gt1`, nhận kiểu đề / bố cục → `t2`
+- [X] T008 [US2] iemap.js imFix: L-map / L-match / L-sa dùng phần nghe IELTS trong `imPool(u)` (mới trước), làm cả phần; L-form / L-mc như cũ
+- [X] T009 [US2] Thêm của màn Nghe (6 nút `.big2` `data-ielk`) và màn Viết (hàng Task 1 theo loại, chỉ Academic; hàng Task 2 theo kiểu; `.chips.tap`) trong ielts.js ieSkView: design-critique trước (Chromium khổ iPhone SE) → frontend-design + design-system → ux-copy → accessibility-review sau
 
 ---
 
@@ -60,36 +60,36 @@ description: "Chia việc: IELTS đủ dạng"
 
 **Independent Test**: đặt ô "Viết · Mạch lạc" yếu → bài "Mạch lạc" lên đầu, ghi "yếu"; mỗi bài có ví dụ band thấp / cao và 3 câu làm thử.
 
-- [ ] T010 [P] [US3] Soạn `XL_TXT.crit` trong baihoc.js: 8 mục (W: hoàn thành đề, mạch lạc, vốn từ, ngữ pháp; S: trôi chảy, vốn từ, ngữ pháp, phát âm), mỗi mục `ex { lo, hi, why }` + 3 câu `mcq { q, a, w, why }`
-- [ ] T011 [US3] 8 bài học `wc-tr`, `wc-cc`, `wc-lr`, `wc-gr` (W, `u` W-0…W-3) và `sc-fc`, `sc-lr`, `sc-gr`, `sc-pr` (S, `u` S-0…S-3) trong XL_TXT.ie + xlIe dựng ví dụ / làm thử từ `XL_TXT.crit`; `go` Viết → `data-iew="t2"`, Nói → `data-ies="all"`
+- [X] T010 [P] [US3] Soạn `XL_TXT.crit` trong baihoc.js: 8 mục (W: hoàn thành đề, mạch lạc, vốn từ, ngữ pháp; S: trôi chảy, vốn từ, ngữ pháp, phát âm), mỗi mục `ex { lo, hi, why }` + 3 câu `mcq { q, a, w, why }`
+- [X] T011 [US3] 8 bài học `wc-tr`, `wc-cc`, `wc-lr`, `wc-gr` (W, `u` W-0…W-3) và `sc-fc`, `sc-lr`, `sc-gr`, `sc-pr` (S, `u` S-0…S-3) trong XL_TXT.ie + xlIe dựng ví dụ / làm thử từ `XL_TXT.crit`; `go` Viết → `data-iew="t2"`, Nói → `data-ies="all"`
 
 ---
 
 ## Phase 6: User Story 4 - Nói nhóm thẻ Part 2, kiểu câu hỏi Part 3 (P3)
 
-- [ ] T012 [US4] `IE_P2CAT` (nhóm thẻ theo tiêu đề) và `IE_P3TY` (kiểu câu hỏi) + 2 bài học `p2-cat` (sau `p2`), `p3-q` (sau `p3`) trong baihoc.js; làm thử = nhận nhóm / kiểu của thẻ / câu thật; `go` → `data-ies="p2"` / `"p3"`
+- [X] T012 [US4] `IE_P2CAT` (nhóm thẻ theo tiêu đề) và `IE_P3TY` (kiểu câu hỏi) + 2 bài học `p2-cat` (sau `p2`), `p3-q` (sau `p3`) trong baihoc.js; làm thử = nhận nhóm / kiểu của thẻ / câu thật; `go` → `data-ies="p2"` / `"p3"`
 
 ---
 
 ## Phase 7: User Story 5 - Phần nghe mặt bằng (P3)
 
-- [ ] T013 [P] [US5] Soạn phần Part 2 `il-p2-plan` (mặt bằng tòa nhà, 5 câu mặt bằng chữ A–H + 5 trắc nghiệm) trong content/ielts/nghe.json; dựng ielts.json; giọng Kokoro (`python -I tools/build-audio.py <mô hình> 4`)
+- [X] T013 [P] [US5] Soạn phần Part 2 `il-p2-plan` (mặt bằng tòa nhà, 5 câu mặt bằng chữ A–H + 5 trắc nghiệm) trong content/ielts/nghe.json; dựng ielts.json; giọng Kokoro (`python -I tools/build-audio.py <mô hình> 4`)
 
 ---
 
 ## Phase 8: User Story 6 - Bài đọc dài (P3)
 
-- [ ] T014 [P] [US6] Soạn 2 bài học thuật 750–900 từ, 13–14 câu, ≥ 3 dạng mỗi bài trong content/ielts/doc.json; dựng ielts.json (kiểm như bài cũ)
+- [X] T014 [P] [US6] Soạn 2 bài học thuật 750–900 từ, 13–14 câu, ≥ 3 dạng mỗi bài trong content/ielts/doc.json; dựng ielts.json (kiểm như bài cũ)
 
 ---
 
 ## Phase 9: Polish
 
-- [ ] T015 Test C56 trong tools/test/run.mjs: 48 dạng (danh sách bài học AC / GT, mã cũ còn), ví dụ + ≥ 3 làm thử đúng dạng, nhãn vai trò, bài tập đúng loại / kiểu / dạng nghe, imFix Nghe đúng phần, nhóm Part 2 / kiểu Part 3 phủ hết kho, kho: ≥ 2 phần bản đồ, ≥ 2 bài đọc 750–900 từ, giọng phần mới đủ
-- [ ] T016 [P] Bảng kiểm giáo viên mục v140 (nhãn vai trò, tiêu chí, phần nghe, bài đọc dài; bài học mới đọc từ XL_TXT) trong tools/export-review.mjs → docs/kiem-noi-dung.html
-- [ ] T017 [P] 📘 Luật mục luyện thi: câu về IELTS theo dạng trong huongdan.js
-- [ ] T018 `node tools/test/run.mjs` xanh; soát Chromium theo quickstart.md; `graphify update . && python3 tools/graph-vung.py`
-- [ ] T019 Đoạn v140 trong CLAUDE.md; `node tools/release.mjs` (bản 139) → commit → push nhánh claude/happy-shannon-5j2r27
+- [X] T015 Test C56 trong tools/test/run.mjs: 48 dạng (danh sách bài học AC / GT, mã cũ còn), ví dụ + ≥ 3 làm thử đúng dạng, nhãn vai trò, bài tập đúng loại / kiểu / dạng nghe, imFix Nghe đúng phần, nhóm Part 2 / kiểu Part 3 phủ hết kho, kho: ≥ 2 phần bản đồ, ≥ 2 bài đọc 750–900 từ, giọng phần mới đủ
+- [X] T016 [P] Bảng kiểm giáo viên mục v140 (nhãn vai trò, tiêu chí, phần nghe, bài đọc dài; bài học mới đọc từ XL_TXT) trong tools/export-review.mjs → docs/kiem-noi-dung.html
+- [X] T017 [P] 📘 Luật mục luyện thi: câu về IELTS theo dạng trong huongdan.js
+- [X] T018 `node tools/test/run.mjs` xanh; soát Chromium theo quickstart.md; `graphify update . && python3 tools/graph-vung.py`
+- [X] T019 Đoạn v140 trong CLAUDE.md; `node tools/release.mjs` (bản 139) → commit → push nhánh claude/happy-shannon-5j2r27
 
 ---
 
