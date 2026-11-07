@@ -1478,13 +1478,13 @@
 "id": "b1-w6",
 "lv": "b1",
 "test": 1,
-"en": "Story: The Wrong Bus",
-"vi": "Truyện: Lên nhầm xe buýt",
+"en": "Story: An Unexpected Visitor",
+"vi": "Truyện: Vị khách bất ngờ",
 "genre": "truyện ngắn",
 "min": 90,
 "max": 120,
-"p": "Write a story that begins with this sentence: “As soon as the bus doors closed, I realised I had made a mistake.”",
-"pv": "Viết một câu chuyện bắt đầu bằng câu: “Ngay khi cửa xe buýt đóng lại, tôi nhận ra mình đã nhầm.”",
+"p": "Write a story that begins with this sentence: “When I opened the front door, I couldn't believe my eyes.”",
+"pv": "Viết một câu chuyện bắt đầu bằng câu: “Khi mở cửa trước, tôi không tin vào mắt mình.”",
 "c": [
 "Mở đầu bằng câu đã cho",
 "Chuyện gì đã xảy ra (quá khứ)",
@@ -1493,59 +1493,57 @@
 ],
 "u": [
 [
-"As soon as",
-"Ngay khi"
+"When I opened the door",
+"Khi tôi mở cửa"
 ],
 [
-"I didn't know what to do",
-"Tôi không biết phải làm gì"
+"I couldn't believe",
+"Tôi không thể tin"
 ],
 [
-"Luckily",
-"May mắn thay"
+"At first",
+"Lúc đầu"
 ],
 [
 "In the end",
 "Cuối cùng"
 ]
 ],
-"m": "As soon as the bus doors closed, I realised I had made a mistake. The bus was going north, but my job interview was in the south of the city. I looked at my watch. It was already half past eight, and the interview started at nine. I felt sick. I didn't know what to do, so I asked the woman next to me for help. Luckily, she worked near the company and told me to get off at the next stop and take a taxi with her. We shared the cost and chatted. In the end, I arrived just in time, and I got the job. Now she is my colleague and one of my best friends.",
+"m": "When I opened the front door, I couldn't believe my eyes. My old school friend Lan was standing there with a huge suitcase. We hadn't seen each other for ten years, since her family moved to Canada. At first, I didn't know what to say. Then she laughed and explained that she had come back to Vietnam for a holiday and wanted to surprise me. I felt so happy that I nearly cried. We sat in the kitchen and talked for hours about our school days. In the end, she stayed with us for a week, and now we call each other every Sunday.",
 "k": [
 [
 [
-"as soon as the bus doors closed",
-"made a mistake"
+"when i opened the front door",
+"believe my eyes"
 ]
 ],
 [
 [
 "was",
 "were",
-"went",
-"looked",
-"realised",
-"realized",
-"asked",
-"got"
+"had",
+"came",
+"laughed",
+"explained",
+"stayed",
+"moved"
 ]
 ],
 [
 [
 "felt",
-"worried",
+"happy",
+"surprised",
+"shocked",
+"excited",
 "nervous",
-"scared",
-"sick",
-"panic",
-"relieved",
-"happy"
+"cried"
 ]
 ],
 [
 [
 "in the end",
 "finally",
-"luckily",
 "at last",
 "now"
 ]

@@ -6,14 +6,20 @@
 const DT_COL = [['red', '🔴'], ['blue', '🔵'], ['green', '🟢'], ['yellow', '🟡'], ['orange', '🟠'], ['purple', '🟣']];
 const DT_YES = '✓ Yes', DT_NO = '✗ No';
 const dtAll = () => (KIT.nghe.raw && KIT.nghe.raw.dt) || [];
-const dtSet = (k, lv = MK.C.lo) => { const xs = dtAll().filter(x => x.k === k && x.lv === lv); return xs.length ? xs[Math.floor(Math.random() * xs.length)] : null; };
+// v141: DT_PIN = id bộ cần làm (bài tập theo bộ ở màn bài thi Cambridge); không có thì bốc ngẫu nhiên như đề thử
+let DT_PIN = null;
+const dtSet = (k, lv = MK.C.lo) => { const xs = dtAll().filter(x => x.k === k && x.lv === lv), pin = DT_PIN && xs.find(x => x.id === DT_PIN); return pin || (xs.length ? xs[Math.floor(Math.random() * xs.length)] : null); };
 const dtPlay = (x, i, lines) => ({ key: x.id + '|' + i, lines });
 const dtTxt = (x, cur) => `<div class="box"><b>${esc(x.t)}</b><p style="font-size:16px;line-height:1.7;margin:6px 0 0">${esc(x.text).replace(/\{(\d)\}/g, (_, n) => +n - 1 === cur ? `<mark style="padding:1px 4px;border-radius:4px"><b>(${n})</b> ______</mark>` : `<b>(${n})</b> ______`)}</p></div>`;
 const dtParaTxt = (x, cur) => `<div class="box"><b>${esc(x.t)}</b>${x.text.split('\n').map(p => { const m = p.match(/^\{(\d)\}$/); return m ? `<p style="margin:8px 0;padding:6px 8px;border:1px dashed var(--line);border-radius:8px${+m[1] - 1 === cur ? ';border-color:var(--accent);background:var(--accent2)' : ''}"><b>(${m[1]})</b> ______</p>` : `<p class="tdtap" style="font-size:16px;line-height:1.6;margin:8px 0 0">${esc(p)}</p>`; }).join('')}</div>`;
 const dtParaOpts = x => `<div class="box"><b>Các đoạn A–${'ABCDEFGH'[x.opts.length - 1]}</b>${x.opts.map((o, j) => `<p class="tdtap" style="font-size:15px;line-height:1.55;margin:8px 0 0"><b>${'ABCDEFGH'[j]}</b> ${esc(o)}</p>`).join('')}</div>`;
 const dtPanels = ps => `<div style="display:grid;grid-template-columns:1fr;gap:6px">${ps.map((p, i) => `<div><span class="mute">Tranh ${i + 1}</span>${toPic(p)}</div>`).join('')}</div>`;
 // một bộ → câu hỏi theo khuôn đề thử (mkPaper: mc / type / write)
+// v141 📩 đọc tin ngắn (A2 Key, B1 Preliminary phần 1): mỗi câu một văn bản ngắn (tin nhắn, thông báo, biển báo, email, nhãn), 3 phương án
+const DT_SNK = { note: '📝 Tin nhắn', notice: '📌 Thông báo', sign: '🪧 Biển báo', email: '✉️ Email', label: '🏷 Nhãn', ad: '📢 Quảng cáo' };
+const dtSnBox = it => `<div class="box" style="border-style:dashed"><p class="mute" style="margin:0 0 4px;font-size:13px">${DT_SNK[it.kind] || '📝 Văn bản'}</p><p class="tdtap" style="margin:0;font-size:17px;line-height:1.55;white-space:pre-line">${esc(it.txt)}</p></div>`;
 const DT_Q = {
+  sn: x => x.items.map(it => ({ x, k: 'sn', kind: 'mc', head: '<p class="mute">📖 Đọc văn bản, chọn câu đúng với ý văn bản.</p>' + dtSnBox(it), q: esc(it.q || 'Văn bản này nói gì?'), opts: shuf([it.a, ...it.w]), a: it.a, why: it.why })),
   line: x => x.qs.map((q, i) => ({ x, k: 'line', kind: 'mc', head: '<p class="mute">🎧 Nghe, chọn chữ cái của người có tên này (có 1 người thừa).</p>' + toPic(x.pic),
     q: `${esc(q.n)} là người nào?`, opts: [...new Set(x.qs.map(y => y.a).concat(x.pic.e.map(e => e[0]).filter(t => /^[A-H]$/.test(t))))].sort(), a: q.a, play: dtPlay(x, i, q.lines), why: q.lines.map(l => l[1]).join(' ') })),
   name: x => x.qs.map((q, i) => ({ x, k: 'name', kind: 'type', head: `<p class="mute">🎧 Nghe, viết tên hoặc số (tên được đánh vần).</p><div class="box"><b>${esc(x.t)}</b></div>`,

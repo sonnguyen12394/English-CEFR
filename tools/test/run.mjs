@@ -48,7 +48,7 @@ const R = await run(`(async () => {
     if (MOCK[lv]) { MK = { lv, C: MOCK[lv] }; for (const P of MOCK[lv].papers) for (const [t, g] of P.parts) { const qs = g(); if (!qs.length) bad.push('đề thử trống:' + t);
       for (const q of qs) if ((q.kind === 'mc' && !q.opts.includes(q.a)) || (q.kind === 'type' && !q.check && !(q.acc && q.acc[0]))) bad.push('đề thử:' + t);
       // 🗣 Nói: trả lời đúng câu mẫu (nhắc lại = câu gốc, đóng vai = câu mẫu, nói dài = bài mẫu) phải ≥ 60% ở ②③④; im lặng phải < 10%
-      if (P.speak) { const r = qs.map(it => ({ ...it, ans: it.q.mode === 'eit' ? it.q.s : it.q.mode === 'rp' || it.q.mode === 'pq' ? it.q.st.t : it.q.mode === 'talk' ? it.q.x.m : '', secs: 30, lat: 1 })), z = mkSpeakScore(qs.map(it => ({ ...it, ans: '', secs: 5, lat: 99 })), lv);
+      if (P.speak) { const r = qs.map(it => ({ ...it, ans: it.q.mode === 'eit' ? it.q.s : it.q.mode === 'cap' ? (it.q.last ? "I'd go for this one, because it's the most useful for everyone, so let's choose it." : "That's a good point, because it really helps people in their daily lives. What do you think about it?") : it.q.mode === 'rp' || it.q.mode === 'pq' ? it.q.st.t : it.q.mode === 'talk' ? it.q.x.m : '', secs: 30, lat: 1 })), z = mkSpeakScore(qs.map(it => ({ ...it, ans: '', secs: 5, lat: 99 })), lv);
         const s = mkSpeakScore(r, lv); if (s.C[2][1] < 60 || s.C[3][1] < 60 || z.pct >= 10) bad.push('chấm Nói lệch:' + JSON.stringify(s.C) + ' im lặng ' + z.pct); } } }
     // 🧩 dạng đề thật (uoe.js): mọi bài sinh câu hợp lệ; đáp án viết lại câu qua bộ chấm (cả khi gõ nguyên câu)
     if (LEVELS.indexOf(lv) >= LEVELS.indexOf('b1')) { const ls = uLvs(lv); for (const k of Object.keys(U_T)) for (const x of uItems(k, ls)) { const qs = k === 'kwt' ? [uKwtQ(x)] : uQs(k, x); if (!qs.length) bad.push('uoe trống:' + x.id);
@@ -1142,8 +1142,8 @@ const R = await run(`(async () => {
     { const o = toSt(); for (const x of TO.p5.slice(0, 10)) o.r[x.id] = { at: now, ok: 0, n: 1, k: 'p5' }; } tryv('TOEIC Đọc', () => toSkView('R')); if (!H().includes('0/10 câu · yếu') || toNext('R').id !== 'p5:2') bad.push('TOEIC Đọc: bộ 10 câu / bài kế tiếp sai');
     // Cambridge: các loại bài theo phần của khuôn đề
     const kinds = (lv, pi) => [...new Set(cbBai(lv, pi).map(b => b.kind))].sort().join(',');
-    if (kinds('b1', 0) !== 'kit,part,u' || !kinds('b2', 0).includes('kwt') || kinds('b1', 3) !== 'cap' || kinds('a1', 2) !== 'part' || !kinds('a2', 1).includes('nf')) bad.push('Cambridge: loại bài sai ' + [kinds('b1', 0), kinds('b2', 0), kinds('b1', 3), kinds('a1', 2), kinds('a2', 1)].join(' / '));
-    const kb = cbBai('b1', 0).find(b => b.kind === 'kit'); S.cbx = { [kb.x.id]: { at: now, ok: 2, n: 8 } }; tryv('Cambridge Đọc', () => cbSkView('b1', 0)); if (!H().includes('2/8 câu · yếu')) bad.push('Cambridge: trạng thái bài làm như đề thi sai');
+    if (kinds('b1', 0) !== 'part,sn,u' || !kinds('b2', 0).includes('kwt') || kinds('b1', 3) !== 'cap' || kinds('a1', 2) !== 'part' || !kinds('a2', 1).includes('nf')) bad.push('Cambridge: loại bài sai ' + [kinds('b1', 0), kinds('b2', 0), kinds('b1', 3), kinds('a1', 2), kinds('a2', 1)].join(' / '));
+    const kb = cbBai('a2', 0).find(b => b.kind === 'kit'); S.cbx = { [kb.x.id]: { at: now, ok: 2, n: 8 } }; tryv('Cambridge Đọc', () => cbSkView('a2', 0)); if (!H().includes('2/8 câu · yếu')) bad.push('Cambridge: trạng thái bài làm như đề thi sai');
     // làm một bài như đề thi: chỉ bài đó, có nút về màn bài thi, lưu theo bài (S.cbx) và đánh dấu một phần (one)
     S.mock = {}; S.cbx = {}; await tryA('làm một bài', () => cbDo('b1', 0, kb));
     if (!MK || !MK.back || !MK.one || MK.papers.length !== 1 || MK.papers[0].qs.some(q => !q.q.x || q.q.x.id !== kb.x.id)) bad.push('làm một bài Cambridge sai');
@@ -1642,6 +1642,58 @@ const R = await run(`(async () => {
     if (plan) { const NC = new Set(await (await fetch('n/index.json')).json()), miss = kSents(plan.text).filter(t => !NC.has(clipKey(t))); if (miss.length) bad.push('phần nghe mặt bằng thiếu giọng: ' + miss.length + ' (' + miss[0] + ')'); }
     S = blank();
     add('ielts', 'C56', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'IELTS đủ dạng: 48 dạng có bài học (ví dụ + 3 câu làm thử đúng dạng) và bài tập đúng dạng (Nghe 6 dạng làm cả phần, Viết theo loại / kiểu đề), 5 kiểu Task 2 có nhãn vai trò, 8 tiêu chí nối bản đồ, nhóm thẻ Part 2 / kiểu câu hỏi Part 3 phủ hết kho, bản đồ chữa Nghe đúng phần, kho tối thiểu, giọng đủ'); }
+  // v141 Cambridge đủ dạng (specs/003-cambridge-du-dang): Viết theo thể loại B1 → C2 (bài học + bài tập), tiêu chí Viết / Nói, thảo luận cặp đúng đề thật (bài học + đề thử, tên phần A2 / C2),
+  //   đọc tin ngắn A2 / B1 (bài học, bài tập theo bộ, đề thử), đề thi truyện B1 không trùng đề học; mã bài cũ giữ
+  { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML), T = XL_TXT.cb;
+    await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad), uLoad(), capLoad()]); S = blank();
+    const pOf = (lv, re) => MOCK[lv].papers.findIndex(p => re.test(p.t)), V = KIT.viet.items;
+    // 1. thể loại Viết: đúng danh sách theo cấp, ví dụ đúng thể loại + bố cục, 3 câu làm thử, nút bài tập đúng thể loại
+    const dc0 = cbDo; let got = null; cbDo = (lv, pi, b) => { got = b; };
+    for (const lv of ['b1', 'b2', 'c1', 'c2']) { const pi = pOf(lv, /Viết/), L = xlList('cambridge', lv + '~' + pi), G = L.filter(d => /^the-/.test(d.k));
+      if (G.map(d => d.k.slice(4)).join() !== T.theLv[lv].join()) bad.push(lv + ': thể loại Viết ' + G.map(d => d.k).join());
+      for (const d of G) { const g = d.k.slice(4), its = V.filter(x => x.lv === lv && cbGenre(x) === g), ex = its[its.length - 1]; let r = null; tryv(lv + ' ' + d.k, () => { r = d.w(); });
+        if (!r || !ex || !r.html.includes(esc(ex.p)) || !r.html.includes('Bố cục thường gặp')) bad.push(lv + ' ' + d.k + ': ví dụ chưa đúng thể loại');
+        if (!r || r.tq.length !== XL_TRY || r.tq.some(q => !q.opts.includes(q.a) || new Set(q.opts).size !== q.opts.length) || (r.tq[0].q === 'Đề này thuộc thể loại nào?' && r.tq[0].a !== T.the[cbGenre(r.tq[0].x)].n)) bad.push(lv + ' ' + d.k + ': làm thử hỏng');
+        if (d.go !== 'data-cbx="genre|' + lv + '|' + pi + '|' + g + '"') bad.push(lv + ' ' + d.k + ': bài tập dạng này ' + d.go);
+        got = null; tryv('genre ' + g, () => cbClick({ target: { closest: s => s === '[data-cbx]' ? { dataset: { cbx: 'genre|' + lv + '|' + pi + '|' + g } } : null } }));
+        if (!got || got.kind !== 'kit' || cbGenre(got.x) !== g || got.x.lv !== lv) bad.push(lv + ' ' + g + ': nút bài tập không mở đúng thể loại'); }
+      tryv('màn Viết ' + lv, () => cbSkView(lv, pi)); { const h = H(); for (const g of T.theLv[lv]) if (!h.includes('data-cbx="genre|' + lv + '|' + pi + '|' + g + '"')) bad.push(lv + ': Thêm thiếu nút ' + g); if (!h.includes('class="chips tap"')) bad.push(lv + ': nút thể loại chưa đủ vùng bấm'); } }
+    cbDo = dc0;
+    if (V.filter(x => /^b1-w[26]$/.test(x.id)).some(x => x.id === 'b1-w6' && /bus/i.test(x.p))) bad.push('đề thi truyện B1 vẫn trùng đề học');
+    // 2. tiêu chí: Viết B1 → C2, Nói A2 → C2; ví dụ mức thấp / cao + 3 câu
+    for (const [lvs, re, n] of [[['b1', 'b2', 'c1', 'c2'], /Viết/, 'Viết'], [['a2', 'b1', 'b2', 'c1', 'c2'], /Nói/, 'Nói']]) for (const lv of lvs) { const L = xlList('cambridge', lv + '~' + pOf(lv, re)), C4 = L.filter(d => /^tc\\d$/.test(d.k));
+      if (C4.length !== 4) bad.push(lv + ' ' + n + ': ' + C4.length + ' bài tiêu chí'); for (const d of C4) { let r = null; tryv(lv + ' ' + d.k, () => { r = d.w(); }); if (!r || !r.html.includes('Mức thấp') || !r.html.includes('Mức cao') || r.tq.length !== 3) bad.push(lv + ' ' + n + ' ' + d.k + ': bài tiêu chí hỏng'); } }
+    // 3. Nói: thứ tự / tên phần đúng đề thật; bài thảo luận cặp dùng nhiệm vụ 👥 nói cặp; không còn đóng vai
+    const WANTS = { a2: 'noi1,talk,rp,noi4,eit', b1: 'noi1,eit,photo,rp,noi4', b2: 'noi1,eit,photo,rp,noi4', c1: 'noi1,eit,photo,rp,noi4', c2: 'noi1,eit,rp,talk,noi4' };
+    for (const lv of Object.keys(WANTS)) { const L = xlList('cambridge', lv + '~' + pOf(lv, /Nói/)), sp = L.filter(d => d.sp), rp = sp.find(d => d.k === 'rp');
+      if (sp.map(d => d.k).join() !== WANTS[lv]) bad.push(lv + ': thứ tự bài Nói ' + sp.map(d => d.k).join());
+      if (!rp || rp.t !== (['a2', 'c2'].includes(lv) ? 'Phần 2: thảo luận cặp' : 'Phần 3: thảo luận cặp')) bad.push(lv + ': tên phần thảo luận cặp ' + (rp && rp.t));
+      if (/đóng vai/.test(JSON.stringify(sp.map(d => [d.t, d.what, d.how, d.trap])))) bad.push(lv + ': bài học Nói còn đóng vai');
+      let r = null; tryv(lv + ' rp', () => { r = xlCbSpk(rp); }); const t0 = CAP.tasks.find(t => t.lv === lv);
+      if (!r || !t0 || !r.html.includes(esc(t0.q)) || r.tq.length !== 3 || r.tq.some(q => !q.opts.includes(q.a))) bad.push(lv + ': ví dụ / làm thử thảo luận cặp hỏng'); }
+    if (xlList('cambridge', 'c2~' + pOf('c2', /Nói/)).find(d => d.k === 'talk').t !== 'Phần 3: nói dài' || xlList('cambridge', 'a2~' + pOf('a2', /Nói/)).find(d => d.k === 'noi4').t !== 'Phần 2 (tiếp): câu hỏi thêm') bad.push('tên phần Nói A2 / C2 chưa theo đề thật');
+    // 4. đề thử Nói A2 → C2: phần thảo luận cặp (mode cap, 4 lượt, lượt cuối chốt), không còn đóng vai; chấm Tương tác bằng dấu hiệu đáp lời / lý do / hỏi lại / chốt
+    for (const lv of ['a2', 'b1', 'b2', 'c1', 'c2']) { MK = { lv, C: MOCK[lv] }; let qs = []; tryv('mkSpeak ' + lv, () => { qs = mkSpeak(); }); const cq = qs.filter(q => q.q.mode === 'cap'), parts = [...new Set(qs.map(q => q.part))];
+      if (cq.length !== 4 || !cq[3].q.last || qs.some(q => q.q.mode === 'rp') || !cq.every(q => /thảo luận cặp/.test(q.part))) bad.push(lv + ': đề thử Nói chưa có phần thảo luận cặp đúng');
+      if (lv === 'c2' && parts.indexOf('Phần 2: thảo luận cặp') > parts.indexOf('Phần 3: nói dài')) bad.push('C2: thảo luận cặp phải trước nói dài');
+      if (lv === 'a2' && (parts.indexOf('Phần 1 (tiếp): kể về bạn') < 0 || parts.indexOf('Phần 2 (tiếp): câu hỏi thêm') < 0)) bad.push('A2: tên phần Nói chưa theo đề thật');
+      const good = qs.map(q => ({ ...q, ans: q.q.mode === 'cap' ? (q.q.last ? "I see what you mean, and I'd go for this one, because it is the most useful option for almost everyone in the community and it would not cost very much, so let's choose it together." : "That's a good point, because it really helps people in their daily lives, and I think most families in my city would agree with that idea as well. What do you think about it, though?") : '', secs: 20, lat: 1 })),
+        poor = qs.map(q => ({ ...q, ans: q.q.mode === 'cap' ? 'Yes.' : '', secs: 20, lat: 1 })), sg = mkSpeakScore(good, lv), sp = mkSpeakScore(poor, lv);
+      if (!(sg.d.rp >= 70) || !(sp.d.rp <= 30)) bad.push(lv + ': chấm Tương tác thảo luận cặp lệch (' + sg.d.rp + ' / ' + sp.d.rp + ')'); }
+    // 5. đọc tin ngắn A2 / B1: đề thử phần 1, văn bản ≤ 40 từ, 3 phương án; ≥ 2 bộ mỗi cấp; bài tập theo bộ; bài học riêng
+    const SN = dtAll().filter(x => x.k === 'sn');
+    for (const [lv, n] of [['a2', 6], ['b1', 5]]) { const pi = pOf(lv, /Đọc/), P = MOCK[lv].papers[pi], sets = SN.filter(x => x.lv === lv);
+      if (sets.length < 2 || sets.some(x => x.items.length !== n || x.items.some(it => it.txt.split(/\\s+/).length > 40 || new Set([it.a, ...it.w]).size !== 3))) bad.push(lv + ': kho tin ngắn chưa đủ');
+      if (P.parts[0][0] !== 'Phần 1: đọc tin ngắn') bad.push(lv + ': phần 1 Đọc chưa là tin ngắn'); MK = { lv, C: MOCK[lv] }; let qs = []; tryv('sn ' + lv, () => { qs = P.parts[0][1](); });
+      if (qs.length !== n || qs.some(q => q.k !== 'sn' || q.opts.length !== 3 || !q.opts.includes(q.a))) bad.push(lv + ': đề thử phần 1 sai dạng (' + qs.length + ')');
+      const rows = cbBai(lv, pi).filter(b => b.kind === 'sn'); if (rows.length !== sets.length) bad.push(lv + ': danh sách bài tập thiếu bộ tin ngắn');
+      const L = xlList('cambridge', lv + '~' + pi); if (L[0].k !== 'sn' || !L[0].what || L[0].id !== 'cb:' + MOCK[lv].lo + ':' + P.t + ':Phần 1: đọc tin ngắn') bad.push(lv + ': bài học tin ngắn hỏng');
+      DT_PIN = sets[1].id; if (dtSet('sn').id !== sets[1].id) bad.push(lv + ': không chọn được đúng bộ tin ngắn'); DT_PIN = null; }
+    if (MOCK.a2.papers[0].parts[2][0] !== 'Phần 3: bài đọc dài') bad.push('A2: phần 3 bài đọc chưa tách khỏi phần 1');
+    // 6. mã bài cũ còn
+    for (const id of ['cb:b1:📖 Đọc:Phần 1: đọc tin ngắn', 'cb:b2:🗣 Nói:rp', 'cb:b2:✍️ Viết:Phần 1–2: bài luận, thư, bài nhận xét']) { const [, lo] = id.split(':'); if (!Object.keys(MOCK).some(lv => MOCK[lv].lo === lo && MOCK[lv].papers.some((p, pi) => xlList('cambridge', lv + '~' + pi).some(d => d.id === id)))) bad.push('mất mã bài học cũ ' + id); }
+    MK = null; S = blank();
+    add('cambridge', 'C57', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'Cambridge đủ dạng: Viết theo thể loại B1 → C2 (17 bài, nút bài tập đúng thể loại), 8 bài tiêu chí, thảo luận cặp đúng đề thật (bài học + đề thử, tên phần A2 / C2, chấm Tương tác bằng dấu hiệu đáp lời / lý do / hỏi lại / chốt), đọc tin ngắn A2 / B1 (2 bộ mỗi cấp, đề thử, bài tập theo bộ), đề thi truyện B1 không trùng, mã bài cũ giữ'); }
   // 💼 TOEIC (toeic.js): màn mở được; mọi Part sinh câu hợp lệ; đề thử ra điểm; quy đổi ước, mốc CEFR, hiệu chỉnh đề thật; từ vựng Leitner; mọi câu nghe / từ có giọng (n/)
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }; await toLoad(); delete S.to;
     await toeicView(); if (!String($app.innerHTML).includes('💼 TOEIC ') || !['L', 'R', 'V'].every(k => String($app.innerHTML).includes('data-tosk="' + k + '"')) || !String($app.innerHTML).includes('data-hocnen') || /data-totg|id="todate"|Nên làm hôm nay|class="btnbig/.test(String($app.innerHTML))) bad.push('màn TOEIC (v111: chỉ nội dung; v122: như màn Nền, 3 ô)');
