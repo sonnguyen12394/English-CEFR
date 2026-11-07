@@ -66,7 +66,7 @@ yêu cầu ─► lấy lịch sử cùng uid + ky + sk (tối đa 50 đề, m�
 ```
 
 - Ngưỡng 15% là ý kiến của Claude (hai bài khác chủ đề thường chung < 2% cụm 5 từ; chép lại > 30%); đo lại ở bước thử.
-- Kiểm trùng là hàm thuần (`supabase/functions/_shared/trung.js`) để test được bằng `node` ở máy soạn.
+- Kiểm trùng là hàm thuần (`supabase/functions/de-ai/trung.js`) để test được bằng `node` ở máy soạn.
 - `CHU_DE` nằm trong mã hàm máy chủ (Claude soạn, ~40 chủ đề IELTS học thuật, ~20 GT, ~25 TOEIC, ~30 Cambridge chia nhóm cấp Pre-A1–A2 / B1–B2 / C1–C2).
 
 ## 6. Chuyển trạng thái đề

@@ -43,7 +43,7 @@ VUNG = [
     ('Cambridge: đề thử, dạng đề, nghe / nói',
      ['mock.js', 'mocknoi.js', 'uoe.js', 'dangthi.js', 'nghe2.js', 'cap.js']),
     ('Luyện thi chung: bài học kỳ thi, chấm Viết / Nói',
-     ['baihoc.js', 'thi.js']),
+     ['baihoc.js', 'thi.js', 'deai.js']),
     ('Tra cứu: từ điển, thư viện đọc', ['tracuu.js', 'tudien.js', 'lib.js']),
     ('Máy chủ AI chấm bài (Supabase)', ['supabase/']),
     ('Test và phát hành', ['tools/test/', 'tools/release.mjs']),

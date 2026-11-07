@@ -43,13 +43,15 @@ function daiPick(k, lv, only) { const { ky } = daiKy(k, lv), o = daiSt(), all = 
 function daiBox(k, lv) { const o = daiSt(), p = daiPick(k, lv), { ky } = daiKy(k, lv), done = o.r.filter(r => daiKOf(r.ky) === k).length;
   const W = Object.entries(o.wait).filter(([, w]) => w.ky === ky), now = Date.now(); for (const [, w] of W) if (w.st === 'dang' && now - w.at < DAI_WAIT) daiWatch(w.id);
   if (!p) return '';
-  return `<div class="box dai"><div class="row"><b>🤖 Đề mới do AI soạn</b><span class="mute">${done ? `${done} đề đã làm` : 'chưa làm đề nào'}</span></div>
+  return `<div class="box dai"><b>🤖 Đề mới do AI soạn</b>
+    ${o.mo && o.mo.ky === ky && Date.now() - o.mo.at < DAI_MO_H * 3600e3 && !o.r.some(r => r.id === o.mo.id) ? `<button class="hrow" data-daiopen="${esc(o.mo.id)}"><span class="ic">↩️</span><span class="t"><b>Làm tiếp đề đang dở</b><small>${esc(daiName(k, o.mo.dang, lv))} · làm lại từ câu 1</small></span><span class="chev">›</span></button>` : ''}
     ${W.map(([key, w]) => w.st === 'xong' ? `<button class="hrow ok" data-daiopen="${esc(w.id)}"><span class="ic">✅</span><span class="t"><b>Đề đã soạn xong</b><small>${esc(daiName(k, key.split('|')[1], lv))} · làm ngay</small></span><span class="chev">›</span></button>`
       : w.st === 'loi' ? `<p class="mute" style="margin:6px 0">❌ ${esc(daiName(k, key.split('|')[1], lv))}: ${esc(w.err || 'chưa tạo được đề')} <button class="link" data-daidrop="${esc(key)}">Bỏ</button></p>`
       : `<button class="hrow" data-daiwait="${esc(w.id)}"><span class="ic">⏳</span><span class="t"><b>AI đang soạn đề</b><small>${esc(daiName(k, key.split('|')[1], lv))} · ${Math.round((now - w.at) / 1000)} giây</small></span><span class="chev">›</span></button>`).join('')}
     <button class="btnbig" data-daigo="${k}|${p.dang}|${lv || ''}">▶ Làm đề AI mới<small>${esc(DAI_SKN[p.s][1] + ' · ' + p.t)}${p.du ? ' · sẵn sàng' : p.why ? ' · ' + esc(p.why) : ''}</small></button>
-    <div class="chipset ex3 daisk">${daiSks(k).map(s => `<button data-daisk="${k}|${s}|${lv || ''}">${DAI_SKN[s][0]} ${DAI_SKN[s][1]}</button>`).join('')}</div>
-    <p class="mute" style="margin:6px 0 0;font-size:13px">Mỗi lần một đề mới, khác đề cũ. ${p.du ? '' : 'Đề đầu mất khoảng 1–2 phút để soạn. '}🤖 AI soạn và chấm, chưa giáo viên kiểm.</p></div>`; }
+    <div class="chipset ex3 daisk" style="grid-template-columns:repeat(${daiSks(k).length}, minmax(0, 1fr))">${daiSks(k).map(s => `<button data-daisk="${k}|${s}|${lv || ''}">${DAI_SKN[s][0]} ${DAI_SKN[s][1]}</button>`).join('')}</div>
+    <p class="mute" style="margin:6px 0 0;font-size:13px">Mỗi lần một đề mới, khác đề cũ. ${p.du ? '' : 'Đề đầu mất khoảng 1–2 phút để soạn. '}🤖 AI soạn và chấm, chưa giáo viên kiểm.</p>
+    ${done ? `<button class="hrow" data-dailist="${k}"><span class="ic">🗂</span><span class="t"><b>${done} đề AI đã làm</b><small>Xem lại lời giải, làm lại</small></span><span class="chev">›</span></button>` : ''}</div>`; }
 const daiSkRow = (k, s, lv) => daiDangs(k, s, lv).length ? `<button class="hrow" data-daisk="${k}|${s}|${lv || ''}"><span class="ic">🤖</span><span class="t"><b>Đề AI mới</b><small>Mỗi lần một bài mới, khác bài cũ · AI chấm</small></span><span class="chev">›</span></button>` : '';
 
 // màn chọn dạng của một kỹ năng
@@ -130,7 +132,7 @@ const DAI_LBL = { 'R-tf': IE_TFH, 'R-yn': typeof IE_YNH !== 'undefined' ? IE_YNH
 function daiQs(row) { const de = row.de, id = 'ai:' + row.id, ie = de.ky.startsWith('ielts'), to = de.ky === 'toeic', foot = daiPass(de), out = [];
   const lines = de.lines && de.lines.length ? daiLines(de) : null; let n = 0;
   for (const g of de.groups || []) for (const it of g.items || []) { const q = { x: { id, ...(to && g.ty.startsWith('p5:') ? { t: g.ty.slice(3) } : {}) }, why: it.why_vi + (it.ev ? ` 📍 “${it.ev}”` : ''), foot,
-      head: `<p class="mute">${esc(g.inst || '')}</p>${DAI_LBL[g.ty] || ''}`, q: esc(it.q).replace(/\n/g, '<br>').replace(/_{3,}|-{5,}/, m => `<b>${m}</b>`) };
+      head: `<p class="mute">${esc(g.inst || '')}</p>${DAI_LBL[g.ty] || ''}${lines || (to && g.ty === 'p2') ? '<p class="mute" style="font-size:13px">🔊 Giọng máy của điện thoại đọc lời AI soạn, không phải giọng thu sẵn.</p>' : ''}`, q: esc(it.q).replace(/\n/g, '<br>').replace(/_{3,}|-{5,}/, m => `<b>${m}</b>`) };
     if (ie) q.ty = g.ty; if (to) q.sec = g.ty.split(':')[0]; if (lines) q.play = { key: id, lines };
     if (it.o && it.o.length) { q.kind = 'mc'; q.opts = it.o; q.a = it.a; } else { q.kind = 'type'; q.a = it.a; q.acc = [it.a, ...(it.acc || [])]; }
     if (to && g.ty === 'p2') { const L = 'ABC'; q.play = { key: id + ':' + n, lines: [['A', it.q], ...it.o.map((o, j) => ['B', `${L[j]}. ${o}`])] }; q.q = '🔊 Nghe câu hỏi và 3 câu đáp. Câu đáp nào hợp nhất?'; q.opts = it.o.map((_, j) => L[j]); q.a = L[it.o.indexOf(it.a)];
@@ -140,7 +142,7 @@ function daiQs(row) { const de = row.de, id = 'ai:' + row.id, ie = de.ky.startsW
 const daiBand = (k, ok, n) => { const T = k === 'L' ? IE_L : ieSt().type === 'gt' ? IE_RG : IE_RA, raw = Math.round(ok / Math.max(1, n) * 40); return (T.find(([r]) => raw >= r) || [0, 2])[1]; };
 function daiRun(row) { const de = row.de, k = daiKOf(de.ky), lv = de.ky.startsWith('cb-') ? de.ky.slice(3) : '', back = daiBack(k, lv); DAI.cur = null;
   const S0 = daiSOf(k, de.dang, lv), t0 = Date.now(), name = daiName(k, de.dang, lv);
-  daiSt().mo = { id: row.id, at: t0 }; save();
+  daiSt().mo = { id: row.id, at: t0, ky: de.ky, dang: de.dang }; save();   // làm dở: giữ DAI_MO_H giờ, mở lại cùng đề từ câu 1
   if (de.sk === 'viet') return daiWrite(row, k, lv, back);
   if (de.sk === 'noi') return daiSpeak(row, k, lv, back);
   const qs = daiQs(row), plays = k === 'cefr' ? 2 : 1;
@@ -215,4 +217,19 @@ document.addEventListener('click', async e => { if (!S) return; const g = s => e
   if ((b = g('[data-daiwait]'))) { const o = daiSt(), key = Object.keys(o.wait).find(x => o.wait[x].id === b.dataset.daiwait); if (!key) return; DAI.cur = o.wait[key].id; daiWatch(DAI.cur); return daiWaitView(o.wait[key], key); }
   if ((b = g('[data-daiopen]'))) { const id = b.dataset.daiopen, o = daiSt(), key = Object.keys(o.wait).find(x => o.wait[x].id === id); if (key) { delete o.wait[key]; save(); }
     $app.innerHTML = '<div id="dai"></div><p class="mute">⏳ Đang mở đề…</p>'; const row = await daiFetch(id); if (!row || row.st !== 'xong') { toast('Không mở được đề này.'); return daiList(); } scrollTo(0, 0); return daiRun(row); }
-  if ((b = g('[data-dailist]'))) return daiList(b.dataset.dailist || undefined); });
+  if ((b = g('[data-dailist]'))) return daiList(b.dataset.dailist || undefined);
+  if (g('[data-daitk]')) return daiStats(); });
+// 🛠 công cụ người sáng lập (💾 Dữ liệu): số lượt AI, token, tiền ước 7 ngày. Giá Opus 5.5: $4 / $20 mỗi triệu token vào / ra.
+// Bạn nói AI (el-ban) dùng mô hình rẻ hơn nên không tính tiền ở đây.
+const DAI_KIND = { de: '🤖 Soạn đề', viet: '✍️ AI chấm Viết', noi: '🗣 AI chấm Nói', ban: '👥 Bạn nói AI' };
+const daiUsd = x => (x.tin * 4 + x.tout * 20) / 1e6;
+async function daiStats() { const el = document.getElementById('daitk'); if (el) el.innerHTML = '<p class="mute">⏳ Đang lấy số…</p>';
+  try { const { data, error } = await sb.functions.invoke('de-ai', { body: { act: 'tk' } }); let msg = data && data.error;
+    if (error && !msg) { try { msg = (await error.context.json()).error; } catch (er) { msg = 'Không lấy được số.'; } }
+    if (!el) return; if (msg || !data || !data.ok) { el.innerHTML = '<p class="mute">❌ ' + esc(msg || 'Lỗi.') + '</p>'; return; }
+    const rows = Object.entries(data.by || {}), tot = rows.filter(([k]) => k !== 'ban').reduce((s, [, x]) => s + daiUsd(x), 0), d = data.de || { n: 0, loi: 0, lai: 0 };
+    const line = ([k, x]) => '<p style="margin:4px 0">' + (DAI_KIND[k] || esc(k)) + ': <b>' + x.n + '</b> lượt · ' + Math.round(x.tin / 1000) + 'k / ' + Math.round(x.tout / 1000) + 'k token vào / ra' + (k === 'ban' ? '' : ' · ≈ ' + daiUsd(x).toFixed(2) + ' USD') + '</p>';
+    el.innerHTML = '<div class="box"><b>7 ngày qua</b>' + (rows.length ? rows.map(line).join('') : '<p class="mute">Chưa có lượt AI nào.</p>')
+      + '<p style="margin:6px 0 0">Đề AI: <b>' + d.n + '</b> đề · ' + d.loi + ' đề lỗi · ' + d.lai + ' đề phải soạn lại vì trùng / hỏng' + (d.n ? ' (' + Math.round(d.lai / d.n * 100) + '%; mốc xét lại: trên 20%)' : '') + '</p>'
+      + '<p style="margin:6px 0 0"><b>Tổng ≈ ' + tot.toFixed(2) + ' USD</b> <span class="mute">(ước theo giá Opus 5.5, chưa gồm thuế; số thật ở Anthropic Console)</span></p></div>';
+  } catch (e) { if (el) el.innerHTML = '<p class="mute">❌ Không lấy được số (mạng?).</p>'; } }

@@ -108,3 +108,14 @@ Ký hiệu: **[đã kiểm]** = tra được ngay lúc soạn (tài liệu, dữ
 2. 🟡 **Không có một việc chính**: điều nhìn thấy đầu tiên là tiêu đề xuống dòng + thanh tiến độ rỗng + ô cảnh báo ⚖️ cùng cỡ với nội dung; nút to duy nhất là "🧱 Học nền trước" (rời màn). Sửa: ô 🤖 Đề AI với MỘT nút chính đứng ngay dưới tiêu đề; cảnh báo ⚖️ thu thành một dòng.
 3. 🟡 **Nhiễu**: 4 ô kỹ năng "Chưa làm" với thanh rỗng + dòng tóm tắt "Thêm" dài 4 dòng. Sửa: giữ ô kỹ năng (đã quen từ v122) nhưng đặt sau ô 🤖; không thêm ô mới nào khác.
 Giữ: lưới ô 2 cột dễ bấm, chữ đủ to, "Thêm" gập các phần ít dùng.
+
+## R17. Kiểm khả năng tiếp cận sau khi sửa (Chromium khổ iPhone SE 320 px, 7/11/2026; chưa kiểm trên iPhone)
+
+| Đo | Trước (v136) | Sau (v137) |
+|---|---|---|
+| Màn IELTS: số nút / nút nhỏ hơn 44 px | 19 / 2 (‹ Học, nút 💬) | 26 / 1 (liên kết "🧱 Học nền ›" nằm trong dòng chữ, được miễn theo WCAG 2.5.5) |
+| Thanh dưới | 4 × 80 × 54 px | 5 × 64 × 54 px (đủ 44 px) |
+| Hàng chọn kỳ thi | không có | 3 nút cao 44 px, chữ không bị cắt (bỏ biểu tượng, mục tiêu ghi "🎯 IELTS", có `aria-pressed`, nhãn "IELTS, mục tiêu") |
+| Tràn ngang / lỗi trang | không | không |
+
+Tương phản (WCAG 1.4.3): chữ trắng trên nút chính 4,72:1 ✅ · chữ mờ trên nền ô 4,66:1 ✅ · chữ mờ trên nền trang 5,07:1 ✅ · liên kết xanh trên nền ô 4,33:1 ❌ (đã đổi dòng "N đề AI đã làm" từ liên kết sang hàng chữ thường) · **chế độ tối: chữ trắng trên nút xanh 3,17:1**: đủ cho chữ to (≥ 18,7 px đậm) nhưng thiếu cho dòng chữ nhỏ trong nút; lỗi này có từ trước ở mọi nút chính của app (biến `--accent` tối), nên sửa riêng ở đợt chuẩn hoá màu, không sửa lẻ ở đây.

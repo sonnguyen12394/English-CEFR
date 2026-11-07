@@ -59,7 +59,7 @@ specs/001-luyen-de-ai/
 supabase/
 ├── migrations/20261107_v137_de_ai.sql      # MỚI: bảng de_ai + RLS + chỉ mục
 └── functions/
-    ├── _shared/trung.js                    # MỚI: hàm thuần chống trùng (chọn chủ đề, cụm 5 từ, so câu hỏi), test được bằng node
+    ├── de-ai/trung.js                    # MỚI: hàm thuần chống trùng (chọn chủ đề, cụm 5 từ, so câu hỏi), test được bằng node
     ├── de-ai/index.ts                      # MỚI: soạn đề nền, chọn chủ đề + danh sách tránh, máy kiểm, kiểm trùng, giải độc lập, ghi el_cham
     └── el-cham/index.ts                    # SỬA: bỏ PER_USER, trần chung đếm cả kind 'de'
 

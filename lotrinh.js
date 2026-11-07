@@ -25,6 +25,9 @@ for (const [n, c] of [['mapFix', 'fix'], ['mapRoot', 'fix'], ['mapRelearn', 'fix
   const f = window[n]; if (typeof f === 'function') window[n] = function (...a) { LT_FIX_ON = c === 'fix'; LT_EX_ON = c.startsWith('ex:') && !!(S && S.lt && S.lt.goal) && ltKind() === c.slice(3); return f.apply(this, a); }; }   // v109: chỉ kỳ thi của mục tiêu
 // v131 📘 bài học của kỳ thi (baihoc.js xlView(kỳ thi, …)): tính phút luyện đề khi là kỳ thi của mục tiêu
 { const f = window.xlView; if (typeof f === 'function') window.xlView = function (...a) { LT_FIX_ON = false; LT_EX_ON = !!(S && S.lt && S.lt.goal) && ltKind() === a[0]; return f.apply(this, a); }; }
+// v137 🤖 đề AI (deai.js): màn chờ, làm đề, chọn dạng, danh sách tính phút luyện đề khi là kỳ thi của mục tiêu (cefr của deai = cambridge của Lộ trình)
+for (const n of ['daiGo', 'daiSkView', 'daiRun', 'daiWaitView', 'daiList']) { const f = window[n]; if (typeof f === 'function') window[n] = function (...a) { const k = n === 'daiRun' ? daiKOf(((a[0] || {}).de || {}).ky || '') : n === 'daiWaitView' ? ((a[0] || {}).k || daiKOf((a[0] || {}).ky || '')) : a[0];
+  LT_FIX_ON = false; LT_EX_ON = !!(S && S.lt && S.lt.goal) && ltKind() === (k === 'cefr' ? 'cambridge' : k); return f.apply(this, a); }; }
 const ltExMin = d => Math.round(((ltSt().ex || {})[d] || 0) / 60000);
 
 // ---------- 🎯 mục tiêu (v108, người sáng lập: "học CEFR là nền, mục tiêu IELTS / TOEIC cung cấp thêm nội dung riêng; lộ trình đi từ mục tiêu → tìm điểm yếu → khắc phục → bài mới tới khi đạt") ----------

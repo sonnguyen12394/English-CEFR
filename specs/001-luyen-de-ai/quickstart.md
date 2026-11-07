@@ -19,9 +19,11 @@ C53 kiểm:
 - Máy kiểm phía trang loại đề hỏng (đáp án không có trong lựa chọn).
 - Lỗi 429 / 503 / quá giờ: báo bằng lời thường, màn kỳ thi vẫn dùng được.
 - Việc luyện đề ở 📅 Hôm nay mở đúng màn trong tab 🎯.
-- Chống trùng (hàm thuần `supabase/functions/_shared/trung.js`, test bằng node): đề cùng chủ đề / trùng câu hỏi / chung ≥ 15% cụm 5 từ bị báo trùng; hai bài khác chủ đề không bị báo; chọn chủ đề bỏ qua chủ đề đã gặp, hết thì lấy chủ đề lâu nhất.
+- Chống trùng (hàm thuần `supabase/functions/de-ai/trung.js`, test bằng node): đề cùng chủ đề / trùng câu hỏi / chung ≥ 15% cụm 5 từ bị báo trùng; hai bài khác chủ đề không bị báo; chọn chủ đề bỏ qua chủ đề đã gặp, hết thì lấy chủ đề lâu nhất.
 
 ## 2. Thử thật một lần (TỐN TIỀN, ~$0,15 mỗi đề; cần người sáng lập đồng ý)
+
+Người sáng lập đồng ý ngày 7/11/2026 ("Ok" sau khi đọc kế hoạch: chi ~0,30 USD đo thử, giữ lớp AI giải lại, đưa bảng + hàm lên Supabase). Lần gọi đầu bị chặn: máy chủ chưa cài khoá `ANTHROPIC_API_KEY`. Cách cài: Anthropic Console → API Keys → tạo khoá (đặt giới hạn chi tiêu tháng) → Supabase → dự án → Edge Functions → Secrets → thêm `ANTHROPIC_API_KEY`. Không dán khoá vào khung chat.
 
 1. Mở app, đặt mục tiêu IELTS 6.5 ở 🧭 Lộ trình.
 2. Tab 🎯 Luyện đề → ▶ Làm đề AI mới (Đọc). Ghi số giây tới khi đề hiện (mục tiêu ≤ 120 giây).

@@ -153,7 +153,8 @@ document.addEventListener('change', e => { if (!S || !e.target.closest('#todate'
 const EX_TABS = [['cefr', '🎓 Cambridge'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']];
 const exGoalK = () => { const g = S && S.lt && S.lt.goal; return g ? ({ ielts: 'ielts', toeic: 'toeic', cambridge: 'cefr' })[g.kind] || null : null; };
 // v137: màn kỳ thi là màn đầu của tab 🎯 Luyện đề: một hàng chọn kỳ thi (🎯 = mục tiêu), vùng bấm ≥ 44 px; Nền ở tab 📚 Học
-const exSwitch = cur => { const gk = exGoalK(); return `<div class="chipset ex3 exrow" style="margin:6px 0 4px">${EX_TABS.map(([k, n]) => `<button class="${k === cur ? 'on' : ''}" data-exsel="${k}" aria-pressed="${k === cur}">${n}${k === gk ? ' 🎯' : ''}</button>`).join('')}</div>`; };
+// khổ 320 px: bỏ biểu tượng kỳ thi, kỳ thi của mục tiêu đứng sau 🎯 (vd. "🎯 IELTS")
+const exSwitch = cur => { const gk = exGoalK(); return `<div class="chipset ex3 exrow" style="margin:6px 0 4px">${EX_TABS.map(([k, n]) => `<button class="${k === cur ? 'on' : ''}" data-exsel="${k}" aria-pressed="${k === cur}"${k === gk ? ' aria-label="' + n.split(' ')[1] + ', mục tiêu"' : ''}>${k === gk ? '🎯 ' : ''}${n.split(' ')[1]}</button>`).join('')}</div>`; };
 // v113: nút chính của màn kỳ thi (▶ Luyện tiếp = việc nên làm của kỳ thi). Mục tiêu là kỳ thi này mà ⚖️ Lộ trình chưa xếp giờ luyện đề (nền thiếu ≥ 2 cấp)
 // thì nút chính là 🧱 Học nền trước, vẫn cho thử bằng nút phụ.
 function exHero(k, act, lab, title = '▶ Luyện tiếp') { let sp = null; try { sp = exGoalK() === k && typeof ltSplit === 'function' ? ltSplit() : null; } catch (e) {}
