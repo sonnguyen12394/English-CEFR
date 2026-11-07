@@ -9,7 +9,7 @@
 const CB_N = 8, CB_WIN = 20, CB_ST = { yeu: 'yếu', on: 'chưa chắc', vung: 'ổn', chua: 'chưa làm' };
 const CB_UK = ['mc', 'open', 'wf', 'kwt', 'long', 'pm', 'sum', 'xt'];
 // v129 dạng đề còn thiếu (dangthi.js): khoá theo nhãn phần, đặt trước khoá chung ("nối người", "chọn tranh", "nhìn tranh", "điền từ")
-const CB_DT = ['line', 'name', 'colour', 'yn', 'spell', 'box', 'story', 'match5', 'def', 'resp', 'mcc', 'pdesc', 'pmc', 'pstory', 'gpara', 'sn'];   // v132: + khuyết đoạn C1 / C2 · v141: + đọc tin ngắn A2 / B1
+const CB_DT = ['line', 'name', 'colour', 'yn', 'spell', 'box', 'story', 'match5', 'def', 'resp', 'mcc', 'pdesc', 'pmc', 'pstory', 'gpara', 'sn'];   // v132: + khuyết đoạn C1 / C2 · v143: + đọc tin ngắn A2 / B1
 const CB_KEY = [[/nối người nói/, 'mm'], [/khuyết đoạn/, 'gpara'], [/đọc tin ngắn/i, 'sn'], [/nối tên/i, 'line'], [/viết tên/i, 'name'], [/tô màu/i, 'colour'], [/yes \/ no/i, 'yn'], [/xếp chữ/i, 'spell'], [/chọn từ điền/i, 'box'], [/truyện tranh/i, 'story'],
   [/nối ngày|nối người với vật/i, 'match5'], [/định nghĩa/i, 'def'], [/câu đáp/i, 'resp'], [/đọc, chọn từ đúng/i, 'mcc'], [/nhìn tranh, viết/i, 'pdesc'], [/hội thoại, chọn tranh/i, 'pmc'], [/truyện theo tranh/i, 'pstory'], [/chọn tranh/i, 'picl'], [/nhìn tranh/i, 'picr'], [/trắc nghiệm/, 'mc'], [/tạo dạng từ/, 'wf'], [/từ khoá/, 'kwt'], [/nối câu với (đoạn|người)|nối người/, 'pm'], [/so ý/, 'xt'], [/bài dài/, 'long'], [/tóm tắt/, 'sum'], [/nghe điền/, 'nf'], [/khuyết câu/, 'gap'], [/điền từ/, 'open']];
 const CB_SCORE = /email|bài luận|tóm tắt|truyện theo tranh/;   // phần viết: máy chấm điểm 0–1 mỗi bài
@@ -19,7 +19,7 @@ const CB_SHORT = { 'đọc tin nhắn, bài báo': 'Đọc tin, bài báo', 'ch�
   'bài luận, thư, bài nhận xét': 'Bài luận, thư', 'bài luận, đề xuất, báo cáo': 'Bài luận, báo cáo', 'bài luận / bài báo / báo cáo': 'Bài luận, báo cáo', 'nghe': 'Nghe chọn đáp án',
   'tóm tắt và đánh giá 2 đoạn văn (bắt buộc)': 'Tóm tắt 2 đoạn', 'nối người nói (2 nhiệm vụ)': 'Nối người nói', 'Nghe, chọn tranh': 'Nghe chọn tranh', 'Nhìn tranh, đúng hay sai': 'Tranh đúng / sai', 'nối câu với người': 'Nối câu – người', 'nối người với văn bản': 'Nối người – văn bản', 'so ý giữa 4 văn bản': 'So ý 4 văn bản', 'Nghe bài, chọn đáp án': 'Nghe chọn đáp án', 'Đọc bài, trả lời': 'Đọc trả lời', 'Viết từ vào câu': 'Viết từ',
   'Hiểu nghĩa từ trong câu': 'Nghĩa từ', 'Chọn cụm đúng': 'Chọn cụm', 'Ngữ pháp: chọn từ đúng': 'Ngữ pháp', 'Nói': 'Nói' };
-// v141 (Cambridge đủ dạng): thể loại của đề Viết, suy từ chữ genre có sẵn (viet.json); thứ tự xét: email / thư trước (thư gửi toà soạn), rồi các thể loại khác
+// v143 (Cambridge đủ dạng): thể loại của đề Viết, suy từ chữ genre có sẵn (viet.json); thứ tự xét: email / thư trước (thư gửi toà soạn), rồi các thể loại khác
 const CB_GENRE = [[/email|thư/i, 'thu'], [/truyện/i, 'truyen'], [/bài báo|article/i, 'bao'], [/luận|essay/i, 'luan'], [/nhận xét|review/i, 'review'], [/báo cáo|report/i, 'baocao'], [/đề xuất|proposal/i, 'dexuat']];
 const cbGenre = x => (CB_GENRE.find(([re]) => re.test(String((x && x.genre) || ''))) || [0, null])[1];
 const cbKey = (lab, p) => p.speak ? 'speak' : (CB_KEY.find(([re]) => re.test(lab)) || [0, ''])[1];
@@ -41,13 +41,16 @@ function cbCell(o) { const at = o.at.slice().sort((a, b) => b.at - a.at); let ok
   for (const a of at) { if (o.score ? m >= 3 : n >= CB_WIN) break; ok += o.score ? a.ok / (a.n || 1) : a.ok; n += o.score ? 1 : a.n; m++; }
   const p = n ? ok / n : null, sure = o.score ? m >= 2 : n >= CB_N && m >= 2, s = !m ? 'chua' : !sure ? 'on' : p < o.pass ? 'yeu' : 'vung';
   return { ...o, p, n, m, sure, s, v: p == null ? '' : Math.round(p * 100) + '%' }; }
-function cbRows(lv) { const C = MOCK[lv]; if (!C) return []; const runs = cbRuns(lv), R = S.uoe || {}, NF = (S.ng || {}).nf || {}, CP = S.cap || {};
+// v141 🤖 đề AI (deai.js S.dai.r): cùng khuôn đề (cấp), đúng bài thi theo kỹ năng, đúng loại phần (Viết / Nói AI chấm riêng, không vào ô)
+const CB_AI = { doc: { mc: ['mc'], cloze: ['mc'], open: ['open'], wf: ['wf'], kwt: ['kwt'] }, nghe: { mc: ['', 'mc'], gap: ['nf'] } };
+function cbRows(lv) { const C = MOCK[lv]; if (!C) return []; const runs = cbRuns(lv), R = S.uoe || {}, NF = (S.ng || {}).nf || {}, CP = S.cap || {}, AI = ((S.dai || {}).r || []).filter(r => r.n && String(r.ky).startsWith('cb-') && MOCK[r.ky.slice(3)] === C);
   return C.papers.map((p, pi) => ({ pi, t: p.t, cells: p.parts.map(([lab], i) => { const k = cbKey(lab, p), score = !!p.speak || CB_SCORE.test(lab), at = [];
     for (const r of runs) { const pr = (r.papers || []).find(x => x.t === p.t); if (!pr) continue;
       if (p.speak && pr.crit) at.push({ at: r.at, ok: pr.ok / 100, n: 1 }); else if (pr.pp && pr.pp[lab]) { const [a, b] = pr.pp[lab]; at.push(score ? { at: r.at, ok: b ? a / b : 0, n: 1 } : { at: r.at, ok: a, n: b }); } }
     if (CB_UK.includes(k)) for (const x of cbUItems(k, lv)) { const r = R[x.id]; if (r && r.n) at.push(score ? { at: r.at, ok: r.ok / r.n, n: 1 } : { at: r.at, ok: r.ok, n: r.n }); }
     if (k === 'nf') for (const x of cbNfItems(lv)) { const r = NF[x.id]; if (r && r.n) at.push({ at: r.at, ok: r.ok, n: r.n }); }
     if (k === 'speak') for (const x of cbCapItems(lv)) { const r = CP[x.id]; if (r && r.pct != null) at.push({ at: r.at, ok: r.pct / 100, n: 1 }); }
+    if (!score) { const sk = /Nghe/.test(p.t) ? 'nghe' : 'doc'; for (const r of AI) if (r.sk === sk && ((CB_AI[sk] || {})[r.dang] || []).includes(k)) at.push({ at: r.at, ok: r.ok, n: r.n }); }
     return cbCell({ pi, i, lab, k, score, at, pass: C.pass }); }) })); }
 // lý do một dòng: "đúng 9/20 câu gần nhất · cần ~70%" / "điểm 55% (2 lần) · cần ~60%"
 const cbWhy = c => `${c.score ? `điểm ${c.v} (${c.m} lần gần nhất)` : `đúng ${Math.round(c.p * c.n)}/${c.n} câu gần nhất`} · cần ~${Math.round(c.pass * 100)}%`;
@@ -132,7 +135,7 @@ function cbBai(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) retu
     if (k === 'kwt' && its.length) { for (let j = 0; j < its.length; j += 6) add({ id: 'kwt:' + its[j].id, kind: 'kwt', xs: its.slice(j, j + 6), i, name: `${U_T.kwt[0]} Viết lại câu · bộ ${j / 6 + 1}` }); return; }
     if (its.length) return its.forEach(x => add({ id: 'u:' + x.id, kind: 'u', k, x, i, name: `${U_T[k][0]} ${x.title || U_T[k][1]}` }));
     if (k === 'nf') { const ns = cbNfItems(lv); if (ns.length) return ns.forEach(x => add({ id: 'nf:' + x.id, kind: 'nf', x, i, name: '📝 Nghe điền: ' + (x.tvi || x.title || x.id) })); }
-    if (k === 'sn') { const ss = dtAll().filter(x => x.k === 'sn' && x.lv === C.lo); if (ss.length) return ss.forEach((x, j) => add({ id: 'sn:' + x.id, kind: 'sn', x, i, name: `📩 Tin ngắn · bộ ${j + 1}` })); }   // v141
+    if (k === 'sn') { const ss = dtAll().filter(x => x.k === 'sn' && x.lv === C.lo); if (ss.length) return ss.forEach((x, j) => add({ id: 'sn:' + x.id, kind: 'sn', x, i, name: `📩 Tin ngắn · bộ ${j + 1}` })); }   // v143
     if (CB_DT.includes(k)) return add({ id: 'part:' + i, kind: 'part', i, name: `${/Nghe/.test(p.t) ? '🎧' : k === 'pstory' || k === 'pdesc' ? '✍️' : '📖'} ${cbShort(lab)}` });
     if (k === 'picl' || k === 'picr') return add({ id: 'part:' + i, kind: 'part', i, name: `🖼 ${cbShort(lab)} · câu ngẫu nhiên` });
     if (k === 'mm') { const ms = cbMmItems(lv); if (ms.length) return ms.forEach(x => add({ id: 'mm:' + x.id, kind: 'mm', x, i, name: '🎧 Nối người nói: ' + x.tvi })); }
@@ -149,7 +152,7 @@ function cbRes(lv, b, cells) { const X = S.cbx || {}, U = S.uoe || {}, pass = MO
   if (b.kind === 'mm') { const r = X[b.x.id]; return r && r.n ? r : null; }
   if (b.kind === 'cap') { const r = (S.cap || {})[b.x.id]; return r ? { at: r.at, t: `${r.pct}%`, bad: r.pct < pass * 100 } : null; }
   if (b.kind === 'kit') { const r = X[b.x.id]; return r && r.n ? (b.P === KIT.viet ? sc(r) : r) : null; }
-  if (b.kind === 'sn') { const r = X[b.x.id]; return r && r.n ? r : null; }   // v141 bộ tin ngắn: mkResult ghi theo id bộ
+  if (b.kind === 'sn') { const r = X[b.x.id]; return r && r.n ? r : null; }   // v143 bộ tin ngắn: mkResult ghi theo id bộ
   const c = cells[b.i]; if (!c || !c.m) return null; const at = Math.max(...c.at.map(a => a.at)); return c.score ? { at, t: c.v, bad: c.s === 'yeu' } : { at, ok: Math.round(c.p * c.n), n: c.n }; }
 // v126: bài chưa làm của PHẦN có ít bài đã làm nhất (chia đều các phần của đề; cùng mức thì theo thứ tự danh sách), hết bài mới thì bài làm lâu nhất
 const cbNext = (L, R) => { const done = {}; L.forEach((b, k) => { if (R[k]) done[b.i] = (done[b.i] || 0) + 1; });
@@ -166,7 +169,7 @@ async function cbDo(lv, pi, b) { const back = () => cbSkView(lv, pi); scrollTo(0
   if (b.kind === 'nf') return ngStart('nf', lv, b.x, back);
   if (b.kind === 'cap') { $app.innerHTML = '<p class="mute">Đang tải…</p>'; try { await capLoad(); if (!NCLIPS.size) NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {} return capRun(lv, b.x, back); }
   if (b.kind === 'kit') return cbOne(lv, pi, b, back);
-  if (b.kind === 'sn') { DT_PIN = b.x.id; try { return await cbPart(lv, pi, b.i, back); } finally { DT_PIN = null; } }   // v141: làm đúng bộ đã chọn
+  if (b.kind === 'sn') { DT_PIN = b.x.id; try { return await cbPart(lv, pi, b.i, back); } finally { DT_PIN = null; } }   // v143: làm đúng bộ đã chọn
   if (b.kind === 'mm') return cbMM(lv, pi, b, back);
   return cbPart(lv, pi, b.i, back); }
 // một bài Đọc / Nghe / đề Viết làm như đề thi: không báo đúng sai giữa chừng, có giờ; kết quả vào đề thử (theo phần) và S.cbx (theo bài)
@@ -181,9 +184,9 @@ function cbSkView(lv, pi) { const C = MOCK[lv], p = C && C.papers[pi]; if (!p) r
   const cells = cbRows(lv)[pi].cells, L = cbBai(lv, pi), R = L.map(b => cbRes(lv, b, cells)), done = R.filter(Boolean).length, nx = cbNext(L, R), { q, ok } = cbPaperQ(cells), xl = xlBlock('cambridge', lv + '~' + pi);   // v131: 📘 bài học từng phần (baihoc.js)
   const lr = cbRuns(lv).filter(r => !r.one && (r.papers || []).some(x => x.t === p.t)).pop(), lp = lr ? (x => x.crit ? x.ok : Math.round(x.ok / Math.max(1, x.n) * 100))(lr.papers.find(x => x.t === p.t)) : null;
   const rows = L.map((b, i) => { const r = R[i], nxt = b === nx && !r, [tag, cls] = xTag(r, C.pass); return pRow(`data-cbx="bai|${lv}|${pi}|${b.id}"`, esc(b.name), nxt ? 'làm tiếp' : tag, nxt ? 'next' : cls); });
-  const gs = /Viết/.test(p.t) && !p.speak ? (XL_TXT.cb.theLv[C.lo] || []).filter(g => L.some(b => b.kind === 'kit' && b.P === KIT.viet && cbGenre(b.x) === g)) : [];   // v141 thể loại có đề trong kho
+  const gs = /Viết/.test(p.t) && !p.speak ? (XL_TXT.cb.theLv[C.lo] || []).filter(g => L.some(b => b.kind === 'kit' && b.P === KIT.viet && cbGenre(b.x) === g)) : [];   // v143 thể loại có đề trong kho
   const cat = new Set(p.parts.map(([lab]) => cbCat(lab, p))), tools = `${cat.has('doc') || cat.has('tu') || cat.has('viet') ? (typeof uoeBox === 'function' ? uoeBox(lv) : '') : ''}${cat.has('nghe') && typeof ngBox === 'function' ? ngBox(lv) : ''}${cat.has('noi') && typeof capBox === 'function' ? capBox(lv) : ''}`;
-  $app.innerHTML = '<div id="ie"></div>' + xSkill({ back: `<div class="row top"><button class="link" data-cbl="${lv}">‹ Cambridge ${LVN[lv]}</button><span></span></div>`, h1: `${cbIc(p.t)} ${cbPn(p.t)} <span class="mute" style="font-size:18px">· Cambridge ${LVN[lv]}</span>`,
+  $app.innerHTML = '<div id="ie"></div>' + xSkill({ ai: typeof daiSkRow === 'function' ? daiSkRow('cefr', /Nghe/.test(p.t) ? 'L' : /Nói/.test(p.t) ? 'S' : /Viết/.test(p.t) && !/Đọc/.test(p.t) ? 'W' : 'R', lv) : '', back: `<div class="row top"><button class="link" data-cbl="${lv}">‹ Cambridge ${LVN[lv]}</button><span></span></div>`, h1: `${cbIc(p.t)} ${cbPn(p.t)} <span class="mute" style="font-size:18px">· Cambridge ${LVN[lv]}</span>`,
     note: p.speak && !SREC ? '<div class="box">⚠️ Trình duyệt này không chép được lời nói: mở bằng Safari trên iPhone để nói và được chấm.</div>' : '',
     steps: [xl.step,
       { t: 'Mức đúng', v: q != null ? Math.round(q * 100) + '%' : '–', sub: `cần ~${Math.round(C.pass * 100)}%`, ok, cur: q != null && !ok },
@@ -207,7 +210,7 @@ async function cbClick(e) { const g = s => e.target.closest(s); let b;
   if ((b = g('[data-cbsk]'))) { const [lv, pi] = b.dataset.cbsk.split('|'); return cbSkView(lv, +pi); }
   if (!(b = g('[data-cbx]'))) return; const [a, lv, pi, x] = b.dataset.cbx.split('|'), L = () => cbBai(lv, +pi), back = () => cbSkView(lv, +pi);
   if (a === 'bai') return cbDo(lv, +pi, L().find(y => y.id === x));
-  if (a === 'genre') { const M = L().filter(y => y.kind === 'kit' && y.P === KIT.viet && cbGenre(y.x) === x), cells = cbRows(lv)[+pi].cells; return M.length ? cbDo(lv, +pi, cbNext(M, M.map(y => cbRes(lv, y, cells)))) : toast('Chưa có đề thể loại này.'); }   // v141
+  if (a === 'genre') { const M = L().filter(y => y.kind === 'kit' && y.P === KIT.viet && cbGenre(y.x) === x), cells = cbRows(lv)[+pi].cells; return M.length ? cbDo(lv, +pi, cbNext(M, M.map(y => cbRes(lv, y, cells)))) : toast('Chưa có đề thể loại này.'); }   // v143
   if (a === 'next' || a === 'try') { const cells = cbRows(lv)[+pi].cells, M = a === 'try' ? L().filter(y => y.i === +x) : L(), R = M.map(y => cbRes(lv, y, cells)); return cbDo(lv, +pi, cbNext(M, R)); }
   if (a === 'paper') { $app.innerHTML = '<p class="mute">Đang tải kho câu…</p>'; try { await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad), typeof uLoad === 'function' ? uLoad() : 0, typeof capLoad === 'function' ? capLoad() : 0]); } catch (er) {} mkStart(lv, [+pi]); if (MK) MK.back = back; } }
 document.addEventListener('click', e => { if (!S) return; const b = e.target.closest('[data-cbm]'); if (!b) return; const [a, lv, pi, i] = b.dataset.cbm.split('|'); scrollTo(0, 0);

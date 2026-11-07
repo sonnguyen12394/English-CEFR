@@ -6,7 +6,7 @@
 const DT_COL = [['red', '🔴'], ['blue', '🔵'], ['green', '🟢'], ['yellow', '🟡'], ['orange', '🟠'], ['purple', '🟣']];
 const DT_YES = '✓ Yes', DT_NO = '✗ No';
 const dtAll = () => (KIT.nghe.raw && KIT.nghe.raw.dt) || [];
-// v141: DT_PIN = id bộ cần làm (bài tập theo bộ ở màn bài thi Cambridge); không có thì bốc ngẫu nhiên như đề thử
+// v143: DT_PIN = id bộ cần làm (bài tập theo bộ ở màn bài thi Cambridge); không có thì bốc ngẫu nhiên như đề thử
 let DT_PIN = null;
 const dtSet = (k, lv = MK.C.lo) => { const xs = dtAll().filter(x => x.k === k && x.lv === lv), pin = DT_PIN && xs.find(x => x.id === DT_PIN); return pin || (xs.length ? xs[Math.floor(Math.random() * xs.length)] : null); };
 const dtPlay = (x, i, lines) => ({ key: x.id + '|' + i, lines });
@@ -15,7 +15,7 @@ const dtParaTxt = (x, cur) => `<div class="box"><b>${esc(x.t)}</b>${x.text.split
 const dtParaOpts = x => `<div class="box"><b>Các đoạn A–${'ABCDEFGH'[x.opts.length - 1]}</b>${x.opts.map((o, j) => `<p class="tdtap" style="font-size:15px;line-height:1.55;margin:8px 0 0"><b>${'ABCDEFGH'[j]}</b> ${esc(o)}</p>`).join('')}</div>`;
 const dtPanels = ps => `<div style="display:grid;grid-template-columns:1fr;gap:6px">${ps.map((p, i) => `<div><span class="mute">Tranh ${i + 1}</span>${toPic(p)}</div>`).join('')}</div>`;
 // một bộ → câu hỏi theo khuôn đề thử (mkPaper: mc / type / write)
-// v141 📩 đọc tin ngắn (A2 Key, B1 Preliminary phần 1): mỗi câu một văn bản ngắn (tin nhắn, thông báo, biển báo, email, nhãn), 3 phương án
+// v143 📩 đọc tin ngắn (A2 Key, B1 Preliminary phần 1): mỗi câu một văn bản ngắn (tin nhắn, thông báo, biển báo, email, nhãn), 3 phương án
 const DT_SNK = { note: '📝 Tin nhắn', notice: '📌 Thông báo', sign: '🪧 Biển báo', email: '✉️ Email', label: '🏷 Nhãn', ad: '📢 Quảng cáo' };
 const dtSnBox = it => `<div class="box" style="border-style:dashed"><p class="mute" style="margin:0 0 4px;font-size:13px">${DT_SNK[it.kind] || '📝 Văn bản'}</p><p class="tdtap" style="margin:0;font-size:17px;line-height:1.55;white-space:pre-line">${esc(it.txt)}</p></div>`;
 const DT_Q = {

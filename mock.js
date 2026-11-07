@@ -85,7 +85,7 @@ async function mockView(lv) { window.CUR = { view: 'de-thu', item: lv }; const C
     <button data-mk="all" style="margin-top:8px">▶ Làm cả đề (${C.papers.length} bài thi liền nhau)</button>
     ${last ? `<div class="box"><b>Lần gần nhất</b> (${new Date(last.at).toLocaleDateString('vi-VN')}): ${last.papers.map(p => `${p.t} ${p.ok}/${p.n}`).join(' · ')}${last.pct != null ? ` → <b>${last.pct}%</b> ${last.pass ? '✅' : '❌'}` : ''}<p class="mute" style="margin:4px 0 0">Đã làm ${rs.length} lần.</p></div>` : ''}`;
   $app.onclick = async e => { if (e.target.closest('[data-a="home"]')) return exHome(lv); const b = e.target.closest('[data-mk]'); if (!b) return;
-    const idx = b.dataset.mk === 'all' ? C.papers.map((_, i) => i) : [+b.dataset.mk]; try { if (typeof capLoad === 'function') await capLoad(); } catch (er) {} mkStart(lv, idx); }; }   // v141: phần Nói thảo luận cặp cần cap.json
+    const idx = b.dataset.mk === 'all' ? C.papers.map((_, i) => i) : [+b.dataset.mk]; try { if (typeof capLoad === 'function') await capLoad(); } catch (er) {} mkStart(lv, idx); }; }   // v143: phần Nói thảo luận cặp cần cap.json
 function mkStart(lv, idx) { const C = MOCK[lv]; MK = { lv, C, papers: [], idx };
   for (const i of idx) { const p = C.papers[i]; if (p.speak && !SREC) { toast('Bài Nói cần máy chép lời: mở trang bằng Safari trên iPhone.'); continue; }
     MK.papers.push({ t: p.t, min: p.min, speak: p.speak, qs: p.parts.flatMap(([part, gen]) => gen().map(q => q.part && q.q ? q : { part, q })), res: [] }); }
@@ -127,7 +127,7 @@ function mkResult() { const { lv, C } = MK; for (const p of MK.papers) if (p.spe
   const ps = MK.papers.map(p => p.sc ? { t: p.t, ok: p.sc.pct, n: 100, crit: p.sc.C } : { t: p.t, ok: Math.round(p.res.reduce((s, r) => s + (r.sc != null ? r.sc : r.ok ? 1 : 0), 0) * 10) / 10, n: p.res.length, pp: pp(p) }), full = MK.idx.length === C.papers.length;
   const pct = Math.round(ps.reduce((s, p) => s + p.ok / p.n, 0) / ps.length * 100), pass = pct >= C.pass * 100;
   // v122: kết quả từng bài (bài đọc / nghe, đề viết, bài dạng đề thật) cho danh sách bài ở màn Cambridge: S.cbx[id] = { at, ok, n } (bài viết: điểm máy 0–1)
-  { const X = S.cbx = S.cbx || {}, by = {}; for (const p of MK.papers) if (!p.speak) for (const r of p.res) { const x = r.q && r.q.x; if (!x || !x.id || !x.lv || !(x.text || x.lines || x.p || x.paras || x.gaps || x.s1 || x.sp || x.items)) continue;   // v141: + bộ tin ngắn (items)
+  { const X = S.cbx = S.cbx || {}, by = {}; for (const p of MK.papers) if (!p.speak) for (const r of p.res) { const x = r.q && r.q.x; if (!x || !x.id || !x.lv || !(x.text || x.lines || x.p || x.paras || x.gaps || x.s1 || x.sp || x.items)) continue;   // v143: + bộ tin ngắn (items)
       const o = by[x.id] = by[x.id] || { at: Date.now(), ok: 0, n: 0 }; o.n++; o.ok += r.sc != null ? r.sc : r.ok ? 1 : 0; } for (const [id, o] of Object.entries(by)) X[id] = { ...o, ok: Math.round(o.ok * 100) / 100 }; }
   mkRuns(lv).push({ at: Date.now(), papers: ps, pct: full ? pct : null, pass: full && pass, ...(MK.one ? { one: 1 } : {}) }); S.t = Date.now(); save(); const back = MK.back;   // one: chỉ làm một phần / một bài (không phải cả bài thi)
   const parts = p => { const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } return Object.entries(by).map(([k, [a, b]]) => `${esc(k)}: ${a}/${b}`).join('<br>'); };

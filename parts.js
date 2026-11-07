@@ -94,16 +94,32 @@ const pMore = (parts, foot = '📘 Bài học: dạy, không tính 🔁 Nhớ ·
 // Màn một kỹ năng (xSkill) giống màn phần của Nền: đường 3 bước (① Làm bài → ② Đạt band / điểm / mức → ③ Thi thử), 2 nút 📘 Bài học (cách làm) · 🏋️ Bài tập (bài kế tiếp),
 // danh sách bài cụ thể ghi trạng thái bằng chữ, "Thêm" gập (luyện theo dạng câu…). Nút ▶ Luyện tiếp chỉ còn ở 🧭 Lộ trình. Luyện thi vẫn không tính luật đo.
 const X_FOOT = 'Luyện thi không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp của 🧱 Nền.';
+// v141: nhắc ⚖️ nền còn thiếu xa thành một dòng (chấm màn: ô cảnh báo cùng cỡ nội dung làm loãng việc chính)
+const xNoteNen = sp => sp && !sp.ex ? `<p class="mute" style="margin:0 0 10px">⚖️ Nền còn thiếu xa (cần ${LVN[ltGoalLv()]}): 🧭 Lộ trình dồn giờ cho nền trước. <button class="link tap" data-hocnen>🧱 Học nền ›</button></p>` : '';
 // a = 3 bước { t, v, sub, ok, cur, lock, btn (html nút: bước mở) }
 const stepsX = a => `<div class="steps3">${a.map((s, i) => s.btn ? `<div class="st3 open"><i>${i + 1}</i><b>${s.t}</b>${s.btn}${s.sub ? `<span class="s">${s.sub}</span>` : ''}</div>`
   : `<div class="st3 ${s.ok ? 'ok' : s.cur ? 'cur' : ''} ${s.lock ? 'lock' : ''}"><i>${s.ok ? '✓' : s.lock ? '🔒' : i + 1}</i><b>${s.t}</b><span class="v">${s.v}</span><span class="s">${s.sub}</span></div>`).join('')}</div>`;
 // o = { sw: hàng chọn, chips: chip cấp (Cambridge), t: tên kỳ thi, pv: số đo bên phải, pct, sub: dòng phụ, note: ô nhắc, tiles: [{ attr, ic, t, pct, meta, cls }], more: [[tiêu đề, html]], foot }
 // v134: 📚 Học là một trang nên màn kỳ thi có nút "‹ Học" thay hàng chọn Nền / Luyện thi (kỳ thi khác ở 📚 Học → Xem thêm); o.sw không còn dùng
-const xHome = o => `<div class="row top"><button class="link" data-hocnen>‹ Học</button><span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span></div>${o.chips || ''}
-  <div class="row" style="margin:8px 0 6px"><h1 style="font-size:24px;margin:0">${o.t}</h1><span class="mute">${o.pv}</span></div>${bar(o.pct, 100, 'var(--good)')}
-  <p class="mute" style="margin:6px 0 12px;font-size:14px">${o.sub}</p>${o.note || ''}
-  <div class="grid2">${o.tiles.map(t => `<button class="tile ${t.cls || ''}" ${t.attr}><span class="ic">${t.ic}</span><b>${t.t}</b>${bar(t.pct, 100, t.cls === 'ok' ? 'var(--good)' : 'var(--accent)')}<span class="meta">${t.meta}</span></button>`).join('')}</div>
-  ${pMore(o.more, X_FOOT)}${o.foot ? `<p class="mute" style="margin:10px 0 0;font-size:13px">${o.foot}</p>` : ''}`;
+// v141: màn kỳ thi là màn đầu của tab 🎯 Luyện đề: hàng chọn kỳ thi (o.sw = exSwitch) thay nút "‹ Học"; o.ai = ô 🤖 Đề mới do AI soạn (deai.js daiBox) ngay dưới tiêu đề
+// v142 (người sáng lập: tách đề AI và đề có sẵn để đỡ tốn phí AI; "hiện cả 2 nút chức năng để bấm"): 3 chế độ theo EX_PART (toeic.js)
+//   null = màn 2 nút: 📚 Đề có sẵn (nút chính, miễn phí, còn N bài chưa làm) · 🤖 Đề AI soạn (nút phụ, tốn phí AI) + dòng đề AI đã xong / đang soạn + nhắc ⚖️
+//   'san' = bài có sẵn: ô kỹ năng + "Thêm" (không có nút gọi AI) · 'ai' = ô đề AI (o.ai) + ô nhắc bài có sẵn chưa làm (o.remind)
+//   o thêm: left = [{ n }] số bài có sẵn chưa làm theo kỹ năng (deai.js daiLeft), notice = dòng đề AI đã xong / đang soạn
+const xFoot = o => o.foot ? `<p class="mute" style="margin:10px 0 0;font-size:13px">${o.foot}</p>` : '';
+const xPartSeg = p => `<div class="seg exseg"><button class="${p === 'san' ? 'on' : ''}" data-expart="san" aria-pressed="${p === 'san'}">📚 Đề có sẵn</button><button class="${p === 'ai' ? 'on' : ''}" data-expart="ai" aria-pressed="${p === 'ai'}">🤖 Đề AI</button></div>`;
+const xHome = o => { const p = o.part !== undefined ? o.part : (typeof EX_PART !== 'undefined' ? EX_PART : 'san'), n = (o.left || []).reduce((s, x) => s + x.n, 0);
+  const sync0 = `<span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span>`;
+  const head = `<div class="row" style="margin:8px 0 6px"><h1 style="font-size:24px;margin:0">${o.t}</h1><span class="mute">${o.pv}</span></div>${bar(o.pct, 100, 'var(--good)')}
+  <p class="mute" style="margin:6px 0 12px;font-size:14px">${o.sub}</p>`;
+  // màn 2 nút: chip cấp (Cambridge, 10 cấp = 3 hàng ở 320 px) để dưới 2 nút để iPhone SE thấy cả 2 nút không cuộn
+  if (!p) return `<div class="row top"><b style="font-size:17px">🎯 Luyện đề</b>${sync0}</div>${o.sw || ''}${head}
+  <button class="btnbig" data-expart="san">📚 Đề có sẵn<small>Miễn phí · ${o.left && o.left.length ? (n ? `còn ${n} bài chưa làm` : 'đã làm hết, làm lại được') : 'bài học dạng đề, bài tập, thi thử'}</small></button>
+  <button class="btnbig ghost" data-expart="ai">🤖 Đề AI soạn<small>Mỗi lần một đề mới · tốn phí AI</small></button>${o.notice || ''}${o.chips ? `<p class="mute" style="margin:12px 0 4px;font-size:14px">Đổi cấp</p>${o.chips}` : ''}${o.note || ''}${xFoot(o)}`;
+  const top = `<div class="row top"><button class="link tap" data-expart="">‹ Luyện đề</button>${sync0}</div>${xPartSeg(p)}${o.chips || ''}${head}`;
+  if (p === 'ai') return top + (o.ai || '') + (o.remind || '') + xFoot(o);
+  return top + (o.notice || '') + `<div class="grid2">${o.tiles.map(t => `<button class="tile ${t.cls || ''}" ${t.attr}><span class="ic">${t.ic}</span><b>${t.t}</b>${bar(t.pct, 100, t.cls === 'ok' ? 'var(--good)' : 'var(--accent)')}<span class="meta">${t.meta}</span></button>`).join('')}</div>
+  ${pMore(o.more, X_FOOT)}${xFoot(o)}`; };
 // o = { back: dòng nút về, h1, note, steps, learn: { attr, sub, pri }, prac: { attr, sub }, les: { rows, at, done } (📘 bài học, v131), lt: tên danh sách bài tập, lsub, rows: [pRow], at: dòng kế tiếp, empty, more }
 // v131 (người sáng lập: "tách ra 2 dạng học và bài tập như nền CEFR"): 2 danh sách: 📘 Bài học (mỗi dạng câu / phần một bài, baihoc.js) · 🏋️ Bài tập (bài cụ thể, ghi kết quả).
 // Học hết bài học thì danh sách bài học gập lại; 📘 là nút chính khi còn bài học chưa học.
@@ -121,7 +137,7 @@ const xSkill = o => { const [s1, s2, s3] = o.steps, lesNext = !!(o.learn && o.le
   const mock = s3 ? `<div class="box mockr"><div style="flex:1;min-width:0"><b>${s3.btn ? '🎓 ' : ''}${s3.t}</b><p class="mute" style="margin:2px 0 0;font-size:14px">${s3.sub || ''}</p></div>${s3.btn || `<b>${s3.v || ''}</b>`}</div>` : '';
   return `${o.back}<h1>${o.h1}</h1>${o.note || ''}<p class="mute" style="margin:0 0 10px;font-size:15px">${o.intro || 'Học từng dạng câu của đề, rồi làm bài như thi thật.'}</p>
   <div class="grid2" style="margin:0 0 10px">${xStat(st1)}${xStat(st2)}</div>${pri}${prac}
-  ${xLes(o.les, lesT)}<h2 style="margin:16px 0 4px">🏋️ ${o.lt || 'Bài luyện'}${o.lsub ? ` <span class="mute" style="font-size:15px;font-weight:400">· ${o.lsub}</span>` : ''}</h2><div id="klist">${o.rows.length ? pWin(o.rows, o.at) : `<p class="mute">${o.empty || 'Chưa có bài.'}</p>`}</div>${mock}${pMore(o.more, X_FOOT)}`; };
+  ${xLes(o.les, lesT)}<h2 style="margin:16px 0 4px">🏋️ ${o.lt || 'Bài luyện'}${o.lsub ? ` <span class="mute" style="font-size:15px;font-weight:400">· ${o.lsub}</span>` : ''}</h2><div id="klist">${o.rows.length ? pWin(o.rows, o.at) : `<p class="mute">${o.empty || 'Chưa có bài.'}</p>`}</div>${o.ai || ''}${mock}${pMore(o.more, X_FOOT)}`; };   // v142: hàng 🤖 Đề AI sau danh sách bài có sẵn
 // trạng thái một bài kỳ thi: chưa làm = để trống như danh sách bài của Nền / đúng a/b (yếu khi dưới mức cần) / band
 const xTag = (r, need) => !r ? ['', ''] : r.n ? [`${r.ok}/${r.n} câu${need != null && r.ok / r.n < need ? ' · yếu' : ''}`, need != null && r.ok / r.n < need ? 'bad' : 'good'] : [r.t || 'đã làm', r.bad ? 'bad' : 'good'];
 // chọn cấp khác (gập; mở sẵn khi đang xem cấp khác cấp đang học)
@@ -181,20 +197,15 @@ function ovExRows(k, lv) { const n = (L, St = xlSt()) => [L.filter(d => St[d.id]
   } catch (e) {} return null; }
 function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
   const g = S.lt && S.lt.goal, k = g && typeof ltKind === 'function' ? ltKind(g) : 'cefr';
-  const loaded = PA && Object.values(KIT).every(P => P.items), exLoaded = k === 'ielts' ? typeof IE !== 'undefined' && !!IE : k === 'toeic' ? typeof TO !== 'undefined' && !!TO : true;
-  if (!loaded || !exLoaded) Promise.all([paLoad(), ...Object.values(KIT).map(kLoad), k === 'ielts' && typeof ieLoad === 'function' ? ieLoad() : null, k === 'toeic' && typeof toLoad === 'function' ? toLoad() : null])
+  const loaded = PA && Object.values(KIT).every(P => P.items);
+  if (!loaded) Promise.all([paLoad(), ...Object.values(KIT).map(kLoad)])
     .then(() => { if (document.getElementById('ov')) overview(sel); }).catch(() => {});
   const stage = ovStage(); if (sel) OV_SEL = sel; const lv = OV_SEL && OV_LV.includes(OV_SEL) ? OV_SEL : stage, other = lv !== stage;
   const ids = OV.filter(([id]) => ovIn(id, lv)), st = ids.map(([id]) => ovStat(id, lv)), req = ovReq(lv), nx = OV_LV[OV_LV.indexOf(lv) + 1];
   const pend = typeof plPend === 'function' ? plPend(stage) : null, need = g && typeof ltGoalLv === 'function' ? ltGoalLv(g) : null;
-  const sp = g && k !== 'cefr' && typeof ltSplit === 'function' ? ltSplit(g) : null, exLv = k === 'cambridge' ? need : null, exR = k !== 'cefr' ? ovExRows(k, exLv) : null;
   const pct = typeof ltLvPct === 'function' ? ltLvPct(lv) : 0, en = { ielts: 'IELTS', toeic: 'TOEIC', cambridge: 'Cambridge' }[k];
-  const exCard = k === 'cefr' ? '' : `<div class="box hcard ex"><div class="row"><b style="font-size:19px">Luyện ${esc(ltGoalName(g))}</b><span class="mute" style="font-size:14px">🎯 mục tiêu</span></div>
-      <p class="mute" style="margin:2px 0 4px;font-size:15px">Học từng ${k === 'cambridge' ? 'phần của đề' : 'dạng câu của đề'}, rồi làm bài như thi thật.</p>
-      ${sp && !sp.ex ? `<p style="margin:4px 0;font-size:15px">⚖️ Chưa cần luyện đề: trình độ còn xa mức ${en} cần (${LVN[need]}). Lộ trình dồn giờ cho tiếng Anh trước; vẫn xem được.</p>` : ''}
-      ${exR ? exR.map(r => `<button class="hrow" ${r.attr}><span class="ic">${r.ic}</span><span class="t"><b>${esc(r.t)}</b><small>${r.sub}</small></span><span class="chev">›</span></button>`).join('') : '<p class="mute">Đang tải…</p>'}
-      <button class="hrow" data-exthi><span class="ic">🎓</span><span class="t"><b>Thi thử cả đề, đề thật</b><small>Làm như thi thật, ra ${k === 'ielts' ? 'band' : k === 'toeic' ? 'điểm' : 'mức đúng'} ước</small></span><span class="chev">›</span></button></div>`;
-  const others = [['cefr', '🎓 Cambridge'], ['ielts', '🌏 IELTS'], ['toeic', '💼 TOEIC']].filter(([x]) => x !== (k === 'cambridge' ? 'cefr' : k));
+  // v141: 📚 Học chỉ còn 🧱 Nền; luyện thi chuyển sang tab 🎯 Luyện đề (bỏ thẻ "Luyện {kỳ thi}" và hàng "Kỳ thi khác"), ở đây chỉ còn một dòng chỉ đường
+  const exCard = k === 'cefr' ? '' : `<p class="mute" style="margin:8px 0">🎯 Luyện ${esc(ltGoalName(g))}: ở tab <button class="link tap" data-exthi>🎯 Luyện đề ›</button></p>`;
   const ai = LEVELS.indexOf(lv) >= LEVELS.indexOf('b1');
   $app.innerHTML = `<div id="ov"></div><div class="row"><h1 style="font-size:28px;margin:6px 0">Học</h1><span class="mute" style="font-size:12px"><span id="sync">${esc(sync)}</span></span></div>
     <p class="mute" style="margin:0 0 10px">Trình độ ${LVN[stage]}${g ? ` · mục tiêu ${esc(ltGoalName(g))}` : ''}</p>
@@ -205,9 +216,8 @@ function overview(sel) { BACK = null; window.CUR = { view: 'tong-quan' };
       <p class="mute" style="margin:2px 0 4px;font-size:15px">${nx ? `Học đủ các kỹ năng. Qua bài thi của ${req.length} kỹ năng để lên ${LVN[nx]}.` : `Qua bài thi của ${req.length} kỹ năng là xong cấp cuối.`}</p>
       ${ids.map((o, i) => ovRow(o[0], o[1], o[2], lv, st[i])).join('')}</div>
     ${other ? '' : exCard}
-    <details class="box more"><summary><b>Xem thêm</b> <span class="mute">· cấp khác, kỳ thi khác, thư viện</span></summary>
+    <details class="box more"><summary><b>Xem thêm</b> <span class="mute">· cấp khác, thư viện</span></summary>
       <p style="margin:10px 0 4px"><b>Cấp khác</b></p><div class="chips">${OV_LV.map(l => `<button class="chip ${l === lv ? 'on' : ''}" data-ovl="${l}">${ovDone(l) ? '✓ ' : l === stage ? '● ' : ''}${LVN[l]}</button>`).join('')}</div>
-      <p style="margin:12px 0 4px"><b>Kỳ thi khác</b></p><div class="chipset ex3">${others.map(([x, nme]) => `<button data-exsel="${x}">${nme}</button>`).join('')}</div>
       ${typeof libBox === 'function' ? libBox(lv) : ''}</details>
     ${ai ? '<p class="mute" style="margin:10px 0 0;font-size:13px">🤖 Nội dung cấp này do AI soạn, chưa giáo viên kiểm. Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p>' : ''}`;
   $app.onclick = e => { const c = e.target.closest('[data-ovl]'); if (c) { scrollTo(0, 0); return overview(c.dataset.ovl); }

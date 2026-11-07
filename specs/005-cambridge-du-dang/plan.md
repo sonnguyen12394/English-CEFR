@@ -2,7 +2,7 @@
 
 **Branch**: `claude/happy-shannon-5j2r27` | **Date**: 2026-11-07 | **Spec**: [spec.md](spec.md)
 
-**Input**: Feature specification from `specs/003-cambridge-du-dang/spec.md`
+**Input**: Feature specification from `specs/005-cambridge-du-dang/spec.md`
 
 ## Summary
 
@@ -16,7 +16,7 @@ Lấp dạng thiếu và sửa chỗ sai của mục tiêu 🎓 Cambridge (khôn
 
 **Storage**: `nghe.json` mục `dt` dựng từ `content/bs/dangthi.json` (`tools/build-b.mjs`); `viet.json` (đề Viết, có `genre` + bài mẫu); `cap.json` (15 nhiệm vụ thảo luận cặp, đã có giọng); kết quả `S.cbx`, `S.cap`, đề thử `mkRuns` — không đổi lược đồ.
 
-**Testing**: `node tools/build-b.mjs` (kiểm bộ tin ngắn), `node tools/test/run.mjs` (test C57 mới + cũ: kiểm đề thử mọi cấp, C44, C46, C47…), Chromium khổ iPhone SE soát màn mới.
+**Testing**: `node tools/build-b.mjs` (kiểm bộ tin ngắn), `node tools/test/run.mjs` (test C60 mới + cũ: kiểm đề thử mọi cấp, C44, C46, C47…), Chromium khổ iPhone SE soát màn mới.
 
 **Target Platform**: web trên iPhone (Safari / WebKit).
 
@@ -34,7 +34,7 @@ Lấp dạng thiếu và sửa chỗ sai của mục tiêu 🎓 Cambridge (khôn
 |---|---|---|
 | I. Luật đo | Không chạm 📘 Học / 🔁 Nhớ / Thi chuyển cấp; luyện Cambridge không tính. Đổi đề thử Nói (đề thử là luyện thi, không tính luật đo). | ✅ |
 | II. Kiểm giao diện chỉ trên iPhone | Màn bài học / bài thi Cambridge thêm dòng, Thêm của Viết thêm hàng nút: design-critique → frontend-design + design-system → ux-copy → accessibility-review; ghi "chưa kiểm trên iPhone". | ✅ |
-| III. Test xanh trước khi phát hành | Test C57; `tools/release.mjs`. | ✅ |
+| III. Test xanh trước khi phát hành | Test C60; `tools/release.mjs`. | ✅ |
 | IV. Sửa qua nguồn | Bộ tin ngắn ở `content/bs/dangthi.json` → `build-b.mjs`; đề Viết B1 trùng sửa ở nguồn của `viet.json`. | ✅ |
 | V. Trung thực | Ghi "Claude soạn, chưa giáo viên kiểm"; bảng kiểm giáo viên; không chép đề. | ✅ |
 
@@ -43,7 +43,7 @@ Lấp dạng thiếu và sửa chỗ sai của mục tiêu 🎓 Cambridge (khôn
 ### Documentation (this feature)
 
 ```text
-specs/003-cambridge-du-dang/
+specs/005-cambridge-du-dang/
 ├── spec.md · plan.md · research.md · data-model.md · quickstart.md
 ├── contracts/ui.md
 └── tasks.md

@@ -308,7 +308,7 @@ const XL_TXT = {
         how: ['Mở đầu bằng ý chung (Both photos show…), rồi tả chi tiết: người, việc, nơi chốn.', 'B2, C1: so sánh (whereas, while, both) và trả lời ĐÚNG câu hỏi của đề, đừng chỉ tả.', 'Không chắc thì đoán: It looks like…, They might be…'] },
       talk: { ic: '🗣', t: 'Phần 2: nói dài', what: 'Nói liền khoảng 1–2 phút về một đề cho sẵn (kể việc đã làm, tả người hay nơi chốn, nêu ý kiến).',
         how: ['Chia ý: mở đầu → 2–3 ý có ví dụ → kết.', 'Dùng từ nối: first, then, because, so, however.', 'Nói đủ thời gian; hết ý thì thêm ví dụ hoặc cảm xúc.'] },
-      // v141: đề Cambridge không có đóng vai; phần này là THẢO LUẬN CẶP (giữ khoá rp để giữ mã bài học)
+      // v143: đề Cambridge không có đóng vai; phần này là THẢO LUẬN CẶP (giữ khoá rp để giữ mã bài học)
       rp: { ic: '👥', t: 'Phần 3: thảo luận cặp', what: 'Hai thí sinh nói với nhau khoảng 2–4 phút (A2, B1: theo tranh các lựa chọn; B2, C1: một câu hỏi và 5 gợi ý; C2: theo ảnh). Lần lượt nêu ý về từng gợi ý, đáp lời bạn, hỏi ý bạn; cuối cùng cùng chốt một lựa chọn. Giám khảo chấm cách bạn tương tác, không chấm chọn đúng hay sai.',
         how: ['Mở đầu: gợi ý bắt đầu từ một ý ("Shall we start with…?").', "Mỗi lượt: đáp lời bạn trước (That's a good point, but…), nêu ý + lý do, rồi hỏi lại (What do you think?).", 'Đi qua nhiều gợi ý, đừng nói hết một mình; cuối phần cùng chốt: "So, we agree that… is the best option."'],
         trap: ['Nói một mình như thuyết trình, không hỏi lại bạn.', 'Chỉ trả lời "Yes" / "I agree" mà không thêm lý do.', 'Tranh luận để thắng: không cần đồng ý, nhưng phải cố cùng đi tới một lựa chọn.'] },
@@ -333,7 +333,7 @@ const XL_TXT = {
     ps: {
       'a2-ps-dog': "Last Saturday, Mai took her dog, Max, to the park. While she was talking to a friend, Max saw a cat and ran after it. Mai looked everywhere, but she couldn't find him, and she felt very sad. In the end, an old man found Max and brought him back. Mai was so happy!",
       'a2-ps-cake': "It was Mum's birthday, so Tom made a big chocolate cake. He put it on the table and went to get some candles. When he came back, the cat was on the table and the cake was on the floor! Tom was upset, but Mum laughed. In the end, the whole family went out for pizza." },
-    // v141 (Cambridge đủ dạng): ✍️ thể loại Viết B1 → C2 (n: tên ngắn cho nút; bo: bố cục thường gặp; mcq: làm thử), theLv: thể loại của đề thật mỗi cấp
+    // v143 (Cambridge đủ dạng): ✍️ thể loại Viết B1 → C2 (n: tên ngắn cho nút; bo: bố cục thường gặp; mcq: làm thử), theLv: thể loại của đề thật mỗi cấp
     the: {
       thu: { ic: '✉️', n: 'Email, thư', t: 'Viết email, thư', what: 'Viết cho một người cụ thể theo tình huống của đề: bạn bè (thân mật) hoặc công ty, trường, toà soạn (trang trọng). B1 phần 1 là email bắt buộc khoảng 100 từ, trả lời đủ các ghi chú trong đề; B2 140–190 từ, C1 220–260 từ, C2 240–280 từ, thường là thư / email trang trọng.',
         how: ['Gạch mọi ý đề yêu cầu (các ghi chú, câu hỏi trong email đề cho): thiếu một ý là mất điểm Nội dung.', "Chọn giọng theo người nhận: bạn bè → Hi / Dear + tên, câu ngắn, rút gọn (I'm, can't); trang trọng → Dear Sir or Madam / Dear Ms Brown, không rút gọn, câu lịch sự (I would be grateful if…).", 'Lời chào → lý do viết → mỗi ý một đoạn → câu kết (đề nghị, mong hồi âm) → lời chào cuối hợp giọng.'],
@@ -392,7 +392,7 @@ const XL_TXT = {
           { q: 'Câu nào hợp mở đầu một đề xuất?', a: 'This proposal outlines a wellbeing programme for staff and explains how it would benefit the company.', w: ['Hi everyone! Guess what?', 'Once upon a time, our office was a stressful place.'], why: 'Mở đề xuất: nói mục đích, giọng trang trọng.' },
           { q: 'Câu nào thuyết phục mà vẫn lịch sự?', a: 'Introducing flexible hours would allow staff to manage their workload more effectively.', w: ['You must give us flexible hours now.', 'Flexible hours are cool and everybody wants them.'], why: 'Câu đúng nêu đề nghị kèm lợi ích, giọng trang trọng; hai câu kia ra lệnh hoặc quá thân mật.' }] } },
     theLv: { b1: ['thu', 'bao', 'truyen'], b2: ['luan', 'thu', 'bao', 'baocao', 'review'], c1: ['luan', 'thu', 'dexuat', 'baocao', 'review'], c2: ['bao', 'thu', 'baocao', 'review'] },
-    // v141 tiêu chí chấm của Cambridge (diễn giải của Claude, không chép thang chấm): Viết B1 → C2 (4 tiêu chí, mỗi tiêu chí 0–5) · Nói A2 → C2 (4 tiêu chí như đề thử Nói của app)
+    // v143 tiêu chí chấm của Cambridge (diễn giải của Claude, không chép thang chấm): Viết B1 → C2 (4 tiêu chí, mỗi tiêu chí 0–5) · Nói A2 → C2 (4 tiêu chí như đề thử Nói của app)
     tcW: [
       { ic: '🎯', t: 'Tiêu chí Viết: Nội dung', what: 'Một trong 4 tiêu chí chấm Viết của Cambridge, mỗi tiêu chí 0–5 điểm. Giám khảo hỏi: mọi ý đề yêu cầu có trong bài không, ý có đúng đề không, người đọc có biết đủ những gì cần biết không.',
         how: ['Gạch từng yêu cầu của đề (ghi chú trong email, ý gạch đầu dòng, câu hỏi phụ) và đánh dấu khi đã viết xong.', 'Mỗi ý viết ít nhất 1–2 câu, có chi tiết; đừng chỉ nhắc tên ý.', 'Không thêm chuyện lạc đề để cho đủ số từ.'],
@@ -459,7 +459,7 @@ const XL_TXT = {
           { q: 'Bạn thi nói: "A theme park is exciting, but the tickets are expensive." Câu đáp nào tương tác tốt nhất?', a: "You're right about the price. But maybe the club could get a group discount. Do you think that would help?", w: ['Yes.', 'I like the beach because it is relaxing and I go there every summer with my family.'], why: 'Câu tốt đáp lời bạn, thêm ý mới và hỏi lại; câu kia quá ngắn hoặc phớt lờ ý bạn.' },
           { q: 'Cuối phần thảo luận, giám khảo nói "Now you have a minute to decide…". Nên làm gì?', a: 'Cùng bạn so 2–3 lựa chọn, đề nghị một lựa chọn và hỏi bạn có đồng ý không', w: ['Mỗi người chọn một thứ, không cần trao đổi', 'Nói lại toàn bộ các ý đã nói'], why: 'Tương tác tốt là cùng đi tới quyết định (không bắt buộc hai người phải đồng ý).' },
           { q: 'Bạn thi im lặng, có vẻ không biết nói gì. Nên làm gì?', a: 'Hỏi ý bạn về một gợi ý cụ thể: "What do you think about the photo book?"', w: ['Nói tiếp một mình cho hết giờ', 'Im lặng chờ giám khảo'], why: 'Giúp bạn thi vào cuộc là một kỹ năng của tiêu chí Tương tác.' }] }],
-    // v141 thảo luận cặp: câu đáp mẫu cho nhiệm vụ đầu tiên của mỗi cấp (cap.json) [đáp lượt mở đầu, đáp lượt chốt]; capq: làm thử (lời bạn thi lấy nguyên văn từ cap.json)
+    // v143 thảo luận cặp: câu đáp mẫu cho nhiệm vụ đầu tiên của mỗi cấp (cap.json) [đáp lượt mở đầu, đáp lượt chốt]; capq: làm thử (lời bạn thi lấy nguyên văn từ cap.json)
     capm: {
       a2: ['Yes, I do! I go to the cinema with my sister once a month, because the big screen is exciting. Do you like action films?', "I think visiting family is the best, because I can see my grandparents. But the cinema is fun too. Let's say the cinema, OK?"],
       b1: ["I agree it might be boring for some people, but if it's a science museum with interactive things, it could be fun. What about the beach? Do you think they'd enjoy that?", "I think the national park is a good choice too, because they can do lots of activities and it doesn't cost much. So, shall we choose the national park?"],
@@ -689,21 +689,21 @@ function xlTo(sk) { if (typeof TO === 'undefined' || !TO) return []; const R = t
     return o; }); }
 
 // Cambridge: một bài học cho mỗi PHẦN của bài thi (khuôn MOCK); bài Nói chia theo các phần của mkSpeak
-// v141 thứ tự phần Nói như đề thật: A2 2 phần (phỏng vấn + kể về bạn · thảo luận cặp + câu hỏi thêm), C2 3 phần (thảo luận cặp trước, nói dài sau); tên phần riêng theo cấp ở XL_CBT
+// v143 thứ tự phần Nói như đề thật: A2 2 phần (phỏng vấn + kể về bạn · thảo luận cặp + câu hỏi thêm), C2 3 phần (thảo luận cặp trước, nói dài sau); tên phần riêng theo cấp ở XL_CBT
 const XL_CBS = { pre: ['noi1', 'eit', 'pic'], a1: ['diff', 'story', 'odd', 'noi1', 'eit'], a2: ['noi1', 'talk', 'rp', 'noi4', 'eit'], b1: ['noi1', 'eit', 'photo', 'rp', 'noi4'], b2: ['noi1', 'eit', 'photo', 'rp', 'noi4'], c1: ['noi1', 'eit', 'photo', 'rp', 'noi4'], c2: ['noi1', 'eit', 'rp', 'talk', 'noi4'] };
 const XL_CBT = { a1: { noi1: 'Phần 4: câu hỏi về bạn' }, a2: { talk: 'Phần 1 (tiếp): kể về bạn', rp: 'Phần 2: thảo luận cặp', noi4: 'Phần 2 (tiếp): câu hỏi thêm' }, c2: { rp: 'Phần 2: thảo luận cặp', talk: 'Phần 3: nói dài', noi4: 'Phần 3 (tiếp): thảo luận' } };
-const XL_TCW = ['b1', 'b2', 'c1', 'c2'], XL_TCS = ['a2', 'b1', 'b2', 'c1', 'c2'];   // v141 cấp có bài tiêu chí Viết / Nói
+const XL_TCW = ['b1', 'b2', 'c1', 'c2'], XL_TCS = ['a2', 'b1', 'b2', 'c1', 'c2'];   // v143 cấp có bài tiêu chí Viết / Nói
 function xlCb(sk) { const [lv, ps] = String(sk).split('~'), pi = +ps, C = MOCK[lv], p = C && C.papers[pi]; if (!p) return []; const T = XL_TXT.cb;
-  const tc = (L, i) => ({ ...L[i], id: `cb:${C.lo}:${p.t}:tc:${i}`, k: 'tc' + i, ex: 'cambridge', sk, lv, pi, go: `data-cbx="next|${lv}|${pi}"`, w: () => xlCrit(p.speak ? 'S' : 'W', { cr: i }, { W: T.tcW, S: T.tcS }, ['Mức thấp', 'Mức cao']) });   // v141 tiêu chí: i trống (không lấy ô bản đồ của phần)
+  const tc = (L, i) => ({ ...L[i], id: `cb:${C.lo}:${p.t}:tc:${i}`, k: 'tc' + i, ex: 'cambridge', sk, lv, pi, go: `data-cbx="next|${lv}|${pi}"`, w: () => xlCrit(p.speak ? 'S' : 'W', { cr: i }, { W: T.tcW, S: T.tcS }, ['Mức thấp', 'Mức cao']) });   // v143 tiêu chí: i trống (không lấy ô bản đồ của phần)
   if (p.speak) return [...(XL_CBS[SPK_EX[lv]] || []).map(k => { const s = T.spk[k]; return { ...s, t: (XL_CBT[SPK_EX[lv]] || {})[k] || s.t, k, id: `cb:${C.lo}:${p.t}:${k}`, ex: 'cambridge', sk, i: 0, lv, pi, trap: s.trap || [], go: `data-cbx="try|${lv}|${pi}|0"`, sp: 1 }; }),
     ...(XL_TCS.includes(SPK_EX[lv]) ? T.tcS.map((_, i) => tc(T.tcS, i)) : [])];
   const gl = /Viết/.test(p.t) ? T.theLv[C.lo] || [] : [], extra = [...gl.map(g => ({ ...T.the[g], id: `cb:${C.lo}:${p.t}:the:${g}`, k: 'the-' + g, ex: 'cambridge', sk, lv, pi, go: `data-cbx="genre|${lv}|${pi}|${g}"`, w: () => xlCbThe(lv, g) })),
-    ...(gl.length && XL_TCW.includes(C.lo) ? T.tcW.map((_, i) => tc(T.tcW, i)) : [])];   // v141: bài thể loại Viết + tiêu chí Viết sau các phần của bài thi
+    ...(gl.length && XL_TCW.includes(C.lo) ? T.tcW.map((_, i) => tc(T.tcW, i)) : [])];   // v143: bài thể loại Viết + tiêu chí Viết sau các phần của bài thi
   return p.parts.map(([lab, gen], i) => { const k = cbKey(lab, p), c = cbCat(lab, p), kk = T.what[k] ? k : c;
     const how = T.how[k] || CB_HOWT[k] || (CB_UK.includes(k) && U_T[k] ? [U_T[k][2]] : null) || CB_HOWT[c] || [];
     return { id: `cb:${C.lo}:${p.t}:${lab}`, ex: 'cambridge', sk, i, lv, pi, k: kk, ic: T.ic[kk] || cbIc(p.t), t: (cbNum(lab) ? 'Phần ' + cbNum(lab) + ': ' : '') + cbShort(lab), what: T.what[kk] || '', how, trap: T.trap[kk] || [],
       go: `data-cbx="try|${lv}|${pi}|${i}"`, gen: () => xlGen(lv, pi, gen) }; }).concat(extra); }
-// v141 bài thể loại Viết: ví dụ = đề cuối của thể loại ở cấp + bài mẫu + bố cục thường gặp; làm thử = "Đề này thuộc thể loại nào?" (một đề khác của cấp) + 2 câu của thể loại
+// v143 bài thể loại Viết: ví dụ = đề cuối của thể loại ở cấp + bài mẫu + bố cục thường gặp; làm thử = "Đề này thuộc thể loại nào?" (một đề khác của cấp) + 2 câu của thể loại
 function xlCbThe(lv, g) { const T = XL_TXT.cb, D = T.the[g], lo = MOCK[lv].lo, gs = T.theLv[lo] || [], V = (KIT.viet.items || []).filter(x => x.lv === lo && gs.includes(cbGenre(x))), its = V.filter(x => cbGenre(x) === g), x = xlLast(its); if (!x) return null;
   const P = xlParas2(x.m), y = shuf(its.filter(z => z !== x))[0] || shuf(V.filter(z => z !== x))[0], nm = k => T.the[k].n, head = z => xlBox(esc(z.p), esc(z.pv));
   const html = `${head(x)}<div class="box"><b>🏗 Bố cục thường gặp</b><ol style="margin:6px 0 0;padding-left:22px">${D.bo.map(b => `<li style="margin:2px 0">${esc(b)}</li>`).join('')}</ol></div>
@@ -732,7 +732,7 @@ function xlCbSpk(d) { const ex = SPK_EX[d.lv], T = XL_TXT.cb, P = KIT.noi, ls = 
     return { html: `<div class="box"><b>${esc(ph.p)}</b><p class="mute" style="margin:4px 0">${esc(ph.pv || '')}</p>${ph.pics.map((p, i) => `<div><span class="mute">Ảnh ${'ABC'[i]}</span>${toPic(p)}</div>`).join('')}</div>${say(ph.m)}`, tq: xlStructQ(ph.m) }; }
   if (d.k === 'talk') { const x = P.items.filter(y => ls.includes(y.lv) && y.type !== 'rp' && y.m)[0]; if (!x) return { html: '', tq: [] };
     return { html: `<div class="box"><b>${esc(x.p)}</b><p class="mute" style="margin:4px 0 0">${esc(x.pv || '')}</p></div>${say(x.m)}`, tq: xlStructQ(x.m) }; }
-  if (d.k === 'rp') { const b = capBase(d.lv), ts = typeof CAP !== 'undefined' && CAP ? CAP.tasks.filter(t => t.lv === b) : [], t = ts[0], m = T.capm[b] || [], Q = T.capq[b] || []; if (!t) return { html: '', tq: xlMcq(Q) };   // v141 thảo luận cặp
+  if (d.k === 'rp') { const b = capBase(d.lv), ts = typeof CAP !== 'undefined' && CAP ? CAP.tasks.filter(t => t.lv === b) : [], t = ts[0], m = T.capm[b] || [], Q = T.capq[b] || []; if (!t) return { html: '', tq: xlMcq(Q) };   // v143 thảo luận cặp
     const html = `<div class="box"><b>👥 ${esc(t.q)}</b><p class="mute" style="margin:4px 0 0">Gợi ý: ${t.prompts.map(esc).join(' · ')}</p></div>
       <div class="box"><p style="margin:0">👤 <b>Bạn thi:</b> ${esc(t.open)} ${kSay(t.open)}</p>${m[0] ? `<p style="margin:8px 0 0">🗣 <b>Bạn (mẫu):</b> ${esc(m[0])} ${kSay(m[0])}</p>` : ''}
       <p class="mute" style="margin:8px 0 0">… hai bạn đi tiếp qua các gợi ý …</p><p style="margin:8px 0 0">👤 <b>Bạn thi:</b> ${esc(t.decide)} ${kSay(t.decide)}</p>${m[1] ? `<p style="margin:8px 0 0">🗣 <b>Bạn (mẫu):</b> ${esc(m[1])} ${kSay(m[1])}</p>` : ''}
@@ -783,7 +783,7 @@ function xlExW(q) { const x = q.x || {}, m = x.m || XL_TXT.cb.ps[x.id] || ''; co
   return { html: `${q.head || ''}${P.length ? `<details class="box" open><summary><b>📄 Bài mẫu (${kWords(P.join(' ')).length} từ)</b></summary>${P.map(p => `<p style="margin:8px 0 0">${esc(p).replace(/\n/g, '<br>')}</p>`).join('')}</details>` : '<p class="mute">Chưa có bài mẫu cho đề này.</p>'}`, tq: P.length ? xlStructQ(m) : [] }; }
 async function xlView(ex, sk, i) { BACK = null; EXAM_VOX = false;
   try { if (ex === 'ielts' && (typeof IE === 'undefined' || !IE)) await ieLoad(); if (ex === 'toeic' && (typeof TO === 'undefined' || !TO)) await toLoad();
-    if (ex === 'cambridge') { if (!KIT.noi.items || !KIT.nghe.items) $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad), typeof uLoad === 'function' ? uLoad() : 0, typeof capLoad === 'function' ? capLoad() : 0]); } } catch (e) {}   // v141: + cap.json (bài thảo luận cặp)
+    if (ex === 'cambridge') { if (!KIT.noi.items || !KIT.nghe.items) $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad), typeof uLoad === 'function' ? uLoad() : 0, typeof capLoad === 'function' ? capLoad() : 0]); } } catch (e) {}   // v143: + cap.json (bài thảo luận cặp)
   if (!NCLIPS.size) fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(x => { NCLIPS = new Set(x); }).catch(() => {});
   const L = xlList(ex, sk), n = +i, d = L[n]; if (!d) return xlBack(ex, sk)();
   window.CUR = { view: ex === 'cambridge' ? 'cambridge' : ex, sk: ex === 'cambridge' ? String(sk).replace('~', '|') : sk, xl: d.id };

@@ -34,6 +34,7 @@ const bkTools = () => { const shared = !(typeof isAnon === 'function' && isAnon(
     ${shared && typeof gyAdmin === 'function' ? '<button data-g="admin">🗂 Quản lý góp ý</button>' : ''}
     ${shared && typeof tdMissView === 'function' ? '<button data-bk="miss">📊 Từ người học tra mà app chưa có</button>' : ''}
     ${typeof paVal === 'function' ? '<button data-bk="paval">🧑‍🏫 Đối chiếu bộ chấm âm với giáo viên</button>' : ''}
+    ${shared && typeof daiStats === 'function' ? '<button data-daitk>🤖 Đề AI: số lượt, token, tiền 7 ngày</button><div id="daitk"></div>' : ''}
     <button data-bk="kiem">📋 Bảng kiểm nội dung cho giáo viên</button>
     <button data-bk="edit">✏️ Xem và sửa JSON</button>
     <h2>🎚 Đặt tiến độ (học lại hoặc thử)</h2>

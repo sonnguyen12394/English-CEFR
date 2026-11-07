@@ -1,2 +1,7 @@
 content/ref/oxford/
 graphify-out/
+node_modules/
+.env
+.env.*
+.DS_Store
+*.log

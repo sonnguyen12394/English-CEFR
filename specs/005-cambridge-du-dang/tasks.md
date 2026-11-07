@@ -5,11 +5,11 @@ description: "Chia việc: Cambridge đủ dạng"
 
 # Tasks: Cambridge đủ dạng (bài học + bài tập theo từng dạng của đề thật)
 
-**Input**: Design documents from `specs/003-cambridge-du-dang/`
+**Input**: Design documents from `specs/005-cambridge-du-dang/`
 
 **Prerequisites**: plan.md, spec.md, research.md, data-model.md, contracts/ui.md, quickstart.md
 
-**Tests**: có (hiến pháp III) → test C57 trong `tools/test/run.mjs` + kiểm lúc dựng trong `tools/build-b.mjs`.
+**Tests**: có (hiến pháp III) → test C60 trong `tools/test/run.mjs` + kiểm lúc dựng trong `tools/build-b.mjs`.
 
 **Organization**: US1 Viết theo thể loại · US2 Nói thảo luận cặp + đề thử Nói · US3 Đọc tin ngắn A2 / B1 · US4 tiêu chí chấm.
 
@@ -70,11 +70,11 @@ description: "Chia việc: Cambridge đủ dạng"
 
 ## Phase 7: Polish
 
-- [X] T014 Test C57 trong tools/test/run.mjs: bài học thể loại / tiêu chí / thảo luận cặp / tin ngắn đủ ví dụ + 3 làm thử đúng dạng; nút genre mở đúng thể loại; đề thử Nói A2 → C2 có mode cap, không mode rp, tên phần đúng; đề thử Đọc A2 / B1 phần 1 tin ngắn ≤ 40 từ; ≥ 2 bộ tin ngắn mỗi cấp; mã bài cũ còn (B1 phần 1, bài Nói rp); sửa test cũ nếu lệch theo nhãn mới (C44, C46, C47…)
-- [X] T015 [P] Bảng kiểm giáo viên mục v141 (tin ngắn, thể loại + bố cục + câu làm thử, thảo luận cặp, tiêu chí) trong tools/export-review.mjs → docs/kiem-noi-dung.html
+- [X] T014 Test C60 trong tools/test/run.mjs: bài học thể loại / tiêu chí / thảo luận cặp / tin ngắn đủ ví dụ + 3 làm thử đúng dạng; nút genre mở đúng thể loại; đề thử Nói A2 → C2 có mode cap, không mode rp, tên phần đúng; đề thử Đọc A2 / B1 phần 1 tin ngắn ≤ 40 từ; ≥ 2 bộ tin ngắn mỗi cấp; mã bài cũ còn (B1 phần 1, bài Nói rp); sửa test cũ nếu lệch theo nhãn mới (C44, C46, C47…)
+- [X] T015 [P] Bảng kiểm giáo viên mục v143 (tin ngắn, thể loại + bố cục + câu làm thử, thảo luận cặp, tiêu chí) trong tools/export-review.mjs → docs/kiem-noi-dung.html
 - [X] T016 [P] 📘 Luật mục luyện thi: đoạn Cambridge theo dạng trong huongdan.js
 - [X] T017 `node tools/test/run.mjs` xanh; soát Chromium theo quickstart.md; `graphify update . && python3 tools/graph-vung.py`
-- [X] T018 Đoạn v141 trong CLAUDE.md; `node tools/release.mjs` (bản 140) → commit → push nhánh claude/happy-shannon-5j2r27 → báo người sáng lập (hỏi tạo PR)
+- [X] T018 Đoạn v143 trong CLAUDE.md; `node tools/release.mjs` (bản 141) → commit → push nhánh claude/happy-shannon-5j2r27 → báo người sáng lập (hỏi tạo PR)
 
 ---
 
@@ -90,5 +90,5 @@ description: "Chia việc: Cambridge đủ dạng"
 ## Implementation Strategy
 
 - MVP: US1 + US2 (Viết theo thể loại, Nói thảo luận cặp đúng đề thật).
-- Rồi US3, US4; cuối cùng Polish + phát hành bản 140.
-- Mốc dừng: build-b hoặc C57 đỏ ở dạng nào thì sửa dạng đó trước; không phát hành khi test đỏ.
+- Rồi US3, US4; cuối cùng Polish + phát hành bản 141.
+- Mốc dừng: build-b hoặc C60 đỏ ở dạng nào thì sửa dạng đó trước; không phát hành khi test đỏ.
