@@ -42,7 +42,7 @@ function cbCell(o) { const at = o.at.slice().sort((a, b) => b.at - a.at); let ok
   const p = n ? ok / n : null, sure = o.score ? m >= 2 : n >= CB_N && m >= 2, s = !m ? 'chua' : !sure ? 'on' : p < o.pass ? 'yeu' : 'vung';
   return { ...o, p, n, m, sure, s, v: p == null ? '' : Math.round(p * 100) + '%' }; }
 // v141 🤖 đề AI (deai.js S.dai.r): cùng khuôn đề (cấp), đúng bài thi theo kỹ năng, đúng loại phần (Viết / Nói AI chấm riêng, không vào ô)
-const CB_AI = { doc: { mc: ['mc'], cloze: ['mc'], open: ['open'], wf: ['wf'], kwt: ['kwt'] }, nghe: { mc: ['', 'mc'], gap: ['nf'] } };
+const CB_AI = { doc: { mc: ['mc', 'long'], cloze: ['mc', 'mcc'], open: ['open'], wf: ['wf'], kwt: ['kwt'], sn: ['sn'], box: ['box'], story: ['box', 'story'], resp: ['resp'], comp: ['story'] }, nghe: { mc: ['', 'mc'], gap: ['nf'], name: ['name'] } };   // v144: dạng AI theo đề thật
 function cbRows(lv) { const C = MOCK[lv]; if (!C) return []; const runs = cbRuns(lv), R = S.uoe || {}, NF = (S.ng || {}).nf || {}, CP = S.cap || {}, AI = ((S.dai || {}).r || []).filter(r => r.n && String(r.ky).startsWith('cb-') && MOCK[r.ky.slice(3)] === C);
   return C.papers.map((p, pi) => ({ pi, t: p.t, cells: p.parts.map(([lab], i) => { const k = cbKey(lab, p), score = !!p.speak || CB_SCORE.test(lab), at = [];
     for (const r of runs) { const pr = (r.papers || []).find(x => x.t === p.t); if (!pr) continue;

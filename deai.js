@@ -11,15 +11,30 @@ const daiSt = () => { const o = (S.dai = S.dai || {}); o.r = o.r || []; o.du = o
 const DAI_EX = { ielts: 'IELTS', toeic: 'TOEIC', cefr: 'Cambridge' };
 const DAI_SKN = { R: ['📰', 'Đọc'], L: ['🎧', 'Nghe'], W: ['✍️', 'Viết'], S: ['🗣', 'Nói'] };
 // dạng đề AI soạn được, theo kỳ thi × kỹ năng: [dạng, khoá kỹ năng ở máy chủ, tên]
-function daiDangs(k, S0, lv) { const gt = k === 'ielts' && ieSt().type === 'gt', L = OV_LV.indexOf(lv || 'a2');
-  if (k === 'ielts') return ({ R: [['R-tf', 'doc', 'TRUE / FALSE / NOT GIVEN'], ['R-yn', 'doc', 'YES / NO / NOT GIVEN'], ['R-mc', 'doc', 'Trắc nghiệm'], ['R-comp', 'doc', 'Điền từ vào câu'], ['R-h', 'doc', 'Nối tiêu đề'], ['R-mi', 'doc', 'Tìm đoạn chứa ý'], ['R-sa', 'doc', 'Trả lời ngắn'], ...(gt ? [['R-gt', 'doc', 'Văn bản đời thường (GT)']] : [])],
-    L: [['L-form', 'nghe', 'Điền phiếu'], ['L-mc', 'nghe', 'Trắc nghiệm'], ['L-sa', 'nghe', 'Trả lời ngắn'], ['L-match', 'nghe', 'Nối']],
-    W: gt ? [['gt1', 'viet', 'Task 1: viết thư'], ['t2', 'viet', 'Task 2: bài luận']] : [['t1', 'viet', 'Task 1: bảng số liệu'], ['t2', 'viet', 'Task 2: bài luận']],
-    S: [['p1', 'noi', 'Part 1: câu hỏi ngắn'], ['p2', 'noi', 'Part 2 + 3: nói dài, bàn luận']] })[S0] || [];
+// v144 (specs/006-de-ai-bam-de-that, người sáng lập: "đề do AI tạo có bám sát cấu trúc đề thực tế chưa, nếu chưa thì chỉnh sửa"): khuôn từng dạng theo đề thật ở máy chủ
+// (supabase/functions/de-ai/khuon.js); tên ghi phần của đề thật. Cambridge theo cấp (cấp "+" như cấp gốc); Pre-A1 / A1 chỉ dạng chữ có trong đề Starters / Movers, không có Viết AI.
+const DAI_CB = {
+  pre: { R: [['box', 'doc', 'Phần 4: điền từ trong khung']], L: [['name', 'nghe', 'Phần 2: nghe viết tên, số']], W: [], S: [['p1', 'noi', 'Câu hỏi về bạn']] },
+  a1: { R: [['resp', 'doc', 'Phần 2: chọn câu đáp'], ['story', 'doc', 'Phần 3: điền truyện (khung từ)'], ['cloze', 'doc', 'Phần 4: điền trắc nghiệm'], ['comp', 'doc', 'Phần 5: đọc truyện, điền 1–3 từ']],
+    L: [['name', 'nghe', 'Phần 2: nghe viết tên, số, từ']], W: [], S: [['p1', 'noi', 'Câu hỏi về bạn']] },
+  a2: { R: [['sn', 'doc', 'Phần 1: tin ngắn'], ['mc', 'doc', 'Phần 3: bài đọc trắc nghiệm'], ['cloze', 'doc', 'Phần 4: điền trắc nghiệm'], ['open', 'doc', 'Phần 5: điền từ']],
+    L: [['gap', 'nghe', 'Phần 2: nghe điền'], ['mc', 'nghe', 'Phần 3: hội thoại trắc nghiệm']], W: [['w', 'viet', 'Phần 6: viết email']], S: [['p1', 'noi', 'Phần 1: phỏng vấn']] },
+  b1: { R: [['sn', 'doc', 'Phần 1: tin ngắn'], ['mc', 'doc', 'Phần 3: bài đọc trắc nghiệm'], ['cloze', 'doc', 'Phần 5: điền trắc nghiệm'], ['open', 'doc', 'Phần 6: điền từ']],
+    L: [['gap', 'nghe', 'Phần 3: nghe điền'], ['mc', 'nghe', 'Phần 4: phỏng vấn trắc nghiệm']], W: [['w', 'viet', 'Phần 1, 2: email hoặc bài báo']], S: [['p1', 'noi', 'Phần 1: phỏng vấn']] } };
+const daiCbHi = (w, l) => ({ R: [['cloze', 'doc', 'Phần 1: điền trắc nghiệm'], ['open', 'doc', 'Phần 2: điền từ'], ['wf', 'doc', 'Phần 3: tạo dạng từ'], ['kwt', 'doc', 'Phần 4: viết lại câu'], ['mc', 'doc', 'Phần 5: bài đọc trắc nghiệm']],
+  L: [['gap', 'nghe', 'Phần 2: nghe điền câu'], ['mc', 'nghe', l]], W: [['w', 'viet', w]], S: [['p1', 'noi', 'Phần 1: phỏng vấn']] });
+DAI_CB.b2 = daiCbHi('Phần 1: bài luận', 'Phần 4: phỏng vấn trắc nghiệm'); DAI_CB.c1 = daiCbHi('Phần 1: bài luận', 'Phần 3: phỏng vấn trắc nghiệm'); DAI_CB.c2 = daiCbHi('Phần 2: bài báo, báo cáo, nhận xét', 'Phần 3: phỏng vấn trắc nghiệm');
+const DAI_OLD = { 'L-sa': 'Trả lời ngắn', mc: 'Trắc nghiệm', w: 'Bài viết theo đề', '*': 'Mọi dạng' };   // dạng của đề cũ (trước v144) không còn cho chọn
+function daiDangs(k, S0, lv) { const gt = k === 'ielts' && ieSt().type === 'gt';
+  if (k === 'ielts') return ({ R: [['R-tf', 'doc', 'TRUE / FALSE / NOT GIVEN'], ['R-yn', 'doc', 'YES / NO / NOT GIVEN'], ['R-mc', 'doc', 'Trắc nghiệm'], ['R-comp', 'doc', 'Điền câu'], ['R-sa', 'doc', 'Trả lời ngắn'], ['R-h', 'doc', 'Nối tiêu đề'], ['R-mi', 'doc', 'Tìm đoạn chứa ý'],
+      ['R-mf', 'doc', 'Nối đặc điểm'], ['R-se', 'doc', 'Nối nửa câu'], ['R-sum', 'doc', 'Tóm tắt có khung từ'], ['R-dia', 'doc', 'Điền ghi chú, bảng, lưu đồ'], ...(gt ? [['R-gt', 'doc', 'Section 1: văn bản đời thường']] : [])],
+    L: [['L-form', 'nghe', 'Part 1: hội thoại, điền phiếu'], ['L-match', 'nghe', 'Part 2: độc thoại, nối + trắc nghiệm'], ['L-mc', 'nghe', 'Part 3: thảo luận, trắc nghiệm'], ['L-note', 'nghe', 'Part 4: bài giảng, ghi chú']],
+    W: gt ? [['gt1', 'viet', 'Task 1: viết thư'], ['t2', 'viet', 'Task 2: bài luận']] : [['t1', 'viet', 'Task 1: biểu đồ, bảng số liệu'], ['t2', 'viet', 'Task 2: bài luận']],
+    S: [['p1', 'noi', 'Part 1: 3 chủ đề'], ['p2', 'noi', 'Part 2 + 3: nói dài, bàn luận']] })[S0] || [];
   if (k === 'toeic') return ({ R: [['p5', 'np', 'Part 5: điền câu'], ['p6', 'np', 'Part 6: điền đoạn'], ['p7', 'doc', 'Part 7: đọc hiểu']], L: [['p2', 'nghe', 'Part 2: hỏi – đáp'], ['p3', 'nghe', 'Part 3: hội thoại'], ['p4', 'nghe', 'Part 4: bài nói ngắn']] })[S0] || [];
-  return ({ R: [['mc', 'doc', 'Đọc hiểu trắc nghiệm'], ['cloze', 'doc', 'Điền từ trắc nghiệm'], ...(L >= OV_LV.indexOf('a2') ? [['open', 'doc', 'Điền từ tự do']] : []), ...(L >= OV_LV.indexOf('b2') ? [['wf', 'doc', 'Tạo dạng từ'], ['kwt', 'doc', 'Viết lại câu với từ khoá']] : [])],
-    L: [['mc', 'nghe', 'Nghe trắc nghiệm'], ...(L >= OV_LV.indexOf('a2') ? [['gap', 'nghe', 'Nghe điền']] : [])], W: [['w', 'viet', 'Bài viết theo đề']], S: [['p1', 'noi', 'Phỏng vấn']] })[S0] || []; }
-const daiSks = k => k === 'toeic' ? ['R', 'L'] : ['R', 'L', 'W', 'S'];
+  return (DAI_CB[String(daiCbLv(lv)).replace(/p$/, '')] || DAI_CB.a2)[S0] || []; }
+// v144: chỉ kỹ năng có dạng AI (Pre-A1 / A1 không có Viết)
+const daiSks = (k, lv) => (k === 'toeic' ? ['R', 'L'] : ['R', 'L', 'W', 'S']).filter(s => daiDangs(k, s, lv).length);
 // cấp Cambridge: mục tiêu Cambridge → cấp mục tiêu; 📈 Giỏi lên → cấp đang học; không có mục tiêu → cấp đang xem ở màn Cambridge
 function daiCbLv(lv) { if (lv && OV_LV.includes(lv)) return lv; const g = S.lt && S.lt.goal, k = g && typeof ltKind === 'function' ? ltKind(g) : null;
   if (k === 'cambridge' && typeof ltGoalLv === 'function') return ltGoalLv(g); if (k === 'cefr') return ovStage();
@@ -27,14 +42,15 @@ function daiCbLv(lv) { if (lv && OV_LV.includes(lv)) return lv; const g = S.lt &
 function daiKy(k, lv) { if (k === 'ielts') return { ky: 'ielts-' + (ieSt().type === 'gt' ? 'gt' : 'ac'), muc: String(ieSt().target) };
   if (k === 'toeic') return { ky: 'toeic', muc: String(toSt().target) }; lv = daiCbLv(lv); return { ky: 'cb-' + lv, muc: lv, lv }; }
 const daiKOf = ky => ky.startsWith('ielts') ? 'ielts' : ky === 'toeic' ? 'toeic' : 'cefr';
-const daiSOf = (k, dang, lv) => daiSks(k).find(s => daiDangs(k, s, lv).some(d => d[0] === dang)) || 'R';
-const daiName = (k, dang, lv) => { for (const s of daiSks(k)) { const d = daiDangs(k, s, lv).find(x => x[0] === dang); if (d) return `${DAI_SKN[s][1]} · ${d[2]}`; } return dang; };
+const DAI_SKOF = { doc: 'R', np: 'R', nghe: 'L', viet: 'W', noi: 'S' };
+const daiSOf = (k, dang, lv, sk) => daiSks(k, lv).find(s => daiDangs(k, s, lv).some(d => d[0] === dang)) || DAI_SKOF[sk] || 'R';
+const daiName = (k, dang, lv, sk) => { for (const s of daiSks(k, lv)) { const d = daiDangs(k, s, lv).find(x => x[0] === dang); if (d) return `${DAI_SKN[s][1]} · ${d[2]}`; } const s = DAI_SKOF[sk]; return (s ? DAI_SKN[s][1] + ' · ' : '') + (DAI_OLD[dang] || dang); };
 // tỉ lệ đúng gần đây của một dạng trên bản đồ kỳ thi (IELTS S.ie.ty, TOEIC S.to.ty) + số đề AI đã làm
 function daiStat(k, ky, dang) { const T = k === 'ielts' ? (S.ie || {}).ty || {} : k === 'toeic' ? (S.to || {}).ty || {} : {}, a = (T[dang] || []).slice(-10), n = a.reduce((s, b) => s + b.n, 0);
   return { n, pct: n ? Math.round(a.reduce((s, b) => s + b.ok, 0) / n * 100) : null, ai: daiSt().r.filter(r => r.ky === ky && r.dang === dang).length }; }
 // việc nên làm: đề dự trữ có sẵn → dạng yếu chắc (≥ 4 câu, < 75%) → dạng làm ít nhất (đọc, nghe trước viết, nói)
 function daiPick(k, lv, only) { const { ky } = daiKy(k, lv), o = daiSt(), all = [];
-  for (const s of only ? [only] : daiSks(k)) for (const [dang, sk, t] of daiDangs(k, s, lv)) all.push({ s, dang, sk, t, ...daiStat(k, ky, dang), du: !!o.du[ky + '|' + dang] });
+  for (const s of only ? [only] : daiSks(k, lv)) for (const [dang, sk, t] of daiDangs(k, s, lv)) all.push({ s, dang, sk, t, ...daiStat(k, ky, dang), du: !!o.du[ky + '|' + dang] });
   if (!all.length) return null; const du = all.find(x => x.du); if (du) return { ...du, why: 'sẵn sàng' };
   const weak = all.filter(x => x.n >= 4 && x.pct < 75).sort((a, b) => a.pct - b.pct)[0]; if (weak) return { ...weak, why: `đang yếu · ${weak.pct}%` };
   return { ...all.slice().sort((a, b) => a.ai - b.ai)[0], why: '' }; }
@@ -49,7 +65,7 @@ function daiBox(k, lv) { const o = daiSt(), p = daiPick(k, lv), { ky } = daiKy(k
       : w.st === 'loi' ? `<p class="mute" style="margin:6px 0">❌ ${esc(daiName(k, key.split('|')[1], lv))}: ${esc(w.err || 'chưa tạo được đề')} <button class="link" data-daidrop="${esc(key)}">Bỏ</button></p>`
       : `<button class="hrow" data-daiwait="${esc(w.id)}"><span class="ic">⏳</span><span class="t"><b>AI đang soạn đề</b><small>${esc(daiName(k, key.split('|')[1], lv))} · ${Math.round((now - w.at) / 1000)} giây</small></span><span class="chev">›</span></button>`).join('')}
     <button class="btnbig" data-daigo="${k}|${p.dang}|${lv || ''}">▶ Làm đề AI mới<small>${esc(DAI_SKN[p.s][1] + ' · ' + p.t)}${p.du ? ' · sẵn sàng' : p.why ? ' · ' + esc(p.why) : ''}</small></button>
-    <div class="chipset ex3 daisk" style="grid-template-columns:repeat(${daiSks(k).length}, minmax(0, 1fr))">${daiSks(k).map(s => `<button data-daisk="${k}|${s}|${lv || ''}">${DAI_SKN[s][0]} ${DAI_SKN[s][1]}</button>`).join('')}</div>
+    <div class="chipset ex3 daisk" style="grid-template-columns:repeat(${daiSks(k, lv).length}, minmax(0, 1fr))">${daiSks(k, lv).map(s => `<button data-daisk="${k}|${s}|${lv || ''}">${DAI_SKN[s][0]} ${DAI_SKN[s][1]}</button>`).join('')}</div>
     <p class="mute" style="margin:6px 0 0;font-size:13px">Mỗi lần một đề mới, khác đề cũ. ${p.du ? '' : 'Đề đầu mất khoảng 1–2 phút để soạn. '}Mỗi đề AI tốn phí gọi AI của app: làm bài có sẵn trước để tiết kiệm. 🤖 AI soạn và chấm, chưa giáo viên kiểm.</p>
     ${done ? `<button class="hrow" data-dailist="${k}"><span class="ic">🗂</span><span class="t"><b>${done} đề AI đã làm</b><small>Xem lại lời giải, làm lại</small></span><span class="chev">›</span></button>` : ''}</div>`; }
 const daiSkRow = (k, s, lv) => daiDangs(k, s, lv).length ? `<button class="hrow" data-daisk="${k}|${s}|${lv || ''}"><span class="ic">🤖</span><span class="t"><b>Đề AI mới</b><small>Khi làm hết bài có sẵn hoặc muốn bài mới · tốn phí AI</small></span><span class="chev">›</span></button>` : '';
@@ -79,12 +95,14 @@ function daiLeftGo(k, s, pi, lv) { if (typeof EX_PART !== 'undefined') EX_PART =
 const daiX = (k, lv) => ({ ai: daiBox(k, lv), remind: daiRemind(k, lv), left: daiLeft(k, lv), notice: daiNotice(k, lv) });
 
 // màn chọn dạng của một kỹ năng
+// v144: một câu nói đề AI theo khuôn đề thật
+const DAI_SKNOTE = { 'ielts|R': 'Mỗi đề là 1 bài đọc như đề thật: 13 câu, 20 phút; dạng bạn chọn là một nhóm 5–7 câu, còn lại 1–2 dạng khác.', 'ielts|L': 'Mỗi đề là 1 Part như đề thật: 10 câu, nghe 1 lần, câu theo thứ tự lời nghe.', cefr: 'Mỗi đề là một phần của đề thật, đúng số câu và số lựa chọn của cấp.', toeic: 'Mỗi đề theo đúng khuôn Part của đề thật.' };
 function daiSkView(k, s, lv) { window.CUR = { view: 'dai-sk', sk: s }; const { ky } = daiKy(k, lv), o = daiSt(), p = daiPick(k, lv, s);
   const rows = daiDangs(k, s, lv).map(([dang, , t]) => { const st = daiStat(k, ky, dang), du = o.du[ky + '|' + dang];
     return `<button class="hrow${p && p.dang === dang ? ' ok' : ''}" data-daigo="${k}|${dang}|${lv || ''}"><span class="ic">${du ? '⚡' : '▶'}</span><span class="t"><b>${esc(t)}</b><small>${du ? 'sẵn sàng · ' : ''}${st.ai ? `${st.ai} đề AI` : 'chưa làm đề AI'}${st.pct != null ? ` · gần đây ${st.pct}% đúng` : ''}</small></span><span class="chev">›</span></button>`; }).join('');
-  const done = o.r.filter(r => r.ky === ky && daiSOf(k, r.dang, lv) === s).slice(-5).reverse();
+  const done = o.r.filter(r => r.ky === ky && daiSOf(k, r.dang, lv, r.sk) === s).slice(-5).reverse(), note = DAI_SKNOTE[k + '|' + s] || DAI_SKNOTE[k] || '';
   $app.innerHTML = `<div id="dai"></div><div class="row top"><button class="link" data-daihome="${k}|${lv || ''}">‹ ${DAI_EX[k]}</button><span></span></div>
-    <h1>🤖 ${DAI_SKN[s][0]} ${DAI_SKN[s][1]} · đề AI</h1><p class="mute" style="margin:0 0 8px">Chọn dạng. Mỗi lần AI soạn một đề mới, khác các đề bạn đã làm.</p>
+    <h1>🤖 ${DAI_SKN[s][0]} ${DAI_SKN[s][1]} · đề AI</h1><p class="mute" style="margin:0 0 8px">Chọn dạng. Mỗi lần AI soạn một đề mới, khác các đề bạn đã làm.${note ? ' ' + note : ''}</p>
     <div class="box" style="padding:4px 14px">${rows}</div>
     ${done.length ? `<h2 style="margin:16px 0 4px">Đề AI gần đây</h2>${done.map(r => daiRow(r)).join('')}<button class="link" data-dailist="${k}">Xem tất cả đề AI ›</button>` : ''}
     <p class="mute" style="font-size:13px">🤖 AI soạn và chấm, chưa giáo viên kiểm. Thấy câu sai: bấm 💬 → ⚑ Câu sai. Luyện đề không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp của 🧱 Nền.</p>`;
@@ -157,7 +175,7 @@ const DAI_LBL = { 'R-tf': IE_TFH, 'R-yn': typeof IE_YNH !== 'undefined' ? IE_YNH
 function daiQs(row) { const de = row.de, id = 'ai:' + row.id, ie = de.ky.startsWith('ielts'), to = de.ky === 'toeic', foot = daiPass(de), out = [];
   const lines = de.lines && de.lines.length ? daiLines(de) : null; let n = 0;
   for (const g of de.groups || []) for (const it of g.items || []) { const q = { x: { id, ...(to && g.ty.startsWith('p5:') ? { t: g.ty.slice(3) } : {}) }, why: it.why_vi + (it.ev ? ` 📍 “${it.ev}”` : ''), foot,
-      head: `<p class="mute">${esc(g.inst || '')}</p>${DAI_LBL[g.ty] || ''}${lines || (to && g.ty === 'p2') ? '<p class="mute" style="font-size:13px">🔊 Giọng máy của điện thoại đọc lời AI soạn, không phải giọng thu sẵn.</p>' : ''}`, q: esc(it.q).replace(/\n/g, '<br>').replace(/_{3,}|-{5,}/, m => `<b>${m}</b>`) };
+      head: `${de.part ? `<p class="mute" style="margin:0 0 2px;font-size:13px">📋 ${esc(de.part)}</p>` : ''}<p class="mute">${esc(g.inst || '')}</p>${DAI_LBL[g.ty] || ''}${lines || (to && g.ty === 'p2') ? '<p class="mute" style="font-size:13px">🔊 Giọng máy của điện thoại đọc lời AI soạn, không phải giọng thu sẵn.</p>' : ''}`, q: esc(it.q).replace(/\n/g, '<br>').replace(/_{3,}|-{5,}/, m => `<b>${m}</b>`) };
     if (ie) q.ty = g.ty; if (to) q.sec = g.ty.split(':')[0]; if (lines) q.play = { key: id, lines };
     if (it.o && it.o.length) { q.kind = 'mc'; q.opts = it.o; q.a = it.a; } else { q.kind = 'type'; q.a = it.a; q.acc = [it.a, ...(it.acc || [])]; }
     if (to && g.ty === 'p2') { const L = 'ABC'; q.play = { key: id + ':' + n, lines: [['A', it.q], ...it.o.map((o, j) => ['B', `${L[j]}. ${o}`])] }; q.q = '🔊 Nghe câu hỏi và 3 câu đáp. Câu đáp nào hợp nhất?'; q.opts = it.o.map((_, j) => L[j]); q.a = L[it.o.indexOf(it.a)];
@@ -166,7 +184,7 @@ function daiQs(row) { const de = row.de, id = 'ai:' + row.id, ie = de.ky.startsW
   return out; }
 const daiBand = (k, ok, n) => { const T = k === 'L' ? IE_L : ieSt().type === 'gt' ? IE_RG : IE_RA, raw = Math.round(ok / Math.max(1, n) * 40); return (T.find(([r]) => raw >= r) || [0, 2])[1]; };
 function daiRun(row) { const de = row.de, k = daiKOf(de.ky), lv = de.ky.startsWith('cb-') ? de.ky.slice(3) : '', back = daiBack(k, lv); DAI.cur = null;
-  const S0 = daiSOf(k, de.dang, lv), t0 = Date.now(), name = daiName(k, de.dang, lv);
+  const S0 = daiSOf(k, de.dang, lv, de.sk), t0 = Date.now(), name = daiName(k, de.dang, lv, de.sk);
   daiSt().mo = { id: row.id, at: t0, ky: de.ky, dang: de.dang }; save();   // làm dở: giữ DAI_MO_H giờ, mở lại cùng đề từ câu 1
   if (de.sk === 'viet') return daiWrite(row, k, lv, back);
   if (de.sk === 'noi') return daiSpeak(row, k, lv, back);
@@ -190,6 +208,7 @@ function daiSave(row, r) { const o = daiSt(), de = row.de; o.r = [...o.r.filter(
 
 // ✍️ Viết: IELTS dùng ieWrite (máy ước band + nút AI chấm, tự bấm); Cambridge: màn viết gọn + AI chấm thang Cambridge
 function daiIeX(row) { const de = row.de, t = de.task, id = 'ai:' + row.id;
+  if (de.dang === 't1' && t.chart) { const c = t.chart; return { id, kind: c.kind, title: c.title, unit: c.unit, p: t.p, pv: t.pv, cats: c.cats, series: c.series.map(x => [x.name, x.v]), m: t.m }; }   // v144: biểu đồ đường / cột / tròn / bảng
   if (de.dang === 't1') { const tb = t.table || { t: '', h: [], r: [] }; return { id, kind: 'table', title: tb.t, unit: '', p: t.p, pv: t.pv, cats: tb.h.slice(1), series: tb.r.map(r => [r[0], r.slice(1)]), m: t.m }; }
   if (de.dang === 'gt1') return { id, reg: IE_REG[t.genre] ? t.genre : 'formal', p: t.p, pv: t.pv, m: t.m };
   return { id, type: IE_T2T[t.genre] ? t.genre : 'opinion', p: t.p, pv: t.pv, k: [], m: t.m }; }

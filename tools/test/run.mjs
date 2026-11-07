@@ -1834,6 +1834,23 @@ const R = await run(`(async () => {
     EX_PART = 'san'; DAI.off = false; S = blank();
     add('cefr', 'C59', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : 'tách 📚 Đề có sẵn · 🤖 Đề AI: màn 2 nút (📚 chính ghi số bài chưa làm, 🤖 phụ, chưa gọi AI) ở IELTS / TOEIC / Cambridge, phần 📚 không có nút gọi AI, phần 🤖 có ô AI + nhắc bài có sẵn bấm sang đúng màn kỹ năng, hàng 🤖 ở màn kỹ năng nằm sau bài có sẵn, Hôm nay mở 📚, về từ đề AI mở 🤖, đề AI xong hiện dòng nhắc');
     }
+  // v144 C61 (phần trang): danh sách dạng AI theo kỳ thi × cấp (gửi ra ngoài để so với khuôn máy chủ); đề cũ v1 vẫn mở; câu hỏi ghi phần đề thật; Task 1 biểu đồ AI vẽ được
+  { const bad = [], L = {}; const S1 = S; S = blank(); S.ie = { set: 1, type: 'ac', target: 6.5 };
+    try { for (const s of ['R', 'L', 'W', 'S']) L['ielts-ac|' + s] = daiDangs('ielts', s).map(d => d.slice(0, 2));
+      S.ie.type = 'gt'; for (const s of ['R', 'L', 'W', 'S']) L['ielts-gt|' + s] = daiDangs('ielts', s).map(d => d.slice(0, 2)); S.ie.type = 'ac';
+      for (const s of ['R', 'L']) L['toeic|' + s] = daiDangs('toeic', s).map(d => d.slice(0, 2));
+      for (const lv of OV_LV) for (const s of ['R', 'L', 'W', 'S']) L['cb-' + lv + '|' + s] = daiDangs('cefr', s, lv).map(d => d.slice(0, 2));
+      if (daiSks('cefr', 'pre').includes('W') || daiSks('cefr', 'a1').includes('W') || !daiSks('cefr', 'a2').includes('W') || daiSks('toeic').join() !== 'R,L') bad.push('Pre-A1 / A1 còn ô Viết AI, hoặc A2 / TOEIC sai kỹ năng');
+      const old = { id: 'fake~old~1', st: 'xong', de: { v: 1, ky: 'cb-pre', sk: 'nghe', dang: 'mc', title: 'Old', min: 6, lines: [['A', 'I like red apples.']], sex: {}, groups: [{ ty: 'mc', inst: '', items: [{ q: 'What does she like?', o: ['apples', 'pears', 'cakes'], a: 'apples', why_vi: 'vì', ev: 'I like red apples.' }] }] } };
+      if (daiCheck(old.de).length || !daiQs(old).length) bad.push('đề cũ v1 bị chặn / không ra câu hỏi');
+      if (!/Nghe/.test(daiName('cefr', 'mc', 'pre', 'nghe')) || daiSOf('cefr', 'mc', 'pre', 'nghe') !== 'L' || daiName('ielts', 'L-sa', '', 'nghe') !== 'Nghe · Trả lời ngắn') bad.push('tên / kỹ năng của dạng cũ sai: ' + daiName('cefr', 'mc', 'pre', 'nghe'));
+      const v2 = { id: 'fake~v2~1', st: 'xong', de: { v: 2, ky: 'ielts-ac', sk: 'doc', dang: 'R-tf', part: 'IELTS Academic Reading · one passage', title: 'New', min: 20, text: 'A. Some text.', groups: [{ ty: 'R-tf', inst: 'Do the following statements agree with the information?', items: [{ q: 'S1', o: ['TRUE', 'FALSE', 'NOT GIVEN'], a: 'TRUE', why_vi: 'vì', ev: '' }] }] } };
+      if (!daiQs(v2)[0].head.includes('📋 IELTS Academic Reading')) bad.push('câu hỏi không ghi phần đề thật');
+      const t1 = daiIeX({ id: 'x', de: { dang: 't1', task: { p: 'The graph below shows…', pv: '', m: '', chart: { kind: 'line', title: 'T', unit: '%', cats: ['2000', '2010', '2020'], series: [{ name: 'A', v: [1, 2, 3] }] } } } });
+      if (t1.kind !== 'line' || t1.series[0][0] !== 'A' || !/<svg/.test(ieChart(t1))) bad.push('Task 1 biểu đồ AI không vẽ được');
+      const t0 = daiIeX({ id: 'y', de: { dang: 't1', task: { p: 'p', pv: '', m: '', table: { t: 'T', h: ['', 'a', 'b', 'c'], r: [['x', 1, 2, 3]] } } } }); if (t0.kind !== 'table' || t0.series[0][0] !== 'x') bad.push('Task 1 đề cũ (bảng) hỏng');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    S = S1; out.push({ lv: 'cefr', id: 'C61-trang', ok: !bad.length, msg: bad.join(' | '), x: L }); }
   return out; })()`);
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];
@@ -1853,5 +1870,55 @@ const R = await run(`(async () => {
   const all = ['AC', 'GT', 'W1', 'W2', 'W3', 'S1', 'S2', 'TO', 'CL', 'CM', 'CH'].flatMap(k => C[k].map(x => x.k)); if (new Set(all).size !== all.length || all.some(k => k.length > 40)) bad.push('CHU_DE trùng khoá / khoá quá dài');
   if (C.AC.length < 40 || C.TO.length < 25 || C.CL.length < 20 || C.chuDe('ielts-gt', 'doc', 'R-gt') !== C.GT || C.chuDe('cb-c1', 'doc', 'mc') !== C.CH) bad.push('danh sách chủ đề thiếu / chọn sai');
   R.push({ lv: 'cefr', id: 'C58', ok: !bad.length, msg: bad.length ? bad.join(' | ') : 'chống đề trùng: so ≥ 3 đề gần nhất (tới 50), cùng chủ đề / tên / câu hỏi / ≥ 15% cụm 5 từ là trùng, bài khác chủ đề không trùng, chọn chủ đề chưa gặp, hết thì lấy chủ đề cũ nhất + đổi góc nhìn; ' + all.length + ' chủ đề không trùng khoá' }); }
+// v144 C61 đề AI bám khuôn đề thật (specs/006-de-ai-bam-de-that): bảng khuôn của máy chủ (khuon.js) khớp danh sách dạng của trang và bảng đề thật; máy kiểm thứ tự / câu trích / câu chèn / biểu đồ / số từ / số người nói
+{ const K = await import('../../supabase/functions/de-ai/khuon.js'), bad = [], i = R.findIndex(r => r.id === 'C61-trang'), T = i >= 0 ? R.splice(i, 1)[0] : { ok: false, msg: 'thiếu phần trang', x: {} };
+  if (!T.ok) bad.push(T.msg);
+  for (const [key, list] of Object.entries(T.x || {})) { const ky = key.split('|')[0]; for (const [dang, sk] of list) if (!K.spec(ky, sk, dang)) bad.push(`trang có ${ky} ${sk} ${dang} mà máy chủ không có`); }
+  for (const [ky, sk, dang] of [['cb-pre', 'doc', 'mc'], ['cb-a1', 'doc', 'mc'], ['cb-pre', 'nghe', 'mc'], ['cb-a1', 'nghe', 'mc'], ['cb-pre', 'viet', 'w'], ['cb-a1', 'viet', 'w'], ['ielts-ac', 'nghe', 'L-sa']]) if (K.spec(ky, sk, dang)) bad.push(`còn dạng ngoài đề thật: ${ky} ${sk} ${dang}`);
+  const E = (ky, sk, dang, f) => { const s = K.spec(ky, sk, dang); if (!s) return bad.push(`thiếu khuôn ${ky} ${sk} ${dang}`); const m = f(s, ty => K.rule(s, ty)); if (m) bad.push(`${ky} ${sk} ${dang}: ${m}`); };
+  for (const d of ['R-tf', 'R-yn', 'R-mc', 'R-comp', 'R-sa', 'R-h', 'R-mi', 'R-mf', 'R-se', 'R-sum', 'R-dia']) E('ielts-ac', 'doc', d, s => s.ask === 13 && s.q[0] === 12 && s.w[0] === 700 && s.w[1] === 900 && s.min === 20 && s.main === d ? '' : 'IELTS Đọc không phải 1 bài 700–900 từ, 13 câu, 20 phút');
+  for (const d of ['L-form', 'L-match', 'L-mc', 'L-note']) E('ielts-ac', 'nghe', d, s => s.ask === 10 && /Part [1-4]$/.test(s.part) ? '' : 'IELTS Nghe không phải 1 Part 10 câu');
+  E('ielts-ac', 'nghe', 'L-note', (s, r) => s.sp[1] === 1 && r('L-form').lim === 1 ? '' : 'Part 4 cần 1 người nói, ONE WORD ONLY');
+  E('ielts-ac', 'noi', 'p1', s => s.p1 && s.p1[0] === 9 ? '' : 'Nói Part 1 cần 9–12 câu');
+  for (const lv of ['b2', 'b2p', 'c1', 'c2']) for (const d of ['cloze', 'open', 'wf']) E('cb-' + lv, 'doc', d, s => s.q[0] === 8 ? '' : 'cần 8 chỗ trống');
+  E('cb-b2', 'doc', 'kwt', (s, r) => r('kwt').limMin === 2 && r('kwt').lim === 5 ? '' : 'viết lại câu B2 2–5 từ');
+  E('cb-c1', 'doc', 'kwt', (s, r) => r('kwt').limMin === 3 && r('kwt').lim === 6 ? '' : 'viết lại câu C1 3–6 từ');
+  E('cb-c2', 'doc', 'kwt', (s, r) => r('kwt').limMin === 3 && r('kwt').lim === 8 ? '' : 'viết lại câu C2 3–8 từ');
+  for (const lv of ['c1', 'c2']) E('cb-' + lv, 'nghe', 'mc', (s, r) => r('mc').nopt === 4 ? '' : 'nghe phỏng vấn cần 4 lựa chọn');
+  for (const lv of ['a2', 'b1', 'b2']) E('cb-' + lv, 'nghe', 'mc', (s, r) => r('mc').nopt === 3 ? '' : 'nghe trắc nghiệm cần 3 lựa chọn');
+  for (const [lv, n] of [['a2', 5], ['b1', 6], ['b2', 10], ['c1', 8], ['c2', 9]]) E('cb-' + lv, 'nghe', 'gap', s => s.q[0] === n ? '' : `nghe điền cần ${n} câu`);
+  E('cb-a2', 'doc', 'sn', s => s.q[0] === 6 ? '' : 'A2 tin ngắn 6 câu'); E('cb-b1', 'doc', 'sn', s => s.q[0] === 5 ? '' : 'B1 tin ngắn 5 câu');
+  E('cb-a1', 'doc', 'cloze', (s, r) => s.q[0] === 5 && r('cloze').nopt === 3 ? '' : 'Movers điền trắc nghiệm 5 chỗ, 3 lựa chọn');
+  E('cb-b2', 'doc', 'mc', s => s.w[0] >= 550 && /Part 5$/.test(s.part) ? '' : 'bài đọc B2 phần 5 quá ngắn / sai phần');
+  const it = (q, a, ev, o) => ({ q, o: o || [], a, acc: [], why_vi: 'vì', ev: ev || '' }), P = (ky, sk, dang) => ({ ky, sk, dang, muc: '' });
+  const base = { title: 'T', topic: 't', gist: 'g', vi: 'v', text: '', lines: [], voices: [], groups: [], task: { part: '', p: '', pv: '', min: 0, max: 0, genre: '', m: '', chart: { kind: '', title: '', unit: '', cats: [], series: [] } }, speak: { p1: [], p2: { t: '', b: [] }, p3: [] } };
+  const txt = 'A. ' + 'filler words here. '.repeat(80) + 'The river flooded in 1990. ' + 'more filler words. '.repeat(60) + 'Farmers moved north later. ' + 'final filler text. '.repeat(70);
+  const r1 = K.clean({ ...base, text: txt, groups: [{ ty: 'R-tf', inst: '', opts: [], lim: 0, items: [it('Farmers moved north.', 'TRUE', 'Farmers moved north later.'), it('The river flooded in 1990.', 'TRUE', 'The river flooded in 1990.'), it('S3', 'FALSE'), it('S4', 'NOT GIVEN'), it('S5', 'FALSE')] },
+    { ty: 'R-comp', inst: '', opts: [], lim: 0, items: ['river', 'north', 'filler', 'words', 'here', 'more', 'final', 'text'].map((a, j) => it(`Sentence ${j} ______`, a)) }] }, K.spec('ielts-ac', 'doc', 'R-tf'), P('ielts-ac', 'doc', 'R-tf'));
+  if (r1.hard.length || r1.de.groups[0].items[0].q !== 'The river flooded in 1990.' || r1.de.v !== 2 || !r1.de.part) bad.push('máy kiểm không xếp câu theo thứ tự bài / thiếu phần đề thật: ' + r1.hard.join('; '));
+  const r1b = K.clean({ ...base, text: txt, groups: [{ ty: 'R-comp', inst: '', opts: [], lim: 0, items: ['river', 'north', 'filler', 'words', 'here', 'more', 'final', 'text', 'river flooded', 'moved north', 'more filler', 'final filler', 'words here'].map((a, j) => it(`Sentence ${j} ______`, a)) }] }, K.spec('ielts-ac', 'doc', 'R-tf'), P('ielts-ac', 'doc', 'R-tf'));
+  if (!r1b.hard.some(h => /nhóm R-tf/.test(h))) bad.push('đề thiếu nhóm dạng đã chọn không bị bắt');
+  const L3 = [{ who: 'A', s: 'The printer on the third floor is broken again, so I sent the slides to you by email this morning.' }, { who: 'B', s: 'I will see what I can do before the meeting starts at ten. We still need the report, the charts and the agenda for everyone in the room.' }, { who: 'A', s: 'Thanks. The client arrives early, so we should set up the projector first and test the sound system as well. Let me know if you need a hand.' }];
+  const r3 = K.clean({ ...base, lines: L3, voices: [{ who: 'A', g: 'f' }, { who: 'B', g: 'm' }], groups: [{ ty: 'p3', inst: '', opts: [], lim: 0, items: [
+      it('What does the man mean when he says, "I will see what I can do"?', 'He will try to help.', '', ['He will try to help.', 'He is busy.', 'He will leave.', 'He needs a printer.']),
+      it('What does the woman mean when she says, "We are fully booked"?', 'She has no time.', '', ['She has no time.', 'She is hungry.', 'She is late.', 'She is happy.']),
+      it('What is broken?', 'The printer', '', ['The printer', 'The phone', 'The door', 'The car'])] }] }, K.spec('toeic', 'nghe', 'p3'), P('toeic', 'nghe', 'p3'));
+  if (r3.de.groups[0].items.length !== 2 || !r3.soft.includes('câu trích không có trong bài')) bad.push('câu hàm ý trích sai không bị bỏ');
+  const d7 = '### Email\n' + 'Dear team, our office will move next month. '.repeat(12) + 'Please pack your desks by Friday.', sp7 = K.spec('toeic', 'doc', 'p7');
+  const ins = it('In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Boxes are in room 2."', '[2]', '');
+  const r7 = K.clean({ ...base, text: d7, groups: [{ ty: 'p7', inst: '', opts: [], lim: 0, items: [ins, it('Why was the email sent?', 'To announce a move', '', ['To announce a move', 'To hire staff', 'To sell desks', 'To close the office']), it('When must desks be packed?', 'By Friday', '', ['By Friday', 'Today', 'On Monday', 'Next year'])] }] }, sp7, P('toeic', 'doc', 'p7'));
+  const r7b = K.clean({ ...base, text: d7.replace('move next month.', 'move next month. [1] [2] [3] [4]'), groups: [{ ty: 'p7', inst: '', opts: [], lim: 0, items: [ins] }] }, sp7, P('toeic', 'doc', 'p7'));
+  if (r7.de.groups[0].items.some(x => /positions marked/.test(x.q)) || !r7b.de.groups.length || r7b.de.groups[0].items[0].a !== '[2]' || r7b.de.groups[0].items[0].o.join() !== '[1],[2],[3],[4]') bad.push('câu chèn câu [1]–[4] kiểm sai');
+  const kw = ky => K.clean({ ...base, groups: [{ ty: 'kwt', inst: '', opts: [], lim: 0, items: [it('He started early.\nTIME\nHe ______ to start.', 'had plenty of time in order to', '')] }] }, K.spec(ky, 'doc', 'kwt'), P(ky, 'doc', 'kwt'));
+  if (!kw('cb-c2').de.groups.length || kw('cb-b2').de.groups.length) bad.push('giới hạn từ viết lại câu theo cấp sai');
+  const ch = c => K.clean({ ...base, task: { ...base.task, p: 'The charts below show…', min: 150, chart: c } }, K.spec('ielts-ac', 'viet', 't1'), P('ielts-ac', 'viet', 't1'));
+  const okc = ch({ kind: 'line', title: 'T', unit: 'million', cats: ['2000', '2010', '2020'], series: [{ name: 'A', v: [1, 2, 3] }] }), badc = ch({ kind: 'pie', title: 'T', unit: '%', cats: ['a', 'b', 'c'], series: [{ name: '2020', v: [10, 20, 30] }] });
+  if (okc.hard.length || !okc.de.task.chart || okc.de.task.chart.kind !== 'line' || !badc.hard.some(h => /biểu đồ/.test(h))) bad.push('kiểm biểu đồ Task 1 sai');
+  const snq = K.clean({ ...base, groups: [{ ty: 'sn', inst: '', opts: [], lim: 0, items: [it('CLOSED ON MONDAY. Back on Tuesday at 9.\nWhat does the notice say?', 'The shop opens again on Tuesday.', '', ['The shop opens again on Tuesday.', 'The shop is closed every day.', 'The shop opens at 9 on Monday.']), it('word '.repeat(80) + '\nWhat?', 'x', '', ['x', 'y', 'z'])] }] }, K.spec('cb-a2', 'doc', 'sn'), P('cb-a2', 'doc', 'sn'));
+  if (snq.de.groups[0].items.length !== 1) bad.push('tin ngắn quá dài không bị bỏ');
+  const two = K.clean({ ...base, lines: [{ who: 'A', s: 'Hello.' }, { who: 'B', s: 'Hi.' }], groups: [] }, K.spec('ielts-ac', 'nghe', 'L-note'), P('ielts-ac', 'nghe', 'L-note'));
+  if (!two.hard.some(h => /người nói/.test(h))) bad.push('Part 4 hai người nói không bị bắt');
+  const nDang = Object.values(T.x || {}).reduce((a, l) => a + l.length, 0);
+  R.push({ lv: 'cefr', id: 'C61', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : `đề AI bám khuôn đề thật: ${nDang} dạng ở trang (mọi kỳ thi × cấp) đều có khuôn ở máy chủ, Pre-A1 / A1 không còn dạng ngoài đề thật (không Viết AI), IELTS Đọc 1 bài 700–900 từ 13 câu 20 phút, IELTS Nghe 1 Part 10 câu, Nói Part 1 9–12 câu, Cambridge B2 → C2 điền 8 chỗ, viết lại câu B2 2–5 · C1 3–6 · C2 3–8 từ, nghe C1 / C2 4 lựa chọn, nghe điền theo cấp; máy kiểm xếp câu theo thứ tự bài, bắt thiếu nhóm dạng đã chọn, bỏ câu trích sai / câu chèn thiếu dấu / tin ngắn quá dài, kiểm biểu đồ Task 1, số người nói; đề cũ v1 vẫn mở, Task 1 biểu đồ AI vẽ được` }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
