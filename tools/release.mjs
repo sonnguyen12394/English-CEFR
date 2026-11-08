@@ -38,4 +38,10 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
   8. (v143) 🎯 Luyện đề → Cambridge B1 → 📚 Đề có sẵn → ✍️ Viết: bài học theo thể loại (email, bài báo, truyện) + tiêu chí chấm; 🗣 Nói A2 trở lên: thảo luận cặp 4 lượt với bạn thi máy.
   9. (v144) 🎯 Luyện đề → IELTS → 🤖 Đề AI soạn → 📰 Đọc: có câu "1 bài đọc như đề thật: 13 câu, 20 phút"; Cambridge Starters / Movers: không có ô ✍️ Viết AI;
      (cần khoá AI) làm 1 đề Đọc IELTS: đầu đề ghi "📋 IELTS Academic Reading · one passage", câu theo thứ tự bài, cuộn bài dài không giật.
+  10. (v145) 🎯 Luyện đề → IELTS → 🤖: ghi "Còn N đề soạn sẵn"; bấm ▶ Làm đề mới mở ngay bài đọc dài (không màn chờ); làm xong bấm lại ra bài khác;
+     ở chỗ chấm Viết bấm 📋 Chép lời nhắc chấm → dán được vào Claude / ChatGPT.
+  11. (v146) Làm 1 bài đọc IELTS (cố tình sai vài câu): kết quả có ô 🎯 Sai ở đâu; bấm 📘 Học lại → bài học có nút ‹ Kết quả, bấm về đúng kết quả;
+     mở "Xem câu sai" → chạm 📌 một từ → vào Sổ từ; màn Đọc ghi "vừa sai · xem lại" ở dạng sai nhiều.
+  12. (v147) 🎯 Luyện đề → TOEIC → 📚: dòng 🎓 Đề thử trọn 200 câu → Đề 1 → ▶ Bắt đầu phần Nghe: đeo tai nghe, nghe ít nhất 5 câu xem máy có TỰ phát
+     sang câu sau không (không phải bấm); khoá màn 10 giây rồi mở lại: thấy "▶ Nghe tiếp"; ✕ Thoát → vào lại "Làm tiếp"; Đọc: chọn, ⚑, 📋 bảng câu, nộp.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);

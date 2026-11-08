@@ -1,0 +1,162 @@
+[
+ {
+  "id": "ie-r-vfarm",
+  "ky": "ielts-ac",
+  "sk": "doc",
+  "dang": "R-dia",
+  "g": {
+   "title": "Farming upwards",
+   "topic": "Vertical farming in cities",
+   "gist": "A passage explaining how vertical farms grow crops indoors in stacked layers, their advantages, costs and the crops they suit.",
+   "vi": "Đọc bài, làm 13 câu: điền lưu đồ / ghi chú, TRUE / FALSE / NOT GIVEN, trắc nghiệm.",
+   "text": "Farming upwards\n\nBy the middle of this century, around two thirds of the world's population is expected to live in cities. Feeding them will be a major challenge, particularly as farmland is lost to building and as droughts and floods become more common. One proposed solution is to bring farming into the city itself, and to grow crops not across fields but in tall stacks inside buildings. This approach, known as vertical farming, has attracted large amounts of investment over the last fifteen years.\n\nA typical vertical farm is a closed warehouse or converted factory in which plants grow on shelves arranged one above another, sometimes reaching ten or more layers. Instead of soil, most farms use hydroponics, a method in which the roots of the plants hang in water containing the nutrients they need. Seeds are first planted in small blocks of material such as foam or coconut fibre. Once the seedlings have developed a few leaves, they are moved to the growing trays, where the water flows continuously past their roots. Light comes not from the sun but from LED lamps, which can be tuned to the exact colours that plants use most efficiently. Temperature and humidity are controlled by computers, and sensors check the condition of the plants many times a day. When the crop is ready, it is cut, packed and sent to shops, often on the same day.\n\nSupporters point to several advantages. Because the environment is controlled, crops can be grown all year round regardless of the weather outside, and the same space can produce many harvests a year. As the water is collected and reused, vertical farms can use up to ninety per cent less water than traditional fields. There is also little need for pesticides, since insects find it hard to enter a sealed building. Finally, because the farms are located close to the people who eat the food, it does not need to travel hundreds of kilometres in refrigerated lorries. Some supermarkets also value the fact that the produce arrives clean and needs little washing.\n\nThe main difficulty is energy. Replacing sunlight with electric lighting is expensive, and heating, cooling and pumping water add further costs. Building a farm is expensive too, as the lighting, pumps and climate systems must all be installed before a single plant is grown. When electricity prices rose sharply in several countries in 2022, a number of well-known vertical farming companies closed or reduced their operations. Critics also point out that the environmental benefits depend heavily on where the electricity comes from. A farm powered by coal may produce more greenhouse gases per kilogram of lettuce than a field in the countryside, while one using wind or solar power can perform much better.\n\nCost also explains why vertical farms grow such a narrow range of crops. At present, they focus mainly on leafy greens such as lettuce and spinach, together with herbs like basil. These plants grow quickly, are small and light, and sell for a relatively high price. Staple crops such as wheat and rice, by contrast, are grown in enormous quantities, need a great deal of space and sell cheaply, so producing them indoors under lamps would make little economic sense.\n\nResearchers are trying to change this picture. Some are breeding plant varieties that grow well under artificial light, while others are experimenting with robots that can plant, move and harvest trays with little human help. Others are testing ways of growing strawberries and tomatoes, which need more light and space than lettuce but can also sell for high prices. A few companies are building farms next to power stations or factories so that they can use waste heat. Whether these efforts will allow vertical farming to compete with traditional agriculture on a large scale is still uncertain. What seems likely is that it will play a useful role in supplying fresh vegetables to cities, rather than replacing fields altogether.",
+   "groups": [
+    {
+     "ty": "R-dia",
+     "inst": "Complete the flow-chart and notes below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+     "opts": [],
+     "lim": 2,
+     "items": [
+      {
+       "q": "Step 1: seeds are planted in small blocks of foam or ______",
+       "o": [],
+       "a": "coconut fibre",
+       "acc": [],
+       "why_vi": "Hạt được gieo trong khối vật liệu như mút xốp hoặc \"coconut fibre\" (xơ dừa).",
+       "ev": "Seeds are first planted in small blocks of material such as foam or coconut fibre."
+      },
+      {
+       "q": "Step 2: seedlings with a few leaves are moved to the ______",
+       "o": [],
+       "a": "growing trays",
+       "acc": [],
+       "why_vi": "Khi cây con có vài lá thì chuyển sang \"the growing trays\" (khay trồng).",
+       "ev": "Once the seedlings have developed a few leaves, they are moved to the growing trays, where the water flows continuously past their roots."
+      },
+      {
+       "q": "Step 3: light is provided by ______",
+       "o": [],
+       "a": "LED lamps",
+       "acc": [],
+       "why_vi": "Ánh sáng đến từ \"LED lamps\" chỉnh được đúng màu cây dùng hiệu quả nhất.",
+       "ev": "Light comes not from the sun but from LED lamps, which can be tuned to the exact colours that plants use most efficiently."
+      },
+      {
+       "q": "Water use: up to ______ per cent less than in fields",
+       "o": [],
+       "a": "ninety",
+       "acc": [
+        "90"
+       ],
+       "why_vi": "\"up to ninety per cent less water than traditional fields\" vì nước được thu lại và dùng lại.",
+       "ev": "As the water is collected and reused, vertical farms can use up to ninety per cent less water than traditional fields."
+      },
+      {
+       "q": "Little need for ______ because insects cannot easily get in",
+       "o": [],
+       "a": "pesticides",
+       "acc": [],
+       "why_vi": "Côn trùng khó vào toà nhà kín nên ít cần thuốc trừ sâu.",
+       "ev": "There is also little need for pesticides, since insects find it hard to enter a sealed building."
+      }
+     ]
+    },
+    {
+     "ty": "R-tf",
+     "inst": "Do the following statements agree with the information given in the reading passage? Write TRUE, FALSE or NOT GIVEN.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Investment in vertical farming has increased over the last fifteen years.",
+       "o": [],
+       "a": "TRUE",
+       "acc": [],
+       "why_vi": "\"has attracted large amounts of investment over the last fifteen years\".",
+       "ev": "This approach, known as vertical farming, has attracted large amounts of investment over the last fifteen years."
+      },
+      {
+       "q": "Vertical farms can only produce one harvest each year.",
+       "o": [],
+       "a": "FALSE",
+       "acc": [],
+       "why_vi": "Bài nói cùng một chỗ cho \"many harvests a year\" (nhiều vụ mỗi năm).",
+       "ev": "Because the environment is controlled, crops can be grown all year round regardless of the weather outside, and the same space can produce many harvests a year."
+      },
+      {
+       "q": "Some vertical farming companies closed when electricity became more expensive.",
+       "o": [],
+       "a": "TRUE",
+       "acc": [],
+       "why_vi": "Năm 2022 giá điện tăng mạnh, một số công ty đóng cửa hoặc thu hẹp.",
+       "ev": "When electricity prices rose sharply in several countries in 2022, a number of well-known vertical farming companies closed or reduced their operations."
+      },
+      {
+       "q": "A vertical farm always produces fewer greenhouse gases than a traditional field.",
+       "o": [],
+       "a": "FALSE",
+       "acc": [],
+       "why_vi": "Phụ thuộc nguồn điện: dùng điện than có thể thải nhiều khí nhà kính hơn ruộng ngoài trời. Chữ \"always\" sai.",
+       "ev": "A farm powered by coal may produce more greenhouse gases per kilogram of lettuce than a field in the countryside, while one using wind or solar power can perform much better."
+      },
+      {
+       "q": "Lettuce grown in vertical farms tastes better than lettuce grown in fields.",
+       "o": [],
+       "a": "NOT GIVEN",
+       "acc": [],
+       "why_vi": "Bài không so sánh mùi vị rau trồng trong nhà với rau ngoài ruộng.",
+       "ev": ""
+      }
+     ]
+    },
+    {
+     "ty": "R-mc",
+     "inst": "Choose the correct letter, A, B, C or D.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Why do vertical farms mainly grow leafy greens and herbs?",
+       "o": [
+        "because these plants need very little light",
+        "because they grow fast and sell at a good price",
+        "because customers refuse to buy indoor wheat",
+        "because they are the only plants suited to hydroponics"
+       ],
+       "a": "because they grow fast and sell at a good price",
+       "acc": [],
+       "why_vi": "Rau lá và rau thơm mọc nhanh, nhỏ nhẹ và bán giá khá cao, nên chi phí trồng trong nhà vẫn có lời.",
+       "ev": "These plants grow quickly, are small and light, and sell for a relatively high price."
+      },
+      {
+       "q": "Why are some companies building farms next to power stations or factories?",
+       "o": [
+        "to use heat that would otherwise be wasted",
+        "to sell vegetables to the workers",
+        "to avoid paying rent in the city",
+        "to protect crops from insects"
+       ],
+       "a": "to use heat that would otherwise be wasted",
+       "acc": [],
+       "why_vi": "Đặt trang trại cạnh nhà máy để dùng nhiệt thải.",
+       "ev": "A few companies are building farms next to power stations or factories so that they can use waste heat."
+      },
+      {
+       "q": "What is the writer's conclusion about vertical farming?",
+       "o": [
+        "It will soon replace most traditional farms.",
+        "It is unlikely to survive rising energy costs.",
+        "It will probably supply fresh vegetables to cities rather than replace fields.",
+        "It should be used mainly for staple crops such as rice."
+       ],
+       "a": "It will probably supply fresh vegetables to cities rather than replace fields.",
+       "acc": [],
+       "why_vi": "Câu cuối: có lẽ đóng vai trò cung cấp rau tươi cho thành phố, không thay thế đồng ruộng.",
+       "ev": "What seems likely is that it will play a useful role in supplying fresh vegetables to cities, rather than replacing fields altogether."
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

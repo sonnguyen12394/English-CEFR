@@ -170,6 +170,13 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
   const w6 = VJ.items.find(x => x.id === 'b1-w6');
   add('✍️ Viết B1 · đề thi truyện thay mới (v143)', 'Đề thi cũ trùng ý với đề học "The Wrong Bus". Kiểm: đề rõ, bài mẫu đúng B1, 90–120 từ.', w6 ? [row('v143:b1-w6', `<b>${esc(w6.en)}</b><br>${esc(w6.p)}<p class="t">${esc(w6.m)}</p>`)] : []);
 }
+// v147 đề thử TOEIC trọn 200 câu (specs/008-toeic-de-tron): +21 câu Part 7: 1 bộ văn bản đơn, câu thứ 5 cho 4 bộ nhiều văn bản, 3 bộ 3 văn bản
+{ const TD = J('content/toeic/doc.json'), li = (q, a, w) => `<br>• ${esc(q)} → <b>${esc(a)}</b>${w && w.length ? ` <span class="mute">(✗ ${w.map(esc).join(' · ✗ ')})</span>` : ''}`;
+  const NEW = ['t7-notice3', 't7-m-venue', 't7-m-job', 't7-m-library'], Q5 = ['t7-m-rent', 't7-m-repair', 't7-m-train', 't7-m-order2'];
+  const doc = x => `<details><summary>${x.docs.length} văn bản</summary><p class="t">${x.docs.map(d => esc(d.title + '\n' + d.text)).join('\n\n')}</p></details>`;
+  add('💼 TOEIC Đọc · Part 7 cho đề thử trọn 200 câu (v147)', 'Bộ mới và câu thứ 5 thêm vào bộ cũ. Kiểm: đáp án duy nhất theo văn bản; câu "đối chiếu" cần thông tin từ 2 văn bản thật; phương án sai thật sự sai (không phải "không nói"); từ gần nghĩa đúng nghĩa trong câu.',
+    [...TD.p7.filter(x => NEW.includes(x.id)).map(x => row('v147:' + x.id, `<b>${esc(x.id)}</b> <span class="mute">${esc(x.kind)}</span>${doc(x)}` + x.qs.map(q => li(q.q, q.a, q.w)).join(''))),
+     ...TD.p7.filter(x => Q5.includes(x.id)).map(x => row('v147:' + x.id + ':5', `<b>${esc(x.id)}</b> <span class="mute">câu thứ 5 · ${esc(x.kind)}</span>${doc(x)}` + li(x.qs[4].q, x.qs[4].a, x.qs[4].w)))]); }
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}

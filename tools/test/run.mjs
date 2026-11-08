@@ -1751,7 +1751,7 @@ const R = await run(`(async () => {
   { const bad = [], errs = [], tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } }, H = () => String($app.innerHTML), tick0 = () => new Promise(r => setTimeout(r, 0));
     const ans = qs => { for (const q of qs) { if (q.kind === 'mc') $app.onclick({ target: { closest: s => s === '[data-io]' ? { dataset: { io: String(q.opts.indexOf(q.a)) }, disabled: false } : null } }); $app.onclick({ target: { closest: s => s === '[data-a="next"]' ? {} : null } }); } };
     await Promise.all([ieLoad(), toLoad(), cbMapLoad(), ...Object.values(KIT).map(kLoad)]);
-    S = blank(); S.lt = { goal: { kind: 'ielts', at: Date.now() }, self: 1 }; S.ie = { set: 1, type: 'ac', target: 6.5 }; FAKE_DAI = null; FAKE_DE_ST = null; FAKE_CALLS = []; DAI.tk = {}; DAI.cur = null; DAI.off = true;
+    S = blank(); S.lt = { goal: { kind: 'ielts', at: Date.now() }, self: 1 }; S.ie = { set: 1, type: 'ac', target: 6.5 }; FAKE_DAI = null; FAKE_DE_ST = null; FAKE_CALLS = []; DAI.tk = {}; DAI.cur = null; DAI.off = true; DAI.kho = { de: [] };   // v145: C57 thử luồng máy chủ, kho đề soạn sẵn để trống (kho thử ở C62)
     const law = () => JSON.stringify([S.cards, S.units, S.exams]), law0 = law();
     // ① tab thứ 5 ngay sau 📚 Học; 📚 Học không còn luyện thi; tab mở màn kỳ thi của mục tiêu; ô 🤖 một nút chính
     if (!IDX_.includes('<button data-tab="all"><i>📚</i>Học</button><button data-tab="ld"><i>🎯</i>Luyện đề</button>')) bad.push('tab 🎯 Luyện đề không đứng ngay sau 📚 Học');
@@ -1785,7 +1785,7 @@ const R = await run(`(async () => {
     // ⑤ lỗi: 429 / 503 báo lời thường + thử lại; đề lỗi; máy kiểm phía trang loại đáp án ngoài lựa chọn
     S.lt.goal = { kind: 'ielts', at: Date.now() };
     FAKE_DAI = 'err429'; await tryA('429', () => daiGo('ielts', 'R-mc')); if (!H().includes('hết lượt AI hôm nay') || !H().includes('Thử lại')) bad.push('429 báo sai');
-    FAKE_DAI = 'err503'; await tryA('503', () => daiGo('ielts', 'R-mc')); if (!H().includes('Chưa cài khoá AI')) bad.push('503 báo sai'); FAKE_DAI = null;
+    FAKE_DAI = 'err503'; await tryA('503', () => daiGo('ielts', 'R-mc')); if (!H().includes('Đã làm hết đề soạn sẵn') || !H().includes('chưa cài')) bad.push('503 báo sai'); FAKE_DAI = null;   // v145: chưa có khoá AI + kho trống → báo hết đề soạn sẵn
     FAKE_DE_ST = 'loi'; await tryA('đề lỗi', () => daiGo('ielts', 'R-mc')); const wl = daiSt().wait['ielts-ac|R-mc'];
     if (wl) { await tryA('đề lỗi tick', () => daiTick(wl.id)); if (!H().includes('Chưa tạo được đề') || !H().includes('chưa đúng khuôn')) bad.push('đề lỗi báo sai'); } else bad.push('đề lỗi: không có lượt chờ'); FAKE_DE_ST = null;
     const hong = FAKE_DE_ROW('fake~ielts-ac~doc~R-tf~9').de; hong.groups[0].items[0].a = 'MAYBE'; if (!daiCheck(hong).length) bad.push('máy kiểm phía trang không loại đáp án ngoài lựa chọn');
@@ -1802,7 +1802,7 @@ const R = await run(`(async () => {
     // ⑧ Nghe: có nút nghe, lời nghe không lộ trước khi nộp, ghi rõ giọng máy; làm dở: ô 🤖 có "Làm tiếp đề đang dở"
     const ln = daiQs(FAKE_DE_ROW('fake~ielts-ac~nghe~L-form~7')); if (!ln.length || !ln[0].play || !ln[0].play.lines || ln.some(q => String(q.head + q.q + (q.foot || '')).includes('book a table')) || !ln[0].head.includes('Giọng máy')) bad.push('đề Nghe AI: thiếu nút nghe / lộ lời nghe / thiếu ghi chú giọng máy');
     daiSt().mo = { id: 'fake~ielts-ac~doc~R-mc~8', at: Date.now(), ky: 'ielts-ac', dang: 'R-mc' }; if (!daiBox('ielts').includes('Làm tiếp đề đang dở')) bad.push('thiếu lối làm tiếp đề dở'); daiSt().mo = null;
-    DAI.off = false; DAI.cur = null; EX_PART = 'san';
+    DAI.off = false; DAI.cur = null; EX_PART = 'san'; DAI.kho = null;
     add('cefr', 'C57', !bad.length && !errs.length, [...errs, ...bad].length ? [...errs, ...bad].slice(0, 8).join(' | ') : '🎯 Luyện đề AI: tab thứ 5 sau 📚 Học, Học chỉ còn Nền, ô 🤖 một nút chính, gọi de-ai đúng tham số, màn chờ, làm đề, kết quả + band / điểm / mức ước, bản đồ nguồn ai, đề dự trữ, lỗi 429 / 503 / đề lỗi, máy kiểm phía trang, Viết / Nói, không đụng luật đo');
     S = blank(); }
   // v142 tách 📚 Đề có sẵn · 🤖 Đề AI (người sáng lập: "tách ra làm 2 phần… đỡ tốn chi phí gọi AI"; "hiện cả 2 nút chức năng để bấm"; đề dự trữ chỉ khi làm liền ≥ 2 đề AI cùng dạng)
@@ -1818,7 +1818,7 @@ const R = await run(`(async () => {
       if (!h.includes('data-expart=""') || !h.includes('class="on" data-expart="san"') || !h.includes('class="tile') || h.includes('data-daigo=') || big(h)) bad.push(k + ': phần 📚 sai');
       // ③ phần 🤖: ô đề AI (một nút chính), nhắc chi phí, ô "bài có sẵn chưa làm" bấm được sang màn kỹ năng
       EX_PART = 'ai'; await tryA(k + ' phần 🤖', view); h = H();
-      if (big(h) !== 1 || !h.includes('data-daigo=') || !h.includes('tốn phí gọi AI') || !h.includes('Bài có sẵn · miễn phí') || !h.includes('data-daileft=') || h.includes('class="tile')) bad.push(k + ': phần 🤖 sai');
+      if (big(h) !== 1 || !h.includes('data-daigo=') || !h.includes('tốn phí AI') || !h.includes('Bài có sẵn · miễn phí') || !h.includes('data-daileft=') || h.includes('class="tile')) bad.push(k + ': phần 🤖 sai');
       const L = daiLeft(k, 'b1'); if (!L.length || L.some(x => !(x.tot > 0) || x.n > x.tot)) bad.push(k + ': đếm bài có sẵn sai ' + JSON.stringify(L)); }
     // ④ bấm "còn N bài": sang màn kỹ năng phần 📚
     EX_PART = 'ai'; await tryA('sang bài có sẵn', () => daiLeftGo('ielts', 'R')); if (EX_PART !== 'san' || CUR.view !== 'ielts' || CUR.sk !== 'R') bad.push('nhắc bài có sẵn không mở màn kỹ năng phần 📚');
@@ -1851,6 +1851,136 @@ const R = await run(`(async () => {
       const t0 = daiIeX({ id: 'y', de: { dang: 't1', task: { p: 'p', pv: '', m: '', table: { t: 'T', h: ['', 'a', 'b', 'c'], r: [['x', 1, 2, 3]] } } } }); if (t0.kind !== 'table' || t0.series[0][0] !== 'x') bad.push('Task 1 đề cũ (bảng) hỏng');
     } catch (e) { bad.push('lỗi: ' + e.message); }
     S = S1; out.push({ lv: 'cefr', id: 'C61-trang', ok: !bad.length, msg: bad.join(' | '), x: L }); }
+  // v145 C62 kho đề soạn sẵn (specs/007-kho-de-soan-san): đề mở từ dekho.json, không gọi máy chủ; đề đã làm không chọn lại; GT / cấp "+" dùng đề phù hợp; hết kho + chưa có khoá → báo hết; nút chép lời nhắc chấm
+  { const bad = [], S1 = S, H = () => String($app.innerHTML); let n = 0; S = blank(); S.lt = { goal: { kind: 'ielts', at: Date.now() }, self: 1 }; S.ie = { set: 1, type: 'ac', target: 6.5 }; DAI.kho = null; DAI.off = true; FAKE_CALLS = []; FAKE_DAI = null;
+    try { const K = await daiKhoLoad(); n = (K.de || []).length; if (n < 20) bad.push('kho ít đề: ' + n);
+      for (const e of K.de) { const b = daiCheck(e.de); if (b.length || !e.de.part || !e.de.kho) bad.push(e.id + ': ' + (b[0] || 'thiếu phần đề thật / dấu kho')); }
+      for (const s of ['R', 'L']) for (const [d] of daiDangs('ielts', s)) if (!daiKhoList('ielts-ac', d).length) bad.push('IELTS thiếu đề kho dạng ' + d);
+      const box = daiBox('ielts'); if (!/Còn <b>\\d+<\\/b> đề soạn sẵn/.test(box) || !box.includes('soạn sẵn, miễn phí')) bad.push('ô 🤖 chưa ghi đề soạn sẵn');
+      await daiGo('ielts', 'R-tf'); if (FAKE_CALLS.length) bad.push('đề kho vẫn gọi máy chủ'); if (!H().includes('📋 IELTS Academic Reading')) bad.push('đề kho không mở');
+      const first = daiKhoList('ielts-ac', 'R-tf')[0]; daiSave(daiKhoRow(first, 'ielts-ac'), { ok: 10, n: 13 });
+      if (daiKhoList('ielts-ac', 'R-tf').some(e => e.id === first.id)) bad.push('đề đã làm vẫn được chọn lại');
+      if (!daiKhoGet('kho:' + first.id)) bad.push('không mở lại được đề kho đã làm');
+      S.ie.type = 'gt'; const g = daiKhoList('ielts-gt', 'R-mc')[0]; if (!g || !/General Training Reading · Section 3/.test(daiKhoRow(g, 'ielts-gt').de.part)) bad.push('GT không nhận bài đọc học thuật làm Section 3'); S.ie.type = 'ac';
+      if (!daiKhoList('cb-b1p', 'cloze').length || !daiKhoList('cb-b2', 'kwt').length) bad.push('Cambridge thiếu đề kho / cấp + không dùng đề cấp gốc');
+      for (const e of daiKhoList('toeic', 'p5')) daiSave(daiKhoRow(e, 'toeic'), { ok: 1, n: 10 });
+      FAKE_DAI = 'err503'; FAKE_CALLS = []; await daiGo('toeic', 'p5');
+      if (!FAKE_CALLS.some(c => c.name === 'de-ai')) bad.push('hết kho không gọi máy chủ'); if (!H().includes('Đã làm hết đề soạn sẵn') || !H().includes('data-daigo="toeic|p6')) bad.push('hết kho chưa báo / chưa chỉ dạng còn đề');
+      FAKE_DAI = null;
+      const ab = aiBtn('viet', 'b1', { prompt: 'Write an email to a friend.', min: 100 }, 'Hi Tom'); if (!ab.includes('data-aicp=')) bad.push('thiếu nút chép lời nhắc');
+      const pr = aiPrompt({ kind: 'viet', lv: 'ielts-ac', task: { prompt: 'Some people think...', min: 250, part: 'Task 2', target: 6.5 }, text: 'In my opinion...' });
+      if (!/IELTS Academic Writing Task 2 band descriptors/.test(pr) || !/Task Response/.test(pr) || !/Reply in Vietnamese/.test(pr) || !pr.includes('In my opinion...')) bad.push('lời nhắc chấm thiếu ý');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    S = S1; DAI.kho = null; DAI.khoP = null; DAI.off = false; FAKE_DAI = null; FAKE_CALLS = [];
+    out.push({ lv: 'cefr', id: 'C62', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'kho đề soạn sẵn: ' + n + ' đề qua máy kiểm phía trang, mở ngay không gọi máy chủ, đề đã làm không chọn lại, mọi dạng IELTS Đọc / Nghe có đề, GT dùng bài học thuật làm Section 3, Cambridge cấp + dùng đề cấp gốc, hết kho + chưa có khoá báo “đã làm hết” và chỉ dạng còn đề; nút 📋 chép lời nhắc chấm có thang chấm + bài làm' }); }
+  // v146 C63 🎯 Sai ở đâu · học lại gì (specs/009-sai-hoc-lai): mọi câu của kho (IELTS / TOEIC / Cambridge, đề soạn sẵn, dạng đề AI) nối tới một bài học có thật;
+  // câu TOEIC đề soạn sẵn có nhãn dạng (luật chung toqt.js); ô ở 5 màn kết quả, nút chính hạ xuống; 📘 Học lại về lại kết quả; 🏋️ mở bài tập dạng đó; cờ "vừa sai" + hết cờ; 📌 lưu từ; không đổi luật đo
+  { const bad = [], S1 = S, H = () => String($app.innerHTML); let nq = 0; S = blank(); S.ie = { set: 1, type: 'ac', target: 6.5 }; DAI.kho = null; DAI.off = true;
+    const ev = (sel, o) => ({ target: { closest: s => s === sel ? o : null } });
+    try { await ieLoad(); await toLoad(); await uLoad(); for (const P of Object.values(KIT)) await kLoad(P);
+      const miss = (tag, q, r, ctx) => { nq++; HL_LC = {}; const a = hlLes(hlAt(q, r || { ans: '' }, ctx || {})); if (!a) bad.push('chưa nối bài học: ' + tag); return a; };
+      for (const x of IE.doc.filter(x => !x.gt)) for (const q of ieRQs(x)) miss('IELTS ' + x.id + ' ' + q.k, q);
+      S.ie.type = 'gt'; for (const x of IE.doc.filter(x => x.gt)) for (const q of ieRQs(x)) miss('IELTS GT ' + x.id, q); S.ie.type = 'ac';
+      for (const x of IE.ln) for (const q of ieLnQs(x)) miss('IELTS Nghe ' + x.id + ' ' + q.k, q);
+      for (const s of ['R', 'L']) for (const [d] of daiDangs('ielts', s)) miss('IELTS AI ' + d, { ty: d });
+      if ((miss('L-note', { ty: 'L-note' }) || { d: {} }).d.k !== 'form') bad.push('L-note chưa về bài điền phiếu');
+      for (const x of TO.p1) miss('TOEIC ' + x.id, toP1Q(x)); for (const x of TO.p2) for (const a of ['A', 'B', 'C']) miss('TOEIC ' + x.id, toP2Q(x), { ans: a });
+      for (const s of ['p3', 'p4']) for (const x of TO[s]) for (const q of toTalkQs(x, s)) miss('TOEIC ' + x.id, q);
+      for (const x of TO.p5) miss('TOEIC ' + x.id, toP5Q(x)); for (const x of TO.p6) for (const q of toP6Qs(x)) miss('TOEIC ' + x.id, q); for (const x of TO.p7) for (const q of toP7Qs(x)) miss('TOEIC ' + x.id, q);
+      const kOf = q => (miss('kiểm', q) || { d: {} }).d.k, tr = TO.p2.find(x => x.tr && x.tr.some(Boolean)), ti = tr.tr.findIndex(Boolean);
+      if (kOf(toP2Q(tr)) === 'p2t' || hlLes(hlAt(toP2Q(tr), { ans: 'ABC'[ti] }, {})).d.k !== 'p2t') bad.push('Part 2: chọn trúng bẫy chưa về bài bẫy');
+      const q7 = t => TO.p7.flatMap(x => toP7Qs(x)).find(q => q.qt === t), q34 = t => ['p3', 'p4'].flatMap(s => TO[s].flatMap(x => toTalkQs(x, s))).find(q => q.qt === t);
+      if (kOf(q7('syn')) !== 'p7-syn' || kOf(q7('insert')) !== 'p7-ins' || kOf(q7('intent')) !== 'p7c' || kOf(q7('not')) !== 'p7-inf' || kOf(q34('imp')) !== 'imp' || kOf(q34('graphic')) !== 'g') bad.push('TOEIC: dạng câu chưa về đúng bài học');
+      const K = await daiKhoLoad(), kh = new Set(); for (const d of ['p5', 'p6', 'p7']) for (const e of daiKhoList('toeic', d)) for (const q of daiQs(daiKhoRow(e, 'toeic'))) { const a = miss('đề soạn sẵn ' + e.id, q); if (a) kh.add(a.d.k); }
+      for (const k of ['p6-ins', 'p7-ins', 'p7-syn', 'p7c', 'p7-inf']) if (!kh.has(k)) bad.push('đề soạn sẵn TOEIC chưa gắn nhãn dạng ' + k);
+      for (const s of ['R', 'L']) for (const [d] of daiDangs('ielts', s)) for (const e of daiKhoList('ielts-ac', d)) for (const q of daiQs(daiKhoRow(e, 'ielts-ac'))) miss('đề soạn sẵn ' + e.id, q);
+      for (const lv of Object.keys(MOCK)) { const C = MOCK[lv]; if (!C || !C.papers) continue; C.papers.forEach((p, pi) => { if (p.speak) return; p.parts.forEach(([lab], i) => { const a = miss('Cambridge ' + lv + ' ' + lab, { kind: 'mc' }, { pt: p.t, part: lab }, { ex: 'cambridge', lv }); if (a && (a.i !== i || a.sk !== lv + '~' + pi)) bad.push('Cambridge sai phần: ' + lv + ' ' + lab); }); }); }
+      for (const lv of ['pre', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2']) for (const e of Object.values(DAI_CB[lv] || {}).flat()) { if (e[1] !== 'doc' && e[1] !== 'nghe') continue; const a = miss('Cambridge AI ' + lv + ' ' + e[0], { kind: 'mc' }, {}, { ex: 'cambridge', lv, dang: e[0], sk: e[1] });
+        if (a && !hlNums(MOCK[lv].papers[+a.sk.split('~')[1]].parts[a.i][0]).some(n => hlNums(e[2]).includes(n))) bad.push('Cambridge AI sai phần: ' + lv + ' ' + e[0]); }
+      if ((miss('uRun', { kind: 'mc' }, {}, { ex: 'cambridge', lv: 'b2', uk: 'wf' }) || { i: -1 }).i !== MOCK.b2.papers[0].parts.findIndex(([l]) => /tạo dạng từ/.test(l))) bad.push('dạng đề thật chưa về đúng phần');
+      // ô kết quả + cờ "vừa sai": bài đọc IELTS, T/F/NG sai 3/4, tiêu đề đúng hết
+      const cards0 = JSON.stringify(S.cards), x = IE.doc.find(x => !x.gt && ieHasK(x, 'tf') && ieHasK(x, 'h')), tf = ieRQs(x, ['tf']).slice(0, 4), hh = ieRQs(x, ['h']).slice(0, 3);
+      const wr = q => q.opts.find(o => o !== q.a), res = [...tf.map((q, i) => ({ q, part: 'Passage 1', ok: i === 0, ans: i === 0 ? q.a : wr(q) })), ...hh.map(q => ({ q, part: 'Passage 1', ok: true, ans: q.a }))];
+      const L = xlList('ielts', 'R'), iTf = L.findIndex(d => d.k === 'tf'), idTf = L[iTf].id, hb = hlBox(res, { src: 'thi' });
+      if (!hb.pri || !hb.html.includes('Sai ở đâu') || !hb.html.includes('data-hl="ielts|R|' + iTf + '"') || !hb.html.includes('data-ier="tf"') || !hb.html.includes('sai 3/4') || hb.html.includes('Nối tiêu đề')) bad.push('ô kết quả: thiếu dòng / nút hoặc có dạng đúng hết');
+      if (!hlOn(idTf)) bad.push('chưa đánh cờ vừa sai');
+      const blk = xlBlock('ielts', 'R'); if (!blk.rows[iTf].includes('vừa sai') || !/^vừa sai: /.test(blk.learn.sub) || !blk.learn.attr.includes('|' + iTf + '"')) bad.push('danh sách bài học chưa đưa dạng vừa sai lên');
+      hlBox(tf.map(q => ({ q, ok: true, ans: q.a })), { src: 'luyen' }); if (hlOn(idTf)) bad.push('lượt sau đúng hết chưa xoá cờ');
+      hlBox(res, { src: 'thi' }); xlSt()[idTf] = { at: Date.now() + 5, ok: 3, n: 3 }; if (hlOn(idTf)) bad.push('học lại bài chưa xoá cờ'); delete xlSt()[idTf]; hlBox(res, { src: 'thi' });
+      // 5 màn kết quả
+      MK = { lv: 'ielts', C: { name: 'IELTS Academic' }, idx: [0], papers: [{ k: 'R', t: '📖 Reading', res }] }; ieMockResult();
+      if (!H().includes('id="hlbox"') || H().includes('class="pri" data-a="again"') || H().includes('Xem lại 3 câu sai')) bad.push('đề thử IELTS: chưa có ô / nút chính chưa hạ');
+      await hlClick(ev('[data-hl]', { dataset: { hl: 'ielts|R|' + iTf } })); if (!H().includes('‹ Kết quả') || !H().includes('TRUE / FALSE')) bad.push('📘 Học lại chưa mở bài học có nút ‹ Kết quả');
+      $app.onclick(ev('[data-xlb]', {})); if (!H().includes('id="hlbox"')) bad.push('‹ Kết quả chưa về lại màn kết quả');
+      window.CUR = {}; hlClick({ target: { closest: s => s === '[data-hlgo]' || s === '[data-ier]' ? { dataset: { hlgo: 'ielts|R', ier: 'tf' }, matches: () => false } : null } }); if (!H().includes('TRUE') || H().includes('id="hlbox"')) bad.push('🏋️ chưa mở bài tập dạng đó');
+      if (!S.xsc || S.xsc.l !== 1 || S.xsc.p !== 1 || S.xsc.k !== 1) bad.push('đếm lượt bấm sai: ' + JSON.stringify(S.xsc));
+      const tq = [...TO.p2.slice(0, 3).map(toP2Q), ...TO.p7.slice(0, 2).flatMap(x => toP7Qs(x))], tres = tq.map((q, i) => ({ q, part: q.sec.toUpperCase(), ok: i % 2 === 1, ans: i % 2 ? q.a : q.opts.find(o => o !== q.a) }));
+      MK = { lv: 'toeic', C: { name: 'TOEIC' }, idx: [0, 1], papers: [{ k: 'L', t: '🎧 Listening', res: tres.slice(0, 3) }, { k: 'R', t: '📖 Reading', res: tres.slice(3) }] }; toMockResult();
+      if (!H().includes('id="hlbox"') || !/data-hlgo="toeic\\|[LR]"/.test(H()) || H().includes('chưa có Part 1') || H().includes('class="pri" data-a="again"')) bad.push('đề thử TOEIC: chưa có ô / chữ Part 1 cũ / nút chính chưa hạ');
+      const C = MOCK.b1, p0 = C.papers[0], cres = p0.parts.slice(0, 3).map(([lab], i) => ({ q: { kind: 'mc', q: 'Câu ' + i, opts: ['a', 'b'], a: 'a', x: { id: 'z' + i } }, part: lab, ok: false, ans: 'b' }));
+      MK = { lv: 'b1', C, idx: [0], papers: [{ t: p0.t, min: 45, res: cres }] }; mkResult();
+      if (!H().includes('id="hlbox"') || !H().includes('data-hl="cambridge|b1~0|0"') || /class="pri" data-a="again"/.test(H())) bad.push('đề thử Cambridge: chưa có ô về đúng phần / nút chính chưa hạ');
+      const xs = uPick('mc', uLvs('b2'), 1); let back = 0; uRun('b2', 'mc', xs, () => { back++; }); const uq = uQs('mc', xs[0]);
+      for (let i = 0; i < uq.length; i++) { $app.onclick(ev('[data-uo]', { dataset: { uo: String(uq[i].opts.findIndex(o => o !== uq[i].a)) }, disabled: false })); $app.onclick(ev('[data-a="next"]', {})); }
+      if (!H().includes('id="hlbox"') || !H().includes('data-hl="cambridge|b2~0|' + MOCK.b2.papers[0].parts.findIndex(([l]) => cbKey(l, MOCK.b2.papers[0]) === 'mc') + '"')) bad.push('dạng đề thật Cambridge: chưa có ô');
+      ieRun('Luyện', tf, () => {}, 0, {}); for (const q of tf) { $app.onclick(ev('[data-io]', { dataset: { io: String(q.opts.indexOf(wr(q))) }, disabled: false })); $app.onclick(ev('[data-a="next"]', {})); }
+      if (!H().includes('id="hlbox"') || H().includes('class="pri" data-a="back"')) bad.push('bài luyện: chưa có ô / nút về chưa hạ');
+      ieRun('📘 Bài học', tf, () => {}, 0, { nolog: 1 }); for (const q of tf) { $app.onclick(ev('[data-io]', { dataset: { io: String(q.opts.indexOf(wr(q))) }, disabled: false })); $app.onclick(ev('[data-a="next"]', {})); }
+      if (H().includes('id="hlbox"')) bad.push('làm thử của bài học không được có ô (không ghi gì)');
+      // 📌 từ chưa học trong câu chứa đáp án
+      HL_W = []; const wh = hlWords('The cartographer surveyed the remote archipelago with great patience.'); if (!wh.includes('data-hlw="0"')) bad.push('chưa gợi ý từ chưa học');
+      const btn = { dataset: { hlw: '0' }, disabled: false, textContent: '' }; hlClick(ev('[data-hlw]', btn)); if (!vwSt().some(y => y.k === HL_W[0].w.toLowerCase()) || !btn.disabled) bad.push('📌 chưa lưu từ vào Sổ từ');
+      if (JSON.stringify(S.cards) !== cards0) bad.push('đụng thẻ học (luật đo)');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    S = S1; MK = null; DAI.kho = null; DAI.khoP = null; DAI.off = false;
+    out.push({ lv: 'cefr', id: 'C63', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎯 Sai ở đâu · học lại gì: ' + nq + ' câu (IELTS, TOEIC, Cambridge, đề soạn sẵn, dạng đề AI) đều nối tới bài học có thật; nhãn dạng TOEIC cho đề soạn sẵn; ô ở đề thử IELTS / TOEIC / Cambridge, bài luyện, dạng đề thật (nút chính hạ xuống); 📘 Học lại về lại kết quả; 🏋️ mở bài tập dạng đó; cờ vừa sai lên đầu danh sách, hết cờ khi học lại hoặc làm đúng; 📌 lưu từ; không đụng thẻ học' }); }
+  // v147 C64 🎓 đề thử TOEIC trọn 200 câu (specs/008-toeic-de-tron): 2 đề đúng cơ cấu đề thật, không trùng câu, thứ tự phương án cố định; Nghe chỉ chọn được câu của bài đang phát;
+  // Đọc có bảng câu / ⚑ / nhảy câu; làm tiếp + đếm gián đoạn; quá 3 giờ huỷ; hết giờ tự nộp; đúng hết = 990; kết quả có ô Sai ở đâu + so lần trước; màn thi ẩn thanh dưới; không đụng thẻ học
+  { const bad = [], S1 = S, H = () => String($app.innerHTML), P0 = trPlayUnit, ev = (sel, o) => ({ target: { closest: s => s === sel ? o : null } }); let n0 = 0;
+    S = blank(); S.to = { target: 600 }; globalThis.trPlayUnit = () => new Promise(() => {}); TR.B = {}; TR.k = 1;
+    try { await toLoad(); const cards0 = JSON.stringify(S.cards), T = TO.tron || [], NEED = { 'Part 1': 6, 'Part 2': 25, 'Part 3': 39, 'Part 4': 30, 'Part 5': 30, 'Part 6': 16, 'Part 7': 54 };
+      if (T.length !== 2) bad.push('cần 2 đề, có ' + T.length);
+      const ids = T.map(d => new Set(trB(d.id).U.map(u => u.x.id)));
+      for (const d of T) { const B = trB(d.id), by = {}; for (const q of B.Q) by[TR_SECS[q.sec]] = (by[TR_SECS[q.sec]] || 0) + 1; n0 += B.Q.length;
+        if (B.Q.length !== 200 || B.L.flatMap(u => u.qs).length !== 100 || Object.entries(NEED).some(([k, v]) => by[k] !== v)) bad.push(d.id + ': sai cơ cấu ' + JSON.stringify(by));
+        if (B.Q.some((q, i) => q.n !== i + 1)) bad.push(d.id + ': đánh số câu sai'); }
+      if ([...ids[0]].some(i => ids[1].has(i))) bad.push('hai đề trùng câu');
+      const o1 = trB('de1').Q.map(q => q.opts.join('|')).join('/'); TR.B = {}; if (trB('de1').Q.map(q => q.opts.join('|')).join('/') !== o1) bad.push('thứ tự phương án đổi khi dựng lại (vào lại sai chữ A–D)');
+      // màn chọn đề + bắt đầu
+      await trView(); if (!H().includes('Đề 1') || !H().includes('Quy chế') || !H().includes('id="ie"')) bad.push('màn chọn đề thiếu');
+      trStart('de1'); let st = trSt(); if (!st || st.ph !== 'L' || !H().includes('Part 1 · câu 1/100') || H().includes('id="ie"')) bad.push('bắt đầu Nghe sai / còn thanh dưới');
+      trClick(ev('[data-tra]', { dataset: { tra: '1|0' } })); trClick(ev('[data-tra]', { dataset: { tra: '50|0' } }));
+      if (st.ans['1'] !== 'A' || st.ans['50']) bad.push('Nghe: chọn câu chưa phát được / câu đang phát không ghi');
+      for (let i = 0; i < 60 && trSt().ph === 'L'; i++) trLNext(TR.tok);
+      if (trSt().ph !== 'R' || !H().includes('Xong phần Nghe') || trSt().rAt) bad.push('hết Nghe chưa sang màn chờ Đọc');
+      trClick(ev('[data-trrs]', {})); st = trSt(); const B1 = trB('de1'), q101 = B1.Q[100];
+      if (!st.rAt || !H().includes('101.') || H().includes('id="ie"')) bad.push('Đọc chưa bắt đầu');
+      trClick(ev('[data-tra]', { dataset: { tra: '101|' + q101.opts.indexOf(q101.a) } })); trClick(ev('[data-trf]', { dataset: { trf: '102' }, classList: { toggle() {} }, setAttribute() {} }));
+      if (st.ans['101'] !== q101.a || !st.fl['102']) bad.push('Đọc: chọn / đánh dấu không ghi');
+      trClick(ev('[data-trn]', {})); if (trSt().ri !== 1 || !H().includes('102.')) bad.push('Sau › chưa sang câu 102');
+      trClick(ev('[data-trg]', {})); if ((H().match(/class="trc/g) || []).length !== 100 || !H().includes('1 câu ⚑')) bad.push('bảng câu 101–200 sai');
+      trClick(ev('[data-trj]', { dataset: { trj: '30' } })); if (!H().includes('131.') || !H().includes('Part 6')) bad.push('nhảy tới Part 6 sai');
+      // vào lại: đếm gián đoạn; quá 3 giờ: huỷ
+      st.up = Date.now() - 36e5; await trView(); if (!H().includes('Đề 1 đang dở') || !H().includes('Làm tiếp')) bad.push('chưa có ô làm tiếp');
+      trResume(); if (trSt().gap !== 1 || !H().includes('131.')) bad.push('làm tiếp sai / chưa đếm gián đoạn: ' + trSt().gap);
+      trSt().up = Date.now() - 4 * 36e5; await trView(); if (trSt() || !H().includes('đã huỷ')) bad.push('đề dở quá 3 giờ chưa huỷ');
+      // hết giờ Đọc: tự nộp
+      trStart('de1'); st = trSt(); st.ph = 'R'; st.lEnd = Date.now(); st.rAt = Date.now() - 76 * 60000; trR(); let m = toSt().mock.slice(-1)[0];
+      if (!m || !m.full || m.de !== 'de1' || !m.auto || trSt() || !H().includes('hết giờ, máy tự nộp')) bad.push('hết giờ chưa tự nộp');
+      // đúng hết = 990; lần sau sai hết: so lần trước + ô Sai ở đâu
+      trStart('de2'); st = trSt(); for (const q of trB('de2').Q) st.ans[q.n] = q.a; st.ph = 'R'; st.lEnd = Date.now(); st.rAt = Date.now(); trSubmit(false); m = toSt().mock.slice(-1)[0];
+      if (m.tot !== 990 || m.ok.L !== 100 || m.ok.R !== 100 || m.by['Part 7'][0] !== 54) bad.push('đúng hết chưa ra 990: ' + JSON.stringify(m.ok));
+      trStart('de2'); st = trSt(); for (const q of trB('de2').Q) st.ans[q.n] = q.opts.find(o => o !== q.a); st.ph = 'R'; st.rAt = Date.now(); trSubmit(false); m = toSt().mock.slice(-1)[0];
+      if (m.tot !== 10 || !H().includes('So lần trước') || !H().includes('-980') || !H().includes('Sai ở đâu') || !H().includes('data-hl=')) bad.push('kết quả thiếu so lần trước / ô Sai ở đâu');
+      if (!toSt().ty || !Object.keys(toSt().ty).length || !toSt().r['t7-m-job']) bad.push('chưa ghi bản đồ / bài đã gặp');
+      // lối vào ở màn TOEIC (phần 📚) + đề dở thì ghi làm tiếp; phút luyện đề (lotrinh bọc trView)
+      EX_PART = 'san'; await toeicView(); if (!H().includes('data-trv') || !H().includes('Đề thử trọn 200 câu')) bad.push('màn TOEIC chưa có lối vào');
+      trStart('de1'); await toeicView(); if (!H().includes('Làm tiếp đề thử trọn')) bad.push('màn TOEIC chưa ghi đề dở'); toSt().tron = null;
+      if (!String(window.trView).includes('LT_EX_ON')) bad.push('chưa tính phút luyện đề');
+      if (JSON.stringify(S.cards) !== cards0) bad.push('đụng thẻ học (luật đo)');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
+    out.push({ lv: 'cefr', id: 'C64', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử TOEIC trọn: 2 đề × 200 câu đúng cơ cấu 6 / 25 / 39 / 30 / 30 / 16 / 54, không trùng, phương án cố định; Nghe chỉ chọn câu đang phát; Đọc chọn / ⚑ / Sau › / bảng câu / nhảy câu; làm tiếp đếm gián đoạn, quá 3 giờ huỷ; hết giờ tự nộp; đúng hết 990; kết quả so lần trước + ô Sai ở đâu; màn thi ẩn thanh dưới; lối vào màn TOEIC; không đụng thẻ học' }); }
   return out; })()`);
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];

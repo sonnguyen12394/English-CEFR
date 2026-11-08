@@ -104,14 +104,13 @@ function toMockResult() { const b = {}, rows = []; toLog(MK.papers.flatMap(p => 
   for (const p of MK.papers) { const ok = p.res.filter(r => r.ok).length; b[p.k] = toScale(ok, p.res.length);
     const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } rows.push([p, ok, by]); }
   const full = b.L != null && b.R != null, tot = full ? b.L + b.R : null, tg = toSt().target; toSt().mock.push({ at: Date.now(), b, tot }); S.t = Date.now(); save();
-  const wrong = MK.papers.flatMap(p => p.res.filter(r => !r.ok));
+  const hb = typeof hlBox === 'function' ? hlBox(MK.papers.flatMap(p => p.res), { src: 'thi' }) : { html: '', pri: false };   // v146 🎯 Sai ở đâu · học lại gì (thay danh sách câu sai cũ)
   $app.innerHTML = `<h1>🎓 Kết quả ${esc(MK.C.name)}</h1>
     <div class="box">${rows.map(([p, ok, by]) => `<p style="margin:4px 0"><b>${p.t}</b>: ≈ ${b[p.k]} <span class="mute">· ${ok}/${p.res.length} câu</span></p><p class="mute" style="margin:0 0 6px">${Object.entries(by).map(([k, [a, n]]) => `${esc(k)}: ${a}/${n}`).join(' · ')}</p>`).join('')}
       ${full ? `<p style="margin:8px 0 0;font-size:20px"><b>Tổng ≈ ${tot}</b> ${tot >= tg ? '✅' : '⬜'} <span class="mute" style="font-size:14px">(mục tiêu ${tg})</span></p>` : '<p class="mute">Chỉ làm một phần: chưa tính tổng.</p>'}
-      <p class="mute" style="margin:6px 0 0">Điểm ước theo tỉ lệ đúng, KHÔNG phải bảng quy đổi của ETS (ETS quy đổi riêng từng đề). Đề app ít câu, chưa có Part 1. Ghi điểm đề thật ở ô 🎯 để app hiệu chỉnh.</p></div>
-    ${wrong.length ? `<details class="box"><summary>Xem lại ${wrong.length} câu sai</summary>${wrong.map(r => `<div style="margin:8px 0;border-top:1px solid var(--line);padding-top:6px"><p class="mute" style="margin:0">${esc(r.part)}</p><p style="margin:2px 0">${r.q.q}</p>
-      <p style="margin:2px 0">Bạn: ${esc(String(r.ans))} · Đáp án: <b>${esc(r.q.a)}</b></p>${r.q.why ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
-    <button class="pri" data-a="again">🎓 Làm đề mới</button><button data-a="home">← Luyện TOEIC</button>`; scrollTo(0, 0);
+      <p class="mute" style="margin:6px 0 0">Điểm ước theo tỉ lệ đúng, KHÔNG phải bảng quy đổi của ETS (ETS quy đổi riêng từng đề). Đề app ít câu hơn đề thật. Ghi điểm đề thật ở ô 🎯 để app hiệu chỉnh.</p></div>
+    ${hb.html}
+    <button class="${hb.pri ? '' : 'pri'}" data-a="again">🎓 Làm đề mới</button><button data-a="home">← Luyện TOEIC</button>`; scrollTo(0, 0);
   $app.onclick = e => { if (e.target.closest('[data-a="again"]')) toMock(MK.idx); if (e.target.closest('[data-a="home"]')) toeicView(); }; }
 
 // ---------- 📏 điểm ước + hiệu chỉnh bằng đề thật ----------
@@ -230,8 +229,8 @@ async function toeicView() { BACK = null; window.CUR = { view: 'toeic' }; EXAM_V
   const tiles = ['L', 'R', 'V'].map(tile); let sp = null; try { sp = exGoalK() === 'toeic' && typeof ltSplit === 'function' ? ltSplit() : null; } catch (e) {}
   $app.innerHTML = '<div id="ie"></div>' + xHome({ sw: exSwitch('toeic'), t: `💼 TOEIC ${tg}`, pv: now.tot != null ? `Tổng ≈ ${now.tot}` : 'điểm ước: chưa đủ số đo',
     pct: now.tot != null ? Math.min(100, Math.round(now.tot / tg * 100)) : Math.round(tiles.reduce((t, x) => t + x.pct, 0) / 3), sub: `Listening + Reading · cần nền ${LVN[base]}${wk != null ? ` · còn ${wk} tuần` : ''}`,
-    note: xNoteNen(sp), ...(typeof daiX === 'function' ? daiX('toeic') : {}),
-    tiles, more: [['🎓 Thi thử cả đề', `<p class="mute" style="margin:0 0 6px">Tỉ lệ các Part như đề thật, ít câu hơn (đề thật 200 câu / 120 phút). Nghe 1 lần, không báo đúng / sai giữa chừng.${o.mock.length ? ` Đã làm ${o.mock.length} lần.` : ''} Làm từng phần: bước ③ ở màn Nghe / Đọc.</p><button class="pri" data-tomk="all">▶ Làm cả đề</button>`],
+    note: xNoteNen(sp), ...(typeof daiX === 'function' ? daiX('toeic') : {}), after: typeof trRow === 'function' ? trRow() : '',
+    tiles, more: [['🎓 Thi thử cả đề', `<p class="mute" style="margin:0 0 6px">Bản rút gọn: tỉ lệ các Part như đề thật, ít câu hơn. Muốn đủ 200 câu, đúng nhịp như thi thật: 🎓 Đề thử trọn 200 câu ở trên. Nghe 1 lần, không báo đúng / sai giữa chừng.${o.mock.length ? ` Đã làm ${o.mock.length} lần.` : ''} Làm từng phần: bước ③ ở màn Nghe / Đọc.</p><button class="pri" data-tomk="all">▶ Làm cả đề</button>`],
       ['🎯 Sẵn sàng thi', `<p style="margin:0 0 4px"><b>${tg} điểm: ${nOk}/${cs.length}</b></p>${cs.map(([ok, t, d]) => `<p style="margin:4px 0">${ok ? '✅' : '⬜'} ${t} <span class="mute">· ${esc(d)}</span></p>`).join('')}
         <p class="mute" style="margin:6px 0 0">Đủ cả 4 mới nên đăng ký thi. Đề của app do AI soạn; đề luyện thật (sách ETS) là bằng chứng độc lập.</p><button class="chip" data-toadd>📝 Ghi điểm đề luyện thật (Listening, Reading)</button>`],
       ['🧱 Nền cần có', `<p class="mute" style="margin:0 0 4px">CEFR ${LVN[base]}${cs[0][0] ? ' ✅' : ''}. Suy từ bảng ETS (Nghe B1 ≥ 275, B2 ≥ 400, C1 ≥ 490; Đọc B1 ≥ 275, B2 ≥ 385, C1 ≥ 455; nên đối chiếu tài liệu ETS). ${tg} điểm ≈ mỗi phần ${half}.</p><p style="margin:4px 0">${cs[0][2]}</p><button data-iecefr="${base}">🧱 Mở Nền tiếng Anh cấp ${LVN[base]}</button>`],

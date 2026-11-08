@@ -759,8 +759,10 @@ const xlParas = q => { const x = q.x || {}; if (!x.paras) return []; const s = n
   return [...s].sort((a, b) => a - b); };
 function xlEvid(q) { const x = q.x || {}; if (q.a === 'NOT GIVEN') return 'NOT GIVEN: bài không có câu nào cho biết điều này đúng hay sai.';
   if (x.text && q.kind === 'mc' && typeof q.a === 'string' && kSents(x.text).includes(q.a)) { const ss = kSents(x.text), j = ss.indexOf(q.a); return `Câu trước chỗ trống: “${esc(ss[j - 1] || '')}” · câu sau: “${esc(ss[j + 1] || '')}”. Câu chèn phải nối được cả hai.`; }
-  if (q.seg) return ''; const ps = xlParas(q), pool = x.paras ? (ps.length ? ps.map(i => x.paras[i]) : x.paras) : x.lines ? x.lines.map(l => l[1]) : x.docs ? x.docs.map(d => d.text) : x.texts || (x.text ? [x.text] : []);
-  const ss = pool.flatMap(t => kSents(String(t))), j = ss.length ? xlBest(ss, q) : -1; return j >= 0 ? `Câu chứa đáp án: “${esc(ss[j])}”` : ''; }
+  if (q.seg) return ''; const s = xlEvidS(q); return s ? `Câu chứa đáp án: “${esc(s)}”` : ''; }
+// v146: câu chứa đáp án dạng chữ thô (hoclai.js: hiện ở câu sai + tìm từ chưa học trong câu); '' khi không tìm được
+function xlEvidS(q) { const x = q.x || {}; if (q.a === 'NOT GIVEN' || q.seg) return ''; const ps = xlParas(q), pool = x.paras ? (ps.length ? ps.map(i => x.paras[i]) : x.paras) : x.lines ? x.lines.map(l => l[1]) : x.docs ? x.docs.map(d => d.text) : x.texts || (x.text ? [x.text] : []);
+  const ss = pool.flatMap(t => kSents(String(t))), j = ss.length ? xlBest(ss, q) : -1; return j >= 0 ? ss[j] : ''; }
 
 // ---------- màn bài học ----------
 const xlSkName = (ex, sk) => ex === 'ielts' ? IE_SKV[sk][1] : ex === 'toeic' ? TO_SKV[sk][1] : (([lv, pi]) => cbPn(MOCK[lv].papers[+pi].t))(String(sk).split('~'));
@@ -781,11 +783,11 @@ function xlExQ(q, d) { const x = q.x || {}, ps = xlParas(q), lettered = (q.opts 
 // bài Viết Cambridge: đề + bài mẫu (kho hoặc XL_TXT.cb.ps)
 function xlExW(q) { const x = q.x || {}, m = x.m || XL_TXT.cb.ps[x.id] || ''; const P = xlParas2(m);
   return { html: `${q.head || ''}${P.length ? `<details class="box" open><summary><b>📄 Bài mẫu (${kWords(P.join(' ')).length} từ)</b></summary>${P.map(p => `<p style="margin:8px 0 0">${esc(p).replace(/\n/g, '<br>')}</p>`).join('')}</details>` : '<p class="mute">Chưa có bài mẫu cho đề này.</p>'}`, tq: P.length ? xlStructQ(m) : [] }; }
-async function xlView(ex, sk, i) { BACK = null; EXAM_VOX = false;
+async function xlView(ex, sk, i, back) { BACK = null; EXAM_VOX = false; const B = back || xlBack(ex, sk);   // v146 back: mở từ ô 🎯 Sai ở đâu (hoclai.js) thì nút về là ‹ Kết quả
   try { if (ex === 'ielts' && (typeof IE === 'undefined' || !IE)) await ieLoad(); if (ex === 'toeic' && (typeof TO === 'undefined' || !TO)) await toLoad();
     if (ex === 'cambridge') { if (!KIT.noi.items || !KIT.nghe.items) $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; await Promise.all([loadEB(), ...Object.values(KIT).map(kLoad), typeof uLoad === 'function' ? uLoad() : 0, typeof capLoad === 'function' ? capLoad() : 0]); } } catch (e) {}   // v143: + cap.json (bài thảo luận cặp)
   if (!NCLIPS.size) fetch('n/index.json?v=' + APP_V).then(r => r.json()).then(x => { NCLIPS = new Set(x); }).catch(() => {});
-  const L = xlList(ex, sk), n = +i, d = L[n]; if (!d) return xlBack(ex, sk)();
+  const L = xlList(ex, sk), n = +i, d = L[n]; if (!d) return B();
   window.CUR = { view: ex === 'cambridge' ? 'cambridge' : ex, sk: ex === 'cambridge' ? String(sk).replace('~', '|') : sk, xl: d.id };
   // ví dụ + làm thử
   let exHtml = '', tq = [], eq = null;
@@ -797,7 +799,7 @@ async function xlView(ex, sk, i) { BACK = null; EXAM_VOX = false;
     else if (e) { eq = e; exHtml = xlExQ(e, d); tq = d.gen().filter(q => q.kind !== 'write' && !(q.q === e.q && q.a === e.a)).slice(0, XL_TRY); } }
   const St = xlSt(), ld = St[d.id], nx = L[n + 1];
   XL_CUR = { ex, sk, i: n, id: d.id, tq, eq };
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link" data-xlb>‹ ${esc(xlSkName(ex, sk))}</button><span class="mute" style="font-size:13px">Bài học ${n + 1}/${L.length}</span></div>
+  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-xlb>‹ ${back ? 'Kết quả' : esc(xlSkName(ex, sk))}</button><span class="mute" style="font-size:13px">Bài học ${n + 1}/${L.length}</span></div>
     <h1>📘 ${d.ic} ${esc(d.t)}</h1><p class="mute" style="margin:0 0 8px">${XL_EXN[ex]} · bài học${ld ? ' · ✓ đã học' : ''}. Không tính band / điểm ước, không vào bản đồ. 🤖 Claude soạn, chưa giáo viên kiểm.</p>
     <div class="box"><b>🎯 Dạng này là gì</b><p style="margin:6px 0 0">${esc(d.what)}</p></div>
     ${d.how && d.how.length ? `<div class="box"><b>🪜 Cách làm</b><ol style="margin:6px 0 0;padding-left:22px">${d.how.map(x => `<li style="margin:4px 0">${esc(x)}</li>`).join('')}</ol></div>` : ''}
@@ -808,15 +810,15 @@ async function xlView(ex, sk, i) { BACK = null; EXAM_VOX = false;
     <div class="row" style="gap:8px;margin-top:8px">${n > 0 ? '<button data-xlp>‹ Bài trước</button>' : '<span></span>'}${nx ? '<button data-xln>Bài sau ›</button>' : '<span></span>'}</div>`;
   const done = (ok, m) => { St[d.id] = { at: Date.now(), ok, n: m }; S.t = Date.now(); save(); };
   $app.onclick = e => { const g = s => e.target.closest(s);
-    if (g('[data-xlb]')) return xlBack(ex, sk)();
-    if (g('[data-xlp]')) { scrollTo(0, 0); return xlView(ex, sk, n - 1); }
-    if (g('[data-xln]')) { scrollTo(0, 0); return xlView(ex, sk, n + 1); }
-    if (g('[data-xlok]')) { if (!ld) { done(0, 0); toast('✓ Đã học: ' + d.t); } return nx ? xlView(ex, sk, n + 1) : xlBack(ex, sk)(); }
+    if (g('[data-xlb]')) return B();
+    if (g('[data-xlp]')) { scrollTo(0, 0); return xlView(ex, sk, n - 1, back); }
+    if (g('[data-xln]')) { scrollTo(0, 0); return xlView(ex, sk, n + 1, back); }
+    if (g('[data-xlok]')) { if (!ld || (typeof hlOn === 'function' && hlOn(d.id))) { done(0, 0); toast('✓ Đã học: ' + d.t); } return nx ? xlView(ex, sk, n + 1, back) : B(); }   // v146: học lại bài đang có cờ "vừa sai" = hết cờ
     if (g('[data-xlplay]')) { if (eq && eq.play) { EXAM_VOX = true; kPlay(eq.play); } return; }
     if (g('[data-xlt]')) { scrollTo(0, 0);
-      return ieRun('📘 ' + d.t, tq, () => xlView(ex, sk, n), 0, { nolog: 1, plays: 3, home: 'Về bài học', done: res => done(res.filter(r => r.ok).length, res.length),
+      return ieRun('📘 ' + d.t, tq, () => xlView(ex, sk, n, back), 0, { nolog: 1, plays: 3, home: 'Về bài học', done: res => done(res.filter(r => r.ok).length, res.length),
         endHtml: () => `<div class="box"><b>✅ Xong bài học: ${esc(d.t)}</b><p class="mute" style="margin:4px 0 0">Bài học không ghi vào kết quả bài, band / điểm ước, bản đồ.</p></div>${d.go ? `<button ${d.go}>🏋️ Bài tập dạng này ›</button>` : ''}${nx ? `<button data-xln>📘 Bài học sau: ${esc(nx.t)} ›</button>` : ''}`,
-        endClick: e2 => { if (e2.target.closest('[data-xln]')) { scrollTo(0, 0); xlView(ex, sk, n + 1); return true; } window.CUR = { view: ex === 'cambridge' ? 'cambridge' : ex, sk: ex === 'cambridge' ? String(sk).replace('~', '|') : sk }; xlClickOf(ex)(e2); return false; } }); }
+        endClick: e2 => { if (e2.target.closest('[data-xln]')) { scrollTo(0, 0); xlView(ex, sk, n + 1, back); return true; } window.CUR = { view: ex === 'cambridge' ? 'cambridge' : ex, sk: ex === 'cambridge' ? String(sk).replace('~', '|') : sk }; xlClickOf(ex)(e2); return false; } }); }
     return xlClickOf(ex)(e); };   // 🏋️ bài tập dạng này: nút của màn kỳ thi (về màn kỹ năng)
   scrollTo(0, 0); }
 // mở bài học từ màn kỹ năng (dòng danh sách, nút 📘): data-xl="kỳ thi|kỹ năng|số thứ tự"
@@ -836,10 +838,10 @@ function exNextLesson(ex, lv) { try { const sks = ex === 'cambridge' ? (typeof M
   return best; } catch (e) { return null; } }
 function xlBlock(ex, sk) { const L = xlList(ex, sk), St = xlSt(), done = L.filter(d => St[d.id]).length;
   let cells = null; if (ex === 'cambridge' && L[0] && !L[0].sp) try { cells = (cbRows(L[0].lv)[L[0].pi] || {}).cells || []; } catch (e) { cells = []; }   // ô bản đồ của bài thi: tính một lần
-  const W = L.map(d => cells ? !!(cells[d.i] && cells[d.i].s === 'yeu') : xlWeak(d));
-  const ni = (() => { const a = L.findIndex((d, j) => !St[d.id] && W[j]); return a >= 0 ? a : L.findIndex(d => !St[d.id]); })(), wi = L.findIndex((d, j) => St[d.id] && W[j]);
-  const rows = L.map((d, j) => { const isN = j === ni, tag = isN ? 'học tiếp' : W[j] ? (St[d.id] ? 'yếu · xem lại' : 'yếu · nên học') : St[d.id] ? 'đã học' : ''; return pRow(`data-xl="${ex}|${esc(sk)}|${j}"`, `${d.ic} ${esc(d.t)}`, tag, isN ? 'next' : W[j] ? 'bad' : St[d.id] ? 'good' : ''); });
+  const W = L.map(d => cells ? !!(cells[d.i] && cells[d.i].s === 'yeu') : xlWeak(d)), V = L.map(d => typeof hlOn === 'function' && hlOn(d.id));   // v146 V: dạng vừa sai trong đề / bài (hoclai.js)
+  const ni = (() => { const a = L.findIndex((d, j) => !St[d.id] && W[j]); if (a >= 0) return a; const v = V.indexOf(true); return v >= 0 ? v : L.findIndex(d => !St[d.id]); })(), wi = L.findIndex((d, j) => St[d.id] && W[j]);
+  const rows = L.map((d, j) => { const isN = j === ni, tag = V[j] ? 'vừa sai · xem lại' : isN ? 'học tiếp' : W[j] ? (St[d.id] ? 'yếu · xem lại' : 'yếu · nên học') : St[d.id] ? 'đã học' : ''; return pRow(`data-xl="${ex}|${esc(sk)}|${j}"`, `${d.ic} ${esc(d.t)}`, tag, isN ? 'next' : W[j] || V[j] ? 'bad' : St[d.id] ? 'good' : ''); });
   const open = ni >= 0 ? ni : wi >= 0 ? wi : 0;
-  return { L, done, rows, at: ni,
+  return { L, done, rows, at: ni, vs: V.filter(Boolean).length,
     step: { t: 'Học dạng', v: `${done}/${L.length}`, sub: L.length && done >= L.length ? 'đủ' : `còn ${L.length - done} bài`, ok: L.length > 0 && done >= L.length, cur: done < L.length },
-    learn: { attr: `data-xl="${ex}|${esc(sk)}|${open}"`, sub: ni >= 0 ? 'học tiếp: ' + esc(xlShort(L[ni].t)) : wi >= 0 ? 'xem lại: ' + esc(xlShort(L[wi].t)) : L.length ? 'đã học hết · xem lại' : 'chưa có bài', pri: ni >= 0 } }; }
+    learn: { attr: `data-xl="${ex}|${esc(sk)}|${open}"`, sub: ni >= 0 ? (V[ni] ? 'vừa sai: ' : 'học tiếp: ') + esc(xlShort(L[ni].t)) : wi >= 0 ? 'xem lại: ' + esc(xlShort(L[wi].t)) : L.length ? 'đã học hết · xem lại' : 'chưa có bài', pri: ni >= 0 } }; }

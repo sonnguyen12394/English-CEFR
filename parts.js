@@ -115,22 +115,22 @@ const xHome = o => { const p = o.part !== undefined ? o.part : (typeof EX_PART !
   // màn 2 nút: chip cấp (Cambridge, 10 cấp = 3 hàng ở 320 px) để dưới 2 nút để iPhone SE thấy cả 2 nút không cuộn
   if (!p) return `<div class="row top"><b style="font-size:17px">🎯 Luyện đề</b>${sync0}</div>${o.sw || ''}${head}
   <button class="btnbig" data-expart="san">📚 Đề có sẵn<small>Miễn phí · ${o.left && o.left.length ? (n ? `còn ${n} bài chưa làm` : 'đã làm hết, làm lại được') : 'bài học dạng đề, bài tập, thi thử'}</small></button>
-  <button class="btnbig ghost" data-expart="ai">🤖 Đề AI soạn<small>Mỗi lần một đề mới · tốn phí AI</small></button>${o.notice || ''}${o.chips ? `<p class="mute" style="margin:12px 0 4px;font-size:14px">Đổi cấp</p>${o.chips}` : ''}${o.note || ''}${xFoot(o)}`;
+  <button class="btnbig ghost" data-expart="ai">🤖 Đề AI soạn<small>Đề soạn sẵn miễn phí · hết thì AI soạn mới</small></button>${o.notice || ''}${o.chips ? `<p class="mute" style="margin:12px 0 4px;font-size:14px">Đổi cấp</p>${o.chips}` : ''}${o.note || ''}${xFoot(o)}`;
   const top = `<div class="row top"><button class="link tap" data-expart="">‹ Luyện đề</button>${sync0}</div>${xPartSeg(p)}${o.chips || ''}${head}`;
   if (p === 'ai') return top + (o.ai || '') + (o.remind || '') + xFoot(o);
   return top + (o.notice || '') + `<div class="grid2">${o.tiles.map(t => `<button class="tile ${t.cls || ''}" ${t.attr}><span class="ic">${t.ic}</span><b>${t.t}</b>${bar(t.pct, 100, t.cls === 'ok' ? 'var(--good)' : 'var(--accent)')}<span class="meta">${t.meta}</span></button>`).join('')}</div>
-  ${pMore(o.more, X_FOOT)}${xFoot(o)}`; };
+  ${o.after || ''}${pMore(o.more, X_FOOT)}${xFoot(o)}`; };   // v147 o.after: dòng dưới lưới ô (TOEIC: 🎓 đề thử trọn 200 câu, totron.js)
 // o = { back: dòng nút về, h1, note, steps, learn: { attr, sub, pri }, prac: { attr, sub }, les: { rows, at, done } (📘 bài học, v131), lt: tên danh sách bài tập, lsub, rows: [pRow], at: dòng kế tiếp, empty, more }
 // v131 (người sáng lập: "tách ra 2 dạng học và bài tập như nền CEFR"): 2 danh sách: 📘 Bài học (mỗi dạng câu / phần một bài, baihoc.js) · 🏋️ Bài tập (bài cụ thể, ghi kết quả).
 // Học hết bài học thì danh sách bài học gập lại; 📘 là nút chính khi còn bài học chưa học.
-const xLes = (l, t = 'Dạng câu') => !l || !l.rows.length ? '' : l.done >= l.rows.length ? `<details class="lvmore" style="margin-top:14px"><summary>📘 ${t} · đã học hết ${l.rows.length} bài ›</summary>${l.rows.join('')}</details>`
+const xLes = (l, t = 'Dạng câu') => !l || !l.rows.length ? '' : l.done >= l.rows.length && !l.vs ? `<details class="lvmore" style="margin-top:14px"><summary>📘 ${t} · đã học hết ${l.rows.length} bài ›</summary>${l.rows.join('')}</details>`
   : `<h2 style="margin:16px 0 4px">📘 ${t} <span class="mute" style="font-size:15px;font-weight:400">· ${l.done}/${l.rows.length} đã học</span></h2><div id="xllist">${pWin(l.rows, l.at)}</div>`;
 // v134 (bản mẫu "Đề xuất · IELTS Đọc"): màn kỹ năng của kỳ thi = một câu cách học + 2 ô số đo (dạng câu đã học · band / điểm / mức ước) + MỘT nút chính ghi rõ
 //   (▶ Học dạng: … khi còn bài học; không thì ▶ Làm bài kế tiếp) + nút phụ + 📘 danh sách dạng câu + 🏋️ danh sách bài (tên cụ thể) + dòng 🎓 thi thử. Thay đường 3 bước + 2 nút của v122.
 //   o thêm (tuỳ chọn): intro, lesT (tên danh sách bài học: 'Dạng câu' / 'Phần thi'…), pracT (tên nút bài tập), nxName (tên bài kế tiếp)
 const xStat = s => `<div class="statc"><span class="mute">${s.t}</span><b>${s.v}</b><span class="mute" style="font-size:13px">${s.sub || ''}</span></div>`;
 const xSkill = o => { const [s1, s2, s3] = o.steps, lesNext = !!(o.learn && o.learn.pri), hasLes = !!(o.les && o.les.rows && o.les.rows.length), lesT = o.lesT || 'Dạng câu';
-  const lab = String(o.learn.sub || '').replace(/^học tiếp: /, `Học ${lesT.toLowerCase()}: `).replace(/^xem lại: /, 'Xem lại: ');
+  const lab = String(o.learn.sub || '').replace(/^học tiếp: /, `Học ${lesT.toLowerCase()}: `).replace(/^xem lại: /, 'Xem lại: ').replace(/^vừa sai: /, 'Học lại dạng vừa sai: ');   // v146 hoclai.js
   const v2 = s2.v && s2.v !== '–' ? s2.v : 'chưa có', st1 = { t: hasLes ? `${lesT} đã học` : s1.t, v: s1.v, sub: s1.sub }, st2 = { t: s2.t, v: v2, sub: (v2 === 'chưa có' ? 'làm vài bài để có · ' : '') + (s2.sub || '') };
   const pri = lesNext ? `<button class="btnbig" ${o.learn.attr}>▶ ${lab}<small>khoảng 5 phút · có ví dụ và làm thử 3 câu</small></button>` : '';
   const prac = `<button class="btnbig${lesNext ? ' ghost' : ''}" ${o.prac.attr}${lesNext ? ' style="font-size:17px"' : ''}>${lesNext ? '🏋️ ' : '▶ '}${o.pracT || 'Làm bài kế tiếp'}<small>${o.nxName ? esc(o.nxName) : o.prac.sub}</small></button>`;

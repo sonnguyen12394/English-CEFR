@@ -1,0 +1,292 @@
+[
+ {
+  "id": "cb-b2-cloze-01",
+  "ky": "cb-b2",
+  "sk": "doc",
+  "dang": "cloze",
+  "g": {
+   "title": "B2 Use of English phần 1 · The quiet carriage",
+   "topic": "Quiet carriages on trains",
+   "gist": "An article about quiet carriages on trains and why passengers value them.",
+   "vi": "Đọc bài, chọn từ đúng cho 8 chỗ trống.",
+   "text": "The quiet carriage\n\nMany train companies now offer a quiet carriage, where passengers are asked not to make phone calls or play music out loud. The idea was first [1] as a small experiment, but it has become extremely popular with people who want to work or simply rest during their journey.\n\nOf course, not everyone [2] by the rules. Some passengers say they did not notice the signs, while others seem to think a short call does not [3] as breaking them. Train staff are usually reluctant to get involved, so it is often left to other travellers to [4] the problem.\n\nResearchers who studied passenger behaviour found that people who sit in the quiet carriage are more likely to [5] on a task than those in ordinary carriages. They also reported feeling less tired at the end of the journey. [6] the occasional argument, most regular users believe the quiet carriage is worth defending.\n\nSome companies are now considering [7] the idea further, with \"quiet zones\" in stations. Whether these will catch [8] remains to be seen.",
+   "groups": [
+    {
+     "ty": "cloze",
+     "inst": "Read the text and decide which answer best fits each gap.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Gap 1",
+       "o": [
+        "introduced",
+        "produced",
+        "appeared",
+        "founded"
+       ],
+       "a": "introduced",
+       "acc": [],
+       "why_vi": "\"an idea was introduced as an experiment\" = được đưa ra thử nghiệm. \"founded\" dùng cho tổ chức, \"appeared\" không có bị động.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 2",
+       "o": [
+        "abides",
+        "follows",
+        "obeys",
+        "keeps"
+       ],
+       "a": "abides",
+       "acc": [],
+       "why_vi": "Chỉ \"abide\" đi với giới từ \"by\": \"abide by the rules\" (tuân theo luật). \"follows / obeys / keeps\" không cần \"by\".",
+       "ev": ""
+      },
+      {
+       "q": "Gap 3",
+       "o": [
+        "count",
+        "regard",
+        "consider",
+        "see"
+       ],
+       "a": "count",
+       "acc": [],
+       "why_vi": "\"count as\" = được tính là: \"a short call does not count as breaking them\" (cuộc gọi ngắn không bị coi là phạm luật). \"regard / consider / see\" cần tân ngữ: \"regard something as\".",
+       "ev": ""
+      },
+      {
+       "q": "Gap 4",
+       "o": [
+        "deal with",
+        "put up with",
+        "come up with",
+        "run out of"
+       ],
+       "a": "deal with",
+       "acc": [],
+       "why_vi": "\"deal with the problem\" = xử lý vấn đề. \"put up with\" là chịu đựng, trái ý; \"come up with\" là nghĩ ra.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 5",
+       "o": [
+        "concentrate",
+        "devote",
+        "attend",
+        "pay"
+       ],
+       "a": "concentrate",
+       "acc": [],
+       "why_vi": "\"concentrate on a task\" = tập trung vào việc. \"devote\" cần \"to\" và tân ngữ, \"attend\" cần \"to\", \"pay\" cần \"attention\".",
+       "ev": ""
+      },
+      {
+       "q": "Gap 6",
+       "o": [
+        "Despite",
+        "Although",
+        "However",
+        "Even"
+       ],
+       "a": "Despite",
+       "acc": [],
+       "why_vi": "Trước cụm danh từ \"the occasional argument\" dùng \"Despite\". \"Although\" cần mệnh đề, \"However\" không đứng như vậy.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 7",
+       "o": [
+        "taking",
+        "bringing",
+        "carrying",
+        "leading"
+       ],
+       "a": "taking",
+       "acc": [],
+       "why_vi": "Cụm \"take an idea further\" = phát triển ý tưởng thêm. \"consider\" đi với V-ing.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 8",
+       "o": [
+        "on",
+        "up",
+        "out",
+        "in"
+       ],
+       "a": "on",
+       "acc": [],
+       "why_vi": "Cụm động từ \"catch on\" = trở nên phổ biến.",
+       "ev": ""
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "cb-b2-wf-01",
+  "ky": "cb-b2",
+  "sk": "doc",
+  "dang": "wf",
+  "g": {
+   "title": "B2 Use of English phần 3 · Learning to juggle",
+   "topic": "Learning to juggle as an adult",
+   "gist": "An article about adults who take up juggling and what it does for the brain.",
+   "vi": "Đọc bài, dùng từ IN HOA cuối dòng để tạo từ đúng cho 8 chỗ trống.",
+   "text": "Learning to juggle\n\nJuggling may look like a skill that only circus [1] need, but more and more adults are taking it up as a hobby. (PERFORM)\nBeginners usually start with three soft balls, and the first few weeks can be [2] frustrating. (SURPRISE)\nMost people drop the balls again and again, and some give up out of [3]. (BORED)\nHowever, those who keep going often describe a real sense of [4] when they finally manage a full minute. (ACHIEVE)\nThere is also some [5] that learning a new physical skill can be good for the brain. (EVIDENT)\nIn one study, adults who practised for six weeks showed changes in areas linked to vision and [6]. (MOVE)\nTeachers say that patience is more important than natural [7]. (ABLE)\nAnd since the equipment is cheap and the hobby can be done almost anywhere, it is hardly [8] that clubs are appearing in many cities. (SURPRISE)",
+   "groups": [
+    {
+     "ty": "wf",
+     "inst": "Use the word given in capitals to form a word that fits in the gap.",
+     "opts": [],
+     "lim": 1,
+     "items": [
+      {
+       "q": "Gap 1 (PERFORM)",
+       "o": [],
+       "a": "performers",
+       "acc": [],
+       "why_vi": "Cần danh từ số nhiều chỉ người: \"circus performers\" (diễn viên xiếc).",
+       "ev": ""
+      },
+      {
+       "q": "Gap 2 (SURPRISE)",
+       "o": [],
+       "a": "surprisingly",
+       "acc": [],
+       "why_vi": "Bổ nghĩa cho tính từ \"frustrating\" cần trạng từ: \"surprisingly frustrating\".",
+       "ev": ""
+      },
+      {
+       "q": "Gap 3 (BORED)",
+       "o": [],
+       "a": "boredom",
+       "acc": [],
+       "why_vi": "Sau \"out of\" cần danh từ: \"out of boredom\" (vì chán).",
+       "ev": ""
+      },
+      {
+       "q": "Gap 4 (ACHIEVE)",
+       "o": [],
+       "a": "achievement",
+       "acc": [],
+       "why_vi": "\"a sense of\" + danh từ: \"a sense of achievement\" (cảm giác thành công).",
+       "ev": ""
+      },
+      {
+       "q": "Gap 5 (EVIDENT)",
+       "o": [],
+       "a": "evidence",
+       "acc": [],
+       "why_vi": "\"some\" + danh từ không đếm được: \"some evidence\" (một số bằng chứng).",
+       "ev": ""
+      },
+      {
+       "q": "Gap 6 (MOVE)",
+       "o": [],
+       "a": "movement",
+       "acc": [],
+       "why_vi": "Song song với danh từ \"vision\": \"vision and movement\" (thị giác và vận động).",
+       "ev": ""
+      },
+      {
+       "q": "Gap 7 (ABLE)",
+       "o": [],
+       "a": "ability",
+       "acc": [],
+       "why_vi": "Sau tính từ \"natural\" cần danh từ: \"natural ability\" (năng khiếu).",
+       "ev": ""
+      },
+      {
+       "q": "Gap 8 (SURPRISE)",
+       "o": [],
+       "a": "surprising",
+       "acc": [],
+       "why_vi": "\"it is hardly + tính từ + that\": \"it is hardly surprising that\" (chẳng có gì ngạc nhiên khi).",
+       "ev": ""
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "cb-b2-kwt-01",
+  "ky": "cb-b2",
+  "sk": "doc",
+  "dang": "kwt",
+  "g": {
+   "title": "B2 Use of English phần 4 · Viết lại câu (bộ 1)",
+   "topic": "Key word transformations about everyday situations",
+   "gist": "Six key word transformation items about travel, work and study.",
+   "vi": "Viết lại câu thứ hai cùng nghĩa câu đầu, dùng từ IN HOA, 2–5 từ.",
+   "text": "",
+   "groups": [
+    {
+     "ty": "kwt",
+     "inst": "Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.",
+     "opts": [],
+     "lim": 5,
+     "items": [
+      {
+       "q": "I haven't been to the cinema for six months.\nLAST\nThe ______ to the cinema was six months ago.",
+       "o": [],
+       "a": "last time I went",
+       "acc": [
+        "last time that I went"
+       ],
+       "why_vi": "\"haven't … for six months\" = \"The last time I went … was six months ago\".",
+       "ev": ""
+      },
+      {
+       "q": "\"Don't forget to lock the door,\" Maria told her brother.\nREMINDED\nMaria ______ the door.",
+       "o": [],
+       "a": "reminded her brother to lock",
+       "acc": [],
+       "why_vi": "Câu tường thuật: \"remind somebody to do something\" = \"reminded her brother to lock the door\".",
+       "ev": ""
+      },
+      {
+       "q": "It wasn't necessary for us to book a table.\nNEED\nWe ______ a table.",
+       "o": [],
+       "a": "didn't need to book",
+       "acc": [
+        "did not need to book",
+        "needn't have booked"
+       ],
+       "why_vi": "\"It wasn't necessary\" = \"didn't need to book\". \"needn't have booked\" cũng đúng (nhưng hàm ý đã đặt rồi).",
+       "ev": ""
+      },
+      {
+       "q": "The concert was so popular that all the tickets sold out in an hour.\nSUCH\nIt was ______ that all the tickets sold out in an hour.",
+       "o": [],
+       "a": "such a popular concert",
+       "acc": [],
+       "why_vi": "\"so + tính từ\" đổi thành \"such + a + tính từ + danh từ\": \"such a popular concert\".",
+       "ev": ""
+      },
+      {
+       "q": "Tom started learning Spanish three years ago.\nBEEN\nTom ______ Spanish for three years.",
+       "o": [],
+       "a": "has been learning",
+       "acc": [],
+       "why_vi": "Việc bắt đầu trong quá khứ và còn tiếp: hiện tại hoàn thành tiếp diễn \"has been learning … for three years\".",
+       "ev": ""
+      },
+      {
+       "q": "I regret not taking the job in London.\nWISH\nI ______ the job in London.",
+       "o": [],
+       "a": "wish I had taken",
+       "acc": [],
+       "why_vi": "Tiếc về quá khứ: \"wish + quá khứ hoàn thành\": \"I wish I had taken the job\".",
+       "ev": ""
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

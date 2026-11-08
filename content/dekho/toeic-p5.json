@@ -1,0 +1,25 @@
+[
+  { "id": "to-p5-01", "ky": "toeic", "sk": "np", "dang": "p5", "g": {
+    "title": "Part 5 · Bộ 1: văn phòng và khách hàng", "topic": "Office notices and customer service", "gist": "Ten business sentences testing word forms, verbs, prepositions, conjunctions, pronouns, comparison and vocabulary.", "vi": "Chọn từ đúng điền vào chỗ trống.", "text": "", "lines": [], "voices": [],
+    "groups": [
+      { "ty": "p5:form", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "The new booking system has made it much ------- for customers to change their reservations online.", "o": ["easy", "easily", "easier", "ease"], "a": "easier", "acc": [], "why_vi": "Sau \"much\" và trước \"for\" cần tính từ so sánh hơn: \"much easier\" (dễ hơn nhiều). \"easily\" là trạng từ, \"ease\" là danh từ.", "ev": "" },
+        { "q": "Ms. Patel was praised for her ------- handling of the difficult client meeting.", "o": ["profession", "professional", "professionally", "professionals"], "a": "professional", "acc": [], "why_vi": "Trước danh từ \"handling\" cần tính từ bổ nghĩa: \"professional handling\". \"professionally\" là trạng từ, không đứng trước danh từ.", "ev": "" }]},
+      { "ty": "p5:verb", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "By the time the auditors arrive next Monday, the finance team ------- all of the quarterly reports.", "o": ["completes", "will have completed", "has completed", "completing"], "a": "will have completed", "acc": [], "why_vi": "\"By the time + hiện tại đơn\" nói về mốc tương lai, việc xong trước mốc đó dùng tương lai hoàn thành: \"will have completed\".", "ev": "" },
+        { "q": "All visitors are required ------- a badge at the reception desk before entering the factory.", "o": ["collect", "collecting", "to collect", "collected"], "a": "to collect", "acc": [], "why_vi": "Cấu trúc \"be required to + động từ nguyên mẫu\": bắt buộc phải làm gì.", "ev": "" }]},
+      { "ty": "p5:prep", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "The marketing report must be submitted ------- Friday afternoon at the latest.", "o": ["by", "until", "since", "during"], "a": "by", "acc": [], "why_vi": "\"by + thời điểm\" = trước hoặc đúng hạn đó (hạn chót). \"until\" là kéo dài liên tục tới lúc đó, không hợp với \"submitted\".", "ev": "" }]},
+      { "ty": "p5:conj", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "------- the printer was repaired last week, it still jams when printing on both sides.", "o": ["Although", "Because", "Unless", "Despite"], "a": "Although", "acc": [], "why_vi": "Hai vế trái ngược (đã sửa nhưng vẫn kẹt giấy) nên dùng \"Although\" + mệnh đề. \"Despite\" phải đi với danh từ, không đi với mệnh đề.", "ev": "" }]},
+      { "ty": "p5:pron", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "Employees ------- have not yet registered for the safety training should contact Human Resources.", "o": ["who", "whom", "whose", "which"], "a": "who", "acc": [], "why_vi": "Đại từ quan hệ chỉ người làm chủ ngữ của \"have not yet registered\" là \"who\". \"whom\" là tân ngữ, \"which\" chỉ vật.", "ev": "" },
+        { "q": "Mr. Chen prefers to check the shipping documents -------, rather than asking his assistant to do it.", "o": ["he", "his", "him", "himself"], "a": "himself", "acc": [], "why_vi": "Đại từ phản thân \"himself\" nhấn mạnh tự mình làm, đối lập với việc nhờ trợ lý.", "ev": "" }]},
+      { "ty": "p5:struct", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "This year's trade fair attracted ------- exhibitors than any previous event in the city.", "o": ["many", "more", "most", "much"], "a": "more", "acc": [], "why_vi": "Có \"than\" nên cần so sánh hơn: \"more exhibitors than\". \"exhibitors\" đếm được nên không dùng \"much\".", "ev": "" }]},
+      { "ty": "p5:voc", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "Please keep your receipt, as it is needed to ------- a refund within thirty days of purchase.", "o": ["claim", "spend", "achieve", "declare"], "a": "claim", "acc": [], "why_vi": "Cụm cố định \"claim a refund\" = yêu cầu hoàn tiền. Các từ khác không đi với \"refund\" theo nghĩa này.", "ev": "" }]}
+    ],
+    "task": { "part": "", "p": "", "pv": "", "min": 0, "max": 0, "genre": "", "m": "", "chart": { "kind": "", "title": "", "unit": "", "cats": [], "series": [] } },
+    "speak": { "p1": [], "p2": { "t": "", "b": [] }, "p3": [] } } }
+]

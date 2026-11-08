@@ -46,17 +46,31 @@ const DAI_SKOF = { doc: 'R', np: 'R', nghe: 'L', viet: 'W', noi: 'S' };
 const daiSOf = (k, dang, lv, sk) => daiSks(k, lv).find(s => daiDangs(k, s, lv).some(d => d[0] === dang)) || DAI_SKOF[sk] || 'R';
 const daiName = (k, dang, lv, sk) => { for (const s of daiSks(k, lv)) { const d = daiDangs(k, s, lv).find(x => x[0] === dang); if (d) return `${DAI_SKN[s][1]} · ${d[2]}`; } const s = DAI_SKOF[sk]; return (s ? DAI_SKN[s][1] + ' · ' : '') + (DAI_OLD[dang] || dang); };
 // tỉ lệ đúng gần đây của một dạng trên bản đồ kỳ thi (IELTS S.ie.ty, TOEIC S.to.ty) + số đề AI đã làm
+// ---------- v145 📚 kho đề soạn sẵn (specs/007-kho-de-soan-san) ----------
+// Người sáng lập 8/11/2026: "dùng gói Pro, không muốn tốn tiền API" → Claude soạn sẵn đề trong phiên Claude Code (tính vào gói Pro), cùng khuôn + máy kiểm
+// của máy chủ (tools/build-dekho.mjs → dekho.json); app phát đề từ kho, KHÔNG gọi máy chủ. Mã đề 'kho:<id>'. Chọn đề chưa làm theo thứ tự kho; hết đề của dạng mới gọi AI (cần khoá).
+async function daiKhoLoad() { if (DAI.kho) return DAI.kho; try { const r = await fetch('dekho.json?v=' + APP_V); DAI.kho = r.ok ? await r.json() : { de: [] }; } catch (e) { DAI.kho = { de: [] }; } if (!Array.isArray(DAI.kho.de)) DAI.kho = { de: [] }; return DAI.kho; }
+// IELTS Đọc: một bài dùng cho mọi dạng có nhóm ≥ 3 câu trong bài (đề thật hay có nhóm 3 câu; R-gt là Section 1 riêng)
+const daiKhoFit = (e, ky, dang) => (e.for || []).includes(ky) && (e.de.dang === dang || (ky.startsWith('ielts') && e.de.sk === 'doc' && dang !== 'R-gt' && e.de.dang !== 'R-gt' && (e.de.groups || []).some(g => g.ty === dang && g.items.length >= 3)));
+function daiKhoList(ky, dang) { if (!DAI.kho) return []; const done = new Set(daiSt().r.map(r => r.id)); return DAI.kho.de.filter(e => daiKhoFit(e, ky, dang) && !done.has('kho:' + e.id)); }
+// đề kho phát theo mã kỳ thi của người học (Cambridge cấp "+", IELTS GT dùng bài học thuật làm Section 3)
+function daiKhoRow(e, ky) { const de = { ...e.de, ky: ky || e.de.ky }; if (de.ky === 'ielts-gt' && /Academic Reading/.test(de.part || '')) de.part = 'IELTS General Training Reading · Section 3'; return { id: 'kho:' + e.id, de, chk: { kho: 1 } }; }
+function daiKhoGet(id) { const e = DAI.kho && DAI.kho.de.find(x => 'kho:' + x.id === id); if (!e) return null; const o = daiSt(), r = o.r.find(x => x.id === id) || (o.mo && o.mo.id === id ? o.mo : null); return daiKhoRow(e, r && r.ky); }
+// tải kho lần đầu rồi vẽ lại màn kỳ thi đang mở (ô 🤖 cần biết số đề còn lại)
+function daiKhoWarm() { if (DAI.kho || DAI.khoP) return; DAI.khoP = daiKhoLoad().then(() => { const v = (window.CUR || {}).view; if (['toeic', 'ielts', 'cambridge'].includes(v) && document.getElementById('ie') && typeof exRedraw === 'function') exRedraw(); }); }
 function daiStat(k, ky, dang) { const T = k === 'ielts' ? (S.ie || {}).ty || {} : k === 'toeic' ? (S.to || {}).ty || {} : {}, a = (T[dang] || []).slice(-10), n = a.reduce((s, b) => s + b.n, 0);
   return { n, pct: n ? Math.round(a.reduce((s, b) => s + b.ok, 0) / n * 100) : null, ai: daiSt().r.filter(r => r.ky === ky && r.dang === dang).length }; }
 // việc nên làm: đề dự trữ có sẵn → dạng yếu chắc (≥ 4 câu, < 75%) → dạng làm ít nhất (đọc, nghe trước viết, nói)
 function daiPick(k, lv, only) { const { ky } = daiKy(k, lv), o = daiSt(), all = [];
-  for (const s of only ? [only] : daiSks(k, lv)) for (const [dang, sk, t] of daiDangs(k, s, lv)) all.push({ s, dang, sk, t, ...daiStat(k, ky, dang), du: !!o.du[ky + '|' + dang] });
+  for (const s of only ? [only] : daiSks(k, lv)) for (const [dang, sk, t] of daiDangs(k, s, lv)) all.push({ s, dang, sk, t, ...daiStat(k, ky, dang), du: !!o.du[ky + '|' + dang], kho: daiKhoList(ky, dang).length });
   if (!all.length) return null; const du = all.find(x => x.du); if (du) return { ...du, why: 'sẵn sàng' };
+  const free = all.filter(x => x.kho); if (free.length) all.splice(0, all.length, ...free);   // v145: còn đề soạn sẵn (miễn phí) thì chọn trong số đó
   const weak = all.filter(x => x.n >= 4 && x.pct < 75).sort((a, b) => a.pct - b.pct)[0]; if (weak) return { ...weak, why: `đang yếu · ${weak.pct}%` };
   return { ...all.slice().sort((a, b) => a.ai - b.ai)[0], why: '' }; }
 
 // ---------- ô 🤖 ở màn kỳ thi, hàng 🤖 ở màn kỹ năng ----------
-function daiBox(k, lv) { const o = daiSt(), p = daiPick(k, lv), { ky } = daiKy(k, lv), done = o.r.filter(r => daiKOf(r.ky) === k).length;
+function daiBox(k, lv) { daiKhoWarm(); const o = daiSt(), p = daiPick(k, lv), { ky } = daiKy(k, lv), done = o.r.filter(r => daiKOf(r.ky) === k).length;
+  const nKho = DAI.kho ? new Set(daiSks(k, lv).flatMap(s => daiDangs(k, s, lv).flatMap(([d]) => daiKhoList(ky, d).map(e => e.id)))).size : 0;
   const W = Object.entries(o.wait).filter(([, w]) => w.ky === ky), now = Date.now(); for (const [, w] of W) if (w.st === 'dang' && now - w.at < DAI_WAIT) daiWatch(w.id);
   if (!p) return '';
   return `<div class="box dai"><b>🤖 Đề mới do AI soạn</b>
@@ -64,11 +78,11 @@ function daiBox(k, lv) { const o = daiSt(), p = daiPick(k, lv), { ky } = daiKy(k
     ${W.map(([key, w]) => w.st === 'xong' ? `<button class="hrow ok" data-daiopen="${esc(w.id)}"><span class="ic">✅</span><span class="t"><b>Đề đã soạn xong</b><small>${esc(daiName(k, key.split('|')[1], lv))} · làm ngay</small></span><span class="chev">›</span></button>`
       : w.st === 'loi' ? `<p class="mute" style="margin:6px 0">❌ ${esc(daiName(k, key.split('|')[1], lv))}: ${esc(w.err || 'chưa tạo được đề')} <button class="link" data-daidrop="${esc(key)}">Bỏ</button></p>`
       : `<button class="hrow" data-daiwait="${esc(w.id)}"><span class="ic">⏳</span><span class="t"><b>AI đang soạn đề</b><small>${esc(daiName(k, key.split('|')[1], lv))} · ${Math.round((now - w.at) / 1000)} giây</small></span><span class="chev">›</span></button>`).join('')}
-    <button class="btnbig" data-daigo="${k}|${p.dang}|${lv || ''}">▶ Làm đề AI mới<small>${esc(DAI_SKN[p.s][1] + ' · ' + p.t)}${p.du ? ' · sẵn sàng' : p.why ? ' · ' + esc(p.why) : ''}</small></button>
+    <button class="btnbig" data-daigo="${k}|${p.dang}|${lv || ''}">▶ Làm đề mới<small>${esc(DAI_SKN[p.s][1] + ' · ' + p.t)}${p.kho ? ' · soạn sẵn, miễn phí' : p.du ? ' · sẵn sàng' : ''}${p.why ? ' · ' + esc(p.why) : ''}</small></button>
     <div class="chipset ex3 daisk" style="grid-template-columns:repeat(${daiSks(k, lv).length}, minmax(0, 1fr))">${daiSks(k, lv).map(s => `<button data-daisk="${k}|${s}|${lv || ''}">${DAI_SKN[s][0]} ${DAI_SKN[s][1]}</button>`).join('')}</div>
-    <p class="mute" style="margin:6px 0 0;font-size:13px">Mỗi lần một đề mới, khác đề cũ. ${p.du ? '' : 'Đề đầu mất khoảng 1–2 phút để soạn. '}Mỗi đề AI tốn phí gọi AI của app: làm bài có sẵn trước để tiết kiệm. 🤖 AI soạn và chấm, chưa giáo viên kiểm.</p>
+    <p class="mute" style="margin:6px 0 0;font-size:13px">${nKho ? `📚 Còn <b>${nKho}</b> đề soạn sẵn: miễn phí, mở ngay. ` : ''}Hết đề soạn sẵn thì AI soạn đề mới tại chỗ (mất 1–2 phút, tốn phí AI, cần khoá AI của app). 🤖 AI soạn, chưa giáo viên kiểm.</p>
     ${done ? `<button class="hrow" data-dailist="${k}"><span class="ic">🗂</span><span class="t"><b>${done} đề AI đã làm</b><small>Xem lại lời giải, làm lại</small></span><span class="chev">›</span></button>` : ''}</div>`; }
-const daiSkRow = (k, s, lv) => daiDangs(k, s, lv).length ? `<button class="hrow" data-daisk="${k}|${s}|${lv || ''}"><span class="ic">🤖</span><span class="t"><b>Đề AI mới</b><small>Khi làm hết bài có sẵn hoặc muốn bài mới · tốn phí AI</small></span><span class="chev">›</span></button>` : '';
+const daiSkRow = (k, s, lv) => daiDangs(k, s, lv).length ? `<button class="hrow" data-daisk="${k}|${s}|${lv || ''}"><span class="ic">🤖</span><span class="t"><b>Đề AI mới</b><small>Đề soạn sẵn miễn phí; hết thì AI soạn mới (tốn phí)</small></span><span class="chev">›</span></button>` : '';
 
 // ---------- v142: 📚 bài có sẵn chưa làm (nhắc ở phần 🤖, đếm ở nút 📚 của màn 2 nút) ----------
 // cùng danh sách bài của màn kỹ năng (IELTS ieBai / ieRes, TOEIC toBai / toRes, Cambridge cbBai / cbRes theo bài thi)
@@ -97,12 +111,13 @@ const daiX = (k, lv) => ({ ai: daiBox(k, lv), remind: daiRemind(k, lv), left: da
 // màn chọn dạng của một kỹ năng
 // v144: một câu nói đề AI theo khuôn đề thật
 const DAI_SKNOTE = { 'ielts|R': 'Mỗi đề là 1 bài đọc như đề thật: 13 câu, 20 phút; dạng bạn chọn là một nhóm 5–7 câu, còn lại 1–2 dạng khác.', 'ielts|L': 'Mỗi đề là 1 Part như đề thật: 10 câu, nghe 1 lần, câu theo thứ tự lời nghe.', cefr: 'Mỗi đề là một phần của đề thật, đúng số câu và số lựa chọn của cấp.', toeic: 'Mỗi đề theo đúng khuôn Part của đề thật.' };
-function daiSkView(k, s, lv) { window.CUR = { view: 'dai-sk', sk: s }; const { ky } = daiKy(k, lv), o = daiSt(), p = daiPick(k, lv, s);
-  const rows = daiDangs(k, s, lv).map(([dang, , t]) => { const st = daiStat(k, ky, dang), du = o.du[ky + '|' + dang];
-    return `<button class="hrow${p && p.dang === dang ? ' ok' : ''}" data-daigo="${k}|${dang}|${lv || ''}"><span class="ic">${du ? '⚡' : '▶'}</span><span class="t"><b>${esc(t)}</b><small>${du ? 'sẵn sàng · ' : ''}${st.ai ? `${st.ai} đề AI` : 'chưa làm đề AI'}${st.pct != null ? ` · gần đây ${st.pct}% đúng` : ''}</small></span><span class="chev">›</span></button>`; }).join('');
+function daiSkView(k, s, lv) { if (!DAI.kho) { $app.innerHTML = '<div id="dai"></div><p class="mute">⏳ Đang tải…</p>'; return daiKhoLoad().then(() => daiSkView(k, s, lv)); }
+  window.CUR = { view: 'dai-sk', sk: s }; const { ky } = daiKy(k, lv), o = daiSt(), p = daiPick(k, lv, s);
+  const rows = daiDangs(k, s, lv).map(([dang, , t]) => { const st = daiStat(k, ky, dang), du = o.du[ky + '|' + dang], nk = daiKhoList(ky, dang).length;
+    return `<button class="hrow${p && p.dang === dang ? ' ok' : ''}" data-daigo="${k}|${dang}|${lv || ''}"><span class="ic">${du ? '⚡' : '▶'}</span><span class="t"><b>${esc(t)}</b><small>${nk ? `📚 ${nk} đề soạn sẵn · ` : ''}${du ? 'sẵn sàng · ' : ''}${st.ai ? `${st.ai} đề đã làm` : 'chưa làm đề nào'}${st.pct != null ? ` · gần đây ${st.pct}% đúng` : ''}</small></span><span class="chev">›</span></button>`; }).join('');
   const done = o.r.filter(r => r.ky === ky && daiSOf(k, r.dang, lv, r.sk) === s).slice(-5).reverse(), note = DAI_SKNOTE[k + '|' + s] || DAI_SKNOTE[k] || '';
   $app.innerHTML = `<div id="dai"></div><div class="row top"><button class="link" data-daihome="${k}|${lv || ''}">‹ ${DAI_EX[k]}</button><span></span></div>
-    <h1>🤖 ${DAI_SKN[s][0]} ${DAI_SKN[s][1]} · đề AI</h1><p class="mute" style="margin:0 0 8px">Chọn dạng. Mỗi lần AI soạn một đề mới, khác các đề bạn đã làm.${note ? ' ' + note : ''}</p>
+    <h1>🤖 ${DAI_SKN[s][0]} ${DAI_SKN[s][1]} · đề AI</h1><p class="mute" style="margin:0 0 8px">Chọn dạng. Dạng còn 📚 đề soạn sẵn thì mở ngay, miễn phí; hết thì AI soạn đề mới, khác các đề bạn đã làm.${note ? ' ' + note : ''}</p>
     <div class="box" style="padding:4px 14px">${rows}</div>
     ${done.length ? `<h2 style="margin:16px 0 4px">Đề AI gần đây</h2>${done.map(r => daiRow(r)).join('')}<button class="link" data-dailist="${k}">Xem tất cả đề AI ›</button>` : ''}
     <p class="mute" style="font-size:13px">🤖 AI soạn và chấm, chưa giáo viên kiểm. Thấy câu sai: bấm 💬 → ⚑ Câu sai. Luyện đề không tính vào 📘 Học / 🔁 Nhớ / Thi chuyển cấp của 🧱 Nền.</p>`;
@@ -140,14 +155,22 @@ function daiCheck(de) { const bad = []; if (!de || !de.sk) return ['không có �
 
 // ---------- bấm "Làm đề AI mới" ----------
 async function daiGo(k, dang, lv) { const { ky, muc } = daiKy(k, lv), o = daiSt(), key = ky + '|' + dang, sk = daiDangs(k, daiSOf(k, dang, lv), lv).find(d => d[0] === dang)?.[1] || 'doc';
+  await daiKhoLoad(); const kh = daiKhoList(ky, dang)[0]; if (kh) return daiRun(daiKhoRow(kh, ky));   // v145: đề soạn sẵn trước, không gọi máy chủ
   const du = o.du[key]; if (du) { delete o.du[key]; save(); const row = await daiFetch(du.id); if (row && row.st === 'xong' && !daiCheck(row.de).length && Date.now() - du.at < DAI_DU_D * DAY) return daiRun(row); }
   const w = o.wait[key]; if (w && w.st === 'dang' && Date.now() - w.at < DAI_WAIT) { DAI.cur = w.id; daiWatch(w.id); return daiWaitView(w, key); }
   if (w && w.st === 'xong') { delete o.wait[key]; save(); const row = await daiFetch(w.id); if (row && row.st === 'xong') return daiRun(row); }
   $app.innerHTML = '<div id="dai"></div><p class="mute">⏳ Đang gửi yêu cầu…</p>';
   const r = await daiAsk(ky, sk, dang, muc);
+  if (r.err && /khoá AI/.test(r.err)) return daiKhoEnd(k, dang, lv, ky);   // v145: chưa có khoá AI: hết đề soạn sẵn của dạng này
   if (r.err) { $app.innerHTML = `<div id="dai"></div><div class="row top"><button class="link" data-daihome="${k}|${lv || ''}">‹ ${DAI_EX[k]}</button><span></span></div><h1>🤖 Chưa tạo được đề</h1><div class="box"><p style="margin:0">${esc(r.err)}</p></div>
       <button class="pri" data-daigo="${k}|${dang}|${lv || ''}">Thử lại</button><p class="mute">Bài có sẵn của ${DAI_EX[k]} vẫn làm được bình thường.</p>`; return; }
   o.wait[key] = { id: r.id, at: Date.now(), ky, st: 'dang', k, lv: lv || '' }; S.t = Date.now(); save(); DAI.cur = r.id; daiWatch(r.id); daiWaitView(o.wait[key], key); }
+// v145: hết đề soạn sẵn của một dạng và máy chủ chưa có khoá AI: chỉ sang dạng còn đề
+function daiKhoEnd(k, dang, lv, ky) { const rest = daiSks(k, lv).flatMap(s => daiDangs(k, s, lv).map(([d, , t]) => ({ s, d, t, n: daiKhoList(ky, d).length }))).filter(x => x.n);
+  $app.innerHTML = `<div id="dai"></div><div class="row top"><button class="link" data-daihome="${k}|${lv || ''}">‹ ${DAI_EX[k]}</button><span></span></div><h1>📚 Đã làm hết đề soạn sẵn</h1>
+    <div class="box"><b>${esc(daiName(k, dang, lv))}</b><p style="margin:6px 0 0">Bạn đã làm hết đề soạn sẵn của dạng này. Đề mới do AI soạn tại chỗ cần khoá AI của app (chưa cài).</p></div>
+    ${rest.length ? `<h2 style="margin:16px 0 4px">Dạng còn đề soạn sẵn</h2><div class="box" style="padding:4px 14px">${rest.map(x => `<button class="hrow" data-daigo="${k}|${x.d}|${lv || ''}"><span class="ic">${DAI_SKN[x.s][0]}</span><span class="t"><b>${esc(x.t)}</b><small>📚 ${x.n} đề soạn sẵn</small></span><span class="chev">›</span></button>`).join('')}</div>` : ''}
+    <p class="mute">Bài có sẵn của ${DAI_EX[k]} vẫn làm được bình thường. Làm lại đề cũ: ô 🤖 → Đề đã làm.</p>`; scrollTo(0, 0); }
 // soạn sẵn một đề dự trữ (sau khi làm xong một đề AI của kỹ năng đó); tối đa 1 mỗi dạng
 async function daiPrefetch(k, dang, lv) { const { ky, muc } = daiKy(k, lv), o = daiSt(), key = ky + '|' + dang; if (o.du[key] || o.wait[key]) return;
   const sk = daiDangs(k, daiSOf(k, dang, lv), lv).find(d => d[0] === dang)?.[1]; if (!sk) return; const r = await daiAsk(ky, sk, dang, muc, true); if (r.err) return;
@@ -172,11 +195,14 @@ const daiText = de => String(de.text || '').split(/\n\s*\n|\n(?=### )/).map(p =>
   .map(p => p.startsWith('### ') ? `<p style="margin:12px 0 0"><b>${esc(p.slice(4))}</b></p>` : `<p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0">${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
 const daiPass = de => de.text ? `<details class="box" open style="margin-top:12px"><summary><b>${esc(de.title)}</b> <span class="mute">(${kWords(de.text).length} từ)</span></summary>${daiText(de)}</details>` : '';
 const DAI_LBL = { 'R-tf': IE_TFH, 'R-yn': typeof IE_YNH !== 'undefined' ? IE_YNH : '' };
+// v146: nhãn dạng câu TOEIC cho câu đề AI / soạn sẵn (luật chung toqt.js, như bộ dựng kho) để 🎯 Sai ở đâu (hoclai.js) nối đúng bài học của dạng
+const daiToTag = (q, it) => { const s = q.sec, t = String(it.q || ''); if (typeof tqP2 !== 'function') return;
+  if (s === 'p2') q.x.ty = tqP2(t); else if (s === 'p3' || s === 'p4') q.qt = tqQ34(t); else if (s === 'p7') q.qt = tqQ7(t); else if (s === 'p6') q.gt = tqP6({ o: it.o || [] }); };
 function daiQs(row) { const de = row.de, id = 'ai:' + row.id, ie = de.ky.startsWith('ielts'), to = de.ky === 'toeic', foot = daiPass(de), out = [];
   const lines = de.lines && de.lines.length ? daiLines(de) : null; let n = 0;
   for (const g of de.groups || []) for (const it of g.items || []) { const q = { x: { id, ...(to && g.ty.startsWith('p5:') ? { t: g.ty.slice(3) } : {}) }, why: it.why_vi + (it.ev ? ` 📍 “${it.ev}”` : ''), foot,
       head: `${de.part ? `<p class="mute" style="margin:0 0 2px;font-size:13px">📋 ${esc(de.part)}</p>` : ''}<p class="mute">${esc(g.inst || '')}</p>${DAI_LBL[g.ty] || ''}${lines || (to && g.ty === 'p2') ? '<p class="mute" style="font-size:13px">🔊 Giọng máy của điện thoại đọc lời AI soạn, không phải giọng thu sẵn.</p>' : ''}`, q: esc(it.q).replace(/\n/g, '<br>').replace(/_{3,}|-{5,}/, m => `<b>${m}</b>`) };
-    if (ie) q.ty = g.ty; if (to) q.sec = g.ty.split(':')[0]; if (lines) q.play = { key: id, lines };
+    if (ie) q.ty = g.ty; if (to) { q.sec = g.ty.split(':')[0]; daiToTag(q, it); } if (it.ev) q.ev = String(it.ev); if (lines) q.play = { key: id, lines };
     if (it.o && it.o.length) { q.kind = 'mc'; q.opts = it.o; q.a = it.a; } else { q.kind = 'type'; q.a = it.a; q.acc = [it.a, ...(it.acc || [])]; }
     if (to && g.ty === 'p2') { const L = 'ABC'; q.play = { key: id + ':' + n, lines: [['A', it.q], ...it.o.map((o, j) => ['B', `${L[j]}. ${o}`])] }; q.q = '🔊 Nghe câu hỏi và 3 câu đáp. Câu đáp nào hợp nhất?'; q.opts = it.o.map((_, j) => L[j]); q.a = L[it.o.indexOf(it.a)];
       q.why = `Câu hỏi: “${it.q}” · Đáp án: ${q.a}. ${it.a} · ${it.why_vi}`; }
@@ -189,8 +215,8 @@ function daiRun(row) { const de = row.de, k = daiKOf(de.ky), lv = de.ky.startsWi
   if (de.sk === 'viet') return daiWrite(row, k, lv, back);
   if (de.sk === 'noi') return daiSpeak(row, k, lv, back);
   const qs = daiQs(row), plays = k === 'cefr' ? 2 : 1;
-  ieRun(`🤖 ${name}`, qs, back, de.min, { R: {}, src: 'ai', plays, home: DAI_EX[k],
-    endHtml: res => daiEnd(row, res, k, S0), done: res => { const ok = res.filter(r => r.ok).length, n = res.length;
+  ieRun(`🤖 ${name}`, qs, back, de.min, { R: {}, src: 'ai', plays, home: DAI_EX[k], hl: k === 'cefr' ? { ex: 'cambridge', lv, dang: de.dang, sk: de.sk } : null,   // v146 hl: câu sai → phần đề Cambridge (hoclai.js)
+    endHtml: res => daiEnd(row, res, k, S0), endBtns: (res, pri) => `<button class="${pri ? '' : 'pri'}" data-daigo="${k}|${de.dang}|${lv}">▶ Làm đề mới cùng dạng</button>`, done: res => { const ok = res.filter(r => r.ok).length, n = res.length;
       if (k === 'toeic' && typeof toLog === 'function') toLog(res, 'ai', new Set(['ai:' + row.id]));
       const band = k === 'ielts' && (S0 === 'R' || S0 === 'L') ? daiBand(S0, ok, n) : null, pt = k === 'toeic' ? toScale(ok, n) : null;
       daiSave(row, { ok, n, ...(band != null ? { band } : {}), ...(pt != null ? { pt } : {}), min: Math.round((Date.now() - t0) / 60000) }); } }); }
@@ -199,12 +225,12 @@ function daiEnd(row, res, k, S0) { const de = row.de, ok = res.filter(r => r.ok)
     : k === 'toeic' ? `<p>≈ <b>${toScale(ok, n)}</b> / 495 điểm phần ${S0 === 'L' ? 'Nghe' : 'Đọc'} <span class="mute">(ước theo tỉ lệ đúng, không phải bảng của ETS)</span></p>`
     : `<p>${Math.round(ok / Math.max(1, n) * 100)}% đúng · mức cần khoảng ${Math.round(((MOCK[lv] || {}).pass || 0.7) * 100)}% <span class="mute">(ước)</span></p>`;
   const tr = de.lines && de.lines.length ? `<details class="box"><summary><b>📜 Lời bài nghe</b></summary>${de.lines.map(([w, s]) => `<p class="tdtap" style="margin:6px 0">${esc(w)}: ${esc(s)}</p>`).join('')}</details>` : '';
-  const chk = row.chk || {}, ck = chk.bo === 'het-gio' ? '⚠️ Đề này chưa kịp kiểm chéo.' : chk.n ? `Đã kiểm chéo: ${chk.khop}/${chk.n} câu khớp, bỏ ${chk.n - chk.khop} câu lệch.` : '';
-  return `${est}${tr}<p class="mute" style="font-size:13px">🤖 AI soạn, chưa giáo viên kiểm. ${ck} Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p><button class="pri" data-daigo="${k}|${de.dang}|${de.ky.startsWith('cb-') ? lv : ''}">▶ Làm đề AI mới cùng dạng</button>`; }
+  const chk = row.chk || {}, ck = chk.kho ? '📚 Đề soạn sẵn: Claude soạn trước theo khuôn đề thật, máy kiểm đáp án.' : chk.bo === 'het-gio' ? '⚠️ Đề này chưa kịp kiểm chéo.' : chk.n ? `Đã kiểm chéo: ${chk.khop}/${chk.n} câu khớp, bỏ ${chk.n - chk.khop} câu lệch.` : '';
+  return `${est}${tr}<p class="mute" style="font-size:13px">🤖 AI soạn, chưa giáo viên kiểm. ${ck} Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p>`; }   // v146: nút ▶ Làm đề mới cùng dạng ở endBtns (dưới ô 🎯 Sai ở đâu)
 function daiSave(row, r) { const o = daiSt(), de = row.de; o.r = [...o.r.filter(x => x.id !== row.id), { id: row.id, ky: de.ky, sk: de.sk, dang: de.dang, at: Date.now(), t: de.title, ...r }].slice(-DAI_MAX_R); o.mo = null; S.t = Date.now(); save();
   // v142 (người sáng lập chọn): chỉ soạn sẵn đề AI kế tiếp khi đã làm xong ≥ DAI_DU_N đề AI cùng kỳ thi + dạng trong hôm nay (đang luyện thật), đỡ tốn phí cho đề không ai làm
   const k = daiKOf(de.ky), today = dayOf(Date.now()), nToday = o.r.filter(x => x.ky === de.ky && x.dang === de.dang && dayOf(x.at) === today).length;
-  if (nToday >= DAI_DU_N) daiPrefetch(k, de.dang, de.ky.startsWith('cb-') ? de.ky.slice(3) : ''); }
+  if (nToday >= DAI_DU_N && !daiKhoList(de.ky, de.dang).length) daiPrefetch(k, de.dang, de.ky.startsWith('cb-') ? de.ky.slice(3) : ''); }
 
 // ✍️ Viết: IELTS dùng ieWrite (máy ước band + nút AI chấm, tự bấm); Cambridge: màn viết gọn + AI chấm thang Cambridge
 function daiIeX(row) { const de = row.de, t = de.task, id = 'ai:' + row.id;
@@ -262,7 +288,7 @@ document.addEventListener('click', async e => { if (!S) return; const g = s => e
   if ((b = g('[data-daihome]'))) { const [k, lv] = b.dataset.daihome.split('|'); DAI.cur = null; scrollTo(0, 0); return daiBack(k, lv)(); }
   if ((b = g('[data-daiwait]'))) { const o = daiSt(), key = Object.keys(o.wait).find(x => o.wait[x].id === b.dataset.daiwait); if (!key) return; DAI.cur = o.wait[key].id; daiWatch(DAI.cur); return daiWaitView(o.wait[key], key); }
   if ((b = g('[data-daiopen]'))) { const id = b.dataset.daiopen, o = daiSt(), key = Object.keys(o.wait).find(x => o.wait[x].id === id); if (key) { delete o.wait[key]; save(); }
-    $app.innerHTML = '<div id="dai"></div><p class="mute">⏳ Đang mở đề…</p>'; const row = await daiFetch(id); if (!row || row.st !== 'xong') { toast('Không mở được đề này.'); return daiList(); } scrollTo(0, 0); return daiRun(row); }
+    $app.innerHTML = '<div id="dai"></div><p class="mute">⏳ Đang mở đề…</p>'; const row = id.startsWith('kho:') ? (await daiKhoLoad(), daiKhoGet(id)) : await daiFetch(id); if (!row || (row.st !== 'xong' && !(row.chk || {}).kho)) { toast('Không mở được đề này.'); return daiList(); } scrollTo(0, 0); return daiRun(row); }
   if ((b = g('[data-dailist]'))) return daiList(b.dataset.dailist || undefined);
   if ((b = g('[data-daileft]'))) { scrollTo(0, 0); return daiLeftGo(...b.dataset.daileft.split('|')); }
   if (g('[data-daitk]')) return daiStats(); });

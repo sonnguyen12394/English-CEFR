@@ -1,0 +1,167 @@
+[
+ {
+  "id": "ie-r-handwr",
+  "ky": "ielts-ac",
+  "sk": "doc",
+  "dang": "R-yn",
+  "g": {
+   "title": "Pen or keyboard?",
+   "topic": "Handwriting versus typing in learning",
+   "gist": "An opinion article arguing that the choice between handwriting and typing in education should depend on the purpose of the task.",
+   "vi": "Đọc bài, làm 13 câu: YES / NO / NOT GIVEN, nối nửa câu, trắc nghiệm.",
+   "text": "Pen or keyboard?\n\nFew topics in education produce such strong feelings as the question of whether students should write by hand or type. On one side are those who see handwriting as a basic skill that is being lost; on the other are those who regard it as an old-fashioned habit that wastes valuable school time. In my view, both positions miss the point. The real question is not which tool is better in general, but which tool is better for a particular purpose.\n\nLet us begin with what research can tell us. In one widely reported study, university students who took lecture notes by hand performed better on questions that required them to understand ideas than students who used laptops. The explanation offered was that typing is so fast that students tend to copy the lecturer word for word, while writing by hand forces them to select and summarise. This is an attractive idea, and it may well be true in some situations. However, later attempts to repeat the study produced mixed results, and I think it would be a mistake to treat a single experiment as final proof. Taking notes is, after all, only one part of learning, and much depends on what students do with their notes afterwards.\n\nThere is stronger evidence when it comes to young children. Learning to form letters by hand seems to help children recognise those letters when they read. Some brain imaging studies have found that areas linked to reading become more active after children practise writing letters than after they practise typing them. For this reason, I would argue that handwriting should remain a central part of the early primary curriculum, even if it takes up time that some would prefer to spend on other subjects.\n\nAt the same time, it is unrealistic to pretend that the keyboard is going away. Most adults now do the majority of their writing on screens, and many examinations at universities are already taken on computers. Students who type slowly are at a real disadvantage in these situations, not because they know less, but because they cannot get their ideas down quickly enough. Typing also makes it easier to correct mistakes and reorganise ideas, which matters a great deal in longer pieces of writing. It seems to me only fair that schools should teach typing as a skill in its own right, rather than expecting children to pick it up on their own.\n\nThe arguments are sometimes complicated by questions of cost. Laptops and tablets are expensive, and in schools with limited budgets, providing a device for every child can mean less money for books or teachers. Supporters of technology often reply that devices give students access to a world of information. That is true, but access to information is not the same as learning, and a classroom full of screens can also be a classroom full of distractions.\n\nWhat, then, should schools do? I believe the most sensible approach is to match the tool to the task. When students are planning an essay, sketching a diagram or working through a mathematical problem, paper often allows a freedom that a screen does not. When they are producing a final draft, editing a long piece of work or collaborating with classmates, a keyboard is usually more efficient. Teachers are well placed to make these decisions, and they should be trusted to do so.\n\nNone of this is to say that handwriting has value only in the classroom. Many people still prefer to keep a paper diary, write a card by hand or jot down a shopping list on the back of an envelope. There is also a particular pleasure in receiving a handwritten letter that an email rarely matches. Whether these habits survive is a question for society as a whole. For schools, however, the goal should be students who can do both, and who know when each is appropriate.",
+   "groups": [
+    {
+     "ty": "R-yn",
+     "inst": "Do the following statements agree with the claims of the writer in the reading passage? Write YES, NO or NOT GIVEN.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "The usual debate about handwriting and typing focuses on the wrong question.",
+       "o": [],
+       "a": "YES",
+       "acc": [],
+       "why_vi": "Tác giả nói cả hai phe \"miss the point\": câu hỏi thật là công cụ nào tốt hơn cho mục đích cụ thể.",
+       "ev": "In my view, both positions miss the point."
+      },
+      {
+       "q": "The study of lecture notes proves that handwriting is always the better choice.",
+       "o": [],
+       "a": "NO",
+       "acc": [],
+       "why_vi": "Tác giả nói kết quả lặp lại không nhất quán và \"it would be a mistake to treat a single experiment as final proof\".",
+       "ev": "However, later attempts to repeat the study produced mixed results, and I think it would be a mistake to treat a single experiment as final proof."
+      },
+      {
+       "q": "Handwriting should continue to be an important part of teaching young children.",
+       "o": [],
+       "a": "YES",
+       "acc": [],
+       "why_vi": "Tác giả cho rằng viết tay nên là phần trung tâm của chương trình tiểu học những năm đầu.",
+       "ev": "For this reason, I would argue that handwriting should remain a central part of the early primary curriculum, even if it takes up time that some would prefer to spend on other subjects."
+      },
+      {
+       "q": "Children should be left to learn typing by themselves.",
+       "o": [],
+       "a": "NO",
+       "acc": [],
+       "why_vi": "Tác giả muốn trường dạy đánh máy như một kỹ năng riêng, \"rather than expecting children to pick it up on their own\".",
+       "ev": "It seems to me only fair that schools should teach typing as a skill in its own right, rather than expecting children to pick it up on their own."
+      },
+      {
+       "q": "Governments should give every school enough money to buy a laptop for each student.",
+       "o": [],
+       "a": "NOT GIVEN",
+       "acc": [],
+       "why_vi": "Tác giả nói thiết bị đắt và có thể lấy mất tiền mua sách, nhưng không nói chính phủ nên cấp tiền hay không.",
+       "ev": ""
+      },
+      {
+       "q": "Teachers should be allowed to decide which tool their students use for a task.",
+       "o": [],
+       "a": "YES",
+       "acc": [],
+       "why_vi": "\"Teachers are well placed to make these decisions, and they should be trusted to do so.\"",
+       "ev": "Teachers are well placed to make these decisions, and they should be trusted to do so."
+      }
+     ]
+    },
+    {
+     "ty": "R-se",
+     "inst": "Complete each sentence with the correct ending, A–F, below.",
+     "opts": [
+      "A. because they select and summarise what they hear.",
+      "B. because they cannot record their ideas quickly enough.",
+      "C. because devices take money from other needs.",
+      "D. because forming letters helps them recognise letters.",
+      "E. because screens make it easier to share work.",
+      "F. because paper is cheaper than computers."
+     ],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Students who take notes by hand may understand ideas better",
+       "o": [],
+       "a": "A. because they select and summarise what they hear.",
+       "acc": [],
+       "why_vi": "Viết tay chậm hơn nên buộc người học chọn lọc và tóm tắt, thay vì chép từng chữ.",
+       "ev": "The explanation offered was that typing is so fast that students tend to copy the lecturer word for word, while writing by hand forces them to select and summarise."
+      },
+      {
+       "q": "Writing by hand may help young children read",
+       "o": [],
+       "a": "D. because forming letters helps them recognise letters.",
+       "acc": [],
+       "why_vi": "Tập viết chữ cái giúp trẻ nhận ra chữ khi đọc.",
+       "ev": "Learning to form letters by hand seems to help children recognise those letters when they read."
+      },
+      {
+       "q": "Slow typists are at a disadvantage in computer-based exams",
+       "o": [],
+       "a": "B. because they cannot record their ideas quickly enough.",
+       "acc": [],
+       "why_vi": "Không phải vì biết ít hơn mà vì không ghi kịp ý.",
+       "ev": "Students who type slowly are at a real disadvantage in these situations, not because they know less, but because they cannot get their ideas down quickly enough."
+      },
+      {
+       "q": "Schools with small budgets may struggle to provide laptops",
+       "o": [],
+       "a": "C. because devices take money from other needs.",
+       "acc": [],
+       "why_vi": "Mua thiết bị cho mỗi em có thể làm bớt tiền cho sách hoặc giáo viên. F sai: bài không so giá giấy với máy tính.",
+       "ev": "Laptops and tablets are expensive, and in schools with limited budgets, providing a device for every child can mean less money for books or teachers."
+      }
+     ]
+    },
+    {
+     "ty": "R-mc",
+     "inst": "Choose the correct letter, A, B, C or D.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "What does the writer say about access to information?",
+       "o": [
+        "It is the main benefit of using devices in class.",
+        "It does not automatically lead to learning.",
+        "It is more important than reducing costs.",
+        "It is only possible with expensive technology."
+       ],
+       "a": "It does not automatically lead to learning.",
+       "acc": [],
+       "why_vi": "\"access to information is not the same as learning\": có thông tin chưa chắc đã học được.",
+       "ev": "That is true, but access to information is not the same as learning, and a classroom full of screens can also be a classroom full of distractions."
+      },
+      {
+       "q": "According to the writer, when is paper usually the better choice?",
+       "o": [
+        "when students are editing a long piece of work",
+        "when students are working with classmates",
+        "when students are planning or working through a problem",
+        "when students are producing a final draft"
+       ],
+       "a": "when students are planning or working through a problem",
+       "acc": [],
+       "why_vi": "Lên dàn ý, vẽ sơ đồ, giải toán thì giấy tự do hơn. Ba lựa chọn kia là lúc bàn phím hiệu quả hơn.",
+       "ev": "When students are planning an essay, sketching a diagram or working through a mathematical problem, paper often allows a freedom that a screen does not."
+      },
+      {
+       "q": "What is the writer's main aim for schools?",
+       "o": [
+        "to replace handwriting with typing",
+        "to produce students who can use both methods appropriately",
+        "to reduce the number of computers in classrooms",
+        "to encourage students to keep paper diaries"
+       ],
+       "a": "to produce students who can use both methods appropriately",
+       "acc": [],
+       "why_vi": "Câu kết: mục tiêu là học sinh làm được cả hai và biết lúc nào dùng cách nào.",
+       "ev": "For schools, however, the goal should be students who can do both, and who know when each is appropriate."
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

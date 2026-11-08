@@ -97,14 +97,23 @@ check('IELTS mở từ tab 🎯 Luyện đề (v141)', !!(await pg.$('#ie')) && 
 check('Luyện đề: màn 2 nút 📚 · 🤖 (v142)', (await pg.$$('#app .btnbig[data-expart]')).length === 2 && !(await pg.$('#app [data-daigo]')));
 // v141 🤖 đề AI (máy chủ giả fake-sb.js): bấm 🤖 → ▶ Làm đề AI mới → màn chờ → soạn xong → làm hết → kết quả có nhãn AI
 await pg.click('#app [data-expart="ai"]'); await pg.waitForTimeout(600); check('phần 🤖 có nhắc bài có sẵn', (await pg.innerText('#app')).includes('Bài có sẵn · miễn phí'));
-await pg.evaluate(() => { DAI.off = true; }); await pg.click('#app [data-daigo]'); await pg.waitForTimeout(600); check('đề AI: màn chờ', (await pg.innerText('#app')).includes('AI đang soạn đề') && await pg.isVisible('#tabs [data-tab="ld"].on'));
+await pg.evaluate(() => { DAI.off = true; DAI.kho = { de: [] }; }); await pg.click('#app [data-daigo]'); await pg.waitForTimeout(600); check('đề AI: màn chờ', (await pg.innerText('#app')).includes('AI đang soạn đề') && await pg.isVisible('#tabs [data-tab="ld"].on'));
 await pg.evaluate(async () => { const w = Object.values(daiSt().wait).find(x => x.st === 'dang'); if (w) await daiTick(w.id); }); await pg.waitForTimeout(400);
 for (let i = 0; i < 12 && await pg.$('[data-io], #it'); i++) { if (await pg.$('[data-io]')) await pg.click('[data-io]'); else { await pg.fill('#it', 'x'); await pg.click('#if button[type=submit]'); } await pg.waitForTimeout(60); const nx = await pg.$('[data-a="next"]'); if (nx) await nx.click(); await pg.waitForTimeout(60); }
 check('đề AI: làm xong ra kết quả có nhãn AI', /câu đúng[\s\S]*AI soạn, chưa giáo viên kiểm/.test(await pg.innerText('#app'))); await pg.evaluate(() => { DAI.off = false; EX_PART = 'san'; ieltsView(); }); await pg.waitForTimeout(800); await openAll(); check('IELTS có bản đồ band', (await pg.innerText('#app')).includes('Bản đồ band'));
+// v145 📚 kho đề soạn sẵn: phần 🤖 ghi số đề soạn sẵn; ▶ mở ngay đề trong kho (không màn chờ, không gọi máy chủ)
+await pg.evaluate(() => { DAI.kho = null; DAI.khoP = null; FAKE_CALLS = []; EX_PART = 'ai'; ieltsView(); }); await pg.waitForTimeout(900); check('phần 🤖 ghi đề soạn sẵn (v145)', (await pg.innerText('#app')).includes('đề soạn sẵn'));
+await pg.click('#app [data-daigo]'); await pg.waitForTimeout(700); check('đề soạn sẵn mở ngay, không gọi máy chủ (v145)', !(await pg.innerText('#app')).includes('AI đang soạn đề') && !!(await pg.$('[data-io], #it')) && await pg.evaluate(() => !FAKE_CALLS.length));
+await pg.evaluate(() => { EX_PART = 'san'; ieltsView(); }); await pg.waitForTimeout(800);
 await pg.click('[data-iesk="R"]'); await pg.waitForTimeout(400); check('IELTS Đọc theo khuôn Nền (v134: ô số đo + một nút chính)', !!(await pg.$('.statc')) && /Bài đọc/.test(await pg.innerText('#app'))); await pg.click('[data-iebt="R"]'); await pg.waitForTimeout(400);   // v122: 🏋️ Bài tập = bài kế tiếp
 for (let n = 0; n < 30; n++) { if (await pg.$('#it:not([disabled])')) { await pg.fill('#it', 'x'); await pg.click('#if button[type=submit]'); } else if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break;
   await pg.waitForTimeout(50); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(50); }
-check('IELTS đọc ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
+check('IELTS đọc ra kết quả', /câu đúng/.test(await pg.innerText('#app')));
+// v146 🎯 Sai ở đâu · học lại gì: ô gom câu sai theo dạng; 📘 Học lại mở bài học có nút ‹ Kết quả, bấm thì về đúng màn kết quả
+check('kết quả có ô 🎯 Sai ở đâu (v146)', !!(await pg.$('#hlbox [data-hl]')) && !!(await pg.$('#hlbox [data-hlgo]')));
+await pg.click('#hlbox [data-hl]'); await pg.waitForTimeout(700); check('📘 Học lại mở bài học, nút ‹ Kết quả (v146)', /‹ Kết quả/.test(await pg.innerText('#app')) && !!(await pg.$('[data-xlb]')));
+await pg.click('[data-xlb]'); await pg.waitForTimeout(400); check('‹ Kết quả về lại màn kết quả (v146)', !!(await pg.$('#hlbox')) && /câu đúng/.test(await pg.innerText('#app')));
+await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
 check('IELTS luyện xong về màn con Đọc', !!(await pg.$('[data-iehome]')) && await pg.isVisible('#tabs [data-tab="ld"].on'));
 await pg.click('[data-iehome]'); await pg.waitForTimeout(500); await pg.click('[data-iesk="W"]'); await pg.waitForTimeout(400); await openAll(); await pg.click('[data-iew="t2"]'); await pg.waitForTimeout(300); await pg.fill('#iwt', await pg.evaluate(() => IE.t2[0].m)); await pg.click('#iwf button[type=submit]'); await pg.waitForTimeout(300);
 check('IELTS viết máy ước band', /Máy ước: band/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
@@ -124,6 +133,17 @@ await pg.evaluate(() => mapView('toeic')); await pg.waitForTimeout(1200); await 
 await pg.evaluate(() => { MAP_TAB = null; toSkView('R'); }); await pg.waitForTimeout(500); await pg.click('[data-tomk="1"]'); await pg.waitForTimeout(800);
 for (let n = 0; n < 60; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('TOEIC đề thử Đọc ra điểm', /Kết quả TOEIC/.test(await pg.innerText('#app')));
+// v147 🎓 đề thử TOEIC trọn 200 câu: lối vào ở màn TOEIC; bắt đầu Nghe (thanh dưới ẩn); hệ số giờ nhỏ cho Nghe tự chạy hết; Đọc chọn câu, bảng câu, nộp → kết quả có ô Sai ở đâu
+await pg.evaluate(() => { EX_PART = 'san'; toeicView(); }); await pg.waitForTimeout(900); check('màn TOEIC có đề thử trọn 200 câu (v147)', !!(await pg.$('#app [data-trv]')));
+await pg.click('#app [data-trv]'); await pg.waitForTimeout(900); await pg.click('[data-trgo="de1"]'); await pg.waitForTimeout(400);
+await pg.evaluate(() => { TR.k = 0.0005; }); await pg.click('[data-trstart]'); await pg.waitForTimeout(300);
+{ const t = await pg.innerText('#app'); check('đề trọn: Nghe tự chạy, thanh dưới ẩn (v147)', (/🎧 Part \d · câu \d+/.test(t) || /Xong phần Nghe/.test(t)) && !(await pg.isVisible('#tabs'))); }   // hệ số giờ nhỏ: có thể đã qua câu 1
+for (let n = 0; n < 80 && !(await pg.$('[data-trrs]')); n++) await pg.waitForTimeout(250);
+check('đề trọn: hết Nghe sang màn chờ Đọc (v147)', !!(await pg.$('[data-trrs]'))); await pg.evaluate(() => { TR.k = 1; }); await pg.click('[data-trrs]'); await pg.waitForTimeout(300);
+await pg.click('[data-tra^="101|"]'); await pg.click('[data-trg]'); await pg.waitForTimeout(300);
+check('đề trọn: bảng câu 101–200, câu 101 đã chọn (v147)', (await pg.$$('.trc')).length === 100 && !!(await pg.$('.trc.done')));
+await pg.click('#app [data-trsub]'); await pg.waitForTimeout(900);
+check('đề trọn: nộp ra kết quả + ô Sai ở đâu (v147)', /Kết quả Đề 1/.test(await pg.innerText('#app')) && !!(await pg.$('#hlbox')));
 // 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả
 await pg.evaluate(() => { S = blank(); S.lt = { d: [], fx: {}, goal: { kind: 'cefr', lv: 'a2', date: '', at: Date.now() } }; ltView(); }); await pg.waitForTimeout(800); check('ô Hôm nay ở Lộ trình', (await pg.innerText('#app')).includes('Việc hôm nay'));
 await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }

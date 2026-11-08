@@ -1,0 +1,261 @@
+[
+ {
+  "id": "cb-b1-sn-01",
+  "ky": "cb-b1",
+  "sk": "doc",
+  "dang": "sn",
+  "g": {
+   "title": "B1 Đọc phần 1 · 5 tin ngắn",
+   "topic": "Short notices and messages",
+   "gist": "Five short real-world texts: a sign, a text message, a note, an email and a notice.",
+   "vi": "Đọc từng tin ngắn, chọn câu nói đúng ý tin.",
+   "text": "",
+   "groups": [
+    {
+     "ty": "sn",
+     "inst": "For each question, choose the correct answer.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "SWIMMING POOL\nChildren under 8 must be with an adult in the water at all times.\nWhat does the notice say?",
+       "o": [
+        "Young children need an adult beside them while swimming.",
+        "Children under 8 cannot use the pool.",
+        "Adults should not swim with children."
+       ],
+       "a": "Young children need an adult beside them while swimming.",
+       "acc": [],
+       "why_vi": "\"must be with an adult in the water at all times\" = luôn phải có người lớn cùng xuống nước. Không cấm trẻ em, cũng không cấm người lớn bơi cùng.",
+       "ev": ""
+      },
+      {
+       "q": "Mia, the 6:15 bus is cancelled, so I'll be at the café about 40 minutes late. Order without me if you're hungry! Sam\nWhy did Sam write this message?",
+       "o": [
+        "To change the place where they will meet",
+        "To tell Mia he will arrive later than planned",
+        "To ask Mia to buy food for him"
+       ],
+       "a": "To tell Mia he will arrive later than planned",
+       "acc": [],
+       "why_vi": "Xe buýt bị huỷ nên Sam tới trễ khoảng 40 phút. Chỗ hẹn vẫn là quán cà phê; Sam bảo Mia cứ gọi món, không nhờ mua đồ ăn.",
+       "ev": ""
+      },
+      {
+       "q": "Gym members: from Monday, please book classes online. Phone bookings will no longer be accepted.\nWhat is changing at the gym?",
+       "o": [
+        "Classes will start on Monday.",
+        "Members can only book classes on the website.",
+        "The gym is closing its phone line for repairs."
+       ],
+       "a": "Members can only book classes on the website.",
+       "acc": [],
+       "why_vi": "Từ thứ Hai đặt lớp trực tuyến, không nhận đặt qua điện thoại nữa. Lớp không phải mới bắt đầu.",
+       "ev": ""
+      },
+      {
+       "q": "Dad, I've borrowed your bike because mine has a flat tyre. I'll fix mine this weekend. Leo\nWhat does Leo say?",
+       "o": [
+        "He has repaired his father's bike.",
+        "He will use his father's bike until his own is fixed.",
+        "He wants to buy a new tyre for his father."
+       ],
+       "a": "He will use his father's bike until his own is fixed.",
+       "acc": [],
+       "why_vi": "Xe của Leo bị xẹp lốp nên mượn xe bố, cuối tuần sẽ sửa xe mình. Leo không sửa xe bố.",
+       "ev": ""
+      },
+      {
+       "q": "LIBRARY\nBooks returned after the due date: 20p per day. Children's books: no charge.\nWhat does the notice tell you?",
+       "o": [
+        "Children cannot borrow books.",
+        "You pay for late adult books but not late children's books.",
+        "All books must be returned within 20 days."
+       ],
+       "a": "You pay for late adult books but not late children's books.",
+       "acc": [],
+       "why_vi": "Trả sách trễ mất 20 xu mỗi ngày, riêng sách thiếu nhi không mất tiền. \"20p\" là tiền, không phải 20 ngày.",
+       "ev": ""
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "cb-b1-cloze-01",
+  "ky": "cb-b1",
+  "sk": "doc",
+  "dang": "cloze",
+  "g": {
+   "title": "B1 Đọc phần 5 · The town that grows its own food",
+   "topic": "A town that grows vegetables in public places",
+   "gist": "A short article about a town where vegetables are grown in public spaces for anyone to pick.",
+   "vi": "Đọc bài, chọn từ đúng cho 6 chỗ trống.",
+   "text": "The town that grows its own food\n\nTen years ago, a small group of people in the English town of Todmorden had an unusual idea. They [1] planting vegetables in public places, such as outside the police station and next to the bus stop. Anyone was allowed to pick the food for free.\n\nAt first, many people did not [2] what was happening. Some thought the plants were only for decoration. But slowly, the idea became popular. Local schools [3] part, and children learned how to grow beans and tomatoes.\n\nToday, visitors come from all over the world to see the gardens. The project has also [4] the town in other ways. Local shops now sell more food that is grown nearby, and people say they [5] their neighbours better than before. The organisers believe that growing food together is a simple way to [6] a community stronger.",
+   "groups": [
+    {
+     "ty": "cloze",
+     "inst": "Read the text and choose the correct word for each space.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Gap 1",
+       "o": [
+        "began",
+        "opened",
+        "made",
+        "set"
+       ],
+       "a": "began",
+       "acc": [],
+       "why_vi": "\"began planting\" = bắt đầu trồng (begin + V-ing). \"set\" cần \"set about\"; \"opened\", \"made\" không đi với V-ing này.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 2",
+       "o": [
+        "understand",
+        "explain",
+        "describe",
+        "discuss"
+       ],
+       "a": "understand",
+       "acc": [],
+       "why_vi": "Câu sau nói có người tưởng cây chỉ để trang trí, tức họ chưa \"understand\" (hiểu) chuyện gì đang xảy ra. Các từ khác không hợp nghĩa.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 3",
+       "o": [
+        "took",
+        "had",
+        "joined",
+        "gave"
+       ],
+       "a": "took",
+       "acc": [],
+       "why_vi": "Cụm cố định \"take part\" = tham gia. \"joined\" không đi với \"part\".",
+       "ev": ""
+      },
+      {
+       "q": "Gap 4",
+       "o": [
+        "helped",
+        "made",
+        "let",
+        "given"
+       ],
+       "a": "helped",
+       "acc": [],
+       "why_vi": "\"has also helped the town in other ways\" = còn giúp thị trấn theo những cách khác. \"made / let / given\" không đi được với cấu trúc này.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 5",
+       "o": [
+        "know",
+        "meet",
+        "see",
+        "learn"
+       ],
+       "a": "know",
+       "acc": [],
+       "why_vi": "\"know their neighbours better\" = hiểu hàng xóm hơn. \"meet … better\" không dùng.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 6",
+       "o": [
+        "make",
+        "do",
+        "put",
+        "turn"
+       ],
+       "a": "make",
+       "acc": [],
+       "why_vi": "Cấu trúc \"make + tân ngữ + tính từ\": \"make a community stronger\".",
+       "ev": ""
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "cb-b1-open-01",
+  "ky": "cb-b1",
+  "sk": "doc",
+  "dang": "open",
+  "g": {
+   "title": "B1 Đọc phần 6 · Email từ trại hè",
+   "topic": "An email from a summer camp",
+   "gist": "An email to a friend about a week at a summer camp.",
+   "vi": "Đọc email, điền MỘT từ vào mỗi chỗ trống.",
+   "text": "Hi Jess,\n\nI'm writing to you from the summer camp! I arrived [1] Saturday, and I've already made lots of new friends. There are about sixty of us here, and we all sleep in wooden cabins near the lake.\n\nEvery morning we go kayaking, and in the afternoon we can choose between climbing, art or football. Yesterday I tried climbing for the first time. It was much harder [2] I expected, but I got to the top in the end!\n\nThe food is better than I thought it would be, although there isn't [3] choice for vegetarians. My favourite part of the day is the evening, [4] we sit around the fire and sing songs.\n\nI really think you would enjoy it here. [5] you want, I can send you the website so you can come with me next year. Write back soon and tell me what you have [6] doing!\n\nLove,\nAnna",
+   "groups": [
+    {
+     "ty": "open",
+     "inst": "For each space, write ONE word.",
+     "opts": [],
+     "lim": 1,
+     "items": [
+      {
+       "q": "Gap 1",
+       "o": [],
+       "a": "on",
+       "acc": [
+        "last"
+       ],
+       "why_vi": "Trước thứ trong tuần dùng giới từ \"on\": \"on Saturday\". \"last Saturday\" (thứ Bảy vừa rồi) cũng đúng.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 2",
+       "o": [],
+       "a": "than",
+       "acc": [],
+       "why_vi": "Sau so sánh hơn \"harder\" là \"than\": \"harder than I expected\".",
+       "ev": ""
+      },
+      {
+       "q": "Gap 3",
+       "o": [],
+       "a": "much",
+       "acc": [
+        "a"
+       ],
+       "why_vi": "\"choice\" ở đây không đếm được, câu phủ định dùng \"much\": \"there isn't much choice\". \"a choice\" cũng chấp nhận được.",
+       "ev": ""
+      },
+      {
+       "q": "Gap 4",
+       "o": [],
+       "a": "when",
+       "acc": [],
+       "why_vi": "Mệnh đề quan hệ chỉ thời gian bổ nghĩa cho \"the evening\": \"when we sit around the fire\".",
+       "ev": ""
+      },
+      {
+       "q": "Gap 5",
+       "o": [],
+       "a": "If",
+       "acc": [],
+       "why_vi": "Câu điều kiện: \"If you want, I can send you the website\" (nếu bạn muốn).",
+       "ev": ""
+      },
+      {
+       "q": "Gap 6",
+       "o": [],
+       "a": "been",
+       "acc": [],
+       "why_vi": "Hiện tại hoàn thành tiếp diễn \"what you have been doing\" (dạo này bạn làm gì).",
+       "ev": ""
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

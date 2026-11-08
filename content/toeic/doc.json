@@ -1570,6 +1570,16 @@
       "It includes paid parking."
      ],
      "why": "12 tháng > tối thiểu 6 tháng."
+    },
+    {
+     "q": "In the advertisement, the word \"shared\" is closest in meaning to",
+     "a": "common",
+     "w": [
+      "divided",
+      "told",
+      "equal"
+     ],
+     "why": "\"shared meeting rooms\" = phòng họp dùng chung cho mọi khách thuê (common), không phải \"chia ra\" (divided)."
     }
    ]
   },
@@ -1738,6 +1748,16 @@
       "After 7:00 P.M."
      ],
      "why": "tomorrow morning before we open at 7:00."
+    },
+    {
+     "q": "What is NOT listed on the invoice?",
+     "a": "A delivery charge",
+     "w": [
+      "A replacement part",
+      "A call-out fee",
+      "Labor costs"
+     ],
+     "why": "Hoá đơn có tiền công (labor), máy bơm thay mới, phí gọi thợ; không có phí giao hàng."
     }
    ]
   },
@@ -1910,6 +1930,16 @@
       "He teaches Presentation Skills."
      ],
      "why": "Hạn 20/8, nộp ngày 22/8 (đối chiếu)."
+    },
+    {
+     "q": "What will most likely happen if Eva Ruiz misses a course without notice?",
+     "a": "The Sales department will have to pay for it.",
+     "w": [
+      "She will be removed from all courses.",
+      "The course will be moved to another day.",
+      "The Training Office will refund the fee."
+     ],
+     "why": "Đối chiếu: Eva Ruiz có tên trong phiếu phòng Sales; e-mail nói phòng ban phải trả tiền cho người vắng không báo trước."
     }
    ]
   },
@@ -2100,6 +2130,16 @@
       "They will be printed by another company."
      ],
      "why": "they will still arrive before your deadline."
+    },
+    {
+     "q": "In the e-mail of April 4, the word \"removed\" is closest in meaning to",
+     "a": "taken off",
+     "w": [
+      "moved away",
+      "sent back",
+      "paid for"
+     ],
+     "why": "\"removed the delivery charge from your invoice\" = bỏ phí giao hàng ra khỏi hoá đơn (taken off)."
     }
    ]
   },
@@ -2424,6 +2464,248 @@
       "Cancel the session"
      ],
      "why": "I'll check with her (the trainer) and get back to you both."
+    }
+   ]
+  },
+  {
+   "id": "t7-notice3",
+   "kind": "Notice",
+   "docs": [
+    {
+     "title": "Notice to all tenants — Harbor View Tower",
+     "text": "Elevator B will be closed for scheduled maintenance from Monday, June 9, to Wednesday, June 11. During this time, Elevator A and the stairs on the east side of the building will remain available. Tenants expecting large deliveries on these days should contact the building office at extension 210 so that the freight elevator can be reserved for them. We apologize for any inconvenience. — Building Management"
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the purpose of the notice?",
+     "a": "To announce a temporary closure",
+     "w": [
+      "To welcome new tenants",
+      "To change the office hours",
+      "To advertise a moving service"
+     ],
+     "why": "Elevator B will be closed for scheduled maintenance (đóng tạm 3 ngày)."
+    },
+    {
+     "q": "What should tenants do if they expect a large delivery?",
+     "a": "Contact the building office",
+     "w": [
+      "Use the east stairs",
+      "Wait until June 12",
+      "Call the delivery company"
+     ],
+     "why": "should contact the building office at extension 210 so that the freight elevator can be reserved."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-venue",
+   "kind": "Web page + e-mail + review",
+   "docs": [
+    {
+     "title": "Greenleaf Conference Center — Rooms",
+     "text": "Oak Room: up to 20 people, $300 per day, projector.\nBirch Hall: up to 60 people, $650 per day, projector and sound system.\nCedar Suite: up to 120 people, $1,100 per day, projector, sound system and stage.\nCatering is available for groups of 30 or more. Bookings made at least 60 days in advance receive a 10% discount."
+    },
+    {
+     "title": "E-mail · To: bookings@greenleafcc.com · From: Marta Silva, Nordvik Pharmaceuticals · Date: March 3",
+     "text": "Hello, I would like to book a room for a training day on May 20. We expect 45 employees. A guest speaker will give a talk in the morning, so we will need a sound system. We would also like lunch to be served for everyone. Please confirm the price, including any discount we are eligible for. Best regards, Marta Silva"
+    },
+    {
+     "title": "Online review · Posted May 24 by Marta Silva",
+     "text": "We held a training day at Greenleaf this week. The room was bright and comfortable, and lunch was excellent. In the afternoon the sound system stopped working for about fifteen minutes, but the staff responded promptly and fixed it. Overall, a very good experience. We will book again next year."
+    }
+   ],
+   "qs": [
+    {
+     "q": "Which room did Ms. Silva most likely book?",
+     "a": "Birch Hall",
+     "w": [
+      "Oak Room",
+      "Cedar Suite",
+      "Two Oak Rooms"
+     ],
+     "why": "Đối chiếu: 45 người cần âm thanh → Birch Hall (tới 60 người, có sound system). Oak Room quá nhỏ, Cedar Suite thừa chỗ và đắt hơn."
+    },
+    {
+     "q": "Why will Nordvik Pharmaceuticals most likely receive a discount?",
+     "a": "The booking was made more than 60 days early.",
+     "w": [
+      "The group is larger than 30 people.",
+      "More than one room was booked.",
+      "The event takes place on a weekday."
+     ],
+     "why": "Đối chiếu: đặt ngày 3/3 cho ngày 20/5, sớm 78 ngày > 60 ngày → giảm 10%. Nhóm trên 30 người chỉ là điều kiện gọi đồ ăn."
+    },
+    {
+     "q": "What is indicated about lunch for the training day?",
+     "a": "The group was large enough to order it.",
+     "w": [
+      "It was served in the Cedar Suite.",
+      "It cost extra because of the discount.",
+      "It was brought by the employees."
+     ],
+     "why": "Đối chiếu: đồ ăn chỉ có cho nhóm từ 30 người; nhóm có 45 người và bài nhận xét khen bữa trưa."
+    },
+    {
+     "q": "What problem does Ms. Silva mention in her review?",
+     "a": "Some equipment stopped working for a short time.",
+     "w": [
+      "The room was too small.",
+      "Lunch was served late.",
+      "The guest speaker did not arrive."
+     ],
+     "why": "the sound system stopped working for about fifteen minutes."
+    },
+    {
+     "q": "In the review, the word \"promptly\" is closest in meaning to",
+     "a": "quickly",
+     "w": [
+      "politely",
+      "carefully",
+      "quietly"
+     ],
+     "why": "\"responded promptly and fixed it\" = phản hồi nhanh (quickly)."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-job",
+   "kind": "Advertisement + e-mail + schedule",
+   "docs": [
+    {
+     "title": "Job opening — Lindgren Hotels",
+     "text": "Lindgren Hotels is looking for a Front Desk Supervisor for its Harbor Street location. Requirements: at least two years of experience at a hotel reception desk, fluency in English and one other language, and the ability to work weekend shifts. To apply, send a résumé and a cover letter to jobs@lindgren.com by September 15."
+    },
+    {
+     "title": "E-mail · To: jobs@lindgren.com · From: Tomás Herrera · Date: September 12",
+     "text": "Dear Hiring Manager, I am writing to apply for the Front Desk Supervisor position. I have worked at the reception desk of the Grand Central Hotel for three years, and I speak English, Spanish and Portuguese. I am currently taking a part-time course in hospitality management on Saturday mornings, which ends in December. I hope this will not be a problem. My résumé and cover letter are attached. Sincerely, Tomás Herrera"
+    },
+    {
+     "title": "Interview schedule — September 20 · Harbor Street, Room 4",
+     "text": "9:00 A.M. — Mei Lin\n10:00 A.M. — Tomás Herrera\n11:00 A.M. — Ahmed Nasser\nInterviewer: Grace Lindqvist, Guest Services Manager. Candidates should bring a copy of their résumé."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the purpose of the advertisement?",
+     "a": "To fill a supervisor position",
+     "w": [
+      "To announce a new hotel",
+      "To promote a training course",
+      "To offer discounted rooms"
+     ],
+     "why": "Lindgren Hotels is looking for a Front Desk Supervisor."
+    },
+    {
+     "q": "Which requirement could be difficult for Mr. Herrera until December?",
+     "a": "Working weekend shifts",
+     "w": [
+      "Having hotel experience",
+      "Speaking two languages",
+      "Sending a cover letter"
+     ],
+     "why": "Đối chiếu: công việc cần làm ca cuối tuần; anh học sáng thứ Bảy tới tháng 12."
+    },
+    {
+     "q": "What is suggested about Mr. Herrera's application?",
+     "a": "It was sent before the deadline.",
+     "w": [
+      "It did not include a cover letter.",
+      "It was sent to the wrong address.",
+      "It was rejected by Ms. Lindqvist."
+     ],
+     "why": "Đối chiếu: hạn 15/9, e-mail gửi ngày 12/9; có lịch phỏng vấn nên không bị loại."
+    },
+    {
+     "q": "What time will Mr. Herrera be interviewed?",
+     "a": "At 10:00 A.M.",
+     "w": [
+      "At 9:00 A.M.",
+      "At 11:00 A.M.",
+      "At 2:00 P.M."
+     ],
+     "why": "10:00 A.M. — Tomás Herrera."
+    },
+    {
+     "q": "What is NOT a requirement for the position?",
+     "a": "A university degree",
+     "w": [
+      "Hotel reception experience",
+      "Knowledge of two languages",
+      "Weekend availability"
+     ],
+     "why": "Quảng cáo đòi kinh nghiệm lễ tân, 2 ngôn ngữ, làm cuối tuần; không nói bằng đại học."
+    }
+   ]
+  },
+  {
+   "id": "t7-m-library",
+   "kind": "Notice + schedule + e-mail",
+   "docs": [
+    {
+     "title": "Westbrook Public Library — Summer renovation",
+     "text": "The second floor of the library will be closed for renovation from July 1 to August 31. During this time, the children's section will move to the Community Room on the first floor, and the computer lab will be closed. Printing services will remain available at the front desk. Opening hours will not change."
+    },
+    {
+     "title": "Summer events — Community Room",
+     "text": "Story Time (ages 3–5): Tuesdays, 10:00 A.M.\nCraft Club (ages 6–9): Thursdays, 3:00 P.M.\nTeen Book Talk (ages 13–17): Saturdays, 2:00 P.M.\nAll events are free. Registration is required for Craft Club because materials are limited."
+    },
+    {
+     "title": "E-mail · To: info@westbrooklibrary.org · From: Hannah Okoye · Date: July 8",
+     "text": "Hello, my daughter is seven and would love to join one of your summer events. I tried to register her online, but the form would not accept my library card number. Also, she needs to use a computer for a school project this month. Is there a computer she can use at the library? Thank you, Hannah Okoye"
+    }
+   ],
+   "qs": [
+    {
+     "q": "Why is part of the library closed this summer?",
+     "a": "For renovation work",
+     "w": [
+      "Because of staff shortages",
+      "To prepare for a book sale",
+      "Because of a power outage"
+     ],
+     "why": "The second floor of the library will be closed for renovation."
+    },
+    {
+     "q": "Where will Story Time take place during the renovation?",
+     "a": "On the first floor",
+     "w": [
+      "On the second floor",
+      "In the computer lab",
+      "At a nearby school"
+     ],
+     "why": "Đối chiếu: sự kiện ở Community Room; thông báo nói Community Room ở tầng 1."
+    },
+    {
+     "q": "On which day will Ms. Okoye's daughter most likely attend an event?",
+     "a": "Thursday",
+     "w": [
+      "Tuesday",
+      "Saturday",
+      "Sunday"
+     ],
+     "why": "Đối chiếu: con 7 tuổi → Craft Club (6–9 tuổi) chiều thứ Năm."
+    },
+    {
+     "q": "What problem does Ms. Okoye mention?",
+     "a": "She could not complete an online registration.",
+     "w": [
+      "Her library card has expired.",
+      "An event was canceled.",
+      "Her daughter lost a book."
+     ],
+     "why": "the form would not accept my library card number."
+    },
+    {
+     "q": "What will Ms. Okoye most likely be told about using a computer?",
+     "a": "The computer lab is closed until the renovation ends.",
+     "w": [
+      "She can use a computer in the Community Room.",
+      "Computers can be reserved on Saturdays.",
+      "Printing services are not available."
+     ],
+     "why": "Đối chiếu: thông báo nói phòng máy tính đóng trong thời gian sửa (tới 31/8); máy in vẫn có ở quầy trước."
     }
    ]
   }
