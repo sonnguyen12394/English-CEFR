@@ -36,6 +36,7 @@
 - Q: Câu mới chỉ nằm trong đề thử trọn hay cũng vào luyện từng Part? → A: **Chỉ trong đề thử trọn** (giữ câu mới cho lúc thi thử).
 - Q: Chưa có giáo viên, kiểm đáp án bằng cách nào? → A: người sáng lập: "Khi soạn đề bạn cũng cần soạn đáp án" → **Claude soạn đáp án + giải thích cùng lúc với câu hỏi**, tự soát, máy kiểm khi dựng; không mở phiên phụ giải lại (không tốn thêm lượt).
 - Q: Độ khó của 10 đề mới? → A: **Như đề thật**: mỗi Part dễ dần sang khó.
+- Người sáng lập thêm: "Sau khi làm bài xong thì sẽ có 1 phần hiện bài làm và đáp án" → **User Story 4: 📋 Bài làm và đáp án** cho cả 200 câu, mọi đề (Đề 1–12), xem ngay sau khi nộp và xem lại sau.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -82,12 +83,29 @@ Sau mỗi đề, người học xem câu sai, giải thích, và đi tới bài 
 1. **Given** người học làm sai câu ở đề mới, **When** xem kết quả, **Then** câu đó nằm trong ô 🎯 Sai ở đâu, nối tới đúng bài học của dạng.
 2. **Given** câu Part 1, 5, 6, 7 của đề mới, **When** xem câu sai, **Then** có giải thích tiếng Việt như kho cũ.
 
+### User Story 4 - Xem lại bài làm và đáp án (Priority: P2)
+
+Nộp bài xong, người học xem cả bài làm của mình và đáp án của 200 câu, không chỉ câu sai; mở lại app vẫn xem được bài làm lần gần nhất của mỗi đề.
+
+**Why this priority**: học từ đề cần so từng câu mình chọn với đáp án và đọc lại lời nghe / bài đọc; hiện nay chỉ thấy danh sách câu sai (gập trong ô 🎯 Sai ở đâu), không có lời nghe / bài đọc, rời màn kết quả là mất.
+
+**Independent Test**: làm Đề 1 (chọn đúng vài câu, sai vài câu, bỏ trống vài câu), nộp → mở "📋 Bài làm và đáp án" → bảng 200 câu đúng màu; chạm câu 35 → thấy lời hội thoại, chữ bạn chọn, đáp án; tắt mở lại app → từ danh sách đề vẫn mở được bài làm.
+
+**Acceptance Scenarios**:
+
+1. **Given** người học vừa nộp bài, **When** xem kết quả, **Then** có mục "📋 Bài làm và đáp án": số câu đúng / sai / bỏ trống và bảng 200 ô theo Part; mỗi ô ghi số câu, tô màu đúng / sai / bỏ trống, ghi chữ đã chọn và chữ đáp án.
+2. **Given** bảng bài làm, **When** chạm một câu, **Then** mở màn xem lại cả bài chứa câu đó: tranh (Part 1), lời nghe hiện chữ + 🔊 nghe lại (Part 2–4), câu / đoạn / văn bản (Part 5–7); mỗi câu đánh dấu phương án đã chọn và đáp án đúng, có giải thích và 📍 câu chứa đáp án khi có; ‹ Trước · Sau ›; lọc "Chỉ câu sai".
+3. **Given** người học đã rời màn kết quả hoặc tắt app, **When** mở danh sách đề, **Then** mỗi đề đã làm có lối "📋 Xem bài làm lần gần nhất".
+4. **Given** màn xem lại, **When** chạm phương án, **Then** không đổi được đáp án, không đổi điểm.
+
 ### Edge Cases
 
 - Đang làm dở Đề 1 hoặc 2 khi app cập nhật thêm đề: đề dở giữ nguyên, làm tiếp được.
 - Thiếu tệp giọng của một câu nghe: dùng giọng máy như v147.
 - Câu mới bị máy kiểm bắt lỗi (sai cơ cấu, đáp án không có trong phương án, trùng): bộ dựng dừng, đề đó không được phát hành.
 - Người học đã làm hết 12 đề: vẫn làm lại được, so với lần trước.
+- Đề làm trước bản có 📋 Bài làm (Đề 1–2 trước bản 147) chưa lưu từng câu: danh sách đề ghi "chưa lưu bài làm từng câu", không có lối xem.
+- Làm lại một đề: bài làm lần mới thay bài làm lần trước (chỉ giữ lần gần nhất mỗi đề).
 
 ## Requirements *(mandatory)*
 
@@ -105,12 +123,15 @@ Sau mỗi đề, người học xem câu sai, giải thích, và đi tới bài 
 - **FR-010**: Bảng kiểm cho giáo viên (`docs/kiem-noi-dung.html`) thêm các câu mới.
 - **FR-011**: Không chép đề ETS; người, công ty, nơi chốn trong đề là hư cấu.
 - **FR-012**: KHÔNG đổi luật đo (luyện thi không tính 📘 Học / 🔁 Nhớ / Thi chuyển cấp).
+- **FR-013**: Lưu bài làm lần gần nhất của mỗi đề (chữ đã chọn của 200 câu, ~200 ký tự / đề) cùng dữ liệu học để xem lại sau, kể cả trên máy khác cùng tài khoản.
+- **FR-014**: Màn 📋 Bài làm và đáp án dùng cho mọi đề trọn (Đề 1–12); chỉ để xem, không sửa đáp án, không đổi điểm, không ghi thêm vào bản đồ điểm.
 
 ### Key Entities
 
 - **Đề trọn**: mã, tên (Đề 3…), danh sách mã câu / bài theo 7 Part.
 - **Câu / bài mới**: mã riêng theo đề, Part, nhãn dạng, đáp án, phương án sai, giải thích (Part 1, 5, 6, 7), lời nghe (Part 1–4), bảng (nếu có), tranh (Part 1).
 - **Tệp giọng**: một tệp mỗi câu nghe, khoá theo nội dung câu.
+- **Bài làm lần gần nhất**: mã đề, thời điểm, chữ đã chọn của câu 1–200 (bỏ trống ghi riêng).
 
 ## Success Criteria *(mandatory)*
 
@@ -122,6 +143,8 @@ Sau mỗi đề, người học xem câu sai, giải thích, và đi tới bài 
 - **SC-004**: 100% câu nghe mới có giọng (Kokoro, hoặc ghi rõ giọng máy).
 - **SC-005**: Test toàn bộ xanh; chạy nhanh một đề mới từ đầu tới kết quả không lỗi.
 - **SC-006** (mốc dừng): sau đợt đầu, có ≥ 1 người học thật làm 1 đề mới của app và 1 đề ETS trong cùng tuần; điểm lệch > 100 mỗi phần thì dừng soạn tiếp, sửa độ khó trước.
+
+- **SC-007**: Sau khi nộp, xem được bài làm và đáp án của 200 / 200 câu; tắt mở lại app vẫn xem được bài làm lần gần nhất của đề đó.
 
 ## Assumptions
 

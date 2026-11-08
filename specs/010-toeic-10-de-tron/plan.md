@@ -4,7 +4,7 @@
 
 ## Summary
 
-Soạn Đề 3 → Đề 12 (2.000 câu mới) theo đợt 2 đề, mỗi đợt một bản phát hành. Câu mới chỉ nằm trong đề trọn: mỗi đề một tệp riêng, tải khi vào đề, không vào kho luyện (`TO.p1…p7`), nên phần luyện từng Part, bài học, bản đồ không thể dùng nhầm. Bộ dựng `tools/build-toeic.mjs` kiểm từng đề như kho cũ, thêm kiểm câu trích chứa đáp án (`ev`) có nguyên văn trong lời nghe / bài đọc, không trùng câu, đủ dạng. Bộ chạy `totron.js` giữ nguyên, chỉ thêm bước tải tệp đề.
+Soạn Đề 3 → Đề 12 (2.000 câu mới) theo đợt 2 đề, mỗi đợt một bản phát hành. Câu mới chỉ nằm trong đề trọn: mỗi đề một tệp riêng, tải khi vào đề, không vào kho luyện (`TO.p1…p7`), nên phần luyện từng Part, bài học, bản đồ không thể dùng nhầm. Bộ dựng `tools/build-toeic.mjs` kiểm từng đề như kho cũ, thêm kiểm câu trích chứa đáp án (`ev`) có nguyên văn trong lời nghe / bài đọc, không trùng câu, đủ dạng. Bộ chạy `totron.js` thêm bước tải tệp đề và mục 📋 Bài làm và đáp án (bảng 200 câu ở màn kết quả, màn xem lại từng bài có lời nghe / bài đọc, lưu bài làm lần gần nhất mỗi đề để xem lại sau), dùng cho cả Đề 1–2; làm trước trong đợt 1.
 
 ## Technical Context
 
@@ -54,7 +54,8 @@ toeic-tron/de3.json … de12.json            # MỚI (dựng): đề đã kiểm
 toeic.json                                 # `tron` thêm { id, t, f } cho đề mới (không chứa câu)
 tools/build-toeic.mjs                      # kiểm + dựng đề mới (dùng chung hàm kiểm của kho)
 tools/build-audio.py                       # đọc thêm câu nghe của toeic-tron/*.json
-totron.js                                  # tải tệp đề trước khi dựng (trB), danh sách 12 đề
+totron.js                                  # tải tệp đề trước khi dựng (trB), danh sách 12 đề, 📋 Bài làm và đáp án (bảng 200 câu, màn xem lại, lưu S.to.tronA)
+index.html                                 # CSS bảng bài làm / màn xem lại (dùng biến màu chung)
 toeic.js                                   # toTalkQs / toP7Qs giữ `ev` (📍 câu chứa đáp án ở kết quả)
 tools/export-review.mjs                    # bảng kiểm giáo viên: thêm câu đề mới
 tools/test/run.mjs, tools/test/e2e-webkit.mjs
@@ -66,7 +67,7 @@ tools/test/run.mjs, tools/test/e2e-webkit.mjs
 
 | Đợt | Đề | Bản | Ghi chú |
 |-----|----|-----|---------|
-| 0 | khung | cùng bản đợt 1 | bộ dựng, totron.js tải tệp, build-audio, C66 |
+| 0 | khung + 📋 Bài làm và đáp án | cùng bản đợt 1 | bộ dựng, totron.js tải tệp, xem lại bài làm (Đề 1–2 dùng được ngay), build-audio, C66 |
 | 1 | Đề 3–4 | v149 · bản 147 | **mốc dừng**: chờ người sáng lập "tiếp"; khuyên 1 người học thật làm 1 đề app + 1 đề ETS |
 | 2 | Đề 5–6 | v150 | |
 | 3 | Đề 7–8 | v151 | |

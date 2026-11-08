@@ -6,7 +6,7 @@
 ## Format: `[ID] [P?] [Story] Description`
 
 - **[P]**: làm song song được (khác tệp, không chờ việc chưa xong)
-- **[Story]**: US1 làm thêm đề chưa gặp · US2 đề sát đề thật về dạng câu · US3 xem đáp án và học lại
+- **[Story]**: US1 làm thêm đề chưa gặp · US2 đề sát đề thật về dạng câu · US3 xem đáp án và học lại · US4 📋 bài làm và đáp án
 
 ## Phase 1: Setup
 
@@ -52,6 +52,17 @@
 - [ ] T015 [P] [US3] `toeic.js`: `toTalkQs`, `toP7Qs` giữ `ev` của câu hỏi; `hoclai.js` `hlEv` hiện `ev` cho câu đề mới
 - [ ] T016 [US3] C66 thêm: làm sai một câu Part 3, Part 7 của Đề 3 → ô 🎯 Sai ở đâu nối đúng bài học, có 📍; e2e thêm 1 bước mở Đề 3 (`tools/test/e2e-webkit.mjs`)
 
+## Phase 5b: User Story 4 - Xem lại bài làm và đáp án (P2)
+
+**Goal**: nộp xong thấy bài làm + đáp án của cả 200 câu, xem lại từng bài có lời nghe / bài đọc; mở lại app vẫn xem được (mọi đề, kể cả Đề 1–2).
+**Independent Test**: làm Đề 1 (đúng / sai / bỏ trống vài câu) → 📋 bảng 200 ô đúng màu → chạm câu 35 → thấy hội thoại, chữ đã chọn, đáp án → tắt mở lại → từ danh sách đề vẫn mở được.
+
+- [ ] T015b [US4] Thiết kế: chụp màn kết quả hiện tại (Chromium khổ iPhone SE), chấm 3 vấn đề; bản phác bảng 200 ô + màn xem lại theo khuôn sẵn có (`.trgrid`, `.trplan`), chữ theo ux-copy
+- [ ] T015c [US4] `totron.js`: `trSubmit` lưu `S.to.tronA[de] = { at, a }` ("chuỗi 200 ký tự … '-' = bỏ trống"); mục "📋 Bài làm và đáp án" ở `trRes`: số đúng / sai / bỏ trống, lọc Tất cả · Câu sai · Bỏ trống, bảng 200 ô theo Part (ô ≥ 44 px, màu + ký hiệu, không chỉ dựa vào màu)
+- [ ] T015d [US4] `totron.js`: màn xem lại một bài (`trRv`): tranh Part 1, lời nghe hiện chữ + 🔊 nghe lại Part 2–4, câu / đoạn / văn bản Part 5–7; mỗi câu đánh dấu đã chọn / đáp án, giải thích, 📍 câu chứa đáp án; ‹ Trước · Sau › (theo lọc); không sửa được đáp án
+- [ ] T015e [US4] `totron.js` danh sách đề: "📋 Xem bài làm lần gần nhất" khi có `S.to.tronA[de]`; đề làm trước bản này ghi "chưa lưu bài làm từng câu"
+- [ ] T015f [US4] C66 thêm: lưu đúng chuỗi bài làm, bảng 200 ô đúng màu, xem lại câu 35 có lời nghe + đáp án, mở lại từ danh sách đề; e2e 1 bước; kiểm tiếp cận sáng + tối (vùng bấm ≥ 44 px, tương phản)
+
 ## Phase 6: Polish đợt 1 + mốc dừng
 
 - [ ] T017 [P] `tools/export-review.mjs`: bảng kiểm giáo viên thêm câu Đề 3–4 (gập theo đề)
@@ -68,7 +79,7 @@
 
 ## Dependencies & Execution Order
 
-- Phase 1 → Phase 2 → (US1 T007–T011 ∥ US2 T012–T014 ∥ US3 T015–T016) → Phase 6 → **dừng** → Phase 7 (tuần tự từng đợt).
+- Phase 1 → Phase 2 → (US4 T015b–T015f làm trước, dùng được ngay cho Đề 1–2) → (US1 T007–T011 ∥ US2 T012–T014 ∥ US3 T015–T016) → Phase 6 → **dừng** → Phase 7 (tuần tự từng đợt).
 - T009 cần T003, T005; T010 cần T009; T012–T013 cần T003 (Đề 3–4 phải qua kiểm sau T012–T013).
 - Mỗi đợt ở Phase 7 cần đợt trước đã phát hành và lời "tiếp" của người sáng lập.
 
@@ -88,5 +99,5 @@ T008 soạn content/toeic/tron/de04.json
 
 ## Implementation Strategy
 
-- MVP = Phase 1 + 2 + đợt 1 (Đề 3–4) + US2 + US3, phát hành một bản (v149, bản 147), rồi dừng.
+- MVP = Phase 1 + 2 + US4 (📋 Bài làm và đáp án) + đợt 1 (Đề 3–4) + US2 + US3, phát hành một bản (v149, bản 147), rồi dừng.
 - Mỗi đợt sau thêm 2 đề, mỗi đợt một bản; lỗi chung lộ ra ở đợt 1 thì sửa khung trước khi soạn tiếp.

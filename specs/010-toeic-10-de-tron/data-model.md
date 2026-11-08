@@ -39,6 +39,10 @@ Nhãn dạng còn lại suy bằng `toqt.js` như kho (Part 1 `k`, Part 2 `ty`, 
   { "id": "de3", "t": "Đề 3", "f": "toeic-tron/de3.json" } ]   // đề mới: chỉ trỏ tệp
 ```
 
+## Bài làm lần gần nhất (MỚI, US4)
+
+`S.to.tronA[de] = { at, a }`: `a` = chuỗi 200 ký tự, ký tự thứ n là chữ đã chọn ở câu n (A–D, theo thứ tự phương án cố định của đề), "-" = bỏ trống. Ghi khi nộp (cả khi hết giờ tự nộp); làm lại thì thay. ~200 byte / đề, 12 đề ~2,5 KB. Chỉ để xem, không vào luật đo, không ghi bản đồ.
+
 ## Trạng thái người học (không đổi khuôn)
 
 - `S.to.tron` (đề đang dở): `de` có thể là `de3`… như cũ.
