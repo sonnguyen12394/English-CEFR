@@ -1,6 +1,6 @@
 # Feature Specification: Đề thử TOEIC trọn 200 câu, đúng giờ thật
 
-**Feature Branch**: `claude/ecstatic-curie-q9g1ja` · **Created**: 2026-11-08 · **Status**: Clarified (chờ người sáng lập "ok" kế hoạch)
+**Feature Branch**: `claude/ecstatic-curie-q9g1ja` · **Created**: 2026-11-08 · **Status**: Đã làm (người sáng lập "Ok" 8/11/2026; v147, bản 145)
 
 **Input**: "Làm đề thử trọn 200 câu đúng giờ thật đi" (người sáng lập, 8/11/2026, sau khi hỏi cấu trúc đề và quy chế thi TOEIC thật).
 
@@ -40,4 +40,4 @@ Người ôn TOEIC chọn Đề 1 hoặc Đề 2, đeo tai nghe, bấm Bắt đ�
 ## Rủi ro / lệch so với đề thật (chấp nhận)
 - Tranh Part 1 là tranh vẽ, không phải ảnh chụp; giọng máy / Kokoro, không phải giọng thu chuẩn ETS.
 - Câu có bảng: kho chỉ 3 bài Part 3 + 3 bài Part 4 (đề thật 3 + 2 mỗi đề) nên chia đều 2 đề, mỗi đề ít hơn thật.
-- Thời gian Nghe phụ thuộc độ dài âm thanh của app, ước 38–45 phút.
+- Thời gian Nghe phụ thuộc độ dài âm thanh của app: đo được ~19–20 phút (âm thanh ~7 phút + giờ chọn ~12 phút), đề thật ~45 phút vì bài nghe dài hơn, có đọc hướng dẫn và đọc to câu hỏi. Nhịp chọn từng câu giữ như đề thật; màn chọn đề ghi rõ. (Trước khi làm ước 38–45 phút: sai.)

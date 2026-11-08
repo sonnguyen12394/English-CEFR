@@ -12,7 +12,8 @@ const HL_IE_L = { form: 'form', tab: 'form', flow: 'form', sent: 'sent', sa: 'se
 const HL_IE_LT = { 'L-form': 'form', 'L-note': 'form', 'L-sa': 'sent', 'L-mc': 'mc', 'L-map': 'map', 'L-match': 'match' };   // câu đề AI / soạn sẵn chỉ có ty; L-note (Part 4 ghi chú) học như điền phiếu / bảng / lưu đồ
 const HL_P2 = { wh: 'p2', yn: 'p2-yn', or: 'p2-or', req: 'p2-req', stmt: 'p2-st' }, HL_Q34 = { gist: 'gist', next: 'next', imp: 'imp', graphic: 'g' };
 const HL_MIN = 2, HL_BAD = 0.6, HL_OK = 0.75, HL_MAXN = 60, HL_ROWS = 3, HL_WN = 5;
-let HL_LC = {}, HL_W = [], HL_SEEN = 0, HL_HIT = 0;
+let HL_LC = {}, HL_W = [], HL_SEEN = 0, HL_HIT = 0, HL_WQ = 0;
+const HL_WQMAX = 30;   // v147: đề trọn 200 câu có thể sai rất nhiều câu: chỉ gợi ý từ chưa học cho 30 câu sai đầu (dạng sai nhiều trước)
 
 // ---------- câu → bài học: [kỳ thi, kỹ năng, khoá bài học (d.k) hoặc số thứ tự phần] ----------
 function hlIe(q) { const t = String(q.ty || ''), k = String(q.k || '').replace(/^ln-/, '');
@@ -76,12 +77,12 @@ function hlWords(s) { if (!s || typeof vwCands !== 'function') return ''; let C 
 function hlItem(r) { const q = r.q, ans = q.kind === 'mc' ? mcAns(q) : (q.acc || [q.a])[0], ev = hlEv(q), src = ev || (q.sec === 'p5' ? hlTxt(q.q) : '');
   return `<div class="hlq">${r.part ? `<p class="mute" style="margin:0;font-size:14px">${esc(r.part)}</p>` : ''}<p style="margin:2px 0">${q.q}</p>
     <p style="margin:2px 0">Bạn: ${esc(String(r.ans == null ? '' : r.ans).slice(0, 200))} · Đáp án: <b>${esc(String(ans == null ? '' : ans))}</b></p>${q.why && typeof q.why === 'string' ? `<p class="mute" style="margin:2px 0 0">${esc(q.why)}</p>` : ''}
-    ${ev && !q.ev ? `<p style="margin:4px 0 0">📍 Câu chứa đáp án: “${esc(ev)}”</p>` : ''}${hlWords(src)}</div>`; }
+    ${ev && !q.ev ? `<p style="margin:4px 0 0">📍 Câu chứa đáp án: “${esc(ev)}”</p>` : ''}${HL_WQ++ < HL_WQMAX ? hlWords(src) : ''}</div>`; }
 
 // ---------- ô kết quả ----------
 // ctx: { ex: 'cambridge' + lv (+ uk | dang, sk) khi là Cambridge; src: 'thi' | 'luyen' | 'ai'; nolog: không đánh cờ }. Trả { html, pri: có dạng để học lại (màn gọi hạ nút chính của nó) }
 function hlBox(res, ctx = {}) { const { rows, all, other } = hlGroups(res, ctx); if (!ctx.nolog) hlMark(all, ctx.src);   // đánh / xoá cờ cả khi đúng hết
-  const wrong = (res || []).filter(r => r && r.ok === false && r.q && r.q.kind !== 'write' && r.q.kind !== 'speak'); if (!wrong.length) return { html: '', pri: false }; HL_W = [];
+  const wrong = (res || []).filter(r => r && r.ok === false && r.q && r.q.kind !== 'write' && r.q.kind !== 'speak'); if (!wrong.length) return { html: '', pri: false }; HL_W = []; HL_WQ = 0;
   if (rows.length) { const C = S.xsc = S.xsc || { n: 0, k: 0, l: 0, p: 0, w: 0 }; C.n++; HL_SEEN = C.n; HL_HIT = 0; S.t = Date.now(); save(); }
   const row = (g, j) => `<div class="hlr"><p style="margin:0"><b>${g.d.ic || ''} ${esc(g.d.t)}</b> <span class="mute">· sai ${g.bad}/${g.n}</span></p>
     <div class="chips tap" style="margin:6px 0 0"><button class="chip${j === 0 ? ' on' : ''}" data-hl="${g.ex}|${esc(g.sk)}|${g.i}">📘 Học lại</button>${g.d.go ? `<button class="chip" data-hlgo="${g.ex}|${esc(g.sk)}" ${g.d.go}>🏋️ Luyện dạng này</button>` : ''}</div></div>`;

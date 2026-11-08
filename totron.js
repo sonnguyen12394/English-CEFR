@@ -8,7 +8,8 @@
 //   giữ TR_KEEP giờ kể từ lần lưu cuối. Thứ tự phương án cố định theo đề (trH), nên vào lại vẫn đúng chữ A–D.
 // Kết quả: điểm ước toScale theo tỉ lệ đúng (KHÔNG phải bảng quy đổi ETS), đúng từng Part, thời gian, gián đoạn, so lần trước cùng đề, ô 🎯 Sai ở đâu (hoclai.js);
 //   S.to.mock (full: 1, de) cho điểm ước ở màn TOEIC; bản đồ toLog 'thi' (câu đã chọn); S.to.r (bài đã gặp: luyện sau ưu tiên bài chưa gặp).
-const TR_RMIN = 75, TR_KEEP = 3, TR_P12 = 5, TR_P34 = 8, TR_SECS = { p1: 'Part 1', p2: 'Part 2', p3: 'Part 3', p4: 'Part 4', p5: 'Part 5', p6: 'Part 6', p7: 'Part 7' };
+const TR_LMIN = 20, TR_RMIN = 75, TR_KEEP = 3,   // TR_LMIN: phần Nghe của app ~19–20 phút (âm thanh ~7 phút + giờ chọn ~12 phút; đề thật ~45 phút)
+  TR_P12 = 5, TR_P34 = 8, TR_SECS = { p1: 'Part 1', p2: 'Part 2', p3: 'Part 3', p4: 'Part 4', p5: 'Part 5', p6: 'Part 6', p7: 'Part 7' };
 const TR = { k: 1, tok: 0, tm: 0, on: '', B: {} };   // k: hệ số giờ (test đặt nhỏ) · tok: lượt phát / đếm giờ đang chạy · tm: đồng hồ · on: 'L' | 'R' | '' · B: đề đã dựng
 const TR_VIEW = 'toeic-de-thu-tron';   // CUR.view có "de-thu": tắt chạm từ để tra (tudien.js TD_NOTAP)
 const trSt = () => toSt().tron || null;
@@ -42,7 +43,7 @@ async function trPlayUnit(u, tok) { EXAM_VOX = true; const L = u.x.lines || kSen
   return tok === TR.tok ? 'ok' : 'stop'; }
 
 // ---------- màn chọn đề + quy chế ----------
-const TR_RULE = () => ['Đeo tai nghe, ngồi chỗ yên tĩnh, để trống khoảng 2 giờ liền.',
+const TR_RULE = () => ['Đeo tai nghe, ngồi chỗ yên tĩnh, để trống khoảng 1 giờ 40 phút liền.',
   `Nghe (Part 1–4): máy phát liên tục, mỗi bài một lần. Part 1–2 có ${TR_P12} giây chọn sau mỗi câu; Part 3–4 có ${TR_P34} giây mỗi câu sau mỗi bài (câu hỏi in sẵn trên màn, đọc trước khi nghe). Không dừng, không nghe lại, không quay lại.`,
   `Đọc (Part 5–7): ${TR_RMIN} phút. Làm câu nào trước cũng được, ⚑ đánh dấu câu muốn xem lại, 📋 bảng câu để nhảy tới câu bất kỳ. Hết giờ máy tự nộp.`,
   `Lỡ thoát app: vào lại trong ${TR_KEEP} giờ để làm tiếp. Nghe phát lại bài đang dở, đáp án đã chọn vẫn giữ; Đọc vẫn tính giờ thật. Số lần gián đoạn ghi ở kết quả.`,
@@ -51,7 +52,7 @@ const TR_RULE = () => ['Đeo tai nghe, ngồi chỗ yên tĩnh, để trống kh
 function trRow() { if (typeof TO === 'undefined' || !TO || !(TO.tron || []).length) return ''; const st = trSt(), fresh = st && Date.now() - st.up <= TR_KEEP * 36e5;
   const M = (toSt().mock || []).filter(r => r.full && r.de), last = M[M.length - 1];
   return `<div class="box hcard" style="margin:12px 0 0"><button class="hrow" data-trv><span class="ic">${fresh ? '⏸' : '🎓'}</span><span class="t"><b>${fresh ? 'Làm tiếp đề thử trọn · ' + esc(trName(st.de)) : 'Đề thử trọn 200 câu'}</b>
-    <small>${fresh ? esc(trWhere(st)) : `2 giờ như thi thật · ${TO.tron.length} đề${last ? ` · lần gần nhất ≈ ${last.tot}` : ''}`}</small></span><span class="chev">›</span></button></div>`; }
+    <small>${fresh ? esc(trWhere(st)) : `Nghe ~${TR_LMIN} phút tự chạy + Đọc ${TR_RMIN} phút · ${TO.tron.length} đề${last ? ` · lần gần nhất ≈ ${last.tot}` : ''}`}</small></span><span class="chev">›</span></button></div>`; }
 const trWhere = st => st.ph === 'L' ? `Đang ở phần Nghe, câu ${((trB(st.de) || { L: [] }).L[st.li] || { a: 1 }).a} / 100` : st.rAt ? `Phần Đọc còn ${trMMSS(trLeft(st))}` : 'Xong phần Nghe, chưa bắt đầu Đọc';
 async function trReady0() { if (!TO) await toLoad(); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {} }
 async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX = false; TR.on = ''; TR.tok++; clearInterval(TR.tm);
@@ -59,14 +60,14 @@ async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX 
   let st = trSt(), gone = false; if (st && Date.now() - st.up > TR_KEEP * 36e5) { toSt().tron = null; S.t = Date.now(); save(); st = null; gone = true; }
   const M = (toSt().mock || []).filter(r => r.full && r.de), last = de => M.filter(r => r.de === de).slice(-1)[0];
   $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-trb>‹ TOEIC</button></div>
-    <h1>🎓 Đề thử trọn 200 câu</h1><p class="mute" style="margin:0 0 10px">Như thi thật: Nghe 100 câu khoảng 45 phút, máy tự chạy · Đọc 100 câu trong ${TR_RMIN} phút.</p>
+    <h1>🎓 Đề thử trọn 200 câu</h1><p class="mute" style="margin:0 0 10px">Như thi thật: Nghe 100 câu, máy tự chạy, khoảng ${TR_LMIN} phút · Đọc 100 câu trong ${TR_RMIN} phút. Đề thật phần Nghe ~45 phút vì bài nghe dài hơn, có đọc hướng dẫn và đọc to câu hỏi; nhịp chọn từng câu ở app như đề thật.</p>
     ${gone ? `<div class="box"><p style="margin:0">Đề thử dở quá ${TR_KEEP} giờ nên đã huỷ. Làm lại từ đầu nhé.</p></div>` : ''}
     ${st ? `<div class="box"><b>⏸ ${esc(trName(st.de))} đang dở</b><p class="mute" style="margin:4px 0 8px">${esc(trWhere(st))} · giữ tới ${new Date(st.up + TR_KEEP * 36e5).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</p>
       <button class="pri" data-trgo="resume">▶ Làm tiếp</button><button class="link tap" data-trdrop>Bỏ đề này, làm lại từ đầu</button></div>` : ''}
     <div class="box hcard">${(TO.tron || []).map(d => { const r = last(d.id); return `<button class="hrow" data-trgo="${d.id}"${st ? ' disabled' : ''}><span class="ic">📝</span><span class="t"><b>${esc(d.t)}</b>
       <small>${r ? `Lần trước ≈ ${r.tot} điểm (Nghe ${r.b.L} · Đọc ${r.b.R}) · ${new Date(r.at).toLocaleDateString('vi-VN')}` : 'Chưa làm'}</small></span><span class="chev">›</span></button>`; }).join('')}</div>
     ${st ? '<p class="mute" style="font-size:14px">Đang có đề dở: làm tiếp hoặc bỏ đề đó trước khi bắt đầu đề khác.</p>' : ''}
-    <details class="box"${st ? '' : ' open'}><summary><b>📋 Quy chế như thi thật</b></summary><ol style="margin:6px 0 0;padding-left:22px">${TR_RULE().map(t => `<li style="margin:4px 0">${esc(t)}</li>`).join('')}</ol></details>
+    <details class="box trrule"${st ? '' : ' open'}><summary><b>📋 Quy chế như thi thật</b></summary><ol style="margin:6px 0 0;padding-left:22px">${TR_RULE().map(t => `<li style="margin:4px 0">${esc(t)}</li>`).join('')}</ol></details>
     <p class="mute" style="font-size:13px">TOEIC là thương hiệu của ETS; đề do app soạn theo cơ cấu đề thật, không chép đề ETS. 🤖 Claude soạn, chưa giáo viên kiểm.</p>`;
   $app.onclick = e => { const g = s => e.target.closest(s); let b;
     if (g('[data-trb]')) return toeicView();
@@ -77,7 +78,7 @@ async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX 
 function trReady(de) { const d = (TO.tron || []).find(x => x.id === de); if (!d) return trView(); window.CUR = { view: TR_VIEW };
   $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-trv>‹ Đề thử trọn</button></div><h1>📝 ${esc(d.t)}</h1>
     <div class="box"><p style="margin:0">Phần Nghe bắt đầu ngay khi bấm nút. Đeo tai nghe và chỉnh âm lượng trước.</p><div class="chips tap" style="margin:8px 0 0"><button class="chip" data-trtest>🔊 Thử âm thanh</button></div></div>
-    <button class="btnbig" data-trstart="${esc(de)}">▶ Bắt đầu phần Nghe<small>100 câu · khoảng 45 phút · không dừng</small></button>`;
+    <button class="btnbig" data-trstart="${esc(de)}">▶ Bắt đầu phần Nghe<small>100 câu · khoảng ${TR_LMIN} phút · không dừng</small></button>`;
   $app.onclick = e => { const b = e.target.closest('[data-trstart]'); if (b) return trStart(b.dataset.trstart); if (e.target.closest('[data-trtest]')) { EXAM_VOX = true; speak('This is a sound check. If you can hear this clearly, you are ready.'); } }; scrollTo(0, 0); }
 function trStart(de) { if (!trB(de)) return trView(); const now = Date.now(); toSt().tron = { de, ph: 'L', lAt: now, li: 0, ans: {}, fl: {}, gap: 0, ps: 0, up: now }; S.t = now; save(); trL(); }
 function trResume() { const st = trSt(); if (!st) return trView(); if (!st.ps) st.gap = (st.gap || 0) + 1; st.ps = 0; st.up = Date.now(); S.t = st.up; save();
@@ -93,21 +94,22 @@ function trLBody(u, st) { const q0 = u.qs[0];
 // play = false: vào lại sau gián đoạn → chờ người dùng bấm (điện thoại cần một lần bấm mới cho phát), bài phát lại từ đầu
 function trL(play = true) { const st = trSt(); if (!st) return trView(); const B = trB(st.de), u = B.L[st.li]; if (!u) return trLEnd();
   TR.on = 'L'; const tok = ++TR.tok; window.CUR = { view: TR_VIEW, item: 'L' + u.a }; trHush();
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-trx>✕ Thoát</button><span class="uname">🎧 ${TR_SECS[u.sec]} · câu ${u.a}${u.b > u.a ? '–' + u.b : ''}/100</span><b id="trT"></b></div>
+  $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trx>✕ Thoát</button><span class="uname">🎧 ${TR_SECS[u.sec]} · câu ${u.a}${u.b > u.a ? '–' + u.b : ''}/100</span><b id="trT"></b></div>
     <div id="trS" class="box trstat">${play ? '<b>🔊 Đang phát…</b>' : `<p style="margin:0 0 8px">⏸ Bị gián đoạn. Bài này sẽ phát lại từ đầu; đáp án đã chọn vẫn giữ.</p><button class="pri" data-trplay>▶ Nghe tiếp từ câu ${u.a}</button>`}</div>${trLBody(u, st)}`;
   $app.onclick = trClick; trTick(); scrollTo(0, 0); if (!play) return;
-  trPlayUnit(u, tok).then(r => { if (tok !== TR.tok) return; if (r === 'blocked') { const el = document.getElementById('trS'); if (el) el.innerHTML = '<p style="margin:0 0 8px">Điện thoại chặn tự phát âm thanh. Giờ chọn chưa tính.</p><button class="pri" data-trplay>▶ Bấm để nghe tiếp</button>'; return; } trWin(u, tok); }); }
+  trPlayUnit(u, tok).then(r => { if (tok !== TR.tok) return; if (!document.getElementById('trS')) return trAway(); if (r === 'blocked') { const el = document.getElementById('trS'); if (el) el.innerHTML = '<p style="margin:0 0 8px">Điện thoại chặn tự phát âm thanh. Giờ chọn chưa tính.</p><button class="pri" data-trplay>▶ Bấm để nghe tiếp</button>'; return; } trWin(u, tok); }); }
 // giờ chọn sau mỗi bài; hết giờ thì sang bài sau (đáp án của bài này khoá lại)
 function trWin(u, tok) { const s0 = u.sec === 'p1' || u.sec === 'p2' ? TR_P12 : TR_P34 * u.qs.length + (u.x.g ? 4 : 0), t1 = Date.now() + s0 * 1000 * TR.k;
-  const step = () => { if (tok !== TR.tok) return; const ms = t1 - Date.now(), el = document.getElementById('trS'); if (ms <= 0) return trLNext(tok);
+  const step = () => { if (tok !== TR.tok) return; const ms = t1 - Date.now(), el = document.getElementById('trS'); if (!el) return trAway(); if (ms <= 0) return trLNext(tok);
     if (el) el.innerHTML = `<b>⏱ Còn ${Math.ceil(ms / 1000)} giây</b> · chọn đáp án${bar(ms / 10 / s0 / TR.k, 100, 'var(--accent)')}`; setTimeout(step, Math.min(250, ms)); };
   step(); }
+function trAway() { const st = trSt(); TR.on = ''; TR.tok++; clearInterval(TR.tm); trHush(); EXAM_VOX = false; if (st && !st.ps) { st.ps = 1; st.gap = (st.gap || 0) + 1; st.up = Date.now(); S.t = st.up; save(); } }
 function trLNext(tok) { if (tok !== undefined && tok !== TR.tok) return; const st = trSt(); if (!st) return; st.li++; st.up = Date.now(); S.t = st.up; save(); trL(); }
 function trLEnd() { const st = trSt(); TR.on = ''; TR.tok++; clearInterval(TR.tm); trHush(); EXAM_VOX = false; if (st.ph === 'L') { st.ph = 'R'; st.lEnd = Date.now(); st.up = st.lEnd; S.t = st.up; save(); } trRReady(); }
 
 // ---------- phần Đọc ----------
 function trRReady() { const st = trSt(); if (!st) return trView(); TR.on = ''; window.CUR = { view: TR_VIEW };
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-trx>✕ Thoát</button></div><h1>✅ Xong phần Nghe</h1>
+  $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trx>✕ Thoát</button></div><h1>✅ Xong phần Nghe</h1>
     <div class="box"><p style="margin:0">Phần Đọc: 100 câu (Part 5–7), ${TR_RMIN} phút. Làm câu nào trước cũng được; ⚑ đánh dấu câu muốn xem lại; hết giờ máy tự nộp.</p><p class="mute" style="margin:6px 0 0">Đề thật chuyển ngay sang Đọc, không nghỉ.</p></div>
     <button class="btnbig" data-trrs>▶ Bắt đầu phần Đọc<small>${TR_RMIN} phút tính từ lúc bấm</small></button>`;
   $app.onclick = trClick; scrollTo(0, 0); }
@@ -121,11 +123,12 @@ function trRBody(u, st) {
   return head + u.qs.map(q => (u.sec === 'p6' ? `<p style="margin:12px 0 6px"><b>${q.n}.</b> <button class="chip trfl${st.fl[q.n] ? ' on' : ''}" data-trf="${q.n}" aria-pressed="${!!st.fl[q.n]}" aria-label="Đánh dấu câu ${q.n}">⚑</button></p>` : trQHead(q, st, 1)) + trOpts(q, st)).join(''); }
 function trR() { const st = trSt(); if (!st) return trView(); if (!st.rAt) return trRReady(); if (trLeft(st) <= 0) return trSubmit(true);
   const B = trB(st.de); st.ri = Math.max(0, Math.min(B.R.length - 1, st.ri || 0)); const u = B.R[st.ri]; TR.on = 'R'; TR.tok++; window.CUR = { view: TR_VIEW, item: 'R' + u.a };
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-trx>✕ Thoát</button><span class="uname">📖 ${TR_SECS[u.sec]} · câu ${u.a}${u.b > u.a ? '–' + u.b : ''}</span><b id="trT"></b></div>
-    ${trRBody(u, st)}<div class="row trnav">${st.ri > 0 ? '<button data-trp>‹ Trước</button>' : '<span></span>'}<button data-trg>📋 Bảng câu</button>${st.ri < B.R.length - 1 ? '<button class="pri" data-trn>Sau ›</button>' : '<button class="pri" data-trsub>Nộp bài</button>'}</div>`;
+  $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trx>✕ Thoát</button><span class="uname">📖 ${TR_SECS[u.sec]} · câu ${u.a}${u.b > u.a ? '–' + u.b : ''}</span><b id="trT"></b></div>
+    ${trRBody(u, st)}<div class="row trnav">${st.ri > 0 ? '<button data-trp>‹ Trước</button>' : '<span></span>'}${st.ri < B.R.length - 1 ? '<button class="pri" data-trn>Sau ›</button>' : '<button class="pri" data-trsub>Nộp bài</button>'}</div>
+    <button data-trg id="trgc" style="margin-top:8px">📋 Bảng câu 101–200 · đã chọn ${trDoneR(st)}/100</button>`;
   $app.onclick = trClick; trTick(); scrollTo(0, 0); }
 function trGrid() { const st = trSt(); if (!st) return trView(); const B = trB(st.de), Rq = B.R.flatMap(u => u.qs), uOf = q => B.R.findIndex(u => u.qs.includes(q)), un = Rq.filter(q => !st.ans[q.n]).length; TR.on = 'R';
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-trj="${st.ri}">‹ Về câu đang làm</button><b id="trT"></b></div><h1>📋 Bảng câu 101–200</h1>
+  $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trj="${st.ri}">‹ Về câu đang làm</button><b id="trT"></b></div><h1>📋 Bảng câu 101–200</h1>
     <p class="mute" style="margin:0 0 8px">${100 - un}/100 câu đã chọn · ${Object.keys(st.fl).length} câu ⚑. Chạm số câu để tới câu đó.</p>
     <div class="trgrid">${Rq.map(q => `<button class="trc${st.ans[q.n] ? ' done' : ''}${st.fl[q.n] ? ' fl' : ''}${uOf(q) === st.ri ? ' cur' : ''}" data-trj="${uOf(q)}" aria-label="Câu ${q.n}${st.ans[q.n] ? ', đã chọn' : ', chưa chọn'}${st.fl[q.n] ? ', có đánh dấu' : ''}">${q.n}${st.fl[q.n] ? '⚑' : st.ans[q.n] ? '✓' : ''}</button>`).join('')}</div>
     <button class="pri" data-trsub style="margin-top:12px">Nộp bài</button>`;
@@ -136,7 +139,8 @@ function trTick() { clearInterval(TR.tm); const f = () => { const st = trSt(), e
       for (const m of [10, 5]) if (ms <= m * 60000 * TR.k && !(st.wn || {})[m]) { st.wn = Object.assign({}, st.wn, { [m]: 1 }); toast(`Còn ${m} phút phần Đọc.`); } }
     else if (el) el.textContent = '⏱ ' + trMMSS(Date.now() - st.lAt); };
   f(); TR.tm = setInterval(f, 1000); }
-function trMark(q, st) { document.querySelectorAll(`[data-tra^="${q.n}|"]`).forEach(b => { const on = q.opts[+b.dataset.tra.split('|')[1]] === st.ans[q.n]; b.classList.toggle('sel', on); b.setAttribute('aria-pressed', String(on)); }); }
+const trDoneR = st => Object.keys(st.ans).filter(n => +n > 100).length;
+function trMark(q, st) { const gc = document.getElementById('trgc'); if (gc) gc.textContent = `📋 Bảng câu 101–200 · đã chọn ${trDoneR(st)}/100`; document.querySelectorAll(`[data-tra^="${q.n}|"]`).forEach(b => { const on = q.opts[+b.dataset.tra.split('|')[1]] === st.ans[q.n]; b.classList.toggle('sel', on); b.setAttribute('aria-pressed', String(on)); }); }
 function trClick(e) { const g = s => e.target.closest(s), st = trSt(); let b; if (!st) return;
   if ((b = g('[data-tra]'))) { const [n, j] = b.dataset.tra.split('|'), B = trB(st.de), q = B.Q[+n - 1]; if (!q) return;
     if (TR.on === 'L' && !(B.L[st.li] || { qs: [] }).qs.includes(q)) return;   // Nghe: chỉ chọn được câu của bài đang phát

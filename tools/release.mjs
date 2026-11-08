@@ -42,4 +42,6 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
      ở chỗ chấm Viết bấm 📋 Chép lời nhắc chấm → dán được vào Claude / ChatGPT.
   11. (v146) Làm 1 bài đọc IELTS (cố tình sai vài câu): kết quả có ô 🎯 Sai ở đâu; bấm 📘 Học lại → bài học có nút ‹ Kết quả, bấm về đúng kết quả;
      mở "Xem câu sai" → chạm 📌 một từ → vào Sổ từ; màn Đọc ghi "vừa sai · xem lại" ở dạng sai nhiều.
+  12. (v147) 🎯 Luyện đề → TOEIC → 📚: dòng 🎓 Đề thử trọn 200 câu → Đề 1 → ▶ Bắt đầu phần Nghe: đeo tai nghe, nghe ít nhất 5 câu xem máy có TỰ phát
+     sang câu sau không (không phải bấm); khoá màn 10 giây rồi mở lại: thấy "▶ Nghe tiếp"; ✕ Thoát → vào lại "Làm tiếp"; Đọc: chọn, ⚑, 📋 bảng câu, nộp.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);

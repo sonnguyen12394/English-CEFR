@@ -1934,6 +1934,53 @@ const R = await run(`(async () => {
     } catch (e) { bad.push('lỗi: ' + e.message); }
     S = S1; MK = null; DAI.kho = null; DAI.khoP = null; DAI.off = false;
     out.push({ lv: 'cefr', id: 'C63', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎯 Sai ở đâu · học lại gì: ' + nq + ' câu (IELTS, TOEIC, Cambridge, đề soạn sẵn, dạng đề AI) đều nối tới bài học có thật; nhãn dạng TOEIC cho đề soạn sẵn; ô ở đề thử IELTS / TOEIC / Cambridge, bài luyện, dạng đề thật (nút chính hạ xuống); 📘 Học lại về lại kết quả; 🏋️ mở bài tập dạng đó; cờ vừa sai lên đầu danh sách, hết cờ khi học lại hoặc làm đúng; 📌 lưu từ; không đụng thẻ học' }); }
+  // v147 C64 🎓 đề thử TOEIC trọn 200 câu (specs/008-toeic-de-tron): 2 đề đúng cơ cấu đề thật, không trùng câu, thứ tự phương án cố định; Nghe chỉ chọn được câu của bài đang phát;
+  // Đọc có bảng câu / ⚑ / nhảy câu; làm tiếp + đếm gián đoạn; quá 3 giờ huỷ; hết giờ tự nộp; đúng hết = 990; kết quả có ô Sai ở đâu + so lần trước; màn thi ẩn thanh dưới; không đụng thẻ học
+  { const bad = [], S1 = S, H = () => String($app.innerHTML), P0 = trPlayUnit, ev = (sel, o) => ({ target: { closest: s => s === sel ? o : null } }); let n0 = 0;
+    S = blank(); S.to = { target: 600 }; globalThis.trPlayUnit = () => new Promise(() => {}); TR.B = {}; TR.k = 1;
+    try { await toLoad(); const cards0 = JSON.stringify(S.cards), T = TO.tron || [], NEED = { 'Part 1': 6, 'Part 2': 25, 'Part 3': 39, 'Part 4': 30, 'Part 5': 30, 'Part 6': 16, 'Part 7': 54 };
+      if (T.length !== 2) bad.push('cần 2 đề, có ' + T.length);
+      const ids = T.map(d => new Set(trB(d.id).U.map(u => u.x.id)));
+      for (const d of T) { const B = trB(d.id), by = {}; for (const q of B.Q) by[TR_SECS[q.sec]] = (by[TR_SECS[q.sec]] || 0) + 1; n0 += B.Q.length;
+        if (B.Q.length !== 200 || B.L.flatMap(u => u.qs).length !== 100 || Object.entries(NEED).some(([k, v]) => by[k] !== v)) bad.push(d.id + ': sai cơ cấu ' + JSON.stringify(by));
+        if (B.Q.some((q, i) => q.n !== i + 1)) bad.push(d.id + ': đánh số câu sai'); }
+      if ([...ids[0]].some(i => ids[1].has(i))) bad.push('hai đề trùng câu');
+      const o1 = trB('de1').Q.map(q => q.opts.join('|')).join('/'); TR.B = {}; if (trB('de1').Q.map(q => q.opts.join('|')).join('/') !== o1) bad.push('thứ tự phương án đổi khi dựng lại (vào lại sai chữ A–D)');
+      // màn chọn đề + bắt đầu
+      await trView(); if (!H().includes('Đề 1') || !H().includes('Quy chế') || !H().includes('id="ie"')) bad.push('màn chọn đề thiếu');
+      trStart('de1'); let st = trSt(); if (!st || st.ph !== 'L' || !H().includes('Part 1 · câu 1/100') || H().includes('id="ie"')) bad.push('bắt đầu Nghe sai / còn thanh dưới');
+      trClick(ev('[data-tra]', { dataset: { tra: '1|0' } })); trClick(ev('[data-tra]', { dataset: { tra: '50|0' } }));
+      if (st.ans['1'] !== 'A' || st.ans['50']) bad.push('Nghe: chọn câu chưa phát được / câu đang phát không ghi');
+      for (let i = 0; i < 60 && trSt().ph === 'L'; i++) trLNext(TR.tok);
+      if (trSt().ph !== 'R' || !H().includes('Xong phần Nghe') || trSt().rAt) bad.push('hết Nghe chưa sang màn chờ Đọc');
+      trClick(ev('[data-trrs]', {})); st = trSt(); const B1 = trB('de1'), q101 = B1.Q[100];
+      if (!st.rAt || !H().includes('101.') || H().includes('id="ie"')) bad.push('Đọc chưa bắt đầu');
+      trClick(ev('[data-tra]', { dataset: { tra: '101|' + q101.opts.indexOf(q101.a) } })); trClick(ev('[data-trf]', { dataset: { trf: '102' }, classList: { toggle() {} }, setAttribute() {} }));
+      if (st.ans['101'] !== q101.a || !st.fl['102']) bad.push('Đọc: chọn / đánh dấu không ghi');
+      trClick(ev('[data-trn]', {})); if (trSt().ri !== 1 || !H().includes('102.')) bad.push('Sau › chưa sang câu 102');
+      trClick(ev('[data-trg]', {})); if ((H().match(/class="trc/g) || []).length !== 100 || !H().includes('1 câu ⚑')) bad.push('bảng câu 101–200 sai');
+      trClick(ev('[data-trj]', { dataset: { trj: '30' } })); if (!H().includes('131.') || !H().includes('Part 6')) bad.push('nhảy tới Part 6 sai');
+      // vào lại: đếm gián đoạn; quá 3 giờ: huỷ
+      st.up = Date.now() - 36e5; await trView(); if (!H().includes('Đề 1 đang dở') || !H().includes('Làm tiếp')) bad.push('chưa có ô làm tiếp');
+      trResume(); if (trSt().gap !== 1 || !H().includes('131.')) bad.push('làm tiếp sai / chưa đếm gián đoạn: ' + trSt().gap);
+      trSt().up = Date.now() - 4 * 36e5; await trView(); if (trSt() || !H().includes('đã huỷ')) bad.push('đề dở quá 3 giờ chưa huỷ');
+      // hết giờ Đọc: tự nộp
+      trStart('de1'); st = trSt(); st.ph = 'R'; st.lEnd = Date.now(); st.rAt = Date.now() - 76 * 60000; trR(); let m = toSt().mock.slice(-1)[0];
+      if (!m || !m.full || m.de !== 'de1' || !m.auto || trSt() || !H().includes('hết giờ, máy tự nộp')) bad.push('hết giờ chưa tự nộp');
+      // đúng hết = 990; lần sau sai hết: so lần trước + ô Sai ở đâu
+      trStart('de2'); st = trSt(); for (const q of trB('de2').Q) st.ans[q.n] = q.a; st.ph = 'R'; st.lEnd = Date.now(); st.rAt = Date.now(); trSubmit(false); m = toSt().mock.slice(-1)[0];
+      if (m.tot !== 990 || m.ok.L !== 100 || m.ok.R !== 100 || m.by['Part 7'][0] !== 54) bad.push('đúng hết chưa ra 990: ' + JSON.stringify(m.ok));
+      trStart('de2'); st = trSt(); for (const q of trB('de2').Q) st.ans[q.n] = q.opts.find(o => o !== q.a); st.ph = 'R'; st.rAt = Date.now(); trSubmit(false); m = toSt().mock.slice(-1)[0];
+      if (m.tot !== 10 || !H().includes('So lần trước') || !H().includes('-980') || !H().includes('Sai ở đâu') || !H().includes('data-hl=')) bad.push('kết quả thiếu so lần trước / ô Sai ở đâu');
+      if (!toSt().ty || !Object.keys(toSt().ty).length || !toSt().r['t7-m-job']) bad.push('chưa ghi bản đồ / bài đã gặp');
+      // lối vào ở màn TOEIC (phần 📚) + đề dở thì ghi làm tiếp; phút luyện đề (lotrinh bọc trView)
+      EX_PART = 'san'; await toeicView(); if (!H().includes('data-trv') || !H().includes('Đề thử trọn 200 câu')) bad.push('màn TOEIC chưa có lối vào');
+      trStart('de1'); await toeicView(); if (!H().includes('Làm tiếp đề thử trọn')) bad.push('màn TOEIC chưa ghi đề dở'); toSt().tron = null;
+      if (!String(window.trView).includes('LT_EX_ON')) bad.push('chưa tính phút luyện đề');
+      if (JSON.stringify(S.cards) !== cards0) bad.push('đụng thẻ học (luật đo)');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
+    out.push({ lv: 'cefr', id: 'C64', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử TOEIC trọn: 2 đề × 200 câu đúng cơ cấu 6 / 25 / 39 / 30 / 30 / 16 / 54, không trùng, phương án cố định; Nghe chỉ chọn câu đang phát; Đọc chọn / ⚑ / Sau › / bảng câu / nhảy câu; làm tiếp đếm gián đoạn, quá 3 giờ huỷ; hết giờ tự nộp; đúng hết 990; kết quả so lần trước + ô Sai ở đâu; màn thi ẩn thanh dưới; lối vào màn TOEIC; không đụng thẻ học' }); }
   return out; })()`);
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];

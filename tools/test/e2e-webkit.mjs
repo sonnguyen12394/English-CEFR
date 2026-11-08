@@ -133,6 +133,17 @@ await pg.evaluate(() => mapView('toeic')); await pg.waitForTimeout(1200); await 
 await pg.evaluate(() => { MAP_TAB = null; toSkView('R'); }); await pg.waitForTimeout(500); await pg.click('[data-tomk="1"]'); await pg.waitForTimeout(800);
 for (let n = 0; n < 60; n++) { if (await pg.$('[data-ko]')) await pg.click('[data-ko="0"]'); else break; await pg.waitForTimeout(40); }
 check('TOEIC đề thử Đọc ra điểm', /Kết quả TOEIC/.test(await pg.innerText('#app')));
+// v147 🎓 đề thử TOEIC trọn 200 câu: lối vào ở màn TOEIC; bắt đầu Nghe (thanh dưới ẩn); hệ số giờ nhỏ cho Nghe tự chạy hết; Đọc chọn câu, bảng câu, nộp → kết quả có ô Sai ở đâu
+await pg.evaluate(() => { EX_PART = 'san'; toeicView(); }); await pg.waitForTimeout(900); check('màn TOEIC có đề thử trọn 200 câu (v147)', !!(await pg.$('#app [data-trv]')));
+await pg.click('#app [data-trv]'); await pg.waitForTimeout(900); await pg.click('[data-trgo="de1"]'); await pg.waitForTimeout(400);
+await pg.evaluate(() => { TR.k = 0.0005; }); await pg.click('[data-trstart]'); await pg.waitForTimeout(300);
+{ const t = await pg.innerText('#app'); check('đề trọn: Nghe tự chạy, thanh dưới ẩn (v147)', (/🎧 Part \d · câu \d+/.test(t) || /Xong phần Nghe/.test(t)) && !(await pg.isVisible('#tabs'))); }   // hệ số giờ nhỏ: có thể đã qua câu 1
+for (let n = 0; n < 80 && !(await pg.$('[data-trrs]')); n++) await pg.waitForTimeout(250);
+check('đề trọn: hết Nghe sang màn chờ Đọc (v147)', !!(await pg.$('[data-trrs]'))); await pg.evaluate(() => { TR.k = 1; }); await pg.click('[data-trrs]'); await pg.waitForTimeout(300);
+await pg.click('[data-tra^="101|"]'); await pg.click('[data-trg]'); await pg.waitForTimeout(300);
+check('đề trọn: bảng câu 101–200, câu 101 đã chọn (v147)', (await pg.$$('.trc')).length === 100 && !!(await pg.$('.trc.done')));
+await pg.click('#app [data-trsub]'); await pg.waitForTimeout(900);
+check('đề trọn: nộp ra kết quả + ô Sai ở đâu (v147)', /Kết quả Đề 1/.test(await pg.innerText('#app')) && !!(await pg.$('#hlbox')));
 // 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả
 await pg.evaluate(() => { S = blank(); S.lt = { d: [], fx: {}, goal: { kind: 'cefr', lv: 'a2', date: '', at: Date.now() } }; ltView(); }); await pg.waitForTimeout(800); check('ô Hôm nay ở Lộ trình', (await pg.innerText('#app')).includes('Việc hôm nay'));
 await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }
