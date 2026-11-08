@@ -195,11 +195,14 @@ const daiText = de => String(de.text || '').split(/\n\s*\n|\n(?=### )/).map(p =>
   .map(p => p.startsWith('### ') ? `<p style="margin:12px 0 0"><b>${esc(p.slice(4))}</b></p>` : `<p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0">${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
 const daiPass = de => de.text ? `<details class="box" open style="margin-top:12px"><summary><b>${esc(de.title)}</b> <span class="mute">(${kWords(de.text).length} từ)</span></summary>${daiText(de)}</details>` : '';
 const DAI_LBL = { 'R-tf': IE_TFH, 'R-yn': typeof IE_YNH !== 'undefined' ? IE_YNH : '' };
+// v146: nhãn dạng câu TOEIC cho câu đề AI / soạn sẵn (luật chung toqt.js, như bộ dựng kho) để 🎯 Sai ở đâu (hoclai.js) nối đúng bài học của dạng
+const daiToTag = (q, it) => { const s = q.sec, t = String(it.q || ''); if (typeof tqP2 !== 'function') return;
+  if (s === 'p2') q.x.ty = tqP2(t); else if (s === 'p3' || s === 'p4') q.qt = tqQ34(t); else if (s === 'p7') q.qt = tqQ7(t); else if (s === 'p6') q.gt = tqP6({ o: it.o || [] }); };
 function daiQs(row) { const de = row.de, id = 'ai:' + row.id, ie = de.ky.startsWith('ielts'), to = de.ky === 'toeic', foot = daiPass(de), out = [];
   const lines = de.lines && de.lines.length ? daiLines(de) : null; let n = 0;
   for (const g of de.groups || []) for (const it of g.items || []) { const q = { x: { id, ...(to && g.ty.startsWith('p5:') ? { t: g.ty.slice(3) } : {}) }, why: it.why_vi + (it.ev ? ` 📍 “${it.ev}”` : ''), foot,
       head: `${de.part ? `<p class="mute" style="margin:0 0 2px;font-size:13px">📋 ${esc(de.part)}</p>` : ''}<p class="mute">${esc(g.inst || '')}</p>${DAI_LBL[g.ty] || ''}${lines || (to && g.ty === 'p2') ? '<p class="mute" style="font-size:13px">🔊 Giọng máy của điện thoại đọc lời AI soạn, không phải giọng thu sẵn.</p>' : ''}`, q: esc(it.q).replace(/\n/g, '<br>').replace(/_{3,}|-{5,}/, m => `<b>${m}</b>`) };
-    if (ie) q.ty = g.ty; if (to) q.sec = g.ty.split(':')[0]; if (lines) q.play = { key: id, lines };
+    if (ie) q.ty = g.ty; if (to) { q.sec = g.ty.split(':')[0]; daiToTag(q, it); } if (it.ev) q.ev = String(it.ev); if (lines) q.play = { key: id, lines };
     if (it.o && it.o.length) { q.kind = 'mc'; q.opts = it.o; q.a = it.a; } else { q.kind = 'type'; q.a = it.a; q.acc = [it.a, ...(it.acc || [])]; }
     if (to && g.ty === 'p2') { const L = 'ABC'; q.play = { key: id + ':' + n, lines: [['A', it.q], ...it.o.map((o, j) => ['B', `${L[j]}. ${o}`])] }; q.q = '🔊 Nghe câu hỏi và 3 câu đáp. Câu đáp nào hợp nhất?'; q.opts = it.o.map((_, j) => L[j]); q.a = L[it.o.indexOf(it.a)];
       q.why = `Câu hỏi: “${it.q}” · Đáp án: ${q.a}. ${it.a} · ${it.why_vi}`; }
@@ -212,8 +215,8 @@ function daiRun(row) { const de = row.de, k = daiKOf(de.ky), lv = de.ky.startsWi
   if (de.sk === 'viet') return daiWrite(row, k, lv, back);
   if (de.sk === 'noi') return daiSpeak(row, k, lv, back);
   const qs = daiQs(row), plays = k === 'cefr' ? 2 : 1;
-  ieRun(`🤖 ${name}`, qs, back, de.min, { R: {}, src: 'ai', plays, home: DAI_EX[k],
-    endHtml: res => daiEnd(row, res, k, S0), done: res => { const ok = res.filter(r => r.ok).length, n = res.length;
+  ieRun(`🤖 ${name}`, qs, back, de.min, { R: {}, src: 'ai', plays, home: DAI_EX[k], hl: k === 'cefr' ? { ex: 'cambridge', lv, dang: de.dang, sk: de.sk } : null,   // v146 hl: câu sai → phần đề Cambridge (hoclai.js)
+    endHtml: res => daiEnd(row, res, k, S0), endBtns: (res, pri) => `<button class="${pri ? '' : 'pri'}" data-daigo="${k}|${de.dang}|${lv}">▶ Làm đề mới cùng dạng</button>`, done: res => { const ok = res.filter(r => r.ok).length, n = res.length;
       if (k === 'toeic' && typeof toLog === 'function') toLog(res, 'ai', new Set(['ai:' + row.id]));
       const band = k === 'ielts' && (S0 === 'R' || S0 === 'L') ? daiBand(S0, ok, n) : null, pt = k === 'toeic' ? toScale(ok, n) : null;
       daiSave(row, { ok, n, ...(band != null ? { band } : {}), ...(pt != null ? { pt } : {}), min: Math.round((Date.now() - t0) / 60000) }); } }); }
@@ -223,7 +226,7 @@ function daiEnd(row, res, k, S0) { const de = row.de, ok = res.filter(r => r.ok)
     : `<p>${Math.round(ok / Math.max(1, n) * 100)}% đúng · mức cần khoảng ${Math.round(((MOCK[lv] || {}).pass || 0.7) * 100)}% <span class="mute">(ước)</span></p>`;
   const tr = de.lines && de.lines.length ? `<details class="box"><summary><b>📜 Lời bài nghe</b></summary>${de.lines.map(([w, s]) => `<p class="tdtap" style="margin:6px 0">${esc(w)}: ${esc(s)}</p>`).join('')}</details>` : '';
   const chk = row.chk || {}, ck = chk.kho ? '📚 Đề soạn sẵn: Claude soạn trước theo khuôn đề thật, máy kiểm đáp án.' : chk.bo === 'het-gio' ? '⚠️ Đề này chưa kịp kiểm chéo.' : chk.n ? `Đã kiểm chéo: ${chk.khop}/${chk.n} câu khớp, bỏ ${chk.n - chk.khop} câu lệch.` : '';
-  return `${est}${tr}<p class="mute" style="font-size:13px">🤖 AI soạn, chưa giáo viên kiểm. ${ck} Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p><button class="pri" data-daigo="${k}|${de.dang}|${de.ky.startsWith('cb-') ? lv : ''}">▶ Làm đề mới cùng dạng</button>`; }
+  return `${est}${tr}<p class="mute" style="font-size:13px">🤖 AI soạn, chưa giáo viên kiểm. ${ck} Thấy câu sai: bấm 💬 → ⚑ Câu sai.</p>`; }   // v146: nút ▶ Làm đề mới cùng dạng ở endBtns (dưới ô 🎯 Sai ở đâu)
 function daiSave(row, r) { const o = daiSt(), de = row.de; o.r = [...o.r.filter(x => x.id !== row.id), { id: row.id, ky: de.ky, sk: de.sk, dang: de.dang, at: Date.now(), t: de.title, ...r }].slice(-DAI_MAX_R); o.mo = null; S.t = Date.now(); save();
   // v142 (người sáng lập chọn): chỉ soạn sẵn đề AI kế tiếp khi đã làm xong ≥ DAI_DU_N đề AI cùng kỳ thi + dạng trong hôm nay (đang luyện thật), đỡ tốn phí cho đề không ai làm
   const k = daiKOf(de.ky), today = dayOf(Date.now()), nToday = o.r.filter(x => x.ky === de.ky && x.dang === de.dang && dayOf(x.at) === today).length;

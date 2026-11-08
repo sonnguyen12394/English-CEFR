@@ -5,7 +5,7 @@
 //   Part 1 k: people (tranh có người) | scene (đồ vật, cảnh) · Part 2 ty: wh | yn (cả phủ định, câu đuôi, câu hỏi gián tiếp) | or | req (đề nghị, nhờ vả, mời) | stmt (câu trần thuật)
 //   Part 3–4 câu hỏi ty: gist (chủ đề, mục đích, nơi, người) | next (việc sắp làm, đề nghị, yêu cầu) | imp (hàm ý) | graphic | detail · Part 4 bài ty (GHI TAY): msg | ann | ad | news | intro | tour | meet
 //   Part 6 chỗ trống t: insert (chèn câu) | conn (từ nối giữa câu) | tense (thì theo ngữ cảnh, GHI TAY) | word · Part 7 câu hỏi ty: purpose | not | true | infer | syn | insert | intent | detail
-import fs from 'node:fs'; import crypto from 'node:crypto';
+import fs from 'node:fs'; import crypto from 'node:crypto'; import vm from 'node:vm';
 const root = new URL('..', import.meta.url).pathname, rd = f => JSON.parse(fs.readFileSync(root + f, 'utf8'));
 const P1 = rd('content/toeic/p1.json').items, P5 = rd('content/toeic/p5.json').items, D = rd('content/toeic/doc.json'), N = rd('content/toeic/nghe.json'), V = rd('content/toeic/vocab.json').topics, err = [], ids = new Set();
 const id = x => { if (ids.has(x.id)) err.push('trùng id ' + x.id); ids.add(x.id); };
@@ -13,24 +13,9 @@ const mcOk = (x, q) => { if (q.w.length !== 3 || q.w.includes(q.a) || new Set(q.
 const h = s => parseInt(crypto.createHash('md5').update(s).digest('hex').slice(0, 8), 16);
 const cnt = (a, f) => a.reduce((m, x) => { const k = f(x); m[k] = (m[k] || 0) + 1; return m; }, {}), fmt = m => Object.entries(m).map(([k, n]) => `${k} ${n}`).join(' · ');
 
-// ---------- nhãn dạng (v139) ----------
-const P1_PPL = /\b(person|people|man|men|woman|women|worker|workers|cook|chef|waiter|waitress|shopper|shoppers|customer|customers|passenger|passengers|student|students|someone|they)\b/i;
-function p2Ty(q) { const s = String(q).trim();
-  if (/\?$/.test(s) && /\bor\b/i.test(s)) return 'or';
-  if (/^(Do you know|Do you remember|Can you tell me|Could you tell me|Have you heard|Did you hear|Do you have any idea)\b/i.test(s)) return 'yn';
-  if (/^(Could you|Would you|Can you|Will you|Why don't|Why not|Shall (I|we)|Let's|How about|What about|Do you want|Should we|Would you mind|Do you mind|Please|I was wondering if)\b/i.test(s)) return 'req';
-  if (/^(Is|Are|Was|Were|Do|Does|Did|Have|Has|Had|Can|Could|Will|Would|Should|May|Must)\b/.test(s) || /^\w+n't\b/i.test(s) || /,\s*(\w+n't\s+\w+|right|is it|are you|do you|did you|will you)\?$/i.test(s)) return 'yn';
-  if (/^(When|Where|Who|Whose|Whom|Why|How|What|Which)\b/i.test(s)) return 'wh';
-  return /\?$/.test(s) ? null : 'stmt'; }
-const Q34_GIST = /(discussing|discuss|talking about)\?$|^What is the (main )?(purpose|topic|subject)\b|^What is the (talk|announcement|report|message|webinar|workshop|conversation|broadcast|advertisement) (mainly )?about\?$|^Why is the (man|woman|speaker) calling\?$|^Who (most likely )?(is|are) the (speakers?|listeners?|man|woman|caller)\??$|^Who is the speaker (most likely )?talking to\?$|^Where (most likely )?(are|is) the (speakers?|speaker)\??$|^Where does the conversation (most likely )?take place\?$|^Where (most likely )?(does|do) the (man|woman|speakers?|speaker) work\?$|^Where is the (talk|announcement|conversation) (most likely )?(taking place|being made)\?$|^What (type|kind) of (business|company|event|store|product)\b|^What is being advertised\?$|^Who most likely is the speaker\?$/i;
-const Q34_NEXT = /^What will (the )?(man|woman|speakers?|listeners?|first woman|second woman|manager|[A-Z][a-z]+) (probably |most likely |likely )?do\b|^What will happen next\b|^What does the (man|woman|speaker|manager|guest|caller|woman named \w+|man named \w+) (suggest|recommend|offer|propose|ask for|request)\b|^What does the (man|woman|speaker) (ask|want|tell|remind|encourage|invite) (the )?(listeners?|man|woman|caller) to\b|^What (is|are) (the )?(man|woman|listeners?|speakers?|caller|participants?) (asked|encouraged|invited|reminded|told) (not )?to\b|^What does the (man|woman|speaker) want to do\b|^What does the (man|woman|speaker) say (he|she) will\b|^What does the (man|woman|speaker) (plan|intend|agree|offer) to do\b|offer to do\?$|^What should (the )?(listeners?|participants?|callers?) do\b/i;
-const q34Ty = q => /^Look at the graphic/i.test(q) ? 'graphic' : /\bimply\b|mean when (he|she) says|Why does the (man|woman|speaker) say/i.test(q) ? 'imp' : Q34_GIST.test(q) ? 'gist' : Q34_NEXT.test(q) ? 'next' : 'detail';
-const q7Ty = q => /closest in meaning to/i.test(q) ? 'syn' : /^In which of the positions marked/i.test(q) ? 'insert' : /mean when (he|she) writes/i.test(q) ? 'intent' : /\bNOT\b/.test(q) ? 'not'
-  : /\b(purpose|mainly about|main topic)\b|^Why (was|is) (the|this) (letter|e-mail|notice|memo|article|message|advertisement|announcement|review) (being )?(sent|written|posted)|^Who is the (notice|memo|letter|e-mail|advertisement|article|message) (intended|written|most likely) for|^For whom is the|^Why does .+ (contact|write to|e-mail|call) /i.test(q) ? 'purpose'
-  : /\b(most likely|suggested|implied|inferred|probably)\b/i.test(q) ? 'infer' : /\b(indicated|stated|mentioned|true)\b/i.test(q) ? 'true' : 'detail';
-const CONN = new Set(['however', 'therefore', 'in addition', 'moreover', 'furthermore', 'as a result', 'consequently', 'nevertheless', 'nonetheless', 'instead', 'alternatively', 'similarly', 'likewise', 'otherwise', 'meanwhile', 'for example', 'for instance', 'in fact', 'thus', 'hence', 'accordingly', 'afterward', 'afterwards', 'finally', 'besides', 'even so', 'in contrast', 'by contrast', 'on the other hand', 'of course', 'indeed', 'after all', 'in the meantime', 'at the same time', 'additionally', 'subsequently', 'previously', 'in short', 'in other words', 'fortunately', 'unfortunately', 'then', 'still', 'rather', 'as a matter of fact', 'to this end', 'in particular', 'specifically', 'overall', 'once again', 'even though', 'regardless', 'in that case', 'if so', 'as such', 'until then', 'since then', 'by then', 'in the end', 'as expected', 'in the past', 'for this reason']);
-const isSent = o => /[.!?]$/.test(String(o).trim()) && String(o).trim().split(/\s+/).length >= 3;
-const p6T = g => g.t || (g.o.every(isSent) ? 'insert' : g.o.every(o => CONN.has(String(o).trim().replace(/,$/, '').toLowerCase())) ? 'conn' : 'word');
+// ---------- nhãn dạng (v139; v146: luật ở toqt.js, dùng chung với trang) ----------
+const TQ = {}; vm.runInNewContext(fs.readFileSync(root + 'toqt.js', 'utf8') + '\n;Object.assign(OUT, { TQ_P1PPL, tqP2, tqQ34, tqQ7, tqP6 });', { OUT: TQ });
+const { TQ_P1PPL: P1_PPL, tqP2: p2Ty, tqQ34: q34Ty, tqQ7: q7Ty, tqP6: p6T } = TQ;
 const P4TY = ['msg', 'ann', 'ad', 'news', 'intro', 'tour', 'meet'], P6T = ['insert', 'conn', 'tense', 'word'];
 const docText = x => x.docs.map(d => d.title + '\n' + d.text).join('\n');
 const STOPW = new Set('about after again also because been before being both could does from have here into just like made make many more most much must only other over said same should since some such than that their them then there these they this those very were what when where which while will with would your yours ours'.split(' '));

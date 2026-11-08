@@ -35,6 +35,7 @@ const bkTools = () => { const shared = !(typeof isAnon === 'function' && isAnon(
     ${shared && typeof tdMissView === 'function' ? '<button data-bk="miss">📊 Từ người học tra mà app chưa có</button>' : ''}
     ${typeof paVal === 'function' ? '<button data-bk="paval">🧑‍🏫 Đối chiếu bộ chấm âm với giáo viên</button>' : ''}
     ${shared && typeof daiStats === 'function' ? '<button data-daitk>🤖 Đề AI: số lượt, token, tiền 7 ngày</button><div id="daitk"></div>' : ''}
+    ${S && S.xsc && S.xsc.n ? `<p class="mute" style="margin:6px 0">🎯 Sai ở đâu · học lại gì (máy này): ${S.xsc.n} lượt có câu sai · ${S.xsc.k || 0} lượt có bấm học lại / luyện (${Math.round((S.xsc.k || 0) / S.xsc.n * 100)}%) · 📘 ${S.xsc.l || 0} · 🏋️ ${S.xsc.p || 0} · 📌 ${S.xsc.w || 0} từ. Mốc đo 2/2027: dưới 20% thì đổi chỗ hiện.</p>` : ''}
     <button data-bk="kiem">📋 Bảng kiểm nội dung cho giáo viên</button>
     <button data-bk="edit">✏️ Xem và sửa JSON</button>
     <h2>🎚 Đặt tiến độ (học lại hoặc thử)</h2>

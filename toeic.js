@@ -104,14 +104,13 @@ function toMockResult() { const b = {}, rows = []; toLog(MK.papers.flatMap(p => 
   for (const p of MK.papers) { const ok = p.res.filter(r => r.ok).length; b[p.k] = toScale(ok, p.res.length);
     const by = {}; for (const r of p.res) { const o = by[r.part] = by[r.part] || [0, 0]; o[1]++; if (r.ok) o[0]++; } rows.push([p, ok, by]); }
   const full = b.L != null && b.R != null, tot = full ? b.L + b.R : null, tg = toSt().target; toSt().mock.push({ at: Date.now(), b, tot }); S.t = Date.now(); save();
-  const wrong = MK.papers.flatMap(p => p.res.filter(r => !r.ok));
+  const hb = typeof hlBox === 'function' ? hlBox(MK.papers.flatMap(p => p.res), { src: 'thi' }) : { html: '', pri: false };   // v146 🎯 Sai ở đâu · học lại gì (thay danh sách câu sai cũ)
   $app.innerHTML = `<h1>🎓 Kết quả ${esc(MK.C.name)}</h1>
     <div class="box">${rows.map(([p, ok, by]) => `<p style="margin:4px 0"><b>${p.t}</b>: ≈ ${b[p.k]} <span class="mute">· ${ok}/${p.res.length} câu</span></p><p class="mute" style="margin:0 0 6px">${Object.entries(by).map(([k, [a, n]]) => `${esc(k)}: ${a}/${n}`).join(' · ')}</p>`).join('')}
       ${full ? `<p style="margin:8px 0 0;font-size:20px"><b>Tổng ≈ ${tot}</b> ${tot >= tg ? '✅' : '⬜'} <span class="mute" style="font-size:14px">(mục tiêu ${tg})</span></p>` : '<p class="mute">Chỉ làm một phần: chưa tính tổng.</p>'}
-      <p class="mute" style="margin:6px 0 0">Điểm ước theo tỉ lệ đúng, KHÔNG phải bảng quy đổi của ETS (ETS quy đổi riêng từng đề). Đề app ít câu, chưa có Part 1. Ghi điểm đề thật ở ô 🎯 để app hiệu chỉnh.</p></div>
-    ${wrong.length ? `<details class="box"><summary>Xem lại ${wrong.length} câu sai</summary>${wrong.map(r => `<div style="margin:8px 0;border-top:1px solid var(--line);padding-top:6px"><p class="mute" style="margin:0">${esc(r.part)}</p><p style="margin:2px 0">${r.q.q}</p>
-      <p style="margin:2px 0">Bạn: ${esc(String(r.ans))} · Đáp án: <b>${esc(r.q.a)}</b></p>${r.q.why ? `<p class="mute" style="margin:0">${esc(r.q.why)}</p>` : ''}</div>`).join('')}</details>` : ''}
-    <button class="pri" data-a="again">🎓 Làm đề mới</button><button data-a="home">← Luyện TOEIC</button>`; scrollTo(0, 0);
+      <p class="mute" style="margin:6px 0 0">Điểm ước theo tỉ lệ đúng, KHÔNG phải bảng quy đổi của ETS (ETS quy đổi riêng từng đề). Đề app ít câu hơn đề thật. Ghi điểm đề thật ở ô 🎯 để app hiệu chỉnh.</p></div>
+    ${hb.html}
+    <button class="${hb.pri ? '' : 'pri'}" data-a="again">🎓 Làm đề mới</button><button data-a="home">← Luyện TOEIC</button>`; scrollTo(0, 0);
   $app.onclick = e => { if (e.target.closest('[data-a="again"]')) toMock(MK.idx); if (e.target.closest('[data-a="home"]')) toeicView(); }; }
 
 // ---------- 📏 điểm ước + hiệu chỉnh bằng đề thật ----------

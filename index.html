@@ -172,6 +172,9 @@
   .ltbanner button { margin:0; }
   /* v113 màn kỳ thi (IELTS / TOEIC / Cambridge) cùng khung: hàng kỳ thi một dòng, ô điểm ước gọn */
   .chipset.ex3 { flex-wrap:nowrap; } .chipset.ex3 button { flex:1; padding:8px 2px; font-size:15px; text-align:center; white-space:nowrap; min-height:44px; }
+  /* v146 🎯 Sai ở đâu · học lại gì (hoclai.js): mỗi dạng sai một dòng (tên + sai a/b + 📘 / 🏋️) ngăn bằng đường kẻ; dòng gập cao ≥ 44 px */
+  #hlbox .hlr, #hlbox .hlq { border-top:1px solid var(--line); margin-top:10px; padding-top:10px; }
+  #hlbox details > summary, details.xlsol > summary { padding:11px 0; margin:0; }   /* + dòng mở lời giải ở bài học (trước 26 px) */
   /* v141: hàng chọn kỳ thi (màn đầu tab 🎯 Luyện đề) và ô 🤖 Đề AI (deai.js); khổ 320 px không cắt chữ */
   .chipset.exrow button { flex:1 1 0; min-width:0; padding:8px 4px; font-size:14px; overflow:hidden; text-overflow:ellipsis; }
   .box.dai { border:1px solid var(--accent); } .box.dai .btnbig { margin:10px 0 8px; }
@@ -252,12 +255,14 @@
 <script src="tracuu.js?v=143"></script>
 <script src="dieuhuong.js?v=143"></script>
 <script src="huongdan.js?v=143"></script>
+<script src="toqt.js?v=143"></script>
 <script src="toeic.js?v=143"></script>
 <script src="tomap.js?v=143"></script>
 <script src="cbmap.js?v=143"></script>
 <script src="dangthi.js?v=143"></script>
 <script src="baihoc.js?v=143"></script>
 <script src="deai.js?v=143"></script>
+<script src="hoclai.js?v=143"></script>
 <script src="chandoan.js?v=143"></script>
 <script src="lotrinh.js?v=143"></script>
 </body>
