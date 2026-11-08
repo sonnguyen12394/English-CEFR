@@ -172,6 +172,13 @@
   .ltbanner button { margin:0; }
   /* v113 màn kỳ thi (IELTS / TOEIC / Cambridge) cùng khung: hàng kỳ thi một dòng, ô điểm ước gọn */
   .chipset.ex3 { flex-wrap:nowrap; } .chipset.ex3 button { flex:1; padding:8px 2px; font-size:15px; text-align:center; white-space:nowrap; min-height:44px; }
+  /* v147 🎓 đề thử TOEIC trọn 200 câu (totron.js): đáp án đã chọn (chưa chấm) có viền + ✓, nút A–D một hàng, bảng câu 101–200 ô ≥ 44 px, nút ⚑ 44 px */
+  .opt.sel { border-color:var(--accent); background:var(--accent2); font-weight:600; } .opt.sel::before { content:"✓ "; }
+  .trop.abcd { display:grid; grid-template-columns:repeat(auto-fit,minmax(60px,1fr)); gap:8px; } .trop.abcd .opt { margin:0; text-align:center; padding:12px 0; }
+  .trstat { text-align:center; } .trnav { gap:8px; margin-top:12px; } .trnav > * { flex:1; margin:0; }
+  .trgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(44px,1fr)); gap:4px; } .trgrid .trc { min-height:44px; padding:0; margin:0; font-size:15px; text-align:center; }
+  .trc.done { background:var(--accent2); color:var(--accent); font-weight:700; } .trc.cur { outline:2px solid var(--accent); outline-offset:-2px; } .trc.fl { border-color:var(--warn); color:var(--warn); }
+  .chip.trfl { min-width:44px; min-height:44px; padding:0 10px; margin:0 0 0 6px; vertical-align:middle; } .chip.trfl.on { background:var(--warn2); border-color:var(--warn); color:var(--warn); }
   /* v146 🎯 Sai ở đâu · học lại gì (hoclai.js): mỗi dạng sai một dòng (tên + sai a/b + 📘 / 🏋️) ngăn bằng đường kẻ; dòng gập cao ≥ 44 px */
   #hlbox .hlr, #hlbox .hlq { border-top:1px solid var(--line); margin-top:10px; padding-top:10px; }
   #hlbox details > summary, details.xlsol > summary { padding:11px 0; margin:0; }   /* + dòng mở lời giải ở bài học (trước 26 px) */
@@ -263,6 +270,7 @@
 <script src="baihoc.js?v=144"></script>
 <script src="deai.js?v=144"></script>
 <script src="hoclai.js?v=144"></script>
+<script src="totron.js?v=144"></script>
 <script src="chandoan.js?v=144"></script>
 <script src="lotrinh.js?v=144"></script>
 </body>

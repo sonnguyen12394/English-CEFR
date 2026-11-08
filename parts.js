@@ -119,7 +119,7 @@ const xHome = o => { const p = o.part !== undefined ? o.part : (typeof EX_PART !
   const top = `<div class="row top"><button class="link tap" data-expart="">‹ Luyện đề</button>${sync0}</div>${xPartSeg(p)}${o.chips || ''}${head}`;
   if (p === 'ai') return top + (o.ai || '') + (o.remind || '') + xFoot(o);
   return top + (o.notice || '') + `<div class="grid2">${o.tiles.map(t => `<button class="tile ${t.cls || ''}" ${t.attr}><span class="ic">${t.ic}</span><b>${t.t}</b>${bar(t.pct, 100, t.cls === 'ok' ? 'var(--good)' : 'var(--accent)')}<span class="meta">${t.meta}</span></button>`).join('')}</div>
-  ${pMore(o.more, X_FOOT)}${xFoot(o)}`; };
+  ${o.after || ''}${pMore(o.more, X_FOOT)}${xFoot(o)}`; };   // v147 o.after: dòng dưới lưới ô (TOEIC: 🎓 đề thử trọn 200 câu, totron.js)
 // o = { back: dòng nút về, h1, note, steps, learn: { attr, sub, pri }, prac: { attr, sub }, les: { rows, at, done } (📘 bài học, v131), lt: tên danh sách bài tập, lsub, rows: [pRow], at: dòng kế tiếp, empty, more }
 // v131 (người sáng lập: "tách ra 2 dạng học và bài tập như nền CEFR"): 2 danh sách: 📘 Bài học (mỗi dạng câu / phần một bài, baihoc.js) · 🏋️ Bài tập (bài cụ thể, ghi kết quả).
 // Học hết bài học thì danh sách bài học gập lại; 📘 là nút chính khi còn bài học chưa học.

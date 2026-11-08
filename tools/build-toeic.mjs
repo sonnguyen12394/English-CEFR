@@ -59,9 +59,28 @@ const talk = x => { id(x); if (x.qs.length !== 3) err.push(x.id + ': cần 3 câ
   return { ...x, qs }; };
 const p3 = N.p3.map(talk), p4 = N.p4.map(x => { if (!P4TY.includes(x.ty)) err.push(x.id + ': Part 4 cần nhãn loại bài nói ty (' + P4TY.join(' / ') + ')'); return talk(x); });
 const seen = new Set(); for (const t of V) for (const [w, vi, ex] of t.w) { if (seen.has(w)) err.push('từ trùng: ' + w); seen.add(w); if (!vi || !ex || !ex.toLowerCase().includes(w.toLowerCase().split(' ')[0].slice(0, 4))) err.push('từ thiếu nghĩa / ví dụ: ' + w); }
+// v147 🎓 đề thử trọn 200 câu (totron.js): content/toeic/tron.json = 2 đề, mỗi đề danh sách mã theo Part; kiểm đúng cơ cấu đề thật, không trùng giữa 2 đề, đủ loại câu
+const TRON = rd('content/toeic/tron.json').de, TRN = { p1: 6, p2: 25, p3: 39, p4: 30, p5: 30, p6: 16, p7: 54 }, BY = { p1, p2, p3, p4, p5: P5, p6, p7 }, IDX = {}, used = new Map();
+for (const s in BY) IDX[s] = Object.fromEntries(BY[s].map(x => [x.id, x]));
+const nQ = (s, x) => s === 'p6' ? x.gaps.length : x.qs ? x.qs.length : 1;
+for (const d of TRON) { const t = d.id + ' ';
+  for (const s in TRN) { const ids = d[s] || [], xs = ids.map(i => IDX[s][i]); if (xs.some(x => !x)) { err.push(t + s + ': mã không có trong kho: ' + ids.filter(i => !IDX[s][i]).join(', ')); continue; }
+    for (const i of ids) { if (used.has(i)) err.push(t + s + ': ' + i + ' trùng với ' + used.get(i)); used.set(i, d.id); }
+    const n = xs.reduce((a, x) => a + nQ(s, x), 0); if (n !== TRN[s]) err.push(t + s + ': ' + n + ' câu, đề thật ' + TRN[s]);
+    if (s === 'p3' || s === 'p4') { if (xs.some(x => x.qs.length !== 3)) err.push(t + s + ': mỗi bài phải 3 câu'); const gi = xs.findIndex(x => x.g); if (gi >= 0 && xs.slice(gi).some(x => !x.g)) err.push(t + s + ': bài có bảng phải ở cuối Part như đề thật'); }
+    if (s === 'p6' && xs.some(x => x.gaps.length !== 4)) err.push(t + 'p6: mỗi đoạn phải 4 chỗ trống');
+    if (s === 'p7') { const one = xs.filter(x => x.docs.length === 1), two = xs.filter(x => x.docs.length === 2), three = xs.filter(x => x.docs.length === 3);
+      if (one.reduce((a, x) => a + x.qs.length, 0) !== 29 || two.length !== 2 || three.length !== 3 || [...two, ...three].some(x => x.qs.length !== 5)) err.push(t + 'p7: cần văn bản đơn 29 câu + 2 bộ 2 văn bản + 3 bộ 3 văn bản, mỗi bộ nhiều văn bản 5 câu');
+      if (xs.findIndex(x => x.docs.length > 1) < one.length || [...two, ...three].some((x, i, a) => i && a[i - 1].docs.length > x.docs.length)) err.push(t + 'p7: văn bản đơn trước, rồi bộ 2 văn bản, rồi bộ 3 văn bản'); } }
+  const ty2 = new Set((d.p2 || []).map(i => (IDX.p2[i] || {}).ty)), t5 = new Set((d.p5 || []).map(i => (IDX.p5[i] || {}).t)), k1 = new Set((d.p1 || []).map(i => (IDX.p1[i] || {}).k));
+  if (['wh', 'yn', 'or', 'req', 'stmt'].some(x => !ty2.has(x))) err.push(t + 'p2: thiếu loại câu hỏi');
+  if (Object.keys(cnt(P5, x => x.t)).some(x => !t5.has(x))) err.push(t + 'p5: thiếu dạng câu');
+  if (!k1.has('people') || !k1.has('scene')) err.push(t + 'p1: cần cả tranh có người và tranh cảnh');
+  const a2 = (d.p2 || []).map(i => (IDX.p2[i] || {}).a); if (Math.max(...[0, 1, 2].map(i => a2.filter(a => a === i).length)) > 11) err.push(t + 'p2: đáp án dồn một chữ cái'); }
+if (TRON.length !== 2) err.push('tron.json: cần đúng 2 đề');
 if (err.length) { console.error(err.join('\n')); process.exit(1); }
 const ans = p2.map(x => x.a); if (Math.max(...[0, 1, 2].map(i => ans.filter(a => a === i).length)) > ans.length * 0.5) { console.error('Part 2: đáp án dồn một chữ cái'); process.exit(1); }
-fs.writeFileSync(root + 'toeic.json', JSON.stringify({ _note: 'Dựng bởi tools/build-toeic.mjs từ content/toeic/*.json. Không sửa tay.', p1, p5: P5, p6, p7, p2, p3, p4, voc: V }));
+fs.writeFileSync(root + 'toeic.json', JSON.stringify({ _note: 'Dựng bởi tools/build-toeic.mjs từ content/toeic/*.json. Không sửa tay.', p1, p5: P5, p6, p7, p2, p3, p4, voc: V, tron: TRON.map(d => ({ id: d.id, t: d.t, ...Object.fromEntries(Object.keys(TRN).map(s => [s, d[s]])) })) }));
 const t34 = [...p3, ...p4].flatMap(x => x.qs), g6 = p6.flatMap(x => x.gaps), q7 = p7.flatMap(x => x.qs);
-console.log(`toeic.json: Part 1 ${p1.length} · Part 2 ${p2.length} · Part 3 ${p3.length} bài (có bảng ${p3.filter(x => x.g).length}, 3 người ${p3.filter(x => new Set(x.lines.map(l => l[0])).size > 2).length}) · Part 4 ${p4.length} bài (có bảng ${p4.filter(x => x.g).length}) · Part 5 ${P5.length} · Part 6 ${p6.length} bài · Part 7 ${p7.length} bộ (${q7.length} câu) · từ vựng ${seen.size} từ / ${V.length} chủ đề · đáp án Part 2 A/B/C: ${[0, 1, 2].map(i => ans.filter(a => a === i).length).join('/')}`);
+console.log(`toeic.json: Part 1 ${p1.length} · Part 2 ${p2.length} · Part 3 ${p3.length} bài (có bảng ${p3.filter(x => x.g).length}, 3 người ${p3.filter(x => new Set(x.lines.map(l => l[0])).size > 2).length}) · Part 4 ${p4.length} bài (có bảng ${p4.filter(x => x.g).length}) · Part 5 ${P5.length} · Part 6 ${p6.length} bài · Part 7 ${p7.length} bộ (${q7.length} câu) · từ vựng ${seen.size} từ / ${V.length} chủ đề · 🎓 ${TRON.length} đề trọn 200 câu · đáp án Part 2 A/B/C: ${[0, 1, 2].map(i => ans.filter(a => a === i).length).join('/')}`);
 console.log(`theo dạng: Part 1 ${fmt(cnt(p1, x => x.k))} | Part 2 ${fmt(cnt(p2, x => x.ty))} | Part 3–4 câu hỏi ${fmt(cnt(t34, q => q.ty))} | Part 4 bài ${fmt(cnt(p4, x => x.ty))} | Part 5 ${fmt(cnt(P5, x => x.t))} | Part 6 chỗ ${fmt(cnt(g6, g => g.t))} | Part 7 câu ${fmt(cnt(q7, q => q.ty))}`);
