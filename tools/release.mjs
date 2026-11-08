@@ -44,4 +44,5 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
      mở "Xem câu sai" → chạm 📌 một từ → vào Sổ từ; màn Đọc ghi "vừa sai · xem lại" ở dạng sai nhiều.
   12. (v147) 🎯 Luyện đề → TOEIC → 📚: dòng 🎓 Đề thử trọn 200 câu → Đề 1 → ▶ Bắt đầu phần Nghe: đeo tai nghe, nghe ít nhất 5 câu xem máy có TỰ phát
      sang câu sau không (không phải bấm); khoá màn 10 giây rồi mở lại: thấy "▶ Nghe tiếp"; ✕ Thoát → vào lại "Làm tiếp"; Đọc: chọn, ⚑, 📋 bảng câu, nộp.
+  13. (v148) Màn "📝 Đề 1 · 200 câu" trước khi bắt đầu: khung Phần Nghe câu 1–100 + Phần Đọc câu 101–200, 7 hàng Part không gãy dòng; cuộn xuống thấy nút ▶ Bắt đầu phần Nghe.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);

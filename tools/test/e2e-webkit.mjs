@@ -136,6 +136,7 @@ check('TOEIC đề thử Đọc ra điểm', /Kết quả TOEIC/.test(await pg.i
 // v147 🎓 đề thử TOEIC trọn 200 câu: lối vào ở màn TOEIC; bắt đầu Nghe (thanh dưới ẩn); hệ số giờ nhỏ cho Nghe tự chạy hết; Đọc chọn câu, bảng câu, nộp → kết quả có ô Sai ở đâu
 await pg.evaluate(() => { EX_PART = 'san'; toeicView(); }); await pg.waitForTimeout(900); check('màn TOEIC có đề thử trọn 200 câu (v147)', !!(await pg.$('#app [data-trv]')));
 await pg.click('#app [data-trv]'); await pg.waitForTimeout(900); await pg.click('[data-trgo="de1"]'); await pg.waitForTimeout(400);
+{ const t = await pg.innerText('#app'); check('đề trọn: màn sẵn sàng có cấu trúc 200 câu (Phần Nghe câu 1–100 + Phần Đọc câu 101–200, đủ 7 Part), thanh dưới ẩn (v148)', /200 câu/.test(t) && /Phần Nghe/.test(t) && /Phần Đọc/.test(t) && /Part 7 · Đọc hiểu/.test(t) && /147–200/.test(t) && !(await pg.isVisible('#tabs'))); }
 await pg.evaluate(() => { TR.k = 0.0005; }); await pg.click('[data-trstart]'); await pg.waitForTimeout(300);
 { const t = await pg.innerText('#app'); check('đề trọn: Nghe tự chạy, thanh dưới ẩn (v147)', (/🎧 Part \d · câu \d+/.test(t) || /Xong phần Nghe/.test(t)) && !(await pg.isVisible('#tabs'))); }   // hệ số giờ nhỏ: có thể đã qua câu 1
 for (let n = 0; n < 80 && !(await pg.$('[data-trrs]')); n++) await pg.waitForTimeout(250);

@@ -1948,7 +1948,7 @@ const R = await run(`(async () => {
       const o1 = trB('de1').Q.map(q => q.opts.join('|')).join('/'); TR.B = {}; if (trB('de1').Q.map(q => q.opts.join('|')).join('/') !== o1) bad.push('thứ tự phương án đổi khi dựng lại (vào lại sai chữ A–D)');
       // màn chọn đề + bắt đầu
       await trView(); if (!H().includes('Đề 1') || !H().includes('Quy chế') || !H().includes('id="ie"')) bad.push('màn chọn đề thiếu');
-      trStart('de1'); let st = trSt(); if (!st || st.ph !== 'L' || !H().includes('Part 1 · câu 1/100') || H().includes('id="ie"')) bad.push('bắt đầu Nghe sai / còn thanh dưới');
+      trStart('de1'); let st = trSt(); if (!st || st.ph !== 'L' || !H().includes('Part 1 · câu 1/200') || H().includes('id="ie"')) bad.push('bắt đầu Nghe sai / còn thanh dưới');
       trClick(ev('[data-tra]', { dataset: { tra: '1|0' } })); trClick(ev('[data-tra]', { dataset: { tra: '50|0' } }));
       if (st.ans['1'] !== 'A' || st.ans['50']) bad.push('Nghe: chọn câu chưa phát được / câu đang phát không ghi');
       for (let i = 0; i < 60 && trSt().ph === 'L'; i++) trLNext(TR.tok);
@@ -1981,6 +1981,26 @@ const R = await run(`(async () => {
     } catch (e) { bad.push('lỗi: ' + e.message); }
     globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
     out.push({ lv: 'cefr', id: 'C64', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử TOEIC trọn: 2 đề × 200 câu đúng cơ cấu 6 / 25 / 39 / 30 / 30 / 16 / 54, không trùng, phương án cố định; Nghe chỉ chọn câu đang phát; Đọc chọn / ⚑ / Sau › / bảng câu / nhảy câu; làm tiếp đếm gián đoạn, quá 3 giờ huỷ; hết giờ tự nộp; đúng hết 990; kết quả so lần trước + ô Sai ở đâu; màn thi ẩn thanh dưới; lối vào màn TOEIC; không đụng thẻ học' }); }
+  // v148 C65 khung cấu trúc 200 câu (người sáng lập 8/11/2026 xem màn sẵn sàng: "Sao 200 câu mà ghi có 100 câu… nên trình bày từng phần trong tổng 200 câu"):
+  // màn sẵn sàng / chờ Đọc / kết quả có Phần Nghe + Phần Đọc × 7 Part, số câu + khoảng câu đúng đề; đầu màn khi thi ghi câu a/200; màn sẵn sàng ẩn thanh dưới như các màn thi
+  { const bad = [], S1 = S, H = () => String($app.innerHTML), P0 = trPlayUnit;
+    S = blank(); S.to = { target: 600 }; globalThis.trPlayUnit = () => new Promise(() => {}); TR.B = {}; TR.k = 1;
+    try { await toLoad(); const ROWS = [['p1', 6, '1–6'], ['p2', 25, '7–31'], ['p3', 39, '32–70'], ['p4', 30, '71–100'], ['p5', 30, '101–130'], ['p6', 16, '131–146'], ['p7', 54, '147–200']];
+      const row = (s, n, r) => '<span>' + TR_SECS[s] + ' · ' + TR_PN[s] + '</span><span>' + n + '</span><span>' + r + '</span>';
+      trReady('de1'); let h = H();
+      if (!h.includes('Đề 1 · 200 câu') || !h.includes('Phần Nghe') || !h.includes('Phần Đọc') || !h.includes('câu 1–100') || !h.includes('câu 101–200') || ROWS.some(([s, n, r]) => !h.includes(row(s, n + ' câu', r)))) bad.push('màn sẵn sàng thiếu cấu trúc 200 câu');
+      if (!h.includes('Bắt đầu phần Nghe<small>Câu 1–100') || h.includes('100 câu ·') || h.includes('id="ie"') || !h.includes('class="row top trx"') || !h.includes('data-trtest')) bad.push('nút bắt đầu / thanh dưới / thử âm thanh ở màn sẵn sàng sai');
+      trStart('de1'); if (!H().includes('Part 1 · câu 1/200')) bad.push('đầu màn Nghe chưa ghi câu a/200');
+      trLNext(TR.tok); trLNext(TR.tok); trLNext(TR.tok); trLNext(TR.tok); trLNext(TR.tok); trLNext(TR.tok); if (!H().includes('Part 2 · câu 7/200')) bad.push('đầu màn Part 2 chưa ghi câu 7/200');
+      for (let i = 0; i < 60 && trSt().ph === 'L'; i++) trLNext(TR.tok); h = H();
+      if (!h.includes('Xong phần Nghe') || !h.includes('Đã xong') || h.includes(row('p1', '6 câu', '1–6')) || !['p5', 'p6', 'p7'].every(s => h.includes('<span>' + TR_SECS[s] + ' · ' + TR_PN[s] + '</span>')) || !h.includes('Bắt đầu phần Đọc<small>Câu 101–200')) bad.push('màn chờ Đọc chưa có cấu trúc (Nghe gập, Đọc đủ Part)');
+      trRStart(); if (!H().includes('Part 5 · câu 101/200')) bad.push('đầu màn Đọc chưa ghi câu 101/200');
+      const st = trSt(); for (const q of trB('de1').Q) if (q.n % 3) st.ans[q.n] = q.a; trSubmit(false); h = H(); const m = toSt().mock.slice(-1)[0];
+      if (!h.includes((m.ok.L + m.ok.R) + '/200 câu đúng') || !h.includes('≈ ' + m.b.L + ' điểm · ' + m.ok.L + '/100 câu đúng') || !h.includes('≈ ' + m.b.R + ' điểm · ' + m.ok.R + '/100 câu đúng')) bad.push('kết quả chưa ghi số câu đúng / điểm từng phần');
+      if (ROWS.some(([s, n, r]) => !h.includes(row(s, m.by[TR_SECS[s]][0] + '/' + n, r)))) bad.push('kết quả chưa ghi số câu đúng từng Part');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
+    out.push({ lv: 'cefr', id: 'C65', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử trọn: khung cấu trúc 200 câu (Phần Nghe câu 1–100: Part 1–4, Phần Đọc câu 101–200: Part 5–7, số câu + khoảng câu) ở màn sẵn sàng / chờ Đọc / kết quả; đầu màn câu a/200; màn sẵn sàng ẩn thanh dưới' }); }
   return out; })()`);
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];

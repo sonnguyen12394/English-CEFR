@@ -26,6 +26,18 @@ function trB(de) { if (TR.B[de]) return TR.B[de]; const d = (TO.tron || []).find
       const qs = mk[s](x).map(q => { n++; const fix = q.opts.every(t => /^[A-D]$/.test(t) || /^\[\d\]$/.test(t)); return { ...q, n, opts: fix ? [...q.opts].sort() : [...q.opts].sort((a, b) => trH(de + n + a) - trH(de + n + b)) }; });
       U.push({ sec: s, x, qs, a: qs[0].n, b: qs[qs.length - 1].n }); } }
   return (TR.B[de] = { d, U, Q: U.flatMap(u => u.qs), L: U.filter(u => /^p[1-4]$/.test(u.sec)), R: U.filter(u => /^p[5-7]$/.test(u.sec)) }); }
+// v148 khung cấu trúc đề (người sáng lập 8/11/2026 xem màn sẵn sàng trên iPhone: "Sao 200 câu mà ghi có 100 câu… nên trình bày từng phần trong tổng 200 câu"):
+//   2 phần × các Part, số câu + khoảng câu tính từ đề đã dựng (không ghi cứng). cur 'L' | 'R' = phần sắp làm (phần Nghe đã xong thì gập); rec = kết quả (mỗi Part ghi số câu đúng)
+const TR_PH = { L: ['🎧', 'Phần Nghe', /^p[1-4]$/], R: ['📖', 'Phần Đọc', /^p[5-7]$/] },   // không đánh số "Phần 1 / 2": dễ lẫn với Part 1 / 2 của đề
+  TR_PN = { p1: 'Tả tranh', p2: 'Hỏi – đáp', p3: 'Hội thoại', p4: 'Bài nói', p5: 'Điền câu', p6: 'Điền đoạn', p7: 'Đọc hiểu' };   // tên ngắn cho vừa 3 cột ở khổ 320 px (tên đủ ở TO_SEC)
+const trTot = () => { const t = TR_LMIN + TR_RMIN; return `${Math.floor(t / 60)} giờ ${t % 60} phút`; };
+function trPlan(B, cur, rec) {
+  const ph = k => { const us = B.U.filter(u => TR_PH[k][2].test(u.sec)), a = us[0].a, b = us[us.length - 1].b, done = !rec && k === 'L' && cur === 'R';
+    const rows = [...new Set(us.map(u => u.sec))].map(s => { const ss = us.filter(u => u.sec === s), x = ss[0].a, y = ss[ss.length - 1].b, r = rec && (rec.by || {})[TR_SECS[s]];
+      return `<span>${TR_SECS[s]} · ${TR_PN[s]}</span><span>${r ? `${r[0]}/${r[1]}` : `${y - x + 1} câu`}</span><span>${x}–${y}</span>`; }).join('');
+    const sub = done ? 'Đã xong' : rec ? `≈ ${rec.b[k]} điểm · ${rec.ok[k]}/${b - a + 1} câu đúng` : k === 'L' ? `~${TR_LMIN} phút · máy tự chạy, không dừng` : `${TR_RMIN} phút · làm câu nào trước cũng được`;
+    return `<div class="ph${!rec && k === cur ? ' cur' : ''}"><p class="pt"><b>${done ? '✓' : TR_PH[k][0]} ${TR_PH[k][1]}</b><span>câu ${a}–${b}</span></p><p class="mute">${sub}</p>${done ? '' : `<div class="pr"${rec ? ' aria-label="Số câu đúng / số câu từng Part"' : ''}>${rows}</div>`}</div>`; };
+  return `<div class="box trplan">${ph('L')}${ph('R')}</div>`; }
 
 // ---------- âm thanh: phát từng câu, biết khi xong, biết khi bị chặn ----------
 function trHush() { try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {} sayTok++; }
@@ -44,8 +56,8 @@ async function trPlayUnit(u, tok) { EXAM_VOX = true; const L = u.x.lines || kSen
 
 // ---------- màn chọn đề + quy chế ----------
 const TR_RULE = () => ['Đeo tai nghe, ngồi chỗ yên tĩnh, để trống khoảng 1 giờ 40 phút liền.',
-  `Nghe (Part 1–4): máy phát liên tục, mỗi bài một lần. Part 1–2 có ${TR_P12} giây chọn sau mỗi câu; Part 3–4 có ${TR_P34} giây mỗi câu sau mỗi bài (câu hỏi in sẵn trên màn, đọc trước khi nghe). Không dừng, không nghe lại, không quay lại.`,
-  `Đọc (Part 5–7): ${TR_RMIN} phút. Làm câu nào trước cũng được, ⚑ đánh dấu câu muốn xem lại, 📋 bảng câu để nhảy tới câu bất kỳ. Hết giờ máy tự nộp.`,
+  `Nghe (câu 1–100, Part 1–4): máy phát liên tục, mỗi bài một lần. Part 1–2 có ${TR_P12} giây chọn sau mỗi câu; Part 3–4 có ${TR_P34} giây mỗi câu sau mỗi bài (câu hỏi in sẵn trên màn, đọc trước khi nghe). Không dừng, không nghe lại, không quay lại.`,
+  `Đọc (câu 101–200, Part 5–7): ${TR_RMIN} phút. Làm câu nào trước cũng được, ⚑ đánh dấu câu muốn xem lại, 📋 bảng câu để nhảy tới câu bất kỳ. Hết giờ máy tự nộp.`,
   `Lỡ thoát app: vào lại trong ${TR_KEEP} giờ để làm tiếp. Nghe phát lại bài đang dở, đáp án đã chọn vẫn giữ; Đọc vẫn tính giờ thật. Số lần gián đoạn ghi ở kết quả.`,
   'Điểm là ước lượng theo tỉ lệ đúng, không phải bảng quy đổi của ETS. Không tính vào 📘 Học / 🔁 Nhớ.'];
 // dòng ở màn TOEIC (phần 📚 Đề có sẵn): đề đang dở hoặc lối vào
@@ -53,14 +65,14 @@ function trRow() { if (typeof TO === 'undefined' || !TO || !(TO.tron || []).leng
   const M = (toSt().mock || []).filter(r => r.full && r.de), last = M[M.length - 1];
   return `<div class="box hcard" style="margin:12px 0 0"><button class="hrow" data-trv><span class="ic">${fresh ? '⏸' : '🎓'}</span><span class="t"><b>${fresh ? 'Làm tiếp đề thử trọn · ' + esc(trName(st.de)) : 'Đề thử trọn 200 câu'}</b>
     <small>${fresh ? esc(trWhere(st)) : `Nghe ~${TR_LMIN} phút tự chạy + Đọc ${TR_RMIN} phút · ${TO.tron.length} đề${last ? ` · lần gần nhất ≈ ${last.tot}` : ''}`}</small></span><span class="chev">›</span></button></div>`; }
-const trWhere = st => st.ph === 'L' ? `Đang ở phần Nghe, câu ${((trB(st.de) || { L: [] }).L[st.li] || { a: 1 }).a} / 100` : st.rAt ? `Phần Đọc còn ${trMMSS(trLeft(st))}` : 'Xong phần Nghe, chưa bắt đầu Đọc';
+const trWhere = st => st.ph === 'L' ? `Đang ở phần Nghe, câu ${((trB(st.de) || { L: [] }).L[st.li] || { a: 1 }).a}/200` : st.rAt ? `Phần Đọc còn ${trMMSS(trLeft(st))}` : 'Xong phần Nghe, chưa bắt đầu Đọc';
 async function trReady0() { if (!TO) await toLoad(); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {} }
 async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX = false; TR.on = ''; TR.tok++; clearInterval(TR.tm);
   if (!TO || !NCLIPS.size) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; try { await trReady0(); } catch (e) { $app.innerHTML = '<div id="ie"></div><p>Không tải được dữ liệu TOEIC. Thử lại sau.</p>'; return; } }
   let st = trSt(), gone = false; if (st && Date.now() - st.up > TR_KEEP * 36e5) { toSt().tron = null; S.t = Date.now(); save(); st = null; gone = true; }
   const M = (toSt().mock || []).filter(r => r.full && r.de), last = de => M.filter(r => r.de === de).slice(-1)[0];
   $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-trb>‹ TOEIC</button></div>
-    <h1>🎓 Đề thử trọn 200 câu</h1><p class="mute" style="margin:0 0 10px">Như thi thật: Nghe 100 câu, máy tự chạy, khoảng ${TR_LMIN} phút · Đọc 100 câu trong ${TR_RMIN} phút. Đề thật phần Nghe ~45 phút vì bài nghe dài hơn, có đọc hướng dẫn và đọc to câu hỏi; nhịp chọn từng câu ở app như đề thật.</p>
+    <h1>🎓 Đề thử trọn 200 câu</h1><p class="mute" style="margin:0 0 10px">2 phần làm liền nhau như thi thật: 🎧 Nghe câu 1–100 (máy tự chạy, khoảng ${TR_LMIN} phút) rồi 📖 Đọc câu 101–200 (${TR_RMIN} phút). Đề thật phần Nghe ~45 phút vì bài nghe dài hơn, có đọc hướng dẫn và đọc to câu hỏi; nhịp chọn từng câu ở app như đề thật.</p>
     ${gone ? `<div class="box"><p style="margin:0">Đề thử dở quá ${TR_KEEP} giờ nên đã huỷ. Làm lại từ đầu nhé.</p></div>` : ''}
     ${st ? `<div class="box"><b>⏸ ${esc(trName(st.de))} đang dở</b><p class="mute" style="margin:4px 0 8px">${esc(trWhere(st))} · giữ tới ${new Date(st.up + TR_KEEP * 36e5).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</p>
       <button class="pri" data-trgo="resume">▶ Làm tiếp</button><button class="link tap" data-trdrop>Bỏ đề này, làm lại từ đầu</button></div>` : ''}
@@ -75,10 +87,11 @@ async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX 
     if (g('[data-trdrop]')) { if (!confirm('Bỏ đề đang dở? Đáp án đã chọn sẽ mất.')) return; toSt().tron = null; S.t = Date.now(); save(); return trView(); } };
   scrollTo(0, 0); }
 // màn sẵn sàng: cú bấm "Bắt đầu" là thao tác của người dùng nên điện thoại cho phát âm thanh liên tục sau đó
-function trReady(de) { const d = (TO.tron || []).find(x => x.id === de); if (!d) return trView(); window.CUR = { view: TR_VIEW };
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-trv>‹ Đề thử trọn</button></div><h1>📝 ${esc(d.t)}</h1>
-    <div class="box"><p style="margin:0">Phần Nghe bắt đầu ngay khi bấm nút. Đeo tai nghe và chỉnh âm lượng trước.</p><div class="chips tap" style="margin:8px 0 0"><button class="chip" data-trtest>🔊 Thử âm thanh</button></div></div>
-    <button class="btnbig" data-trstart="${esc(de)}">▶ Bắt đầu phần Nghe<small>100 câu · khoảng ${TR_LMIN} phút · không dừng</small></button>`;
+function trReady(de) { const d = (TO.tron || []).find(x => x.id === de), B = d && trB(de); if (!B) return trView(); window.CUR = { view: TR_VIEW };
+  $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trv>‹ Đề thử trọn</button></div><h1>📝 ${esc(d.t)} · ${B.Q.length} câu</h1>
+    <p class="mute" style="margin:0">2 phần làm liền nhau: Nghe rồi Đọc, khoảng ${trTot()}. Đeo tai nghe trước khi bắt đầu.</p>${trPlan(B, 'L')}
+    <button data-trtest>🔊 Thử âm thanh</button>
+    <button class="btnbig" data-trstart="${esc(de)}">▶ Bắt đầu phần Nghe<small>Câu 1–${B.L.slice(-1)[0].b} · ~${TR_LMIN} phút · không dừng</small></button>`;
   $app.onclick = e => { const b = e.target.closest('[data-trstart]'); if (b) return trStart(b.dataset.trstart); if (e.target.closest('[data-trtest]')) { EXAM_VOX = true; speak('This is a sound check. If you can hear this clearly, you are ready.'); } }; scrollTo(0, 0); }
 function trStart(de) { if (!trB(de)) return trView(); const now = Date.now(); toSt().tron = { de, ph: 'L', lAt: now, li: 0, ans: {}, fl: {}, gap: 0, ps: 0, up: now }; S.t = now; save(); trL(); }
 function trResume() { const st = trSt(); if (!st) return trView(); if (!st.ps) st.gap = (st.gap || 0) + 1; st.ps = 0; st.up = Date.now(); S.t = st.up; save();
@@ -94,7 +107,7 @@ function trLBody(u, st) { const q0 = u.qs[0];
 // play = false: vào lại sau gián đoạn → chờ người dùng bấm (điện thoại cần một lần bấm mới cho phát), bài phát lại từ đầu
 function trL(play = true) { const st = trSt(); if (!st) return trView(); const B = trB(st.de), u = B.L[st.li]; if (!u) return trLEnd();
   TR.on = 'L'; const tok = ++TR.tok; window.CUR = { view: TR_VIEW, item: 'L' + u.a }; trHush();
-  $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trx>✕ Thoát</button><span class="uname">🎧 ${TR_SECS[u.sec]} · câu ${u.a}${u.b > u.a ? '–' + u.b : ''}/100</span><b id="trT"></b></div>
+  $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trx>✕ Thoát</button><span class="uname">🎧 ${TR_SECS[u.sec]} · câu ${u.a}${u.b > u.a ? '–' + u.b : ''}/${B.Q.length}</span><b id="trT"></b></div>
     <div id="trS" class="box trstat">${play ? '<b>🔊 Đang phát…</b>' : `<p style="margin:0 0 8px">⏸ Bị gián đoạn. Bài này sẽ phát lại từ đầu; đáp án đã chọn vẫn giữ.</p><button class="pri" data-trplay>▶ Nghe tiếp từ câu ${u.a}</button>`}</div>${trLBody(u, st)}`;
   $app.onclick = trClick; trTick(); scrollTo(0, 0); if (!play) return;
   trPlayUnit(u, tok).then(r => { if (tok !== TR.tok) return; if (!document.getElementById('trS')) return trAway(); if (r === 'blocked') { const el = document.getElementById('trS'); if (el) el.innerHTML = '<p style="margin:0 0 8px">Điện thoại chặn tự phát âm thanh. Giờ chọn chưa tính.</p><button class="pri" data-trplay>▶ Bấm để nghe tiếp</button>'; return; } trWin(u, tok); }); }
@@ -108,10 +121,11 @@ function trLNext(tok) { if (tok !== undefined && tok !== TR.tok) return; const s
 function trLEnd() { const st = trSt(); TR.on = ''; TR.tok++; clearInterval(TR.tm); trHush(); EXAM_VOX = false; if (st.ph === 'L') { st.ph = 'R'; st.lEnd = Date.now(); st.up = st.lEnd; S.t = st.up; save(); } trRReady(); }
 
 // ---------- phần Đọc ----------
-function trRReady() { const st = trSt(); if (!st) return trView(); TR.on = ''; window.CUR = { view: TR_VIEW };
+function trRReady() { const st = trSt(); if (!st) return trView(); TR.on = ''; window.CUR = { view: TR_VIEW }; const B = trB(st.de), a = B.R[0].a, b = B.R.slice(-1)[0].b;
   $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trx>✕ Thoát</button></div><h1>✅ Xong phần Nghe</h1>
-    <div class="box"><p style="margin:0">Phần Đọc: 100 câu (Part 5–7), ${TR_RMIN} phút. Làm câu nào trước cũng được; ⚑ đánh dấu câu muốn xem lại; hết giờ máy tự nộp.</p><p class="mute" style="margin:6px 0 0">Đề thật chuyển ngay sang Đọc, không nghỉ.</p></div>
-    <button class="btnbig" data-trrs>▶ Bắt đầu phần Đọc<small>${TR_RMIN} phút tính từ lúc bấm</small></button>`;
+    <p class="mute" style="margin:0">Tiếp theo: phần Đọc, câu ${a}–${b}. Đề thật chuyển ngay sang Đọc, không nghỉ.</p>${trPlan(B, 'R')}
+    <p class="mute" style="margin:0">⚑ đánh dấu câu cần xem lại · 📋 bảng câu để nhảy câu · hết giờ máy tự nộp.</p>
+    <button class="btnbig" data-trrs>▶ Bắt đầu phần Đọc<small>Câu ${a}–${b} · ${TR_RMIN} phút tính từ lúc bấm</small></button>`;
   $app.onclick = trClick; scrollTo(0, 0); }
 function trRStart() { const st = trSt(); if (!st) return trView(); if (!st.rAt) { st.rAt = Date.now(); st.ri = 0; st.up = st.rAt; S.t = st.up; save(); } trR(); }
 const trDocs = x => x.docs.map(d => `<div class="box"><b style="font-size:15px">${esc(d.title)}</b><p style="font-size:16px;line-height:1.6;margin:6px 0 0;white-space:pre-line">${esc(d.text)}</p></div>`).join('');
@@ -123,7 +137,7 @@ function trRBody(u, st) {
   return head + u.qs.map(q => (u.sec === 'p6' ? `<p style="margin:12px 0 6px"><b>${q.n}.</b> <button class="chip trfl${st.fl[q.n] ? ' on' : ''}" data-trf="${q.n}" aria-pressed="${!!st.fl[q.n]}" aria-label="Đánh dấu câu ${q.n}">⚑</button></p>` : trQHead(q, st, 1)) + trOpts(q, st)).join(''); }
 function trR() { const st = trSt(); if (!st) return trView(); if (!st.rAt) return trRReady(); if (trLeft(st) <= 0) return trSubmit(true);
   const B = trB(st.de); st.ri = Math.max(0, Math.min(B.R.length - 1, st.ri || 0)); const u = B.R[st.ri]; TR.on = 'R'; TR.tok++; window.CUR = { view: TR_VIEW, item: 'R' + u.a };
-  $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trx>✕ Thoát</button><span class="uname">📖 ${TR_SECS[u.sec]} · câu ${u.a}${u.b > u.a ? '–' + u.b : ''}</span><b id="trT"></b></div>
+  $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trx>✕ Thoát</button><span class="uname">📖 ${TR_SECS[u.sec]} · câu ${u.a}${u.b > u.a ? '–' + u.b : ''}/${B.Q.length}</span><b id="trT"></b></div>
     ${trRBody(u, st)}<div class="row trnav">${st.ri > 0 ? '<button data-trp>‹ Trước</button>' : '<span></span>'}${st.ri < B.R.length - 1 ? '<button class="pri" data-trn>Sau ›</button>' : '<button class="pri" data-trsub>Nộp bài</button>'}</div>
     <button data-trg id="trgc" style="margin-top:8px">📋 Bảng câu 101–200 · đã chọn ${trDoneR(st)}/100</button>`;
   $app.onclick = trClick; trTick(); scrollTo(0, 0); }
@@ -172,14 +186,13 @@ function trSubmit(auto) { const st = trSt(); if (!st) return trView(); TR.on = '
   for (const u of B.U) { const rs = res.filter(r => r.q.x === u.x); o.r[u.x.id] = { at: now, ok: rs.filter(r => r.ok).length, n: rs.length, k: u.sec }; }
   const rec = { at: now, b, tot: b.L + b.R, full: 1, de: st.de, ok: { L: okL, R: okR }, by, min: { L: Math.round(((st.lEnd || now) - st.lAt) / 60000), R: st.rAt ? Math.round(Math.min(now - st.rAt, TR_RMIN * 60000) / 60000) : 0 }, gap: st.gap || 0, ...(auto ? { auto: 1 } : {}) };
   o.mock.push(rec); o.tron = null; S.t = now; save(); trRes(rec, res, prev); }
-function trRes(rec, res, prev) { window.CUR = { view: 'toeic-tron-kq' }; const tg = toSt().target, hb = typeof hlBox === 'function' ? hlBox(res, { src: 'thi' }) : { html: '', pri: false }, d = rec.tot - (prev ? prev.tot : 0);
+function trRes(rec, res, prev) { window.CUR = { view: 'toeic-tron-kq' }; const tg = toSt().target, hb = typeof hlBox === 'function' ? hlBox(res, { src: 'thi' }) : { html: '', pri: false }, d = rec.tot - (prev ? prev.tot : 0), B = trB(rec.de);
   $app.innerHTML = `<div id="ie"></div><h1>🎓 Kết quả ${esc(trName(rec.de))}</h1>
     <div class="box"><p style="margin:0;font-size:20px"><b>Tổng ≈ ${rec.tot}</b> ${rec.tot >= tg ? '✅' : '⬜'} <span class="mute" style="font-size:14px">(mục tiêu ${tg})</span></p>
-      <p style="margin:6px 0 0">🎧 Nghe ≈ <b>${rec.b.L}</b> · ${rec.ok.L}/100 câu đúng</p><p style="margin:4px 0 0">📖 Đọc ≈ <b>${rec.b.R}</b> · ${rec.ok.R}/100 câu đúng</p>
+      <p style="margin:6px 0 0">${rec.ok.L + rec.ok.R}/${res.length} câu đúng</p>
       ${prev ? `<p style="margin:6px 0 0">So lần trước (${new Date(prev.at).toLocaleDateString('vi-VN')}): <b>${d >= 0 ? '+' : ''}${d}</b> điểm</p>` : ''}
-      <p class="mute" style="margin:6px 0 0">${Object.entries(rec.by).map(([k, [a, n]]) => `${k}: ${a}/${n}`).join(' · ')}</p>
       <p class="mute" style="margin:6px 0 0">⏱ Nghe ${rec.min.L} phút · Đọc ${rec.min.R}/${TR_RMIN} phút${rec.auto ? ' (hết giờ, máy tự nộp)' : ''}${rec.gap ? ` · ⚠️ gián đoạn ${rec.gap} lần: điểm Nghe có thể cao hơn thi thật` : ''}</p>
       <p class="mute" style="margin:6px 0 0">Điểm ước theo tỉ lệ đúng, KHÔNG phải bảng quy đổi của ETS (ETS quy đổi riêng từng đề). Tranh Part 1 là tranh vẽ; đề ít bài có bảng hơn đề thật.</p></div>
-    ${hb.html}<button class="${hb.pri ? '' : 'pri'}" data-trv>🎓 Về danh sách đề thử trọn</button><button data-trb>← TOEIC</button>`;
+    ${B ? trPlan(B, '', rec) : ''}${hb.html}<button class="${hb.pri ? '' : 'pri'}" data-trv>🎓 Về danh sách đề thử trọn</button><button data-trb>← TOEIC</button>`;
   $app.onclick = e => { if (e.target.closest('[data-trb]')) toeicView(); }; scrollTo(0, 0); }
 document.addEventListener('click', e => { if (S && e.target.closest('[data-trv]')) { scrollTo(0, 0); trView(); } });
