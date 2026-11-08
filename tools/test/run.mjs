@@ -2033,6 +2033,33 @@ const R = await run(`(async () => {
     } catch (e) { bad.push('lỗi: ' + e.message); }
     globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
     out.push({ lv: 'cefr', id: 'C66', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử trọn: đề mới ở tệp riêng (' + ((TO.tron || []).filter(d => d.f).length) + ' đề × 200 câu, không câu nào vào kho luyện, câu trích ev có trong bài, chạy nhanh ra 990); 📋 bài làm và đáp án: lưu chuỗi 200 chữ, bảng 200 ô đúng màu, lọc câu sai, xem lại có lời nghe / bài đọc, mở lại từ danh sách đề, không đổi kết quả' }); }
+  // v150 C67 chỉ làm một phần (người sáng lập 8/11/2026: "muốn có thể lựa chọn phần để làm bài chứ không nhất thiết phải làm hết từ đầu")
+  { const bad = [], S1 = S, H = () => String($app.innerHTML), P0 = trPlayUnit, evt = (sel, o) => ({ target: { closest: s => s === sel ? o : null } });
+    S = blank(); S.to = { target: 600 }; globalThis.trPlayUnit = () => new Promise(() => {}); TR.B = {}; TR.k = 1;
+    try { await toLoad(); const cards0 = JSON.stringify(S.cards), B = trB('de1');
+      await trReady('de1'); let h = H();
+      if (!h.includes('Hoặc chỉ làm một phần') || !h.includes('data-trone="L"') || !h.includes('data-trone="R"') || ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'].some(s => !h.includes('data-trone="' + s + '"'))) bad.push('màn sẵn sàng thiếu chọn phần');
+      // Part 3 riêng: bắt đầu ở câu 32, chỉ 13 bài, xong thì nộp luôn (không sang Đọc)
+      trStart('de1', 'p3'); let st = trSt(); if (st.only !== 'p3' || st.ph !== 'L' || !H().includes('câu 32–34/200')) bad.push('Part 3 chưa bắt đầu ở câu 32');
+      const q32 = B.Q[31]; trClick(evt('[data-tra]', { dataset: { tra: '32|' + q32.opts.indexOf(q32.a) } })); if (st.ans['32'] !== q32.a) bad.push('Part 3: chọn câu đang phát không ghi');
+      const nM = (toSt().mock || []).length; for (let i = 0; i < 20 && trSt(); i++) trLNext(TR.tok);
+      let p = (toSt().tronP || []).slice(-1)[0]; if (trSt() || !p || p.o !== 'p3' || p.n !== 39 || p.ok !== 1 || !H().includes('Kết quả · Part 3') || !H().includes('1/39 câu đúng')) bad.push('Part 3 nộp sai: ' + JSON.stringify(p));
+      if ((toSt().mock || []).length !== nM) bad.push('làm một phần lọt vào điểm đề thử trọn');
+      // Part 6 riêng: vào thẳng Đọc, 9 phút, 4 đoạn, bảng câu 131–146
+      trStart('de1', 'p6'); st = trSt(); if (st.ph !== 'R' || !st.rAt || !H().includes('câu 131–134/200') || !H().includes('Bảng câu 131–146 · đã chọn 0/16')) bad.push('Part 6 chưa vào thẳng Đọc');
+      if (Math.abs(trLeft(st) - 9 * 60000) > 5000) bad.push('Part 6 sai giờ');
+      for (const q of B.Q) if (q.sec === 'p6') st.ans[q.n] = q.a; trClick(evt('[data-trg]', {})); if ((H().match(/class="trc/g) || []).length !== 16) bad.push('bảng câu Part 6 không đủ 16 ô');
+      trSubmit(false); p = toSt().tronP.slice(-1)[0]; if (p.ok !== 16 || p.n !== 16 || !H().includes('data-trre')) bad.push('Part 6 đúng hết chưa ra 16/16');
+      const A = toSt().tronA['de1:p6']; if (!A || A.o !== 'p6' || (toSt().tronA || {}).de1) bad.push('📋 bài làm một phần chưa lưu riêng');
+      await trSheet('de1', null, '', 'p6'); if ((H().match(/class="trc /g) || []).length !== 16 || !H().includes('chỉ Part 6')) bad.push('📋 bảng một phần không đủ 16 ô');
+      // cả phần Đọc: 75 phút, có điểm ước Đọc; hết giờ tự nộp
+      trStart('de1', 'R'); st = trSt(); st.rAt = Date.now() - 76 * 60000; trR(); p = toSt().tronP.slice(-1)[0]; if (!p || p.o !== 'R' || !p.auto || p.n !== 100 || p.sc == null || !H().includes('điểm Đọc')) bad.push('cả phần Đọc hết giờ chưa tự nộp / thiếu điểm ước');
+      // đề dở một phần: ô làm tiếp ghi rõ phần
+      trStart('de1', 'p5'); await trView(); if (!H().includes('Chỉ Part 5')) bad.push('đề dở một phần chưa ghi rõ phần'); toSt().tron = null;
+      if (JSON.stringify(S.cards) !== cards0) bad.push('đụng thẻ học (luật đo)');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
+    out.push({ lv: 'cefr', id: 'C67', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử trọn: chỉ làm một phần (cả Nghe / cả Đọc / một Part): bắt đầu đúng câu, Part 5–7 vào thẳng Đọc có giờ riêng, xong Part Nghe nộp luôn, kết quả + 📋 bài làm lưu riêng, không vào điểm đề thử trọn, không đụng thẻ học' }); }
   return out; })()`);
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];
