@@ -108,7 +108,12 @@ await pg.evaluate(() => { EX_PART = 'san'; ieltsView(); }); await pg.waitForTime
 await pg.click('[data-iesk="R"]'); await pg.waitForTimeout(400); check('IELTS Đọc theo khuôn Nền (v134: ô số đo + một nút chính)', !!(await pg.$('.statc')) && /Bài đọc/.test(await pg.innerText('#app'))); await pg.click('[data-iebt="R"]'); await pg.waitForTimeout(400);   // v122: 🏋️ Bài tập = bài kế tiếp
 for (let n = 0; n < 30; n++) { if (await pg.$('#it:not([disabled])')) { await pg.fill('#it', 'x'); await pg.click('#if button[type=submit]'); } else if (await pg.$('[data-io]:not([disabled])')) await pg.click('[data-io="0"]'); else break;
   await pg.waitForTimeout(50); if (await pg.$('[data-a="next"]')) await pg.click('[data-a="next"]'); await pg.waitForTimeout(50); }
-check('IELTS đọc ra kết quả', /câu đúng/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
+check('IELTS đọc ra kết quả', /câu đúng/.test(await pg.innerText('#app')));
+// v146 🎯 Sai ở đâu · học lại gì: ô gom câu sai theo dạng; 📘 Học lại mở bài học có nút ‹ Kết quả, bấm thì về đúng màn kết quả
+check('kết quả có ô 🎯 Sai ở đâu (v146)', !!(await pg.$('#hlbox [data-hl]')) && !!(await pg.$('#hlbox [data-hlgo]')));
+await pg.click('#hlbox [data-hl]'); await pg.waitForTimeout(700); check('📘 Học lại mở bài học, nút ‹ Kết quả (v146)', /‹ Kết quả/.test(await pg.innerText('#app')) && !!(await pg.$('[data-xlb]')));
+await pg.click('[data-xlb]'); await pg.waitForTimeout(400); check('‹ Kết quả về lại màn kết quả (v146)', !!(await pg.$('#hlbox')) && /câu đúng/.test(await pg.innerText('#app')));
+await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);
 check('IELTS luyện xong về màn con Đọc', !!(await pg.$('[data-iehome]')) && await pg.isVisible('#tabs [data-tab="ld"].on'));
 await pg.click('[data-iehome]'); await pg.waitForTimeout(500); await pg.click('[data-iesk="W"]'); await pg.waitForTimeout(400); await openAll(); await pg.click('[data-iew="t2"]'); await pg.waitForTimeout(300); await pg.fill('#iwt', await pg.evaluate(() => IE.t2[0].m)); await pg.click('#iwf button[type=submit]'); await pg.waitForTimeout(300);
 check('IELTS viết máy ước band', /Máy ước: band/.test(await pg.innerText('#app'))); await pg.click('[data-a="back"]'); await pg.waitForTimeout(500);

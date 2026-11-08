@@ -40,4 +40,6 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
      (cần khoá AI) làm 1 đề Đọc IELTS: đầu đề ghi "📋 IELTS Academic Reading · one passage", câu theo thứ tự bài, cuộn bài dài không giật.
   10. (v145) 🎯 Luyện đề → IELTS → 🤖: ghi "Còn N đề soạn sẵn"; bấm ▶ Làm đề mới mở ngay bài đọc dài (không màn chờ); làm xong bấm lại ra bài khác;
      ở chỗ chấm Viết bấm 📋 Chép lời nhắc chấm → dán được vào Claude / ChatGPT.
+  11. (v146) Làm 1 bài đọc IELTS (cố tình sai vài câu): kết quả có ô 🎯 Sai ở đâu; bấm 📘 Học lại → bài học có nút ‹ Kết quả, bấm về đúng kết quả;
+     mở "Xem câu sai" → chạm 📌 một từ → vào Sổ từ; màn Đọc ghi "vừa sai · xem lại" ở dạng sai nhiều.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);

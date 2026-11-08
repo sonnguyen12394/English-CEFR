@@ -1,6 +1,6 @@
 # Feature Specification: Sai ở đâu · học lại gì (câu sai trong đề → bài học có sẵn)
 
-**Feature Branch**: `claude/ecstatic-curie-q9g1ja` · **Created**: 2026-11-08 · **Status**: Draft (chờ người sáng lập "ok")
+**Feature Branch**: `claude/ecstatic-curie-q9g1ja` · **Created**: 2026-11-08 · **Status**: Đã làm (người sáng lập "Ok" 8/11/2026; v146, bản 144)
 
 **Input**: "Khi làm đề xong nếu sai thì có cách nào phát hiện và đối chiếu với các bài học có sẵn để học và ôn lại và Rà soát các bài học đã đủ dạng để ôn lại bài khi làm sai trong đề thi" (người sáng lập, 8/11/2026).
 
