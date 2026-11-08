@@ -115,7 +115,19 @@ function wCrit(x, t, ideaRatio, lenOk) { const lv = x.lv, [tP, tL, tV] = W_T[lv]
 // Chấm theo 4 tiêu chí Cambridge, chỉ từng lỗi + cách sửa, viết lại bài. Mỗi người ≤ 20 lần / ngày (máy chủ giới hạn). Chưa có khoá: báo rõ, app vẫn chạy.
 const AI = { n: 0, pend: {} };
 function aiBtn(kind, lv, task, text) { const k = 'ai' + (++AI.n); AI.pend[k] = { kind, lv, task, text };
-  return `<div style="margin-top:8px"><button class="chip" data-ai="${k}">🧑‍🏫 Nhờ AI chấm như giám khảo</button><div id="${k}"></div></div>`; }
+  return `<div style="margin-top:8px"><div class="chips tap"><button class="chip" data-ai="${k}">🧑‍🏫 Nhờ AI chấm như giám khảo</button><button class="chip" data-aicp="${k}">📋 Chép lời nhắc chấm</button></div><div id="${k}"></div></div>`; }   // v145: 2 nút viên vùng bấm 44 px (.chips.tap)
+// v145 (specs/007-kho-de-soan-san; người sáng lập không muốn tốn tiền API): chép lời nhắc chấm bài để dán vào Claude / ChatGPT của chính người học. Không gọi máy chủ, không ghi điểm.
+function aiPrompt(P) { const ie = String(P.lv).startsWith('ielts'), t = P.task || {}, sp = P.kind === 'noi', sk = sp ? 'Speaking' : 'Writing';
+  const cr = ie ? (sp ? 'Fluency and Coherence, Lexical Resource, Grammatical Range and Accuracy, Pronunciation' : `${/1/.test(t.part || '') ? 'Task Achievement' : 'Task Response'}, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy`)
+    : (sp ? 'Grammar and Vocabulary, Discourse Management, Pronunciation, Interactive Communication' : 'Content, Communicative Achievement, Organisation, Language');
+  const scale = ie ? `the IELTS ${P.lv === 'ielts-gt' ? 'General Training' : 'Academic'} ${sk}${t.part ? ' ' + t.part : ''} band descriptors (0–9 for each criterion: ${cr})${t.target ? `; my target is band ${t.target}` : ''}` : `the Cambridge English ${sk} assessment scales for CEFR level ${String(P.lv).toUpperCase()} (0–5 for each criterion: ${cr})`;
+  return [`You are an experienced ${ie ? 'IELTS' : 'Cambridge English'} examiner. Mark my ${sk.toLowerCase()} strictly using ${scale}.`,
+    `Reply in Vietnamese: a score for each criterion with one reason; the overall ${ie ? 'band' : 'result (does it reach the level?)'}; up to 5 mistakes as "wrong → correct (why)"; 2 strengths; 2 things to practise next; then an improved version of my ${sp ? 'answers' : 'text'} ${ie ? 'about one band higher' : 'at the same level'}.`,
+    `TASK:\n${t.prompt || ''}${t.min ? `\n(Length: ${t.min}${t.max ? '–' + t.max : '+'} words)` : ''}`, `MY ${sp ? 'ANSWERS (transcribed or typed)' : 'TEXT'}:\n${P.text || ''}`].join('\n\n'); }
+document.addEventListener('click', async e => { const b = e.target.closest('[data-aicp]'); if (!b) return; const P = AI.pend[b.dataset.aicp], box = document.getElementById(b.dataset.aicp); if (!P || !box) return;
+  const txt = aiPrompt(P); let ok = false; try { await navigator.clipboard.writeText(txt); ok = true; } catch (er) {}
+  box.innerHTML = `<div class="box"><b>📋 ${ok ? 'Đã chép lời nhắc' : 'Chép lời nhắc dưới đây'}</b><p class="mute" style="margin:4px 0">Mở Claude hoặc ChatGPT của bạn, dán vào rồi gửi. AI trả lời bằng tiếng Việt: điểm từng tiêu chí, lỗi và cách sửa, bài sửa lại. App không tốn phí, không ghi điểm này.</p><textarea readonly rows="6" aria-label="Lời nhắc chấm bài" style="width:100%;font-size:13px">${esc(txt)}</textarea></div>`;
+  if (!ok) { const ta = box.querySelector('textarea'); ta.focus(); ta.select(); } else if (typeof toast === 'function') toast('📋 Đã chép. Dán vào Claude / ChatGPT của bạn.'); });
 const aiRuns = () => (S.ai = S.ai || []);
 // IELTS (ielts.js, lv 'ielts-ac' / 'ielts-gt'): máy chủ trả band 0–9 (g.band), mỗi tiêu chí 0–9
 function aiHtml(g) { const ie = g.band != null; return `<div class="box"><b>🧑‍🏫 AI chấm: ${ie ? `band ${(+g.band).toFixed(1)} · ${g.reaches_level ? '✅ đạt band mục tiêu' : '⬜ chưa đạt band mục tiêu'}` : `${g.overall_pct}% · ${g.reaches_level ? '✅ đạt chuẩn cấp' : '❌ chưa đạt chuẩn cấp'}`}</b>

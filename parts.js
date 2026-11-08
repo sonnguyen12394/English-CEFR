@@ -115,7 +115,7 @@ const xHome = o => { const p = o.part !== undefined ? o.part : (typeof EX_PART !
   // màn 2 nút: chip cấp (Cambridge, 10 cấp = 3 hàng ở 320 px) để dưới 2 nút để iPhone SE thấy cả 2 nút không cuộn
   if (!p) return `<div class="row top"><b style="font-size:17px">🎯 Luyện đề</b>${sync0}</div>${o.sw || ''}${head}
   <button class="btnbig" data-expart="san">📚 Đề có sẵn<small>Miễn phí · ${o.left && o.left.length ? (n ? `còn ${n} bài chưa làm` : 'đã làm hết, làm lại được') : 'bài học dạng đề, bài tập, thi thử'}</small></button>
-  <button class="btnbig ghost" data-expart="ai">🤖 Đề AI soạn<small>Mỗi lần một đề mới · tốn phí AI</small></button>${o.notice || ''}${o.chips ? `<p class="mute" style="margin:12px 0 4px;font-size:14px">Đổi cấp</p>${o.chips}` : ''}${o.note || ''}${xFoot(o)}`;
+  <button class="btnbig ghost" data-expart="ai">🤖 Đề AI soạn<small>Đề soạn sẵn miễn phí · hết thì AI soạn mới</small></button>${o.notice || ''}${o.chips ? `<p class="mute" style="margin:12px 0 4px;font-size:14px">Đổi cấp</p>${o.chips}` : ''}${o.note || ''}${xFoot(o)}`;
   const top = `<div class="row top"><button class="link tap" data-expart="">‹ Luyện đề</button>${sync0}</div>${xPartSeg(p)}${o.chips || ''}${head}`;
   if (p === 'ai') return top + (o.ai || '') + (o.remind || '') + xFoot(o);
   return top + (o.notice || '') + `<div class="grid2">${o.tiles.map(t => `<button class="tile ${t.cls || ''}" ${t.attr}><span class="ic">${t.ic}</span><b>${t.t}</b>${bar(t.pct, 100, t.cls === 'ok' ? 'var(--good)' : 'var(--accent)')}<span class="meta">${t.meta}</span></button>`).join('')}</div>

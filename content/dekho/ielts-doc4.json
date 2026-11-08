@@ -1,0 +1,165 @@
+[
+ {
+  "id": "ie-r-wetland",
+  "ky": "ielts-ac",
+  "sk": "doc",
+  "dang": "R-mi",
+  "g": {
+   "title": "Wetlands as flood defences",
+   "topic": "Wetlands as natural flood defences",
+   "gist": "A passage on how wetlands, coastal marshes and beaver dams reduce flooding, what has been lost and the limits of natural defences.",
+   "vi": "Đọc bài, làm 13 câu: tìm đoạn chứa ý, nối đặc điểm, tóm tắt có khung từ.",
+   "text": "Wetlands as flood defences\n\nA. Floods are among the most expensive natural hazards in the world, and many experts expect them to become more frequent as the climate changes. For most of the last century, the standard response was to build: rivers were lined with concrete walls, deepened and fitted with channels designed to move water away as quickly as possible. In recent years, however, engineers and planners have become increasingly interested in so-called nature-based solutions, and wetlands are at the centre of this discussion.\n\nB. A wetland works rather like a sponge. When heavy rain falls, its soils and dense plants hold large amounts of water and then release it gradually over days or weeks. This slows the rate at which water reaches the river downstream and lowers the highest point of the flood. Some of the water also soaks slowly into the ground, where it refills the underground stores that supply wells and springs during dry periods. The hydrologist Dr Lena Fischer, who has modelled several river systems in central Europe, believes the effect can be considerable. \"In our models, restoring a single large marsh upstream reduced the peak of a typical winter flood by around a fifth,\" she says. \"For the town below, that can be the difference between wet streets and flooded homes.\"\n\nC. Unfortunately, many wetlands have already been lost. Over centuries, they were drained to create farmland and to make room for towns and roads, and some estimates suggest that more than a third of the wetlands in the world have disappeared since 1970 alone. At the same time, many rivers were straightened. A straight channel carries water away from one place quickly, but in doing so it simply sends the flood downstream faster, often to communities that are less able to cope with it. In some regions, drainage ditches dug centuries ago are still maintained today, even where the land they protect is no longer farmed intensively.\n\nD. Along coasts, salt marshes and mangrove forests play a similar role. Their roots hold sediment in place, and their branches and stems reduce the energy of waves before they reach the shore. During major storms, coastal villages protected by healthy marshes have often suffered less damage than similar villages nearby that had lost them. Professor Arun Mehta, who studies coastal protection, points out that such habitats also have a financial advantage. \"A sea wall needs constant and costly repairs,\" he explains, \"whereas a healthy mangrove belt maintains itself and can even grow as sea levels rise.\" He warns, though, that newly planted mangroves may take ten years or more to provide real protection, and that they need space that is often already used for housing or tourism.\n\nE. In parts of Europe, an unexpected helper has returned. Beavers, which were hunted almost to extinction in many countries, have been reintroduced in a number of river catchments. The dams they build create chains of small ponds and wet areas that hold back water during storms. Beaver ponds also trap soil and pollutants carried by the water, so the river below them often runs clearer than before. Dr Sofia Ruiz, an ecologist who has worked with farming communities, says that the first reaction of many landowners was concern about flooded fields. \"What changed attitudes was money,\" she says. \"Once farmers were paid for the land that became wetter, most of them accepted the beavers quite happily.\"\n\nF. Wetlands are not, however, a complete answer. Natural systems can reduce smaller and medium-sized floods, but the largest events may simply overwhelm them, and in densely populated areas there is rarely enough land to restore. For this reason, most specialists now argue for a combination of engineering and natural approaches rather than a choice between them. The case for wetlands is strengthened by the other benefits they provide. They are rich habitats for wildlife, they store large quantities of carbon in their soils, and they offer places for people to walk and relax. Few concrete walls can claim as much.",
+   "groups": [
+    {
+     "ty": "R-mi",
+     "inst": "The reading passage has six paragraphs, A–F. Which paragraph contains the following information? You may use any letter more than once.",
+     "opts": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "lim": 0,
+     "items": [
+      {
+       "q": "an explanation of how wetlands reduce the height of a flood",
+       "o": [],
+       "a": "B",
+       "acc": [],
+       "why_vi": "Đoạn B: đất và cây giữ nước rồi nhả dần, làm hạ đỉnh lũ.",
+       "ev": "This slows the rate at which water reaches the river downstream and lowers the highest point of the flood."
+      },
+      {
+       "q": "a figure for the share of wetlands lost in recent decades",
+       "o": [],
+       "a": "C",
+       "acc": [],
+       "why_vi": "Đoạn C: hơn một phần ba vùng đất ngập nước thế giới mất từ năm 1970.",
+       "ev": "Over centuries, they were drained to create farmland and to make room for towns and roads, and some estimates suggest that more than a third of the wetlands in the world have disappeared since 1970 alone."
+      },
+      {
+       "q": "a comparison of maintenance costs between natural and built defences",
+       "o": [],
+       "a": "D",
+       "acc": [],
+       "why_vi": "Đoạn D: tường chắn sóng tốn tiền sửa liên tục, rừng ngập mặn tự duy trì.",
+       "ev": "\"A sea wall needs constant and costly repairs,\" he explains, \"whereas a healthy mangrove belt maintains itself and can even grow as sea levels rise.\""
+      },
+      {
+       "q": "a mention of an animal that creates wet areas",
+       "o": [],
+       "a": "E",
+       "acc": [],
+       "why_vi": "Đoạn E: hải ly xây đập tạo chuỗi ao nhỏ giữ nước.",
+       "ev": "The dams they build create chains of small ponds and wet areas that hold back water during storms."
+      },
+      {
+       "q": "a statement that natural defences cannot deal with the largest floods",
+       "o": [],
+       "a": "F",
+       "acc": [],
+       "why_vi": "Đoạn F: lũ lớn nhất có thể \"overwhelm\" hệ tự nhiên, nên cần kết hợp với công trình.",
+       "ev": "Natural systems can reduce smaller and medium-sized floods, but the largest events may simply overwhelm them, and in densely populated areas there is rarely enough land to restore."
+      }
+     ]
+    },
+    {
+     "ty": "R-mf",
+     "inst": "Look at the following statements and the list of people below. Match each statement with the correct person, A, B or C. You may use any letter more than once.",
+     "opts": [
+      "A. Dr Lena Fischer",
+      "B. Professor Arun Mehta",
+      "C. Dr Sofia Ruiz"
+     ],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Restoring one wetland upstream can noticeably lower the peak of a flood.",
+       "o": [],
+       "a": "A. Dr Lena Fischer",
+       "acc": [],
+       "why_vi": "Fischer: khôi phục một đầm lầy lớn phía thượng nguồn hạ đỉnh lũ khoảng một phần năm.",
+       "ev": "\"In our models, restoring a single large marsh upstream reduced the peak of a typical winter flood by around a fifth,\" she says."
+      },
+      {
+       "q": "Natural coastal protection is cheaper to keep in good condition than walls.",
+       "o": [],
+       "a": "B. Professor Arun Mehta",
+       "acc": [],
+       "why_vi": "Mehta: tường biển cần sửa tốn kém, rừng ngập mặn tự duy trì.",
+       "ev": "Professor Arun Mehta, who studies coastal protection, points out that such habitats also have a financial advantage."
+      },
+      {
+       "q": "Newly created natural defences take years before they work well.",
+       "o": [],
+       "a": "B. Professor Arun Mehta",
+       "acc": [],
+       "why_vi": "Mehta cảnh báo rừng ngập mặn mới trồng cần mười năm trở lên mới bảo vệ thật sự. Một người được chọn hai lần.",
+       "ev": "He warns, though, that newly planted mangroves may take ten years or more to provide real protection, and that they need space that is often already used for housing or tourism."
+      },
+      {
+       "q": "Paying landowners helped them accept changes to their land.",
+       "o": [],
+       "a": "C. Dr Sofia Ruiz",
+       "acc": [],
+       "why_vi": "Ruiz: được trả tiền cho phần đất bị ướt thì nông dân chấp nhận hải ly.",
+       "ev": "\"Once farmers were paid for the land that became wetter, most of them accepted the beavers quite happily.\""
+      }
+     ]
+    },
+    {
+     "ty": "R-sum",
+     "inst": "Complete the summary using the list of words below. Write the correct word for each answer.",
+     "opts": [
+      "concrete",
+      "sponge",
+      "overwhelm",
+      "wildlife",
+      "steel",
+      "dry",
+      "traffic",
+      "ignore"
+     ],
+     "lim": 0,
+     "items": [
+      {
+       "q": "In the past, flood protection usually meant lining rivers with walls made of ______.",
+       "o": [],
+       "a": "concrete",
+       "acc": [],
+       "why_vi": "Đoạn A: \"rivers were lined with concrete walls\". \"steel\" không có trong bài.",
+       "ev": "For most of the last century, the standard response was to build: rivers were lined with concrete walls, deepened and fitted with channels designed to move water away as quickly as possible."
+      },
+      {
+       "q": "A wetland behaves like a ______, storing water and releasing it slowly.",
+       "o": [],
+       "a": "sponge",
+       "acc": [],
+       "why_vi": "Đoạn B: \"A wetland works rather like a sponge\" (miếng bọt biển).",
+       "ev": "A wetland works rather like a sponge."
+      },
+      {
+       "q": "However, the biggest floods can ______ natural systems.",
+       "o": [],
+       "a": "overwhelm",
+       "acc": [],
+       "why_vi": "Đoạn F: \"the largest events may simply overwhelm them\" (lấn át, vượt quá sức chứa).",
+       "ev": "Natural systems can reduce smaller and medium-sized floods, but the largest events may simply overwhelm them, and in densely populated areas there is rarely enough land to restore."
+      },
+      {
+       "q": "Wetlands also bring other benefits, such as homes for ______.",
+       "o": [],
+       "a": "wildlife",
+       "acc": [],
+       "why_vi": "Đoạn F: \"They are rich habitats for wildlife\" (động vật hoang dã).",
+       "ev": "They are rich habitats for wildlife, they store large quantities of carbon in their soils, and they offer places for people to walk and relax."
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

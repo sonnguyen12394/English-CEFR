@@ -1,0 +1,159 @@
+[
+ {
+  "id": "ie-r-glass",
+  "ky": "ielts-ac",
+  "sk": "doc",
+  "dang": "R-h",
+  "g": {
+   "title": "The long story of glass",
+   "topic": "The invention and uses of glass",
+   "gist": "A history of glass from volcanic obsidian and early beads to glassblowing, Venetian glass, lenses, float glass and fibre optics.",
+   "vi": "Đọc bài, làm 13 câu: nối tiêu đề, TRUE / FALSE / NOT GIVEN, trả lời ngắn.",
+   "text": "The long story of glass\n\nA. Glass is so common today that it is easy to forget how remarkable it is. It is made mainly from sand, which is heated until it melts and then cooled so quickly that its atoms do not have time to form crystals. Pure sand melts only at very high temperatures, so glassmakers add soda to lower the melting point and lime to make the finished glass strong and resistant to water. These basic ingredients have changed surprisingly little over thousands of years.\n\nB. Long before people learned to make it, they used natural glass. When certain volcanoes erupt, lava can cool so fast that it forms obsidian, a black, glassy rock. Because obsidian breaks into pieces with extremely sharp edges, early humans used it for knives and arrowheads, and traded it over long distances. The oldest man-made glass objects that have been found are small beads from Mesopotamia, made more than 4,000 years ago. The Roman writer Pliny later told a story of sailors who cooked their food on a beach and discovered glass in the ashes of their fire, but historians believe the tale is probably not true, since an ordinary cooking fire is not hot enough to melt sand.\n\nC. For many centuries glass remained a luxury. Objects were made by shaping hot glass around a core or by pressing it into moulds, which was slow and expensive. Everything changed in the first century BC, when craftsmen on the eastern coast of the Mediterranean discovered that they could blow air into a lump of hot glass through a metal tube. Glassblowing allowed a skilled worker to produce a cup or bottle in minutes. The Romans spread the technique across their empire, and glass drinking vessels became common even in ordinary homes. Fragments of Roman glass are still found at archaeological sites from Britain to North Africa.\n\nD. In the Middle Ages, the most famous glass in Europe came from Venice. In 1291 the city ordered all of its glassmakers to move to the nearby island of Murano. Officially this was to protect Venice from fires, as the furnaces burned day and night, but it also made it easier to keep the methods of the craft secret. Glassmakers enjoyed a high social status, yet they were not allowed to leave the republic, and those who did risked severe punishment. In the fifteenth century, the workshops of Murano developed an exceptionally clear glass that was admired across the continent.\n\nE. Glass also changed the way people see the world. Spectacles first appeared in northern Italy towards the end of the thirteenth century, allowing scholars and craftsmen to continue working as their eyesight weakened with age. Some three hundred years later, lens makers discovered that combining two lenses could make distant objects appear closer. The telescopes and microscopes of the seventeenth century revealed the moons of Jupiter and the cells of living things, and transformed science.\n\nF. Flat glass for windows, however, was difficult to produce. For centuries it was made by spinning or rolling hot glass, and the result was often uneven and full of bubbles, so large windows were rare and expensive. The breakthrough came in the 1950s, when the British engineer Alastair Pilkington developed the float process. In this method, molten glass is poured onto a bath of molten tin, where it spreads out and forms a perfectly flat and even surface. Within a few decades, float glass had become the standard method for producing window glass around the world.\n\nG. Today, some of the most important glass is almost invisible. Thin fibres of extremely pure glass are used in the cables that carry internet data as pulses of light under oceans and between cities. A single fibre, thinner than a human hair, can carry far more information than a copper wire. Meanwhile, chemists continue to develop new kinds of glass for phone screens, solar panels and medical devices, suggesting that one of the oldest materials made by humans still has a long future ahead of it. Glass can also be recycled again and again without losing quality, which is why many countries now collect used bottles and jars separately from other waste.",
+   "groups": [
+    {
+     "ty": "R-h",
+     "inst": "The reading passage has seven paragraphs, A–G. Choose the correct heading for paragraphs B–G from the list of headings below.",
+     "opts": [
+      "Natural glass and the earliest man-made objects",
+      "A technique that made glass affordable",
+      "An island that guarded its secrets",
+      "Seeing further and more clearly",
+      "The search for a perfectly flat surface",
+      "Carrying information as light",
+      "Why glass breaks so easily",
+      "The decline of the glass industry"
+     ],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Paragraph B",
+       "o": [],
+       "a": "Natural glass and the earliest man-made objects",
+       "acc": [],
+       "why_vi": "Đoạn B nói về đá obsidian (thuỷ tinh tự nhiên) và hạt thuỷ tinh đầu tiên do người làm ở Lưỡng Hà.",
+       "ev": "Long before people learned to make it, they used natural glass."
+      },
+      {
+       "q": "Paragraph C",
+       "o": [],
+       "a": "A technique that made glass affordable",
+       "acc": [],
+       "why_vi": "Đoạn C: kỹ thuật thổi thuỷ tinh giúp làm cốc chai trong vài phút, thuỷ tinh thành đồ dùng thường ngày.",
+       "ev": "Glassblowing allowed a skilled worker to produce a cup or bottle in minutes."
+      },
+      {
+       "q": "Paragraph D",
+       "o": [],
+       "a": "An island that guarded its secrets",
+       "acc": [],
+       "why_vi": "Đoạn D: thợ thuỷ tinh Venice dời ra đảo Murano, dễ giữ bí mật nghề, không được rời đi.",
+       "ev": "Officially this was to protect Venice from fires, as the furnaces burned day and night, but it also made it easier to keep the methods of the craft secret."
+      },
+      {
+       "q": "Paragraph E",
+       "o": [],
+       "a": "Seeing further and more clearly",
+       "acc": [],
+       "why_vi": "Đoạn E: kính đeo mắt, rồi kính viễn vọng và kính hiển vi thay đổi khoa học.",
+       "ev": "Glass also changed the way people see the world."
+      },
+      {
+       "q": "Paragraph F",
+       "o": [],
+       "a": "The search for a perfectly flat surface",
+       "acc": [],
+       "why_vi": "Đoạn F: kính cửa sổ khó làm phẳng, tới quy trình float glass mới có bề mặt phẳng tuyệt đối.",
+       "ev": "Flat glass for windows, however, was difficult to produce."
+      },
+      {
+       "q": "Paragraph G",
+       "o": [],
+       "a": "Carrying information as light",
+       "acc": [],
+       "why_vi": "Đoạn G: sợi quang bằng thuỷ tinh truyền dữ liệu internet dưới dạng xung ánh sáng. Tiêu đề \"suy tàn của ngành thuỷ tinh\" trái với ý đoạn cuối.",
+       "ev": "Thin fibres of extremely pure glass are used in the cables that carry internet data as pulses of light under oceans and between cities."
+      }
+     ]
+    },
+    {
+     "ty": "R-tf",
+     "inst": "Do the following statements agree with the information given in the reading passage? Write TRUE, FALSE or NOT GIVEN.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Historians think that Pliny's story of how glass was discovered is accurate.",
+       "o": [],
+       "a": "FALSE",
+       "acc": [],
+       "why_vi": "Sử gia cho rằng chuyện này \"probably not true\" vì lửa nấu ăn không đủ nóng để nấu chảy cát.",
+       "ev": "The Roman writer Pliny later told a story of sailors who cooked their food on a beach and discovered glass in the ashes of their fire, but historians believe the tale is probably not true, since an ordinary cooking fire is not hot enough to melt sand."
+      },
+      {
+       "q": "Glassblowing was invented in Rome.",
+       "o": [],
+       "a": "FALSE",
+       "acc": [],
+       "why_vi": "Kỹ thuật thổi thuỷ tinh ra đời ở bờ đông Địa Trung Hải; người La Mã chỉ truyền bá nó.",
+       "ev": "Everything changed in the first century BC, when craftsmen on the eastern coast of the Mediterranean discovered that they could blow air into a lump of hot glass through a metal tube."
+      },
+      {
+       "q": "Glassmakers on Murano earned more money than most other workers in Venice.",
+       "o": [],
+       "a": "NOT GIVEN",
+       "acc": [],
+       "why_vi": "Bài nói thợ có địa vị xã hội cao, nhưng không nói gì về thu nhập so với người khác.",
+       "ev": ""
+      },
+      {
+       "q": "Spectacles were in use before the first telescopes were made.",
+       "o": [],
+       "a": "TRUE",
+       "acc": [],
+       "why_vi": "Kính đeo mắt có từ cuối thế kỷ 13; kính viễn vọng khoảng ba trăm năm sau (thế kỷ 17).",
+       "ev": "Some three hundred years later, lens makers discovered that combining two lenses could make distant objects appear closer."
+      }
+     ]
+    },
+    {
+     "ty": "R-sa",
+     "inst": "Answer the questions below. Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the passage for each answer.",
+     "opts": [],
+     "lim": 3,
+     "items": [
+      {
+       "q": "In which decade was the float process developed?",
+       "o": [],
+       "a": "the 1950s",
+       "acc": [
+        "1950s"
+       ],
+       "why_vi": "\"The breakthrough came in the 1950s\".",
+       "ev": "The breakthrough came in the 1950s, when the British engineer Alastair Pilkington developed the float process."
+      },
+      {
+       "q": "In the float process, what is the molten glass poured onto?",
+       "o": [],
+       "a": "molten tin",
+       "acc": [
+        "tin",
+        "a bath of molten tin"
+       ],
+       "why_vi": "Thuỷ tinh nóng chảy được đổ lên \"a bath of molten tin\" (bể thiếc nóng chảy).",
+       "ev": "In this method, molten glass is poured onto a bath of molten tin, where it spreads out and forms a perfectly flat and even surface."
+      },
+      {
+       "q": "What do glass fibres carry as pulses of light?",
+       "o": [],
+       "a": "internet data",
+       "acc": [],
+       "why_vi": "Sợi quang \"carry internet data as pulses of light\".",
+       "ev": "Thin fibres of extremely pure glass are used in the cables that carry internet data as pulses of light under oceans and between cities."
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

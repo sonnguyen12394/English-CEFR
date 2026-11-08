@@ -1,0 +1,160 @@
+[
+ {
+  "id": "ie-r-birds",
+  "ky": "ielts-ac",
+  "sk": "doc",
+  "dang": "R-tf",
+  "g": {
+   "title": "How birds find their way",
+   "topic": "How migrating birds find their way",
+   "gist": "A passage on the senses migrating birds use to navigate: the sun, the stars, the magnetic field, smell and experience.",
+   "vi": "Đọc bài, làm 13 câu: TRUE / FALSE / NOT GIVEN, điền câu, trắc nghiệm.",
+   "text": "How birds find their way\n\nEvery autumn, billions of birds leave their breeding grounds in the northern hemisphere and fly south, some travelling more than ten thousand kilometres. Many return the following spring not just to the same region but to the same garden, hedge or even nest. For centuries, people have wondered how such small animals manage these journeys, often across oceans and deserts, and frequently at night. Scientists now believe that birds do not rely on a single method. Instead, they appear to combine several different senses, switching from one to another depending on the conditions.\n\nThe sun is one of the most important guides for birds that migrate by day. However, the sun is not a fixed point: it moves across the sky from east to west. To use it as a compass, a bird must also know the time of day. Experiments with starlings in the 1950s showed that caged birds turned in the correct direction when they could see the sun. When their internal clock was shifted, by keeping them under artificial light at unusual hours, they chose the wrong direction by a predictable amount. This suggested that the birds were adjusting for the movement of the sun with a kind of biological clock.\n\nMany songbirds, however, migrate at night. In the 1960s, researchers placed young birds of a night-migrating species inside a planetarium, where the pattern of stars on the ceiling could be controlled. When the artificial sky was made to turn around a different star, the birds learned to treat that point as north, even though it was not the real Pole Star. The study showed that birds are not born knowing the constellations. Instead, young birds learn which part of the night sky stays still while the rest of the stars rotate around it.\n\nOn cloudy nights, when neither the sun nor the stars are visible, many birds can still find their way. This is because they are able to sense the magnetic field of the Earth. The exact mechanism is still debated. One theory is that light-sensitive molecules in the eyes of the bird react to the magnetic field, so that the bird may literally see magnetic directions as a pattern laid over its normal vision. Another theory focused on tiny particles of iron in the upper beak, although later studies found that many of these particles belonged to immune cells and were probably not involved in navigation at all.\n\nA compass, though, only tells a bird which direction it is facing. To return to a particular place, it also needs something like a map. Homing pigeons, which can find their way back to their loft from hundreds of kilometres away, seem to use smell for this purpose. In experiments carried out in Italy, pigeons whose sense of smell had been temporarily blocked were much less successful at returning home than other pigeons released at the same site. It appears that pigeons learn how the mixture of smells in the air changes with the direction of the wind around their home area.\n\nExperience also plays a part. In a famous experiment, thousands of starlings were caught in the Netherlands during their autumn migration and transported by plane to Switzerland before being released. Adult birds, which had made the journey before, corrected their course and headed towards their usual winter areas in France and southern England. Young birds on their first migration, however, simply continued flying in the same direction as before, and many ended up in Spain. This suggests that young birds follow an inherited direction and distance, while older birds have built up something like a mental map.\n\nModern technology is now allowing researchers to follow individual birds across entire journeys. Tracking devices weighing less than a gram can record the position of a bird, and some have revealed that birds make far fewer stops than expected. As the climate changes and artificial light spreads, understanding these navigation systems may become important for protecting migratory species, since bright city lights can confuse birds that travel at night. Some cities have already begun dimming the lights of tall buildings during the main migration seasons, and early results suggest that far fewer birds now crash into windows.",
+   "groups": [
+    {
+     "ty": "R-tf",
+     "inst": "Do the following statements agree with the information given in the reading passage? Write TRUE, FALSE or NOT GIVEN.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Some birds return to exactly the same place where they bred the previous year.",
+       "o": [],
+       "a": "TRUE",
+       "acc": [],
+       "why_vi": "Bài nói nhiều con quay về không chỉ cùng vùng mà cùng khu vườn, hàng rào, thậm chí cùng tổ.",
+       "ev": "Many return the following spring not just to the same region but to the same garden, hedge or even nest."
+      },
+      {
+       "q": "Scientists think birds that migrate by day use only the sun to navigate.",
+       "o": [],
+       "a": "FALSE",
+       "acc": [],
+       "why_vi": "Bài nói chim không dựa vào một cách duy nhất mà kết hợp nhiều giác quan; mặt trời chỉ là \"one of the most important guides\". Chữ \"only\" trái với bài.",
+       "ev": "Scientists now believe that birds do not rely on a single method."
+      },
+      {
+       "q": "Starlings whose internal clock had been shifted chose the wrong direction.",
+       "o": [],
+       "a": "TRUE",
+       "acc": [],
+       "why_vi": "Khi đồng hồ sinh học bị lệch, chim chọn sai hướng một lượng đoán trước được.",
+       "ev": "When their internal clock was shifted, by keeping them under artificial light at unusual hours, they chose the wrong direction by a predictable amount."
+      },
+      {
+       "q": "The birds used in the planetarium study had already migrated before.",
+       "o": [],
+       "a": "FALSE",
+       "acc": [],
+       "why_vi": "Bài nói rõ là \"young birds\" (chim non), và nghiên cứu cho thấy chim học bầu trời đêm chứ không sinh ra đã biết.",
+       "ev": "In the 1960s, researchers placed young birds of a night-migrating species inside a planetarium, where the pattern of stars on the ceiling could be controlled."
+      },
+      {
+       "q": "Birds navigate more accurately on cloudy nights than on clear nights.",
+       "o": [],
+       "a": "NOT GIVEN",
+       "acc": [],
+       "why_vi": "Bài chỉ nói chim vẫn tìm đường được khi trời nhiều mây (nhờ từ trường), không so sánh độ chính xác giữa đêm mây và đêm quang.",
+       "ev": ""
+      },
+      {
+       "q": "The pigeon experiments in Italy lasted for more than ten years.",
+       "o": [],
+       "a": "NOT GIVEN",
+       "acc": [],
+       "why_vi": "Bài có nhắc thí nghiệm ở Ý nhưng không nói kéo dài bao lâu.",
+       "ev": ""
+      }
+     ]
+    },
+    {
+     "ty": "R-comp",
+     "inst": "Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+     "opts": [],
+     "lim": 2,
+     "items": [
+      {
+       "q": "One theory suggests that birds may see magnetic directions as a ______ over their normal vision.",
+       "o": [],
+       "a": "pattern",
+       "acc": [],
+       "why_vi": "\"see magnetic directions as a pattern laid over its normal vision\".",
+       "ev": "One theory is that light-sensitive molecules in the eyes of the bird react to the magnetic field, so that the bird may literally see magnetic directions as a pattern laid over its normal vision."
+      },
+      {
+       "q": "Many of the iron particles found in the beak turned out to belong to ______.",
+       "o": [],
+       "a": "immune cells",
+       "acc": [],
+       "why_vi": "\"many of these particles belonged to immune cells\" (tế bào miễn dịch), nên có lẽ không liên quan tới định hướng.",
+       "ev": "Another theory focused on tiny particles of iron in the upper beak, although later studies found that many of these particles belonged to immune cells and were probably not involved in navigation at all."
+      },
+      {
+       "q": "Homing pigeons seem to rely on ______ to work out where they are.",
+       "o": [],
+       "a": "smell",
+       "acc": [],
+       "why_vi": "\"seem to use smell for this purpose\" (dùng khứu giác làm \"bản đồ\").",
+       "ev": "Homing pigeons, which can find their way back to their loft from hundreds of kilometres away, seem to use smell for this purpose."
+      },
+      {
+       "q": "After being released in Switzerland, many young starlings ended up in ______.",
+       "o": [],
+       "a": "Spain",
+       "acc": [],
+       "why_vi": "Chim non giữ nguyên hướng bay cũ nên nhiều con tới Tây Ban Nha; chim trưởng thành sửa hướng về Pháp và miền nam nước Anh.",
+       "ev": "Young birds on their first migration, however, simply continued flying in the same direction as before, and many ended up in Spain."
+      }
+     ]
+    },
+    {
+     "ty": "R-mc",
+     "inst": "Choose the correct letter, A, B, C or D.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Why must a bird know the time of day to use the sun as a compass?",
+       "o": [
+        "because the sun changes its position during the day",
+        "because birds only fly in the early morning",
+        "because the sun is hidden at midday",
+        "because birds need to rest at regular times"
+       ],
+       "a": "because the sun changes its position during the day",
+       "acc": [],
+       "why_vi": "Mặt trời không đứng yên mà đi từ đông sang tây, nên chim phải biết giờ để bù cho chuyển động đó.",
+       "ev": "However, the sun is not a fixed point: it moves across the sky from east to west."
+      },
+      {
+       "q": "What did the planetarium study show about young birds?",
+       "o": [
+        "They are born knowing the constellations.",
+        "They learn which point in the night sky does not move.",
+        "They cannot find north without the real Pole Star.",
+        "They prefer artificial skies to real ones."
+       ],
+       "a": "They learn which point in the night sky does not move.",
+       "acc": [],
+       "why_vi": "Chim non học phần trời đứng yên trong khi các sao khác quay quanh. A sai (không sinh ra đã biết); C sai (chúng coi ngôi sao khác là hướng bắc).",
+       "ev": "Instead, young birds learn which part of the night sky stays still while the rest of the stars rotate around it."
+      },
+      {
+       "q": "What does the writer say about modern tracking devices?",
+       "o": [
+        "They are too heavy for small birds.",
+        "They have shown that birds stop less often than expected.",
+        "They have replaced the need for experiments.",
+        "They are being used to reduce light pollution."
+       ],
+       "a": "They have shown that birds stop less often than expected.",
+       "acc": [],
+       "why_vi": "\"birds make far fewer stops than expected\" (dừng ít hơn dự đoán nhiều). Thiết bị nặng dưới 1 gam nên A sai.",
+       "ev": "Tracking devices weighing less than a gram can record the position of a bird, and some have revealed that birds make far fewer stops than expected."
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

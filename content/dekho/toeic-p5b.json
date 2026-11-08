@@ -1,0 +1,44 @@
+[
+  { "id": "to-p5-02", "ky": "toeic", "sk": "np", "dang": "p5", "g": {
+    "title": "Part 5 · Bộ 2: sản xuất và giao hàng", "topic": "Production, shipping and suppliers", "gist": "Ten business sentences about factories, deliveries and suppliers testing grammar and vocabulary.", "vi": "Chọn từ đúng điền vào chỗ trống.", "text": "",
+    "groups": [
+      { "ty": "p5:form", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "The factory has increased its output ------- since the new assembly line was installed in March.", "o": ["significant", "significantly", "significance", "signify"], "a": "significantly", "acc": [], "why_vi": "Bổ nghĩa cho động từ \"has increased\" cần trạng từ: \"increased its output significantly\".", "ev": "" },
+        { "q": "Customers who place an order before noon will receive ------- of their goods on the same day.", "o": ["deliver", "delivered", "delivery", "deliverable"], "a": "delivery", "acc": [], "why_vi": "Sau động từ \"receive\" và trước \"of\" cần danh từ: \"receive delivery of\" (nhận hàng).", "ev": "" }]},
+      { "ty": "p5:verb", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "The damaged boxes ------- to the supplier yesterday, and replacements are expected on Thursday.", "o": ["returned", "were returned", "have returned", "are returning"], "a": "were returned", "acc": [], "why_vi": "Hộp hàng không tự trả về nên dùng bị động; có \"yesterday\" nên dùng quá khứ đơn bị động \"were returned\".", "ev": "" },
+        { "q": "If the shipment had left the port on time, it ------- at the warehouse by now.", "o": ["arrives", "would arrive", "would have arrived", "had arrived"], "a": "would have arrived", "acc": [], "why_vi": "Câu điều kiện loại 3 (giả định trái với quá khứ): \"If + had + V3, would have + V3\".", "ev": "" }]},
+      { "ty": "p5:prep", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "All orders over $200 are shipped free of charge, regardless ------- the destination.", "o": ["of", "to", "for", "from"], "a": "of", "acc": [], "why_vi": "Cụm cố định \"regardless of\" = bất kể.", "ev": "" }]},
+      { "ty": "p5:conj", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "The supplier offered a large discount; -------, the purchasing manager decided to sign a two-year contract.", "o": ["therefore", "however", "otherwise", "meanwhile"], "a": "therefore", "acc": [], "why_vi": "Vế sau là kết quả của vế trước (được giảm giá nên ký hợp đồng): dùng \"therefore\" (vì vậy).", "ev": "" }]},
+      { "ty": "p5:pron", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "The two companies agreed to share ------- research facilities in order to reduce costs.", "o": ["they", "them", "their", "theirs"], "a": "their", "acc": [], "why_vi": "Trước cụm danh từ \"research facilities\" cần tính từ sở hữu \"their\".", "ev": "" }]},
+      { "ty": "p5:struct", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "Not only ------- the new packaging cheaper, but it is also easier to recycle.", "o": ["is", "it is", "does", "has"], "a": "is", "acc": [], "why_vi": "\"Not only\" đứng đầu câu thì đảo trợ động từ lên trước chủ ngữ: \"Not only is the new packaging cheaper\".", "ev": "" }]},
+      { "ty": "p5:voc", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "Due to high demand, the blue model is temporarily out of -------, but more units will arrive next week.", "o": ["stock", "order", "range", "supply"], "a": "stock", "acc": [], "why_vi": "Cụm cố định \"out of stock\" = hết hàng. \"out of order\" là hỏng (máy móc).", "ev": "" },
+        { "q": "The contract will ------- automatically at the end of the year unless either party cancels it in writing.", "o": ["renew", "repeat", "restore", "recover"], "a": "renew", "acc": [], "why_vi": "Hợp đồng \"renew\" = gia hạn. Các từ khác không dùng cho hợp đồng.", "ev": "" }]}
+    ] } },
+  { "id": "to-p5-03", "ky": "toeic", "sk": "np", "dang": "p5", "g": {
+    "title": "Part 5 · Bộ 3: tuyển dụng và đào tạo", "topic": "Hiring, staff training and workplace events", "gist": "Ten business sentences about recruitment, training and company events testing grammar and vocabulary.", "vi": "Chọn từ đúng điền vào chỗ trống.", "text": "",
+    "groups": [
+      { "ty": "p5:form", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "Applicants must provide two ------- from previous employers along with their application form.", "o": ["refer", "references", "referred", "referring"], "a": "references", "acc": [], "why_vi": "Sau số \"two\" cần danh từ số nhiều: \"two references\" (hai thư giới thiệu).", "ev": "" },
+        { "q": "The training session was so ------- that several staff members asked for a second one.", "o": ["inform", "information", "informative", "informatively"], "a": "informative", "acc": [], "why_vi": "Sau \"was so\" cần tính từ: \"so informative\" (rất bổ ích).", "ev": "" }]},
+      { "ty": "p5:verb", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "Mr. Lopez ------- for the company for fifteen years when he was promoted to regional director.", "o": ["works", "has worked", "had worked", "will work"], "a": "had worked", "acc": [], "why_vi": "Việc kéo dài 15 năm xảy ra trước một mốc quá khứ (\"was promoted\") nên dùng quá khứ hoàn thành \"had worked\".", "ev": "" },
+        { "q": "We look forward to ------- you at the annual awards dinner on December 12.", "o": ["see", "seeing", "be seen", "have seen"], "a": "seeing", "acc": [], "why_vi": "\"look forward to\" có \"to\" là giới từ nên theo sau là V-ing: \"look forward to seeing\".", "ev": "" }]},
+      { "ty": "p5:prep", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "Interviews for the sales position will take place ------- 9:00 A.M. and 4:00 P.M. on Wednesday.", "o": ["between", "among", "within", "through"], "a": "between", "acc": [], "why_vi": "Cấu trúc \"between A and B\" = trong khoảng từ A đến B.", "ev": "" }]},
+      { "ty": "p5:conj", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "New employees cannot access the main database ------- they have completed the security course.", "o": ["until", "while", "because", "so that"], "a": "until", "acc": [], "why_vi": "\"cannot … until\" = không thể … cho đến khi: chỉ được vào cơ sở dữ liệu sau khi học xong khoá an ninh.", "ev": "" }]},
+      { "ty": "p5:pron", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "The manager thanked the volunteers, ------- of whom had given up their weekend to help at the event.", "o": ["many", "much", "every", "each other"], "a": "many", "acc": [], "why_vi": "Cấu trúc \"many of whom\" thay cho người đếm được (volunteers). \"much\" dùng cho không đếm được; \"every\" không đứng trước \"of whom\".", "ev": "" }]},
+      { "ty": "p5:struct", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "The more experience candidates have, the ------- their chances of being offered the job.", "o": ["good", "better", "best", "well"], "a": "better", "acc": [], "why_vi": "Cấu trúc so sánh kép \"The more …, the + so sánh hơn\": \"the better their chances\".", "ev": "" }]},
+      { "ty": "p5:voc", "inst": "Choose the best answer to complete the sentence.", "opts": [], "lim": 0, "items": [
+        { "q": "Staff who wish to ------- the leadership workshop should sign up on the intranet by Friday.", "o": ["attend", "join in", "participate", "assist"], "a": "attend", "acc": [], "why_vi": "\"attend a workshop\" = tham dự hội thảo, đi thẳng với tân ngữ. \"participate\" cần \"in\"; \"assist\" là giúp đỡ.", "ev": "" },
+        { "q": "The company offers a generous ------- package, including health insurance and paid holidays.", "o": ["benefits", "profits", "values", "rewards"], "a": "benefits", "acc": [], "why_vi": "Cụm \"benefits package\" = gói phúc lợi (bảo hiểm, nghỉ phép có lương).", "ev": "" }]}
+    ] } }
+]

@@ -1,0 +1,868 @@
+[
+ {
+  "id": "ie-l1-hall",
+  "ky": "ielts-ac",
+  "sk": "nghe",
+  "dang": "L-form",
+  "g": {
+   "title": "Part 1 · Thuê hội trường cho bữa tiệc",
+   "topic": "Hiring a hall for an event",
+   "gist": "A man phones a community centre to ask about hiring a room for a surprise birthday party.",
+   "vi": "Nghe cuộc gọi, điền phiếu (tối đa HAI TỪ VÀ/HOẶC MỘT SỐ) rồi chọn đáp án.",
+   "text": "",
+   "lines": [
+    {
+     "who": "A",
+     "s": "Good morning, Westbrook Community Centre, Jenny speaking. How can I help?"
+    },
+    {
+     "who": "B",
+     "s": "Hello. I'd like to ask about hiring a hall for a party next month."
+    },
+    {
+     "who": "A",
+     "s": "Of course. Can I take your name first?"
+    },
+    {
+     "who": "B",
+     "s": "Yes, it's Daniel Garrison. That's G-A-R-R-I-S-O-N. Garrison."
+    },
+    {
+     "who": "A",
+     "s": "Thank you, Mr Garrison. And what kind of event is it?"
+    },
+    {
+     "who": "B",
+     "s": "It's a fortieth birthday party for my wife. It's a surprise, actually, so she doesn't know anything about it yet."
+    },
+    {
+     "who": "A",
+     "s": "How lovely. And how many guests are you expecting?"
+    },
+    {
+     "who": "B",
+     "s": "About 70, I think. Maybe a few more if her cousins come from Scotland."
+    },
+    {
+     "who": "A",
+     "s": "Then I'd recommend the Garden Room rather than the Main Hall. The Main Hall holds two hundred people, so with seventy guests it would feel rather empty. The Garden Room takes up to eighty, and it opens onto the terrace, which is nice on a summer evening."
+    },
+    {
+     "who": "B",
+     "s": "That sounds perfect. How much does it cost?"
+    },
+    {
+     "who": "A",
+     "s": "For an evening booking, that's from six o'clock until midnight, it's 320 pounds."
+    },
+    {
+     "who": "B",
+     "s": "And does that include tables and chairs?"
+    },
+    {
+     "who": "A",
+     "s": "Yes, it does, and our staff set them up for you before you arrive. The only extra charge is for cleaning, which is forty-five pounds."
+    },
+    {
+     "who": "B",
+     "s": "OK, that's reasonable. Could we come in earlier in the afternoon to decorate the room?"
+    },
+    {
+     "who": "A",
+     "s": "Yes, you can have the room from four o'clock at no extra charge. The only thing we ask is that you don't stick anything to the walls with tape, because it damages the paint. There are hooks along the walls that you can use instead."
+    },
+    {
+     "who": "B",
+     "s": "Hooks, right. I'll tell my sister, she's doing the decorations. And can we bring our own food?"
+    },
+    {
+     "who": "A",
+     "s": "Cold food is fine to bring yourselves. But if you want hot food, you would need to use one of our approved caterers, because only they are allowed to use the kitchen equipment."
+    },
+    {
+     "who": "B",
+     "s": "I see. What about music? We were hoping to have a small band."
+    },
+    {
+     "who": "A",
+     "s": "Live music is allowed, but it has to finish by 11:30 because there are houses right next to the centre. After that you can play quiet background music until midnight."
+    },
+    {
+     "who": "B",
+     "s": "That's fine. And is there anywhere to park? Some of the guests are older and won't want to walk far."
+    },
+    {
+     "who": "A",
+     "s": "There's a car park behind the centre with thirty spaces. It's normally two pounds an hour, but parking is free after six o'clock, so your guests won't have to pay."
+    },
+    {
+     "who": "B",
+     "s": "Great. So how do I book?"
+    },
+    {
+     "who": "A",
+     "s": "I need a deposit of one hundred pounds to hold the date. You can pay by bank transfer, or by card over the phone."
+    },
+    {
+     "who": "B",
+     "s": "I'll pay by card now, if that's all right. I'd rather not wait."
+    },
+    {
+     "who": "A",
+     "s": "Certainly. And the deposit is returned after the event, as long as nothing is damaged."
+    }
+   ],
+   "voices": [
+    {
+     "who": "A",
+     "g": "f"
+    },
+    {
+     "who": "B",
+     "g": "m"
+    }
+   ],
+   "groups": [
+    {
+     "ty": "L-form",
+     "inst": "Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+     "opts": [],
+     "lim": 2,
+     "items": [
+      {
+       "q": "Name: Daniel ______",
+       "o": [],
+       "a": "Garrison",
+       "acc": [],
+       "why_vi": "Người gọi đánh vần tên: G-A-R-R-I-S-O-N. Phần điền tên trong Part 1 thường được đánh vần, phải viết đúng chính tả.",
+       "ev": "Yes, it's Daniel Garrison."
+      },
+      {
+       "q": "Type of event: ______ party (a surprise)",
+       "o": [],
+       "a": "birthday",
+       "acc": [
+        "fortieth birthday"
+       ],
+       "why_vi": "\"a fortieth birthday party\": điền \"birthday\" (hoặc \"fortieth birthday\", vẫn trong giới hạn hai từ).",
+       "ev": "It's a fortieth birthday party for my wife."
+      },
+      {
+       "q": "Number of guests: about ______",
+       "o": [],
+       "a": "70",
+       "acc": [
+        "seventy"
+       ],
+       "why_vi": "\"About 70, I think\". Câu sau \"a few more\" chỉ là có thể thêm, đáp án vẫn là 70.",
+       "ev": "About 70, I think."
+      },
+      {
+       "q": "Room recommended: the ______",
+       "o": [],
+       "a": "Garden Room",
+       "acc": [],
+       "why_vi": "Lễ tân gợi ý Garden Room thay vì Main Hall (Main Hall 200 người, quá rộng). Bẫy: Main Hall được nhắc trước.",
+       "ev": "Then I'd recommend the Garden Room rather than the Main Hall."
+      },
+      {
+       "q": "Cost for an evening booking: £______",
+       "o": [],
+       "a": "320",
+       "acc": [],
+       "why_vi": "\"it's 320 pounds\" cho buổi tối từ 6 giờ đến nửa đêm. Phí dọn 45 bảng là khoản khác.",
+       "ev": "For an evening booking, that's from six o'clock until midnight, it's 320 pounds."
+      },
+      {
+       "q": "Extra charge: ______ (£45)",
+       "o": [],
+       "a": "cleaning",
+       "acc": [],
+       "why_vi": "\"The only extra charge is for cleaning\". Bàn ghế đã gồm trong giá.",
+       "ev": "The only extra charge is for cleaning, which is forty-five pounds."
+      },
+      {
+       "q": "Hot food: must use approved ______",
+       "o": [],
+       "a": "caterers",
+       "acc": [],
+       "why_vi": "Đồ nóng phải dùng \"approved caterers\" (bên nấu ăn được duyệt). Đồ nguội tự mang được.",
+       "ev": "But if you want hot food, you would need to use one of our approved caterers, because only they are allowed to use the kitchen equipment."
+      },
+      {
+       "q": "Live music must finish by: ______",
+       "o": [],
+       "a": "11:30",
+       "acc": [
+        "11.30",
+        "half past eleven"
+       ],
+       "why_vi": "Nhạc sống dừng lúc 11:30 vì có nhà dân bên cạnh. Bẫy: \"midnight\" là giờ kết thúc nhạc nền.",
+       "ev": "Live music is allowed, but it has to finish by 11:30 because there are houses right next to the centre."
+      }
+     ]
+    },
+    {
+     "ty": "L-mc",
+     "inst": "Choose the correct letter, A, B or C.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "What does the receptionist say about parking?",
+       "o": [
+        "It is free in the evening.",
+        "It must be booked in advance.",
+        "It is only for older visitors."
+       ],
+       "a": "It is free in the evening.",
+       "acc": [],
+       "why_vi": "Bình thường 2 bảng một giờ, nhưng sau 6 giờ tối miễn phí. Khách lớn tuổi được nhắc nhưng bãi xe không dành riêng cho họ.",
+       "ev": "It's normally two pounds an hour, but parking is free after six o'clock, so your guests won't have to pay."
+      },
+      {
+       "q": "How will Mr Garrison pay the deposit?",
+       "o": [
+        "by card",
+        "by bank transfer",
+        "in cash"
+       ],
+       "a": "by card",
+       "acc": [],
+       "why_vi": "Lễ tân nêu hai cách (chuyển khoản, thẻ), anh chọn trả bằng thẻ ngay. Bẫy: \"bank transfer\" được nhắc trước.",
+       "ev": "I'll pay by card now, if that's all right."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ie-l2-garden",
+  "ky": "ielts-ac",
+  "sk": "nghe",
+  "dang": "L-match",
+  "g": {
+   "title": "Part 2 · Giới thiệu vườn cộng đồng cho tình nguyện viên",
+   "topic": "A community garden project",
+   "gist": "A volunteer coordinator welcomes new volunteers to a community garden and explains its areas and rules.",
+   "vi": "Nghe bài nói, chọn đáp án rồi nối khu vườn với việc làm ở đó.",
+   "text": "",
+   "lines": [
+    {
+     "who": "A",
+     "s": "Good morning, everyone, and welcome to Hollybank Community Garden. My name's Rachel, and I coordinate the volunteers here. Before we start work, I'd like to tell you a little about how the garden runs."
+    },
+    {
+     "who": "A",
+     "s": "The garden opened eight years ago on land that used to be a car park. Most people assume the local council paid for it, but in fact the money came from a group of local businesses, and the council simply agreed to lease us the land."
+    },
+    {
+     "who": "A",
+     "s": "We now have around a hundred and twenty volunteers, although on a typical Saturday only about twenty turn up. That's why we ask everyone to sign up for at least one shift a month on the website, so we know how many people to expect."
+    },
+    {
+     "who": "A",
+     "s": "Now, safety. You'll find gloves in the green shed, and please wear them whenever you're handling soil. The one rule we're really strict about is that children under twelve must stay with an adult at all times, because some of our tools are very sharp."
+    },
+    {
+     "who": "A",
+     "s": "Let me take you round the different areas. If you look at the map in your welcome pack, the entrance is at the bottom."
+    },
+    {
+     "who": "A",
+     "s": "Just inside the gate, on your left, is the herb spiral. It looks like a small stone tower. This is where our youngest volunteers work, because the herbs are easy to look after, and today a school group will be planting mint and basil there."
+    },
+    {
+     "who": "A",
+     "s": "Behind the herb spiral you'll see the greenhouse. We grow tomatoes and peppers in there, but at this time of year the main job is watering, and on hot days that needs doing twice."
+    },
+    {
+     "who": "A",
+     "s": "In the far corner is the orchard. The apple trees are quite old now, and our main task there this month is pruning them, which means cutting back the dead branches. Don't worry, we'll show you how."
+    },
+    {
+     "who": "A",
+     "s": "Next to the orchard is the pond. It's become home to frogs and dragonflies, and once a week we record which species we see for a university project. You don't need any experience, just a good pair of eyes."
+    },
+    {
+     "who": "A",
+     "s": "Finally, near the café is the compost area. Kitchen waste from the café goes in there, and volunteers turn the heaps with forks every Wednesday. It's hard work, but it's great exercise."
+    },
+    {
+     "who": "A",
+     "s": "The café itself is run by volunteers too, and all the profits go back into the garden, mostly to buy seeds and repair the tools."
+    },
+    {
+     "who": "A",
+     "s": "Right, the last thing before we split into groups: our open day is on the twenty-first of September, and we need people to help with the plant sale and guided tours. If you're interested, please put your name on the list by the café door."
+    }
+   ],
+   "voices": [
+    {
+     "who": "A",
+     "g": "f"
+    }
+   ],
+   "groups": [
+    {
+     "ty": "L-mc",
+     "inst": "Choose the correct letter, A, B or C.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Who paid for the garden to be created?",
+       "o": [
+        "the local council",
+        "local businesses",
+        "a university"
+       ],
+       "a": "local businesses",
+       "acc": [],
+       "why_vi": "Nhiều người nghĩ hội đồng địa phương trả tiền, nhưng thật ra tiền đến từ các doanh nghiệp địa phương; hội đồng chỉ cho thuê đất. Bẫy kinh điển: đáp án bị phủ định được nhắc trước.",
+       "ev": "Most people assume the local council paid for it, but in fact the money came from a group of local businesses, and the council simply agreed to lease us the land."
+      },
+      {
+       "q": "Why are volunteers asked to sign up online?",
+       "o": [
+        "so that the garden knows how many people will come",
+        "so that they can receive training",
+        "so that they can collect their gloves"
+       ],
+       "a": "so that the garden knows how many people will come",
+       "acc": [],
+       "why_vi": "Đăng ký ca trên trang web để vườn biết sẽ có bao nhiêu người tới (thường chỉ khoảng 20 người đến vào thứ Bảy).",
+       "ev": "That's why we ask everyone to sign up for at least one shift a month on the website, so we know how many people to expect."
+      },
+      {
+       "q": "Which rule does Rachel say is strictly applied?",
+       "o": [
+        "Gloves must be worn at all times.",
+        "Children must be with an adult.",
+        "Tools must be returned to the shed."
+       ],
+       "a": "Children must be with an adult.",
+       "acc": [],
+       "why_vi": "Luật nghiêm nhất: trẻ dưới 12 tuổi luôn phải đi cùng người lớn. Găng tay chỉ cần khi cầm đất, không phải mọi lúc.",
+       "ev": "The one rule we're really strict about is that children under twelve must stay with an adult at all times, because some of our tools are very sharp."
+      }
+     ]
+    },
+    {
+     "ty": "L-match",
+     "inst": "What is the main activity in each area of the garden? Choose FIVE answers from the box and write the correct letter, A–G, next to each area.",
+     "opts": [
+      "A. planting herbs",
+      "B. watering plants",
+      "C. cutting back branches",
+      "D. recording wildlife",
+      "E. turning waste into compost",
+      "F. selling plants",
+      "G. repairing tools"
+     ],
+     "lim": 0,
+     "items": [
+      {
+       "q": "the herb spiral",
+       "o": [],
+       "a": "A. planting herbs",
+       "acc": [],
+       "why_vi": "Hôm nay một nhóm học sinh trồng bạc hà và húng quế ở herb spiral.",
+       "ev": "This is where our youngest volunteers work, because the herbs are easy to look after, and today a school group will be planting mint and basil there."
+      },
+      {
+       "q": "the greenhouse",
+       "o": [],
+       "a": "B. watering plants",
+       "acc": [],
+       "why_vi": "Nhà kính trồng cà chua, ớt, nhưng mùa này việc chính là tưới nước.",
+       "ev": "We grow tomatoes and peppers in there, but at this time of year the main job is watering, and on hot days that needs doing twice."
+      },
+      {
+       "q": "the orchard",
+       "o": [],
+       "a": "C. cutting back branches",
+       "acc": [],
+       "why_vi": "\"pruning them, which means cutting back the dead branches\": tỉa cành.",
+       "ev": "The apple trees are quite old now, and our main task there this month is pruning them, which means cutting back the dead branches."
+      },
+      {
+       "q": "the pond",
+       "o": [],
+       "a": "D. recording wildlife",
+       "acc": [],
+       "why_vi": "Mỗi tuần ghi lại các loài nhìn thấy (ếch, chuồn chuồn) cho một dự án đại học.",
+       "ev": "It's become home to frogs and dragonflies, and once a week we record which species we see for a university project."
+      },
+      {
+       "q": "the compost area",
+       "o": [],
+       "a": "E. turning waste into compost",
+       "acc": [],
+       "why_vi": "Rác bếp của quán cà phê đổ vào đây, tình nguyện viên đảo đống ủ mỗi thứ Tư. Bẫy: \"repair the tools\" và \"plant sale\" được nhắc nhưng không phải việc của khu nào.",
+       "ev": "Kitchen waste from the café goes in there, and volunteers turn the heaps with forks every Wednesday."
+      }
+     ]
+    },
+    {
+     "ty": "L-mc",
+     "inst": "Choose the correct letter, A, B or C.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "What are the café's profits mainly used for?",
+       "o": [
+        "buying seeds and repairing tools",
+        "paying the volunteer coordinator",
+        "building a new greenhouse"
+       ],
+       "a": "buying seeds and repairing tools",
+       "acc": [],
+       "why_vi": "Tiền lãi của quán cà phê quay lại vườn, chủ yếu mua hạt giống và sửa dụng cụ.",
+       "ev": "The café itself is run by volunteers too, and all the profits go back into the garden, mostly to buy seeds and repair the tools."
+      },
+      {
+       "q": "What help is needed for the open day?",
+       "o": [
+        "making food for the café",
+        "running the plant sale and tours",
+        "putting up signs around the town"
+       ],
+       "a": "running the plant sale and tours",
+       "acc": [],
+       "why_vi": "Ngày mở cửa cần người giúp bán cây và dẫn khách tham quan.",
+       "ev": "Right, the last thing before we split into groups: our open day is on the twenty-first of September, and we need people to help with the plant sale and guided tours."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ie-l3-noise",
+  "ky": "ielts-ac",
+  "sk": "nghe",
+  "dang": "L-mc",
+  "g": {
+   "title": "Part 3 · Thảo luận đề tài tiếng ồn trong lớp học",
+   "topic": "Noise pollution and health",
+   "gist": "Two students discuss their research project on classroom noise with their tutor.",
+   "vi": "Nghe thảo luận, chọn đáp án rồi nối ý kiến với người nói.",
+   "text": "",
+   "lines": [
+    {
+     "who": "A",
+     "s": "So, Owen and Lily, how is your project on classroom noise going?"
+    },
+    {
+     "who": "B",
+     "s": "Quite well, I think. We've measured the noise in six primary school classrooms, using a sound meter on the teacher's desk."
+    },
+    {
+     "who": "A",
+     "s": "And how long did you spend in each classroom? A single lesson can be very different from a whole day."
+    },
+    {
+     "who": "C",
+     "s": "We stayed for a full school day in each one, from nine until three, and the meter took a reading every minute. That gave us more than three hundred readings per room, so we could compare lessons, group work and lunch breaks."
+    },
+    {
+     "who": "C",
+     "s": "Although we did have one problem. In the first school, the children kept touching the meter, so the readings were much higher than normal. In the end we had to repeat all those measurements."
+    },
+    {
+     "who": "A",
+     "s": "That's a common issue. And what did you find?"
+    },
+    {
+     "who": "B",
+     "s": "The average level during lessons was around sixty-five decibels. What surprised us most was that the noisiest classrooms weren't the ones with the most children. They were the ones with hard floors and high ceilings."
+    },
+    {
+     "who": "A",
+     "s": "So the room itself mattered more than the class size."
+    },
+    {
+     "who": "C",
+     "s": "Exactly. One classroom had a carpet and soft boards on the walls, and even with thirty children it was the quietest of the six."
+    },
+    {
+     "who": "A",
+     "s": "Good. Now, you also interviewed teachers, didn't you?"
+    },
+    {
+     "who": "C",
+     "s": "Yes, eight of them. Most said the noise made them tired by the end of the day, but they were more worried about the children who sit at the back, because those children often miss instructions."
+    },
+    {
+     "who": "B",
+     "s": "A couple of teachers also mentioned that they have to raise their voices, and one had actually lost her voice twice this year."
+    },
+    {
+     "who": "A",
+     "s": "Did any of the teachers have ideas about why the noise builds up during the day?"
+    },
+    {
+     "who": "C",
+     "s": "Several of them said that once the background noise rises, children start speaking more loudly so that their friends can hear them, and then everyone else does the same. One teacher called it a kind of chain reaction."
+    },
+    {
+     "who": "A",
+     "s": "That's very relevant. Have you decided how to present your findings?"
+    },
+    {
+     "who": "B",
+     "s": "We were going to write a standard report, but we think a short video would show the difference between the rooms more clearly, so people can actually hear it."
+    },
+    {
+     "who": "A",
+     "s": "That's a good idea, but remember the department still requires a written summary of about a thousand words to go with it."
+    },
+    {
+     "who": "C",
+     "s": "OK, we'll do both then."
+    },
+    {
+     "who": "A",
+     "s": "Now, before you finish, I'd like you to think about recommendations. Owen, what would you suggest?"
+    },
+    {
+     "who": "B",
+     "s": "Personally, I'd put carpets in every classroom. It's the cheapest change and it made the biggest difference in our data."
+    },
+    {
+     "who": "C",
+     "s": "I'm not so sure. Carpets are hard to keep clean, and some children have allergies. I'd rather see schools use soft wall panels, which can be cleaned easily."
+    },
+    {
+     "who": "A",
+     "s": "My own view is that you should also mention teacher training. Simple routines, like a signal for silence, can reduce noise without any building work at all."
+    },
+    {
+     "who": "B",
+     "s": "That's true. And I think the schools should measure noise regularly themselves. Cheap meters are easy to buy now."
+    },
+    {
+     "who": "C",
+     "s": "And I'd add that new schools should be designed with sound in mind from the start, because changing a building later is far more expensive."
+    }
+   ],
+   "voices": [
+    {
+     "who": "A",
+     "g": "f"
+    },
+    {
+     "who": "B",
+     "g": "m"
+    },
+    {
+     "who": "C",
+     "g": "f"
+    }
+   ],
+   "groups": [
+    {
+     "ty": "L-mc",
+     "inst": "Choose the correct letter, A, B or C.",
+     "opts": [],
+     "lim": 0,
+     "items": [
+      {
+       "q": "Why did the students repeat some of their measurements?",
+       "o": [
+        "The sound meter was broken.",
+        "Children interfered with the equipment.",
+        "The teacher asked them to."
+       ],
+       "a": "Children interfered with the equipment.",
+       "acc": [],
+       "why_vi": "Ở trường đầu tiên trẻ cứ chạm vào máy đo nên số đo cao bất thường, phải đo lại.",
+       "ev": "In the first school, the children kept touching the meter, so the readings were much higher than normal."
+      },
+      {
+       "q": "What surprised the students about the noisiest classrooms?",
+       "o": [
+        "They had the largest number of children.",
+        "They had hard floors and high ceilings.",
+        "They were near busy roads."
+       ],
+       "a": "They had hard floors and high ceilings.",
+       "acc": [],
+       "why_vi": "Phòng ồn nhất không phải phòng đông nhất mà là phòng sàn cứng, trần cao. Bẫy: \"most children\" được nhắc nhưng bị phủ định.",
+       "ev": "They were the ones with hard floors and high ceilings."
+      },
+      {
+       "q": "What were most teachers mainly worried about?",
+       "o": [
+        "feeling tired at the end of the day",
+        "children at the back missing instructions",
+        "losing their voices"
+       ],
+       "a": "children at the back missing instructions",
+       "acc": [],
+       "why_vi": "Giáo viên mệt, nhưng \"more worried about\" trẻ ngồi cuối lớp hay bỏ lỡ lời dặn. Mất giọng chỉ là một giáo viên.",
+       "ev": "Most said the noise made them tired by the end of the day, but they were more worried about the children who sit at the back, because those children often miss instructions."
+      },
+      {
+       "q": "Why do the students want to make a video?",
+       "o": [
+        "It will let people hear the difference between rooms.",
+        "It is required by the department.",
+        "It is quicker than writing a report."
+       ],
+       "a": "It will let people hear the difference between rooms.",
+       "acc": [],
+       "why_vi": "Video cho người xem nghe được khác biệt giữa các phòng. Khoa yêu cầu bản tóm tắt viết, không yêu cầu video.",
+       "ev": "We were going to write a standard report, but we think a short video would show the difference between the rooms more clearly, so people can actually hear it."
+      },
+      {
+       "q": "What does the tutor remind them about?",
+       "o": [
+        "the deadline for the project",
+        "the need for a written summary",
+        "the length of the video"
+       ],
+       "a": "the need for a written summary",
+       "acc": [],
+       "why_vi": "Khoa vẫn yêu cầu bản tóm tắt viết khoảng 1.000 từ đi kèm video.",
+       "ev": "That's a good idea, but remember the department still requires a written summary of about a thousand words to go with it."
+      },
+      {
+       "q": "What will the students include in their presentation?",
+       "o": [
+        "only a video",
+        "only a written report",
+        "both a video and a written summary"
+       ],
+       "a": "both a video and a written summary",
+       "acc": [],
+       "why_vi": "Lily: \"we'll do both then\": làm cả video lẫn bản viết.",
+       "ev": "OK, we'll do both then."
+      }
+     ]
+    },
+    {
+     "ty": "L-match",
+     "inst": "What do the speakers say about each solution? Choose FOUR answers from the box and write the correct letter, A–F, next to each solution.",
+     "opts": [
+      "A. It made the biggest difference in their data.",
+      "B. It can be cleaned easily.",
+      "C. It needs no building work.",
+      "D. It uses equipment that is easy to buy.",
+      "E. It should be planned from the start.",
+      "F. It is popular with children."
+     ],
+     "lim": 0,
+     "items": [
+      {
+       "q": "carpets",
+       "o": [],
+       "a": "A. It made the biggest difference in their data.",
+       "acc": [],
+       "why_vi": "Owen: thảm rẻ nhất và \"made the biggest difference in our data\". Lily chê thảm khó vệ sinh, nên B không phải của thảm.",
+       "ev": "It's the cheapest change and it made the biggest difference in our data."
+      },
+      {
+       "q": "soft wall panels",
+       "o": [],
+       "a": "B. It can be cleaned easily.",
+       "acc": [],
+       "why_vi": "Lily: tấm ốp tường mềm \"can be cleaned easily\".",
+       "ev": "I'd rather see schools use soft wall panels, which can be cleaned easily."
+      },
+      {
+       "q": "teacher training",
+       "o": [],
+       "a": "C. It needs no building work.",
+       "acc": [],
+       "why_vi": "Gia sư: thói quen đơn giản giảm ồn \"without any building work at all\".",
+       "ev": "Simple routines, like a signal for silence, can reduce noise without any building work at all."
+      },
+      {
+       "q": "measuring noise regularly",
+       "o": [],
+       "a": "D. It uses equipment that is easy to buy.",
+       "acc": [],
+       "why_vi": "Owen: máy đo rẻ, \"easy to buy now\". E (thiết kế từ đầu) nói về trường mới, không phải việc đo.",
+       "ev": "Cheap meters are easy to buy now."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ie-l4-elephant",
+  "ky": "ielts-ac",
+  "sk": "nghe",
+  "dang": "L-note",
+  "g": {
+   "title": "Part 4 · Bài giảng: voi giao tiếp thế nào",
+   "topic": "How elephants communicate",
+   "gist": "A lecture on how elephants communicate using low sounds, vibrations through the ground, smell and touch.",
+   "vi": "Nghe bài giảng, điền ghi chú (MỖI CHỖ MỘT TỪ).",
+   "text": "",
+   "lines": [
+    {
+     "who": "A",
+     "s": "Good afternoon. Today I'm going to talk about how elephants communicate, a subject that has changed a great deal in the last forty years."
+    },
+    {
+     "who": "A",
+     "s": "For a long time, scientists believed that elephants were fairly quiet animals. Apart from the famous trumpeting, which is mostly used when they are excited or alarmed, they seemed to make very few sounds."
+    },
+    {
+     "who": "A",
+     "s": "That view changed in the 1980s, when a researcher working at a zoo noticed a kind of throbbing in the air near the elephants, rather like the feeling you get near a large organ in a church. She suspected the animals were producing sounds that were too low for humans to hear."
+    },
+    {
+     "who": "A",
+     "s": "Recordings proved her right. Elephants make deep rumbles, many of them below the range of human hearing. Sound at these very low frequencies is called infrasound, and its great advantage is that it travels long distances without fading, even through forest."
+    },
+    {
+     "who": "A",
+     "s": "To give you an idea of how low these sounds are, the lowest note that most people can hear is about twenty hertz, while some elephant rumbles go down to around fourteen. We may not hear them, but we can sometimes feel them."
+    },
+    {
+     "who": "A",
+     "s": "In good conditions, especially in the cool air of the evening, a rumble can be heard by other elephants several kilometres away. So when a group appears to be moving in the same direction without any visible signal, they may in fact be talking to each other."
+    },
+    {
+     "who": "A",
+     "s": "Researchers have since identified different kinds of rumble. There is a greeting rumble when family members meet after a separation, and a quite different rumble that females use when they are ready to mate. Mothers also use a soft rumble to keep in contact with their calves."
+    },
+    {
+     "who": "A",
+     "s": "Adult males in a condition known as musth, when their hormone levels are very high, produce a particular low rumble that seems to warn other males to keep their distance."
+    },
+    {
+     "who": "A",
+     "s": "The second discovery was even more surprising. Some of the energy from a rumble travels through the ground as vibration, and elephants appear to detect these vibrations through their feet."
+    },
+    {
+     "who": "A",
+     "s": "The soles of their feet contain special nerve endings that are sensitive to vibration. When elephants are listening in this way, they often lean forward and press their feet into the ground, and sometimes they lift one foot off the ground altogether."
+    },
+    {
+     "who": "A",
+     "s": "Field experiments support this. When researchers played recorded warning calls through the ground, rather than through the air, the elephants still reacted. They gathered their young together and moved away from the source."
+    },
+    {
+     "who": "A",
+     "s": "Of course, elephants do not rely on sound alone. Their sense of smell is extremely good, and the trunk plays a central role. An elephant can identify other members of its family from their scent, and males can tell from smell whether a female is ready to mate."
+    },
+    {
+     "who": "A",
+     "s": "Touch is also important. Elephants greet each other by placing the tip of the trunk in the other animal's mouth, and calves are constantly touched and guided by the adults around them."
+    },
+    {
+     "who": "A",
+     "s": "Why does all this matter? Understanding elephant communication can help with conservation. For example, in some areas farmers are now using recorded calls to keep elephants away from their crops without harming them."
+    },
+    {
+     "who": "A",
+     "s": "In the final part of the lecture, I'll look at how noise from roads and mining may be interfering with these low-frequency signals."
+    }
+   ],
+   "voices": [
+    {
+     "who": "A",
+     "g": "f"
+    }
+   ],
+   "groups": [
+    {
+     "ty": "L-form",
+     "inst": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+     "opts": [],
+     "lim": 1,
+     "items": [
+      {
+       "q": "Old view: elephants seemed quiet; trumpeting used mainly when excited or ______",
+       "o": [],
+       "a": "alarmed",
+       "acc": [],
+       "why_vi": "\"trumpeting, which is mostly used when they are excited or alarmed\".",
+       "ev": "Apart from the famous trumpeting, which is mostly used when they are excited or alarmed, they seemed to make very few sounds."
+      },
+      {
+       "q": "1980s: researcher at a ______ felt a throbbing in the air",
+       "o": [],
+       "a": "zoo",
+       "acc": [],
+       "why_vi": "\"a researcher working at a zoo noticed a kind of throbbing in the air\".",
+       "ev": "That view changed in the 1980s, when a researcher working at a zoo noticed a kind of throbbing in the air near the elephants, rather like the feeling you get near a large organ in a church."
+      },
+      {
+       "q": "Very low sound (infrasound) travels far without ______",
+       "o": [],
+       "a": "fading",
+       "acc": [],
+       "why_vi": "\"travels long distances without fading\" (không yếu đi).",
+       "ev": "Sound at these very low frequencies is called infrasound, and its great advantage is that it travels long distances without fading, even through forest."
+      },
+      {
+       "q": "Rumbles carry best in the cool air of the ______",
+       "o": [],
+       "a": "evening",
+       "acc": [],
+       "why_vi": "\"especially in the cool air of the evening\".",
+       "ev": "In good conditions, especially in the cool air of the evening, a rumble can be heard by other elephants several kilometres away."
+      },
+      {
+       "q": "Mothers use a soft rumble to stay in contact with their ______",
+       "o": [],
+       "a": "calves",
+       "acc": [],
+       "why_vi": "\"Mothers also use a soft rumble to keep in contact with their calves\" (voi con).",
+       "ev": "Mothers also use a soft rumble to keep in contact with their calves."
+      },
+      {
+       "q": "Vibrations through the ground are detected through the ______",
+       "o": [],
+       "a": "feet",
+       "acc": [],
+       "why_vi": "\"elephants appear to detect these vibrations through their feet\".",
+       "ev": "Some of the energy from a rumble travels through the ground as vibration, and elephants appear to detect these vibrations through their feet."
+      },
+      {
+       "q": "When listening this way, they may lift one foot off the ______",
+       "o": [],
+       "a": "ground",
+       "acc": [],
+       "why_vi": "\"sometimes they lift one foot off the ground altogether\".",
+       "ev": "When elephants are listening in this way, they often lean forward and press their feet into the ground, and sometimes they lift one foot off the ground altogether."
+      },
+      {
+       "q": "Experiment: after warning calls played through the ground, elephants gathered their ______",
+       "o": [],
+       "a": "young",
+       "acc": [],
+       "why_vi": "\"They gathered their young together and moved away\" (gom con nhỏ lại).",
+       "ev": "They gathered their young together and moved away from the source."
+      },
+      {
+       "q": "Smell: family members are recognised by their ______",
+       "o": [],
+       "a": "scent",
+       "acc": [],
+       "why_vi": "\"identify other members of its family from their scent\" (mùi).",
+       "ev": "An elephant can identify other members of its family from their scent, and males can tell from smell whether a female is ready to mate."
+      },
+      {
+       "q": "Conservation: recorded calls keep elephants away from farmers' ______",
+       "o": [],
+       "a": "crops",
+       "acc": [],
+       "why_vi": "\"using recorded calls to keep elephants away from their crops\" (mùa màng).",
+       "ev": "For example, in some areas farmers are now using recorded calls to keep elephants away from their crops without harming them."
+      }
+     ]
+    }
+   ]
+  }
+ }
+]
