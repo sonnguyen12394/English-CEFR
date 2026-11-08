@@ -2001,6 +2001,38 @@ const R = await run(`(async () => {
     } catch (e) { bad.push('lỗi: ' + e.message); }
     globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
     out.push({ lv: 'cefr', id: 'C65', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử trọn: khung cấu trúc 200 câu (Phần Nghe câu 1–100: Part 1–4, Phần Đọc câu 101–200: Part 5–7, số câu + khoảng câu) ở màn sẵn sàng / chờ Đọc / kết quả; đầu màn câu a/200; màn sẵn sàng ẩn thanh dưới' }); }
+  // v149 C66 (specs/010-toeic-10-de-tron): đề mới ở tệp riêng toeic-tron/ (câu CHỈ trong đề trọn, không vào kho luyện), đủ cơ cấu + câu trích ev có trong bài; chạy nhanh tới kết quả;
+  // 📋 bài làm và đáp án (người sáng lập: "Sau khi làm bài xong thì sẽ có 1 phần hiện bài làm và đáp án"): lưu chuỗi 200 chữ, bảng 200 ô, xem lại cả bài có lời nghe / bài đọc, mở lại từ danh sách đề
+  { const bad = [], S1 = S, H = () => String($app.innerHTML), P0 = trPlayUnit, evt = (sel, o) => ({ target: { closest: s => s === sel ? o : null } }), nrm = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    S = blank(); S.to = { target: 600 }; globalThis.trPlayUnit = () => new Promise(() => {}); TR.B = {}; TR.D = {}; TR.k = 1;
+    try { await toLoad(); const cards0 = JSON.stringify(S.cards), NEW = (TO.tron || []).filter(d => d.f), bank = new Set(['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'].flatMap(s => TO[s].map(x => x.id)));
+      if (NEW.length < 2) bad.push('cần ≥ 2 đề mới ở tệp riêng, có ' + NEW.length);
+      for (const d of NEW) { if (!(await trLoad(d.id))) { bad.push(d.id + ': không tải được ' + d.f); continue; } const B = trB(d.id), by = {};
+        for (const q of B.Q) by[TR_SECS[q.sec]] = (by[TR_SECS[q.sec]] || 0) + 1;
+        if (B.Q.length !== 200 || B.Q.some((q, i) => q.n !== i + 1) || Object.values(by).join() !== '6,25,39,30,30,16,54') bad.push(d.id + ': sai cơ cấu ' + JSON.stringify(by));
+        if (B.U.some(u => bank.has(u.x.id))) bad.push(d.id + ': có câu của kho luyện');
+        for (const u of B.U) for (const q of u.qs) { const need = u.sec === 'p3' || u.sec === 'p4' || (u.sec === 'p7' && q.qt !== 'not' && q.qt !== 'insert'); if (!need) continue;
+          const T = u.x.lines ? u.x.lines.map(l => l[1]).join(' ') : u.x.text || u.x.docs.map(dd => dd.title + ' ' + dd.text).join(' '); if (!q.ev || !nrm(T).includes(nrm(q.ev))) bad.push(d.id + ' câu ' + q.n + ': câu trích ev không có trong bài'); }
+        if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json')).json()); } catch (e) {}   // SC-004: mọi câu nghe mới có giọng Kokoro
+        const lines = B.L.flatMap(u => u.x.lines ? u.x.lines.map(l => l[1]) : kSents(u.x.text)), miss = lines.filter(t => !NCLIPS.has(clipKey(t))); if (miss.length) bad.push(d.id + ': ' + miss.length + ' / ' + lines.length + ' câu nghe thiếu giọng Kokoro');
+        trStart(d.id); for (let i = 0; i < 60 && trSt().ph === 'L'; i++) trLNext(TR.tok); trClick(evt('[data-trrs]', {})); const st = trSt(); for (const q of B.Q) st.ans[q.n] = q.a; trSubmit(false);
+        const m = toSt().mock.slice(-1)[0]; if (!H().includes('Kết quả ' + d.t) || m.tot !== 990 || m.de !== d.id) bad.push(d.id + ': chạy nhanh chưa ra kết quả đúng hết 990'); }
+      if (['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'].some(s => TO[s].some(x => /^d\d\d-/.test(x.id)))) bad.push('câu đề mới lọt vào kho luyện TO.p1…p7');
+      // 📋 bài làm và đáp án (Đề 1): 67 đúng · 67 sai · 66 bỏ trống
+      trStart('de1'); const st = trSt(), B1 = trB('de1'); for (const q of B1.Q) { if (q.n % 3 === 1) st.ans[q.n] = q.a; else if (q.n % 3 === 2) st.ans[q.n] = q.opts.find(o => o !== q.a); } st.ph = 'R'; st.rAt = Date.now(); trSubmit(false);
+      const A = (toSt().tronA || {}).de1; if (!A || A.a.length !== 200 || A.a[2] !== '-' || A.a[0] !== 'ABCD'[B1.Q[0].opts.indexOf(B1.Q[0].a)]) bad.push('chưa lưu đúng chuỗi bài làm');
+      if (!H().includes('data-trsh="de1"') || !H().includes('67 đúng')) bad.push('kết quả thiếu lối 📋 Bài làm và đáp án');
+      await trSheet('de1', null); let h = H();
+      if ((h.match(/class="trc /g) || []).length !== 200 || (h.match(/class="trc ok"/g) || []).length !== 67 || (h.match(/class="trc no"/g) || []).length !== 67 || (h.match(/class="trc em"/g) || []).length !== 66) bad.push('bảng 200 ô sai màu / số ô');
+      await trSheet('de1', null, 'no'); if ((H().match(/class="trc /g) || []).length !== 67) bad.push('lọc câu sai chưa đúng');
+      trRv('de1', 35); h = H(); if (!h.includes('Lời nghe') || !h.includes('✓ Đáp án') || !h.includes('35.') || !h.includes('data-trrvp')) bad.push('xem lại câu 35 thiếu lời nghe / đáp án / nghe lại');
+      trRv('de1', 160); h = H(); if (!h.includes('class="rvop') || !/Part 7/.test(h)) bad.push('xem lại Part 7 sai');
+      const n0 = toSt().mock.length; await trView(); if (!H().includes('data-trsh="de1"') || !H().includes('Xem bài làm lần gần nhất')) bad.push('danh sách đề chưa có lối xem bài làm');
+      if (toSt().mock.length !== n0) bad.push('xem lại làm đổi kết quả');
+      if (JSON.stringify(S.cards) !== cards0) bad.push('đụng thẻ học (luật đo)');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
+    out.push({ lv: 'cefr', id: 'C66', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử trọn: đề mới ở tệp riêng (' + ((TO.tron || []).filter(d => d.f).length) + ' đề × 200 câu, không câu nào vào kho luyện, câu trích ev có trong bài, chạy nhanh ra 990); 📋 bài làm và đáp án: lưu chuỗi 200 chữ, bảng 200 ô đúng màu, lọc câu sai, xem lại có lời nghe / bài đọc, mở lại từ danh sách đề, không đổi kết quả' }); }
   return out; })()`);
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];

@@ -177,6 +177,17 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
   add('💼 TOEIC Đọc · Part 7 cho đề thử trọn 200 câu (v147)', 'Bộ mới và câu thứ 5 thêm vào bộ cũ. Kiểm: đáp án duy nhất theo văn bản; câu "đối chiếu" cần thông tin từ 2 văn bản thật; phương án sai thật sự sai (không phải "không nói"); từ gần nghĩa đúng nghĩa trong câu.',
     [...TD.p7.filter(x => NEW.includes(x.id)).map(x => row('v147:' + x.id, `<b>${esc(x.id)}</b> <span class="mute">${esc(x.kind)}</span>${doc(x)}` + x.qs.map(q => li(q.q, q.a, q.w)).join(''))),
      ...TD.p7.filter(x => Q5.includes(x.id)).map(x => row('v147:' + x.id + ':5', `<b>${esc(x.id)}</b> <span class="mute">câu thứ 5 · ${esc(x.kind)}</span>${doc(x)}` + li(x.qs[4].q, x.qs[4].a, x.qs[4].w)))]); }
+// v149 đề thử TOEIC trọn (specs/010-toeic-10-de-tron): Đề 3 → 12 soạn mới, mỗi đề một tệp content/toeic/tron/deNN.json (câu chỉ dùng trong đề trọn)
+{ const li = (q, a, w, ev) => `<br>• ${esc(q)} → <b>${esc(a)}</b>${w && w.length ? ` <span class="mute">(✗ ${w.map(esc).join(' · ✗ ')})</span>` : ''}${ev ? `<br><span class="mute">📍 ${esc(ev)}</span>` : ''}`;
+  const TD = root + 'content/toeic/tron/', FS = fs.existsSync(TD) ? fs.readdirSync(TD).filter(f => /^de\d+\.json$/.test(f)).sort() : [];
+  for (const f of FS) { const D = J('content/toeic/tron/' + f), id = x => 'v149:' + x.id;
+    add(`💼 TOEIC đề thử trọn · ${esc(D.t)} (v149)`, 'Claude soạn, chưa giáo viên kiểm. Kiểm: đáp án duy nhất; phương án sai thật sự sai; câu trích 📍 đúng là chỗ chứa đáp án; tranh Part 1 chỉ đúng một câu tả; độ khó như đề thật.', [
+      ...D.p1.map(x => row(id(x), `<b>${esc(x.id)}</b> Part 1 · ${(x.pic.e || []).map(e => e[0]).join(' ')}<br>${x.o.map((o, i) => `${'ABCD'[i]}. ${esc(o)}${i === x.a ? ' ✅' : ''}`).join('<br>')}<br><span class="mute">${esc(x.why)}</span>`)),
+      ...D.p2.map(x => row(id(x), `<b>${esc(x.id)}</b> Part 2 · ${esc(x.q)}<br>${x.o.map((o, i) => `${'ABC'[i]}. ${esc(o)}${i === x.a ? ' ✅' : ''}`).join('<br>')}`)),
+      ...[...D.p3, ...D.p4].map(x => row(id(x), `<b>${esc(x.id)}</b> ${x.lines ? 'Part 3' : 'Part 4 · ' + esc(x.ty)}${x.g ? ' · có bảng: ' + esc(x.g.t) + ' (' + x.g.r.map(r => r.join(' / ')).map(esc).join('; ') + ')' : ''}<br>${x.lines ? x.lines.map(l => `${esc(l[0])}: ${esc(l[1])}`).join('<br>') : esc(x.text)}` + x.qs.map(q => li(q.q, q.a, q.w, q.ev)).join(''))),
+      ...D.p5.map(x => row(id(x), `<b>${esc(x.id)}</b> Part 5 · ${esc(x.t)}<br>${esc(x.s)}<br>→ <b>${esc(x.a)}</b> <span class="mute">(${x.o.filter(o => o !== x.a).map(esc).join(' · ')})</span><br><span class="mute">${esc(x.why)}</span>`)),
+      ...D.p6.map(x => row(id(x), `<b>${esc(x.id)}</b> Part 6 · ${esc(x.kind)} · ${esc(x.title)}<br>${esc(x.text)}` + x.gaps.map((g, i) => `<br>(${i + 1}) <b>${esc(g.a)}</b> <span class="mute">(✗ ${g.o.filter(o => o !== g.a).map(esc).join(' · ✗ ')}) ${esc(g.why)}</span>`).join(''))),
+      ...D.p7.map(x => row(id(x), `<b>${esc(x.id)}</b> Part 7 · ${esc(x.kind)}<details><summary>${x.docs.length} văn bản</summary><p class="t">${x.docs.map(d => esc(d.title + '\n' + d.text)).join('\n\n')}</p></details>` + x.qs.map(q => li(q.q, q.a, q.w, q.ev)).join('')))]); } }
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}

@@ -184,7 +184,12 @@
   .trplan .ph.cur .pt { color:var(--accent); } .trplan .ph > .mute { margin:2px 0 0; }
   .trplan .pr { display:grid; grid-template-columns:1fr auto auto; gap:4px 8px; margin:8px 0 0; font-size:15px; line-height:1.4; font-variant-numeric:tabular-nums; }
   .trplan .pr span:nth-child(3n+2), .trplan .pr span:nth-child(3n) { text-align:right; } .trplan .pr span:nth-child(3n) { color:var(--mute); }
-  details.trrule > summary { padding:11px 0; margin:0; }   /* tương phản: chữ thường trên nền cam nhạt (chữ cam chỉ 3,7–3,9 : 1); dòng gập cao 44 px */
+  details.trrule > summary { padding:11px 0; margin:0; }
+  .trsh .trc { display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1.2; padding:3px 0; } .trsh .trc b { font-size:15px; } .trsh .trc small { font-size:13px; }   /* v149 📋 bài làm: ô = số câu + chữ chọn → đáp án */
+  .trc.ok { border-color:var(--good); background:color-mix(in srgb,var(--good) 15%,var(--card)); } .trc.no { border-color:var(--bad); background:color-mix(in srgb,var(--bad) 15%,var(--card)); } .trc.em { border-style:dashed; }
+  h2.trshh { font-size:16px; margin:16px 0 6px; } button.hrow.sub .t b { font-size:15px; }
+  .rvop { border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; background:var(--card); } .rvop.ok { border-color:var(--good); background:color-mix(in srgb,var(--good) 15%,var(--card)); } .rvop.no { border-color:var(--bad); background:color-mix(in srgb,var(--bad) 15%,var(--card)); }
+  .optag { display:block; font-size:14px; font-weight:600; margin-top:2px; }   /* tương phản: chữ thường trên nền cam nhạt (chữ cam chỉ 3,7–3,9 : 1); dòng gập cao 44 px */
   /* v146 🎯 Sai ở đâu · học lại gì (hoclai.js): mỗi dạng sai một dòng (tên + sai a/b + 📘 / 🏋️) ngăn bằng đường kẻ; dòng gập cao ≥ 44 px */
   #hlbox .hlr, #hlbox .hlq { border-top:1px solid var(--line); margin-top:10px; padding-top:10px; }
   #hlbox details > summary, details.xlsol > summary { padding:11px 0; margin:0; }   /* + dòng mở lời giải ở bài học (trước 26 px) */

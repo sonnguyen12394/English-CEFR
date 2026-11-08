@@ -76,7 +76,8 @@ for x in J('pa.json')['sets']:   # 👄 từ trong cặp âm (v103 thêm B1 → 
         for t in (p[0], p[2]):
             if key(t) not in A: add(t, 'bf_emma')
 T = J('toeic.json') if os.path.exists(os.path.join(ROOT, 'toeic.json')) else None   # 🎓 TOEIC (toeic.js, 28/10/2026): giọng Mỹ + Anh như đề thật
-if T:
+TRS = [J(os.path.join('toeic-tron', f)) for f in sorted(os.listdir(os.path.join(ROOT, 'toeic-tron'))) if f.endswith('.json')] if os.path.isdir(os.path.join(ROOT, 'toeic-tron')) else []   # v149 đề thử trọn tệp riêng (Đề 3 → 12)
+for T in ([T] if T else []) + TRS:
     TF, TM = ['af_heart', 'af_bella', 'af_sarah', 'bf_emma', 'bf_isabella'], ['am_michael', 'am_adam', 'am_eric', 'bm_george', 'bm_lewis']
     tp = lambda seq, sid, salt: seq[int(hashlib.md5((sid + salt).encode()).hexdigest(), 16) % len(seq)]
     for x in T.get('p1', []):   # v127 Part 1: 4 câu tả tranh, một giọng mỗi tranh
@@ -92,9 +93,9 @@ if T:
         if cv == fv: cv = next(v for v in TF if v != fv)
         for sp, t in x['lines']: add(t, fv if sp == 'A' else mv if sp == 'B' else cv)
     for x in T['p4']:
-        v = tp(TF + TM, x['id'], 'v')
+        v = tp(TF if x.get('sx') == 'f' else TM if x.get('sx') == 'm' else TF + TM, x['id'], 'v')   # v149: sx = giới tính người nói (tên riêng / câu hỏi "he says", "she says")
         for s in sents(x['text']): add(s, v)
-    for tpc in T['voc']:
+    for tpc in T.get('voc', []):
         for w, vi, ex in tpc['w']: add(w, 'af_heart'); add(ex, 'af_heart')
 I = J('ielts.json') if os.path.exists(os.path.join(ROOT, 'ielts.json')) else None   # 🌏 Nghe kiểu IELTS (v87, ielts.js ieLnQs): chủ yếu Anh–Anh, người nói thứ ba (C) giọng nữ khác
 if I:

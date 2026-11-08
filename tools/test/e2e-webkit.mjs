@@ -145,6 +145,13 @@ await pg.click('[data-tra^="101|"]'); await pg.click('[data-trg]'); await pg.wai
 check('đề trọn: bảng câu 101–200, câu 101 đã chọn (v147)', (await pg.$$('.trc')).length === 100 && !!(await pg.$('.trc.done')));
 await pg.click('#app [data-trsub]'); await pg.waitForTimeout(900);
 check('đề trọn: nộp ra kết quả + ô Sai ở đâu (v147)', /Kết quả Đề 1/.test(await pg.innerText('#app')) && !!(await pg.$('#hlbox')));
+// v149 📋 bài làm và đáp án: từ kết quả mở bảng 200 ô, chạm câu 35 xem lại có lời nghe; danh sách có Đề 3 (đề mới ở tệp riêng), màn sẵn sàng tải được
+await pg.click('#app [data-trsh]'); await pg.waitForTimeout(500);
+check('📋 bài làm và đáp án: bảng 200 ô (v149)', (await pg.$$('.trsh .trc')).length === 200);
+await pg.click('[data-trrv="35"]'); await pg.waitForTimeout(400);
+{ const t = await pg.innerText('#app'); check('📋 xem lại câu 35: lời nghe + đáp án (v149)', /Lời nghe/.test(t) && /✓ (Đáp án|Bạn chọn · đúng)/.test(t)); }
+await pg.evaluate(() => trView()); await pg.waitForTimeout(800); await pg.click('[data-trgo="de3"]'); await pg.waitForTimeout(1200);
+check('đề trọn mới: Đề 3 tải từ tệp riêng, màn sẵn sàng 200 câu (v149)', /Đề 3 · 200 câu/.test(await pg.innerText('#app')));
 // 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả
 await pg.evaluate(() => { S = blank(); S.lt = { d: [], fx: {}, goal: { kind: 'cefr', lv: 'a2', date: '', at: Date.now() } }; ltView(); }); await pg.waitForTimeout(800); check('ô Hôm nay ở Lộ trình', (await pg.innerText('#app')).includes('Việc hôm nay'));
 await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }
