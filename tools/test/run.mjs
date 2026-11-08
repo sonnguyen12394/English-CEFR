@@ -1938,8 +1938,8 @@ const R = await run(`(async () => {
   // Đọc có bảng câu / ⚑ / nhảy câu; làm tiếp + đếm gián đoạn; quá 3 giờ huỷ; hết giờ tự nộp; đúng hết = 990; kết quả có ô Sai ở đâu + so lần trước; màn thi ẩn thanh dưới; không đụng thẻ học
   { const bad = [], S1 = S, H = () => String($app.innerHTML), P0 = trPlayUnit, ev = (sel, o) => ({ target: { closest: s => s === sel ? o : null } }); let n0 = 0;
     S = blank(); S.to = { target: 600 }; globalThis.trPlayUnit = () => new Promise(() => {}); TR.B = {}; TR.k = 1;
-    try { await toLoad(); const cards0 = JSON.stringify(S.cards), T = TO.tron || [], NEED = { 'Part 1': 6, 'Part 2': 25, 'Part 3': 39, 'Part 4': 30, 'Part 5': 30, 'Part 6': 16, 'Part 7': 54 };
-      if (T.length !== 2) bad.push('cần 2 đề, có ' + T.length);
+    try { await toLoad(); const cards0 = JSON.stringify(S.cards), T = (TO.tron || []).filter(d => !d.f), NEED = { 'Part 1': 6, 'Part 2': 25, 'Part 3': 39, 'Part 4': 30, 'Part 5': 30, 'Part 6': 16, 'Part 7': 54 };
+      if (T.length !== 2) bad.push("cần 2 đề lấy câu từ kho (Đề 1–2), có " + T.length);
       const ids = T.map(d => new Set(trB(d.id).U.map(u => u.x.id)));
       for (const d of T) { const B = trB(d.id), by = {}; for (const q of B.Q) by[TR_SECS[q.sec]] = (by[TR_SECS[q.sec]] || 0) + 1; n0 += B.Q.length;
         if (B.Q.length !== 200 || B.L.flatMap(u => u.qs).length !== 100 || Object.entries(NEED).some(([k, v]) => by[k] !== v)) bad.push(d.id + ': sai cơ cấu ' + JSON.stringify(by));
