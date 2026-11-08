@@ -77,7 +77,7 @@ function hlWords(s) { if (!s || typeof vwCands !== 'function') return ''; let C 
 function hlItem(r) { const q = r.q, ans = q.kind === 'mc' ? mcAns(q) : (q.acc || [q.a])[0], ev = hlEv(q), src = ev || (q.sec === 'p5' ? hlTxt(q.q) : '');
   return `<div class="hlq">${r.part ? `<p class="mute" style="margin:0;font-size:14px">${esc(r.part)}</p>` : ''}<p style="margin:2px 0">${q.q}</p>
     <p style="margin:2px 0">Bạn: ${esc(String(r.ans == null ? '' : r.ans).slice(0, 200))} · Đáp án: <b>${esc(String(ans == null ? '' : ans))}</b></p>${q.why && typeof q.why === 'string' ? `<p class="mute" style="margin:2px 0 0">${esc(q.why)}</p>` : ''}
-    ${ev && !q.ev ? `<p style="margin:4px 0 0">📍 Câu chứa đáp án: “${esc(ev)}”</p>` : ''}${HL_WQ++ < HL_WQMAX ? hlWords(src) : ''}</div>`; }
+    ${ev && !String(q.why || '').includes('📍') ? `<p style="margin:4px 0 0">📍 Câu chứa đáp án: “${esc(ev)}”</p>` : ''}${HL_WQ++ < HL_WQMAX ? hlWords(src) : ''}</div>`; }
 
 // ---------- ô kết quả ----------
 // ctx: { ex: 'cambridge' + lv (+ uk | dang, sk) khi là Cambridge; src: 'thi' | 'luyen' | 'ai'; nolog: không đánh cờ }. Trả { html, pri: có dạng để học lại (màn gọi hạ nút chính của nó) }

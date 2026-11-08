@@ -2484,6 +2484,7 @@
   {
    "id": "t4-03",
    "ty": "intro",
+   "sx": "f",
    "text": "Good morning, everyone, and welcome to your first day at Norland Engineering. My name is Rachel Kim, and I'm the head of human resources. This morning, we'll start with a short tour of the building. After that, you'll meet your team leaders, who will explain your responsibilities. Lunch will be provided in the staff cafeteria at twelve thirty. In the afternoon, the IT department will set up your computers and e-mail accounts. Please make sure you have your photo identification with you, as you'll need it to receive your security badge.",
    "qs": [
     {
@@ -3160,6 +3161,7 @@
   {
    "id": "t4-22",
    "ty": "msg",
+   "sx": "f",
    "g": {
     "t": "Building directory",
     "h": [
