@@ -2060,6 +2060,34 @@ const R = await run(`(async () => {
     } catch (e) { bad.push('lỗi: ' + e.message); }
     globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
     out.push({ lv: 'cefr', id: 'C67', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử trọn: chỉ làm một phần (cả Nghe / cả Đọc / một Part): bắt đầu đúng câu, Part 5–7 vào thẳng Đọc có giờ riêng, xong Part Nghe nộp luôn, kết quả + 📋 bài làm lưu riêng, không vào điểm đề thử trọn, không đụng thẻ học' }); }
+  // v151 C68 làm từng lượt ~10 câu (người sáng lập 8/11/2026: "tách lần 10 câu làm để chấm điểm chứ không muốn làm 1 mạch dài")
+  { const bad = [], S1 = S, H = () => String($app.innerHTML), P0 = trPlayUnit;
+    S = blank(); S.to = { target: 600 }; globalThis.trPlayUnit = () => new Promise(() => {}); TR.B = {}; TR.k = 1;
+    try { await toLoad(); const cards0 = JSON.stringify(S.cards), B = trB('de1'), C = trCks(B);
+      if (C.length < 15 || C.some(c => c.n < 5 || c.n > 12) || C.reduce((t, c) => t + c.n, 0) !== 200) bad.push('chia lượt sai: ' + C.map(c => c.n).join(','));
+      if (B.U.some(u => u.qs.some(q => q.ck !== u.ck))) bad.push('lượt cắt ngang một bài');
+      if (C.some(c => B.U.filter(u => u.ck === c.k).some(u => u.cp !== c.p))) bad.push('lượt vắt qua Nghe → Đọc');
+      await trReady('de1'); let h = H(); if (!h.includes('Hoặc làm từng lượt 10 câu') || !h.includes('data-trone="cL0"') || !h.includes('Lượt 1 · câu 1–10') || (h.match(/data-trone="c[LR][0-9]+"/g) || []).length !== C.length + 1) bad.push('màn sẵn sàng thiếu lượt');
+      // lượt 1 (Nghe): 10 câu, xong thì chấm ngay, có nút lượt 2
+      trStart('de1', 'cL0'); let st = trSt(); if (st.ph !== 'L' || !H().includes('câu 1/200')) bad.push('lượt 1 chưa bắt đầu ở câu 1');
+      st.ans['1'] = B.Q[0].a; for (let i = 0; i < 15 && trSt(); i++) trLNext(TR.tok);
+      let p = (toSt().tronP || []).slice(-1)[0]; h = H();
+      if (trSt() || !p || p.o !== 'cL0' || p.n !== 10 || p.ok !== 1 || !h.includes('Lượt 1 · câu 1–10') || !h.includes('1/10 câu đúng') || !h.includes('data-trnx="cL1"')) bad.push('lượt 1 chấm sai: ' + JSON.stringify(p));
+      if ((toSt().mock || []).length) bad.push('lượt lọt vào điểm đề thử trọn');
+      // lượt Đọc: vào thẳng, có giờ theo nhịp Part, bảng câu chỉ câu của lượt
+      const cR = C.find(c => c.p === 'R'), id = 'cR' + cR.k; trStart('de1', id); st = trSt();
+      if (st.ph !== 'R' || !st.rMin || st.rMin > 10 || !H().includes('Bảng câu ' + cR.a + '–' + cR.b + ' · đã chọn 0/' + cR.n)) bad.push('lượt Đọc sai: ' + st.rMin);
+      for (const q of B.Q) if (q.ck === cR.k) st.ans[q.n] = q.a; trSubmit(false); p = toSt().tronP.slice(-1)[0];
+      if (p.ok !== cR.n || !H().includes(cR.n + '/' + cR.n + ' câu đúng') || !H().includes('data-trnx="cR' + (cR.k + 1) + '"')) bad.push('lượt Đọc đúng hết chưa chấm đúng');
+      await trSheet('de1', null, '', id); if ((H().match(/class="trc /g) || []).length !== cR.n || !H().includes('Lượt ' + (cR.k + 1))) bad.push('📋 bảng của lượt sai số ô');
+      // màn sẵn sàng: lượt kế tiếp chưa làm là lượt 2, chip đã làm có ✓
+      await trReady('de1'); h = H(); if (!h.includes('▶ Lượt 2 · câu 11–20') || !h.includes('✓ 1–10 · 1/10')) bad.push('màn sẵn sàng chưa đánh dấu lượt đã làm');
+      // lượt cuối: không có nút lượt kế
+      const cZ = C[C.length - 1]; trStart('de1', 'c' + cZ.p + cZ.k); trSubmit(false); if (H().includes('data-trnx')) bad.push('lượt cuối còn nút lượt kế');
+      if (JSON.stringify(S.cards) !== cards0) bad.push('đụng thẻ học (luật đo)');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
+    out.push({ lv: 'cefr', id: 'C68', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử trọn: làm từng lượt ~10 câu (không cắt ngang bài, không vắt qua Nghe → Đọc), chấm ngay mỗi lượt, nút lượt kế tiếp, lượt Đọc có giờ theo nhịp Part, 📋 bài làm theo lượt, màn sẵn sàng đánh dấu lượt đã làm, không vào điểm đề trọn, không đụng thẻ học' }); }
   return out; })()`);
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];
