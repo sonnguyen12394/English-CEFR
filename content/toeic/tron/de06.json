@@ -2072,9 +2072,9 @@
      "q": "What are the listeners asked to do?",
      "a": "Share ideas for increasing sales",
      "w": [
-      "Attend a trade show",
-      "Record a radio ad",
-      "Update a chart"
+      "Attend a trade show next month",
+      "Record a new radio advertisement",
+      "Update the sales chart every week"
      ],
      "ty": "next",
      "ev": "please send me any ideas you have for improving sales there"
@@ -2753,9 +2753,9 @@
      "q": "What is indicated about Sparkle Window Cleaning?",
      "a": "It uses products that are safe for the environment.",
      "w": [
-      "It opened last year.",
-      "It cleans only private homes.",
-      "It charges for estimates."
+      "It opened its first office only last year.",
+      "It cleans only private homes in the Brenton area.",
+      "It charges a small fee for each estimate."
      ],
      "ev": "We use only environmentally friendly products.",
      "why": "Chỉ dùng sản phẩm thân thiện với môi trường."

@@ -119,6 +119,7 @@ Phần từ vựng: cấp theo Oxford 3000/5000 làm chuẩn chính (người s�
 - Viết tiếng Việt có dấu, câu ngắn.
 - Xử lý góp ý (bảng `gopy`, xem `README.md`): đọc cả ảnh kèm theo; luôn chọn vai trò chuyên môn phù hợp (vd. thiết kế giao diện di động, khoa học ghi nhớ, giáo viên tiếng Anh) để tư vấn và phản biện trước, rồi mới làm (người sáng lập 22/10/2026). Đổi luật đo (📘 Học / 🔁 Nhớ / Thi chuyển cấp) thì hỏi người sáng lập trước.
 - Mỗi lần phát hành: tăng `APP_V` trong `app.js`, `?v=` trong `index.html` và `"v"` trong `version.json` (cùng một số); từ v86 dùng `node tools/release.mjs` (chặn khi test đỏ). Trang hỏi `version.json` để tự cập nhật cho người dùng (iPhone giữ trang cũ).
+- Soạn / sửa câu đề thử TOEIC (đề trọn, câu kho luyện dùng trong Đề 1–2): theo bộ tiêu chí `docs/TIEU-CHI-DE-TOEIC.md`; `node tools/kiem-toeic.mjs` 0 lỗi, mọi cảnh báo sửa hoặc ghi "đã xem" có lý do (`content/toeic/kiem-ok.json`), đề mới phải giải mù (`tools/giai-mu.mjs`, phiên Claude phụ không xem đáp án) trước khi phát hành; test C67 chặn phát hành (người sáng lập 9/11/2026, đặc tả `specs/011-kiem-noi-dung-de`).
 
 ## graphify
 

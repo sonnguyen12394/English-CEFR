@@ -1,0 +1,19 @@
+{
+ "_note": "Cảnh báo của máy kiểm nội dung đề (tools/kiem-toeic.mjs) đã đọc lại và thấy ổn. Khớp theo (id, ma, dau); câu đổi nội dung thì dấu đổi, cảnh báo hiện lại. Xem docs/TIEU-CHI-DE-TOEIC.md.",
+ "ok": [
+  {
+   "id": "t7-web#1",
+   "ma": "P7-NOT",
+   "dau": "effc4f5bc8",
+   "ly_do": "Bài chỉ cho đỗ xe miễn phí khi thuê phòng cả ngày, nên 'Free parking' không đi kèm MỌI phòng như câu hỏi hỏi: đáp án đúng; chữ trùng là bẫy.",
+   "ngay": "2026-11-09"
+  },
+  {
+   "id": "t7-notice2#2",
+   "ma": "P7-NOT",
+   "dau": "bf15249d3a",
+   "ly_do": "Bài nói thư viện làm khảo sát (survey) hỏi ý cư dân, tức là 'asked residents for their opinions' có nói, chỉ diễn đạt khác; đáp án 'add a parking area' không có trong bài.",
+   "ngay": "2026-11-09"
+  }
+ ]
+}

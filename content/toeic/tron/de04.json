@@ -2444,7 +2444,7 @@
     "expected"
    ],
    "a": "exceeded",
-   "why": "exceed a target = vượt chỉ tiêu."
+   "why": "exceed a target = vượt chỉ tiêu; has + V3 (hiện tại hoàn thành) → exceeded."
   },
   {
    "id": "d04-p5-24",
@@ -3029,9 +3029,9 @@
      "q": "What is suggested about Bella Vista?",
      "a": "It has no space available on the 18th.",
      "w": [
-      "It is too expensive.",
-      "It closed last year.",
-      "It has a private room."
+      "It is too expensive for the company.",
+      "It closed for renovations last year.",
+      "It has a private room for twelve people."
      ],
      "ev": "they're fully booked that night",
      "why": "Bella Vista đã kín chỗ tối hôm đó."
