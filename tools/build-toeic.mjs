@@ -87,11 +87,15 @@ const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(), li
 const dupKey = (s, x) => s === 'p1' ? x.o.join('|') : s === 'p2' ? x.q : s === 'p3' || s === 'p4' ? lineT(x) : s === 'p5' ? x.s : s === 'p6' ? x.text : x.docs.map(d => d.text).join(' ');
 const SEEN = new Map(); for (const s in BY) for (const x of BY[s]) SEEN.set(s + ':' + norm(dupKey(s, x)), 'kho ' + x.id);
 const evIn = (ev, T) => !!ev && norm(ev).length > 8 && norm(T).includes(norm(ev));
+// v150: câu gần trùng (chỉ đổi 1–2 chữ) với kho / đề khác cũng chặn: người từng luyện kho nhận ra câu → điểm đề thử cao giả. Jaccard theo từ ≥ 0,6 (Part 2) / 0,55 (Part 5)
+const tk = s => new Set(String(s).toLowerCase().match(/[a-z0-9']+/g) || []), jac = (a, b) => { let n = 0; for (const w of a) if (b.has(w)) n++; return n / Math.max(1, a.size + b.size - n); };
+const NEAR = { p2: [0.6, x => x.q], p5: [0.55, x => x.s] }, NS = { p2: [], p5: [] }; for (const s in NEAR) for (const x of BY[s]) NS[s].push(['kho ' + x.id, tk(NEAR[s][1](x))]);
 for (const f of NEWD) { const R = rd('content/toeic/tron/' + f), t = (R.id || f) + ' ', nn = String(+(R.id || '').slice(2)).padStart(2, '0');
   if (!/^de\d+$/.test(R.id || '') || !R.t || TRON.some(d => d.id === R.id) || ND.some(d => d.id === R.id)) err.push(f + ': id / tên đề sai hoặc trùng');
   const X = { p1: (R.p1 || []).map(p1Mk), p2: (R.p2 || []).map(p2Mk), p3: (R.p3 || []).map(talk), p4: (R.p4 || []).map(p4Mk), p5: (R.p5 || []).map(p5Chk), p6: (R.p6 || []).map(p6Mk), p7: (R.p7 || []).map(p7Mk) };
   for (const s in X) for (const x of X[s]) { if (!new RegExp('^d' + nn + '-' + s + '-\\d{2}$').test(x.id)) err.push(t + x.id + ': mã cần dạng d' + nn + '-' + s + '-01');
     const k = s + ':' + norm(dupKey(s, x)); if (SEEN.has(k)) err.push(t + x.id + ': trùng nguyên văn với ' + SEEN.get(k)); else SEEN.set(k, R.id + ' ' + x.id); }
+  for (const s in NEAR) for (const x of X[s]) { const t1 = tk(NEAR[s][1](x)); for (const [w, t2] of NS[s]) { const j = jac(t1, t2); if (j >= NEAR[s][0]) err.push(t + x.id + ': gần trùng (' + j.toFixed(2) + ') với ' + w); } NS[s].push([R.id + ' ' + x.id, t1]); }
   chkDe(t, X);
   const c = (a, fn) => a.filter(fn).length, p2c = cnt(X.p2, x => x.ty), q3 = X.p3.flatMap(x => x.qs), q4 = X.p4.flatMap(x => x.qs), q7 = X.p7.flatMap(x => x.qs), one = X.p7.filter(x => x.docs.length === 1);
   const want = [['Part 1: 4 tranh có người, 2 tranh cảnh', c(X.p1, x => x.k === 'people') === 4 && c(X.p1, x => x.k === 'scene') === 2],

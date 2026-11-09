@@ -672,11 +672,11 @@
   {
    "id": "d04-p2-20",
    "ty": "wh",
-   "q": "Whose turn is it to make the coffee?",
+   "q": "Whose idea was it to hold the party outdoors?",
    "o": [
-    "Two sugars, please.",
-    "I made it yesterday, so it's Mark's.",
-    "Turn right at the light."
+    "Next to the garden.",
+    "I think it was Mark's.",
+    "It was a great party."
    ],
    "a": 1,
    "tr": [
@@ -720,11 +720,11 @@
   {
    "id": "d04-p2-23",
    "ty": "yn",
-   "q": "Will the new manager start next week?",
+   "q": "Will the new copier be delivered this week?",
    "o": [
-    "We need a manager.",
-    "Actually, she starts tomorrow.",
-    "It starts at nine."
+    "We need more copies.",
+    "Actually, it arrived this morning.",
+    "It's been a long week."
    ],
    "a": 1,
    "tr": [
@@ -2436,15 +2436,15 @@
   {
    "id": "d04-p5-23",
    "t": "voc",
-   "s": "The restaurant is ------- located near several hotels and the train station.",
+   "s": "Our sales team has ------- its target for the third quarter in a row.",
    "o": [
-    "conveniently",
-    "comfortably",
-    "patiently",
-    "respectfully"
+    "exceeded",
+    "excelled",
+    "extended",
+    "expected"
    ],
-   "a": "conveniently",
-   "why": "conveniently located = ở vị trí thuận tiện."
+   "a": "exceeded",
+   "why": "exceed a target = vượt chỉ tiêu."
   },
   {
    "id": "d04-p5-24",
@@ -2462,15 +2462,15 @@
   {
    "id": "d04-p5-25",
    "t": "struct",
-   "s": "Only after the contract was signed ------- the project officially begin.",
+   "s": "Only when all the forms are received ------- we begin processing your application.",
    "o": [
+    "can",
+    "could have",
     "did",
-    "does",
-    "has",
-    "was"
+    "are"
    ],
-   "a": "did",
-   "why": "Only after … đứng đầu câu → đảo ngữ với trợ động từ quá khứ: did the project begin."
+   "a": "can",
+   "why": "Only when … đứng đầu câu → đảo trợ động từ lên trước chủ ngữ; mệnh đề trước ở hiện tại → can we begin."
   },
   {
    "id": "d04-p5-26",
@@ -2514,15 +2514,15 @@
   {
    "id": "d04-p5-29",
    "t": "struct",
-   "s": "The new printer model is twice ------- the old one.",
+   "s": "This year's conference attracted three times ------- visitors as last year's.",
    "o": [
-    "as fast as",
-    "faster as",
-    "as faster than",
-    "fast as"
+    "as many",
+    "as much",
+    "more",
+    "many as"
    ],
-   "a": "as fast as",
-   "why": "So sánh gấp: twice as + tính từ + as."
+   "a": "as many",
+   "why": "So sánh gấp với danh từ đếm được: three times as many + danh từ + as."
   },
   {
    "id": "d04-p5-30",
