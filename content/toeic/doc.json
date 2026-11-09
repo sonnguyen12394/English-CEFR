@@ -515,7 +515,7 @@
       "restarts"
      ],
      "a": "restart",
-     "why": "need to + động từ nguyên mẫu."
+     "why": "need to + động từ nguyên mẫu → restart."
     },
     {
      "o": [
@@ -1247,9 +1247,9 @@
      "q": "Why did Norton Consulting receive a discount?",
      "a": "It has ordered from Greenleaf before.",
      "w": [
-      "The event was canceled.",
-      "It paid in advance.",
-      "The delivery was late."
+      "The lunch event was canceled.",
+      "It paid the full amount in advance.",
+      "The food was delivered later than planned."
      ],
      "why": "Discount (returning customer, 10%)."
     },

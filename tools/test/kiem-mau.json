@@ -1,0 +1,4208 @@
+{
+ "_note": "Bộ câu thử máy kiểm (test C67): sai = mỗi luật tự động ≥ 1 câu cài lỗi cố ý (máy phải bắt đúng mã ma); sach = câu thật đã soát, máy không được báo gì. Sinh bằng scratchpad mkmau.py rồi chỉnh tay.",
+ "sai": [
+  {
+   "ma": "C-TRUNG-PA",
+   "sec": "p5",
+   "x": {
+    "id": "m-01",
+    "t": "voc",
+    "s": "Please ------- the attached form by Friday.",
+    "o": [
+     "complete",
+     "Complete",
+     "achieve",
+     "perform"
+    ],
+    "a": "complete",
+    "why": "complete a form → complete."
+   }
+  },
+  {
+   "ma": "C-GT-LECH",
+   "sec": "p5",
+   "x": {
+    "id": "m-02",
+    "t": "voc",
+    "s": "Please ------- the attached form by Friday.",
+    "o": [
+     "complete",
+     "achieve",
+     "perform",
+     "conduct"
+    ],
+    "a": "complete",
+    "why": "Điền mẫu đơn → achieve."
+   }
+  },
+  {
+   "ma": "C-GT-THIEU",
+   "sec": "p5",
+   "x": {
+    "id": "m-03",
+    "t": "voc",
+    "s": "Please ------- the attached form by Friday.",
+    "o": [
+     "complete",
+     "achieve",
+     "perform",
+     "conduct"
+    ],
+    "a": "complete",
+    "why": "Cụm cố định với form."
+   }
+  },
+  {
+   "ma": "C-CHU",
+   "sec": "p5",
+   "x": {
+    "id": "m-04",
+    "t": "verb",
+    "s": "Please ------- the package when you recieve it.",
+    "o": [
+     "open",
+     "opens",
+     "opened",
+     "opening"
+    ],
+    "a": "open",
+    "why": "Sau please cần động từ nguyên mẫu → open."
+   }
+  },
+  {
+   "ma": "C-CACH",
+   "sec": "p5",
+   "x": {
+    "id": "m-05",
+    "t": "struct",
+    "s": "Of the three plans, hers was the ------- .",
+    "o": [
+     "best",
+     "good",
+     "better",
+     "well"
+    ],
+    "a": "best",
+    "why": "So sánh nhất → best."
+   }
+  },
+  {
+   "ma": "P5-CHO",
+   "sec": "p5",
+   "x": {
+    "id": "m-06",
+    "t": "voc",
+    "s": "Please ------- the form and ------- it by Friday.",
+    "o": [
+     "complete",
+     "achieve",
+     "perform",
+     "conduct"
+    ],
+    "a": "complete",
+    "why": "complete a form → complete."
+   }
+  },
+  {
+   "ma": "P5-HOA",
+   "sec": "p5",
+   "x": {
+    "id": "m-07",
+    "t": "prep",
+    "s": "------- the rain, the market was busy.",
+    "o": [
+     "despite",
+     "although",
+     "because",
+     "unless"
+    ],
+    "a": "despite",
+    "why": "Trước cụm danh từ → despite."
+   }
+  },
+  {
+   "ma": "P5-AAN",
+   "sec": "p5",
+   "x": {
+    "id": "m-08",
+    "t": "form",
+    "s": "We need an ------- solution to the problem.",
+    "o": [
+     "permanent",
+     "permanently",
+     "permanence",
+     "permanency"
+    ],
+    "a": "permanent",
+    "why": "Trước danh từ cần tính từ → permanent."
+   }
+  },
+  {
+   "ma": "P5-HO-TU",
+   "sec": "p5",
+   "x": {
+    "id": "m-09",
+    "t": "form",
+    "s": "The manager spoke ------- about the plan.",
+    "o": [
+     "clearly",
+     "quickly",
+     "happily",
+     "slowly"
+    ],
+    "a": "clearly",
+    "why": "Trạng từ bổ nghĩa cho spoke → clearly."
+   }
+  },
+  {
+   "ma": "P1-EMOJI",
+   "sec": "p1",
+   "x": {
+    "id": "m-10",
+    "k": "people",
+    "o": [
+     "A man is sitting on a chair.",
+     "Some chairs are being moved.",
+     "A man is painting a wall.",
+     "A chair is being repaired."
+    ],
+    "a": 0,
+    "pic": {
+     "bg": "in",
+     "e": [
+      [
+       "🪑",
+       60,
+       160,
+       40
+      ],
+      [
+       "🪑",
+       120,
+       160,
+       40
+      ]
+     ]
+    },
+    "why": "mô tả",
+    "lines": [
+     [
+      "A",
+      "A. A man is sitting on a chair."
+     ],
+     [
+      "A",
+      "B. Some chairs are being moved."
+     ],
+     [
+      "A",
+      "C. A man is painting a wall."
+     ],
+     [
+      "A",
+      "D. A chair is being repaired."
+     ]
+    ]
+   }
+  },
+  {
+   "ma": "P1-CANH-NGUOI",
+   "sec": "p1",
+   "x": {
+    "id": "m-11",
+    "k": "scene",
+    "o": [
+     "A man is arranging some chairs.",
+     "Some chairs have been arranged in a row.",
+     "A table is being cleaned.",
+     "Some boxes are on the floor."
+    ],
+    "a": 0,
+    "pic": {
+     "bg": "in",
+     "e": [
+      [
+       "🪑",
+       60,
+       160,
+       40
+      ],
+      [
+       "🪑",
+       120,
+       160,
+       40
+      ]
+     ]
+    },
+    "why": "mô tả",
+    "lines": [
+     [
+      "A",
+      "A. A man is arranging some chairs."
+     ],
+     [
+      "A",
+      "B. Some chairs have been arranged in a row."
+     ],
+     [
+      "A",
+      "C. A table is being cleaned."
+     ],
+     [
+      "A",
+      "D. Some boxes are on the floor."
+     ]
+    ]
+   }
+  },
+  {
+   "ma": "P1-VAT",
+   "sec": "p1",
+   "x": {
+    "id": "m-12",
+    "k": "people",
+    "o": [
+     "A man is carrying a suitcase.",
+     "A man is sitting down.",
+     "A chair is being moved.",
+     "A man is opening a door."
+    ],
+    "a": 0,
+    "pic": {
+     "bg": "in",
+     "e": [
+      [
+       "🧑‍💼",
+       160,
+       100,
+       70
+      ],
+      [
+       "🪑",
+       60,
+       160,
+       40
+      ]
+     ]
+    },
+    "why": "mô tả",
+    "lines": [
+     [
+      "A",
+      "A. A man is carrying a suitcase."
+     ],
+     [
+      "A",
+      "B. A man is sitting down."
+     ],
+     [
+      "A",
+      "C. A chair is being moved."
+     ],
+     [
+      "A",
+      "D. A man is opening a door."
+     ]
+    ]
+   }
+  },
+  {
+   "ma": "P2-YESNO",
+   "sec": "p2",
+   "x": {
+    "id": "m-13",
+    "ty": "wh",
+    "q": "When does the store open?",
+    "o": [
+     "Yes, at nine.",
+     "On Main Street.",
+     "It sells shoes."
+    ],
+    "a": 0,
+    "tr": [
+     null,
+     "type",
+     "rel"
+    ],
+    "lines": [
+     [
+      "A",
+      "When does the store open?"
+     ]
+    ]
+   }
+  },
+  {
+   "ma": "P34-HAMY",
+   "sec": "p3",
+   "x": {
+    "id": "m-14",
+    "lines": [
+     [
+      "A",
+      "Hi, I would like to book a table for four people tonight."
+     ],
+     [
+      "B",
+      "Certainly. We have a table at seven or at eight thirty."
+     ],
+     [
+      "A",
+      "Seven is perfect. Can we sit near the window?"
+     ],
+     [
+      "B",
+      "Of course. I will write that on the reservation."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "What does the woman want to do?",
+      "a": "Book a table",
+      "w": [
+       "Cancel an order",
+       "Buy a gift",
+       "Find a job"
+      ],
+      "ty": "gist",
+      "ev": "I would like to book a table for four people tonight."
+     },
+     {
+      "q": "What does the woman imply when she says, \"Of course\"?",
+      "a": "She agrees to the request.",
+      "w": [
+       "She is surprised.",
+       "She is busy.",
+       "She disagrees."
+      ],
+      "ty": "imp",
+      "ev": "Of course."
+     },
+     {
+      "q": "What will the man do next?",
+      "a": "Write a note on a reservation",
+      "w": [
+       "Call a manager",
+       "Clean a table",
+       "Print a menu"
+      ],
+      "ty": "next",
+      "ev": "I will write that on the reservation."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P34-NGUOI",
+   "sec": "p3",
+   "x": {
+    "id": "m-15",
+    "lines": [
+     [
+      "A",
+      "Hi, I would like to book a table for four people tonight."
+     ],
+     [
+      "C",
+      "Certainly. We have a table at seven or at eight thirty."
+     ],
+     [
+      "A",
+      "Seven is perfect. Can we sit near the window?"
+     ],
+     [
+      "C",
+      "Of course. I will write that on the reservation."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "What does the woman want to do?",
+      "a": "Book a table",
+      "w": [
+       "Cancel an order",
+       "Buy a gift",
+       "Find a job"
+      ],
+      "ty": "gist",
+      "ev": "I would like to book a table for four people tonight."
+     },
+     {
+      "q": "What time will the woman arrive?",
+      "a": "At seven",
+      "w": [
+       "At six",
+       "At eight",
+       "At nine"
+      ],
+      "ty": "detail",
+      "ev": "Seven is perfect."
+     },
+     {
+      "q": "What will the man do next?",
+      "a": "Write a note on a reservation",
+      "w": [
+       "Call a manager",
+       "Clean a table",
+       "Print a menu"
+      ],
+      "ty": "next",
+      "ev": "I will write that on the reservation."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P34-GIOI",
+   "sec": "p3",
+   "x": {
+    "id": "m-16",
+    "lines": [
+     [
+      "A",
+      "Hi, I would like to book a table for four people tonight."
+     ],
+     [
+      "B",
+      "Certainly. We have a table at seven or at eight thirty."
+     ],
+     [
+      "A",
+      "Seven is perfect. Can we sit near the window?"
+     ],
+     [
+      "B",
+      "Of course. I will write that on the reservation."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "What does the woman want to do?",
+      "a": "Book a table",
+      "w": [
+       "Cancel an order",
+       "Buy a gift",
+       "Find a job"
+      ],
+      "ty": "gist",
+      "ev": "I would like to book a table for four people tonight."
+     },
+     {
+      "q": "What does the man suggest?",
+      "a": "A table near the window",
+      "w": [
+       "A table outside",
+       "A private room",
+       "A later time"
+      ],
+      "ty": "detail",
+      "ev": "Can we sit near the window?"
+     },
+     {
+      "q": "What will the man do next?",
+      "a": "Write a note on a reservation",
+      "w": [
+       "Call a manager",
+       "Clean a table",
+       "Print a menu"
+      ],
+      "ty": "next",
+      "ev": "I will write that on the reservation."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P3-LUOT",
+   "sec": "p3",
+   "x": {
+    "id": "m-17",
+    "lines": [
+     [
+      "A",
+      "Hi, I would like to book a table for four people tonight."
+     ],
+     [
+      "A",
+      "It is for a birthday dinner."
+     ],
+     [
+      "B",
+      "Certainly. We have a table at seven or at eight thirty."
+     ],
+     [
+      "A",
+      "Seven is perfect. Can we sit near the window?"
+     ],
+     [
+      "B",
+      "Of course. I will write that on the reservation."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "What does the woman want to do?",
+      "a": "Book a table",
+      "w": [
+       "Cancel an order",
+       "Buy a gift",
+       "Find a job"
+      ],
+      "ty": "gist",
+      "ev": "I would like to book a table for four people tonight."
+     },
+     {
+      "q": "What time will the woman arrive?",
+      "a": "At seven",
+      "w": [
+       "At six",
+       "At eight",
+       "At nine"
+      ],
+      "ty": "detail",
+      "ev": "Seven is perfect."
+     },
+     {
+      "q": "What will the man do next?",
+      "a": "Write a note on a reservation",
+      "w": [
+       "Call a manager",
+       "Clean a table",
+       "Print a menu"
+      ],
+      "ty": "next",
+      "ev": "I will write that on the reservation."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P34-BANG-COT",
+   "sec": "p3",
+   "x": {
+    "id": "m-18",
+    "lines": [
+     [
+      "A",
+      "Hi, I would like to book a table for four people tonight."
+     ],
+     [
+      "B",
+      "Certainly. We have a table at seven or at eight thirty."
+     ],
+     [
+      "A",
+      "Seven is perfect. Can we sit near the window?"
+     ],
+     [
+      "B",
+      "Of course. I will write that on the reservation."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "What does the woman want to do?",
+      "a": "Book a table",
+      "w": [
+       "Cancel an order",
+       "Buy a gift",
+       "Find a job"
+      ],
+      "ty": "gist",
+      "ev": "I would like to book a table for four people tonight."
+     },
+     {
+      "q": "Look at the graphic. Which table will the speakers use?",
+      "a": "Table 2",
+      "w": [
+       "7:00",
+       "Table 3",
+       "Table 4"
+      ],
+      "ty": "graphic",
+      "ev": "Seven is perfect."
+     },
+     {
+      "q": "What will the man do next?",
+      "a": "Write a note on a reservation",
+      "w": [
+       "Call a manager",
+       "Clean a table",
+       "Print a menu"
+      ],
+      "ty": "next",
+      "ev": "I will write that on the reservation."
+     }
+    ],
+    "g": {
+     "t": "Tables",
+     "h": [
+      "Table",
+      "Time"
+     ],
+     "r": [
+      [
+       "Table 1",
+       "6:00"
+      ],
+      [
+       "Table 2",
+       "7:00"
+      ],
+      [
+       "Table 3",
+       "8:30"
+      ],
+      [
+       "Table 4",
+       "9:00"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "ma": "P34-BANG-LO",
+   "sec": "p4",
+   "x": {
+    "id": "m-19",
+    "ty": "ann",
+    "sx": "f",
+    "g": {
+     "t": "Gates",
+     "h": [
+      "Flight",
+      "Gate"
+     ],
+     "r": [
+      [
+       "AR 1",
+       "B4"
+      ],
+      [
+       "AR 2",
+       "B7"
+      ],
+      [
+       "AR 3",
+       "C2"
+      ],
+      [
+       "AR 4",
+       "C5"
+      ]
+     ]
+    },
+    "text": "Attention, passengers. Flight AR 2 will now depart from gate B7. Boarding begins in ten minutes. Please have your boarding pass ready.",
+    "qs": [
+     {
+      "q": "Look at the graphic. Which gate will the flight use?",
+      "a": "B7",
+      "w": [
+       "B4",
+       "C2",
+       "C5"
+      ],
+      "ty": "graphic",
+      "ev": "Flight AR 2 will now depart from gate B7."
+     },
+     {
+      "q": "When does boarding begin?",
+      "a": "In ten minutes",
+      "w": [
+       "In one hour",
+       "In five minutes",
+       "Tomorrow"
+      ],
+      "ty": "detail",
+      "ev": "Boarding begins in ten minutes."
+     },
+     {
+      "q": "What should passengers have ready?",
+      "a": "A boarding pass",
+      "w": [
+       "A passport",
+       "A ticket receipt",
+       "A bag tag"
+      ],
+      "ty": "next",
+      "ev": "Please have your boarding pass ready."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P4-SX",
+   "sec": "p4",
+   "x": {
+    "id": "m-20",
+    "ty": "meet",
+    "text": "Good morning. Sales went up last month. Well, it could be better. Please send me your ideas by Friday.",
+    "qs": [
+     {
+      "q": "What does the speaker report?",
+      "a": "Higher sales",
+      "w": [
+       "Lower costs",
+       "A new office",
+       "A late delivery"
+      ],
+      "ty": "gist",
+      "ev": "Sales went up last month."
+     },
+     {
+      "q": "What does the speaker imply when he says, \"it could be better\"?",
+      "a": "More improvement is possible.",
+      "w": [
+       "Sales fell.",
+       "The office is closing.",
+       "A product failed."
+      ],
+      "ty": "imp",
+      "ev": "Well, it could be better."
+     },
+     {
+      "q": "What are listeners asked to do?",
+      "a": "Send ideas",
+      "w": [
+       "Call clients",
+       "Visit a store",
+       "Write a report"
+      ],
+      "ty": "next",
+      "ev": "Please send me your ideas by Friday."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P34-TEN",
+   "sec": "p4",
+   "x": {
+    "id": "m-21",
+    "ty": "msg",
+    "sx": "m",
+    "text": "Hello, this is Linda from Oak Dental. Your appointment is tomorrow at nine. Please arrive ten minutes early.",
+    "qs": [
+     {
+      "q": "Where does the speaker work?",
+      "a": "At a dental office",
+      "w": [
+       "At a bank",
+       "At a hotel",
+       "At a school"
+      ],
+      "ty": "gist",
+      "ev": "this is Linda from Oak Dental"
+     },
+     {
+      "q": "When is the appointment?",
+      "a": "Tomorrow at nine",
+      "w": [
+       "Today at nine",
+       "Tomorrow at ten",
+       "Friday at nine"
+      ],
+      "ty": "detail",
+      "ev": "Your appointment is tomorrow at nine."
+     },
+     {
+      "q": "What should the listener do?",
+      "a": "Arrive early",
+      "w": [
+       "Call back",
+       "Bring a form",
+       "Pay a fee"
+      ],
+      "ty": "next",
+      "ev": "Please arrive ten minutes early."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "C-DAI",
+   "sec": "p7",
+   "x": {
+    "id": "m-22",
+    "kind": "Notice",
+    "docs": [
+     {
+      "title": "Notice",
+      "text": "The library will close early on Friday because the heating system is being repaired by a technician."
+     }
+    ],
+    "qs": [
+     {
+      "q": "Why will the library close early?",
+      "a": "Because the heating system is being repaired by a technician",
+      "w": [
+       "A holiday",
+       "A staff party",
+       "A book sale"
+      ],
+      "ty": "detail",
+      "ev": "because the heating system is being repaired",
+      "why": "Sửa hệ thống sưởi."
+     },
+     {
+      "q": "When will the library close early?",
+      "a": "On Friday",
+      "w": [
+       "On Monday",
+       "On Sunday",
+       "On Tuesday"
+      ],
+      "ty": "detail",
+      "ev": "close early on Friday",
+      "why": "Thứ Sáu."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "C-DANG",
+   "sec": "p3",
+   "x": {
+    "id": "m-23",
+    "lines": [
+     [
+      "A",
+      "Hi, I would like to book a table for four people tonight."
+     ],
+     [
+      "B",
+      "Certainly. We have a table at seven or at eight thirty."
+     ],
+     [
+      "A",
+      "Seven is perfect. Can we sit near the window?"
+     ],
+     [
+      "B",
+      "Of course. I will write that on the reservation."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "Why is the woman calling?",
+      "a": "To book a table",
+      "w": [
+       "A birthday",
+       "A complaint",
+       "An invoice"
+      ],
+      "ty": "gist",
+      "ev": "I would like to book a table for four people tonight."
+     },
+     {
+      "q": "What time will the woman arrive?",
+      "a": "At seven",
+      "w": [
+       "At six",
+       "At eight",
+       "At nine"
+      ],
+      "ty": "detail",
+      "ev": "Seven is perfect."
+     },
+     {
+      "q": "What will the man do next?",
+      "a": "Write a note on a reservation",
+      "w": [
+       "Call a manager",
+       "Clean a table",
+       "Print a menu"
+      ],
+      "ty": "next",
+      "ev": "I will write that on the reservation."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P6-HOA",
+   "sec": "p6",
+   "x": {
+    "id": "m-24",
+    "kind": "E-mail",
+    "title": "To: Staff",
+    "text": "Our office will move next month. {1}, the new building is near the station. Please pack your desk by Friday. {2} Thank you for your {3}. We hope you will {4} the new space.",
+    "gaps": [
+     {
+      "o": [
+       "in addition",
+       "however",
+       "instead",
+       "otherwise"
+      ],
+      "a": "in addition",
+      "why": "Thêm ý → in addition."
+     },
+     {
+      "o": [
+       "Boxes are in the mailroom.",
+       "The station is old.",
+       "Desks are heavy.",
+       "Friday is a holiday."
+      ],
+      "a": "Boxes are in the mailroom.",
+      "why": "Chỉ chỗ lấy thùng."
+     },
+     {
+      "o": [
+       "patience",
+       "patient",
+       "patiently",
+       "patients"
+      ],
+      "a": "patience",
+      "why": "Sau your cần danh từ → patience."
+     },
+     {
+      "o": [
+       "enjoy",
+       "enjoys",
+       "enjoyed",
+       "enjoying"
+      ],
+      "a": "enjoy",
+      "why": "Sau will cần nguyên mẫu → enjoy."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P6-CHEN-CO",
+   "sec": "p6",
+   "x": {
+    "id": "m-25",
+    "kind": "Notice",
+    "title": "Notice",
+    "text": "The gym will close next week for repairs. Boxes are in the mailroom. {1} We will reopen on Monday. Members can use the pool {2}. Thank you for your {3}. Please {4} the front desk with questions.",
+    "gaps": [
+     {
+      "o": [
+       "Boxes are in the mailroom.",
+       "The pool is warm.",
+       "Members like the gym.",
+       "Repairs are expensive."
+      ],
+      "a": "Boxes are in the mailroom.",
+      "why": "x"
+     },
+     {
+      "o": [
+       "instead",
+       "however",
+       "therefore",
+       "otherwise"
+      ],
+      "a": "instead",
+      "why": "instead"
+     },
+     {
+      "o": [
+       "patience",
+       "patient",
+       "patiently",
+       "patients"
+      ],
+      "a": "patience",
+      "why": "patience"
+     },
+     {
+      "o": [
+       "contact",
+       "contacts",
+       "contacted",
+       "contacting"
+      ],
+      "a": "contact",
+      "why": "contact"
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P6-THI-MOC",
+   "sec": "p6",
+   "x": {
+    "id": "m-26",
+    "kind": "Memo",
+    "title": "Memo",
+    "text": "The company {1} a new policy on travel expenses. All receipts must be submitted online. {2} Please read the policy carefully. Questions can be sent to the finance team {3} e-mail. We appreciate your {4}.",
+    "gaps": [
+     {
+      "o": [
+       "adopts",
+       "adopted",
+       "has adopted",
+       "will adopt"
+      ],
+      "a": "has adopted",
+      "t": "tense",
+      "why": "has adopted"
+     },
+     {
+      "o": [
+       "Paper copies will not be accepted.",
+       "The finance team is large.",
+       "Travel is fun.",
+       "Policies are long."
+      ],
+      "a": "Paper copies will not be accepted.",
+      "why": "x"
+     },
+     {
+      "o": [
+       "by",
+       "on",
+       "at",
+       "in"
+      ],
+      "a": "by",
+      "why": "by e-mail"
+     },
+     {
+      "o": [
+       "cooperation",
+       "cooperate",
+       "cooperative",
+       "cooperatively"
+      ],
+      "a": "cooperation",
+      "why": "cooperation"
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P7-GIO",
+   "sec": "p7",
+   "x": {
+    "id": "m-27",
+    "kind": "Text message chain",
+    "docs": [
+     {
+      "title": "Text messages",
+      "text": "Ann Lee (9:10 A.M.): Are you at the office?\nBen Cho (9:05 A.M.): Yes, I just arrived.\nAnn Lee (9:12 A.M.): Great, please open the meeting room."
+     }
+    ],
+    "qs": [
+     {
+      "q": "Where is Mr. Cho?",
+      "a": "At the office",
+      "w": [
+       "At home",
+       "At a station",
+       "At a store"
+      ],
+      "ty": "detail",
+      "ev": "I just arrived",
+      "why": "Ở văn phòng."
+     },
+     {
+      "q": "At 9:12 A.M., what does Ms. Lee mean when she writes, \"Great\"?",
+      "a": "She is pleased.",
+      "w": [
+       "She is angry.",
+       "She is late.",
+       "She is lost."
+      ],
+      "ty": "intent",
+      "ev": "Great, please open the meeting room.",
+      "why": "Hài lòng."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P7-TINH",
+   "sec": "p7",
+   "x": {
+    "id": "m-28",
+    "kind": "Advertisement",
+    "docs": [
+     {
+      "title": "Ad",
+      "text": "Lunch costs $10 per person. Dessert is $5 extra."
+     }
+    ],
+    "qs": [
+     {
+      "q": "How much is lunch with dessert?",
+      "a": "$15",
+      "w": [
+       "$10",
+       "$5",
+       "$20"
+      ],
+      "ty": "detail",
+      "ev": "Dessert is $5 extra.",
+      "why": "$10 + $5 = $16."
+     },
+     {
+      "q": "What does lunch cost?",
+      "a": "$10 per person",
+      "w": [
+       "$5 per person",
+       "$15 per person",
+       "$20 per person"
+      ],
+      "ty": "detail",
+      "ev": "Lunch costs $10 per person.",
+      "why": "Mười đô."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P7-THU-NGAY",
+   "sec": "p7",
+   "x": {
+    "id": "m-29",
+    "kind": "E-mail",
+    "docs": [
+     {
+      "title": "E-mail",
+      "text": "The meeting is on Monday, May 5. Please arrive early on Tuesday, May 5 to set up."
+     }
+    ],
+    "qs": [
+     {
+      "q": "What is the e-mail about?",
+      "a": "A meeting",
+      "w": [
+       "A party",
+       "A trip",
+       "A sale"
+      ],
+      "ty": "purpose",
+      "ev": "The meeting is on Monday, May 5.",
+      "why": "Cuộc họp."
+     },
+     {
+      "q": "What should readers do?",
+      "a": "Arrive early",
+      "w": [
+       "Call back",
+       "Bring food",
+       "Pay a fee"
+      ],
+      "ty": "detail",
+      "ev": "Please arrive early",
+      "why": "Đến sớm."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P7-CHEN-CO",
+   "sec": "p7",
+   "x": {
+    "id": "m-30",
+    "kind": "Article",
+    "docs": [
+     {
+      "title": "News",
+      "text": "A new park opened downtown. [1] It has a playground. [2] The park was built in one year. [3] It is free to visit. [4]"
+     }
+    ],
+    "qs": [
+     {
+      "q": "What is the article about?",
+      "a": "A new park",
+      "w": [
+       "A new school",
+       "A new store",
+       "A new road"
+      ],
+      "ty": "purpose",
+      "ev": "A new park opened downtown.",
+      "why": "Công viên mới."
+     },
+     {
+      "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"It has a playground.\"",
+      "a": "[1]",
+      "w": [
+       "[2]",
+       "[3]",
+       "[4]"
+      ],
+      "ty": "insert",
+      "why": "x"
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P7-NOT",
+   "sec": "p7",
+   "x": {
+    "id": "m-31",
+    "kind": "Web page",
+    "docs": [
+     {
+      "title": "Hotel",
+      "text": "Every room has free Wi-Fi, a desk, and free parking for guests."
+     }
+    ],
+    "qs": [
+     {
+      "q": "What is the web page about?",
+      "a": "Hotel rooms",
+      "w": [
+       "Train tickets",
+       "Car rentals",
+       "Office desks"
+      ],
+      "ty": "purpose",
+      "ev": "Every room has free Wi-Fi",
+      "why": "Phòng khách sạn."
+     },
+     {
+      "q": "What is NOT mentioned about the rooms?",
+      "a": "Free parking for guests",
+      "w": [
+       "Free Wi-Fi",
+       "A desk",
+       "A balcony view"
+      ],
+      "ty": "not",
+      "why": "x"
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P7-SO",
+   "sec": "p7",
+   "x": {
+    "id": "m-32",
+    "kind": "Invoice",
+    "docs": [
+     {
+      "title": "Invoice",
+      "text": "Two chairs cost $40 each. Delivery is free."
+     }
+    ],
+    "qs": [
+     {
+      "q": "How much did the customer pay?",
+      "a": "$80",
+      "w": [
+       "$40",
+       "$20",
+       "$60"
+      ],
+      "ty": "detail",
+      "ev": "Two chairs cost $40 each.",
+      "why": "Hai ghế."
+     },
+     {
+      "q": "What is said about delivery?",
+      "a": "It is free.",
+      "w": [
+       "It is fast.",
+       "It is late.",
+       "It costs $5."
+      ],
+      "ty": "detail",
+      "ev": "Delivery is free.",
+      "why": "Miễn phí."
+     }
+    ]
+   }
+  }
+ ],
+ "sach": [
+  {
+   "sec": "p1",
+   "x": {
+    "id": "d03-p1-01",
+    "k": "people",
+    "pic": {
+     "bg": "out",
+     "r": [
+      [
+       0,
+       165,
+       320,
+       35,
+       "#e8d9b5"
+      ],
+      [
+       96,
+       122,
+       128,
+       10,
+       "#8b6b4a"
+      ],
+      [
+       104,
+       132,
+       8,
+       32,
+       "#6b4f35"
+      ],
+      [
+       208,
+       132,
+       8,
+       32,
+       "#6b4f35"
+      ]
+     ],
+     "e": [
+      [
+       "🌳",
+       40,
+       84,
+       80
+      ],
+      [
+       "🧔",
+       146,
+       100,
+       60
+      ],
+      [
+       "📰",
+       188,
+       110,
+       34
+      ],
+      [
+       "🌳",
+       285,
+       88,
+       70
+      ]
+     ]
+    },
+    "o": [
+     "A man is buying a newspaper.",
+     "A bench is being painted.",
+     "A man is reading on a bench.",
+     "Some trees are being cut down."
+    ],
+    "a": 2,
+    "why": "Người đàn ông đang ngồi đọc báo trên ghế dài. Không ai mua báo; ghế không đang được sơn (is being painted); cây không bị chặt.",
+    "lines": [
+     [
+      "A",
+      "A. A man is buying a newspaper."
+     ],
+     [
+      "A",
+      "B. A bench is being painted."
+     ],
+     [
+      "A",
+      "C. A man is reading on a bench."
+     ],
+     [
+      "A",
+      "D. Some trees are being cut down."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p1",
+   "x": {
+    "id": "d03-p1-04",
+    "k": "people",
+    "pic": {
+     "bg": "in",
+     "r": [
+      [
+       40,
+       120,
+       240,
+       12,
+       "#d9d9d9"
+      ],
+      [
+       50,
+       132,
+       8,
+       44,
+       "#9a9a9a"
+      ],
+      [
+       262,
+       132,
+       8,
+       44,
+       "#9a9a9a"
+      ]
+     ],
+     "e": [
+      [
+       "🧑‍🔬",
+       128,
+       84,
+       70
+      ],
+      [
+       "🔬",
+       198,
+       98,
+       44
+      ],
+      [
+       "🧪",
+       248,
+       104,
+       28
+      ],
+      [
+       "🧪",
+       270,
+       104,
+       28
+      ]
+     ]
+    },
+    "o": [
+     "Some test tubes are being filled.",
+     "A researcher is using a microscope.",
+     "A researcher is writing on a board.",
+     "A cabinet has been left open."
+    ],
+    "a": 1,
+    "why": "Nhà nghiên cứu đang dùng kính hiển vi. Ống nghiệm không đang được rót (are being filled), không có bảng, không thấy tủ.",
+    "lines": [
+     [
+      "A",
+      "A. Some test tubes are being filled."
+     ],
+     [
+      "A",
+      "B. A researcher is using a microscope."
+     ],
+     [
+      "A",
+      "C. A researcher is writing on a board."
+     ],
+     [
+      "A",
+      "D. A cabinet has been left open."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p1",
+   "x": {
+    "id": "d04-p1-01",
+    "k": "people",
+    "pic": {
+     "bg": "in",
+     "r": [
+      [
+       0,
+       150,
+       320,
+       50,
+       "#bdbdbd"
+      ]
+     ],
+     "e": [
+      [
+       "🚗",
+       178,
+       118,
+       92
+      ],
+      [
+       "🧑‍🔧",
+       76,
+       108,
+       64
+      ],
+      [
+       "🧰",
+       274,
+       160,
+       38
+      ]
+     ]
+    },
+    "o": [
+     "A man is washing a car.",
+     "A mechanic is working on a vehicle.",
+     "Some tires are being stacked.",
+     "A car is being towed away."
+    ],
+    "a": 1,
+    "why": "Người thợ đang sửa xe. Không ai rửa xe, không có lốp đang được xếp, xe không bị kéo đi (is being towed).",
+    "lines": [
+     [
+      "A",
+      "A. A man is washing a car."
+     ],
+     [
+      "A",
+      "B. A mechanic is working on a vehicle."
+     ],
+     [
+      "A",
+      "C. Some tires are being stacked."
+     ],
+     [
+      "A",
+      "D. A car is being towed away."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p1",
+   "x": {
+    "id": "d04-p1-04",
+    "k": "people",
+    "pic": {
+     "bg": "out",
+     "r": [
+      [
+       0,
+       170,
+       320,
+       30,
+       "#c9b18f"
+      ]
+     ],
+     "e": [
+      [
+       "🏗️",
+       236,
+       82,
+       100
+      ],
+      [
+       "👷",
+       104,
+       112,
+       70
+      ],
+      [
+       "🧱",
+       160,
+       162,
+       28
+      ],
+      [
+       "🧱",
+       188,
+       162,
+       28
+      ]
+     ]
+    },
+    "o": [
+     "A worker is climbing a ladder.",
+     "Some bricks are being loaded onto a truck.",
+     "A worker is wearing a hard hat.",
+     "A building is being torn down."
+    ],
+    "a": 2,
+    "why": "Người công nhân đội mũ bảo hộ (is wearing a hard hat). Không có thang, không có xe tải, toà nhà không bị phá.",
+    "lines": [
+     [
+      "A",
+      "A. A worker is climbing a ladder."
+     ],
+     [
+      "A",
+      "B. Some bricks are being loaded onto a truck."
+     ],
+     [
+      "A",
+      "C. A worker is wearing a hard hat."
+     ],
+     [
+      "A",
+      "D. A building is being torn down."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p1",
+   "x": {
+    "id": "d05-p1-01",
+    "k": "people",
+    "pic": {
+     "bg": "out",
+     "r": [
+      [
+       0,
+       160,
+       320,
+       40,
+       "#e8d9b5"
+      ]
+     ],
+     "e": [
+      [
+       "🌳",
+       44,
+       86,
+       76
+      ],
+      [
+       "🚶‍♀️",
+       150,
+       116,
+       64
+      ],
+      [
+       "🐕",
+       204,
+       138,
+       40
+      ],
+      [
+       "🌳",
+       284,
+       90,
+       70
+      ]
+     ]
+    },
+    "o": [
+     "A woman is walking a dog.",
+     "A dog is being washed.",
+     "A woman is sitting on the grass.",
+     "Some trees are being planted."
+    ],
+    "a": 0,
+    "why": "Người phụ nữ đang dắt chó đi dạo. Không ai tắm cho chó, cô không ngồi trên cỏ, không ai đang trồng cây.",
+    "lines": [
+     [
+      "A",
+      "A. A woman is walking a dog."
+     ],
+     [
+      "A",
+      "B. A dog is being washed."
+     ],
+     [
+      "A",
+      "C. A woman is sitting on the grass."
+     ],
+     [
+      "A",
+      "D. Some trees are being planted."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p1",
+   "x": {
+    "id": "d05-p1-04",
+    "k": "people",
+    "pic": {
+     "bg": "out",
+     "r": [
+      [
+       0,
+       130,
+       320,
+       70,
+       "#b9d48a"
+      ]
+     ],
+     "e": [
+      [
+       "🧑‍🌾",
+       92,
+       112,
+       66
+      ],
+      [
+       "🚜",
+       218,
+       120,
+       80
+      ],
+      [
+       "🌽",
+       40,
+       168,
+       30
+      ],
+      [
+       "🌽",
+       150,
+       172,
+       30
+      ]
+     ]
+    },
+    "o": [
+     "A farmer is selling vegetables at a market.",
+     "A tractor is being repaired.",
+     "Some crops are being loaded onto a truck.",
+     "A farmer is working in a field."
+    ],
+    "a": 3,
+    "why": "Người nông dân đang làm việc ngoài đồng. Không có chợ, máy kéo không đang được sửa, không có xe tải chở nông sản.",
+    "lines": [
+     [
+      "A",
+      "A. A farmer is selling vegetables at a market."
+     ],
+     [
+      "A",
+      "B. A tractor is being repaired."
+     ],
+     [
+      "A",
+      "C. Some crops are being loaded onto a truck."
+     ],
+     [
+      "A",
+      "D. A farmer is working in a field."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p1",
+   "x": {
+    "id": "d06-p1-01",
+    "k": "people",
+    "pic": {
+     "bg": "in",
+     "r": [
+      [
+       120,
+       122,
+       80,
+       58,
+       "#8b6b4a"
+      ],
+      [
+       114,
+       116,
+       92,
+       8,
+       "#6b4f35"
+      ]
+     ],
+     "e": [
+      [
+       "🧑‍💼",
+       160,
+       92,
+       70
+      ],
+      [
+       "🎤",
+       198,
+       106,
+       30
+      ],
+      [
+       "🪑",
+       40,
+       170,
+       34
+      ],
+      [
+       "🪑",
+       280,
+       170,
+       34
+      ]
+     ]
+    },
+    "o": [
+     "A man is giving a speech.",
+     "A man is adjusting a camera.",
+     "Some chairs are being stacked.",
+     "A man is shaking hands with a guest."
+    ],
+    "a": 0,
+    "why": "Người đàn ông đứng sau bục có micro, đang phát biểu. Không có máy ảnh, ghế không đang được xếp chồng, không ai bắt tay.",
+    "lines": [
+     [
+      "A",
+      "A. A man is giving a speech."
+     ],
+     [
+      "A",
+      "B. A man is adjusting a camera."
+     ],
+     [
+      "A",
+      "C. Some chairs are being stacked."
+     ],
+     [
+      "A",
+      "D. A man is shaking hands with a guest."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p1",
+   "x": {
+    "id": "d06-p1-04",
+    "k": "people",
+    "pic": {
+     "bg": "out",
+     "r": [
+      [
+       0,
+       150,
+       320,
+       50,
+       "#b9d48a"
+      ]
+     ],
+     "e": [
+      [
+       "🏔️",
+       238,
+       84,
+       104
+      ],
+      [
+       "🧍‍♂️",
+       88,
+       118,
+       66
+      ],
+      [
+       "📷",
+       126,
+       104,
+       30
+      ]
+     ]
+    },
+    "o": [
+     "A man is buying a camera.",
+     "A man is climbing a mountain.",
+     "A man is taking a photograph.",
+     "A man is reading a map."
+    ],
+    "a": 2,
+    "why": "Người đàn ông cầm máy ảnh chụp núi. Anh không mua máy ảnh, không đang leo núi, không đọc bản đồ.",
+    "lines": [
+     [
+      "A",
+      "A. A man is buying a camera."
+     ],
+     [
+      "A",
+      "B. A man is climbing a mountain."
+     ],
+     [
+      "A",
+      "C. A man is taking a photograph."
+     ],
+     [
+      "A",
+      "D. A man is reading a map."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p2",
+   "x": {
+    "id": "d03-p2-01",
+    "q": "Where should I put these boxes of printer paper?",
+    "o": [
+     "About forty pages.",
+     "Yes, I printed it already.",
+     "In the supply closet, please."
+    ],
+    "a": 2,
+    "tr": [
+     "type",
+     "yn",
+     null
+    ],
+    "ty": "wh",
+    "lines": [
+     [
+      "A",
+      "Where should I put these boxes of printer paper?"
+     ],
+     [
+      "B",
+      "A. About forty pages."
+     ],
+     [
+      "B",
+      "B. Yes, I printed it already."
+     ],
+     [
+      "B",
+      "C. In the supply closet, please."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p2",
+   "x": {
+    "id": "d03-p2-14",
+    "q": "Isn't the quarterly meeting scheduled for Thursday?",
+    "o": [
+     "Every three months.",
+     "No, it was moved to Friday.",
+     "Let's schedule a call."
+    ],
+    "a": 1,
+    "tr": [
+     "rel",
+     null,
+     "rep"
+    ],
+    "ty": "yn",
+    "lines": [
+     [
+      "A",
+      "Isn't the quarterly meeting scheduled for Thursday?"
+     ],
+     [
+      "B",
+      "A. Every three months."
+     ],
+     [
+      "B",
+      "B. No, it was moved to Friday."
+     ],
+     [
+      "B",
+      "C. Let's schedule a call."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p2",
+   "x": {
+    "id": "d04-p2-02",
+    "q": "Have you finished the inventory report?",
+    "o": [
+     "I'm just checking the last page.",
+     "In the storage room.",
+     "A detailed report."
+    ],
+    "a": 0,
+    "tr": [
+     null,
+     "type",
+     "rep"
+    ],
+    "ty": "yn",
+    "lines": [
+     [
+      "A",
+      "Have you finished the inventory report?"
+     ],
+     [
+      "B",
+      "A. I'm just checking the last page."
+     ],
+     [
+      "B",
+      "B. In the storage room."
+     ],
+     [
+      "B",
+      "C. A detailed report."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p2",
+   "x": {
+    "id": "d04-p2-15",
+    "q": "Where are the extra chairs for the seminar?",
+    "o": [
+     "Yes, there are extra.",
+     "A three-hour seminar.",
+     "Ask Jenny at the front desk."
+    ],
+    "a": 2,
+    "tr": [
+     "yn",
+     "rep",
+     null
+    ],
+    "ty": "wh",
+    "lines": [
+     [
+      "A",
+      "Where are the extra chairs for the seminar?"
+     ],
+     [
+      "B",
+      "A. Yes, there are extra."
+     ],
+     [
+      "B",
+      "B. A three-hour seminar."
+     ],
+     [
+      "B",
+      "C. Ask Jenny at the front desk."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p2",
+   "x": {
+    "id": "d05-p2-03",
+    "q": "Where should we hold the year-end party?",
+    "o": [
+     "At the end of December.",
+     "Yes, a party would be fun.",
+     "How about the rooftop restaurant?"
+    ],
+    "a": 2,
+    "tr": [
+     "type",
+     "yn",
+     null
+    ],
+    "ty": "wh",
+    "lines": [
+     [
+      "A",
+      "Where should we hold the year-end party?"
+     ],
+     [
+      "B",
+      "A. At the end of December."
+     ],
+     [
+      "B",
+      "B. Yes, a party would be fun."
+     ],
+     [
+      "B",
+      "C. How about the rooftop restaurant?"
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p2",
+   "x": {
+    "id": "d05-p2-16",
+    "q": "Should we hold the meeting in the morning or after lunch?",
+    "o": [
+     "Either time works for me.",
+     "I had lunch already.",
+     "Yes, let's meet."
+    ],
+    "a": 0,
+    "tr": [
+     null,
+     "rel",
+     "yn"
+    ],
+    "ty": "or",
+    "lines": [
+     [
+      "A",
+      "Should we hold the meeting in the morning or after lunch?"
+     ],
+     [
+      "B",
+      "A. Either time works for me."
+     ],
+     [
+      "B",
+      "B. I had lunch already."
+     ],
+     [
+      "B",
+      "C. Yes, let's meet."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p2",
+   "x": {
+    "id": "d06-p2-04",
+    "q": "Would you mind turning down the music a little?",
+    "o": [
+     "It's a little late.",
+     "Sorry, I'll do it now.",
+     "A popular song."
+    ],
+    "a": 1,
+    "tr": [
+     "rep",
+     null,
+     "rel"
+    ],
+    "ty": "req",
+    "lines": [
+     [
+      "A",
+      "Would you mind turning down the music a little?"
+     ],
+     [
+      "B",
+      "A. It's a little late."
+     ],
+     [
+      "B",
+      "B. Sorry, I'll do it now."
+     ],
+     [
+      "B",
+      "C. A popular song."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p2",
+   "x": {
+    "id": "d06-p2-17",
+    "q": "I heard the company picnic was canceled.",
+    "o": [
+     "Yes, because of the rain forecast.",
+     "A basket of sandwiches.",
+     "The company is in Denver."
+    ],
+    "a": 0,
+    "tr": [
+     null,
+     "rel",
+     "rep"
+    ],
+    "ty": "stmt",
+    "lines": [
+     [
+      "A",
+      "I heard the company picnic was canceled."
+     ],
+     [
+      "B",
+      "A. Yes, because of the rain forecast."
+     ],
+     [
+      "B",
+      "B. A basket of sandwiches."
+     ],
+     [
+      "B",
+      "C. The company is in Denver."
+     ]
+    ]
+   }
+  },
+  {
+   "sec": "p3",
+   "x": {
+    "id": "d03-p3-01",
+    "lines": [
+     [
+      "A",
+      "Good morning. I'm checking out of Room 512 today, but my flight doesn't leave until nine tonight. Is a late checkout possible?"
+     ],
+     [
+      "B",
+      "Let me check. We're fully booked tonight, so I can only extend your checkout to two P.M."
+     ],
+     [
+      "A",
+      "That would help. Is there somewhere I could leave my luggage after that?"
+     ],
+     [
+      "B",
+      "Of course. We can store your bags at the front desk, and you're welcome to use the business lounge until your taxi arrives."
+     ],
+     [
+      "A",
+      "Perfect. Could you also book a taxi to the airport for six o'clock?"
+     ],
+     [
+      "B",
+      "Certainly. I'll call the taxi company now."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "Where most likely are the speakers?",
+      "a": "At a hotel",
+      "w": [
+       "At an airport",
+       "At a travel agency",
+       "At a car rental office"
+      ],
+      "ty": "gist",
+      "ev": "I'm checking out of Room 512 today"
+     },
+     {
+      "q": "What does the man say about the hotel?",
+      "a": "It has no rooms available tonight.",
+      "w": [
+       "It is closing for repairs.",
+       "Its lounge is open to the public.",
+       "It offers free airport shuttles."
+      ],
+      "ty": "detail",
+      "ev": "We're fully booked tonight"
+     },
+     {
+      "q": "What will the man do next?",
+      "a": "Call a taxi company",
+      "w": [
+       "Carry the woman's bags",
+       "Print a receipt",
+       "Change a flight"
+      ],
+      "ty": "next",
+      "ev": "I'll call the taxi company now."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p3",
+   "x": {
+    "id": "d03-p3-08",
+    "lines": [
+     [
+      "A",
+      "This is the office space I mentioned. It's on the fourth floor, and the windows face the river."
+     ],
+     [
+      "B",
+      "It's brighter than I expected. How much is the monthly rent?"
+     ],
+     [
+      "A",
+      "Thirty-two hundred dollars, including electricity."
+     ],
+     [
+      "C",
+      "That's within our budget. But we'll need parking for at least six cars."
+     ],
+     [
+      "A",
+      "The building has a garage, and each tenant gets eight spaces."
+     ],
+     [
+      "C",
+      "Then I think we should sign the lease this week, Martin."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "Who most likely is the woman showing the space?",
+      "a": "A real estate agent",
+      "w": [
+       "An architect",
+       "A building cleaner",
+       "A bank officer"
+      ],
+      "ty": "gist",
+      "ev": "This is the office space I mentioned."
+     },
+     {
+      "q": "What is included in the rent?",
+      "a": "Electricity",
+      "w": [
+       "Internet service",
+       "Furniture",
+       "Cleaning"
+      ],
+      "ty": "detail",
+      "ev": "including electricity"
+     },
+     {
+      "q": "What does Martin's business partner want to do this week?",
+      "a": "Sign a lease",
+      "w": [
+       "Paint the office",
+       "Hire more staff",
+       "Visit another building"
+      ],
+      "ty": "detail",
+      "ev": "we should sign the lease this week"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p3",
+   "x": {
+    "id": "d04-p3-02",
+    "lines": [
+     [
+      "A",
+      "Are you going to the marketing conference in Denver next month?"
+     ],
+     [
+      "B",
+      "I'd like to, but the registration fee is four hundred dollars."
+     ],
+     [
+      "A",
+      "The company pays for one conference a year. Have you used yours?"
+     ],
+     [
+      "B",
+      "Not yet. I didn't know about that."
+     ],
+     [
+      "A",
+      "Just fill out the request form on the HR page. My request was approved in two days."
+     ],
+     [
+      "B",
+      "Great. I'll do that this afternoon."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "What are the speakers mainly discussing?",
+      "a": "Attending a conference",
+      "w": [
+       "Hiring a speaker",
+       "Opening an office in Denver",
+       "Changing a company policy"
+      ],
+      "ty": "gist",
+      "ev": "the marketing conference in Denver next month"
+     },
+     {
+      "q": "Why does the man say, \"the registration fee is four hundred dollars\"?",
+      "a": "He is worried about the cost.",
+      "w": [
+       "He wants to register early.",
+       "He thinks the fee has changed.",
+       "He is correcting an error."
+      ],
+      "ty": "imp",
+      "ev": "the registration fee is four hundred dollars"
+     },
+     {
+      "q": "What does the woman suggest the man do?",
+      "a": "Submit a request form",
+      "w": [
+       "Ask his manager",
+       "Book a flight",
+       "Pay the fee himself"
+      ],
+      "ty": "next",
+      "ev": "Just fill out the request form on the HR page."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p3",
+   "x": {
+    "id": "d04-p3-09",
+    "lines": [
+     [
+      "A",
+      "Hi, I'm organizing a lunch for our board meeting next Wednesday. Can you cater for fifteen people?"
+     ],
+     [
+      "B",
+      "Yes, we can. Would you like sandwiches or hot dishes?"
+     ],
+     [
+      "A",
+      "Sandwiches and a salad would be best, since the meeting continues during lunch."
+     ],
+     [
+      "B",
+      "OK. We'll also need to know about any food allergies."
+     ],
+     [
+      "A",
+      "One of the board members can't eat nuts. I'll send you the details by e-mail."
+     ],
+     [
+      "B",
+      "Thank you. We'll deliver at noon."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "What event is the woman organizing?",
+      "a": "A lunch for a meeting",
+      "w": [
+       "A company picnic",
+       "A cooking class",
+       "A retirement dinner"
+      ],
+      "ty": "detail",
+      "ev": "I'm organizing a lunch for our board meeting next Wednesday."
+     },
+     {
+      "q": "Why does the woman choose sandwiches?",
+      "a": "The meeting will continue during the meal.",
+      "w": [
+       "They are cheaper.",
+       "Some guests are vegetarians.",
+       "The kitchen is closed."
+      ],
+      "ty": "detail",
+      "ev": "since the meeting continues during lunch"
+     },
+     {
+      "q": "What will the woman send by e-mail?",
+      "a": "Information about an allergy",
+      "w": [
+       "A payment",
+       "A list of guests",
+       "A new address"
+      ],
+      "ty": "detail",
+      "ev": "One of the board members can't eat nuts. I'll send you the details by e-mail."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p3",
+   "x": {
+    "id": "d05-p3-03",
+    "lines": [
+     [
+      "A",
+      "Thanks for coming in early, both of you. A large tour group is checking in at noon."
+     ],
+     [
+      "B",
+      "How many guests are in the group?"
+     ],
+     [
+      "A",
+      "Forty-two. Their room keys need to be ready before they arrive."
+     ],
+     [
+      "C",
+      "I can prepare the keys and welcome packets now."
+     ],
+     [
+      "B",
+      "And I'll make sure the luggage carts are in the lobby."
+     ],
+     [
+      "A",
+      "Perfect. Also, the group leader asked for a late checkout on Sunday, so please note that in the system, Maria."
+     ],
+     [
+      "C",
+      "Sure, I'll do that right away."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "Where do the speakers most likely work?",
+      "a": "At a hotel",
+      "w": [
+       "At a travel agency",
+       "At an airport",
+       "At a restaurant"
+      ],
+      "ty": "gist",
+      "ev": "Their room keys need to be ready before they arrive."
+     },
+     {
+      "q": "What does the man say he will do?",
+      "a": "Bring luggage carts to the lobby",
+      "w": [
+       "Prepare some room keys",
+       "Call the group leader",
+       "Clean some rooms"
+      ],
+      "ty": "next",
+      "ev": "I'll make sure the luggage carts are in the lobby."
+     },
+     {
+      "q": "What did the group leader request?",
+      "a": "A late checkout",
+      "w": [
+       "An early breakfast",
+       "A room upgrade",
+       "A city map"
+      ],
+      "ty": "detail",
+      "ev": "the group leader asked for a late checkout on Sunday"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p3",
+   "x": {
+    "id": "d05-p3-11",
+    "g": {
+     "t": "Riverside Parking Rates",
+     "h": [
+      "Time",
+      "Price"
+     ],
+     "r": [
+      [
+       "Up to 1 hour",
+       "$4"
+      ],
+      [
+       "1–2 hours",
+       "$7"
+      ],
+      [
+       "2–4 hours",
+       "$12"
+      ],
+      [
+       "All day",
+       "$20"
+      ]
+     ]
+    },
+    "lines": [
+     [
+      "B",
+      "Excuse me, I'm meeting a client at the bank across the street. Can visitors park in this garage?"
+     ],
+     [
+      "A",
+      "Yes, they can. How long do you think you'll stay?"
+     ],
+     [
+      "B",
+      "Our meeting will probably last about ninety minutes."
+     ],
+     [
+      "A",
+      "OK. Just take a ticket at the gate and pay at the machine when you leave."
+     ],
+     [
+      "B",
+      "Does the machine accept credit cards?"
+     ],
+     [
+      "A",
+      "It does. It also takes cash, but only small bills."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "Why is the man in the area?",
+      "a": "To meet a client",
+      "w": [
+       "To open a bank account",
+       "To start a new job",
+       "To repair a machine"
+      ],
+      "ty": "gist",
+      "ev": "I'm meeting a client at the bank across the street."
+     },
+     {
+      "q": "Look at the graphic. How much will the man most likely pay?",
+      "a": "$7",
+      "w": [
+       "$4",
+       "$12",
+       "$20"
+      ],
+      "ty": "graphic",
+      "ev": "Our meeting will probably last about ninety minutes."
+     },
+     {
+      "q": "What does the woman say about the machine?",
+      "a": "It accepts credit cards.",
+      "w": [
+       "It is out of order.",
+       "It gives discounts.",
+       "It only takes coins."
+      ],
+      "ty": "detail",
+      "ev": "Does the machine accept credit cards? It does."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p3",
+   "x": {
+    "id": "d06-p3-05",
+    "lines": [
+     [
+      "A",
+      "Marcus, I just got a call from Hillside Café. Their bread delivery hasn't arrived yet."
+     ],
+     [
+      "B",
+      "Sorry, one of our delivery vans broke down on the highway this morning. The driver is waiting for a tow truck."
+     ],
+     [
+      "A",
+      "That's a problem. They need the bread for lunch."
+     ],
+     [
+      "B",
+      "I can drive the order over in my car. It'll take about twenty minutes."
+     ],
+     [
+      "A",
+      "Thanks. I'll call the café and let them know."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "What problem are the speakers discussing?",
+      "a": "A delivery is late.",
+      "w": [
+       "An order was wrong.",
+       "A café has closed.",
+       "A driver is sick."
+      ],
+      "ty": "gist",
+      "ev": "Their bread delivery hasn't arrived yet."
+     },
+     {
+      "q": "What happened this morning?",
+      "a": "A vehicle broke down.",
+      "w": [
+       "A highway was closed.",
+       "An oven stopped working.",
+       "A driver quit."
+      ],
+      "ty": "detail",
+      "ev": "one of our delivery vans broke down on the highway this morning"
+     },
+     {
+      "q": "What will the woman do next?",
+      "a": "Contact a customer",
+      "w": [
+       "Call a tow truck",
+       "Bake more bread",
+       "Drive to the café"
+      ],
+      "ty": "next",
+      "ev": "I'll call the café and let them know."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p3",
+   "x": {
+    "id": "d06-p3-12",
+    "g": {
+     "t": "Training Workshops",
+     "h": [
+      "Room",
+      "Workshop"
+     ],
+     "r": [
+      [
+       "101",
+       "Time Management"
+      ],
+      [
+       "102",
+       "Public Speaking"
+      ],
+      [
+       "201",
+       "Excel Basics"
+      ],
+      [
+       "202",
+       "Customer Service"
+      ]
+     ]
+    },
+    "lines": [
+     [
+      "B",
+      "Excuse me, I'm here for the Excel training. Am I in the right building?"
+     ],
+     [
+      "A",
+      "Yes, you are. Take the stairs on your left."
+     ],
+     [
+      "B",
+      "Thanks. Do I need to bring my own laptop?"
+     ],
+     [
+      "A",
+      "No, there are computers in the room. But you'll need your employee ID to log in."
+     ],
+     [
+      "B",
+      "Oh no, I left my ID at my desk."
+     ],
+     [
+      "A",
+      "Don't worry. I can print a temporary pass for you."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "Look at the graphic. Which room will the man go to?",
+      "a": "201",
+      "w": [
+       "101",
+       "102",
+       "202"
+      ],
+      "ty": "graphic",
+      "ev": "I'm here for the Excel training."
+     },
+     {
+      "q": "What does the woman say about the room?",
+      "a": "It has computers.",
+      "w": [
+       "It is locked.",
+       "It is very small.",
+       "It has a projector."
+      ],
+      "ty": "detail",
+      "ev": "there are computers in the room"
+     },
+     {
+      "q": "What will the woman most likely do next?",
+      "a": "Print a temporary pass",
+      "w": [
+       "Call the trainer",
+       "Bring a laptop",
+       "Go to the man's desk"
+      ],
+      "ty": "next",
+      "ev": "I can print a temporary pass for you."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p4",
+   "x": {
+    "id": "d03-p4-01",
+    "ty": "msg",
+    "sx": "m",
+    "text": "Hello, this message is for Ms. Patel. This is Leo from Fairview Auto Repair. We've finished inspecting your car, and the brakes need new pads. The good news is that we have the parts in stock, so we can complete the work today. The total cost would be about two hundred and forty dollars. Please call me back at 555-0182 before three o'clock to approve the repair. If we hear from you by then, your car will be ready to pick up tomorrow morning.",
+    "qs": [
+     {
+      "q": "Where does the speaker work?",
+      "a": "At an auto repair shop",
+      "w": [
+       "At a car dealership",
+       "At a parts factory",
+       "At a parking garage"
+      ],
+      "ty": "gist",
+      "ev": "This is Leo from Fairview Auto Repair."
+     },
+     {
+      "q": "What does the speaker say about the parts?",
+      "a": "They are available.",
+      "w": [
+       "They are expensive.",
+       "They must be ordered.",
+       "They are under warranty."
+      ],
+      "ty": "detail",
+      "ev": "we have the parts in stock"
+     },
+     {
+      "q": "What is the listener asked to do?",
+      "a": "Call back before three o'clock",
+      "w": [
+       "Bring the car in tomorrow",
+       "Pay a deposit online",
+       "Choose a different part"
+      ],
+      "ty": "next",
+      "ev": "Please call me back at 555-0182 before three o'clock to approve the repair."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p4",
+   "x": {
+    "id": "d03-p4-06",
+    "ty": "tour",
+    "sx": "f",
+    "text": "Welcome to the Crestwood Chocolate Factory. I'm Nadia, and I'll be your guide today. Our tour lasts about an hour. First, we'll see where the cocoa beans are roasted, and then we'll watch our chocolate bars being wrapped by machine. For safety reasons, please stay behind the yellow lines at all times. Also, photographs are not permitted inside the production area. Don't worry, there's plenty to taste at the end. Our gift shop also offers a ten percent discount to tour visitors today.",
+    "qs": [
+     {
+      "q": "What will the listeners see first?",
+      "a": "Where cocoa beans are roasted",
+      "w": [
+       "How bars are wrapped",
+       "The gift shop",
+       "A short film"
+      ],
+      "ty": "detail",
+      "ev": "First, we'll see where the cocoa beans are roasted"
+     },
+     {
+      "q": "What are the listeners asked to do?",
+      "a": "Stay behind some lines",
+      "w": [
+       "Wear safety glasses",
+       "Turn off their phones",
+       "Wash their hands"
+      ],
+      "ty": "next",
+      "ev": "please stay behind the yellow lines at all times"
+     },
+     {
+      "q": "What does the speaker imply when she says, \"Don't worry, there's plenty to taste at the end\"?",
+      "a": "Visitors will be able to try some products.",
+      "w": [
+       "The tour will end early.",
+       "Visitors can take photos later.",
+       "Lunch is included in the price."
+      ],
+      "ty": "imp",
+      "ev": "Don't worry, there's plenty to taste at the end."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p4",
+   "x": {
+    "id": "d04-p4-01",
+    "ty": "msg",
+    "sx": "f",
+    "text": "Hello, Mr. Brennan. This is Carol from Oakview Property Management. I'm calling to let you know that the water in your building will be turned off this Thursday from nine A.M. to one P.M. Plumbers will be replacing the main pipe in the basement. We recommend that you fill a few bottles with water beforehand. If the work finishes early, we'll send a text message to all residents. Thank you for your understanding.",
+    "qs": [
+     {
+      "q": "Who most likely is the speaker?",
+      "a": "A property manager",
+      "w": [
+       "A plumber",
+       "A lawyer",
+       "A delivery driver"
+      ],
+      "ty": "gist",
+      "ev": "This is Carol from Oakview Property Management."
+     },
+     {
+      "q": "Why will the water be turned off?",
+      "a": "A pipe will be replaced.",
+      "w": [
+       "The building will be painted.",
+       "A water tank will be cleaned.",
+       "A new bathroom will be installed."
+      ],
+      "ty": "detail",
+      "ev": "Plumbers will be replacing the main pipe in the basement."
+     },
+     {
+      "q": "What does the speaker recommend?",
+      "a": "Storing some water in advance",
+      "w": [
+       "Leaving the building early",
+       "Calling a plumber",
+       "Checking the basement"
+      ],
+      "ty": "next",
+      "ev": "We recommend that you fill a few bottles with water beforehand."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p4",
+   "x": {
+    "id": "d04-p4-06",
+    "ty": "tour",
+    "sx": "m",
+    "text": "Hi, everyone, and welcome to the Old Town walking tour. My name is Owen. We'll start here at the clock tower, which was built in 1820, and finish at the harbor about ninety minutes from now. Some of the streets are quite steep, so please watch your step. We'll stop for a fifteen-minute break at a café near the old market. And one more thing: the last tour group got caught in the rain. Make sure you have your umbrellas ready.",
+    "qs": [
+     {
+      "q": "Where does the tour begin?",
+      "a": "At a clock tower",
+      "w": [
+       "At a harbor",
+       "At a market",
+       "At a café"
+      ],
+      "ty": "detail",
+      "ev": "We'll start here at the clock tower"
+     },
+     {
+      "q": "What does the speaker warn the listeners about?",
+      "a": "Some steep streets",
+      "w": [
+       "Heavy traffic",
+       "A closed market",
+       "Expensive cafés"
+      ],
+      "ty": "detail",
+      "ev": "Some of the streets are quite steep, so please watch your step."
+     },
+     {
+      "q": "Why does the speaker say, \"the last tour group got caught in the rain\"?",
+      "a": "To suggest that listeners be prepared for rain",
+      "w": [
+       "To explain why the tour is shorter",
+       "To apologize for a delay",
+       "To recommend a different tour"
+      ],
+      "ty": "imp",
+      "ev": "the last tour group got caught in the rain"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p4",
+   "x": {
+    "id": "d05-p4-01",
+    "ty": "msg",
+    "sx": "f",
+    "text": "Hello, this message is for Mr. Tom Halloway. This is Denise calling from Dr. Patel's office at Greenfield Medical Clinic. I'm calling to remind you of your appointment tomorrow at ten-thirty A.M. Please arrive fifteen minutes early to fill out a new patient form. Also, remember to bring a list of any medicines you're currently taking. If you need to reschedule, please call us before five o'clock today. Thank you, and we'll see you tomorrow.",
+    "qs": [
+     {
+      "q": "Where does the speaker most likely work?",
+      "a": "At a medical clinic",
+      "w": [
+       "At a pharmacy",
+       "At a hotel",
+       "At a law firm"
+      ],
+      "ty": "gist",
+      "ev": "This is Denise calling from Dr. Patel's office at Greenfield Medical Clinic."
+     },
+     {
+      "q": "Why should the listener arrive early?",
+      "a": "To complete a form",
+      "w": [
+       "To pay a bill",
+       "To find parking",
+       "To meet a nurse"
+      ],
+      "ty": "detail",
+      "ev": "Please arrive fifteen minutes early to fill out a new patient form."
+     },
+     {
+      "q": "What should the listener bring?",
+      "a": "A list of medicines",
+      "w": [
+       "An insurance card",
+       "A payment receipt",
+       "A letter from a doctor"
+      ],
+      "ty": "detail",
+      "ev": "remember to bring a list of any medicines you're currently taking"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p4",
+   "x": {
+    "id": "d05-p4-06",
+    "ty": "tour",
+    "sx": "m",
+    "text": "Welcome to the Hollis Botanical Garden. My name is Victor, and I'll be your guide this afternoon. Our tour will last about an hour. We'll start in the rose garden, which has more than three hundred kinds of roses. After that, we'll walk through the tropical greenhouse. It's quite warm inside, so you may want to take off your jackets before we enter. Photos are welcome everywhere, but please don't touch the plants. At the end of the tour, you'll each receive a packet of flower seeds to take home.",
+    "qs": [
+     {
+      "q": "Who most likely is the speaker?",
+      "a": "A tour guide",
+      "w": [
+       "A gardener",
+       "A photographer",
+       "A shop owner"
+      ],
+      "ty": "gist",
+      "ev": "I'll be your guide this afternoon"
+     },
+     {
+      "q": "Why does the speaker suggest removing jackets?",
+      "a": "A building will be warm.",
+      "w": [
+       "It will rain later.",
+       "Jackets are not allowed.",
+       "The tour will be long."
+      ],
+      "ty": "detail",
+      "ev": "It's quite warm inside, so you may want to take off your jackets before we enter."
+     },
+     {
+      "q": "What will listeners receive at the end of the tour?",
+      "a": "Some seeds",
+      "w": [
+       "A map",
+       "A photograph",
+       "A discount coupon"
+      ],
+      "ty": "detail",
+      "ev": "you'll each receive a packet of flower seeds to take home"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p4",
+   "x": {
+    "id": "d06-p4-02",
+    "ty": "ann",
+    "text": "Attention, passengers waiting on Platform 3. The eleven-fifteen express train to Bristol is delayed by approximately forty minutes due to a signal problem near Oakdale Station. We apologize for the inconvenience. Passengers who need to reach Bristol sooner may take the eleven-thirty local train from Platform 5. Please note that the local train makes all stops and will arrive about twenty minutes later than the express normally would. Tickets for the express train are also valid on the local train. Thank you for your patience.",
+    "qs": [
+     {
+      "q": "What is causing the delay?",
+      "a": "A signal problem",
+      "w": [
+       "Bad weather",
+       "A shortage of staff",
+       "Track repairs"
+      ],
+      "ty": "detail",
+      "ev": "due to a signal problem near Oakdale Station"
+     },
+     {
+      "q": "What are some passengers advised to do?",
+      "a": "Take a different train",
+      "w": [
+       "Wait in the station lounge",
+       "Buy a new ticket",
+       "Take a bus"
+      ],
+      "ty": "detail",
+      "ev": "Passengers who need to reach Bristol sooner may take the eleven-thirty local train from Platform 5."
+     },
+     {
+      "q": "What does the speaker say about tickets?",
+      "a": "They can be used on the local train.",
+      "w": [
+       "They will be refunded.",
+       "They must be exchanged.",
+       "They are sold out."
+      ],
+      "ty": "detail",
+      "ev": "Tickets for the express train are also valid on the local train."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p4",
+   "x": {
+    "id": "d06-p4-07",
+    "ty": "meet",
+    "sx": "m",
+    "text": "Good morning, everyone. As you know, starting next month we'll use a new computer system to track our inventory. With the new system, you'll scan products with a handheld device, and the stock numbers will update automatically. I know many of you are used to counting items by hand. Learning a new system isn't going to happen overnight. That's why we've scheduled three training sessions next week. Please sign up for at least one of them on the sheet in the staff room.",
+    "qs": [
+     {
+      "q": "What is the speaker mainly discussing?",
+      "a": "A new inventory system",
+      "w": [
+       "A store renovation",
+       "A staff schedule",
+       "A sales promotion"
+      ],
+      "ty": "gist",
+      "ev": "starting next month we'll use a new computer system to track our inventory"
+     },
+     {
+      "q": "What does the speaker mean when he says, \"Learning a new system isn't going to happen overnight\"?",
+      "a": "It will take time to get used to the system.",
+      "w": [
+       "The system will be installed at night.",
+       "The training sessions are too short.",
+       "Some employees will work night shifts."
+      ],
+      "ty": "imp",
+      "ev": "Learning a new system isn't going to happen overnight."
+     },
+     {
+      "q": "What are listeners asked to do?",
+      "a": "Sign up for training",
+      "w": [
+       "Count items by hand",
+       "Test a handheld device",
+       "Work extra hours"
+      ],
+      "ty": "next",
+      "ev": "Please sign up for at least one of them on the sheet in the staff room."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p5",
+   "x": {
+    "id": "d03-p5-01",
+    "t": "form",
+    "s": "Please submit your expense reports ------- to the accounting department.",
+    "o": [
+     "direct",
+     "directly",
+     "direction",
+     "directed"
+    ],
+    "a": "directly",
+    "why": "Bổ nghĩa cho động từ submit cần trạng từ: directly."
+   }
+  },
+  {
+   "sec": "p5",
+   "x": {
+    "id": "d03-p5-16",
+    "t": "verb",
+    "s": "If the weather ------- good tomorrow, the reception will take place in the garden.",
+    "o": [
+     "is",
+     "will be",
+     "was",
+     "were"
+    ],
+    "a": "is",
+    "why": "Câu điều kiện loại 1: mệnh đề If dùng hiện tại đơn (is) dù nói về tương lai."
+   }
+  },
+  {
+   "sec": "p5",
+   "x": {
+    "id": "d04-p5-01",
+    "t": "form",
+    "s": "Ms. Grant spoke ------- about the need for better communication between departments.",
+    "o": [
+     "passionate",
+     "passionately",
+     "passion",
+     "passions"
+    ],
+    "a": "passionately",
+    "why": "Bổ nghĩa cho động từ spoke cần trạng từ: passionately."
+   }
+  },
+  {
+   "sec": "p5",
+   "x": {
+    "id": "d04-p5-16",
+    "t": "form",
+    "s": "The two firms announced a ------- to develop electric delivery vans.",
+    "o": [
+     "partner",
+     "partnership",
+     "partnered",
+     "partnering"
+    ],
+    "a": "partnership",
+    "why": "Hai công ty công bố một sự hợp tác → partnership. a partner là một đối tác (một bên), không hợp nghĩa."
+   }
+  },
+  {
+   "sec": "p5",
+   "x": {
+    "id": "d05-p5-02",
+    "t": "verb",
+    "s": "By the time the director arrives, the staff ------- the conference room.",
+    "o": [
+     "will have prepared",
+     "prepared",
+     "have prepared",
+     "had prepared"
+    ],
+    "a": "will have prepared",
+    "why": "By the time + hiện tại đơn (arrives) chỉ tương lai; việc xong trước mốc đó → tương lai hoàn thành will have prepared."
+   }
+  },
+  {
+   "sec": "p5",
+   "x": {
+    "id": "d05-p5-17",
+    "t": "voc",
+    "s": "Employees who wish to take time off must ------- a request at least two weeks in advance.",
+    "o": [
+     "submit",
+     "deliver",
+     "commit",
+     "admit"
+    ],
+    "a": "submit",
+    "why": "submit a request = nộp đơn đề nghị."
+   }
+  },
+  {
+   "sec": "p5",
+   "x": {
+    "id": "d06-p5-03",
+    "t": "prep",
+    "s": "The library is open ------- 9 A.M. to 8 P.M. on weekdays.",
+    "o": [
+     "from",
+     "between",
+     "since",
+     "during"
+    ],
+    "a": "from",
+    "why": "from … to … = từ … đến …; between đi với and."
+   }
+  },
+  {
+   "sec": "p5",
+   "x": {
+    "id": "d06-p5-18",
+    "t": "conj",
+    "s": "Ms. Lee will lead the workshop, ------- Mr. Brown will handle registration.",
+    "o": [
+     "while",
+     "unless",
+     "because",
+     "so that"
+    ],
+    "a": "while",
+    "why": "while = trong khi (hai việc song song, đối chiếu); các liên từ khác sai nghĩa."
+   }
+  },
+  {
+   "sec": "p6",
+   "x": {
+    "id": "d03-p6-01",
+    "kind": "E-mail",
+    "title": "To: All employees · From: Office Manager · Subject: New recycling program",
+    "text": "Starting next Monday, our office will take part in a new recycling program. Blue bins for paper and green bins for plastic {1} in the kitchen on each floor. Please do not put food waste in either bin. {2} The building's cleaning staff will empty the bins every evening. {3}, if a bin is full during the day, you may leave the items next to it. We appreciate your {4} in making our workplace more environmentally friendly.",
+    "gaps": [
+     {
+      "o": [
+       "will be placed",
+       "were placed",
+       "have placed",
+       "placing"
+      ],
+      "a": "will be placed",
+      "t": "tense",
+      "why": "Chương trình bắt đầu từ thứ Hai tới (Starting next Monday) → việc đặt thùng ở tương lai, bị động: will be placed."
+     },
+     {
+      "o": [
+       "Food waste should go in the brown container by the sink.",
+       "The kitchen on each floor will be renovated next year.",
+       "Our office moved to this building in 2019.",
+       "Blue is the official color of our company."
+      ],
+      "a": "Food waste should go in the brown container by the sink.",
+      "why": "Câu trước nói không bỏ rác thức ăn vào hai thùng → câu chèn cho biết bỏ rác thức ăn ở đâu.",
+      "t": "insert"
+     },
+     {
+      "o": [
+       "However",
+       "Therefore",
+       "For example",
+       "Similarly"
+      ],
+      "a": "However",
+      "why": "Câu trước: nhân viên dọn thùng mỗi tối; câu sau: nếu thùng đầy ban ngày thì để cạnh thùng → ý ngoại lệ, ngược: However.",
+      "t": "conn"
+     },
+     {
+      "o": [
+       "cooperation",
+       "cooperate",
+       "cooperative",
+       "cooperatively"
+      ],
+      "a": "cooperation",
+      "why": "Sau tính từ sở hữu your cần danh từ: cooperation.",
+      "t": "word"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p6",
+   "x": {
+    "id": "d03-p6-03",
+    "kind": "Letter",
+    "title": "Dear Mr. Okonkwo,",
+    "text": "Thank you for your order of fifty office chairs, which we received on March 12. Unfortunately, the model you selected is temporarily out of stock. We {1} to receive new stock from our manufacturer by the end of the month. {2} If you prefer, we can send a similar model, the Ergo Plus, right away at no {3} cost. Please let us know which option you prefer by replying to this letter. We apologize for the {4} and thank you for your patience. Sincerely, Hannah Brooks, Customer Service",
+    "gaps": [
+     {
+      "o": [
+       "expect",
+       "expecting",
+       "expectation",
+       "had expected"
+      ],
+      "a": "expect",
+      "t": "tense",
+      "why": "Nói dự kiến hiện tại về việc sắp tới (by the end of the month) → hiện tại đơn: We expect."
+     },
+     {
+      "o": [
+       "Your order would then be delivered in early April.",
+       "Our office chairs come in five different colors.",
+       "The Ergo Plus model was first sold in 2015.",
+       "Please return the chairs within thirty days."
+      ],
+      "a": "Your order would then be delivered in early April.",
+      "why": "Câu trước: hàng mới về cuối tháng → câu chèn: khi đó đơn sẽ giao đầu tháng 4; sau đó mới tới phương án khác (If you prefer…).",
+      "t": "insert"
+     },
+     {
+      "o": [
+       "additional",
+       "addition",
+       "additionally",
+       "add"
+      ],
+      "a": "additional",
+      "why": "Trước danh từ cost cần tính từ: at no additional cost.",
+      "t": "word"
+     },
+     {
+      "o": [
+       "inconvenience",
+       "inconvenient",
+       "inconveniently",
+       "convenience"
+      ],
+      "a": "inconvenience",
+      "why": "apologize for the + danh từ: inconvenience (sự bất tiện). convenience nghĩa ngược lại.",
+      "t": "word"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p6",
+   "x": {
+    "id": "d04-p6-01",
+    "kind": "E-mail",
+    "title": "To: Elena Alvarez · From: Business Weekly · Subject: Your subscription",
+    "text": "Dear Ms. Alvarez, Thank you for being a subscriber to Business Weekly for the past two years. Your current subscription {1} on May 31. To continue receiving the magazine without interruption, please renew before that date. {2} As a loyal reader, you can renew for one year at 30 percent off the regular price. {3}, you will receive free access to our online archive of past issues. To renew, simply visit our Web site and enter the {4} code BW2024. We look forward to serving you for many more years.",
+    "gaps": [
+     {
+      "o": [
+       "expires",
+       "expired",
+       "has expired",
+       "was expiring"
+      ],
+      "a": "expires",
+      "t": "tense",
+      "why": "Mốc định sẵn trong tương lai (on May 31) → hiện tại đơn: expires."
+     },
+     {
+      "o": [
+       "We are pleased to offer you a special rate.",
+       "Business Weekly was first published in 1985.",
+       "Your subscription began in May two years ago.",
+       "Many readers prefer the printed magazine."
+      ],
+      "a": "We are pleased to offer you a special rate.",
+      "why": "Câu chèn giới thiệu ưu đãi; câu sau nói cụ thể giảm 30% cho độc giả lâu năm.",
+      "t": "insert"
+     },
+     {
+      "o": [
+       "In addition",
+       "However",
+       "Otherwise",
+       "Instead"
+      ],
+      "a": "In addition",
+      "why": "Thêm một lợi ích nữa (truy cập kho báo cũ) → In addition.",
+      "t": "conn"
+     },
+     {
+      "o": [
+       "discount",
+       "discounted",
+       "discounting",
+       "discounts"
+      ],
+      "a": "discount",
+      "why": "discount code = mã giảm giá (danh từ ghép).",
+      "t": "word"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p6",
+   "x": {
+    "id": "d04-p6-03",
+    "kind": "Article",
+    "title": "Seaview Hotel Completes Renovation",
+    "text": "After eight months of work, the Seaview Hotel has completed a major renovation. All 120 guest rooms now feature new furniture and larger bathrooms. {1} The hotel's restaurant has also been redesigned and now offers {2} views of the bay. General manager Paul Dubois said the project was finished on time and within budget. \"Our guests have been very patient,\" he said. \"{3}, we are offering a 20 percent discount on all bookings made this month.\" The hotel expects its rooms to be {4} booked throughout the summer.",
+    "gaps": [
+     {
+      "o": [
+       "Each room also has a new desk for business travelers.",
+       "The hotel's summer rates will be announced in May.",
+       "Paul Dubois has worked in hotels for twenty years.",
+       "The summer season usually starts in June."
+      ],
+      "a": "Each room also has a new desk for business travelers.",
+      "why": "Câu trước tả phòng (nội thất, phòng tắm) → câu chèn thêm một chi tiết về phòng (bàn làm việc mới).",
+      "t": "insert"
+     },
+     {
+      "o": [
+       "stunning",
+       "stun",
+       "stunned",
+       "stunningly"
+      ],
+      "a": "stunning",
+      "why": "Trước danh từ views cần tính từ: stunning (tuyệt đẹp).",
+      "t": "word"
+     },
+     {
+      "o": [
+       "Therefore",
+       "However",
+       "Instead",
+       "Otherwise"
+      ],
+      "a": "Therefore",
+      "why": "Khách đã kiên nhẫn → vì vậy có ưu đãi: Therefore.",
+      "t": "conn"
+     },
+     {
+      "o": [
+       "fully",
+       "full",
+       "fuller",
+       "fullness"
+      ],
+      "a": "fully",
+      "why": "Bổ nghĩa cho booked (phân từ) cần trạng từ: fully booked.",
+      "t": "word"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p6",
+   "x": {
+    "id": "d05-p6-01",
+    "kind": "Notice",
+    "title": "Notice to Customers · Corner Market",
+    "text": "Next week, Corner Market {1} four self-checkout lanes near the main entrance. The new lanes will allow customers with only a few items to pay quickly without waiting in line. {2} Staff members will be nearby to help customers who are using the machines for the first time. {3}, our regular checkout counters will stay open during all business hours. We appreciate your {4} as we work to make shopping faster and easier.",
+    "gaps": [
+     {
+      "o": [
+       "will open",
+       "opened",
+       "has opened",
+       "was opening"
+      ],
+      "a": "will open",
+      "t": "tense",
+      "why": "Việc xảy ra tuần sau (Next week) → tương lai: will open."
+     },
+     {
+      "o": [
+       "Each machine accepts both cash and cards.",
+       "Corner Market first opened its doors in 1998.",
+       "The main entrance will be closed for repairs.",
+       "The machines will be removed next month."
+      ],
+      "a": "Each machine accepts both cash and cards.",
+      "why": "Câu chèn nói thêm về máy tự thanh toán vừa giới thiệu (nhận cả tiền mặt lẫn thẻ); \"đóng lối vào chính\" và \"tháo máy tháng sau\" mâu thuẫn với nội dung thông báo.",
+      "t": "insert"
+     },
+     {
+      "o": [
+       "However",
+       "Therefore",
+       "For example",
+       "Similarly"
+      ],
+      "a": "However",
+      "why": "Trước: giới thiệu làn tự thanh toán mới; sau: quầy thu ngân thường vẫn mở → ý đối lập: However.",
+      "t": "conn"
+     },
+     {
+      "o": [
+       "patience",
+       "patient",
+       "patiently",
+       "patients"
+      ],
+      "a": "patience",
+      "why": "Sau tính từ sở hữu your cần danh từ → patience (sự kiên nhẫn); patients = bệnh nhân.",
+      "t": "word"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p6",
+   "x": {
+    "id": "d05-p6-04",
+    "kind": "Letter",
+    "title": "Harlan Insurance · Claims Department",
+    "text": "Dear Mr. Adebayo, Thank you for contacting Harlan Insurance about your recent claim. We have received the photographs of the damage to your car, and our team {1} them carefully. Based on this review, we have approved your claim for $1,250. {2} The payment will be sent to your bank account within five business days. {3} you have any questions, please call our customer service line at 555-0193. Please have your claim number {4} when you call. Sincerely, Patricia Gomez, Claims Department",
+    "gaps": [
+     {
+      "o": [
+       "has reviewed",
+       "will review",
+       "reviews",
+       "is reviewing"
+      ],
+      "a": "has reviewed",
+      "t": "tense",
+      "why": "Câu sau nói đã duyệt hồ sơ dựa trên việc xem xét này → việc xem ảnh đã xong: has reviewed."
+     },
+     {
+      "o": [
+       "This amount covers the full cost of the repairs.",
+       "Photographs must be taken in good light.",
+       "Your bank account was opened five years ago.",
+       "Our customer service line is closed today."
+      ],
+      "a": "This amount covers the full cost of the repairs.",
+      "why": "\"This amount\" chỉ khoản $1,250 vừa nêu; \"tổng đài đóng cửa\" mâu thuẫn với lời mời gọi điện ở sau.",
+      "t": "insert"
+     },
+     {
+      "o": [
+       "If",
+       "Unless",
+       "Although",
+       "Whether"
+      ],
+      "a": "If",
+      "why": "Nếu có thắc mắc thì gọi → If; Unless / Although sai nghĩa, Whether cần or.",
+      "t": "word"
+     },
+     {
+      "o": [
+       "ready",
+       "readily",
+       "readiness",
+       "readied"
+      ],
+      "a": "ready",
+      "why": "have + tân ngữ + tính từ (have your claim number ready = chuẩn bị sẵn mã hồ sơ) → ready.",
+      "t": "word"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p6",
+   "x": {
+    "id": "d06-p6-02",
+    "kind": "Notice",
+    "title": "Oakridge Community Garden: Plot Applications",
+    "text": "The Oakridge Community Garden is now accepting applications for garden plots for the coming season. Each plot measures three meters by four meters and {1} $40 per year. Gardeners will have access to water, tools, and a storage shed. {2} Applications must be submitted by March 1, and plots will be assigned in the order that applications are {3}. Because the number of plots is limited, early application is strongly recommended. For more information, please visit our Web site or speak to one of our {4} on Saturday mornings.",
+    "gaps": [
+     {
+      "o": [
+       "costs",
+       "cost",
+       "costing",
+       "to cost"
+      ],
+      "a": "costs",
+      "why": "Chủ ngữ Each plot (số ít), nối với measures bằng and → costs.",
+      "t": "word"
+     },
+     {
+      "o": [
+       "Seeds and plants, however, must be provided by the gardeners themselves.",
+       "The garden was once a parking lot.",
+       "Water prices in Oakridge have risen recently.",
+       "Applications for jobs at the garden are now closed."
+      ],
+      "a": "Seeds and plants, however, must be provided by the gardeners themselves.",
+      "why": "Câu trước kể thứ được dùng (nước, dụng cụ, kho); câu chèn nói thứ không có sẵn (hạt giống, cây) → however.",
+      "t": "insert"
+     },
+     {
+      "o": [
+       "received",
+       "receiving",
+       "receipt",
+       "receive"
+      ],
+      "a": "received",
+      "why": "applications are received (bị động: đơn được nhận) → received.",
+      "t": "word"
+     },
+     {
+      "o": [
+       "volunteers",
+       "volunteered",
+       "voluntary",
+       "volunteering"
+      ],
+      "a": "volunteers",
+      "why": "Sau one of our cần danh từ số nhiều chỉ người → volunteers.",
+      "t": "word"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p6",
+   "x": {
+    "id": "d06-p6-04",
+    "kind": "Memo",
+    "title": "To: All Staff · From: Accounting Department · Subject: Expense reports",
+    "text": "Starting on July 1, all expense reports must be submitted through our new online system. Paper forms will no longer {1}. The new system allows you to upload photos of your receipts directly from your phone. {2} Reimbursements will usually be paid within five working days, compared with two weeks under the old process. A short training video is available on the company intranet. {3}, our staff will hold two information sessions in the main conference room next week. If you have any questions in the meantime, please contact Ji-woo Han {4} extension 210.",
+    "gaps": [
+     {
+      "o": [
+       "be accepted",
+       "accept",
+       "accepting",
+       "acceptance"
+      ],
+      "a": "be accepted",
+      "why": "Sau will no longer cần động từ nguyên mẫu; mẫu giấy không được nhận (bị động) → be accepted.",
+      "t": "word"
+     },
+     {
+      "o": [
+       "This means you will no longer need to keep paper copies.",
+       "The accounting department moved to the third floor last year.",
+       "Paper forms can be picked up in the supply room.",
+       "The conference room can hold forty people."
+      ],
+      "a": "This means you will no longer need to keep paper copies.",
+      "why": "\"This\" chỉ việc tải ảnh hoá đơn lên từ điện thoại vừa nêu → không cần giữ bản giấy.",
+      "t": "insert"
+     },
+     {
+      "o": [
+       "Furthermore",
+       "Nevertheless",
+       "As a result",
+       "For instance"
+      ],
+      "a": "Furthermore",
+      "why": "Thêm một cách hỗ trợ nữa (buổi giới thiệu) bên cạnh video → Furthermore.",
+      "t": "conn"
+     },
+     {
+      "o": [
+       "at",
+       "on",
+       "in",
+       "by"
+      ],
+      "a": "at",
+      "why": "contact someone at extension 210 = liên hệ qua số máy lẻ 210.",
+      "t": "word"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "d03-p7-01",
+    "kind": "Text message chain",
+    "docs": [
+     {
+      "title": "Text messages",
+      "text": "Luis Ortega (10:02 A.M.): Hi Ana, the delivery van for the Kingsley order just broke down on Route 9.\nAna Brandt (10:04 A.M.): Oh no. They need those flowers for the wedding at two.\nLuis Ortega (10:05 A.M.): I know. The mechanic says the repair will take at least three hours.\nAna Brandt (10:06 A.M.): Leave it with me. I'll ask Tom to bring the small van from the shop.\nLuis Ortega (10:07 A.M.): Great. I'll wait here with the flowers."
+     }
+    ],
+    "qs": [
+     {
+      "q": "What problem does Mr. Ortega report?",
+      "a": "A vehicle has stopped working.",
+      "w": [
+       "A customer canceled an order.",
+       "Some flowers were damaged.",
+       "A driver got lost."
+      ],
+      "ev": "the delivery van for the Kingsley order just broke down on Route 9",
+      "why": "Xe giao hàng bị hỏng (broke down) trên đường số 9.",
+      "ty": "detail"
+     },
+     {
+      "q": "At 10:06 A.M., what does Ms. Brandt mean when she writes, \"Leave it with me\"?",
+      "a": "She will deal with the situation.",
+      "w": [
+       "She will pick up the flowers herself.",
+       "She wants Mr. Ortega to leave the van.",
+       "She will call the wedding planner."
+      ],
+      "ev": "I'll ask Tom to bring the small van from the shop.",
+      "why": "\"Leave it with me\" = để tôi lo; cô sắp xếp cho Tom mang xe nhỏ tới.",
+      "ty": "intent"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "d03-p7-08",
+    "kind": "Online chat discussion",
+    "docs": [
+     {
+      "title": "Online chat",
+      "text": "Mina Cho [2:10 P.M.]: Hi team. The client wants to move Friday's product demonstration to Thursday afternoon.\nPeter Wallace [2:11 P.M.]: Thursday? The new samples won't arrive from the factory until Thursday morning.\nMina Cho [2:12 P.M.]: That should still give us a few hours to set up.\nGrace Liu [2:13 P.M.]: I can pick up the samples from the shipping office as soon as they arrive.\nPeter Wallace [2:14 P.M.]: Then count me in. I'll prepare the slides tonight.\nMina Cho [2:15 P.M.]: Thanks, both of you. I'll confirm the new time with the client and book Conference Room A."
+     }
+    ],
+    "qs": [
+     {
+      "q": "What is the discussion mainly about?",
+      "a": "Changing the date of a demonstration",
+      "w": [
+       "Hiring a new designer",
+       "Shipping samples to a client",
+       "Choosing a new factory"
+      ],
+      "ev": "The client wants to move Friday's product demonstration to Thursday afternoon.",
+      "why": "Khách muốn dời buổi trình diễn sản phẩm từ thứ Sáu sang chiều thứ Năm.",
+      "ty": "purpose"
+     },
+     {
+      "q": "What is suggested about the samples?",
+      "a": "They are being sent from a factory.",
+      "w": [
+       "They were damaged.",
+       "They are already in the office.",
+       "They will be shipped to the client."
+      ],
+      "ev": "The new samples won't arrive from the factory until Thursday morning.",
+      "why": "Mẫu từ nhà máy gửi tới, sáng thứ Năm mới đến.",
+      "ty": "infer"
+     },
+     {
+      "q": "At 2:14 P.M., what does Mr. Wallace mean when he writes, \"Then count me in\"?",
+      "a": "He agrees to the new schedule.",
+      "w": [
+       "He wants to count the samples.",
+       "He will attend a different meeting.",
+       "He needs more information."
+      ],
+      "ev": "I'll prepare the slides tonight.",
+      "why": "count me in = tôi tham gia; anh đồng ý lịch mới và sẽ chuẩn bị slide tối nay.",
+      "ty": "intent"
+     },
+     {
+      "q": "What will Ms. Cho most likely do next?",
+      "a": "Contact the client",
+      "w": [
+       "Pick up the samples",
+       "Prepare some slides",
+       "Call the factory"
+      ],
+      "ev": "I'll confirm the new time with the client",
+      "why": "Cô sẽ xác nhận giờ mới với khách.",
+      "ty": "infer"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "d03-p7-15",
+    "kind": "E-mail + itinerary + e-mail",
+    "docs": [
+     {
+      "title": "E-mail · To: Kenji Mori · From: Alison Grant · Date: March 3 · Subject: Visit to our Toronto office",
+      "text": "Dear Mr. Mori,\nWe are delighted that you will visit our Toronto office next week. I have attached your itinerary. On your first full day with us, our product team will show you the new packaging line. On the second day, you will meet with our purchasing director to discuss next year's order. If you would like to tour the city during your free afternoon, my assistant, Ben, would be happy to show you around.\nBest regards,\nAlison Grant"
+     },
+     {
+      "title": "Itinerary · Kenji Mori · Toronto",
+      "text": "Monday, March 10\n2:30 P.M. Arrive at Toronto Pearson Airport; car to the Lakeshore Hotel\nTuesday, March 11\n9:00 A.M. Product team presentation on the packaging line\n1:00 P.M. Lunch with Alison Grant\nAfternoon: free\nWednesday, March 12\n10:00 A.M. Meeting with purchasing director Ruth Feld\n6:00 P.M. Flight to Osaka"
+     },
+     {
+      "title": "E-mail · To: Alison Grant · From: Kenji Mori · Date: March 4",
+      "text": "Dear Ms. Grant,\nThank you for the itinerary. Everything looks fine, but I have one request. My colleague in Osaka needs my report by Wednesday morning, so I would prefer to spend my free afternoon at the hotel rather than touring the city. Please thank Ben for his kind offer. I look forward to seeing you next week.\nKenji Mori"
+     }
+    ],
+    "qs": [
+     {
+      "q": "What is the purpose of the first e-mail?",
+      "a": "To provide details of a visit",
+      "w": [
+       "To confirm a hotel booking",
+       "To introduce a new product",
+       "To request a report"
+      ],
+      "ev": "We are delighted that you will visit our Toronto office next week.",
+      "why": "Gửi thông tin chuyến thăm văn phòng Toronto.",
+      "ty": "purpose"
+     },
+     {
+      "q": "Who is Ruth Feld?",
+      "a": "A purchasing director",
+      "w": [
+       "Ms. Grant's assistant",
+       "A product team member",
+       "A hotel manager"
+      ],
+      "ev": "Meeting with purchasing director Ruth Feld",
+      "why": "Lịch trình: giám đốc mua hàng Ruth Feld.",
+      "ty": "detail"
+     },
+     {
+      "q": "On which day will Mr. Mori see the packaging line?",
+      "a": "Tuesday",
+      "w": [
+       "Monday",
+       "Wednesday",
+       "Thursday"
+      ],
+      "x": 1,
+      "ev": "9:00 A.M. Product team presentation on the packaging line",
+      "why": "Lịch trình: 9 giờ thứ Ba nhóm sản phẩm giới thiệu dây chuyền đóng gói.",
+      "ty": "detail"
+     },
+     {
+      "q": "What will Mr. Mori most likely do on Tuesday afternoon?",
+      "a": "Work at his hotel",
+      "w": [
+       "Tour the city with Ben",
+       "Meet with Ruth Feld",
+       "Fly to Osaka"
+      ],
+      "x": 1,
+      "ev": "I would prefer to spend my free afternoon at the hotel",
+      "why": "Lịch trình: chiều thứ Ba rảnh. E-mail: ông muốn ở khách sạn để làm báo cáo.",
+      "ty": "infer"
+     },
+     {
+      "q": "Why does Mr. Mori decline Ben's offer?",
+      "a": "He needs to finish a report.",
+      "w": [
+       "He has visited Toronto before.",
+       "He will be meeting a client.",
+       "He is not feeling well."
+      ],
+      "ev": "My colleague in Osaka needs my report by Wednesday morning",
+      "why": "Đồng nghiệp ở Osaka cần báo cáo trước sáng thứ Tư.",
+      "ty": "detail"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "d04-p7-07",
+    "kind": "Web page",
+    "docs": [
+     {
+      "title": "Web page · Harbor Point Ferry Service",
+      "text": "Ferries between Harbor Point and Gull Island depart every hour from 7:00 A.M. to 7:00 P.M. The crossing takes about 40 minutes. Tickets can be purchased online or at the terminal. Online tickets are $2 cheaper than tickets bought at the terminal. Bicycles are allowed on all ferries for an additional $5. Please arrive at the terminal at least 15 minutes before departure. During stormy weather, services may be canceled; check this page for updates."
+     }
+    ],
+    "qs": [
+     {
+      "q": "How long does the crossing take?",
+      "a": "About 40 minutes",
+      "w": [
+       "About 15 minutes",
+       "About one hour",
+       "About two hours"
+      ],
+      "ev": "The crossing takes about 40 minutes.",
+      "why": "Chuyến qua sông mất khoảng 40 phút.",
+      "ty": "detail"
+     },
+     {
+      "q": "What is indicated about online tickets?",
+      "a": "They cost less.",
+      "w": [
+       "They must be printed.",
+       "They include a bicycle.",
+       "They are sold only in summer."
+      ],
+      "ev": "Online tickets are $2 cheaper than tickets bought at the terminal.",
+      "why": "Vé mua trên mạng rẻ hơn $2.",
+      "ty": "true"
+     },
+     {
+      "q": "Why might services be canceled?",
+      "a": "Because of bad weather",
+      "w": [
+       "Because of low demand",
+       "Because of repairs",
+       "Because of holidays"
+      ],
+      "ev": "During stormy weather, services may be canceled",
+      "why": "Khi có bão, chuyến có thể bị huỷ.",
+      "ty": "detail"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "d04-p7-15",
+    "kind": "E-mail + order form + e-mail",
+    "docs": [
+     {
+      "title": "E-mail · To: Office Mart · From: Linda Shaw, Corbin Law Firm · Date: November 3",
+      "text": "Hello,\nPlease find attached our monthly supply order. We need everything delivered by Friday, November 7, because our new associates start work the following Monday. If any item is unavailable, please substitute a similar product of the same or lower price rather than delaying the order.\nThank you,\nLinda Shaw, Office Manager"
+     },
+     {
+      "title": "Order Form · Corbin Law Firm · November",
+      "text": "Item, quantity, unit price\nDesk chairs (black), 4, $120.00\nWhiteboard markers (box of 12), 6, $9.50\nPrinter paper (box), 10, $32.00\nDesk lamps (silver), 4, $28.00"
+     },
+     {
+      "title": "E-mail · To: Linda Shaw · From: Office Mart · Date: November 4",
+      "text": "Dear Ms. Shaw,\nThank you for your order. All items will be delivered on Thursday, November 6. Please note that the silver desk lamps are out of stock, so, as you requested, we have substituted white desk lamps from the same brand, which are $25.00 each. The difference has been taken off your invoice.\nBest regards,\nOffice Mart Customer Service"
+     }
+    ],
+    "qs": [
+     {
+      "q": "Why does Ms. Shaw need the order by November 7?",
+      "a": "New employees will start soon.",
+      "w": [
+       "The office is moving.",
+       "A client is visiting.",
+       "The firm is closing for a holiday."
+      ],
+      "ev": "our new associates start work the following Monday",
+      "why": "Nhân viên mới bắt đầu làm vào thứ Hai sau đó.",
+      "ty": "detail"
+     },
+     {
+      "q": "What does Ms. Shaw ask the supplier to do if an item is unavailable?",
+      "a": "Send a similar item",
+      "w": [
+       "Call her immediately",
+       "Cancel the whole order",
+       "Deliver it later"
+      ],
+      "ev": "please substitute a similar product of the same or lower price",
+      "why": "Thay bằng sản phẩm tương tự, giá bằng hoặc thấp hơn.",
+      "ty": "detail"
+     },
+     {
+      "q": "How much will Corbin Law Firm save on the lamps in total?",
+      "a": "$12.00",
+      "w": [
+       "$3.00",
+       "$25.00",
+       "$28.00"
+      ],
+      "x": 1,
+      "ev": "which are $25.00 each",
+      "why": "Đèn bạc $28, đèn trắng $25 → rẻ hơn $3 mỗi cái × 4 cái = $12.",
+      "ty": "detail"
+     },
+     {
+      "q": "When will the items be delivered?",
+      "a": "On November 6",
+      "w": [
+       "On November 3",
+       "On November 7",
+       "On November 10"
+      ],
+      "ev": "All items will be delivered on Thursday, November 6.",
+      "why": "Giao ngày thứ Năm 6/11.",
+      "ty": "detail"
+     },
+     {
+      "q": "What is suggested about the substitution?",
+      "a": "It follows Ms. Shaw's instructions.",
+      "w": [
+       "It was more expensive.",
+       "It came from a different brand.",
+       "It will be delivered separately."
+      ],
+      "x": 1,
+      "ev": "as you requested, we have substituted white desk lamps from the same brand",
+      "why": "Thay đèn rẻ hơn, cùng hãng, đúng như cô dặn trong e-mail đầu.",
+      "ty": "infer"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "d05-p7-08",
+    "kind": "Online chat discussion",
+    "docs": [
+     {
+      "title": "Online chat",
+      "text": "Laura Chen [9:15 A.M.]: Good morning, team. The Kensington proposal is due to the client on Thursday. Where are we?\nTom Becker [9:16 A.M.]: I've finished the budget section. I'll upload it this morning.\nAisha Rahman [9:18 A.M.]: The design mock-ups are almost done, but I still need the client's logo files.\nLaura Chen [9:19 A.M.]: I asked their marketing manager for them yesterday. I'll call her again today.\nTom Becker [9:21 A.M.]: Should we schedule a final review on Wednesday afternoon?\nLaura Chen [9:22 A.M.]: Good idea. I'll book Room 4B for 2:00.\nAisha Rahman [9:30 A.M.]: Laura, the logo files just arrived in my inbox.\nLaura Chen [9:31 A.M.]: Perfect timing!"
+     }
+    ],
+    "qs": [
+     {
+      "q": "What are the writers mainly discussing?",
+      "a": "Progress on a proposal",
+      "w": [
+       "Hiring a new designer",
+       "Planning a client dinner",
+       "Changing a meeting room"
+      ],
+      "ev": "The Kensington proposal is due to the client on Thursday.",
+      "why": "Cả nhóm báo tiến độ bản đề xuất phải gửi khách thứ Năm.",
+      "ty": "detail"
+     },
+     {
+      "q": "What does Ms. Rahman need to finish her work?",
+      "a": "Some files from a client",
+      "w": [
+       "A larger budget",
+       "A new computer",
+       "A meeting room"
+      ],
+      "ev": "I still need the client's logo files",
+      "why": "Cô cần tệp logo của khách hàng.",
+      "ty": "detail"
+     },
+     {
+      "q": "What will happen on Wednesday?",
+      "a": "The team will review its work.",
+      "w": [
+       "The proposal will be sent.",
+       "A client will visit.",
+       "Mr. Becker will upload a budget."
+      ],
+      "ev": "Should we schedule a final review on Wednesday afternoon?",
+      "why": "Chiều thứ Tư họp duyệt lần cuối (Laura đặt phòng 4B lúc 2 giờ).",
+      "ty": "detail"
+     },
+     {
+      "q": "At 9:31 A.M., what does Ms. Chen mean when she writes, \"Perfect timing!\"?",
+      "a": "She no longer needs to call the client.",
+      "w": [
+       "She wants to move the meeting.",
+       "She has just arrived at the office.",
+       "She thinks the deadline is too early."
+      ],
+      "ev": "the logo files just arrived in my inbox",
+      "why": "Tệp logo vừa tới đúng lúc cô định gọi lại cho khách → không cần gọi nữa.",
+      "ty": "intent"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "d06-p7-01",
+    "kind": "Text message chain",
+    "docs": [
+     {
+      "title": "Text messages",
+      "text": "Nina Ross (10:02 A.M.): Hi, Sam. The client from Osaka just arrived in the lobby, but the conference room is still being cleaned.\nSam Oyelaran (10:03 A.M.): I'll go down and meet him. Should I bring him to my office for now?\nNina Ross (10:04 A.M.): Yes, please. Offer him some coffee, too. The room should be ready in fifteen minutes.\nSam Oyelaran (10:05 A.M.): Sure thing. I'll text you when we're settled."
+     }
+    ],
+    "qs": [
+     {
+      "q": "Why did Ms. Ross contact Mr. Oyelaran?",
+      "a": "A room is not ready for a visitor.",
+      "w": [
+       "A client has canceled a meeting.",
+       "The coffee machine is broken.",
+       "She cannot find her office key."
+      ],
+      "ev": "the conference room is still being cleaned",
+      "why": "Khách đã tới mà phòng họp còn đang dọn.",
+      "ty": "detail"
+     },
+     {
+      "q": "At 10:05 A.M., what does Mr. Oyelaran most likely mean when he writes, \"Sure thing\"?",
+      "a": "He will do what Ms. Ross asked.",
+      "w": [
+       "He is sure the client is happy.",
+       "He has already cleaned the room.",
+       "He wants to reschedule the meeting."
+      ],
+      "ev": "Offer him some coffee, too.",
+      "why": "\"Sure thing\" = được thôi; anh nhận đưa khách lên văn phòng và mời cà phê như chị dặn.",
+      "ty": "intent"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "d06-p7-09",
+    "kind": "Article",
+    "docs": [
+     {
+      "title": "Old Mill Becomes Arts Center",
+      "text": "GRANVILLE — A 150-year-old flour mill on the Granville River will reopen next month as an arts center. [1] The building had been empty for nearly thirty years before a group of local artists bought it in 2023. [2] With the help of volunteers and a $1.2 million grant from the state, they restored the original brick walls and wooden beams. [3] The center will include eight artist studios, a gallery, and a café overlooking the river. [4] Classes in painting, pottery, and photography will be offered to the public starting in the fall. Director Joan Whitfield said the center will \"give new life to the riverfront.\""
+     }
+    ],
+    "qs": [
+     {
+      "q": "What is the article mainly about?",
+      "a": "The conversion of an old building",
+      "w": [
+       "The history of flour production",
+       "A new art school in the state capital",
+       "A riverside housing project"
+      ],
+      "ev": "will reopen next month as an arts center",
+      "why": "Cối xay bột cũ được biến thành trung tâm nghệ thuật.",
+      "ty": "purpose"
+     },
+     {
+      "q": "How was the restoration partly funded?",
+      "a": "By a government grant",
+      "w": [
+       "By selling artwork",
+       "By a bank loan",
+       "By ticket sales"
+      ],
+      "ev": "a $1.2 million grant from the state",
+      "why": "Có khoản tài trợ 1,2 triệu đô của bang.",
+      "ty": "detail"
+     },
+     {
+      "q": "In the article, the word \"restored\" is closest in meaning to",
+      "a": "repaired",
+      "w": [
+       "returned",
+       "replaced",
+       "removed"
+      ],
+      "ev": "they restored the original brick walls and wooden beams",
+      "why": "restore = phục hồi, sửa lại như cũ (repaired).",
+      "ty": "syn"
+     },
+     {
+      "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Several of the studios have already been rented.\"",
+      "a": "[4]",
+      "w": [
+       "[1]",
+       "[2]",
+       "[3]"
+      ],
+      "why": "\"the studios\" chỉ tám xưởng vẽ vừa nêu → câu chèn đứng ngay sau câu đó (vị trí [4]).",
+      "ty": "insert"
+     }
+    ]
+   }
+  }
+ ]
+}

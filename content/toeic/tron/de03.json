@@ -511,27 +511,27 @@
   {
    "id": "d03-p2-08",
    "ty": "stmt",
-   "q": "The printer on the second floor is out of toner again.",
+   "q": "The air conditioner in the meeting room is making a strange noise.",
    "o": [
-    "Print two copies, please.",
-    "It's on the third floor.",
-    "I'll order more cartridges today."
+    "The meeting starts at ten.",
+    "It's a strange idea.",
+    "I'll call the maintenance office."
    ],
    "a": 2,
    "tr": [
-    "rep",
     "rel",
+    "rep",
     null
    ]
   },
   {
    "id": "d03-p2-09",
    "ty": "wh",
-   "q": "How long will the lobby renovation take?",
+   "q": "How many weeks will the parking lot be closed?",
    "o": [
     "About three weeks.",
-    "A new paint color.",
-    "The hallway is very long."
+    "A new parking permit.",
+    "It closes at midnight."
    ],
    "a": 0,
    "tr": [
@@ -2393,15 +2393,15 @@
   {
    "id": "d03-p5-18",
    "t": "voc",
-   "s": "Please ------- the attached form and return it to Human Resources by Friday.",
+   "s": "The museum guide will ------- visitors through the new exhibition hall.",
    "o": [
-    "complete",
-    "perform",
-    "achieve",
-    "conduct"
+    "lead",
+    "follow",
+    "carry",
+    "pass"
    ],
-   "a": "complete",
-   "why": "complete a form = điền đầy đủ mẫu đơn."
+   "a": "lead",
+   "why": "lead visitors through = dẫn khách đi qua (khu trưng bày)."
   },
   {
    "id": "d03-p5-19",
@@ -2432,15 +2432,15 @@
   {
    "id": "d03-p5-21",
    "t": "form",
-   "s": "The marketing team worked ------- to finish the campaign before the launch.",
+   "s": "The new software makes it ------- easy to track customer orders.",
    "o": [
-    "tireless",
-    "tirelessly",
-    "tiredness",
-    "tire"
+    "surprising",
+    "surprisingly",
+    "surprise",
+    "surprised"
    ],
-   "a": "tirelessly",
-   "why": "Bổ nghĩa cho động từ worked cần trạng từ: tirelessly (không mệt mỏi)."
+   "a": "surprisingly",
+   "why": "Bổ nghĩa cho tính từ easy cần trạng từ → surprisingly (dễ đến bất ngờ)."
   },
   {
    "id": "d03-p5-22",
@@ -2523,7 +2523,7 @@
   {
    "id": "d03-p5-28",
    "t": "conj",
-   "s": "Customers can pay by credit card ------- by bank transfer.",
+   "s": "Ms. Kwan will attend the meeting in person ------- join it by video call.",
    "o": [
     "or",
     "nor",
@@ -2531,7 +2531,7 @@
     "yet"
    ],
    "a": "or",
-   "why": "Hai cách thanh toán, chọn một trong hai → or."
+   "why": "Hai cách tham dự, chọn một trong hai → or."
   },
   {
    "id": "d03-p5-29",

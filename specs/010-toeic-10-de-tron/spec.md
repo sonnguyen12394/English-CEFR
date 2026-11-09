@@ -1,6 +1,6 @@
 # Feature Specification: Thêm 10 đề thử TOEIC trọn 200 câu
 
-**Feature Branch**: `claude/ecstatic-curie-q9g1ja` · **Created**: 2026-11-08 · **Status**: Đợt 1 đã làm (Đề 3–4 + 📋 Bài làm và đáp án; v149, bản 147); đợt 2–5 chờ người sáng lập "tiếp"
+**Feature Branch**: `claude/ecstatic-curie-q9g1ja` · **Created**: 2026-11-08 · **Status**: Đợt 1–2 đã làm (Đề 3–4 + 📋 Bài làm và đáp án: v149, bản 147; Đề 5–6 + chặn câu gần trùng: v150, bản 148); đợt 3–5 chờ người sáng lập "tiếp"
 
 **Input**: "Soạn thêm 10 đề nữa cho tôi" (người sáng lập, 8/11/2026). Ngay trước đó người sáng lập hỏi "Cần bao nhiêu dạng đề TOEIC là đủ để rèn luyện đi thi được 990". Claude trả lời: app đã đủ 33 dạng câu, có 2 đề trọn, kho 562 câu (≈ 2,8 đề); giới luyện thi thường khuyên 15–30 đề trọn chất lượng như đề thật. Claude khuyên chưa soạn thêm mà tìm người học thật trước; người sáng lập vẫn chọn soạn thêm 10 đề.
 
