@@ -57,7 +57,7 @@ export function compare(de, ans) { const D = loadTests().find(d => d.id === de),
     G.cau[a.n] = { id, dau: dau(u), da: q.L, chon, chac: +a.chac || 0, hai: hai && hai !== chon ? hai : null, ghi: String(a.ghi || '').slice(0, 200), ngay: today };
     n++; if (chon === q.L) khop++; if (chon !== q.L || G.cau[a.n].hai || G.cau[a.n].ghi) lech.push(`câu ${a.n} (${id}): đáp án ${q.L}, chọn ${chon}${G.cau[a.n].hai ? ', thấy ' + G.cau[a.n].hai + ' cũng được' : ''}${G.cau[a.n].ghi ? ' · ' + G.cau[a.n].ghi : ''}`); }
   G.lan.push({ ngay: today, phan: ans.phan || '?', cau: n, khop });
-  fs.writeFileSync(root + f, JSON.stringify(G, null, 1) + '\n');
+  fs.mkdirSync(root + 'content/toeic/giai-mu', { recursive: true }); fs.writeFileSync(root + f, JSON.stringify(G, null, 1) + '\n');
   return { n, khop, lech, f }; }
 
 if (import.meta.url === 'file://' + process.argv[1]) {

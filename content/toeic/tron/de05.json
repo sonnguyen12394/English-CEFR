@@ -236,10 +236,10 @@
     "A pilot is boarding a bus.",
     "Some luggage is being unloaded.",
     "A pilot is standing near an airplane.",
-    "An airplane is taking off."
+    "Some passengers are boarding a plane."
    ],
    "a": 2,
-   "why": "Phi công đang đứng gần máy bay. Không có xe buýt, không ai dỡ hành lý, máy bay đang đậu chứ không cất cánh."
+   "why": "Phi công đang đứng gần máy bay. Không có xe buýt, không ai dỡ hành lý, không có hành khách nào đang lên máy bay."
   },
   {
    "id": "d05-p1-06",
@@ -702,7 +702,7 @@
    "ty": "stmt",
    "q": "The client wants to change the delivery date.",
    "o": [
-    "It was delivered yesterday.",
+    "It's a large delivery truck.",
     "A change of clothes.",
     "Let's see which dates are available."
    ],
@@ -740,7 +740,7 @@
     ],
     [
      "A",
-     "Let me check. Yes, Mr. Walsh. I'm sorry, but all our compact cars are out right now. A customer returned one late."
+     "Let me check. Yes, Mr. Walsh. I'm sorry, but all our compact cars are out right now. A customer hasn't returned one yet."
     ],
     [
      "B",
@@ -3049,7 +3049,7 @@
      "why": "adapt to = thích nghi, điều chỉnh theo (adjusted)."
     },
     {
-     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Some of their families still have stands at the market today.\"",
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Some of their families still have stands at the market.\"",
      "a": "[2]",
      "w": [
       "[1]",
@@ -3085,7 +3085,7 @@
      "q": "What is indicated about Ms. Ivanova's coffee maker?",
      "a": "It is covered by a warranty.",
      "w": [
-      "It was bought in a Hartwell store.",
+      "It was purchased at a shopping mall.",
       "It was a gift.",
       "It was used for two years."
      ],

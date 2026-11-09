@@ -6,7 +6,7 @@
 - `muc`: `loi` | `canh`. `canh` có thể ghi "đã xem", trừ `GM-CHUA`, `GM-CU`.
 - `ten`: một câu tiếng Việt (in trong báo cáo).
 - `goi_y`: cách sửa thường gặp (một câu).
-- Ràng buộc: mã nào có trong mã nguồn cũng phải có một mục cùng mã trong tài liệu (C67 kiểm).
+- Ràng buộc: mã nào có trong mã nguồn cũng phải có một mục cùng mã trong tài liệu (C69 kiểm).
 
 ## Kết quả kiểm (Finding)
 - `de`: mã đề (`de1` … `de8`).

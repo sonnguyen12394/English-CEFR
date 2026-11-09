@@ -1,0 +1,2020 @@
+{
+ "_note": "Kết quả giải mù (tools/giai-mu.mjs): phiên Claude phụ làm đề không xem đáp án. da = đáp án lúc giải, chon = phiên giải mù chọn, hai = phương án thứ hai cũng được, dau = dấu nội dung câu lúc giải.",
+ "de": "de1",
+ "lan": [
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 100,
+   "khop": 100
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 100,
+   "khop": 100
+  }
+ ],
+ "cau": {
+  "1": {
+   "id": "t1-05",
+   "dau": "1c53872ecd",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Theo mô tả, hộp nằm một lớp trên mỗi kệ; 'stacked' (chồng lên nhau) hơi lệch, nhưng vẫn là đáp án duy nhất hợp.",
+   "ngay": "2026-11-09"
+  },
+  "2": {
+   "id": "t1-03",
+   "dau": "366829b0ce",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "3": {
+   "id": "t1-04",
+   "dau": "0cb638ca11",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "4": {
+   "id": "t1-07",
+   "dau": "32cf9d9c5a",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "5": {
+   "id": "t1-01",
+   "dau": "9cf8ffbf97",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "6": {
+   "id": "t1-02",
+   "dau": "b0ead294a3",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "7": {
+   "id": "t2-46",
+   "dau": "a2f83364d3",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "8": {
+   "id": "t2-20",
+   "dau": "bf4e9e50cc",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "9": {
+   "id": "t2-13",
+   "dau": "9e0543425e",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "10": {
+   "id": "t2-39",
+   "dau": "c6e6c0b1e2",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "11": {
+   "id": "t2-54",
+   "dau": "45cb3be371",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "12": {
+   "id": "t2-17",
+   "dau": "c55dc5c603",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "13": {
+   "id": "t2-27",
+   "dau": "789abce05a",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": "A",
+   "ghi": "(A) 'The meeting was canceled' cũng là lời đáp gián tiếp hợp lý (khỏi cần xem trước); câu nhiễu nên rõ sai hơn.",
+   "ngay": "2026-11-09"
+  },
+  "14": {
+   "id": "t2-56",
+   "dau": "04038fba4d",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "15": {
+   "id": "t2-01",
+   "dau": "1ddc2baa57",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "16": {
+   "id": "t2-33",
+   "dau": "25ed544944",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "17": {
+   "id": "t2-04",
+   "dau": "f1b6cd92db",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "18": {
+   "id": "t2-40",
+   "dau": "2dfa3222e3",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": "B",
+   "ghi": "Mức nhẹ: (B) 'I'll assist you' có thể hiểu là tự nhận giúp thay vì thuê người.",
+   "ngay": "2026-11-09"
+  },
+  "19": {
+   "id": "t2-30",
+   "dau": "bbb5ffc123",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "20": {
+   "id": "t2-08",
+   "dau": "305e386dd2",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "21": {
+   "id": "t2-34",
+   "dau": "216a0a12cc",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "22": {
+   "id": "t2-07",
+   "dau": "204af9ad2e",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "23": {
+   "id": "t2-03",
+   "dau": "dba034919b",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "24": {
+   "id": "t2-44",
+   "dau": "409d607727",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "25": {
+   "id": "t2-15",
+   "dau": "92da6d431f",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "26": {
+   "id": "t2-06",
+   "dau": "ba1d8545c9",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "27": {
+   "id": "t2-32",
+   "dau": "74cdbf64d2",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "28": {
+   "id": "t2-19",
+   "dau": "7fb9fb2ef0",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": "C",
+   "ghi": "'the conference in May or June' (một hội nghị) có thể hiểu là câu có/không; khi đó (C) 'Yes, I'm attending' cũng đúng.",
+   "ngay": "2026-11-09"
+  },
+  "29": {
+   "id": "t2-50",
+   "dau": "9e4fa02d0c",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "30": {
+   "id": "t2-02",
+   "dau": "2afe906da1",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "31": {
+   "id": "t2-29",
+   "dau": "b6d159a61a",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "32": {
+   "id": "t3-27#1",
+   "dau": "2708249188",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "33": {
+   "id": "t3-27#2",
+   "dau": "2708249188",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "34": {
+   "id": "t3-27#3",
+   "dau": "2708249188",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "35": {
+   "id": "t3-18#1",
+   "dau": "0b59c54614",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "36": {
+   "id": "t3-18#2",
+   "dau": "0b59c54614",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "37": {
+   "id": "t3-18#3",
+   "dau": "0b59c54614",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "38": {
+   "id": "t3-02#1",
+   "dau": "fb3f4ecd4e",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Câu mở đầu gần trùng bài 35–37 ('Have you seen the sales figures…'); chủ đề doanh số lặp ở 32–40 và 53–55.",
+   "ngay": "2026-11-09"
+  },
+  "39": {
+   "id": "t3-02#2",
+   "dau": "fb3f4ecd4e",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "40": {
+   "id": "t3-02#3",
+   "dau": "fb3f4ecd4e",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "41": {
+   "id": "t3-04#1",
+   "dau": "cbe71221cc",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "42": {
+   "id": "t3-04#2",
+   "dau": "cbe71221cc",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "43": {
+   "id": "t3-04#3",
+   "dau": "cbe71221cc",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "44": {
+   "id": "t3-15#1",
+   "dau": "f315961673",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "45": {
+   "id": "t3-15#2",
+   "dau": "f315961673",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "46": {
+   "id": "t3-15#3",
+   "dau": "f315961673",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "47": {
+   "id": "t3-10#1",
+   "dau": "fd48e6a953",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "48": {
+   "id": "t3-10#2",
+   "dau": "fd48e6a953",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "49": {
+   "id": "t3-10#3",
+   "dau": "fd48e6a953",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "50": {
+   "id": "t3-09#1",
+   "dau": "9beec7666c",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "51": {
+   "id": "t3-09#2",
+   "dau": "9beec7666c",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "52": {
+   "id": "t3-09#3",
+   "dau": "9beec7666c",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "53": {
+   "id": "t3-12#1",
+   "dau": "978555ba72",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "54": {
+   "id": "t3-12#2",
+   "dau": "978555ba72",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Đơn ghi sổ tháng 8 thay tháng 7 vẫn cùng quý 3 (quý lịch), số liệu quý không giảm; nên đổi tháng 6 → 7.",
+   "ngay": "2026-11-09"
+  },
+  "55": {
+   "id": "t3-12#3",
+   "dau": "978555ba72",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "56": {
+   "id": "t3-25#1",
+   "dau": "b0d19365ea",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "57": {
+   "id": "t3-25#2",
+   "dau": "b0d19365ea",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "58": {
+   "id": "t3-25#3",
+   "dau": "b0d19365ea",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "59": {
+   "id": "t3-14#1",
+   "dau": "fd76851b71",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Bài 59–61 gần trùng bài 41–43 trong cùng đề: khách mang áo khoác ra trả, cửa hàng hết cỡ.",
+   "ngay": "2026-11-09"
+  },
+  "60": {
+   "id": "t3-14#2",
+   "dau": "fd76851b71",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Câu hỏi và phương án đúng trùng nguyên văn câu 43 ('What problem does the woman mention?' / 'A size is not available').",
+   "ngay": "2026-11-09"
+  },
+  "61": {
+   "id": "t3-14#3",
+   "dau": "fd76851b71",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "62": {
+   "id": "t3-16#1",
+   "dau": "ba3fe0404b",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "63": {
+   "id": "t3-16#2",
+   "dau": "ba3fe0404b",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "64": {
+   "id": "t3-16#3",
+   "dau": "ba3fe0404b",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "65": {
+   "id": "t3-21#1",
+   "dau": "c838dab864",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Gần trùng bài 47–49 trong cùng đề: buổi tập huấn hệ thống / phần mềm chi phí mới vào thứ Năm.",
+   "ngay": "2026-11-09"
+  },
+  "66": {
+   "id": "t3-21#2",
+   "dau": "c838dab864",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "67": {
+   "id": "t3-21#3",
+   "dau": "c838dab864",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "68": {
+   "id": "t3-22#1",
+   "dau": "bc8eed3b94",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "69": {
+   "id": "t3-22#2",
+   "dau": "bc8eed3b94",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Phương án giờ không theo thứ tự trong bảng (8:05 đứng cuối); nên xếp theo bảng cho dễ dò. Không sai.",
+   "ngay": "2026-11-09"
+  },
+  "70": {
+   "id": "t3-22#3",
+   "dau": "bc8eed3b94",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Bộ 53–55 và 68–70 mỗi bộ cùng một chữ đáp án; cả Part 3 lệch: B 15, C 4 trên 39 câu.",
+   "ngay": "2026-11-09"
+  },
+  "71": {
+   "id": "t4-24#1",
+   "dau": "6404743ef5",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "72": {
+   "id": "t4-24#2",
+   "dau": "6404743ef5",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "73": {
+   "id": "t4-24#3",
+   "dau": "6404743ef5",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "74": {
+   "id": "t4-15#1",
+   "dau": "79a7d0c194",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "75": {
+   "id": "t4-15#2",
+   "dau": "79a7d0c194",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "76": {
+   "id": "t4-15#3",
+   "dau": "79a7d0c194",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "77": {
+   "id": "t4-27#1",
+   "dau": "16da30c33a",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "78": {
+   "id": "t4-27#2",
+   "dau": "16da30c33a",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "79": {
+   "id": "t4-27#3",
+   "dau": "16da30c33a",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "80": {
+   "id": "t4-17#1",
+   "dau": "1b533db03d",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "81": {
+   "id": "t4-17#2",
+   "dau": "1b533db03d",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "82": {
+   "id": "t4-17#3",
+   "dau": "1b533db03d",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "83": {
+   "id": "t4-26#1",
+   "dau": "c7c649e0c9",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "84": {
+   "id": "t4-26#2",
+   "dau": "c7c649e0c9",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "85": {
+   "id": "t4-26#3",
+   "dau": "c7c649e0c9",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "86": {
+   "id": "t4-05#1",
+   "dau": "47e9d44a14",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "87": {
+   "id": "t4-05#2",
+   "dau": "47e9d44a14",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "88": {
+   "id": "t4-05#3",
+   "dau": "47e9d44a14",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "89": {
+   "id": "t4-20#1",
+   "dau": "58f0bd4fbe",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "90": {
+   "id": "t4-20#2",
+   "dau": "58f0bd4fbe",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "91": {
+   "id": "t4-20#3",
+   "dau": "58f0bd4fbe",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Bộ 74–76 và 89–91 mỗi bộ cùng một chữ đáp án; Part 4 nghiêng: A 10, B 9, C 6, D 5.",
+   "ngay": "2026-11-09"
+  },
+  "92": {
+   "id": "t4-18#1",
+   "dau": "2162d1764e",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "93": {
+   "id": "t4-18#2",
+   "dau": "2162d1764e",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "94": {
+   "id": "t4-18#3",
+   "dau": "2162d1764e",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "95": {
+   "id": "t4-14#1",
+   "dau": "679769c397",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Trùng chủ đề bài 86–88 (quản lý thời gian) trong cùng đề.",
+   "ngay": "2026-11-09"
+  },
+  "96": {
+   "id": "t4-14#2",
+   "dau": "679769c397",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "97": {
+   "id": "t4-14#3",
+   "dau": "679769c397",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "98": {
+   "id": "t4-21#1",
+   "dau": "8c39244bfe",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Tên 'Green Business' lặp với bài 80–82 (giải Green Business, tiết kiệm năng lượng) trong cùng đề; nên đổi tên.",
+   "ngay": "2026-11-09"
+  },
+  "99": {
+   "id": "t4-21#2",
+   "dau": "8c39244bfe",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "100": {
+   "id": "t4-21#3",
+   "dau": "8c39244bfe",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "101": {
+   "id": "t5-74",
+   "dau": "c021d69d73",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": "A",
+   "ghi": "'available by request' vẫn gặp (nhất là Anh–Mỹ), có thể bảo vệ; nên thay 'by' bằng phương án nhiễu khác.",
+   "ngay": "2026-11-09"
+  },
+  "102": {
+   "id": "t5-28",
+   "dau": "2d83884823",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "103": {
+   "id": "t5-115",
+   "dau": "a059759c2b",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "104": {
+   "id": "t5-09",
+   "dau": "77d613cd26",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "105": {
+   "id": "t5-38",
+   "dau": "442b4d68f6",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Nhiễu (B) 'handily to' gượng, sai lộ liễu, không giống đề thật (bỏ 'to' thì 'handily located' lại đúng).",
+   "ngay": "2026-11-09"
+  },
+  "106": {
+   "id": "t5-51",
+   "dau": "ad8d411e48",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "107": {
+   "id": "t5-86",
+   "dau": "d7f5ed9bdb",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "108": {
+   "id": "t5-31",
+   "dau": "5f80937baa",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "109": {
+   "id": "t5-16",
+   "dau": "e1ccaa3238",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "110": {
+   "id": "t5-67",
+   "dau": "2be3f09743",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "111": {
+   "id": "t5-02",
+   "dau": "784ec17644",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "112": {
+   "id": "t5-118",
+   "dau": "80f9b2f9b9",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "113": {
+   "id": "t5-60",
+   "dau": "e16fddb9ff",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Nhiễu (B) 'while to' vô nghĩa, quá dễ loại, không giống đề thật.",
+   "ngay": "2026-11-09"
+  },
+  "114": {
+   "id": "t5-94",
+   "dau": "5e8ef12433",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "115": {
+   "id": "t5-80",
+   "dau": "052a653b76",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "116": {
+   "id": "t5-70",
+   "dau": "b86089cdf2",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "117": {
+   "id": "t5-99",
+   "dau": "b75a1507aa",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Nhiễu ghép giới từ ('permitted on', 'allowed of', 'eligible for' + 'to') sai lộ liễu, không giống đề thật.",
+   "ngay": "2026-11-09"
+  },
+  "118": {
+   "id": "t5-106",
+   "dau": "7158deef4a",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "119": {
+   "id": "t5-93",
+   "dau": "17ee6a9c3d",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "120": {
+   "id": "t5-75",
+   "dau": "27fe8f8d3c",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "121": {
+   "id": "t5-08",
+   "dau": "0ae39f1493",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "122": {
+   "id": "t5-06",
+   "dau": "8f8b10dc33",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "123": {
+   "id": "t5-89",
+   "dau": "22819bba29",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "124": {
+   "id": "t5-15",
+   "dau": "469817c26c",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "125": {
+   "id": "t5-10",
+   "dau": "df12526e3c",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "126": {
+   "id": "t5-113",
+   "dau": "eb9a909a0b",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "127": {
+   "id": "t5-91",
+   "dau": "0ab34d9a3b",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "128": {
+   "id": "t5-11",
+   "dau": "cf02f9e9b9",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "129": {
+   "id": "t5-36",
+   "dau": "3beb54d20b",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "130": {
+   "id": "t5-23",
+   "dau": "1063b97871",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "131": {
+   "id": "t6-launch#1",
+   "dau": "2ef7742cf8",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "132": {
+   "id": "t6-launch#2",
+   "dau": "2ef7742cf8",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "133": {
+   "id": "t6-launch#3",
+   "dau": "2ef7742cf8",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "134": {
+   "id": "t6-launch#4",
+   "dau": "2ef7742cf8",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "135": {
+   "id": "t6-hire#1",
+   "dau": "4b6ca01c5d",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "136": {
+   "id": "t6-hire#2",
+   "dau": "4b6ca01c5d",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "137": {
+   "id": "t6-hire#3",
+   "dau": "4b6ca01c5d",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "138": {
+   "id": "t6-hire#4",
+   "dau": "4b6ca01c5d",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "139": {
+   "id": "t6-workshop#1",
+   "dau": "357e390772",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "140": {
+   "id": "t6-workshop#2",
+   "dau": "357e390772",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "141": {
+   "id": "t6-workshop#3",
+   "dau": "357e390772",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "142": {
+   "id": "t6-workshop#4",
+   "dau": "357e390772",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "143": {
+   "id": "t6-press#1",
+   "dau": "230f0c1da0",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "144": {
+   "id": "t6-press#2",
+   "dau": "230f0c1da0",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "145": {
+   "id": "t6-press#3",
+   "dau": "230f0c1da0",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "146": {
+   "id": "t6-press#4",
+   "dau": "230f0c1da0",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "147": {
+   "id": "t7-text#1",
+   "dau": "f537bf9dfe",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "148": {
+   "id": "t7-text#2",
+   "dau": "f537bf9dfe",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "149": {
+   "id": "t7-invoice#1",
+   "dau": "c7fb3a1e9c",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "150": {
+   "id": "t7-invoice#2",
+   "dau": "c7fb3a1e9c",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "151": {
+   "id": "t7-notice3#1",
+   "dau": "beb86b0d77",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "152": {
+   "id": "t7-notice3#2",
+   "dau": "beb86b0d77",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "153": {
+   "id": "t7-job#1",
+   "dau": "8308117f64",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "154": {
+   "id": "t7-job#2",
+   "dau": "8308117f64",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "155": {
+   "id": "t7-job#3",
+   "dau": "8308117f64",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "156": {
+   "id": "t7-review#1",
+   "dau": "2a19d56621",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "157": {
+   "id": "t7-review#2",
+   "dau": "2a19d56621",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "158": {
+   "id": "t7-review#3",
+   "dau": "2a19d56621",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "159": {
+   "id": "t7-chat4#1",
+   "dau": "1a2be876df",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "160": {
+   "id": "t7-chat4#2",
+   "dau": "1a2be876df",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "161": {
+   "id": "t7-chat4#3",
+   "dau": "1a2be876df",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "162": {
+   "id": "t7-parking#1",
+   "dau": "a2b7e3eaf8",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "163": {
+   "id": "t7-parking#2",
+   "dau": "a2b7e3eaf8",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "164": {
+   "id": "t7-parking#3",
+   "dau": "a2b7e3eaf8",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "165": {
+   "id": "t7-web#1",
+   "dau": "effc4f5bc8",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "166": {
+   "id": "t7-web#2",
+   "dau": "effc4f5bc8",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "167": {
+   "id": "t7-web#3",
+   "dau": "effc4f5bc8",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "168": {
+   "id": "t7-notice2#1",
+   "dau": "bf15249d3a",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "169": {
+   "id": "t7-notice2#2",
+   "dau": "bf15249d3a",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "170": {
+   "id": "t7-notice2#3",
+   "dau": "bf15249d3a",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "171": {
+   "id": "t7-notice2#4",
+   "dau": "bf15249d3a",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "172": {
+   "id": "t7-email3#1",
+   "dau": "b768333c46",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "173": {
+   "id": "t7-email3#2",
+   "dau": "b768333c46",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "174": {
+   "id": "t7-email3#3",
+   "dau": "b768333c46",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "175": {
+   "id": "t7-email3#4",
+   "dau": "b768333c46",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "176": {
+   "id": "t7-m-conf#1",
+   "dau": "ca9c3c326d",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "177": {
+   "id": "t7-m-conf#2",
+   "dau": "ca9c3c326d",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "178": {
+   "id": "t7-m-conf#3",
+   "dau": "ca9c3c326d",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "179": {
+   "id": "t7-m-conf#4",
+   "dau": "ca9c3c326d",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "180": {
+   "id": "t7-m-conf#5",
+   "dau": "ca9c3c326d",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "181": {
+   "id": "t7-m-repair#1",
+   "dau": "3f32dbfac4",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "182": {
+   "id": "t7-m-repair#2",
+   "dau": "3f32dbfac4",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "183": {
+   "id": "t7-m-repair#3",
+   "dau": "3f32dbfac4",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "184": {
+   "id": "t7-m-repair#4",
+   "dau": "3f32dbfac4",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "185": {
+   "id": "t7-m-repair#5",
+   "dau": "3f32dbfac4",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "186": {
+   "id": "t7-m-order#1",
+   "dau": "0aa76d1c7c",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "187": {
+   "id": "t7-m-order#2",
+   "dau": "0aa76d1c7c",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "188": {
+   "id": "t7-m-order#3",
+   "dau": "0aa76d1c7c",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "189": {
+   "id": "t7-m-order#4",
+   "dau": "0aa76d1c7c",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "190": {
+   "id": "t7-m-order#5",
+   "dau": "0aa76d1c7c",
+   "da": "C",
+   "chon": "C",
+   "chac": 2,
+   "hai": "D",
+   "ghi": "'gesture of goodwill' ≈ 'sign/signal of goodwill', nên (D) cũng bảo vệ được; nên đổi phương án 'signal'.",
+   "ngay": "2026-11-09"
+  },
+  "191": {
+   "id": "t7-m-venue#1",
+   "dau": "6903109d54",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Câu ổn; tên trùng trong cùng đề: Greenleaf (149/191), Harbor View (151/165), Maria Lopez (135/172).",
+   "ngay": "2026-11-09"
+  },
+  "192": {
+   "id": "t7-m-venue#2",
+   "dau": "6903109d54",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "193": {
+   "id": "t7-m-venue#3",
+   "dau": "6903109d54",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "194": {
+   "id": "t7-m-venue#4",
+   "dau": "6903109d54",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "195": {
+   "id": "t7-m-venue#5",
+   "dau": "6903109d54",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "196": {
+   "id": "t7-m-library#1",
+   "dau": "1e22aac138",
+   "da": "A",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "197": {
+   "id": "t7-m-library#2",
+   "dau": "1e22aac138",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "198": {
+   "id": "t7-m-library#3",
+   "dau": "1e22aac138",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "199": {
+   "id": "t7-m-library#4",
+   "dau": "1e22aac138",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "200": {
+   "id": "t7-m-library#5",
+   "dau": "1e22aac138",
+   "da": "C",
+   "chon": "C",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  }
+ }
+}

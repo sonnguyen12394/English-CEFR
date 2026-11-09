@@ -39,6 +39,9 @@ Bộ dựng (`tools/build-toeic.mjs`) đã kiểm sẵn, không nhắc lại ở
 - `H-TRANH` · Tranh Part 1 nhìn ra được hành động / vật mà câu đúng tả (emoji trên iPhone là kiểu Apple, khác máy soạn); câu đúng không cần đoán.
 - `H-NHAY-CAM` · Không định kiến giới, nghề, quốc tịch; không chủ đề nhạy cảm (chính trị, tôn giáo, bệnh nặng, tai nạn).
 - `H-GT` · Giải thích tiếng Việt đúng, ngắn, nói được **vì sao** chọn đáp án (và vì sao phương án bẫy sai khi cần).
+- `H-LAP` · Trong **một đề**, không lặp tình huống, câu hỏi + đáp án, tên người / tên hiệu ở 2 bài (đề thật không có 2 cuộc gọi nhắc lịch hẹn hay 2 bản tin kẹt xe trên cùng một con đường). Đề 1–2 ghép từ kho luyện nên dễ lặp nhất: thay bằng bài kho chưa dùng (`content/toeic/tron.json`) hoặc đổi tình huống. Ví dụ đã sửa (v153): Đề 1 có 2 bài trả áo khoác "hết cỡ" (t3-04, t3-14), 3 bài mở đầu "sales figures"; Đề 2 có 2 bản tin Highway 9 (t4-04, t4-12) và 2 cuộc gọi nhắc lịch hẹn "đến sớm" (t3-17, t4-02). Máy bắt một phần (`C-LAP-CAU`, `C-LAP-TEN`).
+- `H-BAN-HIEU` · Lời đáp sai Part 2 không được là một **lời đáp gián tiếp hợp lý** (đề thật hay lấy lời đáp gián tiếp làm đáp án đúng). Ví dụ đã sửa: "Let's review the budget before the meeting." · nhiễu "The meeting was canceled." (cũng là lời đáp hợp lý: khỏi xem trước) → "The meeting lasted two hours."; câu lựa chọn "…printed or sent by e-mail?" · nhiễu "Yes, please print it." (vẫn chọn một bên) → "Yes, I'd like that."
+- `H-BANG-CAN` · Câu "Look at the graphic" phải **cần bảng** mới trả lời được: lời nghe nhắc ô khác của cùng hàng (vd. "the only sunny day this week" → nhìn bảng ra Thursday), không nói thẳng đáp án và không suy được bằng lý lẽ thường ("the next day" sau thứ Bảy là Chủ nhật, không cần bảng; d06-p3-11 đã sửa ở v153).
 
 ## Luật máy kiểm (`tools/kiem-toeic.mjs`)
 
@@ -77,6 +80,7 @@ Người nói: A = nữ, B = nam, C = nữ thứ hai; Part 4 theo `sx` ("f" / "m
 - `P5-HOA` / `P6-HOA` (L) · Chỗ trống đầu câu mà phương án không viết hoa; Part 6: chỗ trống giữa câu mà phương án viết hoa.
 - `P5-AAN` (L) · "a / an" ngay trước chỗ trống không hợp chữ đầu của đáp án.
 - `P5-HO-TU` (C) · Câu "từ loại" (`t: form`) mà phương án không cùng gốc từ (ít nhất 3 phương án chung 4 chữ cái đầu).
+- `P5-GHEP` (C) · Phương án nhiễu ghép giả "từ + giới từ" trong khi đáp án là một từ ("handily to", "while to", "allowed of"): sai lộ liễu, đề thật không dùng; thường người soạn ghép để né một phương án lỡ đúng → chọn từ khác sai rõ. Giới từ / liên từ nhiều chữ có thật ("because of", "due to", "each of"…) không tính. v153 sửa 15 câu kho (t5-22, t5-25, t5-32, t5-38, t5-41, t5-50, t5-53, t5-56, t5-60, t5-78, t5-79 "In spite", t5-81, t5-84, t5-97, t5-99). Áp cho cả chỗ trống Part 6.
 - `P6-CHEN-CO` (L) · Câu chèn đáp án đã có nguyên văn trong đoạn.
 - `P6-THI-MOC` (C) · Chỗ chọn thì (`t: tense`) mà câu đó và 2 câu kề không có mốc thời gian (next week, last month, since…): thiếu mốc thì nhiều thì cùng đúng.
 
@@ -87,6 +91,14 @@ Người nói: A = nữ, B = nam, C = nữ thứ hai; Part 4 theo `sx` ("f" / "m
 - `P7-CHEN-CO` (L) · Câu chèn [1]–[4] đã có nguyên văn trong bài.
 - `P7-NOT` (C) · Câu NOT: đáp án (điều bài KHÔNG nói) có đủ chữ trong bài, hoặc phương án "có nói" gần như không có chữ nào trong bài. Thường là báo nhầm khi bài diễn đạt khác (vd. "survey" = "asked residents for their opinions") → đọc lại rồi ghi "đã xem".
 - `P7-SO` (C) · Số / tiền / ngày trong đáp án không có trong bài và giải thích không có phép tính dẫn tới nó.
+
+### Cả đề (so các bài trong cùng một đề)
+- `C-LAP-CAU` (C) · Cùng câu hỏi + cùng đáp án ở 2 bài (coi "the man / the woman / the listener" như nhau): dấu hiệu 2 bài cùng tình huống. Ví dụ: "What problem does the woman mention? → A size is not available." ở 2 hội thoại trả áo của Đề 1 (trước v153).
+- `C-LAP-TEN` (C) · Cùng tên người (tên + họ, tên có trong bảng tên nam / nữ) hoặc cùng tên hiệu (chữ đứng trước Hotel / Inn / Center / Catering / Market…) ở 2 bài khác nhau. Ví dụ đã sửa: "Maria Lopez" (t6-hire, t7-email3), "Greenleaf" (Catering / Conference Center), "Harbor" (Harbor View Inn / Harbor Market).
+
+### Thứ tự phương án (app tự xếp)
+- Phương án là số / tiền / giờ / ngày tháng / thứ / tầng / nhãn cùng khuôn ("The 7:15 train", "Floor 3", "$75.00", "On May 12", "Package A"): app xếp **tăng dần** như đề thật (nguyên tắc "place options in logical or numerical order"; `tqNat` ở `toqt.js`, v153). Phiên giải mù chê cách xếp lộn xộn cũ (Floor 2 · 4 · 1 · 3; Package D · A · C · B). Người soạn không phải tự xếp.
+- Còn mở (để người sáng lập quyết): vị trí đáp án Part 3–7 do app xếp ngẫu nhiên cố định theo chữ (`trH`): cả đề cân bằng (mỗi chữ ~21–29%), nhưng có Part lệch (Đề 1 Part 3: C 4 / 39) và bộ câu cùng một chữ (Đề 3 câu 186–190 đều D). Đề thật cân bằng vị trí đáp án. Sửa phải đổi cách xếp của app → đổi chữ cái gần hết câu, bài làm đã lưu lệch chữ.
 
 ### Giải mù
 - `GM-CHUA` (C, không ghi "đã xem" được) · Đề hoặc câu chưa giải mù.

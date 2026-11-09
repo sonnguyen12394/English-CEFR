@@ -19,3 +19,33 @@ const tqQ7 = q => /closest in meaning to/i.test(q) ? 'syn' : /^In which of the p
 const TQ_CONN = new Set(['however', 'therefore', 'in addition', 'moreover', 'furthermore', 'as a result', 'consequently', 'nevertheless', 'nonetheless', 'instead', 'alternatively', 'similarly', 'likewise', 'otherwise', 'meanwhile', 'for example', 'for instance', 'in fact', 'thus', 'hence', 'accordingly', 'afterward', 'afterwards', 'finally', 'besides', 'even so', 'in contrast', 'by contrast', 'on the other hand', 'of course', 'indeed', 'after all', 'in the meantime', 'at the same time', 'additionally', 'subsequently', 'previously', 'in short', 'in other words', 'fortunately', 'unfortunately', 'then', 'still', 'rather', 'as a matter of fact', 'to this end', 'in particular', 'specifically', 'overall', 'once again', 'even though', 'regardless', 'in that case', 'if so', 'as such', 'until then', 'since then', 'by then', 'in the end', 'as expected', 'in the past', 'for this reason']);
 const tqSent = o => /[.!?]$/.test(String(o).trim()) && String(o).trim().split(/\s+/).length >= 3;
 const tqP6 = g => g.t || (g.o.every(tqSent) ? 'insert' : g.o.every(o => TQ_CONN.has(String(o).trim().replace(/,$/, '').toLowerCase())) ? 'conn' : 'word');
+
+// v153 (specs/011-kiem-noi-dung-de): phương án là số / tiền / giờ / ngày tháng / thứ / tầng / nhãn cùng một khuôn ("The 7:15 train",
+//   "Floor 3", "$75.00", "On May 12", "Package A"…) → xếp tăng dần như đề thật (nguyên tắc viết câu trắc nghiệm: place options in logical
+//   or numerical order). Không cùng khuôn → null (giữ cách xếp cũ). Dùng ở totron.js (đề trọn), toeic.js toOpts (luyện), tools/kiem-toeic.mjs.
+const TQ_MON = 'january february march april may june july august september october november december'.split(' ');
+const TQ_DAY = 'monday tuesday wednesday thursday friday saturday sunday'.split(' ');
+const TQ_ORD = 'first second third fourth fifth sixth seventh eighth ninth tenth'.split(' ');
+function tqNatKey(s) {   // → [khuôn, giá trị, giờ không ghi sáng / chiều?] hoặc null
+  const t = String(s).trim(), lw = t.toLowerCase(), ap = '\\s*([AaPp])\\.?\\s?[Mm]\\b\\.?';
+  let m = t.match(new RegExp('^(.*?)\\b(\\d{1,2}):(\\d{2})(?:' + ap + ')?(.*)$'));
+  if (m) { let h = +m[2] % 12; if (m[4]) h += /p/i.test(m[4]) ? 12 : 0; else h = +m[2]; return [m[1].toLowerCase() + '#t' + m[5].toLowerCase().replace(/\.$/, ''), h * 60 + +m[3], !m[4]]; }
+  m = t.match(new RegExp('^(.*?)\\b(\\d{1,2})' + ap + '(.*)$'));
+  if (m) return [m[1].toLowerCase() + '#t' + m[4].toLowerCase().replace(/\.$/, ''), (+m[2] % 12 + (/p/i.test(m[3]) ? 12 : 0)) * 60, false];
+  m = lw.match(/^(.*?)\b(january|february|march|april|may|june|july|august|september|october|november|december)\b(?:\s+(\d{1,2})(?:st|nd|rd|th)?)?(.*)$/);
+  if (m) return [m[1] + '#m' + m[4].replace(/\.$/, ''), TQ_MON.indexOf(m[2]) * 100 + (+m[3] || 0)];
+  m = lw.match(/^(.*?)\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b(.*)$/);
+  if (m) return [m[1] + '#d' + m[3].replace(/\.$/, ''), TQ_DAY.indexOf(m[2])];
+  m = lw.match(/^(.*?)\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\b(.*)$/);
+  if (m) return [m[1] + '#o' + m[3].replace(/\.$/, ''), TQ_ORD.indexOf(m[2])];
+  m = t.match(/^(.*?)(\$|€|£)?(\d[\d,]*(?:\.\d+)?)(.*)$/);
+  if (m) return [m[1].toLowerCase() + '#n' + (m[2] || '') + m[4].toLowerCase().replace(/\.$/, ''), parseFloat(m[3].replace(/,/g, ''))];
+  m = t.match(/^(.*\S)\s+([A-Z])\.?$/);
+  if (m) return [m[1].toLowerCase() + '#l', m[2].charCodeAt(0)];
+  return null; }
+function tqNat(opts) { if (!opts || opts.length < 2) return null;
+  const k = opts.map(tqNatKey); if (k.some(x => !x) || new Set(k.map(x => x[0])).size !== 1) return null;
+  if (k.every(x => x[2])) { const hs = k.map(x => Math.floor(x[1] / 60) % 12 || 12);   // giờ không ghi sáng / chiều: qua trưa (có giờ ≥ 8 và giờ 1–6) thì 1–6 là chiều
+    const noon = hs.some(h => h >= 8) && hs.some(h => h <= 6); k.forEach((x, i) => { const h = hs[i]; x[1] = (h === 12 ? 12 : noon && h <= 6 ? h + 12 : h) * 60 + x[1] % 60; }); }
+  if (new Set(k.map(x => x[1])).size !== k.length) return null;
+  return opts.map((o, i) => [o, k[i][1]]).sort((a, b) => a[1] - b[1]).map(x => x[0]); }

@@ -9,10 +9,10 @@
 Ba lớp kiểm cho câu đề thử trọn TOEIC, dùng chung cho đề cũ và đề mới:
 
 1. **Bộ tiêu chí** viết tay `docs/TIEU-CHI-DE-TOEIC.md`: mỗi tiêu chí một mã, theo Part, có ví dụ đúng / sai lấy từ chính dữ liệu của app, ghi máy kiểm được hay phải người / giải mù kiểm; kèm quy trình soạn một đề. CLAUDE.md trỏ tới.
-2. **Máy kiểm** `tools/kiem-toeic.mjs`: luật cố định, chia **lỗi** (chắc chắn sai, dừng dựng) và **cảnh báo** (có thể sai, phải sửa hoặc ghi "đã xem" kèm lý do trong `content/toeic/kiem-ok.json`, gắn dấu nội dung câu nên câu đổi thì cảnh báo hiện lại). Gắn vào `tools/build-toeic.mjs` (lỗi chặn dựng) và test C67 (0 lỗi + 0 cảnh báo chưa xem mới được phát hành). Báo cáo một trang `docs/kiem-de-toeic.html` cho người sáng lập.
+2. **Máy kiểm** `tools/kiem-toeic.mjs`: luật cố định, chia **lỗi** (chắc chắn sai, dừng dựng) và **cảnh báo** (có thể sai, phải sửa hoặc ghi "đã xem" kèm lý do trong `content/toeic/kiem-ok.json`, gắn dấu nội dung câu nên câu đổi thì cảnh báo hiện lại). Gắn vào `tools/build-toeic.mjs` (lỗi chặn dựng) và test C69 (0 lỗi + 0 cảnh báo chưa xem mới được phát hành). Báo cáo một trang `docs/kiem-de-toeic.html` cho người sáng lập.
 3. **Giải mù** `tools/giai-mu.mjs`: xuất phiếu làm bài không đáp án (đánh số 1–200 và chữ cái A–D đúng như trong app), phiên Claude phụ làm, đối chiếu đáp án, lưu kết quả `content/toeic/giai-mu/deN.json`; câu lệch / "2 phương án đều được" / câu đã sửa sau khi giải thành cảnh báo của máy kiểm.
 
-Rồi chạy cả 3 lớp trên Đề 1–6, sửa, phát hành bản 149 (v151); sau đó soạn Đề 7–8 qua cùng quy trình, phát hành bản 150 (v152).
+Rồi chạy cả 3 lớp trên Đề 1–6, sửa, phát hành bản 150 (v153); sau đó soạn Đề 7–8 qua cùng quy trình, phát hành bản 151 (v154). (Số bản / test đánh lại khi gộp main 9/11/2026: main đã có bản 148–149 = v150, v151 và test C67, C68; Đề 5–6 của nhánh trước thành v152.)
 
 ## Technical Context
 
@@ -22,7 +22,7 @@ Rồi chạy cả 3 lớp trên Đề 1–6, sửa, phát hành bản 149 (v151)
 
 **Storage**: tệp trong repo: `content/toeic/kiem-ok.json` (cảnh báo đã xem), `content/toeic/giai-mu/deN.json` (kết quả giải mù), `docs/kiem-de-toeic.html` (báo cáo dựng ra, không sửa tay).
 
-**Testing**: `tools/test/run.mjs` thêm C67: (a) bộ câu cài lỗi `tools/test/kiem-mau.json` → mỗi luật tự động bắt đúng câu của nó; bộ câu sạch → 0 kết quả; (b) Đề 1–6 thật: 0 lỗi, 0 cảnh báo chưa xem, đề nào cũng đã giải mù; (c) mã tiêu chí trong máy kiểm đều có trong `docs/TIEU-CHI-DE-TOEIC.md`.
+**Testing**: `tools/test/run.mjs` thêm C69: (a) bộ câu cài lỗi `tools/test/kiem-mau.json` → mỗi luật tự động bắt đúng câu của nó; bộ câu sạch → 0 kết quả; (b) Đề 1–6 thật: 0 lỗi, 0 cảnh báo chưa xem, đề nào cũng đã giải mù; (c) mã tiêu chí trong máy kiểm đều có trong `docs/TIEU-CHI-DE-TOEIC.md`.
 
 **Target Platform**: máy soạn (Linux, Node). Báo cáo HTML xem được trên điện thoại qua GitHub Pages.
 
@@ -42,7 +42,7 @@ Rồi chạy cả 3 lớp trên Đề 1–6, sửa, phát hành bản 149 (v151)
 |---|---|---|
 | I. Luật đo của người sáng lập | Không chạm 📘 / 🔁 / Thi chuyển cấp; luyện thi không tính | ✅ |
 | II. Kiểm giao diện chỉ trên iPhone | Không đổi màn app; báo cáo là trang tài liệu; câu sửa vẫn ghi "chưa kiểm trên iPhone" | ✅ |
-| III. Test xanh trước khi phát hành | C67 mới; phát hành bằng `tools/release.mjs` | ✅ |
+| III. Test xanh trước khi phát hành | C69 mới; phát hành bằng `tools/release.mjs` | ✅ |
 | IV. Dữ liệu sửa qua nguồn | Sửa `content/toeic/*.json`, `content/toeic/tron/deNN.json` rồi `build-toeic.mjs`, `build-audio.py` | ✅ |
 | V. Trung thực về độ tin cậy | Giải mù cũng là Claude (không phải người độc lập), ghi rõ; nội dung vẫn "chưa giáo viên kiểm" | ✅ |
 | Tra bản đồ mã trước khi sửa | `graphify query` cho build-toeic / totron trước khi sửa | ✅ (làm ở bước làm) |
@@ -78,25 +78,25 @@ tools/
 ├── giai-mu.mjs               # MỚI: xuất phiếu / đối chiếu giải mù
 ├── build-toeic.mjs           # SỬA: gọi máy kiểm, lỗi chặn dựng
 └── test/
-    ├── run.mjs               # SỬA: thêm C67
+    ├── run.mjs               # SỬA: thêm C69
     └── kiem-mau.json         # MỚI: câu cài lỗi + câu sạch
 content/toeic/
 ├── kiem-ok.json              # MỚI: cảnh báo đã xem
 ├── giai-mu/de1.json … de6.json   # MỚI: kết quả giải mù
 ├── *.json, tron/de03–06.json # SỬA: câu sai
 └── tron/de07.json, de08.json # MỚI (đợt sau, US4)
-CLAUDE.md                     # SỬA: luật "soạn đề TOEIC theo docs/TIEU-CHI-DE-TOEIC.md", đoạn v151 (+ v152)
+CLAUDE.md                     # SỬA: luật "soạn đề TOEIC theo docs/TIEU-CHI-DE-TOEIC.md", đoạn v153 (+ v154)
 ```
 
 **Structure Decision**: giữ kiểu repo hiện có (công cụ trong `tools/`, nguồn trong `content/`, tài liệu trong `docs/`). Máy kiểm là module riêng để bộ dựng, test và lệnh đứng riêng dùng chung một bộ luật.
 
 ## Thứ tự làm (chi tiết ở tasks.md)
 
-1. Bộ tiêu chí + máy kiểm + bộ câu cài lỗi + C67 (chưa bật cổng 0 cảnh báo).
+1. Bộ tiêu chí + máy kiểm + bộ câu cài lỗi + C69 (chưa bật cổng 0 cảnh báo).
 2. Chạy máy kiểm trên Đề 1–6 → sửa lỗi, xử lý cảnh báo (chỉnh luật nếu báo nhầm nhiều).
 3. Giải mù Đề 1–6 (12 phiên phụ chạy song song) → đối chiếu → xử lý câu lệch → giải lại câu đã sửa.
-4. Bật cổng C67 (0 lỗi, 0 cảnh báo chưa xem, đủ giải mù); dựng giọng câu nghe đã sửa; báo cáo; tài liệu v151; phát hành bản 149; đẩy nhánh. Hỏi người sáng lập có đưa lên web không.
-5. Soạn Đề 7–8 theo bộ tiêu chí → máy kiểm → giải mù → giọng → phát hành bản 150 (v152).
+4. Bật cổng C69 (0 lỗi, 0 cảnh báo chưa xem, đủ giải mù); dựng giọng câu nghe đã sửa; báo cáo; tài liệu v153; phát hành bản 150; đẩy nhánh. Hỏi người sáng lập có đưa lên web không.
+5. Soạn Đề 7–8 theo bộ tiêu chí → máy kiểm → giải mù → giọng → phát hành bản 151 (v154).
 
 ## Rủi ro
 

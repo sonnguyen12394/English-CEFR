@@ -3,7 +3,7 @@
 Nguồn tham khảo (theo hiểu biết của Claude, chưa tra lại bản gốc): mô tả công khai đề TOEIC Listening & Reading của ETS (cấu trúc 7 Part, dạng câu); nguyên tắc viết câu trắc nghiệm phổ biến (Haladyna, Downing & Rodriguez 2002: một đáp án đúng, phương án sai hợp lý, không lộ đáp án qua độ dài / dạng / từ lặp, tránh "all of the above"…). Số đo lấy từ quét thử trên dữ liệu ngày 9/11/2026.
 
 ## R1. Hai mức kết quả + "đã xem" gắn dấu nội dung
-- **Decision**: **lỗi** = luật chắc chắn (sai hình thức hoặc mâu thuẫn rõ), dừng dựng; **cảnh báo** = luật nghi ngờ, không dừng dựng nhưng chặn phát hành (C67) cho tới khi sửa hoặc ghi vào `content/toeic/kiem-ok.json` { mã câu, mã luật, dấu nội dung, lý do, ngày }. Dấu = md5 10 ký tự của câu (lời bài + câu hỏi + phương án + đáp án); câu đổi thì dấu đổi, cảnh báo hiện lại.
+- **Decision**: **lỗi** = luật chắc chắn (sai hình thức hoặc mâu thuẫn rõ), dừng dựng; **cảnh báo** = luật nghi ngờ, không dừng dựng nhưng chặn phát hành (C69) cho tới khi sửa hoặc ghi vào `content/toeic/kiem-ok.json` { mã câu, mã luật, dấu nội dung, lý do, ngày }. Dấu = md5 10 ký tự của câu (lời bài + câu hỏi + phương án + đáp án); câu đổi thì dấu đổi, cảnh báo hiện lại.
 - **Rationale**: quét thử cho thấy luật "nghi" báo nhầm nhiều; nếu coi là lỗi thì phải làm câu kém đi để qua máy; nếu chỉ in ra thì sẽ bị bỏ qua. Ghi "đã xem" có lý do giữ được dấu vết ai đã quyết thế nào.
 - **Alternatives considered**: một mức (hoặc ồn, hoặc lỏng); chỉ danh sách tay (không lặp lại được, phụ thuộc trí nhớ).
 
@@ -72,6 +72,7 @@ Chỉ người / giải mù kiểm (ghi trong bộ tiêu chí, không có luật
 - **Decision**: mỗi luật cảnh báo chỉnh trên Đề 1–6 tới khi tổng cảnh báo ≤ 5 / 100 câu; luật nào vẫn ồn thì thu hẹp (vd. `P34-SAI-DUNG` chỉ xét câu do chính người được hỏi nói) hoặc bỏ.
 - **Rationale**: quét thử thô: 85 dòng "phương án sai có trong bài" gần hết là bẫy lặp từ đúng kiểu đề thật; 17 dòng giọng nam / nữ là báo nhầm. Danh sách dài thì không ai xem.
 - **Alternatives considered**: giữ luật thô và ghi "đã xem" hàng loạt (mất ý nghĩa của "đã xem").
+- **Kết quả (9/11/2026, đo trên Đề 1–6)**: 2 luật của danh mục R2 không làm thành luật máy vì vẫn ồn sau khi thu hẹp: `P2-BAY` (nhãn bẫy Part 2) và `P34-SAI-DUNG` (phương án sai trùng chữ câu của người được hỏi; quét thử 85 dòng, gần hết là bẫy lặp từ đúng kiểu đề thật). Hai loại lỗi này để giải mù bắt (`GM-HAI`, `GM-LECH`). Còn 32 luật máy; sau khi sửa 6 lỗi + 21 cảnh báo, Đề 1–6 (1.200 câu) còn 2 cảnh báo đã xem (`P7-NOT`, ≈ 0,2 / 100 câu), 0 cảnh báo chưa xem ngoài `GM-CHUA`.
 
 ## R4. Giải mù
 - **Decision**: `tools/giai-mu.mjs xuat` viết phiếu chữ cho mỗi đề, 2 phần (Nghe 1–100, Đọc 101–200), đánh số và chữ cái đúng như app; KHÔNG có đáp án, giải thích, câu trích, nhãn dạng, nhãn bẫy. Part 1: mô tả tranh (nền, khối màu, từng emoji kèm tên Unicode tiếng Anh và vị trí trái / giữa / phải, trên / dưới, cỡ). Part 2–4: lời nghe thành chữ, ghi người nói "Woman / Man / Woman 2" (người học nghe được giọng), bảng của câu bảng. Part 5–7 như trên màn. Mỗi phiếu giao một phiên Claude phụ (Agent, ngữ cảnh mới), yêu cầu: làm từng câu như thí sinh giỏi, ghi chữ chọn, mức chắc 1–3, chữ thứ hai nếu thấy cũng được, ghi chú ngắn nếu câu / bài có chỗ không hợp lý; trả về JSON. `tools/giai-mu.mjs so` đối chiếu, lưu `content/toeic/giai-mu/deN.json` (kèm dấu nội dung từng câu lúc giải), in tỉ lệ khớp. 12 phiên cho Đề 1–6 chạy song song; câu sửa xong giải lại bằng phiếu chỉ gồm các câu đó.
@@ -97,5 +98,5 @@ Chỉ người / giải mù kiểm (ghi trong bộ tiêu chí, không có luật
 - **Rationale**: người sáng lập đã làm thử Đề 3–4 (📋 bài làm lưu theo chữ cái); chưa có người học khác.
 
 ## R9. Chỗ chạy và cổng phát hành
-- **Decision**: `build-toeic.mjs` gọi máy kiểm sau khi dựng: lỗi → dừng (exit 1); in số cảnh báo chưa xem. Test C67 trong `run.mjs`: 0 lỗi, 0 cảnh báo chưa xem, mọi đề đã giải mù, mọi luật bắt đúng câu cài lỗi của nó, câu sạch không bị bắt, mã luật có trong `docs/TIEU-CHI-DE-TOEIC.md`. `release.mjs` đã chạy run.mjs nên cổng tự có.
+- **Decision**: `build-toeic.mjs` gọi máy kiểm sau khi dựng: lỗi → dừng (exit 1); in số cảnh báo chưa xem. Test C69 trong `run.mjs`: 0 lỗi, 0 cảnh báo chưa xem, mọi đề đã giải mù, mọi luật bắt đúng câu cài lỗi của nó, câu sạch không bị bắt, mã luật có trong `docs/TIEU-CHI-DE-TOEIC.md`. `release.mjs` đã chạy run.mjs nên cổng tự có.
 - **Rationale**: đang soạn thì cần dựng được dù còn cảnh báo; lúc phát hành mới bắt buộc sạch.

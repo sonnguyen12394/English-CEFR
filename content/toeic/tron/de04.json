@@ -253,13 +253,13 @@
     ]
    },
    "o": [
-    "Two people are sitting at a table.",
+    "Two people are standing at a table.",
     "A server is pouring coffee.",
     "Some chairs are being moved.",
     "A woman is paying a cashier."
    ],
    "a": 0,
-   "why": "Hai người đang ngồi ở bàn có cà phê. Không có người phục vụ rót cà phê, không ai đang dời ghế, không có quầy thu ngân."
+   "why": "Hai người đang đứng ở bàn có cà phê. Không có người phục vụ rót cà phê, không ai đang dời ghế, không có quầy thu ngân."
   },
   {
    "id": "d04-p1-06",
@@ -418,7 +418,7 @@
    "ty": "req",
    "q": "Could you turn down the music a little?",
    "o": [
-    "It's my favorite band.",
+    "The band played last night.",
     "Sure, is that better?",
     "Turn left at the corner."
    ],
@@ -450,7 +450,7 @@
    "ty": "or",
    "q": "Would you like the report printed or sent by e-mail?",
    "o": [
-    "Yes, please print it.",
+    "Yes, I'd like that.",
     "An e-mail would be fine.",
     "It was a long report."
    ],
@@ -594,7 +594,7 @@
    "ty": "wh",
    "q": "Where are the extra chairs for the seminar?",
    "o": [
-    "Yes, there are extra.",
+    "Yes, we have some extra ones.",
     "Ask Jenny at the front desk.",
     "A three-hour seminar."
    ],
@@ -1224,7 +1224,7 @@
    "lines": [
     [
      "A",
-     "Hi, both of you. I'm here to set up your new laptops."
+     "Hi, you two. I'm here to set up your new laptops."
     ],
     [
      "B",
@@ -2038,7 +2038,7 @@
      ]
     ]
    },
-   "text": "Good morning, conference attendees. Please note one change to today's workshop schedule. Because the projector in Hall B isn't working, the video marketing workshop will be moved to the room listed for the first workshop of the day. The time will not change. Lunch will be served in the main lobby from twelve thirty. Don't forget to collect your certificate at the registration desk before you leave.",
+   "text": "Good morning, conference attendees. Please note one change to today's workshop schedule. Because the projector in Hall B isn't working, the video marketing workshop will be moved to the room used for Social Media Basics this morning. The time will not change. Lunch will be served in the main lobby from twelve thirty. Don't forget to collect your certificate at the registration desk before you leave.",
    "qs": [
     {
      "q": "Look at the graphic. Where will the video marketing workshop take place?",
@@ -2049,7 +2049,7 @@
       "Room 305"
      ],
      "ty": "graphic",
-     "ev": "the video marketing workshop will be moved to the room listed for the first workshop of the day"
+     "ev": "the video marketing workshop will be moved to the room used for Social Media Basics this morning"
     },
     {
      "q": "Why is the workshop being moved?",
@@ -2491,7 +2491,7 @@
    "s": "The new office is located just ------- the street from the bank.",
    "o": [
     "across",
-    "along",
+    "among",
     "through",
     "toward"
    ],
@@ -2705,11 +2705,11 @@
      "o": [
       "Receipts must be clear enough to read.",
       "The finance department is on the fourth floor.",
-      "Salaries are usually paid on the last day of the month.",
+      "Paper forms can still be collected from reception.",
       "Each employee can now work from home on Fridays."
      ],
      "a": "Receipts must be clear enough to read.",
-     "why": "Câu trước: tải ảnh từng hoá đơn → câu chèn: ảnh hoá đơn phải đủ rõ để đọc."
+     "why": "Câu trước: tải ảnh từng hoá đơn → câu chèn: ảnh hoá đơn phải đủ rõ để đọc. \"Paper forms can still be collected…\" trái với câu trước (không dùng phiếu giấy nữa)."
     },
     {
      "o": [
@@ -2948,14 +2948,14 @@
      "why": "Gửi slide trước trưa thứ Hai."
     },
     {
-     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"This could become our largest account.\"",
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Such a contract could become our largest account.\"",
      "a": "[1]",
      "w": [
       "[2]",
       "[3]",
       "[4]"
      ],
-     "why": "\"This\" chỉ hợp đồng dài hạn vừa nhắc → câu chèn đứng ngay sau câu đầu (vị trí [1])."
+     "why": "\"Such a contract\" chỉ hợp đồng dài hạn vừa nhắc ở câu đầu → câu chèn đứng ngay sau câu đó (vị trí [1])."
     }
    ]
   },
@@ -3403,7 +3403,7 @@
     },
     {
      "title": "Workshop Schedule · October",
-     "text": "October 3: Creating a Strong Password (Room A)\nOctober 10: Online Banking Safely (Room A)\nOctober 17: Video Calls with Family (Room B)\nOctober 24: Selling Items Online (Room B)\nAll workshops begin at 6:30 P.M."
+     "text": "October 3: Creating a Strong Password (Room A)\nOctober 10: Safe Online Banking (Room A)\nOctober 17: Video Calls with Family (Room B)\nOctober 24: Selling Items Online (Room B)\nAll workshops begin at 6:30 P.M."
     },
     {
      "title": "E-mail · To: info@elmwoodlibrary.org · From: George Patel · Date: October 2",

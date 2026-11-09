@@ -37,7 +37,7 @@ function trB(de) { if (TR.B[de]) return TR.B[de]; const d = trMeta(de); if (!d |
   const mk = { p1: x => [toP1Q(x)], p2: x => [toP2Q(x)], p3: x => toTalkQs(x, 'p3'), p4: x => toTalkQs(x, 'p4'), p5: x => [toP5Q(x)], p6: toP6Qs, p7: toP7Qs }, U = []; let n = 0;
   for (const s of Object.keys(mk)) { const ix = F ? null : Object.fromEntries(TO[s].map(x => [x.id, x]));
     for (const it of (F ? F[s] : d[s]) || []) { const x = F ? it : ix[it]; if (!x) continue;
-      const qs = mk[s](x).map(q => { n++; const fix = q.opts.every(t => /^[A-D]$/.test(t) || /^\[\d\]$/.test(t)); return { ...q, n, opts: fix ? [...q.opts].sort() : [...q.opts].sort((a, b) => trH(de + n + a) - trH(de + n + b)) }; });
+      const qs = mk[s](x).map(q => { n++; const fix = q.opts.every(t => /^[A-D]$/.test(t) || /^\[\d\]$/.test(t)); return { ...q, n, opts: fix ? [...q.opts].sort() : (typeof tqNat === 'function' && tqNat(q.opts)) || [...q.opts].sort((a, b) => trH(de + n + a) - trH(de + n + b)) }; });   // v153: số / giờ / ngày / tầng… xếp tăng dần (tqNat, toqt.js)
       U.push({ sec: s, x, qs, a: qs[0].n, b: qs[qs.length - 1].n }); } }
   trCk(U);
   return (TR.B[de] = { d, U, Q: U.flatMap(u => u.qs), L: U.filter(u => /^p[1-4]$/.test(u.sec)), R: U.filter(u => /^p[5-7]$/.test(u.sec)) }); }

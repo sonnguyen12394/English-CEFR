@@ -1,5 +1,5 @@
 {
- "_note": "Bộ câu thử máy kiểm (test C67): sai = mỗi luật tự động ≥ 1 câu cài lỗi cố ý (máy phải bắt đúng mã ma); sach = câu thật đã soát, máy không được báo gì. Sinh bằng scratchpad mkmau.py rồi chỉnh tay.",
+ "_note": "Bộ câu thử máy kiểm (test C67): sai = mỗi luật tự động ≥ 1 câu cài lỗi cố ý (máy phải bắt đúng mã ma); sach = câu thật đã soát, máy không được báo gì. Sinh bằng scratchpad mkmau.py rồi chỉnh tay. v153: thêm mẫu P5-GHEP và 2 luật cấp đề (C-LAP-CAU, C-LAP-TEN; mẫu dạng xs = nhiều bài trong một đề).",
  "sai": [
   {
    "ma": "C-TRUNG-PA",
@@ -1315,6 +1315,141 @@
      }
     ]
    }
+  },
+  {
+   "ma": "P5-GHEP",
+   "sec": "p5",
+   "x": {
+    "id": "m-ghep",
+    "t": "voc",
+    "s": "Employees are ------- to a 15 percent discount on all company products.",
+    "o": [
+     "permitted on",
+     "entitled",
+     "allowed of",
+     "eligible for"
+    ],
+    "a": "entitled",
+    "why": "be entitled to = được hưởng (quyền lợi) → entitled."
+   }
+  },
+  {
+   "ma": "C-LAP-CAU",
+   "xs": [
+    {
+     "sec": "p3",
+     "x": {
+      "id": "m-lap-1",
+      "lines": [
+       [
+        "B",
+        "Excuse me, I bought this jacket here last week, but the zipper broke."
+       ],
+       [
+        "A",
+        "I'm sorry. I can exchange it, but we don't have your size right now."
+       ]
+      ],
+      "qs": [
+       {
+        "q": "What problem does the woman mention?",
+        "a": "A size is not available.",
+        "w": [
+         "A receipt is missing.",
+         "A store is closed.",
+         "A price is wrong."
+        ],
+        "ty": "detail"
+       }
+      ]
+     }
+    },
+    {
+     "sec": "p3",
+     "x": {
+      "id": "m-lap-2",
+      "lines": [
+       [
+        "A",
+        "Hi, I'd like to return these shoes. They're too small."
+       ],
+       [
+        "B",
+        "I'm afraid we don't have a bigger size in stock."
+       ]
+      ],
+      "qs": [
+       {
+        "q": "What problem does the man mention?",
+        "a": "A size is not available.",
+        "w": [
+         "A delivery is late.",
+         "A card was declined.",
+         "A store is moving."
+        ],
+        "ty": "detail"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "ma": "C-LAP-TEN",
+   "xs": [
+    {
+     "sec": "p7",
+     "x": {
+      "id": "m-ten-1",
+      "kind": "E-mail",
+      "docs": [
+       {
+        "title": "To: All staff · From: Maria Lopez, Office Manager",
+        "text": "The kitchen will be closed on Friday for cleaning. Thank you for your patience.\nMaria Lopez"
+       }
+      ],
+      "qs": [
+       {
+        "q": "Why was the e-mail sent?",
+        "a": "To announce a closure",
+        "w": [
+         "To invite staff to a party",
+         "To request feedback",
+         "To introduce a new manager"
+        ],
+        "ty": "purpose",
+        "why": "Báo bếp đóng cửa thứ Sáu → announce a closure."
+       }
+      ]
+     }
+    },
+    {
+     "sec": "p7",
+     "x": {
+      "id": "m-ten-2",
+      "kind": "Notice",
+      "docs": [
+       {
+        "title": "Volunteers needed",
+        "text": "The library needs volunteers for its book sale. Contact Maria Lopez at the front desk to sign up."
+       }
+      ],
+      "qs": [
+       {
+        "q": "What is the purpose of the notice?",
+        "a": "To find volunteers",
+        "w": [
+         "To announce new hours",
+         "To sell a building",
+         "To hire a manager"
+        ],
+        "ty": "purpose",
+        "why": "Thư viện cần tình nguyện viên → find volunteers."
+       }
+      ]
+     }
+    }
+   ]
   }
  ],
  "sach": [

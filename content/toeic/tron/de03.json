@@ -190,7 +190,7 @@
      [
       "🚴",
       168,
-      126,
+      140,
       62
      ],
      [
@@ -767,11 +767,11 @@
   {
    "id": "d03-p2-24",
    "ty": "stmt",
-   "q": "The heating in the conference room isn't working.",
+   "q": "The caterer can't deliver the lunch until one o'clock.",
    "o": [
-    "It's a working lunch.",
-    "I'll call maintenance right away.",
-    "The room holds fifty people."
+    "Lunch was delicious, thanks.",
+    "Then let's move the break to one-fifteen.",
+    "A table for four, please."
    ],
    "a": 1,
    "tr": [
@@ -1914,7 +1914,7 @@
    "id": "d03-p4-06",
    "ty": "tour",
    "sx": "f",
-   "text": "Welcome to the Crestwood Chocolate Factory. I'm Nadia, and I'll be your guide today. Our tour lasts about an hour. First, we'll see where the cocoa beans are roasted, and then we'll watch our chocolate bars being wrapped by machine. For safety reasons, please stay behind the yellow lines at all times. Also, photographs are not permitted inside the production area. Don't worry, there's plenty to taste at the end. Our gift shop also offers a ten percent discount to tour visitors today.",
+   "text": "Welcome to the Crestwood Chocolate Factory. I'm Nadia, and I'll be your guide today. Our tour lasts about an hour. First, we'll see where the cocoa beans are roasted, and then we'll watch our chocolate bars being wrapped by machine. For safety reasons, please stay behind the yellow lines at all times. Also, photographs are not permitted inside the production area, and no food may be eaten there. Don't worry, there's plenty to taste at the end. Our gift shop also offers a ten percent discount to tour visitors today.",
    "qs": [
     {
      "q": "What will the listeners see first?",
@@ -2174,7 +2174,7 @@
    "t": "form",
    "s": "Please submit your expense reports ------- to the accounting department.",
    "o": [
-    "direct",
+    "directs",
     "directly",
     "direction",
     "directed"
@@ -2185,7 +2185,7 @@
   {
    "id": "d03-p5-02",
    "t": "pron",
-   "s": "Ms. Romero asked that all team members send ------- weekly updates by Friday.",
+   "s": "Ms. Romero asked that all team members submit ------- weekly updates by Friday.",
    "o": [
     "their",
     "them",
@@ -2565,7 +2565,7 @@
    "id": "d03-p6-01",
    "kind": "E-mail",
    "title": "To: All employees · From: Office Manager · Subject: New recycling program",
-   "text": "Starting next Monday, our office will take part in a new recycling program. Blue bins for paper and green bins for plastic {1} in the kitchen on each floor. Please do not put food waste in either bin. {2} The building's cleaning staff will empty the bins every evening. {3}, if a bin is full during the day, you may leave the items next to it. We appreciate your {4} in making our workplace more environmentally friendly.",
+   "text": "Starting next Monday, our office will take part in a new recycling program. Blue bins for paper and green bins for plastic {1} in the kitchen on each floor before the program begins. Please do not put food waste in either bin. {2} The building's cleaning staff will empty the bins every evening. {3}, if a bin is full during the day, you may leave the items next to it. We appreciate your {4} in making our workplace more environmentally friendly.",
    "gaps": [
     {
      "o": [
@@ -2576,7 +2576,7 @@
      ],
      "a": "will be placed",
      "t": "tense",
-     "why": "Chương trình bắt đầu từ thứ Hai tới (Starting next Monday) → việc đặt thùng ở tương lai, bị động: will be placed."
+     "why": "Thùng được đặt trước khi chương trình bắt đầu (before the program begins, từ thứ Hai tới) → việc ở tương lai, bị động: will be placed."
     },
     {
      "o": [
@@ -3089,7 +3089,7 @@
    "docs": [
     {
      "title": "Local Bookstore Turns a New Page",
-     "text": "PORTVILLE — After thirty years on Bay Street, Chapter One Books is moving to a larger space in the Harbor Market building. [1] Owner Felix Moreau says the new store will have twice as much floor space, a children's reading corner, and a small café. [2] \"Our customers have been asking for a place to sit and read,\" Moreau said. \"Now we can finally offer that.\" [3] The current store will close on August 2, and the new location is scheduled to open on August 16. [4] To celebrate, the store will host readings by local authors during its opening week."
+     "text": "PORTVILLE — After thirty years on Bay Street, Chapter One Books is moving to a larger space in the Cannery Market building. [1] Owner Felix Moreau says the new store will have twice as much floor space, a children's reading corner, and a small café. [2] \"Our customers have been asking for a place to sit and read,\" Moreau said. \"Now we can finally offer that.\" [3] The current store will close on August 2, and the new location is scheduled to open on August 16. [4] To celebrate, the store will host readings by local authors during its opening week."
     }
    ],
    "qs": [
@@ -3101,7 +3101,7 @@
       "The history of Bay Street",
       "A café opening in a market"
      ],
-     "ev": "Chapter One Books is moving to a larger space in the Harbor Market building",
+     "ev": "Chapter One Books is moving to a larger space in the Cannery Market building",
      "why": "Hiệu sách chuyển sang chỗ rộng hơn."
     },
     {
@@ -3470,7 +3470,7 @@
     },
     {
      "q": "According to the notice, what is true about children under 12?",
-     "a": "They must swim with an adult.",
+     "a": "They must be supervised by an adult.",
      "w": [
       "They cannot use the pool.",
       "They need a special card.",

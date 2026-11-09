@@ -25,7 +25,7 @@
     ],
     "e": [
      [
-      "🧑‍💼",
+      "👨‍💼",
       160,
       92,
       70
@@ -1364,7 +1364,7 @@
   {
    "id": "d06-p3-11",
    "g": {
-    "t": "Weekend Forecast",
+    "t": "This Week's Forecast",
     "h": [
      "Day",
      "Weather"
@@ -1384,7 +1384,7 @@
      ],
      [
       "Sunday",
-      "Sunny"
+      "Cloudy"
      ]
     ]
    },
@@ -1399,7 +1399,7 @@
     ],
     [
      "A",
-     "Yes, all day. Since everything is outdoors, we should move it to the next day. It's supposed to be sunny."
+     "Yes, all day. Since everything is outdoors, let's move it to the only sunny day this week."
     ],
     [
      "B",
@@ -1420,18 +1420,18 @@
       "Hiring a new team member"
      ],
      "ty": "gist",
-     "ev": "we should move it to the next day"
+     "ev": "let's move it to the only sunny day this week"
     },
     {
      "q": "Look at the graphic. On which day will the event most likely take place?",
-     "a": "Sunday",
+     "a": "Thursday",
      "w": [
-      "Thursday",
       "Friday",
-      "Saturday"
+      "Saturday",
+      "Sunday"
      ],
      "ty": "graphic",
-     "ev": "we should move it to the next day. It's supposed to be sunny."
+     "ev": "let's move it to the only sunny day this week"
     },
     {
      "q": "What does the woman ask the man to do?",
@@ -2660,7 +2660,7 @@
     {
      "o": [
       "at",
-      "on",
+      "for",
       "in",
       "by"
      ],
@@ -2779,7 +2779,7 @@
    "docs": [
     {
      "title": "E-mail · To: All Volunteers · From: Rosa Medina · Subject: Saturday's book sale",
-     "text": "Hi everyone,\nThank you for signing up to help at the library book sale this Saturday. Please arrive by 8:30 A.M. so that we can set up the tables before the doors open at 10:00. Volunteers will work in two shifts: morning (8:30 to 1:00) and afternoon (1:00 to 5:00). Lunch will be provided for everyone working the morning shift. If you are unable to come, please let me know by Thursday.\nRosa Medina\nFriends of the Library"
+     "text": "Hi everyone,\nThank you for signing up to help at the library book sale this Saturday. Morning volunteers, please arrive by 8:30 A.M. so that we can set up the tables before the doors open at 10:00. Volunteers will work in two shifts: morning (8:30 to 1:00) and afternoon (1:00 to 5:00). Lunch will be provided for everyone working the morning shift. If you are unable to come, please let me know by Thursday.\nRosa Medina\nFriends of the Library"
     }
    ],
    "qs": [
@@ -3339,7 +3339,7 @@
     },
     {
      "title": "E-mail · To: Pacific Tours · From: Irene Walsh · Date: August 2 · Subject: Coastal Highlights tour, August 15–17",
-     "text": "Hello,\nI have booked the Coastal Highlights tour for August 15–17, and I'm really looking forward to it. I'll be traveling alone and would like a room to myself. Unfortunately, I've just learned that I have a family event on Sunday afternoon. Would it be possible for me to leave the group after the Saturday activities and take a bus back to Seaton on my own?\nBest regards,\nIrene Walsh"
+     "text": "Hello,\nI have booked the Coastal Highlights tour for August 15–17, and I'm really looking forward to it. I'll be traveling alone, so I booked a single room. Unfortunately, I've just learned that I have a family event on Sunday afternoon. Would it be possible for me to leave the group after the Saturday activities and take a bus back to Seaton on my own?\nBest regards,\nIrene Walsh"
     },
     {
      "title": "E-mail · To: Irene Walsh · From: Pacific Tours · Date: August 3 · Subject: RE: Coastal Highlights tour, August 15–17",
@@ -3367,7 +3367,7 @@
       "$840"
      ],
      "x": 1,
-     "ev": "I'll be traveling alone and would like a room to myself.",
+     "ev": "I'll be traveling alone, so I booked a single room.",
      "why": "Cô đi một mình, muốn phòng riêng (e-mail) → $420 + $90 phụ phí phòng đơn (lịch trình) = $510."
     },
     {
@@ -3460,7 +3460,7 @@
     },
     {
      "q": "What is indicated about Conference Room 4C?",
-     "a": "It must be reserved online.",
+     "a": "It can be booked online.",
      "w": [
       "It is on the third floor.",
       "It is being renovated.",

@@ -303,7 +303,7 @@
     "hire",
     "rent",
     "lease",
-    "employ to"
+    "lend"
    ],
    "a": "hire",
    "why": "hire workers = thuê / tuyển người. rent, lease dùng cho nhà, đồ.",
@@ -343,7 +343,7 @@
    "s": "The flight to Singapore has been ------- because of bad weather.",
    "o": [
     "delayed",
-    "postponed to",
+    "departed",
     "extended",
     "lengthened"
    ],
@@ -443,7 +443,7 @@
     "present",
     "appear",
     "attend",
-    "display to"
+    "represent"
    ],
    "a": "present",
    "why": "present identification = xuất trình giấy tờ.",
@@ -527,7 +527,7 @@
     "conveniently",
     "comfortably",
     "rapidly",
-    "handily to"
+    "eagerly"
    ],
    "a": "conveniently",
    "why": "conveniently located = ở vị trí thuận tiện.",
@@ -567,12 +567,12 @@
    "s": "The contract will ------- at the end of December unless it is renewed.",
    "o": [
     "expire",
-    "finish up",
-    "terminate to",
-    "end off"
+    "retire",
+    "inspire",
+    "acquire"
    ],
    "a": "expire",
-   "why": "Hợp đồng hết hạn: expire.",
+   "why": "Hợp đồng hết hạn: expire. retire, inspire, acquire chỉ giống chữ, sai nghĩa (acquire còn cần tân ngữ).",
    "t": "voc"
   },
   {
@@ -694,7 +694,7 @@
    "o": [
     "proof",
     "prove",
-    "evidence to",
+    "proven",
     "sign"
    ],
    "a": "proof",
@@ -736,7 +736,7 @@
    "o": [
     "benefits",
     "profits",
-    "advantages to",
+    "premiums",
     "interests"
    ],
    "a": "benefits",
@@ -779,7 +779,7 @@
     "meet",
     "arrive",
     "attend",
-    "join to"
+    "come"
    ],
    "a": "meet",
    "why": "meet someone at the airport = đón ai ở sân bay.",
@@ -834,11 +834,11 @@
    "o": [
     "once",
     "during",
-    "while to",
+    "unless",
     "by"
    ],
    "a": "once",
-   "why": "once + mệnh đề = ngay khi. during, by cần danh từ.",
+   "why": "once + mệnh đề = ngay khi. during, by cần danh từ. unless (trừ khi) sai nghĩa.",
    "t": "conj"
   },
   {
@@ -1032,7 +1032,7 @@
     "on",
     "in",
     "at",
-    "by"
+    "under"
    ],
    "a": "on",
    "why": "available on request = có khi được yêu cầu."
@@ -1088,7 +1088,7 @@
     "across",
     "through",
     "among",
-    "beside of"
+    "beside"
    ],
    "a": "across",
    "why": "across the river from = bên kia sông, đối diện."
@@ -1102,7 +1102,7 @@
     "Although",
     "Despite",
     "Because of",
-    "In spite"
+    "Unless"
    ],
    "a": "Although",
    "why": "Sau chỗ trống là mệnh đề (the train was late): Although."
@@ -1129,7 +1129,7 @@
    "o": [
     "if",
     "unless",
-    "whether to",
+    "whether",
     "so that"
    ],
    "a": "if",
@@ -1172,10 +1172,10 @@
     "nevertheless",
     "therefore",
     "moreover",
-    "instead of"
+    "similarly"
    ],
    "a": "nevertheless",
-   "why": "Ý trái ngược sau dấu chấm phẩy: nevertheless (tuy vậy)."
+   "why": "Ý trái ngược sau dấu chấm phẩy: nevertheless (tuy vậy). Câu sau trái ý câu trước (lower than expected → still made a profit) nên cần từ nối chỉ đối lập."
   },
   {
    "id": "t5-85",
@@ -1352,7 +1352,7 @@
    "s": "Our technicians will ------- the equipment free of charge during the warranty period.",
    "o": [
     "repair",
-    "replace with",
+    "repeal",
     "recover",
     "refer"
    ],
@@ -1380,12 +1380,12 @@
    "s": "Employees are ------- to a 15 percent discount on all company products.",
    "o": [
     "entitled",
-    "eligible for",
-    "allowed of",
-    "permitted on"
+    "eligible",
+    "allowed",
+    "permitted"
    ],
    "a": "entitled",
-   "why": "be entitled to = được hưởng (quyền lợi)."
+   "why": "be entitled to = được hưởng (quyền lợi). eligible đi với for; allowed / permitted + to V."
   },
   {
    "id": "t5-100",

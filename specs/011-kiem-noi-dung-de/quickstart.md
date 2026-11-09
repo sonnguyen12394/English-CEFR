@@ -9,6 +9,6 @@
    - `node tools/giai-mu.mjs so de3 <scratch>/de3-nghe.json` → "khớp 97/100", danh sách câu lệch.
 5. Xử lý: sửa câu trong `content/toeic/...` → dựng lại → câu đã sửa hiện `GM-CU` → xuất phiếu `--cau` các câu đó → giải lại → hết `GM-CU`. Câu đúng mà vẫn bị cảnh báo → thêm mục vào `content/toeic/kiem-ok.json` kèm lý do.
 6. Câu nghe đã sửa: `python tools/build-audio.py <km> 4`.
-7. Cổng phát hành: `node tools/test/run.mjs` → C67 xanh khi 0 lỗi, 0 cảnh báo chưa xem, mọi đề đã giải mù; bộ câu cài lỗi bị bắt đủ.
+7. Cổng phát hành: `node tools/test/run.mjs` → C69 xanh khi 0 lỗi, 0 cảnh báo chưa xem, mọi đề đã giải mù; bộ câu cài lỗi bị bắt đủ.
 
 Kết quả mong đợi sau đợt sửa đề cũ: Đề 1–6 "0 lỗi · 0 cảnh báo chưa xem · giải mù khớp ≥ 95%, câu lệch đã xử lý hết"; số cảnh báo đã xem ≤ 5 / 100 câu.
