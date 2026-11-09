@@ -90,12 +90,23 @@ const evIn = (ev, T) => !!ev && norm(ev).length > 8 && norm(T).includes(norm(ev)
 // v152: câu gần trùng (chỉ đổi 1–2 chữ) với kho / đề khác cũng chặn: người từng luyện kho nhận ra câu → điểm đề thử cao giả. Jaccard theo từ ≥ 0,6 (Part 2) / 0,55 (Part 5)
 const tk = s => new Set(String(s).toLowerCase().match(/[a-z0-9']+/g) || []), jac = (a, b) => { let n = 0; for (const w of a) if (b.has(w)) n++; return n / Math.max(1, a.size + b.size - n); };
 const NEAR = { p2: [0.6, x => x.q], p5: [0.55, x => x.s] }, NS = { p2: [], p5: [] }; for (const s in NEAR) for (const x of BY[s]) NS[s].push(['kho ' + x.id, tk(NEAR[s][1](x))]);
+// v153 (specs/011, giải mù Đề 1–6): bài Part 3 / 4 / 6 / 7 chép khuôn bài kho / đề trước (đổi tên, giữ câu chữ) cũng chặn: người từng luyện kho nhận ra bài.
+//   Cụm 5 từ trùng ≥ 10% (so với bài ngắn hơn) hoặc từ nội dung trùng (Jaccard, bỏ từ chức năng) ≥ 0,25. Đo 9/11/2026: bài chép khuôn 0,10–0,14 / 0,26–0,39; bài khác chủ đề cao nhất 0,09 / 0,22.
+const PTX = { p3: x => x.lines.map(l => l[1]).join(' '), p4: x => x.text, p6: x => x.text.replace(/\{\d\}/g, ' '), p7: x => x.docs.map(d => d.text).join(' ') };
+const PSTOP = new Set('the and for you your our are was were will with that this have has had from they their there been would could should about into than then them what when which while also each more most some such only other over under after before because very just can may must not all any its his her she him who how why where here use used using please thank thanks dear best regards'.split(' '));
+const g5 = s => { const w = String(s).toLowerCase().replace(/[^a-z0-9' ]+/g, ' ').split(/\s+/).filter(Boolean), S = new Set(); for (let i = 0; i + 5 <= w.length; i++) S.add(w.slice(i, i + 5).join(' ')); return S; };
+const cwS = s => new Set((String(s).toLowerCase().match(/[a-z']{3,}/g) || []).filter(w => !PSTOP.has(w)));
+const PS = {}; for (const s in PTX) PS[s] = (BY[s] || []).map(x => ['kho ' + x.id, g5(PTX[s](x)), cwS(PTX[s](x))]);
 for (const f of NEWD) { const R = rd('content/toeic/tron/' + f), t = (R.id || f) + ' ', nn = String(+(R.id || '').slice(2)).padStart(2, '0');
   if (!/^de\d+$/.test(R.id || '') || !R.t || TRON.some(d => d.id === R.id) || ND.some(d => d.id === R.id)) err.push(f + ': id / tên đề sai hoặc trùng');
   const X = { p1: (R.p1 || []).map(p1Mk), p2: (R.p2 || []).map(p2Mk), p3: (R.p3 || []).map(talk), p4: (R.p4 || []).map(p4Mk), p5: (R.p5 || []).map(p5Chk), p6: (R.p6 || []).map(p6Mk), p7: (R.p7 || []).map(p7Mk) };
   for (const s in X) for (const x of X[s]) { if (!new RegExp('^d' + nn + '-' + s + '-\\d{2}$').test(x.id)) err.push(t + x.id + ': mã cần dạng d' + nn + '-' + s + '-01');
     const k = s + ':' + norm(dupKey(s, x)); if (SEEN.has(k)) err.push(t + x.id + ': trùng nguyên văn với ' + SEEN.get(k)); else SEEN.set(k, R.id + ' ' + x.id); }
   for (const s in NEAR) for (const x of X[s]) { const t1 = tk(NEAR[s][1](x)); for (const [w, t2] of NS[s]) { const j = jac(t1, t2); if (j >= NEAR[s][0]) err.push(t + x.id + ': gần trùng (' + j.toFixed(2) + ') với ' + w); } NS[s].push([R.id + ' ' + x.id, t1]); }
+  for (const s in PTX) for (const x of X[s]) { const a5 = g5(PTX[s](x)), aw = cwS(PTX[s](x));
+    for (const [w, b5, bw] of PS[s]) { let n = 0; for (const c of a5) if (b5.has(c)) n++; const c5 = n / Math.max(1, Math.min(a5.size, b5.size)), jw = jac(aw, bw);
+      if (c5 >= 0.10 || jw >= 0.25) err.push(t + x.id + ': chép khuôn bài ' + w + ' (cụm 5 từ trùng ' + Math.round(c5 * 100) + '%, từ nội dung ' + jw.toFixed(2) + '): viết tình huống khác'); }
+    PS[s].push([R.id + ' ' + x.id, a5, aw]); }
   chkDe(t, X);
   const c = (a, fn) => a.filter(fn).length, p2c = cnt(X.p2, x => x.ty), q3 = X.p3.flatMap(x => x.qs), q4 = X.p4.flatMap(x => x.qs), q7 = X.p7.flatMap(x => x.qs), one = X.p7.filter(x => x.docs.length === 1);
   const want = [['Part 1: 4 tranh có người, 2 tranh cảnh', c(X.p1, x => x.k === 'people') === 4 && c(X.p1, x => x.k === 'scene') === 2],

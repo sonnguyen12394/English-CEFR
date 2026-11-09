@@ -188,9 +188,9 @@
       70
      ],
      [
-      "🚴",
+      "🚴‍♂️",
       168,
-      140,
+      146,
       62
      ],
      [
@@ -1753,40 +1753,40 @@
   {
    "id": "d03-p4-02",
    "ty": "ann",
-   "text": "Good afternoon, passengers on Flight 318 to Vancouver. We regret to inform you that the departure has been delayed by forty-five minutes because of a late-arriving aircraft. The new departure time is four fifteen. Passengers who have connecting flights in Vancouver should speak with an agent at the service desk next to Gate 12. While you wait, we invite you to enjoy a complimentary beverage at the Skyway Café across from the gate. Just show your boarding pass. Thank you for your patience.",
+   "text": "Good afternoon, and welcome to the Northfield Home and Garden Fair. Please note that the cooking demonstration scheduled for three o'clock has been moved from the main stage to Hall C because of a problem with the stage lighting. The demonstration will now begin at three thirty. Visitors who bought tickets for the demonstration should bring them to the entrance of Hall C. While you wait, free samples of local cheese are being offered at the Dairy Council stand near the north entrance. Thank you, and enjoy the fair.",
    "qs": [
     {
-     "q": "What is the cause of the delay?",
-     "a": "An aircraft arrived late.",
+     "q": "Why has the demonstration been moved?",
+     "a": "There is a problem with some lights.",
      "w": [
       "The weather is bad.",
-      "A crew member is sick.",
-      "The runway is being repaired."
+      "The chef arrived late.",
+      "More tickets were sold."
      ],
      "ty": "detail",
-     "ev": "because of a late-arriving aircraft"
+     "ev": "because of a problem with the stage lighting"
     },
     {
-     "q": "Who should go to the service desk?",
-     "a": "Passengers with connecting flights",
+     "q": "Who should go to the entrance of Hall C?",
+     "a": "People with tickets for the demonstration",
      "w": [
-      "Passengers with large bags",
-      "Passengers who need wheelchairs",
-      "Passengers traveling with children"
+      "People who want to buy plants",
+      "Exhibitors with large displays",
+      "Visitors with young children"
      ],
      "ty": "detail",
-     "ev": "Passengers who have connecting flights in Vancouver should speak with an agent"
+     "ev": "Visitors who bought tickets for the demonstration should bring them to the entrance of Hall C"
     },
     {
      "q": "What are the listeners offered?",
-     "a": "A free drink",
+     "a": "Free food samples",
      "w": [
-      "A meal voucher",
-      "A seat upgrade",
-      "A hotel room"
+      "A discount on tickets",
+      "A cooking lesson",
+      "A parking pass"
      ],
      "ty": "detail",
-     "ev": "enjoy a complimentary beverage"
+     "ev": "free samples of local cheese are being offered"
     }
    ]
   },
@@ -2565,7 +2565,7 @@
    "id": "d03-p6-01",
    "kind": "E-mail",
    "title": "To: All employees · From: Office Manager · Subject: New recycling program",
-   "text": "Starting next Monday, our office will take part in a new recycling program. Blue bins for paper and green bins for plastic {1} in the kitchen on each floor before the program begins. Please do not put food waste in either bin. {2} The building's cleaning staff will empty the bins every evening. {3}, if a bin is full during the day, you may leave the items next to it. We appreciate your {4} in making our workplace more environmentally friendly.",
+   "text": "Starting next Monday, our office will take part in a new recycling program. Blue bins for paper and green bins for plastic {1} in the kitchen on each floor before the program begins. Please do not put food waste in either bin. {2} The building's cleaning staff will empty the bins every evening, so please do not leave recycling anywhere else. {3}, if a bin is full during the day, you may leave the items next to it. We appreciate your {4} in making our workplace more environmentally friendly.",
    "gaps": [
     {
      "o": [
@@ -2596,7 +2596,7 @@
       "Similarly"
      ],
      "a": "However",
-     "why": "Câu trước: nhân viên dọn thùng mỗi tối; câu sau: nếu thùng đầy ban ngày thì để cạnh thùng → ý ngoại lệ, ngược: However."
+     "why": "Câu trước dặn không để rác tái chế chỗ khác; câu sau cho phép để cạnh thùng khi thùng đầy ban ngày → ngoại lệ, ý ngược: However."
     },
     {
      "o": [
@@ -2661,49 +2661,49 @@
   {
    "id": "d03-p6-03",
    "kind": "Letter",
-   "title": "Dear Mr. Okonkwo,",
-   "text": "Thank you for your order of fifty office chairs, which we received on March 12. Unfortunately, the model you selected is temporarily out of stock. We {1} to receive new stock from our manufacturer by the end of the month. {2} If you prefer, we can send a similar model, the Ergo Plus, right away at no {3} cost. Please let us know which option you prefer by replying to this letter. We apologize for the {4} and thank you for your patience. Sincerely, Hannah Brooks, Customer Service",
+   "title": "Dear Ms. Tanaka,",
+   "text": "Thank you for choosing the Ashford Hotel for your company's sales conference on June 8. We are writing to let you know that the Lakeview Room, which you reserved, {1} new carpeting during the first week of June. {2} We would therefore like to move your event to the Garden Room, which is slightly larger and has a {3} view of our park. There will be no change to the price you were quoted. We apologize for any {4} this may cause, and we look forward to welcoming your group. Sincerely, Paolo Ricci, Events Manager",
    "gaps": [
     {
      "o": [
-      "expect",
-      "expecting",
-      "expectation",
-      "had expected"
+      "will receive",
+      "received",
+      "has received",
+      "receiving"
      ],
-     "a": "expect",
+     "a": "will receive",
      "t": "tense",
-     "why": "Nói dự kiến hiện tại về việc sắp tới (by the end of the month) → hiện tại đơn: We expect."
+     "why": "Việc lắp thảm sắp diễn ra (during the first week of June, trước hội nghị 8/6) → tương lai: will receive."
     },
     {
      "o": [
-      "Your order would then be delivered in early April.",
-      "Our office chairs come in five different colors.",
-      "The Ergo Plus model was first sold in 2015.",
-      "Please return the chairs within thirty days."
+      "The work may not be finished in time for your conference.",
+      "The hotel restaurant serves breakfast from 6:30 A.M.",
+      "Your sales conference was a great success last year.",
+      "Carpet samples are available at the front desk."
      ],
-     "a": "Your order would then be delivered in early April.",
-     "why": "Câu trước: hàng mới về cuối tháng → câu chèn: khi đó đơn sẽ giao đầu tháng 4; sau đó mới tới phương án khác (If you prefer…)."
+     "a": "The work may not be finished in time for your conference.",
+     "why": "Câu trước: phòng sẽ lắp thảm mới; câu chèn: có thể chưa xong kịp hội nghị → vì vậy (therefore) chuyển sang phòng khác."
     },
     {
      "o": [
-      "additional",
-      "addition",
-      "additionally",
-      "add"
+      "beautiful",
+      "beautifully",
+      "beauty",
+      "beautify"
      ],
-     "a": "additional",
-     "why": "Trước danh từ cost cần tính từ: at no additional cost."
+     "a": "beautiful",
+     "why": "Trước danh từ view cần tính từ: a beautiful view."
     },
     {
      "o": [
-      "inconvenience",
-      "inconvenient",
-      "inconveniently",
-      "convenience"
+      "disruption",
+      "disrupt",
+      "disruptive",
+      "disruptively"
      ],
-     "a": "inconvenience",
-     "why": "apologize for the + danh từ: inconvenience (sự bất tiện). convenience nghĩa ngược lại."
+     "a": "disruption",
+     "why": "apologize for any + danh từ: disruption (sự xáo trộn)."
     }
    ]
   },
@@ -2764,31 +2764,31 @@
    "docs": [
     {
      "title": "Text messages",
-     "text": "Luis Ortega (10:02 A.M.): Hi Ana, the delivery van for the Kingsley order just broke down on Route 9.\nAna Brandt (10:04 A.M.): Oh no. They need those flowers for the wedding at two.\nLuis Ortega (10:05 A.M.): I know. The mechanic says the repair will take at least three hours.\nAna Brandt (10:06 A.M.): Leave it with me. I'll ask Tom to bring the small van from the shop.\nLuis Ortega (10:07 A.M.): Great. I'll wait here with the flowers."
+     "text": "Mia Kim (9:15 A.M.): Hi Ethan, someone from the finance team is using Meeting Room 3, and our call with Halston Foods starts at ten.\nEthan Ruiz (9:17 A.M.): Did you book it in the system?\nMia Kim (9:18 A.M.): Yes, but it looks like they booked it too. They say they'll need it all morning.\nEthan Ruiz (9:19 A.M.): Don't worry about it. I'll ask reception to open the small room on the fifth floor.\nMia Kim (9:20 A.M.): Thanks. I'll move the laptop and the speakerphone up there."
     }
    ],
    "qs": [
     {
-     "q": "What problem does Mr. Ortega report?",
-     "a": "A vehicle has stopped working.",
+     "q": "What problem does Ms. Kim report?",
+     "a": "A room is being used by other people.",
      "w": [
-      "A customer canceled an order.",
-      "Some flowers were damaged.",
-      "A driver got lost."
+      "A client has canceled a call.",
+      "A laptop is not working.",
+      "A report is missing."
      ],
-     "ev": "the delivery van for the Kingsley order just broke down on Route 9",
-     "why": "Xe giao hàng bị hỏng (broke down) trên đường số 9."
+     "ev": "someone from the finance team is using Meeting Room 3",
+     "why": "Phòng họp 3 đang bị nhóm tài chính dùng, trong khi cuộc gọi với khách bắt đầu lúc 10 giờ."
     },
     {
-     "q": "At 10:06 A.M., what does Ms. Brandt mean when she writes, \"Leave it with me\"?",
-     "a": "She will deal with the situation.",
+     "q": "At 9:19 A.M., what does Mr. Ruiz mean when he writes, \"Don't worry about it\"?",
+     "a": "He will solve the problem.",
      "w": [
-      "She will pick up the flowers herself.",
-      "She wants Mr. Ortega to leave the van.",
-      "She will call the wedding planner."
+      "He thinks the call can be canceled.",
+      "He does not need the meeting room.",
+      "He wants Ms. Kim to call reception."
      ],
-     "ev": "I'll ask Tom to bring the small van from the shop.",
-     "why": "\"Leave it with me\" = để tôi lo; cô sắp xếp cho Tom mang xe nhỏ tới."
+     "ev": "I'll ask reception to open the small room on the fifth floor.",
+     "why": "\"Don't worry about it\" = để anh lo; anh sẽ nhờ lễ tân mở phòng nhỏ ở tầng 5."
     }
    ]
   },

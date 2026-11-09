@@ -13,6 +13,24 @@
    "phan": "doc",
    "cau": 100,
    "khop": 100
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 5,
+   "khop": 5
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 8,
+   "khop": 8
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 4,
+   "khop": 4
   }
  ],
  "cau": {
@@ -58,12 +76,12 @@
   },
   "5": {
    "id": "d05-p1-05",
-   "dau": "a5d82f5906",
+   "dau": "ef99c6f3a2",
    "da": "C",
    "chon": "C",
-   "chac": 2,
-   "hai": "D",
-   "ghi": "Emoji ✈️ vẽ nghiêng như đang bay, nằm giữa tranh phía trên dải xám; (D) 'đang cất cánh' khó loại hẳn.",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "6": {
@@ -308,12 +326,12 @@
   },
   "30": {
    "id": "d05-p2-24",
-   "dau": "fcf85ba69a",
+   "dau": "1ab89e6c9c",
    "da": "C",
    "chon": "C",
-   "chac": 2,
-   "hai": "A",
-   "ghi": "(A) hiểu được là 'hàng đã giao hôm qua, không đổi được' — đáp gián tiếp hợp lý; nên thay câu nhiễu.",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "31": {
@@ -328,7 +346,7 @@
   },
   "32": {
    "id": "d05-p3-01#1",
-   "dau": "083dbf01a2",
+   "dau": "2dc55a825c",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -338,17 +356,17 @@
   },
   "33": {
    "id": "d05-p3-01#2",
-   "dau": "083dbf01a2",
+   "dau": "2dc55a825c",
    "da": "A",
    "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Lời 'A customer returned one late' (đã trả) không giải thích vì sao hết xe; tự nhiên hơn: 'hasn't returned one yet'.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "34": {
    "id": "d05-p3-01#3",
-   "dau": "083dbf01a2",
+   "dau": "2dc55a825c",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1398,7 +1416,7 @@
   },
   "139": {
    "id": "d05-p6-03#1",
-   "dau": "fd5eceea50",
+   "dau": "1fc88cc131",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1408,9 +1426,9 @@
   },
   "140": {
    "id": "d05-p6-03#2",
-   "dau": "fd5eceea50",
-   "da": "B",
-   "chon": "B",
+   "dau": "1fc88cc131",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1418,7 +1436,7 @@
   },
   "141": {
    "id": "d05-p6-03#3",
-   "dau": "fd5eceea50",
+   "dau": "1fc88cc131",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1428,12 +1446,12 @@
   },
   "142": {
    "id": "d05-p6-03#4",
-   "dau": "fd5eceea50",
-   "da": "A",
-   "chon": "A",
+   "dau": "1fc88cc131",
+   "da": "D",
+   "chon": "D",
    "chac": 3,
    "hai": null,
-   "ghi": "",
+   "ghi": "'a large range' dùng được nhưng 'a wide range' tự nhiên hơn; không ảnh hưởng đáp án.",
    "ngay": "2026-11-09"
   },
   "143": {
@@ -1688,7 +1706,7 @@
   },
   "168": {
    "id": "d05-p7-09#1",
-   "dau": "a455b2a37f",
+   "dau": "1ab7eb11f3",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1698,7 +1716,7 @@
   },
   "169": {
    "id": "d05-p7-09#2",
-   "dau": "a455b2a37f",
+   "dau": "1ab7eb11f3",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1708,7 +1726,7 @@
   },
   "170": {
    "id": "d05-p7-09#3",
-   "dau": "a455b2a37f",
+   "dau": "1ab7eb11f3",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1718,17 +1736,17 @@
   },
   "171": {
    "id": "d05-p7-09#4",
-   "dau": "a455b2a37f",
+   "dau": "1ab7eb11f3",
    "da": "B",
    "chon": "B",
    "chac": 3,
    "hai": null,
-   "ghi": "Chèn vào [2] tạo lặp 'at the market today. Today, …' hơi vụng; nên bỏ 'today' ở câu chèn.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "172": {
    "id": "d05-p7-10#1",
-   "dau": "745dfbacda",
+   "dau": "ffa57eacd6",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1738,17 +1756,17 @@
   },
   "173": {
    "id": "d05-p7-10#2",
-   "dau": "745dfbacda",
+   "dau": "ffa57eacd6",
    "da": "D",
    "chon": "D",
    "chac": 3,
-   "hai": "C",
-   "ghi": "C cãi được: mua ở cửa hàng trực tuyến của Hartwell cũng là 'in a Hartwell store'; nên nói rõ cửa hàng thực.",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "174": {
    "id": "d05-p7-10#3",
-   "dau": "745dfbacda",
+   "dau": "ffa57eacd6",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1758,7 +1776,7 @@
   },
   "175": {
    "id": "d05-p7-10#4",
-   "dau": "745dfbacda",
+   "dau": "ffa57eacd6",
    "da": "D",
    "chon": "D",
    "chac": 3,

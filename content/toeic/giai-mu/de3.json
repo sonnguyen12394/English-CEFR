@@ -13,6 +13,30 @@
    "phan": "doc",
    "cau": 100,
    "khop": 100
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 5,
+   "khop": 5
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 15,
+   "khop": 15
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 4,
+   "khop": 4
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 10,
+   "khop": 10
   }
  ],
  "cau": {
@@ -38,12 +62,12 @@
   },
   "3": {
    "id": "d03-p1-03",
-   "dau": "d93d5b93ae",
+   "dau": "8e3d76b9fc",
    "da": "D",
    "chon": "D",
    "chac": 3,
    "hai": null,
-   "ghi": "Người đạp xe ở giữa tranh, đường ở dưới cùng: nên kiểm tranh xem xe có thật sự nằm trên đường.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "4": {
@@ -308,12 +332,12 @@
   },
   "30": {
    "id": "d03-p2-24",
-   "dau": "130b4c7d81",
+   "dau": "ba13714bf4",
    "da": "B",
    "chon": "B",
    "chac": 3,
    "hai": null,
-   "ghi": "Gần trùng câu 14 trong cùng đề (thiết bị phòng họp hỏng → gọi bảo trì); nên đổi tình huống.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "31": {
@@ -748,7 +772,7 @@
   },
   "74": {
    "id": "d03-p4-02#1",
-   "dau": "d1b42d76c4",
+   "dau": "24cb319bec",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -758,9 +782,9 @@
   },
   "75": {
    "id": "d03-p4-02#2",
-   "dau": "d1b42d76c4",
-   "da": "C",
-   "chon": "C",
+   "dau": "24cb319bec",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -768,7 +792,7 @@
   },
   "76": {
    "id": "d03-p4-02#3",
-   "dau": "d1b42d76c4",
+   "dau": "24cb319bec",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -868,7 +892,7 @@
   },
   "86": {
    "id": "d03-p4-06#1",
-   "dau": "8c169b2e95",
+   "dau": "28c3aa9b50",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -878,7 +902,7 @@
   },
   "87": {
    "id": "d03-p4-06#2",
-   "dau": "8c169b2e95",
+   "dau": "28c3aa9b50",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -888,12 +912,12 @@
   },
   "88": {
    "id": "d03-p4-06#3",
-   "dau": "8c169b2e95",
+   "dau": "28c3aa9b50",
    "da": "A",
    "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Hàm ý gần như nghĩa đen; 'Don't worry' ngay sau lệnh cấm chụp ảnh hơi gượng, dễ kéo người làm sang bẫy B.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "89": {
@@ -1018,22 +1042,22 @@
   },
   "101": {
    "id": "d03-p5-01",
-   "dau": "3412d55bb5",
+   "dau": "2ff1bcea19",
    "da": "A",
    "chon": "A",
    "chac": 3,
-   "hai": "B",
-   "ghi": "‘direct’ cũng là trạng từ (submit/send direct to…, nhất là Anh–Anh) nên B có thể bảo vệ; nên đổi phương án nhiễu.",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "102": {
    "id": "d03-p5-02",
-   "dau": "5493e92613",
+   "dau": "a5ec2c978a",
    "da": "C",
    "chon": "C",
    "chac": 3,
-   "hai": "B",
-   "ghi": "‘send’ nhận hai tân ngữ nên ‘send them weekly updates’ (gửi cho họ) cũng đúng ngữ pháp; nên dùng động từ khác, vd. ‘submit’.",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "103": {
@@ -1318,17 +1342,17 @@
   },
   "131": {
    "id": "d03-p6-01#1",
-   "dau": "d9ec1a96fb",
+   "dau": "b7cb8abfea",
    "da": "C",
    "chon": "C",
-   "chac": 2,
-   "hai": "D",
-   "ghi": "‘were placed’ cũng bảo vệ được nếu thùng đã đặt sẵn; chỉ ‘Starting next Monday’ nghiêng về C. Nên thêm mốc thời gian.",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "132": {
    "id": "d03-p6-01#2",
-   "dau": "d9ec1a96fb",
+   "dau": "b7cb8abfea",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1338,7 +1362,7 @@
   },
   "133": {
    "id": "d03-p6-01#3",
-   "dau": "d9ec1a96fb",
+   "dau": "b7cb8abfea",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1348,7 +1372,7 @@
   },
   "134": {
    "id": "d03-p6-01#4",
-   "dau": "d9ec1a96fb",
+   "dau": "b7cb8abfea",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1398,9 +1422,9 @@
   },
   "139": {
    "id": "d03-p6-03#1",
-   "dau": "e3f6cda6f0",
-   "da": "C",
-   "chon": "C",
+   "dau": "0de6a26b95",
+   "da": "D",
+   "chon": "D",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1408,7 +1432,7 @@
   },
   "140": {
    "id": "d03-p6-03#2",
-   "dau": "e3f6cda6f0",
+   "dau": "0de6a26b95",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1418,9 +1442,9 @@
   },
   "141": {
    "id": "d03-p6-03#3",
-   "dau": "e3f6cda6f0",
-   "da": "C",
-   "chon": "C",
+   "dau": "0de6a26b95",
+   "da": "D",
+   "chon": "D",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1428,9 +1452,9 @@
   },
   "142": {
    "id": "d03-p6-03#4",
-   "dau": "e3f6cda6f0",
-   "da": "A",
-   "chon": "A",
+   "dau": "0de6a26b95",
+   "da": "D",
+   "chon": "D",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1478,9 +1502,9 @@
   },
   "147": {
    "id": "d03-p7-01#1",
-   "dau": "136ac01715",
-   "da": "D",
-   "chon": "D",
+   "dau": "9c3081529f",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1488,7 +1512,7 @@
   },
   "148": {
    "id": "d03-p7-01#2",
-   "dau": "136ac01715",
+   "dau": "9c3081529f",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1688,7 +1712,7 @@
   },
   "168": {
    "id": "d03-p7-09#1",
-   "dau": "8196608353",
+   "dau": "5a22d982b8",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1698,7 +1722,7 @@
   },
   "169": {
    "id": "d03-p7-09#2",
-   "dau": "8196608353",
+   "dau": "5a22d982b8",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1708,7 +1732,7 @@
   },
   "170": {
    "id": "d03-p7-09#3",
-   "dau": "8196608353",
+   "dau": "5a22d982b8",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1718,7 +1742,7 @@
   },
   "171": {
    "id": "d03-p7-09#4",
-   "dau": "8196608353",
+   "dau": "5a22d982b8",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1918,7 +1942,7 @@
   },
   "191": {
    "id": "d03-p7-14#1",
-   "dau": "3412e6e1d3",
+   "dau": "3e1879f4ee",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1928,7 +1952,7 @@
   },
   "192": {
    "id": "d03-p7-14#2",
-   "dau": "3412e6e1d3",
+   "dau": "3e1879f4ee",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1938,7 +1962,7 @@
   },
   "193": {
    "id": "d03-p7-14#3",
-   "dau": "3412e6e1d3",
+   "dau": "3e1879f4ee",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1948,17 +1972,17 @@
   },
   "194": {
    "id": "d03-p7-14#4",
-   "dau": "3412e6e1d3",
+   "dau": "3e1879f4ee",
    "da": "D",
    "chon": "D",
    "chac": 3,
    "hai": null,
-   "ghi": "‘swim with an adult’ hơi lệch ‘accompanied by an adult’ (người lớn đi kèm, không nhất thiết bơi cùng).",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "195": {
    "id": "d03-p7-14#5",
-   "dau": "3412e6e1d3",
+   "dau": "3e1879f4ee",
    "da": "C",
    "chon": "C",
    "chac": 3,

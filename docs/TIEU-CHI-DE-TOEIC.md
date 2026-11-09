@@ -14,7 +14,7 @@ Tiêu chí dựa trên cấu trúc đề công khai của ETS và nguyên tắc 
 
 Cổng phát hành (test C69): **0 lỗi, 0 cảnh báo chưa xem, mọi đề đã giải mù**.
 
-Bộ dựng (`tools/build-toeic.mjs`) đã kiểm sẵn, không nhắc lại ở đây: cơ cấu đề (số câu từng Part, thứ tự, bài có bảng ở cuối, 3 người nói…), dạng câu tối thiểu, nhãn dạng, câu trích `ev` có nguyên văn trong bài, trùng nguyên văn và **gần trùng** với kho luyện / đề khác (Part 2, Part 5).
+Bộ dựng (`tools/build-toeic.mjs`) đã kiểm sẵn, không nhắc lại ở đây: cơ cấu đề (số câu từng Part, thứ tự, bài có bảng ở cuối, 3 người nói…), dạng câu tối thiểu, nhãn dạng, câu trích `ev` có nguyên văn trong bài, trùng nguyên văn và **gần trùng** với kho luyện / đề khác (Part 2, Part 5), và từ v153 **bài chép khuôn** Part 3 / 4 / 6 / 7 (đổi tên người / số nhưng giữ câu chữ: cụm 5 từ trùng ≥ 10% hoặc từ nội dung trùng ≥ 0,25). Giải mù Đề 4 / 6 chỉ ra loại lỗi này; đo lại thấy 6 bài của Đề 3–5 chép khuôn bài kho (thư "office chairs out of stock… Ergo Plus", tin nhắn "van broke down on Route 9", thông báo hoãn chuyến bay, gia hạn tạp chí, quảng cáo trường ngoại ngữ, tiệm bánh "Golden Crust") → viết tình huống mới.
 
 ## Quy trình soạn một đề
 

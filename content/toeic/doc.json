@@ -1507,7 +1507,7 @@
     },
     {
      "q": "In the second e-mail, the word \"gesture\" is closest in meaning to",
-     "a": "action",
+     "a": "act",
      "w": [
       "movement",
       "request",
@@ -2508,8 +2508,8 @@
      "text": "Oak Room: up to 20 people, $300 per day, projector.\nBirch Hall: up to 60 people, $650 per day, projector and sound system.\nCedar Suite: up to 120 people, $1,100 per day, projector, sound system and stage.\nCatering is available for groups of 30 or more. Bookings made at least 60 days in advance receive a 10% discount."
     },
     {
-     "title": "E-mail · To: bookings@greenleafcc.com · From: Marta Silva, Nordvik Pharmaceuticals · Date: March 3",
-     "text": "Hello, I would like to book a room for a training day on May 20. We expect 45 employees. A guest speaker will give a talk in the morning, so we will need a sound system. We would also like lunch to be served for everyone. Please confirm the price, including any discount we are eligible for. Best regards, Marta Silva"
+     "title": "E-mail · To: bookings@maplewoodcc.com · From: Marta Silva, Nordvik Pharmaceuticals · Date: March 3",
+     "text": "Hello, I would like to book a room for a training day on May 20. We expect 45 employees. A guest speaker will give a talk in the morning, so we will need a sound system. Our budget for the room itself is $800 or less. We would also like lunch to be served for everyone. Please confirm the price, including any discount we are eligible for. Best regards, Marta Silva"
     },
     {
      "title": "Online review · Posted May 24 by Marta Silva",
@@ -2525,7 +2525,7 @@
       "Cedar Suite",
       "Two Oak Rooms"
      ],
-     "why": "Đối chiếu: 45 người cần âm thanh → Birch Hall (tới 60 người, có sound system). Oak Room quá nhỏ, Cedar Suite thừa chỗ và đắt hơn."
+     "why": "Đối chiếu: 45 người, cần âm thanh, tiền phòng tối đa $800 → Birch Hall (tới 60 người, có sound system, $650). Oak Room quá nhỏ, Cedar Suite $1,100 vượt ngân sách, hai phòng Oak cũng không đủ 45 người và không có loa."
     },
     {
      "q": "Why will Nordvik Pharmaceuticals most likely receive a discount?",

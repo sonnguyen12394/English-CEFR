@@ -13,17 +13,41 @@
    "phan": "doc",
    "cau": 100,
    "khop": 100
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 4,
+   "khop": 4
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 16,
+   "khop": 16
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 3,
+   "khop": 3
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 4,
+   "khop": 4
   }
  ],
  "cau": {
   "1": {
    "id": "d06-p1-01",
-   "dau": "a617a2b6e2",
+   "dau": "cd3ed1667e",
    "da": "A",
    "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Người 🧑‍💼 trung tính giới tính mà câu đúng nói 'A man'; nên dùng 👨‍💼 như câu 3, 4.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "2": {
@@ -328,7 +352,7 @@
   },
   "32": {
    "id": "d06-p3-01#1",
-   "dau": "53a5103e9e",
+   "dau": "87e5d81b10",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -338,7 +362,7 @@
   },
   "33": {
    "id": "d06-p3-01#2",
-   "dau": "53a5103e9e",
+   "dau": "87e5d81b10",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -348,7 +372,7 @@
   },
   "34": {
    "id": "d06-p3-01#3",
-   "dau": "53a5103e9e",
+   "dau": "87e5d81b10",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -628,7 +652,7 @@
   },
   "62": {
    "id": "d06-p3-11#1",
-   "dau": "82e8e53e00",
+   "dau": "0d41ae1ac3",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -638,17 +662,17 @@
   },
   "63": {
    "id": "d06-p3-11#2",
-   "dau": "82e8e53e00",
+   "dau": "0d41ae1ac3",
    "da": "A",
    "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Không cần nhìn bảng: 'the next day' sau thứ Bảy là Chủ nhật. Bảng 'Weekend Forecast' lại có thứ Năm, hơi lạ.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "64": {
    "id": "d06-p3-11#3",
-   "dau": "82e8e53e00",
+   "dau": "0d41ae1ac3",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1438,9 +1462,9 @@
   },
   "143": {
    "id": "d06-p6-04#1",
-   "dau": "c79b541d80",
-   "da": "D",
-   "chon": "D",
+   "dau": "7fee760cea",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1448,9 +1472,9 @@
   },
   "144": {
    "id": "d06-p6-04#2",
-   "dau": "c79b541d80",
-   "da": "B",
-   "chon": "B",
+   "dau": "7fee760cea",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1458,9 +1482,9 @@
   },
   "145": {
    "id": "d06-p6-04#3",
-   "dau": "c79b541d80",
-   "da": "A",
-   "chon": "A",
+   "dau": "7fee760cea",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1468,12 +1492,12 @@
   },
   "146": {
    "id": "d06-p6-04#4",
-   "dau": "c79b541d80",
+   "dau": "7fee760cea",
    "da": "A",
    "chon": "A",
    "chac": 3,
-   "hai": "C",
-   "ghi": "Anh–Anh nói 'contact … on extension 210' cũng đúng; nên đổi phương án C.",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "147": {
@@ -1538,17 +1562,17 @@
   },
   "153": {
    "id": "d06-p7-04#1",
-   "dau": "c9a42ba509",
+   "dau": "1b7981cf4c",
    "da": "C",
    "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Thư bảo mọi người đến trước 8:30 dù có ca chiều bắt đầu 1:00; hơi mâu thuẫn, không ảnh hưởng đáp án.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "154": {
    "id": "d06-p7-04#2",
-   "dau": "c9a42ba509",
+   "dau": "1b7981cf4c",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1918,7 +1942,7 @@
   },
   "191": {
    "id": "d06-p7-14#1",
-   "dau": "3b3a1f71d6",
+   "dau": "52a899799e",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1928,17 +1952,17 @@
   },
   "192": {
    "id": "d06-p7-14#2",
-   "dau": "3b3a1f71d6",
+   "dau": "52a899799e",
    "da": "C",
    "chon": "C",
-   "chac": 2,
-   "hai": "D",
-   "ghi": "Thư chỉ nói 'would like a room to myself', không xác nhận đã trả phụ phí phòng đơn; $420 cũng bảo vệ được.",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "193": {
    "id": "d06-p7-14#3",
-   "dau": "3b3a1f71d6",
+   "dau": "52a899799e",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1948,7 +1972,7 @@
   },
   "194": {
    "id": "d06-p7-14#4",
-   "dau": "3b3a1f71d6",
+   "dau": "52a899799e",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1958,7 +1982,7 @@
   },
   "195": {
    "id": "d06-p7-14#5",
-   "dau": "3b3a1f71d6",
+   "dau": "52a899799e",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1968,7 +1992,7 @@
   },
   "196": {
    "id": "d06-p7-15#1",
-   "dau": "49c40a6b9f",
+   "dau": "11eabaf6b6",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1978,9 +2002,9 @@
   },
   "197": {
    "id": "d06-p7-15#2",
-   "dau": "49c40a6b9f",
-   "da": "D",
-   "chon": "D",
+   "dau": "11eabaf6b6",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1988,7 +2012,7 @@
   },
   "198": {
    "id": "d06-p7-15#3",
-   "dau": "49c40a6b9f",
+   "dau": "11eabaf6b6",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1998,17 +2022,17 @@
   },
   "199": {
    "id": "d06-p7-15#4",
-   "dau": "49c40a6b9f",
-   "da": "A",
-   "chon": "A",
+   "dau": "11eabaf6b6",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Bài ghi 'can be reserved … online', phương án A nói 'must': hơi quá; vẫn là đáp án duy nhất hợp lý.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "200": {
    "id": "d06-p7-15#5",
-   "dau": "49c40a6b9f",
+   "dau": "11eabaf6b6",
    "da": "C",
    "chon": "C",
    "chac": 3,

@@ -2583,29 +2583,29 @@
   {
    "id": "d05-p6-03",
    "kind": "Article",
-   "title": "Local Bakery Expands",
-   "text": "Golden Crust Bakery, a family business on Mill Street, will open a second location next month. The new shop will be located in the Riverside Shopping Center and will have seating for forty customers. Owner Teresa Banks started the business twenty years ago in her own kitchen. {1}, it has grown into a company with forty employees that supplies bread to more than thirty local restaurants. \"Our customers have been asking us to open closer to the river for years,\" Banks said. {2} To celebrate the opening, the bakery will give a free loaf of bread to the first hundred {3}. The new shop will be open daily from 7:00 A.M. to 6:00 P.M., and it will also offer a {4} selection of sandwiches at lunchtime.",
+   "title": "Family Farm Opens to Visitors",
+   "text": "Hollow Creek Farm, a family farm just outside Weston, will open its orchards to the public next month. Visitors will be able to pick their own apples and pears and buy fresh juice at a new farm shop. Owner Owen Bell took over the farm from his parents fifteen years ago. {1}, he has planted more than two thousand new fruit trees. \"People want to know where their food comes from,\" Bell said. {2} During the opening weekend, the first two hundred {3} will receive a free bag of apples. The farm will be open from Thursday to Sunday, and the shop will also offer a {4} range of jams and baked goods.",
    "gaps": [
     {
      "o": [
       "Since then",
-      "Before then",
       "Until then",
+      "At first",
       "By then"
      ],
      "a": "Since then",
      "t": "conn",
-     "why": "Câu sau dùng hiện tại hoàn thành (has grown), kể sự phát triển từ lúc mở đến nay → Since then."
+     "why": "Câu sau dùng hiện tại hoàn thành (has planted): từ lúc tiếp quản đến nay → Since then."
     },
     {
      "o": [
-      "Work on the new shop is nearly complete.",
-      "Banks plans to close the Mill Street shop next month.",
-      "Several restaurants on Mill Street are also expanding.",
-      "Many customers prefer to bake bread in their own kitchens."
+      "He hopes the visits will help people learn about farming.",
+      "The farm shop will close at the end of the summer.",
+      "Weston's population has grown in recent years.",
+      "Apples and pears are usually harvested in the spring."
      ],
-     "a": "Work on the new shop is nearly complete.",
-     "why": "Câu chèn nói cửa hàng mới sắp xong, nối sang câu sau về lễ khai trương; đóng cửa hàng Mill Street mâu thuẫn với \"a second location\"."
+     "a": "He hopes the visits will help people learn about farming.",
+     "why": "Nối tiếp câu trích của ông Bell (người ta muốn biết thực phẩm từ đâu) → mong khách hiểu thêm về nghề nông."
     },
     {
      "o": [
@@ -2615,17 +2615,17 @@
       "visits"
      ],
      "a": "visitors",
-     "why": "Sau the first hundred cần danh từ chỉ người → visitors."
+     "why": "Sau the first two hundred cần danh từ chỉ người → visitors."
     },
     {
      "o": [
-      "wide",
-      "widely",
-      "width",
-      "widen"
+      "large",
+      "largely",
+      "enlarge",
+      "largeness"
      ],
-     "a": "wide",
-     "why": "Trước danh từ selection cần tính từ → wide (đa dạng)."
+     "a": "large",
+     "why": "Trước danh từ range cần tính từ → a large range (nhiều loại)."
     }
    ]
   },

@@ -79,6 +79,18 @@ Chỉ người / giải mù kiểm (ghi trong bộ tiêu chí, không có luật
 - **Rationale**: máy luật không hiểu nghĩa; câu có 2 đáp án đều đúng chỉ lộ ra khi có người (hoặc mô hình) làm mà không biết đáp án. Chia đôi đề để phiên phụ không quá dài.
 - **Alternatives considered**: Claude chính tự giải lại (đã biết đáp án, không mù); dùng mô hình yếu hơn cho độc lập (sai nhiều, báo nhầm nhiều); chờ giáo viên (chưa có).
 - **Giới hạn**: cùng dòng mô hình với người soạn; không nghe giọng thật; tranh chỉ là mô tả. Câu lệch là "cần xem", không tự là lỗi.
+- **Kết quả (9/11/2026)**: vòng 1: 12 phiên (Đề 1–6 × Nghe / Đọc), khớp **1.199 / 1.200** (Đề 2: 199, các đề khác 200); 1 câu lệch (Đề 2 câu 145, "both morning and evening" cũng đúng), 18 câu "2 phương án đều được", ~50 ghi chú. Đã kiểm bản ghi từng phiên: chỉ gọi Read đúng phiếu của mình + Write tệp trả lời (không đọc kho, không chạy lệnh). Sửa hết 19 câu (không ghi "đã xem" câu nào) và các ghi chú có lỗi thật; giải lại câu đã sửa: vòng 2 (3 phiên) 148 / 148 khớp, vòng 3 (1 phiên) xem tasks.md T023. Tỉ lệ khớp cao vì câu TOEIC dễ với mô hình mạnh; giá trị chính của giải mù nằm ở cờ "2 phương án" và ghi chú (nhiễu ghép giả, tình huống lặp, câu bảng không cần bảng, tên lặp, bài chép khuôn).
+
+## R10. Bài chép khuôn (phát hiện nhờ giải mù vòng 2)
+- **Decision**: bộ dựng chặn bài Part 3 / 4 / 6 / 7 của đề mới nếu so với bất kỳ bài kho / đề trước: cụm 5 từ trùng ≥ 10% (so với bài ngắn hơn) hoặc từ nội dung trùng (Jaccard, bỏ từ chức năng) ≥ 0,25.
+- **Rationale**: phiên giải mù chỉ ra Đề 4 và Đề 6 có 2 đoạn Part 6 gần như một. Đo toàn bộ: 6 bài của Đề 3–5 là bản "đổi tên" bài kho (thư hết hàng "Ergo Plus", tin nhắn xe hỏng "Route 9", hoãn chuyến bay "service desk next to Gate 12", gia hạn tạp chí, trường ngoại ngữ "no more than eight students", tiệm bánh "Golden Crust"): 0,10–0,14 cụm 5 từ hoặc 0,26–0,39 từ nội dung; cặp khác chủ đề cao nhất 0,09 / 0,22. Đã viết lại 7 bài (6 bài trên + Đề 6 Part 6 cuối) và sửa nhẹ 2 hội thoại; thử đặt lại bài cũ thì bộ dựng báo lỗi.
+- **Alternatives considered**: chỉ dùng một chỉ số (cụm 5 từ bỏ sót bài viết lại câu nhưng giữ tên tiệm; từ nội dung bỏ sót bài chép câu ngắn).
+
+## R11. Thứ tự phương án số / giờ / ngày
+- **Decision**: phương án cùng khuôn là số, tiền, giờ, ngày tháng, thứ, tầng, nhãn A–D xếp tăng dần (`tqNat`, toqt.js) ở đề trọn, luyện và máy kiểm; giờ không ghi sáng / chiều mà qua trưa (có giờ ≥ 8 và giờ 1–6) thì 1–6 là chiều.
+- **Rationale**: nguyên tắc viết câu trắc nghiệm "place options in logical or numerical order"; phiên giải mù chê "Floor 2 · 4 · 1 · 3", "Package D · A · C · B". 54 câu ở Đề 1–6 có phương án kiểu này.
+- **Hệ quả**: đổi chữ cái đáp án một số câu. So với bản trên web (gồm cả câu đã sửa nội dung): Đề 1: 11 câu (38, 39, 40, 69, 97, 113, 117, 149, 150, 190, 198) · Đề 2: 11 (69, 87, 88, 89, 90, 91, 96, 103, 189, 193, 199) · Đề 3: 12 (63, 69, 75, 98, 121, 139, 141, 142, 147, 174, 189, 198) · Đề 4: 19 (63, 69, 77, 79, 125, 129, 131–134, 144, 165, 175, 180, 183, 185, 190, 193, 198). Đề 5–6 chưa lên web. Dữ liệu thật 9/11: bài làm đã lưu duy nhất là Đề 1 phần Đọc của người sáng lập (Part 5) → chỉ câu 113, 117 lệch chữ khi xem lại.
+- **Còn mở**: vị trí đáp án Part 3–7 vẫn xếp ngẫu nhiên cố định (trH): có Part lệch (Đề 1 Part 3: C 4 / 39) và bộ câu cùng chữ (Đề 3 câu 186–190 đều D). Cân bằng thì phải đổi cách xếp của app (đổi chữ cái gần hết câu) → để người sáng lập quyết.
 
 ## R5. Kiểm chính tả bằng kho chữ của app
 - **Decision**: gom mọi chữ tiếng Anh trong a1 / a2 / b.json, toeic.json (kho), ielts.json, uoe.json, nghe / doc / np.json, lib/*.json; chữ của đề đang kiểm không tính vào kho. Chữ thường ≥ 4 ký tự không có trong kho (kể cả sau khi bỏ đuôi -s / -es / -ed / -ing / -er / -est / -ly) → `C-CHU`.

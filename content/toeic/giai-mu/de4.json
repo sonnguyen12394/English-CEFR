@@ -13,6 +13,30 @@
    "phan": "doc",
    "cau": 100,
    "khop": 100
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 10,
+   "khop": 10
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 13,
+   "khop": 13
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 6,
+   "khop": 6
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 12,
+   "khop": 12
   }
  ],
  "cau": {
@@ -58,12 +82,12 @@
   },
   "5": {
    "id": "d04-p1-05",
-   "dau": "c1ab35838e",
+   "dau": "392b6e2e05",
    "da": "A",
    "chon": "A",
-   "chac": 2,
+   "chac": 3,
    "hai": null,
-   "ghi": "Hình 'adult + handshake + adult' là hai người đứng nắm tay, không có ghế; tranh không cho thấy 'sitting'.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "6": {
@@ -108,12 +132,12 @@
   },
   "10": {
    "id": "d04-p2-04",
-   "dau": "f33a04d3f8",
+   "dau": "fb4980c73e",
    "da": "C",
    "chon": "C",
    "chac": 3,
-   "hai": "B",
-   "ghi": "B có thể hiểu là từ chối gián tiếp (đang thích ban nhạc này); nên thay nhiễu rõ sai hơn.",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "11": {
@@ -128,12 +152,12 @@
   },
   "12": {
    "id": "d04-p2-06",
-   "dau": "156c713c2a",
+   "dau": "8af65eef8a",
    "da": "A",
    "chon": "A",
-   "chac": 2,
-   "hai": "C",
-   "ghi": "C 'Yes, please print it' vẫn chọn in; nếu đọc lên giọng cuối thì câu hỏi thành có/không. Nhiễu chưa rõ sai.",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "13": {
@@ -218,12 +242,12 @@
   },
   "21": {
    "id": "d04-p2-15",
-   "dau": "8426986dd4",
+   "dau": "a127be71e0",
    "da": "C",
    "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhiễu (A) 'Yes, there are extra' không tự nhiên; thường nói 'there are some extra ones'.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "22": {
@@ -418,7 +442,7 @@
   },
   "41": {
    "id": "d04-p3-04#1",
-   "dau": "751707b5da",
+   "dau": "79edefd24a",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -428,7 +452,7 @@
   },
   "42": {
    "id": "d04-p3-04#2",
-   "dau": "751707b5da",
+   "dau": "79edefd24a",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -438,7 +462,7 @@
   },
   "43": {
    "id": "d04-p3-04#3",
-   "dau": "751707b5da",
+   "dau": "79edefd24a",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -538,17 +562,17 @@
   },
   "53": {
    "id": "d04-p3-08#1",
-   "dau": "3e4fedc23d",
+   "dau": "c4349bb319",
    "da": "A",
    "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Cả ba câu 53–55 đều đáp án A, nên trộn vị trí. 'Hi, both of you' hơi gượng ('Hi, you two').",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "54": {
    "id": "d04-p3-08#2",
-   "dau": "3e4fedc23d",
+   "dau": "c4349bb319",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -558,7 +582,7 @@
   },
   "55": {
    "id": "d04-p3-08#3",
-   "dau": "3e4fedc23d",
+   "dau": "c4349bb319",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -778,9 +802,9 @@
   },
   "77": {
    "id": "d04-p4-03#1",
-   "dau": "9939d27aa1",
-   "da": "D",
-   "chon": "D",
+   "dau": "ff86896b80",
+   "da": "B",
+   "chon": "B",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -788,7 +812,7 @@
   },
   "78": {
    "id": "d04-p4-03#2",
-   "dau": "9939d27aa1",
+   "dau": "ff86896b80",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -798,9 +822,9 @@
   },
   "79": {
    "id": "d04-p4-03#3",
-   "dau": "9939d27aa1",
-   "da": "D",
-   "chon": "D",
+   "dau": "ff86896b80",
+   "da": "B",
+   "chon": "B",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -958,17 +982,17 @@
   },
   "95": {
    "id": "d04-p4-09#1",
-   "dau": "32beec6f9d",
+   "dau": "73e6089d1b",
    "da": "C",
    "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Câu 'the room listed for the first workshop of the day' gượng với thông báo nói; nên nêu tên hội thảo Social Media Basics.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "96": {
    "id": "d04-p4-09#2",
-   "dau": "32beec6f9d",
+   "dau": "73e6089d1b",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -978,7 +1002,7 @@
   },
   "97": {
    "id": "d04-p4-09#3",
-   "dau": "32beec6f9d",
+   "dau": "73e6089d1b",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1278,12 +1302,12 @@
   },
   "127": {
    "id": "d04-p5-27",
-   "dau": "7cb94a19d9",
+   "dau": "7841af881b",
    "da": "A",
    "chon": "A",
    "chac": 3,
-   "hai": "C",
-   "ghi": "'just along the street from' vẫn tự nhiên trong tiếng Anh–Anh; nên đổi nhiễu 'along' (vd. 'among').",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "128": {
@@ -1318,9 +1342,9 @@
   },
   "131": {
    "id": "d04-p6-01#1",
-   "dau": "08c548aba9",
-   "da": "C",
-   "chon": "C",
+   "dau": "261736fb1b",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1328,9 +1352,9 @@
   },
   "132": {
    "id": "d04-p6-01#2",
-   "dau": "08c548aba9",
-   "da": "D",
-   "chon": "D",
+   "dau": "261736fb1b",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1338,9 +1362,9 @@
   },
   "133": {
    "id": "d04-p6-01#3",
-   "dau": "08c548aba9",
-   "da": "C",
-   "chon": "C",
+   "dau": "261736fb1b",
+   "da": "B",
+   "chon": "B",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1348,9 +1372,9 @@
   },
   "134": {
    "id": "d04-p6-01#4",
-   "dau": "08c548aba9",
-   "da": "B",
-   "chon": "B",
+   "dau": "261736fb1b",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1438,27 +1462,27 @@
   },
   "143": {
    "id": "d04-p6-04#1",
-   "dau": "1b39f0a8de",
+   "dau": "98fbc80d3b",
    "da": "D",
    "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "Đoạn gần trùng Đề 6 câu 143–146 (cùng chủ đề, câu mở đầu, chỗ (1) 'no longer be accepted', liên hệ qua extension).",
+   "ngay": "2026-11-09"
+  },
+  "144": {
+   "id": "d04-p6-04#2",
+   "dau": "98fbc80d3b",
+   "da": "B",
+   "chon": "B",
    "chac": 3,
    "hai": null,
    "ghi": "",
    "ngay": "2026-11-09"
   },
-  "144": {
-   "id": "d04-p6-04#2",
-   "dau": "1b39f0a8de",
-   "da": "C",
-   "chon": "C",
-   "chac": 2,
-   "hai": "A",
-   "ghi": "A (lương trả cuối tháng) cũng nối được câu sau về trả cùng lương; C chỉ hơn nhờ nối câu ảnh hoá đơn.",
-   "ngay": "2026-11-09"
-  },
   "145": {
    "id": "d04-p6-04#3",
-   "dau": "1b39f0a8de",
+   "dau": "98fbc80d3b",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1468,7 +1492,7 @@
   },
   "146": {
    "id": "d04-p6-04#4",
-   "dau": "1b39f0a8de",
+   "dau": "98fbc80d3b",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1588,7 +1612,7 @@
   },
   "158": {
    "id": "d04-p7-06#1",
-   "dau": "0d52a9fd8b",
+   "dau": "7a10c22cc8",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1598,7 +1622,7 @@
   },
   "159": {
    "id": "d04-p7-06#2",
-   "dau": "0d52a9fd8b",
+   "dau": "7a10c22cc8",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1608,12 +1632,12 @@
   },
   "160": {
    "id": "d04-p7-06#3",
-   "dau": "0d52a9fd8b",
+   "dau": "7a10c22cc8",
    "da": "A",
    "chon": "A",
-   "chac": 2,
-   "hai": "D",
-   "ghi": "[4] trước 'Let's make a strong impression' cũng đọc tự nhiên; [1] hơn nhờ 'This' chỉ hợp đồng. Nên sửa.",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "161": {
@@ -1918,7 +1942,7 @@
   },
   "191": {
    "id": "d04-p7-14#1",
-   "dau": "97ea627ee2",
+   "dau": "7654e96571",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1928,7 +1952,7 @@
   },
   "192": {
    "id": "d04-p7-14#2",
-   "dau": "97ea627ee2",
+   "dau": "7654e96571",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1938,17 +1962,17 @@
   },
   "193": {
    "id": "d04-p7-14#3",
-   "dau": "97ea627ee2",
-   "da": "B",
-   "chon": "B",
+   "dau": "7654e96571",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Tên buổi 'Online Banking Safely' gượng; tự nhiên hơn 'Banking Online Safely'. Không ảnh hưởng đáp án.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "194": {
    "id": "d04-p7-14#4",
-   "dau": "97ea627ee2",
+   "dau": "7654e96571",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1958,7 +1982,7 @@
   },
   "195": {
    "id": "d04-p7-14#5",
-   "dau": "97ea627ee2",
+   "dau": "7654e96571",
    "da": "B",
    "chon": "B",
    "chac": 3,

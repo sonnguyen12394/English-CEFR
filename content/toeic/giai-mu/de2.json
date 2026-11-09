@@ -13,6 +13,18 @@
    "phan": "doc",
    "cau": 100,
    "khop": 99
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 12,
+   "khop": 12
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 13,
+   "khop": 13
   }
  ],
  "cau": {
@@ -448,17 +460,17 @@
   },
   "44": {
    "id": "t3-28#1",
-   "dau": "b68af7ef96",
+   "dau": "916af38f39",
    "da": "C",
    "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Lặp khuôn hội thoại 38–40: mở đầu 'Thanks for…, Tom and …', ngày 15, ba người; nên đổi cho khác.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "45": {
    "id": "t3-28#2",
-   "dau": "b68af7ef96",
+   "dau": "916af38f39",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -468,7 +480,7 @@
   },
   "46": {
    "id": "t3-28#3",
-   "dau": "b68af7ef96",
+   "dau": "916af38f39",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -748,17 +760,17 @@
   },
   "74": {
    "id": "t4-25#1",
-   "dau": "7e439cf210",
+   "dau": "7ef1ff3a11",
    "da": "D",
    "chon": "D",
    "chac": 3,
    "hai": null,
-   "ghi": "Phương án C viết 'centre' (Anh), câu 56 viết 'center' (Mỹ); nên thống nhất chính tả.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "75": {
    "id": "t4-25#2",
-   "dau": "7e439cf210",
+   "dau": "7ef1ff3a11",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -768,7 +780,7 @@
   },
   "76": {
    "id": "t4-25#3",
-   "dau": "7e439cf210",
+   "dau": "7ef1ff3a11",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -867,60 +879,60 @@
    "ngay": "2026-11-09"
   },
   "86": {
-   "id": "t4-12#1",
-   "dau": "81bff568e0",
+   "id": "t4-19#1",
+   "dau": "8406a4b783",
    "da": "A",
    "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Gần trùng bài 80–82 (Highway 9, sửa đường, đóng làn), lại lệch hạn thứ Năm / thứ Sáu; 'Weekly' mà báo sáng nay.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "87": {
-   "id": "t4-12#2",
-   "dau": "81bff568e0",
-   "da": "C",
-   "chon": "C",
+   "id": "t4-19#2",
+   "dau": "8406a4b783",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Đáp án trùng ý câu 81 (đi đường khác) trong cùng đề.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "88": {
-   "id": "t4-12#3",
-   "dau": "81bff568e0",
-   "da": "B",
-   "chon": "B",
+   "id": "t4-19#3",
+   "dau": "8406a4b783",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
    "ngay": "2026-11-09"
   },
   "89": {
-   "id": "t4-02#1",
-   "dau": "b9b47ec8f1",
-   "da": "B",
-   "chon": "B",
+   "id": "t4-07#1",
+   "dau": "b7cc7e48d3",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Gần trùng hội thoại 59–61: gọi nhắc lịch hẹn, dặn đến sớm 10 phút điền phiếu; câu hỏi, đáp án lặp.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "90": {
-   "id": "t4-02#2",
-   "dau": "b9b47ec8f1",
-   "da": "D",
-   "chon": "D",
+   "id": "t4-07#2",
+   "dau": "b7cc7e48d3",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Câu và phương án gần y hệt câu 61 (Pay in advance … Arrive early).",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "91": {
-   "id": "t4-02#3",
-   "dau": "b9b47ec8f1",
-   "da": "C",
-   "chon": "C",
+   "id": "t4-07#3",
+   "dau": "b7cc7e48d3",
+   "da": "D",
+   "chon": "D",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -1038,12 +1050,12 @@
   },
   "103": {
    "id": "t5-32",
-   "dau": "0f7aeecbce",
-   "da": "B",
-   "chon": "B",
+   "dau": "ccfd77a18c",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhỏ: nhiễu D 'display to' ghép giới từ giả tạo (bỏ 'to' thì đúng); đề thật không dùng kiểu nhiễu này.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "104": {
@@ -1068,12 +1080,12 @@
   },
   "106": {
    "id": "t5-97",
-   "dau": "49d8f15629",
+   "dau": "864bb46bde",
    "da": "A",
    "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhỏ: nhiễu B 'replace with' ghép giới từ giả tạo; dễ loại, không giống nhiễu đề thật.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "107": {
@@ -1188,12 +1200,12 @@
   },
   "118": {
    "id": "t5-22",
-   "dau": "98e08c2688",
+   "dau": "dffc518782",
    "da": "D",
    "chon": "D",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhỏ: nhiễu B 'employ to' ghép giới từ giả tạo (bỏ 'to' thì đúng); dễ loại.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "119": {
@@ -1277,13 +1289,13 @@
    "ngay": "2026-11-09"
   },
   "127": {
-   "id": "t5-95",
-   "dau": "65feb4f1a2",
+   "id": "t5-96",
+   "dau": "25ef02b224",
    "da": "B",
    "chon": "B",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhỏ: 'present' là đáp án ở cả câu 103 và 127, trùng điểm kiểm tra trong cùng đề.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "128": {
@@ -1438,7 +1450,7 @@
   },
   "143": {
    "id": "t6-ad#1",
-   "dau": "55fb44feea",
+   "dau": "d18df09741",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1448,7 +1460,7 @@
   },
   "144": {
    "id": "t6-ad#2",
-   "dau": "55fb44feea",
+   "dau": "d18df09741",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1458,17 +1470,17 @@
   },
   "145": {
    "id": "t6-ad#3",
-   "dau": "55fb44feea",
+   "dau": "d18df09741",
    "da": "A",
-   "chon": "C",
-   "chac": 2,
-   "hai": "A",
-   "ghi": "'every morning and evening' cũng đúng ngữ pháp, rất tự nhiên; 'all morning and evening' cũng tạm được. Hai đáp án.",
+   "chon": "A",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "146": {
    "id": "t6-ad#4",
-   "dau": "55fb44feea",
+   "dau": "d18df09741",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1818,7 +1830,7 @@
   },
   "181": {
    "id": "t7-m-train#1",
-   "dau": "b13414b70f",
+   "dau": "e115fe6abb",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1828,7 +1840,7 @@
   },
   "182": {
    "id": "t7-m-train#2",
-   "dau": "b13414b70f",
+   "dau": "e115fe6abb",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1838,7 +1850,7 @@
   },
   "183": {
    "id": "t7-m-train#3",
-   "dau": "b13414b70f",
+   "dau": "e115fe6abb",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1848,22 +1860,22 @@
   },
   "184": {
    "id": "t7-m-train#4",
-   "dau": "b13414b70f",
+   "dau": "e115fe6abb",
    "da": "C",
    "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhỏ: tên Paul Grant trùng người ký thư ở 131–134 (vai khác) trong cùng đề; nên đổi tên.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "185": {
    "id": "t7-m-train#5",
-   "dau": "b13414b70f",
+   "dau": "e115fe6abb",
    "da": "D",
    "chon": "D",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhỏ: 'does not attend without notice' hơi tối nghĩa; nên viết 'fails to attend without giving notice'.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "186": {

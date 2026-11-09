@@ -48,4 +48,5 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
   14. (v149) Danh sách đề thử trọn có Đề 3, Đề 4; mở Đề 3 (tải được, giọng đọc đúng nam / nữ); làm vài câu rồi nộp: kết quả có 📋 Bài làm và đáp án,
      bảng 200 ô đọc rõ, chạm 1 ô Part 3 thấy lời nghe + đáp án, 🔊 Nghe lại phát được; tắt mở lại app vẫn thấy "Xem bài làm lần gần nhất".
   15. (v152) Danh sách đề thử trọn có Đề 5, Đề 6; mở Đề 6 (tải được); Part 4 bài có tên người nói đọc đúng giọng nam / nữ; nộp bài thì 📋 Bài làm và đáp án mở được.
+  16. (v153) Đề 2 → làm lượt có câu 66–70 (bảng giờ / tầng): phương án giờ, tầng, tháng xếp tăng dần; Đề 4 câu 5 tranh hai người đứng cạnh bàn khớp câu đúng; e-mail / tên người trong các bài đã sửa đọc tự nhiên.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);

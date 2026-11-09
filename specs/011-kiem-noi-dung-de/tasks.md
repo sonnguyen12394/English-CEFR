@@ -75,19 +75,19 @@ description: "Danh sách việc: bộ kiểm nội dung đề TOEIC"
 - [X] T018 [US3] Sửa mọi lỗi: câu Đề 1–2 sửa ở kho `content/toeic/*.json`, Đề 3–6 ở `content/toeic/tron/de03–06.json` (ưu tiên sửa lời bài / câu hỏi để giữ chữ cái đáp án, R8); dựng lại
 - [X] T019 [US3] Đọc từng cảnh báo: câu kém thì sửa, câu ổn thì ghi `content/toeic/kiem-ok.json` kèm lý do
 - [X] T020 [P] [US3] `tools/giai-mu.mjs`: `xuat <de> <nghe|doc> <tệp> [--cau …]` (phiếu theo contracts/tep.md, không đáp án / giải thích / câu trích / nhãn) và `so <de> <tệp.json>` (đối chiếu, ghi `content/toeic/giai-mu/<de>.json`, in tỉ lệ khớp)
-- [ ] T021 [US3] Giải mù Đề 1–6: 12 phiếu (Nghe, Đọc) → 12 phiên Claude phụ chạy song song, mỗi phiên viết JSON trả lời → `so` từng đề → `content/toeic/giai-mu/de1.json … de6.json`
-- [ ] T022 [US3] Xử lý câu lệch / "2 phương án": sửa câu (kho hoặc `tron/deNN.json`) hoặc ghi "đã xem" lý do đáp án gốc đúng; loại lỗi mới thì thêm tiêu chí vào `docs/TIEU-CHI-DE-TOEIC.md` (+ luật máy nếu tự động được, + câu cài lỗi)
-- [ ] T023 [US3] Giải lại các câu đã sửa (`xuat --cau`) tới khi hết `GM-CU`, câu sửa khớp 100%
-- [ ] T024 [US3] Bật phần (b) của C69 (trước gộp: C67) trong `tools/test/run.mjs`: Đề 1–6 0 lỗi, 0 cảnh báo chưa xem, đủ giải mù
-- [ ] T025 [US3] Dựng giọng Kokoro cho câu nghe đã sửa (`tools/build-audio.py` → `n/`); liệt kê câu Đề 3–6 đổi chữ cái đáp án (in từ máy kiểm) vào đoạn v153 của `CLAUDE.md`
+- [X] T021 [US3] Giải mù Đề 1–6: 12 phiếu (Nghe, Đọc) → 12 phiên Claude phụ chạy song song, mỗi phiên viết JSON trả lời → `so` từng đề → `content/toeic/giai-mu/de1.json … de6.json` (kết quả: 1.199 / 1.200 khớp; bản ghi mỗi phiên chỉ Read phiếu của mình + Write trả lời)
+- [X] T022 [US3] Xử lý câu lệch / "2 phương án": sửa câu (kho hoặc `tron/deNN.json`) hoặc ghi "đã xem" lý do đáp án gốc đúng; loại lỗi mới thì thêm tiêu chí vào `docs/TIEU-CHI-DE-TOEIC.md` (+ luật máy nếu tự động được, + câu cài lỗi)
+- [X] T023 [US3] Giải lại các câu đã sửa (`xuat --cau`) tới khi hết `GM-CU`, câu sửa khớp 100% (vòng 2: 148 / 148, vòng 3: 53 / 53)
+- [X] T024 [US3] Bật phần (b) của C69 (trước gộp: C67) trong `tools/test/run.mjs`: Đề 1–6 0 lỗi, 0 cảnh báo chưa xem, đủ giải mù
+- [X] T025 [US3] Dựng giọng Kokoro cho câu nghe đã sửa (`tools/build-audio.py` → `n/`); liệt kê câu Đề 3–6 đổi chữ cái đáp án (in từ máy kiểm) vào đoạn v153 của `CLAUDE.md`
 
 ---
 
 ## Phase 6: Phát hành đợt kiểm (sau US3)
 
 - [X] T026 Bảng kiểm giáo viên `tools/export-review.mjs` → `docs/kiem-noi-dung.html`: đầu khối đề trọn ghi link bộ tiêu chí + báo cáo máy kiểm
-- [ ] T027 Tài liệu v153 (trước gộp: v151; v152 = Đề 5–6 của nhánh trước): `CLAUDE.md` (đầu tệp + đoạn v153), `README.md`, `tools/release.mjs` (mục kiểm iPhone), `specs/011-kiem-noi-dung-de/spec.md` Status, research.md số đo thật
-- [ ] T028 `node tools/test/run.mjs`, e2e Chromium, `node tools/release.mjs` (bản 150; trước gộp: 149), `graphify update . && python3 tools/graph-vung.py`, commit, đẩy nhánh; báo người sáng lập kết quả + hỏi đưa lên web
+- [X] T027 Tài liệu v153 (trước gộp: v151; v152 = Đề 5–6 của nhánh trước): `CLAUDE.md` (đầu tệp + đoạn v153), `README.md`, `tools/release.mjs` (mục kiểm iPhone), `specs/011-kiem-noi-dung-de/spec.md` Status, research.md số đo thật
+- [X] T028 `node tools/test/run.mjs`, e2e Chromium, `node tools/release.mjs` (bản 150; trước gộp: 149), `graphify update . && python3 tools/graph-vung.py`, commit, đẩy nhánh; báo người sáng lập kết quả + hỏi đưa lên web
 
 ---
 

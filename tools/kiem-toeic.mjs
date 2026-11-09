@@ -69,7 +69,7 @@ export function corpus() { if (CORPUS) return CORPUS; const S = new Set(), add =
   for (const w of TU_OK) S.add(w);
   return (CORPUS = S); }
 // chữ đúng mà kho của app chưa có (đã soát tay; thêm vào đây thay vì ghi "đã xem" từng câu)
-const TU_OK = new Set('setup breakup pickup minivan webinar buffet freight frother modem diploma sedan booth trash diesel validate participatory refrain introductory fluency librarian permanency refrigerator refrigerators coworker coworkers tirelessly proximity proximate shortlisted espresso unavailability papercraft auditorium microscope unplugs unplug expansive repainted repaint refueling refuel appliance appliances gigabytes gigabyte salesperson salespeople blueberry blueberries muffin muffins durable readiness fertilizer reuses reuse riverfront'.split(' '));
+const TU_OK = new Set('beautify setup breakup pickup minivan webinar buffet freight frother modem diploma sedan booth trash diesel validate participatory refrain introductory fluency librarian permanency refrigerator refrigerators coworker coworkers tirelessly proximity proximate shortlisted espresso unavailability papercraft auditorium microscope unplugs unplug expansive repainted repaint refueling refuel appliance appliances gigabytes gigabyte salesperson salespeople blueberry blueberries muffin muffins durable readiness fertilizer reuses reuse riverfront'.split(' '));
 const SUF = [['ies', ['y']], ['ied', ['y']], ['ier', ['y']], ['iest', ['y']], ['ily', ['y']], ['ing', ['', 'e', '-']], ['ed', ['', 'e', '-']], ['es', ['', 'e']], ['s', ['']], ['er', ['', 'e', '-']], ['est', ['', 'e', '-']], ['ly', ['', 'le']], ['ness', ['']], ['ment', ['']], ['ful', ['']], ['less', ['']], ['able', ['', 'e']], ['ity', ['', 'e']], ['ism', ['']], ['ian', ['', 'y']], ['ee', ['']], ['ees', ['']], ['ory', ['e', '']], ['cy', ['t']]];
 const known = w => { const C = corpus(); if (C.has(w)) return true;
   for (const [suf, adds] of SUF) if (w.length > suf.length + 2 && w.endsWith(suf)) { const b = w.slice(0, -suf.length);
@@ -281,10 +281,12 @@ export function kiemTatCa(only, opt = {}) { const T = loadTests().filter(d => !o
 
 // báo cáo HTML cho người sáng lập (docs/kiem-de-toeic.html; dựng ra, không sửa tay)
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const gmLan = L => { const seen = new Set(), v1 = [0, 0], re = [0, 0]; for (const l of L) { const t = seen.has(l.phan) ? re : v1; seen.add(l.phan); t[0] += l.khop; t[1] += l.cau; }
+  return 'vòng đầu ' + v1[0] + ' / ' + v1[1] + ' khớp' + (re[1] ? '; giải lại câu đã sửa ' + re[0] + ' / ' + re[1] : ''); };
 export function html(K) { const row = f => `<tr class="${f.muc}${f.da_xem ? ' xem' : ''}"><td>${f.n}${f.L ? ' <small>(' + f.L + ')</small>' : ''}</td><td>${PART(f.sec)}</td><td><code>${esc(f.ma)}</code></td><td>${esc(f.ly_do)}${f.da_xem ? '<br><small>✓ đã xem: ' + esc(f.da_xem) + '</small>' : '<br><small>→ ' + esc(f.goi_y) + '</small>'}</td></tr>`;
   const sec = Object.entries(K.R).map(([id, r]) => { const loi = r.f.filter(f => f.muc === 'loi'), canh = r.f.filter(f => f.muc === 'canh' && !f.da_xem), xem = r.f.filter(f => f.da_xem), g = r.gm, gl = g ? g.lan || [] : [];
     const kh = g && g.cau ? Object.values(g.cau) : [], khop = kh.filter(c => c.chon === c.da).length;
-    return `<section><h2>${esc(r.t)} <small>(${id})</small></h2><p class="sum">${loi.length} lỗi · ${canh.length} cảnh báo chưa xem · ${xem.length} đã xem · giải mù ${g ? khop + ' / ' + kh.length + ' câu khớp đáp án' : 'chưa làm'}</p>
+    return `<section><h2>${esc(r.t)} <small>(${id})</small></h2><p class="sum">${loi.length} lỗi · ${canh.length} cảnh báo chưa xem · ${xem.length} đã xem · giải mù ${g ? khop + ' / ' + kh.length + ' câu khớp đáp án' : 'chưa làm'}${g && g.lan && g.lan.length ? ' <small>(' + gmLan(g.lan) + ')</small>' : ''}</p>
 ${[...loi, ...canh].length ? `<table><tr><th>Câu</th><th>Part</th><th>Luật</th><th>Vì sao</th></tr>${[...loi, ...canh].map(row).join('')}</table>` : '<p class="ok">✅ Không còn lỗi hay cảnh báo chưa xem.</p>'}
 ${xem.length ? `<details><summary>${xem.length} cảnh báo đã xem (ổn, có lý do)</summary><table>${xem.map(row).join('')}</table></details>` : ''}</section>`; }).join('\n');
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kiểm nội dung đề TOEIC</title>

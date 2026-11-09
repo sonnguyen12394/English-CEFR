@@ -1,6 +1,6 @@
 # Feature Specification: Bộ kiểm nội dung đề TOEIC
 
-**Feature Branch**: `claude/ecstatic-curie-q9g1ja` · **Created**: 2026-11-09 · **Status**: Clarified (chờ người sáng lập "ok" kế hoạch)
+**Feature Branch**: `claude/ecstatic-curie-q9g1ja` → gộp vào `claude/kiem-noi-dung-de-7l02h6` · **Created**: 2026-11-09 · **Status**: US1–US3 xong (bản 150 = v153); US4 (Đề 7–8) đang làm
 
 **Input**: Người sáng lập (9/11/2026, sau bản 148 = Đề 5–6): "Tôi nghĩ là bạn cần làm bộ kiểm nội dung đề để dựa vào đó mà kiểm lỗi khi sinh bài vì có vài câu không hợp lý lắm. Giờ làm bộ đó rồi lưu lại để kiểm nội dung các đề cũ rồi hãy làm tiếp".
 

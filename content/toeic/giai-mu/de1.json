@@ -13,17 +13,35 @@
    "phan": "doc",
    "cau": 100,
    "khop": 100
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "nghe",
+   "cau": 22,
+   "khop": 22
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 25,
+   "khop": 25
+  },
+  {
+   "ngay": "2026-11-09",
+   "phan": "doc",
+   "cau": 10,
+   "khop": 10
   }
  ],
  "cau": {
   "1": {
    "id": "t1-05",
-   "dau": "1c53872ecd",
+   "dau": "5581963aed",
    "da": "A",
    "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Theo mô tả, hộp nằm một lớp trên mỗi kệ; 'stacked' (chồng lên nhau) hơi lệch, nhưng vẫn là đáp án duy nhất hợp.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "2": {
@@ -138,12 +156,12 @@
   },
   "13": {
    "id": "t2-27",
-   "dau": "789abce05a",
+   "dau": "0f68405a9c",
    "da": "C",
    "chon": "C",
    "chac": 3,
-   "hai": "A",
-   "ghi": "(A) 'The meeting was canceled' cũng là lời đáp gián tiếp hợp lý (khỏi cần xem trước); câu nhiễu nên rõ sai hơn.",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "14": {
@@ -188,12 +206,12 @@
   },
   "18": {
    "id": "t2-40",
-   "dau": "2dfa3222e3",
+   "dau": "b7dd4da793",
    "da": "C",
    "chon": "C",
    "chac": 3,
-   "hai": "B",
-   "ghi": "Mức nhẹ: (B) 'I'll assist you' có thể hiểu là tự nhận giúp thay vì thuê người.",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "19": {
@@ -288,12 +306,12 @@
   },
   "28": {
    "id": "t2-19",
-   "dau": "7fb9fb2ef0",
+   "dau": "7bc2807c35",
    "da": "A",
    "chon": "A",
    "chac": 3,
-   "hai": "C",
-   "ghi": "'the conference in May or June' (một hội nghị) có thể hiểu là câu có/không; khi đó (C) 'Yes, I'm attending' cũng đúng.",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "29": {
@@ -387,18 +405,8 @@
    "ngay": "2026-11-09"
   },
   "38": {
-   "id": "t3-02#1",
-   "dau": "fb3f4ecd4e",
-   "da": "D",
-   "chon": "D",
-   "chac": 3,
-   "hai": null,
-   "ghi": "Câu mở đầu gần trùng bài 35–37 ('Have you seen the sales figures…'); chủ đề doanh số lặp ở 32–40 và 53–55.",
-   "ngay": "2026-11-09"
-  },
-  "39": {
-   "id": "t3-02#2",
-   "dau": "fb3f4ecd4e",
+   "id": "t3-13#1",
+   "dau": "c1772f20cd",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -406,11 +414,21 @@
    "ghi": "",
    "ngay": "2026-11-09"
   },
+  "39": {
+   "id": "t3-13#2",
+   "dau": "c1772f20cd",
+   "da": "B",
+   "chon": "B",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
   "40": {
-   "id": "t3-02#3",
-   "dau": "fb3f4ecd4e",
-   "da": "A",
-   "chon": "A",
+   "id": "t3-13#3",
+   "dau": "c1772f20cd",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -538,7 +556,7 @@
   },
   "53": {
    "id": "t3-12#1",
-   "dau": "978555ba72",
+   "dau": "b96771047b",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -548,17 +566,17 @@
   },
   "54": {
    "id": "t3-12#2",
-   "dau": "978555ba72",
+   "dau": "b96771047b",
    "da": "B",
    "chon": "B",
    "chac": 3,
    "hai": null,
-   "ghi": "Đơn ghi sổ tháng 8 thay tháng 7 vẫn cùng quý 3 (quý lịch), số liệu quý không giảm; nên đổi tháng 6 → 7.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "55": {
    "id": "t3-12#3",
-   "dau": "978555ba72",
+   "dau": "b96771047b",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -597,28 +615,28 @@
    "ngay": "2026-11-09"
   },
   "59": {
-   "id": "t3-14#1",
-   "dau": "fd76851b71",
+   "id": "t3-03#1",
+   "dau": "7a7f655df6",
    "da": "A",
    "chon": "A",
    "chac": 3,
    "hai": null,
-   "ghi": "Bài 59–61 gần trùng bài 41–43 trong cùng đề: khách mang áo khoác ra trả, cửa hàng hết cỡ.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "60": {
-   "id": "t3-14#2",
-   "dau": "fd76851b71",
+   "id": "t3-03#2",
+   "dau": "7a7f655df6",
    "da": "D",
    "chon": "D",
    "chac": 3,
    "hai": null,
-   "ghi": "Câu hỏi và phương án đúng trùng nguyên văn câu 43 ('What problem does the woman mention?' / 'A size is not available').",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "61": {
-   "id": "t3-14#3",
-   "dau": "fd76851b71",
+   "id": "t3-03#3",
+   "dau": "7a7f655df6",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -658,17 +676,17 @@
   },
   "65": {
    "id": "t3-21#1",
-   "dau": "c838dab864",
+   "dau": "44e60ed2e2",
    "da": "B",
    "chon": "B",
    "chac": 3,
    "hai": null,
-   "ghi": "Gần trùng bài 47–49 trong cùng đề: buổi tập huấn hệ thống / phần mềm chi phí mới vào thứ Năm.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "66": {
    "id": "t3-21#2",
-   "dau": "c838dab864",
+   "dau": "44e60ed2e2",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -678,7 +696,7 @@
   },
   "67": {
    "id": "t3-21#3",
-   "dau": "c838dab864",
+   "dau": "44e60ed2e2",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -957,18 +975,18 @@
    "ngay": "2026-11-09"
   },
   "95": {
-   "id": "t4-14#1",
-   "dau": "679769c397",
+   "id": "t4-16#1",
+   "dau": "b375a430f6",
    "da": "C",
    "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Trùng chủ đề bài 86–88 (quản lý thời gian) trong cùng đề.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "96": {
-   "id": "t4-14#2",
-   "dau": "679769c397",
+   "id": "t4-16#2",
+   "dau": "b375a430f6",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -977,10 +995,10 @@
    "ngay": "2026-11-09"
   },
   "97": {
-   "id": "t4-14#3",
-   "dau": "679769c397",
-   "da": "C",
-   "chon": "C",
+   "id": "t4-16#3",
+   "dau": "b375a430f6",
+   "da": "B",
+   "chon": "B",
    "chac": 3,
    "hai": null,
    "ghi": "",
@@ -988,17 +1006,17 @@
   },
   "98": {
    "id": "t4-21#1",
-   "dau": "8c39244bfe",
+   "dau": "12784092d4",
    "da": "B",
    "chon": "B",
    "chac": 3,
    "hai": null,
-   "ghi": "Tên 'Green Business' lặp với bài 80–82 (giải Green Business, tiết kiệm năng lượng) trong cùng đề; nên đổi tên.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "99": {
    "id": "t4-21#2",
-   "dau": "8c39244bfe",
+   "dau": "12784092d4",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1008,7 +1026,7 @@
   },
   "100": {
    "id": "t4-21#3",
-   "dau": "8c39244bfe",
+   "dau": "12784092d4",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1018,12 +1036,12 @@
   },
   "101": {
    "id": "t5-74",
-   "dau": "c021d69d73",
+   "dau": "5bd7d2e021",
    "da": "D",
    "chon": "D",
    "chac": 3,
-   "hai": "A",
-   "ghi": "'available by request' vẫn gặp (nhất là Anh–Mỹ), có thể bảo vệ; nên thay 'by' bằng phương án nhiễu khác.",
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "102": {
@@ -1058,12 +1076,12 @@
   },
   "105": {
    "id": "t5-38",
-   "dau": "442b4d68f6",
+   "dau": "3ba0d13a2e",
    "da": "D",
    "chon": "D",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhiễu (B) 'handily to' gượng, sai lộ liễu, không giống đề thật (bỏ 'to' thì 'handily located' lại đúng).",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "106": {
@@ -1138,12 +1156,12 @@
   },
   "113": {
    "id": "t5-60",
-   "dau": "e16fddb9ff",
-   "da": "C",
-   "chon": "C",
+   "dau": "3918138af7",
+   "da": "B",
+   "chon": "B",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhiễu (B) 'while to' vô nghĩa, quá dễ loại, không giống đề thật.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "114": {
@@ -1178,12 +1196,12 @@
   },
   "117": {
    "id": "t5-99",
-   "dau": "b75a1507aa",
-   "da": "B",
-   "chon": "B",
+   "dau": "0c5b3d8126",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
-   "ghi": "Nhiễu ghép giới từ ('permitted on', 'allowed of', 'eligible for' + 'to') sai lộ liễu, không giống đề thật.",
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "118": {
@@ -1658,7 +1676,7 @@
   },
   "165": {
    "id": "t7-web#1",
-   "dau": "effc4f5bc8",
+   "dau": "1c57b7dcc2",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1668,7 +1686,7 @@
   },
   "166": {
    "id": "t7-web#2",
-   "dau": "effc4f5bc8",
+   "dau": "1c57b7dcc2",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1678,7 +1696,7 @@
   },
   "167": {
    "id": "t7-web#3",
-   "dau": "effc4f5bc8",
+   "dau": "1c57b7dcc2",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1688,7 +1706,7 @@
   },
   "168": {
    "id": "t7-notice2#1",
-   "dau": "bf15249d3a",
+   "dau": "ee72cf645a",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1698,7 +1716,7 @@
   },
   "169": {
    "id": "t7-notice2#2",
-   "dau": "bf15249d3a",
+   "dau": "ee72cf645a",
    "da": "D",
    "chon": "D",
    "chac": 3,
@@ -1708,7 +1726,7 @@
   },
   "170": {
    "id": "t7-notice2#3",
-   "dau": "bf15249d3a",
+   "dau": "ee72cf645a",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1718,7 +1736,7 @@
   },
   "171": {
    "id": "t7-notice2#4",
-   "dau": "bf15249d3a",
+   "dau": "ee72cf645a",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1728,7 +1746,7 @@
   },
   "172": {
    "id": "t7-email3#1",
-   "dau": "b768333c46",
+   "dau": "b2cdc8f72c",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1738,7 +1756,7 @@
   },
   "173": {
    "id": "t7-email3#2",
-   "dau": "b768333c46",
+   "dau": "b2cdc8f72c",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1748,7 +1766,7 @@
   },
   "174": {
    "id": "t7-email3#3",
-   "dau": "b768333c46",
+   "dau": "b2cdc8f72c",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1758,7 +1776,7 @@
   },
   "175": {
    "id": "t7-email3#4",
-   "dau": "b768333c46",
+   "dau": "b2cdc8f72c",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1868,7 +1886,7 @@
   },
   "186": {
    "id": "t7-m-order#1",
-   "dau": "0aa76d1c7c",
+   "dau": "ab8d8793c3",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1878,7 +1896,7 @@
   },
   "187": {
    "id": "t7-m-order#2",
-   "dau": "0aa76d1c7c",
+   "dau": "ab8d8793c3",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1888,7 +1906,7 @@
   },
   "188": {
    "id": "t7-m-order#3",
-   "dau": "0aa76d1c7c",
+   "dau": "ab8d8793c3",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1898,7 +1916,7 @@
   },
   "189": {
    "id": "t7-m-order#4",
-   "dau": "0aa76d1c7c",
+   "dau": "ab8d8793c3",
    "da": "A",
    "chon": "A",
    "chac": 3,
@@ -1908,27 +1926,27 @@
   },
   "190": {
    "id": "t7-m-order#5",
-   "dau": "0aa76d1c7c",
-   "da": "C",
-   "chon": "C",
-   "chac": 2,
-   "hai": "D",
-   "ghi": "'gesture of goodwill' ≈ 'sign/signal of goodwill', nên (D) cũng bảo vệ được; nên đổi phương án 'signal'.",
-   "ngay": "2026-11-09"
-  },
-  "191": {
-   "id": "t7-m-venue#1",
-   "dau": "6903109d54",
+   "dau": "ab8d8793c3",
    "da": "D",
    "chon": "D",
    "chac": 3,
    "hai": null,
-   "ghi": "Câu ổn; tên trùng trong cùng đề: Greenleaf (149/191), Harbor View (151/165), Maria Lopez (135/172).",
+   "ghi": "",
+   "ngay": "2026-11-09"
+  },
+  "191": {
+   "id": "t7-m-venue#1",
+   "dau": "0f53a2fa83",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
    "ngay": "2026-11-09"
   },
   "192": {
    "id": "t7-m-venue#2",
-   "dau": "6903109d54",
+   "dau": "0f53a2fa83",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1938,7 +1956,7 @@
   },
   "193": {
    "id": "t7-m-venue#3",
-   "dau": "6903109d54",
+   "dau": "0f53a2fa83",
    "da": "B",
    "chon": "B",
    "chac": 3,
@@ -1948,7 +1966,7 @@
   },
   "194": {
    "id": "t7-m-venue#4",
-   "dau": "6903109d54",
+   "dau": "0f53a2fa83",
    "da": "C",
    "chon": "C",
    "chac": 3,
@@ -1958,7 +1976,7 @@
   },
   "195": {
    "id": "t7-m-venue#5",
-   "dau": "6903109d54",
+   "dau": "0f53a2fa83",
    "da": "C",
    "chon": "C",
    "chac": 3,

@@ -972,11 +972,11 @@
     ],
     [
      "A",
-     "I'm sorry to hear that. Do you have your receipt?"
+     "Oh, that's not good. Did you keep the receipt?"
     ],
     [
      "B",
-     "Yes, here it is. I'd prefer a refund rather than a replacement."
+     "I did. It's right here. I'd prefer a refund rather than a replacement."
     ],
     [
      "A",
@@ -1766,40 +1766,40 @@
    "id": "d04-p4-03",
    "ty": "ad",
    "sx": "m",
-   "text": "Planning to work abroad? At Global Voice Language School, our evening classes fit around your work schedule. Classes are small, with no more than eight students, so you'll get plenty of time to practice speaking. All our teachers are native speakers with at least five years of experience. Sign up before June first, and your first month is half price. You'll be surprised how much you can learn in just twelve weeks.",
+   "text": "Tired of working at your kitchen table? At Brightdesk Coworking, you can rent a desk by the day, the week, or the month. Our building is just two minutes from Central Station, and every desk comes with fast Wi-Fi and free coffee. Members can also use our meeting rooms at no extra charge. You can reserve any desk online. Just remember, the desks by the windows go quickly. Sign up before June first, and your first month is half price.",
    "qs": [
     {
      "q": "What is being advertised?",
-     "a": "A language school",
+     "a": "A shared office space",
      "w": [
-      "A travel agency",
-      "A job placement service",
-      "A translation company"
+      "A furniture store",
+      "A coffee shop",
+      "A moving company"
      ],
      "ty": "gist",
-     "ev": "At Global Voice Language School"
+     "ev": "At Brightdesk Coworking, you can rent a desk"
     },
     {
-     "q": "What is mentioned about the classes?",
-     "a": "They are small.",
+     "q": "What is mentioned about the building?",
+     "a": "It is close to a train station.",
      "w": [
-      "They are held online.",
-      "They meet on weekends.",
-      "They are free for beginners."
+      "It has a rooftop garden.",
+      "It is open twenty-four hours.",
+      "It was recently renovated."
      ],
      "ty": "detail",
-     "ev": "Classes are small, with no more than eight students"
+     "ev": "Our building is just two minutes from Central Station"
     },
     {
-     "q": "What does the speaker imply when he says, \"You'll be surprised how much you can learn in just twelve weeks\"?",
-     "a": "Students can make fast progress.",
+     "q": "What does the speaker imply when he says, \"the desks by the windows go quickly\"?",
+     "a": "Popular desks should be reserved early.",
      "w": [
-      "The course is very difficult.",
-      "The course will be extended.",
-      "Some classes start in twelve weeks."
+      "The windows are being replaced.",
+      "Some desks are for sale.",
+      "The office is near a busy road."
      ],
      "ty": "imp",
-     "ev": "You'll be surprised how much you can learn in just twelve weeks."
+     "ev": "the desks by the windows go quickly"
     }
    ]
   },
@@ -2542,49 +2542,49 @@
   {
    "id": "d04-p6-01",
    "kind": "E-mail",
-   "title": "To: Elena Alvarez · From: Business Weekly · Subject: Your subscription",
-   "text": "Dear Ms. Alvarez, Thank you for being a subscriber to Business Weekly for the past two years. Your current subscription {1} on May 31. To continue receiving the magazine without interruption, please renew before that date. {2} As a loyal reader, you can renew for one year at 30 percent off the regular price. {3}, you will receive free access to our online archive of past issues. To renew, simply visit our Web site and enter the {4} code BW2024. We look forward to serving you for many more years.",
+   "title": "To: All Employees · From: Human Resources · Subject: New mentoring program",
+   "text": "Starting in September, our company {1} a mentoring program for employees who have joined us within the past year. Each new employee will be paired with an experienced colleague from a different department. {2} Pairs will meet for one hour every two weeks to discuss career goals and any challenges at work. {3}, mentors will receive a short training session before the program begins. If you would like to become a mentor, please complete the {4} form on the intranet by July 31.",
    "gaps": [
     {
      "o": [
-      "expires",
-      "expired",
-      "has expired",
-      "was expiring"
+      "will launch",
+      "launched",
+      "has launched",
+      "was launching"
      ],
-     "a": "expires",
+     "a": "will launch",
      "t": "tense",
-     "why": "Mốc định sẵn trong tương lai (on May 31) → hiện tại đơn: expires."
+     "why": "Bắt đầu từ tháng 9 (Starting in September), hạn đăng ký 31/7 → việc ở tương lai: will launch."
     },
     {
      "o": [
-      "We are pleased to offer you a special rate.",
-      "Business Weekly was first published in 1985.",
-      "Your subscription began in May two years ago.",
-      "Many readers prefer the printed magazine."
+      "This allows new staff to learn how other teams work.",
+      "Most of our employees have worked here for over ten years.",
+      "The program was canceled last year because of low interest.",
+      "Experienced colleagues may not take part in the program."
      ],
-     "a": "We are pleased to offer you a special rate.",
-     "why": "Câu chèn giới thiệu ưu đãi; câu sau nói cụ thể giảm 30% cho độc giả lâu năm."
+     "a": "This allows new staff to learn how other teams work.",
+     "why": "\"This\" chỉ việc ghép với đồng nghiệp ở phòng ban khác vừa nêu → giúp nhân viên mới hiểu cách các nhóm khác làm việc."
     },
     {
      "o": [
       "In addition",
+      "For example",
       "However",
-      "Otherwise",
-      "Instead"
+      "Otherwise"
      ],
      "a": "In addition",
-     "why": "Thêm một lợi ích nữa (truy cập kho báo cũ) → In addition."
+     "why": "Thêm một điểm nữa của chương trình (người kèm cặp được tập huấn) → In addition."
     },
     {
      "o": [
-      "discount",
-      "discounted",
-      "discounting",
-      "discounts"
+      "application",
+      "apply",
+      "applicant",
+      "applied"
      ],
-     "a": "discount",
-     "why": "discount code = mã giảm giá (danh từ ghép)."
+     "a": "application",
+     "why": "the application form = mẫu đơn đăng ký (danh từ ghép)."
     }
    ]
   },
@@ -2948,14 +2948,14 @@
      "why": "Gửi slide trước trưa thứ Hai."
     },
     {
-     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Such a contract could become our largest account.\"",
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"If signed, it would be the largest contract in our company's history.\"",
      "a": "[1]",
      "w": [
       "[2]",
       "[3]",
       "[4]"
      ],
-     "why": "\"Such a contract\" chỉ hợp đồng dài hạn vừa nhắc ở câu đầu → câu chèn đứng ngay sau câu đó (vị trí [1])."
+     "why": "\"it\" chỉ \"a possible long-term contract\" ở câu đầu → câu chèn đứng ngay sau câu đó (vị trí [1]); ở [2]–[4] \"it\" không có gì để chỉ."
     }
    ]
   },
@@ -3403,7 +3403,7 @@
     },
     {
      "title": "Workshop Schedule · October",
-     "text": "October 3: Creating a Strong Password (Room A)\nOctober 10: Safe Online Banking (Room A)\nOctober 17: Video Calls with Family (Room B)\nOctober 24: Selling Items Online (Room B)\nAll workshops begin at 6:30 P.M."
+     "text": "October 3: Creating a Strong Password (Room A)\nOctober 10: Safe Online Banking (Room A)\nOctober 17: Video Calls with Family (Room A)\nOctober 24: Selling Items Online (Room B)\nAll workshops begin at 6:30 P.M."
     },
     {
      "title": "E-mail · To: info@elmwoodlibrary.org · From: George Patel · Date: October 2",
@@ -3442,7 +3442,7 @@
       "October 24"
      ],
      "x": 1,
-     "ev": "October 17: Video Calls with Family (Room B)",
+     "ev": "October 17: Video Calls with Family (Room A)",
      "why": "E-mail: anh có hẹn bác sĩ đúng tối có lớp gọi video. Lịch: lớp gọi video ngày 17/10."
     },
     {

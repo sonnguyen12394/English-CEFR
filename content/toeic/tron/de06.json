@@ -742,15 +742,15 @@
    "lines": [
     [
      "A",
-     "Thank you for calling Bistro Lumière. How can I help you?"
+     "Bistro Lumière, good afternoon. What can I do for you?"
     ],
     [
      "B",
-     "Hi, I have a reservation for six people tomorrow at seven, under Martin. I'd like to add two more people."
+     "Hello. We booked a table for six tomorrow at seven, under the name Martin, and I'd like to add two more people."
     ],
     [
      "A",
-     "Let me see. I'm afraid our large tables are all booked at seven, but we could seat eight people at eight-thirty."
+     "One moment, please. I'm afraid our large tables are all booked at seven, but we could seat eight people at eight-thirty."
     ],
     [
      "B",
@@ -2624,48 +2624,49 @@
   {
    "id": "d06-p6-04",
    "kind": "Memo",
-   "title": "To: All Staff · From: Accounting Department · Subject: Expense reports",
-   "text": "Starting on July 1, all expense reports must be submitted through our new online system. Paper forms will no longer {1}. The new system allows you to upload photos of your receipts directly from your phone. {2} Reimbursements will usually be paid within five working days, compared with two weeks under the old process. A short training video is available on the company intranet. {3}, our staff will hold two information sessions in the main conference room next week. If you have any questions in the meantime, please contact Ji-woo Han {4} extension 210.",
+   "title": "To: All Staff · From: Building Security · Subject: New visitor check-in",
+   "text": "Beginning Monday, May 4, all visitors to our building {1} at the front desk using a new tablet system. Visitors will type in their name, their company, and the name of the person they are meeting, and a badge will be printed for them automatically. {2}, the front desk staff will no longer need to write visitor badges by hand. {3} Please tell your guests about this change before they arrive, since checking in may take a few extra minutes at first. Questions about the new system can be sent {4} Omar Siddiqui in the security office.",
    "gaps": [
     {
      "o": [
-      "be accepted",
-      "accept",
-      "accepting",
-      "acceptance"
+      "will check in",
+      "checked in",
+      "have checked in",
+      "checking in"
      ],
-     "a": "be accepted",
-     "why": "Sau will no longer cần động từ nguyên mẫu; mẫu giấy không được nhận (bị động) → be accepted."
+     "a": "will check in",
+     "t": "tense",
+     "why": "Từ thứ Hai 4/5 (Beginning Monday, May 4) → việc ở tương lai: will check in."
     },
     {
      "o": [
-      "This means you will no longer need to keep paper copies.",
-      "The accounting department moved to the third floor last year.",
-      "Paper forms can be picked up in the supply room.",
-      "The conference room can hold forty people."
-     ],
-     "a": "This means you will no longer need to keep paper copies.",
-     "why": "\"This\" chỉ việc tải ảnh hoá đơn lên từ điện thoại vừa nêu → không cần giữ bản giấy."
-    },
-    {
-     "o": [
-      "Furthermore",
-      "Nevertheless",
       "As a result",
-      "For instance"
+      "For example",
+      "Similarly",
+      "Nevertheless"
      ],
-     "a": "Furthermore",
-     "why": "Thêm một cách hỗ trợ nữa (buổi giới thiệu) bên cạnh video → Furthermore."
+     "a": "As a result",
+     "why": "Máy tự in thẻ khách → kết quả là lễ tân không phải viết thẻ tay nữa: As a result."
     },
     {
      "o": [
-      "at",
-      "for",
-      "in",
-      "by"
+      "Guests must wear their badges at all times while in the building.",
+      "The front desk will be closed on Monday, May 4.",
+      "The tablets were donated by a local company.",
+      "Visitors may now park in the employee lot."
      ],
-     "a": "at",
-     "why": "contact someone at extension 210 = liên hệ qua số máy lẻ 210."
+     "a": "Guests must wear their badges at all times while in the building.",
+     "why": "Vừa nói về thẻ khách in tự động → câu chèn nói quy định đeo thẻ, rồi mới tới dặn báo trước cho khách. \"The front desk will be closed…\" trái với việc ghi danh ở quầy từ ngày 4/5."
+    },
+    {
+     "o": [
+      "to",
+      "at",
+      "from",
+      "of"
+     ],
+     "a": "to",
+     "why": "send something to someone = gửi cho ai → to."
     }
    ]
   }
