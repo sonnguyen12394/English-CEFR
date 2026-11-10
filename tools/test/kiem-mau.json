@@ -1482,6 +1482,557 @@
      }
     ]
    }
+  },
+  {
+   "ma": "P1-GIOI",
+   "sec": "p1",
+   "x": {
+    "id": "d06-p1-01",
+    "k": "people",
+    "pic": {
+     "bg": "in",
+     "r": [
+      [
+       120,
+       122,
+       80,
+       58,
+       "#8b6b4a"
+      ],
+      [
+       114,
+       116,
+       92,
+       8,
+       "#6b4f35"
+      ]
+     ],
+     "e": [
+      [
+       "🧑‍💼",
+       160,
+       92,
+       70
+      ],
+      [
+       "🎤",
+       198,
+       106,
+       30
+      ],
+      [
+       "🪑",
+       40,
+       170,
+       34
+      ],
+      [
+       "🪑",
+       280,
+       170,
+       34
+      ]
+     ]
+    },
+    "o": [
+     "A man is giving a speech.",
+     "A man is adjusting a camera.",
+     "Some chairs are being stacked.",
+     "A man is shaking hands with a guest."
+    ],
+    "a": 0,
+    "why": "Người đàn ông đứng sau bục có micro, đang phát biểu. Không có máy ảnh, ghế không đang được xếp chồng, không ai bắt tay.",
+    "lines": [
+     [
+      "A",
+      "A. A man is giving a speech."
+     ],
+     [
+      "A",
+      "B. A man is adjusting a camera."
+     ],
+     [
+      "A",
+      "C. Some chairs are being stacked."
+     ],
+     [
+      "A",
+      "D. A man is shaking hands with a guest."
+     ]
+    ]
+   }
+  },
+  {
+   "ma": "P34-NGUYEN",
+   "sec": "p3",
+   "x": {
+    "id": "d06-p3-12",
+    "g": {
+     "t": "Training Workshops",
+     "h": [
+      "Room",
+      "Workshop"
+     ],
+     "r": [
+      [
+       "101",
+       "Time Management"
+      ],
+      [
+       "102",
+       "Public Speaking"
+      ],
+      [
+       "201",
+       "Excel Basics"
+      ],
+      [
+       "202",
+       "Customer Service"
+      ]
+     ]
+    },
+    "lines": [
+     [
+      "B",
+      "Excuse me, I'm here for the Excel training. Am I in the right building?"
+     ],
+     [
+      "A",
+      "Yes, you are. Take the stairs on your left."
+     ],
+     [
+      "B",
+      "Thanks. Do I need to bring my own laptop?"
+     ],
+     [
+      "A",
+      "No, there are computers in the room. But you'll need your employee ID to log in."
+     ],
+     [
+      "B",
+      "Oh no, I left my ID at my desk."
+     ],
+     [
+      "A",
+      "Don't worry. I can print a temporary pass for you."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "Look at the graphic. Which room will the man go to?",
+      "a": "201",
+      "w": [
+       "101",
+       "102",
+       "202"
+      ],
+      "ty": "graphic",
+      "ev": "I'm here for the Excel training."
+     },
+     {
+      "q": "What does the woman say about the room?",
+      "a": "It has computers.",
+      "w": [
+       "It is locked.",
+       "It is very small.",
+       "It has a projector."
+      ],
+      "ty": "detail",
+      "ev": "there are computers in the room"
+     },
+     {
+      "q": "What will the woman most likely do next?",
+      "a": "Print a temporary pass",
+      "w": [
+       "Call the trainer",
+       "Bring a laptop",
+       "Go to the man's desk"
+      ],
+      "ty": "next",
+      "ev": "I can print a temporary pass for you."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "P34-THUTU",
+   "sec": "p4",
+   "x": {
+    "id": "m-thutu",
+    "ty": "ann",
+    "text": "Good afternoon, passengers. This is your conductor speaking. We will be arriving at Westfield Station in about ten minutes. Because of track repairs, passengers continuing to Lakeport will need to change to a bus at Westfield. The bus will be waiting outside the station's main entrance. Also, our café car will close in five minutes, so please make your final purchases now. Thank you for traveling with Coastline Rail.",
+    "qs": [
+     {
+      "q": "Where is the announcement being made?",
+      "a": "On a train",
+      "w": [
+       "At a bus station",
+       "At an airport",
+       "On a ferry"
+      ],
+      "ty": "gist",
+      "ev": "This is your conductor speaking."
+     },
+     {
+      "q": "What does the speaker say about the café car?",
+      "a": "It will close soon.",
+      "w": [
+       "It has run out of food.",
+       "It accepts cash only.",
+       "It is at the back of the train."
+      ],
+      "ty": "detail",
+      "ev": "our café car will close in five minutes"
+     },
+     {
+      "q": "What will passengers going to Lakeport need to do?",
+      "a": "Take a bus",
+      "w": [
+       "Buy a new ticket",
+       "Wait for the next train",
+       "Change to a different platform"
+      ],
+      "ty": "detail",
+      "ev": "passengers continuing to Lakeport will need to change to a bus at Westfield"
+     }
+    ]
+   }
+  },
+  {
+   "ma": "C-SO-KHUON",
+   "sec": "p7",
+   "x": {
+    "id": "m-sokhuon",
+    "kind": "Notice",
+    "docs": [
+     {
+      "title": "Notice · Training workshop",
+      "text": "The workshop will be held in Room 305 this Friday. Rooms 101 and 204 are closed for repairs, and the main hall is booked for a meeting."
+     }
+    ],
+    "qs": [
+     {
+      "q": "Where will the workshop be held?",
+      "a": "Room 305",
+      "w": [
+       "Room 101",
+       "Room 204",
+       "Main Hall"
+      ],
+      "ev": "The workshop will be held in Room 305 this Friday.",
+      "why": "Hội thảo ở Room 305; phòng 101, 204 đang sửa."
+     }
+    ]
+   }
+  },
+  {
+   "ma": "C-CAN",
+   "xs": [
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-0",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-1",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-2",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-3",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-4",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-5",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-6",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-7",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-8",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-9",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-10",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "m-can-11",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    }
+   ]
+  },
+  {
+   "ma": "C-LAP-NOI",
+   "xs": [
+    {
+     "sec": "p6",
+     "x": {
+      "id": "m-noi-1",
+      "kind": "Article",
+      "title": "Food Distributor Opens Training Kitchen",
+      "text": "Brennan Foods, the region's largest food distributor, opened a training kitchen at its headquarters last week. The kitchen, which {1} more than a year to build, will be used to teach cooking skills to local high school students who are interested in restaurant careers. Company president Lydia Brennan said the idea came from her own experience as a young cook. \"Someone gave me a chance when I was seventeen,\" she said. {2} The program was funded with help from several local restaurants. Chefs from those restaurants will volunteer to {3} the classes. {4}, students who complete the twelve-week course will be offered paid summer jobs.",
+      "gaps": [
+       {
+        "o": [
+         "took",
+         "takes",
+         "will take",
+         "is taking"
+        ],
+        "a": "took",
+        "t": "tense",
+        "why": "Bếp đã xây xong (mở tuần trước) → quá khứ: took."
+       },
+       {
+        "o": [
+         "She hopes the program will do the same for others.",
+         "The company plans to close the kitchen next year.",
+         "High school students are not eligible for the program.",
+         "Ms. Brennan has never worked in a restaurant."
+        ],
+        "a": "She hopes the program will do the same for others.",
+        "why": "Nối câu bà kể được cho cơ hội năm 17 tuổi → bà mong chương trình cũng cho người khác cơ hội như vậy. Ba câu kia trái với đoạn."
+       },
+       {
+        "o": [
+         "lead",
+         "leader",
+         "leading",
+         "leads"
+        ],
+        "a": "lead",
+        "why": "volunteer to + động từ nguyên mẫu: to lead."
+       },
+       {
+        "o": [
+         "In addition",
+         "Otherwise",
+         "Instead",
+         "Nevertheless"
+        ],
+        "a": "In addition",
+        "t": "conn",
+        "why": "Thêm một lợi ích nữa (việc làm hè có lương) → In addition."
+       }
+      ]
+     }
+    },
+    {
+     "sec": "p6",
+     "x": {
+      "id": "m-noi-2",
+      "kind": "Article",
+      "title": "Food Distributor Opens Training Kitchen",
+      "text": "Brennan Foods, the region's largest food distributor, opened a training kitchen at its headquarters last week. The kitchen, which {1} more than a year to build, will be used to teach cooking skills to local high school students who are interested in restaurant careers. Company president Lydia Brennan said the idea came from her own experience as a young cook. \"Someone gave me a chance when I was seventeen,\" she said. {2} The program was funded with help from several local restaurants. Chefs from those restaurants will volunteer to {3} the classes. {4}, students who complete the twelve-week course will be offered paid summer jobs.",
+      "gaps": [
+       {
+        "o": [
+         "took",
+         "takes",
+         "will take",
+         "is taking"
+        ],
+        "a": "took",
+        "t": "tense",
+        "why": "Bếp đã xây xong (mở tuần trước) → quá khứ: took."
+       },
+       {
+        "o": [
+         "She hopes the program will do the same for others.",
+         "The company plans to close the kitchen next year.",
+         "High school students are not eligible for the program.",
+         "Ms. Brennan has never worked in a restaurant."
+        ],
+        "a": "She hopes the program will do the same for others.",
+        "why": "Nối câu bà kể được cho cơ hội năm 17 tuổi → bà mong chương trình cũng cho người khác cơ hội như vậy. Ba câu kia trái với đoạn."
+       },
+       {
+        "o": [
+         "lead",
+         "leader",
+         "leading",
+         "leads"
+        ],
+        "a": "lead",
+        "why": "volunteer to + động từ nguyên mẫu: to lead."
+       },
+       {
+        "o": [
+         "In addition",
+         "Otherwise",
+         "Instead",
+         "Nevertheless"
+        ],
+        "a": "In addition",
+        "t": "conn",
+        "why": "Thêm một lợi ích nữa (việc làm hè có lương) → In addition."
+       }
+      ]
+     }
+    }
+   ]
   }
  ],
  "sach": [
@@ -1936,84 +2487,6 @@
      [
       "A",
       "D. A farmer is working in a field."
-     ]
-    ]
-   }
-  },
-  {
-   "sec": "p1",
-   "x": {
-    "id": "d06-p1-01",
-    "k": "people",
-    "pic": {
-     "bg": "in",
-     "r": [
-      [
-       120,
-       122,
-       80,
-       58,
-       "#8b6b4a"
-      ],
-      [
-       114,
-       116,
-       92,
-       8,
-       "#6b4f35"
-      ]
-     ],
-     "e": [
-      [
-       "🧑‍💼",
-       160,
-       92,
-       70
-      ],
-      [
-       "🎤",
-       198,
-       106,
-       30
-      ],
-      [
-       "🪑",
-       40,
-       170,
-       34
-      ],
-      [
-       "🪑",
-       280,
-       170,
-       34
-      ]
-     ]
-    },
-    "o": [
-     "A man is giving a speech.",
-     "A man is adjusting a camera.",
-     "Some chairs are being stacked.",
-     "A man is shaking hands with a guest."
-    ],
-    "a": 0,
-    "why": "Người đàn ông đứng sau bục có micro, đang phát biểu. Không có máy ảnh, ghế không đang được xếp chồng, không ai bắt tay.",
-    "lines": [
-     [
-      "A",
-      "A. A man is giving a speech."
-     ],
-     [
-      "A",
-      "B. A man is adjusting a camera."
-     ],
-     [
-      "A",
-      "C. Some chairs are being stacked."
-     ],
-     [
-      "A",
-      "D. A man is shaking hands with a guest."
      ]
     ]
    }
@@ -2869,98 +3342,6 @@
       ],
       "ty": "next",
       "ev": "I'll call the café and let them know."
-     }
-    ]
-   }
-  },
-  {
-   "sec": "p3",
-   "x": {
-    "id": "d06-p3-12",
-    "g": {
-     "t": "Training Workshops",
-     "h": [
-      "Room",
-      "Workshop"
-     ],
-     "r": [
-      [
-       "101",
-       "Time Management"
-      ],
-      [
-       "102",
-       "Public Speaking"
-      ],
-      [
-       "201",
-       "Excel Basics"
-      ],
-      [
-       "202",
-       "Customer Service"
-      ]
-     ]
-    },
-    "lines": [
-     [
-      "B",
-      "Excuse me, I'm here for the Excel training. Am I in the right building?"
-     ],
-     [
-      "A",
-      "Yes, you are. Take the stairs on your left."
-     ],
-     [
-      "B",
-      "Thanks. Do I need to bring my own laptop?"
-     ],
-     [
-      "A",
-      "No, there are computers in the room. But you'll need your employee ID to log in."
-     ],
-     [
-      "B",
-      "Oh no, I left my ID at my desk."
-     ],
-     [
-      "A",
-      "Don't worry. I can print a temporary pass for you."
-     ]
-    ],
-    "qs": [
-     {
-      "q": "Look at the graphic. Which room will the man go to?",
-      "a": "201",
-      "w": [
-       "101",
-       "102",
-       "202"
-      ],
-      "ty": "graphic",
-      "ev": "I'm here for the Excel training."
-     },
-     {
-      "q": "What does the woman say about the room?",
-      "a": "It has computers.",
-      "w": [
-       "It is locked.",
-       "It is very small.",
-       "It has a projector."
-      ],
-      "ty": "detail",
-      "ev": "there are computers in the room"
-     },
-     {
-      "q": "What will the woman most likely do next?",
-      "a": "Print a temporary pass",
-      "w": [
-       "Call the trainer",
-       "Bring a laptop",
-       "Go to the man's desk"
-      ],
-      "ty": "next",
-      "ev": "I can print a temporary pass for you."
      }
     ]
    }
@@ -4417,6 +4798,526 @@
     "a": "easily",
     "why": "Bổ nghĩa cho động từ share cần trạng từ: easily."
    }
+  },
+  {
+   "sec": "p1",
+   "x": {
+    "id": "s-gioi",
+    "k": "people",
+    "pic": {
+     "bg": "sea",
+     "r": [
+      [
+       0,
+       138,
+       170,
+       14,
+       "#8b6b4a"
+      ]
+     ],
+     "e": [
+      [
+       "👨",
+       80,
+       104,
+       68
+      ],
+      [
+       "🎣",
+       128,
+       96,
+       44
+      ],
+      [
+       "🐟",
+       240,
+       174,
+       28
+      ],
+      [
+       "⛵",
+       272,
+       78,
+       50
+      ]
+     ]
+    },
+    "o": [
+     "A man is fishing from a pier.",
+     "A man is swimming in the sea.",
+     "A boat is being tied to a dock.",
+     "A man is selling some fish."
+    ],
+    "a": 0,
+    "why": "Người đàn ông cầm cần câu đứng trên cầu tàu → đang câu cá. Anh không bơi, không ai buộc thuyền, không bán cá."
+   }
+  },
+  {
+   "sec": "p3",
+   "x": {
+    "id": "s-nguyen",
+    "g": {
+     "t": "Training Workshops",
+     "h": [
+      "Room",
+      "Workshop"
+     ],
+     "r": [
+      [
+       "101",
+       "Time Management"
+      ],
+      [
+       "102",
+       "Public Speaking"
+      ],
+      [
+       "201",
+       "Excel Basics"
+      ],
+      [
+       "202",
+       "Customer Service"
+      ]
+     ]
+    },
+    "lines": [
+     [
+      "B",
+      "Excuse me, I'm here for the Excel training. Am I in the right building?"
+     ],
+     [
+      "A",
+      "Yes, you are. Take the stairs on your left."
+     ],
+     [
+      "B",
+      "Thanks. Should I have brought my own laptop?"
+     ],
+     [
+      "A",
+      "No, every seat in the training room has a computer. But you'll need your employee ID card to open the door."
+     ],
+     [
+      "B",
+      "Oh no, I left my ID card at my desk."
+     ],
+     [
+      "A",
+      "Don't worry. I can print a visitor badge for you."
+     ]
+    ],
+    "qs": [
+     {
+      "q": "Look at the graphic. Which room will the man go to?",
+      "a": "201",
+      "w": [
+       "101",
+       "102",
+       "202"
+      ],
+      "ty": "graphic",
+      "ev": "I'm here for the Excel training."
+     },
+     {
+      "q": "What does the woman say about the training room?",
+      "a": "Equipment is already provided.",
+      "w": [
+       "It is locked during lunch.",
+       "It is very small.",
+       "It has a projector."
+      ],
+      "ty": "detail",
+      "ev": "No, every seat in the training room has a computer."
+     },
+     {
+      "q": "What will the woman most likely do next?",
+      "a": "Make a badge for the man",
+      "w": [
+       "Call the trainer",
+       "Lend the man a laptop",
+       "Go to the man's desk"
+      ],
+      "ty": "next",
+      "ev": "I can print a visitor badge for you."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p4",
+   "x": {
+    "id": "s-thutu",
+    "ty": "ann",
+    "text": "Good afternoon, passengers. This is your conductor speaking. We will be arriving at Westfield Station in about ten minutes. Because of track repairs, passengers continuing to Lakeport will need to change to a bus at Westfield. The bus will be waiting outside the station's main entrance. Also, our café car will close in five minutes, so please make your final purchases now. Thank you for traveling with Coastline Rail.",
+    "qs": [
+     {
+      "q": "Where is the announcement being made?",
+      "a": "On a train",
+      "w": [
+       "At a bus station",
+       "At an airport",
+       "On a ferry"
+      ],
+      "ty": "gist",
+      "ev": "This is your conductor speaking."
+     },
+     {
+      "q": "What will passengers going to Lakeport need to do?",
+      "a": "Take a bus",
+      "w": [
+       "Buy a new ticket",
+       "Wait for the next train",
+       "Change to a different platform"
+      ],
+      "ty": "detail",
+      "ev": "passengers continuing to Lakeport will need to change to a bus at Westfield"
+     },
+     {
+      "q": "What does the speaker say about the café car?",
+      "a": "It will close soon.",
+      "w": [
+       "It has run out of food.",
+       "It accepts cash only.",
+       "It is at the back of the train."
+      ],
+      "ty": "detail",
+      "ev": "our café car will close in five minutes"
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "s-sokhuon",
+    "kind": "Notice",
+    "docs": [
+     {
+      "title": "Notice · Training workshop",
+      "text": "The workshop will be held in Room 305 this Friday. Rooms 101 and 204 are closed for repairs, and the main hall is booked for a meeting."
+     }
+    ],
+    "qs": [
+     {
+      "q": "Where will the workshop be held?",
+      "a": "Room 305",
+      "w": [
+       "Room 101",
+       "Room 204",
+       "Room 402"
+      ],
+      "ev": "The workshop will be held in Room 305 this Friday.",
+      "why": "Hội thảo ở Room 305; phòng 101, 204 đang sửa."
+     }
+    ]
+   }
+  },
+  {
+   "xs": [
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-0",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-1",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "2 hours",
+      "why": "Buổi huấn luyện kéo dài 2 hours (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-2",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "3 hours",
+      "why": "Buổi huấn luyện kéo dài 3 hours (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-3",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "4 hours",
+      "why": "Buổi huấn luyện kéo dài 4 hours (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-4",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-5",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "2 hours",
+      "why": "Buổi huấn luyện kéo dài 2 hours (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-6",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "3 hours",
+      "why": "Buổi huấn luyện kéo dài 3 hours (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-7",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "4 hours",
+      "why": "Buổi huấn luyện kéo dài 4 hours (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-8",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "1 hour",
+      "why": "Buổi huấn luyện kéo dài 1 hour (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-9",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "2 hours",
+      "why": "Buổi huấn luyện kéo dài 2 hours (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-10",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "3 hours",
+      "why": "Buổi huấn luyện kéo dài 3 hours (theo lịch)."
+     }
+    },
+    {
+     "sec": "p5",
+     "x": {
+      "id": "s-can-11",
+      "t": "voc",
+      "s": "The safety training will last ------- in total.",
+      "o": [
+       "1 hour",
+       "2 hours",
+       "3 hours",
+       "4 hours"
+      ],
+      "a": "4 hours",
+      "why": "Buổi huấn luyện kéo dài 4 hours (theo lịch)."
+     }
+    }
+   ]
+  },
+  {
+   "xs": [
+    {
+     "sec": "p6",
+     "x": {
+      "id": "s-noi-1",
+      "kind": "E-mail",
+      "title": "To: Valued Customers · From: FreshBox Meals · Subject: Holiday delivery schedule",
+      "text": "Dear Customer, Because of the national holiday on Monday, May 26, our delivery schedule {1} next week. Boxes normally delivered on Monday will arrive on Tuesday instead. {2} If you will not be home on Tuesday, you can choose a different delivery day in your account settings. {3}, you may skip next week's box entirely at no charge. We are grateful for your {4} and wish you a happy holiday. — The FreshBox Team",
+      "gaps": [
+       {
+        "o": [
+         "will change",
+         "changed",
+         "has changed",
+         "changing"
+        ],
+        "a": "will change",
+        "t": "tense",
+        "why": "Lịch giao của tuần tới (next week) → tương lai: will change."
+       },
+       {
+        "o": [
+         "All other delivery days will not be affected.",
+         "Monday deliveries have been very popular this year.",
+         "Deliveries will continue as usual on Monday.",
+         "Tuesday is the only day we cannot deliver."
+        ],
+        "a": "All other delivery days will not be affected.",
+        "why": "Vừa nói đơn thứ Hai dời sang thứ Ba → các ngày giao khác không đổi. \"Thứ Hai vẫn giao như thường\", \"thứ Ba là ngày duy nhất không giao\" trái với đoạn; câu đơn thứ Hai được ưa chuộng không nối với ý dời lịch."
+       },
+       {
+        "o": [
+         "Alternatively",
+         "Therefore",
+         "Consequently",
+         "Similarly"
+        ],
+        "a": "Alternatively",
+        "t": "conn",
+        "why": "Đưa ra một lựa chọn khác (bỏ qua hộp tuần tới thay vì đổi ngày) → Alternatively. Therefore / Consequently chỉ kết quả, không hợp."
+       },
+       {
+        "o": [
+         "patience",
+         "patient",
+         "patiently",
+         "patients"
+        ],
+        "a": "patience",
+        "why": "your + danh từ: patience (sự kiên nhẫn). patients = bệnh nhân."
+       }
+      ]
+     }
+    },
+    {
+     "sec": "p6",
+     "x": {
+      "id": "s-noi-2",
+      "kind": "Article",
+      "title": "Food Distributor Opens Training Kitchen",
+      "text": "Brennan Foods, the region's largest food distributor, opened a training kitchen at its headquarters last week. The kitchen, which {1} more than a year to build, will be used to teach cooking skills to local high school students who are interested in restaurant careers. Company president Lydia Brennan said the idea came from her own experience as a young cook. \"Someone gave me a chance when I was seventeen,\" she said. {2} The program was funded with help from several local restaurants. Chefs from those restaurants will volunteer to {3} the classes. {4}, students who complete the twelve-week course will be offered paid summer jobs.",
+      "gaps": [
+       {
+        "o": [
+         "took",
+         "takes",
+         "will take",
+         "is taking"
+        ],
+        "a": "took",
+        "t": "tense",
+        "why": "Bếp đã xây xong (mở tuần trước) → quá khứ: took."
+       },
+       {
+        "o": [
+         "She hopes the program will do the same for others.",
+         "The company plans to close the kitchen next year.",
+         "High school students are not eligible for the program.",
+         "Ms. Brennan has never worked in a restaurant."
+        ],
+        "a": "She hopes the program will do the same for others.",
+        "why": "Nối câu bà kể được cho cơ hội năm 17 tuổi → bà mong chương trình cũng cho người khác cơ hội như vậy. Ba câu kia trái với đoạn."
+       },
+       {
+        "o": [
+         "lead",
+         "leader",
+         "leading",
+         "leads"
+        ],
+        "a": "lead",
+        "why": "volunteer to + động từ nguyên mẫu: to lead."
+       },
+       {
+        "o": [
+         "In addition",
+         "Otherwise",
+         "Instead",
+         "Nevertheless"
+        ],
+        "a": "In addition",
+        "t": "conn",
+        "why": "Thêm một lợi ích nữa (việc làm hè có lương) → In addition."
+       }
+      ]
+     }
+    }
+   ]
   }
  ]
 }

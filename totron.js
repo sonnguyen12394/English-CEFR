@@ -33,11 +33,12 @@ const trRU = st => trB(st.de).R.filter(u => trUIn(u, st.only));
 const trAK = (de, o) => o ? de + ':' + o : de;
 
 // ---------- dựng đề: đơn vị (bài / câu) và 200 câu đánh số 1–200 ----------
-function trB(de) { if (TR.B[de]) return TR.B[de]; const d = trMeta(de); if (!d || (d.f && !TR.D[de])) return null; const F = d.f ? TR.D[de] : null;
+function trB(de) { if (TR.B[de]) return TR.B[de]; const d = trMeta(de); if (!d || (d.f && !TR.D[de])) return null; const F = d.f ? TR.D[de] : null, O = (F ? F.ord : d.ord) || null;
   const mk = { p1: x => [toP1Q(x)], p2: x => [toP2Q(x)], p3: x => toTalkQs(x, 'p3'), p4: x => toTalkQs(x, 'p4'), p5: x => [toP5Q(x)], p6: toP6Qs, p7: toP7Qs }, U = []; let n = 0;
   for (const s of Object.keys(mk)) { const ix = F ? null : Object.fromEntries(TO[s].map(x => [x.id, x]));
     for (const it of (F ? F[s] : d[s]) || []) { const x = F ? it : ix[it]; if (!x) continue;
-      const qs = mk[s](x).map(q => { n++; const fix = q.opts.every(t => /^[A-D]$/.test(t) || /^\[\d\]$/.test(t)); return { ...q, n, opts: fix ? [...q.opts].sort() : (typeof tqNat === 'function' && tqNat(q.opts)) || [...q.opts].sort((a, b) => trH(de + n + a) - trH(de + n + b)) }; });   // v153: số / giờ / ngày / tầng… xếp tăng dần (tqNat, toqt.js)
+      const qs = mk[s](x).map(q => { n++; const fix = q.opts.every(t => /^[A-D]$/.test(t) || /^\[\d\]$/.test(t)), od = O && O[n - 1], base = od ? [...q.opts].sort() : null;
+        return { ...q, n, opts: od ? od.split('').map(i => base[+i]) : fix ? [...q.opts].sort() : (typeof tqNat === 'function' && tqNat(q.opts)) || [...q.opts].sort((a, b) => trH(de + n + a) - trH(de + n + b)) }; });   // v155: ord = hoán vị đã cân bằng (bộ dựng ghi)   // v153: số / giờ / ngày / tầng… xếp tăng dần (tqNat, toqt.js)
       U.push({ sec: s, x, qs, a: qs[0].n, b: qs[qs.length - 1].n }); } }
   trCk(U);
   return (TR.B[de] = { d, U, Q: U.flatMap(u => u.qs), L: U.filter(u => /^p[1-4]$/.test(u.sec)), R: U.filter(u => /^p[5-7]$/.test(u.sec)) }); }
@@ -235,12 +236,17 @@ const trPick = (q, ch) => ch && ch !== '-' ? q.opts['ABCD'.indexOf(ch)] : null;
 const trSt3 = (q, ch) => { const v = trPick(q, ch); return v == null ? 'em' : v === q.a ? 'ok' : 'no'; };
 const TR_SPK = { A: 'Nữ', B: 'Nam', C: 'Nữ 2' };   // giọng Part 3 (tools/build-audio.py): A nữ, B nam, C nữ thứ hai
 const trShCount = (B, A) => { const n = { ok: 0, no: 0, em: 0 }; for (const q of B.Q) if (trQIn(q, A.o)) n[trSt3(q, A.a[q.n - 1])]++; return n; };
-function trShRow(de, sub, only) { const A = (toSt().tronA || {})[trAK(de, only)]; if (!A) return ''; const B = trB(de), n = B ? trShCount(B, A) : null;
+// v155 (specs/012-so-loi-soan-de R6): bài làm 📋 lưu trước khi cân bằng vị trí đáp án (thiếu ov) → đổi chữ theo bảng dc của đề (cùng phương án);
+//   câu đã đổi nội dung → '-'. Đề tệp riêng chưa tải thì để nguyên, lần sau mở đổi.
+function trAGet(de, key) { const o = toSt(), A = (o.tronA || {})[key], d = trMeta(de); if (!A || A.ov === 2 || !d || (d.f && !TR.D[de])) return A;
+  const dc = (d.f ? TR.D[de].dc : d.dc) || {}, a = String(A.a || '').split('').map((L, i) => { const m = dc[i + 1]; return L === '-' || m === undefined ? L : m === null ? '-' : (m['ABCD'.indexOf(L)] || L); }).join('');
+  const B = Object.assign({}, A, { a, ov: 2 }); o.tronA = Object.assign({}, o.tronA, { [key]: B }); try { save(); } catch (e) {} return B; }
+function trShRow(de, sub, only) { const A = trAGet(de, trAK(de, only)); if (!A) return ''; const B = trB(de), n = B ? trShCount(B, A) : null;
   const t = `<span class="ic">📋</span><span class="t"><b>${sub ? 'Xem bài làm lần gần nhất' : 'Bài làm và đáp án'}</b><small>${n ? `✓ ${n.ok} đúng · ✗ ${n.no} sai · – ${n.em} bỏ trống` : new Date(A.at).toLocaleDateString('vi-VN')}${sub ? '' : ' · xem từng câu'}</small></span><span class="chev">›</span>`;
   return sub ? `<button class="hrow sub" data-trsh="${esc(de)}">${t}</button>` : `<div class="box hcard"><button class="hrow" data-trsh="${esc(de)}"${only ? ` data-tro="${only}"` : ''}>${t}</button></div>`; }
 // bảng 200 ô theo Part; lọc tất cả / câu sai / bỏ trống
-async function trSheet(de, back, f = '', only) { const A = (toSt().tronA || {})[trAK(de, only)]; if (!A) return back ? back() : trView();
-  if (!trB(de)) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải đề…</p>'; if (!(await trLoad(de)) || !trB(de)) { $app.innerHTML = '<div id="ie"></div><div class="box"><p style="margin:0">Không tải được đề. Kiểm tra mạng rồi thử lại.</p></div><button data-trshb>‹ Quay lại</button>'; $app.onclick = e => { if (e.target.closest('[data-trshb]')) (back || trView)(); }; return; } }
+async function trSheet(de, back, f = '', only) { let A = trAGet(de, trAK(de, only)); if (!A) return back ? back() : trView();
+  if (!trB(de)) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải đề…</p>'; if (!(await trLoad(de)) || !trB(de)) { $app.innerHTML = '<div id="ie"></div><div class="box"><p style="margin:0">Không tải được đề. Kiểm tra mạng rồi thử lại.</p></div><button data-trshb>‹ Quay lại</button>'; $app.onclick = e => { if (e.target.closest('[data-trshb]')) (back || trView)(); }; return; } A = trAGet(de, trAK(de, only)); }
   const B = trB(de), sts = B.Q.map(q => trSt3(q, A.a[q.n - 1])), n = trShCount(B, A); window.CUR = { view: 'toeic-tron-xem' }; TR.sh = { de, back, f, only }; TR.tok++; trHush();
   const secs = Object.keys(TR_SECS).filter(s => B.Q.some(q => q.sec === s && trQIn(q, A.o))).map(s => { const qs = B.Q.filter(q => q.sec === s && trQIn(q, A.o)), on = qs.filter(q => !f || sts[q.n - 1] === f); if (!on.length) return '';
     return `<h2 class="trshh">${TR_SECS[s]} · ${TR_PN[s]} <span class="mute">· ${qs.filter(q => sts[q.n - 1] === 'ok').length}/${qs.length} đúng</span></h2><div class="trgrid trsh">${on.map(q => { const k = sts[q.n - 1], ch = A.a[q.n - 1], key = 'ABCD'[q.opts.indexOf(q.a)];
@@ -269,7 +275,7 @@ function trRvBody(u, A) { const x = u.x, qs = u.qs.map(q => trRvQ(q, A)).join(''
   if (u.sec === 'p6') return `<div class="box"><p class="mute" style="margin:0">${esc(x.kind)}</p><b style="font-size:15px">${esc(x.title)}</b><p class="tdtap" style="font-size:16px;line-height:1.7;margin:8px 0 0">${esc(x.text).replace(/\{(\d)\}/g, (_, k) => `<b>(${u.a + +k - 1})</b> -------`)}</p></div>${qs}`;
   return trDocs(x).replace(/<p style="font-size:16px/g, '<p class="tdtap" style="font-size:16px') + qs; }
 // xem lại một bài (đơn vị của đề); ‹ Trước · Sau › theo bộ lọc của bảng
-function trRv(de, n) { const B = trB(de), sh = TR.sh || { de, f: '' }, A = (toSt().tronA || {})[trAK(de, sh.only)]; if (!B || !A) return trView();
+function trRv(de, n) { const B = trB(de), sh = TR.sh || { de, f: '' }, A = trAGet(de, trAK(de, sh.only)); if (!B || !A) return trView();
   const ui = Math.max(0, B.U.findIndex(u => n >= u.a && n <= u.b)), u = B.U[ui], f = sh.f || '', bad = j => trUIn(B.U[j], A.o) && (!f || B.U[j].qs.some(q => trSt3(q, A.a[q.n - 1]) === f));
   let pi = ui - 1; while (pi >= 0 && !bad(pi)) pi--; let ni = ui + 1; while (ni < B.U.length && !bad(ni)) ni++;
   TR.tok++; trHush(); window.CUR = { view: 'toeic-tron-xem', item: 'rv' + u.a };
@@ -293,7 +299,7 @@ function trSubmit(auto) { const st = trSt(); if (!st) return trView(); TR.on = '
   try { toLog(res.filter(r => r.ans !== ''), 'thi'); } catch (e) {}   // bản đồ điểm: chỉ câu đã chọn (câu bỏ trống không nói gì về dạng câu)
   for (const u of B.U) { const rs = res.filter(r => r.q.x === u.x); o.r[u.x.id] = { at: now, ok: rs.filter(r => r.ok).length, n: rs.length, k: u.sec }; }
   const rec = { at: now, b, tot: b.L + b.R, full: 1, de: st.de, ok: { L: okL, R: okR }, by, min: { L: Math.round(((st.lEnd || now) - st.lAt) / 60000), R: st.rAt ? Math.round(Math.min(now - st.rAt, TR_RMIN * 60000) / 60000) : 0 }, gap: st.gap || 0, ...(auto ? { auto: 1 } : {}) };
-  o.tronA = Object.assign({}, o.tronA, { [st.de]: { at: now, a: trAnsStr(B, st.ans) } });   // v149 📋 bài làm lần gần nhất (làm lại thì thay)
+  o.tronA = Object.assign({}, o.tronA, { [st.de]: { at: now, a: trAnsStr(B, st.ans), ov: 2 } });   // v149 📋 bài làm lần gần nhất (làm lại thì thay)
   o.mock.push(rec); o.tron = null; S.t = now; save(); trRes(rec, res, prev); }
 function trRes(rec, res, prev) { window.CUR = { view: 'toeic-tron-kq' }; const tg = toSt().target, hb = typeof hlBox === 'function' ? hlBox(res, { src: 'thi' }) : { html: '', pri: false }, d = rec.tot - (prev ? prev.tot : 0), B = trB(rec.de);
   $app.innerHTML = `<div id="ie"></div><h1>🎓 Kết quả ${esc(trName(rec.de))}</h1>
@@ -313,7 +319,7 @@ function trSubmitOne(st, B, now, o, auto) { const only = st.only, res = B.Q.filt
   const ok = res.filter(r => r.ok).length, sc = only === 'L' || only === 'R' ? toScale(ok, res.length) : null, prev = (o.tronP || []).filter(m => m.de === st.de && m.o === only).slice(-1)[0];
   const rec = { at: now, de: st.de, o: only, ok, n: res.length, by, ...(sc != null ? { sc } : {}), min: Math.round((trIsL(only) ? (st.lEnd || now) - st.lAt : Math.min(now - st.rAt, (st.rMin || trRMin(only)) * 60000)) / 60000), ...(st.rMin ? { rm: st.rMin } : {}), gap: st.gap || 0, ...(auto ? { auto: 1 } : {}) };
   o.tronP = [...(o.tronP || []), rec].slice(-60);
-  o.tronA = Object.assign({}, o.tronA, { [trAK(st.de, only)]: { at: now, o: only, a: trAnsStr(B, st.ans) } });
+  o.tronA = Object.assign({}, o.tronA, { [trAK(st.de, only)]: { at: now, o: only, a: trAnsStr(B, st.ans), ov: 2 } });
   o.tron = null; S.t = now; save(); trResOne(rec, res, prev); }
 function trResOne(rec, res, prev) { window.CUR = { view: 'toeic-tron-kq' }; const B = trB(rec.de), C = B ? trCks(B) : [], nC = C.length, nx = trIsCk(rec.o) ? C[trCkN(rec.o) + 1] : null; const hb = typeof hlBox === 'function' ? hlBox(res, { src: 'thi' }) : { html: '', pri: false }, pct = Math.round(rec.ok * 100 / rec.n);
   const rows = Object.entries(rec.by).map(([p, [a, n]]) => `<span>${p} · ${TR_PN[Object.keys(TR_SECS).find(s => TR_SECS[s] === p)] || ''}</span><span>${a}/${n}</span><span>${Math.round(a * 100 / n)}%</span>`).join('');

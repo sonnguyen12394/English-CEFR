@@ -1484,19 +1484,19 @@
     ],
     [
      "B",
-     "Thanks. Do I need to bring my own laptop?"
+     "Thanks. Should I have brought my own laptop?"
     ],
     [
      "A",
-     "No, there are computers in the room. But you'll need your employee ID to log in."
+     "No, every seat in the training room has a computer. But you'll need your employee ID card to open the door."
     ],
     [
      "B",
-     "Oh no, I left my ID at my desk."
+     "Oh no, I left my ID card at my desk."
     ],
     [
      "A",
-     "Don't worry. I can print a temporary pass for you."
+     "Don't worry. I can print a visitor badge for you."
     ]
    ],
    "qs": [
@@ -1512,26 +1512,26 @@
      "ev": "I'm here for the Excel training."
     },
     {
-     "q": "What does the woman say about the room?",
-     "a": "It has computers.",
+     "q": "What does the woman say about the training room?",
+     "a": "Equipment is already provided.",
      "w": [
-      "It is locked.",
+      "It is locked during lunch.",
       "It is very small.",
       "It has a projector."
      ],
      "ty": "detail",
-     "ev": "there are computers in the room"
+     "ev": "No, every seat in the training room has a computer."
     },
     {
      "q": "What will the woman most likely do next?",
-     "a": "Print a temporary pass",
+     "a": "Make a badge for the man",
      "w": [
       "Call the trainer",
-      "Bring a laptop",
+      "Lend the man a laptop",
       "Go to the man's desk"
      ],
      "ty": "next",
-     "ev": "I can print a temporary pass for you."
+     "ev": "I can print a visitor badge for you."
     }
    ]
   },

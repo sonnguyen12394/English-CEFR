@@ -37,6 +37,12 @@
    "phan": "doc",
    "cau": 12,
    "khop": 12
+  },
+  {
+   "ngay": "2026-11-10",
+   "phan": "nghe",
+   "cau": 3,
+   "khop": 3
   }
  ],
  "cau": {
@@ -48,7 +54,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A mechanic is working on a vehicle.",
+   "hai_t": null
   },
   "2": {
    "id": "d04-p1-02",
@@ -58,7 +66,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A computer has been placed on a desk.",
+   "hai_t": null
   },
   "3": {
    "id": "d04-p1-03",
@@ -68,7 +78,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A person is swimming in a pool.",
+   "hai_t": null
   },
   "4": {
    "id": "d04-p1-04",
@@ -78,7 +90,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A worker is wearing a hard hat.",
+   "hai_t": null
   },
   "5": {
    "id": "d04-p1-05",
@@ -88,7 +102,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Two people are standing at a table.",
+   "hai_t": null
   },
   "6": {
    "id": "d04-p1-06",
@@ -98,7 +114,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Books have been arranged on shelves.",
+   "hai_t": null
   },
   "7": {
    "id": "d04-p2-01",
@@ -108,7 +126,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Two blocks north of here.",
+   "hai_t": null
   },
   "8": {
    "id": "d04-p2-02",
@@ -118,7 +138,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "I'm just checking the last page.",
+   "hai_t": null
   },
   "9": {
    "id": "d04-p2-03",
@@ -128,7 +150,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Someone from the fire department.",
+   "hai_t": null
   },
   "10": {
    "id": "d04-p2-04",
@@ -138,17 +162,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Sure, is that better?",
+   "hai_t": null
   },
   "11": {
    "id": "d04-p2-05",
-   "dau": "84129a4748",
-   "da": "B",
-   "chon": "B",
+   "dau": "5ae9819576",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "The end of next month.",
+   "hai_t": null
   },
   "12": {
    "id": "d04-p2-06",
@@ -158,7 +186,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "An e-mail would be fine.",
+   "hai_t": null
   },
   "13": {
    "id": "d04-p2-07",
@@ -168,7 +198,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "We can take the stairs.",
+   "hai_t": null
   },
   "14": {
    "id": "d04-p2-08",
@@ -178,7 +210,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "They're installing new ovens.",
+   "hai_t": null
   },
   "15": {
    "id": "d04-p2-09",
@@ -188,7 +222,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "No, go ahead.",
+   "hai_t": null
   },
   "16": {
    "id": "d04-p2-10",
@@ -198,7 +234,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "About twice a year.",
+   "hai_t": null
   },
   "17": {
    "id": "d04-p2-11",
@@ -208,7 +246,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "The Grandview, near the station.",
+   "hai_t": null
   },
   "18": {
    "id": "d04-p2-12",
@@ -218,7 +258,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "That's a good idea.",
+   "hai_t": null
   },
   "19": {
    "id": "d04-p2-13",
@@ -228,7 +270,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "No later than six.",
+   "hai_t": null
   },
   "20": {
    "id": "d04-p2-14",
@@ -238,7 +282,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Yes, but it hasn't arrived yet.",
+   "hai_t": null
   },
   "21": {
    "id": "d04-p2-15",
@@ -248,7 +294,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Ask Jenny at the front desk.",
+   "hai_t": null
   },
   "22": {
    "id": "d04-p2-16",
@@ -258,7 +306,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It's only five minutes on foot.",
+   "hai_t": null
   },
   "23": {
    "id": "d04-p2-17",
@@ -268,7 +318,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Then let's go with that one.",
+   "hai_t": null
   },
   "24": {
    "id": "d04-p2-18",
@@ -278,7 +330,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A friend recommended it.",
+   "hai_t": null
   },
   "25": {
    "id": "d04-p2-19",
@@ -288,7 +342,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Sorry, I'm traveling this weekend.",
+   "hai_t": null
   },
   "26": {
    "id": "d04-p2-20",
@@ -298,7 +354,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "I think it was Mark's.",
+   "hai_t": null
   },
   "27": {
    "id": "d04-p2-21",
@@ -308,7 +366,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "I'm free after three.",
+   "hai_t": null
   },
   "28": {
    "id": "d04-p2-22",
@@ -318,7 +378,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "The address on the label was wrong.",
+   "hai_t": null
   },
   "29": {
    "id": "d04-p2-23",
@@ -328,7 +390,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Actually, it arrived this morning.",
+   "hai_t": null
   },
   "30": {
    "id": "d04-p2-24",
@@ -338,7 +402,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Then let's start without her.",
+   "hai_t": null
   },
   "31": {
    "id": "d04-p2-25",
@@ -348,7 +414,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "The subway is fastest.",
+   "hai_t": null
   },
   "32": {
    "id": "d04-p3-01#1",
@@ -358,7 +426,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "At a bank",
+   "hai_t": null
   },
   "33": {
    "id": "d04-p3-01#2",
@@ -368,7 +438,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "He does not have an original document.",
+   "hai_t": null
   },
   "34": {
    "id": "d04-p3-01#3",
@@ -378,7 +450,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A checklist",
+   "hai_t": null
   },
   "35": {
    "id": "d04-p3-02#1",
@@ -388,7 +462,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Attending a conference",
+   "hai_t": null
   },
   "36": {
    "id": "d04-p3-02#2",
@@ -398,7 +474,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "He is worried about the cost.",
+   "hai_t": null
   },
   "37": {
    "id": "d04-p3-02#3",
@@ -408,7 +486,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Submit a request form",
+   "hai_t": null
   },
   "38": {
    "id": "d04-p3-03#1",
@@ -418,7 +498,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A product launch",
+   "hai_t": null
   },
   "39": {
    "id": "d04-p3-03#2",
@@ -428,7 +510,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It is too small.",
+   "hai_t": null
   },
   "40": {
    "id": "d04-p3-03#3",
@@ -438,7 +522,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Call a hotel",
+   "hai_t": null
   },
   "41": {
    "id": "d04-p3-04#1",
@@ -448,7 +534,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "An appliance is leaking.",
+   "hai_t": null
   },
   "42": {
    "id": "d04-p3-04#2",
@@ -458,17 +546,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "His money back",
+   "hai_t": null
   },
   "43": {
    "id": "d04-p3-04#3",
    "dau": "79edefd24a",
-   "da": "B",
-   "chon": "B",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A refund will appear on an account.",
+   "hai_t": null
   },
   "44": {
    "id": "d04-p3-05#1",
@@ -478,17 +570,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To change an appointment",
+   "hai_t": null
   },
   "45": {
    "id": "d04-p3-05#2",
    "dau": "ddd4a30a27",
-   "da": "B",
-   "chon": "B",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "At a dental clinic",
+   "hai_t": null
   },
   "46": {
    "id": "d04-p3-05#3",
@@ -498,7 +594,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "On Friday afternoon",
+   "hai_t": null
   },
   "47": {
    "id": "d04-p3-06#1",
@@ -508,7 +606,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A report contains old figures.",
+   "hai_t": null
   },
   "48": {
    "id": "d04-p3-06#2",
@@ -518,7 +618,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "The correction must be made quickly.",
+   "hai_t": null
   },
   "49": {
    "id": "d04-p3-06#3",
@@ -528,17 +630,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A comparison chart",
+   "hai_t": null
   },
   "50": {
    "id": "d04-p3-07#1",
    "dau": "73aeceff19",
-   "da": "B",
-   "chon": "B",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Book a tour",
+   "hai_t": null
   },
   "51": {
    "id": "d04-p3-07#2",
@@ -548,7 +654,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It has no seats left.",
+   "hai_t": null
   },
   "52": {
    "id": "d04-p3-07#3",
@@ -558,7 +666,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Hotel stays and breakfasts",
+   "hai_t": null
   },
   "53": {
    "id": "d04-p3-08#1",
@@ -568,7 +678,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To set up new computers",
+   "hai_t": null
   },
   "54": {
    "id": "d04-p3-08#2",
@@ -578,7 +690,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Whether files will be lost",
+   "hai_t": null
   },
   "55": {
    "id": "d04-p3-08#3",
@@ -588,7 +702,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "She has a call with a client.",
+   "hai_t": null
   },
   "56": {
    "id": "d04-p3-09#1",
@@ -598,7 +714,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A lunch for a meeting",
+   "hai_t": null
   },
   "57": {
    "id": "d04-p3-09#2",
@@ -608,7 +726,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "The meeting will continue during the meal.",
+   "hai_t": null
   },
   "58": {
    "id": "d04-p3-09#3",
@@ -618,7 +738,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Information about an allergy",
+   "hai_t": null
   },
   "59": {
    "id": "d04-p3-10#1",
@@ -628,7 +750,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A parking lot will be resurfaced.",
+   "hai_t": null
   },
   "60": {
    "id": "d04-p3-10#2",
@@ -638,7 +762,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "In a garage on Hill Street",
+   "hai_t": null
   },
   "61": {
    "id": "d04-p3-10#3",
@@ -648,17 +774,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Check a schedule online",
+   "hai_t": null
   },
   "62": {
    "id": "d04-p3-11#1",
    "dau": "16c4d0b179",
-   "da": "B",
-   "chon": "B",
+   "da": "A",
+   "chon": "A",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Her team",
+   "hai_t": null
   },
   "63": {
    "id": "d04-p3-11#2",
@@ -668,7 +798,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "$45",
+   "hai_t": null
   },
   "64": {
    "id": "d04-p3-11#3",
@@ -678,7 +810,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "They are next to each other.",
+   "hai_t": null
   },
   "65": {
    "id": "d04-p3-12#1",
@@ -688,7 +822,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Some samples",
+   "hai_t": null
   },
   "66": {
    "id": "d04-p3-12#2",
@@ -698,7 +834,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "$28",
+   "hai_t": null
   },
   "67": {
    "id": "d04-p3-12#3",
@@ -708,7 +846,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It is higher than she expected.",
+   "hai_t": null
   },
   "68": {
    "id": "d04-p3-13#1",
@@ -718,7 +858,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To attend an interview",
+   "hai_t": null
   },
   "69": {
    "id": "d04-p3-13#2",
@@ -728,7 +870,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Floor 5",
+   "hai_t": null
   },
   "70": {
    "id": "d04-p3-13#3",
@@ -738,7 +882,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Sign a visitor book",
+   "hai_t": null
   },
   "71": {
    "id": "d04-p4-01#1",
@@ -748,7 +894,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A property manager",
+   "hai_t": null
   },
   "72": {
    "id": "d04-p4-01#2",
@@ -758,7 +906,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A pipe will be replaced.",
+   "hai_t": null
   },
   "73": {
    "id": "d04-p4-01#3",
@@ -768,7 +918,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Storing some water in advance",
+   "hai_t": null
   },
   "74": {
    "id": "d04-p4-02#1",
@@ -778,7 +930,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "At a museum",
+   "hai_t": null
   },
   "75": {
    "id": "d04-p4-02#2",
@@ -788,7 +942,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It will stay open later.",
+   "hai_t": null
   },
   "76": {
    "id": "d04-p4-02#3",
@@ -798,7 +954,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Museum members",
+   "hai_t": null
   },
   "77": {
    "id": "d04-p4-03#1",
@@ -808,7 +966,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A shared office space",
+   "hai_t": null
   },
   "78": {
    "id": "d04-p4-03#2",
@@ -818,7 +978,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It is close to a train station.",
+   "hai_t": null
   },
   "79": {
    "id": "d04-p4-03#3",
@@ -828,7 +990,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Popular desks should be reserved early.",
+   "hai_t": null
   },
   "80": {
    "id": "d04-p4-04#1",
@@ -838,7 +1002,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A new flight route",
+   "hai_t": null
   },
   "81": {
    "id": "d04-p4-04#2",
@@ -848,7 +1014,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Tickets will go on sale.",
+   "hai_t": null
   },
   "82": {
    "id": "d04-p4-04#3",
@@ -858,7 +1026,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Hire flight attendants",
+   "hai_t": null
   },
   "83": {
    "id": "d04-p4-05#1",
@@ -868,7 +1038,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To present an award",
+   "hai_t": null
   },
   "84": {
    "id": "d04-p4-05#2",
@@ -878,7 +1050,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "She has received many positive reviews.",
+   "hai_t": null
   },
   "85": {
    "id": "d04-p4-05#3",
@@ -888,7 +1062,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "She trained new employees.",
+   "hai_t": null
   },
   "86": {
    "id": "d04-p4-06#1",
@@ -898,7 +1074,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "At a clock tower",
+   "hai_t": null
   },
   "87": {
    "id": "d04-p4-06#2",
@@ -908,7 +1086,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Some steep streets",
+   "hai_t": null
   },
   "88": {
    "id": "d04-p4-06#3",
@@ -918,7 +1098,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To suggest that listeners be prepared for rain",
+   "hai_t": null
   },
   "89": {
    "id": "d04-p4-07#1",
@@ -928,7 +1110,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It received a record number of responses.",
+   "hai_t": null
   },
   "90": {
    "id": "d04-p4-07#2",
@@ -938,7 +1122,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Slow deliveries",
+   "hai_t": null
   },
   "91": {
    "id": "d04-p4-07#3",
@@ -948,7 +1134,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Send a report",
+   "hai_t": null
   },
   "92": {
    "id": "d04-p4-08#1",
@@ -958,7 +1146,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "Cả ba câu 92–94 đều đáp án A; nên trộn vị trí đáp án.",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A Web site design",
+   "hai_t": null
   },
   "93": {
    "id": "d04-p4-08#2",
@@ -968,7 +1158,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A page is difficult to use.",
+   "hai_t": null
   },
   "94": {
    "id": "d04-p4-08#3",
@@ -978,37 +1170,45 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Choose a meeting day",
+   "hai_t": null
   },
   "95": {
    "id": "d04-p4-09#1",
-   "dau": "73e6089d1b",
+   "dau": "c49d084de5",
    "da": "C",
    "chon": "C",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-10",
+   "chon_t": "Some equipment is not working.",
+   "hai_t": null
   },
   "96": {
    "id": "d04-p4-09#2",
-   "dau": "73e6089d1b",
-   "da": "A",
-   "chon": "A",
-   "chac": 3,
-   "hai": null,
-   "ghi": "",
-   "ngay": "2026-11-09"
-  },
-  "97": {
-   "id": "d04-p4-09#3",
-   "dau": "73e6089d1b",
+   "dau": "c49d084de5",
    "da": "D",
    "chon": "D",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-10",
+   "chon_t": "Room 101",
+   "hai_t": null
+  },
+  "97": {
+   "id": "d04-p4-09#3",
+   "dau": "c49d084de5",
+   "da": "D",
+   "chon": "D",
+   "chac": 3,
+   "hai": null,
+   "ghi": "",
+   "ngay": "2026-11-10",
+   "chon_t": "Pick up a certificate",
+   "hai_t": null
   },
   "98": {
    "id": "d04-p4-10#1",
@@ -1018,7 +1218,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Unlimited calls and texts",
+   "hai_t": null
   },
   "99": {
    "id": "d04-p4-10#2",
@@ -1028,7 +1230,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Plus",
+   "hai_t": null
   },
   "100": {
    "id": "d04-p4-10#3",
@@ -1038,7 +1242,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Their current phone bill",
+   "hai_t": null
   },
   "101": {
    "id": "d04-p5-01",
@@ -1048,7 +1254,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "passionately",
+   "hai_t": null
   },
   "102": {
    "id": "d04-p5-02",
@@ -1058,7 +1266,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "will publish",
+   "hai_t": null
   },
   "103": {
    "id": "d04-p5-03",
@@ -1068,7 +1278,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "at",
+   "hai_t": null
   },
   "104": {
    "id": "d04-p5-04",
@@ -1078,17 +1290,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "I",
+   "hai_t": null
   },
   "105": {
    "id": "d04-p5-05",
    "dau": "dbe3fb5290",
-   "da": "C",
-   "chon": "C",
+   "da": "D",
+   "chon": "D",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "all",
+   "hai_t": null
   },
   "106": {
    "id": "d04-p5-06",
@@ -1098,7 +1314,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "satisfaction",
+   "hai_t": null
   },
   "107": {
    "id": "d04-p5-07",
@@ -1108,7 +1326,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "suspend",
+   "hai_t": null
   },
   "108": {
    "id": "d04-p5-08",
@@ -1118,17 +1338,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "if",
+   "hai_t": null
   },
   "109": {
    "id": "d04-p5-09",
    "dau": "519640c139",
-   "da": "B",
-   "chon": "B",
+   "da": "D",
+   "chon": "D",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "are required",
+   "hai_t": null
   },
   "110": {
    "id": "d04-p5-10",
@@ -1138,7 +1362,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "extremely",
+   "hai_t": null
   },
   "111": {
    "id": "d04-p5-11",
@@ -1148,7 +1374,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "at",
+   "hai_t": null
   },
   "112": {
    "id": "d04-p5-12",
@@ -1158,7 +1386,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "proof",
+   "hai_t": null
   },
   "113": {
    "id": "d04-p5-13",
@@ -1168,7 +1398,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "their",
+   "hai_t": null
   },
   "114": {
    "id": "d04-p5-14",
@@ -1178,7 +1410,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "because",
+   "hai_t": null
   },
   "115": {
    "id": "d04-p5-15",
@@ -1188,7 +1422,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "was reviewing",
+   "hai_t": null
   },
   "116": {
    "id": "d04-p5-16",
@@ -1198,7 +1434,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "partnership",
+   "hai_t": null
   },
   "117": {
    "id": "d04-p5-17",
@@ -1208,7 +1446,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "by",
+   "hai_t": null
   },
   "118": {
    "id": "d04-p5-18",
@@ -1218,7 +1458,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "few",
+   "hai_t": null
   },
   "119": {
    "id": "d04-p5-19",
@@ -1228,7 +1470,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "attend",
+   "hai_t": null
   },
   "120": {
    "id": "d04-p5-20",
@@ -1238,7 +1482,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "convincing",
+   "hai_t": null
   },
   "121": {
    "id": "d04-p5-21",
@@ -1248,7 +1494,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "has been working",
+   "hai_t": null
   },
   "122": {
    "id": "d04-p5-22",
@@ -1258,7 +1506,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Once",
+   "hai_t": null
   },
   "123": {
    "id": "d04-p5-23",
@@ -1268,7 +1518,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "exceeded",
+   "hai_t": null
   },
   "124": {
    "id": "d04-p5-24",
@@ -1278,7 +1530,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "his or her",
+   "hai_t": null
   },
   "125": {
    "id": "d04-p5-25",
@@ -1288,7 +1542,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "can",
+   "hai_t": null
   },
   "126": {
    "id": "d04-p5-26",
@@ -1298,7 +1554,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "disruption",
+   "hai_t": null
   },
   "127": {
    "id": "d04-p5-27",
@@ -1308,7 +1566,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "across",
+   "hai_t": null
   },
   "128": {
    "id": "d04-p5-28",
@@ -1318,7 +1578,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "refrain",
+   "hai_t": null
   },
   "129": {
    "id": "d04-p5-29",
@@ -1328,7 +1590,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "as many",
+   "hai_t": null
   },
   "130": {
    "id": "d04-p5-30",
@@ -1338,7 +1602,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "would have heard",
+   "hai_t": null
   },
   "131": {
    "id": "d04-p6-01#1",
@@ -1348,7 +1614,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "will launch",
+   "hai_t": null
   },
   "132": {
    "id": "d04-p6-01#2",
@@ -1358,7 +1626,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "This allows new staff to learn how other teams work.",
+   "hai_t": null
   },
   "133": {
    "id": "d04-p6-01#3",
@@ -1368,7 +1638,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "In addition",
+   "hai_t": null
   },
   "134": {
    "id": "d04-p6-01#4",
@@ -1378,7 +1650,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "application",
+   "hai_t": null
   },
   "135": {
    "id": "d04-p6-02#1",
@@ -1388,7 +1662,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "The registration fee is $25 for adults and $10 for children.",
+   "hai_t": null
   },
   "136": {
    "id": "d04-p6-02#2",
@@ -1398,7 +1674,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "free",
+   "hai_t": null
   },
   "137": {
    "id": "d04-p6-02#3",
@@ -1408,7 +1686,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "interested",
+   "hai_t": null
   },
   "138": {
    "id": "d04-p6-02#4",
@@ -1418,17 +1698,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "are expecting",
+   "hai_t": null
   },
   "139": {
    "id": "d04-p6-03#1",
    "dau": "347cca6f99",
-   "da": "A",
-   "chon": "A",
+   "da": "D",
+   "chon": "D",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Each room also has a new desk for business travelers.",
+   "hai_t": null
   },
   "140": {
    "id": "d04-p6-03#2",
@@ -1438,7 +1722,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "stunning",
+   "hai_t": null
   },
   "141": {
    "id": "d04-p6-03#3",
@@ -1448,7 +1734,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Therefore",
+   "hai_t": null
   },
   "142": {
    "id": "d04-p6-03#4",
@@ -1458,7 +1746,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "fully",
+   "hai_t": null
   },
   "143": {
    "id": "d04-p6-04#1",
@@ -1468,7 +1758,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "Đoạn gần trùng Đề 6 câu 143–146 (cùng chủ đề, câu mở đầu, chỗ (1) 'no longer be accepted', liên hệ qua extension).",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "accepted",
+   "hai_t": null
   },
   "144": {
    "id": "d04-p6-04#2",
@@ -1478,7 +1770,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Receipts must be clear enough to read.",
+   "hai_t": null
   },
   "145": {
    "id": "d04-p6-04#3",
@@ -1488,7 +1782,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "after",
+   "hai_t": null
   },
   "146": {
    "id": "d04-p6-04#4",
@@ -1498,17 +1794,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "contact",
+   "hai_t": null
   },
   "147": {
    "id": "d04-p7-01#1",
    "dau": "b592b1ff52",
-   "da": "A",
-   "chon": "A",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "She will be late for work.",
+   "hai_t": null
   },
   "148": {
    "id": "d04-p7-01#2",
@@ -1518,7 +1818,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "He will check the delivery.",
+   "hai_t": null
   },
   "149": {
    "id": "d04-p7-02#1",
@@ -1528,17 +1830,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "An elevator that will be unavailable",
+   "hai_t": null
   },
   "150": {
    "id": "d04-p7-02#2",
    "dau": "ff73d51e05",
-   "da": "B",
-   "chon": "B",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Ask the security desk",
+   "hai_t": null
   },
   "151": {
    "id": "d04-p7-03#1",
@@ -1548,7 +1854,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A discount on plants",
+   "hai_t": null
   },
   "152": {
    "id": "d04-p7-03#2",
@@ -1558,7 +1866,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Free parking",
+   "hai_t": null
   },
   "153": {
    "id": "d04-p7-04#1",
@@ -1568,7 +1878,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To confirm an order",
+   "hai_t": null
   },
   "154": {
    "id": "d04-p7-04#2",
@@ -1578,7 +1890,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "His order is over a certain amount.",
+   "hai_t": null
   },
   "155": {
    "id": "d04-p7-05#1",
@@ -1588,7 +1902,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To report on a city plan",
+   "hai_t": null
   },
   "156": {
    "id": "d04-p7-05#2",
@@ -1598,7 +1914,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "sudden",
+   "hai_t": null
   },
   "157": {
    "id": "d04-p7-05#3",
@@ -1608,7 +1926,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "By a national grant",
+   "hai_t": null
   },
   "158": {
    "id": "d04-p7-06#1",
@@ -1618,7 +1938,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To discuss a contract",
+   "hai_t": null
   },
   "159": {
    "id": "d04-p7-06#2",
@@ -1628,7 +1950,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Send presentation slides",
+   "hai_t": null
   },
   "160": {
    "id": "d04-p7-06#3",
@@ -1638,7 +1962,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "[1]",
+   "hai_t": null
   },
   "161": {
    "id": "d04-p7-07#1",
@@ -1648,7 +1974,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "About 40 minutes",
+   "hai_t": null
   },
   "162": {
    "id": "d04-p7-07#2",
@@ -1658,7 +1986,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "They cost less.",
+   "hai_t": null
   },
   "163": {
    "id": "d04-p7-07#3",
@@ -1668,7 +1998,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Because of bad weather",
+   "hai_t": null
   },
   "164": {
    "id": "d04-p7-08#1",
@@ -1678,7 +2010,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Arranging a dinner for clients",
+   "hai_t": null
   },
   "165": {
    "id": "d04-p7-08#2",
@@ -1688,7 +2022,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It has no space available on the 18th.",
+   "hai_t": null
   },
   "166": {
    "id": "d04-p7-08#3",
@@ -1698,7 +2034,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "He has reserved a room.",
+   "hai_t": null
   },
   "167": {
    "id": "d04-p7-08#4",
@@ -1708,7 +2046,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Send invitations",
+   "hai_t": null
   },
   "168": {
    "id": "d04-p7-09#1",
@@ -1718,7 +2058,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A company's expansion",
+   "hai_t": null
   },
   "169": {
    "id": "d04-p7-09#2",
@@ -1728,7 +2070,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "In Europe",
+   "hai_t": null
   },
   "170": {
    "id": "d04-p7-09#3",
@@ -1738,7 +2082,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "faithful",
+   "hai_t": null
   },
   "171": {
    "id": "d04-p7-09#4",
@@ -1748,7 +2094,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "[2]",
+   "hai_t": null
   },
   "172": {
    "id": "d04-p7-10#1",
@@ -1758,7 +2106,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To offer a job",
+   "hai_t": null
   },
   "173": {
    "id": "d04-p7-10#2",
@@ -1768,7 +2118,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It may be reviewed after six months.",
+   "hai_t": null
   },
   "174": {
    "id": "d04-p7-10#3",
@@ -1778,7 +2130,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Attend training",
+   "hai_t": null
   },
   "175": {
    "id": "d04-p7-10#4",
@@ -1788,7 +2142,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "June 20",
+   "hai_t": null
   },
   "176": {
    "id": "d04-p7-11#1",
@@ -1798,7 +2154,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Lunch is included in the price.",
+   "hai_t": null
   },
   "177": {
    "id": "d04-p7-11#2",
@@ -1808,7 +2166,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "The regular rate with a group discount",
+   "hai_t": null
   },
   "178": {
    "id": "d04-p7-11#3",
@@ -1818,7 +2178,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Six",
+   "hai_t": null
   },
   "179": {
    "id": "d04-p7-11#4",
@@ -1828,7 +2190,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Meals for some team members",
+   "hai_t": null
   },
   "180": {
    "id": "d04-p7-11#5",
@@ -1838,7 +2202,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "On May 12",
+   "hai_t": null
   },
   "181": {
    "id": "d04-p7-12#1",
@@ -1848,7 +2214,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A staff lunch",
+   "hai_t": null
   },
   "182": {
    "id": "d04-p7-12#2",
@@ -1858,7 +2226,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To report a billing error",
+   "hai_t": null
   },
   "183": {
    "id": "d04-p7-12#3",
@@ -1868,7 +2238,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "$30",
+   "hai_t": null
   },
   "184": {
    "id": "d04-p7-12#4",
@@ -1878,7 +2250,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "His colleagues liked it.",
+   "hai_t": null
   },
   "185": {
    "id": "d04-p7-12#5",
@@ -1888,7 +2262,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "$430.00",
+   "hai_t": null
   },
   "186": {
    "id": "d04-p7-13#1",
@@ -1898,17 +2274,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Scheduling appointments",
+   "hai_t": null
   },
   "187": {
    "id": "d04-p7-13#2",
    "dau": "a528633225",
-   "da": "B",
-   "chon": "B",
+   "da": "D",
+   "chon": "D",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "She has the experience and language skill requested.",
+   "hai_t": null
   },
   "188": {
    "id": "d04-p7-13#3",
@@ -1918,7 +2298,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "A typing test",
+   "hai_t": null
   },
   "189": {
    "id": "d04-p7-13#4",
@@ -1928,7 +2310,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Working on some Saturdays",
+   "hai_t": null
   },
   "190": {
    "id": "d04-p7-13#5",
@@ -1938,7 +2322,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "On October 4",
+   "hai_t": null
   },
   "191": {
    "id": "d04-p7-14#1",
@@ -1948,7 +2334,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "They are limited to 15 people.",
+   "hai_t": null
   },
   "192": {
    "id": "d04-p7-14#2",
@@ -1958,7 +2346,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Bring their own laptops",
+   "hai_t": null
   },
   "193": {
    "id": "d04-p7-14#3",
@@ -1968,7 +2358,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "October 17",
+   "hai_t": null
   },
   "194": {
    "id": "d04-p7-14#4",
@@ -1978,17 +2370,21 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "To talk to family members abroad",
+   "hai_t": null
   },
   "195": {
    "id": "d04-p7-14#5",
    "dau": "7654e96571",
-   "da": "B",
-   "chon": "B",
+   "da": "C",
+   "chon": "C",
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Room B",
+   "hai_t": null
   },
   "196": {
    "id": "d04-p7-15#1",
@@ -1998,7 +2394,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "New employees will start soon.",
+   "hai_t": null
   },
   "197": {
    "id": "d04-p7-15#2",
@@ -2008,7 +2406,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "Send a similar item",
+   "hai_t": null
   },
   "198": {
    "id": "d04-p7-15#3",
@@ -2018,7 +2418,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "$12.00",
+   "hai_t": null
   },
   "199": {
    "id": "d04-p7-15#4",
@@ -2028,7 +2430,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "On November 6",
+   "hai_t": null
   },
   "200": {
    "id": "d04-p7-15#5",
@@ -2038,7 +2442,9 @@
    "chac": 3,
    "hai": null,
    "ghi": "",
-   "ngay": "2026-11-09"
+   "ngay": "2026-11-09",
+   "chon_t": "It follows Ms. Shaw's instructions.",
+   "hai_t": null
   }
  }
 }

@@ -2041,17 +2041,6 @@
    "text": "Good morning, conference attendees. Please note one change to today's workshop schedule. Because the projector in Hall B isn't working, the video marketing workshop will be moved to the room used for Social Media Basics this morning. The time will not change. Lunch will be served in the main lobby from twelve thirty. Don't forget to collect your certificate at the registration desk before you leave.",
    "qs": [
     {
-     "q": "Look at the graphic. Where will the video marketing workshop take place?",
-     "a": "Room 101",
-     "w": [
-      "Room 204",
-      "Hall B",
-      "Room 305"
-     ],
-     "ty": "graphic",
-     "ev": "the video marketing workshop will be moved to the room used for Social Media Basics this morning"
-    },
-    {
      "q": "Why is the workshop being moved?",
      "a": "Some equipment is not working.",
      "w": [
@@ -2061,6 +2050,17 @@
      ],
      "ty": "detail",
      "ev": "the projector in Hall B isn't working"
+    },
+    {
+     "q": "Look at the graphic. Where will the video marketing workshop take place?",
+     "a": "Room 101",
+     "w": [
+      "Room 204",
+      "Hall B",
+      "Room 305"
+     ],
+     "ty": "graphic",
+     "ev": "the video marketing workshop will be moved to the room used for Social Media Basics this morning"
     },
     {
      "q": "What should attendees do before leaving?",

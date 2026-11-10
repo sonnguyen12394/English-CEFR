@@ -18,12 +18,13 @@ Bộ dựng (`tools/build-toeic.mjs`) đã kiểm sẵn, không nhắc lại ở
 
 ## Quy trình soạn một đề
 
+0. Đọc sổ lỗi soạn đề (tab 🛡️ Kiểm đề trong app, nguồn `content/toeic/so-loi.json`): so tình huống định soạn với các mục "khi soạn"; lỗi nào đã có luật máy thì máy chặn, lỗi "người soát phải nhớ" thì tự soát kỹ (v155).
 1. Soạn theo khuôn đề (`specs/010-toeic-10-de-tron/research.md` R4) và bối cảnh mới (không lặp chủ đề của đề trước). Trước khi dựng, liệt kê tình huống từng bài của đề và so với nhau (`H-LAP`): v154 khi soạn Đề 7 có 2 bài giờ mở cửa thư viện (Part 4, Part 6), 2 dịch vụ in (Part 7), 2 bài hồ bơi câu lạc bộ thể hình (Part 3, Part 7). Người soạn hay vô tình viết lại bài đề cũ (Đề 8 nháp: thuê xe như Đề 5, đăng ký khách như Đề 6, giới thiệu nhân viên xuất sắc như Đề 4, cả 4 câu tranh công nhân của Đề 4): bộ dựng chặn, nhưng nên tránh từ lúc soạn.
 2. Tự soát từng câu theo `H-*` (đọc như thí sinh: che đáp án, tự chọn).
 3. `node tools/build-toeic.mjs` → sửa hết **lỗi**.
 4. `node tools/kiem-toeic.mjs deN` → đọc từng **cảnh báo**: câu kém thì sửa; câu ổn thì ghi "đã xem" (dưới).
 5. Giải mù: `node tools/giai-mu.mjs xuat deN nghe …` và `… doc …` → giao 2 phiên Claude phụ → `node tools/giai-mu.mjs so deN …`.
-6. Xử lý từng câu lệch (`GM-LECH`, `GM-HAI`): sửa cho chỉ còn một đáp án, hoặc ghi lý do đáp án gốc đúng. Câu đã sửa → giải lại (`--cau`) tới khi hết `GM-CU`.
+6. Xử lý từng câu lệch (`GM-LECH`, `GM-HAI`): sửa cho chỉ còn một đáp án, hoặc ghi lý do đáp án gốc đúng. Câu đã sửa → giải lại (`--cau`) tới khi hết `GM-CU`. So ghi chú giải mù với các mục "khi làm đề" của sổ lỗi; loại lỗi mới thì thêm mục vào `content/toeic/so-loi.json` (v155).
 7. Dựng giọng câu nghe mới / sửa (`tools/build-audio.py`; đổi giới tính người nói thì xoá tệp giọng cũ của câu đó trước).
 8. `node tools/test/run.mjs` (C69 xanh) → `node tools/release.mjs`.
 
@@ -59,6 +60,7 @@ Mức: **lỗi** (L) dừng dựng; **cảnh báo** (C) chặn phát hành tới
 ### Part 1 (tả tranh)
 - `P1-EMOJI` (L) · Tranh "có người" (`k: people`) phải có hình người; tranh cảnh (`scene`) không có người.
 - `P1-CANH-NGUOI` (L) · Tranh cảnh mà câu đúng nói người làm gì, hoặc dùng "is / are being + V3" (cần có người đang làm việc đó).
+- `P1-GIOI` (C) · Câu đúng nói "A man / A woman / Some men…" mà tranh chỉ có người trung tính (🧑, 🧑‍💼…): thí sinh không biết là nam hay nữ. Đã sửa ở v153 (tranh 🧑 mà câu "A man is…"); luật giữ để không tái phạm (v155).
 - `P1-VAT` (C) · Câu đúng nhắc vật cụ thể (vase, suitcase, bicycle…) mà tranh không có hình vật đó.
 
 ### Part 2 (hỏi – đáp)
@@ -73,6 +75,8 @@ Người nói: A = nữ, B = nam, C = nữ thứ hai; Part 4 theo `sx` ("f" / "m
 - `P34-BANG-COT` (L) · 4 phương án câu bảng phải cùng một cột của bảng.
 - `P34-BANG-LO` (C) · Lời nghe nói thẳng giá trị đáp án của câu bảng (số đọc bằng chữ đổi về số trước khi so: "seven twenty-five" = 7:25). Câu bảng tốt: lời nghe nhắc ô **khác** của cùng hàng, phải nhìn bảng mới ra đáp án. Ví dụ: d05-p4-10 lời nói "The children's parade has been moved…" mà câu hỏi lại hỏi sự kiện nào lúc 4 giờ.
 - `P34-GIOI` (C) · Câu hỏi về lời của "the man / the woman" (suggest, offer, ask, say…) mà câu chứa đáp án do người kia nói.
+- `P34-THUTU` (C) · Câu hỏi không theo thứ tự lời nói: câu trích chứa đáp án của câu sau đứng trước câu trước (đề thật hỏi theo thứ tự bài). Câu hỏi chung (chủ đề, nơi chốn, người nói là ai) không xét. Đo v155: Đề 4 câu 45, 75, 76; Đề 6 câu 93; Đề 8 bài nói hoãn sự kiện.
+- `P34-NGUYEN` (C) · Đáp án (≥ 4 từ) chép nguyên văn một cụm trong lời nói: đề thật hay diễn đạt lại ("next Friday" → "In a week"). Liệt kê tự nhiên ("Hair nets and coats") thì ghi "đã xem" (v155).
 - `P3-LUOT` (C) · Hội thoại 2 người có 2 lượt liền của cùng một người.
 
 ### Part 5–6 (điền câu, điền đoạn)
@@ -96,10 +100,14 @@ Người nói: A = nữ, B = nam, C = nữ thứ hai; Part 4 theo `sx` ("f" / "m
 - `C-LAP-CAU` (C) · Cùng câu hỏi + cùng đáp án ở 2 bài (coi "the man / the woman / the listener" như nhau): dấu hiệu 2 bài cùng tình huống. Ví dụ: "What problem does the woman mention? → A size is not available." ở 2 hội thoại trả áo của Đề 1 (trước v153).
 - `C-LAP-TEN` (C) · Cùng tên người (tên + họ, tên có trong bảng tên nam / nữ) hoặc cùng tên hiệu (chữ đứng trước Hotel / Inn / Center / Catering / Market…) ở 2 bài khác nhau. Ví dụ đã sửa: "Maria Lopez" (t6-hire, t7-email3), "Greenleaf" (Catering / Conference Center), "Harbor" (Harbor View Inn / Harbor Market).
 
+- `C-LAP-NOI` (C) · Part 6 của một đề có cùng một từ nối là đáp án 2 lần ("However" 2 lần ở Đề 1), hoặc ≥ 3 đáp án từ nối cùng loại ("In addition", "Also", "Furthermore" đều là thêm ý; Đề 8 trước v155) (v155).
+- `C-SO-KHUON` (C) · ≥ 3 phương án ngắn có số / giờ / ngày mà app không xếp tăng dần được (trộn khuôn, vd. "Noon · Five o'clock · Eleven o'clock · Nine o'clock" trước khi `tqNat` đọc giờ chữ): viết lại cùng khuôn (v155).
+- `C-CAN` (L) · Vị trí đáp án lệch trong một Part ≥ 10 câu: mỗi chữ phải trong [⌊N/k⌋ − 1, ⌈N/k⌉ + 1] (k = 3 ở Part 2, 4 ở Part khác) và không quá 3 câu liền cùng chữ. Bộ dựng tự cân bằng (dưới), luật này bắt khi ai đó phá (v155).
+
 ### Thứ tự phương án (app tự xếp)
 - Phương án là số / tiền / giờ / ngày tháng / thứ / tầng / nhãn cùng khuôn ("The 7:15 train", "Floor 3", "$75.00", "On May 12", "Package A"): app xếp **tăng dần** như đề thật (nguyên tắc "place options in logical or numerical order"; `tqNat` ở `toqt.js`, v153). Phiên giải mù chê cách xếp lộn xộn cũ (Floor 2 · 4 · 1 · 3; Package D · A · C · B). Người soạn không phải tự xếp.
-- App chỉ xếp được khi **cả 4 phương án cùng khuôn và số viết bằng chữ số**: "About 2 minutes" · "About 5 minutes" · "About 10 minutes" · "About 15 minutes"; "2 business days" · "3 business days" (cùng số nhiều). Trộn "five minutes" với "an hour", "one business day" với "three hours" thì app để thứ tự ngẫu nhiên (giải mù Đề 7 chê, v154).
-- Còn mở (để người sáng lập quyết): vị trí đáp án Part 3–7 do app xếp ngẫu nhiên cố định theo chữ (`trH`): cả đề cân bằng (mỗi chữ ~21–29%), nhưng có Part lệch (Đề 1 Part 3: C 4 / 39) và bộ câu cùng một chữ (Đề 3 câu 186–190 đều D). Đề thật cân bằng vị trí đáp án. Sửa phải đổi cách xếp của app → đổi chữ cái gần hết câu, bài làm đã lưu lệch chữ. Người sáng lập đã quyết (10/11/2026): **cân bằng cả 8 đề** (đặc tả `specs/012-so-loi-soan-de`, đang làm). Đo trước khi sửa: Đề 1 Part 3 B 17/39, Đề 7 Part 6 B 1/16, Part 7 A 5/54, Đề 8 Part 4 C 3/30; chuỗi 5 câu liền cùng chữ ở Đề 2 Part 2, Đề 3 / 5 Part 7, Đề 7 Part 3.
+- Từ v155 app xếp được cả số viết bằng chữ (two, twelve, fifty), giờ chữ (noon, five o'clock), thời lượng khác đơn vị (40 minutes · one hour · two hours), nhãn chữ + số (B4, C2). Vẫn nên viết 4 phương án cùng khuôn; khuôn lạ mà máy không đọc được thì `C-SO-KHUON` nhắc.
+- Cân bằng vị trí đáp án (người sáng lập quyết 10/11/2026, v155): bộ dựng tính thứ tự cuối ("sửa ít nhất": chỉ đổi chỗ đáp án của vài câu từ chữ thừa sang chữ thiếu) và ghi hoán vị `ord` vào dữ liệu đề; app, máy kiểm, phiếu giải mù cùng đọc. Vị trí đã chốt giữ ở `content/toeic/vi-tri-dap-an.json` (theo nội dung câu) nên sửa một câu không làm các câu khác đổi chữ; `node tools/build-toeic.mjs --can` cân bằng lại khi thêm đề / sửa nhiều. Đo trước khi sửa: Đề 1 Part 3 B 17/39, Đề 7 Part 6 B 1/16, Part 7 A 5/54, Đề 8 Part 4 C 3/30; chuỗi 5 câu liền cùng chữ ở 4 Part. Bài làm đã lưu đổi chữ theo bảng `content/toeic/doi-chu-v155.json`.
 
 ### Giải mù
 - `GM-CHUA` (C, không ghi "đã xem" được) · Đề hoặc câu chưa giải mù.

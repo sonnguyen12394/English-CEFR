@@ -11,7 +11,7 @@ import vm from 'node:vm';
 export const root = new URL('..', import.meta.url).pathname;
 const rd = f => JSON.parse(fs.readFileSync(root + f, 'utf8')), has = f => fs.existsSync(root + f);
 const md5 = s => crypto.createHash('md5').update(s).digest('hex').slice(0, 10);
-const TQ = {}; vm.runInNewContext(fs.readFileSync(new URL('../toqt.js', import.meta.url), 'utf8') + '\n;Object.assign(OUT, { tqNat });', { OUT: TQ });   // v153: thứ tự tự nhiên như app
+const TQ = {}; vm.runInNewContext(fs.readFileSync(new URL('../toqt.js', import.meta.url), 'utf8') + '\n;Object.assign(OUT, { tqNat, tqQt: q => typeof tqQ34 === "function" ? tqQ34(q) : null });', { OUT: TQ });   // v153: thứ tự tự nhiên như app
 const trH = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h; };
 const SECS = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'], PART = s => 'Part ' + s.slice(1);
 
@@ -69,7 +69,7 @@ export function corpus() { if (CORPUS) return CORPUS; const S = new Set(), add =
   for (const w of TU_OK) S.add(w);
   return (CORPUS = S); }
 // chữ đúng mà kho của app chưa có (đã soát tay; thêm vào đây thay vì ghi "đã xem" từng câu)
-const TU_OK = new Set('beautify setup breakup pickup minivan webinar buffet freight frother modem diploma sedan booth trash diesel validate participatory refrain introductory fluency librarian permanency refrigerator refrigerators coworker coworkers tirelessly proximity proximate shortlisted espresso unavailability papercraft auditorium microscope unplugs unplug expansive repainted repaint refueling refuel appliance appliances gigabytes gigabyte salesperson salespeople blueberry blueberries muffin muffins durable readiness fertilizer reuses reuse riverfront distributor distributors promotional escalator escalators expo purifier purifiers rattling dock docks kiosk kiosks glossy conductor conductors biweekly playwright playwrights cholesterol'.split(' '));
+const TU_OK = new Set('beautify setup breakup pickup minivan webinar buffet freight frother modem diploma sedan booth trash diesel validate participatory refrain introductory fluency librarian permanency refrigerator refrigerators coworker coworkers tirelessly proximity proximate shortlisted espresso unavailability papercraft auditorium microscope unplugs unplug expansive repainted repaint refueling refuel appliance appliances gigabytes gigabyte salesperson salespeople blueberry blueberries muffin muffins durable readiness fertilizer reuses reuse riverfront distributor distributors promotional escalator escalators expo purifier purifiers rattling dock docks kiosk kiosks glossy conductor conductors biweekly playwright playwrights cholesterol continuation'.split(' '));
 const SUF = [['ies', ['y']], ['ied', ['y']], ['ier', ['y']], ['iest', ['y']], ['ily', ['y']], ['ing', ['', 'e', '-']], ['ed', ['', 'e', '-']], ['es', ['', 'e']], ['s', ['']], ['er', ['', 'e', '-']], ['est', ['', 'e', '-']], ['ly', ['', 'le']], ['ness', ['']], ['ment', ['']], ['ful', ['']], ['less', ['']], ['able', ['', 'e']], ['ity', ['', 'e']], ['ism', ['']], ['ian', ['', 'y']], ['ee', ['']], ['ees', ['']], ['ory', ['e', '']], ['cy', ['t']]];
 const known = w => { const C = corpus(); if (C.has(w)) return true;
   for (const [suf, adds] of SUF) if (w.length > suf.length + 2 && w.endsWith(suf)) { const b = w.slice(0, -suf.length);
@@ -81,8 +81,8 @@ const known = w => { const C = corpus(); if (C.has(w)) return true;
 
 // ---------- đọc đề đã dựng ----------
 export function loadTests() { const T = rd('toeic.json'), ix = Object.fromEntries(SECS.map(s => [s, Object.fromEntries((T[s] || []).map(x => [x.id, x]))]));
-  return (T.tron || []).map(d => { if (d.f) { const F = rd(d.f); return { id: d.id, t: d.t, f: d.f, ...Object.fromEntries(SECS.map(s => [s, F[s] || []])) }; }
-    return { id: d.id, t: d.t, kho: 1, ...Object.fromEntries(SECS.map(s => [s, (d[s] || []).map(i => ix[s][i]).filter(Boolean)])) }; }); }
+  return (T.tron || []).map(d => { if (d.f) { const F = rd(d.f); return { id: d.id, t: d.t, f: d.f, ord: F.ord || null, ...Object.fromEntries(SECS.map(s => [s, F[s] || []])) }; }
+    return { id: d.id, t: d.t, kho: 1, ord: d.ord || null, ...Object.fromEntries(SECS.map(s => [s, (d[s] || []).map(i => ix[s][i]).filter(Boolean)])) }; }); }
 
 // đơn vị (câu lẻ / bài) + câu hỏi, đánh số và chữ cái như app
 const L4 = 'ABCD';
@@ -90,10 +90,44 @@ export function units(de) { const U = []; let n = 0;
   for (const s of SECS) for (const x of de[s] || []) {
     const raw = s === 'p1' ? [{ stem: 'Câu nào tả đúng tranh?', o: x.o, a: x.o[x.a], fixed: 1 }] : s === 'p2' ? [{ stem: x.q, o: x.o, a: x.o[x.a], fixed: 1 }]
       : s === 'p3' || s === 'p4' || s === 'p7' ? x.qs.map(q => ({ stem: q.q, o: [q.a, ...q.w], a: q.a, src: q })) : s === 'p5' ? [{ stem: x.s, o: x.o, a: x.a, src: x }] : x.gaps.map((g, i) => ({ stem: 'Chỗ (' + (i + 1) + ')', o: g.o, a: g.a, src: g, gi: i }));
-    const qs = raw.map((q, k) => { n++; const fix = q.fixed || q.o.every(t => /^\[\d\]$/.test(t)), opts = q.fixed ? q.o : fix ? [...q.o].sort() : TQ.tqNat(q.o) || [...q.o].sort((a, b) => trH(de.id + n + a) - trH(de.id + n + b));
+    const qs = raw.map((q, k) => { n++; const fix = q.fixed || q.o.every(t => /^\[\d\]$/.test(t)), od = !q.fixed && de.ord && de.ord[n - 1], base = od ? [...q.o].sort() : null;
+      const opts = q.fixed ? q.o : od ? od.split('').map(i => base[+i]) : fix ? [...q.o].sort() : TQ.tqNat(q.o) || [...q.o].sort((a, b) => trH(de.id + n + a) - trH(de.id + n + b));   // v155: ord = hoán vị đã cân bằng (bộ dựng ghi)
       return { ...q, n, k: k + 1, opts, L: L4[opts.indexOf(q.a)] }; });
     U.push({ sec: s, x, qs, a: qs[0].n, b: qs[qs.length - 1].n }); }
   return U; }
+// v155 (specs/012-so-loi-soan-de R5): cân bằng vị trí đáp án mỗi Part, "sửa ít nhất": bắt đầu từ thứ tự hiện tại, chỉ đổi chữ đáp án của câu "tự do"
+//   (không phải phương án số / giờ / ngày xếp tăng dần, không phải câu chèn [1]–[4], không phải Part 1) từ chữ thừa sang chữ thiếu, tới khi mỗi chữ
+//   có ⌊N/k⌋ − 1 … ⌈N/k⌉ + 1 câu và không quá CAN_RUN câu liền cùng chữ. Bộ dựng ghi kết quả (ord, hoán vị Part 2); app, máy kiểm, phiếu giải mù chỉ đọc.
+export const CAN_RUN = 3;
+export const canRange = (N, k) => [Math.max(0, Math.floor(N / k) - 1), Math.ceil(N / k) + 1];
+export const canRuns = L => { let m = 1, c = 1; for (let i = 1; i < L.length; i++) { c = L[i] === L[i - 1] ? c + 1 : 1; m = Math.max(m, c); } return L.length ? m : 0; };
+export function canSeq(L, free, k, seed) { L = [...L]; const N = L.length, [lo, hi] = canRange(N, k), K = [...Array(k).keys()];
+  const cnt = () => { const c = Array(k).fill(0); for (const x of L) c[x]++; return c; };
+  const runAt = i => { let a = i, b = i; while (a > 0 && L[a - 1] === L[i]) a--; while (b < N - 1 && L[b + 1] === L[i]) b++; return b - a + 1; };
+  const okRun = (i, y) => { const o = L[i]; L[i] = y; const r = runAt(i); L[i] = o; return r <= CAN_RUN; };
+  const order = [...Array(N).keys()].sort((a, b) => trH(seed + '#' + a) - trH(seed + '#' + b));
+  for (let it = 0; it < 6 * N; it++) { const c = cnt(); let done = false;
+    for (const i of order) if (free[i] && runAt(i) > CAN_RUN) { const ys = K.filter(y => y !== L[i] && c[y] < hi && okRun(i, y)).sort((a, b) => c[a] - c[b]); if (ys.length) { L[i] = ys[0]; done = true; break; } }
+    if (done) continue;
+    const over = K.filter(x => c[x] > hi), under = K.filter(y => c[y] < lo); if (!over.length && !under.length) break;
+    const from = over.length ? over : [K.slice().sort((a, b) => c[b] - c[a])[0]], to = under.length ? under : K.filter(y => c[y] < hi);
+    for (const i of order) if (free[i] && from.includes(L[i])) { const ys = to.filter(y => y !== L[i] && okRun(i, y)).sort((a, b) => c[a] - c[b]); if (ys.length) { L[i] = ys[0]; done = true; break; } }
+    if (!done) break; }
+  return L; }
+// Khoá câu bền (không theo số câu, không theo thứ tự câu trong bài): mã bài + dấu của (câu hỏi, tập phương án). Đổi chữ câu hỏi / phương án = câu mới.
+export const qKey = (u, q) => u.x.id + '#' + md5(JSON.stringify([q.stem, [...q.o].sort()])).slice(0, 8);
+// Thứ tự phương án của đề từ bảng vị trí đáp án đã chốt `vt` ({ khoá câu: chữ }; content/toeic/vi-tri-dap-an.json). can = true: cân bằng thêm ("sửa ít nhất")
+//   rồi trả bảng mới để chốt. → { ord: [200 chuỗi hoặc null], p2: { [id câu Part 2]: chữ mới (0–2) }, doi: { [Part]: số câu khác thứ tự băm }, vt }
+export function canDe(de, vt = {}, can = false) { const U = units({ ...de, ord: null }), ord = Array(200).fill(null), p2 = {}, doi = {}, out = {};
+  for (const s of SECS) { const Q = U.filter(u => u.sec === s).flatMap(u => u.qs.map(q => ({ u, q }))); if (!Q.length) continue; const k = s === 'p2' ? 3 : 4;
+    const L0 = Q.map(({ q }) => 'ABCD'.indexOf(q.L)), free = Q.map(({ q }) => s === 'p2' || (s !== 'p1' && !q.fixed && !q.o.every(t => /^\[\d\]$/.test(t)) && !TQ.tqNat(q.o))), keys = Q.map(({ u, q }) => qKey(u, q));
+    const L = L0.map((x, i) => { const y = free[i] && vt[keys[i]] ? 'ABCD'.indexOf(vt[keys[i]]) : -1; return y >= 0 && y < k ? y : x; });
+    const L2 = can ? canSeq(L, free, k, de.id + s) : L; doi[s] = L2.filter((y, i) => y !== L0[i]).length;
+    Q.forEach(({ u, q }, i) => { if (s === 'p1') return; if (free[i]) out[keys[i]] = 'ABCD'[L2[i]];
+      if (s === 'p2') { if (L2[i] !== L0[i]) p2[u.x.id] = L2[i]; return; }
+      const o = [...q.opts]; if (L2[i] !== L0[i]) { const t = o[L2[i]]; o[L2[i]] = o[L0[i]]; o[L0[i]] = t; }
+      const base = [...q.o].sort(); ord[q.n - 1] = o.map(t => base.indexOf(t)).join(''); }); }
+  return { ord, p2, doi, vt: out }; }
 // dấu nội dung (data-model.md): không gồm why / ev; dauGT có why (cho luật giải thích)
 const strip = (x, keepWhy) => JSON.parse(JSON.stringify(x, (k, v) => !keepWhy && (k === 'why' || k === 'ev') ? undefined : v));
 export const dau = (u, gt) => md5(JSON.stringify(strip(u.x, gt)));
@@ -234,7 +268,37 @@ const HIEU_NO = new Set('the city central main national grand royal north south 
 const HIEU_DAU = new Set('visit contact call welcome join dear please thank thanks at from to the our your their this that a an in on for with by about see try ask email write meet choose book stay shop dine'.split(' '));
 const hieuOf = s => { const w = s.split(' '); return (w.length > 1 && HIEU_DAU.has(w[0].toLowerCase()) ? w[1] : w[0]); };
 const unitText = u => { const x = u.x; return [u.sec === 'p3' ? x.lines.map(l => l[1]).join(' ') : x.text || '', ...(x.docs || []).map(d => d.title + ' ' + d.text), x.title || '', x.s || '', x.q || '', ...(x.o || []), ...(x.qs || []).flatMap(q => [q.q, q.a, ...q.w]), ...(x.gaps || []).flatMap(g => g.o)].join(' '); };
+// v155 (specs/012-so-loi-soan-de R7): luật để không tái phạm lỗi giải mù chỉ ra ở Đề 1–8
+const NUMW = /\d|\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty|thirty|forty|fifty|sixty|hundred|noon|o'clock|half|monday|tuesday|wednesday|thursday|friday|saturday|sunday|january|february|march|april|may|june|july|august|september|october|november|december)\b/i;
+const MAN_RE = /\b(man|men|boy|gentleman)\b/i, WOMAN_RE = /\b(woman|women|girl|lady)\b/i, EM_M = /\u{1F468}|\u{1F474}|\u{1F9D4}|\u{1F466}|\u2642/u, EM_F = /\u{1F469}|\u{1F475}|\u{1F467}|\u2640/u;
+RULES.push(
+  { ma: 'C-SO-KHUON', muc: 'canh', ten: 'phương án có số / giờ / ngày nhưng không cùng khuôn nên app không xếp tăng dần được', goi_y: 'viết cùng khuôn, số bằng chữ số (About 5 minutes · About 10 minutes; 2 business days · 3 business days)', f: u => {
+    if (!/^p[347]$/.test(u.sec)) return []; return u.qs.filter(q => !q.o.every(t => /^\[\d\]$/.test(t)) && q.o.every(t => String(t).split(/\s+/).length <= 5) && q.o.filter(t => NUMW.test(t)).length >= 3 && !TQ.tqNat(q.o))
+      .map(q => F(q.n, 'phương án: ' + q.opts.join(' · '))); } },
+  { ma: 'P34-THUTU', muc: 'canh', ten: 'câu hỏi Part 3–4 không theo thứ tự lời nói (câu trích của câu sau nằm trước câu trước)', goi_y: 'đổi thứ tự câu hỏi theo thứ tự thông tin trong bài', f: u => {
+    if (u.sec !== 'p3' && u.sec !== 'p4') return []; const tr = norm(talkText(u)), out = []; let last = -1, lastN = 0;
+    for (const q of u.qs) { const ev = q.src && q.src.ev, p = ev && (q.src.ty || TQ.tqQt(q.stem)) !== 'gist' ? tr.indexOf(norm(ev)) : -1; if (p < 0) continue; if (p + 20 < last) out.push(F(q.n, `thông tin của câu ${q.n} đứng trước thông tin của câu ${lastN} trong bài`)); if (p > last) { last = p; lastN = q.n; } }   // câu hỏi chung (Vì sao gọi? Ở đâu?) đề thật hỏi trước: bỏ qua
+    return out; } },
+  { ma: 'P34-NGUYEN', muc: 'canh', ten: 'đáp án Part 3–4 (≥ 4 từ) chép nguyên văn lời nói', goi_y: 'diễn đạt lại như đề thật (vd. "an e-mail with the new date" → "Notification of a new date"); liệt kê đồ vật thì ghi "đã xem"', f: u => {
+    if (u.sec !== 'p3' && u.sec !== 'p4') return []; const tr = ' ' + norm(talkText(u)) + ' ';
+    return u.qs.filter(q => norm(q.a).split(' ').length >= 4 && tr.includes(' ' + norm(q.a) + ' ')).map(q => F(q.n, 'đáp án: ' + q.a)); } },
+  { ma: 'P1-GIOI', muc: 'canh', ten: 'câu đúng Part 1 nói nam / nữ mà tranh không có hình người nam / nữ', goi_y: 'dùng emoji có giới tính (👨 👩 …) hoặc viết "A person"', f: u => {
+    if (u.sec !== 'p1') return []; const q = u.qs[0], e = (u.x.pic && u.x.pic.e || []).map(x => x[0]).join(' ');
+    return (MAN_RE.test(q.a) && !EM_M.test(e)) || (WOMAN_RE.test(q.a) && !EM_F.test(e)) ? [F(q.n, `"${q.a}" · tranh: ${e}`)] : []; } });
+const NOI_LOAI = Object.fromEntries([['thêm ý', 'in addition|furthermore|moreover|additionally|also|besides|what is more'], ['trái ý', 'however|nevertheless|nonetheless|even so|in contrast|by contrast|on the other hand|still|yet'],
+  ['kết quả', 'therefore|as a result|consequently|thus|hence|accordingly|for this reason'], ['ví dụ', 'for example|for instance|in particular|specifically'], ['thay thế', 'instead|alternatively|otherwise|rather']].flatMap(([c, w]) => w.split('|').map(x => [x, c])));
 export const DE_RULES = [
+  // v155 (specs/012-so-loi-soan-de): vị trí đáp án mỗi Part cân bằng, không quá CAN_RUN câu liền cùng chữ (người sáng lập 10/11/2026: "cân bằng cả 8 đề")
+  { ma: 'C-CAN', muc: 'loi', ten: 'vị trí đáp án một Part lệch (chữ quá nhiều / quá ít) hoặc quá 3 câu liền cùng chữ', goi_y: 'dựng lại bằng tools/build-toeic.mjs (tự cân bằng); vẫn lệch thì đổi thứ tự phương án trong nguồn', f: U => { const out = [];
+    for (const s of SECS) { const Q = U.filter(u => u.sec === s).flatMap(u => u.qs.map(q => ({ u, q }))); if (Q.length < 10) continue; const k = s === 'p2' ? 3 : 4, [lo, hi] = canRange(Q.length, k), L = Q.map(({ q }) => q.L);   // Part 1 (6 câu) do người soạn đặt
+      const c = 'ABCD'.slice(0, k).split('').map(x => L.filter(y => y === x).length), r = canRuns(L);
+      if (c.some(x => x < lo || x > hi) || r > CAN_RUN) out.push({ u: Q[0].u, ...F(Q[0].q.n, `Part ${s.slice(1)}: ${'ABCD'.slice(0, k).split('').map((x, i) => x + ' ' + c[i]).join(' · ')} (cần ${lo}–${hi} mỗi chữ), chuỗi dài nhất ${r} câu`) }); }
+    return out; } },
+  { ma: 'C-LAP-NOI', muc: 'canh', ten: 'Part 6 một đề có cùng một từ nối là đáp án 2 lần, hoặc ≥ 3 đáp án từ nối cùng loại', goi_y: 'đổi một chỗ sang từ nối loại khác (thêm ý / trái ý / kết quả / điều kiện)', f: U => { const out = [], seen = {}, cat = {};
+    for (const u of U) { if (u.sec !== 'p6') continue; for (const q of u.qs) { const a = String(q.a).trim().replace(/,$/, '').toLowerCase(), c = NOI_LOAI[a]; if (!c) continue;
+      if (seen[a]) out.push({ u, ...F(q.n, `"${q.a}" đã là đáp án câu ${seen[a]}`) }); else seen[a] = q.n;
+      (cat[c] = cat[c] || []).push(q.n); if (cat[c].length === 3) out.push({ u, ...F(q.n, `3 đáp án từ nối cùng loại "${c}": câu ${cat[c].join(', ')}`) }); } }
+    return out; } },
   { ma: 'C-LAP-CAU', muc: 'canh', ten: 'câu hỏi + đáp án lặp lại ở 2 bài trong cùng đề (tình huống trùng)', goi_y: 'thay một bài bằng tình huống khác (kho còn bài chưa dùng) hoặc viết lại', f: U => { const seen = {}, out = [];
     for (const u of U) { if (!/^p[347]$/.test(u.sec)) continue; for (const q of u.qs) { const k = LAP_WHO(q.stem) + '|' + norm(q.a); const p = seen[k];
       if (p && p.u !== u) out.push({ u, ...F(q.n, `trùng câu ${p.q.n} (${p.u.x.id}): "${q.stem}" → "${q.a}"`) }); else if (!p) seen[k] = { u, q }; } }
@@ -271,8 +335,9 @@ export function kiemDe(de, opt = {}) { const ack = opt.ack || loadAck(), gm = op
       const push = (ma, ly_do) => { const r = GM_RULES.find(r => r.ma === ma), a = !r.khoa ? ack.find(k => k.id === id && k.ma === ma && k.dau === d0) : null; out.push({ de: de.id, n: q.n, id, sec: u.sec, ma, muc: r.muc, ly_do, goi_y: r.goi_y, dau: d0, da_xem: a ? a.ly_do : null, L: q.L }); };
       if (!g) { if (gm) push('GM-CHUA', 'câu chưa có trong kết quả giải mù'); continue; }
       if (g.id !== id || g.dau !== d0) { push('GM-CU', 'câu đã đổi sau lần giải mù ' + (g.ngay || '')); continue; }
-      if (g.chon !== q.L) push('GM-LECH', `giải mù chọn ${g.chon} (chắc ${g.chac}/3), đáp án ${q.L}${g.ghi ? ' · ghi chú: ' + g.ghi : ''}`);
-      else if (g.hai) push('GM-HAI', `giải mù chọn đúng ${q.L} nhưng thấy ${g.hai} cũng được${g.ghi ? ' · ghi chú: ' + g.ghi : ''}`); } }
+      const LL = t => t == null ? null : 'ABCD'[q.opts.indexOf(t)] || '?', ch = g.chon_t != null ? LL(g.chon_t) : g.chon, h2 = g.hai_t != null ? LL(g.hai_t) : g.hai;   // v155: so theo chữ của phương án
+      if (ch !== q.L) push('GM-LECH', `giải mù chọn ${ch} (chắc ${g.chac}/3), đáp án ${q.L}${g.ghi ? ' · ghi chú: ' + g.ghi : ''}`);
+      else if (h2) push('GM-HAI', `giải mù chọn đúng ${q.L} nhưng thấy ${h2} cũng được${g.ghi ? ' · ghi chú: ' + g.ghi : ''}`); } }
   for (const r of DE_RULES) for (const f of r.f(U)) { const u = f.u, q = u.qs.find(q => q.n === f.n) || u.qs[0], id = f.unit || u.qs.length === 1 ? u.x.id : u.x.id + '#' + q.k, dd = dau(u);
     const a = ack.find(k => k.id === id && k.ma === r.ma && k.dau === dd); out.push({ de: de.id, n: f.n, id, sec: u.sec, ma: r.ma, muc: r.muc, ly_do: f.ly_do, goi_y: f.goi_y || r.goi_y, dau: dd, da_xem: a ? a.ly_do : null, L: q.L }); }
   if (!gm) out.push({ de: de.id, n: 1, id: de.id, sec: 'p1', ma: 'GM-CHUA', muc: 'canh', ly_do: 'đề chưa giải mù (chưa có content/toeic/giai-mu/' + de.id + '.json)', goi_y: GM_RULES[0].goi_y, dau: '', da_xem: null, L: '' });

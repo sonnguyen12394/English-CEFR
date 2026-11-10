@@ -54,7 +54,7 @@ export function compare(de, ans) { const D = loadTests().find(d => d.id === de),
   let n = 0, khop = 0; const lech = [];
   for (const a of ans.cau || []) { const t = byN[a.n]; if (!t) continue; const { u, q } = t, id = u.qs.length > 1 ? u.x.id + '#' + q.k : u.x.id, chon = String(a.chon || '').trim().toUpperCase().slice(0, 1);
     const hai = a.hai ? String(a.hai).trim().toUpperCase().slice(0, 1) : null;
-    G.cau[a.n] = { id, dau: dau(u), da: q.L, chon, chac: +a.chac || 0, hai: hai && hai !== chon ? hai : null, ghi: String(a.ghi || '').slice(0, 200), ngay: today };
+    G.cau[a.n] = { id, dau: dau(u), da: q.L, chon, chon_t: q.opts['ABCD'.indexOf(chon)] ?? null, chac: +a.chac || 0, hai: hai && hai !== chon ? hai : null, hai_t: hai && hai !== chon ? q.opts['ABCD'.indexOf(hai)] ?? null : null, ghi: String(a.ghi || '').slice(0, 200), ngay: today };   // v155: lưu cả chữ của phương án (bền khi đổi chữ cái)
     n++; if (chon === q.L) khop++; if (chon !== q.L || G.cau[a.n].hai || G.cau[a.n].ghi) lech.push(`câu ${a.n} (${id}): đáp án ${q.L}, chọn ${chon}${G.cau[a.n].hai ? ', thấy ' + G.cau[a.n].hai + ' cũng được' : ''}${G.cau[a.n].ghi ? ' · ' + G.cau[a.n].ghi : ''}`); }
   G.lan.push({ ngay: today, phan: ans.phan || '?', cau: n, khop });
   fs.mkdirSync(root + 'content/toeic/giai-mu', { recursive: true }); fs.writeFileSync(root + f, JSON.stringify(G, null, 1) + '\n');
