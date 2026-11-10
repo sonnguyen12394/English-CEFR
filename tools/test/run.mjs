@@ -445,7 +445,7 @@ const R = await run(`(async () => {
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
     S = blank(); await Promise.all([tcLoad(), ieLoad()]); const H = () => String($app.innerHTML), nbt = h => (h.match(/<button/g) || []).length;
     const tabs = [...IDX_.matchAll(/data-tab="(\\w+)"><i>[^<]*<\\/i>([^<]+)</g)].map(m => m[1] + ':' + m[2]).join(' ');
-    if (tabs !== 'lt:Lộ trình all:Học ld:Luyện đề dict:Tra cứu bk:Tôi') bad.push('thanh dưới (v141: 5 tab, 🎯 Luyện đề sau 📚 Học): ' + tabs);
+    if (tabs !== 'lt:Lộ trình all:Học ld:Luyện đề kd:Kiểm đề dict:Tra cứu bk:Tôi') bad.push('thanh dưới (v141: 🎯 Luyện đề sau 📚 Học; v155: 6 tab, 🛡️ Kiểm đề sau 🎯 Luyện đề): ' + tabs);
     // 🎯 Học người mới: ≤ 14 nút (v101: Pre-A1 thêm thẻ ✍️ Viết, 🗣 Nói); công cụ luyện thi, sổ lỗi, góp ý ở tab khác; chưa học gì thì chưa có việc ôn
     await tryA('Học', () => overview('pre')); const ho = H(), nh = nbt(ho) - (ho.match(/data-exsel=|data-hocnen|data-exthi/g) || []).length;   // v109: hàng mục (Nền · Cambridge · IELTS · TOEIC) là điều hướng, không tính if (nh > 14) bad.push('🎯 Học người mới ' + nh + ' nút');
     if (/data-mock|id="ovtools"|id="gyhome"|Sổ lỗi của tôi|data-rev|data-sotu/.test(ho)) bad.push('🎯 Học người mới còn công cụ của tab khác / việc ôn khi chưa có gì để ôn');
@@ -2201,7 +2201,15 @@ const R = await run(`(async () => {
     for (const s of ['p2', 'p3', 'p4', 'p5', 'p6', 'p7']) { const L = U.filter(u => u.sec === s).flatMap(u => u.qs.map(q => q.L)), k = s === 'p2' ? 3 : 4, [lo, hi] = K.canRange(L.length, k);
       const c = 'ABCD'.slice(0, k).split('').map(x => L.filter(y => y === x).length); if (c.some(x => x < lo || x > hi) || K.canRuns(L) > K.CAN_RUN) bad.push(`${D.id} ${s} lệch: ${c.join('/')} · chuỗi ${K.canRuns(L)}`); } }
   const VT = JSON.parse(fs.readFileSync(new URL('../../content/toeic/vi-tri-dap-an.json', import.meta.url), 'utf8')); if (Object.keys(VT).filter(k => /^de\d/.test(k)).length !== T.length) bad.push('bảng vị trí đáp án thiếu đề');
-  globalThis.C70 = { bad, nq }; }
-R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.bad.slice(0, 8).join(' | ') : `cân bằng vị trí đáp án: mọi Part của 8 đề trong ngưỡng, app và máy kiểm cùng chữ ở ${C70.nq} câu, bài làm cũ đổi chữ đúng, xếp số mới (số chữ, giờ chữ, thời lượng, nhãn)` });
+  // sổ lỗi: kiemde.json dựng từ nguồn mới nhất, mọi mục có ví dụ + luật có thật, tình trạng đề khớp máy kiểm hiện tại
+  const rj = f => JSON.parse(fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8')), SL = rj('content/toeic/so-loi.json'), KD = rj('kiemde.json'), KT = K.kiemTatCa();
+  const LU = new Set([...K.ALL_RULES, ...K.DUNG_RULES, ...K.hRules()].map(r => r.ma));
+  if (JSON.stringify(KD.muc) !== JSON.stringify(SL.muc)) bad.push('kiemde.json cũ: chạy lại node tools/build-toeic.mjs');
+  if (SL.muc.length < 30 || new Set(SL.muc.map(m => m.ma)).size !== SL.muc.length) bad.push('sổ lỗi < 30 mục hoặc trùng mã');
+  for (const m of SL.muc) { if (!m.vd.length || m.luat.some(l => !LU.has(l) || !KD.luat[l])) bad.push('sổ lỗi ' + m.ma + ': thiếu ví dụ / luật không có thật'); }
+  for (const d of KD.de) { const r = KT.R[d.id]; if (!r || d.loi !== r.f.filter(f => f.muc === 'loi').length || d.xem !== r.f.filter(f => f.da_xem).length) bad.push('kiemde.json ' + d.id + ': số liệu lệch máy kiểm'); }
+  if (KD.de.length !== T.length) bad.push('kiemde.json thiếu đề');
+  globalThis.C70 = { bad, nq, nm: SL.muc.length }; }
+R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.bad.slice(0, 8).join(' | ') : `cân bằng vị trí đáp án: mọi Part của 8 đề trong ngưỡng, app và máy kiểm cùng chữ ở ${C70.nq} câu, bài làm cũ đổi chữ đúng, xếp số mới (số chữ, giờ chữ, thời lượng, nhãn); sổ lỗi ${C70.nm} mục hợp lệ, kiemde.json khớp nguồn và máy kiểm` });
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

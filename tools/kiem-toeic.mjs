@@ -318,6 +318,23 @@ export const GM_RULES = [
   { ma: 'GM-HAI', muc: 'canh', ten: 'phiên giải mù thấy 2 phương án đều được', goi_y: 'sửa phương án thứ hai cho rõ là sai, hoặc ghi lý do' },
 ];
 export const ALL_RULES = [...RULES, ...DE_RULES, ...GM_RULES];
+// v155 (specs/012): mã cho các kiểm nằm ở bộ dựng (tools/build-toeic.mjs) và test (tools/test/run.mjs), để sổ lỗi soạn đề trỏ tới
+export const DUNG_RULES = [
+  { ma: 'D-CO-CAU', muc: 'loi', noi: 'dung', ten: 'cơ cấu đề và dạng câu tối thiểu (số câu từng Part, bài có bảng, 3 người nói, chuỗi tin nhắn…)' },
+  { ma: 'D-TRUNG', muc: 'loi', noi: 'dung', ten: 'câu / bài trùng nguyên văn với kho luyện hoặc đề khác' },
+  { ma: 'D-GAN-TRUNG', muc: 'loi', noi: 'dung', ten: 'câu Part 2 / Part 5 gần trùng kho hoặc đề khác (chỉ đổi 1–2 chữ)' },
+  { ma: 'D-KHUON', muc: 'loi', noi: 'dung', ten: 'bài Part 3 / 4 / 6 / 7 chép khuôn bài kho hoặc đề trước (đổi tên, giữ câu chữ)' },
+  { ma: 'D-EV', muc: 'loi', noi: 'dung', ten: 'câu trích chứa đáp án phải có nguyên văn trong lời nghe / bài đọc' },
+  { ma: 'D-DON', muc: 'loi', noi: 'dung', ten: 'đáp án Part 1 / Part 2 dồn một chữ cái' },
+  { ma: 'D-P6-CHEN', muc: 'loi', noi: 'dung', ten: 'phương án sai của câu chèn Part 6 phải cùng chủ đề đoạn văn' },
+  { ma: 'T-C64', muc: 'loi', noi: 'test', ten: 'test C64: màn đang thi ẩn thanh dưới, rời màn thì phần Nghe dừng' },
+  { ma: 'T-C65', muc: 'loi', noi: 'test', ten: 'test C65: màn đề thử trọn ghi cấu trúc cả 200 câu, đầu màn câu a/200' },
+  { ma: 'T-C70', muc: 'loi', noi: 'test', ten: 'test C70: app và máy kiểm cùng thứ tự phương án; bài làm cũ đổi chữ đúng' },
+  { ma: 'T-TIEP-CAN', muc: 'nguoi', noi: 'quytrinh', ten: 'kiểm tiếp cận mỗi lần đổi giao diện: tương phản ≥ 4,5 : 1, vùng bấm ≥ 44 px (.claude/CLAUDE.md)' }];
+// tiêu chí người soát `H-*` đọc từ bộ tiêu chí
+export function hRules() { const t = fs.readFileSync(root + 'docs/TIEU-CHI-DE-TOEIC.md', 'utf8'), out = [];
+  for (const m of t.matchAll(/^- `(H-[A-Z-]+)` · (.+)$/gm)) out.push({ ma: m[1], muc: 'nguoi', noi: 'tieuchi', ten: (t => t.length > 120 ? t.slice(0, 118).replace(/\s\S*$/, '') + '…' : t)(m[2].replace(/\*\*/g, '').split(/[.:]\s| \(vd/)[0]) });
+  return out; }
 
 // ---------- chạy ----------
 export function loadAck() { return has('content/toeic/kiem-ok.json') ? rd('content/toeic/kiem-ok.json').ok || [] : []; }
