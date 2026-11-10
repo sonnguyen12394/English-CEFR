@@ -1450,6 +1450,38 @@
      }
     }
    ]
+  },
+  {
+   "ma": "P7-TINH",
+   "sec": "p7",
+   "x": {
+    "id": "m-tinh-gio",
+    "kind": "Web page + e-mail",
+    "docs": [
+     {
+      "title": "Web page",
+      "text": "Island Day Trip (6 hours) and Harbor Lunch Cruise (3 hours). All charters depart at 10:00 A.M."
+     },
+     {
+      "title": "E-mail",
+      "text": "We need to be back in the harbor by 3:00 P.M."
+     }
+    ],
+    "qs": [
+     {
+      "q": "Which charter will they most likely book?",
+      "a": "The Harbor Lunch Cruise",
+      "w": [
+       "The Island Day Trip",
+       "A sunset cruise",
+       "A dinner cruise"
+      ],
+      "x": 1,
+      "ev": "We need to be back in the harbor by 3:00 P.M.",
+      "why": "Island Day Trip 10:00 + 6 giờ = 15:00 → quá muộn."
+     }
+    ]
+   }
   }
  ],
  "sach": [
@@ -4337,6 +4369,53 @@
       "ty": "insert"
      }
     ]
+   }
+  },
+  {
+   "sec": "p7",
+   "x": {
+    "id": "s-tinh-gio",
+    "kind": "Web page + e-mail",
+    "docs": [
+     {
+      "title": "Web page",
+      "text": "Island Day Trip (6 hours) and Harbor Lunch Cruise (3 hours). All charters depart at 10:00 A.M."
+     },
+     {
+      "title": "E-mail",
+      "text": "We need to be back in the harbor by 3:00 P.M."
+     }
+    ],
+    "qs": [
+     {
+      "q": "Which charter will they most likely book?",
+      "a": "The Harbor Lunch Cruise",
+      "w": [
+       "The Island Day Trip",
+       "A sunset cruise",
+       "A dinner cruise"
+      ],
+      "x": 1,
+      "ev": "We need to be back in the harbor by 3:00 P.M.",
+      "why": "Đối chiếu: Island Day Trip 10:00 + 6 giờ = 16:00 (quá 15:00) → Harbor Lunch Cruise (10:00 + 3 giờ = 13:00)."
+     }
+    ]
+   }
+  },
+  {
+   "sec": "p5",
+   "x": {
+    "id": "s-ho-tu-ngan",
+    "t": "form",
+    "s": "The new software allows users to share files ------- with colleagues.",
+    "o": [
+     "easy",
+     "easily",
+     "ease",
+     "eased"
+    ],
+    "a": "easily",
+    "why": "Bổ nghĩa cho động từ share cần trạng từ: easily."
    }
   }
  ]

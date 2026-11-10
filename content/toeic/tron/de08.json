@@ -11,21 +11,27 @@
     "e": [
      [
       "👩",
-      96,
-      108,
-      74
+      132,
+      110,
+      76
      ],
      [
       "🎹",
-      178,
-      128,
+      190,
+      122,
       84
      ],
      [
       "🪑",
-      70,
+      132,
       166,
       34
+     ],
+     [
+      "🎵",
+      214,
+      64,
+      30
      ]
     ]
    },
@@ -1900,7 +1906,7 @@
    "text": "Good afternoon, and welcome to Small Business Development Day. I'm sorry to announce that the speaker for this afternoon's budgeting workshop is ill and won't be able to join us. That workshop will be rescheduled for next month, and everyone who registered for it will receive an e-mail with the new date. In the meantime, the room where it was going to be held will be used as a quiet space for anyone who needs to make phone calls or check e-mail. Coffee and snacks are available in the lobby throughout the afternoon.",
    "qs": [
     {
-     "q": "Why has a workshop been canceled?",
+     "q": "Why has a workshop been postponed?",
      "a": "A speaker is sick.",
      "w": [
       "A room is too small.",
@@ -1909,6 +1915,17 @@
      ],
      "ty": "detail",
      "ev": "the speaker for this afternoon's budgeting workshop is ill"
+    },
+    {
+     "q": "What will people who registered for the workshop receive?",
+     "a": "Notification of a new date",
+     "w": [
+      "A full refund",
+      "A free book",
+      "A coffee voucher"
+     ],
+     "ty": "detail",
+     "ev": "everyone who registered for it will receive an e-mail with the new date"
     },
     {
      "q": "Look at the graphic. Which room will be used as a quiet space?",
@@ -1920,17 +1937,6 @@
      ],
      "ty": "graphic",
      "ev": "the room where it was going to be held will be used as a quiet space"
-    },
-    {
-     "q": "What will people who registered for the workshop receive?",
-     "a": "An e-mail with a new date",
-     "w": [
-      "A full refund",
-      "A free book",
-      "A coffee voucher"
-     ],
-     "ty": "detail",
-     "ev": "everyone who registered for it will receive an e-mail with the new date"
     }
    ]
   },
@@ -2547,7 +2553,7 @@
    "id": "d08-p6-04",
    "kind": "Memo",
    "title": "To: All Employees · From: Human Resources · Subject: Free health checks",
-   "text": "This year's free health screening {1} in the third-floor training room on June 10 and 11. A nurse from Westside Clinic will check blood pressure, cholesterol, and blood sugar. Each appointment takes about fifteen minutes, and the results are completely {2}. {3} To book a time, please use the sign-up link on the HR page by June 3. {4}, employees who complete a screening will receive a $25 gift card.",
+   "text": "This year's free health screening {1} in the third-floor training room on June 10 and 11. A nurse from Westside Clinic will check blood pressure, cholesterol, and blood sugar. Each appointment takes about fifteen minutes, and the results are completely {2}. {3} To book a time, please use the sign-up link on the HR page by June 3. {4} you are unable to attend on either day, please contact HR to arrange a visit to the clinic instead.",
    "gaps": [
     {
      "o": [
@@ -2582,14 +2588,14 @@
     },
     {
      "o": [
-      "Also",
-      "Instead",
-      "However",
-      "Otherwise"
+      "If",
+      "Unless",
+      "Although",
+      "Because"
      ],
-     "a": "Also",
+     "a": "If",
      "t": "conn",
-     "why": "Thêm một lợi ích nữa (thẻ quà tặng $25) → Also."
+     "why": "Điều kiện: nếu không đến được cả hai ngày thì liên hệ HR → If. Because (vì) không hợp: chưa biết ai vắng."
     }
    ]
   }
@@ -2635,7 +2641,7 @@
    "docs": [
     {
      "title": "Notice · Grandview Sports Arena",
-     "text": "Lost and Found\nItems found in the arena are kept at the guest services office for 30 days. Items that are not claimed within this time will be donated to the Marston Clothing Bank, a local charity. To claim an item, please describe it to a staff member and show a photo ID. Valuable items, such as phones and wallets, are kept in a locked cabinet and can be collected only from the guest services manager."
+     "text": "Lost and Found\nItems found in the arena are kept at the guest services office for 30 days. Items that are not claimed within this time will be donated to the Marston Community Fund, a local charity. To claim an item, please describe it to a staff member and show a photo ID. Valuable items, such as phones and wallets, are kept in a locked cabinet and can be collected only from the guest services manager."
     }
    ],
    "qs": [
@@ -2647,8 +2653,8 @@
       "They are sold online.",
       "They are sent to the police."
      ],
-     "ev": "will be donated to the Marston Clothing Bank, a local charity",
-     "why": "Đồ không ai nhận sau 30 ngày được tặng cho tổ chức từ thiện Marston Clothing Bank."
+     "ev": "will be donated to the Marston Community Fund, a local charity",
+     "why": "Đồ không ai nhận sau 30 ngày được tặng cho tổ chức từ thiện Marston Community Fund."
     },
     {
      "q": "What is required to collect a lost wallet?",
@@ -2832,10 +2838,10 @@
    "qs": [
     {
      "q": "What is indicated about Northgate Translation Services?",
-     "a": "It has each translation checked twice.",
+     "a": "A second translator checks all of its work.",
      "w": [
-      "It was started by a group of lawyers.",
-      "It has offices in thirty countries.",
+      "It was founded by a group of lawyers.",
+      "It has offices in more than 30 countries.",
       "It charges a fee for every price quote."
      ],
      "ev": "every translation is checked by a second translator before delivery",
@@ -2927,7 +2933,7 @@
    "docs": [
     {
      "title": "Article · Coastal Business Review",
-     "text": "Farmers Market Finds a New Home\nAfter twelve years in the parking lot of Baylor Mall, the Wren Bay Farmers Market will move to Harbor Green Park next month. [1] Market organizer Tomas Reyes said the mall's new owners plan to build apartments on the lot. [2] The park offers more shade and a playground, which Mr. Reyes believes will attract more families. [3] However, some vendors are worried about the lack of parking near the park. In response, the city has agreed to run a free shuttle from the Baylor Mall lot every Saturday during market hours. [4] The market will continue to operate every Saturday from 8 A.M. to 1 P.M., and the number of vendors is expected to grow from 40 to 55."
+     "text": "Farmers Market Finds a New Home\nAfter twelve years in the parking lot of Baylor Mall, the Wren Bay Farmers Market will move to Harbor Green Park next month. [1] Market organizer Tomas Reyes said the mall's new owners plan to build apartments on the lot. [2] The park offers more shade and a playground, which Mr. Reyes believes will attract more families. [3] However, some vendors are worried about the lack of parking near the park. In response, the city has agreed to run a free shuttle from the Wren Bay train station every Saturday during market hours. [4] The market will continue to operate every Saturday from 8 A.M. to 1 P.M., and the number of vendors is expected to grow from 40 to 55."
     }
    ],
    "qs": [
@@ -2950,8 +2956,8 @@
       "Money for new vendors",
       "A new playground"
      ],
-     "ev": "the city has agreed to run a free shuttle from the Baylor Mall lot",
-     "why": "Thành phố chạy xe đưa đón miễn phí từ bãi Baylor Mall."
+     "ev": "the city has agreed to run a free shuttle from the Wren Bay train station",
+     "why": "Thành phố chạy xe đưa đón miễn phí từ ga Wren Bay mỗi thứ Bảy."
     },
     {
      "q": "In the article, the word \"run\" is closest in meaning to",
@@ -3242,12 +3248,12 @@
      "why": "Đối chiếu: Beginner Guitar $95, anh là hội viên (có số hội viên trên phiếu) → $95 − $20 = $75."
     },
     {
-     "q": "When do the classes start?",
-     "a": "In the week of March 23",
+     "q": "When do the classes begin?",
+     "a": "The week of March 23",
      "w": [
-      "On March 2",
-      "On March 4",
-      "On March 16"
+      "The week of March 2",
+      "The week of March 9",
+      "The week of March 16"
      ],
      "ev": "Classes begin the week of March 23",
      "why": "Các lớp bắt đầu tuần 23/3."
@@ -3295,16 +3301,16 @@
      "why": "Thảm mới chưa được nhà cung cấp giao tới."
     },
     {
-     "q": "When was Mr. Mertens's floor originally scheduled to be closed?",
-     "a": "On Monday and Tuesday",
+     "q": "On what day was Mr. Mertens's floor originally scheduled to reopen?",
+     "a": "On Wednesday",
      "w": [
-      "On Wednesday and Thursday",
-      "On Thursday and Friday",
+      "On Monday",
+      "On Friday",
       "On Saturday"
      ],
      "x": 1,
      "ev": "Monday–Tuesday: New carpets installed on the second floor (second floor closed)",
-     "why": "Đối chiếu: công ty anh ở tầng 2 (thư 2); theo lịch ban đầu tầng 2 đóng thứ Hai – thứ Ba."
+     "why": "Đối chiếu: công ty anh ở tầng 2 (thư 2); theo lịch ban đầu tầng 2 đóng thứ Hai – thứ Ba nên mở lại thứ Tư. Thứ Sáu là ngày mở lại sau khi dời lịch."
     },
     {
      "q": "What does Mr. Mertens ask for?",
@@ -3337,15 +3343,15 @@
    "docs": [
     {
      "title": "Product information · ClearVoice Conference Speaker",
-     "text": "The ClearVoice speaker lets everyone in a meeting room hear and be heard. One speaker covers a room of up to 8 people. For larger rooms, up to three speakers can be linked together, and each additional speaker adds space for 8 more people. The speaker connects to laptops by USB cable or Bluetooth, and its battery lasts up to 20 hours on a single charge. Price: $180 per speaker. Orders of three or more speakers ship free."
+     "text": "The ClearVoice speaker lets everyone in a meeting room hear and be heard. One speaker covers a room of up to 8 people. For larger rooms, up to three speakers can be linked together, and each additional speaker covers 8 more people. The speaker connects to laptops by USB cable or Bluetooth, and its battery lasts up to 20 hours on a single charge. Price: $180 per speaker. Orders of three or more speakers ship free."
     },
     {
      "title": "E-mail · To: sales@clearvoice.com · From: Hana Kimura · Date: January 12",
-     "text": "Hello,\nOur organization is setting up a new meeting room for 20 people, and we are interested in the ClearVoice speaker. Most of our staff use laptops without USB ports, so the speakers would need to connect wirelessly. Could you confirm that this will work? Also, do you offer a discount for nonprofit organizations? We are a small charity.\nRegards,\nHana Kimura"
+     "text": "Hello,\nOur organization is setting up a new meeting room for 20 people, and we are interested in the ClearVoice speaker. Most of our staff prefer not to use cables, so the speakers would need to connect wirelessly. Could you confirm that this will work? Also, do you offer a discount for nonprofit organizations? We are a small charity.\nRegards,\nHana Kimura"
     },
     {
      "title": "E-mail · To: Hana Kimura · From: ClearVoice Sales · Date: January 13",
-     "text": "Dear Ms. Kimura,\nThank you for your interest. Yes, all ClearVoice speakers can connect by Bluetooth, so your staff's laptops will work without cables. Nonprofit organizations receive 10 percent off every order; simply include your registration number when you order. If you would like to try the speakers first, we can lend you one for a week at no charge.\nSincerely,\nMarco Bellini, ClearVoice Sales"
+     "text": "Dear Ms. Kimura,\nThank you for your interest. Yes, all ClearVoice speakers can connect by Bluetooth, so your staff will not need any cables. Nonprofit organizations receive 10 percent off every order; simply include your registration number when you order. If you would like to try the speakers first, we can lend you one for a week at no charge.\nSincerely,\nMarco Bellini, ClearVoice Sales"
     }
    ],
    "qs": [
@@ -3373,16 +3379,16 @@
      "why": "Đối chiếu: mỗi loa đủ cho 8 người, nối tối đa 3 loa (24 người); 2 loa chỉ đủ 16 người → phòng 20 người cần 3 loa."
     },
     {
-     "q": "What will Ms. Kimura's organization most likely pay for shipping?",
-     "a": "Nothing",
+     "q": "How much will Ms. Kimura's organization most likely pay for the speakers before any discount?",
+     "a": "$540",
      "w": [
-      "$18",
-      "$36",
-      "$54"
+      "$180",
+      "$360",
+      "$720"
      ],
      "x": 1,
-     "ev": "Orders of three or more speakers ship free.",
-     "why": "Đối chiếu: cần 3 loa, đơn từ 3 loa trở lên được miễn phí vận chuyển."
+     "ev": "Price: $180 per speaker.",
+     "why": "Đối chiếu: phòng 20 người cần 3 loa → 3 × $180 = $540 (mỗi loa đủ cho tám người; giá trước khi trừ phần giảm cho tổ chức phi lợi nhuận)."
     },
     {
      "q": "What does Ms. Kimura ask about?",

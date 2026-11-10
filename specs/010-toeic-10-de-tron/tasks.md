@@ -73,9 +73,9 @@
 ## Phase 7: Đợt 2–5 (mỗi đợt chỉ làm khi người sáng lập nói "tiếp")
 
 - [X] T021 [P] [US1] Đợt 2: soạn `content/toeic/tron/de05.json`, `de06.json` → dựng, giọng, tự soát, test, release v150
-- [ ] T022 [P] [US1] Đợt 3: `de07.json`, `de08.json` → như T021, v151
-- [ ] T023 [P] [US1] Đợt 4: `de09.json`, `de10.json` → như T021, v152
-- [ ] T024 [P] [US1] Đợt 5: `de11.json`, `de12.json` → như T021, v153; cập nhật spec Status "Đã làm"
+- [X] T022 [P] [US1] Đợt 3: `de07.json`, `de08.json` → như T021 (làm ở đặc tả 011 US4, v154, bản 151)
+- [~] T023 [P] [US1] Đợt 4: `de09.json`, `de10.json` — HUỶ (người sáng lập 10/11/2026: "Không soạn đề nữa chỉ làm xong đề cũ thì thôi", dừng sau Đề 8)
+- [~] T024 [P] [US1] Đợt 5: `de11.json`, `de12.json` — HUỶ (như T023)
 
 ## Dependencies & Execution Order
 

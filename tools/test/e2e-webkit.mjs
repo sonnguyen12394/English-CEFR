@@ -155,6 +155,9 @@ check('đề trọn mới: Đề 3 tải từ tệp riêng, màn sẵn sàng 200
 // v152 đợt 2: Đề 6 (đề cuối của đợt) có trong danh sách và tải được
 await pg.evaluate(() => trView()); await pg.waitForTimeout(800); await pg.click('[data-trgo="de6"]'); await pg.waitForTimeout(1200);
 check('đề trọn đợt 2: Đề 6 tải từ tệp riêng, màn sẵn sàng 200 câu (v152)', /Đề 6 · 200 câu/.test(await pg.innerText('#app')));
+// v154 đợt 3: Đề 8 (đề cuối, sau đó dừng soạn đề) có trong danh sách và tải được
+await pg.evaluate(() => trView()); await pg.waitForTimeout(800); await pg.click('[data-trgo="de8"]'); await pg.waitForTimeout(1200);
+check('đề trọn đợt 3: Đề 8 tải từ tệp riêng, màn sẵn sàng 200 câu (v154)', /Đề 8 · 200 câu/.test(await pg.innerText('#app')));
 // 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả
 await pg.evaluate(() => { S = blank(); S.lt = { d: [], fx: {}, goal: { kind: 'cefr', lv: 'a2', date: '', at: Date.now() } }; ltView(); }); await pg.waitForTimeout(800); check('ô Hôm nay ở Lộ trình', (await pg.innerText('#app')).includes('Việc hôm nay'));
 await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }

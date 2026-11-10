@@ -97,10 +97,10 @@ description: "Danh sách việc: bộ kiểm nội dung đề TOEIC"
 
 **Independent Test**: Đề 7–8: 0 lỗi, 0 cảnh báo chưa xem, giải mù xong (C69 b tự gồm đề mới).
 
-- [ ] T029 [P] [US4] Soạn `content/toeic/tron/de07.json` theo khuôn đề 010 + bộ tiêu chí (tự soát `H-*` từng câu khi soạn)
-- [ ] T030 [P] [US4] Soạn `content/toeic/tron/de08.json` như T029
-- [ ] T031 [US4] Dựng + máy kiểm (0 lỗi), xử lý cảnh báo; giải mù Đề 7–8 (4 phiếu) → sửa → giải lại tới hết lệch
-- [ ] T032 [US4] Giọng Kokoro, bảng kiểm giáo viên, tài liệu v154 (trước gộp: v152) (`CLAUDE.md`, README, release.mjs, đặc tả 010 T022 [X]), test, e2e, `node tools/release.mjs` (bản 151; trước gộp: 150), commit, đẩy; dừng chờ "tiếp" trước Đề 9–10
+- [X] T029 [P] [US4] Soạn `content/toeic/tron/de07.json` theo khuôn đề 010 + bộ tiêu chí (tự soát `H-*` từng câu khi soạn)
+- [X] T030 [P] [US4] Soạn `content/toeic/tron/de08.json` như T029
+- [X] T031 [US4] Dựng + máy kiểm (0 lỗi), xử lý cảnh báo; giải mù Đề 7–8 (4 phiếu) → sửa → giải lại tới hết lệch
+- [X] T032 [US4] Giọng Kokoro, bảng kiểm giáo viên, tài liệu v154 (trước gộp: v152) (`CLAUDE.md`, README, release.mjs, đặc tả 010 T022 [X]), test, e2e, `node tools/release.mjs` (bản 151; trước gộp: 150), commit, đẩy; dừng chờ "tiếp" trước Đề 9–10
 
 ---
 
