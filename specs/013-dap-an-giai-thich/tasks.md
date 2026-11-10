@@ -1,5 +1,6 @@
 # Việc: Đáp án giải thích chi tiết
 
+**Bàn giao**: đọc `BAN-GIAO.md` trước. **Model**: T001–T004 Opus 5.5 medium · T005–T006 Sonnet 5.5 medium · T007 Opus 5.5 medium.
 **Mốc dừng**: chờ người sáng lập "ok" kế hoạch; sau T004 chờ người sáng lập xem mẫu trên iPhone.
 
 - [ ] T001 `tools/kiem-toeic.mjs` `strip` bỏ `gt`; `tools/build-toeic.mjs` giữ `gt`, kiểm đủ trường (FR-002, FR-003)
