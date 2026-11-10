@@ -69,7 +69,7 @@ export function corpus() { if (CORPUS) return CORPUS; const S = new Set(), add =
   for (const w of TU_OK) S.add(w);
   return (CORPUS = S); }
 // chữ đúng mà kho của app chưa có (đã soát tay; thêm vào đây thay vì ghi "đã xem" từng câu)
-const TU_OK = new Set('beautify setup breakup pickup minivan webinar buffet freight frother modem diploma sedan booth trash diesel validate participatory refrain introductory fluency librarian permanency refrigerator refrigerators coworker coworkers tirelessly proximity proximate shortlisted espresso unavailability papercraft auditorium microscope unplugs unplug expansive repainted repaint refueling refuel appliance appliances gigabytes gigabyte salesperson salespeople blueberry blueberries muffin muffins durable readiness fertilizer reuses reuse riverfront'.split(' '));
+const TU_OK = new Set('beautify setup breakup pickup minivan webinar buffet freight frother modem diploma sedan booth trash diesel validate participatory refrain introductory fluency librarian permanency refrigerator refrigerators coworker coworkers tirelessly proximity proximate shortlisted espresso unavailability papercraft auditorium microscope unplugs unplug expansive repainted repaint refueling refuel appliance appliances gigabytes gigabyte salesperson salespeople blueberry blueberries muffin muffins durable readiness fertilizer reuses reuse riverfront distributor distributors promotional escalator escalators expo purifier purifiers rattling dock docks kiosk kiosks glossy conductor conductors biweekly playwright playwrights cholesterol'.split(' '));
 const SUF = [['ies', ['y']], ['ied', ['y']], ['ier', ['y']], ['iest', ['y']], ['ily', ['y']], ['ing', ['', 'e', '-']], ['ed', ['', 'e', '-']], ['es', ['', 'e']], ['s', ['']], ['er', ['', 'e', '-']], ['est', ['', 'e', '-']], ['ly', ['', 'le']], ['ness', ['']], ['ment', ['']], ['ful', ['']], ['less', ['']], ['able', ['', 'e']], ['ity', ['', 'e']], ['ism', ['']], ['ian', ['', 'y']], ['ee', ['']], ['ees', ['']], ['ory', ['e', '']], ['cy', ['t']]];
 const known = w => { const C = corpus(); if (C.has(w)) return true;
   for (const [suf, adds] of SUF) if (w.length > suf.length + 2 && w.endsWith(suf)) { const b = w.slice(0, -suf.length);
@@ -185,7 +185,7 @@ export const RULES = [
     if (u.sec !== 'p5' && u.sec !== 'p6') return [];
     return u.qs.filter(q => !/\s/.test(String(q.a).trim()) && !isIns(q)).flatMap(q => q.o.filter(o => o !== q.a && GHEP.test(o.trim()) && !GHEP_OK.has(o.trim().toLowerCase())).map(o => F(q.n, `phương án "${o}" ghép thêm giới từ, đáp án "${q.a}" là một từ: nhiễu sai lộ liễu, đề thật không dùng`))); } },
   { ma: 'P5-HO-TU', muc: 'canh', ten: 'câu từ loại mà phương án không cùng gốc từ', goi_y: 'dạng "từ loại" dùng 4 dạng của cùng một từ', f: u => { if (u.sec !== 'p5' || u.x.t !== 'form') return []; const o = u.x.o.map(s => s.toLowerCase().split(' ')[0]);
-    const best = Math.max(...o.map(a => o.filter(b => b.slice(0, 4) === a.slice(0, 4)).length)); return best >= 3 ? [] : [F(u.a, 'phương án: ' + u.x.o.join(' · '))]; } },
+    const k = Math.min(...o.map(a => a.length)) <= 4 ? 3 : 4, best = Math.max(...o.map(a => o.filter(b => b.slice(0, k) === a.slice(0, k)).length)); return best >= 3 ? [] : [F(u.a, 'phương án: ' + u.x.o.join(' · '))]; } }, // v154: từ ngắn (easy · ease) so 3 chữ đầu
   { ma: 'P6-HOA', muc: 'loi', ten: 'chỗ trống đầu câu mà đáp án không viết hoa', goi_y: 'viết hoa chữ đầu phương án', f: u => { if (u.sec !== 'p6') return []; const t = u.x.text;
     return u.qs.flatMap(q => { const i = t.indexOf('{' + (q.gi + 1) + '}'); if (i < 0) return [F(q.n, 'đoạn thiếu chỗ {' + (q.gi + 1) + '}')]; const before = t.slice(0, i).trimEnd();
       const start = !before || /[.!?:]["”]?\s*["“]?$/.test(before) || /\n\s*["“]?$/.test(t.slice(0, i)); if (isIns({ o: q.o }) || q.o.every(o => /[.!?]$/.test(o))) return [];
@@ -205,7 +205,10 @@ export const RULES = [
     return out; } },
   { ma: 'P7-TINH', muc: 'loi', gt: 1, ten: 'phép tính trong giải thích sai', goi_y: 'tính lại', f: u => { if (u.sec !== 'p7') return []; const out = [], num = s => +String(s).replace(/[$,]/g, '').replace(/\.$/, '');
     for (const q of u.qs) { const w = q.src.why || '';
-      for (const m of w.matchAll(/(\$?\d[\d,]*(?:\.\d+)?)\s*(?:[^\d$=+×*−\-–\n]{0,12}?)\s*([+×*−\-–])\s*(\$?\d[\d,]*(?:\.\d+)?)\s*(?:[^\d$=\n]{0,12}?)\s*=\s*(\$?\d[\d,]*(?:\.\d+)?)/g)) {
+      // giờ đồng hồ (10:00 + 6 giờ = 16:00) tính riêng; phép tính số bỏ số nằm trong giờ (v154: trước đọc nhầm "00 + 6 giờ = 16")
+      for (const m of w.matchAll(/(\d{1,2}):(\d{2})\s*\+\s*(\d+(?:[.,]\d+)?)\s*giờ\s*=\s*(\d{1,2}):(\d{2})/g)) { const r = (+m[1] * 60 + +m[2] + Math.round(+m[3].replace(',', '.') * 60)) % 1440, c = +m[4] * 60 + +m[5];
+        if (r !== c) out.push(F(q.n, `"${m[0]}": đúng là ${Math.floor(r / 60)}:${String(r % 60).padStart(2, '0')}`)); }
+      for (const m of w.matchAll(/(?<![\d:.])(\$?\d[\d,]*(?:\.\d+)?)(?!:\d)\s*(?:[^\d$=+×*−\-–\n]{0,12}?)\s*([+×*−\-–])\s*(\$?\d[\d,]*(?:\.\d+)?)\s*(?:[^\d$=\n]{0,12}?)\s*=\s*(\$?\d[\d,]*(?:\.\d+)?)(?![\d:])/g)) {
         const [a, op, b, c] = [num(m[1]), m[2], num(m[3]), num(m[4])], r = op === '+' ? a + b : /[×*]/.test(op) ? a * b : a - b; if (Math.abs(r - c) > 0.001) out.push(F(q.n, `"${m[0]}": đúng là ${r}`)); }
       for (const m of w.matchAll(/(\$?\d[\d,]*)\s*,?\s*trừ\s*(\$?\d[\d,]*)[^→\n]{0,40}→\s*(\$?\d[\d,]*)/g)) { const r = num(m[1]) - num(m[2]); if (r !== num(m[3])) out.push(F(q.n, `"${m[0]}": đúng là ${r}`)); } }
     return out; } },

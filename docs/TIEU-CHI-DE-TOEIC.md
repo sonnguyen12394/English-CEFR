@@ -18,7 +18,7 @@ Bộ dựng (`tools/build-toeic.mjs`) đã kiểm sẵn, không nhắc lại ở
 
 ## Quy trình soạn một đề
 
-1. Soạn theo khuôn đề (`specs/010-toeic-10-de-tron/research.md` R4) và bối cảnh mới (không lặp chủ đề của đề trước).
+1. Soạn theo khuôn đề (`specs/010-toeic-10-de-tron/research.md` R4) và bối cảnh mới (không lặp chủ đề của đề trước). Trước khi dựng, liệt kê tình huống từng bài của đề và so với nhau (`H-LAP`): v154 khi soạn Đề 7 có 2 bài giờ mở cửa thư viện (Part 4, Part 6), 2 dịch vụ in (Part 7), 2 bài hồ bơi câu lạc bộ thể hình (Part 3, Part 7). Người soạn hay vô tình viết lại bài đề cũ (Đề 8 nháp: thuê xe như Đề 5, đăng ký khách như Đề 6, giới thiệu nhân viên xuất sắc như Đề 4, cả 4 câu tranh công nhân của Đề 4): bộ dựng chặn, nhưng nên tránh từ lúc soạn.
 2. Tự soát từng câu theo `H-*` (đọc như thí sinh: che đáp án, tự chọn).
 3. `node tools/build-toeic.mjs` → sửa hết **lỗi**.
 4. `node tools/kiem-toeic.mjs deN` → đọc từng **cảnh báo**: câu kém thì sửa; câu ổn thì ghi "đã xem" (dưới).
@@ -79,14 +79,14 @@ Người nói: A = nữ, B = nam, C = nữ thứ hai; Part 4 theo `sx` ("f" / "m
 - `P5-CHO` (L) · Câu không có đúng một chỗ "-------".
 - `P5-HOA` / `P6-HOA` (L) · Chỗ trống đầu câu mà phương án không viết hoa; Part 6: chỗ trống giữa câu mà phương án viết hoa.
 - `P5-AAN` (L) · "a / an" ngay trước chỗ trống không hợp chữ đầu của đáp án.
-- `P5-HO-TU` (C) · Câu "từ loại" (`t: form`) mà phương án không cùng gốc từ (ít nhất 3 phương án chung 4 chữ cái đầu).
+- `P5-HO-TU` (C) · Câu "từ loại" (`t: form`) mà phương án không cùng gốc từ (ít nhất 3 phương án chung 4 chữ cái đầu; từ ngắn ≤ 4 chữ so 3 chữ đầu, vd. easy · easily · ease · eased, v154).
 - `P5-GHEP` (C) · Phương án nhiễu ghép giả "từ + giới từ" trong khi đáp án là một từ ("handily to", "while to", "allowed of"): sai lộ liễu, đề thật không dùng; thường người soạn ghép để né một phương án lỡ đúng → chọn từ khác sai rõ. Giới từ / liên từ nhiều chữ có thật ("because of", "due to", "each of"…) không tính. v153 sửa 15 câu kho (t5-22, t5-25, t5-32, t5-38, t5-41, t5-50, t5-53, t5-56, t5-60, t5-78, t5-79 "In spite", t5-81, t5-84, t5-97, t5-99). Áp cho cả chỗ trống Part 6.
 - `P6-CHEN-CO` (L) · Câu chèn đáp án đã có nguyên văn trong đoạn.
 - `P6-THI-MOC` (C) · Chỗ chọn thì (`t: tense`) mà câu đó và 2 câu kề không có mốc thời gian (next week, last month, since…): thiếu mốc thì nhiều thì cùng đúng.
 
 ### Part 7 (đọc hiểu)
 - `P7-GIO` (L) · Giờ trong chuỗi tin nhắn phải tăng dần; câu ý định "At 2:16 P.M. … writes, "X"" phải có dòng 2:16 P.M. chứa "X".
-- `P7-TINH` (L) · Phép tính viết trong giải thích sai ("$150 + $160 = $310", "$310, trừ $30 → $280").
+- `P7-TINH` (L) · Phép tính viết trong giải thích sai ("$150 + $160 = $310", "$310, trừ $30 → $280"). Giờ đồng hồ tính riêng: "10:00 + 6 giờ = 16:00" (v154; trước đọc nhầm thành "00 + 6 = 16").
 - `P7-THU-NGAY` (L) · Cùng một ngày tháng mà 2 chỗ ghi 2 thứ khác nhau trong một bộ.
 - `P7-CHEN-CO` (L) · Câu chèn [1]–[4] đã có nguyên văn trong bài.
 - `P7-NOT` (C) · Câu NOT: đáp án (điều bài KHÔNG nói) có đủ chữ trong bài, hoặc phương án "có nói" gần như không có chữ nào trong bài. Thường là báo nhầm khi bài diễn đạt khác (vd. "survey" = "asked residents for their opinions") → đọc lại rồi ghi "đã xem".
@@ -98,6 +98,7 @@ Người nói: A = nữ, B = nam, C = nữ thứ hai; Part 4 theo `sx` ("f" / "m
 
 ### Thứ tự phương án (app tự xếp)
 - Phương án là số / tiền / giờ / ngày tháng / thứ / tầng / nhãn cùng khuôn ("The 7:15 train", "Floor 3", "$75.00", "On May 12", "Package A"): app xếp **tăng dần** như đề thật (nguyên tắc "place options in logical or numerical order"; `tqNat` ở `toqt.js`, v153). Phiên giải mù chê cách xếp lộn xộn cũ (Floor 2 · 4 · 1 · 3; Package D · A · C · B). Người soạn không phải tự xếp.
+- App chỉ xếp được khi **cả 4 phương án cùng khuôn và số viết bằng chữ số**: "About 2 minutes" · "About 5 minutes" · "About 10 minutes" · "About 15 minutes"; "2 business days" · "3 business days" (cùng số nhiều). Trộn "five minutes" với "an hour", "one business day" với "three hours" thì app để thứ tự ngẫu nhiên (giải mù Đề 7 chê, v154).
 - Còn mở (để người sáng lập quyết): vị trí đáp án Part 3–7 do app xếp ngẫu nhiên cố định theo chữ (`trH`): cả đề cân bằng (mỗi chữ ~21–29%), nhưng có Part lệch (Đề 1 Part 3: C 4 / 39) và bộ câu cùng một chữ (Đề 3 câu 186–190 đều D). Đề thật cân bằng vị trí đáp án. Sửa phải đổi cách xếp của app → đổi chữ cái gần hết câu, bài làm đã lưu lệch chữ.
 
 ### Giải mù
