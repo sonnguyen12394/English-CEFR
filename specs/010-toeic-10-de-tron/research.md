@@ -13,6 +13,7 @@
 ## R3. Kiểm trùng
 - **Decision**: chuẩn hoá chữ (thường, bỏ dấu câu, gộp khoảng trắng) rồi so: câu hỏi Part 2, câu Part 5, lời Part 3, bài Part 4, đoạn Part 6, văn bản Part 7, 4 câu tả Part 1, với cả kho cũ và các đề khác. Trùng nguyên văn = lỗi.
 - **Rationale**: đủ để bắt chép lại; câu do Claude soạn mới nên khả năng trùng ý thấp.
+- **Sửa ở đợt 2 (v150)**: giả định "trùng ý thấp" SAI: quét theo từ thấy 28 câu Part 2 / Part 5 chỉ đổi 1–2 chữ so với kho hoặc đề khác (Claude viết lại câu đã gặp mà không nhận ra). Thêm luật: Jaccard theo từ (tập từ chữ thường) ≥ 0,6 với câu hỏi Part 2, ≥ 0,55 với câu Part 5, so với kho + mọi đề = lỗi. Ngưỡng chọn theo các cặp thật đã gặp (cặp gần trùng thấp nhất 0,56; cặp khác hẳn thường < 0,5); Part 3, 4, 6, 7 quét câu mở đầu / tiêu đề chưa thấy cặp nào, chưa chặn.
 
 ## R4. Cơ cấu và dạng câu mỗi đề (cố định, bộ dựng kiểm)
 - **Decision**:

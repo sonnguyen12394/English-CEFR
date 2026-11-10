@@ -100,8 +100,8 @@
   {
    "id": "t6-ad",
    "kind": "Advertisement",
-   "title": "Harbor View Fitness Center",
-   "text": "Looking for a place to stay active this winter? Harbor View Fitness Center offers modern equipment, group classes and a heated indoor pool. New members who sign up before January 31 will receive their first month {1} charge. {2} Our certified trainers will create a personal plan based on your goals. Classes are held {3} morning and evening, so you can always find a time that suits your schedule. Visit our website to {4} a free tour.",
+   "title": "Summit Fitness Center",
+   "text": "Looking for a place to stay active this winter? Summit Fitness Center offers modern equipment, group classes and a heated indoor pool. New members who sign up before January 31 will receive their first month {1} charge. {2} Our certified trainers will create a personal plan based on your goals. Classes are held {3} morning and evening, so you can always find a time that suits your schedule. Visit our website to {4} a free tour.",
    "gaps": [
     {
      "o": [
@@ -126,12 +126,12 @@
     {
      "o": [
       "every",
-      "all",
-      "each of",
-      "both"
+      "either",
+      "several",
+      "each of"
      ],
      "a": "every",
-     "why": "every morning and evening = mỗi sáng và tối."
+     "why": "every + danh từ số ít: every morning and evening (mỗi sáng và tối). either phải đi với or; several cần danh từ số nhiều (several mornings); each of cần the / danh từ số nhiều."
     },
     {
      "o": [
@@ -515,7 +515,7 @@
       "restarts"
      ],
      "a": "restart",
-     "why": "need to + động từ nguyên mẫu."
+     "why": "need to + động từ nguyên mẫu → restart."
     },
     {
      "o": [
@@ -831,7 +831,7 @@
       "removing"
      ],
      "a": "remove",
-     "why": "please + động từ nguyên mẫu."
+     "why": "please + động từ nguyên mẫu: please remove (dọn hết đồ khỏi bàn)."
     },
     {
      "o": [
@@ -851,7 +851,7 @@
       "continuation"
      ],
      "a": "continue",
-     "why": "can + động từ nguyên mẫu."
+     "why": "can + động từ nguyên mẫu: can continue (vẫn làm việc tiếp được)."
     },
     {
      "o": [
@@ -1247,9 +1247,9 @@
      "q": "Why did Norton Consulting receive a discount?",
      "a": "It has ordered from Greenleaf before.",
      "w": [
-      "The event was canceled.",
-      "It paid in advance.",
-      "The delivery was late."
+      "The lunch event was canceled.",
+      "It paid the full amount in advance.",
+      "The food was delivered later than planned."
      ],
      "why": "Discount (returning customer, 10%)."
     },
@@ -1507,10 +1507,10 @@
     },
     {
      "q": "In the second e-mail, the word \"gesture\" is closest in meaning to",
-     "a": "action",
+     "a": "act",
      "w": [
       "movement",
-      "signal",
+      "request",
       "price"
      ],
      "why": "a gesture of goodwill = một hành động thể hiện thiện chí."
@@ -1883,11 +1883,11 @@
    "docs": [
     {
      "title": "E-mail · To: All department heads · From: Training Office · Date: August 4",
-     "text": "Our autumn training program is now open for registration. This year we are offering four courses: Project Management (two days), Advanced Excel (one day), Presentation Skills (one day), and Customer Communication (half day). Each department may send up to three employees per course. Courses are free for staff, but departments must pay for any participant who does not attend without notice. Please return the attached form by August 20."
+     "text": "Our autumn training program is now open for registration. This year we are offering four courses: Project Management (two days), Advanced Excel (one day), Presentation Skills (one day), and Customer Communication (half day). Each department may send up to three employees per course. Courses are free for staff, but departments must pay for any participant who is absent without giving notice. Please return the attached form by August 20."
     },
     {
      "title": "Registration form — Department: Sales",
-     "text": "Project Management: Anna Kowal, Ben Ortiz\nAdvanced Excel: Ben Ortiz, Chloe Lam, David Ng, Eva Ruiz\nPresentation Skills: Chloe Lam\nCustomer Communication: Anna Kowal, Eva Ruiz\nSubmitted by: Paul Grant, Sales Manager, August 22"
+     "text": "Project Management: Anna Kowal, Ben Ortiz\nAdvanced Excel: Ben Ortiz, Chloe Lam, David Ng, Eva Ruiz\nPresentation Skills: Chloe Lam\nCustomer Communication: Anna Kowal, Eva Ruiz\nSubmitted by: Victor Hale, Sales Manager, August 22"
     }
    ],
    "qs": [
@@ -1922,7 +1922,7 @@
      "why": "Tối đa 3 người mỗi khoá, nhưng Advanced Excel có 4 người (đối chiếu 2 văn bản)."
     },
     {
-     "q": "What is indicated about Mr. Grant?",
+     "q": "What is indicated about Mr. Hale?",
      "a": "He submitted the form late.",
      "w": [
       "He will attend two courses.",
@@ -2148,8 +2148,8 @@
    "kind": "Notice",
    "docs": [
     {
-     "title": "Riverside Public Library: New Opening Hours",
-     "text": "Beginning on Monday, May 5, the Riverside Public Library will open at 8:00 A.M. on weekdays, one hour earlier than before. [1] The change follows a survey in which many residents said they would like to visit the library before work. [2] Weekend hours will stay the same. [3] During the first week of the new schedule, staff will be at the front desk from 8:00 A.M. to help visitors set up online accounts, which can be used to reserve books and study rooms. [4] For more information, call 555-0172 or visit our Web site."
+     "title": "Oakdale Public Library: New Opening Hours",
+     "text": "Beginning on Monday, May 5, the Oakdale Public Library will open at 8:00 A.M. on weekdays, one hour earlier than before. [1] The change follows a survey in which many residents said they would like to visit the library before work. [2] Weekend hours will stay the same. [3] During the first week of the new schedule, staff will be at the front desk from 8:00 A.M. to help visitors set up online accounts, which can be used to reserve books and study rooms. [4] For more information, call 555-0172 or visit our Web site."
     }
    ],
    "qs": [
@@ -2200,8 +2200,8 @@
    "kind": "E-mail",
    "docs": [
     {
-     "title": "To: All Harlow Design staff · From: Maria Lopez, Office Manager · Subject: Kitchen renovation",
-     "text": "Dear colleagues,\nThe second-floor kitchen will be renovated from June 9 to June 20. [1] During this time, please use the kitchen on the fourth floor, which will stay open as usual. [2] The work will include new cabinets, a larger refrigerator, and a second sink. [3] We expect the project to address the long lines at lunchtime that many of you have mentioned. [4] I apologize for any inconvenience, and thank you for your patience.\nMaria Lopez"
+     "title": "To: All Harlow Design staff · From: Helen Ford, Office Manager · Subject: Kitchen renovation",
+     "text": "Dear colleagues,\nThe second-floor kitchen will be renovated from June 9 to June 20. [1] During this time, please use the kitchen on the fourth floor, which will stay open as usual. [2] The work will include new cabinets, a larger refrigerator, and a second sink. [3] We expect the project to address the long lines at lunchtime that many of you have mentioned. [4] I apologize for any inconvenience, and thank you for your patience.\nHelen Ford"
     }
    ],
    "qs": [
@@ -2304,8 +2304,8 @@
    "kind": "Web page",
    "docs": [
     {
-     "title": "Harbor View Hotel — Meeting Rooms",
-     "text": "Planning a business event in Lisbon? Harbor View Hotel offers six meeting rooms for groups of 10 to 200 people. Every room comes with free Wi-Fi, a projector, and bottled water. Catering can be arranged through our restaurant, which serves breakfast, lunch, and afternoon snacks. Guests who book a room for a full day receive free parking for up to 20 cars.\nTo make a reservation, complete the form below at least 14 days before your event. A deposit of 30 percent is required to confirm a booking, and it is refunded in full if the booking is canceled more than seven days in advance."
+     "title": "Bellavista Hotel — Meeting Rooms",
+     "text": "Planning a business event in Lisbon? Bellavista Hotel offers six meeting rooms for groups of 10 to 200 people. Every room comes with free Wi-Fi, a projector, and bottled water. Catering can be arranged through our restaurant, which serves breakfast, lunch, and afternoon snacks. Guests who book a room for a full day receive free parking for up to 20 cars.\nTo make a reservation, complete the form below at least 14 days before your event. A deposit of 30 percent is required to confirm a booking, and it is refunded in full if the booking is canceled more than seven days in advance."
     }
    ],
    "qs": [
@@ -2504,16 +2504,16 @@
    "kind": "Web page + e-mail + review",
    "docs": [
     {
-     "title": "Greenleaf Conference Center — Rooms",
+     "title": "Maplewood Conference Center — Rooms",
      "text": "Oak Room: up to 20 people, $300 per day, projector.\nBirch Hall: up to 60 people, $650 per day, projector and sound system.\nCedar Suite: up to 120 people, $1,100 per day, projector, sound system and stage.\nCatering is available for groups of 30 or more. Bookings made at least 60 days in advance receive a 10% discount."
     },
     {
-     "title": "E-mail · To: bookings@greenleafcc.com · From: Marta Silva, Nordvik Pharmaceuticals · Date: March 3",
-     "text": "Hello, I would like to book a room for a training day on May 20. We expect 45 employees. A guest speaker will give a talk in the morning, so we will need a sound system. We would also like lunch to be served for everyone. Please confirm the price, including any discount we are eligible for. Best regards, Marta Silva"
+     "title": "E-mail · To: bookings@maplewoodcc.com · From: Marta Silva, Nordvik Pharmaceuticals · Date: March 3",
+     "text": "Hello, I would like to book a room for a training day on May 20. We expect 45 employees. A guest speaker will give a talk in the morning, so we will need a sound system. Our budget for the room itself is $800 or less. We would also like lunch to be served for everyone. Please confirm the price, including any discount we are eligible for. Best regards, Marta Silva"
     },
     {
      "title": "Online review · Posted May 24 by Marta Silva",
-     "text": "We held a training day at Greenleaf this week. The room was bright and comfortable, and lunch was excellent. In the afternoon the sound system stopped working for about fifteen minutes, but the staff responded promptly and fixed it. Overall, a very good experience. We will book again next year."
+     "text": "We held a training day at Maplewood this week. The room was bright and comfortable, and lunch was excellent. In the afternoon the sound system stopped working for about fifteen minutes, but the staff responded promptly and fixed it. Overall, a very good experience. We will book again next year."
     }
    ],
    "qs": [
@@ -2525,7 +2525,7 @@
       "Cedar Suite",
       "Two Oak Rooms"
      ],
-     "why": "Đối chiếu: 45 người cần âm thanh → Birch Hall (tới 60 người, có sound system). Oak Room quá nhỏ, Cedar Suite thừa chỗ và đắt hơn."
+     "why": "Đối chiếu: 45 người, cần âm thanh, tiền phòng tối đa $800 → Birch Hall (tới 60 người, có sound system, $650). Oak Room quá nhỏ, Cedar Suite $1,100 vượt ngân sách, hai phòng Oak cũng không đủ 45 người và không có loa."
     },
     {
      "q": "Why will Nordvik Pharmaceuticals most likely receive a discount?",

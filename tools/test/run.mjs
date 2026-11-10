@@ -445,7 +445,7 @@ const R = await run(`(async () => {
   { const bad = [], errs = [], tryv = (n, f) => { try { f(); } catch (e) { errs.push(n + ': ' + e.message); } }, tryA = async (n, f) => { try { await f(); } catch (e) { errs.push(n + ': ' + e.message); } };
     S = blank(); await Promise.all([tcLoad(), ieLoad()]); const H = () => String($app.innerHTML), nbt = h => (h.match(/<button/g) || []).length;
     const tabs = [...IDX_.matchAll(/data-tab="(\\w+)"><i>[^<]*<\\/i>([^<]+)</g)].map(m => m[1] + ':' + m[2]).join(' ');
-    if (tabs !== 'lt:Lộ trình all:Học ld:Luyện đề dict:Tra cứu bk:Tôi') bad.push('thanh dưới (v141: 5 tab, 🎯 Luyện đề sau 📚 Học): ' + tabs);
+    if (tabs !== 'lt:Lộ trình all:Học ld:Luyện đề kd:Kiểm đề dict:Tra cứu bk:Tôi') bad.push('thanh dưới (v141: 🎯 Luyện đề sau 📚 Học; v155: 6 tab, 🛡️ Kiểm đề sau 🎯 Luyện đề): ' + tabs);
     // 🎯 Học người mới: ≤ 14 nút (v101: Pre-A1 thêm thẻ ✍️ Viết, 🗣 Nói); công cụ luyện thi, sổ lỗi, góp ý ở tab khác; chưa học gì thì chưa có việc ôn
     await tryA('Học', () => overview('pre')); const ho = H(), nh = nbt(ho) - (ho.match(/data-exsel=|data-hocnen|data-exthi/g) || []).length;   // v109: hàng mục (Nền · Cambridge · IELTS · TOEIC) là điều hướng, không tính if (nh > 14) bad.push('🎯 Học người mới ' + nh + ' nút');
     if (/data-mock|id="ovtools"|id="gyhome"|Sổ lỗi của tôi|data-rev|data-sotu/.test(ho)) bad.push('🎯 Học người mới còn công cụ của tab khác / việc ôn khi chưa có gì để ôn');
@@ -2088,6 +2088,19 @@ const R = await run(`(async () => {
     } catch (e) { bad.push('lỗi: ' + e.message); }
     globalThis.trPlayUnit = P0; TR.tok++; TR.on = ''; TR.k = 1; S = S1; EX_PART = 'san';
     out.push({ lv: 'cefr', id: 'C68', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎓 đề thử trọn: làm từng lượt ~10 câu (không cắt ngang bài, không vắt qua Nghe → Đọc), chấm ngay mỗi lượt, nút lượt kế tiếp, lượt Đọc có giờ theo nhịp Part, 📋 bài làm theo lượt, màn sẵn sàng đánh dấu lượt đã làm, không vào điểm đề trọn, không đụng thẻ học' }); }
+    // v155 C70 (phần trang, specs/012): thứ tự phương án app hiện cho 8 đề (so với máy kiểm ở phần node), đổi chữ bài làm 📋 cũ, cách xếp số mới
+    { const bad = [], S1 = S, opts = {};
+      try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad();
+        for (const d of TO.tron) { if (d.f && !(await trLoad(d.id))) { bad.push(d.id + ': không tải được'); continue; } opts[d.id] = trB(d.id).Q.map(q => q.opts.join('|')); }
+        const dc = TO.tron.find(d => d.id === 'de1').dc || {}, ks = Object.keys(dc), kc = ks.find(k => dc[k]), kn = ks.find(k => dc[k] === null);
+        if (!kc || !kn) bad.push('bảng đổi chữ Đề 1 thiếu mẫu'); else { const old = Array(200).fill('A'); old[kc - 1] = 'B'; old[kn - 1] = 'C'; S.to.tronA = { de1: { at: 1, a: old.join('') } };
+          const A = trAGet('de1', 'de1'); if (!A || A.ov !== 2 || A.a[kc - 1] !== dc[kc][1] || A.a[kn - 1] !== '-' || A.a.length !== 200) bad.push('đổi chữ bài làm cũ sai'); if (S.to.tronA.de1.ov !== 2) bad.push('bài làm cũ không lưu lại sau khi đổi'); }
+        const NT = [[['Noon', "Five o'clock", "Eleven o'clock", "Nine o'clock"], "Nine o'clock|Eleven o'clock|Noon|Five o'clock"], [['About two hours', 'About 40 minutes', 'About 15 minutes', 'About one hour'], 'About 15 minutes|About 40 minutes|About one hour|About two hours'],
+          [['Two', 'Twelve', 'Six', 'Five'], 'Two|Five|Six|Twelve'], [['C2', 'C5', 'B7', 'B4'], 'B4|B7|C2|C5'], [['On Monday afternoon', 'On Thursday evening', 'On Tuesday evening', 'On Wednesday afternoon'], 'On Monday afternoon|On Tuesday evening|On Wednesday afternoon|On Thursday evening'],
+          [['Fewer than fifty', 'About twenty', 'More than eighty', 'Exactly one hundred'], 'About twenty|Fewer than fifty|More than eighty|Exactly one hundred'], [['one of', 'it', 'this one of', 'the one'], null]];
+        for (const [o, want] of NT) { const g = tqNat(o); if ((g ? g.join('|') : null) !== want) bad.push('tqNat ' + o.join(' · ') + ' → ' + (g ? g.join(' · ') : 'null')); }
+      } catch (e) { bad.push('lỗi: ' + e.message); }
+      S = S1; TR.B = {}; TR.D = {}; globalThis.C70A = { bad, opts }; }
   return out; })()`);
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];
@@ -2157,5 +2170,46 @@ const R = await run(`(async () => {
   if (!two.hard.some(h => /người nói/.test(h))) bad.push('Part 4 hai người nói không bị bắt');
   const nDang = Object.values(T.x || {}).reduce((a, l) => a + l.length, 0);
   R.push({ lv: 'cefr', id: 'C61', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : `đề AI bám khuôn đề thật: ${nDang} dạng ở trang (mọi kỳ thi × cấp) đều có khuôn ở máy chủ, Pre-A1 / A1 không còn dạng ngoài đề thật (không Viết AI), IELTS Đọc 1 bài 700–900 từ 13 câu 20 phút, IELTS Nghe 1 Part 10 câu, Nói Part 1 9–12 câu, Cambridge B2 → C2 điền 8 chỗ, viết lại câu B2 2–5 · C1 3–6 · C2 3–8 từ, nghe C1 / C2 4 lựa chọn, nghe điền theo cấp; máy kiểm xếp câu theo thứ tự bài, bắt thiếu nhóm dạng đã chọn, bỏ câu trích sai / câu chèn thiếu dấu / tin ngắn quá dài, kiểm biểu đồ Task 1, số người nói; đề cũ v1 vẫn mở, Task 1 biểu đồ AI vẽ được` }); }
+// v153 C69 bộ kiểm nội dung đề TOEIC (specs/011-kiem-noi-dung-de): mọi luật bắt đúng câu cài lỗi của nó, câu sạch không bị báo, mã luật có trong bộ tiêu chí,
+//   luật giải mù (chưa giải / lệch / 2 phương án / câu đã sửa / đã xem); cổng phát hành: mọi đề trọn 0 lỗi, 0 cảnh báo chưa xem, đã giải mù
+{ const fs = await import('node:fs'), K = await import('../kiem-toeic.mjs'), M = JSON.parse(fs.readFileSync(new URL('kiem-mau.json', import.meta.url), 'utf8')), bad = [], CONG = true;
+  for (const c of M.sai) { const f = c.xs ? K.kiemUnits(c.xs) : K.kiemUnit(c.sec, c.x); if (!f.some(r => r.ma === c.ma)) bad.push('không bắt ' + c.ma + ' ở ' + (c.xs ? c.xs.map(y => y.x.id).join('+') : c.x.id)); }
+  const cov = new Set(M.sai.map(c => c.ma)); for (const r of [...K.RULES, ...K.DE_RULES]) if (!cov.has(r.ma)) bad.push('luật ' + r.ma + ' chưa có câu cài lỗi');
+  for (const c of M.sach) { const f = c.xs ? K.kiemUnits(c.xs) : K.kiemUnit(c.sec, c.x); if (f.length) bad.push('câu sạch ' + (c.xs ? c.xs.map(y => y.x.id).join('+') : c.x.id) + ' bị báo ' + f.map(r => r.ma).join(',')); }   // v155: mẫu sạch nhiều bài (luật cấp đề)
+  const doc = fs.readFileSync(K.root + 'docs/TIEU-CHI-DE-TOEIC.md', 'utf8'); for (const r of K.ALL_RULES) if (!doc.includes('`' + r.ma + '`')) bad.push('bộ tiêu chí thiếu ' + r.ma);
+  { const x = M.sach.find(c => c.sec === 'p5').x, d = { id: 'mau', p1: [], p2: [], p3: [], p4: [], p5: [x], p6: [], p7: [] }, [u] = K.units(d), dd = K.dau(u), L = u.qs[0].L, o2 = 'ABCD'.replace(L, '')[0];
+    const ma = (cau, ack) => K.kiemDe(d, { ack: ack || [], gm: { cau } }).filter(f => !f.da_xem).map(f => f.ma);
+    if (!ma({}).includes('GM-CHUA')) bad.push('không báo câu chưa giải mù');
+    if (!K.kiemDe(d, { ack: [], gm: null }).some(f => f.ma === 'GM-CHUA')) bad.push('không báo đề chưa giải mù');
+    if (!ma({ 1: { id: x.id, dau: dd, da: L, chon: o2, chac: 2 } }).includes('GM-LECH')) bad.push('không báo giải mù chọn khác đáp án');
+    if (!ma({ 1: { id: x.id, dau: dd, da: L, chon: L, hai: o2, chac: 2 } }).includes('GM-HAI')) bad.push('không báo giải mù thấy 2 phương án');
+    if (!ma({ 1: { id: x.id, dau: 'khac', da: L, chon: L, chac: 3 } }).includes('GM-CU')) bad.push('không báo câu đã sửa sau giải mù');
+    if (ma({ 1: { id: x.id, dau: dd, da: L, chon: L, chac: 3 } }).length) bad.push('giải mù khớp mà vẫn báo');
+    if (ma({ 1: { id: x.id, dau: dd, da: L, chon: o2, chac: 2 } }, [{ id: x.id, ma: 'GM-LECH', dau: dd, ly_do: 'x' }]).length) bad.push('ghi "đã xem" không tắt cảnh báo');
+    if (!ma({ 1: { id: x.id, dau: 'khac', da: L, chon: L } }, [{ id: x.id, ma: 'GM-CU', dau: dd, ly_do: 'x' }]).includes('GM-CU')) bad.push('GM-CU ghi "đã xem" được (không được phép)'); }
+  const T0 = Date.now(), A = K.kiemTatCa(), ms = Date.now() - T0, nde = Object.keys(A.R).length;
+  if (ms > 60000) bad.push('máy kiểm chạy quá 1 phút (' + ms + ' ms)');
+  if (A.loi) bad.push(A.loi + ' lỗi nội dung ở đề trọn (node tools/kiem-toeic.mjs)');
+  if (CONG && A.canh) bad.push(A.canh + ' cảnh báo chưa xem (node tools/kiem-toeic.mjs)');
+  { const T = K.loadTests(); for (const d of T) { const g = K.loadGm(d.id), n = g && g.cau ? Object.keys(g.cau).length : 0; if (n < 200) bad.push(d.id + ': giải mù ' + n + '/200 câu'); } }
+  R.push({ lv: 'cefr', id: 'C69', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : `bộ kiểm nội dung đề TOEIC: ${K.RULES.length + K.DE_RULES.length} luật máy bắt đủ ${M.sai.length} câu cài lỗi, ${M.sach.length} câu sạch không bị báo, luật giải mù đúng; ${nde} đề trọn: 0 lỗi${CONG ? ', 0 cảnh báo chưa xem, đã giải mù' : ' (cổng cảnh báo chưa bật: ' + A.canh + ' chưa xem)'} · ${ms} ms` }); }
+// v155 C70 sổ lỗi soạn đề + cân bằng vị trí đáp án (specs/012-so-loi-soan-de): mọi Part của 8 đề cân bằng, app và máy kiểm (phiếu giải mù) cùng thứ tự phương án
+//   cho mọi câu, bài làm 📋 lưu trước v155 đổi đúng chữ, cách xếp số mới (phần trang ở trên), sổ lỗi hợp lệ.
+{ const fs = await import('node:fs'), K = await import('../kiem-toeic.mjs'), A = ctx.C70A || { bad: ['thiếu phần trang'], opts: {} }, bad = [...A.bad], T = K.loadTests(); let nq = 0;
+  for (const D of T) { const U = K.units(D), ap = A.opts[D.id] || [];
+    for (const u of U) for (const q of u.qs) { nq++; if (!q.fixed && ap[q.n - 1] !== q.opts.join('|') && bad.length < 8) bad.push(`${D.id} câu ${q.n}: app ${ap[q.n - 1]} ≠ máy kiểm ${q.opts.join(' · ')}`); }
+    for (const s of ['p2', 'p3', 'p4', 'p5', 'p6', 'p7']) { const L = U.filter(u => u.sec === s).flatMap(u => u.qs.map(q => q.L)), k = s === 'p2' ? 3 : 4, [lo, hi] = K.canRange(L.length, k);
+      const c = 'ABCD'.slice(0, k).split('').map(x => L.filter(y => y === x).length); if (c.some(x => x < lo || x > hi) || K.canRuns(L) > K.CAN_RUN) bad.push(`${D.id} ${s} lệch: ${c.join('/')} · chuỗi ${K.canRuns(L)}`); } }
+  const VT = JSON.parse(fs.readFileSync(new URL('../../content/toeic/vi-tri-dap-an.json', import.meta.url), 'utf8')); if (Object.keys(VT).filter(k => /^de\d/.test(k)).length !== T.length) bad.push('bảng vị trí đáp án thiếu đề');
+  // sổ lỗi: kiemde.json dựng từ nguồn mới nhất, mọi mục có ví dụ + luật có thật, tình trạng đề khớp máy kiểm hiện tại
+  const rj = f => JSON.parse(fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8')), SL = rj('content/toeic/so-loi.json'), KD = rj('kiemde.json'), KT = K.kiemTatCa();
+  const LU = new Set([...K.ALL_RULES, ...K.DUNG_RULES, ...K.hRules()].map(r => r.ma));
+  if (JSON.stringify(KD.muc) !== JSON.stringify(SL.muc)) bad.push('kiemde.json cũ: chạy lại node tools/build-toeic.mjs');
+  if (SL.muc.length < 30 || new Set(SL.muc.map(m => m.ma)).size !== SL.muc.length) bad.push('sổ lỗi < 30 mục hoặc trùng mã');
+  for (const m of SL.muc) { if (!m.vd.length || m.luat.some(l => !LU.has(l) || !KD.luat[l])) bad.push('sổ lỗi ' + m.ma + ': thiếu ví dụ / luật không có thật'); }
+  for (const d of KD.de) { const r = KT.R[d.id]; if (!r || d.loi !== r.f.filter(f => f.muc === 'loi').length || d.xem !== r.f.filter(f => f.da_xem).length) bad.push('kiemde.json ' + d.id + ': số liệu lệch máy kiểm'); }
+  if (KD.de.length !== T.length) bad.push('kiemde.json thiếu đề');
+  globalThis.C70 = { bad, nq, nm: SL.muc.length }; }
+R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.bad.slice(0, 8).join(' | ') : `cân bằng vị trí đáp án: mọi Part của 8 đề trong ngưỡng, app và máy kiểm cùng chữ ở ${C70.nq} câu, bài làm cũ đổi chữ đúng, xếp số mới (số chữ, giờ chữ, thời lượng, nhãn); sổ lỗi ${C70.nm} mục hợp lệ, kiemde.json khớp nguồn và máy kiểm` });
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

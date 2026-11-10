@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 149;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 152;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -706,12 +706,13 @@ const $tabs = document.getElementById('tabs');
 // v68 (28/10/2026): 4 mục 🎯 Học CEFR · 🌏 Học IELTS (ielts.js, màn #ie) · 📖 Từ điển · 💾 Sao lưu. v72: mục 2 thành 🎓 Luyện thi (IELTS / TOEIC, toeic.js exOpen; cả hai màn có #ie). v78: mục 4 đổi tên 💾 Dữ liệu (Sao lưu + 🗺 Bản đồ chỗ yếu bando.js, màn #dl).
 // v95 (dieuhuong.js): 🎯 Học · 🎓 Luyện thi (🎓 Cambridge cbView · 🌏 IELTS · 💼 TOEIC) · 📖 Tra cứu (#dq, #tcv) · 👤 Của tôi (minhView, #bk: tiến độ, bản đồ, sổ từ, sổ lỗi, đề thật, dữ liệu, góp ý).
 // v108 (người sáng lập "học CEFR là nền, mục tiêu thi là phần riêng; lộ trình chạy tới khi đạt"): 4 tab 🔄 Lộ trình (mở đầu tiên) · 📚 Học (nền CEFR + phần riêng của mục tiêu: màn kỳ thi #ie thuộc tab Học) · 📖 Tra cứu · 👤 Của tôi; bỏ tab 🎓 Luyện thi.
+// v155 (specs/012): tab thứ 6 🛡️ Kiểm đề (kiemde.js, màn #kd) sau 🎯 Luyện đề: sổ lỗi soạn đề TOEIC, ai cũng thấy.
 // v141 (người sáng lập: "thêm 1 mục luyện đề theo mục tiêu để kế bên mục học"): 5 tab, 🎯 Luyện đề (tab 'ld') sau 📚 Học; màn kỳ thi #ie và màn đề AI #dai (deai.js) thuộc tab này.
-function syncTabs() { const t = document.getElementById('bk') ? 'bk' : document.getElementById('lt') ? 'lt' : document.getElementById('ie') || document.getElementById('dai') ? 'ld' : document.getElementById('dq') || document.getElementById('tcv') ? 'dict' : (document.getElementById('ov') || document.getElementById('bdo') || document.getElementById('grid') || document.getElementById('part')) ? 'all' : null;
+function syncTabs() { const t = document.getElementById('kd') ? 'kd' : document.getElementById('bk') ? 'bk' : document.getElementById('lt') ? 'lt' : document.getElementById('ie') || document.getElementById('dai') ? 'ld' : document.getElementById('dq') || document.getElementById('tcv') ? 'dict' : (document.getElementById('ov') || document.getElementById('bdo') || document.getElementById('grid') || document.getElementById('part')) ? 'all' : null;
   document.body.classList.toggle('has-tabs', !!t); $tabs.hidden = !t; document.body.classList.toggle('nogy', !!$app.querySelector('.wiz, .trx'));   // v147: màn đang làm đề thử trọn (.trx) cũng ẩn 💬 (nút nổi đè nút Sau ›); v112: 3 bước bắt đầu không có nút 💬 đè nút Tiếp
   $tabs.querySelectorAll('[data-tab]').forEach(b => { const on = b.dataset.tab === t; b.classList.toggle('on', on); b.setAttribute('aria-current', on ? 'page' : 'false'); if (on) try { b.scrollIntoView({ inline: 'nearest', block: 'nearest' }); } catch (e) {} }); }
 new MutationObserver(syncTabs).observe($app, { childList: true });
-$tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; BACK = null; if (b.dataset.tab === 'dict') dict(); else if (b.dataset.tab === 'bk') (typeof minhView === 'function' ? minhView() : backup()); else if (b.dataset.tab === 'lt' && typeof ltView === 'function') ltView(); else if (b.dataset.tab === 'ld' && typeof exOpen === 'function') { if (typeof EX_PART !== 'undefined') EX_PART = null; exOpen(); } else overview(); scrollTo(0, 0); });
+$tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b || !S) return; BACK = null; if (b.dataset.tab === 'dict') dict(); else if (b.dataset.tab === 'kd' && typeof kdView === 'function') kdView(); else if (b.dataset.tab === 'bk') (typeof minhView === 'function' ? minhView() : backup()); else if (b.dataset.tab === 'lt' && typeof ltView === 'function') ltView(); else if (b.dataset.tab === 'ld' && typeof exOpen === 'function') { if (typeof EX_PART !== 'undefined') EX_PART = null; exOpen(); } else overview(); scrollTo(0, 0); });
 
 // Tự cập nhật (người sáng lập 23/10/2026: "web tự cập nhật nếu có thay đổi, không phải bấm tải lại"). iPhone giữ trang cũ trong bộ nhớ khi mở lại tab
 // và GitHub Pages cho giữ trang ~10 phút, nên hỏi version.json (không qua bộ nhớ đệm) khi mở / quay lại tab và mỗi 5 phút.
@@ -723,7 +724,7 @@ function maybeReload() {
   if (!NEWV) return;
   const k = 'upd-' + NEWV; let tried = false; try { tried = !!sessionStorage.getItem(k); } catch (e) {}
   if (tried) return;   // đã thử tải lại cho bản này mà vẫn cũ: không lặp vô hạn
-  if (!S || document.getElementById('grid') || document.getElementById('dq') || document.getElementById('ov') || document.getElementById('part') || document.getElementById('ie') || document.getElementById('bdo') || document.getElementById('lt')) {
+  if (!S || document.getElementById('grid') || document.getElementById('dq') || document.getElementById('ov') || document.getElementById('part') || document.getElementById('ie') || document.getElementById('bdo') || document.getElementById('lt') || document.getElementById('kd')) {
     try { sessionStorage.setItem(k, '1'); } catch (e) {}
     location.replace(location.pathname + '?v=' + NEWV + location.hash);
   } else if (typeof toast === 'function') toast('Có bản mới. Trang sẽ tự cập nhật khi bạn về trang chính.');

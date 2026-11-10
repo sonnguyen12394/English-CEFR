@@ -152,6 +152,22 @@ await pg.click('[data-trrv="35"]'); await pg.waitForTimeout(400);
 { const t = await pg.innerText('#app'); check('📋 xem lại câu 35: lời nghe + đáp án (v149)', /Lời nghe/.test(t) && /✓ (Đáp án|Bạn chọn · đúng)/.test(t)); }
 await pg.evaluate(() => trView()); await pg.waitForTimeout(800); await pg.click('[data-trgo="de3"]'); await pg.waitForTimeout(1200);
 check('đề trọn mới: Đề 3 tải từ tệp riêng, màn sẵn sàng 200 câu (v149)', /Đề 3 · 200 câu/.test(await pg.innerText('#app')));
+// v152 đợt 2: Đề 6 (đề cuối của đợt) có trong danh sách và tải được
+await pg.evaluate(() => trView()); await pg.waitForTimeout(800); await pg.click('[data-trgo="de6"]'); await pg.waitForTimeout(1200);
+check('đề trọn đợt 2: Đề 6 tải từ tệp riêng, màn sẵn sàng 200 câu (v152)', /Đề 6 · 200 câu/.test(await pg.innerText('#app')));
+// v154 đợt 3: Đề 8 (đề cuối, sau đó dừng soạn đề) có trong danh sách và tải được
+await pg.evaluate(() => trView()); await pg.waitForTimeout(800); await pg.click('[data-trgo="de8"]'); await pg.waitForTimeout(1200);
+check('đề trọn đợt 3: Đề 8 tải từ tệp riêng, màn sẵn sàng 200 câu (v154)', /Đề 8 · 200 câu/.test(await pg.innerText('#app')));
+// v155 🛡️ Kiểm đề (specs/012): tab thứ 6 vừa thanh dưới, mở mục, ✓ lưu dấu, ✗ + ghi chú xếp hàng góp ý (kind khac, ctx.view kiemde)
+await pg.evaluate(() => ltView()); await pg.waitForTimeout(800); await pg.click('#tabs [data-tab="kd"]'); await pg.waitForTimeout(1500);
+check('🛡️ Kiểm đề: 6 tab vừa thanh dưới, không cuộn (v155)', await pg.evaluate(() => { const t = document.getElementById('tabs'); return t.querySelectorAll('button').length === 6 && t.scrollWidth <= t.clientWidth + 1 && [...t.querySelectorAll('button')].every(b => b.getBoundingClientRect().width >= 44); }) && await pg.isVisible('#tabs [data-tab="kd"].on'));
+check('🛡️ Kiểm đề: tóm tắt + danh sách theo nhóm', /loại lỗi[\s\S]*giải mù[\s\S]*Part 1/.test(await pg.innerText('#app')) && (await pg.$$('details.kdi')).length >= 30);
+await pg.click('details.kdi >> nth=0 >> summary'); await pg.waitForTimeout(300); await pg.click('details.kdi >> nth=0 >> [data-kdv$="|1"]'); await pg.waitForTimeout(800);
+check('🛡️ Kiểm đề: ✓ Đúng ý lưu dấu', await pg.evaluate(() => { const m = document.querySelector('details.kdi').dataset.kdi; return !!(S.kd && S.kd[m] && S.kd[m].v === 1); }) && /Đã ghi ✓/.test(await pg.innerText('details.kdi >> nth=0')));
+await pg.click('details.kdi >> nth=0 >> [data-kdv$="|0"]'); await pg.waitForTimeout(300); await pg.fill('details.kdi >> nth=0 >> textarea', 'Ví dụ chưa rõ'); await pg.click('details.kdi >> nth=0 >> [data-kds]'); await pg.waitForTimeout(800);
+check('🛡️ Kiểm đề: ✗ + ghi chú gửi như góp ý', await pg.evaluate(() => { const m = document.querySelector('details.kdi').dataset.kdi; return S.kd[m].v === 0 && S.kd[m].n === 'Ví dụ chưa rõ'; }) && /Đã ghi ✗: Ví dụ chưa rõ/.test(await pg.innerText('details.kdi >> nth=0')));
+await pg.click('[data-kdf="mo"]'); await pg.waitForTimeout(300); check('🛡️ Kiểm đề: lọc Còn mở', (await pg.$$('details.kdi')).length >= 1 && (await pg.$$('details.kdi')).length < 10);
+check('🛡️ Kiểm đề không tràn ngang', await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
 // 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả
 await pg.evaluate(() => { S = blank(); S.lt = { d: [], fx: {}, goal: { kind: 'cefr', lv: 'a2', date: '', at: Date.now() } }; ltView(); }); await pg.waitForTimeout(800); check('ô Hôm nay ở Lộ trình', (await pg.innerText('#app')).includes('Việc hôm nay'));
 await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }

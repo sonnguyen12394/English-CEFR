@@ -47,4 +47,8 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
   13. (v148) Màn "📝 Đề 1 · 200 câu" trước khi bắt đầu: khung Phần Nghe câu 1–100 + Phần Đọc câu 101–200, 7 hàng Part không gãy dòng; cuộn xuống thấy nút ▶ Bắt đầu phần Nghe.
   14. (v149) Danh sách đề thử trọn có Đề 3, Đề 4; mở Đề 3 (tải được, giọng đọc đúng nam / nữ); làm vài câu rồi nộp: kết quả có 📋 Bài làm và đáp án,
      bảng 200 ô đọc rõ, chạm 1 ô Part 3 thấy lời nghe + đáp án, 🔊 Nghe lại phát được; tắt mở lại app vẫn thấy "Xem bài làm lần gần nhất".
+  15. (v152) Danh sách đề thử trọn có Đề 5, Đề 6; mở Đề 6 (tải được); Part 4 bài có tên người nói đọc đúng giọng nam / nữ; nộp bài thì 📋 Bài làm và đáp án mở được.
+  16. (v153) Đề 2 → làm lượt có câu 66–70 (bảng giờ / tầng): phương án giờ, tầng, tháng xếp tăng dần; Đề 4 câu 5 tranh hai người đứng cạnh bàn khớp câu đúng; e-mail / tên người trong các bài đã sửa đọc tự nhiên.
+  17. (v154) Danh sách đề thử trọn có Đề 7, Đề 8; mở Đề 8 (tải được, màn sẵn sàng 200 câu); Part 1 Đề 8 tranh đàn phím / leo vách / lều nhìn rõ; Part 4 bài có tên người nói đọc đúng giọng nam / nữ.
+  18. (v155) Thanh dưới 6 tab (🛡️ Kiểm đề sau 🎯 Luyện đề) vừa màn, không cắt chữ "Luyện đề", "Kiểm đề", "Tra cứu" (iPhone SE nếu có); mở 🛡️ Kiểm đề, mở một mục, bấm ✓ Đúng ý rồi ✗ Chưa đúng + ghi chú → hiện "Đã ghi"; Đề 7 Part 6: đáp án không còn dồn chữ A (bảng 📋 sau khi làm)
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);

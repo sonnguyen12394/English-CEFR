@@ -273,7 +273,7 @@
   },
   {
    "id": "t2-19",
-   "q": "Are you attending the conference in May or June?",
+   "q": "Are you going to the conference in May or the one in June?",
    "o": [
     "Neither, I have to stay here.",
     "Yes, I'm attending.",
@@ -395,13 +395,13 @@
    "id": "t2-27",
    "q": "Let's review the budget before the meeting.",
    "o": [
-    "The meeting was canceled.",
+    "The meeting lasted two hours.",
     "It's over budget.",
     "Good idea, I'll bring the figures."
    ],
    "a": 2,
    "tr": [
-    "rel",
+    "rep",
     "rep",
     null
    ]
@@ -592,7 +592,7 @@
    "o": [
     "Higher prices.",
     "That might be expensive.",
-    "I'll assist you."
+    "He assisted me yesterday."
    ],
    "a": 1,
    "tr": [
@@ -1462,7 +1462,7 @@
     ],
     [
      "A",
-     "Yes, there was a delay with one of our shipping partners in July, so some orders were recorded in August instead."
+     "Yes, there was a delay with one of our shipping partners in June, so some orders were recorded in July instead."
     ],
     [
      "B",
@@ -1728,9 +1728,9 @@
      "q": "Why is the woman calling?",
      "a": "To remind someone of an appointment",
      "w": [
-      "To offer a job",
-      "To order supplies",
-      "To ask for payment"
+      "To offer someone a new position",
+      "To order supplies for a medical office",
+      "To ask a patient to pay a bill"
      ]
     },
     {
@@ -1938,7 +1938,7 @@
    "lines": [
     [
      "A",
-     "Hi, Daniel. I'm organizing the training session on the new expense software this Thursday. Could you help me book a room?"
+     "Hi, Daniel. I'm organizing the training session on the new customer database this Thursday. Could you help me book a room?"
     ],
     [
      "B",
@@ -2224,9 +2224,9 @@
      "q": "What problem does the guest mention?",
      "a": "Her room does not have the view she booked.",
      "w": [
-      "Her room is too noisy.",
-      "Her bags were lost.",
-      "Her booking was canceled."
+      "Her room is next to a noisy elevator.",
+      "Her bags were taken to the wrong floor.",
+      "Her booking was made for the wrong night."
      ]
     },
     {
@@ -2362,7 +2362,7 @@
    "lines": [
     [
      "A",
-     "Thanks for coming, Tom and Grace. The hotel just told me the garden won't be available for our team dinner on the fifteenth. They're repairing the fountain."
+     "Kevin, Grace, thanks for coming. The hotel just told me the garden won't be available for our team dinner on the twenty-second. They're repairing the fountain."
     ],
     [
      "B",
@@ -2450,6 +2450,7 @@
   {
    "id": "t4-02",
    "ty": "msg",
+   "sx": "m",
    "text": "Hello, this is Paul Turner from Kendall Dental Clinic. I'm calling to remind you of your appointment with Dr. Silva this Thursday at two thirty. Please arrive ten minutes early to complete a short health form. If you need to change the time, call us at least twenty-four hours in advance, or a cancellation fee may apply. Our number is five five five, zero one nine eight. We look forward to seeing you.",
    "qs": [
     {
@@ -2553,6 +2554,7 @@
   {
    "id": "t4-05",
    "ty": "intro",
+   "sx": "m",
    "text": "Thanks for joining today's webinar on time management. I'm Lucas Brandt, and I've been training managers for over fifteen years. Today, I'll share three simple techniques that you can start using immediately. First, plan tomorrow's tasks before you leave work today. Second, check your e-mail at fixed times rather than all day long. And third, schedule your most difficult work for the time of day when you have the most energy. At the end of the session, I'll answer your questions, so please type them in the chat box as we go.",
    "qs": [
     {
@@ -2650,7 +2652,8 @@
       "Waiting until Monday"
      ]
     }
-   ]
+   ],
+   "sx": "m"
   },
   {
    "id": "t4-08",
@@ -2791,7 +2794,7 @@
   {
    "id": "t4-12",
    "ty": "news",
-   "text": "This is the Riverside Weekly traffic report. Drivers heading downtown should expect delays on Highway 9 this morning, where one lane is closed for road repairs. The work is scheduled to finish by Thursday. If possible, use Bridge Road instead. Also, remember that the city marathon takes place this Sunday, so several streets near Central Park will be closed from six A.M. until two P.M.",
+   "text": "This is the Riverside Radio traffic report. Drivers heading downtown should expect delays on Highway 9 this morning, where one lane is closed for road repairs. The work is scheduled to finish by Thursday. If possible, use Bridge Road instead. Also, remember that the city marathon takes place this Sunday, so several streets near Central Park will be closed from six A.M. until two P.M.",
    "qs": [
     {
      "q": "What is causing delays on Highway 9?",
@@ -3098,7 +3101,7 @@
    "id": "t4-21",
    "ty": "intro",
    "g": {
-    "t": "Green Business Forum: program",
+    "t": "Small Business Forum: program",
     "h": [
      "Time",
      "Talk",
@@ -3127,7 +3130,7 @@
      ]
     ]
    },
-   "text": "Good morning, everyone, and welcome to the Green Business Forum. Before we begin, there's a change to today's program. Dr. Amir Patel's train from Boston has been delayed, so he won't arrive until around noon. He'll give his talk in the one-thirty slot, and the speaker who was scheduled for that time has kindly agreed to present at eleven instead. Lunch will be served in the main hall at twelve-thirty. Now, let's begin with our opening remarks.",
+   "text": "Good morning, everyone, and welcome to the Small Business Forum. Before we begin, there's a change to today's program. Dr. Amir Patel's train from Boston has been delayed, so he won't arrive until around noon. He'll give his talk in the one-thirty slot, and the speaker who was scheduled for that time has kindly agreed to present at eleven instead. Lunch will be served in the main hall at twelve-thirty. Now, let's begin with our opening remarks.",
    "qs": [
     {
      "q": "Where is the talk most likely taking place?",
@@ -3284,6 +3287,7 @@
   {
    "id": "t4-24",
    "ty": "msg",
+   "sx": "f",
    "text": "Hi, Daniel, it's Rachel from the design team. I've just looked at the brochure layout you sent this morning. The photos look great, and the colours are exactly what the client asked for. About the text on the back page, though. Well, it's a first draft. Could you call me when you get a chance? I'd like to go through it with you before we send anything to the printer on Thursday.",
    "qs": [
     {
@@ -3308,9 +3312,9 @@
      "q": "What does the speaker want to do before Thursday?",
      "a": "Discuss the text with the listener",
      "w": [
-      "Meet the client",
-      "Take new photos",
-      "Order more brochures"
+      "Meet the client in person",
+      "Take new photos for the cover",
+      "Order more brochures from the printer"
      ]
     }
    ]
@@ -3325,7 +3329,7 @@
      "a": "At a workshop",
      "w": [
       "At a restaurant",
-      "At a garden centre",
+      "At a garden center",
       "At a hospital"
      ]
     },

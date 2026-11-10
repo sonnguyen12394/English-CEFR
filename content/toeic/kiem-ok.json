@@ -1,0 +1,82 @@
+{
+ "_note": "Cảnh báo của máy kiểm nội dung đề (tools/kiem-toeic.mjs) đã đọc lại và thấy ổn. Khớp theo (id, ma, dau); câu đổi nội dung thì dấu đổi, cảnh báo hiện lại. Xem docs/TIEU-CHI-DE-TOEIC.md.",
+ "ok": [
+  {
+   "id": "t7-web#1",
+   "ma": "P7-NOT",
+   "dau": "1c57b7dcc2",
+   "ly_do": "Bài chỉ cho đỗ xe miễn phí khi thuê phòng cả ngày, nên 'Free parking' không đi kèm MỌI phòng như câu hỏi hỏi: đáp án đúng; chữ trùng là bẫy. (Xem lại sau khi đổi tên khách sạn, nội dung câu không đổi.)",
+   "ngay": "2026-11-09"
+  },
+  {
+   "id": "t7-notice2#2",
+   "ma": "P7-NOT",
+   "dau": "ee72cf645a",
+   "ly_do": "Bài nói thư viện làm khảo sát (survey) hỏi ý cư dân, tức là 'asked residents for their opinions' có nói, chỉ diễn đạt khác; đáp án 'add a parking area' không có trong bài. (Xem lại sau khi đổi tên thư viện, nội dung câu không đổi.)",
+   "ngay": "2026-11-09"
+  },
+  {
+   "id": "t7-parking#2",
+   "ma": "C-SO-KHUON",
+   "dau": "a2b7e3eaf8",
+   "ly_do": "Phương án 'Nothing' là cách đề thật hay dùng cho câu hỏi chi phí; không viết thành $0 được nên app không xếp tăng dần; thứ tự hiện tại không lộ đáp án.",
+   "ngay": "2026-11-10"
+  },
+  {
+   "id": "t4-10#2",
+   "ma": "P34-NGUYEN",
+   "dau": "cfa71b0ce3",
+   "ly_do": "Đáp án là danh sách đồ vật (lưới tóc, áo khoác) mà người nói kể ra; đề thật cũng giữ tên đồ vật, diễn đạt lại sẽ thành mơ hồ.",
+   "ngay": "2026-11-10"
+  },
+  {
+   "id": "d03-p4-04#1",
+   "ma": "P34-NGUYEN",
+   "dau": "a34e8bc801",
+   "ly_do": "Câu hỏi chủ đề bài (mainly about): đề thật dùng chính danh từ chủ đề; phương án nhiễu 'A new shopping mall' cũng lấy từ bài.",
+   "ngay": "2026-11-10"
+  },
+  {
+   "id": "d03-p4-09#1",
+   "ma": "P34-NGUYEN",
+   "dau": "b2f5ff4fc8",
+   "ly_do": "Đáp án là nhóm hàng (chăn ga, đồ bếp) người nói kể ra; giữ tên hàng cho rõ, đề thật cũng vậy.",
+   "ngay": "2026-11-10"
+  },
+  {
+   "id": "d04-p3-05#3",
+   "ma": "C-SO-KHUON",
+   "dau": "ddd4a30a27",
+   "ly_do": "Mốc thời gian tương đối (Tomorrow morning, Next Monday) không quy về một khuôn số được; đáp án Friday afternoon theo lịch trong bài, thứ tự không lộ đáp án.",
+   "ngay": "2026-11-10"
+  },
+  {
+   "id": "d04-p4-09#2",
+   "ma": "C-SO-KHUON",
+   "dau": "c49d084de5",
+   "ly_do": "Câu hỏi bảng: phương án là tên phòng lấy nguyên từ bảng (Room 101 … Hall B); Hall B không có số nên app không xếp, giữ đúng tên trên bảng.",
+   "ngay": "2026-11-10"
+  },
+  {
+   "id": "d04-p4-10#1",
+   "ma": "P34-NGUYEN",
+   "dau": "c40bc8c638",
+   "ly_do": "Đáp án là tên tính năng gói cước (gọi và nhắn tin không giới hạn) người nói giới thiệu; đề thật giữ tên tính năng.",
+   "ngay": "2026-11-10"
+  },
+  {
+   "id": "d06-p7-06#1",
+   "ma": "C-SO-KHUON",
+   "dau": "b983c6719f",
+   "ly_do": "Phương án 'Today' đứng cạnh các ngày tháng là kiểu câu đề thật hay dùng; không quy về ngày cụ thể được (bài không ghi ngày hôm nay).",
+   "ngay": "2026-11-10"
+  },
+  {
+   "id": "d06-p7-15#5",
+   "ma": "C-SO-KHUON",
+   "dau": "11eabaf6b6",
+   "ly_do": "Câu đối chiếu: phương án trộn ngày tháng và thứ (đáp án suy từ lịch); không quy về một khuôn, thứ tự hiện tại không lộ đáp án.",
+   "ngay": "2026-11-10"
+  }
+ ]
+}
