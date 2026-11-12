@@ -3,8 +3,10 @@
 // App không đọc lại được mảnh nào (tài liệu riêng tư; mọi máy đang dùng chung tài khoản). Claude đọc / xoá qua header x-pdf-key: khoá tạm trong bảng gopy_pdf_key (Claude tạo bằng SQL, hết hạn 24 giờ) hoặc secret PDF_CLAUDE_KEY nếu có.
 // Vào (app, cần JWT): { act: 'info' } · { act: 'st', ids } · { act: 'start', name, size, parts: [{ size, sha }], thay? } · { act: 'sign', id, need: [i] } · { act: 'done', id } · { act: 'xoa', id }
 // v158 (người gửi): { act: 'mo', id } ≤ 50 MB · { act: 'sua', id, name?, txt? } · { act: 'doi', old, id } · start { doi: id cũ }
+// v159 (chép từ Google Drive, người dùng đã đăng nhập): { act: 'ginfo', fid, tok } · { act: 'gstart', fid, tok, doi? } · { act: 'gcopy', id, i, tok } (tok = mã truy cập drive.file, KHÔNG ghi lại)
 // Vào (Claude, x-pdf-key): { act: 'list' } · { act: 'get', id } · { act: 'del', id }
 import { createClient } from "npm:@supabase/supabase-js@2.45.4";
+import { okIds, driveMeta, driveRange } from "./drive.js";
 
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-pdf-key", "Access-Control-Allow-Methods": "POST, OPTIONS" };
 const out = (b: unknown, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { ...CORS, "content-type": "application/json" } });
@@ -55,13 +57,31 @@ Deno.serve(async (req) => {
     if (act === "info") return out({ used: await used(), cap: CAP, max: MAX, ch: CH });
     if (act === "st") {   // trạng thái tệp (không lộ nội dung); người ẩn danh chỉ thấy tệp của mình; kèm chữ góp ý của tệp mình gửi
       const ids = (Array.isArray(body.ids) ? body.ids : []).map(String).filter((x: string) => /^[0-9a-f-]{36}$/.test(x)).slice(0, 200);
-      let q = db.from("gopy_pdf").select("id,uid,name,size,n,st").in("id", ids.length ? ids : ["00000000-0000-0000-0000-000000000000"]);
+      let q = db.from("gopy_pdf").select("id,uid,name,size,n,st,src").in("id", ids.length ? ids : ["00000000-0000-0000-0000-000000000000"]);
       if (anon) q = q.eq("uid", user.id);
-      const { data } = await q; const rows = (data || []).map(r => ({ id: r.id, name: r.name, size: r.size, n: r.n, st: r.st, mine: r.uid === user.id }));
+      const { data } = await q; const rows = (data || []).map(r => ({ id: r.id, name: r.name, size: r.size, n: r.n, st: r.st, src: r.src, mine: r.uid === user.id }));
       const mine = rows.filter(r => r.mine).map(r => r.id);
       if (mine.length) { const { data: g } = await db.from("gopy").select("id,txt,ctx").in("ctx->pdf->>id", mine);
         for (const x of g || []) { const r = rows.find(y => y.id === x.ctx?.pdf?.id); if (r) Object.assign(r, { gid: x.id, txt: x.txt }); } }
       return out({ rows });
+    }
+
+    if (act === "ginfo" || act === "gstart") {   // v159: tệp PDF ở Google Drive
+      if (!okIds(body.fid, body.tok)) return out({ error: "ma" }, 400);
+      const m = await driveMeta(body.fid, body.tok);
+      if (m.error) return out(m, m.error === "tok" ? 401 : 400);
+      if (m.size > MAX) return out({ error: "lon", size: m.size }, 400);
+      if (act === "ginfo") return out({ name: m.name, size: m.size, n: Math.ceil(m.size / CH) });
+      const nm = okName(m.name) || "tai-lieu.pdf";
+      const n = Math.ceil(m.size / CH), pk = Array.from({ length: n }, (_, i) => ({ i, size: i < n - 1 ? CH : m.size - CH * (n - 1), sha: null }));
+      if (body.thay) { const { data: mine } = await db.from("gopy_pdf").select("id,n").eq("st", "dang").eq("uid", user.id); for (const r of mine || []) await rm(r); }
+      let skip = null;
+      if (body.doi) { const { data: o } = await db.from("gopy_pdf").select("id,uid,st").eq("id", String(body.doi)).maybeSingle(); if (o && o.uid === user.id && o.st !== "xoa") skip = o.id; }
+      const { data: g, error: ge } = await db.rpc("gopy_pdf_giu2", { p_uid: user.id, p_name: nm, p_size: m.size, p_n: n, p_parts: pk, p_cap: CAP, p_max_dang: MAX_DANG, p_max_du: MAX_DU, p_skip: skip });
+      if (ge) return out({ error: ge.message }, 500);
+      if (g.error) return out({ error: g.error, used: g.used, cap: g.cap }, 409);
+      await db.from("gopy_pdf").update({ src: "drive", fid: String(body.fid) }).eq("id", g.id);
+      return out({ id: g.id, n, name: nm, size: m.size, used: g.used, cap: CAP });
     }
 
     if (act === "start") {
@@ -117,6 +137,19 @@ Deno.serve(async (req) => {
     }
     if (r.st !== "dang") return out({ error: r.st === "du" ? "Tệp đã gửi đủ." : "Tệp đã xoá." }, 409);
 
+    if (act === "gcopy") {   // v159: chép phần i từ Drive (mã tệp lấy từ dòng đã giữ chỗ, trang không đổi được)
+      if (r.src !== "drive" || !r.fid) return out({ error: "Không phải tệp từ Drive." }, 400);
+      if (!okIds(r.fid, body.tok)) return out({ error: "ma" }, 400);
+      const i = Number(body.i); if (!Number.isInteger(i) || i < 0 || i >= r.n) return out({ error: "phan" }, 400);
+      const d = await driveRange(r.fid, body.tok, i, Number(r.size), CH);
+      if (d.error) return out(d, d.error === "tok" ? 401 : 400);
+      const sha = [...new Uint8Array(await crypto.subtle.digest("SHA-256", d.buf))].map(x => x.toString(16).padStart(2, "0")).join("");
+      const { error: ue } = await st.upload(pth(r.id, i), d.buf, { contentType: "application/octet-stream", upsert: true });
+      if (ue) return out({ error: "luu", msg: ue.message }, 500);
+      const parts = (r.parts as { i: number; size: number; sha: string | null }[]).map(p => p.i === i ? { ...p, sha } : p);
+      await db.from("gopy_pdf").update({ parts }).eq("id", r.id);
+      return out({ ok: true, sha });
+    }
     if (act === "sign") {
       const need = (Array.isArray(body.need) ? body.need : []).map(Number).filter((i: number) => i >= 0 && i < r.n);
       const toks = [];

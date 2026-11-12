@@ -54,5 +54,6 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
   19. (v156) Làm Đề 1 (hoặc chỉ Part 5) rồi nộp → 📋 Bài làm và đáp án → chạm câu 101–130: dưới mỗi phương án có loại từ + nghĩa, ô 💡 Chọn (X) · Vì sao · Cấu trúc hay dùng · Dịch đọc dễ, không tràn ngang; cuộn xuống cuối, nút 💬 không đè nút Sau ›; thử cả giao diện tối
   20. (v157) Bấm 💬 → hàng "📷 Ảnh 0/3 · 📄 PDF" một dòng; chọn một PDF ~100 MB qua Wi-Fi: thấy cỡ, số phần, chỗ còn trống; gửi: thanh tiến độ chạy, khoá màn rồi mở lại bấm Gửi lại thì tải tiếp; nhờ Claude "đọc PDF góp ý mới nhất".
   21. (v159) 💬 → 📄 PDF: chọn một tệp còn biểu tượng đám mây (chưa tải về) trong app Tệp: app báo "Tải về ngay…" thay vì đứng im; tải về xong chọn lại thì gửi được.
+  22. (v159) 💬 → ☁️ Từ Google Drive (chỉ khi đã cấu hình): đăng nhập Google không bị Safari chặn cửa sổ; chọn PDF; gửi, thanh "Đang chép phần a/b từ Google Drive…" chạy hết; 👤 Tôi → Đã gửi: thẻ ghi "từ Google Drive"; Claude ghép lại khớp.
   21. (v158) 👤 Tôi → ô 💬 Góp ý → Đã gửi: thẻ 📄 có 👁 Xem (tệp ≤ 50 MB: "📄 Mở PDF" mở được trên Safari), ✏️ Sửa tên + chữ, 🔄 thay tệp, 🗑 Xoá tệp.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);

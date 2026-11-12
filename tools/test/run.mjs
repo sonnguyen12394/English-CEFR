@@ -2321,5 +2321,58 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     } catch (e) { bad.push('lỗi ném ra: ' + e.message); }
     sb.functions.invoke = SB0; GY.pdf = null; GY.msg = ''; gpRec(null); return bad; })()`);
   R.push({ lv: 'cefr', id: 'C74', ok: !C74.length, msg: C74.length ? C74.slice(0, 8).join(' | ') : '📄 tệp trong máy không đọc được (iCloud / hỏng / rỗng): báo "Tải về ngay" khi chọn và khi gửi, mọi lỗi lạ có câu báo, không ném lỗi làm nút đứng im' }); }
+// v159 C75 📄 Từ Google Drive (specs/015-gopy-pdf-drive): phần máy chủ (drive.js chạy thẳng bằng node, fetch giả) + phần trang (gdCore, nút theo cấu hình, lỗi từng loại, chép tiếp)
+{ const D = await import('../../supabase/functions/gopy-pdf/drive.js'), bad = [], CH = 25 * 1048576, F = 'fileIdABCDEFG123', T = 'ya29.' + 'a'.repeat(40);
+  const rs = (status, body, json) => ({ ok: status >= 200 && status < 300, status, json: async () => json, arrayBuffer: async () => body });
+  if (D.okIds('x', T) || D.okIds(F, 'ngan') || D.okIds(F + '/../x', T) || !D.okIds(F, T)) bad.push('okIds nhận / chặn sai');
+  if (D.driveErr(401).error !== 'tok' || D.driveErr(403).error !== 'quyen' || D.driveErr(404).error !== 'quyen' || D.driveErr(500).error !== 'drive') bad.push('driveErr sai');
+  const meta = j => async (u, o) => { if (!/Bearer /.test(o.headers.Authorization) || !/files\/fileIdABCDEFG123\?fields=/.test(u)) return rs(400, null, {}); return rs(200, null, j); };
+  let m = await D.driveMeta(F, T, meta({ name: 'a.pdf', size: '31457289', mimeType: 'application/pdf' })); if (m.size !== 31457289 || m.name !== 'a.pdf') bad.push('driveMeta: ' + JSON.stringify(m));
+  m = await D.driveMeta(F, T, meta({ name: 'a', size: '10', mimeType: 'application/vnd.google-apps.document' })); if (m.error !== 'ngoai') bad.push('Google Docs phải bị từ chối');
+  m = await D.driveMeta(F, T, meta({ name: 'a.pdf', size: '10', mimeType: 'application/pdf', trashed: true })); if (m.error !== 'quyen') bad.push('tệp trong thùng rác phải bị từ chối');
+  m = await D.driveMeta(F, T, async () => rs(401, null, {})); if (m.error !== 'tok') bad.push('401 → tok');
+  m = await D.driveMeta(F, T, async () => { throw new Error('net'); }); if (m.error !== 'net') bad.push('mất mạng → net');
+  const size = 60 * 1048576; let seen = [];
+  const rg = async (u, o) => { seen.push(o.headers.Range); const mm = /bytes=(\d+)-(\d+)/.exec(o.headers.Range); const a = +mm[1], b = +mm[2]; return rs(206, new Uint8Array(b - a + 1).buffer); };
+  for (const [i, a, b] of [[0, 0, CH - 1], [1, CH, 2 * CH - 1], [2, 2 * CH, size - 1]]) { const d = await D.driveRange(F, T, i, size, CH, rg); if (!d.buf || d.buf.length !== b - a + 1) bad.push('driveRange phần ' + i); }
+  if (seen.join() !== `bytes=0-${CH - 1},bytes=${CH}-${2 * CH - 1},bytes=${2 * CH}-${size - 1}`) bad.push('Range sai: ' + seen.join());
+  let d = await D.driveRange(F, T, 3, size, CH, rg); if (d.error !== 'phan') bad.push('phần vượt cỡ phải bị từ chối');
+  d = await D.driveRange(F, T, 0, size, CH, async () => rs(200, new Uint8Array(size).buffer)); if (d.error !== 'drive') bad.push('Drive bỏ qua Range với tệp lớn phải bị từ chối (tránh nạp cả tệp)');
+  d = await D.driveRange(F, T, 0, 1000, CH, async () => rs(200, new Uint8Array(1000).buffer)); if (!d.buf) bad.push('tệp nhỏ trả 200 vẫn nhận');
+  d = await D.driveRange(F, T, 0, size, CH, async () => rs(206, new Uint8Array(5).buffer)); if (d.error !== 'drive') bad.push('trả thiếu byte phải báo lỗi');
+  d = await D.driveRange(F, T, 0, size, CH, async () => rs(403, null)); if (d.error !== 'quyen') bad.push('403 → quyen');
+  if (/ya29/.test(JSON.stringify([m, d]))) bad.push('mã truy cập lọt vào kết quả lỗi');
+  globalThis.C75S = bad;
+  const P = await run(`(async () => { const bad = [], SB0 = sb.functions.invoke, calls = [], G0 = { ...GD };
+    let mode = '', copied = {}; const TOK = 'ya29.' + 'b'.repeat(40);
+    sb.functions.invoke = async (name, { body }) => { calls.push(body); const d = x => ({ data: x, error: null });
+      if (body.act === 'ginfo') return d(mode === 'ngoai' ? { error: 'ngoai' } : { name: 'Tai lieu', size: 60 * 1048576, n: 3 });
+      if (body.act === 'gstart') return d(mode === 'day' ? { error: 'day', used: 790 * 1048576, cap: 800 * 1048576 } : { id: 'D1', n: 3, name: 'Tai lieu.pdf', size: 60 * 1048576 });
+      if (body.act === 'gcopy') { if (mode === 'tok') return d({ error: 'tok' }); if (mode === 'rot' && body.i === 1 && !copied.r1) { copied.r1 = 1; return d({ error: 'net', net: true }); } copied[body.i] = 1; return d({ ok: true, sha: 'x' }); }
+      if (body.act === 'done') return d(Object.keys(copied).filter(k => /^\\d$/.test(k)).length === 3 ? { ok: true } : { miss: [0, 1, 2].filter(i => !copied[i]) });
+      if (body.act === 'info') return d({ used: 0, cap: 800 * 1048576 });
+      return d({ error: 'x' }); };
+    const run1 = async (md, pre) => { mode = md; copied = pre || {}; calls.length = 0; let msg = ''; const r = await gdCore({ drive: { fid: 'fileIdABCDEFG123', tok: TOK }, name: 'Tai lieu', size: 60 * 1048576, n: 3 }, { up() {}, fail: m => { msg = m; } }); return { r, msg }; };
+    try {
+      GD.client = ''; GD.key = ''; GY.pdf = null; GY.open = true; gyDraw(); if (gdOn() || /data-g="gd"/.test(document.getElementById('gysheet').innerHTML)) bad.push('chưa cấu hình mà vẫn hiện nút');
+      GD.client = 'c'; GD.key = 'k'; if (!gdOn()) bad.push('gdOn sai');
+      gpRec(null); let x = await run1('');
+      if (!x.r || x.r.id !== 'D1' || x.r.n !== 3 || x.r.name !== 'Tai lieu.pdf') bad.push('chép trọn: ' + JSON.stringify(x) );
+      if (calls.filter(c => c.act === 'gcopy').map(c => c.i).join() !== '0,1,2') bad.push('thứ tự chép phần: ' + calls.filter(c => c.act === 'gcopy').map(c => c.i));
+      if (calls.some(c => c.act === 'gcopy' && c.tok !== TOK) || calls.some(c => c.act === 'gstart' && c.tok !== TOK)) bad.push('không gửi mã truy cập');
+      if (gpRec()) bad.push('xong mà còn bản ghi');
+      if (JSON.stringify(localStorage).includes(TOK) || /ya29/.test(JSON.stringify(Object.entries(localStorage)))) bad.push('mã truy cập bị lưu localStorage');
+      gpRec(null); x = await run1('rot'); if (!x.r || calls.filter(c => c.act === 'gcopy' && c.i === 1).length !== 2) bad.push('phần lỗi mạng phải tự thử lại: ' + JSON.stringify(x));
+      gpRec(null); x = await run1('tok'); if (x.r || !/hết hạn/.test(x.msg)) bad.push('hết hạn mã: ' + x.msg);
+      if (!gpRec()) bad.push('hết hạn mã phải giữ tiến độ để chép tiếp');
+      x = await run1('', { 0: 1 }); if (!x.r || calls.some(c => c.act === 'gstart') || calls.filter(c => c.act === 'gcopy').map(c => c.i).join() !== '1,2') bad.push('chép tiếp chỉ phần thiếu: ' + JSON.stringify(calls.map(c => c.act + (c.i ?? ''))));
+      gpRec(null); x = await run1('day'); if (x.r || !/chỉ còn 10 MB/.test(x.msg) || calls.some(c => c.act === 'gcopy')) bad.push('kho đầy: ' + x.msg);
+      gpRec(null); mode = 'ngoai'; GY.pdf = null; GY.msg = ''; await gdPicked('fileIdABCDEFG123', TOK, null); if (GY.pdf || !/PDF/.test(GY.msg)) bad.push('Google Docs: ' + GY.msg);
+      mode = ''; await gdPicked('fileIdABCDEFG123', TOK, null); if (!GY.pdf || !GY.pdf.drive || GY.pdf.size !== 60 * 1048576 || !/từ Google Drive/.test(gpBox())) bad.push('chọn xong chưa hiện thẻ: ' + gpBox().replace(/<[^>]+>/g, ' ').slice(0, 100));
+      GY.pdf = null; GD.client = 'c'; GD.key = 'k'; gyDraw(); if (!/data-g="gd"/.test(document.getElementById('gysheet').innerHTML)) bad.push('đã cấu hình mà không có nút Từ Google Drive'); gyClose();
+    } catch (e) { bad.push('lỗi ném ra: ' + e.message); }
+    Object.assign(GD, G0); sb.functions.invoke = SB0; GY.pdf = null; GY.msg = ''; gpRec(null); return bad; })()`);
+  bad.push(...P);
+  R.push({ lv: 'cefr', id: 'C75', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '📄 Từ Google Drive: máy chủ (Range đúng, từ chối Docs / thùng rác / Drive bỏ Range, không lọt mã vào lỗi) + trang (chép trọn, thử lại phần lỗi mạng, hết hạn mã giữ tiến độ, chép tiếp phần thiếu, kho đầy, mã không vào localStorage)' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

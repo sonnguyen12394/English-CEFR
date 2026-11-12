@@ -21,7 +21,7 @@ else if (act === 'get' && id) { const d = await fn({ act: 'get', id }), r = d.ro
   const dst = path.join(dir, r.id.slice(0, 8) + '-' + r.name.replace(/[^\w.\-]+/g, '_')), fd = fs.openSync(dst + '.tmp', 'w'); const miss = [];
   for (let i = 0; i < r.n; i++) { const p = r.parts[i], u = d.urls[i]; if (!u) { miss.push(i); continue; }
     let buf = null; for (let k = 0; k < 3 && !buf; k++) { try { const x = await fetch(u); if (x.ok) buf = Buffer.from(await x.arrayBuffer()); } catch (e) {} }
-    if (!buf || buf.length !== p.size || crypto.createHash('sha256').update(buf).digest('hex') !== p.sha) { miss.push(i); continue; }
+    if (!buf || buf.length !== p.size || (p.sha && crypto.createHash('sha256').update(buf).digest('hex') !== p.sha)) { miss.push(i); continue; }
     fs.writeSync(fd, buf); process.stdout.write(`\rphần ${i + 1}/${r.n}`); }
   fs.closeSync(fd); console.log();
   if (miss.length) { fs.rmSync(dst + '.tmp'); console.error(`Thiếu / hỏng phần: ${miss.join(', ')}. Không ghép tệp.`); process.exit(1); }
