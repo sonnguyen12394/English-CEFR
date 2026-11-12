@@ -56,3 +56,7 @@ begin
   return jsonb_build_object('id', nid, 'used', used + p_size, 'cap', p_cap);
 end $$;
 revoke all on function public.gopy_pdf_giu2(uuid, text, bigint, int, jsonb, bigint, int, int, uuid) from public, anon, authenticated;
+
+-- v159: tệp chép từ Google Drive (specs/015-gopy-pdf-drive): nguồn + mã tệp Drive (mã công khai, không phải khoá). sha từng phần do máy chủ tính khi chép (parts[i].sha null cho tới lúc chép xong).
+alter table public.gopy_pdf add column if not exists src text not null default 'may';
+alter table public.gopy_pdf add column if not exists fid text;
