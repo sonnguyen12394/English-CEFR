@@ -40,3 +40,19 @@ revoke all on function public.gopy_pdf_giu(uuid, text, bigint, int, jsonb, bigin
 create table if not exists public.gopy_pdf_key (k text primary key, at timestamptz not null default now());
 alter table public.gopy_pdf_key enable row level security;
 revoke all on public.gopy_pdf_key from anon, authenticated;
+
+-- v157: giữ chỗ khi THAY tệp: bỏ qua tệp cũ (p_skip) khi tính trần và số tệp (thay được cả khi đang có 2 tệp).
+create or replace function public.gopy_pdf_giu2(p_uid uuid, p_name text, p_size bigint, p_n int, p_parts jsonb, p_cap bigint, p_max_dang int, p_max_du int, p_skip uuid default null)
+returns jsonb language plpgsql security definer set search_path = public as $$
+declare used bigint; nd int; nu int; nid uuid;
+begin
+  perform pg_advisory_xact_lock(4242013);
+  select coalesce(sum(size), 0) into used from gopy_pdf where st <> 'xoa' and id is distinct from p_skip;
+  if used + p_size > p_cap then return jsonb_build_object('error', 'day', 'used', used, 'cap', p_cap); end if;
+  select count(*) filter (where st = 'dang'), count(*) filter (where st = 'du') into nd, nu from gopy_pdf where uid is not distinct from p_uid and id is distinct from p_skip;
+  if nd >= p_max_dang then return jsonb_build_object('error', 'dang', 'used', used, 'cap', p_cap); end if;
+  if nu >= p_max_du then return jsonb_build_object('error', 'du', 'used', used, 'cap', p_cap); end if;
+  insert into gopy_pdf (uid, name, size, n, parts) values (p_uid, p_name, p_size, p_n, p_parts) returning id into nid;
+  return jsonb_build_object('id', nid, 'used', used + p_size, 'cap', p_cap);
+end $$;
+revoke all on function public.gopy_pdf_giu2(uuid, text, bigint, int, jsonb, bigint, int, int, uuid) from public, anon, authenticated;

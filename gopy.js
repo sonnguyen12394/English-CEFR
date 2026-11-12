@@ -71,7 +71,7 @@ async function gyFlush() {
     const { data, error } = isAnon() ? await sb.from('gopy').insert(row) : await sb.from('gopy').insert(row).select('id').single();
     if (error) { if (/fetch|network/i.test(error.message)) break; gyLS(GY_LS, gyLS(GY_LS).filter(x => x.id !== it.id)); continue; }   // máy chủ từ chối: bỏ, không thử mãi
     gyLS(GY_LS, gyLS(GY_LS).filter(x => x.id !== it.id));
-    const sent = gyLS(GY_SENT); sent.push({ id: data ? data.id : '', t: it.t, kind: it.kind, txt: it.txt.slice(0, 80), n: imgs.length }); gyLS(GY_SENT, sent.slice(-50));
+    const sent = gyLS(GY_SENT); sent.push({ id: data ? data.id : '', t: it.t, kind: it.kind, txt: it.txt.slice(0, 80), n: imgs.length, ...(it.ctx && it.ctx.pdf ? { pdf: it.ctx.pdf } : {}) }); gyLS(GY_SENT, sent.slice(-50));
   } catch (e) { break; } }
   gyBusy = false;
 }
@@ -79,7 +79,7 @@ async function gyFlush() {
 function gyHomeInner() { const s = gyLS(GY_SENT), q = gyLS(GY_LS);
   return `<h2>💬 Góp ý</h2><p class="mute">Thấy lỗi, khó hiểu hay có ý tưởng: bấm nút 💬 ở góc dưới phải, ở màn nào cũng được.</p>
     ${q.length ? `<p class="mute">${q.length} góp ý chờ gửi (mất mạng). <button class="link" data-g="flush">Gửi lại</button></p>` : ''}
-    ${s.length ? `<div class="mute">Đã gửi:</div>${s.slice(-5).reverse().map(x => `<div class="mute">${x.id ? '#' + x.id + ' · ' : ''}${esc(gaKind(x.kind))} · ${esc(x.txt)}${x.n ? ` · ${x.n} ảnh` : ''}</div>`).join('')}` : ''}
+    ${s.length ? `<div class="mute">Đã gửi:</div>${s.slice(-5).reverse().map(x => x.pdf && x.pdf.id ? gpsCard(x) : `<div class="mute">${x.id ? '#' + x.id + ' · ' : ''}${esc(gaKind(x.kind))} · ${esc(x.txt)}${x.n ? ` · ${x.n} ảnh` : ''}</div>`).join('')}` : ''}${s.some(x => x.pdf && x.pdf.id) ? (setTimeout(() => gpsLoad(), 0), '') : ''}
 `; }   // v136: 🗂 Quản lý góp ý chuyển vào 💾 Dữ liệu → 🛠 Công cụ người sáng lập (bkTools)
 const gyHomeHtml = () => `<div class="box" id="gyhome">${gyHomeInner()}</div>`;
 
@@ -186,39 +186,115 @@ async function gpPut(t, blob) {
     catch (e) {}
     await new Promise(r => setTimeout(r, 1500 * (k + 1))); }
   return false; }
-async function gpUpload() {
-  const P = GY.pdf, f = P.f; let lock = null;
-  const fail = m => { GY.msg = m; GY.up = null; GY.busy = false; if (lock) lock.release().catch(() => {}); gyDraw(); return null; };
+// Lõi tải PDF (dùng chung: gửi góp ý mới, 🔄 thay tệp ở danh sách "Đã gửi"); ui.up(tiến độ), ui.fail(chữ báo lỗi); extra gửi kèm lệnh start (vd. { doi: id tệp cũ }).
+async function gpCore(P, ui, extra = {}) {
+  const f = P.f; let lock = null;
+  const fail = m => { if (lock) lock.release().catch(() => {}); ui.fail(m); return null; };
   if (navigator.onLine === false) return fail('Gửi PDF cần mạng. Có mạng rồi bấm Gửi lại.');
-  GY.busy = true; GY.msg = ''; GY.up = { i: 0, n: P.n, st: 'Đang chuẩn bị…' }; gyDraw();
+  ui.up({ i: 0, n: P.n, st: 'Đang chuẩn bị…' });
   try { if (navigator.wakeLock) lock = await navigator.wakeLock.request('screen'); } catch (e) {}
   let id = null, toks = null; const rec = gpRec();
-  if (rec && rec.name === f.name && rec.size === f.size && rec.lm === f.lastModified && Date.now() - rec.t < 2 * 864e5) {   // tải tiếp
+  if (rec && rec.name === f.name && rec.size === f.size && rec.lm === f.lastModified && (rec.doi || null) === (extra.doi || null) && Date.now() - rec.t < 2 * 864e5) {   // tải tiếp
     const d = await gpFn({ act: 'done', id: rec.id });
     if (d.ok) toks = [];
     else if (d.miss) { const s = await gpFn({ act: 'sign', id: rec.id, need: d.miss }); if (s.toks) toks = s.toks; }
     if (toks) id = rec.id; }
   if (!id) {
     const parts = [];
-    for (let i = 0; i < P.n; i++) { GY.up.st = `Đang đọc tệp: phần ${i + 1}/${P.n}…`; gpBar(); const b = f.slice(i * GP_CH, (i + 1) * GP_CH); parts.push({ size: b.size, sha: await gpSha(b) }); }
-    let s = await gpFn({ act: 'start', name: P.name, size: P.size, parts });
-    if (s.error === 'dang' && confirm('Đang có một tệp PDF tải dở (của máy này hoặc máy khác dùng chung tài khoản). Bỏ tệp đó để gửi tệp này?')) s = await gpFn({ act: 'start', name: P.name, size: P.size, parts, thay: 1 });
+    for (let i = 0; i < P.n; i++) { ui.up({ i: 0, n: P.n, st: `Đang đọc tệp: phần ${i + 1}/${P.n}…` }); const b = f.slice(i * GP_CH, (i + 1) * GP_CH); parts.push({ size: b.size, sha: await gpSha(b) }); }
+    let s = await gpFn({ act: 'start', name: P.name, size: P.size, parts, ...extra });
+    if (s.error === 'dang' && confirm('Đang có một tệp PDF tải dở (của máy này hoặc máy khác dùng chung tài khoản). Bỏ tệp đó để gửi tệp này?')) s = await gpFn({ act: 'start', name: P.name, size: P.size, parts, ...extra, thay: 1 });
     if (s.error) return fail(s.error === 'day' ? `Kho tài liệu chỉ còn ${gpMB(Math.max(0, s.cap - s.used))}. Nhờ người sáng lập xoá tệp cũ rồi gửi lại.`
-      : s.error === 'du' ? 'Đã có 2 tệp PDF đang lưu. Nhờ người sáng lập xoá bớt rồi gửi lại.' : s.error === 'dang' ? 'Chưa gửi: đang có tệp PDF khác tải dở.'
+      : s.error === 'du' ? 'Đã có 2 tệp PDF đang lưu. Xoá bớt một tệp rồi gửi lại.' : s.error === 'dang' ? 'Chưa gửi: đang có tệp PDF khác tải dở.'
       : s.net ? 'Mất mạng. Có mạng rồi bấm Gửi lại.' : 'Chưa gửi được PDF: ' + s.error);
-    id = s.id; toks = s.toks; gpRec({ id, name: f.name, size: f.size, lm: f.lastModified, t: Date.now() }); }
+    id = s.id; toks = s.toks; gpRec({ id, name: f.name, size: f.size, lm: f.lastModified, doi: extra.doi || null, t: Date.now() }); }
   for (let round = 0; round < 2; round++) {
     let ok = P.n - toks.length;
-    for (const t of toks) { GY.up = { i: ok, n: P.n, st: `Đang tải phần ${ok + 1}/${P.n}…` }; gpBar();
-      if (!(await gpPut(t, f.slice(t.i * GP_CH, (t.i + 1) * GP_CH)))) return fail(`Mạng chập chờn: đã tải ${ok}/${P.n} phần. Bấm Gửi lại để tải tiếp.`);
+    for (const t of toks) { ui.up({ i: ok, n: P.n, st: `Đang tải phần ${ok + 1}/${P.n}…` });
+      if (!(await gpPut(t, f.slice(t.i * GP_CH, (t.i + 1) * GP_CH)))) return fail(`Mạng chập chờn: đã tải ${ok}/${P.n} phần. Bấm lại để tải tiếp.`);
       ok++; }
-    GY.up = { i: P.n, n: P.n, st: 'Đang kiểm đủ phần…' }; gpBar();
+    ui.up({ i: P.n, n: P.n, st: 'Đang kiểm đủ phần…' });
     const d = await gpFn({ act: 'done', id });
-    if (d.ok) { gpRec(null); if (lock) lock.release().catch(() => {}); GY.up = null; GY.pdf = null; GY.busy = false; return { id, name: P.name, size: P.size, n: P.n }; }
-    if (!d.miss) return fail(d.net ? 'Mất mạng. Có mạng rồi bấm Gửi lại.' : 'Chưa gửi được PDF: ' + d.error);
+    if (d.ok) { gpRec(null); if (lock) lock.release().catch(() => {}); return { id, name: P.name, size: P.size, n: P.n }; }
+    if (!d.miss) return fail(d.net ? 'Mất mạng. Có mạng rồi bấm lại.' : 'Chưa gửi được PDF: ' + d.error);
     const s = await gpFn({ act: 'sign', id, need: d.miss }); if (!s.toks) return fail('Chưa gửi được PDF: ' + (s.error || 'thiếu phần'));
     toks = s.toks; }
-  return fail('Máy chủ chưa nhận đủ phần. Bấm Gửi lại.'); }
+  return fail('Máy chủ chưa nhận đủ phần. Bấm lại.'); }
+async function gpUpload() {
+  const P = GY.pdf; GY.busy = true; GY.msg = ''; GY.up = { i: 0, n: P.n, st: 'Đang chuẩn bị…' }; gyDraw();
+  const r = await gpCore(P, { up: o => { GY.up = o; gpBar(); }, fail: m => { GY.msg = m; GY.up = null; GY.busy = false; gyDraw(); } });
+  if (r) { GY.up = null; GY.pdf = null; GY.busy = false; } return r; }
+
+// ---------- 📄 PDF trong danh sách "Đã gửi" (v157): 👁 Xem (≤ 50 MB) · ✏️ Sửa (tên tệp, chữ góp ý, 🔄 thay tệp) · 🗑 Xoá tệp ----------
+// Danh sách "Đã gửi" lưu trên máy (GY_SENT) nên chỉ máy đã gửi thấy thẻ; máy chủ chỉ cho tài khoản đã gửi xem / sửa / thay.
+const GP_VIEW = 50 * 1048576;
+const GPS = { rows: {}, at: 0, loading: false, ed: null, del: null, busy: null, msg: {}, up: {}, view: {}, nf: {}, fv: {} };
+const gpsSent = () => gyLS(GY_SENT).filter(x => x.pdf && x.pdf.id);
+async function gpsLoad(force) {
+  const ids = gpsSent().map(x => x.pdf.id); if (!ids.length || GPS.loading || (!force && Date.now() - GPS.at < 60000)) return;
+  GPS.loading = true; const r = await gpFn({ act: 'st', ids }); GPS.loading = false; GPS.at = Date.now();
+  if (r && r.rows) { for (const x of r.rows) GPS.rows[x.id] = x; gpsDraw(); } }
+function gpsKeep() { for (const pid of [GPS.ed].filter(Boolean)) { const n = document.getElementById('gpn-' + pid), t = document.getElementById('gpt-' + pid); if (n || t) GPS.fv[pid] = { n: n ? n.value : '', t: t ? t.value : '' }; } }
+function gpsDraw() { const el = document.getElementById('gyhome'); if (!el) return; gpsKeep(); el.innerHTML = gyHomeInner(); }
+const gpsBody = t => String(t || '').split('\n').filter(l => !l.startsWith('📄 ')).join('\n').trim();
+function gpsCard(x) {
+  const p = x.pdf, pid = p.id, r = GPS.rows[pid], st = r ? r.st : (p.del ? 'xoa' : null), name = (r && r.name) || p.name, size = (r && r.size) || p.size;
+  const busy = GPS.busy === pid, U = GPS.up[pid], msg = GPS.msg[pid], ed = GPS.ed === pid, fv = GPS.fv[pid] || {};
+  const stTxt = st === 'du' ? `đủ ${(r && r.n) || p.n} phần` : st === 'dang' ? 'tải dở' : st === 'xoa' ? 'đã xoá tệp' : 'đang xem trạng thái…';
+  const canView = st === 'du' && size <= GP_VIEW, nf = GPS.nf[pid];
+  return `<div class="box gypdf gps" id="gps-${esc(pid)}"><div class="mute">${x.id ? '#' + x.id + ' · ' : ''}${esc(gaKind(x.kind))}</div>
+    <p style="margin:4px 0"><b>📄 ${esc(name)}</b><br><span class="mute">${gpMB(size)} · ${stTxt}</span></p>
+    ${st === 'du' && size > GP_VIEW ? `<p class="mute">Tệp lớn hơn ${gpMB(GP_VIEW)}: mở bằng tệp gốc trên máy bạn.</p>` : ''}
+    ${GPS.view[pid] ? `<div class="chips tap"><a class="chip on gpsopen" href="${GPS.view[pid]}" target="_blank" rel="noopener">📄 Mở PDF</a></div>` : ''}
+    ${U ? `<progress max="${U.n}" value="${U.i}" aria-label="Tiến độ"></progress><p class="mute" role="status">${esc(U.st)}</p>` : ''}
+    ${msg ? `<p class="mute" role="status">${esc(msg)}</p>` : ''}
+    ${ed ? `<label class="mute" for="gpn-${esc(pid)}">Tên tệp</label><input id="gpn-${esc(pid)}" value="${esc(fv.n != null ? fv.n : name)}" maxlength="200" ${busy ? 'disabled' : ''}>
+      <label class="mute" for="gpt-${esc(pid)}">Nội dung góp ý</label><textarea id="gpt-${esc(pid)}" rows="3" maxlength="4000" ${busy ? 'disabled' : ''}>${esc(fv.t != null ? fv.t : gpsBody(r && r.txt != null ? r.txt : x.txt))}</textarea>
+      <div class="chips tap gyadd"><label class="chip" for="gpf-${esc(pid)}">🔄 ${nf ? 'Đổi tệp khác' : 'Thay bằng tệp khác'}</label><input id="gpf-${esc(pid)}" data-gpf="${esc(pid)}" type="file" accept=".pdf,application/pdf" hidden></div>
+      ${nf ? `<p class="mute">Tệp mới: ${esc(nf.name)} · ${gpMB(nf.size)}. Lưu thì tệp cũ bị xoá.</p>` : ''}
+      <div class="chips tap"><button class="chip on" data-g="pss" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>${busy ? 'Đang lưu…' : '💾 Lưu'}</button><button class="chip" data-g="psc" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>Huỷ</button></div>`
+    : `<div class="chips tap">${canView ? `<button class="chip" data-g="psv" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>👁 Xem</button>` : ''}${r && r.mine ? `<button class="chip" data-g="pse" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>✏️ Sửa</button>` : ''}${st && st !== 'xoa' ? `<button class="chip ${GPS.del === pid ? 'on' : ''}" data-g="psd" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>${GPS.del === pid ? 'Bấm lần nữa để xoá' : '🗑 Xoá tệp'}</button>` : ''}</div>`}
+  </div>`; }
+function gpsSet(pid, o) { const L = gyLS(GY_SENT); for (const x of L) if (x.pdf && x.pdf.id === pid) Object.assign(x, o); gyLS(GY_SENT, L); }
+async function gpsView(pid) {
+  GPS.busy = pid; GPS.msg[pid] = 'Đang tải tệp về…'; gpsDraw();
+  const r = await gpFn({ act: 'mo', id: pid }); const end = m => { GPS.busy = null; GPS.up[pid] = null; GPS.msg[pid] = m; gpsDraw(); };
+  if (!r || !r.urls) return end(r && r.error === 'lon' ? `Tệp lớn hơn ${gpMB(GP_VIEW)}: mở bằng tệp gốc trên máy bạn.` : 'Chưa mở được: ' + ((r && r.error) || ''));
+  const bs = [];
+  for (let i = 0; i < r.urls.length; i++) { GPS.up[pid] = { i, n: r.urls.length, st: `Đang tải phần ${i + 1}/${r.urls.length}…` }; gpsDraw();
+    let b = null; try { const x = await fetch(r.urls[i]); if (x.ok) b = await x.blob(); } catch (e) {}
+    if (!b || (r.parts[i] && (b.size !== r.parts[i].size || (await gpSha(b)) !== r.parts[i].sha))) return end('Tải về hỏng một phần. Thử lại.');
+    bs.push(b); }
+  if (GPS.view[pid]) URL.revokeObjectURL(GPS.view[pid]);
+  GPS.view[pid] = URL.createObjectURL(new Blob(bs, { type: 'application/pdf' })); end('Đã tải xong. Bấm 📄 Mở PDF.'); }
+async function gpsDel(pid) {
+  if (GPS.del !== pid) { GPS.del = pid; return gpsDraw(); } GPS.del = null; GPS.busy = pid; gpsDraw();
+  const r = await gpFn({ act: 'xoa', id: pid }); GPS.busy = null;
+  if (r && r.ok) { gpsSet(pid, { pdf: { ...(gpsSent().find(x => x.pdf.id === pid) || {}).pdf, del: 1 } }); if (GPS.rows[pid]) GPS.rows[pid].st = 'xoa'; GPS.msg[pid] = 'Đã xoá tệp. Góp ý vẫn giữ.'; }
+  else GPS.msg[pid] = 'Chưa xoá được: ' + ((r && r.error) || ''); gpsDraw(); }
+async function gpsSave(pid) {
+  gpsKeep(); const fv = GPS.fv[pid] || {}, r = GPS.rows[pid] || {}, x = gpsSent().find(y => y.pdf.id === pid); if (!x) return;
+  const txt = String(fv.t || '').trim(); if (!txt) { GPS.msg[pid] = 'Nội dung góp ý không được trống.'; return gpsDraw(); }
+  GPS.busy = pid; GPS.msg[pid] = ''; gpsDraw(); let cur = pid, name = r.name || x.pdf.name;
+  const nf = GPS.nf[pid];
+  if (nf) {   // 🔄 thay tệp: tải tệp mới (tệp cũ không tính vào trần), góp ý trỏ sang tệp mới, xoá tệp cũ
+    const fname = (/\.pdf$/i.test(nf.name) ? nf.name : nf.name + '.pdf').slice(-200);
+    const up = await gpCore({ f: nf, name: fname, size: nf.size, n: Math.ceil(nf.size / GP_CH) }, { up: o => { GPS.up[pid] = o; gpsDraw(); }, fail: m => { GPS.msg[pid] = m; } }, { doi: pid });
+    GPS.up[pid] = null; if (!up) { GPS.busy = null; return gpsDraw(); }
+    const d = await gpFn({ act: 'doi', old: pid, id: up.id });
+    if (!d || !d.ok) { GPS.busy = null; GPS.msg[pid] = 'Tệp mới đã lên nhưng chưa gắn vào góp ý: ' + ((d && d.error) || ''); return gpsDraw(); }
+    gpsSet(pid, { pdf: { id: up.id, name: up.name, size: up.size, n: up.n } }); GPS.rows[up.id] = { id: up.id, name: up.name, size: up.size, n: up.n, st: 'du', mine: true, txt: d.txt };
+    delete GPS.nf[pid]; cur = up.id; name = (fv.n || '').trim() && fv.n.trim() !== (r.name || x.pdf.name) ? fv.n.trim() : up.name; }
+  else name = (fv.n || '').trim() || name;
+  const s = await gpFn({ act: 'sua', id: cur, name, txt });
+  GPS.busy = null; GPS.ed = null; delete GPS.fv[pid];
+  if (s && s.ok) { gpsSet(cur, { txt: s.txt.slice(0, 80), pdf: { ...(gpsSent().find(y => y.pdf.id === cur) || {}).pdf, name: s.name } }); GPS.rows[cur] = { ...(GPS.rows[cur] || {}), name: s.name, txt: s.txt }; GPS.msg[cur] = nf ? 'Đã thay tệp và lưu.' : 'Đã lưu.'; }
+  else GPS.msg[cur] = 'Chưa lưu được: ' + ((s && s.error) || '');
+  gpsDraw(); }
+document.addEventListener('change', e => { const t = e.target.closest && e.target.closest('[data-gpf]'); if (!t) return; const f = t.files && t.files[0], pid = t.dataset.gpf; gpsKeep();
+  if (!f) return; if (!/\.pdf$/i.test(f.name) && f.type !== 'application/pdf') GPS.msg[pid] = 'Chỉ nhận tệp PDF.'; else if (f.size > GP_MAX) GPS.msg[pid] = `Tệp ${gpMB(f.size)} quá lớn. Tối đa ${gpMB(GP_MAX)}.`; else { GPS.nf[pid] = f; GPS.msg[pid] = ''; }
+  gpsDraw(); });
+
 // 🗂 Quản lý góp ý: dòng 📄 + Xoá tệp (bấm 2 lần). Trạng thái lấy từ máy chủ (app không đọc được nội dung).
 async function gpStat() { const ids = [...new Set((GA.rows || []).map(x => x.ctx && x.ctx.pdf && x.ctx.pdf.id).filter(Boolean))]; if (!ids.length) return;
   const r = await gpFn({ act: 'st', ids }); GA.pdf = {}; for (const x of (r && r.rows) || []) GA.pdf[x.id] = x; gaRender(); }
@@ -240,6 +316,11 @@ document.addEventListener('click', e => {
   else if (g === 'send') gySend();
   else if (g === 'pdfrm') { const tt = document.getElementById('gytxt'); if (tt) GY.txt = tt.value; GY.pdf = null; GY.msg = ''; gyDraw(); }
   else if (g === 'pdfdel') gpDel(t.dataset.p);
+  else if (g === 'psv') gpsView(t.dataset.p);
+  else if (g === 'psd') gpsDel(t.dataset.p);
+  else if (g === 'pse') { gpsKeep(); GPS.ed = t.dataset.p; GPS.del = null; GPS.msg[t.dataset.p] = ''; gpsLoad(true); gpsDraw(); }
+  else if (g === 'psc') { GPS.ed = null; delete GPS.fv[t.dataset.p]; delete GPS.nf[t.dataset.p]; gpsDraw(); }
+  else if (g === 'pss') gpsSave(t.dataset.p);
   else if (g === 'flush') gyFlush().then(() => { const el = document.getElementById('gyhome'); if (el) el.innerHTML = gyHomeInner(); });
   else if (g === 'admin') gyAdmin();
   else if (g === 'fkd') { GA.kd = v || null; gaLoad(); }

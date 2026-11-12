@@ -2251,5 +2251,34 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     } catch (e) { bad.push('lỗi: ' + e.message); }
     sb.functions.invoke = SB0; globalThis.fetch = F0; GY.pdf = null; GY.msg = ''; gpRec(null); return bad; })()`);
   R.push({ lv: 'cefr', id: 'C71', ok: !C71.length, msg: C71.length ? C71.slice(0, 8).join(' | ') : '📄 góp ý kèm PDF lớn: cắt 25 MB đúng cỡ + SHA-256, rớt mạng tự thử lại, mất mạng giữ tiến độ và tải tiếp chỉ phần thiếu, kho đầy chặn trước khi tải, chỉ nhận PDF ≤ 450 MB' }); }
+// v157 C72 📄 PDF trong danh sách "Đã gửi": thẻ có 👁 Xem (≤ 50 MB) · ✏️ Sửa · 🗑 Xoá; sửa gửi đúng lệnh; thay tệp → doi + cập nhật; xoá 2 lần
+{ const C72 = await run(`(async () => { const bad = [], SB0 = sb.functions.invoke, calls = [];
+    const mk = (n, name) => { const b = new Blob([new Uint8Array(n)]); b.name = name; b.lastModified = 1; return b; };
+    gyLS(GY_SENT, [{ id: 9, t: 1, kind: 'loi', txt: 'chữ cũ', n: 0, pdf: { id: 'A', name: 'a.pdf', size: 30 * 1048576, n: 2 } }, { id: 10, t: 2, kind: 'loi', txt: 'lớn', n: 0, pdf: { id: 'B', name: 'b.pdf', size: 60 * 1048576, n: 3 } }]);
+    sb.functions.invoke = async (name, { body }) => { calls.push(body); const d = x => ({ data: x, error: null });
+      if (body.act === 'st') return d({ rows: [{ id: 'A', name: 'a.pdf', size: 30 * 1048576, n: 2, st: 'du', mine: true, txt: 'chữ cũ\\n📄 a.pdf · 30 MB' }, { id: 'B', name: 'b.pdf', size: 60 * 1048576, n: 3, st: 'du', mine: true }] });
+      if (body.act === 'sua') return d({ ok: true, name: body.name, txt: body.txt + '\\n📄 ' + body.name });
+      if (body.act === 'xoa') return d({ ok: true });
+      if (body.act === 'start') return d({ id: 'C', n: 1, toks: [{ i: 0, path: 'C/0', token: 't' }] });
+      if (body.act === 'done') return d({ ok: true });
+      if (body.act === 'doi') return d({ ok: true, txt: 'x' });
+      return d({ error: 'x' }); };
+    const F0 = globalThis.fetch; globalThis.fetch = async () => ({ ok: true, text: async () => '' });
+    try {
+      await gpsLoad(true); const H = gyHomeInner();
+      if (!/📄 a\\.pdf/.test(H) || !/data-g="psv" data-p="A"/.test(H) || !/data-g="pse" data-p="A"/.test(H) || !/data-g="psd" data-p="A"/.test(H)) bad.push('thẻ A thiếu nút');
+      if (/data-g="psv" data-p="B"/.test(H) || !/mở bằng tệp gốc/.test(H)) bad.push('tệp > 50 MB vẫn có 👁 Xem');
+      GPS.ed = 'A'; GPS.fv.A = { n: 'ten-moi', t: 'chữ mới' }; await gpsSave('A');
+      const s1 = calls.find(c => c.act === 'sua'); if (!s1 || s1.id !== 'A' || s1.name !== 'ten-moi' || s1.txt !== 'chữ mới') bad.push('sửa gửi sai: ' + JSON.stringify(s1));
+      if (gyLS(GY_SENT)[0].pdf.name !== 'ten-moi') bad.push('danh sách Đã gửi không đổi tên');
+      calls.length = 0; GPS.ed = 'A'; GPS.fv.A = { n: 'ten-moi', t: 'chữ mới' }; GPS.nf.A = mk(1000, 'c.pdf'); await gpsSave('A');
+      const st = calls.find(c => c.act === 'start'), dz = calls.find(c => c.act === 'doi');
+      if (!st || st.doi !== 'A' || !dz || dz.old !== 'A' || dz.id !== 'C') bad.push('thay tệp: thiếu start.doi / doi');
+      if (gyLS(GY_SENT)[0].pdf.id !== 'C') bad.push('thay tệp: Đã gửi chưa trỏ tệp mới');
+      calls.length = 0; await gpsDel('C'); if (calls.length) bad.push('xoá 1 lần đã gọi máy chủ'); await gpsDel('C');
+      if (!calls.some(c => c.act === 'xoa' && c.id === 'C') || !gyLS(GY_SENT)[0].pdf.del) bad.push('xoá 2 lần chưa xoá');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    sb.functions.invoke = SB0; globalThis.fetch = F0; gyLS(GY_SENT, []); gpRec(null); return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C72', ok: !C72.length, msg: C72.length ? C72.slice(0, 8).join(' | ') : '📄 PDF trong danh sách Đã gửi: thẻ 👁 Xem (chỉ ≤ 50 MB) · ✏️ Sửa (tên + chữ) · 🔄 thay tệp (start.doi → doi, Đã gửi trỏ tệp mới) · 🗑 xoá 2 lần' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
