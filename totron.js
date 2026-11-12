@@ -18,7 +18,7 @@ const trMMSS = ms => { const s = Math.max(0, Math.round(ms / 1000)); return `${M
 const trMeta = de => ((typeof TO !== 'undefined' && TO && TO.tron) || []).find(d => d.id === de);
 const trName = de => (trMeta(de) || { t: de }).t;
 // v149 (specs/010-toeic-10-de-tron): Đề 3 → 12 ở tệp riêng toeic-tron/deN.json (câu chỉ dùng trong đề trọn, không vào kho luyện); tải khi vào đề. Đề 1–2 dựng từ kho như v147
-async function trLoad(de) { const d = trMeta(de); if (!d || !d.f || TR.D[de]) return !!d;
+async function trLoad(de) { const d = trMeta(de); if (!d || !d.f || TR.D[de]) return !!d; if (/^rieng:/.test(d.f)) return false;
   try { const r = await Promise.race([fetch(d.f + '?v=' + APP_V), new Promise((_, no) => setTimeout(() => no(new Error('quá giờ')), 20000))]); if (!r.ok) throw new Error(String(r.status)); TR.D[de] = await r.json(); return true; } catch (e) { return false; } }
 const trLeft = st => st.rAt + (st.rMin || trRMin(st.only)) * 60000 * TR.k - Date.now();
 // v150 chỉ làm một phần (người sáng lập 8/11/2026: "muốn có thể lựa chọn phần để làm bài chứ không nhất thiết phải làm hết từ đầu"): st.only = 'L' | 'R' | 'p1'…'p7'.
@@ -101,10 +101,26 @@ const trWhere = st => (st.only ? `${trIsCk(st.only) ? '' : 'Chỉ '}${trOnlyName
 async function trProbe9() { if (TR.p9 !== undefined || typeof TO === 'undefined' || !TO) return; if (navigator.userAgent === 'test') return;   // bộ test Node (tools/test) không thấy đề riêng, để các test đề trọn đếm đúng 8 đề TR.p9 = false;
   try { const r = await Promise.race([fetch('toeic-tron/de9.json?v=' + APP_V), new Promise((_, no) => setTimeout(() => no(0), 4000))]); if (!r.ok) return; const j = await r.json(); if (!j || j.id !== 'de9' || !Array.isArray(j.p5)) return;
     TR.D.de9 = j; if (!(TO.tron || []).some(d => d.id === 'de9')) { (TO.tron = TO.tron || []).push({ id: 'de9', t: j.t || 'Đề 9', f: 'toeic-tron/de9.json', only: 'R' }); } TR.p9 = true; } catch (e) {} }
+// v161 đề riêng có mã (Đề 9 trở đi, tài liệu ETS của người sáng lập): đề ở bảng de_rieng trên máy chủ, hàm de-rieng chỉ trả đề khi đúng mã (chặn đoán dò);
+//   mở được thì lưu trên máy (localStorage TR_LKS) để lần sau không phải nhập lại. Danh sách chỉ có tên đề; chưa mở thì dòng 🔒
+const TR_LKS = 'deRieng';
+const trLkGet = () => { try { return JSON.parse(localStorage.getItem(TR_LKS) || '{}') || {}; } catch (e) { return {}; } };
+function trLkReg(id, t, data) { TR.D[id] = data; if (!(TO.tron || []).some(d => d.id === id)) (TO.tron = TO.tron || []).push({ id, t: t || data.t || id, f: 'rieng:' + id, only: data.only || 'R' }); }
+async function trLkList() { if (navigator.userAgent === 'test' || typeof TO === 'undefined' || !TO) return;
+  const L = trLkGet(); for (const [id, x] of Object.entries(L)) if (x && x.data) trLkReg(id, x.t, x.data);
+  if (TR.lk || typeof sb === 'undefined' || !sb) return;
+  try { const r = await Promise.race([sb.functions.invoke('de-rieng', { body: { act: 'list' } }), new Promise((_, no) => setTimeout(() => no(0), 5000))]); TR.lk = (r && r.data && r.data.rows) || []; } catch (e) { TR.lk = null; } }
+async function trLkOpen(id, t) { const ma = prompt(`Nhập mã của ${t} (mã riêng, không chia sẻ):`); if (!ma) return;
+  toast('Đang mở đề…');
+  try { const { data, error } = await sb.functions.invoke('de-rieng', { body: { act: 'get', id, ma: ma.trim() } });
+    let d = data; if (error) { try { d = await error.context.json(); } catch (e) { d = null; } }
+    if (!d || !d.data) return toast((d && d.error) || 'Chưa mở được đề. Kiểm tra mạng rồi thử lại.');
+    const L = trLkGet(); L[id] = { t: d.t, data: d.data }; try { localStorage.setItem(TR_LKS, JSON.stringify(L)); } catch (e) {}
+    trLkReg(id, d.t, d.data); toast('Đã mở ' + d.t); return trView(); } catch (e) { toast('Chưa mở được đề. Kiểm tra mạng rồi thử lại.'); } }
 async function trReady0() { if (!TO) await toLoad(); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {} }
 async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX = false; TR.on = ''; TR.tok++; clearInterval(TR.tm);
   if (!TO || !NCLIPS.size) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; try { await trReady0(); } catch (e) { $app.innerHTML = '<div id="ie"></div><p>Không tải được dữ liệu TOEIC. Thử lại sau.</p>'; return; } }
-  await trProbe9();
+  await trProbe9(); await trLkList();
   let st = trSt(), gone = false; if (st && Date.now() - st.up > TR_KEEP * 36e5) { toSt().tron = null; S.t = Date.now(); save(); st = null; gone = true; }
   if (st) await trLoad(st.de);
   const M = (toSt().mock || []).filter(r => r.full && r.de), last = de => M.filter(r => r.de === de).slice(-1)[0];
@@ -114,13 +130,14 @@ async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX 
     ${st ? `<div class="box"><b>⏸ ${esc(trName(st.de))} đang dở</b><p class="mute" style="margin:4px 0 8px">${esc(trWhere(st))} · giữ tới ${new Date(st.up + TR_KEEP * 36e5).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</p>
       <button class="pri" data-trgo="resume">▶ Làm tiếp</button><button class="link tap" data-trdrop>Bỏ đề này, làm lại từ đầu</button></div>` : ''}
     <div class="box hcard">${(TO.tron || []).map(d => { const r = last(d.id); return `<button class="hrow" data-trgo="${d.id}"${st ? ' disabled' : ''}><span class="ic">📝</span><span class="t"><b>${esc(d.t)}</b>
-      <small>${d.only === 'R' ? 'Chỉ phần Đọc · bản riêng trên máy' : r ? `Lần trước ≈ ${r.tot} điểm (Nghe ${r.b.L} · Đọc ${r.b.R}) · ${new Date(r.at).toLocaleDateString('vi-VN')}${(toSt().tronA || {})[d.id] ? '' : ' · chưa lưu bài làm từng câu'}` : 'Chưa làm'}</small></span><span class="chev">›</span></button>${trShRow(d.id, 1)}`; }).join('')}</div>
+      <small>${d.only === 'R' ? 'Chỉ phần Đọc · đề riêng' : r ? `Lần trước ≈ ${r.tot} điểm (Nghe ${r.b.L} · Đọc ${r.b.R}) · ${new Date(r.at).toLocaleDateString('vi-VN')}${(toSt().tronA || {})[d.id] ? '' : ' · chưa lưu bài làm từng câu'}` : 'Chưa làm'}</small></span><span class="chev">›</span></button>${trShRow(d.id, 1)}`; }).join('')}${(TR.lk || []).filter(r => !(TO.tron || []).some(d => d.id === r.id)).map(r => `<button class="hrow" data-trlk="${esc(r.id)}" data-t="${esc(r.t)}"><span class="ic">🔒</span><span class="t"><b>${esc(r.t)}</b><small>Đề riêng · nhập mã để mở</small></span><span class="chev">›</span></button>`).join('')}</div>
     ${st ? '<p class="mute" style="font-size:14px">Đang có đề dở: làm tiếp hoặc bỏ đề đó trước khi bắt đầu đề khác.</p>' : ''}
     <details class="box trrule"${st ? '' : ' open'}><summary><b>📋 Quy chế như thi thật</b></summary><ol style="margin:6px 0 0;padding-left:22px">${TR_RULE().map(t => `<li style="margin:4px 0">${esc(t)}</li>`).join('')}</ol></details>
     <p class="mute" style="font-size:13px">TOEIC là thương hiệu của ETS; đề do app soạn theo cơ cấu đề thật, không chép đề ETS. 🤖 Claude soạn, chưa giáo viên kiểm.</p>`;
   $app.onclick = e => { const g = s => e.target.closest(s); let b;
     if (g('[data-trb]')) return toeicView();
     if ((b = g('[data-trgo]'))) { if (b.disabled) return; scrollTo(0, 0); return b.dataset.trgo === 'resume' ? trResume() : trReady(b.dataset.trgo); }
+    if ((b = g('[data-trlk]'))) return trLkOpen(b.dataset.trlk, b.dataset.t);
     if ((b = g('[data-trsh]'))) return trSheet(b.dataset.trsh, null);
     if (g('[data-trdrop]')) { if (!confirm('Bỏ đề đang dở? Đáp án đã chọn sẽ mất.')) return; toSt().tron = null; S.t = Date.now(); save(); return trView(); } };
   scrollTo(0, 0); }
@@ -131,7 +148,7 @@ async function trReady(de) { const d = trMeta(de); if (!d) return trView(); wind
   const B = trB(de);
   if (!B.L.length) { const rows = ['p5', 'p6', 'p7'].map(s => { const us = B.U.filter(u => u.sec === s); return us.length ? `<span>${TR_SECS[s]} · ${TR_PN[s]}</span><span>${us.reduce((t, u) => t + u.qs.length, 0)} câu</span><span>${us[0].a}–${us[us.length - 1].b}</span>` : ''; }).join('');
     $app.innerHTML = `<div class="row top trx"><button class="link tap" data-trv>‹ Đề thử trọn</button></div><h1>📖 ${esc(d.t)} · ${B.Q.length} câu</h1>
-      <p class="mute" style="margin:0">Chỉ có phần Đọc (câu ${B.Q[0].n}–${B.Q[B.Q.length - 1].n}, Part 5–7), ${TR_RMIN} phút. Tài liệu ETS riêng của bạn, chỉ có trên máy này, không đưa lên web.</p>
+      <p class="mute" style="margin:0">Chỉ có phần Đọc (câu ${B.Q[0].n}–${B.Q[B.Q.length - 1].n}, Part 5–7), ${TR_RMIN} phút. Đề riêng, mở bằng mã. Không chia sẻ mã cho người khác.</p>
       <div class="box trplan"><div class="ph"><div class="pr" aria-label="Cấu trúc đề">${rows}</div></div></div>
       <button class="btnbig" data-trone="R">▶ Bắt đầu phần Đọc<small>Câu ${B.Q[0].n}–${B.Q[B.Q.length - 1].n} · ${TR_RMIN} phút</small></button>
       ${trCkBox(B, de)}${trOneBox(B)}`;
