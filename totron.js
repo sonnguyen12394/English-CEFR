@@ -240,7 +240,7 @@ const trDoneR = st => trRU(st).flatMap(u => u.qs).filter(q => st.ans[q.n]).lengt
 const trGcTxt = st => { const Rq = trRU(st).flatMap(u => u.qs); if (!Rq.length) return ''; return `📋 Bảng câu ${Rq[0].n}–${Rq[Rq.length - 1].n} · đã chọn ${trDoneR(st)}/${Rq.length}`; };
 function trMark(q, st) { const gc = document.getElementById('trgc'); if (gc) gc.textContent = trGcTxt(st); document.querySelectorAll(`[data-tra^="${q.n}|"]`).forEach(b => { const on = q.opts[+b.dataset.tra.split('|')[1]] === st.ans[q.n]; b.classList.toggle('sel', on); b.setAttribute('aria-pressed', String(on)); }); }
 function trClick(e) { const g = s => e.target.closest(s), st = trSt(); let b; if (!st) return;
-  if ((b = g('[data-tra]'))) { const [n, j] = b.dataset.tra.split('|'), B = trB(st.de), q = B.Q[+n - 1]; if (!q) return;
+  if ((b = g('[data-tra]'))) { const [n, j] = b.dataset.tra.split('|'), B = trB(st.de), q = B.Q.find(x => x.n === +n); if (!q) return;   // theo số câu thật (Đề 9 bắt đầu từ 101)
     if (TR.on === 'L' && !(trLU(st)[st.li] || { qs: [] }).qs.includes(q)) return;   // Nghe: chỉ chọn được câu của bài đang phát
     if (TR.on !== 'L' && TR.on !== 'R') return; st.ans[n] = q.opts[+j]; st.up = Date.now(); S.t = st.up; save(); return trMark(q, st); }
   if ((b = g('[data-trf]'))) { const n = b.dataset.trf; if (st.fl[n]) delete st.fl[n]; else st.fl[n] = 1; save(); b.classList.toggle('on', !!st.fl[n]); b.setAttribute('aria-pressed', String(!!st.fl[n])); return; }
