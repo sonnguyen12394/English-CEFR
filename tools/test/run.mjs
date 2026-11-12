@@ -2102,17 +2102,18 @@ const R = await run(`(async () => {
       } catch (e) { bad.push('lỗi: ' + e.message); }
       S = S1; TR.B = {}; TR.D = {}; globalThis.C70A = { bad, opts }; }
     // v156 C71 (specs/013-dap-an-giai-thich): lời giải chi tiết lg ở 📋 Bài làm và đáp án. Mọi câu có lg: og đủ nghĩa đúng 4 phương án app hiện, ly nhắc đáp án (trừ câu chèn), có dịch;
-    //   màn xem lại hiện thẻ (nghĩa dưới mỗi phương án, 💡 Chọn (X), Vì sao, Dịch); câu chưa có lg vẫn hiện why. Part 5 + Part 6 của cả 8 đề đủ lời giải (240 + 128 = 368 câu)
+    //   màn xem lại hiện thẻ (nghĩa dưới mỗi phương án, 💡 Chọn (X), Vì sao, Dịch); câu chưa có lg vẫn hiện why. Part 5 + 6 + 7 của cả 8 đề đủ lời giải (240 + 128 + 432 = 800 câu)
     { const bad = [], S1 = S; let nlg = 0;
       try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad();
         for (const d of TO.tron) { if (d.f && !(await trLoad(d.id))) { bad.push(d.id + ': không tải được'); continue; }
-          for (const q of trB(d.id).Q) { const lg = q.lg; if (!lg) continue; nlg++; const ks = Object.keys(lg.og || {}), ins = q.sec === 'p6' && q.gt === 'insert';
+          for (const q of trB(d.id).Q) { const lg = q.lg; if (!lg) continue; nlg++; const ks = Object.keys(lg.og || {}), ins = (q.sec === 'p6' && q.gt === 'insert') || q.sec === 'p7';   // Part 7: đáp án là cả câu, ly không cần chép lại
             if (ks.length !== 4 || q.opts.some(o => !lg.og[o])) bad.push(d.id + ' câu ' + q.n + ': og không khớp 4 phương án');
             if (!lg.ly || !lg.dich || (!ins && !lg.ly.toLowerCase().includes(String(q.a).toLowerCase()))) bad.push(d.id + ' câu ' + q.n + ': thiếu ly / dich hoặc ly không nhắc đáp án'); } }
-        for (const d of TO.tron) { const Q5 = trB(d.id).Q.filter(q => q.sec === 'p5'); if (Q5.length !== 30 || Q5.some(q => !q.lg)) bad.push(d.id + ' Part 5 chưa đủ lời giải: ' + Q5.filter(q => q.lg).length + '/30'); const Q6 = trB(d.id).Q.filter(q => q.sec === 'p6'); if (Q6.length !== 16 || Q6.some(q => !q.lg)) bad.push(d.id + ' Part 6 chưa đủ lời giải: ' + Q6.filter(q => q.lg).length + '/16'); }
+        for (const d of TO.tron) { const Q5 = trB(d.id).Q.filter(q => q.sec === 'p5'); if (Q5.length !== 30 || Q5.some(q => !q.lg)) bad.push(d.id + ' Part 5 chưa đủ lời giải: ' + Q5.filter(q => q.lg).length + '/30'); const Q6 = trB(d.id).Q.filter(q => q.sec === 'p6'); if (Q6.length !== 16 || Q6.some(q => !q.lg)) bad.push(d.id + ' Part 6 chưa đủ lời giải: ' + Q6.filter(q => q.lg).length + '/16'); const Q7 = trB(d.id).Q.filter(q => q.sec === 'p7'); if (Q7.length !== 54 || Q7.some(q => !q.lg)) bad.push(d.id + ' Part 7 chưa đủ lời giải: ' + Q7.filter(q => q.lg).length + '/54'); }
         trStart('de1'); const st = trSt(); for (const q of trB('de1').Q) st.ans[q.n] = q.opts.find(o => o !== q.a); st.ph = 'R'; st.rAt = Date.now(); trSubmit(false); await trSheet('de1', null);
         trRv('de1', 103); let h = String($app.innerHTML); const q = trB('de1').Q[102];
         if ((h.match(/class="rvog"/g) || []).length !== 4 || !h.includes('💡 Chọn (' + 'ABCD'[q.opts.indexOf(q.a)] + ')') || !h.includes('Vì sao:') || !h.includes('Dịch:') || !h.includes('✗ Bạn chọn')) bad.push('thẻ lời giải câu 103 thiếu phần');
+        trRv('de1', 160); h = String($app.innerHTML); if ((h.match(/class="rvog"/g) || []).length < 4 || !h.includes('Vì sao:') || !h.includes('Dịch:')) bad.push('thẻ lời giải Part 7 (câu 160) thiếu phần');
         const nolg = trB('de1').Q.find(q => !q.lg && q.why && /^p[5-7]$/.test(q.sec)); if (nolg) { trRv('de1', nolg.n); h = String($app.innerHTML); if (h.includes('class="rvgt"') || !h.includes(esc(nolg.why))) bad.push('câu chưa có lời giải không còn hiện why'); }
       } catch (e) { bad.push('lỗi: ' + e.message); }
       S = S1; TR.B = {}; TR.D = {}; TR.k = 1; out.push({ lv: 'cefr', id: 'C71', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '📋 lời giải chi tiết: ' + nlg + ' câu có lg đủ nghĩa 4 phương án, vì sao nhắc đáp án, dịch; thẻ hiện ở màn xem lại; câu chưa có lời giải vẫn hiện giải thích ngắn' }); }
