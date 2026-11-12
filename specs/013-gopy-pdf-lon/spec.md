@@ -108,3 +108,14 @@ Người sáng lập nói "đọc góp ý PDF mới nhất". Claude lấy các m
 - Lượng tải về (egress) gói Free ~5 GB / tháng: mỗi lần Claude đọc tệp 400 MB tốn 400 MB, đủ cho ~10 lần / tháng.
 - Đây là tính năng cho cả app nhưng chưa đổi luật đo; không đụng 📘 Học / 🔁 Nhớ / Thi.
 - Chưa kiểm trên iPhone cho tới khi người sáng lập thử máy thật.
+
+## Bổ sung 12/11/2026: PDF trong danh sách "Đã gửi"
+
+Người sáng lập: "hiện file pdf đó giống trong mục góp ý để có thể xoá sửa nếu muốn". Trả lời câu hỏi: chỉ ở danh sách "Đã gửi" của ô 💬 Góp ý · sửa = đổi tên tệp + sửa chữ góp ý + thay bằng tệp khác, kèm xoá tệp · mở xem trong app chỉ tệp ≤ 50 MB.
+
+- **FR-013**: Danh sách "Đã gửi" (góp ý gửi từ máy này) có thẻ 📄 cho góp ý kèm PDF: tên, cỡ, trạng thái (đủ phần / tải dở / đã xoá).
+- **FR-014**: 👁 Xem chỉ khi tệp ≤ 50 MB: app tải các phần, kiểm mã băm, ghép, rồi hiện nút "Mở PDF". Tệp lớn hơn ghi "Tệp lớn: mở bằng tệp gốc trên máy bạn".
+- **FR-015**: ✏️ Sửa: đổi tên tệp, sửa chữ góp ý (máy chủ cập nhật cả góp ý lẫn tệp; người dùng ẩn danh cũng sửa được góp ý của mình).
+- **FR-016**: 🔄 Thay tệp: tải tệp mới; khi đủ phần thì góp ý trỏ sang tệp mới và tệp cũ bị xoá. Khi thay, chỗ của tệp cũ không tính vào trần (thay được cả khi đang có 2 tệp).
+- **FR-017**: 🗑 Xoá tệp (bấm 2 lần): xoá mọi phần, góp ý vẫn giữ và ghi "📄 đã xoá".
+- **FR-018**: Xem / sửa / thay chỉ cho tài khoản đã gửi tệp (máy chủ kiểm). Mọi máy đang dùng chung tài khoản nên thực tế chỉ máy đã gửi thấy thẻ (danh sách "Đã gửi" lưu trên máy).
