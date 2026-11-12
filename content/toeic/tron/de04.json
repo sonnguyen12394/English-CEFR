@@ -2884,7 +2884,18 @@
      ],
      "a": "will launch",
      "t": "tense",
-     "why": "Bắt đầu từ tháng 9 (Starting in September), hạn đăng ký 31/7 → việc ở tương lai: will launch."
+     "why": "Bắt đầu từ tháng 9 (Starting in September), hạn đăng ký 31/7 → việc ở tương lai: will launch.",
+     "lg": {
+      "og": {
+       "will launch": "tương lai đơn: sẽ triển khai",
+       "launched": "quá khứ đơn",
+       "has launched": "hiện tại hoàn thành",
+       "was launching": "quá khứ tiếp diễn"
+      },
+      "ly": "Mốc \"Starting in September\" (từ tháng 9) chỉ tương lai: will launch. Các thì quá khứ / hoàn thành không hợp.",
+      "ct": "Starting in + tháng → tương lai · mentoring program = chương trình kèm cặp",
+      "dich": "Từ tháng 9, công ty chúng ta sẽ triển khai chương trình kèm cặp cho nhân viên đã vào công ty trong vòng một năm qua."
+     }
     },
     {
      "o": [
@@ -2894,7 +2905,18 @@
       "Experienced colleagues may not take part in the program."
      ],
      "a": "This allows new staff to learn how other teams work.",
-     "why": "\"This\" chỉ việc ghép với đồng nghiệp ở phòng ban khác vừa nêu → giúp nhân viên mới hiểu cách các nhóm khác làm việc."
+     "why": "\"This\" chỉ việc ghép với đồng nghiệp ở phòng ban khác vừa nêu → giúp nhân viên mới hiểu cách các nhóm khác làm việc.",
+     "lg": {
+      "og": {
+       "This allows new staff to learn how other teams work.": "Điều này giúp nhân viên mới biết các nhóm khác làm việc ra sao.",
+       "Most of our employees have worked here for over ten years.": "Phần lớn nhân viên đã làm ở đây hơn mười năm.",
+       "The program was canceled last year because of low interest.": "Chương trình bị huỷ năm ngoái vì ít người quan tâm.",
+       "Experienced colleagues may not take part in the program.": "Đồng nghiệp giàu kinh nghiệm không được tham gia chương trình."
+      },
+      "ly": "Câu trước nói mỗi người mới được ghép với đồng nghiệp ở phòng khác, nên câu chèn nêu lợi ích. Các câu còn lại lạc đề hoặc ngược với nội dung (chương trình đã huỷ, người giàu kinh nghiệm không tham gia).",
+      "ct": "Câu chèn nêu lợi ích của điều vừa nói",
+      "dich": "Điều này giúp nhân viên mới biết các nhóm khác làm việc như thế nào."
+     }
     },
     {
      "o": [
@@ -2904,7 +2926,18 @@
       "Otherwise"
      ],
      "a": "In addition",
-     "why": "Thêm một điểm nữa của chương trình (người kèm cặp được tập huấn) → In addition."
+     "why": "Thêm một điểm nữa của chương trình (người kèm cặp được tập huấn) → In addition.",
+     "lg": {
+      "og": {
+       "In addition": "cụm nối: ngoài ra",
+       "For example": "cụm nối: ví dụ",
+       "However": "trạng từ nối: tuy nhiên",
+       "Otherwise": "trạng từ nối: nếu không thì"
+      },
+      "ly": "Câu trước nêu cách tổ chức buổi gặp, câu này thêm một điều nữa (người kèm cặp được tập huấn ngắn): In addition = ngoài ra. For example, However, Otherwise không hợp mạch thêm ý.",
+      "ct": "In addition, + mệnh đề = ngoài ra · training session = buổi tập huấn",
+      "dich": "Ngoài ra, những người kèm cặp sẽ được tập huấn ngắn trước khi chương trình bắt đầu."
+     }
     },
     {
      "o": [
@@ -2914,7 +2947,18 @@
       "applied"
      ],
      "a": "application",
-     "why": "the application form = mẫu đơn đăng ký (danh từ ghép)."
+     "why": "the application form = mẫu đơn đăng ký (danh từ ghép).",
+     "lg": {
+      "og": {
+       "application": "danh từ: đơn đăng ký",
+       "apply": "động từ: nộp đơn",
+       "applicant": "danh từ: ứng viên",
+       "applied": "V3: đã nộp đơn"
+      },
+      "ly": "Chỗ trống đứng trước danh từ form và tạo danh từ ghép: application form (mẫu đơn đăng ký). apply là động từ, applicant là người, applied là dạng động từ.",
+      "ct": "application form = mẫu đơn đăng ký · complete a form = điền biểu mẫu",
+      "dich": "Nếu bạn muốn làm người kèm cặp, vui lòng điền mẫu đơn đăng ký trên mạng nội bộ trước ngày 31 tháng 7."
+     }
     }
    ]
   },
@@ -2932,7 +2976,18 @@
       "Runners should drink plenty of water."
      ],
      "a": "The registration fee is $25 for adults and $10 for children.",
-     "why": "Câu chèn nói phí đăng ký; câu sau: toàn bộ tiền thu được dành cho bệnh viện."
+     "why": "Câu chèn nói phí đăng ký; câu sau: toàn bộ tiền thu được dành cho bệnh viện.",
+     "lg": {
+      "og": {
+       "The registration fee is $25 for adults and $10 for children.": "Lệ phí đăng ký là 25 đô cho người lớn và 10 đô cho trẻ em.",
+       "Lakeside Park also has a popular playground.": "Công viên Lakeside còn có sân chơi nổi tiếng.",
+       "The children's hospital was built a century ago.": "Bệnh viện nhi được xây cách đây một thế kỷ.",
+       "Runners should drink plenty of water.": "Người chạy nên uống nhiều nước."
+      },
+      "ly": "Câu sau nói \"All money raised\" (toàn bộ tiền gây quỹ), nên câu chèn nói về tiền đóng góp: lệ phí đăng ký. Ba câu còn lại không nói về tiền gây quỹ.",
+      "ct": "Câu sau nhắc money raised → câu chèn nói về lệ phí",
+      "dich": "Lệ phí đăng ký là 25 đô la cho người lớn và 10 đô la cho trẻ em."
+     }
     },
     {
      "o": [
@@ -2942,7 +2997,18 @@
       "frees"
      ],
      "a": "free",
-     "why": "Trước danh từ T-shirt cần tính từ: free (miễn phí)."
+     "why": "Trước danh từ T-shirt cần tính từ: free (miễn phí).",
+     "lg": {
+      "og": {
+       "free": "tính từ: miễn phí",
+       "freely": "trạng từ: một cách tự do",
+       "freedom": "danh từ: sự tự do",
+       "frees": "động từ ngôi thứ ba"
+      },
+      "ly": "Chỗ trống đứng trước danh từ T-shirt và bổ nghĩa cho nó: free T-shirt (áo thun miễn phí). freely là trạng từ, freedom là danh từ, frees là động từ chia.",
+      "ct": "a free + N = … miễn phí · register before + ngày = đăng ký trước ngày",
+      "dich": "Người đăng ký trước ngày 15 tháng 8 sẽ nhận một chiếc áo thun miễn phí."
+     }
     },
     {
      "o": [
@@ -2952,7 +3018,18 @@
       "interests"
      ],
      "a": "interested",
-     "why": "be interested in = quan tâm (tính từ -ed chỉ cảm xúc của người)."
+     "why": "be interested in = quan tâm (tính từ -ed chỉ cảm xúc của người).",
+     "lg": {
+      "og": {
+       "interested": "tính từ: quan tâm",
+       "interesting": "tính từ: thú vị",
+       "interest": "danh từ: sự quan tâm",
+       "interests": "danh từ số nhiều: sở thích"
+      },
+      "ly": "Chủ ngữ you (người) và đi với giới từ in: be interested in = quan tâm tới. interesting miêu tả điều gây thú vị, interest và interests là danh từ.",
+      "ct": "be interested in + V-ing = quan tâm tới việc … · volunteering = làm tình nguyện",
+      "dich": "Nếu bạn quan tâm đến việc làm tình nguyện, vui lòng liên hệ văn phòng sự kiện theo số 555-0170."
+     }
     },
     {
      "o": [
@@ -2963,7 +3040,18 @@
      ],
      "a": "are expecting",
      "t": "tense",
-     "why": "Nói kế hoạch, dự đoán cho năm nay (sắp diễn ra) → hiện tại tiếp diễn: are expecting."
+     "why": "Nói kế hoạch, dự đoán cho năm nay (sắp diễn ra) → hiện tại tiếp diễn: are expecting.",
+     "lg": {
+      "og": {
+       "are expecting": "hiện tại tiếp diễn: đang kỳ vọng",
+       "expecting": "V-ing",
+       "to expect": "to V",
+       "had expected": "quá khứ hoàn thành"
+      },
+      "ly": "Năm ngoái (last year's run) đã qua, còn năm nay (this year) ban tổ chức đang kỳ vọng đông hơn: hiện tại tiếp diễn chỉ dự định gần, are expecting. expecting thiếu trợ động từ, to expect thiếu chia, had expected là quá khứ.",
+      "ct": "organizers + are expecting + N = ban tổ chức đang dự kiến … · an even larger crowd = lượng người đông hơn nữa",
+      "dich": "Cuộc chạy năm ngoái thu hút hơn 1.500 người tham gia, và ban tổ chức dự kiến năm nay còn đông hơn nữa."
+     }
     }
    ]
   },
@@ -2981,7 +3069,18 @@
       "The summer season usually starts in June."
      ],
      "a": "Each room also has a new desk for business travelers.",
-     "why": "Câu trước tả phòng (nội thất, phòng tắm) → câu chèn thêm một chi tiết về phòng (bàn làm việc mới)."
+     "why": "Câu trước tả phòng (nội thất, phòng tắm) → câu chèn thêm một chi tiết về phòng (bàn làm việc mới).",
+     "lg": {
+      "og": {
+       "Each room also has a new desk for business travelers.": "Mỗi phòng còn có bàn làm việc mới cho khách đi công tác.",
+       "The hotel's summer rates will be announced in May.": "Giá mùa hè của khách sạn sẽ được công bố vào tháng 5.",
+       "Paul Dubois has worked in hotels for twenty years.": "Paul Dubois làm trong ngành khách sạn hai mươi năm.",
+       "The summer season usually starts in June.": "Mùa hè thường bắt đầu vào tháng 6."
+      },
+      "ly": "Câu trước nói phòng có đồ nội thất mới và phòng tắm lớn hơn, nên câu chèn bổ sung tiện nghi của phòng: bàn làm việc mới. Ba câu còn lại lạc sang giá, tiểu sử, mùa.",
+      "ct": "Câu chèn phải tiếp ý câu trước (nâng cấp phòng)",
+      "dich": "Mỗi phòng còn có một bàn làm việc mới dành cho khách đi công tác."
+     }
     },
     {
      "o": [
@@ -2991,7 +3090,18 @@
       "stunningly"
      ],
      "a": "stunning",
-     "why": "Trước danh từ views cần tính từ: stunning (tuyệt đẹp)."
+     "why": "Trước danh từ views cần tính từ: stunning (tuyệt đẹp).",
+     "lg": {
+      "og": {
+       "stunning": "tính từ: tuyệt đẹp",
+       "stun": "động từ: làm choáng",
+       "stunned": "V3: bị choáng",
+       "stunningly": "trạng từ: một cách tuyệt đẹp"
+      },
+      "ly": "Chỗ trống đứng trước danh từ views và bổ nghĩa cho nó: stunning views (khung cảnh tuyệt đẹp). stunningly là trạng từ, stun là động từ, stunned mô tả người bị choáng.",
+      "ct": "offer + tính từ + views of + N = có tầm nhìn … ra … · redesigned = được thiết kế lại",
+      "dich": "Nhà hàng của khách sạn cũng được thiết kế lại và nay có tầm nhìn tuyệt đẹp ra vịnh."
+     }
     },
     {
      "o": [
@@ -3001,7 +3111,18 @@
       "Otherwise"
      ],
      "a": "Therefore",
-     "why": "Khách đã kiên nhẫn → vì vậy có ưu đãi: Therefore."
+     "why": "Khách đã kiên nhẫn → vì vậy có ưu đãi: Therefore.",
+     "lg": {
+      "og": {
+       "Therefore": "trạng từ nối: vì vậy",
+       "However": "trạng từ nối: tuy nhiên",
+       "Instead": "trạng từ nối: thay vào đó",
+       "Otherwise": "trạng từ nối: nếu không thì"
+      },
+      "ly": "Khách đã rất kiên nhẫn, vì vậy khách sạn giảm giá: Therefore (nguyên nhân – kết quả). However, Instead, Otherwise không nối đúng quan hệ này.",
+      "ct": "Therefore, + mệnh đề = vì vậy · a 20 percent discount = giảm 20%",
+      "dich": "Vì vậy, chúng tôi giảm giá 20% cho mọi đặt phòng trong tháng này."
+     }
     },
     {
      "o": [
@@ -3011,7 +3132,18 @@
       "fullness"
      ],
      "a": "fully",
-     "why": "Bổ nghĩa cho booked (phân từ) cần trạng từ: fully booked."
+     "why": "Bổ nghĩa cho booked (phân từ) cần trạng từ: fully booked.",
+     "lg": {
+      "og": {
+       "fully": "trạng từ: hoàn toàn",
+       "full": "tính từ: đầy",
+       "fuller": "so sánh hơn",
+       "fullness": "danh từ: sự đầy"
+      },
+      "ly": "Sau to be và trước booked (V3) cần trạng từ bổ nghĩa: fully booked (kín chỗ). full là tính từ, fuller là so sánh, fullness là danh từ.",
+      "ct": "be fully booked = kín chỗ · throughout the summer = suốt mùa hè",
+      "dich": "Khách sạn kỳ vọng các phòng sẽ kín chỗ suốt mùa hè."
+     }
     }
    ]
   },
@@ -3029,7 +3161,18 @@
       "acceptance"
      ],
      "a": "accepted",
-     "why": "Mẫu giấy được chấp nhận (bị động): will no longer be accepted."
+     "why": "Mẫu giấy được chấp nhận (bị động): will no longer be accepted.",
+     "lg": {
+      "og": {
+       "accepted": "V3: được chấp nhận",
+       "accept": "động từ nguyên mẫu",
+       "accepting": "V-ing",
+       "acceptance": "danh từ: sự chấp nhận"
+      },
+      "ly": "Sau will no longer be cần V3 (bị động): will no longer be accepted (không còn được chấp nhận). accept thiếu bị động, accepting không đi sau be để tạo bị động, acceptance là danh từ.",
+      "ct": "will no longer be + V3 = sẽ không còn được … · paper forms = biểu mẫu giấy",
+      "dich": "Biểu mẫu giấy sẽ không còn được chấp nhận."
+     }
     },
     {
      "o": [
@@ -3039,7 +3182,18 @@
       "Each employee can now work from home on Fridays."
      ],
      "a": "Receipts must be clear enough to read.",
-     "why": "Câu trước: tải ảnh từng hoá đơn → câu chèn: ảnh hoá đơn phải đủ rõ để đọc. \"Paper forms can still be collected…\" trái với câu trước (không dùng phiếu giấy nữa)."
+     "why": "Câu trước: tải ảnh từng hoá đơn → câu chèn: ảnh hoá đơn phải đủ rõ để đọc. \"Paper forms can still be collected…\" trái với câu trước (không dùng phiếu giấy nữa).",
+     "lg": {
+      "og": {
+       "Receipts must be clear enough to read.": "Biên lai phải đủ rõ để đọc.",
+       "The finance department is on the fourth floor.": "Phòng tài chính ở tầng bốn.",
+       "Paper forms can still be collected from reception.": "Vẫn có thể lấy biểu mẫu giấy ở lễ tân.",
+       "Each employee can now work from home on Fridays.": "Mỗi nhân viên nay có thể làm việc tại nhà vào thứ Sáu."
+      },
+      "ly": "Câu trước nói chụp ảnh biên lai để tải lên, nên câu chèn dặn biên lai phải rõ. \"Vẫn lấy biểu mẫu giấy\" ngược với câu đầu, hai câu còn lại lạc đề.",
+      "ct": "Câu chèn phải tiếp ý câu trước (chụp ảnh biên lai)",
+      "dich": "Biên lai phải đủ rõ để đọc được."
+     }
     },
     {
      "o": [
@@ -3049,7 +3203,18 @@
       "until"
      ],
      "a": "after",
-     "why": "Nộp sau ngày 20 thì trả vào tháng sau → after."
+     "why": "Nộp sau ngày 20 thì trả vào tháng sau → after.",
+     "lg": {
+      "og": {
+       "after": "giới từ: sau",
+       "before": "giới từ: trước",
+       "during": "giới từ: trong suốt",
+       "until": "giới từ: cho đến khi"
+      },
+      "ly": "Câu trước: nộp trước ngày 20 thì trả cùng lương tháng đó; câu này nói hồ sơ nộp SAU ngày 20 thì trả tháng sau: after. before và until ngược nghĩa, during cần khoảng thời gian.",
+      "ct": "submitted after the 20th = nộp sau ngày 20 · the following month = tháng sau",
+      "dich": "Hồ sơ nộp sau ngày 20 sẽ được thanh toán vào tháng sau."
+     }
     },
     {
      "o": [
@@ -3059,7 +3224,18 @@
       "approve"
      ],
      "a": "contact",
-     "why": "contact the finance department = liên hệ phòng tài chính."
+     "why": "contact the finance department = liên hệ phòng tài chính.",
+     "lg": {
+      "og": {
+       "contact": "động từ: liên hệ",
+       "attach": "động từ: đính kèm",
+       "attend": "động từ: tham dự",
+       "approve": "động từ: phê duyệt"
+      },
+      "ly": "Nếu có thắc mắc thì liên hệ phòng tài chính qua số máy lẻ: contact. attach (đính kèm), attend (tham dự), approve (phê duyệt) không hợp với việc hỏi.",
+      "ct": "contact + bộ phận = liên hệ · extension 2250 = số máy lẻ 2250",
+      "dich": "Nếu có thắc mắc, vui lòng liên hệ phòng tài chính qua số máy lẻ 2250."
+     }
     }
    ]
   }

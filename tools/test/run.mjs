@@ -2102,14 +2102,14 @@ const R = await run(`(async () => {
       } catch (e) { bad.push('lỗi: ' + e.message); }
       S = S1; TR.B = {}; TR.D = {}; globalThis.C70A = { bad, opts }; }
     // v156 C71 (specs/013-dap-an-giai-thich): lời giải chi tiết lg ở 📋 Bài làm và đáp án. Mọi câu có lg: og đủ nghĩa đúng 4 phương án app hiện, ly nhắc đáp án (trừ câu chèn), có dịch;
-    //   màn xem lại hiện thẻ (nghĩa dưới mỗi phương án, 💡 Chọn (X), Vì sao, Dịch); câu chưa có lg vẫn hiện why. Mẫu (mốc dừng 1): Đề 1 Part 5 đủ 30 câu
+    //   màn xem lại hiện thẻ (nghĩa dưới mỗi phương án, 💡 Chọn (X), Vì sao, Dịch); câu chưa có lg vẫn hiện why. Part 5 của cả 8 đề đủ 30 câu (240)
     { const bad = [], S1 = S; let nlg = 0;
       try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad();
         for (const d of TO.tron) { if (d.f && !(await trLoad(d.id))) { bad.push(d.id + ': không tải được'); continue; }
           for (const q of trB(d.id).Q) { const lg = q.lg; if (!lg) continue; nlg++; const ks = Object.keys(lg.og || {}), ins = q.sec === 'p6' && q.gt === 'insert';
             if (ks.length !== 4 || q.opts.some(o => !lg.og[o])) bad.push(d.id + ' câu ' + q.n + ': og không khớp 4 phương án');
             if (!lg.ly || !lg.dich || (!ins && !lg.ly.toLowerCase().includes(String(q.a).toLowerCase()))) bad.push(d.id + ' câu ' + q.n + ': thiếu ly / dich hoặc ly không nhắc đáp án'); } }
-        const Q5 = trB('de1').Q.filter(q => q.sec === 'p5'); if (Q5.length !== 30 || Q5.some(q => !q.lg)) bad.push('Đề 1 Part 5 chưa đủ lời giải: ' + Q5.filter(q => q.lg).length + '/30');
+        for (const d of TO.tron) { const Q5 = trB(d.id).Q.filter(q => q.sec === 'p5'); if (Q5.length !== 30 || Q5.some(q => !q.lg)) bad.push(d.id + ' Part 5 chưa đủ lời giải: ' + Q5.filter(q => q.lg).length + '/30'); }
         trStart('de1'); const st = trSt(); for (const q of trB('de1').Q) st.ans[q.n] = q.opts.find(o => o !== q.a); st.ph = 'R'; st.rAt = Date.now(); trSubmit(false); await trSheet('de1', null);
         trRv('de1', 103); let h = String($app.innerHTML); const q = trB('de1').Q[102];
         if ((h.match(/class="rvog"/g) || []).length !== 4 || !h.includes('💡 Chọn (' + 'ABCD'[q.opts.indexOf(q.a)] + ')') || !h.includes('Vì sao:') || !h.includes('Dịch:') || !h.includes('✗ Bạn chọn')) bad.push('thẻ lời giải câu 103 thiếu phần');

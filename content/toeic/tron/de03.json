@@ -2906,7 +2906,18 @@
      ],
      "a": "will be placed",
      "t": "tense",
-     "why": "Thùng được đặt trước khi chương trình bắt đầu (before the program begins, từ thứ Hai tới) → việc ở tương lai, bị động: will be placed."
+     "why": "Thùng được đặt trước khi chương trình bắt đầu (before the program begins, từ thứ Hai tới) → việc ở tương lai, bị động: will be placed.",
+     "lg": {
+      "og": {
+       "will be placed": "tương lai bị động: sẽ được đặt",
+       "were placed": "quá khứ bị động",
+       "have placed": "hiện tại hoàn thành chủ động",
+       "placing": "V-ing"
+      },
+      "ly": "Thùng rác là vật được đặt (bị động), và chương trình bắt đầu từ thứ Hai tuần sau (starting next Monday): will be placed. were placed là quá khứ, have placed là chủ động, placing thiếu trợ động từ.",
+      "ct": "will be + V3 = sẽ được … · before the program begins = trước khi chương trình bắt đầu",
+      "dich": "Thùng xanh cho giấy và thùng xanh lá cho nhựa sẽ được đặt ở bếp mỗi tầng trước khi chương trình bắt đầu."
+     }
     },
     {
      "o": [
@@ -2916,7 +2927,18 @@
       "Blue is the official color of our company."
      ],
      "a": "Food waste should go in the brown container by the sink.",
-     "why": "Câu trước nói không bỏ rác thức ăn vào hai thùng → câu chèn cho biết bỏ rác thức ăn ở đâu."
+     "why": "Câu trước nói không bỏ rác thức ăn vào hai thùng → câu chèn cho biết bỏ rác thức ăn ở đâu.",
+     "lg": {
+      "og": {
+       "Food waste should go in the brown container by the sink.": "Rác thức ăn nên bỏ vào thùng nâu cạnh bồn rửa.",
+       "The kitchen on each floor will be renovated next year.": "Bếp mỗi tầng sẽ được cải tạo vào năm sau.",
+       "Our office moved to this building in 2019.": "Văn phòng chuyển đến toà nhà này năm 2019.",
+       "Blue is the official color of our company.": "Xanh dương là màu chính thức của công ty."
+      },
+      "ly": "Câu trước dặn không bỏ rác thức ăn vào thùng, nên câu chèn chỉ nơi bỏ rác thức ăn. Ba câu còn lại lạc đề (cải tạo bếp, lịch sử văn phòng, màu công ty).",
+      "ct": "Câu chèn phải tiếp ý câu trước",
+      "dich": "Rác thức ăn nên bỏ vào thùng nâu cạnh bồn rửa."
+     }
     },
     {
      "o": [
@@ -2926,7 +2948,18 @@
       "Similarly"
      ],
      "a": "However",
-     "why": "Câu trước dặn không để rác tái chế chỗ khác; câu sau cho phép để cạnh thùng khi thùng đầy ban ngày → ngoại lệ, ý ngược: However."
+     "why": "Câu trước dặn không để rác tái chế chỗ khác; câu sau cho phép để cạnh thùng khi thùng đầy ban ngày → ngoại lệ, ý ngược: However.",
+     "lg": {
+      "og": {
+       "However": "trạng từ nối: tuy nhiên",
+       "Therefore": "trạng từ nối: vì vậy",
+       "For example": "cụm nối: ví dụ",
+       "Similarly": "trạng từ nối: tương tự"
+      },
+      "ly": "Câu trước nói không để rác ở nơi khác, câu này nêu ngoại lệ (thùng đầy thì để cạnh thùng): ý tương phản nên dùng However. Therefore, For example, Similarly không nêu ngoại lệ.",
+      "ct": "However, + mệnh đề = tuy nhiên · leave items next to the bin = để đồ cạnh thùng",
+      "dich": "Tuy nhiên, nếu thùng đã đầy trong ngày, bạn có thể để đồ cạnh thùng."
+     }
     },
     {
      "o": [
@@ -2936,7 +2969,18 @@
       "cooperatively"
      ],
      "a": "cooperation",
-     "why": "Sau tính từ sở hữu your cần danh từ: cooperation."
+     "why": "Sau tính từ sở hữu your cần danh từ: cooperation.",
+     "lg": {
+      "og": {
+       "cooperation": "danh từ: sự hợp tác",
+       "cooperate": "động từ: hợp tác",
+       "cooperative": "tính từ: hợp tác",
+       "cooperatively": "trạng từ: một cách hợp tác"
+      },
+      "ly": "Sau tính từ sở hữu your cần danh từ: cooperation (sự hợp tác của các bạn). cooperate là động từ, cooperative là tính từ, cooperatively là trạng từ.",
+      "ct": "appreciate your + N = cảm kích sự … của bạn · environmentally friendly = thân thiện với môi trường",
+      "dich": "Chúng tôi cảm kích sự hợp tác của các bạn trong việc làm cho nơi làm việc thân thiện hơn với môi trường."
+     }
     }
    ]
   },
@@ -2954,7 +2998,18 @@
       "describe"
      ],
      "a": "extend",
-     "why": "Mở cửa sớm hơn, thêm một giờ mỗi sáng → kéo dài giờ mở cửa: extend."
+     "why": "Mở cửa sớm hơn, thêm một giờ mỗi sáng → kéo dài giờ mở cửa: extend.",
+     "lg": {
+      "og": {
+       "extend": "động từ: kéo dài, mở rộng",
+       "shorten": "động từ: rút ngắn",
+       "cancel": "động từ: huỷ",
+       "describe": "động từ: mô tả"
+      },
+      "ly": "Thư viện mở cửa sớm hơn một giờ (8 giờ thay vì 9 giờ), tức là kéo dài giờ mở cửa: extend. shorten (rút ngắn) và cancel (huỷ) ngược nghĩa, describe không hợp.",
+      "ct": "extend its opening hours = kéo dài giờ mở cửa · beginning + ngày = bắt đầu từ ngày",
+      "dich": "Bắt đầu từ ngày 1 tháng 4, Thư viện Công cộng Riverside sẽ kéo dài giờ mở cửa vào các ngày trong tuần."
+     }
     },
     {
      "o": [
@@ -2964,7 +3019,18 @@
       "The survey was sent to visitors by e-mail."
      ],
      "a": "Closing time on weekdays will not change.",
-     "why": "Câu trước nói giờ mở cửa ngày thường; câu chèn nói giờ đóng cửa ngày thường không đổi, rồi mới tới giờ cuối tuần."
+     "why": "Câu trước nói giờ mở cửa ngày thường; câu chèn nói giờ đóng cửa ngày thường không đổi, rồi mới tới giờ cuối tuần.",
+     "lg": {
+      "og": {
+       "Closing time on weekdays will not change.": "Giờ đóng cửa các ngày trong tuần sẽ không đổi.",
+       "The library building is more than fifty years old.": "Toà nhà thư viện hơn năm mươi tuổi.",
+       "Visitors can borrow up to ten books at a time.": "Khách mượn tối đa mười cuốn một lần.",
+       "The survey was sent to visitors by e-mail.": "Khảo sát được gửi tới khách qua e-mail."
+      },
+      "ly": "Câu trước nói giờ mở cửa sớm hơn, câu sau nói giờ cuối tuần không đổi: câu chèn bổ sung về giờ đóng cửa. Các câu còn lại không liên quan tới giờ mở cửa.",
+      "ct": "Câu chèn phải nằm trong cùng chủ đề (giờ mở cửa)",
+      "dich": "Giờ đóng cửa các ngày trong tuần sẽ không thay đổi."
+     }
     },
     {
      "o": [
@@ -2974,7 +3040,18 @@
       "used"
      ],
      "a": "users",
-     "why": "Câu sau có Many of them said… → cần danh từ chỉ người: library users."
+     "why": "Câu sau có Many of them said… → cần danh từ chỉ người: library users.",
+     "lg": {
+      "og": {
+       "users": "danh từ số nhiều: người dùng",
+       "use": "danh từ / động từ: sử dụng",
+       "useful": "tính từ: hữu ích",
+       "used": "V3 / tính từ: đã dùng"
+      },
+      "ly": "Sau of library cần danh từ chỉ người: library users (người dùng thư viện), và câu sau có \"Many of them\" (nhiều người trong số họ). use, useful, used không chỉ người.",
+      "ct": "a survey of + người = khảo sát … · in response to = đáp lại",
+      "dich": "Những thay đổi này được thực hiện để đáp lại khảo sát với người dùng thư viện."
+     }
     },
     {
      "o": [
@@ -2984,7 +3061,18 @@
       "Nevertheless"
      ],
      "a": "In addition",
-     "why": "Thêm một thay đổi nữa (thêm bàn học) → In addition."
+     "why": "Thêm một thay đổi nữa (thêm bàn học) → In addition.",
+     "lg": {
+      "og": {
+       "In addition": "cụm nối: ngoài ra",
+       "Instead": "trạng từ nối: thay vào đó",
+       "Otherwise": "trạng từ nối: nếu không thì",
+       "Nevertheless": "trạng từ nối: tuy nhiên"
+      },
+      "ly": "Câu này thêm một biện pháp nữa (thêm bàn học) ngoài việc mở cửa sớm: In addition = ngoài ra. Instead, Otherwise, Nevertheless dùng cho phủ định hoặc đối lập.",
+      "ct": "In addition, + mệnh đề = ngoài ra · study tables = bàn học",
+      "dich": "Ngoài ra, thư viện sẽ bổ sung thêm bàn học ở tầng hai."
+     }
     }
    ]
   },
@@ -3003,7 +3091,18 @@
      ],
      "a": "will receive",
      "t": "tense",
-     "why": "Việc lắp thảm sắp diễn ra (during the first week of June, trước hội nghị 8/6) → tương lai: will receive."
+     "why": "Việc lắp thảm sắp diễn ra (during the first week of June, trước hội nghị 8/6) → tương lai: will receive.",
+     "lg": {
+      "og": {
+       "will receive": "tương lai đơn: sẽ được lắp",
+       "received": "quá khứ đơn",
+       "has received": "hiện tại hoàn thành",
+       "receiving": "V-ing"
+      },
+      "ly": "Phòng sẽ được lắp thảm mới trong tuần đầu tháng 6, trước hội nghị (June 8): tương lai will receive. received, has received là thì quá khứ / hoàn thành, receiving thiếu trợ động từ.",
+      "ct": "Thì theo ngữ cảnh: during the first week of June (sắp tới) → tương lai",
+      "dich": "Chúng tôi viết thư để báo rằng phòng Lakeview mà bạn đã đặt sẽ được lắp thảm mới trong tuần đầu tháng 6."
+     }
     },
     {
      "o": [
@@ -3013,7 +3112,18 @@
       "Carpet samples are available at the front desk."
      ],
      "a": "The work may not be finished in time for your conference.",
-     "why": "Câu trước: phòng sẽ lắp thảm mới; câu chèn: có thể chưa xong kịp hội nghị → vì vậy (therefore) chuyển sang phòng khác."
+     "why": "Câu trước: phòng sẽ lắp thảm mới; câu chèn: có thể chưa xong kịp hội nghị → vì vậy (therefore) chuyển sang phòng khác.",
+     "lg": {
+      "og": {
+       "The work may not be finished in time for your conference.": "Công việc có thể không xong kịp cho hội nghị của bạn.",
+       "The hotel restaurant serves breakfast from 6:30 A.M.": "Nhà hàng khách sạn phục vụ bữa sáng từ 6:30.",
+       "Your sales conference was a great success last year.": "Hội nghị bán hàng của bạn năm ngoái rất thành công.",
+       "Carpet samples are available at the front desk.": "Có mẫu thảm tại quầy lễ tân."
+      },
+      "ly": "Câu sau bắt đầu bằng \"We would therefore like to move your event\" (vì vậy muốn chuyển sự kiện), nên câu chèn nêu lý do: công việc có thể không xong kịp. Ba câu còn lại không dẫn tới việc chuyển phòng.",
+      "ct": "therefore ở câu sau → câu chèn phải là nguyên nhân",
+      "dich": "Công việc có thể sẽ không xong kịp cho hội nghị của bạn."
+     }
     },
     {
      "o": [
@@ -3023,7 +3133,18 @@
       "beautify"
      ],
      "a": "beautiful",
-     "why": "Trước danh từ view cần tính từ: a beautiful view."
+     "why": "Trước danh từ view cần tính từ: a beautiful view.",
+     "lg": {
+      "og": {
+       "beautiful": "tính từ: đẹp",
+       "beautifully": "trạng từ: một cách đẹp",
+       "beauty": "danh từ: vẻ đẹp",
+       "beautify": "động từ: làm đẹp"
+      },
+      "ly": "Sau a và trước danh từ view cần tính từ: a beautiful view (tầm nhìn đẹp). beautifully là trạng từ, beauty là danh từ, beautify là động từ.",
+      "ct": "a + tính từ + view of + N = tầm nhìn … ra … · slightly larger = rộng hơn một chút",
+      "dich": "Phòng Garden rộng hơn một chút và có tầm nhìn đẹp ra công viên của chúng tôi."
+     }
     },
     {
      "o": [
@@ -3033,7 +3154,18 @@
       "disruptively"
      ],
      "a": "disruption",
-     "why": "apologize for any + danh từ: disruption (sự xáo trộn)."
+     "why": "apologize for any + danh từ: disruption (sự xáo trộn).",
+     "lg": {
+      "og": {
+       "disruption": "danh từ: sự gián đoạn",
+       "disrupt": "động từ: làm gián đoạn",
+       "disruptive": "tính từ: gây gián đoạn",
+       "disruptively": "trạng từ"
+      },
+      "ly": "Sau any cần danh từ làm tân ngữ của apologize for: disruption (sự gián đoạn). disrupt là động từ, disruptive là tính từ, disruptively là trạng từ.",
+      "ct": "apologize for any + N = xin lỗi vì mọi … · look forward to + V-ing = mong được …",
+      "dich": "Chúng tôi xin lỗi vì mọi gián đoạn việc này có thể gây ra và mong được đón nhóm của bạn."
+     }
     }
    ]
   },
@@ -3052,7 +3184,18 @@
      ],
      "a": "opened",
      "t": "tense",
-     "why": "Có last week → quá khứ đơn: opened."
+     "why": "Có last week → quá khứ đơn: opened.",
+     "lg": {
+      "og": {
+       "opened": "quá khứ đơn: đã khai trương",
+       "opens": "hiện tại đơn",
+       "will open": "tương lai đơn",
+       "has been opening": "hiện tại hoàn thành tiếp diễn"
+      },
+      "ly": "Dấu hiệu \"last week\" (tuần trước) chỉ quá khứ: opened. opens, will open, has been opening không đi với last week.",
+      "ct": "last week → quá khứ đơn · distribution center = trung tâm phân phối",
+      "dich": "Greenway Foods đã khai trương một trung tâm phân phối mới ở Milton vào tuần trước."
+     }
     },
     {
      "o": [
@@ -3062,7 +3205,18 @@
       "Fresh produce is popular with local residents."
      ],
      "a": "Deliveries that once took two days will now arrive overnight.",
-     "why": "Câu trước: giao hàng nhanh hơn → câu chèn nêu cụ thể (hai ngày còn một đêm)."
+     "why": "Câu trước: giao hàng nhanh hơn → câu chèn nêu cụ thể (hai ngày còn một đêm).",
+     "lg": {
+      "og": {
+       "Deliveries that once took two days will now arrive overnight.": "Hàng giao từng mất hai ngày nay sẽ tới qua đêm.",
+       "Greenway Foods was founded by Laura Mendes's father.": "Greenway Foods do cha của Laura Mendes sáng lập.",
+       "Milton is known for its historic town center.": "Milton nổi tiếng với khu trung tâm lịch sử.",
+       "Fresh produce is popular with local residents.": "Nông sản tươi được cư dân địa phương ưa chuộng."
+      },
+      "ly": "Câu trước nói trung tâm giúp giao nông sản nhanh hơn, nên câu chèn nêu cụ thể mức nhanh hơn: từ hai ngày xuống qua đêm. Ba câu còn lại không tiếp ý giao hàng nhanh.",
+      "ct": "Câu chèn phải tiếp ý câu trước (giao nhanh hơn)",
+      "dich": "Hàng giao trước đây mất hai ngày nay sẽ đến trong một đêm."
+     }
     },
     {
      "o": [
@@ -3072,7 +3226,18 @@
       "to train"
      ],
      "a": "training",
-     "why": "a training program = chương trình đào tạo (danh từ ghép)."
+     "why": "a training program = chương trình đào tạo (danh từ ghép).",
+     "lg": {
+      "og": {
+       "training": "danh từ: việc đào tạo",
+       "trains": "động từ ngôi thứ ba / danh từ số nhiều",
+       "trained": "V3: được đào tạo",
+       "to train": "to V"
+      },
+      "ly": "Chỗ trống đứng trước danh từ program và bổ nghĩa cho nó: training program (chương trình đào tạo). Đây là danh từ ghép, nên dùng training; trains, trained, to train không tạo danh từ ghép đúng.",
+      "ct": "training program = chương trình đào tạo · warehouse workers = công nhân kho",
+      "dich": "Phần lớn vị trí sẽ do cư dân địa phương đảm nhận, và công ty dự định bắt đầu chương trình đào tạo cho công nhân kho vào mùa thu này."
+     }
     },
     {
      "o": [
@@ -3082,7 +3247,18 @@
       "supplying"
      ],
      "a": "supplies",
-     "why": "Chủ ngữ là tên một công ty (số ít) + currently → hiện tại đơn ngôi ba số ít: supplies."
+     "why": "Chủ ngữ là tên một công ty (số ít) + currently → hiện tại đơn ngôi ba số ít: supplies.",
+     "lg": {
+      "og": {
+       "supplies": "động từ hiện tại đơn: cung cấp",
+       "supply": "động từ nguyên mẫu / danh từ",
+       "is supplied": "hiện tại bị động",
+       "supplying": "V-ing"
+      },
+      "ly": "Chủ ngữ Greenway Foods số ít và có currently (hiện tại) cùng tân ngữ more than 150 supermarkets: supplies (hiện cung cấp cho hơn 150 siêu thị). supply thiếu -s, is supplied là bị động, supplying thiếu trợ động từ.",
+      "ct": "currently + hiện tại đơn = hiện đang … · supply + N = cung cấp cho …",
+      "dich": "Greenway Foods hiện cung cấp hàng cho hơn 150 siêu thị ở ba bang."
+     }
     }
    ]
   }

@@ -2064,7 +2064,18 @@
     "persuasively"
    ],
    "a": "persuasive",
-   "why": "find + tân ngữ + (highly) + tính từ: found the proposal highly persuasive."
+   "why": "find + tân ngữ + (highly) + tính từ: found the proposal highly persuasive.",
+   "lg": {
+    "og": {
+     "persuade": "động từ: thuyết phục",
+     "persuasive": "tính từ: thuyết phục",
+     "persuasion": "danh từ: sự thuyết phục",
+     "persuasively": "trạng từ: một cách thuyết phục"
+    },
+    "ly": "Cấu trúc find + tân ngữ + tính từ: found the proposal highly persuasive; trạng từ highly bổ nghĩa cho tính từ. persuasively là trạng từ, persuasion là danh từ, persuade là động từ.",
+    "ct": "find + N + (highly) + tính từ = thấy … rất … · approve the budget = phê duyệt ngân sách",
+    "dich": "Ủy ban thấy đề xuất rất thuyết phục nên phê duyệt ngân sách ngay."
+   }
   },
   {
    "id": "d07-p5-02",
@@ -2077,7 +2088,18 @@
     "has sent"
    ],
    "a": "will be sent",
-   "why": "Bảng giá được gửi (bị động) vào thứ Hai tới (next Monday) → tương lai bị động: will be sent."
+   "why": "Bảng giá được gửi (bị động) vào thứ Hai tới (next Monday) → tương lai bị động: will be sent.",
+   "lg": {
+    "og": {
+     "sent": "V3 / quá khứ",
+     "will be sent": "tương lai bị động: sẽ được gửi",
+     "is sending": "hiện tại tiếp diễn chủ động",
+     "has sent": "hiện tại hoàn thành chủ động"
+    },
+    "ly": "Bảng giá là vật được gửi (bị động) và next Monday là tương lai: will be sent. is sending và has sent là chủ động, sent thiếu be.",
+    "ct": "will be + V3 = sẽ được … · distributor = nhà phân phối",
+    "dich": "Bảng giá cập nhật sẽ được gửi tới tất cả nhà phân phối vào thứ Hai tuần sau."
+   }
   },
   {
    "id": "d07-p5-03",
@@ -2090,7 +2112,18 @@
     "eased"
    ],
    "a": "easily",
-   "why": "Bổ nghĩa cho động từ share cần trạng từ: easily."
+   "why": "Bổ nghĩa cho động từ share cần trạng từ: easily.",
+   "lg": {
+    "og": {
+     "easy": "tính từ: dễ",
+     "easily": "trạng từ: một cách dễ dàng",
+     "ease": "danh từ: sự dễ dàng",
+     "eased": "V3: làm dịu"
+    },
+    "ly": "Sau động từ share cần trạng từ bổ nghĩa cho cách chia sẻ: easily. easy là tính từ, ease là danh từ, eased là động từ chia.",
+    "ct": "share files easily with + người = chia sẻ tệp dễ dàng với … · allow + O + to V",
+    "dich": "Phần mềm mới cho phép người dùng chia sẻ tệp dễ dàng với đồng nghiệp ở các văn phòng khác."
+   }
   },
   {
    "id": "d07-p5-04",
@@ -2103,7 +2136,18 @@
     "until"
    ],
    "a": "inside",
-   "why": "inside + nơi chốn = bên trong các phòng trưng bày → inside."
+   "why": "inside + nơi chốn = bên trong các phòng trưng bày → inside.",
+   "lg": {
+    "og": {
+     "inside": "giới từ: bên trong",
+     "onto": "giới từ: lên trên",
+     "toward": "giới từ: về phía",
+     "until": "giới từ: cho đến khi"
+    },
+    "ly": "Cấm chụp ảnh ở bên trong các phòng trưng bày: inside. onto chỉ chuyển lên bề mặt, toward chỉ hướng, until là thời gian.",
+    "ct": "inside + nơi = bên trong · be not allowed to + V = không được phép",
+    "dich": "Khách tham quan không được chụp ảnh bên trong các phòng trưng bày."
+   }
   },
   {
    "id": "d07-p5-05",
@@ -2116,7 +2160,18 @@
     "will complete"
    ],
    "a": "had completed",
-   "why": "By the time + quá khứ đơn (arrived) → việc xong trước đó: quá khứ hoàn thành had completed."
+   "why": "By the time + quá khứ đơn (arrived) → việc xong trước đó: quá khứ hoàn thành had completed.",
+   "lg": {
+    "og": {
+     "completes": "hiện tại đơn",
+     "has completed": "hiện tại hoàn thành",
+     "had completed": "quá khứ hoàn thành",
+     "will complete": "tương lai đơn"
+    },
+    "ly": "By the time + quá khứ đơn (arrived): việc hoàn thành báo cáo xảy ra trước mốc đó, nên dùng quá khứ hoàn thành had completed. Ba thì còn lại không hợp mốc quá khứ.",
+    "ct": "By the time + quá khứ đơn, S + had + V3 = khi … thì đã … · annual report = báo cáo thường niên",
+    "dich": "Khi quản lý mới đến, nhóm đã hoàn thành phần lớn báo cáo thường niên."
+   }
   },
   {
    "id": "d07-p5-06",
@@ -2129,7 +2184,18 @@
     "promoted"
    ],
    "a": "promotion",
-   "why": "Sau the và trước of cần danh từ: promotion."
+   "why": "Sau the và trước of cần danh từ: promotion.",
+   "lg": {
+    "og": {
+     "promote": "động từ: quảng bá, thăng chức",
+     "promotional": "tính từ: mang tính quảng bá",
+     "promotion": "danh từ: việc quảng bá",
+     "promoted": "V3: được quảng bá"
+    },
+    "ly": "Sau the và trước of cần danh từ: the promotion of the new product line (việc quảng bá dòng sản phẩm mới). promote là động từ, promotional là tính từ, promoted là phân từ.",
+    "ct": "be responsible for + N = chịu trách nhiệm về … · product line = dòng sản phẩm",
+    "dich": "Nhóm tiếp thị chịu trách nhiệm quảng bá dòng sản phẩm mới."
+   }
   },
   {
    "id": "d07-p5-07",
@@ -2142,7 +2208,18 @@
     "in"
    ],
    "a": "to",
-   "why": "send something to + nơi nhận → to."
+   "why": "send something to + nơi nhận → to.",
+   "lg": {
+    "og": {
+     "to": "giới từ: tới",
+     "at": "giới từ: tại",
+     "by": "giới từ: bởi, bên cạnh",
+     "in": "giới từ: trong"
+    },
+    "ly": "Gửi cho người nhận hoặc nơi nhận dùng send + vật + to + nơi nhận: to the human resources department. at, by, in không dùng sau send theo nghĩa này.",
+    "ct": "send + N + to + nơi / người nhận · human resources department = phòng nhân sự",
+    "dich": "Vui lòng gửi đơn đăng ký của bạn tới phòng nhân sự."
+   }
   },
   {
    "id": "d07-p5-08",
@@ -2155,7 +2232,18 @@
     "arriving"
    ],
    "a": "arrives",
-   "why": "Câu điều kiện loại 1: If + hiện tại đơn (arrives), will + V."
+   "why": "Câu điều kiện loại 1: If + hiện tại đơn (arrives), will + V.",
+   "lg": {
+    "og": {
+     "arrives": "hiện tại đơn",
+     "arrived": "quá khứ đơn",
+     "will arrive": "tương lai đơn",
+     "arriving": "V-ing"
+    },
+    "ly": "Câu điều kiện loại 1 (mệnh đề chính có will look): mệnh đề If dùng hiện tại đơn, chủ ngữ the shipment số ít nên chọn arrives. will arrive không đứng sau If, arrived là quá khứ.",
+    "ct": "If + hiện tại đơn, S + will + V · look for = tìm kiếm",
+    "dich": "Nếu lô hàng lại đến muộn, chúng tôi sẽ tìm một nhà cung cấp mới."
+   }
   },
   {
    "id": "d07-p5-09",
@@ -2168,7 +2256,18 @@
     "width"
    ],
    "a": "widely",
-   "why": "Bổ nghĩa cho tính từ available cần trạng từ: widely available (bán rộng rãi)."
+   "why": "Bổ nghĩa cho tính từ available cần trạng từ: widely available (bán rộng rãi).",
+   "lg": {
+    "og": {
+     "wide": "tính từ: rộng",
+     "widely": "trạng từ: rộng rãi",
+     "widen": "động từ: mở rộng",
+     "width": "danh từ: chiều rộng"
+    },
+    "ly": "Chỗ trống đứng trước tính từ available và bổ nghĩa cho nó: widely available (bán rộng rãi). wide là tính từ, widen là động từ, width là danh từ.",
+    "ct": "widely available = có bán rộng rãi · be available in stores = có bán ở cửa hàng",
+    "dich": "Điện thoại thông minh mới sẽ được bán rộng rãi tại các cửa hàng vào tháng tới."
+   }
   },
   {
    "id": "d07-p5-10",
@@ -2181,7 +2280,18 @@
     "himself"
    ],
    "a": "his",
-   "why": "Trước danh từ team cần tính từ sở hữu: his."
+   "why": "Trước danh từ team cần tính từ sở hữu: his.",
+   "lg": {
+    "og": {
+     "he": "đại từ chủ ngữ",
+     "his": "tính từ sở hữu: của ông ấy",
+     "him": "đại từ tân ngữ",
+     "himself": "đại từ phản thân"
+    },
+    "ly": "Trước danh từ team cần tính từ sở hữu: his team (nhóm của ông). he là chủ ngữ, him là tân ngữ, himself là phản thân.",
+    "ct": "A and + tính từ sở hữu + N = A và nhóm của … · present the quarterly results = trình bày kết quả quý",
+    "dich": "Ông Hughes và nhóm của ông sẽ trình bày kết quả quý vào thứ Sáu."
+   }
   },
   {
    "id": "d07-p5-11",
@@ -2194,7 +2304,18 @@
     "consideration"
    ],
    "a": "considerable",
-   "why": "Trước danh từ experience cần tính từ: considerable (đáng kể)."
+   "why": "Trước danh từ experience cần tính từ: considerable (đáng kể).",
+   "lg": {
+    "og": {
+     "consider": "động từ: cân nhắc",
+     "considerable": "tính từ: đáng kể",
+     "considerably": "trạng từ: đáng kể",
+     "consideration": "danh từ: sự cân nhắc"
+    },
+    "ly": "Trước danh từ experience cần tính từ: considerable experience (kinh nghiệm đáng kể). considerably là trạng từ, consideration là danh từ, consider là động từ.",
+    "ct": "considerable + N = … đáng kể · project management = quản lý dự án",
+    "dich": "Ứng viên nên có kinh nghiệm đáng kể trong quản lý dự án."
+   }
   },
   {
    "id": "d07-p5-12",
@@ -2207,7 +2328,18 @@
     "along"
    ],
    "a": "between",
-   "why": "between A and B = ở giữa hai nơi → between. among dùng cho từ ba người / vật trở lên."
+   "why": "between A and B = ở giữa hai nơi → between. among dùng cho từ ba người / vật trở lên.",
+   "lg": {
+    "og": {
+     "between": "giới từ: ở giữa hai nơi",
+     "among": "giới từ: ở giữa nhiều đối tượng",
+     "through": "giới từ: xuyên qua",
+     "along": "giới từ: dọc theo"
+    },
+    "ly": "Hai nơi nối bằng and (the copy room and the kitchen): between A and B. among dùng cho từ ba nơi trở lên; through và along không đi với and.",
+    "ct": "between A and B = ở giữa A và B · staff lounge = phòng nghỉ nhân viên",
+    "dich": "Phòng nghỉ của nhân viên nằm giữa phòng sao chụp và nhà bếp."
+   }
   },
   {
    "id": "d07-p5-13",
@@ -2220,7 +2352,18 @@
     "Several"
    ],
    "a": "Each",
-   "why": "applicant số ít, động từ will receive → Each. All, Both, Several cần danh từ số nhiều."
+   "why": "applicant số ít, động từ will receive → Each. All, Both, Several cần danh từ số nhiều.",
+   "lg": {
+    "og": {
+     "Each": "từ hạn định: mỗi (+ số ít)",
+     "All": "từ hạn định: tất cả (+ số nhiều)",
+     "Both": "từ hạn định: cả hai (+ số nhiều)",
+     "Several": "từ hạn định: vài (+ số nhiều)"
+    },
+    "ly": "applicant là danh từ số ít (động từ will receive không đổi theo số), nên chọn Each. All, Both, Several cần danh từ số nhiều.",
+    "ct": "Each + N số ít · confirm the interview time = xác nhận giờ phỏng vấn",
+    "dich": "Mỗi ứng viên sẽ nhận một e-mail xác nhận giờ phỏng vấn."
+   }
   },
   {
    "id": "d07-p5-14",
@@ -2233,7 +2376,18 @@
     "opened"
    ],
    "a": "opening",
-   "why": "consider + V-ing → opening."
+   "why": "consider + V-ing → opening.",
+   "lg": {
+    "og": {
+     "open": "động từ nguyên mẫu",
+     "opening": "V-ing: việc mở",
+     "to open": "to V",
+     "opened": "V3 / quá khứ"
+    },
+    "ly": "Sau consider (cân nhắc) dùng V-ing: considering opening. Không dùng nguyên mẫu hay to V sau consider.",
+    "ct": "consider + V-ing = cân nhắc làm gì · board of directors = hội đồng quản trị",
+    "dich": "Hội đồng quản trị đang cân nhắc mở nhà máy thứ hai trong khu vực."
+   }
   },
   {
    "id": "d07-p5-15",
@@ -2246,7 +2400,18 @@
     "as if"
    ],
    "a": "as long as",
-   "why": "as long as = miễn là (điều kiện). so that chỉ mục đích, even though là mặc dù, as if là như thể."
+   "why": "as long as = miễn là (điều kiện). so that chỉ mục đích, even though là mặc dù, as if là như thể.",
+   "lg": {
+    "og": {
+     "as long as": "liên từ: miễn là (điều kiện)",
+     "so that": "liên từ: để",
+     "even though": "liên từ: mặc dù",
+     "as if": "liên từ: như thể"
+    },
+    "ly": "Nhân viên được về sớm miễn là đã làm xong báo cáo tuần: as long as (điều kiện). so that chỉ mục đích, even though chỉ nhượng bộ, as if là so sánh giả định.",
+    "ct": "S + V + as long as + mệnh đề = … miễn là … · weekly report = báo cáo tuần",
+    "dich": "Nhân viên có thể về sớm vào thứ Sáu miễn là đã hoàn thành báo cáo tuần."
+   }
   },
   {
    "id": "d07-p5-16",
@@ -2259,7 +2424,18 @@
     "herself"
    ],
    "a": "herself",
-   "why": "Tự mình làm (không có trợ lý) → đại từ phản thân nhấn mạnh: herself."
+   "why": "Tự mình làm (không có trợ lý) → đại từ phản thân nhấn mạnh: herself.",
+   "lg": {
+    "og": {
+     "she": "đại từ chủ ngữ",
+     "her": "đại từ tân ngữ / tính từ sở hữu",
+     "hers": "đại từ sở hữu",
+     "herself": "đại từ phản thân: chính cô ấy"
+    },
+    "ly": "\"Because her assistant was on vacation\" cho thấy cô tự làm: đại từ phản thân nhấn mạnh herself. she, her, hers không đứng ở vị trí này.",
+    "ct": "S + V + O + herself = tự mình làm · be on vacation = đang đi nghỉ",
+    "dich": "Cô Novak đã tự mình chuẩn bị các trang thuyết trình vì trợ lý của cô đang đi nghỉ."
+   }
   },
   {
    "id": "d07-p5-17",
@@ -2272,7 +2448,18 @@
     "at"
    ],
    "a": "in",
-   "why": "in writing = bằng văn bản (cụm cố định) → in."
+   "why": "in writing = bằng văn bản (cụm cố định) → in.",
+   "lg": {
+    "og": {
+     "in": "giới từ: bằng (in writing)",
+     "on": "giới từ: trên",
+     "by": "giới từ: bởi",
+     "at": "giới từ: tại"
+    },
+    "ly": "Cụm cố định là in writing = bằng văn bản. on, by, at không tạo cụm đúng với writing.",
+    "ct": "in writing = bằng văn bản · be submitted = được nộp",
+    "dich": "Yêu cầu làm việc tại nhà phải được nộp bằng văn bản."
+   }
   },
   {
    "id": "d07-p5-18",
@@ -2285,7 +2472,18 @@
     "few"
    ],
    "a": "less",
-   "why": "ink không đếm được, có than → so sánh hơn: less. fewer, few đi với danh từ đếm được."
+   "why": "ink không đếm được, có than → so sánh hơn: less. fewer, few đi với danh từ đếm được.",
+   "lg": {
+    "og": {
+     "less": "từ chỉ lượng: ít hơn (không đếm được)",
+     "fewer": "từ chỉ lượng: ít hơn (đếm được)",
+     "little": "từ chỉ lượng: ít (không đếm được)",
+     "few": "từ chỉ lượng: ít (đếm được)"
+    },
+    "ly": "ink không đếm được, và than yêu cầu so sánh hơn: less ink than. fewer và few đi với danh từ đếm được; little không đi với than.",
+    "ct": "less + N không đếm được + than = ít … hơn · cheaper to run = rẻ hơn khi vận hành",
+    "dich": "Máy in mới dùng ít mực hơn máy cũ nên rẻ hơn khi vận hành."
+   }
   },
   {
    "id": "d07-p5-19",
@@ -2298,7 +2496,18 @@
     "submitted"
    ],
    "a": "be submitted",
-   "why": "asked that + chủ ngữ + động từ nguyên mẫu; báo cáo được nộp (bị động) → be submitted."
+   "why": "asked that + chủ ngữ + động từ nguyên mẫu; báo cáo được nộp (bị động) → be submitted.",
+   "lg": {
+    "og": {
+     "submit": "động từ nguyên mẫu chủ động",
+     "be submitted": "nguyên mẫu bị động: được nộp",
+     "are submitting": "hiện tại tiếp diễn",
+     "submitted": "quá khứ"
+    },
+    "ly": "Sau asked that + chủ ngữ cần động từ nguyên mẫu, và báo cáo là vật được nộp (bị động): be submitted. submit là chủ động sai nghĩa, are submitting và submitted là dạng chia.",
+    "ct": "ask that + S + (should) + V nguyên mẫu · expense report = báo cáo chi phí",
+    "dich": "Cô Grant yêu cầu mọi báo cáo chi phí phải được nộp trước cuối tháng."
+   }
   },
   {
    "id": "d07-p5-20",
@@ -2311,7 +2520,18 @@
     "So"
    ],
    "a": "Although",
-   "why": "Hai vế trái chiều (đắt nhưng vẫn mua vì tiết kiệm thời gian) → Although."
+   "why": "Hai vế trái chiều (đắt nhưng vẫn mua vì tiết kiệm thời gian) → Although.",
+   "lg": {
+    "og": {
+     "Although": "liên từ: mặc dù",
+     "Because": "liên từ: vì",
+     "Unless": "liên từ: trừ khi",
+     "So": "liên từ: vì vậy"
+    },
+    "ly": "Hai vế trái chiều: phần mềm đắt nhưng nhiều công ty nhỏ vẫn mua. Chỗ trống đứng đầu câu trước mệnh đề: Although. Because sai nghĩa, Unless là điều kiện, So không đứng đầu mệnh đề phụ.",
+    "ct": "Although + mệnh đề, mệnh đề = mặc dù … nhưng … · save someone time = giúp ai tiết kiệm thời gian",
+    "dich": "Mặc dù phần mềm đắt, nhiều công ty nhỏ vẫn mua vì nó giúp tiết kiệm thời gian."
+   }
   },
   {
    "id": "d07-p5-21",
@@ -2324,7 +2544,18 @@
     "themselves"
    ],
    "a": "theirs",
-   "why": "So với doanh số của văn phòng Denver → đại từ sở hữu thay cho their sales: theirs."
+   "why": "So với doanh số của văn phòng Denver → đại từ sở hữu thay cho their sales: theirs.",
+   "lg": {
+    "og": {
+     "theirs": "đại từ sở hữu: của họ",
+     "their": "tính từ sở hữu",
+     "them": "đại từ tân ngữ",
+     "themselves": "đại từ phản thân"
+    },
+    "ly": "So sánh doanh số của chúng tôi với doanh số của văn phòng Denver; tránh lặp bằng đại từ sở hữu thay cho \"their sales\": theirs. their cần danh từ theo sau, them và themselves sai nghĩa.",
+    "ct": "higher than + đại từ sở hữu (theirs) = cao hơn của họ · report strong results = báo cáo kết quả tốt",
+    "dich": "Văn phòng Denver báo cáo kết quả tốt, nhưng doanh số của chúng tôi còn cao hơn cả của họ."
+   }
   },
   {
    "id": "d07-p5-22",
@@ -2337,7 +2568,18 @@
     "occur"
    ],
    "a": "launch",
-   "why": "launch a program = triển khai chương trình. arrive, belong, occur là nội động từ, không đi với tân ngữ."
+   "why": "launch a program = triển khai chương trình. arrive, belong, occur là nội động từ, không đi với tân ngữ.",
+   "lg": {
+    "og": {
+     "launch": "động từ: triển khai, ra mắt",
+     "arrive": "nội động từ: đến",
+     "belong": "nội động từ: thuộc về",
+     "occur": "nội động từ: xảy ra"
+    },
+    "ly": "Công ty triển khai một chương trình đào tạo mới: launch a program, có tân ngữ. arrive, belong, occur là nội động từ nên không có tân ngữ trực tiếp.",
+    "ct": "launch a program = triển khai chương trình · training program = chương trình đào tạo",
+    "dich": "Công ty sẽ triển khai một chương trình đào tạo mới cho tất cả quản lý vào tháng tới."
+   }
   },
   {
    "id": "d07-p5-23",
@@ -2350,7 +2592,18 @@
     "yet"
    ],
    "a": "or",
-   "why": "Hai cách lựa chọn (mang tới cửa hàng hoặc gửi qua bưu điện) → or."
+   "why": "Hai cách lựa chọn (mang tới cửa hàng hoặc gửi qua bưu điện) → or.",
+   "lg": {
+    "og": {
+     "or": "liên từ: hoặc",
+     "but": "liên từ: nhưng",
+     "nor": "liên từ: cũng không",
+     "yet": "liên từ: nhưng"
+    },
+    "ly": "Hai cách trả hàng (mang tới cửa hàng hoặc gửi qua bưu điện), chọn một: or. but và yet chỉ sự tương phản, nor cần có phủ định phía trước.",
+    "ct": "A or B = A hoặc B · within thirty days = trong vòng ba mươi ngày",
+    "dich": "Khách hàng có thể trả hàng tại bất kỳ cửa hàng nào của chúng tôi hoặc qua bưu điện trong vòng ba mươi ngày."
+   }
   },
   {
    "id": "d07-p5-24",
@@ -2363,7 +2616,18 @@
     "notify"
    ],
    "a": "consult",
-   "why": "consult a file = xem tài liệu để tra. refer cần to (refer to), inform và notify cần người làm tân ngữ."
+   "why": "consult a file = xem tài liệu để tra. refer cần to (refer to), inform và notify cần người làm tân ngữ.",
+   "lg": {
+    "og": {
+     "consult": "động từ: tham khảo, tra cứu",
+     "refer": "động từ: tham khảo (refer to)",
+     "inform": "động từ: thông báo (+ người)",
+     "notify": "động từ: báo (+ người)"
+    },
+    "ly": "Sau chỗ trống là tân ngữ trực tiếp the attached file: consult = xem tài liệu để tra thông tin. refer cần giới từ to, inform và notify cần tân ngữ là người.",
+    "ct": "consult + tài liệu = tham khảo · refer to + tài liệu · conference schedule = lịch hội nghị",
+    "dich": "Vui lòng xem tệp đính kèm để biết chi tiết về lịch hội nghị."
+   }
   },
   {
    "id": "d07-p5-25",
@@ -2376,7 +2640,18 @@
     "yet"
    ],
    "a": "but",
-   "why": "Cấu trúc Not only … but (also) → but."
+   "why": "Cấu trúc Not only … but (also) → but.",
+   "lg": {
+    "og": {
+     "but": "liên từ: mà còn (not only … but also)",
+     "and": "liên từ: và",
+     "so": "liên từ: vì vậy",
+     "yet": "liên từ: nhưng"
+    },
+    "ly": "Cấu trúc Not only … but … also …: vế sau mở bằng but. and, so, yet không đi cặp với not only.",
+    "ct": "Not only + trợ động từ + S + V, but + S + also + V = không những … mà còn …",
+    "dich": "Hệ thống mới không những giảm chi phí mà còn cải thiện mức độ hài lòng của khách hàng."
+   }
   },
   {
    "id": "d07-p5-26",
@@ -2389,7 +2664,18 @@
     "tie"
    ],
    "a": "fasten",
-   "why": "fasten a seat belt = thắt dây an toàn → fasten. button, knot, tie không đi với seat belt."
+   "why": "fasten a seat belt = thắt dây an toàn → fasten. button, knot, tie không đi với seat belt.",
+   "lg": {
+    "og": {
+     "fasten": "động từ: thắt",
+     "button": "động từ: cài nút",
+     "knot": "động từ: thắt nút",
+     "tie": "động từ: buộc"
+    },
+    "ly": "Hành khách thắt dây an toàn trước khi máy bay cất cánh: fasten a seat belt (cụm cố định). button, knot, tie không đi với seat belt.",
+    "ct": "fasten a seat belt = thắt dây an toàn · take off = cất cánh",
+    "dich": "Hành khách nên thắt dây an toàn trước khi máy bay cất cánh."
+   }
   },
   {
    "id": "d07-p5-27",
@@ -2402,7 +2688,18 @@
     "very"
    ],
    "a": "so",
-   "why": "so + tính từ + that = đến nỗi → so. such cần danh từ, too đi với to V."
+   "why": "so + tính từ + that = đến nỗi → so. such cần danh từ, too đi với to V.",
+   "lg": {
+    "og": {
+     "so": "trạng từ: quá … (so + tính từ + that)",
+     "such": "từ hạn định: (such + danh từ)",
+     "too": "trạng từ: quá (too + tính từ + to V)",
+     "very": "trạng từ: rất"
+    },
+    "ly": "Cấu trúc \"quá … đến nỗi\" với tính từ complicated: so + tính từ + that. such đi với danh từ, too đi với to V.",
+    "ct": "so + tính từ + that + mệnh đề = quá … đến nỗi · simpler version = bản đơn giản hơn",
+    "dich": "Đề xuất phức tạp đến nỗi ủy ban yêu cầu một bản đơn giản hơn."
+   }
   },
   {
    "id": "d07-p5-28",
@@ -2415,7 +2712,18 @@
     "care"
    ],
    "a": "effect",
-   "why": "take effect = bắt đầu có hiệu lực (quy định) → effect."
+   "why": "take effect = bắt đầu có hiệu lực (quy định) → effect.",
+   "lg": {
+    "og": {
+     "effect": "danh từ: hiệu lực",
+     "place": "danh từ: nơi",
+     "part": "danh từ: phần",
+     "care": "danh từ: sự chăm sóc"
+    },
+    "ly": "Cụm cố định là take effect = bắt đầu có hiệu lực. Các cụm take place (diễn ra), take part (tham gia), take care (cẩn thận) không hợp nghĩa quy định.",
+    "ct": "take effect on + ngày = có hiệu lực vào ngày … · parking rules = quy định đỗ xe",
+    "dich": "Quy định đỗ xe mới sẽ có hiệu lực vào ngày 1 tháng 9."
+   }
   },
   {
    "id": "d07-p5-29",
@@ -2428,7 +2736,18 @@
     "provided"
    ],
    "a": "promoted",
-   "why": "be promoted to a position = được thăng chức → promoted."
+   "why": "be promoted to a position = được thăng chức → promoted.",
+   "lg": {
+    "og": {
+     "promoted": "V3: được thăng chức",
+     "produced": "V3: được sản xuất",
+     "protected": "V3: được bảo vệ",
+     "provided": "V3: được cung cấp"
+    },
+    "ly": "Sau năm năm làm việc ông được thăng lên giám đốc bán hàng khu vực: be promoted to + chức vụ. produced, protected, provided không đi với to + chức vụ.",
+    "ct": "be promoted to + chức vụ = được thăng chức lên … · after five years with the firm = sau năm năm ở công ty",
+    "dich": "Ông Silva được thăng chức giám đốc bán hàng khu vực sau năm năm làm việc cho công ty."
+   }
   },
   {
    "id": "d07-p5-30",
@@ -2441,7 +2760,18 @@
     "hardship"
    ],
    "a": "hard",
-   "why": "work hard = làm việc chăm chỉ (hard là trạng từ). hardly = hầu như không, sai nghĩa."
+   "why": "work hard = làm việc chăm chỉ (hard là trạng từ). hardly = hầu như không, sai nghĩa.",
+   "lg": {
+    "og": {
+     "hard": "trạng từ: chăm chỉ",
+     "hardly": "trạng từ: hầu như không",
+     "hardness": "danh từ: độ cứng",
+     "hardship": "danh từ: khó khăn"
+    },
+    "ly": "Sau động từ working cần trạng từ chỉ cách làm: hard (chăm chỉ). hardly có nghĩa hầu như không, làm câu sai nghĩa; hardness và hardship là danh từ.",
+    "ct": "work hard to + V = làm việc chăm chỉ để … · delivery times = thời gian giao hàng",
+    "dich": "Người quản lý mới đang làm việc chăm chỉ để rút ngắn thời gian giao hàng."
+   }
   }
  ],
  "p6": [

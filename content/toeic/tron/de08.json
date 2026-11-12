@@ -2018,7 +2018,18 @@
     "popularize"
    ],
    "a": "popular",
-   "why": "be + (trạng từ extremely) + tính từ: popular with = được ưa chuộng."
+   "why": "be + (trạng từ extremely) + tính từ: popular with = được ưa chuộng.",
+   "lg": {
+    "og": {
+     "popular": "tính từ: được ưa chuộng",
+     "popularity": "danh từ: sự phổ biến",
+     "popularly": "trạng từ: một cách phổ biến",
+     "popularize": "động từ: phổ biến hoá"
+    },
+    "ly": "Chỗ trống đứng sau been extremely (trạng từ + tính từ), nên cần tính từ: popular. popularly là trạng từ, popularity là danh từ, popularize là động từ.",
+    "ct": "be popular with + người = được … ưa chuộng · extremely + tính từ = cực kỳ …",
+    "dich": "Máy tính bảng mới của công ty cực kỳ được sinh viên đại học ưa chuộng."
+   }
   },
   {
    "id": "d08-p5-02",
@@ -2031,7 +2042,18 @@
     "are finishing"
    ],
    "a": "had finished",
-   "why": "Việc xong trước một mốc trong quá khứ (khách đã tới) → quá khứ hoàn thành: had finished."
+   "why": "Việc xong trước một mốc trong quá khứ (khách đã tới) → quá khứ hoàn thành: had finished.",
+   "lg": {
+    "og": {
+     "had finished": "quá khứ hoàn thành",
+     "finish": "nguyên mẫu / hiện tại",
+     "will finish": "tương lai đơn",
+     "are finishing": "hiện tại tiếp diễn"
+    },
+    "ly": "By the time + quá khứ đơn (arrived): việc bày bàn xong trước mốc đó, nên dùng quá khứ hoàn thành had finished. Các thì còn lại không hợp mốc quá khứ.",
+    "ct": "By the time + quá khứ đơn, S + had + V3 = khi … thì đã … · set up the tables = bày bàn",
+    "dich": "Khi khách đến, nhân viên phục vụ tiệc đã bày bàn xong."
+   }
   },
   {
    "id": "d08-p5-03",
@@ -2044,7 +2066,18 @@
     "expectation"
    ],
    "a": "experience",
-   "why": "years of experience = số năm kinh nghiệm."
+   "why": "years of experience = số năm kinh nghiệm.",
+   "lg": {
+    "og": {
+     "experience": "danh từ: kinh nghiệm",
+     "experiment": "danh từ: thí nghiệm",
+     "expense": "danh từ: chi phí",
+     "expectation": "danh từ: sự mong đợi"
+    },
+    "ly": "Yêu cầu ứng viên là số năm kinh nghiệm làm dịch vụ khách hàng: years of experience. experiment, expense, expectation không đi với years of ở nghĩa này.",
+    "ct": "years of experience in + lĩnh vực = số năm kinh nghiệm trong … · at least = ít nhất",
+    "dich": "Ứng viên phải có ít nhất ba năm kinh nghiệm trong lĩnh vực dịch vụ khách hàng."
+   }
   },
   {
    "id": "d08-p5-04",
@@ -2057,7 +2090,18 @@
     "since"
    ],
    "a": "in",
-   "why": "in + khoảng thời gian = sau bao lâu nữa: in two weeks."
+   "why": "in + khoảng thời gian = sau bao lâu nữa: in two weeks.",
+   "lg": {
+    "og": {
+     "in": "giới từ: sau (khoảng thời gian)",
+     "at": "giới từ: tại",
+     "on": "giới từ: vào (ngày)",
+     "since": "giới từ: kể từ"
+    },
+    "ly": "Sau meet again, in + khoảng thời gian = sau bao lâu nữa: in two weeks. at và on không đi với khoảng thời gian, since đi với mốc quá khứ.",
+    "ct": "in + khoảng thời gian = sau … nữa · review the proposals = xem xét các đề xuất",
+    "dich": "Ủy ban sẽ họp lại sau hai tuần nữa để xem xét các đề xuất."
+   }
   },
   {
    "id": "d08-p5-05",
@@ -2070,7 +2114,18 @@
     "she"
    ],
    "a": "herself",
-   "why": "Tự mình làm → đại từ phản thân nhấn mạnh đứng cuối câu: herself."
+   "why": "Tự mình làm → đại từ phản thân nhấn mạnh đứng cuối câu: herself.",
+   "lg": {
+    "og": {
+     "herself": "đại từ phản thân: chính cô ấy",
+     "her": "đại từ tân ngữ",
+     "hers": "đại từ sở hữu",
+     "she": "đại từ chủ ngữ"
+    },
+    "ly": "Cô thích tự mình xem hợp đồng, nên cần đại từ phản thân nhấn mạnh ở cuối câu: herself. her, hers, she không đứng được ở vị trí này.",
+    "ct": "S + V + O + herself = tự mình làm · prefer to + V = thích làm gì hơn",
+    "dich": "Cô Tanaka thích tự mình xem xét các hợp đồng."
+   }
   },
   {
    "id": "d08-p5-06",
@@ -2083,7 +2138,18 @@
     "persuade"
    ],
    "a": "persuasively",
-   "why": "Bổ nghĩa cho động từ spoke cần trạng từ: persuasively."
+   "why": "Bổ nghĩa cho động từ spoke cần trạng từ: persuasively.",
+   "lg": {
+    "og": {
+     "persuasive": "tính từ: thuyết phục",
+     "persuasively": "trạng từ: một cách thuyết phục",
+     "persuasion": "danh từ: sự thuyết phục",
+     "persuade": "động từ: thuyết phục"
+    },
+    "ly": "Sau động từ spoke cần trạng từ bổ nghĩa cho cách nói: persuasively. persuasive là tính từ, persuasion là danh từ, persuade là động từ.",
+    "ct": "speak persuasively about + N = nói thuyết phục về … · customer feedback = phản hồi của khách hàng",
+    "dich": "Cô Kowalski đã nói một cách thuyết phục về tầm quan trọng của phản hồi từ khách hàng."
+   }
   },
   {
    "id": "d08-p5-07",
@@ -2096,7 +2162,18 @@
     "So"
    ],
    "a": "Unless",
-   "why": "Trừ khi trời tốt lên, buổi hoà nhạc sẽ chuyển vào trong nhà → Unless."
+   "why": "Trừ khi trời tốt lên, buổi hoà nhạc sẽ chuyển vào trong nhà → Unless.",
+   "lg": {
+    "og": {
+     "Unless": "liên từ: trừ khi",
+     "Because": "liên từ: vì",
+     "Although": "liên từ: mặc dù",
+     "So": "liên từ: vì vậy"
+    },
+    "ly": "Trừ khi thời tiết tốt lên thì hoà nhạc ngoài trời mới chuyển vào trong nhà: Unless (= nếu … không). Because và Although sai nghĩa, So không đứng đầu mệnh đề phụ.",
+    "ct": "Unless + hiện tại đơn, S + will + V = trừ khi … thì sẽ … · be moved indoors = chuyển vào trong nhà",
+    "dich": "Trừ khi thời tiết khá hơn, buổi hoà nhạc ngoài trời sẽ được chuyển vào trong nhà."
+   }
   },
   {
    "id": "d08-p5-08",
@@ -2109,7 +2186,18 @@
     "Several"
    ],
    "a": "Each",
-   "why": "Danh từ số ít employee đi với Each; All, Many, Several cần danh từ số nhiều."
+   "why": "Danh từ số ít employee đi với Each; All, Many, Several cần danh từ số nhiều.",
+   "lg": {
+    "og": {
+     "Each": "từ hạn định: mỗi (+ số ít)",
+     "All": "từ hạn định: tất cả (+ số nhiều)",
+     "Many": "từ hạn định: nhiều (+ số nhiều)",
+     "Several": "từ hạn định: vài (+ số nhiều)"
+    },
+    "ly": "employee là danh từ số ít, nên chọn Each. All, Many, Several cần danh từ số nhiều (employees).",
+    "ct": "Each + N số ít + V · a copy of = một bản của",
+    "dich": "Mỗi nhân viên sẽ nhận một bản sổ tay đã cập nhật."
+   }
   },
   {
    "id": "d08-p5-09",
@@ -2122,7 +2210,18 @@
     "has used"
    ],
    "a": "will be used",
-   "why": "Phần mềm được dùng (bị động) từ tháng sau → tương lai bị động: will be used."
+   "why": "Phần mềm được dùng (bị động) từ tháng sau → tương lai bị động: will be used.",
+   "lg": {
+    "og": {
+     "will be used": "tương lai bị động: sẽ được dùng",
+     "used": "quá khứ / V3",
+     "is using": "hiện tại tiếp diễn chủ động",
+     "has used": "hiện tại hoàn thành chủ động"
+    },
+    "ly": "Phần mềm là vật được dùng bởi nhân viên (by all staff members) và starting next month là tương lai: will be used. is using, has used là chủ động nên sai nghĩa.",
+    "ct": "will be + V3 + by + người = sẽ được … bởi … · starting next month = bắt đầu từ tháng sau",
+    "dich": "Phần mềm mới sẽ được toàn bộ nhân viên sử dụng bắt đầu từ tháng sau."
+   }
   },
   {
    "id": "d08-p5-10",
@@ -2135,7 +2234,18 @@
     "preserve"
    ],
    "a": "reserve",
-   "why": "reserve a room = đặt phòng."
+   "why": "reserve a room = đặt phòng.",
+   "lg": {
+    "og": {
+     "reserve": "động từ: đặt trước",
+     "deserve": "động từ: xứng đáng",
+     "observe": "động từ: quan sát",
+     "preserve": "động từ: bảo tồn"
+    },
+    "ly": "Khách đặt phòng trực tuyến: reserve their rooms online. deserve (xứng đáng), observe (quan sát) và preserve (bảo tồn) không hợp với rooms.",
+    "ct": "reserve a room = đặt phòng · free shuttle service = dịch vụ xe đưa đón miễn phí",
+    "dich": "Khách sạn cung cấp xe đưa đón miễn phí cho khách đặt phòng trực tuyến."
+   }
   },
   {
    "id": "d08-p5-11",
@@ -2148,7 +2258,18 @@
     "approving"
    ],
    "a": "approval",
-   "why": "Sau mạo từ the và trước of cần danh từ: approval."
+   "why": "Sau mạo từ the và trước of cần danh từ: approval.",
+   "lg": {
+    "og": {
+     "approve": "động từ: phê duyệt",
+     "approval": "danh từ: sự phê duyệt",
+     "approved": "V3: đã duyệt",
+     "approving": "V-ing"
+    },
+    "ly": "Sau mạo từ the và trước of cần danh từ: the approval of a supervisor. approve là động từ, approved và approving là dạng động từ.",
+    "ct": "require the approval of + người = cần sự phê duyệt của … · time off = ngày nghỉ",
+    "dich": "Mọi yêu cầu nghỉ phép đều cần sự phê duyệt của người giám sát."
+   }
   },
   {
    "id": "d08-p5-12",
@@ -2161,7 +2282,18 @@
     "by"
    ],
    "a": "on",
-   "why": "Trước thứ trong tuần dùng on: on Friday."
+   "why": "Trước thứ trong tuần dùng on: on Friday.",
+   "lg": {
+    "og": {
+     "on": "giới từ: vào (thứ / ngày)",
+     "in": "giới từ: trong",
+     "at": "giới từ: lúc",
+     "by": "giới từ: trước"
+    },
+    "ly": "Trước thứ trong tuần dùng on: no later than 5 P.M. on Friday. in dùng cho tháng / năm, at cho giờ; by đã nằm sẵn trong cụm no later than.",
+    "ct": "on + thứ / ngày · no later than + giờ = muộn nhất là",
+    "dich": "Vui lòng nộp đơn muộn nhất lúc 5 giờ chiều thứ Sáu."
+   }
   },
   {
    "id": "d08-p5-13",
@@ -2174,7 +2306,18 @@
     "or"
    ],
    "a": "but",
-   "why": "Cấu trúc Not only … but (also) …: không những … mà còn …"
+   "why": "Cấu trúc Not only … but (also) …: không những … mà còn …",
+   "lg": {
+    "og": {
+     "but": "liên từ: mà còn (not only … but also)",
+     "and": "liên từ: và",
+     "so": "liên từ: vì vậy",
+     "or": "liên từ: hoặc"
+    },
+    "ly": "Cấu trúc Not only … but … also …: từ nối đúng là but. and, so, or không đi cặp với not only.",
+    "ct": "Not only + trợ động từ + S + V, but + S + also + V = không những … mà còn … · stay under budget = giữ dưới ngân sách",
+    "dich": "Nhóm không những hoàn thành sớm mà còn giữ chi phí dưới ngân sách."
+   }
   },
   {
    "id": "d08-p5-14",
@@ -2187,7 +2330,18 @@
     "themselves"
    ],
    "a": "them",
-   "why": "Sau giới từ to cần đại từ tân ngữ: them."
+   "why": "Sau giới từ to cần đại từ tân ngữ: them.",
+   "lg": {
+    "og": {
+     "them": "đại từ tân ngữ: họ",
+     "they": "đại từ chủ ngữ",
+     "their": "tính từ sở hữu",
+     "themselves": "đại từ phản thân"
+    },
+    "ly": "Sau giới từ to cần đại từ tân ngữ chỉ các khách hàng: them. they là chủ ngữ, their cần danh từ theo sau, themselves là phản thân.",
+    "ct": "send + N + to + đại từ tân ngữ · ask that + S + be + V3",
+    "dich": "Các khách hàng yêu cầu gửi tài liệu trực tiếp cho họ."
+   }
   },
   {
    "id": "d08-p5-15",
@@ -2200,7 +2354,18 @@
     "arrive"
    ],
    "a": "present",
-   "why": "present findings = trình bày kết quả nghiên cứu."
+   "why": "present findings = trình bày kết quả nghiên cứu.",
+   "lg": {
+    "og": {
+     "present": "động từ: trình bày",
+     "appear": "nội động từ: xuất hiện",
+     "attend": "động từ: tham dự",
+     "arrive": "nội động từ: đến"
+    },
+    "ly": "Tân ngữ là her research findings: present findings = trình bày kết quả nghiên cứu. appear và arrive là nội động từ không có tân ngữ, attend đi với sự kiện chứ không với findings.",
+    "ct": "present findings = trình bày kết quả · medical conference = hội nghị y khoa",
+    "dich": "Bác sĩ Feld sẽ trình bày kết quả nghiên cứu của bà tại hội nghị y khoa ở Oslo."
+   }
   },
   {
    "id": "d08-p5-16",
@@ -2213,7 +2378,18 @@
     "efficiencies"
    ],
    "a": "efficient",
-   "why": "become + more + tính từ: more efficient."
+   "why": "become + more + tính từ: more efficient.",
+   "lg": {
+    "og": {
+     "efficient": "tính từ: hiệu quả",
+     "efficiently": "trạng từ: một cách hiệu quả",
+     "efficiency": "danh từ: hiệu suất",
+     "efficiencies": "danh từ số nhiều"
+    },
+    "ly": "Sau become more cần tính từ: more efficient (hiệu quả hơn). efficiently là trạng từ, efficiency và efficiencies là danh từ.",
+    "ct": "become + more + tính từ = trở nên … hơn · replace + N = thay thế",
+    "dich": "Nhà máy đã trở nên hiệu quả hơn kể từ khi thay các máy cũ."
+   }
   },
   {
    "id": "d08-p5-17",
@@ -2226,7 +2402,18 @@
     "works"
    ],
    "a": "will have worked",
-   "why": "By the end of next year (mốc trong tương lai) + for a decade → tương lai hoàn thành: will have worked."
+   "why": "By the end of next year (mốc trong tương lai) + for a decade → tương lai hoàn thành: will have worked.",
+   "lg": {
+    "og": {
+     "will have worked": "tương lai hoàn thành",
+     "has worked": "hiện tại hoàn thành",
+     "had worked": "quá khứ hoàn thành",
+     "works": "hiện tại đơn"
+    },
+    "ly": "Mốc \"By the end of next year\" (tương lai) cùng \"for a decade\" cho thấy tới lúc đó bà đã làm đủ mười năm: tương lai hoàn thành will have worked. Các thì còn lại không hợp mốc tương lai.",
+    "ct": "By + mốc tương lai, S + will have + V3 + for + khoảng thời gian = tới … thì đã … được …",
+    "dich": "Đến cuối năm sau, bà Olsen sẽ đã làm việc ở bệnh viện được mười năm."
+   }
   },
   {
    "id": "d08-p5-18",
@@ -2239,7 +2426,18 @@
     "but"
    ],
    "a": "or",
-   "why": "either … or … = hoặc … hoặc …"
+   "why": "either … or … = hoặc … hoặc …",
+   "lg": {
+    "og": {
+     "or": "liên từ: hoặc (cặp với either)",
+     "and": "liên từ: và",
+     "nor": "liên từ: cũng không",
+     "but": "liên từ: nhưng"
+    },
+    "ly": "Có either ở phía trước nên cặp đúng là either … or (hoặc … hoặc). and, nor, but không đi cặp với either.",
+    "ct": "either A or B = hoặc A hoặc B · park in the north lot = đỗ xe ở bãi phía bắc",
+    "dich": "Khách có thể đỗ xe ở bãi phía bắc hoặc bãi phía nam."
+   }
   },
   {
    "id": "d08-p5-19",
@@ -2252,7 +2450,18 @@
     "toward"
    ],
    "a": "within",
-   "why": "within walking distance of = trong phạm vi đi bộ tới."
+   "why": "within walking distance of = trong phạm vi đi bộ tới.",
+   "lg": {
+    "og": {
+     "within": "giới từ: trong phạm vi",
+     "between": "giới từ: giữa",
+     "among": "giới từ: giữa nhiều",
+     "toward": "giới từ: về phía"
+    },
+    "ly": "Cụm cố định là within walking distance of = trong phạm vi đi bộ tới. between, among, toward không tạo cụm đúng.",
+    "ct": "within walking distance of + nơi = trong tầm đi bộ tới · conveniently located = có vị trí thuận tiện",
+    "dich": "Khách sạn có vị trí thuận tiện, trong tầm đi bộ tới trung tâm hội nghị."
+   }
   },
   {
    "id": "d08-p5-20",
@@ -2265,7 +2474,18 @@
     "supply"
    ],
    "a": "demand",
-   "why": "high demand = nhu cầu cao → vé bán hết. high supply (nguồn cung lớn) không làm hết vé."
+   "why": "high demand = nhu cầu cao → vé bán hết. high supply (nguồn cung lớn) không làm hết vé.",
+   "lg": {
+    "og": {
+     "demand": "danh từ: nhu cầu",
+     "request": "danh từ: yêu cầu",
+     "order": "danh từ: đơn hàng",
+     "supply": "danh từ: nguồn cung"
+    },
+    "ly": "Vé bán hết trong một giờ do nhu cầu cao: high demand (cụm cố định). high supply (nguồn cung lớn) sẽ không làm vé hết nhanh; request và order không đi với high theo nghĩa này.",
+    "ct": "due to + N = do · high demand = nhu cầu cao · sell out = bán hết",
+    "dich": "Do nhu cầu cao, vé buổi hoà nhạc đã bán hết trong vòng một giờ."
+   }
   },
   {
    "id": "d08-p5-21",
@@ -2278,7 +2498,18 @@
     "positives"
    ],
    "a": "positively",
-   "why": "Bổ nghĩa cho động từ responded cần trạng từ: positively."
+   "why": "Bổ nghĩa cho động từ responded cần trạng từ: positively.",
+   "lg": {
+    "og": {
+     "positive": "tính từ: tích cực",
+     "positively": "trạng từ: một cách tích cực",
+     "positivity": "danh từ: sự tích cực",
+     "positives": "danh từ số nhiều: mặt tích cực"
+    },
+    "ly": "Sau động từ responded cần trạng từ: positively (phản ứng tích cực). positive là tính từ, positivity và positives là danh từ.",
+    "ct": "respond positively to + N = phản hồi tích cực với … · store layout = cách bố trí cửa hàng",
+    "dich": "Khách hàng đã phản hồi tích cực với cách bố trí cửa hàng mới."
+   }
   },
   {
    "id": "d08-p5-22",
@@ -2291,7 +2522,18 @@
     "several"
    ],
    "a": "some",
-   "why": "time (thời gian) là danh từ không đếm được → some; many, few, several đi với danh từ đếm được số nhiều."
+   "why": "time (thời gian) là danh từ không đếm được → some; many, few, several đi với danh từ đếm được số nhiều.",
+   "lg": {
+    "og": {
+     "some": "từ chỉ lượng: một ít, còn",
+     "many": "từ chỉ lượng: nhiều (đếm được)",
+     "few": "từ chỉ lượng: ít (đếm được)",
+     "several": "từ chỉ lượng: vài (đếm được)"
+    },
+    "ly": "time (thời gian) là danh từ không đếm được, và \"still some time\" = vẫn còn một chút thời gian: some. many, few, several đi với danh từ đếm được số nhiều.",
+    "ct": "still + some / enough + N = vẫn còn … · register for = đăng ký tham gia",
+    "dich": "Vẫn còn thời gian để đăng ký tham gia buổi hội thảo."
+   }
   },
   {
    "id": "d08-p5-23",
@@ -2304,7 +2546,18 @@
     "not arriving"
    ],
    "a": "does not arrive",
-   "why": "Câu điều kiện loại 1: mệnh đề If dùng hiện tại đơn (does not arrive), mệnh đề chính dùng will."
+   "why": "Câu điều kiện loại 1: mệnh đề If dùng hiện tại đơn (does not arrive), mệnh đề chính dùng will.",
+   "lg": {
+    "og": {
+     "does not arrive": "hiện tại đơn phủ định",
+     "did not arrive": "quá khứ đơn phủ định",
+     "will not arrive": "tương lai phủ định",
+     "not arriving": "V-ing phủ định"
+    },
+    "ly": "Câu điều kiện loại 1 (mệnh đề chính có will contact): mệnh đề If dùng hiện tại đơn, nên chọn does not arrive. will not arrive không đứng sau If, did not arrive là quá khứ.",
+    "ct": "If + hiện tại đơn, S + will + V · by Friday = trước thứ Sáu",
+    "dich": "Nếu lô hàng không đến trước thứ Sáu, chúng tôi sẽ liên hệ với nhà cung cấp."
+   }
   },
   {
    "id": "d08-p5-24",
@@ -2317,7 +2570,18 @@
     "themselves"
    ],
    "a": "their",
-   "why": "Trước danh từ prices cần tính từ sở hữu: their."
+   "why": "Trước danh từ prices cần tính từ sở hữu: their.",
+   "lg": {
+    "og": {
+     "their": "tính từ sở hữu: của họ",
+     "them": "đại từ tân ngữ",
+     "theirs": "đại từ sở hữu",
+     "themselves": "đại từ phản thân"
+    },
+    "ly": "Trước danh từ prices cần tính từ sở hữu: their prices (giá của họ). them, theirs, themselves không đứng trước danh từ.",
+    "ct": "lower + one's + prices = hạ giá của … · competitor = đối thủ cạnh tranh",
+    "dich": "Các đối thủ cạnh tranh của chúng tôi đã hạ giá vào tháng trước."
+   }
   },
   {
    "id": "d08-p5-25",
@@ -2330,7 +2594,18 @@
     "even"
    ],
    "a": "in case",
-   "why": "in case = phòng khi (trời mưa)."
+   "why": "in case = phòng khi (trời mưa).",
+   "lg": {
+    "og": {
+     "in case": "liên từ: phòng khi",
+     "so that": "liên từ: để",
+     "as if": "liên từ: như thể",
+     "even": "trạng từ: thậm chí"
+    },
+    "ly": "Mang ô để phòng khi trời mưa: in case. so that chỉ mục đích nhưng sai nghĩa ở đây, as if là như thể, even không đứng đơn một mình trước mệnh đề.",
+    "ct": "in case + mệnh đề = phòng khi … · outdoor ceremony = buổi lễ ngoài trời",
+    "dich": "Hãy mang theo ô phòng khi trời mưa trong buổi lễ ngoài trời."
+   }
   },
   {
    "id": "d08-p5-26",
@@ -2343,7 +2618,18 @@
     "succeed"
    ],
    "a": "complete",
-   "why": "complete a training session = hoàn thành buổi huấn luyện."
+   "why": "complete a training session = hoàn thành buổi huấn luyện.",
+   "lg": {
+    "og": {
+     "complete": "động từ: hoàn thành",
+     "perform": "động từ: thực hiện, biểu diễn",
+     "achieve": "động từ: đạt được",
+     "succeed": "nội động từ: thành công"
+    },
+    "ly": "Tình nguyện viên phải hoàn thành một buổi huấn luyện ngắn: complete a training session. perform, achieve không đi với buổi huấn luyện, succeed là nội động từ không có tân ngữ.",
+    "ct": "complete a training session = hoàn thành buổi huấn luyện · before + V-ing = trước khi",
+    "dich": "Tình nguyện viên phải hoàn thành một buổi huấn luyện ngắn trước khi làm việc tại sự kiện."
+   }
   },
   {
    "id": "d08-p5-27",
@@ -2356,7 +2642,18 @@
     "instead"
    ],
    "a": "because of",
-   "why": "Trước cụm danh từ chỉ nguyên nhân: because of. although cần mệnh đề; despite trái nghĩa."
+   "why": "Trước cụm danh từ chỉ nguyên nhân: because of. although cần mệnh đề; despite trái nghĩa.",
+   "lg": {
+    "og": {
+     "because of": "giới từ: vì (+ danh từ)",
+     "despite": "giới từ: mặc dù",
+     "although": "liên từ: mặc dù (+ mệnh đề)",
+     "instead": "trạng từ: thay vào đó"
+    },
+    "ly": "Sau chỗ trống là cụm danh từ the speaker's illness chỉ nguyên nhân: because of. despite chỉ tương phản, although cần mệnh đề, instead là trạng từ.",
+    "ct": "because of + N = vì … · be postponed = bị hoãn",
+    "dich": "Buổi hội thảo bị hoãn vì diễn giả bị ốm."
+   }
   },
   {
    "id": "d08-p5-28",
@@ -2369,7 +2666,18 @@
     "located"
    ],
    "a": "location",
-   "why": "Sau the và trước of cần danh từ: location (địa điểm)."
+   "why": "Sau the và trước of cần danh từ: location (địa điểm).",
+   "lg": {
+    "og": {
+     "locate": "động từ: đặt ở",
+     "location": "danh từ: địa điểm",
+     "locating": "V-ing",
+     "located": "V3: được đặt ở"
+    },
+    "ly": "Sau the và trước of cần danh từ: the location of the new branch (địa điểm chi nhánh mới). locate là động từ, locating và located là dạng động từ.",
+    "ct": "the location of + N = địa điểm của … · be announced = được công bố",
+    "dich": "Địa điểm của chi nhánh mới sẽ được công bố vào tuần sau."
+   }
   },
   {
    "id": "d08-p5-29",
@@ -2382,7 +2690,18 @@
     "moved"
    ],
    "a": "moving",
-   "why": "consider + V-ing: considering moving."
+   "why": "consider + V-ing: considering moving.",
+   "lg": {
+    "og": {
+     "moving": "V-ing: chuyển",
+     "to move": "to V",
+     "move": "nguyên mẫu",
+     "moved": "V3"
+    },
+    "ly": "Sau consider (cân nhắc) dùng V-ing: considering moving. Không dùng to V hay nguyên mẫu sau consider.",
+    "ct": "consider + V-ing = cân nhắc làm gì · move … to a larger venue = chuyển sang địa điểm rộng hơn",
+    "dich": "Các thành viên hội đồng đang cân nhắc chuyển cuộc họp thường niên sang một địa điểm lớn hơn."
+   }
   },
   {
    "id": "d08-p5-30",
@@ -2395,7 +2714,18 @@
     "very"
    ],
    "a": "so",
-   "why": "so + tính từ + that: nhanh đến mức … → so. such đi với danh từ (such a fast printer that)."
+   "why": "so + tính từ + that: nhanh đến mức … → so. such đi với danh từ (such a fast printer that).",
+   "lg": {
+    "og": {
+     "so": "trạng từ: quá … (so + tính từ + that)",
+     "such": "từ hạn định: (such + danh từ)",
+     "too": "trạng từ: quá (too + tính từ + to V)",
+     "very": "trạng từ: rất"
+    },
+    "ly": "Cấu trúc \"nhanh đến mức …\": so + tính từ + that. such đi với danh từ (such a fast printer that), too đi với to V, very không kết hợp với that.",
+    "ct": "so + tính từ + that + mệnh đề = … đến mức … · sixty pages a minute = sáu mươi trang mỗi phút",
+    "dich": "Máy in mới nhanh đến mức in được sáu mươi trang mỗi phút."
+   }
   }
  ],
  "p6": [
