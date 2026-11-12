@@ -2790,7 +2790,18 @@
      ],
      "a": "will be shut off",
      "t": "tense",
-     "why": "Việc cắt nước diễn ra vào thứ Tư 14/6 (thông báo trước) → tương lai bị động: will be shut off."
+     "why": "Việc cắt nước diễn ra vào thứ Tư 14/6 (thông báo trước) → tương lai bị động: will be shut off.",
+     "lg": {
+      "og": {
+       "will be shut off": "tương lai bị động: sẽ bị cắt",
+       "was shut off": "quá khứ bị động",
+       "has been shut off": "hiện tại hoàn thành bị động",
+       "shutting off": "V-ing"
+      },
+      "ly": "Nguồn nước là vật bị cắt (bị động) và ngày Wednesday, June 14 chưa tới (thông báo trước): will be shut off. was shut off và has been shut off là việc đã xảy ra, shutting off thiếu trợ động từ.",
+      "ct": "will be + V3 = sẽ bị / được … · replace a pipe = thay một đường ống",
+      "dich": "Nước của toà nhà sẽ bị cắt vào thứ Tư, ngày 14 tháng 6, từ 9 giờ sáng đến 1 giờ chiều trong khi thành phố thay một đường ống ở phố Oak."
+     }
     },
     {
      "o": [
@@ -2800,7 +2811,18 @@
       "Washing machines are available in the basement."
      ],
      "a": "Residents will not be able to use any taps during this time.",
-     "why": "Vừa báo giờ cắt nước → câu chèn nói hệ quả (không dùng được vòi nước), rồi mới khuyên trữ nước. \"The city replaced the pipe … last year\" trái với việc đang thay ống."
+     "why": "Vừa báo giờ cắt nước → câu chèn nói hệ quả (không dùng được vòi nước), rồi mới khuyên trữ nước. \"The city replaced the pipe … last year\" trái với việc đang thay ống.",
+     "lg": {
+      "og": {
+       "Residents will not be able to use any taps during this time.": "Trong thời gian này cư dân sẽ không dùng được vòi nước nào.",
+       "The city replaced the pipe on Oak Street last year.": "Thành phố đã thay đường ống phố Oak năm ngoái.",
+       "Maple Court has a new swimming pool.": "Maple Court có một hồ bơi mới.",
+       "Washing machines are available in the basement.": "Có máy giặt ở tầng hầm."
+      },
+      "ly": "Câu sau khuyên đổ nước vào chai trước khi cắt, nên câu chèn nêu hậu quả của việc cắt nước: không dùng được vòi nào. \"Đã thay năm ngoái\" mâu thuẫn với việc đang thay, hai câu còn lại lạc đề.",
+      "ct": "Câu chèn nêu hậu quả dẫn tới lời khuyên sau",
+      "dich": "Trong thời gian này, cư dân sẽ không thể dùng bất kỳ vòi nước nào."
+     }
     },
     {
      "o": [
@@ -2810,7 +2832,18 @@
       "Instead"
      ],
      "a": "In addition",
-     "why": "Thêm một lời dặn nữa (không dùng máy giặt, máy rửa bát) → In addition."
+     "why": "Thêm một lời dặn nữa (không dùng máy giặt, máy rửa bát) → In addition.",
+     "lg": {
+      "og": {
+       "In addition": "cụm nối: ngoài ra",
+       "For example": "cụm nối: ví dụ",
+       "Otherwise": "trạng từ nối: nếu không thì",
+       "Instead": "trạng từ nối: thay vào đó"
+      },
+      "ly": "Câu này thêm một lời dặn nữa (đừng dùng máy giặt, máy rửa chén sau khi có nước): In addition = ngoài ra. For example, Otherwise, Instead không hợp mạch thêm ý.",
+      "ct": "In addition, + mệnh đề = ngoài ra · cloudy = đục",
+      "dich": "Ngoài ra, vui lòng tránh dùng máy giặt và máy rửa chén trong một giờ sau khi có nước trở lại, vì lúc đầu nước có thể bị đục."
+     }
     },
     {
      "o": [
@@ -2820,7 +2853,18 @@
       "interruptive"
      ],
      "a": "interruption",
-     "why": "apologize for the + danh từ: interruption (sự gián đoạn)."
+     "why": "apologize for the + danh từ: interruption (sự gián đoạn).",
+     "lg": {
+      "og": {
+       "interruption": "danh từ: sự gián đoạn",
+       "interrupt": "động từ: ngắt quãng",
+       "interrupted": "V3: bị gián đoạn",
+       "interruptive": "tính từ (ít dùng)"
+      },
+      "ly": "Sau mạo từ the cần danh từ: the interruption (sự gián đoạn). interrupt là động từ, interrupted là dạng V3, interruptive là tính từ ít dùng.",
+      "ct": "apologize for the + N = xin lỗi vì … · thank you for your understanding",
+      "dich": "Chúng tôi xin lỗi vì sự gián đoạn này và cảm ơn sự thông cảm của quý vị."
+     }
     }
    ]
   },
@@ -2839,7 +2883,18 @@
      ],
      "a": "will be ready",
      "t": "tense",
-     "why": "Ngày nhận phòng 2/7 ở tương lai → will be ready."
+     "why": "Ngày nhận phòng 2/7 ở tương lai → will be ready.",
+     "lg": {
+      "og": {
+       "will be ready": "tương lai: sẽ sẵn sàng",
+       "was ready": "quá khứ",
+       "has been ready": "hiện tại hoàn thành",
+       "being ready": "V-ing"
+      },
+      "ly": "Việc nhận phòng bắt đầu từ 3 giờ chiều ngày 2/7, chưa tới: will be ready. was ready và has been ready là quá khứ / hoàn thành, being ready thiếu động từ chia.",
+      "ct": "ready for check-in from + giờ = sẵn sàng nhận phòng từ … · will be + tính từ",
+      "dich": "Phòng của ông sẽ sẵn sàng để nhận phòng từ 3 giờ chiều ngày 2 tháng 7."
+     }
     },
     {
      "o": [
@@ -2849,7 +2904,18 @@
       "Please check in before noon so that we can prepare your room."
      ],
      "a": "The front desk is staffed twenty-four hours a day.",
-     "why": "Nối với ý khách đến muộn, nhận chìa khoá ở quầy → quầy có người trực cả ngày đêm. Ba câu kia trái với đoạn (quán vẫn phục vụ bữa sáng, khách chưa tới ngày 1/7, nhận phòng từ 15:00)."
+     "why": "Nối với ý khách đến muộn, nhận chìa khoá ở quầy → quầy có người trực cả ngày đêm. Ba câu kia trái với đoạn (quán vẫn phục vụ bữa sáng, khách chưa tới ngày 1/7, nhận phòng từ 15:00).",
+     "lg": {
+      "og": {
+       "The front desk is staffed twenty-four hours a day.": "Quầy lễ tân có người trực 24 giờ mỗi ngày.",
+       "The garden café is closed for renovations.": "Quán cà phê vườn đóng để sửa.",
+       "Bicycles must be returned by noon on July 1.": "Xe đạp phải trả trước trưa 1/7.",
+       "Please check in before noon so that we can prepare your room.": "Vui lòng nhận phòng trước trưa để chúng tôi chuẩn bị phòng."
+      },
+      "ly": "Câu trước nói khách đến muộn sẽ nhận chìa khoá ở quầy lễ tân, nên câu chèn xác nhận quầy luôn có người trực. \"Nhận phòng trước trưa\" mâu thuẫn với việc nhận phòng từ 3 giờ chiều, hai câu còn lại mâu thuẫn hoặc lạc đề.",
+      "ct": "Câu chèn tiếp ý câu trước (nhận chìa khoá muộn)",
+      "dich": "Quầy lễ tân có nhân viên trực suốt 24 giờ mỗi ngày."
+     }
     },
     {
      "o": [
@@ -2859,7 +2925,18 @@
       "For instance"
      ],
      "a": "Furthermore",
-     "why": "Thêm một tiện ích nữa (mượn xe đạp miễn phí) sau bữa sáng → Furthermore."
+     "why": "Thêm một tiện ích nữa (mượn xe đạp miễn phí) sau bữa sáng → Furthermore.",
+     "lg": {
+      "og": {
+       "Furthermore": "trạng từ nối: hơn nữa",
+       "However": "trạng từ nối: tuy nhiên",
+       "As a result": "cụm nối: vì vậy",
+       "For instance": "cụm nối: chẳng hạn"
+      },
+      "ly": "Câu này thêm một ưu đãi nữa (mượn xe đạp miễn phí) vào bữa sáng đã nêu: Furthermore = hơn nữa. However là đối lập, As a result là kết quả, For instance là ví dụ, đều không hợp.",
+      "ct": "Furthermore, + mệnh đề = hơn nữa · free of charge = miễn phí",
+      "dich": "Hơn nữa, khách có thể mượn xe đạp miễn phí để khám phá con đường ven biển."
+     }
     },
     {
      "o": [
@@ -2869,7 +2946,18 @@
       "communicate"
      ],
      "a": "contact",
-     "why": "contact us = liên hệ với chúng tôi. reply, respond, communicate cần giới từ (reply to, respond to, communicate with)."
+     "why": "contact us = liên hệ với chúng tôi. reply, respond, communicate cần giới từ (reply to, respond to, communicate with).",
+     "lg": {
+      "og": {
+       "contact": "động từ: liên hệ",
+       "reply": "động từ: trả lời (reply to)",
+       "respond": "động từ: phản hồi (respond to)",
+       "communicate": "động từ: giao tiếp (communicate with)"
+      },
+      "ly": "Sau do not hesitate to và tân ngữ trực tiếp us: contact us (liên hệ chúng tôi). reply, respond, communicate cần giới từ (to / with) trước us.",
+      "ct": "do not hesitate to + V = đừng ngại … · contact + người = liên hệ",
+      "dich": "Nếu cần bất cứ điều gì trước kỳ lưu trú, xin đừng ngại liên hệ chúng tôi."
+     }
     }
    ]
   },
@@ -2888,7 +2976,18 @@
      ],
      "a": "was prompted",
      "t": "tense",
-     "why": "Cuộc khảo sát mùa xuân năm ngoái (last spring) dẫn tới thay đổi; thay đổi chịu tác động → quá khứ bị động: was prompted."
+     "why": "Cuộc khảo sát mùa xuân năm ngoái (last spring) dẫn tới thay đổi; thay đổi chịu tác động → quá khứ bị động: was prompted.",
+     "lg": {
+      "og": {
+       "was prompted": "quá khứ bị động: được thúc đẩy",
+       "prompted": "quá khứ chủ động",
+       "will prompt": "tương lai chủ động",
+       "is prompting": "hiện tại tiếp diễn chủ động"
+      },
+      "ly": "Thay đổi là vật được khảo sát thúc đẩy (bị động) và khảo sát diễn ra mùa xuân trước (last spring): was prompted by a survey. prompted chủ động cần tân ngữ, will prompt và is prompting sai thì.",
+      "ct": "be prompted by + N = được thúc đẩy bởi … · last spring = mùa xuân năm ngoái",
+      "dich": "Giám đốc Amina Yusuf cho biết thay đổi này được thúc đẩy bởi một khảo sát hành khách vào mùa xuân năm ngoái."
+     }
     },
     {
      "o": [
@@ -2898,7 +2997,18 @@
       "Buses will no longer stop at the downtown station."
      ],
      "a": "More than half of the riders surveyed said later buses would help them.",
-     "why": "Nối tiếp kết quả khảo sát (người đi làm ca tối không có xe về) → hơn nửa số người được hỏi nói xe buýt muộn sẽ giúp họ. Huỷ khảo sát, bỏ mọi chuyến buổi tối trái với đoạn; bỏ trạm trung tâm không nối với câu trước và trái với việc bán vé ở trung tâm."
+     "why": "Nối tiếp kết quả khảo sát (người đi làm ca tối không có xe về) → hơn nửa số người được hỏi nói xe buýt muộn sẽ giúp họ. Huỷ khảo sát, bỏ mọi chuyến buổi tối trái với đoạn; bỏ trạm trung tâm không nối với câu trước và trái với việc bán vé ở trung tâm.",
+     "lg": {
+      "og": {
+       "More than half of the riders surveyed said later buses would help them.": "Hơn nửa số hành khách được khảo sát nói xe chạy muộn hơn sẽ giúp họ.",
+       "The survey was canceled because few people took part.": "Khảo sát bị huỷ vì ít người tham gia.",
+       "The agency has decided to end all evening service.": "Cơ quan quyết định ngừng mọi dịch vụ buổi tối.",
+       "Buses will no longer stop at the downtown station.": "Xe buýt sẽ không còn dừng ở ga trung tâm."
+      },
+      "ly": "Câu trước là lời trích về việc nhiều người không có xe về sau ca tối, nên câu chèn nêu kết quả khảo sát ủng hộ xe muộn hơn. Ba câu còn lại mâu thuẫn với việc thêm chuyến.",
+      "ct": "Câu chèn khớp với lời trích dẫn và khảo sát",
+      "dich": "Hơn một nửa số hành khách được khảo sát nói xe buýt chạy muộn hơn sẽ giúp ích cho họ."
+     }
     },
     {
      "o": [
@@ -2909,7 +3019,18 @@
      ],
      "a": "Although",
      "t": "conn",
-     "why": "Vé tháng giúp tiết kiệm nhưng chỉ bán ở một quầy → hai ý trái chiều: Although. Because / Since (vì) không hợp lý, Unless (trừ khi) sai nghĩa."
+     "why": "Vé tháng giúp tiết kiệm nhưng chỉ bán ở một quầy → hai ý trái chiều: Although. Because / Since (vì) không hợp lý, Unless (trừ khi) sai nghĩa.",
+     "lg": {
+      "og": {
+       "Although": "liên từ: mặc dù",
+       "Because": "liên từ: vì",
+       "Unless": "liên từ: trừ khi",
+       "Since": "liên từ: vì, kể từ"
+      },
+      "ly": "Hai vế trái chiều: thẻ giúp tiết kiệm nhưng chỉ bán ở quầy vé trung tâm. Chỗ trống đứng đầu câu trước mệnh đề, dùng Although (mặc dù). Because, Unless, Since sai nghĩa.",
+      "ct": "Although + mệnh đề, mệnh đề = mặc dù … nhưng … · monthly pass = thẻ tháng",
+      "dich": "Mặc dù thẻ tháng sẽ giúp hành khách tiết kiệm tiền, thẻ chỉ được bán tại quầy vé trung tâm."
+     }
     },
     {
      "o": [
@@ -2919,7 +3040,18 @@
       "availably"
      ],
      "a": "available",
-     "why": "be + tính từ: is available (có sẵn)."
+     "why": "be + tính từ: is available (có sẵn).",
+     "lg": {
+      "og": {
+       "available": "tính từ: có sẵn",
+       "availability": "danh từ: tình trạng có sẵn",
+       "avail": "động từ / danh từ: ích lợi",
+       "availably": "trạng từ (không chuẩn)"
+      },
+      "ly": "Sau is cần tính từ: is available on the agency's Web site (có sẵn trên trang web). availability là danh từ, avail là động từ, availably không phổ biến.",
+      "ct": "be available on + trang web = có sẵn trên … · full schedule = lịch đầy đủ",
+      "dich": "Lịch đầy đủ của các tuyến mới có sẵn trên trang web của cơ quan."
+     }
     }
    ]
   },
@@ -2937,7 +3069,18 @@
       "Employees may share their passwords with their managers."
      ],
      "a": "The new password also cannot match any of your last five passwords.",
-     "why": "Thêm một yêu cầu nữa cho mật khẩu mới (also), rồi tới câu \"không đạt các yêu cầu này sẽ bị từ chối\". Hai câu trái với đoạn (bỏ ký hiệu, chia sẻ mật khẩu)."
+     "why": "Thêm một yêu cầu nữa cho mật khẩu mới (also), rồi tới câu \"không đạt các yêu cầu này sẽ bị từ chối\". Hai câu trái với đoạn (bỏ ký hiệu, chia sẻ mật khẩu).",
+     "lg": {
+      "og": {
+       "The new password also cannot match any of your last five passwords.": "Mật khẩu mới cũng không được trùng với năm mật khẩu gần nhất.",
+       "Passwords no longer need to include a symbol.": "Mật khẩu không cần ký hiệu nữa.",
+       "The help desk moved to the second floor last year.": "Bộ phận hỗ trợ chuyển lên tầng hai năm ngoái.",
+       "Employees may share their passwords with their managers.": "Nhân viên có thể chia sẻ mật khẩu với quản lý."
+      },
+      "ly": "Câu đầu nêu quy tắc mật khẩu (12 ký tự, số, ký hiệu), nên câu chèn thêm một quy tắc nữa; câu sau nói mật khẩu không đạt sẽ bị từ chối. \"Không cần ký hiệu\" mâu thuẫn quy tắc, \"chia sẻ với quản lý\" ngược với dặn cuối thư.",
+      "ct": "Câu chèn thêm quy tắc cùng chủ đề (yêu cầu mật khẩu)",
+      "dich": "Mật khẩu mới cũng không được trùng với bất kỳ mật khẩu nào trong năm mật khẩu gần nhất của bạn."
+     }
     },
     {
      "o": [
@@ -2947,7 +3090,18 @@
       "at"
      ],
      "a": "from",
-     "why": "choose something from a list = chọn từ danh sách → from."
+     "why": "choose something from a list = chọn từ danh sách → from.",
+     "lg": {
+      "og": {
+       "from": "giới từ: từ",
+       "of": "giới từ: của",
+       "by": "giới từ: bởi",
+       "at": "giới từ: tại"
+      },
+      "ly": "Chọn một mục trong danh sách dùng choose + mục + from + danh sách: choose Account Security from the list on the left. of, by, at không dùng sau choose theo cách này.",
+      "ct": "choose A from + danh sách = chọn A trong danh sách · settings menu = menu cài đặt",
+      "dich": "Để đổi mật khẩu, hãy mở menu cài đặt và chọn Bảo mật tài khoản từ danh sách bên trái."
+     }
     },
     {
      "o": [
@@ -2958,7 +3112,18 @@
      ],
      "a": "If",
      "t": "conn",
-     "why": "Điều kiện: nếu gặp khó khăn thì bộ phận hỗ trợ giúp → If."
+     "why": "Điều kiện: nếu gặp khó khăn thì bộ phận hỗ trợ giúp → If.",
+     "lg": {
+      "og": {
+       "If": "liên từ: nếu",
+       "Unless": "liên từ: trừ khi",
+       "Although": "liên từ: mặc dù",
+       "So": "liên từ: vì vậy"
+      },
+      "ly": "Câu nêu điều kiện (nếu gặp khó khăn thì có người hỗ trợ): If. Unless là trừ khi, Although là nhượng bộ, So chỉ kết quả.",
+      "ct": "If + you have any trouble, … = nếu bạn gặp khó khăn … · be happy to assist = sẵn lòng hỗ trợ",
+      "dich": "Nếu bạn gặp khó khăn, nhân viên hỗ trợ của chúng tôi sẽ sẵn lòng giúp bạn."
+     }
     },
     {
      "o": [
@@ -2968,7 +3133,18 @@
       "shares"
      ],
      "a": "share",
-     "why": "ask somebody to + động từ nguyên mẫu → to share."
+     "why": "ask somebody to + động từ nguyên mẫu → to share.",
+     "lg": {
+      "og": {
+       "share": "động từ nguyên mẫu: chia sẻ",
+       "sharing": "V-ing",
+       "shared": "V3 / quá khứ",
+       "shares": "động từ ngôi thứ ba"
+      },
+      "ly": "Sau will never ask you to cần động từ nguyên mẫu: share your password (chia sẻ mật khẩu). sharing, shared, shares là các dạng chia khác.",
+      "ct": "ask + người + to V = yêu cầu ai làm gì · by e-mail or phone = qua e-mail hoặc điện thoại",
+      "dich": "Hãy nhớ rằng nhân viên IT sẽ không bao giờ yêu cầu bạn chia sẻ mật khẩu qua e-mail hay điện thoại."
+     }
     }
    ]
   }

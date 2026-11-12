@@ -2827,7 +2827,18 @@
      ],
      "a": "will open",
      "t": "tense",
-     "why": "Việc xảy ra tuần sau (Next week) → tương lai: will open."
+     "why": "Việc xảy ra tuần sau (Next week) → tương lai: will open.",
+     "lg": {
+      "og": {
+       "will open": "tương lai đơn: sẽ mở",
+       "opened": "quá khứ đơn",
+       "has opened": "hiện tại hoàn thành",
+       "was opening": "quá khứ tiếp diễn"
+      },
+      "ly": "Mốc \"Next week\" (tuần sau) chỉ tương lai: will open. Các thì quá khứ / hoàn thành không hợp.",
+      "ct": "Next week → tương lai · self-checkout lane = quầy tự thanh toán",
+      "dich": "Tuần sau, Corner Market sẽ mở bốn quầy tự thanh toán gần cửa chính."
+     }
     },
     {
      "o": [
@@ -2837,7 +2848,18 @@
       "The machines will be removed next month."
      ],
      "a": "Each machine accepts both cash and cards.",
-     "why": "Câu chèn nói thêm về máy tự thanh toán vừa giới thiệu (nhận cả tiền mặt lẫn thẻ); \"đóng lối vào chính\" và \"tháo máy tháng sau\" mâu thuẫn với nội dung thông báo."
+     "why": "Câu chèn nói thêm về máy tự thanh toán vừa giới thiệu (nhận cả tiền mặt lẫn thẻ); \"đóng lối vào chính\" và \"tháo máy tháng sau\" mâu thuẫn với nội dung thông báo.",
+     "lg": {
+      "og": {
+       "Each machine accepts both cash and cards.": "Mỗi máy nhận cả tiền mặt và thẻ.",
+       "Corner Market first opened its doors in 1998.": "Corner Market mở cửa lần đầu năm 1998.",
+       "The main entrance will be closed for repairs.": "Cửa chính sẽ đóng để sửa chữa.",
+       "The machines will be removed next month.": "Các máy sẽ bị gỡ vào tháng sau."
+      },
+      "ly": "Đoạn đang giới thiệu quầy tự thanh toán, nên câu chèn nói thêm về máy: nhận cả tiền mặt và thẻ. Các câu còn lại lạc đề (lịch sử, đóng cửa, gỡ máy ngược với việc mới lắp).",
+      "ct": "Câu chèn phải cùng chủ đề (các máy tự thanh toán)",
+      "dich": "Mỗi máy nhận cả tiền mặt và thẻ."
+     }
     },
     {
      "o": [
@@ -2847,7 +2869,18 @@
       "Similarly"
      ],
      "a": "However",
-     "why": "Trước: giới thiệu làn tự thanh toán mới; sau: quầy thu ngân thường vẫn mở → ý đối lập: However."
+     "why": "Trước: giới thiệu làn tự thanh toán mới; sau: quầy thu ngân thường vẫn mở → ý đối lập: However.",
+     "lg": {
+      "og": {
+       "However": "trạng từ nối: tuy nhiên",
+       "Therefore": "trạng từ nối: vì vậy",
+       "For example": "cụm nối: ví dụ",
+       "Similarly": "trạng từ nối: tương tự"
+      },
+      "ly": "Câu trước nói về quầy tự thanh toán, câu này nói quầy thường vẫn mở: ý bổ sung mang tính đối lập nhẹ, dùng However. Therefore, For example, Similarly không hợp.",
+      "ct": "However, + mệnh đề = tuy nhiên · regular checkout counters = quầy thanh toán thường",
+      "dich": "Tuy nhiên, các quầy thanh toán thường của chúng tôi vẫn mở trong mọi giờ kinh doanh."
+     }
     },
     {
      "o": [
@@ -2857,7 +2890,18 @@
       "patients"
      ],
      "a": "patience",
-     "why": "Sau tính từ sở hữu your cần danh từ → patience (sự kiên nhẫn); patients = bệnh nhân."
+     "why": "Sau tính từ sở hữu your cần danh từ → patience (sự kiên nhẫn); patients = bệnh nhân.",
+     "lg": {
+      "og": {
+       "patience": "danh từ: sự kiên nhẫn",
+       "patient": "tính từ / danh từ: kiên nhẫn; bệnh nhân",
+       "patiently": "trạng từ: một cách kiên nhẫn",
+       "patients": "danh từ số nhiều: bệnh nhân"
+      },
+      "ly": "Sau tính từ sở hữu your cần danh từ: patience (sự kiên nhẫn của quý khách). patient là tính từ hoặc danh từ chỉ người, patiently là trạng từ, patients là bệnh nhân.",
+      "ct": "appreciate your + N = cảm kích sự … của quý khách · faster and easier = nhanh hơn và dễ hơn",
+      "dich": "Chúng tôi cảm kích sự kiên nhẫn của quý khách khi chúng tôi nỗ lực làm cho việc mua sắm nhanh và dễ hơn."
+     }
     }
    ]
   },
@@ -2876,7 +2920,18 @@
      ],
      "a": "will partner",
      "t": "tense",
-     "why": "Ngày tình nguyện còn ở phía trước (will take place on April 12) → will partner."
+     "why": "Ngày tình nguyện còn ở phía trước (will take place on April 12) → will partner.",
+     "lg": {
+      "og": {
+       "will partner": "tương lai đơn: sẽ hợp tác",
+       "partnered": "quá khứ đơn",
+       "had partnered": "quá khứ hoàn thành",
+       "were partnering": "quá khứ tiếp diễn"
+      },
+      "ly": "Ngày tình nguyện sắp diễn ra (April 12) và câu bắt đầu bằng \"This year\" nói kế hoạch: tương lai will partner. Các thì quá khứ không hợp.",
+      "ct": "Thì theo ngữ cảnh: sự kiện sắp tới → tương lai · partner with + tổ chức = hợp tác với",
+      "dich": "Năm nay, chúng ta sẽ hợp tác với Ngân hàng Thực phẩm Brookside để phân loại quà tặng và đóng gói suất ăn cho các gia đình địa phương."
+     }
     },
     {
      "o": [
@@ -2886,7 +2941,18 @@
       "Nevertheless"
      ],
      "a": "In fact",
-     "why": "Câu sau đưa số liệu chứng minh \"rất thành công\" → In fact (thật vậy)."
+     "why": "Câu sau đưa số liệu chứng minh \"rất thành công\" → In fact (thật vậy).",
+     "lg": {
+      "og": {
+       "In fact": "cụm nối: thực tế là (nhấn mạnh)",
+       "Instead": "trạng từ nối: thay vào đó",
+       "Otherwise": "trạng từ nối: nếu không thì",
+       "Nevertheless": "trạng từ nối: tuy nhiên"
+      },
+      "ly": "Câu trước nói sự kiện năm ngoái rất thành công, câu này đưa số liệu chứng minh (hơn 2.000 suất ăn): In fact = thực tế là. Instead, Otherwise, Nevertheless không dẫn dắt bằng chứng.",
+      "ct": "In fact, + mệnh đề = thực tế là (đưa bằng chứng cho ý trước)",
+      "dich": "Thực tế, các tình nguyện viên của chúng ta đã đóng gói hơn 2.000 suất ăn chỉ trong một ngày."
+     }
     },
     {
      "o": [
@@ -2896,7 +2962,18 @@
       "Meals must be ordered a week in advance."
      ],
      "a": "No experience is necessary.",
-     "why": "Câu chèn khuyến khích mọi người tham gia, nối với câu sau về quyền lợi (bữa trưa, áo); \"đóng cửa cuối tuần\" mâu thuẫn với ngày thứ Bảy."
+     "why": "Câu chèn khuyến khích mọi người tham gia, nối với câu sau về quyền lợi (bữa trưa, áo); \"đóng cửa cuối tuần\" mâu thuẫn với ngày thứ Bảy.",
+     "lg": {
+      "og": {
+       "No experience is necessary.": "Không cần kinh nghiệm.",
+       "The food bank is closed on weekends.": "Ngân hàng thực phẩm đóng cửa cuối tuần.",
+       "The food bank was founded by a local family.": "Ngân hàng thực phẩm do một gia đình địa phương lập.",
+       "Meals must be ordered a week in advance.": "Suất ăn phải đặt trước một tuần."
+      },
+      "ly": "Đoạn đang mời tình nguyện, nên câu chèn khuyến khích tham gia: không cần kinh nghiệm. \"Đóng cửa cuối tuần\" mâu thuẫn với ngày thứ Bảy 12/4, hai câu còn lại lạc đề.",
+      "ct": "Câu chèn phải hợp mục đích thư (mời tham gia)",
+      "dich": "Không cần có kinh nghiệm."
+     }
     },
     {
      "o": [
@@ -2906,7 +2983,18 @@
       "participated"
      ],
      "a": "participate",
-     "why": "Sau would like to cần động từ nguyên mẫu → participate."
+     "why": "Sau would like to cần động từ nguyên mẫu → participate.",
+     "lg": {
+      "og": {
+       "participate": "động từ nguyên mẫu: tham gia",
+       "participant": "danh từ: người tham gia",
+       "participation": "danh từ: sự tham gia",
+       "participated": "V3 / quá khứ"
+      },
+      "ly": "Sau would like to cần động từ nguyên mẫu: participate (tham gia). participant và participation là danh từ, participated là dạng chia.",
+      "ct": "would like to + V = muốn làm gì · sign-up sheet = bảng đăng ký",
+      "dich": "Nếu bạn muốn tham gia, vui lòng ghi tên vào bảng đăng ký ở phòng giải lao trước ngày 5 tháng 4."
+     }
     }
    ]
   },
@@ -2925,7 +3013,18 @@
      ],
      "a": "Since then",
      "t": "conn",
-     "why": "Câu sau dùng hiện tại hoàn thành (has planted): từ lúc tiếp quản đến nay → Since then."
+     "why": "Câu sau dùng hiện tại hoàn thành (has planted): từ lúc tiếp quản đến nay → Since then.",
+     "lg": {
+      "og": {
+       "Since then": "cụm nối: từ đó đến nay",
+       "Until then": "cụm nối: cho tới lúc đó",
+       "At first": "cụm nối: lúc đầu",
+       "By then": "cụm nối: vào lúc đó"
+      },
+      "ly": "Câu trước nói ông tiếp quản trang trại mười lăm năm trước, câu này nói việc làm kéo dài từ đó tới nay (đã trồng hơn hai nghìn cây, dùng hiện tại hoàn thành): Since then. Until then, At first, By then không đi với thì hoàn thành này.",
+      "ct": "Since then, S + have / has + V3 = từ đó đến nay đã … · take over = tiếp quản",
+      "dich": "Từ đó đến nay, ông đã trồng thêm hơn hai nghìn cây ăn quả mới."
+     }
     },
     {
      "o": [
@@ -2935,7 +3034,18 @@
       "Apples and pears are usually harvested in the spring."
      ],
      "a": "He hopes the visits will help people learn about farming.",
-     "why": "Nối tiếp câu trích của ông Bell (người ta muốn biết thực phẩm từ đâu) → mong khách hiểu thêm về nghề nông."
+     "why": "Nối tiếp câu trích của ông Bell (người ta muốn biết thực phẩm từ đâu) → mong khách hiểu thêm về nghề nông.",
+     "lg": {
+      "og": {
+       "He hopes the visits will help people learn about farming.": "Ông hy vọng các chuyến thăm giúp mọi người hiểu về nông nghiệp.",
+       "The farm shop will close at the end of the summer.": "Cửa hàng của trang trại sẽ đóng cuối mùa hè.",
+       "Weston's population has grown in recent years.": "Dân số Weston tăng trong những năm gần đây.",
+       "Apples and pears are usually harvested in the spring.": "Táo và lê thường thu hoạch vào mùa xuân."
+      },
+      "ly": "Câu trước là lời ông Bell: người ta muốn biết thức ăn đến từ đâu, nên câu chèn nêu mong muốn của ông về các chuyến thăm. Các câu còn lại lạc đề (đóng cửa, dân số, mùa thu hoạch).",
+      "ct": "Câu chèn phải tiếp ý lời trích dẫn trước đó",
+      "dich": "Ông hy vọng các chuyến thăm sẽ giúp mọi người hiểu thêm về nghề nông."
+     }
     },
     {
      "o": [
@@ -2945,7 +3055,18 @@
       "visits"
      ],
      "a": "visitors",
-     "why": "Sau the first two hundred cần danh từ chỉ người → visitors."
+     "why": "Sau the first two hundred cần danh từ chỉ người → visitors.",
+     "lg": {
+      "og": {
+       "visitors": "danh từ số nhiều: khách tham quan",
+       "visiting": "V-ing / tính từ",
+       "visited": "V3 / quá khứ",
+       "visits": "danh từ số nhiều: các chuyến thăm"
+      },
+      "ly": "Sau the first two hundred cần danh từ chỉ người số nhiều: visitors (200 khách đầu tiên). visits là các chuyến thăm (không đếm được người), visiting và visited là dạng động từ.",
+      "ct": "the first + số + N số nhiều = … người đầu tiên · opening weekend = cuối tuần khai trương",
+      "dich": "Trong cuối tuần khai trương, hai trăm khách đầu tiên sẽ nhận một túi táo miễn phí."
+     }
     },
     {
      "o": [
@@ -2955,7 +3076,18 @@
       "largeness"
      ],
      "a": "large",
-     "why": "Trước danh từ range cần tính từ → a large range (nhiều loại)."
+     "why": "Trước danh từ range cần tính từ → a large range (nhiều loại).",
+     "lg": {
+      "og": {
+       "large": "tính từ: lớn, phong phú",
+       "largely": "trạng từ: phần lớn",
+       "enlarge": "động từ: mở rộng",
+       "largeness": "danh từ: độ lớn"
+      },
+      "ly": "Sau a và trước danh từ range cần tính từ: a large range of (một loạt sản phẩm phong phú). largely là trạng từ, enlarge là động từ, largeness là danh từ.",
+      "ct": "a large range of + N = nhiều loại … · jams and baked goods = mứt và bánh nướng",
+      "dich": "Cửa hàng cũng sẽ có nhiều loại mứt và bánh nướng."
+     }
     }
    ]
   },
@@ -2974,7 +3106,18 @@
      ],
      "a": "has reviewed",
      "t": "tense",
-     "why": "Câu sau nói đã duyệt hồ sơ dựa trên việc xem xét này → việc xem ảnh đã xong: has reviewed."
+     "why": "Câu sau nói đã duyệt hồ sơ dựa trên việc xem xét này → việc xem ảnh đã xong: has reviewed.",
+     "lg": {
+      "og": {
+       "has reviewed": "hiện tại hoàn thành: đã xem xét",
+       "will review": "tương lai đơn",
+       "reviews": "hiện tại đơn",
+       "is reviewing": "hiện tại tiếp diễn"
+      },
+      "ly": "Câu sau nói \"Based on this review\" (dựa trên lần xem xét này) và đã duyệt yêu cầu, nên việc xem xét đã hoàn tất: has reviewed. will review và is reviewing là chưa xong, reviews không hợp mạch.",
+      "ct": "Thì theo ngữ cảnh: Based on this review → việc xem xét đã xong",
+      "dich": "Chúng tôi đã nhận ảnh chụp thiệt hại xe của ông và nhóm của chúng tôi đã xem xét kỹ."
+     }
     },
     {
      "o": [
@@ -2984,7 +3127,18 @@
       "Our customer service line is closed today."
      ],
      "a": "This amount covers the full cost of the repairs.",
-     "why": "\"This amount\" chỉ khoản $1,250 vừa nêu; \"tổng đài đóng cửa\" mâu thuẫn với lời mời gọi điện ở sau."
+     "why": "\"This amount\" chỉ khoản $1,250 vừa nêu; \"tổng đài đóng cửa\" mâu thuẫn với lời mời gọi điện ở sau.",
+     "lg": {
+      "og": {
+       "This amount covers the full cost of the repairs.": "Số tiền này chi trả toàn bộ chi phí sửa chữa.",
+       "Photographs must be taken in good light.": "Ảnh phải chụp ở nơi đủ sáng.",
+       "Your bank account was opened five years ago.": "Tài khoản ngân hàng của ông mở cách đây năm năm.",
+       "Our customer service line is closed today.": "Đường dây chăm sóc khách hàng hôm nay đóng."
+      },
+      "ly": "Câu trước nêu số tiền được duyệt (1.250 đô la), nên câu chèn nói số tiền đó đủ chi phí sửa chữa. \"Đường dây đóng cửa\" ngược với câu sau, hai câu còn lại lạc đề.",
+      "ct": "Câu chèn phải tiếp ý câu trước (số tiền được duyệt)",
+      "dich": "Số tiền này chi trả toàn bộ chi phí sửa chữa."
+     }
     },
     {
      "o": [
@@ -2994,7 +3148,18 @@
       "Whether"
      ],
      "a": "If",
-     "why": "Nếu có thắc mắc thì gọi → If; Unless / Although sai nghĩa, Whether cần or."
+     "why": "Nếu có thắc mắc thì gọi → If; Unless / Although sai nghĩa, Whether cần or.",
+     "lg": {
+      "og": {
+       "If": "liên từ: nếu",
+       "Unless": "liên từ: trừ khi",
+       "Although": "liên từ: mặc dù",
+       "Whether": "liên từ: liệu"
+      },
+      "ly": "Câu nêu điều kiện (nếu có thắc mắc thì gọi): If. Unless là trừ khi, Although là nhượng bộ, Whether cần cặp (whether … or).",
+      "ct": "If + you have any questions, please … = nếu có thắc mắc, vui lòng … · customer service line = đường dây chăm sóc khách hàng",
+      "dich": "Nếu ông có thắc mắc, vui lòng gọi đường dây chăm sóc khách hàng theo số 555-0193."
+     }
     },
     {
      "o": [
@@ -3004,7 +3169,18 @@
       "readied"
      ],
      "a": "ready",
-     "why": "have + tân ngữ + tính từ (have your claim number ready = chuẩn bị sẵn mã hồ sơ) → ready."
+     "why": "have + tân ngữ + tính từ (have your claim number ready = chuẩn bị sẵn mã hồ sơ) → ready.",
+     "lg": {
+      "og": {
+       "ready": "tính từ: sẵn sàng",
+       "readily": "trạng từ: dễ dàng",
+       "readiness": "danh từ: sự sẵn sàng",
+       "readied": "V3: đã chuẩn bị"
+      },
+      "ly": "Cấu trúc have + tân ngữ + tính từ: have your claim number ready (để sẵn mã yêu cầu). readily là trạng từ, readiness là danh từ, readied là động từ.",
+      "ct": "have + N + ready = để sẵn … · claim number = mã yêu cầu bồi thường",
+      "dich": "Vui lòng để sẵn mã yêu cầu bồi thường khi gọi."
+     }
     }
    ]
   }

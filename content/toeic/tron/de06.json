@@ -2820,7 +2820,18 @@
      ],
      "a": "will receive",
      "t": "tense",
-     "why": "Sách đang hết hàng, next week (tương lai) → will receive."
+     "why": "Sách đang hết hàng, next week (tương lai) → will receive.",
+     "lg": {
+      "og": {
+       "will receive": "tương lai đơn: sẽ nhận",
+       "received": "quá khứ đơn",
+       "have received": "hiện tại hoàn thành",
+       "were receiving": "quá khứ tiếp diễn"
+      },
+      "ly": "Có next week (tuần sau) chỉ tương lai: will receive. Các thì quá khứ / hoàn thành không hợp.",
+      "ct": "next week → tương lai · out of stock = hết hàng",
+      "dich": "Chúng tôi sẽ nhận thêm bản sao từ nhà xuất bản vào tuần sau."
+     }
     },
     {
      "o": [
@@ -2830,7 +2841,18 @@
       "Shipping costs will increase next month."
      ],
      "a": "We did not want to delay the rest of your order.",
-     "why": "Câu chèn giải thích vì sao gửi trước hai cuốn còn lại, nối với câu sau \"Your other two books were shipped\"."
+     "why": "Câu chèn giải thích vì sao gửi trước hai cuốn còn lại, nối với câu sau \"Your other two books were shipped\".",
+     "lg": {
+      "og": {
+       "We did not want to delay the rest of your order.": "Chúng tôi không muốn làm chậm phần còn lại của đơn hàng.",
+       "The Mountain Road was published ten years ago.": "The Mountain Road được xuất bản mười năm trước.",
+       "Pinewood Books opened its first store in 1990.": "Pinewood Books mở cửa hàng đầu tiên năm 1990.",
+       "Shipping costs will increase next month.": "Phí vận chuyển sẽ tăng vào tháng sau."
+      },
+      "ly": "Câu sau nói hai cuốn kia đã gửi sáng nay, nên câu chèn giải thích lý do gửi tách ra: không muốn làm chậm phần còn lại. Ba câu còn lại lạc đề (năm xuất bản, lịch sử cửa hàng, phí vận chuyển).",
+      "ct": "Câu chèn giải thích điều vừa làm (gửi tách đơn)",
+      "dich": "Chúng tôi không muốn làm chậm phần còn lại của đơn hàng."
+     }
     },
     {
      "o": [
@@ -2840,7 +2862,18 @@
       "Otherwise"
      ],
      "a": "In addition",
-     "why": "Thêm một điều có lợi cho khách (không tính phí gửi thêm) → In addition."
+     "why": "Thêm một điều có lợi cho khách (không tính phí gửi thêm) → In addition.",
+     "lg": {
+      "og": {
+       "In addition": "cụm nối: ngoài ra",
+       "Instead": "trạng từ nối: thay vào đó",
+       "For example": "cụm nối: ví dụ",
+       "Otherwise": "trạng từ nối: nếu không thì"
+      },
+      "ly": "Câu này thêm một điều tốt nữa (không tính thêm phí gửi) vào điều đã nói: In addition = ngoài ra. Instead, For example, Otherwise không hợp mạch thêm ý.",
+      "ct": "In addition, + mệnh đề = ngoài ra · shipping fees = phí vận chuyển",
+      "dich": "Ngoài ra, bạn sẽ không bị tính thêm phí vận chuyển."
+     }
     },
     {
      "o": [
@@ -2850,7 +2883,18 @@
       "inconvenienced"
      ],
      "a": "inconvenience",
-     "why": "Sau the cần danh từ → inconvenience (sự bất tiện)."
+     "why": "Sau the cần danh từ → inconvenience (sự bất tiện).",
+     "lg": {
+      "og": {
+       "inconvenience": "danh từ: sự bất tiện",
+       "inconvenient": "tính từ: bất tiện",
+       "inconveniently": "trạng từ: một cách bất tiện",
+       "inconvenienced": "V3: bị làm phiền"
+      },
+      "ly": "Sau mạo từ the cần danh từ: the inconvenience (sự bất tiện). inconvenient là tính từ, inconveniently là trạng từ, inconvenienced là dạng động từ.",
+      "ct": "apologize for the inconvenience = xin lỗi vì sự bất tiện · thank you for your patience",
+      "dich": "Chúng tôi xin lỗi vì sự bất tiện này và cảm ơn sự kiên nhẫn của bạn."
+     }
     }
    ]
   },
@@ -2868,7 +2912,18 @@
       "to cost"
      ],
      "a": "costs",
-     "why": "Chủ ngữ Each plot (số ít), nối với measures bằng and → costs."
+     "why": "Chủ ngữ Each plot (số ít), nối với measures bằng and → costs.",
+     "lg": {
+      "og": {
+       "costs": "động từ ngôi thứ ba số ít: có giá",
+       "cost": "động từ nguyên mẫu / số nhiều",
+       "costing": "V-ing",
+       "to cost": "to V"
+      },
+      "ly": "Chủ ngữ Each plot số ít, thì hiện tại: costs $40 per year (mỗi lô giá 40 đô mỗi năm). cost thiếu -s, costing và to cost không chia ngôi.",
+      "ct": "Each + N số ít + V số ít · measure three meters by four = rộng ba mét nhân bốn mét",
+      "dich": "Mỗi lô rộng ba mét nhân bốn mét và có giá 40 đô la mỗi năm."
+     }
     },
     {
      "o": [
@@ -2878,7 +2933,18 @@
       "Applications for jobs at the garden are now closed."
      ],
      "a": "Seeds and plants, however, must be provided by the gardeners themselves.",
-     "why": "Câu trước kể thứ được dùng (nước, dụng cụ, kho); câu chèn nói thứ không có sẵn (hạt giống, cây) → however."
+     "why": "Câu trước kể thứ được dùng (nước, dụng cụ, kho); câu chèn nói thứ không có sẵn (hạt giống, cây) → however.",
+     "lg": {
+      "og": {
+       "Seeds and plants, however, must be provided by the gardeners themselves.": "Tuy vậy, hạt giống và cây phải do người làm vườn tự chuẩn bị.",
+       "The garden was once a parking lot.": "Khu vườn từng là bãi đỗ xe.",
+       "Water prices in Oakridge have risen recently.": "Giá nước ở Oakridge gần đây tăng.",
+       "Applications for jobs at the garden are now closed.": "Hồ sơ xin việc ở khu vườn đã đóng."
+      },
+      "ly": "Câu trước nói người làm vườn được dùng nước, dụng cụ, nhà kho; câu chèn nêu điều họ phải tự lo: hạt giống và cây (however = tuy vậy). Ba câu còn lại không liên quan.",
+      "ct": "Câu chèn đối chiếu với câu trước (được cung cấp gì / phải tự lo gì)",
+      "dich": "Tuy nhiên, hạt giống và cây trồng phải do chính người làm vườn tự chuẩn bị."
+     }
     },
     {
      "o": [
@@ -2888,7 +2954,18 @@
       "receive"
      ],
      "a": "received",
-     "why": "applications are received (bị động: đơn được nhận) → received."
+     "why": "applications are received (bị động: đơn được nhận) → received.",
+     "lg": {
+      "og": {
+       "received": "V3: được nhận",
+       "receiving": "V-ing",
+       "receipt": "danh từ: biên lai",
+       "receive": "động từ nguyên mẫu"
+      },
+      "ly": "Sau applications are cần V3 (bị động): applications are received (đơn được nhận). Lô được giao theo thứ tự đơn được nhận. receiving, receive, receipt không tạo bị động đúng.",
+      "ct": "in the order that + S + are + V3 = theo thứ tự … được … · assign plots = phân lô",
+      "dich": "Các lô sẽ được phân theo thứ tự nhận đơn."
+     }
     },
     {
      "o": [
@@ -2898,7 +2975,18 @@
       "volunteering"
      ],
      "a": "volunteers",
-     "why": "Sau one of our cần danh từ số nhiều chỉ người → volunteers."
+     "why": "Sau one of our cần danh từ số nhiều chỉ người → volunteers.",
+     "lg": {
+      "og": {
+       "volunteers": "danh từ số nhiều: tình nguyện viên",
+       "volunteered": "V3 / quá khứ",
+       "voluntary": "tính từ: tự nguyện",
+       "volunteering": "V-ing"
+      },
+      "ly": "Sau one of our cần danh từ số nhiều chỉ người: volunteers (một trong các tình nguyện viên của chúng tôi). voluntary là tính từ, volunteered và volunteering là dạng động từ.",
+      "ct": "one of our + N số nhiều = một trong số … của chúng tôi · speak to = trao đổi với",
+      "dich": "Để biết thêm thông tin, vui lòng truy cập trang web hoặc hỏi một trong các tình nguyện viên của chúng tôi vào sáng thứ Bảy."
+     }
     }
    ]
   },
@@ -2916,7 +3004,18 @@
       "Unless"
      ],
      "a": "Besides",
-     "why": "Besides + V-ing = ngoài việc …; câu sau có also (thêm một lợi ích) → Besides."
+     "why": "Besides + V-ing = ngoài việc …; câu sau có also (thêm một lợi ích) → Besides.",
+     "lg": {
+      "og": {
+       "Besides": "giới từ: ngoài việc",
+       "Despite": "giới từ: mặc dù",
+       "Instead of": "cụm: thay vì",
+       "Unless": "liên từ: trừ khi"
+      },
+      "ly": "Ngoài việc êm và sạch hơn, xe còn rẻ hơn khi vận hành (also): Besides + V-ing = ngoài việc. Despite chỉ tương phản, Instead of là thay vì, Unless cần mệnh đề.",
+      "ct": "Besides + V-ing, S + also + V = ngoài việc …, còn … · quieter and cleaner = êm và sạch hơn",
+      "dich": "Ngoài việc êm hơn và sạch hơn xe buýt chạy dầu cũ, các xe này còn rẻ hơn khi vận hành."
+     }
     },
     {
      "o": [
@@ -2926,7 +3025,18 @@
       "Train tickets can be bought online."
      ],
      "a": "The savings will be used to improve bus stops.",
-     "why": "\"The savings\" chỉ khoản tiết kiệm nhiên liệu vừa nêu → câu chèn đứng ngay sau."
+     "why": "\"The savings\" chỉ khoản tiết kiệm nhiên liệu vừa nêu → câu chèn đứng ngay sau.",
+     "lg": {
+      "og": {
+       "The savings will be used to improve bus stops.": "Khoản tiết kiệm sẽ dùng để cải thiện các trạm xe buýt.",
+       "The university was founded in 1965.": "Trường đại học thành lập năm 1965.",
+       "Diesel fuel is mainly imported from abroad.": "Dầu diesel chủ yếu nhập từ nước ngoài.",
+       "Train tickets can be bought online.": "Có thể mua vé tàu trực tuyến."
+      },
+      "ly": "Câu trước nói mỗi xe tiết kiệm khoảng 15.000 đô la mỗi năm tiền nhiên liệu, nên câu chèn nói khoản tiết kiệm được dùng vào việc gì. Các câu còn lại lạc đề.",
+      "ct": "Câu chèn tiếp ý câu trước (khoản tiết kiệm)",
+      "dich": "Khoản tiết kiệm này sẽ được dùng để cải thiện các trạm xe buýt."
+     }
     },
     {
      "o": [
@@ -2936,7 +3046,18 @@
       "remainder"
      ],
      "a": "remaining",
-     "why": "Trước danh từ buses cần tính từ → remaining (số xe còn lại)."
+     "why": "Trước danh từ buses cần tính từ → remaining (số xe còn lại).",
+     "lg": {
+      "og": {
+       "remaining": "tính từ: còn lại",
+       "remained": "V3 / quá khứ",
+       "remains": "động từ ngôi thứ ba / danh từ",
+       "remainder": "danh từ: phần còn lại"
+      },
+      "ly": "Chỗ trống đứng trước danh từ buses và bổ nghĩa cho nó: remaining buses (các xe còn lại). remained là dạng động từ, remains và remainder là danh từ.",
+      "ct": "all of its remaining + N = toàn bộ … còn lại · by 2030 = vào năm 2030",
+      "dich": "Thành phố dự định thay toàn bộ xe buýt còn lại bằng xe điện vào năm 2030."
+     }
     },
     {
      "o": [
@@ -2947,7 +3068,18 @@
      ],
      "a": "will be installed",
      "t": "tense",
-     "why": "later this year (tương lai), trạm sạc được lắp (bị động) → will be installed."
+     "why": "later this year (tương lai), trạm sạc được lắp (bị động) → will be installed.",
+     "lg": {
+      "og": {
+       "will be installed": "tương lai bị động: sẽ được lắp",
+       "were installed": "quá khứ bị động",
+       "have been installed": "hiện tại hoàn thành bị động",
+       "are installing": "hiện tại tiếp diễn chủ động"
+      },
+      "ly": "Trạm sạc là vật được lắp (bị động) và có \"later this year\" (cuối năm nay): will be installed. were installed, have been installed là thì đã xảy ra, are installing là chủ động.",
+      "ct": "will be + V3 = sẽ được … · later this year = vào cuối năm nay",
+      "dich": "Các trạm sạc sẽ được lắp tại bãi xe buýt chính vào cuối năm nay."
+     }
     }
    ]
   },
@@ -2966,7 +3098,18 @@
      ],
      "a": "will check in",
      "t": "tense",
-     "why": "Từ thứ Hai 4/5 (Beginning Monday, May 4) → việc ở tương lai: will check in."
+     "why": "Từ thứ Hai 4/5 (Beginning Monday, May 4) → việc ở tương lai: will check in.",
+     "lg": {
+      "og": {
+       "will check in": "tương lai đơn: sẽ đăng ký",
+       "checked in": "quá khứ đơn",
+       "have checked in": "hiện tại hoàn thành",
+       "checking in": "V-ing"
+      },
+      "ly": "Mốc \"Beginning Monday, May 4\" (từ thứ Hai 4/5) chỉ tương lai: will check in. Các thì quá khứ / hoàn thành không hợp, checking in thiếu trợ động từ.",
+      "ct": "Beginning + ngày → tương lai · check in = đăng ký khi đến",
+      "dich": "Bắt đầu từ thứ Hai ngày 4 tháng 5, mọi khách đến toà nhà sẽ đăng ký ở quầy lễ tân bằng hệ thống máy tính bảng mới."
+     }
     },
     {
      "o": [
@@ -2976,7 +3119,18 @@
       "Nevertheless"
      ],
      "a": "As a result",
-     "why": "Máy tự in thẻ khách → kết quả là lễ tân không phải viết thẻ tay nữa: As a result."
+     "why": "Máy tự in thẻ khách → kết quả là lễ tân không phải viết thẻ tay nữa: As a result.",
+     "lg": {
+      "og": {
+       "As a result": "cụm nối: vì vậy",
+       "For example": "cụm nối: ví dụ",
+       "Similarly": "trạng từ nối: tương tự",
+       "Nevertheless": "trạng từ nối: tuy nhiên"
+      },
+      "ly": "Câu trước nói huy hiệu được in tự động, nên kết quả là nhân viên lễ tân không phải viết tay nữa: As a result. For example, Similarly, Nevertheless không nối quan hệ nguyên nhân – kết quả.",
+      "ct": "As a result, + mệnh đề = vì vậy · no longer = không còn nữa",
+      "dich": "Nhờ vậy, nhân viên lễ tân sẽ không còn phải viết huy hiệu khách bằng tay."
+     }
     },
     {
      "o": [
@@ -2986,7 +3140,18 @@
       "Visitors may now park in the employee lot."
      ],
      "a": "Guests must wear their badges at all times while in the building.",
-     "why": "Vừa nói về thẻ khách in tự động → câu chèn nói quy định đeo thẻ, rồi mới tới dặn báo trước cho khách. \"The front desk will be closed…\" trái với việc ghi danh ở quầy từ ngày 4/5."
+     "why": "Vừa nói về thẻ khách in tự động → câu chèn nói quy định đeo thẻ, rồi mới tới dặn báo trước cho khách. \"The front desk will be closed…\" trái với việc ghi danh ở quầy từ ngày 4/5.",
+     "lg": {
+      "og": {
+       "Guests must wear their badges at all times while in the building.": "Khách phải đeo huy hiệu mọi lúc khi ở trong toà nhà.",
+       "The front desk will be closed on Monday, May 4.": "Quầy lễ tân sẽ đóng cửa vào thứ Hai 4/5.",
+       "The tablets were donated by a local company.": "Máy tính bảng do một công ty địa phương tặng.",
+       "Visitors may now park in the employee lot.": "Khách nay có thể đỗ xe ở bãi của nhân viên."
+      },
+      "ly": "Đoạn nói về việc in huy hiệu cho khách, nên câu chèn dặn khách phải đeo huy hiệu. \"Quầy lễ tân đóng cửa\" ngược với việc khách đăng ký ở quầy, hai câu còn lại lạc đề.",
+      "ct": "Câu chèn tiếp ý (huy hiệu khách)",
+      "dich": "Khách phải đeo huy hiệu mọi lúc khi ở trong toà nhà."
+     }
     },
     {
      "o": [
@@ -2996,7 +3161,18 @@
       "of"
      ],
      "a": "to",
-     "why": "send something to someone = gửi cho ai → to."
+     "why": "send something to someone = gửi cho ai → to.",
+     "lg": {
+      "og": {
+       "to": "giới từ: tới",
+       "at": "giới từ: tại",
+       "from": "giới từ: từ",
+       "of": "giới từ: của"
+      },
+      "ly": "Gửi câu hỏi cho ai dùng send + vật + to + người nhận: sent to Omar Siddiqui. at, from, of không dùng sau sent theo nghĩa này.",
+      "ct": "be sent to + người = được gửi tới … · security office = phòng bảo vệ",
+      "dich": "Các câu hỏi về hệ thống mới có thể gửi cho ông Omar Siddiqui ở phòng bảo vệ."
+     }
     }
    ]
   }

@@ -2744,7 +2744,18 @@
      ],
      "a": "will change",
      "t": "tense",
-     "why": "Lịch giao của tuần tới (next week) → tương lai: will change."
+     "why": "Lịch giao của tuần tới (next week) → tương lai: will change.",
+     "lg": {
+      "og": {
+       "will change": "tương lai đơn: sẽ thay đổi",
+       "changed": "quá khứ đơn",
+       "has changed": "hiện tại hoàn thành",
+       "changing": "V-ing"
+      },
+      "ly": "Ngày lễ là thứ Hai 26/5 và có \"next week\" (tuần sau): will change. changed và has changed là quá khứ / hoàn thành, changing thiếu trợ động từ.",
+      "ct": "next week → tương lai · because of + N = do",
+      "dich": "Do kỳ nghỉ lễ quốc gia vào thứ Hai ngày 26 tháng 5, lịch giao hàng của chúng tôi sẽ thay đổi vào tuần sau."
+     }
     },
     {
      "o": [
@@ -2754,7 +2765,18 @@
       "Tuesday is the only day we cannot deliver."
      ],
      "a": "All other delivery days will not be affected.",
-     "why": "Vừa nói đơn thứ Hai dời sang thứ Ba → các ngày giao khác không đổi. \"Thứ Hai vẫn giao như thường\", \"thứ Ba là ngày duy nhất không giao\" trái với đoạn; câu đơn thứ Hai được ưa chuộng không nối với ý dời lịch."
+     "why": "Vừa nói đơn thứ Hai dời sang thứ Ba → các ngày giao khác không đổi. \"Thứ Hai vẫn giao như thường\", \"thứ Ba là ngày duy nhất không giao\" trái với đoạn; câu đơn thứ Hai được ưa chuộng không nối với ý dời lịch.",
+     "lg": {
+      "og": {
+       "All other delivery days will not be affected.": "Mọi ngày giao hàng khác sẽ không bị ảnh hưởng.",
+       "Monday deliveries have been very popular this year.": "Giao hàng thứ Hai năm nay rất được ưa chuộng.",
+       "Deliveries will continue as usual on Monday.": "Việc giao hàng vẫn như thường vào thứ Hai.",
+       "Tuesday is the only day we cannot deliver.": "Thứ Ba là ngày duy nhất chúng tôi không giao được."
+      },
+      "ly": "Câu trước nói hộp thứ Hai giao sang thứ Ba, nên câu chèn xác nhận các ngày khác không đổi. \"Vẫn giao thứ Hai\" và \"thứ Ba không giao\" mâu thuẫn, câu còn lại lạc đề.",
+      "ct": "Câu chèn khớp câu trước (đổi lịch)",
+      "dich": "Mọi ngày giao hàng khác sẽ không bị ảnh hưởng."
+     }
     },
     {
      "o": [
@@ -2765,7 +2787,18 @@
      ],
      "a": "Alternatively",
      "t": "conn",
-     "why": "Đưa ra một lựa chọn khác (bỏ qua hộp tuần tới thay vì đổi ngày) → Alternatively. Therefore / Consequently chỉ kết quả, không hợp."
+     "why": "Đưa ra một lựa chọn khác (bỏ qua hộp tuần tới thay vì đổi ngày) → Alternatively. Therefore / Consequently chỉ kết quả, không hợp.",
+     "lg": {
+      "og": {
+       "Alternatively": "trạng từ nối: hoặc nếu không",
+       "Therefore": "trạng từ nối: vì vậy",
+       "Consequently": "trạng từ nối: do đó",
+       "Similarly": "trạng từ nối: tương tự"
+      },
+      "ly": "Câu trước đưa phương án chọn ngày khác, câu này đưa phương án khác nữa (bỏ hộp tuần sau): Alternatively = hoặc có thể. Therefore, Consequently, Similarly không nêu lựa chọn thay thế.",
+      "ct": "Alternatively, + câu = hoặc, bạn có thể … · at no charge = miễn phí",
+      "dich": "Hoặc bạn có thể bỏ hẳn hộp của tuần sau mà không mất phí."
+     }
     },
     {
      "o": [
@@ -2775,7 +2808,18 @@
       "patients"
      ],
      "a": "patience",
-     "why": "your + danh từ: patience (sự kiên nhẫn). patients = bệnh nhân."
+     "why": "your + danh từ: patience (sự kiên nhẫn). patients = bệnh nhân.",
+     "lg": {
+      "og": {
+       "patience": "danh từ: sự kiên nhẫn",
+       "patient": "tính từ / danh từ: kiên nhẫn; bệnh nhân",
+       "patiently": "trạng từ: một cách kiên nhẫn",
+       "patients": "danh từ số nhiều: bệnh nhân"
+      },
+      "ly": "Sau tính từ sở hữu your cần danh từ: patience (sự kiên nhẫn của quý khách). patient là tính từ hoặc người bệnh, patiently là trạng từ, patients là bệnh nhân.",
+      "ct": "be grateful for your + N = biết ơn sự … của bạn · wish + người + a happy holiday",
+      "dich": "Chúng tôi biết ơn sự kiên nhẫn của quý khách và chúc quý khách một kỳ nghỉ lễ vui vẻ."
+     }
     }
    ]
   },
@@ -2794,7 +2838,18 @@
      ],
      "a": "are invited",
      "t": "tense",
-     "why": "Trẻ em được mời (bị động, hiện tại): are invited."
+     "why": "Trẻ em được mời (bị động, hiện tại): are invited.",
+     "lg": {
+      "og": {
+       "are invited": "hiện tại bị động: được mời",
+       "invited": "quá khứ / V3",
+       "have invited": "hiện tại hoàn thành chủ động",
+       "inviting": "V-ing"
+      },
+      "ly": "Trẻ em là người được mời (bị động), chủ ngữ số nhiều: are invited to join (được mời tham gia). invited chủ động cần tân ngữ, have invited là chủ động, inviting thiếu trợ động từ.",
+      "ct": "be invited to + V = được mời làm gì · ages six to twelve = từ sáu đến mười hai tuổi",
+      "dich": "Mùa hè này, trẻ em từ sáu đến mười hai tuổi được mời tham gia Thử thách Đọc sách Mùa hè của chúng tôi."
+     }
     },
     {
      "o": [
@@ -2804,7 +2859,18 @@
       "Reading logs must be bought at the front desk."
      ],
      "a": "Audiobooks and e-books also count toward the total.",
-     "why": "Nói tiếp luật đọc đủ 10 cuốn → sách nói, sách điện tử cũng được tính. Ba câu kia trái với đoạn (trẻ 6–12 tuổi; vé vào Science Center là phần thưởng; sổ đọc được phát cho mỗi em)."
+     "why": "Nói tiếp luật đọc đủ 10 cuốn → sách nói, sách điện tử cũng được tính. Ba câu kia trái với đoạn (trẻ 6–12 tuổi; vé vào Science Center là phần thưởng; sổ đọc được phát cho mỗi em).",
+     "lg": {
+      "og": {
+       "Audiobooks and e-books also count toward the total.": "Sách nói và sách điện tử cũng được tính vào tổng số.",
+       "Only children over twelve may take part.": "Chỉ trẻ trên mười hai tuổi được tham gia.",
+       "The Science Center will be closed all summer.": "Trung tâm Khoa học sẽ đóng suốt mùa hè.",
+       "Reading logs must be bought at the front desk.": "Sổ đọc sách phải mua ở quầy lễ tân."
+      },
+      "ly": "Câu trước nêu điều kiện đọc mười cuốn, nên câu chèn bổ sung loại sách được tính. \"Chỉ trên mười hai tuổi\" ngược câu đầu, \"Trung tâm đóng cửa\" ngược phần thưởng, \"phải mua sổ\" ngược với việc được phát sổ.",
+      "ct": "Câu chèn tiếp ý điều kiện tham gia",
+      "dich": "Sách nói và sách điện tử cũng được tính vào tổng số."
+     }
     },
     {
      "o": [
@@ -2815,7 +2881,18 @@
      ],
      "a": "Furthermore",
      "t": "conn",
-     "why": "Thêm một hoạt động nữa (kể chuyện mỗi sáng thứ Tư) → Furthermore."
+     "why": "Thêm một hoạt động nữa (kể chuyện mỗi sáng thứ Tư) → Furthermore.",
+     "lg": {
+      "og": {
+       "Furthermore": "trạng từ nối: hơn nữa",
+       "Instead": "trạng từ nối: thay vào đó",
+       "However": "trạng từ nối: tuy nhiên",
+       "As a result": "cụm nối: vì vậy"
+      },
+      "ly": "Câu này thêm một hoạt động nữa (buổi kể chuyện mỗi sáng thứ Tư): Furthermore = hơn nữa. Instead, However, As a result không hợp mạch thêm ý.",
+      "ct": "Furthermore, + mệnh đề = hơn nữa · storytelling event = buổi kể chuyện",
+      "dich": "Hơn nữa, thư viện sẽ tổ chức một buổi kể chuyện vào mỗi sáng thứ Tư trong tháng 7."
+     }
     },
     {
      "o": [
@@ -2825,7 +2902,18 @@
       "registers"
      ],
      "a": "register",
-     "why": "please + động từ nguyên mẫu: register."
+     "why": "please + động từ nguyên mẫu: register.",
+     "lg": {
+      "og": {
+       "register": "động từ nguyên mẫu: đăng ký",
+       "registration": "danh từ: sự đăng ký",
+       "registered": "V3 / tính từ: đã đăng ký",
+       "registers": "động từ ngôi thứ ba / danh từ số nhiều"
+      },
+      "ly": "Sau please cần động từ nguyên mẫu: please register early (vui lòng đăng ký sớm). registration là danh từ, registered và registers là dạng khác.",
+      "ct": "Please + V = lời yêu cầu lịch sự · space is limited = chỗ có hạn",
+      "dich": "Số chỗ ở các buổi này có hạn, nên vui lòng đăng ký sớm."
+     }
     }
    ]
   },
@@ -2844,7 +2932,18 @@
      ],
      "a": "took",
      "t": "tense",
-     "why": "Bếp đã xây xong (mở tuần trước) → quá khứ: took."
+     "why": "Bếp đã xây xong (mở tuần trước) → quá khứ: took.",
+     "lg": {
+      "og": {
+       "took": "quá khứ đơn: đã mất",
+       "takes": "hiện tại đơn",
+       "will take": "tương lai đơn",
+       "is taking": "hiện tại tiếp diễn"
+      },
+      "ly": "Bếp đã khai trương tuần trước (opened … last week), nên việc xây dựng đã xong và mất hơn một năm: took. takes, will take, is taking không hợp mạch quá khứ này.",
+      "ct": "take + thời gian + to V = mất bao lâu để … · training kitchen = bếp đào tạo",
+      "dich": "Căn bếp này, mất hơn một năm để xây, sẽ dùng để dạy kỹ năng nấu ăn cho học sinh trung học địa phương quan tâm đến nghề nhà hàng."
+     }
     },
     {
      "o": [
@@ -2854,7 +2953,18 @@
       "Ms. Brennan has never worked in a restaurant."
      ],
      "a": "She hopes the program will do the same for others.",
-     "why": "Nối câu bà kể được cho cơ hội năm 17 tuổi → bà mong chương trình cũng cho người khác cơ hội như vậy. Ba câu kia trái với đoạn."
+     "why": "Nối câu bà kể được cho cơ hội năm 17 tuổi → bà mong chương trình cũng cho người khác cơ hội như vậy. Ba câu kia trái với đoạn.",
+     "lg": {
+      "og": {
+       "She hopes the program will do the same for others.": "Bà hy vọng chương trình sẽ làm điều tương tự cho người khác.",
+       "The company plans to close the kitchen next year.": "Công ty dự định đóng bếp vào năm sau.",
+       "High school students are not eligible for the program.": "Học sinh trung học không đủ điều kiện tham gia.",
+       "Ms. Brennan has never worked in a restaurant.": "Bà Brennan chưa từng làm trong nhà hàng."
+      },
+      "ly": "Câu trước là lời bà Brennan kể có người cho bà cơ hội năm 17 tuổi, nên câu chèn nêu hy vọng chương trình cũng làm thế cho người khác. Các câu còn lại mâu thuẫn (đóng bếp, học sinh không đủ điều kiện, chưa từng làm bếp).",
+      "ct": "Câu chèn tiếp lời trích dẫn (the same = cơ hội)",
+      "dich": "Bà hy vọng chương trình sẽ làm điều tương tự cho những người khác."
+     }
     },
     {
      "o": [
@@ -2864,7 +2974,18 @@
       "leads"
      ],
      "a": "lead",
-     "why": "volunteer to + động từ nguyên mẫu: to lead."
+     "why": "volunteer to + động từ nguyên mẫu: to lead.",
+     "lg": {
+      "og": {
+       "lead": "động từ nguyên mẫu: dẫn dắt",
+       "leader": "danh từ: người dẫn đầu",
+       "leading": "V-ing / tính từ",
+       "leads": "động từ ngôi thứ ba"
+      },
+      "ly": "Sau will volunteer to cần động từ nguyên mẫu: lead the classes (dẫn dắt các lớp). leader là danh từ, leading và leads là dạng khác.",
+      "ct": "volunteer to + V = tình nguyện làm gì · lead a class = dẫn dắt lớp học",
+      "dich": "Các đầu bếp từ những nhà hàng đó sẽ tình nguyện dẫn dắt các lớp học."
+     }
     },
     {
      "o": [
@@ -2875,7 +2996,18 @@
      ],
      "a": "In addition",
      "t": "conn",
-     "why": "Thêm một lợi ích nữa (việc làm hè có lương) → In addition."
+     "why": "Thêm một lợi ích nữa (việc làm hè có lương) → In addition.",
+     "lg": {
+      "og": {
+       "In addition": "cụm nối: ngoài ra",
+       "Otherwise": "trạng từ nối: nếu không thì",
+       "Instead": "trạng từ nối: thay vào đó",
+       "Nevertheless": "trạng từ nối: tuy nhiên"
+      },
+      "ly": "Câu này thêm một lợi ích nữa (việc làm hè có lương) sau khi nói về chương trình: In addition = ngoài ra. Otherwise, Instead, Nevertheless dùng cho phủ định hoặc đối lập.",
+      "ct": "In addition, + mệnh đề = ngoài ra · paid summer jobs = việc làm hè có lương",
+      "dich": "Ngoài ra, học sinh hoàn thành khoá mười hai tuần sẽ được mời làm việc hè có lương."
+     }
     }
    ]
   },
@@ -2894,7 +3026,18 @@
      ],
      "a": "will take place",
      "t": "tense",
-     "why": "Buổi khám diễn ra vào 10–11/6 (sắp tới, hạn đăng ký 3/6) → tương lai: will take place."
+     "why": "Buổi khám diễn ra vào 10–11/6 (sắp tới, hạn đăng ký 3/6) → tương lai: will take place.",
+     "lg": {
+      "og": {
+       "will take place": "tương lai: sẽ diễn ra",
+       "took place": "quá khứ: đã diễn ra",
+       "has taken place": "hiện tại hoàn thành",
+       "taking place": "V-ing"
+      },
+      "ly": "Thông báo về đợt khám vào ngày 10 và 11/6 sắp tới (hạn đặt lịch 3/6): will take place. took place và has taken place là việc đã xảy ra, taking place thiếu trợ động từ.",
+      "ct": "take place = diễn ra · health screening = khám sức khoẻ",
+      "dich": "Đợt khám sức khoẻ miễn phí năm nay sẽ diễn ra tại phòng đào tạo tầng ba vào ngày 10 và 11 tháng 6."
+     }
     },
     {
      "o": [
@@ -2904,7 +3047,18 @@
       "confide"
      ],
      "a": "confidential",
-     "why": "be + (trạng từ completely) + tính từ: confidential (được giữ bí mật)."
+     "why": "be + (trạng từ completely) + tính từ: confidential (được giữ bí mật).",
+     "lg": {
+      "og": {
+       "confidential": "tính từ: bảo mật",
+       "confidentially": "trạng từ: một cách bảo mật",
+       "confidence": "danh từ: sự tự tin",
+       "confide": "động từ: tâm sự"
+      },
+      "ly": "Sau are completely cần tính từ: the results are completely confidential (kết quả hoàn toàn được bảo mật). confidentially là trạng từ, confidence là danh từ, confide là động từ.",
+      "ct": "be completely + tính từ · confidential = bảo mật",
+      "dich": "Mỗi cuộc hẹn kéo dài khoảng mười lăm phút và kết quả hoàn toàn được bảo mật."
+     }
     },
     {
      "o": [
@@ -2914,7 +3068,18 @@
       "Only managers are eligible for the screening."
      ],
      "a": "Your results will be shared only with you.",
-     "why": "Nối ý kết quả được giữ bí mật → chỉ gửi cho chính người khám. Ba câu kia trái với đoạn (mỗi lượt 15 phút; khám ở phòng đào tạo tầng 3; mọi nhân viên đều được khám)."
+     "why": "Nối ý kết quả được giữ bí mật → chỉ gửi cho chính người khám. Ba câu kia trái với đoạn (mỗi lượt 15 phút; khám ở phòng đào tạo tầng 3; mọi nhân viên đều được khám).",
+     "lg": {
+      "og": {
+       "Your results will be shared only with you.": "Kết quả của bạn chỉ được chia sẻ với riêng bạn.",
+       "Each appointment lasts about an hour.": "Mỗi cuộc hẹn kéo dài khoảng một giờ.",
+       "The screening will be held at Westside Clinic.": "Buổi khám sẽ diễn ra tại Westside Clinic.",
+       "Only managers are eligible for the screening.": "Chỉ quản lý đủ điều kiện được khám."
+      },
+      "ly": "Câu trước nói kết quả hoàn toàn bảo mật, nên câu chèn làm rõ: chỉ chia sẻ với riêng bạn. \"Khoảng một giờ\" mâu thuẫn với mười lăm phút, \"tại phòng khám\" mâu thuẫn với phòng đào tạo tầng ba, \"chỉ quản lý\" mâu thuẫn với thông báo cho mọi nhân viên.",
+      "ct": "Câu chèn tiếp ý câu trước (kết quả bảo mật)",
+      "dich": "Kết quả của bạn sẽ chỉ được chia sẻ với riêng bạn."
+     }
     },
     {
      "o": [
@@ -2925,7 +3090,18 @@
      ],
      "a": "If",
      "t": "conn",
-     "why": "Điều kiện: nếu không đến được cả hai ngày thì liên hệ HR → If. Because (vì) không hợp: chưa biết ai vắng."
+     "why": "Điều kiện: nếu không đến được cả hai ngày thì liên hệ HR → If. Because (vì) không hợp: chưa biết ai vắng.",
+     "lg": {
+      "og": {
+       "If": "liên từ: nếu",
+       "Unless": "liên từ: trừ khi",
+       "Although": "liên từ: mặc dù",
+       "Because": "liên từ: vì"
+      },
+      "ly": "Câu nêu điều kiện (nếu không thể dự cả hai ngày thì liên hệ để đến phòng khám): If. Unless sai nghĩa, Although và Because không nêu điều kiện.",
+      "ct": "If + you are unable to + V, please … = nếu bạn không thể …, vui lòng … · on either day = vào một trong hai ngày",
+      "dich": "Nếu bạn không thể tham dự vào cả hai ngày, vui lòng liên hệ phòng nhân sự để sắp xếp đến phòng khám thay thế."
+     }
     }
    ]
   }
