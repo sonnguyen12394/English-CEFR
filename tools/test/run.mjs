@@ -2354,7 +2354,8 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       return d({ error: 'x' }); };
     const run1 = async (md, pre) => { mode = md; copied = pre || {}; calls.length = 0; let msg = ''; const r = await gdCore({ drive: { fid: 'fileIdABCDEFG123', tok: TOK }, name: 'Tai lieu', size: 60 * 1048576, n: 3 }, { up() {}, fail: m => { msg = m; } }); return { r, msg }; };
     try {
-      GD.client = ''; GD.key = ''; GY.pdf = null; GY.open = true; gyDraw(); if (gdOn() || /data-g="gd"/.test(document.getElementById('gysheet').innerHTML)) bad.push('chưa cấu hình mà vẫn hiện nút');
+      GD.client = ''; GD.key = ''; GY.pdf = null; GY.open = true; gyDraw(); { const h = document.getElementById('gysheet').innerHTML; if (gdOn() || !/data-g="gd"/.test(h) || !/Chọn tệp PDF/.test(h) || !/for="gypdf"/.test(h)) bad.push('v160: ô chọn PDF phải có nút to Chọn tệp PDF + nút tròn Google Drive'); }
+      GY.msg = ''; gdStart(null); if (!/chưa bật/.test(GY.msg)) bad.push('chưa cấu hình: bấm Drive phải báo chưa bật: ' + GY.msg); GY.msg = '';
       GD.client = 'c'; GD.key = 'k'; if (!gdOn()) bad.push('gdOn sai');
       gpRec(null); let x = await run1('');
       if (!x.r || x.r.id !== 'D1' || x.r.n !== 3 || x.r.name !== 'Tai lieu.pdf') bad.push('chép trọn: ' + JSON.stringify(x) );
