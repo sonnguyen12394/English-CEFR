@@ -111,7 +111,18 @@
       "freedom"
      ],
      "a": "free of",
-     "why": "free of charge = miễn phí."
+     "why": "free of charge = miễn phí.",
+     "lg": {
+      "og": {
+       "free of": "cụm: miễn / không mất (free of charge)",
+       "free from": "cụm: không có (free from + điều xấu)",
+       "freely": "trạng từ: một cách tự do",
+       "freedom": "danh từ: sự tự do"
+      },
+      "ly": "Cụm cố định là free of charge = miễn phí. free from dùng cho điều xấu (free from worry), freely là trạng từ, freedom là danh từ, đều không hợp với charge.",
+      "ct": "free of charge = miễn phí · before January 31 = trước ngày 31 tháng 1",
+      "dich": "Hội viên mới đăng ký trước ngày 31 tháng 1 sẽ được miễn phí tháng đầu tiên."
+     }
     },
     {
      "o": [
@@ -121,7 +132,18 @@
       "These trainers have helped thousands of people reach their goals."
      ],
      "a": "In addition, every new member gets a free fitness assessment.",
-     "why": "\"In addition\" thêm một quà nữa cho hội viên mới, nối ưu đãi tháng đầu với câu huấn luyện viên lập kế hoạch. Hồ bơi đóng mùa đông và hết lớp nhóm ngược với câu đầu; \"These trainers\" nhắc huấn luyện viên trước khi câu sau giới thiệu."
+     "why": "\"In addition\" thêm một quà nữa cho hội viên mới, nối ưu đãi tháng đầu với câu huấn luyện viên lập kế hoạch. Hồ bơi đóng mùa đông và hết lớp nhóm ngược với câu đầu; \"These trainers\" nhắc huấn luyện viên trước khi câu sau giới thiệu.",
+     "lg": {
+      "og": {
+       "In addition, every new member gets a free fitness assessment.": "Ngoài ra, mỗi hội viên mới được đánh giá thể lực miễn phí.",
+       "The heated indoor pool will close for the winter.": "Bể bơi nước nóng trong nhà sẽ đóng cửa mùa đông.",
+       "However, group classes are no longer available.": "Tuy nhiên, các lớp nhóm không còn nữa.",
+       "These trainers have helped thousands of people reach their goals.": "Các huấn luyện viên này đã giúp hàng nghìn người đạt mục tiêu."
+      },
+      "ly": "Câu chèn thêm ưu đãi cho hội viên mới. Câu sau nói \"Our certified trainers\" nên chưa thể có \"These trainers\" trước đó; \"bể bơi đóng cửa\" và \"lớp nhóm không còn\" ngược với phần quảng cáo.",
+      "ct": "In addition, + câu = ngoài ra (thêm ưu đãi)",
+      "dich": "Ngoài ra, mỗi hội viên mới sẽ được đánh giá thể lực miễn phí."
+     }
     },
     {
      "o": [
@@ -131,7 +153,18 @@
       "each of"
      ],
      "a": "every",
-     "why": "every + danh từ số ít: every morning and evening (mỗi sáng và tối). either phải đi với or; several cần danh từ số nhiều (several mornings); each of cần the / danh từ số nhiều."
+     "why": "every + danh từ số ít: every morning and evening (mỗi sáng và tối). either phải đi với or; several cần danh từ số nhiều (several mornings); each of cần the / danh từ số nhiều.",
+     "lg": {
+      "og": {
+       "every": "từ hạn định: mỗi (+ danh từ số ít)",
+       "either": "từ hạn định: một trong hai",
+       "several": "từ hạn định: vài (+ số nhiều)",
+       "each of": "cụm: mỗi (+ the + số nhiều)"
+      },
+      "ly": "Sau chỗ trống là danh từ số ít morning and evening với nghĩa \"mỗi buổi sáng và tối\": every. either dùng với hai lựa chọn, several cần số nhiều, each of cần the + danh từ số nhiều.",
+      "ct": "every + N số ít = mỗi … · suit your schedule = hợp lịch của bạn",
+      "dich": "Các lớp học được tổ chức vào mỗi buổi sáng và tối, nên bạn luôn tìm được giờ hợp lịch."
+     }
     },
     {
      "o": [
@@ -141,7 +174,18 @@
       "schedules"
      ],
      "a": "schedule",
-     "why": "to + động từ nguyên mẫu: to schedule a tour."
+     "why": "to + động từ nguyên mẫu: to schedule a tour.",
+     "lg": {
+      "og": {
+       "schedule": "động từ nguyên mẫu: đặt lịch",
+       "scheduling": "V-ing / danh từ",
+       "scheduled": "V3: được lên lịch",
+       "schedules": "danh từ số nhiều / động từ ngôi thứ ba"
+      },
+      "ly": "Sau to cần động từ nguyên mẫu có tân ngữ a free tour: schedule a free tour (đặt lịch tham quan miễn phí). scheduling, scheduled, schedules không đứng sau to trong cấu trúc này.",
+      "ct": "Visit our website to + V = vào trang web để … · schedule a tour = đặt lịch tham quan",
+      "dich": "Hãy truy cập trang web của chúng tôi để đặt lịch tham quan miễn phí."
+     }
     }
    ]
   },
@@ -255,7 +299,18 @@
       "largely"
      ],
      "a": "largest",
-     "why": "the company's + so sánh nhất: largest."
+     "why": "the company's + so sánh nhất: largest.",
+     "lg": {
+      "og": {
+       "largest": "so sánh nhất: lớn nhất",
+       "larger": "so sánh hơn",
+       "large": "tính từ nguyên dạng",
+       "largely": "trạng từ: phần lớn"
+      },
+      "ly": "Có the và \"in the region\" (trong khu vực) nên cần so sánh nhất: the largest. larger dùng khi so hai đối tượng, large là dạng gốc, largely là trạng từ.",
+      "ct": "the + so sánh nhất + in + phạm vi = … nhất trong … · processing plant = nhà máy chế biến",
+      "dich": "Cơ sở này, dự kiến tốn 40 triệu đô la, sẽ là nhà máy lớn nhất của công ty trong khu vực."
+     }
     },
     {
      "o": [
@@ -265,7 +320,18 @@
       "among"
      ],
      "a": "within",
-     "why": "within eighteen months = trong vòng 18 tháng."
+     "why": "within eighteen months = trong vòng 18 tháng.",
+     "lg": {
+      "og": {
+       "within": "giới từ: trong vòng",
+       "until": "giới từ: cho đến khi",
+       "since": "giới từ: kể từ",
+       "among": "giới từ: giữa nhiều đối tượng"
+      },
+      "ly": "Sau chỗ trống là khoảng thời gian eighteen months, nghĩa là hoàn thành trong vòng mười tám tháng: within. until, since, among không đi với khoảng thời gian theo nghĩa này.",
+      "ct": "be completed within + khoảng thời gian = hoàn thành trong vòng … · construction = việc xây dựng",
+      "dich": "Việc xây dựng sẽ bắt đầu vào tháng 5 và dự kiến hoàn thành trong vòng mười tám tháng."
+     }
     },
     {
      "o": [
@@ -275,7 +341,18 @@
       "As a result, the company has decided to cancel the project."
      ],
      "a": "Once open, the plant will employ about 300 people.",
-     "why": "Câu chèn nói kết quả khi nhà máy xong (khoảng 300 việc làm), trước câu giải thích lý do chọn Dalton. Nhà máy đã chạy 10 năm, đã xây xong, huỷ dự án đều ngược với bản tin."
+     "why": "Câu chèn nói kết quả khi nhà máy xong (khoảng 300 việc làm), trước câu giải thích lý do chọn Dalton. Nhà máy đã chạy 10 năm, đã xây xong, huỷ dự án đều ngược với bản tin.",
+     "lg": {
+      "og": {
+       "Once open, the plant will employ about 300 people.": "Khi đã mở, nhà máy sẽ thuê khoảng 300 người.",
+       "The plant has already been producing food for ten years.": "Nhà máy đã sản xuất thực phẩm được mười năm.",
+       "Construction was finished last month, ahead of schedule.": "Việc xây dựng đã xong tháng trước, sớm hơn kế hoạch.",
+       "As a result, the company has decided to cancel the project.": "Vì vậy, công ty quyết định huỷ dự án."
+      },
+      "ly": "Nhà máy chưa xây (bắt đầu tháng 5), nên câu chèn nói về tương lai: khi mở sẽ thuê khoảng 300 người. \"đã sản xuất mười năm\", \"đã xây xong\" sai thời điểm, \"huỷ dự án\" ngược với thông báo xây nhà máy.",
+      "ct": "Câu chèn phải hợp thời điểm của đoạn văn",
+      "dich": "Khi đi vào hoạt động, nhà máy sẽ thuê khoảng 300 người."
+     }
     },
     {
      "o": [
@@ -285,7 +362,18 @@
       "approximate"
      ],
      "a": "proximity",
-     "why": "its + danh từ: proximity to = gần với."
+     "why": "its + danh từ: proximity to = gần với.",
+     "lg": {
+      "og": {
+       "proximity": "danh từ: sự gần (proximity to)",
+       "proximate": "tính từ: gần nhất",
+       "approximately": "trạng từ: xấp xỉ",
+       "approximate": "tính từ: xấp xỉ"
+      },
+      "ly": "Sau its và trước to major highways cần danh từ: proximity to = sự gần với các đường cao tốc lớn. proximate và approximate là tính từ, approximately là trạng từ.",
+      "ct": "proximity to + N = sự gần … · be chosen because of + N = được chọn vì …",
+      "dich": "Chủ tịch công ty Maria Solano nói Dalton được chọn vì gần các đường cao tốc lớn và có lực lượng lao động lành nghề."
+     }
     }
    ]
   },
@@ -399,7 +487,18 @@
       "impression"
      ],
      "a": "impressed",
-     "why": "be impressed with: ấn tượng với (tính từ -ed chỉ cảm xúc của người)."
+     "why": "be impressed with: ấn tượng với (tính từ -ed chỉ cảm xúc của người).",
+     "lg": {
+      "og": {
+       "impressed": "tính từ: ấn tượng (người cảm nhận)",
+       "impressive": "tính từ: gây ấn tượng",
+       "impressing": "V-ing",
+       "impression": "danh từ: ấn tượng"
+      },
+      "ly": "Chủ ngữ We (người) cảm nhận được ấn tượng, và có very đứng trước: be impressed with = ấn tượng với. impressive miêu tả vật gây ấn tượng (your experience), impression là danh từ.",
+      "ct": "be impressed with + N = ấn tượng với … · would like to invite … = muốn mời …",
+      "dich": "Chúng tôi rất ấn tượng với kinh nghiệm của bạn và muốn mời bạn dự phỏng vấn vào lúc 10 giờ sáng thứ Ba, ngày 12 tháng 5."
+     }
     },
     {
      "o": [
@@ -409,7 +508,18 @@
       "We have already filled the warehouse supervisor position."
      ],
      "a": "You will meet the operations manager and two team leaders.",
-     "why": "Câu chèn nói ai sẽ phỏng vấn, nối với câu sau về thời lượng buổi phỏng vấn. Ba câu kia ngược với thư mời: không mời phỏng vấn, phỏng vấn đã diễn ra, đã tuyển xong."
+     "why": "Câu chèn nói ai sẽ phỏng vấn, nối với câu sau về thời lượng buổi phỏng vấn. Ba câu kia ngược với thư mời: không mời phỏng vấn, phỏng vấn đã diễn ra, đã tuyển xong.",
+     "lg": {
+      "og": {
+       "You will meet the operations manager and two team leaders.": "Bạn sẽ gặp giám đốc vận hành và hai trưởng nhóm.",
+       "Unfortunately, we have decided not to offer you an interview.": "Rất tiếc, chúng tôi quyết định không mời bạn phỏng vấn.",
+       "Your interview with our team took place last Tuesday.": "Buổi phỏng vấn của bạn với nhóm chúng tôi đã diễn ra thứ Ba tuần trước.",
+       "We have already filled the warehouse supervisor position.": "Chúng tôi đã tuyển xong vị trí giám sát kho."
+      },
+      "ly": "Đây là thư mời phỏng vấn sắp tới nên câu chèn mô tả điều sắp xảy ra: sẽ gặp ai. Ba câu còn lại mâu thuẫn với thư mời (từ chối, đã diễn ra, đã tuyển xong).",
+      "ct": "Câu chèn phải đúng mục đích của cả thư",
+      "dich": "Bạn sẽ gặp giám đốc vận hành và hai trưởng nhóm."
+     }
     },
     {
      "o": [
@@ -419,7 +529,18 @@
       "certifying"
      ],
      "a": "certificates",
-     "why": "any + danh từ: any certificates (chứng chỉ)."
+     "why": "any + danh từ: any certificates (chứng chỉ).",
+     "lg": {
+      "og": {
+       "certificates": "danh từ số nhiều: chứng chỉ",
+       "certify": "động từ: chứng nhận",
+       "certified": "V3 / tính từ: được chứng nhận",
+       "certifying": "V-ing"
+      },
+      "ly": "Sau any (không có mạo từ) và trước mệnh đề you have received cần danh từ: certificates (các chứng chỉ bạn đã nhận). certify là động từ, certified và certifying là dạng động từ.",
+      "ct": "bring + N = mang theo · any + N số nhiều (certificates) you have received",
+      "dich": "Vui lòng mang theo bản sao bằng lái xe và mọi chứng chỉ bạn đã nhận."
+     }
     },
     {
      "o": [
@@ -429,7 +550,18 @@
       "during"
      ],
      "a": "by",
-     "why": "by + thời hạn: trả lời trước / chậm nhất thứ Sáu."
+     "why": "by + thời hạn: trả lời trước / chậm nhất thứ Sáu.",
+     "lg": {
+      "og": {
+       "by": "giới từ: trước, chậm nhất là",
+       "until": "giới từ: cho tới khi",
+       "since": "giới từ: kể từ",
+       "during": "giới từ: trong suốt"
+      },
+      "ly": "Phản hồi là hành động một lần, có hạn chót: by Friday = chậm nhất vào thứ Sáu. until chỉ việc kéo dài liên tục, since cần mốc quá khứ, during cần khoảng thời gian.",
+      "ct": "reply by + ngày = trả lời chậm nhất vào … · convenient = thuận tiện",
+      "dich": "Nếu thời gian này không thuận tiện, vui lòng trả lời e-mail này chậm nhất vào thứ Sáu."
+     }
     }
    ]
   },
@@ -495,7 +627,18 @@
       "avail"
      ],
      "a": "unavailable",
-     "why": "be + tính từ: may be unavailable (có thể không dùng được)."
+     "why": "be + tính từ: may be unavailable (có thể không dùng được).",
+     "lg": {
+      "og": {
+       "unavailable": "tính từ: không sử dụng được",
+       "unavailability": "danh từ: tình trạng không có sẵn",
+       "unavailably": "trạng từ (không chuẩn)",
+       "avail": "động từ / danh từ: ích lợi"
+      },
+      "ly": "Sau may be cần tính từ: your internet service may be unavailable (có thể không sử dụng được). unavailability là danh từ, avail là động từ.",
+      "ct": "may be + tính từ = có thể … · carry out maintenance = thực hiện bảo trì",
+      "dich": "Trong thời gian này, dịch vụ internet của bạn có thể không sử dụng được."
+     }
     },
     {
      "o": [
@@ -505,7 +648,18 @@
       "Your service will therefore not be affected at all."
      ],
      "a": "The work will make your connection faster and more reliable.",
-     "why": "Câu chèn nói lợi ích của việc bảo trì, trước câu dặn khởi động lại modem. Bảo trì đã xong ngược với \"will carry out\"; nhiều khách online ngược với câu trước; \"không ảnh hưởng gì\" ngược với \"may be unavailable\"."
+     "why": "Câu chèn nói lợi ích của việc bảo trì, trước câu dặn khởi động lại modem. Bảo trì đã xong ngược với \"will carry out\"; nhiều khách online ngược với câu trước; \"không ảnh hưởng gì\" ngược với \"may be unavailable\".",
+     "lg": {
+      "og": {
+       "The work will make your connection faster and more reliable.": "Công việc này sẽ làm kết nối của bạn nhanh và ổn định hơn.",
+       "The maintenance was completed successfully last Saturday.": "Việc bảo trì đã hoàn thành thành công thứ Bảy tuần trước.",
+       "Most of our customers are online at this time of night.": "Hầu hết khách của chúng tôi trực tuyến vào giờ này ban đêm.",
+       "Your service will therefore not be affected at all.": "Vì vậy dịch vụ của bạn sẽ hoàn toàn không bị ảnh hưởng."
+      },
+      "ly": "Câu trước giải thích vì sao chọn giờ ít người dùng, câu chèn nêu lợi ích của việc bảo trì: kết nối nhanh và ổn định hơn. \"đã xong thứ Bảy trước\" sai thời gian, \"hầu hết khách trực tuyến\" ngược với câu trước, \"không bị ảnh hưởng\" ngược với \"có thể không dùng được\".",
+      "ct": "Câu chèn phải khớp câu trước và câu sau",
+      "dich": "Công việc này sẽ giúp kết nối của bạn nhanh hơn và ổn định hơn."
+     }
     },
     {
      "o": [
@@ -515,7 +669,18 @@
       "restarts"
      ],
      "a": "restart",
-     "why": "need to + động từ nguyên mẫu → restart."
+     "why": "need to + động từ nguyên mẫu → restart.",
+     "lg": {
+      "og": {
+       "restart": "động từ nguyên mẫu: khởi động lại",
+       "restarted": "V3 / quá khứ",
+       "restarting": "V-ing",
+       "restarts": "động từ ngôi thứ ba"
+      },
+      "ly": "Sau you may need to cần động từ nguyên mẫu: restart your modem. restarted, restarting, restarts là các dạng chia khác.",
+      "ct": "may need to + V = có thể cần … · turn it off and on again = tắt rồi bật lại",
+      "dich": "Sau khi công việc hoàn tất, bạn có thể cần khởi động lại modem."
+     }
     },
     {
      "o": [
@@ -525,7 +690,18 @@
       "chose"
      ],
      "a": "choosing",
-     "why": "Sau giới từ for dùng V-ing: thank you for choosing."
+     "why": "Sau giới từ for dùng V-ing: thank you for choosing.",
+     "lg": {
+      "og": {
+       "choosing": "V-ing: việc chọn",
+       "choose": "động từ nguyên mẫu",
+       "chosen": "V3",
+       "chose": "quá khứ"
+      },
+      "ly": "Sau giới từ for cần V-ing hoặc danh từ: thank you for choosing Bluewave. choose, chosen, chose không đứng sau giới từ for.",
+      "ct": "thank you for + V-ing = cảm ơn vì đã … · apologize for any inconvenience = xin lỗi vì mọi bất tiện",
+      "dich": "Chúng tôi xin lỗi vì mọi bất tiện và cảm ơn bạn đã chọn Bluewave."
+     }
     }
    ]
   },
@@ -831,7 +1007,18 @@
       "removing"
      ],
      "a": "remove",
-     "why": "please + động từ nguyên mẫu: please remove (dọn hết đồ khỏi bàn)."
+     "why": "please + động từ nguyên mẫu: please remove (dọn hết đồ khỏi bàn).",
+     "lg": {
+      "og": {
+       "remove": "động từ nguyên mẫu: lấy ra",
+       "removal": "danh từ: sự dọn đi",
+       "removed": "V3 / quá khứ",
+       "removing": "V-ing"
+      },
+      "ly": "Sau please cần động từ nguyên mẫu: please remove all personal items (lấy hết đồ cá nhân ra). removal là danh từ, removed và removing là dạng khác.",
+      "ct": "Please + V nguyên mẫu = yêu cầu lịch sự · personal items = đồ cá nhân",
+      "dich": "Trước khi về vào thứ Năm, vui lòng lấy hết đồ cá nhân khỏi bàn và cho vào các hộp được cấp."
+     }
     },
     {
      "o": [
@@ -841,7 +1028,18 @@
       "Boxes will not be provided, so please bring your own."
      ],
      "a": "Please label each box with your name and new desk number.",
-     "why": "Câu chèn tiếp tục hướng dẫn đóng thùng (dán nhãn thùng). Tự đóng máy tính ngược với câu sau; thợ đã chuyển xong ngược với \"tuần sau\"; tự mang thùng ngược với \"boxes provided\"."
+     "why": "Câu chèn tiếp tục hướng dẫn đóng thùng (dán nhãn thùng). Tự đóng máy tính ngược với câu sau; thợ đã chuyển xong ngược với \"tuần sau\"; tự mang thùng ngược với \"boxes provided\".",
+     "lg": {
+      "og": {
+       "Please label each box with your name and new desk number.": "Vui lòng ghi tên và số bàn mới của bạn lên mỗi hộp.",
+       "Please pack your computer in the same box as your personal items.": "Vui lòng đóng máy tính vào cùng hộp với đồ cá nhân.",
+       "The movers arrived last Thursday and finished the job.": "Nhân viên chuyển đồ đã đến thứ Năm tuần trước và làm xong việc.",
+       "Boxes will not be provided, so please bring your own.": "Sẽ không cấp hộp, nên hãy tự mang theo."
+      },
+      "ly": "Câu trước nói đóng đồ vào hộp được cấp, câu sau nói máy tính do IT chuyển: câu chèn là hướng dẫn ghi nhãn hộp. Đóng máy tính vào hộp cá nhân mâu thuẫn câu sau, \"đã chuyển xong\" sai thời gian (chưa chuyển), \"không cấp hộp\" ngược với câu trước.",
+      "ct": "Câu chèn phải khớp câu trước và câu sau",
+      "dich": "Vui lòng ghi tên và số bàn mới của bạn lên mỗi hộp."
+     }
     },
     {
      "o": [
@@ -851,7 +1049,18 @@
       "continuation"
      ],
      "a": "continue",
-     "why": "can + động từ nguyên mẫu: can continue (vẫn làm việc tiếp được)."
+     "why": "can + động từ nguyên mẫu: can continue (vẫn làm việc tiếp được).",
+     "lg": {
+      "og": {
+       "continue": "động từ nguyên mẫu: tiếp tục",
+       "continuing": "V-ing",
+       "continuous": "tính từ: liên tục",
+       "continuation": "danh từ: sự tiếp tục"
+      },
+      "ly": "Sau can cần động từ nguyên mẫu có tân ngữ your work: continue. continuing, continuous, continuation không đứng sau can theo cách này.",
+      "ct": "can + V nguyên mẫu · continue your work as usual = tiếp tục công việc như thường",
+      "dich": "Vào sáng thứ Sáu, văn phòng mới sẽ sẵn sàng và các bạn có thể tiếp tục công việc như thường."
+     }
     },
     {
      "o": [
@@ -861,7 +1070,18 @@
       "patients"
      ],
      "a": "patience",
-     "why": "your + danh từ: your patience (sự kiên nhẫn)."
+     "why": "your + danh từ: your patience (sự kiên nhẫn).",
+     "lg": {
+      "og": {
+       "patience": "danh từ: sự kiên nhẫn",
+       "patient": "tính từ / danh từ: kiên nhẫn; bệnh nhân",
+       "patiently": "trạng từ: một cách kiên nhẫn",
+       "patients": "danh từ số nhiều: bệnh nhân"
+      },
+      "ly": "Sau tính từ sở hữu your cần danh từ: patience (sự kiên nhẫn của các bạn). patient là tính từ hoặc danh từ chỉ người, patiently là trạng từ, patients là bệnh nhân.",
+      "ct": "Thank you for your + N = cảm ơn sự … của bạn · during the move = trong khi chuyển văn phòng",
+      "dich": "Cảm ơn sự kiên nhẫn của các bạn trong quá trình chuyển văn phòng."
+     }
     }
    ]
   },
@@ -976,7 +1196,18 @@
      ],
      "a": "attended",
      "t": "tense",
-     "why": "Thì theo ngữ cảnh: buổi ra mắt diễn ra \"last Saturday\" (câu trước) → quá khứ: attended. Câu này đứng riêng thì không biết thì nào."
+     "why": "Thì theo ngữ cảnh: buổi ra mắt diễn ra \"last Saturday\" (câu trước) → quá khứ: attended. Câu này đứng riêng thì không biết thì nào.",
+     "lg": {
+      "og": {
+       "attended": "quá khứ đơn: đã tham dự",
+       "will attend": "tương lai đơn",
+       "are attending": "hiện tại tiếp diễn",
+       "attend": "hiện tại đơn / nguyên mẫu"
+      },
+      "ly": "Thì phải suy từ ngữ cảnh: câu mở đầu nói buổi ra mắt diễn ra \"last Saturday\" (thứ Bảy tuần trước), nên việc khách tham dự là quá khứ: attended. Câu chứa chỗ trống đứng riêng thì không biết thì nào.",
+      "ct": "Thì theo ngữ cảnh: nhìn câu trước / sau để tìm mốc thời gian",
+      "dich": "Hơn 300 khách đã tham dự sự kiện, và nhiều người trong số họ đã thử các buổi trình diễn nấu ăn."
+     }
     },
     {
      "o": [
@@ -986,7 +1217,18 @@
       "The voucher you received at the door has now expired."
      ],
      "a": "We hope you enjoyed the dishes our chefs prepared.",
-     "why": "Câu chèn nối với phần trình diễn nấu ăn vừa nhắc, trước câu gửi phiếu giảm giá. Buổi ra mắt \"next Saturday\" sai thời gian; trình diễn bị huỷ ngược với câu trước; phiếu đã hết hạn ngược với câu sau (hạn tới 30/6)."
+     "why": "Câu chèn nối với phần trình diễn nấu ăn vừa nhắc, trước câu gửi phiếu giảm giá. Buổi ra mắt \"next Saturday\" sai thời gian; trình diễn bị huỷ ngược với câu trước; phiếu đã hết hạn ngược với câu sau (hạn tới 30/6).",
+     "lg": {
+      "og": {
+       "We hope you enjoyed the dishes our chefs prepared.": "Chúng tôi hy vọng bạn thích các món đầu bếp chuẩn bị.",
+       "We look forward to seeing you at the launch next Saturday.": "Chúng tôi mong gặp bạn ở buổi ra mắt thứ Bảy tới.",
+       "Unfortunately, the cooking demonstrations had to be canceled.": "Rất tiếc, các buổi trình diễn nấu ăn đã bị huỷ.",
+       "The voucher you received at the door has now expired.": "Phiếu giảm giá bạn nhận ở cửa nay đã hết hạn."
+      },
+      "ly": "Câu trước nói nhiều khách đã thử trình diễn nấu ăn, câu sau gửi phiếu giảm giá, nên câu chèn là lời cảm ơn / hy vọng về món ăn. \"next Saturday\" sai thời gian (buổi ra mắt đã qua), \"bị huỷ\" ngược với câu trước, \"phiếu đã hết hạn\" ngược với câu sau (hạn tới 30/6).",
+      "ct": "Câu chèn phải hợp cả câu trước lẫn câu sau",
+      "dich": "Chúng tôi hy vọng bạn thích các món ăn do đầu bếp của chúng tôi chuẩn bị."
+     }
     },
     {
      "o": [
@@ -996,7 +1238,18 @@
       "Similarly"
      ],
      "a": "However",
-     "why": "Từ nối giữa câu: phiếu còn hạn tới 30/6 NHƯNG không dùng chung ưu đãi khác → However (đối lập)."
+     "why": "Từ nối giữa câu: phiếu còn hạn tới 30/6 NHƯNG không dùng chung ưu đãi khác → However (đối lập).",
+     "lg": {
+      "og": {
+       "However": "trạng từ nối: tuy nhiên (tương phản)",
+       "Therefore": "trạng từ nối: vì vậy (kết quả)",
+       "For example": "cụm nối: ví dụ",
+       "Similarly": "trạng từ nối: tương tự"
+      },
+      "ly": "Câu trước nói phiếu có hiệu lực tới 30/6, câu này nêu giới hạn (không dùng chung với ưu đãi khác): ý tương phản nên dùng However. Therefore, For example, Similarly không hợp mạch này.",
+      "ct": "However, + mệnh đề = tuy nhiên · be valid until = có hiệu lực tới",
+      "dich": "Tuy nhiên, phiếu không thể dùng chung với các ưu đãi khác."
+     }
     },
     {
      "o": [
@@ -1006,7 +1259,18 @@
       "assisted"
      ],
      "a": "assist",
-     "why": "be happy to + động từ nguyên mẫu: assist (giúp)."
+     "why": "be happy to + động từ nguyên mẫu: assist (giúp).",
+     "lg": {
+      "og": {
+       "assist": "động từ: hỗ trợ",
+       "assistance": "danh từ: sự hỗ trợ",
+       "assistant": "danh từ: trợ lý",
+       "assisted": "V3: đã hỗ trợ"
+      },
+      "ly": "Sau will be happy to cần động từ nguyên mẫu, và tân ngữ you theo sau: assist you (hỗ trợ bạn). assistance và assistant là danh từ, assisted là dạng V3.",
+      "ct": "be happy to + V = sẵn lòng làm gì · assist + người = hỗ trợ ai",
+      "dich": "Nếu bạn có thắc mắc, nhân viên của chúng tôi sẽ sẵn lòng hỗ trợ bạn."
+     }
     }
    ]
   },
@@ -1074,7 +1338,18 @@
      ],
      "a": "did not work",
      "t": "tense",
-     "why": "Thì theo ngữ cảnh: kỳ nghỉ đã qua (2–5/8, \"during your visit\") → quá khứ đơn: did not work."
+     "why": "Thì theo ngữ cảnh: kỳ nghỉ đã qua (2–5/8, \"during your visit\") → quá khứ đơn: did not work.",
+     "lg": {
+      "og": {
+       "did not work": "quá khứ đơn phủ định",
+       "does not work": "hiện tại đơn phủ định",
+       "will not work": "tương lai phủ định",
+       "has not worked": "hiện tại hoàn thành phủ định"
+      },
+      "ly": "Kỳ lưu trú đã kết thúc (August 2 to 5) nên việc máy lạnh hỏng là quá khứ: did not work. does not work và will not work thuộc hiện tại / tương lai, has not worked thuộc hiện tại hoàn thành.",
+      "ct": "Thì theo ngữ cảnh: during your visit (lần lưu trú đã qua) → quá khứ",
+      "dich": "Chúng tôi rất tiếc vì máy lạnh trong phòng của bạn đã không hoạt động tốt trong thời gian bạn ở."
+     }
     },
     {
      "o": [
@@ -1084,7 +1359,18 @@
       "Unfortunately, we are unable to offer any compensation."
      ],
      "a": "We understand how uncomfortable this must have been in such hot weather.",
-     "why": "Câu chèn tiếp lời xin lỗi về máy lạnh hỏng, trước câu nói đã thay máy. Mọi thứ hoạt động tốt ngược với lời xin lỗi; thay máy \"trước khi chị đến\" ngược với \"has since replaced\" (thay sau đó); không bồi thường ngược với câu tặng một đêm."
+     "why": "Câu chèn tiếp lời xin lỗi về máy lạnh hỏng, trước câu nói đã thay máy. Mọi thứ hoạt động tốt ngược với lời xin lỗi; thay máy \"trước khi chị đến\" ngược với \"has since replaced\" (thay sau đó); không bồi thường ngược với câu tặng một đêm.",
+     "lg": {
+      "og": {
+       "We understand how uncomfortable this must have been in such hot weather.": "Chúng tôi hiểu việc này chắc đã khó chịu thế nào trong thời tiết nóng như vậy.",
+       "We are glad that everything in your room worked perfectly.": "Chúng tôi vui vì mọi thứ trong phòng hoạt động hoàn hảo.",
+       "The air conditioners on your floor were replaced just before your arrival.": "Máy lạnh trên tầng của bạn được thay ngay trước khi bạn đến.",
+       "Unfortunately, we are unable to offer any compensation.": "Rất tiếc, chúng tôi không thể đền bù gì."
+      },
+      "ly": "Thư xin lỗi về máy lạnh hỏng, nên câu chèn bày tỏ sự thông cảm. \"mọi thứ hoàn hảo\" ngược với lời xin lỗi, \"đã thay trước khi đến\" mâu thuẫn với câu sau (đã thay SAU đó), \"không thể đền bù\" ngược với câu sau tặng một đêm miễn phí.",
+      "ct": "Câu chèn phải hợp mục đích thư (xin lỗi, đền bù)",
+      "dich": "Chúng tôi hiểu việc này hẳn đã khó chịu thế nào trong thời tiết nóng như vậy."
+     }
     },
     {
      "o": [
@@ -1094,7 +1380,18 @@
       "On the other hand"
      ],
      "a": "In addition",
-     "why": "Từ nối giữa câu: đã thay máy, THÊM NỮA tặng một đêm miễn phí → In addition."
+     "why": "Từ nối giữa câu: đã thay máy, THÊM NỮA tặng một đêm miễn phí → In addition.",
+     "lg": {
+      "og": {
+       "In addition": "cụm nối: ngoài ra (thêm ý)",
+       "Otherwise": "trạng từ nối: nếu không thì",
+       "Instead": "trạng từ nối: thay vào đó",
+       "On the other hand": "cụm nối: mặt khác (đối lập)"
+      },
+      "ly": "Câu trước nêu việc đã làm (thay máy lạnh), câu này thêm một biện pháp bồi thường: In addition = ngoài ra. Otherwise, Instead, On the other hand dùng cho nghĩa phủ định hoặc đối lập, không hợp.",
+      "ct": "In addition, + mệnh đề = ngoài ra · offer a free night = tặng một đêm miễn phí",
+      "dich": "Ngoài ra, chúng tôi xin tặng bạn một đêm miễn phí trong lần lưu trú tới."
+     }
     },
     {
      "o": [
@@ -1104,7 +1401,18 @@
       "reserving"
      ],
      "a": "reservation",
-     "why": "make your + danh từ: make a reservation (đặt phòng)."
+     "why": "make your + danh từ: make a reservation (đặt phòng).",
+     "lg": {
+      "og": {
+       "reservation": "danh từ: việc đặt phòng",
+       "reserve": "động từ: đặt trước",
+       "reserved": "V3 / tính từ: đã được đặt",
+       "reserving": "V-ing"
+      },
+      "ly": "Sau tính từ sở hữu your cần danh từ: reservation (việc đặt phòng của bạn). reserve là động từ, reserved và reserving là dạng động từ.",
+      "ct": "make a reservation = đặt phòng / chỗ · mention + N = nhắc tới",
+      "dich": "Chỉ cần nhắc tới e-mail này khi bạn đặt phòng."
+     }
     }
    ]
   },
@@ -1123,7 +1431,18 @@
      ],
      "a": "will arrive",
      "t": "tense",
-     "why": "Thì theo ngữ cảnh: nhà cung cấp mới bắt đầu từ \"next month\" (câu trước) → tương lai: will arrive. Đứng riêng thì \"arrived early every morning\" cũng đúng ngữ pháp."
+     "why": "Thì theo ngữ cảnh: nhà cung cấp mới bắt đầu từ \"next month\" (câu trước) → tương lai: will arrive. Đứng riêng thì \"arrived early every morning\" cũng đúng ngữ pháp.",
+     "lg": {
+      "og": {
+       "will arrive": "tương lai đơn: sẽ đến",
+       "arrived": "quá khứ đơn",
+       "have arrived": "hiện tại hoàn thành",
+       "were arriving": "quá khứ tiếp diễn"
+      },
+      "ly": "Câu đầu nói \"Starting next month\" (từ tháng sau) và chuyển nhà cung cấp, nên xe của trang trại sẽ giao hàng sớm mỗi sáng: tương lai will arrive. Các thì quá khứ / hoàn thành không hợp.",
+      "ct": "Thì theo ngữ cảnh: starting next month → tương lai · every early morning = sáng sớm mỗi ngày",
+      "dich": "Trang trại chỉ cách mười lăm cây số, và xe của họ sẽ đến sớm mỗi sáng."
+     }
     },
     {
      "o": [
@@ -1133,7 +1452,18 @@
       "Unfortunately, the farm is too far away to deliver in the morning."
      ],
      "a": "This means our salads and soups will be made with fresher produce.",
-     "why": "\"This\" = rau tới sớm mỗi sáng từ trang trại gần: câu chèn nói lợi ích. City Produce vẫn giao ngược với câu đầu; giao \"nhiều năm\" ngược với \"nhà cung cấp mới\"; quá xa ngược với \"only fifteen kilometers\"."
+     "why": "\"This\" = rau tới sớm mỗi sáng từ trang trại gần: câu chèn nói lợi ích. City Produce vẫn giao ngược với câu đầu; giao \"nhiều năm\" ngược với \"nhà cung cấp mới\"; quá xa ngược với \"only fifteen kilometers\".",
+     "lg": {
+      "og": {
+       "This means our salads and soups will be made with fresher produce.": "Điều này có nghĩa món salad và súp sẽ được làm từ nông sản tươi hơn.",
+       "City Produce will continue to deliver our vegetables after May 5.": "City Produce sẽ tiếp tục giao rau cho chúng ta sau 5/5.",
+       "The farm's trucks have been delivering to us for years.": "Xe của trang trại đã giao hàng cho chúng ta nhiều năm.",
+       "Unfortunately, the farm is too far away to deliver in the morning.": "Rất tiếc, trang trại quá xa nên không giao vào buổi sáng được."
+      },
+      "ly": "Câu trước nói trang trại gần nên giao sớm; câu chèn nêu lợi ích: món ăn tươi hơn. \"City Produce tiếp tục giao\" ngược với việc đổi nhà cung cấp, \"giao nhiều năm\" ngược với câu sau (giao lần đầu thứ Hai 5/5), \"quá xa\" ngược với câu trước.",
+      "ct": "Câu chèn phải khớp câu trước và câu sau",
+      "dich": "Điều này có nghĩa là món salad và súp của chúng ta sẽ dùng nông sản tươi hơn."
+     }
     },
     {
      "o": [
@@ -1143,7 +1473,18 @@
       "For example"
      ],
      "a": "Of course",
-     "why": "Từ nối giữa câu: \"Of course\" (tất nhiên) mở ý nhắc nhở: nhà cung cấp mới có thể giao nhầm, nên kiểm từng thùng."
+     "why": "Từ nối giữa câu: \"Of course\" (tất nhiên) mở ý nhắc nhở: nhà cung cấp mới có thể giao nhầm, nên kiểm từng thùng.",
+     "lg": {
+      "og": {
+       "Of course": "cụm nối: tất nhiên",
+       "Instead": "trạng từ nối: thay vào đó",
+       "As a result": "cụm nối: vì vậy (kết quả)",
+       "For example": "cụm nối: ví dụ"
+      },
+      "ly": "Câu này thừa nhận một điều hiển nhiên (nhà cung cấp mới thì có thể sai sót) rồi dặn kiểm tra: Of course. Instead, As a result, For example không nối đúng mạch.",
+      "ct": "Of course, + mệnh đề = tất nhiên, (nhấn mạnh điều dễ hiểu) · check … against the delivery list = đối chiếu với phiếu giao hàng",
+      "dich": "Tất nhiên, với nhà cung cấp mới thì có thể xảy ra sai sót, nên hãy đối chiếu từng thùng với phiếu giao hàng."
+     }
     },
     {
      "o": [
@@ -1153,7 +1494,18 @@
       "more immediate"
      ],
      "a": "immediately",
-     "why": "Bổ nghĩa cho động từ report → trạng từ: immediately (ngay)."
+     "why": "Bổ nghĩa cho động từ report → trạng từ: immediately (ngay).",
+     "lg": {
+      "og": {
+       "immediately": "trạng từ: ngay lập tức",
+       "immediate": "tính từ: tức thì",
+       "immediacy": "danh từ: tính tức thì",
+       "more immediate": "so sánh hơn"
+      },
+      "ly": "Sau cụm động từ report any missing items to me cần trạng từ chỉ cách / lúc báo: immediately. immediate là tính từ, immediacy là danh từ, more immediate là so sánh.",
+      "ct": "report + N + to + người + immediately = báo ngay cho … · missing items = hàng thiếu",
+      "dich": "Hãy báo ngay cho tôi bất kỳ món hàng nào còn thiếu."
+     }
     }
    ]
   }

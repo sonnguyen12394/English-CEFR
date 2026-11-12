@@ -129,7 +129,8 @@ export function canDe(de, vt = {}, can = false) { const U = units({ ...de, ord: 
       const base = [...q.o].sort(); ord[q.n - 1] = o.map(t => base.indexOf(t)).join(''); }); }
   return { ord, p2, doi, vt: out }; }
 // dấu nội dung (data-model.md): không gồm why / ev; dauGT có why (cho luật giải thích)
-const strip = (x, keepWhy) => JSON.parse(JSON.stringify(x, (k, v) => !keepWhy && (k === 'why' || k === 'ev') ? undefined : v));
+// v156 (specs/013): lời giải chi tiết lg không bao giờ vào dấu (thêm / sửa lời giải không đổi đề, không phải giải mù lại, "đã xem" giữ)
+const strip = (x, keepWhy) => JSON.parse(JSON.stringify(x, (k, v) => k === 'lg' || (!keepWhy && (k === 'why' || k === 'ev')) ? undefined : v));
 export const dau = (u, gt) => md5(JSON.stringify(strip(u.x, gt)));
 
 // lời bài theo người nói: [{ who: 'A'|'B'|'C'|'S', g: 'f'|'m'|null, t }]

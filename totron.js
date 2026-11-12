@@ -262,11 +262,17 @@ async function trSheet(de, back, f = '', only) { let A = trAGet(de, trAK(de, onl
     if ((b = g('[data-trrv]'))) { TR.shY = window.scrollY || 0; return trRv(de, +b.dataset.trrv); } };
   scrollTo(0, 0); }
 // một câu khi xem lại: phương án đã chọn / đáp án đánh dấu bằng chữ (không chỉ bằng màu), giải thích, 📍 câu chứa đáp án
-function trRvQ(q, A) { const ch = A.a[q.n - 1], pick = trPick(q, ch), lt = q.sec === 'p1' || q.sec === 'p2';
+// v156 (specs/013, người sáng lập 10/11/2026 "đáp án thiết kế giống ảnh để dễ hiểu"): câu có lời giải lg → thẻ dọc: dưới mỗi phương án một dòng loại từ + nghĩa (lg.og, khoá = chữ phương án),
+//   rồi ô 💡 Chọn (X) · dạng câu · Vì sao · Cấu trúc hay dùng · Dịch. Câu chưa có lg dùng why như cũ
+function trRvQ(q, A) { const ch = A.a[q.n - 1], pick = trPick(q, ch), lt = q.sec === 'p1' || q.sec === 'p2', lg = q.lg, og = lg && lg.og || {};
   const ops = q.opts.map((o, j) => { const isA = o === q.a, isP = o === pick, tag = isA && isP ? '✓ Bạn chọn · đúng' : isA ? '✓ Đáp án' : isP ? '✗ Bạn chọn' : '';
-    return `<div class="rvop${isA ? ' ok' : isP ? ' no' : ''}"><b>(${'ABCD'[j]})</b> ${esc(lt ? q.x.o[j] : o)}${tag ? `<span class="optag">${tag}</span>` : ''}</div>`; }).join('');
-  const ev = typeof hlEv === 'function' ? hlEv(q) : q.ev, why = q.why && !/^Lời bài: /.test(q.why) ? q.why : '';
-  return `<div class="rvq"><p style="margin:12px 0 4px"><b>${q.n}.</b> ${q.sec === 'p6' ? '' : q.q}${pick == null ? ' <span class="mute">· bỏ trống</span>' : ''}</p>${ops}${why ? `<p class="mute" style="margin:4px 0 0">${esc(why)}</p>` : ''}${ev ? `<p style="margin:4px 0 0">📍 Câu chứa đáp án: “${esc(ev)}”</p>` : ''}</div>`; }
+    return `<div class="rvop${isA ? ' ok' : isP ? ' no' : ''}"><b>(${'ABCD'[j]})</b> ${esc(lt ? q.x.o[j] : o)}${og[o] ? `<span class="rvog">${esc(og[o])}</span>` : ''}${tag ? `<span class="optag">${tag}</span>` : ''}</div>`; }).join('');
+  const ev = typeof hlEv === 'function' ? hlEv(q) : q.ev, why = q.why && !/^Lời bài: /.test(q.why) ? q.why : '', ai = q.opts.indexOf(q.a), ins = q.sec === 'p6' && q.gt === 'insert';
+  const dang = q.sec === 'p5' ? TO_T5[q.x.t] : q.sec === 'p6' ? (ins ? 'Chèn câu' : '') : '';
+  const gt = lg ? `<div class="rvgt"><p class="rvgh">💡 Chọn (${'ABCD'[ai]})${ins ? '' : ` ${esc(q.a)}`}${dang ? ` <span class="rvdang">· ${esc(dang)}</span>` : ''}</p>
+    <p><b>Vì sao:</b> ${esc(lg.ly)}</p>${lg.ct ? `<p><b>Cấu trúc hay dùng:</b> ${esc(lg.ct)}</p>` : ''}<p><b>Dịch:</b> ${esc(lg.dich)}</p></div>`
+    : why ? `<p class="mute" style="margin:4px 0 0">${esc(why)}</p>` : '';
+  return `<div class="rvq"><p style="margin:12px 0 4px"><b>${q.n}.</b> ${q.sec === 'p6' ? '' : q.q}${pick == null ? ' <span class="mute">· bỏ trống</span>' : ''}</p>${ops}${gt}${ev ? `<p style="margin:4px 0 0">📍 Câu chứa đáp án: “${esc(ev)}”</p>` : ''}</div>`; }
 function trRvBody(u, A) { const x = u.x, qs = u.qs.map(q => trRvQ(q, A)).join(''), nghe = '<div class="chips tap" style="margin:8px 0 0"><button class="chip" data-trrvp>🔊 Nghe lại</button></div>';
   if (u.sec === 'p1') return toPic(x.pic) + nghe + qs;
   if (u.sec === 'p2') return `${nghe}<div class="box"><p class="mute" style="margin:0">Câu hỏi</p><p class="tdtap" style="margin:4px 0 0">${esc(x.q)}</p></div>${qs}`;
@@ -281,7 +287,7 @@ function trRv(de, n) { const B = trB(de), sh = TR.sh || { de, f: '' }, A = trAGe
   TR.tok++; trHush(); window.CUR = { view: 'toeic-tron-xem', item: 'rv' + u.a };
   $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-trrvb>‹ Bài làm</button><span class="uname">${/^p[1-4]$/.test(u.sec) ? '🎧' : '📖'} ${TR_SECS[u.sec]} · câu ${u.a}${u.b > u.a ? '–' + u.b : ''}</span></div>
     <div class="trrv">${trRvBody(u, A)}</div>
-    <div class="row trnav">${pi >= 0 ? `<button data-trrvj="${B.U[pi].a}">‹ Trước</button>` : '<span></span>'}${ni < B.U.length ? `<button class="pri" data-trrvj="${B.U[ni].a}">Sau ›</button>` : '<span></span>'}</div>`;
+    <div class="row trnav trrvnav">${pi >= 0 ? `<button data-trrvj="${B.U[pi].a}">‹ Trước</button>` : '<span></span>'}${ni < B.U.length ? `<button class="pri" data-trrvj="${B.U[ni].a}">Sau ›</button>` : '<span></span>'}</div>`;
   $app.onclick = e => { const g = s => e.target.closest(s); let b;
     if (g('[data-trrvb]')) { const y = TR.shY || 0; return trSheet(de, sh.back, f, sh.only).then(() => scrollTo(0, y)); }
     if ((b = g('[data-trrvj]'))) return trRv(de, +b.dataset.trrvj);

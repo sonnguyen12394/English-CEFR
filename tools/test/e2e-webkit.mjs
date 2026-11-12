@@ -150,6 +150,9 @@ await pg.click('#app [data-trsh]'); await pg.waitForTimeout(500);
 check('📋 bài làm và đáp án: bảng 200 ô (v149)', (await pg.$$('.trsh .trc')).length === 200);
 await pg.click('[data-trrv="35"]'); await pg.waitForTimeout(400);
 { const t = await pg.innerText('#app'); check('📋 xem lại câu 35: lời nghe + đáp án (v149)', /Lời nghe/.test(t) && /✓ (Đáp án|Bạn chọn · đúng)/.test(t)); }
+// v156 lời giải chi tiết (specs/013): câu 101 (Part 5 Đề 1) có nghĩa dưới mỗi phương án + ô 💡 Chọn (X), Vì sao, Dịch
+await pg.evaluate(() => trRv('de1', 101)); await pg.waitForTimeout(400);
+{ const t = await pg.innerText('#app'); check('📋 lời giải câu 101: nghĩa 4 phương án + Chọn / Vì sao / Dịch (v156)', (await pg.$$('.rvog')).length === 4 && /💡 Chọn \([A-D]\)/.test(t) && /Vì sao:/.test(t) && /Dịch:/.test(t)); }
 await pg.evaluate(() => trView()); await pg.waitForTimeout(800); await pg.click('[data-trgo="de3"]'); await pg.waitForTimeout(1200);
 check('đề trọn mới: Đề 3 tải từ tệp riêng, màn sẵn sàng 200 câu (v149)', /Đề 3 · 200 câu/.test(await pg.innerText('#app')));
 // v152 đợt 2: Đề 6 (đề cuối của đợt) có trong danh sách và tải được

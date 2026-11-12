@@ -51,4 +51,5 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
   16. (v153) Đề 2 → làm lượt có câu 66–70 (bảng giờ / tầng): phương án giờ, tầng, tháng xếp tăng dần; Đề 4 câu 5 tranh hai người đứng cạnh bàn khớp câu đúng; e-mail / tên người trong các bài đã sửa đọc tự nhiên.
   17. (v154) Danh sách đề thử trọn có Đề 7, Đề 8; mở Đề 8 (tải được, màn sẵn sàng 200 câu); Part 1 Đề 8 tranh đàn phím / leo vách / lều nhìn rõ; Part 4 bài có tên người nói đọc đúng giọng nam / nữ.
   18. (v155) Thanh dưới 6 tab (🛡️ Kiểm đề sau 🎯 Luyện đề) vừa màn, không cắt chữ "Luyện đề", "Kiểm đề", "Tra cứu" (iPhone SE nếu có); mở 🛡️ Kiểm đề, mở một mục, bấm ✓ Đúng ý rồi ✗ Chưa đúng + ghi chú → hiện "Đã ghi"; Đề 7 Part 6: đáp án không còn dồn chữ A (bảng 📋 sau khi làm)
+  19. (v156) Làm Đề 1 (hoặc chỉ Part 5) rồi nộp → 📋 Bài làm và đáp án → chạm câu 101–130: dưới mỗi phương án có loại từ + nghĩa, ô 💡 Chọn (X) · Vì sao · Cấu trúc hay dùng · Dịch đọc dễ, không tràn ngang; cuộn xuống cuối, nút 💬 không đè nút Sau ›; thử cả giao diện tối
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);
