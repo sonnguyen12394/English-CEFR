@@ -52,7 +52,18 @@
    ],
    "a": "are required",
    "why": "Nhân viên bị yêu cầu: bị động are required to.",
-   "t": "verb"
+   "t": "verb",
+   "lg": {
+    "og": {
+     "require": "động từ nguyên mẫu: yêu cầu",
+     "are required": "bị động: bị yêu cầu, phải",
+     "requiring": "V-ing: đang yêu cầu",
+     "have required": "hiện tại hoàn thành: đã yêu cầu"
+    },
+    "ly": "Nhân viên là người BỊ yêu cầu tham dự, nên cần bị động are required to. Chủ ngữ số nhiều khớp với are; require và requiring không có trợ động từ, have required là chủ động nên sai nghĩa.",
+    "ct": "be required to + V = bị yêu cầu / phải làm gì · safety training = buổi tập huấn an toàn",
+    "dich": "Tất cả nhân viên phải tham dự buổi tập huấn an toàn vào thứ Hai tuần sau."
+   }
   },
   {
    "id": "t5-04",
@@ -66,7 +77,18 @@
    ],
    "a": "complete",
    "why": "complete a form = điền đầy đủ biểu mẫu.",
-   "t": "voc"
+   "t": "voc",
+   "lg": {
+    "og": {
+     "complete": "động từ: điền đầy đủ, hoàn thành",
+     "conclude": "động từ: kết luận, kết thúc",
+     "perform": "động từ: thực hiện, biểu diễn",
+     "achieve": "động từ: đạt được"
+    },
+    "ly": "Tân ngữ là the attached form (biểu mẫu đính kèm), rồi return it (gửi lại): việc cần làm là điền đầy đủ nó, nên chọn complete. conclude, perform, achieve không đi với biểu mẫu.",
+    "ct": "complete a form = điền đầy đủ biểu mẫu · the attached document / form = tệp đính kèm",
+    "dich": "Vui lòng điền đầy đủ biểu mẫu đính kèm và gửi lại phòng nhân sự."
+   }
   },
   {
    "id": "t5-05",
@@ -233,7 +255,18 @@
    ],
    "a": "nor",
    "why": "Cặp neither … nor.",
-   "t": "conj"
+   "t": "conj",
+   "lg": {
+    "og": {
+     "or": "liên từ: hoặc",
+     "nor": "liên từ: cũng không (đi cặp với neither)",
+     "and": "liên từ: và",
+     "but": "liên từ: nhưng"
+    },
+    "ly": "Câu bắt đầu bằng Neither, cặp bắt buộc là neither … nor …: nor. Dù có her assistant ở sau, or, and, but đều không đi cặp với neither.",
+    "ct": "Neither A nor B + V (chia theo B) = cả A lẫn B đều không",
+    "dich": "Cả người quản lý lẫn trợ lý của cô ấy đều không thể nghe điện thoại."
+   }
   },
   {
    "id": "t5-13",
@@ -247,7 +280,18 @@
    ],
    "a": "for",
    "why": "reserve something for + mục đích / sự kiện.",
-   "t": "prep"
+   "t": "prep",
+   "lg": {
+    "og": {
+     "for": "giới từ: cho, dành cho (mục đích)",
+     "to": "giới từ: tới",
+     "at": "giới từ: tại (điểm)",
+     "with": "giới từ: cùng với"
+    },
+    "ly": "Phòng được đặt chỗ cho một mục đích / sự kiện (cuộc họp hội đồng), nên dùng reserve … for. to, at, with không đi với reserved theo nghĩa này; chọn for.",
+    "ct": "reserve + N + for + sự kiện = đặt trước … cho …",
+    "dich": "Phòng họp đã được đặt trước cho cuộc họp hội đồng quản trị vào thứ Năm."
+   }
   },
   {
    "id": "t5-14",
@@ -395,7 +439,18 @@
    ],
    "a": "hire",
    "why": "hire workers = thuê / tuyển người. rent, lease dùng cho nhà, đồ.",
-   "t": "voc"
+   "t": "voc",
+   "lg": {
+    "og": {
+     "hire": "động từ: thuê, tuyển (người)",
+     "rent": "động từ: thuê (nhà, xe)",
+     "lease": "động từ: cho thuê dài hạn (đất, văn phòng)",
+     "lend": "động từ: cho mượn"
+    },
+    "ly": "Tân ngữ là fifty new workers (công nhân mới): tuyển người dùng hire. rent và lease dùng cho nhà, thiết bị, còn lend là cho mượn, đều sai nghĩa.",
+    "ct": "hire + người = thuê / tuyển · rent / lease + nhà, xe, thiết bị · plan to + V = dự định",
+    "dich": "Công ty dự định tuyển thêm năm mươi công nhân mới cho nhà máy ở Hà Nội."
+   }
   },
   {
    "id": "t5-23",
@@ -462,7 +517,18 @@
    ],
    "a": "was",
    "why": "Each of + danh từ số nhiều → động từ số ít: was.",
-   "t": "verb"
+   "t": "verb",
+   "lg": {
+    "og": {
+     "was": "be quá khứ số ít",
+     "were": "be quá khứ số nhiều",
+     "are": "be hiện tại số nhiều",
+     "have been": "hiện tại hoàn thành số nhiều"
+    },
+    "ly": "\"Each of + danh từ số nhiều\" vẫn đi với động từ số ít, và ngữ cảnh phỏng vấn đã diễn ra nên dùng quá khứ: was interviewed. were, are, have been là số nhiều nên sai.",
+    "ct": "Each of + N số nhiều + V số ít · be interviewed by = được phỏng vấn bởi",
+    "dich": "Mỗi ứng viên được hai quản lý phỏng vấn."
+   }
   },
   {
    "id": "t5-27",
@@ -529,7 +595,18 @@
    ],
    "a": "working",
    "why": "look forward to + V-ing → working.",
-   "t": "verb"
+   "t": "verb",
+   "lg": {
+    "og": {
+     "work": "động từ nguyên mẫu",
+     "working": "V-ing",
+     "worked": "V3 / quá khứ",
+     "be working": "dạng tiếp diễn nguyên mẫu"
+    },
+    "ly": "Trong \"look forward to\", to là giới từ nên theo sau là V-ing: working. Không dùng động từ nguyên mẫu (work) hay các dạng khác sau cụm này.",
+    "ct": "look forward to + V-ing / N = mong được … · work with + người = hợp tác với",
+    "dich": "Chúng tôi mong được hợp tác với quý vị trong các dự án sắp tới."
+   }
   },
   {
    "id": "t5-31",
@@ -568,7 +645,18 @@
    ],
    "a": "present",
    "why": "present identification = xuất trình giấy tờ.",
-   "t": "voc"
+   "t": "voc",
+   "lg": {
+    "og": {
+     "present": "động từ: xuất trình, trình bày",
+     "appear": "động từ: xuất hiện (không có tân ngữ)",
+     "attend": "động từ: tham dự",
+     "represent": "động từ: đại diện"
+    },
+    "ly": "Tân ngữ là identification (giấy tờ tuỳ thân), động từ hợp nghĩa là present = xuất trình. appear không có tân ngữ, attend dùng cho sự kiện, represent là đại diện cho ai.",
+    "ct": "present identification / a ticket = xuất trình giấy tờ / vé · be asked to + V = được yêu cầu làm gì",
+    "dich": "Khách đến thăm được yêu cầu xuất trình giấy tờ tuỳ thân tại quầy lễ tân."
+   }
   },
   {
    "id": "t5-33",
@@ -610,7 +698,18 @@
    ],
    "a": "comply",
    "why": "comply with = tuân thủ. obey / follow không đi với with.",
-   "t": "voc"
+   "t": "voc",
+   "lg": {
+    "og": {
+     "comply": "động từ: tuân thủ (comply with)",
+     "obey": "động từ: vâng lời (không đi với with)",
+     "follow": "động từ: làm theo (không đi với with)",
+     "respect": "động từ: tôn trọng"
+    },
+    "ly": "Sau chỗ trống là with the new policy, nên cần động từ đi với with: comply with = tuân thủ. obey và follow đứng trực tiếp trước tân ngữ, không có with.",
+    "ct": "comply with + quy định / chính sách = tuân thủ · data protection policy = chính sách bảo vệ dữ liệu",
+    "dich": "Toàn bộ nhân viên phải tuân thủ chính sách bảo vệ dữ liệu mới."
+   }
   },
   {
    "id": "t5-36",
@@ -702,7 +801,18 @@
    ],
    "a": "positive",
    "why": "Trước danh từ responses cần tính từ: positive.",
-   "t": "form"
+   "t": "form",
+   "lg": {
+    "og": {
+     "posit": "động từ: đặt ra, cho là",
+     "positive": "tính từ: tích cực",
+     "positively": "trạng từ: một cách tích cực",
+     "positivity": "danh từ: sự tích cực"
+    },
+    "ly": "Chỗ trống đứng giữa many và danh từ responses, nên cần tính từ bổ nghĩa cho danh từ: positive. positively là trạng từ, positivity là danh từ, posit là động từ.",
+    "ct": "positive responses / feedback = phản hồi tích cực · survey = khảo sát",
+    "dich": "Chúng tôi nhận được nhiều phản hồi tích cực cho khảo sát khách hàng."
+   }
   },
   {
    "id": "t5-41",
@@ -786,7 +896,18 @@
    ],
    "a": "on",
    "why": "on + ngày cụ thể.",
-   "t": "prep"
+   "t": "prep",
+   "lg": {
+    "og": {
+     "on": "giới từ: vào (ngày cụ thể)",
+     "in": "giới từ: trong (tháng, năm)",
+     "at": "giới từ: lúc (giờ, điểm)",
+     "to": "giới từ: tới"
+    },
+    "ly": "Trước một ngày cụ thể (January 1) dùng on. in dùng cho tháng / năm (in January), at dùng cho giờ, to không đi với ngày.",
+    "ct": "take effect on + ngày = có hiệu lực vào ngày … · on January 1 / in January",
+    "dich": "Chính sách mới sẽ có hiệu lực vào ngày 1 tháng 1."
+   }
   },
   {
    "id": "t5-47",
@@ -881,7 +1002,18 @@
    ],
    "a": "hasn't arrived",
    "why": "yet đi với hiện tại hoàn thành: hasn't arrived yet.",
-   "t": "verb"
+   "t": "verb",
+   "lg": {
+    "og": {
+     "didn't arrive": "quá khứ đơn phủ định",
+     "hasn't arrived": "hiện tại hoàn thành phủ định",
+     "doesn't arrive": "hiện tại đơn phủ định",
+     "won't arrive": "tương lai phủ định"
+    },
+    "ly": "Dấu hiệu yet (chưa) đi với hiện tại hoàn thành phủ định: hasn't arrived yet. Vế đầu nói lô hàng đã gửi tuần trước nhưng đến giờ chưa tới, nên không dùng quá khứ đơn hay tương lai.",
+    "ct": "have / has not + V3 + yet = vẫn chưa … · but = nhưng",
+    "dich": "Lô hàng đã được gửi tuần trước nhưng vẫn chưa tới."
+   }
   },
   {
    "id": "t5-53",
@@ -923,7 +1055,18 @@
    ],
    "a": "construction",
    "why": "the + danh từ + of: construction.",
-   "t": "form"
+   "t": "form",
+   "lg": {
+    "og": {
+     "construct": "động từ: xây dựng",
+     "construction": "danh từ: việc xây dựng",
+     "constructive": "tính từ: mang tính xây dựng",
+     "constructed": "V3: được xây"
+    },
+    "ly": "Sau the và trước of cần danh từ: the construction of a new public library (việc xây dựng thư viện). construct là động từ, constructive là tính từ, constructed là phân từ.",
+    "ct": "the + N + of + N = việc … của … · city council = hội đồng thành phố",
+    "dich": "Hội đồng thành phố đã phê duyệt việc xây dựng một thư viện công cộng mới."
+   }
   },
   {
    "id": "t5-56",
@@ -979,7 +1122,18 @@
    ],
    "a": "attention",
    "why": "attention to detail = sự chú ý tới chi tiết (danh từ).",
-   "t": "form"
+   "t": "form",
+   "lg": {
+    "og": {
+     "attend": "động từ: tham dự",
+     "attention": "danh từ: sự chú ý",
+     "attentive": "tính từ: chú ý, chu đáo",
+     "attentively": "trạng từ: một cách chăm chú"
+    },
+    "ly": "Sau tính từ sở hữu their cần danh từ, và cụm cố định là attention to detail (chú ý tới chi tiết). attentive là tính từ nên không đứng sau their, attend là động từ, attentively là trạng từ.",
+    "ct": "attention to detail = sự chú ý tới từng chi tiết · be known for + N = nổi tiếng về",
+    "dich": "Nhân viên khách sạn nổi tiếng vì sự chú ý đến từng chi tiết."
+   }
   },
   {
    "id": "t5-60",
@@ -1032,7 +1186,18 @@
     "prompted"
    ],
    "a": "promptly",
-   "why": "Bổ nghĩa động từ responded: trạng từ promptly."
+   "why": "Bổ nghĩa động từ responded: trạng từ promptly.",
+   "lg": {
+    "og": {
+     "prompt": "tính từ: nhanh chóng",
+     "promptly": "trạng từ: một cách nhanh chóng",
+     "promptness": "danh từ: sự nhanh chóng",
+     "prompted": "V3 / quá khứ: thúc đẩy"
+    },
+    "ly": "Sau động từ responded cần trạng từ bổ nghĩa cho nó (trả lời thế nào): promptly. prompt là tính từ, promptness là danh từ, prompted là động từ chia, đều không đặt được ở đây.",
+    "ct": "respond promptly to + N = phản hồi nhanh chóng với … · inquiry = yêu cầu hỏi thông tin",
+    "dich": "Cô Wong phản hồi nhanh chóng mọi thắc mắc của khách hàng."
+   }
   },
   {
    "id": "t5-63",
@@ -1088,7 +1253,18 @@
     "applicable"
    ],
    "a": "application",
-   "why": "your + danh từ, gửi đi được: application (đơn xin việc). applicant là người."
+   "why": "your + danh từ, gửi đi được: application (đơn xin việc). applicant là người.",
+   "lg": {
+    "og": {
+     "apply": "động từ: nộp đơn, áp dụng",
+     "applicant": "danh từ (người): ứng viên",
+     "application": "danh từ: đơn xin, việc nộp đơn",
+     "applicable": "tính từ: có thể áp dụng"
+    },
+    "ly": "Sau your cần danh từ, và vật gửi đi cho người quản lý tuyển dụng là đơn xin việc: application. applicant là người (không thể \"gửi ứng viên\"), apply là động từ, applicable là tính từ.",
+    "ct": "your application for the position = đơn xin vị trí của bạn · send … to + người nhận",
+    "dich": "Vui lòng gửi đơn xin vị trí này tới người quản lý tuyển dụng."
+   }
   },
   {
    "id": "t5-67",
@@ -1286,7 +1462,18 @@
     "when"
    ],
    "a": "during",
-   "why": "during + danh từ (working hours). while / when cần mệnh đề."
+   "why": "during + danh từ (working hours). while / when cần mệnh đề.",
+   "lg": {
+    "og": {
+     "during": "giới từ: trong suốt (+ danh từ)",
+     "while": "liên từ: trong khi (+ mệnh đề / V-ing)",
+     "meanwhile": "trạng từ: trong lúc đó",
+     "when": "liên từ: khi (+ mệnh đề)"
+    },
+    "ly": "Sau chỗ trống là cụm danh từ \"working hours\", nên cần giới từ: during. while và when cần mệnh đề, meanwhile là trạng từ nối câu, đều không đứng trước danh từ.",
+    "ct": "during + danh từ chỉ khoảng thời gian · while + mệnh đề",
+    "dich": "Tất cả nhân viên phải đeo thẻ nhận dạng trong giờ làm việc."
+   }
   },
   {
    "id": "t5-78",
@@ -1367,7 +1554,18 @@
     "whether"
    ],
    "a": "either",
-   "why": "either … or (hoặc … hoặc)."
+   "why": "either … or (hoặc … hoặc).",
+   "lg": {
+    "og": {
+     "either": "từ nối: hoặc (đi cặp với or)",
+     "neither": "từ nối: không … cũng không (đi cặp với nor)",
+     "both": "từ nối: cả hai (đi cặp với and)",
+     "whether": "liên từ: liệu"
+    },
+    "ly": "Sau chỗ trống là \"by credit card or by bank transfer\", có or nên cặp đúng là either … or (hoặc … hoặc). Hai cách thanh toán là lựa chọn một trong hai, nên neither (cặp nor) và both (cặp and) không hợp.",
+    "ct": "either … or … = hoặc … hoặc · neither … nor … · both … and …",
+    "dich": "Khách hàng có thể thanh toán bằng thẻ tín dụng hoặc chuyển khoản ngân hàng."
+   }
   },
   {
    "id": "t5-83",
@@ -1381,7 +1579,18 @@
     "as if"
    ],
    "a": "so that",
-   "why": "Chỉ mục đích + mệnh đề: so that."
+   "why": "Chỉ mục đích + mệnh đề: so that.",
+   "lg": {
+    "og": {
+     "so that": "liên từ: để, nhằm (chỉ mục đích)",
+     "even though": "liên từ: mặc dù",
+     "unless": "liên từ: trừ khi",
+     "as if": "liên từ: như thể là"
+    },
+    "ly": "Nhà máy đóng cửa sớm để công nhân có thể dự buổi dã ngoại: vế sau là mục đích, nên dùng so that. even though chỉ nhượng bộ, unless là điều kiện phủ định, as if là so sánh giả định.",
+    "ct": "S + V + so that + S + can / could + V = để … có thể …",
+    "dich": "Nhà máy sẽ đóng cửa sớm vào thứ Sáu để công nhân có thể dự buổi dã ngoại của công ty."
+   }
   },
   {
    "id": "t5-84",
@@ -1448,7 +1657,18 @@
     "what"
    ],
    "a": "who",
-   "why": "Chủ ngữ chỉ người trong mệnh đề quan hệ: who."
+   "why": "Chủ ngữ chỉ người trong mệnh đề quan hệ: who.",
+   "lg": {
+    "og": {
+     "who": "đại từ quan hệ: người mà (chủ ngữ)",
+     "which": "đại từ quan hệ: cái mà (vật)",
+     "whose": "đại từ quan hệ: … của người mà",
+     "what": "đại từ: cái gì"
+    },
+    "ly": "Visitors là người, và sau chỗ trống là động từ arrive, nên cần đại từ quan hệ làm chủ ngữ chỉ người: who. which chỉ vật, whose cần danh từ theo sau, what không dùng để nối mệnh đề quan hệ.",
+    "ct": "N (người) + who + V = người mà … · sign in = đăng ký khi vào",
+    "dich": "Khách đến sau 6 giờ chiều phải đăng ký tại bàn bảo vệ."
+   }
   },
   {
    "id": "t5-88",
@@ -1462,7 +1682,18 @@
     "one of"
    ],
    "a": "the one",
-   "why": "Chỉ một đề xuất cụ thể: the one submitted by…"
+   "why": "Chỉ một đề xuất cụ thể: the one submitted by…",
+   "lg": {
+    "og": {
+     "the one": "đại từ: cái (đã xác định)",
+     "it": "đại từ: nó",
+     "this one of": "cụm sai",
+     "one of": "cụm: một trong số"
+    },
+    "ly": "Cần đại từ thay cho một đề xuất cụ thể rồi mở rộng bằng cụm \"submitted by Mr. Diaz\": the one submitted by …. it không đi với cụm bổ nghĩa như vậy, hai cụm còn lại không đúng ngữ pháp ở vị trí này.",
+    "ct": "the one + V3 / mệnh đề quan hệ = cái (đó) được … · of the three + N = trong ba …",
+    "dich": "Trong ba đề xuất, đề xuất do ông Diaz nộp là chi tiết nhất."
+   }
   },
   {
    "id": "t5-89",
@@ -1618,7 +1849,18 @@
     "accumulate"
    ],
    "a": "accommodate",
-   "why": "accommodate = có sức chứa."
+   "why": "accommodate = có sức chứa.",
+   "lg": {
+    "og": {
+     "accommodate": "động từ: chứa được, cung cấp chỗ ở",
+     "accompany": "động từ: đi cùng",
+     "accomplish": "động từ: hoàn thành",
+     "accumulate": "động từ: tích luỹ"
+    },
+    "ly": "\"up to 300 guests in its main ballroom\" nói về sức chứa của phòng tiệc, nên dùng accommodate. accompany, accomplish, accumulate đều không nói về sức chứa.",
+    "ct": "accommodate + số người = chứa được, có chỗ cho · up to + số = tối đa",
+    "dich": "Khách sạn có thể chứa tối đa 300 khách trong phòng tiệc chính."
+   }
   },
   {
    "id": "t5-97",
@@ -1632,7 +1874,18 @@
     "refer"
    ],
    "a": "repair",
-   "why": "repair the equipment = sửa thiết bị."
+   "why": "repair the equipment = sửa thiết bị.",
+   "lg": {
+    "og": {
+     "repair": "động từ: sửa chữa",
+     "repeal": "động từ: huỷ bỏ (luật)",
+     "recover": "động từ: phục hồi, lấy lại",
+     "refer": "động từ: tham khảo, chuyển tới (refer to)"
+    },
+    "ly": "Kỹ thuật viên làm gì với thiết bị trong thời gian bảo hành? Sửa chữa: repair the equipment. repeal chỉ dùng với luật, recover là lấy lại, refer cần giới từ to.",
+    "ct": "repair the equipment = sửa thiết bị · free of charge = miễn phí · warranty period = thời gian bảo hành",
+    "dich": "Các kỹ thuật viên của chúng tôi sẽ sửa thiết bị miễn phí trong thời gian bảo hành."
+   }
   },
   {
    "id": "t5-98",
@@ -1646,7 +1899,18 @@
     "breakup"
    ],
    "a": "breakdown",
-   "why": "a breakdown of the costs = bảng chi tiết chi phí."
+   "why": "a breakdown of the costs = bảng chi tiết chi phí.",
+   "lg": {
+    "og": {
+     "breakdown": "danh từ: bảng phân tích chi tiết",
+     "breakthrough": "danh từ: bước đột phá",
+     "breakout": "danh từ: sự bùng phát",
+     "breakup": "danh từ: sự chia tay, tan rã"
+    },
+    "ly": "Giám đốc muốn xem chi tiết các khoản chi trước khi duyệt kế hoạch: a detailed breakdown of the costs = bảng chi tiết chi phí. Các từ còn lại không nói về phân tích số liệu.",
+    "ct": "a breakdown of the costs = bảng chi tiết chi phí · ask for + N = yêu cầu cung cấp",
+    "dich": "Giám đốc yêu cầu bảng chi tiết các chi phí trước khi duyệt kế hoạch."
+   }
   },
   {
    "id": "t5-99",
@@ -1713,7 +1977,18 @@
    ],
    "a": "most",
    "why": "the + most + tính từ dài: so sánh nhất.",
-   "t": "struct"
+   "t": "struct",
+   "lg": {
+    "og": {
+     "most": "trạng từ: nhất (so sánh nhất của tính từ dài)",
+     "more": "trạng từ: hơn (so sánh hơn)",
+     "much": "trạng từ: nhiều",
+     "very": "trạng từ: rất"
+    },
+    "ly": "Có the đứng trước chỗ trống và \"on the project team\" (trong nhóm) nên cần so sánh nhất: the most experienced. more dùng khi so hai đối tượng, much và very không đứng sau the để tạo so sánh nhất.",
+    "ct": "the + most + tính từ dài + N = … nhất · the most experienced engineer = kỹ sư nhiều kinh nghiệm nhất",
+    "dich": "Cô Trần là kỹ sư có nhiều kinh nghiệm nhất trong nhóm dự án."
+   }
   },
   {
    "id": "t5-103",
@@ -1727,7 +2002,18 @@
    ],
    "a": "did",
    "why": "Only after … đứng đầu câu → đảo ngữ: did the work begin.",
-   "t": "struct"
+   "t": "struct",
+   "lg": {
+    "og": {
+     "did": "trợ động từ quá khứ",
+     "does": "trợ động từ hiện tại",
+     "was": "be quá khứ",
+     "had": "trợ động từ quá khứ hoàn thành"
+    },
+    "ly": "Cụm \"Only after …\" đứng đầu câu thì mệnh đề chính phải đảo ngữ: trợ động từ + chủ ngữ + V. Hợp đồng đã được ký (quá khứ) nên dùng did: did the work begin. does sai thì, was và had không đi với begin ở dạng này.",
+    "ct": "Only after + mệnh đề, trợ động từ + S + V (đảo ngữ) = chỉ sau khi … mới …",
+    "dich": "Chỉ sau khi hợp đồng được ký thì công việc mới bắt đầu."
+   }
   },
   {
    "id": "t5-104",
@@ -1741,7 +2027,18 @@
    ],
    "a": "comfortable",
    "why": "not as + tính từ nguyên dạng + as → comfortable.",
-   "t": "struct"
+   "t": "struct",
+   "lg": {
+    "og": {
+     "comfortable": "tính từ nguyên dạng: thoải mái",
+     "more comfortable": "so sánh hơn",
+     "most comfortable": "so sánh nhất",
+     "comfortably": "trạng từ: một cách thoải mái"
+    },
+    "ly": "Cấu trúc \"not as … as\" (không … bằng) dùng tính từ ở dạng nguyên mẫu giữa hai as: not as comfortable as. more và most là dạng so sánh, không đặt trong khung as … as; comfortably là trạng từ.",
+    "ct": "as + tính từ / trạng từ nguyên dạng + as = bằng · not as … as = không … bằng",
+    "dich": "Khách sạn thứ hai không thoải mái bằng khách sạn đầu tiên chúng tôi đến xem."
+   }
   },
   {
    "id": "t5-105",
@@ -1822,7 +2119,18 @@
    ],
    "a": "Every",
    "why": "Every + danh từ đếm được số ít (employee); all / most / many cần danh từ số nhiều (employees).",
-   "t": "det"
+   "t": "det",
+   "lg": {
+    "og": {
+     "Every": "từ hạn định: mỗi (+ danh từ số ít)",
+     "All": "từ hạn định: tất cả (+ danh từ số nhiều)",
+     "Most": "từ hạn định: hầu hết (+ danh từ số nhiều)",
+     "Many": "từ hạn định: nhiều (+ danh từ số nhiều)"
+    },
+    "ly": "Sau chỗ trống là employee (số ít) và động từ must complete không chia thêm -s, nên cần từ đi với danh từ số ít: Every. All, Most, Many phải đi với employees (số nhiều).",
+    "ct": "Every + danh từ đếm được số ít (+ V số ít) · All / Most / Many + danh từ số nhiều",
+    "dich": "Mỗi nhân viên phải hoàn thành khoá an toàn trực tuyến trước cuối tháng."
+   }
   },
   {
    "id": "t5-110",
@@ -1850,7 +2158,18 @@
    ],
    "a": "few",
    "why": "a few (of) + danh từ đếm được số nhiều (applicants); a little / much đi với danh từ không đếm được.",
-   "t": "det"
+   "t": "det",
+   "lg": {
+    "og": {
+     "few": "từ chỉ lượng: một vài (đếm được, số nhiều)",
+     "little": "từ chỉ lượng: một chút (không đếm được)",
+     "less": "từ chỉ lượng: ít hơn",
+     "much": "từ chỉ lượng: nhiều (không đếm được)"
+    },
+    "ly": "Trước chỗ trống có a và sau là \"of the applicants\" (danh từ đếm được số nhiều): chọn a few. a little và much đi với danh từ không đếm được, less không đứng sau a theo nghĩa này.",
+    "ct": "only a few of + the + N số nhiều = chỉ một số ít trong … · a few (đếm được) / a little (không đếm được)",
+    "dich": "Chỉ một số ít ứng viên có kinh nghiệm bán hàng quốc tế."
+   }
   },
   {
    "id": "t5-112",
@@ -1864,7 +2183,18 @@
    ],
    "a": "little",
    "why": "time (thời gian) không đếm được → little; few / many / several đi với danh từ đếm được.",
-   "t": "det"
+   "t": "det",
+   "lg": {
+    "og": {
+     "little": "từ chỉ lượng: ít (không đếm được)",
+     "few": "từ chỉ lượng: ít (đếm được)",
+     "many": "từ chỉ lượng: nhiều (đếm được)",
+     "several": "từ chỉ lượng: vài (đếm được)"
+    },
+    "ly": "time (thời gian) là danh từ không đếm được, và very đứng trước chỗ trống: very little time = rất ít thời gian. few, many, several phải đi với danh từ đếm được số nhiều. Vế sau (làm việc muộn) cũng cho thấy thời gian còn ít.",
+    "ct": "very little + N không đếm được · very few + N đếm được số nhiều",
+    "dich": "Còn rất ít thời gian trước khi ra mắt sản phẩm nên cả nhóm đang làm việc muộn."
+   }
   },
   {
    "id": "t5-113",

@@ -2180,7 +2180,18 @@
     "directed"
    ],
    "a": "directly",
-   "why": "Bổ nghĩa cho động từ submit cần trạng từ: directly."
+   "why": "Bổ nghĩa cho động từ submit cần trạng từ: directly.",
+   "lg": {
+    "og": {
+     "directs": "động từ chia ngôi thứ ba: chỉ đạo",
+     "directly": "trạng từ: trực tiếp",
+     "direction": "danh từ: hướng, sự chỉ đạo",
+     "directed": "V3: được chỉ đạo"
+    },
+    "ly": "Sau cụm động từ submit your expense reports cần trạng từ bổ nghĩa cho hành động (nộp thế nào): directly. directs, direction, directed không đúng từ loại ở vị trí này.",
+    "ct": "submit + N + directly to + nơi nhận = nộp thẳng tới · expense report = báo cáo chi phí",
+    "dich": "Vui lòng nộp báo cáo chi phí trực tiếp cho phòng kế toán."
+   }
   },
   {
    "id": "d03-p5-02",
@@ -2193,7 +2204,18 @@
     "theirs"
    ],
    "a": "their",
-   "why": "Trước danh từ updates cần tính từ sở hữu: their."
+   "why": "Trước danh từ updates cần tính từ sở hữu: their.",
+   "lg": {
+    "og": {
+     "their": "tính từ sở hữu: của họ",
+     "them": "đại từ tân ngữ: họ",
+     "they": "đại từ chủ ngữ: họ",
+     "theirs": "đại từ sở hữu: cái của họ"
+    },
+    "ly": "Trước danh từ weekly updates cần tính từ sở hữu: their, chỉ cập nhật của các thành viên nhóm. them là tân ngữ, they là chủ ngữ, theirs đứng một mình không kèm danh từ.",
+    "ct": "tính từ sở hữu + N (their updates) · ask that + S + (should) + V = yêu cầu rằng …",
+    "dich": "Cô Romero yêu cầu tất cả thành viên nhóm nộp bản cập nhật hằng tuần của họ trước thứ Sáu."
+   }
   },
   {
    "id": "d03-p5-03",
@@ -2206,7 +2228,18 @@
     "to"
    ],
    "a": "on",
-   "why": "Trước một ngày cụ thể dùng on: on January 3."
+   "why": "Trước một ngày cụ thể dùng on: on January 3.",
+   "lg": {
+    "og": {
+     "on": "giới từ: vào (ngày cụ thể)",
+     "at": "giới từ: lúc",
+     "in": "giới từ: trong (tháng, năm)",
+     "to": "giới từ: tới"
+    },
+    "ly": "Trước một ngày cụ thể (January 3) dùng on. at dành cho giờ, in dành cho tháng / năm nói chung, to không đi với ngày.",
+    "ct": "closed on + ngày · closed for maintenance = đóng cửa để bảo trì",
+    "dich": "Bảo tàng sẽ đóng cửa vào ngày 3 tháng 1 để bảo trì hằng năm."
+   }
   },
   {
    "id": "d03-p5-04",
@@ -2219,7 +2252,18 @@
     "will install"
    ],
    "a": "was installed",
-   "why": "Hệ thống được lắp (bị động) và có last month → quá khứ đơn bị động: was installed."
+   "why": "Hệ thống được lắp (bị động) và có last month → quá khứ đơn bị động: was installed.",
+   "lg": {
+    "og": {
+     "installed": "quá khứ chủ động / V3",
+     "was installed": "quá khứ bị động: đã được lắp",
+     "is installing": "hiện tại tiếp diễn chủ động",
+     "will install": "tương lai chủ động"
+    },
+    "ly": "Hệ thống an ninh được lắp bởi ai đó (bị động) và có last month (quá khứ), nên dùng was installed. installed chủ động không có tân ngữ, is installing và will install sai thì.",
+    "ct": "was / were + V3 = bị động quá khứ · last month = tháng trước",
+    "dich": "Hệ thống an ninh mới đã được lắp ở tất cả các văn phòng chi nhánh vào tháng trước."
+   }
   },
   {
    "id": "d03-p5-05",
@@ -2232,7 +2276,18 @@
     "helped"
    ],
    "a": "helpful",
-   "why": "Hai tính từ nối bằng and đứng trước danh từ responses: quick and helpful."
+   "why": "Hai tính từ nối bằng and đứng trước danh từ responses: quick and helpful.",
+   "lg": {
+    "og": {
+     "help": "danh từ / động từ: giúp đỡ",
+     "helpful": "tính từ: hữu ích",
+     "helpfully": "trạng từ: một cách hữu ích",
+     "helped": "V3: đã giúp"
+    },
+    "ly": "Hai tính từ nối bằng and cùng đứng trước danh từ responses: quick and helpful. Hai từ nối phải cùng loại, nên chọn tính từ helpful, không chọn trạng từ hay danh từ.",
+    "ct": "tính từ + and + tính từ + N = quick and helpful responses · be known for = nổi tiếng vì",
+    "dich": "Nhóm chăm sóc khách hàng của chúng tôi nổi tiếng với những phản hồi nhanh và hữu ích."
+   }
   },
   {
    "id": "d03-p5-06",
@@ -2245,7 +2300,18 @@
     "Several"
    ],
    "a": "Each",
-   "why": "Danh từ số ít applicant → Each. All, Many, Several đi với danh từ số nhiều."
+   "why": "Danh từ số ít applicant → Each. All, Many, Several đi với danh từ số nhiều.",
+   "lg": {
+    "og": {
+     "Each": "từ hạn định: mỗi (+ danh từ số ít)",
+     "All": "từ hạn định: tất cả (+ số nhiều)",
+     "Many": "từ hạn định: nhiều (+ số nhiều)",
+     "Several": "từ hạn định: một vài (+ số nhiều)"
+    },
+    "ly": "Sau chỗ trống là applicant (số ít) và động từ must provide, nên cần từ đi với danh từ số ít: Each. All, Many, Several đều cần danh từ số nhiều (applicants).",
+    "ct": "Each + N số ít + V số ít · letter of reference = thư giới thiệu",
+    "dich": "Mỗi ứng viên phải cung cấp hai thư giới thiệu."
+   }
   },
   {
    "id": "d03-p5-07",
@@ -2258,7 +2324,18 @@
     "listen"
    ],
    "a": "present",
-   "why": "present the results = trình bày kết quả. attend the results, arrive / listen + tân ngữ trực tiếp đều sai."
+   "why": "present the results = trình bày kết quả. attend the results, arrive / listen + tân ngữ trực tiếp đều sai.",
+   "lg": {
+    "og": {
+     "present": "động từ: trình bày",
+     "attend": "động từ: tham dự",
+     "arrive": "động từ: đến (không có tân ngữ)",
+     "listen": "động từ: nghe (listen to)"
+    },
+    "ly": "Tân ngữ là the quarterly results (kết quả quý) và tình huống họp hội đồng: present the results = trình bày kết quả. attend nghĩa là tham dự (không đi với results), arrive và listen không có tân ngữ trực tiếp.",
+    "ct": "present the results = trình bày kết quả · quarterly = theo quý",
+    "dich": "Ông Chen sẽ trình bày kết quả quý tại cuộc họp hội đồng quản trị vào thứ Năm."
+   }
   },
   {
    "id": "d03-p5-08",
@@ -2271,7 +2348,18 @@
     "although"
    ],
    "a": "because",
-   "why": "Phía sau là mệnh đề (there was…) và nghĩa nguyên nhân → because. because of / despite + danh từ."
+   "why": "Phía sau là mệnh đề (there was…) và nghĩa nguyên nhân → because. because of / despite + danh từ.",
+   "lg": {
+    "og": {
+     "because": "liên từ: bởi vì (+ mệnh đề)",
+     "because of": "giới từ: bởi vì (+ danh từ)",
+     "despite": "giới từ: mặc dù (+ danh từ)",
+     "although": "liên từ: mặc dù (+ mệnh đề)"
+    },
+    "ly": "Sau chỗ trống là mệnh đề \"there was a shortage of drivers\" và vế này là nguyên nhân của việc giao hàng chậm: because. because of và despite cần danh từ; although chỉ sự tương phản.",
+    "ct": "because + mệnh đề · because of + danh từ · shortage of = sự thiếu hụt",
+    "dich": "Lô hàng bị chậm vì thiếu tài xế."
+   }
   },
   {
    "id": "d03-p5-09",
@@ -2284,7 +2372,18 @@
     "is working"
    ],
    "a": "had worked",
-   "why": "Việc xảy ra trước một mốc quá khứ (before she retired) → quá khứ hoàn thành: had worked."
+   "why": "Việc xảy ra trước một mốc quá khứ (before she retired) → quá khứ hoàn thành: had worked.",
+   "lg": {
+    "og": {
+     "has worked": "hiện tại hoàn thành",
+     "had worked": "quá khứ hoàn thành",
+     "works": "hiện tại đơn",
+     "is working": "hiện tại tiếp diễn"
+    },
+    "ly": "Việc làm cho công ty đã xảy ra TRƯỚC mốc quá khứ \"before she retired\" (bà nghỉ hưu), nên dùng quá khứ hoàn thành had worked. has worked, works, is working đều thuộc hiện tại.",
+    "ct": "had + V3 … before + quá khứ đơn = đã làm … trước khi … · for over ten years = hơn mười năm",
+    "dich": "Bà Davis đã làm việc cho công ty hơn mười năm trước khi nghỉ hưu."
+   }
   },
   {
    "id": "d03-p5-10",
@@ -2297,7 +2396,18 @@
     "spaces"
    ],
    "a": "spacious",
-   "why": "Trước danh từ rooms cần tính từ: spacious (rộng rãi)."
+   "why": "Trước danh từ rooms cần tính từ: spacious (rộng rãi).",
+   "lg": {
+    "og": {
+     "spacious": "tính từ: rộng rãi",
+     "space": "danh từ: không gian",
+     "spaciously": "trạng từ: một cách rộng rãi",
+     "spaces": "danh từ số nhiều: các khoảng trống"
+    },
+    "ly": "Chỗ trống đứng giữa offers và danh từ rooms, nên cần tính từ bổ nghĩa cho rooms: spacious. spaciously là trạng từ, space / spaces là danh từ.",
+    "ct": "offer + tính từ + N = cung cấp … · a view of the lake = tầm nhìn ra hồ",
+    "dich": "Khách sạn có những phòng rộng rãi nhìn ra hồ."
+   }
   },
   {
    "id": "d03-p5-11",
@@ -2310,7 +2420,18 @@
     "since"
    ],
    "a": "before",
-   "why": "before + V-ing: trước khi vào phòng thí nghiệm. during + danh từ; until, since không hợp nghĩa."
+   "why": "before + V-ing: trước khi vào phòng thí nghiệm. during + danh từ; until, since không hợp nghĩa.",
+   "lg": {
+    "og": {
+     "before": "giới từ / liên từ: trước khi",
+     "until": "giới từ: cho đến khi",
+     "during": "giới từ: trong suốt (+ danh từ)",
+     "since": "giới từ: từ khi"
+    },
+    "ly": "Phải đăng ký trước KHI vào phòng thí nghiệm: before entering. during cần danh từ (không dùng với V-ing chỉ hành động), until kéo dài tới mốc, since chỉ mốc bắt đầu, đều sai nghĩa.",
+    "ct": "before + V-ing = trước khi làm gì · sign in = đăng ký khi vào",
+    "dich": "Mọi khách đến thăm phải đăng ký tại quầy lễ tân trước khi vào phòng thí nghiệm."
+   }
   },
   {
    "id": "d03-p5-12",
@@ -2323,7 +2444,18 @@
     "he"
    ],
    "a": "himself",
-   "why": "Đại từ phản thân nhấn mạnh tự làm lấy, không ai giúp: himself."
+   "why": "Đại từ phản thân nhấn mạnh tự làm lấy, không ai giúp: himself.",
+   "lg": {
+    "og": {
+     "himself": "đại từ phản thân: chính ông ấy",
+     "him": "đại từ tân ngữ",
+     "his": "tính từ sở hữu",
+     "he": "đại từ chủ ngữ"
+    },
+    "ly": "Vế sau \"without any help from his assistant\" cho thấy ông tự làm lấy, nên dùng đại từ phản thân nhấn mạnh: himself. him, his, he không đứng ở cuối mệnh đề với nghĩa nhấn mạnh này.",
+    "ct": "S + V + O + himself / herself = tự mình làm · without any help = không có sự giúp đỡ nào",
+    "dich": "Ông Yoon đã tự mình soạn báo cáo bán hàng, không có sự giúp đỡ nào từ trợ lý."
+   }
   },
   {
    "id": "d03-p5-13",
@@ -2336,7 +2468,18 @@
     "briefly"
    ],
    "a": "steadily",
-   "why": "increased steadily = tăng đều đặn. nearly, mostly, briefly không hợp nghĩa với increased."
+   "why": "increased steadily = tăng đều đặn. nearly, mostly, briefly không hợp nghĩa với increased.",
+   "lg": {
+    "og": {
+     "steadily": "trạng từ: đều đặn",
+     "nearly": "trạng từ: gần như",
+     "mostly": "trạng từ: phần lớn",
+     "briefly": "trạng từ: ngắn gọn"
+    },
+    "ly": "Cả bốn đều là trạng từ nên xét nghĩa. Lợi nhuận tăng liên tục từ khi ra mắt sản phẩm mới: increased steadily = tăng đều đặn. nearly, mostly, briefly không hợp với increased.",
+    "ct": "increase steadily = tăng đều đặn · have + V3 + since + mốc = đã … kể từ khi",
+    "dich": "Lợi nhuận của công ty đã tăng đều đặn kể từ khi sản phẩm mới được tung ra."
+   }
   },
   {
    "id": "d03-p5-14",
@@ -2349,7 +2492,18 @@
     "submitted she"
    ],
    "a": "did she submit",
-   "why": "Not only đứng đầu câu → đảo trợ động từ lên trước chủ ngữ: did she submit."
+   "why": "Not only đứng đầu câu → đảo trợ động từ lên trước chủ ngữ: did she submit.",
+   "lg": {
+    "og": {
+     "she submitted": "trật tự thường",
+     "did she submit": "đảo ngữ: trợ động từ + chủ ngữ + V",
+     "she did submit": "chủ ngữ + do + V (nhấn mạnh)",
+     "submitted she": "đảo sai"
+    },
+    "ly": "Not only đứng đầu câu thì phải đảo ngữ: trợ động từ + chủ ngữ + động từ. Vế sau dùng quá khứ (reduced), nên là did she submit. Các trật tự có she đứng trước hoặc submitted she đều sai.",
+    "ct": "Not only + trợ động từ + S + V, but … also … = không những … mà còn …",
+    "dich": "Cô ấy không những nộp đề xuất đúng hạn mà còn giảm được chi phí."
+   }
   },
   {
    "id": "d03-p5-15",
@@ -2362,7 +2516,18 @@
     "expanded"
    ],
    "a": "expansion",
-   "why": "Sau The và trước of cần danh từ: expansion (việc mở rộng)."
+   "why": "Sau The và trước of cần danh từ: expansion (việc mở rộng).",
+   "lg": {
+    "og": {
+     "expand": "động từ: mở rộng",
+     "expansion": "danh từ: sự mở rộng",
+     "expansive": "tính từ: rộng lớn",
+     "expanded": "V3: được mở rộng"
+    },
+    "ly": "Chỗ trống nằm giữa The và of nên cần danh từ: the expansion of the new warehouse (việc mở rộng kho). expand là động từ, expansive là tính từ, expanded là phân từ.",
+    "ct": "the + N + of + N · twice as much + N = gấp đôi lượng …",
+    "dich": "Việc mở rộng nhà kho mới sẽ giúp chúng tôi chứa được lượng hàng gấp đôi."
+   }
   },
   {
    "id": "d03-p5-16",
@@ -2375,7 +2540,18 @@
     "were"
    ],
    "a": "is",
-   "why": "Câu điều kiện loại 1: mệnh đề If dùng hiện tại đơn (is) dù nói về tương lai."
+   "why": "Câu điều kiện loại 1: mệnh đề If dùng hiện tại đơn (is) dù nói về tương lai.",
+   "lg": {
+    "og": {
+     "is": "be hiện tại đơn",
+     "will be": "tương lai đơn",
+     "was": "be quá khứ",
+     "were": "be quá khứ (giả định)"
+    },
+    "ly": "Câu điều kiện loại 1: mệnh đề If dùng hiện tại đơn dù nói chuyện ngày mai, nên chọn is. Không dùng will be sau if; was / were là quá khứ.",
+    "ct": "If + hiện tại đơn, S + will + V (điều kiện loại 1) · take place = diễn ra",
+    "dich": "Nếu ngày mai thời tiết đẹp, buổi chiêu đãi sẽ diễn ra ngoài vườn."
+   }
   },
   {
    "id": "d03-p5-17",
@@ -2388,7 +2564,18 @@
     "Despite"
    ],
    "a": "Although",
-   "why": "Hai vế trái ngược (tàu trễ, vẫn đến kịp), sau là mệnh đề → Although. Despite + danh từ."
+   "why": "Hai vế trái ngược (tàu trễ, vẫn đến kịp), sau là mệnh đề → Although. Despite + danh từ.",
+   "lg": {
+    "og": {
+     "Although": "liên từ: mặc dù (+ mệnh đề)",
+     "Because": "liên từ: vì (+ mệnh đề)",
+     "Unless": "liên từ: trừ khi",
+     "Despite": "giới từ: mặc dù (+ danh từ)"
+    },
+    "ly": "Hai vế trái ngược: tàu trễ nhưng hầu hết người tham dự vẫn đến kịp. Sau chỗ trống là mệnh đề (the train was delayed), nên dùng Although. Despite cần danh từ, Because sai nghĩa, Unless là điều kiện.",
+    "ct": "Although + mệnh đề, mệnh đề = mặc dù … nhưng … · Despite + danh từ / V-ing",
+    "dich": "Mặc dù tàu bị trễ, hầu hết người tham dự vẫn đến trước bài phát biểu khai mạc."
+   }
   },
   {
    "id": "d03-p5-18",
@@ -2401,7 +2588,18 @@
     "pass"
    ],
    "a": "lead",
-   "why": "lead visitors through = dẫn khách đi qua (khu trưng bày)."
+   "why": "lead visitors through = dẫn khách đi qua (khu trưng bày).",
+   "lg": {
+    "og": {
+     "lead": "động từ: dẫn dắt",
+     "follow": "động từ: đi theo",
+     "carry": "động từ: mang",
+     "pass": "động từ: đi qua, chuyển"
+    },
+    "ly": "Hướng dẫn viên của bảo tàng DẪN khách đi qua khu trưng bày mới: lead visitors through. follow là đi theo sau, carry là mang vác, pass không hợp nghĩa với người dẫn đường.",
+    "ct": "lead + người + through + nơi = dẫn ai đi qua … · exhibition hall = khu trưng bày",
+    "dich": "Hướng dẫn viên bảo tàng sẽ dẫn khách đi qua khu trưng bày mới."
+   }
   },
   {
    "id": "d03-p5-19",
@@ -2414,7 +2612,18 @@
     "a few"
    ],
    "a": "little",
-   "why": "time là danh từ không đếm được, nghĩa 'ít, gần như không đủ' → little. few, many, a few đi với danh từ đếm được."
+   "why": "time là danh từ không đếm được, nghĩa 'ít, gần như không đủ' → little. few, many, a few đi với danh từ đếm được.",
+   "lg": {
+    "og": {
+     "little": "từ chỉ lượng: ít (không đếm được)",
+     "few": "từ chỉ lượng: ít (đếm được)",
+     "many": "từ chỉ lượng: nhiều (đếm được)",
+     "a few": "từ chỉ lượng: một vài (đếm được)"
+    },
+    "ly": "time (thời gian) không đếm được và nghĩa \"còn rất ít\" hợp với vế sau (phải làm nhanh), nên chọn little. few, many, a few đều cần danh từ đếm được số nhiều.",
+    "ct": "little + N không đếm được = rất ít · few + N đếm được số nhiều · deadline = hạn chót",
+    "dich": "Còn rất ít thời gian trước hạn chót nên chúng ta phải làm nhanh."
+   }
   },
   {
    "id": "d03-p5-20",
@@ -2427,7 +2636,18 @@
     "within"
    ],
    "a": "between",
-   "why": "between … and …: trong khoảng giữa hai mốc. from đi với to."
+   "why": "between … and …: trong khoảng giữa hai mốc. from đi với to.",
+   "lg": {
+    "og": {
+     "between": "giới từ: ở giữa hai mốc",
+     "among": "giới từ: ở giữa nhiều đối tượng",
+     "from": "giới từ: từ (đi với to / until)",
+     "within": "giới từ: trong vòng"
+    },
+    "ly": "Cụm \"9 A.M. and 5 P.M.\" có and nên cặp đúng là between … and …: khoảng giữa hai mốc giờ. from phải đi với to, among dùng cho từ ba đối tượng trở lên, within chỉ khoảng thời gian tính từ bây giờ.",
+    "ct": "between + A + and + B = giữa A và B · available for booking = có thể đặt chỗ",
+    "dich": "Phòng họp có thể đặt từ 9 giờ sáng đến 5 giờ chiều."
+   }
   },
   {
    "id": "d03-p5-21",
@@ -2440,7 +2660,18 @@
     "surprised"
    ],
    "a": "surprisingly",
-   "why": "Bổ nghĩa cho tính từ easy cần trạng từ → surprisingly (dễ đến bất ngờ)."
+   "why": "Bổ nghĩa cho tính từ easy cần trạng từ → surprisingly (dễ đến bất ngờ).",
+   "lg": {
+    "og": {
+     "surprising": "tính từ: gây ngạc nhiên",
+     "surprisingly": "trạng từ: đáng ngạc nhiên là",
+     "surprise": "danh từ: sự ngạc nhiên",
+     "surprised": "tính từ: ngạc nhiên"
+    },
+    "ly": "Chỗ trống đứng trước tính từ easy và bổ nghĩa cho nó, nên cần trạng từ: surprisingly easy (dễ đến bất ngờ). surprising và surprised là tính từ, surprise là danh từ.",
+    "ct": "trạng từ + tính từ (surprisingly easy) · make it + tính từ + to V = khiến việc … trở nên …",
+    "dich": "Phần mềm mới khiến việc theo dõi đơn hàng của khách trở nên dễ đến bất ngờ."
+   }
   },
   {
    "id": "d03-p5-22",
@@ -2453,7 +2684,18 @@
     "were preparing"
    ],
    "a": "will have prepared",
-   "why": "By the time + hiện tại đơn (mốc tương lai) → tương lai hoàn thành: will have prepared."
+   "why": "By the time + hiện tại đơn (mốc tương lai) → tương lai hoàn thành: will have prepared.",
+   "lg": {
+    "og": {
+     "will have prepared": "tương lai hoàn thành",
+     "have prepared": "hiện tại hoàn thành",
+     "prepared": "quá khứ đơn",
+     "were preparing": "quá khứ tiếp diễn"
+    },
+    "ly": "By the time + hiện tại đơn (the client arrives) đặt ra một mốc tương lai; việc chuẩn bị phải xong trước mốc đó, nên dùng tương lai hoàn thành: will have prepared. Các thì còn lại không hợp mốc tương lai.",
+    "ct": "By the time + hiện tại đơn, S + will have + V3 = tới lúc … thì đã …",
+    "dich": "Tới lúc khách hàng đến, chúng tôi sẽ đã chuẩn bị xong phòng thuyết trình."
+   }
   },
   {
    "id": "d03-p5-23",
@@ -2466,7 +2708,18 @@
     "supply"
    ],
    "a": "demand",
-   "why": "high demand = nhu cầu cao (cụm cố định)."
+   "why": "high demand = nhu cầu cao (cụm cố định).",
+   "lg": {
+    "og": {
+     "demand": "danh từ: nhu cầu",
+     "request": "danh từ: yêu cầu",
+     "order": "danh từ: đơn hàng, thứ tự",
+     "supply": "danh từ: nguồn cung"
+    },
+    "ly": "Do nhu cầu cao nên buổi hoà nhạc được chuyển sang địa điểm lớn hơn: high demand = nhu cầu cao (cụm cố định). request, order, supply không đi với tính từ high theo nghĩa này.",
+    "ct": "due to + N = do, bởi vì · high demand = nhu cầu cao · venue = địa điểm tổ chức",
+    "dich": "Do nhu cầu cao, buổi hoà nhạc đã được chuyển sang địa điểm lớn hơn."
+   }
   },
   {
    "id": "d03-p5-24",
@@ -2479,7 +2732,18 @@
     "another"
    ],
    "a": "each other",
-   "why": "share with each other = chia sẻ cho nhau (giữa hai bên)."
+   "why": "share with each other = chia sẻ cho nhau (giữa hai bên).",
+   "lg": {
+    "og": {
+     "each other": "đại từ: lẫn nhau",
+     "themselves": "đại từ phản thân: chính họ",
+     "one": "đại từ: một",
+     "another": "đại từ: một cái khác"
+    },
+    "ly": "Hai công ty chia sẻ nguồn lực cho nhau: with each other. themselves chỉ việc tự thân, one và another không dùng sau with trong nghĩa qua lại.",
+    "ct": "each other = lẫn nhau (giữa hai bên) · share resources with … = chia sẻ nguồn lực với …",
+    "dich": "Hai công ty đồng ý chia sẻ nguồn lực với nhau để giảm chi phí."
+   }
   },
   {
    "id": "d03-p5-25",
@@ -2492,7 +2756,18 @@
     "had taken"
    ],
    "a": "would have taken",
-   "why": "Had we known = If we had known (điều kiện loại 3 đảo ngữ) → would have taken."
+   "why": "Had we known = If we had known (điều kiện loại 3 đảo ngữ) → would have taken.",
+   "lg": {
+    "og": {
+     "would have taken": "điều kiện loại 3: lẽ ra đã đi",
+     "will take": "tương lai đơn",
+     "would take": "điều kiện loại 2",
+     "had taken": "quá khứ hoàn thành"
+    },
+    "ly": "Had we known = If we had known (câu điều kiện loại 3 đảo ngữ, nói điều không có thật ở quá khứ). Vế chính phải là would have + V3: would have taken. will take và would take không hợp điều kiện quá khứ.",
+    "ct": "Had + S + V3, S + would have + V3 = Nếu … thì đã … · road closure = việc đóng đường",
+    "dich": "Nếu chúng tôi biết trước việc đóng đường, chúng tôi đã đi chuyến tàu sớm hơn."
+   }
   },
   {
    "id": "d03-p5-26",
@@ -2505,7 +2780,18 @@
     "persuasion"
    ],
    "a": "persuasive",
-   "why": "the most + tính từ: the most persuasive (thuyết phục nhất)."
+   "why": "the most + tính từ: the most persuasive (thuyết phục nhất).",
+   "lg": {
+    "og": {
+     "persuade": "động từ: thuyết phục",
+     "persuasive": "tính từ: có sức thuyết phục",
+     "persuasively": "trạng từ: một cách thuyết phục",
+     "persuasion": "danh từ: sự thuyết phục"
+    },
+    "ly": "Sau the most cần tính từ (so sánh nhất): the most persuasive = thuyết phục nhất. persuasively là trạng từ, persuasion là danh từ, persuade là động từ.",
+    "ct": "the most + tính từ dài + of all … = … nhất trong tất cả · proposal = đề xuất",
+    "dich": "Đề xuất của cô Liang là đề xuất thuyết phục nhất trong tất cả các kế hoạch được nộp."
+   }
   },
   {
    "id": "d03-p5-27",
@@ -2518,7 +2804,18 @@
     "for"
    ],
    "a": "on",
-   "why": "focus on = tập trung vào."
+   "why": "focus on = tập trung vào.",
+   "lg": {
+    "og": {
+     "on": "giới từ: vào, về",
+     "at": "giới từ: tại",
+     "with": "giới từ: với",
+     "for": "giới từ: cho"
+    },
+    "ly": "Động từ focus đi với giới từ on: focus on = tập trung vào. at, with, for không đi với focus ở nghĩa này.",
+    "ct": "focus on + N = tập trung vào … · plans for international growth = kế hoạch tăng trưởng quốc tế",
+    "dich": "Bài phát biểu của giám đốc điều hành tập trung vào kế hoạch tăng trưởng quốc tế của công ty."
+   }
   },
   {
    "id": "d03-p5-28",
@@ -2531,7 +2828,18 @@
     "yet"
    ],
    "a": "or",
-   "why": "Hai cách tham dự, chọn một trong hai → or."
+   "why": "Hai cách tham dự, chọn một trong hai → or.",
+   "lg": {
+    "og": {
+     "or": "liên từ: hoặc",
+     "nor": "liên từ: cũng không",
+     "but": "liên từ: nhưng",
+     "yet": "liên từ: nhưng, tuy vậy"
+    },
+    "ly": "Hai cách tham dự (trực tiếp hoặc qua video), chọn một trong hai: or. nor cần có phủ định phía trước, but và yet chỉ sự tương phản.",
+    "ct": "A or B = A hoặc B · in person = trực tiếp · join … by video call = tham gia qua cuộc gọi video",
+    "dich": "Cô Kwan sẽ tham dự cuộc họp trực tiếp hoặc tham gia qua cuộc gọi video."
+   }
   },
   {
    "id": "d03-p5-29",
@@ -2544,7 +2852,18 @@
     "focus"
    ],
    "a": "attention",
-   "why": "attention to detail = sự tỉ mỉ, chú ý từng chi tiết (cụm cố định)."
+   "why": "attention to detail = sự tỉ mỉ, chú ý từng chi tiết (cụm cố định).",
+   "lg": {
+    "og": {
+     "attention": "danh từ: sự chú ý",
+     "notice": "danh từ: thông báo",
+     "interest": "danh từ: sự quan tâm",
+     "focus": "danh từ: trọng tâm"
+    },
+    "ly": "Cụm cố định là attention to detail = sự tỉ mỉ, chú ý từng chi tiết. notice, interest, focus không đi với to detail theo cụm này.",
+    "ct": "attention to detail = sự chú ý tới chi tiết · praise + người + for + N = khen ai vì …",
+    "dich": "Người quản lý khen cả nhóm vì sự chú ý tới từng chi tiết."
+   }
   },
   {
    "id": "d03-p5-30",
@@ -2557,7 +2876,18 @@
     "made"
    ],
    "a": "to make",
-   "why": "be expected + to V: are expected to make."
+   "why": "be expected + to V: are expected to make.",
+   "lg": {
+    "og": {
+     "to make": "to V: để làm",
+     "making": "V-ing",
+     "make": "động từ nguyên mẫu",
+     "made": "V3 / quá khứ"
+    },
+    "ly": "Cấu trúc bị động \"be expected + to V\": are expected to make. Không dùng V-ing, nguyên mẫu trần hay V3 sau expected.",
+    "ct": "be expected to + V = được kỳ vọng sẽ … · make a decision = đưa ra quyết định",
+    "dich": "Các thành viên hội đồng dự kiến sẽ đưa ra quyết định cuối cùng vào tuần sau."
+   }
   }
  ],
  "p6": [
