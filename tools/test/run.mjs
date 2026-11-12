@@ -2236,7 +2236,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       if (gpRec()) bad.push('xong mà còn bản ghi tải tiếp');
       // 2) mất mạng hẳn ở mảnh 2 → dừng, giữ bản ghi; gửi lại → chỉ tải mảnh thiếu
       fresh(); failIdx.add(1); failIdx.perm = 1; GY.pdf = { f, name: f.name, size: f.size, n: 3 }; r = await gpUpload();
-      if (r || !/Gửi lại/.test(GY.msg) || !gpRec()) bad.push('mất mạng: không giữ tiến độ');
+      if (r || !/tải tiếp/.test(GY.msg) || !gpRec()) bad.push('mất mạng: không giữ tiến độ');
       failIdx.clear(); failIdx.perm = 0; const p0 = puts; GY.pdf = { f, name: f.name, size: f.size, n: 3 }; r = await gpUpload();
       if (!r || puts - p0 !== 2) bad.push('tải tiếp: tải ' + (puts - p0) + ' mảnh (cần 2)');
       // 3) kho đầy: báo trước, không tải mảnh nào
@@ -2268,10 +2268,10 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       await gpsLoad(true); const H = gyHomeInner();
       if (!/📄 a\\.pdf/.test(H) || !/data-g="psv" data-p="A"/.test(H) || !/data-g="pse" data-p="A"/.test(H) || !/data-g="psd" data-p="A"/.test(H)) bad.push('thẻ A thiếu nút');
       if (/data-g="psv" data-p="B"/.test(H) || !/mở bằng tệp gốc/.test(H)) bad.push('tệp > 50 MB vẫn có 👁 Xem');
-      GPS.ed = 'A'; GPS.fv.A = { n: 'ten-moi', t: 'chữ mới' }; await gpsSave('A');
+      const setF = () => { document.getElementById('gpn-A').value = 'ten-moi'; document.getElementById('gpt-A').value = 'chữ mới'; }; GPS.ed = 'A'; setF(); await gpsSave('A');
       const s1 = calls.find(c => c.act === 'sua'); if (!s1 || s1.id !== 'A' || s1.name !== 'ten-moi' || s1.txt !== 'chữ mới') bad.push('sửa gửi sai: ' + JSON.stringify(s1));
       if (gyLS(GY_SENT)[0].pdf.name !== 'ten-moi') bad.push('danh sách Đã gửi không đổi tên');
-      calls.length = 0; GPS.ed = 'A'; GPS.fv.A = { n: 'ten-moi', t: 'chữ mới' }; GPS.nf.A = mk(1000, 'c.pdf'); await gpsSave('A');
+      calls.length = 0; GPS.ed = 'A'; setF(); GPS.nf.A = mk(1000, 'c.pdf'); await gpsSave('A');
       const st = calls.find(c => c.act === 'start'), dz = calls.find(c => c.act === 'doi');
       if (!st || st.doi !== 'A' || !dz || dz.old !== 'A' || dz.id !== 'C') bad.push('thay tệp: thiếu start.doi / doi');
       if (gyLS(GY_SENT)[0].pdf.id !== 'C') bad.push('thay tệp: Đã gửi chưa trỏ tệp mới');
