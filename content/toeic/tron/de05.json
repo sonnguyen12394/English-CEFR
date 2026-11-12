@@ -2101,7 +2101,18 @@
     "efficiencies"
    ],
    "a": "efficiently",
-   "why": "Bổ nghĩa cho động từ work (more + trạng từ) → efficiently."
+   "why": "Bổ nghĩa cho động từ work (more + trạng từ) → efficiently.",
+   "lg": {
+    "og": {
+     "efficient": "tính từ: hiệu quả",
+     "efficiently": "trạng từ: một cách hiệu quả",
+     "efficiency": "danh từ: hiệu quả",
+     "efficiencies": "danh từ số nhiều: các hiệu suất"
+    },
+    "ly": "Sau động từ work với more, cần trạng từ bổ nghĩa cho work (làm việc thế nào): more efficiently. efficient là tính từ, efficiency và efficiencies là danh từ.",
+    "ct": "work more efficiently = làm việc hiệu quả hơn · allow + người + to V = cho phép ai làm gì",
+    "dich": "Phần mềm mới giúp nhân viên làm việc hiệu quả hơn khi ở nhà."
+   }
   },
   {
    "id": "d05-p5-02",
@@ -2114,7 +2125,18 @@
     "had prepared"
    ],
    "a": "will have prepared",
-   "why": "By the time + hiện tại đơn (arrives) chỉ tương lai; việc xong trước mốc đó → tương lai hoàn thành will have prepared."
+   "why": "By the time + hiện tại đơn (arrives) chỉ tương lai; việc xong trước mốc đó → tương lai hoàn thành will have prepared.",
+   "lg": {
+    "og": {
+     "will have prepared": "tương lai hoàn thành",
+     "prepared": "quá khứ đơn",
+     "have prepared": "hiện tại hoàn thành",
+     "had prepared": "quá khứ hoàn thành"
+    },
+    "ly": "By the time + hiện tại đơn (arrives) chỉ mốc tương lai, việc chuẩn bị phải xong trước mốc đó: will have prepared. Ba thì còn lại không hợp mốc tương lai.",
+    "ct": "By the time + hiện tại đơn, S + will have + V3 = tới lúc … thì đã …",
+    "dich": "Tới lúc giám đốc đến, nhân viên sẽ đã chuẩn bị xong phòng họp."
+   }
   },
   {
    "id": "d05-p5-03",
@@ -2127,7 +2149,18 @@
     "during"
    ],
    "a": "between",
-   "why": "between … and … = trong khoảng giữa hai mốc; from đi với to."
+   "why": "between … and … = trong khoảng giữa hai mốc; from đi với to.",
+   "lg": {
+    "og": {
+     "between": "giới từ: ở giữa hai mốc",
+     "among": "giới từ: ở giữa nhiều đối tượng",
+     "from": "giới từ: từ (đi với to)",
+     "during": "giới từ: trong suốt (+ khoảng thời gian)"
+    },
+    "ly": "Cụm \"December 24 and January 2\" có and, nên cặp đúng là between … and … (khoảng giữa hai mốc). from phải đi với to, among dùng cho từ ba đối tượng, during cần một khoảng thời gian.",
+    "ct": "between + A + and + B = giữa A và B · be closed = đóng cửa",
+    "dich": "Bảo tàng sẽ đóng cửa từ ngày 24 tháng 12 đến ngày 2 tháng 1."
+   }
   },
   {
    "id": "d05-p5-04",
@@ -2140,7 +2173,18 @@
     "which"
    ],
    "a": "whose",
-   "why": "Sau chỗ trống là danh từ orders (đơn hàng của khách) → đại từ quan hệ sở hữu whose."
+   "why": "Sau chỗ trống là danh từ orders (đơn hàng của khách) → đại từ quan hệ sở hữu whose.",
+   "lg": {
+    "og": {
+     "whose": "đại từ quan hệ sở hữu: … của họ",
+     "who": "đại từ quan hệ: người mà",
+     "whom": "đại từ quan hệ tân ngữ: người mà",
+     "which": "đại từ quan hệ: cái mà"
+    },
+    "ly": "Sau chỗ trống là danh từ orders và nghĩa là \"đơn hàng CỦA khách\", nên cần đại từ sở hữu whose + danh từ. who, whom, which không đứng ngay trước danh từ để chỉ sở hữu.",
+    "ct": "N (người) + whose + N + V = … mà … của họ … · exceed $100 = vượt 100 đô",
+    "dich": "Khách hàng có đơn hàng trên 100 đô la sẽ nhận một món quà miễn phí."
+   }
   },
   {
    "id": "d05-p5-05",
@@ -2153,7 +2197,18 @@
     "expect"
    ],
    "a": "expand",
-   "why": "expand = mở rộng (bộ phận, quy mô)."
+   "why": "expand = mở rộng (bộ phận, quy mô).",
+   "lg": {
+    "og": {
+     "expand": "động từ: mở rộng",
+     "export": "động từ: xuất khẩu",
+     "explain": "động từ: giải thích",
+     "expect": "động từ: mong đợi"
+    },
+    "ly": "Công ty dự định làm gì với bộ phận chăm sóc khách hàng của mình? Mở rộng: expand. export (xuất khẩu hàng), explain (giải thích), expect (mong đợi) không hợp với department.",
+    "ct": "expand + bộ phận / quy mô = mở rộng · plan to + V = dự định",
+    "dich": "Công ty dự định mở rộng bộ phận chăm sóc khách hàng vào năm tới."
+   }
   },
   {
    "id": "d05-p5-06",
@@ -2166,7 +2221,18 @@
     "informatively"
    ],
    "a": "informative",
-   "why": "Sau very, trước danh từ presentation cần tính từ → informative."
+   "why": "Sau very, trước danh từ presentation cần tính từ → informative.",
+   "lg": {
+    "og": {
+     "inform": "động từ: thông báo",
+     "informative": "tính từ: cung cấp nhiều thông tin",
+     "information": "danh từ: thông tin",
+     "informatively": "trạng từ: một cách giàu thông tin"
+    },
+    "ly": "Sau very và trước danh từ presentation cần tính từ: informative (bổ ích, nhiều thông tin). inform là động từ, information là danh từ, informatively là trạng từ.",
+    "ct": "a very + tính từ + N · give a presentation on + chủ đề = thuyết trình về …",
+    "dich": "Cô Romero đã có bài thuyết trình rất bổ ích về kế hoạch tăng trưởng của công ty."
+   }
   },
   {
    "id": "d05-p5-07",
@@ -2179,7 +2245,18 @@
     "Despite"
    ],
    "a": "Although",
-   "why": "Hai vế trái ngược (nhà hàng kín chỗ nhưng vẫn có bàn), sau chỗ trống là mệnh đề → Although; Despite cần danh từ."
+   "why": "Hai vế trái ngược (nhà hàng kín chỗ nhưng vẫn có bàn), sau chỗ trống là mệnh đề → Although; Despite cần danh từ.",
+   "lg": {
+    "og": {
+     "Although": "liên từ: mặc dù (+ mệnh đề)",
+     "Because": "liên từ: vì",
+     "Unless": "liên từ: trừ khi",
+     "Despite": "giới từ: mặc dù (+ danh từ)"
+    },
+    "ly": "Hai vế trái ngược: nhà hàng kín chỗ nhưng quản lý vẫn tìm được bàn. Sau chỗ trống là mệnh đề nên dùng Although. Despite cần danh từ, Because sai nghĩa, Unless là điều kiện.",
+    "ct": "Although + mệnh đề, mệnh đề = mặc dù … nhưng … · fully booked = kín chỗ",
+    "dich": "Mặc dù nhà hàng đã kín chỗ, người quản lý vẫn tìm được cho chúng tôi một bàn."
+   }
   },
   {
    "id": "d05-p5-08",
@@ -2192,7 +2269,18 @@
     "Most"
    ],
    "a": "Every",
-   "why": "employee số ít, không có mạo từ → Every; All / Many / Most cần danh từ số nhiều."
+   "why": "employee số ít, không có mạo từ → Every; All / Many / Most cần danh từ số nhiều.",
+   "lg": {
+    "og": {
+     "Every": "từ hạn định: mỗi (+ số ít)",
+     "All": "từ hạn định: tất cả (+ số nhiều)",
+     "Many": "từ hạn định: nhiều (+ số nhiều)",
+     "Most": "từ hạn định: hầu hết (+ số nhiều)"
+    },
+    "ly": "employee là danh từ số ít, không có mạo từ phía trước, nên chọn Every. All, Many, Most cần danh từ số nhiều (employees).",
+    "ct": "Every + N số ít + V số ít · safety training = tập huấn an toàn",
+    "dich": "Mỗi nhân viên phải hoàn thành tập huấn an toàn trước khi sử dụng máy móc."
+   }
   },
   {
    "id": "d05-p5-09",
@@ -2205,7 +2293,18 @@
     "has been delivered"
    ],
    "a": "was delivered",
-   "why": "Gói hàng được giao (bị động) + last Friday (quá khứ) → was delivered."
+   "why": "Gói hàng được giao (bị động) + last Friday (quá khứ) → was delivered.",
+   "lg": {
+    "og": {
+     "was delivered": "quá khứ bị động: đã được giao",
+     "delivered": "quá khứ / V3 chủ động",
+     "is delivering": "hiện tại tiếp diễn chủ động",
+     "has been delivered": "hiện tại hoàn thành bị động"
+    },
+    "ly": "Gói hàng được giao (bị động) và có last Friday (mốc quá khứ), nên dùng quá khứ bị động was delivered. has been delivered là hiện tại hoàn thành, không đi với last Friday.",
+    "ct": "was / were + V3 = bị động quá khứ · wrong address = địa chỉ sai",
+    "dich": "Gói hàng đã được giao nhầm địa chỉ vào thứ Sáu tuần trước."
+   }
   },
   {
    "id": "d05-p5-10",
@@ -2218,7 +2317,18 @@
     "constructed"
    ],
    "a": "construction",
-   "why": "Sau The, trước of cần danh từ → construction."
+   "why": "Sau The, trước of cần danh từ → construction.",
+   "lg": {
+    "og": {
+     "construct": "động từ: xây dựng",
+     "constructive": "tính từ: mang tính xây dựng",
+     "construction": "danh từ: việc xây dựng",
+     "constructed": "V3: được xây"
+    },
+    "ly": "Sau The và trước of cần danh từ: the construction of the new factory. construct là động từ, constructive là tính từ, constructed là phân từ.",
+    "ct": "the + N + of + N · create + số + jobs = tạo ra … việc làm",
+    "dich": "Việc xây dựng nhà máy mới sẽ tạo ra hơn 200 việc làm."
+   }
   },
   {
    "id": "d05-p5-11",
@@ -2231,7 +2341,18 @@
     "benefits"
    ],
    "a": "belongings",
-   "why": "belongings = đồ dùng cá nhân, hành lý mang theo."
+   "why": "belongings = đồ dùng cá nhân, hành lý mang theo.",
+   "lg": {
+    "og": {
+     "belongings": "danh từ: đồ đạc cá nhân",
+     "behaviors": "danh từ: hành vi",
+     "beliefs": "danh từ: niềm tin",
+     "benefits": "danh từ: lợi ích"
+    },
+    "ly": "Hành khách được nhắc giữ đồ đạc cá nhân bên mình: belongings. behaviors, beliefs, benefits không thể \"giữ bên mình\".",
+    "ct": "personal belongings = đồ dùng cá nhân · be reminded to + V = được nhắc …",
+    "dich": "Hành khách được nhắc luôn giữ đồ dùng cá nhân bên mình."
+   }
   },
   {
    "id": "d05-p5-12",
@@ -2244,7 +2365,18 @@
     "at"
    ],
    "a": "since",
-   "why": "Hiện tại hoàn thành tiếp diễn + mốc thời gian (2019) → since; for đi với khoảng thời gian."
+   "why": "Hiện tại hoàn thành tiếp diễn + mốc thời gian (2019) → since; for đi với khoảng thời gian.",
+   "lg": {
+    "og": {
+     "since": "giới từ: kể từ (+ mốc)",
+     "for": "giới từ: trong (+ khoảng)",
+     "during": "giới từ: trong suốt",
+     "at": "giới từ: tại"
+    },
+    "ly": "Thì hoàn thành tiếp diễn (has been working) đi với mốc thời gian 2019: since. for đi với một khoảng thời gian (for ten years), during và at không hợp.",
+    "ct": "since + mốc thời gian · for + khoảng thời gian",
+    "dich": "Cô Torres đã làm việc ở công ty từ năm 2019."
+   }
   },
   {
    "id": "d05-p5-13",
@@ -2257,7 +2389,18 @@
     "high"
    ],
    "a": "the higher",
-   "why": "Cấu trúc The more …, the + so sánh hơn … (càng … càng …) → the higher."
+   "why": "Cấu trúc The more …, the + so sánh hơn … (càng … càng …) → the higher.",
+   "lg": {
+    "og": {
+     "the higher": "the + so sánh hơn",
+     "higher": "so sánh hơn",
+     "the highest": "so sánh nhất",
+     "high": "tính từ nguyên dạng"
+    },
+    "ly": "Vế đầu là \"The more customers we attract\", cấu trúc càng … càng …: the + so sánh hơn, the + so sánh hơn. Vế sau cần the higher. highest là so sánh nhất, high là dạng gốc, higher thiếu the.",
+    "ct": "The more …, the + so sánh hơn … = càng … thì càng …",
+    "dich": "Chúng ta thu hút càng nhiều khách hàng thì lợi nhuận càng cao."
+   }
   },
   {
    "id": "d05-p5-14",
@@ -2270,7 +2413,18 @@
     "postpones"
    ],
    "a": "be postponed",
-   "why": "suggest that + chủ ngữ + động từ nguyên mẫu; cuộc họp bị hoãn (bị động) → be postponed."
+   "why": "suggest that + chủ ngữ + động từ nguyên mẫu; cuộc họp bị hoãn (bị động) → be postponed.",
+   "lg": {
+    "og": {
+     "be postponed": "nguyên mẫu bị động: được hoãn",
+     "postponing": "V-ing",
+     "to postpone": "to V chủ động",
+     "postpones": "hiện tại đơn ngôi thứ ba"
+    },
+    "ly": "Sau suggest that + chủ ngữ cần động từ nguyên mẫu (không chia), và cuộc họp bị hoãn (bị động): be postponed. postpones chia ngôi nên sai, to postpone và postponing không đúng cấu trúc.",
+    "ct": "suggest that + S + (should) + V nguyên mẫu · postpone until = hoãn tới",
+    "dich": "Cô Kim đề nghị hoãn cuộc họp tới tuần sau."
+   }
   },
   {
    "id": "d05-p5-15",
@@ -2283,7 +2437,18 @@
     "theirs"
    ],
    "a": "themselves",
-   "why": "Đại từ phản thân nhấn mạnh: chính các quản lý tự xem → themselves."
+   "why": "Đại từ phản thân nhấn mạnh: chính các quản lý tự xem → themselves.",
+   "lg": {
+    "og": {
+     "themselves": "đại từ phản thân: chính họ",
+     "them": "đại từ tân ngữ: họ",
+     "their": "tính từ sở hữu: của họ",
+     "theirs": "đại từ sở hữu: của họ"
+    },
+    "ly": "Đại từ phản thân nhấn mạnh việc chính các quản lý tự xem đề xuất, đặt cuối mệnh đề: themselves. them, their, theirs không đứng được ở vị trí này.",
+    "ct": "S + V + O + themselves = tự (họ) làm · make a final decision = đưa ra quyết định cuối",
+    "dich": "Các quản lý sẽ tự mình xem xét các đề xuất trước khi đưa ra quyết định cuối cùng."
+   }
   },
   {
    "id": "d05-p5-16",
@@ -2296,7 +2461,18 @@
     "validity"
    ],
    "a": "valid",
-   "why": "Trước danh từ identification cần tính từ → valid (hợp lệ)."
+   "why": "Trước danh từ identification cần tính từ → valid (hợp lệ).",
+   "lg": {
+    "og": {
+     "valid": "tính từ: hợp lệ",
+     "validly": "trạng từ: một cách hợp lệ",
+     "validate": "động từ: xác nhận",
+     "validity": "danh từ: tính hợp lệ"
+    },
+    "ly": "Trước danh từ identification cần tính từ: valid identification (giấy tờ hợp lệ). validly là trạng từ, validate là động từ, validity là danh từ.",
+    "ct": "valid + N = … hợp lệ · show identification = xuất trình giấy tờ",
+    "dich": "Mọi khách đến thăm phải xuất trình giấy tờ tuỳ thân hợp lệ tại quầy lễ tân."
+   }
   },
   {
    "id": "d05-p5-17",
@@ -2309,7 +2485,18 @@
     "admit"
    ],
    "a": "submit",
-   "why": "submit a request = nộp đơn đề nghị."
+   "why": "submit a request = nộp đơn đề nghị.",
+   "lg": {
+    "og": {
+     "submit": "động từ: nộp",
+     "deliver": "động từ: giao",
+     "commit": "động từ: cam kết, phạm",
+     "admit": "động từ: thừa nhận"
+    },
+    "ly": "Muốn nghỉ phải nộp đơn đề nghị: submit a request. deliver là giao hàng, commit là cam kết hoặc phạm lỗi, admit là thừa nhận, đều không hợp với a request.",
+    "ct": "submit a request = nộp đơn đề nghị · at least two weeks in advance = trước ít nhất hai tuần",
+    "dich": "Nhân viên muốn nghỉ phép phải nộp đơn đề nghị trước ít nhất hai tuần."
+   }
   },
   {
    "id": "d05-p5-18",
@@ -2322,7 +2509,18 @@
     "not only"
    ],
    "a": "either",
-   "why": "either … or … = hoặc … hoặc …; both đi với and, neither với nor, not only với but also."
+   "why": "either … or … = hoặc … hoặc …; both đi với and, neither với nor, not only với but also.",
+   "lg": {
+    "og": {
+     "either": "từ nối: hoặc (cặp với or)",
+     "both": "từ nối: cả hai (cặp với and)",
+     "neither": "từ nối: không … cũng không (cặp với nor)",
+     "not only": "từ nối: không những (cặp với but also)"
+    },
+    "ly": "Có or ở giữa \"online or at the front desk\", nên cặp đúng là either … or (hoặc … hoặc). both đi với and, neither với nor, not only với but also.",
+    "ct": "either A or B = hoặc A hoặc B · online = trực tuyến",
+    "dich": "Ứng viên có thể nộp biểu mẫu trực tuyến hoặc tại quầy lễ tân."
+   }
   },
   {
    "id": "d05-p5-19",
@@ -2335,7 +2533,18 @@
     "by"
    ],
    "a": "at",
-   "why": "at the end of + nơi chốn = ở cuối (hành lang)."
+   "why": "at the end of + nơi chốn = ở cuối (hành lang).",
+   "lg": {
+    "og": {
+     "at": "giới từ: tại (điểm)",
+     "on": "giới từ: trên",
+     "in": "giới từ: trong",
+     "by": "giới từ: bên cạnh"
+    },
+    "ly": "Cụm cố định là at the end of + nơi chốn = ở cuối (hành lang). on, in, by không tạo cụm đúng.",
+    "ct": "at the end of the hallway = ở cuối hành lang · be located = nằm ở",
+    "dich": "Phòng họp nằm ở cuối hành lang."
+   }
   },
   {
    "id": "d05-p5-20",
@@ -2348,7 +2557,18 @@
     "several"
    ],
    "a": "little",
-   "why": "information là danh từ không đếm được → little; few / many / several đi với danh từ đếm được số nhiều."
+   "why": "information là danh từ không đếm được → little; few / many / several đi với danh từ đếm được số nhiều.",
+   "lg": {
+    "og": {
+     "little": "từ chỉ lượng: ít (không đếm được)",
+     "few": "từ chỉ lượng: ít (đếm được)",
+     "many": "từ chỉ lượng: nhiều (đếm được)",
+     "several": "từ chỉ lượng: vài (đếm được)"
+    },
+    "ly": "information là danh từ không đếm được, và nghĩa \"vẫn còn rất ít\": little. few, many, several đi với danh từ đếm được số nhiều.",
+    "ct": "little + N không đếm được = rất ít · Web site = trang web",
+    "dich": "Trên trang web của công ty vẫn còn rất ít thông tin về sản phẩm mới."
+   }
   },
   {
    "id": "d05-p5-21",
@@ -2361,7 +2581,18 @@
     "will work"
    ],
    "a": "had worked",
-   "why": "Việc kéo dài trước một việc quá khứ khác (retired last spring) → quá khứ hoàn thành had worked."
+   "why": "Việc kéo dài trước một việc quá khứ khác (retired last spring) → quá khứ hoàn thành had worked.",
+   "lg": {
+    "og": {
+     "had worked": "quá khứ hoàn thành",
+     "has worked": "hiện tại hoàn thành",
+     "works": "hiện tại đơn",
+     "will work": "tương lai đơn"
+    },
+    "ly": "Việc làm kéo dài mười lăm năm xảy ra TRƯỚC một mốc quá khứ khác (retired last spring): quá khứ hoàn thành had worked. Các thì khác không hợp với mạch quá khứ này.",
+    "ct": "had + V3 … before + quá khứ đơn = đã … trước khi … · retire = nghỉ hưu",
+    "dich": "Ông Davis đã làm việc cho công ty mười lăm năm trước khi nghỉ hưu vào mùa xuân năm ngoái."
+   }
   },
   {
    "id": "d05-p5-22",
@@ -2374,7 +2605,18 @@
     "height"
    ],
    "a": "highly",
-   "why": "Bổ nghĩa cho tính từ satisfied cần trạng từ → highly (rất)."
+   "why": "Bổ nghĩa cho tính từ satisfied cần trạng từ → highly (rất).",
+   "lg": {
+    "og": {
+     "high": "tính từ: cao",
+     "highly": "trạng từ: rất, ở mức cao",
+     "higher": "so sánh hơn",
+     "height": "danh từ: chiều cao"
+    },
+    "ly": "Chỗ trống đứng trước tính từ satisfied và bổ nghĩa cho nó, nên cần trạng từ: highly (rất hài lòng). high là tính từ, higher là so sánh hơn, height là danh từ.",
+    "ct": "be highly satisfied with + N = rất hài lòng với … · customer survey = khảo sát khách hàng",
+    "dich": "Ông Okafor rất hài lòng với kết quả khảo sát khách hàng."
+   }
   },
   {
    "id": "d05-p5-23",
@@ -2387,7 +2629,18 @@
     "resolved"
    ],
    "a": "renovated",
-   "why": "renovate = cải tạo, sửa sang; is being + V3 (đang được) → renovated."
+   "why": "renovate = cải tạo, sửa sang; is being + V3 (đang được) → renovated.",
+   "lg": {
+    "og": {
+     "renovated": "V3: được cải tạo",
+     "repeated": "V3: được lặp lại",
+     "reserved": "V3: được đặt trước",
+     "resolved": "V3: được giải quyết"
+    },
+    "ly": "Bảo tàng đóng cửa khi hội trường chính \"đang được\" cải tạo (is being + V3): renovated. repeated, reserved, resolved không hợp nghĩa với một toà hội trường.",
+    "ct": "is / are being + V3 = đang được … · closed to the public = không mở cửa đón khách",
+    "dich": "Bảo tàng đóng cửa với công chúng trong khi hội trường chính đang được cải tạo."
+   }
   },
   {
    "id": "d05-p5-24",
@@ -2400,7 +2653,18 @@
     "ours"
    ],
    "a": "us",
-   "why": "Sau giới từ to cần đại từ tân ngữ → us."
+   "why": "Sau giới từ to cần đại từ tân ngữ → us.",
+   "lg": {
+    "og": {
+     "us": "đại từ tân ngữ: chúng tôi",
+     "we": "đại từ chủ ngữ: chúng tôi",
+     "our": "tính từ sở hữu: của chúng tôi",
+     "ours": "đại từ sở hữu: của chúng tôi"
+    },
+    "ly": "Sau giới từ to cần đại từ tân ngữ: us. we là chủ ngữ, our cần danh từ theo sau, ours là đại từ sở hữu.",
+    "ct": "return + vật + to + us = gửi lại cho chúng tôi · by the end of the week = trước cuối tuần",
+    "dich": "Vui lòng gửi lại cho chúng tôi hợp đồng đã ký trước cuối tuần."
+   }
   },
   {
    "id": "d05-p5-25",
@@ -2413,7 +2677,18 @@
     "in order to"
    ],
    "a": "as soon as",
-   "why": "as soon as = ngay khi; in order to cần động từ nguyên mẫu, so that / even though sai nghĩa."
+   "why": "as soon as = ngay khi; in order to cần động từ nguyên mẫu, so that / even though sai nghĩa.",
+   "lg": {
+    "og": {
+     "as soon as": "liên từ: ngay khi",
+     "so that": "liên từ: để, nhằm",
+     "even though": "liên từ: mặc dù",
+     "in order to": "cụm: để (+ V nguyên mẫu)"
+    },
+    "ly": "Cửa hàng mở ngay khi việc cải tạo xong: as soon as. in order to cần động từ nguyên mẫu, so that chỉ mục đích, even though chỉ nhượng bộ.",
+    "ct": "as soon as + mệnh đề = ngay khi · renovation = việc cải tạo",
+    "dich": "Cửa hàng mới sẽ mở cửa ngay khi việc cải tạo hoàn tất."
+   }
   },
   {
    "id": "d05-p5-26",
@@ -2426,7 +2701,18 @@
     "permanency"
    ],
    "a": "permanent",
-   "why": "Trước danh từ solution cần tính từ → permanent (lâu dài)."
+   "why": "Trước danh từ solution cần tính từ → permanent (lâu dài).",
+   "lg": {
+    "og": {
+     "permanent": "tính từ: lâu dài",
+     "permanently": "trạng từ: vĩnh viễn",
+     "permanence": "danh từ: tính lâu dài",
+     "permanency": "danh từ: sự lâu dài"
+    },
+    "ly": "Trước danh từ solution cần tính từ: permanent solution (giải pháp lâu dài). permanently là trạng từ, permanence và permanency là danh từ.",
+    "ct": "a + tính từ + solution to + vấn đề = giải pháp … cho … · storage problem = vấn đề lưu trữ",
+    "dich": "Nhóm chúng tôi đang tìm một giải pháp lâu dài cho vấn đề lưu trữ."
+   }
   },
   {
    "id": "d05-p5-27",
@@ -2439,7 +2725,18 @@
     "at"
    ],
    "a": "in",
-   "why": "in case = phòng khi."
+   "why": "in case = phòng khi.",
+   "lg": {
+    "og": {
+     "in": "giới từ: trong",
+     "on": "giới từ: trên",
+     "for": "giới từ: cho",
+     "at": "giới từ: tại"
+    },
+    "ly": "Cụm cố định là in case = phòng khi (bạn cần trả hàng). on case, for case, at case không tồn tại.",
+    "ct": "in case + mệnh đề = phòng khi · return an item = trả hàng",
+    "dich": "Hãy giữ biên lai phòng khi bạn cần trả lại hàng."
+   }
   },
   {
    "id": "d05-p5-28",
@@ -2452,7 +2749,18 @@
     "had displayed"
    ],
    "a": "will display",
-   "why": "Câu điều kiện loại 1 (If + hiện tại đơn) → will display."
+   "why": "Câu điều kiện loại 1 (If + hiện tại đơn) → will display.",
+   "lg": {
+    "og": {
+     "will display": "tương lai đơn: sẽ trưng bày",
+     "displayed": "quá khứ đơn",
+     "would have displayed": "điều kiện loại 3",
+     "had displayed": "quá khứ hoàn thành"
+    },
+    "ly": "Mệnh đề If dùng hiện tại đơn (arrives) là câu điều kiện loại 1, nên mệnh đề chính là will + V: will display. displayed, would have displayed, had displayed là thì quá khứ.",
+    "ct": "If + hiện tại đơn, S + will + V · on time = đúng giờ",
+    "dich": "Nếu lô hàng đến đúng giờ, chúng tôi sẽ trưng bày sản phẩm mới vào thứ Hai."
+   }
   },
   {
    "id": "d05-p5-29",
@@ -2465,7 +2773,18 @@
     "durable"
    ],
    "a": "excellent",
-   "why": "excellent reviews = đánh giá rất tốt; eager / anxious chỉ cảm xúc của người, durable = bền."
+   "why": "excellent reviews = đánh giá rất tốt; eager / anxious chỉ cảm xúc của người, durable = bền.",
+   "lg": {
+    "og": {
+     "excellent": "tính từ: xuất sắc",
+     "eager": "tính từ: háo hức",
+     "anxious": "tính từ: lo lắng",
+     "durable": "tính từ: bền"
+    },
+    "ly": "Nhà hàng nhận được đánh giá rất tốt từ giới phê bình: excellent reviews. eager và anxious mô tả cảm xúc của người, durable mô tả đồ bền, không đi với reviews.",
+    "ct": "receive excellent reviews = nhận được đánh giá tuyệt vời · food critic = nhà phê bình ẩm thực",
+    "dich": "Nhà hàng mới của khách sạn đã nhận được những đánh giá xuất sắc từ các nhà phê bình ẩm thực."
+   }
   },
   {
    "id": "d05-p5-30",
@@ -2478,7 +2797,18 @@
     "was"
    ],
    "a": "has",
-   "why": "Not only đầu câu → đảo trợ động từ; renovated là quá khứ phân từ và vế sau dùng hiện tại hoàn thành (has also added) → has."
+   "why": "Not only đầu câu → đảo trợ động từ; renovated là quá khứ phân từ và vế sau dùng hiện tại hoàn thành (has also added) → has.",
+   "lg": {
+    "og": {
+     "has": "trợ động từ hiện tại hoàn thành",
+     "did": "trợ động từ quá khứ",
+     "is": "be hiện tại",
+     "was": "be quá khứ"
+    },
+    "ly": "Not only đứng đầu câu thì đảo trợ động từ lên trước chủ ngữ. Vế sau dùng hiện tại hoàn thành (has also added), nên vế đầu cũng là has the hotel renovated. did cần V nguyên mẫu, is / was không đi với renovated ở dạng này.",
+    "ct": "Not only + trợ động từ + S + V, but … also … = không những … mà còn …",
+    "dich": "Khách sạn không những đã cải tạo các phòng mà còn bổ sung thêm một bể bơi mới."
+   }
   }
  ],
  "p6": [
