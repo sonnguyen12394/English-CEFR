@@ -2230,5 +2230,74 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
 // v156 C71 phần node: lời giải lg không vào dấu nội dung (thêm / sửa lời giải không phải giải mù lại, không đổi "đã xem")
 { const K = await import('../kiem-toeic.mjs'), x = { id: 'x', s: 'A -------.', o: ['a', 'b', 'c', 'd'], a: 'a', why: 'w' }, u = { x }, u2 = { x: { ...x, lg: { og: { a: '1' }, ly: 'a', dich: 'd' } } };
   const c = R.find(r => r.id === 'C71'); if (c && (K.dau(u) !== K.dau(u2) || K.dau(u, true) !== K.dau(u2, true))) { c.ok = false; c.msg = 'lg làm đổi dấu nội dung (strip ở kiem-toeic.mjs)'; } }
+// v157 C72 📄 góp ý kèm PDF lớn (specs/014-gopy-pdf-lon): cắt mảnh 25 MB đúng cỡ + SHA-256, rớt mạng thử lại, tải tiếp phần thiếu, kho đầy chặn trước khi tải, chỉ nhận PDF.
+{ const { webcrypto } = await import('node:crypto'); ctx.crypto.subtle = webcrypto.subtle; ctx.TextEncoder = TextEncoder; ctx.Uint8Array = Uint8Array;
+  const C72 = await run(`(async () => { const bad = [], CH = GP_CH, SB0 = sb.functions.invoke, F0 = globalThis.fetch;
+    const mk = (n, name = 'tai-lieu.pdf') => { const b = new Blob([new Uint8Array(n).map((_, i) => i % 251)]); b.name = name; b.lastModified = 7; return b; };
+    const hex = async b => [...new Uint8Array(await crypto.subtle.digest('SHA-256', await b.arrayBuffer()))].map(x => x.toString(16).padStart(2, '0')).join('');
+    let srv, puts, failIdx;
+    const fresh = () => { srv = { parts: null, have: {}, mode: '' }; puts = 0; failIdx = new Set(); };
+    sb.functions.invoke = async (name, { body }) => { const d = (x) => ({ data: x, error: null });
+      if (body.act === 'info') return d({ used: 100, cap: 1000 });
+      if (body.act === 'start') { if (srv.mode === 'day') return d({ error: 'day', used: 790 * 1048576, cap: 800 * 1048576 }); srv.parts = body.parts; return d({ id: 'P1', n: body.parts.length, toks: body.parts.map((_, i) => ({ i, path: 'P1/' + i, token: 't' + i })) }); }
+      if (body.act === 'done') { const miss = srv.parts.map((p, i) => i).filter(i => srv.have[i] !== srv.parts[i].size); return d(miss.length ? { miss } : { ok: true }); }
+      if (body.act === 'sign') return d({ id: 'P1', toks: body.need.map(i => ({ i, path: 'P1/' + i, token: 's' + i })) });
+      return d({ error: 'x' }); };
+    globalThis.fetch = async (u, o) => { puts++; const i = +String(u).match(/P1\\/(\\d+)/)[1]; if (failIdx.has(i)) { if (failIdx.perm) throw new Error('net'); failIdx.delete(i); throw new Error('net'); }
+      const sz = o.body.size; if ((await hex(o.body)) !== srv.parts[i].sha) return { ok: false, text: async () => 'sha' }; srv.have[i] = sz; return { ok: true, text: async () => '' }; };
+    try {
+      // 1) tệp 60 MB: 3 mảnh 25 / 25 / 10 MB, mảnh 2 rớt mạng 1 lần → tự thử lại
+      fresh(); const f = mk(60 * 1048576); failIdx.add(1); gpRec(null);
+      GY.pdf = { f, name: f.name, size: f.size, n: Math.ceil(f.size / CH) }; let r = await gpUpload();
+      if (!r || r.id !== 'P1' || r.n !== 3) bad.push('tải 60 MB không xong: ' + GY.msg);
+      if (!srv.parts || srv.parts.map(p => p.size).join() !== [CH, CH, 60 * 1048576 - 2 * CH].join()) bad.push('cỡ mảnh sai');
+      if (puts !== 4) bad.push('số lần tải ' + puts + ' (cần 4: 3 mảnh + 1 thử lại)');
+      if (gpRec()) bad.push('xong mà còn bản ghi tải tiếp');
+      // 2) mất mạng hẳn ở mảnh 2 → dừng, giữ bản ghi; gửi lại → chỉ tải mảnh thiếu
+      fresh(); failIdx.add(1); failIdx.perm = 1; GY.pdf = { f, name: f.name, size: f.size, n: 3 }; r = await gpUpload();
+      if (r || !/tải tiếp/.test(GY.msg) || !gpRec()) bad.push('mất mạng: không giữ tiến độ');
+      failIdx.clear(); failIdx.perm = 0; const p0 = puts; GY.pdf = { f, name: f.name, size: f.size, n: 3 }; r = await gpUpload();
+      if (!r || puts - p0 !== 2) bad.push('tải tiếp: tải ' + (puts - p0) + ' mảnh (cần 2)');
+      // 3) kho đầy: báo trước, không tải mảnh nào
+      fresh(); srv.mode = 'day'; gpRec(null); GY.pdf = { f, name: f.name, size: f.size, n: 3 }; r = await gpUpload();
+      if (r || puts || !/Kho tài liệu chỉ còn 10 MB/.test(GY.msg)) bad.push('kho đầy: ' + GY.msg + ' · tải ' + puts);
+      // 4) không phải PDF / quá cỡ
+      GY.pdf = null; await gpPick(mk(10, 'anh.png')); if (GY.pdf || !/Chỉ nhận tệp PDF/.test(GY.msg)) bad.push('nhận tệp không phải PDF');
+      const big = mk(1, 'x.pdf'); Object.defineProperty(big, 'size', { value: GP_MAX + 1 }); await gpPick(big); if (GY.pdf || !/quá lớn/.test(GY.msg)) bad.push('nhận tệp quá cỡ');
+      // 5) ô hiện cỡ, số phần, chỗ trống
+      GY.pdf = { f, name: f.name, size: f.size, n: 3, info: { used: 100 * 1048576, cap: 800 * 1048576 } }; GY.up = null; GY.busy = false;
+      if (!/60 MB · chia 3 phần để tải · kho còn 700 MB/.test(gpBox())) bad.push('ô PDF thiếu thông tin: ' + gpBox().replace(/<[^>]+>/g, ' ').slice(0, 120));
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    sb.functions.invoke = SB0; globalThis.fetch = F0; GY.pdf = null; GY.msg = ''; gpRec(null); return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C72', ok: !C72.length, msg: C72.length ? C72.slice(0, 8).join(' | ') : '📄 góp ý kèm PDF lớn: cắt 25 MB đúng cỡ + SHA-256, rớt mạng tự thử lại, mất mạng giữ tiến độ và tải tiếp chỉ phần thiếu, kho đầy chặn trước khi tải, chỉ nhận PDF ≤ 450 MB' }); }
+// v158 C73 📄 PDF trong danh sách "Đã gửi": thẻ có 👁 Xem (≤ 50 MB) · ✏️ Sửa · 🗑 Xoá; sửa gửi đúng lệnh; thay tệp → doi + cập nhật; xoá 2 lần
+{ const C73 = await run(`(async () => { const bad = [], SB0 = sb.functions.invoke, calls = [];
+    const mk = (n, name) => { const b = new Blob([new Uint8Array(n)]); b.name = name; b.lastModified = 1; return b; };
+    gyLS(GY_SENT, [{ id: 9, t: 1, kind: 'loi', txt: 'chữ cũ', n: 0, pdf: { id: 'A', name: 'a.pdf', size: 30 * 1048576, n: 2 } }, { id: 10, t: 2, kind: 'loi', txt: 'lớn', n: 0, pdf: { id: 'B', name: 'b.pdf', size: 60 * 1048576, n: 3 } }]);
+    sb.functions.invoke = async (name, { body }) => { calls.push(body); const d = x => ({ data: x, error: null });
+      if (body.act === 'st') return d({ rows: [{ id: 'A', name: 'a.pdf', size: 30 * 1048576, n: 2, st: 'du', mine: true, txt: 'chữ cũ\\n📄 a.pdf · 30 MB' }, { id: 'B', name: 'b.pdf', size: 60 * 1048576, n: 3, st: 'du', mine: true }] });
+      if (body.act === 'sua') return d({ ok: true, name: body.name, txt: body.txt + '\\n📄 ' + body.name });
+      if (body.act === 'xoa') return d({ ok: true });
+      if (body.act === 'start') return d({ id: 'C', n: 1, toks: [{ i: 0, path: 'C/0', token: 't' }] });
+      if (body.act === 'done') return d({ ok: true });
+      if (body.act === 'doi') return d({ ok: true, txt: 'x' });
+      return d({ error: 'x' }); };
+    const F0 = globalThis.fetch; globalThis.fetch = async () => ({ ok: true, text: async () => '' });
+    try {
+      await gpsLoad(true); const H = gyHomeInner();
+      if (!/📄 a\\.pdf/.test(H) || !/data-g="psv" data-p="A"/.test(H) || !/data-g="pse" data-p="A"/.test(H) || !/data-g="psd" data-p="A"/.test(H)) bad.push('thẻ A thiếu nút');
+      if (/data-g="psv" data-p="B"/.test(H) || !/mở bằng tệp gốc/.test(H)) bad.push('tệp > 50 MB vẫn có 👁 Xem');
+      const setF = () => { document.getElementById('gpn-A').value = 'ten-moi'; document.getElementById('gpt-A').value = 'chữ mới'; }; GPS.ed = 'A'; setF(); await gpsSave('A');
+      const s1 = calls.find(c => c.act === 'sua'); if (!s1 || s1.id !== 'A' || s1.name !== 'ten-moi' || s1.txt !== 'chữ mới') bad.push('sửa gửi sai: ' + JSON.stringify(s1));
+      if (gyLS(GY_SENT)[0].pdf.name !== 'ten-moi') bad.push('danh sách Đã gửi không đổi tên');
+      calls.length = 0; GPS.ed = 'A'; setF(); GPS.nf.A = mk(1000, 'c.pdf'); await gpsSave('A');
+      const st = calls.find(c => c.act === 'start'), dz = calls.find(c => c.act === 'doi');
+      if (!st || st.doi !== 'A' || !dz || dz.old !== 'A' || dz.id !== 'C') bad.push('thay tệp: thiếu start.doi / doi');
+      if (gyLS(GY_SENT)[0].pdf.id !== 'C') bad.push('thay tệp: Đã gửi chưa trỏ tệp mới');
+      calls.length = 0; await gpsDel('C'); if (calls.length) bad.push('xoá 1 lần đã gọi máy chủ'); await gpsDel('C');
+      if (!calls.some(c => c.act === 'xoa' && c.id === 'C') || !gyLS(GY_SENT)[0].pdf.del) bad.push('xoá 2 lần chưa xoá');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    sb.functions.invoke = SB0; globalThis.fetch = F0; gyLS(GY_SENT, []); gpRec(null); return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C73', ok: !C73.length, msg: C73.length ? C73.slice(0, 8).join(' | ') : '📄 PDF trong danh sách Đã gửi: thẻ 👁 Xem (chỉ ≤ 50 MB) · ✏️ Sửa (tên + chữ) · 🔄 thay tệp (start.doi → doi, Đã gửi trỏ tệp mới) · 🗑 xoá 2 lần' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
