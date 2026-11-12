@@ -1,6 +1,6 @@
 // 📄 Góp ý kèm PDF lớn (v156, specs/013-gopy-pdf-lon). Gói Supabase Free: 50 MB / tệp, 1 GB tổng.
 // App cắt PDF thành mảnh CH = 25 MB, hàm này giữ chỗ (trần CAP), cấp đường tải lên có ký tên từng mảnh, kiểm đủ mảnh.
-// App không đọc lại được mảnh nào (tài liệu riêng tư; mọi máy đang dùng chung tài khoản). Claude đọc / xoá qua khoá PDF_CLAUDE_KEY (header x-pdf-key).
+// App không đọc lại được mảnh nào (tài liệu riêng tư; mọi máy đang dùng chung tài khoản). Claude đọc / xoá qua header x-pdf-key: khoá tạm trong bảng gopy_pdf_key (Claude tạo bằng SQL, hết hạn 24 giờ) hoặc secret PDF_CLAUDE_KEY nếu có.
 // Vào (app, cần JWT): { act: 'info' } · { act: 'st', ids } · { act: 'start', name, size, parts: [{ size, sha }], thay? } · { act: 'sign', id, need: [i] } · { act: 'done', id } · { act: 'xoa', id }
 // Vào (Claude, x-pdf-key): { act: 'list' } · { act: 'get', id } · { act: 'del', id }
 import { createClient } from "npm:@supabase/supabase-js@2.45.4";
@@ -27,7 +27,9 @@ Deno.serve(async (req) => {
     // ── Claude ──
     const key = Deno.env.get("PDF_CLAUDE_KEY") || "", hk = req.headers.get("x-pdf-key") || "";
     if (["list", "get", "del"].includes(act)) {
-      if (!key || hk.length !== key.length || hk !== key) return out({ error: "Sai khoá." }, 403);
+      let ok = !!key && hk === key;
+      if (!ok && /^[0-9a-f]{48}$/.test(hk)) { const { data: kk } = await db.from("gopy_pdf_key").select("k").eq("k", hk).gt("at", new Date(Date.now() - 864e5).toISOString()).maybeSingle(); ok = !!kk; }
+      if (!ok) return out({ error: "Sai khoá." }, 403);
       if (act === "list") { const { data } = await db.from("gopy_pdf").select("id,name,size,n,st,at,done_at,del_at").order("at", { ascending: false }).limit(50); return out({ rows: data || [], used: await used(), cap: CAP }); }
       const r = await row1(); if (!r) return out({ error: "Không có tệp." }, 404);
       if (act === "del") { if (r.st !== "xoa") await rm(r); return out({ ok: true }); }

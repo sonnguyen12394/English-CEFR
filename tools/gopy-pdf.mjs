@@ -1,6 +1,7 @@
 // 📄 Claude đọc / xoá PDF người học gửi kèm góp ý (v156, specs/013-gopy-pdf-lon).
-// Khoá: header x-pdf-key = secret PDF_CLAUDE_KEY của hàm gopy-pdf. Phiên Claude Code trên web: proxy tự gắn header (network secret cho host Supabase);
-// chạy tay thì đặt biến môi trường PDF_KEY.
+// Khoá (biến môi trường PDF_KEY → header x-pdf-key): Claude tạo khoá tạm 24 giờ bằng Supabase MCP execute_sql:
+//   insert into public.gopy_pdf_key (k) values (encode(gen_random_bytes(24), 'hex')) returning k;
+// rồi chạy PDF_KEY=<k> node tools/gopy-pdf.mjs …  (bảng chỉ máy chủ đọc; không cần secret, người sáng lập không phải làm gì).
 // Dùng: node tools/gopy-pdf.mjs list
 //       node tools/gopy-pdf.mjs get <id> [thư mục ra]   → tải từng phần, kiểm SHA-256, ghép thành <tên>.pdf
 //       node tools/gopy-pdf.mjs del <id>

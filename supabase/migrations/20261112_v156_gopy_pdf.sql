@@ -34,3 +34,9 @@ begin
   return jsonb_build_object('id', nid, 'used', used + p_size, 'cap', p_cap);
 end $$;
 revoke all on function public.gopy_pdf_giu(uuid, text, bigint, int, jsonb, bigint, int, int) from public, anon, authenticated;
+
+-- Khoá tạm cho Claude (không cần secret): Claude tạo bằng SQL qua Supabase MCP, hết hạn 24 giờ; chỉ máy chủ đọc (RLS bật, không policy).
+-- insert into public.gopy_pdf_key (k) values (encode(gen_random_bytes(24), 'hex')) returning k;
+create table if not exists public.gopy_pdf_key (k text primary key, at timestamptz not null default now());
+alter table public.gopy_pdf_key enable row level security;
+revoke all on public.gopy_pdf_key from anon, authenticated;
