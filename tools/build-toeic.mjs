@@ -21,8 +21,16 @@ const docText = x => x.docs.map(d => d.title + '\n' + d.text).join('\n');
 const STOPW = new Set('about after again also because been before being both could does from have here into just like made make many more most much must only other over said same should since some such than that their them then there these they this those very were what when where which while will with would your yours ours'.split(' '));
 const cw = s => String(s).toLowerCase().replace(/[^a-z\s-]/g, ' ').split(/\s+/).filter(w => w.length >= 4 && !STOPW.has(w)).map(w => w.replace(/(ies|es|s|ed|ing)$/, ''));   // từ nội dung (bỏ đuôi đơn giản)
 
-const p5Chk = x => { id(x); if (x.o.length !== 4 || new Set(x.o).size !== 4 || !x.o.includes(x.a)) err.push(x.id + ': phương án hỏng'); if ((x.s.match(/-------/g) || []).length !== 1) err.push(x.id + ': cần đúng một chỗ trống'); if (!x.why) err.push(x.id + ': thiếu giải thích'); if (!T5.includes(x.t)) err.push(x.id + ': thiếu / sai dạng t'); return x; };
+// v156 (specs/013) lời giải chi tiết lg = { og: { "<chữ phương án>": "loại từ: nghĩa" }, ly: vì sao, ct?: cấu trúc, dich: dịch cả câu }; khoá og theo CHỮ phương án (thứ tự hiện ra do ord quyết)
+//   câu chưa có lg thì màn xem lại dùng why như cũ; ly phải nhắc đáp án (chặn lời giải lệch đáp án); câu chèn Part 6 đáp án là cả câu nên ly không cần chép lại
+const lgChk = (t, o, a, lg, ins) => { if (!lg) return; const ks = Object.keys(lg.og || {});
+  if (ks.length !== o.length || o.some(w => !(w in lg.og)) || ks.some(k => !String(lg.og[k] || '').trim())) err.push(t + ': lời giải lg.og cần đủ nghĩa cho đúng ' + o.length + ' phương án');
+  if (!String(lg.ly || '').trim() || !String(lg.dich || '').trim()) err.push(t + ': lời giải lg cần ly (vì sao) và dich (dịch câu)');
+  else if (!ins && !lg.ly.toLowerCase().includes(String(a).toLowerCase())) err.push(t + ': lời giải lg.ly không nhắc đáp án "' + a + '"');
+  for (const k of Object.keys(lg)) if (!['og', 'ly', 'ct', 'dich'].includes(k)) err.push(t + ': lời giải lg có trường lạ: ' + k); };
+const p5Chk = x => { id(x); lgChk(x.id, x.o, x.a, x.lg); if (x.o.length !== 4 || new Set(x.o).size !== 4 || !x.o.includes(x.a)) err.push(x.id + ': phương án hỏng'); if ((x.s.match(/-------/g) || []).length !== 1) err.push(x.id + ': cần đúng một chỗ trống'); if (!x.why) err.push(x.id + ': thiếu giải thích'); if (!T5.includes(x.t)) err.push(x.id + ': thiếu / sai dạng t'); return x; };
 const p6Mk = x => { id(x); const n = (x.text.match(/\{\d\}/g) || []).length; if (n !== x.gaps.length) err.push(x.id + ': số chỗ trống ≠ số câu');
+  x.gaps.forEach((g, i) => lgChk(x.id + ' chỗ ' + (i + 1), g.o, g.a, g.lg, p6T(g) === 'insert'));
   for (const g of x.gaps) { if (g.o.length !== 4 || new Set(g.o).size !== 4 || !g.o.includes(g.a)) err.push(x.id + ': phương án hỏng'); if (g.t && !P6T.includes(g.t)) err.push(x.id + ': nhãn chỗ trống t sai: ' + g.t); }
   const gaps = x.gaps.map(g => ({ ...g, t: p6T(g) })); if (gaps.filter(g => g.t === 'insert').length !== 1) err.push(x.id + ': cần đúng một câu chèn');
   // v139: 3 phương án sai của câu chèn phải cùng chủ đề đoạn văn (có từ nội dung chung với đoạn); phương án lạc đề ("Water boils at 100 degrees") làm câu quá dễ

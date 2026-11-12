@@ -27,7 +27,18 @@
    ],
    "a": "by",
    "why": "Hạn chót (chậm nhất vào lúc) dùng by. until = kéo dài tới lúc.",
-   "t": "prep"
+   "t": "prep",
+   "lg": {
+    "og": {
+     "until": "giới từ: cho tới khi (việc kéo dài liên tục)",
+     "during": "giới từ: trong suốt (+ khoảng thời gian)",
+     "by": "giới từ: trước, chậm nhất là (hạn chót)",
+     "since": "giới từ: từ khi (mốc trong quá khứ)"
+    },
+    "ly": "\"must be submitted\" là việc làm một lần, có hạn chót, nên dùng by = chậm nhất vào lúc. until dùng cho việc kéo dài liên tục tới mốc đó (stay until Friday). during cần khoảng thời gian, since đi với thì hoàn thành.",
+    "ct": "submit … by + hạn chót = nộp trước / chậm nhất là · until = kéo dài tới",
+    "dich": "Báo cáo quý phải được nộp chậm nhất vào 5 giờ chiều thứ Sáu."
+   }
   },
   {
    "id": "t5-03",
@@ -83,7 +94,18 @@
    ],
    "a": "Despite",
    "why": "Sau chỗ trống là cụm danh từ (the heavy rain): Despite. Although cần mệnh đề.",
-   "t": "conj"
+   "t": "conj",
+   "lg": {
+    "og": {
+     "Despite": "giới từ: mặc dù (+ danh từ / V-ing)",
+     "Because": "liên từ: bởi vì (+ mệnh đề)",
+     "However": "trạng từ nối: tuy nhiên (đứng đầu câu, có dấu phẩy)",
+     "Although": "liên từ: mặc dù (+ mệnh đề)"
+    },
+    "ly": "Sau chỗ trống là cụm danh từ \"the heavy rain\", không có động từ, nên cần giới từ: Despite. Although và Because cần mệnh đề (Because of thì mới đi với danh từ). However không đứng trước danh từ. Nghĩa: mưa to mà vẫn diễn ra → nhượng bộ, hợp Despite.",
+    "ct": "Despite / In spite of + N = Although + mệnh đề · go ahead as planned = vẫn diễn ra như kế hoạch",
+    "dich": "Mặc dù mưa to, buổi hoà nhạc ngoài trời vẫn diễn ra như kế hoạch."
+   }
   },
   {
    "id": "t5-07",
@@ -111,7 +133,18 @@
    ],
    "a": "guests",
    "why": "Khách khách sạn gọi là guests.",
-   "t": "voc"
+   "t": "voc",
+   "lg": {
+    "og": {
+     "guests": "danh từ: khách (của khách sạn)",
+     "students": "danh từ: học sinh, sinh viên",
+     "patients": "danh từ: bệnh nhân",
+     "viewers": "danh từ: người xem"
+    },
+    "ly": "Người dùng dịch vụ của khách sạn gọi là guests. students hợp với trường học, patients với bệnh viện, viewers với truyền hình, nên chọn guests.",
+    "ct": "a free shuttle service = dịch vụ xe đưa đón miễn phí · to and from the airport = đi và về sân bay",
+    "dich": "Khách sạn có dịch vụ xe đưa đón miễn phí đi và về sân bay cho mọi khách lưu trú."
+   }
   },
   {
    "id": "t5-09",
@@ -125,7 +158,18 @@
    ],
    "a": "arrives",
    "why": "Câu điều kiện loại 1: If + hiện tại đơn (arrives), will + V.",
-   "t": "verb"
+   "t": "verb",
+   "lg": {
+    "og": {
+     "arrived": "động từ quá khứ: đã đến",
+     "arrives": "động từ hiện tại đơn (ngôi thứ ba số ít): đến",
+     "will arrive": "tương lai đơn: sẽ đến",
+     "arriving": "V-ing: đang đến (không làm động từ chính một mình)"
+    },
+    "ly": "Vế sau là \"we will be able to\" nên đây là câu điều kiện loại 1: If + hiện tại đơn, will + V. Chủ ngữ the shipment số ít nên chọn arrives. Không dùng will sau if, arrived làm sai loại câu, arriving thiếu động từ chính.",
+    "ct": "If + hiện tại đơn, S + will + V (điều kiện loại 1) · on time = đúng giờ · on schedule = đúng lịch",
+    "dich": "Nếu lô hàng đến đúng giờ, chúng tôi sẽ có thể khai trương cửa hàng đúng lịch."
+   }
   },
   {
    "id": "t5-10",
@@ -139,7 +183,18 @@
    ],
    "a": "tirelessly",
    "why": "Bổ nghĩa cho động từ worked cần trạng từ: tirelessly.",
-   "t": "form"
+   "t": "form",
+   "lg": {
+    "og": {
+     "tired": "tính từ: mệt",
+     "tiredness": "danh từ: sự mệt mỏi",
+     "tirelessly": "trạng từ: không mệt mỏi, miệt mài",
+     "tireless": "tính từ: không biết mệt"
+    },
+    "ly": "Chỗ trống đứng sau động từ worked và bổ nghĩa cho nó (làm việc thế nào), nên cần trạng từ: tirelessly. tired và tireless là tính từ, tiredness là danh từ.",
+    "ct": "work tirelessly = làm việc miệt mài · before the deadline = trước hạn chót",
+    "dich": "Nhóm tiếp thị đã làm việc miệt mài để hoàn thành chiến dịch trước hạn chót."
+   }
   },
   {
    "id": "t5-11",
@@ -153,7 +208,18 @@
    ],
    "a": "expand",
    "why": "expand operations to = mở rộng hoạt động sang.",
-   "t": "voc"
+   "t": "voc",
+   "lg": {
+    "og": {
+     "exceed": "động từ: vượt quá",
+     "expand": "động từ: mở rộng",
+     "increase": "động từ: tăng (số lượng, mức)",
+     "enlarge": "động từ: phóng to, làm lớn ra (kích thước)"
+    },
+    "ly": "\"its operations to three new countries\" = đưa hoạt động sang nơi mới, nên dùng expand … to. increase nói về số lượng, không đi với \"to + nơi chốn\"; enlarge là làm to kích thước; exceed là vượt quá.",
+    "ct": "expand (operations / business) to / into + nơi = mở rộng hoạt động sang",
+    "dich": "Công ty chúng tôi đã quyết định mở rộng hoạt động sang ba quốc gia mới vào năm tới."
+   }
   },
   {
    "id": "t5-12",
@@ -209,7 +275,18 @@
    ],
    "a": "had",
    "why": "Hành động xảy ra trước một mốc quá khứ: quá khứ hoàn thành had started.",
-   "t": "verb"
+   "t": "verb",
+   "lg": {
+    "og": {
+     "had": "trợ động từ quá khứ hoàn thành: had + V3",
+     "has": "trợ động từ hiện tại hoàn thành: has + V3",
+     "was": "be quá khứ (was started: bị động)",
+     "is": "be hiện tại"
+    },
+    "ly": "\"By the time the director arrived\" là mốc quá khứ; cuộc họp bắt đầu TRƯỚC mốc đó, nên dùng quá khứ hoàn thành had started. has thuộc hiện tại; was / is + started thành bị động, không hợp với already ở đây.",
+    "ct": "By the time + quá khứ đơn, S + had + V3 = khi … thì … đã …",
+    "dich": "Khi giám đốc tới nơi, cuộc họp đã bắt đầu rồi."
+   }
   },
   {
    "id": "t5-16",
@@ -223,7 +300,18 @@
    ],
    "a": "request",
    "why": "request a refund = yêu cầu hoàn tiền. ask cần for.",
-   "t": "voc"
+   "t": "voc",
+   "lg": {
+    "og": {
+     "request": "động từ: yêu cầu, đề nghị (+ tân ngữ)",
+     "deliver": "động từ: giao, chuyển",
+     "require": "động từ: đòi hỏi, cần phải có",
+     "ask": "động từ: hỏi, xin (ask for + vật)"
+    },
+    "ly": "Khách không hài lòng thì yêu cầu hoàn tiền: request a full refund. ask phải có for (ask for a refund) mới đúng. require là đòi hỏi như một điều kiện, deliver là giao hàng, đều sai nghĩa.",
+    "ct": "request a refund = ask for a refund = yêu cầu hoàn tiền · within 30 days = trong vòng 30 ngày",
+    "dich": "Khách hàng không hài lòng có thể yêu cầu hoàn tiền toàn bộ trong vòng 30 ngày."
+   }
   },
   {
    "id": "t5-17",
@@ -321,7 +409,18 @@
    ],
    "a": "carefully",
    "why": "Bổ nghĩa động từ read: trạng từ carefully.",
-   "t": "form"
+   "t": "form",
+   "lg": {
+    "og": {
+     "care": "danh từ / động từ: sự cẩn thận; quan tâm",
+     "carefully": "trạng từ: một cách cẩn thận",
+     "careful": "tính từ: cẩn thận",
+     "caring": "tính từ: chu đáo, biết quan tâm"
+    },
+    "ly": "Câu đã đủ \"read the instructions\"; chỗ trống bổ nghĩa cho động từ read (đọc thế nào), nên cần trạng từ carefully. careful, caring là tính từ, care là danh từ / động từ.",
+    "ct": "read … carefully = đọc kỹ · before + V-ing = trước khi làm gì",
+    "dich": "Vui lòng đọc kỹ hướng dẫn trước khi lắp đặt thiết bị."
+   }
   },
   {
    "id": "t5-24",
@@ -391,7 +490,18 @@
    ],
    "a": "chair",
    "why": "chair a meeting = chủ trì cuộc họp.",
-   "t": "voc"
+   "t": "voc",
+   "lg": {
+    "og": {
+     "sit": "động từ: ngồi",
+     "table": "động từ: đưa ra bàn bạc / hoãn bàn (một đề xuất)",
+     "seat": "động từ: xếp chỗ ngồi",
+     "chair": "động từ: chủ trì"
+    },
+    "ly": "Sau will cần động từ nguyên mẫu, cả bốn đều là động từ nên phải xét nghĩa. \"chair a meeting\" = chủ trì cuộc họp, hợp với việc thay giám đốc đang đi nghỉ. sit cần giới từ (sit in on), seat là xếp chỗ, table là đưa ra bàn.",
+    "ct": "chair a meeting = chủ trì cuộc họp · while + mệnh đề = trong khi",
+    "dich": "Ông Kim sẽ chủ trì cuộc họp trong khi giám đốc đi nghỉ."
+   }
   },
   {
    "id": "t5-29",
@@ -433,7 +543,18 @@
    ],
    "a": "regularly",
    "why": "Bổ nghĩa cho cụm is closed: trạng từ regularly.",
-   "t": "form"
+   "t": "form",
+   "lg": {
+    "og": {
+     "regularity": "danh từ: tính đều đặn",
+     "regulate": "động từ: điều chỉnh, quản lý",
+     "regular": "tính từ: đều đặn, thường lệ",
+     "regularly": "trạng từ: thường xuyên, định kỳ"
+    },
+    "ly": "Chỗ trống nằm giữa is và closed, bổ nghĩa cho động từ / phân từ closed, nên cần trạng từ regularly. Tính từ regular không bổ nghĩa cho động từ; danh từ và động từ đặt ở đây sai ngữ pháp.",
+    "ct": "be + trạng từ + V3 (is regularly closed) · closed for maintenance = đóng cửa để bảo trì",
+    "dich": "Bảo tàng thường đóng cửa vào thứ Hai để bảo trì."
+   }
   },
   {
    "id": "t5-32",
@@ -503,7 +624,18 @@
    ],
    "a": "consumption",
    "why": "energy consumption = mức tiêu thụ năng lượng (danh từ).",
-   "t": "form"
+   "t": "form",
+   "lg": {
+    "og": {
+     "consumer": "danh từ: người tiêu dùng",
+     "consume": "động từ: tiêu thụ",
+     "consumed": "V3 / quá khứ: đã tiêu thụ",
+     "consumption": "danh từ: sự tiêu thụ, mức tiêu thụ"
+    },
+    "ly": "Sau tính từ sở hữu its và từ energy cần một danh từ làm tân ngữ của reduced. Giảm \"mức tiêu thụ\" năng lượng, không phải \"người tiêu dùng\", nên chọn consumption.",
+    "ct": "energy consumption = mức tiêu thụ năng lượng · reduce … by 15 percent = giảm … 15%",
+    "dich": "Nhà máy đã giảm 15% mức tiêu thụ năng lượng."
+   }
   },
   {
    "id": "t5-37",
@@ -531,7 +663,18 @@
    ],
    "a": "conveniently",
    "why": "conveniently located = ở vị trí thuận tiện.",
-   "t": "voc"
+   "t": "voc",
+   "lg": {
+    "og": {
+     "rapidly": "trạng từ: nhanh chóng",
+     "comfortably": "trạng từ: một cách thoải mái",
+     "eagerly": "trạng từ: háo hức",
+     "conveniently": "trạng từ: thuận tiện"
+    },
+    "ly": "Chỗ trống bổ nghĩa cho located (nằm ở), cả bốn đều là trạng từ nên xét nghĩa. Nhà hàng gần ga thì ở vị trí thuận tiện: conveniently located. Các từ còn lại không nói về vị trí.",
+    "ct": "be conveniently located near / in … = có vị trí thuận tiện gần / ở …",
+    "dich": "Nhà hàng có vị trí thuận tiện, gần ga tàu chính."
+   }
   },
   {
    "id": "t5-39",
@@ -713,7 +856,18 @@
    ],
    "a": "participants",
    "why": "Sau for cần danh từ chỉ người: participants.",
-   "t": "form"
+   "t": "form",
+   "lg": {
+    "og": {
+     "participatory": "tính từ: có tính tham gia",
+     "participation": "danh từ: sự tham gia",
+     "participants": "danh từ (người, số nhiều): người tham gia",
+     "participate": "động từ: tham gia"
+    },
+    "ly": "Sau giới từ for cần danh từ. Có hai danh từ, nhưng \"with little experience\" (có ít kinh nghiệm) phải nói về người, nên chọn participants. participation là việc tham gia, không có kinh nghiệm.",
+    "ct": "be designed for + người = được thiết kế cho · with little experience in = có ít kinh nghiệm về",
+    "dich": "Khoá đào tạo được thiết kế cho người tham gia có ít kinh nghiệm bán hàng."
+   }
   },
   {
    "id": "t5-52",
@@ -839,7 +993,18 @@
    ],
    "a": "once",
    "why": "once + mệnh đề = ngay khi. during, by cần danh từ. unless (trừ khi) sai nghĩa.",
-   "t": "conj"
+   "t": "conj",
+   "lg": {
+    "og": {
+     "during": "giới từ: trong suốt (+ danh từ)",
+     "once": "liên từ: ngay khi, một khi (+ mệnh đề)",
+     "unless": "liên từ: trừ khi (+ mệnh đề)",
+     "by": "giới từ: trước, chậm nhất là (+ danh từ / mốc)"
+    },
+    "ly": "Sau chỗ trống là mệnh đề \"she returns…\" nên cần liên từ; during và by là giới từ, loại. Còn once và unless: xem hợp đồng \"trừ khi cô ấy về\" không hợp lý, \"ngay khi cô ấy về\" hợp lý → once.",
+    "ct": "once + hiện tại đơn (nghĩa tương lai) = ngay khi · business trip = chuyến công tác",
+    "dich": "Cô Ortiz sẽ xem lại hợp đồng ngay khi cô ấy đi công tác về."
+   }
   },
   {
    "id": "t5-61",
@@ -937,7 +1102,18 @@
     "has given"
    ],
    "a": "will give",
-   "why": "next Tuesday: tương lai will give."
+   "why": "next Tuesday: tương lai will give.",
+   "lg": {
+    "og": {
+     "will give": "tương lai đơn: sẽ phát biểu / trao",
+     "giving": "V-ing: đang (không làm động từ chính một mình)",
+     "gave": "quá khứ đơn: đã đưa",
+     "has given": "hiện tại hoàn thành: đã đưa (tính tới nay)"
+    },
+    "ly": "Dấu hiệu thời gian \"next Tuesday\" (thứ Ba tới) chỉ tương lai, nên chọn will give. gave và has given là quá khứ, giving thiếu trợ động từ.",
+    "ct": "give a speech = phát biểu · next + thời điểm → tương lai",
+    "dich": "Giám đốc điều hành sẽ phát biểu tại lễ khai mạc vào thứ Ba tới."
+   }
   },
   {
    "id": "t5-68",
@@ -979,7 +1155,18 @@
     "were"
    ],
    "a": "has",
-   "why": "The number of + danh từ số nhiều → động từ số ít: has."
+   "why": "The number of + danh từ số nhiều → động từ số ít: has.",
+   "lg": {
+    "og": {
+     "are": "be số nhiều (hiện tại)",
+     "have": "trợ động từ số nhiều: have + V3",
+     "were": "be số nhiều (quá khứ)",
+     "has": "trợ động từ số ít: has + V3"
+    },
+    "ly": "Sau chỗ trống là increased, nên cần trợ động từ của thì hoàn thành (has / have + V3), loại are, were. Chủ ngữ là \"The number of …\" (con số) nên động từ số ít: has.",
+    "ct": "The number of + N số nhiều + V số ít (con số) · A number of + N số nhiều + V số nhiều (nhiều …)",
+    "dich": "Số người nộp đơn đã tăng mạnh trong năm nay."
+   }
   },
   {
    "id": "t5-71",
@@ -1035,7 +1222,18 @@
     "under"
    ],
    "a": "on",
-   "why": "available on request = có khi được yêu cầu."
+   "why": "available on request = có khi được yêu cầu.",
+   "lg": {
+    "og": {
+     "at": "giới từ: tại, ở (một điểm)",
+     "under": "giới từ: dưới, theo (điều kiện)",
+     "in": "giới từ: trong",
+     "on": "giới từ: trên; khi có (request)"
+    },
+    "ly": "Cụm cố định \"available on request\" = có sẵn khi được yêu cầu. Ba giới từ còn lại không đi với request theo nghĩa này, nên chọn on.",
+    "ct": "available on request · on request = khi có yêu cầu",
+    "dich": "Bản báo cáo có thể nhận khi gửi yêu cầu tới văn phòng chính."
+   }
   },
   {
    "id": "t5-75",
@@ -1049,7 +1247,18 @@
     "for"
    ],
    "a": "by",
-   "why": "rise by + mức tăng."
+   "why": "rise by + mức tăng.",
+   "lg": {
+    "og": {
+     "for": "giới từ: cho, trong (khoảng thời gian)",
+     "on": "giới từ: trên, vào (ngày)",
+     "by": "giới từ: thêm (mức chênh), bằng",
+     "with": "giới từ: với"
+    },
+    "ly": "Nói tăng / giảm BAO NHIÊU dùng by + mức chênh: rise by 8 percent. Các giới từ khác không chỉ mức tăng. (Tăng ĐẾN mức nào thì dùng to.)",
+    "ct": "rise / fall / increase by + mức chênh · rise to + mức mới · in the second quarter = trong quý hai",
+    "dich": "Lợi nhuận tăng 8% trong quý hai."
+   }
   },
   {
    "id": "t5-76",
@@ -1119,7 +1328,18 @@
     "yet also"
    ],
    "a": "and",
-   "why": "Nối hai ý cùng chiều tích cực: on schedule and under budget."
+   "why": "Nối hai ý cùng chiều tích cực: on schedule and under budget.",
+   "lg": {
+    "og": {
+     "but also": "liên từ: mà còn (đi cặp với not only)",
+     "and": "liên từ: và",
+     "so": "liên từ: vì vậy",
+     "yet also": "cụm không chuẩn"
+    },
+    "ly": "Hai ý \"đúng tiến độ\" và \"dưới ngân sách\" cùng là điều tốt, nối ngang hàng bằng and. but also chỉ dùng khi phía trước có not only; so chỉ kết quả, không hợp; yet also không phải cụm chuẩn.",
+    "ct": "on schedule = đúng tiến độ · under budget = thấp hơn ngân sách · not only … but also …",
+    "dich": "Dự án được hoàn thành đúng tiến độ và thấp hơn ngân sách."
+   }
   },
   {
    "id": "t5-81",
@@ -1203,7 +1423,18 @@
     "that"
    ],
    "a": "whose",
-   "why": "Sở hữu (sản phẩm của công ty): whose products."
+   "why": "Sở hữu (sản phẩm của công ty): whose products.",
+   "lg": {
+    "og": {
+     "who": "đại từ quan hệ: người mà (thay chủ ngữ / tân ngữ chỉ người)",
+     "whose": "đại từ quan hệ sở hữu: … của nó / của người đó",
+     "which": "đại từ quan hệ: cái mà (chỉ vật)",
+     "that": "đại từ quan hệ: người / cái mà"
+    },
+    "ly": "Sau chỗ trống là danh từ products rồi mới tới động từ are sold, nghĩa là \"sản phẩm CỦA công ty\": cần đại từ sở hữu whose + danh từ. who, which, that không đứng ngay trước danh từ để chỉ sở hữu.",
+    "ct": "N + whose + N + V = … mà … của nó … · be based in = có trụ sở ở",
+    "dich": "Công ty có sản phẩm được bán ở hơn bốn mươi quốc gia đặt trụ sở tại Thuỵ Điển."
+   }
   },
   {
    "id": "t5-87",
@@ -1245,7 +1476,18 @@
     "no"
    ],
    "a": "none",
-   "why": "none of them = không ai trong số họ."
+   "why": "none of them = không ai trong số họ.",
+   "lg": {
+    "og": {
+     "no": "từ hạn định: không (+ danh từ)",
+     "nothing": "đại từ: không có gì (chỉ vật)",
+     "nobody": "đại từ: không ai (không đi với of)",
+     "none": "đại từ: không ai / không cái nào (none of + …)"
+    },
+    "ly": "Chỗ trống đứng trước \"of them\" nên cần đại từ đi được với of: none of them = không ai trong số họ. no cần danh từ theo sau, nobody không đi với of, nothing chỉ vật.",
+    "ct": "none of + them / the + N = không ai / không cái nào trong số …",
+    "dich": "Vài nhân viên đã tình nguyện, nhưng không ai trong số họ có kinh nghiệm tổ chức sự kiện."
+   }
   },
   {
    "id": "t5-90",
@@ -1273,7 +1515,18 @@
     "receiving we"
    ],
    "a": "do we receive",
-   "why": "Rarely đứng đầu câu → đảo ngữ: do we receive."
+   "why": "Rarely đứng đầu câu → đảo ngữ: do we receive.",
+   "lg": {
+    "og": {
+     "we receive": "trật tự thường: chủ ngữ + động từ",
+     "we do receive": "chủ ngữ + do (nhấn mạnh) + động từ",
+     "do we receive": "đảo ngữ: trợ động từ + chủ ngữ + động từ",
+     "receiving we": "cụm sai ngữ pháp"
+    },
+    "ly": "Trạng từ phủ định Rarely (hiếm khi) đứng đầu câu thì phải đảo ngữ: Rarely + trợ động từ + chủ ngữ + V. Thì hiện tại, chủ ngữ we → do we receive. Hai phương án có \"we\" đứng trước là trật tự thường, sai khi Rarely đứng đầu.",
+    "ct": "Rarely / Seldom / Never / Hardly + trợ động từ + S + V (đảo ngữ)",
+    "dich": "Hiếm khi chúng tôi nhận được một đơn hàng lớn như vậy từ một khách hàng."
+   }
   },
   {
    "id": "t5-92",
@@ -1301,7 +1554,18 @@
     "more big"
    ],
    "a": "bigger",
-   "why": "Càng … càng: the + so sánh hơn, the + so sánh hơn → bigger (the larger ở vế sau)."
+   "why": "Càng … càng: the + so sánh hơn, the + so sánh hơn → bigger (the larger ở vế sau).",
+   "lg": {
+    "og": {
+     "big": "tính từ: lớn",
+     "bigger": "so sánh hơn: lớn hơn",
+     "more big": "dạng sai (big chỉ thêm -er)",
+     "biggest": "so sánh nhất: lớn nhất"
+    },
+    "ly": "Vế sau \"the larger the discount\" cho thấy cấu trúc \"càng … càng …\": the + so sánh hơn, the + so sánh hơn. So sánh hơn của big là bigger; more big sai, biggest là so sánh nhất.",
+    "ct": "The + so sánh hơn + S (V), the + so sánh hơn + S + V = càng … thì càng …",
+    "dich": "Đơn hàng càng lớn thì mức giảm giá chúng tôi có thể đưa ra càng nhiều."
+   }
   },
   {
    "id": "t5-94",
@@ -1315,7 +1579,18 @@
     "regain"
    ],
    "a": "retain",
-   "why": "retain = giữ lại (tài liệu để lưu)."
+   "why": "retain = giữ lại (tài liệu để lưu).",
+   "lg": {
+    "og": {
+     "remain": "động từ: vẫn còn, ở lại (không có tân ngữ)",
+     "retain": "động từ: giữ lại, lưu giữ",
+     "restrain": "động từ: kiềm chế, ngăn cản",
+     "regain": "động từ: lấy lại"
+    },
+    "ly": "\"for your records\" (để lưu hồ sơ) cho thấy nghĩa giữ tài liệu lại: retain the document. remain không có tân ngữ, restrain là kiềm chế, regain là lấy lại thứ đã mất, đều sai nghĩa.",
+    "ct": "retain … for your records = giữ … để lưu hồ sơ · the attached document = tài liệu đính kèm",
+    "dich": "Vui lòng giữ lại tài liệu đính kèm để lưu hồ sơ."
+   }
   },
   {
    "id": "t5-95",
@@ -1385,7 +1660,18 @@
     "permitted"
    ],
    "a": "entitled",
-   "why": "be entitled to = được hưởng (quyền lợi). eligible đi với for; allowed / permitted + to V."
+   "why": "be entitled to = được hưởng (quyền lợi). eligible đi với for; allowed / permitted + to V.",
+   "lg": {
+    "og": {
+     "eligible": "tính từ: đủ điều kiện (eligible for + N / to V)",
+     "permitted": "phân từ: được cho phép (+ to V)",
+     "entitled": "phân từ: được hưởng quyền (entitled to + N)",
+     "allowed": "phân từ: được phép (+ to V)"
+    },
+    "ly": "Sau chỗ trống là \"to a 15 percent discount\" (to + danh từ), nên cần be entitled to + N = được hưởng. allowed và permitted đi với to + động từ, không đi với danh từ. eligible thường đi với for (eligible for a discount).",
+    "ct": "be entitled to + N = được hưởng · be eligible for + N · be allowed / permitted to + V",
+    "dich": "Nhân viên được hưởng mức giảm giá 15% cho mọi sản phẩm của công ty."
+   }
   },
   {
    "id": "t5-100",
@@ -1483,7 +1769,18 @@
    ],
    "a": "best",
    "why": "by far the + so sánh nhất (trong ba đề xuất) → best.",
-   "t": "struct"
+   "t": "struct",
+   "lg": {
+    "og": {
+     "best": "so sánh nhất của good: tốt nhất",
+     "well": "trạng từ: tốt, giỏi",
+     "good": "tính từ: tốt",
+     "better": "so sánh hơn của good: tốt hơn"
+    },
+    "ly": "\"the\" đứng trước chỗ trống, \"by far\" (hơn hẳn) và \"of the three proposals\" (trong ba đề xuất) đều là dấu hiệu so sánh nhất, nên chọn best. better dùng khi so hai thứ.",
+    "ct": "by far the + so sánh nhất = … nhất, hơn hẳn · of the three … = trong số ba …",
+    "dich": "Trong ba đề xuất, đề xuất của ông Diaz tốt hơn hẳn."
+   }
   },
   {
    "id": "t5-107",
@@ -1581,7 +1878,18 @@
    ],
    "a": "others",
    "why": "the others = những cái còn lại (số nhiều, đứng một mình); the other + danh từ, hoặc chỉ MỘT cái còn lại.",
-   "t": "det"
+   "t": "det",
+   "lg": {
+    "og": {
+     "another": "một cái khác (số ít, không có the)",
+     "others": "đại từ: những cái khác (đứng một mình, số nhiều)",
+     "other": "tính từ: khác (+ danh từ); the other = cái còn lại duy nhất",
+     "each other": "đại từ: lẫn nhau"
+    },
+    "ly": "Đã xem ba trong mười hợp đồng, còn lại bảy cái: \"the others\" = những cái còn lại, đứng một mình không cần danh từ. the other đứng một mình chỉ MỘT cái còn lại; another không đi sau the; each other là lẫn nhau.",
+    "ct": "the others = những cái / người còn lại (số nhiều) · the other = cái còn lại (một) · the other + N số nhiều",
+    "dich": "Cô Okafor đã xem ba trong mười hợp đồng và sẽ kiểm tra những hợp đồng còn lại vào ngày mai."
+   }
   },
   {
    "id": "t5-114",
@@ -1609,7 +1917,18 @@
    ],
    "a": "Most",
    "why": "Most of the + danh từ số nhiều; almost là trạng từ (almost all of), every không đi với of, mostly là trạng từ.",
-   "t": "det"
+   "t": "det",
+   "lg": {
+    "og": {
+     "Almost": "trạng từ: gần như",
+     "Every": "từ hạn định: mỗi, mọi (+ danh từ số ít)",
+     "Mostly": "trạng từ: phần lớn là, chủ yếu",
+     "Most": "từ hạn định / đại từ: hầu hết"
+    },
+    "ly": "Chỗ trống đứng trước \"of the participants\" nên cần đại từ đi được với of: Most of the + danh từ số nhiều. Almost và Mostly là trạng từ, không đứng trước of (phải nói almost all of). Every không đi với of (phải nói every one of).",
+    "ct": "most of the + danh từ số nhiều = hầu hết … · according to = theo (nguồn tin)",
+    "dich": "Theo khảo sát, hầu hết người tham dự thấy buổi hội thảo hữu ích."
+   }
   },
   {
    "id": "t5-116",
@@ -1651,7 +1970,18 @@
    ],
    "a": "many",
    "why": "so many + danh từ đếm được số nhiều (applications); much / little đi với danh từ không đếm được; a lot cần of.",
-   "t": "det"
+   "t": "det",
+   "lg": {
+    "og": {
+     "a lot": "cụm từ: rất nhiều (a lot of + danh từ)",
+     "little": "từ hạn định: ít (+ danh từ không đếm được)",
+     "much": "từ hạn định: nhiều (+ danh từ không đếm được)",
+     "many": "từ hạn định: nhiều (+ danh từ đếm được số nhiều)"
+    },
+    "ly": "applications là danh từ đếm được số nhiều, nên dùng so many. much và little đi với danh từ không đếm được; \"so a lot\" không có, và a lot cần of. Vế sau (cần thêm một tuần) cho thấy nghĩa \"rất nhiều\".",
+    "ct": "so many / much + N + that + mệnh đề = nhiều … đến nỗi …",
+    "dich": "Chúng tôi nhận được nhiều đơn ứng tuyển đến nỗi hội đồng tuyển dụng cần thêm một tuần để xem xét."
+   }
   }
  ]
 }

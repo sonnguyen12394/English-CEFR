@@ -24,7 +24,7 @@ Mỗi câu chỉ có `why` một dòng (vd. "Bổ nghĩa cho động từ submit
 
 ## Yêu cầu
 
-- FR-001 Nguồn: thêm trường `gt` vào câu Part 5 / chỗ trống Part 6 ở nguồn (`content/toeic/tron/deNN.json` cho Đề 3–8; câu kho trong `content/toeic/doc.json` cho Đề 1–2). `gt = { og: { "<phương án>": "<loại từ: nghĩa>" }, ly: "…", ct: "…" (tuỳ chọn), dich: "…" }`. Khoá theo chữ phương án nên không lệch khi cân bằng đáp án.
+- FR-001 Nguồn (12/11/2026: tên trường đổi thành `lg` vì `q.gt` đã là nhãn dạng chỗ trống Part 6 trong app): thêm trường `gt` vào câu Part 5 / chỗ trống Part 6 ở nguồn (`content/toeic/tron/deNN.json` cho Đề 3–8; câu kho trong `content/toeic/doc.json` cho Đề 1–2). `gt = { og: { "<phương án>": "<loại từ: nghĩa>" }, ly: "…", ct: "…" (tuỳ chọn), dich: "…" }`. Khoá theo chữ phương án nên không lệch khi cân bằng đáp án.
 - FR-002 Không đổi đề: `gt` không vào dấu nội dung (`strip` ở kiem-toeic.mjs) → không phải giải mù lại, không đổi chữ đáp án, "đã xem" giữ.
 - FR-003 Bộ dựng kiểm: đủ 4 phương án trong `og`, có `ly` và `dich`; `ly` không mâu thuẫn đáp án (nhắc đáp án đúng); câu thiếu `gt` thì màn xem lại dùng `why` như cũ.
 - FR-004 Giao diện: thẻ xếp dọc theo biến màu / cỡ chữ chung; 320 px không tràn ngang; chữ ≥ 15 px; tương phản ≥ 4,5 : 1 sáng / tối.
