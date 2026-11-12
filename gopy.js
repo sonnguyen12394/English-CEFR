@@ -27,9 +27,9 @@ function gyDraw() {
     <div class="chips" role="group" aria-label="Loại góp ý">${GY_KIND.map(([k, l]) => `<button class="chip ${GY.kind === k ? 'on' : ''}" data-g="kind" data-v="${k}" aria-pressed="${GY.kind === k}">${l}</button>`).join('')}</div>
     <label class="mute" for="gytxt">Bạn thấy gì? (không ghi tên, số điện thoại)</label>
     <textarea id="gytxt" rows="4" maxlength="4000">${esc(GY.txt)}</textarea>
-    <div class="chips tap gyadd"><label class="chip" for="gyfile">📷 Ảnh ${GY.imgs.length}/${GY_IMG_N}</label><input id="gyfile" type="file" accept="image/*" multiple hidden>${GY.pdf ? '' : `<label class="chip" for="gypdf">📄 PDF</label><input id="gypdf" type="file" accept=".pdf,application/pdf" hidden>${gdOn() ? '<button class="chip" data-g="gd">☁️ Từ Google Drive</button>' : ''}`}</div>
-    <p class="mute">Ảnh chụp màn hình rất có ích. Tài liệu PDF tới ${gpMB(GP_MAX)}.</p>
-    ${gpBox()}
+    <div class="chips tap gyadd"><label class="chip" for="gyfile">📷 Ảnh ${GY.imgs.length}/${GY_IMG_N}</label><input id="gyfile" type="file" accept="image/*" multiple hidden></div>
+    <p class="mute">Ảnh chụp màn hình rất có ích.</p>
+    ${GY.pdf ? gpBox() : gpPickBox()}
     ${GY.imgs.length ? `<div class="thumbs">${GY.imgs.map((u, i) => `<span><img src="${u}" alt="Ảnh ${i + 1}"><button class="link" data-g="rm" data-v="${i}" aria-label="Bỏ ảnh ${i + 1}">✕</button></span>`).join('')}</div>` : ''}
     <p class="mute">Gửi kèm: màn “${esc(c.h1 || c.view || '')}”${c.item ? `, câu đang làm (${esc(c.item)})` : ''}, bản ${APP_V}, loại máy. Điểm này giúp sửa đúng chỗ.</p>
     ${GY.msg ? `<p class="mute" role="status">${esc(GY.msg)}</p>` : ''}
@@ -184,6 +184,12 @@ function gpBox() { const P = GY.pdf; if (!P) return '';
     ${U ? `<progress max="${U.n}" value="${U.i}" aria-label="Tiến độ tải PDF"></progress><p class="mute" role="status">${esc(U.st)}</p>`
       : P.drive ? `<p class="mute">Máy chủ chép thẳng từ Google Drive, không qua iPhone. Vẫn để màn hình sáng tới khi thanh chạy hết. Gián đoạn thì bấm Gửi lại: chép tiếp phần còn thiếu.</p>`
       : `<p class="mute">Khoảng ${min} phút qua Wi-Fi. Nên dùng Wi-Fi và để màn hình sáng tới khi xong. Rớt mạng thì bấm Gửi lại: app tải tiếp phần còn thiếu.</p>`}</div>`; }
+// v160: ô chọn PDF kiểu iLovePDF: nút to "Chọn tệp PDF" (máy) + nút tròn Google Drive bên dưới, bên phải.
+const GD_SVG = '<svg viewBox="0 0 87.3 78" width="26" height="23" aria-hidden="true"><path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/><path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/><path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/><path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg>';
+function gpPickBox() {
+  return `<div class="gppick"><label class="gpbig" for="gypdf">📄 Chọn tệp PDF</label><input id="gypdf" type="file" accept=".pdf,application/pdf" hidden>
+    <div class="gpsrc"><span class="mute">Tối đa ${gpMB(GP_MAX)} · hoặc lấy từ</span><button class="gpround" data-g="gd" aria-label="Chọn PDF từ Google Drive">${GD_SVG}</button></div></div>`; }
+const GD_OFF = 'Nút Google Drive chưa bật (người sáng lập cần gửi 3 mã Google). Tạm thời: bấm 📄 Chọn tệp PDF → Duyệt → Google Drive (cần app Google Drive trên iPhone).';
 function gpBar() { const el = document.querySelector('#gysheet .gypdf'); if (el) el.outerHTML = gpBox(); }
 async function gpPut(t, blob) {
   for (let k = 0; k < GP_TRY; k++) {
@@ -211,7 +217,7 @@ const gdErrMsg = s => (s && s.net) ? 'Mất mạng. Có mạng rồi thử lại
 const gdStartErr = s => gdErrMsg(s) || (s.error === 'day' ? `Kho tài liệu chỉ còn ${gpMB(Math.max(0, s.cap - s.used))}. Xoá bớt tệp cũ rồi gửi lại.` : s.error === 'du' ? 'Đã có 2 tệp PDF đang lưu. Xoá bớt một tệp rồi gửi lại.'
   : s.error === 'dang' ? 'Chưa gửi: đang có tệp PDF khác tải dở.' : 'Chưa gửi được PDF: ' + s.error);
 function gdStart(target) {   // target: null = tệp cho góp ý mới; id tệp = thay tệp ở danh sách "Đã gửi"
-  if (!gdOn()) return;
+  if (!gdOn()) { const t = document.getElementById('gytxt'); if (t) GY.txt = t.value; return gdFail(target, GD_OFF); }
   if (!GD_READY || !window.google || !google.accounts) { toast('Đang tải Google, bấm lại sau vài giây.'); gdLoad().catch(() => toast('Không tải được Google. Kiểm tra mạng.')); return; }
   const t = document.getElementById('gytxt'); if (t) GY.txt = t.value; gpsKeep();
   try { google.accounts.oauth2.initTokenClient({ client_id: GD.client, scope: GD_SCOPE,
