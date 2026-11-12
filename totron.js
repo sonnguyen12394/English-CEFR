@@ -269,7 +269,7 @@ function trRvQ(q, A) { const ch = A.a[q.n - 1], pick = trPick(q, ch), lt = q.sec
     return `<div class="rvop${isA ? ' ok' : isP ? ' no' : ''}"><b>(${'ABCD'[j]})</b> ${esc(lt ? q.x.o[j] : o)}${og[o] ? `<span class="rvog">${esc(og[o])}</span>` : ''}${tag ? `<span class="optag">${tag}</span>` : ''}</div>`; }).join('');
   const ev = typeof hlEv === 'function' ? hlEv(q) : q.ev, why = q.why && !/^Lời bài: /.test(q.why) ? q.why : '', ai = q.opts.indexOf(q.a), ins = q.sec === 'p6' && q.gt === 'insert';
   const dang = q.sec === 'p5' ? TO_T5[q.x.t] : q.sec === 'p6' ? (ins ? 'Chèn câu' : '') : '';
-  const gt = lg ? `<div class="rvgt"><p class="rvgh">💡 Chọn (${'ABCD'[ai]})${ins ? '' : ` ${esc(q.a)}`}${dang ? ` <span class="rvdang">· ${esc(dang)}</span>` : ''}</p>
+  const gt = lg ? `<div class="rvgt"><p class="rvgh">💡 Chọn (${'ABCD'[ai]})${ins || q.sec === 'p7' ? '' : ` ${esc(q.a)}`}${dang ? ` <span class="rvdang">· ${esc(dang)}</span>` : ''}</p>
     <p><b>Vì sao:</b> ${esc(lg.ly)}</p>${lg.ct ? `<p><b>Cấu trúc hay dùng:</b> ${esc(lg.ct)}</p>` : ''}<p><b>Dịch:</b> ${esc(lg.dich)}</p></div>`
     : why ? `<p class="mute" style="margin:4px 0 0">${esc(why)}</p>` : '';
   return `<div class="rvq"><p style="margin:12px 0 4px"><b>${q.n}.</b> ${q.sec === 'p6' ? '' : q.q}${pick == null ? ' <span class="mute">· bỏ trống</span>' : ''}</p>${ops}${gt}${ev ? `<p style="margin:4px 0 0">📍 Câu chứa đáp án: “${esc(ev)}”</p>` : ''}</div>`; }

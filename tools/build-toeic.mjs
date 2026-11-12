@@ -37,7 +37,7 @@ const p6Mk = x => { id(x); const n = (x.text.match(/\{\d\}/g) || []).length; if 
   const tw = new Set(cw(x.title + ' ' + x.text)); for (const g of gaps.filter(g => g.t === 'insert')) for (const s of g.o.filter(s => s !== g.a)) if (!cw(s).some(w => tw.has(w))) err.push(x.id + ': phương án câu chèn lạc đề: ' + s);
   return { ...x, gaps }; }, p6 = D.p6.map(p6Mk);
 const p7Mk = x => { id(x); if (!x.docs.length || x.qs.length < 2) err.push(x.id + ': thiếu văn bản / câu hỏi'); const T = docText(x);
-  const qs = x.qs.map(q => { mcOk(x, q); const ty = q.ty || q7Ty(q.q);
+  const qs = x.qs.map((q, qi) => { mcOk(x, q); const ty = q.ty || q7Ty(q.q); lgChk(x.id + ' câu ' + (qi + 1), [q.a, ...q.w], q.a, q.lg, true);   // v156: Part 7 — og = nghĩa 4 phương án; đáp án là cả câu nên ly không cần chép lại
     if (ty === 'syn') { const w = (q.q.match(/the word "([^"]+)"/i) || [])[1]; if (!w || !new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i').test(T)) err.push(x.id + ': từ gần nghĩa không có trong văn bản: ' + w); }
     if (ty === 'insert') { const m = ['[1]', '[2]', '[3]', '[4]']; if (!/"[^"]{10,}"/.test(q.q) || m.some(k => T.split(k).length !== 2) || ![q.a, ...q.w].every(o => m.includes(o)) || !m.includes(q.a)) err.push(x.id + ': câu chèn [1]–[4] hỏng'); }
     if (ty === 'intent') { const p = (q.q.match(/writes, "([^"]+)"/) || [])[1]; if (!p || !T.includes(p)) err.push(x.id + ': câu ý định: câu được trích không có trong tin nhắn'); }

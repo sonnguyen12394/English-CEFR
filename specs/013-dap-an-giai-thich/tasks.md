@@ -14,3 +14,5 @@
 **12/11/2026**: T001–T003 xong. Tên trường là `lg` (không phải `gt`: câu Part 6 của app đã dùng `q.gt` cho nhãn dạng chỗ trống). T004: test C71 + e2e bước câu 101, phát hành chờ người sáng lập xem trên iPhone.
 
 **12/11/2026 (tiếp)**: T005 (Part 5 Đề 2–8, 210 câu) và T006 (Part 6 cả 8 đề, 128 chỗ) soạn xong bằng Sonnet; test C71 yêu cầu đủ 368 câu. T007: soát ngẫu nhiên Part 5 8/240 khớp; còn soát Part 6 (~12 chỗ) bằng Opus, e2e, phát hành. Người sáng lập chưa xem mẫu trên iPhone nhưng chọn làm tiếp.
+
+**12/11/2026 (Part 7)**: người sáng lập chọn làm tiếp; chưa có thiết kế riêng cho Part 7 nên chọn og = nghĩa phương án, ly = vì sao, dich = dịch câu chứa đáp án. 432 câu xong (Đề 1–8). Còn: soát ngẫu nhiên Part 6 + 7 bằng Opus; Part 1–4 chưa làm.
