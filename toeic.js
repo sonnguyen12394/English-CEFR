@@ -46,7 +46,7 @@ const toP6Qs = x => x.gaps.map((g, i) => ({ x, sec: 'p6', gt: g.t, kind: 'mc', h
 const toDocs = x => x.docs.map(d => `<div class="box"><b style="font-size:15px">${esc(d.title)}</b><p class="tdtap" style="font-size:16px;line-height:1.6;margin:6px 0 0;white-space:pre-line">${esc(d.text)}</p></div>`).join('');
 // v139: câu chèn [1]–[4] giữ thứ tự phương án như đề thật (không xáo)
 const toOpts = q => { const o = [q.a, ...q.w]; return o.every(s => /^\[\d\]$/.test(s)) ? o.sort() : (typeof tqNat === 'function' && tqNat(o)) || shuf(o); };   // v153: số / giờ / ngày… xếp tăng dần như đề thật
-const toP7Qs = x => x.qs.map((q, i) => ({ x, sec: 'p7', qt: q.ty, kind: 'mc', head: `<p class="mute">Part 7 · ${esc(x.kind)} · câu ${i + 1}/${x.qs.length}${x.docs.length > 1 ? ' · có câu phải đối chiếu nhiều văn bản' : ''}</p>`, q: esc(q.q), opts: toOpts(q), a: q.a, why: q.why, ev: q.ev, foot: toDocs(x) }));
+const toP7Qs = x => x.qs.map((q, i) => ({ x, sec: 'p7', qt: q.ty, kind: 'mc', head: `<p class="mute">Part 7 · ${esc(x.kind)} · câu ${i + 1}/${x.qs.length}${x.docs.length > 1 ? ' · có câu phải đối chiếu nhiều văn bản' : ''}</p>`, q: esc(q.q), opts: toOpts(q), a: q.a, why: q.why, ev: q.ev, lg: q.lg, foot: toDocs(x) }));
 // chọn bài: chưa làm / làm lâu nhất / sai nhiều trước
 const toPick = (its, n) => { const R = toSt().r; return shuf(its).sort((a, b) => ((R[a.id] || {}).at || 0) - ((R[b.id] || {}).at || 0)).slice(0, n); };
 const toGen = { p1: n => toPick(TO.p1 || [], n).map(toP1Q), p2: n => toPick(TO.p2, n).map(toP2Q), p3: n => toPick(TO.p3, n).flatMap(x => toTalkQs(x, 'p3')), p4: n => toPick(TO.p4, n).flatMap(x => toTalkQs(x, 'p4')),
