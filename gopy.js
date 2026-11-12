@@ -161,13 +161,18 @@ async function gpFn(body) {
     if (error) { let d = null; try { d = await error.context.json(); } catch (e) {} return d && d.error ? d : { error: error.message, net: /fetch|network|Failed/i.test(error.message) }; }
     return data || { error: 'Không có trả lời.' }; }
   catch (e) { return { error: String(e.message || e), net: 1 }; } }
+const GP_ICLOUD = 'Không đọc được tệp này. Nếu tệp đang ở iCloud: mở app Tệp, chạm giữ tệp → Tải về ngay, đợi hết biểu tượng đám mây rồi chọn lại.';
+// v159: thử đọc đầu + cuối tệp; tệp iCloud chưa tải về / hỏng thì ném lỗi NotReadableError (iPhone) ngay khi chọn, không đợi tới lúc gửi.
+async function gpReadable(f) { try { await f.slice(0, 16).arrayBuffer(); if (f.size > 16) await f.slice(f.size - 16).arrayBuffer(); return true; } catch (e) { return false; } }
+const gpUnread = e => !!e && (e.name === 'NotReadableError' || e.name === 'NotFoundError' || e.name === 'SecurityError');
 async function gpSha(b) { const h = await crypto.subtle.digest('SHA-256', await b.arrayBuffer()); return [...new Uint8Array(h)].map(x => x.toString(16).padStart(2, '0')).join(''); }
 async function gpPick(f) {
   const t = document.getElementById('gytxt'); if (t) GY.txt = t.value; GY.msg = '';
   if (!f) return;
   if (!/\.pdf$/i.test(f.name) && f.type !== 'application/pdf') { GY.msg = 'Chỉ nhận tệp PDF.'; return gyDraw(); }
   if (f.size > GP_MAX) { GY.msg = `Tệp ${gpMB(f.size)} quá lớn. Tối đa ${gpMB(GP_MAX)}.`; return gyDraw(); }
-  if (!f.size) { GY.msg = 'Tệp rỗng.'; return gyDraw(); }
+  if (!f.size) { GY.msg = 'Tệp rỗng hoặc chưa tải về máy. ' + GP_ICLOUD; return gyDraw(); }
+  if (!(await gpReadable(f))) { GY.msg = GP_ICLOUD; return gyDraw(); }
   const name = (/\.pdf$/i.test(f.name) ? f.name : f.name + '.pdf').slice(-200);
   GY.pdf = { f, name, size: f.size, n: Math.ceil(f.size / GP_CH), info: null }; gyDraw();
   const r = await gpFn({ act: 'info' }); if (GY.pdf && GY.pdf.f === f) { GY.pdf.info = r && r.cap ? r : null; GY.pdf.net = !!(r && r.net); gyDraw(); } }
@@ -183,11 +188,14 @@ async function gpPut(t, blob) {
   for (let k = 0; k < GP_TRY; k++) {
     try { const r = await fetch(`${SB_URL}/storage/v1/object/upload/sign/gopy-pdf/${t.path}?token=${encodeURIComponent(t.token)}`, { method: 'PUT', headers: { apikey: SB_KEY, 'content-type': 'application/octet-stream' }, body: blob });
       if (r.ok) return true; const x = await r.text().catch(() => ''); if (/exist|duplicate/i.test(x)) return true; }
-    catch (e) {}
+    catch (e) { if (gpUnread(e)) throw e; }
     await new Promise(r => setTimeout(r, 1500 * (k + 1))); }
   return false; }
 // Lõi tải PDF (dùng chung: gửi góp ý mới, 🔄 thay tệp ở danh sách "Đã gửi"); ui.up(tiến độ), ui.fail(chữ báo lỗi); extra gửi kèm lệnh start (vd. { doi: id tệp cũ }).
 async function gpCore(P, ui, extra = {}) {
+  try { return await gpCoreRun(P, ui, extra); }
+  catch (e) { ui.fail(gpUnread(e) ? GP_ICLOUD : 'Chưa gửi được PDF: ' + String((e && e.message) || e).slice(0, 120)); return null; } }
+async function gpCoreRun(P, ui, extra = {}) {
   const f = P.f; let lock = null;
   const fail = m => { if (lock) lock.release().catch(() => {}); ui.fail(m); return null; };
   if (navigator.onLine === false) return fail('Gửi PDF cần mạng. Có mạng rồi bấm Gửi lại.');
@@ -291,8 +299,8 @@ async function gpsSave(pid) {
   if (s && s.ok) { gpsSet(cur, { txt: s.txt.slice(0, 80), pdf: { ...(gpsSent().find(y => y.pdf.id === cur) || {}).pdf, name: s.name } }); GPS.rows[cur] = { ...(GPS.rows[cur] || {}), name: s.name, txt: s.txt }; GPS.msg[cur] = nf ? 'Đã thay tệp và lưu.' : 'Đã lưu.'; }
   else GPS.msg[cur] = 'Chưa lưu được: ' + ((s && s.error) || '');
   gpsDraw(); }
-document.addEventListener('change', e => { const t = e.target.closest && e.target.closest('[data-gpf]'); if (!t) return; const f = t.files && t.files[0], pid = t.dataset.gpf; gpsKeep();
-  if (!f) return; if (!/\.pdf$/i.test(f.name) && f.type !== 'application/pdf') GPS.msg[pid] = 'Chỉ nhận tệp PDF.'; else if (f.size > GP_MAX) GPS.msg[pid] = `Tệp ${gpMB(f.size)} quá lớn. Tối đa ${gpMB(GP_MAX)}.`; else { GPS.nf[pid] = f; GPS.msg[pid] = ''; }
+document.addEventListener('change', async e => { const t = e.target.closest && e.target.closest('[data-gpf]'); if (!t) return; const f = t.files && t.files[0], pid = t.dataset.gpf; gpsKeep();
+  if (!f) return; if (!(await gpReadable(f))) GPS.msg[pid] = GP_ICLOUD; else if (!/\.pdf$/i.test(f.name) && f.type !== 'application/pdf') GPS.msg[pid] = 'Chỉ nhận tệp PDF.'; else if (f.size > GP_MAX) GPS.msg[pid] = `Tệp ${gpMB(f.size)} quá lớn. Tối đa ${gpMB(GP_MAX)}.`; else { GPS.nf[pid] = f; GPS.msg[pid] = ''; }
   gpsDraw(); });
 
 // 🗂 Quản lý góp ý: dòng 📄 + Xoá tệp (bấm 2 lần). Trạng thái lấy từ máy chủ (app không đọc được nội dung).

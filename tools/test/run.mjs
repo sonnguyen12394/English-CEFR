@@ -2299,5 +2299,27 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     } catch (e) { bad.push('lỗi: ' + e.message); }
     sb.functions.invoke = SB0; globalThis.fetch = F0; gyLS(GY_SENT, []); gpRec(null); return bad; })()`);
   R.push({ lv: 'cefr', id: 'C73', ok: !C73.length, msg: C73.length ? C73.slice(0, 8).join(' | ') : '📄 PDF trong danh sách Đã gửi: thẻ 👁 Xem (chỉ ≤ 50 MB) · ✏️ Sửa (tên + chữ) · 🔄 thay tệp (start.doi → doi, Đã gửi trỏ tệp mới) · 🗑 xoá 2 lần' }); }
+// v159 C74 📄 tệp trong máy không đọc được (iCloud chưa tải / hỏng): báo rõ ngay khi chọn và khi gửi, nút không đứng im (specs/015-gopy-pdf-drive, câu chuyện 2)
+{ const C74 = await run(`(async () => { const bad = [], SB0 = sb.functions.invoke, calls = [];
+    const mkBad = (n, name) => { const e = () => Promise.reject(Object.assign(new Error('x'), { name: 'NotReadableError' }));
+      return { name, size: n, lastModified: 3, type: 'application/pdf', slice: () => ({ size: Math.min(n, 25 * 1048576), arrayBuffer: e }) }; };
+    sb.functions.invoke = async (name, { body }) => { calls.push(body.act); return { data: body.act === 'info' ? { used: 0, cap: 800 * 1048576 } : { id: 'Z', n: 2, toks: [] }, error: null }; };
+    try {
+      // 1) chọn tệp không đọc được: không nhận, có câu hướng dẫn
+      GY.pdf = null; GY.msg = ''; await gpPick(mkBad(30 * 1048576, 'a.pdf'));
+      if (GY.pdf || !/Tải về ngay/.test(GY.msg)) bad.push('chọn tệp không đọc được: ' + GY.msg);
+      // 2) tệp rỗng (iCloud giữ chỗ): câu hướng dẫn
+      GY.msg = ''; await gpPick({ name: 'b.pdf', size: 0, type: 'application/pdf', slice: () => ({ arrayBuffer: async () => new ArrayBuffer(0) }) });
+      if (GY.pdf || !/Tải về ngay/.test(GY.msg)) bad.push('tệp rỗng: ' + GY.msg);
+      // 3) gửi tệp mà giữa chừng đọc lỗi: gpCore không ném, trả null, báo lỗi
+      let msg = ''; gpRec(null); const r = await gpCore({ f: mkBad(30 * 1048576, 'c.pdf'), name: 'c.pdf', size: 30 * 1048576, n: 2 }, { up() {}, fail: m => { msg = m; } });
+      if (r !== null || !/Tải về ngay/.test(msg)) bad.push('gửi tệp đọc lỗi: ' + JSON.stringify(r) + ' · ' + msg);
+      // 4) lỗi lạ: vẫn có câu báo, không ném
+      msg = ''; const f4 = { name: 'd.pdf', size: 30 * 1048576, lastModified: 4, slice: () => { throw new RangeError('lạ'); } };
+      const r4 = await gpCore({ f: f4, name: 'd.pdf', size: f4.size, n: 2 }, { up() {}, fail: m => { msg = m; } });
+      if (r4 !== null || !/Chưa gửi được PDF/.test(msg)) bad.push('lỗi lạ không báo: ' + msg);
+    } catch (e) { bad.push('lỗi ném ra: ' + e.message); }
+    sb.functions.invoke = SB0; GY.pdf = null; GY.msg = ''; gpRec(null); return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C74', ok: !C74.length, msg: C74.length ? C74.slice(0, 8).join(' | ') : '📄 tệp trong máy không đọc được (iCloud / hỏng / rỗng): báo "Tải về ngay" khi chọn và khi gửi, mọi lỗi lạ có câu báo, không ném lỗi làm nút đứng im' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

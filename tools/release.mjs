@@ -53,5 +53,6 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
   18. (v155) Thanh dưới 6 tab (🛡️ Kiểm đề sau 🎯 Luyện đề) vừa màn, không cắt chữ "Luyện đề", "Kiểm đề", "Tra cứu" (iPhone SE nếu có); mở 🛡️ Kiểm đề, mở một mục, bấm ✓ Đúng ý rồi ✗ Chưa đúng + ghi chú → hiện "Đã ghi"; Đề 7 Part 6: đáp án không còn dồn chữ A (bảng 📋 sau khi làm)
   19. (v156) Làm Đề 1 (hoặc chỉ Part 5) rồi nộp → 📋 Bài làm và đáp án → chạm câu 101–130: dưới mỗi phương án có loại từ + nghĩa, ô 💡 Chọn (X) · Vì sao · Cấu trúc hay dùng · Dịch đọc dễ, không tràn ngang; cuộn xuống cuối, nút 💬 không đè nút Sau ›; thử cả giao diện tối
   20. (v157) Bấm 💬 → hàng "📷 Ảnh 0/3 · 📄 PDF" một dòng; chọn một PDF ~100 MB qua Wi-Fi: thấy cỡ, số phần, chỗ còn trống; gửi: thanh tiến độ chạy, khoá màn rồi mở lại bấm Gửi lại thì tải tiếp; nhờ Claude "đọc PDF góp ý mới nhất".
+  21. (v159) 💬 → 📄 PDF: chọn một tệp còn biểu tượng đám mây (chưa tải về) trong app Tệp: app báo "Tải về ngay…" thay vì đứng im; tải về xong chọn lại thì gửi được.
   21. (v158) 👤 Tôi → ô 💬 Góp ý → Đã gửi: thẻ 📄 có 👁 Xem (tệp ≤ 50 MB: "📄 Mở PDF" mở được trên Safari), ✏️ Sửa tên + chữ, 🔄 thay tệp, 🗑 Xoá tệp.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);
