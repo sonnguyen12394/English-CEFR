@@ -2101,6 +2101,22 @@ const R = await run(`(async () => {
         for (const [o, want] of NT) { const g = tqNat(o); if ((g ? g.join('|') : null) !== want) bad.push('tqNat ' + o.join(' · ') + ' → ' + (g ? g.join(' · ') : 'null')); }
       } catch (e) { bad.push('lỗi: ' + e.message); }
       S = S1; TR.B = {}; TR.D = {}; globalThis.C70A = { bad, opts }; }
+    // v156 C71 (specs/013-dap-an-giai-thich): lời giải chi tiết lg ở 📋 Bài làm và đáp án. Mọi câu có lg: og đủ nghĩa đúng 4 phương án app hiện, ly nhắc đáp án (trừ câu chèn), có dịch;
+    //   màn xem lại hiện thẻ (nghĩa dưới mỗi phương án, 💡 Chọn (X), Vì sao, Dịch); câu chưa có lg vẫn hiện why. Part 5 + 6 + 7 của cả 8 đề đủ lời giải (240 + 128 + 432 = 800 câu)
+    { const bad = [], S1 = S; let nlg = 0;
+      try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad();
+        for (const d of TO.tron) { if (d.f && !(await trLoad(d.id))) { bad.push(d.id + ': không tải được'); continue; }
+          for (const q of trB(d.id).Q) { const lg = q.lg; if (!lg) continue; nlg++; const ks = Object.keys(lg.og || {}), ins = (q.sec === 'p6' && q.gt === 'insert') || q.sec === 'p7';   // Part 7: đáp án là cả câu, ly không cần chép lại
+            if (ks.length !== 4 || q.opts.some(o => !lg.og[o])) bad.push(d.id + ' câu ' + q.n + ': og không khớp 4 phương án');
+            if (!lg.ly || !lg.dich || (!ins && !lg.ly.toLowerCase().includes(String(q.a).toLowerCase()))) bad.push(d.id + ' câu ' + q.n + ': thiếu ly / dich hoặc ly không nhắc đáp án'); } }
+        for (const d of TO.tron) { const Q5 = trB(d.id).Q.filter(q => q.sec === 'p5'); if (Q5.length !== 30 || Q5.some(q => !q.lg)) bad.push(d.id + ' Part 5 chưa đủ lời giải: ' + Q5.filter(q => q.lg).length + '/30'); const Q6 = trB(d.id).Q.filter(q => q.sec === 'p6'); if (Q6.length !== 16 || Q6.some(q => !q.lg)) bad.push(d.id + ' Part 6 chưa đủ lời giải: ' + Q6.filter(q => q.lg).length + '/16'); const Q7 = trB(d.id).Q.filter(q => q.sec === 'p7'); if (Q7.length !== 54 || Q7.some(q => !q.lg)) bad.push(d.id + ' Part 7 chưa đủ lời giải: ' + Q7.filter(q => q.lg).length + '/54'); }
+        trStart('de1'); const st = trSt(); for (const q of trB('de1').Q) st.ans[q.n] = q.opts.find(o => o !== q.a); st.ph = 'R'; st.rAt = Date.now(); trSubmit(false); await trSheet('de1', null);
+        trRv('de1', 103); let h = String($app.innerHTML); const q = trB('de1').Q[102];
+        if ((h.match(/class="rvog"/g) || []).length !== 4 || !h.includes('💡 Chọn (' + 'ABCD'[q.opts.indexOf(q.a)] + ')') || !h.includes('Vì sao:') || !h.includes('Dịch:') || !h.includes('✗ Bạn chọn')) bad.push('thẻ lời giải câu 103 thiếu phần');
+        trRv('de1', 160); h = String($app.innerHTML); if ((h.match(/class="rvog"/g) || []).length < 4 || !h.includes('Vì sao:') || !h.includes('Dịch:')) bad.push('thẻ lời giải Part 7 (câu 160) thiếu phần');
+        const nolg = trB('de1').Q.find(q => !q.lg && q.why && /^p[5-7]$/.test(q.sec)); if (nolg) { trRv('de1', nolg.n); h = String($app.innerHTML); if (h.includes('class="rvgt"') || !h.includes(esc(nolg.why))) bad.push('câu chưa có lời giải không còn hiện why'); }
+      } catch (e) { bad.push('lỗi: ' + e.message); }
+      S = S1; TR.B = {}; TR.D = {}; TR.k = 1; out.push({ lv: 'cefr', id: 'C71', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '📋 lời giải chi tiết: ' + nlg + ' câu có lg đủ nghĩa 4 phương án, vì sao nhắc đáp án, dịch; thẻ hiện ở màn xem lại; câu chưa có lời giải vẫn hiện giải thích ngắn' }); }
   return out; })()`);
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];
@@ -2211,9 +2227,12 @@ const R = await run(`(async () => {
   if (KD.de.length !== T.length) bad.push('kiemde.json thiếu đề');
   globalThis.C70 = { bad, nq, nm: SL.muc.length }; }
 R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.bad.slice(0, 8).join(' | ') : `cân bằng vị trí đáp án: mọi Part của 8 đề trong ngưỡng, app và máy kiểm cùng chữ ở ${C70.nq} câu, bài làm cũ đổi chữ đúng, xếp số mới (số chữ, giờ chữ, thời lượng, nhãn); sổ lỗi ${C70.nm} mục hợp lệ, kiemde.json khớp nguồn và máy kiểm` });
-// v156 C71 📄 góp ý kèm PDF lớn (specs/013-gopy-pdf-lon): cắt mảnh 25 MB đúng cỡ + SHA-256, rớt mạng thử lại, tải tiếp phần thiếu, kho đầy chặn trước khi tải, chỉ nhận PDF.
+// v156 C71 phần node: lời giải lg không vào dấu nội dung (thêm / sửa lời giải không phải giải mù lại, không đổi "đã xem")
+{ const K = await import('../kiem-toeic.mjs'), x = { id: 'x', s: 'A -------.', o: ['a', 'b', 'c', 'd'], a: 'a', why: 'w' }, u = { x }, u2 = { x: { ...x, lg: { og: { a: '1' }, ly: 'a', dich: 'd' } } };
+  const c = R.find(r => r.id === 'C71'); if (c && (K.dau(u) !== K.dau(u2) || K.dau(u, true) !== K.dau(u2, true))) { c.ok = false; c.msg = 'lg làm đổi dấu nội dung (strip ở kiem-toeic.mjs)'; } }
+// v157 C72 📄 góp ý kèm PDF lớn (specs/014-gopy-pdf-lon): cắt mảnh 25 MB đúng cỡ + SHA-256, rớt mạng thử lại, tải tiếp phần thiếu, kho đầy chặn trước khi tải, chỉ nhận PDF.
 { const { webcrypto } = await import('node:crypto'); ctx.crypto.subtle = webcrypto.subtle; ctx.TextEncoder = TextEncoder; ctx.Uint8Array = Uint8Array;
-  const C71 = await run(`(async () => { const bad = [], CH = GP_CH, SB0 = sb.functions.invoke, F0 = globalThis.fetch;
+  const C72 = await run(`(async () => { const bad = [], CH = GP_CH, SB0 = sb.functions.invoke, F0 = globalThis.fetch;
     const mk = (n, name = 'tai-lieu.pdf') => { const b = new Blob([new Uint8Array(n).map((_, i) => i % 251)]); b.name = name; b.lastModified = 7; return b; };
     const hex = async b => [...new Uint8Array(await crypto.subtle.digest('SHA-256', await b.arrayBuffer()))].map(x => x.toString(16).padStart(2, '0')).join('');
     let srv, puts, failIdx;
@@ -2250,9 +2269,9 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       if (!/60 MB · chia 3 phần để tải · kho còn 700 MB/.test(gpBox())) bad.push('ô PDF thiếu thông tin: ' + gpBox().replace(/<[^>]+>/g, ' ').slice(0, 120));
     } catch (e) { bad.push('lỗi: ' + e.message); }
     sb.functions.invoke = SB0; globalThis.fetch = F0; GY.pdf = null; GY.msg = ''; gpRec(null); return bad; })()`);
-  R.push({ lv: 'cefr', id: 'C71', ok: !C71.length, msg: C71.length ? C71.slice(0, 8).join(' | ') : '📄 góp ý kèm PDF lớn: cắt 25 MB đúng cỡ + SHA-256, rớt mạng tự thử lại, mất mạng giữ tiến độ và tải tiếp chỉ phần thiếu, kho đầy chặn trước khi tải, chỉ nhận PDF ≤ 450 MB' }); }
-// v157 C72 📄 PDF trong danh sách "Đã gửi": thẻ có 👁 Xem (≤ 50 MB) · ✏️ Sửa · 🗑 Xoá; sửa gửi đúng lệnh; thay tệp → doi + cập nhật; xoá 2 lần
-{ const C72 = await run(`(async () => { const bad = [], SB0 = sb.functions.invoke, calls = [];
+  R.push({ lv: 'cefr', id: 'C72', ok: !C72.length, msg: C72.length ? C72.slice(0, 8).join(' | ') : '📄 góp ý kèm PDF lớn: cắt 25 MB đúng cỡ + SHA-256, rớt mạng tự thử lại, mất mạng giữ tiến độ và tải tiếp chỉ phần thiếu, kho đầy chặn trước khi tải, chỉ nhận PDF ≤ 450 MB' }); }
+// v158 C73 📄 PDF trong danh sách "Đã gửi": thẻ có 👁 Xem (≤ 50 MB) · ✏️ Sửa · 🗑 Xoá; sửa gửi đúng lệnh; thay tệp → doi + cập nhật; xoá 2 lần
+{ const C73 = await run(`(async () => { const bad = [], SB0 = sb.functions.invoke, calls = [];
     const mk = (n, name) => { const b = new Blob([new Uint8Array(n)]); b.name = name; b.lastModified = 1; return b; };
     gyLS(GY_SENT, [{ id: 9, t: 1, kind: 'loi', txt: 'chữ cũ', n: 0, pdf: { id: 'A', name: 'a.pdf', size: 30 * 1048576, n: 2 } }, { id: 10, t: 2, kind: 'loi', txt: 'lớn', n: 0, pdf: { id: 'B', name: 'b.pdf', size: 60 * 1048576, n: 3 } }]);
     sb.functions.invoke = async (name, { body }) => { calls.push(body); const d = x => ({ data: x, error: null });
@@ -2279,6 +2298,6 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       if (!calls.some(c => c.act === 'xoa' && c.id === 'C') || !gyLS(GY_SENT)[0].pdf.del) bad.push('xoá 2 lần chưa xoá');
     } catch (e) { bad.push('lỗi: ' + e.message); }
     sb.functions.invoke = SB0; globalThis.fetch = F0; gyLS(GY_SENT, []); gpRec(null); return bad; })()`);
-  R.push({ lv: 'cefr', id: 'C72', ok: !C72.length, msg: C72.length ? C72.slice(0, 8).join(' | ') : '📄 PDF trong danh sách Đã gửi: thẻ 👁 Xem (chỉ ≤ 50 MB) · ✏️ Sửa (tên + chữ) · 🔄 thay tệp (start.doi → doi, Đã gửi trỏ tệp mới) · 🗑 xoá 2 lần' }); }
+  R.push({ lv: 'cefr', id: 'C73', ok: !C73.length, msg: C73.length ? C73.slice(0, 8).join(' | ') : '📄 PDF trong danh sách Đã gửi: thẻ 👁 Xem (chỉ ≤ 50 MB) · ✏️ Sửa (tên + chữ) · 🔄 thay tệp (start.doi → doi, Đã gửi trỏ tệp mới) · 🗑 xoá 2 lần' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

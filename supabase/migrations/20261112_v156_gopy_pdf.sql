@@ -1,4 +1,4 @@
--- v156 📄 Góp ý kèm PDF lớn (specs/013-gopy-pdf-lon). Gói Free: 50 MB / tệp, 1 GB tổng.
+-- v157 📄 Góp ý kèm PDF lớn (specs/014-gopy-pdf-lon). Gói Free: 50 MB / tệp, 1 GB tổng.
 -- App cắt PDF thành mảnh ≤ 25 MB, tải bằng đường có ký tên do hàm gopy-pdf cấp. App KHÔNG đọc / xoá / ghi thẳng được kho.
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values ('gopy-pdf', 'gopy-pdf', false, 27262976, array['application/octet-stream'])
@@ -41,7 +41,7 @@ create table if not exists public.gopy_pdf_key (k text primary key, at timestamp
 alter table public.gopy_pdf_key enable row level security;
 revoke all on public.gopy_pdf_key from anon, authenticated;
 
--- v157: giữ chỗ khi THAY tệp: bỏ qua tệp cũ (p_skip) khi tính trần và số tệp (thay được cả khi đang có 2 tệp).
+-- v158: giữ chỗ khi THAY tệp: bỏ qua tệp cũ (p_skip) khi tính trần và số tệp (thay được cả khi đang có 2 tệp).
 create or replace function public.gopy_pdf_giu2(p_uid uuid, p_name text, p_size bigint, p_n int, p_parts jsonb, p_cap bigint, p_max_dang int, p_max_du int, p_skip uuid default null)
 returns jsonb language plpgsql security definer set search_path = public as $$
 declare used bigint; nd int; nu int; nid uuid;

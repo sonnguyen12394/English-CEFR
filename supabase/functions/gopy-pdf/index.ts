@@ -1,8 +1,8 @@
-// 📄 Góp ý kèm PDF lớn (v156, specs/013-gopy-pdf-lon). Gói Supabase Free: 50 MB / tệp, 1 GB tổng.
+// 📄 Góp ý kèm PDF lớn (v157, specs/014-gopy-pdf-lon). Gói Supabase Free: 50 MB / tệp, 1 GB tổng.
 // App cắt PDF thành mảnh CH = 25 MB, hàm này giữ chỗ (trần CAP), cấp đường tải lên có ký tên từng mảnh, kiểm đủ mảnh.
 // App không đọc lại được mảnh nào (tài liệu riêng tư; mọi máy đang dùng chung tài khoản). Claude đọc / xoá qua header x-pdf-key: khoá tạm trong bảng gopy_pdf_key (Claude tạo bằng SQL, hết hạn 24 giờ) hoặc secret PDF_CLAUDE_KEY nếu có.
 // Vào (app, cần JWT): { act: 'info' } · { act: 'st', ids } · { act: 'start', name, size, parts: [{ size, sha }], thay? } · { act: 'sign', id, need: [i] } · { act: 'done', id } · { act: 'xoa', id }
-// v157 (người gửi): { act: 'mo', id } ≤ 50 MB · { act: 'sua', id, name?, txt? } · { act: 'doi', old, id } · start { doi: id cũ }
+// v158 (người gửi): { act: 'mo', id } ≤ 50 MB · { act: 'sua', id, name?, txt? } · { act: 'doi', old, id } · start { doi: id cũ }
 // Vào (Claude, x-pdf-key): { act: 'list' } · { act: 'get', id } · { act: 'del', id }
 import { createClient } from "npm:@supabase/supabase-js@2.45.4";
 
@@ -74,7 +74,7 @@ Deno.serve(async (req) => {
         if (Number(parts[i]?.size) !== want || !/^[0-9a-f]{64}$/.test(String(parts[i]?.sha || ""))) return out({ error: "Sai bản kê mảnh." }, 400); }
       if (body.thay) { const { data: mine } = await db.from("gopy_pdf").select("id,n").eq("st", "dang").eq("uid", user.id); for (const r of mine || []) await rm(r); }   // bỏ tệp dở cũ của mình
       const pk = parts.map((p: { size: number; sha: string }, i: number) => ({ i, size: Number(p.size), sha: String(p.sha) }));
-      let skip = null;   // v157: thay tệp: tệp cũ (của mình, còn) không tính vào trần
+      let skip = null;   // v158: thay tệp: tệp cũ (của mình, còn) không tính vào trần
       if (body.doi) { const { data: o } = await db.from("gopy_pdf").select("id,uid,st").eq("id", String(body.doi)).maybeSingle(); if (o && o.uid === user.id && o.st !== "xoa") skip = o.id; }
       const { data: g, error: ge } = await db.rpc("gopy_pdf_giu2", { p_uid: user.id, p_name: name, p_size: size, p_n: n, p_parts: pk, p_cap: CAP, p_max_dang: MAX_DANG, p_max_du: MAX_DU, p_skip: skip });
       if (ge) return out({ error: ge.message }, 500);
@@ -91,13 +91,13 @@ Deno.serve(async (req) => {
       return out({ ok: true }); }
     if (r.uid !== user.id) return out({ error: "Không phải tệp của bạn." }, 403);
     const gRow = async (pid: string) => { const { data } = await db.from("gopy").select("id,txt,ctx").eq("ctx->pdf->>id", pid).limit(1); return data && data[0]; };
-    if (act === "mo") {   // v157: xem trong app, chỉ tệp ≤ 50 MB
+    if (act === "mo") {   // v158: xem trong app, chỉ tệp ≤ 50 MB
       if (r.st !== "du") return out({ error: "Tệp chưa đủ phần hoặc đã xoá." }, 409);
       if (r.size > VIEW) return out({ error: "lon" }, 413);
       const urls = []; for (let i = 0; i < r.n; i++) { const { data, error } = await st.createSignedUrl(pth(r.id, i), 600); if (error) return out({ error: error.message }, 500); urls.push(data.signedUrl); }
       return out({ urls, parts: r.parts, name: r.name, size: r.size });
     }
-    if (act === "sua") {   // v157: đổi tên tệp + sửa chữ góp ý
+    if (act === "sua") {   // v158: đổi tên tệp + sửa chữ góp ý
       const name = body.name != null ? okName(body.name) : r.name; if (!name) return out({ error: "Tên tệp trống." }, 400);
       const g = await gRow(r.id); let txt = g ? g.txt : "";
       if (body.txt != null) { txt = String(body.txt).trim().slice(0, 4000); if (!txt) return out({ error: "Nội dung góp ý trống." }, 400); }
@@ -106,7 +106,7 @@ Deno.serve(async (req) => {
       if (g) await db.from("gopy").update({ txt, ctx: { ...g.ctx, pdf: { ...g.ctx.pdf, name } } }).eq("id", g.id);
       return out({ ok: true, name, txt, gid: g ? g.id : null });
     }
-    if (act === "doi") {   // v157: góp ý trỏ sang tệp mới (đã đủ phần), xoá tệp cũ
+    if (act === "doi") {   // v158: góp ý trỏ sang tệp mới (đã đủ phần), xoá tệp cũ
       if (r.st !== "du") return out({ error: "Tệp mới chưa đủ phần." }, 409);
       const { data: o } = await db.from("gopy_pdf").select("*").eq("id", String(body.old || "")).maybeSingle();
       if (!o || o.uid !== user.id) return out({ error: "Không phải tệp của bạn." }, 403);

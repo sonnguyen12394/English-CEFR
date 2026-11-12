@@ -111,7 +111,18 @@
       "freedom"
      ],
      "a": "free of",
-     "why": "free of charge = miễn phí."
+     "why": "free of charge = miễn phí.",
+     "lg": {
+      "og": {
+       "free of": "cụm: miễn / không mất (free of charge)",
+       "free from": "cụm: không có (free from + điều xấu)",
+       "freely": "trạng từ: một cách tự do",
+       "freedom": "danh từ: sự tự do"
+      },
+      "ly": "Cụm cố định là free of charge = miễn phí. free from dùng cho điều xấu (free from worry), freely là trạng từ, freedom là danh từ, đều không hợp với charge.",
+      "ct": "free of charge = miễn phí · before January 31 = trước ngày 31 tháng 1",
+      "dich": "Hội viên mới đăng ký trước ngày 31 tháng 1 sẽ được miễn phí tháng đầu tiên."
+     }
     },
     {
      "o": [
@@ -121,7 +132,18 @@
       "These trainers have helped thousands of people reach their goals."
      ],
      "a": "In addition, every new member gets a free fitness assessment.",
-     "why": "\"In addition\" thêm một quà nữa cho hội viên mới, nối ưu đãi tháng đầu với câu huấn luyện viên lập kế hoạch. Hồ bơi đóng mùa đông và hết lớp nhóm ngược với câu đầu; \"These trainers\" nhắc huấn luyện viên trước khi câu sau giới thiệu."
+     "why": "\"In addition\" thêm một quà nữa cho hội viên mới, nối ưu đãi tháng đầu với câu huấn luyện viên lập kế hoạch. Hồ bơi đóng mùa đông và hết lớp nhóm ngược với câu đầu; \"These trainers\" nhắc huấn luyện viên trước khi câu sau giới thiệu.",
+     "lg": {
+      "og": {
+       "In addition, every new member gets a free fitness assessment.": "Ngoài ra, mỗi hội viên mới được đánh giá thể lực miễn phí.",
+       "The heated indoor pool will close for the winter.": "Bể bơi nước nóng trong nhà sẽ đóng cửa mùa đông.",
+       "However, group classes are no longer available.": "Tuy nhiên, các lớp nhóm không còn nữa.",
+       "These trainers have helped thousands of people reach their goals.": "Các huấn luyện viên này đã giúp hàng nghìn người đạt mục tiêu."
+      },
+      "ly": "Câu chèn thêm ưu đãi cho hội viên mới. Câu sau nói \"Our certified trainers\" nên chưa thể có \"These trainers\" trước đó; \"bể bơi đóng cửa\" và \"lớp nhóm không còn\" ngược với phần quảng cáo.",
+      "ct": "In addition, + câu = ngoài ra (thêm ưu đãi)",
+      "dich": "Ngoài ra, mỗi hội viên mới sẽ được đánh giá thể lực miễn phí."
+     }
     },
     {
      "o": [
@@ -131,7 +153,18 @@
       "each of"
      ],
      "a": "every",
-     "why": "every + danh từ số ít: every morning and evening (mỗi sáng và tối). either phải đi với or; several cần danh từ số nhiều (several mornings); each of cần the / danh từ số nhiều."
+     "why": "every + danh từ số ít: every morning and evening (mỗi sáng và tối). either phải đi với or; several cần danh từ số nhiều (several mornings); each of cần the / danh từ số nhiều.",
+     "lg": {
+      "og": {
+       "every": "từ hạn định: mỗi (+ danh từ số ít)",
+       "either": "từ hạn định: một trong hai",
+       "several": "từ hạn định: vài (+ số nhiều)",
+       "each of": "cụm: mỗi (+ the + số nhiều)"
+      },
+      "ly": "Sau chỗ trống là danh từ số ít morning and evening với nghĩa \"mỗi buổi sáng và tối\": every. either dùng với hai lựa chọn, several cần số nhiều, each of cần the + danh từ số nhiều.",
+      "ct": "every + N số ít = mỗi … · suit your schedule = hợp lịch của bạn",
+      "dich": "Các lớp học được tổ chức vào mỗi buổi sáng và tối, nên bạn luôn tìm được giờ hợp lịch."
+     }
     },
     {
      "o": [
@@ -141,7 +174,18 @@
       "schedules"
      ],
      "a": "schedule",
-     "why": "to + động từ nguyên mẫu: to schedule a tour."
+     "why": "to + động từ nguyên mẫu: to schedule a tour.",
+     "lg": {
+      "og": {
+       "schedule": "động từ nguyên mẫu: đặt lịch",
+       "scheduling": "V-ing / danh từ",
+       "scheduled": "V3: được lên lịch",
+       "schedules": "danh từ số nhiều / động từ ngôi thứ ba"
+      },
+      "ly": "Sau to cần động từ nguyên mẫu có tân ngữ a free tour: schedule a free tour (đặt lịch tham quan miễn phí). scheduling, scheduled, schedules không đứng sau to trong cấu trúc này.",
+      "ct": "Visit our website to + V = vào trang web để … · schedule a tour = đặt lịch tham quan",
+      "dich": "Hãy truy cập trang web của chúng tôi để đặt lịch tham quan miễn phí."
+     }
     }
    ]
   },
@@ -255,7 +299,18 @@
       "largely"
      ],
      "a": "largest",
-     "why": "the company's + so sánh nhất: largest."
+     "why": "the company's + so sánh nhất: largest.",
+     "lg": {
+      "og": {
+       "largest": "so sánh nhất: lớn nhất",
+       "larger": "so sánh hơn",
+       "large": "tính từ nguyên dạng",
+       "largely": "trạng từ: phần lớn"
+      },
+      "ly": "Có the và \"in the region\" (trong khu vực) nên cần so sánh nhất: the largest. larger dùng khi so hai đối tượng, large là dạng gốc, largely là trạng từ.",
+      "ct": "the + so sánh nhất + in + phạm vi = … nhất trong … · processing plant = nhà máy chế biến",
+      "dich": "Cơ sở này, dự kiến tốn 40 triệu đô la, sẽ là nhà máy lớn nhất của công ty trong khu vực."
+     }
     },
     {
      "o": [
@@ -265,7 +320,18 @@
       "among"
      ],
      "a": "within",
-     "why": "within eighteen months = trong vòng 18 tháng."
+     "why": "within eighteen months = trong vòng 18 tháng.",
+     "lg": {
+      "og": {
+       "within": "giới từ: trong vòng",
+       "until": "giới từ: cho đến khi",
+       "since": "giới từ: kể từ",
+       "among": "giới từ: giữa nhiều đối tượng"
+      },
+      "ly": "Sau chỗ trống là khoảng thời gian eighteen months, nghĩa là hoàn thành trong vòng mười tám tháng: within. until, since, among không đi với khoảng thời gian theo nghĩa này.",
+      "ct": "be completed within + khoảng thời gian = hoàn thành trong vòng … · construction = việc xây dựng",
+      "dich": "Việc xây dựng sẽ bắt đầu vào tháng 5 và dự kiến hoàn thành trong vòng mười tám tháng."
+     }
     },
     {
      "o": [
@@ -275,7 +341,18 @@
       "As a result, the company has decided to cancel the project."
      ],
      "a": "Once open, the plant will employ about 300 people.",
-     "why": "Câu chèn nói kết quả khi nhà máy xong (khoảng 300 việc làm), trước câu giải thích lý do chọn Dalton. Nhà máy đã chạy 10 năm, đã xây xong, huỷ dự án đều ngược với bản tin."
+     "why": "Câu chèn nói kết quả khi nhà máy xong (khoảng 300 việc làm), trước câu giải thích lý do chọn Dalton. Nhà máy đã chạy 10 năm, đã xây xong, huỷ dự án đều ngược với bản tin.",
+     "lg": {
+      "og": {
+       "Once open, the plant will employ about 300 people.": "Khi đã mở, nhà máy sẽ thuê khoảng 300 người.",
+       "The plant has already been producing food for ten years.": "Nhà máy đã sản xuất thực phẩm được mười năm.",
+       "Construction was finished last month, ahead of schedule.": "Việc xây dựng đã xong tháng trước, sớm hơn kế hoạch.",
+       "As a result, the company has decided to cancel the project.": "Vì vậy, công ty quyết định huỷ dự án."
+      },
+      "ly": "Nhà máy chưa xây (bắt đầu tháng 5), nên câu chèn nói về tương lai: khi mở sẽ thuê khoảng 300 người. \"đã sản xuất mười năm\", \"đã xây xong\" sai thời điểm, \"huỷ dự án\" ngược với thông báo xây nhà máy.",
+      "ct": "Câu chèn phải hợp thời điểm của đoạn văn",
+      "dich": "Khi đi vào hoạt động, nhà máy sẽ thuê khoảng 300 người."
+     }
     },
     {
      "o": [
@@ -285,7 +362,18 @@
       "approximate"
      ],
      "a": "proximity",
-     "why": "its + danh từ: proximity to = gần với."
+     "why": "its + danh từ: proximity to = gần với.",
+     "lg": {
+      "og": {
+       "proximity": "danh từ: sự gần (proximity to)",
+       "proximate": "tính từ: gần nhất",
+       "approximately": "trạng từ: xấp xỉ",
+       "approximate": "tính từ: xấp xỉ"
+      },
+      "ly": "Sau its và trước to major highways cần danh từ: proximity to = sự gần với các đường cao tốc lớn. proximate và approximate là tính từ, approximately là trạng từ.",
+      "ct": "proximity to + N = sự gần … · be chosen because of + N = được chọn vì …",
+      "dich": "Chủ tịch công ty Maria Solano nói Dalton được chọn vì gần các đường cao tốc lớn và có lực lượng lao động lành nghề."
+     }
     }
    ]
   },
@@ -399,7 +487,18 @@
       "impression"
      ],
      "a": "impressed",
-     "why": "be impressed with: ấn tượng với (tính từ -ed chỉ cảm xúc của người)."
+     "why": "be impressed with: ấn tượng với (tính từ -ed chỉ cảm xúc của người).",
+     "lg": {
+      "og": {
+       "impressed": "tính từ: ấn tượng (người cảm nhận)",
+       "impressive": "tính từ: gây ấn tượng",
+       "impressing": "V-ing",
+       "impression": "danh từ: ấn tượng"
+      },
+      "ly": "Chủ ngữ We (người) cảm nhận được ấn tượng, và có very đứng trước: be impressed with = ấn tượng với. impressive miêu tả vật gây ấn tượng (your experience), impression là danh từ.",
+      "ct": "be impressed with + N = ấn tượng với … · would like to invite … = muốn mời …",
+      "dich": "Chúng tôi rất ấn tượng với kinh nghiệm của bạn và muốn mời bạn dự phỏng vấn vào lúc 10 giờ sáng thứ Ba, ngày 12 tháng 5."
+     }
     },
     {
      "o": [
@@ -409,7 +508,18 @@
       "We have already filled the warehouse supervisor position."
      ],
      "a": "You will meet the operations manager and two team leaders.",
-     "why": "Câu chèn nói ai sẽ phỏng vấn, nối với câu sau về thời lượng buổi phỏng vấn. Ba câu kia ngược với thư mời: không mời phỏng vấn, phỏng vấn đã diễn ra, đã tuyển xong."
+     "why": "Câu chèn nói ai sẽ phỏng vấn, nối với câu sau về thời lượng buổi phỏng vấn. Ba câu kia ngược với thư mời: không mời phỏng vấn, phỏng vấn đã diễn ra, đã tuyển xong.",
+     "lg": {
+      "og": {
+       "You will meet the operations manager and two team leaders.": "Bạn sẽ gặp giám đốc vận hành và hai trưởng nhóm.",
+       "Unfortunately, we have decided not to offer you an interview.": "Rất tiếc, chúng tôi quyết định không mời bạn phỏng vấn.",
+       "Your interview with our team took place last Tuesday.": "Buổi phỏng vấn của bạn với nhóm chúng tôi đã diễn ra thứ Ba tuần trước.",
+       "We have already filled the warehouse supervisor position.": "Chúng tôi đã tuyển xong vị trí giám sát kho."
+      },
+      "ly": "Đây là thư mời phỏng vấn sắp tới nên câu chèn mô tả điều sắp xảy ra: sẽ gặp ai. Ba câu còn lại mâu thuẫn với thư mời (từ chối, đã diễn ra, đã tuyển xong).",
+      "ct": "Câu chèn phải đúng mục đích của cả thư",
+      "dich": "Bạn sẽ gặp giám đốc vận hành và hai trưởng nhóm."
+     }
     },
     {
      "o": [
@@ -419,7 +529,18 @@
       "certifying"
      ],
      "a": "certificates",
-     "why": "any + danh từ: any certificates (chứng chỉ)."
+     "why": "any + danh từ: any certificates (chứng chỉ).",
+     "lg": {
+      "og": {
+       "certificates": "danh từ số nhiều: chứng chỉ",
+       "certify": "động từ: chứng nhận",
+       "certified": "V3 / tính từ: được chứng nhận",
+       "certifying": "V-ing"
+      },
+      "ly": "Sau any (không có mạo từ) và trước mệnh đề you have received cần danh từ: certificates (các chứng chỉ bạn đã nhận). certify là động từ, certified và certifying là dạng động từ.",
+      "ct": "bring + N = mang theo · any + N số nhiều (certificates) you have received",
+      "dich": "Vui lòng mang theo bản sao bằng lái xe và mọi chứng chỉ bạn đã nhận."
+     }
     },
     {
      "o": [
@@ -429,7 +550,18 @@
       "during"
      ],
      "a": "by",
-     "why": "by + thời hạn: trả lời trước / chậm nhất thứ Sáu."
+     "why": "by + thời hạn: trả lời trước / chậm nhất thứ Sáu.",
+     "lg": {
+      "og": {
+       "by": "giới từ: trước, chậm nhất là",
+       "until": "giới từ: cho tới khi",
+       "since": "giới từ: kể từ",
+       "during": "giới từ: trong suốt"
+      },
+      "ly": "Phản hồi là hành động một lần, có hạn chót: by Friday = chậm nhất vào thứ Sáu. until chỉ việc kéo dài liên tục, since cần mốc quá khứ, during cần khoảng thời gian.",
+      "ct": "reply by + ngày = trả lời chậm nhất vào … · convenient = thuận tiện",
+      "dich": "Nếu thời gian này không thuận tiện, vui lòng trả lời e-mail này chậm nhất vào thứ Sáu."
+     }
     }
    ]
   },
@@ -495,7 +627,18 @@
       "avail"
      ],
      "a": "unavailable",
-     "why": "be + tính từ: may be unavailable (có thể không dùng được)."
+     "why": "be + tính từ: may be unavailable (có thể không dùng được).",
+     "lg": {
+      "og": {
+       "unavailable": "tính từ: không sử dụng được",
+       "unavailability": "danh từ: tình trạng không có sẵn",
+       "unavailably": "trạng từ (không chuẩn)",
+       "avail": "động từ / danh từ: ích lợi"
+      },
+      "ly": "Sau may be cần tính từ: your internet service may be unavailable (có thể không sử dụng được). unavailability là danh từ, avail là động từ.",
+      "ct": "may be + tính từ = có thể … · carry out maintenance = thực hiện bảo trì",
+      "dich": "Trong thời gian này, dịch vụ internet của bạn có thể không sử dụng được."
+     }
     },
     {
      "o": [
@@ -505,7 +648,18 @@
       "Your service will therefore not be affected at all."
      ],
      "a": "The work will make your connection faster and more reliable.",
-     "why": "Câu chèn nói lợi ích của việc bảo trì, trước câu dặn khởi động lại modem. Bảo trì đã xong ngược với \"will carry out\"; nhiều khách online ngược với câu trước; \"không ảnh hưởng gì\" ngược với \"may be unavailable\"."
+     "why": "Câu chèn nói lợi ích của việc bảo trì, trước câu dặn khởi động lại modem. Bảo trì đã xong ngược với \"will carry out\"; nhiều khách online ngược với câu trước; \"không ảnh hưởng gì\" ngược với \"may be unavailable\".",
+     "lg": {
+      "og": {
+       "The work will make your connection faster and more reliable.": "Công việc này sẽ làm kết nối của bạn nhanh và ổn định hơn.",
+       "The maintenance was completed successfully last Saturday.": "Việc bảo trì đã hoàn thành thành công thứ Bảy tuần trước.",
+       "Most of our customers are online at this time of night.": "Hầu hết khách của chúng tôi trực tuyến vào giờ này ban đêm.",
+       "Your service will therefore not be affected at all.": "Vì vậy dịch vụ của bạn sẽ hoàn toàn không bị ảnh hưởng."
+      },
+      "ly": "Câu trước giải thích vì sao chọn giờ ít người dùng, câu chèn nêu lợi ích của việc bảo trì: kết nối nhanh và ổn định hơn. \"đã xong thứ Bảy trước\" sai thời gian, \"hầu hết khách trực tuyến\" ngược với câu trước, \"không bị ảnh hưởng\" ngược với \"có thể không dùng được\".",
+      "ct": "Câu chèn phải khớp câu trước và câu sau",
+      "dich": "Công việc này sẽ giúp kết nối của bạn nhanh hơn và ổn định hơn."
+     }
     },
     {
      "o": [
@@ -515,7 +669,18 @@
       "restarts"
      ],
      "a": "restart",
-     "why": "need to + động từ nguyên mẫu → restart."
+     "why": "need to + động từ nguyên mẫu → restart.",
+     "lg": {
+      "og": {
+       "restart": "động từ nguyên mẫu: khởi động lại",
+       "restarted": "V3 / quá khứ",
+       "restarting": "V-ing",
+       "restarts": "động từ ngôi thứ ba"
+      },
+      "ly": "Sau you may need to cần động từ nguyên mẫu: restart your modem. restarted, restarting, restarts là các dạng chia khác.",
+      "ct": "may need to + V = có thể cần … · turn it off and on again = tắt rồi bật lại",
+      "dich": "Sau khi công việc hoàn tất, bạn có thể cần khởi động lại modem."
+     }
     },
     {
      "o": [
@@ -525,7 +690,18 @@
       "chose"
      ],
      "a": "choosing",
-     "why": "Sau giới từ for dùng V-ing: thank you for choosing."
+     "why": "Sau giới từ for dùng V-ing: thank you for choosing.",
+     "lg": {
+      "og": {
+       "choosing": "V-ing: việc chọn",
+       "choose": "động từ nguyên mẫu",
+       "chosen": "V3",
+       "chose": "quá khứ"
+      },
+      "ly": "Sau giới từ for cần V-ing hoặc danh từ: thank you for choosing Bluewave. choose, chosen, chose không đứng sau giới từ for.",
+      "ct": "thank you for + V-ing = cảm ơn vì đã … · apologize for any inconvenience = xin lỗi vì mọi bất tiện",
+      "dich": "Chúng tôi xin lỗi vì mọi bất tiện và cảm ơn bạn đã chọn Bluewave."
+     }
     }
    ]
   },
@@ -831,7 +1007,18 @@
       "removing"
      ],
      "a": "remove",
-     "why": "please + động từ nguyên mẫu: please remove (dọn hết đồ khỏi bàn)."
+     "why": "please + động từ nguyên mẫu: please remove (dọn hết đồ khỏi bàn).",
+     "lg": {
+      "og": {
+       "remove": "động từ nguyên mẫu: lấy ra",
+       "removal": "danh từ: sự dọn đi",
+       "removed": "V3 / quá khứ",
+       "removing": "V-ing"
+      },
+      "ly": "Sau please cần động từ nguyên mẫu: please remove all personal items (lấy hết đồ cá nhân ra). removal là danh từ, removed và removing là dạng khác.",
+      "ct": "Please + V nguyên mẫu = yêu cầu lịch sự · personal items = đồ cá nhân",
+      "dich": "Trước khi về vào thứ Năm, vui lòng lấy hết đồ cá nhân khỏi bàn và cho vào các hộp được cấp."
+     }
     },
     {
      "o": [
@@ -841,7 +1028,18 @@
       "Boxes will not be provided, so please bring your own."
      ],
      "a": "Please label each box with your name and new desk number.",
-     "why": "Câu chèn tiếp tục hướng dẫn đóng thùng (dán nhãn thùng). Tự đóng máy tính ngược với câu sau; thợ đã chuyển xong ngược với \"tuần sau\"; tự mang thùng ngược với \"boxes provided\"."
+     "why": "Câu chèn tiếp tục hướng dẫn đóng thùng (dán nhãn thùng). Tự đóng máy tính ngược với câu sau; thợ đã chuyển xong ngược với \"tuần sau\"; tự mang thùng ngược với \"boxes provided\".",
+     "lg": {
+      "og": {
+       "Please label each box with your name and new desk number.": "Vui lòng ghi tên và số bàn mới của bạn lên mỗi hộp.",
+       "Please pack your computer in the same box as your personal items.": "Vui lòng đóng máy tính vào cùng hộp với đồ cá nhân.",
+       "The movers arrived last Thursday and finished the job.": "Nhân viên chuyển đồ đã đến thứ Năm tuần trước và làm xong việc.",
+       "Boxes will not be provided, so please bring your own.": "Sẽ không cấp hộp, nên hãy tự mang theo."
+      },
+      "ly": "Câu trước nói đóng đồ vào hộp được cấp, câu sau nói máy tính do IT chuyển: câu chèn là hướng dẫn ghi nhãn hộp. Đóng máy tính vào hộp cá nhân mâu thuẫn câu sau, \"đã chuyển xong\" sai thời gian (chưa chuyển), \"không cấp hộp\" ngược với câu trước.",
+      "ct": "Câu chèn phải khớp câu trước và câu sau",
+      "dich": "Vui lòng ghi tên và số bàn mới của bạn lên mỗi hộp."
+     }
     },
     {
      "o": [
@@ -851,7 +1049,18 @@
       "continuation"
      ],
      "a": "continue",
-     "why": "can + động từ nguyên mẫu: can continue (vẫn làm việc tiếp được)."
+     "why": "can + động từ nguyên mẫu: can continue (vẫn làm việc tiếp được).",
+     "lg": {
+      "og": {
+       "continue": "động từ nguyên mẫu: tiếp tục",
+       "continuing": "V-ing",
+       "continuous": "tính từ: liên tục",
+       "continuation": "danh từ: sự tiếp tục"
+      },
+      "ly": "Sau can cần động từ nguyên mẫu có tân ngữ your work: continue. continuing, continuous, continuation không đứng sau can theo cách này.",
+      "ct": "can + V nguyên mẫu · continue your work as usual = tiếp tục công việc như thường",
+      "dich": "Vào sáng thứ Sáu, văn phòng mới sẽ sẵn sàng và các bạn có thể tiếp tục công việc như thường."
+     }
     },
     {
      "o": [
@@ -861,7 +1070,18 @@
       "patients"
      ],
      "a": "patience",
-     "why": "your + danh từ: your patience (sự kiên nhẫn)."
+     "why": "your + danh từ: your patience (sự kiên nhẫn).",
+     "lg": {
+      "og": {
+       "patience": "danh từ: sự kiên nhẫn",
+       "patient": "tính từ / danh từ: kiên nhẫn; bệnh nhân",
+       "patiently": "trạng từ: một cách kiên nhẫn",
+       "patients": "danh từ số nhiều: bệnh nhân"
+      },
+      "ly": "Sau tính từ sở hữu your cần danh từ: patience (sự kiên nhẫn của các bạn). patient là tính từ hoặc danh từ chỉ người, patiently là trạng từ, patients là bệnh nhân.",
+      "ct": "Thank you for your + N = cảm ơn sự … của bạn · during the move = trong khi chuyển văn phòng",
+      "dich": "Cảm ơn sự kiên nhẫn của các bạn trong quá trình chuyển văn phòng."
+     }
     }
    ]
   },
@@ -976,7 +1196,18 @@
      ],
      "a": "attended",
      "t": "tense",
-     "why": "Thì theo ngữ cảnh: buổi ra mắt diễn ra \"last Saturday\" (câu trước) → quá khứ: attended. Câu này đứng riêng thì không biết thì nào."
+     "why": "Thì theo ngữ cảnh: buổi ra mắt diễn ra \"last Saturday\" (câu trước) → quá khứ: attended. Câu này đứng riêng thì không biết thì nào.",
+     "lg": {
+      "og": {
+       "attended": "quá khứ đơn: đã tham dự",
+       "will attend": "tương lai đơn",
+       "are attending": "hiện tại tiếp diễn",
+       "attend": "hiện tại đơn / nguyên mẫu"
+      },
+      "ly": "Thì phải suy từ ngữ cảnh: câu mở đầu nói buổi ra mắt diễn ra \"last Saturday\" (thứ Bảy tuần trước), nên việc khách tham dự là quá khứ: attended. Câu chứa chỗ trống đứng riêng thì không biết thì nào.",
+      "ct": "Thì theo ngữ cảnh: nhìn câu trước / sau để tìm mốc thời gian",
+      "dich": "Hơn 300 khách đã tham dự sự kiện, và nhiều người trong số họ đã thử các buổi trình diễn nấu ăn."
+     }
     },
     {
      "o": [
@@ -986,7 +1217,18 @@
       "The voucher you received at the door has now expired."
      ],
      "a": "We hope you enjoyed the dishes our chefs prepared.",
-     "why": "Câu chèn nối với phần trình diễn nấu ăn vừa nhắc, trước câu gửi phiếu giảm giá. Buổi ra mắt \"next Saturday\" sai thời gian; trình diễn bị huỷ ngược với câu trước; phiếu đã hết hạn ngược với câu sau (hạn tới 30/6)."
+     "why": "Câu chèn nối với phần trình diễn nấu ăn vừa nhắc, trước câu gửi phiếu giảm giá. Buổi ra mắt \"next Saturday\" sai thời gian; trình diễn bị huỷ ngược với câu trước; phiếu đã hết hạn ngược với câu sau (hạn tới 30/6).",
+     "lg": {
+      "og": {
+       "We hope you enjoyed the dishes our chefs prepared.": "Chúng tôi hy vọng bạn thích các món đầu bếp chuẩn bị.",
+       "We look forward to seeing you at the launch next Saturday.": "Chúng tôi mong gặp bạn ở buổi ra mắt thứ Bảy tới.",
+       "Unfortunately, the cooking demonstrations had to be canceled.": "Rất tiếc, các buổi trình diễn nấu ăn đã bị huỷ.",
+       "The voucher you received at the door has now expired.": "Phiếu giảm giá bạn nhận ở cửa nay đã hết hạn."
+      },
+      "ly": "Câu trước nói nhiều khách đã thử trình diễn nấu ăn, câu sau gửi phiếu giảm giá, nên câu chèn là lời cảm ơn / hy vọng về món ăn. \"next Saturday\" sai thời gian (buổi ra mắt đã qua), \"bị huỷ\" ngược với câu trước, \"phiếu đã hết hạn\" ngược với câu sau (hạn tới 30/6).",
+      "ct": "Câu chèn phải hợp cả câu trước lẫn câu sau",
+      "dich": "Chúng tôi hy vọng bạn thích các món ăn do đầu bếp của chúng tôi chuẩn bị."
+     }
     },
     {
      "o": [
@@ -996,7 +1238,18 @@
       "Similarly"
      ],
      "a": "However",
-     "why": "Từ nối giữa câu: phiếu còn hạn tới 30/6 NHƯNG không dùng chung ưu đãi khác → However (đối lập)."
+     "why": "Từ nối giữa câu: phiếu còn hạn tới 30/6 NHƯNG không dùng chung ưu đãi khác → However (đối lập).",
+     "lg": {
+      "og": {
+       "However": "trạng từ nối: tuy nhiên (tương phản)",
+       "Therefore": "trạng từ nối: vì vậy (kết quả)",
+       "For example": "cụm nối: ví dụ",
+       "Similarly": "trạng từ nối: tương tự"
+      },
+      "ly": "Câu trước nói phiếu có hiệu lực tới 30/6, câu này nêu giới hạn (không dùng chung với ưu đãi khác): ý tương phản nên dùng However. Therefore, For example, Similarly không hợp mạch này.",
+      "ct": "However, + mệnh đề = tuy nhiên · be valid until = có hiệu lực tới",
+      "dich": "Tuy nhiên, phiếu không thể dùng chung với các ưu đãi khác."
+     }
     },
     {
      "o": [
@@ -1006,7 +1259,18 @@
       "assisted"
      ],
      "a": "assist",
-     "why": "be happy to + động từ nguyên mẫu: assist (giúp)."
+     "why": "be happy to + động từ nguyên mẫu: assist (giúp).",
+     "lg": {
+      "og": {
+       "assist": "động từ: hỗ trợ",
+       "assistance": "danh từ: sự hỗ trợ",
+       "assistant": "danh từ: trợ lý",
+       "assisted": "V3: đã hỗ trợ"
+      },
+      "ly": "Sau will be happy to cần động từ nguyên mẫu, và tân ngữ you theo sau: assist you (hỗ trợ bạn). assistance và assistant là danh từ, assisted là dạng V3.",
+      "ct": "be happy to + V = sẵn lòng làm gì · assist + người = hỗ trợ ai",
+      "dich": "Nếu bạn có thắc mắc, nhân viên của chúng tôi sẽ sẵn lòng hỗ trợ bạn."
+     }
     }
    ]
   },
@@ -1074,7 +1338,18 @@
      ],
      "a": "did not work",
      "t": "tense",
-     "why": "Thì theo ngữ cảnh: kỳ nghỉ đã qua (2–5/8, \"during your visit\") → quá khứ đơn: did not work."
+     "why": "Thì theo ngữ cảnh: kỳ nghỉ đã qua (2–5/8, \"during your visit\") → quá khứ đơn: did not work.",
+     "lg": {
+      "og": {
+       "did not work": "quá khứ đơn phủ định",
+       "does not work": "hiện tại đơn phủ định",
+       "will not work": "tương lai phủ định",
+       "has not worked": "hiện tại hoàn thành phủ định"
+      },
+      "ly": "Kỳ lưu trú đã kết thúc (August 2 to 5) nên việc máy lạnh hỏng là quá khứ: did not work. does not work và will not work thuộc hiện tại / tương lai, has not worked thuộc hiện tại hoàn thành.",
+      "ct": "Thì theo ngữ cảnh: during your visit (lần lưu trú đã qua) → quá khứ",
+      "dich": "Chúng tôi rất tiếc vì máy lạnh trong phòng của bạn đã không hoạt động tốt trong thời gian bạn ở."
+     }
     },
     {
      "o": [
@@ -1084,7 +1359,18 @@
       "Unfortunately, we are unable to offer any compensation."
      ],
      "a": "We understand how uncomfortable this must have been in such hot weather.",
-     "why": "Câu chèn tiếp lời xin lỗi về máy lạnh hỏng, trước câu nói đã thay máy. Mọi thứ hoạt động tốt ngược với lời xin lỗi; thay máy \"trước khi chị đến\" ngược với \"has since replaced\" (thay sau đó); không bồi thường ngược với câu tặng một đêm."
+     "why": "Câu chèn tiếp lời xin lỗi về máy lạnh hỏng, trước câu nói đã thay máy. Mọi thứ hoạt động tốt ngược với lời xin lỗi; thay máy \"trước khi chị đến\" ngược với \"has since replaced\" (thay sau đó); không bồi thường ngược với câu tặng một đêm.",
+     "lg": {
+      "og": {
+       "We understand how uncomfortable this must have been in such hot weather.": "Chúng tôi hiểu việc này chắc đã khó chịu thế nào trong thời tiết nóng như vậy.",
+       "We are glad that everything in your room worked perfectly.": "Chúng tôi vui vì mọi thứ trong phòng hoạt động hoàn hảo.",
+       "The air conditioners on your floor were replaced just before your arrival.": "Máy lạnh trên tầng của bạn được thay ngay trước khi bạn đến.",
+       "Unfortunately, we are unable to offer any compensation.": "Rất tiếc, chúng tôi không thể đền bù gì."
+      },
+      "ly": "Thư xin lỗi về máy lạnh hỏng, nên câu chèn bày tỏ sự thông cảm. \"mọi thứ hoàn hảo\" ngược với lời xin lỗi, \"đã thay trước khi đến\" mâu thuẫn với câu sau (đã thay SAU đó), \"không thể đền bù\" ngược với câu sau tặng một đêm miễn phí.",
+      "ct": "Câu chèn phải hợp mục đích thư (xin lỗi, đền bù)",
+      "dich": "Chúng tôi hiểu việc này hẳn đã khó chịu thế nào trong thời tiết nóng như vậy."
+     }
     },
     {
      "o": [
@@ -1094,7 +1380,18 @@
       "On the other hand"
      ],
      "a": "In addition",
-     "why": "Từ nối giữa câu: đã thay máy, THÊM NỮA tặng một đêm miễn phí → In addition."
+     "why": "Từ nối giữa câu: đã thay máy, THÊM NỮA tặng một đêm miễn phí → In addition.",
+     "lg": {
+      "og": {
+       "In addition": "cụm nối: ngoài ra (thêm ý)",
+       "Otherwise": "trạng từ nối: nếu không thì",
+       "Instead": "trạng từ nối: thay vào đó",
+       "On the other hand": "cụm nối: mặt khác (đối lập)"
+      },
+      "ly": "Câu trước nêu việc đã làm (thay máy lạnh), câu này thêm một biện pháp bồi thường: In addition = ngoài ra. Otherwise, Instead, On the other hand dùng cho nghĩa phủ định hoặc đối lập, không hợp.",
+      "ct": "In addition, + mệnh đề = ngoài ra · offer a free night = tặng một đêm miễn phí",
+      "dich": "Ngoài ra, chúng tôi xin tặng bạn một đêm miễn phí trong lần lưu trú tới."
+     }
     },
     {
      "o": [
@@ -1104,7 +1401,18 @@
       "reserving"
      ],
      "a": "reservation",
-     "why": "make your + danh từ: make a reservation (đặt phòng)."
+     "why": "make your + danh từ: make a reservation (đặt phòng).",
+     "lg": {
+      "og": {
+       "reservation": "danh từ: việc đặt phòng",
+       "reserve": "động từ: đặt trước",
+       "reserved": "V3 / tính từ: đã được đặt",
+       "reserving": "V-ing"
+      },
+      "ly": "Sau tính từ sở hữu your cần danh từ: reservation (việc đặt phòng của bạn). reserve là động từ, reserved và reserving là dạng động từ.",
+      "ct": "make a reservation = đặt phòng / chỗ · mention + N = nhắc tới",
+      "dich": "Chỉ cần nhắc tới e-mail này khi bạn đặt phòng."
+     }
     }
    ]
   },
@@ -1123,7 +1431,18 @@
      ],
      "a": "will arrive",
      "t": "tense",
-     "why": "Thì theo ngữ cảnh: nhà cung cấp mới bắt đầu từ \"next month\" (câu trước) → tương lai: will arrive. Đứng riêng thì \"arrived early every morning\" cũng đúng ngữ pháp."
+     "why": "Thì theo ngữ cảnh: nhà cung cấp mới bắt đầu từ \"next month\" (câu trước) → tương lai: will arrive. Đứng riêng thì \"arrived early every morning\" cũng đúng ngữ pháp.",
+     "lg": {
+      "og": {
+       "will arrive": "tương lai đơn: sẽ đến",
+       "arrived": "quá khứ đơn",
+       "have arrived": "hiện tại hoàn thành",
+       "were arriving": "quá khứ tiếp diễn"
+      },
+      "ly": "Câu đầu nói \"Starting next month\" (từ tháng sau) và chuyển nhà cung cấp, nên xe của trang trại sẽ giao hàng sớm mỗi sáng: tương lai will arrive. Các thì quá khứ / hoàn thành không hợp.",
+      "ct": "Thì theo ngữ cảnh: starting next month → tương lai · every early morning = sáng sớm mỗi ngày",
+      "dich": "Trang trại chỉ cách mười lăm cây số, và xe của họ sẽ đến sớm mỗi sáng."
+     }
     },
     {
      "o": [
@@ -1133,7 +1452,18 @@
       "Unfortunately, the farm is too far away to deliver in the morning."
      ],
      "a": "This means our salads and soups will be made with fresher produce.",
-     "why": "\"This\" = rau tới sớm mỗi sáng từ trang trại gần: câu chèn nói lợi ích. City Produce vẫn giao ngược với câu đầu; giao \"nhiều năm\" ngược với \"nhà cung cấp mới\"; quá xa ngược với \"only fifteen kilometers\"."
+     "why": "\"This\" = rau tới sớm mỗi sáng từ trang trại gần: câu chèn nói lợi ích. City Produce vẫn giao ngược với câu đầu; giao \"nhiều năm\" ngược với \"nhà cung cấp mới\"; quá xa ngược với \"only fifteen kilometers\".",
+     "lg": {
+      "og": {
+       "This means our salads and soups will be made with fresher produce.": "Điều này có nghĩa món salad và súp sẽ được làm từ nông sản tươi hơn.",
+       "City Produce will continue to deliver our vegetables after May 5.": "City Produce sẽ tiếp tục giao rau cho chúng ta sau 5/5.",
+       "The farm's trucks have been delivering to us for years.": "Xe của trang trại đã giao hàng cho chúng ta nhiều năm.",
+       "Unfortunately, the farm is too far away to deliver in the morning.": "Rất tiếc, trang trại quá xa nên không giao vào buổi sáng được."
+      },
+      "ly": "Câu trước nói trang trại gần nên giao sớm; câu chèn nêu lợi ích: món ăn tươi hơn. \"City Produce tiếp tục giao\" ngược với việc đổi nhà cung cấp, \"giao nhiều năm\" ngược với câu sau (giao lần đầu thứ Hai 5/5), \"quá xa\" ngược với câu trước.",
+      "ct": "Câu chèn phải khớp câu trước và câu sau",
+      "dich": "Điều này có nghĩa là món salad và súp của chúng ta sẽ dùng nông sản tươi hơn."
+     }
     },
     {
      "o": [
@@ -1143,7 +1473,18 @@
       "For example"
      ],
      "a": "Of course",
-     "why": "Từ nối giữa câu: \"Of course\" (tất nhiên) mở ý nhắc nhở: nhà cung cấp mới có thể giao nhầm, nên kiểm từng thùng."
+     "why": "Từ nối giữa câu: \"Of course\" (tất nhiên) mở ý nhắc nhở: nhà cung cấp mới có thể giao nhầm, nên kiểm từng thùng.",
+     "lg": {
+      "og": {
+       "Of course": "cụm nối: tất nhiên",
+       "Instead": "trạng từ nối: thay vào đó",
+       "As a result": "cụm nối: vì vậy (kết quả)",
+       "For example": "cụm nối: ví dụ"
+      },
+      "ly": "Câu này thừa nhận một điều hiển nhiên (nhà cung cấp mới thì có thể sai sót) rồi dặn kiểm tra: Of course. Instead, As a result, For example không nối đúng mạch.",
+      "ct": "Of course, + mệnh đề = tất nhiên, (nhấn mạnh điều dễ hiểu) · check … against the delivery list = đối chiếu với phiếu giao hàng",
+      "dich": "Tất nhiên, với nhà cung cấp mới thì có thể xảy ra sai sót, nên hãy đối chiếu từng thùng với phiếu giao hàng."
+     }
     },
     {
      "o": [
@@ -1153,7 +1494,18 @@
       "more immediate"
      ],
      "a": "immediately",
-     "why": "Bổ nghĩa cho động từ report → trạng từ: immediately (ngay)."
+     "why": "Bổ nghĩa cho động từ report → trạng từ: immediately (ngay).",
+     "lg": {
+      "og": {
+       "immediately": "trạng từ: ngay lập tức",
+       "immediate": "tính từ: tức thì",
+       "immediacy": "danh từ: tính tức thì",
+       "more immediate": "so sánh hơn"
+      },
+      "ly": "Sau cụm động từ report any missing items to me cần trạng từ chỉ cách / lúc báo: immediately. immediate là tính từ, immediacy là danh từ, more immediate là so sánh.",
+      "ct": "report + N + to + người + immediately = báo ngay cho … · missing items = hàng thiếu",
+      "dich": "Hãy báo ngay cho tôi bất kỳ món hàng nào còn thiếu."
+     }
     }
    ]
   }
@@ -1177,7 +1529,17 @@
       "Some samples were damaged.",
       "The warehouse will close early."
      ],
-     "why": "They need the samples by noon, not tomorrow."
+     "why": "They need the samples by noon, not tomorrow.",
+     "lg": {
+      "og": {
+       "A delivery is needed sooner than planned.": "Cần giao hàng sớm hơn dự kiến",
+       "A client has canceled an order.": "Khách đã huỷ đơn",
+       "Some samples were damaged.": "Một số mẫu bị hỏng",
+       "The warehouse will close early.": "Kho sẽ đóng cửa sớm"
+      },
+      "ly": "Bà Wu báo khách cần mẫu hàng vào trưa nay chứ không phải ngày mai, nên cần giao sớm hơn kế hoạch. Không có chi tiết nào về huỷ đơn, hàng hỏng hay kho đóng cửa.",
+      "dich": "Khách vừa gọi. Họ cần mẫu hàng trước buổi trưa, không phải ngày mai."
+     }
     },
     {
      "q": "At 9:16 A.M., what does Mr. Mehta mean when he writes, \"Sure thing\"?",
@@ -1187,7 +1549,17 @@
       "He has already sent the samples.",
       "He thinks the cost is too high."
      ],
-     "why": "Trả lời đề nghị dùng courier, rồi nói sẽ đặt ngay."
+     "why": "Trả lời đề nghị dùng courier, rồi nói sẽ đặt ngay.",
+     "lg": {
+      "og": {
+       "He agrees to arrange a courier.": "Anh ấy đồng ý sắp xếp dịch vụ chuyển phát",
+       "He is sure the driver will arrive.": "Anh chắc tài xế sẽ đến",
+       "He has already sent the samples.": "Anh đã gửi mẫu rồi",
+       "He thinks the cost is too high.": "Anh thấy chi phí quá cao"
+      },
+      "ly": "\"Sure thing\" là đồng ý. Ngay sau đó ông Mehta nói sẽ đặt dịch vụ chuyển phát ngay và gửi mã theo dõi.",
+      "dich": "Chắc chắn rồi. Tôi sẽ đặt một dịch vụ chuyển phát ngay bây giờ và gửi bà mã theo dõi."
+     }
     }
    ]
   },
@@ -1209,7 +1581,17 @@
       "Visiting construction sites",
       "Training new architects"
      ],
-     "why": "Responsibilities include … ordering office supplies."
+     "why": "Responsibilities include … ordering office supplies.",
+     "lg": {
+      "og": {
+       "Ordering office supplies": "Đặt mua văn phòng phẩm",
+       "Designing buildings": "Thiết kế toà nhà",
+       "Visiting construction sites": "Đi thăm công trường",
+       "Training new architects": "Đào tạo kiến trúc sư mới"
+      },
+      "ly": "Danh sách nhiệm vụ gồm trả lời điện thoại, xếp lịch họp, đặt văn phòng phẩm và soạn tài liệu. Chỉ \"ordering office supplies\" có trong đó.",
+      "dich": "Nhiệm vụ gồm trả lời điện thoại, xếp lịch họp, đặt văn phòng phẩm và soạn tài liệu cho buổi thuyết trình với khách."
+     }
     },
     {
      "q": "What is stated about experience in a design firm?",
@@ -1219,7 +1601,17 @@
       "It must be at least five years.",
       "It will be provided after hiring."
      ],
-     "why": "an advantage but not required."
+     "why": "an advantage but not required.",
+     "lg": {
+      "og": {
+       "It is helpful but not necessary.": "Có ích nhưng không bắt buộc",
+       "It is required for all applicants.": "Bắt buộc với mọi ứng viên",
+       "It must be at least five years.": "Phải ít nhất năm năm",
+       "It will be provided after hiring.": "Sẽ được cung cấp sau khi tuyển"
+      },
+      "ly": "Bài ghi kinh nghiệm ở công ty kiến trúc hay thiết kế là \"an advantage but not required\" (có lợi nhưng không bắt buộc).",
+      "dich": "Có kinh nghiệm ở công ty kiến trúc hoặc thiết kế là một lợi thế nhưng không bắt buộc."
+     }
     },
     {
      "q": "What will happen after June 15?",
@@ -1229,7 +1621,17 @@
       "The office will move downtown.",
       "The position will become part-time."
      ],
-     "why": "Only shortlisted candidates will be contacted."
+     "why": "Only shortlisted candidates will be contacted.",
+     "lg": {
+      "og": {
+       "Only some applicants will be contacted.": "Chỉ một số ứng viên được liên hệ",
+       "All applicants will be interviewed.": "Mọi ứng viên sẽ được phỏng vấn",
+       "The office will move downtown.": "Văn phòng sẽ chuyển vào trung tâm",
+       "The position will become part-time.": "Vị trí sẽ thành bán thời gian"
+      },
+      "ly": "Câu cuối nói chỉ những ứng viên lọt vào danh sách rút gọn mới được liên hệ.",
+      "dich": "Chỉ những ứng viên lọt vào danh sách rút gọn mới được liên hệ."
+     }
     }
    ]
   },
@@ -1251,7 +1653,17 @@
       "It paid the full amount in advance.",
       "The food was delivered later than planned."
      ],
-     "why": "Discount (returning customer, 10%)."
+     "why": "Discount (returning customer, 10%).",
+     "lg": {
+      "og": {
+       "It has ordered from Greenleaf before.": "Họ từng đặt hàng của Greenleaf trước đây",
+       "The lunch event was canceled.": "Sự kiện bữa trưa bị huỷ",
+       "It paid the full amount in advance.": "Họ trả trước toàn bộ",
+       "The food was delivered later than planned.": "Đồ ăn giao trễ hơn dự kiến"
+      },
+      "ly": "Dòng giảm giá ghi \"returning customer, 10%\" (khách quen), tức đã từng đặt hàng. Các lý do khác không có trong hoá đơn.",
+      "dich": "Giảm giá (khách quen, 10%): trừ 82,50 đô la."
+     }
     },
     {
      "q": "How many people was the lunch prepared for?",
@@ -1261,7 +1673,17 @@
       "25",
       "80"
      ],
-     "why": "Lunch buffet (40 people × $18)."
+     "why": "Lunch buffet (40 people × $18).",
+     "lg": {
+      "og": {
+       "40": "40",
+       "18": "18",
+       "25": "25",
+       "80": "80"
+      },
+      "ly": "Dòng bữa trưa tự chọn ghi 40 người × 18 đô la. 18 là đơn giá, 25 là phí giao hàng, 80 là tiền cà phê và trà.",
+      "dich": "Bữa trưa tự chọn (40 người × 18 đô la): 720 đô la."
+     }
     }
    ]
   },
@@ -1283,7 +1705,17 @@
       "A new product launched by a printer",
       "The opening of a solar panel factory"
      ],
-     "why": "Lắp pin mặt trời, chuyển sang giấy tái chế."
+     "why": "Lắp pin mặt trời, chuyển sang giấy tái chế.",
+     "lg": {
+      "og": {
+       "A company's environmental improvements": "Những cải thiện về môi trường của một công ty",
+       "The history of printing in Portville": "Lịch sử ngành in ở Portville",
+       "A new product launched by a printer": "Một sản phẩm mới của nhà in",
+       "The opening of a solar panel factory": "Việc mở nhà máy pin mặt trời"
+      },
+      "ly": "Bài nói về việc nhà in lắp 600 tấm pin mặt trời và dùng giấy tái chế, tức cải thiện môi trường.",
+      "dich": "Lindqvist Printing đã hoàn tất việc lắp 600 tấm pin mặt trời trên mái nhà máy."
+     }
     },
     {
      "q": "According to Mr. Lindqvist, why did the company make the investment?",
@@ -1293,7 +1725,17 @@
       "The factory roof needed repairs.",
       "Electricity was unavailable."
      ],
-     "why": "Our customers increasingly ask about the environmental impact…"
+     "why": "Our customers increasingly ask about the environmental impact…",
+     "lg": {
+      "og": {
+       "Customers care about environmental issues.": "Khách hàng quan tâm đến môi trường",
+       "The government required it.": "Chính phủ bắt buộc",
+       "The factory roof needed repairs.": "Mái nhà máy cần sửa",
+       "Electricity was unavailable.": "Không có điện"
+      },
+      "ly": "Ông Lindqvist nói khách hàng ngày càng hỏi về tác động môi trường của đơn hàng.",
+      "dich": "Khách hàng của chúng tôi ngày càng hỏi về tác động môi trường của đơn hàng của họ."
+     }
     },
     {
      "q": "What is indicated about Lindqvist Printing?",
@@ -1303,7 +1745,17 @@
       "It has 600 employees.",
       "It only uses recycled paper now."
      ],
-     "why": "founded in 1962 by Mr. Lindqvist's grandfather."
+     "why": "founded in 1962 by Mr. Lindqvist's grandfather.",
+     "lg": {
+      "og": {
+       "It is a family business.": "Là doanh nghiệp gia đình",
+       "It was founded last year.": "Mới thành lập năm ngoái",
+       "It has 600 employees.": "Có 600 nhân viên",
+       "It only uses recycled paper now.": "Hiện chỉ dùng giấy tái chế"
+      },
+      "ly": "Công ty do ông nội của ông Lindqvist lập năm 1962 và ông là chủ, nên là doanh nghiệp gia đình.",
+      "dich": "Lindqvist Printing được ông nội của ông Lindqvist thành lập năm 1962 và hiện có 85 nhân viên."
+     }
     }
    ]
   },
@@ -1325,7 +1777,17 @@
       "Employees of a water company",
       "Visitors to a hotel"
      ],
-     "why": "Dear residents … Westfield Apartments."
+     "why": "Dear residents … Westfield Apartments.",
+     "lg": {
+      "og": {
+       "Residents of an apartment complex": "Cư dân của một khu chung cư",
+       "Plumbers working in Building B": "Thợ sửa ống nước ở Toà B",
+       "Employees of a water company": "Nhân viên công ty nước",
+       "Visitors to a hotel": "Khách của khách sạn"
+      },
+      "ly": "Thư mở đầu bằng \"Dear residents\" và nói về cư dân các toà A, B, C của Westfield Apartments.",
+      "dich": "Kính gửi cư dân, nước ở Toà B sẽ bị cắt vào thứ Tư, ngày 14 tháng 5, từ 10 giờ sáng đến 2 giờ chiều."
+     }
     },
     {
      "q": "What will be provided during the shut-off?",
@@ -1335,7 +1797,17 @@
       "A shuttle bus",
       "Hotel rooms"
      ],
-     "why": "Bottled water will be available in the lobby."
+     "why": "Bottled water will be available in the lobby.",
+     "lg": {
+      "og": {
+       "Bottled water": "Nước đóng chai",
+       "Free meals": "Bữa ăn miễn phí",
+       "A shuttle bus": "Xe đưa đón",
+       "Hotel rooms": "Phòng khách sạn"
+      },
+      "ly": "Thông báo nói nước đóng chai sẽ có ở sảnh Toà B trong thời gian cắt nước.",
+      "dich": "Nước đóng chai sẽ có tại sảnh Toà B trong thời gian này."
+     }
     }
    ]
   },
@@ -1357,7 +1829,17 @@
       "To write a review for a newspaper",
       "To apply for a job"
      ],
-     "why": "for my father's birthday."
+     "why": "for my father's birthday.",
+     "lg": {
+      "og": {
+       "To celebrate a family member's birthday": "Để mừng sinh nhật một người thân",
+       "To meet a business client": "Để gặp khách hàng",
+       "To write a review for a newspaper": "Để viết bài cho báo",
+       "To apply for a job": "Để xin việc"
+      },
+      "ly": "Bà đưa bố mẹ đến nhà hàng nhân sinh nhật của bố.",
+      "dich": "Tôi đưa bố mẹ đến Casa Verde nhân sinh nhật bố tôi vào thứ Bảy tuần trước."
+     }
     },
     {
      "q": "What problem does Ms. Grant mention?",
@@ -1367,7 +1849,17 @@
       "The portions were small.",
       "The staff were rude."
      ],
-     "why": "not seated until almost 7:40 despite a 7:00 reservation."
+     "why": "not seated until almost 7:40 despite a 7:00 reservation.",
+     "lg": {
+      "og": {
+       "Her table was not ready on time.": "Bàn của bà chưa sẵn sàng đúng giờ",
+       "The food was cold.": "Đồ ăn bị nguội",
+       "The portions were small.": "Khẩu phần quá ít",
+       "The staff were rude.": "Nhân viên thô lỗ"
+      },
+      "ly": "Bà đặt bàn lúc 7:00 nhưng gần 7:40 mới được xếp chỗ, nên điểm trừ là chờ bàn lâu.",
+      "dich": "Điều thất vọng duy nhất là thời gian chờ: dù đã đặt bàn lúc 7 giờ, chúng tôi gần 7 giờ 40 mới được xếp chỗ."
+     }
     },
     {
      "q": "What did the manager do?",
@@ -1377,7 +1869,17 @@
       "Moved them to a private room",
       "Reduced the price of the cake"
      ],
-     "why": "offered us free coffee."
+     "why": "offered us free coffee.",
+     "lg": {
+      "og": {
+       "Offered free drinks": "Tặng đồ uống miễn phí",
+       "Gave a full refund": "Hoàn tiền toàn bộ",
+       "Moved them to a private room": "Chuyển họ sang phòng riêng",
+       "Reduced the price of the cake": "Giảm giá bánh"
+      },
+      "ly": "Quản lý xin lỗi và tặng cà phê miễn phí, tức là đồ uống miễn phí.",
+      "dich": "Người quản lý đã xin lỗi và tặng chúng tôi cà phê miễn phí, đó là một cử chỉ đẹp."
+     }
     }
    ]
   },
@@ -1403,7 +1905,17 @@
       "To cancel a workshop",
       "To introduce a new director"
      ],
-     "why": "Please note one change to the schedule…"
+     "why": "Please note one change to the schedule…",
+     "lg": {
+      "og": {
+       "To announce changes to an event": "Thông báo thay đổi của sự kiện",
+       "To invite people to register": "Mời đăng ký",
+       "To cancel a workshop": "Huỷ một buổi workshop",
+       "To introduce a new director": "Giới thiệu giám đốc mới"
+      },
+      "ly": "E-mail nói rõ có một thay đổi lịch (đổi phòng, đổi nơi ăn trưa).",
+      "dich": "Xin lưu ý một thay đổi về lịch trình."
+     }
     },
     {
      "q": "Why was Ms. Ng's workshop moved?",
@@ -1413,7 +1925,17 @@
       "Ms. Ng arrived late.",
       "The panel discussion was canceled."
      ],
-     "why": "more than sixty people have registered for it."
+     "why": "more than sixty people have registered for it.",
+     "lg": {
+      "og": {
+       "Many people signed up for it.": "Nhiều người đã đăng ký",
+       "Room 3 is being renovated.": "Phòng 3 đang sửa",
+       "Ms. Ng arrived late.": "Bà Ng đến muộn",
+       "The panel discussion was canceled.": "Thảo luận nhóm bị huỷ"
+      },
+      "ly": "Hơn sáu mươi người đăng ký nên buổi của bà Ng được chuyển sang Ballroom rộng hơn.",
+      "dich": "Buổi workshop của bà Ng sẽ chuyển sang Ballroom thay vì Phòng 3, vì hơn sáu mươi người đã đăng ký."
+     }
     },
     {
      "q": "Where will lunch be served?",
@@ -1423,7 +1945,17 @@
       "In Room 2",
       "In the Ballroom"
      ],
-     "why": "lunch will be served in the hotel restaurant rather than outdoors."
+     "why": "lunch will be served in the hotel restaurant rather than outdoors.",
+     "lg": {
+      "og": {
+       "In the hotel restaurant": "Ở nhà hàng của khách sạn",
+       "On the Garden Terrace": "Ở Garden Terrace",
+       "In Room 2": "Ở Phòng 2",
+       "In the Ballroom": "Ở Ballroom"
+      },
+      "ly": "Do sửa chữa, bữa trưa phục vụ ở nhà hàng khách sạn thay vì ngoài trời (Garden Terrace).",
+      "dich": "Do công việc cải tạo, bữa trưa sẽ phục vụ ở nhà hàng khách sạn thay vì ngoài trời."
+     }
     },
     {
      "q": "What should participants bring to the 1:30 P.M. session?",
@@ -1433,7 +1965,17 @@
       "Printed reports",
       "Name badges"
      ],
-     "why": "Đối chiếu 2 văn bản: 1:30 là workshop của Amy Ng (buổi chiều) → mang laptop."
+     "why": "Đối chiếu 2 văn bản: 1:30 là workshop của Amy Ng (buổi chiều) → mang laptop.",
+     "lg": {
+      "og": {
+       "Laptops": "Máy tính xách tay",
+       "Business cards": "Danh thiếp",
+       "Printed reports": "Báo cáo in",
+       "Name badges": "Thẻ tên"
+      },
+      "ly": "E-mail nhắc mang máy tính xách tay cho buổi workshop chiều (1:30 là buổi của bà Ng).",
+      "dich": "Xin nhớ mang máy tính xách tay cho buổi workshop buổi chiều."
+     }
     },
     {
      "q": "Who will give the first talk of the day?",
@@ -1443,7 +1985,17 @@
       "Ms. Ng",
       "A panel of experts"
      ],
-     "why": "9:00 A.M. Welcome speech — Ingrid Holm."
+     "why": "9:00 A.M. Welcome speech — Ingrid Holm.",
+     "lg": {
+      "og": {
+       "Ms. Holm": "Bà Holm",
+       "Mr. Osei": "Ông Osei",
+       "Ms. Ng": "Bà Ng",
+       "A panel of experts": "Một hội đồng chuyên gia"
+      },
+      "ly": "Lịch 9:00 sáng là bài phát biểu chào mừng của Ingrid Holm.",
+      "dich": "9:00 sáng: Phát biểu chào mừng, Ingrid Holm, Giám đốc kinh doanh (Ballroom)."
+     }
     }
    ]
   },
@@ -1473,7 +2025,17 @@
       "He chose standard delivery.",
       "The payment was delayed."
      ],
-     "why": "Đặt 3:30 P.M. thứ Hai (gửi e-mail 4:30, một giờ sau khi đặt); sau 3:00 P.M. thì xử lý ngày làm việc hôm sau."
+     "why": "Đặt 3:30 P.M. thứ Hai (gửi e-mail 4:30, một giờ sau khi đặt); sau 3:00 P.M. thì xử lý ngày làm việc hôm sau.",
+     "lg": {
+      "og": {
+       "It was placed after 3:00 P.M.": "Đơn được đặt sau 3 giờ chiều",
+       "The printer paper was out of stock.": "Giấy in hết hàng",
+       "He chose standard delivery.": "Ông chọn giao tiêu chuẩn",
+       "The payment was delayed.": "Thanh toán bị chậm"
+      },
+      "ly": "Ông đặt lúc 4:30 chiều thứ Hai, mà đơn sau 3:00 chiều được xử lý vào ngày làm việc kế tiếp (thứ Ba).",
+      "dich": "Đơn đặt sau 3:00 chiều sẽ được xử lý vào ngày làm việc tiếp theo."
+     }
     },
     {
      "q": "When will the order arrive?",
@@ -1483,7 +2045,17 @@
       "On Tuesday",
       "On Friday"
      ],
-     "why": "E-mail thứ Ba: arrive tomorrow → thứ Tư."
+     "why": "E-mail thứ Ba: arrive tomorrow → thứ Tư.",
+     "lg": {
+      "og": {
+       "On Wednesday": "Vào thứ Tư",
+       "On Monday": "Vào thứ Hai",
+       "On Tuesday": "Vào thứ Ba",
+       "On Friday": "Vào thứ Sáu"
+      },
+      "ly": "Thư trả lời (thứ Ba) nói hàng sẽ đến \"ngày mai\", tức thứ Tư, kịp buổi tập huấn.",
+      "dich": "Đơn của ông được xử lý sáng nay và dự kiến đến vào ngày mai, kịp buổi tập huấn của ông."
+     }
     },
     {
      "q": "What does Mr. Dunn misunderstand?",
@@ -1493,7 +2065,17 @@
       "How to return damaged items",
       "The date of his training session"
      ],
-     "why": "Free delivery applies only to the standard service."
+     "why": "Free delivery applies only to the standard service.",
+     "lg": {
+      "og": {
+       "Which delivery service is free": "Dịch vụ giao hàng nào miễn phí",
+       "The price of printer paper": "Giá giấy in",
+       "How to return damaged items": "Cách trả hàng hỏng",
+       "The date of his training session": "Ngày buổi tập huấn"
+      },
+      "ly": "Ông tưởng đơn trên 50 đô la thì miễn phí giao, nhưng chỉ giao tiêu chuẩn mới miễn phí.",
+      "dich": "Miễn phí giao hàng chỉ áp dụng cho dịch vụ tiêu chuẩn, nên khoản phí giao nhanh là đúng."
+     }
     },
     {
      "q": "What does Tecso give Mr. Dunn?",
@@ -1503,7 +2085,17 @@
       "Free express delivery",
       "Extra printer paper"
      ],
-     "why": "added a $10 voucher to your account."
+     "why": "added a $10 voucher to your account.",
+     "lg": {
+      "og": {
+       "A voucher for a future order": "Phiếu mua hàng cho lần sau",
+       "A full refund of the order": "Hoàn tiền toàn bộ",
+       "Free express delivery": "Giao nhanh miễn phí",
+       "Extra printer paper": "Thêm giấy in"
+      },
+      "ly": "Thư tặng thêm phiếu 10 đô la cho lần mua sau.",
+      "dich": "Để thể hiện thiện chí, chúng tôi đã thêm một phiếu 10 đô la vào tài khoản của ông cho lần mua tiếp theo."
+     }
     },
     {
      "q": "In the second e-mail, the word \"gesture\" is closest in meaning to",
@@ -1513,7 +2105,17 @@
       "request",
       "price"
      ],
-     "why": "a gesture of goodwill = một hành động thể hiện thiện chí."
+     "why": "a gesture of goodwill = một hành động thể hiện thiện chí.",
+     "lg": {
+      "og": {
+       "act": "hành động",
+       "movement": "cử động",
+       "request": "yêu cầu",
+       "price": "giá"
+      },
+      "ly": "\"A gesture of goodwill\" là một hành động thể hiện thiện chí, gần nghĩa nhất với act.",
+      "dich": "Để thể hiện thiện chí, chúng tôi đã thêm một phiếu 10 đô la vào tài khoản của ông."
+     }
     }
    ]
   },
@@ -1539,7 +2141,17 @@
       "Phone calls",
       "Lunch"
      ],
-     "why": "All offices include internet, cleaning…"
+     "why": "All offices include internet, cleaning…",
+     "lg": {
+      "og": {
+       "Cleaning": "Dọn dẹp",
+       "Furniture delivery": "Giao nội thất",
+       "Phone calls": "Cuộc gọi điện thoại",
+       "Lunch": "Bữa trưa"
+      },
+      "ly": "Quảng cáo ghi mọi văn phòng đều gồm internet, dọn dẹp và phòng họp chung.",
+      "dich": "Mọi văn phòng đều gồm internet, dọn dẹp và quyền dùng phòng họp chung."
+     }
     },
     {
      "q": "Which office will Bluefin Design most likely rent?",
@@ -1549,7 +2161,17 @@
       "The medium office",
       "Two small offices"
      ],
-     "why": "Đối chiếu: 4 người + 3 người nữa = 7 > 5 bàn của văn phòng vừa → văn phòng lớn 10 bàn."
+     "why": "Đối chiếu: 4 người + 3 người nữa = 7 > 5 bàn của văn phòng vừa → văn phòng lớn 10 bàn.",
+     "lg": {
+      "og": {
+       "The large office": "Văn phòng lớn",
+       "The small office": "Văn phòng nhỏ",
+       "The medium office": "Văn phòng vừa",
+       "Two small offices": "Hai văn phòng nhỏ"
+      },
+      "ly": "Bluefin có 4 nhân viên và sẽ thuê thêm 3 người, tổng 7, và muốn văn phòng đủ lớn để phát triển. Văn phòng lớn (10 bàn) hợp nhất.",
+      "dich": "Chúng tôi muốn văn phòng đủ rộng để nhóm có thể phát triển."
+     }
     },
     {
      "q": "Why are meeting rooms important to Mr. Okafor?",
@@ -1559,7 +2181,17 @@
       "He plans to rent them to others.",
       "His office has no internet."
      ],
-     "why": "We often meet clients."
+     "why": "We often meet clients.",
+     "lg": {
+      "og": {
+       "His company often meets clients.": "Công ty ông thường gặp khách",
+       "His team holds daily training.": "Nhóm ông tập huấn hằng ngày",
+       "He plans to rent them to others.": "Ông định cho thuê lại",
+       "His office has no internet.": "Văn phòng ông không có internet"
+      },
+      "ly": "Phần ghi chú nói họ thường gặp khách nên cần phòng họp.",
+      "dich": "Chúng tôi thường gặp khách hàng, nên việc được dùng phòng họp là quan trọng."
+     }
     },
     {
      "q": "What is suggested about Bluefin Design's lease?",
@@ -1569,7 +2201,17 @@
       "It is shorter than the minimum required.",
       "It includes paid parking."
      ],
-     "why": "12 tháng > tối thiểu 6 tháng."
+     "why": "12 tháng > tối thiểu 6 tháng.",
+     "lg": {
+      "og": {
+       "It is longer than the minimum required.": "Dài hơn mức tối thiểu",
+       "It begins later than August.": "Bắt đầu sau tháng 8",
+       "It is shorter than the minimum required.": "Ngắn hơn mức tối thiểu",
+       "It includes paid parking.": "Có phí đỗ xe"
+      },
+      "ly": "Hợp đồng tối thiểu 6 tháng, còn Bluefin muốn thuê 12 tháng nên dài hơn tối thiểu.",
+      "dich": "Thời hạn thuê: 12 tháng."
+     }
     },
     {
      "q": "In the advertisement, the word \"shared\" is closest in meaning to",
@@ -1579,7 +2221,17 @@
       "told",
       "equal"
      ],
-     "why": "\"shared meeting rooms\" = phòng họp dùng chung cho mọi khách thuê (common), không phải \"chia ra\" (divided)."
+     "why": "\"shared meeting rooms\" = phòng họp dùng chung cho mọi khách thuê (common), không phải \"chia ra\" (divided).",
+     "lg": {
+      "og": {
+       "common": "chung",
+       "divided": "chia",
+       "told": "kể",
+       "equal": "bằng nhau"
+      },
+      "ly": "\"Shared meeting rooms\" là phòng họp dùng chung, gần nghĩa nhất với common.",
+      "dich": "Tất cả văn phòng đều được dùng phòng họp chung."
+     }
     }
    ]
   },
@@ -1601,7 +2253,17 @@
       "To announce a new lunch menu",
       "To ask for help with a renovation"
      ],
-     "why": "The kitchen will be completely closed…"
+     "why": "The kitchen will be completely closed…",
+     "lg": {
+      "og": {
+       "To inform staff about a temporary closure": "Báo cho nhân viên về việc đóng cửa tạm thời",
+       "To introduce a new office manager": "Giới thiệu quản lý mới",
+       "To announce a new lunch menu": "Công bố thực đơn trưa mới",
+       "To ask for help with a renovation": "Nhờ giúp cải tạo"
+      },
+      "ly": "Thông báo nói bếp tầng bốn sẽ đóng hoàn toàn trong hai tuần để cải tạo.",
+      "dich": "Bếp nhân viên ở tầng bốn sẽ được cải tạo từ thứ Hai, ngày 3 tháng 11, đến thứ Sáu, ngày 14 tháng 11."
+     }
     },
     {
      "q": "What are employees asked to do by October 31?",
@@ -1611,7 +2273,17 @@
       "Order new equipment",
       "Sign up for lunch"
      ],
-     "why": "Please remove any personal items… by Friday, October 31."
+     "why": "Please remove any personal items… by Friday, October 31.",
+     "lg": {
+      "og": {
+       "Remove items from a refrigerator": "Dọn đồ khỏi tủ lạnh",
+       "Clean the meeting room": "Dọn phòng họp",
+       "Order new equipment": "Đặt thiết bị mới",
+       "Sign up for lunch": "Đăng ký bữa trưa"
+      },
+      "ly": "Nhân viên được nhắc lấy đồ cá nhân trong tủ lạnh trước thứ Sáu 31/10.",
+      "dich": "Vui lòng lấy hết đồ cá nhân khỏi tủ lạnh nhà bếp trước thứ Sáu, ngày 31 tháng 10."
+     }
     },
     {
      "q": "What will be added to the kitchen?",
@@ -1621,7 +2293,17 @@
       "A second refrigerator",
       "A television"
      ],
-     "why": "a larger seating area and a new dishwasher."
+     "why": "a larger seating area and a new dishwasher.",
+     "lg": {
+      "og": {
+       "More seating": "Thêm chỗ ngồi",
+       "A coffee machine": "Một máy pha cà phê",
+       "A second refrigerator": "Tủ lạnh thứ hai",
+       "A television": "Một ti vi"
+      },
+      "ly": "Câu cuối nói bếp sẽ có khu ngồi lớn hơn và máy rửa chén mới, tức thêm chỗ ngồi.",
+      "dich": "Khi công việc hoàn tất, bếp sẽ có khu vực ngồi lớn hơn và một máy rửa chén mới."
+     }
     }
    ]
   },
@@ -1651,7 +2333,17 @@
       "Free meals",
       "A parking pass"
      ],
-     "why": "a ticket to the closing concert."
+     "why": "a ticket to the closing concert.",
+     "lg": {
+      "og": {
+       "A concert ticket": "Một vé buổi hoà nhạc bế mạc",
+       "A cash payment": "Tiền công",
+       "Free meals": "Bữa ăn miễn phí",
+       "A parking pass": "Thẻ đỗ xe"
+      },
+      "ly": "Tình nguyện viên nhận áo thun và vé buổi hoà nhạc bế mạc.",
+      "dich": "Tình nguyện viên làm một ca bốn giờ và nhận một áo thun lễ hội miễn phí cùng một vé buổi hoà nhạc bế mạc."
+     }
     },
     {
      "q": "Why does Ms. Bell want to work in the children's art tent?",
@@ -1661,7 +2353,17 @@
       "It is near the entrance.",
       "It has the shortest shift."
      ],
-     "why": "I am a primary school teacher."
+     "why": "I am a primary school teacher.",
+     "lg": {
+      "og": {
+       "She works with children.": "Bà làm việc với trẻ em",
+       "Her son is an artist.": "Con trai bà là hoạ sĩ",
+       "It is near the entrance.": "Gần lối vào",
+       "It has the shortest shift.": "Ca ngắn nhất"
+      },
+      "ly": "Bà là giáo viên tiểu học nên vui lòng giúp ở lều nghệ thuật cho trẻ em.",
+      "dich": "Tôi là giáo viên tiểu học nên sẽ rất vui được giúp ở lều nghệ thuật thiếu nhi."
+     }
     },
     {
      "q": "What is suggested about Tom Bell?",
@@ -1671,7 +2373,17 @@
       "He chose the ticket gate.",
       "He will work on June 6."
      ],
-     "why": "Đối chiếu: con trai 16 tuổi của Nora (Tom Bell trên lịch) dưới 18 → phải làm cùng người lớn."
+     "why": "Đối chiếu: con trai 16 tuổi của Nora (Tom Bell trên lịch) dưới 18 → phải làm cùng người lớn.",
+     "lg": {
+      "og": {
+       "He must work with an adult volunteer.": "Cậu phải làm cùng một người lớn",
+       "He is a primary school teacher.": "Cậu là giáo viên tiểu học",
+       "He chose the ticket gate.": "Cậu chọn cổng bán vé",
+       "He will work on June 6.": "Cậu làm ngày 6/6"
+      },
+      "ly": "Tom 16 tuổi, mà tình nguyện viên dưới 18 tuổi phải làm cùng người lớn.",
+      "dich": "Tình nguyện viên dưới 18 tuổi phải làm cùng một tình nguyện viên người lớn."
+     }
     },
     {
      "q": "What time will Ms. Bell finish her shift?",
@@ -1681,7 +2393,17 @@
       "At 5:00 P.M.",
       "At 9:00 P.M."
      ],
-     "why": "Lịch: 9:00 A.M.–1:00 P.M.: Nora Bell."
+     "why": "Lịch: 9:00 A.M.–1:00 P.M.: Nora Bell.",
+     "lg": {
+      "og": {
+       "At 1:00 P.M.": "Lúc 1 giờ chiều",
+       "At 9:00 A.M.": "Lúc 9 giờ sáng",
+       "At 5:00 P.M.": "Lúc 5 giờ chiều",
+       "At 9:00 P.M.": "Lúc 9 giờ tối"
+      },
+      "ly": "Lịch ghi ca của bà Bell là 9:00 sáng đến 1:00 chiều.",
+      "dich": "9:00 sáng – 1:00 chiều: Nora Bell, Tom Bell."
+     }
     },
     {
      "q": "Which shift still needs volunteers?",
@@ -1691,7 +2413,17 @@
       "The afternoon shift",
       "No shift"
      ],
-     "why": "5:00 P.M.–9:00 P.M.: (open)."
+     "why": "5:00 P.M.–9:00 P.M.: (open).",
+     "lg": {
+      "og": {
+       "The evening shift": "Ca buổi tối",
+       "The morning shift": "Ca buổi sáng",
+       "The afternoon shift": "Ca buổi chiều",
+       "No shift": "Không ca nào"
+      },
+      "ly": "Ca 5:00–9:00 tối còn trống (open).",
+      "dich": "5:00 chiều – 9:00 tối: (còn trống)."
+     }
     }
    ]
   },
@@ -1717,7 +2449,17 @@
       "It is too noisy.",
       "It was sold at the wrong price."
      ],
-     "why": "it stopped working again this morning."
+     "why": "it stopped working again this morning.",
+     "lg": {
+      "og": {
+       "It has stopped working again.": "Nó lại ngừng hoạt động",
+       "It was delivered late.": "Nó giao trễ",
+       "It is too noisy.": "Nó quá ồn",
+       "It was sold at the wrong price.": "Nó bán sai giá"
+      },
+      "ly": "E-mail cho biết máy đã hỏng lại sáng nay dù được sửa ngày 12/3.",
+      "dich": "Thợ của quý vị đã sửa máy pha cà phê vào ngày 12 tháng 3, nhưng sáng nay nó lại ngừng hoạt động."
+     }
     },
     {
      "q": "Why does Mr. Ramos expect a free repair?",
@@ -1727,7 +2469,17 @@
       "He is a regular customer.",
       "The technician made a mistake with the bill."
      ],
-     "why": "Đối chiếu: sửa 12/3, bảo hành 90 ngày, e-mail ngày 2/4 → còn bảo hành."
+     "why": "Đối chiếu: sửa 12/3, bảo hành 90 ngày, e-mail ngày 2/4 → còn bảo hành.",
+     "lg": {
+      "og": {
+       "The previous repair is still guaranteed.": "Lần sửa trước còn trong thời gian bảo hành",
+       "He paid the invoice early.": "Ông thanh toán hoá đơn sớm",
+       "He is a regular customer.": "Ông là khách quen",
+       "The technician made a mistake with the bill.": "Thợ ghi sai hoá đơn"
+      },
+      "ly": "Hoá đơn ghi bảo hành 90 ngày, và lần sửa ngày 12/3 còn trong thời hạn tới ngày 2/4, nên ông kỳ vọng sửa miễn phí.",
+      "dich": "Mọi việc sửa chữa được bảo hành 90 ngày."
+     }
     },
     {
      "q": "Which part was replaced on March 12?",
@@ -1737,7 +2489,17 @@
       "A power cable",
       "A milk frother"
      ],
-     "why": "Replacement water pump — $95."
+     "why": "Replacement water pump — $95.",
+     "lg": {
+      "og": {
+       "A water pump": "Một bơm nước",
+       "A coffee grinder": "Một máy xay cà phê",
+       "A power cable": "Một dây điện",
+       "A milk frother": "Một máy đánh sữa"
+      },
+      "ly": "Hoá đơn có dòng \"Replacement water pump\" (bơm nước thay thế).",
+      "dich": "Bơm nước thay thế: 95 đô la."
+     }
     },
     {
      "q": "When does Mr. Ramos want the technician to come?",
@@ -1747,7 +2509,17 @@
       "During lunchtime",
       "After 7:00 P.M."
      ],
-     "why": "tomorrow morning before we open at 7:00."
+     "why": "tomorrow morning before we open at 7:00.",
+     "lg": {
+      "og": {
+       "Before the café opens": "Trước khi quán mở cửa",
+       "On Saturday afternoon": "Chiều thứ Bảy",
+       "During lunchtime": "Giờ ăn trưa",
+       "After 7:00 P.M.": "Sau 7 giờ tối"
+      },
+      "ly": "Ông nhờ thợ đến sáng mai trước 7:00 là giờ quán mở.",
+      "dich": "Có thể cử người đến vào sáng mai, trước khi chúng tôi mở cửa lúc 7 giờ không?"
+     }
     },
     {
      "q": "What is NOT listed on the invoice?",
@@ -1757,7 +2529,17 @@
       "A call-out fee",
       "Labor costs"
      ],
-     "why": "Hoá đơn có tiền công (labor), máy bơm thay mới, phí gọi thợ; không có phí giao hàng."
+     "why": "Hoá đơn có tiền công (labor), máy bơm thay mới, phí gọi thợ; không có phí giao hàng.",
+     "lg": {
+      "og": {
+       "A delivery charge": "Một khoản phí giao hàng",
+       "A replacement part": "Một linh kiện thay thế",
+       "A call-out fee": "Phí đến tận nơi",
+       "Labor costs": "Tiền công"
+      },
+      "ly": "Hoá đơn gồm tiền công, bơm thay thế và phí đến tận nơi. Không có phí giao hàng.",
+      "dich": "Sửa máy pha cà phê (công, 2 giờ): 140 đô la. Bơm nước thay thế: 95 đô la. Phí đến tận nơi: 40 đô la."
+     }
     }
    ]
   },
@@ -1779,7 +2561,17 @@
       "To report a car accident",
       "To explain new office hours"
      ],
-     "why": "must display a new electronic parking pass… old paper passes will no longer be accepted."
+     "why": "must display a new electronic parking pass… old paper passes will no longer be accepted.",
+     "lg": {
+      "og": {
+       "To announce a new parking system": "Thông báo hệ thống đỗ xe mới",
+       "To advertise office space": "Quảng cáo cho thuê văn phòng",
+       "To report a car accident": "Báo tai nạn xe",
+       "To explain new office hours": "Giải thích giờ làm việc mới"
+      },
+      "ly": "Từ 1/5 mọi xe phải có thẻ đỗ điện tử mới, nên bài thông báo hệ thống đỗ xe mới.",
+      "dich": "Từ ngày 1 tháng 5, mọi xe đỗ trong hầm Westgate Office Tower phải có thẻ đỗ điện tử mới."
+     }
     },
     {
      "q": "How much does an eleventh pass cost?",
@@ -1789,7 +2581,17 @@
       "$10 per month",
       "$15 per year"
      ],
-     "why": "up to ten passes free… Additional passes cost $15 per month."
+     "why": "up to ten passes free… Additional passes cost $15 per month.",
+     "lg": {
+      "og": {
+       "$15 per month": "15 đô la mỗi tháng",
+       "Nothing": "Miễn phí",
+       "$10 per month": "10 đô la mỗi tháng",
+       "$15 per year": "15 đô la mỗi năm"
+      },
+      "ly": "Mỗi công ty được tối đa mười thẻ miễn phí, nên thẻ thứ mười một tính phí 15 đô la mỗi tháng.",
+      "dich": "Mỗi công ty được xin tối đa mười thẻ miễn phí. Thẻ thêm giá 15 đô la mỗi tháng."
+     }
     },
     {
      "q": "What may happen to vehicles without a valid pass?",
@@ -1799,7 +2601,17 @@
       "They will be charged $15.",
       "They will be moved to the ground floor."
      ],
-     "why": "may be towed (bị kéo đi)."
+     "why": "may be towed (bị kéo đi).",
+     "lg": {
+      "og": {
+       "They may be removed.": "Có thể bị kéo đi",
+       "Their owners will receive a warning letter.": "Chủ xe nhận thư cảnh cáo",
+       "They will be charged $15.": "Bị tính 15 đô la",
+       "They will be moved to the ground floor.": "Bị chuyển xuống tầng trệt"
+      },
+      "ly": "Xe không có thẻ hợp lệ sau 1/5 có thể bị kéo đi (towed), tức bị di dời.",
+      "dich": "Xe không có thẻ hợp lệ sau ngày 1 tháng 5 có thể bị kéo đi, chủ xe chịu chi phí."
+     }
     }
    ]
   },
@@ -1821,7 +2633,17 @@
       "A room is too small.",
       "She cannot find the remote control."
      ],
-     "why": "The projector in Meeting Room B isn't working."
+     "why": "The projector in Meeting Room B isn't working.",
+     "lg": {
+      "og": {
+       "Some equipment is not working.": "Một thiết bị không hoạt động",
+       "A client has canceled.": "Khách đã huỷ",
+       "A room is too small.": "Một phòng quá nhỏ",
+       "She cannot find the remote control.": "Bà không tìm thấy điều khiển"
+      },
+      "ly": "Bà Fischer nói máy chiếu ở phòng họp B không hoạt động dù đã thay pin.",
+      "dich": "Máy chiếu ở Phòng họp B không hoạt động. Khách sẽ đến sau hai mươi phút nữa."
+     }
     },
     {
      "q": "At 2:07 P.M., what does Mr. Haddad mean when he writes, \"Will do\"?",
@@ -1831,7 +2653,17 @@
       "He will buy new batteries.",
       "He will meet the clients himself."
      ],
-     "why": "Trả lời yêu cầu: Can you tell the receptionist…? → Will do (sẽ làm)."
+     "why": "Trả lời yêu cầu: Can you tell the receptionist…? → Will do (sẽ làm).",
+     "lg": {
+      "og": {
+       "He will contact the receptionist.": "Anh sẽ liên hệ lễ tân",
+       "He will fix the projector.": "Anh sẽ sửa máy chiếu",
+       "He will buy new batteries.": "Anh sẽ mua pin mới",
+       "He will meet the clients himself.": "Anh sẽ tự gặp khách"
+      },
+      "ly": "Bà nhờ ông báo lễ tân đưa khách sang phòng D. \"Will do\" là đồng ý làm việc đó.",
+      "dich": "Anh nhờ lễ tân đưa khách sang đó được không? - Được."
+     }
     }
    ]
   },
@@ -1853,7 +2685,17 @@
       "It only cleans homes.",
       "It works on public holidays."
      ],
-     "why": "for over fifteen years."
+     "why": "for over fifteen years.",
+     "lg": {
+      "og": {
+       "It has operated for many years.": "Hoạt động nhiều năm",
+       "It recently moved to Brookfield.": "Mới chuyển đến Brookfield",
+       "It only cleans homes.": "Chỉ dọn nhà ở",
+       "It works on public holidays.": "Làm cả ngày lễ"
+      },
+      "ly": "Quảng cáo nói công ty đã dọn dẹp doanh nghiệp ở Brookfield hơn mười lăm năm.",
+      "dich": "Sunrise Cleaning Services đã giữ cho các doanh nghiệp ở Brookfield sạch sẽ hơn mười lăm năm."
+     }
     },
     {
      "q": "What is offered to some new customers?",
@@ -1863,7 +2705,17 @@
       "A free one-year contract",
       "Free cleaning products"
      ],
-     "why": "will receive their first window cleaning free."
+     "why": "will receive their first window cleaning free.",
+     "lg": {
+      "og": {
+       "A free window cleaning": "Một lần lau cửa sổ miễn phí",
+       "A discount on carpets": "Giảm giá thảm",
+       "A free one-year contract": "Hợp đồng một năm miễn phí",
+       "Free cleaning products": "Sản phẩm vệ sinh miễn phí"
+      },
+      "ly": "Khách mới ký hợp đồng một năm trước 30/6 được lau cửa sổ miễn phí lần đầu.",
+      "dich": "Khách mới ký hợp đồng một năm trước ngày 30 tháng 6 sẽ được lau cửa sổ lần đầu miễn phí."
+     }
     },
     {
      "q": "The word \"fresh\" in line 1 is closest in meaning to",
@@ -1873,7 +2725,17 @@
       "cool",
       "quick"
      ],
-     "why": "a fresh start = một khởi đầu mới."
+     "why": "a fresh start = một khởi đầu mới.",
+     "lg": {
+      "og": {
+       "new": "mới",
+       "cold": "lạnh",
+       "cool": "mát",
+       "quick": "nhanh"
+      },
+      "ly": "\"A fresh start\" là một khởi đầu mới, gần nghĩa nhất với new.",
+      "dich": "Văn phòng của bạn đã sẵn sàng cho một khởi đầu mới chưa?"
+     }
     }
    ]
   },
@@ -1899,7 +2761,17 @@
       "To change a work schedule",
       "To request a budget"
      ],
-     "why": "Our autumn training program is now open for registration."
+     "why": "Our autumn training program is now open for registration.",
+     "lg": {
+      "og": {
+       "To announce training courses": "Để thông báo các khoá đào tạo",
+       "To introduce a new manager": "Để giới thiệu quản lý mới",
+       "To change a work schedule": "Để đổi lịch làm việc",
+       "To request a budget": "Để xin ngân sách"
+      },
+      "ly": "E-mail mở đăng ký chương trình đào tạo mùa thu và liệt kê bốn khoá.",
+      "dich": "Chương trình đào tạo mùa thu hiện đã mở đăng ký."
+     }
     },
     {
      "q": "Which course is the shortest?",
@@ -1909,7 +2781,17 @@
       "Advanced Excel",
       "Presentation Skills"
      ],
-     "why": "Customer Communication (half day)."
+     "why": "Customer Communication (half day).",
+     "lg": {
+      "og": {
+       "Customer Communication": "Giao tiếp với khách hàng",
+       "Project Management": "Quản lý dự án",
+       "Advanced Excel": "Excel nâng cao",
+       "Presentation Skills": "Kỹ năng thuyết trình"
+      },
+      "ly": "Quản lý dự án 2 ngày, hai khoá kia một ngày, còn Giao tiếp với khách hàng chỉ nửa ngày.",
+      "dich": "Giao tiếp với khách hàng (nửa ngày)."
+     }
     },
     {
      "q": "What problem is there with the Sales department's form for Advanced Excel?",
@@ -1919,7 +2801,17 @@
       "No employee is listed.",
       "An employee is listed twice."
      ],
-     "why": "Tối đa 3 người mỗi khoá, nhưng Advanced Excel có 4 người (đối chiếu 2 văn bản)."
+     "why": "Tối đa 3 người mỗi khoá, nhưng Advanced Excel có 4 người (đối chiếu 2 văn bản).",
+     "lg": {
+      "og": {
+       "Too many employees are listed.": "Liệt kê quá nhiều người",
+       "The course is not offered.": "Khoá không mở",
+       "No employee is listed.": "Không có ai trong danh sách",
+       "An employee is listed twice.": "Một người bị ghi hai lần"
+      },
+      "ly": "Mỗi phòng chỉ gửi tối đa ba người mỗi khoá nhưng Excel nâng cao có bốn người.",
+      "dich": "Mỗi phòng có thể cử tối đa ba nhân viên cho mỗi khoá."
+     }
     },
     {
      "q": "What is indicated about Mr. Hale?",
@@ -1929,7 +2821,17 @@
       "He works in the Training Office.",
       "He teaches Presentation Skills."
      ],
-     "why": "Hạn 20/8, nộp ngày 22/8 (đối chiếu)."
+     "why": "Hạn 20/8, nộp ngày 22/8 (đối chiếu).",
+     "lg": {
+      "og": {
+       "He submitted the form late.": "Ông nộp biểu mẫu muộn",
+       "He will attend two courses.": "Ông dự hai khoá",
+       "He works in the Training Office.": "Ông làm ở Văn phòng Đào tạo",
+       "He teaches Presentation Skills.": "Ông dạy kỹ năng thuyết trình"
+      },
+      "ly": "Hạn nộp là 20/8 nhưng biểu mẫu ông Hale gửi ngày 22/8, tức nộp muộn.",
+      "dich": "Vui lòng gửi lại biểu mẫu đính kèm trước ngày 20 tháng 8."
+     }
     },
     {
      "q": "What will most likely happen if Eva Ruiz misses a course without notice?",
@@ -1939,7 +2841,17 @@
       "The course will be moved to another day.",
       "The Training Office will refund the fee."
      ],
-     "why": "Đối chiếu: Eva Ruiz có tên trong phiếu phòng Sales; e-mail nói phòng ban phải trả tiền cho người vắng không báo trước."
+     "why": "Đối chiếu: Eva Ruiz có tên trong phiếu phòng Sales; e-mail nói phòng ban phải trả tiền cho người vắng không báo trước.",
+     "lg": {
+      "og": {
+       "The Sales department will have to pay for it.": "Phòng Kinh doanh phải trả tiền",
+       "She will be removed from all courses.": "Bà bị loại khỏi mọi khoá",
+       "The course will be moved to another day.": "Khoá được dời ngày",
+       "The Training Office will refund the fee.": "Văn phòng Đào tạo hoàn phí"
+      },
+      "ly": "Khoá miễn phí nhưng phòng ban phải trả cho người vắng mặt không báo trước.",
+      "dich": "Các phòng ban phải trả phí cho mọi người tham gia vắng mặt mà không báo trước."
+     }
     }
    ]
   },
@@ -2007,7 +2919,17 @@
       "Water will be shut off.",
       "An office is moving."
      ],
-     "why": "your water bill for September… has not been paid."
+     "why": "your water bill for September… has not been paid.",
+     "lg": {
+      "og": {
+       "A bill has not been paid.": "Một hoá đơn chưa được thanh toán",
+       "A price is increasing.": "Giá sắp tăng",
+       "Water will be shut off.": "Nước sẽ bị cắt",
+       "An office is moving.": "Văn phòng sắp chuyển"
+      },
+      "ly": "Thư nhắc hoá đơn tiền nước tháng 9 chưa được thanh toán.",
+      "dich": "Hồ sơ của chúng tôi cho thấy hoá đơn tiền nước tháng 9 của ông, trị giá 64,20 đô la, chưa được thanh toán."
+     }
     },
     {
      "q": "What will happen if Mr. Abara pays after October 25?",
@@ -2017,7 +2939,17 @@
       "He will receive a refund.",
       "He must visit the office."
      ],
-     "why": "To avoid a late fee of $10, please pay… by October 25."
+     "why": "To avoid a late fee of $10, please pay… by October 25.",
+     "lg": {
+      "og": {
+       "He will be charged an extra fee.": "Ông bị tính thêm phí",
+       "His service will be stopped.": "Dịch vụ bị ngừng",
+       "He will receive a refund.": "Ông được hoàn tiền",
+       "He must visit the office.": "Ông phải đến văn phòng"
+      },
+      "ly": "Thư nói để tránh phí trễ hạn 10 đô la phải thanh toán trước 25/10, nên trả sau sẽ bị tính phí thêm.",
+      "dich": "Để tránh phí trễ hạn 10 đô la, vui lòng thanh toán đủ trước ngày 25 tháng 10."
+     }
     },
     {
      "q": "What is offered to customers who have trouble paying?",
@@ -2027,7 +2959,17 @@
       "A free inspection",
       "A new meter"
      ],
-     "why": "help you set up a payment plan."
+     "why": "help you set up a payment plan.",
+     "lg": {
+      "og": {
+       "A payment plan": "Một kế hoạch thanh toán",
+       "A discount": "Giảm giá",
+       "A free inspection": "Kiểm tra miễn phí",
+       "A new meter": "Đồng hồ mới"
+      },
+      "ly": "Thư nói bộ phận chăm sóc khách hàng có thể giúp lập kế hoạch thanh toán cho người khó thanh toán.",
+      "dich": "Nếu ông gặp khó khăn khi thanh toán, nhóm chăm sóc khách hàng có thể giúp ông lập kế hoạch thanh toán."
+     }
     }
    ]
   },
@@ -2049,7 +2991,17 @@
       "A university course",
       "An election"
      ],
-     "why": "will move its headquarters from Chicago to Brookfield."
+     "why": "will move its headquarters from Chicago to Brookfield.",
+     "lg": {
+      "og": {
+       "A company's relocation": "Việc một công ty chuyển trụ sở",
+       "A new hospital": "Một bệnh viện mới",
+       "A university course": "Một khoá học đại học",
+       "An election": "Một cuộc bầu cử"
+      },
+      "ly": "Bài báo nói Novaline sẽ chuyển trụ sở từ Chicago về Brookfield.",
+      "dich": "Công ty công nghệ Novaline hôm qua thông báo sẽ chuyển trụ sở từ Chicago về Brookfield trước cuối năm."
+     }
     },
     {
      "q": "What does Novaline produce?",
@@ -2059,7 +3011,17 @@
       "Office furniture",
       "Computers"
      ],
-     "why": "makes software for hospitals."
+     "why": "makes software for hospitals.",
+     "lg": {
+      "og": {
+       "Software": "Phần mềm",
+       "Medical equipment": "Thiết bị y tế",
+       "Office furniture": "Nội thất văn phòng",
+       "Computers": "Máy tính"
+      },
+      "ly": "Bài ghi công ty làm phần mềm cho bệnh viện.",
+      "dich": "Công ty, chuyên làm phần mềm cho các bệnh viện, hiện có 300 nhân viên."
+     }
     },
     {
      "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Many of the new employees are expected to come from the university's computer science program.\"",
@@ -2069,7 +3031,17 @@
       "[3]",
       "[4]"
      ],
-     "why": "Sau câu nói về trường đại học (nguồn sinh viên mới tốt nghiệp) và trước câu về toà nhà."
+     "why": "Sau câu nói về trường đại học (nguồn sinh viên mới tốt nghiệp) và trước câu về toà nhà.",
+     "lg": {
+      "og": {
+       "[2]": "[2]",
+       "[1]": "[1]",
+       "[3]": "[3]",
+       "[4]": "[4]"
+      },
+      "ly": "Câu chèn nói nhiều nhân viên mới đến từ chương trình khoa học máy tính của trường đại học, nên đặt ngay sau câu nhắc trường đại học (vị trí [2]).",
+      "dich": "Nhiều nhân viên mới dự kiến đến từ chương trình khoa học máy tính của trường đại học."
+     }
     }
    ]
   },
@@ -2099,7 +3071,17 @@
       "Her old cards are damaged.",
       "She is changing her logo."
      ],
-     "why": "we are opening a new office that week."
+     "why": "we are opening a new office that week.",
+     "lg": {
+      "og": {
+       "Her company is opening a new office.": "Công ty bà sắp mở văn phòng mới",
+       "She is attending a conference.": "Bà dự hội nghị",
+       "Her old cards are damaged.": "Danh thiếp cũ bị hỏng",
+       "She is changing her logo.": "Bà đổi logo"
+      },
+      "ly": "E-mail nói họ cần hàng trước 10/4 vì mở văn phòng mới tuần đó.",
+      "dich": "Xin giao đến studio của chúng tôi trước ngày 10 tháng 4, vì chúng tôi mở văn phòng mới trong tuần đó."
+     }
     },
     {
      "q": "What mistake was made on the invoice?",
@@ -2109,7 +3091,17 @@
       "Too many envelopes were charged.",
       "The order date was wrong."
      ],
-     "why": "Đặt Classic White, hoá đơn ghi Classic Cream (đối chiếu)."
+     "why": "Đặt Classic White, hoá đơn ghi Classic Cream (đối chiếu).",
+     "lg": {
+      "og": {
+       "The wrong color was listed.": "Ghi sai màu",
+       "The wrong address was listed.": "Ghi sai địa chỉ",
+       "Too many envelopes were charged.": "Tính thừa phong bì",
+       "The order date was wrong.": "Sai ngày đặt"
+      },
+      "ly": "Bà đặt màu Classic White nhưng hoá đơn ghi Classic Cream, và thư trả lời nói sẽ in đúng màu.",
+      "dich": "Chúng tôi sẽ in danh thiếp đúng màu bà yêu cầu mà không tính thêm phí."
+     }
     },
     {
      "q": "How much will Ms. Benz most likely pay?",
@@ -2119,7 +3111,17 @@
       "$75.00",
       "$120.00"
      ],
-     "why": "Bỏ phí giao hàng $15: 150 − 15 = 135 (đối chiếu hoá đơn + e-mail)."
+     "why": "Bỏ phí giao hàng $15: 150 − 15 = 135 (đối chiếu hoá đơn + e-mail).",
+     "lg": {
+      "og": {
+       "$135.00": "135 đô la",
+       "$150.00": "150 đô la",
+       "$75.00": "75 đô la",
+       "$120.00": "120 đô la"
+      },
+      "ly": "Tổng hoá đơn là 150 đô la và công ty đã bỏ phí giao hàng 15 đô la, nên còn 135 đô la.",
+      "dich": "Chúng tôi cũng đã xoá phí giao hàng khỏi hoá đơn của bà."
+     }
     },
     {
      "q": "What is suggested about the cards?",
@@ -2129,7 +3131,17 @@
       "They will be sent to a new address.",
       "They will be printed by another company."
      ],
-     "why": "they will still arrive before your deadline."
+     "why": "they will still arrive before your deadline.",
+     "lg": {
+      "og": {
+       "They will be delivered before April 10.": "Sẽ được giao trước ngày 10/4",
+       "They will cost more than planned.": "Sẽ đắt hơn dự kiến",
+       "They will be sent to a new address.": "Sẽ gửi đến địa chỉ mới",
+       "They will be printed by another company.": "Sẽ do công ty khác in"
+      },
+      "ly": "Thư nói danh thiếp vẫn đến trước hạn chót của bà, tức trước 10/4.",
+      "dich": "Chúng sẽ vẫn đến trước hạn chót của bà."
+     }
     },
     {
      "q": "In the e-mail of April 4, the word \"removed\" is closest in meaning to",
@@ -2139,7 +3151,17 @@
       "sent back",
       "paid for"
      ],
-     "why": "\"removed the delivery charge from your invoice\" = bỏ phí giao hàng ra khỏi hoá đơn (taken off)."
+     "why": "\"removed the delivery charge from your invoice\" = bỏ phí giao hàng ra khỏi hoá đơn (taken off).",
+     "lg": {
+      "og": {
+       "taken off": "gỡ bỏ",
+       "moved away": "dời đi",
+       "sent back": "gửi trả",
+       "paid for": "trả tiền cho"
+      },
+      "ly": "\"Removed the delivery charge\" là xoá khoản phí giao hàng, gần nghĩa nhất với taken off.",
+      "dich": "Chúng tôi cũng đã xoá phí giao hàng khỏi hoá đơn của bà."
+     }
     }
    ]
   },
@@ -2161,7 +3183,17 @@
       "To request volunteers",
       "To explain a building repair"
      ],
-     "why": "will open at 8:00 A.M. on weekdays, one hour earlier than before."
+     "why": "will open at 8:00 A.M. on weekdays, one hour earlier than before.",
+     "lg": {
+      "og": {
+       "To announce new opening hours": "Thông báo giờ mở cửa mới",
+       "To advertise a book sale": "Quảng cáo bán sách",
+       "To request volunteers": "Kêu gọi tình nguyện viên",
+       "To explain a building repair": "Giải thích việc sửa toà nhà"
+      },
+      "ly": "Câu đầu cho biết thư viện sẽ mở sớm hơn một giờ từ ngày 5/5, nên bài thông báo giờ mở cửa mới.",
+      "dich": "Từ thứ Hai ngày 5 tháng 5, Thư viện Oakdale sẽ mở cửa lúc 8 giờ sáng các ngày trong tuần, sớm hơn trước một giờ."
+     }
     },
     {
      "q": "What is NOT mentioned about the library?",
@@ -2171,7 +3203,17 @@
       "It asked residents for their opinions.",
       "It offers study rooms that can be reserved."
      ],
-     "why": "Câu NOT: 3 phương án kia đều có trong thông báo (giờ mở sớm hơn, cuộc khảo sát, đặt phòng học); bãi đỗ xe không được nhắc."
+     "why": "Câu NOT: 3 phương án kia đều có trong thông báo (giờ mở sớm hơn, cuộc khảo sát, đặt phòng học); bãi đỗ xe không được nhắc.",
+     "lg": {
+      "og": {
+       "It will add a parking area.": "Sẽ thêm khu đỗ xe",
+       "It will open earlier on weekdays.": "Sẽ mở cửa sớm hơn",
+       "It asked residents for their opinions.": "Đã hỏi ý kiến cư dân",
+       "It offers study rooms that can be reserved.": "Có phòng học đặt trước được"
+      },
+      "ly": "Bài nhắc việc mở sớm, khảo sát cư dân và phòng học đặt được, nhưng không hề nói về khu đỗ xe.",
+      "dich": "Tài khoản trực tuyến dùng để đặt sách và phòng học."
+     }
     },
     {
      "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Many of them also asked for more places to study quietly.\"",
@@ -2181,7 +3223,17 @@
       "[3]",
       "[4]"
      ],
-     "why": "\"them\" = residents ở câu khảo sát ngay trước; \"also asked\" nối với \"said they would like to visit the library before work\". Vị trí [4] có \"study rooms\" nhưng visitors không \"asked\" gì cả."
+     "why": "\"them\" = residents ở câu khảo sát ngay trước; \"also asked\" nối với \"said they would like to visit the library before work\". Vị trí [4] có \"study rooms\" nhưng visitors không \"asked\" gì cả.",
+     "lg": {
+      "og": {
+       "[2]": "[2]",
+       "[1]": "[1]",
+       "[3]": "[3]",
+       "[4]": "[4]"
+      },
+      "ly": "Câu chèn nói nhiều cư dân còn muốn thêm chỗ học yên tĩnh, tiếp ngay sau câu nói về khảo sát cư dân (vị trí [2]).",
+      "dich": "Nhiều người trong số họ cũng đề nghị có thêm chỗ học yên tĩnh."
+     }
     },
     {
      "q": "In the notice, the word \"follows\" in the second sentence is closest in meaning to",
@@ -2191,7 +3243,17 @@
       "obeys",
       "understands"
      ],
-     "why": "The change follows a survey = sự thay đổi đến sau (là kết quả của) một cuộc khảo sát. follow còn nghĩa \"tuân theo\" (obey), \"hiểu\" (understand) nhưng không hợp ở đây."
+     "why": "The change follows a survey = sự thay đổi đến sau (là kết quả của) một cuộc khảo sát. follow còn nghĩa \"tuân theo\" (obey), \"hiểu\" (understand) nhưng không hợp ở đây.",
+     "lg": {
+      "og": {
+       "comes after": "đến sau",
+       "walks behind": "đi sau",
+       "obeys": "tuân theo",
+       "understands": "hiểu"
+      },
+      "ly": "\"The change follows a survey\" là thay đổi diễn ra sau khảo sát, tức comes after.",
+      "dich": "Thay đổi này diễn ra sau một khảo sát."
+     }
     }
    ]
   },
@@ -2213,7 +3275,17 @@
       "To announce a new office manager",
       "To ask staff for kitchen design ideas"
      ],
-     "why": "The second-floor kitchen will be renovated from June 9 to June 20."
+     "why": "The second-floor kitchen will be renovated from June 9 to June 20.",
+     "lg": {
+      "og": {
+       "To inform staff about renovation work": "Báo cho nhân viên về việc cải tạo",
+       "To invite staff to a lunch": "Mời nhân viên ăn trưa",
+       "To announce a new office manager": "Thông báo quản lý văn phòng mới",
+       "To ask staff for kitchen design ideas": "Xin ý tưởng thiết kế bếp"
+      },
+      "ly": "Thư báo bếp tầng hai sẽ được cải tạo và hướng dẫn dùng bếp tầng bốn trong thời gian đó.",
+      "dich": "Bếp ở tầng hai sẽ được cải tạo từ ngày 9 đến ngày 20 tháng 6."
+     }
     },
     {
      "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Coffee and tea will also be available in the reception area on the first floor.\"",
@@ -2223,7 +3295,17 @@
       "[3]",
       "[4]"
      ],
-     "why": "Câu chèn nói thêm một chỗ dùng tạm (\"also available\") trong lúc sửa bếp: đứng ngay sau câu bảo dùng bếp tầng 4."
+     "why": "Câu chèn nói thêm một chỗ dùng tạm (\"also available\") trong lúc sửa bếp: đứng ngay sau câu bảo dùng bếp tầng 4.",
+     "lg": {
+      "og": {
+       "[2]": "[2]",
+       "[1]": "[1]",
+       "[3]": "[3]",
+       "[4]": "[4]"
+      },
+      "ly": "Câu chèn nói thêm cà phê và trà ở khu lễ tân, nên đặt sau câu nói dùng bếp tầng bốn (vị trí [2]) như một phương án thay thế.",
+      "dich": "Cà phê và trà cũng sẽ có sẵn ở khu lễ tân tầng một."
+     }
     },
     {
      "q": "In the e-mail, the word \"address\" is closest in meaning to",
@@ -2233,7 +3315,17 @@
       "speak to",
       "locate"
      ],
-     "why": "address the long lines = giải quyết chuyện xếp hàng dài. address còn nghĩa \"ghi địa chỉ / gửi\" và \"nói với (khán giả)\" nhưng không hợp ở đây."
+     "why": "address the long lines = giải quyết chuyện xếp hàng dài. address còn nghĩa \"ghi địa chỉ / gửi\" và \"nói với (khán giả)\" nhưng không hợp ở đây.",
+     "lg": {
+      "og": {
+       "deal with": "giải quyết",
+       "send": "gửi",
+       "speak to": "nói chuyện với",
+       "locate": "tìm ra"
+      },
+      "ly": "\"Address the long lines\" là giải quyết tình trạng xếp hàng dài, tức deal with.",
+      "dich": "Chúng tôi kỳ vọng dự án sẽ giải quyết tình trạng xếp hàng dài giờ trưa mà nhiều bạn đã nêu."
+     }
     },
     {
      "q": "What is suggested about the second-floor kitchen?",
@@ -2243,7 +3335,17 @@
       "It was renovated last year.",
       "It is larger than the fourth-floor kitchen."
      ],
-     "why": "the long lines at lunchtime that many of you have mentioned."
+     "why": "the long lines at lunchtime that many of you have mentioned.",
+     "lg": {
+      "og": {
+       "It is often crowded at lunchtime.": "Giờ trưa thường đông",
+       "It will close permanently.": "Sẽ đóng cửa vĩnh viễn",
+       "It was renovated last year.": "Mới cải tạo năm ngoái",
+       "It is larger than the fourth-floor kitchen.": "Lớn hơn bếp tầng bốn"
+      },
+      "ly": "Dự án cải tạo kỳ vọng giải quyết hàng dài giờ trưa, nên bếp tầng hai thường đông vào giờ trưa.",
+      "dich": "Chúng tôi kỳ vọng dự án sẽ giải quyết tình trạng xếp hàng dài giờ trưa mà nhiều bạn đã nêu."
+     }
     }
    ]
   },
@@ -2265,7 +3367,17 @@
       "A new type of bicycle",
       "A change in company leadership"
      ],
-     "why": "will open stations in two more cities next spring."
+     "why": "will open stations in two more cities next spring.",
+     "lg": {
+      "og": {
+       "A company's plans to expand": "Kế hoạch mở rộng của một công ty",
+       "The opening of a train station": "Việc mở một nhà ga",
+       "A new type of bicycle": "Một loại xe đạp mới",
+       "A change in company leadership": "Thay đổi lãnh đạo công ty"
+      },
+      "ly": "Bài nói Greenline Bikes sẽ mở trạm ở hai thành phố nữa và thêm xe đạp điện, tức kế hoạch mở rộng.",
+      "dich": "Greenline Bikes sẽ mở trạm ở hai thành phố nữa vào mùa xuân tới."
+     }
     },
     {
      "q": "What is NOT mentioned about Greenline Bikes?",
@@ -2275,7 +3387,17 @@
       "Its riders use a mobile app.",
       "It will offer discounts to train passengers."
      ],
-     "why": "Câu NOT: thành lập 4 năm trước, mở khoá bằng ứng dụng, giảm 20% cho hành khách tàu đều có trong bài; bán xe cho doanh nghiệp thì không."
+     "why": "Câu NOT: thành lập 4 năm trước, mở khoá bằng ứng dụng, giảm 20% cho hành khách tàu đều có trong bài; bán xe cho doanh nghiệp thì không.",
+     "lg": {
+      "og": {
+       "It sells bicycles to businesses.": "Công ty bán xe đạp cho doanh nghiệp",
+       "It was founded four years ago.": "Thành lập cách đây bốn năm",
+       "Its riders use a mobile app.": "Người dùng dùng ứng dụng",
+       "It will offer discounts to train passengers.": "Giảm giá cho hành khách tàu"
+      },
+      "ly": "Bài nhắc thành lập bốn năm trước, dùng ứng dụng và giảm giá cho hành khách tàu. Không nói gì về việc bán xe đạp cho doanh nghiệp.",
+      "dich": "Công ty cho thuê xe đạp được thành lập ở Westbrook bốn năm trước."
+     }
     },
     {
      "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"On average, each of those stations is used more than 40 times a day.\"",
@@ -2285,7 +3407,17 @@
       "[3]",
       "[4]"
      ],
-     "why": "\"those stations\" chỉ 60 trạm đang chạy ở câu ngay trước. Trạm ở thành phố mới hay ở ga tàu chưa mở nên chưa thể \"được dùng 40 lần mỗi ngày\"."
+     "why": "\"those stations\" chỉ 60 trạm đang chạy ở câu ngay trước. Trạm ở thành phố mới hay ở ga tàu chưa mở nên chưa thể \"được dùng 40 lần mỗi ngày\".",
+     "lg": {
+      "og": {
+       "[2]": "[2]",
+       "[1]": "[1]",
+       "[3]": "[3]",
+       "[4]": "[4]"
+      },
+      "ly": "Câu chèn nói về các trạm đó (\"those stations\") được dùng hơn 40 lần mỗi ngày, nên đặt sau câu nói công ty có 60 trạm (vị trí [2]).",
+      "dich": "Trung bình, mỗi trạm trong số đó được dùng hơn 40 lần mỗi ngày."
+     }
     },
     {
      "q": "In the article, the word \"placed\" is closest in meaning to",
@@ -2295,7 +3427,17 @@
       "ordered",
       "hired"
      ],
-     "why": "stations will be placed outside every major train station = trạm sẽ được đặt bên ngoài ga. place còn nghĩa \"xếp hạng\", \"đặt hàng\" (place an order), \"xếp việc cho người\"."
+     "why": "stations will be placed outside every major train station = trạm sẽ được đặt bên ngoài ga. place còn nghĩa \"xếp hạng\", \"đặt hàng\" (place an order), \"xếp việc cho người\".",
+     "lg": {
+      "og": {
+       "put": "đặt",
+       "ranked": "xếp hạng",
+       "ordered": "gọi món / đặt hàng",
+       "hired": "thuê"
+      },
+      "ly": "\"Stations will be placed outside\" là các trạm sẽ được đặt bên ngoài, gần nghĩa nhất với put.",
+      "dich": "Theo thoả thuận, các trạm Greenline sẽ được đặt bên ngoài mọi ga tàu lớn."
+     }
     }
    ]
   },
@@ -2317,7 +3459,17 @@
       "A projector",
       "Bottled water"
      ],
-     "why": "Wi-Fi, máy chiếu, nước có ở mọi phòng; đỗ xe miễn phí chỉ cho khách đặt phòng cả ngày."
+     "why": "Wi-Fi, máy chiếu, nước có ở mọi phòng; đỗ xe miễn phí chỉ cho khách đặt phòng cả ngày.",
+     "lg": {
+      "og": {
+       "Free parking": "Chỗ đỗ xe miễn phí",
+       "Wi-Fi access": "Wi-Fi",
+       "A projector": "Máy chiếu",
+       "Bottled water": "Nước đóng chai"
+      },
+      "ly": "Mỗi phòng đều có Wi-Fi, máy chiếu và nước. Đỗ xe miễn phí chỉ dành cho khách đặt phòng cả ngày, nên không đi kèm mọi phòng.",
+      "dich": "Phòng nào cũng có Wi-Fi miễn phí, máy chiếu và nước đóng chai."
+     }
     },
     {
      "q": "On the Web page, the word \"arranged\" is closest in meaning to",
@@ -2327,7 +3479,17 @@
       "decorated",
       "played"
      ],
-     "why": "Catering can be arranged = có thể sắp xếp (tổ chức) tiệc ăn. arrange còn nghĩa \"xếp (hoa) cho đẹp\", \"phối (nhạc)\"."
+     "why": "Catering can be arranged = có thể sắp xếp (tổ chức) tiệc ăn. arrange còn nghĩa \"xếp (hoa) cho đẹp\", \"phối (nhạc)\".",
+     "lg": {
+      "og": {
+       "organized": "được sắp xếp",
+       "listed": "được liệt kê",
+       "decorated": "được trang trí",
+       "played": "được chơi"
+      },
+      "ly": "\"Catering can be arranged\" nghĩa là việc ăn uống có thể được sắp xếp, gần nghĩa nhất với organized.",
+      "dich": "Dịch vụ ăn uống có thể được sắp xếp qua nhà hàng của chúng tôi."
+     }
     },
     {
      "q": "What will most likely happen if a booking is canceled five days before an event?",
@@ -2337,7 +3499,17 @@
       "The room will be given to another group for free.",
       "The guest will receive a full refund."
      ],
-     "why": "Chỉ hoàn đủ tiền cọc khi huỷ trước hơn 7 ngày; huỷ trước 5 ngày thì không được hoàn đủ (suy luận)."
+     "why": "Chỉ hoàn đủ tiền cọc khi huỷ trước hơn 7 ngày; huỷ trước 5 ngày thì không được hoàn đủ (suy luận).",
+     "lg": {
+      "og": {
+       "The deposit will not be fully returned.": "Tiền đặt cọc không được hoàn đủ",
+       "The hotel will charge for parking.": "Khách sạn tính phí đỗ xe",
+       "The room will be given to another group for free.": "Phòng được tặng nhóm khác",
+       "The guest will receive a full refund.": "Khách được hoàn tiền toàn bộ"
+      },
+      "ly": "Cọc chỉ hoàn đủ nếu huỷ trước hơn bảy ngày. Huỷ trước năm ngày thì không được hoàn đủ.",
+      "dich": "Tiền đặt cọc 30 phần trăm được hoàn đủ nếu việc đặt phòng bị huỷ trước hơn bảy ngày."
+     }
     }
    ]
   },
@@ -2359,7 +3531,17 @@
       "To announce a new clinic location",
       "To introduce a new dentist"
      ],
-     "why": "it has been twelve months since your last check-up … we recommend a check-up once a year."
+     "why": "it has been twelve months since your last check-up … we recommend a check-up once a year.",
+     "lg": {
+      "og": {
+       "To remind a patient to make an appointment": "Để nhắc bệnh nhân đặt lịch hẹn",
+       "To confirm a payment": "Để xác nhận thanh toán",
+       "To announce a new clinic location": "Để thông báo cơ sở mới",
+       "To introduce a new dentist": "Để giới thiệu nha sĩ mới"
+      },
+      "ly": "Thư báo đã mười hai tháng kể từ lần khám trước và khuyên khám mỗi năm, kèm cách đặt lịch.",
+      "dich": "Hồ sơ cho thấy đã mười hai tháng kể từ lần khám gần nhất của ông."
+     }
     },
     {
      "q": "In the letter, the word \"identify\" in paragraph 1 is closest in meaning to",
@@ -2369,7 +3551,17 @@
       "copy",
       "prove"
      ],
-     "why": "identify small problems = phát hiện vấn đề nhỏ. identify còn nghĩa \"nhận ra, gọi tên (ai đó)\" nhưng ở đây là tìm ra."
+     "why": "identify small problems = phát hiện vấn đề nhỏ. identify còn nghĩa \"nhận ra, gọi tên (ai đó)\" nhưng ở đây là tìm ra.",
+     "lg": {
+      "og": {
+       "find": "tìm ra",
+       "name": "gọi tên",
+       "copy": "sao chép",
+       "prove": "chứng minh"
+      },
+      "ly": "\"Identify small problems\" là phát hiện ra các vấn đề nhỏ, gần nghĩa nhất với find.",
+      "dich": "Khám định kỳ giúp chúng tôi phát hiện vấn đề nhỏ trước khi chúng trở nên nghiêm trọng."
+     }
     },
     {
      "q": "What is suggested about Mr. Haddad's insurance information?",
@@ -2379,7 +3571,17 @@
       "It only covers Saturday visits.",
       "It was sent by mail."
      ],
-     "why": "bring your insurance card … as our patient system was recently updated: hệ thống mới nên có thể phải nhập lại."
+     "why": "bring your insurance card … as our patient system was recently updated: hệ thống mới nên có thể phải nhập lại.",
+     "lg": {
+      "og": {
+       "It may need to be entered again.": "Có thể phải nhập lại",
+       "It has expired.": "Đã hết hạn",
+       "It only covers Saturday visits.": "Chỉ bảo hiểm khám thứ Bảy",
+       "It was sent by mail.": "Được gửi qua thư"
+      },
+      "ly": "Thư nhắc mang thẻ bảo hiểm vì hệ thống bệnh nhân mới cập nhật, nên thông tin bảo hiểm có thể phải nhập lại.",
+      "dich": "Vui lòng mang theo thẻ bảo hiểm vì hệ thống bệnh nhân của chúng tôi vừa được cập nhật."
+     }
     }
    ]
   },
@@ -2401,7 +3603,17 @@
       "Some chairs were damaged.",
       "A road has been closed."
      ],
-     "why": "the delivery van … just broke down on Route 9."
+     "why": "the delivery van … just broke down on Route 9.",
+     "lg": {
+      "og": {
+       "A vehicle has stopped working.": "Một chiếc xe đã hỏng",
+       "An order has been canceled.": "Một đơn hàng bị huỷ",
+       "Some chairs were damaged.": "Ghế bị hư",
+       "A road has been closed.": "Một con đường bị đóng"
+      },
+      "ly": "Ông Brandt báo xe tải giao hàng bị hỏng trên đường Route 9.",
+      "dich": "Xe tải giao hàng cho đơn của ông Ortega vừa bị hỏng trên đường Route 9."
+     }
     },
     {
      "q": "At 10:08 A.M., what does Mr. Brandt mean when he writes, \"That would save the day\"?",
@@ -2411,7 +3623,17 @@
       "He plans to repair the van himself.",
       "He is worried about the cost."
      ],
-     "why": "Câu trả lời cho đề nghị dùng xe thứ hai: \"save the day\" = cứu nguy, giải quyết được việc gấp."
+     "why": "Câu trả lời cho đề nghị dùng xe thứ hai: \"save the day\" = cứu nguy, giải quyết được việc gấp.",
+     "lg": {
+      "og": {
+       "He thinks Ms. Ruiz's plan will solve the problem.": "Ông cho rằng kế hoạch của bà Ruiz giải quyết được vấn đề",
+       "He wants to finish work early.": "Ông muốn tan làm sớm",
+       "He plans to repair the van himself.": "Ông định tự sửa xe",
+       "He is worried about the cost.": "Ông lo về chi phí"
+      },
+      "ly": "\"Save the day\" là cứu nguy. Ông nói vậy ngay sau khi bà Ruiz đề nghị cho xe thứ hai đến.",
+      "dich": "Xe thứ hai của chúng tôi chiều nay rảnh. Tôi sẽ nhờ Sam lái đến chỗ anh."
+     }
     },
     {
      "q": "What will Ms. Ruiz most likely do next?",
@@ -2421,7 +3643,17 @@
       "Visit a repair shop",
       "Cancel the delivery"
      ],
-     "why": "I'll call Mr. Ortega … (Sam mới là người lái xe)."
+     "why": "I'll call Mr. Ortega … (Sam mới là người lái xe).",
+     "lg": {
+      "og": {
+       "Contact a customer": "Liên hệ một khách hàng",
+       "Drive a van to Route 9": "Lái xe tới Route 9",
+       "Visit a repair shop": "Đến tiệm sửa xe",
+       "Cancel the delivery": "Huỷ việc giao hàng"
+      },
+      "ly": "Bà Ruiz nói sẽ gọi ông Ortega báo hàng đến lúc ba giờ, tức liên hệ khách hàng.",
+      "dich": "Tôi sẽ gọi ông Ortega báo ông ấy là ghế sẽ đến lúc ba giờ."
+     }
     }
    ]
   },
@@ -2443,7 +3675,17 @@
       "It is already booked.",
       "It has no projector."
      ],
-     "why": "it only holds twelve people … We have eighteen people signed up."
+     "why": "it only holds twelve people … We have eighteen people signed up.",
+     "lg": {
+      "og": {
+       "It is too small.": "Nó quá nhỏ",
+       "It is being painted.": "Nó đang được sơn",
+       "It is already booked.": "Nó đã có người đặt",
+       "It has no projector.": "Nó không có máy chiếu"
+      },
+      "ly": "Phòng 4B chỉ chứa 12 người trong khi có 18 người đăng ký, nên quá nhỏ.",
+      "dich": "Phòng 4B còn trống nhưng chỉ chứa được mười hai người."
+     }
     },
     {
      "q": "At 3:20 P.M., what does Mr. Haddad mean when he writes, \"It's being painted this week\"?",
@@ -2453,7 +3695,17 @@
       "He has hired a painter.",
       "The training session should be postponed."
      ],
-     "why": "Câu trả lời cho gợi ý dùng phòng hội nghị: đang sơn nên không dùng được (không phải nói chuyện màu sơn)."
+     "why": "Câu trả lời cho gợi ý dùng phòng hội nghị: đang sơn nên không dùng được (không phải nói chuyện màu sơn).",
+     "lg": {
+      "og": {
+       "The conference room cannot be used.": "Không dùng được phòng hội nghị",
+       "The conference room will look better soon.": "Phòng hội nghị sắp đẹp hơn",
+       "He has hired a painter.": "Anh đã thuê thợ sơn",
+       "The training session should be postponed.": "Nên hoãn buổi tập huấn"
+      },
+      "ly": "Ý \"đang sơn tuần này\" là phòng hội nghị tầng một không dùng được. Ngay sau đó bà Chen đề xuất phương án khác.",
+      "dich": "Phòng hội nghị đang được sơn trong tuần này."
+     }
     },
     {
      "q": "What will Ms. Kim most likely do next?",
@@ -2463,7 +3715,17 @@
       "Paint a room",
       "Cancel the session"
      ],
-     "why": "I'll check with her (the trainer) and get back to you both."
+     "why": "I'll check with her (the trainer) and get back to you both.",
+     "lg": {
+      "og": {
+       "Speak with the trainer": "Trao đổi với giảng viên",
+       "Book Room 4B": "Đặt phòng 4B",
+       "Paint a room": "Sơn một căn phòng",
+       "Cancel the session": "Huỷ buổi tập huấn"
+      },
+      "ly": "Bà Kim nói sẽ hỏi giảng viên xem có ở lại lâu được không rồi báo lại, nên bước tiếp theo là trao đổi với giảng viên.",
+      "dich": "Tôi không chắc giảng viên có thể ở lại lâu như vậy. Tôi sẽ hỏi cô ấy rồi báo lại cả hai bạn."
+     }
     }
    ]
   },
@@ -2485,7 +3747,17 @@
       "To change the office hours",
       "To advertise a moving service"
      ],
-     "why": "Elevator B will be closed for scheduled maintenance (đóng tạm 3 ngày)."
+     "why": "Elevator B will be closed for scheduled maintenance (đóng tạm 3 ngày).",
+     "lg": {
+      "og": {
+       "To announce a temporary closure": "Thông báo một đợt đóng cửa tạm thời",
+       "To welcome new tenants": "Chào đón người thuê mới",
+       "To change the office hours": "Đổi giờ làm việc của văn phòng",
+       "To advertise a moving service": "Quảng cáo dịch vụ chuyển nhà"
+      },
+      "ly": "Thông báo nói thang máy B đóng để bảo trì trong ba ngày, tức là một đợt đóng cửa tạm thời. Các mục đích khác không được nhắc.",
+      "dich": "Thang máy B sẽ đóng để bảo trì định kỳ từ thứ Hai, ngày 9 tháng 6, đến thứ Tư, ngày 11 tháng 6."
+     }
     },
     {
      "q": "What should tenants do if they expect a large delivery?",
@@ -2495,7 +3767,17 @@
       "Wait until June 12",
       "Call the delivery company"
      ],
-     "why": "should contact the building office at extension 210 so that the freight elevator can be reserved."
+     "why": "should contact the building office at extension 210 so that the freight elevator can be reserved.",
+     "lg": {
+      "og": {
+       "Contact the building office": "Liên hệ văn phòng toà nhà",
+       "Use the east stairs": "Dùng cầu thang phía đông",
+       "Wait until June 12": "Chờ đến ngày 12/6",
+       "Call the delivery company": "Gọi công ty giao hàng"
+      },
+      "ly": "Người thuê sắp nhận hàng lớn cần liên hệ văn phòng toà nhà (máy lẻ 210) để đặt thang máy chở hàng.",
+      "dich": "Người thuê dự kiến nhận hàng lớn trong những ngày này nên liên hệ văn phòng toà nhà ở máy lẻ 210 để đặt trước thang máy chở hàng."
+     }
     }
    ]
   },
@@ -2525,7 +3807,17 @@
       "Cedar Suite",
       "Two Oak Rooms"
      ],
-     "why": "Đối chiếu: 45 người, cần âm thanh, tiền phòng tối đa $800 → Birch Hall (tới 60 người, có sound system, $650). Oak Room quá nhỏ, Cedar Suite $1,100 vượt ngân sách, hai phòng Oak cũng không đủ 45 người và không có loa."
+     "why": "Đối chiếu: 45 người, cần âm thanh, tiền phòng tối đa $800 → Birch Hall (tới 60 người, có sound system, $650). Oak Room quá nhỏ, Cedar Suite $1,100 vượt ngân sách, hai phòng Oak cũng không đủ 45 người và không có loa.",
+     "lg": {
+      "og": {
+       "Birch Hall": "Birch Hall",
+       "Oak Room": "Oak Room",
+       "Cedar Suite": "Cedar Suite",
+       "Two Oak Rooms": "Hai Oak Room"
+      },
+      "ly": "Cần chỗ cho 45 người, có hệ thống âm thanh và ngân sách dưới 800 đô la. Chỉ Birch Hall (60 người, 650 đô la, có âm thanh) hợp.",
+      "dich": "Chúng tôi dự kiến 45 nhân viên, cần hệ thống âm thanh, ngân sách tối đa 800 đô la."
+     }
     },
     {
      "q": "Why will Nordvik Pharmaceuticals most likely receive a discount?",
@@ -2535,7 +3827,17 @@
       "More than one room was booked.",
       "The event takes place on a weekday."
      ],
-     "why": "Đối chiếu: đặt ngày 3/3 cho ngày 20/5, sớm 78 ngày > 60 ngày → giảm 10%. Nhóm trên 30 người chỉ là điều kiện gọi đồ ăn."
+     "why": "Đối chiếu: đặt ngày 3/3 cho ngày 20/5, sớm 78 ngày > 60 ngày → giảm 10%. Nhóm trên 30 người chỉ là điều kiện gọi đồ ăn.",
+     "lg": {
+      "og": {
+       "The booking was made more than 60 days early.": "Đặt trước hơn 60 ngày",
+       "The group is larger than 30 people.": "Nhóm đông hơn 30 người",
+       "More than one room was booked.": "Đặt hơn một phòng",
+       "The event takes place on a weekday.": "Sự kiện vào ngày thường"
+      },
+      "ly": "Đặt trước ít nhất 60 ngày được giảm 10%. Thư gửi ngày 3/3 cho sự kiện 20/5, tức hơn 60 ngày.",
+      "dich": "Đặt phòng trước ít nhất 60 ngày được giảm 10%."
+     }
     },
     {
      "q": "What is indicated about lunch for the training day?",
@@ -2545,7 +3847,17 @@
       "It cost extra because of the discount.",
       "It was brought by the employees."
      ],
-     "why": "Đối chiếu: đồ ăn chỉ có cho nhóm từ 30 người; nhóm có 45 người và bài nhận xét khen bữa trưa."
+     "why": "Đối chiếu: đồ ăn chỉ có cho nhóm từ 30 người; nhóm có 45 người và bài nhận xét khen bữa trưa.",
+     "lg": {
+      "og": {
+       "The group was large enough to order it.": "Nhóm đủ đông để đặt bữa trưa",
+       "It was served in the Cedar Suite.": "Phục vụ ở Cedar Suite",
+       "It cost extra because of the discount.": "Tốn thêm vì giảm giá",
+       "It was brought by the employees.": "Nhân viên tự mang"
+      },
+      "ly": "Dịch vụ ăn uống chỉ dành cho nhóm từ 30 người, và nhóm có 45 người.",
+      "dich": "Dịch vụ ăn uống dành cho nhóm từ 30 người trở lên."
+     }
     },
     {
      "q": "What problem does Ms. Silva mention in her review?",
@@ -2555,7 +3867,17 @@
       "Lunch was served late.",
       "The guest speaker did not arrive."
      ],
-     "why": "the sound system stopped working for about fifteen minutes."
+     "why": "the sound system stopped working for about fifteen minutes.",
+     "lg": {
+      "og": {
+       "Some equipment stopped working for a short time.": "Thiết bị ngừng hoạt động một lúc",
+       "The room was too small.": "Phòng quá nhỏ",
+       "Lunch was served late.": "Bữa trưa ra trễ",
+       "The guest speaker did not arrive.": "Diễn giả không đến"
+      },
+      "ly": "Bà viết hệ thống âm thanh ngừng hoạt động khoảng mười lăm phút nhưng nhân viên sửa kịp.",
+      "dich": "Buổi chiều hệ thống âm thanh ngừng hoạt động khoảng mười lăm phút, nhưng nhân viên đã xử lý nhanh chóng."
+     }
     },
     {
      "q": "In the review, the word \"promptly\" is closest in meaning to",
@@ -2565,7 +3887,17 @@
       "carefully",
       "quietly"
      ],
-     "why": "\"responded promptly and fixed it\" = phản hồi nhanh (quickly)."
+     "why": "\"responded promptly and fixed it\" = phản hồi nhanh (quickly).",
+     "lg": {
+      "og": {
+       "quickly": "nhanh chóng",
+       "politely": "lịch sự",
+       "carefully": "cẩn thận",
+       "quietly": "yên lặng"
+      },
+      "ly": "\"Responded promptly\" là phản ứng nhanh chóng, tức quickly.",
+      "dich": "Nhân viên đã phản hồi nhanh chóng và sửa được."
+     }
     }
    ]
   },
@@ -2595,7 +3927,17 @@
       "To promote a training course",
       "To offer discounted rooms"
      ],
-     "why": "Lindgren Hotels is looking for a Front Desk Supervisor."
+     "why": "Lindgren Hotels is looking for a Front Desk Supervisor.",
+     "lg": {
+      "og": {
+       "To fill a supervisor position": "Để tuyển một vị trí giám sát",
+       "To announce a new hotel": "Để thông báo khách sạn mới",
+       "To promote a training course": "Để quảng cáo khoá đào tạo",
+       "To offer discounted rooms": "Để giảm giá phòng"
+      },
+      "ly": "Quảng cáo tuyển Giám sát quầy lễ tân của Lindgren Hotels.",
+      "dich": "Lindgren Hotels đang tìm một Giám sát quầy lễ tân cho cơ sở ở phố Harbor."
+     }
     },
     {
      "q": "Which requirement could be difficult for Mr. Herrera until December?",
@@ -2605,7 +3947,17 @@
       "Speaking two languages",
       "Sending a cover letter"
      ],
-     "why": "Đối chiếu: công việc cần làm ca cuối tuần; anh học sáng thứ Bảy tới tháng 12."
+     "why": "Đối chiếu: công việc cần làm ca cuối tuần; anh học sáng thứ Bảy tới tháng 12.",
+     "lg": {
+      "og": {
+       "Working weekend shifts": "Làm ca cuối tuần",
+       "Having hotel experience": "Có kinh nghiệm khách sạn",
+       "Speaking two languages": "Nói hai ngôn ngữ",
+       "Sending a cover letter": "Gửi thư xin việc"
+      },
+      "ly": "Ông học thứ Bảy buổi sáng tới tháng 12, trong khi vị trí yêu cầu làm ca cuối tuần.",
+      "dich": "Tôi đang học một khoá bán thời gian về quản trị khách sạn vào sáng thứ Bảy, kết thúc vào tháng 12."
+     }
     },
     {
      "q": "What is suggested about Mr. Herrera's application?",
@@ -2615,7 +3967,17 @@
       "It was sent to the wrong address.",
       "It was rejected by Ms. Lindqvist."
      ],
-     "why": "Đối chiếu: hạn 15/9, e-mail gửi ngày 12/9; có lịch phỏng vấn nên không bị loại."
+     "why": "Đối chiếu: hạn 15/9, e-mail gửi ngày 12/9; có lịch phỏng vấn nên không bị loại.",
+     "lg": {
+      "og": {
+       "It was sent before the deadline.": "Được gửi trước hạn nộp",
+       "It did not include a cover letter.": "Không có thư xin việc",
+       "It was sent to the wrong address.": "Gửi nhầm địa chỉ",
+       "It was rejected by Ms. Lindqvist.": "Bị bà Lindqvist từ chối"
+      },
+      "ly": "Hạn nộp là 15/9 và ông gửi ngày 12/9, tức trước hạn.",
+      "dich": "Vui lòng gửi sơ yếu lý lịch và thư xin việc đến jobs@lindgren.com trước ngày 15 tháng 9."
+     }
     },
     {
      "q": "What time will Mr. Herrera be interviewed?",
@@ -2625,7 +3987,17 @@
       "At 11:00 A.M.",
       "At 2:00 P.M."
      ],
-     "why": "10:00 A.M. — Tomás Herrera."
+     "why": "10:00 A.M. — Tomás Herrera.",
+     "lg": {
+      "og": {
+       "At 10:00 A.M.": "Lúc 10 giờ sáng",
+       "At 9:00 A.M.": "Lúc 9 giờ sáng",
+       "At 11:00 A.M.": "Lúc 11 giờ sáng",
+       "At 2:00 P.M.": "Lúc 2 giờ chiều"
+      },
+      "ly": "Lịch phỏng vấn ghi Tomás Herrera lúc 10:00 sáng.",
+      "dich": "10:00 sáng – Tomás Herrera."
+     }
     },
     {
      "q": "What is NOT a requirement for the position?",
@@ -2635,7 +4007,17 @@
       "Knowledge of two languages",
       "Weekend availability"
      ],
-     "why": "Quảng cáo đòi kinh nghiệm lễ tân, 2 ngôn ngữ, làm cuối tuần; không nói bằng đại học."
+     "why": "Quảng cáo đòi kinh nghiệm lễ tân, 2 ngôn ngữ, làm cuối tuần; không nói bằng đại học.",
+     "lg": {
+      "og": {
+       "A university degree": "Bằng đại học",
+       "Hotel reception experience": "Kinh nghiệm quầy lễ tân khách sạn",
+       "Knowledge of two languages": "Biết hai ngôn ngữ",
+       "Weekend availability": "Làm được cuối tuần"
+      },
+      "ly": "Yêu cầu gồm hai năm kinh nghiệm lễ tân, hai ngôn ngữ và làm ca cuối tuần. Không có yêu cầu bằng đại học.",
+      "dich": "Yêu cầu: ít nhất hai năm kinh nghiệm ở quầy lễ tân khách sạn, thông thạo tiếng Anh và một ngôn ngữ khác, và có thể làm ca cuối tuần."
+     }
     }
    ]
   },
@@ -2665,7 +4047,17 @@
       "To prepare for a book sale",
       "Because of a power outage"
      ],
-     "why": "The second floor of the library will be closed for renovation."
+     "why": "The second floor of the library will be closed for renovation.",
+     "lg": {
+      "og": {
+       "For renovation work": "Để cải tạo",
+       "Because of staff shortages": "Do thiếu nhân viên",
+       "To prepare for a book sale": "Để chuẩn bị bán sách",
+       "Because of a power outage": "Do mất điện"
+      },
+      "ly": "Thông báo nói tầng hai đóng cửa để cải tạo từ 1/7 đến 31/8.",
+      "dich": "Tầng hai của thư viện sẽ đóng cửa để cải tạo từ ngày 1 tháng 7 đến ngày 31 tháng 8."
+     }
     },
     {
      "q": "Where will Story Time take place during the renovation?",
@@ -2675,7 +4067,17 @@
       "In the computer lab",
       "At a nearby school"
      ],
-     "why": "Đối chiếu: sự kiện ở Community Room; thông báo nói Community Room ở tầng 1."
+     "why": "Đối chiếu: sự kiện ở Community Room; thông báo nói Community Room ở tầng 1.",
+     "lg": {
+      "og": {
+       "On the first floor": "Ở tầng một",
+       "On the second floor": "Ở tầng hai",
+       "In the computer lab": "Ở phòng máy tính",
+       "At a nearby school": "Ở trường học gần đó"
+      },
+      "ly": "Khu thiếu nhi chuyển đến Phòng Cộng đồng ở tầng một, và các sự kiện diễn ra ở Phòng Cộng đồng.",
+      "dich": "Khu thiếu nhi sẽ chuyển đến Phòng Cộng đồng ở tầng một."
+     }
     },
     {
      "q": "On which day will Ms. Okoye's daughter most likely attend an event?",
@@ -2685,7 +4087,17 @@
       "Saturday",
       "Sunday"
      ],
-     "why": "Đối chiếu: con 7 tuổi → Craft Club (6–9 tuổi) chiều thứ Năm."
+     "why": "Đối chiếu: con 7 tuổi → Craft Club (6–9 tuổi) chiều thứ Năm.",
+     "lg": {
+      "og": {
+       "Thursday": "Thứ Năm",
+       "Tuesday": "Thứ Ba",
+       "Saturday": "Thứ Bảy",
+       "Sunday": "Chủ Nhật"
+      },
+      "ly": "Con gái bảy tuổi hợp Câu lạc bộ Thủ công (6–9 tuổi), diễn ra vào thứ Năm.",
+      "dich": "Câu lạc bộ Thủ công (6–9 tuổi): thứ Năm, 3 giờ chiều."
+     }
     },
     {
      "q": "What problem does Ms. Okoye mention?",
@@ -2695,7 +4107,17 @@
       "An event was canceled.",
       "Her daughter lost a book."
      ],
-     "why": "the form would not accept my library card number."
+     "why": "the form would not accept my library card number.",
+     "lg": {
+      "og": {
+       "She could not complete an online registration.": "Bà không hoàn tất được đăng ký trực tuyến",
+       "Her library card has expired.": "Thẻ thư viện hết hạn",
+       "An event was canceled.": "Một sự kiện bị huỷ",
+       "Her daughter lost a book.": "Con bà làm mất sách"
+      },
+      "ly": "Bà viết biểu mẫu không nhận số thẻ thư viện của bà nên không đăng ký được.",
+      "dich": "Tôi đã thử đăng ký cho con trên mạng, nhưng biểu mẫu không chấp nhận số thẻ thư viện của tôi."
+     }
     },
     {
      "q": "What will Ms. Okoye most likely be told about using a computer?",
@@ -2705,7 +4127,17 @@
       "Computers can be reserved on Saturdays.",
       "Printing services are not available."
      ],
-     "why": "Đối chiếu: thông báo nói phòng máy tính đóng trong thời gian sửa (tới 31/8); máy in vẫn có ở quầy trước."
+     "why": "Đối chiếu: thông báo nói phòng máy tính đóng trong thời gian sửa (tới 31/8); máy in vẫn có ở quầy trước.",
+     "lg": {
+      "og": {
+       "The computer lab is closed until the renovation ends.": "Phòng máy tính đóng đến khi cải tạo xong",
+       "She can use a computer in the Community Room.": "Có thể dùng máy ở Phòng Cộng đồng",
+       "Computers can be reserved on Saturdays.": "Đặt máy được vào thứ Bảy",
+       "Printing services are not available.": "Không có dịch vụ in"
+      },
+      "ly": "Thông báo nói phòng máy tính đóng trong thời gian cải tạo, nên bà sẽ được báo là không dùng được. Dịch vụ in vẫn có.",
+      "dich": "Phòng máy tính sẽ đóng cửa."
+     }
     }
    ]
   }

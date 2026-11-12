@@ -149,7 +149,7 @@ function gyAdmin() {
   $app.onclick = e => { if (e.target.closest('[data-a="home"]')) home(); };
   gaRender(); gaLoad(); }
 
-// ---------- 📄 PDF lớn (v156, specs/013-gopy-pdf-lon) ----------
+// ---------- 📄 PDF lớn (v157, specs/014-gopy-pdf-lon) ----------
 // Gói Supabase Free: 50 MB / tệp, 1 GB tổng → cắt tệp theo byte thành mảnh 25 MB (Blob.slice: chỉ giữ 1 mảnh trong bộ nhớ), băm SHA-256 từng mảnh,
 // hàm máy chủ gopy-pdf giữ chỗ (trần 800 MB, mỗi tài khoản 1 dở + 2 lưu) và cấp đường tải có ký tên. App KHÔNG đọc lại được mảnh nào (tài liệu riêng tư);
 // Claude đọc / xoá bằng tools/gopy-pdf.mjs. Rớt mạng: gửi lại = tải tiếp mảnh còn thiếu (nhớ ở localStorage GP_LS, nhận tệp bằng tên + cỡ + ngày sửa).
@@ -225,7 +225,7 @@ async function gpUpload() {
   const r = await gpCore(P, { up: o => { GY.up = o; gpBar(); }, fail: m => { GY.msg = m; GY.up = null; GY.busy = false; gyDraw(); } });
   if (r) { GY.up = null; GY.pdf = null; GY.busy = false; } return r; }
 
-// ---------- 📄 PDF trong danh sách "Đã gửi" (v157): 👁 Xem (≤ 50 MB) · ✏️ Sửa (tên tệp, chữ góp ý, 🔄 thay tệp) · 🗑 Xoá tệp ----------
+// ---------- 📄 PDF trong danh sách "Đã gửi" (v158): 👁 Xem (≤ 50 MB) · ✏️ Sửa (tên tệp, chữ góp ý, 🔄 thay tệp) · 🗑 Xoá tệp ----------
 // Danh sách "Đã gửi" lưu trên máy (GY_SENT) nên chỉ máy đã gửi thấy thẻ; máy chủ chỉ cho tài khoản đã gửi xem / sửa / thay.
 const GP_VIEW = 50 * 1048576;
 const GPS = { rows: {}, at: 0, loading: false, ed: null, del: null, busy: null, msg: {}, up: {}, view: {}, nf: {}, fv: {} };

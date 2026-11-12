@@ -1,4 +1,4 @@
-// 📄 Claude đọc / xoá PDF người học gửi kèm góp ý (v156, specs/013-gopy-pdf-lon).
+// 📄 Claude đọc / xoá PDF người học gửi kèm góp ý (v157, specs/014-gopy-pdf-lon).
 // Khoá (biến môi trường PDF_KEY → header x-pdf-key): Claude tạo khoá tạm 24 giờ bằng Supabase MCP execute_sql:
 //   insert into public.gopy_pdf_key (k) values (encode(gen_random_bytes(24), 'hex')) returning k;
 // rồi chạy PDF_KEY=<k> node tools/gopy-pdf.mjs …  (bảng chỉ máy chủ đọc; không cần secret, người sáng lập không phải làm gì).
