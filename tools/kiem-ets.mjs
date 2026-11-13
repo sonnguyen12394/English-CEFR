@@ -1,10 +1,10 @@
 // v166 (specs/017-toeic-bo-sung-tu-ets): kiểm nội dung TOEIC của app KHÔNG chép câu chữ đề ETS (Đề 9–16, tài liệu riêng của người sáng lập, chỉ có trên máy soạn).
-// Đề ETS nằm ở toeic-tron/de9.json + content/ref/ets/out/de10–16.json (cả hai trong .gitignore); máy không có thì bỏ qua (in "bỏ qua").
+// Đề ETS nằm ở content/ref/ets/out/de9–16.json (cả hai trong .gitignore); máy không có thì bỏ qua (in "bỏ qua").
 // So từng câu của kho luyện (content/toeic/p5.json, doc.json, vocab.json) với từng câu ETS: trùng cụm 10 từ liền nhau, hoặc Jaccard theo từ ≥ 0,6 (câu ≥ 10 từ) = lỗi. Câu hỏi Part 7 (khuôn chung của TOEIC: "What is the purpose of…") và câu xã giao ngắn không so.
 // Chạy: node tools/kiem-ets.mjs   (thoát mã 1 khi có lỗi)
 import fs from 'fs';
 const R = new URL('..', import.meta.url).pathname, rd = f => JSON.parse(fs.readFileSync(R + f, 'utf8'));
-const src = ['toeic-tron/de9.json', ...[10, 11, 12, 13, 14, 15, 16].map(n => `content/ref/ets/out/de${n}.json`)].filter(f => fs.existsSync(R + f));
+const src = [...[9, 10, 11, 12, 13, 14, 15, 16].map(n => `content/ref/ets/out/de${n}.json`)].filter(f => fs.existsSync(R + f));
 if (!src.length) { console.log('kiem-ets: không có đề ETS trên máy này, bỏ qua'); process.exit(0); }
 const words = s => String(s).toLowerCase().replace(/[’']/g, "'").match(/[a-z0-9']+/g) || [];
 const sents = t => String(t).split(/(?<=[.!?])\s+|\n+/).map(s => s.trim()).filter(s => words(s).length >= 6);
