@@ -29,7 +29,7 @@ OUT = ROOT / 'graphify-out'
 # Khu vực: (tên, [tiền tố / tên tệp]). Thứ tự = thứ tự kiểm, khớp đầu tiên thắng.
 VUNG = [
     ('Khung app: khởi động, tài khoản, dữ liệu, góp ý',
-     ['app.js', 'index.html', 'dieuhuong.js', 'backup.js', 'gop.js', 'gopy.js',
+     ['app.js', 'index.html', 'dieuhuong.js', 'backup.js', 'gop.js', 'gopy.js', 'tachpdf.js',
       'huongdan.js', 'phon-worker.js']),
     ('Nền: 7 kỹ năng, bài học, thi lên cấp',
      ['kit.js', 'kparts.js', 'parts.js', 'pa.js', 'noi.js', 'nhanh.js',

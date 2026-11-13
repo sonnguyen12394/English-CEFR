@@ -2,6 +2,7 @@
 // App cắt PDF thành mảnh CH = 25 MB, hàm này giữ chỗ (trần CAP), cấp đường tải lên có ký tên từng mảnh, kiểm đủ mảnh.
 // App không đọc lại được mảnh nào (tài liệu riêng tư; mọi máy đang dùng chung tài khoản). Claude đọc / xoá qua header x-pdf-key: khoá tạm trong bảng gopy_pdf_key (Claude tạo bằng SQL, hết hạn 24 giờ) hoặc secret PDF_CLAUDE_KEY nếu có.
 // Vào (app, cần JWT): { act: 'info' } · { act: 'st', ids } · { act: 'start', name, size, parts: [{ size, sha }], thay? } · { act: 'sign', id, need: [i] } · { act: 'done', id } · { act: 'xoa', id }
+// v163: { act: 'tai', id } mọi cỡ (người gửi / tài khoản không ẩn danh)
 // v158 (người gửi): { act: 'mo', id } ≤ 50 MB · { act: 'sua', id, name?, txt? } · { act: 'doi', old, id } · start { doi: id cũ }
 // v159 (chép từ Google Drive, người dùng đã đăng nhập): { act: 'ginfo', fid, tok } · { act: 'gstart', fid, tok, doi? } · { act: 'gcopy', id, i, tok } (tok = mã truy cập drive.file, KHÔNG ghi lại)
 // Vào (Claude, x-pdf-key): { act: 'list' } · { act: 'get', id } · { act: 'del', id }
@@ -109,6 +110,12 @@ Deno.serve(async (req) => {
       const { data: gg } = await db.from("gopy").select("id,txt").eq("ctx->pdf->>id", r.id).limit(1);
       if (gg && gg[0]) await db.from("gopy").update({ txt: pdfLine(gg[0].txt, `📄 đã xoá · ${r.name}`) }).eq("id", gg[0].id);
       return out({ ok: true }); }
+    if (act === "tai") {   // v163: ⬇️ tải về mọi cỡ (người gửi, hoặc tài khoản không ẩn danh ở 🗂 Quản lý góp ý); đường ký tên 30 phút cho từng phần
+      if (anon && r.uid !== user.id) return out({ error: "Không phải tệp của bạn." }, 403);
+      if (r.st !== "du") return out({ error: "Tệp chưa đủ phần hoặc đã xoá." }, 409);
+      const urls = []; for (let i = 0; i < r.n; i++) { const { data, error } = await st.createSignedUrl(pth(r.id, i), 1800); if (error) return out({ error: error.message }, 500); urls.push(data.signedUrl); }
+      return out({ urls, parts: r.parts, name: r.name, size: r.size });
+    }
     if (r.uid !== user.id) return out({ error: "Không phải tệp của bạn." }, 403);
     const gRow = async (pid: string) => { const { data } = await db.from("gopy").select("id,txt,ctx").eq("ctx->pdf->>id", pid).limit(1); return data && data[0]; };
     if (act === "mo") {   // v158: xem trong app, chỉ tệp ≤ 50 MB

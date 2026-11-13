@@ -17,12 +17,13 @@ function toast(t) { let el = document.getElementById('toast'); if (!el) { el = d
 function gyCtx() { const c = window.CUR || {}, h = document.querySelector('#app h1, #app .q');
   return { ...c, h1: h ? h.textContent.trim().slice(0, 120) : null, ua: String(navigator.userAgent || '').slice(0, 160), scr: innerWidth + 'x' + innerHeight }; }
 function gyOpen() { gdPre(); GY.open = true; GY.ctx = gyCtx(); GY.msg = ''; if (!GY.txt && document.querySelector('#app .q, #app .opt')) GY.kind = 'sai'; gyDraw(); }   // đang làm câu hỏi: mặc định ⚑ Câu sai
-function gyClose() { GY.open = false; const el = document.getElementById('gysheet'); if (el) el.remove(); }
+function gyClose() { GY.open = false; GY.tach = false; const el = document.getElementById('gysheet'); if (el) el.remove(); }
 function gyDraw() {
   let el = document.getElementById('gysheet'); if (!GY.open) { if (el) el.remove(); return; }
   const t = document.getElementById('gytxt'); if (t) GY.txt = t.value;
   if (!el) { el = document.createElement('div'); el.id = 'gysheet'; document.body.appendChild(el); }
   const c = GY.ctx || {}, q = gyLS(GY_LS).length;
+  if (GY.tach && typeof tpHtml === 'function') { el.innerHTML = `<div class="gybox" role="dialog" aria-modal="true" aria-labelledby="gy-t">${tpHtml()}</div>`; return; }   // v163 ✂️ Tách PDF
   el.innerHTML = `<div class="gybox" role="dialog" aria-modal="true" aria-labelledby="gy-t"><div class="row"><h2 id="gy-t" style="margin:0">💬 Góp ý</h2><button class="link tap" data-g="close" aria-label="Đóng góp ý">✕ Đóng</button></div>
     <div class="chips" role="group" aria-label="Loại góp ý">${GY_KIND.map(([k, l]) => `<button class="chip ${GY.kind === k ? 'on' : ''}" data-g="kind" data-v="${k}" aria-pressed="${GY.kind === k}">${l}</button>`).join('')}</div>
     <label class="mute" for="gytxt">Bạn thấy gì? (không ghi tên, số điện thoại)</label>
@@ -80,7 +81,8 @@ function gyHomeInner() { const s = gyLS(GY_SENT), q = gyLS(GY_LS);
   return `<h2>💬 Góp ý</h2><p class="mute">Thấy lỗi, khó hiểu hay có ý tưởng: bấm nút 💬 ở góc dưới phải, ở màn nào cũng được.</p>
     ${q.length ? `<p class="mute">${q.length} góp ý chờ gửi (mất mạng). <button class="link" data-g="flush">Gửi lại</button></p>` : ''}
     ${s.length ? `<div class="mute">Đã gửi:</div>${s.slice(-5).reverse().map(x => x.pdf && x.pdf.id ? gpsCard(x) : `<div class="mute">${x.id ? '#' + x.id + ' · ' : ''}${esc(gaKind(x.kind))} · ${esc(x.txt)}${x.n ? ` · ${x.n} ảnh` : ''}</div>`).join('')}` : ''}${s.some(x => x.pdf && x.pdf.id) ? (setTimeout(() => gpsLoad(), 0), '') : ''}
-`; }   // v136: 🗂 Quản lý góp ý chuyển vào 💾 Dữ liệu → 🛠 Công cụ người sáng lập (bkTools)
+    ${typeof isAnon === 'function' && !isAnon() ? '<button data-g="admin">🗂 Quản lý góp ý</button>' : ''}
+`; }   // v162: 🗂 Quản lý góp ý hiện lại ở khối 💬 (v136 chỉ để ở 💾 Dữ liệu → 🛠, người sáng lập tưởng mất); người ẩn danh không thấy
 const gyHomeHtml = () => `<div class="box" id="gyhome">${gyHomeInner()}</div>`;
 
 // ---------- 🗂 Quản lý góp ý ----------
@@ -179,16 +181,18 @@ async function gpPick(f) {
 function gpBox() { const P = GY.pdf; if (!P) return '';
   const I = P.info, left = I ? I.cap - I.used : null, full = I && P.size > left, min = Math.max(1, Math.round(P.size / GP_BPS / 60)), U = GY.up;
   return `<div class="box gypdf"><div class="row"><b>📄 ${esc(P.name)}</b>${GY.busy ? '' : `<button class="link tap" data-g="pdfrm" aria-label="Bỏ tệp PDF">✕ Bỏ</button>`}</div>
-    <p class="mute">${gpMB(P.size)} · ${P.drive ? 'từ Google Drive' : 'chia ' + P.n + ' phần để tải'} · ${I ? `kho còn ${gpMB(Math.max(0, left))}` : P.net ? 'chưa có mạng' : 'đang xem chỗ trống…'}</p>
+    <p class="mute">${gpMB(P.size)} · ${P.drive ? 'từ Google Drive' : 'tải lên ' + P.n + ' lượt'} · ${I ? `kho còn ${gpMB(Math.max(0, left))}` : P.net ? 'chưa có mạng' : 'đang xem chỗ trống…'}</p>
     ${full ? `<p class="warnt" role="alert">Kho tài liệu không đủ chỗ cho tệp này. Nhờ người sáng lập xoá tệp cũ rồi gửi lại.</p>` : ''}
     ${U ? `<progress max="${U.n}" value="${U.i}" aria-label="Tiến độ tải PDF"></progress><p class="mute" role="status">${esc(U.st)}</p>`
       : P.drive ? `<p class="mute">Máy chủ chép thẳng từ Google Drive, không qua iPhone. Vẫn để màn hình sáng tới khi thanh chạy hết. Gián đoạn thì bấm Gửi lại: chép tiếp phần còn thiếu.</p>`
-      : `<p class="mute">Khoảng ${min} phút qua Wi-Fi. Nên dùng Wi-Fi và để màn hình sáng tới khi xong. Rớt mạng thì bấm Gửi lại: app tải tiếp phần còn thiếu.</p>`}</div>`; }
+      : `<p class="mute">Khoảng ${min} phút qua Wi-Fi. Nên dùng Wi-Fi và để màn hình sáng tới khi xong. Rớt mạng thì bấm Gửi lại: app tải tiếp phần còn thiếu.</p>`}
+    ${P.f && !U && !GY.busy && typeof tpOpen === 'function' ? `<button class="tpgo" data-tp="open">✂️ Tách PDF này <span class="mute">· chọn trang, tải về hoặc gửi một phần</span></button>` : ''}</div>`; }
 // v160: ô chọn PDF kiểu iLovePDF: nút to "Chọn tệp PDF" (máy) + nút tròn Google Drive bên dưới, bên phải.
 const GD_SVG = '<svg viewBox="0 0 87.3 78" width="26" height="23" aria-hidden="true"><path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/><path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/><path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/><path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg>';
 function gpPickBox() {
   return `<div class="gppick"><label class="gpbig" for="gypdf">📄 Chọn tệp PDF</label><input id="gypdf" type="file" accept=".pdf,application/pdf" hidden>
-    <div class="gpsrc"><span class="mute">Tối đa ${gpMB(GP_MAX)} · hoặc lấy từ</span><button class="gpround" data-g="gd" aria-label="Chọn PDF từ Google Drive">${GD_SVG}</button></div></div>`; }
+    <div class="gpsrc"><span class="mute">Tối đa ${gpMB(GP_MAX)} · hoặc lấy từ</span><button class="gpround" data-g="gd" aria-label="Chọn PDF từ Google Drive">${GD_SVG}</button></div>
+    <p class="mute" style="margin:8px 0 0">Chọn tệp xong có ✂️ Tách PDF: chọn trang, tải về hoặc gửi một phần.</p>${typeof tpCrashLine === 'function' ? tpCrashLine() : ''}</div>`; }
 const GD_OFF = 'Nút Google Drive chưa bật (người sáng lập cần gửi 3 mã Google). Tạm thời: bấm 📄 Chọn tệp PDF → Duyệt → Google Drive (cần app Google Drive trên iPhone).';
 function gpBar() { const el = document.querySelector('#gysheet .gypdf'); if (el) el.outerHTML = gpBox(); }
 async function gpPut(t, blob) {
@@ -340,7 +344,7 @@ function gpsCard(x) {
       <div class="chips tap gyadd"><label class="chip" for="gpf-${esc(pid)}">🔄 ${nf ? 'Đổi tệp khác' : 'Thay bằng tệp khác'}</label><input id="gpf-${esc(pid)}" data-gpf="${esc(pid)}" type="file" accept=".pdf,application/pdf" hidden>${gdOn() ? `<button class="chip" data-g="gdr" data-p="${esc(pid)}">☁️ Thay từ Google Drive</button>` : ''}</div>
       ${nf ? `<p class="mute">Tệp mới: ${esc(nf.name)} · ${gpMB(nf.size)}. Lưu thì tệp cũ bị xoá.</p>` : ''}
       <div class="chips tap"><button class="chip on" data-g="pss" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>${busy ? 'Đang lưu…' : '💾 Lưu'}</button><button class="chip" data-g="psc" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>Huỷ</button></div>`
-    : `<div class="chips tap">${canView ? `<button class="chip" data-g="psv" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>👁 Xem</button>` : ''}${r && r.mine ? `<button class="chip" data-g="pse" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>✏️ Sửa</button>` : ''}${st && st !== 'xoa' ? `<button class="chip ${GPS.del === pid ? 'on' : ''}" data-g="psd" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>${GPS.del === pid ? 'Bấm lần nữa để xoá' : '🗑 Xoá tệp'}</button>` : ''}</div>`}
+    : `<div class="chips tap">${canView ? `<button class="chip" data-g="psv" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>👁 Xem</button>` : ''}${st === 'du' ? `<button class="chip" data-g="psdl" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>⬇️ Tải về</button>` : ''}${r && r.mine ? `<button class="chip" data-g="pse" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>✏️ Sửa</button>` : ''}${st && st !== 'xoa' ? `<button class="chip ${GPS.del === pid ? 'on' : ''}" data-g="psd" data-p="${esc(pid)}" ${busy ? 'disabled' : ''}>${GPS.del === pid ? 'Bấm lần nữa để xoá' : '🗑 Xoá tệp'}</button>` : ''}</div>`}
   </div>`; }
 function gpsSet(pid, o) { const L = gyLS(GY_SENT); for (const x of L) if (x.pdf && x.pdf.id === pid) Object.assign(x, o); gyLS(GY_SENT, L); }
 async function gpsView(pid) {
@@ -388,9 +392,29 @@ async function gpStat() { const ids = [...new Set((GA.rows || []).map(x => x.ctx
 function gpCard(gid, p) { const r = (GA.pdf || {})[p.id], st = r ? r.st : null;
   return `<div class="gypdf"><p>📄 ${esc(p.name)} · ${gpMB(p.size)} · ${st === 'du' ? `đủ ${r.n} phần` : st === 'dang' ? 'tải dở' : st === 'xoa' ? 'đã xoá tệp' : 'đang xem…'}</p>
     ${st && st !== 'xoa' ? `<p class="mute">Claude đọc được tệp này khi bạn bảo “đọc PDF góp ý #${gid}”. Đọc xong nên xoá để trả chỗ (kho 800 MB).</p>
-    <div class="chips tap"><button class="chip ${GA.pdel === p.id ? 'on' : ''}" data-g="pdfdel" data-p="${esc(p.id)}">${GA.pdel === p.id ? 'Bấm lần nữa để xoá tệp' : '🗑 Xoá tệp PDF'}</button></div>` : ''}</div>`; }
+    ${(GA.dl || {})[p.id] ? `<p class="mute" role="status">${esc(GA.dl[p.id])}</p>` : ''}
+    <div class="chips tap">${st === 'du' ? `<button class="chip" data-g="pdfdl" data-p="${esc(p.id)}" ${GA.dlb === p.id ? 'disabled' : ''}>⬇️ Tải PDF</button>` : ''}<button class="chip ${GA.pdel === p.id ? 'on' : ''}" data-g="pdfdel" data-p="${esc(p.id)}">${GA.pdel === p.id ? 'Bấm lần nữa để xoá tệp' : '🗑 Xoá tệp PDF'}</button></div>` : ''}</div>`; }
 async function gpDel(pid) { if (GA.pdel !== pid) { GA.pdel = pid; return gaRender(); } GA.pdel = null;
   const r = await gpFn({ act: 'xoa', id: pid }); toast(r && r.ok ? 'Đã xoá tệp PDF. Góp ý vẫn giữ.' : 'Chưa xoá được: ' + ((r && r.error) || '')); gpStat(); }
+
+// v163 ⬇️ Tải PDF đã gửi về máy (mọi cỡ): lệnh `tai` cấp đường tải từng phần → kiểm cỡ + SHA-256 (bỏ khi null: tệp chép từ Drive) → ghép → lưu tệp.
+// Mỗi lần tải tốn lượt tải tháng của gói Supabase Free (~5 GB / tháng).
+async function gpDown(pid, ui) {
+  const r = await gpFn({ act: 'tai', id: pid });
+  if (!r || !r.urls) return ui.end(r && r.net ? 'Mất mạng. Có mạng rồi thử lại.' : 'Chưa tải được: ' + ((r && r.error) || ''));
+  const bs = [];
+  for (let i = 0; i < r.urls.length; i++) { ui.up(`Đang tải phần ${i + 1}/${r.urls.length}…`);
+    let b = null; try { const x = await fetch(r.urls[i]); if (x.ok) b = await x.blob(); } catch (e) {}
+    const want = r.parts && r.parts[i];
+    if (!b || (want && (b.size !== want.size || (want.sha && (await gpSha(b)) !== want.sha)))) return ui.end(`Phần ${i + 1} tải về hỏng. Thử lại.`);
+    bs.push(b); }
+  const name = /\.pdf$/i.test(r.name || '') ? r.name : (r.name || 'gopy') + '.pdf';
+  (typeof tpSave === 'function' ? tpSave : (b, n) => { const u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = n; a.click(); })(new Blob(bs, { type: 'application/pdf' }), name);
+  ui.end(`Đã tải xong ${name} (${gpMB(r.size)}). Xem ở app Tệp → Tải về.`, true); }
+function gaDown(pid) { if (GA.dlb) return; GA.dlb = pid; GA.dl = GA.dl || {};
+  gpDown(pid, { up: m => { GA.dl[pid] = m; gaRender(); }, end: m => { GA.dlb = null; GA.dl[pid] = m; gaRender(); } }); }
+function gpsDown(pid) { if (GPS.busy) return; GPS.busy = pid; GPS.msg[pid] = 'Đang tải tệp về…'; gpsDraw();
+  gpDown(pid, { up: m => { GPS.msg[pid] = m; gpsDraw(); }, end: m => { GPS.busy = null; GPS.msg[pid] = m; gpsDraw(); } }); }
 
 // ---------- nút nổi + sự kiện ----------
 (() => { const b = document.createElement('button'); b.id = 'gybtn'; b.setAttribute('aria-label', 'Góp ý'); b.textContent = '💬'; b.onclick = gyOpen; document.body.appendChild(b); })();
@@ -406,6 +430,8 @@ document.addEventListener('click', e => {
   else if (g === 'gd') gdStart(null);
   else if (g === 'gdr') gdStart(t.dataset.p);
   else if (g === 'psv') gpsView(t.dataset.p);
+  else if (g === 'psdl') gpsDown(t.dataset.p);
+  else if (g === 'pdfdl') gaDown(t.dataset.p);
   else if (g === 'psd') gpsDel(t.dataset.p);
   else if (g === 'pse') { gdPre(); gpsKeep(); GPS.ed = t.dataset.p; GPS.del = null; GPS.msg[t.dataset.p] = ''; gpsLoad(true); gpsDraw(); }
   else if (g === 'psc') { GPS.ed = null; delete GPS.fv[t.dataset.p]; delete GPS.nf[t.dataset.p]; gpsDraw(); }
