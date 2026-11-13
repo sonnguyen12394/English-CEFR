@@ -68,3 +68,12 @@ Cặp / từ chơi sai vào hàng ôn của trò chơi (gặp lại ngày sau, r
 - Nghĩa tiếng Việt lấy từ lời giải sẵn có (nghĩa phương án, dịch câu chứa đáp án).
 - Chưa kiểm trên iPhone khi làm xong; nhờ người sáng lập thử máy thật.
 - Chưa có người ôn TOEIC thật nào dùng app (kiểm kê v136 → v166).
+
+## Bổ sung v168 (13/11/2026)
+
+Người sáng lập: "chọn đề được để làm nội dung chơi chứ không phải chơi ngẫu nhiên; thiết kế để chơi hết 1 đề đã chọn; làm hết tất cả trò chơi còn lại".
+
+- **FR-012** Màn trò chơi có hàng chọn đề; mọi trò chỉ lấy câu của đề đang chọn.
+- **FR-013** Chơi hết đề: mỗi lượt lấy mục chưa chơi (câu sai trong đề trước, rồi thứ tự đề); hết thì mục đến hạn; hết nữa thì báo "đã chơi hết đề" và cho chơi lại mục sai / cả đề.
+- **FR-014** Thêm 4 trò: Đua dò tin, Cụm hay dùng, Từ nối, Bắn nhiễu (câu chuyện 3 cũ).
+- **SC-006** Chơi hết một trò của một đề được bằng các lượt liên tiếp, tiến độ "a/b" tăng đúng số mục mỗi lượt.
