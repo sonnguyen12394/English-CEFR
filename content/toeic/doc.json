@@ -4140,6 +4140,1010 @@
      }
     }
    ]
+  },
+  {
+   "id": "t7-n-press",
+   "kind": "Press release",
+   "docs": [
+    {
+     "title": "Press release — Harlow Foods",
+     "text": "FOR IMMEDIATE RELEASE\nContact: Dana Whitfield, Communications Manager, Harlow Foods\n\nLINDEN BAY (June 4) — Harlow Foods announced today that it will open a new distribution center in Linden Bay next spring. The 12,000-square-meter facility will replace two smaller warehouses in nearby Corwin and is expected to speed up deliveries to supermarkets across the region by up to a day. Construction begins in August, and the company will hire about 90 workers, including drivers, forklift operators, and inventory clerks.\n\"Our customers asked for fresher products and more reliable schedules,\" said CEO Martin Okoye. \"This building lets us deliver both.\" The center will also use solar panels to supply roughly a third of its electricity.\nHarlow Foods, founded in 1994, supplies more than 400 stores. Applications for the new positions will be accepted online beginning July 1."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the purpose of the press release?",
+     "a": "To announce a new facility",
+     "w": [
+      "To apologize for delivery delays",
+      "To introduce a new product line",
+      "To recruit a communications manager"
+     ],
+     "why": "Harlow Foods announced … a new distribution center.",
+     "lg": {
+      "og": {
+       "To announce a new facility": "Thông báo một cơ sở mới",
+       "To apologize for delivery delays": "Xin lỗi vì giao hàng chậm",
+       "To introduce a new product line": "Giới thiệu dòng sản phẩm mới",
+       "To recruit a communications manager": "Tuyển một giám đốc truyền thông"
+      },
+      "ly": "Bài thông cáo mở đầu bằng việc công ty công bố sẽ mở trung tâm phân phối mới; không có lời xin lỗi, sản phẩm mới hay tuyển người quản lý truyền thông.",
+      "dich": "Harlow Foods hôm nay thông báo sẽ mở một trung tâm phân phối mới tại Linden Bay vào mùa xuân năm sau."
+     }
+    },
+    {
+     "q": "How much of the new center's electricity will come from solar panels?",
+     "a": "About one-third",
+     "w": [
+      "About one-half",
+      "About one-quarter",
+      "All of it"
+     ],
+     "why": "solar panels … roughly a third of its electricity.",
+     "lg": {
+      "og": {
+       "About one-third": "Khoảng một phần ba",
+       "About one-half": "Khoảng một nửa",
+       "About one-quarter": "Khoảng một phần tư",
+       "All of it": "Toàn bộ"
+      },
+      "ly": "Bài nói tấm pin mặt trời cung cấp khoảng một phần ba lượng điện, nên các con số khác đều sai.",
+      "dich": "Trung tâm cũng sẽ dùng tấm pin mặt trời để cung cấp khoảng một phần ba lượng điện."
+     }
+    },
+    {
+     "q": "What is suggested about Harlow Foods?",
+     "a": "It currently operates warehouses in Corwin.",
+     "w": [
+      "It has recently changed its CEO.",
+      "It sells products directly to shoppers.",
+      "It has built a similar center before."
+     ],
+     "why": "replace two smaller warehouses in nearby Corwin.",
+     "lg": {
+      "og": {
+       "It currently operates warehouses in Corwin.": "Hiện công ty đang có các kho ở Corwin.",
+       "It has recently changed its CEO.": "Gần đây công ty đổi giám đốc điều hành.",
+       "It sells products directly to shoppers.": "Công ty bán hàng trực tiếp cho người mua lẻ.",
+       "It has built a similar center before.": "Công ty từng xây một trung tâm tương tự."
+      },
+      "ly": "Trung tâm mới sẽ thay thế hai kho nhỏ ở Corwin, nghĩa là công ty đang có các kho đó. Các ý còn lại không được nhắc tới.",
+      "dich": "Cơ sở rộng 12.000 mét vuông sẽ thay thế hai kho nhỏ hơn ở Corwin gần đó."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-blog",
+   "kind": "Blog post",
+   "docs": [
+    {
+     "title": "Blog — Why I Switched to Cycling to Work",
+     "text": "Posted by Lena Brandt on April 9\n\nLast year, I sold my car and began cycling the eight kilometers to my office in Dunmore. [1] I expected the change to be difficult, but within two weeks I noticed I was arriving more awake than I ever did after a drive. Saving money was a bonus: I no longer pay for parking, which cost me $120 a month. [2] Of course, cycling is not always easy. In March, heavy rain forced me to take the bus for a week, and one morning I arrived late to an important meeting because I took a wrong turn. [3] My colleague Raj, who has cycled for years, lent me a waterproof jacket and showed me a quieter route along the river. [4] If you are thinking of trying it, start with one day a week. Dunmore also offers a free bicycle repair workshop on the first Saturday of every month, which I highly recommend."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is the blog post mainly about?",
+     "a": "A writer's experience of cycling to work",
+     "w": [
+      "Tips for buying a used car",
+      "A review of a bicycle shop",
+      "A report on traffic in Dunmore"
+     ],
+     "why": "I sold my car and began cycling … to my office.",
+     "lg": {
+      "og": {
+       "A writer's experience of cycling to work": "Trải nghiệm đi làm bằng xe đạp của tác giả",
+       "Tips for buying a used car": "Mẹo mua xe hơi cũ",
+       "A review of a bicycle shop": "Bài đánh giá một cửa hàng xe đạp",
+       "A report on traffic in Dunmore": "Báo cáo về giao thông ở Dunmore"
+      },
+      "ly": "Cả bài kể việc tác giả bán xe và đạp xe đi làm, gồm lợi ích và khó khăn; không bàn mua xe cũ, cửa hàng hay giao thông.",
+      "dich": "Năm ngoái, tôi bán xe và bắt đầu đạp tám ki-lô-mét tới văn phòng ở Dunmore."
+     }
+    },
+    {
+     "q": "Who is Raj?",
+     "a": "A coworker who gave Ms. Brandt help",
+     "w": [
+      "A mechanic at a repair workshop",
+      "A bus driver in Dunmore",
+      "A neighbor who sold her a bicycle"
+     ],
+     "why": "My colleague Raj … lent me a waterproof jacket and showed me a quieter route.",
+     "lg": {
+      "og": {
+       "A coworker who gave Ms. Brandt help": "Một đồng nghiệp đã giúp bà Brandt",
+       "A mechanic at a repair workshop": "Một thợ ở xưởng sửa xe",
+       "A bus driver in Dunmore": "Một tài xế xe buýt ở Dunmore",
+       "A neighbor who sold her a bicycle": "Người hàng xóm đã bán xe đạp cho bà"
+      },
+      "ly": "Raj là đồng nghiệp, cho mượn áo mưa và chỉ đường yên tĩnh hơn.",
+      "dich": "Đồng nghiệp Raj, người đã đạp xe nhiều năm, cho tôi mượn áo mưa và chỉ cho tôi một lộ trình yên tĩnh hơn dọc bờ sông."
+     }
+    },
+    {
+     "q": "What is suggested about Dunmore?",
+     "a": "It offers services for cyclists.",
+     "w": [
+      "It has no public buses.",
+      "It charges a fee for bicycle repairs.",
+      "It is located eight kilometers from a river."
+     ],
+     "why": "Dunmore also offers a free bicycle repair workshop.",
+     "lg": {
+      "og": {
+       "It offers services for cyclists.": "Thành phố có dịch vụ dành cho người đi xe đạp.",
+       "It has no public buses.": "Ở đó không có xe buýt công cộng.",
+       "It charges a fee for bicycle repairs.": "Sửa xe đạp ở đó phải trả phí.",
+       "It is located eight kilometers from a river.": "Nó nằm cách một con sông tám ki-lô-mét."
+      },
+      "ly": "Dunmore có xưởng sửa xe đạp miễn phí, cho thấy thành phố có dịch vụ cho người đạp xe. Bà từng đi xe buýt nên (A) sai; xưởng miễn phí nên (B) sai.",
+      "dich": "Dunmore cũng có xưởng sửa xe đạp miễn phí vào thứ Bảy đầu tiên mỗi tháng, tôi rất khuyên dùng."
+     }
+    },
+    {
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Since that morning, I always look over my route the night before.\"",
+     "a": "[3]",
+     "w": [
+      "[1]",
+      "[2]",
+      "[4]"
+     ],
+     "why": "\"Since that morning\" = buổi sáng đi nhầm đường, ngay trước vị trí [3].",
+     "lg": {
+      "og": {
+       "[3]": "Vị trí [3]",
+       "[1]": "Vị trí [1]",
+       "[2]": "Vị trí [2]",
+       "[4]": "Vị trí [4]"
+      },
+      "ly": "Câu chèn nói từ buổi sáng đó bà luôn xem lại lộ trình; buổi sáng đó là lúc bà rẽ nhầm, vì vậy câu phải đứng ngay sau, ở [3].",
+      "dich": "Một buổi sáng tôi đến muộn cuộc họp quan trọng vì rẽ nhầm. Từ buổi sáng đó, tối hôm trước tôi luôn xem lại lộ trình."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-coupon",
+   "kind": "Coupon",
+   "docs": [
+    {
+     "title": "Coupon — Bellamy's Garden Center",
+     "text": "BELLAMY'S GARDEN CENTER — SPRING SAVINGS COUPON\nSave 20% on any single purchase of plants, trees, or shrubs totaling $30 or more.\nValid April 1 – April 30 at both Bellamy's locations (Maple Street and Route 12).\n\n• This coupon cannot be combined with other offers or used toward gift cards.\n• The original printed coupon must be presented at checkout. Photocopies and screenshots are not accepted.\n• Sale items and delivery fees are excluded.\n• One coupon per customer per visit.\n\nFree workshop: Join us every Saturday at 10:00 A.M. to learn how to pot and care for spring flowers. No registration required.\nBring this coupon to the Customer Service desk to receive a free packet of seeds with any purchase."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is NOT mentioned as a restriction of the coupon?",
+     "a": "It is valid only on weekends.",
+     "w": [
+      "It must be printed on paper.",
+      "Sale items are not included.",
+      "Only one can be used per visit."
+     ],
+     "why": "Không có chỗ nào nói chỉ dùng cuối tuần.",
+     "lg": {
+      "og": {
+       "It is valid only on weekends.": "Chỉ dùng được vào cuối tuần.",
+       "It must be printed on paper.": "Phải đưa bản in trên giấy.",
+       "Sale items are not included.": "Hàng giảm giá không được áp dụng.",
+       "Only one can be used per visit.": "Mỗi lần mua chỉ dùng một phiếu."
+      },
+      "ly": "Bản in gốc, loại trừ hàng giảm giá và một phiếu mỗi lần đều có trong danh sách. Chỉ ý \"chỉ dùng cuối tuần\" không được nhắc.",
+      "dich": "Phải xuất trình phiếu in gốc; hàng giảm giá và phí giao hàng không áp dụng; mỗi khách một phiếu mỗi lần mua."
+     }
+    },
+    {
+     "q": "What can customers receive at the Customer Service desk?",
+     "a": "A packet of seeds",
+     "w": [
+      "A pass for the workshop",
+      "A second 20% coupon",
+      "A small potted flower"
+     ],
+     "why": "free packet of seeds with any purchase.",
+     "lg": {
+      "og": {
+       "A packet of seeds": "Một gói hạt giống",
+       "A pass for the workshop": "Vé vào buổi hội thảo",
+       "A second 20% coupon": "Phiếu giảm 20% thứ hai",
+       "A small potted flower": "Một chậu hoa nhỏ"
+      },
+      "ly": "Mang phiếu đến quầy chăm sóc khách hàng sẽ nhận gói hạt giống miễn phí; hội thảo không cần đăng ký, không có vé.",
+      "dich": "Mang phiếu này đến quầy Chăm sóc khách hàng để nhận một gói hạt giống miễn phí khi mua bất kỳ món nào."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-contract",
+   "kind": "Contract",
+   "docs": [
+    {
+     "title": "Service Agreement (excerpt)",
+     "text": "SERVICE AGREEMENT (Excerpt) — Brightline Cleaning Services and Oakmont Dental Clinic\n\n1. Services. Brightline will clean the clinic's offices, waiting room, and restrooms every Monday, Wednesday, and Friday between 6:00 P.M. and 9:00 P.M.\n2. Fees. The clinic will pay $850 per month, invoiced on the first day of each month and due within fifteen days. Payments received after that date will incur a late fee of 2 percent.\n3. Term. This agreement begins on March 1 and continues for twelve months. Either party may end it early by giving thirty days' written notice.\n4. Supplies. Brightline will provide all cleaning supplies and equipment. The clinic will supply paper products and hand soap.\n5. Liability. Brightline is responsible for any damage to clinic property caused by its employees, provided that the clinic reports the damage within seven days.\n\nSigned: Carla Mendes, Owner, Brightline; Dr. Peter Hsu, Oakmont Dental Clinic"
+    }
+   ],
+   "qs": [
+    {
+     "q": "What must the clinic provide?",
+     "a": "Paper products and hand soap",
+     "w": [
+      "Cleaning equipment",
+      "Parking for the cleaners",
+      "Uniforms for employees"
+     ],
+     "why": "The clinic will supply paper products and hand soap.",
+     "lg": {
+      "og": {
+       "Paper products and hand soap": "Đồ giấy và xà phòng rửa tay",
+       "Cleaning equipment": "Thiết bị làm sạch",
+       "Parking for the cleaners": "Chỗ đậu xe cho nhân viên dọn",
+       "Uniforms for employees": "Đồng phục cho nhân viên"
+      },
+      "ly": "Điều 4: phòng khám cung cấp đồ giấy và xà phòng; thiết bị do Brightline lo.",
+      "dich": "Brightline cung cấp mọi vật tư và thiết bị làm sạch. Phòng khám cung cấp đồ giấy và xà phòng rửa tay."
+     }
+    },
+    {
+     "q": "What happens if the clinic pays after the due date?",
+     "a": "A late fee is added.",
+     "w": [
+      "The agreement ends immediately.",
+      "Cleaning visits are reduced.",
+      "Brightline's liability is canceled."
+     ],
+     "why": "Payments received after that date will incur a late fee of 2 percent.",
+     "lg": {
+      "og": {
+       "A late fee is added.": "Bị cộng thêm phí trễ hạn.",
+       "The agreement ends immediately.": "Hợp đồng chấm dứt ngay.",
+       "Cleaning visits are reduced.": "Số buổi dọn dẹp bị giảm.",
+       "Brightline's liability is canceled.": "Trách nhiệm của Brightline bị huỷ."
+      },
+      "ly": "Điều 2 nêu rõ thanh toán muộn bị phạt 2%; không có điều khoản nào về việc chấm dứt hay giảm số buổi.",
+      "dich": "Khoản thanh toán nhận sau ngày đó sẽ bị tính phí trễ hạn 2 phần trăm."
+     }
+    },
+    {
+     "q": "How can the agreement be ended early?",
+     "a": "By giving written notice a month ahead",
+     "w": [
+      "By paying a late fee",
+      "By a verbal request on Friday",
+      "By reporting damage to property"
+     ],
+     "why": "Either party may end it early by giving thirty days' written notice.",
+     "lg": {
+      "og": {
+       "By giving written notice a month ahead": "Báo bằng văn bản trước một tháng",
+       "By paying a late fee": "Bằng cách trả phí trễ hạn",
+       "By a verbal request on Friday": "Bằng yêu cầu miệng vào thứ Sáu",
+       "By reporting damage to property": "Bằng cách báo hư hại tài sản"
+      },
+      "ly": "Điều 3: một bên có thể chấm dứt sớm bằng thông báo bằng văn bản trước ba mươi ngày, tức khoảng một tháng.",
+      "dich": "Mỗi bên có thể chấm dứt hợp đồng sớm bằng cách gửi thông báo bằng văn bản trước ba mươi ngày."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-policy",
+   "kind": "Policy",
+   "docs": [
+    {
+     "title": "Company policy — Remote Work",
+     "text": "Eligible employees may work remotely up to two days per week, subject to approval by their department manager. Employees who have been with the company for less than six months are not eligible.\nRemote workers must be available during core hours, from 10:00 A.M. to 3:00 P.M., and must respond to messages within one hour. Managers will review each arrangement every quarter and may revoke it if performance declines. Any change to a remote schedule must be requested at least five business days in advance.\nThe company will provide a laptop and a secure connection tool. Employees are responsible for maintaining a suitable workspace and for any internet costs. Confidential documents must never be printed at home."
+    }
+   ],
+   "qs": [
+    {
+     "q": "Who is eligible for remote work?",
+     "a": "Employees with at least six months of service",
+     "w": [
+      "All newly hired employees",
+      "Only department managers",
+      "Employees who print documents at home"
+     ],
+     "why": "less than six months are not eligible.",
+     "lg": {
+      "og": {
+       "Employees with at least six months of service": "Nhân viên làm đủ ít nhất sáu tháng",
+       "All newly hired employees": "Mọi nhân viên mới tuyển",
+       "Only department managers": "Chỉ các trưởng phòng",
+       "Employees who print documents at home": "Nhân viên in tài liệu ở nhà"
+      },
+      "ly": "Ai làm chưa đủ sáu tháng thì không đủ điều kiện, nên cần làm ít nhất sáu tháng. Việc in tài liệu ở nhà bị cấm.",
+      "dich": "Nhân viên làm việc cho công ty dưới sáu tháng thì không đủ điều kiện."
+     }
+    },
+    {
+     "q": "The word \"revoke\" in paragraph 2 is closest in meaning to",
+     "a": "cancel",
+     "w": [
+      "review",
+      "extend",
+      "announce"
+     ],
+     "why": "may revoke it if performance declines = huỷ nếu hiệu suất giảm.",
+     "lg": {
+      "og": {
+       "cancel": "huỷ bỏ",
+       "review": "xem xét",
+       "extend": "gia hạn",
+       "announce": "thông báo"
+      },
+      "ly": "\"Revoke\" nghĩa là thu hồi, huỷ bỏ, gần nghĩa nhất với cancel.",
+      "dich": "Các quản lý sẽ xem xét từng thoả thuận mỗi quý và có thể huỷ nó nếu hiệu suất giảm sút."
+     }
+    },
+    {
+     "q": "Who pays for internet costs?",
+     "a": "The employee",
+     "w": [
+      "The department manager",
+      "The company",
+      "The costs are shared equally."
+     ],
+     "why": "Employees are responsible for … any internet costs.",
+     "lg": {
+      "og": {
+       "The employee": "Nhân viên",
+       "The department manager": "Trưởng phòng",
+       "The company": "Công ty",
+       "The costs are shared equally.": "Chi phí chia đều"
+      },
+      "ly": "Đoạn 3 nói nhân viên chịu trách nhiệm chi phí internet; công ty chỉ cấp laptop và công cụ kết nối.",
+      "dich": "Nhân viên chịu trách nhiệm duy trì không gian làm việc phù hợp và mọi chi phí internet."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-jobdesc",
+   "kind": "Job description",
+   "docs": [
+    {
+     "title": "Job opening — Events Coordinator",
+     "text": "Job Opening: Events Coordinator — Harborview Convention Center\n\nHarborview Convention Center, a leading venue in Port Elmira, seeks an Events Coordinator to join its sales and operations team.\n\nResponsibilities: Plan and supervise conferences, trade shows, and weddings; prepare budgets and track expenses; coordinate with caterers, decorators, and audio-visual vendors; serve as the main contact for clients before and during events.\n\nQualifications: At least two years of experience in event planning or hospitality; strong written and verbal communication skills; ability to work evenings and weekends when needed; proficiency with scheduling software. A bachelor's degree is preferred but not required. Fluency in Spanish is an advantage.\n\nBenefits: Competitive salary, health insurance after 60 days, and free parking.\n\nTo apply, send your résumé and a cover letter describing a successful event you organized to careers@harborview.example by May 20. Applications without a cover letter will not be considered."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is required of applicants?",
+     "a": "A cover letter",
+     "w": [
+      "A bachelor's degree",
+      "Fluency in Spanish",
+      "Experience as a caterer"
+     ],
+     "why": "Applications without a cover letter will not be considered.",
+     "lg": {
+      "og": {
+       "A cover letter": "Một thư xin việc",
+       "A bachelor's degree": "Bằng cử nhân",
+       "Fluency in Spanish": "Thông thạo tiếng Tây Ban Nha",
+       "Experience as a caterer": "Kinh nghiệm làm dịch vụ ăn uống"
+      },
+      "ly": "Hồ sơ thiếu thư xin việc sẽ không được xét; bằng cử nhân chỉ được ưu tiên, tiếng Tây Ban Nha chỉ là lợi thế.",
+      "dich": "Hồ sơ không có thư xin việc sẽ không được xem xét."
+     }
+    },
+    {
+     "q": "What is suggested about the position?",
+     "a": "It may involve working outside regular hours.",
+     "w": [
+      "It is a temporary job.",
+      "It requires a hospitality degree.",
+      "It is based in a Spanish-speaking region."
+     ],
+     "why": "ability to work evenings and weekends when needed.",
+     "lg": {
+      "og": {
+       "It may involve working outside regular hours.": "Công việc có thể phải làm ngoài giờ hành chính.",
+       "It is a temporary job.": "Đây là công việc tạm thời.",
+       "It requires a hospitality degree.": "Yêu cầu bằng về khách sạn – du lịch.",
+       "It is based in a Spanish-speaking region.": "Công việc ở một vùng nói tiếng Tây Ban Nha."
+      },
+      "ly": "Yêu cầu làm buổi tối và cuối tuần khi cần cho thấy giờ làm có thể ngoài giờ thường. Các ý khác không được nêu.",
+      "dich": "Có khả năng làm việc buổi tối và cuối tuần khi cần."
+     }
+    },
+    {
+     "q": "When does health insurance start?",
+     "a": "After about two months",
+     "w": [
+      "On the first day of work",
+      "After six months",
+      "After a successful event"
+     ],
+     "why": "health insurance after 60 days.",
+     "lg": {
+      "og": {
+       "After about two months": "Sau khoảng hai tháng",
+       "On the first day of work": "Ngay ngày đầu đi làm",
+       "After six months": "Sau sáu tháng",
+       "After a successful event": "Sau một sự kiện thành công"
+      },
+      "ly": "60 ngày tương đương khoảng hai tháng.",
+      "dich": "Phúc lợi gồm lương cạnh tranh, bảo hiểm y tế sau 60 ngày và chỗ đậu xe miễn phí."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-invite",
+   "kind": "Invitation",
+   "docs": [
+    {
+     "title": "Invitation — Retirement Celebration",
+     "text": "You are cordially invited to the Retirement Celebration of Grace Almeida\n\nAfter thirty-one years as Head Librarian at Fenwick Public Library, Grace Almeida will retire at the end of this month. Please join us in honoring her service.\n\nDate: Friday, June 27\nTime: 5:30 P.M. – 8:00 P.M.\nPlace: Fenwick Public Library, Reading Room (second floor)\n\nLight refreshments will be served. In place of gifts, guests are invited to donate to the Library's Children's Book Fund. A donation box will be at the entrance.\n\nPlease RSVP to Tom Berger at tberger@fenwicklibrary.example by June 20. If you would like to share a memory or a short speech, let Tom know when you reply. Parking is available behind the building after 5:00 P.M."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What are guests asked to do instead of bringing gifts?",
+     "a": "Give money to a book fund",
+     "w": [
+      "Bring a favorite book",
+      "Write a letter to Ms. Almeida",
+      "Help set up the Reading Room"
+     ],
+     "why": "In place of gifts, guests are invited to donate to the Library's Children's Book Fund.",
+     "lg": {
+      "og": {
+       "Give money to a book fund": "Quyên góp cho quỹ sách",
+       "Bring a favorite book": "Mang theo một cuốn sách yêu thích",
+       "Write a letter to Ms. Almeida": "Viết thư cho bà Almeida",
+       "Help set up the Reading Room": "Giúp bày trí phòng đọc"
+      },
+      "ly": "Thay vì quà, khách được mời quyên góp cho Quỹ Sách Thiếu nhi.",
+      "dich": "Thay cho quà tặng, khách được mời đóng góp vào Quỹ Sách Thiếu nhi của thư viện."
+     }
+    },
+    {
+     "q": "What is indicated about Ms. Almeida?",
+     "a": "She has worked at the library for over three decades.",
+     "w": [
+      "She is moving to another city.",
+      "She founded Fenwick Public Library.",
+      "She will give a speech at the event."
+     ],
+     "why": "After thirty-one years as Head Librarian.",
+     "lg": {
+      "og": {
+       "She has worked at the library for over three decades.": "Bà đã làm ở thư viện hơn ba thập kỷ.",
+       "She is moving to another city.": "Bà sắp chuyển sang thành phố khác.",
+       "She founded Fenwick Public Library.": "Bà là người sáng lập thư viện.",
+       "She will give a speech at the event.": "Bà sẽ phát biểu tại buổi lễ."
+      },
+      "ly": "Ba mươi mốt năm là hơn ba thập kỷ. Thư không nói bà chuyển nhà, sáng lập thư viện hay sẽ phát biểu.",
+      "dich": "Sau ba mươi mốt năm làm Trưởng thư viện tại Thư viện Công cộng Fenwick, bà Grace Almeida sẽ nghỉ hưu."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-flyer",
+   "kind": "Flyer",
+   "docs": [
+    {
+     "title": "Flyer — Riverside Farmers' Market",
+     "text": "RIVERSIDE FARMERS' MARKET\nEvery Saturday, 8:00 A.M. – 1:00 P.M., through October\nLocation: Riverside Park, next to Fountain Plaza\n\nFresh vegetables • Local honey • Homemade bread • Handmade crafts\n\nNEW THIS YEAR: Live music from 10:00 A.M. and a cooking demonstration by chef Isabel Cruz at 11:30 A.M. each week.\n\nInterested in selling? Local growers and artisans can reserve a stall for $25 per Saturday. Applications are available at www.riversidemarket.example/vendors and must be submitted two weeks before your first market day.\n\nFree parking is available in the Elm Street lot. Please bring your own bags; plastic bags are not provided.\n\nQuestions? Call Market Manager Owen Pratt at 555-0142."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is new at the market this year?",
+     "a": "Weekly entertainment and a cooking demonstration",
+     "w": [
+      "Free parking",
+      "A section for handmade crafts",
+      "Longer opening hours"
+     ],
+     "why": "NEW THIS YEAR: Live music … and a cooking demonstration.",
+     "lg": {
+      "og": {
+       "Weekly entertainment and a cooking demonstration": "Giải trí hằng tuần và một buổi nấu ăn mẫu",
+       "Free parking": "Bãi đậu xe miễn phí",
+       "A section for handmade crafts": "Khu bán đồ thủ công",
+       "Longer opening hours": "Giờ mở cửa dài hơn"
+      },
+      "ly": "Mục \"NEW THIS YEAR\" liệt kê nhạc sống và buổi trình diễn nấu ăn; bãi đậu xe và đồ thủ công không nằm trong phần mới.",
+      "dich": "Mới trong năm nay: nhạc sống từ 10 giờ sáng và buổi trình diễn nấu ăn của đầu bếp Isabel Cruz lúc 11:30 mỗi tuần."
+     }
+    },
+    {
+     "q": "What should people who want to sell products do?",
+     "a": "Apply at least two weeks in advance",
+     "w": [
+      "Call the manager on Saturday",
+      "Bring their own stall",
+      "Pay $25 per month"
+     ],
+     "why": "must be submitted two weeks before your first market day.",
+     "lg": {
+      "og": {
+       "Apply at least two weeks in advance": "Nộp đơn trước ít nhất hai tuần",
+       "Call the manager on Saturday": "Gọi cho quản lý vào thứ Bảy",
+       "Bring their own stall": "Mang theo quầy của riêng mình",
+       "Pay $25 per month": "Trả 25 đô la mỗi tháng"
+      },
+      "ly": "Đơn đăng ký phải nộp trước ngày họp chợ đầu tiên hai tuần; phí là 25 đô la mỗi thứ Bảy, không phải mỗi tháng.",
+      "dich": "Đơn có trên trang web và phải nộp trước ngày họp chợ đầu tiên của bạn hai tuần."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-minutes",
+   "kind": "Meeting minutes + e-mail",
+   "docs": [
+    {
+     "title": "Minutes — Marketing Team Meeting, October 8",
+     "text": "Present: Hana Kim (chair), Luis Ortega, Priya Nair, Sam Walsh\n1. Autumn campaign: Priya reported that social media ads brought a 15% increase in website visits. The team agreed to extend the campaign by two weeks.\n2. Budget: Luis noted that $4,000 remains in the advertising budget. Hana proposed spending $2,500 on a video ad. The proposal was approved.\n3. Trade show: Sam will confirm the booth reservation for the Denver show by October 15.\nAction items: Priya – send final ad images to Luis by October 12. Luis – request quotes from video studios. Sam – confirm booth."
+    },
+    {
+     "title": "E-mail · To: Jorge Ramos · From: Hana Kim · Date: October 9",
+     "text": "Hi Jorge, following yesterday's meeting, here is a quick update. Our autumn ads are performing well, so we will keep them running longer than planned. We also plan to produce a short video ad. Because we do not want to exceed the budget, I asked Luis to get quotes from two studios before we sign anything. One more thing: the Denver trade show falls in the same week as our sales retreat. Could you let me know whether Sam should still attend? Thanks, Hana"
+    }
+   ],
+   "qs": [
+    {
+     "q": "What was the result of the autumn campaign, according to the minutes?",
+     "a": "Website visits increased.",
+     "w": [
+      "Sales doubled.",
+      "Advertising costs fell.",
+      "The budget was used up."
+     ],
+     "why": "social media ads brought a 15% increase in website visits.",
+     "lg": {
+      "og": {
+       "Website visits increased.": "Lượt truy cập trang web tăng.",
+       "Sales doubled.": "Doanh số tăng gấp đôi.",
+       "Advertising costs fell.": "Chi phí quảng cáo giảm.",
+       "The budget was used up.": "Ngân sách đã dùng hết."
+      },
+      "ly": "Biên bản ghi quảng cáo mạng xã hội làm lượt truy cập tăng 15%; còn 4.000 đô la nên ngân sách chưa hết.",
+      "dich": "Priya báo cáo rằng quảng cáo trên mạng xã hội làm lượt truy cập trang web tăng 15%."
+     }
+    },
+    {
+     "q": "By when must Ms. Nair send the final ad images?",
+     "a": "October 12",
+     "w": [
+      "October 8",
+      "October 9",
+      "October 15"
+     ],
+     "why": "Priya – send final ad images to Luis by October 12.",
+     "lg": {
+      "og": {
+       "October 12": "Ngày 12 tháng 10",
+       "October 8": "Ngày 8 tháng 10",
+       "October 9": "Ngày 9 tháng 10",
+       "October 15": "Ngày 15 tháng 10"
+      },
+      "ly": "Mục hành động ghi Priya gửi hình trước 12/10; 15/10 là hạn của Sam.",
+      "dich": "Priya – gửi hình quảng cáo cuối cùng cho Luis trước ngày 12 tháng 10."
+     }
+    },
+    {
+     "q": "What is true about the video ad?",
+     "a": "It was approved, but no studio has been chosen yet.",
+     "w": [
+      "It has already been filmed.",
+      "It will use the entire remaining budget.",
+      "Mr. Ramos must approve its cost."
+     ],
+     "why": "Đối chiếu: biên bản – the proposal was approved; e-mail – get quotes from two studios before we sign anything.",
+     "lg": {
+      "og": {
+       "It was approved, but no studio has been chosen yet.": "Đã được duyệt nhưng chưa chọn xưởng phim.",
+       "It has already been filmed.": "Đã quay xong.",
+       "It will use the entire remaining budget.": "Sẽ dùng hết phần ngân sách còn lại.",
+       "Mr. Ramos must approve its cost.": "Ông Ramos phải duyệt chi phí."
+      },
+      "ly": "Biên bản cho biết đề xuất video đã được duyệt; e-mail cho biết còn chờ báo giá từ hai xưởng nên chưa ký với xưởng nào. 2.500 đô la chưa hết 4.000 đô la.",
+      "dich": "Biên bản: đề xuất đã được thông qua. E-mail: nhờ Luis lấy báo giá từ hai xưởng trước khi ký bất kỳ thứ gì."
+     }
+    },
+    {
+     "q": "Why did Ms. Kim write to Mr. Ramos?",
+     "a": "To update him and ask about a staff member's schedule",
+     "w": [
+      "To request a larger budget",
+      "To cancel the campaign",
+      "To invite him to the trade show"
+     ],
+     "why": "Could you let me know whether Sam should still attend?",
+     "lg": {
+      "og": {
+       "To update him and ask about a staff member's schedule": "Cập nhật tình hình và hỏi về lịch của một nhân viên",
+       "To request a larger budget": "Xin tăng ngân sách",
+       "To cancel the campaign": "Huỷ chiến dịch",
+       "To invite him to the trade show": "Mời ông dự triển lãm"
+      },
+      "ly": "Bà Kim báo tiến độ rồi hỏi liệu Sam có nên đi triển lãm không; không xin thêm ngân sách hay huỷ chiến dịch.",
+      "dich": "Anh có thể cho tôi biết Sam có nên tiếp tục tham dự không?"
+     }
+    },
+    {
+     "q": "How much will probably remain in the advertising budget if the video ad costs the approved amount?",
+     "a": "$1,500",
+     "w": [
+      "$2,500",
+      "$4,000",
+      "$6,500"
+     ],
+     "why": "Đối chiếu: còn $4,000, video $2,500 → còn $1,500; e-mail: không muốn vượt ngân sách.",
+     "lg": {
+      "og": {
+       "$1,500": "1.500 đô la",
+       "$2,500": "2.500 đô la",
+       "$4,000": "4.000 đô la",
+       "$6,500": "6.500 đô la"
+      },
+      "ly": "Ngân sách còn 4.000 đô la, chi 2.500 đô la cho video thì còn 1.500 đô la; e-mail cho biết họ cố không vượt ngân sách.",
+      "dich": "Luis lưu ý còn 4.000 đô la; Hana đề xuất chi 2.500 đô la cho quảng cáo video và được duyệt."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-chart",
+   "kind": "Chart + e-mail",
+   "docs": [
+    {
+     "title": "Chart — Quarterly Sales by Branch (in thousands of dollars)",
+     "text": "Branch | Q1 | Q2 | Q3 | Q4\nEastgate | 220 | 240 | 235 | 310\nLakeview | 180 | 175 | 190 | 205\nHarbor | 150 | 160 | 210 | 215\nDowntown | 300 | 280 | 260 | 250"
+    },
+    {
+     "title": "E-mail · To: Branch managers · From: Alicia Moreno · Subject: Year-end sales review",
+     "text": "Dear branch managers, thank you for a productive year. Total sales rose again, driven largely by holiday shopping in the fourth quarter. I would like to congratulate the branch that posted the biggest increase between the second and third quarters, which we credit to its summer promotion. I am also concerned about the branch whose sales have fallen every quarter. Mr. Chen, please prepare a recovery plan by January 10. Finally, the branch with the highest total for the year will host our spring training session. Regards, Alicia Moreno"
+    }
+   ],
+   "qs": [
+    {
+     "q": "Which branch most likely held a successful summer promotion?",
+     "a": "Harbor",
+     "w": [
+      "Eastgate",
+      "Lakeview",
+      "Downtown"
+     ],
+     "why": "Đối chiếu: e-mail – khuyến mãi mùa hè → tăng nhiều nhất Q2–Q3; biểu đồ – Harbor tăng 160 → 210.",
+     "lg": {
+      "og": {
+       "Harbor": "Chi nhánh Harbor",
+       "Eastgate": "Chi nhánh Eastgate",
+       "Lakeview": "Chi nhánh Lakeview",
+       "Downtown": "Chi nhánh Downtown"
+      },
+      "ly": "Từ Q2 sang Q3 Harbor tăng 50, còn Lakeview tăng 15, Eastgate và Downtown giảm; nên Harbor là chi nhánh tăng nhiều nhất.",
+      "dich": "Chúng tôi ghi nhận khuyến mãi mùa hè đã giúp chi nhánh tăng nhiều nhất giữa quý hai và quý ba."
+     }
+    },
+    {
+     "q": "What is the purpose of the e-mail?",
+     "a": "To review annual results and assign a follow-up task",
+     "w": [
+      "To announce a new branch",
+      "To explain a change in pay",
+      "To ask for holiday schedules"
+     ],
+     "why": "Year-end sales review … please prepare a recovery plan.",
+     "lg": {
+      "og": {
+       "To review annual results and assign a follow-up task": "Đánh giá kết quả cả năm và giao việc tiếp theo",
+       "To announce a new branch": "Thông báo một chi nhánh mới",
+       "To explain a change in pay": "Giải thích thay đổi về lương",
+       "To ask for holiday schedules": "Hỏi lịch nghỉ lễ"
+      },
+      "ly": "Thư tổng kết doanh số cuối năm và giao ông Chen lập kế hoạch phục hồi.",
+      "dich": "Cảm ơn mọi người đã có một năm hiệu quả. Tổng doanh số lại tăng."
+     }
+    },
+    {
+     "q": "Which branch will host the spring training session?",
+     "a": "Downtown",
+     "w": [
+      "Eastgate",
+      "Lakeview",
+      "Harbor"
+     ],
+     "why": "Đối chiếu: e-mail – tổng cả năm cao nhất; biểu đồ – Downtown 300+280+260+250 = 1.090.",
+     "lg": {
+      "og": {
+       "Downtown": "Chi nhánh Downtown",
+       "Eastgate": "Chi nhánh Eastgate",
+       "Lakeview": "Chi nhánh Lakeview",
+       "Harbor": "Chi nhánh Harbor"
+      },
+      "ly": "Downtown cộng được 1.090 nghìn đô la, cao hơn Eastgate 1.005, Lakeview 750 và Harbor 735.",
+      "dich": "Chi nhánh có tổng cao nhất năm sẽ đăng cai buổi tập huấn mùa xuân."
+     }
+    },
+    {
+     "q": "In which quarter did Eastgate record its highest sales?",
+     "a": "Q4",
+     "w": [
+      "Q1",
+      "Q2",
+      "Q3"
+     ],
+     "why": "Biểu đồ: Eastgate Q4 = 310.",
+     "lg": {
+      "og": {
+       "Q4": "Quý 4",
+       "Q1": "Quý 1",
+       "Q2": "Quý 2",
+       "Q3": "Quý 3"
+      },
+      "ly": "Hàng Eastgate có 310 ở Q4, cao nhất.",
+      "dich": "Eastgate: 220, 240, 235, 310."
+     }
+    },
+    {
+     "q": "Which branch is Mr. Chen most likely responsible for?",
+     "a": "Downtown",
+     "w": [
+      "Eastgate",
+      "Lakeview",
+      "Harbor"
+     ],
+     "why": "Đối chiếu: e-mail – doanh số giảm mỗi quý; biểu đồ – Downtown 300 → 280 → 260 → 250.",
+     "lg": {
+      "og": {
+       "Downtown": "Chi nhánh Downtown",
+       "Eastgate": "Chi nhánh Eastgate",
+       "Lakeview": "Chi nhánh Lakeview",
+       "Harbor": "Chi nhánh Harbor"
+      },
+      "ly": "Chỉ Downtown giảm liên tục bốn quý nên ông Chen phải lập kế hoạch phục hồi cho chi nhánh này.",
+      "dich": "Tôi lo ngại về chi nhánh có doanh số giảm mọi quý. Ông Chen, hãy chuẩn bị kế hoạch phục hồi trước ngày 10 tháng 1."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-receipt",
+   "kind": "Receipt + e-mail",
+   "docs": [
+    {
+     "title": "Receipt — Trailhead Outfitters",
+     "text": "Order #55820 · Date: November 12\nItem | Qty | Price\nWaterproof jacket (size M) | 1 | $89.00\nHiking socks (3-pack) | 2 | $24.00\nTrail map set | 1 | $12.50\nSubtotal: $125.50\nMember discount (10%): -$12.55\nShipping: $7.00\nTotal: $119.95\nReturn policy: Unworn items may be returned or exchanged within 30 days with this receipt. Sale items are final.\nPayment: Visa ending 4417"
+    },
+    {
+     "title": "E-mail · To: help@trailheadoutfitters.example · From: Marcus Ellery · Date: November 20",
+     "text": "Hello, my jacket arrived yesterday, but it is too small. I would like to exchange it for a large. I also noticed that I was charged $7.00 for shipping, although your website says it is free for orders over $100. Could you please check? Finally, the trail map set was missing from the package. Thank you, Marcus Ellery"
+    }
+   ],
+   "qs": [
+    {
+     "q": "How much did Mr. Ellery pay in total?",
+     "a": "$119.95",
+     "w": [
+      "$112.95",
+      "$125.50",
+      "$132.50"
+     ],
+     "why": "Receipt: Total $119.95.",
+     "lg": {
+      "og": {
+       "$119.95": "119,95 đô la",
+       "$112.95": "112,95 đô la",
+       "$125.50": "125,50 đô la",
+       "$132.50": "132,50 đô la"
+      },
+      "ly": "Tổng cuối cùng sau giảm giá và cộng phí giao hàng là 119,95 đô la.",
+      "dich": "Tổng cộng: 119,95 đô la."
+     }
+    },
+    {
+     "q": "What does Mr. Ellery want to do with the jacket?",
+     "a": "Exchange it for a larger size",
+     "w": [
+      "Return it for a refund",
+      "Pay for it in installments",
+      "Give it to a friend"
+     ],
+     "why": "I would like to exchange it for a large.",
+     "lg": {
+      "og": {
+       "Exchange it for a larger size": "Đổi sang cỡ lớn hơn",
+       "Return it for a refund": "Trả lại để lấy tiền",
+       "Pay for it in installments": "Trả góp",
+       "Give it to a friend": "Tặng bạn"
+      },
+      "ly": "Ông ghi rõ muốn đổi áo sang cỡ L, không đòi hoàn tiền.",
+      "dich": "Áo tới hôm qua nhưng quá nhỏ. Tôi muốn đổi sang cỡ lớn."
+     }
+    },
+    {
+     "q": "What discount was applied to the order?",
+     "a": "A member discount of 10 percent",
+     "w": [
+      "A sale price on the jacket",
+      "A free shipping offer",
+      "A coupon worth $12.55 for a return"
+     ],
+     "why": "Member discount (10%): -$12.55.",
+     "lg": {
+      "og": {
+       "A member discount of 10 percent": "Giảm 10% cho hội viên",
+       "A sale price on the jacket": "Giá giảm cho chiếc áo",
+       "A free shipping offer": "Ưu đãi miễn phí giao hàng",
+       "A coupon worth $12.55 for a return": "Phiếu 12,55 đô la khi trả hàng"
+      },
+      "ly": "Hoá đơn ghi giảm 10% cho hội viên; hàng giảm giá thì không có trong đơn.",
+      "dich": "Giảm giá hội viên (10%): trừ 12,55 đô la."
+     }
+    },
+    {
+     "q": "What can be inferred about Mr. Ellery's order?",
+     "a": "It exceeded the amount needed for free shipping.",
+     "w": [
+      "It included a sale item.",
+      "It was paid for in cash.",
+      "It was shipped overnight."
+     ],
+     "why": "Đối chiếu: e-mail – free for orders over $100; hoá đơn – subtotal $125.50, sau giảm $112.95.",
+     "lg": {
+      "og": {
+       "It exceeded the amount needed for free shipping.": "Giá trị đơn vượt mức được miễn phí giao hàng.",
+       "It included a sale item.": "Đơn có một món giảm giá.",
+       "It was paid for in cash.": "Ông trả bằng tiền mặt.",
+       "It was shipped overnight.": "Đơn được giao qua đêm."
+      },
+      "ly": "Đơn trên 100 đô la cả trước (125,50) và sau giảm giá (112,95), nên theo website lẽ ra miễn phí giao hàng; hoá đơn trả bằng thẻ Visa.",
+      "dich": "Trang web của quý vị nói miễn phí giao hàng cho đơn trên 100 đô la."
+     }
+    },
+    {
+     "q": "Why is Mr. Ellery most likely able to exchange the jacket?",
+     "a": "He contacted the store within 30 days.",
+     "w": [
+      "He bought it at a sale price.",
+      "He is a first-time customer.",
+      "He kept the shipping box."
+     ],
+     "why": "Đối chiếu: hoá đơn – within 30 days (ngày 12/11); e-mail ngày 20/11.",
+     "lg": {
+      "og": {
+       "He contacted the store within 30 days.": "Ông liên hệ cửa hàng trong vòng 30 ngày.",
+       "He bought it at a sale price.": "Ông mua áo giá giảm.",
+       "He is a first-time customer.": "Ông là khách mua lần đầu.",
+       "He kept the shipping box.": "Ông giữ lại hộp giao hàng."
+      },
+      "ly": "Chính sách cho đổi trong 30 ngày; ông viết thư 8 ngày sau khi đặt hàng. Hàng giảm giá thì không được đổi.",
+      "dich": "Hàng chưa mang có thể trả hoặc đổi trong vòng 30 ngày kèm hoá đơn này."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t7-n-price",
+   "kind": "Price list + review + e-mail",
+   "docs": [
+    {
+     "title": "Price list — Sunrise Print Shop",
+     "text": "Business cards (500): $35\nFlyers (100, full color): $48\nPosters (24 x 36 in.): $18 each\nBanners (3 x 6 ft.): $65 each\nRush service (ready in 24 hours): add 25% to the item price\nFree delivery within Marlow for orders over $75; otherwise $8"
+    },
+    {
+     "title": "Customer review — Naomi Fischer, March 3 (4 stars)",
+     "text": "I ordered 100 flyers for my bakery's grand opening. The colors were bright, and the staff helped me fix a spelling mistake before printing. My only complaint was that my order arrived two days late, even though I paid for rush service. I am already planning an outdoor sale in May."
+    },
+    {
+     "title": "E-mail · To: Naomi Fischer · From: Carlos Reyes, Owner · Date: March 5",
+     "text": "Dear Ms. Fischer, thank you for your review. I apologize again for the delay. We have refunded the rush charge, and I would like to offer you 15% off your next order, valid until April 30. Since you mentioned an outdoor sale, a banner would be easy to see from the street. Sincerely, Carlos Reyes"
+    }
+   ],
+   "qs": [
+    {
+     "q": "How much money did Ms. Fischer get back from the shop?",
+     "a": "$12",
+     "w": [
+      "$8",
+      "$15",
+      "$48"
+     ],
+     "why": "Đối chiếu 3 văn bản: giá 100 tờ rơi $48 + rush 25% = $12; e-mail: refunded the rush charge.",
+     "lg": {
+      "og": {
+       "$12": "12 đô la",
+       "$8": "8 đô la",
+       "$15": "15 đô la",
+       "$48": "48 đô la"
+      },
+      "ly": "Phí giao nhanh là 25% của 48 đô la, tức 12 đô la, và ông Reyes đã hoàn khoản này.",
+      "dich": "Chúng tôi đã hoàn lại phí giao nhanh."
+     }
+    },
+    {
+     "q": "What problem did Ms. Fischer report?",
+     "a": "Her order arrived late.",
+     "w": [
+      "The colors faded quickly.",
+      "The staff was unhelpful.",
+      "The flyers had a spelling mistake."
+     ],
+     "why": "my order arrived two days late.",
+     "lg": {
+      "og": {
+       "Her order arrived late.": "Đơn hàng của bà tới trễ.",
+       "The colors faded quickly.": "Màu in phai nhanh.",
+       "The staff was unhelpful.": "Nhân viên không nhiệt tình.",
+       "The flyers had a spelling mistake.": "Tờ rơi có lỗi chính tả."
+      },
+      "ly": "Bà phàn nàn đơn đến muộn hai ngày; màu rực rỡ, nhân viên giúp sửa lỗi chính tả trước khi in.",
+      "dich": "Phàn nàn duy nhất của tôi là đơn hàng đến muộn hai ngày dù tôi đã trả tiền giao nhanh."
+     }
+    },
+    {
+     "q": "How much would one banner cost Ms. Fischer after using the discount?",
+     "a": "$55.25",
+     "w": [
+      "$49.00",
+      "$50.00",
+      "$65.00"
+     ],
+     "why": "Đối chiếu: bảng giá – banner $65; e-mail – 15% off.",
+     "lg": {
+      "og": {
+       "$55.25": "55,25 đô la",
+       "$49.00": "49 đô la",
+       "$50.00": "50 đô la",
+       "$65.00": "65 đô la"
+      },
+      "ly": "65 đô la trừ 15% bằng 55,25 đô la.",
+      "dich": "Biển quảng cáo 3 x 6 ft giá 65 đô la một tấm; ưu đãi giảm 15% cho đơn kế tiếp."
+     }
+    },
+    {
+     "q": "What is the purpose of the e-mail?",
+     "a": "To respond to a customer's complaint",
+     "w": [
+      "To announce a price increase",
+      "To advertise a new product",
+      "To ask for a product review"
+     ],
+     "why": "thank you for your review. I apologize again for the delay.",
+     "lg": {
+      "og": {
+       "To respond to a customer's complaint": "Phản hồi lời phàn nàn của khách",
+       "To announce a price increase": "Thông báo tăng giá",
+       "To advertise a new product": "Quảng cáo sản phẩm mới",
+       "To ask for a product review": "Xin khách đánh giá sản phẩm"
+      },
+      "ly": "Chủ tiệm cảm ơn bài đánh giá, xin lỗi vì chậm, hoàn phí và tặng ưu đãi.",
+      "dich": "Cảm ơn bài đánh giá của bà. Tôi xin lỗi lần nữa vì sự chậm trễ."
+     }
+    },
+    {
+     "q": "By when must Ms. Fischer use the discount?",
+     "a": "April 30",
+     "w": [
+      "March 5",
+      "March 31",
+      "May 31"
+     ],
+     "why": "valid until April 30.",
+     "lg": {
+      "og": {
+       "April 30": "Ngày 30 tháng 4",
+       "March 5": "Ngày 5 tháng 3",
+       "March 31": "Ngày 31 tháng 3",
+       "May 31": "Ngày 31 tháng 5"
+      },
+      "ly": "Ưu đãi có hiệu lực đến 30 tháng 4.",
+      "dich": "Tôi muốn tặng bà giảm 15% cho đơn kế tiếp, có hiệu lực đến ngày 30 tháng 4."
+     }
+    }
+   ]
   }
  ]
 }

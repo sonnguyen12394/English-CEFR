@@ -2312,6 +2312,1979 @@
     "ct": "so many / much + N + that + mệnh đề = nhiều … đến nỗi …",
     "dich": "Chúng tôi nhận được nhiều đơn ứng tuyển đến nỗi hội đồng tuyển dụng cần thêm một tuần để xem xét."
    }
+  },
+  {
+   "id": "t5-119",
+   "k": "v",
+   "s": "The server crashed ------- during the online sale, leaving customers unable to pay.",
+   "o": [
+    "abruptly",
+    "gradually",
+    "eagerly",
+    "politely"
+   ],
+   "a": "abruptly",
+   "why": "Máy chủ sập: abruptly (đột ngột) hợp nghĩa.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "abruptly": "trạng từ: đột ngột",
+     "gradually": "trạng từ: dần dần",
+     "eagerly": "trạng từ: háo hức",
+     "politely": "trạng từ: lịch sự"
+    },
+    "ly": "Máy chủ sập khiến khách không trả tiền được, nên cần trạng từ chỉ sự bất ngờ: abruptly. Gradually (dần dần) không hợp với sự cố làm khách không trả được tiền ngay; eagerly và politely không dùng cho máy chủ.",
+    "dich": "Máy chủ đột ngột sập trong đợt bán hàng trực tuyến, khiến khách không thể thanh toán.",
+    "ct": "crash abruptly = sập đột ngột"
+   }
+  },
+  {
+   "id": "t5-120",
+   "k": "v",
+   "s": "Mr. Reyes ------- reviewed the contract before signing, checking every clause.",
+   "o": [
+    "hastily",
+    "diligently",
+    "rarely",
+    "barely"
+   ],
+   "a": "diligently",
+   "why": "Kiểm tra từng điều khoản: diligently.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "hastily": "trạng từ: vội vàng",
+     "diligently": "trạng từ: chăm chỉ, cẩn thận",
+     "rarely": "trạng từ: hiếm khi",
+     "barely": "trạng từ: hầu như không"
+    },
+    "ly": "Vế sau cho biết ông Reyes kiểm tra từng điều khoản nên cần diligently (cẩn thận, chăm chỉ). Hastily (vội vàng), rarely và barely đều mâu thuẫn với việc kiểm tra kỹ từng điều khoản.",
+    "dich": "Ông Reyes xem xét hợp đồng một cách cẩn thận trước khi ký, kiểm tra từng điều khoản."
+   }
+  },
+  {
+   "id": "t5-121",
+   "k": "v",
+   "s": "-------, we must inform you that the event has been canceled due to low registration.",
+   "o": [
+    "Gratefully",
+    "Eagerly",
+    "Regrettably",
+    "Casually"
+   ],
+   "a": "Regrettably",
+   "why": "Báo tin huỷ sự kiện: Regrettably.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "Gratefully": "trạng từ: một cách biết ơn",
+     "Eagerly": "trạng từ: háo hức",
+     "Regrettably": "trạng từ: đáng tiếc là",
+     "Casually": "trạng từ: tuỳ tiện, thoải mái"
+    },
+    "ly": "Câu báo tin xấu (sự kiện bị huỷ) cần trạng từ thể hiện sự tiếc nuối: Regrettably. Gratefully, Eagerly và Casually không hợp với việc thông báo tin xấu.",
+    "dich": "Rất tiếc, chúng tôi phải thông báo rằng sự kiện đã bị huỷ do ít người đăng ký.",
+    "ct": "Regrettably, we must inform you that… = Rất tiếc, chúng tôi phải thông báo rằng…"
+   }
+  },
+  {
+   "id": "t5-122",
+   "k": "v",
+   "s": "Sales dropped ------- after the product was recalled, falling by 60 percent in one month.",
+   "o": [
+    "slightly",
+    "hopefully",
+    "nearly",
+    "drastically"
+   ],
+   "a": "drastically",
+   "why": "Giảm 60%: drastically.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "slightly": "trạng từ: một chút",
+     "hopefully": "trạng từ: hy vọng là",
+     "nearly": "trạng từ: gần như",
+     "drastically": "trạng từ: mạnh, đột ngột"
+    },
+    "ly": "Doanh số giảm tới 60 phần trăm nên cần drastically (mạnh). Slightly (nhẹ) trái nghĩa với mức giảm 60 phần trăm; hopefully và nearly không hợp ngữ pháp / nghĩa sau động từ dropped.",
+    "dich": "Doanh số giảm mạnh sau khi sản phẩm bị thu hồi, giảm 60 phần trăm trong một tháng.",
+    "ct": "drop drastically = giảm mạnh"
+   }
+  },
+  {
+   "id": "t5-123",
+   "k": "v",
+   "s": "The app ------- saves your work every five minutes, so you never lose data.",
+   "o": [
+    "automatically",
+    "eagerly",
+    "formerly",
+    "hardly"
+   ],
+   "a": "automatically",
+   "why": "Ứng dụng tự lưu: automatically.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "automatically": "trạng từ: tự động",
+     "eagerly": "trạng từ: háo hức",
+     "formerly": "trạng từ: trước đây",
+     "hardly": "trạng từ: hầu như không"
+    },
+    "ly": "Ứng dụng tự lưu mỗi năm phút nên dùng automatically (tự động). Eagerly không dùng cho ứng dụng, formerly (trước đây) sai thì, hardly (hầu như không) mâu thuẫn với việc không bao giờ mất dữ liệu.",
+    "dich": "Ứng dụng tự động lưu bài làm của bạn mỗi năm phút nên bạn không bao giờ mất dữ liệu."
+   }
+  },
+  {
+   "id": "t5-124",
+   "k": "v",
+   "s": "The invoice should list ------- which items were returned.",
+   "o": [
+    "nearly",
+    "specifically",
+    "rarely",
+    "lately"
+   ],
+   "a": "specifically",
+   "why": "Liệt kê rõ hàng nào bị trả: specifically.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "nearly": "trạng từ: gần như",
+     "specifically": "trạng từ: cụ thể, rõ ràng",
+     "rarely": "trạng từ: hiếm khi",
+     "lately": "trạng từ: gần đây"
+    },
+    "ly": "Hoá đơn phải nêu rõ món hàng nào bị trả lại nên dùng specifically. Nearly, rarely và lately không đi với list which items theo nghĩa này.",
+    "dich": "Hoá đơn nên liệt kê cụ thể những mặt hàng nào đã bị trả lại."
+   }
+  },
+  {
+   "id": "t5-125",
+   "k": "v",
+   "s": "The brochure is ------- available in hotels across the region.",
+   "o": [
+    "loosely",
+    "sharply",
+    "widely",
+    "thinly"
+   ],
+   "a": "widely",
+   "why": "Có ở nhiều khách sạn: widely available.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "loosely": "trạng từ: lỏng lẻo",
+     "sharply": "trạng từ: sắc, mạnh",
+     "widely": "trạng từ: rộng rãi",
+     "thinly": "trạng từ: mỏng"
+    },
+    "ly": "Tờ rơi có ở khách sạn khắp vùng nên dùng widely (rộng rãi): widely available. Loosely, sharply và thinly không đi với available.",
+    "dich": "Tờ rơi được phát rộng rãi tại các khách sạn trong khu vực.",
+    "ct": "widely available = có sẵn rộng rãi"
+   }
+  },
+  {
+   "id": "t5-126",
+   "k": "v",
+   "s": "The delivery arrived ------- at 9:00 A.M., exactly when the driver had promised.",
+   "o": [
+    "roughly",
+    "barely",
+    "vaguely",
+    "precisely"
+   ],
+   "a": "precisely",
+   "why": "Đúng như hứa: precisely.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "roughly": "trạng từ: khoảng, đại khái",
+     "barely": "trạng từ: vừa đủ",
+     "vaguely": "trạng từ: mơ hồ",
+     "precisely": "trạng từ: đúng, chính xác"
+    },
+    "ly": "Vế sau nói đúng lúc đã hứa nên cần precisely (chính xác). Roughly (khoảng) mâu thuẫn với exactly; barely và vaguely không hợp nghĩa.",
+    "dich": "Hàng được giao đúng 9 giờ sáng, đúng như tài xế đã hứa.",
+    "ct": "precisely at 9:00 = đúng 9 giờ"
+   }
+  },
+  {
+   "id": "t5-127",
+   "k": "v",
+   "s": "The team ------- meets its monthly sales target, having done so for 18 months in a row.",
+   "o": [
+    "consistently",
+    "occasionally",
+    "seldom",
+    "reluctantly"
+   ],
+   "a": "consistently",
+   "why": "18 tháng liên tục: consistently.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "consistently": "trạng từ: đều đặn",
+     "occasionally": "trạng từ: thỉnh thoảng",
+     "seldom": "trạng từ: hiếm khi",
+     "reluctantly": "trạng từ: miễn cưỡng"
+    },
+    "ly": "Đạt chỉ tiêu 18 tháng liên tục nên cần consistently (đều đặn). Occasionally và seldom mâu thuẫn với 18 tháng liền; reluctantly không hợp nghĩa.",
+    "dich": "Nhóm luôn đạt chỉ tiêu doanh số hằng tháng, đã làm được như vậy suốt 18 tháng liên tiếp."
+   }
+  },
+  {
+   "id": "t5-128",
+   "k": "v",
+   "s": "Ms. Hart ------- accepted the transfer to the Seoul office, happy to take on a new challenge.",
+   "o": [
+    "reluctantly",
+    "willingly",
+    "rarely",
+    "narrowly"
+   ],
+   "a": "willingly",
+   "why": "Vui đón thử thách: willingly.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "reluctantly": "trạng từ: miễn cưỡng",
+     "willingly": "trạng từ: sẵn lòng",
+     "rarely": "trạng từ: hiếm khi",
+     "narrowly": "trạng từ: sát sao, suýt soát"
+    },
+    "ly": "Cô Hart vui vẻ nhận thử thách mới nên dùng willingly (sẵn lòng). Reluctantly (miễn cưỡng) trái nghĩa với happy; rarely và narrowly không hợp nghĩa.",
+    "dich": "Cô Hart sẵn lòng nhận chuyển sang văn phòng Seoul, vui vẻ đón nhận thử thách mới."
+   }
+  },
+  {
+   "id": "t5-129",
+   "k": "v",
+   "s": "Please complete the form ------- so that the clerk can process it today.",
+   "o": [
+    "lately",
+    "hardly",
+    "promptly",
+    "nearly"
+   ],
+   "a": "promptly",
+   "why": "Xử lý trong hôm nay: promptly.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "lately": "trạng từ: gần đây",
+     "hardly": "trạng từ: hầu như không",
+     "promptly": "trạng từ: nhanh chóng, đúng hạn",
+     "nearly": "trạng từ: gần như"
+    },
+    "ly": "Để nhân viên xử lý ngay hôm nay thì cần điền đơn promptly (nhanh chóng). Lately, hardly và nearly không đứng sau complete the form với nghĩa này.",
+    "dich": "Vui lòng điền đơn ngay để nhân viên có thể xử lý trong hôm nay."
+   }
+  },
+  {
+   "id": "t5-130",
+   "k": "v",
+   "s": "The hotel's rooms are ------- priced, so even budget travelers can stay there.",
+   "o": [
+    "unreasonably",
+    "hardly",
+    "loosely",
+    "reasonably"
+   ],
+   "a": "reasonably",
+   "why": "Ai cũng ở được: reasonably priced.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "unreasonably": "trạng từ: quá đáng",
+     "hardly": "trạng từ: hầu như không",
+     "loosely": "trạng từ: lỏng lẻo",
+     "reasonably": "trạng từ: hợp lý"
+    },
+    "ly": "Khách ít tiền cũng ở được nên giá hợp lý: reasonably priced. Unreasonably (quá đáng) trái nghĩa; hardly và loosely không đi với priced.",
+    "dich": "Phòng khách sạn có giá hợp lý nên ngay cả khách đi tiết kiệm cũng có thể ở.",
+    "ct": "reasonably priced = giá hợp lý"
+   }
+  },
+  {
+   "id": "t5-131",
+   "k": "v",
+   "s": "The package arrived ------- damaged, so we requested a replacement.",
+   "o": [
+    "severely",
+    "deeply",
+    "tightly",
+    "calmly"
+   ],
+   "a": "severely",
+   "why": "Phải đòi hàng thay: severely damaged.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "severely": "trạng từ: nghiêm trọng",
+     "deeply": "trạng từ: sâu sắc",
+     "tightly": "trạng từ: chặt",
+     "calmly": "trạng từ: bình tĩnh"
+    },
+    "ly": "Phải yêu cầu đổi hàng nghĩa là hư hỏng nặng: severely damaged. Deeply, tightly và calmly không đi với damaged.",
+    "dich": "Gói hàng đến nơi bị hư hỏng nặng nên chúng tôi yêu cầu đổi cái mới.",
+    "ct": "severely damaged = hư hỏng nặng"
+   }
+  },
+  {
+   "id": "t5-132",
+   "k": "v",
+   "s": "The committee ------- approved the plan; not a single member objected.",
+   "o": [
+    "partially",
+    "unanimously",
+    "rarely",
+    "barely"
+   ],
+   "a": "unanimously",
+   "why": "Không ai phản đối: unanimously.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "partially": "trạng từ: một phần",
+     "unanimously": "trạng từ: nhất trí",
+     "rarely": "trạng từ: hiếm khi",
+     "barely": "trạng từ: vừa đủ"
+    },
+    "ly": "Không thành viên nào phản đối nên dùng unanimously (nhất trí). Partially, rarely và barely mâu thuẫn với việc mọi người đồng ý.",
+    "dich": "Uỷ ban nhất trí thông qua kế hoạch; không một thành viên nào phản đối.",
+    "ct": "unanimously approve = nhất trí thông qua"
+   }
+  },
+  {
+   "id": "t5-133",
+   "k": "v",
+   "s": "Our staff ------- respond to e-mails within one hour.",
+   "o": [
+    "formerly",
+    "lately",
+    "typically",
+    "newly"
+   ],
+   "a": "typically",
+   "why": "Thì hiện tại, thói quen: typically.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "formerly": "trạng từ: trước đây",
+     "lately": "trạng từ: gần đây",
+     "typically": "trạng từ: thường",
+     "newly": "trạng từ: mới"
+    },
+    "ly": "Động từ respond ở hiện tại đơn diễn tả thói quen nên dùng typically (thường). Formerly, lately và newly không đi với động từ nguyên mẫu hiện tại này.",
+    "dich": "Nhân viên của chúng tôi thường trả lời e-mail trong vòng một giờ."
+   }
+  },
+  {
+   "id": "t5-134",
+   "k": "v",
+   "s": "The speaker ------- thanked the volunteers at the end of her talk.",
+   "o": [
+    "densely",
+    "narrowly",
+    "tightly",
+    "warmly"
+   ],
+   "a": "warmly",
+   "why": "Cảm ơn nồng nhiệt: warmly thanked.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "densely": "trạng từ: dày đặc",
+     "narrowly": "trạng từ: sát sao",
+     "tightly": "trạng từ: chặt",
+     "warmly": "trạng từ: nồng nhiệt"
+    },
+    "ly": "Cảm ơn tình nguyện viên nên dùng warmly (nồng nhiệt). Densely, narrowly và tightly không đi với thanked.",
+    "dich": "Diễn giả nồng nhiệt cảm ơn các tình nguyện viên khi kết thúc bài nói.",
+    "ct": "warmly thank = cảm ơn nồng nhiệt"
+   }
+  },
+  {
+   "id": "t5-135",
+   "k": "v",
+   "s": "We must ------- the deadline for the grant application.",
+   "o": [
+    "meet",
+    "spread",
+    "lift",
+    "enter"
+   ],
+   "a": "meet",
+   "why": "Cụm: meet a deadline.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "meet": "động từ: đáp ứng, kịp",
+     "spread": "động từ: lan, trải",
+     "lift": "động từ: nhấc, nâng",
+     "enter": "động từ: vào"
+    },
+    "ly": "Cụm cố định là meet the deadline (kịp hạn chót). Spread, lift và enter không đi với deadline.",
+    "dich": "Chúng ta phải kịp hạn chót nộp hồ sơ xin tài trợ.",
+    "ct": "meet a deadline = kịp hạn"
+   }
+  },
+  {
+   "id": "t5-136",
+   "k": "v",
+   "s": "To ------- an order, simply click the Checkout button.",
+   "o": [
+    "fold",
+    "place",
+    "bend",
+    "tie"
+   ],
+   "a": "place",
+   "why": "Cụm: place an order.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "fold": "động từ: gấp",
+     "place": "động từ: đặt (đơn hàng)",
+     "bend": "động từ: uốn",
+     "tie": "động từ: buộc"
+    },
+    "ly": "Cụm cố định là place an order (đặt hàng). Fold, bend và tie không đi với order.",
+    "dich": "Để đặt hàng, chỉ cần bấm nút Thanh toán.",
+    "ct": "place an order = đặt hàng"
+   }
+  },
+  {
+   "id": "t5-137",
+   "k": "v",
+   "s": "The bank will ------- the monthly fee for customers who keep a balance above $2,000.",
+   "o": [
+    "hunt",
+    "borrow",
+    "waive",
+    "owe"
+   ],
+   "a": "waive",
+   "why": "Cụm: waive the fee.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "hunt": "động từ: săn",
+     "borrow": "động từ: mượn",
+     "waive": "động từ: miễn (phí)",
+     "owe": "động từ: nợ"
+    },
+    "ly": "Cụm cố định là waive the fee (miễn phí). Hunt, borrow và owe không hợp nghĩa với fee ở đây.",
+    "dich": "Ngân hàng sẽ miễn phí hằng tháng cho khách giữ số dư trên 2.000 đô la.",
+    "ct": "waive a fee = miễn phí"
+   }
+  },
+  {
+   "id": "t5-138",
+   "k": "v",
+   "s": "Present this coupon at the counter to ------- your free gift.",
+   "o": [
+    "repeat",
+    "retire",
+    "resign",
+    "redeem"
+   ],
+   "a": "redeem",
+   "why": "Cụm: redeem a coupon / gift.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "repeat": "động từ: lặp lại",
+     "retire": "động từ: nghỉ hưu",
+     "resign": "động từ: từ chức",
+     "redeem": "động từ: đổi (phiếu, quà)"
+    },
+    "ly": "Dùng phiếu để nhận quà là redeem your free gift (đổi quà). Repeat, retire và resign không hợp nghĩa.",
+    "dich": "Xuất trình phiếu này tại quầy để đổi quà tặng miễn phí.",
+    "ct": "redeem a coupon / voucher = đổi phiếu"
+   }
+  },
+  {
+   "id": "t5-139",
+   "k": "v",
+   "s": "The hotel will ------- a charity luncheon on May 3.",
+   "o": [
+    "host",
+    "ride",
+    "wear",
+    "melt"
+   ],
+   "a": "host",
+   "why": "Cụm: host a luncheon.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "host": "động từ: tổ chức, đăng cai",
+     "ride": "động từ: cưỡi, đi",
+     "wear": "động từ: mặc",
+     "melt": "động từ: tan chảy"
+    },
+    "ly": "Khách sạn tổ chức một bữa tiệc trưa nên dùng host. Ride, wear và melt không đi với luncheon.",
+    "dich": "Khách sạn sẽ tổ chức một bữa tiệc trưa từ thiện vào ngày 3 tháng 5.",
+    "ct": "host an event = tổ chức sự kiện"
+   }
+  },
+  {
+   "id": "t5-140",
+   "k": "v",
+   "s": "Ms. Ito was asked to ------- a presentation on the new customer database.",
+   "o": [
+    "say",
+    "give",
+    "tell",
+    "speak"
+   ],
+   "a": "give",
+   "why": "Cụm: give a presentation.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "say": "động từ: nói",
+     "give": "động từ: trình bày, đưa ra",
+     "tell": "động từ: kể, bảo",
+     "speak": "động từ: nói"
+    },
+    "ly": "Cụm cố định là give a presentation (thuyết trình). Say, tell và speak không đi trực tiếp với a presentation.",
+    "dich": "Cô Ito được yêu cầu thuyết trình về cơ sở dữ liệu khách hàng mới.",
+    "ct": "give a presentation = thuyết trình"
+   }
+  },
+  {
+   "id": "t5-141",
+   "k": "v",
+   "s": "The workshop will ------- place in Room 4 at 10 A.M.",
+   "o": [
+    "make",
+    "give",
+    "take",
+    "do"
+   ],
+   "a": "take",
+   "why": "Cụm: take place.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "make": "động từ: làm",
+     "give": "động từ: cho",
+     "take": "động từ: diễn ra",
+     "do": "động từ: làm"
+    },
+    "ly": "Cụm cố định là take place (diễn ra). Make, give và do không tạo thành cụm với place theo nghĩa này.",
+    "dich": "Buổi hội thảo sẽ diễn ra ở Phòng 4 lúc 10 giờ sáng.",
+    "ct": "take place = diễn ra"
+   }
+  },
+  {
+   "id": "t5-142",
+   "k": "v",
+   "s": "Please ------- us know if the delivery address changes.",
+   "o": [
+    "take",
+    "put",
+    "get",
+    "let"
+   ],
+   "a": "let",
+   "why": "Cụm: let us know.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "take": "động từ: lấy",
+     "put": "động từ: đặt",
+     "get": "động từ: nhận",
+     "let": "động từ: cho (ai) biết"
+    },
+    "ly": "Cụm cố định là let us know (cho chúng tôi biết). Take, put và get không đi với us know.",
+    "dich": "Vui lòng cho chúng tôi biết nếu địa chỉ giao hàng thay đổi.",
+    "ct": "let us know = cho chúng tôi biết"
+   }
+  },
+  {
+   "id": "t5-143",
+   "k": "v",
+   "s": "Employees must ------- a copy of their receipts to the expense report.",
+   "o": [
+    "attach",
+    "hang",
+    "pour",
+    "climb"
+   ],
+   "a": "attach",
+   "why": "Cụm: attach a copy.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "attach": "động từ: đính kèm",
+     "hang": "động từ: treo",
+     "pour": "động từ: rót",
+     "climb": "động từ: leo"
+    },
+    "ly": "Đính kèm bản sao biên lai vào báo cáo nên dùng attach. Hang, pour và climb không hợp nghĩa.",
+    "dich": "Nhân viên phải đính kèm bản sao biên lai vào báo cáo chi phí.",
+    "ct": "attach A to B = đính kèm A vào B"
+   }
+  },
+  {
+   "id": "t5-144",
+   "k": "v",
+   "s": "The new manager promised to ------- attention to customer feedback.",
+   "o": [
+    "do",
+    "pay",
+    "make",
+    "send"
+   ],
+   "a": "pay",
+   "why": "Cụm: pay attention to.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "do": "động từ: làm",
+     "pay": "động từ: dành (sự chú ý)",
+     "make": "động từ: làm",
+     "send": "động từ: gửi"
+    },
+    "ly": "Cụm cố định là pay attention to (chú ý đến). Do, make và send không tạo cụm này.",
+    "dich": "Quản lý mới hứa sẽ chú ý đến phản hồi của khách hàng.",
+    "ct": "pay attention to = chú ý tới"
+   }
+  },
+  {
+   "id": "t5-145",
+   "k": "v",
+   "s": "Guests are advised to ------- a reservation early during the holiday season.",
+   "o": [
+    "do",
+    "hit",
+    "make",
+    "run"
+   ],
+   "a": "make",
+   "why": "Cụm: make a reservation.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "do": "động từ: làm",
+     "hit": "động từ: đánh",
+     "make": "động từ: đặt, thực hiện",
+     "run": "động từ: chạy"
+    },
+    "ly": "Cụm cố định là make a reservation (đặt chỗ). Do, hit và run không đi với reservation.",
+    "dich": "Khách được khuyên nên đặt chỗ sớm trong mùa lễ.",
+    "ct": "make a reservation = đặt chỗ"
+   }
+  },
+  {
+   "id": "t5-146",
+   "k": "v",
+   "s": "The speaker will ------- questions from the audience after the talk.",
+   "o": [
+    "rise",
+    "wear",
+    "drop",
+    "take"
+   ],
+   "a": "take",
+   "why": "Cụm: take questions.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "rise": "động từ: tăng",
+     "wear": "động từ: mặc",
+     "drop": "động từ: thả",
+     "take": "động từ: nhận, trả lời"
+    },
+    "ly": "Cụm cố định là take questions (nhận câu hỏi). Rise, wear và drop không đi với questions.",
+    "dich": "Diễn giả sẽ nhận câu hỏi từ khán giả sau bài nói.",
+    "ct": "take questions = nhận câu hỏi"
+   }
+  },
+  {
+   "id": "t5-147",
+   "k": "v",
+   "s": "The auditor will ------- a conclusion after reviewing all the records.",
+   "o": [
+    "draw",
+    "hang",
+    "pull",
+    "tow"
+   ],
+   "a": "draw",
+   "why": "Cụm: draw a conclusion.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "draw": "động từ: rút ra",
+     "hang": "động từ: treo",
+     "pull": "động từ: kéo",
+     "tow": "động từ: kéo xe"
+    },
+    "ly": "Cụm cố định là draw a conclusion (rút ra kết luận). Hang, pull và tow không tạo cụm này.",
+    "dich": "Kiểm toán viên sẽ rút ra kết luận sau khi xem xét mọi hồ sơ.",
+    "ct": "draw a conclusion = rút ra kết luận"
+   }
+  },
+  {
+   "id": "t5-148",
+   "k": "v",
+   "s": "The two firms signed an agreement to ------- forces on the new housing project.",
+   "o": [
+    "add",
+    "join",
+    "tie",
+    "mix"
+   ],
+   "a": "join",
+   "why": "Cụm: join forces.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "add": "động từ: cộng thêm",
+     "join": "động từ: hợp lại",
+     "tie": "động từ: buộc",
+     "mix": "động từ: trộn"
+    },
+    "ly": "Cụm cố định là join forces (hợp lực). Add, tie và mix không tạo cụm với forces.",
+    "dich": "Hai công ty ký thoả thuận hợp lực cho dự án nhà ở mới.",
+    "ct": "join forces = hợp lực"
+   }
+  },
+  {
+   "id": "t5-149",
+   "k": "v",
+   "s": "We ------- a profit for the first time in three years.",
+   "o": [
+    "did",
+    "held",
+    "made",
+    "wore"
+   ],
+   "a": "made",
+   "why": "Cụm: make a profit.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "did": "động từ: làm",
+     "held": "động từ: giữ",
+     "made": "động từ: tạo ra (lợi nhuận)",
+     "wore": "động từ: mặc"
+    },
+    "ly": "Cụm cố định là make a profit, nên đáp án là made (có lãi). Did, held và wore không đi với profit.",
+    "dich": "Lần đầu tiên sau ba năm, chúng tôi có lãi.",
+    "ct": "make a profit = có lãi"
+   }
+  },
+  {
+   "id": "t5-150",
+   "k": "v",
+   "s": "Unused vacation days can be ------- over to the next year.",
+   "o": [
+    "cut",
+    "shut",
+    "spun",
+    "carried"
+   ],
+   "a": "carried",
+   "why": "Cụm: carry over.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "cut": "động từ: cắt",
+     "shut": "động từ: đóng",
+     "spun": "động từ: quay",
+     "carried": "động từ: chuyển sang (carry over)"
+    },
+    "ly": "Cụm là carried over (chuyển sang kỳ sau). Cut, shut và spun không đi với over theo nghĩa này.",
+    "dich": "Những ngày nghỉ chưa dùng có thể chuyển sang năm sau.",
+    "ct": "carry over = chuyển sang kỳ sau"
+   }
+  },
+  {
+   "id": "t5-151",
+   "k": "v",
+   "s": "Each ------- will receive a name badge at the registration desk.",
+   "o": [
+    "attendee",
+    "rehearsal",
+    "giveaway",
+    "luncheon"
+   ],
+   "a": "attendee",
+   "why": "Mỗi người dự nhận thẻ: attendee.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "attendee": "danh từ: người tham dự",
+     "rehearsal": "danh từ: buổi diễn tập",
+     "giveaway": "danh từ: quà tặng",
+     "luncheon": "danh từ: bữa trưa"
+    },
+    "ly": "Người nhận thẻ tên là người tham dự: attendee. Rehearsal, giveaway và luncheon không phải người.",
+    "dich": "Mỗi người tham dự sẽ nhận một thẻ tên tại quầy đăng ký."
+   }
+  },
+  {
+   "id": "t5-152",
+   "k": "v",
+   "s": "The ------- of speakers for the conference includes three award-winning authors.",
+   "o": [
+    "rehearsal",
+    "lineup",
+    "luncheon",
+    "farewell"
+   ],
+   "a": "lineup",
+   "why": "Danh sách diễn giả: lineup.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "rehearsal": "danh từ: buổi diễn tập",
+     "lineup": "danh từ: danh sách (diễn giả)",
+     "luncheon": "danh từ: bữa trưa",
+     "farewell": "danh từ: lời chia tay"
+    },
+    "ly": "Danh sách diễn giả của hội nghị là lineup. Rehearsal, luncheon và farewell không hợp với of speakers includes authors.",
+    "dich": "Danh sách diễn giả của hội nghị gồm ba tác giả từng đoạt giải.",
+    "ct": "lineup of speakers = danh sách diễn giả"
+   }
+  },
+  {
+   "id": "t5-153",
+   "k": "v",
+   "s": "The theater held a final ------- the day before the opening night.",
+   "o": [
+    "trivia",
+    "giveaway",
+    "rehearsal",
+    "lineup"
+   ],
+   "a": "rehearsal",
+   "why": "Trước đêm khai mạc: rehearsal.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "trivia": "danh từ: câu đố vui",
+     "giveaway": "danh từ: quà tặng",
+     "rehearsal": "danh từ: buổi diễn tập",
+     "lineup": "danh từ: danh sách"
+    },
+    "ly": "Buổi tập cuối trước đêm khai mạc là final rehearsal. Trivia, giveaway và lineup không hợp với held a final.",
+    "dich": "Nhà hát tổ chức buổi diễn tập cuối vào ngày trước đêm khai mạc.",
+    "ct": "final rehearsal = buổi diễn tập cuối"
+   }
+  },
+  {
+   "id": "t5-154",
+   "k": "v",
+   "s": "The company will ------- all forty guest rooms this winter.",
+   "o": [
+    "mingle",
+    "audition",
+    "rehearse",
+    "refurbish"
+   ],
+   "a": "refurbish",
+   "why": "Tân trang phòng: refurbish.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "mingle": "động từ: giao lưu",
+     "audition": "động từ: thử vai",
+     "rehearse": "động từ: diễn tập",
+     "refurbish": "động từ: tân trang"
+    },
+    "ly": "Tân trang các phòng khách là refurbish. Mingle, audition và rehearse không dùng với phòng khách.",
+    "dich": "Công ty sẽ tân trang cả bốn mươi phòng khách vào mùa đông này.",
+    "ct": "refurbish rooms = tân trang phòng"
+   }
+  },
+  {
+   "id": "t5-155",
+   "k": "v",
+   "s": "Heat escapes through the walls unless the building has proper -------.",
+   "o": [
+    "insulation",
+    "drainage",
+    "walkway",
+    "gutter"
+   ],
+   "a": "insulation",
+   "why": "Nhiệt thoát qua tường: insulation.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "insulation": "danh từ: lớp cách nhiệt",
+     "drainage": "danh từ: hệ thống thoát nước",
+     "walkway": "danh từ: lối đi bộ",
+     "gutter": "danh từ: máng xối"
+    },
+    "ly": "Nhiệt thoát qua tường thì cần cách nhiệt: insulation. Drainage, walkway và gutter không liên quan đến giữ nhiệt.",
+    "dich": "Nhiệt thoát ra qua tường trừ khi tòa nhà có lớp cách nhiệt phù hợp."
+   }
+  },
+  {
+   "id": "t5-156",
+   "k": "v",
+   "s": "Poor ------- caused water to collect in the parking lot after every storm.",
+   "o": [
+    "insulation",
+    "drainage",
+    "walkway",
+    "thermostat"
+   ],
+   "a": "drainage",
+   "why": "Nước đọng: drainage.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "insulation": "danh từ: lớp cách nhiệt",
+     "drainage": "danh từ: thoát nước",
+     "walkway": "danh từ: lối đi",
+     "thermostat": "danh từ: bộ điều nhiệt"
+    },
+    "ly": "Nước đọng ở bãi xe là do thoát nước kém: poor drainage. Insulation (cách nhiệt), walkway (lối đi) và thermostat (bộ điều nhiệt) không giải thích chuyện nước đọng.",
+    "dich": "Hệ thống thoát nước kém khiến nước đọng ở bãi đỗ xe sau mỗi cơn bão.",
+    "ct": "poor drainage = thoát nước kém"
+   }
+  },
+  {
+   "id": "t5-157",
+   "k": "v",
+   "s": "Visitors must wear helmets while walking through the -------.",
+   "o": [
+    "liaison",
+    "payroll",
+    "worksite",
+    "showroom"
+   ],
+   "a": "worksite",
+   "why": "Cần mũ bảo hộ: worksite.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "liaison": "danh từ: người liên lạc",
+     "payroll": "danh từ: bảng lương",
+     "worksite": "danh từ: công trường",
+     "showroom": "danh từ: phòng trưng bày"
+    },
+    "ly": "Mũ bảo hộ cần ở công trường: worksite. Liaison, payroll và showroom không phải nơi để đi bộ qua với mũ bảo hộ.",
+    "dich": "Khách tham quan phải đội mũ bảo hộ khi đi qua công trường."
+   }
+  },
+  {
+   "id": "t5-158",
+   "k": "v",
+   "s": "The company will pay for your professional ------- exam.",
+   "o": [
+    "liaison",
+    "payroll",
+    "referral",
+    "certification"
+   ],
+   "a": "certification",
+   "why": "Kỳ thi chứng chỉ: certification.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "liaison": "danh từ: người liên lạc",
+     "payroll": "danh từ: bảng lương",
+     "referral": "danh từ: sự giới thiệu",
+     "certification": "danh từ: chứng chỉ"
+    },
+    "ly": "Kỳ thi lấy chứng chỉ nghề là certification exam. Liaison, payroll và referral không đi với exam.",
+    "dich": "Công ty sẽ trả phí kỳ thi chứng chỉ nghề nghiệp của bạn.",
+    "ct": "certification exam = kỳ thi chứng chỉ"
+   }
+  },
+  {
+   "id": "t5-159",
+   "k": "v",
+   "s": "This ------- position requires five years of experience supervising a team.",
+   "o": [
+    "managerial",
+    "wireless",
+    "sturdy",
+    "delightful"
+   ],
+   "a": "managerial",
+   "why": "Giám sát nhóm: managerial.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "managerial": "tính từ: thuộc quản lý",
+     "wireless": "tính từ: không dây",
+     "sturdy": "tính từ: chắc chắn",
+     "delightful": "tính từ: thú vị"
+    },
+    "ly": "Vị trí giám sát nhóm là vị trí quản lý: managerial. Wireless, sturdy và delightful không mô tả vị trí công việc.",
+    "dich": "Vị trí quản lý này yêu cầu năm năm kinh nghiệm giám sát một nhóm.",
+    "ct": "managerial position = vị trí quản lý"
+   }
+  },
+  {
+   "id": "t5-160",
+   "k": "v",
+   "s": "Strong ------- skills help you work well with clients and coworkers.",
+   "o": [
+    "overpriced",
+    "interpersonal",
+    "sturdy",
+    "bulky"
+   ],
+   "a": "interpersonal",
+   "why": "Kỹ năng làm việc với người: interpersonal.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "overpriced": "tính từ: đắt quá mức",
+     "interpersonal": "tính từ: giao tiếp giữa người với người",
+     "sturdy": "tính từ: chắc chắn",
+     "bulky": "tính từ: cồng kềnh"
+    },
+    "ly": "Kỹ năng làm việc với khách và đồng nghiệp là interpersonal skills. Overpriced, sturdy và bulky không đi với skills.",
+    "dich": "Kỹ năng giao tiếp tốt giúp bạn làm việc hiệu quả với khách hàng và đồng nghiệp.",
+    "ct": "interpersonal skills = kỹ năng giao tiếp"
+   }
+  },
+  {
+   "id": "t5-161",
+   "k": "v",
+   "s": "The ------- will call you if your application matches an open position.",
+   "o": [
+    "forklift",
+    "pallet",
+    "recruiter",
+    "sanctuary"
+   ],
+   "a": "recruiter",
+   "why": "Gọi ứng viên: recruiter.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "forklift": "danh từ: xe nâng",
+     "pallet": "danh từ: tấm kê hàng",
+     "recruiter": "danh từ: nhà tuyển dụng",
+     "sanctuary": "danh từ: khu bảo tồn"
+    },
+    "ly": "Người gọi ứng viên là nhà tuyển dụng: recruiter. Forklift, pallet và sanctuary không thể gọi điện.",
+    "dich": "Nhà tuyển dụng sẽ gọi cho bạn nếu hồ sơ phù hợp với một vị trí đang mở."
+   }
+  },
+  {
+   "id": "t5-162",
+   "k": "v",
+   "s": "New hires attend an ------- session during their first week.",
+   "o": [
+    "bulky",
+    "sturdy",
+    "hectic",
+    "onboarding"
+   ],
+   "a": "onboarding",
+   "why": "Buổi cho người mới: onboarding.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "bulky": "tính từ: cồng kềnh",
+     "sturdy": "tính từ: chắc chắn",
+     "hectic": "tính từ: bận rộn",
+     "onboarding": "danh từ: định hướng nhân viên mới"
+    },
+    "ly": "Buổi dành cho nhân viên mới tuần đầu là onboarding session. Bulky, sturdy và hectic không đứng sau an và không hợp nghĩa.",
+    "dich": "Nhân viên mới tham dự buổi định hướng trong tuần đầu tiên.",
+    "ct": "onboarding session = buổi định hướng"
+   }
+  },
+  {
+   "id": "t5-163",
+   "k": "v",
+   "s": "Customers who wish to ------- about delivery dates may call our hotline.",
+   "o": [
+    "inquire",
+    "reimburse",
+    "disembark",
+    "audition"
+   ],
+   "a": "inquire",
+   "why": "Hỏi về ngày giao: inquire.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "inquire": "động từ: hỏi thông tin",
+     "reimburse": "động từ: hoàn tiền",
+     "disembark": "động từ: xuống (tàu, máy bay)",
+     "audition": "động từ: thử vai"
+    },
+    "ly": "Hỏi thông tin về ngày giao hàng là inquire about. Reimburse, disembark và audition không đi với about delivery dates.",
+    "dich": "Khách muốn hỏi về ngày giao hàng có thể gọi đường dây nóng của chúng tôi.",
+    "ct": "inquire about = hỏi về"
+   }
+  },
+  {
+   "id": "t5-164",
+   "k": "v",
+   "s": "Guests at the Lakeside Hotel received a free breakfast to make up for the ------- of the elevator repairs.",
+   "o": [
+    "gratitude",
+    "inconvenience",
+    "lineup",
+    "giveaway"
+   ],
+   "a": "inconvenience",
+   "why": "make up for the inconvenience = bù cho sự bất tiện.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "gratitude": "danh từ: lòng biết ơn",
+     "inconvenience": "danh từ: sự bất tiện",
+     "lineup": "danh từ: danh sách",
+     "giveaway": "danh từ: quà tặng"
+    },
+    "ly": "Bữa sáng miễn phí là để bù cho sự bất tiện do sửa thang máy, nên chọn inconvenience. Gratitude (lòng biết ơn), lineup (danh sách) và giveaway (quà tặng) không phải điều gây khó chịu cần bù.",
+    "dich": "Khách ở khách sạn Lakeside được tặng bữa sáng miễn phí để bù cho sự bất tiện do việc sửa thang máy.",
+    "ct": "make up for the inconvenience = bù cho sự bất tiện"
+   }
+  },
+  {
+   "id": "t5-165",
+   "k": "v",
+   "s": "The staff were so ------- that they stayed late to help every customer.",
+   "o": [
+    "nutritious",
+    "bulky",
+    "considerate",
+    "vintage"
+   ],
+   "a": "considerate",
+   "why": "Ở lại giúp khách: considerate.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "nutritious": "tính từ: bổ dưỡng",
+     "bulky": "tính từ: cồng kềnh",
+     "considerate": "tính từ: chu đáo",
+     "vintage": "tính từ: cổ điển"
+    },
+    "ly": "Ở lại muộn để giúp khách là chu đáo: considerate. Nutritious, bulky và vintage không mô tả nhân viên.",
+    "dich": "Nhân viên chu đáo đến mức ở lại muộn để giúp từng khách."
+   }
+  },
+  {
+   "id": "t5-166",
+   "k": "v",
+   "s": "We would like to express our ------- for your continued support.",
+   "o": [
+    "inconvenience",
+    "lateness",
+    "downtime",
+    "gratitude"
+   ],
+   "a": "gratitude",
+   "why": "Cảm ơn sự ủng hộ: gratitude.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "inconvenience": "danh từ: sự bất tiện",
+     "lateness": "danh từ: sự chậm trễ",
+     "downtime": "danh từ: thời gian ngừng",
+     "gratitude": "danh từ: lòng biết ơn"
+    },
+    "ly": "Bày tỏ sự ủng hộ liên tục nên dùng gratitude (lòng biết ơn). Inconvenience, lateness và downtime không phải điều bày tỏ khi cảm ơn.",
+    "dich": "Chúng tôi xin bày tỏ lòng biết ơn vì sự ủng hộ liên tục của quý vị.",
+    "ct": "express our gratitude = bày tỏ lòng biết ơn"
+   }
+  },
+  {
+   "id": "t5-167",
+   "k": "v",
+   "s": "Sorry, the blue model is currently -------, but it will return to stock next week.",
+   "o": [
+    "unavailable",
+    "abundant",
+    "invaluable",
+    "delightful"
+   ],
+   "a": "unavailable",
+   "why": "Sẽ có hàng lại: unavailable.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "unavailable": "tính từ: không có sẵn",
+     "abundant": "tính từ: dồi dào",
+     "invaluable": "tính từ: vô giá",
+     "delightful": "tính từ: thú vị"
+    },
+    "ly": "Mẫu màu xanh sẽ có lại tuần sau nghĩa là hiện không có: unavailable. Abundant, invaluable và delightful không hợp nghĩa.",
+    "dich": "Xin lỗi, mẫu màu xanh hiện không có, nhưng sẽ có hàng lại vào tuần sau."
+   }
+  },
+  {
+   "id": "t5-168",
+   "k": "v",
+   "s": "The tent is made of ------- fabric that can withstand strong winds.",
+   "o": [
+    "delightful",
+    "sturdy",
+    "informative",
+    "unwanted"
+   ],
+   "a": "sturdy",
+   "why": "Chịu gió mạnh: sturdy.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "delightful": "tính từ: thú vị",
+     "sturdy": "tính từ: chắc chắn",
+     "informative": "tính từ: nhiều thông tin",
+     "unwanted": "tính từ: không mong muốn"
+    },
+    "ly": "Vải chịu được gió mạnh là sturdy (chắc chắn). Delightful, informative và unwanted không mô tả độ bền.",
+    "dich": "Lều làm từ vải chắc chắn có thể chịu gió mạnh."
+   }
+  },
+  {
+   "id": "t5-169",
+   "k": "v",
+   "s": "Her ------- advice helped us avoid several costly mistakes.",
+   "o": [
+    "unwanted",
+    "unforeseen",
+    "invaluable",
+    "hectic"
+   ],
+   "a": "invaluable",
+   "why": "Giúp tránh lỗi: invaluable.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "unwanted": "tính từ: không mong muốn",
+     "unforeseen": "tính từ: không lường trước",
+     "invaluable": "tính từ: vô giá",
+     "hectic": "tính từ: bận rộn"
+    },
+    "ly": "Lời khuyên giúp tránh nhiều lỗi tốn kém là invaluable (vô giá). Unwanted, unforeseen và hectic không hợp với việc giúp ích.",
+    "dich": "Lời khuyên vô giá của cô ấy giúp chúng tôi tránh nhiều lỗi tốn kém.",
+    "ct": "invaluable advice = lời khuyên vô giá"
+   }
+  },
+  {
+   "id": "t5-170",
+   "k": "v",
+   "s": "The ------- delay in shipping forced us to postpone the launch.",
+   "o": [
+    "abundant",
+    "informative",
+    "preferable",
+    "unforeseen"
+   ],
+   "a": "unforeseen",
+   "why": "Trễ ngoài dự kiến: unforeseen.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "abundant": "tính từ: dồi dào",
+     "informative": "tính từ: nhiều thông tin",
+     "preferable": "tính từ: đáng ưa hơn",
+     "unforeseen": "tính từ: không lường trước"
+    },
+    "ly": "Sự chậm trễ bất ngờ buộc hoãn ra mắt là unforeseen. Abundant, informative và preferable không mô tả một sự cố.",
+    "dich": "Sự chậm trễ ngoài dự kiến trong vận chuyển buộc chúng tôi hoãn ngày ra mắt.",
+    "ct": "unforeseen delay = chậm trễ ngoài dự kiến"
+   }
+  },
+  {
+   "id": "t5-171",
+   "k": "v",
+   "s": "Several customers described the new brochure as clear and -------.",
+   "o": [
+    "informative",
+    "unforeseen",
+    "unusable",
+    "hectic"
+   ],
+   "a": "informative",
+   "why": "Rõ ràng và: informative.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "informative": "tính từ: nhiều thông tin",
+     "unforeseen": "tính từ: không lường trước",
+     "unusable": "tính từ: không dùng được",
+     "hectic": "tính từ: bận rộn"
+    },
+    "ly": "Tờ rơi rõ ràng và nhiều thông tin: informative. Unforeseen, unusable và hectic không đi với clear và không mang nghĩa khen.",
+    "dich": "Nhiều khách mô tả tờ rơi mới là rõ ràng và nhiều thông tin."
+   }
+  },
+  {
+   "id": "t5-172",
+   "k": "v",
+   "s": "Submit your receipts by the 5th to receive ------- for your travel costs.",
+   "o": [
+    "billboard",
+    "reimbursement",
+    "bulletin",
+    "mural"
+   ],
+   "a": "reimbursement",
+   "why": "Nhận lại tiền: reimbursement.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "billboard": "danh từ: bảng quảng cáo",
+     "reimbursement": "danh từ: khoản hoàn tiền",
+     "bulletin": "danh từ: bản tin",
+     "mural": "danh từ: tranh tường"
+    },
+    "ly": "Nộp biên lai để nhận lại chi phí đi lại: reimbursement. Billboard, bulletin và mural không phải thứ nhận được.",
+    "dich": "Nộp biên lai trước ngày 5 để được hoàn lại chi phí đi lại."
+   }
+  },
+  {
+   "id": "t5-173",
+   "k": "v",
+   "s": "You may pay the balance in three monthly -------.",
+   "o": [
+    "paychecks",
+    "rehearsals",
+    "installments",
+    "amenities"
+   ],
+   "a": "installments",
+   "why": "Trả làm 3 lần: installments.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "paychecks": "danh từ: phiếu lương",
+     "rehearsals": "danh từ: buổi diễn tập",
+     "installments": "danh từ: các đợt trả góp",
+     "amenities": "danh từ: tiện nghi"
+    },
+    "ly": "Trả số dư làm ba lần hằng tháng là installments (đợt trả góp). Paychecks, rehearsals và amenities không hợp nghĩa.",
+    "dich": "Bạn có thể trả phần còn lại thành ba đợt hằng tháng.",
+    "ct": "pay in installments = trả góp"
+   }
+  },
+  {
+   "id": "t5-174",
+   "k": "v",
+   "s": "The hotel's ------- include a pool, a gym, and free Wi-Fi.",
+   "o": [
+    "layovers",
+    "detours",
+    "sedans",
+    "amenities"
+   ],
+   "a": "amenities",
+   "why": "Hồ bơi, phòng gym: amenities.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "layovers": "danh từ: chuyến nối",
+     "detours": "danh từ: đường vòng",
+     "sedans": "danh từ: xe sedan",
+     "amenities": "danh từ: tiện nghi"
+    },
+    "ly": "Hồ bơi, phòng gym, Wi-Fi miễn phí là tiện nghi: amenities. Layovers, detours và sedans không phải thứ khách sạn có.",
+    "dich": "Tiện nghi của khách sạn gồm hồ bơi, phòng tập và Wi-Fi miễn phí.",
+    "ct": "hotel amenities = tiện nghi khách sạn"
+   }
+  },
+  {
+   "id": "t5-175",
+   "k": "v",
+   "s": "Passengers must ------- from the plane through the rear door only.",
+   "o": [
+    "disembark",
+    "renovate",
+    "audition",
+    "publicize"
+   ],
+   "a": "disembark",
+   "why": "Xuống máy bay: disembark.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "disembark": "động từ: xuống (máy bay)",
+     "renovate": "động từ: cải tạo",
+     "audition": "động từ: thử vai",
+     "publicize": "động từ: quảng bá"
+    },
+    "ly": "Hành khách xuống máy bay là disembark. Renovate, audition và publicize không hợp nghĩa.",
+    "dich": "Hành khách chỉ được xuống máy bay qua cửa sau.",
+    "ct": "disembark from = xuống từ"
+   }
+  },
+  {
+   "id": "t5-176",
+   "k": "v",
+   "s": "Because of the ------- on Route 5, the bus arrived twenty minutes late.",
+   "o": [
+    "layover",
+    "detour",
+    "mileage",
+    "legroom"
+   ],
+   "a": "detour",
+   "why": "Xe buýt đến trễ: detour.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "layover": "danh từ: thời gian nối chuyến",
+     "detour": "danh từ: đường vòng",
+     "mileage": "danh từ: số dặm",
+     "legroom": "danh từ: chỗ để chân"
+    },
+    "ly": "Xe đến trễ vì phải đi đường vòng trên tuyến 5: detour. Layover, mileage và legroom không gây trễ xe buýt như vậy.",
+    "dich": "Vì phải đi đường vòng trên tuyến 5, xe buýt đến trễ hai mươi phút."
+   }
+  },
+  {
+   "id": "t5-177",
+   "k": "v",
+   "s": "The warehouse needs to ------- its shelves before the holiday rush.",
+   "o": [
+    "disembark",
+    "audition",
+    "restock",
+    "publicize"
+   ],
+   "a": "restock",
+   "why": "Bổ sung kệ hàng: restock.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "disembark": "động từ: xuống",
+     "audition": "động từ: thử vai",
+     "restock": "động từ: nhập hàng lại",
+     "publicize": "động từ: quảng bá"
+    },
+    "ly": "Bổ sung hàng lên kệ là restock. Disembark, audition và publicize không hợp với shelves.",
+    "dich": "Nhà kho cần bổ sung hàng lên kệ trước dịp lễ đông khách.",
+    "ct": "restock the shelves = bổ sung hàng lên kệ"
+   }
+  },
+  {
+   "id": "t5-178",
+   "k": "v",
+   "s": "The ------- arranged for the pallets to be picked up on Monday.",
+   "o": [
+    "sanctuary",
+    "orchard",
+    "pottery",
+    "distributor"
+   ],
+   "a": "distributor",
+   "why": "Sắp xếp lấy hàng: distributor.",
+   "t": "voc",
+   "lg": {
+    "og": {
+     "sanctuary": "danh từ: khu bảo tồn",
+     "orchard": "danh từ: vườn cây ăn quả",
+     "pottery": "danh từ: đồ gốm",
+     "distributor": "danh từ: nhà phân phối"
+    },
+    "ly": "Người sắp xếp lấy các tấm kê hàng là nhà phân phối: distributor. Sanctuary, orchard và pottery không thể sắp xếp.",
+    "dich": "Nhà phân phối đã sắp xếp để các pallet được lấy vào thứ Hai."
+   }
+  },
+  {
+   "id": "t5-179",
+   "k": "f",
+   "s": "The ------- of the new payment portal has simplified our billing process.",
+   "o": [
+    "implementation",
+    "implement",
+    "implemented",
+    "implementing"
+   ],
+   "a": "implementation",
+   "why": "Sau The, cần danh từ.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "implementation": "danh từ: sự triển khai",
+     "implement": "động từ: triển khai",
+     "implemented": "động từ: đã triển khai",
+     "implementing": "động từ: đang triển khai"
+    },
+    "ly": "Sau mạo từ The và trước of cần danh từ: implementation. Các dạng còn lại là động từ.",
+    "dich": "Việc triển khai cổng thanh toán mới đã đơn giản hoá quy trình lập hoá đơn."
+   }
+  },
+  {
+   "id": "t5-180",
+   "k": "f",
+   "s": "Mr. Lim spoke ------- about the benefits of the new onboarding program.",
+   "o": [
+    "enthusiasm",
+    "enthusiastically",
+    "enthusiastic",
+    "enthuse"
+   ],
+   "a": "enthusiastically",
+   "why": "Bổ nghĩa cho spoke: trạng từ.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "enthusiasm": "danh từ: sự nhiệt tình",
+     "enthusiastically": "trạng từ: nhiệt tình",
+     "enthusiastic": "tính từ: nhiệt tình",
+     "enthuse": "động từ: nói hào hứng"
+    },
+    "ly": "Cần trạng từ bổ nghĩa cho động từ spoke: enthusiastically. Danh từ, tính từ và động từ không đứng ở vị trí này.",
+    "dich": "Ông Lim nói đầy nhiệt tình về lợi ích của chương trình định hướng mới."
+   }
+  },
+  {
+   "id": "t5-181",
+   "k": "f",
+   "s": "We are pleased to announce the ------- of our new showroom on Main Street.",
+   "o": [
+    "opens",
+    "opened",
+    "opening",
+    "openly"
+   ],
+   "a": "opening",
+   "why": "Sau the, trước of: danh từ.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "opens": "động từ: mở",
+     "opened": "động từ: đã mở",
+     "opening": "danh từ: lễ khai trương",
+     "openly": "trạng từ: công khai"
+    },
+    "ly": "Sau the và trước of cần danh từ: opening (việc khai trương). Opens, opened là động từ; openly là trạng từ.",
+    "dich": "Chúng tôi vui mừng thông báo khai trương phòng trưng bày mới trên phố Main."
+   }
+  },
+  {
+   "id": "t5-182",
+   "k": "f",
+   "s": "The template is ------- , so you can change the layout to suit any report.",
+   "o": [
+    "customize",
+    "customization",
+    "customizing",
+    "customizable"
+   ],
+   "a": "customizable",
+   "why": "Sau is: tính từ.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "customize": "động từ: tuỳ chỉnh",
+     "customization": "danh từ: sự tuỳ chỉnh",
+     "customizing": "động từ: đang tuỳ chỉnh",
+     "customizable": "tính từ: có thể tuỳ chỉnh"
+    },
+    "ly": "Sau động từ be (is) cần tính từ: customizable. Customize là động từ; customization là danh từ không đứng sau is trong câu này; customizing không hợp nghĩa.",
+    "dich": "Mẫu này có thể tuỳ chỉnh nên bạn có thể đổi bố cục cho phù hợp mọi báo cáo."
+   }
+  },
+  {
+   "id": "t5-183",
+   "k": "f",
+   "s": "Ms. Greene's ------- to the project made her a strong candidate for promotion.",
+   "o": [
+    "contribution",
+    "contributor",
+    "contributed",
+    "contributing"
+   ],
+   "a": "contribution",
+   "why": "Sở hữu cách + danh từ chỉ việc.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "contribution": "danh từ: đóng góp",
+     "contributor": "danh từ: người đóng góp",
+     "contributed": "động từ: đã đóng góp",
+     "contributing": "động từ: đang đóng góp"
+    },
+    "ly": "Cần danh từ chỉ việc đóng góp của cô ấy: contribution. Contributor (người đóng góp) không hợp với made her a strong candidate; contributed và contributing là động từ.",
+    "dich": "Đóng góp của cô Greene cho dự án khiến cô là ứng viên sáng giá cho việc thăng chức.",
+    "ct": "contribution to = đóng góp cho"
+   }
+  },
+  {
+   "id": "t5-184",
+   "k": "f",
+   "s": "The two firms work ------- on the design of the new building.",
+   "o": [
+    "collaborative",
+    "collaboratively",
+    "collaboration",
+    "collaborator"
+   ],
+   "a": "collaboratively",
+   "why": "Sau work: trạng từ.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "collaborative": "tính từ: mang tính hợp tác",
+     "collaboratively": "trạng từ: một cách hợp tác",
+     "collaboration": "danh từ: sự hợp tác",
+     "collaborator": "danh từ: người cộng tác"
+    },
+    "ly": "Cần trạng từ bổ nghĩa cho động từ work: collaboratively. Collaborative là tính từ; collaboration và collaborator là danh từ.",
+    "dich": "Hai công ty cùng làm việc hợp tác trong thiết kế toà nhà mới."
+   }
+  },
+  {
+   "id": "t5-185",
+   "k": "f",
+   "s": "The new manager is known for being highly ------- and always meets deadlines.",
+   "o": [
+    "reliably",
+    "reliability",
+    "reliable",
+    "rely"
+   ],
+   "a": "reliable",
+   "why": "Sau being highly: tính từ.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "reliably": "trạng từ: đáng tin cậy",
+     "reliability": "danh từ: độ tin cậy",
+     "reliable": "tính từ: đáng tin cậy",
+     "rely": "động từ: dựa vào"
+    },
+    "ly": "Sau being highly cần tính từ: reliable. Reliably là trạng từ; reliability là danh từ; rely là động từ.",
+    "dich": "Quản lý mới nổi tiếng rất đáng tin cậy và luôn đúng hạn."
+   }
+  },
+  {
+   "id": "t5-186",
+   "k": "f",
+   "s": "Customers praised the ------- staff at the service desk.",
+   "o": [
+    "respond",
+    "responsively",
+    "responsiveness",
+    "responsive"
+   ],
+   "a": "responsive",
+   "why": "Trước danh từ staff: tính từ.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "respond": "động từ: phản hồi",
+     "responsively": "trạng từ: nhanh nhạy",
+     "responsiveness": "danh từ: sự nhanh nhạy",
+     "responsive": "tính từ: nhanh nhạy"
+    },
+    "ly": "Trước danh từ staff cần tính từ: responsive. Respond là động từ; responsively là trạng từ; responsiveness là danh từ.",
+    "dich": "Khách khen đội ngũ nhân viên nhanh nhạy ở quầy dịch vụ."
+   }
+  },
+  {
+   "id": "t5-187",
+   "k": "f",
+   "s": "The ------- of the old factory will take about six months.",
+   "o": [
+    "renovation",
+    "renovate",
+    "renovated",
+    "renovator"
+   ],
+   "a": "renovation",
+   "why": "Chủ ngữ cần danh từ chỉ việc.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "renovation": "danh từ: việc cải tạo",
+     "renovate": "động từ: cải tạo",
+     "renovated": "động từ: đã cải tạo",
+     "renovator": "danh từ: người cải tạo"
+    },
+    "ly": "Chủ ngữ will take six months phải là việc cải tạo: renovation. Renovator là người, không mất sáu tháng; renovate và renovated là động từ.",
+    "dich": "Việc cải tạo nhà máy cũ sẽ mất khoảng sáu tháng."
+   }
+  },
+  {
+   "id": "t5-188",
+   "k": "f",
+   "s": "Ms. Sato is ------- for coordinating the volunteer schedule.",
+   "o": [
+    "responsibly",
+    "responsible",
+    "responsibility",
+    "responsibilities"
+   ],
+   "a": "responsible",
+   "why": "Sau is: tính từ + for.",
+   "t": "form",
+   "lg": {
+    "og": {
+     "responsibly": "trạng từ: có trách nhiệm",
+     "responsible": "tính từ: chịu trách nhiệm",
+     "responsibility": "danh từ: trách nhiệm",
+     "responsibilities": "danh từ: các trách nhiệm"
+    },
+    "ly": "Sau is và trước for cần tính từ: responsible (responsible for = chịu trách nhiệm về). Các dạng khác là trạng từ hoặc danh từ.",
+    "dich": "Cô Sato chịu trách nhiệm điều phối lịch của tình nguyện viên.",
+    "ct": "be responsible for = chịu trách nhiệm về"
+   }
+  },
+  {
+   "id": "t5-189",
+   "k": "g",
+   "s": "------- the shipment arrived late, the store opened on time.",
+   "o": [
+    "Despite",
+    "Because of",
+    "Although",
+    "In spite of"
+   ],
+   "a": "Although",
+   "why": "Sau chỗ trống là mệnh đề: Although.",
+   "t": "conj",
+   "lg": {
+    "og": {
+     "Despite": "giới từ: mặc dù",
+     "Because of": "giới từ: bởi vì",
+     "Although": "liên từ: mặc dù",
+     "In spite of": "giới từ: mặc dù"
+    },
+    "ly": "Sau chỗ trống là một mệnh đề đầy đủ (the shipment arrived late) nên cần liên từ: Although. Despite, Because of và In spite of là giới từ, đi với danh từ.",
+    "dich": "Mặc dù hàng đến muộn, cửa hàng vẫn mở đúng giờ.",
+    "ct": "Although + mệnh đề; Despite / In spite of + danh từ"
+   }
+  },
+  {
+   "id": "t5-190",
+   "k": "g",
+   "s": "The meeting was postponed ------- the manager's illness.",
+   "o": [
+    "because",
+    "although",
+    "even if",
+    "because of"
+   ],
+   "a": "because of",
+   "why": "Sau là danh từ: because of.",
+   "t": "prep",
+   "lg": {
+    "og": {
+     "because": "liên từ: vì",
+     "although": "liên từ: mặc dù",
+     "even if": "liên từ: ngay cả khi",
+     "because of": "giới từ: vì"
+    },
+    "ly": "Sau chỗ trống là cụm danh từ (the manager's illness) nên cần giới từ: because of. Because, although và even if cần mệnh đề có động từ.",
+    "dich": "Cuộc họp bị hoãn vì quản lý bị ốm.",
+    "ct": "because of + danh từ; because + mệnh đề"
+   }
+  },
+  {
+   "id": "t5-191",
+   "k": "g",
+   "s": "Please sign in ------- entering the laboratory.",
+   "o": [
+    "prior to",
+    "previously",
+    "formerly",
+    "earlier"
+   ],
+   "a": "prior to",
+   "why": "Sau là V-ing: prior to.",
+   "t": "prep",
+   "lg": {
+    "og": {
+     "prior to": "giới từ: trước khi",
+     "previously": "trạng từ: trước đây",
+     "formerly": "trạng từ: trước kia",
+     "earlier": "trạng từ: sớm hơn"
+    },
+    "ly": "Sau chỗ trống là entering nên cần giới từ: prior to (trước khi). Previously, formerly và earlier là trạng từ, không đi trước V-ing.",
+    "dich": "Vui lòng đăng ký tại quầy trước khi vào phòng thí nghiệm.",
+    "ct": "prior to + V-ing / danh từ"
+   }
+  },
+  {
+   "id": "t5-192",
+   "k": "g",
+   "s": "Mr. Chang chose to take the train ------- driving to the conference.",
+   "o": [
+    "instead",
+    "rather than",
+    "so that",
+    "in case"
+   ],
+   "a": "rather than",
+   "why": "Đối lập hai lựa chọn: rather than.",
+   "t": "conj",
+   "lg": {
+    "og": {
+     "instead": "trạng từ: thay vào đó",
+     "rather than": "giới từ / liên từ: thay vì",
+     "so that": "liên từ: để",
+     "in case": "liên từ: phòng khi"
+    },
+    "ly": "Câu đối chiếu đi tàu với lái xe nên dùng rather than + V-ing. Instead là trạng từ, không đứng trước V-ing; so that và in case cần mệnh đề.",
+    "dich": "Ông Chang chọn đi tàu đến hội nghị thay vì lái xe.",
+    "ct": "choose A rather than B = chọn A thay vì B"
+   }
+  },
+  {
+   "id": "t5-193",
+   "k": "g",
+   "s": "We reserved a larger room ------- all attendees can sit comfortably.",
+   "o": [
+    "in order to",
+    "because of",
+    "so that",
+    "despite"
+   ],
+   "a": "so that",
+   "why": "Sau là mệnh đề chỉ mục đích: so that.",
+   "t": "conj",
+   "lg": {
+    "og": {
+     "in order to": "giới từ: để",
+     "because of": "giới từ: vì",
+     "so that": "liên từ: để",
+     "despite": "giới từ: mặc dù"
+    },
+    "ly": "Sau chỗ trống là mệnh đề (all attendees can sit) chỉ mục đích nên dùng so that. In order to đi với động từ nguyên mẫu; because of và despite đi với danh từ.",
+    "dich": "Chúng tôi đặt phòng lớn hơn để mọi người tham dự đều ngồi thoải mái.",
+    "ct": "so that + mệnh đề = để mà"
+   }
+  },
+  {
+   "id": "t5-194",
+   "k": "g",
+   "s": "Employees may use the shuttle ------- commute to the Osaka office.",
+   "o": [
+    "so that",
+    "because",
+    "although",
+    "in order to"
+   ],
+   "a": "in order to",
+   "why": "Sau là động từ nguyên mẫu: in order to.",
+   "t": "conj",
+   "lg": {
+    "og": {
+     "so that": "liên từ: để",
+     "because": "liên từ: vì",
+     "although": "liên từ: mặc dù",
+     "in order to": "giới từ: để"
+    },
+    "ly": "Sau chỗ trống là động từ nguyên mẫu (commute) nên dùng in order to. So that, because và although cần chủ ngữ + động từ.",
+    "dich": "Nhân viên có thể dùng xe đưa đón để đi làm tới văn phòng Osaka.",
+    "ct": "in order to + V nguyên mẫu"
+   }
+  },
+  {
+   "id": "t5-195",
+   "k": "g",
+   "s": "Call the technician ------- the printer stops working again.",
+   "o": [
+    "as soon as",
+    "during",
+    "within",
+    "throughout"
+   ],
+   "a": "as soon as",
+   "why": "Sau là mệnh đề: as soon as.",
+   "t": "conj",
+   "lg": {
+    "og": {
+     "as soon as": "liên từ: ngay khi",
+     "during": "giới từ: trong suốt",
+     "within": "giới từ: trong vòng",
+     "throughout": "giới từ: suốt"
+    },
+    "ly": "Sau chỗ trống là mệnh đề (the printer stops working) nên cần liên từ: as soon as. During, within và throughout là giới từ, cần danh từ.",
+    "dich": "Hãy gọi kỹ thuật viên ngay khi máy in lại ngừng hoạt động."
+   }
+  },
+  {
+   "id": "t5-196",
+   "k": "g",
+   "s": "The staff held weekly meetings ------- the three-month renovation.",
+   "o": [
+    "while",
+    "during",
+    "whereas",
+    "unless"
+   ],
+   "a": "during",
+   "why": "Sau là cụm danh từ: during.",
+   "t": "prep",
+   "lg": {
+    "og": {
+     "while": "liên từ: trong khi",
+     "during": "giới từ: trong suốt",
+     "whereas": "liên từ: trong khi đó",
+     "unless": "liên từ: trừ khi"
+    },
+    "ly": "Sau chỗ trống là cụm danh từ (the three-month renovation) nên cần giới từ: during. While, whereas và unless cần mệnh đề.",
+    "dich": "Nhân viên họp hằng tuần trong suốt đợt cải tạo ba tháng.",
+    "ct": "during + danh từ; while + mệnh đề"
+   }
+  },
+  {
+   "id": "t5-197",
+   "k": "g",
+   "s": "------- the road closure, guests reached the venue on time.",
+   "o": [
+    "Even though",
+    "Although",
+    "In spite of",
+    "Because"
+   ],
+   "a": "In spite of",
+   "why": "Sau là danh từ: In spite of.",
+   "t": "prep",
+   "lg": {
+    "og": {
+     "Even though": "liên từ: mặc dù",
+     "Although": "liên từ: mặc dù",
+     "In spite of": "giới từ: mặc dù",
+     "Because": "liên từ: vì"
+    },
+    "ly": "Sau chỗ trống là cụm danh từ (the road closure) nên cần giới từ: In spite of. Even though, Although và Because cần mệnh đề.",
+    "dich": "Mặc dù đường bị chặn, khách vẫn đến địa điểm đúng giờ.",
+    "ct": "In spite of + danh từ"
+   }
+  },
+  {
+   "id": "t5-198",
+   "k": "g",
+   "s": "Orders will ship ------- payment has been confirmed.",
+   "o": [
+    "during",
+    "despite",
+    "until",
+    "once"
+   ],
+   "a": "once",
+   "why": "Sau là mệnh đề, nghĩa 'sau khi': once.",
+   "t": "conj",
+   "lg": {
+    "og": {
+     "during": "giới từ: trong suốt",
+     "despite": "giới từ: mặc dù",
+     "until": "liên từ: cho đến khi",
+     "once": "liên từ: ngay khi"
+    },
+    "ly": "Sau chỗ trống là mệnh đề (payment has been confirmed), nghĩa là sau khi xác nhận mới giao: once. During và despite là giới từ; until làm câu thành 'giao hàng cho đến khi xác nhận', sai nghĩa.",
+    "dich": "Đơn hàng sẽ được giao ngay khi thanh toán được xác nhận.",
+    "ct": "once + mệnh đề = ngay khi"
+   }
   }
  ]
 }
