@@ -109,13 +109,21 @@ function trLkReg(id, t, data) { TR.D[id] = data; if (!(TO.tron || []).some(d => 
 async function trLkList() { if (navigator.userAgent === 'test' || typeof TO === 'undefined' || !TO) return;
   const L = trLkGet(); for (const [id, x] of Object.entries(L)) if (x && x.data) trLkReg(id, x.t, x.data);
   if (TR.lk || typeof sb === 'undefined' || !sb) return;
-  try { const r = await Promise.race([sb.functions.invoke('de-rieng', { body: { act: 'list' } }), new Promise((_, no) => setTimeout(() => no(0), 5000))]); TR.lk = (r && r.data && r.data.rows) || []; } catch (e) { TR.lk = null; } }
+  try { const r = await Promise.race([sb.functions.invoke('de-rieng', { body: { act: 'list' } }), new Promise((_, no) => setTimeout(() => no(0), 5000))]); TR.lk = (r && r.data && r.data.rows) || []; } catch (e) { TR.lk = null; return; }
+  // đề trên máy chủ mới hơn bản đã lưu (vd. vừa thêm lời giải): có mã đã lưu thì tải lại im lặng, không có thì khoá lại để nhập mã; không đụng đề đang làm dở
+  const st = trSt(), Ls = trLkGet(); let ch = 0;
+  for (const r of TR.lk) { const x = Ls[r.id]; if (!x || !r.at || x.at === r.at || (st && st.de === r.id)) continue;
+    const d = x.ma ? await trLkFetch(r.id, x.ma) : null;
+    if (d && d.data) { Ls[r.id] = { t: d.t, data: d.data, at: d.at, ma: x.ma }; TR.D[r.id] = d.data; delete TR.B[r.id]; }
+    else { delete Ls[r.id]; delete TR.D[r.id]; delete TR.B[r.id]; TO.tron = (TO.tron || []).filter(z => z.id !== r.id); }
+    ch = 1; }
+  if (ch) try { localStorage.setItem(TR_LKS, JSON.stringify(Ls)); } catch (e) {} }
+async function trLkFetch(id, ma) { try { const { data, error } = await sb.functions.invoke('de-rieng', { body: { act: 'get', id, ma } }); if (!error) return data; try { return await error.context.json(); } catch (e) { return null; } } catch (e) { return null; } }
 async function trLkOpen(id, t) { const ma = prompt(`Nhập mã của ${t} (mã riêng, không chia sẻ):`); if (!ma) return;
   toast('Đang mở đề…');
-  try { const { data, error } = await sb.functions.invoke('de-rieng', { body: { act: 'get', id, ma: ma.trim() } });
-    let d = data; if (error) { try { d = await error.context.json(); } catch (e) { d = null; } }
+  try { const d = await trLkFetch(id, ma.trim());
     if (!d || !d.data) return toast((d && d.error) || 'Chưa mở được đề. Kiểm tra mạng rồi thử lại.');
-    const L = trLkGet(); L[id] = { t: d.t, data: d.data }; try { localStorage.setItem(TR_LKS, JSON.stringify(L)); } catch (e) {}
+    const L = trLkGet(); L[id] = { t: d.t, data: d.data, at: d.at, ma: ma.trim() }; try { localStorage.setItem(TR_LKS, JSON.stringify(L)); } catch (e) {}
     trLkReg(id, d.t, d.data); toast('Đã mở ' + d.t); return trView(); } catch (e) { toast('Chưa mở được đề. Kiểm tra mạng rồi thử lại.'); } }
 async function trReady0() { if (!TO) await toLoad(); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {} }
 async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX = false; TR.on = ''; TR.tok++; clearInterval(TR.tm);
