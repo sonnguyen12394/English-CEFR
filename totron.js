@@ -119,12 +119,24 @@ async function trLkList() { if (navigator.userAgent === 'test' || typeof TO === 
     ch = 1; }
   if (ch) try { localStorage.setItem(TR_LKS, JSON.stringify(Ls)); } catch (e) {} }
 async function trLkFetch(id, ma) { try { const { data, error } = await sb.functions.invoke('de-rieng', { body: { act: 'get', id, ma } }); if (!error) return data; try { return await error.context.json(); } catch (e) { return null; } } catch (e) { return null; } }
-async function trLkOpen(id, t) { const ma = prompt(`Nhập mã của ${t} (mã riêng, không chia sẻ):`); if (!ma) return;
+// v164 nhớ mã trên máy: nhập một lần, lần sau bấm 🔒 là tự mở; mã KHÔNG nằm trong mã nguồn web (ai xem nguồn cũng thấy)
+const TR_MA = 'deRiengMa';
+const trMaGet = () => { try { const m = localStorage.getItem(TR_MA); if (m) return m; } catch (e) {} const x = Object.values(trLkGet()).find(v => v && v.ma); return x ? x.ma : ''; };
+const trMaSet = m => { try { m ? localStorage.setItem(TR_MA, m) : localStorage.removeItem(TR_MA); } catch (e) {} };
+function trLkSave(id, d, ma) { const L = trLkGet(); L[id] = { t: d.t, data: d.data, at: d.at, ma }; try { localStorage.setItem(TR_LKS, JSON.stringify(L)); } catch (e) {} trLkReg(id, d.t, d.data); }
+async function trLkOpen(id, t) { let ma = trMaGet(), asked = false;
+  if (!ma) { ma = (prompt(`Nhập mã đề riêng (nhập một lần, máy này sẽ nhớ):`) || '').trim(); asked = true; if (!ma) return; }
   toast('Đang mở đề…');
-  try { const d = await trLkFetch(id, ma.trim());
+  try { let d = await trLkFetch(id, ma);
+    if (d && d.error === 'Sai mã.' && !asked) { trMaSet(''); ma = (prompt('Mã đã lưu không còn đúng. Nhập mã mới:') || '').trim(); if (!ma) return; d = await trLkFetch(id, ma); }
     if (!d || !d.data) return toast((d && d.error) || 'Chưa mở được đề. Kiểm tra mạng rồi thử lại.');
-    const L = trLkGet(); L[id] = { t: d.t, data: d.data, at: d.at, ma: ma.trim() }; try { localStorage.setItem(TR_LKS, JSON.stringify(L)); } catch (e) {}
-    trLkReg(id, d.t, d.data); toast('Đã mở ' + d.t); return trView(); } catch (e) { toast('Chưa mở được đề. Kiểm tra mạng rồi thử lại.'); } }
+    trMaSet(ma); trLkSave(id, d, ma); toast('Đã mở ' + d.t); return trView(); } catch (e) { toast('Chưa mở được đề. Kiểm tra mạng rồi thử lại.'); } }
+async function trLkAll() { const ids = (TR.lk || []).filter(r => !(TO.tron || []).some(d => d.id === r.id)); if (!ids.length) return;
+  let ma = trMaGet(); if (!ma) { ma = (prompt('Nhập mã đề riêng (nhập một lần, máy này sẽ nhớ):') || '').trim(); if (!ma) return; }
+  toast(`Đang mở ${ids.length} đề…`); let n = 0, err = '';
+  for (const r of ids) { const d = await trLkFetch(r.id, ma); if (d && d.data) { trLkSave(r.id, d, ma); n++; } else { err = (d && d.error) || 'Kiểm tra mạng rồi thử lại.'; if (d && (d.error === 'Sai mã.' || d.error && /Thử lại sau/.test(d.error))) break; } }
+  if (n) trMaSet(ma); else if (err === 'Sai mã.') trMaSet('');
+  toast(n ? `Đã mở ${n} đề${err ? ' · còn lỗi: ' + err : ''}` : 'Chưa mở được: ' + err); return trView(); }
 async function trReady0() { if (!TO) await toLoad(); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {} }
 async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX = false; TR.on = ''; TR.tok++; clearInterval(TR.tm);
   if (!TO || !NCLIPS.size) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; try { await trReady0(); } catch (e) { $app.innerHTML = '<div id="ie"></div><p>Không tải được dữ liệu TOEIC. Thử lại sau.</p>'; return; } }
@@ -138,13 +150,14 @@ async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX 
     ${st ? `<div class="box"><b>⏸ ${esc(trName(st.de))} đang dở</b><p class="mute" style="margin:4px 0 8px">${esc(trWhere(st))} · giữ tới ${new Date(st.up + TR_KEEP * 36e5).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</p>
       <button class="pri" data-trgo="resume">▶ Làm tiếp</button><button class="link tap" data-trdrop>Bỏ đề này, làm lại từ đầu</button></div>` : ''}
     <div class="box hcard">${(TO.tron || []).map(d => { const r = last(d.id); return `<button class="hrow" data-trgo="${d.id}"${st ? ' disabled' : ''}><span class="ic">📝</span><span class="t"><b>${esc(d.t)}</b>
-      <small>${d.only === 'R' ? 'Chỉ phần Đọc · đề riêng' : r ? `Lần trước ≈ ${r.tot} điểm (Nghe ${r.b.L} · Đọc ${r.b.R}) · ${new Date(r.at).toLocaleDateString('vi-VN')}${(toSt().tronA || {})[d.id] ? '' : ' · chưa lưu bài làm từng câu'}` : 'Chưa làm'}</small></span><span class="chev">›</span></button>${trShRow(d.id, 1)}`; }).join('')}${(TR.lk || []).filter(r => !(TO.tron || []).some(d => d.id === r.id)).map(r => `<button class="hrow" data-trlk="${esc(r.id)}" data-t="${esc(r.t)}"><span class="ic">🔒</span><span class="t"><b>${esc(r.t)}</b><small>Đề riêng · nhập mã để mở</small></span><span class="chev">›</span></button>`).join('')}</div>
+      <small>${d.only === 'R' ? 'Chỉ phần Đọc · đề riêng' : r ? `Lần trước ≈ ${r.tot} điểm (Nghe ${r.b.L} · Đọc ${r.b.R}) · ${new Date(r.at).toLocaleDateString('vi-VN')}${(toSt().tronA || {})[d.id] ? '' : ' · chưa lưu bài làm từng câu'}` : 'Chưa làm'}</small></span><span class="chev">›</span></button>${trShRow(d.id, 1)}`; }).join('')}${(TR.lk || []).filter(r => !(TO.tron || []).some(d => d.id === r.id)).map(r => `<button class="hrow" data-trlk="${esc(r.id)}" data-t="${esc(r.t)}"><span class="ic">🔒</span><span class="t"><b>${esc(r.t)}</b><small>Đề riêng · ${trMaGet() ? 'bấm để mở' : 'nhập mã để mở'}</small></span><span class="chev">›</span></button>`).join('')}${(TR.lk || []).some(r => !(TO.tron || []).some(d => d.id === r.id)) ? `<button class="pri" data-trlkall style="margin-top:8px">🔓 Mở tất cả đề riêng</button>` : ''}</div>
     ${st ? '<p class="mute" style="font-size:14px">Đang có đề dở: làm tiếp hoặc bỏ đề đó trước khi bắt đầu đề khác.</p>' : ''}
     <details class="box trrule"${st ? '' : ' open'}><summary><b>📋 Quy chế như thi thật</b></summary><ol style="margin:6px 0 0;padding-left:22px">${TR_RULE().map(t => `<li style="margin:4px 0">${esc(t)}</li>`).join('')}</ol></details>
     <p class="mute" style="font-size:13px">TOEIC là thương hiệu của ETS; đề do app soạn theo cơ cấu đề thật, không chép đề ETS. 🤖 Claude soạn, chưa giáo viên kiểm.</p>`;
   $app.onclick = e => { const g = s => e.target.closest(s); let b;
     if (g('[data-trb]')) return toeicView();
     if ((b = g('[data-trgo]'))) { if (b.disabled) return; scrollTo(0, 0); return b.dataset.trgo === 'resume' ? trResume() : trReady(b.dataset.trgo); }
+    if (g('[data-trlkall]')) return trLkAll();
     if ((b = g('[data-trlk]'))) return trLkOpen(b.dataset.trlk, b.dataset.t);
     if ((b = g('[data-trsh]'))) return trSheet(b.dataset.trsh, null);
     if (g('[data-trdrop]')) { if (!confirm('Bỏ đề đang dở? Đáp án đã chọn sẽ mất.')) return; toSt().tron = null; S.t = Date.now(); save(); return trView(); } };
