@@ -61,7 +61,7 @@ async function tgPool() { const P = {}, D = (typeof TO !== 'undefined' && TO && 
         G.ho.push({ ...base, id: id, pos, ask: pa && q.opts.filter(o => pos[o] === pa).length === 1 ? pa : null }); }   // mã cũ (v167) giữ cho Họ từ
       if (lg.ct) tgCums(lg.ct).forEach(([L, R], k) => { const key = 'C' + L.toLowerCase(); if (seen.has(key) || seen.has('V' + R)) return; seen.add(key); seen.add('V' + R); G.cum.push({ ...base, id: 'cum:' + id + ':' + k, L, R, vL: '', vR: '' }); });
       if ((q.sec === 'p6' && q.gt === 'conn') || (q.sec === 'p5' && q.x && q.x.t === 'conj')) G.noi.push({ ...base, id: 'noi:' + id, cat: tgCat(q.a) });
-      if (q.sec === 'p5' && lg.og && q.opts.every(o => lg.og[o])) G.ban.push({ ...base, id: 'ban:' + id }); } }
+      if (TG_SEC.test(q.sec) && lg.og && q.opts.every(o => lg.og[o])) G.ban.push({ ...base, id: 'ban:' + id }); } }
   return P; }
 // lượt kế tiếp trong một đề: chưa chơi (sai trong đề trước, rồi theo thứ tự đề) → đến hạn ôn; mode 'sai' = mục đang sai, 'all' = cả đề xáo
 function tgNext(list, mode, n = TG_N) { const I = tgSt().it, t = tgDay();
@@ -76,40 +76,85 @@ function tgMark(game, x, ok) { const T = tgSt(), t = tgDay(), z = T.it[x.id] || 
   if (z.n) { st.rv++; if (ok) st.rvok++; } else { st.q++; if (ok) st.ok++; }
   z.n++; if (ok) z.b = Math.min(z.b + 1, TG_I.length); else { z.w++; z.b = 0; } z.t = t; z.d = t + (ok ? TG_I[z.b - 1] : 1); T.it[x.id] = z; }
 const tgDe = () => { const D = ((TO && TO.tron) || []).filter(d => TG_P && TG_P[d.id]), c = tgSt().de; return D.some(d => d.id === c) ? c : (D[0] || {}).id; };
-const tgHead = (g, i, n) => `<div id="ie"></div><div class="row top"><button class="link tap" data-tgv>‹ Trò chơi</button><span class="mute">${esc(trName(tgDe()))} · ${i}/${n}</span></div><h2 style="margin:4px 0 8px">${TG_GN[g][1]} ${TG_GN[g][2]}</h2>`;
-const tgBack = e => { if (e.target.closest('[data-tgv]')) { $app.onkeydown = null; tgView(); return true; } return false; };
+const tgHead = (g, i, n) => `<div id="ie"></div><div class="row top"><button class="link tap" data-tgv>‹ Hành trình</button><span class="mute">${TG_HDR ? '' : esc(trName(tgDe())) + ' · ' + i + '/' + n}</span></div><h2 style="margin:4px 0 ${TG_HDR ? 0 : 8}px">${TG_GN[g][1]} ${TG_GN[g][2]}</h2>${TG_HDR ? `<p class="mute" style="margin:2px 0 8px">${esc(TG_HDR)}</p>` : ''}`;
+const tgBack = e => { if (e.target.closest('[data-tgv]')) { $app.onkeydown = null; TG_CB = null; TG_HDR = ''; tgView(); return true; } return false; };
 
-// ---------- màn đầu: chọn đề + 6 trò ----------
+// ---------- v169 🗺 Chinh phục đề: MỘT hành trình, đích = đúng hết 100 câu Phần Đọc (Part 5–7) của đề đã chọn ----------
+// (người sáng lập 13/11/2026: "gộp tất cả trò chơi lại làm 1… mục tiêu cuối cùng của trò chơi là làm đề thật đã chọn đúng hết", "bạn tự tính làm")
+// Vòng: ① Thi lượt 10 câu như đề thật (đề thử trọn, totron.js) → ② câu sai: Chữa bằng các trò của chính câu đó (họ từ, từ nối, dò tin, săn cặp, cụm, bắn nhiễu)
+//   → ③ NGÀY SAU thi lại đúng câu đó (như luật "chữa xong" của app: đúng ở ngày sau lần sai) → đúng thì câu 🟩, sai thì 🟥 chữa lại.
+// Trạng thái câu = sự kiện mới nhất giữa bài làm 📋 đã lưu (S.to.tronA, mọi lần làm cả đề / một phần / từng lượt) và hành trình S.to.tc.j[de].c[n] = { s: 'fix'|'ok'|'sai', at, fd }.
+const TG_SEC = /^p[5-7]$/, TG_FIXN = 3;
+let TG_CB = null, TG_HDR = '', TG_J = null;   // TG_CB: trò đang chạy trong buổi chữa (tgEnd gọi lại) · TG_HDR: dòng đầu màn trò · TG_J: đề đang thi lượt từ hành trình
+const tgJ = de => { const T = tgSt(); T.j = T.j || {}; return (T.j[de] = T.j[de] || { c: {} }); };
+function tgJState(de) { const B = trB(de); if (!B) return null; const Q = B.Q.filter(q => TG_SEC.test(q.sec)), last = {};
+  for (const k of Object.keys(toSt().tronA || {})) { if (k !== de && !k.startsWith(de + ':')) continue; const A = trAGet(de, k); if (!A) continue; const a = String(A.a || '');
+    for (const q of Q) { const ch = a[q.n - 1]; if (!ch || ch === '-') continue; if (!last[q.n] || last[q.n].at <= (A.at || 0)) last[q.n] = { at: A.at || 0, k: trSt3(q, ch) === 'ok' ? 'ok' : 'sai' }; } }
+  const J = tgJ(de).c, t = tgDay();
+  return Q.map(q => { const ev = [last[q.n], J[q.n] && { at: J[q.n].at, k: J[q.n].s, fd: J[q.n].fd }].filter(Boolean).sort((a, b) => a.at - b.at).pop();
+    const st = ev ? ev.k : 'chua'; return { q, n: q.n, st, due: st === 'fix' && (ev.fd || 0) < t }; }); }
+const tgJCount = L => ({ ok: L.filter(c => c.st === 'ok').length, fix: L.filter(c => c.st === 'fix').length, sai: L.filter(c => c.st === 'sai').length, chua: L.filter(c => c.st === 'chua').length, due: L.filter(c => c.due).length, n: L.length });
+// việc kế tiếp: thi lại câu đã chữa tới hạn → chữa câu sai → thi lượt mới → chờ ngày mai → chinh phục xong
+function tgJNext(de, L) { const due = L.filter(c => c.due), sai = L.filter(c => c.st === 'sai'), chua = L.filter(c => c.st === 'chua');
+  if (due.length) return { k: 're', cs: due };
+  if (sai.length) return { k: 'fix', cs: sai.slice(0, TG_FIXN) };
+  if (chua.length) { const B = trB(de), ck = chua[0].q.ck, c = trCks(B)[ck]; return { k: 'thi', id: 'c' + c.p + ck, c, n: L.filter(x => x.q.ck === ck).length }; }
+  if (L.some(c => c.st === 'fix')) return { k: 'wait', cs: L.filter(c => c.st === 'fix') };
+  return { k: 'win' }; }
+const tgNs = cs => cs.slice(0, 6).map(c => c.n).join(', ') + (cs.length > 6 ? '…' : '');
 let TG_P = null;
-async function tgView() { window.CUR = { view: TG_VIEW }; BACK = null; scrollTo(0, 0);
+async function tgView() { window.CUR = { view: TG_VIEW }; BACK = null; TG_CB = null; TG_HDR = ''; $app.onkeydown = null; scrollTo(0, 0);
   if (!TG_P) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải các đề…</p>'; await toLoad(); TG_P = await tgPool(); if (window.CUR.view !== TG_VIEW) return; }
-  const D = ((TO && TO.tron) || []).filter(d => TG_P[d.id]), de = tgDe(), G = TG_P[de] || {};
-  const all = TG_G.flatMap(g => G[g[0]] || []), pa = tgProg(all), wn = all.filter(x => x.w).length;
-  const chip = d => { const p = tgProg(TG_G.flatMap(g => TG_P[d.id][g[0]])); return `<button class="chip${d.id === de ? ' on' : ''}" data-tgde="${esc(d.id)}" aria-pressed="${d.id === de}">${esc(d.t)}${p.pl && !p.left ? ' ✓' : ''}</button>`; };
-  const row = g => { const L = G[g[0]] || [], p = tgProg(L), can = L.length >= (g[0] === 'pair' || g[0] === 'cum' ? 2 : 1);
-    const sub = !L.length ? (g[0] === 'pair' || g[0] === 'dt' ? 'Đề này chưa có câu chứa đáp án ở Part 7' : 'Đề này không có câu dạng này')
-      : !p.pl ? `${g[3]} · ${L.length} ${g[4]}` : p.left ? `Đã chơi ${p.pl}/${L.length} ${g[4]}${p.sai ? ` · ${p.sai} đang sai` : ''}` : `✓ Đã chơi hết ${L.length} ${g[4]}${p.due ? ` · ${p.due} cần chơi lại` : p.sai ? ` · ${p.sai} đang sai` : ''}`;
-    return `<button class="hrow${p.n && !p.left ? ' ok' : ''}" data-tgg="${g[0]}"${can ? '' : ' disabled'}><span class="ic">${g[1]}</span><span class="t"><b>${g[2]}</b><small>${sub}</small></span><span class="chev">›</span></button>`; };
+  const D = ((TO && TO.tron) || []).filter(d => TG_P[d.id]), de = tgDe(), L = tgJState(de) || [], C = tgJCount(L), nx = tgJNext(de, L), pct = C.n ? Math.round(C.ok / C.n * 100) : 0;
+  const chip = d => { const l = tgJState(d.id) || [], w = l.length && l.every(c => c.st === 'ok'); return `<button class="chip${d.id === de ? ' on' : ''}" data-tgde="${esc(d.id)}" aria-pressed="${d.id === de}">${esc(d.t)}${w ? ' 🏆' : ''}</button>`; };
+  const cell = c => { const cl = c.st === 'ok' ? 'ok' : c.st === 'sai' ? 'no' : c.st === 'fix' ? 'fx' : 'em', lab = { ok: 'đúng', no: 'cần chữa', fx: c.due ? 'thi lại được' : 'chờ ngày mai', em: 'chưa làm' }[cl];
+    return `<span class="trc ${cl}" role="img" aria-label="Câu ${c.n}: ${lab}">${c.n}</span>`; };
+  const big = { re: [`▶ Thi lại ${nx.cs ? nx.cs.length : 0} câu đã chữa`, `Câu ${nx.cs ? tgNs(nx.cs) : ''} · đúng thì câu thành 🟩`],
+    fix: [`▶ Chữa ${nx.cs ? nx.cs.length : 0} câu sai: câu ${nx.cs ? tgNs(nx.cs) : ''}`, 'Chơi các trò của từng câu rồi xem lời giải · ngày mai thi lại'],
+    thi: [`▶ Thi lượt ${nx.c ? nx.c.k + 1 : ''} · câu ${nx.c ? nx.c.a + '–' + nx.c.b : ''}`, `${nx.n || 0} câu · như đề thật, có giờ · câu sai sẽ được chữa`] }[nx.k];
+  const step = big ? `<button class="btnbig" data-tgj="${nx.k}">${big[0]}<small>${big[1]}</small></button>`
+    : nx.k === 'wait' ? `<div class="box"><b>✓ Hôm nay xong</b><p style="margin:6px 0 0">Ngày mai thi lại ${nx.cs.length} câu đã chữa (câu ${tgNs(nx.cs)}). Đúng ở ngày sau mới tính là nhớ, không phải nhớ tạm.</p></div>`
+    : `<div class="box tgyes"><b>🏆 Đã chinh phục ${esc(trName(de))}: đúng hết ${C.n} câu Phần Đọc</b><p style="margin:6px 0 0">Làm lại cả Phần Đọc 75 phút để xác nhận, rồi chọn đề khác. Lưu ý: điểm của đề đã chinh phục cao hơn thực lực; trình độ thật đo bằng đề chưa làm.</p></div><button class="pri" data-tgj="full">▶ Làm lại cả Phần Đọc · 75 phút</button>`;
   $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-tgb>‹ TOEIC</button></div>
-    <h1>🎮 Trò chơi Reading</h1><p class="mute" style="margin-top:0">Chọn một đề, chơi hết từng trò. Mỗi lượt ${TG_N} mục, khoảng 1–2 phút.</p>
+    <h1>🗺 Chinh phục đề</h1><p class="mute" style="margin-top:0">Đích: làm <b>${esc(trName(de))}</b> đúng hết ${C.n} câu Phần Đọc. Thi từng lượt 10 câu, chữa câu sai bằng trò chơi, ngày sau thi lại.</p>
     <p class="tgs" style="margin-top:4px">Chọn đề</p><div class="chips tap">${D.map(chip).join('')}</div>
-    <div class="box"><b>📝 ${esc(trName(de))} · đã chơi ${pa.pl}/${pa.n} mục</b><div class="bar"><i style="width:${pa.n ? Math.round(pa.pl / pa.n * 100) : 0}%;background:var(--good)"></i></div>
-      <p class="mute" style="margin:2px 0 0">${pa.due ? `🔁 ${pa.due} mục cần chơi lại hôm nay. ` : ''}${wn ? `${wn} mục từ câu bạn làm sai trong đề, chơi trước.` : 'Chưa làm đề này? Câu nào bạn làm sai sau này sẽ được chơi trước.'}</p></div>
-    <div class="box hcard">${TG_G.map(row).join('')}</div>
-    <p class="mute" style="font-size:14px">⚠️ Trò chơi dùng câu thật của đề. Làm lại đề đã chơi thì điểm sẽ cao hơn thực lực. Không tính vào điểm đề thử, 📘 Học hay 🔁 Nhớ.</p>`;
+    <div class="box"><b style="font-size:18px">🏆 ${C.ok}/${C.n} câu đã chinh phục</b><div class="bar"><i style="width:${pct}%;background:var(--good)"></i></div>
+      <p class="mute" style="margin:4px 0 0">🟩 ${C.ok} đúng · 🟨 ${C.fix} chờ thi lại · 🟥 ${C.sai} cần chữa · ⬜ ${C.chua} chưa làm</p></div>
+    ${step}
+    <details class="more"><summary>Bản đồ 100 câu</summary><div class="trgrid tgmap">${L.map(cell).join('')}</div></details>
+    <p class="mute" style="font-size:14px">Không tính vào điểm đề thử trọn, 📘 Học hay 🔁 Nhớ.</p>`;
   $app.onclick = e => { if (e.target.closest('[data-tgb]')) { EX_PART = 'san'; toeicView(); return; }
     const c = e.target.closest('[data-tgde]'); if (c) { tgSt().de = c.dataset.tgde; save(); tgView(); return; }
-    const b = e.target.closest('[data-tgg]'); if (b && !b.disabled) tgPlay(b.dataset.tgg); }; }
-// mở một lượt của trò; hết mục chưa chơi và mục đến hạn thì màn "đã chơi hết đề"
-function tgPlay(g, mode) { const L = (TG_P[tgDe()] || {})[g] || [], its = tgNext(L, mode, g === 'dt' ? 99 : TG_N);
-  if (!its.length) return tgDoneDe(g);
-  if (g === 'dt') { const set = its[0].set; return tgDt(its.filter(x => x.set === set).slice(0, TG_N), mode); }
-  if ((g === 'pair' || g === 'cum') && its.length < 2) { const more = tgNext(L, 'all').filter(x => x !== its[0]); its.push(more[0]); }
-  ({ pair: tgMatch, cum: tgMatch, ho: tgHo, noi: tgNoi, ban: tgBan })[g](g, its, mode); }
-function tgDoneDe(g) { const L = TG_P[tgDe()][g], p = tgProg(L); window.CUR = { view: TG_VIEW + '-xong' };
-  $app.innerHTML = `${tgHead(g, p.pl, p.n)}<div class="box tgyes"><b>✓ Đã chơi hết ${p.n} ${TG_GN[g][4]} của ${esc(trName(tgDe()))}</b><p style="margin:6px 0 0">Mục chơi sai sẽ quay lại từ ngày mai; mục đúng giãn dần 1, 3, 7, 21 ngày.</p></div>
-    ${p.sai ? `<button class="pri" data-tgm="sai">▶ Chơi lại ${p.sai} mục đang sai</button>` : ''}<button${p.sai ? '' : ' class="pri"'} data-tgm="all">↻ Chơi lại cả đề (không chờ lịch)</button><button data-tgv>‹ Chọn trò khác</button>`;
-  $app.onclick = e => { if (tgBack(e)) return; const m = e.target.closest('[data-tgm]'); if (m) tgPlay(g, m.dataset.tgm); }; }
+    const b = e.target.closest('[data-tgj]'); if (!b) return; const k = b.dataset.tgj;
+    if (k === 'thi') { TG_J = de; return trStart(de, nx.id); }
+    if (k === 'full') { TG_J = de; return trStart(de, 'R'); }
+    if (k === 'fix') return tgFix(de, nx.cs);
+    if (k === 're') return tgRe(de, nx.cs); }; }
+// ② chữa: mỗi câu sai chơi các trò làm từ chính câu đó, trò kiến thức trước, Bắn nhiễu (có lời giải đầy đủ) sau cùng
+function tgFix(de, cs) { const G = TG_P[de], ns = new Set(cs.map(c => c.n)), of = g => (G[g] || []).filter(x => ns.has(x.q.n)), steps = [];
+  if (of('ho').length) steps.push(['ho', of('ho')]); if (of('noi').length) steps.push(['noi', of('noi')]);
+  for (const set of [...new Set(of('dt').map(x => x.set))]) steps.push(['dt', of('dt').filter(x => x.set === set)]);
+  if (of('pair').length >= 2) steps.push(['pair', of('pair')]); if (of('cum').length >= 2) steps.push(['cum', shuf(of('cum')).slice(0, TG_N)]);
+  if (of('ban').length) steps.push(['ban', of('ban')]);
+  TG_HDR = `🔧 Chữa câu ${tgNs(cs)} · bước `; const J = tgJ(de).c, fin = () => { const t = tgDay(), now = Date.now(); for (const c of cs) J[c.n] = { s: 'fix', at: now, fd: t }; save(); TG_HDR = ''; window.CUR = { view: 'tg-xong' };
+    $app.innerHTML = `<div id="ie"></div><h2>🔧 Đã chữa ${cs.length} câu</h2><div class="box tgyes"><p style="margin:0">Câu ${tgNs(cs)} chuyển 🟨. <b>Ngày mai</b> thi lại đúng các câu này: đúng thì thành 🟩.</p></div><button class="pri" data-tgv>▶ Về hành trình</button>`;
+    $app.onclick = null; scrollTo(0, 0); };
+  if (!steps.length) return fin();
+  const go = i => { if (i >= steps.length) { TG_CB = null; return fin(); } const [g, its] = steps[i]; TG_HDR = `🔧 Chữa câu ${tgNs(cs)} · bước ${i + 1}/${steps.length}`; TG_CB = () => go(i + 1);
+    g === 'dt' ? tgDt(its, 'j') : ({ pair: tgMatch, cum: tgMatch, ho: tgHo, noi: tgNoi, ban: tgBan })[g](g, its, 'j'); };
+  go(0); }
+// ③ thi lại: đúng câu của đề, như đề thật (phương án theo thứ tự của đề), không gợi ý; xong mỗi câu hiện lời giải
+function tgRe(de, cs) { window.CUR = { view: TG_VIEW + '-re' }; const J = tgJ(de).c, G = { i: 0, res: null, ok: 0 };
+  const ctx = q => q.sec === 'p6' ? q.head.replace(/<p class="mute">[^<]*<\/p>/, '') + `<p><b>${q.q}</b></p>` : q.sec === 'p7' ? `<p style="font-size:17px"><b>${q.q}</b></p>` : `<p style="font-size:18px;line-height:1.6">${q.q}</p>`;
+  const draw = () => { const q = cs[G.i].q, head = `<div id="ie"></div><div class="row top"><button class="link tap" data-tgv>‹ Hành trình</button><span class="mute">${esc(trName(de))} · câu ${q.n}</span></div><h2 style="margin:4px 0 8px">🔁 Thi lại ${G.i + 1}/${cs.length}</h2>`;
+    if (G.res) { $app.innerHTML = head + (q.sec === 'p6' ? ctx(q) : '') + tgReveal(q, G.res) + (q.sec === 'p7' ? q.foot : ''); return; }
+    $app.innerHTML = head + ctx(q) + q.opts.map((o, k) => `<button class="tcc" data-tgf="${k}">${'ABCD'[k]}. ${esc(o)}</button>`).join('') + (q.sec === 'p7' ? q.foot : ''); };
+  $app.onclick = e => { if (e.target.closest('[data-tgv]')) return tgView(); const q = cs[G.i].q;
+    const f = e.target.closest('[data-tgf]'); if (f && !G.res) { const o = q.opts[+f.dataset.tgf], ok = o === q.a; if (ok) G.ok++; J[q.n] = { s: ok ? 'ok' : 'sai', at: Date.now() }; save();
+      G.res = { ok, note: ok ? `Câu ${q.n} thành 🟩.` : `Bạn chọn “${esc(o)}”. Câu ${q.n} quay lại 🟥 để chữa lại.`, last: G.i + 1 >= cs.length }; draw(); scrollTo(0, 0); return; }
+    if (e.target.closest('[data-tgn]')) { if (G.i + 1 >= cs.length) { window.CUR = { view: 'tg-xong' }; $app.innerHTML = `<div id="ie"></div><h2>🔁 Thi lại xong</h2><div class="box ${G.ok === cs.length ? 'tgyes' : ''}"><b style="font-size:20px">${G.ok}/${cs.length} câu đúng</b></div><button class="pri" data-tgv>▶ Về hành trình</button>`; $app.onclick = null; return scrollTo(0, 0); }
+      G.i++; G.res = null; draw(); scrollTo(0, 0); } };
+  draw(); }
 
 // ---------- 🔁 Săn cặp / 🔗 Cụm hay dùng: ghép L ↔ R ----------
 const TG_LR = { pair: ['📖 Trong bài', '✅ Trong đáp án', 'Chạm một dòng "Trong bài", rồi chạm dòng "Trong đáp án" cùng ý.'], cum: ['🇬🇧 Cụm tiếng Anh', '🇻🇳 Nghĩa', 'Chạm một cụm tiếng Anh, rồi chạm nghĩa của nó.'] };
@@ -161,7 +206,7 @@ function tgHo(g, its, mode) { window.CUR = { view: TG_VIEW + '-ho' }; const P = 
   $app.onkeydown = e => { if (e.key === 'Enter' && e.target.matches && e.target.matches('[data-tgi]')) { e.preventDefault(); const b = document.querySelector('[data-tgk]'); b && b.click(); } };
   draw(); }
 // ô kết quả một câu Part 5 / 6: đúng / sai, câu có đáp án, nghĩa 4 phương án, vì sao, cấu trúc, dịch
-function tgReveal(q, r) { const lg = q.lg || {}, og = lg.og || {}, sent = q.sec === 'p6' ? '' : `<p style="font-size:17px;line-height:1.6">${q.q.replace('<b>-------</b>', `<b>${esc(q.a)}</b>`)}</p>`;
+function tgReveal(q, r) { const lg = q.lg || {}, og = lg.og || {}, sent = q.sec === 'p6' ? '' : q.sec === 'p7' ? `<p style="font-size:17px"><b>${q.q}</b> <span class="mute">· ✓ ${esc(q.a)}</span></p>` : `<p style="font-size:17px;line-height:1.6">${q.q.replace('<b>-------</b>', `<b>${esc(q.a)}</b>`)}</p>`;
   return `<div class="box ${r.ok ? 'tgyes' : 'tcno'}"><b>${r.ok ? '✓ Đúng' : '✗ Chưa đúng'}</b>${r.note ? `<p style="margin:4px 0 0">${r.note}</p>` : ''}</div>${sent}
     <div class="box">${q.opts.map(o => `<p style="margin:4px 0"><b>${esc(o)}</b>${o === q.a ? ' ✓' : ''}${og[o] ? ` · <span class="mute">${esc(og[o])}</span>` : ''}</p>`).join('')}</div>
     <div class="box rvgt"><p style="margin:0"><b>Vì sao:</b> ${esc(lg.ly || q.why || '')}</p>${lg.ct ? `<p style="margin:6px 0 0"><b>Cấu trúc:</b> ${esc(lg.ct)}</p>` : ''}${lg.dich ? `<p style="margin:6px 0 0"><b>Dịch:</b> ${esc(lg.dich)}</p>` : ''}</div>
@@ -186,8 +231,8 @@ function tgNoi(g, its, mode) { window.CUR = { view: TG_VIEW + '-noi' }; const P 
 function tgBan(g, its, mode) { window.CUR = { view: TG_VIEW + '-ban' }; const P = tgProg(TG_P[tgDe()].ban), G = { i: 0, shot: [], ok: [], res: null, t0: Date.now() };
   const draw = () => { const x = its[G.i], q = x.q, og = q.lg.og, head = tgHead('ban', Math.min(P.pl + G.i + 1, P.n), P.n);
     if (G.res) { $app.innerHTML = head + tgReveal(q, G.res); return; }
-    $app.innerHTML = head + `<p class="mute" style="margin-top:0">Chạm từng phương án SAI để loại. Còn ${3 - G.shot.length} phương án sai.</p><p style="font-size:18px;line-height:1.6">${q.q}</p>
-      ${q.opts.map(o => G.shot.includes(o) ? `<div class="tcc tgout"><s>${esc(o)}</s><br><small class="mute">${esc(og[o])}</small></div>` : `<button class="tcc" data-tgf="${esc(o)}">🎯 ${esc(o)}</button>`).join('')}`; };
+    $app.innerHTML = head + `<p class="mute" style="margin-top:0">Chạm từng phương án SAI để loại. Còn ${3 - G.shot.length} phương án sai.</p>${q.sec === 'p6' ? q.head.replace(/<p class="mute">[^<]*<\/p>/, '') + `<p><b>${q.q}</b></p>` : q.sec === 'p7' ? `<p style="font-size:17px"><b>${q.q}</b></p>` : `<p style="font-size:18px;line-height:1.6">${q.q}</p>`}
+      ${q.opts.map(o => G.shot.includes(o) ? `<div class="tcc tgout"><s>${esc(o)}</s><br><small class="mute">${esc(og[o])}</small></div>` : `<button class="tcc" data-tgf="${esc(o)}">🎯 ${esc(o)}</button>`).join('')}${q.sec === 'p7' ? q.foot : ''}`; };
   $app.onclick = e => { if (tgBack(e)) return; const x = its[G.i], q = x.q;
     const f = e.target.closest('[data-tgf]'); if (f) { const o = f.dataset.tgf;
       if (o === q.a) { G.ok[G.i] = false; tgMark('ban', x, false); save(); G.res = { ok: false, note: `“${esc(o)}” là đáp án đúng, không được loại.`, last: G.i + 1 >= its.length }; draw(); return; }
@@ -195,33 +240,14 @@ function tgBan(g, its, mode) { window.CUR = { view: TG_VIEW + '-ban' }; const P 
     if (e.target.closest('[data-tgn]')) { if (G.i + 1 >= its.length) return tgEnd('ban', its.map((x, i) => ({ x, ok: G.ok[i] })), mode, Date.now() - G.t0); G.i++; G.shot = []; G.res = null; draw(); scrollTo(0, 0); } };
   draw(); }
 
-// ---------- kết quả một lượt + xem bài gốc ----------
-const TG_ROW = {
-  pair: x => `<p style="margin:0">📖 “${esc(x.L)}”</p>${x.vL ? `<p class="mute" style="margin:2px 0 0">${esc(x.vL)}</p>` : ''}<p style="margin:8px 0 0">✅ “${esc(x.R)}”</p>${x.vR ? `<p class="mute" style="margin:2px 0 0">${esc(x.vR)}</p>` : ''}`,
-  dt: x => `<p style="margin:0"><b>${x.q.q}</b></p><p style="margin:6px 0 0">📍 “${esc(x.q.ev)}”</p><p class="mute" style="margin:2px 0 0">✓ ${esc(x.q.a)}</p>`,
-  cum: x => `<p style="margin:0"><b>${esc(x.L)}</b> = ${esc(x.R)}</p>`,
-  ho: x => `<p style="margin:0"><b>${esc(x.q.a)}</b> · <span class="mute">${esc(x.q.lg.og[x.q.a])}</span></p><p style="margin:6px 0 0">${x.q.sec === 'p5' ? x.q.q.replace('<b>-------</b>', `<b>${esc(x.q.a)}</b>`) : ''}</p>` };
-TG_ROW.ban = TG_ROW.noi = x => `<p style="margin:0"><b>${esc(x.q.a)}</b>${x.cat ? ` · <span class="mute">${x.cat}</span>` : ''}</p>${x.q.sec === 'p5' ? `<p style="margin:6px 0 0">${x.q.q.replace('<b>-------</b>', `<b>${esc(x.q.a)}</b>`)}</p>` : `<p class="mute" style="margin:6px 0 0">Part 6 · ${esc(x.q.x.title || '')}</p>`}`;
-function tgEnd(g, res, mode, ms) { window.CUR = { view: TG_VIEW + '-kq' }; const st = tgSt().st; (st[g] = st[g] || { r: 0, q: 0, ok: 0, rv: 0, rvok: 0 }).r++; save();
-  const ok = res.filter(r => r.ok).length, sec = Math.round(ms / 1000), M = res.filter(r => !r.ok).map(r => r.x), p = tgProg(TG_P[tgDe()][g]), u = TG_GN[g][4];
-  const src = x => x.q.sec === 'p7' || x.q.sec === 'p6' ? `<button class="link tap" data-tgsrc="${esc(x.id)}">📘 Xem bài gốc · câu ${x.q.n}</button>` : '';
-  const body = M.length ? `<p class="tgs">${M.length} ${u} sai: chơi lại từ ngày mai</p>${M.map(x => `<div class="box">${TG_ROW[g](x)}${src(x)}</div>`).join('')}` : '<p>🎉 Đúng hết ngay lần đầu.</p>';
-  const nx = !mode && p.left ? `▶ Lượt tiếp · còn ${p.left} ${u} chưa chơi` : !mode && p.due ? `▶ Lượt tiếp · ${p.due} ${u} cần chơi lại` : '';
-  const html = `<div id="ie"></div><div class="row top"><button class="link tap" data-tgv>‹ Trò chơi</button><span class="mute">${esc(trName(tgDe()))} · ${p.pl}/${p.n}</span></div><h2>${TG_GN[g][1]} ${TG_GN[g][2]}</h2>
-    <div class="box"><b style="font-size:20px">${ok}/${res.length} ${u} đúng ngay · ${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}</b>${g === 'dt' ? `<p class="mute" style="margin:4px 0 0">Đề thật: Part 7 khoảng 1 phút mỗi câu. Lượt này ${res.length ? Math.round(sec / res.length) : 0} giây / câu.</p>` : ''}
-      <div class="bar"><i style="width:${p.n ? Math.round(p.pl / p.n * 100) : 0}%;background:var(--good)"></i></div><p class="mute" style="margin:2px 0 0">Đã chơi ${p.pl}/${p.n} ${u} của đề này</p></div>
-    ${nx ? `<button class="pri" data-tgag>${nx}</button>` : !mode ? `<div class="box tgyes"><b>✓ Đã chơi hết ${p.n} ${u} của đề này</b></div><button class="pri" data-tgag>Chơi lại mục sai hoặc cả đề ›</button>` : `<button class="pri" data-tgag>▶ Lượt khác</button>`}${body}<button data-tgv>‹ Chọn trò khác</button>`;
-  const its = res.map(r => r.x), draw = () => { $app.innerHTML = html; scrollTo(0, 0);
-    $app.onclick = e => { if (tgBack(e)) return; if (e.target.closest('[data-tgag]')) return tgPlay(g, mode);
-      const s = e.target.closest('[data-tgsrc]'); if (s) { const x = its.find(y => y.id === s.dataset.tgsrc); if (x) tgSrc(x, draw); } }; };
-  draw(); }
-function tgSrc(x, back) { const q = x.q; window.CUR = { view: TG_VIEW + '-bai' }; const ev = q.ev || x.L;
-  const body = q.sec === 'p6' ? q.head.replace(/<p class="mute">[^<]*<\/p>/, '') : (ev ? q.foot.replace(esc(ev), `<mark>${esc(ev)}</mark>`) : q.foot);
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-tgbk>‹ Kết quả</button></div><p class="mute">${esc(trName(x.de))} · câu ${q.n}</p>
-    <div class="box"><p style="margin:0"><b>${q.q}</b></p><p style="margin:6px 0 0">✓ ${esc(q.a)}</p></div>${ev && q.sec === 'p7' ? '<p class="mute">📍 Câu chứa đáp án được tô màu.</p>' : ''}${body}<button data-tgbk>‹ Kết quả</button>`;
-  $app.onclick = e => { if (e.target.closest('[data-tgbk]')) back(); }; scrollTo(0, 0); }
+// hết một trò: trong buổi chữa thì sang trò kế tiếp; ngoài buổi chữa (không còn lối vào riêng từ v169) thì về hành trình
+function tgEnd(g, res) { const st = tgSt().st; (st[g] = st[g] || { r: 0, q: 0, ok: 0, rv: 0, rvok: 0 }).r++; save(); scrollTo(0, 0);
+  if (TG_CB) { const cb = TG_CB; TG_CB = null; return cb(res); } tgView(); }
 
 // lối vào ở màn TOEIC (phần 📚 Đề có sẵn), cạnh đề thử trọn
 function tgRow() { if (typeof TO === 'undefined' || !TO || !(TO.tron || []).length) return '';
-  return `<div class="box hcard" style="margin:12px 0 0"><button class="hrow" data-tgv><span class="ic">🎮</span><span class="t"><b>Trò chơi Reading</b><small>Chọn đề, chơi hết 6 trò: săn cặp, dò tin, họ từ, cụm từ, từ nối, bắn nhiễu</small></span><span class="chev">›</span></button></div>`; }
+  return `<div class="box hcard" style="margin:12px 0 0"><button class="hrow" data-tgv><span class="ic">🗺</span><span class="t"><b>Chinh phục đề</b><small>Trò chơi đưa bạn tới làm đúng hết Phần Đọc của một đề</small></span><span class="chev">›</span></button></div>`; }
 document.addEventListener('click', e => { if (S && e.target.closest('[data-tgv]') && !String((window.CUR || {}).view).startsWith(TG_VIEW)) { TG_P = null; tgView(); } });
+// thi lượt mở từ hành trình: màn kết quả có nút về hành trình
+if (typeof trResOne === 'function') { const _trResOne = trResOne; trResOne = function (rec) { const r = _trResOne.apply(this, arguments);
+  if (TG_J && rec && rec.de === TG_J) { const h = $app.querySelector && $app.querySelector('h1'); if (h) h.insertAdjacentHTML('afterend', '<button class="pri" data-tgv style="margin:8px 0">🗺 Về hành trình · chữa câu sai</button>'); } return r; }; }

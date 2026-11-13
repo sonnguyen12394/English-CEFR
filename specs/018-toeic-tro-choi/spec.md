@@ -77,3 +77,13 @@ Người sáng lập: "chọn đề được để làm nội dung chơi chứ k
 - **FR-013** Chơi hết đề: mỗi lượt lấy mục chưa chơi (câu sai trong đề trước, rồi thứ tự đề); hết thì mục đến hạn; hết nữa thì báo "đã chơi hết đề" và cho chơi lại mục sai / cả đề.
 - **FR-014** Thêm 4 trò: Đua dò tin, Cụm hay dùng, Từ nối, Bắn nhiễu (câu chuyện 3 cũ).
 - **SC-006** Chơi hết một trò của một đề được bằng các lượt liên tiếp, tiến độ "a/b" tăng đúng số mục mỗi lượt.
+
+## Bổ sung v169 (13/11/2026): một hành trình
+
+Người sáng lập: "các trò chơi này đang thiếu mục tiêu chung… gộp tất cả trò chơi lại làm 1", "mục tiêu cuối cùng của trò chơi là làm đề thật đã chọn đúng hết", "bạn tự tính làm".
+
+- **FR-015** Một màn "Chinh phục đề" thay 6 trò; đích = đúng hết 100 câu Phần Đọc của đề đã chọn.
+- **FR-016** Thi lượt 10 câu như đề thật → câu sai được chữa bằng các trò làm từ chính câu đó → ngày sau thi lại đúng câu đó → đúng thì xanh.
+- **FR-017** Bài làm đề mới hơn ghi đè trạng thái câu (làm lại cả đề mà sai thì câu quay lại đỏ).
+- **SC-007** Đi được trọn một vòng thi → chữa → thi lại mà không phải rời màn hành trình; 100/100 xanh thì báo chinh phục.
+- Rủi ro đã ghi trên màn: đề đã chinh phục cho điểm cao hơn thực lực; trình độ thật đo bằng đề chưa làm.
