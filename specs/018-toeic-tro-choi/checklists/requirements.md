@@ -9,7 +9,7 @@
 - [x] Đủ các mục bắt buộc
 
 ## Đầy đủ
-- [ ] Không còn [NEEDS CLARIFICATION] (còn 3: Q1–Q3, chờ người sáng lập)
+- [x] Không còn [NEEDS CLARIFICATION] (Q1 tất cả đề, Q2 2 trò, Q3 có khi đã mở mã)
 - [x] Yêu cầu kiểm được, không mơ hồ
 - [x] Tiêu chí thành công đo được
 - [x] Tiêu chí thành công không gắn công nghệ
@@ -24,4 +24,4 @@
 - [x] Không lộ chi tiết cài đặt
 
 ## Ghi chú
-- Chờ trả lời Q1–Q3 rồi mới sang kế hoạch.
+- Đã chốt 13/11/2026.

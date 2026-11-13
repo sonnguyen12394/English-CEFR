@@ -1,6 +1,6 @@
 # Đặc tả: 🎮 Trò chơi TOEIC Reading trong 🎯 Luyện đề
 
-**Thư mục**: `specs/018-toeic-tro-choi` · **Ngày**: 13/11/2026 · **Trạng thái**: Nháp, chờ trả lời 3 câu hỏi
+**Thư mục**: `specs/018-toeic-tro-choi` · **Ngày**: 13/11/2026 · **Trạng thái**: Đã làm (v167)
 
 **Yêu cầu của người sáng lập**: "Dựa vào các đề TOEIC trên web, tạo trò chơi để nhớ từ vựng, ngữ nghĩa, cấu trúc để làm bài Reading tốt." Rồi: "Trò chơi đặt thành 1 mục trong Luyện đề. Lấy nội dung trong đề để chơi. Mục tiêu vẫn là làm được các đề trong phần luyện đề TOEIC."
 
@@ -44,9 +44,10 @@ Cặp / từ chơi sai vào hàng ôn của trò chơi (gặp lại ngày sau, r
 - **FR-006** KHÔNG đổi luật đo (📘 Học / 🔁 Nhớ / Thi chuyển cấp), không ghi vào điểm đề thử, không ghi vào bản đồ điểm TOEIC.
 - **FR-007** Một lượt ≤ 2 phút. Màn chơi dùng được ở khổ 320 px, vùng bấm ≥ 44 px, theo biến màu chung (nền sáng / tối).
 - **FR-008** Đếm dùng: số lượt mỗi trò, tỉ lệ đúng lần đầu / lần gặp lại; xem ở 💾 Dữ liệu → 🛠.
-- **FR-009** Đề riêng 9–16 (chép từ sách ETS): [NEEDS CLARIFICATION Q3].
-- **FR-010** Câu của đề nào được đưa vào trò chơi: [NEEDS CLARIFICATION Q1].
-- **FR-011** Đợt đầu làm mấy trò: [NEEDS CLARIFICATION Q2].
+- **FR-009** Đề riêng 9–16: có, chỉ khi máy đã mở mã (đề đã có trên máy), không đưa lên web.
+- **FR-010** Câu của MỌI đề thử trọn (người sáng lập 13/11/2026: "lấy nội dung tất cả đề"); câu làm sai trong bài làm đề lên trước; màn trò chơi ghi rõ rủi ro "làm lại đề đã chơi, điểm cao hơn thực lực".
+- **FR-011** Đợt đầu 2 trò: Săn cặp + Họ từ (Claude chọn, người sáng lập "tự tính làm đi").
+- Ghi chú khi làm: Đề 1–2 (câu kho luyện) chưa có câu chứa đáp án ở Part 7 nên Săn cặp chỉ lấy Đề 3–8 (289 cặp, ≤ 15 từ); Họ từ lấy mọi đề (46 câu). FR-008 đếm dùng lưu ở S.to.tc.st, chưa hiện ở 🛠.
 
 ## Thực thể
 

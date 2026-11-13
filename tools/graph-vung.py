@@ -39,7 +39,7 @@ VUNG = [
     ('Bản đồ chỗ yếu (Nền, Cambridge, IELTS, TOEIC) + sổ lỗi',
      ['bando.js', 'cbmap.js', 'iemap.js', 'tomap.js', 'focus.js', 'soloi.js']),
     ('IELTS', ['ielts.js', 'ieplus.js', 'iethat.js']),
-    ('TOEIC', ['toeic.js', 'toqt.js', 'totron.js']),
+    ('TOEIC', ['toeic.js', 'toqt.js', 'totron.js', 'trochoi.js']),
     ('Cambridge: đề thử, dạng đề, nghe / nói',
      ['mock.js', 'mocknoi.js', 'uoe.js', 'dangthi.js', 'nghe2.js', 'cap.js']),
     ('Luyện thi chung: bài học kỳ thi, chấm Viết / Nói',

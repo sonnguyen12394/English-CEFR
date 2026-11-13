@@ -182,6 +182,11 @@
   .ltbanner button { margin:0; }
   /* v113 màn kỳ thi (IELTS / TOEIC / Cambridge) cùng khung: hàng kỳ thi một dòng, ô điểm ước gọn */
   .chipset.ex3 { flex-wrap:nowrap; } .chipset.ex3 button { flex:1; padding:8px 2px; font-size:15px; text-align:center; white-space:nowrap; min-height:44px; }
+  /* v167 🎮 trò chơi Reading TOEIC (trochoi.js): thẻ chữ chạm được ≥ 44 px, chọn = viền xanh, ghép xong = xanh lá */
+  .tcc { display:block; width:100%; min-height:44px; margin:6px 0; padding:10px 12px; text-align:left; font-size:16px; line-height:1.45; }
+  .tcc.sel { border-color:var(--accent); background:var(--accent2); font-weight:600; } .tcc.ok { border-color:var(--good); background:color-mix(in srgb,var(--good) 15%,var(--card)); color:var(--fg); opacity:.75; }
+  .tcs { margin:14px 0 2px; font-weight:700; color:var(--mute); font-size:14px; }
+  .tcno { border-color:var(--bad); background:color-mix(in srgb,var(--bad) 10%,var(--card)); } .tcyes { border-color:var(--good); background:color-mix(in srgb,var(--good) 12%,var(--card)); }
   /* v147 🎓 đề thử TOEIC trọn 200 câu (totron.js): đáp án đã chọn (chưa chấm) có viền + ✓, nút A–D một hàng, bảng câu 101–200 ô ≥ 44 px, nút ⚑ 44 px */
   .opt.sel { border-color:var(--accent); background:var(--accent2); font-weight:600; } .opt.sel::before { content:"✓ "; }
   .trop.abcd { display:grid; grid-template-columns:repeat(auto-fit,minmax(60px,1fr)); gap:8px; } .trop.abcd .opt { margin:0; text-align:center; padding:12px 0; }
@@ -268,50 +273,51 @@
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="ld"><i>🎯</i>Luyện đề</button><button data-tab="kd"><i>🛡️</i>Kiểm đề</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=166"></script>
-<script src="tonghop.js?v=166"></script>
-<script src="exam.js?v=166"></script>
-<script src="gopy.js?v=166"></script>
-<script src="tachpdf.js?v=166"></script>
-<script src="gop.js?v=166"></script>
-<script src="noi.js?v=166"></script>
-<script src="parts.js?v=166"></script>
-<script src="pa.js?v=166"></script>
-<script src="kit.js?v=166"></script>
-<script src="kparts.js?v=166"></script>
-<script src="backup.js?v=166"></script>
-<script src="mock.js?v=166"></script>
-<script src="mocknoi.js?v=166"></script>
-<script src="thi.js?v=166"></script>
-<script src="uoe.js?v=166"></script>
-<script src="nghe2.js?v=166"></script>
-<script src="cap.js?v=166"></script>
-<script src="lib.js?v=166"></script>
-<script src="homnay.js?v=166"></script>
-<script src="vuotcap.js?v=166"></script>
-<script src="nhanh.js?v=166"></script>
-<script src="bando.js?v=166"></script>
-<script src="soloi.js?v=166"></script>
-<script src="ielts.js?v=166"></script>
-<script src="focus.js?v=166"></script>
-<script src="ieplus.js?v=166"></script>
-<script src="iemap.js?v=166"></script>
-<script src="iethat.js?v=166"></script>
-<script src="tudien.js?v=166"></script>
-<script src="tracuu.js?v=166"></script>
-<script src="dieuhuong.js?v=166"></script>
-<script src="huongdan.js?v=166"></script>
-<script src="toqt.js?v=166"></script>
-<script src="toeic.js?v=166"></script>
-<script src="tomap.js?v=166"></script>
-<script src="cbmap.js?v=166"></script>
-<script src="dangthi.js?v=166"></script>
-<script src="baihoc.js?v=166"></script>
-<script src="deai.js?v=166"></script>
-<script src="hoclai.js?v=166"></script>
-<script src="totron.js?v=166"></script>
-<script src="kiemde.js?v=166"></script>
-<script src="chandoan.js?v=166"></script>
-<script src="lotrinh.js?v=166"></script>
+<script src="app.js?v=167"></script>
+<script src="tonghop.js?v=167"></script>
+<script src="exam.js?v=167"></script>
+<script src="gopy.js?v=167"></script>
+<script src="tachpdf.js?v=167"></script>
+<script src="gop.js?v=167"></script>
+<script src="noi.js?v=167"></script>
+<script src="parts.js?v=167"></script>
+<script src="pa.js?v=167"></script>
+<script src="kit.js?v=167"></script>
+<script src="kparts.js?v=167"></script>
+<script src="backup.js?v=167"></script>
+<script src="mock.js?v=167"></script>
+<script src="mocknoi.js?v=167"></script>
+<script src="thi.js?v=167"></script>
+<script src="uoe.js?v=167"></script>
+<script src="nghe2.js?v=167"></script>
+<script src="cap.js?v=167"></script>
+<script src="lib.js?v=167"></script>
+<script src="homnay.js?v=167"></script>
+<script src="vuotcap.js?v=167"></script>
+<script src="nhanh.js?v=167"></script>
+<script src="bando.js?v=167"></script>
+<script src="soloi.js?v=167"></script>
+<script src="ielts.js?v=167"></script>
+<script src="focus.js?v=167"></script>
+<script src="ieplus.js?v=167"></script>
+<script src="iemap.js?v=167"></script>
+<script src="iethat.js?v=167"></script>
+<script src="tudien.js?v=167"></script>
+<script src="tracuu.js?v=167"></script>
+<script src="dieuhuong.js?v=167"></script>
+<script src="huongdan.js?v=167"></script>
+<script src="toqt.js?v=167"></script>
+<script src="toeic.js?v=167"></script>
+<script src="tomap.js?v=167"></script>
+<script src="cbmap.js?v=167"></script>
+<script src="dangthi.js?v=167"></script>
+<script src="baihoc.js?v=167"></script>
+<script src="deai.js?v=167"></script>
+<script src="hoclai.js?v=167"></script>
+<script src="totron.js?v=167"></script>
+<script src="trochoi.js?v=167"></script>
+<script src="kiemde.js?v=167"></script>
+<script src="chandoan.js?v=167"></script>
+<script src="lotrinh.js?v=167"></script>
 </body>
 </html>

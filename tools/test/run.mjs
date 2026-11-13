@@ -2126,6 +2126,24 @@ const R = await run(`(async () => {
       for (const q of TO.p5.filter(q => +q.id.slice(3) >= 119)) if (!q.lg) bad.push(q.id + ': thiếu lời giải');
       if (['press', 'blog', 'minutes'].some(k => !TO.p7.some(x => x.id === 't7-n-' + k && x.docs.length))) bad.push('loại văn bản chưa vào kho'); } catch (e) { bad.push('lỗi: ' + e.message); }
     out.push({ lv: 'cefr', id: 'C77', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'bổ sung TOEIC theo đề ETS: từ công sở ≥ 528 (44 chủ đề, không trùng), Part 5 câu từ vựng ≥ 40%, Part 7 đủ 12 loại văn bản mới (thông cáo, blog, phiếu giảm giá, hợp đồng, chính sách, mô tả công việc, thiệp mời, tờ rơi, biên bản họp, biểu đồ, biên lai, bảng giá) có lời giải' }); }
+  // v167 C79 🎮 trò chơi Reading (specs/018-toeic-tro-choi): câu lấy từ mọi đề thử trọn; Săn cặp = câu chứa đáp án có trong bài ↔ đáp án đúng; Họ từ = Part 5 dạng từ có nghĩa 4 phương án;
+  //   câu sai trong bài làm đề lên trước; lịch ôn riêng (sai → mai, đúng → giãn); không đụng điểm đề thử / thẻ học
+  { const bad = [], S1 = S; try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad(); TG_P = null;
+      const P = await tgPool(); if (P.pair.length < 250 || P.ho.length < 30) bad.push('ít mục: ' + P.pair.length + ' cặp, ' + P.ho.length + ' họ từ');
+      for (const x of P.pair) { if (!x.q.foot.includes(esc(x.L))) bad.push(x.id + ': câu chứa đáp án không có trong bài'); if (x.R !== x.q.a || /^\[\d\]$/.test(x.R) || x.q.qt === 'not') bad.push(x.id + ': cặp sai'); }
+      for (const x of P.ho) { if (!x.q.opts.every(o => x.q.lg.og[o])) bad.push(x.id + ': thiếu nghĩa phương án'); if (x.ask && x.q.opts.filter(o => x.pos[o] === x.ask).length !== 1) bad.push(x.id + ': loại từ hỏi không duy nhất'); }
+      if (tgPos('trạng từ: trực tiếp') !== 'trạng từ' || tgPos('V3: được chỉ đạo') !== 'V3 / V-ing' || tgPos('danh từ / động từ: x') !== null) bad.push('tgPos đọc sai loại từ');
+      const B = trB('de3'), q7 = B.Q.find(q => q.sec === 'p7' && P.pair.some(x => x.id === 'de3:' + q.n)), a = Array(200).fill('-'); a[q7.n - 1] = 'ABCD'[q7.opts.findIndex(o => o !== q7.a)];
+      S.to.tronA = { 'de3:R': { at: 1, a: a.join(''), ov: 2 } }; const P2 = await tgPool(), w = P2.pair.find(x => x.id === 'de3:' + q7.n);
+      if (!w || !w.w) bad.push('câu sai trong bài làm đề không được đánh dấu'); else if (tgPick(P2.pair, x => x.R)[0].id !== w.id) bad.push('câu sai trong đề không lên đầu');
+      const t = tgDay(); tgMark('pair', w, false); let z = S.to.tc.it[w.id]; if (z.b !== 0 || z.d !== t + 1) bad.push('sai không hẹn ngày mai');
+      z.t = t - 1; z.d = t; tgMark('pair', w, true); z = S.to.tc.it[w.id]; if (z.b !== 1 || z.d !== t + 1) bad.push('đúng không giãn lịch'); tgMark('pair', w, true); if (S.to.tc.it[w.id].d !== t + 3) bad.push('hộp 2 không hẹn 3 ngày');
+      if (S.to.tc.st.pair.rv !== 2 || S.to.tc.st.pair.q !== 1) bad.push('đếm dùng sai');
+      tgView(); await new Promise(r => setTimeout(r, 30)); const h = String($app.innerHTML); if (!h.includes('Săn cặp diễn đạt lại') || !h.includes('Họ từ') || !h.includes('cao hơn thực lực')) bad.push('màn trò chơi thiếu phần');
+      if (!String(tgRow()).includes('data-tgv')) bad.push('thiếu lối vào ở màn TOEIC');
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length) bad.push('trò chơi đụng điểm đề thử / thẻ học');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    S = S1; TR.B = {}; TR.D = {}; TG_P = null; out.push({ lv: 'cefr', id: 'C79', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎮 trò chơi Reading: Săn cặp (câu chứa đáp án có trong bài ↔ đáp án đúng, bỏ NOT / chèn câu) và Họ từ (nghĩa 4 phương án, loại từ hỏi duy nhất) lấy từ mọi đề thử; câu sai trong đề lên trước; sai hẹn mai, đúng giãn 1 → 3 ngày; không đụng điểm đề thử / thẻ học' }); }
   return out; })()`);
 // v166 C78 câu kho TOEIC không chép câu đề ETS (tools/kiem-ets.mjs; máy không có đề ETS thì bỏ qua = đạt)
 { const cp = await import('node:child_process'); let ok = true, msg = ''; try { msg = cp.execFileSync('node', [new URL('../kiem-ets.mjs', import.meta.url).pathname], { encoding: 'utf8' }).trim(); } catch (e) { ok = false; msg = String(e.stdout || e.message).trim().split('\n').slice(0, 4).join(' | '); }
