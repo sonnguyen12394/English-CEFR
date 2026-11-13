@@ -189,6 +189,16 @@ add('🧠 Câu suy luận Đọc / Nghe B1, B2', 'Đáp án có suy ra được 
       ...D.p5.map(x => row(id(x), `<b>${esc(x.id)}</b> Part 5 · ${esc(x.t)}<br>${esc(x.s)}<br>→ <b>${esc(x.a)}</b> <span class="mute">(${x.o.filter(o => o !== x.a).map(esc).join(' · ')})</span><br><span class="mute">${esc(x.why)}</span>`)),
       ...D.p6.map(x => row(id(x), `<b>${esc(x.id)}</b> Part 6 · ${esc(x.kind)} · ${esc(x.title)}<br>${esc(x.text)}` + x.gaps.map((g, i) => `<br>(${i + 1}) <b>${esc(g.a)}</b> <span class="mute">(✗ ${g.o.filter(o => o !== g.a).map(esc).join(' · ✗ ')}) ${esc(g.why)}</span>`).join(''))),
       ...D.p7.map(x => row(id(x), `<b>${esc(x.id)}</b> Part 7 · ${esc(x.kind)}<details><summary>${x.docs.length} văn bản</summary><p class="t">${x.docs.map(d => esc(d.title + '\n' + d.text)).join('\n\n')}</p></details>` + x.qs.map(q => li(q.q, q.a, q.w, q.ev)).join('')))]); } }
+// v166 bổ sung TOEIC theo đề ETS Đọc (specs/017-toeic-bo-sung-tu-ets): 228 từ công sở mới (19 chủ đề), 80 câu Part 5 (60 từ vựng), 12 bộ Part 7 loại văn bản mới
+{ const TV = J('content/toeic/vocab.json').topics, T5 = J('content/toeic/p5.json').items, TD = J('content/toeic/doc.json'), li = (q, a, w) => `<br>• ${esc(q)} → <b>${esc(a)}</b>${w && w.length ? ` <span class="mute">(✗ ${w.map(esc).join(' · ✗ ')})</span>` : ''}`;
+  const NT = ['events', 'reno', 'hr2', 'org', 'cust', 'prod', 'food', 'trip', 'pay', 'tech2', 'work', 'adj', 'adv', 'promo', 'arts', 'site', 'ship2', 'comm2', 'time'];
+  add('💼 TOEIC · 228 từ công sở mới (v166)', 'Danh sách từ lấy theo tần suất trong 8 đề ETS Đọc; nghĩa và câu ví dụ Claude tự viết. Kiểm: nghĩa đúng ngữ cảnh công sở, câu ví dụ tự nhiên, dùng đúng loại từ.',
+    TV.filter(t => NT.includes(t.id)).map(t => row('v166:' + t.id, `<b>${esc(t.t)}</b>` + t.w.map(([w, vi, ex]) => `<br>• <b>${esc(w)}</b>: ${esc(vi)} <span class="mute">— ${esc(ex)}</span>`).join(''))));
+  add('💼 TOEIC Đọc · Part 5 thêm 80 câu (v166)', 'Đề ETS ~40–50% câu Part 5 là từ vựng (kho cũ 21%). Kiểm: chỉ MỘT phương án đúng; giải thích đúng.',
+    T5.filter(x => +x.id.slice(3) >= 119).map(x => row('v166:' + x.id, `<span class="mute">${esc(x.t)}</span> ${esc(x.s)}<br>${x.o.map(o => o === x.a ? `<b>${esc(o)}</b>` : esc(o)).join(' · ')}<br><span class="mute">${esc(x.why)}</span>`)));
+  add('💼 TOEIC Đọc · Part 7 loại văn bản mới (v166)', 'Thông cáo báo chí, blog, phiếu giảm giá, hợp đồng, chính sách, mô tả công việc, thiệp mời, tờ rơi, biên bản họp, biểu đồ, biên lai, bảng giá. Kiểm: đáp án duy nhất, câu đối chiếu nhiều văn bản tính đúng.',
+    TD.p7.filter(x => x.id.startsWith('t7-n-')).map(x => row('v166:' + x.id, `<b>${esc(x.id)}</b> <span class="mute">${esc(x.kind)}</span>${x.docs.map(d => `<p class="t"><b>${esc(d.title)}</b>\n${esc(d.text)}</p>`).join('')}` + x.qs.map(q => li(q.q, q.a, q.w)).join(''))));
+}
 const n = sec.reduce((a, s) => a + (s.match(/class="r"/g) || []).length, 0);
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bảng kiểm nội dung</title>
 <style>:root{--bg:#fff;--fg:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--card:#f7f7f9;--ok:#1f8a3b;--bad:#c62828}
