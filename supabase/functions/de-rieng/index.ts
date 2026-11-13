@@ -1,5 +1,5 @@
 // v161 Đề riêng có mã (Đề 9 trở đi: tài liệu ETS của người sáng lập, KHÔNG công khai). Bảng de_rieng / de_rieng_ma / de_rieng_thu / de_rieng_key chỉ máy chủ đọc.
-// Vào (app, JWT): { act: 'list' } → [{ id, t }] (chỉ tên đề) · { act: 'get', id, ma } → { data } khi sha256(ma) có trong de_rieng_ma.
+// Vào (app, JWT): { act: 'list' } → [{ id, t, at }] (chỉ tên đề) · { act: 'get', id, ma } → { data } khi sha256(ma) có trong de_rieng_ma.
 //   Chặn đoán dò: một IP sai ≥ 5 lần / giờ, hoặc cả app sai ≥ 30 lần / giờ → 429. Mã phải ≥ 8 ký tự.
 // Vào (Claude, header x-de-key = khoá tạm 24 giờ trong de_rieng_key): { act: 'nap', id, t, data } ghi / thay đề.
 import { createClient } from "npm:@supabase/supabase-js@2.45.4";
@@ -16,7 +16,7 @@ Deno.serve(async (req) => {
       if (!/^de\d+$/.test(id) || !body.data || typeof body.data !== "object") return out({ error: "Thiếu đề." }, 400);
       const { error } = await db.from("de_rieng").upsert({ id, t: String(body.t || id).slice(0, 80), data: body.data, at: new Date().toISOString() }); return error ? out({ error: error.message }, 500) : out({ ok: true }); }
     const auth = req.headers.get("authorization") || ""; const { data: u } = await db.auth.getUser(auth.replace(/^Bearer\s+/i, "")); if (!u || !u.user) return out({ error: "Cần đăng nhập." }, 401);
-    if (act === "list") { const { data } = await db.from("de_rieng").select("id,t").order("id"); return out({ rows: data || [] }); }
+    if (act === "list") { const { data } = await db.from("de_rieng").select("id,t,at").order("id"); return out({ rows: data || [] }); }
     if (act === "get") { const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim().slice(0, 60) || "?", h1 = new Date(Date.now() - 36e5).toISOString();
       const { count: nIp } = await db.from("de_rieng_thu").select("id", { count: "exact", head: true }).eq("ok", false).eq("ip", ip).gt("at", h1);
       const { count: nAll } = await db.from("de_rieng_thu").select("id", { count: "exact", head: true }).eq("ok", false).gt("at", h1);
@@ -25,8 +25,8 @@ Deno.serve(async (req) => {
       if (ma.length >= 8) { const { data: m } = await db.from("de_rieng_ma").select("h").eq("h", await sha(ma)).maybeSingle(); ok = !!m; }
       await db.from("de_rieng_thu").insert({ ip, ok });
       if (!ok) return out({ error: "Sai mã." }, 403);
-      const { data: d } = await db.from("de_rieng").select("id,t,data").eq("id", id).maybeSingle(); if (!d) return out({ error: "Không có đề này." }, 404);
-      return out({ id: d.id, t: d.t, data: d.data }); }
+      const { data: d } = await db.from("de_rieng").select("id,t,data,at").eq("id", id).maybeSingle(); if (!d) return out({ error: "Không có đề này." }, 404);
+      return out({ id: d.id, t: d.t, data: d.data, at: d.at }); }
     return out({ error: "Lệnh lạ." }, 400);
   } catch (e) { return out({ error: "Lỗi máy chủ." }, 500); }
 });
