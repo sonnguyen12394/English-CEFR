@@ -6,4 +6,5 @@
 - [x] T004 Lối vào ở màn TOEIC + CSS
 - [x] T005 Test C79; Chromium khổ iPhone SE sáng / tối: không lỗi trang, không tràn ngang, nút ≥ 44 px
 - [x] T007 v168: chọn đề, chơi hết đề, 4 trò mới, test C79 viết lại
+- [x] T008 v169: hành trình Chinh phục đề, test C79 viết lại
 - [ ] T006 Kiểm trên iPhone (người sáng lập)
