@@ -3,7 +3,7 @@
 ## Cách làm
 - **Tệp mới `tachpdf.js`** (nạp sau gopy.js): màn ✂️ Tách PDF (`tpView(file, back)`), 3 thẻ Range · Pages · Size giống ảnh (thẻ chọn có ✓),
   danh sách kết quả, ⬇️ từng tệp, ⬇️ .zip, 📤 Gửi kèm góp ý.
-- **Thư viện**: pdf-lib 1.17.1 (MIT) qua cdnjs, nạp lười (`tpLib`). Đọc tệp `PDFDocument.load(buf, { ignoreEncryption: false, updateMetadata: false })`,
+- **Thư viện**: pdf-lib 1.17.1 (MIT) để sẵn ở `vendor/pdf-lib.min.js` (không phụ thuộc CDN, test chạy được), nạp lười (`tpLib`). Đọc tệp `PDFDocument.load(buf, { ignoreEncryption: false, updateMetadata: false })`,
   mỗi tệp kết quả `create()` + `copyPages` + `save({ useObjectStreams: true })`; xong tệp nào giải phóng tệp đó (`await` giữa các tệp để trang thở).
 - **Range**: Custom (danh sách khoảng, gộp) · Fixed (mỗi N trang). **Pages**: tất cả / chọn ("1, 4, 7-9", `tpParse`).
 - **Size**: tham lam theo trang: thêm dần trang, ước cỡ bằng lưu thử; nhảy đôi rồi tìm nhị phân số trang để mỗi tệp ≤ N (≤ ~log2 lần lưu mỗi tệp).

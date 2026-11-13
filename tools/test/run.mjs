@@ -2266,7 +2266,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       const big = mk(1, 'x.pdf'); Object.defineProperty(big, 'size', { value: GP_MAX + 1 }); await gpPick(big); if (GY.pdf || !/quá lớn/.test(GY.msg)) bad.push('nhận tệp quá cỡ');
       // 5) ô hiện cỡ, số phần, chỗ trống
       GY.pdf = { f, name: f.name, size: f.size, n: 3, info: { used: 100 * 1048576, cap: 800 * 1048576 } }; GY.up = null; GY.busy = false;
-      if (!/60 MB · chia 3 phần để tải · kho còn 700 MB/.test(gpBox())) bad.push('ô PDF thiếu thông tin: ' + gpBox().replace(/<[^>]+>/g, ' ').slice(0, 120));
+      if (!/60 MB · tải lên 3 lượt · kho còn 700 MB/.test(gpBox())) bad.push('ô PDF thiếu thông tin: ' + gpBox().replace(/<[^>]+>/g, ' ').slice(0, 120));
     } catch (e) { bad.push('lỗi: ' + e.message); }
     sb.functions.invoke = SB0; globalThis.fetch = F0; GY.pdf = null; GY.msg = ''; gpRec(null); return bad; })()`);
   R.push({ lv: 'cefr', id: 'C72', ok: !C72.length, msg: C72.length ? C72.slice(0, 8).join(' | ') : '📄 góp ý kèm PDF lớn: cắt 25 MB đúng cỡ + SHA-256, rớt mạng tự thử lại, mất mạng giữ tiến độ và tải tiếp chỉ phần thiếu, kho đầy chặn trước khi tải, chỉ nhận PDF ≤ 450 MB' }); }
@@ -2375,5 +2375,64 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     Object.assign(GD, G0); sb.functions.invoke = SB0; GY.pdf = null; GY.msg = ''; gpRec(null); return bad; })()`);
   bad.push(...P);
   R.push({ lv: 'cefr', id: 'C75', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '📄 Từ Google Drive: máy chủ (Range đúng, từ chối Docs / thùng rác / Drive bỏ Range, không lọt mã vào lỗi) + trang (chép trọn, thử lại phần lỗi mạng, hết hạn mã giữ tiến độ, chép tiếp phần thiếu, kho đầy, mã không vào localStorage)' }); }
+// v163 C76 ✂️ Tách PDF theo trang trong góp ý (specs/016-gopy-tach-pdf): 3 chế độ ra đúng trang, Theo cỡ ≤ mức, .zip đọc được, lỗi gõ sai, gửi kèm, dấu tải lại trang, ⬇️ Tải PDF (lệnh tai)
+{ const fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname; ctx.TextEncoder = TextEncoder; ctx.TextDecoder = TextDecoder; ctx.File = File; ctx.crypto.subtle = globalThis.crypto.subtle; run(fs.readFileSync(root + 'vendor/pdf-lib.min.js', 'utf8'));
+  const bad = await run(`(async () => { const bad = [], { PDFDocument, StandardFonts } = PDFLib, d0 = await PDFDocument.create(), font = await d0.embedFont(StandardFonts.Helvetica);
+    for (let i = 0; i < 12; i++) d0.addPage(new Array(300, 300)).drawText('Trang ' + (i + 1) + ' ' + Array.from({ length: 1500 }, (_, j) => 'abcdefghijklmnopqrstuvwxyz'[(j * 7919 + i * 104729 + (j * j) % 97) % 26]).join(''), { x: 10, y: 280, size: 6, font, maxWidth: 280 });
+    const f = new File([await d0.save()], 'Sach mau.pdf', { type: 'application/pdf' }), SB0 = sb.functions.invoke, F0 = fetch, S0 = tpSave;
+    const pages = async o => (await PDFDocument.load(new Uint8Array(await o.blob.arrayBuffer()))).getPageCount();
+    try {
+      sb.functions.invoke = async () => ({ data: { used: 0, cap: 800 * 1048576 } });
+      GY.open = true; GY.pdf = { f, name: f.name, size: f.size, n: 1, info: null };
+      if (!/data-tp="open"/.test(gpBox())) bad.push('ô 📄 thiếu nút ✂️ Tách PDF');
+      if (/chia \\d+ phần/.test(gpBox())) bad.push('còn chữ "chia N phần" dễ nhầm là tách');
+      await tpOpen(); if (TP.n !== 12 || !GY.tach || !/Cỡ gốc/.test(tpHtml()) || !/12 trang/.test(tpHtml())) bad.push('mở công cụ: ' + TP.n + ' ' + TP.err);
+      if (!/data-tp="mode" data-v="range"[^>]*aria-pressed="true"/.test(tpHtml())) bad.push('mặc định phải là Khoảng trang, có aria-pressed');
+      const go = async o => { Object.assign(TP, o); TP.out = []; TP.err = ''; await tpSplit(); return TP.out; };
+      let o = await go({ mode: 'range', rsub: 'custom', ranges: [[1, 3], [6, 9]], merge: false });
+      if (o.length !== 2 || await pages(o[0]) !== 3 || await pages(o[1]) !== 4 || o[1].name !== 'Sach mau_trang-6-9.pdf') bad.push('Khoảng: ' + o.map(x => x.name + ':' + x.pages));
+      o = await go({ merge: true }); if (o.length !== 1 || await pages(o[0]) !== 7 || o[0].name !== 'Sach mau_trang-1-3,6-9.pdf') bad.push('Khoảng gộp: ' + o.map(x => x.name));
+      o = await go({ rsub: 'fixed', every: 5 }); if (o.map(x => x.pages).join() !== '5,5,2') bad.push('Mỗi 5 trang: ' + o.map(x => x.pages));
+      o = await go({ mode: 'pages', psub: 'all' }); if (o.length !== 12 || await pages(o[11]) !== 1) bad.push('Mọi trang: ' + o.length);
+      o = await go({ psub: 'sel', sel: '2, 5-6, 2', pmerge: false }); if (o.map(x => x.name).join() !== 'Sach mau_trang-2.pdf,Sach mau_trang-5.pdf,Sach mau_trang-6.pdf') bad.push('Chọn trang: ' + o.map(x => x.name));
+      o = await go({ pmerge: true }); if (o.length !== 1 || await pages(o[0]) !== 3) bad.push('Chọn trang gộp: ' + o.length);
+      const one = (await go({ mode: 'pages', psub: 'all' }))[11].size;
+      o = await go({ mode: 'size', szu: 'KB', szv: Math.ceil(one * 2.5 / 1024) }); const L = tpLimit(), tot = o.reduce((s, x) => s + x.pages, 0);
+      if (tot !== 12 || o.some(x => x.size > L && !x.big) || o.length < 3 || o.length > 8) bad.push('Theo cỡ: ' + o.map(x => x.pages + ':' + x.size) + ' ≤ ' + L);
+      o = await go({ szv: 1 }); if (!o.some(x => x.big) || !/vượt/.test(tpHtml())) bad.push('Theo cỡ: trang lớn hơn mức phải thành tệp riêng có ⚠️');
+      for (const [x, re] of [[{ mode: 'pages', psub: 'sel', sel: '0' }, /không có/], [{ sel: '9-3' }, /không có/], [{ sel: 'abc' }, /không phải số/], [{ sel: '13' }, /12 trang/], [{ mode: 'range', rsub: 'custom', ranges: [[5, 2]] }, /không hợp lệ/], [{ mode: 'size', szv: 0 }, /từ 1 KB/]])
+        { const r = await go(x); if (r.length || !re.test(TP.err)) bad.push('gõ sai ' + JSON.stringify(x) + ' → ' + TP.err); }
+      o = await go({ mode: 'range', rsub: 'fixed', every: 4 });
+      const z = new Uint8Array(await tpZip(o).arrayBuffer()), dv = new DataView(z.buffer), eo = z.length - 22;
+      if (dv.getUint32(0, true) !== 0x04034b50 || dv.getUint32(eo, true) !== 0x06054b50 || dv.getUint16(eo + 10, true) !== 3) bad.push('zip: chữ ký / số tệp sai');
+      const n0 = dv.getUint16(26, true), body = z.slice(30 + n0, 30 + n0 + o[0].size);
+      if (tpCrc(body) !== dv.getUint32(14, true) || new TextDecoder().decode(z.slice(30, 30 + n0)) !== o[0].name) bad.push('zip: CRC / tên tệp đầu sai');
+      if (tpCrc(new TextEncoder().encode('123456789')) !== 0xCBF43926) bad.push('CRC32 sai');
+      globalThis.ZIPB = Array.from(z);
+      if (TP_RUN && localStorage.getItem(TP_RUN)) bad.push('tách xong còn dấu đang tách');
+      TP.crash = { name: 'lon.pdf', size: 300 * 1048576 }; if (!/tải lại khi tách/.test(gpPickBox())) bad.push('thiếu câu báo lần trước bị tải lại'); TP.crash = null;
+      await tpSend(1); await new Promise(r => setTimeout(r, 20));
+      if (GY.tach || !GY.pdf || GY.pdf.name !== o[1].name || GY.pdf.size !== o[1].size) bad.push('Gửi kèm góp ý: ' + JSON.stringify(GY.pdf && GY.pdf.name));
+      // tệp lớn: hỏi trước khi đọc
+      const big = { name: 'to.pdf', size: 200 * 1048576, arrayBuffer: async () => { throw new Error('không được đọc'); } };
+      GY.pdf = { f: big, name: 'to.pdf', size: big.size, n: 8 }; GY.tach = false; await tpOpen(); if (!/Vẫn thử tách/.test(tpHtml()) || TP.doc) bad.push('tệp > 150 MB phải hỏi trước');
+      // ⬇️ Tải PDF: lệnh tai, kiểm SHA-256, ghép, lưu
+      const pa = new Blob(['%PDF-1.4 phan1']), pb = new Blob(['phan2 %%EOF']), sha = await gpSha(pa); let saved = null, calls = [];
+      tpSave = (b, n) => { saved = { b, n }; };
+      sb.functions.invoke = async (nm, { body }) => { calls.push(body); return { data: { urls: ['u0', 'u1'], parts: [{ size: pa.size, sha }, { size: pb.size, sha: null }], name: 'Bai.pdf', size: pa.size + pb.size } }; };
+      fetch = async u => ({ ok: true, blob: async () => u === 'u0' ? pa : pb });
+      GPS.busy = null; await gpsDown('P1'); await new Promise(r => setTimeout(r, 20));
+      if (!saved || saved.n !== 'Bai.pdf' || saved.b.size !== pa.size + pb.size || calls[0].act !== 'tai') bad.push('⬇️ Tải về ở Đã gửi: ' + JSON.stringify(calls));
+      saved = null; fetch = async u => ({ ok: true, blob: async () => new Blob(['hong']) }); GA.dlb = null; gaDown('P1'); await new Promise(r => setTimeout(r, 50));
+      if (saved || !/hỏng/.test(GA.dl.P1)) bad.push('phần sai SHA-256 phải báo hỏng, không lưu');
+      GA.pdf = { P1: { id: 'P1', st: 'du', n: 2 } }; if (!/data-g="pdfdl"/.test(gpCard(5, { id: 'P1', name: 'Bai.pdf', size: 10 }))) bad.push('🗂 Quản lý góp ý thiếu ⬇️ Tải PDF');
+      GPS.rows.P2 = { id: 'P2', st: 'du', size: 10, n: 1 }; if (!/data-g="psdl"/.test(gpsCard({ kind: 'y', txt: 'a', pdf: { id: 'P2', name: 'x.pdf', size: 10, n: 1 } }))) bad.push('thẻ Đã gửi thiếu ⬇️ Tải về');
+    } catch (e) { bad.push('lỗi ném ra: ' + e.message + ' ' + (e.stack || '').split('\\n')[1]); }
+    sb.functions.invoke = SB0; fetch = F0; tpSave = S0; GY.open = false; GY.tach = false; GY.pdf = null; GY.msg = ''; return bad; })()`);
+  const ts = fs.readFileSync(root + 'supabase/functions/gopy-pdf/index.ts', 'utf8'), it = ts.indexOf('act === "tai"'), iu = ts.indexOf('if (r.uid !== user.id) return out({ error: "Không phải tệp của bạn." }, 403);\n    const gRow');
+  if (it < 0 || iu < 0 || it > iu || !/act === "tai"[\s\S]{0,300}anon && r\.uid !== user\.id/.test(ts)) bad.push('máy chủ: lệnh tai phải chặn người ẩn danh tải tệp người khác, đặt trước luật "tệp của bạn"');
+  try { const zp = '/tmp/c76-' + process.pid + '.zip'; fs.writeFileSync(zp, Buffer.from(ctx.ZIPB || [])); const cp = await import('node:child_process');
+    const out = cp.execSync('unzip -t ' + zp + ' 2>&1 || true').toString(); fs.unlinkSync(zp); if (!/No errors detected/.test(out) && !/not found/.test(out)) bad.push('unzip -t: ' + out.slice(0, 120)); } catch (e) {}
+  R.push({ lv: 'cefr', id: 'C76', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '✂️ Tách PDF: Khoảng / Mỗi N trang / Mọi trang / Chọn trang (+ gộp) đúng trang, Theo cỡ ≤ mức (trang quá cỡ tách riêng ⚠️), .zip qua unzip -t, gõ sai báo rõ, gửi kèm thành PDF góp ý, tệp > 150 MB hỏi trước, ⬇️ Tải PDF (lệnh tai, kiểm SHA-256) ở Đã gửi và 🗂 Quản lý góp ý' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
