@@ -329,7 +329,7 @@ const R = await run(`(async () => {
     user = { id: 'anon-1234567890', is_anonymous: true }; tryv('dữ liệu ẩn danh', () => backup()); if (!String($app.innerHTML).includes('Tài khoản riêng của máy này')) bad.push('thiếu ô tài khoản riêng');
     if (/data-g="admin"/.test(gyHomeInner() + bkTools())) bad.push('người ẩn danh thấy Quản lý góp ý');
     user = { id: 'chung', email: AUTO.email }; tryv('dữ liệu chung', () => backup()); if (!String($app.innerHTML).includes('data-bk="split"')) bad.push('tài khoản chung thiếu nút tách máy');
-    if (/data-g="admin"/.test(gyHomeInner()) || !/data-g="admin"/.test(bkTools())) bad.push('v136: Quản lý góp ý phải ở 🛠 Công cụ người sáng lập, không ở khối Góp ý'); user = u0;
+    if (!/data-g="admin"/.test(gyHomeInner()) || !/data-g="admin"/.test(bkTools())) bad.push('v162: Quản lý góp ý phải ở cả khối Góp ý và 🛠 Công cụ người sáng lập'); user = u0;
     if (gaKind('sai') !== '⚑ Câu sai') bad.push('thiếu loại góp ý ⚑ Câu sai');
     const s0 = ovStat('tv', 'pre'); if (!s0 || s0.nl !== Math.ceil(levelWords('pre').length * GATE_LEARN / 100) || !(s0.nm > 0)) bad.push('còn thiếu sai: ' + JSON.stringify(s0 && [s0.nl, s0.nm]));
     if (!ovNeedLine(s0, true).includes('từ chưa học')) bad.push('thẻ phần thiếu dòng còn thiếu');
@@ -1464,7 +1464,7 @@ const R = await run(`(async () => {
     tryv('dữ liệu', () => backup()); let h = H(); const ti = h.indexOf('🛠 Công cụ người sáng lập');
     if (ti < 0 || ['data-g="admin"', 'data-bk="miss"', 'data-bk="paval"', 'data-bk="kiem"', 'data-bk="edit"', 'data-bk="set"'].some(k => h.indexOf(k) < ti)) bad.push('công cụ người sáng lập chưa gom vào 🛠 (gập, cuối màn Dữ liệu)');
     if (!h.includes('data-bk="down"') || !h.includes('data-bk="paste"') || h.indexOf('data-bk="down"') > ti) bad.push('sao lưu của người học phải ở trên, ngoài 🛠');
-    if (/data-g="admin"/.test(gyHomeInner())) bad.push('khối Góp ý còn nút quản lý');
+    if (!/data-g="admin"/.test(gyHomeInner())) bad.push('v162: khối Góp ý thiếu nút quản lý (tài khoản chung)');
     await tryA('Tôi rỗng', () => minhView()); h = H(); if (/Sổ lỗi của tôi|Kết quả thi thật|data-errp/.test(h) || !h.includes('📌 Sổ từ') || !h.includes('data-mapv="lt"') || !h.includes('data-hdv') || !h.includes('data-ct="data"')) bad.push('👤 Tôi người mới: còn hộp rỗng (sổ lỗi / thi thật) hoặc thiếu lối chính');
     tryv('Tra cứu', () => dict()); if (String(document.getElementById('dl').innerHTML).includes('Cẩm nang')) bad.push('Tra cứu còn Cẩm nang');
     // ngày 10: xem tổng kết, không làm bài kiểm tra
