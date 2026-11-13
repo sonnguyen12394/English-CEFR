@@ -2117,7 +2117,19 @@ const R = await run(`(async () => {
         const nolg = trB('de1').Q.find(q => !q.lg && q.why && /^p[5-7]$/.test(q.sec)); if (nolg) { trRv('de1', nolg.n); h = String($app.innerHTML); if (h.includes('class="rvgt"') || !h.includes(esc(nolg.why))) bad.push('câu chưa có lời giải không còn hiện why'); }
       } catch (e) { bad.push('lỗi: ' + e.message); }
       S = S1; TR.B = {}; TR.D = {}; TR.k = 1; out.push({ lv: 'cefr', id: 'C71', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '📋 lời giải chi tiết: ' + nlg + ' câu có lg đủ nghĩa 4 phương án, vì sao nhắc đáp án, dịch; thẻ hiện ở màn xem lại; câu chưa có lời giải vẫn hiện giải thích ngắn' }); }
+  // v166 C77 bổ sung TOEIC theo đề ETS (specs/017-toeic-bo-sung-tu-ets): từ công sở ≥ 528 (≥ 44 chủ đề), Part 5 câu từ vựng ≥ 40%, Part 7 có 12 loại văn bản mới làm được, câu mới có lời giải
+  { const bad = []; try { await toLoad(); const nv = TO.voc.reduce((t, x) => t + x.w.length, 0); if (nv < 528 || TO.voc.length < 44) bad.push('từ công sở chưa đủ: ' + nv + ' / ' + TO.voc.length + ' chủ đề');
+      const w = TO.voc.flatMap(t => t.w.map(x => x[0])); if (new Set(w).size !== w.length) bad.push('từ công sở trùng');
+      const voc = TO.p5.filter(q => q.t === 'voc').length; if (voc / TO.p5.length < 0.4) bad.push('Part 5 câu từ vựng ' + voc + '/' + TO.p5.length);
+      const NEW = ['t7-n-press', 't7-n-blog', 't7-n-coupon', 't7-n-contract', 't7-n-policy', 't7-n-jobdesc', 't7-n-invite', 't7-n-flyer', 't7-n-minutes', 't7-n-chart', 't7-n-receipt', 't7-n-price'];
+      for (const id of NEW) { const x = TO.p7.find(y => y.id === id); if (!x) { bad.push('thiếu bộ ' + id); continue; } const qs = toP7Qs(x); if (qs.some(q => !q.opts.includes(q.a) || q.opts.length !== 4 || !q.lg)) bad.push(id + ': câu hỏng'); }
+      for (const q of TO.p5.filter(q => +q.id.slice(3) >= 119)) if (!q.lg) bad.push(q.id + ': thiếu lời giải');
+      if (['press', 'blog', 'minutes'].some(k => !TO.p7.some(x => x.id === 't7-n-' + k && x.docs.length))) bad.push('loại văn bản chưa vào kho'); } catch (e) { bad.push('lỗi: ' + e.message); }
+    out.push({ lv: 'cefr', id: 'C77', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'bổ sung TOEIC theo đề ETS: từ công sở ≥ 528 (44 chủ đề, không trùng), Part 5 câu từ vựng ≥ 40%, Part 7 đủ 12 loại văn bản mới (thông cáo, blog, phiếu giảm giá, hợp đồng, chính sách, mô tả công việc, thiệp mời, tờ rơi, biên bản họp, biểu đồ, biên lai, bảng giá) có lời giải' }); }
   return out; })()`);
+// v166 C78 câu kho TOEIC không chép câu đề ETS (tools/kiem-ets.mjs; máy không có đề ETS thì bỏ qua = đạt)
+{ const cp = await import('node:child_process'); let ok = true, msg = ''; try { msg = cp.execFileSync('node', [new URL('../kiem-ets.mjs', import.meta.url).pathname], { encoding: 'utf8' }).trim(); } catch (e) { ok = false; msg = String(e.stdout || e.message).trim().split('\n').slice(0, 4).join(' | '); }
+  R.push({ lv: 'cefr', id: 'C78', ok, msg: 'không chép đề ETS: ' + msg }); }
 // v141 C58 chống đề trùng (hàm thuần của máy chủ de-ai, chạy thẳng bằng node)
 { const T = await import('../../supabase/functions/de-ai/trung.js'), C = await import('../../supabase/functions/de-ai/chude.js'), bad = [];
   const A = 'The Silk Road was not a single road but a network of routes that linked China with Central Asia, India, Persia and the Mediterranean. Merchants rarely travelled the whole length; instead goods passed from hand to hand across many markets. Silk, spices, paper and glass moved along these routes, and so did ideas and inventions. Historians now argue that the exchange of knowledge was at least as important as the exchange of goods.';
