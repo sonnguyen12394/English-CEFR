@@ -106,3 +106,14 @@ Người sáng lập: "bỏ hết những luật cũ… cần có đủ kiến t
 - Bỏ (v169): chuỗi 6 trò chữa câu, luật "ngày sau mới đúng", màn trò riêng.
 - Đo (mốc 2/2027, ý kiến của Claude): người học làm đề CHƯA chơi; tỉ lệ đúng ở dạng câu đã có nhiều câu 🟦 phải cao hơn dạng ít 🟦. Không cao hơn thì đổi thử thách.
 - Giới hạn: ghép nghĩa vẫn nhớ thuộc được cặp từ – nghĩa của chính câu (đó là từ vựng, mang sang đề khác được). Chưa có câu MỚI cùng kiến thức; Đề 1–2 không có 🔎 (Part 7 kho chưa có `ev`), 58 câu chỉ có 1 thử thách.
+
+## Bổ sung v172: ⚔️ Boss · 👾 quái · 🏝 đảo (14/11/2026)
+
+Người sáng lập: "các trò chơi thiếu sáng tạo và nhàm chán, nghĩ cách làm lại", rồi "tự tính làm". Gốc (Claude đoán, chưa có dữ liệu): vòng chơi là bài kiểm tra (đọc → chọn → đúng / sai), không thắng / thua, không nhịp, phần thưởng chỉ là số.
+
+- **FR-024** Lượt 10 câu = trận Boss (emoji mỗi đề): câu và phương án như đề thật; 3 tim (sai 3 = thua, câu còn lại chưa làm); combo ×1 → ×3 khi đúng liền; chí mạng ×2 khi đúng trong nhịp đề thật (Part 5 ~22 giây, Part 6 ~34, Part 7 ~61); chọn dưới 3 giây không tính combo / chí mạng (chặn đoán bừa). Máu Boss = 20 × số câu: đúng hết không combo thì Boss chạy thoát.
+- **FR-025** Câu sai = 👾 quái; hạ quái = đọc bí kíp (lời giải) rồi đánh lại, phương án đổi chỗ (FR-020). Đúng = 🌱.
+- **FR-026** Đảo 100 ô hiện sẵn ở màn chính: ☁️ chưa làm · 👾 quái · 🌱 đúng · 🌳 hiểu · 🐛 cây đến hạn ôn · 🏡 nhớ chắc. Vun cây = thử thách kiến thức (FR-021), cứu cây khỏi sâu = ôn (FR-022).
+- **FR-027** Hiệu ứng CSS (Boss rung, ô kết quả nảy, pháo giấy, thanh giờ), tắt được ở "Cách chơi", tự tắt khi máy bật giảm chuyển động. Đúng thì tự sang câu sau sau 1,2 giây (khi bật hiệu ứng).
+- Luật ⭐ / 🟦 và dữ liệu không đổi so với v171. Trận Boss ghi vào hành trình, không ghi 📋 bài làm đề thử.
+- Mốc dừng: người sáng lập chơi 10 phút trên iPhone; vẫn thấy nhàm thì hỏi cụ thể chỗ nào trước khi làm lại lần nữa.

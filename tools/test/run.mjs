@@ -2140,6 +2140,15 @@ const R = await run(`(async () => {
       const de = 'de3', B = trB(de), J = () => S.to.tc.j[de], fire = (sel, ds = {}) => $app.onclick({ target: { closest: s => s === sel ? { dataset: ds } : null } }), btns = at => [...String($app.innerHTML).matchAll(new RegExp('data-' + at + '="([0-9]+)">([^<]*)<', 'g'))].map(m => [m[1], m[2]]);
       S.to.tc = { de };
       let L = tgJState(de), nx = tgJNext(de, L); if (L.length !== 100 || L.some(c => c.st !== 'chua') || nx.k !== 'thi' || !/^cR[0-9]+$/.test(nx.id)) bad.push('hành trình mới: phải là thi lượt Đọc đầu tiên');
+      // v172 ⚔️ trận Boss: câu theo thứ tự đề; đúng = 🌱 (ghi ⭐), combo, chí mạng; sai = mất tim + 👾; 3 tim hết là thua, câu còn lại vẫn chưa làm
+      { S.to.tc.nofx = 1; const bc = nx.cs; if (!bc || bc.length !== nx.n) bad.push('trận Boss phải có đủ câu của lượt');
+        tgBattle(de, bc); if (!$app.innerHTML.includes('tgboss') || btns('tgf').length !== 4) bad.push('màn Boss thiếu phần');
+        const pick = (q, ok) => fire('[data-tgf]', { tgf: String(ok ? q.opts.indexOf(q.a) : q.opts.findIndex(o => o !== q.a)) });
+        pick(bc[0].q, true); if (!$app.innerHTML.includes('💥')) bad.push('đúng phải đánh trúng Boss'); fire('[data-tgn]');
+        for (let i = 1; i <= 3; i++) { pick(bc[i].q, false); fire('[data-tgn]'); }
+        if (!$app.innerHTML.includes('Thua trận')) bad.push('sai 3 câu phải thua trận');
+        let Lb = tgJState(de); if (Lb.find(c => c.n === bc[0].n).st !== 'ok' || Lb.filter(c => c.st === 'sai').length !== 3 || Lb.find(c => c.n === bc[4].n).st !== 'chua') bad.push('trận Boss ghi sai trạng thái câu');
+        if (tgJNext(de, Lb).k !== 'fix') bad.push('thua trận phải hạ quái trước'); S.to.tc = { de }; }
       // lượt đầu: câu đầu sai, còn lại đúng
       const Q = B.Q.filter(q => q.ck === nx.c.k), a = Array(200).fill('-'); Q.forEach((q, i) => { a[q.n - 1] = 'ABCD'[i === 0 ? q.opts.findIndex(o => o !== q.a) : q.opts.indexOf(q.a)]; });
       S.to.tronA = { [de + ':' + nx.id]: { at: Date.now() - 1000, a: a.join(''), ov: 2 } };
@@ -2171,7 +2180,7 @@ const R = await run(`(async () => {
       for (const c of L) { J().c[c.n] = { s: 'ok', at: Date.now() + 9000 }; if (c.ks.length) J().h[c.n] = { at: Date.now() + 9500, lv: 4, d: 0, k: c.ks[0] }; }
       nx = tgJNext(de, tgJState(de)); if (nx.k !== 'win') bad.push('đúng hết + hiểu hết phải là chinh phục xong (' + nx.k + ')');
       TG_P = P; await tgView(); let h = String($app.innerHTML);
-      if (!h.includes('Chinh phục đề') || (h.match(/data-tgde=/g) || []).length !== ids.length || !h.includes('Đúng 100/100') || !h.includes('Hiểu ') || !h.includes('data-tgj="full"') || (h.match(/class="trc /g) || []).length !== 100) bad.push('màn hành trình thiếu phần');
+      if (!h.includes('Chinh phục đề') || (h.match(/data-tgde=/g) || []).length !== ids.length || !h.includes('Đúng 100/100') || !h.includes('Hiểu ') || !h.includes('data-tgj="full"') || (h.match(/class="tgt /g) || []).length !== 100) bad.push('màn hành trình thiếu phần');
       if (!String(tgRow()).includes('Chinh phục đề') || !String(trResOne).includes('TG_J')) bad.push('thiếu lối vào / nút về hành trình sau lượt thi');
       // v170: đề riêng (chỉ phần Đọc, câu 101–200, giữ thứ tự phương án) vào được hành trình; trLkAll nhận hàm quay về
       { const F = JSON.parse(JSON.stringify(Object.assign({}, TR.D.de5, { id: 'de99', t: 'Đề 99 · thử', p1: [], p2: [], p3: [], p4: [], off: 100, keep: 1, only: 'R' }))); delete F.ord; for (const x of F.p5) x.o = x.o || [x.a, ...(x.w || [])]; for (const x of F.p6) for (const g of x.gaps) g.o = g.o || [g.a, ...(g.w || [])]; for (const x of F.p7) for (const q of x.qs) q.o = q.o || [q.a, ...(q.w || [])]; TR.D.de99 = F; TO.tron.push({ id: 'de99', t: 'Đề 99 · thử', f: 'rieng:de99', only: 'R' }); TR.B = {};
