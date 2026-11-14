@@ -4008,7 +4008,7 @@
      "w": [
       "The early registration rate",
       "The student rate",
-      "The regular rate without a discount"
+      "The early rate with group savings"
      ],
      "x": 1,
      "ev": "Groups of five or more from the same company receive an additional 10 percent off.",
@@ -4018,7 +4018,7 @@
        "Standard price with group savings": "Giá thường kèm ưu đãi nhóm",
        "The early registration rate": "Mức đăng ký sớm",
        "The student rate": "Mức sinh viên",
-       "The regular rate without a discount": "Mức thường không giảm giá"
+       "The early rate with group savings": "Mức sớm kèm ưu đãi nhóm"
       },
       "ly": "Thư gửi ngày 20/3, đã qua hạn đăng ký sớm (15/3), nên áp dụng mức thường. Nhóm từ năm người còn được giảm thêm 10 phần trăm: \"Standard price with group savings\".",
       "dich": "Nhóm năm người trở lên từ cùng một công ty được giảm thêm 10 phần trăm."

@@ -4123,7 +4123,7 @@
      "q": "What will Ms. Okoye most likely be told about using a computer?",
      "a": "The computer lab is closed until the renovation ends.",
      "w": [
-      "She can use a computer in the Community Room.",
+      "The computer lab has moved to the Community Room.",
       "Computers can be reserved on Saturdays.",
       "Printing services are not available."
      ],
@@ -4131,7 +4131,7 @@
      "lg": {
       "og": {
        "The computer lab is closed until the renovation ends.": "Phòng máy tính đóng đến khi cải tạo xong",
-       "She can use a computer in the Community Room.": "Có thể dùng máy ở Phòng Cộng đồng",
+       "The computer lab has moved to the Community Room.": "Phòng máy tính đã chuyển xuống Phòng Cộng đồng",
        "Computers can be reserved on Saturdays.": "Đặt máy được vào thứ Bảy",
        "Printing services are not available.": "Không có dịch vụ in"
       },

@@ -4093,7 +4093,7 @@
     },
     {
      "q": "How can employees get a free water bottle?",
-     "a": "By going to eight sessions this month",
+     "a": "By attending eight or more sessions in October",
      "w": [
       "By registering through the company intranet",
       "By joining the running club on Tuesday",
@@ -4103,12 +4103,12 @@
      "why": "Dự ít nhất tám buổi trong tháng Mười thì được tặng bình nước.",
      "lg": {
       "og": {
-       "By going to eight sessions this month": "Bằng cách tham gia tám buổi trong tháng này",
+       "By attending eight or more sessions in October": "Bằng cách tham gia từ tám buổi trở lên trong tháng Mười",
        "By registering through the company intranet": "Bằng cách đăng ký qua mạng nội bộ công ty",
        "By joining the running club on Tuesday": "Bằng cách tham gia câu lạc bộ chạy bộ vào thứ Ba",
        "By taking a yoga class in the training room": "Bằng cách học một buổi yoga trong phòng tập"
       },
-      "ly": "Nhân viên dự ít nhất tám buổi trong tháng Mười thì được tặng bình nước: \"By going to eight sessions this month\". Đăng ký chỉ để có chỗ.",
+      "ly": "Nhân viên dự ít nhất tám buổi trong tháng Mười thì được tặng bình nước: \"By attending eight or more sessions in October\". Đăng ký chỉ để có chỗ.",
       "dich": "Nhân viên tham gia ít nhất tám buổi trong tháng Mười sẽ nhận một bình nước miễn phí."
      }
     },
