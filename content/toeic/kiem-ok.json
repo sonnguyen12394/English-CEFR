@@ -58,13 +58,6 @@
    "ngay": "2026-11-10"
   },
   {
-   "id": "t7-web#1",
-   "ma": "P7-NOT",
-   "dau": "b1bf6db924",
-   "ly_do": "Đỗ xe miễn phí có trong bài nhưng chỉ cho khách thuê phòng cả ngày, không đi kèm mọi phòng: đúng kiểu câu NOT 'có điều kiện' của đề thật; 3 phương án kia là 3 tiện ích của mọi phòng.",
-   "ngay": "2026-11-14"
-  },
-  {
    "id": "t7-parking#2",
    "ma": "C-SO-KHUON",
    "dau": "b0c9ac007a",
@@ -90,6 +83,13 @@
    "ma": "GM-LECH",
    "dau": "e61a1a1051",
    "ly_do": "'This form' chỉ mẫu đơn trực tuyến ở câu 'Requests can be made through the … online form', nên chỉ đặt được ở [4] (sau câu đó); người giải đặt lệch một vị trí ([3] đứng trước câu đó).",
+   "ngay": "2026-11-14"
+  },
+  {
+   "id": "t7-web#1",
+   "ma": "P7-NOT",
+   "dau": "14666be40c",
+   "ly_do": "Ba phương án 'có nói' diễn đạt lại 'free Wi-Fi, a projector, and bottled water' (Wireless Internet access = Wi-Fi); đáp án NOT 'A whiteboard' bài không nhắc.",
    "ngay": "2026-11-14"
   }
  ]
