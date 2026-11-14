@@ -3237,22 +3237,22 @@
     },
     {
      "q": "What can shoppers do during the closure?",
-     "a": "Take an elevator instead",
+     "a": "Ride an elevator to the upper floors",
      "w": [
-      "Get a parking discount",
-      "Shop only in the south wing",
-      "Order meals for delivery"
+      "Ask staff to carry bags upstairs",
+      "Use a temporary staircase by the entrance",
+      "Shop in ground-floor stores only"
      ],
      "ev": "shoppers may reach the upper floors by using the two elevators next to the food court",
-     "why": "Khách lên tầng trên bằng 2 thang máy cạnh khu ẩm thực. Mọi cửa hàng vẫn mở nên \"chỉ mua ở cánh nam\" sai.",
+     "why": "Khách có thể đi hai thang máy cạnh khu ăn uống để lên tầng trên.",
      "lg": {
       "og": {
-       "Take an elevator instead": "Đi thang máy thay thế",
-       "Get a parking discount": "Được giảm giá đỗ xe",
-       "Shop only in the south wing": "Chỉ mua sắm ở cánh nam",
-       "Order meals for delivery": "Đặt đồ ăn giao tận nơi"
+       "Ride an elevator to the upper floors": "Đi thang máy lên các tầng trên",
+       "Ask staff to carry bags upstairs": "Nhờ nhân viên mang túi lên lầu",
+       "Use a temporary staircase by the entrance": "Dùng cầu thang tạm cạnh lối vào",
+       "Shop in ground-floor stores only": "Chỉ mua sắm ở các cửa hàng tầng trệt"
       },
-      "ly": "Thông báo nói khách có thể dùng hai thang máy cạnh khu ẩm thực để lên các tầng trên.",
+      "ly": "Thông báo cho biết khách có thể lên tầng trên bằng hai thang máy cạnh khu ăn uống: \"Ride an elevator to the upper floors\". Bài không nhắc nhân viên mang túi hay cầu thang tạm; mọi cửa hàng vẫn mở nên không phải chỉ mua ở tầng trệt.",
       "dich": "Khách có thể lên các tầng trên bằng hai thang máy cạnh khu ẩm thực."
      }
     }
@@ -3291,22 +3291,22 @@
     },
     {
      "q": "How can first-time customers get a discount?",
-     "a": "By using a code",
+     "a": "By entering a code",
      "w": [
-      "By ordering online",
-      "By dropping off shoes before 2:00 P.M.",
-      "By bringing in two pairs"
+      "By showing a loyalty card",
+      "By booking a repair online",
+      "By bringing in two pairs at once"
      ],
      "ev": "First-time customers save 20 percent with the code NEWSTEP.",
-     "why": "Khách lần đầu nhập mã NEWSTEP được giảm 20%. Gửi giày trước 14:00 chỉ để lấy hôm sau.",
+     "why": "Khách lần đầu dùng mã NEWSTEP được giảm 20%.",
      "lg": {
       "og": {
-       "By using a code": "Bằng cách dùng mã",
-       "By ordering online": "Bằng cách đặt trực tuyến",
-       "By dropping off shoes before 2:00 P.M.": "Bằng cách gửi giày trước 2 giờ chiều",
-       "By bringing in two pairs": "Bằng cách mang hai đôi"
+       "By entering a code": "Bằng cách nhập một mã",
+       "By showing a loyalty card": "Bằng cách xuất trình thẻ thành viên",
+       "By booking a repair online": "Bằng cách đặt sửa trực tuyến",
+       "By bringing in two pairs at once": "Bằng cách mang hai đôi cùng lúc"
       },
-      "ly": "Khách mới được giảm 20% với mã NEWSTEP.",
+      "ly": "Khách lần đầu được giảm 20% khi dùng mã NEWSTEP: \"By entering a code\". Bài không nói gì về thẻ thành viên, đặt sửa trực tuyến hay mang hai đôi.",
       "dich": "Khách hàng lần đầu được giảm 20 phần trăm với mã NEWSTEP."
      }
     }
@@ -3474,22 +3474,22 @@
     },
     {
      "q": "What must employees do to use the room?",
-     "a": "Register their bicycles",
+     "a": "Register with Building Services",
      "w": [
-      "Pay a monthly fee",
-      "Attend a safety session",
-      "Buy a lock"
+      "Sign a safety agreement",
+      "Get approval from a manager",
+      "Pay a deposit for a key"
      ],
      "ev": "employees must register their bicycle with Building Services",
-     "why": "Phải đăng ký xe với Building Services để nhận thẻ ra vào.",
+     "why": "Để dùng phòng, nhân viên phải đăng ký xe đạp với bộ phận Dịch vụ Toà nhà, sau đó sẽ nhận thẻ ra vào.",
      "lg": {
       "og": {
-       "Register their bicycles": "Đăng ký xe đạp",
-       "Pay a monthly fee": "Trả phí hằng tháng",
-       "Attend a safety session": "Dự buổi an toàn",
-       "Buy a lock": "Mua khoá"
+       "Register with Building Services": "Đăng ký với bộ phận Dịch vụ Toà nhà",
+       "Sign a safety agreement": "Ký một cam kết an toàn",
+       "Get approval from a manager": "Được quản lý chấp thuận",
+       "Pay a deposit for a key": "Đặt cọc để lấy chìa khoá"
       },
-      "ly": "Muốn dùng phòng, nhân viên phải đăng ký xe đạp với Dịch vụ Toà nhà để nhận thẻ ra vào.",
+      "ly": "Muốn dùng phòng, nhân viên phải đăng ký xe với bộ phận Dịch vụ Toà nhà rồi nhận thẻ ra vào: \"Register with Building Services\". Bài không nhắc cam kết an toàn, sự chấp thuận của quản lý hay tiền cọc; thứ được cấp là thẻ, không phải chìa khoá.",
       "dich": "Để dùng phòng này, nhân viên phải đăng ký xe đạp với Dịch vụ Toà nhà và sẽ nhận một thẻ ra vào."
      }
     },
@@ -3527,23 +3527,23 @@
    "qs": [
     {
      "q": "What is indicated about the club's walks?",
-     "a": "They are led by volunteers.",
+     "a": "They vary in length and difficulty.",
      "w": [
-      "They are led by paid guides.",
-      "They are led by park rangers.",
-      "They are led by local teachers."
+      "They take place all year round.",
+      "They are open to members only.",
+      "They require special equipment."
      ],
      "ev": "each one is led by an experienced volunteer guide",
-     "why": "Mỗi chuyến đều do hướng dẫn viên tình nguyện dẫn.",
+     "why": "Các buổi đi bộ của chúng tôi từ những cung đường dễ hai giờ đến những chuyến leo núi cả ngày.",
      "lg": {
       "og": {
-       "They are led by volunteers.": "Do tình nguyện viên dẫn.",
-       "They are led by paid guides.": "Do hướng dẫn viên có lương dẫn.",
-       "They are led by park rangers.": "Do kiểm lâm công viên dẫn.",
-       "They are led by local teachers.": "Do giáo viên địa phương dẫn."
+       "They vary in length and difficulty.": "Độ dài và độ khó khác nhau",
+       "They take place all year round.": "Diễn ra quanh năm",
+       "They are open to members only.": "Chỉ dành cho hội viên",
+       "They require special equipment.": "Cần thiết bị chuyên dụng"
       },
-      "ly": "Đáp án \"They are led by volunteers.\": Mỗi chuyến đều do hướng dẫn viên tình nguyện dẫn.",
-      "dich": "Mỗi chuyến đi do một hướng dẫn viên tình nguyện giàu kinh nghiệm dẫn dắt."
+      "ly": "Các buổi đi bộ từ đường dễ hai giờ tới leo núi cả ngày: \"They vary in length and difficulty.\" Chỉ có từ tháng Tư tới tháng Mười, người chưa là hội viên được đi thử hai buổi, và bài không nhắc thiết bị chuyên dụng.",
+      "dich": "Our walks range from easy two-hour trails to full-day mountain hikes"
      }
     },
     {
@@ -3623,22 +3623,22 @@
     },
     {
      "q": "What still needs to be added to the slides?",
-     "a": "Sales figures",
+     "a": "Updated sales numbers",
      "w": [
-      "Client names",
-      "A product video",
-      "Travel costs"
+      "Revised budget totals",
+      "Last year's market data",
+      "Customer survey results"
      ],
      "ev": "We still need the updated sales figures.",
-     "why": "Còn thiếu số liệu bán hàng cập nhật.",
+     "why": "Chúng ta vẫn cần số liệu bán hàng cập nhật.",
      "lg": {
       "og": {
-       "Sales figures": "Số liệu bán hàng",
-       "Client names": "Tên khách hàng",
-       "A product video": "Một video sản phẩm",
-       "Travel costs": "Chi phí đi lại"
+       "Updated sales numbers": "Số liệu bán hàng cập nhật",
+       "Revised budget totals": "Tổng ngân sách đã điều chỉnh",
+       "Last year's market data": "Số liệu thị trường năm ngoái",
+       "Customer survey results": "Kết quả khảo sát khách hàng"
       },
-      "ly": "Ông Abe nói còn cần số liệu bán hàng cập nhật.",
+      "ly": "Ông Abe nói còn thiếu \"the updated sales figures\": \"Updated sales numbers\". Ngân sách, số liệu thị trường năm ngoái và khảo sát khách hàng không được nhắc.",
       "dich": "Chúng ta vẫn cần số liệu bán hàng cập nhật."
      }
     },
@@ -3719,22 +3719,22 @@
     },
     {
      "q": "According to Ms. Cole, what has happened to fuel costs?",
-     "a": "They have decreased.",
+     "a": "They are down by 40 percent.",
      "w": [
-      "They have doubled.",
-      "They have stayed the same.",
-      "They are now paid by drivers."
+      "They are down by 4 percent.",
+      "They are down by 14 percent.",
+      "They are down by 50 percent."
      ],
      "ev": "Our fuel bills have already dropped by forty percent",
-     "why": "Tiền nhiên liệu đã giảm 40%.",
+     "why": "\"Hoá đơn nhiên liệu của chúng tôi đã giảm bốn mươi phần trăm,\" bà nói.",
      "lg": {
       "og": {
-       "They have decreased.": "Đã giảm",
-       "They have doubled.": "Đã tăng gấp đôi",
-       "They have stayed the same.": "Vẫn như cũ",
-       "They are now paid by drivers.": "Nay do tài xế trả"
+       "They are down by 40 percent.": "Giảm 40 phần trăm",
+       "They are down by 4 percent.": "Giảm 4 phần trăm",
+       "They are down by 14 percent.": "Giảm 14 phần trăm",
+       "They are down by 50 percent.": "Giảm 50 phần trăm"
       },
-      "ly": "Bà Cole nói hoá đơn nhiên liệu đã giảm 40 phần trăm.",
+      "ly": "Bà Cole nói hoá đơn nhiên liệu đã giảm bốn mươi phần trăm: \"They are down by 40 percent.\" Các mức 4, 14 và 50 phần trăm không có trong bài.",
       "dich": "Hoá đơn nhiên liệu của chúng tôi đã giảm bốn mươi phần trăm."
      }
     },
@@ -3814,22 +3814,22 @@
     },
     {
      "q": "What will the donation be used for?",
-     "a": "New seating",
+     "a": "Seating",
      "w": [
-      "A new stage",
-      "Costumes",
-      "Advertising"
+      "Lighting",
+      "Sound equipment",
+      "Costumes"
      ],
      "ev": "Your support will help us replace the old seats in our main hall",
-     "why": "Tiền dùng để thay ghế cũ trong khán phòng chính.",
+     "why": "Sự hỗ trợ của bà sẽ giúp chúng tôi thay những chiếc ghế cũ trong khán phòng chính.",
      "lg": {
       "og": {
-       "New seating": "Ghế ngồi mới",
-       "A new stage": "Sân khấu mới",
-       "Costumes": "Trang phục",
-       "Advertising": "Quảng cáo"
+       "Seating": "Ghế ngồi",
+       "Lighting": "Đèn chiếu sáng",
+       "Sound equipment": "Thiết bị âm thanh",
+       "Costumes": "Trang phục"
       },
-      "ly": "Thư nói khoản tiền giúp thay ghế cũ ở hội trường chính.",
+      "ly": "Thư nói khoản quyên góp giúp thay ghế cũ trong khán phòng chính: \"Seating\". Đèn, âm thanh và trang phục không được nhắc.",
       "dich": "Sự hỗ trợ của bà sẽ giúp chúng tôi thay những chiếc ghế cũ trong hội trường chính."
      }
     },
@@ -3892,22 +3892,22 @@
    "qs": [
     {
      "q": "What is indicated about all charters?",
-     "a": "They require a deposit.",
+     "a": "They need part of the price paid in advance.",
      "w": [
-      "They include a guided walk.",
-      "They depart in the evening.",
-      "They are limited to 20 guests."
+      "They include a full meal on board.",
+      "They leave the harbor at 10:00 A.M.",
+      "They can carry up to 30 guests."
      ],
      "ev": "A 50 percent deposit is required to confirm all bookings.",
-     "why": "Mọi chuyến đều phải đặt cọc 50%.",
+     "why": "Cần đặt cọc 50 phần trăm để xác nhận mọi lượt đặt.",
      "lg": {
       "og": {
-       "They require a deposit.": "Đều cần đặt cọc",
-       "They include a guided walk.": "Đều có đi bộ có hướng dẫn",
-       "They depart in the evening.": "Khởi hành buổi tối",
-       "They are limited to 20 guests.": "Giới hạn 20 khách"
+       "They need part of the price paid in advance.": "Phải trả trước một phần tiền",
+       "They include a full meal on board.": "Có bữa ăn đầy đủ trên tàu",
+       "They leave the harbor at 10:00 A.M.": "Rời bến lúc 10 giờ sáng",
+       "They can carry up to 30 guests.": "Chở được tới 30 khách"
       },
-      "ly": "Trang web nói mọi chuyến thuê cần đặt cọc 50 phần trăm.",
+      "ly": "Mọi chuyến đều cần đặt cọc 50 phần trăm: \"They need part of the price paid in advance.\" Chuyến hoàng hôn chỉ có đồ ăn nhẹ, không khởi hành lúc 10 giờ và chỉ chở 20 khách, nên ba phương án kia không đúng với mọi chuyến.",
       "dich": "Cần đặt cọc 50 phần trăm để xác nhận mọi đặt chỗ."
      }
     },
@@ -4206,23 +4206,23 @@
     },
     {
      "q": "What is suggested about Ms. Brennan's payment?",
-     "a": "It was made before the deadline.",
+     "a": "It was sent two days before it was due.",
      "w": [
-      "It was paid online.",
-      "It was for a small plot.",
-      "It was made by credit card."
+      "It was sent on the day it was due.",
+      "It was sent a week after it was due.",
+      "It was sent after the garden opened."
      ],
      "x": 1,
-     "why": "Đối chiếu: hạn trả 5/4 (e-mail), phiếu ghi ngày 3/4, trả bằng séc $90 (ô lớn).",
+     "why": "Vui lòng trả phí năm trước ngày 5 tháng Tư bằng phiếu đính kèm.",
      "ev": "Please pay the annual fee by April 5 using the enclosed form.",
      "lg": {
       "og": {
-       "It was made before the deadline.": "Được trả trước hạn",
-       "It was paid online.": "Trả trực tuyến",
-       "It was for a small plot.": "Cho lô nhỏ",
-       "It was made by credit card.": "Trả bằng thẻ tín dụng"
+       "It was sent two days before it was due.": "Được gửi trước hạn hai ngày",
+       "It was sent on the day it was due.": "Được gửi đúng ngày hạn",
+       "It was sent a week after it was due.": "Được gửi trễ một tuần",
+       "It was sent after the garden opened.": "Được gửi sau khi vườn mở cửa"
       },
-      "ly": "Hạn trả là 5/4 và biểu mẫu thanh toán ghi ngày 3/4 bằng séc.",
+      "ly": "Hạn trả là 5/4, phiếu ghi ngày 3/4: \"It was sent two days before it was due.\" Vườn mở cửa ngày 12/4, sau ngày trả.",
       "dich": "Ngày: 3 tháng 4."
      }
     },
@@ -4395,23 +4395,23 @@
    "qs": [
     {
      "q": "What is indicated about the AeroPure 300?",
-     "a": "Replacement filters can be ordered online",
+     "a": "Its filter should be changed twice a year",
      "w": [
-      "It is made for rooms above 40 meters",
-      "Its warranty lasts three years",
-      "The warranty covers any filter brand"
+      "Its filter should be changed once a year",
+      "Its filter should be changed every three months",
+      "Its filter should be cleaned every week"
      ],
      "ev": "replacement filters cost $25 and can be ordered at aeropure.com",
-     "why": "Thông tin nói lõi lọc thay thế đặt được tại aeropure.com.",
+     "why": "Hãy thay bộ lọc mỗi sáu tháng.",
      "lg": {
       "og": {
-       "Replacement filters can be ordered online": "Có thể đặt mua lõi lọc thay thế trực tuyến",
-       "It is made for rooms above 40 meters": "Dùng cho phòng trên 40 mét",
-       "Its warranty lasts three years": "Bảo hành ba năm",
-       "The warranty covers any filter brand": "Bảo hành mọi hãng lõi lọc"
+       "Its filter should be changed twice a year": "Nên thay bộ lọc mỗi năm hai lần",
+       "Its filter should be changed once a year": "Nên thay bộ lọc mỗi năm một lần",
+       "Its filter should be changed every three months": "Nên thay bộ lọc ba tháng một lần",
+       "Its filter should be cleaned every week": "Nên vệ sinh bộ lọc hằng tuần"
       },
-      "ly": "Đáp án \"Replacement filters can be ordered online\": Thông tin nói lõi lọc thay thế đặt được tại aeropure.com.",
-      "dich": "Lõi lọc thay thế giá 25 đô la và có thể đặt tại aeropure.com."
+      "ly": "Thông tin sản phẩm ghi thay bộ lọc mỗi sáu tháng: \"Its filter should be changed twice a year\". Bài không nói thay mỗi năm, ba tháng hay vệ sinh hằng tuần.",
+      "dich": "Replace the filter every six months"
      }
     },
     {
@@ -4459,22 +4459,22 @@
     },
     {
      "q": "What does Ms. Reyes ask Mr. Andersen to send?",
-     "a": "Proof of purchase",
+     "a": "A picture of a receipt",
      "w": [
-      "The old filter",
-      "A video of the noise",
-      "A completed form"
+      "The unit's serial number",
+      "A copy of the warranty card",
+      "A short video of the noise"
      ],
      "ev": "Please send us a photo of the receipt",
-     "why": "Gửi ảnh hoá đơn để xác nhận ngày mua.",
+     "why": "Vui lòng gửi cho chúng tôi ảnh chụp hoá đơn để xác nhận ngày mua.",
      "lg": {
       "og": {
-       "Proof of purchase": "Bằng chứng đã mua",
-       "The old filter": "Lõi lọc cũ",
-       "A video of the noise": "Một video tiếng ồn",
-       "A completed form": "Một biểu mẫu đã điền"
+       "A picture of a receipt": "Ảnh chụp hoá đơn",
+       "The unit's serial number": "Số sê-ri của máy",
+       "A copy of the warranty card": "Bản sao thẻ bảo hành",
+       "A short video of the noise": "Đoạn video ngắn về tiếng ồn"
       },
-      "ly": "Bà Reyes nhờ gửi ảnh biên lai để xác nhận ngày mua.",
+      "ly": "Bà Reyes đề nghị gửi ảnh hoá đơn để xác nhận ngày mua: \"A picture of a receipt\". Số sê-ri, thẻ bảo hành và video tiếng ồn không được nhắc.",
       "dich": "Xin gửi chúng tôi ảnh chụp biên lai để chúng tôi xác nhận ngày mua."
      }
     },
