@@ -3982,7 +3982,7 @@
      "w": [
       "polite",
       "private",
-      "correct"
+      "quick"
      ],
      "ev": "We would prefer a cruise that includes a proper meal rather than just snacks.",
      "why": "a proper meal = một bữa ăn đầy đủ (complete), đối lại với chỉ đồ ăn vặt. polite là nghĩa \"lịch sự\".",
@@ -3991,7 +3991,7 @@
        "complete": "đầy đủ",
        "polite": "lịch sự",
        "private": "riêng tư",
-       "correct": "đúng"
+       "quick": "nhanh"
       },
       "ly": "\"A proper meal rather than just snacks\" là một bữa ăn đầy đủ, gần nghĩa nhất với complete.",
       "dich": "Chúng tôi muốn một chuyến có bữa ăn đàng hoàng chứ không chỉ đồ ăn nhẹ."
@@ -4439,7 +4439,7 @@
      "q": "Why is Mr. Andersen's purifier covered by the warranty?",
      "a": "It was purchased inside the covered period",
      "w": [
-      "He sent in a photo of his receipt",
+      "He registered it on the company website",
       "The damage was caused by a delivery error",
       "He ordered it directly from the official site"
      ],
@@ -4449,9 +4449,9 @@
      "lg": {
       "og": {
        "It was purchased inside the covered period": "Mua trong thời gian còn được bảo hành",
-       "He sent in a photo of his receipt": "Ông gửi ảnh biên lai",
        "The damage was caused by a delivery error": "Hư hỏng do lỗi giao hàng",
-       "He ordered it directly from the official site": "Ông đặt trực tiếp trên trang chính thức"
+       "He ordered it directly from the official site": "Ông đặt trực tiếp trên trang chính thức",
+       "He registered it on the company website": "Ông đã đăng ký máy trên trang web của công ty"
       },
       "ly": "Đáp án \"It was purchased inside the covered period\": Mua tháng 3 năm ngoái, bảo hành hai năm nên còn hiệu lực.",
       "dich": "Vì máy của ông vẫn còn trong thời gian bảo hành, chúng tôi sẽ đổi miễn phí."
