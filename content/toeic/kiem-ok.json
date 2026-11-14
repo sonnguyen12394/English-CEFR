@@ -2,20 +2,6 @@
  "_note": "Cảnh báo của máy kiểm nội dung đề (tools/kiem-toeic.mjs) đã đọc lại và thấy ổn. Khớp theo (id, ma, dau); câu đổi nội dung thì dấu đổi, cảnh báo hiện lại. Xem docs/TIEU-CHI-DE-TOEIC.md.",
  "ok": [
   {
-   "id": "t7-web#1",
-   "ma": "P7-NOT",
-   "dau": "1c57b7dcc2",
-   "ly_do": "Bài chỉ cho đỗ xe miễn phí khi thuê phòng cả ngày, nên 'Free parking' không đi kèm MỌI phòng như câu hỏi hỏi: đáp án đúng; chữ trùng là bẫy. (Xem lại sau khi đổi tên khách sạn, nội dung câu không đổi.)",
-   "ngay": "2026-11-09"
-  },
-  {
-   "id": "t7-parking#2",
-   "ma": "C-SO-KHUON",
-   "dau": "a2b7e3eaf8",
-   "ly_do": "Phương án 'Nothing' là cách đề thật hay dùng cho câu hỏi chi phí; không viết thành $0 được nên app không xếp tăng dần; thứ tự hiện tại không lộ đáp án.",
-   "ngay": "2026-11-10"
-  },
-  {
    "id": "t4-10#2",
    "ma": "P34-NGUYEN",
    "dau": "cfa71b0ce3",
@@ -72,10 +58,24 @@
    "ngay": "2026-11-10"
   },
   {
+   "id": "t7-web#1",
+   "ma": "P7-NOT",
+   "dau": "b1bf6db924",
+   "ly_do": "Đỗ xe miễn phí có trong bài nhưng chỉ cho khách thuê phòng cả ngày, không đi kèm mọi phòng: đúng kiểu câu NOT 'có điều kiện' của đề thật; 3 phương án kia là 3 tiện ích của mọi phòng.",
+   "ngay": "2026-11-14"
+  },
+  {
+   "id": "t7-parking#2",
+   "ma": "C-SO-KHUON",
+   "dau": "b0c9ac007a",
+   "ly_do": "'Nothing' là phương án hợp lệ (mười thẻ đầu miễn phí), không viết được bằng số cùng khuôn; 3 phương án kia cùng khuôn $ per month/year.",
+   "ngay": "2026-11-14"
+  },
+  {
    "id": "t7-notice2#2",
    "ma": "P7-NOT",
-   "dau": "a62d09c467",
-   "ly_do": "Phương án có nói 'asked residents for their opinions' diễn đạt lại câu 'a survey in which many residents said…' (cách viết đề thật: không chép chữ của bài); đáp án NOT 'add a parking area' bài không nói.",
+   "dau": "d2b646b17c",
+   "ly_do": "Phương án có nói diễn đạt lại câu 'a survey in which many residents said…' (đề thật không chép chữ của bài); đáp án NOT bài không nói.",
    "ngay": "2026-11-14"
   }
  ]
