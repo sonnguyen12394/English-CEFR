@@ -2126,42 +2126,62 @@ const R = await run(`(async () => {
       for (const q of TO.p5.filter(q => +q.id.slice(3) >= 119)) if (!q.lg) bad.push(q.id + ': thiếu lời giải');
       if (['press', 'blog', 'minutes'].some(k => !TO.p7.some(x => x.id === 't7-n-' + k && x.docs.length))) bad.push('loại văn bản chưa vào kho'); } catch (e) { bad.push('lỗi: ' + e.message); }
     out.push({ lv: 'cefr', id: 'C77', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'bổ sung TOEIC theo đề ETS: từ công sở ≥ 528 (44 chủ đề, không trùng), Part 5 câu từ vựng ≥ 40%, Part 7 đủ 12 loại văn bản mới (thông cáo, blog, phiếu giảm giá, hợp đồng, chính sách, mô tả công việc, thiệp mời, tờ rơi, biên bản họp, biểu đồ, biên lai, bảng giá) có lời giải' }); }
-  // v167–v169 C79 🗺 Chinh phục đề (specs/018-toeic-tro-choi): một hành trình mỗi đề, đích = đúng hết 100 câu Phần Đọc; thi lượt → câu sai chữa bằng các trò của chính câu →
-  //   ngày sau thi lại → đúng thì xanh; trạng thái = sự kiện mới nhất giữa bài làm đề đã lưu và hành trình; không đụng điểm đề thử / thẻ học
+  // v167–v171 C79 🗺 Chinh phục đề (specs/018-toeic-tro-choi): v171 hai mức mỗi câu Phần Đọc: ⭐ Đúng (lần làm gần nhất đúng; làm lại sau lời giải với phương án xáo)
+  //   và 🟦 Hiểu (qua thử thách kiến thức hỏi khác câu đề: loại từ / quan hệ, dò câu chứa đáp án, tự gõ, ghép nghĩa; ôn 3 → 7 → 21 ngày, sai thì về ⭐); không đụng điểm đề thử / thẻ học
   { const bad = [], S1 = S; try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad(); TG_P = null;
       const P = await tgPool(); TG_P = P; const ids = TO.tron.map(d => d.id);
-      for (const d of ids) { const G = P[d]; if (!G || G.ban.length < 90 || G.ho.length < 4 || G.cum.length < 20) bad.push(d + ': kho trò thiếu');
-        for (const x of G.pair) if (!x.q.foot.includes(esc(x.L)) || x.R !== x.q.a) bad.push(x.id + ': cặp sai');
-        for (const x of G.dt) if (!x.docs.some(dc => dc.ss.some(s => tgHit(s, x.q.ev)))) bad.push(x.id + ': không có câu chứa đáp án'); }
+      for (const d of ids) { const ms = Object.values(P[d] || {}); if (ms.length !== 100) bad.push(d + ': phải 100 câu Đọc (' + ms.length + ')');
+        if (ms.filter(m => m.ks.length).length < 95) bad.push(d + ': ít câu có thử thách'); if (ms.filter(m => m.ks.length >= 2).length < 40) bad.push(d + ': ít câu có 2 thử thách');
+        for (const m of ms) { const q = m.q; if (m.ks.includes('ev') && !m.docs.some(dc => dc.ss.some(s => tgHit(s, q.ev)))) bad.push(d + ' câu ' + q.n + ': dò tin không có câu chứa đáp án');
+          if (m.ks.includes('ld') && !(m.pos || m.cat)) bad.push(d + ' câu ' + q.n + ': loại từ / quan hệ trống');
+          if (m.ks.includes('ng') && !q.opts.every(o => q.lg.og[o])) bad.push(d + ' câu ' + q.n + ': thiếu nghĩa phương án');
+          if (m.ks.includes('go') && (q.sec === 'p7' || q.gt === 'insert')) bad.push(d + ' câu ' + q.n + ': tự gõ sai dạng'); } }
       const ss = tgSents('Ms. Kim will arrive at 10:00 a.m. on Monday. The fee is $4.50 per hour.' + String.fromCharCode(10) + 'Mia (9:15 A.M.): Hi.'); if (ss.length !== 3 || !ss[2].startsWith('Mia (9:15 A.M.)')) bad.push('tgSents tách sai: ' + JSON.stringify(ss));
-      const de = 'de3', B = trB(de); S.to.tc = { de, it: {}, st: {} };
+      const de = 'de3', B = trB(de), J = () => S.to.tc.j[de], fire = (sel, ds = {}) => $app.onclick({ target: { closest: s => s === sel ? { dataset: ds } : null } }), btns = at => [...String($app.innerHTML).matchAll(new RegExp('data-' + at + '="([0-9]+)">([^<]*)<', 'g'))].map(m => [m[1], m[2]]);
+      S.to.tc = { de };
       let L = tgJState(de), nx = tgJNext(de, L); if (L.length !== 100 || L.some(c => c.st !== 'chua') || nx.k !== 'thi' || !/^cR[0-9]+$/.test(nx.id)) bad.push('hành trình mới: phải là thi lượt Đọc đầu tiên');
-      // làm lượt đầu: câu đầu sai, còn lại đúng
+      // lượt đầu: câu đầu sai, còn lại đúng
       const Q = B.Q.filter(q => q.ck === nx.c.k), a = Array(200).fill('-'); Q.forEach((q, i) => { a[q.n - 1] = 'ABCD'[i === 0 ? q.opts.findIndex(o => o !== q.a) : q.opts.indexOf(q.a)]; });
       S.to.tronA = { [de + ':' + nx.id]: { at: Date.now() - 1000, a: a.join(''), ov: 2 } };
-      L = tgJState(de); let C = tgJCount(L); nx = tgJNext(de, L); if (C.ok !== Q.length - 1 || C.sai !== 1 || nx.k !== 'fix' || nx.cs[0].n !== Q[0].n) bad.push('sau lượt đầu: phải chữa câu ' + Q[0].n + ' (' + JSON.stringify(C) + ', ' + nx.k + ')');
-      // chữa: chạy hết các trò của câu đó
-      tgFix(de, nx.cs); let k = 0; while (TG_CB && k++ < 10) TG_CB(); L = tgJState(de); const c0 = L.find(c => c.n === Q[0].n);
-      if (c0.st !== 'fix' || c0.due) bad.push('chữa xong phải 🟨 và chờ ngày mai'); if (tgJNext(de, L).k !== 'thi') bad.push('trong ngày chữa xong phải thi lượt kế, chưa thi lại');
-      S.to.tc.j[de].c[Q[0].n].fd = tgDay() - 1; L = tgJState(de); nx = tgJNext(de, L); if (nx.k !== 're' || nx.cs.length !== 1) bad.push('ngày sau phải thi lại câu đã chữa');
-      tgRe(de, nx.cs); const q0 = nx.cs[0].q; $app.onclick({ target: { closest: s => s === '[data-tgf]' ? { dataset: { tgf: String(q0.opts.indexOf(q0.a)) } } : null } });
-      L = tgJState(de); if (L.find(c => c.n === Q[0].n).st !== 'ok') bad.push('thi lại đúng phải thành 🟩');
-      // làm lại cả đề sau đó mà sai câu đã xanh: sự kiện mới hơn thắng → 🟥
-      const a2 = Array(200).fill('-'); a2[Q[0].n - 1] = a[Q[0].n - 1]; S.to.tronA[de + ':R'] = { at: Date.now() + 5000, a: a2.join(''), ov: 2 }; if (tgJState(de).find(c => c.n === Q[0].n).st !== 'sai') bad.push('bài làm mới hơn phải thắng');
-      for (const c of L) S.to.tc.j[de].c[c.n] = { s: 'ok', at: Date.now() + 9000 }; if (tgJNext(de, tgJState(de)).k !== 'win') bad.push('đúng hết 100 câu phải là chinh phục xong');
+      L = tgJState(de); let C = tgJCount(L); nx = tgJNext(de, L); if (C.ok !== Q.length - 1 || C.sai !== 1 || C.hi !== 0 || nx.k !== 'fix' || nx.cs[0].n !== Q[0].n) bad.push('sau lượt đầu: phải chữa câu ' + Q[0].n + ' (' + JSON.stringify(C) + ', ' + nx.k + ')');
+      // chữa: đọc lời giải → làm lại, phương án xáo; chọn đúng → ⭐ ngay (không chờ ngày sau)
+      const q0 = nx.cs[0].q; tgSua(de, nx.cs); if (!$app.innerHTML.includes('Vì sao')) bad.push('chữa: thiếu lời giải'); fire('[data-tgn]');
+      const ops = btns('tgf'), hit = ops.find(b => b[1].slice(3) === esc(q0.a)); if (ops.length !== 4 || !hit) bad.push('làm lại: phải có 4 phương án gồm đáp án'); else fire('[data-tgf]', { tgf: hit[0] });
+      L = tgJState(de); const c0 = L.find(c => c.n === q0.n); if (c0.st !== 'ok' || c0.hi) bad.push('làm lại đúng phải thành ⭐ ngay, chưa 🟦');
+      if (tgJNext(de, L).k !== 'thi') bad.push('còn câu chưa làm thì phải thi lượt kế trước khi hỏi kiến thức');
+      // mọi câu đúng → hỏi kiến thức; câu có 2 thử thách loại từ + tự gõ
+      for (const c of L) J().c[c.n] = { s: 'ok', at: Date.now() + 100 }; L = tgJState(de); nx = tgJNext(de, L); if (nx.k !== 'hieu' || nx.cs.length !== 5) bad.push('đúng hết phải sang 🟦 Hiểu theo nhóm 5 (' + nx.k + ')');
+      const cf = L.find(c => c.ks[0] === 'ld' && c.ks[1] === 'go' && P[de][c.n].pos); if (!cf) bad.push('đề 3 thiếu câu loại từ + tự gõ'); else {
+        const m = P[de][cf.n]; tgHieu(de, [cf], 'hieu'); const want = (m.pos || m.cat); const bt = btns('tgc').find(b => b[1].toLowerCase() === esc(want).toLowerCase());
+        if (!bt) bad.push('loại từ: thiếu phương án đúng'); else fire('[data-tgc]', { tgc: bt[0] }); if ($app.innerHTML.includes(esc(cf.q.a) + '”')) bad.push('thử thách 1 không được lộ đáp án trước khi tự gõ'); fire('[data-tgn]');
+        const dq = document.querySelector; document.querySelector = s => s === '[data-tgi]' ? { value: ' ' + cf.q.a.toUpperCase() + ' ' } : null; fire('[data-tgk]'); document.querySelector = dq;
+        L = tgJState(de); let cc = L.find(c => c.n === cf.n); if (!cc.hi || cc.h.d !== tgDay() + TG_H[0] || cc.h.lv !== 1) bad.push('qua 2 thử thách phải thành 🟦, ôn sau ' + TG_H[0] + ' ngày');
+        // đến hạn ôn: một thử thách khác kiểu lần trước, xoay vòng (tự gõ → ghép nghĩa → loại từ); trả lời sai → về ⭐
+        J().h[cf.n].d = tgDay(); L = tgJState(de); nx = tgJNext(de, L); const pk1 = nx.cs && tgPick1(nx.cs[0]); J().h[cf.n].k = 'ng'; L = tgJState(de); nx = tgJNext(de, L); if (nx.k !== 'on' || nx.cs[0].n !== cf.n || pk1 !== 'ng' || tgPick1(nx.cs[0]) !== 'ld') bad.push('đến hạn phải ôn bằng thử thách khác kiểu (' + nx.k + ')');
+        tgHieu(de, nx.cs, 'on'); const wr = btns('tgc').find(b => b[1].toLowerCase() !== esc(want).toLowerCase()); fire('[data-tgc]', { tgc: wr[0] });
+        cc = tgJState(de).find(c => c.n === cf.n); if (cc.hi || cc.st !== 'ok') bad.push('ôn sai phải về ⭐ (vẫn đúng, mất 🟦)'); }
+      // câu Part 7 có dò tin + ghép nghĩa
+      const c7 = L.find(c => c.q.sec === 'p7' && c.ks.join() === 'ev,ng'); if (!c7) bad.push('đề 3 thiếu câu Part 7 dò tin + ghép nghĩa'); else {
+        const m = P[de][c7.n], ss7 = m.docs.flatMap(d => d.ss); tgHieu(de, [c7], 'hieu'); fire('[data-tgs]', { tgs: String(ss7.findIndex(s => tgHit(s, c7.q.ev))) }); fire('[data-tgn]');
+        for (let i = 0; i < c7.q.opts.length; i++) { fire('[data-tgl]', { tgl: String(i) }); fire('[data-tgr]', { tgr: String(i) }); }
+        if (!tgJState(de).find(c => c.n === c7.n).hi) bad.push('Part 7: qua dò tin + ghép nghĩa phải thành 🟦'); }
+      // làm sai câu đó trong đề sau khi đạt: mất cả ⭐ lẫn 🟦
+      if (c7) { const a2 = Array(200).fill('-'); a2[c7.n - 1] = 'ABCD'[c7.q.opts.findIndex(o => o !== c7.q.a)]; S.to.tronA[de + ':R'] = { at: Date.now() + 5000, a: a2.join(''), ov: 2 };
+        const x = tgJState(de).find(c => c.n === c7.n); if (x.st !== 'sai' || x.hi) bad.push('bài làm mới hơn sai phải mất ⭐ và 🟦'); delete S.to.tronA[de + ':R']; }
+      for (const c of L) { J().c[c.n] = { s: 'ok', at: Date.now() + 9000 }; if (c.ks.length) J().h[c.n] = { at: Date.now() + 9500, lv: 4, d: 0, k: c.ks[0] }; }
+      nx = tgJNext(de, tgJState(de)); if (nx.k !== 'win') bad.push('đúng hết + hiểu hết phải là chinh phục xong (' + nx.k + ')');
       TG_P = P; await tgView(); let h = String($app.innerHTML);
-      if (!h.includes('Chinh phục đề') || (h.match(/data-tgde=/g) || []).length !== ids.length || !h.includes('100/100') || !h.includes('data-tgj="full"') || (h.match(/class="trc /g) || []).length !== 100) bad.push('màn hành trình thiếu phần');
+      if (!h.includes('Chinh phục đề') || (h.match(/data-tgde=/g) || []).length !== ids.length || !h.includes('Đúng 100/100') || !h.includes('Hiểu ') || !h.includes('data-tgj="full"') || (h.match(/class="trc /g) || []).length !== 100) bad.push('màn hành trình thiếu phần');
       if (!String(tgRow()).includes('Chinh phục đề') || !String(trResOne).includes('TG_J')) bad.push('thiếu lối vào / nút về hành trình sau lượt thi');
       // v170: đề riêng (chỉ phần Đọc, câu 101–200, giữ thứ tự phương án) vào được hành trình; trLkAll nhận hàm quay về
       { const F = JSON.parse(JSON.stringify(Object.assign({}, TR.D.de5, { id: 'de99', t: 'Đề 99 · thử', p1: [], p2: [], p3: [], p4: [], off: 100, keep: 1, only: 'R' }))); delete F.ord; for (const x of F.p5) x.o = x.o || [x.a, ...(x.w || [])]; for (const x of F.p6) for (const g of x.gaps) g.o = g.o || [g.a, ...(g.w || [])]; for (const x of F.p7) for (const q of x.qs) q.o = q.o || [q.a, ...(q.w || [])]; TR.D.de99 = F; TO.tron.push({ id: 'de99', t: 'Đề 99 · thử', f: 'rieng:de99', only: 'R' }); TR.B = {};
-        TG_P = await tgPool(); const L99 = tgJState('de99'); if (!TG_P.de99 || L99.length !== 100 || L99[0].n !== 101 || L99[99].n !== 200) bad.push('đề riêng: phải có 100 câu Đọc đánh số 101–200 (' + (L99 || []).length + ')');
+        TG_P = await tgPool(); const L99 = tgJState('de99'); if (!TG_P.de99 || L99.length !== 100 || L99[0].n !== 101 || L99[99].n !== 200 || L99.filter(c => c.ks.length).length < 95) bad.push('đề riêng: phải có 100 câu Đọc đánh số 101–200 có thử thách (' + (L99 || []).length + ')');
         const n99 = tgJNext('de99', L99); if (n99.k !== 'thi' || n99.id !== 'cR0') bad.push('đề riêng: lượt đầu phải là cR0 (' + n99.k + ' ' + n99.id + ')');
         if (!String(trLkAll).includes('back')) bad.push('trLkAll không nhận hàm quay về');
         TO.tron = TO.tron.filter(d => d.id !== 'de99'); delete TR.D.de99; TR.B = {}; TG_P = P; }
-
       if ((S.to.mock || []).length || Object.keys(S.c || {}).length) bad.push('trò chơi đụng điểm đề thử / thẻ học');
     } catch (e) { bad.push('lỗi: ' + e.message); }
-    S = S1; TR.B = {}; TR.D = {}; TG_P = null; TG_CB = null; out.push({ lv: 'cefr', id: 'C79', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🗺 Chinh phục đề: hành trình 100 câu Đọc mỗi đề (8 đề), thi lượt → câu sai chữa bằng các trò của chính câu → ngày sau thi lại → 🟩, bài làm mới hơn thắng, đúng hết = chinh phục; không đụng điểm đề thử / thẻ học' }); }
+    S = S1; TR.B = {}; TR.D = {}; TG_P = null; $app.onkeydown = null; out.push({ lv: 'cefr', id: 'C79', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🗺 Chinh phục đề: mỗi câu Đọc ⭐ Đúng (làm lại sau lời giải, phương án xáo) và 🟦 Hiểu (thử thách hỏi khác câu đề: loại từ / quan hệ, tự gõ, dò câu, ghép nghĩa; ôn 3 → 7 → 21 ngày, sai về ⭐), 8 đề + đề riêng; bài làm mới hơn thắng; không đụng điểm đề thử / thẻ học' }); }
   return out; })()`);
 // v166 C78 câu kho TOEIC không chép câu đề ETS (tools/kiem-ets.mjs; máy không có đề ETS thì bỏ qua = đạt)
 { const cp = await import('node:child_process'); let ok = true, msg = ''; try { msg = cp.execFileSync('node', [new URL('../kiem-ets.mjs', import.meta.url).pathname], { encoding: 'utf8' }).trim(); } catch (e) { ok = false; msg = String(e.stdout || e.message).trim().split('\n').slice(0, 4).join(' | '); }
