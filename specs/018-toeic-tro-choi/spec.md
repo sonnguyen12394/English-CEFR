@@ -93,3 +93,16 @@ Người sáng lập: "các trò chơi này đang thiếu mục tiêu chung… g
 Người sáng lập: "trò chơi mới 8 đề chưa đủ, thêm toàn bộ đề toeic hiện có vào".
 
 - **FR-018** Hành trình liệt kê mọi đề thử trọn của app: Đề 1–8 và đề riêng 9–16 (khi đã mở mã trên máy); chưa mở thì có nút mở ngay trong màn hành trình.
+
+## Bổ sung v171: hai mức ⭐ Đúng / 🟦 Hiểu (14/11/2026)
+
+Người sáng lập: "bỏ hết những luật cũ… cần có đủ kiến thức để giải các đề toeic hiện có mà không phải học vẹt… Ưu tiên 1 vẫn là làm đúng được hết đề được chọn, ưu tiên 2 là nắm và nhớ được kiến thức từng câu hỏi trong đề". Đồng ý đề xuất ("Làm đi"): chỉ Phần Đọc, 🟦 đạt trong cùng buổi, bỏ luật "ngày sau mới xanh".
+
+- **FR-019** Mỗi câu Phần Đọc có 2 mức: ⭐ Đúng = lần làm gần nhất đúng (thi lượt, bài làm 📋 đề thử trọn, hoặc làm lại sau lời giải); 🟦 Hiểu = qua thử thách kiến thức của câu.
+- **FR-020** Chữa câu sai: đọc lời giải cả nhóm (≤ 5 câu) rồi làm lại cả nhóm, phương án XÁO thứ tự (trừ [1]–[4]); đúng thì ⭐ ngay.
+- **FR-021** Thử thách hỏi khác câu đề, chọn 2 theo thứ tự 🧩 chỗ trống cần loại từ / quan hệ gì (Part 5 dạng từ có loại từ duy nhất, từ nối có trong bảng quan hệ) · 🔎 chạm câu chứa đáp án (Part 7 có `ev`) · ✍️ tự gõ từ, không phương án, kèm nghĩa cả câu (Part 5–6, đáp án ≤ 3 từ) · 🔗 ghép 4 phương án với nghĩa (`lg.og`). Câu chỉ có 1 thử thách thì qua 1 là đủ. Thử thách trước không được lộ từ đáp án khi thử thách sau là tự gõ.
+- **FR-022** Câu 🟦 hỏi lại MỘT thử thách khác kiểu lần trước sau 3 → 7 → 21 ngày; qua cả 3 = nhớ chắc; sai = về ⭐, làm lại 2 thử thách. Làm sai câu đó trong đề sau lúc đạt thì mất cả ⭐ lẫn 🟦.
+- **FR-023** Một nút ▶: chữa câu sai → thi lượt chưa làm → ôn câu 🟦 đến hạn → hiểu câu ⭐ (nhóm 5; câu trượt hôm nay xếp sau) → xong. Màn có 2 thanh ⭐ Đúng a/100 · 🟦 Hiểu b/N (N = câu có thử thách), bản đồ 4 màu ⬜ 🟥 🟩 🟦.
+- Bỏ (v169): chuỗi 6 trò chữa câu, luật "ngày sau mới đúng", màn trò riêng.
+- Đo (mốc 2/2027, ý kiến của Claude): người học làm đề CHƯA chơi; tỉ lệ đúng ở dạng câu đã có nhiều câu 🟦 phải cao hơn dạng ít 🟦. Không cao hơn thì đổi thử thách.
+- Giới hạn: ghép nghĩa vẫn nhớ thuộc được cặp từ – nghĩa của chính câu (đó là từ vựng, mang sang đề khác được). Chưa có câu MỚI cùng kiến thức; Đề 1–2 không có 🔎 (Part 7 kho chưa có `ev`), 58 câu chỉ có 1 thử thách.
