@@ -43,6 +43,12 @@
    "phan": "doc",
    "cau": 30,
    "khop": 30
+  },
+  {
+   "ngay": "2026-11-14",
+   "phan": "doc",
+   "cau": 3,
+   "khop": 3
   }
  ],
  "cau": {
@@ -1968,7 +1974,7 @@
   },
   "161": {
    "id": "d05-p7-07#1",
-   "dau": "4644358e7c",
+   "dau": "dfb334143c",
    "da": "C",
    "chon": "C",
    "chon_t": "They cover rides up to 45 minutes.",
@@ -1980,7 +1986,7 @@
   },
   "162": {
    "id": "d05-p7-07#2",
-   "dau": "4644358e7c",
+   "dau": "dfb334143c",
    "da": "A",
    "chon": "A",
    "chon_t": "It offers discounts for students.",
@@ -1992,7 +1998,7 @@
   },
   "163": {
    "id": "d05-p7-07#3",
-   "dau": "4644358e7c",
+   "dau": "dfb334143c",
    "da": "A",
    "chon": "A",
    "chon_t": "Bring their own helmets",

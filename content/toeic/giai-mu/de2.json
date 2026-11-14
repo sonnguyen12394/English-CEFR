@@ -37,6 +37,12 @@
    "phan": "doc",
    "cau": 25,
    "khop": 25
+  },
+  {
+   "ngay": "2026-11-14",
+   "phan": "doc",
+   "cau": 6,
+   "khop": 6
   }
  ],
  "cau": {
@@ -1914,10 +1920,10 @@
   },
   "157": {
    "id": "t7-ad3#1",
-   "dau": "624aead716",
-   "da": "A",
-   "chon": "A",
-   "chon_t": "It has served businesses for years.",
+   "dau": "94f28cc60f",
+   "da": "B",
+   "chon": "B",
+   "chon_t": "It does not offer services on certain days.",
    "chac": 3,
    "hai": null,
    "hai_t": null,
@@ -1926,7 +1932,7 @@
   },
   "158": {
    "id": "t7-ad3#2",
-   "dau": "624aead716",
+   "dau": "94f28cc60f",
    "da": "C",
    "chon": "C",
    "chon_t": "A free window cleaning",
@@ -1938,7 +1944,7 @@
   },
   "159": {
    "id": "t7-ad3#3",
-   "dau": "624aead716",
+   "dau": "94f28cc60f",
    "da": "D",
    "chon": "D",
    "chon_t": "new",
@@ -1950,10 +1956,10 @@
   },
   "160": {
    "id": "t7-chat3#1",
-   "dau": "3827614514",
-   "da": "B",
-   "chon": "B",
-   "chon_t": "A van used for delivery stopped working.",
+   "dau": "4b7f284b8b",
+   "da": "D",
+   "chon": "D",
+   "chon_t": "A delivery vehicle has broken down.",
    "chac": 3,
    "hai": null,
    "hai_t": null,
@@ -1962,7 +1968,7 @@
   },
   "161": {
    "id": "t7-chat3#2",
-   "dau": "3827614514",
+   "dau": "4b7f284b8b",
    "da": "A",
    "chon": "A",
    "chon_t": "He is relieved by Ms. Ruiz's offer.",
@@ -1974,7 +1980,7 @@
   },
   "162": {
    "id": "t7-chat3#3",
-   "dau": "3827614514",
+   "dau": "4b7f284b8b",
    "da": "C",
    "chon": "C",
    "chon_t": "Contact a customer",

@@ -1,6 +1,6 @@
 {
  "_note": "Sổ lỗi soạn đề TOEIC (specs/012-so-loi-soan-de). Claude soạn từ lỗi đã gặp khi soạn và làm Đề 1–8. Dựng ra kiemde.json bằng node tools/build-toeic.mjs. Trường: xem specs/012-so-loi-soan-de/data-model.md.",
- "v": 4,
+ "v": 5,
  "nhom": [
   {
    "id": "p1",
@@ -1802,12 +1802,18 @@
    "ten": "Part 7 đáp án là điều hợp lẽ thường, đoán được không cần đọc bài",
    "khau": "soan",
    "nhom": "p7",
-   "mo": "Thử khuôn v175: mẫu 17 câu Part 7 viết theo luật \"đáp án diễn đạt lại, khái quát\" bị đoán đúng 15/17 khi không có bài (ETS 67%): đáp án thành câu hợp lẽ thường nhất của loại văn bản, phương án sai có từ tuyệt đối (every, only) nên tự loại. Viết lại theo luật chống đoán bằng lẽ thường: 7/17 = 41%.",
+   "mo": "Thử khuôn v175: mẫu 17 câu Part 7 viết theo luật \"đáp án diễn đạt lại, khái quát\" bị đoán đúng 15/17 khi không có bài (ETS 67%): đáp án thành câu hợp lẽ thường nhất của loại văn bản, phương án sai có từ tuyệt đối (every, only) nên tự loại. Viết lại theo luật chống đoán bằng lẽ thường: 7/17 = 41%. v176 sửa Part 7 Đề 1–8: vòng 1 thợ viết phương án sai thành chi tiết lạ, kì quặc nên câu sửa vẫn bị đoán 84%; vòng 2 giao kèm lý do người đoán dùng và bắt 3 phương án sai cũng là câu trả lời điển hình cho đúng câu hỏi.",
    "vd": [
     {
      "de": "mau",
      "truoc": "Bảng giá in: ✓ \"It lowers some unit prices for larger orders.\" · ✗ \"It offers free delivery on every order.\" / \"It provides binding at no extra charge.\"",
      "sau": "Bảng giá này đồng giá mọi số lượng, phí giao theo khoảng cách; \"giảm giá khi đặt nhiều\" thành phương án SAI; bỏ every / no extra charge ở phương án sai.",
+     "ai": "giaimu"
+    },
+    {
+     "de": "de4",
+     "truoc": "Why does Mr. Okafor not have to pay for shipping? ✓ His total passes a set minimum. · ✗ He lives near the Dallas warehouse. / He ordered a wireless printer.",
+     "sau": "Cả 4 là lý do miễn phí giao thường gặp (vượt mức tối thiểu · là thành viên · nhận tại cửa hàng · dùng mã khuyến mãi); chỉ bài mới phân biệt được.",
      "ai": "giaimu"
     }
    ],
@@ -1819,6 +1825,30 @@
     {
      "de": "mau",
      "n": 15
+    },
+    {
+     "de": "de1",
+     "n": 1
+    },
+    {
+     "de": "de2",
+     "n": 1
+    },
+    {
+     "de": "de3",
+     "n": 1
+    },
+    {
+     "de": "de5",
+     "n": 1
+    },
+    {
+     "de": "de6",
+     "n": 1
+    },
+    {
+     "de": "de8",
+     "n": 1
     }
    ],
    "luat": [

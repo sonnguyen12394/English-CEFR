@@ -101,6 +101,11 @@ Luật hình thức:
 - Không dùng từ tuyệt đối (every, all, only, never, always, no extra charge) chỉ ở phương án sai; nếu dùng thì cả đáp án cũng có lúc dùng.
 - Trong một bộ, đáp án không phải phương án dài nhất ở quá 1 câu.
 
+**Bài học khi sửa Part 7 Đề 1–8 (v176).** Vòng sửa đầu (101 câu, thợ Sonnet theo luật trên) KHÔNG giảm được đoán: câu sửa vẫn bị đoán đúng 84% khi không có bài. Thợ hiểu luật lẽ thường ngược: đáp án vẫn là câu điển hình nhất ("To confirm a purchase", "Buying them saves some money"), còn phương án sai thành chi tiết lạ, cụ thể, kì quặc ("He lives near the Dallas warehouse") nên càng dễ loại. Vòng 2 sửa đúng bằng hai việc:
+- Giao kèm **lý do người đoán đã dùng** (lấy từ phiếu giải không có bài) cho từng câu, để người viết chặn đúng dấu hiệu đó.
+- **Ba phương án sai cũng là câu trả lời điển hình cho đúng câu hỏi đó**: câu "Vì sao e-mail được gửi?" thì cả 4 đều là lý do gửi e-mail hay gặp (xác nhận đơn · báo giao trễ · xin cập nhật thông tin thanh toán · báo đổi giá); câu "Vì sao không mất phí giao?" thì cả 4 đều là lý do miễn phí giao hay gặp. Đáp án đúng chỉ phân biệt được bằng bài.
+Câu ý định ("What does X mean when he writes…"): đáp án không được chỉ là diễn đạt lại câu trích; phương án sai phải là cách hiểu theo nghĩa đen / cách hiểu khác của chính câu trích.
+
 Cách soát nhanh trước khi dựng: che bài, chỉ đọc câu hỏi + 4 phương án. Đoán ra đáp án thì viết lại phương án sai (máy làm đúng việc này ở bước giải không có bài).
 
 ### Loại văn bản

@@ -43,6 +43,12 @@
    "phan": "doc",
    "cau": 25,
    "khop": 25
+  },
+  {
+   "ngay": "2026-11-14",
+   "phan": "doc",
+   "cau": 2,
+   "khop": 2
   }
  ],
  "cau": {
@@ -1800,7 +1806,7 @@
   },
   "147": {
    "id": "d07-p7-01#1",
-   "dau": "abbebc1721",
+   "dau": "1bfcc1fdc5",
    "da": "C",
    "chon": "C",
    "chon_t": "Ask the shop to print more programs",
@@ -1812,10 +1818,10 @@
   },
   "148": {
    "id": "d07-p7-01#2",
-   "dau": "abbebc1721",
-   "da": "A",
-   "chon": "A",
-   "chon_t": "Time is short to place the order",
+   "dau": "1bfcc1fdc5",
+   "da": "D",
+   "chon": "D",
+   "chon_t": "There is little time left to place the order",
    "chac": 3,
    "hai": null,
    "hai_t": null,
