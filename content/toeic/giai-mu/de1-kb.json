@@ -1,0 +1,21 @@
+{
+ "_note": "Giải không có bài (v174, tools/giai-mu.mjs phần khongbai): đoán Part 7 chỉ từ câu hỏi + phương án. Tỉ lệ đúng > KB_MAX = đáp án tự lộ.",
+ "de": "de1",
+ "lan": [
+  {
+   "ngay": "2026-11-14",
+   "cau": 54,
+   "khop": 38
+  },
+  {
+   "ngay": "2026-11-14",
+   "cau": 54,
+   "khop": 41
+  },
+  {
+   "ngay": "2026-11-14",
+   "cau": 54,
+   "khop": 38
+  }
+ ]
+}
