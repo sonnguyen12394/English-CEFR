@@ -49,6 +49,12 @@
    "phan": "nghe",
    "cau": 3,
    "khop": 3
+  },
+  {
+   "ngay": "2026-11-14",
+   "phan": "doc",
+   "cau": 20,
+   "khop": 20
   }
  ],
  "cau": {
@@ -1806,135 +1812,135 @@
   },
   "147": {
    "id": "d06-p7-01#1",
-   "dau": "818dbdbc60",
+   "dau": "dbb346c3bf",
    "da": "D",
    "chon": "D",
+   "chon_t": "A guest's meeting room isn't ready.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A room is not ready for a visitor.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "148": {
    "id": "d06-p7-01#2",
-   "dau": "818dbdbc60",
+   "dau": "dbb346c3bf",
    "da": "B",
    "chon": "B",
+   "chon_t": "He will do what Ms. Ross asked.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "He will do what Ms. Ross asked.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "149": {
    "id": "d06-p7-02#1",
-   "dau": "ba53325964",
+   "dau": "1314c07fd1",
    "da": "B",
    "chon": "B",
+   "chon_t": "To announce a change in payment methods",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "To announce a change in payment methods",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "150": {
    "id": "d06-p7-02#2",
-   "dau": "ba53325964",
-   "da": "C",
-   "chon": "C",
+   "dau": "1314c07fd1",
+   "da": "D",
+   "chon": "D",
+   "chon_t": "Via the website or at the office",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Online or at an on-site office",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "151": {
    "id": "d06-p7-03#1",
-   "dau": "824d454f8d",
-   "da": "D",
-   "chon": "D",
+   "dau": "9ac6b572b5",
+   "da": "A",
+   "chon": "A",
+   "chon_t": "Its supplies are gentle on nature.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "It uses products that are safe for the environment.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "152": {
    "id": "d06-p7-03#2",
-   "dau": "824d454f8d",
-   "da": "B",
-   "chon": "B",
+   "dau": "9ac6b572b5",
+   "da": "A",
+   "chon": "A",
+   "chon_t": "By booking more than one visit",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "By booking more than one visit",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "153": {
    "id": "d06-p7-04#1",
-   "dau": "1b7981cf4c",
+   "dau": "52250ad1cc",
    "da": "D",
    "chon": "D",
+   "chon_t": "A sale will open to the public.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A sale will open to the public.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "154": {
    "id": "d06-p7-04#2",
-   "dau": "1b7981cf4c",
+   "dau": "52250ad1cc",
    "da": "A",
    "chon": "A",
+   "chon_t": "Its workers will be given food.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Volunteers will receive a meal.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "155": {
    "id": "d06-p7-05#1",
-   "dau": "8dda2aa001",
-   "da": "A",
-   "chon": "A",
+   "dau": "5a6deebad4",
+   "da": "D",
+   "chon": "D",
+   "chon_t": "A firm turning refuse into a product",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A business that reuses waste",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "156": {
    "id": "d06-p7-05#2",
-   "dau": "8dda2aa001",
+   "dau": "5a6deebad4",
    "da": "D",
    "chon": "D",
+   "chon_t": "trial",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "trial",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "157": {
    "id": "d06-p7-05#3",
-   "dau": "8dda2aa001",
+   "dau": "5a6deebad4",
    "da": "C",
    "chon": "C",
+   "chon_t": "Open a factory",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Open a factory",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "158": {
    "id": "d06-p7-06#1",
@@ -2058,51 +2064,51 @@
   },
   "168": {
    "id": "d06-p7-09#1",
-   "dau": "630138c402",
+   "dau": "2b68ba6c98",
    "da": "D",
    "chon": "D",
+   "chon_t": "The conversion of an old building",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "The conversion of an old building",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "169": {
    "id": "d06-p7-09#2",
-   "dau": "630138c402",
-   "da": "C",
-   "chon": "C",
+   "dau": "2b68ba6c98",
+   "da": "B",
+   "chon": "B",
+   "chon_t": "With support from public funds",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "By a government grant",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "170": {
    "id": "d06-p7-09#3",
-   "dau": "630138c402",
+   "dau": "2b68ba6c98",
    "da": "B",
    "chon": "B",
+   "chon_t": "repaired",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "repaired",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "171": {
    "id": "d06-p7-09#4",
-   "dau": "630138c402",
+   "dau": "2b68ba6c98",
    "da": "D",
    "chon": "D",
-   "chac": 3,
-   "hai": null,
-   "ghi": "",
-   "ngay": "2026-11-09",
    "chon_t": "[4]",
-   "hai_t": null
+   "chac": 2,
+   "hai": null,
+   "hai_t": null,
+   "ghi": "",
+   "ngay": "2026-11-14"
   },
   "172": {
    "id": "d06-p7-10#1",
@@ -2334,63 +2340,63 @@
   },
   "191": {
    "id": "d06-p7-14#1",
-   "dau": "52a899799e",
+   "dau": "4be755cf67",
    "da": "B",
    "chon": "B",
+   "chon_t": "Breakfast",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Breakfast",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "192": {
    "id": "d06-p7-14#2",
-   "dau": "52a899799e",
+   "dau": "4be755cf67",
    "da": "C",
    "chon": "C",
+   "chon_t": "$510",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "$510",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "193": {
    "id": "d06-p7-14#3",
-   "dau": "52a899799e",
+   "dau": "4be755cf67",
    "da": "B",
    "chon": "B",
+   "chon_t": "A hike in a forest",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A hike in a forest",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "194": {
    "id": "d06-p7-14#4",
-   "dau": "52a899799e",
+   "dau": "4be755cf67",
    "da": "A",
    "chon": "A",
+   "chon_t": "They will not be refunded.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "They will not be refunded.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "195": {
    "id": "d06-p7-14#5",
-   "dau": "52a899799e",
+   "dau": "4be755cf67",
    "da": "A",
    "chon": "A",
+   "chon_t": "Alert the group leader beforehand",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Tell her guide about her plans",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "196": {
    "id": "d06-p7-15#1",

@@ -25,6 +25,12 @@
    "phan": "doc",
    "cau": 13,
    "khop": 13
+  },
+  {
+   "ngay": "2026-11-14",
+   "phan": "doc",
+   "cau": 25,
+   "khop": 25
   }
  ],
  "cau": {
@@ -1830,75 +1836,75 @@
   },
   "151": {
    "id": "t7-article#1",
-   "dau": "454c4e67f5",
-   "da": "B",
-   "chon": "B",
+   "dau": "6834ffd55f",
+   "da": "C",
+   "chon": "C",
+   "chon_t": "A local firm's steps to reduce its impact",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A company's environmental improvements",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "152": {
    "id": "t7-article#2",
-   "dau": "454c4e67f5",
-   "da": "D",
-   "chon": "D",
+   "dau": "6834ffd55f",
+   "da": "B",
+   "chon": "B",
+   "chon_t": "To respond to what clients keep asking",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Customers care about environmental issues.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "153": {
    "id": "t7-article#3",
-   "dau": "454c4e67f5",
+   "dau": "6834ffd55f",
    "da": "B",
    "chon": "B",
+   "chon_t": "It is a family business.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "It is a family business.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "154": {
    "id": "t7-memo2#1",
-   "dau": "4926a42068",
+   "dau": "3ad8d8dcc5",
    "da": "D",
    "chon": "D",
+   "chon_t": "To inform staff about a temporary closure",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "To inform staff about a temporary closure",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "155": {
    "id": "t7-memo2#2",
-   "dau": "4926a42068",
+   "dau": "3ad8d8dcc5",
    "da": "A",
    "chon": "A",
+   "chon_t": "Clear out what they keep in the fridge",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Remove items from a refrigerator",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "156": {
    "id": "t7-memo2#3",
-   "dau": "4926a42068",
+   "dau": "3ad8d8dcc5",
    "da": "B",
    "chon": "B",
+   "chon_t": "More seating",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "More seating",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "157": {
    "id": "t7-ad3#1",
@@ -1938,111 +1944,111 @@
   },
   "160": {
    "id": "t7-chat3#1",
-   "dau": "824daa0e23",
+   "dau": "d7ea3788db",
    "da": "C",
    "chon": "C",
+   "chon_t": "A vehicle has stopped working.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A vehicle has stopped working.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "161": {
    "id": "t7-chat3#2",
-   "dau": "824daa0e23",
+   "dau": "d7ea3788db",
    "da": "A",
    "chon": "A",
+   "chon_t": "He is relieved by Ms. Ruiz's offer.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "He thinks Ms. Ruiz's plan will solve the problem.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "162": {
    "id": "t7-chat3#3",
-   "dau": "824daa0e23",
+   "dau": "d7ea3788db",
    "da": "C",
    "chon": "C",
+   "chon_t": "Contact a customer",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Contact a customer",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "163": {
    "id": "t7-letter3#1",
-   "dau": "32562e76b8",
+   "dau": "55cc21d1e2",
    "da": "A",
    "chon": "A",
+   "chon_t": "To follow up on an overdue payment",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A bill has not been paid.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "164": {
    "id": "t7-letter3#2",
-   "dau": "32562e76b8",
-   "da": "A",
-   "chon": "A",
+   "dau": "55cc21d1e2",
+   "da": "D",
+   "chon": "D",
+   "chon_t": "A $10 charge will be added to his bill.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "He will be charged an extra fee.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "165": {
    "id": "t7-letter3#3",
-   "dau": "32562e76b8",
+   "dau": "55cc21d1e2",
    "da": "D",
    "chon": "D",
+   "chon_t": "A payment plan",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A payment plan",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "166": {
    "id": "t7-letter4#1",
-   "dau": "8b5bb53caa",
-   "da": "A",
-   "chon": "A",
+   "dau": "cf820ebac1",
+   "da": "D",
+   "chon": "D",
+   "chon_t": "To encourage a patient to come in again",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "To remind a patient to make an appointment",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "167": {
    "id": "t7-letter4#2",
-   "dau": "8b5bb53caa",
+   "dau": "cf820ebac1",
    "da": "C",
    "chon": "C",
+   "chon_t": "find",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "find",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "168": {
    "id": "t7-letter4#3",
-   "dau": "8b5bb53caa",
-   "da": "A",
-   "chon": "A",
-   "chac": 3,
+   "dau": "cf820ebac1",
+   "da": "B",
+   "chon": "B",
+   "chon_t": "The clinic may need to log it again.",
+   "chac": 2,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "It may need to be entered again.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "169": {
    "id": "t7-article2#1",
@@ -2190,63 +2196,63 @@
   },
   "181": {
    "id": "t7-m-train#1",
-   "dau": "e115fe6abb",
+   "dau": "d6bd882268",
    "da": "A",
    "chon": "A",
+   "chon_t": "To announce training courses",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "To announce training courses",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "182": {
    "id": "t7-m-train#2",
-   "dau": "e115fe6abb",
+   "dau": "d6bd882268",
    "da": "A",
    "chon": "A",
+   "chon_t": "Customer Communication",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Customer Communication",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "183": {
    "id": "t7-m-train#3",
-   "dau": "e115fe6abb",
+   "dau": "d6bd882268",
    "da": "A",
    "chon": "A",
+   "chon_t": "Too many employees are listed.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Too many employees are listed.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "184": {
    "id": "t7-m-train#4",
-   "dau": "e115fe6abb",
+   "dau": "d6bd882268",
    "da": "C",
    "chon": "C",
+   "chon_t": "He submitted the form late.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "He submitted the form late.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "185": {
    "id": "t7-m-train#5",
-   "dau": "e115fe6abb",
+   "dau": "d6bd882268",
    "da": "D",
    "chon": "D",
+   "chon_t": "The Sales team will be billed for her.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "The Sales department will have to pay for it.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "186": {
    "id": "t7-m-event#1",
@@ -2310,63 +2316,63 @@
   },
   "191": {
    "id": "t7-m-order2#1",
-   "dau": "2b19ff7758",
-   "da": "C",
-   "chon": "C",
+   "dau": "50e4d630dd",
+   "da": "A",
+   "chon": "A",
+   "chon_t": "Her team is setting up a second location.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Her company is opening a new office.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "192": {
    "id": "t7-m-order2#2",
-   "dau": "2b19ff7758",
+   "dau": "50e4d630dd",
    "da": "C",
    "chon": "C",
+   "chon_t": "The wrong color was listed.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "The wrong color was listed.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "193": {
    "id": "t7-m-order2#3",
-   "dau": "2b19ff7758",
+   "dau": "50e4d630dd",
    "da": "C",
    "chon": "C",
+   "chon_t": "$135.00",
    "chac": 3,
    "hai": null,
-   "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "$135.00",
-   "hai_t": null
+   "hai_t": null,
+   "ghi": "Phương án C là $135 (150 trừ 15 phí giao); B không đúng",
+   "ngay": "2026-11-14"
   },
   "194": {
    "id": "t7-m-order2#4",
-   "dau": "2b19ff7758",
+   "dau": "50e4d630dd",
    "da": "B",
    "chon": "B",
+   "chon_t": "They will be delivered before April 10.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "They will be delivered before April 10.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "195": {
    "id": "t7-m-order2#5",
-   "dau": "2b19ff7758",
+   "dau": "50e4d630dd",
    "da": "A",
    "chon": "A",
+   "chon_t": "taken off",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "taken off",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "196": {
    "id": "t7-m-job#1",

@@ -37,6 +37,12 @@
    "phan": "doc",
    "cau": 4,
    "khop": 4
+  },
+  {
+   "ngay": "2026-11-14",
+   "phan": "doc",
+   "cau": 29,
+   "khop": 29
   }
  ],
  "cau": {
@@ -1794,27 +1800,27 @@
   },
   "147": {
    "id": "t7-text#1",
-   "dau": "f537bf9dfe",
+   "dau": "2a4336b759",
    "da": "C",
    "chon": "C",
+   "chon_t": "To get some samples delivered sooner",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A delivery is needed sooner than planned.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "148": {
    "id": "t7-text#2",
-   "dau": "f537bf9dfe",
+   "dau": "2a4336b759",
    "da": "B",
    "chon": "B",
+   "chon_t": "He agrees to arrange a courier.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "He agrees to arrange a courier.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "149": {
    "id": "t7-invoice#1",
@@ -1842,99 +1848,99 @@
   },
   "151": {
    "id": "t7-notice3#1",
-   "dau": "beb86b0d77",
-   "da": "B",
-   "chon": "B",
+   "dau": "f9b091db4b",
+   "da": "A",
+   "chon": "A",
+   "chon_t": "To tell tenants about a maintenance schedule",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "To announce a temporary closure",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "152": {
    "id": "t7-notice3#2",
-   "dau": "beb86b0d77",
-   "da": "A",
-   "chon": "A",
+   "dau": "f9b091db4b",
+   "da": "B",
+   "chon": "B",
+   "chon_t": "Request a freight elevator in advance",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Contact the building office",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "153": {
    "id": "t7-job#1",
-   "dau": "8308117f64",
+   "dau": "80d1b96d9d",
    "da": "C",
    "chon": "C",
+   "chon_t": "Ordering office supplies",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Ordering office supplies",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "154": {
    "id": "t7-job#2",
-   "dau": "8308117f64",
-   "da": "A",
-   "chon": "A",
+   "dau": "80d1b96d9d",
+   "da": "D",
+   "chon": "D",
+   "chon_t": "It is a plus, though not mandatory.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "It is helpful but not necessary.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "155": {
    "id": "t7-job#3",
-   "dau": "8308117f64",
+   "dau": "80d1b96d9d",
    "da": "B",
    "chon": "B",
+   "chon_t": "A few applicants will get a reply.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Only some applicants will be contacted.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "156": {
    "id": "t7-review#1",
-   "dau": "2a19d56621",
+   "dau": "81c37f45a9",
    "da": "A",
    "chon": "A",
+   "chon_t": "To celebrate a family member's birthday",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "To celebrate a family member's birthday",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "157": {
    "id": "t7-review#2",
-   "dau": "2a19d56621",
+   "dau": "81c37f45a9",
    "da": "C",
    "chon": "C",
+   "chon_t": "Seating took longer than expected.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Her table was not ready on time.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "158": {
    "id": "t7-review#3",
-   "dau": "2a19d56621",
+   "dau": "81c37f45a9",
    "da": "A",
    "chon": "A",
+   "chon_t": "Offered free drinks",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Offered free drinks",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "159": {
    "id": "t7-chat4#1",
@@ -2046,51 +2052,51 @@
   },
   "168": {
    "id": "t7-notice2#1",
-   "dau": "ee72cf645a",
+   "dau": "a62d09c467",
    "da": "D",
    "chon": "D",
+   "chon_t": "To tell patrons about a schedule change",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "To announce new opening hours",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "169": {
    "id": "t7-notice2#2",
-   "dau": "ee72cf645a",
+   "dau": "a62d09c467",
    "da": "D",
    "chon": "D",
+   "chon_t": "It will add a parking area.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "It will add a parking area.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "170": {
    "id": "t7-notice2#3",
-   "dau": "ee72cf645a",
+   "dau": "a62d09c467",
    "da": "B",
    "chon": "B",
-   "chac": 3,
-   "hai": null,
-   "ghi": "",
-   "ngay": "2026-11-09",
    "chon_t": "[2]",
-   "hai_t": null
+   "chac": 2,
+   "hai": null,
+   "hai_t": null,
+   "ghi": "",
+   "ngay": "2026-11-14"
   },
   "171": {
    "id": "t7-notice2#4",
-   "dau": "ee72cf645a",
+   "dau": "a62d09c467",
    "da": "C",
    "chon": "C",
+   "chon_t": "comes after",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "comes after",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "172": {
    "id": "t7-email3#1",
@@ -2262,183 +2268,183 @@
   },
   "186": {
    "id": "t7-m-order#1",
-   "dau": "ab8d8793c3",
+   "dau": "589f3510d3",
    "da": "B",
    "chon": "B",
+   "chon_t": "It was placed after 3:00 P.M.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "It was placed after 3:00 P.M.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "187": {
    "id": "t7-m-order#2",
-   "dau": "ab8d8793c3",
+   "dau": "589f3510d3",
    "da": "C",
    "chon": "C",
+   "chon_t": "On Wednesday",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "On Wednesday",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "188": {
    "id": "t7-m-order#3",
-   "dau": "ab8d8793c3",
+   "dau": "589f3510d3",
    "da": "B",
    "chon": "B",
+   "chon_t": "Which delivery service is free",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Which delivery service is free",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "189": {
    "id": "t7-m-order#4",
-   "dau": "ab8d8793c3",
+   "dau": "589f3510d3",
    "da": "A",
    "chon": "A",
+   "chon_t": "A credit toward a future purchase",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "A voucher for a future order",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "190": {
    "id": "t7-m-order#5",
-   "dau": "ab8d8793c3",
+   "dau": "589f3510d3",
    "da": "D",
    "chon": "D",
+   "chon_t": "act",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "act",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "191": {
    "id": "t7-m-venue#1",
-   "dau": "0f53a2fa83",
+   "dau": "31ccb3a4ed",
    "da": "D",
    "chon": "D",
+   "chon_t": "Birch Hall",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Birch Hall",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "192": {
    "id": "t7-m-venue#2",
-   "dau": "0f53a2fa83",
+   "dau": "31ccb3a4ed",
    "da": "B",
    "chon": "B",
+   "chon_t": "The booking was made more than 60 days early.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "The booking was made more than 60 days early.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "193": {
    "id": "t7-m-venue#3",
-   "dau": "0f53a2fa83",
+   "dau": "31ccb3a4ed",
    "da": "B",
    "chon": "B",
+   "chon_t": "The group was large enough to order it.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "The group was large enough to order it.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "194": {
    "id": "t7-m-venue#4",
-   "dau": "0f53a2fa83",
-   "da": "C",
-   "chon": "C",
+   "dau": "31ccb3a4ed",
+   "da": "B",
+   "chon": "B",
+   "chon_t": "Some equipment failed for a while.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Some equipment stopped working for a short time.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "195": {
    "id": "t7-m-venue#5",
-   "dau": "0f53a2fa83",
+   "dau": "31ccb3a4ed",
    "da": "C",
    "chon": "C",
+   "chon_t": "quickly",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "quickly",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "196": {
    "id": "t7-m-library#1",
-   "dau": "1e22aac138",
+   "dau": "35bf1938b7",
    "da": "A",
    "chon": "A",
+   "chon_t": "For renovation work",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "For renovation work",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "197": {
    "id": "t7-m-library#2",
-   "dau": "1e22aac138",
+   "dau": "35bf1938b7",
    "da": "C",
    "chon": "C",
+   "chon_t": "On the first floor",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "On the first floor",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "198": {
    "id": "t7-m-library#3",
-   "dau": "1e22aac138",
+   "dau": "35bf1938b7",
    "da": "B",
    "chon": "B",
+   "chon_t": "Thursday",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "Thursday",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "199": {
    "id": "t7-m-library#4",
-   "dau": "1e22aac138",
-   "da": "D",
-   "chon": "D",
+   "dau": "35bf1938b7",
+   "da": "A",
+   "chon": "A",
+   "chon_t": "Her online sign-up was not accepted.",
    "chac": 3,
    "hai": null,
+   "hai_t": null,
    "ghi": "",
-   "ngay": "2026-11-09",
-   "chon_t": "She could not complete an online registration.",
-   "hai_t": null
+   "ngay": "2026-11-14"
   },
   "200": {
    "id": "t7-m-library#5",
-   "dau": "1e22aac138",
+   "dau": "35bf1938b7",
    "da": "C",
    "chon": "C",
-   "chac": 3,
-   "hai": null,
-   "ghi": "",
-   "ngay": "2026-11-09",
    "chon_t": "The computer lab is closed until the renovation ends.",
-   "hai_t": null
+   "chac": 2,
+   "hai": "D",
+   "hai_t": "She can use a computer in the Community Room.",
+   "ghi": "Bài không nói máy ở Community Room; chỉ nói phòng máy đóng. Câu hỏi 'sẽ được bảo' hơi lỏng.",
+   "ngay": "2026-11-14"
   }
  }
 }
