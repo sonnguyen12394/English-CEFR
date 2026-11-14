@@ -2679,22 +2679,22 @@
    "qs": [
     {
      "q": "What is indicated about Sunrise Cleaning Services?",
-     "a": "It has served businesses for years.",
+     "a": "It does not offer services on certain days.",
      "w": [
-      "It cleans both homes and offices.",
+      "It recently opened in Brookfield.",
       "It charges for price estimates.",
-      "It is open on public holidays."
+      "It uses standard chemical products."
      ],
-     "why": "for over fifteen years.",
+     "why": "Quảng cáo nói công ty không làm dịch vụ vào các ngày lễ.",
      "lg": {
       "og": {
-       "It has served businesses for years.": "Đã phục vụ doanh nghiệp địa phương nhiều năm",
-       "It cleans both homes and offices.": "Dọn cả nhà ở và văn phòng",
+       "It does not offer services on certain days.": "Có những ngày công ty không làm dịch vụ",
+       "It recently opened in Brookfield.": "Mới mở ở Brookfield",
        "It charges for price estimates.": "Tính phí báo giá",
-       "It is open on public holidays.": "Mở cửa cả ngày lễ"
+       "It uses standard chemical products.": "Dùng hoá chất thông thường"
       },
-      "ly": "Đáp án \"It has served businesses for years.\" — Quảng cáo nói công ty dọn dẹp doanh nghiệp ở Brookfield hơn mười lăm năm. Báo giá miễn phí và không làm ngày lễ.",
-      "dich": "Sunrise Cleaning Services đã giữ cho các doanh nghiệp ở Brookfield sạch sẽ hơn mười lăm năm."
+      "ly": "Câu cuối nói công ty không làm dịch vụ vào ngày lễ: \"It does not offer services on certain days.\" Công ty đã hoạt động hơn mười lăm năm (không phải mới mở), báo giá miễn phí và mọi sản phẩm đều thân thiện môi trường.",
+      "dich": "Xin lưu ý chúng tôi không làm dịch vụ vào các ngày lễ."
      }
     },
     {
@@ -3453,21 +3453,21 @@
    "qs": [
     {
      "q": "What is NOT included with every meeting room?",
-     "a": "Free parking for guests",
+     "a": "A whiteboard",
      "w": [
-      "Free Wi-Fi for guests",
-      "A projector for guests",
-      "Bottled water for guests"
+      "Wireless Internet access",
+      "A projector",
+      "Bottled water"
      ],
-     "why": "Wi-Fi, máy chiếu, nước có ở mọi phòng; đỗ xe miễn phí chỉ cho khách đặt phòng cả ngày.",
+     "why": "Mọi phòng có Wi-Fi, máy chiếu, nước đóng chai; không nhắc bảng trắng.",
      "lg": {
       "og": {
-       "Free parking for guests": "Chỗ đỗ xe miễn phí cho khách",
-       "Free Wi-Fi for guests": "Wi-Fi miễn phí cho khách",
-       "A projector for guests": "Máy chiếu cho khách",
-       "Bottled water for guests": "Nước đóng chai cho khách"
+       "A whiteboard": "Bảng trắng",
+       "Wireless Internet access": "Truy cập Internet không dây",
+       "A projector": "Máy chiếu",
+       "Bottled water": "Nước đóng chai"
       },
-      "ly": "Đáp án \"Free parking for guests\" — Mỗi phòng đều có Wi-Fi, máy chiếu và nước. Free parking for guests chỉ dành cho khách đặt phòng cả ngày, nên không đi kèm mọi phòng.",
+      "ly": "Trang web nói mọi phòng đều có Wi-Fi miễn phí, máy chiếu và nước đóng chai; bài không nhắc bảng trắng, nên đáp án là \"A whiteboard\".",
       "dich": "Phòng nào cũng có Wi-Fi miễn phí, máy chiếu và nước đóng chai."
      }
     },
@@ -3689,21 +3689,21 @@
     },
     {
      "q": "At 3:20 P.M., what does Mr. Haddad mean when he writes, \"It's being painted this week\"?",
-     "a": "The conference room is out of use this week.",
+     "a": "The group will need another place for the session.",
      "w": [
-      "The conference room is too small for them.",
-      "The conference room is too far from the lobby.",
-      "The conference room has no projector."
+      "The room will look better after this week.",
+      "The painting will be finished before Friday.",
+      "The training should wait until next week."
      ],
-     "why": "Đang sơn nên phòng hội nghị không dùng được tuần này (không phải nói chuyện màu sơn).",
+     "why": "Phòng đang được sơn nên nhóm phải tìm chỗ khác cho buổi tập huấn.",
      "lg": {
       "og": {
-       "The conference room is out of use this week.": "Phòng hội nghị không dùng được tuần này",
-       "The conference room is too small for them.": "Phòng hội nghị quá nhỏ cho nhóm",
-       "The conference room is too far from the lobby.": "Phòng hội nghị quá xa sảnh",
-       "The conference room has no projector.": "Phòng hội nghị không có máy chiếu"
+       "The group will need another place for the session.": "Nhóm sẽ phải tìm chỗ khác cho buổi tập huấn",
+       "The room will look better after this week.": "Phòng sẽ đẹp hơn sau tuần này",
+       "The painting will be finished before Friday.": "Việc sơn sẽ xong trước thứ Sáu",
+       "The training should wait until next week.": "Buổi tập huấn nên dời sang tuần sau"
       },
-      "ly": "Đáp án \"The conference room is out of use this week.\" — Ý \"đang sơn tuần này\" là phòng hội nghị tầng một không dùng được. Bài không nói phòng nhỏ, xa hay thiếu máy chiếu.",
+      "ly": "Câu \"It's being painted this week\" được nói để cho biết phòng không dùng được, nên nhóm phải tìm chỗ khác: \"The group will need another place for the session.\" Bài không nói gì về việc phòng đẹp hơn, sơn xong trước thứ Sáu hay dời buổi tập huấn.",
       "dich": "Phòng hội nghị đang được sơn trong tuần này."
      }
     },

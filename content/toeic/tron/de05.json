@@ -3566,7 +3566,7 @@
      "a": "They cover rides up to 45 minutes.",
      "w": [
       "They include a free helmet.",
-      "They cost less than one ride.",
+      "They can be shared with a friend.",
       "They require a fee per trip."
      ],
      "ev": "Monthly passes are available for $25 and include unlimited rides of up to 45 minutes.",
@@ -3575,7 +3575,7 @@
       "og": {
        "They cover rides up to 45 minutes.": "Gồm các chuyến đến 45 phút",
        "They include a free helmet.": "Kèm mũ bảo hiểm miễn phí",
-       "They cost less than one ride.": "Rẻ hơn một chuyến lẻ",
+       "They can be shared with a friend.": "Có thể dùng chung với bạn bè",
        "They require a fee per trip.": "Phải trả phí mỗi chuyến"
       },
       "ly": "Đáp án \"They cover rides up to 45 minutes.\": thẻ tháng 25 đô gồm không giới hạn số chuyến, mỗi chuyến tới 45 phút.",

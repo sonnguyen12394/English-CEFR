@@ -3183,7 +3183,7 @@
     },
     {
      "q": "At 11:24 A.M., what does Mr. Weber most likely mean when he writes, \"They close at noon on Saturdays\"?",
-     "a": "Time is short to place the order",
+     "a": "There is little time left to place the order",
      "w": [
       "The shop opens later on Saturdays",
       "The program file has a mistake",
@@ -3193,12 +3193,12 @@
      "why": "Tiệm đóng cửa lúc trưa thứ Bảy nên còn rất ít thời gian đặt đơn; ông quay lại ngay.",
      "lg": {
       "og": {
-       "Time is short to place the order": "Còn rất ít thời gian để đặt đơn",
+       "There is little time left to place the order": "Còn rất ít thời gian để đặt đơn",
        "The shop opens later on Saturdays": "Tiệm mở muộn vào thứ Bảy",
        "The program file has a mistake": "Tệp chương trình có lỗi",
        "He cannot return to the shop today": "Hôm nay ông không thể quay lại tiệm"
       },
-      "ly": "Đáp án \"Time is short to place the order\": Tiệm đóng cửa lúc trưa thứ Bảy nên còn rất ít thời gian đặt đơn; ông quay lại ngay.",
+      "ly": "Đáp án \"There is little time left to place the order\": Tiệm đóng cửa lúc trưa thứ Bảy nên còn rất ít thời gian đặt đơn; ông quay lại ngay.",
       "dich": "Họ đóng cửa vào buổi trưa các ngày thứ Bảy."
      }
     }

@@ -3491,7 +3491,7 @@
       "Large files are returned within a week"
      ],
      "ev": "every translation is checked by a second translator before delivery",
-     "why": "Trang web nói mọi bản dịch được một phiên dịch viên thứ hai kiểm tra; báo giá miễn phí.",
+     "why": "Trang web nói mọi bản dịch được một biên dịch viên thứ hai kiểm tra; báo giá miễn phí.",
      "lg": {
       "og": {
        "A second translator checks documents": "Một dịch giả thứ hai kiểm tra tài liệu",
@@ -3499,8 +3499,8 @@
        "Most jobs are finished in one day": "Đa số việc xong trong một ngày",
        "Large files are returned within a week": "Tệp lớn được trả trong một tuần"
       },
-      "ly": "Đáp án \"A second translator checks documents\": Trang web nói mọi bản dịch được một phiên dịch viên thứ hai kiểm tra; báo giá miễn phí.",
-      "dich": "Mọi bản dịch đều được một phiên dịch viên thứ hai kiểm tra trước khi giao."
+      "ly": "Đáp án \"A second translator checks documents\": Trang web nói mọi bản dịch được một biên dịch viên thứ hai kiểm tra; báo giá miễn phí.",
+      "dich": "Mọi bản dịch đều được một biên dịch viên thứ hai kiểm tra trước khi giao."
      }
     },
     {
