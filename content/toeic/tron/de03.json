@@ -3276,22 +3276,22 @@
    "qs": [
     {
      "q": "What problem does Ms. Kim report?",
-     "a": "A room is being used by other people.",
+     "a": "A room she needs is already occupied.",
      "w": [
-      "A client has canceled a call.",
-      "A laptop is not working.",
-      "A report is missing."
+      "A call has been moved to a later time.",
+      "A laptop cannot connect to the network.",
+      "A client has asked for a different topic."
      ],
      "ev": "someone from the finance team is using Meeting Room 3",
      "why": "Phòng họp 3 đang bị nhóm tài chính dùng, trong khi cuộc gọi với khách bắt đầu lúc 10 giờ.",
      "lg": {
       "og": {
-       "A room is being used by other people.": "Một phòng đang bị người khác dùng",
-       "A client has canceled a call.": "Khách đã huỷ cuộc gọi",
-       "A laptop is not working.": "Một máy tính xách tay hỏng",
-       "A report is missing.": "Một báo cáo bị thiếu"
+       "A room she needs is already occupied.": "Một phòng bà cần đang có người dùng",
+       "A call has been moved to a later time.": "Cuộc gọi bị dời sang giờ muộn hơn",
+       "A laptop cannot connect to the network.": "Máy tính không kết nối được mạng",
+       "A client has asked for a different topic.": "Khách yêu cầu đổi chủ đề"
       },
-      "ly": "Bà Kim nói người của nhóm tài chính đang dùng Phòng họp 3 trong khi cuộc gọi của bà bắt đầu lúc mười giờ.",
+      "ly": "Đáp án \"A room she needs is already occupied.\" — Bà Kim nói người của nhóm tài chính đang dùng Phòng họp 3 trong khi cuộc gọi của bà bắt đầu lúc mười giờ. Cuộc gọi vẫn đúng giờ, máy tính không hỏng và chủ đề không đổi.",
       "dich": "Có người của nhóm tài chính đang dùng Phòng họp 3, mà cuộc gọi của chúng ta với Halston Foods bắt đầu lúc mười giờ."
      }
     },
@@ -3384,22 +3384,22 @@
    "qs": [
     {
      "q": "What is one duty of the position?",
-     "a": "Making sure displays stay spotless",
+     "a": "Cleaning the shop's display cases",
      "w": [
-      "Decorating cakes for special orders",
-      "Ordering flour and other baking supplies",
-      "Handing out samples outside the store"
+      "Balancing the store's monthly accounts",
+      "Taking phone orders for events",
+      "Training newly hired employees"
      ],
      "ev": "keeping the display cases clean",
      "why": "Nhiệm vụ gồm giữ tủ trưng bày sạch.",
      "lg": {
       "og": {
-       "Making sure displays stay spotless": "Giữ cho khu trưng bày luôn sạch",
-       "Decorating cakes for special orders": "Trang trí bánh cho đơn đặc biệt",
-       "Ordering flour and other baking supplies": "Đặt bột và nguyên liệu nướng bánh",
-       "Handing out samples outside the store": "Phát bánh dùng thử trước cửa hàng"
+       "Cleaning the shop's display cases": "Lau dọn tủ trưng bày của tiệm",
+       "Balancing the store's monthly accounts": "Cân đối sổ sách hằng tháng",
+       "Taking phone orders for events": "Nhận đơn đặt qua điện thoại cho sự kiện",
+       "Training newly hired employees": "Đào tạo nhân viên mới"
       },
-      "ly": "Đáp án \"Making sure displays stay spotless\" — Nhiệm vụ gồm phục vụ khách, xử lý thanh toán và giữ tủ trưng bày sạch. Bài không nhắc trang trí bánh, đặt nguyên liệu hay phát bánh thử.",
+      "ly": "Đáp án \"Cleaning the shop's display cases\" — Nhiệm vụ gồm phục vụ khách, xử lý thanh toán và giữ tủ trưng bày sạch. Bài không nhắc sổ sách, nhận đơn qua điện thoại hay đào tạo nhân viên.",
       "dich": "Nhiệm vụ gồm phục vụ khách, xử lý thanh toán và giữ cho tủ trưng bày sạch sẽ."
      }
     },
@@ -3437,22 +3437,22 @@
    "qs": [
     {
      "q": "What is the purpose of the e-mail?",
-     "a": "To warn about expiring points",
+     "a": "To remind a member to use their points",
      "w": [
-      "To announce a new partner",
-      "To confirm a flight booking",
-      "To request a payment"
+      "To announce a bonus offer on flights",
+      "To confirm a recent purchase of points",
+      "To explain changes to a rewards program"
      ],
      "ev": "4,200 of your Global Air Rewards points will expire on September 30",
      "why": "Báo cho khách biết điểm thưởng sắp hết hạn.",
      "lg": {
       "og": {
-       "To warn about expiring points": "Để cảnh báo điểm sắp hết hạn",
-       "To announce a new partner": "Để thông báo đối tác mới",
-       "To confirm a flight booking": "Để xác nhận đặt vé",
-       "To request a payment": "Để yêu cầu thanh toán"
+       "To remind a member to use their points": "Để nhắc hội viên dùng điểm của mình",
+       "To announce a bonus offer on flights": "Để báo ưu đãi thưởng khi bay",
+       "To confirm a recent purchase of points": "Để xác nhận lần mua điểm gần đây",
+       "To explain changes to a rewards program": "Để giải thích thay đổi chương trình thưởng"
       },
-      "ly": "Tiêu đề và nội dung báo 4.200 điểm sẽ hết hạn vào 30/9.",
+      "ly": "Đáp án \"To remind a member to use their points\" — Thư báo 4.200 điểm sẽ hết hạn vào 30/9 và nhắc dùng hoặc giữ điểm. Ưu đãi, mua điểm và thay đổi chương trình không được nhắc.",
       "dich": "Hồ sơ cho thấy 4.200 điểm Global Air Rewards của bà sẽ hết hạn vào ngày 30 tháng 9."
      }
     },
@@ -3491,22 +3491,22 @@
    "qs": [
     {
      "q": "Why did Daniel K. stay at the inn?",
-     "a": "He was on a business trip.",
+     "a": "He was traveling for work.",
      "w": [
-      "He was on vacation.",
-      "He was visiting relatives.",
-      "He was moving to the area."
+      "He was on a family vacation.",
+      "He was attending a wedding.",
+      "He was visiting a college campus."
      ],
      "ev": "during a business trip in March",
      "why": "Anh ở đó trong chuyến công tác tháng 3.",
      "lg": {
       "og": {
-       "He was on a business trip.": "Ông đi công tác",
-       "He was on vacation.": "Ông đi nghỉ",
-       "He was visiting relatives.": "Ông thăm họ hàng",
-       "He was moving to the area.": "Ông chuyển đến khu vực này"
+       "He was traveling for work.": "Ông đi công tác",
+       "He was on a family vacation.": "Ông đi nghỉ cùng gia đình",
+       "He was attending a wedding.": "Ông dự một đám cưới",
+       "He was visiting a college campus.": "Ông đi tham quan một trường đại học"
       },
-      "ly": "Ông nói mình ở ba đêm trong chuyến công tác.",
+      "ly": "Đáp án \"He was traveling for work.\" — Ông nói mình ở ba đêm trong chuyến công tác (business trip). Bài không nhắc kỳ nghỉ, đám cưới hay trường đại học.",
       "dich": "Tôi ở Harbor View Inn ba đêm trong một chuyến công tác vào tháng 3."
      }
     },
@@ -3566,22 +3566,22 @@
    "qs": [
     {
      "q": "What is the purpose of the memo?",
-     "a": "To explain a new cleaning arrangement",
+     "a": "To announce a cleaning schedule",
      "w": [
-      "To announce a kitchen renovation",
-      "To introduce a new office manager",
-      "To request money for supplies"
+      "To announce a new office dress code",
+      "To announce extended office hours",
+      "To announce a change in break times"
      ],
      "ev": "each department will take turns cleaning the office kitchen",
      "why": "Thông báo các phòng ban lần lượt dọn bếp.",
      "lg": {
       "og": {
-       "To explain a new cleaning arrangement": "Giải thích cách dọn dẹp mới",
-       "To announce a kitchen renovation": "Thông báo cải tạo bếp",
-       "To introduce a new office manager": "Giới thiệu quản lý mới",
-       "To request money for supplies": "Xin tiền mua đồ"
+       "To announce a cleaning schedule": "Để báo lịch dọn bếp mới",
+       "To announce a new office dress code": "Để báo quy định ăn mặc mới",
+       "To announce extended office hours": "Để báo kéo dài giờ làm",
+       "To announce a change in break times": "Để báo đổi giờ nghỉ"
       },
-      "ly": "Bản ghi nhớ nói từ thứ Hai mỗi phòng ban luân phiên dọn bếp văn phòng.",
+      "ly": "Đáp án \"To announce a cleaning schedule\" — Bản ghi nhớ nói từ thứ Hai mỗi phòng ban luân phiên dọn bếp văn phòng theo lịch dán trên tủ lạnh. Trang phục, giờ làm và giờ nghỉ không được nhắc.",
       "dich": "Từ thứ Hai, mỗi phòng ban sẽ luân phiên dọn dẹp bếp văn phòng."
      }
     },
@@ -3640,22 +3640,22 @@
    "qs": [
     {
      "q": "What did Bright Spark Electrical Services do for the clinic?",
-     "a": "Replaced some lights",
+     "a": "Changed some ceiling fixtures",
      "w": [
-      "Installed a new alarm",
-      "Repaired a heating system",
-      "Painted the ceiling"
+      "Installed additional power outlets",
+      "Upgraded the fire alarm system",
+      "Rewired the reception area"
      ],
      "ev": "Replacement of ceiling lights (12 units)",
      "why": "Thay 12 bóng đèn trần.",
      "lg": {
       "og": {
-       "Replaced some lights": "Thay một số đèn",
-       "Installed a new alarm": "Lắp báo động mới",
-       "Repaired a heating system": "Sửa hệ thống sưởi",
-       "Painted the ceiling": "Sơn trần"
+       "Changed some ceiling fixtures": "Thay một số đèn gắn trần",
+       "Installed additional power outlets": "Lắp thêm ổ điện",
+       "Upgraded the fire alarm system": "Nâng cấp hệ thống báo cháy",
+       "Rewired the reception area": "Đi lại dây điện khu lễ tân"
       },
-      "ly": "Hoá đơn ghi thay đèn trần (12 chiếc).",
+      "ly": "Đáp án \"Changed some ceiling fixtures\" — Hoá đơn ghi thay đèn trần (12 chiếc). Ổ điện, báo cháy và đi dây điện không có trong hoá đơn.",
       "dich": "Thay đèn trần (12 chiếc): 540 đô la."
      }
     },
@@ -3715,7 +3715,7 @@
    "qs": [
     {
      "q": "What is the discussion mainly about?",
-     "a": "Changing the date of a demonstration",
+     "a": "Rescheduling a demonstration",
      "w": [
       "Hiring a new designer",
       "Shipping samples to a client",
@@ -3725,12 +3725,12 @@
      "why": "Khách muốn dời buổi trình diễn sản phẩm từ thứ Sáu sang chiều thứ Năm.",
      "lg": {
       "og": {
-       "Changing the date of a demonstration": "Đổi ngày buổi trình diễn",
+       "Rescheduling a demonstration": "Dời buổi trình diễn sang ngày khác",
        "Hiring a new designer": "Tuyển nhà thiết kế mới",
        "Shipping samples to a client": "Gửi mẫu cho khách",
        "Choosing a new factory": "Chọn nhà máy mới"
       },
-      "ly": "Cuộc trò chuyện xoay quanh việc khách muốn dời buổi trình diễn từ thứ Sáu sang thứ Năm.",
+      "ly": "Đáp án \"Rescheduling a demonstration\" — Cuộc trò chuyện xoay quanh việc khách muốn dời buổi trình diễn từ thứ Sáu sang thứ Năm. Tuyển người và chọn nhà máy không được nhắc, còn mẫu chỉ là chi tiết chuẩn bị.",
       "dich": "Khách muốn dời buổi trình diễn sản phẩm vào thứ Sáu sang chiều thứ Năm."
      }
     },
@@ -3832,22 +3832,22 @@
     },
     {
      "q": "According to Mr. Moreau, what have customers wanted?",
-     "a": "A spot to sit down with a book",
+     "a": "A spot for reading in the store",
      "w": [
-      "Lower prices on popular bestsellers",
-      "A larger selection of local authors",
-      "More parking spaces near the store"
+      "Extended opening hours on weekends",
+      "Lower prices on new releases",
+      "A wider range of local authors"
      ],
      "ev": "Our customers have been asking for a place to sit and read",
      "why": "Khách muốn có chỗ ngồi đọc.",
      "lg": {
       "og": {
-       "A spot to sit down with a book": "Một chỗ để ngồi xuống đọc sách",
-       "Lower prices on popular bestsellers": "Giá rẻ hơn cho sách bán chạy",
-       "A larger selection of local authors": "Nhiều lựa chọn tác giả địa phương hơn",
-       "More parking spaces near the store": "Thêm chỗ đỗ xe gần cửa hàng"
+       "A spot for reading in the store": "Một chỗ để đọc sách trong tiệm",
+       "Extended opening hours on weekends": "Giờ mở cửa cuối tuần dài hơn",
+       "Lower prices on new releases": "Giá rẻ hơn cho sách mới",
+       "A wider range of local authors": "Nhiều tác giả địa phương hơn"
       },
-      "ly": "Đáp án \"A spot to sit down with a book\" — Ông Moreau nói khách hỏi một nơi để ngồi đọc, nên cửa hàng mới có góc đọc và quán cà phê. Giá, tác giả địa phương và bãi đỗ xe không được nhắc là điều khách muốn.",
+      "ly": "Đáp án \"A spot for reading in the store\" — Ông Moreau nói khách hỏi một nơi để ngồi đọc, nên cửa hàng mới có góc đọc và quán cà phê. Giờ mở cửa, giá và tác giả địa phương không được nhắc là điều khách muốn.",
       "dich": "Khách hàng của chúng tôi đã đòi hỏi một nơi để ngồi đọc sách."
      }
     },

@@ -1523,21 +1523,21 @@
    "qs": [
     {
      "q": "Why does Ms. Wu contact Mr. Mehta?",
-     "a": "To get some samples delivered sooner",
+     "a": "To speed up an order's delivery",
      "w": [
-      "To find out why a driver is late",
-      "To check that the samples were packed",
-      "To cancel a meeting with the client"
+      "To report damage to a shipment",
+      "To ask about a delivery address",
+      "To reschedule a client visit"
      ],
-     "why": "Khách cần mẫu hàng trước trưa, sớm hơn kế hoạch.",
+     "why": "Khách cần mẫu hàng trước trưa nên bà nhờ ông dùng dịch vụ chuyển phát nhanh.",
      "lg": {
       "og": {
-       "To get some samples delivered sooner": "Để mẫu hàng được giao sớm hơn",
-       "To find out why a driver is late": "Để hỏi vì sao tài xế trễ",
-       "To check that the samples were packed": "Để kiểm tra mẫu đã đóng gói chưa",
-       "To cancel a meeting with the client": "Để huỷ cuộc họp với khách"
+       "To speed up an order's delivery": "Để sắp xếp giao đơn hàng nhanh hơn",
+       "To report damage to a shipment": "Để báo hàng bị hư",
+       "To ask about a delivery address": "Để hỏi địa chỉ giao hàng",
+       "To reschedule a client visit": "Để dời lịch thăm khách"
       },
-      "ly": "Đáp án \"To get some samples delivered sooner\" — Bà Wu nhắn vì khách cần mẫu trước trưa. Tài xế trễ và hàng đã đóng gói là thông tin ông Mehta đưa ra, không phải lý do bà liên lạc.",
+      "ly": "Đáp án \"To speed up an order's delivery\" — Bà Wu nhắn vì khách cần mẫu trước trưa và bà đề nghị dùng chuyển phát nhanh thay tài xế. Hàng hư, địa chỉ và lịch thăm khách không được nhắc.",
       "dich": "Khách vừa gọi. Họ cần mẫu hàng trước buổi trưa, không phải ngày mai."
      }
     },
@@ -1595,21 +1595,21 @@
     },
     {
      "q": "What is stated about experience in a design firm?",
-     "a": "It is a plus, though not mandatory.",
+     "a": "It is helpful but not required.",
      "w": [
-      "It is needed for the full-time position.",
-      "It matters more than office experience.",
-      "It must be shown with a portfolio."
+      "It is required for the position.",
+      "It is needed to qualify for an interview.",
+      "It is a skill the firm will teach."
      ],
      "why": "Bài ghi kinh nghiệm ở công ty thiết kế là lợi thế, không bắt buộc.",
      "lg": {
       "og": {
-       "It is a plus, though not mandatory.": "Là lợi thế, nhưng không bắt buộc",
-       "It is needed for the full-time position.": "Cần cho vị trí toàn thời gian",
-       "It matters more than office experience.": "Quan trọng hơn kinh nghiệm văn phòng",
-       "It must be shown with a portfolio.": "Phải kèm hồ sơ năng lực"
+       "It is helpful but not required.": "Có ích nhưng không bắt buộc",
+       "It is required for the position.": "Bắt buộc cho vị trí này",
+       "It is needed to qualify for an interview.": "Cần để được phỏng vấn",
+       "It is a skill the firm will teach.": "Là kỹ năng công ty sẽ dạy"
       },
-      "ly": "Đáp án \"It is a plus, though not mandatory.\" — Kinh nghiệm ở công ty thiết kế là lợi thế nhưng không bắt buộc. Bài yêu cầu hai năm kinh nghiệm văn phòng và không nhắc hồ sơ năng lực.",
+      "ly": "Đáp án \"It is helpful but not required.\" — Kinh nghiệm ở công ty thiết kế là một lợi thế nhưng không bắt buộc (advantage but not required). Bài không nói đó là điều kiện để được phỏng vấn hay công ty sẽ dạy.",
       "dich": "Có kinh nghiệm ở công ty kiến trúc hoặc thiết kế là một lợi thế nhưng không bắt buộc."
      }
     },
@@ -1669,19 +1669,19 @@
      "q": "How many people was the lunch prepared for?",
      "a": "40",
      "w": [
-      "18",
-      "25",
-      "80"
+      "45",
+      "50",
+      "60"
      ],
      "why": "Lunch buffet (40 people × $18).",
      "lg": {
       "og": {
        "40": "40",
-       "18": "18",
-       "25": "25",
-       "80": "80"
+       "45": "45",
+       "50": "50",
+       "60": "60"
       },
-      "ly": "Dòng bữa trưa tự chọn ghi 40 người × 18 đô la. 18 là đơn giá, 25 là phí giao hàng, 80 là tiền cà phê và trà.",
+      "ly": "Đáp án \"40\" — Dòng bữa trưa tự chọn ghi 40 người × 18 đô la (720 đô la). Các số còn lại không xuất hiện ở dòng này.",
       "dich": "Bữa trưa tự chọn (40 người × 18 đô la): 720 đô la."
      }
     }
@@ -1699,21 +1699,21 @@
    "qs": [
     {
      "q": "What is the article mainly about?",
-     "a": "A local firm's steps to reduce its impact",
+     "a": "A company's push toward sustainability",
      "w": [
-      "A family business celebrating its history",
-      "A factory expanding to hire more staff",
-      "Rising costs for small printing businesses"
+      "A company's plan to expand its factory",
+      "A company's celebration of an anniversary",
+      "A company's reaction to rising prices"
      ],
      "why": "Lắp pin mặt trời và chuyển sang giấy tái chế.",
      "lg": {
       "og": {
-       "A local firm's steps to reduce its impact": "Các bước một công ty địa phương giảm tác động của mình",
-       "A family business celebrating its history": "Một doanh nghiệp gia đình kỷ niệm lịch sử",
-       "A factory expanding to hire more staff": "Một nhà máy mở rộng để tuyển thêm người",
-       "Rising costs for small printing businesses": "Chi phí tăng với các nhà in nhỏ"
+       "A company's push toward sustainability": "Nỗ lực hoạt động bền vững hơn của một công ty",
+       "A company's plan to expand its factory": "Kế hoạch mở rộng nhà máy",
+       "A company's celebration of an anniversary": "Lễ kỷ niệm của một công ty",
+       "A company's reaction to rising prices": "Phản ứng của công ty trước giá tăng"
       },
-      "ly": "Đáp án \"A local firm's steps to reduce its impact\" — Bài nói về việc lắp pin mặt trời và dùng giấy tái chế. Năm thành lập và số nhân viên chỉ là chi tiết phụ.",
+      "ly": "Đáp án \"A company's push toward sustainability\" — Bài nói về việc lắp pin mặt trời và dùng giấy tái chế để giảm tác động môi trường. Mở rộng nhà máy, kỷ niệm và giá tăng không phải ý chính.",
       "dich": "Lindqvist Printing đã hoàn tất việc lắp 600 tấm pin mặt trời trên mái nhà máy."
      }
     },
@@ -1771,21 +1771,21 @@
    "qs": [
     {
      "q": "Who is the notice intended for?",
-     "a": "Residents of an apartment complex",
+     "a": "Apartment complex residents",
      "w": [
-      "Plumbers working in Building B",
-      "Employees of a water company",
-      "Visitors to a hotel"
+      "Employees of an office building",
+      "Guests staying at a hotel",
+      "Members of a fitness club"
      ],
      "why": "Dear residents … Westfield Apartments.",
      "lg": {
       "og": {
-       "Residents of an apartment complex": "Cư dân của một khu chung cư",
-       "Plumbers working in Building B": "Thợ sửa ống nước ở Toà B",
-       "Employees of a water company": "Nhân viên công ty nước",
-       "Visitors to a hotel": "Khách của khách sạn"
+       "Apartment complex residents": "Cư dân của một khu chung cư",
+       "Employees of an office building": "Nhân viên của một toà văn phòng",
+       "Guests staying at a hotel": "Khách ở khách sạn",
+       "Members of a fitness club": "Hội viên một câu lạc bộ thể hình"
       },
-      "ly": "Thư mở đầu bằng \"Dear residents\" và nói về cư dân các toà A, B, C của Westfield Apartments.",
+      "ly": "Đáp án \"Apartment complex residents\" — Thư mở đầu bằng \"Dear residents\" và nói về các toà A, B, C của một khu chung cư.",
       "dich": "Kính gửi cư dân, nước ở Toà B sẽ bị cắt vào thứ Tư, ngày 14 tháng 5, từ 10 giờ sáng đến 2 giờ chiều."
      }
     },
@@ -1823,21 +1823,21 @@
    "qs": [
     {
      "q": "Why did Ms. Grant go to the restaurant?",
-     "a": "To celebrate a family member's birthday",
+     "a": "To mark a special day with relatives",
      "w": [
-      "To meet a business client",
-      "To write a review for a newspaper",
-      "To apply for a job"
+      "To celebrate a promotion with coworkers",
+      "To entertain a visiting business partner",
+      "To catch up with friends from school"
      ],
      "why": "for my father's birthday.",
      "lg": {
       "og": {
-       "To celebrate a family member's birthday": "Để mừng sinh nhật một người thân",
-       "To meet a business client": "Để gặp khách hàng",
-       "To write a review for a newspaper": "Để viết bài cho báo",
-       "To apply for a job": "Để xin việc"
+       "To mark a special day with relatives": "Để mừng một ngày đặc biệt cùng người thân",
+       "To celebrate a promotion with coworkers": "Để mừng thăng chức với đồng nghiệp",
+       "To entertain a visiting business partner": "Để tiếp một đối tác đến thăm",
+       "To catch up with friends from school": "Để gặp lại bạn học cũ"
       },
-      "ly": "Bà đưa bố mẹ đến nhà hàng nhân sinh nhật của bố.",
+      "ly": "Đáp án \"To mark a special day with relatives\" — Bà đưa bố mẹ đến nhà hàng nhân sinh nhật của bố, tức một ngày đặc biệt với người thân.",
       "dich": "Tôi đưa bố mẹ đến Casa Verde nhân sinh nhật bố tôi vào thứ Bảy tuần trước."
      }
     },
@@ -1899,21 +1899,21 @@
    "qs": [
     {
      "q": "What is the purpose of the e-mail?",
-     "a": "To announce changes to an event",
+     "a": "To update attendees on event plans",
      "w": [
-      "To invite people to register",
-      "To cancel a workshop",
-      "To introduce a new director"
+      "To remind attendees to register online",
+      "To thank attendees for their feedback",
+      "To confirm the list of speakers"
      ],
      "why": "Please note one change to the schedule…",
      "lg": {
       "og": {
-       "To announce changes to an event": "Thông báo thay đổi của sự kiện",
-       "To invite people to register": "Mời đăng ký",
-       "To cancel a workshop": "Huỷ một buổi workshop",
-       "To introduce a new director": "Giới thiệu giám đốc mới"
+       "To update attendees on event plans": "Để cập nhật cho người dự về sắp xếp sự kiện",
+       "To remind attendees to register online": "Để nhắc người dự đăng ký trực tuyến",
+       "To thank attendees for their feedback": "Để cảm ơn người dự đã góp ý",
+       "To confirm the list of speakers": "Để xác nhận danh sách diễn giả"
       },
-      "ly": "E-mail nói rõ có một thay đổi lịch (đổi phòng, đổi nơi ăn trưa).",
+      "ly": "Đáp án \"To update attendees on event plans\" — E-mail nói rõ có thay đổi lịch (đổi phòng, đổi nơi ăn trưa) để cập nhật cho người dự. Đăng ký, cảm ơn và danh sách diễn giả không phải mục đích.",
       "dich": "Xin lưu ý một thay đổi về lịch trình."
      }
     },
@@ -2247,21 +2247,21 @@
    "qs": [
     {
      "q": "What is the main purpose of the memo?",
-     "a": "To inform staff about a temporary closure",
+     "a": "To notify staff of a kitchen closure",
      "w": [
-      "To introduce a new office manager",
-      "To announce a new lunch menu",
-      "To ask for help with a renovation"
+      "To remind staff of a cleaning schedule",
+      "To announce a new break policy",
+      "To invite staff to a farewell party"
      ],
      "why": "The kitchen will be completely closed…",
      "lg": {
       "og": {
-       "To inform staff about a temporary closure": "Báo cho nhân viên về việc đóng cửa tạm thời",
-       "To introduce a new office manager": "Giới thiệu quản lý mới",
-       "To announce a new lunch menu": "Công bố thực đơn trưa mới",
-       "To ask for help with a renovation": "Nhờ giúp cải tạo"
+       "To notify staff of a kitchen closure": "Để báo nhân viên về việc đóng bếp",
+       "To remind staff of a cleaning schedule": "Để nhắc lịch dọn dẹp",
+       "To announce a new break policy": "Để báo chính sách nghỉ giải lao mới",
+       "To invite staff to a farewell party": "Để mời dự tiệc chia tay"
       },
-      "ly": "Thông báo nói bếp tầng bốn sẽ đóng hoàn toàn trong hai tuần để cải tạo.",
+      "ly": "Đáp án \"To notify staff of a kitchen closure\" — Thông báo nói bếp tầng bốn sẽ đóng hoàn toàn hai tuần để cải tạo. Lịch dọn, giờ nghỉ và tiệc chia tay không được nhắc.",
       "dich": "Bếp nhân viên ở tầng bốn sẽ được cải tạo từ thứ Hai, ngày 3 tháng 11, đến thứ Sáu, ngày 14 tháng 11."
      }
     },
@@ -2555,21 +2555,21 @@
    "qs": [
     {
      "q": "What is the purpose of the notice?",
-     "a": "To announce a new parking system",
+     "a": "To announce new garage access rules",
      "w": [
-      "To advertise office space",
-      "To report a car accident",
-      "To explain new office hours"
+      "To announce new garage opening hours",
+      "To announce a rise in parking fees",
+      "To warn about a closed garage level"
      ],
      "why": "must display a new electronic parking pass… old paper passes will no longer be accepted.",
      "lg": {
       "og": {
-       "To announce a new parking system": "Thông báo hệ thống đỗ xe mới",
-       "To advertise office space": "Quảng cáo cho thuê văn phòng",
-       "To report a car accident": "Báo tai nạn xe",
-       "To explain new office hours": "Giải thích giờ làm việc mới"
+       "To announce new garage access rules": "Để báo quy định ra vào hầm xe mới",
+       "To announce new garage opening hours": "Để báo giờ mở hầm xe mới",
+       "To announce a rise in parking fees": "Để báo tăng phí đỗ xe",
+       "To warn about a closed garage level": "Để cảnh báo một tầng hầm bị đóng"
       },
-      "ly": "Từ 1/5 mọi xe phải có thẻ đỗ điện tử mới, nên bài thông báo hệ thống đỗ xe mới.",
+      "ly": "Đáp án \"To announce new garage access rules\" — Từ 1/5 mọi xe phải có thẻ điện tử mới, tức quy định ra vào hầm xe mới. Giờ mở, tăng phí và tầng bị đóng không được nhắc.",
       "dich": "Từ ngày 1 tháng 5, mọi xe đỗ trong hầm Westgate Office Tower phải có thẻ đỗ điện tử mới."
      }
     },
@@ -2627,21 +2627,21 @@
    "qs": [
     {
      "q": "What problem does Ms. Fischer have?",
-     "a": "Some equipment is not working.",
+     "a": "A device in a meeting room is broken.",
      "w": [
-      "A client has canceled.",
-      "A room is too small.",
-      "She cannot find the remote control."
+      "A meeting room has been double-booked.",
+      "A client is running late.",
+      "A presentation file cannot be found."
      ],
      "why": "The projector in Meeting Room B isn't working.",
      "lg": {
       "og": {
-       "Some equipment is not working.": "Một thiết bị không hoạt động",
-       "A client has canceled.": "Khách đã huỷ",
-       "A room is too small.": "Một phòng quá nhỏ",
-       "She cannot find the remote control.": "Bà không tìm thấy điều khiển"
+       "A device in a meeting room is broken.": "Một thiết bị trong phòng họp bị hỏng",
+       "A meeting room has been double-booked.": "Một phòng họp bị đặt trùng",
+       "A client is running late.": "Khách đến trễ",
+       "A presentation file cannot be found.": "Không tìm thấy tệp thuyết trình"
       },
-      "ly": "Bà Fischer nói máy chiếu ở phòng họp B không hoạt động dù đã thay pin.",
+      "ly": "Đáp án \"A device in a meeting room is broken.\" — Bà Fischer nói máy chiếu ở phòng họp B không hoạt động dù đã thay pin, tức một thiết bị trong phòng họp bị hỏng.",
       "dich": "Máy chiếu ở Phòng họp B không hoạt động. Khách sẽ đến sau hai mươi phút nữa."
      }
     },
@@ -2679,21 +2679,21 @@
    "qs": [
     {
      "q": "What is indicated about Sunrise Cleaning Services?",
-     "a": "It has operated for many years.",
+     "a": "It has served businesses for years.",
      "w": [
-      "It recently moved to Brookfield.",
-      "It only cleans homes.",
-      "It works on public holidays."
+      "It cleans both homes and offices.",
+      "It charges for price estimates.",
+      "It is open on public holidays."
      ],
      "why": "for over fifteen years.",
      "lg": {
       "og": {
-       "It has operated for many years.": "Hoạt động nhiều năm",
-       "It recently moved to Brookfield.": "Mới chuyển đến Brookfield",
-       "It only cleans homes.": "Chỉ dọn nhà ở",
-       "It works on public holidays.": "Làm cả ngày lễ"
+       "It has served businesses for years.": "Đã phục vụ doanh nghiệp địa phương nhiều năm",
+       "It cleans both homes and offices.": "Dọn cả nhà ở và văn phòng",
+       "It charges for price estimates.": "Tính phí báo giá",
+       "It is open on public holidays.": "Mở cửa cả ngày lễ"
       },
-      "ly": "Quảng cáo nói công ty đã dọn dẹp doanh nghiệp ở Brookfield hơn mười lăm năm.",
+      "ly": "Đáp án \"It has served businesses for years.\" — Quảng cáo nói công ty dọn dẹp doanh nghiệp ở Brookfield hơn mười lăm năm. Báo giá miễn phí và không làm ngày lễ.",
       "dich": "Sunrise Cleaning Services đã giữ cho các doanh nghiệp ở Brookfield sạch sẽ hơn mười lăm năm."
      }
     },
@@ -2913,21 +2913,21 @@
    "qs": [
     {
      "q": "Why was the letter sent?",
-     "a": "To follow up on an overdue payment",
+     "a": "To remind a customer of an unpaid bill",
      "w": [
-      "To explain a change in water rates",
-      "To warn of a planned water shutdown",
-      "To confirm that a bill was received"
+      "To confirm that a payment was received",
+      "To explain a rise in water rates",
+      "To offer a discount for early payment"
      ],
      "why": "Hoá đơn nước tháng 9 chưa được thanh toán.",
      "lg": {
       "og": {
-       "To follow up on an overdue payment": "Để nhắc về khoản thanh toán quá hạn",
-       "To explain a change in water rates": "Để giải thích thay đổi giá nước",
-       "To warn of a planned water shutdown": "Để cảnh báo sẽ cắt nước theo kế hoạch",
-       "To confirm that a bill was received": "Để xác nhận đã nhận hoá đơn"
+       "To remind a customer of an unpaid bill": "Để nhắc khách về hoá đơn chưa trả",
+       "To confirm that a payment was received": "Để xác nhận đã nhận thanh toán",
+       "To explain a rise in water rates": "Để giải thích giá nước tăng",
+       "To offer a discount for early payment": "Để giảm giá khi trả sớm"
       },
-      "ly": "Đáp án \"To follow up on an overdue payment\" — Thư báo hoá đơn tháng 9 chưa trả và nhắc hạn mới. Không có thay đổi giá nước hay kế hoạch cắt nước.",
+      "ly": "Đáp án \"To remind a customer of an unpaid bill\" — Thư báo hoá đơn tháng 9 chưa trả và nhắc hạn mới kèm phí trễ. Không có xác nhận thanh toán, tăng giá hay giảm giá trả sớm.",
       "dich": "Hồ sơ của chúng tôi cho thấy hoá đơn tiền nước tháng 9 của ông, trị giá 64,20 đô la, chưa được thanh toán."
      }
     },
@@ -2985,21 +2985,21 @@
    "qs": [
     {
      "q": "What is the article mainly about?",
-     "a": "A company's relocation",
+     "a": "A company's decision to change cities",
      "w": [
-      "A new hospital",
-      "A university course",
-      "An election"
+      "A company's plan to merge with a competitor",
+      "A company's plan to reduce its workforce",
+      "A company's launch of new software"
      ],
      "why": "will move its headquarters from Chicago to Brookfield.",
      "lg": {
       "og": {
-       "A company's relocation": "Việc một công ty chuyển trụ sở",
-       "A new hospital": "Một bệnh viện mới",
-       "A university course": "Một khoá học đại học",
-       "An election": "Một cuộc bầu cử"
+       "A company's decision to change cities": "Quyết định chuyển thành phố của một công ty",
+       "A company's plan to merge with a competitor": "Kế hoạch sáp nhập với đối thủ",
+       "A company's plan to reduce its workforce": "Kế hoạch cắt giảm nhân sự",
+       "A company's launch of new software": "Việc ra mắt phần mềm mới"
       },
-      "ly": "Bài báo nói Novaline sẽ chuyển trụ sở từ Chicago về Brookfield.",
+      "ly": "Đáp án \"A company's decision to change cities\" — Bài báo nói Novaline sẽ chuyển trụ sở từ Chicago về Brookfield. Sáp nhập, cắt giảm nhân sự (công ty còn tuyển thêm) và ra mắt phần mềm không được nhắc.",
       "dich": "Công ty công nghệ Novaline hôm qua thông báo sẽ chuyển trụ sở từ Chicago về Brookfield trước cuối năm."
      }
     },
@@ -3177,21 +3177,21 @@
    "qs": [
     {
      "q": "What is the purpose of the notice?",
-     "a": "To tell patrons about a schedule change",
+     "a": "To announce new opening hours",
      "w": [
-      "To invite residents to complete a survey",
-      "To explain how to set up an account",
-      "To announce extra hours on weekends"
+      "To announce a new borrowing policy",
+      "To announce a library renovation",
+      "To announce an upcoming book sale"
      ],
      "why": "Thư viện mở sớm hơn một giờ các ngày trong tuần.",
      "lg": {
       "og": {
-       "To tell patrons about a schedule change": "Để báo cho bạn đọc về thay đổi lịch",
-       "To invite residents to complete a survey": "Để mời cư dân làm khảo sát",
-       "To explain how to set up an account": "Để hướng dẫn lập tài khoản",
-       "To announce extra hours on weekends": "Để báo thêm giờ cuối tuần"
+       "To announce new opening hours": "Để báo đổi giờ mở cửa",
+       "To announce a new borrowing policy": "Để báo chính sách mượn sách mới",
+       "To announce a library renovation": "Để báo thư viện sắp cải tạo",
+       "To announce an upcoming book sale": "Để báo sắp có đợt bán sách"
       },
-      "ly": "Đáp án \"To tell patrons about a schedule change\" — Bài báo giờ mở cửa sớm hơn từ 5/5. Khảo sát và tài khoản chỉ là chi tiết kèm theo, còn giờ cuối tuần giữ nguyên.",
+      "ly": "Đáp án \"To announce new opening hours\" — Bài báo giờ mở cửa sớm hơn từ 5/5. Chính sách mượn sách, cải tạo và bán sách không được nhắc.",
       "dich": "Từ thứ Hai ngày 5 tháng 5, Thư viện Oakdale sẽ mở cửa lúc 8 giờ sáng các ngày trong tuần, sớm hơn trước một giờ."
      }
     },
@@ -3269,21 +3269,21 @@
    "qs": [
     {
      "q": "Why was the e-mail sent?",
-     "a": "To inform staff about renovation work",
+     "a": "To notify staff of coming kitchen work",
      "w": [
-      "To invite staff to a lunch",
-      "To announce a new office manager",
-      "To ask staff for kitchen design ideas"
+      "To invite staff to a company lunch",
+      "To announce a change in work hours",
+      "To request feedback on a cafeteria menu"
      ],
      "why": "The second-floor kitchen will be renovated from June 9 to June 20.",
      "lg": {
       "og": {
-       "To inform staff about renovation work": "Báo cho nhân viên về việc cải tạo",
-       "To invite staff to a lunch": "Mời nhân viên ăn trưa",
-       "To announce a new office manager": "Thông báo quản lý văn phòng mới",
-       "To ask staff for kitchen design ideas": "Xin ý tưởng thiết kế bếp"
+       "To notify staff of coming kitchen work": "Để báo nhân viên về việc sắp sửa bếp",
+       "To invite staff to a company lunch": "Để mời nhân viên ăn trưa công ty",
+       "To announce a change in work hours": "Để báo đổi giờ làm",
+       "To request feedback on a cafeteria menu": "Để xin ý kiến về thực đơn căng tin"
       },
-      "ly": "Thư báo bếp tầng hai sẽ được cải tạo và hướng dẫn dùng bếp tầng bốn trong thời gian đó.",
+      "ly": "Đáp án \"To notify staff of coming kitchen work\" — Thư báo bếp tầng hai sắp được cải tạo và hướng dẫn dùng bếp tầng bốn. Bữa trưa, giờ làm và thực đơn không được nhắc.",
       "dich": "Bếp ở tầng hai sẽ được cải tạo từ ngày 9 đến ngày 20 tháng 6."
      }
     },
@@ -3453,21 +3453,21 @@
    "qs": [
     {
      "q": "What is NOT included with every meeting room?",
-     "a": "Free parking",
+     "a": "Free parking for guests",
      "w": [
-      "Wi-Fi access",
-      "A projector",
-      "Bottled water"
+      "Free Wi-Fi for guests",
+      "A projector for guests",
+      "Bottled water for guests"
      ],
      "why": "Wi-Fi, máy chiếu, nước có ở mọi phòng; đỗ xe miễn phí chỉ cho khách đặt phòng cả ngày.",
      "lg": {
       "og": {
-       "Free parking": "Chỗ đỗ xe miễn phí",
-       "Wi-Fi access": "Wi-Fi",
-       "A projector": "Máy chiếu",
-       "Bottled water": "Nước đóng chai"
+       "Free parking for guests": "Chỗ đỗ xe miễn phí cho khách",
+       "Free Wi-Fi for guests": "Wi-Fi miễn phí cho khách",
+       "A projector for guests": "Máy chiếu cho khách",
+       "Bottled water for guests": "Nước đóng chai cho khách"
       },
-      "ly": "Mỗi phòng đều có Wi-Fi, máy chiếu và nước. Đỗ xe miễn phí chỉ dành cho khách đặt phòng cả ngày, nên không đi kèm mọi phòng.",
+      "ly": "Đáp án \"Free parking for guests\" — Mỗi phòng đều có Wi-Fi, máy chiếu và nước. Free parking for guests chỉ dành cho khách đặt phòng cả ngày, nên không đi kèm mọi phòng.",
       "dich": "Phòng nào cũng có Wi-Fi miễn phí, máy chiếu và nước đóng chai."
      }
     },
@@ -3525,21 +3525,21 @@
    "qs": [
     {
      "q": "Why was the letter sent?",
-     "a": "To encourage a patient to come in again",
+     "a": "To suggest that a patient schedule a visit",
      "w": [
-      "To confirm an appointment he already made",
-      "To explain the results of recent treatment",
-      "To announce that a dentist is leaving"
+      "To confirm a patient's upcoming appointment",
+      "To report results from a recent visit",
+      "To announce new insurance coverage"
      ],
      "why": "Đã mười hai tháng kể từ lần khám, thư khuyên khám mỗi năm.",
      "lg": {
       "og": {
-       "To encourage a patient to come in again": "Để khuyến khích bệnh nhân quay lại khám",
-       "To confirm an appointment he already made": "Để xác nhận lịch hẹn ông đã đặt",
-       "To explain the results of recent treatment": "Để giải thích kết quả điều trị gần đây",
-       "To announce that a dentist is leaving": "Để báo một nha sĩ sắp nghỉ"
+       "To suggest that a patient schedule a visit": "Để gợi ý bệnh nhân đặt lịch khám",
+       "To confirm a patient's upcoming appointment": "Để xác nhận lịch hẹn sắp tới",
+       "To report results from a recent visit": "Để báo kết quả lần khám gần đây",
+       "To announce new insurance coverage": "Để báo bảo hiểm mới"
       },
-      "ly": "Đáp án \"To encourage a patient to come in again\" — Thư nói đã một năm kể từ lần khám và khuyên khám định kỳ, kèm cách đặt lịch. Ông chưa đặt lịch và không có điều trị nào được nhắc.",
+      "ly": "Đáp án \"To suggest that a patient schedule a visit\" — Thư nói đã một năm kể từ lần khám và khuyên khám định kỳ, kèm cách đặt lịch. Ông chưa có lịch hẹn, không có kết quả khám hay bảo hiểm mới.",
       "dich": "Hồ sơ cho thấy đã mười hai tháng kể từ lần khám gần nhất của ông."
      }
     },
@@ -3597,21 +3597,21 @@
    "qs": [
     {
      "q": "What problem does Mr. Brandt report?",
-     "a": "A vehicle has stopped working.",
+     "a": "A van used for delivery stopped working.",
      "w": [
-      "An order has been canceled.",
-      "Some chairs were damaged.",
-      "A road has been closed."
+      "A package was sent to the wrong address.",
+      "A customer has asked for a refund.",
+      "A driver called in sick this morning."
      ],
      "why": "the delivery van … just broke down on Route 9.",
      "lg": {
       "og": {
-       "A vehicle has stopped working.": "Một chiếc xe đã hỏng",
-       "An order has been canceled.": "Một đơn hàng bị huỷ",
-       "Some chairs were damaged.": "Ghế bị hư",
-       "A road has been closed.": "Một con đường bị đóng"
+       "A van used for delivery stopped working.": "Một xe giao hàng đã hỏng",
+       "A package was sent to the wrong address.": "Một gói hàng gửi nhầm địa chỉ",
+       "A customer has asked for a refund.": "Một khách xin hoàn tiền",
+       "A driver called in sick this morning.": "Một tài xế báo nghỉ ốm sáng nay"
       },
-      "ly": "Ông Brandt báo xe tải giao hàng bị hỏng trên đường Route 9.",
+      "ly": "Đáp án \"A van used for delivery stopped working.\" — Ông Brandt báo xe tải giao hàng bị hỏng trên đường Route 9. Gửi nhầm địa chỉ, hoàn tiền và tài xế nghỉ ốm không được nhắc.",
       "dich": "Xe tải giao hàng cho đơn của ông Ortega vừa bị hỏng trên đường Route 9."
      }
     },
@@ -3689,21 +3689,21 @@
     },
     {
      "q": "At 3:20 P.M., what does Mr. Haddad mean when he writes, \"It's being painted this week\"?",
-     "a": "The conference room cannot be used.",
+     "a": "The conference room is out of use this week.",
      "w": [
-      "The conference room will look better soon.",
-      "He has hired a painter.",
-      "The training session should be postponed."
+      "The conference room is too small for them.",
+      "The conference room is too far from the lobby.",
+      "The conference room has no projector."
      ],
-     "why": "Câu trả lời cho gợi ý dùng phòng hội nghị: đang sơn nên không dùng được (không phải nói chuyện màu sơn).",
+     "why": "Đang sơn nên phòng hội nghị không dùng được tuần này (không phải nói chuyện màu sơn).",
      "lg": {
       "og": {
-       "The conference room cannot be used.": "Không dùng được phòng hội nghị",
-       "The conference room will look better soon.": "Phòng hội nghị sắp đẹp hơn",
-       "He has hired a painter.": "Anh đã thuê thợ sơn",
-       "The training session should be postponed.": "Nên hoãn buổi tập huấn"
+       "The conference room is out of use this week.": "Phòng hội nghị không dùng được tuần này",
+       "The conference room is too small for them.": "Phòng hội nghị quá nhỏ cho nhóm",
+       "The conference room is too far from the lobby.": "Phòng hội nghị quá xa sảnh",
+       "The conference room has no projector.": "Phòng hội nghị không có máy chiếu"
       },
-      "ly": "Ý \"đang sơn tuần này\" là phòng hội nghị tầng một không dùng được. Ngay sau đó bà Chen đề xuất phương án khác.",
+      "ly": "Đáp án \"The conference room is out of use this week.\" — Ý \"đang sơn tuần này\" là phòng hội nghị tầng một không dùng được. Bài không nói phòng nhỏ, xa hay thiếu máy chiếu.",
       "dich": "Phòng hội nghị đang được sơn trong tuần này."
      }
     },
@@ -3741,21 +3741,21 @@
    "qs": [
     {
      "q": "What is the purpose of the notice?",
-     "a": "To tell tenants about a maintenance schedule",
+     "a": "To notify tenants of a service outage",
      "w": [
-      "To ask tenants to reserve a conference room",
-      "To inform tenants of a planned rent increase",
-      "To explain new rules for visitor parking"
+      "To remind tenants of a payment deadline",
+      "To announce a change in building rules",
+      "To invite tenants to a building meeting"
      ],
-     "why": "Thang máy B đóng bảo trì từ 9/6 đến 11/6.",
+     "why": "Thang máy B đóng để bảo trì từ 9/6 đến 11/6, tức dịch vụ bị gián đoạn.",
      "lg": {
       "og": {
-       "To tell tenants about a maintenance schedule": "Để báo cho người thuê lịch bảo trì",
-       "To ask tenants to reserve a conference room": "Để nhờ người thuê đặt phòng họp",
-       "To inform tenants of a planned rent increase": "Để báo tăng tiền thuê theo kế hoạch",
-       "To explain new rules for visitor parking": "Để giải thích quy định mới về đỗ xe của khách"
+       "To notify tenants of a service outage": "Để báo người thuê về việc gián đoạn dịch vụ",
+       "To remind tenants of a payment deadline": "Để nhắc hạn thanh toán",
+       "To announce a change in building rules": "Để báo đổi quy định toà nhà",
+       "To invite tenants to a building meeting": "Để mời người thuê dự họp"
       },
-      "ly": "Đáp án \"To tell tenants about a maintenance schedule\" — Thông báo nêu thời gian đóng thang máy B để bảo trì. Nó không nói gì về đặt phòng, tiền thuê hay bãi đỗ xe.",
+      "ly": "Đáp án \"To notify tenants of a service outage\" — Thông báo nêu thang máy B đóng vài ngày để bảo trì, tức một dịch vụ bị gián đoạn. Hạn thanh toán, quy định và cuộc họp không được nhắc.",
       "dich": "Thang máy B sẽ đóng để bảo trì định kỳ từ thứ Hai, ngày 9 tháng 6, đến thứ Tư, ngày 11 tháng 6."
      }
     },
