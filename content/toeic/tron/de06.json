@@ -3190,22 +3190,22 @@
    "qs": [
     {
      "q": "Why did Ms. Ross contact Mr. Oyelaran?",
-     "a": "A guest's meeting room isn't ready.",
+     "a": "A client needs somewhere to wait.",
      "w": [
-      "A lobby entrance is currently closed.",
-      "A client wants to change the meeting time.",
-      "A visitor has requested a different office."
+      "A client wants to change rooms.",
+      "A client has missed a flight.",
+      "A client forgot a document."
      ],
      "ev": "the conference room is still being cleaned",
-     "why": "Khách đã tới mà phòng họp vẫn đang được dọn.",
+     "why": "Khách tới nhưng phòng họp đang dọn nên cần chỗ chờ.",
      "lg": {
       "og": {
-       "A guest's meeting room isn't ready.": "Phòng họp của khách chưa sẵn sàng",
-       "A lobby entrance is currently closed.": "Một lối vào sảnh đang đóng",
-       "A client wants to change the meeting time.": "Khách muốn đổi giờ họp",
-       "A visitor has requested a different office.": "Khách đã xin một văn phòng khác"
+       "A client needs somewhere to wait.": "Một khách hàng cần chỗ để chờ",
+       "A client wants to change rooms.": "Một khách hàng muốn đổi phòng",
+       "A client has missed a flight.": "Một khách hàng lỡ chuyến bay",
+       "A client forgot a document.": "Một khách hàng quên tài liệu"
       },
-      "ly": "Khách đã đến nhưng phòng họp còn đang dọn: \"A guest's meeting room isn't ready.\" Anh Sam được nhờ đưa khách về phòng mình tạm.",
+      "ly": "Đáp án \"A client needs somewhere to wait.\": khách từ Osaka đã đến sảnh mà phòng họp vẫn đang được dọn, nên ông Sam đưa khách về phòng mình.",
       "dich": "Khách từ Osaka vừa đến sảnh, nhưng phòng họp vẫn đang được dọn."
      }
     },
@@ -3265,22 +3265,22 @@
     },
     {
      "q": "Where can monthly permits be purchased?",
-     "a": "Via the website or at the office",
+     "a": "Online or at the garage office",
      "w": [
-      "At card machines beside the exit gates",
-      "By calling the number listed above",
-      "At a cashier booth near the main gate"
+      "At the city clerk's office",
+      "By mailing a paper form",
+      "At a vending kiosk downtown"
      ],
      "ev": "Monthly parking permits can be purchased online at maplegarage.com or at the office on the ground floor",
-     "why": "Thẻ tháng mua trực tuyến hoặc tại văn phòng tầng trệt.",
+     "why": "Thẻ tháng mua trên mạng hoặc ở văn phòng tầng trệt.",
      "lg": {
       "og": {
-       "Via the website or at the office": "Qua trang web hoặc tại văn phòng",
-       "At card machines beside the exit gates": "Tại máy quẹt thẻ cạnh cổng ra",
-       "By calling the number listed above": "Bằng cách gọi số điện thoại ở trên",
-       "At a cashier booth near the main gate": "Tại quầy thu ngân gần cổng chính"
+       "Online or at the garage office": "Trên mạng hoặc ở văn phòng bãi xe",
+       "At the city clerk's office": "Tại văn phòng thư ký thành phố",
+       "By mailing a paper form": "Bằng cách gửi mẫu giấy qua thư",
+       "At a vending kiosk downtown": "Tại một ki-ốt bán hàng ở trung tâm"
       },
-      "ly": "Thẻ tháng có thể mua trực tuyến hoặc tại văn phòng tầng trệt: \"Via the website or at the office\". Số điện thoại chỉ để hỏi.",
+      "ly": "Đáp án \"Online or at the garage office\": thẻ gửi xe tháng mua được trên mạng hoặc ở văn phòng tầng trệt.",
       "dich": "Thẻ gửi xe tháng có thể mua trực tuyến hoặc tại văn phòng ở tầng trệt."
      }
     }
@@ -3298,22 +3298,22 @@
    "qs": [
     {
      "q": "What is indicated about Sparkle Window Cleaning?",
-     "a": "Its supplies are gentle on nature.",
+     "a": "It uses eco-friendly cleaners.",
      "w": [
-      "Its estimates are billed by the hour.",
-      "It discounts a customer's first visit.",
-      "It added upper-floor service last month."
+      "It guarantees same-day service.",
+      "It has operated for twenty years.",
+      "It serves schools and hospitals."
      ],
      "ev": "We use only environmentally friendly products.",
-     "why": "Công ty chỉ dùng sản phẩm thân thiện với môi trường.",
+     "why": "Công ty nói dùng sản phẩm thân thiện môi trường.",
      "lg": {
       "og": {
-       "Its supplies are gentle on nature.": "Vật tư của công ty thân thiện với thiên nhiên",
-       "Its estimates are billed by the hour.": "Báo giá được tính theo giờ",
-       "It discounts a customer's first visit.": "Giảm giá cho lần đầu của khách",
-       "It added upper-floor service last month.": "Mới thêm dịch vụ tầng cao tháng trước"
+       "It uses eco-friendly cleaners.": "Dùng chất tẩy thân thiện môi trường",
+       "It guarantees same-day service.": "Cam kết phục vụ trong ngày",
+       "It has operated for twenty years.": "Đã hoạt động hai mươi năm",
+       "It serves schools and hospitals.": "Phục vụ trường học và bệnh viện"
       },
-      "ly": "Công ty dùng sản phẩm thân thiện với môi trường: \"Its supplies are gentle on nature.\" Báo giá miễn phí, giảm giá ở lần thứ hai.",
+      "ly": "Đáp án \"It uses eco-friendly cleaners.\": công ty ghi dùng các sản phẩm thân thiện với môi trường.",
       "dich": "Chúng tôi chỉ dùng các sản phẩm thân thiện với môi trường."
      }
     },
@@ -3373,22 +3373,22 @@
     },
     {
      "q": "What is mentioned about the morning shift?",
-     "a": "Its workers will be given food.",
+     "a": "Volunteers get a free lunch.",
      "w": [
-      "It finishes when the sale closes.",
-      "It starts once customers arrive at 10:00.",
-      "It must be confirmed by Saturday morning."
+      "Volunteers get a book discount.",
+      "Volunteers get a gift card.",
+      "Volunteers get a free T-shirt."
      ],
      "ev": "Lunch will be provided for everyone working the morning shift.",
-     "why": "Ca sáng được cung cấp bữa trưa.",
+     "why": "Ca sáng được phát bữa trưa.",
      "lg": {
       "og": {
-       "Its workers will be given food.": "Người làm ca này được cho ăn",
-       "It finishes when the sale closes.": "Kết thúc khi buổi bán đóng cửa",
-       "It starts once customers arrive at 10:00.": "Bắt đầu khi khách đến lúc 10:00",
-       "It must be confirmed by Saturday morning.": "Phải xác nhận trước sáng thứ Bảy"
+       "Volunteers get a free lunch.": "Tình nguyện viên được ăn trưa miễn phí",
+       "Volunteers get a book discount.": "Được giảm giá sách",
+       "Volunteers get a gift card.": "Được tặng thẻ quà",
+       "Volunteers get a free T-shirt.": "Được tặng áo thun"
       },
-      "ly": "Bữa trưa dành cho người làm ca sáng: \"Its workers will be given food.\" Ca sáng bắt đầu 8:30, kết thúc 1:00.",
+      "ly": "Đáp án \"Volunteers get a free lunch.\": bữa trưa sẽ được phát cho mọi người làm ca sáng.",
       "dich": "Bữa trưa sẽ được cung cấp cho mọi người làm ca sáng."
      }
     }
@@ -3406,22 +3406,22 @@
    "qs": [
     {
      "q": "What is the article mainly about?",
-     "a": "A firm turning refuse into a product",
+     "a": "A couple's recycling business",
      "w": [
-      "A café chain expanding across the region",
-      "A farming method that saves water",
-      "A contest for local gardeners"
+      "A couple's organic farm",
+      "A couple's online store",
+      "A couple's travel company"
      ],
      "ev": "they now dry them and sell them to local gardeners as a natural fertilizer",
-     "why": "Vợ chồng biến bã cà phê thành phân bón để bán.",
+     "why": "Bài báo nói về cặp vợ chồng biến bã cà phê thành phân bón để bán.",
      "lg": {
       "og": {
-       "A firm turning refuse into a product": "Một công ty biến rác thành sản phẩm",
-       "A café chain expanding across the region": "Một chuỗi cà phê mở rộng khắp vùng",
-       "A farming method that saves water": "Một phương pháp canh tác tiết kiệm nước",
-       "A contest for local gardeners": "Một cuộc thi cho người làm vườn địa phương"
+       "A couple's recycling business": "Việc kinh doanh tái chế của một cặp vợ chồng",
+       "A couple's organic farm": "Nông trại hữu cơ của một cặp vợ chồng",
+       "A couple's online store": "Cửa hàng trực tuyến của một cặp vợ chồng",
+       "A couple's travel company": "Công ty du lịch của một cặp vợ chồng"
       },
-      "ly": "Hai vợ chồng biến bã cà phê thành phân bón bán ra: \"A firm turning refuse into a product\".",
+      "ly": "Đáp án \"A couple's recycling business\": họ sấy bã cà phê và bán cho người làm vườn làm phân bón tự nhiên.",
       "dich": "Họ phơi khô bã cà phê và bán cho người làm vườn địa phương làm phân bón tự nhiên."
      }
     },
@@ -3483,20 +3483,20 @@
      "q": "When will the desk most likely be delivered?",
      "a": "On April 9",
      "w": [
-      "Today",
-      "On April 8",
-      "On April 19"
+      "On April 4",
+      "On April 12",
+      "On April 16"
      ],
      "ev": "is expected to arrive on Wednesday, April 9",
-     "why": "Dự kiến giao thứ Tư, 9/4.",
+     "why": "Thư ghi bàn dự kiến đến thứ Tư, 9 tháng 4.",
      "lg": {
       "og": {
-       "On April 9": "Ngày 9/4",
-       "Today": "Hôm nay",
-       "On April 8": "Ngày 8/4",
-       "On April 19": "Ngày 19/4"
+       "On April 9": "Vào ngày 9 tháng 4",
+       "On April 4": "Vào ngày 4 tháng 4",
+       "On April 12": "Vào ngày 12 tháng 4",
+       "On April 16": "Vào ngày 16 tháng 4"
       },
-      "ly": "E-mail nói bàn được gửi sáng nay và dự kiến đến thứ Tư, ngày 9/4.",
+      "ly": "Đáp án \"On April 9\": bàn được gửi sáng nay và dự kiến đến vào thứ Tư, 9 tháng 4.",
       "dich": "Bàn của ông đã được gửi sáng nay và dự kiến đến vào thứ Tư, ngày 9 tháng 4."
      }
     },
@@ -3576,21 +3576,21 @@
     },
     {
      "q": "What is NOT mentioned as being available to guests?",
-     "a": "A swimming pool",
+     "a": "A laundry room",
      "w": [
-      "A kitchen",
-      "Bicycles",
-      "Board games"
+      "Free Wi-Fi",
+      "Bicycle rentals",
+      "A breakfast option"
      ],
-     "why": "Trang có nói bếp, xe đạp cho thuê, phòng chờ có trò chơi bàn cờ; không nói hồ bơi.",
+     "why": "Bài không nhắc phòng giặt đồ; ba thứ kia đều có trong bài.",
      "lg": {
       "og": {
-       "A swimming pool": "Một hồ bơi",
-       "A kitchen": "Một bếp",
-       "Bicycles": "Xe đạp",
-       "Board games": "Trò chơi cờ bàn"
+       "A laundry room": "Phòng giặt đồ",
+       "Free Wi-Fi": "Wi-Fi miễn phí",
+       "Bicycle rentals": "Cho thuê xe đạp",
+       "A breakfast option": "Có bữa sáng"
       },
-      "ly": "Khách được dùng bếp, Wi-Fi, trò chơi cờ bàn và có thể thuê xe đạp. Không có hồ bơi.",
+      "ly": "Đáp án \"A laundry room\": bài nhắc Wi-Fi, bữa sáng và xe đạp nhưng không nhắc phòng giặt đồ.",
       "dich": "Mọi khách được dùng bếp đầy đủ tiện nghi, Wi-Fi miễn phí và phòng chờ có các trò chơi cờ bàn."
      }
     },
@@ -3629,22 +3629,22 @@
    "qs": [
     {
      "q": "What problem does Ms. Kim have?",
-     "a": "A machine is not working.",
+     "a": "A printer is jammed.",
      "w": [
-      "A manual contains errors.",
-      "A meeting room is booked.",
-      "She has lost some files."
+      "A projector is broken.",
+      "A scanner is missing.",
+      "A computer won't start."
      ],
      "ev": "The printer on our floor is jammed again",
-     "why": "Máy in ở tầng của cô bị kẹt giấy.",
+     "why": "Máy in ở tầng của bà bị kẹt giấy.",
      "lg": {
       "og": {
-       "A machine is not working.": "Một cái máy không hoạt động",
-       "A manual contains errors.": "Cuốn tài liệu có lỗi",
-       "A meeting room is booked.": "Một phòng họp đã được đặt",
-       "She has lost some files.": "Bà làm mất tệp"
+       "A printer is jammed.": "Máy in bị kẹt giấy",
+       "A projector is broken.": "Máy chiếu bị hỏng",
+       "A scanner is missing.": "Máy quét bị mất",
+       "A computer won't start.": "Máy tính không khởi động"
       },
-      "ly": "Bà Kim báo máy in ở tầng của bà lại bị kẹt giấy.",
+      "ly": "Đáp án \"A printer is jammed.\": máy in ở tầng của bà lại bị kẹt trong khi bà cần in 50 bản.",
       "dich": "Máy in ở tầng chúng ta lại bị kẹt, mà tôi cần in 50 bản tài liệu tập huấn cho ngày mai."
      }
     },

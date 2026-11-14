@@ -3198,22 +3198,22 @@
    "qs": [
     {
      "q": "Why is Ms. Nair at the printing shop?",
-     "a": "To get printed items for an event",
+     "a": "To collect printed posters",
      "w": [
-      "To fix a machine for the open house",
-      "To meet an applicant for a position",
-      "To drop off equipment for Omar's team"
+      "To order some business cards",
+      "To fix a copy machine",
+      "To meet a designer"
      ],
      "ev": "I'm picking up the posters for Saturday's open house now.",
-     "why": "Cô đang lấy áp phích cho buổi mở cửa thứ Bảy.",
+     "why": "Bà đang lấy áp phích cho ngày mở cửa đón khách.",
      "lg": {
       "og": {
-       "To get printed items for an event": "Để lấy đồ in cho một sự kiện",
-       "To fix a machine for the open house": "Để sửa máy cho buổi mở cửa",
-       "To meet an applicant for a position": "Để gặp một ứng viên cho vị trí",
-       "To drop off equipment for Omar's team": "Để giao thiết bị cho nhóm của Omar"
+       "To collect printed posters": "Để lấy áp phích đã in",
+       "To order some business cards": "Để đặt danh thiếp",
+       "To fix a copy machine": "Để sửa máy photocopy",
+       "To meet a designer": "Để gặp một nhà thiết kế"
       },
-      "ly": "Cô đang lấy áp phích cho buổi mở cửa thứ Bảy: \"To get printed items for an event\".",
+      "ly": "Đáp án \"To collect printed posters\": bà đang lấy áp phích cho buổi mở cửa đón khách vào thứ Bảy.",
       "dich": "Vâng, tôi đang lấy áp phích cho buổi mở cửa thứ Bảy."
      }
     },
@@ -3252,22 +3252,22 @@
    "qs": [
     {
      "q": "Why will the pool close?",
-     "a": "For cleaning",
+     "a": "For routine cleaning",
      "w": [
-      "For a swimming competition",
-      "For a holiday",
-      "For staff training"
+      "For a repair project",
+      "For a private event",
+      "For a swim meet"
      ],
      "ev": "will close for its yearly cleaning",
-     "why": "Hồ đóng để vệ sinh hằng năm.",
+     "why": "Thông báo nói hồ đóng cửa để vệ sinh hằng năm.",
      "lg": {
       "og": {
-       "For cleaning": "Để vệ sinh",
-       "For a swimming competition": "Để tổ chức cuộc thi bơi",
-       "For a holiday": "Vì ngày lễ",
-       "For staff training": "Để tập huấn nhân viên"
+       "For routine cleaning": "Để vệ sinh định kỳ",
+       "For a repair project": "Để sửa chữa",
+       "For a private event": "Cho một sự kiện riêng",
+       "For a swim meet": "Cho một buổi thi bơi"
       },
-      "ly": "Hồ bơi đóng cửa để vệ sinh hằng năm.",
+      "ly": "Đáp án \"For routine cleaning\": hồ sẽ đóng cửa để vệ sinh hằng năm từ 18 đến 24 tháng 8.",
       "dich": "Hồ bơi cộng đồng Lakeview sẽ đóng cửa để vệ sinh hằng năm từ ngày 18 đến ngày 24 tháng 8."
      }
     },
@@ -3306,22 +3306,22 @@
    "qs": [
     {
      "q": "What is mentioned about the Pine Avenue office?",
-     "a": "It stays open after work hours.",
+     "a": "It is open in the evening.",
      "w": [
-      "It was the practice's first location.",
-      "It requires appointments before June 30.",
-      "It opens later than the original office."
+      "It offers weekend appointments.",
+      "It is the main office.",
+      "It specializes in children's care."
      ],
      "ev": "Our Pine Avenue office is open until 8:00 P.M. on weekdays",
-     "why": "Chi nhánh Pine Avenue mở đến 8 giờ tối ngày thường.",
+     "why": "Văn phòng này mở đến 8 giờ tối các ngày trong tuần.",
      "lg": {
       "og": {
-       "It stays open after work hours.": "Mở cửa sau giờ làm việc",
-       "It was the practice's first location.": "Là cơ sở đầu tiên của phòng khám",
-       "It requires appointments before June 30.": "Yêu cầu hẹn trước ngày 30/6",
-       "It opens later than the original office.": "Mở cửa muộn hơn cơ sở ban đầu"
+       "It is open in the evening.": "Mở cửa vào buổi tối",
+       "It offers weekend appointments.": "Có hẹn vào cuối tuần",
+       "It is the main office.": "Là văn phòng chính",
+       "It specializes in children's care.": "Chuyên chăm sóc trẻ em"
       },
-      "ly": "Chi nhánh mở đến 8:00 tối ngày thường: \"It stays open after work hours.\" Đây là cơ sở thứ hai, còn ngày 30/6 chỉ là hạn nhận quà.",
+      "ly": "Đáp án \"It is open in the evening.\": văn phòng đường Pine mở đến 8 giờ tối các ngày trong tuần để khách đến sau giờ làm.",
       "dich": "Cơ sở Pine Avenue mở đến 8 giờ tối các ngày trong tuần."
      }
     },
@@ -3360,22 +3360,22 @@
    "qs": [
     {
      "q": "What is the purpose of the e-mail?",
-     "a": "To confirm a booking",
+     "a": "To confirm a reservation",
      "w": [
-      "To advertise a new service",
+      "To cancel a booking",
       "To request a payment",
-      "To announce a price change"
+      "To offer a room upgrade"
      ],
      "ev": "This e-mail confirms your reservation for a double room",
-     "why": "Thư xác nhận đặt phòng.",
+     "why": "E-mail nói rõ đây là xác nhận đặt phòng đôi.",
      "lg": {
       "og": {
-       "To confirm a booking": "Để xác nhận đặt phòng",
-       "To advertise a new service": "Để quảng cáo dịch vụ mới",
+       "To confirm a reservation": "Để xác nhận đặt phòng",
+       "To cancel a booking": "Để hủy đặt phòng",
        "To request a payment": "Để yêu cầu thanh toán",
-       "To announce a price change": "Để thông báo đổi giá"
+       "To offer a room upgrade": "Để đề nghị nâng hạng phòng"
       },
-      "ly": "E-mail mở đầu bằng \"confirms your reservation\" (xác nhận đặt phòng).",
+      "ly": "Đáp án \"To confirm a reservation\": e-mail xác nhận đặt một phòng đôi từ ngày 3 đến ngày 6 tháng 3.",
       "dich": "E-mail này xác nhận việc đặt phòng đôi của ông từ ngày 3 đến ngày 6 tháng 3."
      }
     },
@@ -3416,20 +3416,20 @@
      "q": "What is the article mainly about?",
      "a": "The reopening of a library",
      "w": [
-      "The history of a local family",
-      "A new bookstore",
-      "A city budget plan"
+      "The closing of a museum",
+      "The funding of a school",
+      "The expansion of a park"
      ],
      "ev": "The Arden Public Library will reopen on May 2 after a six-month renovation.",
-     "why": "Bài đưa tin thư viện mở lại sau sửa chữa.",
+     "why": "Bài báo nói thư viện mở lại sau sáu tháng sửa chữa.",
      "lg": {
       "og": {
-       "The reopening of a library": "Việc thư viện mở cửa lại",
-       "The history of a local family": "Lịch sử một gia đình",
-       "A new bookstore": "Một hiệu sách mới",
-       "A city budget plan": "Kế hoạch ngân sách thành phố"
+       "The reopening of a library": "Việc thư viện mở lại",
+       "The closing of a museum": "Việc đóng cửa một bảo tàng",
+       "The funding of a school": "Việc tài trợ cho một trường học",
+       "The expansion of a park": "Việc mở rộng một công viên"
       },
-      "ly": "Bài báo nói Thư viện Arden mở lại sau sáu tháng cải tạo.",
+      "ly": "Đáp án \"The reopening of a library\": thư viện công cộng Arden sẽ mở lại ngày 2 tháng 5 sau sáu tháng sửa chữa.",
       "dich": "Thư viện Công cộng Arden sẽ mở lại vào ngày 2 tháng 5 sau sáu tháng cải tạo."
      }
     },
@@ -3489,22 +3489,22 @@
    "qs": [
     {
      "q": "What is the purpose of the memo?",
-     "a": "To tell staff how to sort trash",
+     "a": "To explain a new recycling system",
      "w": [
-      "To remind staff about a kitchen cleanup",
-      "To request volunteers for each floor",
-      "To announce a new facilities manager"
+      "To announce a schedule change",
+      "To introduce a new employee",
+      "To request staff suggestions"
      ],
      "ev": "new recycling bins will be placed on every floor of our building",
-     "why": "Thông báo hướng dẫn dùng các thùng tái chế mới.",
+     "why": "Bản ghi nhớ nói thùng tái chế mới và cách bỏ từng loại rác.",
      "lg": {
       "og": {
-       "To tell staff how to sort trash": "Để hướng dẫn nhân viên phân loại rác",
-       "To remind staff about a kitchen cleanup": "Để nhắc nhân viên dọn bếp",
-       "To request volunteers for each floor": "Để tìm tình nguyện viên cho các tầng",
-       "To announce a new facilities manager": "Để thông báo quản lý cơ sở vật chất mới"
+       "To explain a new recycling system": "Để giải thích hệ thống tái chế mới",
+       "To announce a schedule change": "Để thông báo đổi lịch",
+       "To introduce a new employee": "Để giới thiệu nhân viên mới",
+       "To request staff suggestions": "Để xin ý kiến nhân viên"
       },
-      "ly": "Thông báo nói thùng nào cho giấy, nhựa, thức ăn: \"To tell staff how to sort trash\". Ông Ortiz chỉ là người để hỏi.",
+      "ly": "Đáp án \"To explain a new recycling system\": từ thứ Hai sẽ có thùng tái chế mới ở mỗi tầng và nêu cách bỏ từng loại rác.",
       "dich": "Từ thứ Hai, thùng tái chế mới sẽ được đặt ở mọi tầng của toà nhà."
      }
     },
@@ -3563,22 +3563,22 @@
    "qs": [
     {
      "q": "What is indicated about monthly passes?",
-     "a": "They waive fees for short rides.",
+     "a": "They cover rides up to 45 minutes.",
      "w": [
-      "They provide a helmet to members.",
-      "They are limited to 30-minute rides.",
-      "They require a $2 fee for each trip."
+      "They include a free helmet.",
+      "They cost less than one ride.",
+      "They require a fee per trip."
      ],
      "ev": "Monthly passes are available for $25 and include unlimited rides of up to 45 minutes.",
-     "why": "Thẻ tháng 25 đô la, đi không giới hạn mỗi chuyến tới 45 phút.",
+     "why": "Thẻ tháng gồm số chuyến không giới hạn, mỗi chuyến tới 45 phút.",
      "lg": {
       "og": {
-       "They waive fees for short rides.": "Miễn phí cho các chuyến đi ngắn",
-       "They provide a helmet to members.": "Có cấp mũ bảo hiểm cho hội viên",
-       "They are limited to 30-minute rides.": "Giới hạn chuyến đi 30 phút",
-       "They require a $2 fee for each trip.": "Phải trả 2 đô la mỗi chuyến"
+       "They cover rides up to 45 minutes.": "Gồm các chuyến đến 45 phút",
+       "They include a free helmet.": "Kèm mũ bảo hiểm miễn phí",
+       "They cost less than one ride.": "Rẻ hơn một chuyến lẻ",
+       "They require a fee per trip.": "Phải trả phí mỗi chuyến"
       },
-      "ly": "Thẻ tháng gồm số chuyến không giới hạn, mỗi chuyến tới 45 phút: \"They waive fees for short rides.\" Mũ bảo hiểm không được cung cấp.",
+      "ly": "Đáp án \"They cover rides up to 45 minutes.\": thẻ tháng 25 đô gồm không giới hạn số chuyến, mỗi chuyến tới 45 phút.",
       "dich": "Thẻ tháng giá 25 đô la, gồm số chuyến đi không giới hạn tối đa 45 phút."
      }
     },
@@ -3637,22 +3637,22 @@
    "qs": [
     {
      "q": "What are the writers mainly discussing?",
-     "a": "Progress on a proposal",
+     "a": "Finishing a proposal",
      "w": [
-      "Hiring a new designer",
-      "Planning a client dinner",
-      "Changing a meeting room"
+      "Planning a team lunch",
+      "Hiring a graphic designer",
+      "Setting a new budget"
      ],
      "ev": "The Kensington proposal is due to the client on Thursday.",
-     "why": "Cả nhóm báo tiến độ bản đề xuất phải gửi khách thứ Năm.",
+     "why": "Cả nhóm bàn tiến độ bản đề xuất Kensington.",
      "lg": {
       "og": {
-       "Progress on a proposal": "Tiến độ của một bản đề xuất",
-       "Hiring a new designer": "Tuyển nhà thiết kế mới",
-       "Planning a client dinner": "Lên kế hoạch tiệc tối với khách",
-       "Changing a meeting room": "Đổi phòng họp"
+       "Finishing a proposal": "Hoàn thành một đề xuất",
+       "Planning a team lunch": "Lên kế hoạch bữa trưa nhóm",
+       "Hiring a graphic designer": "Thuê một nhà thiết kế đồ họa",
+       "Setting a new budget": "Đặt ngân sách mới"
       },
-      "ly": "Họ báo cáo ngân sách, bản thiết kế, tệp logo của khách cho đề xuất Kensington.",
+      "ly": "Đáp án \"Finishing a proposal\": bản đề xuất Kensington phải nộp cho khách vào thứ Năm và mọi người báo cáo tiến độ.",
       "dich": "Đề xuất Kensington đến hạn gửi cho khách vào thứ Năm. Chúng ta đang ở đâu rồi?"
      }
     },
@@ -3733,22 +3733,22 @@
    "qs": [
     {
      "q": "What is the article mainly about?",
-     "a": "A market's anniversary",
+     "a": "A market's big birthday",
      "w": [
-      "A new organic farm",
-      "A cooking competition",
-      "A photography exhibition"
+      "A market's relocation plan",
+      "A market's new owner",
+      "A market's growth plan"
      ],
      "ev": "The Riverton Farmers' Market will celebrate its 100th anniversary this Saturday.",
-     "why": "Chợ nông sản mừng 100 năm.",
+     "why": "Bài báo nói về lễ kỷ niệm 100 năm của chợ.",
      "lg": {
       "og": {
-       "A market's anniversary": "Kỷ niệm của một khu chợ",
-       "A new organic farm": "Một nông trại hữu cơ mới",
-       "A cooking competition": "Cuộc thi nấu ăn",
-       "A photography exhibition": "Triển lãm ảnh"
+       "A market's big birthday": "Dịp kỷ niệm lớn của một khu chợ",
+       "A market's relocation plan": "Kế hoạch dời chợ",
+       "A market's new owner": "Chủ mới của một khu chợ",
+       "A market's growth plan": "Kế hoạch phát triển của chợ"
       },
-      "ly": "Bài báo nói khu chợ nông sản Riverton kỷ niệm 100 năm.",
+      "ly": "Đáp án \"A market's big birthday\": chợ nông sản Riverton sẽ kỷ niệm 100 năm vào thứ Bảy này.",
       "dich": "Chợ Nông sản Riverton sẽ kỷ niệm 100 năm thành lập vào thứ Bảy này."
      }
     },
