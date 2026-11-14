@@ -1595,21 +1595,21 @@
     },
     {
      "q": "What is stated about experience in a design firm?",
-     "a": "It is helpful but not required.",
+     "a": "It is considered an advantage.",
      "w": [
-      "It is required for the position.",
-      "It is needed to qualify for an interview.",
-      "It is a skill the firm will teach."
+      "It must last at least two years.",
+      "It should be described in the cover letter.",
+      "It is valued more than software skills."
      ],
      "why": "Bài ghi kinh nghiệm ở công ty thiết kế là lợi thế, không bắt buộc.",
      "lg": {
       "og": {
-       "It is helpful but not required.": "Có ích nhưng không bắt buộc",
-       "It is required for the position.": "Bắt buộc cho vị trí này",
-       "It is needed to qualify for an interview.": "Cần để được phỏng vấn",
-       "It is a skill the firm will teach.": "Là kỹ năng công ty sẽ dạy"
+       "It is considered an advantage.": "Được xem là một lợi thế",
+       "It must last at least two years.": "Phải kéo dài ít nhất hai năm",
+       "It should be described in the cover letter.": "Nên trình bày trong thư xin việc",
+       "It is valued more than software skills.": "Được coi trọng hơn kỹ năng phần mềm"
       },
-      "ly": "Đáp án \"It is helpful but not required.\" — Kinh nghiệm ở công ty thiết kế là một lợi thế nhưng không bắt buộc (advantage but not required). Bài không nói đó là điều kiện để được phỏng vấn hay công ty sẽ dạy.",
+      "ly": "Đáp án \"It is considered an advantage.\" — Bài ghi kinh nghiệm ở công ty kiến trúc hoặc thiết kế \"is an advantage but not required\". Hai năm là yêu cầu về kinh nghiệm văn phòng nói chung, không phải kinh nghiệm ở công ty thiết kế. Bài không nhắc thư xin việc phải trình bày kinh nghiệm này, cũng không so với kỹ năng phần mềm.",
       "dich": "Có kinh nghiệm ở công ty kiến trúc hoặc thiết kế là một lợi thế nhưng không bắt buộc."
      }
     },
@@ -1899,21 +1899,21 @@
    "qs": [
     {
      "q": "What is the purpose of the e-mail?",
-     "a": "To update attendees on event plans",
+     "a": "To announce changes to some session arrangements",
      "w": [
-      "To remind attendees to register online",
-      "To thank attendees for their feedback",
-      "To confirm the list of speakers"
+      "To announce that a speaker has canceled",
+      "To ask attendees to sign up for workshops in advance",
+      "To report that the conference will move to another hotel"
      ],
      "why": "Please note one change to the schedule…",
      "lg": {
       "og": {
-       "To update attendees on event plans": "Để cập nhật cho người dự về sắp xếp sự kiện",
-       "To remind attendees to register online": "Để nhắc người dự đăng ký trực tuyến",
-       "To thank attendees for their feedback": "Để cảm ơn người dự đã góp ý",
-       "To confirm the list of speakers": "Để xác nhận danh sách diễn giả"
+       "To announce changes to some session arrangements": "Để báo thay đổi về sắp xếp một số phần của hội nghị",
+       "To announce that a speaker has canceled": "Để báo một diễn giả đã huỷ",
+       "To ask attendees to sign up for workshops in advance": "Để đề nghị người dự đăng ký hội thảo trước",
+       "To report that the conference will move to another hotel": "Để báo hội nghị chuyển sang khách sạn khác"
       },
-      "ly": "Đáp án \"To update attendees on event plans\" — E-mail nói rõ có thay đổi lịch (đổi phòng, đổi nơi ăn trưa) để cập nhật cho người dự. Đăng ký, cảm ơn và danh sách diễn giả không phải mục đích.",
+      "ly": "Đáp án \"To announce changes to some session arrangements\" — E-mail báo hội thảo của Amy Ng chuyển sang Ballroom và bữa trưa chuyển vào nhà hàng khách sạn. Không diễn giả nào huỷ. Hơn 60 người đã đăng ký rồi, không phải lời đề nghị đăng ký. Hội nghị vẫn ở Hotel Arcadia.",
       "dich": "Xin lưu ý một thay đổi về lịch trình."
      }
     },
@@ -3269,7 +3269,7 @@
    "qs": [
     {
      "q": "Why was the e-mail sent?",
-     "a": "To notify staff of coming kitchen work",
+     "a": "To inform staff about upcoming kitchen repairs",
      "w": [
       "To invite staff to a company lunch",
       "To announce a change in work hours",
@@ -3278,12 +3278,12 @@
      "why": "The second-floor kitchen will be renovated from June 9 to June 20.",
      "lg": {
       "og": {
-       "To notify staff of coming kitchen work": "Để báo nhân viên về việc sắp sửa bếp",
+       "To inform staff about upcoming kitchen repairs": "Để báo nhân viên về việc sắp sửa bếp",
        "To invite staff to a company lunch": "Để mời nhân viên ăn trưa công ty",
        "To announce a change in work hours": "Để báo đổi giờ làm",
        "To request feedback on a cafeteria menu": "Để xin ý kiến về thực đơn căng tin"
       },
-      "ly": "Đáp án \"To notify staff of coming kitchen work\" — Thư báo bếp tầng hai sắp được cải tạo và hướng dẫn dùng bếp tầng bốn. Bữa trưa, giờ làm và thực đơn không được nhắc.",
+      "ly": "Đáp án \"To inform staff about upcoming kitchen repairs\" — Thư báo bếp tầng hai sắp được cải tạo và hướng dẫn dùng bếp tầng bốn. Bữa trưa, giờ làm và thực đơn không được nhắc.",
       "dich": "Bếp ở tầng hai sẽ được cải tạo từ ngày 9 đến ngày 20 tháng 6."
      }
     },
@@ -3597,7 +3597,7 @@
    "qs": [
     {
      "q": "What problem does Mr. Brandt report?",
-     "a": "A van used for delivery stopped working.",
+     "a": "A delivery vehicle has broken down.",
      "w": [
       "A package was sent to the wrong address.",
       "A customer has asked for a refund.",
@@ -3606,12 +3606,12 @@
      "why": "the delivery van … just broke down on Route 9.",
      "lg": {
       "og": {
-       "A van used for delivery stopped working.": "Một xe giao hàng đã hỏng",
+       "A delivery vehicle has broken down.": "Một xe giao hàng bị hỏng",
        "A package was sent to the wrong address.": "Một gói hàng gửi nhầm địa chỉ",
        "A customer has asked for a refund.": "Một khách xin hoàn tiền",
        "A driver called in sick this morning.": "Một tài xế báo nghỉ ốm sáng nay"
       },
-      "ly": "Đáp án \"A van used for delivery stopped working.\" — Ông Brandt báo xe tải giao hàng bị hỏng trên đường Route 9. Gửi nhầm địa chỉ, hoàn tiền và tài xế nghỉ ốm không được nhắc.",
+      "ly": "Đáp án \"A delivery vehicle has broken down.\" — Ông Brandt báo xe tải giao hàng bị hỏng trên đường Route 9. Gửi nhầm địa chỉ, hoàn tiền và tài xế nghỉ ốm không được nhắc.",
       "dich": "Xe tải giao hàng cho đơn của ông Ortega vừa bị hỏng trên đường Route 9."
      }
     },
@@ -3741,7 +3741,7 @@
    "qs": [
     {
      "q": "What is the purpose of the notice?",
-     "a": "To notify tenants of a service outage",
+     "a": "To notify tenants of a temporary service closure",
      "w": [
       "To remind tenants of a payment deadline",
       "To announce a change in building rules",
@@ -3750,12 +3750,12 @@
      "why": "Thang máy B đóng để bảo trì từ 9/6 đến 11/6, tức dịch vụ bị gián đoạn.",
      "lg": {
       "og": {
-       "To notify tenants of a service outage": "Để báo người thuê về việc gián đoạn dịch vụ",
+       "To notify tenants of a temporary service closure": "Để báo người thuê về việc tạm ngừng một dịch vụ",
        "To remind tenants of a payment deadline": "Để nhắc hạn thanh toán",
        "To announce a change in building rules": "Để báo đổi quy định toà nhà",
        "To invite tenants to a building meeting": "Để mời người thuê dự họp"
       },
-      "ly": "Đáp án \"To notify tenants of a service outage\" — Thông báo nêu thang máy B đóng vài ngày để bảo trì, tức một dịch vụ bị gián đoạn. Hạn thanh toán, quy định và cuộc họp không được nhắc.",
+      "ly": "Đáp án \"To notify tenants of a temporary service closure\" — Thông báo nêu thang máy B đóng vài ngày để bảo trì, tức một dịch vụ bị gián đoạn. Hạn thanh toán, quy định và cuộc họp không được nhắc.",
       "dich": "Thang máy B sẽ đóng để bảo trì định kỳ từ thứ Hai, ngày 9 tháng 6, đến thứ Tư, ngày 11 tháng 6."
      }
     },
