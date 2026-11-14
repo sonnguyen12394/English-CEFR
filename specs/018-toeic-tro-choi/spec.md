@@ -117,3 +117,11 @@ Người sáng lập: "các trò chơi thiếu sáng tạo và nhàm chán, ngh�
 - **FR-027** Hiệu ứng CSS (Boss rung, ô kết quả nảy, pháo giấy, thanh giờ), tắt được ở "Cách chơi", tự tắt khi máy bật giảm chuyển động. Đúng thì tự sang câu sau sau 1,2 giây (khi bật hiệu ứng).
 - Luật ⭐ / 🟦 và dữ liệu không đổi so với v171. Trận Boss ghi vào hành trình, không ghi 📋 bài làm đề thử.
 - Mốc dừng: người sáng lập chơi 10 phút trên iPhone; vẫn thấy nhàm thì hỏi cụ thể chỗ nào trước khi làm lại lần nữa.
+
+## Bổ sung v173: hình và tiếng (14/11/2026)
+
+Người sáng lập: "tạo hình ảnh và âm thanh cho hay hơn theo game phổ biến trên thị trường". Không lấy hình / tiếng của game có sẵn (bản quyền): tự vẽ bằng mã, tự tổng hợp tiếng.
+
+- **FR-028** Boss là hình SVG vẽ bằng mã (`tgMon`: 4 dáng × 1–3 mắt × sừng × màu theo số đề, mắt chớp, lắc nhẹ), đứng trong đấu trường nền tím (`.tgarena`, chữ trắng): thanh máu có số, tim, combo phát sáng khi ≥ ×2, số sát thương bay lên, Boss nháy trắng khi trúng đòn, khung đỏ khi mất tim; thắng: Boss gục + pháo giấy; thua: Boss nhảy cười.
+- **FR-029** Tiếng tổng hợp bằng Web Audio (`tgSfx`, không tệp): đánh trúng, chí mạng, combo, mất tim, đúng / sai thử thách, cây lớn, thắng, thua. Nút 🔇 / 🔊 ở "Cách chơi" (`S.to.tc.nosnd`). iPhone gạt im lặng thì không có tiếng.
+- Giảm chuyển động: tắt mọi chuyển động và pháo giấy. Luật ⭐ / 🌳 không đổi.
