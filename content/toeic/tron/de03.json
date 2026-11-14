@@ -3607,7 +3607,7 @@
      }
     },
     {
-     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Your department's assigned week is marked in red.\"",
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"On it, your department's assigned week is marked in red.\"",
      "a": "[2]",
      "w": [
       "[1]",
@@ -3622,8 +3622,8 @@
        "[3]": "[3]",
        "[4]": "[4]"
       },
-      "ly": "Câu chèn nói tuần của phòng ban được đánh dấu màu đỏ trên lịch, nên đặt ngay sau câu nói lịch được dán trên tủ lạnh (vị trí [2]).",
-      "dich": "Tuần được phân cho phòng ban của bạn được đánh dấu màu đỏ."
+      "ly": "\"On it\" chỉ tờ lịch vừa nhắc, nên câu chèn đặt ngay sau câu nói lịch được dán trên tủ lạnh (vị trí [2]).",
+      "dich": "Trên đó, tuần được phân cho phòng ban của bạn được đánh dấu màu đỏ."
      }
     }
    ]

@@ -3288,7 +3288,7 @@
      }
     },
     {
-     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Coffee and tea will also be available in the reception area on the first floor.\"",
+     "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Its coffee machine will also be restocked every morning.\"",
      "a": "[2]",
      "w": [
       "[1]",
@@ -3303,8 +3303,8 @@
        "[3]": "[3]",
        "[4]": "[4]"
       },
-      "ly": "Câu chèn nói thêm cà phê và trà ở khu lễ tân, nên đặt sau câu nói dùng bếp tầng bốn (vị trí [2]) như một phương án thay thế.",
-      "dich": "Cà phê và trà cũng sẽ có sẵn ở khu lễ tân tầng một."
+      "ly": "\"Its\" chỉ bếp tầng bốn vừa nhắc, nên câu chèn đặt ngay sau câu nói dùng bếp tầng bốn (vị trí [2]).",
+      "dich": "Máy pha cà phê ở đó cũng sẽ được bổ sung đồ mỗi sáng."
      }
     },
     {
