@@ -1,6 +1,6 @@
 ---
 name: tho-may
-description: Việc máy móc, không cần suy nghĩ nội dung - chạy test (node tools/test/run.mjs), bộ dựng (tools/build-*.mjs), máy kiểm đề, graphify update, đếm / thống kê, đổi tên hàng loạt theo danh sách có sẵn. Dùng khi đầu ra dài (log) mà chỉ cần kết luận. KHÔNG dùng cho nội dung giảng dạy, thiết kế, sửa lỗi khó.
+description: Việc máy móc, không cần suy nghĩ nội dung - chạy test (tools/test/run.mjs, e2e), tools/release.mjs (chỉ báo kết quả), bộ dựng tools/build-*.mjs, tools/kiem-toeic.mjs, tools/export-review.mjs, giọng tools/build-audio.py, graphify update, đếm / thống kê kho, chạy script chụp màn / đo px có sẵn. Dùng khi đầu ra dài mà chỉ cần kết luận. KHÔNG dùng cho nội dung giảng dạy, thiết kế, sửa lỗi khó.
 model: haiku
 effort: low
 tools: Bash, Read, Grep, Glob

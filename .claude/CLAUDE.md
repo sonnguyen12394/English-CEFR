@@ -25,13 +25,33 @@ Người sáng lập chỉ nói việc bằng lời thường, KHÔNG gõ lệnh
 5. Khi báo lại: nói bằng lời thường đã làm gì, không liệt kê tên lệnh trừ khi được hỏi.
 
 # Tự giao việc cho thợ (sub agent) để tiết kiệm hạn mức (người sáng lập 14/11/2026)
-Người sáng lập không gõ lệnh: Claude tự quyết khi nào giao việc, theo luật dưới. 3 thợ ở `.claude/agents/`:
-- `tho-may` (Haiku): chạy test / bộ dựng / máy kiểm / graphify / đếm; khi log dài mà chỉ cần kết luận.
-- `soan-theo-khuon` (Sonnet): soạn hàng loạt (từ ~20 mục) theo khuôn đã duyệt và đã có mẫu.
-- `soat-lai` (Opus): soát ngẫu nhiên ≥ 10% (ít nhất 5 mục) đầu ra của `soan-theo-khuon`; sai > 1/10 thì làm lại đợt đó.
-Luật giao việc:
-1. Phiên chính (Opus) giữ: hỏi người sáng lập, kế hoạch, thiết kế, đổi luật, sửa lỗi khó, giao diện, commit / phát hành, báo cáo cuối.
-2. KHÔNG giao việc nhỏ (1–2 tệp, dưới ~5 phút, hoặc phiên chính đã có sẵn ngữ cảnh): thợ mới bắt đầu từ trắng, đọc lại mã nên tốn hạn mức hơn tự làm.
-3. Soạn nội dung giao `soan-theo-khuon` thì BẮT BUỘC qua `soat-lai` trước khi commit; phiên chính đọc thêm 2–3 mục.
-4. Lời giao việc phải tự đủ: mục tiêu, tệp được sửa, khuôn + mẫu, lệnh kiểm, tiêu chí xong; nhắc luật graphify.
-5. Báo người sáng lập ngắn: việc nào đã giao cho thợ nào, kết quả soát.
+Người sáng lập không gõ lệnh: Claude tự chọn thợ theo BẢNG dưới (xếp từ các loại việc đã làm ở v86 → v173). 4 thợ ở `.claude/agents/`.
+
+## Bảng chọn nhanh: việc → ai làm
+| Loại việc (ví dụ đã làm) | Ai làm | Model |
+|---|---|---|
+| Hỏi người sáng lập, phản biện, kế hoạch, Spec Kit (specify / clarify / plan / tasks) | Phiên chính | Opus |
+| Đổi luật đo, thiết kế màn / luồng mới (v97, v101, v112, v118, v122, v133–v134, v141–v142) | Phiên chính (effort high) | Opus |
+| Máy chủ Supabase, edge function, migration, bảo mật, dữ liệu người dùng (v141, v157–v161) | Phiên chính | Opus |
+| Sửa lỗi khó / lỗi chập chờn, gộp nhánh, phát hành, viết đoạn vXXX vào CLAUDE.md | Phiên chính | Opus |
+| Nghĩ KHUÔN mới + làm 2–3 MẪU đầu (lời giải `lg` v156, bài học kỳ thi v131, dạng đề mới v129) | Phiên chính | Opus |
+| Rà / kiểm kê tìm lỗi, tìm chỗ thiếu: nội dung (v115), dạng đề (v123, v129, v132, v139–v140, v143), đề AI so đề thật (v144) | `soat-lai` → danh sách lỗi | Opus |
+| Soát đầu ra của `soan-theo-khuon` (≥ 10%, ít nhất 5 mục) | `soat-lai` | Opus |
+| Soạn hàng loạt theo khuôn + mẫu đã duyệt, từ ~20 mục: lời giải `lg` (v156), câu / bài cùng dạng (Part 5–7, bài Đọc / Nghe Nền v125, câu suy luận v103), từ công sở (v124), bài học `XL_TXT` theo mẫu (v131, v139–v140), sửa theo danh sách lỗi đã có (v115), kho đề soạn sẵn (v145) | `soan-theo-khuon` | Sonnet |
+| Đề thử TOEIC trọn mới (v149–v154): soạn theo `docs/TIEU-CHI-DE-TOEIC.md` + sổ lỗi | `soan-theo-khuon` → `tho-may` (build, kiem-toeic) → `giai-mu` → `soat-lai` | Sonnet / Haiku / Sonnet / Opus |
+| Giải đề mù (phiếu `tools/giai-mu.mjs xuat`, không xem đáp án) | `giai-mu` | Sonnet |
+| Chạy test `tools/test/run.mjs`, e2e, `tools/release.mjs` (chỉ báo kết quả), bộ dựng `tools/build-*.mjs`, `tools/kiem-toeic.mjs`, `tools/export-review.mjs`, giọng `tools/build-audio.py`, `graphify update`, đếm / thống kê kho, chạy sẵn script chụp màn / đo px rồi báo số | `tho-may` | Haiku |
+| Sửa 1–2 tệp, sửa chữ, việc phiên chính đã có sẵn ngữ cảnh, dưới ~5 phút | Phiên chính tự làm (không giao) | Opus |
+
+## Quy trình mẫu
+- Thêm nội dung theo khuôn: phiên chính làm khuôn + mẫu → `soan-theo-khuon` soạn → `tho-may` dựng + kiểm → `soat-lai` soát (sai > 1/10 thì `soan-theo-khuon` làm lại đợt đó) → phiên chính đọc thêm 2–3 mục, commit, phát hành.
+- Rà lỗi lớn: `soat-lai` lập danh sách lỗi → phiên chính chọn lỗi sửa (hỏi người sáng lập nếu đổi luật) → `soan-theo-khuon` sửa theo danh sách → `tho-may` kiểm.
+- Việc giao diện: phiên chính làm cả (luật thiết kế ở trên); `tho-may` chỉ chạy script chụp / đo.
+
+## Luật chung
+1. Thợ bắt đầu từ trắng: lời giao việc phải tự đủ (mục tiêu, tệp được sửa, khuôn + mẫu, lệnh kiểm, tiêu chí xong, nhắc luật graphify).
+2. Không giao việc nhỏ (bảng dòng cuối): giao còn tốn hạn mức hơn tự làm.
+3. Thợ không commit, không push, không phát hành, không đổi luật đo; chỉ phiên chính làm.
+4. Nội dung giảng dạy không bao giờ giao Haiku.
+5. Báo người sáng lập ngắn: việc nào giao thợ nào, kết quả soát.
+6. Bảng này là ý kiến của Claude: sau 1–2 tuần, thợ nào hay sai (soát KHÔNG ĐẠT ≥ 2 đợt liền) thì chuyển loại việc đó về phiên chính và sửa bảng.

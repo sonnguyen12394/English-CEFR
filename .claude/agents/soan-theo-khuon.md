@@ -1,6 +1,6 @@
 ---
 name: soan-theo-khuon
-description: Soạn nội dung hàng loạt theo khuôn ĐÃ được người sáng lập duyệt và đã có mẫu làm sẵn (vd. lời giải lg cho nhiều câu, thêm câu / bài cùng dạng, dịch, nhãn dạng). Dùng khi có từ khoảng 20 mục trở lên cùng một khuôn. KHÔNG dùng để nghĩ khuôn mới, đổi luật đo, thiết kế giao diện.
+description: Soạn hàng loạt (từ ~20 mục) theo khuôn và mẫu ĐÃ duyệt - lời giải lg, câu / bài cùng dạng (TOEIC Part 5–7, bài Đọc / Nghe Nền), từ công sở, bài học XL_TXT theo mẫu, kho đề soạn sẵn, đề thử TOEIC trọn theo bộ tiêu chí, sửa theo danh sách lỗi đã có. KHÔNG dùng để nghĩ khuôn mới, đổi luật đo, thiết kế giao diện, máy chủ.
 model: sonnet
 effort: medium
 tools: Read, Edit, Write, Bash, Grep, Glob
