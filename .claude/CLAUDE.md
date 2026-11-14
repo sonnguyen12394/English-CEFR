@@ -23,3 +23,15 @@ Người sáng lập chỉ nói việc bằng lời thường, KHÔNG gõ lệnh
 3. Việc NHỎ (sửa lỗi, sửa chữ, 1–2 tệp) → làm thẳng, không Spec Kit.
 4. Việc giao diện → luật thiết kế ở trên (design-critique → frontend-design / design-system → ux-copy → accessibility-review).
 5. Khi báo lại: nói bằng lời thường đã làm gì, không liệt kê tên lệnh trừ khi được hỏi.
+
+# Tự giao việc cho thợ (sub agent) để tiết kiệm hạn mức (người sáng lập 14/11/2026)
+Người sáng lập không gõ lệnh: Claude tự quyết khi nào giao việc, theo luật dưới. 3 thợ ở `.claude/agents/`:
+- `tho-may` (Haiku): chạy test / bộ dựng / máy kiểm / graphify / đếm; khi log dài mà chỉ cần kết luận.
+- `soan-theo-khuon` (Sonnet): soạn hàng loạt (từ ~20 mục) theo khuôn đã duyệt và đã có mẫu.
+- `soat-lai` (Opus): soát ngẫu nhiên ≥ 10% (ít nhất 5 mục) đầu ra của `soan-theo-khuon`; sai > 1/10 thì làm lại đợt đó.
+Luật giao việc:
+1. Phiên chính (Opus) giữ: hỏi người sáng lập, kế hoạch, thiết kế, đổi luật, sửa lỗi khó, giao diện, commit / phát hành, báo cáo cuối.
+2. KHÔNG giao việc nhỏ (1–2 tệp, dưới ~5 phút, hoặc phiên chính đã có sẵn ngữ cảnh): thợ mới bắt đầu từ trắng, đọc lại mã nên tốn hạn mức hơn tự làm.
+3. Soạn nội dung giao `soan-theo-khuon` thì BẮT BUỘC qua `soat-lai` trước khi commit; phiên chính đọc thêm 2–3 mục.
+4. Lời giao việc phải tự đủ: mục tiêu, tệp được sửa, khuôn + mẫu, lệnh kiểm, tiêu chí xong; nhắc luật graphify.
+5. Báo người sáng lập ngắn: việc nào đã giao cho thợ nào, kết quả soát.
