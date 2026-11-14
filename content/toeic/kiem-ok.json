@@ -9,13 +9,6 @@
    "ngay": "2026-11-09"
   },
   {
-   "id": "t7-notice2#2",
-   "ma": "P7-NOT",
-   "dau": "ee72cf645a",
-   "ly_do": "Bài nói thư viện làm khảo sát (survey) hỏi ý cư dân, tức là 'asked residents for their opinions' có nói, chỉ diễn đạt khác; đáp án 'add a parking area' không có trong bài. (Xem lại sau khi đổi tên thư viện, nội dung câu không đổi.)",
-   "ngay": "2026-11-09"
-  },
-  {
    "id": "t7-parking#2",
    "ma": "C-SO-KHUON",
    "dau": "a2b7e3eaf8",
@@ -77,6 +70,13 @@
    "dau": "11eabaf6b6",
    "ly_do": "Câu đối chiếu: phương án trộn ngày tháng và thứ (đáp án suy từ lịch); không quy về một khuôn, thứ tự hiện tại không lộ đáp án.",
    "ngay": "2026-11-10"
+  },
+  {
+   "id": "t7-notice2#2",
+   "ma": "P7-NOT",
+   "dau": "a62d09c467",
+   "ly_do": "Phương án có nói 'asked residents for their opinions' diễn đạt lại câu 'a survey in which many residents said…' (cách viết đề thật: không chép chữ của bài); đáp án NOT 'add a parking area' bài không nói.",
+   "ngay": "2026-11-14"
   }
  ]
 }
