@@ -131,12 +131,12 @@ async function trLkOpen(id, t) { let ma = trMaGet(), asked = false;
     if (d && d.error === 'Sai mã.' && !asked) { trMaSet(''); ma = (prompt('Mã đã lưu không còn đúng. Nhập mã mới:') || '').trim(); if (!ma) return; d = await trLkFetch(id, ma); }
     if (!d || !d.data) return toast((d && d.error) || 'Chưa mở được đề. Kiểm tra mạng rồi thử lại.');
     trMaSet(ma); trLkSave(id, d, ma); toast('Đã mở ' + d.t); return trView(); } catch (e) { toast('Chưa mở được đề. Kiểm tra mạng rồi thử lại.'); } }
-async function trLkAll() { const ids = (TR.lk || []).filter(r => !(TO.tron || []).some(d => d.id === r.id)); if (!ids.length) return;
+async function trLkAll(back) { const ids = (TR.lk || []).filter(r => !(TO.tron || []).some(d => d.id === r.id)); if (!ids.length) return;
   let ma = trMaGet(); if (!ma) { ma = (prompt('Nhập mã đề riêng (nhập một lần, máy này sẽ nhớ):') || '').trim(); if (!ma) return; }
   toast(`Đang mở ${ids.length} đề…`); let n = 0, err = '';
   for (const r of ids) { const d = await trLkFetch(r.id, ma); if (d && d.data) { trLkSave(r.id, d, ma); n++; } else { err = (d && d.error) || 'Kiểm tra mạng rồi thử lại.'; if (d && (d.error === 'Sai mã.' || d.error && /Thử lại sau/.test(d.error))) break; } }
   if (n) trMaSet(ma); else if (err === 'Sai mã.') trMaSet('');
-  toast(n ? `Đã mở ${n} đề${err ? ' · còn lỗi: ' + err : ''}` : 'Chưa mở được: ' + err); return trView(); }
+  toast(n ? `Đã mở ${n} đề${err ? ' · còn lỗi: ' + err : ''}` : 'Chưa mở được: ' + err); return back ? back() : trView(); }
 async function trReady0() { if (!TO) await toLoad(); if (!NCLIPS.size) try { NCLIPS = new Set(await (await fetch('n/index.json?v=' + APP_V)).json()); } catch (e) {} }
 async function trView() { BACK = null; window.CUR = { view: TR_VIEW }; EXAM_VOX = false; TR.on = ''; TR.tok++; clearInterval(TR.tm);
   if (!TO || !NCLIPS.size) { $app.innerHTML = '<div id="ie"></div><p class="mute">Đang tải…</p>'; try { await trReady0(); } catch (e) { $app.innerHTML = '<div id="ie"></div><p>Không tải được dữ liệu TOEIC. Thử lại sau.</p>'; return; } }

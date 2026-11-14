@@ -2152,6 +2152,13 @@ const R = await run(`(async () => {
       TG_P = P; await tgView(); let h = String($app.innerHTML);
       if (!h.includes('Chinh phục đề') || (h.match(/data-tgde=/g) || []).length !== ids.length || !h.includes('100/100') || !h.includes('data-tgj="full"') || (h.match(/class="trc /g) || []).length !== 100) bad.push('màn hành trình thiếu phần');
       if (!String(tgRow()).includes('Chinh phục đề') || !String(trResOne).includes('TG_J')) bad.push('thiếu lối vào / nút về hành trình sau lượt thi');
+      // v170: đề riêng (chỉ phần Đọc, câu 101–200, giữ thứ tự phương án) vào được hành trình; trLkAll nhận hàm quay về
+      { const F = JSON.parse(JSON.stringify(Object.assign({}, TR.D.de5, { id: 'de99', t: 'Đề 99 · thử', p1: [], p2: [], p3: [], p4: [], off: 100, keep: 1, only: 'R' }))); delete F.ord; for (const x of F.p5) x.o = x.o || [x.a, ...(x.w || [])]; for (const x of F.p6) for (const g of x.gaps) g.o = g.o || [g.a, ...(g.w || [])]; for (const x of F.p7) for (const q of x.qs) q.o = q.o || [q.a, ...(q.w || [])]; TR.D.de99 = F; TO.tron.push({ id: 'de99', t: 'Đề 99 · thử', f: 'rieng:de99', only: 'R' }); TR.B = {};
+        TG_P = await tgPool(); const L99 = tgJState('de99'); if (!TG_P.de99 || L99.length !== 100 || L99[0].n !== 101 || L99[99].n !== 200) bad.push('đề riêng: phải có 100 câu Đọc đánh số 101–200 (' + (L99 || []).length + ')');
+        const n99 = tgJNext('de99', L99); if (n99.k !== 'thi' || n99.id !== 'cR0') bad.push('đề riêng: lượt đầu phải là cR0 (' + n99.k + ' ' + n99.id + ')');
+        if (!String(trLkAll).includes('back')) bad.push('trLkAll không nhận hàm quay về');
+        TO.tron = TO.tron.filter(d => d.id !== 'de99'); delete TR.D.de99; TR.B = {}; TG_P = P; }
+
       if ((S.to.mock || []).length || Object.keys(S.c || {}).length) bad.push('trò chơi đụng điểm đề thử / thẻ học');
     } catch (e) { bad.push('lỗi: ' + e.message); }
     S = S1; TR.B = {}; TR.D = {}; TG_P = null; TG_CB = null; out.push({ lv: 'cefr', id: 'C79', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🗺 Chinh phục đề: hành trình 100 câu Đọc mỗi đề (8 đề), thi lượt → câu sai chữa bằng các trò của chính câu → ngày sau thi lại → 🟩, bài làm mới hơn thắng, đúng hết = chinh phục; không đụng điểm đề thử / thẻ học' }); }

@@ -87,3 +87,9 @@ Người sáng lập: "các trò chơi này đang thiếu mục tiêu chung… g
 - **FR-017** Bài làm đề mới hơn ghi đè trạng thái câu (làm lại cả đề mà sai thì câu quay lại đỏ).
 - **SC-007** Đi được trọn một vòng thi → chữa → thi lại mà không phải rời màn hành trình; 100/100 xanh thì báo chinh phục.
 - Rủi ro đã ghi trên màn: đề đã chinh phục cho điểm cao hơn thực lực; trình độ thật đo bằng đề chưa làm.
+
+## Bổ sung v170 (13/11/2026): đủ đề
+
+Người sáng lập: "trò chơi mới 8 đề chưa đủ, thêm toàn bộ đề toeic hiện có vào".
+
+- **FR-018** Hành trình liệt kê mọi đề thử trọn của app: Đề 1–8 và đề riêng 9–16 (khi đã mở mã trên máy); chưa mở thì có nút mở ngay trong màn hành trình.
