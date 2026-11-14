@@ -3351,22 +3351,22 @@
     },
     {
      "q": "What is indicated about the Cedar Avenue lot?",
-     "a": "Tenants can use it at no cost on June 14.",
+     "a": "Parking there costs nothing that day.",
      "w": [
-      "It is closed on weekends.",
-      "It will be repainted next.",
-      "It is reserved for visitors."
+      "It is being repainted on June 14.",
+      "It closes at 6:00 A.M. on June 14.",
+      "It has space for building visitors."
      ],
      "ev": "Tenants may park free of charge at the Cedar Avenue lot all day on June 14.",
-     "why": "free of charge = miễn phí, cả ngày 14/6.",
+     "why": "Người thuê đỗ miễn phí cả ngày 14/6.",
      "lg": {
       "og": {
-       "Tenants can use it at no cost on June 14.": "Người thuê dùng miễn phí vào ngày 14/6",
-       "It is closed on weekends.": "Đóng cửa cuối tuần",
-       "It will be repainted next.": "Sẽ được sơn lại tiếp theo",
-       "It is reserved for visitors.": "Dành cho khách tham quan"
+       "Parking there costs nothing that day.": "Đỗ xe ở đó không mất tiền hôm ấy",
+       "It is being repainted on June 14.": "Bãi đang được sơn lại ngày 14/6",
+       "It closes at 6:00 A.M. on June 14.": "Bãi đóng cửa lúc 6 giờ sáng ngày 14/6",
+       "It has space for building visitors.": "Bãi có chỗ cho khách của toà nhà"
       },
-      "ly": "Thông báo nói người thuê được đỗ miễn phí cả ngày 14/6 ở bãi đại lộ Cedar.",
+      "ly": "Đáp án \"Parking there costs nothing that day.\" — Người thuê được đỗ miễn phí cả ngày 14/6 ở bãi đại lộ Cedar. Việc sơn lại là của bãi xe trong toà nhà, không phải bãi Cedar.",
       "dich": "Người thuê có thể đỗ xe miễn phí cả ngày 14 tháng 6 tại bãi đại lộ Cedar."
      }
     }
@@ -3384,22 +3384,22 @@
    "qs": [
     {
      "q": "What is one duty of the position?",
-     "a": "Keeping display cases clean",
+     "a": "Making sure displays stay spotless",
      "w": [
-      "Baking bread",
-      "Ordering supplies",
-      "Training new staff"
+      "Decorating cakes for special orders",
+      "Ordering flour and other baking supplies",
+      "Handing out samples outside the store"
      ],
      "ev": "keeping the display cases clean",
-     "why": "Một nhiệm vụ: giữ tủ trưng bày sạch.",
+     "why": "Nhiệm vụ gồm giữ tủ trưng bày sạch.",
      "lg": {
       "og": {
-       "Keeping display cases clean": "Giữ tủ trưng bày sạch sẽ",
-       "Baking bread": "Nướng bánh mì",
-       "Ordering supplies": "Đặt hàng cung ứng",
-       "Training new staff": "Đào tạo nhân viên mới"
+       "Making sure displays stay spotless": "Giữ cho khu trưng bày luôn sạch",
+       "Decorating cakes for special orders": "Trang trí bánh cho đơn đặc biệt",
+       "Ordering flour and other baking supplies": "Đặt bột và nguyên liệu nướng bánh",
+       "Handing out samples outside the store": "Phát bánh dùng thử trước cửa hàng"
       },
-      "ly": "Nhiệm vụ gồm phục vụ khách, xử lý thanh toán và giữ tủ trưng bày sạch.",
+      "ly": "Đáp án \"Making sure displays stay spotless\" — Nhiệm vụ gồm phục vụ khách, xử lý thanh toán và giữ tủ trưng bày sạch. Bài không nhắc trang trí bánh, đặt nguyên liệu hay phát bánh thử.",
       "dich": "Nhiệm vụ gồm phục vụ khách, xử lý thanh toán và giữ cho tủ trưng bày sạch sẽ."
      }
     },
@@ -3458,22 +3458,22 @@
     },
     {
      "q": "How can Ms. Nair keep her points?",
-     "a": "By making a purchase with a partner",
+     "a": "By shopping with a participating business",
      "w": [
-      "By calling customer service",
-      "By upgrading her membership",
-      "By updating her address"
+      "By logging in to view her balance",
+      "By renewing her membership by mail",
+      "By signing up for a travel credit card"
      ],
      "ev": "simply make a purchase with any of our partner hotels or airlines before that date",
-     "why": "Mua hàng ở khách sạn hoặc hãng bay đối tác trước 30/9 thì giữ được điểm.",
+     "why": "Mua hàng ở khách sạn / hãng bay đối tác trước 30/9 thì giữ được điểm.",
      "lg": {
       "og": {
-       "By making a purchase with a partner": "Mua hàng với một đối tác",
-       "By calling customer service": "Gọi chăm sóc khách hàng",
-       "By upgrading her membership": "Nâng hạng thành viên",
-       "By updating her address": "Cập nhật địa chỉ"
+       "By shopping with a participating business": "Mua sắm tại một doanh nghiệp đối tác",
+       "By logging in to view her balance": "Đăng nhập để xem số dư",
+       "By renewing her membership by mail": "Gia hạn thẻ hội viên qua thư",
+       "By signing up for a travel credit card": "Đăng ký thẻ tín dụng du lịch"
       },
-      "ly": "E-mail hướng dẫn cứ mua hàng với khách sạn hoặc hãng bay đối tác trước hạn để giữ điểm.",
+      "ly": "Đáp án \"By shopping with a participating business\" — Thư nói chỉ cần mua hàng ở khách sạn hoặc hãng bay đối tác trước ngày hết hạn. Đăng nhập chỉ để xem số dư và danh sách đối tác.",
       "dich": "Để giữ điểm, chỉ cần mua hàng với bất kỳ khách sạn hoặc hãng bay đối tác nào trước ngày đó."
      }
     }
@@ -3832,22 +3832,22 @@
     },
     {
      "q": "According to Mr. Moreau, what have customers wanted?",
-     "a": "A place to sit and read",
+     "a": "A spot to sit down with a book",
      "w": [
-      "Lower prices",
-      "Longer opening hours",
-      "More children's books"
+      "Lower prices on popular bestsellers",
+      "A larger selection of local authors",
+      "More parking spaces near the store"
      ],
      "ev": "Our customers have been asking for a place to sit and read",
      "why": "Khách muốn có chỗ ngồi đọc.",
      "lg": {
       "og": {
-       "A place to sit and read": "Một chỗ ngồi đọc sách",
-       "Lower prices": "Giá rẻ hơn",
-       "Longer opening hours": "Giờ mở cửa lâu hơn",
-       "More children's books": "Nhiều sách thiếu nhi hơn"
+       "A spot to sit down with a book": "Một chỗ để ngồi xuống đọc sách",
+       "Lower prices on popular bestsellers": "Giá rẻ hơn cho sách bán chạy",
+       "A larger selection of local authors": "Nhiều lựa chọn tác giả địa phương hơn",
+       "More parking spaces near the store": "Thêm chỗ đỗ xe gần cửa hàng"
       },
-      "ly": "Ông Moreau trích lời khách muốn có chỗ ngồi đọc sách.",
+      "ly": "Đáp án \"A spot to sit down with a book\" — Ông Moreau nói khách hỏi một nơi để ngồi đọc, nên cửa hàng mới có góc đọc và quán cà phê. Giá, tác giả địa phương và bãi đỗ xe không được nhắc là điều khách muốn.",
       "dich": "Khách hàng của chúng tôi đã đòi hỏi một nơi để ngồi đọc sách."
      }
     },
@@ -3969,22 +3969,22 @@
     },
     {
      "q": "What does Ms. Whitaker say about the members?",
-     "a": "They have wanted this class for a long time.",
+     "a": "They have long wished for such a class.",
      "w": [
-      "They prefer evening classes.",
-      "They have donated computers.",
-      "They will help Mr. Haddad teach."
+      "Most of them already use e-mail daily.",
+      "They will bring their own laptops.",
+      "They requested a class held on weekends."
      ],
      "ev": "Many of our members have asked for a class like this for years.",
      "why": "Nhiều hội viên đã đề nghị lớp này từ nhiều năm.",
      "lg": {
       "og": {
-       "They have wanted this class for a long time.": "Họ mong lớp này từ lâu",
-       "They prefer evening classes.": "Họ thích lớp buổi tối",
-       "They have donated computers.": "Họ đã tặng máy tính",
-       "They will help Mr. Haddad teach.": "Họ sẽ giúp ông dạy"
+       "They have long wished for such a class.": "Họ mong có lớp như vậy từ lâu",
+       "Most of them already use e-mail daily.": "Phần lớn họ đã dùng e-mail hằng ngày",
+       "They will bring their own laptops.": "Họ sẽ tự mang laptop",
+       "They requested a class held on weekends.": "Họ đề nghị mở lớp vào cuối tuần"
       },
-      "ly": "Bà Whitaker nói nhiều hội viên đã đề nghị một lớp như thế nhiều năm.",
+      "ly": "Đáp án \"They have long wished for such a class.\" — Bà Whitaker nói nhiều hội viên đã xin một lớp như vậy từ nhiều năm. Trung tâm cung cấp laptop, và phần lớn học viên chưa từng dùng e-mail.",
       "dich": "Nhiều hội viên của chúng tôi đã đề nghị một lớp như thế này từ nhiều năm nay."
      }
     }
@@ -4128,22 +4128,22 @@
    "qs": [
     {
      "q": "What is indicated about the corporate memberships?",
-     "a": "They are for companies with at least ten employees.",
+     "a": "Very small companies may not qualify.",
      "w": [
-      "They include free parking.",
-      "They must be paid annually.",
-      "They are available only on weekends."
+      "Prices drop as more employees sign up.",
+      "A one-year contract is required to join.",
+      "The Basic plan includes personal training."
      ],
      "ev": "Clearwater Fitness offers corporate memberships for companies with ten or more employees.",
-     "why": "Dành cho công ty từ 10 nhân viên trở lên.",
+     "why": "Chỉ công ty từ 10 nhân viên trở lên mới có hội viên doanh nghiệp.",
      "lg": {
       "og": {
-       "They are for companies with at least ten employees.": "Dành cho công ty có ít nhất mười nhân viên",
-       "They include free parking.": "Gồm chỗ đỗ xe miễn phí",
-       "They must be paid annually.": "Phải trả theo năm",
-       "They are available only on weekends.": "Chỉ có cuối tuần"
+       "Very small companies may not qualify.": "Công ty rất nhỏ có thể không đủ điều kiện",
+       "Prices drop as more employees sign up.": "Giá giảm khi có thêm nhân viên đăng ký",
+       "A one-year contract is required to join.": "Phải ký hợp đồng một năm mới được tham gia",
+       "The Basic plan includes personal training.": "Gói Basic gồm huấn luyện cá nhân"
       },
-      "ly": "Quảng cáo nói thẻ hội viên doanh nghiệp dành cho công ty từ mười nhân viên trở lên.",
+      "ly": "Đáp án \"Very small companies may not qualify.\" — Hội viên doanh nghiệp dành cho công ty từ mười nhân viên trở lên, nên công ty quá nhỏ có thể không đủ điều kiện. Hợp đồng một năm chỉ giúp được tháng đầu miễn phí, và huấn luyện cá nhân chỉ có ở gói Premium.",
       "dich": "Clearwater Fitness có hội viên doanh nghiệp cho công ty từ mười nhân viên trở lên."
      }
     },
@@ -4340,22 +4340,22 @@
     },
     {
      "q": "What must the driver show at pickup?",
-     "a": "A license and a credit card",
+     "a": "A driving permit and a payment card",
      "w": [
-      "A flight ticket",
-      "A confirmation e-mail",
-      "A company ID card"
+      "Proof of the trade fair registration",
+      "The printed flight itinerary",
+      "A letter from the company"
      ],
      "ev": "the driver must show a valid license and a credit card in his or her name at pickup",
-     "why": "Bằng lái và thẻ tín dụng đứng tên người lái.",
+     "why": "Người lái phải xuất trình bằng lái và thẻ tín dụng đứng tên mình.",
      "lg": {
       "og": {
-       "A license and a credit card": "Bằng lái và thẻ tín dụng",
-       "A flight ticket": "Vé máy bay",
-       "A confirmation e-mail": "E-mail xác nhận",
-       "A company ID card": "Thẻ nhân viên công ty"
+       "A driving permit and a payment card": "Bằng lái và thẻ thanh toán",
+       "Proof of the trade fair registration": "Bằng chứng đăng ký hội chợ",
+       "The printed flight itinerary": "Lịch trình chuyến bay đã in",
+       "A letter from the company": "Thư của công ty"
       },
-      "ly": "Thư nói người lái phải xuất trình bằng lái hợp lệ và thẻ tín dụng đứng tên mình.",
+      "ly": "Đáp án \"A driving permit and a payment card\" — Thư nói người lái phải xuất trình bằng lái hợp lệ và thẻ tín dụng đứng tên mình. Số xác nhận chỉ để tham chiếu, không nhắc giấy tờ khác.",
       "dich": "Người lái phải xuất trình bằng lái hợp lệ và thẻ tín dụng đứng tên mình khi nhận xe."
      }
     }
@@ -4381,44 +4381,44 @@
    "qs": [
     {
      "q": "What is the purpose of the notice?",
-     "a": "To explain how to get pool access",
+     "a": "To announce that a facility is reopening",
      "w": [
-      "To announce new apartment rules",
-      "To advertise swimming lessons",
-      "To report a safety problem"
+      "To report that a pool will close for repairs",
+      "To invite residents to a swimming event",
+      "To announce an increase in pool fees"
      ],
-     "ev": "residents must register at the management office and receive a new access card",
-     "why": "Hướng dẫn đăng ký để có thẻ vào hồ bơi.",
+     "ev": "The swimming pool will reopen on June 1 after renovation.",
+     "why": "Hồ bơi mở lại ngày 1/6 sau khi sửa chữa.",
      "lg": {
       "og": {
-       "To explain how to get pool access": "Giải thích cách vào hồ bơi",
-       "To announce new apartment rules": "Thông báo quy định mới",
-       "To advertise swimming lessons": "Quảng cáo dạy bơi",
-       "To report a safety problem": "Báo vấn đề an toàn"
+       "To announce that a facility is reopening": "Để thông báo một tiện ích mở cửa trở lại",
+       "To report that a pool will close for repairs": "Để báo hồ bơi sẽ đóng cửa sửa chữa",
+       "To invite residents to a swimming event": "Để mời cư dân dự sự kiện bơi lội",
+       "To announce an increase in pool fees": "Để báo tăng phí hồ bơi"
       },
-      "ly": "Thông báo hướng dẫn cư dân đăng ký và nhận thẻ để dùng hồ bơi.",
-      "dich": "Để dùng hồ bơi, cư dân phải đăng ký tại văn phòng quản lý và nhận thẻ ra vào mới."
+      "ly": "Đáp án \"To announce that a facility is reopening\" — Thông báo mở đầu bằng việc hồ bơi mở lại sau khi sửa chữa, rồi nêu cách đăng ký và giờ mở. Không có việc đóng cửa mới, sự kiện hay phí.",
+      "dich": "Hồ bơi sẽ mở lại vào ngày 1 tháng 6 sau khi sửa chữa."
      }
     },
     {
      "q": "What is suggested about Mr. Aziz's family?",
-     "a": "It has more members than the limit allows.",
+     "a": "It asked for one card too many.",
      "w": [
-      "It recently moved into the building.",
-      "It uses the pool every evening.",
-      "It lives on the ground floor."
+      "It has lived in the building for years.",
+      "It plans to use the pool in the evening.",
+      "It is moving to a different apartment."
      ],
      "x": 1,
      "ev": "There are five of us",
-     "why": "Thông báo: mỗi căn tối đa 4 người. E-mail: nhà có 5 người.",
+     "why": "Mỗi căn tối đa 4 người, e-mail xin cho 5 người.",
      "lg": {
       "og": {
-       "It has more members than the limit allows.": "Có nhiều người hơn mức cho phép",
-       "It recently moved into the building.": "Mới chuyển đến toà nhà",
-       "It uses the pool every evening.": "Dùng hồ bơi mỗi tối",
-       "It lives on the ground floor.": "Sống ở tầng trệt"
+       "It asked for one card too many.": "Gia đình xin nhiều hơn một thẻ so với mức cho phép",
+       "It has lived in the building for years.": "Gia đình sống ở toà nhà nhiều năm",
+       "It plans to use the pool in the evening.": "Gia đình định dùng hồ bơi vào buổi tối",
+       "It is moving to a different apartment.": "Gia đình sắp chuyển sang căn khác"
       },
-      "ly": "Mỗi căn đăng ký tối đa bốn người mà gia đình ông có năm người.",
+      "ly": "Đáp án \"It asked for one card too many.\" — Mỗi căn hộ chỉ đăng ký tối đa bốn người, mà ông Aziz xin cho cả năm người. Bài không nói thời gian họ ở hay việc chuyển nhà; bà mẹ bơi buổi sáng.",
       "dich": "Mỗi căn hộ có thể đăng ký tối đa bốn người."
      }
     },
@@ -4446,22 +4446,22 @@
     },
     {
      "q": "According to the notice, what is true about children under 12?",
-     "a": "They must be supervised by an adult.",
+     "a": "They must have an adult with them.",
      "w": [
-      "They cannot use the pool.",
-      "They need a special card.",
-      "They may swim only in the morning."
+      "They must pass a swim test first.",
+      "They pay a lower registration fee.",
+      "They are limited to morning hours."
      ],
      "ev": "Children under 12 must be accompanied by an adult at all times.",
      "why": "Trẻ dưới 12 tuổi luôn phải có người lớn đi cùng.",
      "lg": {
       "og": {
-       "They must be supervised by an adult.": "Phải có người lớn giám sát",
-       "They cannot use the pool.": "Không được dùng hồ bơi",
-       "They need a special card.": "Cần thẻ đặc biệt",
-       "They may swim only in the morning.": "Chỉ bơi buổi sáng"
+       "They must have an adult with them.": "Các em phải có người lớn đi cùng",
+       "They must pass a swim test first.": "Các em phải qua bài kiểm tra bơi trước",
+       "They pay a lower registration fee.": "Các em trả phí đăng ký thấp hơn",
+       "They are limited to morning hours.": "Các em chỉ được bơi buổi sáng"
       },
-      "ly": "Thông báo nói trẻ dưới 12 tuổi phải luôn có người lớn đi cùng.",
+      "ly": "Đáp án \"They must have an adult with them.\" — Thông báo nói trẻ dưới 12 tuổi phải luôn có người lớn đi cùng. Bài không nói về kiểm tra bơi, phí hay giới hạn giờ cho trẻ.",
       "dich": "Trẻ dưới 12 tuổi phải luôn có người lớn đi cùng."
      }
     },
