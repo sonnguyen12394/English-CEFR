@@ -1,6 +1,8 @@
 // Giải mù đề thử trọn TOEIC (specs/011-kiem-noi-dung-de R4; docs/TIEU-CHI-DE-TOEIC.md).
-//   node tools/giai-mu.mjs xuat <de> <nghe|doc> <tệp.txt> [--cau 45,46]   → phiếu làm bài KHÔNG đáp án / giải thích / câu trích / nhãn
+//   node tools/giai-mu.mjs xuat <de> <nghe|doc|khongbai> <tệp.txt> [--cau 45,46]   → phiếu làm bài KHÔNG đáp án / giải thích / câu trích / nhãn
 //   node tools/giai-mu.mjs so <de> <tệp.json>                            → đối chiếu, ghi content/toeic/giai-mu/<de>.json, in tỉ lệ khớp
+//   v174 phần "khongbai": phiếu Part 7 CHỈ có câu hỏi + 4 phương án (không có bài). Đo đáp án có lộ không: đoán đúng nhiều hơn KB_MAX là đáp án
+//   tự lộ (dài hơn, chép chữ của bài, cụ thể hơn). Kết quả ghi riêng content/toeic/giai-mu/<de>-kb.json (không đụng kết quả giải mù thường).
 // Phiếu đánh số câu 1–200 và chữ cái A–D đúng như app (tools/kiem-toeic.mjs units). Phiên giải mù là một phiên Claude phụ (ngữ cảnh mới).
 import fs from 'node:fs'; import { spawnSync } from 'node:child_process';
 import { root, loadTests, units, dau } from './kiem-toeic.mjs';
@@ -24,7 +26,14 @@ const WHO = { A: 'Woman', B: 'Man', C: 'Woman 2' };
 const opt = q => q.opts.map((o, i) => `(${'ABCD'[i]}) ${q.fixed ? q.o[i] : o}`).join('\n');
 const tableText = g => `Bảng "${g.t}": ${g.h.join(' | ')}\n` + g.r.map(r => '  ' + r.join(' | ')).join('\n');
 
+export const KB_MAX = 0.75;   // v175: đo 14/11/2026 một đề ETS (Đề 10) bị đoán đúng 36/54 = 67% khi không có bài (người đoán có hiểu biết chung), Đề 3 70%, Đề 7 80%; ngưỡng = ETS + ~8 điểm (sai số 54 câu ~6 điểm). Ý kiến của Claude; đo thêm đề ETS thì chỉnh (docs/KHUON-DE-TOEIC.md)
 export function sheet(de, phan, only) { const D = loadTests().find(d => d.id === de); if (!D) throw new Error('không có đề ' + de);
+  if (phan === 'khongbai') { const U = units(D).filter(u => u.sec === 'p7'), out = [`ĐỀ THỬ TOEIC — ${D.t} (${de}) — PART 7 KHÔNG CÓ BÀI ĐỌC`,
+      'Bạn là thí sinh TOEIC. Phiếu này CỐ Ý bỏ bài đọc: chỉ có loại văn bản, câu hỏi và 4 phương án. Hãy đoán phương án có vẻ đúng nhất chỉ từ câu hỏi và phương án',
+      '(dựa vào hiểu biết chung, cách viết phương án, phương án nào cụ thể / dài / khác loại). Không bỏ trống câu nào.',
+      'Trả lời bằng MỘT tệp JSON: {"de": "' + de + '", "phan": "khongbai", "cau": [{"n": 147, "chon": "A", "ly": "≤ 12 từ: vì sao đoán vậy"}, …]} — đủ mọi câu.', ''];
+    for (const u of U) { out.push('', `[${u.a}–${u.b}] ${u.x.kind}`); for (const q of u.qs) out.push('', `[${q.n}] ${q.stem}`, opt(q)); }
+    return out.join('\n') + '\n'; }
   const U = units(D).filter(u => (phan === 'nghe') === /^p[1-4]$/.test(u.sec)).filter(u => !only || u.qs.some(q => only.includes(q.n)));
   const want = q => !only || only.includes(q.n), out = [], head = { p1: 'PART 1 — chọn câu tả đúng nhất bức tranh', p2: 'PART 2 — chọn lời đáp hợp nhất', p3: 'PART 3 — hội thoại', p4: 'PART 4 — bài nói', p5: 'PART 5 — chọn từ / cụm điền vào chỗ trống', p6: 'PART 6 — điền đoạn văn', p7: 'PART 7 — đọc hiểu' };
   out.push(`ĐỀ THỬ TOEIC — ${D.t} (${de}) — PHẦN ${phan === 'nghe' ? 'NGHE' : 'ĐỌC'}${only ? ' — chỉ các câu ' + only.join(', ') : ''}`,
@@ -48,6 +57,13 @@ export function sheet(de, phan, only) { const D = loadTests().find(d => d.id ===
       for (const q of u.qs) if (want(q)) out.push('', `[${q.n}] ${q.stem}`, opt(q)); } }
   return out.join('\n') + '\n'; }
 
+export function compareKb(de, ans) { const D = loadTests().find(d => d.id === de), byN = {}, f = 'content/toeic/giai-mu/' + de + '-kb.json';
+  for (const u of units(D)) for (const q of u.qs) byN[q.n] = q;
+  let n = 0, khop = 0; const lo = []; for (const a of ans.cau || []) { const q = byN[a.n]; if (!q) continue; n++; if (String(a.chon || '').trim().toUpperCase()[0] === q.L) { khop++; lo.push(`câu ${a.n}: ${String(a.ly || '').slice(0, 80)}`); } }
+  const G = fs.existsSync(root + f) ? JSON.parse(fs.readFileSync(root + f, 'utf8')) : { _note: 'Giải không có bài (v174, tools/giai-mu.mjs phần khongbai): đoán Part 7 chỉ từ câu hỏi + phương án. Tỉ lệ đúng > KB_MAX = đáp án tự lộ.', de, lan: [] };
+  G.lan.push({ ngay: new Date().toISOString().slice(0, 10), cau: n, khop }); fs.mkdirSync(root + 'content/toeic/giai-mu', { recursive: true }); fs.writeFileSync(root + f, JSON.stringify(G, null, 1) + '\n');
+  return { n, khop, lo, f }; }
+
 export function compare(de, ans) { const D = loadTests().find(d => d.id === de), U = units(D), f = 'content/toeic/giai-mu/' + de + '.json', today = new Date().toISOString().slice(0, 10);
   const G = fs.existsSync(root + f) ? JSON.parse(fs.readFileSync(root + f, 'utf8')) : { _note: 'Kết quả giải mù (tools/giai-mu.mjs): phiên Claude phụ làm đề không xem đáp án. da = đáp án lúc giải, chon = phiên giải mù chọn, hai = phương án thứ hai cũng được, dau = dấu nội dung câu lúc giải.', de, lan: [], cau: {} };
   const byN = {}; for (const u of U) for (const q of u.qs) byN[q.n] = { u, q };
@@ -63,5 +79,7 @@ export function compare(de, ans) { const D = loadTests().find(d => d.id === de),
 if (import.meta.url === 'file://' + process.argv[1]) {
   const [cmd, de, a3, a4] = process.argv.slice(2), ci = process.argv.indexOf('--cau'), only = ci > 0 ? process.argv[ci + 1].split(',').map(Number) : null;
   if (cmd === 'xuat') { const t = sheet(de, a3, only); fs.writeFileSync(a4, t); console.log(`đã viết ${a4}: ${(t.match(/^\[\d+\]/gm) || []).length} câu`); }
+  else if (cmd === 'so' && JSON.parse(fs.readFileSync(a3, 'utf8')).phan === 'khongbai') { const r = compareKb(de, JSON.parse(fs.readFileSync(a3, 'utf8')));
+    console.log(`${de} không có bài: đoán đúng ${r.khop}/${r.n} = ${Math.round(r.khop / r.n * 100)}% (ngưỡng ${KB_MAX * 100}%) → ${r.f}`); for (const l of r.lo) console.log('  ' + l); }
   else if (cmd === 'so') { const r = compare(de, JSON.parse(fs.readFileSync(a3, 'utf8'))); console.log(`${de}: khớp ${r.khop}/${r.n} → ${r.f}`); for (const l of r.lech) console.log('  ' + l); }
-  else { console.log('Dùng: node tools/giai-mu.mjs xuat <de> <nghe|doc> <tệp.txt> [--cau 45,46] | so <de> <tệp.json>'); process.exit(1); } }
+  else { console.log('Dùng: node tools/giai-mu.mjs xuat <de> <nghe|doc|khongbai> <tệp.txt> [--cau 45,46] | so <de> <tệp.json>'); process.exit(1); } }

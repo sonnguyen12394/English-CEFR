@@ -1,6 +1,6 @@
 {
  "_note": "Sổ lỗi soạn đề TOEIC (specs/012-so-loi-soan-de). Claude soạn từ lỗi đã gặp khi soạn và làm Đề 1–8. Dựng ra kiemde.json bằng node tools/build-toeic.mjs. Trường: xem specs/012-so-loi-soan-de/data-model.md.",
- "v": 2,
+ "v": 3,
  "nhom": [
   {
    "id": "p1",
@@ -1543,9 +1543,10 @@
     }
    ],
    "luat": [
-    "H-ETS-TU-VUNG"
+    "H-ETS-TU-VUNG",
+    "D-KHUON-ETS"
    ],
-   "tt": "nho"
+   "tt": "chan"
   },
   {
    "ma": "L-ETS-P6-NOI",
@@ -1587,9 +1588,10 @@
     }
    ],
    "luat": [
-    "H-ETS-DOAN"
+    "H-ETS-DOAN",
+    "D-KHUON-ETS"
    ],
-   "tt": "nho"
+   "tt": "chan"
   },
   {
    "ma": "L-ETS-P7-NGAN",
@@ -1643,26 +1645,34 @@
     }
    ],
    "luat": [
-    "H-ETS-DAI"
+    "H-ETS-DAI",
+    "D-KHUON-ETS"
    ],
-   "tt": "nho"
+   "tt": "chan"
   },
   {
    "ma": "L-ETS-DAP-AN-LO",
    "ten": "Part 7 đáp án lộ: dài hơn, chép chữ của bài",
    "khau": "soan",
    "nhom": "p7",
-   "mo": "ETS: đáp án và phương án sai dài bằng nhau (~5–6 từ), đáp án là phương án dài nhất ~19% câu, phương án sai dùng lại chữ của bài gần như đáp án (0,42 so 0,45). Đề 1–8: đáp án dài nhất ~37% câu (13–24 / 54), đáp án chép chữ của bài nhiều hơn hẳn phương án sai (0,49 so 0,34): người không đọc vẫn đoán được.",
+   "mo": "ETS: đáp án và phương án sai dài bằng nhau (~5–6 từ), đáp án là phương án dài nhất ~19% câu, phương án sai dùng lại chữ của bài gần như đáp án (0,42 so 0,45). Đề 1–8: đáp án dài nhất ~37% câu (13–24 / 54), đáp án chép chữ của bài nhiều hơn hẳn phương án sai (0,49 so 0,34): người không đọc vẫn đoán được. Đo bằng giải không có bài (v175: phiên Claude phụ chỉ thấy câu hỏi + 4 phương án): một đề ETS bị đoán đúng 67%, Đề 3 70%, Đề 7 80%; đề mới phải ≤ 75%.",
    "vd": [
     {
      "de": "de3",
      "truoc": "d03-p7-03 (tiệm bánh): đáp án \"Keeping display cases clean\" chép bài; sai \"Baking bread / Ordering supplies / Training new staff\" tự nghĩ, ngắn hơn.",
      "sau": "Đáp án diễn đạt lại; phương án sai lấy chữ của bài nhưng sai ý (vd. việc của người khác trong bài), dài ngang đáp án. Soát: che bài, chỉ nhìn 4 phương án; đoán ra thì viết lại.",
      "ai": "tusoat"
+    },
+    {
+     "de": "de7",
+     "truoc": "Giải không có bài Part 7: đoán đúng 43/54 = 80% (ETS cùng cách đo 67%).",
+     "sau": "Đề mới: ≤ 75% (test C80 chặn phát hành).",
+     "ai": "giaimu"
     }
    ],
    "bat": [
-    "tusoat"
+    "tusoat",
+    "giaimu"
    ],
    "gap": [
     {
@@ -1691,9 +1701,11 @@
     }
    ],
    "luat": [
-    "H-ETS-DAP-AN"
+    "H-ETS-DAP-AN",
+    "D-KHUON-ETS",
+    "T-C80"
    ],
-   "tt": "nho"
+   "tt": "chan"
   },
   {
    "ma": "L-ETS-HOI-LECH",
@@ -1747,9 +1759,10 @@
     }
    ],
    "luat": [
-    "H-ETS-HOI"
+    "H-ETS-HOI",
+    "D-KHUON-ETS"
    ],
-   "tt": "nho"
+   "tt": "chan"
   },
   {
    "ma": "L-ETS-LOAI-LAP",
@@ -1779,9 +1792,10 @@
     }
    ],
    "luat": [
-    "H-ETS-LOAI"
+    "H-ETS-LOAI",
+    "D-KHUON-ETS"
    ],
-   "tt": "nho"
+   "tt": "chan"
   }
  ]
 }

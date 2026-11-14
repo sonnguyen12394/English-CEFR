@@ -20,10 +20,10 @@ Bộ dựng (`tools/build-toeic.mjs`) đã kiểm sẵn, không nhắc lại ở
 
 0. Đọc sổ lỗi soạn đề (tab 🛡️ Kiểm đề trong app, nguồn `content/toeic/so-loi.json`): so tình huống định soạn với các mục "khi soạn"; lỗi nào đã có luật máy thì máy chặn, lỗi "người soát phải nhớ" thì tự soát kỹ (v155).
 1. Soạn theo khuôn đề (`specs/010-toeic-10-de-tron/research.md` R4) và bối cảnh mới (không lặp chủ đề của đề trước). Trước khi dựng, liệt kê tình huống từng bài của đề và so với nhau (`H-LAP`): v154 khi soạn Đề 7 có 2 bài giờ mở cửa thư viện (Part 4, Part 6), 2 dịch vụ in (Part 7), 2 bài hồ bơi câu lạc bộ thể hình (Part 3, Part 7). Người soạn hay vô tình viết lại bài đề cũ (Đề 8 nháp: thuê xe như Đề 5, đăng ký khách như Đề 6, giới thiệu nhân viên xuất sắc như Đề 4, cả 4 câu tranh công nhân của Đề 4): bộ dựng chặn, nhưng nên tránh từ lúc soạn.
-2. Tự soát từng câu theo `H-*` (đọc như thí sinh: che đáp án, tự chọn). Phần Đọc theo "Khuôn Phần Đọc theo đề ETS" (dưới); đo bằng `node tools/do-khuon.mjs deN`.
+2. Tự soát từng câu theo `H-*` (đọc như thí sinh: che đáp án, tự chọn). Phần Đọc theo `docs/KHUON-DE-TOEIC.md`; đo bằng `node tools/do-khuon.mjs deN`.
 3. `node tools/build-toeic.mjs` → sửa hết **lỗi**.
 4. `node tools/kiem-toeic.mjs deN` → đọc từng **cảnh báo**: câu kém thì sửa; câu ổn thì ghi "đã xem" (dưới).
-5. Giải mù: `node tools/giai-mu.mjs xuat deN nghe …` và `… doc …` → giao 2 phiên Claude phụ → `node tools/giai-mu.mjs so deN …`.
+5. Giải mù: `node tools/giai-mu.mjs xuat deN nghe …` và `… doc …` → giao 2 phiên Claude phụ → `node tools/giai-mu.mjs so deN …`. Thêm giải không có bài (v175): `… xuat deN khongbai …` → phiên phụ thứ 3 → `so deN …` (≤ 75%, test C80).
 6. Xử lý từng câu lệch (`GM-LECH`, `GM-HAI`): sửa cho chỉ còn một đáp án, hoặc ghi lý do đáp án gốc đúng. Câu đã sửa → giải lại (`--cau`) tới khi hết `GM-CU`. So ghi chú giải mù với các mục "khi làm đề" của sổ lỗi; loại lỗi mới thì thêm mục vào `content/toeic/so-loi.json` (v155).
 7. Dựng giọng câu nghe mới / sửa (`tools/build-audio.py`; đổi giới tính người nói thì xoá tệp giọng cũ của câu đó trước).
 8. `node tools/test/run.mjs` (C69 xanh) → `node tools/release.mjs`.
@@ -46,7 +46,7 @@ Bộ dựng (`tools/build-toeic.mjs`) đã kiểm sẵn, không nhắc lại ở
 
 ## Khuôn Phần Đọc theo đề ETS (v174)
 
-So Đề 1–8 (Claude soạn) với 8 đề ETS Đọc (Đề 9–16, sách ETS TEST 01–08, chỉ có phần Đọc; số đo bằng máy, 14/11/2026). Chỉ ghi số và cách viết, không chép câu ETS. Phần Nghe chưa so được (không có đề ETS Nghe trong app). Đo đề mới: `node tools/do-khuon.mjs deN` (in số của đề, so khoảng ETS, chỉ nhắc, không chặn).
+So Đề 1–8 (Claude soạn) với 8 đề ETS Đọc (Đề 9–16, sách ETS TEST 01–08, chỉ có phần Đọc; số đo bằng máy, 14/11/2026). Chỉ ghi số và cách viết, không chép câu ETS. Phần Nghe chưa so được (không có đề ETS Nghe trong app). **Khuôn đầy đủ để soạn (cơ cấu, tỉ lệ dạng, mẫu câu hỏi, cách viết đáp án / phương án sai, loại văn bản, quy trình): `docs/KHUON-DE-TOEIC.md` (v175).** Đo: `node tools/do-khuon.mjs deN`; từ v175 đề mới (ngoài Đề 1–8) lệch khuôn thì bộ dựng dừng (`D-KHUON-ETS`), giải không có bài Part 7 > 75% thì test C80 chặn phát hành.
 
 | Số đo | ETS (8 đề) | Đề 1–8 | Khuôn cho đề sau |
 |---|---|---|---|
