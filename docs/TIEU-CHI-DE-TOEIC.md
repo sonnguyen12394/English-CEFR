@@ -20,10 +20,10 @@ Bộ dựng (`tools/build-toeic.mjs`) đã kiểm sẵn, không nhắc lại ở
 
 0. Đọc sổ lỗi soạn đề (tab 🛡️ Kiểm đề trong app, nguồn `content/toeic/so-loi.json`): so tình huống định soạn với các mục "khi soạn"; lỗi nào đã có luật máy thì máy chặn, lỗi "người soát phải nhớ" thì tự soát kỹ (v155).
 1. Soạn theo khuôn đề (`specs/010-toeic-10-de-tron/research.md` R4) và bối cảnh mới (không lặp chủ đề của đề trước). Trước khi dựng, liệt kê tình huống từng bài của đề và so với nhau (`H-LAP`): v154 khi soạn Đề 7 có 2 bài giờ mở cửa thư viện (Part 4, Part 6), 2 dịch vụ in (Part 7), 2 bài hồ bơi câu lạc bộ thể hình (Part 3, Part 7). Người soạn hay vô tình viết lại bài đề cũ (Đề 8 nháp: thuê xe như Đề 5, đăng ký khách như Đề 6, giới thiệu nhân viên xuất sắc như Đề 4, cả 4 câu tranh công nhân của Đề 4): bộ dựng chặn, nhưng nên tránh từ lúc soạn.
-2. Tự soát từng câu theo `H-*` (đọc như thí sinh: che đáp án, tự chọn).
+2. Tự soát từng câu theo `H-*` (đọc như thí sinh: che đáp án, tự chọn). Phần Đọc theo `docs/KHUON-DE-TOEIC.md`; đo bằng `node tools/do-khuon.mjs deN`.
 3. `node tools/build-toeic.mjs` → sửa hết **lỗi**.
 4. `node tools/kiem-toeic.mjs deN` → đọc từng **cảnh báo**: câu kém thì sửa; câu ổn thì ghi "đã xem" (dưới).
-5. Giải mù: `node tools/giai-mu.mjs xuat deN nghe …` và `… doc …` → giao 2 phiên Claude phụ → `node tools/giai-mu.mjs so deN …`.
+5. Giải mù: `node tools/giai-mu.mjs xuat deN nghe …` và `… doc …` → giao 2 phiên Claude phụ → `node tools/giai-mu.mjs so deN …`. Thêm giải không có bài (v175): `… xuat deN khongbai …` → phiên phụ thứ 3 → `so deN …` (≤ 75%, test C80).
 6. Xử lý từng câu lệch (`GM-LECH`, `GM-HAI`): sửa cho chỉ còn một đáp án, hoặc ghi lý do đáp án gốc đúng. Câu đã sửa → giải lại (`--cau`) tới khi hết `GM-CU`. So ghi chú giải mù với các mục "khi làm đề" của sổ lỗi; loại lỗi mới thì thêm mục vào `content/toeic/so-loi.json` (v155).
 7. Dựng giọng câu nghe mới / sửa (`tools/build-audio.py`; đổi giới tính người nói thì xoá tệp giọng cũ của câu đó trước).
 8. `node tools/test/run.mjs` (C69 xanh) → `node tools/release.mjs`.
@@ -43,6 +43,33 @@ Bộ dựng (`tools/build-toeic.mjs`) đã kiểm sẵn, không nhắc lại ở
 - `H-LAP` · Trong **một đề**, không lặp tình huống, câu hỏi + đáp án, tên người / tên hiệu ở 2 bài (đề thật không có 2 cuộc gọi nhắc lịch hẹn hay 2 bản tin kẹt xe trên cùng một con đường). Đề 1–2 ghép từ kho luyện nên dễ lặp nhất: thay bằng bài kho chưa dùng (`content/toeic/tron.json`) hoặc đổi tình huống. Ví dụ đã sửa (v153): Đề 1 có 2 bài trả áo khoác "hết cỡ" (t3-04, t3-14), 3 bài mở đầu "sales figures"; Đề 2 có 2 bản tin Highway 9 (t4-04, t4-12) và 2 cuộc gọi nhắc lịch hẹn "đến sớm" (t3-17, t4-02). Máy bắt một phần (`C-LAP-CAU`, `C-LAP-TEN`).
 - `H-BAN-HIEU` · Lời đáp sai Part 2 không được là một **lời đáp gián tiếp hợp lý** (đề thật hay lấy lời đáp gián tiếp làm đáp án đúng). Ví dụ đã sửa: "Let's review the budget before the meeting." · nhiễu "The meeting was canceled." (cũng là lời đáp hợp lý: khỏi xem trước) → "The meeting lasted two hours."; câu lựa chọn "…printed or sent by e-mail?" · nhiễu "Yes, please print it." (vẫn chọn một bên) → "Yes, I'd like that."
 - `H-BANG-CAN` · Câu "Look at the graphic" phải **cần bảng** mới trả lời được: lời nghe nhắc ô khác của cùng hàng (vd. "the only sunny day this week" → nhìn bảng ra Thursday), không nói thẳng đáp án và không suy được bằng lý lẽ thường ("the next day" sau thứ Bảy là Chủ nhật, không cần bảng; d06-p3-11 đã sửa ở v153).
+
+## Khuôn Phần Đọc theo đề ETS (v174)
+
+So Đề 1–8 (Claude soạn) với 8 đề ETS Đọc (Đề 9–16, sách ETS TEST 01–08, chỉ có phần Đọc; số đo bằng máy, 14/11/2026). Chỉ ghi số và cách viết, không chép câu ETS. Phần Nghe chưa so được (không có đề ETS Nghe trong app). **Khuôn đầy đủ để soạn (cơ cấu, tỉ lệ dạng, mẫu câu hỏi, cách viết đáp án / phương án sai, loại văn bản, quy trình): `docs/KHUON-DE-TOEIC.md` (v175).** Đo: `node tools/do-khuon.mjs deN`; từ v175 đề mới (ngoài Đề 1–8) lệch khuôn thì bộ dựng dừng (`D-KHUON-ETS`), giải không có bài Part 7 > 75% thì test C80 chặn phát hành.
+
+| Số đo | ETS (8 đề) | Đề 1–8 | Khuôn cho đề sau |
+|---|---|---|---|
+| Part 5 · số từ mỗi câu | 14–15 | 11–12 | 13–16 |
+| Part 5 · câu từ vựng (4 từ khác gốc, không phải từ chức năng) | 12–14 / 30 | 5–11 (Đề 3–8: 5–8) | ≥ 11 / 30 |
+| Part 6 · số từ mỗi đoạn | 87–106 | 74–94 | 90–110 |
+| Part 6 · chỗ trống từ nối (however, therefore…) | 0–1 / 16 | 1–3 | ≤ 1 |
+| Part 7 · tổng số từ | 3.080–3.590 | 1.490–1.790 | ≥ 2.800 |
+| Part 7 · văn bản đơn (từ / bộ) | 137–169 | 79–95 | 130–170 |
+| Part 7 · bộ nhiều văn bản (từ / bộ) | 330–400 | 121–181 | 300–400 |
+| Part 7 · số từ đáp án / phương án sai | 5,1–6,1 / 5,1–6,0 (bằng nhau) | 3,8–4,9 / 3,4–4,1 (đáp án dài hơn) | dài bằng nhau, ~5–6 từ |
+| Part 7 · đáp án là phương án dài nhất | 6–16 / 54 (~19%) | 13–24 / 54 (~37%) | ≤ 13 / 54 |
+| Part 7 · chữ của bài có trong đáp án / phương án sai | ~0,45 / ~0,42 (gần bằng) | ~0,49 / ~0,34 | chênh ≤ 0,08 |
+| Part 7 · câu "What is indicated / stated / true" | 10–13 / 54 | 3–8 | ≥ 9 |
+| Part 7 · loại văn bản, thứ tự | đổi mỗi đề (coupon, chính sách, hợp đồng, biên bản, blog, thiệp mời…) | Đề 3–8 gần như một thứ tự; Đề 7 = Đề 8 | không lặp thứ tự của đề trước |
+
+- `H-ETS-TU-VUNG` · Part 5 nặng từ vựng như đề thật: khoảng 12 / 30 câu là 4 từ khác gốc cùng loại từ (chọn theo nghĩa + cụm cố định), câu dài 13–16 từ có mệnh đề phụ; bớt câu so sánh / đảo ngữ / đại từ dễ (v166 đã thêm câu từ vựng vào kho luyện, đề trọn chưa theo).
+- `H-ETS-DOAN` · Part 6: đoạn 90–110 từ, loại văn bản đa dạng (mô tả sản phẩm, chỉ đường, blog, nhận xét…); chỗ trống chủ yếu từ vựng / dạng từ / thì theo mạch đoạn; trạng từ nối (however, therefore) tối đa 1 chỗ mỗi đề.
+- `H-ETS-DAI` · Part 7 dài gấp đôi đề app cũ: văn bản đơn 130–170 từ, bộ nhiều văn bản 300–400 từ, tổng ≥ 2.800 từ. Đề ngắn làm người học quen tốc độ giả: làm kịp đề app nhưng hết giờ ở đề thật.
+- `H-ETS-DAP-AN` · Part 7: đáp án **diễn đạt lại** (ít chép chữ của bài), phương án sai **dùng lại chữ của bài** nhưng sai ý; đáp án không dài / cụ thể hơn phương án sai. Ví dụ cần tránh (Đề 3, d03-p7-03, tiệm bánh): đáp án "Keeping display cases clean" (chép bài) · sai "Baking bread / Ordering supplies / Training new staff" (tự nghĩ, ngắn hơn) → đoán được mà không đọc. Cách soát: che bài, chỉ nhìn 4 phương án; nếu đoán ra đáp án thì viết lại.
+- `H-ETS-HOI` · Part 7 nhiều câu "What is indicated / stated / true about …" (~10 / 54) và câu suy luận "most likely / suggested" (~10 / 54); bớt câu chi tiết hỏi thẳng một con số.
+- `H-ETS-LE-THUONG` · Part 7: với mỗi câu, ghi lẽ thường người chưa đọc bài sẽ đoán; đáp án là chi tiết riêng của bài khác lẽ thường, hoặc lẽ thường nằm ở một phương án sai; không dùng every / only / no extra charge riêng ở phương án sai (v175: mẫu viết sai bị đoán 15/17 không cần bài, viết lại 7/17).
+- `H-ETS-LOAI` · Loại văn bản và thứ tự bộ Part 7 đổi mỗi đề (tin nhắn / trò chuyện trực tuyến không cố định ở bộ đầu); đề mới không được trùng chuỗi loại văn bản của đề trước.
 
 ## Luật máy kiểm (`tools/kiem-toeic.mjs`)
 

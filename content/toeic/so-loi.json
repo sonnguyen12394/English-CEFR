@@ -1,6 +1,6 @@
 {
  "_note": "Sổ lỗi soạn đề TOEIC (specs/012-so-loi-soan-de). Claude soạn từ lỗi đã gặp khi soạn và làm Đề 1–8. Dựng ra kiemde.json bằng node tools/build-toeic.mjs. Trường: xem specs/012-so-loi-soan-de/data-model.md.",
- "v": 1,
+ "v": 4,
  "nhom": [
   {
    "id": "p1",
@@ -1498,6 +1498,334 @@
      "gia": "không tốn công, người học có thể hiểu sai điểm"
     }
    ]
+  },
+  {
+   "ma": "L-ETS-P5-NGAN",
+   "ten": "Part 5 câu ngắn, ít câu từ vựng hơn đề thật",
+   "khau": "soan",
+   "nhom": "p5",
+   "mo": "So 8 đề ETS (v174): câu Part 5 ETS dài 14–15 từ, khoảng 12–14 / 30 câu là 4 từ khác gốc chọn theo nghĩa. Đề 1–8 câu 11–12 từ, Đề 3–8 chỉ 5–8 câu từ vựng, dồn vào ngữ pháp dễ (so sánh, đại từ, giới từ). Người học quen đề app sẽ hụt ở câu từ vựng của đề thật.",
+   "vd": [
+    {
+     "de": "de3",
+     "truoc": "Đề 3: 5 / 30 câu từ vựng, câu trung bình 12 từ.",
+     "sau": "Khuôn: ≥ 11 / 30 câu từ vựng, câu 13–16 từ có mệnh đề phụ.",
+     "ai": "tusoat"
+    }
+   ],
+   "bat": [
+    "tusoat"
+   ],
+   "gap": [
+    {
+     "de": "de3",
+     "n": 1
+    },
+    {
+     "de": "de4",
+     "n": 1
+    },
+    {
+     "de": "de5",
+     "n": 1
+    },
+    {
+     "de": "de6",
+     "n": 1
+    },
+    {
+     "de": "de7",
+     "n": 1
+    },
+    {
+     "de": "de8",
+     "n": 1
+    }
+   ],
+   "luat": [
+    "H-ETS-TU-VUNG",
+    "D-KHUON-ETS"
+   ],
+   "tt": "chan"
+  },
+  {
+   "ma": "L-ETS-P6-NOI",
+   "ten": "Part 6 đoạn ngắn và quá nhiều chỗ từ nối",
+   "khau": "soan",
+   "nhom": "p6",
+   "mo": "Đoạn Part 6 của ETS dài 87–106 từ, loại văn bản đa dạng (mô tả sản phẩm, chỉ đường, blog, nhận xét); chỗ trống trạng từ nối (however, therefore) chỉ 0–1 / 16 câu. Đề 1–8 đoạn 74–94 từ, Đề 3–8 có 2–3 chỗ từ nối mỗi đề do máy kiểm cũ đòi ≥ 1 từ nối.",
+   "vd": [
+    {
+     "de": "de8",
+     "truoc": "Đề 8: 3 chỗ trống chọn trạng từ nối, đoạn trung bình 89 từ.",
+     "sau": "Khuôn: ≤ 1 chỗ từ nối, đoạn 90–110 từ, chỗ trống chủ yếu từ vựng / dạng từ / thì theo mạch.",
+     "ai": "tusoat"
+    }
+   ],
+   "bat": [
+    "tusoat"
+   ],
+   "gap": [
+    {
+     "de": "de1",
+     "n": 1
+    },
+    {
+     "de": "de2",
+     "n": 1
+    },
+    {
+     "de": "de3",
+     "n": 1
+    },
+    {
+     "de": "de4",
+     "n": 1
+    },
+    {
+     "de": "de8",
+     "n": 1
+    }
+   ],
+   "luat": [
+    "H-ETS-DOAN",
+    "D-KHUON-ETS"
+   ],
+   "tt": "chan"
+  },
+  {
+   "ma": "L-ETS-P7-NGAN",
+   "ten": "Part 7 chỉ dài bằng nửa đề thật",
+   "khau": "soan",
+   "nhom": "p7",
+   "mo": "Tổng số từ Part 7 của ETS 3.080–3.590; văn bản đơn 137–169 từ, bộ nhiều văn bản 330–400 từ. Đề 1–8: tổng 1.490–1.790, văn bản đơn 79–95, bộ nhiều văn bản 121–181. Người học làm kịp 75 phút ở app nhưng hết giờ ở đề thật; điểm ước Đọc của app cao hơn thực lực.",
+   "vd": [
+    {
+     "de": "de4",
+     "truoc": "Đề 4: Part 7 tổng 1.492 từ, văn bản đơn trung bình 79 từ.",
+     "sau": "Khuôn: tổng ≥ 2.800 từ, văn bản đơn 130–170, bộ nhiều văn bản 300–400.",
+     "ai": "tusoat"
+    }
+   ],
+   "bat": [
+    "tusoat"
+   ],
+   "gap": [
+    {
+     "de": "de1",
+     "n": 1
+    },
+    {
+     "de": "de2",
+     "n": 1
+    },
+    {
+     "de": "de3",
+     "n": 1
+    },
+    {
+     "de": "de4",
+     "n": 1
+    },
+    {
+     "de": "de5",
+     "n": 1
+    },
+    {
+     "de": "de6",
+     "n": 1
+    },
+    {
+     "de": "de7",
+     "n": 1
+    },
+    {
+     "de": "de8",
+     "n": 1
+    }
+   ],
+   "luat": [
+    "H-ETS-DAI",
+    "D-KHUON-ETS"
+   ],
+   "tt": "chan"
+  },
+  {
+   "ma": "L-ETS-DAP-AN-LO",
+   "ten": "Part 7 đáp án lộ: dài hơn, chép chữ của bài",
+   "khau": "soan",
+   "nhom": "p7",
+   "mo": "ETS: đáp án và phương án sai dài bằng nhau (~5–6 từ), đáp án là phương án dài nhất ~19% câu, phương án sai dùng lại chữ của bài gần như đáp án (0,42 so 0,45). Đề 1–8: đáp án dài nhất ~37% câu (13–24 / 54), đáp án chép chữ của bài nhiều hơn hẳn phương án sai (0,49 so 0,34): người không đọc vẫn đoán được. Đo bằng giải không có bài (v175: phiên Claude phụ chỉ thấy câu hỏi + 4 phương án): một đề ETS bị đoán đúng 67%, Đề 3 70%, Đề 7 80%; đề mới phải ≤ 75%.",
+   "vd": [
+    {
+     "de": "de3",
+     "truoc": "d03-p7-03 (tiệm bánh): đáp án \"Keeping display cases clean\" chép bài; sai \"Baking bread / Ordering supplies / Training new staff\" tự nghĩ, ngắn hơn.",
+     "sau": "Đáp án diễn đạt lại; phương án sai lấy chữ của bài nhưng sai ý (vd. việc của người khác trong bài), dài ngang đáp án. Soát: che bài, chỉ nhìn 4 phương án; đoán ra thì viết lại.",
+     "ai": "tusoat"
+    },
+    {
+     "de": "de7",
+     "truoc": "Giải không có bài Part 7: đoán đúng 43/54 = 80% (ETS cùng cách đo 67%).",
+     "sau": "Đề mới: ≤ 75% (test C80 chặn phát hành).",
+     "ai": "giaimu"
+    }
+   ],
+   "bat": [
+    "tusoat",
+    "giaimu"
+   ],
+   "gap": [
+    {
+     "de": "de1",
+     "n": 19
+    },
+    {
+     "de": "de2",
+     "n": 20
+    },
+    {
+     "de": "de3",
+     "n": 24
+    },
+    {
+     "de": "de6",
+     "n": 24
+    },
+    {
+     "de": "de7",
+     "n": 23
+    },
+    {
+     "de": "de8",
+     "n": 21
+    }
+   ],
+   "luat": [
+    "H-ETS-DAP-AN",
+    "D-KHUON-ETS",
+    "T-C80"
+   ],
+   "tt": "chan"
+  },
+  {
+   "ma": "L-ETS-HOI-LECH",
+   "ten": "Part 7 ít câu \"indicated / true\", nhiều câu hỏi thẳng chi tiết",
+   "khau": "soan",
+   "nhom": "p7",
+   "mo": "ETS mỗi đề có 10–13 / 54 câu \"What is indicated / stated / true about …\" và nhiều câu suy luận; đây là dạng phải đọc cả bài để loại 3 phương án. Đề 1–8 chỉ 3–8 câu dạng này, phần lớn hỏi thẳng một chi tiết (giờ, số, tên).",
+   "vd": [
+    {
+     "de": "de2",
+     "truoc": "Đề 2: 3 / 54 câu indicated / stated / true.",
+     "sau": "Khuôn: ≥ 9 câu indicated / stated / true, ~10 câu suy luận.",
+     "ai": "tusoat"
+    }
+   ],
+   "bat": [
+    "tusoat"
+   ],
+   "gap": [
+    {
+     "de": "de1",
+     "n": 1
+    },
+    {
+     "de": "de2",
+     "n": 1
+    },
+    {
+     "de": "de3",
+     "n": 1
+    },
+    {
+     "de": "de4",
+     "n": 1
+    },
+    {
+     "de": "de5",
+     "n": 1
+    },
+    {
+     "de": "de6",
+     "n": 1
+    },
+    {
+     "de": "de7",
+     "n": 1
+    },
+    {
+     "de": "de8",
+     "n": 1
+    }
+   ],
+   "luat": [
+    "H-ETS-HOI",
+    "D-KHUON-ETS"
+   ],
+   "tt": "chan"
+  },
+  {
+   "ma": "L-ETS-LOAI-LAP",
+   "ten": "Part 7 lặp loại và thứ tự văn bản giữa các đề",
+   "khau": "soan",
+   "nhom": "de",
+   "mo": "ETS đổi loại và thứ tự văn bản mỗi đề (coupon, chính sách, hợp đồng, biên bản họp, thiệp mời, blog…; tin nhắn không cố định ở bộ đầu). Đề 3–8 gần như cùng một chuỗi (tin nhắn → thông báo → quảng cáo → e-mail → bài báo…), Đề 7 và Đề 8 trùng hẳn: người học đoán trước được dạng.",
+   "vd": [
+    {
+     "de": "de8",
+     "truoc": "Đề 8: chuỗi loại văn bản Part 7 y hệt Đề 7.",
+     "sau": "Khuôn: liệt kê chuỗi loại văn bản trước khi soạn, không trùng đề trước; dùng thêm loại văn bản mới (v166 đã có trong kho luyện).",
+     "ai": "tusoat"
+    }
+   ],
+   "bat": [
+    "tusoat"
+   ],
+   "gap": [
+    {
+     "de": "de7",
+     "n": 1
+    },
+    {
+     "de": "de8",
+     "n": 1
+    }
+   ],
+   "luat": [
+    "H-ETS-LOAI",
+    "D-KHUON-ETS"
+   ],
+   "tt": "chan"
+  },
+  {
+   "ma": "L-ETS-LE-THUONG",
+   "ten": "Part 7 đáp án là điều hợp lẽ thường, đoán được không cần đọc bài",
+   "khau": "soan",
+   "nhom": "p7",
+   "mo": "Thử khuôn v175: mẫu 17 câu Part 7 viết theo luật \"đáp án diễn đạt lại, khái quát\" bị đoán đúng 15/17 khi không có bài (ETS 67%): đáp án thành câu hợp lẽ thường nhất của loại văn bản, phương án sai có từ tuyệt đối (every, only) nên tự loại. Viết lại theo luật chống đoán bằng lẽ thường: 7/17 = 41%.",
+   "vd": [
+    {
+     "de": "mau",
+     "truoc": "Bảng giá in: ✓ \"It lowers some unit prices for larger orders.\" · ✗ \"It offers free delivery on every order.\" / \"It provides binding at no extra charge.\"",
+     "sau": "Bảng giá này đồng giá mọi số lượng, phí giao theo khoảng cách; \"giảm giá khi đặt nhiều\" thành phương án SAI; bỏ every / no extra charge ở phương án sai.",
+     "ai": "giaimu"
+    }
+   ],
+   "bat": [
+    "tusoat",
+    "giaimu"
+   ],
+   "gap": [
+    {
+     "de": "mau",
+     "n": 15
+    }
+   ],
+   "luat": [
+    "H-ETS-LE-THUONG",
+    "T-C80"
+   ],
+   "tt": "chan"
   }
  ]
 }

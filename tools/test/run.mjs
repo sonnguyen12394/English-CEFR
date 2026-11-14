@@ -2192,6 +2192,24 @@ const R = await run(`(async () => {
     } catch (e) { bad.push('lỗi: ' + e.message); }
     S = S1; TR.B = {}; TR.D = {}; TG_P = null; $app.onkeydown = null; out.push({ lv: 'cefr', id: 'C79', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🗺 Chinh phục đề: mỗi câu Đọc ⭐ Đúng (làm lại sau lời giải, phương án xáo) và 🟦 Hiểu (thử thách hỏi khác câu đề: loại từ / quan hệ, tự gõ, dò câu, ghép nghĩa; ôn 3 → 7 → 21 ngày, sai về ⭐), 8 đề + đề riêng; bài làm mới hơn thắng; không đụng điểm đề thử / thẻ học' }); }
   return out; })()`);
+// v175 C80 khuôn Phần Đọc theo đề ETS (docs/KHUON-DE-TOEIC.md): bộ dựng chặn đề mới lệch khuôn; đề mới phải giải không có bài (Part 7) ≤ KB_MAX
+{ const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), K = await import('../do-khuon.mjs'), G = await import('../giai-mu.mjs'), root = new URL('../../', import.meta.url).pathname;
+  const T = JSON.parse(fs.readFileSync(root + 'toeic.json', 'utf8')), news = T.tron.filter(d => !K.KH_MIEN.includes(d.id));
+  // 1) bộ dựng: bỏ miễn Đề 8 thì phải dừng vì lệch khuôn, và không ghi tệp
+  const before = fs.readFileSync(root + 'toeic.json', 'utf8');
+  try { cp.execFileSync('node', [root + 'tools/build-toeic.mjs'], { env: { ...process.env, KHUON_THU: 'de8' }, encoding: 'utf8', stdio: 'pipe' }); bad.push('bỏ miễn Đề 8 mà bộ dựng không dừng'); }
+  catch (e) { if (!/de8 khuôn ETS: /.test(String(e.stderr))) bad.push('bộ dựng dừng nhưng không vì khuôn ETS'); }
+  if (fs.readFileSync(root + 'toeic.json', 'utf8') !== before) bad.push('bộ dựng dừng mà vẫn ghi toeic.json');
+  // 2) công cụ đo nhận ra Đề 8 lệch khuôn ở Part 7 (độ dài)
+  const d8 = JSON.parse(fs.readFileSync(root + 'toeic-tron/de8.json', 'utf8')), r8 = K.doKhuon(d8, []);
+  if (r8.find(r => r.ten === 'P7 tổng số từ').ok) bad.push('Đề 8 (1.745 từ Part 7) lại được coi là đủ dài');
+  if (K.KHUON.length < 11) bad.push('khuôn thiếu số đo');
+  // 3) giải không có bài: mọi đề mới có kết quả ≤ KB_MAX; phiếu không lộ bài
+  for (const d of news) { const f = root + 'content/toeic/giai-mu/' + d.id + '-kb.json'; if (!fs.existsSync(f)) { bad.push(d.id + ': chưa giải không có bài'); continue; }
+    const L = JSON.parse(fs.readFileSync(f, 'utf8')).lan.at(-1); if (!L || L.khop / L.cau > G.KB_MAX) bad.push(d.id + ': đoán không có bài ' + (L ? L.khop + '/' + L.cau : '?') + ' > ' + G.KB_MAX); }
+  const ph = G.sheet('de3', 'khongbai'); if ((ph.match(/^\[\d+\]/gm) || []).length !== 54 || ph.includes(d8.p7[0].docs[0].text.slice(0, 40)) || /"a":|Đáp án/.test(ph)) bad.push('phiếu không có bài sai số câu hoặc lộ bài / đáp án');
+  const tx = JSON.parse(fs.readFileSync(root + 'toeic-tron/de3.json', 'utf8')).p7[0].docs[0].text.slice(0, 40); if (ph.includes(tx)) bad.push('phiếu Đề 3 lộ văn bản Part 7');
+  R.push({ lv: 'cefr', id: 'C80', ok: !bad.length, msg: bad.length ? bad.join(' | ') : 'khuôn đề theo ETS: bộ dựng chặn đề mới lệch khuôn (thử bỏ miễn Đề 8: dừng, không ghi tệp), ' + K.KHUON.length + ' số đo, đề mới (' + news.length + ') giải không có bài ≤ ' + G.KB_MAX * 100 + '%, phiếu không lộ bài' }); }
 // v166 C78 câu kho TOEIC không chép câu đề ETS (tools/kiem-ets.mjs; máy không có đề ETS thì bỏ qua = đạt)
 { const cp = await import('node:child_process'); let ok = true, msg = ''; try { msg = cp.execFileSync('node', [new URL('../kiem-ets.mjs', import.meta.url).pathname], { encoding: 'utf8' }).trim(); } catch (e) { ok = false; msg = String(e.stdout || e.message).trim().split('\n').slice(0, 4).join(' | '); }
   R.push({ lv: 'cefr', id: 'C78', ok, msg: 'không chép đề ETS: ' + msg }); }

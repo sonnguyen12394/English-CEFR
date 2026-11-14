@@ -5,7 +5,7 @@
 //   Part 1 k: people (tranh có người) | scene (đồ vật, cảnh) · Part 2 ty: wh | yn (cả phủ định, câu đuôi, câu hỏi gián tiếp) | or | req (đề nghị, nhờ vả, mời) | stmt (câu trần thuật)
 //   Part 3–4 câu hỏi ty: gist (chủ đề, mục đích, nơi, người) | next (việc sắp làm, đề nghị, yêu cầu) | imp (hàm ý) | graphic | detail · Part 4 bài ty (GHI TAY): msg | ann | ad | news | intro | tour | meet
 //   Part 6 chỗ trống t: insert (chèn câu) | conn (từ nối giữa câu) | tense (thì theo ngữ cảnh, GHI TAY) | word · Part 7 câu hỏi ty: purpose | not | true | infer | syn | insert | intent | detail
-import fs from 'node:fs'; import crypto from 'node:crypto'; import vm from 'node:vm';
+import fs from 'node:fs'; import crypto from 'node:crypto'; import vm from 'node:vm'; import { doKhuon, KH_MIEN } from './do-khuon.mjs';
 const root = new URL('..', import.meta.url).pathname, rd = f => JSON.parse(fs.readFileSync(root + f, 'utf8'));
 const P1 = rd('content/toeic/p1.json').items, P5 = rd('content/toeic/p5.json').items, D = rd('content/toeic/doc.json'), N = rd('content/toeic/nghe.json'), V = rd('content/toeic/vocab.json').topics, err = [], ids = new Set();
 const id = x => { if (ids.has(x.id)) err.push('trùng id ' + x.id); ids.add(x.id); };
@@ -131,6 +131,10 @@ for (const f of NEWD) { const R = rd('content/toeic/tron/' + f), t = (R.id || f)
   for (const x of [...X.p3, ...X.p4]) for (const q of x.qs) if (!evIn(q.ev, lineT(x))) err.push(t + x.id + ': câu trích ev không có trong lời nghe: ' + (q.ev || '(trống)'));
   for (const x of X.p7) for (const q of x.qs) if (!['not', 'insert'].includes(q.ty) && !evIn(q.ev, docText(x))) err.push(t + x.id + ': câu trích ev không có trong văn bản: ' + (q.ev || '(trống)'));
   ND.push({ id: R.id, t: R.t, ...X }); }
+// v175 khuôn Phần Đọc theo 8 đề ETS (docs/KHUON-DE-TOEIC.md, tools/do-khuon.mjs; luật D-KHUON-ETS): đề mới (ngoài KH_MIEN = Đề 1–8 soạn trước khuôn) lệch khuôn thì dừng
+{ const AL = [...TRON.map(d => ({ id: d.id, p7: (d.p7 || []).map(i => IDX.p7[i]).filter(Boolean) })), ...ND];
+  const MIEN = process.env.KHUON_THU ? KH_MIEN.filter(x => x !== process.env.KHUON_THU) : KH_MIEN;   // KHUON_THU=de8: test C80 thử bỏ miễn một đề
+  for (const d of ND.filter(d => !MIEN.includes(d.id))) for (const r of doKhuon(d, AL)) if (!r.ok) err.push(d.id + ' khuôn ETS: ' + r.ten + ' = ' + (typeof r.v === 'number' ? +r.v.toFixed(2) : r.v) + ' (ETS ' + r.ets + ', docs/KHUON-DE-TOEIC.md)'); }
 if (TRON.length !== 2) err.push('tron.json: cần đúng 2 đề');
 if (err.length) { console.error(err.join('\n')); process.exit(1); }
 const ans = p2.map(x => x.a); if (Math.max(...[0, 1, 2].map(i => ans.filter(a => a === i).length)) > ans.length * 0.5) { console.error('Part 2: đáp án dồn một chữ cái'); process.exit(1); }

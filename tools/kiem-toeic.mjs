@@ -328,6 +328,8 @@ export const DUNG_RULES = [
   { ma: 'D-EV', muc: 'loi', noi: 'dung', ten: 'câu trích chứa đáp án phải có nguyên văn trong lời nghe / bài đọc' },
   { ma: 'D-DON', muc: 'loi', noi: 'dung', ten: 'đáp án Part 1 / Part 2 dồn một chữ cái' },
   { ma: 'D-P6-CHEN', muc: 'loi', noi: 'dung', ten: 'phương án sai của câu chèn Part 6 phải cùng chủ đề đoạn văn' },
+  { ma: 'D-KHUON-ETS', muc: 'loi', noi: 'dung', ten: 'đề mới lệch khuôn Phần Đọc đo từ 8 đề ETS (độ dài, tỉ lệ dạng, đáp án lộ, mẫu câu hỏi, loại văn bản; tools/do-khuon.mjs)' },
+  { ma: 'T-C80', muc: 'loi', noi: 'test', ten: 'test C80: đề mới giải không có bài (Part 7) đoán đúng ≤ KB_MAX, đề Đề 1–8 chỉ ghi số' },
   { ma: 'T-C64', muc: 'loi', noi: 'test', ten: 'test C64: màn đang thi ẩn thanh dưới, rời màn thì phần Nghe dừng' },
   { ma: 'T-C65', muc: 'loi', noi: 'test', ten: 'test C65: màn đề thử trọn ghi cấu trúc cả 200 câu, đầu màn câu a/200' },
   { ma: 'T-C70', muc: 'loi', noi: 'test', ten: 'test C70: app và máy kiểm cùng thứ tự phương án; bài làm cũ đổi chữ đúng' },
