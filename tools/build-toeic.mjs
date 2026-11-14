@@ -41,6 +41,7 @@ const p7Mk = x => { id(x); if (!x.docs.length || x.qs.length < 2) err.push(x.id 
     if (ty === 'syn') { const w = (q.q.match(/the word "([^"]+)"/i) || [])[1]; if (!w || !new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i').test(T)) err.push(x.id + ': từ gần nghĩa không có trong văn bản: ' + w); }
     if (ty === 'insert') { const m = ['[1]', '[2]', '[3]', '[4]']; if (!/"[^"]{10,}"/.test(q.q) || m.some(k => T.split(k).length !== 2) || ![q.a, ...q.w].every(o => m.includes(o)) || !m.includes(q.a)) err.push(x.id + ': câu chèn [1]–[4] hỏng'); }
     if (ty === 'intent') { const p = (q.q.match(/writes, "([^"]+)"/) || [])[1]; if (!p || !T.includes(p)) err.push(x.id + ': câu ý định: câu được trích không có trong tin nhắn'); }
+    if (q.ev) { const nm = v => String(v).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(); if (nm(q.ev).length <= 8 || !nm(T).includes(nm(q.ev))) err.push(x.id + ' câu ' + (qi + 1) + ': câu trích ev không có trong văn bản: ' + q.ev); }   // v176: kho cũng kiểm ev (specs/019)
     return { ...q, ty }; });
   return { ...x, qs }; }, p7 = D.p7.map(p7Mk);
 const TR = ['rep', 'type', 'yn', 'rel'], T5 = ['form', 'verb', 'prep', 'conj', 'pron', 'det', 'struct', 'voc'];

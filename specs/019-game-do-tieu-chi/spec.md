@@ -1,6 +1,6 @@
 # Đặc tả: 🗺 Chinh phục đề đo được và hiểu thật
 
-**Thư mục**: `specs/019-game-do-tieu-chi` · **Ngày**: 14/11/2026 · **Trạng thái**: Nháp · đã trả lời Q1, Q2 (14/11/2026)
+**Thư mục**: `specs/019-game-do-tieu-chi` · **Ngày**: 14/11/2026 · **Trạng thái**: Đã làm (v176)
 
 **Yêu cầu của người sáng lập**: hỏi game giải mục tiêu "giải được toàn bộ đề và hiểu đề" thế nào; xin "bộ tiêu chí để đánh giá chứ không phải phân tích bằng lời"; "dựa vào bộ tiêu chí ấy xem xét lại game và đưa thêm góp ý"; duyệt thứ tự làm 5 → 2 → 1 → 3 → 4 (+ 6): "Ok".
 

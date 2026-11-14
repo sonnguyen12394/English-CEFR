@@ -2156,7 +2156,7 @@ const R = await run(`(async () => {
       // chữa: đọc lời giải → làm lại, phương án xáo; chọn đúng → ⭐ ngay (không chờ ngày sau)
       const q0 = nx.cs[0].q; tgSua(de, nx.cs); if (!$app.innerHTML.includes('Vì sao')) bad.push('chữa: thiếu lời giải'); fire('[data-tgn]');
       const ops = btns('tgf'), hit = ops.find(b => b[1].slice(3) === esc(q0.a)); if (ops.length !== 4 || !hit) bad.push('làm lại: phải có 4 phương án gồm đáp án'); else fire('[data-tgf]', { tgf: hit[0] });
-      L = tgJState(de); const c0 = L.find(c => c.n === q0.n); if (c0.st !== 'ok' || c0.hi) bad.push('làm lại đúng phải thành ⭐ ngay, chưa 🟦');
+      L = tgJState(de); const c0 = L.find(c => c.n === q0.n); if (c0.st !== 'ok' || c0.hi || !c0.tam || c0.xac || tgJCount(L).ok !== Q.length - 1) bad.push('v176: làm lại đúng phải là ⭐ tạm (chưa tính 100/100, chưa xác nhận trong ngày)');
       if (tgJNext(de, L).k !== 'thi') bad.push('còn câu chưa làm thì phải thi lượt kế trước khi hỏi kiến thức');
       // mọi câu đúng → hỏi kiến thức; câu có 2 thử thách loại từ + tự gõ
       for (const c of L) J().c[c.n] = { s: 'ok', at: Date.now() + 100 }; L = tgJState(de); nx = tgJNext(de, L); if (nx.k !== 'hieu' || nx.cs.length !== 5) bad.push('đúng hết phải sang 🟦 Hiểu theo nhóm 5 (' + nx.k + ')');
@@ -2170,15 +2170,16 @@ const R = await run(`(async () => {
         tgHieu(de, nx.cs, 'on'); const wr = btns('tgc').find(b => b[1].toLowerCase() !== esc(want).toLowerCase()); fire('[data-tgc]', { tgc: wr[0] });
         cc = tgJState(de).find(c => c.n === cf.n); if (cc.hi || cc.st !== 'ok') bad.push('ôn sai phải về ⭐ (vẫn đúng, mất 🟦)'); }
       // câu Part 7 có dò tin + ghép nghĩa
-      const c7 = L.find(c => c.q.sec === 'p7' && c.ks.join() === 'ev,ng'); if (!c7) bad.push('đề 3 thiếu câu Part 7 dò tin + ghép nghĩa'); else {
+      const c7 = L.find(c => c.q.sec === 'p7' && c.ks.slice(0, 2).join() === 'ev,dl'); if (!c7) bad.push('đề 3 thiếu câu Part 7 dò tin + diễn đạt lại'); else {
         const m = P[de][c7.n], ss7 = m.docs.flatMap(d => d.ss); tgHieu(de, [c7], 'hieu'); fire('[data-tgs]', { tgs: String(ss7.findIndex(s => tgHit(s, c7.q.ev))) }); fire('[data-tgn]');
-        for (let i = 0; i < c7.q.opts.length; i++) { fire('[data-tgl]', { tgl: String(i) }); fire('[data-tgr]', { tgr: String(i) }); }
-        if (!tgJState(de).find(c => c.n === c7.n).hi) bad.push('Part 7: qua dò tin + ghép nghĩa phải thành 🟦'); }
+        const hd = String($app.innerHTML); if (!hd.includes('Câu nào diễn đạt lại') || hd.includes(esc(c7.q.q))) bad.push('🔁 diễn đạt lại: phải hiện câu chứa đáp án, không hiện câu hỏi');
+        const dl = btns('tgdl').find(b => b[1] === esc(c7.q.a)); if (!dl) bad.push('🔁 thiếu đáp án'); else fire('[data-tgdl]', { tgdl: dl[0] });
+        if (!tgJState(de).find(c => c.n === c7.n).hi) bad.push('Part 7: qua dò tin + diễn đạt lại phải thành 🟦'); }
       // làm sai câu đó trong đề sau khi đạt: mất cả ⭐ lẫn 🟦
       if (c7) { const a2 = Array(200).fill('-'); a2[c7.n - 1] = 'ABCD'[c7.q.opts.findIndex(o => o !== c7.q.a)]; S.to.tronA[de + ':R'] = { at: Date.now() + 5000, a: a2.join(''), ov: 2 };
         const x = tgJState(de).find(c => c.n === c7.n); if (x.st !== 'sai' || x.hi) bad.push('bài làm mới hơn sai phải mất ⭐ và 🟦'); delete S.to.tronA[de + ':R']; }
       for (const c of L) { J().c[c.n] = { s: 'ok', at: Date.now() + 9000 }; if (c.ks.length) J().h[c.n] = { at: Date.now() + 9500, lv: 4, d: 0, k: c.ks[0] }; }
-      nx = tgJNext(de, tgJState(de)); if (nx.k !== 'win') bad.push('đúng hết + hiểu hết phải là chinh phục xong (' + nx.k + ')');
+      S.to.tc.bq = []; nx = tgJNext(de, tgJState(de)); if (nx.k !== 'win') bad.push('đúng hết + hiểu hết phải là chinh phục xong (' + nx.k + ')');
       TG_P = P; await tgView(); let h = String($app.innerHTML);
       if (!h.includes('Chinh phục đề') || (h.match(/data-tgde=/g) || []).length !== ids.length || !h.includes('Đúng 100/100') || !h.includes('Hiểu ') || !h.includes('data-tgj="full"') || (h.match(/class="tgt /g) || []).length !== 100) bad.push('màn hành trình thiếu phần');
       if (!String(tgRow()).includes('Chinh phục đề') || !String(trResOne).includes('TG_J')) bad.push('thiếu lối vào / nút về hành trình sau lượt thi');
@@ -2191,6 +2192,52 @@ const R = await run(`(async () => {
       if ((S.to.mock || []).length || Object.keys(S.c || {}).length) bad.push('trò chơi đụng điểm đề thử / thẻ học');
     } catch (e) { bad.push('lỗi: ' + e.message); }
     S = S1; TR.B = {}; TR.D = {}; TG_P = null; $app.onkeydown = null; out.push({ lv: 'cefr', id: 'C79', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🗺 Chinh phục đề: mỗi câu Đọc ⭐ Đúng (làm lại sau lời giải, phương án xáo) và 🟦 Hiểu (thử thách hỏi khác câu đề: loại từ / quan hệ, tự gõ, dò câu, ghép nghĩa; ôn 3 → 7 → 21 ngày, sai về ⭐), 8 đề + đề riêng; bài làm mới hơn thắng; không đụng điểm đề thử / thẻ học' }); }
+  // v176 C81 đo game Chinh phục đề (specs/019-game-do-tieu-chi, docs/TIEU-CHI-GAME-TOEIC.md): nhật ký + trận bỏ dở, ⭐ tạm / xác nhận, Boss tái đấu đổi chỗ ~50%,
+  //   🐉 Boss ẩn câu chưa gặp cùng dạng (không đề đang chơi / đề đối chứng; đề khác thì ghi lộ), đề đối chứng ra khỏi game, H1 / V2 mọi đề, gợi ý gõ giảm dần, bộ tiêu chí
+  { const bad = [], S1 = S, R0 = Math.random; try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad(); TG_P = null; const P = TG_P = await tgPool(), ids = TO.tron.map(d => d.id), now = Date.now();
+      const de = 'de3', fire = (sel, ds = {}) => $app.onclick({ target: { closest: s => s === sel ? { dataset: ds } : null } }), T = () => S.to.tc, J = () => tgJ(de);
+      S.to.tc = { de, nofx: 1, nosnd: 1 };
+      // H1 / V2 mọi đề (cần ev Part 7 kho cho Đề 1–2)
+      for (const d of ids) { const sh = tgShape(d); if (sh.h1 < 90) bad.push(d + ': H1 ' + sh.h1 + '% < 90'); if (sh.v2 > 30) bad.push(d + ': V2 ghép nghĩa ' + sh.v2 + '% > 30'); }
+      for (const x of TO.p7) for (const q of x.qs) if (!['not', 'insert'].includes(q.ty) && !q.ev) bad.push('kho Part 7 ' + x.id + ' thiếu ev');
+      // nhật ký + trận bỏ dở
+      let L = tgJState(de), nx = tgJNext(de, L); tgBattle(de, nx.cs); const q1 = nx.cs[0].q; fire('[data-tgf]', { tgf: String(q1.opts.indexOf(q1.a)) });
+      const lg = T().lg || [], tr = T().tr || []; if (lg.length !== 1 || lg[0][3] !== 'b' || lg[0][4] !== 1 || tr.length !== 1 || tr[0][3] !== 0) bad.push('nhật ký / trận phải ghi 1 câu Boss và 1 trận chưa xong');
+      tr[0][2] = now - 31 * 60000; let C = tgCrit(), e2 = C.R.find(r => r.m === 'E2'); if (!e2 || e2.kq !== 'na' || !e2.so.includes('1/1')) bad.push('E2 phải đếm 1 trận bỏ dở (' + (e2 && e2.so) + ')');
+      if (C.R.length !== 16 || C.need !== 6 || C.dat) bad.push('bộ tiêu chí phải 16 dòng, 6 bắt buộc, chưa đạt');
+      if (C.R.filter(r => r.kq === 'na').some(r => !r.thieu)) bad.push('⚪ phải ghi còn thiếu gì');
+      // ⭐ tạm: hôm qua chữa đúng → hôm nay xác nhận; đúng → ⭐ thật
+      S.to.tc = { de, nofx: 1, nosnd: 1 }; const B = trB(de), Q = B.Q.filter(q => /^p[5-7]$/.test(q.sec)); for (const q of Q) J().c[q.n] = { s: 'ok', at: now - 8 * DAY };
+      J().c[Q[0].n] = { s: 'ok', at: now - DAY, tm: 1 }; L = tgJState(de); nx = tgJNext(de, L);
+      if (nx.k !== 'xac' || nx.cs[0].n !== Q[0].n || tgJCount(L).ok !== 99) bad.push('⭐ tạm hôm qua phải sang xác nhận, chưa tính 100/100 (' + nx.k + ')');
+      tgSua(de, nx.cs, 1); if (String($app.innerHTML).includes('Vì sao')) bad.push('xác nhận không hiện bí kíp trước');
+      const ops = [...String($app.innerHTML).matchAll(/data-tgf="([0-9])">[A-D]\. ([^<]*)</g)], hit = ops.find(m => m[2] === esc(Q[0].a)); if (hit) fire('[data-tgf]', { tgf: hit[1] }); else bad.push('xác nhận thiếu đáp án');
+      L = tgJState(de); if (L.find(c => c.n === Q[0].n).tam || tgJCount(L).ok !== 100) bad.push('xác nhận đúng phải thành ⭐ thật');
+      // Boss tái đấu: lượt xanh ≥ 7 ngày; đổi chỗ ở khoảng nửa số câu (Math.random giả có hạt giống)
+      nx = tgJNext(de, L); if (nx.k !== 'tai') bad.push('lượt xanh ≥ 7 ngày phải có Boss tái đấu (' + nx.k + ')'); else {
+        let z = 12345; Math.random = () => (z = (z * 1103515245 + 12345) % 2147483648) / 2147483648; tgBattle(de, nx.cs, { td: nx.ck }); Math.random = R0;
+        for (let i = 0; i < nx.cs.length; i++) { const h = String($app.innerHTML), m = [...h.matchAll(/data-tgf="([0-9])">[A-D]\. ([^<]*)</g)], q = nx.cs[i].q, k = m.find(x => x[2] === esc(q.a)); fire('[data-tgf]', { tgf: k ? k[1] : '0' }); fire('[data-tgn]'); }
+        const t = (T().lg || []).filter(r => r[3] === 't'); if (!t.some(r => r[5] === 1) || !t.some(r => r[5] === 0)) bad.push('tái đấu phải có cả câu đổi chỗ và giữ thứ tự');
+        if (!(J().td || {})[nx.ck]) bad.push('tái đấu phải ghi ngày'); if (tgJNext(de, tgJState(de)).k === 'tai' && tgJNext(de, tgJState(de)).ck === nx.ck) bad.push('lượt vừa tái đấu không được hỏi lại ngay'); }
+      // đề đối chứng: ra khỏi game
+      S.to.tc.de = 'de4'; tgDcClick({ target: { closest: s => s === '[data-tgdc]' ? { dataset: { tgdc: 'de4' } } : null } }); if (tgDe() === 'de4' || T().dc.de !== 'de4') bad.push('đề đối chứng không được chơi trong game');
+      await tgView(); if (String($app.innerHTML).includes('data-tgde="de4"')) bad.push('chip đề đối chứng còn trong game');
+      // 🐉 Boss ẩn: kho đã luyện hết → lấy câu đề khác (không de3, không de4), ghi lộ
+      const q5 = Q.find(q => q.sec === 'p5' && q.x && q.x.t === 'voc'); for (const x of [...TO.p5, ...TO.p6, ...TO.p7]) S.to.r[x.id] = 1;
+      tgBq(q5); const an = tgAnList(de); if (an.length !== 1) bad.push('Boss ẩn phải có 1 câu'); else { const c = an[0];
+        if (tgDang(c.q) !== 'p5:voc' || !c.de || c.de === de || c.de === 'de4') bad.push('Boss ẩn sai nguồn / dạng (' + c.id + ')');
+        tgAn(de, an); const m = [...String($app.innerHTML).matchAll(/data-tgf="([0-9])">[A-D]\. ([^<]*)</g)], k = m.find(x => x[2] === esc(c.q.a)); fire('[data-tgf]', { tgf: k[1] });
+        if (!(T().bn || {})[c.id] || !(T().dg || {})['p5:voc'] || (T().lo || {})[c.de] !== 1 || (T().bq || []).length) bad.push('Boss ẩn phải ghi câu đã dùng, kết quả dạng, đề lộ');
+        tgBq(q5); const an2 = tgAnList(de); if (an2.length && an2[0].id === c.id) bad.push('Boss ẩn không được dùng lại câu cũ'); }
+      // gợi ý tự gõ giảm dần
+      const cg = tgJState(de).find(c => c.ks.includes('go') && c.q.sec === 'p5');
+      if (cg) { J().h[cg.n] = { at: now, lv: 2, d: tgDay(), k: 'ng' }; const pl = { ...cg, ks: ['go'] }; tgHieu(de, [pl], 'on'); const h = String($app.innerHTML); if (h.includes('bắt đầu bằng') || h.includes('Nghĩa:')) bad.push('ôn lần 2+: gợi ý chỉ còn số ký tự');
+        J().h[cg.n].lv = 1; tgHieu(de, [pl], 'on'); const h1 = String($app.innerHTML); if (!h1.includes('bắt đầu bằng') || h1.includes('Nghĩa:')) bad.push('ôn lần 1: bỏ nghĩa câu, giữ chữ đầu'); }
+      await tgCritView(); if (!String($app.innerHTML).includes('Bộ tiêu chí game')) bad.push('màn tiêu chí thiếu');
+      if (!String(bkTools()).includes('data-bk="tgtc"')) bad.push('🛠 thiếu nút bộ tiêu chí');
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length) bad.push('đo game đụng điểm đề thử / thẻ học');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    Math.random = R0; S = S1; TR.B = {}; TR.D = {}; TG_P = null; $app.onkeydown = null; out.push({ lv: 'cefr', id: 'C81', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '📊 đo game Chinh phục đề: nhật ký + trận bỏ dở, ⭐ tạm xác nhận ngày sau, tái đấu đổi chỗ ~50%, Boss ẩn câu chưa gặp (ghi lộ), đề đối chứng ra khỏi game, H1 ≥ 90% / ghép nghĩa ≤ 30% mọi đề, gợi ý gõ giảm dần, 16 tiêu chí' }); }
   return out; })()`);
 // v175 C80 khuôn Phần Đọc theo đề ETS (docs/KHUON-DE-TOEIC.md): bộ dựng chặn đề mới lệch khuôn; đề mới phải giải không có bài (Part 7) ≤ KB_MAX
 { const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), K = await import('../do-khuon.mjs'), G = await import('../giai-mu.mjs'), root = new URL('../../', import.meta.url).pathname;

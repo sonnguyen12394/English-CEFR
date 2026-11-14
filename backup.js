@@ -33,6 +33,7 @@ const bkTools = () => { const shared = !(typeof isAnon === 'function' && isAnon(
     <p class="mute" style="margin:6px 0">Không cần cho việc học. Dùng để kiểm nội dung, kiểm bộ chấm âm và thử tiến độ.</p>
     ${shared && typeof gyAdmin === 'function' ? '<button data-g="admin">🗂 Quản lý góp ý</button>' : ''}
     ${shared && typeof tdMissView === 'function' ? '<button data-bk="miss">📊 Từ người học tra mà app chưa có</button>' : ''}
+    ${typeof tgCritView === 'function' ? '<button data-bk="tgtc">🗺 Bộ tiêu chí game Chinh phục đề</button>' : ''}
     ${typeof paVal === 'function' ? '<button data-bk="paval">🧑‍🏫 Đối chiếu bộ chấm âm với giáo viên</button>' : ''}
     ${shared && typeof daiStats === 'function' ? '<button data-daitk>🤖 Đề AI: số lượt, token, tiền 7 ngày</button><div id="daitk"></div>' : ''}
     ${S && S.xsc && S.xsc.n ? `<p class="mute" style="margin:6px 0">🎯 Sai ở đâu · học lại gì (máy này): ${S.xsc.n} lượt có câu sai · ${S.xsc.k || 0} lượt có bấm học lại / luyện (${Math.round((S.xsc.k || 0) / S.xsc.n * 100)}%) · 📘 ${S.xsc.l || 0} · 🏋️ ${S.xsc.p || 0} · 📌 ${S.xsc.w || 0} từ. Mốc đo 2/2027: dưới 20% thì đổi chỗ hiện.</p>` : ''}
@@ -74,6 +75,7 @@ function backup(msg) { window.CUR = { view: 'sao-luu' }; BACK = null;
     if (b && b.dataset.bk === 'edit') return bkEdit();
     if (b && b.dataset.bk === 'miss') return tdMissView();
     if (b && b.dataset.bk === 'kiem') return window.open('docs/kiem-noi-dung.html', '_blank', 'noopener');
+    if (b && b.dataset.bk === 'tgtc') return tgCritView(() => backup());
     if (b && b.dataset.bk === 'paval') return Promise.resolve(typeof paLoad === 'function' ? paLoad() : 0).then(() => paVal());
     if (b && b.dataset.bk === 'ct') { scrollTo(0, 0); return typeof minhView === 'function' ? minhView() : 0; }
     if (b && b.dataset.bk === 'split') return confirm('Tách máy này ra tài khoản riêng? Tiến độ hiện tại đi theo máy này; tài khoản chung giữ nguyên.') && acctSplit();

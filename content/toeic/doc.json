@@ -1530,6 +1530,7 @@
       "The warehouse will close early."
      ],
      "why": "They need the samples by noon, not tomorrow.",
+     "ev": "They need the samples by noon, not tomorrow.",
      "lg": {
       "og": {
        "A delivery is needed sooner than planned.": "Cần giao hàng sớm hơn dự kiến",
@@ -1550,6 +1551,7 @@
       "He thinks the cost is too high."
      ],
      "why": "Trả lời đề nghị dùng courier, rồi nói sẽ đặt ngay.",
+     "ev": "I'll book one now and send you the tracking number.",
      "lg": {
       "og": {
        "He agrees to arrange a courier.": "Anh ấy đồng ý sắp xếp dịch vụ chuyển phát",
@@ -1582,6 +1584,7 @@
       "Training new architects"
      ],
      "why": "Responsibilities include … ordering office supplies.",
+     "ev": "Responsibilities include answering phones, scheduling meetings, ordering office supplies and preparing documents for client presentations.",
      "lg": {
       "og": {
        "Ordering office supplies": "Đặt mua văn phòng phẩm",
@@ -1602,6 +1605,7 @@
       "It will be provided after hiring."
      ],
      "why": "an advantage but not required.",
+     "ev": "Experience in an architecture or design firm is an advantage but not required.",
      "lg": {
       "og": {
        "It is helpful but not necessary.": "Có ích nhưng không bắt buộc",
@@ -1622,6 +1626,7 @@
       "The position will become part-time."
      ],
      "why": "Only shortlisted candidates will be contacted.",
+     "ev": "Only shortlisted candidates will be contacted.",
      "lg": {
       "og": {
        "Only some applicants will be contacted.": "Chỉ một số ứng viên được liên hệ",
@@ -1654,6 +1659,7 @@
       "The food was delivered later than planned."
      ],
      "why": "Discount (returning customer, 10%).",
+     "ev": "Discount (returning customer, 10%) — –$82.50",
      "lg": {
       "og": {
        "It has ordered from Greenleaf before.": "Họ từng đặt hàng của Greenleaf trước đây",
@@ -1674,6 +1680,7 @@
       "80"
      ],
      "why": "Lunch buffet (40 people × $18).",
+     "ev": "Lunch buffet (40 people × $18) — $720",
      "lg": {
       "og": {
        "40": "40",
@@ -1706,6 +1713,7 @@
       "The opening of a solar panel factory"
      ],
      "why": "Lắp pin mặt trời, chuyển sang giấy tái chế.",
+     "ev": "PORTVILLE — Lindqvist Printing, one of Portville's oldest businesses, has completed the installation of 600 solar panels on the roof of its factory.",
      "lg": {
       "og": {
        "A company's environmental improvements": "Những cải thiện về môi trường của một công ty",
@@ -1726,6 +1734,7 @@
       "Electricity was unavailable."
      ],
      "why": "Our customers increasingly ask about the environmental impact…",
+     "ev": "\"Our customers increasingly ask about the environmental impact of their orders,\" said owner Erik Lindqvist.",
      "lg": {
       "og": {
        "Customers care about environmental issues.": "Khách hàng quan tâm đến môi trường",
@@ -1746,6 +1755,7 @@
       "It only uses recycled paper now."
      ],
      "why": "founded in 1962 by Mr. Lindqvist's grandfather.",
+     "ev": "Lindqvist Printing was founded in 1962 by Mr. Lindqvist's grandfather and now employs 85 people.",
      "lg": {
       "og": {
        "It is a family business.": "Là doanh nghiệp gia đình",
@@ -1778,6 +1788,7 @@
       "Visitors to a hotel"
      ],
      "why": "Dear residents … Westfield Apartments.",
+     "ev": "Dear residents, Water will be shut off in Building B on Wednesday, May 14, from 10:00 A.M. to 2:00 P.M. while plumbers replace a main pipe.",
      "lg": {
       "og": {
        "Residents of an apartment complex": "Cư dân của một khu chung cư",
@@ -1798,6 +1809,7 @@
       "Hotel rooms"
      ],
      "why": "Bottled water will be available in the lobby.",
+     "ev": "Bottled water will be available in the lobby of Building B during this time.",
      "lg": {
       "og": {
        "Bottled water": "Nước đóng chai",
@@ -1830,6 +1842,7 @@
       "To apply for a job"
      ],
      "why": "for my father's birthday.",
+     "ev": "I took my parents to Casa Verde for my father's birthday last Saturday.",
      "lg": {
       "og": {
        "To celebrate a family member's birthday": "Để mừng sinh nhật một người thân",
@@ -1850,6 +1863,7 @@
       "The staff were rude."
      ],
      "why": "not seated until almost 7:40 despite a 7:00 reservation.",
+     "ev": "The only disappointment was the wait: although we had a reservation for 7:00, we were not seated until almost 7:40.",
      "lg": {
       "og": {
        "Her table was not ready on time.": "Bàn của bà chưa sẵn sàng đúng giờ",
@@ -1870,6 +1884,7 @@
       "Reduced the price of the cake"
      ],
      "why": "offered us free coffee.",
+     "ev": "The manager apologized and offered us free coffee, which was a nice gesture.",
      "lg": {
       "og": {
        "Offered free drinks": "Tặng đồ uống miễn phí",
@@ -1906,6 +1921,7 @@
       "To introduce a new director"
      ],
      "why": "Please note one change to the schedule…",
+     "ev": "Please note one change to the schedule: Amy Ng's workshop will now take place in the Ballroom instead of Room 3, as more than sixty people have registered for it.",
      "lg": {
       "og": {
        "To announce changes to an event": "Thông báo thay đổi của sự kiện",
@@ -1926,6 +1942,7 @@
       "The panel discussion was canceled."
      ],
      "why": "more than sixty people have registered for it.",
+     "ev": "Please note one change to the schedule: Amy Ng's workshop will now take place in the Ballroom instead of Room 3, as more than sixty people have registered for it.",
      "lg": {
       "og": {
        "Many people signed up for it.": "Nhiều người đã đăng ký",
@@ -1946,6 +1963,7 @@
       "In the Ballroom"
      ],
      "why": "lunch will be served in the hotel restaurant rather than outdoors.",
+     "ev": "Also, because of renovation work, lunch will be served in the hotel restaurant rather than outdoors.",
      "lg": {
       "og": {
        "In the hotel restaurant": "Ở nhà hàng của khách sạn",
@@ -1966,6 +1984,7 @@
       "Name badges"
      ],
      "why": "Đối chiếu 2 văn bản: 1:30 là workshop của Amy Ng (buổi chiều) → mang laptop.",
+     "ev": "Please remember to bring your laptops for the afternoon workshop.",
      "lg": {
       "og": {
        "Laptops": "Máy tính xách tay",
@@ -1986,6 +2005,7 @@
       "A panel of experts"
      ],
      "why": "9:00 A.M. Welcome speech — Ingrid Holm.",
+     "ev": "9:00 A.M. Welcome speech — Ingrid Holm, Sales Director (Ballroom)",
      "lg": {
       "og": {
        "Ms. Holm": "Bà Holm",
@@ -2026,6 +2046,7 @@
       "The payment was delayed."
      ],
      "why": "Đặt 3:30 P.M. thứ Hai (gửi e-mail 4:30, một giờ sau khi đặt); sau 3:00 P.M. thì xử lý ngày làm việc hôm sau.",
+     "ev": "Orders placed after 3:00 P.M. are processed the following business day.",
      "lg": {
       "og": {
        "It was placed after 3:00 P.M.": "Đơn được đặt sau 3 giờ chiều",
@@ -2046,6 +2067,7 @@
       "On Friday"
      ],
      "why": "E-mail thứ Ba: arrive tomorrow → thứ Tư.",
+     "ev": "Your order was processed this morning and is scheduled to arrive tomorrow, in time for your session.",
      "lg": {
       "og": {
        "On Wednesday": "Vào thứ Tư",
@@ -2066,6 +2088,7 @@
       "The date of his training session"
      ],
      "why": "Free delivery applies only to the standard service.",
+     "ev": "Please note that free delivery applies only to the standard service, so the express charge is correct.",
      "lg": {
       "og": {
        "Which delivery service is free": "Dịch vụ giao hàng nào miễn phí",
@@ -2086,6 +2109,7 @@
       "Extra printer paper"
      ],
      "why": "added a $10 voucher to your account.",
+     "ev": "As a gesture of goodwill, however, we have added a $10 voucher to your account for your next purchase.",
      "lg": {
       "og": {
        "A voucher for a future order": "Phiếu mua hàng cho lần sau",
@@ -2106,6 +2130,7 @@
       "price"
      ],
      "why": "a gesture of goodwill = một hành động thể hiện thiện chí.",
+     "ev": "As a gesture of goodwill, however, we have added a $10 voucher to your account for your next purchase.",
      "lg": {
       "og": {
        "act": "hành động",
@@ -2142,6 +2167,7 @@
       "Lunch"
      ],
      "why": "All offices include internet, cleaning…",
+     "ev": "All offices include internet, cleaning and access to shared meeting rooms.",
      "lg": {
       "og": {
        "Cleaning": "Dọn dẹp",
@@ -2162,6 +2188,7 @@
       "Two small offices"
      ],
      "why": "Đối chiếu: 4 người + 3 người nữa = 7 > 5 bàn của văn phòng vừa → văn phòng lớn 10 bàn.",
+     "ev": "Number of employees: 4 (planning to hire 3 more next year)",
      "lg": {
       "og": {
        "The large office": "Văn phòng lớn",
@@ -2182,6 +2209,7 @@
       "His office has no internet."
      ],
      "why": "We often meet clients.",
+     "ev": "We often meet clients, so access to meeting rooms is important.",
      "lg": {
       "og": {
        "His company often meets clients.": "Công ty ông thường gặp khách",
@@ -2202,6 +2230,7 @@
       "It includes paid parking."
      ],
      "why": "12 tháng > tối thiểu 6 tháng.",
+     "ev": "Lease length: 12 months",
      "lg": {
       "og": {
        "It is longer than the minimum required.": "Dài hơn mức tối thiểu",
@@ -2222,6 +2251,7 @@
       "equal"
      ],
      "why": "\"shared meeting rooms\" = phòng họp dùng chung cho mọi khách thuê (common), không phải \"chia ra\" (divided).",
+     "ev": "All offices include internet, cleaning and access to shared meeting rooms.",
      "lg": {
       "og": {
        "common": "chung",
@@ -2254,6 +2284,7 @@
       "To ask for help with a renovation"
      ],
      "why": "The kitchen will be completely closed…",
+     "ev": "During this time, the kitchen will be completely closed.",
      "lg": {
       "og": {
        "To inform staff about a temporary closure": "Báo cho nhân viên về việc đóng cửa tạm thời",
@@ -2274,6 +2305,7 @@
       "Sign up for lunch"
      ],
      "why": "Please remove any personal items… by Friday, October 31.",
+     "ev": "Please remove any personal items from the kitchen refrigerator by Friday, October 31.",
      "lg": {
       "og": {
        "Remove items from a refrigerator": "Dọn đồ khỏi tủ lạnh",
@@ -2294,6 +2326,7 @@
       "A television"
      ],
      "why": "a larger seating area and a new dishwasher.",
+     "ev": "When the work is finished, the kitchen will have a larger seating area and a new dishwasher.",
      "lg": {
       "og": {
        "More seating": "Thêm chỗ ngồi",
@@ -2334,6 +2367,7 @@
       "A parking pass"
      ],
      "why": "a ticket to the closing concert.",
+     "ev": "Volunteers work one four-hour shift and receive a free festival T-shirt and a ticket to the closing concert.",
      "lg": {
       "og": {
        "A concert ticket": "Một vé buổi hoà nhạc bế mạc",
@@ -2354,6 +2388,7 @@
       "It has the shortest shift."
      ],
      "why": "I am a primary school teacher.",
+     "ev": "I am a primary school teacher, so I would be happy to help in the children's art tent.",
      "lg": {
       "og": {
        "She works with children.": "Bà làm việc với trẻ em",
@@ -2374,6 +2409,7 @@
       "He will work on June 6."
      ],
      "why": "Đối chiếu: con trai 16 tuổi của Nora (Tom Bell trên lịch) dưới 18 → phải làm cùng người lớn.",
+     "ev": "Volunteers under 18 must work with an adult volunteer.",
      "lg": {
       "og": {
        "He must work with an adult volunteer.": "Cậu phải làm cùng một người lớn",
@@ -2394,6 +2430,7 @@
       "At 9:00 P.M."
      ],
      "why": "Lịch: 9:00 A.M.–1:00 P.M.: Nora Bell.",
+     "ev": "9:00 A.M.–1:00 P.M.: Nora Bell, Tom Bell",
      "lg": {
       "og": {
        "At 1:00 P.M.": "Lúc 1 giờ chiều",
@@ -2414,6 +2451,7 @@
       "No shift"
      ],
      "why": "5:00 P.M.–9:00 P.M.: (open).",
+     "ev": "5:00 P.M.–9:00 P.M.: (open)",
      "lg": {
       "og": {
        "The evening shift": "Ca buổi tối",
@@ -2450,6 +2488,7 @@
       "It was sold at the wrong price."
      ],
      "why": "it stopped working again this morning.",
+     "ev": "Hello, your technician repaired our espresso machine on March 12, but it stopped working again this morning.",
      "lg": {
       "og": {
        "It has stopped working again.": "Nó lại ngừng hoạt động",
@@ -2470,6 +2509,7 @@
       "The technician made a mistake with the bill."
      ],
      "why": "Đối chiếu: sửa 12/3, bảo hành 90 ngày, e-mail ngày 2/4 → còn bảo hành.",
+     "ev": "As this is within your guarantee period, I assume there will be no charge for the repair.",
      "lg": {
       "og": {
        "The previous repair is still guaranteed.": "Lần sửa trước còn trong thời gian bảo hành",
@@ -2490,6 +2530,7 @@
       "A milk frother"
      ],
      "why": "Replacement water pump — $95.",
+     "ev": "Replacement water pump — $95",
      "lg": {
       "og": {
        "A water pump": "Một bơm nước",
@@ -2510,6 +2551,7 @@
       "After 7:00 P.M."
      ],
      "why": "tomorrow morning before we open at 7:00.",
+     "ev": "Could someone come tomorrow morning before we open at 7:00?",
      "lg": {
       "og": {
        "Before the café opens": "Trước khi quán mở cửa",
@@ -2562,6 +2604,7 @@
       "To explain new office hours"
      ],
      "why": "must display a new electronic parking pass… old paper passes will no longer be accepted.",
+     "ev": "Starting May 1, all vehicles parked in the Westgate Office Tower garage must display a new electronic parking pass.",
      "lg": {
       "og": {
        "To announce a new parking system": "Thông báo hệ thống đỗ xe mới",
@@ -2582,6 +2625,7 @@
       "$15 per year"
      ],
      "why": "up to ten passes free… Additional passes cost $15 per month.",
+     "ev": "Additional passes cost $15 per month.",
      "lg": {
       "og": {
        "$15 per month": "15 đô la mỗi tháng",
@@ -2602,6 +2646,7 @@
       "They will be moved to the ground floor."
      ],
      "why": "may be towed (bị kéo đi).",
+     "ev": "Vehicles without a valid pass after May 1 may be towed at the owner's expense.",
      "lg": {
       "og": {
        "They may be removed.": "Có thể bị kéo đi",
@@ -2634,6 +2679,7 @@
       "She cannot find the remote control."
      ],
      "why": "The projector in Meeting Room B isn't working.",
+     "ev": "The projector in Meeting Room B isn't working.",
      "lg": {
       "og": {
        "Some equipment is not working.": "Một thiết bị không hoạt động",
@@ -2654,6 +2700,7 @@
       "He will meet the clients himself."
      ],
      "why": "Trả lời yêu cầu: Can you tell the receptionist…? → Will do (sẽ làm).",
+     "ev": "Can you tell the receptionist to send the clients there?",
      "lg": {
       "og": {
        "He will contact the receptionist.": "Anh sẽ liên hệ lễ tân",
@@ -2686,6 +2733,7 @@
       "It works on public holidays."
      ],
      "why": "for over fifteen years.",
+     "ev": "Sunrise Cleaning Services has been keeping businesses in Brookfield clean for over fifteen years.",
      "lg": {
       "og": {
        "It has operated for many years.": "Hoạt động nhiều năm",
@@ -2706,6 +2754,7 @@
       "Free cleaning products"
      ],
      "why": "will receive their first window cleaning free.",
+     "ev": "New customers who sign a one-year contract before June 30 will receive their first window cleaning free.",
      "lg": {
       "og": {
        "A free window cleaning": "Một lần lau cửa sổ miễn phí",
@@ -2726,6 +2775,7 @@
       "quick"
      ],
      "why": "a fresh start = một khởi đầu mới.",
+     "ev": "Is your office ready for a fresh start?",
      "lg": {
       "og": {
        "new": "mới",
@@ -2762,6 +2812,7 @@
       "To request a budget"
      ],
      "why": "Our autumn training program is now open for registration.",
+     "ev": "Our autumn training program is now open for registration.",
      "lg": {
       "og": {
        "To announce training courses": "Để thông báo các khoá đào tạo",
@@ -2782,6 +2833,7 @@
       "Presentation Skills"
      ],
      "why": "Customer Communication (half day).",
+     "ev": "This year we are offering four courses: Project Management (two days), Advanced Excel (one day), Presentation Skills (one day), and Customer Communication (half day).",
      "lg": {
       "og": {
        "Customer Communication": "Giao tiếp với khách hàng",
@@ -2802,6 +2854,7 @@
       "An employee is listed twice."
      ],
      "why": "Tối đa 3 người mỗi khoá, nhưng Advanced Excel có 4 người (đối chiếu 2 văn bản).",
+     "ev": "Each department may send up to three employees per course.",
      "lg": {
       "og": {
        "Too many employees are listed.": "Liệt kê quá nhiều người",
@@ -2822,6 +2875,7 @@
       "He teaches Presentation Skills."
      ],
      "why": "Hạn 20/8, nộp ngày 22/8 (đối chiếu).",
+     "ev": "Please return the attached form by August 20.",
      "lg": {
       "og": {
        "He submitted the form late.": "Ông nộp biểu mẫu muộn",
@@ -2842,6 +2896,7 @@
       "The Training Office will refund the fee."
      ],
      "why": "Đối chiếu: Eva Ruiz có tên trong phiếu phòng Sales; e-mail nói phòng ban phải trả tiền cho người vắng không báo trước.",
+     "ev": "Courses are free for staff, but departments must pay for any participant who is absent without giving notice.",
      "lg": {
       "og": {
        "The Sales department will have to pay for it.": "Phòng Kinh doanh phải trả tiền",
@@ -2887,7 +2942,8 @@
       "She complained about the Wi-Fi.",
       "It was her birthday."
      ],
-     "why": "Ở 6 đêm; trang web: từ 5 đêm được bữa tối miễn phí (đối chiếu)."
+     "why": "Ở 6 đêm; trang web: từ 5 đêm được bữa tối miễn phí (đối chiếu).",
+     "ev": "Guests staying five nights or more receive a free dinner for two."
     },
     {
      "q": "What did Ms. Moreau dislike?",
@@ -2897,7 +2953,8 @@
       "The view",
       "The restaurant"
      ],
-     "why": "The only disappointment was the Wi-Fi."
+     "why": "The only disappointment was the Wi-Fi.",
+     "ev": "The only disappointment was the Wi-Fi, which was very slow in our room."
     }
    ]
   },
@@ -2920,6 +2977,7 @@
       "An office is moving."
      ],
      "why": "your water bill for September… has not been paid.",
+     "ev": "Our records show that your water bill for September, in the amount of $64.20, has not been paid.",
      "lg": {
       "og": {
        "A bill has not been paid.": "Một hoá đơn chưa được thanh toán",
@@ -2940,6 +2998,7 @@
       "He must visit the office."
      ],
      "why": "To avoid a late fee of $10, please pay… by October 25.",
+     "ev": "To avoid a late fee of $10, please pay the full amount by October 25.",
      "lg": {
       "og": {
        "He will be charged an extra fee.": "Ông bị tính thêm phí",
@@ -2960,6 +3019,7 @@
       "A new meter"
      ],
      "why": "help you set up a payment plan.",
+     "ev": "If you are having difficulty paying, our customer service team can help you set up a payment plan.",
      "lg": {
       "og": {
        "A payment plan": "Một kế hoạch thanh toán",
@@ -2992,6 +3052,7 @@
       "An election"
      ],
      "why": "will move its headquarters from Chicago to Brookfield.",
+     "ev": "Tech company Novaline announced yesterday that it will move its headquarters from Chicago to Brookfield by the end of the year.",
      "lg": {
       "og": {
        "A company's relocation": "Việc một công ty chuyển trụ sở",
@@ -3012,6 +3073,7 @@
       "Computers"
      ],
      "why": "makes software for hospitals.",
+     "ev": "The company, which makes software for hospitals, currently employs 300 people.",
      "lg": {
       "og": {
        "Software": "Phần mềm",
@@ -3072,6 +3134,7 @@
       "She is changing her logo."
      ],
      "why": "we are opening a new office that week.",
+     "ev": "Please deliver them to our studio at 42 Park Lane by April 10, as we are opening a new office that week.",
      "lg": {
       "og": {
        "Her company is opening a new office.": "Công ty bà sắp mở văn phòng mới",
@@ -3092,6 +3155,7 @@
       "The order date was wrong."
      ],
      "why": "Đặt Classic White, hoá đơn ghi Classic Cream (đối chiếu).",
+     "ev": "500 business cards, Classic Cream — $75.00",
      "lg": {
       "og": {
        "The wrong color was listed.": "Ghi sai màu",
@@ -3112,6 +3176,7 @@
       "$120.00"
      ],
      "why": "Bỏ phí giao hàng $15: 150 − 15 = 135 (đối chiếu hoá đơn + e-mail).",
+     "ev": "We have also removed the delivery charge from your invoice.",
      "lg": {
       "og": {
        "$135.00": "135 đô la",
@@ -3132,6 +3197,7 @@
       "They will be printed by another company."
      ],
      "why": "they will still arrive before your deadline.",
+     "ev": "We will print your cards in the color you requested at no extra cost, and they will still arrive before your deadline.",
      "lg": {
       "og": {
        "They will be delivered before April 10.": "Sẽ được giao trước ngày 10/4",
@@ -3152,6 +3218,7 @@
       "paid for"
      ],
      "why": "\"removed the delivery charge from your invoice\" = bỏ phí giao hàng ra khỏi hoá đơn (taken off).",
+     "ev": "We have also removed the delivery charge from your invoice.",
      "lg": {
       "og": {
        "taken off": "gỡ bỏ",
@@ -3184,6 +3251,7 @@
       "To explain a building repair"
      ],
      "why": "will open at 8:00 A.M. on weekdays, one hour earlier than before.",
+     "ev": "Beginning on Monday, May 5, the Oakdale Public Library will open at 8:00 A.M. on weekdays, one hour earlier than before.",
      "lg": {
       "og": {
        "To announce new opening hours": "Thông báo giờ mở cửa mới",
@@ -3244,6 +3312,7 @@
       "understands"
      ],
      "why": "The change follows a survey = sự thay đổi đến sau (là kết quả của) một cuộc khảo sát. follow còn nghĩa \"tuân theo\" (obey), \"hiểu\" (understand) nhưng không hợp ở đây.",
+     "ev": "The change follows a survey in which many residents said they would like to visit the library before work.",
      "lg": {
       "og": {
        "comes after": "đến sau",
@@ -3276,6 +3345,7 @@
       "To ask staff for kitchen design ideas"
      ],
      "why": "The second-floor kitchen will be renovated from June 9 to June 20.",
+     "ev": "The second-floor kitchen will be renovated from June 9 to June 20.",
      "lg": {
       "og": {
        "To inform staff about renovation work": "Báo cho nhân viên về việc cải tạo",
@@ -3316,6 +3386,7 @@
       "locate"
      ],
      "why": "address the long lines = giải quyết chuyện xếp hàng dài. address còn nghĩa \"ghi địa chỉ / gửi\" và \"nói với (khán giả)\" nhưng không hợp ở đây.",
+     "ev": "We expect the project to address the long lines at lunchtime that many of you have mentioned.",
      "lg": {
       "og": {
        "deal with": "giải quyết",
@@ -3336,6 +3407,7 @@
       "It is larger than the fourth-floor kitchen."
      ],
      "why": "the long lines at lunchtime that many of you have mentioned.",
+     "ev": "We expect the project to address the long lines at lunchtime that many of you have mentioned.",
      "lg": {
       "og": {
        "It is often crowded at lunchtime.": "Giờ trưa thường đông",
@@ -3368,6 +3440,7 @@
       "A change in company leadership"
      ],
      "why": "will open stations in two more cities next spring.",
+     "ev": "Greenline Bikes, a bicycle rental company founded in Westbrook four years ago, will open stations in two more cities next spring.",
      "lg": {
       "og": {
        "A company's plans to expand": "Kế hoạch mở rộng của một công ty",
@@ -3428,6 +3501,7 @@
       "hired"
      ],
      "why": "stations will be placed outside every major train station = trạm sẽ được đặt bên ngoài ga. place còn nghĩa \"xếp hạng\", \"đặt hàng\" (place an order), \"xếp việc cho người\".",
+     "ev": "Under the agreement, Greenline stations will be placed outside every major train station, and train passengers will receive a 20 percent discount on rides.",
      "lg": {
       "og": {
        "put": "đặt",
@@ -3480,6 +3554,7 @@
       "played"
      ],
      "why": "Catering can be arranged = có thể sắp xếp (tổ chức) tiệc ăn. arrange còn nghĩa \"xếp (hoa) cho đẹp\", \"phối (nhạc)\".",
+     "ev": "Catering can be arranged through our restaurant, which serves breakfast, lunch, and afternoon snacks.",
      "lg": {
       "og": {
        "organized": "được sắp xếp",
@@ -3500,6 +3575,7 @@
       "The guest will receive a full refund."
      ],
      "why": "Chỉ hoàn đủ tiền cọc khi huỷ trước hơn 7 ngày; huỷ trước 5 ngày thì không được hoàn đủ (suy luận).",
+     "ev": "A deposit of 30 percent is required to confirm a booking, and it is refunded in full if the booking is canceled more than seven days in advance.",
      "lg": {
       "og": {
        "The deposit will not be fully returned.": "Tiền đặt cọc không được hoàn đủ",
@@ -3532,6 +3608,7 @@
       "To introduce a new dentist"
      ],
      "why": "it has been twelve months since your last check-up … we recommend a check-up once a year.",
+     "ev": "Our records show that it has been twelve months since your last check-up.",
      "lg": {
       "og": {
        "To remind a patient to make an appointment": "Để nhắc bệnh nhân đặt lịch hẹn",
@@ -3552,6 +3629,7 @@
       "prove"
      ],
      "why": "identify small problems = phát hiện vấn đề nhỏ. identify còn nghĩa \"nhận ra, gọi tên (ai đó)\" nhưng ở đây là tìm ra.",
+     "ev": "Regular visits help us identify small problems before they become serious, so we recommend a check-up once a year.",
      "lg": {
       "og": {
        "find": "tìm ra",
@@ -3572,6 +3650,7 @@
       "It was sent by mail."
      ],
      "why": "bring your insurance card … as our patient system was recently updated: hệ thống mới nên có thể phải nhập lại.",
+     "ev": "Please bring your insurance card to your visit, as our patient system was recently updated.",
      "lg": {
       "og": {
        "It may need to be entered again.": "Có thể phải nhập lại",
@@ -3604,6 +3683,7 @@
       "A road has been closed."
      ],
      "why": "the delivery van … just broke down on Route 9.",
+     "ev": "Hi Nina, the delivery van for the Ortega order just broke down on Route 9.",
      "lg": {
       "og": {
        "A vehicle has stopped working.": "Một chiếc xe đã hỏng",
@@ -3624,6 +3704,7 @@
       "He is worried about the cost."
      ],
      "why": "Câu trả lời cho đề nghị dùng xe thứ hai: \"save the day\" = cứu nguy, giải quyết được việc gấp.",
+     "ev": "Our second van is free this afternoon.",
      "lg": {
       "og": {
        "He thinks Ms. Ruiz's plan will solve the problem.": "Ông cho rằng kế hoạch của bà Ruiz giải quyết được vấn đề",
@@ -3644,6 +3725,7 @@
       "Cancel the delivery"
      ],
      "why": "I'll call Mr. Ortega … (Sam mới là người lái xe).",
+     "ev": "I'll call Mr. Ortega and let him know they'll arrive by three.",
      "lg": {
       "og": {
        "Contact a customer": "Liên hệ một khách hàng",
@@ -3676,6 +3758,7 @@
       "It has no projector."
      ],
      "why": "it only holds twelve people … We have eighteen people signed up.",
+     "ev": "Room 4B is free, but it only holds twelve people.",
      "lg": {
       "og": {
        "It is too small.": "Nó quá nhỏ",
@@ -3696,6 +3779,7 @@
       "The training session should be postponed."
      ],
      "why": "Câu trả lời cho gợi ý dùng phòng hội nghị: đang sơn nên không dùng được (không phải nói chuyện màu sơn).",
+     "ev": "What about the conference room on the first floor?",
      "lg": {
       "og": {
        "The conference room cannot be used.": "Không dùng được phòng hội nghị",
@@ -3716,6 +3800,7 @@
       "Cancel the session"
      ],
      "why": "I'll check with her (the trainer) and get back to you both.",
+     "ev": "I'm not sure the trainer can stay that long.",
      "lg": {
       "og": {
        "Speak with the trainer": "Trao đổi với giảng viên",
@@ -3748,6 +3833,7 @@
       "To advertise a moving service"
      ],
      "why": "Elevator B will be closed for scheduled maintenance (đóng tạm 3 ngày).",
+     "ev": "Elevator B will be closed for scheduled maintenance from Monday, June 9, to Wednesday, June 11.",
      "lg": {
       "og": {
        "To announce a temporary closure": "Thông báo một đợt đóng cửa tạm thời",
@@ -3768,6 +3854,7 @@
       "Call the delivery company"
      ],
      "why": "should contact the building office at extension 210 so that the freight elevator can be reserved.",
+     "ev": "Tenants expecting large deliveries on these days should contact the building office at extension 210 so that the freight elevator can be reserved for them.",
      "lg": {
       "og": {
        "Contact the building office": "Liên hệ văn phòng toà nhà",
@@ -3808,6 +3895,7 @@
       "Two Oak Rooms"
      ],
      "why": "Đối chiếu: 45 người, cần âm thanh, tiền phòng tối đa $800 → Birch Hall (tới 60 người, có sound system, $650). Oak Room quá nhỏ, Cedar Suite $1,100 vượt ngân sách, hai phòng Oak cũng không đủ 45 người và không có loa.",
+     "ev": "Birch Hall: up to 60 people, $650 per day, projector and sound system.",
      "lg": {
       "og": {
        "Birch Hall": "Birch Hall",
@@ -3828,6 +3916,7 @@
       "The event takes place on a weekday."
      ],
      "why": "Đối chiếu: đặt ngày 3/3 cho ngày 20/5, sớm 78 ngày > 60 ngày → giảm 10%. Nhóm trên 30 người chỉ là điều kiện gọi đồ ăn.",
+     "ev": "Bookings made at least 60 days in advance receive a 10% discount.",
      "lg": {
       "og": {
        "The booking was made more than 60 days early.": "Đặt trước hơn 60 ngày",
@@ -3848,6 +3937,7 @@
       "It was brought by the employees."
      ],
      "why": "Đối chiếu: đồ ăn chỉ có cho nhóm từ 30 người; nhóm có 45 người và bài nhận xét khen bữa trưa.",
+     "ev": "Catering is available for groups of 30 or more.",
      "lg": {
       "og": {
        "The group was large enough to order it.": "Nhóm đủ đông để đặt bữa trưa",
@@ -3868,6 +3958,7 @@
       "The guest speaker did not arrive."
      ],
      "why": "the sound system stopped working for about fifteen minutes.",
+     "ev": "In the afternoon the sound system stopped working for about fifteen minutes, but the staff responded promptly and fixed it.",
      "lg": {
       "og": {
        "Some equipment stopped working for a short time.": "Thiết bị ngừng hoạt động một lúc",
@@ -3888,6 +3979,7 @@
       "quietly"
      ],
      "why": "\"responded promptly and fixed it\" = phản hồi nhanh (quickly).",
+     "ev": "In the afternoon the sound system stopped working for about fifteen minutes, but the staff responded promptly and fixed it.",
      "lg": {
       "og": {
        "quickly": "nhanh chóng",
@@ -3928,6 +4020,7 @@
       "To offer discounted rooms"
      ],
      "why": "Lindgren Hotels is looking for a Front Desk Supervisor.",
+     "ev": "Lindgren Hotels is looking for a Front Desk Supervisor for its Harbor Street location.",
      "lg": {
       "og": {
        "To fill a supervisor position": "Để tuyển một vị trí giám sát",
@@ -3948,6 +4041,7 @@
       "Sending a cover letter"
      ],
      "why": "Đối chiếu: công việc cần làm ca cuối tuần; anh học sáng thứ Bảy tới tháng 12.",
+     "ev": "I am currently taking a part-time course in hospitality management on Saturday mornings, which ends in December.",
      "lg": {
       "og": {
        "Working weekend shifts": "Làm ca cuối tuần",
@@ -3968,6 +4062,7 @@
       "It was rejected by Ms. Lindqvist."
      ],
      "why": "Đối chiếu: hạn 15/9, e-mail gửi ngày 12/9; có lịch phỏng vấn nên không bị loại.",
+     "ev": "To apply, send a résumé and a cover letter to jobs@lindgren.com by September 15.",
      "lg": {
       "og": {
        "It was sent before the deadline.": "Được gửi trước hạn nộp",
@@ -3988,6 +4083,7 @@
       "At 2:00 P.M."
      ],
      "why": "10:00 A.M. — Tomás Herrera.",
+     "ev": "10:00 A.M. — Tomás Herrera",
      "lg": {
       "og": {
        "At 10:00 A.M.": "Lúc 10 giờ sáng",
@@ -4048,6 +4144,7 @@
       "Because of a power outage"
      ],
      "why": "The second floor of the library will be closed for renovation.",
+     "ev": "The second floor of the library will be closed for renovation from July 1 to August 31.",
      "lg": {
       "og": {
        "For renovation work": "Để cải tạo",
@@ -4068,6 +4165,7 @@
       "At a nearby school"
      ],
      "why": "Đối chiếu: sự kiện ở Community Room; thông báo nói Community Room ở tầng 1.",
+     "ev": "During this time, the children's section will move to the Community Room on the first floor, and the computer lab will be closed.",
      "lg": {
       "og": {
        "On the first floor": "Ở tầng một",
@@ -4088,6 +4186,7 @@
       "Sunday"
      ],
      "why": "Đối chiếu: con 7 tuổi → Craft Club (6–9 tuổi) chiều thứ Năm.",
+     "ev": "Craft Club (ages 6–9): Thursdays, 3:00 P.M.",
      "lg": {
       "og": {
        "Thursday": "Thứ Năm",
@@ -4108,6 +4207,7 @@
       "Her daughter lost a book."
      ],
      "why": "the form would not accept my library card number.",
+     "ev": "I tried to register her online, but the form would not accept my library card number.",
      "lg": {
       "og": {
        "She could not complete an online registration.": "Bà không hoàn tất được đăng ký trực tuyến",
@@ -4128,6 +4228,7 @@
       "Printing services are not available."
      ],
      "why": "Đối chiếu: thông báo nói phòng máy tính đóng trong thời gian sửa (tới 31/8); máy in vẫn có ở quầy trước.",
+     "ev": "During this time, the children's section will move to the Community Room on the first floor, and the computer lab will be closed.",
      "lg": {
       "og": {
        "The computer lab is closed until the renovation ends.": "Phòng máy tính đóng đến khi cải tạo xong",
@@ -4160,6 +4261,7 @@
       "To recruit a communications manager"
      ],
      "why": "Harlow Foods announced … a new distribution center.",
+     "ev": "Harlow Foods announced today that it will open a new distribution center in Linden Bay next spring.",
      "lg": {
       "og": {
        "To announce a new facility": "Thông báo một cơ sở mới",
@@ -4180,6 +4282,7 @@
       "All of it"
      ],
      "why": "solar panels … roughly a third of its electricity.",
+     "ev": "The center will also use solar panels to supply roughly a third of its electricity.",
      "lg": {
       "og": {
        "About one-third": "Khoảng một phần ba",
@@ -4200,6 +4303,7 @@
       "It has built a similar center before."
      ],
      "why": "replace two smaller warehouses in nearby Corwin.",
+     "ev": "The 12,000-square-meter facility will replace two smaller warehouses in nearby Corwin and is expected to speed up deliveries to supermarkets across the region by up to a day.",
      "lg": {
       "og": {
        "It currently operates warehouses in Corwin.": "Hiện công ty đang có các kho ở Corwin.",
@@ -4232,6 +4336,7 @@
       "A report on traffic in Dunmore"
      ],
      "why": "I sold my car and began cycling … to my office.",
+     "ev": "Last year, I sold my car and began cycling the eight kilometers to my office in Dunmore.",
      "lg": {
       "og": {
        "A writer's experience of cycling to work": "Trải nghiệm đi làm bằng xe đạp của tác giả",
@@ -4252,6 +4357,7 @@
       "A neighbor who sold her a bicycle"
      ],
      "why": "My colleague Raj … lent me a waterproof jacket and showed me a quieter route.",
+     "ev": "My colleague Raj, who has cycled for years, lent me a waterproof jacket and showed me a quieter route along the river.",
      "lg": {
       "og": {
        "A coworker who gave Ms. Brandt help": "Một đồng nghiệp đã giúp bà Brandt",
@@ -4272,6 +4378,7 @@
       "It is located eight kilometers from a river."
      ],
      "why": "Dunmore also offers a free bicycle repair workshop.",
+     "ev": "Dunmore also offers a free bicycle repair workshop on the first Saturday of every month, which I highly recommend.",
      "lg": {
       "og": {
        "It offers services for cyclists.": "Thành phố có dịch vụ dành cho người đi xe đạp.",
@@ -4344,6 +4451,7 @@
       "A small potted flower"
      ],
      "why": "free packet of seeds with any purchase.",
+     "ev": "Bring this coupon to the Customer Service desk to receive a free packet of seeds with any purchase.",
      "lg": {
       "og": {
        "A packet of seeds": "Một gói hạt giống",
@@ -4376,6 +4484,7 @@
       "Uniforms for employees"
      ],
      "why": "The clinic will supply paper products and hand soap.",
+     "ev": "The clinic will supply paper products and hand soap.",
      "lg": {
       "og": {
        "Paper products and hand soap": "Đồ giấy và xà phòng rửa tay",
@@ -4396,6 +4505,7 @@
       "Brightline's liability is canceled."
      ],
      "why": "Payments received after that date will incur a late fee of 2 percent.",
+     "ev": "Payments received after that date will incur a late fee of 2 percent.",
      "lg": {
       "og": {
        "A late fee is added.": "Bị cộng thêm phí trễ hạn.",
@@ -4416,6 +4526,7 @@
       "By reporting damage to property"
      ],
      "why": "Either party may end it early by giving thirty days' written notice.",
+     "ev": "Either party may end it early by giving thirty days' written notice.",
      "lg": {
       "og": {
        "By giving written notice a month ahead": "Báo bằng văn bản trước một tháng",
@@ -4448,6 +4559,7 @@
       "Employees who print documents at home"
      ],
      "why": "less than six months are not eligible.",
+     "ev": "Employees who have been with the company for less than six months are not eligible.",
      "lg": {
       "og": {
        "Employees with at least six months of service": "Nhân viên làm đủ ít nhất sáu tháng",
@@ -4468,6 +4580,7 @@
       "announce"
      ],
      "why": "may revoke it if performance declines = huỷ nếu hiệu suất giảm.",
+     "ev": "Managers will review each arrangement every quarter and may revoke it if performance declines.",
      "lg": {
       "og": {
        "cancel": "huỷ bỏ",
@@ -4488,6 +4601,7 @@
       "The costs are shared equally."
      ],
      "why": "Employees are responsible for … any internet costs.",
+     "ev": "Employees are responsible for maintaining a suitable workspace and for any internet costs.",
      "lg": {
       "og": {
        "The employee": "Nhân viên",
@@ -4520,6 +4634,7 @@
       "Experience as a caterer"
      ],
      "why": "Applications without a cover letter will not be considered.",
+     "ev": "Applications without a cover letter will not be considered.",
      "lg": {
       "og": {
        "A cover letter": "Một thư xin việc",
@@ -4540,6 +4655,7 @@
       "It is based in a Spanish-speaking region."
      ],
      "why": "ability to work evenings and weekends when needed.",
+     "ev": "Qualifications: At least two years of experience in event planning or hospitality; strong written and verbal communication skills; ability to work evenings and weekends when needed; proficiency with scheduling software.",
      "lg": {
       "og": {
        "It may involve working outside regular hours.": "Công việc có thể phải làm ngoài giờ hành chính.",
@@ -4560,6 +4676,7 @@
       "After a successful event"
      ],
      "why": "health insurance after 60 days.",
+     "ev": "Benefits: Competitive salary, health insurance after 60 days, and free parking.",
      "lg": {
       "og": {
        "After about two months": "Sau khoảng hai tháng",
@@ -4592,6 +4709,7 @@
       "Help set up the Reading Room"
      ],
      "why": "In place of gifts, guests are invited to donate to the Library's Children's Book Fund.",
+     "ev": "In place of gifts, guests are invited to donate to the Library's Children's Book Fund.",
      "lg": {
       "og": {
        "Give money to a book fund": "Quyên góp cho quỹ sách",
@@ -4612,6 +4730,7 @@
       "She will give a speech at the event."
      ],
      "why": "After thirty-one years as Head Librarian.",
+     "ev": "After thirty-one years as Head Librarian at Fenwick Public Library, Grace Almeida will retire at the end of this month.",
      "lg": {
       "og": {
        "She has worked at the library for over three decades.": "Bà đã làm ở thư viện hơn ba thập kỷ.",
@@ -4644,6 +4763,7 @@
       "Longer opening hours"
      ],
      "why": "NEW THIS YEAR: Live music … and a cooking demonstration.",
+     "ev": "NEW THIS YEAR: Live music from 10:00 A.M. and a cooking demonstration by chef Isabel Cruz at 11:30 A.M. each week.",
      "lg": {
       "og": {
        "Weekly entertainment and a cooking demonstration": "Giải trí hằng tuần và một buổi nấu ăn mẫu",
@@ -4664,6 +4784,7 @@
       "Pay $25 per month"
      ],
      "why": "must be submitted two weeks before your first market day.",
+     "ev": "Applications are available at www.riversidemarket.example/vendors and must be submitted two weeks before your first market day.",
      "lg": {
       "og": {
        "Apply at least two weeks in advance": "Nộp đơn trước ít nhất hai tuần",
@@ -4700,6 +4821,7 @@
       "The budget was used up."
      ],
      "why": "social media ads brought a 15% increase in website visits.",
+     "ev": "Priya reported that social media ads brought a 15% increase in website visits.",
      "lg": {
       "og": {
        "Website visits increased.": "Lượt truy cập trang web tăng.",
@@ -4720,6 +4842,7 @@
       "October 15"
      ],
      "why": "Priya – send final ad images to Luis by October 12.",
+     "ev": "Action items: Priya – send final ad images to Luis by October 12.",
      "lg": {
       "og": {
        "October 12": "Ngày 12 tháng 10",
@@ -4740,6 +4863,7 @@
       "Mr. Ramos must approve its cost."
      ],
      "why": "Đối chiếu: biên bản – the proposal was approved; e-mail – get quotes from two studios before we sign anything.",
+     "ev": "Because we do not want to exceed the budget, I asked Luis to get quotes from two studios before we sign anything.",
      "lg": {
       "og": {
        "It was approved, but no studio has been chosen yet.": "Đã được duyệt nhưng chưa chọn xưởng phim.",
@@ -4760,6 +4884,7 @@
       "To invite him to the trade show"
      ],
      "why": "Could you let me know whether Sam should still attend?",
+     "ev": "Could you let me know whether Sam should still attend?",
      "lg": {
       "og": {
        "To update him and ask about a staff member's schedule": "Cập nhật tình hình và hỏi về lịch của một nhân viên",
@@ -4780,6 +4905,7 @@
       "$6,500"
      ],
      "why": "Đối chiếu: còn $4,000, video $2,500 → còn $1,500; e-mail: không muốn vượt ngân sách.",
+     "ev": "Luis noted that $4,000 remains in the advertising budget.",
      "lg": {
       "og": {
        "$1,500": "1.500 đô la",
@@ -4816,6 +4942,7 @@
       "Downtown"
      ],
      "why": "Đối chiếu: e-mail – khuyến mãi mùa hè → tăng nhiều nhất Q2–Q3; biểu đồ – Harbor tăng 160 → 210.",
+     "ev": "I would like to congratulate the branch that posted the biggest increase between the second and third quarters, which we credit to its summer promotion.",
      "lg": {
       "og": {
        "Harbor": "Chi nhánh Harbor",
@@ -4836,6 +4963,7 @@
       "To ask for holiday schedules"
      ],
      "why": "Year-end sales review … please prepare a recovery plan.",
+     "ev": "Total sales rose again, driven largely by holiday shopping in the fourth quarter.",
      "lg": {
       "og": {
        "To review annual results and assign a follow-up task": "Đánh giá kết quả cả năm và giao việc tiếp theo",
@@ -4856,6 +4984,7 @@
       "Harbor"
      ],
      "why": "Đối chiếu: e-mail – tổng cả năm cao nhất; biểu đồ – Downtown 300+280+260+250 = 1.090.",
+     "ev": "Finally, the branch with the highest total for the year will host our spring training session.",
      "lg": {
       "og": {
        "Downtown": "Chi nhánh Downtown",
@@ -4876,6 +5005,7 @@
       "Q3"
      ],
      "why": "Biểu đồ: Eastgate Q4 = 310.",
+     "ev": "Eastgate | 220 | 240 | 235 | 310",
      "lg": {
       "og": {
        "Q4": "Quý 4",
@@ -4896,6 +5026,7 @@
       "Harbor"
      ],
      "why": "Đối chiếu: e-mail – doanh số giảm mỗi quý; biểu đồ – Downtown 300 → 280 → 260 → 250.",
+     "ev": "I am also concerned about the branch whose sales have fallen every quarter.",
      "lg": {
       "og": {
        "Downtown": "Chi nhánh Downtown",
@@ -4932,6 +5063,7 @@
       "$132.50"
      ],
      "why": "Receipt: Total $119.95.",
+     "ev": "Total: $119.95",
      "lg": {
       "og": {
        "$119.95": "119,95 đô la",
@@ -4952,6 +5084,7 @@
       "Give it to a friend"
      ],
      "why": "I would like to exchange it for a large.",
+     "ev": "I would like to exchange it for a large.",
      "lg": {
       "og": {
        "Exchange it for a larger size": "Đổi sang cỡ lớn hơn",
@@ -4972,6 +5105,7 @@
       "A coupon worth $12.55 for a return"
      ],
      "why": "Member discount (10%): -$12.55.",
+     "ev": "Member discount (10%): -$12.55",
      "lg": {
       "og": {
        "A member discount of 10 percent": "Giảm 10% cho hội viên",
@@ -4992,6 +5126,7 @@
       "It was shipped overnight."
      ],
      "why": "Đối chiếu: e-mail – free for orders over $100; hoá đơn – subtotal $125.50, sau giảm $112.95.",
+     "ev": "I also noticed that I was charged $7.00 for shipping, although your website says it is free for orders over $100.",
      "lg": {
       "og": {
        "It exceeded the amount needed for free shipping.": "Giá trị đơn vượt mức được miễn phí giao hàng.",
@@ -5012,6 +5147,7 @@
       "He kept the shipping box."
      ],
      "why": "Đối chiếu: hoá đơn – within 30 days (ngày 12/11); e-mail ngày 20/11.",
+     "ev": "Return policy: Unworn items may be returned or exchanged within 30 days with this receipt.",
      "lg": {
       "og": {
        "He contacted the store within 30 days.": "Ông liên hệ cửa hàng trong vòng 30 ngày.",
@@ -5052,6 +5188,7 @@
       "$48"
      ],
      "why": "Đối chiếu 3 văn bản: giá 100 tờ rơi $48 + rush 25% = $12; e-mail: refunded the rush charge.",
+     "ev": "We have refunded the rush charge, and I would like to offer you 15% off your next order, valid until April 30.",
      "lg": {
       "og": {
        "$12": "12 đô la",
@@ -5072,6 +5209,7 @@
       "The flyers had a spelling mistake."
      ],
      "why": "my order arrived two days late.",
+     "ev": "My only complaint was that my order arrived two days late, even though I paid for rush service.",
      "lg": {
       "og": {
        "Her order arrived late.": "Đơn hàng của bà tới trễ.",
@@ -5092,6 +5230,7 @@
       "$65.00"
      ],
      "why": "Đối chiếu: bảng giá – banner $65; e-mail – 15% off.",
+     "ev": "We have refunded the rush charge, and I would like to offer you 15% off your next order, valid until April 30.",
      "lg": {
       "og": {
        "$55.25": "55,25 đô la",
@@ -5112,6 +5251,7 @@
       "To ask for a product review"
      ],
      "why": "thank you for your review. I apologize again for the delay.",
+     "ev": "I apologize again for the delay.",
      "lg": {
       "og": {
        "To respond to a customer's complaint": "Phản hồi lời phàn nàn của khách",
@@ -5132,6 +5272,7 @@
       "May 31"
      ],
      "why": "valid until April 30.",
+     "ev": "We have refunded the rush charge, and I would like to offer you 15% off your next order, valid until April 30.",
      "lg": {
       "og": {
        "April 30": "Ngày 30 tháng 4",
