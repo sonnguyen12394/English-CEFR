@@ -2142,7 +2142,7 @@ const R = await run(`(async () => {
       let L = tgJState(de), nx = tgJNext(de, L); if (L.length !== 100 || L.some(c => c.st !== 'chua') || nx.k !== 'thi' || !/^cR[0-9]+$/.test(nx.id)) bad.push('hành trình mới: phải là thi lượt Đọc đầu tiên');
       // v172 ⚔️ trận Boss: câu theo thứ tự đề; đúng = 🌱 (ghi ⭐), combo, chí mạng; sai = mất tim + 👾; 3 tim hết là thua, câu còn lại vẫn chưa làm
       { S.to.tc.nofx = 1; const bc = nx.cs; if (!bc || bc.length !== nx.n) bad.push('trận Boss phải có đủ câu của lượt');
-        tgBattle(de, bc); if (!$app.innerHTML.includes('tgboss') || btns('tgf').length !== 4) bad.push('màn Boss thiếu phần');
+        tgBattle(de, bc); if (!$app.innerHTML.includes('tgarena') || !$app.innerHTML.includes('<svg') || btns('tgf').length !== 4) bad.push('màn Boss thiếu phần');
         const pick = (q, ok) => fire('[data-tgf]', { tgf: String(ok ? q.opts.indexOf(q.a) : q.opts.findIndex(o => o !== q.a)) });
         pick(bc[0].q, true); if (!$app.innerHTML.includes('💥')) bad.push('đúng phải đánh trúng Boss'); fire('[data-tgn]');
         for (let i = 1; i <= 3; i++) { pick(bc[i].q, false); fire('[data-tgn]'); }
