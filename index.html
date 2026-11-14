@@ -187,6 +187,16 @@
   .tcc.sel { border-color:var(--accent); background:var(--accent2); font-weight:600; } .tcc.ok { border-color:var(--good); background:color-mix(in srgb,var(--good) 15%,var(--card)); color:var(--fg); }
   .tcc.no { border-color:var(--bad); background:color-mix(in srgb,var(--bad) 12%,var(--card)); color:var(--fg); } .tcc.tgout { border:1px dashed var(--line); border-radius:10px; color:var(--mute); }
   .tgmap .trc { display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:8px; color:var(--fg); } .trc.fx { border-color:var(--warn); background:var(--warn2); } .tgmap .trc.hi { border-color:var(--accent); background:var(--accent2); color:var(--accent); font-weight:700; }   /* v171 🟦 Hiểu */
+  /* v172 ⚔️ Chinh phục đề: đảo 100 ô, Boss, hiệu ứng (tắt được; giảm chuyển động thì tắt) */
+  .tgisle { display:grid; grid-template-columns:repeat(10,1fr); gap:2px; margin:8px 0 0; } .tgt { aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:15px; border-radius:6px; background:var(--accent2); }
+  .tgt.em { background:var(--line); opacity:.75; } .tgt.no { background:color-mix(in srgb,var(--bad) 22%,var(--card)); } .tgt.ok { background:color-mix(in srgb,var(--good) 18%,var(--card)); } .tgt.hi, .tgt.ch { background:color-mix(in srgb,var(--good) 32%,var(--card)); } .tgt.su { background:var(--warn2); }
+  .tgboss { display:flex; gap:12px; align-items:center; } .tgbe { font-size:44px; line-height:1; } .tghp i { background:var(--bad); transition:width .4s; }
+  .tgtime { height:6px; background:var(--line); border-radius:3px; overflow:hidden; } .tgtime i { display:block; height:100%; background:var(--warn); animation:tgtime linear forwards; }
+  .tgconf { font-size:28px; text-align:center; animation:tgpop .6s ease-out; }
+  .tgbe.hit { animation:tgshake .45s; } .tgpop { animation:tgpop .35s ease-out; }
+  @keyframes tgtime { from { width:100%; } to { width:0; } } @keyframes tgshake { 0%,100% { transform:none; } 20% { transform:translateX(-8px) rotate(-8deg); } 40% { transform:translateX(8px) rotate(8deg); } 60% { transform:translateX(-5px); } 80% { transform:translateX(5px); } }
+  @keyframes tgpop { from { transform:scale(.85); opacity:0; } to { transform:none; opacity:1; } }
+  @media (prefers-reduced-motion: reduce) { .tgbe.hit, .tgpop, .tgconf { animation:none; } .tghp i { transition:none; } }
   .tgs { margin:14px 0 2px; font-weight:700; color:var(--mute); font-size:14px; }
   .tcno { border-color:var(--bad); background:color-mix(in srgb,var(--bad) 10%,var(--card)); } .tgyes { border-color:var(--good); background:color-mix(in srgb,var(--good) 12%,var(--card)); }
   /* v147 🎓 đề thử TOEIC trọn 200 câu (totron.js): đáp án đã chọn (chưa chấm) có viền + ✓, nút A–D một hàng, bảng câu 101–200 ô ≥ 44 px, nút ⚑ 44 px */
@@ -275,51 +285,51 @@
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="ld"><i>🎯</i>Luyện đề</button><button data-tab="kd"><i>🛡️</i>Kiểm đề</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=171"></script>
-<script src="tonghop.js?v=171"></script>
-<script src="exam.js?v=171"></script>
-<script src="gopy.js?v=171"></script>
-<script src="tachpdf.js?v=171"></script>
-<script src="gop.js?v=171"></script>
-<script src="noi.js?v=171"></script>
-<script src="parts.js?v=171"></script>
-<script src="pa.js?v=171"></script>
-<script src="kit.js?v=171"></script>
-<script src="kparts.js?v=171"></script>
-<script src="backup.js?v=171"></script>
-<script src="mock.js?v=171"></script>
-<script src="mocknoi.js?v=171"></script>
-<script src="thi.js?v=171"></script>
-<script src="uoe.js?v=171"></script>
-<script src="nghe2.js?v=171"></script>
-<script src="cap.js?v=171"></script>
-<script src="lib.js?v=171"></script>
-<script src="homnay.js?v=171"></script>
-<script src="vuotcap.js?v=171"></script>
-<script src="nhanh.js?v=171"></script>
-<script src="bando.js?v=171"></script>
-<script src="soloi.js?v=171"></script>
-<script src="ielts.js?v=171"></script>
-<script src="focus.js?v=171"></script>
-<script src="ieplus.js?v=171"></script>
-<script src="iemap.js?v=171"></script>
-<script src="iethat.js?v=171"></script>
-<script src="tudien.js?v=171"></script>
-<script src="tracuu.js?v=171"></script>
-<script src="dieuhuong.js?v=171"></script>
-<script src="huongdan.js?v=171"></script>
-<script src="toqt.js?v=171"></script>
-<script src="toeic.js?v=171"></script>
-<script src="tomap.js?v=171"></script>
-<script src="cbmap.js?v=171"></script>
-<script src="dangthi.js?v=171"></script>
-<script src="baihoc.js?v=171"></script>
-<script src="deai.js?v=171"></script>
-<script src="hoclai.js?v=171"></script>
-<script src="totron.js?v=171"></script>
-<script src="trochoi.js?v=171"></script>
-<script src="kiemde.js?v=171"></script>
-<script src="chandoan.js?v=171"></script>
-<script src="lotrinh.js?v=171"></script>
+<script src="app.js?v=172"></script>
+<script src="tonghop.js?v=172"></script>
+<script src="exam.js?v=172"></script>
+<script src="gopy.js?v=172"></script>
+<script src="tachpdf.js?v=172"></script>
+<script src="gop.js?v=172"></script>
+<script src="noi.js?v=172"></script>
+<script src="parts.js?v=172"></script>
+<script src="pa.js?v=172"></script>
+<script src="kit.js?v=172"></script>
+<script src="kparts.js?v=172"></script>
+<script src="backup.js?v=172"></script>
+<script src="mock.js?v=172"></script>
+<script src="mocknoi.js?v=172"></script>
+<script src="thi.js?v=172"></script>
+<script src="uoe.js?v=172"></script>
+<script src="nghe2.js?v=172"></script>
+<script src="cap.js?v=172"></script>
+<script src="lib.js?v=172"></script>
+<script src="homnay.js?v=172"></script>
+<script src="vuotcap.js?v=172"></script>
+<script src="nhanh.js?v=172"></script>
+<script src="bando.js?v=172"></script>
+<script src="soloi.js?v=172"></script>
+<script src="ielts.js?v=172"></script>
+<script src="focus.js?v=172"></script>
+<script src="ieplus.js?v=172"></script>
+<script src="iemap.js?v=172"></script>
+<script src="iethat.js?v=172"></script>
+<script src="tudien.js?v=172"></script>
+<script src="tracuu.js?v=172"></script>
+<script src="dieuhuong.js?v=172"></script>
+<script src="huongdan.js?v=172"></script>
+<script src="toqt.js?v=172"></script>
+<script src="toeic.js?v=172"></script>
+<script src="tomap.js?v=172"></script>
+<script src="cbmap.js?v=172"></script>
+<script src="dangthi.js?v=172"></script>
+<script src="baihoc.js?v=172"></script>
+<script src="deai.js?v=172"></script>
+<script src="hoclai.js?v=172"></script>
+<script src="totron.js?v=172"></script>
+<script src="trochoi.js?v=172"></script>
+<script src="kiemde.js?v=172"></script>
+<script src="chandoan.js?v=172"></script>
+<script src="lotrinh.js?v=172"></script>
 </body>
 </html>
