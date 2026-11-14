@@ -1,0 +1,357 @@
+{
+ "_note": "Mẫu soạn theo docs/KHUON-DE-TOEIC.md (v175, 14/11/2026): 10 câu Part 5 + 4 bộ Part 7 (17 câu). Thợ Sonnet soạn, Opus đo. Part 7 đo: văn bản đơn 156 từ, bộ nhiều văn bản 342 từ, đáp án dài nhất 5/17, giải không có bài 7/17 = 41% (ETS 67%). KHÔNG phải đề, không vào app, chưa giải mù có bài, chưa giáo viên kiểm. Dùng làm mẫu cho thợ soạn đề sau.",
+ "p5": [
+  {
+   "id": "m-p5-01",
+   "t": "voc",
+   "s": "All sales representatives must ------- their expense reports to the accounting office by Friday.",
+   "o": [
+    "submit",
+    "permit",
+    "admit",
+    "commit"
+   ],
+   "a": "submit"
+  },
+  {
+   "id": "m-p5-02",
+   "t": "voc",
+   "s": "The factory manager spoke ------- about the need to upgrade the aging packaging equipment this year.",
+   "o": [
+    "firmly",
+    "slightly",
+    "partly",
+    "loosely"
+   ],
+   "a": "firmly"
+  },
+  {
+   "id": "m-p5-03",
+   "t": "voc",
+   "s": "Because of ------- circumstances, the quarterly meeting with overseas partners has been postponed until next Thursday.",
+   "o": [
+    "unforeseen",
+    "unfamiliar",
+    "unaffected",
+    "unspoken"
+   ],
+   "a": "unforeseen"
+  },
+  {
+   "id": "m-p5-04",
+   "t": "voc",
+   "s": "Hartwell Hardware offers a ------- of discounts to customers who join its loyalty program.",
+   "o": [
+    "range",
+    "sector",
+    "volume",
+    "extent"
+   ],
+   "a": "range"
+  },
+  {
+   "id": "m-p5-05",
+   "t": "voc",
+   "s": "The new training manual is ------- of three sections covering safety, customer service, and basic accounting.",
+   "o": [
+    "composed",
+    "divided",
+    "limited",
+    "related"
+   ],
+   "a": "composed"
+  },
+  {
+   "id": "m-p5-06",
+   "t": "form",
+   "s": "Mr. Okafor was ------- to learn that his proposal had been approved by the entire board.",
+   "o": [
+    "please",
+    "pleased",
+    "pleasing",
+    "pleasure"
+   ],
+   "a": "pleased"
+  },
+  {
+   "id": "m-p5-07",
+   "t": "form",
+   "s": "The ------- of a new payroll system has saved the accounting staff about ten hours weekly.",
+   "o": [
+    "introduce",
+    "introduced",
+    "introduction",
+    "introductory"
+   ],
+   "a": "introduction"
+  },
+  {
+   "id": "m-p5-08",
+   "t": "verb",
+   "s": "By the time the keynote speaker arrived, most attendees ------- their seats in the main auditorium.",
+   "o": [
+    "take",
+    "took",
+    "had taken",
+    "will take"
+   ],
+   "a": "had taken"
+  },
+  {
+   "id": "m-p5-09",
+   "t": "prep",
+   "s": "------- heavy snowfall, all flights out of Millbrook Airport departed on schedule this morning.",
+   "o": [
+    "Although",
+    "Despite",
+    "However",
+    "Because"
+   ],
+   "a": "Despite"
+  },
+  {
+   "id": "m-p5-10",
+   "t": "conj",
+   "s": "The shuttle bus will wait at the hotel entrance ------- all conference guests have boarded.",
+   "o": [
+    "until",
+    "during",
+    "afterward",
+    "moreover"
+   ],
+   "a": "until"
+  }
+ ],
+ "p7": [
+  {
+   "id": "m-p7-01",
+   "kind": "Coupon",
+   "docs": [
+    {
+     "title": "Coupon",
+     "text": "BRIGHTON BAY COFFEE ROASTERS\nThank You Coupon\n\nBring this coupon to the counter at either Brighton Bay shop and take 20 percent off one bag of whole-bean coffee. The coupon may be used together with the monthly loyalty discount, but it cannot be applied to gift cards or brewing equipment.\n\nValid from November 1 through December 15. A photocopy will be accepted as long as the barcode is readable, so feel free to pass a copy to a friend. Limit one coupon per customer per visit.\n\nOur Harbor Blend is roasted on Tuesday and Thursday mornings at the Dock Street shop. Bags are carried to the Elm Avenue shop the following day. Customers who want the freshest bag should therefore visit Dock Street on those days.\n\nAsk about our two-week sampler size, a smaller bag priced the same per ounce as a standard one."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is indicated about the coupon?",
+     "a": "Copies of it can still be redeemed.",
+     "w": [
+      "It cannot be used with other discounts.",
+      "It must be used at the original shop.",
+      "It can be applied to gift card purchases."
+     ],
+     "ev": "A photocopy will be accepted as long as the barcode is readable, so feel free to pass a copy to a friend."
+    },
+    {
+     "q": "What is indicated about the Elm Avenue shop?",
+     "a": "It receives coffee that was roasted elsewhere.",
+     "w": [
+      "It sells fewer roasts than the other shop.",
+      "It closes earlier than the Dock Street shop.",
+      "It does not accept the thank-you coupon."
+     ],
+     "ev": "Bags are carried to the Elm Avenue shop the following day."
+    },
+    {
+     "q": "What is indicated about the sampler size?",
+     "a": "It is enough for a couple of weeks.",
+     "w": [
+      "It costs less per ounce than other bags.",
+      "It is a popular gift for coffee lovers.",
+      "It includes several different kinds of roast."
+     ],
+     "ev": "Ask about our two-week sampler size, a smaller bag priced the same per ounce as a standard one."
+    }
+   ]
+  },
+  {
+   "id": "m-p7-02",
+   "kind": "Meeting minutes",
+   "docs": [
+    {
+     "title": "Minutes",
+     "text": "Rosewood Medical Group\nFacilities Committee Meeting, October 9\nPresent: Angela Ruiz (chair), Dev Patel, Lorna Fisk, Kenji Abe\n\n1. Parking. Ms. Fisk reported that complaints about crowded parking have fallen since the Oak Street clinic ended its evening hours in September, though staff still struggle to find spaces before 8 A.M. Mr. Patel proposed leasing spaces in the lot behind the bakery. Mr. Abe asked that the group first count how many spaces staff members actually use, since several of them already park at the bakery by private arrangement. The committee agreed.\n\n2. Waiting room. Ms. Ruiz presented three quotes for replacing worn chairs. The committee chose the second, whose fabric can be wiped clean, even though it costs the most, and asked the vendor to shorten the delivery time of eight weeks.\n\n3. Signs. Mr. Abe will ask the printer whether directional signs can be ready before the December open house.\n\nAction: Mr. Abe will report the parking count at the next meeting on November 6."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is indicated about the Oak Street clinic?",
+     "a": "It no longer stays open at night.",
+     "w": [
+      "It now sees more patients each day.",
+      "It plans to hire additional employees.",
+      "It has added parking behind the bakery."
+     ],
+     "ev": "since the Oak Street clinic ended its evening hours in September"
+    },
+    {
+     "q": "Why did Mr. Abe suggest counting parking spaces?",
+     "a": "Some staff already have a place to park.",
+     "w": [
+      "Patient complaints could be reduced right away.",
+      "The bakery may raise its lease prices soon.",
+      "A cheaper lot may be available nearby."
+     ],
+     "ev": "Mr. Abe asked that the group first count how many spaces staff members actually use, since several of them already park at the bakery by private arrangement."
+    },
+    {
+     "q": "What is indicated about the second quote?",
+     "a": "It cost more than the other offers.",
+     "w": [
+      "It promised the shortest delivery time.",
+      "It came from the group's usual vendor.",
+      "It was selected for its low price."
+     ],
+     "ev": "The committee chose the second, whose fabric can be wiped clean, even though it costs the most"
+    },
+    {
+     "q": "What does Mr. Abe need to learn from the printer?",
+     "a": "If signs can be ready for an event.",
+     "w": [
+      "How many parking spaces the clinic uses.",
+      "Which lot the committee should lease.",
+      "How long the new chairs will take."
+     ],
+     "ev": "Mr. Abe will ask the printer whether directional signs can be ready before the December open house."
+    }
+   ]
+  },
+  {
+   "id": "m-p7-03",
+   "kind": "Price list + online review",
+   "docs": [
+    {
+     "title": "Price list",
+     "text": "Lakeside Print & Copy: Business Services Price List\n\nBanner printing (vinyl, 3 feet by 6 feet): $48 each\n  Regular turnaround: 5 business days\n  Express turnaround: 2 business days (add $15 per order)\nBrochures (tri-fold, full color): $0.85 each, any quantity from 100 to 1,000\nBusiness cards (box of 250): $22\nPoster printing (18 by 24 inches): $14 each\nBinding and lamination: $3 per document\n\nDelivery is $9 within the Lakeside district and $16 beyond it, regardless of order size. Pickup is free.\nCustom designs: Our in-house designer prepares artwork for $40 per hour. Please send files in PDF format to reduce delays.\n\nOrders are accepted online, by phone, or at the counter. Business days are Monday through Friday, and holidays are not counted. Payment is due when the order is placed, and a deposit is requested only for orders over $200."
+    },
+    {
+     "title": "Online review",
+     "text": "Rating: 4 out of 5 stars. Reliable shop with one small surprise\nPosted by Marisol Vega, November 6\n\nI own a small bakery and needed 600 brochures and two banners for our grand reopening on November 8. I placed my order on October 30 and chose the regular turnaround for the banners because I assumed that I had plenty of time. When I stopped by on November 5, the brochures were ready and looked great, but the banners were not. Mr. Tran, the owner, explained that my regular order was due the next day, then offered to bring the banners to my bakery himself. They arrived on the morning of November 6, and the quality was excellent. The brochures were folded neatly, and the colors matched our menu closely, and the folding was done by hand. The shop is a short walk from my bakery, and Mr. Tran remembered me from an earlier visit when I bought business cards. I would also suggest sending the shop a finished file, since the designer's hourly fee added up when my first layout needed several changes."
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is indicated about Lakeside Print & Copy?",
+     "a": "Its delivery fee depends on the customer's location.",
+     "w": [
+      "It lowers brochure prices for large orders.",
+      "It waives delivery fees on big orders.",
+      "It adds a fee to pickup orders."
+     ],
+     "ev": "Delivery is $9 within the Lakeside district and $16 beyond it, regardless of order size."
+    },
+    {
+     "q": "What is the purpose of the second document?",
+     "a": "To share an opinion about a service",
+     "w": [
+      "To complain about some poor printing",
+      "To ask for money back on an order",
+      "To announce the opening of her bakery"
+     ],
+     "ev": "Reliable shop with one small surprise"
+    },
+    {
+     "q": "How much did Ms. Vega most likely pay for her brochures?",
+     "a": "$510",
+     "w": [
+      "$360",
+      "$450",
+      "$519"
+     ],
+     "ev": "needed 600 brochures and two banners for our grand reopening on November 8"
+    },
+    {
+     "q": "What does Mr. Tran do to resolve the problem?",
+     "a": "He delivers the banners to her bakery.",
+     "w": [
+      "He lowers the price of the banners.",
+      "He upgrades her order to express service.",
+      "He offers to reprint the banners."
+     ],
+     "ev": "then offered to bring the banners to my bakery himself"
+    },
+    {
+     "q": "What does Ms. Vega recommend?",
+     "a": "Bringing finished artwork to the shop",
+     "w": [
+      "Paying extra to speed up the order",
+      "Placing orders well ahead of events",
+      "Picking up printed items in person"
+     ],
+     "ev": "I would also suggest sending the shop a finished file"
+    }
+   ]
+  },
+  {
+   "id": "m-p7-04",
+   "kind": "Invitation + two e-mails",
+   "docs": [
+    {
+     "title": "Invitation",
+     "text": "You Are Invited!\nHarlow & Finch Architects\n10th Anniversary Celebration\n\nJoin us on Saturday, March 14, from 5:00 P.M. to 8:00 P.M. at the Millrace Gallery, 82 Canal Street, to celebrate a decade of designing spaces for the Tidewater community.\n\nGuests will enjoy a short exhibit of our past projects, live jazz, and refreshments from Olive & Thyme Catering. Parking is available at the Canal Street garage; validation will be provided at the door.\n\nPlease reply by March 2 to Jenna Park at jpark@harlowfinch.example. Business attire is not required. The gallery doors will open to all guests at 5:00 P.M., and the exhibit will be set up along the main hall."
+    },
+    {
+     "title": "E-mail 1",
+     "text": "To: Jenna Park\nFrom: Rafael Souza\nDate: February 24\nSubject: Anniversary celebration\n\nDear Ms. Park,\n\nThank you for inviting me and my wife, Elena, to the anniversary event. We would be delighted to attend. Because Elena uses a wheelchair, I wanted to ask whether the Millrace Gallery has an entrance without steps. If it does not, could you suggest another arrival point? Also, Elena has a severe allergy to shellfish, so we would appreciate learning in advance whether any of the dishes contain it. We will be driving in from Eastport, and I would rather not search for the right door once we arrive. My company built the shelving for your Fenwick Library renovation four years ago, and I am glad to see your firm doing so well.\n\nSincerely,\nRafael Souza"
+    },
+    {
+     "title": "E-mail 2",
+     "text": "To: Rafael Souza\nFrom: Jenna Park\nDate: February 25\nSubject: RE: Anniversary celebration\n\nDear Mr. Souza,\n\nWe are delighted that you and Elena can join us. The main doors on Canal Street have steps, but there is a ramp at the side entrance on Pike Lane, and a staff member will meet you there at 4:45 P.M. so you can arrive ahead of the crowd. I have checked with the caterer, and none of the dishes include shellfish, and the menu will be posted on our Web site by March 10. Please let me know if you need a reserved parking space; the garage is two blocks from the ramp.\n\nBest regards,\nJenna Park\nHarlow & Finch Architects"
+    }
+   ],
+   "qs": [
+    {
+     "q": "What is indicated about the celebration?",
+     "a": "Past projects will be on display.",
+     "w": [
+      "Guests are expected to dress formally.",
+      "It will be held at the firm's office.",
+      "The founders will give a short speech."
+     ],
+     "ev": "Guests will enjoy a short exhibit of our past projects, live jazz, and refreshments from Olive & Thyme Catering."
+    },
+    {
+     "q": "What will guests receive at the door?",
+     "a": "A stamp that lowers parking costs",
+     "w": [
+      "A printed guide to the exhibit",
+      "A name badge for each guest",
+      "A ticket for a prize drawing"
+     ],
+     "ev": "validation will be provided at the door"
+    },
+    {
+     "q": "What does Mr. Souza ask Ms. Park about?",
+     "a": "How his wife can enter the gallery",
+     "w": [
+      "Whether additional guests may come along",
+      "Whether free parking will be provided",
+      "What time the exhibit will open"
+     ],
+     "ev": "I wanted to ask whether the Millrace Gallery has an entrance without steps."
+    },
+    {
+     "q": "What is suggested about Mr. Souza?",
+     "a": "His company took part in an earlier project.",
+     "w": [
+      "He recently moved into the Tidewater area.",
+      "He used to be on the firm's staff.",
+      "He plans to open a library soon."
+     ],
+     "ev": "My company built the shelving for your Fenwick Library renovation four years ago"
+    },
+    {
+     "q": "At what time will a staff member meet Mr. Souza?",
+     "a": "4:45 P.M.",
+     "w": [
+      "4:00 P.M.",
+      "5:00 P.M.",
+      "5:30 P.M."
+     ],
+     "ev": "a staff member will meet you there at 4:45 P.M. so you can arrive ahead of the crowd"
+    }
+   ]
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 {
  "_note": "Sổ lỗi soạn đề TOEIC (specs/012-so-loi-soan-de). Claude soạn từ lỗi đã gặp khi soạn và làm Đề 1–8. Dựng ra kiemde.json bằng node tools/build-toeic.mjs. Trường: xem specs/012-so-loi-soan-de/data-model.md.",
- "v": 3,
+ "v": 4,
  "nhom": [
   {
    "id": "p1",
@@ -1794,6 +1794,36 @@
    "luat": [
     "H-ETS-LOAI",
     "D-KHUON-ETS"
+   ],
+   "tt": "chan"
+  },
+  {
+   "ma": "L-ETS-LE-THUONG",
+   "ten": "Part 7 đáp án là điều hợp lẽ thường, đoán được không cần đọc bài",
+   "khau": "soan",
+   "nhom": "p7",
+   "mo": "Thử khuôn v175: mẫu 17 câu Part 7 viết theo luật \"đáp án diễn đạt lại, khái quát\" bị đoán đúng 15/17 khi không có bài (ETS 67%): đáp án thành câu hợp lẽ thường nhất của loại văn bản, phương án sai có từ tuyệt đối (every, only) nên tự loại. Viết lại theo luật chống đoán bằng lẽ thường: 7/17 = 41%.",
+   "vd": [
+    {
+     "de": "mau",
+     "truoc": "Bảng giá in: ✓ \"It lowers some unit prices for larger orders.\" · ✗ \"It offers free delivery on every order.\" / \"It provides binding at no extra charge.\"",
+     "sau": "Bảng giá này đồng giá mọi số lượng, phí giao theo khoảng cách; \"giảm giá khi đặt nhiều\" thành phương án SAI; bỏ every / no extra charge ở phương án sai.",
+     "ai": "giaimu"
+    }
+   ],
+   "bat": [
+    "tusoat",
+    "giaimu"
+   ],
+   "gap": [
+    {
+     "de": "mau",
+     "n": 15
+    }
+   ],
+   "luat": [
+    "H-ETS-LE-THUONG",
+    "T-C80"
    ],
    "tt": "chan"
   }

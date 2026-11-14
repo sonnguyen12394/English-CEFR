@@ -68,6 +68,7 @@ So Đề 1–8 (Claude soạn) với 8 đề ETS Đọc (Đề 9–16, sách ETS
 - `H-ETS-DAI` · Part 7 dài gấp đôi đề app cũ: văn bản đơn 130–170 từ, bộ nhiều văn bản 300–400 từ, tổng ≥ 2.800 từ. Đề ngắn làm người học quen tốc độ giả: làm kịp đề app nhưng hết giờ ở đề thật.
 - `H-ETS-DAP-AN` · Part 7: đáp án **diễn đạt lại** (ít chép chữ của bài), phương án sai **dùng lại chữ của bài** nhưng sai ý; đáp án không dài / cụ thể hơn phương án sai. Ví dụ cần tránh (Đề 3, d03-p7-03, tiệm bánh): đáp án "Keeping display cases clean" (chép bài) · sai "Baking bread / Ordering supplies / Training new staff" (tự nghĩ, ngắn hơn) → đoán được mà không đọc. Cách soát: che bài, chỉ nhìn 4 phương án; nếu đoán ra đáp án thì viết lại.
 - `H-ETS-HOI` · Part 7 nhiều câu "What is indicated / stated / true about …" (~10 / 54) và câu suy luận "most likely / suggested" (~10 / 54); bớt câu chi tiết hỏi thẳng một con số.
+- `H-ETS-LE-THUONG` · Part 7: với mỗi câu, ghi lẽ thường người chưa đọc bài sẽ đoán; đáp án là chi tiết riêng của bài khác lẽ thường, hoặc lẽ thường nằm ở một phương án sai; không dùng every / only / no extra charge riêng ở phương án sai (v175: mẫu viết sai bị đoán 15/17 không cần bài, viết lại 7/17).
 - `H-ETS-LOAI` · Loại văn bản và thứ tự bộ Part 7 đổi mỗi đề (tin nhắn / trò chuyện trực tuyến không cố định ở bộ đầu); đề mới không được trùng chuỗi loại văn bản của đề trước.
 
 ## Luật máy kiểm (`tools/kiem-toeic.mjs`)

@@ -113,12 +113,25 @@ Trước khi soạn: viết ra chuỗi loại văn bản của 15 bộ; không t
 
 Chưa có số đo đề thật. Giữ cơ cấu ở bảng trên và các luật máy đang chạy (`docs/TIEU-CHI-DE-TOEIC.md`: bẫy Part 2, câu hỏi theo thứ tự, đáp án không chép nguyên văn lời nghe, bảng phải cần mới trả lời được, giới tính người nói). Bài học áp được từ Phần Đọc: đáp án Part 3–4 diễn đạt lại, phương án sai dùng từ có trong lời nghe nhưng sai ý.
 
+## Đã thử khuôn (v175, 14/11/2026)
+
+Thợ Sonnet soạn 10 câu Part 5 + 4 bộ Part 7 (17 câu) chỉ theo tệp này; Opus đo; phiên Claude phụ giải không có bài. Mẫu lưu ở `content/toeic/khuon/mau-v175.json` (dùng làm mẫu cho thợ lần sau).
+
+| | Vòng 1 (khuôn chưa có luật lẽ thường) | Vòng 2 (thêm luật lẽ thường) | ETS |
+|---|---|---|---|
+| Văn bản đơn / bộ nhiều văn bản (từ) | 147 / 287 | 156 / 342 | 137–169 / 330–400 |
+| Đáp án là phương án dài nhất | 8 / 17 | 5 / 17 | ~3 / 17 |
+| Giải không có bài đoán đúng | **15 / 17 (88%)** | **7 / 17 (41%)** | 67% |
+| Part 5: câu / từ, câu từ vựng | 15 từ, 6 / 10 | (giữ) | 14–15 từ, ~4 / 10 |
+
+Còn lệch: câu "suggested / most likely" mới 2 / 17 (ETS ~4 / 17); đáp án dài nhất vẫn hơi cao. 17 câu là mẫu nhỏ, sai số lớn: cần đo lại khi có đề trọn đầu tiên.
+
 ## Quy trình soạn một đề mới (nhanh)
 
 | Bước | Việc | Ai làm |
 |---|---|---|
 | 1 | Lập dàn đề: 15 chuỗi loại văn bản Part 7, tình huống từng bài Part 3–4 / 6 / 7 (không lặp trong đề và với đề trước), dạng 30 câu Part 5 theo bảng trên | Phiên chính (Opus) |
-| 2 | Soạn theo khuôn + sổ lỗi, từng Part một tệp nguồn `content/toeic/tron/deNN.json` | Thợ soạn theo khuôn (Sonnet) |
+| 2 | Soạn theo khuôn + sổ lỗi + mẫu `content/toeic/khuon/mau-v175.json`, từng Part một tệp nguồn `content/toeic/tron/deNN.json`. Soạn 3 bộ Part 7 đầu, giải không có bài ngay (≤ 75%) rồi mới soạn tiếp: lỗi lẽ thường lộ sớm | Thợ soạn theo khuôn (Sonnet) |
 | 3 | `node tools/build-toeic.mjs` (cơ cấu + luật máy + khuôn ETS) → sửa tới 0 lỗi | Thợ máy chạy, thợ soạn sửa |
 | 4 | Giải không có bài (Part 7) ≤ `KB_MAX` → giải mù cả đề 200 / 200 | Thợ giải mù (Sonnet) |
 | 5 | Soát ≥ 10% câu theo `docs/TIEU-CHI-DE-TOEIC.md`, thêm lỗi mới vào sổ | Thợ soát (Opus) |
