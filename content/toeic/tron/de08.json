@@ -3119,22 +3119,22 @@
    "qs": [
     {
      "q": "Why did Ms. Silva contact Mr. Clarke?",
-     "a": "To find someone to receive a parcel",
+     "a": "To ask him to accept a delivery",
      "w": [
-      "To ask him to meet a client at reception",
-      "To ask him to send a package to the team",
-      "To tell him a courier is late"
+      "To ask him to cancel a delivery",
+      "To ask him to return a delivery",
+      "To ask him to track a delivery"
      ],
      "ev": "He needs someone from the team to sign for it.",
-     "why": "Người giao hàng cần có người trong nhóm ký nhận kiện hàng.",
+     "why": "Người giao hàng cần có người trong nhóm ký nhận nên bà nhờ ông nhận kiện.",
      "lg": {
       "og": {
-       "To find someone to receive a parcel": "Để tìm người nhận một kiện hàng",
-       "To ask him to meet a client at reception": "Để nhờ ông gặp khách ở lễ tân",
-       "To ask him to send a package to the team": "Để nhờ ông gửi một kiện hàng cho nhóm",
-       "To tell him a courier is late": "Để báo người giao hàng đến trễ"
+       "To ask him to accept a delivery": "Để nhờ ông nhận một kiện giao",
+       "To ask him to cancel a delivery": "Để nhờ ông huỷ một kiện giao",
+       "To ask him to return a delivery": "Để nhờ ông trả lại một kiện giao",
+       "To ask him to track a delivery": "Để nhờ ông theo dõi một kiện giao"
       },
-      "ly": "Đáp án \"To find someone to receive a parcel\": Người giao hàng cần có người trong nhóm ký nhận kiện hàng.",
+      "ly": "Đáp án \"To ask him to accept a delivery\": Người giao hàng cần có người trong nhóm ký nhận nên bà nhờ ông nhận kiện.",
       "dich": "Có một người giao hàng ở lễ tân với một kiện hàng cho nhóm thiết kế. Anh ấy cần người trong nhóm ký nhận."
      }
     },
@@ -3175,20 +3175,20 @@
      "q": "What happens to items that are not claimed?",
      "a": "They are given to a charity.",
      "w": [
-      "They are thrown away.",
-      "They are sold online.",
-      "They are sent to the police."
+      "They are sold at an auction.",
+      "They are kept for another year.",
+      "They are turned over to the police."
      ],
      "ev": "will be donated to the Marston Community Fund, a local charity",
      "why": "Đồ không ai nhận sau 30 ngày được tặng cho tổ chức từ thiện Marston Community Fund.",
      "lg": {
       "og": {
-       "They are given to a charity.": "Được tặng cho một tổ chức từ thiện",
-       "They are thrown away.": "Bị vứt đi",
-       "They are sold online.": "Bị bán trực tuyến",
-       "They are sent to the police.": "Bị gửi cho cảnh sát"
+       "They are given to a charity.": "Được tặng cho một tổ chức từ thiện.",
+       "They are sold at an auction.": "Được bán đấu giá.",
+       "They are kept for another year.": "Được giữ thêm một năm.",
+       "They are turned over to the police.": "Được giao cho cảnh sát."
       },
-      "ly": "Thông báo nói đồ không ai nhận trong thời hạn sẽ được tặng cho Quỹ Cộng đồng Marston, một tổ chức từ thiện.",
+      "ly": "Đáp án \"They are given to a charity.\": Đồ không ai nhận sau 30 ngày được tặng cho tổ chức từ thiện Marston Community Fund.",
       "dich": "Đồ không có người nhận trong thời gian này sẽ được tặng cho Quỹ Cộng đồng Marston, một tổ chức từ thiện địa phương."
      }
     },
@@ -3227,22 +3227,22 @@
    "qs": [
     {
      "q": "What can customers get for an additional fee?",
-     "a": "Faster service",
+     "a": "A quicker turnaround",
      "w": [
-      "Home delivery",
-      "Free pickup",
-      "A clothing design"
+      "A private fitting session",
+      "Pickup from their home",
+      "A choice of fabrics"
      ],
      "ev": "rush service is available for an extra $15",
-     "why": "Trả thêm $15 để lấy gấp (rush service).",
+     "why": "Trả thêm $15 để dùng dịch vụ gấp (rush service), tức lấy đồ nhanh hơn.",
      "lg": {
       "og": {
-       "Faster service": "Dịch vụ nhanh hơn",
-       "Home delivery": "Giao tận nhà",
-       "Free pickup": "Nhận hàng miễn phí",
-       "A clothing design": "Thiết kế quần áo"
+       "A quicker turnaround": "Lấy đồ nhanh hơn",
+       "A private fitting session": "Một buổi thử đồ riêng",
+       "Pickup from their home": "Lấy đồ tại nhà khách",
+       "A choice of fabrics": "Được chọn loại vải"
       },
-      "ly": "Dịch vụ gấp có sẵn với phụ phí 15 đô la.",
+      "ly": "Đáp án \"A quicker turnaround\": Trả thêm $15 để dùng dịch vụ gấp (rush service), tức lấy đồ nhanh hơn.",
       "dich": "Dịch vụ gấp có sẵn với phụ phí 15 đô la."
      }
     },
@@ -3281,22 +3281,22 @@
    "qs": [
     {
      "q": "Why was the e-mail sent?",
-     "a": "To welcome a new employee",
+     "a": "To welcome a new team member",
      "w": [
-      "To schedule a job interview",
-      "To announce a promotion",
-      "To request a laptop repair"
+      "To announce a new hiring policy",
+      "To invite staff to a retirement lunch",
+      "To report a payroll error"
      ],
      "ev": "We're looking forward to having you join our research team on Monday, June 2.",
-     "why": "Thư chào mừng nhân viên mới, báo việc trong ngày đầu đi làm.",
+     "why": "Thư chào mừng bà gia nhập nhóm nghiên cứu và báo việc trong ngày đầu đi làm.",
      "lg": {
       "og": {
-       "To welcome a new employee": "Để chào mừng nhân viên mới",
-       "To schedule a job interview": "Để hẹn phỏng vấn",
-       "To announce a promotion": "Để thông báo thăng chức",
-       "To request a laptop repair": "Để yêu cầu sửa máy tính"
+       "To welcome a new team member": "Để chào mừng thành viên mới",
+       "To announce a new hiring policy": "Để thông báo chính sách tuyển dụng mới",
+       "To invite staff to a retirement lunch": "Để mời nhân viên dự tiệc nghỉ hưu",
+       "To report a payroll error": "Để báo lỗi bảng lương"
       },
-      "ly": "E-mail mở đầu bằng lời chào mừng bà gia nhập Corwin Analytics và nói về ngày đầu đi làm.",
+      "ly": "Đáp án \"To welcome a new team member\": Thư chào mừng bà gia nhập nhóm nghiên cứu và báo việc trong ngày đầu đi làm.",
       "dich": "Chào mừng bà đến với Corwin Analytics! Chúng tôi rất mong được đón bà vào nhóm nghiên cứu vào thứ Hai, ngày 2 tháng 6."
      }
     },
@@ -3335,22 +3335,22 @@
    "qs": [
     {
      "q": "What is the article mainly about?",
-     "a": "Changes at a local business",
+     "a": "A bookstore adding a café",
      "w": [
-      "The opening of a new bakery",
-      "A book by a local author",
-      "A store's move to a new street"
+      "A bookstore changing its owner",
+      "A bookstore closing its doors",
+      "A bookstore raising its prices"
      ],
      "ev": "reopened on Saturday after adding a small café at the back of the store",
      "why": "Bài nói về hiệu sách lâu năm mở thêm quán cà phê và dời khu sách thiếu nhi.",
      "lg": {
       "og": {
-       "Changes at a local business": "Những thay đổi ở một cửa hàng địa phương",
-       "The opening of a new bakery": "Việc mở tiệm bánh mới",
-       "A book by a local author": "Sách của tác giả địa phương",
-       "A store's move to a new street": "Việc cửa hàng chuyển sang phố mới"
+       "A bookstore adding a café": "Hiệu sách thêm quán cà phê",
+       "A bookstore changing its owner": "Hiệu sách đổi chủ",
+       "A bookstore closing its doors": "Hiệu sách đóng cửa",
+       "A bookstore raising its prices": "Hiệu sách tăng giá"
       },
-      "ly": "Bài báo nói hiệu sách Page Turner mở lại sau khi thêm quán cà phê và chuyển khu thiếu nhi.",
+      "ly": "Đáp án \"A bookstore adding a café\": Bài nói về hiệu sách lâu năm mở thêm quán cà phê và dời khu sách thiếu nhi.",
       "dich": "Page Turner Books, hiệu sách gia đình trên đại lộ Lark hơn bốn mươi năm, đã mở lại vào thứ Bảy sau khi thêm một quán cà phê nhỏ."
      }
     },
@@ -3410,22 +3410,22 @@
    "qs": [
     {
      "q": "What is the purpose of the memo?",
-     "a": "To introduce a new policy",
+     "a": "To start a quiet-hours trial",
      "w": [
-      "To announce an office move",
-      "To request feedback on headphones",
-      "To schedule a staff meeting"
+      "To announce a floor renovation",
+      "To explain a new parking rule",
+      "To invite staff to a workshop"
      ],
      "ev": "the hours from 9 to 11 A.M. will be quiet hours on the fourth floor",
-     "why": "Thông báo giờ yên lặng 9–11 giờ sáng ở tầng 4.",
+     "why": "Thông báo thử giờ yên lặng 9–11 giờ sáng ở tầng 4 trong ba tháng.",
      "lg": {
       "og": {
-       "To introduce a new policy": "Để giới thiệu một quy định mới",
-       "To announce an office move": "Để thông báo chuyển văn phòng",
-       "To request feedback on headphones": "Để xin ý kiến về tai nghe",
-       "To schedule a staff meeting": "Để lên lịch họp nhân viên"
+       "To start a quiet-hours trial": "Để bắt đầu thử giờ yên tĩnh",
+       "To announce a floor renovation": "Để thông báo sửa lại tầng",
+       "To explain a new parking rule": "Để giải thích quy định đỗ xe mới",
+       "To invite staff to a workshop": "Để mời nhân viên dự hội thảo"
       },
-      "ly": "Bản ghi nhớ báo giờ yên tĩnh mới từ 9 đến 11 giờ sáng ở tầng bốn.",
+      "ly": "Đáp án \"To start a quiet-hours trial\": Thông báo thử giờ yên lặng 9–11 giờ sáng ở tầng 4 trong ba tháng.",
       "dich": "Từ thứ Hai, khung giờ 9 đến 11 giờ sáng sẽ là giờ yên tĩnh ở tầng bốn."
      }
     },
@@ -3484,22 +3484,22 @@
    "qs": [
     {
      "q": "What is indicated about Northgate Translation Services?",
-     "a": "Each document gets a second review",
+     "a": "A second translator checks documents",
      "w": [
-      "Its team has 30 translators in total",
-      "It was founded in the nineteen nineties",
-      "Large projects are returned in two days"
+      "Quotes are given for a small fee",
+      "Most jobs are finished in one day",
+      "Large files are returned within a week"
      ],
      "ev": "every translation is checked by a second translator before delivery",
-     "why": "Trang web nói mọi bản dịch được một phiên dịch viên thứ hai kiểm tra.",
+     "why": "Trang web nói mọi bản dịch được một phiên dịch viên thứ hai kiểm tra; báo giá miễn phí.",
      "lg": {
       "og": {
-       "Each document gets a second review": "Mỗi tài liệu được kiểm tra lần hai",
-       "Its team has 30 translators in total": "Đội ngũ có tổng cộng 30 phiên dịch viên",
-       "It was founded in the nineteen nineties": "Thành lập vào những năm 1990",
-       "Large projects are returned in two days": "Dự án lớn trả trong hai ngày"
+       "A second translator checks documents": "Một dịch giả thứ hai kiểm tra tài liệu",
+       "Quotes are given for a small fee": "Báo giá có tính phí nhỏ",
+       "Most jobs are finished in one day": "Đa số việc xong trong một ngày",
+       "Large files are returned within a week": "Tệp lớn được trả trong một tuần"
       },
-      "ly": "Đáp án \"Each document gets a second review\": Trang web nói mọi bản dịch được một phiên dịch viên thứ hai kiểm tra.",
+      "ly": "Đáp án \"A second translator checks documents\": Trang web nói mọi bản dịch được một phiên dịch viên thứ hai kiểm tra; báo giá miễn phí.",
       "dich": "Mọi bản dịch đều được một phiên dịch viên thứ hai kiểm tra trước khi giao."
      }
     },
@@ -3559,22 +3559,22 @@
    "qs": [
     {
      "q": "What problem does Ms. Owusu report?",
-     "a": "A shipment has been delayed.",
+     "a": "A shipment is running late",
      "w": [
-      "A booth has been canceled.",
-      "A banner contains an error.",
-      "A flight is fully booked."
+      "A hotel booking was lost",
+      "A speaker canceled a talk",
+      "A banner was printed wrongly"
      ],
      "ev": "the booth materials for the Denver trade show are stuck at a shipping hub in Kansas",
-     "why": "Hàng cho gian triển lãm bị kẹt ở kho trung chuyển, chiều thứ Năm mới tới.",
+     "why": "Tài liệu gian hàng bị kẹt ở trung tâm vận chuyển, chiều thứ Năm mới tới.",
      "lg": {
       "og": {
-       "A shipment has been delayed.": "Một lô hàng bị chậm",
-       "A booth has been canceled.": "Một gian hàng bị huỷ",
-       "A banner contains an error.": "Biểu ngữ có lỗi",
-       "A flight is fully booked.": "Chuyến bay kín chỗ"
+       "A shipment is running late": "Một lô hàng đang đến trễ",
+       "A hotel booking was lost": "Một đặt phòng khách sạn bị mất",
+       "A speaker canceled a talk": "Một diễn giả huỷ bài nói",
+       "A banner was printed wrongly": "Biểu ngữ bị in sai"
       },
-      "ly": "Bà Owusu báo tài liệu gian hàng bị kẹt ở trung tâm vận chuyển ở Kansas.",
+      "ly": "Đáp án \"A shipment is running late\": Tài liệu gian hàng bị kẹt ở trung tâm vận chuyển, chiều thứ Năm mới tới.",
       "dich": "Tài liệu gian hàng cho hội chợ ở Denver đang bị kẹt ở một trung tâm vận chuyển ở Kansas."
      }
     },
@@ -3655,22 +3655,22 @@
    "qs": [
     {
      "q": "Why is the market moving?",
-     "a": "Its location is being used for housing",
+     "a": "The lot is being redeveloped",
      "w": [
-      "Its vendors wanted a place with a playground",
-      "The park offered lower fees",
-      "The mall is closing for repairs"
+      "The mall's rent has gone up",
+      "The city ordered a safety move",
+      "The mall is closing next month"
      ],
      "ev": "the mall's new owners plan to build apartments on the lot",
-     "why": "Chủ mới của trung tâm thương mại định xây chung cư trên bãi đỗ xe.",
+     "why": "Chủ mới của trung tâm thương mại định xây chung cư trên bãi đỗ xe nên bãi đất được xây lại.",
      "lg": {
       "og": {
-       "Its location is being used for housing": "Địa điểm của chợ sắp dùng để xây nhà ở",
-       "Its vendors wanted a place with a playground": "Người bán muốn nơi có sân chơi",
-       "The park offered lower fees": "Công viên giảm phí",
-       "The mall is closing for repairs": "Trung tâm thương mại đóng để sửa"
+       "The lot is being redeveloped": "Bãi đất đang được xây lại",
+       "The mall's rent has gone up": "Tiền thuê của trung tâm thương mại tăng",
+       "The city ordered a safety move": "Thành phố yêu cầu dời vì an toàn",
+       "The mall is closing next month": "Trung tâm thương mại đóng cửa tháng tới"
       },
-      "ly": "Đáp án \"Its location is being used for housing\": Chủ mới của trung tâm thương mại định xây chung cư trên bãi đỗ xe.",
+      "ly": "Đáp án \"The lot is being redeveloped\": Chủ mới của trung tâm thương mại định xây chung cư trên bãi đỗ xe nên bãi đất được xây lại.",
       "dich": "Chủ mới của trung tâm thương mại dự định xây chung cư trên bãi đỗ xe."
      }
     },
@@ -3771,21 +3771,21 @@
     },
     {
      "q": "What is NOT mentioned as a benefit of the Patron level?",
-     "a": "Free parking",
+     "a": "Free guided tours of exhibits",
      "w": [
       "Free entry for guests",
       "Invitations to private previews",
       "A discount at the museum shop"
      ],
-     "why": "Thư nêu vào cửa miễn phí cho 2 khách, mời xem trước triển lãm, giảm 15% ở cửa hàng và quán; không nói gì về gửi xe.",
+     "why": "Thư nêu vào cửa miễn phí cho 2 khách, mời xem trước triển lãm, giảm 15% ở cửa hàng và quán; không nói gì về tham quan có hướng dẫn.",
      "lg": {
       "og": {
-       "Free parking": "Đỗ xe miễn phí",
+       "Free guided tours of exhibits": "Tham quan có hướng dẫn miễn phí",
        "Free entry for guests": "Vào cửa miễn phí cho khách",
        "Invitations to private previews": "Thư mời xem trước riêng",
        "A discount at the museum shop": "Giảm giá ở cửa hàng bảo tàng"
       },
-      "ly": "Quyền lợi Patron gồm vào cửa miễn phí cho bà và hai khách, thư mời xem trước và giảm 15% ở cửa hàng và quán cà phê. Không có đỗ xe miễn phí.",
+      "ly": "Đáp án \"Free guided tours of exhibits\": Thư nêu vào cửa miễn phí cho 2 khách, mời xem trước triển lãm, giảm 15% ở cửa hàng và quán; không nói gì về tham quan có hướng dẫn.",
       "dich": "Bà sẽ được vào cửa miễn phí cho bà và hai khách, thư mời xem trước riêng các triển lãm mới và giảm giá 15 phần trăm ở cửa hàng và quán cà phê của bảo tàng."
      }
     },
@@ -3849,22 +3849,22 @@
    "qs": [
     {
      "q": "What is indicated about all of the tents?",
-     "a": "Setup is included in the price.",
+     "a": "Crew members set up each tent",
      "w": [
-      "They require a deposit.",
-      "They come with tables and chairs.",
-      "They must be booked a month ahead."
+      "Each tent includes a wooden floor",
+      "Each tent comes with lighting",
+      "Each tent has a heater included"
      ],
      "ev": "All prices include setup and takedown by our crew.",
-     "why": "Giá mọi lều đã gồm dựng và tháo lều.",
+     "why": "Giá mọi lều đã gồm dựng và tháo lều do nhân viên thực hiện.",
      "lg": {
       "og": {
-       "Setup is included in the price.": "Giá đã gồm lắp dựng",
-       "They require a deposit.": "Phải đặt cọc",
-       "They come with tables and chairs.": "Kèm bàn ghế",
-       "They must be booked a month ahead.": "Phải đặt trước một tháng"
+       "Crew members set up each tent": "Nhân viên dựng từng lều",
+       "Each tent includes a wooden floor": "Mỗi lều có sàn gỗ",
+       "Each tent comes with lighting": "Mỗi lều kèm đèn",
+       "Each tent has a heater included": "Mỗi lều kèm máy sưởi"
       },
-      "ly": "Trang web ghi mọi giá đều gồm việc dựng và tháo lều do nhân viên thực hiện.",
+      "ly": "Đáp án \"Crew members set up each tent\": Giá mọi lều đã gồm dựng và tháo lều do nhân viên thực hiện.",
       "dich": "Mọi mức giá đều gồm việc dựng và tháo bởi nhân viên của chúng tôi."
      }
     },
@@ -3972,22 +3972,22 @@
    "qs": [
     {
      "q": "What is indicated about The Loft Coworking?",
-     "a": "Early payment can reduce the price",
+     "a": "Prepaying members get a discount",
      "w": [
-      "The meeting room is free without booking",
-      "The Private Office plan has 24-hour access",
-      "Coffee costs extra with the Day Pass"
+      "Students get a reduced monthly rate",
+      "Referrals earn a free day pass",
+      "Teams of four pay a lower rate"
      ],
      "ev": "Members who pay for six months in advance receive a 15 percent discount.",
      "why": "Quảng cáo nói trả trước sáu tháng được giảm 15 phần trăm.",
      "lg": {
       "og": {
-       "Early payment can reduce the price": "Trả sớm có thể giảm giá",
-       "The meeting room is free without booking": "Phòng họp miễn phí không cần đặt trước",
-       "The Private Office plan has 24-hour access": "Gói Văn phòng riêng được vào 24 giờ",
-       "Coffee costs extra with the Day Pass": "Cà phê tính thêm phí với vé ngày"
+       "Prepaying members get a discount": "Hội viên trả trước được giảm giá",
+       "Students get a reduced monthly rate": "Sinh viên được giá tháng thấp hơn",
+       "Referrals earn a free day pass": "Giới thiệu bạn được vé ngày miễn phí",
+       "Teams of four pay a lower rate": "Nhóm bốn người trả giá thấp hơn"
       },
-      "ly": "Đáp án \"Early payment can reduce the price\": Quảng cáo nói trả trước sáu tháng được giảm 15 phần trăm.",
+      "ly": "Đáp án \"Prepaying members get a discount\": Quảng cáo nói trả trước sáu tháng được giảm 15 phần trăm.",
       "dich": "Thành viên trả trước sáu tháng được giảm giá 15 phần trăm."
      }
     },
