@@ -2238,6 +2238,32 @@ const R = await run(`(async () => {
       if ((S.to.mock || []).length || Object.keys(S.c || {}).length) bad.push('đo game đụng điểm đề thử / thẻ học');
     } catch (e) { bad.push('lỗi: ' + e.message); }
     Math.random = R0; S = S1; TR.B = {}; TR.D = {}; TG_P = null; $app.onkeydown = null; out.push({ lv: 'cefr', id: 'C81', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '📊 đo game Chinh phục đề: nhật ký + trận bỏ dở, ⭐ tạm xác nhận ngày sau, tái đấu đổi chỗ ~50%, Boss ẩn câu chưa gặp (ghi lộ), đề đối chứng ra khỏi game, H1 ≥ 90% / ghép nghĩa ≤ 30% mọi đề, gợi ý gõ giảm dần, 16 tiêu chí' }); }
+  // v177 C82 Chinh phục đề hấp dẫn hơn (specs/020-game-hap-dan): 🏘 làng theo ⭐ thật / 🌳, 📜 3 nhiệm vụ chốt đầu ngày theo việc có thể làm, sự kiện học đếm nhiệm vụ,
+  //   🎁 rương 1 lần / ngày khi xong 3 việc (đồ trang trí, độ hiếm), 🏅 huy hiệu dạng câu từ Boss ẩn, 3 câu hỏi nhanh sau 5 trận → E3; không đụng điểm đề thử / thẻ học
+  { const bad = [], S1 = S; try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad(); TG_P = await tgPool(); const de = 'de3', now = Date.now(), T = () => S.to.tc;
+      S.to.tc = { de, nofx: 1, nosnd: 1 }; const B = trB(de), Q = B.Q.filter(q => /^p[5-7]$/.test(q.sec)), J = tgJ(de);
+      Q.forEach((q, i) => { if (i < 30) J.c[q.n] = { s: i < 3 ? 'sai' : 'ok', at: now - 2 * DAY }; });
+      let L = tgJState(de), Qd = tgQuests(L); if (Qd.q.length !== 3 || Qd.d !== tgDay() || !Qd.q.includes('quai') && !Qd.q.includes('win') && !Qd.q.includes('cay')) bad.push('nhiệm vụ: phải 3 việc có thể làm (' + Qd.q + ')');
+      if (Qd.q.includes('cuu') || Qd.q.includes('xac') || Qd.q.includes('an')) bad.push('nhiệm vụ không được ép việc chưa có (' + Qd.q + ')');
+      const q0 = JSON.stringify(Qd); J.c[Q[50].n] = { s: 'sai', at: now }; if (JSON.stringify(tgQuests(tgJState(de))) !== q0) bad.push('nhiệm vụ phải chốt trong ngày');
+      if (Qd.q.includes('quai')) { tgSua(de, [L.find(c => c.st === 'sai')], 0); $app.onclick({ target: { closest: s => s === '[data-tgn]' ? { dataset: {} } : null } });
+        const m = [...String($app.innerHTML).matchAll(/data-tgf="([0-9])">[A-D]. ([^<]*)</g)], c0 = L.find(c => c.st === 'sai'), k = m.find(x => x[2] === esc(c0.q.a));
+        $app.onclick({ target: { closest: s => s === '[data-tgf]' ? { dataset: { tgf: k[1] } } : null } }); if ((T().qd.c.quai || 0) !== 1) bad.push('hạ quái phải đếm nhiệm vụ'); }
+      if (tgOpenChest()) bad.push('chưa xong 3 việc không được mở rương');
+      for (const k of T().qd.q) T().qd.c[k] = T().qd.n[k]; const w = tgOpenChest(); if (!w || !['t', 'h', 'q'].includes(w.r) || !TG_RUONG[w.r][1].includes(w.e) || T().kho.length !== 1) bad.push('mở rương phải ra 1 đồ đúng độ hiếm');
+      if (tgOpenChest()) bad.push('rương chỉ 1 lần / ngày');
+      // làng theo ⭐ thật
+      const C = tgJCount(tgJState(de)), lh = tgLang({ ok: 26, hi: 0 }); if ((lh.match(/class="on"/g) || []).length !== 2 || !lh.includes('Ruộng còn 14')) bad.push('làng: 26 ⭐ phải xây Lều + Nhà, kế tiếp Ruộng còn 14');
+      // huy hiệu: Boss ẩn đúng 2 lần, lần cuối đúng
+      T().dg = { 'p5:voc': [2, 2, 1, 1], 'p5:form': [3, 2, 1, 0] }; if (tgBadges().join() !== 'p5:voc') bad.push('huy hiệu chỉ dạng đúng ≥ 2 và lần cuối đúng');
+      // 3 câu hỏi: chưa đủ 5 trận thì không hỏi; đủ thì hỏi; gửi → E3
+      T().tr = []; if (tgKsSlot()) bad.push('chưa 5 trận không hỏi'); T().tr = Array.from({ length: 5 }, (_, i) => ['b', de, now - i, now]); if (!tgKsSlot().includes('3 câu hỏi nhanh')) bad.push('đủ 5 trận phải hỏi');
+      TG_KSA = [5, 4, 4]; await tgKsSend(); const e3 = tgCrit().R.find(r => r.m === 'E3'); if (!e3 || e3.kq !== 'ok' || !T().ks) bad.push('gửi 3 câu → E3 tính (' + (e3 && e3.so) + ')');
+      if (tgKsSlot()) bad.push('đã trả lời thì không hỏi lại');
+      await tgView(); const h = String($app.innerHTML); if (!h.includes('Nhiệm vụ hôm nay') || !h.includes('tglang') || !h.includes('Bộ sưu tập') || h.indexOf('Nhiệm vụ hôm nay') > h.indexOf('tgisle')) bad.push('màn đảo thiếu nhiệm vụ / làng / bộ sưu tập hoặc sai thứ tự');
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length) bad.push('đụng điểm đề thử / thẻ học');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    TG_KSA = [0, 0, 0]; S = S1; TR.B = {}; TR.D = {}; TG_P = null; $app.onkeydown = null; out.push({ lv: 'cefr', id: 'C82', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🎉 Chinh phục đề hấp dẫn: làng theo ⭐ thật / 🌳, 3 nhiệm vụ chốt đầu ngày theo việc có thể làm, sự kiện học đếm nhiệm vụ, rương 1 lần / ngày, huy hiệu dạng câu, 3 câu hỏi nhanh sau 5 trận → E3' }); }
   return out; })()`);
 // v175 C80 khuôn Phần Đọc theo đề ETS (docs/KHUON-DE-TOEIC.md): bộ dựng chặn đề mới lệch khuôn; đề mới phải giải không có bài (Part 7) ≤ KB_MAX
 { const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), K = await import('../do-khuon.mjs'), G = await import('../giai-mu.mjs'), root = new URL('../../', import.meta.url).pathname;

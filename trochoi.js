@@ -119,12 +119,16 @@ async function tgView() { window.CUR = { view: TG_VIEW }; BACK = null; $app.onke
     <div class="chips tap">${D.map(chip).join('')}</div>
     ${nLk ? `<button data-tgopen>🔓 Mở thêm ${nLk} đề riêng (cần mã)</button>` : ''}
     ${step}
-    ${typeof tgDcBox === 'function' ? tgDcBox(((TO && TO.tron) || []).filter(d => TG_P[d.id]).map(d => d.id)) : ''}
+    ${typeof tgVuiBox === 'function' ? tgVuiBox(L) : ''}
     <div class="box"><div class="row" style="justify-content:space-between;gap:8px"><b>🏝 Đảo ${esc(tgDeName(de))}</b><span class="mute">${C.n} câu</span></div>
+      ${typeof tgLang === 'function' ? tgLang(C) + tgDeco() : ''}
       <div class="tgisle">${L.map(tile).join('')}</div>
       <p class="mute" style="margin:6px 0 0;font-size:14px">${Object.keys(TG_TILE).filter(t => K[t]).map(t => `${TG_TILE[t][0]} ${K[t]} ${TG_TILE[t][1]}`).join(' · ')}</p>
       <p style="margin:8px 0 0"><b>⭐ Đúng ${C.ok}/${C.n}</b>${C.tam ? ` <span class="mute">· 🌿 ${C.tam} tạm</span>` : ''}</p><div class="bar"><i style="width:${p1}%;background:var(--good)"></i></div>
       <p style="margin:6px 0 0"><b>🌳 Hiểu ${C.hi}/${C.nk}</b></p><div class="bar"><i style="width:${p2}%;background:var(--accent)"></i></div></div>
+    ${typeof tgKsSlot === 'function' ? tgKsSlot() : ''}
+    ${typeof tgDcBox === 'function' ? tgDcBox(((TO && TO.tron) || []).filter(d => TG_P[d.id]).map(d => d.id)) : ''}
+    ${typeof tgSuuTap === 'function' ? tgSuuTap() : ''}
     <details class="more"><summary>Cách chơi</summary><p>⚔️ Mỗi lượt 10 câu là một trận, như đề thật. Đúng liền nhiều câu thì combo đánh mạnh hơn (tới ×3). Đúng trong nhịp đề thật (Part 5 ~22 giây, Part 6 ~34, Part 7 ~1 phút) là chí mạng. Chọn dưới 3 giây không tính combo: đọc kỹ rồi hãy chọn. Sai 3 câu là thua trận.</p>
       <p>👾 Câu sai thành quái. Hạ quái: đọc bí kíp (lời giải), rồi đánh lại với phương án đổi chỗ. Đúng thì mọc 🌿 (tạm); hôm sau đúng lại mới thành 🌱.</p>
       <p>⚔️ Lượt đã xanh ${TG_TD} ngày thì Boss tái đấu, kiểm bạn còn đúng không. 🐉 Câu vừa thành 🌳 gọi Boss ẩn: một câu chưa gặp cùng dạng, đúng mới là hiểu dạng đó.</p>
@@ -134,6 +138,7 @@ async function tgView() { window.CUR = { view: TG_VIEW }; BACK = null; $app.onke
     <p class="mute" style="font-size:14px">Không tính vào điểm đề thử trọn, 📘 Học hay 🔁 Nhớ.</p>`;
   $app.onclick = e => { if (e.target.closest('[data-tgb]')) { EX_PART = 'san'; toeicView(); return; }
     if (typeof tgDcClick === 'function' && tgDcClick(e)) return;
+    if (typeof tgVuiClick === 'function' && tgVuiClick(e)) return;
     const c = e.target.closest('[data-tgde]'); if (c) { tgSt().de = c.dataset.tgde; save(); tgView(); return; }
     if (e.target.closest('[data-tgopen]')) return trLkAll(() => { TG_P = null; tgView(); });
     if (e.target.closest('[data-tgfx]')) { const T = tgSt(); T.nofx = T.nofx ? 0 : 1; save(); return tgView(); }
@@ -203,7 +208,7 @@ function tgBattle(de, cs, bo) { bo = bo || {}; window.CUR = { view: TG_VIEW + '-
     const T = tgSec(q), OP = G.op[G.i].o; G.tq = Date.now();
     $app.innerHTML = top + card(null) + `<div class="tgtime" aria-hidden="true"><i style="animation-duration:${T}s"></i></div><p class="mute" style="margin:2px 0 8px;font-size:14px">⚡ Đúng trong ${T} giây = chí mạng</p>`
       + (q.sec === 'p7' ? q.foot : '') + tgCtx(q) + OP.map((o, k) => `<button class="tcc" data-tgf="${k}">${'ABCD'[k]}. ${esc(o)}</button>`).join(''); };
-  const end = () => { TG_TOK = null; if (typeof tgTranEnd === 'function') tgTranEnd(G.tr); if (bo.td != null) { const T0 = tgJ(de); (T0.td = T0.td || {})[bo.td] = Date.now(); } const win = G.hp <= 0, lost = !G.tim, st = tgSt().st, z = st.boss = st.boss || { r: 0, win: 0 }; z.r++; if (win && !lost) z.win++; save(); tgSfx(win && !lost ? 'win' : 'lose');
+  const end = () => { TG_TOK = null; if (typeof tgTranEnd === 'function') tgTranEnd(G.tr); if (bo.td != null) { const T0 = tgJ(de); (T0.td = T0.td || {})[bo.td] = Date.now(); } const win = G.hp <= 0, lost = !G.tim, st = tgSt().st, z = st.boss = st.boss || { r: 0, win: 0 }; z.r++; if (win && !lost) { z.win++; if (typeof tgEv === 'function') tgEv('win'); } save(); tgSfx(win && !lost ? 'win' : 'lose');
     tgEndView(lost ? '💀 Thua trận' : win ? '🏆 Hạ Boss!' : '💨 Boss chạy thoát', `${win && !lost ? tgConf() : ''}<div class="tgarena tgend">${tgMon(de, win && !lost ? 'ko' : 'laugh')}</div><div class="box ${win && !lost ? 'tgyes' : ''}">
       <b style="font-size:20px">${G.ok}/${G.i} câu đúng</b><p style="margin:6px 0 0">🔥 Combo cao nhất ×${Math.min(G.best, 3)} · ⚡ ${G.cr} chí mạng${G.quai.length ? ` · 👾 ${G.quai.length} quái mới` : ''}</p>
       <p style="margin:6px 0 0">${lost ? `Hết tim. ${n - G.i ? `${n - G.i} câu còn lại của lượt sẽ đánh lại sau khi hạ quái.` : ''}` : win ? 'Câu đúng đã mọc 🌱 trên đảo.' : `Boss còn ${Math.max(0, G.hp)} máu. Đúng liền nhiều câu, đúng trong nhịp đề thật để đánh mạnh hơn.`}</p></div>`); };
@@ -244,6 +249,7 @@ function tgSua(de, cs, xac) { window.CUR = { view: TG_VIEW + '-sua' }; $app.onke
     $app.innerHTML = tgTop(de, q, `${H} ${G.i + 1}/${n}`) + tgCtx(q) + G.op.map((o, k) => `<button class="tcc" data-tgf="${k}">${'ABCD'[k]}. ${esc(o)}</button>`).join('') + (q.sec === 'p7' ? q.foot : ''); };
   $app.onclick = e => { if (e.target.closest('[data-tgv]')) return tgView(); const q = cs[G.i].q;
     const f = e.target.closest('[data-tgf]'); if (f && G.ph === 1 && !G.res) { const o = G.op[+f.dataset.tgf], ok = o === q.a; if (ok) G.ok++; J[q.n] = ok && !xac ? { s: 'ok', at: Date.now(), tm: 1 } : { s: ok ? 'ok' : 'sai', at: Date.now() }; tgStat('lam', ok);
+      if (ok && typeof tgEv === 'function') tgEv(xac ? 'xac' : 'quai');
       if (typeof tgLog === 'function') tgLog(de, q.n, xac ? 'x' : 's', ok, G.op.some((v, i) => v !== q.opts[i]), (Date.now() - G.t0) / 1000, 0); G.shown = 0; save(); tgSfx(ok ? 'hit' : 'no');
       G.res = { ok, note: ok ? '' : `Bạn chọn “${esc(o)}”.` }; draw(); scrollTo(0, 0); return; }
     if (!e.target.closest('[data-tgn]')) return;
@@ -267,7 +273,9 @@ function tgAn(de, cs) { window.CUR = { view: TG_VIEW + '-an' }; $app.onkeydown =
   $app.onclick = e => { if (e.target.closest('[data-tgv]')) return tgView(); const c = cs[G.i], q = c.q;
     if (e.target.closest('[data-tgal]')) { const L = les(q); if (L) return xlView(L.ex, L.sk, L.i, () => tgView()); }
     const f = e.target.closest('[data-tgf]'); if (f && !G.res) { const v = G.op[+f.dataset.tgf], ok = v === q.a; if (ok) G.ok++;
-      tgBnDone(c, ok); tgLog(de, c.id, 'n', ok, 1, (Date.now() - G.t0) / 1000, 0); tgStat('an', ok); save(); tgSfx(ok ? 'crit' : 'no'); G.res = { ok, v }; draw(); return scrollTo(0, 0); }
+      const dn = tgDang(q), had = typeof tgBadges === 'function' && tgBadges().includes(dn);
+      tgBnDone(c, ok); if (ok && typeof tgEv === 'function') tgEv('an'); if (!had && typeof tgBadges === 'function' && tgBadges().includes(dn)) { try { toast('🏅 Huy hiệu mới: Bậc thầy ' + tgDangName(dn)); } catch (er) {} }
+      tgLog(de, c.id, 'n', ok, 1, (Date.now() - G.t0) / 1000, 0); tgStat('an', ok); save(); tgSfx(ok ? 'crit' : 'no'); G.res = { ok, v }; draw(); return scrollTo(0, 0); }
     if (!e.target.closest('[data-tgn]')) return;
     if (G.i + 1 >= cs.length) { if (typeof tgTranEnd === 'function') tgTranEnd(G.tr); tgSfx(G.ok === cs.length ? 'win' : 'no');
       return tgEndView(`🐉 ${G.ok}/${cs.length} Boss ẩn bị hạ`, `${G.ok === cs.length ? tgConf() : ''}<div class="box ${G.ok === cs.length ? 'tgyes' : ''}"><p style="margin:0">${G.ok === cs.length ? 'Bạn làm được các dạng này ở câu chưa gặp.' : 'Dạng sai: học lại bài học của dạng, rồi Boss ẩn sẽ quay lại với câu mới khác.'}</p></div>`); }
@@ -284,8 +292,8 @@ function tgHieu(de, cs, mode) { window.CUR = { view: TG_VIEW + '-hieu' }; const 
     if (typeof tgLog === 'function') tgLog(de, p.c.n, (mode === 'on' ? 'o:' : 'h:') + k, ok, 0, (Date.now() - G.t0) / 1000, mode === 'on' ? ((J.h[p.c.n] || {}).lv || 1) : 0); save(); G.fb = { ok, note }; tgSfx(!ok ? 'no' : G.j + 1 >= p.ks.length && p.r.every(x => x.ok) ? 'grow' : 'ok'); draw(); scrollTo(0, 0); };
   // xong mọi thử thách của một câu: ghi 🟦 / lịch ôn
   const close = () => { const p = cur(), n = p.c.n, all = p.r.every(r => r.ok), last = p.ks[p.ks.length - 1];
-    if (mode === 'hieu') { if (all) { J.h[n] = { at: Date.now(), lv: 1, d: t + TG_H[0], k: last }; delete J.f[n]; G.pass++; if (typeof tgBq === 'function') tgBq(p.c.q); } else J.f[n] = t; }
-    else { const h = J.h[n]; if (all && h) { h.lv++; h.d = h.lv <= TG_H.length ? t + TG_H[h.lv - 1] : 0; h.k = last; G.pass++; } else { delete J.h[n]; J.f[n] = t; } }
+    if (mode === 'hieu') { if (all) { J.h[n] = { at: Date.now(), lv: 1, d: t + TG_H[0], k: last }; delete J.f[n]; G.pass++; if (typeof tgBq === 'function') tgBq(p.c.q); if (typeof tgEv === 'function') tgEv('cay'); } else J.f[n] = t; }
+    else { const h = J.h[n]; if (all && h) { h.lv++; h.d = h.lv <= TG_H.length ? t + TG_H[h.lv - 1] : 0; h.k = last; G.pass++; if (typeof tgEv === 'function') tgEv('cuu'); } else { delete J.h[n]; J.f[n] = t; } }
     save(); p.done = all; };
   const draw = () => { const p = cur(), q = p.c.q, m = p.m, k = p.ks[G.j], og = (q.lg || {}).og || {};
     if (G.fb) { const lastK = G.j + 1 >= p.ks.length; if (lastK && p.done == null) close();

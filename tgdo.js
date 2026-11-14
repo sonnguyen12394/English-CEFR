@@ -110,7 +110,8 @@ function tgCrit() { const T = tgSt(), A = T.ag || {}, dc = T.dc, R = [], pct = (
   else add('E1', 'Chơi đều', '—', '≥ 3 ngày mỗi tuần, 2 tuần đầu', 'na', d0 == null ? 'chưa chơi' : `cần đủ 14 ngày từ ngày chơi đầu · hiện ${t - d0 + 1}`);
   const now = Date.now(), tr = (T.tr || []).filter(r => r[3] || now - r[2] > TG_ABAN), ab = tr.filter(r => !r[3]).length;
   add('E2', 'Không bỏ giữa chừng', tr.length ? `bỏ ${pct(ab, tr.length)}% (${ab}/${tr.length} trận)` : '—', '≤ 20%, ≥ 10 trận', tr.length >= 10 ? (pct(ab, tr.length) <= 20 ? 'ok' : 'no') : 'na', `cần ≥ 10 trận · hiện ${tr.length}`);
-  add('E3', 'Thấy hay', 'người sáng lập ghi tay', 'trung bình ≥ 4 / 5', 'tay');
+  const ks = T.ks && T.ks.a, km = ks ? Math.round(ks.reduce((a, b) => a + b, 0) / ks.length * 10) / 10 : 0;   // v177: 3 câu hỏi nhanh trong game (tgvui.js)
+  add('E3', 'Thấy hay', ks ? `trung bình ${km} / 5 (giỏi lên ${ks[0]} · tự chọn ${ks[1]} · chơi tiếp ${ks[2]})` : '—', 'trung bình ≥ 4 / 5', ks ? (km >= 4 ? 'ok' : 'no') : 'na', 'chơi 5 trận thì game hỏi 3 câu nhanh');
   add('K1', 'Chạy trên iPhone thật', 'người sáng lập xác nhận', 'hình, tiếng chạy', 'tay');
   add('K2', 'Không lỗi trang, vùng bấm ≥ 44 px', 'test tự động', 'đạt', 'test');
   const rq = R.filter(r => r.req), ok = rq.filter(r => r.kq === 'ok').length;
