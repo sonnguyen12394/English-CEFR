@@ -100,3 +100,13 @@ Ngưỡng SC-004, SC-005, SC-008 là ý kiến của Claude.
 
 - Q1 Đặt ở đâu → C: mục riêng + lối chữa từ Chinh phục đề.
 - Q2 Nguồn câu → C: kho riêng ~120 câu + câu thật người học từng sai.
+
+## Bổ sung v179 (15/11/2026)
+
+Người sáng lập chơi v178: "Khi làm đúng thì cần hoạt cảnh báo đúng sai để dễ nhận biết. Nên phân ra dễ thường khó tăng dần với những gợi ý để dễ thắng hơn chứ mau thua quá."
+
+- **FR-012** 3 mức mở dần: Dễ (3 từ, chậm, 5 tim, chữ mốc tô sẵn, gợi ý không giới hạn) → Thường (4 từ có màu, 4 tim, 3 gợi ý) → Khó (áo xám nửa sau, nhanh, 3 tim, 1 gợi ý); thắng mức trước (còn tim, đúng ≥ 7 / 10) mới mở mức sau.
+- **FR-013** 💡 Gợi ý 2 nấc (chữ mốc → cư dân của ghế); câu đúng nhờ gợi ý hẹn ôn ngày mai, không tăng cấp.
+- **FR-014** Đúng 3 câu liền hồi 1 tim.
+- **FR-015** Hoạt cảnh đúng / sai rõ trong sân chơi (chữ to, màu, sao bay / rung, từ đáp án sáng xanh); giảm chuyển động chỉ đổi màu.
+- **SC-009** Người sáng lập thắng được mức Dễ ở ván đầu (chưa đo được, cần chơi trên iPhone).
