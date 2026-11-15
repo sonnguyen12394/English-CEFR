@@ -378,7 +378,8 @@ function phSent(it, fill, moc) { let [a, b] = it.s.split('___').map(esc);
   return a + (fill ? `<span class="phgap fill ph-${fill.t}">${esc(fill.w)}</span>` : '<span class="phgap" aria-label="ghế trống">?</span>') + (b || ''); }
 // dựng các làn của câu: mỗi làn { w, p, m, ok } (w = chữ hiện, p = loại từ / cư dân, m = nghĩa)
 function phLanes(it, M) { const A = it.o.find(o => o[0] === it.a), as = o => ({ w: o[0], p: o[1], m: o[2] });
-  if (M.md === 'gh') return { order: shuf(PH_ORD).map(t => ({ w: PH_SHORT[t], p: t, ok: t === A[1] })) };
+  if (M.md === 'gh') { const os = PH_ORD.length > M.k ? [A[1], ...shuf([...new Set(it.o.map(o => o[1]).filter(t => t !== A[1]))]), ...shuf(PH_ORD.filter(t => t !== A[1] && !it.o.some(o => o[1] === t)))].slice(0, M.k) : PH_ORD;   // v190: phố > k cư dân thì lấy cư dân của đáp án + cư dân của phương án khác
+    return { order: shuf(os).map(t => ({ w: PH_SHORT[t], p: t, ok: t === A[1] })) }; }
   if (M.md === 'qh') { const q0 = A[3], oth = shuf([...new Set(it.o.map(o => o[3]).filter(x => x && x !== q0 && PHC.QH[x]))]), rest = shuf(Object.keys(PHC.QH).filter(x => x !== q0 && !oth.includes(x)));
     return { order: shuf([q0, ...oth, ...rest].slice(0, M.k)).map(q => ({ w: PHC.QH[q].n, e: PHC.QH[q].e, p: 'Q', q, ok: q === q0 })) }; }
   if (M.md === 'dp') { // bậc 1 chỉ gọi từ có đồng phục rõ: không gọi động từ đuôi -ed / -ing (dễ lẫn với tính từ)

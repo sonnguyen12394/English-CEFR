@@ -2178,7 +2178,7 @@ const R = await run(`(async () => {
       if (c7) { const a2 = Array(200).fill('-'); a2[c7.n - 1] = 'ABCD'[c7.q.opts.findIndex(o => o !== c7.q.a)]; S.to.tronA[de + ':R'] = { at: Date.now() + 5000, a: a2.join(''), ov: 2 };
         const x = tgJState(de).find(c => c.n === c7.n); if (x.st !== 'sai' || x.hi) bad.push('bài làm mới hơn sai phải mất ⭐ và 🟦'); delete S.to.tronA[de + ':R']; }
       for (const c of L) { J().c[c.n] = { s: 'ok', at: Date.now() + 9000 }; if (c.ks.length) J().h[c.n] = { at: Date.now() + 9500, lv: 4, d: 0, k: c.ks[0] }; }
-      S.to.pho = Object.assign(S.to.pho || {}, { gl: Object.fromEntries(PH_GORD.map(r => [r, { n: PH_GOK }])) }); S.to.phos = { cau: { gl: { G: { n: PH_GOK }, L: { n: PH_GOK }, T: { n: PH_GOK } } } };   // v183: luật của phố vững
+      S.to.pho = Object.assign(S.to.pho || {}, { gl: Object.fromEntries(PH_GORD.map(r => [r, { n: PH_GOK }])) }); S.to.phos = { cau: { gl: { G: { n: PH_GOK }, L: { n: PH_GOK }, T: { n: PH_GOK } } }, ...Object.fromEntries(Object.values(PH_PHO).filter(c => c.gl).map(c => [c.key, { gl: Object.fromEntries(c.gl.map(r => [r, { n: PH_GOK }])) }])) };   // v183: luật của phố vững (v189+: mọi phố có gl)
       nx = tgJNext(de, tgJState(de)); if (nx.k !== 'win') bad.push('đúng hết + hiểu hết phải là chinh phục xong (' + nx.k + ')');
       TG_P = P; await tgView(); let h = String($app.innerHTML);
       if (!h.includes('Chinh phục đề') || (h.match(/data-tgde=/g) || []).length !== ids.length || !h.includes('Đúng 100/100') || !h.includes('Hiểu ') || !h.includes('data-tgj="full"') || (h.match(/class="tgt /g) || []).length !== 100) bad.push('màn hành trình thiếu phần');
@@ -2751,5 +2751,38 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     phUse('loai'); document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; return bad; })()`);
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C87', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '⏰ Phố Động Từ: kho ≥ 100 câu qua bộ dựng (4 cư dân, 11 luật), câu thật Part 5 dạng động từ, bậc 1 4 cư dân + chữ mốc, bậc 2 bắt luật chỉ câu kho, luật vững theo 11 luật, nút chữa, đếm câu cần phố; không đụng thẻ học' }); }
+// v190 C88 👥 Phố Đại Từ & Lượng Từ: kho ≥ 100 câu (5 cư dân, 12 luật), câu thật Part 5 pron / det, bậc 1 chỉ 4 làn dù phố có 5 cư dân,
+//   bậc 2 bắt luật, luật vững theo 12 luật, nút chữa; tiến độ riêng S.to.phos.dai
+{ const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname;
+  try { const o = cp.execFileSync('node', [root + 'tools/build-dai.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ dai\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.stderr || e.message).slice(0, 160)); }
+  const K = JSON.parse(fs.readFileSync(root + 'dai.json', 'utf8')).items; if (K.length < 100) bad.push('kho Đại Từ cần ≥ 100 câu (' + K.length + ')');
+  for (const k of ['cn', 'tn', 'ss', 'ds', 'pt', 'qn', 'qv', 'qs', 'l1', 'ln', 'lk', 'lo']) if (K.filter(x => x.o.find(o => o[0] === x.a)[3] === k).length < 5) bad.push('luật ' + k + ' quá ít câu');
+  const html = fs.readFileSync(root + 'index.html', 'utf8'); if (!/<script src="dai\.js\?v=\d+">/.test(html) || !/\.ph-W/.test(html)) bad.push('index.html thiếu dai.js / CSS');
+  const r = await run(`(async () => { const bad = [], S1 = S, G0 = document.getElementById;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
+      document.getElementById = id => { const e = G0(id); if (id === 'phrow') { e.children = [0, 1, 2, 3].map(() => ({ classList: { add() {} } })); e.firstElementChild = { offsetHeight: 40 }; } if (id === 'pharena') e.clientHeight = 300; return e; };
+      await toLoad(); phUse('dai'); PH_K = null; PH_RL = null; await phLoad();
+      if (PH_VIEW !== 'toeic-pho-dai-tu' || PH_ORD.join() !== 'D,S,X,W,U' || PH_MO.length !== 4) bad.push('phUse không nạp cấu hình Đại Từ');
+      const R = Object.values(PH_RL); if (R.length < 8) bad.push('câu thật đại từ / lượng từ quá ít: ' + R.length);
+      if (R.some(it => !/___/.test(it.s) || it.o.some(o => !['D', 'S', 'X', 'W', 'U'].includes(o[1]) || !DL_QH[o[3]]))) bad.push('câu thật sai khuôn');
+      if (JSON.stringify(dlCls('themselves', 'đại từ phản thân')) !== '["X","pt"]' || JSON.stringify(dlCls('her', 'đại từ tân ngữ / tính từ sở hữu')) !== '["D","tn"]' || JSON.stringify(dlCls('few', 'từ chỉ lượng: một vài (đếm được, số nhiều)')) !== '["U","ln"]' || dlCls('this one of', 'cụm sai')) bad.push('phân loại phương án câu đề');
+      const c1 = PH_K.find(x => x.id === 'dl-001'); if (phMoc(c1) !== 'promised') bad.push('chữ mốc: ' + phMoc(c1));
+      const P = phSt(); P.in = 1; for (const k of ['D', 'S']) P.cd[k] = { at: 1, n: 0 };
+      phStart(); if (PH_R.M.md !== 'gh' || PH_R.order.length !== 4 || PH_R.order.filter(o => o.ok).length !== 1 || PH_R.order.find(o => o.ok).p !== PH_R.it.o.find(o => o[0] === PH_R.it.a)[1] || !String(document.getElementById('phsent').innerHTML).includes('phmoc')) bad.push('bậc 1: 4 làn dù 5 cư dân, đúng = cư dân của đáp án, tô chữ mốc');
+      PH_R.ok = PH_WIN; phEnd(); if (!phOpen('b2') || !S.to.phos.dai || (S.to.pho && S.to.pho.mu)) bad.push('thắng bậc 1 mở bậc 2, tiến độ ở S.to.phos.dai');
+      phStart(); const it2 = PH_R.it, A2 = it2.o.find(o => o[0] === it2.a);
+      if (PH_R.M.md !== 'qh' || PH_R.order.filter(o => o.ok).length !== 1 || PH_R.order.find(o => o.ok).q !== A2[3] || PH_R.L.some(x => x.real)) bad.push('bậc 2: bắt luật của đáp án, chỉ câu kho');
+      PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch(); if (!/Luật:/.test(String(document.getElementById('phfb').innerHTML))) bad.push('bậc 2 bắt sai: lời giải ghi Luật'); phStop();
+      // luật vững theo 11 luật
+      if (phGlKeys().length !== 12 || phRuleKey(c1) !== 'cn' || phRuleName('dai', 'qs') !== '🔑 whose + danh từ') bad.push('luật vững đếm theo 12 luật');
+      const q = Object.values(PH_RL)[0], de = q.de, Q = trB(de).Q.find(x => x.n === q.n);
+      if (!phFixBtn(de, Q).includes('data-phfix="dai|')) bad.push('bí kíp câu động từ phải có nút chữa ở Phố Đại Từ');
+      const lu = phRuleQ(Q); if (!lu || lu.k !== 'dai' || !DL_QH[lu.r]) bad.push('câu đề đại từ phải gắn luật Đại Từ: ' + JSON.stringify(lu));
+      const C = cyCount(de); if (!C.dai || C.dai.n < 1) bad.push('đếm câu cần Phố Đại Từ: ' + JSON.stringify(C));
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length || Object.keys(S.to.ty || {}).length) bad.push('đụng thẻ học / điểm đề thử / bản đồ');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    phUse('loai'); document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C88', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '👥 Phố Đại Từ & Lượng Từ: kho ≥ 100 câu qua bộ dựng (5 cư dân, 12 luật), câu thật Part 5 đại từ / lượng từ, bậc 1 4 làn + chữ mốc, bậc 2 bắt luật chỉ câu kho, luật vững theo 12 luật, nút chữa, đếm câu cần phố; không đụng thẻ học' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
