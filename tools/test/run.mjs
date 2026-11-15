@@ -2670,5 +2670,20 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     phUse('loai'); document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; TG_P = null; return bad; })()`);
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C84', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🏙 Phố theo đề đã chọn: ván = câu kho anh em (cùng loại) rồi chính câu đề, câu đang sai trước, câu đã chắc không lặp, bậc kiểu quan hệ chỉ câu kho, ô đề ở màn phố + số câu chắc ở Thành phố' }); }
+// v186 C85 🔊 giữ tiếng khi quay lại app (người sáng lập: "rất dễ mất âm thanh khi tôi sang tab khác quay lại hoặc tắt app mở lại"):
+//   acFix đánh thức AudioContext ở mọi trạng thái khác 'running' (iPhone: 'interrupted'), dựng mới khi 'closed'; cú chạm đầu sau khi quay lại dựng lại tiếng trò chơi
+{ const r = await run(`(() => { const bad = [], A0 = window.AudioContext;
+    try { let made = 0; class FakeAC { constructor() { made++; this.state = 'running'; this.rs = 0; } resume() { this.rs++; this.state = 'running'; return Promise.resolve(); } close() { this.state = 'closed'; }
+        createBuffer() { return {}; } createBufferSource() { return { connect() {}, start() {} }; } get destination() { return {}; } }
+      window.AudioContext = FakeAC;
+      const a = new FakeAC(); a.state = 'interrupted'; if (acFix(a) !== a || a.rs !== 1) bad.push('trạng thái interrupted phải được đánh thức');
+      const c = new FakeAC(); c.state = 'closed'; const n = acFix(c); if (n === c || n.state !== 'running') bad.push('trạng thái closed phải dựng AudioContext mới');
+      PH_AC = new FakeAC(); PH_AC.state = 'interrupted'; const old = PH_AC; if (phAc() !== old || old.rs !== 1) bad.push('phAc phải đánh thức tiếng Phố');
+      AUD_WAKE = 1; const m0 = made; audWakeTap(); if (AUD_WAKE || PH_AC === old || made === m0) bad.push('cú chạm đầu sau khi quay lại phải dựng lại tiếng trò chơi');
+      const t0 = sayTok; document.hidden = true; audVis();
+      if (sayTok === t0) bad.push('trang ẩn phải dừng chuỗi câu đang đọc'); document.hidden = false;
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    window.AudioContext = A0; PH_AC = null; AUD_WAKE = 0; return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C85', ok: !r.length, msg: r.length ? r.join(' | ') : '🔊 Giữ tiếng khi quay lại app: đánh thức AudioContext interrupted / closed, cú chạm đầu dựng lại tiếng trò chơi, trang ẩn dừng chuỗi câu đang đọc' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
