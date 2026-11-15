@@ -1,6 +1,6 @@
 # Đặc tả: 🏘 Phố Loại Từ: trò chơi lý thuyết Part 5 có nhân vật điều khiển
 
-**Thư mục**: `specs/019-pho-loai-tu` · **Ngày**: 15/11/2026 · **Trạng thái**: Nháp, chờ trả lời Q1–Q2
+**Thư mục**: `specs/019-pho-loai-tu` · **Ngày**: 15/11/2026 · **Trạng thái**: Đã chốt (Q1 = C, Q2 = C; người sáng lập 15/11/2026 "Ok làm đi")
 
 **Yêu cầu của người sáng lập** (14–15/11/2026): trò 🗺 Chinh phục đề "chưa đủ hấp dẫn"; "lý thuyết mỗi câu rất nặng", "chưa gợi ý từ điển để tìm hiểu", "nhịp chơi chán, chỉ là học lý thuyết làm trắc nghiệm chứ đâu phải chơi"; "lý thuyết khô khan khó nhớ"; "thích được tương tác điều khiển nhân vật", "phong cách dễ thương cũng được", "bạn tự tính". Sau khi chơi bản mẫu "Phố Loại Từ" (Artifact https://claude.ai/artifact/AJCcu1KwYxwCa4PfsCSA9v): "thấy hấp dẫn hơn rồi đó".
 
@@ -48,13 +48,13 @@ Câu bắt sai vào lịch ôn riêng của trò (ngày sau, rồi giãn 3 → 7
 
 ### Câu chuyện 6: Nối với Chinh phục đề (ưu tiên 2)
 
-Khi 🗺 Chinh phục đề chữa câu sai Part 5 dạng từ (👾 quái), có lối "🏘 Chữa ở Phố Loại Từ": chơi một ván ngắn có câu đó + 2–3 câu cùng luật; bắt đúng câu đó thì câu thành ⭐ như hạ quái thường. [NEEDS CLARIFICATION: Q1 nơi đặt]
+Khi 🗺 Chinh phục đề chữa câu sai Part 5 dạng từ (👾 quái), có lối "🏘 Chữa ở Phố Loại Từ": chơi một ván ngắn có câu đó + 2–3 câu cùng luật; bắt đúng câu đó thì câu thành ⭐ như hạ quái thường.
 
 ## Yêu cầu chức năng
 
-- **FR-001** 🏘 Phố Loại Từ ở màn TOEIC của tab 🎯 Luyện đề, phần 📚 Đề có sẵn, cạnh 🗺 Chinh phục đề; không gọi AI. [Q1]
+- **FR-001** 🏘 Phố Loại Từ là mục riêng ở màn TOEIC của tab 🎯 Luyện đề, phần 📚 Đề có sẵn, cạnh 🗺 Chinh phục đề; không gọi AI. Chinh phục đề có lối "🏘 Chữa ở Phố Loại Từ" cho câu sai Part 5 dạng từ (Q1 = C).
 - **FR-002** 4 cư dân cố định theo bản mẫu (tên, màu, đồng phục, câu giới thiệu); nhân vật người chơi là bé Mầm. Hình vẽ bằng mã (SVG), không lấy hình game khác.
-- **FR-003** Nguồn câu: [NEEDS CLARIFICATION: Q2 câu thật hay kho riêng]. Câu đề riêng 9–16 chỉ dùng khi máy đã mở mã.
+- **FR-003** Nguồn câu (Q2 = C): kho riêng ~120 câu Claude soạn theo khuôn (không chép câu đề / ETS, không gần trùng kho luyện) cho ván thường; câu thật Part 5 dạng từ của đề mà người học đã làm SAI (bài làm 📋 hoặc Chinh phục đề) chen vào ván (≤ 3 câu / ván) để ôn. Câu đề riêng 9–16 chỉ dùng khi máy đã mở mã.
 - **FR-004** Mỗi câu cần: câu có 1 chỗ trống, 4 phương án, đáp án, loại từ từng phương án, câu "vì sao" ngắn theo ghế (≤ 1 dòng), nhóm phân biệt khi 2 phương án cùng loại, nghĩa từng phương án, dịch câu.
 - **FR-005** Ván: màn 1 (có màu) 5 câu, màn 2 (áo xám) 5 câu; 3 tim; combo ≥ 3 nhân đôi sao; tốc độ tăng nhẹ theo combo, có trần.
 - **FR-006** Câu thần chú: ≤ 1 dòng, ≤ 15 từ tiếng Việt; lý thuyết dài (lời giải `lg`) chỉ hiện khi bấm "Xem đầy đủ".
@@ -95,3 +95,8 @@ Ngưỡng SC-004, SC-005, SC-008 là ý kiến của Claude.
 - Học vẹt nhãn ("thấy her thì bấm Ông Chủ"): thần chú chỉ lên cấp ở câu chưa gặp.
 - Dùng câu thật của đề → nhớ đáp án → điểm đề thử cao giả (rủi ro cũ của 018). Q2 quyết.
 - Luật vị trí chỉ phủ ~1/3 câu Part 5 (dạng từ 30 / 198 kho); không cứu được câu từ vựng.
+
+## Làm rõ (15/11/2026)
+
+- Q1 Đặt ở đâu → C: mục riêng + lối chữa từ Chinh phục đề.
+- Q2 Nguồn câu → C: kho riêng ~120 câu + câu thật người học từng sai.

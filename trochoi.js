@@ -207,7 +207,7 @@ const tgStat = (k, ok) => { const s = tgSt().st, z = s[k] = s[k] || { n: 0, ok: 
 function tgSua(de, cs) { window.CUR = { view: TG_VIEW + '-sua' }; $app.onkeydown = null; const J = tgJ(de).c, G = { ph: 0, i: 0, res: null, ok: 0, op: null };
   const draw = () => { const q = cs[G.i].q, n = cs.length;
     if (G.ph === 0) { $app.innerHTML = tgTop(de, q, `📜 Bí kíp hạ quái ${G.i + 1}/${n}`) + `<p class="mute" style="margin-top:0">Đọc kỹ vì sao. Đọc xong ${n} bí kíp thì đánh lại, phương án đổi chỗ.</p>`
-        + (q.sec === 'p6' ? tgCtx(q) : '') + tgSol(q) + tgDocs(q) + `<button class="pri" data-tgn>${G.i + 1 < n ? 'Câu tiếp ›' : `⚔️ Đánh lại ${n} quái`}</button>`; return; }
+        + (q.sec === 'p6' ? tgCtx(q) : '') + tgSol(q) + tgDocs(q) + (typeof phCanFix === 'function' && phCanFix(q) ? `<button data-phfix="${esc(de)}|${q.n}">🏘 Chữa ở Phố Loại Từ · điều khiển bé Mầm</button>` : '') + `<button class="pri" data-tgn>${G.i + 1 < n ? 'Câu tiếp ›' : `⚔️ Đánh lại ${n} quái`}</button>`; return; }
     G.op = G.op || (q.sec === 'p7' && q.opts.every(o => /^\[\d\]$/.test(o)) ? [...q.opts] : shuf([...q.opts]));
     if (G.res) { $app.innerHTML = tgTop(de, q, `⚔️ Đánh lại quái ${G.i + 1}/${n}`) + `<div class="box ${G.res.ok ? 'tgyes' : 'tcno'}"><b>${G.res.ok ? `💥 Hạ quái · câu ${q.n} mọc 🌱` : '👾 Quái còn sống · đánh lại sau'}</b>${G.res.note ? `<p style="margin:4px 0 0">${G.res.note}</p>` : ''}</div>`
         + (G.res.ok ? '' : (q.sec === 'p6' ? tgCtx(q) : '') + tgSol(q) + tgDocs(q)) + `<button class="pri" data-tgn>${G.i + 1 < n ? 'Câu tiếp ›' : 'Xem kết quả'}</button>`; return; }
@@ -279,7 +279,7 @@ function tgHieu(de, cs, mode) { window.CUR = { view: TG_VIEW + '-hieu' }; const 
 
 // lối vào ở màn TOEIC (phần 📚 Đề có sẵn), cạnh đề thử trọn
 function tgRow() { if (typeof TO === 'undefined' || !TO || !(TO.tron || []).length) return '';
-  return `<div class="box hcard" style="margin:12px 0 0"><button class="hrow" data-tgv><span class="ic">⚔️</span><span class="t"><b>Chinh phục đề</b><small>Đánh Boss từng lượt 10 câu, trồng cây cho cả đảo xanh</small></span><span class="chev">›</span></button></div>`; }
+  return `<div class="box hcard" style="margin:12px 0 0"><button class="hrow" data-tgv><span class="ic">⚔️</span><span class="t"><b>Chinh phục đề</b><small>Đánh Boss từng lượt 10 câu, trồng cây cho cả đảo xanh</small></span><span class="chev">›</span></button></div>` + (typeof phRow === 'function' ? phRow() : ''); }
 document.addEventListener('click', e => { if (S && e.target.closest('[data-tgv]') && !String((window.CUR || {}).view).startsWith(TG_VIEW)) { TG_P = null; tgView(); } });
 // thi lượt mở từ hành trình: màn kết quả có nút về hành trình
 if (typeof trResOne === 'function') { const _trResOne = trResOne; trResOne = function (rec) { const r = _trResOne.apply(this, arguments);

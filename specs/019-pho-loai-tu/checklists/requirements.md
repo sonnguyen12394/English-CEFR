@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain — còn Q1 (nơi đặt), Q2 (nguồn câu)
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic
@@ -31,4 +31,4 @@
 
 ## Notes
 
-- Chờ người sáng lập trả lời Q1, Q2 rồi chạy clarify / plan.
+- Q1, Q2 đã chốt C / C (15/11/2026).

@@ -2529,5 +2529,41 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   try { const zp = '/tmp/c76-' + process.pid + '.zip'; fs.writeFileSync(zp, Buffer.from(ctx.ZIPB || [])); const cp = await import('node:child_process');
     const out = cp.execSync('unzip -t ' + zp + ' 2>&1 || true').toString(); fs.unlinkSync(zp); if (!/No errors detected/.test(out) && !/not found/.test(out)) bad.push('unzip -t: ' + out.slice(0, 120)); } catch (e) {}
   R.push({ lv: 'cefr', id: 'C76', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '✂️ Tách PDF: Khoảng / Mỗi N trang / Mọi trang / Chọn trang (+ gộp) đúng trang, Theo cỡ ≤ mức (trang quá cỡ tách riêng ⚠️), .zip qua unzip -t, gõ sai báo rõ, gửi kèm thành PDF góp ý, tệp > 150 MB hỏi trước, ⬇️ Tải PDF (lệnh tai, kiểm SHA-256) ở Đã gửi và 🗂 Quản lý góp ý' }); }
+// v178 C81 🏘 Phố Loại Từ (specs/019-pho-loai-tu): kho riêng qua bộ dựng; câu thật dạng từ người học từng sai chen vào ván; bắt đúng / sai ghi lịch ôn
+//   + hành trình Chinh phục đề; không đụng thẻ học, điểm đề thử, bản đồ
+{ const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname;
+  try { const o = cp.execFileSync('node', [root + 'tools/build-pho.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ pho\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.message).slice(0, 160)); }
+  const K = JSON.parse(fs.readFileSync(root + 'pho.json', 'utf8')).items; if (K.length < 120) bad.push('kho phố cần ≥ 120 câu (' + K.length + ')');
+  for (const k of ['N', 'V', 'A', 'R']) if (K.filter(x => x.o.find(o => o[0] === x.a)[1] === k).length < 20) bad.push('đáp án loại ' + k + ' < 20 câu');
+  for (const n of ['nguoi', 'vdang', 'edng', 'so']) if (K.filter(x => x.nha === n).length < 6) bad.push('nhóm cùng nhà ' + n + ' < 6 câu');
+  const html = fs.readFileSync(root + 'index.html', 'utf8'); if (!/<script src="pho\.js\?v=\d+">/.test(html) || !/\.phpill/.test(html)) bad.push('index.html thiếu pho.js / CSS');
+  const r = await run(`(async () => { const bad = [], S1 = S, G0 = document.getElementById;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; PH_K = null; PH_RL = null; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
+      document.getElementById = id => { const e = G0(id); if (id === 'phrow') { e.children = [0, 1, 2, 3].map(() => ({ classList: { add() {} } })); e.firstElementChild = { offsetHeight: 40 }; } if (id === 'pharena') e.clientHeight = 300; return e; };
+      await toLoad(); await phLoad(); const R = Object.values(PH_RL);
+      if (PH_K.length < 120) bad.push('phLoad: kho ' + PH_K.length); if (R.length < 40) bad.push('câu thật dạng từ quá ít: ' + R.length);
+      for (const it of R) { if (!/___/.test(it.s) || it.o.length !== 4 || it.o.some(o => !o[1]) || !it.o.some(o => o[0] === it.a)) { bad.push('câu thật sai khuôn ' + it.id); break; }
+        const A = it.o.find(o => o[0] === it.a); if (!!it.o.some(o => o !== A && o[1] === A[1]) !== !!it.nha) { bad.push('nhóm cùng nhà sai ' + it.id); break; } }
+      let L = phPick(); if (L.length !== 10 || new Set(L.map(x => x.id)).size !== 10 || L.some(x => x.real)) bad.push('ván mới: 10 câu kho, không trùng');
+      // bài làm đề sai câu Part 5 dạng từ → chen vào ván (≤ 3)
+      const it = R.find(x => x.de === 'de3') || R[0], B = trB(it.de), q = B.Q.find(x => x.n === it.n), wr = q.opts.find(x => x !== q.a), ch = 'ABCD'[q.opts.indexOf(wr)];
+      const a = Array(200).fill('-'); a[q.n - 1] = ch; S.to.tronA = { [it.de]: { at: Date.now() - 1000, a: a.join(''), ov: 2 } };
+      if (!phWrong().some(x => x.id === it.id)) bad.push('câu sai trong bài làm không vào danh sách sai');
+      L = phPick(); if (!L.some(x => x.id === it.id) || L.filter(x => x.real).length > 3) bad.push('ván phải chen câu thật đã sai (≤ 3)');
+      if (!phCanFix(q) || !tgRow().includes('data-phv')) bad.push('thiếu lối vào / lối chữa');
+      // ván: bắt đúng → lịch 1 ngày + hành trình ⭐; bắt sai → mất tim, hẹn mai
+      const P = phSt(); P.in = 1; for (const k of ['N', 'V', 'nguoi', 'vdang', 'edng', 'so']) P.cd[k] = { at: 1, n: 0 };
+      phStart(it, () => 0); if (!PH_R || !String($app.innerHTML).includes('pharena') || (String(document.getElementById('phrow').innerHTML).match(/phpill/g) || []).length !== 4) bad.push('màn ván thiếu sân / 4 từ');
+      PH_R.lane = PH_R.order.findIndex(o => o[0] === it.a); phCatch();
+      if (PH_R.ok !== 1 || !/phfb good/.test(String(document.getElementById('phfb').innerHTML))) bad.push('bắt đúng không ghi');
+      if (!P.it[it.id] || P.it[it.id].d !== dayOf(Date.now()) + 1 || S.to.tc.j[it.de].c[it.n].s !== 'ok') bad.push('bắt đúng: lịch / hành trình sai');
+      phNext(); const i2 = PH_R.it; PH_R.lane = PH_R.order.findIndex(o => o[0] !== i2.a); phCatch();
+      if (PH_R.hearts !== 2 || P.it[i2.id].s !== 0 || !/Hiểu rồi/.test(String(document.getElementById('phfb').innerHTML))) bad.push('bắt sai: tim / lịch / lời giải');
+      phStop(); if (!P.st.bo) bad.push('bỏ dở ván không đếm');
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length || Object.keys(S.to.ty || {}).length) bad.push('đụng thẻ học / điểm đề thử / bản đồ');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C81', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🏘 Phố Loại Từ: kho ≥ 120 câu qua bộ dựng, câu thật dạng từ đúng khuôn + nhóm cùng nhà, ván 10 câu chen câu đề đã sai (≤ 3), bắt đúng / sai ghi lịch ôn + hành trình, không đụng thẻ học / điểm đề thử / bản đồ' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
