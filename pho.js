@@ -146,6 +146,44 @@ function phNhaOf(it) { const A = it.o.find(o => o[0] === it.a), same = it.o.filt
   if (A[1] === 'N' && ws.some(w => /(er|or|ant|ent|ee|ist|ian)s?$/.test(w))) return 'nguoi';
   if (A[1] === 'N' && ws.some((w, i) => ws.some((x, j) => i !== j && (x === w + 's' || x === w + 'es')))) return 'so';
   return 'khac'; }
+// 🧠 v183 (người sáng lập 15/11/2026: "đánh giá làm được 100 câu dựa vào game chinh phục, đánh giá hiểu dựa vào các game còn lại", "tự tính làm hết đi"):
+//   mỗi câu Part 5 của đề gắn MỘT luật của phố (Loại Từ: ghế · Cầu Nối: loại từ nối); phố ghi kết quả từng luật ở bậc ≥ 3 (không tính ván chữa);
+//   luật VỮNG = đúng PH_GOK câu MỚI liền nhau, không gợi ý (câu mới = chưa gặp hoặc gặp lần cuối ≥ PH_GFRESH_D ngày); sai bất kỳ câu nào của luật thì đếm lại.
+//   ⚔️ Chinh phục đề: câu có luật được 🌳 khi câu đã ⭐ đúng VÀ luật vững (trochoi.js). Ngưỡng là ý kiến của Claude.
+const PH_GOK = 3, PH_GFRESH_D = 7;
+const PH_PREP = new Set('in on at for of to from with by about into onto over under after before during without within through throughout despite toward towards among between upon via regarding concerning including against beyond than like as per'.split(' '));
+const PH_QUANT = new Set('all each every many several these those few some both most various numerous other no any much fewer more'.split(' '));
+const PH_BE = new Set('is are was were be been being am seem seems seemed become becomes became remain remains remained look looks looked feel feels appear appears appeared stay stays stayed sound sounds prove proved proves felt get gets got grew grow keep kept'.split(' '));
+const PH_MOD = new Set('will would can could should must may might shall to please let help not do does did'.split(' '));
+const PH_ADV = w => /ly$/.test(w) || ['very', 'so', 'too', 'quite', 'more', 'most', 'less', 'rather', 'fairly', 'also', 'not', 'still', 'always', 'never', 'often'].includes(w);
+const phWs = s => String(s || '').toLowerCase().replace(/[^a-z'_ ]+/g, ' ').trim().split(/\s+/).filter(Boolean);
+// đoán ghế của câu đề (câu thật không có trường ghe) từ chữ quanh chỗ trống + loại từ của đáp án
+function phGheGuess(s, pos) { const [a, b] = String(s || '').split('___'), A = phWs(a), B = phWs(b), nx = B[0] || '', end = !nx || /^[.,;:!?]/.test(String(b || '').trim()) || ['and', 'or', 'but'].includes(nx);
+  let i = A.length - 1; const pv = A[i] || ''; while (i > 0 && PH_ADV(A[i])) i--; const pv2 = A[i] || '';
+  if (pos === 'N') return PH_PREP.has(pv) ? 'gioi' : PH_QUANT.has(pv) ? 'chu' : 'mao';
+  if (pos === 'A') return PH_BE.has(pv2) || end ? 'sauBe' : 'truocN';
+  if (pos === 'V') return PH_PREP.has(pv) && pv !== 'to' ? 'gioi' : PH_MOD.has(pv2) ? 'modal' : 'thi';
+  if (pos === 'R') return PH_BE.has(pv2) || ['has', 'have', 'had'].includes(pv2) || (/ed$/.test(nx) && nx.length > 4) ? 'truocA' : 'sauV';
+  return null; }
+// luật của câu đề: { k: phố, r: luật } hoặc null
+function phRuleQ(q) { if (!q || q.sec !== 'p5' || !q.x) return null; const og = (q.lg || {}).og || {}; if (!q.opts || !q.opts.every(o => og[o])) return null;
+  const s = String(q.q || '').replace(/<[^>]+>/g, '').replace(/-{5,}/, '___');
+  if (q.x.t === 'form') { const pos = phPosOf(og[q.a]); const r = pos && phGheGuess(s, pos); return r ? { k: 'loai', r } : null; }
+  if (PH_PHO.cau && PH_PHO.cau.canFix(q) && typeof CN_TY === 'function') { const r = CN_TY(og[q.a]); return r ? { k: 'cau', r } : null; }
+  return null; }
+const phGlSt = k => { const o = toSt(); return (k === 'loai' ? o.pho : (o.phos || {})[k]) || {}; };
+const phGlOk = (k, r) => ((phGlSt(k).gl || {})[r] || {}).n >= PH_GOK;
+// tên luật để hiện: Loại Từ = dấu hiệu ghế · phố khác = tên cư dân
+const phRuleName = (k, r) => { if (k === 'loai') return PH_GHE[r] ? PH_GHE[r].sig : r; const c = PH_PHO[k] && PH_PHO[k].CH[r]; return c ? (c.pos || c.name) : r; };
+const phRuleKey = it => { const A = it.o.find(o => o[0] === it.a); return PHC.key === 'loai' ? (it.ghe || phGheGuess(it.s, A[1])) : A[1]; };
+// ghi một lần bắt ở bậc ≥ 3: sai thì đếm lại; đúng câu mới không gợi ý thì +1
+function phGlog(it, ok, fresh, hint) { const r = phRuleKey(it); if (!r) return; const P = phSt(), G = P.gl = P.gl || {}, g = G[r] = G[r] || { n: 0, ok: 0 };
+  if (!ok) { g.n = 0; g.x = Date.now(); } else if (fresh && !hint && !it.real) { g.n++; g.ok++; g.at = Date.now(); } }
+const phGlKeys = () => PHC.key === 'loai' ? PH_GORD : PH_ORD;
+const phGlN = r => Math.min(PH_GOK, ((phSt().gl || {})[r] || {}).n || 0);
+const phGlList = () => phGlKeys().map(r => { const n = phGlN(r), t = PHC.key === 'loai' ? PH_GHE[r].t : r;
+  return `<div class="row phglr"><span class="phtag ph-${t}">${esc(PH_SHORT[t])}</span><span class="t">${esc(phRuleName(PHC.key, r))}</span><b class="${n >= PH_GOK ? 'ok' : 'mute'}">${n >= PH_GOK ? '✓ vững' : n + ' / ' + PH_GOK}</b></div>`; }).join('');
+const phGlDone = () => phGlKeys().filter(r => ((phSt().gl || {})[r] || {}).n >= PH_GOK).length;
 PH_PHO.loai.real = (q, d) => { if (q.sec !== 'p5' || !q.x || q.x.t !== 'form') return null; const og = (q.lg || {}).og || {}; if (!q.opts.every(o => og[o])) return null;
   const o = q.opts.map(w => [w, phPosOf(og[w]), String(og[w]).split(':').slice(1).join(':').trim()]); if (o.some(x => !x[1])) return null;
   const s = String(q.q).replace(/<[^>]+>/g, '').replace(/-{5,}/, '___'); if (!/___/.test(s)) return null;
@@ -234,7 +272,8 @@ async function phView() { phStop(); window.CUR = { view: PH_VIEW }; BACK = null;
     ${PHC.key === 'loai' && phOpen('b2') ? `<button class="hrow phbook" data-phluat><span class="ic">🪑</span><span class="t"><b>Học luật ghế</b><small>${P.lg ? 'Đã học · học lại khi vướng Bậc 2' : 'Nên học trước Bậc 2 · 3 bước, khoảng 4 phút'}</small></span><span class="chev">›</span></button>` : ''}
     <div class="box" style="margin-top:10px"><p style="margin:2px 0">${due ? `🔁 <b>${due}</b> câu đến hạn ôn, có trong ván này` : '🔁 Chưa có câu đến hạn ôn'}</p>
       <p style="margin:2px 0">${wr ? `👾 <b>${wr}</b> câu ${PHC.lo} bạn từng sai trong đề, sẽ chen vào ván` : `👾 Chưa có câu ${PHC.lo} nào bạn sai trong đề`}</p>
-      <p style="margin:2px 0">🗺 Đã gặp ${seen} / ${(PH_K || []).length} câu của phố</p></div>
+      <p style="margin:2px 0">🗺 Đã gặp ${seen} / ${(PH_K || []).length} câu của phố</p>
+      <details class="more"><summary>🧠 Luật đã vững ${phGlDone()} / ${phGlKeys().length}</summary><p class="mute" style="margin:4px 0;font-size:15px">Luật vững khi đúng ${PH_GOK} câu mới liền nhau ở bậc 3–4, không dùng gợi ý. Sai một câu của luật thì đếm lại. Câu đề có luật vững mới thành 🌳 ở ⚔️ Chinh phục đề.</p>${phGlList()}</details></div>
     <button class="hrow phbook" data-phbook><span class="ic">📜</span><span class="t"><b>Sổ thần chú</b><small>${nc} / ${PH_ORD.length + Object.keys(PH_NHA).length} câu thần chú đã mở</small></span><span class="chev">›</span></button>
     <details class="more"><summary>Thêm</summary><button class="link tap" data-phintro>👋 Làm quen lại ${PH_ORD.length} cư dân</button>
       <p class="mute" style="font-size:14px">Không tính vào 📘 Học / 🔁 Nhớ, không đổi điểm đề thử. Câu của phố do Claude soạn, chưa giáo viên kiểm. Câu bạn bắt đúng ở ván sau 1 → 3 → 7 → 21 ngày thì nhớ chắc.</p></details>`;
@@ -294,7 +333,7 @@ function phSndClick(e) { const P = phSA();
   if (e.target.closest('[data-phsfx]')) { P.am = phSnd() ? 0 : 1; save(); phSfx('ok'); return true; } return false; }
 function phRun(L, fix, back) { window.CUR = { view: PH_VIEW + '-van' }; scrollTo(0, 0); phStat('van');
   const mu = fix ? 'fix' : phMuc(), M = fix ? PH_FIX : PH_MUC[mu], half = M.dur[0] !== M.dur[1] ? Math.ceil(L.length / 2) : L.length;
-  PH_R = { L, fix, back, mu, M, i: 0, lane: 1, hearts: M.tim, stars: 0, combo: 0, ok: 0, miss: [], half, goi: M.goi, end: 0, paused: false, sheet: false };
+  PH_R = { gl0: phGlKeys().filter(r => phGlN(r) >= PH_GOK), L, fix, back, mu, M, i: 0, lane: 1, hearts: M.tim, stars: 0, combo: 0, ok: 0, miss: [], half, goi: M.goi, end: 0, paused: false, sheet: false };
   const help = (PHC.help && PHC.help[M.md]) || { dp: 'Chạm làn, vuốt hoặc bấm ◀ ▶ để Mầm bắt đúng loại từ được gọi.', gh: 'Đọc câu, bắt cư dân hợp với ghế trống. Chạm từ trong câu để tra nghĩa.', tu: 'Chạm làn, vuốt hoặc bấm ◀ ▶. Chạm từ trong câu để tra nghĩa.', qh: 'Đọc hai vế quanh ô trống, bắt đúng kiểu quan hệ.' }[M.md];
   $app.innerHTML = `<div class="phhud trx"><button class="iconbtn" data-phpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip" id="phh"></span><span class="chip" id="phs"></span><span class="chip" id="phc" hidden></span><button class="iconbtn" data-phbk aria-label="${PHC.key === 'loai' && M.md !== 'dp' ? 'Bảng ghế và sổ thần chú' : 'Sổ thần chú'}">${PHC.key === 'loai' && M.md !== 'dp' ? '🪑' : '📜'}</button></div>
     <div class="phbar"><i id="phprog"></i></div><div class="phlvr"><span class="phlv mute" id="phlv"></span><button class="phhint" data-phhint id="phhint"></button></div><div id="phgoi" class="phgoi" hidden></div><div class="phsent tdtap" id="phsent"></div>
@@ -369,7 +408,8 @@ function phMark(it, ok, hint) { const P = phSt(), I = P.it, old = I[it.id], t = 
   const A = it.o.find(o => o[0] === it.a); if (ok && !hint && !old) { for (const k of [A[1], it.nha]) if (k && P.cd[k]) P.cd[k].n = (P.cd[k].n || 0) + 1; }
   if (it.real && typeof tgJ === 'function') tgJ(it.de).c[it.n] = { s: ok ? 'ok' : 'sai', at: Date.now() }; }
 function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, got = R.order[R.lane], A = it.o.find(o => o[0] === it.a), ok = !!got.ok, bub = document.getElementById('phrow').children[R.lane];
-  if (M.md === 'tu') phMark(it, ok, R.used); phStat('cau'); if (ok) phStat('ok'); if (ok && M.md === 'tu' && M.k >= 4) phStat('ok2'); save();
+  const old0 = phSt().it[it.id], fresh = !old0 || Date.now() - (old0.at || 0) >= PH_GFRESH_D * 864e5;
+  if (M.md === 'tu') phMark(it, ok, R.used); if (M.md === 'tu' && R.mu !== 'fix') phGlog(it, ok, fresh, R.used); phStat('cau'); if (ok) phStat('ok'); if (ok && M.md === 'tu' && M.k >= 4) phStat('ok2'); save();
   const fx = document.getElementById('phfx'), ar = document.getElementById('pharena'), ai = R.order.findIndex(o => o.ok);
   const opts = M.md === 'gh' || M.md === 'qh' ? '' : `<details class="more"><summary>Nghĩa các từ</summary>${(M.md === 'dp' ? R.order : it.o.map(o => ({ w: o[0], p: o[1], m: o[2] }))).map(o => `<p style="margin:3px 0"><span class="phtag ph-${o.p}">${esc(o.w)}</span> ${PH_CH[o.p].pos.toLowerCase()}: ${esc(o.m)}</p>`).join('')}</details>`;
   const real = it.real && M.md === 'tu' ? `<p class="mute" style="margin:0;font-size:14px">👾 Câu ${it.n} của ${esc(typeof tgDeName === 'function' ? tgDeName(it.de) : it.de)}${ok ? ': đã chữa, câu mọc 🌱 ở Chinh phục đề' : ''}</p>` : '';
@@ -410,6 +450,7 @@ function phEnd() { const R = PH_R; R.end = 1; cancelAnimationFrame(R.raf); phMus
   window.CUR = { view: PH_VIEW + '-ket-qua' }; scrollTo(0, 0); const fix = R.fix, back = R.back; PH_R = null;
   $app.innerHTML = `<div id="ie"></div><div class="phhero">${phFace('M', 90, win ? 'happy' : 'sad')}</div><h2>${win ? 'Phố đã đủ người ngồi đúng ghế!' : 'Mầm hết tim rồi'}</h2>${unl ? `<div class="box phunl">🔓 Mở <b>${PH_MUC[nx].ten}</b>! Ván sau chơi bậc này.</div>` : ''}
     ${!win && R.mu === 'b2' && PHC.key === 'loai' ? `<button class="pri" data-phluat>🪑 Học lại luật ghế</button>` : !win && R.mu !== 'b1' && !fix ? `<p class="mute">Khó quá? Chơi lại bậc trước ở màn Phố cho chắc rồi quay lại.</p>` : ''}${win && !unl && nx && !phOpen(nx) ? `<p class="mute">Đúng ≥ ${PH_WIN} / ${PH_N} câu để mở ${PH_MUC[nx].ten}.</p>` : ''}
+    ${(() => { const nw = phGlKeys().filter(r => phGlN(r) >= PH_GOK && !R.gl0.includes(r)); return nw.length ? `<div class="box phunl">🧠 Luật vừa vững: <b>${nw.map(r => esc(phRuleName(PHC.key, r))).join(' · ')}</b>. Câu đề thuộc luật này thành 🌳 ở ⚔️ Chinh phục đề.</div>` : ''; })()}
     <div class="box"><div class="row"><span>Bắt đúng</span><b style="font-size:28px">${R.ok} / ${win ? R.L.length : n}</b></div><div class="row"><span>Sao</span><b>⭐ ${R.stars}</b></div></div>
     ${R.miss.length ? `<h3>Cần nhớ lại</h3>${R.miss.map(x => `<div class="box">${phMissLine(x)}</div>`).join('')}` : '<p class="mute">Không sai câu nào.</p>'}
     ${fix ? `<button class="pri" data-phtg>⚔️ Về đảo Chinh phục đề</button><button data-phagain>▶ Chơi ván thường</button>` : `<button class="${!win && R.mu === 'b2' && PHC.key === 'loai' ? '' : 'pri'}" data-phagain>▶ Ván nữa</button>`}<button data-phhome>‹ Về Phố</button>`;
