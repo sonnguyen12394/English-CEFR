@@ -145,7 +145,7 @@ const TG_SFX = {
   grow: () => [523, 659, 784, 1047].forEach((f, i) => tgTone(f, 0, 0.16, 'sine', 0.1, i * 0.07)),
   win: () => { [523, 659, 784].forEach((f, i) => tgTone(f, 0, 0.16, 'triangle', 0.14, i * 0.13)); tgTone(1047, 0, 0.5, 'triangle', 0.14, 0.39); tgTone(1568, 0, 0.5, 'sine', 0.06, 0.39); },
   lose: () => [392, 330, 262, 196].forEach((f, i) => tgTone(f, f * 0.97, 0.26, 'sawtooth', 0.08, i * 0.2)) };
-function tgSfx(k, a) { if (!tgSnd()) return; try { const AC = window.AudioContext || window.webkitAudioContext; if (!AC || !TG_SFX[k]) return; TG_AC = TG_AC || new AC(); if (TG_AC.state === 'suspended') TG_AC.resume(); TG_SFX[k](a); } catch (e) {} }
+function tgSfx(k, a) { if (!tgSnd()) return; try { const AC = window.AudioContext || window.webkitAudioContext; if (!AC || !TG_SFX[k]) return; TG_AC = typeof acFix === 'function' ? acFix(TG_AC) : (TG_AC || new AC()); TG_SFX[k](a); } catch (e) {} }
 // Boss SVG: dáng (4) × số mắt (1–3) × sừng × màu theo số đề; mắt chớp, lắc nhẹ khi đứng (CSS)
 const TG_BODY = ['M60 18C92 18 104 44 104 70C104 96 86 106 60 106C34 106 16 96 16 70C16 44 28 18 60 18Z', 'M22 62C22 34 40 18 60 18C80 18 98 34 98 62L98 106L86 96L73 106L60 96L47 106L34 96L22 106Z',
   'M40 24H80Q102 24 102 46V84Q102 106 80 106H40Q18 106 18 84V46Q18 24 40 24Z', 'M60 12L72 30L94 24L90 46L108 60L90 74L94 96L72 90L60 108L48 90L26 96L30 74L12 60L30 46L26 24L48 30Z'];

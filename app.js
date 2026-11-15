@@ -26,7 +26,7 @@ const GATE_LEARN = 90, GATE_MEM = 80, GATE_HOLD_D = 7, MEM_DAYS = 1, HOLD_R = 0.
 const MEM_R = 0.8;
 const ROUND = 20, EXAM_N = 40, EXAM_PASS = 0.8;
 const DAY = 864e5;
-const APP_V = 185;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
+const APP_V = 186;   // tăng khi phát hành; nhớ đổi ?v= trong index.html và "v" trong version.json
 window.CUR = { view: 'tai' };   // bối cảnh cho 💬 Góp ý (gopy.js): màn, unit, câu đang làm
 
 const sb = window.supabase.createClient(SB_URL, SB_KEY);
@@ -301,6 +301,27 @@ function sayOne(t) { const k = clipKey(t); if ((VOX.src === 'clip' || EXAM_VOX) 
 async function speak(...ts) { const my = ++sayTok; try { AUD && AUD.pause(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {}
   for (const t of ts) { if (my !== sayTok) return; await sayOne(t); } }
 try { speechSynthesis.getVoices(); } catch (e) {}
+// v186 (người sáng lập 15/11/2026: "rất dễ mất âm thanh khi tôi sang tab khác quay lại hoặc tắt app mở lại"; suy từ mã, chưa thử iPhone):
+//   ① iPhone đưa AudioContext (tiếng trò chơi Phố / Chinh phục đề) sang 'interrupted' khi trang ẩn; trước chỉ đánh thức khi 'suspended' nên tắt luôn.
+//      acFix: đánh thức mọi trạng thái khác 'running', dựng mới khi 'closed', phát 1 mẫu im để mở khoá.
+//   ② giọng máy (speechSynthesis) có thể kẹt hàng đợi sau khi chạy nền: trang ẩn thì xoá hàng đợi; hiện lại thì xoá + resume.
+//   ③ iPhone chỉ cho mở tiếng trong một cú chạm: sau khi quay lại, cú chạm đầu dựng lại AudioContext (nhạc nền đang chạy thì chạy lại).
+function acFix(ac) { const C = window.AudioContext || window.webkitAudioContext; if (!C) return null;
+  try { if (!ac || ac.state === 'closed') ac = new C(); if (ac.state !== 'running') ac.resume().catch(() => {});
+    const b = ac.createBuffer(1, 1, 22050), s = ac.createBufferSource(); s.buffer = b; s.connect(ac.destination); s.start(0); } catch (e) {}
+  return ac; }
+let AUD_WAKE = 0;
+function audVis() { if (document.hidden) sayTok++; try { speechSynthesis.cancel(); if (!document.hidden && speechSynthesis.resume) speechSynthesis.resume(); } catch (e) {} if (!document.hidden) AUD_WAKE = 1; }
+document.addEventListener('visibilitychange', audVis);
+window.addEventListener('pageshow', e => { if (e.persisted) AUD_WAKE = 1; });
+function audWakeTap() {
+  const st = ac => ac && ac.state !== 'running';
+  if (!AUD_WAKE && !(typeof PH_AC !== 'undefined' && st(PH_AC)) && !(typeof TG_AC !== 'undefined' && st(TG_AC))) return;
+  const wake = AUD_WAKE; AUD_WAKE = 0;
+  try { if (typeof PH_AC !== 'undefined' && PH_AC) { const bgm = typeof PH_BGM !== 'undefined' && !!PH_BGM;
+      if (wake) { try { PH_AC.close(); } catch (e) {} PH_AC = null; } PH_AC = acFix(PH_AC); if (wake && bgm && typeof phMusic === 'function') phMusic(true); } } catch (e) {}
+  try { if (typeof TG_AC !== 'undefined' && TG_AC) { if (wake) { try { TG_AC.close(); } catch (e) {} TG_AC = null; } TG_AC = acFix(TG_AC); } } catch (e) {} }
+document.addEventListener('pointerdown', audWakeTap, true);
 // Góp ý #6: một kiểu nút nghe cho mọi màn (thẻ từ, phản hồi, từ điển): 🔊 Từ · 🔊 Câu ví dụ; vào thẻ / mở từ thì tự đọc từ.
 const sayBtns = w => `<div class="chips say"><button class="chip" data-say="${w.id}">🔊 Từ</button><button class="chip" data-say="${w.id}" data-ex="1">🔊 Câu ví dụ</button><button class="chip" data-noi="${w.id}">🎤 Nói thử</button></div>`;
 document.addEventListener('click', e => { const b = e.target.closest('[data-say]'); if (!b) return; const w = WBY[b.dataset.say]; if (w) speak(b.dataset.ex ? w.ex : w.w); });

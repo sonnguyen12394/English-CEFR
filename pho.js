@@ -96,7 +96,7 @@ const phSA = () => { const o = toSt(); return o.pho = o.pho || {}; };   // nhạ
 const phSnd = () => phSA().am !== 0;
 const phMusicOn = () => phSA().nhac !== 0;
 let PH_AC = null, PH_BGM = null;
-function phAc() { try { const C = window.AudioContext || window.webkitAudioContext; if (!C) return null; PH_AC = PH_AC || new C(); if (PH_AC.state === 'suspended') PH_AC.resume(); return PH_AC; } catch (e) { return null; } }
+function phAc() { try { const C = window.AudioContext || window.webkitAudioContext; if (!C) return null; PH_AC = typeof acFix === 'function' ? acFix(PH_AC) : (PH_AC || new C()); return PH_AC; } catch (e) { return null; } }
 function phTone(f, t0, dur, type, vol, f2) { const ac = PH_AC; if (!ac) return; const o = ac.createOscillator(), g = ac.createGain(), t = ac.currentTime + t0;
   o.type = type || 'triangle'; o.frequency.setValueAtTime(f, t); if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + dur);
   g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.015); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
