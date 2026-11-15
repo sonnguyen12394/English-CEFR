@@ -2657,7 +2657,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
         let L = phPick(null, 'tu'), re = L.filter(x => x.real);
         if (!re.length || re.some(x => x.de !== de) || L.length > PH_N) bad.push(k + ': ván phải có câu của đề đã chọn (' + re.length + ')');
         if (!L.some((x, i) => x.real && i > 0 && !L[i - 1].real)) bad.push(k + ': câu kho anh em phải đứng trước câu đề');   // v189: câu đề không có anh em (Cầu Nối: không biết quan hệ của đáp án) được đứng đầu ván
-        const sb = L[i0 - 1], A = it => it.o.find(o => o[0] === it.a); if (sb && A(sb)[1] !== A(L[i0])[1]) bad.push(k + ': câu anh em phải cùng loại với câu đề');
+        const i0 = L.findIndex((x, i) => x.real && i > 0 && !L[i - 1].real), sb = L[i0 - 1], A = it => it.o.find(o => o[0] === it.a); if (sb && A(sb)[1] !== A(L[i0])[1]) bad.push(k + ': câu anh em phải cùng loại với câu đề');
         // câu đề đang sai trong đề lên trước
         const w = D[D.length - 1]; tgJ(de).c[w.n] = { s: 'sai', at: Date.now() }; L = phPick(null, 'tu'); if (L.find(x => x.real) !== w) bad.push(k + ': câu đang sai phải làm trước');
         // câu đã chắc không lặp lại khi còn câu chưa chắc

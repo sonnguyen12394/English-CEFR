@@ -459,7 +459,7 @@ function phEnd() { const R = PH_R; R.end = 1; cancelAnimationFrame(R.raf); phMus
   $app.onclick = e => { if (e.target.closest('[data-phtg]')) return back ? back() : (typeof tgView === 'function' && tgView()); if (e.target.closest('[data-phluat]')) return phLuat(() => phStart()); if (e.target.closest('[data-phagain]')) return phStart(); if (e.target.closest('[data-phhome]')) return phView(); }; }
 
 // ---------- lối chữa từ Chinh phục đề (trochoi.js tgSua: câu Part 5 dạng từ) ----------
-async function phFix(de, n, k) { phUse(k || 'loai'); await toLoad(); await phLoad(); const it = PH_RL[`de:${de}:${n}`]; if (!it) { toast(`Câu này chưa có lời giải ${PHC.lo}, chữa ở đảo nhé.`); return; }
+async function phFix(de, n, k) { if (PH_PHO[k] && PH_PHO[k].fix) return PH_PHO[k].fix(de, n); phUse(k || 'loai'); await toLoad(); await phLoad(); const it = PH_RL[`de:${de}:${n}`]; if (!it) { toast(`Câu này chưa có lời giải ${PHC.lo}, chữa ở đảo nhé.`); return; }
   const P = phSt(); if (!P.in) { P.in = 1; save(); return phGuess(PH_ORD.slice(), () => phStart(it, () => tgView())); }
   phStart(it, () => tgView()); }
 const phCanFix = q => !!phFixKey(q);
@@ -467,7 +467,7 @@ const phFixKey = q => Object.values(PH_PHO).find(c => c.canFix && c.canFix(q))?.
 // nút chữa ở bí kíp Chinh phục đề (trochoi.js tgSua): phố đầu tiên chữa được câu này
 const phFixBtn = (de, q) => { const k = phFixKey(q); return k ? `<button data-phfix="${k}|${esc(de)}|${q.n}">${PH_PHO[k].fixLab}</button>` : ''; };
 
-document.addEventListener('click', e => { if (!S) return; const v = e.target.closest('[data-phv]'); if (v && !String((window.CUR || {}).view).startsWith('toeic-pho')) { PH_BACK = null; phUse(v.dataset.phv || 'loai'); return phView(); }
+document.addEventListener('click', e => { if (!S) return; const v = e.target.closest('[data-phv]'); if (v && !String((window.CUR || {}).view).startsWith('toeic-pho')) { PH_BACK = null; const c = PH_PHO[v.dataset.phv]; if (c && c.own) return c.own(); phUse(v.dataset.phv || 'loai'); return phView(); }
   const f = e.target.closest('[data-phfix]'); if (f) { const p = f.dataset.phfix.split('|'); return p.length > 2 ? phFix(p[1], +p[2], p[0]) : phFix(p[0], +p[1]); } });
 document.addEventListener('keydown', e => { if (!PH_R || !String((window.CUR || {}).view).startsWith(PH_VIEW + '-van') || PH_R.sheet) return;
   if (e.key === 'ArrowLeft') { phMove(PH_R.lane - 1); e.preventDefault(); } if (e.key === 'ArrowRight') { phMove(PH_R.lane + 1); e.preventDefault(); } });
