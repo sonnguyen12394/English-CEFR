@@ -2625,7 +2625,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       // lần đầu bấm Chơi ở Bậc 2 → bài học luật ghế
       await phView(); const click = sel => $app.onclick({ target: { closest: s => s === sel ? {} : null } });
       if (!String($app.innerHTML).includes('data-phluat')) bad.push('màn Phố thiếu nút Học luật ghế');
-      click('[data-phplay]'); if (window.CUR.view !== PH_VIEW + '-luat' || !/Ông Chủ hay Cô Thợ May/.test($app.innerHTML) || !/data-phlskip/.test($app.innerHTML)) bad.push('Chơi Bậc 2 lần đầu phải vào bài học (có Bỏ qua)');
+      click('[data-phplay]'); if (window.CUR.view !== PH_VIEW + '-luat' || !/Bác Danh hay Cô Tính/.test($app.innerHTML) || !/data-phlskip/.test($app.innerHTML)) bad.push('Chơi Bậc 2 lần đầu phải vào bài học (có Bỏ qua)');
       let steps = 0, qs = 0;
       for (let b = 0; b < 3; b++) { steps++; click('[data-phlq]');
         for (let i = 0; i < 12 && window.CUR.view === PH_VIEW + '-luat' && /data-phlc/.test($app.innerHTML); i++) {
@@ -2638,7 +2638,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       // lời giải Bậc 2 nói luật ghế; bảng ghế trong ván
       const it = PH_R.it, g = PH_GHE[it.ghe]; PH_R.lane = PH_R.order.findIndex(o => !o.ok); const got = PH_R.order[PH_R.lane]; phCatch();
       if (!String(document.getElementById('phfb').innerHTML).includes(esc(g.rule))) bad.push('lời giải Bậc 2 phải có luật ghế');
-      const ml = phMissLine({ it, got, md: 'gh' }); if (/\\(Anh Động\\)|\\(Ông Chủ Danh\\)/.test(ml) || !ml.includes('Bạn chọn ' + PH_SHORT[got.p])) bad.push('danh sách cần nhớ lại lặp tên cư dân: ' + ml.slice(0, 120));
+      const ml = phMissLine({ it, got, md: 'gh' }); if (/\\(Anh Động\\)|\\(Bác Danh\\)/.test(ml) || !ml.includes('Bạn chọn ' + PH_SHORT[got.p])) bad.push('danh sách cần nhớ lại lặp tên cư dân: ' + ml.slice(0, 120));
       $app.onclick({ target: { closest: s => s === '[data-phbk]' ? {} : null } }); const sh = document.getElementById('phsheet'); if (!sh || !/Bảng ghế/.test(sh.innerHTML)) bad.push('nút 🪑 trong ván phải mở bảng ghế');
       phStop();
     } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
