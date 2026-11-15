@@ -553,7 +553,7 @@
   {
    "id": "ch-021",
    "t": "J",
-   "s": "Guests staying three nights or more receive a ___ breakfast at no charge.",
+   "s": "Guests staying three nights or more receive a ___ breakfast, which is included in the room rate.",
    "a": "complimentary",
    "o": [
     [
@@ -574,8 +574,8 @@
     ]
    ],
    "cum": "complimentary breakfast",
-   "why": "\"at no charge\" nghĩa là miễn phí: bữa sáng tặng kèm, nên \"complimentary\".",
-   "vi": "Khách ở từ ba đêm trở lên được tặng bữa sáng miễn phí."
+   "why": "\"included in the room rate\": bữa sáng tặng kèm trong giá phòng, nên \"complimentary\".",
+   "vi": "Khách ở từ ba đêm trở lên được tặng bữa sáng, đã tính trong giá phòng."
   },
   {
    "id": "ch-022",
@@ -720,7 +720,7 @@
    "o": [
     [
      "admission",
-     "vé vào cửa"
+     "sự cho vào, phí vào cửa"
     ],
     [
      "absence",
@@ -737,7 +737,7 @@
    ],
    "cum": "attendance at",
    "why": "\"mandatory\" nghĩa là bắt buộc: bắt buộc có mặt ở buổi hội thảo, nên \"attendance\".",
-   "vi": "Nhân viên bắt buộc có mặt ở buổi hội thảo an toàn nếu vận hành máy."
+   "vi": "Mọi người vận hành máy đều bắt buộc có mặt ở buổi hội thảo an toàn."
   },
   {
    "id": "ch-028",
@@ -876,7 +876,7 @@
   },
   {
    "id": "ch-033",
-   "t": "J",
+   "t": "F",
    "s": "The manager wrote to ___ for the late delivery and offered every client a ten percent discount.",
    "a": "apologize",
    "o": [
@@ -898,7 +898,7 @@
     ]
    ],
    "cum": "apologize for",
-   "why": "\"late delivery\" cộng với giảm giá bồi thường: viết thư để xin lỗi, \"apologize\".",
+   "why": "Sau ô trống là \"for\": \"apologize\" for = xin lỗi vì; thank, remind, warn cần tân ngữ trước for.",
    "vi": "Quản lý viết thư xin lỗi vì giao hàng trễ và tặng mỗi khách giảm mười phần trăm."
   },
   {
@@ -939,8 +939,8 @@
      "tham dự"
     ],
     [
-     "joined",
-     "gia nhập"
+     "entered",
+     "ghi danh dự (thi)"
     ],
     [
      "participated",
@@ -952,7 +952,7 @@
     ]
    ],
    "cum": "participate in",
-   "why": "Sau ô trống là \"in\": \"participated\" in = tham gia; attended, joined, watched đi thẳng với tân ngữ.",
+   "why": "Sau ô trống là \"in\": \"participated\" in = tham gia; attended, entered, watched đi thẳng với tân ngữ.",
    "vi": "Hơn hai trăm người đã tham gia cuộc chạy từ thiện vào thứ Bảy."
   },
   {
@@ -1510,8 +1510,8 @@
      "giống nhau"
     ],
     [
-     "like",
-     "như"
+     "mutual",
+     "chung, lẫn nhau"
     ],
     [
      "similar",
@@ -1519,7 +1519,7 @@
     ]
    ],
    "cum": "similar to",
-   "why": "Sau ô trống là \"to\": \"similar\" to = giống với; same, alike, like không đi với to.",
+   "why": "Sau ô trống là \"to\": \"similar\" to = giống với; same, alike, mutual không đi với to.",
    "vi": "Bố cục hai cửa hàng giống nhau nên nhân viên có thể làm việc ở cửa hàng nào cũng được."
   },
   {
@@ -2055,7 +2055,7 @@
     ],
     [
      "advance",
-     "sự trước"
+     "sự đi trước (in advance = trước)"
     ]
    ],
    "cum": "in advance",
