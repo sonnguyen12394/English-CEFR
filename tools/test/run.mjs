@@ -2813,5 +2813,35 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     benStop(); S = S1; TR.B = {}; TR.D = {}; TG_P = null; return bad; })()`);
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C89', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🔎 Bến Dò Tin: kho ≥ 30 văn bản / 90 câu qua bộ dựng, câu Part 7 của đề vào bến, bậc 1 nhận loại, bậc 2 chạm câu chứa đáp án, bậc 4 kho anh em trước bộ đề + ghi Chinh phục đề, nút chữa, đếm ở Thành phố; không đụng thẻ học' }); }
+// v192 C90 🛒 Chợ Từ Vựng: kho ≥ 100 câu qua bộ dựng (3 cư dân E / F / J), câu thật Part 5 từ vựng, bậc 1 3 quầy + chữ mốc, bậc 2 kiểu ván 'vi' (nghĩa tiếng Việt → từ),
+//   bậc 3–4 bắt từ ghi lịch ôn + Chinh phục đề, nút chữa; tiến độ riêng S.to.phos.cho
+{ const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname;
+  try { const o = cp.execFileSync('node', [root + 'tools/build-cho.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ cho\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.stderr || e.message).slice(0, 160)); }
+  const K = JSON.parse(fs.readFileSync(root + 'cho.json', 'utf8')).items; if (K.length < 100) bad.push('kho Chợ cần ≥ 100 câu (' + K.length + ')');
+  for (const k of ['E', 'F', 'J']) if (K.filter(x => x.o[0][1] === k).length < 25) bad.push('cư dân ' + k + ' quá ít câu');
+  const html = fs.readFileSync(root + 'index.html', 'utf8'); if (!/<script src="cho\.js\?v=\d+">/.test(html) || !/\.ph-E/.test(html)) bad.push('index.html thiếu cho.js / CSS');
+  const r = await run(`(async () => { const bad = [], S1 = S, G0 = document.getElementById;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
+      document.getElementById = id => { const e = G0(id); if (id === 'phrow') { e.children = [0, 1, 2, 3].map(() => ({ classList: { add() {} } })); e.firstElementChild = { offsetHeight: 40 }; } if (id === 'pharena') e.clientHeight = 300; return e; };
+      await toLoad(); phUse('cho'); PH_K = null; PH_RL = null; await phLoad();
+      if (PH_VIEW !== 'toeic-pho-cho' || PH_ORD.join() !== 'E,F,J' || PH_MO.length !== 4) bad.push('phUse không nạp cấu hình Chợ');
+      const R = Object.values(PH_RL); if (R.length < 30) bad.push('câu thật từ vựng quá ít: ' + R.length);
+      if (R.some(it => !/___/.test(it.s) || it.o.some(o => !['E', 'F', 'J'].includes(o[1]) || !o[2]))) bad.push('câu thật sai khuôn');
+      const c5 = PH_K.find(x => x.id === 'ch-005'); if (phMoc(c5) !== 'for') bad.push('chữ mốc: ' + phMoc(c5));
+      const P = phSt(); P.in = 1; for (const k of ['E', 'F']) P.cd[k] = { at: 1, n: 0 };
+      phStart(); if (PH_R.M.md !== 'gh' || PH_R.order.length !== 3 || PH_R.order.find(o => o.ok).p !== PH_R.it.o[0][1]) bad.push('bậc 1: 3 quầy, đúng = quầy của câu');
+      PH_R.ok = PH_WIN; phEnd(); if (!phOpen('b2') || !S.to.phos.cho) bad.push('thắng bậc 1 mở bậc 2, tiến độ ở S.to.phos.cho');
+      phStart(); const it2 = PH_R.it, A2 = it2.o.find(o => o[0] === it2.a);
+      if (PH_R.M.md !== 'vi' || PH_R.order.filter(o => o.ok).length !== 1 || PH_R.order.find(o => o.ok).w !== it2.a || !String(document.getElementById('phsent').innerHTML).includes(A2[2])) bad.push('bậc 2: nghĩa tiếng Việt → bắt từ');
+      PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch(); if (!/không hợp ở đây/.test(String(document.getElementById('phfb').innerHTML))) bad.push('bậc 2 bắt sai: lời nói của Chợ'); phStop();
+      P.mu = { b1: 8, b2: 8 }; P.mc = 'b3'; phStart(); const it3 = PH_R.it; PH_R.lane = PH_R.order.findIndex(o => o.ok); phCatch(); if (!P.it[it3.id] || P.it[it3.id].s !== 1) bad.push('bậc 3 bắt đúng phải ghi lịch ôn'); phStop();
+      const q = Object.values(PH_RL)[0], de = q.de, Q = trB(de).Q.find(x => x.n === q.n);
+      if (!phFixBtn(de, Q).includes('data-phfix="cho|')) bad.push('bí kíp câu từ vựng phải có nút chữa ở Chợ');
+      const C = cyCount(de); if (!C.cho || C.cho.n < 5) bad.push('đếm câu cần Chợ: ' + JSON.stringify(C.cho));
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length || Object.keys(S.to.ty || {}).length) bad.push('đụng thẻ học / điểm đề thử / bản đồ');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    phUse('loai'); document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C90', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🛒 Chợ Từ Vựng: kho ≥ 100 câu qua bộ dựng (3 quầy), câu thật Part 5 từ vựng, bậc 1 3 quầy + chữ mốc, bậc 2 nghĩa tiếng Việt → bắt từ, bậc 3 ghi lịch ôn, nút chữa, đếm câu cần phố; không đụng thẻ học' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
