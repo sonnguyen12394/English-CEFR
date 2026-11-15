@@ -2784,5 +2784,34 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     phUse('loai'); document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; return bad; })()`);
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C88', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '👥 Phố Đại Từ & Lượng Từ: kho ≥ 100 câu qua bộ dựng (5 cư dân, 12 luật), câu thật Part 5 đại từ / lượng từ, bậc 1 4 làn + chữ mốc, bậc 2 bắt luật chỉ câu kho, luật vững theo 12 luật, nút chữa, đếm câu cần phố; không đụng thẻ học' }); }
+// v191 C89 🔎 Bến Dò Tin: kho văn bản qua bộ dựng, 4 loại câu hỏi; câu Part 7 của đề vào bến (trừ từ gần nghĩa / chèn câu); bậc 1 nhận loại, bậc 2 chạm câu chứa đáp án
+//   (chỉ câu có ev), bậc 3–4 dò rồi chọn, câu đề ghi ⚔️ Chinh phục đề; văn bản kho anh em đứng trước bộ đề; nút chữa từ bí kíp; tiến độ S.to.phos.ben
+{ const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname;
+  try { const o = cp.execFileSync('node', [root + 'tools/build-ben.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ ben\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.stderr || e.message).slice(0, 160)); }
+  const K = JSON.parse(fs.readFileSync(root + 'ben.json', 'utf8')).items, Q = K.flatMap(x => x.qs); if (K.length < 30 || Q.length < 90) bad.push(`kho Bến cần ≥ 30 văn bản / 90 câu (${K.length} / ${Q.length})`);
+  for (const k of ['P', 'C', 'K', 'Y']) if (Q.filter(q => q.ty === k).length < 15) bad.push('loại ' + k + ' quá ít câu');
+  const html = fs.readFileSync(root + 'index.html', 'utf8'); if (!/<script src="ben\.js\?v=\d+">/.test(html) || !/\.bens\b/.test(html) || !/\.ph-Y/.test(html)) bad.push('index.html thiếu ben.js / CSS');
+  const r = await run(`(async () => { const bad = [];
+    const S1 = S; try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; BEN_K = null; await toLoad(); TG_P = await tgPool(); const de = TO.tron[2].id; tgSt().de = de; await trLoad(de); await benLoad();
+      const D = benDeItems(de); if (D.length < 40 || D.filter(x => x.ev).length < 40 || D.some(x => !x.docs.length || !x.opts || x.opts.length !== 4)) bad.push('câu Part 7 của đề vào bến: ' + D.length);
+      if (benKItems().length < 90) bad.push('câu hỏi kho');
+      const P = benSt(); P.in = 1;
+      await benStart(); if (BEN_R.M.md !== 'loai' || BEN_R.L.length !== 10 || !BEN_R.L.some(x => x.real)) bad.push('bậc 1: 10 câu, có câu đề');
+      benAns(BEN_R.it.ty); if (BEN_R.ok !== 1) bad.push('bậc 1 chọn đúng loại không ghi'); benNext(); const h0 = BEN_R.hearts; benAns(['P', 'C', 'K', 'Y'].find(t => t !== BEN_R.it.ty)); if (BEN_R.hearts !== h0 - 1) bad.push('bậc 1 sai phải mất tim');
+      BEN_R.ok = 10; BEN_R.i = BEN_R.L.length - 1; BEN_R.done = true; benEnd(); if (!benOpen('b2') || benMuc() !== 'b2' || !S.to.phos.ben.mu.b1 || (S.to.pho && S.to.pho.mu)) bad.push('thắng bậc 1 mở bậc 2, tiến độ ở S.to.phos.ben');
+      await benStart(); if (BEN_R.M.md !== 'do' || BEN_R.L.some(x => !x.ev)) bad.push('bậc 2: chỉ câu có câu chứa đáp án');
+      const I = benEvI(BEN_R.it); if (!I.size) bad.push('bậc 2: không tìm được câu chứa đáp án trong bài'); benAns([...I][0]); if (BEN_R.ok !== 1) bad.push('bậc 2 chạm đúng câu không ghi'); benStop();
+      P.mu = { b1: 8, b2: 8, b3: 8 }; P.mc = 'b4'; await benStart(); const L = BEN_R.L, i0 = L.findIndex(x => x.real);
+      if (BEN_R.M.md !== 'chon' || BEN_R.M.k !== 4 || i0 < 1 || L[0].real) bad.push('bậc 4: văn bản kho anh em trước bộ đề');
+      BEN_R.i = i0; benQ(); const it = BEN_R.it; benAns(BEN_R.opts.indexOf(it.a)); if (tgJ(de).c[it.n].s !== 'ok' || benSt().it[it.id].s !== 1 || benSt().it[it.id].lv !== 1) bad.push('bậc 4 đúng câu đề phải ghi Chinh phục đề + chắc'); benStop();
+      const q = trB(de).Q.find(x => x.sec === 'p7' && x.qt === 'detail'), qs = trB(de).Q.find(x => x.sec === 'p7' && x.qt === 'syn');
+      if (!phFixBtn(de, q).includes('data-phfix="ben|') || (qs && phFixBtn(de, qs).includes('ben|'))) bad.push('nút chữa Part 7 ở Bến (trừ từ gần nghĩa)');
+      await benFix(de, q.n); if (BEN_R.mu !== 'fix' || BEN_R.L[BEN_R.L.length - 1].n !== q.n || BEN_R.L.length < 2) bad.push('chữa câu: văn bản kho rồi chính câu đề'); benStop();
+      const C = cyCount(de); if (!C.ben || C.ben.n < 40 || C.ben.chac < 1) bad.push('đếm câu cần Bến ở Thành phố: ' + JSON.stringify(C.ben));
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length || Object.keys(S.to.ty || {}).length) bad.push('đụng thẻ học / điểm đề thử / bản đồ');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    benStop(); S = S1; TR.B = {}; TR.D = {}; TG_P = null; return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C89', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🔎 Bến Dò Tin: kho ≥ 30 văn bản / 90 câu qua bộ dựng, câu Part 7 của đề vào bến, bậc 1 nhận loại, bậc 2 chạm câu chứa đáp án, bậc 4 kho anh em trước bộ đề + ghi Chinh phục đề, nút chữa, đếm ở Thành phố; không đụng thẻ học' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

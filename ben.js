@@ -98,7 +98,7 @@ function benDocs(it, mode, evI) { let k = 0; return it.docs.map(d => { const S =
 const benAllS = it => it.docs.flatMap(d => benSents(d.text));
 const benEvI = it => { const S = benAllS(it), out = new Set(); if (it.ev) S.forEach((s, i) => { if (benHit(s, it.ev)) out.add(i); }); return out; };
 function benOpts(it, k) { const all = it.opts ? it.opts.slice() : shuf([it.a, ...it.w]); if (k >= all.length) return all; const wr = all.filter(o => o !== it.a); const drop = shuf(wr)[0]; return all.filter(o => o !== drop); }
-function benHud() { const R = BEN_R; return `<div class="phhud trx"><button class="iconbtn" data-benpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip">${'❤️'.repeat(Math.max(0, R.hearts))}${'🖤'.repeat(Math.max(0, R.M.tim - R.hearts))}</span><span class="chip">⭐ ${R.star}</span><span class="chip"${R.combo >= 2 ? '' : ' hidden'}>🔥 ×${R.combo}</span><span class="chip">${R.i + 1}/${R.L.length}</span></div>`; }
+function benHud() { const R = BEN_R; return `<div class="phhud trx"><button class="iconbtn" data-benpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip">❤️ ${Math.max(0, R.hearts)}/${R.M.tim}</span><span class="chip">⭐ ${R.star}</span><span class="chip"${R.combo >= 2 ? '' : ' hidden'}>🔥 ×${R.combo}</span><span class="chip">${R.i + 1}/${R.L.length}</span></div>`; }
 function benQ() { const R = BEN_R; if (!R) return; const it = R.L[R.i], M = R.M; R.it = it; R.done = false; R.hint = 0; window.CUR = { view: 'toeic-ben-van' }; scrollTo(0, 0);
   const C = PH_PHO.ben.CH, md = M.md, opts = md === 'chon' ? benOpts(it, M.k) : null; R.opts = opts;
   const qh = `<div class="box benq"><small class="mute">${md === 'loai' ? 'Câu hỏi này thuộc loại nào?' : md === 'do' ? 'Chạm câu trong bài chứa đáp án' : 'Đọc bài, chọn đáp án'}</small><p class="tdtap" style="margin:4px 0 0;font-size:18px;font-weight:600">${esc(it.q)}</p></div>`;
@@ -128,6 +128,7 @@ function benAns(v, el) { const R = BEN_R; if (!R || R.done) return; R.done = tru
   else if (md === 'do') { ok = v !== null && I.has(v); got = v === null ? 'hết giờ' : 'câu khác'; document.querySelectorAll('[data-bens]').forEach(b => { b.disabled = true; if (I.has(+b.dataset.bens)) b.classList.add('ev'); }); if (el && !ok) el.classList.add('no'); }
   else { ok = v !== null && R.opts[v] === it.a; got = v === null ? 'hết giờ' : R.opts[v]; document.querySelectorAll('[data-beno]').forEach(b => { b.disabled = true; if (R.opts[+b.dataset.beno] === it.a) b.classList.add('yes'); }); if (el && !ok) el.classList.add('no');
     for (const i of I) { const s = document.querySelector(`[data-bensi="${i}"]`); if (s) s.classList.add('ev'); } }
+  { const tb = document.querySelector('.tgtime i'); if (tb) tb.style.animationPlayState = 'paused'; const gb = document.querySelector('[data-bengoi]'); if (gb) gb.remove(); }
   benMark(it, ok); const S = benSt().st; S.cau = (S.cau || 0) + 1;
   if (ok) { R.ok++; R.combo++; R.star += R.combo >= 3 ? 2 : 1; S.dung = (S.dung || 0) + 1; phSfx(R.combo >= 3 ? 'combo' : 'ok'); }
   else { R.combo = 0; R.hearts--; R.miss.push({ it, got, md }); phSfx('no'); }
@@ -135,8 +136,8 @@ function benAns(v, el) { const R = BEN_R; if (!R || R.done) return; R.done = tru
   const ty = `<span class="phtag ph-${it.ty}">${C[it.ty].pos}</span>`, last = R.hearts <= 0 || R.i + 1 >= R.L.length;
   const og = it.og && md === 'chon' ? `<details class="more"><summary>Nghĩa các đáp án</summary>${R.opts.map(o => `<p style="margin:3px 0">${esc(o)}: <span class="mute">${esc(it.og[o] || '')}</span></p>`).join('')}</details>` : '';
   document.getElementById('benfb').innerHTML = `<div class="phfb ${ok ? 'good' : 'bad'}"><p class="${ok ? 'ok' : 'ko'}">${ok ? '✓ Đúng rồi!' : `✗ Chưa đúng (${esc(got)})`}${R.combo >= 3 ? ` · 🔥 ×${R.combo}` : ''}</p>
-    ${md === 'loai' ? `<p style="margin:0">${ty} ${esc(C[it.ty].line)}</p>` : `<p style="margin:0">${ty} ${md === 'do' ? 'Câu chứa đáp án đã tô.' : `Đáp án: <b>${esc(it.a)}</b>.`} ${esc(it.why || '')}</p>`}
-    ${it.vi ? `<p class="mute" style="margin:4px 0 0">${esc(it.vi)}</p>` : ''}${og}${!ok && R.hearts <= 0 ? '<p class="ko" style="margin:4px 0 0">💔 Hết tim</p>' : ''}
+    ${md === 'loai' ? `<p style="margin:0">${ty} ${esc(C[it.ty].line)}</p>` : `<p style="margin:0">${ty} ${md === 'do' ? 'Câu chứa đáp án đã tô.' : `Đáp án: <b>${esc(String(it.a).replace(/[.!?]+$/, ''))}</b>.`} ${esc(it.why || '')}</p>`}
+    ${it.vi && !(it.real && md === 'loai') ? `<p class="mute" style="margin:4px 0 0">${it.real ? '📍 Câu chứa đáp án: ' : '🇻🇳 '}${esc(it.vi)}</p>` : ''}${og}${!ok && R.hearts <= 0 ? '<p class="ko" style="margin:4px 0 0">💔 Hết tim</p>' : ''}
     <button class="pri" data-bennext>${last ? 'Xem kết quả' : 'Câu tiếp ›'}</button></div>`;
   const fb = document.getElementById('benfb'); if (fb && fb.scrollIntoView) try { fb.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {} }
 function benNext() { const R = BEN_R; if (R.hearts <= 0 || R.i + 1 >= R.L.length) return benEnd(); R.i++; benQ(); }
