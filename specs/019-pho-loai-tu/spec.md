@@ -110,3 +110,12 @@ Người sáng lập chơi v178: "Khi làm đúng thì cần hoạt cảnh báo 
 - **FR-014** Đúng 3 câu liền hồi 1 tim.
 - **FR-015** Hoạt cảnh đúng / sai rõ trong sân chơi (chữ to, màu, sao bay / rung, từ đáp án sáng xanh); giảm chuyển động chỉ đổi màu.
 - **SC-009** Người sáng lập thắng được mức Dễ ở ván đầu (chưa đo được, cần chơi trên iPhone).
+
+## Bổ sung v180 (15/11/2026)
+
+Người sáng lập: "Thiếu âm nhạc nền và nhạc khi chọn đúng sai… chưa phân biệt được rõ 4 dạng ở các từ và chưa rõ ô trống đó nên chọn dạng gì nên từ dễ tới khó phân ra từ từ chứ không nên vừa bắt phân biệt dạng từ vừa biết cấu trúc đó thuộc dạng nào."
+
+- **FR-016** 4 bậc mở dần, mỗi bậc một kỹ năng: Bậc 1 nhận loại từ qua đuôi từ (không có câu) → Bậc 2 đoán ghế trống cần loại từ nào (cư dân rơi, không có từ) → Bậc 3 ghép (3 từ) → Bậc 4 đủ 4 từ có cặp cùng loại. Thay FR-012.
+- **FR-017** Bậc 1–2 không ghi lịch ôn câu / hành trình Chinh phục đề.
+- **FR-018** Nhạc nền nhẹ trong ván + tiếng đúng / sai rõ; bật / tắt riêng từng loại.
+- **SC-010** Người sáng lập thắng bậc 1 và bậc 2 (chưa đo được, cần chơi trên iPhone).

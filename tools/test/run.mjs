@@ -2553,20 +2553,23 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       if (!phCanFix(q) || !tgRow().includes('data-phv')) bad.push('thiếu lối vào / lối chữa');
       // ván: bắt đúng → lịch 1 ngày + hành trình ⭐; bắt sai → mất tim, hẹn mai
       const P = phSt(); P.in = 1; for (const k of ['N', 'V', 'nguoi', 'vdang', 'edng', 'so']) P.cd[k] = { at: 1, n: 0 };
-      phStart(it, () => 0); if (!PH_R || !String($app.innerHTML).includes('pharena') || (String(document.getElementById('phrow').innerHTML).match(/phpill/g) || []).length !== 3 || PH_R.mu !== 'de' || PH_R.hearts !== 5) bad.push('mức Dễ: 3 từ, 5 tim');
-      if (!String(document.getElementById('phsent').innerHTML).includes('phmoc') && phMoc(it)) bad.push('mức Dễ phải tô sẵn chữ mốc');
-      PH_R.lane = PH_R.order.findIndex(o => o[0] === it.a); phCatch();
+      phStart(it, () => 0); if (!PH_R || !String($app.innerHTML).includes('pharena') || (String(document.getElementById('phrow').innerHTML).match(/phpill/g) || []).length !== 4 || PH_R.mu !== 'fix' || PH_R.hearts !== 5) bad.push('ván chữa: 4 từ, 5 tim');
+      if (!String(document.getElementById('phsent').innerHTML).includes('phmoc') && phMoc(it)) bad.push('ván chữa phải tô sẵn chữ mốc');
+      PH_R.lane = PH_R.order.findIndex(o => o.ok); phCatch();
       if (PH_R.ok !== 1 || !/phfb good/.test(String(document.getElementById('phfb').innerHTML))) bad.push('bắt đúng không ghi');
       if (!P.it[it.id] || P.it[it.id].d !== dayOf(Date.now()) + 1 || S.to.tc.j[it.de].c[it.n].s !== 'ok') bad.push('bắt đúng: lịch / hành trình sai');
-      phNext(); const i2 = PH_R.it; PH_R.lane = PH_R.order.findIndex(o => o[0] !== i2.a); phCatch();
+      phNext(); const i2 = PH_R.it; PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch();
       if (PH_R.hearts !== 4 || P.it[i2.id].s !== 0 || !/Hiểu rồi/.test(String(document.getElementById('phfb').innerHTML)) || !/Sai rồi/.test(String(document.getElementById('phfx').innerHTML))) bad.push('bắt sai: tim / lịch / lời giải / hoạt cảnh');
       // 💡 gợi ý: câu đúng nhờ gợi ý hẹn ôn ngày mai, không tăng cấp
       phNext(); const i3 = PH_R.it; phHint(); if (!PH_R.used || !/Ghế này của/.test(String(document.getElementById('phgoi').innerHTML))) bad.push('gợi ý không hiện');
-      PH_R.lane = PH_R.order.findIndex(o => o[0] === i3.a); phCatch(); if (P.it[i3.id].d !== dayOf(Date.now()) + 1 || P.it[i3.id].lv !== 0 || !/Đúng rồi/.test(String(document.getElementById('phfx').innerHTML))) bad.push('đúng nhờ gợi ý: hẹn mai, không tăng cấp, có hoạt cảnh');
+      PH_R.lane = PH_R.order.findIndex(o => o.ok); phCatch(); if (P.it[i3.id].d !== dayOf(Date.now()) + 1 || P.it[i3.id].lv !== 0 || !/Đúng rồi/.test(String(document.getElementById('phfx').innerHTML))) bad.push('đúng nhờ gợi ý: hẹn mai, không tăng cấp, có hoạt cảnh');
       // đúng 3 câu liền thì hồi tim
-      phStart(); { const iw = PH_R.it; PH_R.lane = PH_R.order.findIndex(o => o[0] !== iw.a); phCatch(); } const h0 = PH_R.hearts; for (let j = 0; j < 3; j++) { phNext(); const ij = PH_R.it; PH_R.lane = PH_R.order.findIndex(o => o[0] === ij.a); phCatch(); } if (PH_R.combo !== 3 || PH_R.hearts !== h0 + 1) bad.push('3 câu liền phải hồi 1 tim (' + PH_R.combo + ', ' + h0 + ' → ' + PH_R.hearts + ')');
+      phStart(); if (PH_R.mu !== 'b1' || PH_R.M.md !== 'dp' || PH_R.order.length !== 3 || PH_R.order.filter(o => o.ok).length !== 1 || !String(document.getElementById('phsent').innerHTML).includes('phcall')) bad.push('bậc 1: 3 từ, đúng 1, có lời gọi cư dân');
+      { PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch(); } const h0 = PH_R.hearts; for (let j = 0; j < 3; j++) { phNext(); PH_R.lane = PH_R.order.findIndex(o => o.ok); phCatch(); } if (PH_R.combo !== 3 || PH_R.hearts !== h0 + 1) bad.push('3 câu liền phải hồi 1 tim (' + PH_R.combo + ', ' + h0 + ' → ' + PH_R.hearts + ')');
       // mở mức: thắng Dễ đúng ≥ PH_WIN thì mở Thường
-      if (phOpen('th')) bad.push('Thường phải khoá lúc đầu'); PH_R.fix = null; PH_R.ok = PH_WIN; phEnd(); if (!phOpen('th') || phMuc() !== 'th' || phOpen('kh')) bad.push('thắng Dễ phải mở Thường (không mở Khó)');
+      if (phOpen('b2')) bad.push('bậc 2 phải khoá lúc đầu'); PH_R.ok = PH_WIN; phEnd(); if (!phOpen('b2') || phMuc() !== 'b2' || phOpen('b3')) bad.push('thắng bậc 1 phải mở bậc 2 (không mở bậc 3)');
+      phStart(); if (PH_R.M.md !== 'gh' || PH_R.order.length !== 4 || PH_R.order.filter(o => o.ok).length !== 1 || PH_R.order.find(o => o.ok).p !== PH_R.it.o.find(o => o[0] === PH_R.it.a)[1]) bad.push('bậc 2: 4 cư dân, đúng = loại từ của đáp án');
+      const ig = PH_R.it; PH_R.lane = PH_R.order.findIndex(o => o.ok); phCatch(); if (P.it[ig.id] && P.it[ig.id].at > Date.now() - 50) bad.push('bậc 2 không được ghi lịch ôn câu'); phStop();
       phStart(); PH_R.i = 1; phStop(); if (!P.st.bo) bad.push('bỏ dở ván không đếm');
       if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length || Object.keys(S.to.ty || {}).length) bad.push('đụng thẻ học / điểm đề thử / bản đồ');
     } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
