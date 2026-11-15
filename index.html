@@ -238,6 +238,10 @@
   /* v180 Phố Loại Từ: lời gọi bậc 1, hàng nhạc / tiếng */
   .phcall { display:flex; align-items:center; justify-content:center; gap:12px; min-height:68px; font-size:20px; } .phcall svg { flex:none; } .phcall span { display:flex; flex-direction:column; line-height:1.3; } .phcall small { font-size:15px; color:var(--mute); }
   .phsnd { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; } .phsnd button { flex:1 1 140px; width:auto; margin:0; min-height:44px; font-size:15px; }
+  /* v189 ⏰ Phố Động Từ (dong.js): 4 màu cư dân động từ; chữ trên màu luôn mực tối --phink */
+  :root { --phh:#ffd0a8; --phb:#e8c9a0; --pho:#ffb8cc; --phi:#a8d8ff; }
+  @media (prefers-color-scheme: dark) { :root { --phh:#f2bf92; --phb:#d9b88c; --pho:#f2a5bc; --phi:#93caf5; } }
+  .ph-H { background:var(--phh) !important; color:var(--phink) !important; } .ph-B { background:var(--phb) !important; color:var(--phink) !important; } .ph-O { background:var(--pho) !important; color:var(--phink) !important; } .ph-I { background:var(--phi) !important; color:var(--phink) !important; }
   /* v181 🏙 Thành phố TOEIC (thanhpho.js) + 🌉 Phố Cầu Nối (cau.js): 3 màu cư dân cầu nối + màu kiểu quan hệ; chữ trên màu luôn mực tối --phink */
   :root { --phg:#ffbf99; --phl:#d4c2ff; --pht:#9fe6de; --phq:#ffe7a8; }
   @media (prefers-color-scheme: dark) { :root { --phg:#f2ad84; --phl:#c3aef7; --pht:#88d8cf; --phq:#f2d68e; } }
@@ -415,6 +419,7 @@
 <script src="trochoi.js?v=188"></script>
 <script src="pho.js?v=188"></script>
 <script src="cau.js?v=188"></script>
+<script src="dong.js?v=188"></script>
 <script src="thanhpho.js?v=188"></script>
 <script src="kiemde.js?v=188"></script>
 <script src="chandoan.js?v=188"></script>
