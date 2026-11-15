@@ -9,9 +9,9 @@ const CY_PHO = [
   { k: 'cau', need: q => (q.sec === 'p5' && ['prep', 'conj'].includes(CY_T(q))) || (q.sec === 'p6' && CY_T(q) === 'conn') },
   { k: 'dong', ic: '⏰', ten: 'Phố Động Từ', sub: 'Thì, chủ động / bị động, to V / V-ing', need: q => (q.sec === 'p5' && CY_T(q) === 'verb') || (q.sec === 'p6' && CY_T(q) === 'tense') },
   { k: 'dai', ic: '👥', ten: 'Phố Đại Từ & Lượng Từ', sub: 'he / him / his, each / many / much, cấu trúc', need: q => q.sec === 'p5' && ['pron', 'det', 'struct'].includes(CY_T(q)) },
+  { k: 'ben', ic: '🔎', ten: 'Bến Dò Tin', sub: 'Tìm chi tiết, suy luận, mục đích · Part 7', need: q => q.sec === 'p7' && !['syn', 'insert'].includes(CY_T(q)) },
   { k: 'cho', ic: '🛒', ten: 'Chợ Từ Vựng', sub: 'Chọn từ theo nghĩa, cụm hay dùng, từ gần nghĩa', need: q => (q.sec === 'p5' && CY_T(q) === 'voc') || (q.sec === 'p6' && CY_T(q) === 'word') || (q.sec === 'p7' && CY_T(q) === 'syn') },
-  { k: 'ghep', ic: '🧩', ten: 'Phố Ghép Đoạn', sub: 'Chèn câu vào đoạn văn · Part 6, Part 7', need: q => (q.sec === 'p6' || q.sec === 'p7') && CY_T(q) === 'insert' },
-  { k: 'ben', ic: '🔎', ten: 'Bến Dò Tin', sub: 'Tìm chi tiết, suy luận, mục đích · Part 7', need: q => q.sec === 'p7' && !['syn', 'insert'].includes(CY_T(q)) } ];
+  { k: 'ghep', ic: '🧩', ten: 'Phố Ghép Đoạn', sub: 'Chèn câu vào đoạn văn · Part 6, Part 7', need: q => (q.sec === 'p6' || q.sec === 'p7') && CY_T(q) === 'insert' } ];
 const cyC = p => (typeof PH_PHO !== 'undefined' && PH_PHO[p.k]) || null;   // phố đã có (cấu hình động cơ phố)
 // v183: phố đã có đếm đúng câu phố dùng được (canFix = cùng điều kiện với câu thật của phố), để số ở Thành phố khớp màn phố
 const cyInfo = p => { const c = cyC(p); return c ? { ic: c.ic, ten: c.ten, sub: c.sub } : p; };
