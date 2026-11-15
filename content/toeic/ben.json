@@ -1,0 +1,1579 @@
+{
+ "_khuon": {
+  "muc_dich": "Kho văn bản ngắn của 🔎 Bến Dò Tin (Thành phố TOEIC): luyện câu hỏi Part 7 (trừ từ gần nghĩa, chèn câu). Mỗi văn bản 60–120 từ kiểu Part 7 (e-mail, thông báo, quảng cáo, tin nhắn, bài báo ngắn, biểu mẫu), 3 câu hỏi. Không chép đề ETS / đề trong app; người, công ty hư cấu.",
+  "cu_dan": {
+   "P": "Cô Mục đích: Why was the e-mail written? What is the purpose of…? (đọc câu đầu / câu yêu cầu)",
+   "C": "Bác Chi tiết: When / Where / How much / What… (dò từ khoá của câu hỏi trong bài)",
+   "K": "Anh Đúng–Sai: What is indicated / stated / true about…? What is NOT mentioned? (đối chiếu từng phương án)",
+   "Y": "Bé Suy luận: What is suggested / most likely…? What does X mean when he writes…? (đọc kỹ chỗ liên quan, không có chữ y nguyên)"
+  },
+  "dinh_dang": "{ id 'bt-NN', kind: loại văn bản tiếng Anh như đề (E-mail, Notice, Advertisement, Text message chain, Article, Memo, Web page, Form, Invitation, Review), t: văn bản (mỗi câu kết thúc bằng . ! ?; tin nhắn mỗi dòng 'Tên (giờ): …', xuống dòng bằng \\n), qs: [ { ty: P|C|K|Y, q: câu hỏi tiếng Anh, a: đáp án, w: [3 phương án sai], ev: một đoạn ≥ 20 ký tự chép NGUYÊN VĂN từ đúng MỘT câu của t chứa bằng chứng (câu NOT: câu chứa đáp án đúng, tức điều KHÔNG được nhắc thì ev là câu gần nhất liên quan), why: tiếng Việt ≤ 40 từ, vi: dịch câu hỏi } ] }",
+  "luat_soan": "Đáp án diễn đạt lại (không chép nguyên văn cụm từ của bài); 3 phương án sai cùng loại, hợp lẽ thường, chỉ bài mới phân biệt được; đáp án không luôn là phương án dài nhất. Mỗi văn bản 3 câu hỏi khác loại khi được; câu hỏi theo thứ tự xuất hiện trong bài."
+ },
+ "items": [
+  {
+   "id": "bt-01",
+   "kind": "E-mail",
+   "t": "Dear Ms. Alvarez,\nThank you for ordering from Brightline Office Supply. Unfortunately, the ergonomic chairs you requested are out of stock until March 12. We can ship the rest of your order today and send the chairs as soon as they arrive. Alternatively, we can hold the entire order and deliver everything together. Please reply by Friday to let us know which option you prefer. As an apology for the delay, shipping on this order will be free.\nBest regards,\nTom Becker, Customer Service",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why did Mr. Becker write to Ms. Alvarez?",
+     "a": "To explain a problem with part of an order",
+     "w": [
+      "To confirm that a payment was received",
+      "To advertise a new line of furniture",
+      "To request a change to a delivery address"
+     ],
+     "ev": "the ergonomic chairs you requested are out of stock until March 12",
+     "why": "Thư báo ghế đặt mua đang hết hàng tới 12/3, tức một phần đơn hàng có vấn đề.",
+     "vi": "Vì sao ông Becker viết thư cho bà Alvarez?"
+    },
+    {
+     "ty": "C",
+     "q": "What is Ms. Alvarez asked to do by Friday?",
+     "a": "Choose how the order will be sent",
+     "w": [
+      "Pay a delivery fee",
+      "Return a damaged item",
+      "Visit a store to pick up chairs"
+     ],
+     "ev": "Please reply by Friday to let us know which option you prefer",
+     "why": "Bà được đề nghị trả lời trước thứ Sáu để chọn một trong hai cách giao hàng.",
+     "vi": "Bà Alvarez được đề nghị làm gì trước thứ Sáu?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the order?",
+     "a": "It will be delivered at no extra cost.",
+     "w": [
+      "It was placed by telephone.",
+      "It will arrive before March 12.",
+      "It includes a discount on chairs."
+     ],
+     "ev": "shipping on this order will be free",
+     "why": "Câu cuối nói phí vận chuyển của đơn này được miễn, tức giao không mất thêm tiền.",
+     "vi": "Điều gì được nêu về đơn hàng?"
+    }
+   ]
+  },
+  {
+   "id": "bt-02",
+   "kind": "Notice",
+   "t": "Attention, Harbor Tower Tenants\nThe main elevator will be closed for inspection on Saturday, June 8, from 8:00 A.M. to 2:00 P.M. During this time, please use the service elevator at the rear of the building. Deliveries scheduled for that morning should be moved to the afternoon if possible. The building office on the ground floor will be open as usual. We apologize for any inconvenience and thank you for your patience.\nHarbor Tower Management",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "When will the main elevator be unavailable?",
+     "a": "On a Saturday morning and early afternoon",
+     "w": [
+      "On a weekday evening",
+      "For the whole weekend",
+      "Every morning in June"
+     ],
+     "ev": "The main elevator will be closed for inspection on Saturday, June 8, from 8:00 A.M. to 2:00 P.M.",
+     "why": "Thang máy chính đóng thứ Bảy 8/6 từ 8 giờ sáng tới 2 giờ chiều.",
+     "vi": "Khi nào thang máy chính không dùng được?"
+    },
+    {
+     "ty": "Y",
+     "q": "Who most likely would be affected by the closure?",
+     "a": "Companies expecting deliveries",
+     "w": [
+      "Visitors to the rooftop garden",
+      "Staff working in the building office",
+      "Drivers using the parking garage"
+     ],
+     "ev": "Deliveries scheduled for that morning should be moved to the afternoon if possible.",
+     "why": "Thông báo nhắc dời các chuyến giao hàng buổi sáng, nên bên đang chờ giao hàng bị ảnh hưởng; văn phòng vẫn mở bình thường.",
+     "vi": "Ai có lẽ sẽ bị ảnh hưởng bởi việc đóng thang máy?"
+    },
+    {
+     "ty": "K",
+     "q": "What is NOT mentioned in the notice?",
+     "a": "The reason the inspection was delayed",
+     "w": [
+      "Another elevator that can be used",
+      "The location of the building office",
+      "A suggestion about deliveries"
+     ],
+     "ev": "The main elevator will be closed for inspection on Saturday, June 8",
+     "why": "Bài nói thang máy phụ, văn phòng ở tầng trệt, lời khuyên dời giao hàng; không hề nói việc kiểm tra bị hoãn.",
+     "vi": "Điều gì KHÔNG được nhắc tới trong thông báo?"
+    }
+   ]
+  },
+  {
+   "id": "bt-03",
+   "kind": "Text message chain",
+   "t": "Nadia Ross (10:02 A.M.): Are you still at the printer's? The banners for the trade show look too dark on my screen.\nLeo Park (10:04 A.M.): I'm here now. They printed a test copy, and the colors are fine in person.\nNadia Ross (10:05 A.M.): Good. Can they finish all twelve by Thursday?\nLeo Park (10:07 A.M.): They said Wednesday at the latest.\nNadia Ross (10:08 A.M.): Even better. I'll tell the booth team.",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "What does Ms. Ross worry about at first?",
+     "a": "The colors of some banners",
+     "w": [
+      "The size of a booth",
+      "The cost of printing",
+      "The date of a trade show"
+     ],
+     "ev": "The banners for the trade show look too dark on my screen.",
+     "why": "Bà Ross thấy băng rôn trên màn hình quá tối, tức lo về màu.",
+     "vi": "Lúc đầu bà Ross lo về điều gì?"
+    },
+    {
+     "ty": "Y",
+     "q": "What is suggested about the test copy?",
+     "a": "It looks better than Ms. Ross expected.",
+     "w": [
+      "It was printed on the wrong paper.",
+      "It will be used at the booth.",
+      "It was sent to Ms. Ross by e-mail."
+     ],
+     "ev": "They printed a test copy, and the colors are fine in person.",
+     "why": "Bản in thử nhìn thực tế màu ổn, trái với lo ngại của bà Ross khi xem trên màn hình.",
+     "vi": "Điều gì được ngụ ý về bản in thử?"
+    },
+    {
+     "ty": "Y",
+     "q": "At 10:08 A.M., what does Ms. Ross most likely mean when she writes, \"Even better\"?",
+     "a": "She is pleased the work will be done early.",
+     "w": [
+      "She wants more banners printed.",
+      "She prefers a different printer.",
+      "She will check the colors again."
+     ],
+     "ev": "They said Wednesday at the latest.",
+     "why": "Bà hỏi xong trước thứ Năm, ông Park báo muộn nhất thứ Tư, tức sớm hơn mong đợi.",
+     "vi": "Lúc 10:08, bà Ross có ý gì khi viết \"Even better\"?"
+    }
+   ]
+  },
+  {
+   "id": "bt-04",
+   "kind": "Text message chain",
+   "t": "Marco Diaz (9:12 A.M.): Hi Elena, I'm at the Kent Hotel and the projector in Room B won't turn on.\nElena Cho (9:14 A.M.): Sorry about that. The client meeting starts at ten, right?\nMarco Diaz (9:15 A.M.): Yes. The front desk says a technician can come at 9:45.\nElena Cho (9:17 A.M.): That's cutting it close. I'll ask whether Room D is free instead.\nMarco Diaz (9:18 A.M.): Please do. I'll wait by the elevator.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why did Mr. Diaz send the first message?",
+     "a": "To report an equipment problem",
+     "w": [
+      "To change the time of a meeting",
+      "To ask for a hotel recommendation",
+      "To request a technician's phone number"
+     ],
+     "ev": "I'm at the Kent Hotel and the projector in Room B won't turn on.",
+     "why": "Ông Diaz báo máy chiếu ở phòng B không bật được, tức báo lỗi thiết bị.",
+     "vi": "Vì sao ông Diaz gửi tin nhắn đầu tiên?"
+    },
+    {
+     "ty": "C",
+     "q": "What does Ms. Cho say she will do?",
+     "a": "Find out whether another room is available",
+     "w": [
+      "Call the client",
+      "Cancel the meeting and apologize to the client",
+      "Meet Mr. Diaz at the elevator"
+     ],
+     "ev": "I'll ask whether Room D is free instead.",
+     "why": "Bà Cho nói sẽ hỏi xem phòng D có trống không.",
+     "vi": "Bà Cho nói bà sẽ làm gì?"
+    },
+    {
+     "ty": "Y",
+     "q": "At 9:17 A.M., what does Ms. Cho most likely mean when she writes, \"That's cutting it close\"?",
+     "a": "The technician might not arrive early enough.",
+     "w": [
+      "The room is too small for the client.",
+      "The repair will cost too much.",
+      "She disagrees about the meeting time."
+     ],
+     "ev": "The front desk says a technician can come at 9:45.",
+     "why": "Kỹ thuật viên tới 9:45 mà họp lúc 10 giờ, thời gian quá sát.",
+     "vi": "Lúc 9:17, bà Cho có ý gì khi viết \"That's cutting it close\"?"
+    }
+   ]
+  },
+  {
+   "id": "bt-05",
+   "kind": "E-mail",
+   "t": "Dear Mr. Haddad,\nI am writing to invite you to interview for the logistics coordinator position at Norwick Freight. The interview will take place on Tuesday, April 16, at our Dover Street office. Please plan to arrive twenty minutes early to complete a short safety form. You will meet with our operations director and a member of the human resources team. If the date does not suit you, call Priya Nair at 555-0148 to arrange another time.\nSincerely,\nGlenn Walsh, Human Resources",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why was the e-mail sent?",
+     "a": "To ask a job candidate to attend an interview",
+     "w": [
+      "To offer Mr. Haddad a position",
+      "To announce a new office location for the company",
+      "To explain a change to safety rules"
+     ],
+     "ev": "I am writing to invite you to interview for the logistics coordinator position at Norwick Freight.",
+     "why": "Thư mời ông Haddad phỏng vấn cho vị trí điều phối logistics.",
+     "vi": "Vì sao thư điện tử được gửi?"
+    },
+    {
+     "ty": "C",
+     "q": "What should Mr. Haddad do when he arrives?",
+     "a": "Complete some paperwork",
+     "w": [
+      "Pay a registration fee",
+      "Take a tour of the warehouse",
+      "Show a driver's license"
+     ],
+     "ev": "Please plan to arrive twenty minutes early to complete a short safety form.",
+     "why": "Ông được dặn tới sớm 20 phút để điền một biểu mẫu an toàn ngắn.",
+     "vi": "Ông Haddad cần làm gì khi tới nơi?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the interview?",
+     "a": "More than one person will meet Mr. Haddad.",
+     "w": [
+      "It will be held by video call.",
+      "It has already been rescheduled twice this month.",
+      "It is for a temporary job."
+     ],
+     "ev": "You will meet with our operations director and a member of the human resources team.",
+     "why": "Ông sẽ gặp giám đốc vận hành và một người của phòng nhân sự, tức nhiều hơn một người.",
+     "vi": "Điều gì được nêu về buổi phỏng vấn?"
+    }
+   ]
+  },
+  {
+   "id": "bt-06",
+   "kind": "Notice",
+   "t": "Notice to All Library Members\nBeginning next month, the Oakmont Public Library will extend its evening hours. The building will stay open until 9:00 P.M. on Mondays through Thursdays. To cover the longer schedule, two new part-time librarians will join the staff in May. Weekend hours will not change. Members who wish to suggest new programs may leave a note at the front desk or send an e-mail to the director.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why was the notice written?",
+     "a": "To announce a change in operating hours",
+     "w": [
+      "To advertise a book sale",
+      "To introduce a new director of the library system",
+      "To explain a membership fee"
+     ],
+     "ev": "Beginning next month, the Oakmont Public Library will extend its evening hours.",
+     "why": "Thông báo nói thư viện sẽ kéo dài giờ mở cửa buổi tối từ tháng sau.",
+     "vi": "Vì sao thông báo được viết?"
+    },
+    {
+     "ty": "Y",
+     "q": "What is suggested about the library?",
+     "a": "It needs more employees to stay open longer.",
+     "w": [
+      "It plans to move to a larger building next year.",
+      "Few members use it in the evening.",
+      "Its director recently resigned."
+     ],
+     "ev": "To cover the longer schedule, two new part-time librarians will join the staff in May.",
+     "why": "Thêm hai thủ thư bán thời gian để đủ người cho giờ dài hơn.",
+     "vi": "Điều gì được ngụ ý về thư viện?"
+    },
+    {
+     "ty": "K",
+     "q": "What is NOT mentioned in the notice?",
+     "a": "The price of a membership card",
+     "w": [
+      "A way to offer ideas for programs",
+      "The number of new staff members",
+      "Which days will have later closing"
+     ],
+     "ev": "Members who wish to suggest new programs may leave a note at the front desk or send an e-mail to the director.",
+     "why": "Bài nhắc gợi ý chương trình, số thủ thư mới, các ngày mở muộn; không nhắc giá thẻ.",
+     "vi": "Điều gì KHÔNG được nhắc tới trong thông báo?"
+    }
+   ]
+  },
+  {
+   "id": "bt-07",
+   "kind": "Advertisement",
+   "t": "Lakeside Cycle Rentals\nExplore Lake Merritt on two wheels! Our shop offers mountain bikes, city bikes, and electric bikes by the hour or by the day. Every rental includes a helmet, a lock, and a free trail map. Groups of five or more receive a 15 percent discount when they reserve online. We are located beside the marina and open daily from 8:00 A.M. until sunset. Visit www.lakesidecycle.example to book today.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "What is the purpose of the advertisement?",
+     "a": "To promote a business that rents bicycles",
+     "w": [
+      "To announce the opening of a marina",
+      "To recruit guides for a seasonal lake cruise program",
+      "To describe a cycling race"
+     ],
+     "ev": "Our shop offers mountain bikes, city bikes, and electric bikes by the hour or by the day.",
+     "why": "Quảng cáo giới thiệu cửa hàng cho thuê xe đạp theo giờ hoặc theo ngày.",
+     "vi": "Mục đích của quảng cáo là gì?"
+    },
+    {
+     "ty": "C",
+     "q": "How can a group receive a discount?",
+     "a": "By making a reservation on the Internet",
+     "w": [
+      "By renting for a full week",
+      "By paying in cash",
+      "By bringing their own helmets"
+     ],
+     "ev": "Groups of five or more receive a 15 percent discount when they reserve online.",
+     "why": "Nhóm từ năm người trở lên giảm 15% khi đặt trực tuyến.",
+     "vi": "Một nhóm có thể được giảm giá bằng cách nào?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the shop?",
+     "a": "It stays open until the sun goes down.",
+     "w": [
+      "It charges extra for helmets and locks.",
+      "It is inside a hotel.",
+      "It rents only electric bikes."
+     ],
+     "ev": "We are located beside the marina and open daily from 8:00 A.M. until sunset.",
+     "why": "Cửa hàng mở hằng ngày từ 8 giờ sáng đến lúc mặt trời lặn.",
+     "vi": "Điều gì được nêu về cửa hàng?"
+    }
+   ]
+  },
+  {
+   "id": "bt-08",
+   "kind": "Text message chain",
+   "t": "Tessa Boyd (1:40 P.M.): The caterer just called. They can't deliver the lunch boxes until 12:30 tomorrow.\nRaj Mehta (1:42 P.M.): Our workshop begins at noon, though.\nTessa Boyd (1:43 P.M.): I know. They offered to include free drinks for the delay.\nRaj Mehta (1:45 P.M.): That won't help the attendees. Let's try Lopez Deli instead.\nTessa Boyd (1:46 P.M.): I'll call them now. Fingers crossed!",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "When does the workshop begin?",
+     "a": "At midday",
+     "w": [
+      "At 12:30",
+      "At 1:45",
+      "At 11:00"
+     ],
+     "ev": "Our workshop begins at noon, though.",
+     "why": "Hội thảo bắt đầu lúc trưa, tức 12 giờ.",
+     "vi": "Hội thảo bắt đầu khi nào?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the caterer?",
+     "a": "It offered a benefit to make up for a late delivery.",
+     "w": [
+      "It canceled the order.",
+      "It raised its prices to cover the cost of a late delivery.",
+      "It will deliver the meals today."
+     ],
+     "ev": "They offered to include free drinks for the delay.",
+     "why": "Nhà cung cấp đề nghị tặng đồ uống để bù việc giao trễ.",
+     "vi": "Điều gì được nêu về nhà cung cấp suất ăn?"
+    },
+    {
+     "ty": "Y",
+     "q": "At 1:45 P.M., what does Mr. Mehta most likely mean when he writes, \"That won't help the attendees\"?",
+     "a": "Free drinks do not solve the problem of late food.",
+     "w": [
+      "The attendees do not usually drink anything at workshops.",
+      "The workshop has too many participants.",
+      "Lopez Deli is too far away."
+     ],
+     "ev": "That won't help the attendees.",
+     "why": "Đồ uống miễn phí không giải quyết việc bữa trưa tới trễ sau giờ họp.",
+     "vi": "Lúc 1:45, ông Mehta có ý gì khi viết \"That won't help the attendees\"?"
+    }
+   ]
+  },
+  {
+   "id": "bt-09",
+   "kind": "Article",
+   "t": "Greenfield Market to Open Second Location\nGreenfield Market, a family-owned grocery store known for local produce, will open a second branch on Pine Avenue next Saturday. Owner Carla Jimenez said the new store will be twice the size of the original and will include a small café. About thirty residents have already been hired to work there. \"Our customers asked for more space and more parking,\" Ms. Jimenez said. The first store will remain open during the expansion.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why was the article written?",
+     "a": "To report on the expansion of a retailer",
+     "w": [
+      "To review a new café menu",
+      "To announce a job fair for local grocery workers",
+      "To describe changes in parking laws"
+     ],
+     "ev": "will open a second branch on Pine Avenue next Saturday",
+     "why": "Bài báo đưa tin cửa hàng thực phẩm sắp mở chi nhánh thứ hai.",
+     "vi": "Vì sao bài báo được viết?"
+    },
+    {
+     "ty": "C",
+     "q": "What will the new store include?",
+     "a": "A small place to eat and drink",
+     "w": [
+      "A flower shop",
+      "A pharmacy",
+      "A garden center with outdoor furniture"
+     ],
+     "ev": "Owner Carla Jimenez said the new store will be twice the size of the original and will include a small café.",
+     "why": "Cửa hàng mới sẽ có một quán cà phê nhỏ.",
+     "vi": "Cửa hàng mới sẽ có gì?"
+    },
+    {
+     "ty": "Y",
+     "q": "What is most likely true about Greenfield Market's customers?",
+     "a": "They would like a more convenient shopping experience.",
+     "w": [
+      "They mostly live outside the city and prefer smaller shops.",
+      "They prefer to shop online.",
+      "They want lower prices."
+     ],
+     "ev": "Our customers asked for more space and more parking,",
+     "why": "Khách yêu cầu thêm không gian và chỗ đậu xe, tức muốn mua sắm thuận tiện hơn.",
+     "vi": "Điều gì có khả năng đúng về khách hàng của Greenfield Market?"
+    }
+   ]
+  },
+  {
+   "id": "bt-10",
+   "kind": "Memo",
+   "t": "MEMO\nTo: All Sales Staff\nFrom: Dana Whitfield, Regional Manager\nDate: September 3\nSubject: New expense reports\nStarting October 1, all travel expenses must be submitted through the online portal instead of on paper forms. Receipts should be scanned and attached to each claim. Claims submitted after the fifteenth of the month will be paid the following month. A training session will be held in the staff lounge on September 20 at 10:00 A.M. If you cannot attend, please contact Ms. Whitfield to request a recorded version.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why did Ms. Whitfield send the memo?",
+     "a": "To tell employees about a new procedure",
+     "w": [
+      "To ask staff to work overtime",
+      "To announce a reduction in business travel budgets",
+      "To introduce a new manager"
+     ],
+     "ev": "Starting October 1, all travel expenses must be submitted through the online portal instead of on paper forms.",
+     "why": "Từ 1/10 chi phí đi lại phải nộp qua cổng trực tuyến, là quy trình mới.",
+     "vi": "Vì sao bà Whitfield gửi bản ghi nhớ?"
+    },
+    {
+     "ty": "C",
+     "q": "What must employees attach to a claim?",
+     "a": "Scanned copies of receipts",
+     "w": [
+      "A signed approval form from a manager",
+      "A travel itinerary",
+      "A manager's business card"
+     ],
+     "ev": "Receipts should be scanned and attached to each claim.",
+     "why": "Biên lai cần được quét và đính kèm mỗi yêu cầu.",
+     "vi": "Nhân viên phải đính kèm gì vào yêu cầu thanh toán?"
+    },
+    {
+     "ty": "K",
+     "q": "What is NOT mentioned about the training session?",
+     "a": "Who will lead it",
+     "w": [
+      "Where it will take place",
+      "What time it will begin",
+      "How absent employees can see it"
+     ],
+     "ev": "A training session will be held in the staff lounge on September 20",
+     "why": "Bài nêu nơi, giờ và bản ghi hình; không nêu ai hướng dẫn buổi tập huấn.",
+     "vi": "Điều gì KHÔNG được nhắc tới về buổi tập huấn?"
+    }
+   ]
+  },
+  {
+   "id": "bt-11",
+   "kind": "E-mail",
+   "t": "To: Customer Support\nFrom: Hiro Tanaka\nSubject: Replacement charger\nI bought a laptop from your online store on May 2, and the charger stopped working after only two weeks. The model number is TX-440. I have already tried a different outlet and a second cable. Since the laptop is still under warranty, I would like a replacement sent to my home address. I can provide a photo of the damaged cord if necessary. Thank you for your quick help.",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "What problem does Mr. Tanaka report?",
+     "a": "A part of his computer no longer works.",
+     "w": [
+      "A laptop arrived with a cracked screen and a loose key.",
+      "His order went to the wrong address.",
+      "A warranty card was missing."
+     ],
+     "ev": "I bought a laptop from your online store on May 2, and the charger stopped working after only two weeks.",
+     "why": "Sạc của máy tính xách tay ngừng hoạt động sau hai tuần.",
+     "vi": "Ông Tanaka báo vấn đề gì?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about Mr. Tanaka?",
+     "a": "He has already tried to solve the problem himself.",
+     "w": [
+      "He purchased the laptop in a store downtown last year.",
+      "He lost his receipt.",
+      "He has contacted support before."
+     ],
+     "ev": "I have already tried a different outlet and a second cable.",
+     "why": "Ông đã thử ổ cắm khác và dây khác, tức đã tự khắc phục trước.",
+     "vi": "Điều gì được nêu về ông Tanaka?"
+    },
+    {
+     "ty": "C",
+     "q": "What does Mr. Tanaka ask the company to do?",
+     "a": "Send him a new charger",
+     "w": [
+      "Refund the laptop",
+      "Repair the laptop in a store",
+      "Extend his warranty"
+     ],
+     "ev": "Since the laptop is still under warranty, I would like a replacement sent to my home address.",
+     "why": "Ông muốn được gửi đồ thay thế tới địa chỉ nhà vì còn bảo hành.",
+     "vi": "Ông Tanaka yêu cầu công ty làm gì?"
+    }
+   ]
+  },
+  {
+   "id": "bt-12",
+   "kind": "Web page",
+   "t": "Welcome to Alder Valley Community Garden\nOur garden gives local residents a place to grow their own vegetables and herbs. Plots are available for an annual fee of $40, and tools may be borrowed from the shed at no charge. Members are asked to volunteer four hours each season to help with shared tasks. A waiting list is currently in place because all 60 plots are rented. To join the list, complete the form at the bottom of this page.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "What is the purpose of the Web page?",
+     "a": "To provide information about a neighborhood gardening program",
+     "w": [
+      "To sell gardening equipment",
+      "To announce an upcoming plant sale held by the garden club's members",
+      "To recruit a garden manager"
+     ],
+     "ev": "Our garden gives local residents a place to grow their own vegetables and herbs.",
+     "why": "Trang giới thiệu khu vườn cho cư dân tự trồng rau và thảo mộc.",
+     "vi": "Mục đích của trang web là gì?"
+    },
+    {
+     "ty": "K",
+     "q": "What is stated about the garden tools?",
+     "a": "Members can use them without paying.",
+     "w": [
+      "They must be purchased by each member every season.",
+      "They are kept in a member's home.",
+      "They are available only on weekends."
+     ],
+     "ev": "Plots are available for an annual fee of $40, and tools may be borrowed from the shed at no charge.",
+     "why": "Dụng cụ được mượn từ nhà kho miễn phí.",
+     "vi": "Điều gì được nêu về dụng cụ làm vườn?"
+    },
+    {
+     "ty": "Y",
+     "q": "What is suggested about the garden?",
+     "a": "Demand for plots is greater than supply.",
+     "w": [
+      "It was recently opened.",
+      "It charges high fees compared with similar gardens.",
+      "It has too few volunteers."
+     ],
+     "ev": "A waiting list is currently in place because all 60 plots are rented.",
+     "why": "Tất cả 60 ô đã có người thuê và có danh sách chờ, tức nhu cầu cao hơn số ô.",
+     "vi": "Điều gì được ngụ ý về khu vườn?"
+    }
+   ]
+  },
+  {
+   "id": "bt-13",
+   "kind": "Text message chain",
+   "t": "Gina Fox (4:05 P.M.): Hi Owen, are you still planning to attend the safety training on Friday?\nOwen Reyes (4:08 P.M.): I'd like to, but my flight to Denver leaves Friday morning.\nGina Fox (4:09 P.M.): No problem. There's another session on the 22nd.\nOwen Reyes (4:11 P.M.): Great. Can you sign me up for that one?\nGina Fox (4:12 P.M.): Consider it done.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why did Ms. Fox contact Mr. Reyes?",
+     "a": "To find out whether he will join a training",
+     "w": [
+      "To ask him to cover a shift",
+      "To confirm a flight reservation",
+      "To cancel a session"
+     ],
+     "ev": "Hi Owen, are you still planning to attend the safety training on Friday?",
+     "why": "Bà Fox hỏi ông Reyes còn định dự buổi tập huấn an toàn không.",
+     "vi": "Vì sao bà Fox nhắn tin cho ông Reyes?"
+    },
+    {
+     "ty": "C",
+     "q": "Where will Mr. Reyes go on Friday?",
+     "a": "To Denver",
+     "w": [
+      "To Dallas",
+      "To Detroit",
+      "To Phoenix"
+     ],
+     "ev": "I'd like to, but my flight to Denver leaves Friday morning.",
+     "why": "Chuyến bay tới Denver của ông khởi hành sáng thứ Sáu.",
+     "vi": "Ông Reyes sẽ đi đâu vào thứ Sáu?"
+    },
+    {
+     "ty": "Y",
+     "q": "At 4:12 P.M., what does Ms. Fox mean when she writes, \"Consider it done\"?",
+     "a": "She will register Mr. Reyes for the later session.",
+     "w": [
+      "She has already completed the training herself last week.",
+      "She will change his flight.",
+      "She wants him to sign up himself."
+     ],
+     "ev": "Can you sign me up for that one?",
+     "why": "Ông nhờ ghi danh buổi sau, bà đáp là xong, tức sẽ đăng ký giúp.",
+     "vi": "Lúc 4:12, bà Fox có ý gì khi viết \"Consider it done\"?"
+    }
+   ]
+  },
+  {
+   "id": "bt-14",
+   "kind": "Form",
+   "t": "Greenway Dental Clinic - Patient Update Form\nName: Laura Kim\nPlease check each item that applies. I have changed my address or telephone number. I would like to receive appointment reminders by text message. I would like to receive the monthly newsletter by e-mail. Forms should be returned to the front desk before your next visit. Patients under age 18 must have a parent or guardian sign below. Your information will be kept private.",
+   "qs": [
+    {
+     "ty": "Y",
+     "q": "What is suggested about Greenway Dental Clinic?",
+     "a": "It contacts patients before their visits.",
+     "w": [
+      "It requires new patients to pay in advance.",
+      "It recently moved to a new building downtown.",
+      "It offers evening hours."
+     ],
+     "ev": "I would like to receive appointment reminders by text message.",
+     "why": "Phòng khám có tùy chọn nhắn nhắc lịch hẹn, tức liên lạc với bệnh nhân trước buổi khám.",
+     "vi": "Điều gì được ngụ ý về phòng khám Greenway?"
+    },
+    {
+     "ty": "K",
+     "q": "What is NOT mentioned as an option on the form?",
+     "a": "Receiving a bill by mail",
+     "w": [
+      "Getting reminders by text message",
+      "Updating contact details",
+      "Receiving a monthly newsletter"
+     ],
+     "ev": "I would like to receive the monthly newsletter by e-mail.",
+     "why": "Biểu mẫu có tin nhắn nhắc, cập nhật liên lạc, bản tin; không có hóa đơn qua thư.",
+     "vi": "Điều gì KHÔNG được nêu như một lựa chọn trên biểu mẫu?"
+    },
+    {
+     "ty": "C",
+     "q": "Where should the completed form be returned?",
+     "a": "To the reception area",
+     "w": [
+      "To a pharmacy",
+      "To the billing department",
+      "To the patient's employer"
+     ],
+     "ev": "Forms should be returned to the front desk before your next visit.",
+     "why": "Biểu mẫu nộp ở quầy lễ tân trước lần khám sau.",
+     "vi": "Biểu mẫu đã điền cần nộp ở đâu?"
+    }
+   ]
+  },
+  {
+   "id": "bt-15",
+   "kind": "Invitation",
+   "t": "You are invited to the Eastgate Hardware 50th Anniversary Celebration! Join us on Saturday, October 12, from 2:00 P.M. to 6:00 P.M. at the Eastgate Community Hall. Enjoy live music, free snacks, and special prices on selected tools. Founder Ben Okoye will give a short speech at 3:00 P.M. Please let us know if you will attend by calling 555-0192 before October 5. Children are welcome.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why was the invitation written?",
+     "a": "To encourage people to attend a celebration",
+     "w": [
+      "To advertise a new tool recently added to the store",
+      "To ask for donations",
+      "To recruit volunteers"
+     ],
+     "ev": "You are invited to the Eastgate Hardware 50th Anniversary Celebration!",
+     "why": "Thiệp mời dự lễ kỷ niệm 50 năm của cửa hàng.",
+     "vi": "Vì sao thiệp mời được viết?"
+    },
+    {
+     "ty": "C",
+     "q": "What will happen at 3:00 P.M.?",
+     "a": "A founder will make some remarks.",
+     "w": [
+      "A prize drawing will be held.",
+      "The community hall will close for cleaning.",
+      "A new store location will be announced."
+     ],
+     "ev": "Founder Ben Okoye will give a short speech at 3:00 P.M.",
+     "why": "Lúc 3 giờ người sáng lập phát biểu ngắn.",
+     "vi": "Chuyện gì sẽ xảy ra lúc 3 giờ chiều?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the event?",
+     "a": "Guests with young children may attend.",
+     "w": [
+      "Admission costs ten dollars.",
+      "It will be held at the hardware store.",
+      "It will last all day."
+     ],
+     "ev": "Children are welcome.",
+     "why": "Câu cuối nói trẻ em được chào đón.",
+     "vi": "Điều gì được nêu về sự kiện?"
+    }
+   ]
+  },
+  {
+   "id": "bt-16",
+   "kind": "E-mail",
+   "t": "Dear Ms. Osei,\nThank you for presenting at our regional conference last week. Attendees gave your session on customer loyalty the highest ratings of the event. Several of them asked whether your slides could be shared. With your permission, we would like to post them on our members' Web site by Friday. We would also like to invite you to speak at next year's conference in Seattle.\nWarm regards,\nBrian Lloyd, Event Coordinator",
+   "qs": [
+    {
+     "ty": "Y",
+     "q": "What is suggested about Ms. Osei's session?",
+     "a": "It was well received by the audience.",
+     "w": [
+      "It was held in Seattle.",
+      "It ran longer than planned because of questions.",
+      "It was the first session of the day."
+     ],
+     "ev": "Attendees gave your session on customer loyalty the highest ratings of the event.",
+     "why": "Phiên của bà được đánh giá cao nhất, tức khán giả rất hài lòng.",
+     "vi": "Điều gì được ngụ ý về phiên trình bày của bà Osei?"
+    },
+    {
+     "ty": "P",
+     "q": "Why did Mr. Lloyd write to Ms. Osei?",
+     "a": "To ask her to allow her slides to be posted online",
+     "w": [
+      "To invite her to pay a conference fee for next year's event",
+      "To cancel next year's conference",
+      "To report ratings for another speaker"
+     ],
+     "ev": "With your permission, we would like to post them on our members' Web site by Friday.",
+     "why": "Ông Lloyd xin phép đăng bài trình chiếu của bà lên trang thành viên.",
+     "vi": "Vì sao ông Lloyd viết thư cho bà Osei?"
+    },
+    {
+     "ty": "C",
+     "q": "Where will next year's conference take place?",
+     "a": "In Seattle",
+     "w": [
+      "In Portland",
+      "In Denver",
+      "In Chicago"
+     ],
+     "ev": "We would also like to invite you to speak at next year's conference in Seattle.",
+     "why": "Hội nghị năm sau tổ chức ở Seattle.",
+     "vi": "Hội nghị năm sau diễn ra ở đâu?"
+    }
+   ]
+  },
+  {
+   "id": "bt-17",
+   "kind": "Notice",
+   "t": "Parking Garage Closure\nThe east parking garage at Calloway Plaza will be closed from Monday, July 8, through Friday, July 12, for repainting. Employees who usually park there should use the west garage or the lot on Birch Street. Free shuttle service to the main entrance will run every ten minutes from 7:30 to 9:30 each morning. Vehicles left in the east garage after Sunday night will be moved at the owner's expense. Please contact building security with any questions.",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "How long will the east garage be closed?",
+     "a": "For five days",
+     "w": [
+      "For two weeks",
+      "For one weekend",
+      "For three days"
+     ],
+     "ev": "The east parking garage at Calloway Plaza will be closed from Monday, July 8, through Friday, July 12, for repainting.",
+     "why": "Gara đóng từ thứ Hai 8/7 đến thứ Sáu 12/7, tức năm ngày.",
+     "vi": "Gara phía đông sẽ đóng cửa trong bao lâu?"
+    },
+    {
+     "ty": "K",
+     "q": "What is stated about the shuttle?",
+     "a": "It will operate frequently in the mornings.",
+     "w": [
+      "It will run all night.",
+      "It will cost two dollars.",
+      "It will also run in the evenings."
+     ],
+     "ev": "Free shuttle service to the main entrance will run every ten minutes from 7:30 to 9:30 each morning.",
+     "why": "Xe đưa đón chạy mười phút một chuyến vào buổi sáng.",
+     "vi": "Điều gì được nêu về xe đưa đón?"
+    },
+    {
+     "ty": "Y",
+     "q": "What will most likely happen to a car left in the east garage after Sunday?",
+     "a": "Its owner will have to pay to have it relocated.",
+     "w": [
+      "It will be moved to the west garage free of charge.",
+      "Its owner will receive a written warning first.",
+      "It may stay there during the repainting."
+     ],
+     "ev": "Vehicles left in the east garage after Sunday night will be moved at the owner's expense.",
+     "why": "Xe bị dời đi và chủ xe chịu chi phí.",
+     "vi": "Điều gì có khả năng xảy ra với xe để lại ở gara phía đông sau Chủ nhật?"
+    }
+   ]
+  },
+  {
+   "id": "bt-18",
+   "kind": "Advertisement",
+   "t": "Summit Language Institute\nSpeak with confidence in just twelve weeks! Our evening courses in Spanish, French, and Mandarin begin on January 14. Classes meet twice a week in small groups of no more than eight students. All instructors are native speakers with teaching certificates. Register before December 15 and receive a free workbook. For details, stop by our office at 210 Mill Street.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "What is the purpose of the advertisement?",
+     "a": "To attract students to some classes",
+     "w": [
+      "To recruit language instructors",
+      "To announce an office relocation to Mill Street",
+      "To promote a translation service"
+     ],
+     "ev": "Our evening courses in Spanish, French, and Mandarin begin on January 14.",
+     "why": "Quảng cáo mời học viên cho các khóa ngoại ngữ buổi tối.",
+     "vi": "Mục đích của quảng cáo là gì?"
+    },
+    {
+     "ty": "K",
+     "q": "What is NOT mentioned about the courses?",
+     "a": "Whether online classes are available",
+     "w": [
+      "The size of each class",
+      "The qualifications of teachers",
+      "The languages offered"
+     ],
+     "ev": "Classes meet twice a week in small groups of no more than eight students.",
+     "why": "Bài nêu sĩ số, giáo viên, ngôn ngữ; không nói có lớp học trực tuyến hay không.",
+     "vi": "Điều gì KHÔNG được nhắc tới về các khóa học?"
+    },
+    {
+     "ty": "C",
+     "q": "How can students get a free workbook?",
+     "a": "By signing up early",
+     "w": [
+      "By attending an open house",
+      "By bringing a friend",
+      "By buying two courses"
+     ],
+     "ev": "Register before December 15 and receive a free workbook.",
+     "why": "Đăng ký trước 15/12 sẽ được tặng sách bài tập.",
+     "vi": "Học viên có thể nhận sách bài tập miễn phí bằng cách nào?"
+    }
+   ]
+  },
+  {
+   "id": "bt-19",
+   "kind": "Article",
+   "t": "City Council Approves New Bike Lanes\nThe Riverton City Council voted 7-2 on Tuesday to add protected bike lanes along Harmon Road. Construction will begin in March and is expected to take six months. The project will cost $1.2 million, most of which comes from a state transportation grant. Council member Ana Ruiz said the lanes would make commuting safer for students and workers. Some business owners worry that fewer parking spaces will hurt sales.",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "What did the council decide on Tuesday?",
+     "a": "To create special lanes for cyclists",
+     "w": [
+      "To raise parking fees",
+      "To repair Harmon Road",
+      "To hire a transportation director"
+     ],
+     "ev": "The Riverton City Council voted 7-2 on Tuesday to add protected bike lanes along Harmon Road.",
+     "why": "Hội đồng bỏ phiếu thêm làn xe đạp có bảo vệ.",
+     "vi": "Hội đồng đã quyết định gì vào thứ Ba?"
+    },
+    {
+     "ty": "C",
+     "q": "How will most of the cost be covered?",
+     "a": "With money from the state",
+     "w": [
+      "With a new parking fee",
+      "With donations from businesses",
+      "With a city loan"
+     ],
+     "ev": "The project will cost $1.2 million, most of which comes from a state transportation grant.",
+     "why": "Phần lớn kinh phí đến từ khoản trợ cấp của tiểu bang.",
+     "vi": "Phần lớn chi phí sẽ được trang trải thế nào?"
+    },
+    {
+     "ty": "K",
+     "q": "What is stated about some business owners?",
+     "a": "They are concerned about lower revenue.",
+     "w": [
+      "They helped pay for the project.",
+      "They voted against the plan at the council meeting.",
+      "They asked for more bike racks."
+     ],
+     "ev": "Some business owners worry that fewer parking spaces will hurt sales.",
+     "why": "Một số chủ doanh nghiệp lo ít chỗ đậu xe sẽ làm giảm doanh thu.",
+     "vi": "Điều gì được nêu về một số chủ doanh nghiệp?"
+    }
+   ]
+  },
+  {
+   "id": "bt-20",
+   "kind": "Text message chain",
+   "t": "Sam Ortiz (11:20 A.M.): Hi Lena. Are you free to review the draft brochure this afternoon?\nLena Park (11:23 A.M.): I have a client call until two. I can look at it after that.\nSam Ortiz (11:24 A.M.): Perfect. The printer needs our final version by five.\nLena Park (11:26 A.M.): Understood. Send it over and I'll get right on it.\nSam Ortiz (11:27 A.M.): Will do. You're a lifesaver!",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why did Mr. Ortiz text Ms. Park?",
+     "a": "To ask her to check some printed material",
+     "w": [
+      "To postpone a client call",
+      "To order brochures from a printer by the end of the day",
+      "To invite her to lunch"
+     ],
+     "ev": "Are you free to review the draft brochure this afternoon?",
+     "why": "Ông Ortiz nhờ bà Park xem lại bản nháp tờ rơi.",
+     "vi": "Vì sao ông Ortiz nhắn tin cho bà Park?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the brochure?",
+     "a": "It has a deadline later today.",
+     "w": [
+      "It was written by Ms. Park.",
+      "It has already been printed and delivered.",
+      "It is for a client call."
+     ],
+     "ev": "The printer needs our final version by five.",
+     "why": "Nhà in cần bản cuối trước năm giờ, tức hạn chót trong ngày.",
+     "vi": "Điều gì được nêu về tờ rơi?"
+    },
+    {
+     "ty": "Y",
+     "q": "At 11:27 A.M., what does Mr. Ortiz most likely mean when he writes, \"You're a lifesaver\"?",
+     "a": "He is grateful for Ms. Park's help.",
+     "w": [
+      "He thinks Ms. Park works too slowly.",
+      "He wants her to join a training course.",
+      "He needs help on a safety project."
+     ],
+     "ev": "Send it over and I'll get right on it.",
+     "why": "Bà hứa làm ngay, ông cảm ơn, tức biết ơn sự giúp đỡ.",
+     "vi": "Lúc 11:27, ông Ortiz có ý gì khi viết \"You're a lifesaver\"?"
+    }
+   ]
+  },
+  {
+   "id": "bt-21",
+   "kind": "Memo",
+   "t": "MEMO\nTo: Warehouse Team\nFrom: Chris Adeyemi, Operations\nSubject: Holiday schedule\nBecause of the expected increase in orders, the warehouse will open at 6:00 A.M. instead of 7:00 A.M. from November 20 to December 24. Employees who work the early shift will receive an extra paid break. Please sign up for shifts on the schedule board near the time clock by November 10. Temporary workers will join us on November 18 and will need to be trained by experienced team members.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why was the memo written?",
+     "a": "To announce adjusted hours for a busy period",
+     "w": [
+      "To introduce a new time clock",
+      "To request volunteers for a charity drive",
+      "To report a decrease in orders"
+     ],
+     "ev": "Because of the expected increase in orders, the warehouse will open at 6:00 A.M. instead of 7:00 A.M. from November 20 to December 24.",
+     "why": "Đơn hàng tăng nên kho mở sớm hơn trong mùa lễ.",
+     "vi": "Vì sao bản ghi nhớ được viết?"
+    },
+    {
+     "ty": "C",
+     "q": "What will early-shift employees receive?",
+     "a": "An additional rest period",
+     "w": [
+      "A bonus payment",
+      "Free breakfast",
+      "A shorter workweek during the holiday season"
+     ],
+     "ev": "Employees who work the early shift will receive an extra paid break.",
+     "why": "Người làm ca sớm được thêm một lần nghỉ giải lao có lương.",
+     "vi": "Nhân viên ca sớm sẽ nhận được gì?"
+    },
+    {
+     "ty": "C",
+     "q": "What should employees do by November 10?",
+     "a": "Choose the shifts they want",
+     "w": [
+      "Train temporary workers",
+      "Return their time cards",
+      "Submit a vacation request for December"
+     ],
+     "ev": "Please sign up for shifts on the schedule board near the time clock by November 10.",
+     "why": "Nhân viên đăng ký ca trên bảng lịch trước 10/11.",
+     "vi": "Nhân viên cần làm gì trước ngày 10/11?"
+    }
+   ]
+  },
+  {
+   "id": "bt-22",
+   "kind": "E-mail",
+   "t": "To: Facilities Staff\nFrom: Marta Villanueva\nSubject: Conference Room 3\nThe leak in the ceiling of Conference Room 3 was repaired yesterday, but the carpet is still damp. Cleaners will dry it on Wednesday, so please do not book the room before Thursday. Meetings scheduled for Wednesday have been moved to Conference Room 5, which seats twelve. If you need extra chairs, call the maintenance desk. I appreciate everyone's patience.",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "What was fixed yesterday?",
+     "a": "A ceiling problem",
+     "w": [
+      "A broken chair",
+      "A heating system",
+      "A new booking program"
+     ],
+     "ev": "The leak in the ceiling of Conference Room 3 was repaired yesterday, but the carpet is still damp.",
+     "why": "Chỗ dột trên trần phòng họp 3 đã được sửa hôm qua.",
+     "vi": "Hôm qua cái gì đã được sửa?"
+    },
+    {
+     "ty": "Y",
+     "q": "What is most likely true about Conference Room 3 on Thursday?",
+     "a": "It will be ready for meetings.",
+     "w": [
+      "It will be under repair.",
+      "It will be used for storage.",
+      "It will be closed for cleaning."
+     ],
+     "ev": "Cleaners will dry it on Wednesday, so please do not book the room before Thursday.",
+     "why": "Thảm khô vào thứ Tư nên thứ Năm phòng dùng lại được.",
+     "vi": "Điều gì có khả năng đúng về phòng họp 3 vào thứ Năm?"
+    },
+    {
+     "ty": "K",
+     "q": "What is stated about Conference Room 5?",
+     "a": "It can hold twelve people.",
+     "w": [
+      "It is on the same floor as Room 3.",
+      "It is being cleaned.",
+      "It has a new carpet."
+     ],
+     "ev": "Meetings scheduled for Wednesday have been moved to Conference Room 5, which seats twelve.",
+     "why": "Phòng 5 có mười hai chỗ ngồi.",
+     "vi": "Điều gì được nêu về phòng họp 5?"
+    }
+   ]
+  },
+  {
+   "id": "bt-23",
+   "kind": "Review",
+   "t": "★★★★☆ Great value, a few small flaws\nPosted by Jun Watanabe\nI stayed at the Marlow Inn for three nights while attending a conference nearby. The room was clean, quiet, and a short walk from the train station. Breakfast was included and offered more choices than I expected. My only complaint was the slow Internet connection in the evenings. I would happily stay here again on my next business trip.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why did Mr. Watanabe write the review?",
+     "a": "To describe his experience at a hotel",
+     "w": [
+      "To request a refund",
+      "To advertise a conference",
+      "To recommend a train route to other travelers"
+     ],
+     "ev": "I stayed at the Marlow Inn for three nights while attending a conference nearby.",
+     "why": "Ông kể lại ba đêm lưu trú tại khách sạn.",
+     "vi": "Vì sao ông Watanabe viết bài đánh giá?"
+    },
+    {
+     "ty": "C",
+     "q": "What did Mr. Watanabe like about the location?",
+     "a": "It was easy to reach by rail.",
+     "w": [
+      "It had a view of the sea.",
+      "It was close to many restaurants.",
+      "It had a large parking area."
+     ],
+     "ev": "The room was clean, quiet, and a short walk from the train station.",
+     "why": "Phòng cách ga tàu một quãng đi bộ ngắn.",
+     "vi": "Ông Watanabe thích điều gì về vị trí?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the hotel?",
+     "a": "Guests receive a morning meal.",
+     "w": [
+      "It charges extra for breakfast.",
+      "It has no Internet.",
+      "It is far from public transportation."
+     ],
+     "ev": "Breakfast was included and offered more choices than I expected.",
+     "why": "Bữa sáng đã bao gồm trong giá.",
+     "vi": "Điều gì được nêu về khách sạn?"
+    }
+   ]
+  },
+  {
+   "id": "bt-24",
+   "kind": "Web page",
+   "t": "Orion Fitness Center - Membership Options\nBasic: $25 per month. Includes use of the gym floor and locker rooms. Plus: $40 per month. Adds group classes such as yoga and cycling. Premium: $60 per month. Adds personal training twice a month and access to our pool. All memberships require a three-month commitment. New members receive a free fitness assessment during their first week.",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "What is included in the least expensive membership?",
+     "a": "Admission to the workout area and locker facilities",
+     "w": [
+      "Group classes",
+      "Personal training sessions and group classes every week",
+      "Use of a pool"
+     ],
+     "ev": "Includes use of the gym floor and locker rooms.",
+     "why": "Gói Basic gồm sàn tập và phòng thay đồ.",
+     "vi": "Gói rẻ nhất bao gồm những gì?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the Orion Fitness Center?",
+     "a": "It has a swimming facility.",
+     "w": [
+      "It has no group classes.",
+      "It is open only to new members.",
+      "It offers personal training to all members."
+     ],
+     "ev": "Adds personal training twice a month and access to our pool.",
+     "why": "Gói Premium cho vào hồ bơi, tức trung tâm có hồ bơi.",
+     "vi": "Điều gì được nêu về trung tâm Orion?"
+    },
+    {
+     "ty": "Y",
+     "q": "What is most likely true about someone who joins in January and quits in February?",
+     "a": "The person will still owe money for the remaining months.",
+     "w": [
+      "The person will get a full refund because of the early cancellation.",
+      "The person will keep Premium status.",
+      "The person will receive free training."
+     ],
+     "ev": "All memberships require a three-month commitment.",
+     "why": "Cam kết ba tháng nên người bỏ sớm vẫn phải trả phần còn lại.",
+     "vi": "Điều gì có khả năng đúng với người vào tháng Một và thôi vào tháng Hai?"
+    }
+   ]
+  },
+  {
+   "id": "bt-25",
+   "kind": "Text message chain",
+   "t": "Olivia Grant (2:15 P.M.): The delivery truck is stuck in traffic on Route 9.\nPeter Lund (2:17 P.M.): How long will it be?\nOlivia Grant (2:18 P.M.): The driver says forty minutes, maybe more.\nPeter Lund (2:20 P.M.): Our store event starts at three. Can the staff set up the display without the new shelves?\nOlivia Grant (2:21 P.M.): We can use the old ones for now. I'll tell the team.",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "What is causing the delay?",
+     "a": "Heavy traffic",
+     "w": [
+      "A mechanical problem",
+      "Bad weather",
+      "A staff shortage"
+     ],
+     "ev": "The delivery truck is stuck in traffic on Route 9.",
+     "why": "Xe giao hàng bị kẹt xe trên đường Route 9.",
+     "vi": "Điều gì gây ra sự chậm trễ?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the event?",
+     "a": "It begins in the afternoon.",
+     "w": [
+      "It is held outdoors.",
+      "It will last all week at several stores.",
+      "It has been canceled."
+     ],
+     "ev": "Our store event starts at three.",
+     "why": "Sự kiện bắt đầu lúc ba giờ chiều.",
+     "vi": "Điều gì được nêu về sự kiện?"
+    },
+    {
+     "ty": "Y",
+     "q": "At 2:21 P.M., what does Ms. Grant most likely mean when she writes, \"We can use the old ones for now\"?",
+     "a": "Existing shelves will serve until new ones arrive.",
+     "w": [
+      "The new shelves will be returned.",
+      "The old shelves must be thrown away before the event starts.",
+      "The event will be canceled."
+     ],
+     "ev": "Can the staff set up the display without the new shelves?",
+     "why": "Dùng giá cũ tạm thời trong lúc chờ giá mới.",
+     "vi": "Lúc 2:21, bà Grant có ý gì khi viết \"We can use the old ones for now\"?"
+    }
+   ]
+  },
+  {
+   "id": "bt-26",
+   "kind": "Notice",
+   "t": "Reminder: Employee Parking Permits\nAll employees must display a valid parking permit in their vehicles by June 1. Permits can be obtained at the security office, which is open weekdays from 8:00 A.M. to 4:00 P.M. Please bring a photo ID and your vehicle registration. The first permit is free, but replacements cost $15. Vehicles without a permit may be fined.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why was the notice posted?",
+     "a": "To remind staff of a requirement",
+     "w": [
+      "To announce a new garage",
+      "To explain how to report a lost ID",
+      "To raise parking fees"
+     ],
+     "ev": "All employees must display a valid parking permit in their vehicles by June 1.",
+     "why": "Thông báo nhắc nhân viên phải dán thẻ đậu xe trước 1/6.",
+     "vi": "Vì sao thông báo được dán?"
+    },
+    {
+     "ty": "C",
+     "q": "What should employees bring to the security office?",
+     "a": "Identification and a document for their car",
+     "w": [
+      "A letter from a supervisor",
+      "A fifteen-dollar check",
+      "A parking ticket"
+     ],
+     "ev": "Please bring a photo ID and your vehicle registration.",
+     "why": "Cần mang giấy tờ tùy thân có ảnh và giấy đăng ký xe.",
+     "vi": "Nhân viên cần mang gì tới phòng bảo vệ?"
+    },
+    {
+     "ty": "K",
+     "q": "What is indicated about the permits?",
+     "a": "Employees do not pay for the first one.",
+     "w": [
+      "They are issued by mail.",
+      "They expire every month.",
+      "They must be renewed each year."
+     ],
+     "ev": "The first permit is free, but replacements cost $15.",
+     "why": "Thẻ đầu tiên miễn phí, thẻ thay thế mất 15 đô la.",
+     "vi": "Điều gì được nêu về thẻ đậu xe?"
+    }
+   ]
+  },
+  {
+   "id": "bt-27",
+   "kind": "Invitation",
+   "t": "Dear Valued Customer,\nCrestview Bank cordially invites you to an evening of financial advice for small business owners. The seminar will be held on Thursday, February 6, at 6:30 P.M. in the Crestview Bank main lobby. Light refreshments will be served. Our guest speaker, accountant Linda Cho, will discuss tax planning and record keeping. Space is limited, so please confirm your attendance with your account manager by January 30.\nSincerely,\nCustomer Relations Team",
+   "qs": [
+    {
+     "ty": "Y",
+     "q": "Who is the invitation most likely intended for?",
+     "a": "Entrepreneurs who bank with Crestview",
+     "w": [
+      "Employees of the bank who manage accounts",
+      "Tax officials",
+      "University students"
+     ],
+     "ev": "Crestview Bank cordially invites you to an evening of financial advice for small business owners.",
+     "why": "Buổi tư vấn dành cho chủ doanh nghiệp nhỏ là khách của ngân hàng.",
+     "vi": "Thiệp mời có khả năng dành cho ai?"
+    },
+    {
+     "ty": "C",
+     "q": "Where will the seminar take place?",
+     "a": "In the bank's entrance area",
+     "w": [
+      "In a conference center",
+      "At a local restaurant",
+      "At the accountant's office across the street"
+     ],
+     "ev": "The seminar will be held on Thursday, February 6, at 6:30 P.M. in the Crestview Bank main lobby.",
+     "why": "Buổi hội thảo diễn ra ở sảnh chính của ngân hàng.",
+     "vi": "Buổi hội thảo diễn ra ở đâu?"
+    },
+    {
+     "ty": "K",
+     "q": "What is NOT mentioned about the seminar?",
+     "a": "The length of the seminar",
+     "w": [
+      "The topics to be covered",
+      "Whether food will be offered",
+      "How to reserve a space"
+     ],
+     "ev": "Light refreshments will be served.",
+     "why": "Bài nêu chủ đề, đồ ăn nhẹ, cách giữ chỗ; chỉ nói giờ bắt đầu, không nói buổi hội thảo kéo dài bao lâu.",
+     "vi": "Điều gì KHÔNG được nhắc tới về buổi hội thảo?"
+    }
+   ]
+  },
+  {
+   "id": "bt-28",
+   "kind": "Form",
+   "t": "Brightpath Moving - Service Request Form\nCustomer name: Hector Alves\nPlease complete this form so we can prepare an estimate. A representative will visit your home to count and measure items before providing a price. Estimates are valid for thirty days. Moves scheduled within the first week of the month cost 10 percent more due to high demand. Return this form by e-mail or hand it to our agent at the time of the visit.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "What is the purpose of the form?",
+     "a": "To collect information for a price quote",
+     "w": [
+      "To confirm the details of a completed move",
+      "To file a complaint",
+      "To apply for a job"
+     ],
+     "ev": "Please complete this form so we can prepare an estimate.",
+     "why": "Biểu mẫu để công ty chuẩn bị bảng báo giá.",
+     "vi": "Mục đích của biểu mẫu là gì?"
+    },
+    {
+     "ty": "C",
+     "q": "What will a representative do at the customer's home?",
+     "a": "Assess the belongings",
+     "w": [
+      "Pack boxes",
+      "Sign a contract for storage",
+      "Collect a payment"
+     ],
+     "ev": "A representative will visit your home to count and measure items before providing a price.",
+     "why": "Nhân viên sẽ đếm và đo đồ đạc trước khi báo giá.",
+     "vi": "Nhân viên đại diện sẽ làm gì tại nhà khách?"
+    },
+    {
+     "ty": "C",
+     "q": "When does a move cost 10 percent more?",
+     "a": "When it takes place at the start of a month",
+     "w": [
+      "When it involves heavy furniture or a piano",
+      "When it is booked online",
+      "When it is within thirty days"
+     ],
+     "ev": "Moves scheduled within the first week of the month cost 10 percent more due to high demand.",
+     "why": "Chuyển nhà trong tuần đầu tháng đắt hơn 10%.",
+     "vi": "Khi nào việc chuyển nhà đắt thêm 10 phần trăm?"
+    }
+   ]
+  },
+  {
+   "id": "bt-29",
+   "kind": "Advertisement",
+   "t": "Rosewood Catering Services\nPlanning an office party or a wedding? Rosewood Catering prepares fresh meals for groups of 10 to 300 guests. Our menus include vegetarian and gluten-free options, and every order comes with delivery and setup. Orders placed at least two weeks in advance receive a 10 percent discount. Our chefs buy ingredients from farms in the region. Call 555-0177 for a free tasting appointment.",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "For what size groups does the company cook?",
+     "a": "Between ten and three hundred people",
+     "w": [
+      "Fewer than ten people",
+      "More than five hundred people at one time",
+      "Exactly two hundred people"
+     ],
+     "ev": "Rosewood Catering prepares fresh meals for groups of 10 to 300 guests.",
+     "why": "Công ty nấu cho nhóm từ 10 đến 300 khách.",
+     "vi": "Công ty nấu ăn cho nhóm có quy mô nào?"
+    },
+    {
+     "ty": "K",
+     "q": "What is NOT included with an order?",
+     "a": "Free beverages",
+     "w": [
+      "Delivery",
+      "Setup",
+      "Vegetarian dishes"
+     ],
+     "ev": "Our menus include vegetarian and gluten-free options, and every order comes with delivery and setup.",
+     "why": "Đơn gồm giao hàng, bày biện, món chay; không nhắc đồ uống miễn phí.",
+     "vi": "Điều gì KHÔNG được bao gồm trong đơn hàng?"
+    },
+    {
+     "ty": "C",
+     "q": "How can customers get a discount?",
+     "a": "By ordering well ahead of time",
+     "w": [
+      "By calling after hours",
+      "By choosing vegetarian meals for everyone",
+      "By attending a tasting"
+     ],
+     "ev": "Orders placed at least two weeks in advance receive a 10 percent discount.",
+     "why": "Đặt trước ít nhất hai tuần được giảm 10%.",
+     "vi": "Khách có thể được giảm giá bằng cách nào?"
+    }
+   ]
+  },
+  {
+   "id": "bt-30",
+   "kind": "Article",
+   "t": "Local Bakery Wins National Award\nMaple Street Bakery was named the best small bakery in the country at the National Food Industry Awards on Sunday. Owner Hassan Demir founded the business eleven years ago with just two employees. Today the bakery has 18 staff members and supplies bread to more than forty restaurants. Mr. Demir credited his team's dedication for the honor. \"We still make everything by hand,\" he said.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why was the article written?",
+     "a": "To report on a company's recognition",
+     "w": [
+      "To announce a bakery opening on Maple Street",
+      "To describe a new recipe",
+      "To recruit workers"
+     ],
+     "ev": "Maple Street Bakery was named the best small bakery in the country at the National Food Industry Awards on Sunday.",
+     "why": "Bài báo đưa tin tiệm bánh được trao giải quốc gia.",
+     "vi": "Vì sao bài báo được viết?"
+    },
+    {
+     "ty": "C",
+     "q": "How many people work at the bakery now?",
+     "a": "Eighteen",
+     "w": [
+      "Two",
+      "Eleven",
+      "More than forty"
+     ],
+     "ev": "Today the bakery has 18 staff members and supplies bread to more than forty restaurants.",
+     "why": "Hiện tiệm có 18 nhân viên.",
+     "vi": "Hiện nay có bao nhiêu người làm ở tiệm bánh?"
+    },
+    {
+     "ty": "Y",
+     "q": "What is suggested about the bakery's products?",
+     "a": "They are not made mainly by machine.",
+     "w": [
+      "They are sold only in the bakery itself.",
+      "They are shipped overseas.",
+      "They are all gluten-free."
+     ],
+     "ev": "We still make everything by hand,",
+     "why": "Ông chủ nói vẫn làm mọi thứ bằng tay, tức không chủ yếu bằng máy.",
+     "vi": "Điều gì được ngụ ý về sản phẩm của tiệm bánh?"
+    }
+   ]
+  },
+  {
+   "id": "bt-31",
+   "kind": "E-mail",
+   "t": "Dear Residents,\nThe Willowbrook Apartments management is pleased to announce that our new fitness room is now open on the second floor. It is available daily from 5:00 A.M. to 10:00 P.M. Residents must scan their key cards at the door to enter. Towels and bottled water are provided free of charge. Please note that children under 16 may use the room only when accompanied by an adult. Comments may be sent to the management office.\nRegards,\nWillowbrook Management",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why was the e-mail sent?",
+     "a": "To announce a new amenity for tenants",
+     "w": [
+      "To warn about a rent increase",
+      "To request building repairs",
+      "To schedule an inspection"
+     ],
+     "ev": "The Willowbrook Apartments management is pleased to announce that our new fitness room is now open on the second floor.",
+     "why": "Thư thông báo phòng tập mới đã mở cho cư dân.",
+     "vi": "Vì sao thư điện tử được gửi?"
+    },
+    {
+     "ty": "C",
+     "q": "How can residents enter the fitness room?",
+     "a": "By using their key cards",
+     "w": [
+      "By signing a guest book at the front desk",
+      "By asking a staff member",
+      "By entering a code"
+     ],
+     "ev": "Residents must scan their key cards at the door to enter.",
+     "why": "Cư dân quét thẻ chìa khóa ở cửa để vào.",
+     "vi": "Cư dân có thể vào phòng tập bằng cách nào?"
+    },
+    {
+     "ty": "K",
+     "q": "What is NOT provided for users?",
+     "a": "Exercise clothing",
+     "w": [
+      "Towels",
+      "Drinking water",
+      "Access in the early morning"
+     ],
+     "ev": "Towels and bottled water are provided free of charge.",
+     "why": "Khăn và nước uống được cung cấp, phòng mở từ 5 giờ; không nhắc quần áo tập.",
+     "vi": "Điều gì KHÔNG được cung cấp cho người sử dụng?"
+    }
+   ]
+  },
+  {
+   "id": "bt-32",
+   "kind": "Text message chain",
+   "t": "Isla Moreno (8:50 A.M.): Good morning! The team lunch on Friday is at Casa Verde, right?\nDev Kapoor (8:52 A.M.): Yes, at 12:15. They have a private room for ten.\nIsla Moreno (8:53 A.M.): We're now twelve because two interns are joining.\nDev Kapoor (8:55 A.M.): Oh no. I'll call and see if they can add a table.\nIsla Moreno (8:56 A.M.): Thanks! I owe you one.",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "Where will the team lunch be held?",
+     "a": "At a restaurant",
+     "w": [
+      "In the office conference room",
+      "At a hotel",
+      "At the interns' school"
+     ],
+     "ev": "The team lunch on Friday is at Casa Verde, right?",
+     "why": "Bữa trưa nhóm diễn ra tại Casa Verde.",
+     "vi": "Bữa trưa nhóm sẽ diễn ra ở đâu?"
+    },
+    {
+     "ty": "C",
+     "q": "How many people can the private room hold?",
+     "a": "A group of ten",
+     "w": [
+      "A group of twelve",
+      "A group of fifteen",
+      "A group of two"
+     ],
+     "ev": "They have a private room for ten.",
+     "why": "Phòng riêng chứa được mười người.",
+     "vi": "Phòng riêng chứa được bao nhiêu người?"
+    },
+    {
+     "ty": "Y",
+     "q": "At 8:56 A.M., what does Ms. Moreno most likely mean when she writes, \"I owe you one\"?",
+     "a": "She is thankful and wants to return the favor.",
+     "w": [
+      "She forgot to pay for lunch.",
+      "She plans to invite the interns.",
+      "She will give Mr. Kapoor a gift card."
+     ],
+     "ev": "I'll call and see if they can add a table.",
+     "why": "Ông Kapoor đề nghị gọi thêm bàn, bà cảm ơn và hứa đền đáp.",
+     "vi": "Lúc 8:56, bà Moreno có ý gì khi viết \"I owe you one\"?"
+    }
+   ]
+  },
+  {
+   "id": "bt-33",
+   "kind": "Memo",
+   "t": "MEMO\nTo: All Managers\nFrom: Sofia Reyes, Human Resources\nDate: March 14\nSubject: Performance reviews\nAnnual performance reviews will begin on April 1. Each manager should meet individually with every team member for about thirty minutes. Review forms are available on the company intranet and must be completed before each meeting. Late submissions will delay salary adjustments for the entire department. Please schedule your meetings no later than March 28.",
+   "qs": [
+    {
+     "ty": "P",
+     "q": "Why was the memo written?",
+     "a": "To explain how employee evaluations will proceed",
+     "w": [
+      "To announce salary increases",
+      "To introduce a new HR director",
+      "To request feedback on a policy"
+     ],
+     "ev": "Annual performance reviews will begin on April 1.",
+     "why": "Bản ghi nhớ giải thích việc đánh giá nhân viên hằng năm sẽ bắt đầu.",
+     "vi": "Vì sao bản ghi nhớ được viết?"
+    },
+    {
+     "ty": "K",
+     "q": "What is stated about the review forms?",
+     "a": "They can be found online.",
+     "w": [
+      "They must be mailed to Human Resources.",
+      "They are completed during the meeting.",
+      "They are given out by team members."
+     ],
+     "ev": "Review forms are available on the company intranet and must be completed before each meeting.",
+     "why": "Biểu mẫu có trên mạng nội bộ.",
+     "vi": "Điều gì được nêu về biểu mẫu đánh giá?"
+    },
+    {
+     "ty": "Y",
+     "q": "What is suggested about late submissions?",
+     "a": "One manager's delay can affect other employees.",
+     "w": [
+      "They will be accepted without penalty until April 1.",
+      "They affect only the manager who submits late.",
+      "They must be explained in a letter to Human Resources."
+     ],
+     "ev": "Late submissions will delay salary adjustments for the entire department.",
+     "why": "Nộp trễ làm chậm điều chỉnh lương cả bộ phận, ảnh hưởng người khác.",
+     "vi": "Điều gì được ngụ ý về việc nộp trễ?"
+    }
+   ]
+  },
+  {
+   "id": "bt-34",
+   "kind": "E-mail",
+   "t": "Dear Mr. Banerjee,\nYour reservation for the Harbor Suite at the Westport Hotel is confirmed for August 3 through August 6. Check-in begins at 3:00 P.M., and a shuttle from the airport runs hourly. Because of a citywide marathon on August 4, some roads near the hotel will be closed in the morning. We recommend leaving early for any appointments that day. Breakfast is served in the lobby restaurant from 6:30 to 10:00.\nBest wishes,\nReservations Team",
+   "qs": [
+    {
+     "ty": "C",
+     "q": "When can Mr. Banerjee check in?",
+     "a": "After three o'clock",
+     "w": [
+      "Before noon on August 3",
+      "At six thirty",
+      "On August 6"
+     ],
+     "ev": "Check-in begins at 3:00 P.M., and a shuttle from the airport runs hourly.",
+     "why": "Nhận phòng bắt đầu từ 3 giờ chiều.",
+     "vi": "Khi nào ông Banerjee có thể nhận phòng?"
+    },
+    {
+     "ty": "K",
+     "q": "What is NOT mentioned in the e-mail?",
+     "a": "The price of the suite",
+     "w": [
+      "An event that affects traffic",
+      "Transportation from the airport",
+      "Where breakfast is served"
+     ],
+     "ev": "Because of a citywide marathon on August 4, some roads near the hotel will be closed in the morning.",
+     "why": "Thư nhắc cuộc chạy, xe từ sân bay, nơi ăn sáng; không nêu giá phòng.",
+     "vi": "Điều gì KHÔNG được nhắc tới trong thư?"
+    },
+    {
+     "ty": "Y",
+     "q": "What is suggested about travel on August 4?",
+     "a": "It may take longer than usual.",
+     "w": [
+      "Roads near the hotel will be closed all day.",
+      "The airport shuttle will not operate that morning.",
+      "Guests must check out before the marathon begins."
+     ],
+     "ev": "We recommend leaving early for any appointments that day.",
+     "why": "Khuyên đi sớm nên việc di chuyển ngày 4/8 có thể lâu hơn.",
+     "vi": "Điều gì được ngụ ý về việc đi lại ngày 4/8?"
+    }
+   ]
+  }
+ ]
+}

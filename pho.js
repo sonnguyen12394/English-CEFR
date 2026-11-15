@@ -170,18 +170,19 @@ function phRuleQ(q) { if (!q || q.sec !== 'p5' || !q.x) return null; const og = 
   const s = String(q.q || '').replace(/<[^>]+>/g, '').replace(/-{5,}/, '___');
   if (q.x.t === 'form') { const pos = phPosOf(og[q.a]); const r = pos && phGheGuess(s, pos); return r ? { k: 'loai', r } : null; }
   if (PH_PHO.cau && PH_PHO.cau.canFix(q) && typeof CN_TY === 'function') { const r = CN_TY(og[q.a]); return r ? { k: 'cau', r } : null; }
+  for (const k in PH_PHO) { const c = PH_PHO[k]; if (c.ruleQ && c.canFix && c.canFix(q)) { const r = c.ruleQ(q); if (r) return { k, r }; } }   // v189: phố có hook luật riêng (Động Từ …)
   return null; }
 const phGlSt = k => { const o = toSt(); return (k === 'loai' ? o.pho : (o.phos || {})[k]) || {}; };
 const phGlOk = (k, r) => ((phGlSt(k).gl || {})[r] || {}).n >= PH_GOK;
 // tên luật để hiện: Loại Từ = dấu hiệu ghế · phố khác = tên cư dân
-const phRuleName = (k, r) => { if (k === 'loai') return PH_GHE[r] ? PH_GHE[r].sig : r; const c = PH_PHO[k] && PH_PHO[k].CH[r]; return c ? (c.pos || c.name) : r; };
-const phRuleKey = it => { const A = it.o.find(o => o[0] === it.a); return PHC.key === 'loai' ? (it.ghe || phGheGuess(it.s, A[1])) : A[1]; };
+const phRuleName = (k, r) => { if (k === 'loai') return PH_GHE[r] ? PH_GHE[r].sig : r; if (PH_PHO[k] && PH_PHO[k].rn) return PH_PHO[k].rn(r); const c = PH_PHO[k] && PH_PHO[k].CH[r]; return c ? (c.pos || c.name) : r; };
+const phRuleKey = it => { const A = it.o.find(o => o[0] === it.a); return PHC.key === 'loai' ? (it.ghe || phGheGuess(it.s, A[1])) : PHC.rk ? PHC.rk(it) : A[1]; };
 // ghi một lần bắt ở bậc ≥ 3: sai thì đếm lại; đúng câu mới không gợi ý thì +1
 function phGlog(it, ok, fresh, hint) { const r = phRuleKey(it); if (!r) return; const P = phSt(), G = P.gl = P.gl || {}, g = G[r] = G[r] || { n: 0, ok: 0 };
   if (!ok) { g.n = 0; g.x = Date.now(); } else if (fresh && !hint && !it.real) { g.n++; g.ok++; g.at = Date.now(); } }
-const phGlKeys = () => PHC.key === 'loai' ? PH_GORD : PH_ORD;
+const phGlKeys = () => PHC.key === 'loai' ? PH_GORD : PHC.gl || PH_ORD;
 const phGlN = r => Math.min(PH_GOK, ((phSt().gl || {})[r] || {}).n || 0);
-const phGlList = () => phGlKeys().map(r => { const n = phGlN(r), t = PHC.key === 'loai' ? PH_GHE[r].t : r;
+const phGlList = () => phGlKeys().map(r => { const n = phGlN(r), t = PHC.key === 'loai' ? PH_GHE[r].t : PHC.glT ? PHC.glT(r) : r;
   return `<div class="row phglr"><span class="phtag ph-${t}">${esc(PH_SHORT[t])}</span><span class="t">${esc(phRuleName(PHC.key, r))}</span><b class="${n >= PH_GOK ? 'ok' : 'mute'}">${n >= PH_GOK ? '✓ vững' : n + ' / ' + PH_GOK}</b></div>`; }).join('');
 const phGlDone = () => phGlKeys().filter(r => ((phSt().gl || {})[r] || {}).n >= PH_GOK).length;
 PH_PHO.loai.real = (q, d) => { if (q.sec !== 'p5' || !q.x || q.x.t !== 'form') return null; const og = (q.lg || {}).og || {}; if (!q.opts.every(o => og[o])) return null;
@@ -304,7 +305,7 @@ function phGuess(keys, done) { const k = keys.shift(); if (!k) return done(); wi
 
 // ---------- sổ thần chú ----------
 // bảng kiểu quan hệ hai vế (phố có QH, vd. Cầu Nối)
-const phQhTable = () => PHC.QH ? `<h3 style="margin:14px 0 6px">🧭 Các kiểu quan hệ hai vế</h3>${Object.values(PHC.QH).map(q => `<p class="phqh"><b>${q.e} ${esc(q.n)}</b> <span class="mute">${esc(q.w)}</span></p>`).join('')}` : '';
+const phQhTable = () => PHC.QH ? `<h3 style="margin:14px 0 6px">🧭 ${PHC.qhT || 'Các kiểu quan hệ hai vế'}</h3>${Object.values(PHC.QH).map(q => `<p class="phqh"><b>${q.e} ${esc(q.n)}</b> <span class="mute">${esc(q.w)}</span></p>`).join('')}` : '';
 function phBook(back) { const P = phSt(); window.CUR = { view: PH_VIEW + '-so' }; scrollTo(0, 0);
   const row = (k, who, name, chant) => { const c = P.cd[k]; return c ? `<div class="phsay">${phFace(who, 44)}<div class="b"><b>${esc(name)}</b><p>“${esc(chant)}”</p><small class="mute">Dùng đúng ở câu mới: ${c.n || 0} lần${(c.n || 0) >= 5 ? ' · ⭐ thành thạo' : ''}</small></div></div>`
     : `<div class="phsay phlock"><span class="phlk">🔒</span><div class="b"><b>${esc(name)}</b><p class="mute">Mở khi gặp câu cần luật này.</p></div></div>`; };
@@ -368,7 +369,7 @@ function phHint() { const R = PH_R; if (!R || R.done || !R.goi || R.hint >= 2) r
   if (md !== 'dp' && md !== 'qh') document.getElementById('phsent').innerHTML = phSent(it, null, moc);
   const g = document.getElementById('phgoi'); g.hidden = false;
   g.innerHTML = md === 'dp' ? `${phFace(R.T, 30, 'happy')}<span>💡 ${PH_CH[R.T].name} mặc đồng phục <b>${esc(phSuf(R.T))}</b>. Nhìn đuôi từ.</span>`
-    : md === 'qh' ? (R.hint === 1 && !R.M.moc ? '💡 Đọc vế trước rồi vế sau ô trống. Hỏi: vế sau là gì của vế trước (thêm ý, ngược lại, lý do, kết quả…)?' : `💡 Hai vế quan hệ <b>${Q ? Q.e + ' ' + esc(Q.n) : ''}</b>.`)
+    : md === 'qh' ? (R.hint === 1 && !R.M.moc ? '💡 Đọc vế trước rồi vế sau ô trống. Hỏi: vế sau là gì của vế trước (thêm ý, ngược lại, lý do, kết quả…)?' : `💡 ${PHC.qhW || 'Hai vế quan hệ'} <b>${Q ? Q.e + ' ' + esc(Q.n) : ''}</b>.`)
     : R.hint === 1 ? (PHC.mocHint ? PHC.mocHint(moc) : `💡 Nhìn chữ được tô: <b>${esc(moc)}</b>. Ai hay ngồi cạnh chữ này?`) : `${phFace(A[1], 30, 'happy')}<span>💡 Ghế này của <b>${PH_CH[A[1]].name}</b> (${PH_CH[A[1]].pos.toLowerCase()} · ${PHC.dau.toLowerCase()} ${esc(phSuf(A[1]))})${Q && md === 'tu' ? ` · quan hệ ${Q.e} ${esc(Q.n)}` : ''}.${it.ghe && PH_GHE[it.ghe] ? ` Luật: ${esc(PH_GHE[it.ghe].sig)}.` : ''}</span>`;
   phSfx('grow'); phHud(); }
 function phSent(it, fill, moc) { let [a, b] = it.s.split('___').map(esc);
@@ -377,7 +378,8 @@ function phSent(it, fill, moc) { let [a, b] = it.s.split('___').map(esc);
   return a + (fill ? `<span class="phgap fill ph-${fill.t}">${esc(fill.w)}</span>` : '<span class="phgap" aria-label="ghế trống">?</span>') + (b || ''); }
 // dựng các làn của câu: mỗi làn { w, p, m, ok } (w = chữ hiện, p = loại từ / cư dân, m = nghĩa)
 function phLanes(it, M) { const A = it.o.find(o => o[0] === it.a), as = o => ({ w: o[0], p: o[1], m: o[2] });
-  if (M.md === 'gh') return { order: shuf(PH_ORD).map(t => ({ w: PH_SHORT[t], p: t, ok: t === A[1] })) };
+  if (M.md === 'gh') { const os = PH_ORD.length > M.k ? [A[1], ...shuf([...new Set(it.o.map(o => o[1]).filter(t => t !== A[1]))]), ...shuf(PH_ORD.filter(t => t !== A[1] && !it.o.some(o => o[1] === t)))].slice(0, M.k) : PH_ORD;   // v190: phố > k cư dân thì lấy cư dân của đáp án + cư dân của phương án khác
+    return { order: shuf(os).map(t => ({ w: PH_SHORT[t], p: t, ok: t === A[1] })) }; }
   if (M.md === 'qh') { const q0 = A[3], oth = shuf([...new Set(it.o.map(o => o[3]).filter(x => x && x !== q0 && PHC.QH[x]))]), rest = shuf(Object.keys(PHC.QH).filter(x => x !== q0 && !oth.includes(x)));
     return { order: shuf([q0, ...oth, ...rest].slice(0, M.k)).map(q => ({ w: PHC.QH[q].n, e: PHC.QH[q].e, p: 'Q', q, ok: q === q0 })) }; }
   if (M.md === 'dp') { // bậc 1 chỉ gọi từ có đồng phục rõ: không gọi động từ đuôi -ed / -ing (dễ lẫn với tính từ)
@@ -421,7 +423,7 @@ function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, go
     ar.classList.add('okfl'); fx.innerHTML = `<div class="phbig ok">✓ Đúng rồi!</div>${R.combo >= 2 ? `<div class="phsub">🔥 ${R.combo} câu liền${heal ? ' · ❤️ +1 tim' : ''}</div>` : ''}${phRM() ? '' : '<i class="phst">⭐</i><i class="phst">⭐</i><i class="phst">✨</i><i class="phst">⭐</i><i class="phst">✨</i>'}`;
     fill();
     const Q0 = PHC.QH && A[3] && PHC.QH[A[3]];
-    const head = M.md === 'qh' ? `✓ Hai vế: ${Q0 ? Q0.e + ' ' + esc(Q0.n) : ''} · <b>${esc(it.a)}</b>` : M.md === 'dp' ? `✓ <b>${esc(got.w)}</b> là ${PH_CH[got.p].pos.toLowerCase()} · đồng phục ${esc(phSuf(got.p))}` : M.md === 'gh' ? `✓ Ghế này của ${PH_CH[A[1]].name}: <b>${esc(it.a)}</b>` : `✓ ${esc(it.a)} · ${PH_CH[A[1]].name}`;
+    const head = M.md === 'qh' ? `✓ ${PHC.qhW || 'Hai vế'}: ${Q0 ? Q0.e + ' ' + esc(Q0.n) : ''} · <b>${esc(it.a)}</b>` : M.md === 'dp' ? `✓ <b>${esc(got.w)}</b> là ${PH_CH[got.p].pos.toLowerCase()} · đồng phục ${esc(phSuf(got.p))}` : M.md === 'gh' ? `✓ Ghế này của ${PH_CH[A[1]].name}: <b>${esc(it.a)}</b>` : `✓ ${esc(it.a)} · ${PH_CH[A[1]].name}`;
     document.getElementById('phfb').innerHTML = `<div class="phfb good"><p class="ok">${head}${R.combo >= 3 ? ` · combo ×${R.combo} (⭐ ×2)` : ''}</p>${M.md === 'gh' || M.md === 'qh' ? `<p style="margin:0">${M.md === 'gh' ? phRuleHtml(it) : esc(it.why)}</p>` : ''}${real}${M.md === 'dp' ? '' : `<p class="mute" style="margin:0">${esc(it.vi)}</p>`}${opts}<button class="pri" data-phnext>${R.i + 1 < R.L.length ? 'Câu tiếp ›' : 'Xem kết quả'}</button></div>`;
     phHud(); clearTimeout(R.to); R.to = setTimeout(() => { if (PH_R === R && R.done && !R.sheet && !phPop()) phNext(); }, phRM() ? 2800 : 2200); return; }
   R.combo = 0; R.hearts--; R.miss.push({ it, got, md: M.md, T: R.T }); bub.classList.add('wrong'); phMood('sad'); phSfx('no'); phVib([40, 40, 40]);
@@ -432,7 +434,7 @@ function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, go
     body = `<div class="phsay">${phFace(got.p, 44, 'sad')}<div class="b"><b>${PH_CH[got.p].name}</b><p>“Tôi không phải ${PH_CH[T].name}! ${esc(got.w)} là ${PH_CH[got.p].pos.toLowerCase()}, đồng phục ${esc(phSuf(got.p))}.”</p></div></div>
       <p><span class="ko">Cần:</span> <span class="phtag ph-${T}">${esc(rt.w)}</span> (${PH_CH[T].pos.toLowerCase()} · đồng phục ${esc(phSuf(T))}).</p>`; }
   else if (M.md === 'qh') { const Q0 = PHC.QH[A[3]];
-    body = `<p><span class="ko">Bạn bắt:</span> ${got.e} ${esc(got.w)}.</p><p><span class="ko">Hai vế:</span> <span class="phtag ph-Q">${Q0 ? Q0.e + ' ' + esc(Q0.n) : ''}</span> → <b>${esc(it.a)}</b>. ${esc(it.why)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`; }
+    body = `<p><span class="ko">Bạn bắt:</span> ${got.e} ${esc(got.w)}.</p><p><span class="ko">${PHC.qhW || 'Hai vế'}:</span> <span class="phtag ph-Q">${Q0 ? Q0.e + ' ' + esc(Q0.n) : ''}</span> → <b>${esc(it.a)}</b>. ${esc(it.why)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`; }
   else if (M.md === 'gh') body = `<div class="phsay">${phFace(got.p, 44, 'sad')}<div class="b"><b>${PH_CH[got.p].name}</b><p>“Ghế này không phải của tôi!”</p></div></div>
       <p><span class="ko">Ghế của:</span> <span class="phtag ph-${A[1]}">${PH_CH[A[1]].name}</span> (${PH_CH[A[1]].pos.toLowerCase()}). ${phRuleHtml(it)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`;
   else { const same = got.p === A[1], who = got.p, line = same ? `Tôi với ${esc(it.a)} cùng nhà ${PH_CH[who].pos.toLowerCase()}, nhưng ghế này không phải của tôi. ${esc(got.w)} = ${esc(got.m)}.` : `Không phải ghế của tôi! Tôi là ${PH_CH[who].pos.toLowerCase()}, ${esc(got.w)} = ${esc(got.m)}.`;
@@ -457,7 +459,7 @@ function phEnd() { const R = PH_R; R.end = 1; cancelAnimationFrame(R.raf); phMus
   $app.onclick = e => { if (e.target.closest('[data-phtg]')) return back ? back() : (typeof tgView === 'function' && tgView()); if (e.target.closest('[data-phluat]')) return phLuat(() => phStart()); if (e.target.closest('[data-phagain]')) return phStart(); if (e.target.closest('[data-phhome]')) return phView(); }; }
 
 // ---------- lối chữa từ Chinh phục đề (trochoi.js tgSua: câu Part 5 dạng từ) ----------
-async function phFix(de, n, k) { phUse(k || 'loai'); await toLoad(); await phLoad(); const it = PH_RL[`de:${de}:${n}`]; if (!it) { toast(`Câu này chưa có lời giải ${PHC.lo}, chữa ở đảo nhé.`); return; }
+async function phFix(de, n, k) { if (PH_PHO[k] && PH_PHO[k].fix) return PH_PHO[k].fix(de, n); phUse(k || 'loai'); await toLoad(); await phLoad(); const it = PH_RL[`de:${de}:${n}`]; if (!it) { toast(`Câu này chưa có lời giải ${PHC.lo}, chữa ở đảo nhé.`); return; }
   const P = phSt(); if (!P.in) { P.in = 1; save(); return phGuess(PH_ORD.slice(), () => phStart(it, () => tgView())); }
   phStart(it, () => tgView()); }
 const phCanFix = q => !!phFixKey(q);
@@ -465,7 +467,7 @@ const phFixKey = q => Object.values(PH_PHO).find(c => c.canFix && c.canFix(q))?.
 // nút chữa ở bí kíp Chinh phục đề (trochoi.js tgSua): phố đầu tiên chữa được câu này
 const phFixBtn = (de, q) => { const k = phFixKey(q); return k ? `<button data-phfix="${k}|${esc(de)}|${q.n}">${PH_PHO[k].fixLab}</button>` : ''; };
 
-document.addEventListener('click', e => { if (!S) return; const v = e.target.closest('[data-phv]'); if (v && !String((window.CUR || {}).view).startsWith('toeic-pho')) { PH_BACK = null; phUse(v.dataset.phv || 'loai'); return phView(); }
+document.addEventListener('click', e => { if (!S) return; const v = e.target.closest('[data-phv]'); if (v && !String((window.CUR || {}).view).startsWith('toeic-pho')) { PH_BACK = null; const c = PH_PHO[v.dataset.phv]; if (c && c.own) return c.own(); phUse(v.dataset.phv || 'loai'); return phView(); }
   const f = e.target.closest('[data-phfix]'); if (f) { const p = f.dataset.phfix.split('|'); return p.length > 2 ? phFix(p[1], +p[2], p[0]) : phFix(p[0], +p[1]); } });
 document.addEventListener('keydown', e => { if (!PH_R || !String((window.CUR || {}).view).startsWith(PH_VIEW + '-van') || PH_R.sheet) return;
   if (e.key === 'ArrowLeft') { phMove(PH_R.lane - 1); e.preventDefault(); } if (e.key === 'ArrowRight') { phMove(PH_R.lane + 1); e.preventDefault(); } });

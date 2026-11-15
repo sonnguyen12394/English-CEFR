@@ -238,6 +238,14 @@
   /* v180 Phố Loại Từ: lời gọi bậc 1, hàng nhạc / tiếng */
   .phcall { display:flex; align-items:center; justify-content:center; gap:12px; min-height:68px; font-size:20px; } .phcall svg { flex:none; } .phcall span { display:flex; flex-direction:column; line-height:1.3; } .phcall small { font-size:15px; color:var(--mute); }
   .phsnd { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; } .phsnd button { flex:1 1 140px; width:auto; margin:0; min-height:44px; font-size:15px; }
+  /* v189 ⏰ Phố Động Từ (dong.js): 4 màu cư dân động từ; chữ trên màu luôn mực tối --phink */
+  :root { --phh:#ffd0a8; --phb:#e8c9a0; --pho:#ffb8cc; --phi:#a8d8ff; }
+  @media (prefers-color-scheme: dark) { :root { --phh:#f2bf92; --phb:#d9b88c; --pho:#f2a5bc; --phi:#93caf5; } }
+  .ph-H { background:var(--phh) !important; color:var(--phink) !important; } .ph-B { background:var(--phb) !important; color:var(--phink) !important; } .ph-O { background:var(--pho) !important; color:var(--phink) !important; } .ph-I { background:var(--phi) !important; color:var(--phink) !important; }
+  /* v190 👥 Phố Đại Từ & Lượng Từ (dai.js): 5 màu cư dân; chữ trên màu luôn mực tối --phink */
+  :root { --phd:#c5d4ff; --phs:#ffe08a; --phx:#bfeaf2; --phw:#dcc8ff; --phu:#b8ebc8; }
+  @media (prefers-color-scheme: dark) { :root { --phd:#b0c3f5; --phs:#f2d27a; --phx:#a8dde8; --phw:#cbb4f5; --phu:#a3dcb5; } }
+  .ph-D { background:var(--phd) !important; color:var(--phink) !important; } .ph-S { background:var(--phs) !important; color:var(--phink) !important; } .ph-X { background:var(--phx) !important; color:var(--phink) !important; } .ph-W { background:var(--phw) !important; color:var(--phink) !important; } .ph-U { background:var(--phu) !important; color:var(--phink) !important; }
   /* v181 🏙 Thành phố TOEIC (thanhpho.js) + 🌉 Phố Cầu Nối (cau.js): 3 màu cư dân cầu nối + màu kiểu quan hệ; chữ trên màu luôn mực tối --phink */
   :root { --phg:#ffbf99; --phl:#d4c2ff; --pht:#9fe6de; --phq:#ffe7a8; }
   @media (prefers-color-scheme: dark) { :root { --phg:#f2ad84; --phl:#c3aef7; --pht:#88d8cf; --phq:#f2d68e; } }
@@ -370,54 +378,56 @@
 <main id="app"><p class="mute">Đang tải…</p></main>
 <nav id="tabs" aria-label="Mục chính" hidden><button data-tab="lt"><i>🧭</i>Lộ trình</button><button data-tab="all"><i>📚</i>Học</button><button data-tab="ld"><i>🎯</i>Luyện đề</button><button data-tab="kd"><i>🛡️</i>Kiểm đề</button><button data-tab="dict"><i>🔍</i>Tra cứu</button><button data-tab="bk"><i>👤</i>Tôi</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="app.js?v=188"></script>
-<script src="tonghop.js?v=188"></script>
-<script src="exam.js?v=188"></script>
-<script src="gopy.js?v=188"></script>
-<script src="tachpdf.js?v=188"></script>
-<script src="gop.js?v=188"></script>
-<script src="noi.js?v=188"></script>
-<script src="parts.js?v=188"></script>
-<script src="pa.js?v=188"></script>
-<script src="kit.js?v=188"></script>
-<script src="kparts.js?v=188"></script>
-<script src="backup.js?v=188"></script>
-<script src="mock.js?v=188"></script>
-<script src="mocknoi.js?v=188"></script>
-<script src="thi.js?v=188"></script>
-<script src="uoe.js?v=188"></script>
-<script src="nghe2.js?v=188"></script>
-<script src="cap.js?v=188"></script>
-<script src="lib.js?v=188"></script>
-<script src="homnay.js?v=188"></script>
-<script src="vuotcap.js?v=188"></script>
-<script src="nhanh.js?v=188"></script>
-<script src="bando.js?v=188"></script>
-<script src="soloi.js?v=188"></script>
-<script src="ielts.js?v=188"></script>
-<script src="focus.js?v=188"></script>
-<script src="ieplus.js?v=188"></script>
-<script src="iemap.js?v=188"></script>
-<script src="iethat.js?v=188"></script>
-<script src="tudien.js?v=188"></script>
-<script src="tracuu.js?v=188"></script>
-<script src="dieuhuong.js?v=188"></script>
-<script src="huongdan.js?v=188"></script>
-<script src="toqt.js?v=188"></script>
-<script src="toeic.js?v=188"></script>
-<script src="tomap.js?v=188"></script>
-<script src="cbmap.js?v=188"></script>
-<script src="dangthi.js?v=188"></script>
-<script src="baihoc.js?v=188"></script>
-<script src="deai.js?v=188"></script>
-<script src="hoclai.js?v=188"></script>
-<script src="totron.js?v=188"></script>
-<script src="trochoi.js?v=188"></script>
-<script src="pho.js?v=188"></script>
-<script src="cau.js?v=188"></script>
-<script src="thanhpho.js?v=188"></script>
-<script src="kiemde.js?v=188"></script>
-<script src="chandoan.js?v=188"></script>
-<script src="lotrinh.js?v=188"></script>
+<script src="app.js?v=189"></script>
+<script src="tonghop.js?v=189"></script>
+<script src="exam.js?v=189"></script>
+<script src="gopy.js?v=189"></script>
+<script src="tachpdf.js?v=189"></script>
+<script src="gop.js?v=189"></script>
+<script src="noi.js?v=189"></script>
+<script src="parts.js?v=189"></script>
+<script src="pa.js?v=189"></script>
+<script src="kit.js?v=189"></script>
+<script src="kparts.js?v=189"></script>
+<script src="backup.js?v=189"></script>
+<script src="mock.js?v=189"></script>
+<script src="mocknoi.js?v=189"></script>
+<script src="thi.js?v=189"></script>
+<script src="uoe.js?v=189"></script>
+<script src="nghe2.js?v=189"></script>
+<script src="cap.js?v=189"></script>
+<script src="lib.js?v=189"></script>
+<script src="homnay.js?v=189"></script>
+<script src="vuotcap.js?v=189"></script>
+<script src="nhanh.js?v=189"></script>
+<script src="bando.js?v=189"></script>
+<script src="soloi.js?v=189"></script>
+<script src="ielts.js?v=189"></script>
+<script src="focus.js?v=189"></script>
+<script src="ieplus.js?v=189"></script>
+<script src="iemap.js?v=189"></script>
+<script src="iethat.js?v=189"></script>
+<script src="tudien.js?v=189"></script>
+<script src="tracuu.js?v=189"></script>
+<script src="dieuhuong.js?v=189"></script>
+<script src="huongdan.js?v=189"></script>
+<script src="toqt.js?v=189"></script>
+<script src="toeic.js?v=189"></script>
+<script src="tomap.js?v=189"></script>
+<script src="cbmap.js?v=189"></script>
+<script src="dangthi.js?v=189"></script>
+<script src="baihoc.js?v=189"></script>
+<script src="deai.js?v=189"></script>
+<script src="hoclai.js?v=189"></script>
+<script src="totron.js?v=189"></script>
+<script src="trochoi.js?v=189"></script>
+<script src="pho.js?v=189"></script>
+<script src="cau.js?v=189"></script>
+<script src="dong.js?v=189"></script>
+<script src="dai.js?v=189"></script>
+<script src="thanhpho.js?v=189"></script>
+<script src="kiemde.js?v=189"></script>
+<script src="chandoan.js?v=189"></script>
+<script src="lotrinh.js?v=189"></script>
 </body>
 </html>
