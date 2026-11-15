@@ -2656,7 +2656,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
         const D = phDeItems(de); if (D.length < 4) { bad.push(k + ': đề ' + de + ' chỉ có ' + D.length + ' câu cho phố'); continue; }
         let L = phPick(null, 'tu'), re = L.filter(x => x.real);
         if (!re.length || re.some(x => x.de !== de) || L.length > PH_N) bad.push(k + ': ván phải có câu của đề đã chọn (' + re.length + ')');
-        const i0 = L.findIndex(x => x.real); if (i0 < 1 || L.slice(0, i0).some(x => x.real)) bad.push(k + ': câu kho anh em phải đứng trước câu đề');
+        if (!L.some((x, i) => x.real && i > 0 && !L[i - 1].real)) bad.push(k + ': câu kho anh em phải đứng trước câu đề');   // v189: câu đề không có anh em (Cầu Nối: không biết quan hệ của đáp án) được đứng đầu ván
         const sb = L[i0 - 1], A = it => it.o.find(o => o[0] === it.a); if (sb && A(sb)[1] !== A(L[i0])[1]) bad.push(k + ': câu anh em phải cùng loại với câu đề');
         // câu đề đang sai trong đề lên trước
         const w = D[D.length - 1]; tgJ(de).c[w.n] = { s: 'sai', at: Date.now() }; L = phPick(null, 'tu'); if (L.find(x => x.real) !== w) bad.push(k + ': câu đang sai phải làm trước');
