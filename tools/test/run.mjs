@@ -2131,7 +2131,7 @@ const R = await run(`(async () => {
   { const bad = [], S1 = S; try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad(); TG_P = null;
       const P = await tgPool(); TG_P = P; const ids = TO.tron.map(d => d.id);
       for (const d of ids) { const ms = Object.values(P[d] || {}); if (ms.length !== 100) bad.push(d + ': phải 100 câu Đọc (' + ms.length + ')');
-        if (ms.filter(m => m.ks.length).length < 95) bad.push(d + ': ít câu có thử thách'); if (ms.filter(m => m.ks.length >= 2).length < 40) bad.push(d + ': ít câu có 2 thử thách');
+        if (ms.filter(m => m.ks.length || m.lu).length < 95) bad.push(d + ': ít câu có thử thách / luật'); if (ms.filter(m => m.ks.length >= 2 || m.lu).length < 40) bad.push(d + ': ít câu có 2 thử thách / luật');   // v183: câu có luật của phố đo 🌳 ở phố
         for (const m of ms) { const q = m.q; if (m.ks.includes('ev') && !m.docs.some(dc => dc.ss.some(s => tgHit(s, q.ev)))) bad.push(d + ' câu ' + q.n + ': dò tin không có câu chứa đáp án');
           if (m.ks.includes('ld') && !(m.pos || m.cat)) bad.push(d + ' câu ' + q.n + ': loại từ / quan hệ trống');
           if (m.ks.includes('ng') && !q.opts.every(o => q.lg.og[o])) bad.push(d + ' câu ' + q.n + ': thiếu nghĩa phương án');
@@ -2160,7 +2160,7 @@ const R = await run(`(async () => {
       if (tgJNext(de, L).k !== 'thi') bad.push('còn câu chưa làm thì phải thi lượt kế trước khi hỏi kiến thức');
       // mọi câu đúng → hỏi kiến thức; câu có 2 thử thách loại từ + tự gõ
       for (const c of L) J().c[c.n] = { s: 'ok', at: Date.now() + 100 }; L = tgJState(de); nx = tgJNext(de, L); if (nx.k !== 'hieu' || nx.cs.length !== 5) bad.push('đúng hết phải sang 🟦 Hiểu theo nhóm 5 (' + nx.k + ')');
-      const cf = L.find(c => c.ks[0] === 'ld' && c.ks[1] === 'go' && P[de][c.n].pos); if (!cf) bad.push('đề 3 thiếu câu loại từ + tự gõ'); else {
+      const cf = L.find(c => c.ks[0] === 'ld' && c.ks[1] === 'go' && (P[de][c.n].pos || P[de][c.n].cat)); if (!cf) bad.push('đề 3 thiếu câu loại từ / từ nối + tự gõ'); else {   // v183: câu Part 5 có phố đo 🌳 ở phố, còn câu từ nối Part 6
         const m = P[de][cf.n]; tgHieu(de, [cf], 'hieu'); const want = (m.pos || m.cat); const bt = btns('tgc').find(b => b[1].toLowerCase() === esc(want).toLowerCase());
         if (!bt) bad.push('loại từ: thiếu phương án đúng'); else fire('[data-tgc]', { tgc: bt[0] }); if ($app.innerHTML.includes(esc(cf.q.a) + '”')) bad.push('thử thách 1 không được lộ đáp án trước khi tự gõ'); fire('[data-tgn]');
         const dq = document.querySelector; document.querySelector = s => s === '[data-tgi]' ? { value: ' ' + cf.q.a.toUpperCase() + ' ' } : null; fire('[data-tgk]'); document.querySelector = dq;
@@ -2178,13 +2178,14 @@ const R = await run(`(async () => {
       if (c7) { const a2 = Array(200).fill('-'); a2[c7.n - 1] = 'ABCD'[c7.q.opts.findIndex(o => o !== c7.q.a)]; S.to.tronA[de + ':R'] = { at: Date.now() + 5000, a: a2.join(''), ov: 2 };
         const x = tgJState(de).find(c => c.n === c7.n); if (x.st !== 'sai' || x.hi) bad.push('bài làm mới hơn sai phải mất ⭐ và 🟦'); delete S.to.tronA[de + ':R']; }
       for (const c of L) { J().c[c.n] = { s: 'ok', at: Date.now() + 9000 }; if (c.ks.length) J().h[c.n] = { at: Date.now() + 9500, lv: 4, d: 0, k: c.ks[0] }; }
+      S.to.pho = Object.assign(S.to.pho || {}, { gl: Object.fromEntries(PH_GORD.map(r => [r, { n: PH_GOK }])) }); S.to.phos = { cau: { gl: { G: { n: PH_GOK }, L: { n: PH_GOK }, T: { n: PH_GOK } } } };   // v183: luật của phố vững
       nx = tgJNext(de, tgJState(de)); if (nx.k !== 'win') bad.push('đúng hết + hiểu hết phải là chinh phục xong (' + nx.k + ')');
       TG_P = P; await tgView(); let h = String($app.innerHTML);
       if (!h.includes('Chinh phục đề') || (h.match(/data-tgde=/g) || []).length !== ids.length || !h.includes('Đúng 100/100') || !h.includes('Hiểu ') || !h.includes('data-tgj="full"') || (h.match(/class="tgt /g) || []).length !== 100) bad.push('màn hành trình thiếu phần');
       if (!String(tgRow()).includes('Chinh phục đề') || !String(trResOne).includes('TG_J')) bad.push('thiếu lối vào / nút về hành trình sau lượt thi');
       // v170: đề riêng (chỉ phần Đọc, câu 101–200, giữ thứ tự phương án) vào được hành trình; trLkAll nhận hàm quay về
       { const F = JSON.parse(JSON.stringify(Object.assign({}, TR.D.de5, { id: 'de99', t: 'Đề 99 · thử', p1: [], p2: [], p3: [], p4: [], off: 100, keep: 1, only: 'R' }))); delete F.ord; for (const x of F.p5) x.o = x.o || [x.a, ...(x.w || [])]; for (const x of F.p6) for (const g of x.gaps) g.o = g.o || [g.a, ...(g.w || [])]; for (const x of F.p7) for (const q of x.qs) q.o = q.o || [q.a, ...(q.w || [])]; TR.D.de99 = F; TO.tron.push({ id: 'de99', t: 'Đề 99 · thử', f: 'rieng:de99', only: 'R' }); TR.B = {};
-        TG_P = await tgPool(); const L99 = tgJState('de99'); if (!TG_P.de99 || L99.length !== 100 || L99[0].n !== 101 || L99[99].n !== 200 || L99.filter(c => c.ks.length).length < 95) bad.push('đề riêng: phải có 100 câu Đọc đánh số 101–200 có thử thách (' + (L99 || []).length + ')');
+        TG_P = await tgPool(); const L99 = tgJState('de99'); if (!TG_P.de99 || L99.length !== 100 || L99[0].n !== 101 || L99[99].n !== 200 || L99.filter(c => c.ks.length || c.lu).length < 95) bad.push('đề riêng: phải có 100 câu Đọc đánh số 101–200 có thử thách (' + (L99 || []).length + ')');
         const n99 = tgJNext('de99', L99); if (n99.k !== 'thi' || n99.id !== 'cR0') bad.push('đề riêng: lượt đầu phải là cR0 (' + n99.k + ' ' + n99.id + ')');
         if (!String(trLkAll).includes('back')) bad.push('trLkAll không nhận hàm quay về');
         TO.tron = TO.tron.filter(d => d.id !== 'de99'); delete TR.D.de99; TR.B = {}; TG_P = P; }
@@ -2624,7 +2625,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       const P = phSt(); P.in = 1; P.mu = { b1: PH_WIN }; P.mc = 'b2';
       // lần đầu bấm Chơi ở Bậc 2 → bài học luật ghế
       await phView(); const click = sel => $app.onclick({ target: { closest: s => s === sel ? {} : null } });
-      if (!String($app.innerHTML).includes('data-phluat')) bad.push('màn Phố thiếu nút Học luật ghế');
+      if (!/Học luật ghế rồi chơi/.test($app.innerHTML) || /class="hrow phbook" data-phluat/.test($app.innerHTML)) bad.push('Bậc 2 chưa học luật: nút Chơi phải ghi học luật ghế, không có dòng riêng');   // v188: gộp vào Bậc 2
       click('[data-phplay]'); if (window.CUR.view !== PH_VIEW + '-luat' || !/Bác Danh từ hay Cô Tính từ/.test($app.innerHTML) || !/data-phlskip/.test($app.innerHTML)) bad.push('Chơi Bậc 2 lần đầu phải vào bài học (có Bỏ qua)');
       let steps = 0, qs = 0;
       for (let b = 0; b < 3; b++) { steps++; click('[data-phlq]');
@@ -2685,5 +2686,37 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     } catch (e) { bad.push('lỗi: ' + e.message); }
     window.AudioContext = A0; PH_AC = null; AUD_WAKE = 0; return bad; })()`);
   R.push({ lv: 'cefr', id: 'C85', ok: !r.length, msg: r.length ? r.join(' | ') : '🔊 Giữ tiếng khi quay lại app: đánh thức AudioContext interrupted / closed, cú chạm đầu dựng lại tiếng trò chơi, trang ẩn dừng chuỗi câu đang đọc' }); }
+// v187 C86 🧠 Hiểu = luật vững ở phố: câu Part 5 của đề gắn một luật (ghế đoán từ chữ quanh chỗ trống, ≥ 95% đúng trên kho có nhãn); phố ghi luật ở bậc ≥ 3
+//   (đúng câu mới không gợi ý +1, sai thì đếm lại, vững khi ≥ PH_GOK); Chinh phục đề: câu có luật 🌳 khi ⭐ và luật vững; việc kế tiếp 'pho' mở đúng phố
+{ const r = await run(`(async () => { const bad = [], S1 = S, G0 = document.getElementById;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; PH_K = null; PH_RL = null; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
+      document.getElementById = id => { const e = G0(id); if (id === 'phrow') { e.children = [0, 1, 2, 3].map(() => ({ classList: { add() {} } })); e.firstElementChild = { offsetHeight: 40 }; } if (id === 'pharena') e.clientHeight = 300; return e; };
+      await toLoad(); phUse('loai'); await phLoad();
+      let ok = 0; for (const it of PH_K) if (phGheGuess(it.s, it.o.find(o => o[0] === it.a)[1]) === it.ghe) ok++;
+      if (ok / PH_K.length < 0.95) bad.push('đoán ghế đúng ' + ok + '/' + PH_K.length);
+      // câu đề gắn luật hợp lệ
+      TG_P = await tgPool(); const de = TO.tron[0].id; let nl = 0;
+      for (const d of TO.tron) for (const m of Object.values(TG_P[d.id] || {})) if (m.lu) { nl++; const L = m.lu; if (!(L.k === 'loai' ? PH_GHE[L.r] : PH_PHO.cau.CH[L.r]) || m.ks.length) { bad.push('luật lạ / còn thử thách ' + JSON.stringify(L)); break; } }
+      if (nl < 8 * 8) bad.push('quá ít câu đề có luật: ' + nl);
+      // phố ghi luật: 3 câu mới đúng liền → vững; sai → đếm lại
+      const P = phSt(); P.in = 1; P.mu = { b1: PH_WIN, b2: PH_WIN }; P.mc = 'b3'; P.lg = { at: 1 }; for (const k of ['N', 'V']) P.cd[k] = { at: 1, n: 0 };   // < 3 thần chú: không vào ⚡ nhớ nhanh
+      phStart(); if (!PH_R || PH_R.M.md !== 'tu') bad.push('bậc 3 phải là ván bắt từ');
+      const r0 = phRuleKey(PH_R.it); PH_R.lane = PH_R.order.findIndex(o => o.ok); phCatch(); if (((P.gl || {})[r0] || {}).n !== 1) bad.push('đúng câu mới ở bậc 3 phải +1 luật ' + r0);
+      phNext(); const r1 = phRuleKey(PH_R.it); const n1 = ((P.gl || {})[r1] || {}).n || 0; PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch(); if (P.gl[r1].n !== 0 || (n1 === 0 && r1 !== r0 && P.gl[r1].x === undefined)) bad.push('sai phải đếm lại luật ' + r1);
+      phStop();
+      // câu đã gặp hôm nay không tính là mới
+      const it0 = PH_K.find(x => x.ghe === 'mao'); P.it[it0.id] = { at: Date.now(), lv: 1, d: 0, s: 1 }; const g0 = (P.gl.mao || {}).n || 0; phGlog(it0, true, false, 0); if ((P.gl.mao || {}).n !== g0) bad.push('câu đã gặp không được cộng luật');
+      // Chinh phục đề: câu có luật, ⭐ đúng: chưa vững → 🌱; vững → 🌳
+      const M = TG_P[de], n = +Object.keys(M).find(k => M[k].lu && M[k].lu.k === 'loai'), lu = M[n].lu, J = tgJ(de); J.c[n] = { s: 'ok', at: Date.now() };
+      P.gl = {}; let c = (tgJState(de) || []).find(x => x.n === n); if (!c || !c.lu || c.hi || tgTile(c) !== 'ok') bad.push('câu ⭐ mà luật chưa vững phải là 🌱');
+      const nx = tgJNext(de, [c]); if (nx.k !== 'pho' || nx.p !== 'loai' || !nx.rs.includes(lu.r)) bad.push('việc kế tiếp phải là luyện luật ở phố: ' + JSON.stringify(nx).slice(0, 80));
+      P.gl[lu.r] = { n: PH_GOK, ok: PH_GOK }; c = (tgJState(de) || []).find(x => x.n === n); if (!c.hi || tgTile(c) !== 'hi') bad.push('luật vững phải thành 🌳');
+      J.c[n] = { s: 'sai', at: Date.now() + 5 }; c = (tgJState(de) || []).find(x => x.n === n); if (c.hi) bad.push('làm sai câu đề thì mất 🌳');
+      // màn đảo có nút sang phố, màn Phố có danh sách luật
+      J.c[n] = { s: 'ok', at: Date.now() + 9 }; P.gl = {}; S.to.tc.de = de;
+      if (!/Luật đã vững/.test(await (async () => { await phView(); return $app.innerHTML; })())) bad.push('màn Phố thiếu danh sách luật');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; TG_P = null; phUse('loai'); return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C86', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : '🧠 Hiểu = luật vững ở phố: đoán ghế ≥ 95% trên kho, câu đề gắn luật, đúng câu mới +1 / sai đếm lại, câu đã gặp không tính, đảo tô 🌳 khi ⭐ + luật vững, việc kế tiếp mở phố' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
