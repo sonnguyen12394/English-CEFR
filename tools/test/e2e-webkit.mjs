@@ -171,6 +171,13 @@ await pg.click('details.kdi >> nth=0 >> [data-kdv$="|0"]'); await pg.waitForTime
 check('🛡️ Kiểm đề: ✗ + ghi chú gửi như góp ý', await pg.evaluate(() => { const m = document.querySelector('details.kdi').dataset.kdi; return S.kd[m].v === 0 && S.kd[m].n === 'Ví dụ chưa rõ'; }) && /Đã ghi ✗: Ví dụ chưa rõ/.test(await pg.innerText('details.kdi >> nth=0')));
 await pg.click('[data-kdf="mo"]'); await pg.waitForTimeout(300); check('🛡️ Kiểm đề: lọc Còn mở', (await pg.$$('details.kdi')).length >= 1 && (await pg.$$('details.kdi')).length < 10);
 check('🛡️ Kiểm đề không tràn ngang', await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+// 🏙 Thành phố TOEIC + 🌉 Phố Cầu Nối (v181): màn Thành phố có 7 phố + trận cuối; mở Cầu Nối → làm quen 3 cư dân
+await pg.evaluate(async () => { S = blank(); S.to = { target: 600 }; await cyView(); }); await pg.waitForTimeout(1500);
+check('🏙 Thành phố: phố đã có + sắp có + trận cuối', /Phố Loại Từ[\s\S]*Phố Cầu Nối[\s\S]*Sắp có[\s\S]*Chinh phục đề/.test(await pg.innerText('#app')) && (await pg.$$('.cycard')).length === 8);
+check('🏙 Thành phố không tràn ngang', await pg.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+await pg.click('[data-phv="cau"]'); await pg.waitForTimeout(1200);
+check('🌉 Cầu Nối: làm quen 3 cư dân', /Cư dân Phố Cầu Nối/.test(await pg.innerText('#app')) && (await pg.$$('[data-phtalk]')).length === 3);
+await pg.evaluate(() => { phStop(); phUse('loai'); });
 // 📅 Hôm nay + 🧭 xếp cấp (v74): ô Hôm nay ở Tổng quan; làm trọn bài xếp cấp (chọn "Chưa biết") → ra kết quả
 await pg.evaluate(() => { S = blank(); S.lt = { d: [], fx: {}, goal: { kind: 'cefr', lv: 'a2', date: '', at: Date.now() } }; ltView(); }); await pg.waitForTimeout(800); check('ô Hôm nay ở Lộ trình', (await pg.innerText('#app')).includes('Việc hôm nay'));
 await pg.click('[data-place]'); await pg.waitForTimeout(800); for (let n = 0; n < 40; n++) { if (!(await pg.$('[data-po="-1"]'))) break; await pg.click('[data-po="-1"]'); await pg.waitForTimeout(30); }

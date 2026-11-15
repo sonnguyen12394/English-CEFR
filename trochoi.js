@@ -95,11 +95,11 @@ async function tgView() { window.CUR = { view: TG_VIEW }; BACK = null; $app.onke
   const later = nx.d ? nx.d - tgDay() : 0;
   const step = big ? (nx.k === 'thi' ? `<div class="tgarena tgprev">${tgMon(de, '', 84)}<div><b>Boss ${esc(tgDeName(de))}</b><br><span>Đang chờ ở lượt ${nx.c ? nx.c.k - nx.r0 + 1 : ''}</span></div></div>` : '') + `<button class="btnbig" data-tgj="${nx.k}">${big[0]}<small>${big[1]}</small></button>`
     : `<div class="box tgyes"><b>🏡 ${esc(tgDeName(de))}: cả đảo đã xanh</b><p style="margin:6px 0 0">${C.chac === C.nk ? 'Mọi câu đã nhớ chắc.' : `Hôm nay xong. Sâu quay lại ${later <= 1 ? 'ngày mai' : 'sau ' + later + ' ngày'}.`} Điểm của đề đã chinh phục cao hơn thực lực; trình độ thật đo bằng đề chưa làm.</p></div><button class="pri" data-tgj="full">▶ Làm lại cả Phần Đọc · 75 phút</button>`;
-  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-tgb>‹ TOEIC</button></div>
+  $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-tgb>‹ ${typeof cyView === 'function' ? 'Thành phố' : 'TOEIC'}</button></div>
     <h1>⚔️ Chinh phục đề</h1><p class="mute" style="margin-top:0">Đánh Boss để làm đúng hết ${C.n} câu Phần Đọc, rồi trồng cây cho cả đảo xanh: mỗi cây là một câu đã hiểu.</p>
     <div class="chips tap">${D.map(chip).join('')}</div>
     ${nLk ? `<button data-tgopen>🔓 Mở thêm ${nLk} đề riêng (cần mã)</button>` : ''}
-    ${step}
+    ${step}${typeof cyNeedBox === 'function' ? cyNeedBox(de) : ''}
     <div class="box"><div class="row" style="justify-content:space-between;gap:8px"><b>🏝 Đảo ${esc(tgDeName(de))}</b><span class="mute">${C.n} câu</span></div>
       <div class="tgisle">${L.map(tile).join('')}</div>
       <p class="mute" style="margin:6px 0 0;font-size:14px">${Object.keys(TG_TILE).filter(t => K[t]).map(t => `${TG_TILE[t][0]} ${K[t]} ${TG_TILE[t][1]}`).join(' · ')}</p>
@@ -111,7 +111,7 @@ async function tgView() { window.CUR = { view: TG_VIEW }; BACK = null; $app.onke
       <p>🐛 Sau ${TG_H.join(', ')} ngày sâu quay lại: qua một thử thách là cứu được cây, qua cả ${TG_H.length} lần thành 🏡 nhớ chắc. Sai thì cây về 🌱. Làm sai câu đó trong đề thì cây chết.</p>
       <div class="row" style="gap:8px;flex-wrap:wrap"><button data-tgfx>${tgFx() ? '✨ Tắt hiệu ứng' : '✨ Bật hiệu ứng'}</button><button data-tgsnd>${tgSnd() ? '🔇 Tắt tiếng' : '🔊 Bật tiếng'}</button></div><p class="mute" style="font-size:14px">iPhone gạt sang im lặng thì không có tiếng.</p></details>
     <p class="mute" style="font-size:14px">Không tính vào điểm đề thử trọn, 📘 Học hay 🔁 Nhớ.</p>`;
-  $app.onclick = e => { if (e.target.closest('[data-tgb]')) { EX_PART = 'san'; toeicView(); return; }
+  $app.onclick = e => { if (e.target.closest('[data-tgb]')) { if (typeof cyView === 'function') return cyView(); EX_PART = 'san'; toeicView(); return; }
     const c = e.target.closest('[data-tgde]'); if (c) { tgSt().de = c.dataset.tgde; save(); tgView(); return; }
     if (e.target.closest('[data-tgopen]')) return trLkAll(() => { TG_P = null; tgView(); });
     if (e.target.closest('[data-tgfx]')) { const T = tgSt(); T.nofx = T.nofx ? 0 : 1; save(); return tgView(); }
@@ -207,7 +207,7 @@ const tgStat = (k, ok) => { const s = tgSt().st, z = s[k] = s[k] || { n: 0, ok: 
 function tgSua(de, cs) { window.CUR = { view: TG_VIEW + '-sua' }; $app.onkeydown = null; const J = tgJ(de).c, G = { ph: 0, i: 0, res: null, ok: 0, op: null };
   const draw = () => { const q = cs[G.i].q, n = cs.length;
     if (G.ph === 0) { $app.innerHTML = tgTop(de, q, `📜 Bí kíp hạ quái ${G.i + 1}/${n}`) + `<p class="mute" style="margin-top:0">Đọc kỹ vì sao. Đọc xong ${n} bí kíp thì đánh lại, phương án đổi chỗ.</p>`
-        + (q.sec === 'p6' ? tgCtx(q) : '') + tgSol(q) + tgDocs(q) + (typeof phCanFix === 'function' && phCanFix(q) ? `<button data-phfix="${esc(de)}|${q.n}">🏘 Chữa ở Phố Loại Từ · điều khiển bé Mầm</button>` : '') + `<button class="pri" data-tgn>${G.i + 1 < n ? 'Câu tiếp ›' : `⚔️ Đánh lại ${n} quái`}</button>`; return; }
+        + (q.sec === 'p6' ? tgCtx(q) : '') + tgSol(q) + tgDocs(q) + (typeof phFixBtn === 'function' ? phFixBtn(de, q) : '') + `<button class="pri" data-tgn>${G.i + 1 < n ? 'Câu tiếp ›' : `⚔️ Đánh lại ${n} quái`}</button>`; return; }
     G.op = G.op || (q.sec === 'p7' && q.opts.every(o => /^\[\d\]$/.test(o)) ? [...q.opts] : shuf([...q.opts]));
     if (G.res) { $app.innerHTML = tgTop(de, q, `⚔️ Đánh lại quái ${G.i + 1}/${n}`) + `<div class="box ${G.res.ok ? 'tgyes' : 'tcno'}"><b>${G.res.ok ? `💥 Hạ quái · câu ${q.n} mọc 🌱` : '👾 Quái còn sống · đánh lại sau'}</b>${G.res.note ? `<p style="margin:4px 0 0">${G.res.note}</p>` : ''}</div>`
         + (G.res.ok ? '' : (q.sec === 'p6' ? tgCtx(q) : '') + tgSol(q) + tgDocs(q)) + `<button class="pri" data-tgn>${G.i + 1 < n ? 'Câu tiếp ›' : 'Xem kết quả'}</button>`; return; }
@@ -279,6 +279,7 @@ function tgHieu(de, cs, mode) { window.CUR = { view: TG_VIEW + '-hieu' }; const 
 
 // lối vào ở màn TOEIC (phần 📚 Đề có sẵn), cạnh đề thử trọn
 function tgRow() { if (typeof TO === 'undefined' || !TO || !(TO.tron || []).length) return '';
+  if (typeof cyRow === 'function') return cyRow();   // v181: lối vào chung 🏙 Thành phố TOEIC (Chinh phục đề là trận cuối)
   return `<div class="box hcard" style="margin:12px 0 0"><button class="hrow" data-tgv><span class="ic">⚔️</span><span class="t"><b>Chinh phục đề</b><small>Đánh Boss từng lượt 10 câu, trồng cây cho cả đảo xanh</small></span><span class="chev">›</span></button></div>` + (typeof phRow === 'function' ? phRow() : ''); }
 document.addEventListener('click', e => { if (S && e.target.closest('[data-tgv]') && !String((window.CUR || {}).view).startsWith(TG_VIEW)) { TG_P = null; tgView(); } });
 // thi lượt mở từ hành trình: màn kết quả có nút về hành trình

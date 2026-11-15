@@ -2550,7 +2550,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       const a = Array(200).fill('-'); a[q.n - 1] = ch; S.to.tronA = { [it.de]: { at: Date.now() - 1000, a: a.join(''), ov: 2 } };
       if (!phWrong().some(x => x.id === it.id)) bad.push('câu sai trong bài làm không vào danh sách sai');
       L = phPick(); if (!L.some(x => x.id === it.id) || L.filter(x => x.real).length > 3) bad.push('ván phải chen câu thật đã sai (≤ 3)');
-      if (!phCanFix(q) || !tgRow().includes('data-phv')) bad.push('thiếu lối vào / lối chữa');
+      if (!phCanFix(q) || !phRow().includes('data-phv') || !tgRow().includes('data-cyv')) bad.push('thiếu lối vào / lối chữa');
       // ván: bắt đúng → lịch 1 ngày + hành trình ⭐; bắt sai → mất tim, hẹn mai
       const P = phSt(); P.in = 1; for (const k of ['N', 'V', 'nguoi', 'vdang', 'edng', 'so']) P.cd[k] = { at: 1, n: 0 };
       phStart(it, () => 0); if (!PH_R || !String($app.innerHTML).includes('pharena') || (String(document.getElementById('phrow').innerHTML).match(/phpill/g) || []).length !== 4 || PH_R.mu !== 'fix' || PH_R.hearts !== 5) bad.push('ván chữa: 4 từ, 5 tim');
@@ -2576,5 +2576,40 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; return bad; })()`);
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C81', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🏘 Phố Loại Từ: kho ≥ 120 câu qua bộ dựng, câu thật dạng từ đúng khuôn + nhóm cùng nhà, ván 10 câu chen câu đề đã sai (≤ 3), bắt đúng / sai ghi lịch ôn + hành trình, không đụng thẻ học / điểm đề thử / bản đồ' }); }
+// v181 C82 🏙 Thành phố TOEIC + 🌉 Phố Cầu Nối (specs/020-thanh-pho-toeic): động cơ phố dùng chung (phUse), kho Cầu Nối qua bộ dựng, bậc 1 nhìn phía sau (3 cư dân),
+//   bậc 2 kiểu quan hệ (chỉ câu kho), câu thật giới từ / liên từ, lối chữa từ Chinh phục đề, đếm câu cần phố; tiến độ riêng S.to.phos.cau, không đụng Loại Từ / thẻ học
+{ const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname;
+  try { const o = cp.execFileSync('node', [root + 'tools/build-cau.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ cau\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.stderr || e.message).slice(0, 160)); }
+  const K = JSON.parse(fs.readFileSync(root + 'cau.json', 'utf8')).items; if (K.length < 120) bad.push('kho Cầu Nối cần ≥ 120 câu (' + K.length + ')');
+  for (const k of ['G', 'L', 'T']) if (K.filter(x => x.o.find(o => o[0] === x.a)[1] === k).length < (k === 'T' ? 15 : 30)) bad.push('đáp án loại ' + k + ' quá ít');
+  const html = fs.readFileSync(root + 'index.html', 'utf8'); if (!/<script src="cau\.js\?v=\d+">/.test(html) || !/<script src="thanhpho\.js\?v=\d+">/.test(html) || !/\.cycard/.test(html) || !/\.ph-G/.test(html)) bad.push('index.html thiếu cau.js / thanhpho.js / CSS');
+  const r = await run(`(async () => { const bad = [], S1 = S, G0 = document.getElementById;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
+      document.getElementById = id => { const e = G0(id); if (id === 'phrow') { e.children = [0, 1, 2, 3].map(() => ({ classList: { add() {} } })); e.firstElementChild = { offsetHeight: 40 }; } if (id === 'pharena') e.clientHeight = 300; return e; };
+      await toLoad(); phUse('cau'); PH_K = null; PH_RL = null; await phLoad();
+      if (PH_VIEW !== 'toeic-pho-cau-noi' || PH_ORD.join() !== 'G,L,T' || PH_MO.length !== 4) bad.push('phUse không nạp cấu hình Cầu Nối');
+      const R = Object.values(PH_RL); if (R.length < 20) bad.push('câu thật giới từ / liên từ quá ít: ' + R.length);
+      if (R.some(it => !/___/.test(it.s) || it.o.some(o => !['G', 'L', 'T'].includes(o[1])))) bad.push('câu thật sai khuôn');
+      const c1 = PH_K.find(x => x.id === 'cn-001'); if (phMoc(c1) !== 'the heavy rain') bad.push('cụm tô phía sau ô trống: ' + phMoc(c1));
+      const P = phSt(); P.in = 1; for (const k of ['G', 'L']) P.cd[k] = { at: 1, n: 0 };   // < 3 thần chú: không vào ⚡ nhớ nhanh
+      phStart(); if (PH_R.M.md !== 'gh' || PH_R.order.length !== 3 || PH_R.order.filter(o => o.ok).length !== 1 || PH_R.order.find(o => o.ok).p !== PH_R.it.o.find(o => o[0] === PH_R.it.a)[1] || !String(document.getElementById('phsent').innerHTML).includes('phmoc')) bad.push('bậc 1: 3 cư dân, đúng = loại của đáp án, tô phía sau');
+      PH_R.lane = PH_R.order.findIndex(o => o.ok); phCatch(); if (PH_R.ok !== 1) bad.push('bậc 1 bắt đúng không ghi');
+      PH_R.ok = PH_WIN; phEnd(); if (!phOpen('b2') || phMuc() !== 'b2') bad.push('thắng bậc 1 phải mở bậc 2');
+      if (!S.to.phos || !S.to.phos.cau || !S.to.phos.cau.mu || (S.to.pho && S.to.pho.mu)) bad.push('tiến độ Cầu Nối phải ở S.to.phos.cau, không đụng Loại Từ');
+      phStart(); const it2 = PH_R.it, A2 = it2.o.find(o => o[0] === it2.a);
+      if (PH_R.M.md !== 'qh' || PH_R.order.length !== 4 || PH_R.order.filter(o => o.ok).length !== 1 || PH_R.order.find(o => o.ok).q !== A2[3] || PH_R.L.some(x => x.real) || !String(document.getElementById('phrow').innerHTML).includes('phqe')) bad.push('bậc 2: 4 kiểu quan hệ, đúng = quan hệ của đáp án, chỉ câu kho');
+      PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch(); if (!/Hai vế/.test(String(document.getElementById('phfb').innerHTML)) || PH_R.hearts !== 4) bad.push('bậc 2 bắt sai: lời giải Hai vế, mất tim');
+      phNext(); phHint(); phHint(); if (!/Hai vế quan hệ/.test(String(document.getElementById('phgoi').innerHTML))) bad.push('gợi ý bậc 2'); phStop();
+      const de = TO.tron[0].id, B = trB(de), q = B.Q.find(x => x.sec === 'p5' && PH_PHO.cau.canFix(x));
+      if (!q || !phFixBtn(de, q).includes('data-phfix="cau|')) bad.push('bí kíp câu giới từ / liên từ phải có nút chữa ở Cầu Nối');
+      const it = PH_RL['de:' + de + ':' + q.n]; phStart(it, () => 0); if (PH_R.mu !== 'fix' || PH_R.order.length !== 4) bad.push('ván chữa Cầu Nối: 4 từ'); phStop();
+      const C = cyCount(de); if (!C.loai || !C.cau || C.cau.n < 4 || !C.ben || C.ben.n < 30) bad.push('đếm câu cần phố: ' + JSON.stringify(C));
+      const nb = cyNeedBox(de); if (!/Phố Cầu Nối/.test(nb) || !/Phố Loại Từ/.test(nb) || !/data-phv="cau"/.test(nb)) bad.push('ô Đề này cần ở Chinh phục đề');
+      if (!/data-cyv/.test(cyRow()) || !/Chinh phục đề/.test(cyRow())) bad.push('lối vào Thành phố');
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length || Object.keys(S.to.ty || {}).length) bad.push('đụng thẻ học / điểm đề thử / bản đồ');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    phUse('loai'); document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C82', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🏙 Thành phố TOEIC + 🌉 Phố Cầu Nối: động cơ phố dùng chung, kho ≥ 120 câu qua bộ dựng, bậc 1 nhìn phía sau (3 cư dân, tô cụm sau ô trống), bậc 2 kiểu quan hệ chỉ câu kho, mở bậc, tiến độ riêng, câu thật giới từ / liên từ + nút chữa từ Chinh phục đề, đếm câu cần phố; không đụng thẻ học' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
