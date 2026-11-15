@@ -50,3 +50,9 @@ Xem phần trả lời ở cuối khi có.
 - Q1 Thứ tự: ngữ pháp trước: Cầu Nối → Động Từ → Đại Từ & Lượng Từ → Chợ Từ Vựng → Ghép Đoạn → Bến Dò Tin.
 - Q2 Chinh phục đề: KHÔNG khoá, chỉ dẫn (đề cần phố nào, phố nào còn yếu; câu sai có nút chữa ở phố).
 - Q3 Đợt đầu: khung Thành phố + Chinh phục đề thành trận cuối + Phố Cầu Nối; người sáng lập thử iPhone rồi mới làm phố tiếp, mỗi bản một phố.
+
+## Bổ sung v183 (15/11/2026): phố theo đề đã chọn
+Người sáng lập: "tất cả những trò chơi này nhằm phục vụ cho 1 đề đã chọn cụ thể trong 16 đề. Tức là độ rộng kiến thức tuỳ vào đề đã chọn." Chọn: chỉ câu đề + kho chung (không soạn câu anh em); sửa 2 phố đã có trước.
+- FR-007 Thành phố có hàng chọn đề (chung với Chinh phục đề); thẻ phố ghi số câu của đề, số câu chắc, số câu đang sai; phố đề không cần thì ghi rõ.
+- FR-008 Ván của phố = các câu của đề đã chọn thuộc phố: mỗi câu đề đi sau ≤ 2 câu kho cùng kiến thức; câu đang sai → chưa chắc → đến hạn ôn.
+- FR-009 "Chắc" = đúng lần gần nhất ở bậc 3–4, không dùng gợi ý; hiện ở màn phố và Thành phố.
