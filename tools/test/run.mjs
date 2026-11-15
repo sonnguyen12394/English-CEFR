@@ -2611,5 +2611,30 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     phUse('loai'); document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; return bad; })()`);
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C82', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🏙 Thành phố TOEIC + 🌉 Phố Cầu Nối: động cơ phố dùng chung, kho ≥ 120 câu qua bộ dựng, bậc 1 nhìn phía sau (3 cư dân, tô cụm sau ô trống), bậc 2 kiểu quan hệ chỉ câu kho, mở bậc, tiến độ riêng, câu thật giới từ / liên từ + nút chữa từ Chinh phục đề, đếm câu cần phố; không đụng thẻ học' }); }
+// v182 C83 🏙 phố chạy theo ĐỀ đã chọn (người sáng lập 15/11/2026: "tất cả những trò chơi này nhằm phục vụ cho 1 đề đã chọn"): ván = cụm câu kho anh em + chính câu đề,
+//   câu đang sai trước, câu đã chắc không lặp lại; Thành phố có hàng chọn đề + số câu chắc mỗi phố
+{ const bad = [];
+  const r = await run(`(async () => { const bad = [], S1 = S, G0 = document.getElementById;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
+      await toLoad(); TG_P = await tgPool(); const de = TO.tron[2].id; tgSt().de = de;
+      for (const k of ['loai', 'cau']) { phUse(k); PH_K = null; PH_RL = null; await phLoad(); const P = phSt(); P.in = 1; P.mu = { b1: 8, b2: 8, b3: 8 }; P.mc = 'b4';
+        const D = phDeItems(de); if (D.length < 4) { bad.push(k + ': đề ' + de + ' chỉ có ' + D.length + ' câu cho phố'); continue; }
+        let L = phPick(null, 'tu'), re = L.filter(x => x.real);
+        if (!re.length || re.some(x => x.de !== de) || L.length > PH_N) bad.push(k + ': ván phải có câu của đề đã chọn (' + re.length + ')');
+        const i0 = L.findIndex(x => x.real); if (i0 < 1 || L.slice(0, i0).some(x => x.real)) bad.push(k + ': câu kho anh em phải đứng trước câu đề');
+        const sb = L[i0 - 1], A = it => it.o.find(o => o[0] === it.a); if (sb && A(sb)[1] !== A(L[i0])[1]) bad.push(k + ': câu anh em phải cùng loại với câu đề');
+        // câu đề đang sai trong đề lên trước
+        const w = D[D.length - 1]; tgJ(de).c[w.n] = { s: 'sai', at: Date.now() }; L = phPick(null, 'tu'); if (L.find(x => x.real) !== w) bad.push(k + ': câu đang sai phải làm trước');
+        // câu đã chắc không lặp lại khi còn câu chưa chắc
+        delete tgJ(de).c[w.n]; for (const it of D.slice(0, 2)) P.it[it.id] = { at: Date.now(), lv: 1, d: dayOf(Date.now()) + 3, s: 1 };
+        L = phPick(null, 'tu'); if (L.some(x => x.real && D.slice(0, 2).includes(x))) bad.push(k + ': câu đã chắc không được lặp lại');
+        if (!phDeBox().includes('2/' + D.length + ' chắc')) bad.push(k + ': ô đề ở màn phố');
+        const C = cyCount(de); if (!C[k] || C[k].chac !== 2) bad.push(k + ': Thành phố đếm câu chắc ' + JSON.stringify(C[k]));
+        if (k === 'cau') { P.mc = 'b2'; L = phPick(null, 'qh'); if (!L.length || L.some(x => x.real)) bad.push('cau: bậc kiểu quan hệ chỉ dùng câu kho anh em'); } }
+      phUse('loai'); TG_P = null;
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    phUse('loai'); document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; TG_P = null; return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C83', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🏙 Phố theo đề đã chọn: ván = câu kho anh em (cùng loại) rồi chính câu đề, câu đang sai trước, câu đã chắc không lặp, bậc kiểu quan hệ chỉ câu kho, ô đề ở màn phố + số câu chắc ở Thành phố' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

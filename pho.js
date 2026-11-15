@@ -113,8 +113,9 @@ PH_PHO.loai.real = (q, d) => { if (q.sec !== 'p5' || !q.x || q.x.t !== 'form') r
   const ly = String(q.lg.ly || q.why || ''), why = (ly.match(/^[^.!?]*[.!?]/) || [ly])[0].slice(0, 180);
   const it = { id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, s, a: q.a, o, why, vi: q.lg.dich || '', real: 1 }; it.nha = phNhaOf(it); return it; };
 async function phLoad() { if (!PH_K) { try { PH_K = (await (await fetch(PHC.file + '?v=' + APP_V)).json()).items || []; } catch (e) { PH_K = []; } }
-  if (!PH_RL) { PH_RL = {}; const D = (typeof TO !== 'undefined' && TO && TO.tron) || [];
-    for (const d of D) { if (d.f && !TR.D[d.id]) { try { await trLoad(d.id); } catch (e) {} } const B = trB(d.id); if (!B) continue;
+  if (!PH_RL || !PHC.sc) { PH_RL = PH_RL || {}; PHC.sc = new Set(); }   // v182: quét từng đề một lần; đề riêng mở mã sau thì quét thêm
+  { const D = (typeof TO !== 'undefined' && TO && TO.tron) || [];
+    for (const d of D) { if (PHC.sc.has(d.id)) continue; if (d.f && !TR.D[d.id]) { try { await trLoad(d.id); } catch (e) {} } const B = trB(d.id); if (!B) continue; PHC.sc.add(d.id);
       for (const q of B.Q) { const it = PHC.real ? PHC.real(q, d) : null; if (it) PH_RL[it.id] = it; } } }
   PHC.K = PH_K; PHC.RL = PH_RL; return PH_K; }
 // câu thật người học từng SAI (bài làm 📋 hoặc hành trình), chưa bắt đúng lại ở Phố
@@ -124,7 +125,34 @@ function phWrong() { const out = []; if (typeof tgJState !== 'function') return 
   return out; }
 const phItem = id => (PH_RL && PH_RL[id]) || (PH_K || []).find(x => x.id === id);
 const phDue = () => { const I = phSt().it, t = phDay(); return Object.keys(I).filter(id => I[id].d && I[id].d <= t && phItem(id)); };
+// v182 (người sáng lập 15/11/2026: "tất cả những trò chơi này nhằm phục vụ cho 1 đề đã chọn cụ thể trong 16 đề"; chọn "chỉ câu đề + kho chung"):
+//   đề đang chọn = đề của Chinh phục đề (tgDe); nhiệm vụ của phố = các câu của đề thuộc phố này (PH_RL có de = đề).
+//   Ván = từng cụm: ≤ 2 câu kho cùng kiến thức (khớp từ đáp án, không có thì cùng loại + cùng nhóm phSibKey) rồi chính câu đề (phương án xáo ở làn).
+//   Thứ tự câu đề: đang sai trong đề → chưa chắc → đến hạn ôn; hết thì ôn lại cả đề. "Chắc" = đúng lần gần nhất, không dùng gợi ý (phChac).
+//   Bậc 'qh' (kiểu quan hệ) cần quan hệ của mọi phương án nên chỉ dùng câu kho anh em của câu đề.
+const phDe = () => (typeof tgDe === 'function' && typeof TG_P !== 'undefined' && TG_P) ? tgDe() || null : null;
+const phDeItems = de => Object.values(PH_RL || {}).filter(it => it.de === de).sort((a, b) => a.n - b.n);
+const phChac = it => { const c = phSt().it[it.id]; return !!(c && c.s === 1 && c.lv >= 1); };
+const phAns = it => it.o.find(o => o[0] === it.a) || [];
+const phSibKey = it => { const A = phAns(it); return A[1] + '|' + (PHC.sk ? PHC.sk(it) : (it.nha || '')); };
+function phSib(it, n, used) { const I = phSt().it, a = String(it.a).toLowerCase(), k = phSibKey(it), t = phAns(it)[1];
+  const ok = x => !used.has(x.id) && x.id !== it.id, by = x => (I[x.id] ? 1 : 0) * 1e13 + ((I[x.id] && I[x.id].at) || 0);
+  const pick = f => shuf((PH_K || []).filter(x => ok(x) && f(x))).sort((p, q) => by(p) - by(q));
+  const loose = !PHC.sk || !!PHC.sk(it);   // Cầu Nối: không biết kiểu quan hệ của đáp án (vd. either … or) thì chỉ lấy câu kho cùng chữ, không lấy câu khác kiến thức
+  return [...pick(x => String(x.a).toLowerCase() === a), ...(loose ? pick(x => String(x.a).toLowerCase() !== a && phSibKey(x) === k) : []), ...(loose ? pick(x => String(x.a).toLowerCase() !== a && phSibKey(x) !== k && phAns(x)[1] === t) : [])]
+    .filter((x, i, A) => A.indexOf(x) === i).slice(0, n); }
+function phPickDe(de, md) { const D = phDeItems(de); if (!D.length) return null;
+  const wr = new Set(phWrong().filter(x => x.de === de).map(x => x.id)), due = new Set(phDue()), used = new Set(), L = [];
+  const rank = it => wr.has(it.id) ? 0 : !phChac(it) ? 1 : due.has(it.id) ? 2 : 3;
+  let T = shuf(D).sort((a, b) => rank(a) - rank(b)); if (T.every(it => rank(it) === 3)) T = shuf(D);   // cả đề đã chắc, không đến hạn: ôn lại cả đề
+  else T = T.filter(it => rank(it) < 3);
+  if (md === 'dp') T = T.filter(it => phCall(it).length);
+  for (const it of T) { const g = [...phSib(it, 2, used), ...(md === 'qh' ? [] : [it])]; if (!g.length) continue;
+    if (L.length && L.length + g.length > PH_N) break; g.forEach(x => { used.add(x.id); L.push(x); }); }
+  return L.length ? L : null; }
 function phPick(fix, md) { const I = phSt().it, t = phDay(), used = new Set(), L = [], add = it => { if (it && !used.has(it.id)) { used.add(it.id); L.push(it); } };
+  if (!fix) { const de = phDe(), G = de && phPickDe(de, md); if (G) { G.forEach(add); if (L.length >= 4) return L;
+      shuf((PH_K || []).filter(x => !I[x.id])).forEach(x => L.length < 6 && add(x)); return L; } }
   if (fix) { add(fix); const same = shuf((PH_K || []).filter(x => x.o.find(o => o[0] === x.a)[1] === fix.o.find(o => o[0] === fix.a)[1])); same.slice(0, 3).forEach(add); return L; }
   shuf(phDue()).filter(id => md !== 'qh' || !(PH_RL && PH_RL[id])).slice(0, 4).forEach(id => add(phItem(id)));
   if (md !== 'qh') shuf(phWrong()).filter(it => !(I[it.id] && I[it.id].s === 1)).slice(0, PH_REAL).forEach(add);   // bậc 'qh' cần kiểu quan hệ của mọi phương án: chỉ câu kho
@@ -141,16 +169,26 @@ function phRow(k) { if (typeof TO === 'undefined' || !TO) return ''; const c = P
   return `<div class="box hcard" style="margin:12px 0 0"><button class="hrow" data-phv="${c.key}"><span class="ic">${c.ic}</span><span class="t"><b>${c.ten}</b><small>${c.sub}</small></span><span class="chev">›</span></button></div>`; }
 let PH_R = null, PH_BACK = null;
 const phTop = (lab, right) => `<div id="ie"></div><div class="row top"><button class="link tap" data-phback>‹ ${lab}</button><span class="mute">${right || ''}</span></div>`;
+// ô đề đang chọn ở màn phố: số câu của đề thuộc phố, đã chắc, đang sai, số câu (✓ chắc · ✗ đang sai)
+function phDeBox() { const de = phDe(); if (!de) return ''; const D = phDeItems(de), nm = esc(typeof tgDeName === 'function' ? tgDeName(de) : de);
+  if (!D.length) return `<div class="box phde"><b>📝 ${nm}</b><p class="mute" style="margin:4px 0 0">Đề này không có câu ${PHC.lo} cho phố này. Ván dùng câu kho của phố. Đổi đề ở 🏙 Thành phố.</p></div>`;
+  const wr = new Set(phWrong().filter(x => x.de === de).map(x => x.id)), ch = D.filter(phChac).length;
+  return `<div class="box phde"><div class="row" style="justify-content:space-between;gap:8px"><b>📝 ${nm} · ${D.length} câu ${PHC.lo}</b><span>${ch}/${D.length} chắc</span></div>
+    <div class="bar"><i style="width:${Math.round(ch / D.length * 100)}%;background:var(--good)"></i></div>
+    <p style="margin:6px 0 0;font-size:15px">Câu ${D.map(it => `${it.n}${phChac(it) ? ' ✓' : wr.has(it.id) ? ' ✗' : ''}`).join(' · ')}</p>
+    <p class="mute" style="margin:4px 0 0;font-size:14px">Ván lấy câu của đề này: luyện 1–2 câu cùng kiến thức rồi tới chính câu đề, phương án đổi chỗ.${wr.size ? ' Câu bạn đang sai (✗) được làm trước.' : ''} Đổi đề ở 🏙 Thành phố.</p></div>`; }
 function phBackGo() { const b = PH_BACK; PH_BACK = null; if (b) return b(); if (typeof cyView === 'function') return cyView(); EX_PART = 'san'; return toeicView(); }
 
 async function phView() { phStop(); window.CUR = { view: PH_VIEW }; BACK = null; scrollTo(0, 0); $app.onkeydown = null;
-  $app.innerHTML = `<div id="ie"></div><p class="mute">Đang mở ${PHC.ten}…</p>`; await toLoad(); await phLoad(); if (window.CUR.view !== PH_VIEW) return;
+  $app.innerHTML = `<div id="ie"></div><p class="mute">Đang mở ${PHC.ten}…</p>`; await toLoad();
+  if (typeof TG_P !== 'undefined' && !TG_P && typeof tgPool === 'function') { try { if (typeof trProbe9 === 'function') await trProbe9(); if (typeof trLkList === 'function') await trLkList(); } catch (e) {} TG_P = await tgPool(); }
+  await phLoad(); if (window.CUR.view !== PH_VIEW) return;
   const P = phSt(); if (!P.in) return phIntro();
   const due = phDue().length, wr = phWrong().filter(it => !(P.it[it.id] && P.it[it.id].s === 1)).length, nc = Object.keys(P.cd).length, seen = (PH_K || []).filter(x => P.it[x.id]).length;
   const hz = PH_ORD.map(t => phFace(t, 50)); hz.splice(Math.ceil(hz.length / 2), 0, phFace('M', 76, 'happy'));
   $app.innerHTML = phTop(typeof cyView === 'function' ? 'Thành phố' : 'TOEIC') + `<h1 style="margin:4px 0 6px">${PHC.ic} ${PHC.ten}</h1>
     <div class="phhero">${hz.join('')}</div>
-    <p class="mute" style="margin:0 0 10px">${PHC.desc}</p>
+    <p class="mute" style="margin:0 0 10px">${PHC.desc}</p>${phDeBox()}
     <h3 style="margin:6px 0">Chọn bậc · học từng việc rồi mới ghép</h3><div class="phmuc">${PH_MO.map(m => { const o = PH_MUC[m], op = phOpen(m), b = (P.mu || {})[m];
       return `<button class="phmc${m === phMuc() ? ' on' : ''}" data-phmuc="${m}" aria-pressed="${m === phMuc()}"${op ? '' : ' disabled'}><b>${op ? o.ten : '🔒 ' + o.ten.replace(/^\S+\s/, '')}</b><small>${op ? o.sub : `Mở khi thắng ${PH_MUC[PH_MO[PH_MO.indexOf(m) - 1]].ten.replace(/^\S+\s/, '')} (đúng ≥ ${PH_WIN} / ${PH_N})`}</small>${b ? `<small class="phbest">Tốt nhất ${b} / ${PH_N}</small>` : ''}</button>`; }).join('')}</div>
     <button class="pri" data-phplay style="min-height:56px;font-size:18px">▶ Chơi · ${PH_MUC[phMuc()].ten}</button>${phSndRow()}
