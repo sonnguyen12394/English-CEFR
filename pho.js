@@ -391,7 +391,7 @@ function phQ() { const R = PH_R, it = R.L[R.i], lv = R.i < R.half ? 1 : 2, M = R
   const ln = phLanes(it, M); R.order = ln.order; R.T = ln.T; R.lane = Math.min(R.lane, M.k - 1);
   document.getElementById('phfb').innerHTML = ''; document.getElementById('phfx').innerHTML = ''; document.getElementById('pharena').classList.remove('okfl', 'nofl');
   const g = document.getElementById('phgoi'); g.hidden = true; g.innerHTML = '';
-  document.getElementById('phsent').innerHTML = M.md === 'dp' ? `<div class="phcall">${phFace(R.T, 44)}<span>Bắt <b>${PH_CH[R.T].name}</b><small>${PH_CH[R.T].pos}</small></span></div>` : phSent(it, null, M.moc ? phMoc(it) : null);
+  document.getElementById('phsent').innerHTML = M.md === 'vi' ? `<div class="phcall"><span class="phqe">🇻🇳</span><span>Bắt từ nghĩa là <b>${esc((it.o.find(o => o[0] === it.a) || [])[2] || '')}</b><small>hợp với câu dưới đây</small></span></div>` + phSent(it, null, M.moc ? phMoc(it) : null) : M.md === 'dp' ? `<div class="phcall">${phFace(R.T, 44)}<span>Bắt <b>${PH_CH[R.T].name}</b><small>${PH_CH[R.T].pos}</small></span></div>` : phSent(it, null, M.moc ? phMoc(it) : null);
   const row = document.getElementById('phrow'); row.style.transform = '';
   row.innerHTML = R.order.map((o, k) => `<div class="phbub" style="left:${k * 100 / M.k}%;width:${100 / M.k}%"><div class="phpill ${M.md === 'qh' ? 'ph-Q' : M.md === 'gh' || M.mau ? 'ph-' + o.p : 'grey'}">${M.md === 'qh' ? `<span class="phqe">${o.e}</span>` : M.md === 'gh' || M.mau ? phFace(o.p, M.md === 'gh' ? 28 : 24) : ''}<span>${esc(o.w)}</span></div></div>`).join('');
   const H = document.getElementById('pharena').clientHeight, rh = row.firstElementChild.offsetHeight;
@@ -413,7 +413,7 @@ function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, go
   const old0 = phSt().it[it.id], fresh = !old0 || Date.now() - (old0.at || 0) >= PH_GFRESH_D * 864e5;
   if (M.md === 'tu') phMark(it, ok, R.used); if (M.md === 'tu' && R.mu !== 'fix') phGlog(it, ok, fresh, R.used); phStat('cau'); if (ok) phStat('ok'); if (ok && M.md === 'tu' && M.k >= 4) phStat('ok2'); save();
   const fx = document.getElementById('phfx'), ar = document.getElementById('pharena'), ai = R.order.findIndex(o => o.ok);
-  const opts = M.md === 'gh' || M.md === 'qh' ? '' : `<details class="more"><summary>Nghĩa các từ</summary>${(M.md === 'dp' ? R.order : it.o.map(o => ({ w: o[0], p: o[1], m: o[2] }))).map(o => `<p style="margin:3px 0"><span class="phtag ph-${o.p}">${esc(o.w)}</span> ${PH_CH[o.p].pos.toLowerCase()}: ${esc(o.m)}</p>`).join('')}</details>`;
+  const opts = M.md === 'gh' || M.md === 'qh' ? '' : `<details class="more"><summary>Nghĩa các từ</summary>${(M.md === 'dp' ? R.order : it.o.map(o => ({ w: o[0], p: o[1], m: o[2] }))).map(o => `<p style="margin:3px 0"><span class="phtag ph-${o.p}">${esc(o.w)}</span> ${PHC.noPos ? '' : PH_CH[o.p].pos.toLowerCase() + ': '}${esc(o.m)}</p>`).join('')}</details>`;
   const real = it.real && M.md === 'tu' ? `<p class="mute" style="margin:0;font-size:14px">👾 Câu ${it.n} của ${esc(typeof tgDeName === 'function' ? tgDeName(it.de) : it.de)}${ok ? ': đã chữa, câu mọc 🌱 ở Chinh phục đề' : ''}</p>` : '';
   ar.classList.remove('okfl', 'nofl'); void ar.offsetWidth; const hb = document.getElementById('phhint'); if (hb) hb.disabled = true;
   const fill = () => { if (M.md !== 'dp') document.getElementById('phsent').innerHTML = phSent(it, { t: A[1], w: it.a }); };
@@ -437,7 +437,7 @@ function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, go
     body = `<p><span class="ko">Bạn bắt:</span> ${got.e} ${esc(got.w)}.</p><p><span class="ko">${PHC.qhW || 'Hai vế'}:</span> <span class="phtag ph-Q">${Q0 ? Q0.e + ' ' + esc(Q0.n) : ''}</span> → <b>${esc(it.a)}</b>. ${esc(it.why)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`; }
   else if (M.md === 'gh') body = `<div class="phsay">${phFace(got.p, 44, 'sad')}<div class="b"><b>${PH_CH[got.p].name}</b><p>“Ghế này không phải của tôi!”</p></div></div>
       <p><span class="ko">Ghế của:</span> <span class="phtag ph-${A[1]}">${PH_CH[A[1]].name}</span> (${PH_CH[A[1]].pos.toLowerCase()}). ${phRuleHtml(it)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`;
-  else { const same = got.p === A[1], who = got.p, line = same ? `Tôi với ${esc(it.a)} cùng nhà ${PH_CH[who].pos.toLowerCase()}, nhưng ghế này không phải của tôi. ${esc(got.w)} = ${esc(got.m)}.` : `Không phải ghế của tôi! Tôi là ${PH_CH[who].pos.toLowerCase()}, ${esc(got.w)} = ${esc(got.m)}.`;
+  else { const same = got.p === A[1], who = got.p, line = PHC.missSay ? PHC.missSay(it, got) : same ? `Tôi với ${esc(it.a)} cùng nhà ${PH_CH[who].pos.toLowerCase()}, nhưng ghế này không phải của tôi. ${esc(got.w)} = ${esc(got.m)}.` : `Không phải ghế của tôi! Tôi là ${PH_CH[who].pos.toLowerCase()}, ${esc(got.w)} = ${esc(got.m)}.`;
     const nha = it.nha && PH_NHA[it.nha] && phSt().cd[it.nha] ? `<p class="phch">📜 ${esc(PH_NHA[it.nha].chant)}</p>` : '';
     body = `<div class="phsay">${phFace(who, 44, 'sad')}<div class="b"><b>${PH_CH[who].name}</b><p>“${line}”</p></div></div>
       <p><span class="ko">Cần:</span> <span class="phtag ph-${A[1]}">${esc(it.a)}</span> (${PH_CH[A[1]].name}). ${esc(it.why)}</p>${nha}${real}<p class="mute" style="margin:0">${esc(it.vi)}</p>`; }

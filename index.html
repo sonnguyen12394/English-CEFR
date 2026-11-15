@@ -257,6 +257,10 @@
   .benopts button { display:block; width:100%; min-height:48px; margin:6px 0; padding:10px 12px; text-align:left; font-size:16px; line-height:1.4; }
   .benopts button.yes { border-color:var(--good); background:color-mix(in srgb,var(--good) 15%,var(--card)); color:var(--fg); } .benopts button.no { border-color:var(--bad); background:color-mix(in srgb,var(--bad) 12%,var(--card)); color:var(--fg); }
   .benopts button:disabled { opacity:1; color:var(--fg); } button.bens:disabled { opacity:1; color:var(--fg); } #benpick button small { font-size:12px; line-height:1.3; }
+  /* v192 🛒 Chợ Từ Vựng (cho.js): 3 màu quầy; chữ trên màu luôn mực tối --phink */
+  :root { --phe:#ffd2a8; --phf:#c4dcff; --phj:#fff0a0; }
+  @media (prefers-color-scheme: dark) { :root { --phe:#f2bf92; --phf:#aecbf5; --phj:#f2e08c; } }
+  .ph-E { background:var(--phe) !important; color:var(--phink) !important; } .ph-F { background:var(--phf) !important; color:var(--phink) !important; } .ph-J { background:var(--phj) !important; color:var(--phink) !important; }
   /* v181 🏙 Thành phố TOEIC (thanhpho.js) + 🌉 Phố Cầu Nối (cau.js): 3 màu cư dân cầu nối + màu kiểu quan hệ; chữ trên màu luôn mực tối --phink */
   :root { --phg:#ffbf99; --phl:#d4c2ff; --pht:#9fe6de; --phq:#ffe7a8; }
   @media (prefers-color-scheme: dark) { :root { --phg:#f2ad84; --phl:#c3aef7; --pht:#88d8cf; --phq:#f2d68e; } }
@@ -436,6 +440,7 @@
 <script src="cau.js?v=190"></script>
 <script src="dong.js?v=190"></script>
 <script src="dai.js?v=190"></script>
+<script src="cho.js?v=190"></script>
 <script src="ben.js?v=190"></script>
 <script src="thanhpho.js?v=190"></script>
 <script src="kiemde.js?v=190"></script>
