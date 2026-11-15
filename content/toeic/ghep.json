@@ -120,7 +120,7 @@
    "why": "\"The same room\" chỉ về Phòng họp B được nhắc ở câu trước.",
    "w": [
     "The budget review has been canceled for this year.",
-    "The sales meeting will take place in Conference Room A.",
+    "The sales meeting that afternoon has been moved to Friday.",
     "The budget review was held in the same room last Thursday."
    ],
    "vi": "Cũng phòng đó sẽ được dùng cho cuộc họp bán hàng chiều hôm ấy."
@@ -181,7 +181,7 @@
    "w": [
     "The position was filled before your résumé arrived.",
     "Your résumé was not received by our office.",
-    "We received your résumé last month, along with a cover letter."
+    "Your résumé will be returned because the position was never advertised."
    ],
    "vi": "Hồ sơ đến hôm thứ Hai, kèm hai thư giới thiệu."
   },
@@ -229,7 +229,7 @@
    "id": "gd-012",
    "kind": "E-mail",
    "s": [
-    "Our client wants to move the product launch to October 14.",
+    "Our client wants to move the product launch meeting to October 14.",
     "Mr. Dube will be in Spain that week.",
     "However, he can join by video call if the meeting starts after 3 P.M.",
     "I suggest we hold the session at 4 P.M.",
@@ -373,7 +373,7 @@
     "Our new employees will start training next Monday.",
     "The program covers safety rules, customer service, and computer systems.",
     "In the customer service session, for example, they will practice handling difficult phone calls.",
-    "Each session lasts two hours and includes a short break.",
+    "Those practice calls are recorded so that trainees can review them later.",
     "Trainers will answer questions at the end of each day."
    ],
    "k": 2,
@@ -450,7 +450,7 @@
    "id": "gd-023",
    "kind": "Advertisement",
    "s": [
-    "Sunrise Fitness is offering free classes this month.",
+    "Sunrise Fitness is adding new group classes this month.",
     "Choose from yoga, dance, and strength training.",
     "Yoga, the most popular of the three, meets every Tuesday and Thursday at 6 P.M.",
     "Its first session is free for anyone who signs up at the front desk today.",
@@ -462,7 +462,7 @@
    "w": [
     "Yoga classes were canceled last month.",
     "Dance, the least popular of the three, has been dropped.",
-    "Yoga meets only on Saturday mornings."
+    "Yoga, which ended last year, is no longer offered."
    ],
    "vi": "Yoga, môn được ưa chuộng nhất trong ba môn, học vào mỗi thứ Ba và thứ Năm lúc 6 giờ chiều."
   },
@@ -501,7 +501,7 @@
    "why": "\"Such output\" chỉ về sản lượng 40.000 bữa ăn đông lạnh mỗi ngày ở câu trước.",
    "w": [
     "The factory has not yet produced any meals.",
-    "The plant is the smallest in the region.",
+    "That output will begin only after the plant opens next year.",
     "Pellman Foods closed its Tulsa factory in 2010."
    ],
    "vi": "Sản lượng như vậy khiến nhà máy thành một trong những nhà máy lớn nhất khu vực."
@@ -552,19 +552,19 @@
    "s": [
     "The cafeteria will switch to a new supplier next month.",
     "Menus will now include more vegetarian dishes, such as lentil soup and mushroom pie.",
-    "The mushroom pie will be served every Friday.",
+    "The latter will be served every Friday.",
     "Prices will remain the same for all menu items.",
     "Please send your comments to the facilities office."
    ],
    "k": 2,
-   "lk": "The mushroom pie",
-   "why": "\"The mushroom pie\" chỉ về món bánh nấm được nêu ở câu trước.",
+   "lk": "The latter",
+   "why": "\"The latter\" chỉ về món bánh nấm, món sau trong hai món nêu ở câu trước.",
    "w": [
     "Meat dishes will be removed from the menu entirely.",
     "The mushroom pie was served every Friday last year.",
     "Vegetarian dishes will cost more than other dishes."
    ],
-   "vi": "Món bánh nấm sẽ được phục vụ vào mỗi thứ Sáu."
+   "vi": "Món sau (bánh nấm) sẽ được phục vụ vào mỗi thứ Sáu."
   },
   {
    "id": "gd-029",
@@ -612,13 +612,13 @@
    "s": [
     "Employees may now apply for tuition assistance.",
     "The company will pay up to 2,000 dollars each year.",
-    "However, that amount covers only courses related to the employee's current job.",
+    "However, that 2,000-dollar limit covers only courses related to the employee's current job.",
     "To receive it, submit a form to the personnel office by the first of each month.",
     "Questions may be sent to the personnel office."
    ],
    "k": 2,
-   "lk": "that amount",
-   "why": "\"that amount\" chỉ về khoản tối đa 2.000 đô la mỗi năm ở câu trước.",
+   "lk": "that 2,000-dollar limit",
+   "why": "\"that 2,000-dollar limit\" chỉ về mức tối đa 2.000 đô la mỗi năm ở câu trước.",
    "w": [
     "The company will pay for any course an employee chooses.",
     "The company paid up to 5,000 dollars last year.",
@@ -693,18 +693,18 @@
     "Two new managers, Ms. Patel and Mr. Ruiz, join our team this month.",
     "Both come from the retail industry, where they worked for several years.",
     "Ms. Patel will lead the sales group, which has twelve members.",
-    "Mr. Ruiz, in turn, will oversee customer service.",
+    "Mr. Ruiz will manage customer service, a team of the same size.",
     "Please introduce yourself when you meet them, and make them feel welcome."
    ],
    "k": 3,
-   "lk": "in turn",
-   "why": "\"in turn\" nối với việc phân công bà Patel phụ trách nhóm bán hàng ở câu trước.",
+   "lk": "the same size",
+   "why": "\"the same size\" chỉ về nhóm bán hàng 12 người của bà Patel ở câu trước.",
    "w": [
     "Mr. Ruiz will also lead the sales group.",
     "Neither manager will start before next year.",
     "Ms. Patel announced her retirement on Monday."
    ],
-   "vi": "Còn ông Ruiz sẽ phụ trách dịch vụ khách hàng."
+   "vi": "Ông Ruiz sẽ quản lý bộ phận dịch vụ khách hàng, một nhóm có cùng quy mô."
   },
   {
    "id": "gd-036",
@@ -823,7 +823,7 @@
    "why": "\"those restaurant orders\" chỉ về đơn hàng từ nhà hàng địa phương tăng gần gấp đôi ở câu trước.",
    "w": [
     "The owners have decided to stop selling to restaurants.",
-    "The owners hired six more bakers last winter.",
+    "Those six bakers will start work next spring.",
     "Orders from restaurants have dropped sharply."
    ],
    "vi": "Để theo kịp những đơn hàng của nhà hàng đó, các chủ tiệm đã thuê thêm sáu thợ làm bánh."
@@ -875,16 +875,16 @@
     "Garrison Auto Repair offers oil changes, tire rotations, and brake checks.",
     "All work is done by certified mechanics.",
     "Most jobs are finished while you wait.",
-    "If you would rather not, we also provide a free shuttle to nearby offices.",
+    "If you would rather not wait, we also provide a free shuttle to nearby offices.",
     "We guarantee our repairs for twelve months.",
     "Call 555-0133 to make an appointment."
    ],
    "k": 3,
-   "lk": "If you would rather not",
+   "lk": "rather not wait",
    "why": "\"If you would rather not\" chỉ về việc ngồi chờ trong tiệm ở câu trước.",
    "w": [
     "Our shop will be closed for the entire summer.",
-    "Customers must wait at the shop until the work is done.",
+    "That is why the shuttle has become so popular with our drivers.",
     "The shuttle service ended last year."
    ],
    "vi": "Nếu bạn không muốn ngồi chờ, chúng tôi có xe đưa đón miễn phí tới các văn phòng gần đó."
@@ -978,18 +978,18 @@
     "Ms. Lund and Mr. Berg both applied for the position of operations director.",
     "Ms. Lund has twelve years of experience in shipping.",
     "Mr. Berg has led a small manufacturing team for five years.",
-    "The candidate with shipping experience will interview on Wednesday, and the other on Thursday.",
+    "Because that team is based in Oslo, he will interview by video on Thursday.",
     "The board will decide by the Friday after the second interview."
    ],
    "k": 3,
-   "lk": "The candidate with shipping experience",
-   "why": "\"The candidate with shipping experience\" chỉ về bà Lund, người có kinh nghiệm vận chuyển ở câu trước.",
+   "lk": "that team",
+   "why": "\"that team\" chỉ về nhóm sản xuất nhỏ mà ông Berg phụ trách ở câu trước.",
    "w": [
     "Both candidates will interview on Wednesday afternoon.",
     "The candidate with shipping experience withdrew yesterday.",
     "Interviews were held last week."
    ],
-   "vi": "Ứng viên có kinh nghiệm vận chuyển sẽ phỏng vấn vào thứ Tư, còn người kia vào thứ Năm."
+   "vi": "Vì nhóm đó ở Oslo nên ông sẽ phỏng vấn qua video vào thứ Năm."
   },
   {
    "id": "gd-050",
@@ -1106,7 +1106,7 @@
    "why": "\"this appointment\" chỉ về buổi khám định kỳ hằng năm vào sáng thứ Bảy ở câu trước.",
    "w": [
     "Saturday appointments at Evergreen Clinic will end in April.",
-    "Reservations for the check-up must be made one year in advance.",
+    "Reservations for these check-ups are accepted by mail only.",
     "Walk-in patients are welcome on Saturday mornings without an appointment."
    ],
    "vi": "Để đặt lịch hẹn này, vui lòng gọi quầy lễ tân hoặc dùng mẫu đăng ký trực tuyến."
@@ -1176,7 +1176,7 @@
    "kind": "Web page",
    "s": [
     "DataSafe automatically copies your files to a secure server every night.",
-    "The service keeps a separate backup of every document you save.",
+    "Each copy is kept for ninety days on a separate backup server.",
     "If your laptop is lost or damaged, that separate backup lets you restore every document.",
     "Setup takes less than five minutes.",
     "A free thirty-day trial is available to new users."
@@ -1237,7 +1237,7 @@
    "s": [
     "Thank you for choosing Coastal Tours for your holiday.",
     "We offer two packages for the Amalfi trip: a seven-day bus tour and a ten-day cruise.",
-    "The former costs $1,200, while the latter includes all meals and drinks.",
+    "The former costs $1,200, while the latter costs $1,900 and includes all meals.",
     "Please let us know your choice by May 15, after you have compared both prices.",
     "A deposit of $200 will hold your place."
    ],
@@ -1245,11 +1245,11 @@
    "lk": "The former",
    "why": "\"The former\" và \"the latter\" chỉ về hai gói tour nêu lần lượt ở câu trước.",
    "w": [
-    "Both packages cost less than $800.",
+    "The latter is no longer available, so only one option remains.",
     "The seven-day bus tour will be cancelled in May.",
     "The cruise includes meals only on the last day."
    ],
-   "vi": "Gói đầu giá 1.200 đô la, còn gói sau gồm cả bữa ăn và đồ uống."
+   "vi": "Gói đầu giá 1.200 đô la, còn gói sau giá 1.900 đô la và gồm cả các bữa ăn."
   },
   {
    "id": "gd-063",
@@ -1265,9 +1265,9 @@
    "lk": "Otherwise",
    "why": "\"Otherwise\" nêu trường hợp ngược lại với đơn đặt trước 11 giờ sáng ở câu trước.",
    "w": [
-    "Orders placed after 11 A.M. are not accepted.",
+    "Orders placed after 11 A.M. are ready by 10 A.M.",
     "Orders placed before 11 A.M. are delivered the next day.",
-    "Lunch dishes cost less before 11 A.M."
+    "That discount applies only to dinner orders."
    ],
    "vi": "Nếu không, xin vui lòng chờ ba mươi phút để chuẩn bị món."
   },
@@ -1377,7 +1377,7 @@
    "s": [
     "Starting in July, Lakeview Park will ban plastic bags at all food stands.",
     "Vendors will use paper bags and wooden forks instead.",
-    "However, ice cream stands may use plastic spoons rather than these wooden forks until December.",
+    "However, ice cream stands may keep plastic spoons instead of these wooden forks until December.",
     "The park office will help vendors find new suppliers.",
     "Questions can be sent to the park manager."
    ],
@@ -1387,9 +1387,9 @@
    "w": [
     "Plastic bags will be allowed again in the park next year.",
     "Vendors have used wooden forks for many years already.",
-    "Ice cream stands must switch to paper bags in July."
+    "Ice cream stands were the first to stop using paper bags."
    ],
-   "vi": "Tuy nhiên, các quầy kem được dùng thìa nhựa thay cho loại nĩa gỗ này đến tháng Mười hai."
+   "vi": "Tuy nhiên, các quầy kem được giữ thìa nhựa thay cho loại nĩa gỗ này đến tháng Mười hai."
   },
   {
    "id": "gd-070",
@@ -1418,18 +1418,18 @@
     "Your next dental check-up is scheduled for Thursday, May 9.",
     "Please arrive a little early so that we can update your records.",
     "The appointment itself will begin at 3:00 P.M.",
-    "At that time, Dr. Park will clean your teeth and take new X-rays.",
+    "During that hour, Dr. Park will clean your teeth and take new X-rays.",
     "Call us at least a day ahead if you need to change it."
    ],
    "k": 3,
-   "lk": "At that time",
-   "why": "\"At that time\" chỉ về 3 giờ chiều, lúc buổi hẹn bắt đầu ở câu trước.",
+   "lk": "that hour",
+   "why": "\"that hour\" chỉ về giờ hẹn bắt đầu lúc 3 giờ chiều ở câu trước.",
    "w": [
     "Dr. Park will see you before 3:00 P.M.",
     "Your appointment was cancelled at 3:00 P.M. yesterday.",
     "Your last check-up took place on Thursday, May 9."
    ],
-   "vi": "Lúc đó, bác sĩ Park sẽ lấy cao răng và chụp X-quang mới cho bạn."
+   "vi": "Trong giờ đó, bác sĩ Park sẽ lấy cao răng và chụp X-quang mới cho bạn."
   },
   {
    "id": "gd-072",
@@ -1519,7 +1519,7 @@
     "The Maple Street Food Bank needs weekend volunteers.",
     "Helpers will sort donated cans, pack boxes, and greet families at the door.",
     "These three jobs usually take about three hours each Saturday.",
-    "Each new volunteer will be shown how to do all three jobs.",
+    "That shift starts at 9 A.M., and new volunteers are trained on their first day.",
     "Call 555-0187 this week to sign up and choose your Saturday."
    ],
    "k": 2,
@@ -1530,7 +1530,7 @@
     "The three jobs were done by paid staff last year.",
     "Volunteers must work for three hours every weekday."
    ],
-   "vi": "Ba việc này thường mất khoảng ba giờ vào mỗi sáng thứ Bảy."
+   "vi": "Ba việc này thường mất khoảng ba giờ vào mỗi thứ Bảy."
   },
   {
    "id": "gd-077",
@@ -1578,19 +1578,19 @@
    "s": [
     "Our online course begins with a short test of your current level.",
     "The test takes about fifteen minutes and is scored automatically.",
-    "Using your test results, the system builds a study plan that matches your level.",
+    "Based on that automatic score, the system builds a study plan that matches your level.",
     "You can change the plan at any time.",
     "Most learners finish the course in twelve weeks."
    ],
    "k": 2,
-   "lk": "your test results",
-   "why": "\"your test results\" chỉ về kết quả bài kiểm tra trình độ ở câu trước.",
+   "lk": "that automatic score",
+   "why": "\"that automatic score\" chỉ về điểm chấm tự động của bài kiểm tra ở câu trước.",
    "w": [
     "Your results are shown to other learners.",
     "The study plan is written before you take the test.",
     "The test is repeated every week for twelve weeks."
    ],
-   "vi": "Dựa trên kết quả kiểm tra, hệ thống lập kế hoạch học tập phù hợp với trình độ của bạn."
+   "vi": "Dựa trên điểm chấm tự động đó, hệ thống lập kế hoạch học tập phù hợp với trình độ của bạn."
   },
   {
    "id": "gd-080",
@@ -1677,7 +1677,7 @@
    "kind": "Announcement",
    "s": [
     "Flight 208 to Lisbon has been delayed by two hours because of fog.",
-    "About one hundred and forty passengers were waiting at Gate 12.",
+    "About one hundred and forty passengers are waiting at Gate 12.",
     "Each of these passengers will receive a meal voucher to use in the terminal.",
     "Vouchers are valid at any restaurant in the terminal until the flight departs.",
     "Updates will appear on the screens near Gate 12, and we apologize for the delay."
@@ -1739,19 +1739,19 @@
    "s": [
     "Thank you for asking about our car insurance.",
     "The Gold policy covers repairs, theft, and rental cars.",
-    "That policy costs $90 per month for drivers under thirty.",
+    "Its rental-car cover lets you drive a replacement car for up to two weeks.",
     "A cheaper Basic policy covers repairs only.",
     "Please let me know which one you prefer, and I will prepare the forms for you."
    ],
    "k": 2,
-   "lk": "That policy",
-   "why": "\"That policy\" chỉ về gói bảo hiểm Gold nêu ở câu trước.",
+   "lk": "Its rental-car cover",
+   "why": "\"Its rental-car cover\" chỉ về khoản xe thuê của gói Gold ở câu trước.",
    "w": [
     "The Gold policy was discontinued last month.",
-    "Drivers over thirty cannot buy the Gold policy.",
+    "The Basic policy also covers rental cars.",
     "Rental cars are covered only under the Basic policy."
    ],
-   "vi": "Gói đó có giá 90 đô la mỗi tháng đối với tài xế dưới ba mươi tuổi."
+   "vi": "Khoản bảo hiểm xe thuê của gói này cho phép bạn lái xe thay thế tối đa hai tuần."
   },
   {
    "id": "gd-088",
@@ -1862,7 +1862,7 @@
     "Stonebridge Hospital has a new way to move supplies between floors.",
     "Small robots follow magnetic paths and stop when someone steps in front of them.",
     "These robots save nurses nearly an hour of walking each shift.",
-    "Hospital managers hope to add six more robots next year.",
+    "That saved time has persuaded managers to add six more robots next year.",
     "Patients have said they hardly notice the machines."
    ],
    "k": 2,
@@ -1880,14 +1880,14 @@
    "kind": "Web page",
    "s": [
     "Bali is famous for its beaches and temples.",
-    "Few tourists have time to see the island's rice terraces.",
+    "Few tourists know how to reach the island's rice terraces.",
     "That is why our guides offer a two-day trek through the fields.",
     "Meals and a homestay are included in the price.",
     "Groups are limited to eight people."
    ],
    "k": 2,
    "lk": "That is why",
-   "why": "\"That is why\" nêu kết quả của việc ít du khách có thời gian ngắm ruộng bậc thang ở câu trước.",
+   "why": "\"That is why\" nêu kết quả của việc ít du khách biết đường tới ruộng bậc thang ở câu trước.",
    "w": [
     "Our guides have never visited the rice terraces.",
     "The trek will be shortened to two hours next year.",
