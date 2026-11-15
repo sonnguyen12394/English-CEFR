@@ -13,7 +13,7 @@ const CY_PHO = [
   { k: 'ghep', ic: '🧩', ten: 'Phố Ghép Đoạn', sub: 'Chèn câu vào đoạn văn · Part 6, Part 7', need: q => (q.sec === 'p6' || q.sec === 'p7') && CY_T(q) === 'insert' },
   { k: 'ben', ic: '🔎', ten: 'Bến Dò Tin', sub: 'Tìm chi tiết, suy luận, mục đích · Part 7', need: q => q.sec === 'p7' && !['syn', 'insert'].includes(CY_T(q)) } ];
 const cyC = p => (typeof PH_PHO !== 'undefined' && PH_PHO[p.k]) || null;   // phố đã có (cấu hình động cơ phố)
-// v182: phố đã có đếm đúng câu phố dùng được (canFix = cùng điều kiện với câu thật của phố), để số ở Thành phố khớp màn phố
+// v183: phố đã có đếm đúng câu phố dùng được (canFix = cùng điều kiện với câu thật của phố), để số ở Thành phố khớp màn phố
 const cyInfo = p => { const c = cyC(p); return c ? { ic: c.ic, ten: c.ten, sub: c.sub } : p; };
 // bậc đã mở của một phố, đọc thẳng dữ liệu (không đổi phố đang dùng)
 function cyLv(k) { const c = PH_PHO[k]; if (!c) return 0; const o = toSt(), st = k === 'loai' ? o.pho : (o.phos || {})[k], u = (st && st.mu) || {}, M = Object.keys(c.MUC);

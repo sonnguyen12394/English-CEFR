@@ -39,7 +39,7 @@ PH_PHO.cau = { key: 'cau', view: 'toeic-pho-cau-noi', ic: '🌉', ten: 'Phố C�
     const s = String(q.q).replace(/<[^>]+>/g, '').replace(/-{5,}/, '___'); if (!/___/.test(s)) return null;
     const ly = String(q.lg.ly || q.why || ''), why = (ly.match(/^[^.!?]*[.!?]/) || [ly])[0].slice(0, 180);
     return { id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, s, a: q.a, o, why, vi: q.lg.dich || '', real: 1, nha: null }; },
-  // v182: nhóm kiến thức để tìm câu kho anh em = loại + kiểu quan hệ của đáp án (câu đề không ghi quan hệ: tra theo chữ ở kho)
+  // v183: nhóm kiến thức để tìm câu kho anh em = loại + kiểu quan hệ của đáp án (câu đề không ghi quan hệ: tra theo chữ ở kho)
   sk: it => { const A = it.o.find(o => o[0] === it.a) || []; if (A[3]) return A[3]; const w = String(A[0] || '').toLowerCase();
     for (const x of PH_K || []) for (const o of x.o) if (String(o[0]).toLowerCase() === w && o[3]) return o[3]; return ''; },
   canFix: q => !!(q && q.sec === 'p5' && q.x && ['prep', 'conj'].includes(q.x.t) && q.opts.every(o => CN_TY(((q.lg || {}).og || {})[o]))),

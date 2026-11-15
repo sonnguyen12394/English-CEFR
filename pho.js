@@ -50,6 +50,45 @@ let PHC = PH_PHO.loai;
 function phUse(k) { const c = PH_PHO[k] || PH_PHO.loai; if (c === PHC) return PHC; PHC.K = PH_K; PHC.RL = PH_RL; PHC = c;
   ({ view: PH_VIEW, MUC: PH_MUC, FIX: PH_FIX, SHORT: PH_SHORT, CH: PH_CH, G: PH_G, NHA: PH_NHA, ORD: PH_ORD } = c); PH_MO = Object.keys(PH_MUC); PH_K = c.K || null; PH_RL = c.RL || null; return c; }
 const phSt = () => { const o = toSt(); let p; if (PHC.key === 'loai') p = o.pho = o.pho || {}; else { o.phos = o.phos || {}; p = o.phos[PHC.key] = o.phos[PHC.key] || {}; } p.cd = p.cd || {}; p.it = p.it || {}; p.st = p.st || {}; return p; };
+// 🪑 v182 (người sáng lập 15/11/2026: "vướng ở Bậc 2 vì không nắm được cấu trúc"): luật ghế = chữ xung quanh chỗ trống cho biết ghế của ai.
+//   Khoá trùng trường `ghe` của câu kho (content/toeic/pho.json). Ví dụ Claude soạn, chưa giáo viên kiểm.
+const PH_GHE = {
+  mao: { t: 'N', sig: 'Sau the / a / her / your…', rule: 'Sau the, a, his, her, your… (có thể có tính từ chen giữa), rồi tới động từ, of hoặc dấu chấm: ghế Ông Chủ.', ex: 'The ___ of the store was quick.' },
+  chu: { t: 'N', sig: 'Sau all / each / many / these…', rule: 'Sau từ chỉ số lượng: all, each, every, many, several, these, those: ghế Ông Chủ.', ex: 'Many ___ have complained.' },
+  gioi: { t: 'N', sig: 'Sau giới từ in / on / for / to…', rule: 'Sau giới từ (in, on, for, of, about, thanks to…): ghế Ông Chủ, hoặc Anh Động đuôi -ing.', ex: 'We invest in ___ every year.' },
+  truocN: { t: 'A', sig: 'Ngay trước một danh từ', rule: 'Chỗ trống đứng ngay trước một danh từ (a ___ manager): ghế Cô Thợ May, không phải Ông Chủ.', ex: 'She is a ___ manager.' },
+  sauBe: { t: 'A', sig: 'Sau is / are / was / seem / become', rule: 'Sau be (is, are, was, were), seem, become, look, feel, và không có danh từ theo sau: ghế Cô Thợ May.', ex: 'The plan seems ___.' },
+  modal: { t: 'V', sig: 'Sau will / can / must / to', rule: 'Sau will, can, should, must, to: ghế Anh Động, dạng gốc.', ex: 'We need to ___ the plan.' },
+  thi: { t: 'V', sig: 'Sau chủ ngữ, câu chưa có động từ', rule: 'Câu có chủ ngữ nhưng chưa có động từ chính: ghế Anh Động (chia thì). Sau has been, was: Anh Động dạng V3.', ex: 'The CEO ___ teamwork often.' },
+  sauV: { t: 'R', sig: 'Sau một động từ đã đủ nghĩa', rule: 'Câu đã có động từ (runs, dropped, rose…) và chỗ trống nói "thế nào": ghế Bé Chạy Việc.', ex: 'Prices rose ___ in May.' },
+  truocA: { t: 'R', sig: 'Trước tính từ hoặc V3', rule: 'Chỗ trống đứng trước tính từ hoặc V3 (is ___ designed, ___ busy): ghế Bé Chạy Việc.', ex: 'The room is ___ designed.' } };
+const PH_GORD = ['mao', 'chu', 'gioi', 'truocN', 'sauBe', 'modal', 'thi', 'sauV', 'truocA'];
+// bài học 3 bước: học 2 cư dân dễ nhầm trước (Ông Chủ / Cô Thợ May, rồi Anh Động / Bé Chạy Việc), rồi trộn cả 4
+const PH_LB = [{ ts: ['N', 'A'], n: 6, ten: 'Ông Chủ hay Cô Thợ May?' }, { ts: ['V', 'R'], n: 6, ten: 'Anh Động hay Bé Chạy Việc?' }, { ts: ['N', 'V', 'A', 'R'], n: 8, ten: 'Trộn cả 4 cư dân' }];
+const phGRows = ts => PH_GORD.filter(k => ts.includes(PH_GHE[k].t)).map(k => { const g = PH_GHE[k];
+  return `<div class="phgr">${phFace(g.t, 34)}<div class="b"><b>${esc(g.sig)}</b><span class="phtag ph-${g.t}">${PH_SHORT[g.t]}</span><p>${esc(g.ex).replace('___', '<span class="phgap" aria-label="ghế trống">?</span>')}</p></div></div>`; }).join('');
+const phBang = () => `<h3 style="margin:4px 0 6px">🪑 Bảng ghế</h3><p class="mute" style="margin:0 0 6px;font-size:15px">Nhìn chữ ngay trước (hoặc ngay sau) chỗ trống.</p>${phGRows(PH_ORD)}`;
+// luật của câu: câu kho có ghe; câu thật trong đề không có thì dùng câu "vì sao"
+const phRuleHtml = it => it.ghe && PH_GHE[it.ghe] ? `🪑 ${esc(PH_GHE[it.ghe].rule)}` : esc(it.why);
+function phLuat(done, skip) { phStop(); const P = phSt(); let b = 0;
+  const step = () => { const B = PH_LB[b]; if (!B) { P.lg = { at: Date.now(), n: (P.lg && P.lg.n || 0) + 1 }; save(); return done(); }
+    window.CUR = { view: PH_VIEW + '-luat' }; scrollTo(0, 0);
+    $app.innerHTML = phTop('Phố', `Bước ${b + 1} / ${PH_LB.length}`) + `<h2>🪑 ${esc(B.ten)}</h2><p class="mute">${b < 2 ? 'Đọc luật ghế của 2 cư dân này. Mỗi luật là một chữ "mốc" đứng cạnh chỗ trống.' : 'Giờ trộn cả 4. Bảng ghế đầy đủ ở dưới, đọc lại rồi làm.'}</p>
+      ${phGRows(B.ts)}<button class="pri" data-phlq>Làm ${B.n} câu ›</button>${skip && !b ? '<button class="link tap" data-phlskip>Bỏ qua, chơi luôn</button>' : ''}`;
+    $app.onclick = e => { if (e.target.closest('[data-phback]')) return phView(); if (e.target.closest('[data-phlskip]')) return done(); if (e.target.closest('[data-phlq]')) quiz(B); }; };
+  const quiz = B => { const ks = PH_GORD.filter(k => B.ts.includes(PH_GHE[k].t)), by = {}; for (const it of PH_K || []) if (ks.includes(it.ghe) && B.ts.includes(it.o.find(o => o[0] === it.a)[1])) (by[it.ghe] = by[it.ghe] || []).push(it);
+    for (const k in by) by[k] = shuf(by[k]); let Q = []; for (let r = 0; Q.length < B.n && r < 30; r++) for (const k of shuf(ks)) if (Q.length < B.n && by[k] && by[k][r]) Q.push(by[k][r]);
+    Q = shuf(Q); let i = 0, ok = 0;
+    const draw = r => { const it = Q[i], A = it.o.find(o => o[0] === it.a)[1], g = PH_GHE[it.ghe];
+      $app.innerHTML = phTop('Phố', `Bước ${b + 1} · câu ${i + 1} / ${Q.length}`) + `<p class="mute" style="margin:0 0 6px">Ghế trống này của ai?</p><div class="phsent">${phSent(it, r ? { t: A, w: it.a } : null, phMoc(it))}</div>
+        <div class="phpick${B.ts.length === 2 ? ' two' : ''}">${B.ts.map(t => `<button data-phlc="${t}"${r ? ' disabled' : ''} class="${r && t === A ? 'yes' : r && t === r ? 'no' : ''}">${phFace(t, 44, r && t === A ? 'happy' : 'idle')}<span>${PH_SHORT[t]}</span></button>`).join('')}</div>
+        ${r ? `<div class="phfb ${r === A ? 'good' : 'bad'}"><p class="${r === A ? 'ok' : 'ko'}" style="margin:0 0 4px">${r === A ? '✓ Đúng' : '✗ Chưa đúng'} · ghế của ${PH_CH[A].name}</p><p style="margin:0">🪑 ${esc(g.rule)}</p><p class="mute" style="margin:4px 0 0">${esc(it.vi)}</p>
+          <button class="pri" data-phln>${i + 1 < Q.length ? 'Câu tiếp ›' : b + 1 < PH_LB.length ? `Xong bước ${b + 1} · đúng ${ok} / ${Q.length} ›` : `Xong · đúng ${ok} / ${Q.length} · vào Bậc 2 ›`}</button></div>` : '<p class="mute" style="font-size:15px">Chữ được tô là chữ mốc. Không chấm điểm, cứ đoán.</p>'}`;
+      $app.onclick = e => { if (e.target.closest('[data-phback]')) return phView(); const c = e.target.closest('[data-phlc]'); if (c) { const y = c.dataset.phlc === A; if (y) ok++; phSfx(y ? 'ok' : 'no'); return draw(c.dataset.phlc); }
+        if (e.target.closest('[data-phln]')) { i++; if (i < Q.length) return draw(); b++; step(); } };
+      scrollTo(0, 0); };
+    draw(); };
+  step(); }
 const phStat = (k, n) => { const s = phSt().st; s[k] = (s[k] || 0) + (n || 1); };
 const phDay = () => dayOf(Date.now());
 // 🎵 tiếng riêng của phố (Web Audio tổng hợp, không tệp): tiếng đúng / sai to rõ + nhạc nền vui lặp lại (I–vi–IV–V). Bật / tắt riêng: S.to.pho.am, S.to.pho.nhac.
@@ -113,7 +152,7 @@ PH_PHO.loai.real = (q, d) => { if (q.sec !== 'p5' || !q.x || q.x.t !== 'form') r
   const ly = String(q.lg.ly || q.why || ''), why = (ly.match(/^[^.!?]*[.!?]/) || [ly])[0].slice(0, 180);
   const it = { id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, s, a: q.a, o, why, vi: q.lg.dich || '', real: 1 }; it.nha = phNhaOf(it); return it; };
 async function phLoad() { if (!PH_K) { try { PH_K = (await (await fetch(PHC.file + '?v=' + APP_V)).json()).items || []; } catch (e) { PH_K = []; } }
-  if (!PH_RL || !PHC.sc) { PH_RL = PH_RL || {}; PHC.sc = new Set(); }   // v182: quét từng đề một lần; đề riêng mở mã sau thì quét thêm
+  if (!PH_RL || !PHC.sc) { PH_RL = PH_RL || {}; PHC.sc = new Set(); }   // v183: quét từng đề một lần; đề riêng mở mã sau thì quét thêm
   { const D = (typeof TO !== 'undefined' && TO && TO.tron) || [];
     for (const d of D) { if (PHC.sc.has(d.id)) continue; if (d.f && !TR.D[d.id]) { try { await trLoad(d.id); } catch (e) {} } const B = trB(d.id); if (!B) continue; PHC.sc.add(d.id);
       for (const q of B.Q) { const it = PHC.real ? PHC.real(q, d) : null; if (it) PH_RL[it.id] = it; } } }
@@ -125,7 +164,7 @@ function phWrong() { const out = []; if (typeof tgJState !== 'function') return 
   return out; }
 const phItem = id => (PH_RL && PH_RL[id]) || (PH_K || []).find(x => x.id === id);
 const phDue = () => { const I = phSt().it, t = phDay(); return Object.keys(I).filter(id => I[id].d && I[id].d <= t && phItem(id)); };
-// v182 (người sáng lập 15/11/2026: "tất cả những trò chơi này nhằm phục vụ cho 1 đề đã chọn cụ thể trong 16 đề"; chọn "chỉ câu đề + kho chung"):
+// v183 (người sáng lập 15/11/2026: "tất cả những trò chơi này nhằm phục vụ cho 1 đề đã chọn cụ thể trong 16 đề"; chọn "chỉ câu đề + kho chung"):
 //   đề đang chọn = đề của Chinh phục đề (tgDe); nhiệm vụ của phố = các câu của đề thuộc phố này (PH_RL có de = đề).
 //   Ván = từng cụm: ≤ 2 câu kho cùng kiến thức (khớp từ đáp án, không có thì cùng loại + cùng nhóm phSibKey) rồi chính câu đề (phương án xáo ở làn).
 //   Thứ tự câu đề: đang sai trong đề → chưa chắc → đến hạn ôn; hết thì ôn lại cả đề. "Chắc" = đúng lần gần nhất, không dùng gợi ý (phChac).
@@ -192,13 +231,14 @@ async function phView() { phStop(); window.CUR = { view: PH_VIEW }; BACK = null;
     <h3 style="margin:6px 0">Chọn bậc · học từng việc rồi mới ghép</h3><div class="phmuc">${PH_MO.map(m => { const o = PH_MUC[m], op = phOpen(m), b = (P.mu || {})[m];
       return `<button class="phmc${m === phMuc() ? ' on' : ''}" data-phmuc="${m}" aria-pressed="${m === phMuc()}"${op ? '' : ' disabled'}><b>${op ? o.ten : '🔒 ' + o.ten.replace(/^\S+\s/, '')}</b><small>${op ? o.sub : `Mở khi thắng ${PH_MUC[PH_MO[PH_MO.indexOf(m) - 1]].ten.replace(/^\S+\s/, '')} (đúng ≥ ${PH_WIN} / ${PH_N})`}</small>${b ? `<small class="phbest">Tốt nhất ${b} / ${PH_N}</small>` : ''}</button>`; }).join('')}</div>
     <button class="pri" data-phplay style="min-height:56px;font-size:18px">▶ Chơi · ${PH_MUC[phMuc()].ten}</button>${phSndRow()}
+    ${PHC.key === 'loai' && phOpen('b2') ? `<button class="hrow phbook" data-phluat><span class="ic">🪑</span><span class="t"><b>Học luật ghế</b><small>${P.lg ? 'Đã học · học lại khi vướng Bậc 2' : 'Nên học trước Bậc 2 · 3 bước, khoảng 4 phút'}</small></span><span class="chev">›</span></button>` : ''}
     <div class="box" style="margin-top:10px"><p style="margin:2px 0">${due ? `🔁 <b>${due}</b> câu đến hạn ôn, có trong ván này` : '🔁 Chưa có câu đến hạn ôn'}</p>
       <p style="margin:2px 0">${wr ? `👾 <b>${wr}</b> câu ${PHC.lo} bạn từng sai trong đề, sẽ chen vào ván` : `👾 Chưa có câu ${PHC.lo} nào bạn sai trong đề`}</p>
       <p style="margin:2px 0">🗺 Đã gặp ${seen} / ${(PH_K || []).length} câu của phố</p></div>
     <button class="hrow phbook" data-phbook><span class="ic">📜</span><span class="t"><b>Sổ thần chú</b><small>${nc} / ${PH_ORD.length + Object.keys(PH_NHA).length} câu thần chú đã mở</small></span><span class="chev">›</span></button>
     <details class="more"><summary>Thêm</summary><button class="link tap" data-phintro>👋 Làm quen lại ${PH_ORD.length} cư dân</button>
       <p class="mute" style="font-size:14px">Không tính vào 📘 Học / 🔁 Nhớ, không đổi điểm đề thử. Câu của phố do Claude soạn, chưa giáo viên kiểm. Câu bạn bắt đúng ở ván sau 1 → 3 → 7 → 21 ngày thì nhớ chắc.</p></details>`;
-  $app.onclick = e => { if (e.target.closest('[data-phback]')) return phBackGo(); if (phSndClick(e)) return phView(); const mb = e.target.closest('[data-phmuc]'); if (mb && phOpen(mb.dataset.phmuc)) { P.mc = mb.dataset.phmuc; save(); return phView(); } if (e.target.closest('[data-phplay]')) return phStart(); if (e.target.closest('[data-phbook]')) return phBook(); if (e.target.closest('[data-phintro]')) return phIntro(); }; }
+  $app.onclick = e => { if (e.target.closest('[data-phback]')) return phBackGo(); if (phSndClick(e)) return phView(); const mb = e.target.closest('[data-phmuc]'); if (mb && phOpen(mb.dataset.phmuc)) { P.mc = mb.dataset.phmuc; save(); return phView(); } if (e.target.closest('[data-phplay]')) return PHC.key === 'loai' && phMuc() === 'b2' && !P.lg ? phLuat(() => phStart(), true) : phStart(); if (e.target.closest('[data-phluat]')) return phLuat(() => phView()); if (e.target.closest('[data-phbook]')) return phBook(); if (e.target.closest('[data-phintro]')) return phIntro(); }; }
 
 // ---------- làm quen + thám tử ----------
 function phIntro() { phStop(); window.CUR = { view: PH_VIEW + '-intro' }; scrollTo(0, 0);
@@ -256,7 +296,7 @@ function phRun(L, fix, back) { window.CUR = { view: PH_VIEW + '-van' }; scrollTo
   const mu = fix ? 'fix' : phMuc(), M = fix ? PH_FIX : PH_MUC[mu], half = M.dur[0] !== M.dur[1] ? Math.ceil(L.length / 2) : L.length;
   PH_R = { L, fix, back, mu, M, i: 0, lane: 1, hearts: M.tim, stars: 0, combo: 0, ok: 0, miss: [], half, goi: M.goi, end: 0, paused: false, sheet: false };
   const help = (PHC.help && PHC.help[M.md]) || { dp: 'Chạm làn, vuốt hoặc bấm ◀ ▶ để Mầm bắt đúng loại từ được gọi.', gh: 'Đọc câu, bắt cư dân hợp với ghế trống. Chạm từ trong câu để tra nghĩa.', tu: 'Chạm làn, vuốt hoặc bấm ◀ ▶. Chạm từ trong câu để tra nghĩa.', qh: 'Đọc hai vế quanh ô trống, bắt đúng kiểu quan hệ.' }[M.md];
-  $app.innerHTML = `<div class="phhud trx"><button class="iconbtn" data-phpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip" id="phh"></span><span class="chip" id="phs"></span><span class="chip" id="phc" hidden></span><button class="iconbtn" data-phbk aria-label="Sổ thần chú">📜</button></div>
+  $app.innerHTML = `<div class="phhud trx"><button class="iconbtn" data-phpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip" id="phh"></span><span class="chip" id="phs"></span><span class="chip" id="phc" hidden></span><button class="iconbtn" data-phbk aria-label="${PHC.key === 'loai' && M.md !== 'dp' ? 'Bảng ghế và sổ thần chú' : 'Sổ thần chú'}">${PHC.key === 'loai' && M.md !== 'dp' ? '🪑' : '📜'}</button></div>
     <div class="phbar"><i id="phprog"></i></div><div class="phlvr"><span class="phlv mute" id="phlv"></span><button class="phhint" data-phhint id="phhint"></button></div><div id="phgoi" class="phgoi" hidden></div><div class="phsent tdtap" id="phsent"></div>
     <div class="pharena" id="pharena">${Array.from({ length: M.k }, (_, i) => `<div class="phlane" style="left:${i * 100 / M.k}%;width:${100 / M.k}%"></div>`).join('')}<div class="phground"></div><div id="phrow"></div><div id="phmam" style="width:${100 / M.k}%">${phFace('M', 64)}</div><div id="phfx" class="phfx" aria-live="assertive"></div></div>
     <div id="phfb"></div><div class="phctrl"><button data-phmv="-1" aria-label="Sang trái">◀</button><button data-phmv="1" aria-label="Sang phải">▶</button></div>
@@ -269,7 +309,7 @@ function phRun(L, fix, back) { window.CUR = { view: PH_VIEW + '-van' }; scrollTo
     if (e.target.closest('[data-phnext]')) return phNext();
     if (e.target.closest('[data-phhint]')) return phHint();
     if (e.target.closest('[data-phpause]')) return phSheet('<h3>⏸ Tạm dừng</h3><p class="mute">Từ đang rơi đứng yên tới khi bạn chơi tiếp.</p>' + phSndRow() + '<button class="link tap" data-phquit>Thoát ván, về Phố</button>');
-    if (e.target.closest('[data-phbk]')) return phSheet(`<h3>📜 Sổ thần chú</h3>${Object.keys(phSt().cd).map(k => { const n = PH_NHA[k], w = n ? n.who : k; return `<div class="phsay">${phFace(w, 40)}<div class="b"><b>${esc(n ? n.name : PH_CH[k].name)}</b><p>“${esc(n ? n.chant : PH_G[k].chant)}”</p></div></div>`; }).join('')}${phQhTable()}`); };
+    if (e.target.closest('[data-phbk]')) return phSheet(`${PHC.key === 'loai' && PH_R.M.md !== 'dp' ? phBang() : ''}<h3>📜 Sổ thần chú</h3>${Object.keys(phSt().cd).map(k => { const n = PH_NHA[k], w = n ? n.who : k; return `<div class="phsay">${phFace(w, 40)}<div class="b"><b>${esc(n ? n.name : PH_CH[k].name)}</b><p>“${esc(n ? n.chant : PH_G[k].chant)}”</p></div></div>`; }).join('')}${phQhTable()}`); };
   phMusic(true); phHud(); phMove(1, 1); phQ(); }
 function phSheet(html) { if (!PH_R) return; PH_R.sheet = true; let el = document.getElementById('phsheet'); if (!el) { el = document.createElement('div'); el.id = 'phsheet'; el.className = 'phsheet'; document.body.appendChild(el); }
   el.innerHTML = `<div class="in">${html}<button class="pri" data-phclose>Đóng, chơi tiếp</button></div>`; el.hidden = false;
@@ -290,7 +330,7 @@ function phHint() { const R = PH_R; if (!R || R.done || !R.goi || R.hint >= 2) r
   const g = document.getElementById('phgoi'); g.hidden = false;
   g.innerHTML = md === 'dp' ? `${phFace(R.T, 30, 'happy')}<span>💡 ${PH_CH[R.T].name} mặc đồng phục <b>${esc(phSuf(R.T))}</b>. Nhìn đuôi từ.</span>`
     : md === 'qh' ? (R.hint === 1 && !R.M.moc ? '💡 Đọc vế trước rồi vế sau ô trống. Hỏi: vế sau là gì của vế trước (thêm ý, ngược lại, lý do, kết quả…)?' : `💡 Hai vế quan hệ <b>${Q ? Q.e + ' ' + esc(Q.n) : ''}</b>.`)
-    : R.hint === 1 ? (PHC.mocHint ? PHC.mocHint(moc) : `💡 Nhìn chữ được tô: <b>${esc(moc)}</b>. Ai hay ngồi cạnh chữ này?`) : `${phFace(A[1], 30, 'happy')}<span>💡 Ghế này của <b>${PH_CH[A[1]].name}</b> (${PH_CH[A[1]].pos.toLowerCase()} · ${PHC.dau.toLowerCase()} ${esc(phSuf(A[1]))})${Q && md === 'tu' ? ` · quan hệ ${Q.e} ${esc(Q.n)}` : ''}.</span>`;
+    : R.hint === 1 ? (PHC.mocHint ? PHC.mocHint(moc) : `💡 Nhìn chữ được tô: <b>${esc(moc)}</b>. Ai hay ngồi cạnh chữ này?`) : `${phFace(A[1], 30, 'happy')}<span>💡 Ghế này của <b>${PH_CH[A[1]].name}</b> (${PH_CH[A[1]].pos.toLowerCase()} · ${PHC.dau.toLowerCase()} ${esc(phSuf(A[1]))})${Q && md === 'tu' ? ` · quan hệ ${Q.e} ${esc(Q.n)}` : ''}.${it.ghe && PH_GHE[it.ghe] ? ` Luật: ${esc(PH_GHE[it.ghe].sig)}.` : ''}</span>`;
   phSfx('grow'); phHud(); }
 function phSent(it, fill, moc) { let [a, b] = it.s.split('___').map(esc);
   if (moc) { const re = new RegExp('(^|[^A-Za-z])(' + esc(moc).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')(?=$|[^A-Za-z])', 'i'), mk = (m0, p1, p2) => `${p1}<mark class="phmoc">${p2}</mark>`;
@@ -342,7 +382,7 @@ function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, go
     fill();
     const Q0 = PHC.QH && A[3] && PHC.QH[A[3]];
     const head = M.md === 'qh' ? `✓ Hai vế: ${Q0 ? Q0.e + ' ' + esc(Q0.n) : ''} · <b>${esc(it.a)}</b>` : M.md === 'dp' ? `✓ <b>${esc(got.w)}</b> là ${PH_CH[got.p].pos.toLowerCase()} · đồng phục ${esc(phSuf(got.p))}` : M.md === 'gh' ? `✓ Ghế này của ${PH_CH[A[1]].name}: <b>${esc(it.a)}</b>` : `✓ ${esc(it.a)} · ${PH_CH[A[1]].name}`;
-    document.getElementById('phfb').innerHTML = `<div class="phfb good"><p class="ok">${head}${R.combo >= 3 ? ` · combo ×${R.combo} (⭐ ×2)` : ''}</p>${M.md === 'gh' || M.md === 'qh' ? `<p style="margin:0">${esc(it.why)}</p>` : ''}${real}${M.md === 'dp' ? '' : `<p class="mute" style="margin:0">${esc(it.vi)}</p>`}${opts}<button class="pri" data-phnext>${R.i + 1 < R.L.length ? 'Câu tiếp ›' : 'Xem kết quả'}</button></div>`;
+    document.getElementById('phfb').innerHTML = `<div class="phfb good"><p class="ok">${head}${R.combo >= 3 ? ` · combo ×${R.combo} (⭐ ×2)` : ''}</p>${M.md === 'gh' || M.md === 'qh' ? `<p style="margin:0">${M.md === 'gh' ? phRuleHtml(it) : esc(it.why)}</p>` : ''}${real}${M.md === 'dp' ? '' : `<p class="mute" style="margin:0">${esc(it.vi)}</p>`}${opts}<button class="pri" data-phnext>${R.i + 1 < R.L.length ? 'Câu tiếp ›' : 'Xem kết quả'}</button></div>`;
     phHud(); clearTimeout(R.to); R.to = setTimeout(() => { if (PH_R === R && R.done && !R.sheet && !phPop()) phNext(); }, phRM() ? 2800 : 2200); return; }
   R.combo = 0; R.hearts--; R.miss.push({ it, got, md: M.md, T: R.T }); bub.classList.add('wrong'); phMood('sad'); phSfx('no'); phVib([40, 40, 40]);
   ar.classList.add('nofl'); fx.innerHTML = `<div class="phbig no">✗ Sai rồi</div><div class="phsub">${R.hearts > 0 ? `💔 còn ${R.hearts} tim · đáp án sáng xanh` : '💔 hết tim'}</div>`;
@@ -354,7 +394,7 @@ function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, go
   else if (M.md === 'qh') { const Q0 = PHC.QH[A[3]];
     body = `<p><span class="ko">Bạn bắt:</span> ${got.e} ${esc(got.w)}.</p><p><span class="ko">Hai vế:</span> <span class="phtag ph-Q">${Q0 ? Q0.e + ' ' + esc(Q0.n) : ''}</span> → <b>${esc(it.a)}</b>. ${esc(it.why)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`; }
   else if (M.md === 'gh') body = `<div class="phsay">${phFace(got.p, 44, 'sad')}<div class="b"><b>${PH_CH[got.p].name}</b><p>“Ghế này không phải của tôi!”</p></div></div>
-      <p><span class="ko">Ghế của:</span> <span class="phtag ph-${A[1]}">${PH_CH[A[1]].name}</span> (${PH_CH[A[1]].pos.toLowerCase()}). ${esc(it.why)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`;
+      <p><span class="ko">Ghế của:</span> <span class="phtag ph-${A[1]}">${PH_CH[A[1]].name}</span> (${PH_CH[A[1]].pos.toLowerCase()}). ${phRuleHtml(it)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`;
   else { const same = got.p === A[1], who = got.p, line = same ? `Tôi với ${esc(it.a)} cùng nhà ${PH_CH[who].pos.toLowerCase()}, nhưng ghế này không phải của tôi. ${esc(got.w)} = ${esc(got.m)}.` : `Không phải ghế của tôi! Tôi là ${PH_CH[who].pos.toLowerCase()}, ${esc(got.w)} = ${esc(got.m)}.`;
     const nha = it.nha && PH_NHA[it.nha] && phSt().cd[it.nha] ? `<p class="phch">📜 ${esc(PH_NHA[it.nha].chant)}</p>` : '';
     body = `<div class="phsay">${phFace(who, 44, 'sad')}<div class="b"><b>${PH_CH[who].name}</b><p>“${line}”</p></div></div>
@@ -363,17 +403,17 @@ function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, go
   phHud(); setTimeout(() => { const f = document.getElementById('phfb'); if (f && f.scrollIntoView) f.scrollIntoView({ block: 'nearest', behavior: phRM() ? 'auto' : 'smooth' }); }, 700); }
 function phNext() { const R = PH_R; if (!R) return; clearTimeout(R.to); if (R.hearts <= 0) return phEnd(); R.i++; if (R.i >= R.L.length) return phEnd(); phQ(); scrollTo(0, 0); }
 const phMissLine = ({ it, got, md, T }) => md === 'qh' ? `<p style="margin:0 0 4px">${esc(it.s).replace('___', `<b>${esc(it.a)}</b>`)}</p><p class="mute" style="margin:0;font-size:14px">Bạn bắt ${got.e} ${esc(got.w)}. ${esc(it.why)}</p>` : md === 'dp' ? `<p style="margin:0">Cần <b>${PH_CH[T].pos.toLowerCase()}</b> (${esc(phSuf(T))}), bạn bắt <b>${esc(got.w)}</b> là ${PH_CH[got.p].pos.toLowerCase()} (${esc(phSuf(got.p))}).</p>`
-  : `<p style="margin:0 0 4px">${esc(it.s).replace('___', `<b>${esc(it.a)}</b>`)}</p><p class="mute" style="margin:0;font-size:14px">Bạn bắt ${esc(got.w)} (${PH_CH[got.p].name}). ${esc(it.why)}</p>`;
+  : `<p style="margin:0 0 4px">${esc(it.s).replace('___', `<b>${esc(it.a)}</b>`)}</p><p class="mute" style="margin:0;font-size:15px">${md === 'gh' ? `Bạn chọn ${PH_SHORT[got.p]}, ghế của ${PH_SHORT[it.o.find(o => o[0] === it.a)[1]]}. ${phRuleHtml(it)}` : `Bạn bắt ${esc(got.w)}${PH_CH[got.p].name !== got.w ? ` (${PH_CH[got.p].name})` : ''}. ${esc(it.why)}`}</p>`;
 function phEnd() { const R = PH_R; R.end = 1; cancelAnimationFrame(R.raf); phMusic(false); const win = R.hearts > 0, n = R.ok + R.miss.length, P = phSt(); P.mu = P.mu || {};
   const nx = R.fix ? null : PH_MO[PH_MO.indexOf(R.mu) + 1], was = nx && phOpen(nx); if (win && !R.fix) P.mu[R.mu] = Math.max(P.mu[R.mu] || 0, R.ok); const unl = nx && !was && phOpen(nx);
   if (unl) P.mc = nx; phSfx(win ? 'win' : 'lose'); save();
   window.CUR = { view: PH_VIEW + '-ket-qua' }; scrollTo(0, 0); const fix = R.fix, back = R.back; PH_R = null;
   $app.innerHTML = `<div id="ie"></div><div class="phhero">${phFace('M', 90, win ? 'happy' : 'sad')}</div><h2>${win ? 'Phố đã đủ người ngồi đúng ghế!' : 'Mầm hết tim rồi'}</h2>${unl ? `<div class="box phunl">🔓 Mở <b>${PH_MUC[nx].ten}</b>! Ván sau chơi bậc này.</div>` : ''}
-    ${!win && R.mu !== 'b1' && !fix ? `<p class="mute">Khó quá? Chơi lại bậc trước ở màn Phố cho chắc rồi quay lại.</p>` : ''}${win && !unl && nx && !phOpen(nx) ? `<p class="mute">Đúng ≥ ${PH_WIN} / ${PH_N} câu để mở ${PH_MUC[nx].ten}.</p>` : ''}
+    ${!win && R.mu === 'b2' && PHC.key === 'loai' ? `<button class="pri" data-phluat>🪑 Học lại luật ghế</button>` : !win && R.mu !== 'b1' && !fix ? `<p class="mute">Khó quá? Chơi lại bậc trước ở màn Phố cho chắc rồi quay lại.</p>` : ''}${win && !unl && nx && !phOpen(nx) ? `<p class="mute">Đúng ≥ ${PH_WIN} / ${PH_N} câu để mở ${PH_MUC[nx].ten}.</p>` : ''}
     <div class="box"><div class="row"><span>Bắt đúng</span><b style="font-size:28px">${R.ok} / ${win ? R.L.length : n}</b></div><div class="row"><span>Sao</span><b>⭐ ${R.stars}</b></div></div>
     ${R.miss.length ? `<h3>Cần nhớ lại</h3>${R.miss.map(x => `<div class="box">${phMissLine(x)}</div>`).join('')}` : '<p class="mute">Không sai câu nào.</p>'}
-    ${fix ? `<button class="pri" data-phtg>⚔️ Về đảo Chinh phục đề</button><button data-phagain>▶ Chơi ván thường</button>` : `<button class="pri" data-phagain>▶ Ván nữa</button>`}<button data-phhome>‹ Về Phố</button>`;
-  $app.onclick = e => { if (e.target.closest('[data-phtg]')) return back ? back() : (typeof tgView === 'function' && tgView()); if (e.target.closest('[data-phagain]')) return phStart(); if (e.target.closest('[data-phhome]')) return phView(); }; }
+    ${fix ? `<button class="pri" data-phtg>⚔️ Về đảo Chinh phục đề</button><button data-phagain>▶ Chơi ván thường</button>` : `<button class="${!win && R.mu === 'b2' && PHC.key === 'loai' ? '' : 'pri'}" data-phagain>▶ Ván nữa</button>`}<button data-phhome>‹ Về Phố</button>`;
+  $app.onclick = e => { if (e.target.closest('[data-phtg]')) return back ? back() : (typeof tgView === 'function' && tgView()); if (e.target.closest('[data-phluat]')) return phLuat(() => phStart()); if (e.target.closest('[data-phagain]')) return phStart(); if (e.target.closest('[data-phhome]')) return phView(); }; }
 
 // ---------- lối chữa từ Chinh phục đề (trochoi.js tgSua: câu Part 5 dạng từ) ----------
 async function phFix(de, n, k) { phUse(k || 'loai'); await toLoad(); await phLoad(); const it = PH_RL[`de:${de}:${n}`]; if (!it) { toast(`Câu này chưa có lời giải ${PHC.lo}, chữa ở đảo nhé.`); return; }
