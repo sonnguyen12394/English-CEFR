@@ -261,6 +261,13 @@
   :root { --phe:#ffd2a8; --phf:#c4dcff; --phj:#fff0a0; }
   @media (prefers-color-scheme: dark) { :root { --phe:#f2bf92; --phf:#aecbf5; --phj:#f2e08c; } }
   .ph-E { background:var(--phe) !important; color:var(--phink) !important; } .ph-F { background:var(--phf) !important; color:var(--phink) !important; } .ph-J { background:var(--phj) !important; color:var(--phink) !important; }
+  /* v193 🧩 Phố Ghép Đoạn (ghep.js): 4 màu cư dân chữ nối; nút chữ / vị trí [1]–[4] ≥ 44 px; chữ trên màu luôn mực tối --phink */
+  :root { --phgc:#ffc8b8; --phgt:#c4ecd0; --phgn:#c8dcff; --phgq:#ffe0b0; }
+  @media (prefers-color-scheme: dark) { :root { --phgc:#f2b4a3; --phgt:#acdcbb; --phgn:#b2cbf5; --phgq:#f2cf98; } }
+  .ph-GC { background:var(--phgc) !important; color:var(--phink) !important; } .ph-GT { background:var(--phgt) !important; color:var(--phink) !important; } .ph-GN { background:var(--phgn) !important; color:var(--phink) !important; } .ph-GQ { background:var(--phgq) !important; color:var(--phink) !important; }
+  button.ghw { display:inline-block; width:auto !important; min-height:44px; min-width:44px; margin:3px 2px; padding:6px 10px; border:1px solid var(--line); border-radius:10px; background:var(--card); color:var(--fg); font:inherit; }
+  button.ghm { display:inline-flex; width:auto !important; align-items:center; justify-content:center; min-height:44px; min-width:44px; margin:0 2px; padding:0 8px; border:2px solid var(--accent); border-radius:10px; background:var(--accent2); color:var(--accent); font:inherit; font-weight:700; vertical-align:middle; }
+  button.ghw:disabled, button.ghm:disabled { opacity:1; } button.ghw.ev, button.ghm.ev { border-color:var(--good); background:color-mix(in srgb,var(--good) 22%,var(--card)); color:var(--fg); } button.ghw.no, button.ghm.no { border-color:var(--bad); background:color-mix(in srgb,var(--bad) 18%,var(--card)); color:var(--fg); }
   /* v181 🏙 Thành phố TOEIC (thanhpho.js) + 🌉 Phố Cầu Nối (cau.js): 3 màu cư dân cầu nối + màu kiểu quan hệ; chữ trên màu luôn mực tối --phink */
   :root { --phg:#ffbf99; --phl:#d4c2ff; --pht:#9fe6de; --phq:#ffe7a8; }
   @media (prefers-color-scheme: dark) { :root { --phg:#f2ad84; --phl:#c3aef7; --pht:#88d8cf; --phq:#f2d68e; } }
@@ -441,6 +448,7 @@
 <script src="dong.js?v=191"></script>
 <script src="dai.js?v=191"></script>
 <script src="cho.js?v=191"></script>
+<script src="ghep.js?v=191"></script>
 <script src="ben.js?v=191"></script>
 <script src="thanhpho.js?v=191"></script>
 <script src="kiemde.js?v=191"></script>

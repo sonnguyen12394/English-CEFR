@@ -2843,5 +2843,34 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     phUse('loai'); document.getElementById = G0; S = S1; TR.B = {}; TR.D = {}; PH_R = null; return bad; })()`);
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C90', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🛒 Chợ Từ Vựng: kho ≥ 100 câu qua bộ dựng (3 quầy), câu thật Part 5 từ vựng, bậc 1 3 quầy + chữ mốc, bậc 2 nghĩa tiếng Việt → bắt từ, bậc 3 ghi lịch ôn, nút chữa, đếm câu cần phố; không đụng thẻ học' }); }
+// v193 C91 🧩 Phố Ghép Đoạn: kho qua bộ dựng; bậc 1 chạm chữ nối ngược, bậc 2 chạm câu đứng trước, bậc 3 vị trí [1]–[4] (kho + Part 7 đề), bậc 4 câu cho ô trống (kho + Part 6 đề);
+//   câu đề ghi ⚔️ Chinh phục đề; nút chữa câu chèn; tiến độ S.to.phos.ghep
+{ const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname, NMIN = +(process.env.GH_NMIN || 90);
+  try { const o = cp.execFileSync('node', [root + 'tools/build-ghep.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ ghep\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.stderr || e.message).slice(0, 160)); }
+  const K = JSON.parse(fs.readFileSync(root + 'ghep.json', 'utf8')).items; if (K.length < NMIN) bad.push('kho Ghép Đoạn cần ≥ ' + NMIN + ' đoạn (' + K.length + ')');
+  const html = fs.readFileSync(root + 'index.html', 'utf8'); if (!/<script src="ghep\.js\?v=\d+">/.test(html) || !/\.ghm\b/.test(html) || !/\.ph-GC/.test(html)) bad.push('index.html thiếu ghep.js / CSS');
+  const r = await run(`(async () => { const bad = [];
+    const S1 = S; try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; GH_K = null; await toLoad(); TG_P = await tgPool(); const de = TO.tron[2].id; tgSt().de = de; await trLoad(de); await ghLoad();
+      const D = ghDeItems(de); if (D.filter(x => x.md === 'vitri').length < 2 || D.filter(x => x.md === 'chon').length < 2 || D.some(x => x.md === 'vitri' && (!x.ins || !x.docs.length)) || D.some(x => x.md === 'chon' && !/\\{GAP\\}/.test(x.text))) bad.push('câu chèn của đề: ' + D.length);
+      if (ghTy('However, the room was full.') !== 'GN' || ghTy('As a result, we left.') !== 'GQ' || ghTy('This feature helps.') !== 'GC') bad.push('xếp loại chữ nối');
+      const P = ghSt(); P.in = 1;
+      await ghStart(); if (GH_R.M.md !== 'chu' || GH_R.L.some(x => x.real)) bad.push('bậc 1: chỉ đoạn kho');
+      { const it = GH_R.it, W = it.s[it.k].split(/\\s+/), i = W.findIndex(w => it.lk.split(/\\s+/).map(x => x.toLowerCase()).includes(w.toLowerCase().replace(/[^a-z']/g, ''))); ghAns(String(i)); if (GH_R.ok !== 1) bad.push('bậc 1 chạm đúng chữ nối không ghi'); }
+      ghNext(); { const h0 = GH_R.hearts, it = GH_R.it, W = it.s[it.k].split(/\\s+/), lk = it.lk.toLowerCase(); const j = W.findIndex(w => !lk.includes(w.toLowerCase().replace(/[^a-z']/g, '')) && w.length > 3); ghAns(String(j)); if (GH_R.hearts !== h0 - 1) bad.push('bậc 1 sai phải mất tim'); }
+      GH_R.ok = 10; GH_R.i = GH_R.L.length - 1; GH_R.done = true; ghEnd(); if (!ghOpen('b2') || ghMuc() !== 'b2' || !S.to.phos.ghep.mu.b1) bad.push('thắng bậc 1 mở bậc 2, tiến độ ở S.to.phos.ghep');
+      await ghStart(); if (GH_R.M.md !== 'truoc') bad.push('bậc 2: câu đứng trước'); ghAns(String(GH_R.it.k - 1)); if (GH_R.ok !== 1) bad.push('bậc 2 chạm đúng câu trước không ghi'); ghStop();
+      P.mu = { b1: 8, b2: 8 }; P.mc = 'b3'; await ghStart(); { const i0 = GH_R.L.findIndex(x => x.real); if (i0 < 1 || GH_R.L.some(x => x.real && x.md !== 'vitri')) bad.push('bậc 3: kho anh em trước câu Part 7 của đề');
+        GH_R.i = i0; ghQ(); const it = GH_R.it; ghAns(it.a.replace(/\\D/g, '')); if (tgJ(de).c[it.n].s !== 'ok' || ghSt().it[it.id].s !== 1) bad.push('bậc 3 đúng câu đề phải ghi Chinh phục đề');
+        GH_R.i = 0; ghQ(); const kt = GH_R.it, B = GH_R.B; const good = [1, 2, 3, 4].find(v => B.ok(v)); if (!good || [1, 2, 3, 4].filter(v => B.ok(v)).length !== 1) bad.push('bậc 3 kho: đúng 1 vị trí trong 4'); } ghStop();
+      P.mu = { b1: 8, b2: 8, b3: 8 }; P.mc = 'b4'; await ghStart(); { const i0 = GH_R.L.findIndex(x => x.real); if (i0 < 1 || GH_R.L.some(x => x.real && x.md !== 'chon')) bad.push('bậc 4: câu Part 6 của đề');
+        GH_R.i = i0; ghQ(); const it = GH_R.it; ghAns(String(GH_R.B.opts.indexOf(it.a))); if (tgJ(de).c[it.n].s !== 'ok') bad.push('bậc 4 đúng câu đề phải ghi Chinh phục đề'); } ghStop();
+      const q = trB(de).Q.find(x => x.sec === 'p6' && x.gt === 'insert'); if (!phFixBtn(de, q).includes('data-phfix="ghep|')) bad.push('nút chữa câu chèn ở Phố Ghép Đoạn');
+      await ghFix(de, q.n); if (GH_R.mu !== 'fix' || GH_R.L[GH_R.L.length - 1].n !== q.n) bad.push('chữa câu: kho rồi chính câu đề'); ghStop();
+      const C = cyCount(de); if (!C.ghep || C.ghep.n < 4) bad.push('đếm câu cần Ghép Đoạn: ' + JSON.stringify(C.ghep));
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length || Object.keys(S.to.ty || {}).length) bad.push('đụng thẻ học / điểm đề thử / bản đồ');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    ghStop(); S = S1; TR.B = {}; TR.D = {}; TG_P = null; return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C91', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🧩 Phố Ghép Đoạn: kho qua bộ dựng, bậc 1 chữ nối ngược, bậc 2 câu đứng trước, bậc 3 vị trí [1]–[4] (kho + Part 7 đề), bậc 4 câu cho ô trống (kho + Part 6 đề), câu đề ghi Chinh phục đề, nút chữa, đếm ở Thành phố; không đụng thẻ học' }); }
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
