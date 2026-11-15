@@ -57,5 +57,6 @@ console.log(`\n📱 Kiểm trên iPhone thật (~5 phút, Safari) sau khi đẩy
   22. (v159) 💬 → ☁️ Từ Google Drive (chỉ khi đã cấu hình): đăng nhập Google không bị Safari chặn cửa sổ; chọn PDF; gửi, thanh "Đang chép phần a/b từ Google Drive…" chạy hết; 👤 Tôi → Đã gửi: thẻ ghi "từ Google Drive"; Claude ghép lại khớp.
   23. (v163) 👤 Tôi → khối 💬 Góp ý: thấy nút 🗂 Quản lý góp ý dưới "Đã gửi"; mở được danh sách góp ý; dòng 📄 có ⬇️ Tải PDF, tải về mở được trong app Tệp.
   24. (v163) 💬 → 📄 Chọn tệp PDF (tệp ~43 MB / 70 trang) → ✂️ Tách PDF này: Khoảng trang 1–10 → ⬇️ Tải về mở được, đúng 10 trang; Từng trang → ⬇️ Tải tất cả (.zip) mở được trong app Tệp; Theo cỡ 10 MB; 📤 Gửi kèm góp ý; thử thêm tệp 100 / 200 / 450 MB, ghi cỡ lớn nhất không bị tải lại trang.
+  25. (v178) 🎯 Luyện đề → TOEIC → 📚 → 🏘 Phố Loại Từ: 4 cư dân hiện rõ, làm 4 vụ thám tử; ván: chạm làn / vuốt / ◀ ▶ điều khiển bé Mầm mượt, từ rơi không giật, bắt sai thấy lời cư dân; chạm một từ trong câu ra nghĩa và trò dừng; có tiếng; thử giao diện tối.
   21. (v158) 👤 Tôi → ô 💬 Góp ý → Đã gửi: thẻ 📄 có 👁 Xem (tệp ≤ 50 MB: "📄 Mở PDF" mở được trên Safari), ✏️ Sửa tên + chữ, 🔄 thay tệp, 🗑 Xoá tệp.
 Ghi vào commit: "iPhone: ${noWk ? 'chưa kiểm' : 'WebKit giả lập xanh'}".`);
