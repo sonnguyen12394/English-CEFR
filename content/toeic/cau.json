@@ -1,0 +1,3965 @@
+{
+ "_khuon": "Phố Cầu Nối (specs/020). Mỗi câu: id cn-NNN · s có đúng một ___ (≤ 28 từ) · a = đáp án · o = 4 phương án [từ, loại, nghĩa tiếng Việt, kiểu quan hệ]. Loại: G giới từ (sau là cụm danh từ / V-ing) · L liên từ (sau là cả mệnh đề S + V) · T trạng từ nối (đầu câu mới sau dấu chấm / chấm phẩy, sau nó là dấu phẩy). Kiểu quan hệ: them thêm ý · doi đối lập · vi nguyên nhân · kq kết quả · tg thời gian · dk điều kiện · md mục đích · vt vị trí, cách thức. why ≤ 30 từ: nhắc phần sau ô trống (trong ngoặc kép, chép đúng chữ của câu) + quan hệ + đáp án trong ngoặc kép. vi = dịch cả câu. Chỉ một phương án đúng; phương án sai phải sai rõ (sai loại hoặc sai quan hệ).",
+ "items": [
+  {
+   "id": "cn-001",
+   "s": "The outdoor concert was postponed ___ the heavy rain.",
+   "a": "because of",
+   "o": [
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the heavy rain\", nói lý do: cần giới từ \"because of\".",
+   "vi": "Buổi hòa nhạc ngoài trời bị hoãn vì mưa lớn."
+  },
+  {
+   "id": "cn-002",
+   "s": "___ the train was delayed, most passengers arrived at the conference on time.",
+   "a": "Although",
+   "o": [
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "However",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the train was delayed\", hai vế ngược nhau: chọn liên từ \"Although\".",
+   "vi": "Mặc dù tàu bị trễ, hầu hết hành khách vẫn đến hội nghị đúng giờ."
+  },
+  {
+   "id": "cn-003",
+   "s": "Sales of the new model were lower than expected. ___, the company plans to increase production next year.",
+   "a": "However",
+   "o": [
+    [
+     "However",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ]
+   ],
+   "why": "Ô trống mở đầu câu mới, sau là dấu phẩy: cần trạng từ nối; hai câu ngược nhau: \"However\".",
+   "vi": "Doanh số mẫu mới thấp hơn dự kiến. Tuy nhiên, công ty dự định tăng sản lượng vào năm sau."
+  },
+  {
+   "id": "cn-004",
+   "s": "Please submit your expense reports ___ Friday so that they can be processed this month.",
+   "a": "by",
+   "o": [
+    [
+     "by",
+     "G",
+     "chậm nhất là, trước (hạn chót)",
+     "tg"
+    ],
+    [
+     "until",
+     "G",
+     "cho tới khi (việc kéo dài liên tục)",
+     "tg"
+    ],
+    [
+     "during",
+     "G",
+     "trong suốt (+ khoảng thời gian)",
+     "tg"
+    ],
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "\"Friday\" là hạn chót nộp báo cáo: \"by\" = chậm nhất là; \"until\" chỉ dùng cho việc kéo dài liên tục.",
+   "vi": "Vui lòng nộp báo cáo chi phí chậm nhất thứ Sáu để kịp xử lý trong tháng này."
+  },
+  {
+   "id": "cn-005",
+   "s": "Visitors may not enter the laboratory ___ they are accompanied by a staff member.",
+   "a": "unless",
+   "o": [
+    [
+     "unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "if",
+     "L",
+     "nếu (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "vt"
+    ],
+    [
+     "otherwise",
+     "T",
+     "nếu không thì",
+     "dk"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"they are accompanied\"; không được vào TRỪ KHI có nhân viên đi cùng: \"unless\".",
+   "vi": "Khách không được vào phòng thí nghiệm trừ khi có nhân viên đi cùng."
+  },
+  {
+   "id": "cn-006",
+   "s": "Each conference package includes two nights of accommodation ___ daily lunch at the venue.",
+   "a": "as well as",
+   "o": [
+    [
+     "as well as",
+     "G",
+     "cũng như, và cả (+ cụm danh từ)",
+     "them"
+    ],
+    [
+     "in addition",
+     "T",
+     "ngoài ra (đầu câu, có dấu phẩy)",
+     "them"
+    ],
+    [
+     "but",
+     "L",
+     "nhưng",
+     "doi"
+    ],
+    [
+     "so",
+     "L",
+     "vì vậy",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"daily lunch at the venue\", thêm một thứ nữa trong gói: \"as well as\".",
+   "vi": "Mỗi gói hội nghị gồm hai đêm lưu trú và cả bữa trưa hằng ngày tại địa điểm."
+  },
+  {
+   "id": "cn-007",
+   "s": "Ms. Patel arrived early ___ she could set up the projector before the meeting.",
+   "a": "so that",
+   "o": [
+    [
+     "so that",
+     "L",
+     "để mà (+ mệnh đề)",
+     "md"
+    ],
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "as a result",
+     "T",
+     "kết quả là",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"she could set up the projector\", nói mục đích đến sớm: \"so that\".",
+   "vi": "Cô Patel đến sớm để có thể lắp máy chiếu trước cuộc họp."
+  },
+  {
+   "id": "cn-008",
+   "s": "The store will remain open ___ the renovation of its second floor.",
+   "a": "during",
+   "o": [
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the renovation of its second floor\", nói thời gian: \"during\"; \"while\" cần mệnh đề.",
+   "vi": "Cửa hàng vẫn mở cửa trong suốt thời gian sửa tầng hai."
+  },
+  {
+   "id": "cn-009",
+   "s": "Our sales team exceeded its targets this quarter; ___, every member will receive a bonus.",
+   "a": "therefore",
+   "o": [
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau dấu chấm phẩy, có dấu phẩy theo sau: trạng từ nối; vế sau \"every member will receive a bonus\" là kết quả: \"therefore\".",
+   "vi": "Đội bán hàng vượt chỉ tiêu quý này; vì vậy, mỗi thành viên sẽ được thưởng."
+  },
+  {
+   "id": "cn-010",
+   "s": "___ its small size, the new printer can handle large print jobs quickly.",
+   "a": "Despite",
+   "o": [
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "Moreover",
+     "T",
+     "hơn nữa",
+     "them"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"its small size\"; nhỏ mà làm được việc lớn là hai ý ngược: \"Despite\".",
+   "vi": "Dù nhỏ gọn, máy in mới vẫn xử lý nhanh các lệnh in lớn."
+  },
+  {
+   "id": "cn-011",
+   "s": "The technician will test the new software ___ the installation is complete.",
+   "a": "once",
+   "o": [
+    [
+     "once",
+     "L",
+     "ngay khi, một khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "by",
+     "G",
+     "chậm nhất là (+ mốc)",
+     "tg"
+    ],
+    [
+     "so",
+     "L",
+     "vì vậy",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the installation is complete\": cần liên từ chỉ thời gian \"once\" = ngay khi.",
+   "vi": "Kỹ thuật viên sẽ kiểm tra phần mềm mới ngay khi cài đặt xong."
+  },
+  {
+   "id": "cn-012",
+   "s": "The company moved its headquarters downtown ___ rent in the suburbs had become too expensive.",
+   "a": "because",
+   "o": [
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "even though",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "in addition",
+     "T",
+     "ngoài ra",
+     "them"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"rent in the suburbs had become\", nói lý do chuyển trụ sở: liên từ \"because\".",
+   "vi": "Công ty chuyển trụ sở vào trung tâm vì tiền thuê ở ngoại ô đã quá đắt."
+  },
+  {
+   "id": "cn-013",
+   "s": "The museum offers free entry on Sundays. ___, students receive a discount on all other days.",
+   "a": "In addition",
+   "o": [
+    [
+     "In addition",
+     "T",
+     "ngoài ra",
+     "them"
+    ],
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "Unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ]
+   ],
+   "why": "Ô trống mở đầu câu mới, sau là dấu phẩy: trạng từ nối; câu sau thêm một ưu đãi nữa: \"In addition\".",
+   "vi": "Bảo tàng miễn phí vé vào cửa ngày Chủ nhật. Ngoài ra, sinh viên được giảm giá vào các ngày khác."
+  },
+  {
+   "id": "cn-014",
+   "s": "The package was delivered to the wrong address ___ a mistake on the shipping label.",
+   "a": "due to",
+   "o": [
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "as a result",
+     "T",
+     "kết quả là",
+     "kq"
+    ],
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"a mistake on the shipping label\", nêu lý do: giới từ \"due to\".",
+   "vi": "Gói hàng bị giao sai địa chỉ do lỗi trên nhãn gửi hàng."
+  },
+  {
+   "id": "cn-015",
+   "s": "Please sign the form today. ___, we will not be able to process your application.",
+   "a": "Otherwise",
+   "o": [
+    [
+     "Otherwise",
+     "T",
+     "nếu không thì",
+     "dk"
+    ],
+    [
+     "Likewise",
+     "T",
+     "tương tự như vậy",
+     "them"
+    ],
+    [
+     "Meanwhile",
+     "T",
+     "trong lúc đó",
+     "tg"
+    ],
+    [
+     "Because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"we will not be able to process your application\", không ký thì không xử lý được: \"Otherwise\".",
+   "vi": "Vui lòng ký mẫu đơn hôm nay. Nếu không, chúng tôi không thể xử lý hồ sơ của bạn."
+  },
+  {
+   "id": "cn-016",
+   "s": "The check-in line moved slowly ___ a problem with the hotel's reservation system.",
+   "a": "because of",
+   "o": [
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"a problem with the hotel's reservation system\", nêu lý do hàng chờ chậm: \"because of\".",
+   "vi": "Hàng chờ nhận phòng nhích chậm vì sự cố ở hệ thống đặt phòng của khách sạn."
+  },
+  {
+   "id": "cn-017",
+   "s": "Mr. Tanaka chose to take the train ___ renting a car for the trip.",
+   "a": "instead of",
+   "o": [
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "instead of",
+     "G",
+     "thay vì (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"renting a car for the trip\", chọn tàu thay vì thuê xe: \"instead of\".",
+   "vi": "Ông Tanaka chọn đi tàu thay vì thuê xe cho chuyến đi."
+  },
+  {
+   "id": "cn-018",
+   "s": "Ms. Kwon presented the quarterly results. ___, the board voted to expand the Asia division.",
+   "a": "Afterward",
+   "o": [
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Otherwise",
+     "T",
+     "nếu không thì",
+     "dk"
+    ],
+    [
+     "Until",
+     "G",
+     "cho tới (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "Afterward",
+     "T",
+     "sau đó",
+     "tg"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"the board voted to expand the Asia division\", việc bỏ phiếu xảy ra sau phần trình bày: \"Afterward\".",
+   "vi": "Cô Kwon trình bày kết quả quý. Sau đó, hội đồng bỏ phiếu mở rộng khối châu Á."
+  },
+  {
+   "id": "cn-019",
+   "s": "The seminar was moved to a larger room ___ the unexpected number of registrations.",
+   "a": "owing to",
+   "o": [
+    [
+     "owing to",
+     "G",
+     "do, bởi (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the unexpected number of registrations\", nêu lý do đổi phòng: \"owing to\".",
+   "vi": "Buổi hội thảo được chuyển sang phòng lớn hơn do số người đăng ký vượt dự kiến."
+  },
+  {
+   "id": "cn-020",
+   "s": "___ its main office in Lisbon, the firm operates two branches in northern Portugal.",
+   "a": "In addition to",
+   "o": [
+    [
+     "In addition",
+     "T",
+     "ngoài ra",
+     "them"
+    ],
+    [
+     "In addition to",
+     "G",
+     "ngoài (+ cụm danh từ)",
+     "them"
+    ],
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"its main office in Lisbon\", ngoài trụ sở còn có hai chi nhánh: \"In addition to\".",
+   "vi": "Ngoài trụ sở chính ở Lisbon, công ty còn có hai chi nhánh ở miền bắc Bồ Đào Nha."
+  },
+  {
+   "id": "cn-021",
+   "s": "The warranty will be void ___ the product is repaired by an unauthorized technician.",
+   "a": "if",
+   "o": [
+    [
+     "without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "if",
+     "L",
+     "nếu (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "thus",
+     "T",
+     "vì thế",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the product is repaired by an unauthorized technician\", điều kiện làm mất bảo hành: \"if\".",
+   "vi": "Bảo hành sẽ mất hiệu lực nếu sản phẩm được sửa bởi kỹ thuật viên không được ủy quyền."
+  },
+  {
+   "id": "cn-022",
+   "s": "The shipment cleared customs on Monday. ___, it was delivered to the warehouse in Dallas.",
+   "a": "Subsequently",
+   "o": [
+    [
+     "Because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "However",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "After",
+     "G",
+     "sau (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "Subsequently",
+     "T",
+     "sau đó, về sau",
+     "tg"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"it was delivered to the warehouse in Dallas\", việc giao hàng xảy ra sau thông quan: \"Subsequently\".",
+   "vi": "Lô hàng thông quan hôm thứ Hai. Sau đó, nó được giao đến kho ở Dallas."
+  },
+  {
+   "id": "cn-023",
+   "s": "The projector stopped working, ___ the meeting was moved to the small conference room.",
+   "a": "so",
+   "o": [
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the meeting was moved to the small conference room\", hỏng máy chiếu nên chuyển phòng: \"so\".",
+   "vi": "Máy chiếu hỏng nên cuộc họp được chuyển sang phòng hội nghị nhỏ."
+  },
+  {
+   "id": "cn-024",
+   "s": "___ the manager approves the budget, we can order the new equipment.",
+   "a": "Once",
+   "o": [
+    [
+     "Due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "Once",
+     "L",
+     "ngay khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "Thus",
+     "T",
+     "vì thế",
+     "kq"
+    ],
+    [
+     "During",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the manager approves the budget\", duyệt ngân sách xong mới đặt thiết bị: \"Once\".",
+   "vi": "Ngay khi quản lý duyệt ngân sách, chúng ta có thể đặt thiết bị mới."
+  },
+  {
+   "id": "cn-025",
+   "s": "The technician will contact you ___ the replacement part arrives from the warehouse.",
+   "a": "as soon as",
+   "o": [
+    [
+     "prior to",
+     "G",
+     "trước (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "as soon as",
+     "L",
+     "ngay khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "thus",
+     "T",
+     "vì thế",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the replacement part arrives from the warehouse\", liên hệ ngay khi linh kiện về: \"as soon as\".",
+   "vi": "Kỹ thuật viên sẽ liên hệ với bạn ngay khi linh kiện thay thế về từ kho."
+  },
+  {
+   "id": "cn-026",
+   "s": "The staff held a full rehearsal ___ the grand opening of the new store.",
+   "a": "in preparation for",
+   "o": [
+    [
+     "so that",
+     "L",
+     "để mà (+ mệnh đề)",
+     "md"
+    ],
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "in preparation for",
+     "G",
+     "để chuẩn bị cho (+ cụm danh từ)",
+     "md"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the grand opening of the new store\", nêu mục đích diễn tập: \"in preparation for\".",
+   "vi": "Nhân viên diễn tập đầy đủ để chuẩn bị cho lễ khai trương cửa hàng mới."
+  },
+  {
+   "id": "cn-027",
+   "s": "Customers can track their parcels ___ the mobile app or the company website.",
+   "a": "via",
+   "o": [
+    [
+     "via",
+     "G",
+     "qua (kênh, đường)",
+     "vt"
+    ],
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ],
+    [
+     "under",
+     "G",
+     "dưới, đang trong",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the mobile app or the company website\", nêu kênh theo dõi: \"via\".",
+   "vi": "Khách có thể theo dõi bưu kiện qua ứng dụng di động hoặc trang web công ty."
+  },
+  {
+   "id": "cn-028",
+   "s": "The warehouse ships orders within 24 hours ___ the destination.",
+   "a": "regardless of",
+   "o": [
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "regardless of",
+     "G",
+     "bất kể (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the destination\", giao nhanh bất kể nơi đến: \"regardless of\".",
+   "vi": "Kho giao hàng trong 24 giờ bất kể nơi đến."
+  },
+  {
+   "id": "cn-029",
+   "s": "The supervisor was polite, ___ she refused to change the schedule.",
+   "a": "but",
+   "o": [
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "but",
+     "L",
+     "nhưng (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"she refused to change the schedule\", lịch sự nhưng vẫn từ chối, hai vế ngược nhau: \"but\".",
+   "vi": "Người giám sát rất lịch sự nhưng cô từ chối thay đổi lịch."
+  },
+  {
+   "id": "cn-030",
+   "s": "Our online orders have doubled since March. ___, we plan to hire six more packers.",
+   "a": "Therefore",
+   "o": [
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ],
+    [
+     "So",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "Therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"we plan to hire six more packers\", đơn tăng gấp đôi nên tuyển thêm người: \"Therefore\".",
+   "vi": "Đơn hàng trực tuyến tăng gấp đôi từ tháng Ba. Vì vậy, chúng tôi định tuyển thêm sáu nhân viên đóng gói."
+  },
+  {
+   "id": "cn-031",
+   "s": "Ms. Alvarez presented the budget, ___ her assistant, who prepared all the charts.",
+   "a": "along with",
+   "o": [
+    [
+     "along with",
+     "G",
+     "cùng với (+ cụm danh từ)",
+     "them"
+    ],
+    [
+     "in addition",
+     "T",
+     "ngoài ra",
+     "them"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "owing to",
+     "G",
+     "do, bởi (+ cụm danh từ)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"her assistant\", trình bày cùng với trợ lý: \"along with\".",
+   "vi": "Cô Alvarez trình bày ngân sách cùng với trợ lý, người chuẩn bị mọi biểu đồ."
+  },
+  {
+   "id": "cn-032",
+   "s": "The discount applies ___ you spend at least one hundred dollars.",
+   "a": "as long as",
+   "o": [
+    [
+     "without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "as long as",
+     "L",
+     "miễn là (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "otherwise",
+     "T",
+     "nếu không thì",
+     "dk"
+    ],
+    [
+     "though",
+     "L",
+     "dù (+ mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"you spend at least one hundred dollars\", điều kiện được giảm giá: \"as long as\".",
+   "vi": "Mức giảm áp dụng miễn là bạn chi tiêu ít nhất một trăm đô la."
+  },
+  {
+   "id": "cn-033",
+   "s": "Passengers may bring a small bag on board ___ it fits under the seat.",
+   "a": "if",
+   "o": [
+    [
+     "regardless of",
+     "G",
+     "bất kể (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "if",
+     "L",
+     "nếu (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "in case of",
+     "G",
+     "trong trường hợp (+ cụm danh từ)",
+     "dk"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"it fits under the seat\", điều kiện được mang túi lên: \"if\".",
+   "vi": "Hành khách được mang túi nhỏ lên máy bay nếu túi vừa dưới ghế."
+  },
+  {
+   "id": "cn-034",
+   "s": "The tour was rescheduled ___ the guide had fallen ill.",
+   "a": "because",
+   "o": [
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the guide had fallen ill\", nêu lý do dời tour: \"because\".",
+   "vi": "Tour được dời lịch vì hướng dẫn viên bị ốm."
+  },
+  {
+   "id": "cn-035",
+   "s": "Overall expenses fell ___ the new energy-saving lighting in all branches.",
+   "a": "due to",
+   "o": [
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "once",
+     "L",
+     "ngay khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the new energy-saving lighting in all branches\", nêu nguyên nhân chi phí giảm: \"due to\".",
+   "vi": "Tổng chi phí giảm do hệ thống đèn tiết kiệm điện mới ở mọi chi nhánh."
+  },
+  {
+   "id": "cn-036",
+   "s": "We reserved a larger room ___ all new employees could attend the orientation together.",
+   "a": "so that",
+   "o": [
+    [
+     "in preparation for",
+     "G",
+     "để chuẩn bị cho (+ cụm danh từ)",
+     "md"
+    ],
+    [
+     "so that",
+     "L",
+     "để mà (+ mệnh đề)",
+     "md"
+    ],
+    [
+     "consequently",
+     "T",
+     "do đó",
+     "kq"
+    ],
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"all new employees could attend the orientation together\", nêu mục đích đặt phòng lớn: \"so that\".",
+   "vi": "Chúng tôi đặt phòng lớn hơn để mọi nhân viên mới dự buổi định hướng cùng nhau."
+  },
+  {
+   "id": "cn-037",
+   "s": "Refund requests must be submitted ___ thirty days of purchase.",
+   "a": "within",
+   "o": [
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "until",
+     "G",
+     "cho tới (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "within",
+     "G",
+     "trong vòng (+ khoảng thời gian)",
+     "tg"
+    ],
+    [
+     "once",
+     "L",
+     "ngay khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"thirty days of purchase\", giới hạn thời gian gửi yêu cầu: \"within\".",
+   "vi": "Yêu cầu hoàn tiền phải được gửi trong vòng ba mươi ngày kể từ khi mua."
+  },
+  {
+   "id": "cn-038",
+   "s": "The conference will go ahead ___ the speaker's absence.",
+   "a": "in spite of",
+   "o": [
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "in spite of",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the speaker's absence\", diễn giả vắng mà hội nghị vẫn diễn ra: \"in spite of\".",
+   "vi": "Hội nghị vẫn diễn ra mặc dù diễn giả vắng mặt."
+  },
+  {
+   "id": "cn-039",
+   "s": "The auditor met ___ the finance team to review last year's accounts.",
+   "a": "with",
+   "o": [
+    [
+     "with",
+     "G",
+     "cùng với, bằng",
+     "vt"
+    ],
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ],
+    [
+     "under",
+     "G",
+     "dưới, đang trong",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the finance team to review last year's accounts\", gặp cùng nhóm tài chính: \"with\".",
+   "vi": "Kiểm toán viên họp với nhóm tài chính để xem lại sổ sách năm ngoái."
+  },
+  {
+   "id": "cn-040",
+   "s": "All visitors must register at the front desk ___ entering the research area.",
+   "a": "prior to",
+   "o": [
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "prior to",
+     "G",
+     "trước (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "owing to",
+     "G",
+     "do, bởi (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "but",
+     "L",
+     "nhưng (+ mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"entering the research area\", đăng ký trước khi vào khu nghiên cứu: \"prior to\".",
+   "vi": "Mọi khách phải đăng ký ở quầy lễ tân trước khi vào khu nghiên cứu."
+  },
+  {
+   "id": "cn-041",
+   "s": "The bank approved the loan ___ the applicant had no collateral.",
+   "a": "even though",
+   "o": [
+    [
+     "despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "even though",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the applicant had no collateral\", duyệt vay dù thiếu tài sản thế chấp: \"even though\".",
+   "vi": "Ngân hàng duyệt khoản vay mặc dù người nộp đơn không có tài sản thế chấp."
+  },
+  {
+   "id": "cn-042",
+   "s": "The receptionist keeps a spare key ___ guests can enter their rooms late at night.",
+   "a": "so that",
+   "o": [
+    [
+     "thanks to",
+     "G",
+     "nhờ (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "so that",
+     "L",
+     "để mà (+ mệnh đề)",
+     "md"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"guests can enter their rooms late at night\", nêu mục đích giữ chìa dự phòng: \"so that\".",
+   "vi": "Lễ tân giữ chìa dự phòng để khách có thể vào phòng lúc đêm khuya."
+  },
+  {
+   "id": "cn-043",
+   "s": "The first prototype was expensive to build. ___, the second one cost half as much.",
+   "a": "In contrast",
+   "o": [
+    [
+     "In contrast",
+     "T",
+     "ngược lại",
+     "doi"
+    ],
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ],
+    [
+     "Even though",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"the second one cost half as much\", ngược với bản đầu: \"In contrast\".",
+   "vi": "Mẫu thử đầu tiên tốn kém để chế tạo. Ngược lại, mẫu thứ hai chỉ tốn một nửa."
+  },
+  {
+   "id": "cn-044",
+   "s": "Our supplier delivers within two days. ___, its prices are lower than those of its competitors.",
+   "a": "Besides",
+   "o": [
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Besides",
+     "T",
+     "ngoài ra",
+     "them"
+    ],
+    [
+     "Along with",
+     "G",
+     "cùng với (+ cụm danh từ)",
+     "them"
+    ],
+    [
+     "As a result",
+     "T",
+     "kết quả là",
+     "kq"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"its prices are lower than those of its competitors\", thêm một ưu điểm nữa: \"Besides\".",
+   "vi": "Nhà cung cấp giao hàng trong hai ngày. Ngoài ra, giá của họ thấp hơn đối thủ."
+  },
+  {
+   "id": "cn-045",
+   "s": "The hotel gym is closed ___ the cleaning of the pool each Monday morning.",
+   "a": "during",
+   "o": [
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the cleaning of the pool each Monday morning\", nói khoảng thời gian đóng cửa: \"during\".",
+   "vi": "Phòng tập của khách sạn đóng cửa trong lúc vệ sinh hồ bơi mỗi sáng thứ Hai."
+  },
+  {
+   "id": "cn-046",
+   "s": "The new gym offers yoga classes ___ regular fitness training for all members.",
+   "a": "in addition to",
+   "o": [
+    [
+     "moreover",
+     "T",
+     "hơn nữa",
+     "them"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "since",
+     "G",
+     "từ khi (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "in addition to",
+     "G",
+     "ngoài (+ cụm danh từ)",
+     "them"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"regular fitness training for all members\", ngoài yoga còn có tập thể lực: \"in addition to\".",
+   "vi": "Phòng tập mới có lớp yoga bên cạnh chương trình tập thể lực thường xuyên cho mọi hội viên."
+  },
+  {
+   "id": "cn-047",
+   "s": "The manager was absent from the training session. ___, she asked a colleague to share the notes.",
+   "a": "Thus",
+   "o": [
+    [
+     "Thus",
+     "T",
+     "vì thế",
+     "kq"
+    ],
+    [
+     "Even though",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Likewise",
+     "T",
+     "tương tự như vậy",
+     "them"
+    ],
+    [
+     "So",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"she asked a colleague to share the notes\", hệ quả của việc vắng mặt: \"Thus\".",
+   "vi": "Quản lý vắng mặt buổi tập huấn. Vì thế, cô nhờ đồng nghiệp chia sẻ ghi chép."
+  },
+  {
+   "id": "cn-048",
+   "s": "The doors will stay locked ___ the security team completes its inspection.",
+   "a": "until",
+   "o": [
+    [
+     "by",
+     "G",
+     "chậm nhất là (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "until",
+     "L",
+     "cho đến khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the security team completes its inspection\", khóa liên tục cho tới lúc kiểm tra xong: \"until\".",
+   "vi": "Các cửa sẽ khóa cho đến khi đội an ninh kiểm tra xong."
+  },
+  {
+   "id": "cn-049",
+   "s": "Please keep your phone silent ___ the presentation is in progress.",
+   "a": "while",
+   "o": [
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the presentation is in progress\", nói khoảng thời gian cần im lặng: \"while\".",
+   "vi": "Vui lòng để điện thoại im lặng trong khi buổi thuyết trình đang diễn ra."
+  },
+  {
+   "id": "cn-050",
+   "s": "The new phone has a longer battery life. ___, it is lighter than the previous model.",
+   "a": "Moreover",
+   "o": [
+    [
+     "However",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "Whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "As well as",
+     "G",
+     "cũng như (+ cụm danh từ)",
+     "them"
+    ],
+    [
+     "Moreover",
+     "T",
+     "hơn nữa",
+     "them"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"it is lighter than the previous model\", thêm một ưu điểm nữa: \"Moreover\".",
+   "vi": "Điện thoại mới có pin lâu hơn. Hơn nữa, nó nhẹ hơn mẫu trước."
+  },
+  {
+   "id": "cn-051",
+   "s": "Several engineers visited the site ___ the installation of the new generator.",
+   "a": "in preparation for",
+   "o": [
+    [
+     "in preparation for",
+     "G",
+     "để chuẩn bị cho (+ cụm danh từ)",
+     "md"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "once",
+     "L",
+     "ngay khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "so that",
+     "L",
+     "để mà (+ mệnh đề)",
+     "md"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the installation of the new generator\", nêu mục đích khảo sát: \"in preparation for\".",
+   "vi": "Một số kỹ sư đến khảo sát công trường để chuẩn bị cho việc lắp máy phát điện mới."
+  },
+  {
+   "id": "cn-052",
+   "s": "We will hold the outdoor event ___ it rains heavily.",
+   "a": "even if",
+   "o": [
+    [
+     "despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "even if",
+     "L",
+     "ngay cả khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"it rains heavily\", vẫn tổ chức dù điều kiện xấu: \"even if\".",
+   "vi": "Chúng tôi vẫn tổ chức sự kiện ngoài trời ngay cả khi trời mưa lớn."
+  },
+  {
+   "id": "cn-053",
+   "s": "Ms. Rivera accepted the transfer to Chicago, ___ she would miss her colleagues in Denver.",
+   "a": "though",
+   "o": [
+    [
+     "despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "though",
+     "L",
+     "dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"she would miss her colleagues in Denver\", nhận chuyển công tác dù sẽ nhớ đồng nghiệp: \"though\".",
+   "vi": "Cô Rivera nhận chuyển đến Chicago, dù cô sẽ nhớ đồng nghiệp ở Denver."
+  },
+  {
+   "id": "cn-054",
+   "s": "The refund policy was not clearly stated on the website. ___, the manager agreed to return the full amount.",
+   "a": "Nevertheless",
+   "o": [
+    [
+     "Even though",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Likewise",
+     "T",
+     "tương tự như vậy",
+     "them"
+    ],
+    [
+     "Owing to",
+     "G",
+     "do, bởi (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "Nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"the manager agreed to return the full amount\", chính sách mơ hồ nhưng vẫn hoàn tiền: \"Nevertheless\".",
+   "vi": "Chính sách hoàn tiền không được nêu rõ trên trang web. Tuy vậy, quản lý vẫn đồng ý hoàn đủ số tiền."
+  },
+  {
+   "id": "cn-055",
+   "s": "Guests should ask for a key card ___ they check in at the front desk.",
+   "a": "when",
+   "o": [
+    [
+     "when",
+     "L",
+     "khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"they check in at the front desk\", xin thẻ phòng lúc nhận phòng: \"when\".",
+   "vi": "Khách nên xin thẻ phòng khi nhận phòng ở quầy lễ tân."
+  },
+  {
+   "id": "cn-056",
+   "s": "Our goal is to reduce delivery times by a third. ___, we have added two more regional warehouses.",
+   "a": "To that end",
+   "o": [
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "To that end",
+     "T",
+     "để đạt mục đích đó",
+     "md"
+    ],
+    [
+     "Otherwise",
+     "T",
+     "nếu không thì",
+     "dk"
+    ],
+    [
+     "In preparation for",
+     "G",
+     "để chuẩn bị cho (+ cụm danh từ)",
+     "md"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"we have added two more regional warehouses\", thêm kho là để đạt mục tiêu: \"To that end\".",
+   "vi": "Mục tiêu của chúng tôi là giảm một phần ba thời gian giao hàng. Vì mục đích đó, chúng tôi thêm hai kho khu vực."
+  },
+  {
+   "id": "cn-057",
+   "s": "The hotel stayed fully booked ___ a sharp rise in room rates.",
+   "a": "despite",
+   "o": [
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"a sharp rise in room rates\", giá tăng mà vẫn kín phòng, hai ý ngược nhau: \"despite\".",
+   "vi": "Khách sạn vẫn kín phòng mặc dù giá phòng tăng mạnh."
+  },
+  {
+   "id": "cn-058",
+   "s": "The cables run ___ the walls to a control box in the basement.",
+   "a": "through",
+   "o": [
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ],
+    [
+     "with",
+     "G",
+     "cùng với, bằng",
+     "vt"
+    ],
+    [
+     "through",
+     "G",
+     "xuyên qua, thông qua",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the walls to a control box in the basement\", dây đi xuyên qua tường: \"through\".",
+   "vi": "Dây cáp đi xuyên qua tường tới hộp điều khiển ở tầng hầm."
+  },
+  {
+   "id": "cn-059",
+   "s": "Ms. Gray always arrives early to prepare for meetings. ___, her assistant makes sure every room is ready the night before.",
+   "a": "Likewise",
+   "o": [
+    [
+     "Likewise",
+     "T",
+     "tương tự như vậy",
+     "them"
+    ],
+    [
+     "However",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "Nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ],
+    [
+     "As well as",
+     "G",
+     "cũng như (+ cụm danh từ)",
+     "them"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"her assistant makes sure every room is ready the night before\", cũng chuẩn bị như vậy: \"Likewise\".",
+   "vi": "Cô Gray luôn đến sớm chuẩn bị cho các cuộc họp. Tương tự, trợ lý của cô bảo đảm mọi phòng sẵn sàng từ đêm trước."
+  },
+  {
+   "id": "cn-060",
+   "s": "The meeting will start at nine ___ the client arrives late.",
+   "a": "unless",
+   "o": [
+    [
+     "without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the client arrives late\", điều kiện loại trừ, bắt đầu lúc chín giờ: \"unless\".",
+   "vi": "Cuộc họp sẽ bắt đầu lúc chín giờ trừ khi khách hàng đến muộn."
+  },
+  {
+   "id": "cn-061",
+   "s": "The team finished the audit on schedule ___ the shortage of staff.",
+   "a": "in spite of",
+   "o": [
+    [
+     "even though",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "in spite of",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the shortage of staff\", thiếu người mà vẫn đúng hạn, hai ý ngược nhau: \"in spite of\".",
+   "vi": "Nhóm hoàn thành cuộc kiểm toán đúng tiến độ mặc dù thiếu nhân sự."
+  },
+  {
+   "id": "cn-062",
+   "s": "___ the fire alarm sounds, everyone must leave through the nearest exit.",
+   "a": "When",
+   "o": [
+    [
+     "During",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "However",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "In case of",
+     "G",
+     "trong trường hợp (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "When",
+     "L",
+     "khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the fire alarm sounds\", nói thời điểm phải rời đi: \"When\".",
+   "vi": "Khi chuông báo cháy vang lên, mọi người phải ra bằng lối thoát gần nhất."
+  },
+  {
+   "id": "cn-063",
+   "s": "The accountant reviewed every invoice ___ she sent the final report to the board.",
+   "a": "before",
+   "o": [
+    [
+     "before",
+     "L",
+     "trước khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "prior to",
+     "G",
+     "trước (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "even though",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"she sent the final report to the board\", soát hóa đơn trước lúc gửi báo cáo: \"before\".",
+   "vi": "Kế toán xem lại mọi hóa đơn trước khi gửi báo cáo cuối cùng cho hội đồng."
+  },
+  {
+   "id": "cn-064",
+   "s": "We will update the website ___ the new logo has been approved.",
+   "a": "after",
+   "o": [
+    [
+     "since",
+     "G",
+     "từ khi (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "after",
+     "L",
+     "sau khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "thus",
+     "T",
+     "vì thế",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the new logo has been approved\", cập nhật sau khi logo được duyệt: \"after\".",
+   "vi": "Chúng tôi sẽ cập nhật trang web sau khi logo mới được duyệt."
+  },
+  {
+   "id": "cn-065",
+   "s": "Several flights were canceled ___ a software failure at the control center.",
+   "a": "because of",
+   "o": [
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "thus",
+     "T",
+     "vì thế",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"a software failure at the control center\", nêu lý do hủy chuyến: \"because of\".",
+   "vi": "Nhiều chuyến bay bị hủy vì sự cố phần mềm tại trung tâm điều hành."
+  },
+  {
+   "id": "cn-066",
+   "s": "The warehouse was flooded last night. ___, all deliveries scheduled for today have been postponed.",
+   "a": "Consequently",
+   "o": [
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Nonetheless",
+     "T",
+     "dù vậy",
+     "doi"
+    ],
+    [
+     "So",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "Consequently",
+     "T",
+     "do đó",
+     "kq"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"all deliveries scheduled for today have been postponed\", kho ngập nên hoãn giao hàng: \"Consequently\".",
+   "vi": "Kho bị ngập tối qua. Do đó, mọi chuyến giao hàng hôm nay đều bị hoãn."
+  },
+  {
+   "id": "cn-067",
+   "s": "Mr. Gomez prefers to work in the morning, ___ his assistant prefers the late afternoon.",
+   "a": "whereas",
+   "o": [
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ],
+    [
+     "unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "as soon as",
+     "L",
+     "ngay khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"his assistant prefers the late afternoon\", hai người ưa thích khác nhau: \"whereas\".",
+   "vi": "Ông Gomez thích làm việc buổi sáng, trong khi trợ lý của ông thích chiều muộn."
+  },
+  {
+   "id": "cn-068",
+   "s": "Our help desk answers questions ___ the whole year, including public holidays.",
+   "a": "throughout",
+   "o": [
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "throughout",
+     "G",
+     "suốt, khắp (+ khoảng thời gian)",
+     "tg"
+    ],
+    [
+     "unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "in addition",
+     "T",
+     "ngoài ra",
+     "them"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the whole year\", trả lời suốt cả năm: \"throughout\".",
+   "vi": "Bộ phận hỗ trợ trả lời câu hỏi suốt cả năm, kể cả ngày lễ."
+  },
+  {
+   "id": "cn-069",
+   "s": "Please label each box clearly ___ the movers know where to place it.",
+   "a": "so that",
+   "o": [
+    [
+     "in preparation for",
+     "G",
+     "để chuẩn bị cho (+ cụm danh từ)",
+     "md"
+    ],
+    [
+     "nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ],
+    [
+     "so that",
+     "L",
+     "để mà (+ mệnh đề)",
+     "md"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the movers know where to place it\", nêu mục đích dán nhãn: \"so that\".",
+   "vi": "Vui lòng dán nhãn rõ ràng cho từng thùng để nhân viên chuyển biết đặt ở đâu."
+  },
+  {
+   "id": "cn-070",
+   "s": "Please send the signed contract back to us ___ the end of this week.",
+   "a": "by",
+   "o": [
+    [
+     "until",
+     "G",
+     "cho tới (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "by",
+     "G",
+     "chậm nhất là (+ mốc thời gian)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the end of this week\", hạn chót gửi hợp đồng: \"by\".",
+   "vi": "Vui lòng gửi lại hợp đồng đã ký cho chúng tôi chậm nhất là cuối tuần này."
+  },
+  {
+   "id": "cn-071",
+   "s": "Employees must wear safety helmets on site ___ their job title.",
+   "a": "regardless of",
+   "o": [
+    [
+     "regardless of",
+     "G",
+     "bất kể (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ],
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "so that",
+     "L",
+     "để mà (+ mệnh đề)",
+     "md"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"their job title\", ai cũng phải đội mũ, bất kể chức danh: \"regardless of\".",
+   "vi": "Nhân viên phải đội mũ bảo hộ tại công trường bất kể chức danh."
+  },
+  {
+   "id": "cn-072",
+   "s": "Ms. Kim was chosen to lead the project ___ she had the most experience.",
+   "a": "since",
+   "o": [
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "since",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "though",
+     "L",
+     "dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"she had the most experience\", nêu lý do được chọn: \"since\".",
+   "vi": "Cô Kim được chọn dẫn dắt dự án vì cô có nhiều kinh nghiệm nhất."
+  },
+  {
+   "id": "cn-073",
+   "s": "___ the new menu received excellent reviews, the restaurant's sales stayed flat.",
+   "a": "Although",
+   "o": [
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "However",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the new menu received excellent reviews\", khen nhiều mà doanh số không tăng, hai vế ngược nhau: \"Although\".",
+   "vi": "Mặc dù thực đơn mới được đánh giá rất tốt, doanh thu nhà hàng vẫn đi ngang."
+  },
+  {
+   "id": "cn-074",
+   "s": "The air conditioning ran ___ the night to keep the servers cool.",
+   "a": "throughout",
+   "o": [
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "in case of",
+     "G",
+     "trong trường hợp (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "throughout",
+     "G",
+     "suốt, khắp (+ khoảng thời gian)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the night\", chạy suốt đêm: \"throughout\".",
+   "vi": "Máy điều hòa chạy suốt đêm để giữ máy chủ luôn mát."
+  },
+  {
+   "id": "cn-075",
+   "s": "The east wing is currently ___ construction and will reopen in May.",
+   "a": "under",
+   "o": [
+    [
+     "under",
+     "G",
+     "dưới, đang trong",
+     "vt"
+    ],
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ],
+    [
+     "with",
+     "G",
+     "cùng với, bằng",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"construction and will reopen in May\", cụm cố định \"under construction\" nghĩa là đang xây: \"under\".",
+   "vi": "Cánh đông hiện đang xây dựng và sẽ mở lại vào tháng Năm."
+  },
+  {
+   "id": "cn-076",
+   "s": "The annual shareholders' meeting will take place ___ the Grand Plaza Hotel.",
+   "a": "at",
+   "o": [
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ],
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "with",
+     "G",
+     "cùng với, bằng",
+     "vt"
+    ],
+    [
+     "toward",
+     "G",
+     "hướng tới",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the Grand Plaza Hotel\", nêu địa điểm: \"at\".",
+   "vi": "Đại hội cổ đông thường niên sẽ diễn ra tại khách sạn Grand Plaza."
+  },
+  {
+   "id": "cn-077",
+   "s": "Mr. Cho had planned to fly to Boston. ___, he took the night train after the airport closed.",
+   "a": "Instead",
+   "o": [
+    [
+     "Instead of",
+     "G",
+     "thay vì (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Once",
+     "L",
+     "ngay khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "Instead",
+     "T",
+     "thay vào đó",
+     "doi"
+    ],
+    [
+     "Whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"he took the night train after the airport closed\", kế hoạch bay đổi thành đi tàu: \"Instead\".",
+   "vi": "Ông Cho đã định bay đến Boston. Thay vào đó, ông đi tàu đêm sau khi sân bay đóng cửa."
+  },
+  {
+   "id": "cn-078",
+   "s": "The staff meeting starts ___ the last customer leaves the store.",
+   "a": "after",
+   "o": [
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "by",
+     "G",
+     "chậm nhất là (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "thus",
+     "T",
+     "vì thế",
+     "kq"
+    ],
+    [
+     "after",
+     "L",
+     "sau khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the last customer leaves the store\", họp sau khi khách cuối ra về: \"after\".",
+   "vi": "Cuộc họp nhân viên bắt đầu sau khi khách hàng cuối cùng rời cửa hàng."
+  },
+  {
+   "id": "cn-079",
+   "s": "The tour fee covers transportation ___ all museum tickets.",
+   "a": "as well as",
+   "o": [
+    [
+     "as well as",
+     "G",
+     "cũng như (+ cụm danh từ)",
+     "them"
+    ],
+    [
+     "in addition",
+     "T",
+     "ngoài ra",
+     "them"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"all museum tickets\", thêm một khoản nữa trong gói: \"as well as\".",
+   "vi": "Phí tour gồm đi lại cũng như toàn bộ vé bảo tàng."
+  },
+  {
+   "id": "cn-080",
+   "s": "Mr. Diaz took a taxi ___ the last bus had already left.",
+   "a": "as",
+   "o": [
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "as",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "though",
+     "L",
+     "dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "thus",
+     "T",
+     "vì thế",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the last bus had already left\", nêu lý do đi taxi: \"as\".",
+   "vi": "Ông Diaz đi taxi vì chuyến xe buýt cuối đã rời bến."
+  },
+  {
+   "id": "cn-081",
+   "s": "Our flights are usually on time. ___, bad weather caused a three-hour delay yesterday.",
+   "a": "However",
+   "o": [
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Thus",
+     "T",
+     "vì thế",
+     "kq"
+    ],
+    [
+     "However",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "As well as",
+     "G",
+     "cũng như (+ cụm danh từ)",
+     "them"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"bad weather caused a three-hour delay yesterday\", thường đúng giờ nhưng hôm qua lại trễ: \"However\".",
+   "vi": "Chuyến bay của chúng tôi thường đúng giờ. Tuy nhiên, thời tiết xấu đã gây chậm ba tiếng hôm qua."
+  },
+  {
+   "id": "cn-082",
+   "s": "Please do not leave the building ___ the evacuation drill has ended.",
+   "a": "until",
+   "o": [
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "by",
+     "G",
+     "chậm nhất là (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "prior to",
+     "G",
+     "trước (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "until",
+     "L",
+     "cho đến khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the evacuation drill has ended\", chờ liên tục tới khi diễn tập xong: \"until\".",
+   "vi": "Vui lòng không rời tòa nhà cho đến khi buổi diễn tập sơ tán kết thúc."
+  },
+  {
+   "id": "cn-083",
+   "s": "___ a fire, guests should use the stairs instead of the elevators.",
+   "a": "In case of",
+   "o": [
+    [
+     "In case of",
+     "G",
+     "trong trường hợp (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "In case",
+     "L",
+     "phòng khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"a fire, guests should use the stairs\", tình huống có hỏa hoạn: \"In case of\".",
+   "vi": "Trong trường hợp hỏa hoạn, khách nên dùng cầu thang thay vì thang máy."
+  },
+  {
+   "id": "cn-084",
+   "s": "Orders cannot be shipped ___ a valid credit card.",
+   "a": "without",
+   "o": [
+    [
+     "unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "thus",
+     "T",
+     "vì thế",
+     "kq"
+    ],
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"a valid credit card\", điều kiện phải có thẻ hợp lệ: \"without\".",
+   "vi": "Đơn hàng không thể gửi đi nếu không có thẻ tín dụng hợp lệ."
+  },
+  {
+   "id": "cn-085",
+   "s": "The ceremony will be held indoors ___ it is likely to rain this afternoon.",
+   "a": "since",
+   "o": [
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "though",
+     "L",
+     "dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "since",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"it is likely to rain this afternoon\", nêu lý do tổ chức trong nhà: \"since\".",
+   "vi": "Buổi lễ sẽ tổ chức trong nhà vì chiều nay có khả năng mưa."
+  },
+  {
+   "id": "cn-086",
+   "s": "The Oslo branch will close in June ___ it has not been profitable for three years.",
+   "a": "because",
+   "o": [
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"it has not been profitable for three years\", nêu lý do đóng chi nhánh: \"because\".",
+   "vi": "Chi nhánh Oslo sẽ đóng cửa vào tháng Sáu vì ba năm nay không có lãi."
+  },
+  {
+   "id": "cn-087",
+   "s": "The marketing campaign succeeded ___ the creative work of a small design team.",
+   "a": "thanks to",
+   "o": [
+    [
+     "thanks to",
+     "G",
+     "nhờ (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "though",
+     "L",
+     "dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "as soon as",
+     "L",
+     "ngay khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the creative work of a small design team\", nêu nguyên nhân thành công: \"thanks to\".",
+   "vi": "Chiến dịch tiếp thị thành công nhờ công sức sáng tạo của một nhóm thiết kế nhỏ."
+  },
+  {
+   "id": "cn-088",
+   "s": "___ the proposal was well written, the board postponed its vote.",
+   "a": "Although",
+   "o": [
+    [
+     "In spite of",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ],
+    [
+     "Because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the proposal was well written\", viết tốt mà vẫn hoãn bỏ phiếu, hai vế ngược nhau: \"Although\".",
+   "vi": "Mặc dù đề xuất được viết tốt, hội đồng vẫn hoãn việc bỏ phiếu."
+  },
+  {
+   "id": "cn-089",
+   "s": "The shop kept its prices low ___ the cost of materials had risen sharply.",
+   "a": "even though",
+   "o": [
+    [
+     "in spite of",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "even though",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "thus",
+     "T",
+     "vì thế",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the cost of materials had risen sharply\", chi phí tăng mà vẫn giữ giá thấp: \"even though\".",
+   "vi": "Cửa hàng vẫn giữ giá thấp mặc dù chi phí vật liệu đã tăng mạnh."
+  },
+  {
+   "id": "cn-090",
+   "s": "The software reduces processing time by half. ___, it lowers the risk of data entry errors.",
+   "a": "Furthermore",
+   "o": [
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Instead",
+     "T",
+     "thay vào đó",
+     "doi"
+    ],
+    [
+     "In addition to",
+     "G",
+     "ngoài (+ cụm danh từ)",
+     "them"
+    ],
+    [
+     "Furthermore",
+     "T",
+     "hơn nữa",
+     "them"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"it lowers the risk of data entry errors\", thêm một lợi ích nữa: \"Furthermore\".",
+   "vi": "Phần mềm giảm một nửa thời gian xử lý. Hơn nữa, nó giảm nguy cơ nhập sai dữ liệu."
+  },
+  {
+   "id": "cn-091",
+   "s": "___ the merger is complete, all departments will share one email system.",
+   "a": "Now that",
+   "o": [
+    [
+     "Now that",
+     "L",
+     "vì giờ đây (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "Because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "Thus",
+     "T",
+     "vì thế",
+     "kq"
+    ],
+    [
+     "Whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the merger is complete\", sáp nhập xong nên dùng chung hệ thống: \"Now that\".",
+   "vi": "Giờ đây việc sáp nhập đã xong, mọi phòng ban sẽ dùng chung một hệ thống email."
+  },
+  {
+   "id": "cn-092",
+   "s": "___ the latest sales report, online orders increased by 12 percent in May.",
+   "a": "According to",
+   "o": [
+    [
+     "Despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "According to",
+     "G",
+     "theo (+ cụm danh từ)",
+     "vt"
+    ],
+    [
+     "Among",
+     "G",
+     "giữa (nhiều người, vật)",
+     "vt"
+    ],
+    [
+     "Toward",
+     "G",
+     "hướng tới",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the latest sales report\", nêu nguồn thông tin: \"According to\".",
+   "vi": "Theo báo cáo doanh số mới nhất, đơn hàng trực tuyến tăng 12% trong tháng Năm."
+  },
+  {
+   "id": "cn-093",
+   "s": "The client changed the deadline, ___ we had to work through the weekend.",
+   "a": "so",
+   "o": [
+    [
+     "although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "owing to",
+     "G",
+     "do, bởi (+ cụm danh từ)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"we had to work through the weekend\", đổi hạn chót nên phải làm cuối tuần: \"so\".",
+   "vi": "Khách hàng đổi hạn chót nên chúng tôi phải làm việc cả cuối tuần."
+  },
+  {
+   "id": "cn-094",
+   "s": "Mr. Evans printed extra copies of the agenda ___ every attendee could follow the discussion.",
+   "a": "so that",
+   "o": [
+    [
+     "in preparation for",
+     "G",
+     "để chuẩn bị cho (+ cụm danh từ)",
+     "md"
+    ],
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ],
+    [
+     "as a result",
+     "T",
+     "kết quả là",
+     "kq"
+    ],
+    [
+     "so that",
+     "L",
+     "để mà (+ mệnh đề)",
+     "md"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"every attendee could follow the discussion\", nêu mục đích in thêm bản: \"so that\".",
+   "vi": "Ông Evans in thêm bản chương trình để mọi người dự họp theo dõi được cuộc thảo luận."
+  },
+  {
+   "id": "cn-095",
+   "s": "The team could not finish the report ___ the data from Finance arrived two days late.",
+   "a": "because",
+   "o": [
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "owing to",
+     "G",
+     "do, bởi (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the data from Finance arrived two days late\", nêu lý do chưa xong báo cáo: \"because\".",
+   "vi": "Nhóm không kịp hoàn tất báo cáo vì dữ liệu của phòng Tài chính đến trễ hai ngày."
+  },
+  {
+   "id": "cn-096",
+   "s": "The factory closed for two days ___ a power outage across the industrial district.",
+   "a": "owing to",
+   "o": [
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "owing to",
+     "G",
+     "do, bởi (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"a power outage across the industrial district\", nêu lý do đóng cửa: \"owing to\".",
+   "vi": "Nhà máy đóng cửa hai ngày do mất điện trên cả khu công nghiệp."
+  },
+  {
+   "id": "cn-097",
+   "s": "___ the new elevator is working, employees no longer need to use the stairs.",
+   "a": "Now that",
+   "o": [
+    [
+     "Due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "However",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "Now that",
+     "L",
+     "vì giờ đây (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "Unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the new elevator is working\", thang máy chạy nên không cần đi cầu thang: \"Now that\".",
+   "vi": "Giờ đây thang máy mới đã chạy, nhân viên không cần đi cầu thang nữa."
+  },
+  {
+   "id": "cn-098",
+   "s": "Our hotel offers free breakfast to all guests. ___, guests can use the fitness center at no charge.",
+   "a": "In addition",
+   "o": [
+    [
+     "Because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "Nevertheless",
+     "T",
+     "tuy vậy",
+     "doi"
+    ],
+    [
+     "As well as",
+     "G",
+     "cũng như (+ cụm danh từ)",
+     "them"
+    ],
+    [
+     "In addition",
+     "T",
+     "ngoài ra",
+     "them"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"guests can use the fitness center at no charge\", thêm một ưu đãi nữa: \"In addition\".",
+   "vi": "Khách sạn tặng bữa sáng cho mọi khách. Ngoài ra, khách dùng phòng gym miễn phí."
+  },
+  {
+   "id": "cn-099",
+   "s": "The sales office will stay open ___ 8 p.m. on Thursdays.",
+   "a": "until",
+   "o": [
+    [
+     "until",
+     "G",
+     "cho tới (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "by",
+     "G",
+     "chậm nhất là (+ mốc thời gian)",
+     "tg"
+    ],
+    [
+     "within",
+     "G",
+     "trong vòng (+ khoảng thời gian)",
+     "tg"
+    ],
+    [
+     "while",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"8 p.m. on Thursdays\", mở cửa liên tục tới 8 giờ tối: \"until\".",
+   "vi": "Phòng kinh doanh sẽ mở cửa đến 8 giờ tối các ngày thứ Năm."
+  },
+  {
+   "id": "cn-100",
+   "s": "Our Seoul office has twelve employees, ___ the Paris office has more than fifty.",
+   "a": "whereas",
+   "o": [
+    [
+     "however",
+     "T",
+     "tuy nhiên",
+     "doi"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "instead of",
+     "G",
+     "thay vì (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the Paris office has more than fifty\", so sánh hai văn phòng đối lập: \"whereas\".",
+   "vi": "Văn phòng Seoul có mười hai nhân viên, trong khi văn phòng Paris có hơn năm mươi."
+  },
+  {
+   "id": "cn-101",
+   "s": "The vendor missed three deadlines in a row. ___, we have decided to end our contract.",
+   "a": "As a result",
+   "o": [
+    [
+     "Because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "Nonetheless",
+     "T",
+     "dù vậy",
+     "doi"
+    ],
+    [
+     "As a result",
+     "T",
+     "kết quả là",
+     "kq"
+    ],
+    [
+     "Otherwise",
+     "T",
+     "nếu không thì",
+     "dk"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"we have decided to end our contract\", trễ hạn nên chấm dứt hợp đồng: \"As a result\".",
+   "vi": "Nhà cung cấp trễ ba hạn liên tiếp. Kết quả là chúng tôi quyết định chấm dứt hợp đồng."
+  },
+  {
+   "id": "cn-102",
+   "s": "The software cannot be installed ___ an administrator password.",
+   "a": "without",
+   "o": [
+    [
+     "unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "during",
+     "G",
+     "trong suốt (+ cụm danh từ)",
+     "tg"
+    ],
+    [
+     "without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "dk"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"an administrator password\", điều kiện bắt buộc phải có mật khẩu: \"without\".",
+   "vi": "Không thể cài phần mềm nếu không có mật khẩu quản trị."
+  },
+  {
+   "id": "cn-103",
+   "s": "Applicants may submit their résumés ___ email or in person at the front desk.",
+   "a": "by",
+   "o": [
+    [
+     "by",
+     "G",
+     "bằng (+ phương tiện, cách thức)",
+     "vt"
+    ],
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ],
+    [
+     "toward",
+     "G",
+     "hướng tới",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"email or in person at the front desk\", nêu cách thức nộp hồ sơ: \"by\".",
+   "vi": "Ứng viên có thể nộp hồ sơ bằng email hoặc trực tiếp ở quầy lễ tân."
+  },
+  {
+   "id": "cn-104",
+   "s": "The first candidate has strong sales experience. ___, the second candidate is better at managing teams.",
+   "a": "On the other hand",
+   "o": [
+    [
+     "Whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "On the other hand",
+     "T",
+     "mặt khác",
+     "doi"
+    ],
+    [
+     "Consequently",
+     "T",
+     "do đó",
+     "kq"
+    ],
+    [
+     "Unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"the second candidate is better at managing teams\", đối lập với ứng viên đầu: \"On the other hand\".",
+   "vi": "Ứng viên đầu có nhiều kinh nghiệm bán hàng. Mặt khác, ứng viên thứ hai quản lý nhóm tốt hơn."
+  },
+  {
+   "id": "cn-105",
+   "s": "Customers were asked to leave the store early ___ a gas leak on the first floor.",
+   "a": "due to",
+   "o": [
+    [
+     "because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"a gas leak on the first floor\", nêu lý do phải rời đi: \"due to\".",
+   "vi": "Khách được yêu cầu rời cửa hàng sớm do rò rỉ khí gas ở tầng một."
+  },
+  {
+   "id": "cn-106",
+   "s": "The kitchen staff are preparing the main courses. ___, the servers are setting the tables.",
+   "a": "Meanwhile",
+   "o": [
+    [
+     "While",
+     "L",
+     "trong khi (+ mệnh đề)",
+     "tg"
+    ],
+    [
+     "Therefore",
+     "T",
+     "vì vậy",
+     "kq"
+    ],
+    [
+     "Because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "Meanwhile",
+     "T",
+     "trong lúc đó",
+     "tg"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"the servers are setting the tables\", hai việc diễn ra cùng lúc: \"Meanwhile\".",
+   "vi": "Bếp đang chuẩn bị món chính. Trong lúc đó, nhân viên phục vụ đang dọn bàn."
+  },
+  {
+   "id": "cn-107",
+   "s": "The seminar is scheduled ___ Tuesday, June 4, in Room B.",
+   "a": "on",
+   "o": [
+    [
+     "on",
+     "G",
+     "vào (+ ngày cụ thể)",
+     "tg"
+    ],
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "in",
+     "G",
+     "ở trong",
+     "vt"
+    ],
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là ngày cụ thể \"Tuesday, June 4\": trước ngày dùng giới từ \"on\".",
+   "vi": "Buổi hội thảo được lên lịch vào thứ Ba, ngày 4 tháng Sáu, tại phòng B."
+  },
+  {
+   "id": "cn-108",
+   "s": "Water costs rose again this spring. ___, the city council approved a new conservation plan.",
+   "a": "Accordingly",
+   "o": [
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Accordingly",
+     "T",
+     "theo đó",
+     "kq"
+    ],
+    [
+     "In contrast",
+     "T",
+     "ngược lại",
+     "doi"
+    ],
+    [
+     "Without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "dk"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"the city council approved a new conservation plan\", hệ quả của việc giá tăng: \"Accordingly\".",
+   "vi": "Chi phí nước lại tăng vào mùa xuân. Theo đó, hội đồng thành phố thông qua kế hoạch tiết kiệm mới."
+  },
+  {
+   "id": "cn-109",
+   "s": "The new tablet looks ___ a notebook but weighs less than a bottle of water.",
+   "a": "like",
+   "o": [
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ],
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "like",
+     "G",
+     "giống như",
+     "vt"
+    ],
+    [
+     "with",
+     "G",
+     "cùng với, bằng",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"a notebook but weighs less than a bottle of water\", so sánh về hình dáng: \"like\".",
+   "vi": "Máy tính bảng mới trông giống một cuốn sổ nhưng nhẹ hơn chai nước."
+  },
+  {
+   "id": "cn-110",
+   "s": "The company reduced its energy use by 20 percent last year. ___, its utility bills fell significantly.",
+   "a": "Consequently",
+   "o": [
+    [
+     "In spite of",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ],
+    [
+     "Whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "Unless",
+     "L",
+     "trừ khi (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "Consequently",
+     "T",
+     "do đó",
+     "kq"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"its utility bills fell significantly\", dùng ít điện nên hóa đơn giảm: \"Consequently\".",
+   "vi": "Công ty giảm 20% điện năng năm ngoái. Do đó, hóa đơn tiện ích giảm đáng kể."
+  },
+  {
+   "id": "cn-111",
+   "s": "You may borrow the laptop ___ you return it by Friday.",
+   "a": "provided that",
+   "o": [
+    [
+     "provided that",
+     "L",
+     "miễn là (+ mệnh đề)",
+     "dk"
+    ],
+    [
+     "without",
+     "G",
+     "không có (+ cụm danh từ)",
+     "dk"
+    ],
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"you return it by Friday\", điều kiện mượn là trả trước thứ Sáu: \"provided that\".",
+   "vi": "Bạn có thể mượn máy tính xách tay miễn là trả trước thứ Sáu."
+  },
+  {
+   "id": "cn-112",
+   "s": "Mr. Choi walked ___ the lobby to reach the elevators on the far side.",
+   "a": "across",
+   "o": [
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ],
+    [
+     "across",
+     "G",
+     "băng qua, khắp",
+     "vt"
+    ],
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "with",
+     "G",
+     "cùng với, bằng",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the lobby to reach the elevators on the far side\", đi ngang qua sảnh: \"across\".",
+   "vi": "Ông Choi đi ngang qua sảnh để đến thang máy ở phía bên kia."
+  },
+  {
+   "id": "cn-113",
+   "s": "The IT department updates passwords each quarter ___ company data remains secure.",
+   "a": "so that",
+   "o": [
+    [
+     "in preparation for",
+     "G",
+     "để chuẩn bị cho (+ cụm danh từ)",
+     "md"
+    ],
+    [
+     "thus",
+     "T",
+     "vì thế",
+     "kq"
+    ],
+    [
+     "so that",
+     "L",
+     "để mà (+ mệnh đề)",
+     "md"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"company data remains secure\", nêu mục đích đổi mật khẩu: \"so that\".",
+   "vi": "Phòng CNTT đổi mật khẩu mỗi quý để dữ liệu công ty luôn an toàn."
+  },
+  {
+   "id": "cn-114",
+   "s": "The new software is easy to install. ___, many employees still prefer the old system.",
+   "a": "Nonetheless",
+   "o": [
+    [
+     "Though",
+     "L",
+     "dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Accordingly",
+     "T",
+     "theo đó",
+     "kq"
+    ],
+    [
+     "Because of",
+     "G",
+     "vì (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "Nonetheless",
+     "T",
+     "dù vậy",
+     "doi"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"many employees still prefer the old system\", dễ cài mà nhiều người vẫn thích hệ thống cũ: \"Nonetheless\".",
+   "vi": "Phần mềm mới dễ cài đặt. Dù vậy, nhiều nhân viên vẫn thích hệ thống cũ."
+  },
+  {
+   "id": "cn-115",
+   "s": "Ticket sales were higher than expected, ___ the theater added two extra performances.",
+   "a": "so",
+   "o": [
+    [
+     "so",
+     "L",
+     "nên (+ mệnh đề)",
+     "kq"
+    ],
+    [
+     "as a result",
+     "T",
+     "kết quả là",
+     "kq"
+    ],
+    [
+     "whereas",
+     "L",
+     "trong khi (đối lập, + mệnh đề)",
+     "doi"
+    ],
+    [
+     "despite",
+     "G",
+     "mặc dù (+ cụm danh từ)",
+     "doi"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the theater added two extra performances\", vé bán chạy nên thêm suất diễn: \"so\".",
+   "vi": "Vé bán cao hơn dự kiến nên nhà hát thêm hai suất diễn."
+  },
+  {
+   "id": "cn-116",
+   "s": "Popular tourist sites, ___ the old castle and the harbor museum, are free on Sundays.",
+   "a": "such as",
+   "o": [
+    [
+     "of",
+     "G",
+     "của, thuộc",
+     "vt"
+    ],
+    [
+     "such as",
+     "G",
+     "chẳng hạn như",
+     "vt"
+    ],
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "with",
+     "G",
+     "cùng với, bằng",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the old castle and the harbor museum\", đưa ví dụ minh họa: \"such as\".",
+   "vi": "Các điểm du lịch nổi tiếng, chẳng hạn như lâu đài cổ và bảo tàng cảng, miễn phí vào Chủ nhật."
+  },
+  {
+   "id": "cn-117",
+   "s": "She is the most experienced engineer ___ the six candidates for the position.",
+   "a": "among",
+   "o": [
+    [
+     "at",
+     "G",
+     "tại (+ địa điểm)",
+     "vt"
+    ],
+    [
+     "under",
+     "G",
+     "dưới, đang trong",
+     "vt"
+    ],
+    [
+     "among",
+     "G",
+     "giữa (nhiều người, vật)",
+     "vt"
+    ],
+    [
+     "toward",
+     "G",
+     "hướng tới",
+     "vt"
+    ]
+   ],
+   "why": "Sau ô trống là cụm danh từ \"the six candidates for the position\", so sánh trong nhóm nhiều người: \"among\".",
+   "vi": "Cô là kỹ sư giàu kinh nghiệm nhất trong sáu ứng viên cho vị trí này."
+  },
+  {
+   "id": "cn-118",
+   "s": "The restaurant uses only local ingredients. ___, all of its packaging is recyclable.",
+   "a": "Moreover",
+   "o": [
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "As a result",
+     "T",
+     "kết quả là",
+     "kq"
+    ],
+    [
+     "In addition to",
+     "G",
+     "ngoài (+ cụm danh từ)",
+     "them"
+    ],
+    [
+     "Moreover",
+     "T",
+     "hơn nữa",
+     "them"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"all of its packaging is recyclable\", thêm một điểm tốt nữa: \"Moreover\".",
+   "vi": "Nhà hàng chỉ dùng nguyên liệu địa phương. Hơn nữa, toàn bộ bao bì đều tái chế được."
+  },
+  {
+   "id": "cn-119",
+   "s": "___ the printer was out of ink, Ms. Wu emailed the file to the copy shop.",
+   "a": "As",
+   "o": [
+    [
+     "As",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "Due to",
+     "G",
+     "do (+ cụm danh từ)",
+     "vi"
+    ],
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Thus",
+     "T",
+     "vì thế",
+     "kq"
+    ]
+   ],
+   "why": "Sau ô trống là mệnh đề \"the printer was out of ink\", nêu lý do gửi email tệp: \"As\".",
+   "vi": "Vì máy in hết mực, cô Wu gửi tệp qua email cho tiệm in."
+  },
+  {
+   "id": "cn-120",
+   "s": "Heavy snow closed the mountain road. ___, the ski resort had no visitors on Saturday.",
+   "a": "As a result",
+   "o": [
+    [
+     "Because",
+     "L",
+     "vì (+ mệnh đề)",
+     "vi"
+    ],
+    [
+     "As a result",
+     "T",
+     "kết quả là",
+     "kq"
+    ],
+    [
+     "Although",
+     "L",
+     "mặc dù (+ mệnh đề)",
+     "doi"
+    ],
+    [
+     "Instead",
+     "T",
+     "thay vào đó",
+     "doi"
+    ]
+   ],
+   "why": "Ô trống đầu câu mới, sau là dấu phẩy; vế sau \"the ski resort had no visitors on Saturday\", hệ quả của việc đóng đường: \"As a result\".",
+   "vi": "Tuyết dày làm đóng đường núi. Kết quả là khu trượt tuyết không có khách hôm thứ Bảy."
+  }
+ ]
+}
