@@ -2625,7 +2625,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       const P = phSt(); P.in = 1; P.mu = { b1: PH_WIN }; P.mc = 'b2';
       // lần đầu bấm Chơi ở Bậc 2 → bài học luật ghế
       await phView(); const click = sel => $app.onclick({ target: { closest: s => s === sel ? {} : null } });
-      if (!String($app.innerHTML).includes('data-phluat')) bad.push('màn Phố thiếu nút Học luật ghế');
+      if (!/Học luật ghế rồi chơi/.test($app.innerHTML) || /class="hrow phbook" data-phluat/.test($app.innerHTML)) bad.push('Bậc 2 chưa học luật: nút Chơi phải ghi học luật ghế, không có dòng riêng');   // v188: gộp vào Bậc 2
       click('[data-phplay]'); if (window.CUR.view !== PH_VIEW + '-luat' || !/Bác Danh từ hay Cô Tính từ/.test($app.innerHTML) || !/data-phlskip/.test($app.innerHTML)) bad.push('Chơi Bậc 2 lần đầu phải vào bài học (có Bỏ qua)');
       let steps = 0, qs = 0;
       for (let b = 0; b < 3; b++) { steps++; click('[data-phlq]');

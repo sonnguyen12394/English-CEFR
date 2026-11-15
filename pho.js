@@ -11,7 +11,7 @@ let PH_VIEW = 'toeic-pho-loai-tu'; const PH_N = 10, PH_REAL = 3, PH_HEN = [1, 3,
 //   Mở dần: thắng bậc trước (còn tim, đúng ≥ PH_WIN / PH_N) thì mở bậc sau. Đúng 3 câu liền hồi 1 tim. Câu dùng gợi ý hẹn ôn ngày mai.
 //   Chỉ bậc bắt từ ('tu') ghi lịch ôn câu và hành trình Chinh phục đề; bậc 1–2 là luyện từng kỹ năng, chỉ đếm.
 let PH_MUC = { b1: { ten: '🎽 Bậc 1 · Nhận đồng phục', sub: 'Chỉ nhìn đuôi từ: bắt đúng loại từ được gọi · 3 từ, rơi chậm, 5 tim', md: 'dp', k: 3, dur: [8.5, 8.5], tim: 5, goi: 99 },
-  b2: { ten: '💺 Bậc 2 · Đoán ghế', sub: 'Chỉ nhìn câu: ghế trống cần cư dân nào · chữ mốc tô sẵn, 5 tim', md: 'gh', k: 4, dur: [8.5, 8.5], tim: 5, goi: 99, moc: 1 },
+  b2: { ten: '💺 Bậc 2 · Đoán ghế', sub: 'Học luật ghế (3 bước) rồi chơi: ghế trống cần cư dân nào · chữ mốc tô sẵn, 5 tim', md: 'gh', k: 4, dur: [8.5, 8.5], tim: 5, goi: 99, moc: 1 },
   b3: { ten: '🌿 Bậc 3 · Ghép cả hai', sub: 'Đoán ghế rồi nhìn đuôi từ · 3 từ, 4 tim, 3 gợi ý', md: 'tu', k: 3, dur: [8, 8], tim: 4, goi: 3 },
   b4: { ten: '🔥 Bậc 4 · Đủ 4 từ', sub: '4 từ, có cặp cùng loại, nhanh dần · 3 tim, 1 gợi ý', md: 'tu', k: 4, dur: [7, 6], tim: 3, goi: 1 } }, PH_MO = ['b1', 'b2', 'b3', 'b4']; const PH_WIN = 7;
 // ván chữa câu sai từ Chinh phục đề: đủ 4 phương án của đề, từ mang màu cư dân (tập trung chọn đúng từ trong nhà), dễ thắng
@@ -267,9 +267,9 @@ async function phView() { phStop(); window.CUR = { view: PH_VIEW }; BACK = null;
     <div class="phhero">${hz.join('')}</div>
     <p class="mute" style="margin:0 0 10px">${PHC.desc}</p>${phDeBox()}
     <h3 style="margin:6px 0">Chọn bậc · học từng việc rồi mới ghép</h3><div class="phmuc">${PH_MO.map(m => { const o = PH_MUC[m], op = phOpen(m), b = (P.mu || {})[m];
-      return `<button class="phmc${m === phMuc() ? ' on' : ''}" data-phmuc="${m}" aria-pressed="${m === phMuc()}"${op ? '' : ' disabled'}><b>${op ? o.ten : '🔒 ' + o.ten.replace(/^\S+\s/, '')}</b><small>${op ? o.sub : `Mở khi thắng ${PH_MUC[PH_MO[PH_MO.indexOf(m) - 1]].ten.replace(/^\S+\s/, '')} (đúng ≥ ${PH_WIN} / ${PH_N})`}</small>${b ? `<small class="phbest">Tốt nhất ${b} / ${PH_N}</small>` : ''}</button>`; }).join('')}</div>
-    <button class="pri" data-phplay style="min-height:56px;font-size:18px">▶ Chơi · ${PH_MUC[phMuc()].ten}</button>${phSndRow()}
-    ${PHC.key === 'loai' && phOpen('b2') ? `<button class="hrow phbook" data-phluat><span class="ic">🪑</span><span class="t"><b>Học luật ghế</b><small>${P.lg ? 'Đã học · học lại khi vướng Bậc 2' : 'Nên học trước Bậc 2 · 3 bước, khoảng 4 phút'}</small></span><span class="chev">›</span></button>` : ''}
+      return `<button class="phmc${m === phMuc() ? ' on' : ''}" data-phmuc="${m}" aria-pressed="${m === phMuc()}"${op ? '' : ' disabled'}><b>${op ? o.ten : '🔒 ' + o.ten.replace(/^\S+\s/, '')}</b><small>${op ? o.sub : `Mở khi thắng ${PH_MUC[PH_MO[PH_MO.indexOf(m) - 1]].ten.replace(/^\S+\s/, '')} (đúng ≥ ${PH_WIN} / ${PH_N})`}</small>${m === 'b2' && PHC.key === 'loai' && P.lg ? '<small>🪑 Đã học luật ghế</small>' : ''}${b ? `<small class="phbest">Tốt nhất ${b} / ${PH_N}</small>` : ''}</button>`; }).join('')}</div>
+    ${(() => { const b2 = PHC.key === 'loai' && phMuc() === 'b2';
+      return `<button class="pri" data-phplay style="min-height:56px;font-size:18px">${b2 && !P.lg ? '▶ Bậc 2 · 🪑 Học luật ghế rồi chơi' : '▶ Chơi · ' + PH_MUC[phMuc()].ten}</button>${b2 && P.lg ? '<button class="link tap" data-phluat>🪑 Ôn lại luật ghế · 3 bước</button>' : ''}`; })()}${phSndRow()}
     <div class="box" style="margin-top:10px"><p style="margin:2px 0">${due ? `🔁 <b>${due}</b> câu đến hạn ôn, có trong ván này` : '🔁 Chưa có câu đến hạn ôn'}</p>
       <p style="margin:2px 0">${wr ? `👾 <b>${wr}</b> câu ${PHC.lo} bạn từng sai trong đề, sẽ chen vào ván` : `👾 Chưa có câu ${PHC.lo} nào bạn sai trong đề`}</p>
       <p style="margin:2px 0">🗺 Đã gặp ${seen} / ${(PH_K || []).length} câu của phố</p>
