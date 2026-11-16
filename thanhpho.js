@@ -8,7 +8,8 @@ const CY_PHO = [
   { k: 'loai', need: q => q.sec === 'p5' && CY_T(q) === 'form' },
   { k: 'cau', need: q => (q.sec === 'p5' && ['prep', 'conj'].includes(CY_T(q))) || (q.sec === 'p6' && CY_T(q) === 'conn') },
   { k: 'dong', ic: '⏰', ten: 'Phố Động Từ', sub: 'Thì, chủ động / bị động, to V / V-ing', need: q => (q.sec === 'p5' && CY_T(q) === 'verb') || (q.sec === 'p6' && CY_T(q) === 'tense') },
-  { k: 'dai', ic: '👥', ten: 'Phố Đại Từ & Lượng Từ', sub: 'he / him / his, each / many / much, cấu trúc', need: q => q.sec === 'p5' && ['pron', 'det', 'struct'].includes(CY_T(q)) },
+  { k: 'dai', ic: '👥', ten: 'Phố Đại Từ & Lượng Từ', sub: 'he / him / his, each / many / much', need: q => q.sec === 'p5' && ['pron', 'det'].includes(CY_T(q)) },
+  { k: 'ctr', ic: '🏛', ten: 'Phố Cấu Trúc', sub: 'So sánh, đảo ngữ, so … that', need: q => q.sec === 'p5' && CY_T(q) === 'struct' },   // v196
   { k: 'ben', ic: '🔎', ten: 'Bến Dò Tin', sub: 'Tìm chi tiết, suy luận, mục đích · Part 7', need: q => q.sec === 'p7' && !['syn', 'insert'].includes(CY_T(q)) },
   { k: 'cho', ic: '🛒', ten: 'Chợ Từ Vựng', sub: 'Chọn từ theo nghĩa, cụm hay dùng, từ gần nghĩa', need: q => (q.sec === 'p5' && CY_T(q) === 'voc') || (q.sec === 'p6' && CY_T(q) === 'word') || (q.sec === 'p7' && CY_T(q) === 'syn') },
   { k: 'ghep', ic: '🧩', ten: 'Phố Ghép Đoạn', sub: 'Chèn câu vào đoạn văn · Part 6, Part 7', need: q => (q.sec === 'p6' || q.sec === 'p7') && CY_T(q) === 'insert' } ];

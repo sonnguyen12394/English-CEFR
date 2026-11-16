@@ -67,6 +67,7 @@ function phSrc(q) { if (!q) return null;
 // v194: chỗ trống Part 6 thuộc MỘT phố: thì → Động Từ, từ nối → Cầu Nối, chèn câu → Ghép Đoạn; chọn từ: khác loại từ → Loại Từ, dạng động từ → Động Từ, cầu nối → Cầu Nối, cùng loại khác nghĩa → Chợ
 function phP6K(q) { if (!q || q.sec !== 'p6') return null; if (q.gt === 'tense') return 'dong'; if (q.gt === 'conn') return 'cau'; if (q.gt === 'insert') return 'ghep'; if (q.gt !== 'word') return null;
   const og = (q.lg || {}).og || {}; if (!q.opts || !q.opts.every(o => og[o])) return null;
+  if (/^so sánh/.test(String(og[q.a]).toLowerCase()) && PH_PHO.ctr) return 'ctr';   // v196: đáp án là dạng so sánh → Phố Cấu Trúc
   const P = q.opts.map(o => phPosOf(og[o])); if (P.every(Boolean) && new Set(P).size > 1) return 'loai';
   if (typeof dtCls === 'function') { const C = q.opts.map(o => dtCls(o, og[o], '')); if (C.every(c => c && c[0] !== '_') && new Set(C.map(c => c[1])).size > 1) return 'dong'; }
   if (typeof cnCls === 'function' && q.opts.every(o => cnCls(o, og[o], '')) && cnCls(q.a, og[q.a], '') !== '_') return 'cau';
@@ -162,7 +163,7 @@ function phFace(t, s, mood) { s = s || 64; mood = mood || 'idle';
 
 // ---------- kho câu ----------
 let PH_K = null, PH_RL = null;   // PH_K: kho riêng · PH_RL: câu thật dạng từ { id 'de:<đề>:<n>' → câu }
-const phPosOf = v => { const k = String(v || '').split(':')[0].toLowerCase(); if (/^danh từ/.test(k)) return 'N'; if (/^tính từ/.test(k)) return 'A'; if (/^trạng từ/.test(k)) return 'R'; if (/^(động từ|v3|v-ing|phân từ|quá khứ)/.test(k)) return 'V'; return null; };
+const phPosOf = v => { const k = String(v || '').split(':')[0].toLowerCase(); if (/^danh từ/.test(k)) return 'N'; if (/^tính từ|^so sánh (hơn|nhất)/.test(k)) return 'A'; if (/^trạng từ/.test(k)) return 'R'; if (/^(động từ|v3|v-ing|phân từ|quá khứ)/.test(k)) return 'V'; return null; };
 function phNhaOf(it) { const A = it.o.find(o => o[0] === it.a), same = it.o.filter(o => o !== A && o[1] === A[1]); if (!same.length) return null;
   const ws = [A, ...same].map(o => o[0].toLowerCase());
   if (A[1] === 'A' && ws.some(w => /ed$/.test(w)) && ws.some(w => /ing$/.test(w))) return 'edng';
