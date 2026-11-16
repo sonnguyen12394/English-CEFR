@@ -41,8 +41,9 @@ async function cyView() { if (typeof phStop === 'function') phStop(); window.CUR
   const de = tgDe(), C = cyCount(de), L = tgJState(de) || [], ok = L.filter(c => c.st === 'ok').length;
   const D = ((TO && TO.tron) || []).filter(d => TG_P && TG_P[d.id]), nLk = ((typeof TR !== 'undefined' && TR.lk) || []).filter(r => !((TO && TO.tron) || []).some(d => d.id === r.id)).length;
   const card = p => { const c = cyC(p), I = cyInfo(p), r = C[p.k], lv = c ? cyLv(p.k) : 0, M = c ? Object.keys(c.MUC).length : 4;
-    const cnt = r ? `${esc(tgDeName(de))}: ${r.n} câu${c ? ` · ${r.chac} chắc` : ''}${r.sai ? ` · ${r.sai} đang sai` : ''}` : de ? `${esc(tgDeName(de))} không cần phố này` : '';
-    return c ? `<button class="cycard" data-phv="${p.k}"><span class="ic">${I.ic}</span><span class="t"><b>${I.ten}</b><small>${esc(I.sub)}</small><small>${lv ? `Bậc ${lv} / ${M} đã mở` : 'Chưa chơi'}${cnt ? ' · ' + cnt : ''}</small></span><span class="chev">›</span></button>`
+    const cnt = r ? `${esc(tgDeName(de))}: ${r.n} câu${c ? ` · ${r.chac} chắc` : ''}${r.sai ? ` · ${r.sai} đang sai` : ''}` : '';
+    const off = de && !r ? ' off' : '';   // v195: đề không có câu cho phố này → làm mờ, không ghi chữ nhắc (vẫn bấm được để luyện kho chung)
+    return c ? `<button class="cycard${off}" data-phv="${p.k}"><span class="ic">${I.ic}</span><span class="t"><b>${I.ten}</b><small>${esc(I.sub)}</small><small>${lv ? `Bậc ${lv} / ${M} đã mở` : 'Chưa chơi'}${cnt ? ' · ' + cnt : ''}</small></span><span class="chev">›</span></button>`
       : `<div class="cycard soon" aria-disabled="true"><span class="ic">${I.ic}</span><span class="t"><b>${I.ten} <span class="cysoon">Sắp có</span></b><small>${esc(I.sub)}</small>${cnt ? `<small>${cnt}</small>` : ''}</span></div>`; };
   $app.innerHTML = `<div id="ie"></div><div class="row top"><button class="link tap" data-cyb>‹ TOEIC</button></div>
     <h1 style="margin:4px 0 6px">🏙 Thành phố TOEIC</h1>
