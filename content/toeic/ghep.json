@@ -2,7 +2,7 @@
  "_khuon": {
   "muc_dich": "Kho đoạn văn của 🧩 Phố Ghép Đoạn (Thành phố TOEIC): luyện câu chèn Part 6 (chọn câu cho ô trống) và Part 7 (vị trí [1]–[4]). Mỗi mục là MỘT đoạn văn ngắn kiểu TOEIC đủ câu, trong đó câu s[k] là câu sẽ được rút ra để chèn lại. Không chép đề ETS / đề trong app; người, công ty hư cấu.",
   "dinh_dang": "{ id 'gd-NNN', kind: loại văn bản (E-mail, Notice, Memo, Article, Advertisement, Letter, Web page), s: [5–7 câu, mỗi câu kết thúc bằng . ! ?], k: chỉ số câu chèn (1 … n-1, không phải câu đầu), lk: chữ / cụm NGUYÊN VĂN trong s[k] chỉ ngược về câu trước (this, these, such, it, they, also, however, as a result, the same, that time, there…), why: tiếng Việt ≤ 40 từ, nói chữ lk chỉ về điều gì ở câu s[k-1], w: 3 câu sai cho dạng Part 6 (cùng chủ đề, đúng ngữ pháp, sai vì mạch: nhắc điều chưa có, sai thời gian, ngược ý câu trước / sau), vi: dịch câu s[k] }",
-  "luat_soan": "Chỉ MỘT vị trí hợp cho s[k]: rút s[k] ra rồi đặt sau TỪNG câu khác (và sau câu cuối) thì mạch phải gãy; thợ tự thử và ghi lại. lk phải chỉ về một CHI TIẾT CHỈ CÓ ở s[k-1] (con số, tên riêng, vật / người cụ thể, việc vừa làm), KHÔNG chỉ về chủ đề chung của cả đoạn: 'also', 'Both' (khi câu đầu đã nói 'two …'), 'This service', 'These upgrades', 'Such talks', 'Meanwhile', 'it' chỉ chủ đề chung đều đặt được nhiều chỗ, cấm. Cách gắn chặt: lặp danh từ riêng của s[k-1] ('these morning flights', 'that date', 'the two managers', 'those spaces'), hoặc s[k] trả lời / tiếp đúng việc ở s[k-1]. 3 câu w phải SAI VÌ MẠCH (nhắc điều chưa có, sai thời gian, ngược ý câu trước / sau, chỉ ngược về thứ không có ở câu trước), cùng chủ đề; không dùng câu lạc chủ đề (vd. khoảng cách hai thành phố), không câu nào đặt vừa ô trống. Không thêm câu đệm cho đủ số câu (lời chào, 'Thank you…' lặp, câu lạc kiểu văn bản). Đoạn 45–110 từ."
+  "luat_soan": "Chỉ MỘT vị trí hợp cho s[k]: rút s[k] ra rồi đặt sau TỪNG câu khác (và sau câu cuối) thì mạch phải gãy; thợ tự thử và ghi lại. lk phải chỉ về một CHI TIẾT CHỈ CÓ ở s[k-1] (con số, tên riêng, vật / người cụ thể, việc vừa làm), KHÔNG chỉ về chủ đề chung của cả đoạn: 'also', 'Both' (khi câu đầu đã nói 'two …'), 'This service', 'These upgrades', 'Such talks', 'Meanwhile', 'it' chỉ chủ đề chung đều đặt được nhiều chỗ, cấm. Cách gắn chặt: lặp danh từ riêng của s[k-1] ('these morning flights', 'that date', 'the two managers', 'those spaces'), hoặc s[k] trả lời / tiếp đúng việc ở s[k-1]. 3 câu w phải SAI VÌ MẠCH (nhắc điều chưa có, sai thời gian, ngược ý câu trước / sau, chỉ ngược về thứ không có ở câu trước), cùng chủ đề; không dùng câu lạc chủ đề (vd. khoảng cách hai thành phố), không câu nào đặt vừa ô trống. Không thêm câu đệm cho đủ số câu (lời chào, 'Thank you…' lặp, câu lạc kiểu văn bản). Đoạn 45–110 từ. Thử từng câu w: đọc s[k-1] + w + s[k+1] nối nhau; nếu trôi, không mâu thuẫn câu nào thì viết lại w. Gắn chặt thêm bằng s[k+1] chỉ ngược về thứ chỉ có ở s[k] (\"this way\", \"Even so\", \"Those practice calls\")."
  },
  "items": [
   {
@@ -984,13 +984,13 @@
     "Ms. Lund has twelve years of experience in shipping.",
     "Mr. Berg has led a small manufacturing team for five years.",
     "Because that team is based in Oslo, he will interview by video on Thursday.",
-    "The board will decide by the Friday after the second interview."
+    "The board will make its decision on the Friday after both interviews."
    ],
    "k": 3,
    "lk": "that team",
    "why": "\"that team\" chỉ về nhóm sản xuất nhỏ mà ông Berg phụ trách ở câu trước.",
    "w": [
-    "Both candidates will interview on Wednesday afternoon.",
+    "Only Ms. Lund will be interviewed for the position.",
     "The candidate with shipping experience withdrew yesterday.",
     "Interviews were held last week."
    ],
@@ -1004,17 +1004,17 @@
     "The design team is testing all the pages this week.",
     "Customer accounts will be moved automatically.",
     "The old Web site will close at midnight on September 30.",
-    "Until that midnight, you may keep ordering from the old site as usual."
+    "Until it closes, you may keep ordering from the old site as usual."
    ],
    "k": 4,
-   "lk": "that midnight",
-   "why": "\"that midnight\" chỉ về nửa đêm ngày 30 tháng Chín, lúc trang cũ đóng cửa ở câu trước.",
+   "lk": "Until it closes",
+   "why": "\"it\" trong \"Until it closes\" chỉ về trang web cũ đóng cửa lúc nửa đêm 30 tháng Chín ở câu trước.",
    "w": [
     "Customers must create new accounts before October 1.",
     "The old site will stay open until next year.",
     "The old Web site closed on September 15."
    ],
-   "vi": "Cho đến nửa đêm đó, bạn vẫn có thể đặt hàng trên trang cũ như thường."
+   "vi": "Cho tới khi trang cũ đóng cửa, bạn vẫn có thể đặt hàng trên đó như thường."
   },
   {
    "id": "gd-051",
@@ -1042,8 +1042,9 @@
    "s": [
     "Thank you for opening a savings account with Delmar Bank.",
     "Your new debit card was mailed to you yesterday.",
-    "Cards mailed that day usually arrive within five business days.",
-    "If it arrives within that time, please activate it by calling the number on the back of the card.",
+    "Cards sent that day usually reach customers within five business days.",
+    "If it has not arrived after that time, please call us at 555-0140.",
+    "Once it arrives, activate it by calling the number on the back of the card.",
     "You may then choose a four-digit PIN."
    ],
    "k": 2,
@@ -1054,7 +1055,7 @@
     "Cards mailed last month have already been activated.",
     "Your PIN was mailed in a separate envelope a week ago."
    ],
-   "vi": "Thẻ gửi hôm đó thường đến trong vòng năm ngày làm việc."
+   "vi": "Thẻ gửi hôm đó thường tới tay khách trong vòng năm ngày làm việc."
   },
   {
    "id": "gd-053",
@@ -1204,12 +1205,12 @@
     "Starting Monday, our office will recycle paper, plastic, and glass.",
     "Three large bins with blue, green, and gray labels have been placed in every kitchen.",
     "Please sort your waste by those colors before leaving for the day: blue for paper, green for glass, and gray for plastic.",
-    "Cleaning staff will empty the bins each evening.",
+    "Waste sorted this way will be collected by cleaning staff each evening.",
     "Thank you for helping us reduce waste."
    ],
    "k": 2,
    "lk": "those colors",
-   "why": "\"those colors\" chỉ về ba màu nhãn xanh dương, xanh lá, xám của các thùng ở câu trước.",
+   "why": "\"those colors\" chỉ về ba màu nhãn xanh dương, xanh lá, xám của các thùng ở câu trước; câu sau \"this way\" chỉ về cách phân loại theo màu nêu trong câu này.",
    "w": [
     "The bins were removed from the kitchens last month.",
     "Recycling will not begin until next year.",
@@ -1252,7 +1253,7 @@
    "why": "\"The former\" và \"the latter\" chỉ về hai gói tour nêu lần lượt ở câu trước.",
    "w": [
     "The latter is no longer available, so only one option remains.",
-    "The seven-day bus tour will be cancelled in May.",
+    "The seven-day bus tour will be canceled in May.",
     "The cruise includes meals only on the last day."
    ],
    "vi": "Gói đầu giá 1.200 đô la, còn gói sau giá 1.900 đô la và gồm cả các bữa ăn."
@@ -1323,7 +1324,7 @@
    "s": [
     "Harbor Press announced a busy autumn schedule on Tuesday.",
     "Its biggest title is a novel by Linda Chen about a chef who returns home.",
-    "Critics who read an early copy called the chef's journey home warm and funny.",
+    "Critics who read an early copy called the story of the chef's journey home \"warm and funny.\"",
     "Their praise has already pushed pre-orders past ten thousand copies.",
     "The book will go on sale on September 14.",
     "A book tour will follow in October."
@@ -1433,7 +1434,7 @@
    "why": "\"that hour\" chỉ về giờ hẹn bắt đầu lúc 3 giờ chiều ở câu trước.",
    "w": [
     "Dr. Park will see you before 3:00 P.M.",
-    "Your appointment was cancelled at 3:00 P.M. yesterday.",
+    "Your appointment was canceled at 3:00 P.M. yesterday.",
     "Your last check-up took place on Thursday, May 9."
    ],
    "vi": "Trong giờ đó, bác sĩ Park sẽ lấy cao răng và chụp X-quang mới cho bạn."
@@ -1445,12 +1446,12 @@
     "Westbrook High School is starting a new after-school tutoring program.",
     "The program needs twenty volunteer tutors, each giving two hours of homework help every week.",
     "The twenty volunteers do not need teaching experience, only patience and a love of reading.",
-    "Those without experience will attend a training session on September 5.",
+    "Even so, all twenty will attend a short training session on September 5.",
     "Interested adults should contact Ms. Barnes in the main office."
    ],
    "k": 2,
    "lk": "The twenty volunteers",
-   "why": "\"The twenty volunteers\" chỉ về hai mươi gia sư tình nguyện cần tuyển ở câu trước; câu sau \"Those without experience\" chỉ về người chưa có kinh nghiệm.",
+   "why": "\"The twenty volunteers\" chỉ về hai mươi gia sư tình nguyện cần tuyển ở câu trước; câu sau \"Even so\" đối lại ý không cần kinh nghiệm nêu trong câu này.",
    "w": [
     "Tutors must have at least five years of teaching experience.",
     "The program has been canceled for this year.",
@@ -1565,13 +1566,13 @@
    "s": [
     "Beginning Monday, staff at Northgate Medical Center must wear a blue name badge at all times.",
     "The blue badge will show each person's name and job title, so patients know who is helping them.",
-    "Please pick up yours at the security office and check that your title is correct.",
+    "Please check that title when you pick up your badge at the security office.",
     "Lost badges should be reported right away.",
     "Replacement badges cost five dollars."
    ],
    "k": 1,
    "lk": "The blue badge",
-   "why": "\"The blue badge\" chỉ về thẻ tên màu xanh nhân viên phải đeo ở câu trước; câu sau \"your title\" chỉ về chức danh ghi trên thẻ.",
+   "why": "\"The blue badge\" chỉ về thẻ tên màu xanh nhân viên phải đeo ở câu trước; câu sau \"that title\" chỉ về chức danh ghi trên thẻ.",
    "w": [
     "The blue badges have not been ordered yet.",
     "Staff will stop wearing badges on Monday.",
@@ -1594,7 +1595,7 @@
    "why": "\"that automatic score\" chỉ về điểm chấm tự động của bài kiểm tra ở câu trước.",
    "w": [
     "Your results are shown to other learners.",
-    "The study plan is written before you take the test.",
+    "The study plan cannot be changed once it is set.",
     "The test is repeated every week for twelve weeks."
    ],
    "vi": "Dựa trên điểm chấm tự động đó, hệ thống lập kế hoạch học tập phù hợp với trình độ của bạn."
@@ -1605,13 +1606,13 @@
    "s": [
     "I am writing about the new scheduling program that your team installed on Monday.",
     "Since Monday, that program has already saved our nurses several hours of paperwork.",
-    "To save even more of those hours, we would like a short training session for the night staff.",
+    "To save even more of that time, we would like a short training session for the night staff.",
     "Please let me know which days are possible.",
     "Thank you for your help."
    ],
    "k": 1,
    "lk": "that program",
-   "why": "\"that program\" chỉ về chương trình xếp lịch mới được cài hôm thứ Hai ở câu trước; câu sau \"those hours\" chỉ về số giờ tiết kiệm nêu trong câu này.",
+   "why": "\"that program\" chỉ về chương trình xếp lịch mới được cài hôm thứ Hai ở câu trước; câu sau \"that time\" chỉ về số giờ tiết kiệm nêu trong câu này.",
    "w": [
     "The program is too slow to be of any use to our staff.",
     "Our nurses have not yet used the new program.",
@@ -1726,7 +1727,7 @@
    "s": [
     "Two new security measures will start at all Crown Bank branches in May.",
     "The first is a photo ID check for large cash withdrawals, and the second is a text alert for every card payment.",
-    "The alert, in particular, lets customers stop a false payment by replying STOP within minutes.",
+    "The alert, in particular, allows customers to stop a fraudulent payment by replying STOP within minutes.",
     "Starting next week, tellers will show customers how to send that reply from their phones.",
     "Please answer any customer questions politely."
    ],
@@ -1738,7 +1739,7 @@
     "Customers will receive a text alert only on weekends.",
     "Both measures were ended at all branches last year."
    ],
-   "vi": "Riêng tin nhắn cảnh báo giúp khách hàng chặn một khoản thanh toán giả bằng cách trả lời STOP trong vài phút."
+   "vi": "Riêng tin nhắn cảnh báo giúp khách hàng chặn một khoản thanh toán gian lận bằng cách trả lời STOP trong vài phút."
   },
   {
    "id": "gd-087",
