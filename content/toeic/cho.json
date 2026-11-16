@@ -4,10 +4,13 @@
   "cu_dan": {
    "E": "Bà Cụm: cụm cố định / kết hợp từ (meet a deadline, place an order, highly recommended). Dấu hiệu: từ đi cặp ngay cạnh ô trống.",
    "F": "Chú Giới: từ đi với giới từ cố định (responsible for, comply with, eligible for). Dấu hiệu: giới từ ngay sau ô trống.",
-   "J": "Cô Nghĩa: chọn theo ý cả câu (vì doanh số giảm nên hoãn…). Dấu hiệu: một cụm khác trong câu cho biết nghĩa cần."
+   "J": "Cô Nghĩa: chọn theo ý cả câu (vì doanh số giảm nên hoãn…). Dấu hiệu: một cụm khác trong câu cho biết nghĩa cần.",
+   "NN": "Bà Nhiều Nghĩa (v195): từ gần nghĩa Part 7 ('The word \"X\" … is closest in meaning to'). Từ X có nhiều nghĩa; câu chứa X quyết định nghĩa nào. Dấu hiệu: chữ quanh X trong câu."
   },
   "dinh_dang": "{ id 'ch-NNN', t: E|F|J, s: câu ≤ 22 từ có đúng một ___, a: đáp án, o: 4 phương án [chữ, nghĩa ngắn tiếng Việt] (cùng loại từ, cùng dạng: cùng là V-ing / cùng số nhiều…), cum: cụm đúng có đáp án (vd. 'meet the deadline', 'responsible for'), why: ≤ 30 từ, NGOẶC KÉP đầu tiên là chữ mốc có nguyên văn trong câu (không phải đáp án), có nhắc đáp án trong ngoặc kép, vi: dịch cả câu }",
-  "luat_soan": "Đáp án là từ TOEIC thông dụng (danh sách từ công sở, Part 5 ETS). 3 nhiễu cùng loại từ, nghĩa gần hoặc cùng chủ đề nhưng SAI ở đây (không ghép được với chữ mốc, hoặc sai nghĩa câu). Câu F: nhiễu không đi được với giới từ đó. Bối cảnh công sở; tên hư cấu."
+  "luat_soan": "Đáp án là từ TOEIC thông dụng (danh sách từ công sở, Part 5 ETS). 3 nhiễu cùng loại từ, nghĩa gần hoặc cùng chủ đề nhưng SAI ở đây (không ghép được với chữ mốc, hoặc sai nghĩa câu). Câu F: nhiễu không đi được với giới từ đó. Bối cảnh công sở; tên hư cấu.",
+  "dinh_dang_NN": "{ id 'ch-NNN', t: 'NN', syn: từ X đúng dạng như trong câu (vd. 'address', 'runs'), s: câu 12–24 từ kiểu văn bản Part 7 (e-mail, thông báo, quảng cáo, bài báo) có đúng một ___ ở chỗ của X, a: nghĩa gần đúng (từ / cụm ngắn, cùng loại từ, thay vào chỗ X câu vẫn đúng), o: 4 [chữ, nghĩa ngắn tiếng Việt], why: ≤ 30 từ, NGOẶC KÉP đầu tiên là chữ mốc có nguyên văn trong câu (không phải X, không phải đáp án), có nhắc đáp án trong ngoặc kép, vi: dịch cả câu (dịch X theo đúng nghĩa câu) }",
+  "luat_soan_NN": "X là từ nhiều nghĩa hay gặp ở TOEIC (address, run, cover, issue, term, figure, position, credit, reflect, maintain, observe, secure, feature, draw, settle, raise, charge, balance, fair, firm, note, sound…). 3 phương án sai: ÍT NHẤT 2 là nghĩa KHÁC của chính X (nghĩa quen nhất của X phải là một phương án sai khi câu dùng nghĩa khác), thay vào câu thì sai nghĩa; cùng loại từ, cùng dạng (cùng -ed / -s / -ly) với đáp án. Phương án không được là chính X. Đáp án thay vào ___ phải đọc trơn. Không chép câu của đề trong app / ETS. Tên hư cấu."
  },
  "items": [
   {
@@ -2709,6 +2712,1086 @@
    "cum": "valid passport",
    "why": "\"passport\" đi cặp với \"valid\": valid passport = hộ chiếu còn hạn.",
    "vi": "Mọi chuyến công tác quốc tế đều cần hộ chiếu còn hạn và thị thực."
+  },
+  {
+   "id": "ch-101",
+   "t": "NN",
+   "syn": "address",
+   "s": "Our customer care team will ___ every complaint within two business days of receiving it.",
+   "a": "deal with",
+   "o": [
+    [
+     "deal with",
+     "giải quyết"
+    ],
+    [
+     "speak to",
+     "nói chuyện với"
+    ],
+    [
+     "write on",
+     "ghi địa chỉ lên"
+    ],
+    [
+     "live at",
+     "sống ở"
+    ]
+   ],
+   "why": "\"complaint\" là việc cần xử lý, nên address ở đây = \"deal with\" (giải quyết), không phải nói chuyện hay ghi địa chỉ.",
+   "vi": "Nhóm chăm sóc khách hàng sẽ giải quyết mọi khiếu nại trong vòng hai ngày làm việc kể từ khi nhận."
+  },
+  {
+   "id": "ch-102",
+   "t": "NN",
+   "syn": "runs",
+   "s": "In addition to the hotel, Seaview Group also ___ a free shuttle between the airport and the city center.",
+   "a": "operates",
+   "o": [
+    [
+     "operates",
+     "vận hành"
+    ],
+    [
+     "races",
+     "chạy đua"
+    ],
+    [
+     "flows",
+     "chảy"
+    ],
+    [
+     "lasts",
+     "kéo dài"
+    ]
+   ],
+   "why": "\"a free shuttle\" là dịch vụ xe đưa đón, nên runs = \"operates\" (vận hành), không phải chạy đua hay chảy.",
+   "vi": "Ngoài khách sạn, tập đoàn Seaview còn vận hành xe đưa đón miễn phí giữa sân bay và trung tâm thành phố."
+  },
+  {
+   "id": "ch-103",
+   "t": "NN",
+   "syn": "firm",
+   "s": "Before we book the venue, we need a ___ date from all three speakers.",
+   "a": "definite",
+   "o": [
+    [
+     "definite",
+     "chắc chắn, đã chốt"
+    ],
+    [
+     "hard",
+     "cứng"
+    ],
+    [
+     "strict",
+     "nghiêm khắc"
+    ],
+    [
+     "business",
+     "(thuộc) công ty"
+    ]
+   ],
+   "why": "\"book the venue\" cần ngày đã chốt, nên firm = \"definite\" (chắc chắn), không phải cứng hay công ty.",
+   "vi": "Trước khi đặt địa điểm, chúng tôi cần một ngày đã chốt từ cả ba diễn giả."
+  },
+  {
+   "id": "ch-104",
+   "t": "NN",
+   "syn": "covers",
+   "s": "The registration fee ___ lunch on both days as well as a printed copy of the program.",
+   "a": "includes",
+   "o": [
+    [
+     "includes",
+     "bao gồm"
+    ],
+    [
+     "hides",
+     "che giấu"
+    ],
+    [
+     "reports",
+     "đưa tin"
+    ],
+    [
+     "protects",
+     "bảo vệ"
+    ]
+   ],
+   "why": "\"registration fee\" là khoản tiền trả cho các thứ đi kèm, nên covers = \"includes\" (bao gồm), không phải che hay đưa tin.",
+   "vi": "Lệ phí đăng ký đã bao gồm bữa trưa cả hai ngày và một bản chương trình in sẵn."
+  },
+  {
+   "id": "ch-105",
+   "t": "NN",
+   "syn": "issue",
+   "s": "Please report any technical ___ with the online booking system to the help desk by Friday.",
+   "a": "problem",
+   "o": [
+    [
+     "problem",
+     "vấn đề, sự cố"
+    ],
+    [
+     "edition",
+     "số báo"
+    ],
+    [
+     "offspring",
+     "con cái"
+    ],
+    [
+     "outflow",
+     "dòng chảy ra"
+    ]
+   ],
+   "why": "\"technical\" và \"help desk\" cho thấy đây là sự cố cần báo, nên issue = \"problem\" (vấn đề), không phải số báo hay con cái.",
+   "vi": "Vui lòng báo mọi sự cố kỹ thuật của hệ thống đặt chỗ trực tuyến cho bộ phận hỗ trợ trước thứ Sáu."
+  },
+  {
+   "id": "ch-106",
+   "t": "NN",
+   "syn": "terms",
+   "s": "Under the ___ of the lease, tenants must give sixty days' notice before moving out.",
+   "a": "conditions",
+   "o": [
+    [
+     "conditions",
+     "điều khoản"
+    ],
+    [
+     "semesters",
+     "học kỳ"
+    ],
+    [
+     "phrases",
+     "cụm từ"
+    ],
+    [
+     "names",
+     "tên gọi"
+    ]
+   ],
+   "why": "\"lease\" là hợp đồng thuê, nên terms = \"conditions\" (điều khoản), không phải học kỳ hay cụm từ.",
+   "vi": "Theo các điều khoản của hợp đồng thuê, người thuê phải báo trước sáu mươi ngày trước khi dọn đi."
+  },
+  {
+   "id": "ch-107",
+   "t": "NN",
+   "syn": "figures",
+   "s": "The sales ___ for the third quarter were higher than the company had expected.",
+   "a": "totals",
+   "o": [
+    [
+     "totals",
+     "con số tổng"
+    ],
+    [
+     "celebrities",
+     "người nổi tiếng"
+    ],
+    [
+     "statues",
+     "bức tượng"
+    ],
+    [
+     "silhouettes",
+     "hình bóng"
+    ]
+   ],
+   "why": "\"third quarter\" nói về doanh số, nên figures = \"totals\" (con số), không phải người nổi tiếng hay tượng.",
+   "vi": "Các con số doanh số quý ba cao hơn công ty dự kiến."
+  },
+  {
+   "id": "ch-108",
+   "t": "NN",
+   "syn": "position",
+   "s": "Ms. Hale applied for a ___ in the marketing department soon after finishing her degree.",
+   "a": "job",
+   "o": [
+    [
+     "job",
+     "chức vụ, việc làm"
+    ],
+    [
+     "posture",
+     "tư thế"
+    ],
+    [
+     "opinion",
+     "quan điểm"
+    ],
+    [
+     "viewpoint",
+     "góc nhìn"
+    ]
+   ],
+   "why": "\"applied for\" đi với một vị trí tuyển dụng, nên position = \"job\" (chức vụ), không phải tư thế hay quan điểm.",
+   "vi": "Cô Hale nộp đơn xin một vị trí ở phòng tiếp thị ngay sau khi tốt nghiệp."
+  },
+  {
+   "id": "ch-109",
+   "t": "NN",
+   "syn": "credit",
+   "s": "The company will give customers a ___ toward their next purchase if the delivery is late.",
+   "a": "voucher",
+   "o": [
+    [
+     "voucher",
+     "khoản được trừ, phiếu"
+    ],
+    [
+     "praise",
+     "lời khen"
+    ],
+    [
+     "course unit",
+     "đơn vị học phần"
+    ],
+    [
+     "trust",
+     "sự tin cậy"
+    ]
+   ],
+   "why": "\"next purchase\" cho thấy đó là khoản trừ vào lần mua sau, nên credit = \"voucher\", không phải lời khen hay học phần.",
+   "vi": "Công ty sẽ tặng khách một khoản trừ vào lần mua sau nếu giao hàng trễ."
+  },
+  {
+   "id": "ch-110",
+   "t": "NN",
+   "syn": "reflect",
+   "s": "The new pricing policy should ___ the rising cost of materials and shipping.",
+   "a": "show",
+   "o": [
+    [
+     "show",
+     "phản ánh, cho thấy"
+    ],
+    [
+     "ponder",
+     "suy ngẫm"
+    ],
+    [
+     "bounce back",
+     "dội lại"
+    ],
+    [
+     "shine",
+     "chiếu sáng"
+    ]
+   ],
+   "why": "\"pricing policy\" là chính sách, không biết suy nghĩ, nên reflect = \"show\" (phản ánh), không phải suy ngẫm hay dội lại.",
+   "vi": "Chính sách giá mới nên phản ánh chi phí vật liệu và vận chuyển đang tăng."
+  },
+  {
+   "id": "ch-111",
+   "t": "NN",
+   "syn": "maintain",
+   "s": "Ms. Ortiz will ___ that the delay was caused by a supplier, not by her team.",
+   "a": "insist",
+   "o": [
+    [
+     "insist",
+     "khẳng định"
+    ],
+    [
+     "repair",
+     "sửa chữa"
+    ],
+    [
+     "continue",
+     "tiếp tục"
+    ],
+    [
+     "support",
+     "chống đỡ"
+    ]
+   ],
+   "why": "\"caused by\" đứng sau mệnh đề that, nên maintain = \"insist\" (khẳng định), không phải sửa chữa hay tiếp tục.",
+   "vi": "Cô Ortiz sẽ khẳng định rằng sự chậm trễ do nhà cung cấp gây ra, không phải do nhóm của cô."
+  },
+  {
+   "id": "ch-112",
+   "t": "NN",
+   "syn": "observe",
+   "s": "New drivers at Larkin Freight must ___ the speed limits set for every warehouse yard.",
+   "a": "follow",
+   "o": [
+    [
+     "follow",
+     "tuân theo"
+    ],
+    [
+     "celebrate",
+     "kỷ niệm"
+    ],
+    [
+     "remark",
+     "nhận xét"
+    ],
+    [
+     "spy on",
+     "theo dõi lén"
+    ]
+   ],
+   "why": "\"speed limits\" là quy định phải giữ, nên observe = \"follow\" (tuân theo), không phải kỷ niệm hay nhận xét.",
+   "vi": "Tài xế mới của Larkin Freight phải tuân theo giới hạn tốc độ đặt cho mọi bãi kho."
+  },
+  {
+   "id": "ch-113",
+   "t": "NN",
+   "syn": "secure",
+   "s": "Ms. Chen hopes to ___ funding for the new training center before the end of June.",
+   "a": "obtain",
+   "o": [
+    [
+     "obtain",
+     "giành được"
+    ],
+    [
+     "fasten",
+     "buộc chặt"
+    ],
+    [
+     "lock",
+     "khoá lại"
+    ],
+    [
+     "tie",
+     "thắt"
+    ]
+   ],
+   "why": "\"funding\" là nguồn tiền cần xin được, nên secure = \"obtain\" (giành được), không phải buộc chặt hay khoá.",
+   "vi": "Cô Chen hy vọng giành được kinh phí cho trung tâm đào tạo mới trước cuối tháng Sáu."
+  },
+  {
+   "id": "ch-114",
+   "t": "NN",
+   "syn": "features",
+   "s": "The smartphone's main ___ include a long battery life and a waterproof case.",
+   "a": "characteristics",
+   "o": [
+    [
+     "characteristics",
+     "đặc điểm"
+    ],
+    [
+     "faces",
+     "khuôn mặt"
+    ],
+    [
+     "articles",
+     "bài báo đặc biệt"
+    ],
+    [
+     "movies",
+     "phim chính"
+    ]
+   ],
+   "why": "\"battery life\" là một đặc điểm của máy, nên features = \"characteristics\" (đặc điểm), không phải khuôn mặt hay bài báo.",
+   "vi": "Các đặc điểm chính của điện thoại gồm pin bền và vỏ chống nước."
+  },
+  {
+   "id": "ch-115",
+   "t": "NN",
+   "syn": "draw",
+   "s": "The annual job fair is expected to ___ more than two thousand visitors this year.",
+   "a": "attract",
+   "o": [
+    [
+     "attract",
+     "thu hút"
+    ],
+    [
+     "sketch",
+     "vẽ phác"
+    ],
+    [
+     "withdraw",
+     "rút ra"
+    ],
+    [
+     "tie",
+     "hoà (kết quả)"
+    ]
+   ],
+   "why": "\"visitors\" là người tới dự, nên draw = \"attract\" (thu hút), không phải vẽ phác hay rút ra.",
+   "vi": "Hội chợ việc làm hằng năm dự kiến thu hút hơn hai nghìn khách năm nay."
+  },
+  {
+   "id": "ch-116",
+   "t": "NN",
+   "syn": "settle",
+   "s": "The two companies agreed to ___ the dispute without going to court.",
+   "a": "resolve",
+   "o": [
+    [
+     "resolve",
+     "giải quyết xong"
+    ],
+    [
+     "sink",
+     "chìm xuống"
+    ],
+    [
+     "colonize",
+     "chiếm làm thuộc địa"
+    ],
+    [
+     "pay",
+     "trả (nợ)"
+    ]
+   ],
+   "why": "\"without going to court\" nói về việc dàn xếp tranh chấp, nên settle = \"resolve\" (giải quyết xong), không phải chìm hay chiếm.",
+   "vi": "Hai công ty đồng ý giải quyết tranh chấp mà không ra toà."
+  },
+  {
+   "id": "ch-117",
+   "t": "NN",
+   "syn": "raise",
+   "s": "The charity hopes to ___ ten thousand dollars at Saturday's dinner.",
+   "a": "collect",
+   "o": [
+    [
+     "collect",
+     "gây quỹ, thu được"
+    ],
+    [
+     "lift",
+     "nhấc lên"
+    ],
+    [
+     "rear",
+     "nuôi nấng"
+    ],
+    [
+     "wake",
+     "đánh thức"
+    ]
+   ],
+   "why": "\"charity\" kêu gọi tiền, nên raise = \"collect\" (gây quỹ), không phải nhấc lên hay nuôi nấng.",
+   "vi": "Tổ chức từ thiện hy vọng gây quỹ mười nghìn đô la tại bữa tối thứ Bảy."
+  },
+  {
+   "id": "ch-118",
+   "t": "NN",
+   "syn": "charge",
+   "s": "The hotel will ___ a small fee for late checkout after noon.",
+   "a": "collect",
+   "o": [
+    [
+     "collect",
+     "thu (tiền)"
+    ],
+    [
+     "attack",
+     "tấn công"
+    ],
+    [
+     "accuse",
+     "buộc tội"
+    ],
+    [
+     "power up",
+     "nạp điện"
+    ]
+   ],
+   "why": "\"late checkout\" kèm một khoản phí khách phải trả, nên charge = \"collect\" (thu tiền), không phải tấn công hay buộc tội.",
+   "vi": "Khách sạn sẽ thu một khoản phí nhỏ nếu trả phòng muộn sau buổi trưa."
+  },
+  {
+   "id": "ch-119",
+   "t": "NN",
+   "syn": "balance",
+   "s": "Customers can check their account ___ at any time using the mobile app.",
+   "a": "funds",
+   "o": [
+    [
+     "funds",
+     "số tiền còn lại"
+    ],
+    [
+     "steadiness",
+     "sự vững vàng"
+    ],
+    [
+     "scales",
+     "cái cân"
+    ],
+    [
+     "harmony",
+     "sự hài hoà"
+    ]
+   ],
+   "why": "\"account\" là tài khoản ngân hàng, nên balance = \"funds\" (số dư), không phải vững vàng hay cái cân.",
+   "vi": "Khách có thể xem số dư tài khoản bất cứ lúc nào bằng ứng dụng di động."
+  },
+  {
+   "id": "ch-120",
+   "t": "NN",
+   "syn": "fair",
+   "s": "The committee offered a ___ price to all of the bidders, so no one complained.",
+   "a": "reasonable",
+   "o": [
+    [
+     "reasonable",
+     "hợp lý"
+    ],
+    [
+     "pale",
+     "nhợt nhạt"
+    ],
+    [
+     "sunny",
+     "có nắng"
+    ],
+    [
+     "blond",
+     "tóc vàng"
+    ]
+   ],
+   "why": "\"bidders\" là người trả giá, nên fair = \"reasonable\" (hợp lý), không phải nhợt nhạt hay có nắng.",
+   "vi": "Hội đồng đưa ra mức giá hợp lý cho mọi bên dự thầu nên không ai phàn nàn."
+  },
+  {
+   "id": "ch-121",
+   "t": "NN",
+   "syn": "note",
+   "s": "Please attach a handwritten ___ to each gift basket before delivery.",
+   "a": "message",
+   "o": [
+    [
+     "message",
+     "lời nhắn"
+    ],
+    [
+     "tone",
+     "âm thanh"
+    ],
+    [
+     "fame",
+     "danh tiếng"
+    ],
+    [
+     "melody",
+     "giai điệu"
+    ]
+   ],
+   "why": "\"handwritten\" và \"gift basket\" cho thấy đó là mảnh giấy ghi lời, nên note = \"message\" (lời nhắn), không phải âm thanh hay danh tiếng.",
+   "vi": "Vui lòng gắn một lời nhắn viết tay vào mỗi giỏ quà trước khi giao."
+  },
+  {
+   "id": "ch-122",
+   "t": "NN",
+   "syn": "sound",
+   "s": "The consultant gave us ___ advice on how to reduce our shipping costs.",
+   "a": "reliable",
+   "o": [
+    [
+     "reliable",
+     "đáng tin"
+    ],
+    [
+     "healthy",
+     "khoẻ mạnh"
+    ],
+    [
+     "deep",
+     "sâu (giấc ngủ)"
+    ],
+    [
+     "uninjured",
+     "không bị thương"
+    ]
+   ],
+   "why": "\"shipping costs\" là việc cần lời khuyên tốt, nên sound = \"reliable\" (đáng tin), không phải khoẻ mạnh hay không bị thương.",
+   "vi": "Chuyên gia tư vấn cho chúng tôi lời khuyên đáng tin về cách giảm chi phí vận chuyển."
+  },
+  {
+   "id": "ch-123",
+   "t": "NN",
+   "syn": "meet",
+   "s": "The new software must ___ all of our clients' security requirements before the launch.",
+   "a": "satisfy",
+   "o": [
+    [
+     "satisfy",
+     "đáp ứng"
+    ],
+    [
+     "encounter",
+     "tình cờ gặp"
+    ],
+    [
+     "greet",
+     "chào đón"
+    ],
+    [
+     "join",
+     "nối vào"
+    ]
+   ],
+   "why": "\"security requirements\" là yêu cầu phải đạt, nên meet = \"satisfy\" (đáp ứng), không phải gặp gỡ hay chào đón.",
+   "vi": "Phần mềm mới phải đáp ứng mọi yêu cầu bảo mật của khách hàng trước khi ra mắt."
+  },
+  {
+   "id": "ch-124",
+   "t": "NN",
+   "syn": "carry",
+   "s": "This supermarket will ___ more than five hundred organic products starting next month.",
+   "a": "stock",
+   "o": [
+    [
+     "stock",
+     "bán, có trong kho"
+    ],
+    [
+     "bear",
+     "chịu đựng"
+    ],
+    [
+     "win",
+     "giành được"
+    ],
+    [
+     "lift",
+     "nhấc lên"
+    ]
+   ],
+   "why": "\"organic products\" là hàng hoá trên kệ, nên carry = \"stock\" (có bán), không phải chịu đựng hay giành được.",
+   "vi": "Siêu thị này sẽ bán hơn năm trăm sản phẩm hữu cơ từ tháng sau."
+  },
+  {
+   "id": "ch-125",
+   "t": "NN",
+   "syn": "hold",
+   "s": "The community center will ___ a free workshop on résumé writing next Saturday.",
+   "a": "organize",
+   "o": [
+    [
+     "organize",
+     "tổ chức"
+    ],
+    [
+     "grip",
+     "nắm chặt"
+    ],
+    [
+     "contain",
+     "chứa đựng"
+    ],
+    [
+     "restrain",
+     "kìm giữ"
+    ]
+   ],
+   "why": "\"workshop\" là một sự kiện được tổ chức, nên hold = \"organize\" (tổ chức), không phải nắm chặt hay chứa đựng.",
+   "vi": "Trung tâm cộng đồng sẽ tổ chức một buổi hội thảo miễn phí về viết sơ yếu lý lịch vào thứ Bảy tới."
+  },
+  {
+   "id": "ch-126",
+   "t": "NN",
+   "syn": "deliver",
+   "s": "The keynote speaker will ___ her speech right after the lunch break.",
+   "a": "give",
+   "o": [
+    [
+     "give",
+     "trình bày"
+    ],
+    [
+     "carry",
+     "mang đi"
+    ],
+    [
+     "rescue",
+     "cứu thoát"
+    ],
+    [
+     "free",
+     "giải phóng"
+    ]
+   ],
+   "why": "\"keynote\" là bài phát biểu chính, nên deliver = \"give\" (trình bày), không phải mang đi hay cứu thoát.",
+   "vi": "Diễn giả chính sẽ trình bày bài phát biểu ngay sau giờ nghỉ trưa."
+  },
+  {
+   "id": "ch-127",
+   "t": "NN",
+   "syn": "honor",
+   "s": "The bank will ___ all coupons issued before the end of December.",
+   "a": "accept",
+   "o": [
+    [
+     "accept",
+     "chấp nhận"
+    ],
+    [
+     "praise",
+     "khen ngợi"
+    ],
+    [
+     "reward",
+     "thưởng"
+    ],
+    [
+     "worship",
+     "thờ phụng"
+    ]
+   ],
+   "why": "\"coupons\" là phiếu giảm giá được dùng, nên honor = \"accept\" (chấp nhận), không phải khen ngợi hay thờ phụng.",
+   "vi": "Ngân hàng sẽ chấp nhận mọi phiếu giảm giá phát hành trước cuối tháng Mười Hai."
+  },
+  {
+   "id": "ch-128",
+   "t": "NN",
+   "syn": "expand",
+   "s": "Tasty Bites plans to ___ into three new cities by the end of next year.",
+   "a": "spread",
+   "o": [
+    [
+     "spread",
+     "mở rộng"
+    ],
+    [
+     "inflate",
+     "bơm phồng"
+    ],
+    [
+     "elaborate",
+     "nói chi tiết hơn"
+    ],
+    [
+     "unfold",
+     "mở ra"
+    ]
+   ],
+   "why": "\"new cities\" là địa bàn mới, nên expand = \"spread\" (mở rộng), không phải bơm phồng hay nói chi tiết.",
+   "vi": "Tasty Bites dự định mở rộng sang ba thành phố mới trước cuối năm sau."
+  },
+  {
+   "id": "ch-129",
+   "t": "NN",
+   "syn": "launch",
+   "s": "Brightway Motors will ___ its first electric van at the Chicago trade show in May.",
+   "a": "introduce",
+   "o": [
+    [
+     "introduce",
+     "ra mắt"
+    ],
+    [
+     "hurl",
+     "ném mạnh"
+    ],
+    [
+     "shoot into space",
+     "phóng lên không gian"
+    ],
+    [
+     "attack",
+     "tấn công"
+    ]
+   ],
+   "why": "\"trade show\" là nơi giới thiệu sản phẩm, nên launch = \"introduce\" (ra mắt), không phải ném mạnh hay phóng lên không gian.",
+   "vi": "Brightway Motors sẽ ra mắt mẫu xe tải điện đầu tiên tại triển lãm thương mại Chicago vào tháng Năm."
+  },
+  {
+   "id": "ch-130",
+   "t": "NN",
+   "syn": "return",
+   "s": "The accountant asked her to file the tax ___ before the April deadline.",
+   "a": "form",
+   "o": [
+    [
+     "form",
+     "tờ khai"
+    ],
+    [
+     "coming back",
+     "sự quay lại"
+    ],
+    [
+     "profit",
+     "lợi nhuận"
+    ],
+    [
+     "answer",
+     "câu trả lời"
+    ]
+   ],
+   "why": "\"file the tax\" nghĩa là nộp giấy khai thuế, nên return = \"form\" (tờ khai), không phải quay lại hay lợi nhuận.",
+   "vi": "Kế toán bảo cô nộp tờ khai thuế trước hạn chót tháng Tư."
+  },
+  {
+   "id": "ch-131",
+   "t": "NN",
+   "syn": "check",
+   "s": "After the business lunch, Mr. Grant asked the server to bring the ___ to his table.",
+   "a": "bill",
+   "o": [
+    [
+     "bill",
+     "hoá đơn (nhà hàng)"
+    ],
+    [
+     "inspection",
+     "sự kiểm tra"
+    ],
+    [
+     "pattern",
+     "hoa văn ca rô"
+    ],
+    [
+     "limit",
+     "sự kiềm chế"
+    ]
+   ],
+   "why": "\"server\" và \"business lunch\" cho biết đây là nhà hàng, nên check = \"bill\" (hoá đơn), không phải kiểm tra.",
+   "vi": "Sau bữa trưa công việc, ông Grant nhờ người phục vụ mang hoá đơn ra bàn."
+  },
+  {
+   "id": "ch-132",
+   "t": "NN",
+   "syn": "field",
+   "s": "Mr. Rossi has over ten years of experience in the ___ of civil engineering.",
+   "a": "area",
+   "o": [
+    [
+     "area",
+     "lĩnh vực"
+    ],
+    [
+     "meadow",
+     "đồng cỏ"
+    ],
+    [
+     "pitch",
+     "sân thi đấu"
+    ],
+    [
+     "battlefield",
+     "chiến trường"
+    ]
+   ],
+   "why": "\"civil engineering\" là một ngành, nên field = \"area\" (lĩnh vực), không phải đồng cỏ hay sân thi đấu.",
+   "vi": "Ông Rossi có hơn mười năm kinh nghiệm trong lĩnh vực kỹ thuật xây dựng dân dụng."
+  },
+  {
+   "id": "ch-133",
+   "t": "NN",
+   "syn": "line",
+   "s": "Several customers were waiting in a long ___ outside the store before it opened.",
+   "a": "queue",
+   "o": [
+    [
+     "queue",
+     "hàng người xếp"
+    ],
+    [
+     "rope",
+     "sợi dây"
+    ],
+    [
+     "wire",
+     "dây điện"
+    ],
+    [
+     "wrinkle",
+     "nếp nhăn"
+    ]
+   ],
+   "why": "\"waiting\" cho thấy là hàng người chờ, nên line = \"queue\" (hàng), không phải sợi dây hay nếp nhăn.",
+   "vi": "Vài khách đã đợi trong một hàng dài trước cửa hàng khi chưa mở cửa."
+  },
+  {
+   "id": "ch-134",
+   "t": "NN",
+   "syn": "post",
+   "s": "The firm will ___ the job opening on its website and three online boards.",
+   "a": "publish",
+   "o": [
+    [
+     "publish",
+     "đăng công khai"
+    ],
+    [
+     "mail",
+     "gửi qua bưu điện"
+    ],
+    [
+     "station",
+     "bố trí đứng gác"
+    ],
+    [
+     "assign",
+     "giao nhiệm vụ"
+    ]
+   ],
+   "why": "\"website\" là nơi đăng thông báo, nên post = \"publish\" (đăng), không phải gửi thư hay bố trí gác.",
+   "vi": "Công ty sẽ đăng thông báo tuyển dụng trên trang web và ba bảng tin trực tuyến."
+  },
+  {
+   "id": "ch-135",
+   "t": "NN",
+   "syn": "stand",
+   "s": "The company's offer will ___ until the end of the month, after which prices will rise.",
+   "a": "remain valid",
+   "o": [
+    [
+     "remain valid",
+     "còn hiệu lực"
+    ],
+    [
+     "tolerate",
+     "chịu đựng"
+    ],
+    [
+     "get up",
+     "đứng dậy"
+    ],
+    [
+     "compete",
+     "tranh cử"
+    ]
+   ],
+   "why": "\"offer\" là lời chào giá có thời hạn, nên stand = \"remain valid\" (còn hiệu lực), không phải chịu đựng hay đứng dậy.",
+   "vi": "Ưu đãi của công ty còn hiệu lực đến cuối tháng, sau đó giá sẽ tăng."
+  },
+  {
+   "id": "ch-136",
+   "t": "NN",
+   "syn": "subject",
+   "s": "The ___ of Friday's meeting is next year's budget.",
+   "a": "topic",
+   "o": [
+    [
+     "topic",
+     "chủ đề"
+    ],
+    [
+     "citizen",
+     "công dân (dưới vua)"
+    ],
+    [
+     "school class",
+     "môn học"
+    ],
+    [
+     "test participant",
+     "người tham gia thử nghiệm"
+    ]
+   ],
+   "why": "\"budget\" là nội dung được bàn, nên subject = \"topic\" (chủ đề), không phải công dân hay môn học.",
+   "vi": "Chủ đề của cuộc họp thứ Sáu là ngân sách năm sau."
+  },
+  {
+   "id": "ch-137",
+   "t": "NN",
+   "syn": "fine",
+   "s": "Use a ___ brush to apply the glue to the edges of the frame.",
+   "a": "thin",
+   "o": [
+    [
+     "thin",
+     "mảnh, nhỏ"
+    ],
+    [
+     "sunny",
+     "nắng đẹp"
+    ],
+    [
+     "healthy",
+     "khoẻ"
+    ],
+    [
+     "pure",
+     "nguyên chất"
+    ]
+   ],
+   "why": "\"glue\" cần bôi chính xác ở mép, nên fine = \"thin\" (mảnh), không phải nắng đẹp hay khoẻ.",
+   "vi": "Hãy dùng cọ mảnh để bôi keo lên các mép khung."
+  },
+  {
+   "id": "ch-138",
+   "t": "NN",
+   "syn": "flat",
+   "s": "The airline offers a ___ rate of forty dollars for any checked bag, regardless of weight.",
+   "a": "fixed",
+   "o": [
+    [
+     "fixed",
+     "cố định"
+    ],
+    [
+     "smooth",
+     "phẳng"
+    ],
+    [
+     "deflated",
+     "xẹp hơi"
+    ],
+    [
+     "dull",
+     "tẻ nhạt"
+    ]
+   ],
+   "why": "\"regardless of weight\" nghĩa là giá không đổi theo cân nặng, nên flat = \"fixed\" (cố định), không phải phẳng hay xẹp.",
+   "vi": "Hãng bay thu mức phí cố định bốn mươi đô la cho mỗi hành lý ký gửi, bất kể cân nặng."
+  },
+  {
+   "id": "ch-139",
+   "t": "NN",
+   "syn": "sharp",
+   "s": "The shop recorded a ___ increase in sales right after the television advertisement aired.",
+   "a": "sudden",
+   "o": [
+    [
+     "sudden",
+     "đột ngột"
+    ],
+    [
+     "pointed",
+     "nhọn"
+    ],
+    [
+     "clever",
+     "thông minh"
+    ],
+    [
+     "bitter",
+     "chua gắt"
+    ]
+   ],
+   "why": "\"advertisement\" tác động ngay nên doanh số tăng nhanh, sharp = \"sudden\" (đột ngột), không phải nhọn hay thông minh.",
+   "vi": "Cửa hàng ghi nhận doanh số tăng đột ngột ngay sau khi quảng cáo truyền hình phát sóng."
+  },
+  {
+   "id": "ch-140",
+   "t": "NN",
+   "syn": "fresh",
+   "s": "The bakery asked for ___ ideas from its staff to attract more young customers.",
+   "a": "new",
+   "o": [
+    [
+     "new",
+     "mới mẻ"
+    ],
+    [
+     "unspoiled",
+     "còn tươi"
+    ],
+    [
+     "chilly",
+     "se lạnh"
+    ],
+    [
+     "cheeky",
+     "hỗn láo"
+    ]
+   ],
+   "why": "\"young customers\" cần ý tưởng khác trước, nên fresh = \"new\" (mới mẻ), không phải còn tươi hay se lạnh.",
+   "vi": "Tiệm bánh nhờ nhân viên đưa ra ý tưởng mới để thu hút thêm khách trẻ."
   }
  ]
 }
