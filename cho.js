@@ -1,15 +1,16 @@
 // 🛒 Chợ Từ Vựng (specs/020-thanh-pho-toeic, v192): phố thứ sáu của 🏙 Thành phố TOEIC, chạy bằng động cơ phố của pho.js. Câu Part 5 từ vựng (x.t 'voc').
 // 4 phương án cùng loại từ, khác nghĩa: dấu hiệu là cụm đi cặp, giới từ sau ô trống, hoặc ý cả câu. 3 cư dân (quầy) = 3 loại dấu hiệu.
 // Bậc: ① Dấu hiệu ở đâu (3 cư dân, chữ mốc tô) → ② Bắt theo nghĩa (kiểu ván 'vi': cho nghĩa tiếng Việt, bắt từ tiếng Anh) → ③ 3 từ → ④ 4 từ như đề.
-// Kho: cho.json (content/toeic/cho.json qua tools/build-cho.mjs) + câu thật Part 5 từ vựng của đề. Part 6 chọn từ, Part 7 từ gần nghĩa chưa dùng.
+// Kho: cho.json (content/toeic/cho.json qua tools/build-cho.mjs) + câu thật Part 5 từ vựng, Part 6 chọn từ cùng loại (v194) và Part 7 từ gần nghĩa (v196:
+//   câu trong bài chứa từ được hỏi thành ô trống, phSrcSyn ở pho.js; quầy Cô Nghĩa) của đề.
 PH_ACCX.E = (ink, sk) => `<path d="M34 24 Q34 12 44 14 L50 20 L56 14 Q66 12 66 24" style="fill:none;stroke:#f08c3a;stroke-width:5;stroke-linecap:round"/><circle cx="50" cy="22" r="4" style="fill:#f08c3a;stroke:${ink};stroke-width:1.5"/>`;
 PH_ACCX.F = (ink, sk) => `<path d="M30 26 h28" style="stroke:${ink};stroke-width:3;stroke-linecap:round"/><path d="M54 18 L66 26 L54 34" style="fill:none;stroke:#3a8ff0;stroke-width:4;stroke-linecap:round;stroke-linejoin:round"/>`;
 PH_ACCX.J = (ink, sk) => `<path d="M50 6 C42 6 36 12 36 20 C36 26 40 28 42 32 L58 32 C60 28 64 26 64 20 C64 12 58 6 50 6 Z" style="fill:#ffe066;stroke:${ink};stroke-width:2.5"/><path d="M44 36 h12" style="stroke:${ink};stroke-width:2.5"/>`;
 const CH_PREP = new Set(['for', 'with', 'of', 'to', 'in', 'on', 'about', 'from', 'at', 'by', 'into', 'as']);
 // loại dấu hiệu của câu đề: giới từ ngay sau ô trống → F; cấu trúc lời giải có đáp án → E (cụm); còn lại → J (nghĩa cả câu)
-function chTy(q, s) { const nx = (String(s).split('___')[1] || '').trim().toLowerCase().match(/^[a-z]+/); if (nx && CH_PREP.has(nx[0])) return 'F';
+function chTy(q, s) { if (q.sec === 'p7') return 'J'; const nx = (String(s).split('___')[1] || '').trim().toLowerCase().match(/^[a-z]+/); if (nx && CH_PREP.has(nx[0])) return 'F';
   const ct = String((q.lg || {}).ct || '').toLowerCase(), a = String(q.a).toLowerCase(); return ct && ct.includes(a.slice(0, Math.max(4, a.length - 2))) ? 'E' : 'J'; }
-const CH_OK = q => !!(q && phIn(q, 'cho', t => t === 'voc') && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));   // v194: + Part 6 chọn từ cùng loại
+const CH_OK = q => !!(q && (phIn(q, 'cho', t => t === 'voc') || (q.sec === 'p7' && q.qt === 'syn')) && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));   // v194: + Part 6 chọn từ cùng loại
 function chReal(q, d) { if (!CH_OK(q)) return null; const og = q.lg.og, src = phSrc(q); if (!src) return null; const s = src.s;
   const t = chTy(q, s), o = q.opts.map(w => [w, t, String(og[w]).split(':').slice(1).join(':').trim() || String(og[w]).trim()]);
   const ly = String(q.lg.ly || q.why || ''), why = (ly.replace(/^Đáp án "[^"]*"\s*[—–-]\s*/, '').match(/^[^.!?]*[.!?]/) || [ly])[0].slice(0, 200);

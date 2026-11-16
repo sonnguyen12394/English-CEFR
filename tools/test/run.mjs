@@ -2923,5 +2923,25 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C93', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'đề không ghi nhãn Part 5 (đề riêng) tự gắn nhãn dạng câu; phố đếm câu như đề có nhãn' }); }
 
+// v196 C94 mọi câu Phần Đọc của Đề 1–8 có phố: câu cấu trúc (so sánh → Loại Từ nhóm nguyên / hơn / nhất, cầu nối → Cầu Nối, trợ động từ / thì → Động Từ, còn lại → Chợ),
+//   Part 7 từ gần nghĩa → Chợ (câu trong bài chứa từ, từ thành ô trống), chỗ trống Part 6 đại từ / lượng từ → Phố Đại Từ; mỗi câu đúng MỘT phố nhận
+{ const bad = [];
+  const r = await run(`(async () => { const bad = [], S1 = S;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad();
+      for (const d of TO.tron) { if (d.f) await trLoad(d.id); const Q = trB(d.id).Q.filter(q => /^p[5-7]$/.test(q.sec));
+        for (const q of Q) { const ks = Object.values(PH_PHO).filter(c => c.canFix && c.canFix(q)).map(c => c.key); if (!ks.length) bad.push(d.id + ' câu ' + q.n + ' chưa có phố');
+          if (q.sec !== 'p7' && ks.length > 1) bad.push(d.id + ' câu ' + q.n + ' thuộc ' + ks.join(',')); } }
+      const Q1 = trB(TO.tron[0].id).Q, b = Q1.find(q => q.sec === 'p5' && q.a === 'bigger');
+      if (!b || phStructK(b) !== 'loai' || (PH_PHO.loai.real(b, { id: 'x' }) || {}).nha !== 'ss') bad.push('so sánh phải vào Loại Từ, nhóm nguyên / hơn / nhất');
+      await trLoad('de5'); const sy = trB('de5').Q.find(q => q.qt === 'syn'), src = phSrc(sy);
+      if (!src || (src.s.match(/___/g) || []).length !== 1 || !/Từ gốc trong bài/.test(src.pre) || /\\[\\d\\]/.test(src.s) || !PH_PHO.cho.canFix(sy)) bad.push('từ gần nghĩa Part 7 → Chợ: ' + JSON.stringify(src).slice(0, 120));
+      if (JSON.stringify(dlCls('you', 'đại từ chủ ngữ: bạn', '')) !== '["D","cn"]' || JSON.stringify(dlCls('the one', 'đại từ: cái (thay danh từ)', '')) !== '["U","lo"]' || dlCls('among', 'giới từ: giữa', '')[0] !== '_') bad.push('dlCls');
+      if (cnCls('Becoming', 'V-ing: trở thành', '') !== '_' || phPosOf('to V: để xếp hàng') !== 'V' || phPosOf('so sánh hơn: lớn hơn') !== 'A') bad.push('nhãn chuẩn phải được nhận');
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length) bad.push('đụng điểm đề thử / thẻ học');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    S = S1; return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C94', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'mọi câu Phần Đọc Đề 1–8 có đúng một phố: câu cấu trúc, từ gần nghĩa Part 7, đại từ Part 6; nhãn chuẩn (to V, so sánh, V-ing) được nhận' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

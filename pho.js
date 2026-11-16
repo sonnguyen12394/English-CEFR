@@ -38,6 +38,7 @@ let PH_NHA = {
   nguoi: { who: 'N', name: 'Hai Bác Danh từ cùng nhà: người hay việc?', q: 'Từ được tô chỉ NGƯỜI hay VIỆC?', ex: [['The', 'applicants', 'will be interviewed on Friday.'], ['Our', 'supervisor', 'approved the request.'], ['Two new', 'employees', 'joined the team.']], ans: ['Người', 'Việc'], ok: 0, hint: 'Ai được phỏng vấn, ai duyệt yêu cầu? Đuôi -ant, -or, -ee.', chant: '-er, -or, -ant, -ee, -ist là NGƯỜI; -tion, -ment, -ance là VIỆC. Câu cần ai làm thì chọn người.' },
   vdang: { who: 'V', name: 'Ba anh em Động: gốc, V3, V-ing', q: 'Sau "has been" và "was", Anh Động từ mặc dạng nào?', ex: [['The order has been', 'shipped', 'today.'], ['The room was', 'cleaned', 'last night.'], ['All forms must be', 'signed', 'by Friday.']], ans: ['V3 (được / bị)', 'Dạng gốc'], ok: 0, hint: 'Đơn hàng không tự gửi: nó ĐƯỢC gửi.', chant: 'Sau will / can / to: gốc. Sau be / have (được, đã): V3. Sau giới từ hoặc be (đang): V-ing.' },
   edng: { who: 'A', name: 'Hai chị em nhà Tính: -ed và -ing', q: 'Từ được tô nói người CẢM THẤY hay vật GÂY RA cảm giác?', ex: [['The staff were', 'excited', 'about the trip.'], ['I was', 'impressed', 'by her work.'], ['Visitors felt', 'satisfied', 'with the tour.']], ans: ['Người cảm thấy', 'Vật gây ra'], ok: 0, hint: 'Ai thấy hào hứng, ấn tượng, hài lòng? Đều là người.', chant: '-ed: người CẢM THẤY (I am bored). -ing: vật, việc GÂY RA cảm giác (the film is boring).' },
+  ss: { who: 'A', name: 'Ba chị em nhà Tính: nguyên, hơn, nhất', q: 'Có "than", "the … of" hay "as … as" thì Cô Tính từ mặc dạng nào?', ex: [['This room is', 'bigger', 'than that one.'], ['She is the', 'most experienced', 'engineer in the team.'], ['It is not as', 'comfortable', 'as the first one.']], ans: ['Dạng so sánh hợp với dấu hiệu', 'Luôn dạng gốc'], ok: 0, hint: 'than → hơn, the … of / in → nhất, as … as → dạng gốc.', chant: 'Có than: -er / more. The … of, in: -est / most. As … as: dạng gốc. The -er …, the -er …: càng … càng.' },
   so: { who: 'N', name: 'Bác Danh từ một người hay nhiều người?', q: 'Sau "each / every / a", Bác Danh từ đi một mình hay đi đông?', ex: [['Each', 'employee', 'has a locker.'], ['Every', 'guest', 'gets a map.'], ['A', 'customer', 'called this morning.']], ans: ['Một mình (số ít)', 'Đi đông (số nhiều)'], ok: 0, hint: 'Each, every, a đều đếm từng người một.', chant: 'Sau a, an, each, every: số ít. Sau many, several, these, all: số nhiều.' } };
 let PH_ORD = ['N', 'V', 'A', 'R'];
 // v181 (specs/020-thanh-pho-toeic): ĐỘNG CƠ PHỐ dùng chung. Mỗi phố là một cấu hình PH_PHO[key]; phUse(key) nạp hằng của phố vào các biến PH_* (bậc, cư dân,
@@ -55,6 +56,7 @@ const PH_LA = { name: 'Khác loại', pos: 'Khác loại', suf: 'không thuộc 
 // v194: câu Part 5 hoặc một chỗ trống Part 6 → { s: câu có ___, pre: câu ngay trước (Part 6), para: cả đoạn có ___ (Part 6) } hoặc null.
 //   Part 6: các chỗ trống khác điền sẵn đáp án; tách câu như trochoi.js (tgSents), ô trống thay bằng chữ in hoa tạm để không dính câu trước.
 function phSrc(q) { if (!q) return null;
+  if (q.sec === 'p7') return phSrcSyn(q);
   if (q.sec === 'p5') { const s = String(q.q || '').replace(/<[^>]+>/g, '').replace(/-{5,}/, '___'); return /___/.test(s) ? { s } : null; }
   if (q.sec !== 'p6' || !q.x || !q.x.text) return null; const g = +((String(q.q).match(/\((\d)\)/) || [])[1]); if (!g) return null;
   const gp = q.x.gaps || [], T = String(q.x.text).replace(/\{(\d)\}/g, (m, i) => +i === g ? 'QQGAP' : gp[i - 1] ? String(gp[i - 1].a) : '…');
@@ -64,15 +66,37 @@ function phSrc(q) { if (!q) return null;
   if (s.split(/\s+/).length > 24) { const P = s.split(/\. (?=[A-Z])/), j = P.findIndex(x => x.includes('QQGAP')); if (P.length > 1 && j >= 0) { s = P[j] + (j < P.length - 1 ? '.' : ''); pre = j > 0 ? P[j - 1] + '.' : pre; } }   // câu dính sau "A.M." / "Inc."
   s = fix(s); pre = fix(pre); if (!/___/.test(s) || s.split(/\s+/).length > 40) return null;
   return { s, pre, para: fix(T) }; }
+// v196: câu Part 7 "từ gần nghĩa" → câu trong bài chứa từ được hỏi, từ đó thành ô trống (Chợ Từ Vựng: chọn từ thay được); pre = từ gốc; para = cả văn bản
+function phSrcSyn(q) { if (!q || q.sec !== 'p7' || q.qt !== 'syn' || !q.x || !q.x.docs) return null;
+  const raw = String(q.q || '').replace(/&quot;/g, '"').replace(/&#39;/g, "'"), m = raw.match(/["“]([^"”]{1,40})["”]/); if (!m) return null;
+  const w = m[1].trim(), re = new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i'), ty = (raw.match(/^In the ([a-z-]+)/i) || [])[1];
+  const hit = d => ty && new RegExp(ty, 'i').test(String(d.title || '') + ' ' + String(d.text || '').slice(0, 80)) ? 1 : 0;
+  for (const d of [...q.x.docs].sort((a, b) => hit(b) - hit(a))) { const T = String(d.text || ''); if (!re.test(T)) continue;
+    const L = typeof tgSents === 'function' ? tgSents(T) : T.split('\n'), s0 = L.find(x => re.test(x)); if (!s0) continue;
+    let s = s0.replace(re, '___').replace(/\[\d\]\s*/g, '').replace(/\s+/g, ' ').trim(); const W = s.split(' ');
+    if (W.length > 30) { const i = W.findIndex(x => x.includes('___')); s = (i > 12 ? '… ' : '') + W.slice(Math.max(0, i - 12), i + 14).join(' ') + (i + 14 < W.length ? ' …' : ''); }
+    return { s, pre: `Từ gốc trong bài: "${w}". Chọn từ thay được nó.`, para: T.replace(re, '___') }; }
+  return null; }
 // v194: chỗ trống Part 6 thuộc MỘT phố: thì → Động Từ, từ nối → Cầu Nối, chèn câu → Ghép Đoạn; chọn từ: khác loại từ → Loại Từ, dạng động từ → Động Từ, cầu nối → Cầu Nối, cùng loại khác nghĩa → Chợ
 function phP6K(q) { if (!q || q.sec !== 'p6') return null; if (q.gt === 'tense') return 'dong'; if (q.gt === 'conn') return 'cau'; if (q.gt === 'insert') return 'ghep'; if (q.gt !== 'word') return null;
   const og = (q.lg || {}).og || {}; if (!q.opts || !q.opts.every(o => og[o])) return null;
   const P = q.opts.map(o => phPosOf(og[o])); if (P.every(Boolean) && new Set(P).size > 1) return 'loai';
   if (typeof dtCls === 'function') { const C = q.opts.map(o => dtCls(o, og[o], '')); if (C.every(c => c && c[0] !== '_') && new Set(C.map(c => c[1])).size > 1) return 'dong'; }
   if (typeof cnCls === 'function' && q.opts.every(o => cnCls(o, og[o], '')) && cnCls(q.a, og[q.a], '') !== '_') return 'cau';
+  if (typeof dlCls === 'function' && q.opts.every(o => dlCls(o, og[o], '')) && dlCls(q.a, og[q.a], '')[0] !== '_') return 'dai';   // v196: chỗ trống Part 6 đại từ / lượng từ
   if (new Set(q.opts.map(o => String(og[o]).split(':')[0].trim())).size === 1) return 'cho';
   return null; }
-const phIn = (q, key, p5) => !!q && ((q.sec === 'p5' && q.x && p5(q.x.t)) || phP6K(q) === key);
+// v196: câu Part 5 "cấu trúc" (so sánh, đảo ngữ, not only … but, so … that) thuộc MỘT phố theo nhãn lời giải: so sánh → Loại Từ (nhóm nguyên / hơn / nhất),
+//   cầu nối → Cầu Nối, trợ động từ / thì → Động Từ, còn lại (cụm cố định so … that, too … to) → Chợ (quầy Bà Cụm)
+function phStructK(q) { if (!q || q.sec !== 'p5' || !q.x || q.x.t !== 'struct') return null; if ('_sk' in q) return q._sk;
+  const og = (q.lg || {}).og || {}, src = phSrc(q), s = src ? src.s : '', ok = f => q.opts.every(o => f(o)) && f(q.a) !== '_';
+  let k = null; if (q.opts && q.opts.every(o => og[o]) && src) {
+    if (ok(o => phPosOf(og[o])) && q.opts.some(o => /so sánh/.test(String(og[o])))) k = 'loai';
+    else if (typeof cnCls === 'function' && ok(o => cnCls(o, og[o], s))) k = 'cau';
+    else if (typeof dtCls === 'function' && ok(o => (dtCls(o, og[o], s) || [])[0])) k = 'dong';
+    else k = 'cho'; }
+  return (q._sk = k); }
+const phIn = (q, key, p5) => !!q && ((q.sec === 'p5' && q.x && (p5(q.x.t) || phStructK(q) === key)) || phP6K(q) === key);
 const phSt = () => { const o = toSt(); let p; if (PHC.key === 'loai') p = o.pho = o.pho || {}; else { o.phos = o.phos || {}; p = o.phos[PHC.key] = o.phos[PHC.key] || {}; } p.cd = p.cd || {}; p.it = p.it || {}; p.st = p.st || {}; return p; };
 // 🪑 v182 (người sáng lập 15/11/2026: "vướng ở Bậc 2 vì không nắm được cấu trúc"): luật ghế = chữ xung quanh chỗ trống cho biết ghế của ai.
 //   Khoá trùng trường `ghe` của câu kho (content/toeic/pho.json). Ví dụ Claude soạn, chưa giáo viên kiểm.
@@ -162,10 +186,11 @@ function phFace(t, s, mood) { s = s || 64; mood = mood || 'idle';
 
 // ---------- kho câu ----------
 let PH_K = null, PH_RL = null;   // PH_K: kho riêng · PH_RL: câu thật dạng từ { id 'de:<đề>:<n>' → câu }
-const phPosOf = v => { const k = String(v || '').split(':')[0].toLowerCase(); if (/^danh từ/.test(k)) return 'N'; if (/^tính từ/.test(k)) return 'A'; if (/^trạng từ/.test(k)) return 'R'; if (/^(động từ|v3|v-ing|phân từ|quá khứ)/.test(k)) return 'V'; return null; };
+const phPosOf = v => { const k = String(v || '').split(':')[0].toLowerCase(); if (/^(dạng sai|cụm sai|thứ tự sai|đảo sai)/.test(k)) return '_'; if (/^danh từ/.test(k)) return 'N'; if (/^(so sánh (hơn|nhất|bằng)|the \+ so sánh|tính từ nguyên dạng)/.test(k)) return 'A'; if (/^tính từ/.test(k)) return 'A'; if (/^trạng từ/.test(k)) return 'R'; if (/^(động từ|v3|v-ing|phân từ|quá khứ|to v\b|nguyên mẫu|hiện tại|tương lai)/.test(k)) return 'V'; return null; };
 function phNhaOf(it) { const A = it.o.find(o => o[0] === it.a), same = it.o.filter(o => o !== A && o[1] === A[1]); if (!same.length) return null;
   const ws = [A, ...same].map(o => o[0].toLowerCase());
   if (A[1] === 'A' && ws.some(w => /ed$/.test(w)) && ws.some(w => /ing$/.test(w))) return 'edng';
+  if (A[1] === 'A' && ws.some(w => /^(more|most|less|least|the|as) |(er|est)$/.test(w))) return 'ss';   // v196: so sánh nguyên / hơn / nhất
   if (A[1] === 'V') return 'vdang';
   if (A[1] === 'N' && ws.some(w => /(er|or|ant|ent|ee|ist|ian)s?$/.test(w))) return 'nguoi';
   if (A[1] === 'N' && ws.some((w, i) => ws.some((x, j) => i !== j && (x === w + 's' || x === w + 'es')))) return 'so';

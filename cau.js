@@ -22,9 +22,10 @@ function cnCls(w, lab, s) { const t = CN_TY(lab); if (t) return t; const k = Str
     return /^(i|you|he|she|it|we|they)\b/.test(b) || /\b(is|are|was|were|will|can|has|have|had|must|should|\w+ed)\b/.test(b) ? 'L' : 'G'; }
   if (/^(trạng từ|cụm)/.test(k) && CN_TADV.test(x)) return 'T';
   if (/^cụm/.test(k) && / of$/.test(x)) return 'G';
-  if (/^(cụm|trạng từ)|không chuẩn|sai/.test(k)) return '_';
+  if (/^(cụm|trạng từ|v-ing|v3|tính từ|danh từ|đại từ|động từ|từ hạn định|từ chỉ lượng)|không chuẩn|sai/.test(k)) return '_';   // v196: + loại khác hẳn = Khác loại
   return null; }
-const CN_TY = v => { const k = String(v || '').split(':')[0].trim().toLowerCase(); return k === 'giới từ' ? 'G' : k === 'liên từ' ? 'L' : /^(trạng từ nối|từ nối|cụm nối)$/.test(k) ? 'T' : null; };
+const CN_TY = v => { const k = String(v || '').split(':')[0].trim().toLowerCase().replace(/\s*\([^)]*\)$/, '');   // v196: "liên từ (cụm)" = liên từ
+  return k === 'giới từ' ? 'G' : k === 'liên từ' ? 'L' : /^(trạng từ nối|từ nối|cụm nối)$/.test(k) ? 'T' : null; };
 PH_PHO.cau = { key: 'cau', view: 'toeic-pho-cau-noi', ic: '🌉', ten: 'Phố Cầu Nối', file: 'cau.json', sub: 'Giới từ, liên từ, từ nối · Part 5, Part 6',
   desc: 'Điều khiển bé Mầm bắt đúng cây cầu nối hai vế câu. Nhìn phía sau ô trống trước, rồi mới xét nghĩa.',
   lo: 'giới từ, liên từ', dau: 'Phía sau là', introSub: 'Chạm vào từng người để nghe họ giới thiệu. Nhớ phía sau mỗi người là gì.',
