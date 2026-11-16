@@ -81,10 +81,10 @@ async function ghView() { ghStop(); window.CUR = { view: 'toeic-ghep' }; BACK = 
   $app.onclick = e => { if (e.target.closest('[data-ghback]')) return ghBackGo(); if (phSndClick(e)) return ghView(); const mb = e.target.closest('[data-ghmuc]'); if (mb && ghOpen(mb.dataset.ghmuc)) { P.mc = mb.dataset.ghmuc; save(); return ghView(); }
     if (e.target.closest('[data-ghplay]')) return ghStart(); if (e.target.closest('[data-ghintro]')) return ghIntro(); }; }
 function ghIntro() { window.CUR = { view: 'toeic-ghep-intro' }; scrollTo(0, 0); const C = PH_PHO.ghep.CH;
-  $app.innerHTML = ghTop('Phố') + `<h2>4 cư dân của Phố Ghép Đoạn</h2><p class="mute">Mỗi người là một loại chữ nối ngược về câu trước. Thấy chữ nào trong câu chèn thì biết câu trước phải nói gì.</p>
+  $app.innerHTML = ghTop(ghSt().in ? 'Phố' : 'Thành phố') + `<h2>4 cư dân của Phố Ghép Đoạn</h2><p class="mute">Mỗi người là một loại chữ nối ngược về câu trước. Thấy chữ nào trong câu chèn thì biết câu trước phải nói gì.</p>
     ${PH_PHO.ghep.ORD.map(t => `<div class="phwho" style="cursor:default">${phFace(t, 58)}<span class="t"><b>${C[t].name}</b><span><span class="phtag ph-${t}">${C[t].pos}</span> <small class="mute">${esc(C[t].suf)}</small></span><small>${esc(C[t].line)}</small></span></div>`).join('')}
     <button class="pri" data-ghgo style="min-height:52px">${ghSt().in ? 'Về Phố' : '▶ Bắt đầu Bậc 1'}</button>`;
-  $app.onclick = e => { if (e.target.closest('[data-ghback]')) return ghView(); if (e.target.closest('[data-ghgo]')) { const P = ghSt(); if (!P.in) { P.in = 1; save(); return ghStart(); } return ghView(); } }; }
+  $app.onclick = e => { if (e.target.closest('[data-ghback]')) return ghSt().in ? ghView() : ghBackGo(); if (e.target.closest('[data-ghgo]')) { const P = ghSt(); if (!P.in) { P.in = 1; save(); return ghStart(); } return ghView(); } }; }
 // ── ván ──
 function ghStop() { if (GH_R) { clearTimeout(GH_R.to); if (!GH_R.end && GH_R.i > 0) { const s = ghSt().st; s.bo = (s.bo || 0) + 1; } GH_R = null; } phMusic(false); }
 async function ghStart(only, back) { ghStop(); await toLoad(); await ghLoad(); phUse('loai');

@@ -3002,5 +3002,18 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C96', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'mọi câu Phần Đọc Đề 1–8 có đúng một phố: câu cấu trúc, từ gần nghĩa Part 7, đại từ Part 6; nhãn chuẩn (to V, so sánh, V-ing) được nhận' }); }
 
+// v200 C97 Nút về ở màn làm quen của mọi phố: người chưa vào phố (P.in = 0) bấm "‹ Thành phố" thì ra Thành phố, không hiện lại màn làm quen
+{ const r = await run(`(async () => { const bad = [], S1 = S; const clk = sel => $app.onclick({ target: { closest: q => q === sel ? {} : null } });
+    try { S = blank(); S.to = { target: 600 }; await toLoad(); let cy = 0; const cy0 = cyView; cyView = () => { cy++; window.CUR = { view: 'toeic-thanh-pho' }; };
+      for (const k of ['loai', 'cau', 'dong', 'dai', 'ctr', 'cho']) { phUse(k); PH_K = null; PH_RL = null; PHC.sc = null; await phView();
+        if (!/-intro$/.test(CUR.view)) { bad.push(k + ': người mới không vào màn làm quen'); continue; } if (!/‹ Thành phố/.test($app.innerHTML)) bad.push(k + ': nút về chưa ghi Thành phố');
+        const c0 = cy; clk('[data-phback]'); if (cy !== c0 + 1) bad.push(k + ': ‹ Thành phố ở màn làm quen không ra Thành phố'); }
+      for (const [k, v, st, b] of [['ben', benView, benSt, '[data-benback]'], ['ghep', ghView, ghSt, '[data-ghback]']]) { await v();
+        if (!/-intro$/.test(CUR.view)) { bad.push(k + ': người mới không vào màn làm quen'); continue; } const c0 = cy; clk(b); if (cy !== c0 + 1) bad.push(k + ': nút về ở màn làm quen không ra Thành phố'); }
+      cyView = cy0;
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    S = S1; phUse('loai'); return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C97', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Màn làm quen của 8 phố: người mới bấm ‹ Thành phố thì ra Thành phố, không kẹt ở màn làm quen' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
