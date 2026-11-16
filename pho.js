@@ -342,6 +342,8 @@ function phStart(fix, back) { phStop(); phAc(); let L = phPick(fix, fix ? 'tu' :
   const P = phSt(), M = fix ? PH_FIX : PH_MUC[phMuc()];
   // nhóm "hai người cùng nhà" chỉ cần ở bậc bắt đủ 4 từ (bậc 1–3 không có cặp cùng loại)
   const need = M.md === 'tu' && M.k >= 4 ? [...new Set(L.map(x => x.nha).filter(n => n && PH_NHA[n] && !P.cd[n]))] : [];
+  // v195: cư dân mới thêm vào phố đã chơi (vd. Bà Nhiều Nghĩa ở Chợ): làm vụ thám tử của người đó trước ván có câu của họ
+  if (P.in) need.unshift(...(PHC.moi || []).filter(t => PH_G[t] && !P.cd[t] && L.some(x => (x.o.find(o => o[0] === x.a) || [])[1] === t)));
   const go = () => phQuick(() => phRun(L, fix, back));
   if (need.length) return phGuess(need, go); go(); }
 // ⚡ Nhớ nhanh: 3 câu, chỉ đồng phục hoặc ghế → chạm cư dân (nhớ lại không gợi ý)
@@ -399,9 +401,12 @@ function phHint() { const R = PH_R; if (!R || R.done || !R.goi || R.hint >= 2) r
 function phSent(it, fill, moc) { let [a, b] = it.s.split('___').map(esc);
   if (moc) { const re = new RegExp('(^|[^A-Za-z])(' + esc(moc).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')(?=$|[^A-Za-z])', 'i'), mk = (m0, p1, p2) => `${p1}<mark class="phmoc">${p2}</mark>`;
     const ia = [...a.matchAll(new RegExp(re.source, 'gi'))]; if (ia.length) { const m = ia[ia.length - 1]; a = a.slice(0, m.index) + mk(...m) + a.slice(m.index + m[0].length); } else b = (b || '').replace(re, mk); }
-  return (it.pre ? `<span class="phpre">${esc(it.pre)}</span> ` : '') + a + (fill ? `<span class="phgap fill ph-${fill.t}">${esc(fill.w)}</span>` : '<span class="phgap" aria-label="ghế trống">?</span>') + (b || ''); }
+  return (it.pre ? `<span class="phpre">${esc(it.pre)}</span> ` : '') + a + (fill ? `<span class="phgap fill ph-${fill.t}">${it.syn ? esc(it.syn) + ' ≈ ' : ''}${esc(fill.w)}</span>` : it.syn ? `<span class="phgap syn">${esc(it.syn)}</span>` : '<span class="phgap" aria-label="ghế trống">?</span>') + (b || ''); }
+// v195: từ gần nghĩa Part 7 (it.syn = từ trong bài): ô trống hiện chính từ đó, đáp án ghi "từ ≈ nghĩa gần"
+const phAnsTxt = it => `<b>${it.syn ? esc(it.syn) + ' ≈ ' : ''}${esc(it.a)}</b>`;
+const phSynCall = it => it.syn ? `<p class="phsynq">🔁 Nghĩa nào gần nhất với <b>${esc(it.syn)}</b> trong câu này?</p>` : '';
 // v194: câu Part 6: cả đoạn gập dưới câu (ô đang hỏi tô; trò tạm dừng khi mở)
-const phParaBox = (it, fill) => it.para ? `<details class="more phpara" data-phpara><summary>📄 Xem cả đoạn</summary><p>${esc(it.para).replace('___', fill ? `<b>${esc(it.a)}</b>` : '<span class="phgap">?</span>')}</p></details>` : '';
+const phParaBox = (it, fill) => it.para ? `<details class="more phpara" data-phpara><summary>📄 Xem cả ${it.syn ? 'bài' : 'đoạn'}</summary><p>${esc(it.para).replace('___', fill ? phAnsTxt(it) : it.syn ? `<mark class="phmoc">${esc(it.syn)}</mark>` : '<span class="phgap">?</span>')}</p></details>` : '';
 // dựng các làn của câu: mỗi làn { w, p, m, ok } (w = chữ hiện, p = loại từ / cư dân, m = nghĩa)
 function phLanes(it, M) { const A = it.o.find(o => o[0] === it.a), as = o => ({ w: o[0], p: o[1], m: o[2] });
   if (M.md === 'gh') { const os = PH_ORD.length > M.k ? [A[1], ...shuf([...new Set(it.o.map(o => o[1]).filter(t => t !== A[1] && t !== '_'))]), ...shuf(PH_ORD.filter(t => t !== A[1] && !it.o.some(o => o[1] === t)))].slice(0, M.k) : PH_ORD;   // v190: phố > k cư dân thì lấy cư dân của đáp án + cư dân của phương án khác
@@ -417,7 +422,7 @@ function phQ() { const R = PH_R, it = R.L[R.i], lv = R.i < R.half ? 1 : 2, M = R
   const ln = phLanes(it, M); R.order = ln.order; R.T = ln.T; R.lane = Math.min(R.lane, M.k - 1);
   document.getElementById('phfb').innerHTML = ''; document.getElementById('phfx').innerHTML = ''; document.getElementById('pharena').classList.remove('okfl', 'nofl');
   const g = document.getElementById('phgoi'); g.hidden = true; g.innerHTML = '';
-  document.getElementById('phsent').innerHTML = M.md === 'vi' ? `<div class="phcall"><span class="phqe">🇻🇳</span><span>Bắt từ nghĩa là <b>${esc((it.o.find(o => o[0] === it.a) || [])[2] || '')}</b><small>hợp với câu dưới đây</small></span></div>` + phSent(it, null, M.moc ? phMoc(it) : null) : M.md === 'dp' ? `<div class="phcall">${phFace(R.T, 44)}<span>Bắt <b>${PH_CH[R.T].name}</b><small>${PH_CH[R.T].pos}</small></span></div>` : phSent(it, null, M.moc ? phMoc(it) : null);
+  document.getElementById('phsent').innerHTML = M.md === 'vi' ? `<div class="phcall"><span class="phqe">🇻🇳</span><span>Bắt từ nghĩa là <b>${esc((it.o.find(o => o[0] === it.a) || [])[2] || '')}</b><small>hợp với câu dưới đây</small></span></div>` + phSent(it, null, M.moc ? phMoc(it) : null) : M.md === 'dp' ? `<div class="phcall">${phFace(R.T, 44)}<span>Bắt <b>${PH_CH[R.T].name}</b><small>${PH_CH[R.T].pos}</small></span></div>` : (M.md === 'tu' ? phSynCall(it) : '') + phSent(it, null, M.moc ? phMoc(it) : null);
   { const pa = document.getElementById('phpara'); if (pa) pa.innerHTML = M.md === 'dp' ? '' : phParaBox(it); }
   const row = document.getElementById('phrow'); row.style.transform = '';
   row.innerHTML = R.order.map((o, k) => `<div class="phbub" style="left:${k * 100 / M.k}%;width:${100 / M.k}%"><div class="phpill ${M.md === 'qh' ? 'ph-Q' : M.md === 'gh' || M.mau ? 'ph-' + o.p : 'grey'}">${M.md === 'qh' ? `<span class="phqe">${o.e}</span>` : M.md === 'gh' || M.mau ? phFace(o.p, M.md === 'gh' ? 28 : 24) : ''}<span>${esc(o.w)}</span></div></div>`).join('');
@@ -472,8 +477,8 @@ function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, go
   document.getElementById('phfb').innerHTML = `<div class="phfb bad">${body}${opts}<button class="pri" data-phnext>${R.hearts <= 0 ? 'Xem kết quả' : 'Hiểu rồi ›'}</button></div>`;
   phHud(); setTimeout(() => { const f = document.getElementById('phfb'); if (f && f.scrollIntoView) f.scrollIntoView({ block: 'nearest', behavior: phRM() ? 'auto' : 'smooth' }); }, 700); }
 function phNext() { const R = PH_R; if (!R) return; clearTimeout(R.to); if (R.hearts <= 0) return phEnd(); R.i++; if (R.i >= R.L.length) return phEnd(); phQ(); scrollTo(0, 0); }
-const phMissLine = ({ it, got, md, T }) => md === 'qh' ? `<p style="margin:0 0 4px">${esc(it.s).replace('___', `<b>${esc(it.a)}</b>`)}</p><p class="mute" style="margin:0;font-size:14px">Bạn bắt ${got.e} ${esc(got.w)}. ${esc(it.why)}</p>` : md === 'dp' ? `<p style="margin:0">Cần <b>${PH_CH[T].pos.toLowerCase()}</b> (${esc(phSuf(T))}), bạn bắt <b>${esc(got.w)}</b> là ${PH_CH[got.p].pos.toLowerCase()} (${esc(phSuf(got.p))}).</p>`
-  : `<p style="margin:0 0 4px">${esc(it.s).replace('___', `<b>${esc(it.a)}</b>`)}</p><p class="mute" style="margin:0;font-size:15px">${md === 'gh' ? `Bạn chọn ${PH_SHORT[got.p]}, ghế của ${PH_SHORT[it.o.find(o => o[0] === it.a)[1]]}. ${phRuleHtml(it)}` : `Bạn bắt ${esc(got.w)}${PH_CH[got.p].name !== got.w ? ` (${PH_CH[got.p].name})` : ''}. ${esc(it.why)}`}</p>`;
+const phMissLine = ({ it, got, md, T }) => md === 'qh' ? `<p style="margin:0 0 4px">${esc(it.s).replace('___', phAnsTxt(it))}</p><p class="mute" style="margin:0;font-size:14px">Bạn bắt ${got.e} ${esc(got.w)}. ${esc(it.why)}</p>` : md === 'dp' ? `<p style="margin:0">Cần <b>${PH_CH[T].pos.toLowerCase()}</b> (${esc(phSuf(T))}), bạn bắt <b>${esc(got.w)}</b> là ${PH_CH[got.p].pos.toLowerCase()} (${esc(phSuf(got.p))}).</p>`
+  : `<p style="margin:0 0 4px">${esc(it.s).replace('___', phAnsTxt(it))}</p><p class="mute" style="margin:0;font-size:15px">${md === 'gh' ? `Bạn chọn ${PH_SHORT[got.p]}, ghế của ${PH_SHORT[it.o.find(o => o[0] === it.a)[1]]}. ${phRuleHtml(it)}` : `Bạn bắt ${esc(got.w)}${PH_CH[got.p].name !== got.w ? ` (${PH_CH[got.p].name})` : ''}. ${esc(it.why)}`}</p>`;
 function phEnd() { const R = PH_R; R.end = 1; cancelAnimationFrame(R.raf); phMusic(false); const win = R.hearts > 0, n = R.ok + R.miss.length, P = phSt(); P.mu = P.mu || {};
   const nx = R.fix ? null : PH_MO[PH_MO.indexOf(R.mu) + 1], was = nx && phOpen(nx); if (win && !R.fix) P.mu[R.mu] = Math.max(P.mu[R.mu] || 0, R.ok); const unl = nx && !was && phOpen(nx);
   if (unl) P.mc = nx; phSfx(win ? 'win' : 'lose'); save();

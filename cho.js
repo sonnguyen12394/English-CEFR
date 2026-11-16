@@ -1,30 +1,43 @@
 // 🛒 Chợ Từ Vựng (specs/020-thanh-pho-toeic, v192): phố thứ sáu của 🏙 Thành phố TOEIC, chạy bằng động cơ phố của pho.js. Câu Part 5 từ vựng (x.t 'voc').
 // 4 phương án cùng loại từ, khác nghĩa: dấu hiệu là cụm đi cặp, giới từ sau ô trống, hoặc ý cả câu. 3 cư dân (quầy) = 3 loại dấu hiệu.
 // Bậc: ① Dấu hiệu ở đâu (3 cư dân, chữ mốc tô) → ② Bắt theo nghĩa (kiểu ván 'vi': cho nghĩa tiếng Việt, bắt từ tiếng Anh) → ③ 3 từ → ④ 4 từ như đề.
-// Kho: cho.json (content/toeic/cho.json qua tools/build-cho.mjs) + câu thật Part 5 từ vựng của đề. Part 6 chọn từ, Part 7 từ gần nghĩa chưa dùng.
+// Kho: cho.json (content/toeic/cho.json qua tools/build-cho.mjs) + câu thật Part 5 từ vựng của đề. v195: thêm Part 7 từ gần nghĩa (quầy thứ tư Bà Nhiều Nghĩa).
 PH_ACCX.E = (ink, sk) => `<path d="M34 24 Q34 12 44 14 L50 20 L56 14 Q66 12 66 24" style="fill:none;stroke:#f08c3a;stroke-width:5;stroke-linecap:round"/><circle cx="50" cy="22" r="4" style="fill:#f08c3a;stroke:${ink};stroke-width:1.5"/>`;
 PH_ACCX.F = (ink, sk) => `<path d="M30 26 h28" style="stroke:${ink};stroke-width:3;stroke-linecap:round"/><path d="M54 18 L66 26 L54 34" style="fill:none;stroke:#3a8ff0;stroke-width:4;stroke-linecap:round;stroke-linejoin:round"/>`;
 PH_ACCX.J = (ink, sk) => `<path d="M50 6 C42 6 36 12 36 20 C36 26 40 28 42 32 L58 32 C60 28 64 26 64 20 C64 12 58 6 50 6 Z" style="fill:#ffe066;stroke:${ink};stroke-width:2.5"/><path d="M44 36 h12" style="stroke:${ink};stroke-width:2.5"/>`;
+PH_ACCX.NN = (ink, sk) => `<rect x="31" y="12" width="17" height="20" rx="2" style="fill:#fff;stroke:${ink};stroke-width:2"/><rect x="52" y="12" width="17" height="20" rx="2" style="fill:#fff;stroke:${ink};stroke-width:2"/><path d="M44 18 h-9 M44 24 h-9 M65 18 h-9 M65 24 h-9" style="stroke:#2a9d8f;stroke-width:2.5"/>`;
 const CH_PREP = new Set(['for', 'with', 'of', 'to', 'in', 'on', 'about', 'from', 'at', 'by', 'into', 'as']);
 // loại dấu hiệu của câu đề: giới từ ngay sau ô trống → F; cấu trúc lời giải có đáp án → E (cụm); còn lại → J (nghĩa cả câu)
 function chTy(q, s) { const nx = (String(s).split('___')[1] || '').trim().toLowerCase().match(/^[a-z]+/); if (nx && CH_PREP.has(nx[0])) return 'F';
   const ct = String((q.lg || {}).ct || '').toLowerCase(), a = String(q.a).toLowerCase(); return ct && ct.includes(a.slice(0, Math.max(4, a.length - 2))) ? 'E' : 'J'; }
 const CH_OK = q => !!(q && phIn(q, 'cho', t => t === 'voc') && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));   // v194: + Part 6 chọn từ cùng loại
-function chReal(q, d) { if (!CH_OK(q)) return null; const og = q.lg.og, src = phSrc(q); if (!src) return null; const s = src.s;
+// v195: từ gần nghĩa Part 7: tìm câu chứa từ trong bài (ưu tiên câu khớp ev), ô trống = chính từ đó, phương án = 4 nghĩa gần
+const CH_SYN = q => !!(q && q.sec === 'p7' && q.qt === 'syn' && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));
+function chSyn(q, d) { if (!CH_SYN(q)) return null; const w = (String(q.q).replace(/&quot;/g, '"').match(/["“]([^"”]+)["”]/) || [])[1]; if (!w) return null;
+  const re = new RegExp('(^|[^A-Za-z])(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')(?=$|[^A-Za-z])', 'i'); let hit = null;
+  for (const dc of (q.x && q.x.docs) || []) { const T = String(dc.text || '').replace(/ *\[\d\] */g, ' '), L = tgSents(T);   // bỏ dấu chèn câu [1]–[4]
+    L.forEach((x, i) => { if (!re.test(x)) return; const ev = q.ev && tgHit(x, q.ev); if (!hit || (ev && !hit.ev)) hit = { T, L, i, ev }; }); }
+  if (!hit) return null; const x = hit.L[hit.i], m = x.match(re), s = x.replace(re, '$1___'); if (s.split(/\s+/).length > 45) return null;
+  const og = q.lg.og, o = q.opts.map(v => [v, 'NN', String(og[v]).trim()]);
+  const ly = String(q.lg.ly || q.why || ''), why = (ly.match(/^[^.!?]*[.!?]/) || [ly])[0].slice(0, 200);
+  return { id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, a: q.a, o, why, vi: q.lg.dich || '', real: 1, nha: null, syn: m[2], s, pre: hit.i > 0 ? hit.L[hit.i - 1] : '', para: hit.T.replace(x, s) }; }
+function chReal(q, d) { if (CH_SYN(q)) return chSyn(q, d); if (!CH_OK(q)) return null; const og = q.lg.og, src = phSrc(q); if (!src) return null; const s = src.s;
   const t = chTy(q, s), o = q.opts.map(w => [w, t, String(og[w]).split(':').slice(1).join(':').trim() || String(og[w]).trim()]);
   const ly = String(q.lg.ly || q.why || ''), why = (ly.replace(/^Đáp án "[^"]*"\s*[—–-]\s*/, '').match(/^[^.!?]*[.!?]/) || [ly])[0].slice(0, 200);
   return Object.assign({ id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, a: q.a, o, why, vi: q.lg.dich || '', real: 1, nha: null }, src); }
-PH_PHO.cho = { key: 'cho', view: 'toeic-pho-cho', ic: '🛒', ten: 'Chợ Từ Vựng', file: 'cho.json', sub: 'Cụm cố định, từ + giới từ, chọn theo nghĩa · Part 5, Part 6',
+PH_PHO.cho = { key: 'cho', view: 'toeic-pho-cho', ic: '🛒', ten: 'Chợ Từ Vựng', file: 'cho.json', sub: 'Cụm cố định, từ + giới từ, chọn theo nghĩa, từ gần nghĩa · Part 5, 6, 7',
   desc: 'Bốn từ cùng loại, khác nghĩa. Tìm dấu hiệu trước: từ đi cặp, giới từ sau ô trống, hay ý cả câu, rồi điều khiển bé Mầm bắt đúng từ.',
   lo: 'từ vựng', dau: 'Dấu hiệu', introSub: 'Mỗi quầy bán một loại dấu hiệu. Chạm vào từng người để nghe họ giới thiệu.', noPos: 1,
-  ORD: ['E', 'F', 'J'], SHORT: { E: 'Bà Cụm', F: 'Chú Giới', J: 'Cô Nghĩa' }, NHA: {},
+  ORD: ['E', 'F', 'J', 'NN'], SHORT: { E: 'Bà Cụm', F: 'Chú Giới', J: 'Cô Nghĩa', NN: 'Bà Nhiều Nghĩa' }, NHA: {}, moi: ['NN'],
   CH: { E: { name: 'Bà Cụm', pos: 'Cụm cố định', suf: 'từ đi cặp ngay cạnh ô trống', line: 'Có những từ luôn đi cặp: meet a deadline, place an order, highly recommended. Nhìn từ đứng sát ô trống rồi chọn bạn đi cặp với nó.' },
     F: { name: 'Chú Giới', pos: 'Từ + giới từ', suf: 'giới từ ngay sau ô trống', line: 'Thấy giới từ ngay sau ô trống thì gọi tôi: responsible FOR, comply WITH, consist OF. Từ gần nghĩa mà không đi với giới từ đó là sai.' },
-    J: { name: 'Cô Nghĩa', pos: 'Nghĩa cả câu', suf: 'vì … nên …, để …', line: 'Khi không có cụm hay giới từ, đọc cả câu: lý do, mục đích, kết quả cho biết cần từ nghĩa gì.' } },
+    J: { name: 'Cô Nghĩa', pos: 'Nghĩa cả câu', suf: 'vì … nên …, để …', line: 'Khi không có cụm hay giới từ, đọc cả câu: lý do, mục đích, kết quả cho biết cần từ nghĩa gì.' },
+    NN: { name: 'Bà Nhiều Nghĩa', pos: 'Từ gần nghĩa', suf: 'từ in đậm trong bài · Part 7', line: 'Một từ có nhiều nghĩa: address là địa chỉ, nói chuyện, cũng là giải quyết. Đọc câu chứa từ trong bài rồi chọn nghĩa của đúng câu đó, đừng chọn nghĩa quen nhất.' } },
   G: { E: { q: 'Ai lo những từ luôn đi cặp với nhau?', ex: [['We worked late to', 'meet', 'the deadline.'], ['Call us to', 'place', 'an order.'], ['The hotel is', 'highly', 'recommended.']], hint: 'meet + deadline, place + order, highly + recommended: cụm cố định.', chant: 'Nhìn từ sát ô trống, chọn bạn đi cặp với nó.' },
     F: { q: 'Ai đứng ngay trước một giới từ cố định?', ex: [['Mr. Owens is', 'responsible', 'for training.'], ['Visitors must', 'comply', 'with the rules.'], ['The tour', 'consists', 'of three parts.']], hint: 'Sau ô trống là for, with, of: từ phải đi được với giới từ đó.', chant: 'Giới từ sau ô trống chọn giúp tôi.' },
+    NN: { q: 'Từ được hỏi có nhiều nghĩa: ai chọn nghĩa đúng của câu này?', ex: [['Please', 'address', 'all complaints within two days.'], ['The hotel', 'runs', 'a free shuttle to the airport.'], ['We need a', 'firm', 'date for the meeting.']], hint: 'address ở đây = giải quyết (không phải địa chỉ); runs = vận hành (không phải chạy); firm = chắc chắn (không phải công ty).', chant: 'Từ nhiều nghĩa: đọc câu, chọn nghĩa của câu này.' },
     J: { q: 'Ai chọn theo ý cả câu?', ex: [['Sales were low, so the concert was', 'postponed', '.'], ['We hired more staff to', 'increase', 'production.'], ['Keep the receipt for a', 'refund', '.']], hint: 'Không có cụm hay giới từ: lý do và mục đích trong câu quyết định.', chant: 'Đọc cả câu: vì gì, để làm gì.' } },
-  MUC: { b1: { ten: '🔍 Bậc 1 · Dấu hiệu ở đâu', sub: 'Cụm đi cặp, giới từ hay ý cả câu · 3 quầy, 5 tim', md: 'gh', k: 3, dur: [9, 9], tim: 5, goi: 99, moc: 1 },
+  MUC: { b1: { ten: '🔍 Bậc 1 · Dấu hiệu ở đâu', sub: 'Cụm đi cặp, giới từ, ý cả câu hay từ nhiều nghĩa · 3 quầy, 5 tim', md: 'gh', k: 3, dur: [9, 9], tim: 5, goi: 99, moc: 1 },
     b2: { ten: '🇻🇳 Bậc 2 · Bắt theo nghĩa', sub: 'Cho nghĩa tiếng Việt, bắt đúng từ tiếng Anh · 4 từ, 5 tim', md: 'vi', k: 4, dur: [10, 10], tim: 5, goi: 99, moc: 1 },
     b3: { ten: '🌿 Bậc 3 · Ghép cả hai', sub: 'Tìm dấu hiệu rồi chọn từ · 3 từ, 4 tim, 3 gợi ý', md: 'tu', k: 3, dur: [9, 9], tim: 4, goi: 3 },
     b4: { ten: '🔥 Bậc 4 · Đủ 4 từ', sub: '4 từ cùng loại như đề thật · 3 tim, 1 gợi ý', md: 'tu', k: 4, dur: [8, 7], tim: 3, goi: 1 } },
@@ -34,5 +47,5 @@ PH_PHO.cho = { key: 'cho', view: 'toeic-pho-cho', ic: '🛒', ten: 'Chợ Từ V
   missSay: (it, got) => `${esc(got.w)} = ${esc(got.m)}: không hợp ở đây.`,
   real: chReal,
   sk: it => { const A = it.o.find(o => o[0] === it.a) || []; return A[1] || ''; },
-  canFix: q => !!(CH_OK(q) && chReal(q, { id: 0 })),
+  canFix: q => !!chReal(q, { id: 0 }),
   fixLab: '🛒 Chữa ở Chợ Từ Vựng · điều khiển bé Mầm' };
