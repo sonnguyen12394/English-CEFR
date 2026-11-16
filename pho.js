@@ -307,10 +307,10 @@ async function phView() { phStop(); window.CUR = { view: PH_VIEW }; BACK = null;
 
 // ---------- làm quen + thám tử ----------
 function phIntro() { phStop(); window.CUR = { view: PH_VIEW + '-intro' }; scrollTo(0, 0);
-  $app.innerHTML = phTop('Phố', 'Bước 1 / 2') + `<h2>Cư dân ${PHC.ten}</h2><p class="mute">${PHC.introSub}</p>
+  $app.innerHTML = phTop(phSt().in ? 'Phố' : 'Thành phố', 'Bước 1 / 2') + `<h2>Cư dân ${PHC.ten}</h2><p class="mute">${PHC.introSub}</p>
     ${PH_ORD.map(t => `<button class="phwho" data-phtalk="${t}">${phFace(t, 58)}<span class="t"><b>${PH_CH[t].name}</b><span><span class="phtag ph-${t}">${PH_CH[t].pos}</span> <small class="mute">${PHC.dau}: ${PH_CH[t].suf}</small></span><small>${PH_CH[t].line}</small></span></button>`).join('')}
     <button class="pri" data-phg>Đi làm thám tử ›</button>`;
-  $app.onclick = e => { if (e.target.closest('[data-phback]')) return phView(); const b = e.target.closest('[data-phtalk]'); if (b) { b.classList.remove('talk'); void b.offsetWidth; b.classList.add('talk'); phSfx('grow'); return; }
+  $app.onclick = e => { if (e.target.closest('[data-phback]')) return phSt().in ? phView() : phBackGo(); const b = e.target.closest('[data-phtalk]'); if (b) { b.classList.remove('talk'); void b.offsetWidth; b.classList.add('talk'); phSfx('grow'); return; }
     if (e.target.closest('[data-phg]')) phGuess(PH_ORD.slice(), () => { phSt().in = 1; save(); phStart(); }); }; }
 const phEx = (g, cls) => g.ex.map(([a, w, b]) => `<p>${esc(a)} <span class="phhl${cls ? ' ' + cls : ''}">${esc(w)}</span>${b.startsWith('.') ? '' : ' '}${esc(b)}</p>`).join('');
 // keys: danh sách khoá cần đoán (cư dân hoặc nhóm cùng nhà); xong gọi done

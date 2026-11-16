@@ -81,10 +81,10 @@ async function benView() { benStop(); window.CUR = { view: 'toeic-ben' }; BACK =
   $app.onclick = e => { if (e.target.closest('[data-benback]')) return benBackGo(); if (phSndClick(e)) return benView(); const mb = e.target.closest('[data-benmuc]'); if (mb && benOpen(mb.dataset.benmuc)) { P.mc = mb.dataset.benmuc; save(); return benView(); }
     if (e.target.closest('[data-benplay]')) return benStart(); if (e.target.closest('[data-benintro]')) return benIntro(); }; }
 function benIntro() { window.CUR = { view: 'toeic-ben-intro' }; scrollTo(0, 0); const C = PH_PHO.ben.CH;
-  $app.innerHTML = benTop('Bến') + `<h2>4 cư dân của Bến Dò Tin</h2><p class="mute">Mỗi người là một loại câu hỏi Part 7. Nhận ra loại câu hỏi trước thì biết dò ở đâu, đọc thế nào.</p>
+  $app.innerHTML = benTop(benSt().in ? 'Bến' : 'Thành phố') + `<h2>4 cư dân của Bến Dò Tin</h2><p class="mute">Mỗi người là một loại câu hỏi Part 7. Nhận ra loại câu hỏi trước thì biết dò ở đâu, đọc thế nào.</p>
     ${PH_PHO.ben.ORD.map(t => `<div class="phwho" style="cursor:default">${phFace(t, 58)}<span class="t"><b>${C[t].name}</b><span><span class="phtag ph-${t}">${C[t].pos}</span> <small class="mute">${esc(C[t].suf)}</small></span><small>${esc(C[t].line)}</small></span></div>`).join('')}
     <button class="pri" data-bengo style="min-height:52px">${benSt().in ? 'Về Bến' : '▶ Bắt đầu Bậc 1'}</button>`;
-  $app.onclick = e => { if (e.target.closest('[data-benback]')) return benView(); if (e.target.closest('[data-bengo]')) { const P = benSt(); if (!P.in) { P.in = 1; save(); return benStart(); } return benView(); } }; }
+  $app.onclick = e => { if (e.target.closest('[data-benback]')) return benSt().in ? benView() : benBackGo(); if (e.target.closest('[data-bengo]')) { const P = benSt(); if (!P.in) { P.in = 1; save(); return benStart(); } return benView(); } }; }
 // ── ván ──
 function benStop() { if (BEN_R) { clearTimeout(BEN_R.to); clearTimeout(BEN_R.nx); if (!BEN_R.end && BEN_R.i > 0) { const s = benSt().st; s.bo = (s.bo || 0) + 1; } BEN_R = null; } phMusic(false); }
 async function benStart(only, back) { benStop(); await toLoad(); await benLoad(); phUse('loai');
