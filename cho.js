@@ -9,12 +9,12 @@ const CH_PREP = new Set(['for', 'with', 'of', 'to', 'in', 'on', 'about', 'from',
 // loại dấu hiệu của câu đề: giới từ ngay sau ô trống → F; cấu trúc lời giải có đáp án → E (cụm); còn lại → J (nghĩa cả câu)
 function chTy(q, s) { const nx = (String(s).split('___')[1] || '').trim().toLowerCase().match(/^[a-z]+/); if (nx && CH_PREP.has(nx[0])) return 'F';
   const ct = String((q.lg || {}).ct || '').toLowerCase(), a = String(q.a).toLowerCase(); return ct && ct.includes(a.slice(0, Math.max(4, a.length - 2))) ? 'E' : 'J'; }
-const CH_OK = q => !!(q && q.sec === 'p5' && q.x && q.x.t === 'voc' && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));
-function chReal(q, d) { if (!CH_OK(q)) return null; const og = q.lg.og, s = String(q.q).replace(/<[^>]+>/g, '').replace(/-{5,}/, '___'); if (!/___/.test(s)) return null;
+const CH_OK = q => !!(q && phIn(q, 'cho', t => t === 'voc') && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));   // v194: + Part 6 chọn từ cùng loại
+function chReal(q, d) { if (!CH_OK(q)) return null; const og = q.lg.og, src = phSrc(q); if (!src) return null; const s = src.s;
   const t = chTy(q, s), o = q.opts.map(w => [w, t, String(og[w]).split(':').slice(1).join(':').trim() || String(og[w]).trim()]);
   const ly = String(q.lg.ly || q.why || ''), why = (ly.replace(/^Đáp án "[^"]*"\s*[—–-]\s*/, '').match(/^[^.!?]*[.!?]/) || [ly])[0].slice(0, 200);
-  return { id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, s, a: q.a, o, why, vi: q.lg.dich || '', real: 1, nha: null }; }
-PH_PHO.cho = { key: 'cho', view: 'toeic-pho-cho', ic: '🛒', ten: 'Chợ Từ Vựng', file: 'cho.json', sub: 'Cụm cố định, từ + giới từ, chọn theo nghĩa · Part 5',
+  return Object.assign({ id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, a: q.a, o, why, vi: q.lg.dich || '', real: 1, nha: null }, src); }
+PH_PHO.cho = { key: 'cho', view: 'toeic-pho-cho', ic: '🛒', ten: 'Chợ Từ Vựng', file: 'cho.json', sub: 'Cụm cố định, từ + giới từ, chọn theo nghĩa · Part 5, Part 6',
   desc: 'Bốn từ cùng loại, khác nghĩa. Tìm dấu hiệu trước: từ đi cặp, giới từ sau ô trống, hay ý cả câu, rồi điều khiển bé Mầm bắt đúng từ.',
   lo: 'từ vựng', dau: 'Dấu hiệu', introSub: 'Mỗi quầy bán một loại dấu hiệu. Chạm vào từng người để nghe họ giới thiệu.', noPos: 1,
   ORD: ['E', 'F', 'J'], SHORT: { E: 'Bà Cụm', F: 'Chú Giới', J: 'Cô Nghĩa' }, NHA: {},

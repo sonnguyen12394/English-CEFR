@@ -2160,8 +2160,10 @@ const R = await run(`(async () => {
       if (tgJNext(de, L).k !== 'thi') bad.push('còn câu chưa làm thì phải thi lượt kế trước khi hỏi kiến thức');
       // mọi câu đúng → hỏi kiến thức; câu có 2 thử thách loại từ + tự gõ
       for (const c of L) J().c[c.n] = { s: 'ok', at: Date.now() + 100 }; L = tgJState(de); nx = tgJNext(de, L); if (nx.k !== 'hieu' || nx.cs.length !== 5) bad.push('đúng hết phải sang 🟦 Hiểu theo nhóm 5 (' + nx.k + ')');
-      const cf = L.find(c => c.ks[0] === 'ld' && c.ks[1] === 'go' && (P[de][c.n].pos || P[de][c.n].cat)); if (!cf) bad.push('đề 3 thiếu câu loại từ / từ nối + tự gõ'); else {   // v183: câu Part 5 có phố đo 🌳 ở phố, còn câu từ nối Part 6
-        const m = P[de][cf.n]; tgHieu(de, [cf], 'hieu'); const want = (m.pos || m.cat); const bt = btns('tgc').find(b => b[1].toLowerCase() === esc(want).toLowerCase());
+      // v194: câu Part 5–6 có phố đều đo 🌳 ở phố, nên thử thách loại từ / từ nối + tự gõ chỉ còn ở câu chưa có luật: thử trên bể dựng khi tắt luật
+      const PRQ = phRuleQ; phRuleQ = () => null; const P2 = await tgPool(); phRuleQ = PRQ; TG_P = P2; L = tgJState(de);
+      const cf = L.find(c => c.ks[0] === 'ld' && c.ks[1] === 'go' && (P2[de][c.n].pos || P2[de][c.n].cat)); if (!cf) bad.push('đề 3 thiếu câu loại từ / từ nối + tự gõ'); else {
+        const m = P2[de][cf.n]; tgHieu(de, [cf], 'hieu'); const want = (m.pos || m.cat); const bt = btns('tgc').find(b => b[1].toLowerCase() === esc(want).toLowerCase());
         if (!bt) bad.push('loại từ: thiếu phương án đúng'); else fire('[data-tgc]', { tgc: bt[0] }); if ($app.innerHTML.includes(esc(cf.q.a) + '”')) bad.push('thử thách 1 không được lộ đáp án trước khi tự gõ'); fire('[data-tgn]');
         const dq = document.querySelector; document.querySelector = s => s === '[data-tgi]' ? { value: ' ' + cf.q.a.toUpperCase() + ' ' } : null; fire('[data-tgk]'); document.querySelector = dq;
         L = tgJState(de); let cc = L.find(c => c.n === cf.n); if (!cc.hi || cc.h.d !== tgDay() + TG_H[0] || cc.h.lv !== 1) bad.push('qua 2 thử thách phải thành 🟦, ôn sau ' + TG_H[0] + ' ngày');
@@ -2169,6 +2171,7 @@ const R = await run(`(async () => {
         J().h[cf.n].d = tgDay(); L = tgJState(de); nx = tgJNext(de, L); const pk1 = nx.cs && tgPick1(nx.cs[0]); J().h[cf.n].k = 'ng'; L = tgJState(de); nx = tgJNext(de, L); if (nx.k !== 'on' || nx.cs[0].n !== cf.n || pk1 !== 'ng' || tgPick1(nx.cs[0]) !== 'ld') bad.push('đến hạn phải ôn bằng thử thách khác kiểu (' + nx.k + ')');
         tgHieu(de, nx.cs, 'on'); const wr = btns('tgc').find(b => b[1].toLowerCase() !== esc(want).toLowerCase()); fire('[data-tgc]', { tgc: wr[0] });
         cc = tgJState(de).find(c => c.n === cf.n); if (cc.hi || cc.st !== 'ok') bad.push('ôn sai phải về ⭐ (vẫn đúng, mất 🟦)'); }
+      TG_P = P; L = tgJState(de);
       // câu Part 7 có dò tin + ghép nghĩa
       const c7 = L.find(c => c.q.sec === 'p7' && c.ks.join() === 'ev,ng'); if (!c7) bad.push('đề 3 thiếu câu Part 7 dò tin + ghép nghĩa'); else {
         const m = P[de][c7.n], ss7 = m.docs.flatMap(d => d.ss); tgHieu(de, [c7], 'hieu'); fire('[data-tgs]', { tgs: String(ss7.findIndex(s => tgHit(s, c7.q.ev))) }); fire('[data-tgn]');
@@ -2590,7 +2593,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       await toLoad(); phUse('cau'); PH_K = null; PH_RL = null; await phLoad();
       if (PH_VIEW !== 'toeic-pho-cau-noi' || PH_ORD.join() !== 'G,L,T' || PH_MO.length !== 4) bad.push('phUse không nạp cấu hình Cầu Nối');
       const R = Object.values(PH_RL); if (R.length < 20) bad.push('câu thật giới từ / liên từ quá ít: ' + R.length);
-      if (R.some(it => !/___/.test(it.s) || it.o.some(o => !['G', 'L', 'T'].includes(o[1])))) bad.push('câu thật sai khuôn');
+      if (R.some(it => !/___/.test(it.s) || it.o.some(o => !['G', 'L', 'T', '_'].includes(o[1])) || it.o.find(o => o[0] === it.a)[1] === '_')) bad.push('câu thật sai khuôn');   // v194: phương án sai được '_' Khác loại
       const c1 = PH_K.find(x => x.id === 'cn-001'); if (phMoc(c1) !== 'the heavy rain') bad.push('cụm tô phía sau ô trống: ' + phMoc(c1));
       const P = phSt(); P.in = 1; for (const k of ['G', 'L']) P.cd[k] = { at: 1, n: 0 };   // < 3 thần chú: không vào ⚡ nhớ nhanh
       phStart(); if (PH_R.M.md !== 'gh' || PH_R.order.length !== 3 || PH_R.order.filter(o => o.ok).length !== 1 || PH_R.order.find(o => o.ok).p !== PH_R.it.o.find(o => o[0] === PH_R.it.a)[1] || !String(document.getElementById('phsent').innerHTML).includes('phmoc')) bad.push('bậc 1: 3 cư dân, đúng = loại của đáp án, tô phía sau');
@@ -2731,8 +2734,8 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       await toLoad(); phUse('dong'); PH_K = null; PH_RL = null; await phLoad();
       if (PH_VIEW !== 'toeic-pho-dong-tu' || PH_ORD.join() !== 'H,B,O,I' || PH_MO.length !== 4) bad.push('phUse không nạp cấu hình Động Từ');
       const R = Object.values(PH_RL); if (R.length < 10) bad.push('câu thật dạng động từ quá ít: ' + R.length);
-      if (R.some(it => !/___/.test(it.s) || it.o.some(o => !['H', 'B', 'O', 'I'].includes(o[1]) || !DT_QH[o[3]]))) bad.push('câu thật sai khuôn');
-      if (JSON.stringify(dtCls('are required', 'bị động: bị yêu cầu')) !== '["B","bd"]' || JSON.stringify(dtCls('working', 'V-ing')) !== '["I","ing"]' || JSON.stringify(dtCls('had', 'trợ động từ quá khứ hoàn thành')) !== '["H","hth"]' || dtCls('was', 'be quá khứ số ít')) bad.push('phân loại phương án câu đề');
+      if (R.some(it => !/___/.test(it.s) || it.o.some(o => o[1] !== '_' && (!['H', 'B', 'O', 'I'].includes(o[1]) || !DT_QH[o[3]])) || it.o.find(o => o[0] === it.a)[1] === '_')) bad.push('câu thật sai khuôn');
+      if (JSON.stringify(dtCls('are required', 'bị động: bị yêu cầu')) !== '["B","bd"]' || JSON.stringify(dtCls('working', 'V-ing')) !== '["I","ing"]' || JSON.stringify(dtCls('had', 'trợ động từ quá khứ hoàn thành')) !== '["H","hth"]' || JSON.stringify(dtCls('was', 'be quá khứ số ít')) !== '["H","qd"]') bad.push('phân loại phương án câu đề');
       const c1 = PH_K.find(x => x.id === 'dt-001'); if (phMoc(c1) !== 'last week') bad.push('chữ mốc: ' + phMoc(c1));
       const P = phSt(); P.in = 1; for (const k of ['H', 'B']) P.cd[k] = { at: 1, n: 0 };
       phStart(); if (PH_R.M.md !== 'gh' || PH_R.order.length !== 4 || PH_R.order.filter(o => o.ok).length !== 1 || PH_R.order.find(o => o.ok).p !== PH_R.it.o.find(o => o[0] === PH_R.it.a)[1] || !String(document.getElementById('phsent').innerHTML).includes('phmoc')) bad.push('bậc 1: 4 cư dân, đúng = cư dân của đáp án, tô chữ mốc');
@@ -2764,8 +2767,8 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       await toLoad(); phUse('dai'); PH_K = null; PH_RL = null; await phLoad();
       if (PH_VIEW !== 'toeic-pho-dai-tu' || PH_ORD.join() !== 'D,S,X,W,U' || PH_MO.length !== 4) bad.push('phUse không nạp cấu hình Đại Từ');
       const R = Object.values(PH_RL); if (R.length < 8) bad.push('câu thật đại từ / lượng từ quá ít: ' + R.length);
-      if (R.some(it => !/___/.test(it.s) || it.o.some(o => !['D', 'S', 'X', 'W', 'U'].includes(o[1]) || !DL_QH[o[3]]))) bad.push('câu thật sai khuôn');
-      if (JSON.stringify(dlCls('themselves', 'đại từ phản thân')) !== '["X","pt"]' || JSON.stringify(dlCls('her', 'đại từ tân ngữ / tính từ sở hữu')) !== '["D","tn"]' || JSON.stringify(dlCls('few', 'từ chỉ lượng: một vài (đếm được, số nhiều)')) !== '["U","ln"]' || dlCls('this one of', 'cụm sai')) bad.push('phân loại phương án câu đề');
+      if (R.some(it => !/___/.test(it.s) || it.o.some(o => o[1] !== '_' && (!['D', 'S', 'X', 'W', 'U'].includes(o[1]) || !DL_QH[o[3]])) || it.o.find(o => o[0] === it.a)[1] === '_')) bad.push('câu thật sai khuôn');
+      if (JSON.stringify(dlCls('themselves', 'đại từ phản thân')) !== '["X","pt"]' || JSON.stringify(dlCls('her', 'đại từ tân ngữ / tính từ sở hữu')) !== '["D","tn"]' || JSON.stringify(dlCls('few', 'từ chỉ lượng: một vài (đếm được, số nhiều)')) !== '["U","ln"]' || JSON.stringify(dlCls('this one of', 'cụm sai')) !== '["_",""]') bad.push('phân loại phương án câu đề');
       const c1 = PH_K.find(x => x.id === 'dl-001'); if (phMoc(c1) !== 'promised') bad.push('chữ mốc: ' + phMoc(c1));
       const P = phSt(); P.in = 1; for (const k of ['D', 'S']) P.cd[k] = { at: 1, n: 0 };
       phStart(); if (PH_R.M.md !== 'gh' || PH_R.order.length !== 4 || PH_R.order.filter(o => o.ok).length !== 1 || PH_R.order.find(o => o.ok).p !== PH_R.it.o.find(o => o[0] === PH_R.it.a)[1] || !String(document.getElementById('phsent').innerHTML).includes('phmoc')) bad.push('bậc 1: 4 làn dù 5 cư dân, đúng = cư dân của đáp án, tô chữ mốc');
@@ -2872,5 +2875,35 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     ghStop(); S = S1; TR.B = {}; TR.D = {}; TG_P = null; return bad; })()`);
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C91', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🧩 Phố Ghép Đoạn: kho qua bộ dựng, bậc 1 chữ nối ngược, bậc 2 câu đứng trước, bậc 3 vị trí [1]–[4] (kho + Part 7 đề), bậc 4 câu cho ô trống (kho + Part 6 đề), câu đề ghi Chinh phục đề, nút chữa, đếm ở Thành phố; không đụng thẻ học' }); }
+// v194 C92 Part 6 vào phố + phố nhận câu Part 5 có phương án khác loại: chỗ trống Part 6 cắt câu chứa ô trống + câu trước, cả đoạn gập (📄 Xem cả đoạn);
+//   mỗi chỗ trống thuộc MỘT phố (thì → Động Từ, từ nối → Cầu Nối, chèn câu → Ghép Đoạn, chọn từ khác loại từ → Loại Từ); phương án khác loại = '_' (không có làn bậc 1)
+{ const bad = [];
+  const r = await run(`(async () => { const bad = [], S1 = S, G0 = document.getElementById;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
+      document.getElementById = id => { const e = G0(id); if (id === 'phrow') { e.children = [0, 1, 2, 3].map(() => ({ classList: { add() {} } })); e.firstElementChild = { offsetHeight: 40 }; } if (id === 'pharena') e.clientHeight = 300; return e; };
+      await toLoad(); TG_P = await tgPool(); const de = TO.tron[2].id; await trLoad(de); const Q = trB(de).Q;
+      const P6 = Q.filter(q => q.sec === 'p6'); const own = { tense: 'dong', conn: 'cau', insert: 'ghep' };
+      for (const q of P6) { const k = phP6K(q); if (own[q.gt] && k !== own[q.gt]) bad.push('chỗ ' + q.n + ' ' + q.gt + ' → ' + k);
+        const n = Object.values(PH_PHO).filter(c => c.canFix && c.canFix(q)).length; if (n > 1) bad.push('chỗ ' + q.n + ' thuộc ' + n + ' phố'); }
+      const qt = P6.find(q => q.gt === 'tense'), src = phSrc(qt); if (!src || (src.s.match(/___/g) || []).length !== 1 || !/___/.test(src.para) || /\\{\\d\\}/.test(src.para) || src.s.split(/\\s+/).length > 40) bad.push('cắt câu Part 6: ' + JSON.stringify(src).slice(0, 120));
+      if (!P6.some(q => q.gt === 'word' && phP6K(q) === 'loai')) bad.push('chọn từ khác loại từ phải vào Loại Từ');
+      const lu = phRuleQ(qt); if (!lu || lu.k !== 'dong') bad.push('luật của chỗ trống Part 6 chọn thì: ' + JSON.stringify(lu));
+      if (cnCls('before', 'giới từ / liên từ: trước khi', 'Sign in ___ entering the lab.') !== 'G' || cnCls('before', 'giới từ / liên từ: trước khi', 'Call me ___ you leave.') !== 'L' || cnCls('meanwhile', 'trạng từ: trong lúc đó', '') !== 'T' || cnCls('even', 'trạng từ: thậm chí', '') !== '_') bad.push('cnCls');
+      if (JSON.stringify(dlCls('his or her', 'tính từ sở hữu: của ông / bà ấy', '')) !== '["S","ss"]' || JSON.stringify(dlCls('Mostly', 'trạng từ: phần lớn', '')) !== '["_",""]' || JSON.stringify(dlCls('Neither', 'đại từ: không ai trong hai', '___ of the two')) !== '["U","lo"]') bad.push('dlCls');
+      let tot = 0; for (const d of TO.tron) { if (d.f) await trLoad(d.id); const C = cyCount(d.id); const t = Object.values(C).reduce((a, r) => a + r.n, 0); if (t < 86) bad.push(d.id + ' phủ ' + t + '/100'); tot += t; }
+      phUse('dong'); PH_K = null; PH_RL = null; PHC.sc = null; await phLoad(); const it = PH_RL['de:' + de + ':' + qt.n];
+      if (!it || !it.para || !it.pre) bad.push('câu thật Part 6 thiếu câu trước / cả đoạn');
+      else { phSt().in = 1; phStart(it, () => 0); const sh = String(document.getElementById('phsent').innerHTML), pa = String(document.getElementById('phpara').innerHTML);
+        if (!/phpre/.test(sh) || !/Xem cả đoạn/.test(pa)) bad.push('màn chữa câu Part 6: câu trước + 📄 Xem cả đoạn');
+        PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch(); if (!/<b>/.test(String(document.getElementById('phpara').innerHTML))) bad.push('sau khi trả lời: cả đoạn điền đáp án'); phStop(); }
+      phUse('dai'); PH_K = null; PH_RL = null; PHC.sc = null; await phLoad(); const x = Object.values(PH_RL).find(t => t.o.some(o => o[1] === '_'));
+      if (!x) bad.push('Đại Từ: câu có phương án khác loại chưa vào phố');
+      else { const L = phLanes(x, { md: 'gh', k: 4 }).order; if (L.some(o => o.p === '_') || L.filter(o => o.ok).length !== 1) bad.push('bậc 1 không có làn Khác loại'); }
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length) bad.push('đụng thẻ học / điểm đề thử');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    S = S1; document.getElementById = G0; phUse('loai'); return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C92', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Part 6 vào phố: cắt câu + câu trước + 📄 Xem cả đoạn, mỗi chỗ trống một phố, luật vững cho Part 6; phương án khác loại không có làn bậc 1; mọi đề phủ ≥ 86/100 câu Phần Đọc' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
