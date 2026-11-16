@@ -130,20 +130,21 @@
    "kind": "Notice",
    "s": [
     "Greenfield Hotel will begin renovating its guest rooms on September 5.",
-    "Each room will receive new carpets, lighting, and furniture.",
-    "These new furnishings are part of our plan to welcome more business travelers.",
+    "Each room will receive a new carpet, a reading lamp, and a larger desk.",
+    "The larger desks are meant to attract more business travelers.",
+    "These guests will also enjoy free Wi-Fi in every room.",
     "Rooms on the lower floors will stay open during the project.",
     "Reservations can be made as usual on our Web site."
    ],
    "k": 2,
-   "lk": "These new furnishings",
-   "why": "\"These new furnishings\" chỉ về thảm, đèn và nội thất mới ở câu trước.",
+   "lk": "The larger desks",
+   "why": "\"The larger desks\" chỉ về những chiếc bàn làm việc lớn hơn ở câu trước; câu sau \"These guests\" chỉ về khách đi công tác nêu trong câu này.",
    "w": [
-    "All guest rooms will close for the entire renovation.",
-    "The carpets were replaced last winter.",
-    "The renovation was finished in early August."
+    "The desks in each room were replaced last winter.",
+    "The renovation was finished in early August.",
+    "All guests will have to bring their own lamps and desks."
    ],
-   "vi": "Những đồ nội thất mới này nằm trong kế hoạch đón thêm khách đi công tác."
+   "vi": "Những chiếc bàn lớn hơn nhằm thu hút thêm khách đi công tác."
   },
   {
    "id": "gd-008",
@@ -192,38 +193,39 @@
     "Starting in April, all packages will be tracked electronically.",
     "Staff must scan each package when it enters and leaves the warehouse.",
     "For this purpose, we have bought ten handheld scanners.",
-    "They will be kept at the front desk and signed out each morning.",
-    "Please return yours before leaving at night."
+    "The ten scanners will be kept at the front desk and signed out each morning.",
+    "Please return yours to the same desk before leaving at night."
    ],
    "k": 3,
-   "lk": "They will be kept",
-   "why": "\"They\" chỉ về mười máy quét cầm tay được mua ở câu trước.",
+   "lk": "The ten scanners",
+   "why": "\"The ten scanners\" chỉ về mười máy quét cầm tay vừa mua ở câu trước; câu sau \"the same desk\" chỉ về quầy lễ tân nêu trong câu này.",
    "w": [
     "The scanners will be returned to the supplier next week.",
     "Staff will carry the scanners home each evening.",
-    "The ten scanners will be used only on weekends."
+    "The scanners will arrive from the supplier in May."
    ],
-   "vi": "Chúng sẽ được giữ ở quầy lễ tân và ký nhận mỗi sáng."
+   "vi": "Mười máy quét này sẽ được giữ ở quầy lễ tân và ký nhận mỗi sáng."
   },
   {
    "id": "gd-011",
    "kind": "Advertisement",
    "s": [
     "Bluebird Cleaning has served homes and small offices in Marlow for ten years.",
-    "We offer weekly and monthly plans to fit any schedule.",
-    "Besides these regular plans, we also offer one-time cleaning before and after a move.",
+    "We offer a weekly plan and a monthly plan.",
+    "Customers who choose the weekly plan receive a free window wash each spring.",
+    "The window wash covers every window up to the second floor.",
     "Every cleaner is trained, insured, and background-checked.",
     "Call 555-0142 to book your first visit."
    ],
    "k": 2,
-   "lk": "these regular plans",
-   "why": "\"these regular plans\" chỉ về các gói theo tuần và theo tháng ở câu trước.",
+   "lk": "the weekly plan",
+   "why": "\"the weekly plan\" chỉ về gói dọn dẹp hằng tuần vừa nêu ở câu trước; câu sau \"The window wash\" chỉ về dịch vụ rửa cửa sổ nêu trong câu này.",
    "w": [
-    "Our weekly plans were canceled last spring.",
-    "Customers must sign a one-year contract for any visit.",
+    "Our weekly plan was canceled last spring.",
+    "Customers must sign a one-year contract for any plan.",
     "We stopped serving small offices last year."
    ],
-   "vi": "Ngoài các gói định kỳ này, chúng tôi còn nhận dọn dẹp một lần trước và sau khi chuyển nhà."
+   "vi": "Khách chọn gói hằng tuần được rửa cửa sổ miễn phí mỗi mùa xuân."
   },
   {
    "id": "gd-012",
@@ -290,20 +292,21 @@
    "kind": "Notice",
    "s": [
     "The annual sales conference will take place in Lisbon this year.",
-    "Employees must register online before April 30.",
-    "After you register online, each participant will receive a schedule and a hotel confirmation.",
+    "Employees must register by April 30 for either the two-day or the three-day program.",
+    "Those in the three-day program will stay one extra night at the company's expense.",
+    "That extra night will be at the Harbor Hotel, near the conference center.",
     "Travel costs will be repaid within two weeks of the event.",
     "Questions may be sent to the events office."
    ],
    "k": 2,
-   "lk": "register online",
-   "why": "\"register online\" chỉ về bước đăng ký trực tuyến trước ngày 30 tháng Tư ở câu trước.",
+   "lk": "the three-day program",
+   "why": "\"the three-day program\" chỉ về chương trình ba ngày trong hai lựa chọn ở câu trước; câu sau \"That extra night\" chỉ về đêm ở thêm nêu trong câu này.",
    "w": [
     "Registration closed on April 1.",
-    "Participants must book their own hotels.",
-    "Last year's conference was held in Boston."
+    "Participants must book their own hotels for every night.",
+    "The conference will last only one day."
    ],
-   "vi": "Sau khi đăng ký trực tuyến, mỗi người tham dự sẽ nhận lịch trình và xác nhận khách sạn."
+   "vi": "Những người dự chương trình ba ngày sẽ ở thêm một đêm do công ty chi trả."
   },
   {
    "id": "gd-016",
@@ -351,20 +354,20 @@
    "kind": "Letter",
    "s": [
     "We received your order for forty office chairs on June 6.",
-    "The shipment left our warehouse yesterday.",
-    "Once it reaches our local depot, our driver will call you to arrange a delivery time.",
-    "Please be sure someone is available to sign for the boxes.",
+    "The chairs left our warehouse yesterday by freight train.",
+    "The train arrives at our Westport depot on June 9, and our driver will then call you to arrange a delivery time.",
+    "Please have someone ready to sign for the boxes soon after that call.",
     "Thank you for choosing Dover Office Supply."
    ],
    "k": 2,
-   "lk": "Once it reaches",
-   "why": "\"it\" chỉ về lô hàng vừa rời kho ở câu trước.",
+   "lk": "The train",
+   "why": "\"The train\" chỉ về chuyến tàu chở hàng ở câu trước; câu sau \"that call\" chỉ về cuộc gọi hẹn giờ giao nêu trong câu này.",
    "w": [
     "The shipment will not leave our warehouse until next week.",
     "Our driver already delivered the chairs on June 5.",
     "You must collect the boxes from our warehouse yourself."
    ],
-   "vi": "Khi lô hàng đến kho địa phương của chúng tôi, tài xế sẽ gọi để hẹn giờ giao."
+   "vi": "Tàu sẽ đến kho Westport của chúng tôi vào ngày 9/6, rồi tài xế sẽ gọi để hẹn giờ giao hàng."
   },
   {
    "id": "gd-019",
@@ -391,20 +394,21 @@
    "kind": "Notice",
    "s": [
     "All visitors must sign in at the front desk upon arrival.",
-    "They must also wear a badge at all times.",
-    "Anyone not wearing one may be asked to leave the building.",
-    "Badges are returned when the visit ends.",
+    "They must also wear the green badge issued there at all times.",
+    "Anyone seen without the green badge may be asked to leave the building.",
+    "A visitor asked to leave may return only after getting a new badge at the front desk.",
+    "Please return your badge to the desk when your visit ends.",
     "Thank you for helping us keep the building safe."
    ],
    "k": 2,
-   "lk": "not wearing one",
-   "why": "\"one\" chỉ về thẻ khách mà câu trước yêu cầu đeo mọi lúc.",
+   "lk": "the green badge",
+   "why": "\"the green badge\" chỉ về thẻ khách màu xanh phải đeo ở câu trước; câu sau \"A visitor asked to leave\" chỉ về người vừa bị yêu cầu rời đi.",
    "w": [
-    "Visitors who forget a badge will be given a gift card.",
+    "Visitors may keep the green badge after leaving.",
     "Visitors may enter any floor without a badge.",
     "Badges are no longer required in the building."
    ],
-   "vi": "Ai không đeo thẻ có thể bị yêu cầu rời khỏi tòa nhà."
+   "vi": "Ai bị thấy không đeo thẻ xanh có thể bị yêu cầu rời khỏi tòa nhà."
   },
   {
    "id": "gd-021",
@@ -430,21 +434,22 @@
    "id": "gd-022",
    "kind": "Memo",
    "s": [
-    "Our parking lot will be repainted this weekend.",
-    "This weekend's work will begin at 7 A.M. on Saturday and should be done by Sunday evening.",
-    "Please move your car by 6 P.M. on Friday, before the work begins.",
-    "Any vehicles left in the lot may be towed.",
+    "The parking lot behind Building B will be repainted this weekend.",
+    "Because the lot is large, the job will be done in two stages.",
+    "The first stage, covering the north half, will begin at 7 A.M. on Saturday.",
+    "Please move your car out of that half by 6 P.M. on Friday.",
+    "Any vehicle left there may be towed.",
     "Thank you for your cooperation."
    ],
-   "k": 1,
-   "lk": "This weekend's work",
-   "why": "\"This weekend's work\" chỉ về việc sơn lại bãi đỗ xe ở câu trước; câu sau nhắc \"the work\" nên phải đứng sau.",
+   "k": 2,
+   "lk": "The first stage",
+   "why": "\"The first stage\" chỉ về giai đoạn đầu trong hai giai đoạn ở câu trước; câu sau \"that half\" chỉ về nửa phía bắc nêu trong câu này.",
    "w": [
-    "The work was finished last weekend.",
-    "The lot will be closed for the entire month.",
-    "Painting will begin on Monday morning."
+    "The painting was finished last weekend.",
+    "Painting will begin on Monday morning.",
+    "The lot will be closed for the entire month."
    ],
-   "vi": "Công việc cuối tuần này sẽ bắt đầu lúc 7 giờ sáng thứ Bảy và xong trước tối Chủ nhật."
+   "vi": "Giai đoạn đầu, phần nửa phía bắc, sẽ bắt đầu lúc 7 giờ sáng thứ Bảy."
   },
   {
    "id": "gd-023",
@@ -531,20 +536,20 @@
    "kind": "Announcement",
    "s": [
     "Delmar Airlines will now fly to Oslo three times a week.",
-    "Flights leave on Monday, Wednesday, and Friday mornings.",
-    "Tickets for these morning flights go on sale on March 1.",
+    "Flights leave on Monday, Wednesday, and Friday, always at 6:40 A.M.",
+    "Tickets for the 6:40 flights go on sale on March 1.",
     "Members of the loyalty program may buy them two days early.",
     "Visit our Web site for details."
    ],
    "k": 2,
-   "lk": "these morning flights",
-   "why": "\"these morning flights\" chỉ về các chuyến bay sáng thứ Hai, thứ Tư, thứ Sáu tới Oslo ở câu trước.",
+   "lk": "the 6:40 flights",
+   "why": "\"the 6:40 flights\" chỉ về các chuyến bay 6:40 sáng thứ Hai, thứ Tư, thứ Sáu ở câu trước; câu sau \"them\" chỉ về vé nêu trong câu này.",
    "w": [
     "Flights to Oslo will leave only on weekends.",
     "Tickets for the Oslo flights went on sale last year.",
     "Flights to Oslo will not begin until next year."
    ],
-   "vi": "Vé cho các chuyến bay buổi sáng này mở bán từ ngày 1 tháng Ba."
+   "vi": "Vé cho các chuyến bay 6:40 sáng mở bán từ ngày 1 tháng Ba."
   },
   {
    "id": "gd-028",
@@ -591,20 +596,20 @@
    "kind": "Article",
    "s": [
     "Mayor Chen opened the new bus station on Tuesday.",
-    "The building has a large waiting room and a small cafe.",
-    "It also has free Wi-Fi for all travelers.",
-    "Travelers can use it to check bus times before boarding.",
+    "The building has a heated waiting room with two hundred seats.",
+    "Those seats have charging ports for phones and laptops.",
+    "Travelers can use these ports to check bus times online before boarding.",
     "Buses will leave every ten minutes during rush hour."
    ],
    "k": 2,
-   "lk": "It also has",
-   "why": "\"It\" chỉ về nhà ga mới; \"also\" thêm Wi-Fi bên cạnh phòng chờ và quán cà phê ở câu trước.",
+   "lk": "Those seats",
+   "why": "\"Those seats\" chỉ về hai trăm chỗ ngồi trong phòng chờ ở câu trước; câu sau \"these ports\" chỉ về cổng sạc nêu trong câu này.",
    "w": [
     "The station has no waiting room.",
     "The station will not open until next spring.",
-    "The cafe inside the building has been closed for repairs."
+    "The waiting room seats only twenty people."
    ],
-   "vi": "Nơi này cũng có Wi-Fi miễn phí cho mọi hành khách."
+   "vi": "Những chỗ ngồi đó có cổng sạc cho điện thoại và máy tính xách tay."
   },
   {
    "id": "gd-031",
@@ -651,20 +656,20 @@
    "kind": "Article",
    "s": [
     "Last week, the city opened its first bike lane downtown.",
-    "The lane runs from Pine Street to the train station.",
-    "Before that, cyclists heading to the station had to share Pine Street with cars.",
-    "Safety groups have praised the project.",
+    "The lane runs along Pine Street, from Fifth Avenue to the train station.",
+    "Before the lane opened, cyclists on that stretch had to share the road with buses and cars.",
+    "That was the top complaint in a survey of local cyclists last year.",
     "More lanes are planned for next year."
    ],
    "k": 2,
-   "lk": "Before that",
-   "why": "\"Before that\" chỉ về thời điểm trước khi làn xe đạp mở ở câu trước.",
+   "lk": "that stretch",
+   "why": "\"that stretch\" chỉ về đoạn phố Pine từ đại lộ Fifth tới nhà ga ở câu trước; câu sau \"That\" chỉ về việc phải đi chung đường.",
    "w": [
     "The bike lane will not open until next month.",
-    "Cyclists must still share Pine Street with cars.",
-    "The lane will be removed in the winter."
+    "Buses on Pine Street now stop at the train station every five minutes.",
+    "The city opened a second bike lane on the same day."
    ],
-   "vi": "Trước đó, người đạp xe tới nhà ga phải đi chung phố Pine với ô tô."
+   "vi": "Trước khi làn xe đạp mở, người đạp xe trên đoạn đó phải đi chung đường với xe buýt và ô tô."
   },
   {
    "id": "gd-034",
@@ -761,7 +766,7 @@
    "why": "\"his\" chỉ về tiến sĩ Okoye, người được nêu tên ở câu trước.",
    "w": [
     "The talk was canceled because of low interest.",
-    "Dr. Okoye's talk last Friday was well attended.",
+    "Few staff came to Dr. Okoye's last talk, so this one was moved to a small room.",
     "Dr. Okoye has never spoken at our company before."
    ],
    "vi": "Đây sẽ là buổi nói chuyện thứ hai của ông ở đây; buổi đầu vào mùa xuân năm ngoái rất được yêu thích."
@@ -793,17 +798,17 @@
     "Thank you for attending last week's cooking class at Bella Kitchen.",
     "We hope you enjoyed learning to make fresh pasta.",
     "Please complete the short survey in the link below.",
-    "Once you submit it, you will receive a coupon for ten percent off your next class.",
-    "Your answers will help us plan future classes.",
+    "Once you submit the survey, you will receive a coupon for ten percent off your next class.",
+    "The coupon is valid for any class that begins before the end of October.",
     "Classes for the fall begin in September."
    ],
    "k": 3,
-   "lk": "Once you submit it",
-   "why": "\"it\" chỉ về phiếu khảo sát ngắn ở câu trước.",
+   "lk": "submit the survey",
+   "why": "\"submit the survey\" chỉ về phiếu khảo sát ngắn ở câu trước; câu sau \"The coupon\" chỉ về phiếu giảm giá nêu trong câu này.",
    "w": [
     "The survey was too long for most students.",
-    "You must complete the survey before attending the class.",
-    "The coupon expired last month."
+    "Please bring the printed survey to your next class.",
+    "You must complete the survey before attending the class."
    ],
    "vi": "Khi bạn gửi phiếu khảo sát, bạn sẽ nhận phiếu giảm giá mười phần trăm cho lớp kế tiếp."
   },
@@ -855,18 +860,18 @@
     "Interviews for the store manager position will take place on Monday and Tuesday.",
     "A hiring committee of three people will meet each candidate.",
     "The committee includes the regional director and two senior managers.",
-    "One of the two managers will then report the results to Ms. Hart.",
-    "We expect to announce a decision by the end of the month."
+    "One of the two managers will then report the results to Ms. Hart, the company president.",
+    "She will announce the decision to all candidates by the end of the month."
    ],
    "k": 3,
    "lk": "the two managers",
-   "why": "\"the two managers\" chỉ về hai quản lý cấp cao trong ban tuyển dụng ở câu trước.",
+   "why": "\"the two managers\" chỉ về hai quản lý cấp cao trong ban tuyển dụng ở câu trước; câu sau \"She\" chỉ về bà Hart nêu trong câu này.",
    "w": [
     "The committee will meet each candidate next month.",
     "The interviews were canceled on Monday.",
     "The hiring committee has only two members."
    ],
-   "vi": "Một trong hai quản lý đó sau đó sẽ báo kết quả cho bà Hart."
+   "vi": "Một trong hai quản lý đó sau đó sẽ báo kết quả cho bà Hart, chủ tịch công ty."
   },
   {
    "id": "gd-044",
@@ -937,13 +942,13 @@
     "Tours last about forty-five minutes and begin at the main gate.",
     "Each group is limited to twelve people.",
     "This small group size lets guides answer every visitor's questions.",
-    "Guides share facts about rare plants from around the world.",
+    "Those answers often turn into short talks about rare plants from around the world.",
     "The tour is free for members and costs five dollars for others.",
     "Reservations are recommended on weekends."
    ],
    "k": 3,
    "lk": "This small group size",
-   "why": "\"This small group size\" chỉ về giới hạn mười hai người mỗi nhóm ở câu trước.",
+   "why": "\"This small group size\" chỉ về giới hạn mười hai người mỗi nhóm ở câu trước; câu sau \"Those answers\" chỉ về lời giải đáp của hướng dẫn viên.",
    "w": [
     "Groups may include as many as fifty people.",
     "Each group was limited to twenty people last year.",
@@ -998,18 +1003,18 @@
     "Our new Web site will be launched on October 1.",
     "The design team is testing all the pages this week.",
     "Customer accounts will be moved automatically.",
-    "The old Web site will close on September 30 at midnight.",
-    "Until then, you may continue to order from it as usual."
+    "The old Web site will close at midnight on September 30.",
+    "Until that midnight, you may keep ordering from the old site as usual."
    ],
    "k": 4,
-   "lk": "Until then",
-   "why": "\"Until then\" chỉ về thời điểm trang cũ đóng cửa ở câu trước.",
+   "lk": "that midnight",
+   "why": "\"that midnight\" chỉ về nửa đêm ngày 30 tháng Chín, lúc trang cũ đóng cửa ở câu trước.",
    "w": [
     "Customers must create new accounts before October 1.",
     "The old site will stay open until next year.",
-    "Orders will not be accepted on the old site after today."
+    "The old Web site closed on September 15."
    ],
-   "vi": "Cho đến lúc đó, bạn vẫn có thể đặt hàng trên trang cũ như thường."
+   "vi": "Cho đến nửa đêm đó, bạn vẫn có thể đặt hàng trên trang cũ như thường."
   },
   {
    "id": "gd-051",
@@ -1038,12 +1043,12 @@
     "Thank you for opening a savings account with Delmar Bank.",
     "Your new debit card was mailed to you yesterday.",
     "Cards mailed that day usually arrive within five business days.",
-    "Once it arrives, please activate the card by calling the number on the back of the card.",
+    "If it arrives within that time, please activate it by calling the number on the back of the card.",
     "You may then choose a four-digit PIN."
    ],
    "k": 2,
    "lk": "that day",
-   "why": "\"that day\" chỉ về ngày hôm qua, lúc thẻ ghi nợ được gửi đi ở câu trước.",
+   "why": "\"that day\" chỉ về ngày hôm qua, lúc thẻ ghi nợ được gửi đi ở câu trước; câu sau \"that time\" chỉ về khoảng năm ngày làm việc.",
    "w": [
     "Your debit card arrived at your home this morning.",
     "Cards mailed last month have already been activated.",
@@ -1075,21 +1080,22 @@
    "id": "gd-054",
    "kind": "Advertisement",
    "s": [
-    "Maple Ridge Realty has two apartments available on Oak Avenue, across from Lindon Park.",
-    "This location is also within walking distance of the subway station.",
+    "Maple Ridge Realty has two apartments available on Oak Avenue, across from the east gate of Lindon Park.",
+    "From that gate, the subway station is only a five-minute walk.",
+    "With that short walk, the commute downtown takes about twenty minutes.",
     "Each unit has a modern kitchen and a private balcony.",
     "Rent includes water, heating, and a storage room in the basement.",
     "Call 555-0142 today to arrange a viewing with our agent."
    ],
    "k": 1,
-   "lk": "This location",
-   "why": "\"This location\" chỉ về vị trí trên đại lộ Oak, đối diện công viên Lindon, ở câu trước.",
+   "lk": "that gate",
+   "why": "\"that gate\" chỉ về cổng phía đông công viên Lindon ở câu trước; câu sau \"that short walk\" chỉ về quãng đi bộ năm phút nêu trong câu này.",
    "w": [
     "Both apartments were rented out last week.",
-    "Lindon Park will be turned into a parking lot.",
-    "The subway station will move to Oak Avenue next year."
+    "The nearest subway station is a thirty-minute bus ride away.",
+    "Lindon Park will be turned into a parking lot."
    ],
-   "vi": "Vị trí này cũng gần ga tàu điện ngầm, đi bộ tới được."
+   "vi": "Từ cổng đó, ga tàu điện ngầm chỉ cách năm phút đi bộ."
   },
   {
    "id": "gd-055",
@@ -1137,16 +1143,16 @@
    "s": [
     "Our training workshops cover three skills: running meetings, writing reports, and managing time.",
     "Tuesday's session deals with the first of these skills and lasts three hours.",
-    "Wednesday's session covers the second skill, and Thursday's covers the third.",
+    "Wednesday's and Thursday's sessions last the same three hours and cover the other two skills.",
     "Space is limited to twenty people per session.",
     "Please register by this Friday to reserve your place."
    ],
    "k": 1,
    "lk": "the first of these skills",
-   "why": "\"the first of these skills\" chỉ về kỹ năng đầu tiên trong ba kỹ năng ở câu trước: điều hành cuộc họp.",
+   "why": "\"the first of these skills\" chỉ về kỹ năng đầu tiên trong ba kỹ năng ở câu trước: điều hành cuộc họp; câu sau \"the same three hours\" chỉ về thời lượng nêu trong câu này.",
    "w": [
     "The last of these skills will not be taught until next year.",
-    "Tuesday's session has been moved to Thursday at noon.",
+    "Each workshop lasts a full day.",
     "All three workshops will be held on the same Tuesday."
    ],
    "vi": "Buổi thứ Ba nói về kỹ năng đầu tiên trong số này và kéo dài ba giờ."
@@ -1196,20 +1202,20 @@
    "kind": "Memo",
    "s": [
     "Starting Monday, our office will recycle paper, plastic, and glass.",
-    "Large bins labeled for each material have been placed in every kitchen.",
-    "Please use these labels to sort your waste before leaving for the day.",
+    "Three large bins with blue, green, and gray labels have been placed in every kitchen.",
+    "Please sort your waste by those colors before leaving for the day: blue for paper, green for glass, and gray for plastic.",
     "Cleaning staff will empty the bins each evening.",
     "Thank you for helping us reduce waste."
    ],
    "k": 2,
-   "lk": "these labels",
-   "why": "\"these labels\" chỉ về các nhãn dán trên thùng cho từng loại vật liệu ở câu trước.",
+   "lk": "those colors",
+   "why": "\"those colors\" chỉ về ba màu nhãn xanh dương, xanh lá, xám của các thùng ở câu trước.",
    "w": [
     "The bins were removed from the kitchens last month.",
-    "The kitchen will be repainted over the weekend.",
-    "Cleaning staff will start emptying the bins next year."
+    "Recycling will not begin until next year.",
+    "Cleaning staff will not work in the evenings."
    ],
-   "vi": "Vui lòng dựa vào các nhãn này để phân loại rác trước khi ra về."
+   "vi": "Vui lòng phân loại rác theo các màu đó trước khi ra về: xanh dương cho giấy, xanh lá cho thủy tinh, xám cho nhựa."
   },
   {
    "id": "gd-061",
@@ -1226,7 +1232,7 @@
    "why": "\"the dock\" chỉ về bến thuyền, nơi tình nguyện viên tập trung lúc 8 giờ sáng.",
    "w": [
     "Volunteers should gather at Dunmore Bridge instead.",
-    "Gloves and bags will be mailed to volunteers before April 20.",
+    "Gloves will not be needed for this event.",
     "The dock will be closed for repairs until May."
    ],
    "vi": "Nhân viên tại bến thuyền sẽ phát găng tay và túi cho công việc buổi sáng."
@@ -1317,19 +1323,20 @@
    "s": [
     "Harbor Press announced a busy autumn schedule on Tuesday.",
     "Its biggest title is a novel by Linda Chen about a chef who returns home.",
-    "Critics who read an early copy called her story warm and funny.",
+    "Critics who read an early copy called the chef's journey home warm and funny.",
+    "Their praise has already pushed pre-orders past ten thousand copies.",
     "The book will go on sale on September 14.",
     "A book tour will follow in October."
    ],
    "k": 2,
-   "lk": "her story",
-   "why": "\"her story\" chỉ về câu chuyện trong cuốn tiểu thuyết của Linda Chen ở câu trước.",
+   "lk": "the chef's journey home",
+   "why": "\"the chef's journey home\" chỉ về đầu bếp trở về quê ở câu trước; câu sau \"Their praise\" chỉ về lời khen của các nhà phê bình.",
    "w": [
     "Critics have not yet read any part of the book.",
-    "Ms. Chen's story was rejected by Harbor Press last year.",
+    "Ms. Chen's novel was rejected by Harbor Press last year.",
     "The book went on sale on September 14 last year."
    ],
-   "vi": "Các nhà phê bình đọc bản in thử gọi câu chuyện của bà là ấm áp và hài hước."
+   "vi": "Các nhà phê bình đọc bản in thử gọi hành trình về quê của người đầu bếp là ấm áp và hài hước."
   },
   {
    "id": "gd-067",
@@ -1357,19 +1364,19 @@
    "s": [
     "We are pleased to approve your small business loan of $40,000.",
     "The funds will be deposited into your account on Friday.",
-    "On that same day, you may start using our free bookkeeping service.",
-    "A banker will call you to explain how the service works.",
+    "That same Friday, you may also start using our free bookkeeping service.",
+    "A banker will call you that morning to explain how the service works.",
     "Congratulations on the growth of your bakery."
    ],
    "k": 2,
-   "lk": "On that same day",
-   "why": "\"that same day\" chỉ về ngày thứ Sáu, khi tiền vay được chuyển vào tài khoản.",
+   "lk": "That same Friday",
+   "why": "\"That same Friday\" chỉ về thứ Sáu khi tiền vay vào tài khoản ở câu trước; câu sau \"that morning\" chỉ về buổi sáng hôm đó.",
    "w": [
-    "The funds will be deposited on Monday instead.",
-    "Your loan was approved at an interest rate of ten percent.",
+    "The funds were deposited into your account last week.",
+    "Your loan application was declined last month.",
     "The bookkeeping service ended last Friday."
    ],
-   "vi": "Cũng vào ngày đó, quý vị có thể bắt đầu dùng dịch vụ ghi sổ kế toán miễn phí của chúng tôi."
+   "vi": "Cũng vào thứ Sáu đó, quý vị có thể bắt đầu dùng dịch vụ ghi sổ kế toán miễn phí của chúng tôi."
   },
   {
    "id": "gd-069",
@@ -1397,17 +1404,17 @@
    "s": [
     "Book a hotel room with Stayeasy and receive free breakfast.",
     "The same free breakfast is included for rooms booked through our mobile app.",
-    "Rooms booked on the app can also be canceled up to 48 hours before arrival.",
+    "Guests who use the app can also cancel up to 48 hours before arrival.",
     "Reward points are added to your account after each stay.",
     "Join today to enjoy faster check-in."
    ],
    "k": 1,
    "lk": "The same free breakfast",
-   "why": "\"The same free breakfast\" chỉ về bữa sáng miễn phí khi đặt phòng ở câu trước.",
+   "why": "\"The same free breakfast\" chỉ về bữa sáng miễn phí khi đặt phòng ở câu trước; câu sau \"the app\" chỉ về ứng dụng di động nêu trong câu này.",
    "w": [
-    "Free breakfast is served only to guests who book by phone.",
-    "The mobile app was removed from stores last month.",
-    "Free breakfast will end when the app is launched."
+    "Free breakfast is offered only to guests who book by phone.",
+    "Rooms cannot be canceled once they are booked.",
+    "Free breakfast ended on the last day of June."
    ],
    "vi": "Bữa sáng miễn phí tương tự cũng có cho phòng đặt qua ứng dụng di động."
   },
@@ -1436,20 +1443,20 @@
    "kind": "Announcement",
    "s": [
     "Westbrook High School is starting a new after-school tutoring program.",
-    "Volunteer tutors will give two hours of homework help each week.",
-    "These tutors do not need teaching experience, only patience and a love of reading.",
+    "The program needs twenty volunteer tutors, each giving two hours of homework help every week.",
+    "The twenty volunteers do not need teaching experience, only patience and a love of reading.",
     "Those without experience will attend a training session on September 5.",
     "Interested adults should contact Ms. Barnes in the main office."
    ],
    "k": 2,
-   "lk": "These tutors",
-   "why": "\"These tutors\" chỉ về các tình nguyện viên dạy kèm ở câu trước.",
+   "lk": "The twenty volunteers",
+   "why": "\"The twenty volunteers\" chỉ về hai mươi gia sư tình nguyện cần tuyển ở câu trước; câu sau \"Those without experience\" chỉ về người chưa có kinh nghiệm.",
    "w": [
-    "Tutors must hold a teaching certificate.",
-    "Parents will lead the sessions themselves.",
+    "Tutors must have at least five years of teaching experience.",
+    "The program has been canceled for this year.",
     "Homework help will be offered for four hours every day."
    ],
-   "vi": "Những người dạy kèm này không cần kinh nghiệm giảng dạy, chỉ cần sự kiên nhẫn và tình yêu đọc sách."
+   "vi": "Hai mươi tình nguyện viên này không cần kinh nghiệm giảng dạy, chỉ cần sự kiên nhẫn và tình yêu đọc sách."
   },
   {
    "id": "gd-073",
@@ -1478,14 +1485,14 @@
     "The city of Rowan will build a new bicycle lane along Park Road.",
     "Engineers have proposed removing forty parking spaces to make room.",
     "Losing those spaces has upset some shop owners on the street.",
-    "A public meeting will be held at City Hall on Wednesday.",
-    "Residents are invited to share their views."
+    "Those owners will present their complaints at a public meeting at City Hall on Wednesday.",
+    "Residents are invited to share their views as well."
    ],
    "k": 2,
    "lk": "those spaces",
-   "why": "\"those spaces\" chỉ về bốn mươi chỗ đậu xe dự kiến bỏ đi ở câu trước.",
+   "why": "\"those spaces\" chỉ về bốn mươi chỗ đậu xe dự kiến bỏ đi ở câu trước; câu sau \"Those owners\" chỉ về các chủ cửa hiệu nêu trong câu này.",
    "w": [
-    "The shop owners asked for forty more parking spaces.",
+    "Engineers have already finished removing the forty spaces.",
     "Engineers rejected the plan to build a bicycle lane.",
     "The spaces were removed last year."
    ],
@@ -1498,19 +1505,19 @@
     "Thank you for your feedback about your dinner at Bella Vista.",
     "We are sorry that your soup arrived cold.",
     "Our kitchen manager has spoken with the chef about the problem.",
-    "We have decided to give you a free dessert on your next visit.",
-    "That dessert will be served with a glass of our house wine.",
-    "We hope to see you again soon."
+    "We have decided to give you a free chocolate tart on your next visit.",
+    "That tart will be paired with a glass of our sweet house wine.",
+    "We hope you enjoy the pairing and look forward to seeing you again soon."
    ],
    "k": 4,
-   "lk": "That dessert",
-   "why": "\"That dessert\" chỉ về món tráng miệng miễn phí ở lần ghé sau ở câu trước.",
+   "lk": "That tart",
+   "why": "\"That tart\" chỉ về bánh tart sô-cô-la miễn phí ở câu trước; câu sau \"the pairing\" chỉ về việc kết hợp bánh với rượu vang.",
    "w": [
-    "The dessert was already served at your last visit.",
-    "Your next visit will be free of charge.",
-    "The soup will be served warm at your next visit."
+    "The tart was already served at your last visit.",
+    "We are unable to offer any gift on your next visit.",
+    "Our restaurant will be closed for the whole of next month."
    ],
-   "vi": "Món tráng miệng đó sẽ được dọn kèm một ly rượu vang của nhà hàng."
+   "vi": "Chiếc bánh tart đó sẽ được dọn kèm một ly rượu vang ngọt của nhà hàng."
   },
   {
    "id": "gd-076",
@@ -1547,8 +1554,8 @@
    "why": "\"That price\" chỉ về mức giá chào bán 285.000 đô la ở câu trước.",
    "w": [
     "No garage or dock is included with the cottage.",
-    "The cottage will be sold at auction tomorrow.",
-    "The asking price will be reduced after the first viewing."
+    "The cottage was sold last week.",
+    "The asking price is $385,000, well above similar homes nearby."
    ],
    "vi": "Mức giá đó đã bao gồm một bến thuyền nhỏ và gara hai xe."
   },
@@ -1556,21 +1563,21 @@
    "id": "gd-078",
    "kind": "Memo",
    "s": [
-    "Beginning Monday, staff at Northgate Medical Center must wear name badges at all times.",
-    "These badges will show each person's name and job title, so patients know who is helping them.",
-    "Your name and job title will be printed on the badge at the security office.",
+    "Beginning Monday, staff at Northgate Medical Center must wear a blue name badge at all times.",
+    "The blue badge will show each person's name and job title, so patients know who is helping them.",
+    "Please pick up yours at the security office and check that your title is correct.",
     "Lost badges should be reported right away.",
     "Replacement badges cost five dollars."
    ],
    "k": 1,
-   "lk": "These badges",
-   "why": "\"These badges\" chỉ về thẻ tên mà nhân viên phải đeo ở câu trước.",
+   "lk": "The blue badge",
+   "why": "\"The blue badge\" chỉ về thẻ tên màu xanh nhân viên phải đeo ở câu trước; câu sau \"your title\" chỉ về chức danh ghi trên thẻ.",
    "w": [
-    "Patients must also wear badges at all times.",
-    "The badges have not been ordered yet.",
-    "Staff will stop wearing badges on Monday."
+    "The blue badges have not been ordered yet.",
+    "Staff will stop wearing badges on Monday.",
+    "Staff may choose whether to wear a badge."
    ],
-   "vi": "Những thẻ này ghi tên và chức danh của từng người để bệnh nhân biết ai đang giúp mình."
+   "vi": "Chiếc thẻ màu xanh sẽ ghi tên và chức danh của từng người để bệnh nhân biết ai đang giúp mình."
   },
   {
    "id": "gd-079",
@@ -1598,15 +1605,15 @@
    "s": [
     "I am writing about the new scheduling program that your team installed on Monday.",
     "Since Monday, that program has already saved our nurses several hours of paperwork.",
-    "To save even more time, we would like a short training session for the night staff.",
+    "To save even more of those hours, we would like a short training session for the night staff.",
     "Please let me know which days are possible.",
     "Thank you for your help."
    ],
    "k": 1,
    "lk": "that program",
-   "why": "\"that program\" chỉ về chương trình xếp lịch mới được cài hôm thứ Hai ở câu trước.",
+   "why": "\"that program\" chỉ về chương trình xếp lịch mới được cài hôm thứ Hai ở câu trước; câu sau \"those hours\" chỉ về số giờ tiết kiệm nêu trong câu này.",
    "w": [
-    "The program has caused several mistakes in the night schedule.",
+    "The program is too slow to be of any use to our staff.",
     "Our nurses have not yet used the new program.",
     "The program was installed last year by our own staff."
    ],
@@ -1619,12 +1626,12 @@
     "Two local teams, the Dolphins and the Sharks, will compete in this year's relay.",
     "The Sharks have won the trophy five years in a row.",
     "The Dolphins hope to end that streak when the race starts at 10 A.M. at Central Pool.",
-    "Tickets are five dollars at the door.",
+    "Tickets for the 10 A.M. start are five dollars at the door.",
     "Children under twelve may enter for free."
    ],
    "k": 2,
    "lk": "that streak",
-   "why": "\"that streak\" chỉ về chuỗi năm năm liên tiếp giành cúp của đội Sharks ở câu trước.",
+   "why": "\"that streak\" chỉ về chuỗi năm năm liên tiếp giành cúp của đội Sharks ở câu trước; câu sau \"the 10 A.M. start\" chỉ về giờ xuất phát nêu trong câu này.",
    "w": [
     "The Dolphins have won the trophy five years in a row.",
     "The Sharks did not enter the race this year.",
@@ -1639,18 +1646,18 @@
     "Welcome to the Alpine Hiking Weekend!",
     "On Friday, the group will gather at the lodge for dinner and a map briefing.",
     "Your guide will take you up the Eagle Trail on Saturday morning.",
-    "After the hike on the Eagle Trail, you will return to the lodge for a hot lunch.",
-    "Please bring boots and a waterproof jacket for the Eagle Trail."
+    "After the hike on the Eagle Trail, you will return to the lodge for a hot lunch on the terrace.",
+    "Please bring a warm jacket, as the terrace is open to the wind."
    ],
    "k": 3,
    "lk": "the hike on the Eagle Trail",
-   "why": "\"the hike on the Eagle Trail\" chỉ về chuyến đi bộ lên đường mòn Eagle vào sáng thứ Bảy ở câu trước.",
+   "why": "\"the hike on the Eagle Trail\" chỉ về chuyến đi bộ lên đường mòn Eagle vào sáng thứ Bảy ở câu trước; câu sau \"the terrace\" chỉ về sân thượng nơi ăn trưa.",
    "w": [
     "The Eagle Trail will be closed on Saturday.",
-    "Lunch will be served on the trail at nine.",
-    "You will return to the lodge before the hike begins."
+    "The lodge has no outdoor space of any kind.",
+    "The lodge restaurant will be closed all weekend."
    ],
-   "vi": "Sau chuyến đi bộ trên đường mòn Eagle, bạn sẽ quay về nhà nghỉ để ăn trưa nóng."
+   "vi": "Sau chuyến đi bộ trên đường mòn Eagle, bạn sẽ quay về nhà nghỉ để ăn trưa nóng trên sân thượng."
   },
   {
    "id": "gd-083",
@@ -1666,9 +1673,9 @@
    "lk": "These females",
    "why": "\"These females\" chỉ về những con rùa biển cái bò lên cát đẻ trứng ở câu trước.",
    "w": [
-    "Male turtles also come ashore to lay eggs.",
-    "The nests are counted again every winter.",
-    "The eggs hatch on a beach far from Palm Beach."
+    "No sea turtles have been seen on Palm Beach this summer.",
+    "There are no lights anywhere near Palm Beach.",
+    "Only about ten turtles visit the beach each year."
    ],
    "vi": "Những con cái này quay về bãi biển nơi chúng được sinh ra."
   },
@@ -1719,19 +1726,19 @@
    "s": [
     "Two new security measures will start at all Crown Bank branches in May.",
     "The first is a photo ID check for large cash withdrawals, and the second is a text alert for every card payment.",
-    "The alert, in particular, lets customers report a false payment within minutes.",
-    "Tellers will receive training on the new procedures next week.",
+    "The alert, in particular, lets customers stop a false payment by replying STOP within minutes.",
+    "Starting next week, tellers will show customers how to send that reply from their phones.",
     "Please answer any customer questions politely."
    ],
    "k": 2,
    "lk": "The alert",
-   "why": "\"The alert\" chỉ về tin nhắn cảnh báo cho mỗi lần thanh toán thẻ ở câu trước.",
+   "why": "\"The alert\" chỉ về tin nhắn cảnh báo cho mỗi lần thanh toán thẻ ở câu trước; câu sau \"that reply\" chỉ về tin trả lời STOP nêu trong câu này.",
    "w": [
     "The photo ID check applies to every card payment.",
     "Customers will receive a text alert only on weekends.",
-    "The alert system was tested at one branch last year."
+    "Both measures were ended at all branches last year."
    ],
-   "vi": "Riêng tin nhắn cảnh báo giúp khách hàng báo một khoản thanh toán giả chỉ trong vài phút."
+   "vi": "Riêng tin nhắn cảnh báo giúp khách hàng chặn một khoản thanh toán giả bằng cách trả lời STOP trong vài phút."
   },
   {
    "id": "gd-087",
@@ -1760,16 +1767,16 @@
     "Dunmore Airport will replace its old baggage belts next month.",
     "The work is expected to take about six weeks.",
     "During those six weeks, bags will be handed out at temporary counters near Exit 3.",
-    "Staff will direct travelers to the correct counter.",
+    "Staff will direct travelers to those counters from the arrival hall.",
     "We apologize for any delay."
    ],
    "k": 2,
    "lk": "those six weeks",
-   "why": "\"those six weeks\" chỉ về sáu tuần thi công thay băng chuyền ở câu trước.",
+   "why": "\"those six weeks\" chỉ về sáu tuần thi công thay băng chuyền ở câu trước; câu sau \"those counters\" chỉ về các quầy tạm nêu trong câu này.",
    "w": [
     "The new belts will be ready after two weeks.",
-    "Bags will be handed out at the old belts throughout the work.",
-    "The temporary counters will be removed next month."
+    "Bags will be sent directly to passengers' homes during the work.",
+    "Baggage service will be suspended entirely during the work."
    ],
    "vi": "Trong sáu tuần đó, hành lý sẽ được trả tại các quầy tạm gần Cửa số 3."
   },
@@ -1802,15 +1809,15 @@
     "The laptops will arrive in January.",
     "The whole program will cost the school nearly twenty thousand dollars.",
     "Despite this cost, tuition will stay the same next year.",
-    "Thank you for your continued support."
+    "Your continued support is what makes that promise possible."
    ],
    "k": 4,
    "lk": "this cost",
-   "why": "\"this cost\" chỉ về chi phí gần hai mươi nghìn đô la của chương trình ở câu trước.",
+   "why": "\"this cost\" chỉ về chi phí gần hai mươi nghìn đô la của chương trình ở câu trước; câu sau \"that promise\" chỉ về cam kết giữ nguyên học phí.",
    "w": [
     "The laptops cost the school almost nothing.",
-    "Tuition will rise next year to pay for the laptops.",
-    "The program was cancelled for lack of funds."
+    "The laptops were stolen before they arrived in January.",
+    "The program was canceled for lack of funds."
    ],
    "vi": "Bất chấp chi phí này, học phí sẽ giữ nguyên vào năm sau."
   },
@@ -1840,20 +1847,20 @@
    "s": [
     "Thank you for volunteering at the Oakdale Animal Shelter.",
     "Your first task will be to walk the dogs each morning.",
-    "Each walk lasts about thirty minutes.",
-    "After each walk, you will help clean the dog kennels.",
-    "Please wear closed shoes and old clothes.",
+    "Each walk lasts about thirty minutes and ends at the back gate of the shelter.",
+    "From that gate, you will go straight to the kennels and help clean them.",
+    "Please wear closed shoes and old clothes for that work.",
     "Our staff will show you where supplies are kept."
    ],
    "k": 3,
-   "lk": "After each walk",
-   "why": "\"each walk\" chỉ về mỗi lần dắt chó đi dạo kéo dài khoảng ba mươi phút ở câu trước.",
+   "lk": "that gate",
+   "why": "\"that gate\" chỉ về cổng sau của trại nơi mỗi buổi dắt chó kết thúc ở câu trước; câu sau \"that work\" chỉ về việc dọn chuồng.",
    "w": [
     "Dogs are walked in the evening only.",
-    "You will clean the kennels before the walks begin.",
-    "The kennels are cleaned by outside contractors."
+    "Each walk will last about two hours.",
+    "Volunteers will only feed the dogs, not walk them."
    ],
-   "vi": "Sau mỗi lần dắt chó đi dạo, bạn sẽ giúp dọn chuồng chó."
+   "vi": "Từ cổng đó, bạn sẽ đi thẳng tới khu chuồng và giúp dọn dẹp."
   },
   {
    "id": "gd-093",
@@ -1920,19 +1927,18 @@
    "kind": "Letter",
    "s": [
     "Thank you for sending us your manuscript, The Silent Coast.",
-    "Our editors will read it carefully over the next four weeks.",
-    "We will then decide whether to offer you a contract.",
+    "Our editors will read it carefully and then decide whether to offer you a contract.",
     "You will hear from us by the end of March.",
     "Until that date, please do not send the manuscript to other publishers.",
-    "We look forward to reading your work."
+    "This request protects the time of our editors, and we thank you for understanding."
    ],
-   "k": 4,
+   "k": 3,
    "lk": "that date",
-   "why": "\"that date\" chỉ về hạn cuối tháng Ba khi nhà xuất bản trả lời ở câu trước.",
+   "why": "\"that date\" chỉ về hạn cuối tháng Ba khi nhà xuất bản trả lời ở câu trước; câu sau \"This request\" chỉ về lời đề nghị nêu trong câu này.",
    "w": [
     "Our editors have already offered you a contract.",
     "The manuscript will be returned to you by the end of next week.",
-    "Please send the manuscript to other publishers as well."
+    "You are free to send the manuscript to other publishers at any time."
    ],
    "vi": "Cho tới ngày đó, xin đừng gửi bản thảo cho nhà xuất bản khác."
   }
