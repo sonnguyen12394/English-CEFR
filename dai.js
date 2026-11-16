@@ -23,8 +23,9 @@ const DL_QH = {
 // phân loại một phương án câu đề từ nhãn lời giải + chữ: [cư dân, luật] hoặc null
 function dlCls(w, lab, s) { const l = String(lab || '').toLowerCase(), x = String(w || '').toLowerCase().trim(), h0 = l.split(':')[0];
   if (/ or /.test(x)) return dlCls(x.split(' or ')[0], lab, s);   // v194: his or her, him or her…
+  if (/^(the one|one|ones)$/.test(x) && /^(đại từ|từ chỉ lượng)/.test(h0)) return ['U', 'lo'];   // v196: one / the one thay cho danh từ đã nhắc = đứng một mình
   if (/sai|viết tắt|không chuẩn/.test(h0) || /^trạng từ/.test(h0) || /^(the one|one|ones|this one)$/.test(x)) return ['_', ''];   // v194: khác loại
-  const c = dlCls0(x, l), nx = (String(s || '').split('___')[1] || '').trim().toLowerCase().split(/\s+/)[0];
+  const c = dlCls0(x, l) || (/^(tính từ|giới từ|liên từ|danh từ|động từ|v-ing|v3|cụm|trạng từ quan hệ|từ hạn định|đại từ chỉ định)/.test(h0) || /^(this|these|those|such|where|when|why)$/.test(x) ? ['_', ''] : null), nx = (String(s || '').split('___')[1] || '').trim().toLowerCase().split(/\s+/)[0];
   if (c && c[0] === 'U' && nx === 'of') return ['U', 'lo'];   // v194: lượng từ + of
   return c; }
 function dlCls0(x, l) {
@@ -32,10 +33,10 @@ function dlCls0(x, l) {
   if (x === 'whose') return ['W', 'qs']; if (/^(who|whom|whoever)$/.test(x)) return ['W', 'qn']; if (/^(which|whichever|what)$/.test(x) || (x === 'that' && /quan hệ/.test(l))) return ['W', 'qv'];
   if (/^(he|she|they|we|i)$/.test(x)) return ['D', 'cn']; if (/^(him|them|us|me)$/.test(x)) return ['D', 'tn'];
   if (/^(hers|theirs|ours|mine|yours)$/.test(x)) return ['S', 'ds'];
-  if (/^(his|their|its|our|my|your|her|it)$/.test(x)) { const h = l.split(':')[0]; const i = k => { const j = h.indexOf(k); return j < 0 ? 99 : j; };
+  if (/^(his|their|its|our|my|your|her|it|you)$/.test(x)) { const h = l.split(':')[0]; const i = k => { const j = h.indexOf(k); return j < 0 ? 99 : j; };
     const a = [[i('tân ngữ'), ['D', 'tn']], [i('chủ ngữ'), ['D', 'cn']], [i('tính từ sở hữu'), ['S', 'ss']], [i('đại từ sở hữu'), ['S', 'ds']]].sort((p, q) => p[0] - q[0])[0];
-    return a[0] < 99 ? a[1] : x === 'it' ? ['D', 'tn'] : ['S', 'ss']; }
-  if (/^(nobody|no one|someone|everyone|anyone|everybody|somebody|nothing|something|anything|everything)$/.test(x)) return ['D', 'cn'];
+    return a[0] < 99 ? a[1] : x === 'it' ? ['D', 'tn'] : x === 'you' ? ['D', 'cn'] : ['S', 'ss']; }
+  if (/^(nobody|no one|someone|everyone|anyone|anybody|everybody|somebody|nothing|something|anything|everything)$/.test(x)) return ['D', 'cn'];
   if (x === 'it') return ['D', 'tn'];
   if (/đứng một mình|\+ of|\bof\b/.test(l) || /^(none|others|the others|the rest|one another|each other)$|\bof$/.test(x)) return ['U', 'lo'];
   if (/không đếm được/.test(l) || /^(much|little|a little|less|a great deal of|an amount of)$/.test(x)) return ['U', 'lk'];
@@ -43,14 +44,14 @@ function dlCls0(x, l) {
   if (/số nhiều|đếm được/.test(l) || /^(many|few|a few|several|both|fewer|a number of|various|numerous|other|no)$/.test(x)) return ['U', 'ln'];
   if (/^(all|most|some|any|enough|more|plenty of|a lot of|lots of)$/.test(x)) return ['U', 'lk'];   // + of → lo ở dlCls; còn lại xét danh từ sau ở dlReal
   return null; }
-const DL_OK = q => !!(q && q.sec === 'p5' && q.x && ['pron', 'det'].includes(q.x.t) && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));
-function dlReal(q, d) { if (!DL_OK(q)) return null; const og = q.lg.og, s = String(q.q).replace(/<[^>]+>/g, '').replace(/-{5,}/, '___'); if (!/___/.test(s)) return null;
+const DL_OK = q => !!(q && phIn(q, 'dai', t => ['pron', 'det'].includes(t)) && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));
+function dlReal(q, d) { if (!DL_OK(q)) return null; const og = q.lg.og, src = phSrc(q); if (!src) return null; const s = src.s;   // v196: + chỗ trống Part 6 (câu trước, cả đoạn)
   const nx = (s.split('___')[1] || '').trim().toLowerCase().split(/\s+/)[0] || '';
   const o = q.opts.map(w => { let c = dlCls(w, og[w], s); if (c && c[1] === 'lk' && /^(all|most|some|any|enough|more)$/i.test(w) && /[a-z]{3,}s$/.test(nx) && !/ss$/.test(nx)) c = ['U', 'ln'];
     return c ? [w, c[0], c[0] === '_' ? String(og[w]).trim() : String(og[w]).split(':').slice(1).join(':').trim() || String(og[w]).split(':')[0].trim(), c[1]] : null; });
   if (o.some(x => !x) || o.find(x => x[0] === q.a)[1] === '_') return null;
   const ly = String(q.lg.ly || q.why || ''), why = (ly.match(/^[^.!?]*[.!?]/) || [ly])[0].slice(0, 180);
-  return { id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, s, a: q.a, o, why, vi: q.lg.dich || '', real: 1, nha: null }; }
+  return Object.assign({ id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, a: q.a, o, why, vi: q.lg.dich || '', real: 1, nha: null }, src); }
 PH_PHO.dai = { key: 'dai', view: 'toeic-pho-dai-tu', ic: '👥', ten: 'Phố Đại Từ & Lượng Từ', file: 'dai.json', sub: 'he / him / his / himself, who / which / whose, each / many / much · Part 5',
   desc: 'Điều khiển bé Mầm bắt đúng đại từ hoặc từ chỉ lượng. Nhìn chữ đứng ngay sau ô trống trước: động từ, danh từ số ít, số nhiều hay "of".',
   lo: 'đại từ, lượng từ', dau: 'Dấu hiệu', introSub: 'Chạm vào từng người để nghe họ giới thiệu. Nhớ dấu hiệu gọi mỗi người.',

@@ -27,7 +27,7 @@ function ctLaw(s, a, lab) { const S = String(s || ''), x = String(a || '').toLow
   if (/so sánh hơn/.test(l) || /\bthan\b/i.test(post)) return 'shon';
   if (/(tính từ|nguyên dạng)/.test(l) && /\bas\b/i.test(post)) return 'sbang';
   return null; }
-const CT_OK = q => !!(q && phIn(q, 'ctr', t => t === 'struct') && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));
+const CT_OK = q => !!(q && phIn(q, 'ctr', () => false) && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));
 function ctReal(q, d) { if (!CT_OK(q)) return null; const og = q.lg.og, src = phSrc(q); if (!src) return null;
   const r = ctLaw(src.s, q.a, og[q.a]); if (!r) return null; const T = CT_QH[r].t;
   const o = q.opts.map(w => { const L = String(og[w]); const bad = /sai|không chuẩn/.test(L.split(':')[0].toLowerCase()); return [w, bad ? '_' : T, bad ? L.trim() : L.split(':').slice(1).join(':').trim() || L.trim(), bad ? '' : w === q.a ? r : (ctLaw(src.s, w, L) || r)]; });

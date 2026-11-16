@@ -34,7 +34,7 @@ const trAK = (de, o) => o ? de + ':' + o : de;
 
 // ---------- dựng đề: đơn vị (bài / câu) và 200 câu đánh số 1–200 ----------
 function trB(de) { if (TR.B[de]) return TR.B[de]; const d = trMeta(de); if (!d || (d.f && !TR.D[de])) return null; const F = d.f ? TR.D[de] : null, O = (F ? F.ord : d.ord) || null;
-  const mk = { p1: x => [toP1Q(x)], p2: x => [toP2Q(x)], p3: x => toTalkQs(x, 'p3'), p4: x => toTalkQs(x, 'p4'), p5: x => [toP5Q(x)], p6: toP6Qs, p7: toP7Qs }, U = []; let n = (F && F.off) || 0;   // off = 100: đề chỉ có phần Đọc (Đề 9 bản riêng), câu đánh số 101–200
+  const mk = { p1: x => [toP1Q(x)], p2: x => [toP2Q(x)], p3: x => toTalkQs(x, 'p3'), p4: x => toTalkQs(x, 'p4'), p5: x => { if (!x.t && typeof tqP5 === 'function') x.t = tqP5(x); return [toP5Q(x)]; }, p6: toP6Qs, p7: toP7Qs }, U = []; let n = (F && F.off) || 0;   // off = 100: đề chỉ có phần Đọc (Đề 9 bản riêng), câu đánh số 101–200
   for (const s of Object.keys(mk)) { const ix = F ? null : Object.fromEntries(TO[s].map(x => [x.id, x]));
     for (const it of (F ? F[s] : d[s]) || []) { const x = F ? it : ix[it]; if (!x) continue;
       const qs = mk[s](x).map((q, qi) => { n++; const fix = q.opts.every(t => /^[A-D]$/.test(t) || /^\[\d\]$/.test(t)), od = O && O[n - 1], base = od ? [...q.opts].sort() : null;
