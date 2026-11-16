@@ -1,7 +1,7 @@
 // ⏰ Phố Động Từ (specs/020-thanh-pho-toeic, v189): phố thứ ba của 🏙 Thành phố TOEIC, chạy bằng động cơ phố của pho.js.
 // Dạy câu Part 5 dạng động từ: chia thì theo mốc, chủ động / bị động, to V / V gốc / V-ing. Cư dân = loại dạng động từ, "dấu hiệu" = chữ mốc trong câu.
 // Bậc: ① Ai ngồi ghế (4 cư dân) → ② Dấu hiệu nói gì (11 luật) → ③ ghép 3 dạng → ④ đủ 4 dạng như đề.
-// Kho: dong.json (content/toeic/dong.json qua tools/build-dong.mjs) + câu thật Part 5 dạng động từ của đề. Part 6 chọn thì chưa dùng (cả đoạn quá dài cho màn rơi).
+// Kho: dong.json (content/toeic/dong.json qua tools/build-dong.mjs) + câu thật Part 5 dạng động từ của đề. v194: thêm chỗ trống Part 6 chọn thì (câu chứa ô trống + câu trước, cả đoạn gập).
 PH_ACCX.H = (ink, sk) => `<circle cx="50" cy="20" r="13" style="fill:#fff6d8;stroke:${ink};stroke-width:2.5"/><path d="M50 12v8l6 4" style="fill:none;stroke:${ink};stroke-width:2.5;stroke-linecap:round"/>`;
 PH_ACCX.B = (ink, sk) => `<rect x="33" y="10" width="34" height="22" rx="3" style="fill:#c9935a;stroke:${ink};stroke-width:2"/><path d="M33 18h34M50 10v8" style="stroke:${ink};stroke-width:2"/>`;
 PH_ACCX.O = (ink, sk) => `<path d="M30 30 L50 8 L70 30" style="fill:none;stroke:#e0567a;stroke-width:6;stroke-linejoin:round;stroke-linecap:round"/><circle cx="50" cy="8" r="4" style="fill:${ink}"/>`;
@@ -20,27 +20,28 @@ const DT_QH = {
   goc: { e: '🧱', n: 'V gốc', w: 'will, can, must, should, may, make / let / help sb', t: 'O' },
   ing: { e: '🔄', n: 'V-ing', w: 'sau giới từ, enjoy, avoid, consider, suggest, look forward to', t: 'I' } };
 // phân loại một phương án của câu đề từ nhãn lời giải (lg.og) + chữ: [cư dân, luật] hoặc null
-function dtCls(w, lab, s) { const l = String(lab || '').split(':')[0].toLowerCase(), x = String(w || '').toLowerCase().trim();
-  if (/dạng sai|số ít|số nhiều/.test(l) && !/bị động|hoàn thành|tiếp diễn/.test(l)) return null;
-  if (/bị động/.test(l) || /\b(be|been|being|is|are|was|were)\s+\w+(ed|en|wn)\b/.test(x)) return ['B', 'bd'];
+function dtCls(w, lab, s) { const L = String(lab || '').toLowerCase(), l = L.split(':')[0], x = String(w || '').toLowerCase().trim();
+  if (/dạng sai|cụm sai|không chuẩn/.test(l)) return ['_', ''];   // v194: phương án sai dạng = "Khác loại"
+  if (/bị động/.test(L) || /\b(be|been|being|is|are|was|were)\s+\w+(ed|en|wn)\b/.test(x)) return ['B', 'bd'];
   if (/^to /.test(x) || /^to v/.test(l)) return ['O', 'to'];
   if (/v-ing/.test(l) || /^\w+ing$/.test(x)) return ['I', 'ing'];
   if (/điều kiện/.test(l) || /^would /.test(x)) return ['H', 'dk'];
   if (/quá khứ hoàn thành|tương lai hoàn thành/.test(l) || /^(had|will have) \w+/.test(x)) return ['H', 'hth'];
-  if (/hiện tại hoàn thành/.test(l) || /^(has|have)( not|n't)? \w+/.test(x)) return ['H', 'htht'];
+  if (/hiện tại hoàn thành/.test(l) || /^(has|have)( not|n't)? \w+/.test(x) || /\b(has|have) \+ v3/.test(L)) return ['H', 'htht'];
   if (/tiếp diễn/.test(l)) return ['H', 'td'];
   if (/tương lai/.test(l) || /^will /.test(x)) return ['H', 'tl'];
   if (/nguyên mẫu/.test(l) || /^(must|can|should|may|might|could) /.test(x)) return ['O', 'goc'];
-  if (/quá khứ|v3/.test(l)) return ['H', 'qd'];
-  if (/hiện tại đơn/.test(l)) return ['H', /\bif\b[^,]*___/i.test(s || '') ? 'dk' : 'hd'];
+  if (/quá khứ|v3/.test(l) || /^(was|were)$/.test(x)) return ['H', 'qd'];
+  if (/hiện tại đơn|hiện tại|ngôi thứ ba/.test(l) || /^(is|are|am)$/.test(x)) return ['H', /\bif\b[^,]*___/i.test(s || '') ? 'dk' : 'hd'];
   return null; }
-const DT_OK = q => !!(q && q.sec === 'p5' && q.x && q.x.t === 'verb' && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));
-function dtReal(q, d) { if (!DT_OK(q)) return null; const og = q.lg.og, s = String(q.q).replace(/<[^>]+>/g, '').replace(/-{5,}/, '___'); if (!/___/.test(s)) return null;
-  const o = q.opts.map(w => { const c = dtCls(w, og[w], s); return c ? [w, c[0], String(og[w]).split(':').slice(1).join(':').trim() || String(og[w]).split(':')[0].trim(), c[1]] : null; });
-  if (o.some(x => !x)) return null;
+// v194: câu Part 5 dạng động từ + chỗ trống Part 6 chọn thì / chọn dạng động từ
+const DT_OK = q => !!(q && phIn(q, 'dong', t => t === 'verb') && q.opts && q.opts.every(o => ((q.lg || {}).og || {})[o]));
+function dtReal(q, d) { if (!DT_OK(q)) return null; const og = q.lg.og, src = phSrc(q); if (!src) return null; const s = src.s;
+  const o = q.opts.map(w => { const c = dtCls(w, og[w], s); return c ? [w, c[0], c[0] === '_' ? String(og[w]).trim() : String(og[w]).split(':').slice(1).join(':').trim() || String(og[w]).split(':')[0].trim(), c[1]] : null; });
+  if (o.some(x => !x) || o.find(x => x[0] === q.a)[1] === '_') return null;
   const ly = String(q.lg.ly || q.why || ''), why = (ly.match(/^[^.!?]*[.!?]/) || [ly])[0].slice(0, 180);
-  return { id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, s, a: q.a, o, why, vi: q.lg.dich || '', real: 1, nha: null }; }
-PH_PHO.dong = { key: 'dong', view: 'toeic-pho-dong-tu', ic: '⏰', ten: 'Phố Động Từ', file: 'dong.json', sub: 'Thì, chủ động / bị động, to V / V-ing · Part 5',
+  return Object.assign({ id: `de:${d.id}:${q.n}`, de: d.id, n: q.n, a: q.a, o, why, vi: q.lg.dich || '', real: 1, nha: null }, src); }
+PH_PHO.dong = { key: 'dong', view: 'toeic-pho-dong-tu', ic: '⏰', ten: 'Phố Động Từ', file: 'dong.json', sub: 'Thì, chủ động / bị động, to V / V-ing · Part 5, Part 6',
   desc: 'Điều khiển bé Mầm bắt đúng dạng động từ. Tìm chữ mốc trong câu trước (yesterday, since, must, for…), rồi mới chọn dạng.',
   lo: 'động từ', dau: 'Dấu hiệu', introSub: 'Chạm vào từng người để nghe họ giới thiệu. Nhớ dấu hiệu gọi mỗi người.',
   qhW: 'Luật', qhT: '11 luật dạng động từ', ORD: ['H', 'B', 'O', 'I'], SHORT: { H: 'Bác Chia thì', B: 'Cô Bị động', O: 'Anh Nguyên mẫu', I: 'Bé V-ing' }, NHA: {}, QH: DT_QH,

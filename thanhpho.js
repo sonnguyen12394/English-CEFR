@@ -28,7 +28,7 @@ function cyRow() { return `<div class="box hcard" style="margin:12px 0 0"><butto
 // ô "Đề này cần" ở Chinh phục đề: phố đã có + số câu + bậc; phố đang xây gộp một dòng
 function cyNeedBox(de) { const C = cyCount(de), have = CY_PHO.filter(p => cyC(p) && C[p.k]), soon = CY_PHO.filter(p => !cyC(p) && C[p.k]);
   if (!have.length) return ''; const ns = soon.reduce((a, p) => a + C[p.k].n, 0), L = tgJState(de) || [];
-  const hu = k => { const l = L.filter(c => c.lu && c.lu.k === k); return l.length ? ` · 🌳 ${l.filter(c => c.hi).length}/${l.length} câu Part 5 đã hiểu luật` : ''; };
+  const hu = k => { const l = L.filter(c => c.lu && c.lu.k === k); return l.length ? ` · 🌳 ${l.filter(c => c.hi).length}/${l.length} câu đã hiểu luật` : ''; };
   return `<div class="box cyneed"><b>🏙 Đề này cần</b>${have.map(p => { const c = cyC(p), r = C[p.k], lv = cyLv(p.k), M = Object.keys(c.MUC).length;
       return `<button class="hrow" data-phv="${p.k}"><span class="ic">${c.ic}</span><span class="t"><b>${c.ten} · ${r.n} câu</b><small>${r.chac}/${r.n} chắc · ${lv ? `bậc ${lv} / ${M}` : 'chưa chơi'}${hu(p.k)}${r.sai ? ` · ${r.sai} câu bạn đang sai` : ''}${lv < 3 && r.sai ? ' · nên luyện phố trước' : ''}</small></span><span class="chev">›</span></button>`; }).join('')}
     ${ns ? `<p class="mute" style="margin:6px 0 0;font-size:14px">${ns} câu còn lại (động từ, từ vựng, đọc hiểu…): phố đang xây, chữa bằng bí kíp ở đảo.</p>` : ''}</div>`; }
