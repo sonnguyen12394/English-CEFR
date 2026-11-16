@@ -2827,11 +2827,11 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
       document.getElementById = id => { const e = G0(id); if (id === 'phrow') { e.children = [0, 1, 2, 3].map(() => ({ classList: { add() {} } })); e.firstElementChild = { offsetHeight: 40 }; } if (id === 'pharena') e.clientHeight = 300; return e; };
       await toLoad(); phUse('cho'); PH_K = null; PH_RL = null; await phLoad();
-      if (PH_VIEW !== 'toeic-pho-cho' || PH_ORD.join() !== 'E,F,J' || PH_MO.length !== 4) bad.push('phUse không nạp cấu hình Chợ');
+      if (PH_VIEW !== 'toeic-pho-cho' || PH_ORD.join() !== 'E,F,J,NN' || PH_MO.length !== 4) bad.push('phUse không nạp cấu hình Chợ');
       const R = Object.values(PH_RL); if (R.length < 30) bad.push('câu thật từ vựng quá ít: ' + R.length);
-      if (R.some(it => !/___/.test(it.s) || it.o.some(o => !['E', 'F', 'J'].includes(o[1]) || !o[2]))) bad.push('câu thật sai khuôn');
+      if (R.some(it => !/___/.test(it.s) || it.o.some(o => !['E', 'F', 'J', 'NN'].includes(o[1]) || !o[2]))) bad.push('câu thật sai khuôn');
       const c5 = PH_K.find(x => x.id === 'ch-005'); if (phMoc(c5) !== 'for') bad.push('chữ mốc: ' + phMoc(c5));
-      const P = phSt(); P.in = 1; for (const k of ['E', 'F']) P.cd[k] = { at: 1, n: 0 };
+      const P = phSt(); P.in = 1; for (const k of ['E', 'NN']) P.cd[k] = { at: 1, n: 0 };   // v195: NN đã gặp, khỏi vụ thám tử; < 3 cư dân nên khỏi ⚡ nhớ nhanh
       phStart(); if (PH_R.M.md !== 'gh' || PH_R.order.length !== 3 || PH_R.order.find(o => o.ok).p !== PH_R.it.o[0][1]) bad.push('bậc 1: 3 quầy, đúng = quầy của câu');
       PH_R.ok = PH_WIN; phEnd(); if (!phOpen('b2') || !S.to.phos.cho) bad.push('thắng bậc 1 mở bậc 2, tiến độ ở S.to.phos.cho');
       phStart(); const it2 = PH_R.it, A2 = it2.o.find(o => o[0] === it2.a);
@@ -2905,7 +2905,66 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C92', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Part 6 vào phố: cắt câu + câu trước + 📄 Xem cả đoạn, mỗi chỗ trống một phố, luật vững cho Part 6; phương án khác loại không có làn bậc 1; mọi đề phủ ≥ 86/100 câu Phần Đọc' }); }
 
-// v196 C93 đề riêng (Đề 9–16) không ghi nhãn dạng câu Part 5 (`t`): trB tự gắn bằng tqP5 (toqt.js) để phố đếm được câu của đề.
+// v195 C93 🛒 Chợ Từ Vựng có từ gần nghĩa Part 7: quầy thứ tư Bà Nhiều Nghĩa (NN), kho ≥ 40 câu NN qua bộ dựng; mọi câu từ gần nghĩa của 8 đề vào Chợ
+//   (câu chứa từ trong bài, bỏ dấu [1]–[4], ô trống hiện chính từ, đáp án "từ ≈ nghĩa", 📄 Xem cả bài); người chơi cũ gặp vụ thám tử của cư dân mới trước ván
+{ const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname, NMIN = +(process.env.CH_NN_MIN || 40);
+  try { const o = cp.execFileSync('node', [root + 'tools/build-cho.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ cho\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.stderr || e.message).slice(0, 160)); }
+  const K = JSON.parse(fs.readFileSync(root + 'cho.json', 'utf8')).items, NN = K.filter(x => x.syn);
+  if (NN.length < NMIN) bad.push('kho NN cần ≥ ' + NMIN + ' câu (' + NN.length + ')'); if (new Set(NN.map(x => x.syn.toLowerCase())).size !== NN.length) bad.push('kho NN trùng từ');
+  if (NN.some(x => x.o.some(o => o[1] !== 'NN') || x.o.some(o => o[0].toLowerCase() === x.syn.toLowerCase()))) bad.push('kho NN sai khuôn');
+  const r = await run(`(async () => { const bad = [], S1 = S, G0 = document.getElementById;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
+      document.getElementById = id => { const e = G0(id); if (id === 'phrow') { e.children = [0, 1, 2, 3].map(() => ({ classList: { add() {} } })); e.firstElementChild = { offsetHeight: 40 }; } if (id === 'pharena') e.clientHeight = 300; return e; };
+      await toLoad(); TG_P = await tgPool(); let n = 0;
+      for (const d of TO.tron) { if (d.f) await trLoad(d.id); for (const q of trB(d.id).Q.filter(q => q.sec === 'p7' && q.qt === 'syn')) { n++; const it = chSyn(q, d);
+        if (!it) { bad.push(d.id + ' câu ' + q.n + ' không vào Chợ'); continue; } if ((it.s.match(/___/g) || []).length !== 1 || !/___/.test(it.para) || /\\[\\d\\]/.test(it.s + it.para) || !it.syn) bad.push(d.id + ' câu ' + q.n + ' cắt sai');
+        if (!PH_PHO.cho.canFix(q) || Object.values(PH_PHO).filter(c => c.canFix && c.canFix(q)).length !== 1) bad.push(d.id + ' câu ' + q.n + ' phải thuộc đúng Chợ'); } }
+      if (n < 20) bad.push('8 đề chỉ có ' + n + ' câu từ gần nghĩa');
+      for (const d of TO.tron) { const t = Object.values(cyCount(d.id)).reduce((a, r) => a + r.n, 0); if (t < 92) bad.push(d.id + ' phủ ' + t + '/100'); }
+      const de = TO.tron[0].id; tgSt().de = de; phUse('cho'); PH_K = null; PH_RL = null; PHC.sc = null; await phLoad(); const it = Object.values(PH_RL).find(x => x.syn);
+      const P = phSt(); P.in = 1; P.cd = {}; phStart(it, () => 0); if (!/tham-tu/.test(String(window.CUR.view))) bad.push('người chơi cũ phải gặp vụ thám tử Bà Nhiều Nghĩa trước');
+      P.cd = { NN: { at: 1, n: 0 } }; phStart(it, () => 0); const sh = String(document.getElementById('phsent').innerHTML), pa = String(document.getElementById('phpara').innerHTML);
+      if (!/phsynq/.test(sh) || !/phgap syn/.test(sh) || !/Xem cả bài/.test(pa)) bad.push('màn câu từ gần nghĩa: câu hỏi, từ trong ô trống, 📄 Xem cả bài');
+      PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch(); if (!/≈/.test(String(document.getElementById('phsent').innerHTML))) bad.push('sau khi trả lời: từ ≈ nghĩa'); phStop();
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length) bad.push('đụng thẻ học / điểm đề thử');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    S = S1; document.getElementById = G0; phUse('loai'); return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C93', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🛒 Chợ có từ gần nghĩa Part 7: kho ≥ ' + NMIN + ' câu NN, mọi câu từ gần nghĩa của 8 đề vào Chợ (câu chứa từ, từ ≈ nghĩa, 📄 Xem cả bài), mọi đề phủ ≥ 92/100, vụ thám tử cư dân mới' }); }
+
+// v196 C94 🏛 Phố Cấu Trúc: kho ≥ 80 câu qua bộ dựng (3 cư dân, 8 luật, mỗi luật ≥ 8 câu); câu Part 5 cấu trúc của 8 đề vào phố, đúng luật
+//   (so sánh / đảo ngữ / cặp); chỗ trống Part 6 có đáp án so sánh vào phố; câu chọn từ có phương án so sánh vào Loại Từ; bậc 1 3 cư dân; luật vững; mỗi đề ≥ 97/100 câu có phố
+{ const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname, NMIN = +(process.env.CT_NMIN || 80), LMIN = +(process.env.CT_LMIN || 8);
+  try { const o = cp.execFileSync('node', [root + 'tools/build-ctr.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ ctr\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.stderr || e.message).slice(0, 160)); }
+  const K = JSON.parse(fs.readFileSync(root + 'ctr.json', 'utf8')).items; if (K.length < NMIN) bad.push('kho Cấu Trúc cần ≥ ' + NMIN + ' câu (' + K.length + ')');
+  for (const k of ['shon', 'snhat', 'sbang', 'kep', 'dao', 'dk', 'sothat', 'cap']) if (K.filter(x => x.o.find(o => o[0] === x.a)[3] === k).length < LMIN) bad.push('luật ' + k + ' quá ít câu');
+  const html = fs.readFileSync(root + 'index.html', 'utf8'); if (!/<script src="ctruc\.js\?v=\d+">/.test(html) || !/\.ph-SS/.test(html)) bad.push('index.html thiếu ctruc.js / CSS');
+  const r = await run(`(async () => { const bad = [], S1 = S, G0 = document.getElementById;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; requestAnimationFrame = () => 0; cancelAnimationFrame = () => {}; performance = { now: () => 0 };
+      document.getElementById = id => { const e = G0(id); if (id === 'phrow') { e.children = [0, 1, 2, 3].map(() => ({ classList: { add() {} } })); e.firstElementChild = { offsetHeight: 40 }; } if (id === 'pharena') e.clientHeight = 300; return e; };
+      await toLoad(); TG_P = await tgPool();
+      const W = { 'de1:119': 'kep', 'de1:127': 'dao', 'de2:112': 'sbang', 'de3:125': 'dk', 'de6:113': 'shon', 'de6:130': 'sothat', 'de8:113': 'cap', 'de1:118': 'snhat' }; let n = 0;
+      for (const d of TO.tron) { if (d.f) await trLoad(d.id); for (const q of trB(d.id).Q.filter(q => /^p[56]$/.test(q.sec))) { const it = ctReal(q, d); if (q.sec === 'p5' && q.x && q.x.t === 'struct') { n++; if (!it) bad.push(d.id + ' câu ' + q.n + ' cấu trúc chưa vào phố'); }
+        const w = W[d.id + ':' + q.n]; if (w && (!it || it.o.find(o => o[0] === it.a)[3] !== w)) bad.push(d.id + ' câu ' + q.n + ' luật ' + (it && it.o.find(o => o[0] === it.a)[3]) + ' ≠ ' + w);
+        if (it && Object.values(PH_PHO).filter(c => c.canFix && c.canFix(q)).length !== 1) bad.push(d.id + ' câu ' + q.n + ' thuộc nhiều phố'); } }
+      if (n < 15) bad.push('8 đề chỉ có ' + n + ' câu cấu trúc');
+      const q143 = trB(TO.tron[0].id).Q.find(q => q.n === 143); if (q143 && phP6K(q143) !== 'ctr') bad.push('Part 6 đáp án so sánh nhất phải vào Phố Cấu Trúc');
+      const q122 = (trB('de5') || { Q: [] }).Q.find(q => q.n === 122); if (q122 && !PH_PHO.loai.canFix(q122)) bad.push('câu chọn từ có phương án so sánh hơn phải vào Loại Từ');
+      for (const d of TO.tron) { const t = Object.values(cyCount(d.id)).reduce((a, r) => a + r.n, 0); if (t < 97) bad.push(d.id + ' phủ ' + t + '/100'); }
+      if (!CY_PHO.some(p => p.k === 'ctr') || CY_PHO.find(p => p.k === 'dai').need({ sec: 'p5', x: { t: 'struct' } })) bad.push('Thành phố: thẻ Phố Cấu Trúc, Đại Từ không còn nhận câu cấu trúc');
+      phUse('ctr'); PH_K = null; PH_RL = null; PHC.sc = null; await phLoad();
+      if (PH_VIEW !== 'toeic-pho-cau-truc' || PH_ORD.join() !== 'SS,DN,CD' || PH_MO.length !== 4) bad.push('phUse không nạp cấu hình Cấu Trúc');
+      const P = phSt(); P.in = 1; P.cd.SS = { at: 1, n: 0 };
+      phStart(); if (PH_R.M.md !== 'gh' || PH_R.order.length !== 3 || PH_R.order.filter(o => o.ok).length !== 1) bad.push('bậc 1: 3 cư dân, đúng một'); phStop();
+      P.mu = { b1: 8 }; P.mc = 'b2'; phStart(); if (PH_R.M.md !== 'qh' || PH_R.L.some(x => x.real)) bad.push('bậc 2: bắt luật, chỉ câu kho'); phStop();
+      const de = TO.tron[0].id, q = trB(de).Q.find(x => x.n === 127); if (!phFixBtn(de, q).includes('data-phfix="ctr|')) bad.push('nút chữa câu đảo ngữ ở Phố Cấu Trúc');
+      const lu = phRuleQ(q); if (!lu || lu.k !== 'ctr' || lu.r !== 'dao') bad.push('luật vững của câu đảo ngữ: ' + JSON.stringify(lu));
+      if ((S.to.mock || []).length || Object.keys(S.c || {}).length || Object.keys(S.cards || {}).length) bad.push('đụng thẻ học / điểm đề thử');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    S = S1; document.getElementById = G0; phUse('loai'); return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C94', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🏛 Phố Cấu Trúc: kho ≥ ' + NMIN + ' câu (8 luật), câu cấu trúc của 8 đề vào phố đúng luật, Part 6 so sánh vào phố, câu chọn từ có so sánh vào Loại Từ, bậc 1 3 cư dân, bậc 2 chỉ câu kho, nút chữa, luật vững, mỗi đề ≥ 97/100 câu có phố' }); }
+// v198 C95 đề riêng (Đề 9–16) không ghi nhãn dạng câu Part 5 (`t`): trB tự gắn bằng tqP5 (toqt.js) để phố đếm được câu của đề.
 //   Thử: lấy Đề 5 bỏ hết `t` của Part 5 → nhãn suy ra trùng nhóm phố của nhãn gốc ≥ 85%, và số câu mỗi phố ở Thành phố lệch ≤ 3 so với đề gốc.
 { const bad = [];
   const r = await run(`(async () => { const bad = [], S1 = S;
@@ -2921,9 +2980,9 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     } catch (e) { bad.push('lỗi: ' + e.message); }
     S = S1; return bad; })()`);
   bad.push(...r);
-  R.push({ lv: 'cefr', id: 'C93', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'đề không ghi nhãn Part 5 (đề riêng) tự gắn nhãn dạng câu; phố đếm câu như đề có nhãn' }); }
+  R.push({ lv: 'cefr', id: 'C95', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'đề không ghi nhãn Part 5 (đề riêng) tự gắn nhãn dạng câu; phố đếm câu như đề có nhãn' }); }
 
-// v196 C94 mọi câu Phần Đọc của Đề 1–8 có phố: câu cấu trúc (so sánh → Loại Từ nhóm nguyên / hơn / nhất, cầu nối → Cầu Nối, trợ động từ / thì → Động Từ, còn lại → Chợ),
+// v198 C96 mọi câu Phần Đọc của Đề 1–8 có phố: câu cấu trúc (so sánh → Loại Từ nhóm nguyên / hơn / nhất, cầu nối → Cầu Nối, trợ động từ / thì → Động Từ, còn lại → Chợ),
 //   Part 7 từ gần nghĩa → Chợ (câu trong bài chứa từ, từ thành ô trống), chỗ trống Part 6 đại từ / lượng từ → Phố Đại Từ; mỗi câu đúng MỘT phố nhận
 { const bad = [];
   const r = await run(`(async () => { const bad = [], S1 = S;
@@ -2932,16 +2991,16 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
         for (const q of Q) { const ks = Object.values(PH_PHO).filter(c => c.canFix && c.canFix(q)).map(c => c.key); if (!ks.length) bad.push(d.id + ' câu ' + q.n + ' chưa có phố');
           if (q.sec !== 'p7' && ks.length > 1) bad.push(d.id + ' câu ' + q.n + ' thuộc ' + ks.join(',')); } }
       const Q1 = trB(TO.tron[0].id).Q, b = Q1.find(q => q.sec === 'p5' && q.a === 'bigger');
-      if (!b || phStructK(b) !== 'loai' || (PH_PHO.loai.real(b, { id: 'x' }) || {}).nha !== 'ss') bad.push('so sánh phải vào Loại Từ, nhóm nguyên / hơn / nhất');
-      await trLoad('de5'); const sy = trB('de5').Q.find(q => q.qt === 'syn'), src = phSrc(sy);
-      if (!src || (src.s.match(/___/g) || []).length !== 1 || !/Từ gốc trong bài/.test(src.pre) || /\\[\\d\\]/.test(src.s) || !PH_PHO.cho.canFix(sy)) bad.push('từ gần nghĩa Part 7 → Chợ: ' + JSON.stringify(src).slice(0, 120));
+      if (!b || phStructK(b) !== 'ctr') bad.push('so sánh phải vào Phố Cấu Trúc');
+      await trLoad('de5'); const sy = trB('de5').Q.find(q => q.qt === 'syn');
+      if (!PH_PHO.cho.canFix(sy)) bad.push('từ gần nghĩa Part 7 → Chợ');
       if (JSON.stringify(dlCls('you', 'đại từ chủ ngữ: bạn', '')) !== '["D","cn"]' || JSON.stringify(dlCls('the one', 'đại từ: cái (thay danh từ)', '')) !== '["U","lo"]' || dlCls('among', 'giới từ: giữa', '')[0] !== '_') bad.push('dlCls');
       if (cnCls('Becoming', 'V-ing: trở thành', '') !== '_' || phPosOf('to V: để xếp hàng') !== 'V' || phPosOf('so sánh hơn: lớn hơn') !== 'A') bad.push('nhãn chuẩn phải được nhận');
       if ((S.to.mock || []).length || Object.keys(S.c || {}).length) bad.push('đụng điểm đề thử / thẻ học');
     } catch (e) { bad.push('lỗi: ' + e.message); }
     S = S1; return bad; })()`);
   bad.push(...r);
-  R.push({ lv: 'cefr', id: 'C94', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'mọi câu Phần Đọc Đề 1–8 có đúng một phố: câu cấu trúc, từ gần nghĩa Part 7, đại từ Part 6; nhãn chuẩn (to V, so sánh, V-ing) được nhận' }); }
+  R.push({ lv: 'cefr', id: 'C96', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'mọi câu Phần Đọc Đề 1–8 có đúng một phố: câu cấu trúc, từ gần nghĩa Part 7, đại từ Part 6; nhãn chuẩn (to V, so sánh, V-ing) được nhận' }); }
 
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
