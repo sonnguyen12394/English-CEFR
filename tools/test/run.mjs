@@ -2905,5 +2905,23 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C92', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Part 6 vào phố: cắt câu + câu trước + 📄 Xem cả đoạn, mỗi chỗ trống một phố, luật vững cho Part 6; phương án khác loại không có làn bậc 1; mọi đề phủ ≥ 86/100 câu Phần Đọc' }); }
 
+// v196 C93 đề riêng (Đề 9–16) không ghi nhãn dạng câu Part 5 (`t`): trB tự gắn bằng tqP5 (toqt.js) để phố đếm được câu của đề.
+//   Thử: lấy Đề 5 bỏ hết `t` của Part 5 → nhãn suy ra trùng nhóm phố của nhãn gốc ≥ 85%, và số câu mỗi phố ở Thành phố lệch ≤ 3 so với đề gốc.
+{ const bad = [];
+  const r = await run(`(async () => { const bad = [], S1 = S;
+    try { S = blank(); S.to = { target: 600 }; TR.B = {}; TR.D = {}; await toLoad(); TG_P = await tgPool(); await trLoad('de5'); const C0 = cyCount('de5');
+      const G = t => ({ prep: 'cn', conj: 'cn', pron: 'dl', det: 'dl' })[t] || t; let ok = 0, n = 0;
+      for (const x of TR.D.de5.p5) { n++; if (G(tqP5(Object.assign({}, x, { t: undefined }))) === G(x.t)) ok++; }
+      if (ok / n < 0.85) bad.push('tqP5 đúng ' + ok + '/' + n);
+      const F = JSON.parse(JSON.stringify(Object.assign({}, TR.D.de5, { id: 'de98', t: 'Đề 98 · thử' }))); for (const x of F.p5) delete x.t; TR.D.de98 = F; TO.tron.push({ id: 'de98', t: 'Đề 98 · thử', f: 'rieng:de98' }); TR.B = {};
+      const B = trB('de98'); if (B.Q.filter(q => q.sec === 'p5').some(q => !q.x.t)) bad.push('trB chưa gắn nhãn Part 5');
+      const C1 = cyCount('de98'); for (const k of ['loai', 'cau', 'dong', 'dai', 'cho']) { const a = (C0[k] || {}).n || 0, b = (C1[k] || {}).n || 0; if (Math.abs(a - b) > 3) bad.push(k + ' ' + a + ' → ' + b); }
+      if (!((C1.loai || {}).n > 0)) bad.push('Phố Loại Từ vẫn 0 câu');
+      TO.tron = TO.tron.filter(d => d.id !== 'de98'); delete TR.D.de98; TR.B = {};
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    S = S1; return bad; })()`);
+  bad.push(...r);
+  R.push({ lv: 'cefr', id: 'C93', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'đề không ghi nhãn Part 5 (đề riêng) tự gắn nhãn dạng câu; phố đếm câu như đề có nhãn' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

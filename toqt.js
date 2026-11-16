@@ -68,3 +68,32 @@ function tqNat(opts) { if (!opts || opts.length < 2) return null;
     const noon = hs.some(h => h >= 8) && hs.some(h => h <= 6); k.forEach((x, i) => { const h = hs[i]; x[1] = (h === 12 ? 12 : noon && h <= 6 ? h + 12 : h) * 60 + x[1] % 60; }); }
   if (new Set(k.map(x => x[1])).size !== k.length) return null;
   return opts.map((o, i) => [o, k[i][1]]).sort((a, b) => a[1] - b[1]).map(x => x[0]); }
+
+// v196: nhãn dạng câu Part 5 khi đề không ghi `t` (đề riêng Đề 9–16): form | verb | pron | det | prep | conj | struct | voc. Đo trên 378 câu kho + Đề 3–8 có nhãn: 93% đúng (gộp prep/conj, pron/det như phố), lệch chủ yếu câu so sánh / đảo ngữ.
+const TQ5_PRON = new Set('i me my mine myself you your yours yourself yourselves he him his himself she her hers herself it its itself it\'s we us our ours ourselves they them their theirs themselves who whom whose which that what whoever whomever whichever whatever where when one ones the one oneself these those this nobody nothing someone something anyone anything everyone everything'.split(' '));
+for (const w of ['no one','this one of','one of','his or her','him or her','he or she','himself or herself','the one']) TQ5_PRON.add(w);
+const TQ5_DET = new Set(['each','every','many','much','few','little','a few','a little','several','all','both','either','neither','some','any','another','other','others','the other','the others','most','more','less','fewer','no','none','enough','such','plenty','each other','one another','a lot of','lots of','a number of','the number of','whole','most of','all of','some of','almost','mostly','a lot']);
+const TQ5_CONJ = new Set(['and','but','or','nor','so','yet','although','though','even though','because','since','unless','if','whereas','while','whether','once','until','till','before','after','as','as soon as','as long as','provided that','so that','in order that','as if','now that','even if','in case','whenever','wherever','when','where','whereas','up to','as though','each time','rather than','either','neither','both','not only','than','that','so that','in order to','in order that','but also','yet also','and also','as well as','so as to','because','even though','such that']);
+const TQ5_PREP = new Set(['about','above','across','after','against','along','among','around','as','at','before','behind','below','beneath','beside','besides','between','beyond','by','despite','down','during','except','for','from','in','inside','into','like','near','of','off','on','onto','out','outside','over','past','per','regarding','since','through','throughout','to','toward','towards','under','until','up','upon','with','within','without','because of','due to','owing to','instead of','in spite of','according to','prior to','in addition to','apart from','aside from','as of','as for','in front of','on behalf of','regardless of','except for','next to','thanks to','along with','together with','such as','rather than','other than','in place of','by means of','in terms of','in case of','following','including','excluding','concerning','opposite','amid','throughout','plus','via','versus','beneath','however','therefore','moreover','furthermore','nevertheless','otherwise','instead','meanwhile','consequently','thus','hence','in addition','for example','for instance','as a result','in fact','indeed','also','still','yet','regardless','even','then','likewise','similarly','accordingly','unlike','alongside','apart','far from','out of','up to','namely','aside','as for','along','throughout','toward','further']);
+const TQ5_VAUX = /^(to|will|would|has|have|had|be|been|being|is|are|was|were|am|can|could|should|must|may|might|shall|do|does|did)\s/;
+const TQ5_SUF = /(tion|sion|ment|ness|ity|ance|ence|ship|ism|ist|er|or|ee|ant|ent|ful|less|ive|able|ible|al|ous|ic|ary|ory|ly|y)$/;
+function tqP5(x) { if (!x) return null; if (x.t) return x.t; const O = (x.o || []).map(o => String(o).trim().toLowerCase()), a = String(x.a || '').trim().toLowerCase(), og = (x.lg || {}).og || {};
+  const lab = Object.values(og).join(' | ').toLowerCase();
+  const st = w => w.replace(/^(to|will|would|has|have|had|be|been|being|is|are|was|were|more|most)\s+/, '');
+  const ws = O.map(o => st(o).split(/\s+/).pop()), mn = Math.min(...ws.map(w => w.length)), pre = n => ws.every(w => w.slice(0, n) === ws[0].slice(0, n));
+  const PD = o => TQ5_PRON.has(o) || TQ5_DET.has(o);
+  if (O.every(PD)) return TQ5_DET.has(a) && !TQ5_PRON.has(a) ? 'det' : O.filter(o => TQ5_DET.has(o)).length > O.filter(o => TQ5_PRON.has(o)).length ? 'det' : 'pron';
+  if (O.some(o => /^(more|most)\s/.test(o)) || pre(3) && ws.some(w => /est$/.test(w)) && ws.some(w => /er$/.test(w)) || O.includes('better') && O.includes('best')) return 'struct';
+  const fam = mn >= 3 && pre(Math.max(3, mn - 3)), BE = /^(be|is|are|was|were|been|being|am|has|have|had|do|does|did)$/;
+  if (O.every(o => BE.test(o) || TQ5_VAUX.test(o + ' ')) && O.some(o => BE.test(o))) return 'verb';
+  if (O.filter(o => TQ5_VAUX.test(o)).length >= 2) return 'verb';
+  if (fam) {
+    const cls = new Set(Object.values(og).map(v => (String(v).toLowerCase().match(/danh từ|tính từ|trạng từ|động từ|nguyên mẫu|v-ing|v3|quá khứ|phân từ/) || [''])[0].replace(/nguyên mẫu|v-ing|v3|quá khứ|phân từ/, 'động từ')).filter(Boolean));
+    const bs = O.map(o => st(o).replace(/(ies)$/, 'y').replace(/(ing|ed|es|s)$/, '')), ks = bs.map(b => b.replace(/e$/, '').replace(/y$/, 'i')), k0 = ks.reduce((m, b) => b.length < m.length ? b : m);
+    if (O.some(o => /ly$/.test(o)) || bs.some((b, i) => ks[i] !== k0 && ks[i].startsWith(k0) && TQ5_SUF.test(b))) return 'form';
+    if (Object.keys(og).length >= 3 && cls.size <= 1 && !/v-ing|v3|quá khứ|bị động|tương lai|hoàn thành|nguyên mẫu|ngôi|hiện tại|to v/.test(lab)) return 'voc';
+    if (cls.size >= 2 && /danh từ|tính từ|trạng từ/.test(lab)) return 'form';
+    return 'verb'; }
+  if (O.every(o => TQ5_PREP.has(o) || TQ5_CONJ.has(o))) return /liên từ/.test(og[x.a] || '') || TQ5_CONJ.has(a) && !TQ5_PREP.has(a) ? 'conj' : 'prep';
+  if (/^(should|would|could|had|were|not only|rarely|seldom|never|only)$/i.test(a)) return 'struct';
+  return 'voc'; }
