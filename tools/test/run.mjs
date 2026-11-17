@@ -3015,5 +3015,22 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     S = S1; phUse('loai'); return bad; })()`);
   R.push({ lv: 'cefr', id: 'C97', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Màn làm quen của 8 phố: người mới bấm ‹ Thành phố thì ra Thành phố, không kẹt ở màn làm quen' }); }
 
+// v201 C98 Góp ý #17–#19: 🔓 mở mọi bậc để thử (phố rơi chữ, Bến, Ghép), sổ thần chú có câu giải thích, màn chơi có nút ✕ thoát và 💬 góp ý trong bảng tạm dừng
+{ const r = await run(`(async () => { const bad = [], S1 = S;
+    try { S = blank(); S.to = { target: 600 }; await toLoad();
+      phUse('loai'); PH_K = null; PH_RL = null; PHC.sc = null; const P = phSt(); P.in = 1;
+      if (phOpen('b4') || benOpen('b4') || ghOpen('b4')) bad.push('chưa thắng mà bậc 4 đã mở');
+      S.to.phThu = true; if (!phOpen('b4') || !benOpen('b4') || !ghOpen('b4')) bad.push('bật thử mà bậc 4 chưa mở');
+      await phView(); if (!/data-phthu/.test($app.innerHTML)) bad.push('Phố: thiếu nút mở bậc để thử'); if (!/đầu ván hỏi lại/.test($app.innerHTML)) bad.push('Phố: dòng sổ thần chú chưa giải thích');
+      phBook(); if (!/Sổ gom luật/.test($app.innerHTML)) bad.push('Sổ thần chú: thiếu câu giải thích');
+      S.to.phThu = false; if (phOpen('b4')) bad.push('khoá lại mà bậc 4 vẫn mở');
+      for (const f of [benHud, ghHud]) { const src = String(f); if (!/aria-label="Thoát ván"/.test(src)) bad.push(f.name + ': thiếu nút ✕ thoát'); }
+      if (!/aria-label=\\"Thoát ván\\"|aria-label="Thoát ván"/.test(String(phRun))) bad.push('phRun: thiếu nút ✕ thoát');
+      for (const f of [benPause, ghPause]) if (!/phGyBtn/.test(String(f))) bad.push(f.name + ': thiếu 💬 góp ý');
+      if (!/data-phgy/.test(phGyBtn)) bad.push('phGyBtn sai');
+    } catch (e) { bad.push('lỗi: ' + e.message); }
+    S = S1; phUse('loai'); return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C98', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Phố / Bến / Ghép: 🔓 mở mọi bậc để thử (bật / tắt), sổ thần chú có giải thích, màn chơi có ✕ thoát và 💬 góp ý ở bảng tạm dừng' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

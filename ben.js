@@ -25,7 +25,7 @@ PH_PHO.ben = { key: 'ben', view: 'toeic-ben', ic: '🔎', ten: 'Bến Dò Tin', 
   own: () => benView(), fix: (de, n) => benFix(de, n) };
 let BEN_K = null, BEN_R = null, BEN_BACK = null;
 const benSt = () => { const o = toSt(); o.phos = o.phos || {}; const p = o.phos.ben = o.phos.ben || {}; p.it = p.it || {}; p.st = p.st || {}; p.mu = p.mu || {}; return p; };
-const benOpen = m => { const M = Object.keys(BEN_MUC), i = M.indexOf(m); return i <= 0 || (benSt().mu[M[i - 1]] || 0) >= PH_WIN; };
+const benOpen = m => { const M = Object.keys(BEN_MUC), i = M.indexOf(m); return phThu() || i <= 0 || (benSt().mu[M[i - 1]] || 0) >= PH_WIN; };
 const benMuc = () => { const P = benSt(), m = P.mc && benOpen(P.mc) ? P.mc : 'b1'; return m; };
 const benNorm = s => String(s || '').toLowerCase().replace(/[“”"’']/g, "'").replace(/\s+/g, ' ').trim();
 const benHit = (sent, ev) => typeof tgHit === 'function' ? tgHit(sent, ev) : benNorm(sent).includes(benNorm(ev).slice(0, 25));
@@ -76,9 +76,9 @@ async function benView() { benStop(); window.CUR = { view: 'toeic-ben' }; BACK =
       return `<button class="phmc${m === mu ? ' on' : ''}" data-benmuc="${m}" aria-pressed="${m === mu}"${op ? '' : ' disabled'}><b>${op ? o.ten : '🔒 ' + o.ten.replace(/^\S+\s/, '')}</b><small>${op ? o.sub : `Mở khi thắng ${BEN_MUC[A[i - 1]].ten.replace(/^\S+\s/, '')} (đúng ≥ 70%)`}</small>${b ? `<small class="phbest">Tốt nhất ${b} / ${PH_N}</small>` : ''}</button>`; }).join('')}</div>
     <button class="pri" data-benplay style="min-height:56px;font-size:18px">▶ Chơi · ${BEN_MUC[mu].ten}</button>${phSndRow()}
     <div class="box" style="margin-top:10px"><p style="margin:2px 0">${due ? `🔁 <b>${due}</b> câu đến hạn ôn, có trong ván này` : '🔁 Chưa có câu đến hạn ôn'}</p><p style="margin:2px 0">🗺 Đã gặp ${seen} / ${K.length} câu hỏi kho của bến</p></div>
-    <details class="more"><summary>Thêm</summary><button class="link tap" data-benintro>👋 Làm quen lại 4 cư dân</button>
+    <details class="more"><summary>Thêm</summary><button class="link tap" data-benintro>👋 Làm quen lại 4 cư dân</button>${phThuBtn()}
       <p class="mute" style="font-size:14px">Không tính vào 📘 Học / 🔁 Nhớ, không đổi điểm đề thử. Câu của đề làm ở bậc 3–4 ghi vào ⚔️ Chinh phục đề. Văn bản kho do Claude soạn, chưa giáo viên kiểm.</p></details>`;
-  $app.onclick = e => { if (e.target.closest('[data-benback]')) return benBackGo(); if (phSndClick(e)) return benView(); const mb = e.target.closest('[data-benmuc]'); if (mb && benOpen(mb.dataset.benmuc)) { P.mc = mb.dataset.benmuc; save(); return benView(); }
+  $app.onclick = e => { if (e.target.closest('[data-benback]')) return benBackGo(); if (phSndClick(e)) return benView(); if (phThuClick(e)) return benView(); const mb = e.target.closest('[data-benmuc]'); if (mb && benOpen(mb.dataset.benmuc)) { P.mc = mb.dataset.benmuc; save(); return benView(); }
     if (e.target.closest('[data-benplay]')) return benStart(); if (e.target.closest('[data-benintro]')) return benIntro(); }; }
 function benIntro() { window.CUR = { view: 'toeic-ben-intro' }; scrollTo(0, 0); const C = PH_PHO.ben.CH;
   $app.innerHTML = benTop(benSt().in ? 'Bến' : 'Thành phố') + `<h2>4 cư dân của Bến Dò Tin</h2><p class="mute">Mỗi người là một loại câu hỏi Part 7. Nhận ra loại câu hỏi trước thì biết dò ở đâu, đọc thế nào.</p>
@@ -98,7 +98,7 @@ function benDocs(it, mode, evI) { let k = 0; return it.docs.map(d => { const S =
 const benAllS = it => it.docs.flatMap(d => benSents(d.text));
 const benEvI = it => { const S = benAllS(it), out = new Set(); if (it.ev) S.forEach((s, i) => { if (benHit(s, it.ev)) out.add(i); }); return out; };
 function benOpts(it, k) { const all = it.opts ? it.opts.slice() : shuf([it.a, ...it.w]); if (k >= all.length) return all; const wr = all.filter(o => o !== it.a); const drop = shuf(wr)[0]; return all.filter(o => o !== drop); }
-function benHud() { const R = BEN_R; return `<div class="phhud trx"><button class="iconbtn" data-benpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip">❤️ ${Math.max(0, R.hearts)}/${R.M.tim}</span><span class="chip">⭐ ${R.star}</span><span class="chip"${R.combo >= 2 ? '' : ' hidden'}>🔥 ×${R.combo}</span><span class="chip">${R.i + 1}/${R.L.length}</span></div>`; }
+function benHud() { const R = BEN_R; return `<div class="phhud trx"><button class="iconbtn" data-benpause aria-label="Thoát ván">✕</button><button class="iconbtn" data-benpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip">❤️ ${Math.max(0, R.hearts)}/${R.M.tim}</span><span class="chip">⭐ ${R.star}</span><span class="chip"${R.combo >= 2 ? '' : ' hidden'}>🔥 ×${R.combo}</span><span class="chip">${R.i + 1}/${R.L.length}</span></div>`; }
 function benQ() { const R = BEN_R; if (!R) return; const it = R.L[R.i], M = R.M; R.it = it; R.done = false; R.hint = 0; window.CUR = { view: 'toeic-ben-van' }; scrollTo(0, 0);
   const C = PH_PHO.ben.CH, md = M.md, opts = md === 'chon' ? benOpts(it, M.k) : null; R.opts = opts;
   const qh = `<div class="box benq"><small class="mute">${md === 'loai' ? 'Câu hỏi này thuộc loại nào?' : md === 'do' ? 'Chạm câu trong bài chứa đáp án' : 'Đọc bài, chọn đáp án'}</small><p class="tdtap" style="margin:4px 0 0;font-size:18px;font-weight:600">${esc(it.q)}</p></div>`;
@@ -115,8 +115,9 @@ function benQ() { const R = BEN_R; if (!R) return; const it = R.L[R.i], M = R.M;
 function benHint() { const R = BEN_R; if (!R.goi || R.hint) return; const I = benEvI(R.it); if (!I.size) { toast('Câu này chưa có câu chứa đáp án để tô.'); return; }
   R.hint = 1; if (R.goi < 99) R.goi--; for (const i of I) { const el = document.querySelector(`[data-bensi="${i}"]`); if (el) el.classList.add('ev'); } const b = document.querySelector('[data-bengoi]'); if (b) b.remove(); }
 function benPause() { const R = BEN_R; clearTimeout(R.to);
-  const el = document.getElementById('benfb'); el.innerHTML = `<div class="box">${phSndRow()}<button class="pri" data-benres>▶ Chơi tiếp</button><button data-benquit>‹ Rời ván</button></div>`;
-  el.onclick = e => { if (phSndClick(e)) { phMusic(phMusicOn()); return benPause(); } if (e.target.closest('[data-benres]')) { el.innerHTML = ''; el.onclick = null; R.to = setTimeout(() => benAns(null), R.M.sec * 500); } }; }
+  const el = document.getElementById('benfb'); el.innerHTML = `<div class="box">${phSndRow()}<button class="pri" data-benres>▶ Chơi tiếp</button><button data-benquit>‹ Thoát ván, về Phố</button>${phGyBtn}</div>`;
+  el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  el.onclick = e => { if (phSndClick(e)) { phMusic(phMusicOn()); return benPause(); } if (e.target.closest('[data-phgy]')) return phGyGo(); if (e.target.closest('[data-benres]')) { el.innerHTML = ''; el.onclick = null; R.to = setTimeout(() => benAns(null), R.M.sec * 500); } }; }
 function benMark(it, ok) { const P = benSt(), c = P.it[it.id] || { lv: 0 }, mu = BEN_R.mu, deep = mu === 'b3' || mu === 'b4' || mu === 'fix';
   if (!deep) { P.it[it.id] = Object.assign(c, { at: Date.now() }); return; }
   if (ok && !BEN_R.hint) { c.lv = Math.min(PH_HEN.length, (c.lv || 0) + 1); c.d = Date.now() + PH_HEN[c.lv - 1] * 864e5; c.s = 1; } else { c.lv = 0; c.d = Date.now() + 864e5; c.s = ok ? 1 : 0; }

@@ -29,7 +29,7 @@ PH_PHO.ghep = { key: 'ghep', view: 'toeic-ghep', ic: '🧩', ten: 'Phố Ghép �
   own: () => ghView(), fix: (de, n) => ghFix(de, n) };
 let GH_K = null, GH_R = null, GH_BACK = null;
 const ghSt = () => { const o = toSt(); o.phos = o.phos || {}; const p = o.phos.ghep = o.phos.ghep || {}; p.it = p.it || {}; p.st = p.st || {}; p.mu = p.mu || {}; return p; };
-const ghOpen = m => { const M = Object.keys(GH_MUC), i = M.indexOf(m); return i <= 0 || (ghSt().mu[M[i - 1]] || 0) >= PH_WIN; };
+const ghOpen = m => { const M = Object.keys(GH_MUC), i = M.indexOf(m); return phThu() || i <= 0 || (ghSt().mu[M[i - 1]] || 0) >= PH_WIN; };
 const ghMuc = () => { const P = ghSt(); return P.mc && ghOpen(P.mc) ? P.mc : 'b1'; };
 const ghDec = s => String(s || '').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
 async function ghLoad() { if (!GH_K) { try { GH_K = (await (await fetch('ghep.json?v=' + APP_V)).json()).items || []; } catch (e) { GH_K = []; } } return GH_K; }
@@ -76,9 +76,9 @@ async function ghView() { ghStop(); window.CUR = { view: 'toeic-ghep' }; BACK = 
       return `<button class="phmc${m === mu ? ' on' : ''}" data-ghmuc="${m}" aria-pressed="${m === mu}"${op ? '' : ' disabled'}><b>${op ? o.ten : '🔒 ' + o.ten.replace(/^\S+\s/, '')}</b><small>${op ? o.sub : `Mở khi thắng ${GH_MUC[A[i - 1]].ten.replace(/^\S+\s/, '')} (đúng ≥ 70%)`}</small>${b ? `<small class="phbest">Tốt nhất ${b} / ${PH_N}</small>` : ''}</button>`; }).join('')}</div>
     <button class="pri" data-ghplay style="min-height:56px;font-size:18px">▶ Chơi · ${GH_MUC[mu].ten}</button>${phSndRow()}
     <div class="box" style="margin-top:10px"><p style="margin:2px 0">🗺 Đã gặp ${seen} / ${K.length} đoạn kho của phố</p></div>
-    <details class="more"><summary>Thêm</summary><button class="link tap" data-ghintro>👋 Làm quen lại 4 cư dân</button>
+    <details class="more"><summary>Thêm</summary><button class="link tap" data-ghintro>👋 Làm quen lại 4 cư dân</button>${phThuBtn()}
       <p class="mute" style="font-size:14px">Không tính vào 📘 Học / 🔁 Nhớ, không đổi điểm đề thử. Câu chèn của đề làm ở bậc 3–4 ghi vào ⚔️ Chinh phục đề. Đoạn văn kho do Claude soạn, chưa giáo viên kiểm.</p></details>`;
-  $app.onclick = e => { if (e.target.closest('[data-ghback]')) return ghBackGo(); if (phSndClick(e)) return ghView(); const mb = e.target.closest('[data-ghmuc]'); if (mb && ghOpen(mb.dataset.ghmuc)) { P.mc = mb.dataset.ghmuc; save(); return ghView(); }
+  $app.onclick = e => { if (e.target.closest('[data-ghback]')) return ghBackGo(); if (phSndClick(e)) return ghView(); if (phThuClick(e)) return ghView(); const mb = e.target.closest('[data-ghmuc]'); if (mb && ghOpen(mb.dataset.ghmuc)) { P.mc = mb.dataset.ghmuc; save(); return ghView(); }
     if (e.target.closest('[data-ghplay]')) return ghStart(); if (e.target.closest('[data-ghintro]')) return ghIntro(); }; }
 function ghIntro() { window.CUR = { view: 'toeic-ghep-intro' }; scrollTo(0, 0); const C = PH_PHO.ghep.CH;
   $app.innerHTML = ghTop(ghSt().in ? 'Phố' : 'Thành phố') + `<h2>4 cư dân của Phố Ghép Đoạn</h2><p class="mute">Mỗi người là một loại chữ nối ngược về câu trước. Thấy chữ nào trong câu chèn thì biết câu trước phải nói gì.</p>
@@ -92,7 +92,7 @@ async function ghStart(only, back) { ghStop(); await toLoad(); await ghLoad(); p
   if (!L.length) { toast('Chưa có câu cho bậc này.'); return ghView(); }
   GH_R = { mu, M, L, i: 0, ok: 0, hearts: M.tim, combo: 0, star: 0, goi: M.goi || 0, miss: [], back }; const s = ghSt().st; s.van = (s.van || 0) + 1; save();
   phMusic(true); ghQ(); }
-const ghHud = () => { const R = GH_R; return `<div class="phhud trx"><button class="iconbtn" data-ghpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip">❤️ ${Math.max(0, R.hearts)}/${R.M.tim}</span><span class="chip">⭐ ${R.star}</span><span class="chip"${R.combo >= 2 ? '' : ' hidden'}>🔥 ×${R.combo}</span><span class="chip">${R.i + 1}/${R.L.length}</span></div>`; };
+const ghHud = () => { const R = GH_R; return `<div class="phhud trx"><button class="iconbtn" data-ghpause aria-label="Thoát ván">✕</button><button class="iconbtn" data-ghpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip">❤️ ${Math.max(0, R.hearts)}/${R.M.tim}</span><span class="chip">⭐ ${R.star}</span><span class="chip"${R.combo >= 2 ? '' : ' hidden'}>🔥 ×${R.combo}</span><span class="chip">${R.i + 1}/${R.L.length}</span></div>`; };
 const ghWords = s => String(s).split(/\s+/).filter(Boolean);
 const ghNorm = w => String(w).toLowerCase().replace(/[^a-z']/g, '');
 // một mục ở một kiểu ván → { head, body, check(v) → ok, ans: chữ đáp án, evI (câu cần tô sau khi trả lời) }
@@ -125,8 +125,9 @@ function ghQ() { const R = GH_R; if (!R) return; const it = R.L[R.i], M = R.M; R
 function ghHint() { const R = GH_R; if (!R.goi || R.hint) return; R.hint = 1; if (R.goi < 99) R.goi--; const it = R.it, b = document.querySelector('[data-ghgoi]'); if (b) b.remove();
   const C = PH_PHO.ghep.CH[it.ty]; document.getElementById('ghfb').innerHTML = `<div class="box"><p style="margin:0">💡 ${it.lk ? `Chữ nối: <b>${esc(it.lk)}</b>. ` : ''}${esc(C.line)}</p></div>`; }
 function ghPause() { const R = GH_R; clearTimeout(R.to); const el = document.getElementById('ghfb');
-  el.innerHTML = `<div class="box">${phSndRow()}<button class="pri" data-ghres>▶ Chơi tiếp</button><button data-ghquit>‹ Rời ván</button></div>`;
-  el.onclick = e => { if (phSndClick(e)) { phMusic(phMusicOn()); return ghPause(); } if (e.target.closest('[data-ghres]')) { el.innerHTML = ''; el.onclick = null; R.to = setTimeout(() => ghAns(null), R.M.sec * 500); } }; }
+  el.innerHTML = `<div class="box">${phSndRow()}<button class="pri" data-ghres>▶ Chơi tiếp</button><button data-ghquit>‹ Thoát ván, về Phố</button>${phGyBtn}</div>`;
+  el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  el.onclick = e => { if (phSndClick(e)) { phMusic(phMusicOn()); return ghPause(); } if (e.target.closest('[data-phgy]')) return phGyGo(); if (e.target.closest('[data-ghres]')) { el.innerHTML = ''; el.onclick = null; R.to = setTimeout(() => ghAns(null), R.M.sec * 500); } }; }
 function ghMark(it, ok) { const P = ghSt(), c = P.it[it.id] || { lv: 0 }, mu = GH_R.mu, deep = mu === 'b3' || mu === 'b4' || mu === 'fix';
   if (!deep) { P.it[it.id] = Object.assign(c, { at: Date.now() }); return; }
   if (ok && !GH_R.hint) { c.lv = Math.min(PH_HEN.length, (c.lv || 0) + 1); c.d = Date.now() + PH_HEN[c.lv - 1] * 864e5; c.s = 1; } else { c.lv = 0; c.d = Date.now() + 864e5; c.s = ok ? 1 : 0; }
