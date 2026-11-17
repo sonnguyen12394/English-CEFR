@@ -78,3 +78,21 @@ Dừng ở bản 3 (đủ 12 / 12; giới hạn 5 lần chấm).
 | G11 | ✓ (1 chạm tới việc, ván 5–8 phút) | ✓ |
 | G12 | ✗ phố chạy liên tục khi làm câu, tầm nhìn hẹp | ✓ chế độ học dừng phố, tuỳ chọn giờ |
 | Đạt | 9 / 12 | 12 / 12 |
+
+## Cảm giác "wow" (game feel) · bổ sung 17/11/2026
+Nguồn: "Juice it or lose it" (Jonasson & Purho, 2012); cách các game tìm kẻ giả mạo dựng khoảnh khắc (màn phát hiện, họp, đuổi người) theo hiểu biết của Claude, chưa tra lại. Ngưỡng là ý kiến của Claude.
+
+| Mã | Tiêu chí | Cách đo | Ngưỡng | Bắt buộc? |
+|---|---|---|---|---|
+| W1 | Âm thanh cho mọi sự kiện chính | Đếm sự kiện có tiếng: bước chân, đúng, sai, phát hiện, họp, phiếu, đuổi, thắng, thua, báo động | ≥ 9 / 10, tắt được | Có |
+| W2 | Nhân vật sống | Có dáng đi, dáng đứng thở, quay mặt theo hướng đi, lời nói trên đầu | Đủ 4 | Có |
+| W3 | Khoảnh khắc kịch tính | Màn toàn màn hình cho phát hiện người ngủ, họp khẩn, đuổi người (bay đi + chữ chạy) | Đủ 3 | Có |
+| W4 | Thưởng thấy được | Nhà bừng sáng, số "+12" bay, pháo giấy khi thắng | Đủ 3 | Không |
+| W5 | Không khí | Đêm, đèn đường, đom đóm, báo động đỏ khi tắt đèn | Đủ 4 | Không |
+| W6 | Họp có kịch | Cư dân nói lần lượt (đang gõ…), có người tố, người chối, kẻ giả mạo đổ tội | Có cả 3 kiểu lời | Có |
+| W7 | Nhiệm vụ nhiều kiểu | Số kiểu trò nhỏ khác nhau, mỗi kiểu là kiến thức TOEIC | ≥ 2 | Có |
+| W8 | Manh mối thật | Manh mối sinh từ sự kiện trong ván (nhân chứng thấy, nghe tiếng động, chỗ đã thấy) chứ không bịa | ≥ 3 loại | Có |
+
+Chấm bản mẫu "Đêm ở Khu phố" v3 (trước): W1 0/10 ✗ · W2 ✗ · W3 0 ✗ · W4 1/3 ✗ · W5 2/4 ✗ · W6 ✗ · W7 1 ✗ · W8 1 (chỗ đã thấy) ✗ → 0 / 8.
+
+Chấm bản mẫu v4 "wow" (sau): W1 10/10 (bước chân, đúng, sai, phát hiện, gong họp, gõ chữ, đóng dấu phiếu, vút bay, thắng, thua, còi báo động; nút tắt) ✓ · W2 ✓ (đi lắc lư, thở, quay mặt, bong bóng lời) · W3 ✓ (màn "Có người ngủ say", "Họp khẩn", "Mất điện"; màn đuổi bay qua trời sao + chữ chạy) · W4 ✓ (nhà bừng sáng, "+12" bay, pháo giấy) · W5 ✓ (đêm, 4 đèn đường, đom đóm, viền đỏ nhấp nháy khi mất điện) · W6 ✓ (lời hiện lần lượt có "đang gõ…", nhân chứng tố, người bị tố chối, kẻ giả mạo đổ tội) · W7 ✓ (2 kiểu: nối dây loại từ, chọn đáp án theo chủ đề nhà) · W8 ✓ (nhân chứng thấy thật trong ván, nghe tiếng động, chỗ bạn đã thấy) → 8 / 8. Chưa đo được, còn thiếu người chơi thật: có "wow" thật không. Chưa kiểm trên iPhone (Web Audio, rung không chạy trên iPhone).
