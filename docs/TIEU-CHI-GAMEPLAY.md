@@ -60,3 +60,21 @@ Dừng ở bản 3 (đủ 12 / 12; giới hạn 5 lần chấm).
 | G11 | ✓ (lời khai ≤ 12 từ, ≤ 2 chạm, số việc theo phút) | ✓ |
 | G12 | ✗ 🚨 phá hoại có giờ, không có lối cho người cần chậm | ✓ giờ × 1,5 / bỏ giờ |
 | Đạt | 10 / 12 | 12 / 12 |
+
+### Bản 5 · Đêm ở Khu phố (thể loại tìm kẻ giả mạo, 17/11/2026)
+
+| Mã | Lần 1 | Lần 2 |
+|---|---|---|
+| G1 | ✓ (2 cách thắng nói rõ ở màn vai) | ✓ |
+| G2 | ✓ | ✓ |
+| G3 | ✓ (3 bậc, thua 2 ván gợi ý bậc dưới) | ✓ |
+| G4 | ✓ | ✓ |
+| G5 | ✓ (tự chọn việc, đi đâu, có họp hay không) | ✓ |
+| G6 | ✓ | ✓ |
+| G7 | ✗ đi lại / ru ngủ / bỏ phiếu chiếm phần lớn ván, câu hỏi là phụ | ✓ việc = câu TOEIC; họp luôn có luật sai phải nhận ra; ô học sau mỗi buổi họp; mốc phút làm câu ≥ 40% |
+| G8 | ✓ (việc lấy từ câu của đề) | ✓ |
+| G9 | ✓ (bẫy gặp lại trên câu mới, phương án xáo) | ✓ |
+| G10 | ✗ chưa nói câu nào vào ván | ✓ câu đang sai / tới hạn ôn trước |
+| G11 | ✓ (1 chạm tới việc, ván 5–8 phút) | ✓ |
+| G12 | ✗ phố chạy liên tục khi làm câu, tầm nhìn hẹp | ✓ chế độ học dừng phố, tuỳ chọn giờ |
+| Đạt | 9 / 12 | 12 / 12 |
