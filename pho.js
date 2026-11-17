@@ -17,7 +17,11 @@ let PH_MUC = { b1: { ten: '🎽 Bậc 1 · Nhận đồng phục', sub: 'Chỉ n
 // ván chữa câu sai từ Chinh phục đề: đủ 4 phương án của đề, từ mang màu cư dân (tập trung chọn đúng từ trong nhà), dễ thắng
 let PH_FIX = { ten: '🛠 Chữa câu', sub: '', md: 'tu', k: 4, dur: [8.5, 8.5], tim: 5, goi: 99, moc: 1, mau: 1 };
 let PH_SHORT = { N: 'Bác Danh từ', V: 'Anh Động từ', A: 'Cô Tính từ', R: 'Bé Trạng từ' };   // v184–v185: tên = tên gọi của loại từ (người sáng lập: tên cũ "chưa rõ lắm")
-const phOpen = m => { const u = phSt().mu || {}, i = PH_MO.indexOf(m); return i <= 0 || (u[PH_MO[i - 1]] || 0) >= PH_WIN; };
+// v201 (góp ý #17): 🔓 mở mọi bậc của mọi phố để thử, không cần thắng bậc trước (chỉ trò chơi, không đụng luật đo)
+const phThu = () => !!(S && S.to && S.to.phThu);
+const phThuBtn = () => `<button class="link tap" data-phthu>${phThu() ? '🔒 Khoá lại bậc như cũ (phải thắng bậc trước)' : '🔓 Mở mọi bậc để thử (không cần thắng bậc trước)'}</button>`;
+const phThuClick = e => { if (!e.target.closest('[data-phthu]')) return false; S.to.phThu = !phThu(); save(); return true; };
+const phOpen = m => { const u = phSt().mu || {}, i = PH_MO.indexOf(m); return phThu() || i <= 0 || (u[PH_MO[i - 1]] || 0) >= PH_WIN; };
 const phMuc = () => { const c = phSt().mc; return c && PH_MUC[c] && phOpen(c) ? c : [...PH_MO].reverse().find(phOpen); };
 // chữ mốc của ghế: chữ đầu tiên trong ngoặc kép của câu "vì sao" có mặt trong câu (vd. "the", "will", "her")
 function phMoc(it) { return PHC.moc ? PHC.moc(it) : phMocL(it); }
@@ -314,10 +318,10 @@ async function phView() { phStop(); window.CUR = { view: PH_VIEW }; BACK = null;
       <p style="margin:2px 0">${wr ? `👾 <b>${wr}</b> câu ${PHC.lo} bạn từng sai trong đề, sẽ chen vào ván` : `👾 Chưa có câu ${PHC.lo} nào bạn sai trong đề`}</p>
       <p style="margin:2px 0">🗺 Đã gặp ${seen} / ${(PH_K || []).length} câu của phố</p>
       <details class="more"><summary>🧠 Luật đã vững ${phGlDone()} / ${phGlKeys().length}</summary><p class="mute" style="margin:4px 0;font-size:15px">Luật vững khi đúng ${PH_GOK} câu mới liền nhau ở bậc 3–4, không dùng gợi ý. Sai một câu của luật thì đếm lại. Câu đề có luật vững mới thành 🌳 ở ⚔️ Chinh phục đề.</p>${phGlList()}</details></div>
-    <button class="hrow phbook" data-phbook><span class="ic">📜</span><span class="t"><b>Sổ thần chú</b><small>${nc} / ${PH_ORD.length + Object.keys(PH_NHA).length} câu thần chú đã mở</small></span><span class="chev">›</span></button>
-    <details class="more"><summary>Thêm</summary><button class="link tap" data-phintro>👋 Làm quen lại ${PH_ORD.length} cư dân</button>
+    <button class="hrow phbook" data-phbook><span class="ic">📜</span><span class="t"><b>Sổ thần chú</b><small>Mỗi luật một câu ngắn để nhớ, mở khi bạn phá vụ thám tử · đầu ván hỏi lại nhanh · ${nc} / ${PH_ORD.length + Object.keys(PH_NHA).length} câu đã mở</small></span><span class="chev">›</span></button>
+    <details class="more"><summary>Thêm</summary><button class="link tap" data-phintro>👋 Làm quen lại ${PH_ORD.length} cư dân</button>${phThuBtn()}
       <p class="mute" style="font-size:14px">Không tính vào 📘 Học / 🔁 Nhớ, không đổi điểm đề thử. Câu của phố do Claude soạn, chưa giáo viên kiểm. Câu bạn bắt đúng ở ván sau 1 → 3 → 7 → 21 ngày thì nhớ chắc.</p></details>`;
-  $app.onclick = e => { if (e.target.closest('[data-phback]')) return phBackGo(); if (phSndClick(e)) return phView(); const mb = e.target.closest('[data-phmuc]'); if (mb && phOpen(mb.dataset.phmuc)) { P.mc = mb.dataset.phmuc; save(); return phView(); } if (e.target.closest('[data-phplay]')) return PHC.key === 'loai' && phMuc() === 'b2' && !P.lg ? phLuat(() => phStart(), true) : phStart(); if (e.target.closest('[data-phluat]')) return phLuat(() => phView()); if (e.target.closest('[data-phbook]')) return phBook(); if (e.target.closest('[data-phintro]')) return phIntro(); }; }
+  $app.onclick = e => { if (e.target.closest('[data-phback]')) return phBackGo(); if (phSndClick(e)) return phView(); if (phThuClick(e)) return phView(); const mb = e.target.closest('[data-phmuc]'); if (mb && phOpen(mb.dataset.phmuc)) { P.mc = mb.dataset.phmuc; save(); return phView(); } if (e.target.closest('[data-phplay]')) return PHC.key === 'loai' && phMuc() === 'b2' && !P.lg ? phLuat(() => phStart(), true) : phStart(); if (e.target.closest('[data-phluat]')) return phLuat(() => phView()); if (e.target.closest('[data-phbook]')) return phBook(); if (e.target.closest('[data-phintro]')) return phIntro(); }; }
 
 // ---------- làm quen + thám tử ----------
 function phIntro() { phStop(); window.CUR = { view: PH_VIEW + '-intro' }; scrollTo(0, 0);
@@ -348,7 +352,7 @@ const phQhTable = () => PHC.QH ? `<h3 style="margin:14px 0 6px">🧭 ${PHC.qhT |
 function phBook(back) { const P = phSt(); window.CUR = { view: PH_VIEW + '-so' }; scrollTo(0, 0);
   const row = (k, who, name, chant) => { const c = P.cd[k]; return c ? `<div class="phsay">${phFace(who, 44)}<div class="b"><b>${esc(name)}</b><p>“${esc(chant)}”</p><small class="mute">Dùng đúng ở câu mới: ${c.n || 0} lần${(c.n || 0) >= 5 ? ' · ⭐ thành thạo' : ''}</small></div></div>`
     : `<div class="phsay phlock"><span class="phlk">🔒</span><div class="b"><b>${esc(name)}</b><p class="mute">Mở khi gặp câu cần luật này.</p></div></div>`; };
-  $app.innerHTML = phTop(back ? 'Ván đang chơi' : 'Phố') + `<h2>📜 Sổ thần chú</h2>${PH_ORD.map(t => row(t, t, PH_CH[t].name, PH_G[t].chant)).join('')}${Object.keys(PH_NHA).length ? `<h3 style="margin:14px 0 6px">Hai người cùng nhà</h3>${Object.entries(PH_NHA).map(([k, g]) => row(k, g.who, g.name, g.chant)).join('')}` : ''}${phQhTable()}`;
+  $app.innerHTML = phTop(back ? 'Ván đang chơi' : 'Phố') + `<h2>📜 Sổ thần chú</h2><p class="mute" style="margin:0 0 10px">Sổ gom luật của phố thành câu ngắn dễ nhớ. Bạn mở một câu khi phá xong vụ thám tử của cư dân đó. Đầu mỗi ván, ⚡ hỏi lại 3 câu để luật nằm sẵn trong đầu. Bắt đúng câu mới nhờ luật này 5 lần thì câu thành ⭐ thành thạo. Đang chơi, bấm 📜 (hoặc 🪑) trên thanh trên cùng để xem lại.</p>${PH_ORD.map(t => row(t, t, PH_CH[t].name, PH_G[t].chant)).join('')}${Object.keys(PH_NHA).length ? `<h3 style="margin:14px 0 6px">Hai người cùng nhà</h3>${Object.entries(PH_NHA).map(([k, g]) => row(k, g.who, g.name, g.chant)).join('')}` : ''}${phQhTable()}`;
   $app.onclick = e => { if (e.target.closest('[data-phback]')) return back ? back() : phView(); }; }
 
 // ---------- ván chơi ----------
@@ -377,7 +381,7 @@ function phRun(L, fix, back) { window.CUR = { view: PH_VIEW + '-van' }; scrollTo
   const mu = fix ? 'fix' : phMuc(), M = fix ? PH_FIX : PH_MUC[mu], half = M.dur[0] !== M.dur[1] ? Math.ceil(L.length / 2) : L.length;
   PH_R = { gl0: phGlKeys().filter(r => phGlN(r) >= PH_GOK), L, fix, back, mu, M, i: 0, lane: 1, hearts: M.tim, stars: 0, combo: 0, ok: 0, miss: [], half, goi: M.goi, end: 0, paused: false, sheet: false };
   const help = (PHC.help && PHC.help[M.md]) || { dp: 'Chạm làn, vuốt hoặc bấm ◀ ▶ để Mầm bắt đúng loại từ được gọi.', gh: 'Đọc câu, bắt cư dân hợp với ghế trống. Chạm từ trong câu để tra nghĩa.', tu: 'Chạm làn, vuốt hoặc bấm ◀ ▶. Chạm từ trong câu để tra nghĩa.', qh: 'Đọc hai vế quanh ô trống, bắt đúng kiểu quan hệ.' }[M.md];
-  $app.innerHTML = `<div class="phhud trx"><button class="iconbtn" data-phpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip" id="phh"></span><span class="chip" id="phs"></span><span class="chip" id="phc" hidden></span><button class="iconbtn" data-phbk aria-label="${PHC.key === 'loai' && M.md !== 'dp' ? 'Bảng ghế và sổ thần chú' : 'Sổ thần chú'}">${PHC.key === 'loai' && M.md !== 'dp' ? '🪑' : '📜'}</button></div>
+  $app.innerHTML = `<div class="phhud trx"><button class="iconbtn" data-phpause aria-label="Thoát ván">✕</button><button class="iconbtn" data-phpause aria-label="Tạm dừng, nhạc và tiếng">⏸</button><span class="chip" id="phh"></span><span class="chip" id="phs"></span><span class="chip" id="phc" hidden></span><button class="iconbtn" data-phbk aria-label="${PHC.key === 'loai' && M.md !== 'dp' ? 'Bảng ghế và sổ thần chú' : 'Sổ thần chú'}">${PHC.key === 'loai' && M.md !== 'dp' ? '🪑' : '📜'}</button></div>
     <div class="phbar"><i id="phprog"></i></div><div class="phlvr"><span class="phlv mute" id="phlv"></span><button class="phhint" data-phhint id="phhint"></button></div><div id="phgoi" class="phgoi" hidden></div><div class="phsent tdtap" id="phsent"></div><div id="phpara" class="tdtap"></div>
     <div class="pharena" id="pharena">${Array.from({ length: M.k }, (_, i) => `<div class="phlane" style="left:${i * 100 / M.k}%;width:${100 / M.k}%"></div>`).join('')}<div class="phground"></div><div id="phrow"></div><div id="phmam" style="width:${100 / M.k}%">${phFace('M', 64)}</div><div id="phfx" class="phfx" aria-live="assertive"></div></div>
     <div id="phfb"></div><div class="phctrl"><button data-phmv="-1" aria-label="Sang trái">◀</button><button data-phmv="1" aria-label="Sang phải">▶</button></div>
@@ -389,13 +393,16 @@ function phRun(L, fix, back) { window.CUR = { view: PH_VIEW + '-van' }; scrollTo
   $app.onclick = e => { if (!PH_R) return; const m = e.target.closest('[data-phmv]'); if (m) return phMove(PH_R.lane + +m.dataset.phmv);
     if (e.target.closest('[data-phnext]')) return phNext();
     if (e.target.closest('[data-phhint]')) return phHint();
-    if (e.target.closest('[data-phpause]')) return phSheet('<h3>⏸ Tạm dừng</h3><p class="mute">Từ đang rơi đứng yên tới khi bạn chơi tiếp.</p>' + phSndRow() + '<button class="link tap" data-phquit>Thoát ván, về Phố</button>');
+    if (e.target.closest('[data-phpause]')) return phSheet('<h3>⏸ Tạm dừng</h3><p class="mute">Từ đang rơi đứng yên tới khi bạn chơi tiếp.</p>' + phSndRow() + '<button data-phquit>‹ Thoát ván, về Phố</button>' + phGyBtn);
     if (e.target.closest('[data-phbk]')) return phSheet(`${PHC.key === 'loai' && PH_R.M.md !== 'dp' ? phBang() : ''}<h3>📜 Sổ thần chú</h3>${Object.keys(phSt().cd).map(k => { const n = PH_NHA[k], w = n ? n.who : k; return `<div class="phsay">${phFace(w, 40)}<div class="b"><b>${esc(n ? n.name : PH_CH[k].name)}</b><p>“${esc(n ? n.chant : PH_G[k].chant)}”</p></div></div>`; }).join('')}${phQhTable()}`); };
   phMusic(true); phHud(); phMove(1, 1); phQ(); }
+// v201 (góp ý #19): màn chơi ẩn nút 💬 nổi (đè nút) nên góp ý mở từ bảng tạm dừng
+const phGyBtn = '<button class="link tap" data-phgy>💬 Góp ý về màn này</button>';
+const phGyGo = (onBack) => { if (typeof gyOpen !== 'function') return; gyOpen(); const iv = setInterval(() => { if (!document.getElementById('gysheet')) { clearInterval(iv); if (onBack) onBack(); } }, 300); };
 function phSheet(html) { if (!PH_R) return; PH_R.sheet = true; let el = document.getElementById('phsheet'); if (!el) { el = document.createElement('div'); el.id = 'phsheet'; el.className = 'phsheet'; document.body.appendChild(el); }
   el.innerHTML = `<div class="in">${html}<button class="pri" data-phclose>Đóng, chơi tiếp</button></div>`; el.hidden = false;
   el.onclick = e => { if (phSndClick(e)) { const b = e.target.closest('button'); const r = document.createElement('div'); r.innerHTML = phSndRow(); b.closest('.phsnd').replaceWith(r.firstElementChild); return; }
-    if (e.target.closest('[data-phquit]')) { el.hidden = true; return phView(); } if (e.target.closest('[data-phclose]')) { el.hidden = true; if (PH_R) { PH_R.sheet = false; PH_R.last = performance.now(); } } }; }
+    if (e.target.closest('[data-phquit]')) { el.hidden = true; return phView(); } if (e.target.closest('[data-phgy]')) { el.hidden = true; return phGyGo(() => { el.hidden = false; }); } if (e.target.closest('[data-phclose]')) { el.hidden = true; if (PH_R) { PH_R.sheet = false; PH_R.last = performance.now(); } } }; }
 function phHud() { const R = PH_R; if (!R) return; const s = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
   s('phh', R.M.tim > 3 ? `❤️ ${R.hearts} / ${R.M.tim}` : '❤️'.repeat(R.hearts) + '🤍'.repeat(R.M.tim - R.hearts)); s('phs', '⭐ ' + R.stars); s('phc', R.combo >= 2 ? '🔥 ×' + R.combo : ''); const c = document.getElementById('phc'); if (c) c.hidden = R.combo < 2;
   const p = document.getElementById('phprog'); if (p) p.style.width = (R.i / R.L.length * 100) + '%';
