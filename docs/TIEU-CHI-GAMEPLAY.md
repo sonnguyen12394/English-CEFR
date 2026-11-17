@@ -42,3 +42,21 @@ Chưa đo được, còn thiếu người chơi thật: "có vui không", "có m
 | Đạt | 5 / 12 | 11 / 12 | 12 / 12 |
 
 Dừng ở bản 3 (đủ 12 / 12; giới hạn 5 lần chấm).
+
+### Bản 4 · 🎭 Kẻ giả mạo (17/11/2026, người sáng lập "làm gameplay lại theo hướng đó")
+
+| Mã | Lần 1 | Lần 2 |
+|---|---|---|
+| G1 | ✗ ngày không có câu sai (người mới trinh sát đúng hết, đề hết ⚠️) thì không có kẻ giả mạo, không họp được | ✓ dùng câu kho phố luyện ít nhất / kẻ tái phạm |
+| G2 | ✓ | ✓ |
+| G3 | ✓ (thua họp 2 ngày bớt nghi phạm; nghỉ lâu) | ✓ |
+| G4 | ✓ (sương, 🌳, Hồ sơ bẫy) | ✓ |
+| G5 | ✓ (gọi họp lúc nào cũng được, lâu đài luôn mở) | ✓ |
+| G6 | ✓ | ✓ |
+| G7 | ✓ (điều tra, phá hoại, họp đều cần luật thật) | ✓ |
+| G8 | ✓ (khuôn lời khai cho đủ 8 phố) | ✓ |
+| G9 | ✓ (kẻ tái phạm trên câu mới, phương án xáo) | ✓ |
+| G10 | ✓ (Hồ sơ bẫy 1 → 3 → 7 → 21) | ✓ |
+| G11 | ✓ (lời khai ≤ 12 từ, ≤ 2 chạm, số việc theo phút) | ✓ |
+| G12 | ✗ 🚨 phá hoại có giờ, không có lối cho người cần chậm | ✓ giờ × 1,5 / bỏ giờ |
+| Đạt | 10 / 12 | 12 / 12 |

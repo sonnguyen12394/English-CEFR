@@ -1,66 +1,77 @@
-# Kịch bản chơi: Khu phố Đề (bản 3, 17/11/2026)
+# Kịch bản chơi: Khu phố Đề · 🎭 Kẻ giả mạo (bản 4, 17/11/2026)
 
-Bản mẫu bấm được (bản 1): https://claude.ai/artifact/EQbiLzGrUWvmDR56j9THBm. Chấm theo `docs/TIEU-CHI-GAMEPLAY.md`: 12 / 12. Chưa có người chơi thật; chưa kiểm trên iPhone. Mọi cơ chế dùng lại 8 phố + luật đã có (v171–v200), chỉ thêm lớp bản đồ.
+Người sáng lập: "Goose Goose Duck… cơ chế chơi khá giống", "làm gameplay lại theo hướng đó". Chỉ mượn cơ chế chung của thể loại tìm kẻ giả mạo (đi bản đồ, danh sách nhiệm vụ, họp bỏ phiếu); KHÔNG dùng tên, hình, bản đồ, tiếng của trò đó. Chơi một người. Chấm theo `docs/TIEU-CHI-GAMEPLAY.md`. Bản 3 (khu phố không có kẻ giả mạo) nằm trong lịch sử git. Chưa có người chơi thật; chưa kiểm trên iPhone.
 
-## 1. Cốt truyện
-Mầm chuyển tới **Khu phố Đề N** (16 đề = 16 khu phố, cùng cư dân). Sương mù chữ phủ phố. Mỗi câu Phần Đọc là một ô phố:
-- ☁️ sương = chưa làm · ⚠️ sự cố = đang sai · 🌱 sáng = đúng · 🌳 cây = hiểu (luật vững, hoặc câu chắc ở phố không có luật).
-🏰 Lâu đài = ⚔️ Chinh phục đề. **Cổng luôn vào được** (không khoá); bảng tin chỉ khuyên "giúp cư dân trước".
+## 1. Ý chính
+Mỗi đề là một khu phố. Mỗi **ngày ở phố** (một buổi 10–15 phút) có MỘT 🎭 **kẻ giả mạo** đội lốt một cư dân. Hắn gây sự cố bằng cách nói **luật nghe rất hợp lý nhưng sai**, đúng kiểu phương án nhiễu của đề TOEIC. Mầm làm nhiệm vụ, nhặt manh mối, cuối ngày **họp phố** chỉ mặt kẻ giả mạo và nói luật đúng.
 
-## 2. Vòng chơi một buổi
-1. Mở bản đồ → **📋 Bảng tin phố**: số việc hôm nay + phút ước.
-2. ▶ Nhiệm vụ kế tiếp (Mầm tự đi tới) hoặc chạm cư dân có dấu.
-3. Cư dân nói ≤ 2 câu (lần gặp lại cùng việc: không nói, vào thẳng; có nút bỏ qua) → ván phố.
-4. Thưởng → về bảng tin. Đủ việc trong ngày → "Xong hôm nay" (điểm dừng), vẫn chơi thêm được.
+Vì sao hợp học thi: muốn bắt được kẻ giả mạo phải biết luật thật. Bắt được = hiểu vì sao phương án nhiễu sai.
 
-**Số việc mỗi ngày** theo phút mục tiêu ở 🧭 Lộ trình, ~4 phút / việc: 10 phút → 2–3 việc · 15 → 3–4 · 30 → 7 · 45 → 10.
+## 2. Một ngày ở phố
+1. **☀️ Sáng – Bảng tin:** "Hôm nay 3 việc · 1 kẻ giả mạo trong phố · ~12 phút". Số việc theo phút mục tiêu ở 🧭 Lộ trình (~4 phút / việc: 10 phút → 2–3 · 15 → 3–4 · 30 → 7).
+2. **🔍 Làm việc (nhặt manh mối):** ▶ Nhiệm vụ kế tiếp hoặc chạm cư dân. Mỗi câu điều tra có lời khai của cư dân; lời khai sai được ghi vào 📒 Sổ manh mối kèm tên người nói.
+3. **🚨 Phá hoại (1 lần / ngày, từ ngày 2):** kẻ giả mạo gây sự cố khẩn: một câu có giờ theo nhịp đề thật (Part 5 ~22 giây, Part 6 ~34, Part 7 ~61). Sửa kịp → cứu ô phố + 1 manh mối chắc.
+4. **🔔 Họp phố:** mở khi có ≥ 2 manh mối (gọi họp lúc nào cũng được, không cần làm hết việc). Chọn kẻ giả mạo trong các nghi phạm, rồi chọn luật đúng thay cho luật hắn nói. ≤ 1 phút.
+5. **🌙 Tối – Kết quả:** bắt đúng → kẻ giả mạo lộ mặt, sương tan thêm, bẫy của hắn vào 🗂 **Hồ sơ bẫy**. Bắt sai → hắn trốn (không mất gì), lời giải hiện ra, mai hắn quay lại. "Xong hôm nay" = điểm dừng; chơi thêm vẫn được.
 
-## 3. Sáu loại nhiệm vụ
+## 3. Nhiệm vụ
 
-| Dấu | Loại | Khi nào | Vào gì |
+| Dấu | Nhiệm vụ | Khi nào | Làm gì |
 |---|---|---|---|
-| 🔭 | **Trinh sát** | Còn ô sương (người mới luôn bắt đầu ở đây) | Thi lượt 10 câu của đề (trận Boss nhỏ) → câu sai thành ⚠️ sự cố, câu đúng thành 🌱 |
-| ⚠️ | **Sự cố** | Câu đang sai | Ván phố bậc 3–4: câu kho anh em rồi chính câu đề, phương án xáo |
-| 🎓 | **Học nghề** | Phố của sự cố chưa mở bậc 3 | Bậc 1–2 (Loại Từ: 🪑 học luật ghế) |
-| ✉️ | **Thư liên phố** | Câu Part 6 / 7 hoặc đoạn cần 2 phố | 2 ván nối liền; xong ván 1 Mầm tự mang thư sang (không chạm thêm). Tối đa 2 phố / thư |
-| 🔁 | **Ghé thăm lại** | Câu tới hạn ôn 1 → 3 → 7 → 21 ngày | Ván ôn ngắn |
-| 🏅 | **Chứng chỉ nghề** | Câu 🌱 mà luật chưa vững | 3 câu kho MỚI liền đúng, không gợi ý (luật 🧠 v187) → 🌳 |
+| 🔭 | **Trinh sát** | Còn ô sương; người mới bắt đầu ở đây | Thi lượt 10 câu của đề (trận Boss nhỏ). Câu sai → ⚠️ |
+| 🕵️ | **Điều tra** | Câu đề đang sai (⚠️) | Câu đề + 2–3 lời khai của cư dân (mỗi lời khai ≤ 12 từ). Chọn đáp án, rồi chạm "🔍 lời khai sai". Phương án xáo |
+| 🎓 | **Học nghề** | Phố của câu chưa mở bậc 3 | Ván phố bậc 1–2 (Loại Từ: 🪑 luật ghế) |
+| 🔁 | **Kẻ tái phạm** | Bẫy trong Hồ sơ tới hạn ôn 1 → 3 → 7 → 21 ngày | Kẻ giả mạo cũ quay lại với CÙNG bẫy trên câu MỚI (câu kho của phố). Lật được → bẫy giãn lịch |
+| 🏅 | **Chứng chỉ nghề** | Câu đã đúng mà luật chưa vững | 3 câu kho mới liền đúng, không gợi ý (luật 🧠 v187) → 🌳 |
 
-Thứ tự gợi ý của ▶: ghé thăm lại tới hạn → sự cố → học nghề (nếu sự cố cần) → thư → chứng chỉ → trinh sát. Người chơi chạm cư dân khác thì làm việc đó trước (tự chủ).
+**Ngày không có câu sai để điều tra** (người mới vừa trinh sát đúng hết, hoặc đề đã hết ⚠️): kẻ giả mạo trà trộn vào câu kho của phố bạn luyện ít nhất, hoặc là một kẻ tái phạm; họp vẫn diễn ra. Ngày đầu: 🔭 trinh sát trước, kẻ giả mạo xuất hiện ở các câu vừa sai.
 
-## 4. Phản hồi
-- **Đúng:** ≤ 1 giây: chữ "✓ Đúng" + ô phố sáng + tiếng; cư dân cảm ơn 1 câu.
-- **Sai:** "✗ Chưa đúng" + cư dân chỉ chữ mốc + "vì sao" + dịch; sự cố giữ lại, hẹn ngày mai. Không mất đồ, không mất tiến độ đã có.
+Không có ván phố chữ rơi bị bỏ: Học nghề, Kẻ tái phạm, Chứng chỉ vẫn là ván phố như hiện nay.
 
-## 5. Vừa sức
-- Bậc 1 → 4 mỗi phố như hiện nay (thắng ≥ 7 / 10 mở bậc sau).
-- **Thua 2 ván liền ở một bậc:** cư dân đề nghị "Ôn lại bậc dưới" hoặc "Học lại luật" (vẫn cho chơi tiếp bậc đang ở).
-- **Nghỉ ≥ 3 ngày:** bảng tin hôm đó chỉ 2 việc, ôn trước, cư dân chào "Lâu rồi không gặp!".
+## 4. Lời khai: máy sinh từ dữ liệu có sẵn
+Mỗi câu đề đã có 4 phương án + lời giải (`lg.og` loại: nghĩa, `ly` vì sao); phố có luật có bảng luật (luật ghế, kiểu quan hệ, luật chia thì…).
+- **Lời khai thật** (cư dân thật): luật của đáp án. Vd. Bác Danh từ: "Sau *your* là ghế của tôi."
+- **Lời khai giả** (kẻ giả mạo): luật của một phương án nhiễu, nói như thật. Vd. "Sau *your* cần động từ, chọn *apply*." · "Sau *despite* là cả một câu." · "*meet* và *reach* đều đi với *deadline*."
+- Khuôn theo phố: Loại Từ (ghế), Cầu Nối (phía sau ô trống), Động Từ (mốc thời gian), Đại Từ (vị trí / số), Cấu Trúc (cặp từ), Chợ (cụm đi kèm / nghĩa), Bến Dò Tin ("đáp án ở dòng N" chỉ sai dòng), Ghép Đoạn ("*this* chỉ về câu N" chỉ sai câu).
+- Cần soạn: ~3 khuôn lời khai giả × 8 phố (Claude soạn, soát); máy điền từ dữ liệu đề.
 
-## 6. Cư dân và sự cố
-| Phố | Cư dân | Sự cố | Lời mở mẫu |
-|---|---|---|---|
-| 🏘 Loại Từ | Bác Danh từ, Anh Động từ, Cô Tính từ, Bé Trạng từ | Ghế trống / ngồi nhầm | "Ghế sau *your* bị bỏ trống, ai ngồi đây?" |
-| 🌉 Cầu Nối | Chú Gạch Giới, Cô Cầu Liên, Bác Xích Nối | Cầu nối hai vế gãy | "Phía sau là cả một câu, chú Gạch không đỡ nổi." |
-| ⏰ Động Từ | Bác Chia thì, Cô Bị động, Anh Nguyên mẫu, Bé V-ing | Đồng hồ sai giờ | "*By the time* … đã qua, kim phải lùi lại!" |
-| 👥 Đại Từ | Bác Đại từ, Cô Sở hữu, Anh Tự mình, Chú Quan hệ, Chị Lượng | Thư gửi nhầm người | "Thư ghi *whose*, của ai đây?" |
-| 🛒 Chợ Từ Vựng | Bà Cụm, Cô Nghĩa, Bà Nhiều Nghĩa, (Chú Giới → đề nghị đổi tên vì lẫn Chú Gạch Giới) | Hàng dán nhầm nhãn | "Khách hỏi *meet a deadline*, sao lại bán *reach*?" |
-| 🔎 Bến Dò Tin | Cô Mục đích, Bác Chi tiết, Anh Đúng–Sai, Bé Suy luận | Hàng thất lạc trên tàu | "Câu trả lời nằm dòng nào? Chỉ cho tôi." |
-| 🧩 Ghép Đoạn | Bác Chỉ Lại, Cô Thêm Ý, Anh Đổi Chiều, Bé Tiếp Nối | Trang thư rơi ra | "*This* chỉ cái gì? Phải đứng ngay sau câu đó." |
-| 🏛 Cấu Trúc | Cô So Sánh, Bác Đảo Ngữ, Anh Cặp Đôi | Tượng lắp lệch | "*Not only* … đi cặp với ai?" |
+## 5. Suy luận
+- Nghi phạm trong họp: bậc đầu 3 người, sau 4, rồi 5 (cư dân đã gặp trong ngày).
+- Kẻ giả mạo nói sai ≥ 2 lần / ngày; có lúc nói thật để trà trộn.
+- Cư dân thật không bao giờ nói sai, nên lời khai sai = dấu vết chắc chắn; khó ở chỗ phải biết luật mới nhận ra lời khai nào sai.
+- Họp: chọn người + chọn luật đúng. Đúng người mà sai luật = "bắt được nhưng chưa rõ vì sao": hắn lộ mặt, bẫy vẫn vào lịch ôn sớm (ngày mai).
 
-**Mức thân 0 → 3** mỗi cư dân, đổi lời chào. Phố có luật vững (Loại Từ, Cầu Nối, Động Từ, Đại Từ, Cấu Trúc): +1 mỗi luật của cư dân vững. Phố không có luật (Chợ, Bến, Ghép): +1 mỗi 3 câu đề của cư dân "chắc" (đúng ở bậc 3–4, không gợi ý, ở ngày khác nhau). Không tiền ảo, không cửa hàng.
+## 6. Đúng, sai, vừa sức
+- **Đúng:** ≤ 1 giây "✓ Đúng" + ô sáng + tiếng; lời khai giả bị gạch, ghi vào sổ.
+- **Sai câu:** "✗ Chưa đúng" + chữ mốc + vì sao + dịch; lời khai đã dẫn sai được tô "🎭 bẫy". Không mất gì.
+- **Thua họp 2 ngày liền:** ngày sau bớt 1 nghi phạm và kẻ giả mạo nói sai 3 lần.
+- **Nghỉ ≥ 3 ngày:** hôm đó 2 việc + họp, kẻ giả mạo là kẻ tái phạm đã quen.
+- Ván phố giữ 4 bậc như hiện nay; thua 2 ván liền thì gợi ý ôn bậc dưới / học lại luật.
 
-## 7. Buổi mẫu (Đề 3, 15 phút → 4 việc)
-1. Bảng tin: "Sương còn 18 · Hôm nay 4 việc · ~15 phút".
-2. 🔁 Cô Mục đích ghé lại → 1 ván Bến ngắn.
-3. ⚠️ Bác Danh từ: "Hai ghế nhà tôi bị trống" → ván Loại Từ bậc 3 (câu anh em → câu 113) → đúng: ô sáng.
-4. ✉️ Bác Chia thì: đoạn câu 131–134 → ván Động Từ → Mầm tự mang thư → ván Cầu Nối → Bác Chia thì thân mức 1.
-5. 🏅 Cô Tính từ: 3 câu mới luật "trước danh từ" → luật vững → câu 113 thành 🌳.
-6. "Xong hôm nay · Sương còn 15 · Mai Cô Sở hữu cần bạn."
+## 7. Cư dân, tiến bộ, phần thưởng
+- Cư dân 8 phố như hiện nay (Bác Danh từ… Anh Cặp Đôi). Đề nghị đổi tên "Chú Giới" (Chợ) vì lẫn "Chú Gạch Giới" (Cầu Nối).
+- Kẻ giả mạo đội lốt cư dân của phố có câu sai trong ngày; lộ mặt là hình 🎭 (vẽ riêng, không dùng hình con vịt).
+- **Mức thân 0 → 3:** phố có luật: +1 mỗi luật vững; Chợ / Bến / Ghép: +1 mỗi 3 câu "chắc". Cư dân bị nghi oan chỉ nói "Không phải tôi!", không trừ thân.
+- **Tiến bộ nhìn thấy:** sương tan theo câu ⭐ đúng · 🌳 theo câu hiểu · 🗂 Hồ sơ bẫy "đã lật N bẫy" (đây là danh sách phương án nhiễu bạn đã hiểu, mở ra đọc được).
+- Không tiền ảo, không cửa hàng.
+- 🏰 Lâu đài (⚔️ Chinh phục đề) luôn vào được.
 
-## 8. Tiếp cận trên điện thoại
-Vùng bấm ≥ 44 px · giảm chuyển động: Mầm tới nơi tức thì, không hoạt cảnh · tiếng / nhạc tắt riêng (như Phố) · đúng / sai luôn có chữ + ký hiệu, không chỉ màu · chơi dọc một tay, nút chính ở nửa dưới màn.
+## 8. Ngày mẫu (Đề 3, 15 phút)
+1. Bảng tin: "Sương còn 18 · 3 việc · 🎭 1 kẻ giả mạo".
+2. 🕵️ Câu 113 ("Please submit your ___"). Bác Danh từ: "Sau *your* là ghế của tôi." Cô Tính từ: "Sau *your* phải mô tả, chọn *applicable*." → chọn *application*, chạm 🔍 lời Cô Tính từ. Manh mối 1.
+3. 🚨 Phá hoại: câu 131 có giờ 34 giây. Bác Chia thì: "*By the time* … đã qua, lùi kim." Cô Tính từ: "Việc đang diễn ra, chọn *is starting*." → sửa kịp. Manh mối 2.
+4. 🔁 Kẻ tái phạm hôm qua: "Sau *despite* là cả một câu" trên câu mới → lật bẫy, lịch giãn sang 3 ngày.
+5. 🔔 Họp: nghi phạm Bác Danh từ · Cô Tính từ · Bác Chia thì → chỉ Cô Tính từ → chọn luật đúng "Sau tính từ sở hữu là danh từ". Cô Tính từ thật bước ra: "Tôi bị đội lốt!" 🎭 lộ mặt, sương còn 15.
+6. "Xong hôm nay · Mai một kẻ khác sẽ tới."
 
-## 9. Đo khi có người chơi
-Chạm từ bản đồ tới câu (mốc ≤ 2) · tỉ lệ nhận nhiệm vụ · phút chơi / ngày · số ngày quay lại / tuần · bảng hỏi PENS sau 1 tuần. Mốc dừng: sau 2 tuần, < 2 người chơi ≥ 5 ngày thì không làm thêm khu phố.
+## 9. Dùng trên điện thoại
+Vùng bấm ≥ 44 px · 🚨 phá hoại có giờ: giảm chuyển động hoặc bật "Không tính giờ" thì giờ × 1,5 / bỏ giờ (vẫn được manh mối) · lời khai là thẻ bấm được, mỗi thẻ ≤ 12 từ, chữ ≥ 15 px · giảm chuyển động: không hoạt cảnh lộ mặt · tiếng / nhạc tắt riêng · đúng / sai và "bẫy" luôn có chữ + ký hiệu · chơi dọc một tay.
+
+## 10. Rủi ro
+1. **Chữ nhiều:** mỗi câu thêm 2–3 lời khai. Giữ ≤ 12 từ / lời khai, bậc đầu 2 lời khai.
+2. **Lời khai giả quá lộ hoặc sai thật sự lại bị coi đúng:** máy chỉ sinh từ phương án nhiễu + bảng luật; Claude soát 100% khuôn; thợ soát ≥ 10% câu sinh ra.
+3. **Lời khai dẫn người chưa biết vào bẫy, làm họ nhớ sai:** sau mỗi câu luôn hiện luật đúng + gạch lời khai giả; Hồ sơ bẫy ôn lại.
+4. **Không có người chơi thật:** đo trước khi làm đủ 16 khu.
+
+## 11. Đo khi có người chơi
+Chạm từ bản đồ tới câu (≤ 2) · tỉ lệ bắt đúng kẻ giả mạo · tỉ lệ câu đúng trên câu có lời khai giả so với không có · phút / ngày · ngày quay lại / tuần · bảng hỏi PENS sau 1 tuần. Mốc dừng: 2 tuần, < 2 người chơi ≥ 5 ngày thì dừng.
