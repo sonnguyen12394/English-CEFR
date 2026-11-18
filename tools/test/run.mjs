@@ -3032,5 +3032,32 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     S = S1; phUse('loai'); return bad; })()`);
   R.push({ lv: 'cefr', id: 'C98', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Phố / Bến / Ghép: 🔓 mở mọi bậc để thử (bật / tắt), sổ thần chú có giải thích, màn chơi có ✕ thoát và 💬 góp ý ở bảng tạm dừng' }); }
 
+// v202 C99 🏙 Khu phố + 🌙 Đêm ở Khu phố (specs/021-dem-khu-pho): Thành phố là bản đồ (8 nhà + lâu đài, danh sách thẻ trong "Thêm"); việc đêm = câu thật của đề đúng phố,
+//   câu đang sai trước; luật sai sinh từ phương án nhiễu của chính câu đề; ghi ⭐ Chinh phục đề + lịch ôn phố như phMark; Hồ sơ bẫy; không đụng thẻ học
+{ const fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname; const html = fs.readFileSync(root + 'index.html', 'utf8'); const r0 = []; if (!/<script src="khupho\.js\?v=\d+">/.test(html) || !/\.kpmap/.test(html)) r0.push('index.html thiếu khupho.js / CSS');
+  const r = await run(`(async () => { const bad = [], S1 = S;
+    try { S = blank(); S.to = { target: 600 }; await toLoad(); TG_P = await tgPool();
+      const de = 'de3', B = trB(de), L = tgJState(de);
+      const qs = B.Q.filter(q => /^p[5-7]$/.test(q.sec)); const sai = qs.filter(q => kpPhoOf(q)).slice(0, 3).map(q => q.n); for (const n of sai) tgJ(de).c[n] = { s: 'sai', at: Date.now() };
+      const P = kpPick(de); if (P.jobs.length !== KP_JOBS) bad.push('số việc ' + P.jobs.length);
+      for (const j of P.jobs) { if (!B.Q.includes(j.q)) bad.push('việc không phải câu của đề'); if (kpPhoOf(j.q) !== j.k) bad.push('sai phố câu ' + j.q.n); }
+      if (!sai.every(n => P.jobs.some(j => j.q.n === n))) bad.push('câu đang sai chưa lên trước');
+      if (P.jobs.filter(j => j.q.sec === 'p7').length > 1) bad.push('quá 1 câu Part 7');
+      const per = {}; for (const j of P.jobs) per[j.k] = (per[j.k] || 0) + 1; if (Object.values(per).some(v => v > 2)) bad.push('quá 2 việc / phố');
+      for (const d of ['de1', 'de5', 'de8']) { const Lw = kpLaws(d); if (Lw.length < 10) bad.push(d + ': ít luật ' + Lw.length);
+        for (const l of Lw.slice(0, 40)) { const q = trB(d).Q.find(q => q.n === l.n); if (!q) { bad.push('luật không có câu'); break; } if (l.f === l.t || !l.t.includes(q.a)) bad.push('luật đúng sai đáp án câu ' + l.n);
+          const m = l.f.match(/chọn “(.+)”/); if (!m || m[1] === q.a || !q.opts.includes(m[1])) bad.push('luật sai không lấy từ phương án nhiễu câu ' + l.n); } }
+      KP = { de, n: { jobs: P.jobs } }; const j = P.jobs[0]; kpMark(j, true);
+      const it = kpPst(j.k).it['de:' + de + ':' + j.q.n]; if (!(tgJ(de).c[j.q.n].s === 'ok' && it && it.s === 1 && it.lv === 1 && it.d === phDay() + PH_HEN[0])) bad.push('ghi đúng sai khuôn');
+      kpMark(P.jobs[1], false); const it2 = kpPst(P.jobs[1].k).it['de:' + de + ':' + P.jobs[1].q.n]; if (!(tgJ(de).c[P.jobs[1].q.n].s === 'sai' && it2.lv === 0 && it2.d === phDay() + 1)) bad.push('ghi sai sai khuôn');
+      kpBayAdd(kpLaws(de)[0]); kpBayAdd(kpLaws(de)[0]); if ((kpSt().bay[de] || []).length !== 1) bad.push('Hồ sơ bẫy không lưu / trùng');
+      const lh = cyListHtml(de, cyCount(de)); if ((lh.match(/data-phv=/g) || []).length !== 8 || !/data-tgv/.test(lh)) bad.push('danh sách phố trong Thêm');
+      if (Object.keys(KP_POS).length !== 8 || !CY_PHO.every(p => KP_POS[p.k])) bad.push('bản đồ thiếu nhà phố');
+      const bots = kpBots(de, cyCount(de)); if (bots.length !== 6 || new Set(bots).size !== 6 || bots.some(t => kpName(t) === t)) bad.push('cư dân máy: ' + bots.join(','));
+      if (Object.keys(S.cards || {}).length) bad.push('đụng thẻ học');
+    } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
+    S = S1; KP = null; return bad; })()`);
+  const bad = r0.concat(r); R.push({ lv: 'cefr', id: 'C99', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🏙 Khu phố + 🌙 Đêm: 8 nhà + lâu đài, việc = 5 câu thật của đề đúng phố (đang sai trước, ≤ 2 / phố, ≤ 1 Part 7), luật sai từ phương án nhiễu của câu đề, ghi ⭐ + lịch ôn như phố, Hồ sơ bẫy, không đụng thẻ học' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
