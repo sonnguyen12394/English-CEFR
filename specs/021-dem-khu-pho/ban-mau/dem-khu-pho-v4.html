@@ -1,0 +1,537 @@
+<title>Khu phố Nhiệm vụ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+/* Bố cục: một ván tìm kẻ giả mạo ban đêm — thanh việc chung, bản đồ đêm có vòng sáng, tấm trượt cho việc / họp, màn toàn màn hình cho khoảnh khắc kịch tính.
+   Bản đồ cố ý luôn là ban đêm (một thế giới riêng); khung ngoài theo sáng / tối của máy. */
+:root{
+  --bg:#e9eef4; --fg:#1b2430; --mute:#5b6878; --card:#ffffff; --line:#d3dbe5;
+  --accent:#2a64c9; --accentbg:#2a64c9; --onacc:#ffffff;
+  --good:#1f7a45; --goodbg:#dff3e6; --bad:#b83232; --badbg:#fbe3e3; --mask:#5b3fa0; --maskbg:#ece5fb; --alarm:#e23b3b; --bar:#2fa45a;
+  --n-grass:#1f3a2c; --n-grass2:#1a3226; --n-path:#4a4636; --n-tree:#173022; --n-fog:rgba(6,9,22,.86); --n-win:#ffd36b; --n-winoff:#2c3644; --n-wall:#b9b2a2; --n-lamp:#ffe08a;
+  --shadow:0 6px 20px rgba(20,30,45,.2);
+  --f-head:"Baloo 2","Be Vietnam Pro",system-ui,sans-serif; --f-body:"Be Vietnam Pro",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f141c; --fg:#e8edf3; --mute:#9fb0c1; --card:#1b2330; --line:#2c3846;
+  --accent:#8db4ff; --accentbg:#2f6fde; --onacc:#ffffff;
+  --good:#6fd39a; --goodbg:#183a28; --bad:#ff8f8f; --badbg:#3d1f22; --mask:#c9b4ff; --maskbg:#2c2347; --alarm:#ff5c5c; --bar:#43c06f;
+  --shadow:0 6px 20px rgba(0,0,0,.5); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0f141c; --fg:#e8edf3; --mute:#9fb0c1; --card:#1b2330; --line:#2c3846;
+  --accent:#8db4ff; --accentbg:#2f6fde; --onacc:#ffffff;
+  --good:#6fd39a; --goodbg:#183a28; --bad:#ff8f8f; --badbg:#3d1f22; --mask:#c9b4ff; --maskbg:#2c2347; --alarm:#ff5c5c; --bar:#43c06f;
+  --shadow:0 6px 20px rgba(0,0,0,.5); color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 24px}
+.wrap{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+h1,h2,h3{font-family:var(--f-head);line-height:1.15;margin:0;text-wrap:balance}
+h2{font-size:22px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.top h1{font-size:22px;font-weight:800}
+.top small{display:block;color:var(--mute);font-size:13px}
+.ic{min-width:44px;min-height:44px;padding:6px 10px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:700}
+.note{font-size:13px;color:var(--mute);margin:0}
+.hud{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.barrow{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700}
+.bar{flex:1;height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--bar),#7fe0a0);transition:width .4s}
+.mytasks{display:flex;flex-wrap:wrap;gap:6px}
+.mt{font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px;border:1px solid var(--line)}
+.mt.done{background:var(--goodbg);color:var(--good);border-color:transparent;text-decoration:line-through}
+.mt.al{background:var(--alarm);color:#fff;border-color:transparent;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.6}}
+.plus{position:absolute;right:14px;top:4px;font:800 20px/1 var(--f-head);color:var(--good);pointer-events:none;animation:plus 1.1s ease-out forwards}
+@keyframes plus{to{transform:translateY(-26px);opacity:0}}
+
+.map{position:relative;width:100%;aspect-ratio:3/4;max-width:100%;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);touch-action:manipulation;user-select:none;-webkit-user-select:none;background:var(--n-grass)}
+.map svg.ground{position:absolute;inset:0;width:100%;height:100%;display:block}
+.map.shake{animation:shake .45s}
+@keyframes shake{20%{transform:translate(-5px,2px)}40%{transform:translate(5px,-2px)}60%{transform:translate(-3px,1px)}80%{transform:translate(3px,0)}}
+.ff{position:absolute;width:4px;height:4px;border-radius:50%;background:#e9ff8a;box-shadow:0 0 8px 2px rgba(220,255,120,.7);pointer-events:none;animation:ff var(--d) ease-in-out infinite alternate;opacity:.85}
+@keyframes ff{to{transform:translate(var(--x),var(--y));opacity:.25}}
+.house{position:absolute;transform:translate(-50%,-50%);width:22%;min-width:60px;border:0;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:2px;z-index:1}
+.house svg{width:100%;height:auto;display:block;overflow:visible}
+.house.burst svg{animation:burst .9s ease-out}
+@keyframes burst{30%{filter:drop-shadow(0 0 14px #ffe08a) brightness(1.5);transform:scale(1.12)}}
+.house .tag{font:700 10.5px/1.2 var(--f-body);background:rgba(10,14,24,.75);color:#fff;padding:2px 6px;border-radius:999px;white-space:nowrap}
+.house .job{position:absolute;top:-12px;right:2px;min-width:24px;height:24px;border-radius:12px;display:grid;place-items:center;font:800 13px/1 var(--f-head);background:#ffcf33;color:#3a2a00;box-shadow:0 0 12px rgba(255,207,51,.8);animation:bob 1.3s ease-in-out infinite}
+.house .job.al{background:var(--alarm);color:#fff;box-shadow:0 0 12px rgba(255,80,80,.9)}
+@keyframes bob{50%{transform:translateY(-4px)}}
+.bell{position:absolute;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;border:3px solid #b88a00;background:radial-gradient(circle at 40% 35%,#fff2b0,#ffc533);font-size:24px;z-index:1;display:grid;place-items:center;box-shadow:0 0 16px rgba(255,200,60,.6)}
+.bell[disabled]{opacity:.4;box-shadow:none}
+.ent{position:absolute;transform:translate(-50%,-88%);pointer-events:none;will-change:left,top}
+.npc{width:34px;height:42px;z-index:3;transition:opacity .25s}
+.npc .bd,.me .bd{width:100%;height:100%;transform-origin:50% 90%;animation:breathe 2.4s ease-in-out infinite}
+.npc.walk .bd,.me.walk .bd{animation:walk .34s ease-in-out infinite}
+.npc.left .bd svg,.me.left .bd svg{transform:scaleX(-1)}
+@keyframes breathe{50%{transform:scaleY(.96)}}
+@keyframes walk{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-3px) rotate(4deg)}}
+.npc .nm{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);font:700 9.5px/1 var(--f-body);background:rgba(10,14,24,.75);color:#fff;padding:1px 4px;border-radius:6px;white-space:nowrap}
+.npc .say{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:#fff;color:#1b2430;font:700 10.5px/1.25 var(--f-body);padding:4px 7px;border-radius:9px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);animation:pop .25s ease-out}
+.npc .say::after{content:"";position:absolute;top:100%;left:50%;margin-left:-4px;border:4px solid transparent;border-top-color:#fff}
+.npc.hide{opacity:0}
+@keyframes pop{from{transform:translateX(-50%) scale(.6);opacity:0}}
+.zz{width:38px;height:30px;z-index:2}
+.zz::after{content:"💤";position:absolute;top:-14px;right:-8px;font-size:14px;animation:bob 1.6s ease-in-out infinite}
+.me{width:40px;height:48px;z-index:4}
+.me::before{content:"";position:absolute;left:50%;top:60%;width:90px;height:90px;margin:-45px 0 0 -45px;border-radius:50%;background:radial-gradient(circle,rgba(255,224,138,.22),transparent 70%);pointer-events:none}
+.fog{position:absolute;inset:0;pointer-events:none;z-index:5}
+.redv{position:absolute;inset:0;pointer-events:none;z-index:5;box-shadow:inset 0 0 60px 20px rgba(255,40,40,.55);animation:blink 1.2s ease-in-out infinite}
+.report{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);z-index:6;min-height:54px;padding:8px 18px;border:0;border-radius:14px;background:var(--alarm);color:#fff;font:800 17px/1.2 var(--f-head);box-shadow:0 0 18px rgba(255,60,60,.7);white-space:nowrap;animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{50%{transform:translateX(-50%) scale(1.05)}}
+.toast{position:absolute;left:8px;right:8px;top:8px;z-index:6;background:rgba(15,20,32,.9);color:#fff;border-radius:12px;padding:8px 12px;font-size:14px;font-weight:700;text-align:center;animation:pop2 .25s ease-out}
+.toast.al{background:var(--alarm)}
+@keyframes pop2{from{transform:translateY(-10px);opacity:0}}
+.row2{display:flex;gap:8px;flex-wrap:wrap}
+.ghost{min-height:44px;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:6px 12px;flex:1;font-weight:600}
+.how{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.how h2{font-size:18px;margin-bottom:6px}
+.how ul{margin:0;padding-left:18px;display:grid;gap:4px}
+
+.sheet{position:fixed;inset:0;z-index:20;background:rgba(6,9,16,.6);display:flex;align-items:flex-end;justify-content:center}
+.sheet .in{width:100%;max-width:520px;max-height:92%;overflow:auto;background:var(--card);color:var(--fg);border-radius:20px 20px 0 0;
+  padding:18px max(18px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));
+  display:flex;flex-direction:column;gap:12px;animation:up .22s ease-out}
+.sheet .in > *{flex-shrink:0} .sheet .in p{margin:0}
+@keyframes up{from{transform:translateY(30px);opacity:0}}
+.btns{display:flex;flex-direction:column;gap:8px}
+.pri{min-height:52px;border:0;border-radius:14px;background:var(--accentbg);color:var(--onacc);font:800 17px/1.2 var(--f-head)}
+.pri.mask{background:#5b3fa0;color:#fff}
+.pri:disabled{opacity:.5}
+.sec{min-height:44px;border:1px solid var(--line);border-radius:14px;background:none;font-weight:600}
+.meta{display:flex;justify-content:space-between;gap:8px;color:var(--mute);font-size:13px;flex-wrap:wrap}
+.thead{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:#141c2b;color:#fff}
+.thead .e{font-size:28px}
+.thead b{font-family:var(--f-head);font-size:18px;display:block}
+.thead small{opacity:.8}
+.q{font-size:18px;font-weight:600}
+.gap{display:inline-block;min-width:56px;border-bottom:3px solid var(--accent);text-align:center;color:var(--accent);font-weight:800}
+.opts{display:grid;gap:8px}
+.opt{min-height:48px;text-align:left;padding:10px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);font-size:16px;font-weight:600}
+.opt.ok{border-color:var(--good);background:var(--goodbg);color:var(--good)}
+.opt.no{border-color:var(--bad);background:var(--badbg);color:var(--bad);animation:shake .35s}
+.fb{border-radius:12px;padding:10px 12px;background:var(--bg);font-size:15px}
+.fb b{font-family:var(--f-head);font-size:17px}
+.fb.mask{background:var(--maskbg)}
+/* nối dây */
+.wires{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;padding:10px;border-radius:14px;background:#141c2b}
+.wires svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.wb{min-height:48px;border-radius:12px;border:2px solid #3a4658;background:#202a3b;color:#fff;font-weight:700;font-size:15px;position:relative;z-index:1}
+.wb.sel{border-color:#ffd36b;box-shadow:0 0 10px rgba(255,211,107,.6)}
+.wb.ok{opacity:.75}
+.wb.no{animation:shake .35s;border-color:var(--alarm)}
+.wb .dot{position:absolute;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--c,#888)}
+.wl .dot{right:-7px} .wr .dot{left:-7px}
+/* họp */
+.chat{display:flex;flex-direction:column;gap:8px;min-height:120px}
+.msg{display:flex;gap:8px;align-items:flex-end;animation:pop2 .2s ease-out}
+.msg .f{flex:none;width:34px;height:42px}
+.msg .b{min-width:0;background:var(--bg);border-radius:14px 14px 14px 4px;padding:7px 10px;font-size:14px}
+.msg .b b{display:block;font-size:12px;color:var(--mute)}
+.msg.sys .b{background:var(--badbg);color:var(--bad);font-weight:700;border-radius:12px}
+.msg.acc .b{border:1.5px solid var(--alarm)}
+.typing{display:inline-flex;gap:3px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--mute);animation:bob .8s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+.vote{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vb{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);min-height:112px;font-size:12px;font-weight:700;text-align:center}
+.vb .f{width:40px;height:48px}
+.vb small{font-weight:500;color:var(--mute);font-size:11px;line-height:1.2}
+.vb.on{border:2px solid #5b3fa0;background:var(--maskbg)}
+.vb .stamps{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;min-height:16px}
+.vb .stamps span{width:14px;height:14px;border-radius:50%;animation:stamp .25s ease-out}
+@keyframes stamp{from{transform:scale(2.2);opacity:0}}
+.skipv{min-height:44px}
+/* màn kịch tính */
+.splash{position:fixed;inset:0;z-index:40;display:grid;place-items:center;text-align:center;color:#fff;pointer-events:none;animation:fadeout var(--ms) ease-in forwards}
+.splash.body{background:radial-gradient(circle,rgba(160,10,10,.92),rgba(40,0,0,.96))}
+.splash.meet{background:radial-gradient(circle,rgba(40,30,110,.92),rgba(5,5,25,.97))}
+.splash.light{background:radial-gradient(circle,rgba(30,30,30,.7),rgba(0,0,0,.95))}
+.splash div{animation:zoom .5s cubic-bezier(.2,1.6,.4,1)}
+.splash b{display:block;font:800 40px/1.05 var(--f-head);letter-spacing:.02em;text-shadow:0 4px 0 rgba(0,0,0,.4)}
+.splash span{display:block;margin-top:8px;font-size:16px;opacity:.9;padding:0 20px}
+@keyframes zoom{from{transform:scale(2.4) rotate(-6deg);opacity:0}}
+@keyframes fadeout{85%{opacity:1}100%{opacity:0}}
+.space{position:fixed;inset:0;z-index:40;overflow:hidden;background:#05070f;
+  background-image:radial-gradient(1px 1px at 20% 30%,#fff,transparent),radial-gradient(1px 1px at 70% 20%,#fff,transparent),radial-gradient(2px 2px at 40% 70%,#cfd8ff,transparent),radial-gradient(1px 1px at 85% 60%,#fff,transparent),radial-gradient(1px 1px at 10% 80%,#fff,transparent),radial-gradient(2px 2px at 60% 45%,#fff,transparent);
+  display:grid;place-items:center;color:#fff;text-align:center}
+.space .fly{position:absolute;top:34%;left:-20%;width:84px;height:100px;animation:fly 3.4s linear forwards}
+@keyframes fly{to{left:115%;transform:rotate(540deg)}}
+.space p{position:relative;top:16%;font:800 22px/1.3 var(--f-head);padding:0 24px;min-height:2.6em}
+.space small{position:relative;top:16%;display:block;opacity:.8;font-size:15px}
+.conf{position:fixed;top:-10px;width:9px;height:14px;z-index:41;pointer-events:none;animation:fall var(--d) linear forwards}
+@keyframes fall{to{transform:translate(var(--x),110vh) rotate(720deg)}}
+.big{font-size:48px;text-align:center;line-height:1}
+.role{display:flex;gap:12px;align-items:center;background:#141c2b;color:#fff;border-radius:16px;padding:14px}
+.role .f{flex:none;width:56px;height:66px}
+.tag2{display:inline-block;font-size:12px;font-weight:800;padding:1px 8px;border-radius:999px;background:#ffd36b;color:#3a2a00}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition-duration:0s!important}.ff{display:none}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <div><h1>Đêm ở Khu phố · Đề 3</h1><small>Bản mẫu tìm kẻ giả mạo · chưa phải app</small></div>
+    <div class="row2" style="flex:none;gap:6px"><button class="ic" id="snd" aria-label="Bật / tắt tiếng">🔊</button><button class="ic" id="howbtn" aria-label="Xem luật chơi">❓</button></div>
+  </div>
+  <div class="hud" id="hud">
+    <div class="barrow"><span>Việc chung</span><div class="bar" aria-hidden="true"><i id="barfill" style="width:0%"></i></div><span id="barn">0%</span></div>
+    <div class="mytasks" id="mytasks"></div>
+  </div>
+  <div class="map" id="map" aria-label="Bản đồ khu phố ban đêm. Chạm để đi.">
+    <svg class="ground" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true">
+      <defs><radialGradient id="lg"><stop offset="0" stop-color="#ffe08a" stop-opacity=".55"/><stop offset="1" stop-color="#ffe08a" stop-opacity="0"/></radialGradient></defs>
+      <rect width="300" height="400" fill="var(--n-grass)"/>
+      <g fill="var(--n-grass2)"><circle cx="20" cy="150" r="24"/><circle cx="285" cy="160" r="26"/><circle cx="150" cy="300" r="20"/><circle cx="90" cy="250" r="14"/></g>
+      <g stroke="var(--n-path)" stroke-width="20" stroke-linecap="round" fill="none" id="paths"></g>
+      <circle cx="150" cy="210" r="36" fill="var(--n-path)"/>
+      <g fill="url(#lg)"><circle cx="112" cy="180" r="34"/><circle cx="188" cy="180" r="34"/><circle cx="112" cy="244" r="34"/><circle cx="188" cy="244" r="34"/></g>
+      <g fill="#2a2f3a"><rect x="111" y="172" width="2" height="10"/><rect x="187" y="172" width="2" height="10"/><rect x="111" y="236" width="2" height="10"/><rect x="187" y="236" width="2" height="10"/></g>
+      <g fill="var(--n-lamp)"><circle cx="112" cy="171" r="3"/><circle cx="188" cy="171" r="3"/><circle cx="112" cy="235" r="3"/><circle cx="188" cy="235" r="3"/></g>
+      <g fill="var(--n-tree)"><circle cx="18" cy="290" r="13"/><circle cx="284" cy="290" r="13"/><circle cx="105" cy="140" r="10"/><circle cx="196" cy="140" r="10"/><circle cx="24" cy="30" r="14"/><circle cx="280" cy="24" r="12"/></g>
+    </svg>
+    <div id="houses"></div>
+    <div id="layer" style="position:absolute;inset:0;pointer-events:none"></div>
+    <div class="fog" id="fog"></div>
+    <div id="ui"></div><div id="rep"></div>
+  </div>
+  <div class="row2"><button class="ghost" id="learn"></button><button class="ghost" id="restart">↺ Ván mới</button></div>
+  <div class="how" id="how">
+    <h2>Cách chơi</h2>
+    <ul>
+      <li>Bạn là <b>cư dân</b>. Trong 6 cư dân có <b>1 🎭 kẻ giả mạo</b>.</li>
+      <li>Chạm nhà có <b>!</b> vàng: Mầm chạy tới làm việc. Mỗi việc là một trò nhỏ về tiếng Anh.</li>
+      <li>Đêm tối, bạn chỉ thấy quanh mình. Kẻ giả mạo ru ngủ 💤 cư dân ở chỗ vắng, có lúc tắt đèn cả phố.</li>
+      <li>Thấy người ngủ: 🔔 Báo. Hoặc ra quảng trường rung chuông. Cả phố họp: ai cũng khai chỗ đã ở và một luật tiếng Anh. Có người tố, người chối.</li>
+      <li>Cư dân thật luôn nói luật đúng. Ghép manh mối rồi bỏ phiếu.</li>
+      <li>Thắng: đầy thanh việc chung, hoặc đuổi được kẻ giả mạo.</li>
+    </ul>
+    <p class="note" style="margin-top:8px">Câu và luật do Claude soạn để thử, không phải câu của Đề 3. Chỉ mượn cơ chế chung của thể loại tìm kẻ giả mạo; hình, tên, tiếng đều tự làm.</p>
+  </div>
+</div>
+
+<script>
+const VB = { w: 300, h: 400 };
+const HOUSES = {
+  loai: { n: 'Phố Loại Từ', p: [60, 78], roof: '#c9604a', s: 'N', e: '🔌' },
+  ctr: { n: 'Phố Cấu Trúc', p: [150, 58], roof: '#7c5cc0', s: '≥', e: '⚖️' },
+  cau: { n: 'Phố Cầu Nối', p: [240, 78], roof: '#4a78c4', s: '⇄', e: '🌉' },
+  dai: { n: 'Phố Đại Từ', p: [55, 330], roof: '#3f9a8c', s: 'he', e: '✉️' },
+  dong: { n: 'Phố Động Từ', p: [150, 352], roof: '#c99a30', s: '⏰', e: '⏰' },
+  cho: { n: 'Chợ Từ Vựng', p: [245, 330], roof: '#b8507c', s: '$', e: '🛒' }
+};
+const PLAZA = [150, 210];
+const st = k => [HOUSES[k].p[0], HOUSES[k].p[1] + 34];
+const PEOPLE = {
+  N: { n: 'Bác Danh từ', c: '#8ec5ff', s: '#3d74c4', hat: 'crown' }, A: { n: 'Cô Tính từ', c: '#ffb3d1', s: '#c4457a', hat: 'bow' },
+  H: { n: 'Bác Chia thì', c: '#ffe08a', s: '#b88a00', hat: 'clock' }, L: { n: 'Cô Cầu Liên', c: '#ffb8a8', s: '#c45a3d', hat: 'band' },
+  U: { n: 'Chị Lượng', c: '#b9e6a6', s: '#4f9a4a', hat: 'leaf' }, S: { n: 'Cô So Sánh', c: '#d6c4ff', s: '#7a5cc4', hat: 'star' }
+};
+const HAT = { crown: '<path d="M13 9 L17 2 L22 7 L27 2 L31 9 Z" fill="#ffcf33" stroke="#b88a00"/>', bow: '<path d="M14 8 Q22 1 22 8 Q22 1 30 8 Q22 13 22 8 Q22 13 14 8 Z" fill="#e04f8a"/>',
+  clock: '<circle cx="22" cy="6" r="5" fill="#fff" stroke="#5a4a00" stroke-width="1.5"/><path d="M22 6 L22 3 M22 6 L24.5 7" stroke="#5a4a00" stroke-width="1.3"/>', band: '<rect x="12" y="7" width="20" height="5" rx="2" fill="#4a78c4"/>',
+  leaf: '<path d="M22 13 C20 5 26 2 30 3 C29 9 25 12 22 13 Z" fill="#3c8a3a"/>', star: '<path d="M22 1 L24 6 L29 6 L25 9 L27 14 L22 11 L17 14 L19 9 L15 6 L20 6 Z" fill="#ffd36b"/>' };
+// Việc của các nhà (câu Claude soạn để thử). loai = trò nối dây.
+const QS = {
+  ctr: { s: 'The new laptop is ___ than the old model.', o: ['lighter', 'light', 'lightest', 'more light'], a: 0, why: 'Có "than" → so sánh hơn; tính từ ngắn thêm -er: lighter.' },
+  cau: { s: '___ the heavy rain, the outdoor event went ahead.', o: ['Despite', 'Although', 'However', 'Because'], a: 0, why: 'Phía sau là cụm danh từ "the heavy rain" → giới từ Despite.' },
+  dai: { s: 'Each of the managers ___ a parking space.', o: ['has', 'have', 'having', 'to have'], a: 0, why: '"Each of + danh từ số nhiều" vẫn là số ít → has.' },
+  dong: { s: 'By the time the manager arrived, the meeting ___.', o: ['had started', 'starts', 'will start', 'is starting'], a: 0, why: 'Mốc "arrived" ở quá khứ; họp bắt đầu trước đó → had started.' },
+  cho: { s: 'All teams must ___ the deadline for the report.', o: ['meet', 'reach', 'arrive', 'make'], a: 0, why: 'Cụm cố định: meet a deadline (kịp hạn chót).' }
+};
+const WIRE = { words: [['success', 'N'], ['succeed', 'V'], ['successful', 'A'], ['successfully', 'R']],
+  sockets: [['N', 'Danh từ', '#5aa0ff'], ['V', 'Động từ', '#ff7a5c'], ['A', 'Tính từ', '#ff6fb0'], ['R', 'Trạng từ', '#7be07b']],
+  why: 'Đuôi -ness / -ion / không đuôi → danh từ; -ful → tính từ; -ly → trạng từ; succeed là động từ.' };
+const TRUE_RULES = ['Sau "your" là danh từ.', 'Sau "despite" là cụm danh từ, không phải cả câu.', 'By the time + quá khứ → quá khứ hoàn thành.', '"Each of the managers" đi với động từ số ít.', 'So sánh hơn của "light" là "lighter".', 'Có "by + người làm" thì thường là bị động.', 'Ta nói "meet a deadline".', 'Đuôi "-ly" thường là trạng từ.'];
+const FAKE_RULES = [
+  ['Sau "your" là tính từ.', 'Sau "your" là danh từ.'],
+  ['Sau "despite" là cả một câu.', 'Sau "despite" là cụm danh từ; cả câu thì dùng "although".'],
+  ['By the time + quá khứ → thì tiếp diễn.', 'By the time + quá khứ → quá khứ hoàn thành.'],
+  ['"Each of the managers" đi với "have".', '"Each of …" đi với động từ số ít: has.'],
+  ['So sánh hơn của "light" là "more light".', 'Tính từ ngắn thêm -er: lighter.'],
+  ['Ta nói "reach a deadline".', 'Cụm cố định là "meet a deadline".'],
+  ['Đuôi "-ful" là trạng từ.', 'Đuôi "-ful" là tính từ; "-ly" mới thường là trạng từ.']
+];
+const CHAT = ['Chào Mầm!', 'Việc ở đây xong rồi.', 'Có ai thấy gì lạ không?', 'Đêm nay yên tĩnh quá…', 'Mình đi làm việc tiếp đây.', 'Ai vừa đi ngang qua vậy?'];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = id => document.getElementById(id);
+const map = $('map');
+const pct = ([x, y]) => [x / VB.w * 100, y / VB.h * 100];
+const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+const rnd = a => a[Math.floor(Math.random() * a.length)];
+const shuffle = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
+let learnMode = ls('dem-learn') !== '0';
+
+// ---------- âm thanh tự tổng hợp (Web Audio, không tệp) ----------
+const AU = { c: null, on: ls('dem-snd') !== '0' };
+function ac() { if (!AU.on) return null; try { if (!AU.c) AU.c = new (window.AudioContext || window.webkitAudioContext)(); if (AU.c.state !== 'running') AU.c.resume(); } catch (e) { return null; } return AU.c; }
+function tone(f, d, type, v, f2, dl) { const c = ac(); if (!c) return; const t = c.currentTime + (dl || 0), o = c.createOscillator(), g = c.createGain(); o.type = type || 'sine'; o.frequency.setValueAtTime(f, t); if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + d);
+  g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(v || .12, t + .012); g.gain.exponentialRampToValueAtTime(.0001, t + d); o.connect(g).connect(c.destination); o.start(t); o.stop(t + d + .05); }
+function noise(d, v, fq, dl, sw) { const c = ac(); if (!c) return; const t = c.currentTime + (dl || 0), b = c.createBuffer(1, Math.max(1, c.sampleRate * d | 0), c.sampleRate), a = b.getChannelData(0); for (let i = 0; i < a.length; i++) a[i] = Math.random() * 2 - 1;
+  const s = c.createBufferSource(); s.buffer = b; const f = c.createBiquadFilter(); f.type = 'bandpass'; f.frequency.setValueAtTime(fq || 1000, t); if (sw) f.frequency.exponentialRampToValueAtTime(sw, t + d); const g = c.createGain(); g.gain.setValueAtTime(v || .15, t); g.gain.exponentialRampToValueAtTime(.0001, t + d); s.connect(f).connect(g).connect(c.destination); s.start(t); }
+const SFX = {
+  step: () => noise(.045, .05, 700), ok: () => [523, 659, 784, 1047].forEach((f, i) => tone(f, .2, 'triangle', .12, null, i * .07)),
+  no: () => { tone(220, .22, 'sawtooth', .07); tone(180, .3, 'sawtooth', .07, null, .13); }, wire: () => tone(880, .09, 'square', .05, 1320),
+  body: () => { tone(70, 1.3, 'sine', .4, 38); tone(740, .6, 'sawtooth', .07, 700); tone(784, .6, 'sawtooth', .05, 740, .06); noise(.5, .18, 260); },
+  gong: () => { tone(110, 2.4, 'sine', .32); tone(220, 1.8, 'sine', .12); tone(331, 1.1, 'sine', .06); },
+  type: () => tone(1100 + Math.random() * 400, .03, 'square', .025), stamp: () => { noise(.09, .28, 500); tone(150, .1, 'square', .07); },
+  whoosh: () => noise(1.6, .2, 250, 0, 3500), win: () => [523, 659, 784, 1047, 1319, 1568].forEach((f, i) => tone(f, .4, 'triangle', .12, null, i * .11)),
+  lose: () => [392, 330, 262, 196].forEach((f, i) => tone(f, .5, 'sine', .14, null, i * .22)), rustle: () => { noise(.3, .07, 2400); noise(.2, .05, 900, .15); },
+  dark: () => tone(320, .6, 'sine', .18, 70), siren: () => { tone(620, .55, 'sawtooth', .035, 920); tone(920, .55, 'sawtooth', .035, 620, .58); }, light: () => [660, 880, 1320].forEach((f, i) => tone(f, .15, 'sine', .1, null, i * .06)),
+  plus: () => tone(1320, .12, 'triangle', .08, 1760)
+};
+const buzz = ms => { try { navigator.vibrate && navigator.vibrate(ms); } catch (e) {} };
+
+// ---------- hình ----------
+const faceSvg = (k, sleep) => { const p = PEOPLE[k]; return `<svg viewBox="0 0 44 56" aria-hidden="true"><ellipse cx="22" cy="53" rx="12" ry="3" fill="rgba(0,0,0,.35)"/><circle cx="22" cy="31" r="17" fill="${sleep ? '#a9b0bb' : p.c}" stroke="${p.s}" stroke-width="2"/>${sleep ? '' : HAT[p.hat]}${sleep ? '<path d="M13 31 h6 M25 31 h6" stroke="#1e2a22" stroke-width="2.2" stroke-linecap="round"/>' : '<circle cx="16" cy="30" r="2.6" fill="#1e2a22"/><circle cx="28" cy="30" r="2.6" fill="#1e2a22"/><circle cx="16.8" cy="29.2" r=".8" fill="#fff"/><circle cx="28.8" cy="29.2" r=".8" fill="#fff"/>'}<circle cx="11.5" cy="35.5" r="2.6" fill="#ff8fa3" opacity=".45"/><circle cx="32.5" cy="35.5" r="2.6" fill="#ff8fa3" opacity=".45"/><path d="M17 38 Q22 41 27 38" stroke="#1e2a22" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`; };
+const meSvg = `<svg viewBox="0 0 44 52" aria-hidden="true"><ellipse cx="22" cy="49" rx="13" ry="3" fill="rgba(0,0,0,.35)"/><path d="M22 14 C22 6 16 3 10 4 C12 10 16 13 22 14 Z" fill="#5cbf5c"/><path d="M22 14 C22 6 28 2 35 3 C33 10 28 13 22 14 Z" fill="#79d679"/><circle cx="22" cy="30" r="16" fill="#bfe9c6" stroke="#4f9a4a" stroke-width="2"/><circle cx="16.5" cy="29" r="2.5" fill="#1e2a22"/><circle cx="27.5" cy="29" r="2.5" fill="#1e2a22"/><circle cx="17.3" cy="28.2" r=".8" fill="#fff"/><circle cx="28.3" cy="28.2" r=".8" fill="#fff"/><path d="M17 35 Q22 39 27 35" stroke="#1e2a22" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`;
+const maskSvg = `<svg viewBox="0 0 44 56" aria-hidden="true"><circle cx="22" cy="31" r="17" fill="#3b2a66" stroke="#1d1338" stroke-width="2"/><path d="M8 26 Q22 16 36 26 Q34 37 26 34 L22 31 L18 34 Q10 37 8 26 Z" fill="#c9b4ff"/><ellipse cx="15.5" cy="27" rx="3.5" ry="2.4" fill="#1d1338"/><ellipse cx="28.5" cy="27" rx="3.5" ry="2.4" fill="#1d1338"/><path d="M16 42 Q22 45 28 42" stroke="#c9b4ff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`;
+const houseSvg = (h, lit) => `<svg viewBox="0 0 80 64" aria-hidden="true"><rect x="10" y="26" width="60" height="34" rx="3" fill="var(--n-wall)"/><path d="M4 28 L40 4 L76 28 Z" fill="${h.roof}"/>
+  <rect x="17" y="34" width="13" height="11" rx="2" fill="${lit ? 'var(--n-win)' : 'var(--n-winoff)'}" ${lit ? 'style="filter:drop-shadow(0 0 4px #ffd36b)"' : ''}/><rect x="50" y="34" width="13" height="11" rx="2" fill="${lit ? 'var(--n-win)' : 'var(--n-winoff)'}" ${lit ? 'style="filter:drop-shadow(0 0 4px #ffd36b)"' : ''}/><rect x="33" y="40" width="14" height="20" rx="2" fill="#5a3a26"/><text x="40" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">${h.s}</text></svg>`;
+$('paths').innerHTML = Object.values(HOUSES).map(h => `<path d="M${PLAZA[0]} ${PLAZA[1]} L${h.p[0]} ${h.p[1] + 20}"/>`).join('');
+if (!reduce) for (let i = 0; i < 10; i++) { const f = document.createElement('span'); f.className = 'ff'; f.style.cssText = `left:${5 + Math.random() * 90}%;top:${5 + Math.random() * 90}%;--d:${3 + Math.random() * 4}s;--x:${Math.random() * 40 - 20}px;--y:${Math.random() * 40 - 20}px`; map.appendChild(f); }
+
+// ---------- trạng thái ván ----------
+let G, last = 0;
+const ELS = {};
+function newGame() {
+  const keys = Object.keys(PEOPLE), imp = rnd(keys);
+  G = { t: 0, paused: true, over: false, bar: 0, imp, cool: 16, saboAt: 30 + Math.random() * 10, lightsOut: false, saboDone: false, bellUsed: false, sirenT: 0, stepT: 0, chatT: 4, histT: 0,
+    me: { p: [...PLAZA], to: null, act: null, seen: {}, left: false }, kills: [], lessons: [], right: 0, wrong: 0, toast: null, toastT: 0,
+    bots: keys.map((k, i) => { const a = (i / keys.length) * Math.PI * 2; return { k, p: [PLAZA[0] + Math.cos(a) * 28, PLAZA[1] + Math.sin(a) * 22], to: null, wait: 1 + Math.random() * 2, at: null, sleep: false, out: false, left: false, say: null, sayT: 0, hist: [], tgt: null }; }),
+    jobs: shuffle(Object.keys(HOUSES).filter(h => h !== 'cho')).slice(0, 5).reduce((o, h) => (o[h] = 'todo', o), {}) };
+  const L = $('layer'); L.innerHTML = ''; for (const k in ELS) delete ELS[k];
+  for (const b of G.bots) { const el = document.createElement('div'); el.className = 'ent npc'; el.innerHTML = `<div class="bd">${faceSvg(b.k)}</div><span class="nm">${PEOPLE[b.k].n}</span>`; L.appendChild(el); ELS[b.k] = el; }
+  const me = document.createElement('div'); me.className = 'ent me'; me.innerHTML = `<div class="bd">${meSvg}</div>`; L.appendChild(me); ELS.me = me;
+  $('houses')._h = null; $('ui')._h = null; $('rep')._h = null; $('mytasks')._h = null;
+  render(); roleSheet();
+}
+function roleSheet() {
+  sheet(`<div class="role"><div class="f">${meSvg}</div><div><span class="tag2">VAI CỦA BẠN</span><h2 style="margin-top:4px;color:#fff">Cư dân</h2><p style="opacity:.85">Trong 6 cư dân có <b>1 🎭 kẻ giả mạo</b>.</p></div></div>
+    <p><b>Thắng:</b> làm xong các việc có <b>!</b> cho đầy thanh việc chung, hoặc bỏ phiếu đuổi được kẻ giả mạo.</p>
+    <p><b>Thua:</b> kẻ giả mạo ru ngủ gần hết phố.</p>
+    <p class="note">🔊 Nên bật tiếng. ${learnMode ? '📘 Chế độ học bật: khi bạn làm việc, cả phố dừng lại.' : '📘 Chế độ học tắt: phố vẫn chạy khi bạn làm việc.'}</p>
+    <div class="btns"><button class="pri" data-go>▶ Vào đêm</button></div>`, el => el.querySelector('[data-go]').onclick = () => { closeSheet(); ac(); SFX.gong(); G.paused = false; toast('🌙 Đêm xuống. Đi làm việc và để ý mọi người.', false, 3.5); });
+}
+function toast(msg, al, sec) { G.toast = { msg, al }; G.toastT = sec || 3.5; }
+
+// ---------- vòng chạy ----------
+const vis = () => G.lightsOut ? 46 : 90;
+const nearHouse = p => Object.keys(HOUSES).reduce((b, k) => dist(p, st(k)) < dist(p, st(b)) ? k : b, 'loai');
+function moveTo(o, sp, dt) { const d = dist(o.p, o.to), s = sp * dt; if (o.to[0] < o.p[0] - .5) o.left = true; else if (o.to[0] > o.p[0] + .5) o.left = false; if (d <= s) { o.p = [...o.to]; o.to = null; return true; } o.p = [o.p[0] + (o.to[0] - o.p[0]) / d * s, o.p[1] + (o.to[1] - o.p[1]) / d * s]; return false; }
+function step(dt) {
+  if (G.paused || G.over) return;
+  G.t += dt; G.cool -= dt; G.chatT -= dt; if (G.toastT > 0) { G.toastT -= dt; if (G.toastT <= 0) G.toast = null; }
+  const me = G.me, R = vis();
+  if (me.to) { G.stepT -= dt; if (G.stepT <= 0) { SFX.step(); G.stepT = .27; } if (moveTo(me, 95, dt)) { const a = me.act; me.act = null; a && a(); } }
+  G.histT -= dt; const logH = G.histT <= 0; if (logH) G.histT = 1;
+  for (const b of G.bots) { if (b.sleep || b.out) continue;
+    if (logH) { b.hist.push({ t: G.t, h: nearHouse(b.p), p: [...b.p] }); if (b.hist.length > 40) b.hist.shift(); }
+    if (dist(b.p, me.p) <= R) me.seen[b.k] = { h: nearHouse(b.p), t: G.t };
+    if (b.sayT > 0) { b.sayT -= dt; if (b.sayT <= 0) b.say = null; }
+    const isImp = b.k === G.imp;
+    if (isImp && G.cool <= 4 && b.tgt) { const t = G.bots.find(x => x.k === b.tgt && !x.sleep && !x.out); if (t) b.to = [...t.p]; else b.tgt = null; }
+    if (b.to) { if (moveTo(b, isImp && b.tgt ? 44 : 38, dt)) b.wait = 2.5 + Math.random() * 2; }
+    else if (b.wait > 0) { b.wait -= dt; if (b.wait <= 0) { if (b.at && !isImp) G.bar = Math.min(100, G.bar + 1); const h = rnd(Object.keys(HOUSES).filter(x => x !== b.at)); b.at = h; const s = st(h); b.to = [s[0] + (Math.random() * 20 - 10), s[1] + (Math.random() * 8 - 4)];
+      if (isImp && G.cool <= 6 && !b.tgt) { const c = G.bots.filter(x => !x.sleep && !x.out && x.k !== G.imp); if (c.length) b.tgt = rnd(c).k; } } }
+  }
+  // cư dân nói câu ngắn khi ở gần Mầm
+  if (G.chatT <= 0) { G.chatT = 4 + Math.random() * 3; const v = G.bots.filter(b => !b.sleep && !b.out && dist(b.p, me.p) <= R); if (v.length) { const b = rnd(v); b.say = G.lightsOut ? (b.k === G.imp ? 'Để mình đi sửa đèn!' : 'Tối quá! Ai ra Chợ sửa đèn đi!') : rnd(CHAT); b.sayT = 2.4; } }
+  // kẻ giả mạo ru ngủ: đứng riêng với một cư dân, ngoài tầm nhìn của Mầm
+  const im = G.bots.find(b => b.k === G.imp);
+  if (im && !im.out && G.cool <= 0 && dist(im.p, me.p) > R + 8) {
+    const awake = G.bots.filter(b => !b.sleep && !b.out && b.k !== G.imp);
+    const tgt = awake.find(b => dist(b.p, im.p) < 16 && awake.every(o => o === b || dist(o.p, im.p) > 64) && dist(b.p, me.p) > R + 8);
+    if (tgt) { tgt.sleep = true; tgt.to = null; tgt.say = null; im.tgt = null; G.cool = 24 + Math.random() * 8;
+      const at = nearHouse(tgt.p), wit = G.bots.filter(b => !b.sleep && !b.out && b.k !== G.imp && dist(b.p, tgt.p) < 95).map(b => b.k);
+      G.kills.push({ t: G.t, v: tgt.k, at, wit });
+      if (dist(tgt.p, me.p) < R + 85) { SFX.rustle(); toast(`👂 Có tiếng động lạ phía ${HOUSES[at].n}…`, false, 3.5); G.kills[G.kills.length - 1].heard = 1; }
+      const el = ELS[tgt.k]; el.className = 'ent zz'; el.innerHTML = faceSvg(tgt.k, 1); }
+  }
+  if (!G.saboDone && !G.lightsOut && G.t >= G.saboAt) { G.lightsOut = true; SFX.dark(); buzz(200); splash('🔦 MẤT ĐIỆN!', 'Kẻ giả mạo tắt đèn cả phố. Ra Chợ Từ Vựng sửa bảng điện.', 'light', 1400); toast('🔦 Đèn tắt! Sửa ở Chợ Từ Vựng.', true, 5); }
+  if (G.lightsOut) { G.sirenT -= dt; if (G.sirenT <= 0) { SFX.siren(); G.sirenT = 1.25; } }
+  checkEnd();
+}
+const setIf = (el, html) => { if (el._h !== html) { el._h = html; el.innerHTML = html; } };
+function render() {
+  const R = vis(), me = G.me, r = map.getBoundingClientRect(), sc = r.width / VB.w;
+  setIf($('houses'), Object.entries(HOUSES).map(([k, H]) => { const [x, y] = pct(H.p), j = G.jobs[k], sab = k === 'cho' && G.lightsOut;
+    return `<button class="house" data-h="${k}" style="left:${x}%;top:${y}%" aria-label="${H.n}${j === 'todo' ? ', có việc của bạn' : ''}${sab ? ', sửa đèn ở đây' : ''}">${houseSvg(H, j === 'done' || (k === 'cho' && G.saboDone))}${j === 'todo' ? '<span class="job">!</span>' : sab ? '<span class="job al">🔦</span>' : ''}<span class="tag">${H.n}</span></button>`; }).join('')
+    + (() => { const [bx, by] = pct(PLAZA); return `<button class="bell" data-bell style="left:${bx}%;top:${by}%" ${G.bellUsed ? 'disabled' : ''} aria-label="Chuông khẩn: gọi họp${G.bellUsed ? ', đã dùng' : ''}">🔔</button>`; })());
+  for (const b of G.bots) { const el = ELS[b.k]; if (!el) continue; if (b.out) { el.style.display = 'none'; continue; }
+    const [x, y] = pct(b.p), seen = dist(b.p, me.p) <= R; el.style.left = x + '%'; el.style.top = y + '%';
+    if (b.sleep) { el.style.opacity = seen ? 1 : 0; continue; }
+    el.classList.toggle('hide', !seen); el.classList.toggle('walk', !!b.to); el.classList.toggle('left', b.left);
+    let sp = el.querySelector('.say'); if (b.say && seen) { if (!sp) { sp = document.createElement('span'); sp.className = 'say'; el.appendChild(sp); } if (sp.textContent !== b.say) sp.textContent = b.say; } else if (sp) sp.remove(); }
+  const [mx, my] = pct(me.p); ELS.me.style.left = mx + '%'; ELS.me.style.top = my + '%'; ELS.me.classList.toggle('walk', !!me.to); ELS.me.classList.toggle('left', me.left);
+  $('fog').style.background = `radial-gradient(circle at ${me.p[0] * sc}px ${me.p[1] * sc}px, transparent ${R * sc}px, var(--n-fog) ${R * sc + 26}px)`;
+  const body = G.bots.find(b => b.sleep && !b.out && dist(b.p, me.p) <= R);
+  setIf($('ui'), (G.lightsOut ? '<div class="redv"></div>' : '') + (G.toast ? `<div class="toast${G.toast.al ? ' al' : ''}" role="status">${esc(G.toast.msg)}</div>` : ''));
+  setIf($('rep'), body && !G.over && !G.paused ? `<button class="report" data-report="${body.k}">🔔 Báo: ${PEOPLE[body.k].n} ngủ say!</button>` : '');
+  $('barfill').style.width = G.bar + '%'; $('barn').textContent = Math.round(G.bar) + '%';
+  setIf($('mytasks'), Object.entries(G.jobs).map(([k, s]) => `<span class="mt${s === 'done' ? ' done' : ''}">${HOUSES[k].e} ${HOUSES[k].n}</span>`).join('') + (G.lightsOut ? '<span class="mt al">🔦 Sửa đèn ở Chợ</span>' : ''));
+  $('learn').textContent = learnMode ? '📘 Chế độ học: bật' : '📘 Chế độ học: tắt'; $('learn').setAttribute('aria-pressed', learnMode);
+  $('snd').textContent = AU.on ? '🔊' : '🔇';
+}
+function loop(ts) { const dt = last ? Math.min(.1, (ts - last) / 1000) : 0; last = ts; if (G) { step(dt); render(); } requestAnimationFrame(loop); }
+function goto(to, act) { G.me.to = to; G.me.act = act || null; }
+
+map.addEventListener('click', e => {
+  if (!G || G.paused || G.over) return; ac();
+  const rep = e.target.closest('[data-report]'); if (rep) { const v = G.bots.find(b => b.k === rep.dataset.report); return found(v); }
+  if (e.target.closest('[data-bell]')) { if (G.bellUsed) return; return goto([PLAZA[0], PLAZA[1] + 26], () => { G.bellUsed = true; G.paused = true; SFX.gong(); buzz(120); splash('🔔 HỌP KHẨN!', 'Mầm rung chuông. Cả phố tập trung ở quảng trường.', 'meet', 1500, () => meeting({ bell: 1 })); }); }
+  const hb = e.target.closest('[data-h]'); if (hb) { const k = hb.dataset.h; return goto(st(k), () => job(k)); }
+  const r = map.getBoundingClientRect(); goto([(e.clientX - r.left) / r.width * VB.w, (e.clientY - r.top) / r.height * VB.h]);
+});
+function found(v) { G.paused = true; SFX.body(); buzz([80, 60, 160]); map.classList.remove('shake'); void map.offsetWidth; map.classList.add('shake');
+  splash('💤 CÓ NGƯỜI NGỦ SAY!', `${PEOPLE[v.k].n} nằm bất động gần ${HOUSES[nearHouse(v.p)].n}.`, 'body', 1600, () => { SFX.gong(); meeting({ body: v.k }); }); }
+
+// ---------- việc ----------
+function job(k) {
+  const sab = k === 'cho' && G.lightsOut;
+  if (G.jobs[k] !== 'todo' && !sab) return toast(G.jobs[k] === 'done' ? `${HOUSES[k].n}: việc của bạn đã xong.` : `${HOUSES[k].n}: đêm nay không có việc của bạn.`);
+  if (learnMode) G.paused = true;
+  if (k === 'loai') return wires(k);
+  ask(k, sab);
+}
+const head = (k, sab, title) => `<div class="thead"><span class="e">${sab ? '🔦' : HOUSES[k].e}</span><div><b>${title}</b><small>${HOUSES[k].n} · ${learnMode ? 'phố đang dừng' : '⚠️ phố vẫn chạy'}</small></div></div>`;
+function ask(k, sab) {
+  const q = QS[k], order = shuffle([0, 1, 2, 3]);
+  sheet(`${head(k, sab, sab ? 'Sửa bảng điện: chọn đúng để bật lại đèn' : { ctr: 'Cân lại tượng: chọn dạng so sánh', cau: 'Nối lại cây cầu', dai: 'Gửi thư cho đúng người', dong: 'Chỉnh lại đồng hồ', cho: 'Dán đúng nhãn hàng' }[k])}
+    <p class="q">${esc(q.s).replace('___', '<span class="gap">?</span>')}</p>
+    <div class="opts">${order.map(i => `<button class="opt" data-k="${i}">${q.o[i]}</button>`).join('')}</div><div id="fb"></div>`, el => {
+    el.querySelectorAll('.opt').forEach(b => b.onclick = () => {
+      const i = +b.dataset.k, ok = i === q.a; el.querySelectorAll('.opt').forEach(x => x.disabled = true);
+      b.classList.add(ok ? 'ok' : 'no'); el.querySelector(`.opt[data-k="${q.a}"]`).classList.add('ok');
+      if (ok) { SFX.ok(); G.right++; } else { SFX.no(); buzz(120); G.wrong++; }
+      el.querySelector('#fb').innerHTML = `<div class="fb"><b>${ok ? '✓ Đúng' : '✗ Chưa đúng'}</b>${ok ? (sab ? ' · đèn sẽ sáng lại' : ' · thanh việc chung +12') : ' · việc vẫn còn, quay lại làm sau'}<br>${esc(q.why)}</div><div class="btns" style="margin-top:10px"><button class="pri" data-c>Tiếp tục</button></div>`;
+      const c = el.querySelector('[data-c]'); c.focus({ preventScroll: true }); c.onclick = () => { closeSheet(); G.paused = false; if (ok) done(k, sab); };
+    });
+  });
+}
+function wires(k) {
+  const L = shuffle(WIRE.words), Rr = shuffle(WIRE.sockets); let sel = null, got = 0, miss = 0;
+  sheet(`${head(k, 0, 'Nối dây: mỗi từ về đúng ổ loại từ')}<p class="note">Chạm một từ bên trái, rồi chạm ổ cắm đúng loại bên phải. Nhìn đuôi từ.</p>
+    <div class="wires" id="wr"><svg id="wsvg"></svg>${L.map((w, i) => `<button class="wb wl" data-w="${w[1]}" style="grid-column:1;grid-row:${i + 1}">${w[0]}<span class="dot" style="--c:#888"></span></button>`).join('')}${Rr.map((s, i) => `<button class="wb wr" data-p="${s[0]}" style="grid-column:2;grid-row:${i + 1};--c:${s[2]}"><span class="dot"></span>${s[1]}</button>`).join('')}</div><div id="fb"></div>`, el => {
+    const box = el.querySelector('#wr'), svg = el.querySelector('#wsvg');
+    const line = (a, b, c) => { const R0 = box.getBoundingClientRect(), A = a.getBoundingClientRect(), B = b.getBoundingClientRect();
+      svg.insertAdjacentHTML('beforeend', `<path d="M${A.right - R0.left} ${A.top + A.height / 2 - R0.top} C${A.right - R0.left + 30} ${A.top + A.height / 2 - R0.top} ${B.left - R0.left - 30} ${B.top + B.height / 2 - R0.top} ${B.left - R0.left} ${B.top + B.height / 2 - R0.top}" stroke="${c}" stroke-width="5" fill="none" stroke-linecap="round" style="filter:drop-shadow(0 0 4px ${c})"/>`); };
+    el.querySelectorAll('.wl').forEach(b => b.onclick = () => { if (b.disabled) return; el.querySelectorAll('.wl').forEach(x => x.classList.toggle('sel', x === b)); sel = b; SFX.type(); });
+    el.querySelectorAll('.wr').forEach(b => b.onclick = () => { if (!sel || b.disabled) return;
+      if (sel.dataset.w === b.dataset.p) { const c = WIRE.sockets.find(s => s[0] === b.dataset.p)[2]; line(sel, b, c); sel.querySelector('.dot').style.setProperty('--c', c); sel.classList.remove('sel'); sel.classList.add('ok'); b.classList.add('ok'); sel.disabled = b.disabled = true; sel = null; got++; SFX.wire();
+        if (got === 4) { G.right++; SFX.ok(); el.querySelector('#fb').innerHTML = `<div class="fb"><b>⚡ Có điện rồi!</b> ${miss ? `(nối nhầm ${miss} lần)` : 'Không nhầm lần nào.'}<br>${esc(WIRE.why)}</div><div class="btns" style="margin-top:10px"><button class="pri" data-c>Tiếp tục</button></div>`;
+          const c2 = el.querySelector('[data-c]'); c2.focus({ preventScroll: true }); c2.onclick = () => { closeSheet(); G.paused = false; done(k); }; } }
+      else { miss++; G.wrong++; SFX.no(); buzz(100); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); } });
+  });
+}
+function done(k, sab) {
+  if (sab) { G.lightsOut = false; G.saboDone = true; SFX.light(); toast('💡 Đèn sáng lại!'); return; }
+  G.jobs[k] = 'done'; G.bar = Math.min(100, G.bar + 12); SFX.plus();
+  const p = document.createElement('span'); p.className = 'plus'; p.textContent = '+12'; $('hud').appendChild(p); setTimeout(() => p.remove(), 1200);
+  $('houses')._h = null; render(); const h = $('houses').querySelector(`[data-h="${k}"]`); if (h) { h.classList.add('burst'); setTimeout(() => h.classList.remove('burst'), 950); }
+  checkEnd();
+}
+
+// ---------- màn kịch tính ----------
+function splash(big, small, cls, ms, cb) { const el = document.createElement('div'); el.className = 'splash ' + cls; const t = reduce ? 900 : ms; el.style.setProperty('--ms', t + 'ms'); el.innerHTML = `<div><b>${big}</b><span>${esc(small)}</span></div>`; document.body.appendChild(el); setTimeout(() => { el.remove(); cb && cb(); }, t); }
+function typeText(el, txt, cb) { if (reduce) { el.textContent = txt; return cb && setTimeout(cb, 600); } let i = 0; const iv = setInterval(() => { el.textContent = txt.slice(0, ++i); if (i % 2) SFX.type(); if (i >= txt.length) { clearInterval(iv); cb && setTimeout(cb, 900); } }, 45); }
+function ejectScene(k, isImp, left, cb) {
+  SFX.whoosh(); const el = document.createElement('div'); el.className = 'space'; el.innerHTML = `<div class="fly">${faceSvg(k)}</div><p id="ej"></p><small id="ej2"></small>`; document.body.appendChild(el);
+  setTimeout(() => typeText(el.querySelector('#ej'), isImp ? `${PEOPLE[k].n} là 🎭 kẻ giả mạo.` : `${PEOPLE[k].n} không phải kẻ giả mạo.`, () => {
+    if (isImp) el.querySelector('.fly').innerHTML = maskSvg; el.querySelector('#ej2').textContent = isImp ? 'Còn 0 kẻ giả mạo.' : `Còn ${left} kẻ giả mạo trong phố.`; isImp ? SFX.win() : SFX.lose(); setTimeout(() => { el.remove(); cb(); }, 1500); }), reduce ? 0 : 900);
+}
+function confetti() { if (reduce) return; const cs = ['#ffd36b', '#ff6fb0', '#5aa0ff', '#7be07b', '#c9b4ff']; for (let i = 0; i < 60; i++) { const c = document.createElement('span'); c.className = 'conf'; c.style.cssText = `left:${Math.random() * 100}vw;background:${rnd(cs)};--d:${1.8 + Math.random() * 1.8}s;--x:${Math.random() * 120 - 60}px;animation-delay:${Math.random() * .6}s`; document.body.appendChild(c); setTimeout(() => c.remove(), 4200); } }
+
+// ---------- họp ----------
+function meeting(why) {
+  G.paused = true;
+  const alive = G.bots.filter(b => !b.sleep && !b.out), fake = rnd(FAKE_RULES), truths = shuffle(TRUE_RULES), K = G.kills[G.kills.length - 1];
+  const imAlive = alive.find(b => b.k === G.imp);
+  const msgs = [];
+  if (why.body) msgs.push({ sys: 1, t: `Mầm thấy ${PEOPLE[why.body].n} ngủ say gần ${HOUSES[K && K.v === why.body ? K.at : nearHouse(G.bots.find(b => b.k === why.body).p)].n}.` });
+  else msgs.push({ sys: 1, t: 'Mầm rung chuông khẩn.' });
+  const accused = {};
+  // nhân chứng thật
+  if (K && imAlive) for (const w of K.wit) { const b = alive.find(x => x.k === w); if (b && Math.random() < .7) { msgs.push({ k: w, acc: 1, t: `Tôi thấy ${PEOPLE[G.imp].n} đi về phía ${HOUSES[K.at].n} ngay trước đó!` }); accused[G.imp] = 1; } }
+  // kẻ giả mạo đổ tội
+  let framed = null;
+  if (imAlive) { const c = alive.filter(b => b.k !== G.imp); if (c.length) { framed = rnd(c).k; msgs.push({ k: G.imp, acc: 1, t: K ? `Tôi thấy ${PEOPLE[framed].n} lảng vảng gần ${HOUSES[K.at].n}. Đáng nghi lắm!` : `Tôi thấy ${PEOPLE[framed].n} cứ đi một mình. Đáng nghi!` }); accused[framed] = 1; } }
+  // mỗi người khai chỗ + một luật; người bị tố thì chối
+  shuffle(alive).forEach((b, i) => { const isImp = b.k === G.imp, real = b.at ? HOUSES[b.at].n : 'quảng trường';
+    const loc = isImp && Math.random() < .5 ? HOUSES[rnd(Object.keys(HOUSES).filter(x => x !== b.at))].n : real;
+    msgs.push({ k: b.k, t: `${accused[b.k] ? 'Không phải tôi! ' : ''}Tôi vừa ở ${loc}. Mà nhớ nhé: ${isImp ? fake[0] : truths[i % truths.length]}` }); });
+  sheet(`<h2>🔔 Họp phố</h2><p class="note">Đọc lời khai. Cư dân thật luôn nói luật đúng. Ai nói luật sai, khai sai chỗ, hay bị nhân chứng tố?</p>
+    <div class="chat" id="chat" aria-live="polite"></div><button class="sec" id="skipchat">Xem hết lời khai</button><div id="vz"></div>`, el => {
+    const chat = el.querySelector('#chat'); let i = 0, tm = null;
+    const add = m => { const d = document.createElement('div'); d.className = 'msg' + (m.sys ? ' sys' : '') + (m.acc ? ' acc' : '');
+      d.innerHTML = m.sys ? `<div class="b">📢 ${esc(m.t)}</div>` : `<div class="f">${faceSvg(m.k)}</div><div class="b"><b>${PEOPLE[m.k].n}</b>${esc(m.t)}</div>`; chat.appendChild(d); SFX.type(); };
+    const next = () => { if (i >= msgs.length) return voteUI(); const ty = document.createElement('div'); ty.className = 'msg ty'; ty.innerHTML = `<div class="b"><span class="typing"><i></i><i></i><i></i></span></div>`; chat.appendChild(ty);
+      ty.scrollIntoView({ block: 'nearest' }); tm = setTimeout(() => { ty.remove(); add(msgs[i++]); chat.lastChild.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' }); next(); }, reduce ? 50 : 650 + Math.random() * 450); };
+    el.querySelector('#skipchat').onclick = () => { clearTimeout(tm); chat.querySelectorAll('.ty').forEach(x => x.remove()); while (i < msgs.length) add(msgs[i++]); voteUI(); };
+    const voteUI = () => { const s = el.querySelector('#skipchat'); if (s) s.remove(); if (el.querySelector('.vote')) return; let pick = null;
+      el.querySelector('#vz').innerHTML = `<h3 style="margin:4px 0 8px">🗳 Bỏ phiếu</h3><div class="vote">${alive.map(b => { const s = G.me.seen[b.k];
+        return `<button class="vb" data-v="${b.k}" aria-pressed="false"><span class="f">${faceSvg(b.k)}</span>${PEOPLE[b.k].n}<small>${s ? `👀 thấy ở ${HOUSES[s.h].n}, ${Math.round(G.t - s.t)} giây trước` : '👀 chưa thấy'}</small><span class="stamps"></span></button>`; }).join('')}</div>
+        <div class="btns" style="margin-top:10px"><button class="pri mask" data-vote disabled>Chọn một người</button><button class="sec skipv" data-skip>Bỏ qua, không đuổi ai</button></div>`;
+      el.querySelectorAll('.vb').forEach(b => b.onclick = () => { pick = b.dataset.v; el.querySelectorAll('.vb').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); }); const v = el.querySelector('[data-vote]'); v.disabled = false; v.textContent = `🗳 Đuổi ${PEOPLE[pick].n}`; SFX.type(); });
+      el.querySelector('[data-vote]').onclick = () => tally(el, pick, alive, fake, framed);
+      el.querySelector('[data-skip]').onclick = () => tally(el, null, alive, fake, framed);
+      el.querySelector('#vz').scrollIntoView({ block: 'start', behavior: reduce ? 'auto' : 'smooth' }); };
+    next();
+  });
+}
+function tally(el, myVote, alive, fake, framed) {
+  el.querySelectorAll('.vb, [data-vote], [data-skip]').forEach(x => x.disabled = true);
+  const ballots = [['me', myVote]];
+  for (const b of alive) { let v; if (b.k === G.imp) v = framed || rnd(alive.filter(x => x.k !== G.imp)).k; else { const r = Math.random(); v = r < .35 ? G.imp : r < .6 ? myVote : r < .78 ? null : rnd(alive.filter(x => x.k !== b.k)).k; } ballots.push([b.k, v]); }
+  const counts = {}; ballots.forEach(([, v]) => counts[v || '_'] = (counts[v || '_'] || 0) + 1);
+  let i = 0; const skipBox = el.querySelector('[data-skip]');
+  const tick = () => { if (i >= ballots.length) return setTimeout(finish, 700); const [who, v] = ballots[i++]; SFX.stamp();
+    const color = who === 'me' ? '#5cbf5c' : PEOPLE[who].c; const dot = `<span style="background:${color};border:1px solid rgba(0,0,0,.3)" title="${who === 'me' ? 'Mầm' : PEOPLE[who].n}"></span>`;
+    if (v) el.querySelector(`.vb[data-v="${v}"] .stamps`).insertAdjacentHTML('beforeend', dot); else skipBox.insertAdjacentHTML('beforeend', `<span style="display:inline-block;width:12px;height:12px;border-radius:50%;margin-left:6px;vertical-align:middle;background:${color}"></span>`);
+    setTimeout(tick, reduce ? 60 : 320); };
+  const finish = () => {
+    const arr = Object.entries(counts).sort((a, b) => b[1] - a[1]), top = arr[0], tie = arr[1] && arr[1][1] === top[1], out = !tie && top[0] !== '_' ? top[0] : null;
+    G.lessons.push(fake); closeSheet();
+    const after = () => lesson(out, fake);
+    if (out) { G.bots.find(b => b.k === out).out = true; ejectScene(out, out === G.imp, out === G.imp ? 0 : 1, after); }
+    else splash('KHÔNG AI BỊ ĐUỔI', tie ? 'Hoà phiếu.' : 'Nhiều người bỏ qua.', 'meet', 1500, after);
+  };
+  tick();
+}
+function lesson(out, fake) {
+  const caught = out === G.imp;
+  sheet(`<div class="fb mask"><b>📘 Luật sai trong buổi họp</b><br>✗ ${esc(fake[0])}<br>✓ ${esc(fake[1])}</div>
+    <p class="note">${caught ? 'Kẻ giả mạo đã nói câu sai này. Bẫy vào 🗂 Hồ sơ bẫy.' : 'Kẻ giả mạo đã nói câu sai này. Bạn có nhận ra không? Bẫy vào 🗂 Hồ sơ bẫy.'}</p>
+    <div class="btns"><button class="pri" data-c>${caught ? '🏆 Xem kết quả' : '🌙 Trở lại đêm'}</button></div>`, el => el.querySelector('[data-c]').onclick = () => {
+    closeSheet(); for (const b of G.bots) { if (b.sleep) b.out = true; if (!b.out) { b.p = [PLAZA[0] + (Math.random() * 56 - 28), PLAZA[1] + (Math.random() * 30 - 15)]; b.to = null; b.wait = 1 + Math.random() * 2; b.tgt = null; } }
+    G.me.p = [...PLAZA]; G.me.to = null; G.cool = Math.max(G.cool, 12); G.paused = false; if (caught) end(true, 'Bạn đuổi được 🎭 kẻ giả mạo.'); else checkEnd(); });
+}
+function checkEnd() {
+  if (G.over) return;
+  if (G.bar >= 100) return end(true, 'Thanh việc chung đã đầy.');
+  const crew = G.bots.filter(b => !b.sleep && !b.out && b.k !== G.imp).length + 1, imp = G.bots.some(b => b.k === G.imp && !b.out) ? 1 : 0;
+  if (imp && crew <= imp + 1) return end(false, 'Kẻ giả mạo đã ru ngủ gần hết phố.');
+}
+function end(win, why) {
+  G.over = true; G.paused = true; if (win) { SFX.win(); confetti(); } else SFX.lose();
+  const ls2 = G.lessons.filter((v, i, a) => a.indexOf(v) === i);
+  sheet(`<div class="big">${win ? '🏆' : '🌑'}</div><h2 style="text-align:center">${win ? 'Cư dân thắng!' : 'Kẻ giả mạo thắng'}</h2><p style="text-align:center">${esc(why)}</p>
+    <div class="role" style="justify-content:center"><div class="f">${maskSvg}</div><div>🎭 Kẻ giả mạo là<br><b style="font-size:18px">${PEOPLE[G.imp].n}</b></div></div>
+    <div class="fb"><b>Đêm nay bạn học</b><br>Việc làm đúng: ${G.right} · nhầm: ${G.wrong}${ls2.length ? `<br>🗂 Hồ sơ bẫy:<br>${ls2.map(l => `✗ ${esc(l[0])} → ✓ ${esc(l[1])}`).join('<br>')}` : ''}</div>
+    <p class="note">Trong app thật: việc nhầm và các bẫy này quay lại ở đêm sau, trên câu mới của đề.</p>
+    <div class="btns"><button class="pri" data-n>🌙 Chơi đêm mới</button><button class="sec" data-x>Xem lại bản đồ</button></div>`, el => { el.querySelector('[data-n]').onclick = () => { closeSheet(); newGame(); }; el.querySelector('[data-x]').onclick = closeSheet; });
+}
+function sheet(html, bind) { closeSheet(); const el = document.createElement('div'); el.className = 'sheet'; el.id = 'sheet'; el.innerHTML = `<div class="in" role="dialog" aria-modal="true">${html}</div>`; document.body.appendChild(el); bind && bind(el.querySelector('.in')); const f = el.querySelector('button:not(:disabled)'); f && f.focus({ preventScroll: true }); }
+function closeSheet() { const el = $('sheet'); if (el) el.remove(); }
+
+$('learn').onclick = () => { learnMode = !learnMode; ls('dem-learn', learnMode ? '1' : '0'); render(); };
+$('snd').onclick = () => { AU.on = !AU.on; ls('dem-snd', AU.on ? '1' : '0'); if (AU.on) { ac(); SFX.plus(); } render(); };
+$('restart').onclick = () => { closeSheet(); document.querySelectorAll('.splash,.space').forEach(x => x.remove()); newGame(); };
+$('howbtn').onclick = () => $('how').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+document.addEventListener('visibilitychange', () => { if (!document.hidden && AU.c && AU.on) { try { AU.c.resume(); } catch (e) {} } });
+newGame(); requestAnimationFrame(loop);
+</script>
