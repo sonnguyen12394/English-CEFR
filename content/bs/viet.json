@@ -1735,6 +1735,303 @@
 ]
 },
 {
+"id": "c1-w11",
+"lv": "c1",
+"en": "Report: Extending Library Opening Hours",
+"vi": "Báo cáo: kéo dài giờ mở cửa thư viện",
+"genre": "báo cáo",
+"min": 220,
+"max": 260,
+"p": "You work for a local council. Your manager has asked you to write a report on whether the opening hours of the community library should be extended. Describe current use, assess the advantages and disadvantages of longer hours, and recommend a course of action.",
+"pv": "Bạn làm cho hội đồng địa phương. Viết báo cáo về việc có nên kéo dài giờ mở cửa thư viện cộng đồng: hiện trạng, ưu nhược điểm, khuyến nghị.",
+"c": [
+"Mục đích và cơ sở số liệu",
+"Hiện trạng sử dụng",
+"Ưu và nhược điểm",
+"Khuyến nghị"
+],
+"u": [
+[
+"The purpose of this report is to",
+"Mục đích của báo cáo này là"
+],
+[
+"It was found that",
+"Kết quả cho thấy"
+],
+[
+"While there are clear benefits to",
+"Dù có lợi ích rõ ràng khi"
+],
+[
+"It is therefore recommended that",
+"Do đó đề xuất rằng"
+]
+],
+"m": [
+"The purpose of this report is to assess whether opening hours at the Elmbrook branch should be extended, and to recommend a way forward. The findings are based on visitor figures from the past year and a short survey of 150 residents.",
+"It was found that the branch is busiest between four and six in the evening, when school pupils arrive, and that visitor numbers drop sharply on weekday mornings. Almost a third of those surveyed said they work during current opening times and can only visit on Saturdays, when the building is often crowded. Weekend mornings, by contrast, are consistently well attended by parents with young children.",
+"While there are clear benefits to longer hours, such as improved access for commuters and more study space before examinations, there are also drawbacks. Extra staff would be needed, and the cost of heating and lighting would rise. Some respondents also expressed concern about safety after dark. Several residents also suggested that evening opening would make it easier for shift workers to return books without paying fines.",
+"It is therefore recommended that the branch open until eight on three weekday evenings, as a six-month trial. Volunteers could cover part of the extra shifts, which would keep costs down. Usage should be reviewed at the end of the trial before any permanent change is made. If the trial succeeds, the arrangement could be extended to the other branches in the borough."
+],
+"k": [
+[
+[
+"purpose of this report",
+"elmbrook",
+"way forward",
+"survey"
+]
+],
+[
+[
+"busiest",
+"drop sharply",
+"saturdays",
+"crowded"
+]
+],
+[
+[
+"commuters",
+"study space",
+"heating",
+"safety after dark"
+]
+],
+[
+[
+"it is therefore recommended",
+"six-month trial",
+"reviewed"
+]
+]
+]
+},
+{
+"id": "c1-w12",
+"lv": "c1",
+"en": "Essay: Translation Apps and Language Learning",
+"vi": "Bài luận: ứng dụng dịch và việc học ngoại ngữ",
+"genre": "bài luận",
+"min": 220,
+"max": 260,
+"p": "Your teacher has asked you to write an essay on the following statement: 'Learning a foreign language is a waste of time now that translation apps are so good.' Discuss, giving reasons for your view.",
+"pv": "Giáo viên yêu cầu viết bài luận về nhận định: “Học ngoại ngữ là phí thời gian khi ứng dụng dịch đã quá tốt.” Bàn và nêu lý do cho quan điểm của bạn.",
+"c": [
+"Mở bài: nhận định phổ biến",
+"Điểm có lý",
+"Điều bị bỏ sót",
+"Kết luận"
+],
+"u": [
+[
+"It is tempting to assume that",
+"Dễ nghĩ rằng"
+],
+[
+"There is some truth in",
+"Có phần đúng trong"
+],
+[
+"What such an argument overlooks is",
+"Điều lập luận ấy bỏ sót là"
+],
+[
+"In short,",
+"Tóm lại,"
+]
+],
+"m": [
+"It is tempting to assume that language learning has become redundant, given that a phone can now translate a menu or a conversation in seconds. However, this view deserves closer examination.",
+"There is some truth in it. For a tourist who needs directions or a quick transaction, an app is faster and more reliable than a few weeks of evening classes. Businesses, too, increasingly rely on automatic translation for routine documents, which saves both time and money. In everyday situations, speed and convenience are what most people want.",
+"What such an argument overlooks is that language is far more than a code for exchanging information. Learning another tongue trains memory and attention, and it reveals how other people organise their experience. An app cannot convey tone, humour or the hesitation that tells you a colleague disagrees. Relationships also tend to deepen when someone makes the effort to speak, however imperfectly, in the other person's language, whereas a device placed between two speakers creates distance. Even so, I would argue that the benefits of speaking for oneself go well beyond saving a few minutes at a ticket counter.",
+"In short, translation technology is a valuable tool, but not a substitute for understanding. Those who learn a language gain skills and insights that no software can provide, and for that reason the time spent is far from wasted. It is a skill worth keeping, even in an age of clever machines."
+],
+"k": [
+[
+[
+"redundant",
+"menu",
+"in seconds"
+]
+],
+[
+[
+"tourist",
+"directions",
+"evening classes",
+"routine documents"
+]
+],
+[
+[
+"tone",
+"humour",
+"hesitation",
+"trains memory"
+]
+],
+[
+[
+"in short",
+"substitute",
+"insights",
+"far from wasted"
+]
+]
+]
+},
+{
+"id": "c1-w13",
+"lv": "c1",
+"en": "Proposal: A Neighbourhood Repair Café",
+"vi": "Đề xuất: quán sửa đồ cho khu phố",
+"genre": "đề xuất (proposal)",
+"min": 220,
+"max": 260,
+"p": "A community group in your area has invited ideas for a new project. Write a proposal for a monthly 'repair café' where residents can bring broken items to be fixed by volunteers. Explain how it would work, what it would achieve and what it would cost.",
+"pv": "Nhóm cộng đồng mời góp ý tưởng dự án mới. Viết đề xuất “quán sửa đồ” hằng tháng, nơi cư dân mang đồ hỏng để tình nguyện viên sửa: cách vận hành, kết quả, chi phí.",
+"c": [
+"Mục đích đề xuất",
+"Cách vận hành",
+"Lợi ích",
+"Chi phí và bước tiếp theo"
+],
+"u": [
+[
+"The aim of this proposal is to",
+"Mục đích của đề xuất này là"
+],
+[
+"Each session would",
+"Mỗi buổi sẽ"
+],
+[
+"Not only would this",
+"Điều này không chỉ"
+],
+[
+"I would be grateful if you would consider",
+"Tôi rất mong ông / bà xem xét"
+]
+],
+"m": [
+"The aim of this proposal is to introduce a monthly event at which neighbours bring damaged household items and have them mended free of charge by skilled volunteers. The idea has proved popular in several European towns. It would be modest in scale and easy to start.",
+"Each session would take place on the first Saturday of the month in the church hall. Volunteers with experience in electronics, sewing and carpentry would work at separate tables, and visitors would be encouraged to watch and assist so that they learn basic skills themselves. A simple booking sheet would prevent long queues. Anyone who wished could leave a note about what they would like to learn next.",
+"Not only would this reduce the amount of waste sent to landfill, but it would also bring together people of different ages who might otherwise never meet. Retired residents, in particular, would have the opportunity to pass on expertise they are rarely asked to use. Neighbours who currently meet only in passing might also discover shared interests.",
+"The main costs would be tools, spare parts and insurance, estimated at around six hundred pounds for the first year. Donations from visitors and a small grant from the council could cover this. I would be grateful if you would consider this proposal and allow a trial of three months. A short report on the results would be sent to the group after the trial."
+],
+"k": [
+[
+[
+"damaged household items",
+"mended",
+"free of charge",
+"european towns"
+]
+],
+[
+[
+"first saturday",
+"church hall",
+"electronics",
+"booking sheet"
+]
+],
+[
+[
+"landfill",
+"retired residents",
+"pass on expertise",
+"different ages"
+]
+],
+[
+[
+"spare parts",
+"insurance",
+"six hundred pounds",
+"grateful"
+]
+]
+]
+},
+{
+"id": "c1-w14",
+"lv": "c1",
+"en": "Formal Email: Applying for a Coordinator Role",
+"vi": "Thư trang trọng: ứng tuyển vị trí điều phối",
+"genre": "thư trang trọng",
+"min": 220,
+"max": 260,
+"p": "You have seen an advertisement for a volunteer coordinator at a wildlife conservation charity. Write a formal email of application. Describe your relevant experience, explain why you want the role and say when you are available.",
+"pv": "Bạn thấy quảng cáo tuyển điều phối viên tình nguyện của một tổ chức bảo tồn thiên nhiên. Viết thư xin việc trang trọng: kinh nghiệm, lý do muốn làm, thời gian có thể bắt đầu.",
+"c": [
+"Lý do viết",
+"Kinh nghiệm liên quan",
+"Vì sao muốn làm",
+"Thời gian và lời kết"
+],
+"u": [
+[
+"I am writing to apply for",
+"Tôi viết thư này để ứng tuyển"
+],
+[
+"I have gained considerable experience",
+"Tôi đã tích luỹ khá nhiều kinh nghiệm"
+],
+[
+"What particularly appeals to me is",
+"Điều đặc biệt thu hút tôi là"
+],
+[
+"I would welcome the opportunity to",
+"Tôi rất hoan nghênh cơ hội để"
+]
+],
+"m": [
+"Dear Ms Carter, I am writing to apply for the post of Volunteer Coordinator, which was advertised on your website last week.",
+"I have gained considerable experience in organising groups over the past four years. As a team leader at a riverside clean-up project, I managed a rota of forty helpers, trained newcomers and kept detailed records for the local authority. I am also confident dealing with the public, having worked part-time in a visitor centre. In addition, I completed a certificate in first aid, which proved useful on several occasions. Handling volunteers who arrived late or changed plans taught me to stay calm, and to find practical solutions quickly.",
+"What particularly appeals to me is your focus on involving young people in protecting habitats. I have long been concerned about the decline of native bird species, and I believe that practical, hands-on activity is the most effective way to build lasting commitment. The role would allow me to combine my organisational skills with a cause I care about deeply. I am therefore keen to contribute to your wider aims.",
+"I am available for interview at any time next month and could start with one month's notice. I would welcome the opportunity to discuss my application in more detail, and I have enclosed a copy of my CV. Yours sincerely, Daniel Hughes Thank you for considering my application."
+],
+"k": [
+[
+[
+"advertised",
+"website",
+"post of"
+]
+],
+[
+[
+"rota",
+"forty helpers",
+"visitor centre",
+"riverside"
+]
+],
+[
+[
+"young people",
+"habitats",
+"native bird",
+"hands-on"
+]
+],
+[
+[
+"available for interview",
+"one month's notice",
+"enclosed",
+"yours sincerely"
+]
+]
+]
+},
+{
 "id": "c2-w1",
 "lv": "c2",
 "en": "Essay: Technology and Attention",
@@ -2084,6 +2381,306 @@
 "instead",
 "yours faithfully",
 "yours sincerely"
+]
+]
+]
+},
+{
+"id": "c2-w11",
+"lv": "c2",
+"en": "Article: The Last Handwritten Letter",
+"vi": "Bài báo: lá thư viết tay cuối cùng",
+"genre": "bài báo (article)",
+"min": 240,
+"max": 280,
+"p": "You write for a magazine's regular column on everyday customs. Write an article about the decline of handwritten letters, exploring what has been lost and what, if anything, has been gained.",
+"pv": "Bạn viết cho chuyên mục phong tục đời thường của một tạp chí. Viết bài về sự suy giảm của thư viết tay: đã mất gì, được gì (nếu có).",
+"c": [
+"Mở bằng một hình ảnh",
+"Điều đã mất",
+"Điều được",
+"Kết luận suy ngẫm"
+],
+"u": [
+[
+"There was a time when",
+"Đã có thời mà"
+],
+[
+"What has quietly disappeared is",
+"Điều lặng lẽ biến mất là"
+],
+[
+"To be fair,",
+"Công bằng mà nói,"
+],
+[
+"Perhaps what we mourn is",
+"Có lẽ điều ta tiếc nuối là"
+]
+],
+"m": [
+"There was a time when the arrival of an envelope, with its familiar handwriting and slightly crooked stamp, could brighten an entire morning. Today, such moments are rare enough to feel almost ceremonial.",
+"What has quietly disappeared is not merely a means of communication but a form of attention. A letter demanded patience from both sides: the writer had to compose thoughts without the option of instant correction, and the reader had to wait days for a reply. That delay lent every sentence weight. A drawer of old letters can, decades later, bring a voice back more vividly than any photograph, with its hurried loops, crossings-out and occasional coffee stain bearing witness to the person who wrote them. The act of writing slowly, with a pen, forced one to decide what truly mattered.",
+"To be fair, digital messaging has democratised contact in ways our grandparents could hardly have imagined. A grandmother in Lisbon can see her grandson's first steps within seconds, and friends separated by continents can chat as if sharing a table. Nor should we romanticise the past: many letters were dutiful, dull or never answered. Some of the best-loved letters ever written were, after all, hurried notes dashed off between other obligations.",
+"Perhaps what we mourn is less the letter itself than the unhurried state of mind it required. If so, the remedy lies in our hands. Writing a few lines to a friend, on paper, once in a while, would cost very little and might be remembered long after a thousand messages have been forgotten. It is a small gesture, but it may prove a surprisingly lasting one."
+],
+"k": [
+[
+[
+"envelope",
+"crooked stamp",
+"brighten",
+"ceremonial"
+]
+],
+[
+[
+"patience",
+"instant correction",
+"drawer of old letters",
+"coffee stain"
+]
+],
+[
+[
+"democratised",
+"lisbon",
+"first steps",
+"dutiful"
+]
+],
+[
+[
+"unhurried",
+"mourn",
+"remedy",
+"a few lines"
+]
+]
+]
+},
+{
+"id": "c2-w12",
+"lv": "c2",
+"en": "Report: Tourism in a Historic Town",
+"vi": "Báo cáo: du lịch ở một thị trấn cổ",
+"genre": "báo cáo",
+"min": 240,
+"max": 280,
+"p": "You have been asked by a town council to produce a report on the effects of tourism on a small historic town. Evaluate the economic and social impact, identify the main problems, and make recommendations for managing visitor numbers.",
+"pv": "Hội đồng thị trấn nhờ bạn viết báo cáo về tác động của du lịch lên một thị trấn cổ nhỏ: tác động kinh tế, xã hội, vấn đề chính và khuyến nghị quản lý lượng khách.",
+"c": [
+"Mục đích, phương pháp",
+"Tác động kinh tế",
+"Hệ quả xã hội",
+"Khuyến nghị"
+],
+"u": [
+[
+"This report examines",
+"Báo cáo này xem xét"
+],
+[
+"Whilst the economic benefits are considerable,",
+"Dù lợi ích kinh tế là đáng kể,"
+],
+[
+"A less visible consequence is",
+"Một hệ quả ít thấy hơn là"
+],
+[
+"In light of these findings, it is advisable to",
+"Xét các phát hiện này, nên"
+]
+],
+"m": [
+"This report examines the effects of tourism on the town of Marlow Bridge, drawing on council figures, interviews with twenty traders and a public meeting attended by some eighty residents. Its purpose is to inform decisions on how visitor numbers might be managed. Recommendations are set out in the final section.",
+"Whilst the economic benefits are considerable, they are unevenly distributed. Visitor spending supports cafés, guesthouses and craft shops, and accounts for roughly a quarter of local employment. However, much of this work is seasonal and low-paid, and several traders noted that rising rents have driven out the shops on which residents depend, such as the butcher and the pharmacy. Traders interviewed were nevertheless divided, with some arguing that the town would be lifeless without its visitors.",
+"A less visible consequence is the erosion of community life. Residents reported congested pavements in summer, noise late into the evening and a growing sense that the town centre now belongs to outsiders. Younger families, unable to afford housing converted into holiday lets, are moving away, which threatens the future of the local school. Councillors should not underestimate how strongly residents feel on this point.",
+"In light of these findings, it is advisable to limit the number of holiday lets in the historic core and to introduce a modest visitor charge, with the proceeds earmarked for affordable housing. Encouraging off-peak visits through a winter festival would also spread demand more evenly. These measures should be reviewed annually to ensure that they achieve the balance sought. Residents would also be invited to comment on proposals before they are adopted."
+],
+"k": [
+[
+[
+"marlow bridge",
+"interviews",
+"public meeting",
+"twenty traders"
+]
+],
+[
+[
+"guesthouses",
+"craft shops",
+"seasonal",
+"rising rents",
+"pharmacy"
+]
+],
+[
+[
+"congested pavements",
+"holiday lets",
+"local school",
+"outsiders"
+]
+],
+[
+[
+"visitor charge",
+"affordable housing",
+"off-peak",
+"reviewed annually"
+]
+]
+]
+},
+{
+"id": "c2-w13",
+"lv": "c2",
+"en": "Review: A Film That Divided Opinion",
+"vi": "Nhận xét: bộ phim gây chia rẽ ý kiến",
+"genre": "bài nhận xét (review)",
+"min": 240,
+"max": 280,
+"p": "A cultural website has asked readers to review a film, series or exhibition that divided critics or audiences. Write your review, describing the work, explaining why opinion was split, and giving your own assessment.",
+"pv": "Một trang văn hoá mời độc giả nhận xét một phim, series hay triển lãm gây chia rẽ ý kiến. Mô tả tác phẩm, giải thích vì sao ý kiến chia đôi và nêu đánh giá của bạn.",
+"c": [
+"Giới thiệu tác phẩm",
+"Vì sao ý kiến chia rẽ",
+"Đánh giá cá nhân",
+"Khuyến nghị"
+],
+"u": [
+[
+"At first glance,",
+"Thoạt nhìn,"
+],
+[
+"It is precisely this that has split",
+"Chính điều này đã chia rẽ"
+],
+[
+"For my part,",
+"Về phần tôi,"
+],
+[
+"Whether or not it wins you over,",
+"Dù có chinh phục được bạn hay không,"
+]
+],
+"m": [
+"At first glance, The Salt Road, a slow, near-silent drama about a widow who walks across a desert to scatter her husband's ashes, appears to have little to offer anyone seeking entertainment. Yet it has quietly become one of the most discussed releases of the year. Its director, a newcomer, has refused every interview.",
+"It is precisely this restraint that has split viewers. Admirers praise the austere photography and the long, unbroken shots that force the audience to inhabit the heat and exhaustion alongside the protagonist. Detractors find the pace punishing, and complain that nothing happens for ninety minutes. Both reactions are understandable, since the director deliberately declines to supply the emotional cues to which mainstream cinema has accustomed us. One prominent critic called it a masterpiece, while another dismissed it as an exercise in self-indulgence.",
+"For my part, I found it unexpectedly moving. The lead performance is remarkable in its economy: a glance or a pause conveys more grief than pages of dialogue could. The final scene, however, is overly enigmatic, and I suspect it will frustrate even sympathetic viewers. The score, composed largely of wind and footsteps, is a bold gamble that mostly pays off. Not every choice convinced me, yet I admired its refusal to compromise.",
+"Whether or not it wins you over will depend on your appetite for patience. I would recommend it to anyone prepared to surrender an evening to its rhythm, though those in search of a lively night out would be better advised to look elsewhere. Take a friend who enjoys a good argument afterwards."
+],
+"k": [
+[
+[
+"widow",
+"desert",
+"ashes",
+"salt road"
+]
+],
+[
+[
+"austere photography",
+"unbroken shots",
+"pace punishing",
+"emotional cues"
+]
+],
+[
+[
+"lead performance",
+"economy",
+"enigmatic",
+"wind and footsteps"
+]
+],
+[
+[
+"appetite for patience",
+"surrender an evening",
+"lively night out",
+"better advised"
+]
+]
+]
+},
+{
+"id": "c2-w14",
+"lv": "c2",
+"en": "Essay: Does Rivalry Bring Out the Best?",
+"vi": "Bài luận: cạnh tranh có làm ta tốt hơn?",
+"genre": "bài luận",
+"min": 240,
+"max": 280,
+"p": "'Competition brings out the best in people.' To what extent do you agree? Write an essay in response.",
+"pv": "“Cạnh tranh làm con người tốt nhất.” Bạn đồng ý đến mức nào? Viết bài luận phản hồi.",
+"c": [
+"Mở bài",
+"Lập luận ủng hộ",
+"Phản biện",
+"Kết luận"
+],
+"u": [
+[
+"There is undoubtedly something to be said for",
+"Chắc chắn có điều đáng nói ở"
+],
+[
+"The difficulty arises when",
+"Khó khăn nảy sinh khi"
+],
+[
+"Far from being",
+"Không hề là"
+],
+[
+"The truth, it seems, lies in",
+"Sự thật dường như nằm ở"
+]
+],
+"m": [
+"There is undoubtedly something to be said for the notion that rivalry sharpens performance. Athletes break records in front of rivals that they would never approach alone, and companies innovate under the pressure of competitors. Yet the claim is rather more complicated than it appears. It is worth asking, therefore, what exactly rivalry is able to achieve.",
+"The difficulty arises when winning becomes the sole purpose. Studies of schools with intense ranking systems suggest that pupils may cram for tests without understanding, or even cheat, because the reward lies in position rather than learning. In the workplace, employees who compete for promotion are often reluctant to share knowledge, to the detriment of the organisation as a whole. Constant comparison also takes a psychological toll, breeding anxiety in those who rarely finish first. Such effects are rarely mentioned by enthusiasts of the free market.",
+"Far from being a natural condition of human achievement, cooperation underlies much of what we value. Scientific progress, for instance, depends on researchers building on each other's findings rather than guarding them, and the most successful teams are usually those in which members trust one another. Even in sport, rivals depend on each other to raise standards.",
+"The truth, it seems, lies in the conditions under which competition occurs. Where the stakes are modest, the rules fair and the goal shared, it can inspire real effort. Where defeat carries heavy penalties, it more often brings out the worst in people than the best. In short, competition is a tool, and like any tool it can build or damage depending on the hand that uses it."
+],
+"k": [
+[
+[
+"sharpens",
+"athletes",
+"break records",
+"competitors"
+]
+],
+[
+[
+"cram",
+"cheat",
+"ranking",
+"psychological toll"
+]
+],
+[
+[
+"cooperation",
+"building on",
+"guarding",
+"scientific progress"
+]
+],
+[
+[
+"stakes",
+"rules fair",
+"worst in people"
 ]
 ]
 ]

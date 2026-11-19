@@ -2778,6 +2778,258 @@
 ]
 },
 {
+"id": "c1-s11",
+"lv": "c1",
+"en": "Is Remote Learning Here to Stay?",
+"vi": "Học từ xa có ở lại lâu dài?",
+"p": "Some argue that online courses will eventually replace traditional classrooms. How far do you agree? Consider the benefits, the drawbacks and what the future might hold.",
+"pv": "Có ý kiến cho rằng khoá học trực tuyến rồi sẽ thay thế lớp học truyền thống. Bạn đồng ý đến đâu? Bàn lợi ích, hạn chế và tương lai.",
+"c": [
+"Lợi ích",
+"Hạn chế",
+"Tương lai",
+"Quan điểm của bạn"
+],
+"u": [
+[
+"One undeniable advantage is that",
+"Một lợi thế không thể phủ nhận là"
+],
+[
+"The downside, though, is that",
+"Tuy nhiên, mặt trái là"
+],
+[
+"Looking ahead, I suspect that",
+"Nhìn về phía trước, tôi đoán rằng"
+],
+[
+"All things considered,",
+"Cân nhắc mọi mặt,"
+]
+],
+"m": "One undeniable advantage is that online study removes barriers of distance and cost. A student in a remote village can follow a lecture from a leading professor, and working adults can fit lessons around their jobs. The downside, though, is that motivation tends to suffer when nobody is watching. Many learners drift away without the routine and personal contact of a classroom, and group work becomes awkward over a screen. Looking ahead, I suspect that most institutions will adopt a blended model, with lectures online and seminars in person. All things considered, I do not believe classrooms will disappear; rather, they will be used for what they do best, which is discussion and mentoring.",
+"k": [
+[
+[
+"distance",
+"remote village",
+"fit lessons"
+]
+],
+[
+[
+"motivation",
+"drift away",
+"routine",
+"awkward"
+]
+],
+[
+[
+"blended",
+"institutions",
+"seminars"
+]
+],
+[
+[
+"all things considered",
+"classrooms will disappear"
+]
+]
+]
+},
+{
+"id": "c1-s12",
+"lv": "c1",
+"en": "The Role of Mentors in Success",
+"vi": "Vai trò của người dẫn dắt",
+"p": "Some people say that nobody succeeds without the guidance of someone more experienced. Do you agree? Think about what mentors offer, what can go wrong, and what role personal effort plays.",
+"pv": "Có người nói không ai thành công mà thiếu người đi trước dẫn dắt. Bạn có đồng ý? Bàn điều người dẫn dắt mang lại, rủi ro và vai trò của nỗ lực cá nhân.",
+"c": [
+"Người dẫn dắt mang lại gì",
+"Rủi ro",
+"Nỗ lực cá nhân",
+"Quan điểm của bạn"
+],
+"u": [
+[
+"A good mentor can offer",
+"Một người dẫn dắt tốt có thể mang lại"
+],
+[
+"That said, relying too heavily on",
+"Dù vậy, dựa quá nhiều vào"
+],
+[
+"Ultimately, it is down to",
+"Rốt cuộc, điều đó phụ thuộc vào"
+],
+[
+"In my experience,",
+"Theo kinh nghiệm của tôi,"
+]
+],
+"m": "A good mentor can offer far more than advice; they open doors, share hard-won experience and point out mistakes before they become costly. A young engineer, for example, may learn in months what would otherwise take years. That said, relying too heavily on one person carries risks. Mentors can be outdated, or push their protégés towards the choices they themselves made. Ultimately, it is down to the individual to turn guidance into action, because no amount of support compensates for a lack of discipline. In my experience, the most successful people combine both: they seek out guidance early, but they take responsibility for their own progress.",
+"k": [
+[
+[
+"open doors",
+"hard-won",
+"young engineer"
+]
+],
+[
+[
+"outdated",
+"protégés",
+"carries risks"
+]
+],
+[
+[
+"discipline",
+"down to the individual",
+"lack of discipline"
+]
+],
+[
+[
+"in my experience",
+"combine both",
+"take responsibility"
+]
+]
+]
+},
+{
+"id": "c1-s13",
+"lv": "c1",
+"en": "Volunteering: Duty or Choice?",
+"vi": "Tình nguyện: bổn phận hay lựa chọn?",
+"p": "Is volunteering a moral duty or a matter of personal choice? Discuss what motivates people, who benefits, and whether it should ever be compulsory.",
+"pv": "Tình nguyện là bổn phận đạo đức hay lựa chọn cá nhân? Bàn động lực, ai được lợi và liệu có bao giờ nên bắt buộc.",
+"c": [
+"Động lực",
+"Ai được lợi",
+"Có nên bắt buộc",
+"Quan điểm của bạn"
+],
+"u": [
+[
+"People are usually driven by",
+"Người ta thường được thúc đẩy bởi"
+],
+[
+"The benefits extend to",
+"Lợi ích lan tới"
+],
+[
+"Making it compulsory would defeat",
+"Bắt buộc sẽ làm mất đi"
+],
+[
+"On the whole, I take the view that",
+"Nhìn chung, tôi cho rằng"
+]
+],
+"m": "People are usually driven by a mix of compassion and self-interest: some want to help, others hope to gain experience or meet new friends. Neither motive is shameful. The benefits extend to everyone involved. Charities receive labour they could not afford, while helpers often gain confidence and a stronger sense of belonging. Making it compulsory would defeat the purpose, however, since resentful participants rarely give their best, and genuine generosity cannot be forced. Some schools require service hours, and the results are mixed. On the whole, I take the view that it is a choice worth encouraging through recognition and flexible schedules rather than a duty enforced by law.",
+"k": [
+[
+[
+"compassion",
+"self-interest",
+"new friends"
+]
+],
+[
+[
+"charities",
+"labour",
+"belonging"
+]
+],
+[
+[
+"resentful",
+"cannot be forced",
+"service hours"
+]
+],
+[
+[
+"on the whole",
+"recognition",
+"enforced by law"
+]
+]
+]
+},
+{
+"id": "c1-s14",
+"lv": "c1",
+"en": "Learning from Other Cultures",
+"vi": "Học hỏi từ các nền văn hoá khác",
+"p": "How much can we learn by studying cultures other than our own? Talk about the benefits, the risks of misunderstanding, and how people can approach differences with an open mind.",
+"pv": "Ta học được bao nhiêu khi tìm hiểu các nền văn hoá khác? Nói về lợi ích, nguy cơ hiểu lầm và cách tiếp cận khác biệt với tâm thế cởi mở.",
+"c": [
+"Lợi ích",
+"Nguy cơ hiểu lầm",
+"Cách tiếp cận",
+"Quan điểm của bạn"
+],
+"u": [
+[
+"Exposure to unfamiliar customs can",
+"Tiếp xúc với phong tục lạ có thể"
+],
+[
+"There is, however, a danger of",
+"Tuy nhiên, có nguy cơ"
+],
+[
+"The key lies in",
+"Chìa khoá nằm ở"
+],
+[
+"In the final analysis,",
+"Xét cho cùng,"
+]
+],
+"m": "Exposure to unfamiliar customs can broaden our outlook and make us question habits we had never thought to examine. Travelling in Japan, for instance, many visitors notice how quiet public transport is and rethink their own behaviour. There is, however, a danger of drawing hasty conclusions from a brief visit, or of reducing a whole society to stereotypes. The key lies in listening before judging, asking locals rather than assuming, and accepting that some things will remain puzzling. In the final analysis, contact with other cultures teaches humility as much as knowledge, and that may be its greatest gift.",
+"k": [
+[
+[
+"broaden",
+"outlook",
+"japan"
+]
+],
+[
+[
+"hasty conclusions",
+"stereotypes",
+"brief visit"
+]
+],
+[
+[
+"listening before judging",
+"asking locals",
+"puzzling"
+]
+],
+[
+[
+"humility",
+"greatest gift",
+"final analysis"
+]
+]
+]
+},
+{
 "id": "c2-s1",
 "lv": "c2",
 "en": "Is Progress Always Good?",
@@ -3385,6 +3637,266 @@
 ]
 }
 }
+]
+]
+},
+{
+"id": "c2-s11",
+"lv": "c2",
+"en": "Is Nostalgia Harmful?",
+"vi": "Hoài niệm có hại không?",
+"p": "Is nostalgia a harmless comfort or a barrier to moving forward? Reflect on why people feel it, what it can offer, and where it becomes a problem.",
+"pv": "Hoài niệm là niềm an ủi vô hại hay rào cản tiến lên? Suy ngẫm vì sao con người hoài niệm, nó mang lại gì và khi nào thành vấn đề.",
+"c": [
+"Vì sao hoài niệm",
+"Mặt tích cực",
+"Mặt tiêu cực",
+"Kết luận"
+],
+"u": [
+[
+"It is hardly surprising that",
+"Không có gì lạ khi"
+],
+[
+"At its best, it can",
+"Ở mặt tốt nhất, nó có thể"
+],
+[
+"It becomes problematic when",
+"Nó trở nên đáng ngại khi"
+],
+[
+"Perhaps the healthiest approach is",
+"Có lẽ cách lành mạnh nhất là"
+]
+],
+"m": "It is hardly surprising that people grow wistful for the past, since memory tends to soften hardships and polish happy moments until they glow. At its best, it can provide continuity and a sense of identity, especially in times of upheaval, and shared memories bind families and communities together. It becomes problematic when yearning for a golden age distorts our judgement, for instance when voters long for a time that never quite existed and dismiss necessary change. Perhaps the healthiest approach is to treat the past as a source of lessons rather than a refuge, enjoying its warmth without letting it dictate our expectations of the present.",
+"k": [
+[
+[
+"wistful",
+"soften hardships",
+"polish"
+]
+],
+[
+[
+"continuity",
+"upheaval",
+"bind families"
+]
+],
+[
+[
+"golden age",
+"distorts",
+"voters",
+"never quite existed"
+]
+],
+[
+[
+"healthiest",
+"source of lessons",
+"refuge",
+"dictate"
+]
+]
+]
+},
+{
+"id": "c2-s12",
+"lv": "c2",
+"en": "Should Governments Regulate Artificial Intelligence?",
+"vi": "Chính phủ có nên quản lý trí tuệ nhân tạo?",
+"p": "Should governments tightly regulate artificial intelligence? Consider the risks of leaving it unchecked, the dangers of excessive control, and who should have the final say.",
+"pv": "Chính phủ có nên siết chặt quản lý AI? Bàn rủi ro khi bỏ mặc, nguy cơ kiểm soát quá mức và ai nên có tiếng nói cuối cùng.",
+"c": [
+"Rủi ro nếu bỏ mặc",
+"Nguy cơ kiểm soát quá mức",
+"Ai quyết định",
+"Quan điểm của bạn"
+],
+"u": [
+[
+"Leaving it entirely to the market would",
+"Giao hoàn toàn cho thị trường sẽ"
+],
+[
+"Heavy-handed rules, on the other hand, may",
+"Mặt khác, quy định quá tay có thể"
+],
+[
+"Any workable framework would need",
+"Mọi khuôn khổ khả thi đều cần"
+],
+[
+"On balance, I lean towards",
+"Cân nhắc lại, tôi nghiêng về"
+]
+],
+"m": "Leaving it entirely to the market would invite harm, since companies racing to launch products have little incentive to examine biased data, job losses or the spread of convincing fakes. Heavy-handed rules, on the other hand, may stifle research, push talent abroad and entrench the largest firms, which alone can afford compliance. Any workable framework would need input from engineers, ethicists and ordinary citizens rather than ministers alone, and it must be flexible enough to keep pace with the technology. On balance, I lean towards proportionate oversight: strict limits where lives are at stake, such as medicine or policing, and a lighter touch elsewhere.",
+"k": [
+[
+[
+"incentive",
+"biased data",
+"job losses",
+"convincing fakes"
+]
+],
+[
+[
+"stifle",
+"talent abroad",
+"entrench",
+"compliance"
+]
+],
+[
+[
+"ethicists",
+"ordinary citizens",
+"ministers",
+"keep pace"
+]
+],
+[
+[
+"proportionate",
+"oversight",
+"policing",
+"lighter touch"
+]
+]
+]
+},
+{
+"id": "c2-s13",
+"lv": "c2",
+"en": "The Value of Silence",
+"vi": "Giá trị của sự im lặng",
+"p": "In a noisy world, how important is silence? Discuss what it gives us, why it is so hard to find, and whether we should deliberately make room for it.",
+"pv": "Trong thế giới ồn ào, im lặng quan trọng đến đâu? Bàn điều nó mang lại, vì sao khó tìm và có nên chủ động dành chỗ cho nó.",
+"c": [
+"Giá trị",
+"Vì sao khó tìm",
+"Nên chủ động giữ",
+"Quan điểm của bạn"
+],
+"u": [
+[
+"Silence offers something rare:",
+"Im lặng mang đến điều hiếm có:"
+],
+[
+"Part of the difficulty is that",
+"Một phần khó khăn là"
+],
+[
+"There is a persuasive case for",
+"Có lập luận thuyết phục cho việc"
+],
+[
+"Ultimately, I would suggest",
+"Rốt cuộc, tôi cho rằng"
+]
+],
+"m": "Silence offers something rare: the chance to hear our own thoughts without interruption. Many writers and scientists describe their best ideas arriving on a quiet walk rather than in a meeting. Part of the difficulty is that modern life is engineered to fill every gap, with phones buzzing, traffic droning and screens glowing in every café. Stillness has even come to feel uncomfortable, as if an empty minute were wasted. There is a persuasive case for scheduling quiet deliberately, as one would schedule exercise, perhaps by switching off devices for an hour each evening. Ultimately, I would suggest that silence is not an absence of something but a condition for thinking clearly.",
+"k": [
+[
+[
+"own thoughts",
+"interruption",
+"quiet walk"
+]
+],
+[
+[
+"engineered",
+"buzzing",
+"droning",
+"every gap"
+]
+],
+[
+[
+"scheduling",
+"switching off devices",
+"an hour each evening"
+]
+],
+[
+[
+"absence of something",
+"condition for thinking"
+]
+]
+]
+},
+{
+"id": "c2-s14",
+"lv": "c2",
+"en": "Can Great Wealth Be Justified?",
+"vi": "Giàu có tột bậc có thể chính đáng?",
+"p": "Can great personal wealth ever be morally justified? Examine how fortunes are made, what responsibilities come with them, and whether the state should intervene.",
+"pv": "Sự giàu có lớn của cá nhân có bao giờ chính đáng về đạo đức? Xem xét cách làm giàu, trách nhiệm đi kèm và vai trò can thiệp của nhà nước.",
+"c": [
+"Cách làm giàu",
+"Trách nhiệm",
+"Vai trò nhà nước",
+"Quan điểm của bạn"
+],
+"u": [
+[
+"Much depends on whether the fortune",
+"Nhiều điều phụ thuộc vào việc tài sản đó"
+],
+[
+"Those who benefit most arguably owe",
+"Có thể nói người hưởng lợi nhiều nhất nợ"
+],
+[
+"Taxation is the obvious tool, yet",
+"Thuế là công cụ hiển nhiên, nhưng"
+],
+[
+"I would stop short of saying",
+"Tôi sẽ không đi tới mức nói rằng"
+]
+],
+"m": "Much depends on whether the fortune was built by creating value or by exploiting others. An inventor whose product improves millions of lives stands on firmer ground than a speculator profiting from a crisis. Those who benefit most arguably owe something back, whether through philanthropy, fair wages or simply paying their dues. Taxation is the obvious tool, yet it is easily avoided by those with clever accountants, which is why transparency matters as much as rates. I would stop short of saying that wealth is inherently wrong; what troubles me is its concentration, since extreme inequality erodes trust and gives a few people disproportionate influence over everyone else.",
+"k": [
+[
+[
+"creating value",
+"exploiting others",
+"inventor",
+"speculator"
+]
+],
+[
+[
+"philanthropy",
+"fair wages",
+"paying their dues",
+"owe something"
+]
+],
+[
+[
+"taxation",
+"accountants",
+"transparency"
+]
+],
+[
+[
+"inherently wrong",
+"erodes trust",
+"disproportionate influence"
+]
 ]
 ]
 },
