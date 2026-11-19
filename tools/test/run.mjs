@@ -3059,5 +3059,15 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     S = S1; KP = null; return bad; })()`);
   const bad = r0.concat(r); R.push({ lv: 'cefr', id: 'C99', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : '🏙 Khu phố + 🌙 Đêm: 8 nhà + lâu đài, việc = 5 câu thật của đề đúng phố (đang sai trước, ≤ 2 / phố, ≤ 1 Part 7), luật sai từ phương án nhiễu của câu đề, ghi ⭐ + lịch ôn như phố, Hồ sơ bẫy, không đụng thẻ học' }); }
 
+// v203 C100 Đủ nội dung Nền đợt 1 (docs/TIEU-CHI-NOI-DUNG-NEN.md): ngữ pháp B1 ≥ 26, B2 ≥ 21 điểm đủ mc / ty / fx; bài luyện Đọc / Nghe B1, B2 ≥ 20, mỗi bài có câu suy luận, bài Nghe có giọng
+{ const fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname, J = f => JSON.parse(fs.readFileSync(root + f, 'utf8')); const bad = [];
+  const np = J('np.json').items; for (const [lv, n] of [['b1', 26], ['b2', 21]]) { const g = np.filter(x => x.lv === lv); if (g.length < n) bad.push(`ngữ pháp ${lv} ${g.length} < ${n}`);
+    for (const x of g) for (const k of ['mc', 'ty', 'fx']) if (!x[k] || !x[k].learn.length || !x[k].test.length) bad.push(x.id + ' thiếu ' + k); }
+  const ix = fs.existsSync(root + 'n/index.json') ? J('n/index.json') : null, has = k => !ix || (Array.isArray(ix) ? ix.includes(k) : k in ix);
+  const key = t => { t = String(t).replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().replace(/[.,;:]+$/, '').toLowerCase(); let h = 0x811c9dc5; for (let i = 0; i < t.length; i++) { h ^= t.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return 'a' + h.toString(16).padStart(8, '0'); };
+  for (const f of ['doc.json', 'nghe.json']) for (const lv of ['b1', 'b2']) { const it = J(f).items.filter(x => x.lv === lv && !x.test); if (it.length < 20) bad.push(`${f} ${lv} ${it.length} < 20`);
+    for (const x of it) { if (!x.qs.some(q => q.sl)) bad.push(x.id + ' thiếu câu suy luận'); if (f === 'nghe.json' && x.lines && x.lines.some(l => !has(key(l[1])))) bad.push(x.id + ' thiếu giọng'); } }
+  R.push({ lv: 'cefr', id: 'C100', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Nền đợt 1: ngữ pháp B1 / B2 đủ điểm, bài luyện Đọc / Nghe B1 / B2 ≥ 20 có câu suy luận và giọng' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
