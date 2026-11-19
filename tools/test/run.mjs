@@ -3067,7 +3067,11 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   const key = t => { t = String(t).replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().replace(/[.,;:]+$/, '').toLowerCase(); let h = 0x811c9dc5; for (let i = 0; i < t.length; i++) { h ^= t.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return 'a' + h.toString(16).padStart(8, '0'); };
   for (const f of ['doc.json', 'nghe.json']) for (const lv of ['b1', 'b2']) { const it = J(f).items.filter(x => x.lv === lv && !x.test); if (it.length < 20) bad.push(`${f} ${lv} ${it.length} < 20`);
     for (const x of it) { if (!x.qs.some(q => q.sl)) bad.push(x.id + ' thiếu câu suy luận'); if (f === 'nghe.json' && x.lines && x.lines.some(l => !has(key(l[1])))) bad.push(x.id + ' thiếu giọng'); } }
-  R.push({ lv: 'cefr', id: 'C100', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Nền đợt 1: ngữ pháp B1 / B2 đủ điểm, bài luyện Đọc / Nghe B1 / B2 ≥ 20 có câu suy luận và giọng' }); }
+  // v204 đợt 2: đề luyện Nói B1 / B2 ≥ 10, Viết ≥ 8; bài luyện Đọc / Nghe Pre-A1 ≥ 20 (bài Nghe có giọng)
+  for (const [f, n] of [['noi.json', 10], ['viet.json', 8]]) for (const lv of ['b1', 'b2']) { const c = J(f).items.filter(x => x.lv === lv && !x.test).length; if (c < n) bad.push(`${f} ${lv} ${c} < ${n}`); }
+  for (const f of ['doc.json', 'nghe.json']) { const it = J(f).items.filter(x => x.lv === 'pre' && !x.test); if (it.length < 20) bad.push(`${f} pre ${it.length} < 20`);
+    if (f === 'nghe.json') for (const x of it) for (const l of (x.lines || [])) if (!has(key(l[1]))) bad.push(x.id + ' thiếu giọng'); }
+  R.push({ lv: 'cefr', id: 'C100', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Nền đủ nội dung: ngữ pháp B1 / B2, bài luyện Đọc / Nghe B1 / B2 / Pre-A1 ≥ 20 (câu suy luận, giọng), đề luyện Nói B1 / B2 ≥ 10, Viết ≥ 8' }); }
 
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

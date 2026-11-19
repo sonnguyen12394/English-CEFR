@@ -383,12 +383,13 @@
 "k": [
 [
 [
-"realised",
-"bag",
-"phone",
 "worried",
+"panic",
 "heart",
-"panic"
+"scared",
+"oh no",
+"where is",
+"looked in"
 ]
 ],
 [
@@ -399,7 +400,7 @@
 "bus",
 "classroom",
 "stop",
-"worried"
+"searched"
 ]
 ],
 [
@@ -1342,9 +1343,10 @@
 "often argued",
 "too much homework",
 "reduce",
-"in my opinion",
 "students today",
-"argued"
+"homework",
+"too much",
+"less homework"
 ]
 ],
 [
@@ -1374,9 +1376,12 @@
 "admittedly",
 "quality",
 "quantity",
-"however",
-"i believe",
-"short task"
+"short task",
+"choose",
+"interesting",
+"useful",
+"in conclusion",
+"overall"
 ]
 ]
 ]

@@ -15,15 +15,17 @@ Dùng để đo lại mỗi khi thêm / bớt nội dung 🧱 Nền. Đếm bằ
 
 ## Lần đo
 
-| Mã | 19/11/2026 (trước v203) | Sau v203 |
-|---|---|---|
-| N1 | đạt | đạt |
-| N2 | A2 trở xuống đạt; B1 18 · B2 15 điểm (thiếu ước 5–10 / cấp) | B1 26 · B2 21 |
-| N3 | Pre 12 · A1 24 · A2 30 · B1–C2 11 | B1 20 · B2 20 |
-| N4 | Pre 12 · A1 32 · A2 32 · B1–C2 11 | B1 20 · B2 20 |
-| N5 | Pre 12 · A1 14 · A2 14 · B1–C2 6 | chưa làm (đợt 2) |
-| N6 | A1 8 · A2 8 · B1–C2 4 | chưa làm (đợt 2) |
-| N7 | gần đạt (C2 2) | không đổi |
-| N8 | chưa | chưa |
+| Mã | 19/11/2026 (trước v203) | Sau v203 | Sau v204 |
+|---|---|---|---|
+| N1 | đạt | đạt | đạt |
+| N2 | A2 trở xuống đạt; B1 18 · B2 15 điểm (thiếu ước 5–10 / cấp) | B1 26 · B2 21 | không đổi |
+| N3 | Pre 12 · A1 24 · A2 30 · B1–C2 11 | B1 20 · B2 20 | Pre 20 (đạt); C1, C2 11 |
+| N4 | Pre 12 · A1 32 · A2 32 · B1–C2 11 | B1 20 · B2 20 | Pre 20 (đạt); C1, C2 11 |
+| N5 | Pre 12 · A1 14 · A2 14 · B1–C2 6 | chưa làm | B1 10 · B2 10 (đạt); C1, C2 6 |
+| N6 | A1 8 · A2 8 · B1–C2 4 | chưa làm | B1 8 · B2 8 (đạt); C1, C2 4 |
+| N7 | gần đạt (C2 2) | không đổi | không đổi |
+| N8 | chưa | chưa | chưa |
+
+Giới hạn đã biết: từ khoá chấm ý (`k`) của đề Nói / Viết thường chứa chữ có sẵn trong đề (31/32 đề cũ, cả đề mới), nên bài nhắc lại đề cũng được tính ý; máy chỉ chấm tham khảo phần này.
 
 Kế hoạch: đợt 1 (v203) ngữ pháp B1 / B2 + Đọc / Nghe B1 / B2 → đợt 2 Nói / Viết B1 / B2 + Đọc / Nghe Pre-A1 → đợt 3 C1–C2 chỉ khi có người học thật tới B2 (mốc 2/2027).
