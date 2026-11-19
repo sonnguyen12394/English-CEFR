@@ -2812,30 +2812,52 @@
 "k": [
 [
 [
+"advantage",
+"benefit",
+"barrier",
 "distance",
-"remote village",
-"fit lessons"
+"cost",
+"access",
+"convenien",
+"flexible"
 ]
 ],
 [
 [
+"downside",
+"drawback",
+"disadvantage",
+"however",
 "motivation",
-"drift away",
-"routine",
-"awkward"
+"isolat",
+"distraction",
+"personal contact"
 ]
 ],
 [
 [
+"looking ahead",
+"in the future",
+"in future",
 "blended",
-"institutions",
-"seminars"
+"hybrid",
+"i suspect",
+"i predict",
+"likely",
+"institutions"
 ]
 ],
 [
 [
 "all things considered",
-"classrooms will disappear"
+"overall",
+"in conclusion",
+"to sum up",
+"i believe",
+"in my opinion",
+"in my view",
+"on balance",
+"i do not believe"
 ]
 ]
 ]
@@ -2952,30 +2974,56 @@
 "k": [
 [
 [
+"motive",
+"driven",
 "compassion",
 "self-interest",
-"new friends"
+"want to help",
+"gain experience",
+"kindness",
+"passion",
+"reason"
 ]
 ],
 [
 [
-"charities",
-"labour",
-"belonging"
+"benefit",
+"charit",
+"community",
+"gain",
+"confidence",
+"belonging",
+"helpers",
+"everyone",
+"those in need",
+"skills"
 ]
 ],
 [
 [
-"resentful",
-"cannot be forced",
-"service hours"
+"compulsory",
+"forced",
+"force",
+"obligat",
+"mandatory",
+"resent",
+"genuine",
+"freedom",
+"voluntary",
+"defeat the purpose"
 ]
 ],
 [
 [
 "on the whole",
-"recognition",
-"enforced by law"
+"overall",
+"in conclusion",
+"i take the view",
+"i believe",
+"in my opinion",
+"in my view",
+"to sum up",
+"a choice"
 ]
 ]
 ]
@@ -3016,28 +3064,55 @@
 [
 [
 "broaden",
-"outlook"
+"outlook",
+"perspective",
+"benefit",
+"enrich",
+"tolerance",
+"open-minded",
+"open mind",
+"understanding",
+"rethink"
 ]
 ],
 [
 [
-"hasty conclusions",
-"stereotypes",
-"brief visit"
+"danger",
+"risk",
+"misunderstand",
+"stereotype",
+"hasty",
+"assum",
+"prejudice",
+"however",
+"judg",
+"offend"
 ]
 ],
 [
 [
-"listening before judging",
-"asking locals",
-"puzzling"
+"listen",
+"asking",
+"open mind",
+"respect",
+"curious",
+"curiosity",
+"patient",
+"accept",
+"the key lies"
 ]
 ],
 [
 [
+"in the final analysis",
+"overall",
+"in conclusion",
+"to sum up",
 "humility",
-"greatest gift",
-"final analysis"
+"i believe",
+"in my view",
+"ultimately",
+"all in all"
 ]
 ]
 ]
@@ -3688,32 +3763,57 @@
 "k": [
 [
 [
+"memory",
+"memories",
 "wistful",
-"soften hardships",
-"polish"
+"sentimental",
+"comfort",
+"longing",
+"yearn",
+"remember",
+"the good old days",
+"soften"
 ]
 ],
 [
 [
+"comfort",
 "continuity",
-"upheaval",
-"bind families"
+"identity",
+"belong",
+"security",
+"warmth",
+"connect",
+"bind",
+"roots",
+"stability"
 ]
 ],
 [
 [
+"distort",
 "golden age",
-"distorts",
-"voters",
-"never quite existed"
+"dismiss",
+"resist change",
+"refuge",
+"stuck",
+"unrealistic",
+"problem",
+"trap",
+"idealis"
 ]
 ],
 [
 [
 "healthiest",
-"source of lessons",
-"refuge",
-"dictate"
+"balance",
+"lessons",
+"perhaps",
+"in conclusion",
+"overall",
+"to sum up",
+"ultimately",
+"moderation"
 ]
 ]
 ]
@@ -3753,34 +3853,58 @@
 "k": [
 [
 [
+"harm",
+"risk",
+"danger",
+"bias",
+"job loss",
+"misinformation",
+"fake",
 "incentive",
-"biased data",
-"job losses",
-"convincing fakes"
+"unchecked",
+"accountab",
+"safety"
 ]
 ],
 [
 [
 "stifle",
-"talent abroad",
+"innovation",
+"hinder",
+"red tape",
+"burden",
+"bureaucra",
+"heavy-handed",
+"compliance",
 "entrench",
-"compliance"
+"over-regulat"
 ]
 ],
 [
 [
-"ethicists",
-"ordinary citizens",
+"who should",
+"ethicist",
+"citizens",
+"public",
+"independent",
+"international",
+"input",
+"regulator",
 "ministers",
 "keep pace"
 ]
 ],
 [
 [
+"on balance",
+"i lean towards",
 "proportionate",
 "oversight",
-"policing",
-"lighter touch"
+"in my view",
+"i believe",
+"overall",
+"a middle ground",
+"in conclusion"
 ]
 ]
 ]
@@ -3859,7 +3983,8 @@
 "i believe",
 "in my view",
 "ultimately",
-"condition for thinking"
+"condition for thinking",
+"overall"
 ]
 ]
 ]
@@ -3900,31 +4025,55 @@
 [
 [
 "creating value",
-"exploiting others",
+"exploit",
+"earned",
+"inherit",
+"innovat",
+"fortune",
+"hard work",
 "inventor",
-"speculator"
+"built",
+"honest"
 ]
 ],
 [
 [
+"owe",
 "philanthropy",
 "fair wages",
-"paying their dues",
-"owe something"
+"responsib",
+"give back",
+"charit",
+"donat",
+"duty",
+"obligation",
+"society"
 ]
 ],
 [
 [
-"taxation",
-"accountants",
-"transparency"
+"tax",
+"government",
+"regulat",
+"redistribut",
+"transparen",
+"loophole",
+"avoid",
+"legislat"
 ]
 ],
 [
 [
+"i would stop short",
 "inherently wrong",
-"erodes trust",
-"disproportionate influence"
+"inequality",
+"concentration",
+"i believe",
+"in my view",
+"overall",
+"in conclusion",
+"what troubles me",
+"on balance"
 ]
 ]
 ]
