@@ -1770,7 +1770,7 @@
 ],
 "m": [
 "Introduction\nThe purpose of this report is to assess whether opening hours at the Elmbrook branch should be extended, and to recommend a way forward. The findings are based on visitor figures from the past year and a short survey of 150 residents.",
-"Current use\nIt was found that the branch is busiest between four and six in the evening, when school pupils arrive, and that visitor numbers drop sharply on weekday mornings. Almost a third of those surveyed said they work during current opening times and can only visit on Saturdays, when the building is often crowded. Weekend mornings, by contrast, are consistently well attended by parents with young children.",
+"Current use\nIt was found that the branch is busiest between four and six in the evening, when school pupils arrive, and that visitor numbers drop sharply on weekday mornings. Almost a third of those surveyed said they work during current opening times and can only visit on Saturdays, when the building is often crowded. Weekend mornings are also consistently well attended by parents with young children.",
 "Advantages and disadvantages\nWhile there are clear benefits to longer hours, such as improved access for commuters and more study space before examinations, there are also drawbacks. Extra staff would be needed, and the cost of heating and lighting would rise. Some respondents also expressed concern about safety after dark. Several residents also suggested that evening opening would make it easier for shift workers to return books without paying fines.",
 "Recommendation\nIt is therefore recommended that the branch open until eight on three weekday evenings, as a six-month trial. Volunteers could cover part of the extra shifts, which would keep costs down. Usage should be reviewed at the end of the trial before any permanent change is made. If the trial succeeds, the arrangement could be extended to the other branches in the borough."
 ],
@@ -1778,15 +1778,13 @@
 [
 [
 "purpose",
-"aim",
-"report",
-"assess",
 "survey",
 "findings",
 "based on",
 "figures",
 "data",
-"introduction"
+"residents",
+"questionnaire"
 ]
 ],
 [
@@ -1795,12 +1793,15 @@
 "visitor numbers",
 "visitors",
 "crowded",
-"current",
 "weekend",
 "attended",
 "popular",
 "peak",
-"drop sharply"
+"drop sharply",
+"evening",
+"morning",
+"opening hours",
+"usage"
 ]
 ],
 [
@@ -1809,12 +1810,15 @@
 "drawback",
 "advantage",
 "disadvantage",
-"however",
 "access",
 "cost",
 "safety",
 "extra staff",
-"concern"
+"concern",
+"longer hours",
+"staff",
+"heating",
+"after dark"
 ]
 ],
 [
@@ -1822,11 +1826,8 @@
 "recommend",
 "suggest",
 "propose",
-"should",
 "trial",
 "review",
-"therefore",
-"extend",
 "volunteer",
 "course of action"
 ]
@@ -2709,20 +2710,24 @@
 "follows",
 "tells the story",
 "plot",
-"film"
+"film",
+"series",
+"exhibition"
 ]
 ],
 [
 [
 "split",
 "divided",
-"praise",
 "admirer",
 "detractor",
-"critic",
 "pace",
 "complain",
-"controvers"
+"controvers",
+"opinion",
+"audiences",
+"some viewers",
+"others"
 ]
 ],
 [
@@ -2743,11 +2748,9 @@
 [
 "recommend",
 "whether or not",
-"anyone",
 "patience",
 "better advised",
 "if you like",
-"enjoy",
 "avoid"
 ]
 ]

@@ -3071,7 +3071,14 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   for (const [f, n] of [['noi.json', 10], ['viet.json', 8]]) for (const lv of ['b1', 'b2']) { const c = J(f).items.filter(x => x.lv === lv && !x.test).length; if (c < n) bad.push(`${f} ${lv} ${c} < ${n}`); }
   for (const f of ['doc.json', 'nghe.json']) { const it = J(f).items.filter(x => x.lv === 'pre' && !x.test); if (it.length < 20) bad.push(`${f} pre ${it.length} < 20`);
     if (f === 'nghe.json') for (const x of it) for (const l of (x.lines || [])) if (!has(key(l[1]))) bad.push(x.id + ' thiếu giọng'); }
-  R.push({ lv: 'cefr', id: 'C100', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Nền đủ nội dung: ngữ pháp B1 / B2, bài luyện Đọc / Nghe B1 / B2 / Pre-A1 ≥ 20 (câu suy luận, giọng), đề luyện Nói B1 / B2 ≥ 10, Viết ≥ 8' }); }
+  // v205 đợt 3: C1 / C2 đủ như B1 / B2; ngữ pháp C1 ≥ 14, C2 ≥ 12; đề Nói / Viết mới (id 11–14): mỗi ý bắt được bài mẫu, bài mẫu đề khác (lạc đề) trúng đủ 4 ý ≤ 5 / ~110
+  for (const [lv, n] of [['c1', 14], ['c2', 12]]) { const g = np.filter(x => x.lv === lv).length; if (g < n) bad.push(`ngữ pháp ${lv} ${g} < ${n}`); }
+  for (const f of ['doc.json', 'nghe.json']) for (const lv of ['c1', 'c2']) { const c = J(f).items.filter(x => x.lv === lv && !x.test).length; if (c < 20) bad.push(`${f} ${lv} ${c} < 20`); }
+  for (const [f, n] of [['noi.json', 10], ['viet.json', 8]]) for (const lv of ['c1', 'c2']) { const c = J(f).items.filter(x => x.lv === lv && !x.test).length; if (c < n) bad.push(`${f} ${lv} ${c} < ${n}`); }
+  { const M = x => (Array.isArray(x.m) ? x.m.join(' ') : x.m).toLowerCase(), A = ['content/bs/noi.json', 'content/bs/viet.json'].flatMap(f => J(f).items).filter(x => x.k && x.m && /^(b1|b2|c1|c2)$/.test(x.lv));
+    for (const x of A.filter(x => /^c[12]$/.test(x.lv) && /-(s|w)1[1-4]$/.test(x.id))) { const m = M(x); x.k.forEach((g, j) => { if (!g.flat().some(w => m.includes(w))) bad.push(x.id + ' ý ' + (j + 1) + ' không bắt bài mẫu'); });
+      const hit = A.filter(y => y !== x && x.k.every(g => g.flat().some(w => M(y).includes(w)))).length; if (hit > 5) bad.push(x.id + ' bài lạc đề trúng đủ ý ' + hit); } }
+  R.push({ lv: 'cefr', id: 'C100', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Nền đủ nội dung Pre-A1 → C2 (đo lại C1 / C2, từ khoá chấm ý không bắt bài lạc đề), ngữ pháp B1 / B2, bài luyện Đọc / Nghe B1 / B2 / Pre-A1 ≥ 20 (câu suy luận, giọng), đề luyện Nói B1 / B2 ≥ 10, Viết ≥ 8' }); }
 
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

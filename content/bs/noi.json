@@ -2808,7 +2808,7 @@
 "Cân nhắc mọi mặt,"
 ]
 ],
-"m": "One undeniable advantage is that online study removes barriers of distance and cost. A student in a remote village can follow a lecture from a leading professor, and working adults can fit lessons around their jobs. The downside, though, is that motivation tends to suffer when nobody is watching. Many learners drift away without the routine and personal contact of a classroom, and group work becomes awkward over a screen. Looking ahead, I suspect that most institutions will adopt a blended model, with lectures online and seminars in person. All things considered, I do not believe classrooms will disappear; rather, they will be used for what they do best, which is discussion and mentoring.",
+"m": "One undeniable advantage is that online study removes barriers of distance and cost. A student in a remote village can follow a lecture from a leading professor, and working adults can fit lessons around their jobs. The downside, though, is that motivation tends to suffer when nobody is watching. Many learners drift away without the routine and personal contact of a classroom, and group work becomes awkward over a screen. Without a fixed timetable, it is easy to postpone work until the deadline. Looking ahead, I suspect that most institutions will adopt a blended model, with lectures online and seminars in person. All things considered, I do not believe classrooms will disappear; rather, they will be used for what they do best, which is discussion and mentoring.",
 "k": [
 [
 [
@@ -2827,11 +2827,13 @@
 "downside",
 "drawback",
 "disadvantage",
-"however",
 "motivation",
 "isolat",
 "distraction",
-"personal contact"
+"personal contact",
+"lonely",
+"self-discipline",
+"screen"
 ]
 ],
 [
@@ -2843,8 +2845,8 @@
 "hybrid",
 "i suspect",
 "i predict",
-"likely",
-"institutions"
+"will replace",
+"classrooms will"
 ]
 ],
 [
@@ -2893,7 +2895,7 @@
 "Theo kinh nghiệm của tôi,"
 ]
 ],
-"m": "A good mentor can offer far more than advice; they open doors, share hard-won experience and point out mistakes before they become costly. A young engineer, for example, may learn in months what would otherwise take years. That said, relying too heavily on one person carries risks. Mentors can be outdated, or push their protégés towards the choices they themselves made. Ultimately, it is down to the individual to turn guidance into action, because no amount of support compensates for a lack of discipline. In my experience, the most successful people combine both: they seek out guidance early, but they take responsibility for their own progress.",
+"m": "A good mentor can offer far more than advice; they open doors, share hard-won experience and point out mistakes before they become costly. A short conversation over coffee can save a beginner from a mistake that would have cost months of effort. A young engineer, for example, may learn in months what would otherwise take years. That said, relying too heavily on one person carries risks. Mentors can be outdated, or push their protégés towards the choices they themselves made. Ultimately, it is down to the individual to turn guidance into action, because no amount of support compensates for a lack of discipline. In my experience, the most successful people combine both: they seek out guidance early, but they take responsibility for their own progress.",
 "k": [
 [
 [
@@ -2970,7 +2972,7 @@
 "Nhìn chung, tôi cho rằng"
 ]
 ],
-"m": "People are usually driven by a mix of compassion and self-interest: some want to help, others hope to gain experience or meet new friends. Neither motive is shameful. The benefits extend to everyone involved. Charities receive labour they could not afford, while helpers often gain confidence and a stronger sense of belonging. Making it compulsory would defeat the purpose, however, since resentful participants rarely give their best, and genuine generosity cannot be forced. Some schools require service hours, and the results are mixed. On the whole, I take the view that it is a choice worth encouraging through recognition and flexible schedules rather than a duty enforced by law.",
+"m": "People are usually driven by a mix of compassion and self-interest: some want to help, others hope to gain experience or meet new friends. Neither motive is shameful. A person who volunteers partly to improve a CV is still giving up real time and energy. The benefits extend to everyone involved. Charities receive labour they could not afford, while helpers often gain confidence and a stronger sense of belonging. Making it compulsory would defeat the purpose, however, since resentful participants rarely give their best, and genuine generosity cannot be forced. Some schools require service hours, and the results are mixed. On the whole, I take the view that it is a choice worth encouraging through recognition and flexible schedules rather than a duty enforced by law.",
 "k": [
 [
 [
@@ -3059,7 +3061,7 @@
 "Xét cho cùng,"
 ]
 ],
-"m": "Exposure to unfamiliar customs can broaden our outlook and make us question habits we had never thought to examine. Travelling in Japan, for instance, many visitors notice how quiet public transport is and rethink their own behaviour. There is, however, a danger of drawing hasty conclusions from a brief visit, or of reducing a whole society to stereotypes. The key lies in listening before judging, asking locals rather than assuming, and accepting that some things will remain puzzling. In the final analysis, contact with other cultures teaches humility as much as knowledge, and that may be its greatest gift.",
+"m": "Exposure to unfamiliar customs can broaden our outlook and make us question habits we had never thought to examine. Travelling in Japan, for instance, many visitors notice how quiet public transport is and rethink their own behaviour. Small details like this, which locals take for granted, can change how a visitor sees everyday life at home. There is, however, a danger of drawing hasty conclusions from a brief visit, or of reducing a whole society to stereotypes. The key lies in listening before judging, asking locals rather than assuming, and accepting that some things will remain puzzling. Patience helps here, because first impressions are often wrong. In the final analysis, contact with other cultures teaches humility as much as knowledge, and that may be its greatest gift.",
 "k": [
 [
 [
@@ -3759,7 +3761,7 @@
 "Có lẽ cách lành mạnh nhất là"
 ]
 ],
-"m": "It is hardly surprising that people grow wistful for the past, since memory tends to soften hardships and polish happy moments until they glow. At its best, it can provide continuity and a sense of identity, especially in times of upheaval, and shared memories bind families and communities together. It becomes problematic when yearning for a golden age distorts our judgement, for instance when voters long for a time that never quite existed and dismiss necessary change. Perhaps the healthiest approach is to treat the past as a source of lessons rather than a refuge, enjoying its warmth without letting it dictate our expectations of the present.",
+"m": "It is hardly surprising that people grow wistful for the past, since memory tends to soften hardships and polish happy moments until they glow. At its best, it can provide continuity and a sense of identity, especially in times of upheaval, and shared memories bind families and communities together. An old song or a familiar smell can bring an entire afternoon back, and that small pleasure is hard to dismiss as mere self-indulgence. It becomes problematic when yearning for a golden age distorts our judgement, for instance when voters long for a time that never quite existed and dismiss necessary change. Nostalgia of that kind is less a memory than a story told to avoid facing the present. Perhaps the healthiest approach is to treat the past as a source of lessons rather than a refuge, enjoying its warmth without letting it dictate our expectations of the present.",
 "k": [
 [
 [
@@ -3849,7 +3851,7 @@
 "Cân nhắc lại, tôi nghiêng về"
 ]
 ],
-"m": "Leaving it entirely to the market would invite harm, since companies racing to launch products have little incentive to examine biased data, job losses or the spread of convincing fakes. Heavy-handed rules, on the other hand, may stifle research, push talent abroad and entrench the largest firms, which alone can afford compliance. Any workable framework would need input from engineers, ethicists and ordinary citizens rather than ministers alone, and it must be flexible enough to keep pace with the technology. On balance, I lean towards proportionate oversight: strict limits where lives are at stake, such as medicine or policing, and a lighter touch elsewhere.",
+"m": "Leaving it entirely to the market would invite harm, since companies racing to launch products have little incentive to examine biased data, job losses or the spread of convincing fakes. Heavy-handed rules, on the other hand, may stifle research, push talent abroad and entrench the largest firms, which alone can afford compliance. Smaller start-ups, meanwhile, may simply give up when faced with paperwork they cannot afford to handle. Any workable framework would need input from engineers, ethicists and ordinary citizens rather than ministers alone, and it must be flexible enough to keep pace with the technology. Otherwise, rules written today may be obsolete within a few years, and public trust will erode further. On balance, I lean towards proportionate oversight: strict limits where lives are at stake, such as medicine or policing, and a lighter touch elsewhere. Either way, the debate should stay open.",
 "k": [
 [
 [
@@ -3940,7 +3942,7 @@
 "Rốt cuộc, tôi cho rằng"
 ]
 ],
-"m": "Silence offers something rare: the chance to hear our own thoughts without interruption. Many writers and scientists describe their best ideas arriving on a quiet walk rather than in a meeting. Part of the difficulty is that modern life is engineered to fill every gap, with phones buzzing, traffic droning and screens glowing in every café. Stillness has even come to feel uncomfortable, as if an empty minute were wasted. There is a persuasive case for scheduling quiet deliberately, as one would schedule exercise, perhaps by switching off devices for an hour each evening. Ultimately, I would suggest that silence is not an absence of something but a condition for thinking clearly.",
+"m": "Silence offers something rare: the chance to hear our own thoughts without interruption. Many writers and scientists describe their best ideas arriving on a quiet walk rather than in a meeting. The mind seems to need unstructured time to connect ideas that would otherwise remain separate. Part of the difficulty is that modern life is engineered to fill every gap, with phones buzzing, traffic droning and screens glowing in every café. Stillness has even come to feel uncomfortable, as if an empty minute were wasted. Many people reach for their phone within seconds of any pause, almost without noticing. There is a persuasive case for scheduling quiet deliberately, as one would schedule exercise, perhaps by switching off devices for an hour each evening. Ultimately, I would suggest that silence is not an absence of something but a condition for thinking clearly.",
 "k": [
 [
 [
@@ -4020,7 +4022,7 @@
 "Tôi sẽ không đi tới mức nói rằng"
 ]
 ],
-"m": "Much depends on whether the fortune was built by creating value or by exploiting others. An inventor whose product improves millions of lives stands on firmer ground than a speculator profiting from a crisis. Those who benefit most arguably owe something back, whether through philanthropy, fair wages or simply paying their dues. Taxation is the obvious tool, yet it is easily avoided by those with clever accountants, which is why transparency matters as much as rates. I would stop short of saying that wealth is inherently wrong; what troubles me is its concentration, since extreme inequality erodes trust and gives a few people disproportionate influence over everyone else.",
+"m": "Much depends on whether the fortune was built by creating value or by exploiting others. An inventor whose product improves millions of lives stands on firmer ground than a speculator profiting from a crisis. The difference lies not in how much money was made, but in who paid for it along the way. Those who benefit most arguably owe something back, whether through philanthropy, fair wages or simply paying their dues. Such gestures matter more when they are sustained rather than occasional. Taxation is the obvious tool, yet it is easily avoided by those with clever accountants, which is why transparency matters as much as rates. I would stop short of saying that wealth is inherently wrong; what troubles me is its concentration, since extreme inequality erodes trust and gives a few people disproportionate influence over everyone else. That imbalance, left unchecked, tends to deepen over generations.",
 "k": [
 [
 [
@@ -4029,11 +4031,13 @@
 "earned",
 "inherit",
 "innovat",
-"fortune",
 "hard work",
 "inventor",
-"built",
-"honest"
+"honest",
+"wealth was",
+"rich by",
+"self-made",
+"made money"
 ]
 ],
 [
@@ -4041,13 +4045,11 @@
 "owe",
 "philanthropy",
 "fair wages",
-"responsib",
 "give back",
 "charit",
 "donat",
 "duty",
-"obligation",
-"society"
+"obligation"
 ]
 ],
 [
@@ -4058,8 +4060,9 @@
 "redistribut",
 "transparen",
 "loophole",
-"avoid",
-"legislat"
+"legislat",
+"wealth tax",
+"the state"
 ]
 ],
 [
