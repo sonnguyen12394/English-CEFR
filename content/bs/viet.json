@@ -1916,42 +1916,57 @@
 ]
 ],
 "m": [
-"The aim of this proposal is to introduce a monthly event at which neighbours bring damaged household items and have them mended free of charge by skilled volunteers. The idea has proved popular in several European towns. It would be modest in scale and easy to start.",
-"Each session would take place on the first Saturday of the month in the church hall. Volunteers with experience in electronics, sewing and carpentry would work at separate tables, and visitors would be encouraged to watch and assist so that they learn basic skills themselves. A simple booking sheet would prevent long queues. Anyone who wished could leave a note about what they would like to learn next.",
-"Not only would this reduce the amount of waste sent to landfill, but it would also bring together people of different ages who might otherwise never meet. Retired residents, in particular, would have the opportunity to pass on expertise they are rarely asked to use. Neighbours who currently meet only in passing might also discover shared interests.",
-"The main costs would be tools, spare parts and insurance, estimated at around six hundred pounds for the first year. Donations from visitors and a small grant from the council could cover this. I would be grateful if you would consider this proposal and allow a trial of three months. A short report on the results would be sent to the group after the trial."
+"Purpose\nThe aim of this proposal is to introduce a monthly event at which neighbours bring damaged household items and have them mended free of charge by skilled volunteers. The idea has proved popular in several European towns. It would be modest in scale and easy to start.",
+"How it would work\nEach session would take place on the first Saturday of the month in the church hall. Volunteers with experience in electronics, sewing and carpentry would work at separate tables, and visitors would be encouraged to watch and assist so that they learn basic skills themselves. A simple booking sheet would prevent long queues. Anyone who wished could leave a note about what they would like to learn next.",
+"Benefits\nNot only would this reduce the amount of waste sent to landfill, but it would also bring together people of different ages who might otherwise never meet. Retired residents, in particular, would have the opportunity to pass on expertise they are rarely asked to use. Neighbours who currently meet only in passing might also discover shared interests.",
+"Costs and next steps\nThe main costs would be tools, spare parts and insurance, estimated at around six hundred pounds for the first year. Donations from visitors and a small grant from the council could cover this. I would be grateful if you would consider this proposal and allow a trial of three months. A short report on the results would be sent to the group after the trial."
 ],
 "k": [
 [
 [
-"damaged household items",
+"aim of this proposal",
+"purpose",
+"propose",
+"repair café",
+"broken",
 "mended",
-"free of charge",
-"european towns"
+"free of charge"
 ]
 ],
 [
 [
-"first saturday",
-"church hall",
-"electronics",
-"booking sheet"
+"each session",
+"saturday",
+"volunteer",
+"hall",
+"booking",
+"tables",
+"skills"
 ]
 ],
 [
 [
+"waste",
 "landfill",
-"retired residents",
-"pass on expertise",
-"different ages"
+"community",
+"neighbours",
+"different ages",
+"retired",
+"expertise"
 ]
 ],
 [
 [
-"spare parts",
+"cost",
+"budget",
+"pounds",
+"£",
+"funding",
+"grant",
+"donation",
 "insurance",
-"six hundred pounds",
-"grateful"
+"spare parts",
+"trial"
 ]
 ]
 ]
@@ -2493,43 +2508,55 @@
 ]
 ],
 "m": [
-"This report examines the effects of tourism on the town of Marlow Bridge, drawing on council figures, interviews with twenty traders and a public meeting attended by some eighty residents. Its purpose is to inform decisions on how visitor numbers might be managed. Recommendations are set out in the final section.",
-"Whilst the economic benefits are considerable, they are unevenly distributed. Visitor spending supports cafés, guesthouses and craft shops, and accounts for roughly a quarter of local employment. However, much of this work is seasonal and low-paid, and several traders noted that rising rents have driven out the shops on which residents depend, such as the butcher and the pharmacy. Traders interviewed were nevertheless divided, with some arguing that the town would be lifeless without its visitors.",
-"A less visible consequence is the erosion of community life. Residents reported congested pavements in summer, noise late into the evening and a growing sense that the town centre now belongs to outsiders. Younger families, unable to afford housing converted into holiday lets, are moving away, which threatens the future of the local school. Councillors should not underestimate how strongly residents feel on this point.",
-"In light of these findings, it is advisable to limit the number of holiday lets in the historic core and to introduce a modest visitor charge, with the proceeds earmarked for affordable housing. Encouraging off-peak visits through a winter festival would also spread demand more evenly. These measures should be reviewed annually to ensure that they achieve the balance sought. Residents would also be invited to comment on proposals before they are adopted."
+"Introduction\nThis report examines the effects of tourism on the town of Marlow Bridge, drawing on council figures, interviews with twenty traders and a public meeting attended by some eighty residents. Its purpose is to inform decisions on how visitor numbers might be managed. Recommendations are set out in the final section.",
+"Economic impact\nWhilst the economic benefits are considerable, they are unevenly distributed. Visitor spending supports cafés, guesthouses and craft shops, and accounts for roughly a quarter of local employment. However, much of this work is seasonal and low-paid, and several traders noted that rising rents have driven out the shops on which residents depend, such as the butcher and the pharmacy. Traders interviewed were nevertheless divided, with some arguing that the town would be lifeless without its visitors.",
+"Social consequences\nA less visible consequence is the erosion of community life. Residents reported congested pavements in summer, noise late into the evening and a growing sense that the town centre now belongs to outsiders. Younger families, unable to afford housing converted into holiday lets, are moving away, which threatens the future of the local school. Councillors should not underestimate how strongly residents feel on this point.",
+"Recommendations\nIn light of these findings, it is advisable to limit the number of holiday lets in the historic core and to introduce a modest visitor charge, with the proceeds earmarked for affordable housing. Encouraging off-peak visits through a winter festival would also spread demand more evenly. These measures should be reviewed annually to ensure that they achieve the balance sought. Residents would also be invited to comment on proposals before they are adopted."
 ],
 "k": [
 [
 [
-"marlow bridge",
+"this report",
+"purpose",
+"examines",
 "interviews",
-"public meeting",
-"twenty traders"
+"survey",
+"residents",
+"traders"
 ]
 ],
 [
 [
-"guesthouses",
-"craft shops",
+"economic",
+"income",
+"jobs",
+"employment",
+"spending",
 "seasonal",
-"rising rents",
-"pharmacy"
+"rents"
 ]
 ],
 [
 [
-"congested pavements",
+"social",
+"community",
+"residents",
+"housing",
 "holiday lets",
-"local school",
-"outsiders"
+"congest",
+"noise",
+"families"
 ]
 ],
 [
 [
-"visitor charge",
-"affordable housing",
+"recommend",
+"advisable",
+"should",
+"limit",
+"charge",
 "off-peak",
-"reviewed annually"
+"review"
 ]
 ]
 ]
