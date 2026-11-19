@@ -773,6 +773,335 @@
 ]
 },
 {
+"id": "b1-s11",
+"lv": "b1",
+"en": "A Journey You Remember",
+"vi": "Một chuyến đi bạn nhớ mãi",
+"p": "Tell me about a journey you remember well. Where did you go? Who went with you? What happened, and why do you remember it?",
+"pv": "Kể về một chuyến đi bạn nhớ rõ. Bạn đi đâu? Ai đi cùng? Chuyện gì xảy ra và vì sao bạn nhớ?",
+"c": [
+"Đi đâu, đi với ai",
+"Chuyện gì xảy ra",
+"Bạn cảm thấy thế nào",
+"Vì sao nhớ mãi"
+],
+"u": [
+[
+"A few years ago, I went to",
+"Vài năm trước, tôi đã đến"
+],
+[
+"Everything was going well until",
+"Mọi thứ đều ổn cho đến khi"
+],
+[
+"In the end, we managed to",
+"Cuối cùng, chúng tôi đã xoay xở được"
+],
+[
+"I'll never forget it because",
+"Tôi sẽ không bao giờ quên vì"
+]
+],
+"m": "A few years ago, I went to Hue with my cousin by train. We left early in the morning and planned to spend three days visiting old buildings and eating local food. Everything was going well until our train stopped for two hours in the middle of nowhere. We were tired and hungry, and I felt a little worried. In the end, we managed to reach the city at night, and a kind taxi driver took us to our hotel. The next day, we walked along the river and I felt really happy. I'll never forget it because the problem made the trip more exciting, and my cousin and I still laugh about it today.",
+"k": [
+[
+[
+"went to",
+"go to",
+"with my",
+"with a",
+"friend",
+"family",
+"cousin",
+"trip"
+]
+],
+[
+[
+"until",
+"stopped",
+"happened",
+"problem",
+"missed",
+"lost",
+"late",
+"delay"
+]
+],
+[
+[
+"felt",
+"worried",
+"tired",
+"happy",
+"excited",
+"nervous",
+"scared"
+]
+],
+[
+[
+"never forget",
+"remember",
+"because",
+"funny",
+"laugh",
+"special",
+"still"
+]
+]
+]
+},
+{
+"id": "b1-s12",
+"lv": "b1",
+"en": "Advice for a Healthy Life",
+"vi": "Lời khuyên để sống khỏe",
+"p": "What advice would you give to someone who wants to live a healthier life? Talk about food, exercise and sleep, and say what is the hardest thing to change.",
+"pv": "Bạn sẽ khuyên người muốn sống khỏe hơn điều gì? Nói về ăn uống, tập thể dục, giấc ngủ và điều khó thay đổi nhất.",
+"c": [
+"Lời khuyên về ăn uống",
+"Lời khuyên về vận động",
+"Lời khuyên về giấc ngủ",
+"Điều khó thay đổi nhất"
+],
+"u": [
+[
+"If I were you, I would",
+"Nếu tôi là bạn, tôi sẽ"
+],
+[
+"It's a good idea to",
+"Nên làm gì đó là ý hay"
+],
+[
+"You should try not to",
+"Bạn nên cố gắng đừng"
+],
+[
+"The hardest thing is",
+"Điều khó nhất là"
+]
+],
+"m": "If I were you, I would start with food. It's a good idea to eat more vegetables and fruit, and to drink water instead of sweet drinks. Exercise is important too, but you don't need a gym. Walking for thirty minutes every day is enough, and it's free. You should try not to stay up late, because sleeping seven or eight hours helps your body and your mind. For me, the hardest thing is putting my phone away at night, because I always want to watch just one more video. My advice is to change one small habit at a time, so you don't feel stressed and give up.",
+"k": [
+[
+[
+"food",
+"eat",
+"vegetable",
+"fruit",
+"water",
+"sweet",
+"diet",
+"meal"
+]
+],
+[
+[
+"exercise",
+"walk",
+"gym",
+"sport",
+"run",
+"active",
+"move"
+]
+],
+[
+[
+"sleep",
+"late",
+"bed",
+"night",
+"hours",
+"tired",
+"rest"
+]
+],
+[
+[
+"hardest",
+"difficult",
+"phone",
+"habit",
+"give up",
+"stress",
+"change"
+]
+]
+]
+},
+{
+"id": "b1-s13",
+"lv": "b1",
+"en": "A Meal You Enjoy Making",
+"vi": "Một món ăn bạn thích nấu",
+"p": "Describe a meal that you enjoy making. What is it? How do you make it? Who do you usually cook it for, and why do you like it?",
+"pv": "Mô tả một món ăn bạn thích nấu. Đó là món gì? Nấu thế nào? Thường nấu cho ai và vì sao bạn thích?",
+"c": [
+"Món gì",
+"Cách nấu",
+"Nấu cho ai",
+"Vì sao bạn thích"
+],
+"u": [
+[
+"The dish I enjoy making is",
+"Món tôi thích nấu là"
+],
+[
+"First of all, you need to",
+"Trước hết, bạn cần"
+],
+[
+"After that, you have to",
+"Sau đó, bạn phải"
+],
+[
+"What I like most is",
+"Điều tôi thích nhất là"
+]
+],
+"m": "The dish I enjoy making is chicken fried rice. It's simple, but it tastes great. First of all, you need to cook the rice and let it cool, because cold rice works better. After that, you have to cut the chicken, onion and carrot into small pieces and fry them in a hot pan with a little oil. Then you add the rice, an egg and some soy sauce, and mix everything for about five minutes. I usually cook it for my family on Sunday evenings. What I like most is that everyone sits together at the table, and my little brother always asks for a second plate.",
+"k": [
+[
+[
+"dish",
+"rice",
+"chicken",
+"noodle",
+"soup",
+"cake",
+"pizza",
+"pasta",
+"cook",
+"make"
+]
+],
+[
+[
+"first",
+"need to",
+"cut",
+"fry",
+"boil",
+"add",
+"mix",
+"then",
+"pan"
+]
+],
+[
+[
+"family",
+"friends",
+"brother",
+"sister",
+"mother",
+"parents",
+"cook it for",
+"guests",
+"usually"
+]
+],
+[
+[
+"like",
+"love",
+"enjoy",
+"most",
+"tastes",
+"delicious",
+"together",
+"happy"
+]
+]
+]
+},
+{
+"id": "b1-s14",
+"lv": "b1",
+"en": "How You Spend Your Weekends",
+"vi": "Bạn dành cuối tuần thế nào",
+"p": "How do you usually spend your weekends? What do you do on Saturdays and Sundays? Is there anything you would like to do differently?",
+"pv": "Bạn thường dành cuối tuần thế nào? Thứ Bảy và Chủ Nhật bạn làm gì? Có điều gì bạn muốn làm khác đi không?",
+"c": [
+"Thứ Bảy bạn làm gì",
+"Chủ Nhật bạn làm gì",
+"Bạn thích gì ở cuối tuần",
+"Điều muốn thay đổi"
+],
+"u": [
+[
+"On Saturdays, I usually",
+"Vào thứ Bảy, tôi thường"
+],
+[
+"I tend to",
+"Tôi có xu hướng"
+],
+[
+"I look forward to",
+"Tôi mong chờ"
+],
+[
+"I wish I could",
+"Tôi ước mình có thể"
+]
+],
+"m": "On Saturdays, I usually clean my room, do the shopping and meet my friends for coffee in the afternoon. On Sundays, I tend to stay at home, because I'm tired after a busy week. I often sleep late, watch a film and have a long lunch with my parents. I look forward to weekends because I don't have to get up early or think about work. The only problem is that I spend too much time on my phone. I wish I could go out more, maybe cycle in the park or join a sports club, but it's difficult to find the energy after a long week.",
+"k": [
+[
+[
+"saturday",
+"clean",
+"shopping",
+"friends",
+"coffee",
+"usually",
+"afternoon"
+]
+],
+[
+[
+"sunday",
+"stay at home",
+"sleep",
+"film",
+"lunch",
+"parents",
+"relax",
+"rest"
+]
+],
+[
+[
+"look forward",
+"like",
+"enjoy",
+"love",
+"early",
+"work",
+"free"
+]
+],
+[
+[
+"wish",
+"phone",
+"too much",
+"go out",
+"would like",
+"problem",
+"difficult",
+"energy"
+]
+]
+]
+},
+{
 "id": "b2-s1",
 "lv": "b2",
 "en": "Cities or Countryside",
@@ -1471,6 +1800,338 @@
 ]
 }
 }
+]
+]
+},
+{
+"id": "b2-s11",
+"lv": "b2",
+"en": "Working from Home or in an Office",
+"vi": "Làm việc ở nhà hay ở văn phòng",
+"p": "More and more people work from home. What are the advantages and disadvantages of this compared with working in an office? Which would you prefer, and why?",
+"pv": "Ngày càng nhiều người làm việc ở nhà. Ưu và nhược điểm so với làm ở văn phòng là gì? Bạn thích cách nào và vì sao?",
+"c": [
+"Ưu điểm của làm việc ở nhà",
+"Nhược điểm",
+"So sánh với văn phòng",
+"Bạn thích cách nào, vì sao"
+],
+"u": [
+[
+"On the plus side",
+"Mặt tích cực là"
+],
+[
+"On the other hand",
+"Mặt khác"
+],
+[
+"It really depends on",
+"Điều đó thực sự phụ thuộc vào"
+],
+[
+"All things considered",
+"Xét mọi điều"
+]
+],
+"m": "On the plus side, working from home saves time and money, because you don't spend hours commuting or buying lunch every day. You can also organise your day more freely, which makes many people feel less stressed. On the other hand, it can be quite lonely, and it's easy to lose the line between work and personal life. In an office, you can ask colleagues questions quickly and build real relationships, which is harder through a screen. It really depends on the type of job and the person, because some people need a quiet space while others need company. All things considered, I would choose a mix of both, two or three days at home and the rest in the office.",
+"k": [
+[
+[
+"plus side",
+"advantage",
+"saves",
+"commut",
+"freely",
+"flexible",
+"less stressed",
+"benefit",
+"money"
+]
+],
+[
+[
+"on the other hand",
+"lonely",
+"distraction",
+"lose",
+"boundary",
+"disadvantage",
+"difficult",
+"isolated"
+]
+],
+[
+[
+"office",
+"colleagues",
+"team",
+"relationships",
+"compared",
+"whereas",
+"while",
+"screen"
+]
+],
+[
+[
+"depends",
+"all things considered",
+"i would choose",
+"prefer",
+"mix",
+"both",
+"overall",
+"balance"
+]
+]
+]
+},
+{
+"id": "b2-s12",
+"lv": "b2",
+"en": "Social Media and Friendship",
+"vi": "Mạng xã hội và tình bạn",
+"p": "Some people say social media has made friendships weaker, while others believe it has made them stronger. What is your view? Give reasons and examples.",
+"pv": "Có người nói mạng xã hội làm tình bạn yếu đi, người khác tin nó làm tình bạn bền hơn. Quan điểm của bạn là gì? Nêu lý do và ví dụ.",
+"c": [
+"Quan điểm của bạn",
+"Mạng xã hội giúp tình bạn thế nào",
+"Mạng xã hội làm hại tình bạn thế nào",
+"Kết luận cân bằng"
+],
+"u": [
+[
+"From my point of view",
+"Theo quan điểm của tôi"
+],
+[
+"It allows people to",
+"Nó cho phép mọi người"
+],
+[
+"The downside is that",
+"Mặt trái là"
+],
+[
+"It all comes down to",
+"Tất cả quy về"
+]
+],
+"m": "From my point of view, social media is neither good nor bad for friendship. It allows people to stay in touch with friends who live far away. For example, I talk to a classmate who moved to Canada almost every week, and without messaging apps we would probably have lost contact. The downside is that online contact can feel shallow. People click a like button instead of calling, and some spend so much time scrolling that they forget the friend sitting next to them. It all comes down to how we use it. If we treat it as a way to start real conversations, it helps, but if it replaces meeting face to face, friendships will suffer.",
+"k": [
+[
+[
+"point of view",
+"i think",
+"in my opinion",
+"neither",
+"believe",
+"view",
+"personally"
+]
+],
+[
+[
+"stay in touch",
+"far away",
+"allows",
+"contact",
+"message",
+"connect",
+"distance",
+"helps"
+]
+],
+[
+[
+"downside",
+"shallow",
+"scrolling",
+"forget",
+"replace",
+"instead",
+"harm",
+"lonely",
+"problem"
+]
+],
+[
+[
+"comes down",
+"depends",
+"how we use",
+"face to face",
+"real",
+"balance",
+"if we",
+"overall"
+]
+]
+]
+},
+{
+"id": "b2-s13",
+"lv": "b2",
+"en": "Life Skills in School",
+"vi": "Kỹ năng sống ở trường học",
+"p": "Some people think schools should teach practical life skills, such as managing money and cooking, as well as academic subjects. Do you agree? Explain your opinion.",
+"pv": "Có người cho rằng trường học nên dạy kỹ năng sống thực tế như quản lý tiền, nấu ăn bên cạnh các môn học. Bạn đồng ý không? Giải thích ý kiến.",
+"c": [
+"Bạn đồng ý hay không",
+"Lý do nên dạy kỹ năng sống",
+"Khó khăn hoặc ý kiến ngược lại",
+"Kết luận"
+],
+"u": [
+[
+"I'd argue that",
+"Tôi cho rằng"
+],
+[
+"For instance",
+"Ví dụ"
+],
+[
+"Admittedly",
+"Phải thừa nhận rằng"
+],
+[
+"In the long run",
+"Về lâu dài"
+]
+],
+"m": "I'd argue that schools should definitely teach life skills. Many young people leave school able to solve difficult maths problems but unable to make a budget or understand a contract. For instance, a friend of mine got into debt in her first year at university simply because nobody had explained how credit cards work. Admittedly, school timetables are already full, and teachers may not have the training to teach these subjects well. However, even one lesson a week would be enough to cover the basics, and parents could help too. In the long run, students who learn these skills early will be more independent and make better decisions as adults.",
+"k": [
+[
+[
+"i'd argue",
+"agree",
+"i think",
+"in my opinion",
+"should",
+"definitely",
+"believe"
+]
+],
+[
+[
+"budget",
+"money",
+"cook",
+"debt",
+"contract",
+"skills",
+"example",
+"for instance",
+"leave school"
+]
+],
+[
+[
+"admittedly",
+"timetable",
+"however",
+"but",
+"busy",
+"full",
+"training",
+"teachers",
+"although"
+]
+],
+[
+[
+"in the long run",
+"independent",
+"decisions",
+"adults",
+"overall",
+"early",
+"conclusion",
+"better"
+]
+]
+]
+},
+{
+"id": "b2-s14",
+"lv": "b2",
+"en": "If You Could Change Your City",
+"vi": "Nếu bạn có thể thay đổi thành phố",
+"p": "If you could change one thing about the place where you live, what would it be? Explain why, and say what difference it would make to people's lives.",
+"pv": "Nếu có thể thay đổi một điều ở nơi bạn sống, đó sẽ là gì? Giải thích vì sao và điều đó sẽ thay đổi cuộc sống mọi người thế nào.",
+"c": [
+"Bạn sẽ thay đổi điều gì",
+"Vì sao cần thay đổi",
+"Thay đổi sẽ có tác động gì",
+"Khó khăn hoặc kết luận"
+],
+"u": [
+[
+"If it were up to me",
+"Nếu do tôi quyết định"
+],
+[
+"The main reason is that",
+"Lý do chính là"
+],
+[
+"This would mean that",
+"Điều này sẽ có nghĩa là"
+],
+[
+"Of course, it wouldn't be easy",
+"Tất nhiên, sẽ không dễ"
+]
+],
+"m": "If it were up to me, I would build a proper cycle lane network in my city. The main reason is that the roads are crowded, and every morning the traffic is terrible. Many people would like to cycle, but they feel it's too dangerous because cars drive so close. This would mean that fewer people would use motorbikes and cars, so the air would be cleaner and the journey to work would be quicker. People would also be healthier, because they would get exercise without even trying. Of course, it wouldn't be easy, since space is limited and it would cost a lot of money, but I'm convinced it would be worth it.",
+"k": [
+[
+[
+"if it were up to me",
+"i would",
+"change",
+"build",
+"city",
+"would"
+]
+],
+[
+[
+"main reason",
+"crowded",
+"traffic",
+"dangerous",
+"because",
+"noise",
+"pollution",
+"problem"
+]
+],
+[
+[
+"would mean",
+"cleaner",
+"healthier",
+"quicker",
+"fewer",
+"improve",
+"difference",
+"result"
+]
+],
+[
+[
+"wouldn't be easy",
+"cost",
+"money",
+"space",
+"difficult",
+"worth",
+"convinced",
+"however"
+]
 ]
 ]
 },

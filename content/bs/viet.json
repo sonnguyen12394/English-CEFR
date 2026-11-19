@@ -341,6 +341,348 @@
 ]
 },
 {
+"id": "b1-w11",
+"lv": "b1",
+"en": "Story: The Lost Phone",
+"vi": "Truyện: Chiếc điện thoại bị mất",
+"genre": "truyện ngắn",
+"min": 90,
+"max": 120,
+"p": "Your English teacher has asked you to write a story. Your story must begin with this sentence: Mai realised that her phone was not in her bag. Write your story.",
+"pv": "Viết một truyện bắt đầu bằng câu: Mai nhận ra điện thoại của cô không có trong cặp.",
+"c": [
+"Mở đầu: Mai hoảng, tìm điện thoại",
+"Chuyện xảy ra khi cô đi tìm (quá khứ)",
+"Có người giúp / tìm thấy",
+"Kết truyện, cảm xúc"
+],
+"u": [
+[
+"Mai realised that",
+"Mai nhận ra rằng"
+],
+[
+"She looked everywhere",
+"Cô tìm khắp nơi"
+],
+[
+"Luckily",
+"May mắn là"
+],
+[
+"In the end",
+"Cuối cùng"
+]
+],
+"m": [
+"Mai realised that her phone was not in her bag. She had used it on the bus, so she thought she had left it there.",
+"She looked everywhere in the classroom, but it was not there. Then she ran back to the bus stop. The bus had already left, and she felt worried.",
+"Luckily, an old man was waiting at the stop. He said, \"Are you looking for a phone? The driver found one on a seat and gave it to me.\" He took it out of his coat and smiled.",
+"Mai thanked him. In the end, she was so happy that she bought him a cup of tea. After that, she never forgot to check her bag."
+],
+"k": [
+[
+[
+"realised",
+"bag",
+"phone",
+"worried",
+"heart",
+"panic"
+]
+],
+[
+[
+"looked",
+"everywhere",
+"ran",
+"bus",
+"classroom",
+"stop",
+"worried"
+]
+],
+[
+[
+"luckily",
+"old man",
+"found",
+"gave",
+"driver",
+"helped",
+"smiled"
+]
+],
+[
+[
+"in the end",
+"thanked",
+"happy",
+"never forgot",
+"after that",
+"bought"
+]
+]
+]
+},
+{
+"id": "b1-w12",
+"lv": "b1",
+"en": "Email to a Sports Centre",
+"vi": "Email gửi trung tâm thể thao",
+"genre": "email trang trọng",
+"min": 90,
+"max": 120,
+"p": "You saw an advertisement for a swimming course at a local sports centre. Write an email to the manager. Ask about the times and the price, and say which level you need.",
+"pv": "Bạn thấy quảng cáo khoá bơi ở trung tâm thể thao. Viết email cho quản lý: hỏi giờ học, giá, và nói bạn cần trình độ nào.",
+"c": [
+"Lời chào trang trọng, lý do viết",
+"Hỏi giờ học và giá",
+"Nói trình độ của bạn",
+"Lời kết trang trọng"
+],
+"u": [
+[
+"I am writing to ask about",
+"Tôi viết để hỏi về"
+],
+[
+"Could you tell me",
+"Bạn có thể cho tôi biết"
+],
+[
+"I would be grateful if",
+"Tôi sẽ rất biết ơn nếu"
+],
+[
+"I look forward to hearing from you",
+"Mong nhận phản hồi của bạn"
+]
+],
+"m": [
+"Dear Sir or Madam,",
+"I am writing to ask about the swimming course that I saw advertised on your website. I am sixteen years old and I would like to join in September.",
+"Could you tell me what time the classes start and how much the course costs? I would be grateful if you could also tell me if there is a student discount.",
+"I can swim a little, but I am not very confident in deep water, so I think I need a beginner level.",
+"I look forward to hearing from you.",
+"Yours faithfully,\nTam Nguyen"
+],
+"k": [
+[
+[
+"dear sir",
+"dear madam",
+"writing to",
+"ask about",
+"swimming",
+"course",
+"advertised"
+]
+],
+[
+[
+"what time",
+"start",
+"how much",
+"cost",
+"price",
+"classes",
+"discount"
+]
+],
+[
+[
+"level",
+"beginner",
+"swim",
+"not very confident",
+"a little"
+]
+],
+[
+[
+"look forward",
+"hearing from you",
+"yours faithfully",
+"yours sincerely",
+"thank you"
+]
+]
+]
+},
+{
+"id": "b1-w13",
+"lv": "b1",
+"en": "Email Inviting a Friend",
+"vi": "Email mời bạn đi chơi",
+"genre": "email thân mật",
+"min": 90,
+"max": 120,
+"p": "Your English-speaking friend Sam is coming to visit your town next month. Write an email to Sam. Say what you plan to do together, ask what food Sam likes, and tell Sam what clothes to bring.",
+"pv": "Bạn Sam sẽ đến thăm thị trấn bạn tháng sau. Viết email: kể kế hoạch hai bạn sẽ làm, hỏi Sam thích món gì, dặn Sam mang quần áo gì.",
+"c": [
+"Lời chào, vui vì Sam sắp đến",
+"Kế hoạch cùng làm",
+"Hỏi món ăn Sam thích",
+"Dặn quần áo, lời kết"
+],
+"u": [
+[
+"I can't wait to",
+"Mình rất mong"
+],
+[
+"We are going to",
+"Chúng mình sẽ"
+],
+[
+"What kind of food do you like",
+"Bạn thích món gì"
+],
+[
+"See you soon",
+"Hẹn sớm gặp"
+]
+],
+"m": [
+"Hi Sam,",
+"I can't wait to see you next month! It will be great to show you my town.",
+"We are going to visit the old castle on Saturday, and on Sunday we can go cycling by the river. In the evening my mum wants to cook a big dinner for us. What kind of food do you like? Do you eat spicy food?",
+"The weather is usually cool in October, so please bring a warm jacket and comfortable shoes for walking.",
+"Let me know when your train arrives and I will meet you at the station.",
+"See you soon!",
+"Ben"
+],
+"k": [
+[
+[
+"can't wait",
+"excited",
+"happy",
+"looking forward",
+"great to see",
+"next month"
+]
+],
+[
+[
+"going to",
+"castle",
+"cycling",
+"visit",
+"river",
+"plan",
+"we can"
+]
+],
+[
+[
+"what kind",
+"food",
+"like",
+"eat",
+"spicy",
+"dinner",
+"cook"
+]
+],
+[
+[
+"bring",
+"jacket",
+"shoes",
+"warm",
+"weather",
+"see you soon",
+"train",
+"station"
+]
+]
+]
+},
+{
+"id": "b1-w14",
+"lv": "b1",
+"en": "Article: A Person I Admire",
+"vi": "Bài báo: Người tôi ngưỡng mộ",
+"genre": "bài báo cho tạp chí trường",
+"min": 90,
+"max": 120,
+"p": "Your school magazine is asking students to write about a person they admire. Write an article. Say who the person is, what the person does, and why you admire this person.",
+"pv": "Tạp chí trường mời học sinh viết về người mình ngưỡng mộ. Viết bài báo: người đó là ai, làm nghề gì, vì sao bạn ngưỡng mộ.",
+"c": [
+"Mở bài: người bạn ngưỡng mộ",
+"Người ấy làm gì",
+"Vì sao ngưỡng mộ",
+"Kết bài, câu hỏi cho người đọc"
+],
+"u": [
+[
+"The person I admire most is",
+"Người tôi ngưỡng mộ nhất là"
+],
+[
+"She works as",
+"Cô ấy làm nghề"
+],
+[
+"What I like about her is",
+"Điều tôi thích ở cô ấy là"
+],
+[
+"What about you?",
+"Còn bạn thì sao?"
+]
+],
+"m": [
+"Have you ever met someone who makes you want to be a better person? The person I admire most is my aunt, Lan.",
+"She works as a nurse in a children's hospital. She often has to work at night, but she never complains.",
+"What I like about her is that she is always kind and patient. Once, she stayed at the hospital for two extra hours to talk to a frightened boy. She also gives money to a charity every month.",
+"Because of her, I want to help other people when I grow up. What about you? Who do you admire, and why?"
+],
+"k": [
+[
+[
+"admire",
+"person",
+"aunt",
+"someone",
+"better person"
+]
+],
+[
+[
+"works as",
+"nurse",
+"hospital",
+"night",
+"children",
+"job"
+]
+],
+[
+[
+"kind",
+"patient",
+"stayed",
+"charity",
+"gives",
+"what i like",
+"because"
+]
+],
+[
+[
+"what about you",
+"grow up",
+"help",
+"why",
+"who do you"
+]
+]
+]
+},
+{
 "id": "b2-w1",
 "lv": "b2",
 "en": "Essay: Public Transport",
@@ -687,6 +1029,354 @@
 "look forward",
 "yours faithfully",
 "yours sincerely"
+]
+]
+]
+},
+{
+"id": "b2-w11",
+"lv": "b2",
+"en": "Review: A Book",
+"vi": "Nhận xét: Một cuốn sách",
+"genre": "bài nhận xét (review)",
+"min": 140,
+"max": 190,
+"p": "You have read a novel that you want to recommend to other readers of your school magazine. Write a review of the book. Describe the story, say what you liked and disliked, and say who would enjoy it.",
+"pv": "Viết nhận xét về một cuốn tiểu thuyết bạn muốn giới thiệu: tóm tắt truyện, điều thích / không thích, ai sẽ thích đọc.",
+"c": [
+"Giới thiệu sách và tác giả",
+"Tóm tắt nội dung",
+"Ưu điểm và nhược điểm",
+"Khuyến nghị cho ai"
+],
+"u": [
+[
+"is set in",
+"lấy bối cảnh ở"
+],
+[
+"What I particularly enjoyed was",
+"Điều tôi đặc biệt thích là"
+],
+[
+"On the other hand",
+"Mặt khác"
+],
+[
+"I would recommend it to",
+"Tôi giới thiệu cho"
+]
+],
+"m": [
+"The Last Lighthouse is a novel by the author Helen Marsh, and it is one of the best books I have read this year.",
+"The story is set in a small fishing village on the coast of Scotland. A twelve-year-old girl called Nora discovers a secret room in the old lighthouse, and she slowly learns the truth about her missing grandfather.",
+"What I particularly enjoyed was the way the writer describes the sea and the weather, which made me feel as if I were standing on the cliff. The characters are also realistic and easy to care about.",
+"On the other hand, the middle of the book is a little slow, and a few chapters could have been shorter. The ending, however, is both surprising and moving.",
+"Overall, I would recommend it to anyone who likes mystery stories and does not mind a quiet pace. It is a book that stays in your mind long after you finish it."
+],
+"k": [
+[
+[
+"novel",
+"author",
+"writer",
+"book",
+"best books",
+"by"
+]
+],
+[
+[
+"story",
+"set in",
+"village",
+"lighthouse",
+"discovers",
+"girl",
+"learns",
+"secret"
+]
+],
+[
+[
+"enjoyed",
+"particularly",
+"describes",
+"characters",
+"slow",
+"on the other hand",
+"ending",
+"chapters"
+]
+],
+[
+[
+"recommend",
+"overall",
+"anyone",
+"mystery",
+"who likes",
+"stays in your mind"
+]
+]
+]
+},
+{
+"id": "b2-w12",
+"lv": "b2",
+"en": "Report: Improving the School Library",
+"vi": "Báo cáo: Cải thiện thư viện trường",
+"genre": "báo cáo",
+"min": 140,
+"max": 190,
+"p": "Your school head has asked you to write a report about the school library. Say how students use it at the moment, what the main problems are, and suggest improvements.",
+"pv": "Hiệu trưởng nhờ bạn viết báo cáo về thư viện: học sinh dùng thư viện thế nào hiện nay, vấn đề chính, và đề xuất cải thiện.",
+"c": [
+"Mục đích báo cáo (tiêu đề / mở đầu)",
+"Cách học sinh đang dùng thư viện",
+"Các vấn đề chính",
+"Đề xuất và kết luận"
+],
+"u": [
+[
+"The aim of this report is to",
+"Mục đích báo cáo này là"
+],
+[
+"According to a survey",
+"Theo một khảo sát"
+],
+[
+"One problem is that",
+"Một vấn đề là"
+],
+[
+"I would suggest",
+"Tôi đề xuất"
+]
+],
+"m": [
+"Introduction\nThe aim of this report is to describe how students use the school library and to suggest ways of making it better.",
+"Current use\nAccording to a survey of fifty students, most of them visit the library about twice a week. They mainly go there to do homework or to borrow books for exams. Very few students go there to read for pleasure.",
+"Problems\nOne problem is that the library closes at four o'clock, which is too early for students who stay after school. In addition, many of the books are old, and there are not enough computers for everyone.",
+"Recommendations\nI would suggest keeping the library open until six o'clock on weekdays. The school should also buy some new novels and magazines, since students would then be more likely to read for fun. Finally, two or three extra computers would reduce waiting times. These changes would not be expensive, and they would make the library much more useful."
+],
+"k": [
+[
+[
+"aim of this report",
+"report",
+"describe",
+"suggest",
+"introduction"
+]
+],
+[
+[
+"survey",
+"students",
+"visit",
+"twice a week",
+"homework",
+"borrow",
+"current use"
+]
+],
+[
+[
+"problem",
+"closes",
+"too early",
+"old",
+"not enough",
+"computers"
+]
+],
+[
+[
+"suggest",
+"open until",
+"buy",
+"new",
+"recommend",
+"would reduce",
+"changes",
+"finally"
+]
+]
+]
+},
+{
+"id": "b2-w13",
+"lv": "b2",
+"en": "Email to a Friend: A New Job",
+"vi": "Email cho bạn: Công việc mới",
+"genre": "email thân mật",
+"min": 140,
+"max": 190,
+"p": "You have just started a part-time job in a café. Write an email to an English-speaking friend. Describe the job, say what you like and dislike about it, and ask for advice about managing your time.",
+"pv": "Bạn mới đi làm thêm ở quán cà phê. Viết email cho bạn nói tiếng Anh: tả công việc, điều thích / không thích, xin lời khuyên sắp xếp thời gian.",
+"c": [
+"Lời chào, tin mới",
+"Mô tả công việc",
+"Điều thích và không thích",
+"Xin lời khuyên, lời kết"
+],
+"u": [
+[
+"Guess what?",
+"Đoán xem nào?"
+],
+[
+"I have to",
+"Mình phải"
+],
+[
+"The only drawback is",
+"Nhược điểm duy nhất là"
+],
+[
+"Do you have any tips on",
+"Bạn có mẹo nào về"
+]
+],
+"m": [
+"Hi Jack,",
+"Guess what? I've finally got a part-time job! I started last week at a small café near my school.",
+"I work on Saturdays and Sundays, and I have to make coffee, take orders and clean the tables. The manager is very friendly, and my colleagues have taught me a lot already. I also enjoy meeting so many different people, which is helping me to practise my English. Last Saturday a tourist asked me for a recommendation, and I answered in English without any problems. My boss said I did really well.",
+"The only drawback is that I'm always exhausted by Sunday evening, and I'm finding it hard to finish my homework.",
+"Do you have any tips on managing my time? You've had a job for a year, so you must know some tricks.",
+"Write back soon and tell me your news.",
+"Best wishes,\nMinh"
+],
+"k": [
+[
+[
+"guess what",
+"job",
+"part-time",
+"started",
+"café",
+"finally"
+]
+],
+[
+[
+"work on",
+"make coffee",
+"orders",
+"clean",
+"manager",
+"colleagues",
+"i have to",
+"enjoy"
+]
+],
+[
+[
+"drawback",
+"exhausted",
+"hard",
+"only",
+"homework",
+"tired"
+]
+],
+[
+[
+"tips",
+"advice",
+"managing",
+"time",
+"write back",
+"best wishes",
+"tell me"
+]
+]
+]
+},
+{
+"id": "b2-w14",
+"lv": "b2",
+"en": "Essay: Homework",
+"vi": "Bài luận: Bài tập về nhà",
+"genre": "bài luận",
+"min": 140,
+"max": 190,
+"p": "In your English class you have been talking about homework. Write an essay: \"Schools should give students less homework. Do you agree?\" Write about health, free time, and one idea of your own.",
+"pv": "Viết bài luận: “Trường nên giao ít bài tập về nhà hơn. Bạn có đồng ý?” Bàn về sức khoẻ, thời gian rảnh, và một ý của riêng bạn.",
+"c": [
+"Mở bài nêu vấn đề",
+"Sức khoẻ và căng thẳng",
+"Thời gian rảnh",
+"Ý riêng + kết luận"
+],
+"u": [
+[
+"It is often argued that",
+"Người ta thường cho rằng"
+],
+[
+"To begin with",
+"Trước hết"
+],
+[
+"Admittedly",
+"Phải thừa nhận"
+],
+[
+"To sum up",
+"Tóm lại"
+]
+],
+"m": [
+"It is often argued that students today receive too much homework. In my opinion, schools should reduce it, although not remove it completely.",
+"To begin with, long hours of homework can damage students' health. Many teenagers go to bed late because they are still studying, and they feel tired and stressed the next day.",
+"Moreover, students need free time to play sport, meet friends and follow their own interests. These activities teach them skills that school lessons cannot always provide.",
+"Admittedly, homework helps students to revise and to learn to work alone. However, quality matters more than quantity, and a short task that makes students think is better than two hours of copying from a book. Teachers could also let students choose between several different tasks, so that everyone feels more motivated.",
+"To sum up, I believe that schools should give less homework, but make it more interesting and useful."
+],
+"k": [
+[
+[
+"often argued",
+"too much homework",
+"reduce",
+"in my opinion",
+"students today",
+"argued"
+]
+],
+[
+[
+"health",
+"tired",
+"stressed",
+"late",
+"bed",
+"long hours",
+"damage"
+]
+],
+[
+[
+"free time",
+"sport",
+"friends",
+"interests",
+"skills",
+"moreover"
+]
+],
+[
+[
+"to sum up",
+"admittedly",
+"quality",
+"quantity",
+"however",
+"i believe",
+"short task"
 ]
 ]
 ]
