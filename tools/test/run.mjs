@@ -3080,5 +3080,17 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       const hit = A.filter(y => y !== x && x.k.every(g => g.flat().some(w => M(y).includes(w)))).length; if (hit > 5) bad.push(x.id + ' bài lạc đề trúng đủ ý ' + hit); } }
   R.push({ lv: 'cefr', id: 'C100', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Nền đủ nội dung Pre-A1 → C2 (đo lại C1 / C2, từ khoá chấm ý không bắt bài lạc đề), ngữ pháp B1 / B2, bài luyện Đọc / Nghe B1 / B2 / Pre-A1 ≥ 20 (câu suy luận, giọng), đề luyện Nói B1 / B2 ≥ 10, Viết ≥ 8' }); }
 
+// v206 C101 📖 Tra cứu có mục 🏙 Nhân vật Khu phố: đủ 35 nhân vật (31 ở phố + 4 chưa có), tên không còn danh xưng (Bác / Cô…), mỗi nhân vật có dấu hiệu + luật + nút vào phố, tìm "bị động" ra nhân vật
+{ const r = await run(`(() => { const bad = [], A = tcNvAll(), HON = /(^|[^\\p{L}])(Bác|Cô|Anh|Bé|Chú|Bà|Chị|Ông) (?=\\p{Lu})/u;
+  if (A.length !== 35) bad.push('số nhân vật ' + A.length);
+  if (new Set(A.map(x => x.name)).size !== A.length) bad.push('trùng tên');
+  for (const x of A) { if (!x.suf || !x.line) bad.push(x.c + ' thiếu dấu hiệu / luật'); for (const t of [x.name, x.line, x.chant]) if (HON.test(t || '')) bad.push(x.c + ' còn danh xưng: ' + t);
+    if (!tcNvBody(x).includes('data-phv="' + x.k + '"')) bad.push(x.c + ' thiếu nút vào phố'); }
+  for (const n of ['Chỉ định', 'Phủ định NOT', 'Ý định', 'Đối chiếu', 'Đi kèm giới từ', 'Từ nối đầu câu']) if (!A.some(x => x.name === n)) bad.push('thiếu ' + n);
+  if (!tcNvList('bị động').includes('Bị động')) bad.push('tìm bị động không ra');
+  if (TC_OF.nv !== 'nv' || !TC_SECT.nv) bad.push('chưa có mục nv');
+  return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C101', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Tra cứu có mục 🏙 Nhân vật Khu phố: 35 nhân vật, tên không danh xưng, đủ dấu hiệu / luật / nút vào phố, tìm được' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
