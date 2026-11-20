@@ -2629,7 +2629,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       // lần đầu bấm Chơi ở Bậc 2 → bài học luật ghế
       await phView(); const click = sel => $app.onclick({ target: { closest: s => s === sel ? {} : null } });
       if (!/Học luật ghế rồi chơi/.test($app.innerHTML) || /class="hrow phbook" data-phluat/.test($app.innerHTML)) bad.push('Bậc 2 chưa học luật: nút Chơi phải ghi học luật ghế, không có dòng riêng');   // v188: gộp vào Bậc 2
-      click('[data-phplay]'); if (window.CUR.view !== PH_VIEW + '-luat' || !/Bác Danh từ hay Cô Tính từ/.test($app.innerHTML) || !/data-phlskip/.test($app.innerHTML)) bad.push('Chơi Bậc 2 lần đầu phải vào bài học (có Bỏ qua)');
+      click('[data-phplay]'); if (window.CUR.view !== PH_VIEW + '-luat' || !/Danh từ hay Tính từ/.test($app.innerHTML) || !/data-phlskip/.test($app.innerHTML)) bad.push('Chơi Bậc 2 lần đầu phải vào bài học (có Bỏ qua)');
       let steps = 0, qs = 0;
       for (let b = 0; b < 3; b++) { steps++; click('[data-phlq]');
         for (let i = 0; i < 12 && window.CUR.view === PH_VIEW + '-luat' && /data-phlc/.test($app.innerHTML); i++) {
@@ -2642,7 +2642,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       // lời giải Bậc 2 nói luật ghế; bảng ghế trong ván
       const it = PH_R.it, g = PH_GHE[it.ghe]; PH_R.lane = PH_R.order.findIndex(o => !o.ok); const got = PH_R.order[PH_R.lane]; phCatch();
       if (!String(document.getElementById('phfb').innerHTML).includes(esc(g.rule))) bad.push('lời giải Bậc 2 phải có luật ghế');
-      const ml = phMissLine({ it, got, md: 'gh' }); if (/\\(Anh Động từ\\)|\\(Bác Danh từ\\)/.test(ml) || !ml.includes('Bạn chọn ' + PH_SHORT[got.p])) bad.push('danh sách cần nhớ lại lặp tên cư dân: ' + ml.slice(0, 120));
+      const ml = phMissLine({ it, got, md: 'gh' }); if (/\\(Động từ\\)|\\(Danh từ\\)/.test(ml) || !ml.includes('Bạn chọn ' + PH_SHORT[got.p])) bad.push('danh sách cần nhớ lại lặp tên cư dân: ' + ml.slice(0, 120));
       $app.onclick({ target: { closest: s => s === '[data-phbk]' ? {} : null } }); const sh = document.getElementById('phsheet'); if (!sh || !/Bảng ghế/.test(sh.innerHTML)) bad.push('nút 🪑 trong ván phải mở bảng ghế');
       phStop();
     } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
@@ -2905,7 +2905,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C92', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Part 6 vào phố: cắt câu + câu trước + 📄 Xem cả đoạn, mỗi chỗ trống một phố, luật vững cho Part 6; phương án khác loại không có làn bậc 1; mọi đề phủ ≥ 86/100 câu Phần Đọc' }); }
 
-// v195 C93 🛒 Chợ Từ Vựng có từ gần nghĩa Part 7: quầy thứ tư Bà Nhiều Nghĩa (NN), kho ≥ 40 câu NN qua bộ dựng; mọi câu từ gần nghĩa của 8 đề vào Chợ
+// v195 C93 🛒 Chợ Từ Vựng có từ gần nghĩa Part 7: quầy thứ tư Nhiều nghĩa (NN), kho ≥ 40 câu NN qua bộ dựng; mọi câu từ gần nghĩa của 8 đề vào Chợ
 //   (câu chứa từ trong bài, bỏ dấu [1]–[4], ô trống hiện chính từ, đáp án "từ ≈ nghĩa", 📄 Xem cả bài); người chơi cũ gặp vụ thám tử của cư dân mới trước ván
 { const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname, NMIN = +(process.env.CH_NN_MIN || 40);
   try { const o = cp.execFileSync('node', [root + 'tools/build-cho.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ cho\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.stderr || e.message).slice(0, 160)); }
@@ -2922,7 +2922,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       if (n < 20) bad.push('8 đề chỉ có ' + n + ' câu từ gần nghĩa');
       for (const d of TO.tron) { const t = Object.values(cyCount(d.id)).reduce((a, r) => a + r.n, 0); if (t < 92) bad.push(d.id + ' phủ ' + t + '/100'); }
       const de = TO.tron[0].id; tgSt().de = de; phUse('cho'); PH_K = null; PH_RL = null; PHC.sc = null; await phLoad(); const it = Object.values(PH_RL).find(x => x.syn);
-      const P = phSt(); P.in = 1; P.cd = {}; phStart(it, () => 0); if (!/tham-tu/.test(String(window.CUR.view))) bad.push('người chơi cũ phải gặp vụ thám tử Bà Nhiều Nghĩa trước');
+      const P = phSt(); P.in = 1; P.cd = {}; phStart(it, () => 0); if (!/tham-tu/.test(String(window.CUR.view))) bad.push('người chơi cũ phải gặp vụ thám tử Nhiều nghĩa trước');
       P.cd = { NN: { at: 1, n: 0 } }; phStart(it, () => 0); const sh = String(document.getElementById('phsent').innerHTML), pa = String(document.getElementById('phpara').innerHTML);
       if (!/phsynq/.test(sh) || !/phgap syn/.test(sh) || !/Xem cả bài/.test(pa)) bad.push('màn câu từ gần nghĩa: câu hỏi, từ trong ô trống, 📄 Xem cả bài');
       PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch(); if (!/≈/.test(String(document.getElementById('phsent').innerHTML))) bad.push('sau khi trả lời: từ ≈ nghĩa'); phStop();

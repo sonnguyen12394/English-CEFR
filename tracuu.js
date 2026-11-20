@@ -239,7 +239,7 @@ const tcAm = q => (TC && TC.am || []).map(sec => ({ ...sec, items: sec.items.fil
 // ---------- v206 🏙 Nhân vật Khu phố (20/11/2026, người sáng lập: "từ điển đã thể hiện được nội dung của 35 nhân vật chưa, nếu chưa thì cập nhật") ----------
 // Một mục tra theo nhân vật: tên (bỏ danh xưng theo ý người sáng lập), dấu hiệu, luật, câu thần chú, ví dụ, luật con, bài ngữ pháp liên quan, ▶ Vào phố.
 // Đọc thẳng cấu hình phố (PH_PHO) nên luôn khớp game; 4 nhân vật chưa có ở phố (Chỉ định, Phủ định NOT, Ý định, Đối chiếu) soạn ở TC_NVX.
-// Game còn dùng tên cũ (Bác / Cô…): tên trong mục này đổi qua TC_NV_NAME. Chỉ để tra, không tính luật đo.
+// v207 game cũng đã bỏ danh xưng; TC_NV_NAME giữ để đổi tên nếu tiến độ / dữ liệu cũ còn chữ cũ. Chỉ để tra, không tính luật đo.
 const TC_NV_NAME = [['Chú Gạch Giới', 'Giới từ'], ['Chú Gạch', 'Giới từ'], ['Cô Cầu Liên', 'Liên từ'], ['Cô Cầu', 'Liên từ'], ['Bác Xích Nối', 'Từ nối đầu câu'], ['Bác Xích', 'Từ nối đầu câu'],
   ['Bác Danh từ', 'Danh từ'], ['Anh Động từ', 'Động từ'], ['Cô Tính từ', 'Tính từ'], ['Bé Trạng từ', 'Trạng từ'], ['Bác Chia thì', 'Chia thì'], ['Cô Bị động', 'Bị động'], ['Anh Nguyên mẫu', 'Nguyên mẫu'], ['Bé V-ing', 'V-ing'],
   ['Bác Đại từ', 'Đại từ'], ['Cô Sở hữu', 'Sở hữu'], ['Anh Tự mình', 'Phản thân'], ['Chú Quan hệ', 'Quan hệ'], ['Chị Lượng', 'Lượng từ'], ['Bà Nhiều Nghĩa', 'Nhiều nghĩa'], ['Bà Cụm', 'Cụm cố định'], ['Chú Giới', 'Đi kèm giới từ'], ['Cô Nghĩa', 'Nghĩa cả câu'],

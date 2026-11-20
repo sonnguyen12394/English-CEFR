@@ -2,10 +2,10 @@
  "_khuon": {
   "muc_dich": "Kho văn bản ngắn của 🔎 Bến Dò Tin (Thành phố TOEIC): luyện câu hỏi Part 7 (trừ từ gần nghĩa, chèn câu). Mỗi văn bản 60–120 từ kiểu Part 7 (e-mail, thông báo, quảng cáo, tin nhắn, bài báo ngắn, biểu mẫu), 3 câu hỏi. Không chép đề ETS / đề trong app; người, công ty hư cấu.",
   "cu_dan": {
-   "P": "Cô Mục đích: Why was the e-mail written? What is the purpose of…? (đọc câu đầu / câu yêu cầu)",
-   "C": "Bác Chi tiết: When / Where / How much / What… (dò từ khoá của câu hỏi trong bài)",
-   "K": "Anh Đúng–Sai: What is indicated / stated / true about…? What is NOT mentioned? (đối chiếu từng phương án)",
-   "Y": "Bé Suy luận: What is suggested / most likely…? What does X mean when he writes…? (đọc kỹ chỗ liên quan, không có chữ y nguyên)"
+   "P": "Mục đích: Why was the e-mail written? What is the purpose of…? (đọc câu đầu / câu yêu cầu)",
+   "C": "Chi tiết: When / Where / How much / What… (dò từ khoá của câu hỏi trong bài)",
+   "K": "Đúng–Sai: What is indicated / stated / true about…? What is NOT mentioned? (đối chiếu từng phương án)",
+   "Y": "Suy luận: What is suggested / most likely…? What does X mean when he writes…? (đọc kỹ chỗ liên quan, không có chữ y nguyên)"
   },
   "dinh_dang": "{ id 'bt-NN', kind: loại văn bản tiếng Anh như đề (E-mail, Notice, Advertisement, Text message chain, Article, Memo, Web page, Form, Invitation, Review), t: văn bản (mỗi câu kết thúc bằng . ! ?; tin nhắn mỗi dòng 'Tên (giờ): …', xuống dòng bằng \\n), qs: [ { ty: P|C|K|Y, q: câu hỏi tiếng Anh, a: đáp án, w: [3 phương án sai], ev: một đoạn ≥ 20 ký tự chép NGUYÊN VĂN từ đúng MỘT câu của t chứa bằng chứng (câu NOT: câu chứa đáp án đúng, tức điều KHÔNG được nhắc thì ev là câu gần nhất liên quan), why: tiếng Việt ≤ 40 từ, vi: dịch câu hỏi } ] }",
   "luat_soan": "Đáp án diễn đạt lại (không chép nguyên văn cụm từ của bài); 3 phương án sai cùng loại, hợp lẽ thường, chỉ bài mới phân biệt được; đáp án không luôn là phương án dài nhất. Mỗi văn bản 3 câu hỏi khác loại khi được; câu hỏi theo thứ tự xuất hiện trong bài."

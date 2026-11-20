@@ -20,11 +20,11 @@ const GH_MUC = {
 const GH_FIX = { ten: '🛠 Chữa câu', md: 'chon', tim: 5, sec: 120, goi: 99 };
 PH_PHO.ghep = { key: 'ghep', view: 'toeic-ghep', ic: '🧩', ten: 'Phố Ghép Đoạn', file: 'ghep.json', sub: 'Chèn câu vào đoạn văn · Part 6, Part 7',
   desc: 'Câu chèn luôn có một chữ chỉ ngược về câu ngay trước (this, also, however, as a result…). Tìm chữ đó, rồi tìm câu nó chỉ tới.',
-  lo: 'câu chèn', ORD: ['GC', 'GT', 'GN', 'GQ'], SHORT: { GC: 'Bác Chỉ Lại', GT: 'Cô Thêm Ý', GN: 'Anh Đổi Chiều', GQ: 'Bé Tiếp Nối' }, NHA: {}, G: {}, MUC: GH_MUC, FIX: GH_FIX,
-  CH: { GC: { name: 'Bác Chỉ Lại', pos: 'Chỉ lại', suf: 'this, these, such, it, they, there', line: 'Câu có this / these / such / it / they thì câu ngay trước phải có đúng thứ được chỉ: "this feature" cần câu trước nói về một chức năng.' },
-    GT: { name: 'Cô Thêm Ý', pos: 'Thêm ý', suf: 'also, in addition, for example', line: 'Câu có also / in addition thì câu trước đã nói một ý cùng loại; for example thì câu trước là ý chung, câu chèn là ví dụ.' },
-    GN: { name: 'Anh Đổi Chiều', pos: 'Đổi chiều', suf: 'however, instead, otherwise', line: 'Câu có however / instead thì câu trước nói điều ngược lại. Đọc câu trước: nếu cùng chiều thì sai chỗ.' },
-    GQ: { name: 'Bé Tiếp Nối', pos: 'Tiếp nối', suf: 'as a result, then, after that', line: 'Câu có as a result / then / after that thì câu trước là nguyên nhân hoặc việc xảy ra trước.' } },
+  lo: 'câu chèn', ORD: ['GC', 'GT', 'GN', 'GQ'], SHORT: { GC: 'Chỉ lại', GT: 'Thêm ý', GN: 'Đổi chiều', GQ: 'Tiếp nối' }, NHA: {}, G: {}, MUC: GH_MUC, FIX: GH_FIX,
+  CH: { GC: { name: 'Chỉ lại', pos: 'Chỉ lại', suf: 'this, these, such, it, they, there', line: 'Câu có this / these / such / it / they thì câu ngay trước phải có đúng thứ được chỉ: "this feature" cần câu trước nói về một chức năng.' },
+    GT: { name: 'Thêm ý', pos: 'Thêm ý', suf: 'also, in addition, for example', line: 'Câu có also / in addition thì câu trước đã nói một ý cùng loại; for example thì câu trước là ý chung, câu chèn là ví dụ.' },
+    GN: { name: 'Đổi chiều', pos: 'Đổi chiều', suf: 'however, instead, otherwise', line: 'Câu có however / instead thì câu trước nói điều ngược lại. Đọc câu trước: nếu cùng chiều thì sai chỗ.' },
+    GQ: { name: 'Tiếp nối', pos: 'Tiếp nối', suf: 'as a result, then, after that', line: 'Câu có as a result / then / after that thì câu trước là nguyên nhân hoặc việc xảy ra trước.' } },
   canFix: q => !!(q && ((q.sec === 'p6' && q.gt === 'insert') || (q.sec === 'p7' && q.qt === 'insert'))), fixLab: '🧩 Chữa ở Phố Ghép Đoạn · tìm chữ nối ngược',
   own: () => ghView(), fix: (de, n) => ghFix(de, n) };
 let GH_K = null, GH_R = null, GH_BACK = null;
@@ -82,7 +82,7 @@ async function ghView() { ghStop(); window.CUR = { view: 'toeic-ghep' }; BACK = 
     if (e.target.closest('[data-ghplay]')) return ghStart(); if (e.target.closest('[data-ghintro]')) return ghIntro(); }; }
 function ghIntro() { window.CUR = { view: 'toeic-ghep-intro' }; scrollTo(0, 0); const C = PH_PHO.ghep.CH;
   $app.innerHTML = ghTop(ghSt().in ? 'Phố' : 'Thành phố') + `<h2>4 cư dân của Phố Ghép Đoạn</h2><p class="mute">Mỗi người là một loại chữ nối ngược về câu trước. Thấy chữ nào trong câu chèn thì biết câu trước phải nói gì.</p>
-    ${PH_PHO.ghep.ORD.map(t => `<div class="phwho" style="cursor:default">${phFace(t, 58)}<span class="t"><b>${C[t].name}</b><span><span class="phtag ph-${t}">${C[t].pos}</span> <small class="mute">${esc(C[t].suf)}</small></span><small>${esc(C[t].line)}</small></span></div>`).join('')}
+    ${PH_PHO.ghep.ORD.map(t => `<div class="phwho" style="cursor:default">${phFace(t, 58)}<span class="t"><b>${C[t].name}</b><span>${C[t].pos !== C[t].name ? `<span class="phtag ph-${t}">${C[t].pos}</span>` : ''} <small class="mute">${esc(C[t].suf)}</small></span><small>${esc(C[t].line)}</small></span></div>`).join('')}
     <button class="pri" data-ghgo style="min-height:52px">${ghSt().in ? 'Về Phố' : '▶ Bắt đầu Bậc 1'}</button>`;
   $app.onclick = e => { if (e.target.closest('[data-ghback]')) return ghSt().in ? ghView() : ghBackGo(); if (e.target.closest('[data-ghgo]')) { const P = ghSt(); if (!P.in) { P.in = 1; save(); return ghStart(); } return ghView(); } }; }
 // ── ván ──
