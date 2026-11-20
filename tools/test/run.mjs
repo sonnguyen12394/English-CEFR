@@ -3092,5 +3092,21 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   return bad; })()`);
   R.push({ lv: 'cefr', id: 'C101', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Tra cứu có mục 🏙 Nhân vật Khu phố: 35 nhân vật, tên không danh xưng, đủ dấu hiệu / luật / nút vào phố, tìm được' }); }
 
+// v208 C102 🎚 Cấp trong game: mọi câu kho 8 phố có cấp CEFR, chọn cấp thì ván chỉ ra câu tới cấp + 1 (đủ câu thì không lấy cấp cao hơn), bỏ chọn thì như cũ,
+// nhân vật có khoảng cấp và lớn lên khi đúng đủ câu mỗi cấp, ván chữa câu đề không bị lọc
+{ const r = await run(`(async () => { const bad = [], o = toSt(), keep = o.capg; await toLoad();
+  for (const k of ['loai', 'cau', 'dong', 'dai', 'ctr', 'cho']) { phUse(k); PH_K = null; await phLoad();
+    if (PH_K.some(x => !CD_LV.includes(cdLv(k, x)))) bad.push(k + ' có câu không cấp');
+    o.capg = 'a2'; const L = phPick(null, 'tu'), ok = PH_K.filter(x => cdI(cdLv(k, x)) <= cdI('b1')).length;
+    if (ok >= CD_MIN && L.some(x => cdI(cdLv(k, x)) > cdI('b1'))) bad.push(k + ' ván A2 có câu quá B1');
+    o.capg = null; if (!phPick(null, 'tu').length) bad.push(k + ' bỏ chọn cấp không ra câu');
+    o.capg = 'pre'; if (phPick(PH_K.find(x => cdLv(k, x) === 'c1' || cdLv(k, x) === 'c2') || PH_K[0], 'tu')[0] == null) bad.push(k + ' ván chữa bị lọc'); }
+  phUse('dong'); PH_K = null; await phLoad(); o.capg = null; const st = phSt(); const keepIt = st.it; st.it = {};
+  const xs = PH_K.filter(x => phAns(x)[1] === 'B' && cdLv('dong', x) === 'a2').slice(0, 3); xs.forEach(x => st.it[x.id] = { s: 1, lv: 1 });
+  const g = cdGrow('dong').find(g => g.t === 'B'); if (!g || g.lv !== 'a2') bad.push('Bị động chưa lớn tới A2 khi đúng 3 câu: ' + JSON.stringify(g)); st.it = keepIt;
+  if (!cdBox('dong').includes('data-cdlv="b1"')) bad.push('ô chọn cấp thiếu');
+  o.capg = keep; return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C102', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Cấp trong game: câu kho có cấp, ván tới cấp + 1, bỏ chọn như cũ, ván chữa không lọc, nhân vật lớn lên theo cấp' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
