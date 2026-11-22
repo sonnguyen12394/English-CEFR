@@ -1,0 +1,97 @@
+{
+ "n": 13,
+ "nguon": "Đề 2 · Part 3 · 13",
+ "id": "t3-23",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": {
+  "t": "Folding chairs: quantity discounts",
+  "h": [
+   "Chairs ordered",
+   "Discount"
+  ],
+  "r": [
+   [
+    "1–49",
+    "0%"
+   ],
+   [
+    "50–99",
+    "5%"
+   ],
+   [
+    "100–199",
+    "10%"
+   ],
+   [
+    "200 or more",
+    "15%"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "A",
+   "Hello, this is Mira Chen from the Lakeside Hotel. I'd like to order some folding chairs for our ballroom.",
+   "",
+   "a1cd84a97"
+  ],
+  [
+   "B",
+   "Certainly. How many do you need?",
+   "",
+   "a89724fe4"
+  ],
+  [
+   "A",
+   "We're expecting eighty guests at a conference, and we want forty more for a second room. So, a hundred and twenty in total.",
+   "",
+   "ae9693a80"
+  ],
+  [
+   "B",
+   "Great. I'll e-mail you an order form. Delivery usually takes five business days.",
+   "",
+   "a126c34e7"
+  ],
+  [
+   "A",
+   "That's fine. The conference isn't until the end of next month.",
+   "",
+   "a8eda04c4"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where does the woman work?",
+   "a": "At a hotel",
+   "w": [
+    "At a furniture store",
+    "At a university",
+    "At a delivery company"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Look at the graphic. What discount will the woman most likely receive?",
+   "a": "10%",
+   "w": [
+    "0%",
+    "5%",
+    "15%"
+   ],
+   "ty": "graphic"
+  },
+  {
+   "q": "What does the man say he will send?",
+   "a": "An order form",
+   "w": [
+    "A product catalog",
+    "A discount code",
+    "A delivery schedule"
+   ],
+   "ty": "next"
+  }
+ ]
+}

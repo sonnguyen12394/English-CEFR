@@ -1,0 +1,196 @@
+{
+ "n": 23,
+ "nguon": "Đề 1 · Part 7 · 11",
+ "id": "t7-m-conf",
+ "dang": "📄 Đọc hiểu",
+ "kind": "E-mail + schedule",
+ "title": "Schedule — Regional Sales Conference, Hotel Arcadia · E-mail · To: Conference participants · From: Ingrid Holm · Date: September 15",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Schedule — Regional Sales Conference, Hotel Arcadia",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thursday, September 18",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "9:00 A.M. — Welcome speech — Ingrid Holm, Sales Director (Ballroom)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "10:00 A.M. — Workshop: Negotiating with large clients — Victor Osei (Room 2)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "12:00 P.M. — Lunch (Garden Terrace)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "1:30 P.M. — Workshop: Using data to find new customers — Amy Ng (Room 3)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "3:30 P.M. — Panel discussion: The future of retail (Ballroom)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) E-mail · To: Conference participants · From: Ingrid Holm · Date: September 15",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dear colleagues, I look forward to seeing you all on Thursday.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please note one change to the schedule: Amy Ng's workshop will now take place in the Ballroom instead of Room 3, as more than sixty people have registered for it.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Also, because of renovation work, lunch will be served in the hotel restaurant rather than outdoors.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please remember to bring your laptops for the afternoon workshop.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Best regards, Ingrid",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the e-mail?",
+   "a": "To announce changes to some session arrangements",
+   "w": [
+    "To announce that a speaker has canceled",
+    "To ask attendees to sign up for workshops in advance",
+    "To report that the conference will move to another hotel"
+   ],
+   "why": "Please note one change to the schedule…",
+   "lg": {
+    "og": {
+     "To announce changes to some session arrangements": "Để báo thay đổi về sắp xếp một số phần của hội nghị",
+     "To announce that a speaker has canceled": "Để báo một diễn giả đã huỷ",
+     "To ask attendees to sign up for workshops in advance": "Để đề nghị người dự đăng ký hội thảo trước",
+     "To report that the conference will move to another hotel": "Để báo hội nghị chuyển sang khách sạn khác"
+    },
+    "ly": "Đáp án \"To announce changes to some session arrangements\" — E-mail báo hội thảo của Amy Ng chuyển sang Ballroom và bữa trưa chuyển vào nhà hàng khách sạn. Không diễn giả nào huỷ. Hơn 60 người đã đăng ký rồi, không phải lời đề nghị đăng ký. Hội nghị vẫn ở Hotel Arcadia.",
+    "dich": "Xin lưu ý một thay đổi về lịch trình."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "Why was Ms. Ng's workshop moved?",
+   "a": "Many people signed up for it.",
+   "w": [
+    "Room 3 is being renovated.",
+    "Ms. Ng arrived late.",
+    "The panel discussion was canceled."
+   ],
+   "why": "more than sixty people have registered for it.",
+   "lg": {
+    "og": {
+     "Many people signed up for it.": "Nhiều người đã đăng ký",
+     "Room 3 is being renovated.": "Phòng 3 đang sửa",
+     "Ms. Ng arrived late.": "Bà Ng đến muộn",
+     "The panel discussion was canceled.": "Thảo luận nhóm bị huỷ"
+    },
+    "ly": "Hơn sáu mươi người đăng ký nên buổi của bà Ng được chuyển sang Ballroom rộng hơn.",
+    "dich": "Buổi workshop của bà Ng sẽ chuyển sang Ballroom thay vì Phòng 3, vì hơn sáu mươi người đã đăng ký."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Where will lunch be served?",
+   "a": "In the hotel restaurant",
+   "w": [
+    "On the Garden Terrace",
+    "In Room 2",
+    "In the Ballroom"
+   ],
+   "why": "lunch will be served in the hotel restaurant rather than outdoors.",
+   "lg": {
+    "og": {
+     "In the hotel restaurant": "Ở nhà hàng của khách sạn",
+     "On the Garden Terrace": "Ở Garden Terrace",
+     "In Room 2": "Ở Phòng 2",
+     "In the Ballroom": "Ở Ballroom"
+    },
+    "ly": "Do sửa chữa, bữa trưa phục vụ ở nhà hàng khách sạn thay vì ngoài trời (Garden Terrace).",
+    "dich": "Do công việc cải tạo, bữa trưa sẽ phục vụ ở nhà hàng khách sạn thay vì ngoài trời."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What should participants bring to the 1:30 P.M. session?",
+   "a": "Laptops",
+   "w": [
+    "Business cards",
+    "Printed reports",
+    "Name badges"
+   ],
+   "why": "Đối chiếu 2 văn bản: 1:30 là workshop của Amy Ng (buổi chiều) → mang laptop.",
+   "lg": {
+    "og": {
+     "Laptops": "Máy tính xách tay",
+     "Business cards": "Danh thiếp",
+     "Printed reports": "Báo cáo in",
+     "Name badges": "Thẻ tên"
+    },
+    "ly": "E-mail nhắc mang máy tính xách tay cho buổi workshop chiều (1:30 là buổi của bà Ng).",
+    "dich": "Xin nhớ mang máy tính xách tay cho buổi workshop buổi chiều."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Who will give the first talk of the day?",
+   "a": "Ms. Holm",
+   "w": [
+    "Mr. Osei",
+    "Ms. Ng",
+    "A panel of experts"
+   ],
+   "why": "9:00 A.M. Welcome speech — Ingrid Holm.",
+   "lg": {
+    "og": {
+     "Ms. Holm": "Bà Holm",
+     "Mr. Osei": "Ông Osei",
+     "Ms. Ng": "Bà Ng",
+     "A panel of experts": "Một hội đồng chuyên gia"
+    },
+    "ly": "Lịch 9:00 sáng là bài phát biểu chào mừng của Ingrid Holm.",
+    "dich": "9:00 sáng: Phát biểu chào mừng, Ingrid Holm, Giám đốc kinh doanh (Ballroom)."
+   },
+   "ty": "detail"
+  }
+ ]
+}

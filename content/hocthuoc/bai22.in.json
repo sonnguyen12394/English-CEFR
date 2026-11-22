@@ -1,0 +1,115 @@
+{
+ "n": 22,
+ "nguon": "Đề 2 · Part 7 · 2",
+ "id": "t7-chat2",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Online chat discussion",
+ "title": "Online chat",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Lena Fischer (2:03 P.M.): The projector in Meeting Room B isn't working.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The clients arrive in twenty minutes.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Omar Haddad (2:04 P.M.): Did you try the remote control?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The batteries were low yesterday.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lena Fischer (2:05 P.M.): I replaced them, but nothing happens.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Omar Haddad (2:06 P.M.): Room D is free this afternoon.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "It has a large screen.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lena Fischer (2:06 P.M.): Perfect.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Can you tell the receptionist to send the clients there?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Omar Haddad (2:07 P.M.): Will do.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What problem does Ms. Fischer have?",
+   "a": "A device in a meeting room is broken.",
+   "w": [
+    "A meeting room has been double-booked.",
+    "A client is running late.",
+    "A presentation file cannot be found."
+   ],
+   "why": "The projector in Meeting Room B isn't working.",
+   "lg": {
+    "og": {
+     "A device in a meeting room is broken.": "Một thiết bị trong phòng họp bị hỏng",
+     "A meeting room has been double-booked.": "Một phòng họp bị đặt trùng",
+     "A client is running late.": "Khách đến trễ",
+     "A presentation file cannot be found.": "Không tìm thấy tệp thuyết trình"
+    },
+    "ly": "Đáp án \"A device in a meeting room is broken.\" — Bà Fischer nói máy chiếu ở phòng họp B không hoạt động dù đã thay pin, tức một thiết bị trong phòng họp bị hỏng.",
+    "dich": "Máy chiếu ở Phòng họp B không hoạt động. Khách sẽ đến sau hai mươi phút nữa."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "At 2:07 P.M., what does Mr. Haddad mean when he writes, \"Will do\"?",
+   "a": "He will contact the receptionist.",
+   "w": [
+    "He will fix the projector.",
+    "He will buy new batteries.",
+    "He will meet the clients himself."
+   ],
+   "why": "Trả lời yêu cầu: Can you tell the receptionist…? → Will do (sẽ làm).",
+   "lg": {
+    "og": {
+     "He will contact the receptionist.": "Anh sẽ liên hệ lễ tân",
+     "He will fix the projector.": "Anh sẽ sửa máy chiếu",
+     "He will buy new batteries.": "Anh sẽ mua pin mới",
+     "He will meet the clients himself.": "Anh sẽ tự gặp khách"
+    },
+    "ly": "Bà nhờ ông báo lễ tân đưa khách sang phòng D. \"Will do\" là đồng ý làm việc đó.",
+    "dich": "Anh nhờ lễ tân đưa khách sang đó được không? - Được."
+   },
+   "ty": "intent"
+  }
+ ]
+}

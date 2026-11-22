@@ -1,0 +1,88 @@
+{
+ "n": 11,
+ "nguon": "Đề 3 · Part 4 · bài 1",
+ "id": "d03-p4-01",
+ "chu": "Dịch vụ & sửa chữa",
+ "dang": "📢 Bài nói",
+ "kind": "msg",
+ "title": "",
+ "L": [
+  [
+   "N",
+   "Hello, this message is for Ms. Patel.",
+   "",
+   "ac4c9b4f5+ad91ee2d3"
+  ],
+  [
+   "N",
+   "This is Leo from Fairview Auto Repair.",
+   "",
+   "a6a182264"
+  ],
+  [
+   "N",
+   "We've finished inspecting your car, and the brakes need new pads.",
+   "",
+   "a6c8d188c"
+  ],
+  [
+   "N",
+   "The good news is that we have the parts in stock, so we can complete the work today.",
+   "",
+   "a50bd652d"
+  ],
+  [
+   "N",
+   "The total cost would be about two hundred and forty dollars.",
+   "",
+   "a03fea47a"
+  ],
+  [
+   "N",
+   "Please call me back at 555-0182 before three o'clock to approve the repair.",
+   "",
+   "ae4c6e2bd"
+  ],
+  [
+   "N",
+   "If we hear from you by then, your car will be ready to pick up tomorrow morning.",
+   "",
+   "ac6705370"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where does the speaker work?",
+   "a": "At an auto repair shop",
+   "w": [
+    "At a car dealership",
+    "At a parts factory",
+    "At a parking garage"
+   ],
+   "ty": "gist",
+   "ev": "This is Leo from Fairview Auto Repair."
+  },
+  {
+   "q": "What does the speaker say about the parts?",
+   "a": "They are available.",
+   "w": [
+    "They are expensive.",
+    "They must be ordered.",
+    "They are under warranty."
+   ],
+   "ty": "detail",
+   "ev": "we have the parts in stock"
+  },
+  {
+   "q": "What is the listener asked to do?",
+   "a": "Call back before three o'clock",
+   "w": [
+    "Bring the car in tomorrow",
+    "Pay a deposit online",
+    "Choose a different part"
+   ],
+   "ty": "next",
+   "ev": "Please call me back at 555-0182 before three o'clock to approve the repair."
+  }
+ ]
+}

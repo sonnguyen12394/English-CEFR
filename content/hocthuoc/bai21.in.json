@@ -1,0 +1,106 @@
+{
+ "n": 21,
+ "nguon": "Đề 2 · Part 7 · 3",
+ "id": "t7-article",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Article",
+ "title": "Local firm goes green",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "PORTVILLE — Lindqvist Printing, one of Portville's oldest businesses, has completed the installation of 600 solar panels on the roof of its factory.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The panels are expected to provide about 40 percent of the company's electricity.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "\"Our customers increasingly ask about the environmental impact of their orders,\" said owner Erik Lindqvist.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "\"This investment helps us answer that question and lowers our costs over time.\" The company also plans to switch to recycled paper for all standard orders by next spring.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lindqvist Printing was founded in 1962 by Mr. Lindqvist's grandfather and now employs 85 people.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the article mainly about?",
+   "a": "A company's push toward sustainability",
+   "w": [
+    "A company's plan to expand its factory",
+    "A company's celebration of an anniversary",
+    "A company's reaction to rising prices"
+   ],
+   "why": "Lắp pin mặt trời và chuyển sang giấy tái chế.",
+   "lg": {
+    "og": {
+     "A company's push toward sustainability": "Nỗ lực hoạt động bền vững hơn của một công ty",
+     "A company's plan to expand its factory": "Kế hoạch mở rộng nhà máy",
+     "A company's celebration of an anniversary": "Lễ kỷ niệm của một công ty",
+     "A company's reaction to rising prices": "Phản ứng của công ty trước giá tăng"
+    },
+    "ly": "Đáp án \"A company's push toward sustainability\" — Bài nói về việc lắp pin mặt trời và dùng giấy tái chế để giảm tác động môi trường. Mở rộng nhà máy, kỷ niệm và giá tăng không phải ý chính.",
+    "dich": "Lindqvist Printing đã hoàn tất việc lắp 600 tấm pin mặt trời trên mái nhà máy."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "According to Mr. Lindqvist, why did the company make the investment?",
+   "a": "To respond to what clients keep asking",
+   "w": [
+    "To qualify for a government payment program",
+    "To replace an aging factory roof",
+    "To celebrate the firm's anniversary"
+   ],
+   "why": "Ông Lindqvist nói khách hàng ngày càng hỏi về tác động môi trường.",
+   "lg": {
+    "og": {
+     "To respond to what clients keep asking": "Để đáp lại điều khách hàng liên tục hỏi",
+     "To qualify for a government payment program": "Để đủ điều kiện nhận chương trình hỗ trợ của chính phủ",
+     "To replace an aging factory roof": "Để thay mái nhà máy đã cũ",
+     "To celebrate the firm's anniversary": "Để kỷ niệm ngày thành lập của công ty"
+    },
+    "ly": "Đáp án \"To respond to what clients keep asking\" — Ông nói khách hàng ngày càng hỏi về tác động môi trường nên công ty đầu tư. Bài không nhắc hỗ trợ của chính phủ, mái nhà cũ hay kỷ niệm.",
+    "dich": "Khách hàng của chúng tôi ngày càng hỏi về tác động môi trường của đơn hàng của họ."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is indicated about Lindqvist Printing?",
+   "a": "It is a family business.",
+   "w": [
+    "It was founded last year.",
+    "It has 600 employees.",
+    "It only uses recycled paper now."
+   ],
+   "why": "founded in 1962 by Mr. Lindqvist's grandfather.",
+   "lg": {
+    "og": {
+     "It is a family business.": "Là doanh nghiệp gia đình",
+     "It was founded last year.": "Mới thành lập năm ngoái",
+     "It has 600 employees.": "Có 600 nhân viên",
+     "It only uses recycled paper now.": "Hiện chỉ dùng giấy tái chế"
+    },
+    "ly": "Công ty do ông nội của ông Lindqvist lập năm 1962 và ông là chủ, nên là doanh nghiệp gia đình.",
+    "dich": "Lindqvist Printing được ông nội của ông Lindqvist thành lập năm 1962 và hiện có 85 nhân viên."
+   },
+   "ty": "true"
+  }
+ ]
+}

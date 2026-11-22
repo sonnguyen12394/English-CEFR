@@ -1,0 +1,85 @@
+{
+ "n": 15,
+ "nguon": "Đề 2 · Part 4 · 2",
+ "id": "t4-25",
+ "dang": "📢 Bài nói",
+ "kind": "intro",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Good morning, everyone.",
+   "",
+   "a4380e4dd"
+  ],
+  [
+   "N",
+   "Before we start the workshop, a quick note about lunch.",
+   "",
+   "a57a0b973"
+  ],
+  [
+   "N",
+   "We'd planned to eat in the garden today, but have you seen the sky?",
+   "",
+   "a4f779549"
+  ],
+  [
+   "N",
+   "So lunch will be served in the main hall instead.",
+   "",
+   "ae1e76a07"
+  ],
+  [
+   "N",
+   "Also, the afternoon session on social media marketing has moved from room four to room two, because twice as many people signed up as we expected.",
+   "",
+   "a763c6cb6"
+  ],
+  [
+   "N",
+   "Please keep your name badges with you.",
+   "",
+   "ad323bad5"
+  ],
+  [
+   "N",
+   "You'll need them to get back into the building after lunch.",
+   "",
+   "a4934531e"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where is the talk most likely taking place?",
+   "a": "At a workshop",
+   "w": [
+    "At a restaurant",
+    "At a garden center",
+    "At a hospital"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Why does the speaker say, \"but have you seen the sky\"?",
+   "a": "To suggest that it might rain",
+   "w": [
+    "To point out a beautiful view",
+    "To ask people to take photos",
+    "To explain why the session is late"
+   ],
+   "ty": "imp"
+  },
+  {
+   "q": "Why has the afternoon session been moved?",
+   "a": "More people signed up than expected.",
+   "w": [
+    "Room four is being repaired.",
+    "The speaker arrived late.",
+    "The garden is closed."
+   ],
+   "ty": "detail"
+  }
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "n": 6,
+ "nguon": "Đề 1 · Part 6 · đoạn 1",
+ "id": "t6-launch",
+ "chu": "Mua hàng & giao hàng",
+ "dang": "✉️ Văn bản",
+ "kind": "E-mail",
+ "title": "To: Valued customers · From: Nordic Home · Subject: Thank you for visiting",
+ "L": [
+  [
+   "W",
+   "Dear customer, Thank you for attending the launch of our new kitchen collection at the Nordic Home showroom last Saturday.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "More than 300 guests attended the event, and many of them tried our cooking demonstrations.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We hope you enjoyed the dishes our chefs prepared.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "As promised, we are sending you a voucher for 15 percent off any item from the new collection.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The voucher is valid until June 30.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "However, it cannot be combined with other offers.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If you have any questions, our staff will be happy to assist you.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Kind regards, Nordic Home Customer Service",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "attended",
+   "w": [
+    "will attend",
+    "are attending",
+    "attend"
+   ],
+   "why": "Thì theo ngữ cảnh: buổi ra mắt diễn ra \"last Saturday\" (câu trước) → quá khứ: attended. Câu này đứng riêng thì không biết thì nào.",
+   "ty": "tense"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "We hope you enjoyed the dishes our chefs prepared.",
+   "w": [
+    "We look forward to seeing you at the launch next Saturday.",
+    "Unfortunately, the cooking demonstrations had to be canceled.",
+    "The voucher you received at the door has now expired."
+   ],
+   "why": "Câu chèn nối với phần trình diễn nấu ăn vừa nhắc, trước câu gửi phiếu giảm giá. Buổi ra mắt \"next Saturday\" sai thời gian; trình diễn bị huỷ ngược với câu trước; phiếu đã hết hạn ngược với câu sau (hạn tới 30/6).",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "However",
+   "w": [
+    "Therefore",
+    "For example",
+    "Similarly"
+   ],
+   "why": "Từ nối giữa câu: phiếu còn hạn tới 30/6 NHƯNG không dùng chung ưu đãi khác → However (đối lập).",
+   "ty": "conn"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "assist",
+   "w": [
+    "assistance",
+    "assistant",
+    "assisted"
+   ],
+   "why": "be happy to + động từ nguyên mẫu: assist (giúp).",
+   "ty": "word"
+  }
+ ]
+}

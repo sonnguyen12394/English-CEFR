@@ -1,0 +1,86 @@
+{
+ "n": 20,
+ "nguon": "Đề 3 · Part 7 · 3",
+ "id": "d03-p7-03",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Job advertisement",
+ "title": "Sunrise Bakery: Now Hiring",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Sunrise Bakery is looking for a part-time cashier to work weekend mornings at our Main Street location.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Duties include serving customers, handling payments, and keeping the display cases clean.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Previous experience in a café or bakery is preferred but not required.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Employees receive free coffee, a 25 percent discount on all baked goods, and flexible scheduling.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To apply, stop by the store and ask for Ms. Ferreira, or send your résumé to jobs@sunrisebakery.com.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is one duty of the position?",
+   "a": "Cleaning the shop's display cases",
+   "w": [
+    "Balancing the store's monthly accounts",
+    "Taking phone orders for events",
+    "Training newly hired employees"
+   ],
+   "ev": "keeping the display cases clean",
+   "why": "Nhiệm vụ gồm giữ tủ trưng bày sạch.",
+   "lg": {
+    "og": {
+     "Cleaning the shop's display cases": "Lau dọn tủ trưng bày của tiệm",
+     "Balancing the store's monthly accounts": "Cân đối sổ sách hằng tháng",
+     "Taking phone orders for events": "Nhận đơn đặt qua điện thoại cho sự kiện",
+     "Training newly hired employees": "Đào tạo nhân viên mới"
+    },
+    "ly": "Đáp án \"Cleaning the shop's display cases\" — Nhiệm vụ gồm phục vụ khách, xử lý thanh toán và giữ tủ trưng bày sạch. Bài không nhắc sổ sách, nhận đơn qua điện thoại hay đào tạo nhân viên.",
+    "dich": "Nhiệm vụ gồm phục vụ khách, xử lý thanh toán và giữ cho tủ trưng bày sạch sẽ."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is NOT mentioned as a benefit of the job?",
+   "a": "Paid vacation days",
+   "w": [
+    "Free coffee",
+    "A discount on products",
+    "Flexible scheduling"
+   ],
+   "why": "Quảng cáo nêu cà phê miễn phí, giảm 25% đồ bánh và lịch làm linh hoạt; không nói ngày nghỉ có lương.",
+   "lg": {
+    "og": {
+     "Paid vacation days": "Ngày nghỉ có lương",
+     "Free coffee": "Cà phê miễn phí",
+     "A discount on products": "Giảm giá sản phẩm",
+     "Flexible scheduling": "Lịch làm việc linh hoạt"
+    },
+    "ly": "Quyền lợi gồm cà phê miễn phí, giảm 25% đồ nướng và lịch linh hoạt. Không có ngày nghỉ có lương.",
+    "dich": "Nhân viên được cà phê miễn phí, giảm giá 25 phần trăm cho mọi loại bánh nướng và lịch làm việc linh hoạt."
+   },
+   "ty": "not"
+  }
+ ]
+}

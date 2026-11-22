@@ -1,0 +1,99 @@
+{
+ "n": 9,
+ "nguon": "Đề 1 · Part 6 · đoạn 3",
+ "id": "t6-office",
+ "chu": "Công sở & cuộc họp",
+ "dang": "✉️ Văn bản",
+ "kind": "Memo",
+ "title": "To: Marketing Department · From: Office Manager · Subject: Office move",
+ "L": [
+  [
+   "W",
+   "As you know, the marketing department will move to the fifth floor next week.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Movers will arrive on Thursday at 6:00 P.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Before you leave on Thursday, please remove all personal items from your desk and put them in the boxes provided.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please label each box with your name and new desk number.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Computers will be moved by the IT team, so please do not pack them yourself.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "On Friday morning, the new offices will be ready, and you can continue your work as usual.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you for your patience during the move.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "remove",
+   "w": [
+    "removal",
+    "removed",
+    "removing"
+   ],
+   "why": "please + động từ nguyên mẫu: please remove (dọn hết đồ khỏi bàn).",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "Please label each box with your name and new desk number.",
+   "w": [
+    "Please pack your computer in the same box as your personal items.",
+    "The movers arrived last Thursday and finished the job.",
+    "Boxes will not be provided, so please bring your own."
+   ],
+   "why": "Câu chèn tiếp tục hướng dẫn đóng thùng (dán nhãn thùng). Tự đóng máy tính ngược với câu sau; thợ đã chuyển xong ngược với \"tuần sau\"; tự mang thùng ngược với \"boxes provided\".",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "continue",
+   "w": [
+    "continuing",
+    "continuous",
+    "continuation"
+   ],
+   "why": "can + động từ nguyên mẫu: can continue (vẫn làm việc tiếp được).",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "patience",
+   "w": [
+    "patient",
+    "patiently",
+    "patients"
+   ],
+   "why": "your + danh từ: your patience (sự kiên nhẫn).",
+   "ty": "word"
+  }
+ ]
+}

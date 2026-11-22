@@ -1,0 +1,99 @@
+{
+ "n": 18,
+ "nguon": "Đề 4 · Part 6 · 3",
+ "id": "d04-p6-03",
+ "dang": "✉️ Văn bản",
+ "kind": "Article",
+ "title": "Seaview Hotel Completes Renovation",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "After eight months of work, the Seaview Hotel has completed a major renovation.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "All 120 guest rooms now feature new furniture and larger bathrooms.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Each room also has a new desk for business travelers.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The hotel's restaurant has also been redesigned and now offers stunning views of the bay.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "General manager Paul Dubois said the project was finished on time and within budget.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "\"Our guests have been very patient,\" he said.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "\"Therefore, we are offering a 20 percent discount on all bookings made this month.\" The hotel expects its rooms to be fully booked throughout the summer.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "Each room also has a new desk for business travelers.",
+   "w": [
+    "The hotel's summer rates will be announced in May.",
+    "Paul Dubois has worked in hotels for twenty years.",
+    "The summer season usually starts in June."
+   ],
+   "why": "Câu trước tả phòng (nội thất, phòng tắm) → câu chèn thêm một chi tiết về phòng (bàn làm việc mới).",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "stunning",
+   "w": [
+    "stun",
+    "stunned",
+    "stunningly"
+   ],
+   "why": "Trước danh từ views cần tính từ: stunning (tuyệt đẹp).",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "Therefore",
+   "w": [
+    "However",
+    "Instead",
+    "Otherwise"
+   ],
+   "why": "Khách đã kiên nhẫn → vì vậy có ưu đãi: Therefore.",
+   "ty": "conn"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "fully",
+   "w": [
+    "full",
+    "fuller",
+    "fullness"
+   ],
+   "why": "Bổ nghĩa cho booked (phân từ) cần trạng từ: fully booked.",
+   "ty": "word"
+  }
+ ]
+}
