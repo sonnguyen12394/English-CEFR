@@ -98,6 +98,7 @@ mark { background: var(--acc2); color: var(--acc); font-weight: 700; border-radi
 .gin { flex: 1; min-width: 0; min-height: 52px; font: 600 18px var(--body); padding: 8px 12px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink) }
 .ttcard p { margin: 6px 0; font-size: 17px; line-height: 1.5 } .tbar { height: 6px; background: var(--hide); border-radius: 999px; overflow: hidden } .tbar i { display: block; height: 100%; width: 100%; background: var(--a) }
 .dgwin { position: relative; height: 230px; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; margin: 10px 0 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 10%); mask-image: linear-gradient(to bottom, transparent 0, #000 10%) } .dgtools .lay { padding: 4px 10px } .dgtools { gap: 6px; flex-wrap: wrap; align-items: center; margin: 8px 0 0 } .dgwrap { position: relative } .dgtipc { position: absolute; inset: 0; z-index: 2; margin: 0; padding: 10px 12px; overflow: auto; box-shadow: 0 6px 20px rgba(0,0,0,.25) } .dgtw { font-size: 22px }
+.dgnh { border-bottom: 1px solid var(--line); margin-bottom: 6px; padding-bottom: 6px } .nhr { margin: 4px 0 } .nhr .row { gap: 6px } .nhr .lay { padding: 4px 10px }
 .dgtl { margin: 4px 0; padding-left: 18px; font-size: 14px; line-height: 1.5 } .dgtl li { margin: 3px 0 }
 .dgwin .gw { cursor: pointer } .showipa .gw { display: inline-block; text-align: center; vertical-align: top; line-height: 1.25; margin-bottom: 6px }
 .showipa .gw::after { content: attr(data-ipa); display: block; font-size: 12px; font-weight: 400; color: var(--mute); white-space: nowrap }
@@ -635,6 +636,10 @@ const DG_TIPS = [['θ', '/θ/: đầu lưỡi đặt giữa hai hàm răng, th�
   ['uː', '/uː/: "u" kéo dài, môi tròn.'], ['ʊ', '/ʊ/: "u" ngắn, môi tròn nhẹ.'], ['ɝ', '/ɝː/: "ơ" có cong lưỡi kiểu /r/.'], ['ər', '/ər/: "ơ" nhẹ rồi cong lưỡi.'], ['ʌ', '/ʌ/: "ă" ngắn.'],
   ['ə', '/ə/: "ơ" rất nhẹ, đọc lướt.'], ['r', '/r/: cong đầu lưỡi lên, không chạm vòm miệng, không rung như "r" tiếng Việt.'], ['v', '/v/: răng trên chạm môi dưới, có rung.'], ['z', '/z/: "d" miền Bắc, nghe rít "zzz".']];
 const DG_FIN = { p: 'p', b: 'b', t: 't', d: 'd', k: 'k', ɡ: 'g', f: 'f', v: 'v', s: 's', z: 'z', l: 'l', θ: 'th', ð: 'th', ʃ: 'sh', ʒ: 'zh', 'dʒ': 'dʒ', 'tʃ': 'tʃ' };
+// v33 (người sáng lập: "từ phát âm bị lệch sang từ khác: bấm vào từ có thêm từ hay nói sai và cách nói cho đúng"): bảng NHAM (bai/nham.js, dựng bởi tools/hocthuoc/nham.mjs)
+// = các từ có âm gần nhất trong từ điển app, kèm chỗ khác nhau giữa các âm và cách sửa. Nghe so sánh từng cặp.
+function nhHtml(w) { const k = String(w).toLowerCase().replace(/[’‘]/g, "'").replace(/^[^a-z]+|[^a-z]+$/g, ''), nh = typeof NHAM !== 'undefined' && NHAM[k]; if (!nh) return '';
+  return `<div class="dgnh"><p class="sm"><b>🔀 Hay bị nghe nhầm thành</b> <span class="mute">· nghe so sánh rồi nói lại</span></p>${nh.map(([v, ipa, tips]) => `<div class="nhr"><div class="row"><button class="lay" data-nh="${esc(k)}">🔊 ${esc(k)}</button><span class="mute">≠</span><button class="lay" data-nh="${esc(v)}">🔊 ${esc(v)}</button><span class="sm mute">/${esc(ipa)}/</span></div><ul class="dgtl">${tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>`).join('')}</div>`; }
 function dgSay(w, rate) { try { const u = new SpeechSynthesisUtterance(w.replace(/[^A-Za-z0-9'’ .]/g, '')); u.lang = 'en-US'; u.rate = rate; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} }
 function dgIpa(x) { const a = IPA[x.i] || []; return (Array.isArray(a) ? a : String(a).split('|'))[x.wi] || ''; }
 function dgTip(x) { const ipa = dgIpa(x), out = [];
@@ -718,8 +723,10 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   const tipOpen = j => { const x = W[j], tips = dgTip(x); dgSay(x.w, 0.85);
     $('#dgtip').innerHTML = `<div class="card dgtipc"><div class="row" style="justify-content:space-between;align-items:baseline"><span><b class="dgtw">${esc(x.w.replace(/[^A-Za-z0-9'’]+$/g, '').replace(/^[^A-Za-z0-9'’]+/, ''))}</b> <span class="mute">/${esc(dgIpa(x))}/</span></span><button class="lay" id="tipx" aria-label="Đóng">✕</button></div>
       <div class="row" style="margin:6px 0"><button class="lay" id="tip1">🔊 Nghe</button><button class="lay" id="tip2">🐢 Nghe chậm</button></div>
+      ${nhHtml(x.w)}
       ${tips.length ? `<ul class="dgtl">${tips.map(t => `<li>${t}</li>`).join('')}</ul>` : '<p class="sm mute">Từ này đọc theo phiên âm là được.</p>'}<p class="sm mute">Nghe xong nói lại cả từ vào ô.</p></div>`;
     ['#tipx', '#tip1', '#tip2'].forEach(q => keep($(q)));
+    $('#dgtip').querySelectorAll('[data-nh]').forEach(b => { keep(b); b.onclick = () => dgSay(b.dataset.nh, 0.8); });
     $('#tipx').onclick = () => { $('#dgtip').innerHTML = ''; }; $('#tip1').onclick = () => dgSay(x.w, 0.85); $('#tip2').onclick = () => dgSay(x.w, 0.45); };
   keep(roll); roll.addEventListener('click', e => { const t = e.target.closest('[data-j]'); if (t) tipOpen(+t.dataset.j); });
   keep($('#dgipa')); keep($('#dgsay'));
