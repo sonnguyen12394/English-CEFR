@@ -670,7 +670,7 @@ function duago() { cancelAnimationFrame(DG_RAF); DG = DG || { best: dgBestGet(),
   app.innerHTML = `${head()}<div class="card"><p><b>Nói hoặc gõ lại cả bài càng nhanh càng tốt.</b> Từ nào của bài có trong ô là xanh ngay, không cần đúng thứ tự. Khung tự kéo lên tới từ đầu tiên chưa xanh.</p>
     <p class="sm mute">Bí thì bấm ↵ để bỏ qua từ đang sáng (tính sai). Đồng hồ chạy từ chữ đầu tiên bạn nhập.</p>
     <p>⏱ Nhanh nhất: <b>${DG.best ? dgClock(DG.best) : 'chưa có'}</b></p></div>
-    <button class="pri" id="go" style="margin-top:12px">▶ Bắt đầu</button>`;
+    <button class="pri" id="go" style="margin-top:12px">▶ Bắt đầu</button>${sibNav('duago')}`;
   $('#go').onclick = dgRound; }
 function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_W(); let k = 0, okN = 0, over = false; const res = [];
   let html = '', li = -1; W.forEach((x, j) => { if (x.i !== li) { if (li >= 0) html += '</p>'; li = x.i; html += `<p class="dgl"><span class="tag">${WHO[L[li][0]][0]}</span> `; } html += `<span class="gw" id="gw${j}" data-j="${j}" data-ipa="/${esc(dgIpa(x))}/">${esc(x.w)}</span> `; }); html += '</p>';
@@ -718,7 +718,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
     if (DG.first == null) DG.first = full; $('#dgclk').textContent = '⏱ ' + dgClock(ms);
     $('#fb').innerHTML = `<div class="fb ${full ? 'ok' : 'no'}">${rec ? '🏆 Kỷ lục mới! ' : ''}Xong cả bài trong <b>${dgClock(ms)}</b> · ${Math.round(W.length / ms * 60000)} từ/phút.
       ${full ? (old && !rec ? `<br>Kỷ lục vẫn là ${dgClock(old)} (chậm hơn ${((ms - old) / 1000).toFixed(1)} giây).` : rec && old ? `<br>Nhanh hơn kỷ lục cũ ${((old - ms) / 1000).toFixed(1)} giây.` : '') : `<br>Bạn bỏ qua ${skN} từ nên lần này không tính kỷ lục.`}</div>
-      <button class="pri" id="nx" style="margin-top:10px">↻ Làm lại, phá kỷ lục</button><button class="sec" id="stop" style="margin-top:8px">Xong, về bài học</button>`;
+      <button class="pri" id="nx" style="margin-top:10px">↻ Làm lại, phá kỷ lục</button><button class="sec" id="stop" style="margin-top:8px">Xong, về bài học</button>${sibBtn('duago')}`;
     $('#nx').onclick = () => { DG.n++; dgRound(); };
     $('#stop').onclick = () => fin('duago', [DG.first ? 1 : 0, 1]); $('#fb').scrollIntoView({ block: 'nearest' }); };
   const tick = () => { if (!document.body.contains(win) || over) return;
@@ -792,7 +792,7 @@ function duavn() { DV = DV || { best: dvBestGet(), n: 0, first: null }; scrollTo
   app.innerHTML = `${head()}<div class="card"><p><b>Nhìn câu tiếng Anh, bấm các cụm nghĩa tiếng Việt theo đúng thứ tự.</b> Xong câu này sang câu sau, tới hết bài.</p>
     <p class="sm mute">Có 2 cụm lạ của câu khác để bẫy. Bấm sai bị cộng ${DV_PEN / 1000} giây. Chạm 🔊 để nghe câu.</p>
     <p>⏱ Nhanh nhất: <b>${DV.best ? dgClock(DV.best) : 'chưa có'}</b></p></div>
-    <button class="pri" id="go" style="margin-top:12px">▶ Bắt đầu</button>`;
+    <button class="pri" id="go" style="margin-top:12px">▶ Bắt đầu</button>${sibNav('duavn')}`;
   $('#go').onclick = dvRound; }
 function dvRound() { cancelAnimationFrame(DV_RAF); scrollTo(0, 0); let i = 0, k = 0, t0 = performance.now(), pen = 0, bad = 0, over = false, chips = [];
   const deal = () => { const own = VNK[i].map((t, j) => ({ t, j })), others = VNK.flatMap((c, n) => n === i ? [] : c).filter(t => !VNK[i].includes(t)), xs = shuf([...new Set(others)]).slice(0, DV_X);
@@ -812,7 +812,7 @@ function dvRound() { cancelAnimationFrame(DV_RAF); scrollTo(0, 0); let i = 0, k 
     app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong cả bài</p><p class="big">${dgClock(ms)}</p>
       <p>${rec ? '🏆 Kỷ lục mới!' + (old ? ` Nhanh hơn ${((old - ms) / 1000).toFixed(1)} giây.` : '') : `Kỷ lục vẫn là ${dgClock(old)}.`}</p><p class="sm mute">${bad ? `Bấm sai ${bad} lần (đã cộng ${bad * DV_PEN / 1000} giây).` : 'Không bấm sai lần nào.'}</p></div>
       <details class="card"><summary class="link" style="display:flex;align-items:center">📖 Xem lại cả bài và nghĩa</summary>${L.map(l => `<p class="sm"><b>${esc(l[1])}</b><br>${esc(l[2])}</p>`).join('')}</details>
-      <button class="pri" id="nx" style="margin-top:10px">↻ Làm lại, phá kỷ lục</button><button class="sec" id="stop" style="margin-top:8px">Xong, về bài học</button>`;
+      <button class="pri" id="nx" style="margin-top:10px">↻ Làm lại, phá kỷ lục</button><button class="sec" id="stop" style="margin-top:8px">Xong, về bài học</button>${sibBtn('duavn')}`;
     $('#nx').onclick = () => { DV.n++; dvRound(); }; $('#stop').onclick = () => fin('duavn', [DV.first ? 1 : 0, 1]); };
   const tick = () => { if (over) return; const e = document.getElementById('dvclk'); if (!e) return; e.textContent = '⏱ ' + dgClock(performance.now() - t0 + pen); DV_RAF = requestAnimationFrame(tick); };
   deal(); draw(); DV_RAF = requestAnimationFrame(tick); }
@@ -1191,6 +1191,12 @@ const baiSib = d => { if (typeof BAI_ALL === 'undefined') return null; const k =
 const baiNav = () => { const a = baiSib(-1), b = baiSib(1), K = KINDS.find(x => x[0] === KIND()), xs = typeof BAI_ALL === 'undefined' ? [] : BAI_ALL.filter(x => kindOf(x.dang) === KIND()).sort((p, q) => p.n - q.n);
   return `<div class="bainav"><button class="sec" data-go-bai="${a ? a.n - 1 : ''}" ${a ? '' : 'disabled'}>‹ Bài trước</button><span class="sm mute">${K[1]} ${xs.findIndex(x => x.n === BAI_I + 1) + 1}/${xs.length}</span><button class="sec" data-go-bai="${b ? b.n - 1 : ''}" ${b ? '' : 'disabled'}>Bài tiếp ›</button></div>`; };
 document.addEventListener('click', e => { const b = e.target.closest('[data-go-bai]'); if (!b || b.dataset.goBai === '') return; const n = +b.dataset.goBai; baiLoad(n + 1, () => { useBai(n); hub(); }); });
+// v37 (người sáng lập: "làm chức năng chọn bài tiếp cùng dạng trong bài tập nhớ"): đang ở bài tập nhớ thì sang thẳng CÙNG bài tập của bài trước / bài tiếp cùng dạng
+const sibBtn = ex => { const b = baiSib(1); return b ? `<button class="pri" style="margin-top:8px" data-sib="1" data-ex="${ex}">⏭ Làm tiếp bài sau: Bài ${b.n}<small>${esc(b.t)}</small></button>` : '<p class="sm mute" style="text-align:center">Đây là bài cuối của dạng này.</p>'; };
+const sibNav = ex => { const a = baiSib(-1), b = baiSib(1), xs = typeof BAI_ALL === 'undefined' ? [] : BAI_ALL.filter(x => kindOf(x.dang) === KIND()).sort((p, q) => p.n - q.n), K = KINDS.find(x => x[0] === KIND());
+  return `<div class="bainav" style="margin-top:8px"><button class="sec" data-sib="-1" data-ex="${ex}" ${a ? '' : 'disabled'}>‹ Bài trước</button><span class="sm mute">${K[1]} bài ${xs.findIndex(x => x.n === BAI_I + 1) + 1}/${xs.length}<br>${esc(BAIS[BAI_I].meta.t)}</span><button class="sec" data-sib="1" data-ex="${ex}" ${b ? '' : 'disabled'}>Bài tiếp ›</button></div>`; };
+document.addEventListener('click', e => { const b = e.target.closest('[data-sib]'); if (!b || b.disabled) return; const x = baiSib(+b.dataset.sib), ex = b.dataset.ex; if (!x) return;
+  if (/Xong|kỷ lục/i.test(app.textContent)) st.done[ex] = 1; baiLoad(x.n, () => { useBai(x.n - 1); run(ex); }); });
 // ---------- 🧪 Tất cả màn (người sáng lập: "hiện tất cả màn bài tập để tôi kiểm thử") ----------
 // Mỗi màn: ảnh chụp sẵn (Chromium khổ iPhone SE) + nút mở thẳng màn đó. Mở từ đây thì nút ‹ quay về danh sách này.
 const GAL = [
