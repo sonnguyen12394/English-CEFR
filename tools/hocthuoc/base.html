@@ -683,16 +683,25 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   const seg = t => { if (VOC.has(t)) return [t]; const best = [[]]; for (let i = 1; i <= t.length; i++) { best[i] = null;
       for (let m = Math.max(0, i - 20); m < i; m++) if (best[m] && VOC.has(t.slice(m, i)) && (!best[i] || best[m].length + 1 < best[i].length)) best[i] = [...best[m], t.slice(m, i)]; }
     return best[t.length] || [t]; };
-  const bag = () => { const toks = inp.value.split(/\s+/).map(dk).filter(Boolean).flatMap(seg), g = {};
-    for (let i = 0; i < toks.length; i++) for (let n = 1; n <= 3 && i + n <= toks.length; n++) { const x = toks.slice(i, i + n).join(''); g[x] = (g[x] || 0) + 1; }
-    return x => g[x] || 0; };
   const firstPend = () => { let j = 0; while (j < W.length && res[j] != null) j++; return j; };
   const cur = () => { document.querySelectorAll('#dgroll .gw-cur').forEach(e => { e.className = 'gw'; }); k = firstPend(); if (k < W.length) sp(k).className = 'gw gw-cur'; };
-  const check = () => { if (over) return; const v = inp.value; if (v.length < lastLen - 2 && !v.trim()) used = {}; lastLen = v.length; const cnt = bag();
-    for (let j = 0; j < W.length; j++) { if (res[j] != null || !tgt(j)) { if (!tgt(j) && res[j] == null) done(j, true); continue; }
-      const a = alts(j).find(x => cnt(x) - (used[x] || 0) > 0); if (a) { used[a] = (used[a] || 0) + 1; done(j, true); } }
+  // v34 (người sáng lập: "chỉ cần 1 từ có trong ô là các từ khác trong bài đều xanh; phải đếm số từ trong ô với từ trong bài"):
+  // gán 1–1: mỗi chữ trong ô (hoặc 2–3 chữ liền cho "we are" = We're, "five twelve" = 512) chỉ làm xanh MỘT từ của bài, tìm từ con trỏ đi tới trước
+  // (con trỏ = sau từ vừa gán), không có mới quay lại tìm từ đầu bài. Mỗi lần ô đổi thì gán lại từ đầu cho cả ô; từ xanh từ lần ô trước (đã xoá) giữ nguyên (fixed).
+  const fixed = new Set();
+  const assign = () => { const toks = inp.value.split(/\s+/).map(dk).filter(Boolean).flatMap(seg), got = new Set(); let cur0 = 0;
+    while (cur0 < W.length && fixed.has(cur0)) cur0++;
+    const fits = (j, ti) => { if (fixed.has(j) || got.has(j) || !tgt(j)) return 0; const A = alts(j); for (let m = 1; m <= 3 && ti + m <= toks.length; m++) if (A.includes(toks.slice(ti, ti + m).join(''))) return m; return 0; };
+    for (let ti = 0; ti < toks.length;) { let hit = -1, m = 0;
+      for (let j = cur0; j < W.length && hit < 0; j++) { m = fits(j, ti); if (m) hit = j; }
+      for (let j = 0; j < cur0 && hit < 0; j++) { m = fits(j, ti); if (m) hit = j; }
+      if (hit < 0) { ti++; continue; } got.add(hit); ti += m; cur0 = hit + 1; }
+    return got; };
+  const check = () => { if (over) return; const v = inp.value; if (v.length < lastLen - 2 && !v.trim()) { for (let j = 0; j < W.length; j++) if (res[j] != null) fixed.add(j); } lastLen = v.length;
+    for (let j = 0; j < W.length; j++) if (!tgt(j) && res[j] == null) { done(j, true); fixed.add(j); }
+    for (const j of assign()) if (res[j] == null) done(j, true);
     cur(); stat(); if (firstPend() >= W.length) end(); };
-  const skip = () => { if (over) return; if (!t0) t0 = performance.now(); check(); if (over) return; k = firstPend(); if (k >= W.length) return; done(k, false); skN++; cur(); stat(); if (firstPend() >= W.length) end(); };
+  const skip = () => { if (over) return; if (!t0) t0 = performance.now(); check(); if (over) return; k = firstPend(); if (k >= W.length) return; done(k, false); fixed.add(k); skN++; cur(); stat(); if (firstPend() >= W.length) end(); };
   const stat = () => { $('#dgs').textContent = `Đúng ${okN} · bỏ qua ${skN} · còn ${W.length - okN - skN} từ`; $('#dgbar').style.width = k / W.length * 100 + '%'; };
   const done = (j, ok) => { if (res[j] != null) return; res[j] = ok; if (ok) okN++; const e = sp(j); e.className = 'gw ' + (ok ? 'gw-ok' : 'gw-err'); e.textContent = W[j].w; };
   const end = () => { if (over) return; over = true; cancelAnimationFrame(DG_RAF); clearInterval(DG_CK); clearInterval(DG_PL); inp.disabled = true;
@@ -735,7 +744,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   ['touchstart', 'wheel'].forEach(ev => win.addEventListener(ev, () => { userT = performance.now(); }, { passive: true }));
   win.addEventListener('scroll', () => { if (autoS) { autoS = false; return; } if (performance.now() - userT < 1500) userT = performance.now(); }, { passive: true });
   keep($('#dgback')); $('#dgback').onclick = () => { userT = -1e9; };
-  inp.addEventListener('blur', () => { if (!over) { inp.value = ''; lastVal = ''; used = {}; lastLen = 0; cur(); } });
+  inp.addEventListener('blur', () => { if (!over) { for (let j = 0; j < W.length; j++) if (res[j] != null) fixed.add(j); inp.value = ''; lastVal = ''; lastLen = 0; cur(); } });
   cur(); stat(); inp.focus(); DG_RAF = requestAnimationFrame(tick); }
 // ④ viết lại: từng câu, gợi ý tiếng Việt + chữ đầu (ôn thì bỏ chữ đầu)
 const norm = w => w.toLowerCase().replace(/[^a-z0-9']/g, '');
