@@ -3108,5 +3108,19 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   o.capg = keep; return bad; })()`);
   R.push({ lv: 'cefr', id: 'C102', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Cấp trong game: câu kho có cấp, ván tới cấp + 1, bỏ chọn như cũ, ván chữa không lọc, nhân vật lớn lên theo cấp' }); }
 
+// v209 C103 📖 Học thuộc bài đề: dòng ở 🎯 Luyện đề → TOEIC, trang con hoc-thuoc/ đủ bài (tiếng ở ../n/ có tệp), tiến độ qua htGet / htPut vào S.ht + save()
+{ const r = await run(`(() => { const bad = []; if (!/data-htv/.test(htRow())) bad.push('thiếu dòng');
+  const keep = S.ht; htPut({ sts: { 0: { done: { hoc: 1 } } }, best: {}, cur: 0 }); if (!htGet() || !htGet().sts[0].done.hoc) bad.push('htPut không vào S.ht'); S.ht = keep; return bad; })()`);
+  const fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname, H = root + 'hoc-thuoc/', h = fs.existsSync(H + 'index.html') ? fs.readFileSync(H + 'index.html', 'utf8') : '';
+  if (!h) r.push('thiếu hoc-thuoc/index.html');
+  else { if (!/<title>/.test(h) || !/viewport/.test(h)) r.push('trang con thiếu title / viewport'); if (!h.includes("'../n/'")) r.push('tiếng không lấy ở ../n/');
+    if (!/parent\.htPut/.test(h)) r.push('trang con không lưu qua htPut'); if (/id="gal"/.test(h)) r.push('còn nút xem tất cả màn');
+    const idx = fs.readFileSync(H + 'bai/index.js', 'utf8'), ns = JSON.parse(idx.slice(idx.indexOf('['), idx.lastIndexOf(']') + 1)).map(x => x.n);
+    for (const n of ns) if (!fs.existsSync(H + `bai/bai${n}.js`)) r.push('thiếu bài ' + n);
+    if (ns.length < 60) r.push('ít bài: ' + ns.length);
+    if (ns.some(n => /Đề (9|1[0-6])\\b/.test(fs.readFileSync(H + `bai/bai${n}.js`, 'utf8').slice(0, 400)))) r.push('có bài từ đề riêng'); }
+  if (!fs.readFileSync(root + 'toeic.js', 'utf8').includes('htRow()')) r.push('màn TOEIC chưa có dòng');
+  R.push({ lv: 'cefr', id: 'C103', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Học thuộc bài đề: lối vào ở Luyện đề TOEIC, trang con đủ bài, tiến độ vào S.ht' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

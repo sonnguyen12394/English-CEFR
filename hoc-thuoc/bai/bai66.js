@@ -1,0 +1,1318 @@
+const BAI66 = {
+ "meta": {
+  "de": "Đề 1 · Part 2 · bộ 3",
+  "dang": "💬 Hỏi – đáp",
+  "t": "Năm cặp hỏi – đáp: thang máy, hội nghị, lô hàng",
+  "sub": "Năm cặp hỏi – đáp ngắn trong Đề 1 TOEIC (Part 2). Chạm một câu để nghe và xem dịch.",
+  "who": {
+   "A": [
+    "Người hỏi",
+    "Nữ"
+   ],
+   "B": [
+    "Người đáp",
+    "Nam"
+   ]
+  }
+ },
+ "L": [
+  [
+   "A",
+   "Why is the elevator out of service?",
+   "Vì sao thang máy ngừng hoạt động?",
+   "aceb7972d"
+  ],
+  [
+   "B",
+   "It's being inspected today.",
+   "Hôm nay nó đang được kiểm tra.",
+   ""
+  ],
+  [
+   "A",
+   "Are you going to the conference in May or the one in June?",
+   "Bạn sẽ đi hội nghị vào tháng Năm hay hội nghị vào tháng Sáu?",
+   "a62d35b9a"
+  ],
+  [
+   "B",
+   "Neither, I have to stay here.",
+   "Không cái nào, tôi phải ở lại đây.",
+   ""
+  ],
+  [
+   "A",
+   "Are you going to the conference by train or by car?",
+   "Bạn đi hội nghị bằng tàu hay bằng ô tô?",
+   "a2f92c420"
+  ],
+  [
+   "B",
+   "I'm driving with two colleagues.",
+   "Tôi lái xe đi với hai đồng nghiệp.",
+   ""
+  ],
+  [
+   "A",
+   "Where can I find extra paper for the printer?",
+   "Tôi có thể tìm giấy thêm cho máy in ở đâu?",
+   "addcd4155"
+  ],
+  [
+   "B",
+   "In the cabinet next to the window.",
+   "Trong tủ cạnh cửa sổ.",
+   ""
+  ],
+  [
+   "A",
+   "Hasn't the shipment from Mexico arrived?",
+   "Lô hàng từ Mexico vẫn chưa đến sao?",
+   "a25e179fe"
+  ],
+  [
+   "B",
+   "It came in this morning.",
+   "Sáng nay nó đã đến.",
+   ""
+  ]
+ ],
+ "IPA": [
+  [
+   "waɪ",
+   "ɪz",
+   "ði",
+   "ˈelɪveɪtər",
+   "aʊt",
+   "əv",
+   "ˈsɝːvɪs"
+  ],
+  [
+   "ɪts",
+   "ˈbiːɪŋ",
+   "ɪnˈspektɪd",
+   "təˈdeɪ"
+  ],
+  [
+   "ɑːr",
+   "ju",
+   "ˈgoʊɪŋ",
+   "tə",
+   "ðə",
+   "ˈkɑːnfərəns",
+   "ɪn",
+   "meɪ",
+   "ɔːr",
+   "ðə",
+   "wʌn",
+   "ɪn",
+   "dʒuːn"
+  ],
+  [
+   "ˈniːðər",
+   "aɪ",
+   "hæv",
+   "tə",
+   "steɪ",
+   "hɪr"
+  ],
+  [
+   "ɑːr",
+   "ju",
+   "ˈgoʊɪŋ",
+   "tə",
+   "ðə",
+   "ˈkɑːnfərəns",
+   "baɪ",
+   "treɪn",
+   "ɔːr",
+   "baɪ",
+   "kɑːr"
+  ],
+  [
+   "aɪm",
+   "ˈdraɪvɪŋ",
+   "wɪð",
+   "tuː",
+   "ˈkɑːliːgz"
+  ],
+  [
+   "wer",
+   "kæn",
+   "aɪ",
+   "faɪnd",
+   "ˈekstrə",
+   "ˈpeɪpər",
+   "fər",
+   "ðə",
+   "ˈprɪntər"
+  ],
+  [
+   "ɪn",
+   "ðə",
+   "ˈkæbɪnət",
+   "nekst",
+   "tə",
+   "ðə",
+   "ˈwɪndoʊ"
+  ],
+  [
+   "ˈhæzənt",
+   "ðə",
+   "ˈʃɪpmənt",
+   "frəm",
+   "ˈmeksɪkoʊ",
+   "əˈraɪvd"
+  ],
+  [
+   "ɪt",
+   "keɪm",
+   "ɪn",
+   "ðɪs",
+   "ˈmɔːrnɪŋ"
+  ]
+ ],
+ "STR": [
+  [
+   3,
+   6
+  ],
+  [
+   0,
+   1,
+   2,
+   3
+  ],
+  [
+   2,
+   5,
+   12
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   2,
+   5,
+   7
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   3,
+   4,
+   5,
+   8
+  ],
+  [
+   2,
+   3,
+   6
+  ],
+  [
+   0,
+   2,
+   4,
+   5
+  ],
+  [
+   1,
+   4
+  ]
+ ],
+ "LK": [
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  []
+ ],
+ "INT": [
+  [
+   [
+    6,
+    "↘"
+   ]
+  ],
+  [
+   [
+    3,
+    "↘"
+   ]
+  ],
+  [
+   [
+    12,
+    "↗"
+   ]
+  ],
+  [
+   [
+    5,
+    "↘"
+   ]
+  ],
+  [
+   [
+    10,
+    "↗"
+   ]
+  ],
+  [
+   [
+    4,
+    "↘"
+   ]
+  ],
+  [
+   [
+    8,
+    "↘"
+   ]
+  ],
+  [
+   [
+    6,
+    "↘"
+   ]
+  ],
+  [
+   [
+    5,
+    "↗"
+   ]
+  ],
+  [
+   [
+    4,
+    "↘"
+   ]
+  ]
+ ],
+ "PAU": [
+  [],
+  [],
+  [],
+  [
+   0
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  []
+ ],
+ "EL": [
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  []
+ ],
+ "VNK": [
+  [
+   "Vì sao thang máy",
+   "ngừng hoạt động?"
+  ],
+  [
+   "Hôm nay",
+   "nó đang được kiểm tra."
+  ],
+  [
+   "Bạn sẽ đi hội nghị",
+   "vào tháng Năm",
+   "hay hội nghị vào tháng Sáu?"
+  ],
+  [
+   "Không cái nào,",
+   "tôi phải ở lại đây."
+  ],
+  [
+   "Bạn đi hội nghị",
+   "bằng tàu",
+   "hay bằng ô tô?"
+  ],
+  [
+   "Tôi lái xe đi",
+   "với hai đồng nghiệp."
+  ],
+  [
+   "Tôi có thể tìm",
+   "giấy thêm cho máy in",
+   "ở đâu?"
+  ],
+  [
+   "Trong tủ",
+   "cạnh cửa sổ."
+  ],
+  [
+   "Lô hàng từ Mexico",
+   "vẫn chưa đến sao?"
+  ],
+  [
+   "Sáng nay",
+   "nó đã đến."
+  ]
+ ],
+ "VNY": [
+  [
+   [
+    "vì sao thang máy"
+   ],
+   [
+    "ngừng hoạt động"
+   ]
+  ],
+  [
+   [
+    "hôm nay"
+   ],
+   [
+    "nó đang được kiểm tra"
+   ]
+  ],
+  [
+   [
+    "bạn sẽ đi hội nghị"
+   ],
+   [
+    "vào tháng năm"
+   ],
+   [
+    "hay hội nghị vào tháng sáu"
+   ]
+  ],
+  [
+   [
+    "không cái nào"
+   ],
+   [
+    "tôi phải ở lại đây"
+   ]
+  ],
+  [
+   [
+    "bạn đi hội nghị"
+   ],
+   [
+    "bằng tàu"
+   ],
+   [
+    "hay bằng ô tô"
+   ]
+  ],
+  [
+   [
+    "tôi lái xe đi"
+   ],
+   [
+    "với hai đồng nghiệp"
+   ]
+  ],
+  [
+   [
+    "tôi có thể tìm"
+   ],
+   [
+    "giấy thêm cho máy in"
+   ],
+   [
+    "ở đâu"
+   ]
+  ],
+  [
+   [
+    "trong tủ"
+   ],
+   [
+    "cạnh cửa sổ"
+   ]
+  ],
+  [
+   [
+    "lô hàng từ mexico"
+   ],
+   [
+    "vẫn chưa đến sao"
+   ]
+  ],
+  [
+   [
+    "sáng nay"
+   ],
+   [
+    "nó đã đến"
+   ]
+  ]
+ ],
+ "EXQ": [
+  {
+   "q": "Why is the elevator out of service?",
+   "o": [
+    "It's being inspected today.",
+    "On the ground floor.",
+    "Yes, the service was excellent.",
+    "At three o'clock."
+   ],
+   "a": 0,
+   "vi": "Why hỏi lý do: “It's being inspected today.”"
+  },
+  {
+   "q": "Are you going to the conference in May or the one in June?",
+   "o": [
+    "Neither, I have to stay here.",
+    "It was a great conference.",
+    "Yes, I'm attending.",
+    "The conference is free."
+   ],
+   "a": 0,
+   "vi": "Câu hỏi lựa chọn (May or June): đáp “Neither, I have to stay here.”"
+  },
+  {
+   "q": "Are you going to the conference by train or by car?",
+   "o": [
+    "I'm driving with two colleagues.",
+    "Yes, I'm going.",
+    "It's a three-day conference.",
+    "It's a three-day trip."
+   ],
+   "a": 0,
+   "vi": "Câu hỏi lựa chọn (train or car): đáp “I'm driving with two colleagues.”"
+  },
+  {
+   "q": "Where can I find extra paper for the printer?",
+   "o": [
+    "In the cabinet next to the window.",
+    "About two hundred pages.",
+    "It prints in color.",
+    "At the post office."
+   ],
+   "a": 0,
+   "vi": "Where hỏi nơi chốn: “In the cabinet next to the window.”"
+  },
+  {
+   "q": "Hasn't the shipment from Mexico arrived?",
+   "o": [
+    "It came in this morning.",
+    "In the warehouse.",
+    "Five boxes.",
+    "From a new supplier."
+   ],
+   "a": 0,
+   "vi": "Hỏi lô hàng đã đến chưa: “It came in this morning.”"
+  }
+ ],
+ "NEWQ2": [
+  {
+   "q": "The system is out ___ order today.",
+   "o": [
+    "of",
+    "off",
+    "from",
+    "for"
+   ],
+   "a": 0,
+   "vi": "out of order = hỏng, không hoạt động."
+  },
+  {
+   "q": "Please put the extra paper ___ the cabinet.",
+   "o": [
+    "in",
+    "of",
+    "since",
+    "during"
+   ],
+   "a": 0,
+   "vi": "put … in the cabinet = để vào tủ."
+  },
+  {
+   "q": "We drove to the conference ___ two colleagues.",
+   "o": [
+    "with",
+    "by",
+    "at",
+    "from"
+   ],
+   "a": 0,
+   "vi": "with + người = cùng với."
+  },
+  {
+   "q": "The shipment ___ yesterday afternoon.",
+   "o": [
+    "arrived",
+    "arrives",
+    "will arrive",
+    "has arrive"
+   ],
+   "a": 0,
+   "vi": "yesterday → quá khứ đơn: arrived."
+  },
+  {
+   "q": "I'm not sure whether to take the train ___ the bus.",
+   "o": [
+    "or",
+    "and",
+    "but",
+    "so"
+   ],
+   "a": 0,
+   "vi": "whether … or … = liệu … hay …"
+  },
+  {
+   "q": "The meeting room is ___ the end of the hall.",
+   "o": [
+    "at",
+    "of",
+    "to",
+    "into"
+   ],
+   "a": 0,
+   "vi": "at the end of the hall = ở cuối hành lang."
+  },
+  {
+   "q": "Both of my colleagues ___ coming to the conference.",
+   "o": [
+    "are",
+    "is",
+    "am",
+    "be"
+   ],
+   "a": 0,
+   "vi": "Both of + số nhiều → are."
+  }
+ ],
+ "CUM": [
+  [
+   "out of service",
+   "ngừng hoạt động"
+  ],
+  [
+   "be inspected",
+   "được kiểm tra"
+  ],
+  [
+   "by train or by car",
+   "bằng tàu hay bằng ô tô"
+  ],
+  [
+   "two colleagues",
+   "hai đồng nghiệp"
+  ],
+  [
+   "extra paper",
+   "giấy thêm"
+  ],
+  [
+   "next to the window",
+   "cạnh cửa sổ"
+  ],
+  [
+   "the shipment arrived",
+   "lô hàng đã đến"
+  ]
+ ],
+ "MU": [
+  {
+   "id": "v1",
+   "g": "v",
+   "t": "out of service",
+   "vi": "ngừng hoạt động",
+   "line": 0,
+   "hl": "out of service",
+   "b1": {
+    "s": "Why is the elevator [[out of service]]",
+    "q": "out of service nghĩa là gì?",
+    "o": [
+     "ngừng hoạt động",
+     "đang bảo hành",
+     "mới lắp đặt",
+     "đang đông khách"
+    ],
+    "a": 0,
+    "vi": "out of service = tạm ngừng hoạt động."
+   },
+   "b2": {
+    "q": "Câu mới: “The escalator is out of service today.” — thang cuốn thế nào?",
+    "o": [
+     "Không hoạt động hôm nay",
+     "Chạy nhanh hơn",
+     "Chạy bình thường",
+     "Mới sửa xong"
+    ],
+    "a": 0,
+    "vi": "out of service = không hoạt động."
+   },
+   "b3": [
+    {
+     "q": "The machine is ___ of service until Monday.",
+     "o": [
+      "out",
+      "off",
+      "over",
+      "under"
+     ],
+     "a": 0,
+     "vi": "out of service = ngừng hoạt động."
+    }
+   ],
+   "b4": {
+    "q": "Sorry, the machine is out of ___. (hoạt động)",
+    "hint": "danh từ · 7 chữ cái",
+    "ans": [
+     "service",
+     "order"
+    ],
+    "vi": "out of service = ngừng hoạt động."
+   }
+  },
+  {
+   "id": "v2",
+   "g": "v",
+   "t": "inspect",
+   "vi": "kiểm tra, thanh tra",
+   "line": 1,
+   "hl": "inspected",
+   "b1": {
+    "s": "It's being [[inspected]] today",
+    "q": "inspected nghĩa là gì?",
+    "o": [
+     "được kiểm tra",
+     "được sửa",
+     "được sơn",
+     "được bán"
+    ],
+    "a": 0,
+    "vi": "inspect = kiểm tra kỹ (thiết bị, toà nhà)."
+   },
+   "b2": {
+    "q": "Câu mới: “An officer inspects the kitchen every month.” — việc gì xảy ra hằng tháng?",
+    "o": [
+     "Kiểm tra nhà bếp",
+     "Sửa nhà bếp",
+     "Đóng nhà bếp",
+     "Dọn nhà bếp"
+    ],
+    "a": 0,
+    "vi": "inspects = kiểm tra."
+   },
+   "b3": [
+    {
+     "q": "The equipment must be ___ regularly.",
+     "o": [
+      "inspected",
+      "inspect",
+      "inspecting",
+      "inspects"
+     ],
+     "a": 0,
+     "vi": "must be + V3."
+    }
+   ],
+   "b4": {
+    "q": "Safety officers ___ the factory every year. (kiểm tra)",
+    "hint": "kiểm tra · V nguyên mẫu",
+    "ans": [
+     "inspect",
+     "check"
+    ],
+    "vi": "inspect the factory = kiểm tra nhà máy."
+   }
+  },
+  {
+   "id": "v3",
+   "g": "v",
+   "t": "extra",
+   "vi": "thêm, dự trữ",
+   "line": 6,
+   "hl": "extra",
+   "b1": {
+    "s": "find [[extra]] paper for the printer",
+    "q": "extra nghĩa là gì?",
+    "o": [
+     "thêm, dự trữ",
+     "đắt",
+     "loại tốt nhất",
+     "đã dùng"
+    ],
+    "a": 0,
+    "vi": "extra = thêm, ngoài phần có sẵn."
+   },
+   "b2": {
+    "q": "Câu mới: “Please bring extra chairs to the room.” — cần mang gì?",
+    "o": [
+     "Thêm ghế",
+     "Bớt ghế",
+     "Ghế cũ",
+     "Bàn"
+    ],
+    "a": 0,
+    "vi": "extra chairs = ghế thêm."
+   },
+   "b3": [
+    {
+     "q": "Do you have an ___ pen I can borrow?",
+     "o": [
+      "extra",
+      "extras",
+      "extraly",
+      "extremely"
+     ],
+     "a": 0,
+     "vi": "an + tính từ + danh từ: extra pen."
+    }
+   ],
+   "b4": {
+    "q": "We need ___ time to finish. (thêm)",
+    "hint": "thêm · 5 chữ cái",
+    "ans": [
+     "extra",
+     "more",
+     "additional"
+    ],
+    "vi": "extra time = thêm thời gian."
+   }
+  },
+  {
+   "id": "v4",
+   "g": "v",
+   "t": "cabinet",
+   "vi": "tủ (đựng đồ, hồ sơ)",
+   "line": 7,
+   "hl": "cabinet",
+   "b1": {
+    "s": "In the [[cabinet]] next to the window",
+    "q": "cabinet nghĩa là gì?",
+    "o": [
+     "tủ (đựng đồ, hồ sơ)",
+     "bàn",
+     "ghế",
+     "kệ sách ngoài trời"
+    ],
+    "a": 0,
+    "vi": "cabinet = tủ đựng đồ, hồ sơ."
+   },
+   "b2": {
+    "q": "Câu mới: “The files are in the cabinet.” — hồ sơ ở đâu?",
+    "o": [
+     "Trong tủ",
+     "Trên bàn",
+     "Dưới sàn",
+     "Trong hộp thư"
+    ],
+    "a": 0,
+    "vi": "in the cabinet = trong tủ."
+   },
+   "b3": [
+    {
+     "q": "There is a large ___ in the corner of the office.",
+     "o": [
+      "cabinet",
+      "cabinets",
+      "cabinetry",
+      "cabinated"
+     ],
+     "a": 0,
+     "vi": "a large + danh từ số ít: cabinet."
+    }
+   ],
+   "b4": {
+    "q": "The keys are in the filing ___. (tủ)",
+    "hint": "danh từ · 7 chữ cái",
+    "ans": [
+     "cabinet"
+    ],
+    "vi": "filing cabinet = tủ hồ sơ."
+   }
+  },
+  {
+   "id": "v5",
+   "g": "v",
+   "t": "shipment",
+   "vi": "lô hàng",
+   "line": 8,
+   "hl": "shipment",
+   "b1": {
+    "s": "the [[shipment]] from Mexico arrived",
+    "q": "shipment nghĩa là gì?",
+    "o": [
+     "lô hàng",
+     "hoá đơn",
+     "tàu thuyền",
+     "đơn đặt"
+    ],
+    "a": 0,
+    "vi": "shipment = lô hàng được gửi đi."
+   },
+   "b2": {
+    "q": "Câu mới: “The shipment arrived two days late.” — lô hàng thế nào?",
+    "o": [
+     "Đến trễ hai ngày",
+     "Đến sớm hai ngày",
+     "Chưa được gửi",
+     "Bị mất"
+    ],
+    "a": 0,
+    "vi": "arrived two days late = đến trễ hai ngày."
+   },
+   "b3": [
+    {
+     "q": "We are expecting a ___ from the supplier.",
+     "o": [
+      "shipment",
+      "ship",
+      "shipping",
+      "shipped"
+     ],
+     "a": 0,
+     "vi": "a + danh từ: shipment."
+    }
+   ],
+   "b4": {
+    "q": "The ___ will be delivered on Monday. (lô hàng)",
+    "hint": "danh từ · lô hàng",
+    "ans": [
+     "shipment",
+     "order",
+     "package",
+     "delivery"
+    ],
+    "vi": "shipment = lô hàng."
+   }
+  },
+  {
+   "id": "v6",
+   "g": "v",
+   "t": "colleague",
+   "vi": "đồng nghiệp",
+   "line": 5,
+   "hl": "colleagues",
+   "b1": {
+    "s": "driving with two [[colleagues]]",
+    "q": "colleagues nghĩa là gì?",
+    "o": [
+     "đồng nghiệp",
+     "khách hàng",
+     "họ hàng",
+     "hàng xóm"
+    ],
+    "a": 0,
+    "vi": "colleague = người làm cùng chỗ làm."
+   },
+   "b2": {
+    "q": "Câu mới: “I'm going to lunch with a colleague.” — người nói đi ăn với ai?",
+    "o": [
+     "Một đồng nghiệp",
+     "Một khách hàng",
+     "Một người bạn cũ",
+     "Một giáo viên"
+    ],
+    "a": 0,
+    "vi": "a colleague = một đồng nghiệp."
+   },
+   "b3": [
+    {
+     "q": "Two of my ___ are on vacation.",
+     "o": [
+      "colleagues",
+      "colleague",
+      "colleague's",
+      "collegiate"
+     ],
+     "a": 0,
+     "vi": "Two of my + danh từ số nhiều: colleagues."
+    }
+   ],
+   "b4": {
+    "q": "I work with my ___ on the project. (đồng nghiệp)",
+    "hint": "đồng nghiệp · số nhiều",
+    "ans": [
+     "colleagues",
+     "coworkers",
+     "co-workers",
+     "teammates"
+    ],
+    "vi": "work with my colleagues = làm việc cùng đồng nghiệp."
+   }
+  },
+  {
+   "id": "v7",
+   "g": "v",
+   "t": "next to",
+   "vi": "bên cạnh",
+   "line": 7,
+   "hl": "next to",
+   "b1": {
+    "s": "In the cabinet [[next to]] the window",
+    "q": "next to nghĩa là gì?",
+    "o": [
+     "bên cạnh",
+     "phía trên",
+     "phía sau",
+     "bên trong"
+    ],
+    "a": 0,
+    "vi": "next to = ngay bên cạnh."
+   },
+   "b2": {
+    "q": "Câu mới: “The bank is next to the post office.” — ngân hàng ở đâu?",
+    "o": [
+     "Cạnh bưu điện",
+     "Đối diện bưu điện",
+     "Sau bưu điện",
+     "Trong bưu điện"
+    ],
+    "a": 0,
+    "vi": "next to = cạnh."
+   },
+   "b3": [
+    {
+     "q": "The printer is ___ to the door.",
+     "o": [
+      "next",
+      "nexts",
+      "nextly",
+      "nest"
+     ],
+     "a": 0,
+     "vi": "next to = bên cạnh."
+    }
+   ],
+   "b4": {
+    "q": "The cafeteria is next ___ the lobby. (giới từ)",
+    "hint": "giới từ · 2 chữ cái",
+    "ans": [
+     "to"
+    ],
+    "vi": "next to = bên cạnh."
+   }
+  },
+  {
+   "id": "g1",
+   "g": "g",
+   "t": "Bị động tiếp diễn: is being inspected",
+   "line": 1,
+   "hl": "being inspected",
+   "b1": {
+    "s": "It's [[being inspected]] today",
+    "q": "“being inspected” là dạng gì?",
+    "o": [
+     "bị động tiếp diễn (đang được kiểm tra)",
+     "bị động quá khứ",
+     "chủ động tiếp diễn",
+     "bị động tương lai"
+    ],
+    "a": 0,
+    "vi": "is / are + being + V3 = bị động tiếp diễn: đang được … · 🧱 Bài Nền liên quan: Bị động các thì khác · B1"
+   },
+   "b2": {
+    "q": "Câu mới: “The room is being cleaned right now.” — căn phòng thế nào?",
+    "o": [
+     "Đang được dọn",
+     "Đã dọn xong",
+     "Sẽ được dọn",
+     "Không cần dọn"
+    ],
+    "a": 0,
+    "vi": "is being cleaned = đang được dọn."
+   },
+   "b3": [
+    {
+     "q": "The road is ___ repaired this week.",
+     "o": [
+      "being",
+      "been",
+      "be",
+      "was"
+     ],
+     "a": 0,
+     "vi": "is + being + V3."
+    },
+    {
+     "q": "The new software is being ___ now.",
+     "o": [
+      "installed",
+      "install",
+      "installing",
+      "installs"
+     ],
+     "a": 0,
+     "vi": "being + V3."
+    }
+   ],
+   "b4": {
+    "q": "The report is being ___ by the team. (write)",
+    "hint": "gõ V3 của write",
+    "ans": [
+     "written"
+    ],
+    "vi": "is being written = đang được viết."
+   }
+  },
+  {
+   "id": "g2",
+   "g": "g",
+   "t": "Hasn't … arrived? (ngạc nhiên vì chưa xảy ra)",
+   "line": 8,
+   "hl": "Hasn't the shipment from Mexico arrived",
+   "b1": {
+    "s": "[[Hasn't the shipment from Mexico arrived]]",
+    "q": "Câu hỏi phủ định “Hasn't … arrived?” thể hiện điều gì?",
+    "o": [
+     "người nói ngạc nhiên, nghĩ hàng lẽ ra đã đến",
+     "người nói chắc chắn hàng chưa đến",
+     "người nói hỏi khi nào hàng đi",
+     "người nói từ chối nhận hàng"
+    ],
+    "a": 0,
+    "vi": "Hasn't + chủ ngữ + V3? = (không phải) … đã … rồi sao? — thể hiện ngạc nhiên. · 🧱 Bài Nền liên quan: Hiện tại hoàn thành với just / already / yet · A2"
+   },
+   "b2": {
+    "q": "Câu mới: “Haven't you finished the report?” — người nói cảm thấy thế nào?",
+    "o": [
+     "Ngạc nhiên vì báo cáo chưa xong",
+     "Vui vì báo cáo xong",
+     "Muốn viết báo cáo",
+     "Không quan tâm"
+    ],
+    "a": 0,
+    "vi": "Haven't you finished? = bạn chưa xong sao?"
+   },
+   "b3": [
+    {
+     "q": "___ the manager arrived yet?",
+     "o": [
+      "Has",
+      "Have",
+      "Did",
+      "Is"
+     ],
+     "a": 0,
+     "vi": "the manager số ít: Has + V3."
+    },
+    {
+     "q": "Haven't they ___ the invoice?",
+     "o": [
+      "sent",
+      "send",
+      "sending",
+      "sends"
+     ],
+     "a": 0,
+     "vi": "Haven't + chủ ngữ + V3."
+    }
+   ],
+   "b4": {
+    "q": "___ she called the client yet? (trợ động từ)",
+    "hint": "has · 3 chữ cái",
+    "ans": [
+     "has",
+     "Has"
+    ],
+    "vi": "Has she + V3 yet?"
+   }
+  },
+  {
+   "id": "g3",
+   "g": "g",
+   "t": "Neither (không cái nào)",
+   "line": 3,
+   "hl": "Neither",
+   "b1": {
+    "s": "[[Neither]], I have to stay here",
+    "q": "“Neither” ở đây nghĩa là gì?",
+    "o": [
+     "không cái nào trong hai cái",
+     "cả hai cái",
+     "một trong hai",
+     "bất kỳ cái nào"
+    ],
+    "a": 0,
+    "vi": "neither = không cái nào trong hai; dùng khi hai lựa chọn đều bị từ chối. · 🧱 Bài Nền liên quan: both, either, neither · B1"
+   },
+   "b2": {
+    "q": "Câu mới: “Neither of the printers works.” — tình trạng ra sao?",
+    "o": [
+     "Cả hai máy in đều hỏng",
+     "Một máy in hỏng",
+     "Cả hai chạy tốt",
+     "Không có máy in"
+    ],
+    "a": 0,
+    "vi": "neither of the printers = cả hai máy đều không."
+   },
+   "b3": [
+    {
+     "q": "Neither the manager ___ the assistant came.",
+     "o": [
+      "nor",
+      "or",
+      "and",
+      "but"
+     ],
+     "a": 0,
+     "vi": "neither … nor …"
+    },
+    {
+     "q": "He speaks ___ French nor Spanish.",
+     "o": [
+      "neither",
+      "either",
+      "both",
+      "none"
+     ],
+     "a": 0,
+     "vi": "neither … nor …"
+    }
+   ],
+   "b4": {
+    "q": "I like ___ of these two colors. (không cái nào)",
+    "hint": "không cái nào trong hai · 7 chữ cái",
+    "ans": [
+     "neither"
+    ],
+    "vi": "neither of = không cái nào trong hai."
+   }
+  },
+  {
+   "id": "g4",
+   "g": "g",
+   "t": "have to + V (bắt buộc)",
+   "line": 3,
+   "hl": "I have to stay",
+   "b1": {
+    "s": "Neither, [[I have to stay]] here",
+    "q": "“have to” diễn tả điều gì?",
+    "o": [
+     "bắt buộc phải làm",
+     "có thể làm",
+     "đã làm",
+     "thích làm"
+    ],
+    "a": 0,
+    "vi": "have to + V = bắt buộc phải làm gì. · 🧱 Bài Nền liên quan: Have to / don't have to · A1"
+   },
+   "b2": {
+    "q": "Câu mới: “I have to submit the report by noon.” — người nói cần làm gì?",
+    "o": [
+     "Nộp báo cáo trước trưa",
+     "Viết lại báo cáo",
+     "Đọc báo cáo",
+     "Huỷ báo cáo"
+    ],
+    "a": 0,
+    "vi": "have to submit = phải nộp."
+   },
+   "b3": [
+    {
+     "q": "She ___ to work late tonight.",
+     "o": [
+      "has",
+      "have",
+      "having",
+      "does"
+     ],
+     "a": 0,
+     "vi": "She + has to + V."
+    },
+    {
+     "q": "We ___ to leave by five.",
+     "o": [
+      "have",
+      "has",
+      "having",
+      "is"
+     ],
+     "a": 0,
+     "vi": "We + have to + V."
+    }
+   ],
+   "b4": {
+    "q": "I ___ to attend the meeting. (bắt buộc)",
+    "hint": "bắt buộc · 4 chữ cái",
+    "ans": [
+     "have",
+     "need"
+    ],
+    "vi": "I have to + V."
+   }
+  },
+  {
+   "id": "g5",
+   "g": "g",
+   "t": "Where can I …?",
+   "line": 6,
+   "hl": "Where can I find",
+   "b1": {
+    "s": "[[Where can I find]] extra paper for the printer",
+    "q": "“Where can I find …?” hỏi gì?",
+    "o": [
+     "có thể tìm … ở đâu",
+     "ai đã tìm …",
+     "khi nào tìm …",
+     "vì sao tìm …"
+    ],
+    "a": 0,
+    "vi": "Where + can + I + V = tôi có thể … ở đâu. · 🧱 Bài Nền liên quan: Khả năng: can, could, be able to · A2"
+   },
+   "b2": {
+    "q": "Câu mới: “Where can I park my car?” — người nói hỏi gì?",
+    "o": [
+     "Có thể đỗ xe ở đâu",
+     "Ai đỗ xe",
+     "Đỗ xe giá bao nhiêu",
+     "Xe đỗ khi nào"
+    ],
+    "a": 0,
+    "vi": "Where can I park = có thể đỗ xe ở đâu."
+   },
+   "b3": [
+    {
+     "q": "Where ___ I buy a train ticket?",
+     "o": [
+      "can",
+      "cans",
+      "to",
+      "am"
+     ],
+     "a": 0,
+     "vi": "Where can I + V."
+    },
+    {
+     "q": "Where can I ___ the manager?",
+     "o": [
+      "find",
+      "finds",
+      "found",
+      "finding"
+     ],
+     "a": 0,
+     "vi": "can I + động từ nguyên mẫu."
+    }
+   ],
+   "b4": {
+    "q": "Where ___ I get a visitor badge? (có thể)",
+    "hint": "có thể · 3 chữ cái",
+    "ans": [
+     "can"
+    ],
+    "vi": "Where can I … = tôi có thể … ở đâu."
+   }
+  }
+ ]
+};
+
+Object.assign(BAI66.meta, {"p2":[{"q":"Why is the elevator out of service?","o":["On the ground floor.","It's being inspected today.","Yes, the service was excellent."],"a":1},{"q":"Are you going to the conference in May or the one in June?","o":["Neither, I have to stay here.","It was a great conference.","Yes, I'm attending."],"a":0},{"q":"Are you going to the conference by train or by car?","o":["Yes, I'm going.","I'm driving with two colleagues.","It's a three-day conference."],"a":1},{"q":"Where can I find extra paper for the printer?","o":["In the cabinet next to the window.","About two hundred pages.","It prints in color."],"a":0},{"q":"Hasn't the shipment from Mexico arrived?","o":["Mexico is a big country.","I'll ship it tomorrow.","It came in this morning."],"a":2}]});
