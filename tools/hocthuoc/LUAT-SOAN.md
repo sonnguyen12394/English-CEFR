@@ -1,6 +1,6 @@
 # Luật soạn bài học thuộc TOEIC (khuôn đã duyệt, rút kinh nghiệm 2 lần soát)
 
-Thư mục: /tmp/claude-0/-home-user-English-CEFR/48c67d5c-dc08-58ba-be65-4b058158838d/scratchpad/bai
+Thư mục: `content/hocthuoc/` (chạy lệnh ở gốc repo). Máy kiểm: `node tools/hocthuoc/check.mjs content/hocthuoc/baiN.js`.
 
 - Đầu vào: `baiN.in.json` có L = câu [người nói, câu tiếng Anh, '', mã giọng], exq = câu hỏi đề thật, dang, kind, title, nguon, g (bảng của đề nếu có).
 - Khuôn mẫu, đọc kỹ trước khi soạn:
