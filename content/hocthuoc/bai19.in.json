@@ -1,0 +1,129 @@
+{
+ "n": 19,
+ "nguon": "Đề 4 · Part 7 · 1",
+ "id": "d04-p7-01",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Text message chain",
+ "title": "Text messages",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Hannah Lee (8:45 A.M.): Good morning, Carlos.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Are you still able to open the store today?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'm stuck in traffic on the highway.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Carlos Ruiz (8:47 A.M.): No problem.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'm already here, and I have my keys.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hannah Lee (8:48 A.M.): Thanks.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The delivery from Rossi Foods is due at nine.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please check that the order is complete.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Carlos Ruiz (8:50 A.M.): Will do.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll count everything before I sign.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hannah Lee (8:51 A.M.): Perfect.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I should be there by ten.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why does Ms. Lee contact Mr. Ruiz?",
+   "a": "She is running late.",
+   "w": [
+    "She wants to swap a shift.",
+    "She needs to reschedule a delivery.",
+    "She is requesting time off."
+   ],
+   "ev": "I'm stuck in traffic on the highway.",
+   "why": "Cô báo mình sẽ đến muộn vì kẹt xe.",
+   "lg": {
+    "og": {
+     "She is running late.": "Bà đang đến trễ",
+     "She wants to swap a shift.": "Bà muốn đổi ca làm",
+     "She needs to reschedule a delivery.": "Bà cần dời lịch giao hàng",
+     "She is requesting time off.": "Bà xin nghỉ"
+    },
+    "ly": "Đáp án \"She is running late.\": bà kẹt xe và nói sẽ đến lúc mười giờ nên nhờ ông Ruiz mở cửa hàng.",
+    "dich": "Chào buổi sáng, Carlos. Anh vẫn mở cửa hàng hôm nay được chứ? Tôi đang kẹt xe trên đường cao tốc."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "At 8:50 A.M., what does Mr. Ruiz mean when he writes, \"Will do\"?",
+   "a": "He will inspect what the supplier brings.",
+   "w": [
+    "He will contact the supplier about a delay.",
+    "He will meet Hannah on the highway.",
+    "He will lock the store before nine."
+   ],
+   "ev": "I'll count everything before I sign.",
+   "why": "Anh sẽ đếm hàng trước khi ký nhận.",
+   "lg": {
+    "og": {
+     "He will inspect what the supplier brings.": "Anh sẽ kiểm tra hàng nhà cung cấp mang đến",
+     "He will contact the supplier about a delay.": "Anh sẽ liên hệ nhà cung cấp về việc trễ",
+     "He will meet Hannah on the highway.": "Anh sẽ gặp Hannah trên đường cao tốc",
+     "He will lock the store before nine.": "Anh sẽ khoá cửa hàng trước chín giờ"
+    },
+    "ly": "Hannah nhờ kiểm tra đơn hàng; Carlos đáp sẽ đếm hết trước khi ký: \"He will inspect what the supplier brings.\" Hannah mới là người đang kẹt xe.",
+    "dich": "Tôi sẽ đếm mọi thứ trước khi ký."
+   },
+   "ty": "intent"
+  }
+ ]
+}

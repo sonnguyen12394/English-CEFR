@@ -1,0 +1,67 @@
+{
+ "n": 35,
+ "nguon": "Đề 1 · Part 3 · 11",
+ "id": "t3-16",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Paul, the client from Lindgren Foods wants to move tomorrow's meeting to next Tuesday.",
+   "",
+   "a86117de7"
+  ],
+  [
+   "B",
+   "That's a problem. I'll be at the training course in Boston all next week.",
+   "",
+   "a6eceda42"
+  ],
+  [
+   "A",
+   "Could you join by video call? The meeting only takes an hour.",
+   "",
+   "a95898d4d"
+  ],
+  [
+   "B",
+   "Sure. Please send me the link, and I'll ask Tom to bring the samples to the meeting room.",
+   "",
+   "a71fdb976"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What does the client want to do?",
+   "a": "Reschedule a meeting",
+   "w": [
+    "Cancel an order",
+    "Visit a factory",
+    "Change a supplier"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "Why can't the man attend in person?",
+   "a": "He will be at a training course.",
+   "w": [
+    "He is going on vacation.",
+    "He has another client.",
+    "He is moving offices."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the woman suggest?",
+   "a": "Joining online",
+   "w": [
+    "Sending a colleague instead",
+    "Meeting on Monday",
+    "Calling the client"
+   ],
+   "ty": "next"
+  }
+ ]
+}

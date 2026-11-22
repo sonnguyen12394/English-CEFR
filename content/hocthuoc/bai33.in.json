@@ -1,0 +1,73 @@
+{
+ "n": 33,
+ "nguon": "Đề 1 · Part 3 · 9",
+ "id": "t3-25",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Excuse me. I booked a room with a sea view, but the room I was given faces the parking lot.",
+   "",
+   "a6f844a0a"
+  ],
+  [
+   "B",
+   "I'm very sorry about that. Let me ask my manager. Ms. Park, do we have any sea-view rooms left?",
+   "",
+   "a517c0e7e"
+  ],
+  [
+   "C",
+   "I'm afraid they're all taken tonight. But we can move you tomorrow morning, and tonight's dinner at our restaurant will be on us.",
+   "",
+   "a104af636"
+  ],
+  [
+   "A",
+   "That sounds fair. What time can I move?",
+   "",
+   "add45e37c"
+  ],
+  [
+   "B",
+   "Any time after ten. I'll have someone carry your bags to the new room.",
+   "",
+   "a135e85f7"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What problem does the guest mention?",
+   "a": "Her room does not have the view she booked.",
+   "w": [
+    "Her room is next to a noisy elevator.",
+    "Her bags were taken to the wrong floor.",
+    "Her booking was made for the wrong night."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the manager offer?",
+   "a": "A free dinner",
+   "w": [
+    "A cheaper room",
+    "A late checkout",
+    "Free parking"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What will happen after ten o'clock?",
+   "a": "The guest can change rooms.",
+   "w": [
+    "The restaurant will open.",
+    "The manager will call the guest.",
+    "A taxi will arrive."
+   ],
+   "ty": "detail"
+  }
+ ]
+}

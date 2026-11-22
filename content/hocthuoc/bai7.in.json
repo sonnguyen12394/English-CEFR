@@ -1,0 +1,82 @@
+{
+ "n": 7,
+ "nguon": "Đề 7 · Part 3 · bài 4",
+ "id": "d07-p3-04",
+ "chu": "Công sở & cuộc họp",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "L": [
+  [
+   "A",
+   "Liam, Nora, thanks for staying late. We need to finish the inventory count before the auditors arrive on Monday.",
+   "",
+   "a0cfbf87a"
+  ],
+  [
+   "B",
+   "We've counted everything in aisles one through six. The problem is aisle seven. The labels on the shelves don't match the boxes.",
+   "",
+   "a0bb332d7"
+  ],
+  [
+   "C",
+   "Right. Someone moved the winter jackets there last week but didn't update the system.",
+   "",
+   "a4b1359ed"
+  ],
+  [
+   "A",
+   "That explains it. Nora, can you print a new set of labels?",
+   "",
+   "a2d57ddf1"
+  ],
+  [
+   "C",
+   "Sure, I'll do it now.",
+   "",
+   "a2f091d62"
+  ],
+  [
+   "B",
+   "And I'll recount aisle seven once the labels are up.",
+   "",
+   "a3c335089"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why are the speakers staying late?",
+   "a": "To complete an inventory count",
+   "w": [
+    "To prepare for a sale",
+    "To unload a delivery",
+    "To clean the warehouse"
+   ],
+   "ty": "detail",
+   "ev": "We need to finish the inventory count before the auditors arrive on Monday."
+  },
+  {
+   "q": "What problem does the man mention?",
+   "a": "Some labels are incorrect.",
+   "w": [
+    "Some boxes are damaged.",
+    "An aisle is blocked.",
+    "A scanner is broken."
+   ],
+   "ty": "detail",
+   "ev": "The labels on the shelves don't match the boxes."
+  },
+  {
+   "q": "What will Nora do next?",
+   "a": "Print some labels",
+   "w": [
+    "Call the auditors",
+    "Move some jackets",
+    "Update a schedule"
+   ],
+   "ty": "next",
+   "ev": "Nora, can you print a new set of labels?"
+  }
+ ]
+}

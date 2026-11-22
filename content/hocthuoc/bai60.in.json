@@ -1,0 +1,214 @@
+{
+ "n": 60,
+ "nguon": "Đề 1 · Part 7 · 12",
+ "id": "t7-m-repair",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Invoice + e-mail",
+ "title": "Quickfix Appliance Repair — Invoice #5530 · E-mail · To: service@quickfix.com · From: Diego Ramos, Café Lumen · Date: April 2",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Quickfix Appliance Repair — Invoice #5530",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Customer: Café Lumen",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Service date: March 12",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Repair of espresso machine (labor, 2 hours) — $140",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Replacement water pump — $95",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Call-out fee — $40",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Total — $275",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "All repairs are guaranteed for 90 days.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Payment due within 14 days.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) E-mail · To: service@quickfix.com · From: Diego Ramos, Café Lumen · Date: April 2",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello, your technician repaired our espresso machine on March 12, but it stopped working again this morning.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "It seems to be the same problem with the water supply.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "As this is within your guarantee period, I assume there will be no charge for the repair.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Could someone come tomorrow morning before we open at 7:00?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our busiest day is Saturday, so we need the machine working by then.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you, Diego Ramos",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the problem with the espresso machine?",
+   "a": "It has stopped working again.",
+   "w": [
+    "It was delivered late.",
+    "It is too noisy.",
+    "It was sold at the wrong price."
+   ],
+   "why": "it stopped working again this morning.",
+   "lg": {
+    "og": {
+     "It has stopped working again.": "Nó lại ngừng hoạt động",
+     "It was delivered late.": "Nó giao trễ",
+     "It is too noisy.": "Nó quá ồn",
+     "It was sold at the wrong price.": "Nó bán sai giá"
+    },
+    "ly": "E-mail cho biết máy đã hỏng lại sáng nay dù được sửa ngày 12/3.",
+    "dich": "Thợ của quý vị đã sửa máy pha cà phê vào ngày 12 tháng 3, nhưng sáng nay nó lại ngừng hoạt động."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Why does Mr. Ramos expect a free repair?",
+   "a": "The previous repair is still guaranteed.",
+   "w": [
+    "He paid the invoice early.",
+    "He is a regular customer.",
+    "The technician made a mistake with the bill."
+   ],
+   "why": "Đối chiếu: sửa 12/3, bảo hành 90 ngày, e-mail ngày 2/4 → còn bảo hành.",
+   "lg": {
+    "og": {
+     "The previous repair is still guaranteed.": "Lần sửa trước còn trong thời gian bảo hành",
+     "He paid the invoice early.": "Ông thanh toán hoá đơn sớm",
+     "He is a regular customer.": "Ông là khách quen",
+     "The technician made a mistake with the bill.": "Thợ ghi sai hoá đơn"
+    },
+    "ly": "Hoá đơn ghi bảo hành 90 ngày, và lần sửa ngày 12/3 còn trong thời hạn tới ngày 2/4, nên ông kỳ vọng sửa miễn phí.",
+    "dich": "Mọi việc sửa chữa được bảo hành 90 ngày."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Which part was replaced on March 12?",
+   "a": "A water pump",
+   "w": [
+    "A coffee grinder",
+    "A power cable",
+    "A milk frother"
+   ],
+   "why": "Replacement water pump — $95.",
+   "lg": {
+    "og": {
+     "A water pump": "Một bơm nước",
+     "A coffee grinder": "Một máy xay cà phê",
+     "A power cable": "Một dây điện",
+     "A milk frother": "Một máy đánh sữa"
+    },
+    "ly": "Hoá đơn có dòng \"Replacement water pump\" (bơm nước thay thế).",
+    "dich": "Bơm nước thay thế: 95 đô la."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "When does Mr. Ramos want the technician to come?",
+   "a": "Before the café opens",
+   "w": [
+    "On Saturday afternoon",
+    "During lunchtime",
+    "After 7:00 P.M."
+   ],
+   "why": "tomorrow morning before we open at 7:00.",
+   "lg": {
+    "og": {
+     "Before the café opens": "Trước khi quán mở cửa",
+     "On Saturday afternoon": "Chiều thứ Bảy",
+     "During lunchtime": "Giờ ăn trưa",
+     "After 7:00 P.M.": "Sau 7 giờ tối"
+    },
+    "ly": "Ông nhờ thợ đến sáng mai trước 7:00 là giờ quán mở.",
+    "dich": "Có thể cử người đến vào sáng mai, trước khi chúng tôi mở cửa lúc 7 giờ không?"
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is NOT listed on the invoice?",
+   "a": "A delivery charge",
+   "w": [
+    "A replacement part",
+    "A call-out fee",
+    "Labor costs"
+   ],
+   "why": "Hoá đơn có tiền công (labor), máy bơm thay mới, phí gọi thợ; không có phí giao hàng.",
+   "lg": {
+    "og": {
+     "A delivery charge": "Một khoản phí giao hàng",
+     "A replacement part": "Một linh kiện thay thế",
+     "A call-out fee": "Phí đến tận nơi",
+     "Labor costs": "Tiền công"
+    },
+    "ly": "Hoá đơn gồm tiền công, bơm thay thế và phí đến tận nơi. Không có phí giao hàng.",
+    "dich": "Sửa máy pha cà phê (công, 2 giờ): 140 đô la. Bơm nước thay thế: 95 đô la. Phí đến tận nơi: 40 đô la."
+   },
+   "ty": "not"
+  }
+ ]
+}

@@ -1,0 +1,109 @@
+{
+ "n": 50,
+ "nguon": "Đề 1 · Part 7 · 1",
+ "id": "t7-text",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Text message chain",
+ "title": "Text messages",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Karen Wu (9:12 A.M.): Hi Raj, are you still at the warehouse?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The client just called.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "They need the samples by noon, not tomorrow.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Raj Mehta (9:14 A.M.): I'm here.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The samples are packed, but our driver doesn't start until 11.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Karen Wu (9:15 A.M.): Can you use a courier instead?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll approve the cost.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Raj Mehta (9:16 A.M.): Sure thing.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll book one now and send you the tracking number.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why does Ms. Wu contact Mr. Mehta?",
+   "a": "To speed up an order's delivery",
+   "w": [
+    "To report damage to a shipment",
+    "To ask about a delivery address",
+    "To reschedule a client visit"
+   ],
+   "why": "Khách cần mẫu hàng trước trưa nên bà nhờ ông dùng dịch vụ chuyển phát nhanh.",
+   "lg": {
+    "og": {
+     "To speed up an order's delivery": "Để sắp xếp giao đơn hàng nhanh hơn",
+     "To report damage to a shipment": "Để báo hàng bị hư",
+     "To ask about a delivery address": "Để hỏi địa chỉ giao hàng",
+     "To reschedule a client visit": "Để dời lịch thăm khách"
+    },
+    "ly": "Đáp án \"To speed up an order's delivery\" — Bà Wu nhắn vì khách cần mẫu trước trưa và bà đề nghị dùng chuyển phát nhanh thay tài xế. Hàng hư, địa chỉ và lịch thăm khách không được nhắc.",
+    "dich": "Khách vừa gọi. Họ cần mẫu hàng trước buổi trưa, không phải ngày mai."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "At 9:16 A.M., what does Mr. Mehta mean when he writes, \"Sure thing\"?",
+   "a": "He agrees to arrange a courier.",
+   "w": [
+    "He is sure the driver will arrive.",
+    "He has already sent the samples.",
+    "He thinks the cost is too high."
+   ],
+   "why": "Trả lời đề nghị dùng courier, rồi nói sẽ đặt ngay.",
+   "lg": {
+    "og": {
+     "He agrees to arrange a courier.": "Anh ấy đồng ý sắp xếp dịch vụ chuyển phát",
+     "He is sure the driver will arrive.": "Anh chắc tài xế sẽ đến",
+     "He has already sent the samples.": "Anh đã gửi mẫu rồi",
+     "He thinks the cost is too high.": "Anh thấy chi phí quá cao"
+    },
+    "ly": "\"Sure thing\" là đồng ý. Ngay sau đó ông Mehta nói sẽ đặt dịch vụ chuyển phát ngay và gửi mã theo dõi.",
+    "dich": "Chắc chắn rồi. Tôi sẽ đặt một dịch vụ chuyển phát ngay bây giờ và gửi bà mã theo dõi."
+   },
+   "ty": "intent"
+  }
+ ]
+}

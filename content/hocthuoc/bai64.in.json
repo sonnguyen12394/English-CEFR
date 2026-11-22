@@ -1,0 +1,169 @@
+{
+ "n": 64,
+ "nguon": "Đề 1 · Part 2 · bộ 1",
+ "id": "de1-p2-bo1",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "Part 2 · bộ 1 · 10 câu hỏi – đáp",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "I'm afraid the copier is jammed again.",
+   "",
+   "a277a1660"
+  ],
+  [
+   "B",
+   "I'll call the repair service.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "When will the new manager start?",
+   "",
+   "a78767b9e"
+  ],
+  [
+   "B",
+   "Next Monday, I believe.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "The new photocopier is easy to use, isn't it?",
+   "",
+   "adbb07243"
+  ],
+  [
+   "B",
+   "Yes, much easier than the old one.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "You've worked with this client before, haven't you?",
+   "",
+   "a89fa7c7b"
+  ],
+  [
+   "B",
+   "Yes, a couple of times.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "The client wants the proposal by Thursday instead of Friday.",
+   "",
+   "a3894cc64"
+  ],
+  [
+   "B",
+   "Then we'd better start on it today.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Did you get a chance to review my proposal?",
+   "",
+   "ae96c280a"
+  ],
+  [
+   "B",
+   "Not yet, but I'll look at it this afternoon.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Let's review the budget before the meeting.",
+   "",
+   "aabad630d"
+  ],
+  [
+   "B",
+   "Good idea, I'll bring the figures.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ms. Patel will be out of the office all next week.",
+   "",
+   "aac7e3c32"
+  ],
+  [
+   "B",
+   "Who should I contact while she's away?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "When is the sales report due?",
+   "",
+   "a6489f28d"
+  ],
+  [
+   "B",
+   "By the end of the week.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who approved the new vacation policy?",
+   "",
+   "af889f61d"
+  ],
+  [
+   "B",
+   "I think it was the HR director.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "I'm afraid the copier is jammed again.",
+   "a": "I'll call the repair service.",
+   "w": [
+    "Ten copies each.",
+    "Strawberry jam, please."
+   ],
+   "ty": "stmt"
+  },
+  {
+   "q": "When will the new manager start?",
+   "a": "Next Monday, I believe.",
+   "w": [
+    "She manages the team well.",
+    "At the start of the road."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "The new photocopier is easy to use, isn't it?",
+   "a": "Yes, much easier than the old one.",
+   "w": [
+    "Three copies, please.",
+    "I used to work there."
+   ],
+   "ty": "yn"
+  },
+  {
+   "q": "You've worked with this client before, haven't you?",
+   "a": "Yes, a couple of times.",
+   "w": [
+    "I'd like to work there.",
+    "The client called this morning."
+   ],
+   "ty": "yn"
+  }
+ ]
+}

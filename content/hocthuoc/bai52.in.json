@@ -1,0 +1,79 @@
+{
+ "n": 52,
+ "nguon": "Đề 1 · Part 7 · 3",
+ "id": "t7-notice3",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Notice",
+ "title": "Notice to all tenants — Harbor View Tower",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Elevator B will be closed for scheduled maintenance from Monday, June 9, to Wednesday, June 11.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "During this time, Elevator A and the stairs on the east side of the building will remain available.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tenants expecting large deliveries on these days should contact the building office at extension 210 so that the freight elevator can be reserved for them.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We apologize for any inconvenience. — Building Management",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the notice?",
+   "a": "To notify tenants of a temporary service closure",
+   "w": [
+    "To remind tenants of a payment deadline",
+    "To announce a change in building rules",
+    "To invite tenants to a building meeting"
+   ],
+   "why": "Thang máy B đóng để bảo trì từ 9/6 đến 11/6, tức dịch vụ bị gián đoạn.",
+   "lg": {
+    "og": {
+     "To notify tenants of a temporary service closure": "Để báo người thuê về việc tạm ngừng một dịch vụ",
+     "To remind tenants of a payment deadline": "Để nhắc hạn thanh toán",
+     "To announce a change in building rules": "Để báo đổi quy định toà nhà",
+     "To invite tenants to a building meeting": "Để mời người thuê dự họp"
+    },
+    "ly": "Đáp án \"To notify tenants of a temporary service closure\" — Thông báo nêu thang máy B đóng vài ngày để bảo trì, tức một dịch vụ bị gián đoạn. Hạn thanh toán, quy định và cuộc họp không được nhắc.",
+    "dich": "Thang máy B sẽ đóng để bảo trì định kỳ từ thứ Hai, ngày 9 tháng 6, đến thứ Tư, ngày 11 tháng 6."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What should tenants do if they expect a large delivery?",
+   "a": "Request a freight elevator in advance",
+   "w": [
+    "Use Elevator A for the delivery",
+    "Carry the items up the east stairs",
+    "Reschedule the delivery to later in June"
+   ],
+   "why": "Phải liên hệ văn phòng để đặt trước thang máy chở hàng.",
+   "lg": {
+    "og": {
+     "Request a freight elevator in advance": "Đặt trước thang máy chở hàng",
+     "Use Elevator A for the delivery": "Dùng thang máy A để nhận hàng",
+     "Carry the items up the east stairs": "Khiêng hàng lên cầu thang phía đông",
+     "Reschedule the delivery to later in June": "Dời việc giao hàng sang cuối tháng 6"
+    },
+    "ly": "Đáp án \"Request a freight elevator in advance\" — Người thuê liên hệ văn phòng để thang máy chở hàng được giữ chỗ. Thang A và cầu thang chỉ là lối đi cho người, không phải cách nhận hàng lớn.",
+    "dich": "Người thuê dự kiến nhận hàng lớn trong những ngày này nên liên hệ văn phòng toà nhà ở máy lẻ 210 để đặt trước thang máy chở hàng."
+   },
+   "ty": "detail"
+  }
+ ]
+}

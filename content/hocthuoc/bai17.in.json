@@ -1,0 +1,105 @@
+{
+ "n": 17,
+ "nguon": "Đề 5 · Part 6 · 4",
+ "id": "d05-p6-04",
+ "dang": "✉️ Văn bản",
+ "kind": "Letter",
+ "title": "Harlan Insurance · Claims Department",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear Mr. Adebayo, Thank you for contacting Harlan Insurance about your recent claim.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We have received the photographs of the damage to your car, and our team has reviewed them carefully.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Based on this review, we have approved your claim for $1,250.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "This amount covers the full cost of the repairs.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The payment will be sent to your bank account within five business days.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If you have any questions, please call our customer service line at 555-0193.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please have your claim number ready when you call.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Sincerely, Patricia Gomez, Claims Department",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "has reviewed",
+   "w": [
+    "will review",
+    "reviews",
+    "is reviewing"
+   ],
+   "why": "Câu sau nói đã duyệt hồ sơ dựa trên việc xem xét này → việc xem ảnh đã xong: has reviewed.",
+   "ty": "tense"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "This amount covers the full cost of the repairs.",
+   "w": [
+    "Photographs must be taken in good light.",
+    "Your bank account was opened five years ago.",
+    "Our customer service line is closed today."
+   ],
+   "why": "\"This amount\" chỉ khoản $1,250 vừa nêu; \"tổng đài đóng cửa\" mâu thuẫn với lời mời gọi điện ở sau.",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "If",
+   "w": [
+    "Unless",
+    "Although",
+    "Whether"
+   ],
+   "why": "Nếu có thắc mắc thì gọi → If; Unless / Although sai nghĩa, Whether cần or.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "ready",
+   "w": [
+    "readily",
+    "readiness",
+    "readied"
+   ],
+   "why": "have + tân ngữ + tính từ (have your claim number ready = chuẩn bị sẵn mã hồ sơ) → ready.",
+   "ty": "word"
+  }
+ ]
+}

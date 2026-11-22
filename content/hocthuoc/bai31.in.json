@@ -1,0 +1,67 @@
+{
+ "n": 31,
+ "nguon": "Đề 1 · Part 3 · 7",
+ "id": "t3-09",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hi, Sam and Priya. Thanks for staying late. The client wants to see the new logo designs by Monday instead of Wednesday.",
+   "",
+   "a7af381dc"
+  ],
+  [
+   "B",
+   "Monday? That's only three days away. We haven't finished the color versions yet.",
+   "",
+   "a918ac4a6"
+  ],
+  [
+   "C",
+   "I can work on the colors this weekend if someone else prepares the presentation slides.",
+   "",
+   "a7012d633"
+  ],
+  [
+   "A",
+   "That would be great, Priya. Sam, could you handle the slides? I'll call the client and confirm the meeting time.",
+   "",
+   "aa7adf9b9"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What problem do the speakers discuss?",
+   "a": "A deadline has been moved earlier.",
+   "w": [
+    "A client has canceled a project.",
+    "A designer is leaving the company.",
+    "The presentation room is unavailable."
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the woman named Priya offer to do?",
+   "a": "Work during the weekend",
+   "w": [
+    "Call the client",
+    "Prepare the slides",
+    "Change the logo design completely"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What will the first woman do next?",
+   "a": "Contact the client",
+   "w": [
+    "Finish the color versions",
+    "Book a meeting room",
+    "Review the slides"
+   ],
+   "ty": "next"
+  }
+ ]
+}

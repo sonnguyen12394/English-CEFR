@@ -1,0 +1,99 @@
+{
+ "n": 48,
+ "nguon": "Đề 1 · Part 6 · 2",
+ "id": "t6-hire",
+ "dang": "✉️ Văn bản",
+ "kind": "E-mail",
+ "title": "To: Maria Lopez · From: Hiring Team, Castell Logistics · Subject: Interview invitation",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear Ms. Lopez, Thank you for applying for the position of warehouse supervisor.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We were very impressed with your experience and would like to invite you to an interview on Tuesday, May 12, at 10:00 A.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "You will meet the operations manager and two team leaders.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The interview will last about forty-five minutes.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please bring a copy of your driver's license and any certificates you have received.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If this time is not convenient, please reply to this e-mail by Friday.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Sincerely, Hiring Team",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "impressed",
+   "w": [
+    "impressive",
+    "impressing",
+    "impression"
+   ],
+   "why": "be impressed with: ấn tượng với (tính từ -ed chỉ cảm xúc của người).",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "You will meet the operations manager and two team leaders.",
+   "w": [
+    "Unfortunately, we have decided not to offer you an interview.",
+    "Your interview with our team took place last Tuesday.",
+    "We have already filled the warehouse supervisor position."
+   ],
+   "why": "Câu chèn nói ai sẽ phỏng vấn, nối với câu sau về thời lượng buổi phỏng vấn. Ba câu kia ngược với thư mời: không mời phỏng vấn, phỏng vấn đã diễn ra, đã tuyển xong.",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "certificates",
+   "w": [
+    "certify",
+    "certified",
+    "certifying"
+   ],
+   "why": "any + danh từ: any certificates (chứng chỉ).",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "by",
+   "w": [
+    "until",
+    "since",
+    "during"
+   ],
+   "why": "by + thời hạn: trả lời trước / chậm nhất thứ Sáu.",
+   "ty": "word"
+  }
+ ]
+}

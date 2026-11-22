@@ -1,0 +1,82 @@
+{
+ "n": 4,
+ "nguon": "Đề 3 · Part 3 · bài 4",
+ "id": "d03-p3-04",
+ "chu": "Mua hàng & giao hàng",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "L": [
+  [
+   "B",
+   "Hi, I ordered a desk lamp from your Web site last week, and the tracking page says it was delivered yesterday. But I never received it.",
+   "",
+   "a8f7e01c0"
+  ],
+  [
+   "A",
+   "I'm sorry about that. Could you give me your order number?",
+   "",
+   "a2bc21a6b"
+  ],
+  [
+   "B",
+   "Sure, it's 4-7-2-9-1.",
+   "",
+   "af3a022cc"
+  ],
+  [
+   "A",
+   "Thank you. I see the package was left at the front entrance of your building. Sometimes the building manager collects packages.",
+   "",
+   "a02d23616"
+  ],
+  [
+   "B",
+   "Oh, I didn't think of that. I'll ask him this afternoon.",
+   "",
+   "adb09209e"
+  ],
+  [
+   "A",
+   "If it's not there, call us back, and we'll send a replacement at no charge.",
+   "",
+   "a26fb1418"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is the man calling?",
+   "a": "He has not received an item.",
+   "w": [
+    "He wants to return a lamp.",
+    "He was charged twice.",
+    "He needs a different size."
+   ],
+   "ty": "gist",
+   "ev": "But I never received it."
+  },
+  {
+   "q": "What does the woman say happened to the package?",
+   "a": "It was left at an entrance.",
+   "w": [
+    "It was sent to the wrong city.",
+    "It was damaged during shipping.",
+    "It is still at the warehouse."
+   ],
+   "ty": "detail",
+   "ev": "the package was left at the front entrance of your building"
+  },
+  {
+   "q": "What does the woman offer?",
+   "a": "A free replacement",
+   "w": [
+    "A discount on the next order",
+    "Express shipping",
+    "A full refund"
+   ],
+   "ty": "next",
+   "ev": "we'll send a replacement at no charge"
+  }
+ ]
+}

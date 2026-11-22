@@ -1,0 +1,169 @@
+{
+ "n": 24,
+ "nguon": "Đề 2 · Part 2",
+ "id": "de2-p2-bo1",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "Part 2 · 10 câu hỏi – đáp",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "What's the fastest way to the airport?",
+   "",
+   "a9a25c715"
+  ],
+  [
+   "B",
+   "Take the express train.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Could you help me move these boxes?",
+   "",
+   "aa308bfc2"
+  ],
+  [
+   "B",
+   "Sure, where should I put them?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "When is the deadline for the budget proposal?",
+   "",
+   "a21cc65ca"
+  ],
+  [
+   "B",
+   "It's been extended to next Friday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "The printer on the third floor is out of toner again.",
+   "",
+   "a70d99542"
+  ],
+  [
+   "B",
+   "I'll order some more this afternoon.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How long will the renovation take?",
+   "",
+   "aae651ba5"
+  ],
+  [
+   "B",
+   "About six weeks.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I can't find my security badge.",
+   "",
+   "aa2d386df"
+  ],
+  [
+   "B",
+   "Did you check your coat pocket?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I heard the cafeteria is closing early today.",
+   "",
+   "a0795b8a2"
+  ],
+  [
+   "B",
+   "That's right, because of the staff meeting.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who's in charge of ordering office supplies?",
+   "",
+   "ac25e4a61"
+  ],
+  [
+   "B",
+   "Ms. Tanaka handles that.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Where should I send the signed contracts?",
+   "",
+   "a11c518bd"
+  ],
+  [
+   "B",
+   "Directly to the legal department.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Isn't the store open on Sundays?",
+   "",
+   "a7c756561"
+  ],
+  [
+   "B",
+   "Only in December.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What's the fastest way to the airport?",
+   "a": "Take the express train.",
+   "w": [
+    "At three o'clock.",
+    "The flight was fast."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Could you help me move these boxes?",
+   "a": "Sure, where should I put them?",
+   "w": [
+    "We moved here last year.",
+    "They're made of plastic."
+   ],
+   "ty": "req"
+  },
+  {
+   "q": "When is the deadline for the budget proposal?",
+   "a": "It's been extended to next Friday.",
+   "w": [
+    "In the finance office.",
+    "About fifty thousand dollars."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "The printer on the third floor is out of toner again.",
+   "a": "I'll order some more this afternoon.",
+   "w": [
+    "The meeting is on the third floor.",
+    "This printer is easy to use."
+   ],
+   "ty": "stmt"
+  }
+ ]
+}

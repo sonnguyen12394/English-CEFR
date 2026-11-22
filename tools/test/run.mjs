@@ -2629,7 +2629,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       // lần đầu bấm Chơi ở Bậc 2 → bài học luật ghế
       await phView(); const click = sel => $app.onclick({ target: { closest: s => s === sel ? {} : null } });
       if (!/Học luật ghế rồi chơi/.test($app.innerHTML) || /class="hrow phbook" data-phluat/.test($app.innerHTML)) bad.push('Bậc 2 chưa học luật: nút Chơi phải ghi học luật ghế, không có dòng riêng');   // v188: gộp vào Bậc 2
-      click('[data-phplay]'); if (window.CUR.view !== PH_VIEW + '-luat' || !/Bác Danh từ hay Cô Tính từ/.test($app.innerHTML) || !/data-phlskip/.test($app.innerHTML)) bad.push('Chơi Bậc 2 lần đầu phải vào bài học (có Bỏ qua)');
+      click('[data-phplay]'); if (window.CUR.view !== PH_VIEW + '-luat' || !/Danh từ hay Tính từ/.test($app.innerHTML) || !/data-phlskip/.test($app.innerHTML)) bad.push('Chơi Bậc 2 lần đầu phải vào bài học (có Bỏ qua)');
       let steps = 0, qs = 0;
       for (let b = 0; b < 3; b++) { steps++; click('[data-phlq]');
         for (let i = 0; i < 12 && window.CUR.view === PH_VIEW + '-luat' && /data-phlc/.test($app.innerHTML); i++) {
@@ -2642,7 +2642,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       // lời giải Bậc 2 nói luật ghế; bảng ghế trong ván
       const it = PH_R.it, g = PH_GHE[it.ghe]; PH_R.lane = PH_R.order.findIndex(o => !o.ok); const got = PH_R.order[PH_R.lane]; phCatch();
       if (!String(document.getElementById('phfb').innerHTML).includes(esc(g.rule))) bad.push('lời giải Bậc 2 phải có luật ghế');
-      const ml = phMissLine({ it, got, md: 'gh' }); if (/\\(Anh Động từ\\)|\\(Bác Danh từ\\)/.test(ml) || !ml.includes('Bạn chọn ' + PH_SHORT[got.p])) bad.push('danh sách cần nhớ lại lặp tên cư dân: ' + ml.slice(0, 120));
+      const ml = phMissLine({ it, got, md: 'gh' }); if (/\\(Động từ\\)|\\(Danh từ\\)/.test(ml) || !ml.includes('Bạn chọn ' + PH_SHORT[got.p])) bad.push('danh sách cần nhớ lại lặp tên cư dân: ' + ml.slice(0, 120));
       $app.onclick({ target: { closest: s => s === '[data-phbk]' ? {} : null } }); const sh = document.getElementById('phsheet'); if (!sh || !/Bảng ghế/.test(sh.innerHTML)) bad.push('nút 🪑 trong ván phải mở bảng ghế');
       phStop();
     } catch (e) { bad.push('lỗi: ' + e.message + ' ' + String(e.stack || '').split(String.fromCharCode(10))[1]); }
@@ -2905,7 +2905,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   bad.push(...r);
   R.push({ lv: 'cefr', id: 'C92', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Part 6 vào phố: cắt câu + câu trước + 📄 Xem cả đoạn, mỗi chỗ trống một phố, luật vững cho Part 6; phương án khác loại không có làn bậc 1; mọi đề phủ ≥ 86/100 câu Phần Đọc' }); }
 
-// v195 C93 🛒 Chợ Từ Vựng có từ gần nghĩa Part 7: quầy thứ tư Bà Nhiều Nghĩa (NN), kho ≥ 40 câu NN qua bộ dựng; mọi câu từ gần nghĩa của 8 đề vào Chợ
+// v195 C93 🛒 Chợ Từ Vựng có từ gần nghĩa Part 7: quầy thứ tư Nhiều nghĩa (NN), kho ≥ 40 câu NN qua bộ dựng; mọi câu từ gần nghĩa của 8 đề vào Chợ
 //   (câu chứa từ trong bài, bỏ dấu [1]–[4], ô trống hiện chính từ, đáp án "từ ≈ nghĩa", 📄 Xem cả bài); người chơi cũ gặp vụ thám tử của cư dân mới trước ván
 { const bad = [], cp = await import('node:child_process'), fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname, NMIN = +(process.env.CH_NN_MIN || 40);
   try { const o = cp.execFileSync('node', [root + 'tools/build-cho.mjs'], { encoding: 'utf8', stdio: 'pipe' }); if (!/✓ cho\.json/.test(o)) bad.push('bộ dựng: ' + o.slice(0, 80)); } catch (e) { bad.push('bộ dựng đỏ: ' + String(e.stdout || e.stderr || e.message).slice(0, 160)); }
@@ -2922,7 +2922,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
       if (n < 20) bad.push('8 đề chỉ có ' + n + ' câu từ gần nghĩa');
       for (const d of TO.tron) { const t = Object.values(cyCount(d.id)).reduce((a, r) => a + r.n, 0); if (t < 92) bad.push(d.id + ' phủ ' + t + '/100'); }
       const de = TO.tron[0].id; tgSt().de = de; phUse('cho'); PH_K = null; PH_RL = null; PHC.sc = null; await phLoad(); const it = Object.values(PH_RL).find(x => x.syn);
-      const P = phSt(); P.in = 1; P.cd = {}; phStart(it, () => 0); if (!/tham-tu/.test(String(window.CUR.view))) bad.push('người chơi cũ phải gặp vụ thám tử Bà Nhiều Nghĩa trước');
+      const P = phSt(); P.in = 1; P.cd = {}; phStart(it, () => 0); if (!/tham-tu/.test(String(window.CUR.view))) bad.push('người chơi cũ phải gặp vụ thám tử Nhiều nghĩa trước');
       P.cd = { NN: { at: 1, n: 0 } }; phStart(it, () => 0); const sh = String(document.getElementById('phsent').innerHTML), pa = String(document.getElementById('phpara').innerHTML);
       if (!/phsynq/.test(sh) || !/phgap syn/.test(sh) || !/Xem cả bài/.test(pa)) bad.push('màn câu từ gần nghĩa: câu hỏi, từ trong ô trống, 📄 Xem cả bài');
       PH_R.lane = PH_R.order.findIndex(o => !o.ok); phCatch(); if (!/≈/.test(String(document.getElementById('phsent').innerHTML))) bad.push('sau khi trả lời: từ ≈ nghĩa'); phStop();
@@ -3079,6 +3079,48 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     for (const x of A.filter(x => /^c[12]$/.test(x.lv) && /-(s|w)1[1-4]$/.test(x.id))) { const m = M(x); x.k.forEach((g, j) => { if (!g.flat().some(w => m.includes(w))) bad.push(x.id + ' ý ' + (j + 1) + ' không bắt bài mẫu'); });
       const hit = A.filter(y => y !== x && x.k.every(g => g.flat().some(w => M(y).includes(w)))).length; if (hit > 5) bad.push(x.id + ' bài lạc đề trúng đủ ý ' + hit); } }
   R.push({ lv: 'cefr', id: 'C100', ok: !bad.length, msg: bad.length ? bad.slice(0, 8).join(' | ') : 'Nền đủ nội dung Pre-A1 → C2 (đo lại C1 / C2, từ khoá chấm ý không bắt bài lạc đề), ngữ pháp B1 / B2, bài luyện Đọc / Nghe B1 / B2 / Pre-A1 ≥ 20 (câu suy luận, giọng), đề luyện Nói B1 / B2 ≥ 10, Viết ≥ 8' }); }
+
+// v206 C101 📖 Tra cứu có mục 🏙 Nhân vật Khu phố: đủ 35 nhân vật (31 ở phố + 4 chưa có), tên không còn danh xưng (Bác / Cô…), mỗi nhân vật có dấu hiệu + luật + nút vào phố, tìm "bị động" ra nhân vật
+{ const r = await run(`(() => { const bad = [], A = tcNvAll(), HON = /(^|[^\\p{L}])(Bác|Cô|Anh|Bé|Chú|Bà|Chị|Ông) (?=\\p{Lu})/u;
+  if (A.length !== 35) bad.push('số nhân vật ' + A.length);
+  if (new Set(A.map(x => x.name)).size !== A.length) bad.push('trùng tên');
+  for (const x of A) { if (!x.suf || !x.line) bad.push(x.c + ' thiếu dấu hiệu / luật'); for (const t of [x.name, x.line, x.chant]) if (HON.test(t || '')) bad.push(x.c + ' còn danh xưng: ' + t);
+    if (!tcNvBody(x).includes('data-phv="' + x.k + '"')) bad.push(x.c + ' thiếu nút vào phố'); }
+  for (const n of ['Chỉ định', 'Phủ định NOT', 'Ý định', 'Đối chiếu', 'Đi kèm giới từ', 'Từ nối đầu câu']) if (!A.some(x => x.name === n)) bad.push('thiếu ' + n);
+  if (!tcNvList('bị động').includes('Bị động')) bad.push('tìm bị động không ra');
+  if (TC_OF.nv !== 'nv' || !TC_SECT.nv) bad.push('chưa có mục nv');
+  return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C101', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Tra cứu có mục 🏙 Nhân vật Khu phố: 35 nhân vật, tên không danh xưng, đủ dấu hiệu / luật / nút vào phố, tìm được' }); }
+
+// v208 C102 🎚 Cấp trong game: mọi câu kho 8 phố có cấp CEFR, chọn cấp thì ván chỉ ra câu tới cấp + 1 (đủ câu thì không lấy cấp cao hơn), bỏ chọn thì như cũ,
+// nhân vật có khoảng cấp và lớn lên khi đúng đủ câu mỗi cấp, ván chữa câu đề không bị lọc
+{ const r = await run(`(async () => { const bad = [], o = toSt(), keep = o.capg; await toLoad();
+  for (const k of ['loai', 'cau', 'dong', 'dai', 'ctr', 'cho']) { phUse(k); PH_K = null; await phLoad();
+    if (PH_K.some(x => !CD_LV.includes(cdLv(k, x)))) bad.push(k + ' có câu không cấp');
+    o.capg = 'a2'; const L = phPick(null, 'tu'), ok = PH_K.filter(x => cdI(cdLv(k, x)) <= cdI('b1')).length;
+    if (ok >= CD_MIN && L.some(x => cdI(cdLv(k, x)) > cdI('b1'))) bad.push(k + ' ván A2 có câu quá B1');
+    o.capg = null; if (!phPick(null, 'tu').length) bad.push(k + ' bỏ chọn cấp không ra câu');
+    o.capg = 'pre'; if (phPick(PH_K.find(x => cdLv(k, x) === 'c1' || cdLv(k, x) === 'c2') || PH_K[0], 'tu')[0] == null) bad.push(k + ' ván chữa bị lọc'); }
+  phUse('dong'); PH_K = null; await phLoad(); o.capg = null; const st = phSt(); const keepIt = st.it; st.it = {};
+  const xs = PH_K.filter(x => phAns(x)[1] === 'B' && cdLv('dong', x) === 'a2').slice(0, 3); xs.forEach(x => st.it[x.id] = { s: 1, lv: 1 });
+  const g = cdGrow('dong').find(g => g.t === 'B'); if (!g || g.lv !== 'a2') bad.push('Bị động chưa lớn tới A2 khi đúng 3 câu: ' + JSON.stringify(g)); st.it = keepIt;
+  if (!cdBox('dong').includes('data-cdlv="b1"')) bad.push('ô chọn cấp thiếu');
+  o.capg = keep; return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C102', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Cấp trong game: câu kho có cấp, ván tới cấp + 1, bỏ chọn như cũ, ván chữa không lọc, nhân vật lớn lên theo cấp' }); }
+
+// v209 C103 📖 Học thuộc bài đề: dòng ở 🎯 Luyện đề → TOEIC, trang con hoc-thuoc/ đủ bài (tiếng ở ../n/ có tệp), tiến độ qua htGet / htPut vào S.ht + save()
+{ const r = await run(`(() => { const bad = []; if (!/data-htv/.test(htRow())) bad.push('thiếu dòng');
+  const keep = S.ht; htPut({ sts: { 0: { done: { hoc: 1 } } }, best: {}, cur: 0 }); if (!htGet() || !htGet().sts[0].done.hoc) bad.push('htPut không vào S.ht'); S.ht = keep; return bad; })()`);
+  const fs = await import('node:fs'), root = new URL('../../', import.meta.url).pathname, H = root + 'hoc-thuoc/', h = fs.existsSync(H + 'index.html') ? fs.readFileSync(H + 'index.html', 'utf8') : '';
+  if (!h) r.push('thiếu hoc-thuoc/index.html');
+  else { if (!/<title>/.test(h) || !/viewport/.test(h)) r.push('trang con thiếu title / viewport'); if (!h.includes("'../n/'")) r.push('tiếng không lấy ở ../n/');
+    if (!/parent\.htPut/.test(h)) r.push('trang con không lưu qua htPut'); if (/id="gal"/.test(h)) r.push('còn nút xem tất cả màn');
+    const idx = fs.readFileSync(H + 'bai/index.js', 'utf8'), ns = JSON.parse(idx.slice(idx.indexOf('['), idx.lastIndexOf(']') + 1)).map(x => x.n);
+    for (const n of ns) if (!fs.existsSync(H + `bai/bai${n}.js`)) r.push('thiếu bài ' + n);
+    if (ns.length < 60) r.push('ít bài: ' + ns.length);
+    if (ns.some(n => /Đề (9|1[0-6])\\b/.test(fs.readFileSync(H + `bai/bai${n}.js`, 'utf8').slice(0, 400)))) r.push('có bài từ đề riêng'); }
+  if (!fs.readFileSync(root + 'toeic.js', 'utf8').includes('htRow()')) r.push('màn TOEIC chưa có dòng');
+  R.push({ lv: 'cefr', id: 'C103', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Học thuộc bài đề: lối vào ở Luyện đề TOEIC, trang con đủ bài, tiến độ vào S.ht' }); }
 
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

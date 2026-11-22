@@ -1,0 +1,1302 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Học thuộc bài đề TOEIC</title>
+<style>body{margin:0}</style></head><body>
+<title>Học thuộc rồi nói lại</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Bố cục: một cột kiểu điện thoại, thanh 6 bước trên cùng, một việc mỗi màn, nút chính cuối màn */
+:root {
+  --bg: #f4f4f1; --card: #ffffff; --ink: #1c1d1a; --mute: #5f625a; --line: #dfe0d9;
+  --acc: #2f5d9e; --acc2: #e5ecf6; --a: #8a4f9e; --b: #2f7d6b; --good: #22783c; --goodbg: #e3f3e6; --bad: #b3261e; --badbg: #fbe8e6; --hide: #e9e9e3;
+  --disp: "Be Vietnam Pro", "Inter", system-ui, sans-serif; --body: "Inter", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121412; --card: #1b1e1b; --ink: #eceee8; --mute: #a3a69c; --line: #2f332e;
+  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121412; --card: #1b1e1b; --ink: #eceee8; --mute: #a3a69c; --line: #2f332e;
+  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 16px/1.55 var(--body); padding-block: 12px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.app { max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px }
+h1, h2, h3 { font-family: var(--disp); margin: 0; text-wrap: balance; line-height: 1.25 }
+h1 { font-size: 24px; font-weight: 800 } h2 { font-size: 20px; font-weight: 700 } h3 { font-size: 17px; font-weight: 700 }
+p { margin: 0 } .mute { color: var(--mute) } .sm { font-size: 14px }
+.steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px }
+.steps i { height: 6px; border-radius: 999px; background: var(--hide) } .steps i.on { background: var(--acc) }
+.tag { font-size: 13px; font-weight: 700; color: var(--mute); letter-spacing: .04em; text-transform: uppercase }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px }
+button { font: inherit; color: inherit; border: 0; cursor: pointer }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--acc); outline-offset: 2px }
+.pri { background: var(--acc); color: var(--card); border-radius: 14px; min-height: 56px; padding: 10px 16px; font-weight: 700; font-size: 18px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center }
+.pri small { font-weight: 500; font-size: 14px; opacity: .9 }
+.sec { background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; min-height: 48px; padding: 8px 14px; font-weight: 600 }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center }
+.link { background: none; color: var(--acc); font-weight: 600; min-height: 44px; padding: 0 4px }
+/* lời thoại */
+.ln { display: grid; grid-template-columns: 44px 1fr; gap: 8px; align-items: start }
+.who { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font: 700 13px var(--disp); color: var(--card) }
+.who.A { background: var(--a) } .who.N, .who.W { background: var(--acc); font-size: 11px } .who.C { background: var(--b); filter: hue-rotate(60deg) } .who.B { background: var(--b) }
+.say { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; text-align: left; width: 100%; min-height: 44px; display: flex; flex-direction: column; gap: 4px; min-width: 0 }
+.say .vi { font-size: 14px; color: var(--mute) }
+.w { white-space: nowrap }
+.ipa { display: flex; flex-wrap: wrap; gap: 2px 10px } .ipa span { display: inline-flex; flex-direction: column; line-height: 1.25 }
+.ipa .st { font-weight: 700; color: var(--ink) } .ipa .un { color: var(--mute) } .ipa .st small { font-weight: 700 }
+.ipa .grp { display: inline-flex; flex-direction: row; gap: 0 8px; flex-wrap: nowrap }
+.ipa .int { font-weight: 800; font-size: 20px; color: var(--a); align-self: flex-start; line-height: 1; margin-left: -6px } .ipa .int.up { color: var(--acc) }
+.ipa .pau { font-weight: 800; font-size: 20px; color: var(--mute); align-self: flex-start; line-height: 1 }
+.ipa .el small { text-decoration: underline dotted; text-underline-offset: 3px } .lks .elb { color: var(--a) }
+.ipa .lk { color: var(--b); font-weight: 800; align-self: flex-start; margin: 0 -8px; font-size: 18px; line-height: 1 }
+.lks { display: flex; flex-direction: column; gap: 2px; font-size: 14px; color: var(--mute); margin-top: 4px } .lks b { color: var(--b) }
+.ipa small { font: 14px/1.3 "Noto Sans", "Segoe UI", system-ui, sans-serif; color: var(--acc) }
+.tg { display: flex; gap: 8px; align-items: center; min-height: 44px; font-weight: 600 }
+.tg input { width: 22px; height: 22px; accent-color: var(--acc) } .hid { background: var(--hide); color: transparent; border-radius: 5px; padding: 0 2px; cursor: pointer }
+.hid.peek { color: var(--acc); background: var(--acc2) } .fl { color: var(--acc); font-weight: 600 }
+.seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px }
+.seg button { min-height: 44px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); font-weight: 600; font-size: 14px }
+.seg button[aria-pressed="true"] { border-color: var(--acc); background: var(--acc2); color: var(--acc) }
+/* bài tập */
+.q { font-size: 17px } .gap { display: inline-block; min-width: 56px; border-bottom: 2.5px solid var(--acc); color: var(--acc); font-weight: 700; text-align: center; padding: 0 4px }
+.opts { display: flex; flex-direction: column; gap: 8px }
+.opt { background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; min-height: 50px; padding: 10px 14px; text-align: left; font-size: 16px }
+.opt.ok { border-color: var(--good); background: var(--goodbg) } .opt.no { border-color: var(--bad); background: var(--badbg) }
+.bank { display: flex; flex-wrap: wrap; gap: 8px }
+.bank button { background: var(--acc2); color: var(--acc); border-radius: 999px; min-height: 44px; padding: 6px 14px; font-weight: 600 }
+.bank button:disabled { opacity: .35 }
+.fb { border-radius: 12px; padding: 10px 12px; font-size: 15px } .fb.ok { background: var(--goodbg) } .fb.no { background: var(--badbg) }
+textarea { width: 100%; min-height: 64px; font: 16px/1.5 var(--body); padding: 10px 12px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); resize: vertical }
+.diff span { border-radius: 4px; padding: 0 2px } .diff .ok { background: var(--goodbg) } .diff .miss { background: var(--badbg); color: var(--bad); text-decoration: underline }
+.big { font: 800 40px var(--disp); color: var(--acc); font-variant-numeric: tabular-nums }
+.note { font-size: 13px; color: var(--mute); text-align: center }
+.cal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center }
+.cal div { background: var(--bg); border-radius: 12px; padding: 8px 4px; font-size: 14px } .cal div.on { background: var(--acc2); color: var(--acc); font-weight: 700 }
+.gauges { display: grid; grid-template-columns: 1fr 1fr; gap: 8px }
+.gauge { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; display: flex; flex-direction: column }
+.gauge b { font: 800 28px var(--disp); color: var(--acc); font-variant-numeric: tabular-nums }
+.gal img { width: 100%; border: 1px solid var(--line); border-radius: 12px; max-height: 520px; object-fit: cover; object-position: top }
+mark { background: var(--acc2); color: var(--acc); font-weight: 700; border-radius: 4px; padding: 0 3px } .ctx { gap: 4px }
+.built { font-size: 17px; line-height: 1.6 } .cursor { color: var(--acc); animation: blink 1s steps(1) infinite } @keyframes blink { 50% { opacity: 0 } }
+.shake { animation: shake .35s; background: var(--badbg) !important; color: var(--bad) !important } @keyframes shake { 25% { transform: translateX(-4px) } 75% { transform: translateX(4px) } }
+.gtl { font-size: 17px; line-height: 2.2 } .gti { font: 600 16px var(--body); border: 0; border-bottom: 2px solid var(--acc); background: var(--acc2); color: var(--ink); border-radius: 6px 6px 0 0; padding: 2px 4px; min-height: 32px }
+.gti.gok { background: var(--goodbg); border-color: var(--good) } .gti.gno { background: var(--badbg); border-color: var(--bad); color: var(--bad) }
+.cdau .say { flex-direction: row; flex-wrap: wrap; gap: 4px 6px; font-size: 16px } .cok { color: var(--ink) } .cbad { color: var(--bad); font-weight: 700 } .cto { color: var(--line) } .ccur { color: var(--acc); font-weight: 800; background: var(--acc2); border-radius: 4px }
+.cin { position: sticky; bottom: 8px; width: 100%; min-height: 52px; font: 600 18px var(--body); text-align: center; border: 2px solid var(--acc); border-radius: 14px; background: var(--card); color: var(--ink) }
+[hidden] { display: none !important }
+.gauges.g3 { grid-template-columns: repeat(3, 1fr); gap: 6px } .g3 .gauge { padding: 8px } .g3 .gauge b { font-size: 22px } .g3 .gauge .sm { font-size: 12px }
+.seg.two { grid-template-columns: 1fr 1fr }
+.laybar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px }
+.lay { min-height: 44px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); font-weight: 600; font-size: 14px; padding: 4px }
+.lay.on { border-color: var(--acc); background: var(--acc2); color: var(--acc) } .lay.on::before { content: '✓ ' }
+.lay-ctl { display: flex; justify-content: flex-end; gap: 4px; margin-top: -6px } .laytip p { margin: 2px 0 }
+.ipa.noipa > span:not(.lk):not(.int):not(.pau):not(.grp) { line-height: 1.6 }
+.iw { font: 600 17px 'Noto Sans', 'Segoe UI', system-ui, sans-serif; color: var(--ink) } .un .iw { color: var(--mute) } .st .iw { font-weight: 800 } .el .iw { text-decoration: underline dotted; text-underline-offset: 3px }
+.guide { max-height: 52vh; max-height: 52dvh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain }
+.laymini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 4px 0 10px } .laymini .lay { font-size: 13px; padding: 4px 2px }
+.inrow { display: flex; gap: 8px; align-items: stretch } .inrow textarea { flex: 1; min-width: 0; min-height: 64px; font-size: 16px } .inrow .pri { width: auto; flex: 0 0 auto; min-height: 64px; padding: 8px 14px; font-size: 16px } .gnotes summary { color: var(--acc); font-weight: 600; min-height: 44px; display: flex; align-items: center } .gnotes p { font-size: 15px; color: var(--mute); margin: 4px 0 }
+.guide.scroll { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; scroll-margin-top: 8px } .guide .ipa { font-size: 18px } .guide .lks { font-size: 15px }
+.ghep { display: grid; grid-template-columns: 1fr 1fr; gap: 8px } .ghep > div { display: flex; flex-direction: column; gap: 8px } .ghep .opt { font-size: 15px; min-height: 52px } .opt.sel { border-color: var(--acc); background: var(--acc2) }
+.ds2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px } .ds2 .opt { text-align: center; font-weight: 700; font-size: 18px }
+.gin { flex: 1; min-width: 0; min-height: 52px; font: 600 18px var(--body); padding: 8px 12px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink) }
+.ttcard p { margin: 6px 0; font-size: 17px; line-height: 1.5 } .tbar { height: 6px; background: var(--hide); border-radius: 999px; overflow: hidden } .tbar i { display: block; height: 100%; width: 100%; background: var(--a) }
+.dgwin { position: relative; height: 230px; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; margin: 10px 0 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 10%); mask-image: linear-gradient(to bottom, transparent 0, #000 10%) } .dgtools .lay { padding: 4px 10px } .dgtools { gap: 6px; flex-wrap: wrap; align-items: center; margin: 8px 0 0 } .dgwrap { position: relative } .dgtipc { position: absolute; inset: 0; z-index: 2; margin: 0; padding: 10px 12px; overflow: auto; box-shadow: 0 6px 20px rgba(0,0,0,.25) } .dgtw { font-size: 22px }
+.dgnh { border-bottom: 1px solid var(--line); margin-bottom: 6px; padding-bottom: 6px } .nhr { margin: 4px 0 } .nhr .row { gap: 6px } .nhr .lay { padding: 4px 10px }
+.dgtl { margin: 4px 0; padding-left: 18px; font-size: 14px; line-height: 1.5 } .dgtl li { margin: 3px 0 }
+.dgwin .gw { cursor: pointer } .showipa .gw { display: inline-block; text-align: center; vertical-align: top; line-height: 1.25; margin-bottom: 6px }
+.showipa .gw::after { content: attr(data-ipa); display: block; font-size: 12px; font-weight: 400; color: var(--mute); white-space: nowrap }
+.dgclock { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 18px } .dgback { position: absolute; right: 8px; bottom: 8px; z-index: 3; min-height: 44px; border-radius: 999px; padding: 6px 14px; background: var(--acc); color: var(--card); font-weight: 700; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.25) }
+.dgroll { padding: 14px 14px 140px; font-size: 20px; line-height: 1.8 } .dgl { margin: 0 0 12px } .gw { color: var(--ink); white-space: nowrap } .gw-hid { color: var(--line); letter-spacing: 1px }
+.gw-ok { color: var(--good); font-weight: 700 } .gw-err { color: var(--bad); text-decoration: line-through }
+.gw-cur { background: var(--acc2); border-radius: 6px; padding: 1px 4px; box-shadow: inset 0 -3px 0 var(--acc) } .gw-typed { color: var(--acc); font-weight: 800 } .gw-full { box-shadow: inset 0 -3px 0 var(--good) } .gw-bad { color: var(--card); background: var(--bad); border-radius: 3px }
+.dvl { padding: 6px 4px; border-radius: 10px; margin-bottom: 8px } .dvl p { margin: 0 } .dvl.cur { background: var(--acc2) } .dvwin .dgroll { font-size: 17px; line-height: 1.5 }
+.dvys { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px !important } .dvy { font-size: 15px; padding: 1px 8px; border-radius: 999px; background: var(--hide); color: var(--mute); letter-spacing: 1px } .dvy.ok { background: var(--goodbg); color: var(--good); font-weight: 700; letter-spacing: 0 } .dvy.no { background: var(--badbg); color: var(--bad); letter-spacing: 0 }
+.baide > summary { min-height: 44px; display: flex; align-items: center; font-weight: 600 } .baipick summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--acc) } .baipick summary .tag { color: var(--mute) }
+.baibar { display: grid; grid-template-columns: 1fr; gap: 6px } .baibar .lay { text-align: left; padding: 8px 10px; line-height: 1.3 } .baibar .lay.on::before { content: '' }
+.noibox .noihd { gap: 10px; align-items: center } .noiic { font-size: 28px } .noitext { font-size: 18px; line-height: 1.7 } .ns { cursor: pointer; border-radius: 6px } .ns:hover, .dl:hover { background: var(--acc2) }
+.doc { gap: 6px } .dochd { border-bottom: 1px solid var(--line); padding-bottom: 6px; font-size: 14px; color: var(--mute); line-height: 1.5 } .docbody .dl { margin: 6px 0; cursor: pointer; border-radius: 6px; line-height: 1.6 } .docsm { font-size: 15px }
+.msgx { cursor: pointer; display: block; margin-top: 2px } .msg { display: flex; flex-direction: column; background: var(--acc2); border-radius: 14px 14px 14px 4px; padding: 8px 10px; margin: 6px 0; max-width: 92%; cursor: pointer }
+.sch { display: grid; grid-template-columns: 84px 1fr; gap: 8px; padding: 6px 0; border-top: 1px dashed var(--line); cursor: pointer }
+.qa { gap: 6px } .qa .say { width: 100% } .qaa { background: var(--acc2) !important }
+.tline { display: block; width: 100%; text-align: left; background: var(--card); border: 1.5px solid var(--line); border-radius: 10px; padding: 8px 10px; margin: 6px 0; min-height: 44px; font-size: 15px }
+.tline.ok { border-color: var(--good); background: var(--goodbg) } .tline.no { border-color: var(--bad); background: var(--badbg) } .nvlog { max-height: 40vh; overflow-y: auto }
+.kindbar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px } .kindbar .lay { padding: 4px 2px; font-size: 12px; line-height: 1.2 } .kindbar .lay.on::before { content: '' }
+.bainav { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center } .bainav span { text-align: center }
+.mu-t { margin: 2px 0 4px; font-size: 17px } .mur { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: center; padding: 6px 0; border-top: 1px solid var(--line) } .mur > .sm { grid-column: 1 / -1 }
+.mudots { display: flex; gap: 6px } .mud { width: 14px; height: 14px; border-radius: 50%; background: var(--hide); display: inline-block } .mud.ok { background: var(--good) } .mud.no { background: var(--bad) }
+.hrow2 { display: flex; justify-content: space-between; align-items: center; gap: 10px } .hrow2.off { opacity: .45 } .okt { color: var(--good); font-weight: 700 }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important } }
+</style>
+
+<div class="app" id="app"></div>
+<script src="bai/index.js"></script>
+<script src="bai/nham.js"></script>
+
+<script>
+// Hội thoại Part 3 thật của Đề 3 (câu 32–34 trong app). Dịch, cụm cần nhớ, bài tập câu mới: Claude soạn, chưa giáo viên kiểm.
+let L = [
+  ['A', "Good morning. I'm checking out of Room 512 today, but my flight doesn't leave until nine tonight. Is a late checkout possible?", 'Chào buổi sáng. Hôm nay tôi trả phòng 512, nhưng 9 giờ tối chuyến bay của tôi mới cất cánh. Tôi trả phòng muộn được không?', 'aa4076c0c'],
+  ['B', "Let me check. We're fully booked tonight, so I can only extend your checkout to two P.M.", 'Để tôi kiểm tra. Tối nay khách sạn kín phòng, nên tôi chỉ lùi giờ trả phòng của chị tới 2 giờ chiều được thôi.', 'a44b1f8df'],
+  ['A', "That would help. Is there somewhere I could leave my luggage after that?", 'Vậy cũng đỡ. Sau đó tôi có thể gửi hành lý ở đâu không?', 'a3fc286bc'],
+  ['B', "Of course. We can store your bags at the front desk, and you're welcome to use the business lounge until your taxi arrives.", 'Tất nhiên. Chúng tôi giữ túi của chị ở quầy lễ tân, và chị cứ dùng phòng chờ doanh nhân tới khi taxi đến.', 'a2292734a'],
+  ['A', "Perfect. Could you also book a taxi to the airport for six o'clock?", 'Tuyệt. Anh đặt giúp tôi một taxi ra sân bay lúc 6 giờ được không?', 'af8d47134'],
+  ['B', "Certainly. I'll call the taxi company now.", 'Chắc chắn rồi. Tôi gọi hãng taxi ngay đây.', 'ae285612a']];
+let IPA = [
+  "ɡʊd|ˈmɔːrnɪŋ|aɪm|ˈtʃekɪŋ|aʊt|əv|ruːm|faɪv ˈtwelv|təˈdeɪ|bət|maɪ|flaɪt|ˈdʌzənt|liːv|ənˈtɪl|naɪn|təˈnaɪt|ɪz|ə|leɪt|ˈtʃekaʊt|ˈpɑːsəbəl",
+  "let|mi|tʃek|wɪr|ˈfʊli|bʊkt|təˈnaɪt|soʊ|aɪ|kən|ˈoʊnli|ɪkˈstend|jər|ˈtʃekaʊt|tə|tuː|ˌpiː ˈem",
+  "ðæt|wʊd|help|ɪz|ðer|ˈsʌmwer|aɪ|kʊd|liːv|maɪ|ˈlʌɡɪdʒ|ˈæftər|ðæt",
+  "əv|kɔːrs|wi|kən|stɔːr|jər|bæɡz|ət|ðə|frʌnt|desk|ənd|jʊr|ˈwelkəm|tə|juːz|ðə|ˈbɪznəs|laʊndʒ|ənˈtɪl|jər|ˈtæksi|əˈraɪvz",
+  "ˈpɝːfɪkt|kʊd|ju|ˈɔːlsoʊ|bʊk|ə|ˈtæksi|tə|ði|ˈerpɔːrt|fər|sɪks|əˈklɑːk",
+  "ˈsɝːtnli|aɪl|kɔːl|ðə|ˈtæksi|ˈkʌmpəni|naʊ"].map(x => x.split('|'));
+// Phiên âm Anh–Mỹ (giọng đọc của đoạn là Mỹ), dạng đọc nhẹ cho từ chức năng trong câu (of /əv/, can /kən/, to /tə/). Claude ghi, chưa giáo viên kiểm.
+// Nhấn trong câu (chỉ số từ được nhấn) và nối âm [sau từ thứ, kiểu, đọc liền, giải thích]. Claude đánh dấu theo giọng Mỹ, chưa giáo viên kiểm.
+let STR = [[0,1,3,4,6,7,8,11,12,13,15,16,19,20,21], [2,4,5,6,10,11,13,15,16], [2,5,8,10,11], [1,4,6,9,10,13,15,17,18,21,22], [0,3,4,6,9,11,12], [0,2,4,5,6]];
+let LK = [
+  [[3, 'checkin‿gout', "checking out: âm /ŋ/ cuối nối sang /aʊ/"], [4, 'ou‿dəv', "out of: /t/ giữa hai nguyên âm đọc nhẹ gần như /d/ (giọng Mỹ)"], [13, 'lee‿vuntil', "leave until: /v/ nối sang /ə/"], [17, 'i‿zə', "Is a: /z/ nối sang /ə/"]],
+  [[5, 'book‿tonight', "booked tonight: hai âm /t/ gặp nhau, đọc một lần"], [7, 'so‿wai', "so I: chèn nhẹ âm /w/ giữa hai nguyên âm"], [9, 'kə‿nonly', "can only: /n/ nối sang /oʊ/"], [10, 'only‿yextend', "only extend: chèn nhẹ âm /j/ giữa hai nguyên âm"]],
+  [[5, 'somewhe‿rI', "somewhere I: âm /r/ cuối đọc rõ và nối sang /aɪ/"], [10, 'lugga‿jafter', "luggage after: /dʒ/ nối sang /æ/"]],
+  [[6, 'bag‿zat', "bags at: /z/ nối sang /ə/"], [18, 'loun‿juntil', "lounge until: /dʒ/ nối sang /ə/"], [21, 'taxi‿yarrives', "taxi arrives: chèn nhẹ âm /j/ giữa hai nguyên âm"]],
+  [[1, 'cou‿jou', "could you: /d/ + /j/ nhập thành /dʒ/, nghe như “cu-giu”"], [2, 'you‿walso', "you also: chèn nhẹ âm /w/"], [4, 'boo‿ka', "book a: /k/ nối sang /ə/"], [8, 'thee‿yairport', "the airport: trước nguyên âm “the” đọc /ði/, chèn nhẹ /j/"], [11, 'sik‿sə clock', "six o'clock: /s/ nối sang /ə/"]],
+  []];
+// Ngữ điệu cuối câu [sau từ thứ, ↘ | ↗], ngắt nghỉ trong câu (sau từ thứ), nuốt âm [từ thứ, phiên âm có âm bị nuốt trong ( ), giải thích]. Claude đánh dấu, giọng Mỹ, chưa giáo viên kiểm.
+let INT = [[[1, '↘'], [16, '↘'], [21, '↗']], [[2, '↘'], [16, '↘']], [[2, '↘'], [12, '↗']], [[1, '↘'], [22, '↘']], [[0, '↘'], [12, '↗']], [[0, '↘'], [6, '↘']]];
+let PAU = [[8, 13], [6, 13], [10], [10, 18], [9], []];
+let EL = [
+  [[0, 'ɡʊ(d)', "Good morning: /d/ gần như không bật, ngậm miệng rồi đọc luôn /m/"], [11, 'flaɪ(t)', "flight doesn't: /t/ chỉ chặn lưỡi, không bật hơi vì /d/ đứng sau"], [12, 'ˈdʌzən(t)', "doesn't leave: /t/ gần như mất trước /l/"]],
+  [[0, 'le(t)', "Let me: /t/ không bật hơi trước /m/"]],
+  [[0, 'ðæ(t)', "That would: /t/ không bật hơi trước /w/"], [1, 'wʊ(d)', "would help: /d/ không bật trước /h/"], [7, 'kʊ(d)', "could leave: /d/ không bật trước /l/"]],
+  [[9, 'frʌn(t)', "front desk: /t/ bị nuốt giữa /n/ và /d/"], [11, 'ən(d)', "and you're: /d/ thường rơi, chỉ còn /ən/"]],
+  [[0, 'ˈpɝːfɪk(t)', "Perfect: /t/ cuối nhẹ, chỉ chặn hơi"], [9, 'ˈerpɔːr(t)', "airport for: /t/ không bật hơi trước /f/"]],
+  [[0, 'ˈsɝːʔnli', "Certainly: /t/ thành tiếng chặn ở cổ họng (ʔ), giọng Mỹ"]]];
+const WHO = { A: ['Khách', 'Nữ'], B: ['Lễ tân', 'Nam'] };
+let CUM = [['late checkout', 'trả phòng muộn'], ['fully booked', 'kín chỗ, hết phòng'], ['extend … to', 'lùi / kéo dài tới'], ['leave my luggage', 'gửi hành lý'], ['store your bags', 'giữ túi giúp'], ["you're welcome to …", 'cứ tự nhiên …'], ['book a taxi to …', 'đặt taxi đi …']];
+// ① điền cụm vào chính đoạn
+let CLOZE = [[1, 'fully booked'], [1, 'extend'], [2, 'leave'], [3, 'store'], [3, 'welcome'], [4, 'book']];
+// ③ câu hỏi đề thật
+let EXQ = [
+  { q: 'Where most likely are the speakers?', o: ['At a hotel', 'At an airport', 'At a travel agency', 'At a car rental office'], a: 0, vi: 'Câu 1: “checking out of Room 512” → trả phòng khách sạn.' },
+  { q: 'What does the man say about the hotel?', o: ['It is closing for repairs.', 'It has no rooms available tonight.', 'Its lounge is open to the public.', 'It offers free airport shuttles.'], a: 1, vi: '“We’re fully booked tonight” = tối nay hết phòng.' },
+  { q: 'What will the man do next?', o: ['Carry the woman’s bags', 'Print a receipt', 'Call a taxi company', 'Change a flight'], a: 2, vi: '“I’ll call the taxi company now.”' }];
+// ④ câu MỚI dùng lại cụm vừa học (ngữ cảnh khác)
+let NEWQ = [
+  { q: 'The conference hotel is ___ this weekend, so please find another place to stay.', o: ['fully booked', 'fully paid', 'well known', 'checked out'], a: 0, vi: 'Khách sạn hội nghị kín phòng cuối tuần này.' },
+  { q: 'Our manager agreed to ___ the deadline to Friday.', o: ['extend', 'expand', 'increase', 'grow'], a: 0, vi: 'extend + hạn / giờ + to + mốc mới = lùi tới.' },
+  { q: 'Visitors are ___ to use the meeting rooms on the second floor.', o: ['welcome', 'pleased', 'glad', 'happy'], a: 0, vi: 'be welcome to + V = cứ tự nhiên làm gì.' },
+  { q: 'Please ___ a taxi to the station for seven o’clock.', o: ['book', 'drive', 'borrow', 'pay'], a: 0, vi: 'book a taxi = đặt taxi.' },
+  { q: 'My train ___ until 10 P.M., so we have time for dinner.', o: ["doesn't leave", "didn't leave", "won't leaving", 'not leave'], a: 0, vi: 'not … until + lịch trình cố định: hiện tại đơn.' },
+  { q: 'Please wait here until the manager ___.', o: ['arrives', 'will arrive', 'arrived', 'arriving'], a: 0, vi: 'Sau until, tương lai dùng hiện tại đơn.' },
+  { q: "We ___ dinner with our clients tomorrow evening. It's all arranged.", o: ['are having', 'have had', 'had', 'having'], a: 0, vi: 'Kế hoạch đã sắp xếp: hiện tại tiếp diễn.' }];
+// v2 (người sáng lập: "phân loại bài tập thành tập nhớ và tập hiểu"): màn chính có 2 nhóm, mỗi nhóm điểm riêng.
+// 🧠 Tập nhớ = thuộc lời (che chữ, điền cụm, xếp câu, viết lại, nói lại). 💡 Tập hiểu = hiểu nghĩa và dùng được (tình huống, câu đề, câu mới).
+// 📚 từ vựng trong bài: nghĩa đúng trong CÂU NÀY (s: câu của bài, [[ ]] = phần đang hỏi)
+let TUQ = [
+  { s: "I'm [[checking out of]] Room 512 today", q: 'check out of ở đây nghĩa là gì?', o: ['trả phòng, rời khách sạn', 'kiểm tra phòng', 'xem thử cho biết', 'thanh toán trên mạng'], a: 0, vi: 'check out of + khách sạn / phòng = trả phòng. Ngược lại: check in = nhận phòng.' },
+  { s: "We're [[fully booked]] tonight", q: 'fully booked nghĩa là gì?', o: ['kín phòng, hết chỗ', 'đã trả đủ tiền', 'đã đặt rất nhiều sách', 'rất bận'], a: 0, vi: 'book = đặt chỗ; fully booked = mọi chỗ đã có người đặt.' },
+  { s: "I can only [[extend]] your checkout to two P.M.", q: 'extend ở đây nghĩa là gì?', o: ['lùi giờ, kéo dài tới', 'mở rộng diện tích', 'tăng giá', 'huỷ bỏ'], a: 0, vi: 'extend + giờ / hạn + to + mốc mới = lùi tới mốc đó.' },
+  { s: "We can [[store]] your bags at the front desk", q: 'store ở đây là gì?', o: ['cất giữ (động từ)', 'cửa hàng (danh từ)', 'mua sắm', 'mang đi'], a: 0, vi: 'store hay gặp với nghĩa "cửa hàng", nhưng sau "can" là động từ: cất giữ.' },
+  { s: "you're welcome to use the business [[lounge]]", q: 'lounge nghĩa là gì?', o: ['phòng chờ', 'phòng họp', 'quầy lễ tân', 'nhà hàng'], a: 0, vi: 'business lounge = phòng chờ dành cho khách công tác.' },
+  { s: "[[Certainly]]. I'll call the taxi company now.", q: 'Certainly ở đây dùng để làm gì?', o: ['đồng ý một cách lịch sự', 'nói mình không chắc', 'cảm ơn', 'xin lỗi'], a: 0, vi: 'Certainly = Chắc chắn rồi, câu đồng ý lịch sự khi được nhờ.' }];
+// 🧱 ngữ pháp trong bài: vì sao dùng như vậy (nen = bài ngữ pháp Nền liên quan trong app)
+let NPQ = [
+  { s: "[[I'm checking out]] of Room 512 today", q: 'Vì sao dùng hiện tại tiếp diễn (am checking out) cho việc hôm nay?', o: ['kế hoạch đã sắp xếp cho tương lai gần', 'việc đang xảy ra đúng lúc nói', 'thói quen hằng ngày', 'việc đã xong'], a: 0, vi: 'Hiện tại tiếp diễn + mốc thời gian tương lai = kế hoạch đã định.', nen: 'Hiện tại tiếp diễn nói về kế hoạch tương lai · A2' },
+  { s: "my flight [[doesn't leave until]] nine tonight", q: "doesn't leave until nine nghĩa là gì?", o: ['mãi tới 9 giờ mới cất cánh', 'cất cánh trước 9 giờ', 'không cất cánh lúc 9 giờ', 'bị hoãn sang ngày khác'], a: 0, vi: 'not … until + giờ = mãi tới … mới. Lịch chuyến bay cố định nên dùng hiện tại đơn.', nen: 'Hiện tại đơn (lịch trình) · not … until' },
+  { s: "use the business lounge until your taxi [[arrives]]", q: 'Việc ở tương lai, vì sao lại dùng "arrives" (hiện tại)?', o: ['sau until / when / before dùng hiện tại đơn cho tương lai', 'vì taxi đã tới rồi', 'vì đây là thói quen', 'câu viết sai, phải là will arrive'], a: 0, vi: 'Trong mệnh đề thời gian (until, when, as soon as…), tương lai dùng hiện tại đơn.', nen: 'Mệnh đề thời gian chỉ tương lai · B1' },
+  { s: "[[Could you]] also book a taxi to the airport?", q: 'Vì sao dùng Could you…?', o: ['nhờ một cách lịch sự', 'hỏi khả năng trong quá khứ', 'xin phép làm gì', 'ra lệnh'], a: 0, vi: 'Could you + V…? = nhờ lịch sự, mềm hơn Can you…?', nen: 'Could / can: nhờ, xin phép · A2' },
+  { s: "Certainly. [[I'll call]] the taxi company now.", q: "Vì sao dùng will (I'll call)?", o: ['quyết định ngay lúc nói', 'kế hoạch đã sắp xếp từ trước', 'dự đoán có căn cứ', 'thói quen'], a: 0, vi: 'Nghe lời nhờ rồi quyết định làm ngay: will.', nen: 'Will: quyết định tức thì · A2' }];
+// ôn hiểu: câu mới KHÁC lần học (không làm lại câu cũ)
+let NEWQ2 = [
+  { q: 'All flights to Tokyo are ___ until next week.', o: ['fully booked', 'fully checked', 'well booked', 'full of booking'], a: 0, vi: 'fully booked = hết chỗ.' },
+  { q: 'The library has ___ its opening hours to 9 P.M.', o: ['extended', 'expanded', 'enlarged', 'raised'], a: 0, vi: 'extend + giờ / hạn + to + mốc mới.' },
+  { q: 'You can ___ your coat at the cloakroom during the concert.', o: ['leave', 'forget', 'lose', 'let'], a: 0, vi: 'leave something at + nơi = gửi lại ở đâu.' },
+  { q: 'Guests are ___ to join the morning yoga class.', o: ['welcome', 'pleasant', 'glad', 'kind'], a: 0, vi: 'be welcome to + V = cứ tự nhiên làm gì.' },
+  { q: "I'll text you as soon as the meeting ___.", o: ['finishes', 'will finish', 'finished', 'finishing'], a: 0, vi: 'Sau as soon as, tương lai dùng hiện tại đơn.' },
+  { q: 'The phone is ringing. — OK, I ___ answer it.', o: ['will', 'am going to have', 'did', 'have'], a: 0, vi: 'Quyết định ngay lúc nói: will.' },
+  { q: '___ you send me the report by Friday, please?', o: ['Could', 'Should', 'Must', 'Shall'], a: 0, vi: 'Could you…? = nhờ lịch sự.' }];
+// bài của 2 nhóm: k mã, t tên, d mô tả, run hàm chạy
+const EX_NHO = [['duago', '⚡ Đua giờ cả bài', 'Nói / gõ cả bài; đúng tới đâu chữ tự kéo lên tới đó; đo giờ, phá kỷ lục'], ['duavn', '⚡ Đua giờ dịch nghĩa', 'Nhìn câu tiếng Anh, bấm cụm nghĩa tiếng Việt theo thứ tự; đo giờ, phá kỷ lục']];   // v28 (người sáng lập): Tập nhớ chỉ giữ bài đua giờ
+// 🇻🇳 nhớ nghĩa (người sáng lập: "bài nhớ cho 2 kiểu: gõ tiếng Anh và gõ tiếng Việt"). Bản dịch Claude soạn, chưa giáo viên kiểm.
+// Dịch không có một cách duy nhất: Viết nghĩa chấm theo Ý CHÍNH (mỗi ý có vài cách nói), không chấm từng chữ; bỏ dấu khi so.
+let VNK = [['Chào buổi sáng.', 'Hôm nay tôi trả phòng 512,', 'nhưng 9 giờ tối', 'chuyến bay của tôi mới cất cánh.', 'Tôi trả phòng muộn', 'được không?'],
+  ['Để tôi kiểm tra.', 'Tối nay khách sạn kín phòng,', 'nên tôi chỉ lùi giờ trả phòng của chị', 'tới 2 giờ chiều', 'được thôi.'],
+  ['Vậy cũng đỡ.', 'Sau đó', 'tôi có thể gửi hành lý', 'ở đâu không?'],
+  ['Tất nhiên.', 'Chúng tôi giữ túi của chị', 'ở quầy lễ tân,', 'và chị cứ dùng phòng chờ doanh nhân', 'tới khi taxi đến.'],
+  ['Tuyệt.', 'Anh đặt giúp tôi', 'một taxi ra sân bay', 'lúc 6 giờ', 'được không?'],
+  ['Chắc chắn rồi.', 'Tôi gọi hãng taxi', 'ngay đây.']];
+let VNGAP = [['trả phòng', 'cất cánh', 'muộn'], ['kín phòng', 'lùi', '2 giờ chiều'], ['gửi hành lý'], ['giữ túi', 'quầy lễ tân', 'phòng chờ'], ['đặt', 'sân bay', '6 giờ'], ['gọi', 'ngay']];
+let VNY = [[['trả phòng'], ['chuyến bay', 'máy bay', 'bay'], ['9 giờ', 'chín giờ', '21 giờ'], ['muộn', 'trễ']],
+  [['kiểm tra', 'xem'], ['kín', 'hết phòng', 'đầy'], ['lùi', 'kéo dài', 'gia hạn', 'muộn'], ['2 giờ', 'hai giờ', '14 giờ']],
+  [['đỡ', 'tốt'], ['gửi', 'cất'], ['hành lý', 'va li', 'vali', 'đồ']],
+  [['tất nhiên', 'chắc'], ['giữ', 'cất', 'trông'], ['túi', 'hành lý', 'đồ'], ['lễ tân'], ['phòng chờ']],
+  [['tuyệt', 'tốt', 'hay'], ['đặt', 'gọi'], ['taxi', 'xe'], ['sân bay'], ['6 giờ', 'sáu giờ']],
+  [['chắc chắn', 'vâng', 'dạ'], ['gọi'], ['taxi', 'xe'], ['ngay', 'bây giờ', 'liền']]];
+const EX_VN = [['xepvn', '👆 Xếp cụm nghĩa', 'Nghe câu tiếng Anh, bấm cụm tiếng Việt theo thứ tự'], ['gotuvn', '⌨️ Gõ nghĩa còn thiếu', 'Gõ từ tiếng Việt bị che trong câu dịch'], ['vietvn', '⌨️ Viết nghĩa cả câu', 'Gõ nghĩa tiếng Việt của câu, chấm theo ý chính']];
+const EX_HIEU = [['hieu', '💡 Hiểu', '① ② · 7 cụm từ + 5 điểm ngữ pháp: hiểu trong câu của bài, rồi trong câu mới', '💡'], ['dung', '✍️ Dùng được', '③ ④ · chọn dùng đúng + tự gõ trong câu mới · nên làm ngày sau', '✍️']];
+const EX_DE = [['de', 'Câu hỏi của đề thật', '3 câu của đề thật về bài này, như khi thi']];
+const ORDER = ['hoc', 'duago', 'duavn', 'hieu', 'de', 'dung'];
+const REVF = () => st.day === 1 ? ['duago', 'duavn', EX_DANG[KIND()][0], 'dung'] : ['duago', 'duavn', EX_DANG[KIND()][0], 'moi'];   // ngày 1: đua giờ + ✍️ dùng được (đo cả nhớ); ngày 3, 7, 21: đua giờ + câu mới khác
+let st = { ipa: true, lv: 0, i: 0, w: [], day: 0, done: {}, sc: {}, cur: null, hit: [0, 0] };
+const app = document.getElementById('app'), $ = s => app.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const shuf = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const words = t => t.split(/\s+/);
+// phát âm: tệp giọng của app; thiếu thì giọng máy
+let AUD = null;
+// một câu có thể ghép từ nhiều tệp giọng ('a1+a2', câu bị tách đôi khi dựng giọng); câu không có tệp (văn bản Part 6) đọc bằng giọng máy
+function play(i, then) { const ks = String(L[i][3] || '').split('+').filter(Boolean); if (!ks.length) return sayTts(i, then);
+  const one = n => { try { if (AUD) AUD.pause(); AUD = new Audio('../n/' + ks[n] + '.mp3'); AUD.onended = () => n + 1 < ks.length ? one(n + 1) : then && then(); AUD.play().catch(() => sayTts(i, then)); } catch (e) { sayTts(i, then); } }; one(0); }
+function sayTts(i, then) { try { const u = new SpeechSynthesisUtterance(L[i][1]); u.lang = 'en-US'; u.onend = () => then && then(); speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) { then && then(); } }
+function playAll(i = 0) { if (i < L.length) play(i, () => playAll(i + 1)); }
+// câu có phiên âm dưới từng từ
+// v4 (người sáng lập, ảnh iPhone: "hiện tất cả rối, tách nút chức năng để tập trung từng cái như nối âm"): 6 lớp bật / tắt riêng.
+const LAY = [['ipa', 'Phiên âm'], ['nhan', 'Nhấn âm'], ['noi', 'Nối âm'], ['nuot', 'Nuốt âm'], ['dieu', 'Ngữ điệu'], ['ngat', 'Ngắt nghỉ']];
+const LAY_TIP = { ipa: 'Phiên âm Anh–Mỹ dưới mỗi từ. ˈ đứng trước âm tiết được nhấn: /ˈmɔːrnɪŋ/ nhấn MOR. Từ nhỏ đọc nhẹ: of /əv/, to /tə/.',
+  nhan: '<b>Chữ đậm</b> = từ được nhấn trong câu, đọc to và rõ. Chữ xám = đọc nhẹ, nhanh.',
+  noi: '<b style="color:var(--b)">‿</b> = nối âm: đọc liền hai từ. Dưới mỗi câu có cách đọc liền.',
+  nuot: '✂️ ( ) trong phiên âm = âm bị nuốt: gần như không đọc hoặc không bật hơi.',
+  dieu: '<b style="color:var(--a)">↘</b> xuống giọng: câu kể, câu hỏi Wh-. <b style="color:var(--acc)">↗</b> lên giọng: câu hỏi Yes / No, lời nhờ lịch sự.',
+  ngat: '<b>/</b> = ngắt hơi ngắn giữa hai cụm ý.' };
+st.lay = st.lay || { ipa: 1 };
+const ALLF = { ipa: 1, nhan: 1, noi: 1, nuot: 1, dieu: 1, ngat: 1 };
+const ipaHtml = (i, F = st.lay) => { const S = F.nhan ? new Set(STR[i]) : null, K = new Map(F.noi ? LK[i].map(x => [x[0], x]) : []);
+  const E = new Map(F.nuot ? EL[i].map(x => [x[0], x]) : []), I2 = new Map(F.dieu ? INT[i] : []), P = new Set(F.ngat ? PAU[i] : []), showI = F.ipa || F.nuot;
+  const W = words(L[i][1]), one = j => `<span class="${S ? (S.has(j) ? 'st' : 'un') : ''}${E.has(j) ? ' el' : ''}">${F.only ? `<span class="iw">${esc(E.has(j) ? E.get(j)[1] : IPA[i][j] || '')}</span>` : esc(W[j]) + (showI ? `<small>${F.ipa || E.has(j) ? '/' + esc(E.has(j) ? E.get(j)[1] : IPA[i][j] || '') + '/' : ''}</small>` : '')}</span>${I2.has(j) ? `<span class="int ${I2.get(j) === '↗' ? 'up' : ''}" aria-label="${I2.get(j) === '↗' ? 'lên giọng' : 'xuống giọng'}">${I2.get(j)}</span>` : ''}${P.has(j) ? '<span class="pau" aria-label="ngắt">/</span>' : ''}`, out = [];
+  for (let j = 0; j < W.length; j++) { let g = one(j); while (K.has(j) && j + 1 < W.length) { j++; g += '<span class="lk" aria-label="nối âm">‿</span>' + one(j); } out.push(g.includes('class="lk"') ? `<span class="grp">${g}</span>` : g); }
+  const notes = F.nonotes ? [] : [...(F.noi ? LK[i].map(x => `<span>🔗 <b>${esc(x[1])}</b> · ${esc(x[2])}</span>`) : []), ...(F.nuot ? EL[i].map(x => `<span>✂️ <b class="elb">/${esc(x[1])}/</b> · ${esc(x[2])}</span>`) : [])];
+  return `<span class="ipa${showI ? '' : ' noipa'}">${out.join('')}</span>${notes.length ? `<span class="lks">${notes.join('')}</span>` : ''}`; };
+const anyLay = () => LAY.some(([k]) => st.lay[k]);
+const lineTxt = i => anyLay() ? ipaHtml(i) : `<span>${esc(L[i][1])}</span>`;
+const ipaTg = () => `<div class="laybar" role="group" aria-label="Chọn lớp đánh dấu">${LAY.map(([k, t]) => `<button class="lay${st.lay[k] ? ' on' : ''}" data-lay="${k}" aria-pressed="${!!st.lay[k]}">${t}</button>`).join('')}</div>
+  <div class="lay-ctl"><button class="link sm" data-lay="tat">Tắt hết</button><button class="link sm" data-lay="het">Bật hết</button></div>
+  ${anyLay() ? `<div class="card sm laytip">${LAY.filter(([k]) => st.lay[k]).map(([k]) => `<p>• ${LAY_TIP[k]}</p>`).join('')}</div>` : ''}`;
+const ipaOn = re => app.querySelectorAll('[data-lay]').forEach(b => b.onclick = () => { const k = b.dataset.lay;
+  if (k === 'tat') st.lay = {}; else if (k === 'het') st.lay = { ...ALLF }; else st.lay[k] = st.lay[k] ? 0 : 1; const y = scrollY; re(); scrollTo(0, y); });
+const lnHtml = (i, inner, btn) => `<div class="ln"><div class="who ${L[i][0]}" aria-label="${WHO[L[i][0]][0]}">${WHO[L[i][0]][1]}</div>${btn ? `<button class="say" data-p="${i}">${inner}</button>` : `<div class="say">${inner}</div>`}</div>`;
+
+// ① nghe + đọc
+function learn() { app.innerHTML = `${head()}<h1>${esc(BAIS[BAI_I].meta.t)}</h1><p class="mute sm">${esc(BAIS[BAI_I].meta.sub)}</p>
+  <button class="sec" id="all">🔊 Nghe cả ${KIND() === 'hoi' ? 'đoạn' : 'bài'}</button>${ipaTg()}
+  ${bodyHtml()}
+
+  <details class="card"><summary class="link" style="display:flex;align-items:center">📌 Cụm cần nhớ (${CUM.length})</summary>${CUM.map(c => `<p><b>${esc(c[0])}</b> <span class="mute">= ${esc(c[1])}</span></p>`).join('')}</details>
+  <button class="pri" id="nx">Xong, về bài học ›</button>`;
+  $('#all').onclick = () => playAll(); ipaOn(learn);
+  app.querySelectorAll('[data-p]').forEach(b => b.onclick = () => { const i = +b.dataset.p; document.getElementById('vi' + i).hidden = false; play(i); });
+  $('#nx').onclick = () => fin('hoc'); }
+
+// ② học thuộc: 3 mức che
+function hideLine(t, lv, seed) { return words(t).map((w, j) => { const core = w.replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g, ''); if (!core) return esc(w);
+  const hide = lv === 3 || (lv === 2 && (j + seed) % 3 !== 0) || (lv === 1 && (j + seed) % 3 === 1);
+  if (!hide) return `<span class="w">${esc(w)}</span>`;
+  const pre = w.slice(0, w.indexOf(core)), post = w.slice(w.indexOf(core) + core.length);
+  return lv === 3 ? `<span class="w">${esc(pre)}<span class="fl">${esc(core[0])}</span><span class="hid" data-w="${esc(core)}">${'·'.repeat(Math.max(1, core.length - 1))}</span>${esc(post)}</span>`
+    : `<span class="w">${esc(pre)}<span class="hid" data-w="${esc(core)}">${'·'.repeat(core.length)}</span>${esc(post)}</span>`; }).join(' '); }
+function memo() { const lv = st.lv || 1, D = ['Che 1/3 số từ', 'Che 2/3 số từ', 'Chỉ còn chữ đầu'];
+  app.innerHTML = `${head('Đọc to từng câu, tự nhớ chữ bị che. Quên thì chạm ô xám để nhìn. Chạm 🔊 để nghe lại rồi nhại theo.')}
+  <div class="seg" role="group" aria-label="Mức che">${D.map((d, i) => `<button data-lv="${i + 1}" aria-pressed="${lv === i + 1}">${d}</button>`).join('')}</div>
+  <div class="card">${L.map((l, i) => `<div class="ln"><div class="who ${l[0]}">${WHO[l[0]][1]}</div><div class="say"><span>${hideLine(l[1], lv, i)}</span><div class="row"><button class="link sm" data-p="${i}">🔊 Nghe câu này</button><button class="link sm" data-ipa="${i}">Xem phiên âm</button></div><div id="pa${i}" hidden></div></div></div>`).join('')}</div>
+  <button class="pri" id="nx">${lv < 3 ? `Mức tiếp: ${D[lv]}` : 'Xong, về bài học ›'}<small>${lv < 3 ? `mức ${lv}/3` : 'đã đọc đủ 3 mức'}</small></button>`;
+  app.querySelectorAll('[data-lv]').forEach(b => b.onclick = () => { st.lv = +b.dataset.lv; memo(); });
+  app.querySelectorAll('.hid').forEach(h => h.onclick = () => { h.classList.toggle('peek'); h.textContent = h.classList.contains('peek') ? h.dataset.w.slice(h.previousElementSibling && h.previousElementSibling.classList.contains('fl') ? 1 : 0) : '·'.repeat(h.dataset.w.length); });
+  app.querySelectorAll('[data-p]').forEach(b => b.onclick = () => play(+b.dataset.p));
+  app.querySelectorAll('[data-ipa]').forEach(b => b.onclick = () => { const i = +b.dataset.ipa, d = document.getElementById('pa' + i); d.hidden = !d.hidden; if (!d.hidden) d.innerHTML = ipaHtml(i, anyLay() ? st.lay : ALLF); b.textContent = d.hidden ? 'Xem phiên âm' : 'Ẩn phiên âm'; });
+  $('#nx').onclick = () => { if (lv < 3) { st.lv = lv + 1; memo(); scrollTo(0, 0); } else fin('che'); }; }
+
+function cloze() { const used = new Set(), fill = {}; let k = 0;
+  const lineHtml = i => { let t = esc(L[i][1]); for (const [j, ph] of CLOZE.map((c, j) => [j, c]).filter(([, c]) => c[0] === i)) t = t.replace(esc(ph[1]), `<span class="gap" id="g${j}">${fill[j] ? esc(fill[j]) : (j + 1)}</span>`); return t; };
+  const draw = () => { app.innerHTML = `${head('Điền cụm vào đoạn vừa thuộc. Chạm cụm theo thứ tự chỗ trống 1 → 6.')}
+    <div class="card">${[1, 2, 3, 4].map(i => lnHtml(i, `<span>${lineHtml(i)}</span>`)).join('')}</div>
+    <div class="bank">${shuf(CLOZE.map(c => c[1])).map(w => `<button data-w="${esc(w)}" ${used.has(w) ? 'disabled' : ''}>${esc(w)}</button>`).join('')}</div><div id="fb"></div>`;
+    app.querySelectorAll('[data-w]').forEach(b => b.onclick = () => { const w = b.dataset.w; if (w === CLOZE[k][1]) { fill[k] = w; used.add(w); k++; st.hit[0]++; st.hit[1]++;
+        if (k === CLOZE.length) { draw(); $('#fb').innerHTML = `<div class="fb ok">✓ Đủ 6 chỗ trống.</div><button class="pri" id="nx" style="margin-top:10px">Xong ›</button>`; $('#nx').onclick = () => fin('dien', [st.hit[0], st.hit[1]]); } else draw(); }
+      else { st.hit[1]++; $('#fb').innerHTML = `<div class="fb no">Chỗ trống ${k + 1} không phải “${esc(w)}”. Đọc lại câu, thử cụm khác.</div>`; } }); };
+  draw(); }
+function order() { const want = L.map((_, i) => i), picked = [], bag = shuf(want);
+  const draw = msg => { app.innerHTML = `${head('Xếp 6 câu theo đúng thứ tự hội thoại. Chạm câu đến trước.')}
+    <div class="card">${picked.length ? picked.map(i => lnHtml(i, `<span>${esc(L[i][1])}</span>`)).join('') : '<p class="mute sm">Câu bạn chọn sẽ hiện ở đây.</p>'}</div>
+    <div class="opts">${bag.filter(i => !picked.includes(i)).map(i => `<button class="opt" data-o="${i}"><span class="sm mute">${WHO[L[i][0]][0]}:</span> ${esc(L[i][1])}</button>`).join('')}</div><div id="fb">${msg || ''}</div>`;
+    app.querySelectorAll('[data-o]').forEach(b => b.onclick = () => { const i = +b.dataset.o; st.hit[1]++; if (i === picked.length) { picked.push(i); st.hit[0]++;
+        if (picked.length === L.length) { draw('<div class="fb ok">✓ Đúng thứ tự.</div><button class="pri" id="nx" style="margin-top:10px">Xong ›</button>'); $('#nx').onclick = () => fin('xep', [st.hit[0], st.hit[1]]); } else draw(); }
+      else draw('<div class="fb no">Chưa phải câu này. Nghĩ xem người nào nói tiếp và trả lời điều gì.</div>'); }); };
+  draw(); }
+const MCQ_SUB = { dang: 'Câu của bài bỏ trống, chọn dạng đúng.', gotv: 'Gõ từ còn thiếu theo nghĩa gợi ý.', ds: 'Đọc câu, chọn Đúng hoặc Sai.', ghep: '', tu: 'Chọn nghĩa đúng của phần tô màu trong câu của bài.', np: 'Phần tô màu dùng ngữ pháp gì, vì sao?', de: 'Trả lời như khi thi.', moi: 'Câu chưa gặp, dùng lại cụm vừa học. Đúng là hiểu, không phải nhớ vẹt.' };
+function mcq(Qs, k) { const it = Qs[st.i], ord = it.ord || (it.ord = shuf(it.o.map((_, j) => j)));
+  app.innerHTML = `${head(MCQ_SUB[k])}<p class="tag">Câu ${st.i + 1}/${Qs.length}</p>${it.s ? `<div class="card ctx"><span class="sm mute">Trong bài:</span><span>“${esc(it.s).replace(/\[\[(.+?)\]\]/, '<mark>$1</mark>')}”</span></div>` : ''}<p class="q">${esc(it.q).replace('___', '<span class="gap">?</span>')}</p>
+    <div class="opts">${ord.map(j => `<button class="opt" data-j="${j}">${esc(it.o[j])}</button>`).join('')}</div><div id="fb"></div>`;
+  app.querySelectorAll('[data-j]').forEach(b => b.onclick = () => { const j = +b.dataset.j, ok = j === it.a; st.hit[1]++; if (ok) st.hit[0]++;
+    app.querySelectorAll('[data-j]').forEach(x => { const kk = +x.dataset.j; x.disabled = true; if (kk === it.a) x.classList.add('ok'); else if (kk === j) x.classList.add('no'); });
+    $('#fb').innerHTML = `<div class="fb ${ok ? 'ok' : 'no'}">${ok ? '✓ Đúng.' : '✗ Chưa đúng.'} ${esc(it.vi)}${it.nen ? `<br><span class="sm">🧱 Bài Nền liên quan: <b>${esc(it.nen)}</b></span>` : ''}</div><button class="pri" id="nx" style="margin-top:10px">${st.i + 1 < Qs.length ? 'Câu tiếp ›' : 'Xong ›'}</button>`;
+    $('#nx').onclick = () => { st.i++; scrollTo(0, 0); if (st.i < Qs.length) mcq(Qs, k); else { Qs.forEach(q => delete q.ord); fin(k, [st.hit[0], st.hit[1]]); } }; }); }
+
+
+// ---------- v3 Tập nhớ có nhiều thao tác (người sáng lập: "thiết kế sao cho tôi gõ hoặc bấm nhiều hỗ trợ việc nhớ") ----------
+const cleanW = w => w.replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9'.]+$/g, '').replace(/\.$/, '');
+// 👆 xếp từ thành câu: từng câu, bấm từ theo thứ tự; bấm sai thì từ rung đỏ
+function xeptu() { const i = st.i, W = words(L[i][1]); let k = 0; const chips = shuf(W.map((w, j) => ({ w, j })));
+  const draw = msg => { app.innerHTML = `${head(`Câu ${i + 1}/${L.length}. Bấm từng từ theo đúng thứ tự. Gợi ý nghĩa ở trên.`)}
+    <div class="card">${lnHtml(i, `<span class="sm mute">${esc(L[i][2])}</span><span class="built">${W.slice(0, k).map(esc).join(' ')}<span class="cursor">▌</span></span>`)}</div>
+    <div class="bank">${chips.map((c, n) => `<button data-c="${n}" ${c.used ? 'disabled' : ''}>${esc(c.w)}</button>`).join('')}</div><div id="fb">${msg || ''}</div>`;
+    app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { const c = chips[+b.dataset.c]; st.hit[1]++;
+      if (c.w === W[k]) { c.used = 1; k++; st.hit[0]++; if (k === W.length) { play(i); draw(`<div class="fb ok">✓ Đúng cả câu.</div><button class="pri" id="nx" style="margin-top:10px">${i + 1 < L.length ? 'Câu tiếp ›' : 'Xong ›'}</button>`);
+          $('#nx').onclick = () => { st.i++; scrollTo(0, 0); st.i < L.length ? xeptu() : fin('xeptu', [st.hit[0], st.hit[1]]); }; } else draw(); }
+      else { b.classList.add('shake'); setTimeout(() => b.classList.remove('shake'), 400); } }); };
+  draw(); }
+// ⌨️ gõ từ còn thiếu: câu che ~1/3 từ (từ có nghĩa trước), gõ vào ô; Kiểm tra tô xanh / đỏ
+const GOTU = L.map((l, i) => words(l[1]).map((w, j) => { const c = cleanW(w); return c.length > 2 && (j + i) % 3 === 1 ? j : -1; }).filter(j => j >= 0));
+function gotu() { const i = st.i, W = words(L[i][1]), H = new Set(GOTU[i]);
+  app.innerHTML = `${head(`Câu ${i + 1}/${L.length}. Gõ các từ bị che. Gõ xong một ô, nhảy sang ô sau.`)}
+    <div class="card">${lnHtml(i, `<span class="sm mute">${esc(L[i][2])}</span><span class="gtl">${W.map((w, j) => { if (!H.has(j)) return esc(w); const c = cleanW(w), post = w.slice(w.indexOf(c) + c.length);
+      return `<input class="gti" data-a="${esc(c)}" size="${Math.max(3, c.length)}" style="width:${Math.max(3, c.length) + 1.2}ch" autocapitalize="off" autocomplete="off" spellcheck="false" aria-label="từ còn thiếu">${esc(post)}`; }).join(' ')}</span>`)}</div>
+    <button class="pri" id="ck">Kiểm tra</button><button class="link" id="hint" style="align-self:center">💡 Hiện chữ cái đầu</button><div id="fb"></div>`;
+  const I = [...app.querySelectorAll('.gti')]; I[0] && I[0].focus();
+  I.forEach((x, n) => x.addEventListener('input', () => { if (norm(x.value) === norm(x.dataset.a) && I[n + 1]) I[n + 1].focus(); }));
+  $('#hint').onclick = () => I.forEach(x => { if (!x.value) x.placeholder = x.dataset.a[0] + '…'; });
+  $('#ck').onclick = () => { let ok = 0; I.forEach(x => { const g = norm(x.value) === norm(x.dataset.a); if (g) ok++; else x.value = x.dataset.a; x.classList.add(g ? 'gok' : 'gno'); x.disabled = true; });
+    st.hit[0] += ok; st.hit[1] += I.length; play(i); $('#ck').hidden = true; $('#hint').hidden = true;
+    $('#fb').innerHTML = `<div class="fb ${ok === I.length ? 'ok' : 'no'}">${ok}/${I.length} từ đúng. ${ok < I.length ? 'Ô đỏ đã điền đáp án, đọc to lại câu.' : ''}</div><button class="pri" id="nx" style="margin-top:10px">${i + 1 < L.length ? 'Câu tiếp ›' : 'Xong ›'}</button>`;
+    $('#nx').onclick = () => { st.i++; scrollTo(0, 0); st.i < L.length ? gotu() : fin('gotu', [st.hit[0], st.hit[1]]); }; }; }
+// ⌨️ gõ chữ cái đầu: cả đoạn, mỗi từ chỉ gõ chữ cái đầu; đúng thì từ hiện, sai 2 lần thì hiện đỏ và đi tiếp
+function chudau() { const all = L.flatMap((l, i) => words(l[1]).map(w => ({ i, w, f: (cleanW(w)[0] || '').toLowerCase() }))); let k = 0, miss = 0, ok = 0; const bad = new Set();
+  const draw = () => { const cur = all[k];
+    app.innerHTML = `${head('Gõ chữ cái đầu của từ tiếp theo. Đúng thì từ hiện ra. Sai 2 lần thì từ hiện đỏ để nhớ lại.')}
+      <div class="row" style="justify-content:space-between"><span class="tag">Từ ${Math.min(k + 1, all.length)}/${all.length}</span><span class="tag">Đúng ngay ${ok}</span></div>
+      <div class="card cdau">${L.map((l, i) => `<div class="ln"><div class="who ${l[0]}">${WHO[l[0]][1]}</div><div class="say">${all.map((x, n) => [x, n]).filter(([x]) => x.i === i).map(([x, n]) => n < k ? `<span class="${bad.has(n) ? 'cbad' : 'cok'}">${esc(x.w)}</span>` : n === k ? `<span class="ccur">${'_'.repeat(Math.min(6, cleanW(x.w).length || 1))}</span>` : `<span class="cto">${'_'.repeat(Math.min(6, cleanW(x.w).length || 1))}</span>`).join(' ')}</div></div>`).join('')}</div>
+      ${k < all.length ? `<input id="cin" class="cin" inputmode="text" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="Gõ chữ cái đầu ở đây" aria-label="Gõ chữ cái đầu">
+        <button class="link" id="skip" style="align-self:center">Không nhớ, hiện từ này</button>`
+      : `<div class="fb ${ok / all.length >= .9 ? 'ok' : 'no'}">Xong: ${ok}/${all.length} từ nhớ ngay (${Math.round(ok / all.length * 100)}%). Từ đỏ là chỗ cần ôn.</div><button class="pri" id="nx">Xong ›</button>`}`;
+    const inp = $('#cin'); if (inp) { inp.focus(); const sc = app.querySelector('.ccur'); sc && sc.scrollIntoView({ block: 'center' });
+      inp.oninput = () => { const ch = inp.value.slice(-1).toLowerCase(); inp.value = ''; if (!ch.trim()) return;
+        if (ch === cur.f) { if (!miss) ok++; k++; miss = 0; draw(); }
+        else { miss++; inp.classList.add('shake'); setTimeout(() => inp.classList.remove('shake'), 350); if (miss >= 2) { bad.add(k); k++; miss = 0; draw(); } } };
+      $('#skip').onclick = () => { bad.add(k); k++; miss = 0; draw(); }; }
+    else $('#nx').onclick = () => fin('chudau', [ok, all.length]); };
+  draw(); }
+
+// ---------- 🇻🇳 nhớ nghĩa ----------
+const fold = t => String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+const enCard = i => lnHtml(i, `<span>${esc(L[i][1])}</span><button class="link sm" data-p="${i}" style="align-self:flex-start">🔊 Nghe câu này</button>`);
+const playBtns = () => app.querySelectorAll('[data-p]').forEach(b => b.onclick = e => { e.stopPropagation(); play(+b.dataset.p); });
+// 👆 xếp cụm nghĩa: như xếp từ, chip là cụm tiếng Việt
+function xepvn() { const i = st.i, W = VNK[i]; let k = 0; const chips = shuf(W.map(w => ({ w })));
+  const draw = msg => { app.innerHTML = `${head(`Câu ${i + 1}/${L.length}. Bấm cụm tiếng Việt theo thứ tự để thành nghĩa của câu.`)}
+    <div class="card">${enCard(i)}<p class="built">${W.slice(0, k).map(esc).join(' ')}<span class="cursor">▌</span></p></div>
+    <div class="bank">${chips.map((c, n) => `<button data-c="${n}" ${c.used ? 'disabled' : ''}>${esc(c.w)}</button>`).join('')}</div><div id="fb">${msg || ''}</div>`;
+    playBtns();
+    app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { const c = chips[+b.dataset.c]; st.hit[1]++;
+      if (c.w === W[k]) { c.used = 1; k++; st.hit[0]++; if (k === W.length) { draw(`<div class="fb ok">✓ Đúng nghĩa cả câu.</div><button class="pri" id="nx" style="margin-top:10px">${i + 1 < L.length ? 'Câu tiếp ›' : 'Xong ›'}</button>`);
+          $('#nx').onclick = () => { st.i++; scrollTo(0, 0); st.i < L.length ? xepvn() : fin('xepvn', [st.hit[0], st.hit[1]]); }; } else draw(); }
+      else { b.classList.add('shake'); setTimeout(() => b.classList.remove('shake'), 400); } }); };
+  draw(); }
+// ⌨️ gõ nghĩa còn thiếu: câu dịch che từ khoá; gõ không dấu cũng tính đúng
+function gotuvn() { const i = st.i; let t = esc(L[i][2]);
+  VNGAP[i].forEach(g => { t = t.replace(esc(g), `<input class="gti" data-a="${esc(g)}" style="width:${g.length + 2}ch" autocomplete="off" spellcheck="false" aria-label="từ còn thiếu">`); });
+  app.innerHTML = `${head(`Câu ${i + 1}/${L.length}. Gõ từ tiếng Việt bị che. Gõ không dấu cũng được.`)}
+    <div class="card">${enCard(i)}<p class="gtl">${t}</p></div>
+    <button class="pri" id="ck">Kiểm tra</button><button class="link" id="hint" style="align-self:center">💡 Hiện chữ cái đầu</button><div id="fb"></div>`;
+  playBtns(); const I = [...app.querySelectorAll('.gti')]; I[0] && I[0].focus();
+  I.forEach((x, n) => x.addEventListener('input', () => { if (fold(x.value) === fold(x.dataset.a) && I[n + 1]) I[n + 1].focus(); }));
+  $('#hint').onclick = () => I.forEach(x => { if (!x.value) x.placeholder = x.dataset.a[0] + '…'; });
+  $('#ck').onclick = () => { let ok = 0; I.forEach(x => { const g = fold(x.value) === fold(x.dataset.a); if (g) ok++; x.value = x.dataset.a; x.classList.add(g ? 'gok' : 'gno'); x.disabled = true; });
+    st.hit[0] += ok; st.hit[1] += I.length; $('#ck').hidden = true; $('#hint').hidden = true;
+    $('#fb').innerHTML = `<div class="fb ${ok === I.length ? 'ok' : 'no'}">${ok}/${I.length} từ đúng.</div><button class="pri" id="nx" style="margin-top:10px">${i + 1 < L.length ? 'Câu tiếp ›' : 'Xong ›'}</button>`;
+    $('#nx').onclick = () => { st.i++; scrollTo(0, 0); st.i < L.length ? gotuvn() : fin('gotuvn', [st.hit[0], st.hit[1]]); }; }; }
+// ⌨️ viết nghĩa cả câu: chấm theo ý chính, rồi hiện bản dịch tham khảo
+function vietvn() { const i = st.i, Y = VNY[i];
+  app.innerHTML = `${head(`Câu ${i + 1}/${L.length}. Gõ nghĩa tiếng Việt của câu, nói theo ý bạn. Máy chấm theo ${Y.length} ý chính, gõ không dấu cũng được.`)}
+    <div class="card">${enCard(i)}</div>
+    <label for="wt" class="sm mute">Nghĩa tiếng Việt</label><textarea id="wt" autocomplete="off" spellcheck="false"></textarea>
+    <button class="pri" id="ck">Kiểm tra</button><div id="fb"></div>`;
+  playBtns();
+  $('#ck').onclick = () => { const g = ' ' + fold($('#wt').value) + ' ', hit = Y.map(alts => alts.some(a => g.includes(' ' + fold(a) + ' ') || g.includes(fold(a)))), ok = hit.filter(Boolean).length;
+    st.hit[0] += ok; st.hit[1] += Y.length; $('#ck').hidden = true;
+    $('#fb').innerHTML = `<div class="card"><p><b>${ok}/${Y.length} ý chính</b></p>${Y.map((alts, n) => `<p class="sm">${hit[n] ? '✓' : '✗'} ${esc(alts[0])}${alts.length > 1 ? ` <span class="mute">(hoặc ${esc(alts.slice(1).join(', '))})</span>` : ''}</p>`).join('')}
+      <p class="sm mute">Bản dịch tham khảo: ${esc(L[i][2])}</p></div><button class="pri" id="nx" style="margin-top:10px">${i + 1 < L.length ? 'Câu tiếp ›' : 'Xong ›'}</button>`;
+    $('#nx').onclick = () => { st.i++; scrollTo(0, 0); st.i < L.length ? vietvn() : fin('vietvn', [st.hit[0], st.hit[1]]); }; }; }
+
+// ---------- v5 Tập nhớ (người sáng lập: "bỏ hết bài nhớ; tiếng Anh thì gõ lại, tiếng Việt thì chọn theo thứ tự; làm lại miết tới khi đúng hết") ----------
+// Lượt: 6 câu theo thứ tự; câu sai vào cuối hàng đợi; hết hàng đợi = thuộc. Điểm = số câu đúng ngay lần đầu / 6.
+const EXP = { "i'm": 'i am', "we're": 'we are', "you're": 'you are', "doesn't": 'does not', "i'll": 'i will', "let's": 'let us', "that's": 'that is', "it's": 'it is', "can't": 'cannot', "don't": 'do not' };
+const toks = t => String(t).toLowerCase().replace(/[’‘]/g, "'").replace(/\./g, '').split(/[^a-z0-9']+/).filter(Boolean).flatMap(w => (EXP[w] || w).split(' '));
+let LP = null;
+function loop(k) { LP = { k, q: L.map((_, i) => i), first: {}, round: 1, done: 0, seen: 0 }; next(); }
+function next() { if (!LP.q.length) return loopEnd(); const i = LP.q[0]; LP.k === 'golai' ? golai(i) : LP.k === 'noipa' ? noipa(i) : chonvn(i); }
+function loopTop() { return `${head()}<div class="row" style="justify-content:space-between"><span class="tag">${LP.seen >= L.length ? 'Làm lại câu sai' : 'Lượt đầu'}</span><span class="tag">Còn ${LP.q.length} câu</span></div>
+  <div class="bar"><i style="width:${LP.done / L.length * 100}%"></i></div>`; }
+function loopNext(i, ok) { LP.q.shift(); LP.seen++; if (LP.first[i] == null) LP.first[i] = ok; if (ok) LP.done++; else LP.q.push(i); scrollTo(0, 0); next(); }
+function loopEnd() { const n = Object.values(LP.first).filter(Boolean).length;
+  app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong</p><p class="big">6/6</p><h2>Đúng hết 6 câu</h2>
+    <p class="mute sm">Đúng ngay lần đầu: ${n}/6 câu.${n < 6 ? ' Câu sai đã được làm lại tới khi đúng.' : ''}</p></div><button class="pri" id="nx">Về bài học ›</button>`;
+  $('#nx').onclick = () => fin(LP.k, [n, L.length]); }
+// 🇬🇧 gõ lại tiếng Anh: nhìn nghĩa + nghe; đúng = đủ và đúng thứ tự mọi từ (viết hoa, dấu câu, I'm = I am không tính)
+function golai(i) { const l = L[i];
+  app.innerHTML = `${loopTop()}<div class="card">${lnHtml(i, `<span>${esc(l[2])}</span><button class="link sm" data-p="${i}" style="align-self:flex-start">🔊 Nghe câu tiếng Anh</button>`)}</div>
+    <label for="wt" class="sm mute">Gõ lại câu tiếng Anh</label><textarea id="wt" autocapitalize="sentences" autocomplete="off" spellcheck="false"></textarea>
+    ${st.day ? '' : '<button class="link" id="hint" style="align-self:center">💡 Gợi ý chữ cái đầu</button><p class="sm mute" id="hn" hidden></p>'}
+    <button class="pri" id="ck">Kiểm tra</button><div id="fb"></div>`;
+  app.querySelector('[data-p]').onclick = () => play(i);
+  const h = $('#hint'); if (h) h.onclick = () => { const n = $('#hn'); n.hidden = false; n.textContent = words(l[1]).map(w => { const c = w.replace(/[^A-Za-z0-9']/g, ''); return c ? c[0] + '…' : w; }).join(' '); h.hidden = true; };
+  $('#ck').onclick = () => { const want = toks(l[1]), got = toks($('#wt').value), ok = want.length === got.length && want.every((w, n) => w === got[n]), r = diff(l[1], $('#wt').value);
+    $('#ck').hidden = true; if (h) h.hidden = true; $('#wt').disabled = true; play(i);
+    $('#fb').innerHTML = `<div class="fb ${ok ? 'ok' : 'no'}">${ok ? '✓ Đúng cả câu.' : '✗ Chưa đúng. Câu này sẽ quay lại cuối lượt.'}</div>
+      ${ok ? '' : `<div class="card"><p class="sm mute">Câu đúng (xanh: bạn đã gõ · đỏ: thiếu / sai):</p><p class="diff">${r.html}</p></div>`}
+      <button class="pri" id="nx" style="margin-top:10px">Tiếp ›</button>`;
+    $('#nx').onclick = () => loopNext(i, ok); }; }
+// 🇻🇳 chọn nghĩa theo thứ tự: bấm cụm tiếng Việt; bấm sai một lần là câu phải làm lại
+function chonvn(i) { const W = VNK[i]; let k = 0, miss = 0; const chips = shuf(W.map(w => ({ w })));
+  const draw = msg => { app.innerHTML = `${loopTop()}<div class="card">${lnHtml(i, `<span>${esc(L[i][1])}</span><button class="link sm" data-p="${i}" style="align-self:flex-start">🔊 Nghe</button>`)}
+      <p class="built">${W.slice(0, k).map(esc).join(' ')}<span class="cursor">▌</span></p></div>
+    <p class="sm mute">Bấm cụm tiếng Việt theo đúng thứ tự.</p><div class="bank">${chips.map((c, n) => `<button data-c="${n}" ${c.used ? 'disabled' : ''}>${esc(c.w)}</button>`).join('')}</div><div id="fb">${msg || ''}</div>`;
+    app.querySelector('[data-p]').onclick = () => play(i);
+    app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { const c = chips[+b.dataset.c];
+      if (c.w === W[k]) { c.used = 1; k++; if (k === W.length) { const ok = !miss;
+          draw(`<div class="fb ${ok ? 'ok' : 'no'}">${ok ? '✓ Đúng ngay.' : `Xong câu, nhưng bấm sai ${miss} lần. Câu này sẽ quay lại cuối lượt.`}</div><button class="pri" id="nx" style="margin-top:10px">Tiếp ›</button>`);
+          app.querySelectorAll('[data-c]').forEach(x => x.disabled = true); $('#nx').onclick = () => loopNext(i, ok); } else draw(); }
+      else { miss++; b.classList.add('shake'); setTimeout(() => b.classList.remove('shake'), 400); } }); };
+  draw(); }
+
+// ---------- v6 🗣 Nói theo phiên âm (người sáng lập: "lấy các phần phiên âm để tôi nói vào, tự nhận hiện chữ ra") ----------
+// Màn chỉ hiện phiên âm (chữ tiếng Anh ẩn, mở được). Lời nói thành chữ: nút 🎤 của trang (capability dictation, chỉ Chrome / app máy tính)
+// hoặc nút 🎤 trên bàn phím iPhone gõ vào ô. Đúng = máy chép ra đủ mọi từ của câu theo thứ tự. Máy chép lời đoán TỪ, không chấm từng âm như ELSA.
+let DIC = null; try { (window.claude && window.claude.use ? window.claude.use('dictation') : Promise.resolve(null)).then(d => { DIC = d; }).catch(() => {}); } catch (e) {}
+
+// v8 (ảnh iPhone: kéo lên xem hướng dẫn thì bàn phím che ô nhập): khi gõ, ô hướng dẫn thu lại vừa phần màn trên bàn phím
+// và cuộn bên trong ô; ô nhập nằm ngay dưới. Bàn phím đóng thì ô hướng dẫn trở lại đủ cao.
+function guideFit() { const t = $('#st'), g = app.querySelector('.guide'); if (!t || !g) return; const vv = window.visualViewport;
+  const fit = () => { if (!document.body.contains(t)) { if (vv) vv.removeEventListener('resize', fit); return; }
+    if (document.activeElement !== t) { g.style.maxHeight = ''; g.classList.remove('scroll'); return; }
+    const TOPGAP = 64, H = vv ? vv.height : innerHeight, room = Math.max(140, H - t.offsetHeight - 24 - TOPGAP);   // chừa chỗ cho nút ✕ ••• của app Claude đè mép trên
+    g.style.maxHeight = room + 'px'; g.classList.add('scroll');
+    const top = g.getBoundingClientRect().top + scrollY - (vv ? vv.offsetTop : 0) - TOPGAP; scrollTo(0, Math.max(0, top)); };
+  t.addEventListener('focus', () => { setTimeout(fit, 50); setTimeout(fit, 350); });
+  t.addEventListener('blur', () => setTimeout(fit, 50));
+  if (vv) vv.addEventListener('resize', fit); }
+
+function typeFit() { const t = $('#st'), row = app.querySelector('.inrow'), g = app.querySelector('.guide'), vv = window.visualViewport; if (!t || !g) return;
+  const TOP = 64;   // chừa chỗ cho nút ✕ ••• của app Claude đè mép trên
+  const fit = () => { if (!document.body.contains(t)) { if (vv) vv.removeEventListener('resize', fit); return; }
+    if (document.activeElement !== t) { g.style.maxHeight = ''; return; }
+    scrollTo(0, Math.max(0, row.getBoundingClientRect().top + scrollY - TOP));
+    const H = vv ? vv.height : innerHeight, fb = $('#fb').offsetHeight; g.style.maxHeight = Math.max(120, H - TOP - row.offsetHeight - fb - 20) + 'px'; };
+  t.addEventListener('focus', () => { setTimeout(fit, 60); setTimeout(fit, 400); }); t.addEventListener('blur', () => setTimeout(fit, 60));
+  if (vv) vv.addEventListener('resize', fit); }
+function noipa(i) {   // v9: ô nhập + Kiểm tra ở đầu màn, ô hướng dẫn ngay dưới. v10 (người sáng lập, ảnh iPhone: "muốn tắt bật phần phiên âm này"):
+  // hàng nút lớp riêng của bài nói (st.layN, mặc định bật hết), bấm chỉ vẽ lại ô hướng dẫn, giữ chữ đã đọc.
+  st.layN = st.layN || { ...ALLF };
+  app.innerHTML = `${loopTop()}
+    <div class="inrow"><textarea id="st" rows="2" autocomplete="off" spellcheck="false" aria-label="Chữ máy nghe được" placeholder="Bấm 🎤 trên bàn phím rồi đọc"></textarea>
+      <button class="pri" id="ck">Kiểm tra</button></div>${DIC ? '<button class="sec" id="mic">🎤 Bấm để nói</button>' : ''}<div id="fb"></div>
+    <div class="card guide"><div class="row" style="justify-content:space-between"><span class="tag">Câu ${i + 1} · ${WHO[L[i][0]][0]} (${WHO[L[i][0]][1]})</span><button class="link sm" data-p="${i}">🔊 Nghe mẫu</button></div>
+      <div class="laymini" role="group" aria-label="Bật / tắt hướng dẫn đọc"></div><div id="gbody"></div></div>`;
+  const drawG = () => { const F = st.layN, any = LAY.some(([k]) => F[k]);
+    app.querySelector('.laymini').innerHTML = LAY.map(([k, t]) => `<button class="lay${F[k] ? ' on' : ''}" data-ln="${k}" aria-pressed="${!!F[k]}">${t}</button>`).join('');
+    const notes = [...(F.noi ? LK[i].map(x => `<p>🔗 <b>${esc(x[1])}</b> · ${esc(x[2])}</p>`) : []), ...(F.nuot ? EL[i].map(x => `<p>✂️ <b class="elb">/${esc(x[1])}/</b> · ${esc(x[2])}</p>`) : [])];
+    $('#gbody').innerHTML = (any ? ipaHtml(i, { ...F, nonotes: 1 }) : `<p class="q">${esc(L[i][1])}</p>`)
+      + (notes.length ? `<details class="gnotes"><summary>Giải thích nối âm, nuốt âm (${notes.length})</summary>${notes.join('')}</details>` : '');
+    app.querySelectorAll('[data-ln]').forEach(b => b.onclick = () => { st.layN[b.dataset.ln] = st.layN[b.dataset.ln] ? 0 : 1; drawG(); }); };
+  drawG();
+  app.querySelector('[data-p]').onclick = () => play(i);
+  typeFit();
+  const mic = $('#mic'); if (mic) { let on = false, off = [];
+    mic.onclick = () => { if (on) { DIC.stop(); return; }
+      DIC.start({ language: 'en' }).catch(e => { $('#fb').innerHTML = `<div class="fb no">Chưa nghe được (${esc(e.code)}). Dùng 🎤 trên bàn phím và đọc vào ô bên dưới.</div>`; });
+      off.forEach(f => f()); off = [DIC.onFinal(({ text }) => { const t = $('#st'); if (t) t.value = (t.value + text).trimStart(); }),
+        DIC.onState(({ state }) => { on = state !== 'idle'; const m = $('#mic'); if (m) m.textContent = on ? '⏹ Dừng nghe' : '🎤 Bấm để nói'; })]; }; }
+  $('#ck').onclick = () => { const said = $('#st').value, want = toks(L[i][1]), got = toks(said); let p = 0, hit = 0;
+    for (const w of want) { const f = got.indexOf(w, p); if (f >= 0) { hit++; p = f + 1; } }
+    const ok = hit === want.length, r = diff(L[i][1], Object.entries(EXP).reduce((t, [c, e]) => t.replace(new RegExp('\\b' + e + '\\b', 'gi'), c), said.replace(/[’‘]/g, "'")));
+    if (DIC && DIC.active()) DIC.stop(); $('#ck').hidden = true; $('#st').disabled = true;
+    $('#fb').innerHTML = `<div class="fb ${ok ? 'ok' : 'no'}">${ok ? '✓ Máy nghe ra đủ mọi từ.' : `✗ Máy nghe ra ${hit}/${want.length} từ. Câu này sẽ quay lại cuối lượt.`}</div>
+      <div class="card"><p class="sm mute">Câu đúng (xanh: máy nghe ra · đỏ: chưa nghe ra, đọc lại từ này):</p><p class="diff">${r.html}</p></div>
+      <button class="pri" id="nx" style="margin-top:10px">Tiếp ›</button>`;
+    $('#nx').onclick = () => loopNext(i, ok); }; }
+
+// ---------- v11 Tập hiểu: làm lại tới khi đúng hết + 4 bài mới (người sáng lập: "bài tập hiểu nếu làm sai thì quay lại làm lại cho đến khi đúng mới hoàn thành. Và cho thêm các bài tập") ----------
+// Nội dung Claude soạn, chưa giáo viên kiểm. Điểm = số câu đúng ngay lần đầu.
+const GHEP = [['check out of', 'trả phòng'], ['fully booked', 'kín phòng, hết chỗ'], ['extend … to', 'lùi tới, kéo dài tới'], ['store', 'cất giữ'], ['lounge', 'phòng chờ'], ['luggage', 'hành lý']];
+const GOTV = [
+  { s: "I'm ___ out of Room 512 today.", vi: 'trả phòng (đang làm)', a: 'checking' },
+  { s: "We're fully ___ tonight.", vi: 'kín phòng: fully …', a: 'booked' },
+  { s: 'I can only ___ your checkout to two P.M.', vi: 'lùi, kéo dài', a: 'extend' },
+  { s: 'Is there somewhere I could leave my ___ after that?', vi: 'hành lý', a: 'luggage' },
+  { s: 'We can ___ your bags at the front desk.', vi: 'cất giữ', a: 'store' },
+  { s: "You're welcome to use the business ___ until your taxi arrives.", vi: 'phòng chờ', a: 'lounge' }];
+const DANGQ = [
+  { s: 'Good morning. I ___ out of Room 512 today, but my flight leaves tonight.', q: 'Chọn dạng đúng của động từ.', o: ['am checking', 'checked', 'was checking', 'had checked'], a: 0, vi: 'Kế hoạch đã định cho hôm nay: hiện tại tiếp diễn.', nen: 'Hiện tại tiếp diễn nói về kế hoạch tương lai · A2' },
+  { s: 'My flight ___ until nine tonight.', q: 'Chọn dạng đúng.', o: ["doesn't leave", "didn't leave", "hasn't left", "wasn't leaving"], a: 0, vi: 'Lịch chuyến bay cố định + not … until: hiện tại đơn.', nen: 'Hiện tại đơn (lịch trình) · not … until' },
+  { s: "You're welcome to use the lounge until your taxi ___.", q: 'Chọn dạng đúng.', o: ['arrives', 'will arrive', 'arrived', 'arriving'], a: 0, vi: 'Sau until, việc tương lai dùng hiện tại đơn.', nen: 'Mệnh đề thời gian chỉ tương lai · B1' },
+  { s: '___ you also book a taxi to the airport for six o’clock?', q: 'Chọn từ đúng để nhờ lịch sự.', o: ['Could', 'Should', 'Must', 'Shall'], a: 0, vi: 'Could you…? = nhờ lịch sự.', nen: 'Could / can: nhờ, xin phép · A2' },
+  { s: 'Certainly. I ___ the taxi company now.', q: 'Chọn dạng đúng: quyết định ngay lúc nói.', o: ['will call', 'called', 'had called', 'was calling'], a: 0, vi: 'Quyết định ngay khi được nhờ: will.', nen: 'Will: quyết định tức thì · A2' },
+  { s: 'We can store your bags, and you are welcome ___ the business lounge.', q: 'Chọn dạng đúng.', o: ['to use', 'using', 'use', 'used'], a: 0, vi: 'be welcome to + V nguyên mẫu.', nen: 'Động từ / tính từ + to V · A2' }];
+const DSQ = [
+  { s: 'Please wait here until the taxi will arrive.', ok: false, fix: 'Please wait here until the taxi arrives.', vi: 'Sau until, tương lai dùng hiện tại đơn, không dùng will.' },
+  { s: "My flight doesn't leave until nine tonight.", ok: true, vi: 'not … until + giờ: mãi tới 9 giờ mới cất cánh.' },
+  { s: "We're full booked tonight.", ok: false, fix: "We're fully booked tonight.", vi: 'Bổ nghĩa cho booked (tính từ) cần trạng từ fully.' },
+  { s: 'Could you book me a taxi to the airport?', ok: true, vi: 'Could you + V…? là lời nhờ lịch sự.' },
+  { s: "You're welcome using the business lounge.", ok: false, fix: "You're welcome to use the business lounge.", vi: 'be welcome to + V, không dùng V-ing.' },
+  { s: "I'm checking out tomorrow morning.", ok: true, vi: 'Hiện tại tiếp diễn + mốc tương lai = kế hoạch đã định.' }];
+// vòng lặp chung: câu sai vào cuối hàng đợi tới khi đúng hết
+let QL = null;
+function qloop(k, items, render) { QL = { k, items, render, q: items.map((_, i) => i), first: {}, seen: 0, done: 0 }; qnext(); }
+function qnext() { scrollTo(0, 0); if (!QL.q.length) { const n = Object.values(QL.first).filter(Boolean).length;
+    app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong</p><p class="big">${QL.items.length}/${QL.items.length}</p><h2>Đúng hết ${QL.items.length} câu</h2><p class="mute sm">Đúng ngay lần đầu: ${n}/${QL.items.length}.</p></div><button class="pri" id="nx">Về bài học ›</button>`;
+    return $('#nx').onclick = () => fin(QL.k, [n, QL.items.length]); }
+  const i = QL.q[0]; QL.render(QL.items[i], ok => { QL.q.shift(); QL.seen++; if (QL.first[i] == null) QL.first[i] = ok; if (ok) QL.done++; else QL.q.push(i); qnext(); }); }
+const qTop = () => `${head(MCQ_SUB[QL.k] || '')}<div class="row" style="justify-content:space-between"><span class="tag">${QL.seen >= QL.items.length ? 'Làm lại câu sai' : 'Lượt đầu'}</span><span class="tag">Còn ${QL.q.length} câu</span></div><div class="bar"><i style="width:${QL.done / QL.items.length * 100}%"></i></div>`;
+const ctxHtml = it => it.s ? `<div class="card ctx"><span class="sm mute">${QL.k === 'moi' ? 'Câu mới:' : 'Trong bài:'}</span><span>${/\[\[/.test(it.s) ? '“' + esc(it.s).replace(/\[\[(.+?)\]\]/, '<mark>$1</mark>') + '”' : esc(it.s).replace('___', '<span class="gap">?</span>')}</span></div>` : '';
+const nextBtn = ok => `<div class="fb ${ok ? 'ok' : 'no'}">${ok ? '✓ Đúng.' : '✗ Chưa đúng. Câu này sẽ quay lại cuối lượt.'}`;
+function mcqIt(it, done) { const ord = shuf(it.o.map((_, j) => j));
+  app.innerHTML = `${qTop()}${ctxHtml(it)}${it.q ? `<p class="q">${esc(it.q).replace('___', '<span class="gap">?</span>')}</p>` : ''}<div class="opts">${ord.map(j => `<button class="opt" data-j="${j}">${esc(it.o[j])}</button>`).join('')}</div><div id="fb"></div>`;
+  app.querySelectorAll('[data-j]').forEach(b => b.onclick = () => { const j = +b.dataset.j, ok = j === it.a;
+    app.querySelectorAll('[data-j]').forEach(x => { const kk = +x.dataset.j; x.disabled = true; if (kk === it.a) x.classList.add('ok'); else if (kk === j) x.classList.add('no'); });
+    $('#fb').innerHTML = `${nextBtn(ok)} ${esc(it.vi)}${it.nen ? `<br><span class="sm">🧱 Bài Nền liên quan: <b>${esc(it.nen)}</b></span>` : ''}</div><button class="pri" id="nx" style="margin-top:10px">Tiếp ›</button>`;
+    $('#nx').onclick = () => done(ok); }); }
+// 📚 gõ từ theo nghĩa
+function gotvIt(it, done) {
+  app.innerHTML = `${qTop()}<div class="card ctx"><span class="sm mute">Câu của bài · gõ từ còn thiếu</span><span class="q">${esc(it.s).replace('___', '<span class="gap">?</span>')}</span><span class="sm">Nghĩa: <b>${esc(it.vi)}</b></span></div>
+    <div class="inrow"><input id="ga" class="gin" autocapitalize="off" autocomplete="off" spellcheck="false" aria-label="Từ còn thiếu" placeholder="Gõ từ tiếng Anh"><button class="pri" id="ck">Kiểm tra</button></div>
+    <button class="link" id="hint" style="align-self:center">💡 Hiện chữ cái đầu</button><div id="fb"></div>`;
+  const g = $('#ga'); g.focus(); g.onkeydown = e => { if (e.key === 'Enter') $('#ck').click(); };
+  $('#hint').onclick = () => { g.placeholder = it.a[0] + '… (' + it.a.length + ' chữ)'; $('#hint').hidden = true; };
+  $('#ck').onclick = () => { const ok = norm(g.value) === norm(it.a); g.disabled = true; $('#ck').hidden = true; $('#hint').hidden = true;
+    $('#fb').innerHTML = `${nextBtn(ok)} Đáp án: <b>${esc(it.a)}</b> · ${esc(it.s.replace('___', it.a))}</div><button class="pri" id="nx" style="margin-top:10px">Tiếp ›</button>`;
+    $('#nx').onclick = () => done(ok); }; }
+// 🧱 đúng hay sai
+function dsIt(it, done) {
+  app.innerHTML = `${qTop()}<div class="card ctx"><span class="sm mute">Câu này đúng hay sai ngữ pháp?</span><span class="q">${esc(it.s)}</span></div>
+    <div class="ds2"><button class="opt" data-d="1">✓ Đúng</button><button class="opt" data-d="0">✗ Sai</button></div><div id="fb"></div>`;
+  app.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { const said = b.dataset.d === '1', ok = said === it.ok;
+    app.querySelectorAll('[data-d]').forEach(x => { x.disabled = true; if ((x.dataset.d === '1') === it.ok) x.classList.add('ok'); else if (x === b) x.classList.add('no'); });
+    $('#fb').innerHTML = `${nextBtn(ok)} ${it.ok ? 'Câu đúng.' : `Câu sai. Sửa: <b>${esc(it.fix)}</b>`}<br>${esc(it.vi)}</div><button class="pri" id="nx" style="margin-top:10px">Tiếp ›</button>`;
+    $('#nx').onclick = () => done(ok); }); }
+// 📚 ghép từ với nghĩa: cặp bấm nhầm quay lại lượt sau, tới khi ghép đúng hết
+function ghep() { const G = { left: GHEP.map((_, i) => i), first: {}, round: 1 }; QL = { k: 'ghep', items: GHEP };
+  const board = () => { const L2 = shuf(G.left), R2 = shuf(G.left); let pick = null; const missed = new Set(), done = new Set();
+    const draw = () => { app.innerHTML = `${head('Bấm một từ tiếng Anh, rồi bấm nghĩa của nó. Cặp bấm nhầm sẽ quay lại lượt sau.')}<div class="row" style="justify-content:space-between"><span class="tag">${G.round > 1 ? 'Làm lại cặp sai · lượt ' + G.round : 'Lượt đầu'}</span><span class="tag">Còn ${G.left.length - done.size} cặp</span></div>
+      <div class="ghep"><div>${L2.map(i => `<button class="opt${done.has(i) ? ' ok' : ''}${pick === i ? ' sel' : ''}" data-l="${i}" ${done.has(i) ? 'disabled' : ''}>${esc(GHEP[i][0])}</button>`).join('')}</div>
+        <div>${R2.map(i => `<button class="opt${done.has(i) ? ' ok' : ''}" data-r="${i}" ${done.has(i) ? 'disabled' : ''}>${esc(GHEP[i][1])}</button>`).join('')}</div></div><div id="fb"></div>`;
+      app.querySelectorAll('[data-l]').forEach(b => b.onclick = () => { pick = +b.dataset.l; draw(); });
+      app.querySelectorAll('[data-r]').forEach(b => b.onclick = () => { if (pick == null) return; const r = +b.dataset.r;
+        if (r === pick) { done.add(pick); if (G.first[pick] == null) G.first[pick] = !missed.has(pick); pick = null; draw();
+          if (done.size === G.left.length) { const again = G.left.filter(i => missed.has(i));
+            $('#fb').innerHTML = again.length ? `<div class="fb no">Ghép xong. ${again.length} cặp bấm nhầm sẽ làm lại.</div><button class="pri" id="nx" style="margin-top:10px">Làm lại cặp sai ›</button>` : `<div class="fb ok">✓ Ghép đúng hết.</div><button class="pri" id="nx" style="margin-top:10px">Xong ›</button>`;
+            $('#nx').onclick = () => { if (again.length) { G.left = again; G.round++; board(); } else { const n = Object.values(G.first).filter(Boolean).length; fin('ghep', [n, GHEP.length]); } }; } }
+        else { missed.add(pick); b.classList.add('shake'); setTimeout(() => b.classList.remove('shake'), 400); } }); };
+    draw(); };
+  scrollTo(0, 0); board(); }
+
+// ---------- v12 🧩 Thử thách nhớ ngắt quãng (người sáng lập: "đưa đoạn ra nhớ nhanh xong ẩn để nói hoặc viết, ngày càng nhiều lên cho đến khi hiện nguyên bài") ----------
+// Mức k = câu 1 → k. Hiện đoạn trong thời gian nhớ (0,6 giây / từ, ít nhất 5 giây; bấm "Ẩn đi" sớm được) → ẩn → viết hoặc nói (🎤 bàn phím) lại.
+// Đúng = đủ mọi từ, đúng thứ tự (thừa từ không trừ). Sai hoặc bấm "Nhìn lại" = làm lại mức đó. Điểm = số mức qua ngay lần đầu.
+let TT = null, TT_T = null;
+const ttWords = lv => L.slice(0, lv).reduce((n, l) => n + words(l[1]).length, 0);
+function thuthach() { TT = { lv: 1, first: {} }; ttShow(); }
+function ttHead() { return `${head()}<div class="seg two" role="group" aria-label="Viết hay nói">${[['viet', '⌨️ Viết lại'], ['noi', '🗣 Nói lại']].map(([k, t]) => `<button data-tm="${k}" aria-pressed="${(st.ttm || 'viet') === k}">${t}</button>`).join('')}</div>
+  <div class="row" style="justify-content:space-between"><span class="tag">Mức ${TT.lv}/${L.length} · ${TT.lv} câu · ${ttWords(TT.lv)} từ</span><span class="tag">${Object.values(TT.first).filter(Boolean).length} mức qua ngay</span></div>
+  <div class="bar"><i style="width:${(TT.lv - 1) / L.length * 100}%"></i></div>`; }
+const ttMode = re => app.querySelectorAll('[data-tm]').forEach(b => b.onclick = () => { st.ttm = b.dataset.tm; re(); });
+function ttShow() { clearTimeout(TT_T); scrollTo(0, 0); const sec = Math.max(5, Math.round(ttWords(TT.lv) * 0.6));
+  app.innerHTML = `${ttHead()}<p class="sm mute">Nhớ đoạn này. Sau ${sec} giây đoạn sẽ ẩn.</p>
+    <div class="card ttcard">${L.slice(0, TT.lv).map((l, i) => `<p><span class="tag">${WHO[l[0]][0]}</span> ${esc(l[1])}</p>`).join('')}</div>
+    <div class="tbar"><i id="tb"></i></div><button class="pri" id="hide">🙈 Ẩn đi, tôi nhớ rồi</button>`;
+  ttMode(ttShow); { const b = $('#tb'); b.style.width = '100%'; void b.offsetWidth; setTimeout(() => { if (!document.body.contains(b)) return; b.style.transition = `width ${sec}s linear`; b.style.width = '0%'; }, 30); }
+  TT_T = setTimeout(() => { if ($('#hide')) ttAsk(); }, sec * 1000); $('#hide').onclick = ttAsk; }
+function ttAsk() { clearTimeout(TT_T); scrollTo(0, 0); const noi = (st.ttm || 'viet') === 'noi';
+  app.innerHTML = `${ttHead()}<div class="card"><p><b>🙈 Đã ẩn ${TT.lv} câu.</b></p><p class="sm mute">${noi ? 'Chạm vào ô, bấm 🎤 trên bàn phím rồi nói lại cả đoạn.' : 'Gõ lại cả đoạn, không cần đúng dấu câu, viết hoa.'}</p></div>
+    <textarea id="tt" rows="${Math.min(8, 2 + TT.lv)}" autocomplete="off" spellcheck="false" autocapitalize="sentences" aria-label="Đoạn bạn ${noi ? 'nói' : 'viết'} lại" placeholder="${noi ? 'Bấm 🎤 trên bàn phím rồi nói' : 'Gõ lại đoạn vừa nhớ'}"></textarea>
+    <button class="pri" id="ck">Kiểm tra</button><button class="link" id="peek" style="align-self:center">👀 Nhìn lại (mức này phải làm lại)</button><div id="fb"></div>`;
+  ttMode(ttAsk); const t = $('#tt'); if (!noi) t.focus();
+  $('#peek').onclick = () => { TT.first[TT.lv] = TT.first[TT.lv] ?? false; ttShow(); };
+  $('#ck').onclick = () => { const want = toks(L.slice(0, TT.lv).map(l => l[1]).join(' ')), got = toks(t.value); let p = 0, hit = 0;
+    for (const w of want) { const f = got.indexOf(w, p); if (f >= 0) { hit++; p = f + 1; } }
+    const ok = hit === want.length; if (TT.first[TT.lv] == null) TT.first[TT.lv] = ok; t.disabled = true; $('#ck').hidden = true; $('#peek').hidden = true;
+    const said = Object.entries(EXP).reduce((x, [c, e]) => x.replace(new RegExp('\\b' + e + '\\b', 'gi'), c), t.value.replace(/[’‘]/g, "'"));
+    const last = TT.lv === L.length;
+    $('#fb').innerHTML = `<div class="fb ${ok ? 'ok' : 'no'}">${ok ? (last ? '🏆 Nhớ được cả bài!' : `✓ Đúng ${hit}/${want.length} từ. Lên mức ${TT.lv + 1}: thêm 1 câu.`) : `✗ Đúng ${hit}/${want.length} từ. Xem lại rồi làm lại mức này.`}</div>
+      <div class="card"><p class="sm mute">Đoạn đúng (xanh: bạn nhớ · đỏ: thiếu / sai):</p><p class="diff">${diff(L.slice(0, TT.lv).map(l => l[1]).join(' '), said).html}</p></div>
+      <button class="pri" id="nx" style="margin-top:10px">${ok ? (last ? 'Xong ›' : `Mức ${TT.lv + 1} ›`) : 'Xem lại rồi làm lại ›'}</button>`;
+    $('#nx').onclick = () => { if (ok && last) return fin('thuthach', [Object.values(TT.first).filter(Boolean).length, L.length]); if (ok) TT.lv++; ttShow(); }; }; }
+
+// ---------- v14 ⚡ Gõ đua chữ chạy (người sáng lập: "nguyên 1 bài cứ lướt lên mờ dần, ví dụ 1 phút là lướt hết bài; gõ đúng thì vẫn xanh") ----------
+// Cả bài cuộn từ dưới lên trong DG.T giây, mờ dần ở mép trên. Gõ từ đang sáng, bấm cách để chốt (đúng xanh, sai đỏ).
+// Từ đang chờ trôi mất ở mép trên = bỏ lỡ (đỏ), tự qua từ sau. Hết bài: đúng ≥ 85% thì vòng sau nhanh hơn × DG_UP; chưa thì làm lại cùng tốc độ.
+const DG_UP = 0.85, DG_MINT = 25, DG_PASS = 0.85, DG_TS = [[120, '2 phút'], [90, '1,5 phút'], [60, '1 phút']];
+let DG = null, DG_RAF = 0, DG_CK = 0, DG_PL = 0; const DG_POLL = 250; const DG_IDLE = 1500;
+const DG_NUM = { zero: '0', one: '1', two: '2', three: '3', four: '4', five: '5', six: '6', seven: '7', eight: '8', nine: '9', ten: '10', eleven: '11', twelve: '12' };
+const dk = w => w.toLowerCase().replace(/[^a-z0-9]/g, '');
+const DG_NUMR = Object.fromEntries(Object.entries(DG_NUM).map(([a, b]) => [b, a]));
+// v21: số đọc bằng micro có nhiều cách ghi: "512" · "5 12" · "five twelve" · "five one two" · "five hundred (and) twelve"; "nine" · "9" · "9:00"; "o'clock" · ":00".
+const DG_W19 = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+const DG_TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+const dgW2 = n => n < 20 ? [DG_W19[n]] : n % 10 ? [DG_TENS[n / 10 | 0] + DG_W19[n % 10]] : [DG_TENS[n / 10]];
+const dgWords = n => { if (n < 100) return dgW2(n); const h = DG_W19[n / 100 | 0] + 'hundred', r = n % 100; if (!r) return [h];
+  return [...dgW2(r).flatMap(x => [h + x, h + 'and' + x]), ...dgW2(r).map(x => DG_W19[n / 100 | 0] + x),   // five hundred twelve · five twelve
+    ...(r < 10 ? [DG_W19[n / 100 | 0] + 'oh' + DG_W19[r], DG_W19[n / 100 | 0] + 'o' + DG_W19[r]] : [])]; };
+// v23 (ảnh người sáng lập 22:05: nói "we are" cho "We're" không nhận): từ viết tắt nhận cả dạng nói đủ.
+const DG_EXP = [[/^(can)'t$/i, ['cannot', 'cant']], [/^won't$/i, ['willnot']], [/^(\w+)n't$/i, m => [m[1] + 'not']], [/^(\w+)'re$/i, m => [m[1] + 'are']], [/^(\w+)'m$/i, m => [m[1] + 'am']],
+  [/^(\w+)'ll$/i, m => [m[1] + 'will']], [/^(\w+)'ve$/i, m => [m[1] + 'have']], [/^(\w+)'d$/i, m => [m[1] + 'would', m[1] + 'had']], [/^(\w+)'s$/i, m => [m[1] + 'is', m[1] + 'has']]];
+const dgExp = w => { const x = w.replace(/[’‘]/g, "'").replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g, ''); for (const [re, f] of DG_EXP) { const m = x.match(re); if (m) return (typeof f === 'function' ? f(m) : f).map(dk); } return []; };
+const dkAlt = (t, w = '') => { const a = [t, ...dgExp(w)];
+  if (/^\d+$/.test(t) && +t < 1000) { const n = +t; a.push(...dgWords(n)); if (t.length > 1) a.push([...t].map(d => DG_W19[+d]).join('')); }
+  const wi = DG_W19.indexOf(t); if (wi >= 0) a.push(String(wi)); const ti = DG_TENS.indexOf(t); if (ti > 1) a.push(String(ti * 10));
+  if (t === 'oclock') a.push('00');
+  return [...new Set(a)]; };
+ const dn = w => w.toLowerCase().replace(/[^a-z0-9]/g, '');   // so từ bỏ dấu nháy: iPhone gõ ’ cong, I’m = Im = I'm
+ const DG_CHK = 2000;
+const DG_W = () => L.flatMap((l, i) => words(l[1]).map((w, wi) => ({ w, i, wi })));
+// v25 (người sáng lập 22:12: "thêm nút phát âm hỗ trợ: từ khó bấm vào học cách nói, bấm vào từ nghe phát âm để nói lại"):
+// chạm từ trong khung → thẻ cách nói (phiên âm, nhấn, nối / nuốt âm của chính câu, mẹo âm khó) + 🔊 nghe / 🐢 chậm. Mẹo âm Claude soạn, chưa giáo viên kiểm.
+const DG_TIPS = [['θ', '/θ/: đầu lưỡi đặt giữa hai hàm răng, thổi hơi ra (không đọc thành "t" hay "th" tiếng Việt).'], ['ð', '/ð/: như /θ/ nhưng rung cổ họng, nghe gần "đ" mềm.'],
+  ['dʒ', '/dʒ/: giống "ch" nhưng có rung cổ, môi hơi chu ra.'], ['tʃ', '/tʃ/: "ch" bật hơi mạnh, môi hơi chu ra.'], ['ʃ', '/ʃ/: "s" uốn lưỡi, môi chu, chỉ có hơi.'], ['ʒ', '/ʒ/: như /ʃ/ nhưng rung cổ.'],
+  ['æ', '/æ/: mở miệng rộng, âm giữa "a" và "e".'], ['ŋ', '/ŋ/: "ng" ở cuối, dừng ở mũi, không thêm "g".'], ['aʊ', '/aʊ/: "ao", trượt từ "a" sang "u".'], ['aɪ', '/aɪ/: "ai".'],
+  ['eɪ', '/eɪ/: "ây".'], ['oʊ', '/oʊ/: "âu", môi tròn dần.'], ['ɔɪ', '/ɔɪ/: "oi".'], ['iː', '/iː/: "i" kéo dài, môi hơi cười.'], ['ɪ', '/ɪ/: "i" ngắn, hơi ngả "ê".'],
+  ['uː', '/uː/: "u" kéo dài, môi tròn.'], ['ʊ', '/ʊ/: "u" ngắn, môi tròn nhẹ.'], ['ɝ', '/ɝː/: "ơ" có cong lưỡi kiểu /r/.'], ['ər', '/ər/: "ơ" nhẹ rồi cong lưỡi.'], ['ʌ', '/ʌ/: "ă" ngắn.'],
+  ['ə', '/ə/: "ơ" rất nhẹ, đọc lướt.'], ['r', '/r/: cong đầu lưỡi lên, không chạm vòm miệng, không rung như "r" tiếng Việt.'], ['v', '/v/: răng trên chạm môi dưới, có rung.'], ['z', '/z/: "d" miền Bắc, nghe rít "zzz".']];
+const DG_FIN = { p: 'p', b: 'b', t: 't', d: 'd', k: 'k', ɡ: 'g', f: 'f', v: 'v', s: 's', z: 'z', l: 'l', θ: 'th', ð: 'th', ʃ: 'sh', ʒ: 'zh', 'dʒ': 'dʒ', 'tʃ': 'tʃ' };
+// v33 (người sáng lập: "từ phát âm bị lệch sang từ khác: bấm vào từ có thêm từ hay nói sai và cách nói cho đúng"): bảng NHAM (bai/nham.js, dựng bởi tools/hocthuoc/nham.mjs)
+// = các từ có âm gần nhất trong từ điển app, kèm chỗ khác nhau giữa các âm và cách sửa. Nghe so sánh từng cặp.
+function nhHtml(w) { const k = String(w).toLowerCase().replace(/[’‘]/g, "'").replace(/^[^a-z]+|[^a-z]+$/g, ''), nh = typeof NHAM !== 'undefined' && NHAM[k]; if (!nh) return '';
+  return `<div class="dgnh"><p class="sm"><b>🔀 Hay bị nghe nhầm thành</b> <span class="mute">· nghe so sánh rồi nói lại</span></p>${nh.map(([v, ipa, tips]) => `<div class="nhr"><div class="row"><button class="lay" data-nh="${esc(k)}">🔊 ${esc(k)}</button><span class="mute">≠</span><button class="lay" data-nh="${esc(v)}">🔊 ${esc(v)}</button><span class="sm mute">/${esc(ipa)}/</span></div><ul class="dgtl">${tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>`).join('')}</div>`; }
+function dgSay(w, rate) { try { const u = new SpeechSynthesisUtterance(w.replace(/[^A-Za-z0-9'’ .]/g, '')); u.lang = 'en-US'; u.rate = rate; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} }
+function dgIpa(x) { const a = IPA[x.i] || []; return (Array.isArray(a) ? a : String(a).split('|'))[x.wi] || ''; }
+function dgTip(x) { const ipa = dgIpa(x), out = [];
+  const st = ipa.match(/ˈ([^ˈˌ ]*)/); if (st && (ipa.match(/[aeiouæɑɔəɪʊʌɝ]+/g) || []).length > 1) out.push(`🎯 Nhấn mạnh phần <b>/${esc(st[1])}/</b> (sau dấu ˈ), phần còn lại đọc nhẹ.`);
+  (LK[x.i] || []).filter(a => a[0] === x.wi || a[0] === x.wi - 1).forEach(a => out.push(`🔗 Nối âm: <b>${esc(a[1])}</b> · ${esc(a[2])}`));
+  (EL[x.i] || []).filter(a => a[0] === x.wi).forEach(a => out.push(`🤐 Nuốt âm: <b>${esc(a[1])}</b> · ${esc(a[2])}`));
+  const core = ipa.replace(/[ˈˌ]/g, ''), seen = new Set();
+  for (const [k, t] of DG_TIPS) if (core.includes(k) && ![...seen].some(z => z.includes(k))) { seen.add(k); out.push('👄 ' + esc(t)); if (seen.size >= 4) break; }
+  const fin = Object.keys(DG_FIN).sort((a, b) => b.length - a.length).find(f => core.endsWith(f));
+  if (fin) out.push(`🔚 Âm cuối <b>/${esc(fin)}/</b> phải bật ra nhẹ, đừng nuốt mất (người Việt hay bỏ âm cuối).`);
+  return out; }
+const dgWpm = T => Math.round(DG_W().length / T * 60);
+// v22 (người sáng lập 21/11: "không muốn chữ kéo lên nữa, khi nói đúng sẽ tự kéo lên và đo thời gian hoàn thành nhanh nhất"):
+// chữ đứng yên, đúng tới đâu khung tự kéo lên tới đó (từ đang sáng ở khoảng 1/3 khung). Đồng hồ chạy từ lần nhập đầu tới khi xanh hết bài.
+const dgClock = ms => { const t = Math.round(ms / 100) / 10, m = Math.floor(t / 60), x = (t % 60).toFixed(1); return `${m}:${x.padStart(4, '0')}`; };
+let dgBestGet = () => { try { return +localStorage.getItem('dgBest' + BAI_SUF()) || 0; } catch (e) { return 0; } };
+let dgBestSet = v => { try { localStorage.setItem('dgBest' + BAI_SUF(), v); } catch (e) {} };
+function duago() { cancelAnimationFrame(DG_RAF); DG = DG || { best: dgBestGet(), n: 0, first: null }; scrollTo(0, 0);
+  app.innerHTML = `${head()}<div class="card"><p><b>Nói hoặc gõ lại cả bài càng nhanh càng tốt.</b> Từ nào của bài có trong ô là xanh ngay, không cần đúng thứ tự. Khung tự kéo lên tới từ đầu tiên chưa xanh.</p>
+    <p class="sm mute">Bí thì bấm ↵ để bỏ qua từ đang sáng (tính sai). Đồng hồ chạy từ chữ đầu tiên bạn nhập.</p>
+    <p>⏱ Nhanh nhất: <b>${DG.best ? dgClock(DG.best) : 'chưa có'}</b></p></div>
+    <button class="pri" id="go" style="margin-top:12px">▶ Bắt đầu</button>${sibNav('duago')}`;
+  $('#go').onclick = dgRound; }
+function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_W(); let k = 0, okN = 0, over = false; const res = [];
+  let html = '', li = -1; W.forEach((x, j) => { if (x.i !== li) { if (li >= 0) html += '</p>'; li = x.i; html += `<p class="dgl"><span class="tag">${WHO[L[li][0]][0]}</span> `; } html += `<span class="gw" id="gw${j}" data-j="${j}" data-ipa="/${esc(dgIpa(x))}/">${esc(x.w)}</span> `; }); html += '</p>';
+  app.innerHTML = `${head()}<div class="row" style="justify-content:space-between"><span class="tag">Lần ${DG.n + 1}${DG.best ? ` · kỷ lục ${dgClock(DG.best)}` : ''}</span><span class="dgclock" id="dgclk">⏱ 0:00.0</span></div>
+    <input id="dgi" class="gin" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Gõ từ đang sáng" enterkeyhint="next" placeholder="Gõ liền nhiều từ · ↵ bỏ qua từ">
+    <div class="row dgtools"><button class="lay${DG.ipa ? ' on' : ''}" id="dgipa" aria-pressed="${!!DG.ipa}">🔤 Phiên âm</button><button class="lay" id="dgsay">🔊 Nghe từ đang sáng</button><span class="sm mute">· chạm từ để học cách nói</span></div>
+    <div class="dgwrap"><div id="dgtip"></div><div class="dgwin${DG.ipa ? ' showipa' : ''}" id="dgwin"><div class="dgroll" id="dgroll">${html}</div></div><button class="dgback" id="dgback" hidden>↓ Về chỗ đang nói</button></div>
+    <div class="bar"><i id="dgbar" style="width:0%"></i></div><p class="sm mute" id="dgs"></p><div id="fb"></div>`;
+  const win = $('#dgwin'), roll = $('#dgroll'), inp = $('#dgi'), H = win.clientHeight; let t0 = 0, y = 0, skN = 0, userT = -1e9, autoS = false; const DG_HOLD = 4000;
+  const sp = j => $('#gw' + j);
+  // v24 (ảnh người sáng lập 22:07: "512" có trong ô mà không xanh; "miễn trong ô có từ đó, đối chiếu với bài, từ nào có là tính"):
+  // KHÔNG theo thứ tự nữa. Mỗi lần ô đổi: đếm các từ trong ô (cả cụm 2–3 từ ghép lại: "five twelve", "we are"; từ ≥ 4 chữ cái tìm cả trong chữ dính "checkingout"),
+  // rồi đi theo thứ tự bài, từ chưa xanh nào có trong ô (còn lượt chưa dùng) thì xanh. Ô bị xoá (rời ô) thì đếm lại từ đầu.
+  let used = {}, lastLen = 0;
+  const tgt = j => dk(W[j].w);
+  const alts = j => dkAlt(tgt(j), W[j].w).filter(Boolean);
+  // Chữ dính ("checkingout") tách thành các từ của bài nếu tách hết được; không tìm chuỗi con (tránh "checking" làm xanh "check").
+  const VOC = new Set(W.flatMap((x, j) => alts(j)));
+  const seg = t => { if (VOC.has(t)) return [t]; const best = [[]]; for (let i = 1; i <= t.length; i++) { best[i] = null;
+      for (let m = Math.max(0, i - 20); m < i; m++) if (best[m] && VOC.has(t.slice(m, i)) && (!best[i] || best[m].length + 1 < best[i].length)) best[i] = [...best[m], t.slice(m, i)]; }
+    return best[t.length] || [t]; };
+  const firstPend = () => { let j = 0; while (j < W.length && res[j] != null) j++; return j; };
+  const cur = () => { document.querySelectorAll('#dgroll .gw-cur').forEach(e => { e.className = 'gw'; }); k = firstPend(); if (k < W.length) sp(k).className = 'gw gw-cur'; };
+  // v34 (người sáng lập: "chỉ cần 1 từ có trong ô là các từ khác trong bài đều xanh; phải đếm số từ trong ô với từ trong bài"):
+  // gán 1–1: mỗi chữ trong ô (hoặc 2–3 chữ liền cho "we are" = We're, "five twelve" = 512) chỉ làm xanh MỘT từ của bài, tìm từ con trỏ đi tới trước
+  // (con trỏ = sau từ vừa gán), không có mới quay lại tìm từ đầu bài. Mỗi lần ô đổi thì gán lại từ đầu cho cả ô; từ xanh từ lần ô trước (đã xoá) giữ nguyên (fixed).
+  const fixed = new Set();
+  const assign = () => { const toks = inp.value.split(/\s+/).map(dk).filter(Boolean).flatMap(seg), got = new Set(); let cur0 = 0;
+    while (cur0 < W.length && fixed.has(cur0)) cur0++;
+    const fits = (j, ti) => { if (fixed.has(j) || got.has(j) || !tgt(j)) return 0; const A = alts(j); for (let m = 1; m <= 3 && ti + m <= toks.length; m++) if (A.includes(toks.slice(ti, ti + m).join(''))) return m; return 0; };
+    for (let ti = 0; ti < toks.length;) { let hit = -1, m = 0;
+      for (let j = cur0; j < W.length && hit < 0; j++) { m = fits(j, ti); if (m) hit = j; }
+      for (let j = 0; j < cur0 && hit < 0; j++) { m = fits(j, ti); if (m) hit = j; }
+      if (hit < 0) { ti++; continue; } got.add(hit); ti += m; cur0 = hit + 1; }
+    return got; };
+  const check = () => { if (over) return; const v = inp.value; if (v.length < lastLen - 2 && !v.trim()) { for (let j = 0; j < W.length; j++) if (res[j] != null) fixed.add(j); } lastLen = v.length;
+    for (let j = 0; j < W.length; j++) if (!tgt(j) && res[j] == null) { done(j, true); fixed.add(j); }
+    for (const j of assign()) if (res[j] == null) done(j, true);
+    cur(); stat(); if (firstPend() >= W.length) end(); };
+  const skip = () => { if (over) return; if (!t0) t0 = performance.now(); check(); if (over) return; k = firstPend(); if (k >= W.length) return; done(k, false); fixed.add(k); skN++; cur(); stat(); if (firstPend() >= W.length) end(); };
+  const stat = () => { $('#dgs').textContent = `Đúng ${okN} · bỏ qua ${skN} · còn ${W.length - okN - skN} từ`; $('#dgbar').style.width = k / W.length * 100 + '%'; };
+  const done = (j, ok) => { if (res[j] != null) return; res[j] = ok; if (ok) okN++; const e = sp(j); e.className = 'gw ' + (ok ? 'gw-ok' : 'gw-err'); e.textContent = W[j].w; };
+  const end = () => { if (over) return; over = true; cancelAnimationFrame(DG_RAF); clearInterval(DG_CK); clearInterval(DG_PL); inp.disabled = true;
+    const ms = t0 ? performance.now() - t0 : 0, full = skN === 0, rec = full && (!DG.best || ms < DG.best), old = DG.best; if (rec) { DG.best = ms; dgBestSet(ms); }
+    if (DG.first == null) DG.first = full; $('#dgclk').textContent = '⏱ ' + dgClock(ms);
+    $('#fb').innerHTML = `<div class="fb ${full ? 'ok' : 'no'}">${rec ? '🏆 Kỷ lục mới! ' : ''}Xong cả bài trong <b>${dgClock(ms)}</b> · ${Math.round(W.length / ms * 60000)} từ/phút.
+      ${full ? (old && !rec ? `<br>Kỷ lục vẫn là ${dgClock(old)} (chậm hơn ${((ms - old) / 1000).toFixed(1)} giây).` : rec && old ? `<br>Nhanh hơn kỷ lục cũ ${((old - ms) / 1000).toFixed(1)} giây.` : '') : `<br>Bạn bỏ qua ${skN} từ nên lần này không tính kỷ lục.`}</div>
+      <button class="pri" id="nx" style="margin-top:10px">↻ Làm lại, phá kỷ lục</button><button class="sec" id="stop" style="margin-top:8px">Xong, về bài học</button>${sibBtn('duago')}`;
+    $('#nx').onclick = () => { DG.n++; dgRound(); };
+    $('#stop').onclick = () => fin('duago', [DG.first ? 1 : 0, 1]); $('#fb').scrollIntoView({ block: 'nearest' }); };
+  const tick = () => { if (!document.body.contains(win) || over) return;
+    if (t0) $('#dgclk').textContent = '⏱ ' + dgClock(performance.now() - t0);
+    // v27 (người sáng lập: "lướt đoạn văn lên xuống để đọc"): khung cuộn tay được; vừa lướt tay thì ngừng tự kéo DG_HOLD ms, hiện nút về chỗ đang nói.
+    const e = k < W.length ? sp(k) : null, hold = performance.now() - userT < DG_HOLD; $('#dgback').hidden = !hold || !e;
+    if (e && !hold) { const want = Math.max(0, e.offsetTop - H * 0.35), d = want - win.scrollTop; if (Math.abs(d) > 1) { autoS = true; win.scrollTop += d * 0.15; } }
+    DG_RAF = requestAnimationFrame(tick); };
+  // v18 (người sáng lập): chữ trong ô khớp từ đang sáng thì xanh NGAY; chữ không khớp cứ DG_IDLE bỏ một lần
+  // (bỏ trong bộ đếm, không sửa ô: sửa ô khi micro iPhone đang nghe làm chữ mới không hiện tới khi dừng nói). Bỏ xong vẫn tìm từ đang sáng ở phần sau nếu đã nói tới.
+  // v20: micro iPhone hiện chữ trong ô mà KHÔNG báo sự kiện input cho tới khi dừng nói (ảnh người sáng lập 21/11: "512 today" có trong ô mà không xanh).
+  // Nên ngoài input còn đọc lại ô mỗi DG_POLL ms; chữ đổi thì chấm.
+  let lastVal = '';
+  const onVal = () => { const v = inp.value; if (v === lastVal) return; lastVal = v; if (!t0 && v.trim()) t0 = performance.now(); if (!over) check(); };
+  ['input', 'keyup', 'compositionupdate', 'compositionend'].forEach(ev => inp.addEventListener(ev, onVal));
+  clearInterval(DG_PL); DG_PL = setInterval(() => document.body.contains(win) && !over ? onVal() : clearInterval(DG_PL), DG_POLL);
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); skip(); } });
+  // Chạm từ / nút: giữ bàn phím + micro (preventDefault ở pointerdown để ô nhập không mất focus).
+  const keep = el => el.addEventListener('pointerdown', e => e.preventDefault());
+  const tipOpen = j => { const x = W[j], tips = dgTip(x); dgSay(x.w, 0.85);
+    $('#dgtip').innerHTML = `<div class="card dgtipc"><div class="row" style="justify-content:space-between;align-items:baseline"><span><b class="dgtw">${esc(x.w.replace(/[^A-Za-z0-9'’]+$/g, '').replace(/^[^A-Za-z0-9'’]+/, ''))}</b> <span class="mute">/${esc(dgIpa(x))}/</span></span><button class="lay" id="tipx" aria-label="Đóng">✕</button></div>
+      <div class="row" style="margin:6px 0"><button class="lay" id="tip1">🔊 Nghe</button><button class="lay" id="tip2">🐢 Nghe chậm</button></div>
+      ${nhHtml(x.w)}
+      ${tips.length ? `<ul class="dgtl">${tips.map(t => `<li>${t}</li>`).join('')}</ul>` : '<p class="sm mute">Từ này đọc theo phiên âm là được.</p>'}<p class="sm mute">Nghe xong nói lại cả từ vào ô.</p></div>`;
+    ['#tipx', '#tip1', '#tip2'].forEach(q => keep($(q)));
+    $('#dgtip').querySelectorAll('[data-nh]').forEach(b => { keep(b); b.onclick = () => dgSay(b.dataset.nh, 0.8); });
+    $('#tipx').onclick = () => { $('#dgtip').innerHTML = ''; }; $('#tip1').onclick = () => dgSay(x.w, 0.85); $('#tip2').onclick = () => dgSay(x.w, 0.45); };
+  keep(roll); roll.addEventListener('click', e => { const t = e.target.closest('[data-j]'); if (t) tipOpen(+t.dataset.j); });
+  keep($('#dgipa')); keep($('#dgsay'));
+  $('#dgipa').onclick = () => { DG.ipa = !DG.ipa; win.classList.toggle('showipa', DG.ipa); $('#dgipa').classList.toggle('on', DG.ipa); $('#dgipa').setAttribute('aria-pressed', DG.ipa); };
+  $('#dgsay').onclick = () => { if (k < W.length) tipOpen(k); };
+  ['touchstart', 'wheel'].forEach(ev => win.addEventListener(ev, () => { userT = performance.now(); }, { passive: true }));
+  win.addEventListener('scroll', () => { if (autoS) { autoS = false; return; } if (performance.now() - userT < 1500) userT = performance.now(); }, { passive: true });
+  keep($('#dgback')); $('#dgback').onclick = () => { userT = -1e9; };
+  inp.addEventListener('blur', () => { if (!over) { for (let j = 0; j < W.length; j++) if (res[j] != null) fixed.add(j); inp.value = ''; lastVal = ''; lastLen = 0; cur(); } });
+  cur(); stat(); inp.focus(); DG_RAF = requestAnimationFrame(tick); }
+// ④ viết lại: từng câu, gợi ý tiếng Việt + chữ đầu (ôn thì bỏ chữ đầu)
+const norm = w => w.toLowerCase().replace(/[^a-z0-9']/g, '');
+function diff(want, got) { const g = words(got).map(norm).filter(Boolean), W = words(want); let ok = 0, p = 0;
+  const html = W.map(w => { const k = norm(w); if (!k) return esc(w); const f = g.indexOf(k, p); if (f >= 0) { p = f + 1; ok++; return `<span class="ok">${esc(w)}</span>`; } return `<span class="miss">${esc(w)}</span>`; }).join(' ');
+  return { html, pct: Math.round(ok / W.filter(w => norm(w)).length * 100) }; }
+function write() { const i = st.i, l = L[i], hint = st.day ? '' : words(l[1]).map(w => { const c = w.replace(/[^A-Za-z0-9']/g, ''); return c ? c[0] + '…' : w; }).join(' ');
+  app.innerHTML = `${head(`Viết lại từng câu, không nhìn đoạn. Câu ${i + 1}/${L.length}.${st.day ? ' Ngày ôn: không có gợi ý chữ đầu.' : ''}`)}
+    <div class="card">${lnHtml(i, `<span>${esc(l[2])}</span>${hint ? `<span class="sm mute">Gợi ý: ${esc(hint)}</span>` : ''}`)}</div>
+    <label for="wt" class="sm mute">Gõ câu tiếng Anh</label><textarea id="wt" autocapitalize="sentences" autocomplete="off" spellcheck="false"></textarea>
+    <button class="pri" id="ck">Kiểm tra</button><div id="fb"></div>`;
+  $('#ck').onclick = () => { const r = diff(l[1], $('#wt').value); st.w[i] = r.pct;
+    $('#fb').innerHTML = `<div class="card"><p><b>${r.pct}%</b> số từ đúng chỗ</p><p class="diff">${r.html}</p><p class="sm mute">Xanh: đã nhớ · đỏ gạch dưới: thiếu hoặc sai.</p></div><button class="pri" id="nx" style="margin-top:10px">${i + 1 < L.length ? 'Câu tiếp ›' : 'Xong ›'}</button>`;
+    $('#ck').hidden = true; $('#nx').onclick = () => { st.i++; scrollTo(0, 0); st.i < L.length ? write() : fin('viet'); }; }; }
+
+// ⑤ nói lại: bản mẫu không dùng micro → tự nói rồi tự chấm (trong app: máy chép lời so %)
+function speak() { app.innerHTML = `${head('Nói to cả đoạn, đóng vai cả hai người, không nhìn chữ. Xong thì mở đoạn ra tự chấm.')}
+    <div class="card"><p>Gợi ý: chỉ có ý tiếng Việt của từng lượt.</p>${L.map((l, i) => lnHtml(i, `<span class="sm">${esc(l[2])}</span>`)).join('')}</div>
+    <p class="note">Trong app: bấm 🎤 nói, máy chép lời và so % như bước viết. Bản mẫu không dùng được micro nên bạn tự chấm.</p>
+    <button class="sec" id="show">Mở đoạn để tự chấm</button><div id="fb"></div>`;
+  $('#show').onclick = () => { $('#show').hidden = true; $('#fb').innerHTML = `<div class="card">${L.map((l, i) => lnHtml(i, ipaHtml(i, anyLay() ? st.lay : ALLF))).join('')}</div>
+    <p><b>Bạn nói lại được bao nhiêu?</b></p><div class="seg">${[['90', 'Gần hết'], ['70', 'Sót vài chỗ'], ['40', 'Quên nhiều']].map(([v, t]) => `<button data-s="${v}">${t}</button>`).join('')}</div>`;
+    app.querySelectorAll('[data-s]').forEach(b => b.onclick = () => { st.say = +b.dataset.s; fin('noi'); }); }; }
+
+
+// ---------- v30 ⚡ Đua giờ dịch nghĩa (người sáng lập: "bài nhớ còn kiểu dịch sang tiếng Việt, làm tương tự trò đo thời gian") ----------
+// Nhìn câu tiếng Anh, nói (micro bàn phím tiếng Việt) hoặc gõ nghĩa tiếng Việt. Chấm theo Ý CHÍNH của mỗi câu (VNY, mỗi ý vài cách nói), bỏ dấu khi so,
+// ý nào có trong ô là xanh, không cần đúng thứ tự. Đồng hồ từ chữ đầu tới khi mọi ý xanh; kỷ lục riêng. ↵ bỏ qua ý đầu tiên chưa xanh (không tính kỷ lục).
+let dvBestGet = () => { try { return +localStorage.getItem('dvBest' + BAI_SUF()) || 0; } catch (e) { return 0; } };
+let dvBestSet = v => { try { localStorage.setItem('dvBest' + BAI_SUF(), v); } catch (e) {} };
+let DV = null, DV_PL = 0, DV_RAF = 0;
+// v32 (người sáng lập, ảnh iPhone 00:09: "phần dịch tiếng Việt cho câu sẵn để tôi chọn sắp xếp cho nhanh"): bỏ ô nhập; mỗi câu tiếng Anh, bấm các cụm
+// tiếng Việt (VNK) theo đúng thứ tự, lẫn 1 cụm nhiễu của câu khác. Bấm sai: cụm rung đỏ, phạt DV_PEN giây. Đồng hồ chạy từ lần bấm đầu tới hết bài.
+const DV_PEN = 2000, DV_X = 2;   // DV_X cụm lạ mỗi câu (người sáng lập: "cho 2 cụm lạ")
+function duavn() { DV = DV || { best: dvBestGet(), n: 0, first: null }; scrollTo(0, 0);
+  app.innerHTML = `${head()}<div class="card"><p><b>Nhìn câu tiếng Anh, bấm các cụm nghĩa tiếng Việt theo đúng thứ tự.</b> Xong câu này sang câu sau, tới hết bài.</p>
+    <p class="sm mute">Có 2 cụm lạ của câu khác để bẫy. Bấm sai bị cộng ${DV_PEN / 1000} giây. Chạm 🔊 để nghe câu.</p>
+    <p>⏱ Nhanh nhất: <b>${DV.best ? dgClock(DV.best) : 'chưa có'}</b></p></div>
+    <button class="pri" id="go" style="margin-top:12px">▶ Bắt đầu</button>${sibNav('duavn')}`;
+  $('#go').onclick = dvRound; }
+function dvRound() { cancelAnimationFrame(DV_RAF); scrollTo(0, 0); let i = 0, k = 0, t0 = performance.now(), pen = 0, bad = 0, over = false, chips = [];
+  const deal = () => { const own = VNK[i].map((t, j) => ({ t, j })), others = VNK.flatMap((c, n) => n === i ? [] : c).filter(t => !VNK[i].includes(t)), xs = shuf([...new Set(others)]).slice(0, DV_X);
+    chips = shuf([...own, ...xs.map(t => ({ t, j: -1 }))]); k = 0; };
+  const draw = msg => { app.innerHTML = `${head()}<div class="row" style="justify-content:space-between"><span class="tag">Câu ${i + 1}/${L.length}${DV.best ? ` · kỷ lục ${dgClock(DV.best)}` : ''}</span><span class="dgclock" id="dvclk">⏱ ${dgClock(performance.now() - t0 + pen)}</span></div>
+    <div class="bar"><i style="width:${i / L.length * 100}%"></i></div>
+    <div class="card">${lnHtml(i, `<span>${esc(L[i][1])}</span><button class="link sm" data-p="${i}" style="align-self:flex-start">🔊 Nghe câu này</button>`)}
+      <p class="built dvbuilt">${VNK[i].slice(0, k).map(esc).join(' ')}<span class="cursor">▌</span></p></div>
+    <div class="bank">${chips.map((c, n) => `<button data-c="${n}" ${c.used ? 'disabled' : ''}>${esc(c.t)}</button>`).join('')}</div><div id="fb">${msg || ''}</div>
+    ${i ? `<details class="card"><summary class="link" style="display:flex;align-items:center">✓ ${i} câu đã xếp</summary>${L.slice(0, i).map(l => `<p class="sm"><b>${esc(l[1])}</b><br>${esc(l[2])}</p>`).join('')}</details>` : ''}`;
+    $('[data-p]').onclick = () => play(i);
+    app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { const c = chips[+b.dataset.c];
+      if (c.j === k) { c.used = 1; k++; if (k < VNK[i].length) return draw();
+        if (++i < L.length) { deal(); return draw(); } return end(); }
+      bad++; pen += DV_PEN; b.classList.add('shake'); setTimeout(() => b.classList.remove('shake'), 400); }); };
+  const end = () => { over = true; cancelAnimationFrame(DV_RAF); const ms = performance.now() - t0 + pen, rec = !DV.best || ms < DV.best, old = DV.best; if (rec) { DV.best = ms; dvBestSet(ms); } if (DV.first == null) DV.first = !bad;
+    app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong cả bài</p><p class="big">${dgClock(ms)}</p>
+      <p>${rec ? '🏆 Kỷ lục mới!' + (old ? ` Nhanh hơn ${((old - ms) / 1000).toFixed(1)} giây.` : '') : `Kỷ lục vẫn là ${dgClock(old)}.`}</p><p class="sm mute">${bad ? `Bấm sai ${bad} lần (đã cộng ${bad * DV_PEN / 1000} giây).` : 'Không bấm sai lần nào.'}</p></div>
+      <details class="card"><summary class="link" style="display:flex;align-items:center">📖 Xem lại cả bài và nghĩa</summary>${L.map(l => `<p class="sm"><b>${esc(l[1])}</b><br>${esc(l[2])}</p>`).join('')}</details>
+      <button class="pri" id="nx" style="margin-top:10px">↻ Làm lại, phá kỷ lục</button><button class="sec" id="stop" style="margin-top:8px">Xong, về bài học</button>${sibBtn('duavn')}`;
+    $('#nx').onclick = () => { DV.n++; dvRound(); }; $('#stop').onclick = () => fin('duavn', [DV.first ? 1 : 0, 1]); };
+  const tick = () => { if (over) return; const e = document.getElementById('dvclk'); if (!e) return; e.textContent = '⏱ ' + dgClock(performance.now() - t0 + pen); DV_RAF = requestAnimationFrame(tick); };
+  deal(); draw(); DV_RAF = requestAnimationFrame(tick); }
+// ---------- v29 💡 Hiểu · ✍️ Dùng được (người sáng lập: "học thuộc bài rồi lấy ngữ pháp, từ vựng trong bài để rèn luyện cho dễ hình dung; tự tính cách làm") ----------
+// 12 mục của bài (7 cụm từ + 5 điểm ngữ pháp), mỗi mục 4 bậc: ① hiểu trong câu của bài · ② hiểu trong câu MỚI · ③ chọn dùng đúng trong câu mới · ④ tự gõ trong câu mới.
+// 💡 Hiểu = ① + ② đúng ngay lần đầu. ✍️ Dùng được = ③ + ④ đúng ngay lần đầu (ngữ pháp: ② ③ ③ ④ = 4 câu mới đúng liên tiếp). Nên làm Dùng được vào ngày sau để đo cả nhớ.
+// Ngưỡng là ý kiến của Claude (Laufer & Goldstein 2004: hiểu nghĩa ≠ tự dùng được; 3+ câu mới liên tiếp gần như loại trừ đoán mò). Câu do Claude soạn, chưa giáo viên kiểm.
+let MU = [
+ { id: 'v1', g: 'v', t: 'check out of', vi: 'trả phòng', line: 0, hl: 'checking out of',
+   b1: { s: "I'm [[checking out of]] Room 512 today", q: 'checking out of ở đây nghĩa là gì?', o: ['trả phòng, rời khách sạn', 'kiểm tra phòng', 'xem thử phòng', 'nhận phòng'], a: 0, vi: 'check out of + khách sạn / phòng = trả phòng. Ngược lại: check in = nhận phòng.' },
+   b2: { q: 'Câu mới: “Please return your key card when you check out of the hotel.” — check out of nghĩa là gì?', o: ['trả phòng, rời khách sạn', 'đăng ký nhận phòng', 'thanh toán tiền ăn', 'kiểm tra hành lý'], a: 0, vi: 'Trả thẻ phòng khi trả phòng.' },
+   b3: [{ q: 'We have to ___ the hotel by 11 A.M. tomorrow.', o: ['check out of', 'check in', 'check up on', 'look out of'], a: 0, vi: 'check out of + khách sạn = trả phòng; check in = nhận phòng.' }],
+   b4: { q: 'What time do we need to ___ the room?', hint: 'trả phòng · 3 từ', ans: ['check out of'], vi: 'check out of the room = trả phòng.' } },
+ { id: 'v2', g: 'v', t: 'fully booked', vi: 'kín chỗ, hết phòng', line: 1, hl: 'fully booked',
+   b1: { s: "We're [[fully booked]] tonight", q: 'fully booked nghĩa là gì?', o: ['kín phòng, hết chỗ', 'đã trả đủ tiền', 'đặt rất nhiều sách', 'rất bận'], a: 0, vi: 'book = đặt chỗ; fully booked = mọi chỗ đã có người đặt.' },
+   b2: { q: 'Câu mới: “Sorry, the 7 o’clock show is fully booked. Would you like tickets for 9 o’clock?” — Vì sao người bán gợi ý suất 9 giờ?', o: ['Suất 7 giờ đã hết vé', 'Suất 7 giờ bị huỷ', 'Suất 9 giờ rẻ hơn', 'Suất 7 giờ chưa mở bán'], a: 0, vi: 'fully booked = hết chỗ.' },
+   b3: [{ q: 'The restaurant is ___ on Saturday night, so let’s go on Friday.', o: ['fully booked', 'fully paid', 'well booked', 'full of booking'], a: 0, vi: 'fully booked = kín chỗ. Không nói “well booked”.' }],
+   b4: { q: 'All the flights to Da Nang are ___ this weekend.', hint: 'kín chỗ · 2 từ', ans: ['fully booked'], vi: 'fully booked = hết chỗ.' } },
+ { id: 'v3', g: 'v', t: 'extend … to', vi: 'lùi, kéo dài tới', line: 1, hl: 'extend',
+   b1: { s: 'I can only [[extend]] your checkout to two P.M.', q: 'extend ở đây nghĩa là gì?', o: ['lùi giờ, kéo dài tới', 'mở rộng diện tích', 'tăng giá', 'huỷ bỏ'], a: 0, vi: 'extend + giờ / hạn + to + mốc mới = lùi tới mốc đó.' },
+   b2: { q: 'Câu mới: “The museum will extend its opening hours to 10 P.M. in summer.” — nghĩa là gì?', o: ['Mùa hè bảo tàng mở cửa muộn hơn, tới 10 giờ tối', 'Bảo tàng mở rộng thêm phòng', 'Bảo tàng tăng giá vé', 'Bảo tàng đóng cửa lúc 10 giờ sáng'], a: 0, vi: 'extend + giờ mở cửa + to 10 P.M. = kéo dài tới 10 giờ tối.' },
+   b3: [{ q: 'Could you ___ the deadline to next Monday?', o: ['extend', 'expand', 'increase', 'grow'], a: 0, vi: 'extend cho thời gian / hạn chót; expand = mở rộng kích thước; increase = tăng số lượng.' }],
+   b4: { q: 'We can ___ your stay to Sunday if you like.', hint: 'kéo dài · 1 từ', ans: ['extend'], vi: 'extend your stay to Sunday = ở thêm tới Chủ nhật.' } },
+ { id: 'v4', g: 'v', t: 'leave (đồ vật)', vi: 'để lại, gửi lại', line: 2, hl: 'leave',
+   b1: { s: 'Is there somewhere I could [[leave]] my luggage after that?', q: 'leave ở đây nghĩa là gì?', o: ['để lại, gửi lại', 'rời đi', 'nghỉ phép', 'quên mất'], a: 0, vi: 'leave + đồ vật + ở đâu = để lại có chủ ý. Khác “my flight doesn’t leave” = cất cánh, rời đi.' },
+   b2: { q: 'Câu mới: “You can leave your umbrella by the door.” — leave nghĩa là gì?', o: ['để ô lại cạnh cửa', 'mang ô theo', 'rời khỏi cửa', 'mở ô ra'], a: 0, vi: 'leave đồ vật = để lại.' },
+   b3: [{ q: 'Can I ___ my bags here while I look around the shop?', o: ['leave', 'let', 'forget', 'lose'], a: 0, vi: 'leave = để lại có chủ ý; forget = quên; lose = làm mất.' }],
+   b4: { q: 'Please ___ a message after the beep.', hint: 'để lại · 1 từ', ans: ['leave'], vi: 'leave a message = để lại lời nhắn.' } },
+ { id: 'v5', g: 'v', t: 'store', vi: 'cất giữ', line: 3, hl: 'store',
+   b1: { s: 'We can [[store]] your bags at the front desk', q: 'store ở đây là gì?', o: ['cất giữ (động từ)', 'cửa hàng (danh từ)', 'mua sắm', 'mang đi'], a: 0, vi: 'store hay gặp với nghĩa “cửa hàng”, nhưng sau “can” là động từ: cất giữ.' },
+   b2: { q: 'Câu mới: “We store old files in the basement.” — store ở đây là gì?', o: ['cất giữ', 'cửa hàng', 'bán', 'tìm kiếm'], a: 0, vi: 'store + đồ + ở đâu = cất giữ.' },
+   b3: [{ q: 'The hotel can ___ your suitcase until 6 P.M.', o: ['store', 'shop', 'stay', 'spend'], a: 0, vi: 'store đồ = cất giữ; stay = ở lại; spend = tiêu.' }],
+   b4: { q: 'Where do you ___ the extra chairs?', hint: 'cất giữ · 1 từ', ans: ['store', 'keep'], vi: 'store / keep = cất, để ở đâu.' } },
+ { id: 'v6', g: 'v', t: 'be welcome to + V', vi: 'cứ tự nhiên làm gì', line: 3, hl: 'welcome to use',
+   b1: { s: "you're [[welcome to use]] the business lounge", q: 'you’re welcome to use nghĩa là gì?', o: ['chị cứ tự nhiên dùng', 'chị được chào đón khi đến', 'chị phải dùng', 'chị không được dùng'], a: 0, vi: 'be welcome to + V = cứ tự nhiên (lời mời lịch sự). Khác “You’re welcome.” = Không có gì.' },
+   b2: { q: 'Câu mới: “You’re welcome to bring a friend to the party.” — người nói muốn nói gì?', o: ['Bạn cứ dẫn bạn bè đến', 'Bạn phải dẫn bạn bè đến', 'Cảm ơn bạn đã dẫn bạn đến', 'Không được dẫn bạn bè đến'], a: 0, vi: 'be welcome to + V = mời, cho phép một cách thân thiện.' },
+   b3: [{ q: 'Staff are ___ to use the gym after work.', o: ['welcome', 'pleased', 'glad', 'kind'], a: 0, vi: 'be welcome to + V = cứ tự nhiên. pleased / glad to = vui khi.' }],
+   b4: { q: 'You are ___ to stay for dinner.', hint: 'cứ tự nhiên · 1 từ', ans: ['welcome'], vi: 'You are welcome to stay = cứ ở lại ăn tối.' } },
+ { id: 'v7', g: 'v', t: 'book (đặt trước)', vi: 'đặt trước', line: 4, hl: 'book',
+   b1: { s: 'Could you also [[book]] a taxi to the airport?', q: 'book ở đây là gì?', o: ['đặt trước (động từ)', 'quyển sách', 'đọc sách', 'gọi điện'], a: 0, vi: 'book a taxi / a table / a room = đặt trước. Trong bài còn có “fully booked”.' },
+   b2: { q: 'Câu mới: “I’ve booked a table for four at 7 P.M.” — người nói đã làm gì?', o: ['Đặt bàn cho 4 người', 'Mua 4 quyển sách', 'Dọn 4 cái bàn', 'Đến nhà hàng lúc 7 giờ'], a: 0, vi: 'book a table = đặt bàn.' },
+   b3: [{ q: 'I’d like to ___ a room for two nights, please.', o: ['book', 'buy', 'borrow', 'order'], a: 0, vi: 'book a room = đặt phòng; order dùng cho món ăn, hàng hoá.' }],
+   b4: { q: 'Did you ___ the train tickets yet?', hint: 'đặt trước · 1 từ', ans: ['book'], vi: 'book tickets = đặt vé.' } },
+ { id: 'g1', g: 'g', t: 'Hiện tại tiếp diễn: kế hoạch đã hẹn', vi: '', line: 0, hl: "I'm checking out",
+   b1: null,   // lấy NPQ[0]
+   b2: { q: 'Câu mới: “I’m meeting my manager tomorrow morning.” — câu này nói về điều gì?', o: ['cuộc hẹn đã sắp xếp cho ngày mai', 'việc đang làm ngay lúc nói', 'thói quen mỗi sáng', 'việc đã xong'], a: 0, vi: 'Hiện tại tiếp diễn + mốc tương lai = kế hoạch đã hẹn.' },
+   b3: [{ q: 'We ___ to Hanoi next Friday. The tickets are booked.', o: ['are flying', 'fly', 'flew', 'have flown'], a: 0, vi: 'Đã đặt vé = kế hoạch đã sắp xếp: hiện tại tiếp diễn.' },
+        { q: 'What ___ this weekend? — I’m visiting my parents.', o: ['are you doing', 'do you do', 'did you do', 'you are doing'], a: 0, vi: 'Hỏi kế hoạch: What are you doing + mốc tương lai?' }],
+   b4: { q: 'I ___ my new job next Monday. (start, đã sắp xếp)', hint: 'gõ dạng đúng của start', ans: ['am starting', "'m starting", 'im starting'], vi: 'I am starting … next Monday: kế hoạch đã định.' } },
+ { id: 'g2', g: 'g', t: 'not … until + hiện tại đơn (lịch trình)', vi: '', line: 0, hl: "doesn't leave until",
+   b1: null,
+   b2: { q: 'Câu mới: “The shop doesn’t open until 10 A.M.” — cửa hàng mở lúc nào?', o: ['mãi tới 10 giờ mới mở', 'mở trước 10 giờ', 'đóng cửa lúc 10 giờ', 'mở cả ngày'], a: 0, vi: 'not … until 10 = mãi tới 10 giờ mới; trước đó chưa mở.' },
+   b3: [{ q: 'The last bus ___ at 11:30 P.M., so we still have time.', o: ['leaves', 'is leave', 'leaving', 'has leave'], a: 0, vi: 'Lịch xe chạy cố định: hiện tại đơn.' },
+        { q: 'The meeting ___ until 3 P.M., so let’s have lunch first.', o: ["doesn't start", "isn't start", "won't starting", 'not start'], a: 0, vi: 'not … until + lịch cố định: doesn’t start until.' }],
+   b4: { q: 'The train ___ until 9 P.M. (arrive, phủ định, theo lịch)', hint: 'gõ dạng đúng của arrive', ans: ["doesn't arrive", 'does not arrive', 'doesnt arrive'], vi: 'doesn’t arrive until 9 = mãi 9 giờ mới tới.' } },
+ { id: 'g3', g: 'g', t: 'until / when / as soon as + hiện tại đơn (tương lai)', vi: '', line: 3, hl: 'until your taxi arrives',
+   b1: null,
+   b2: { q: 'Câu mới: “I will call you when I will get home.” — câu này đúng hay sai?', o: ['Sai, phải là “when I get home”', 'Đúng', 'Sai, phải là “when I got home”', 'Sai, phải là “when I getting home”'], a: 0, vi: 'Sau when / until / as soon as, việc tương lai dùng hiện tại đơn.' },
+   b3: [{ q: 'Please wait here until the manager ___.', o: ['arrives', 'will arrive', 'arrived', 'arriving'], a: 0, vi: 'Sau until dùng hiện tại đơn cho tương lai.' },
+        { q: 'I’ll text you as soon as the meeting ___.', o: ['finishes', 'will finish', 'finished', 'finishing'], a: 0, vi: 'Sau as soon as dùng hiện tại đơn cho tương lai.' }],
+   b4: { q: 'We can leave after you ___ your lunch. (finish)', hint: 'gõ dạng đúng của finish', ans: ['finish'], vi: 'after + hiện tại đơn cho việc tương lai.' } },
+ { id: 'g4', g: 'g', t: 'Could you …? (nhờ lịch sự)', vi: '', line: 4, hl: 'Could you',
+   b1: null,
+   b2: { q: 'Câu mới: Bạn nói với lễ tân “Could you call me a taxi, please?” — câu này để làm gì?', o: ['nhờ một cách lịch sự', 'hỏi lễ tân có biết gọi taxi không', 'ra lệnh', 'kể chuyện đã gọi taxi'], a: 0, vi: 'Could you + V…? = nhờ lịch sự, mềm hơn Can you…?' },
+   b3: [{ q: '___ you help me carry these boxes, please?', o: ['Could', 'Must', 'Should', 'Shall'], a: 0, vi: 'Nhờ lịch sự: Could you…?' },
+        { q: 'Câu nào lịch sự nhất khi nhờ lễ tân?', o: ['Could you call me a taxi, please?', 'Call me a taxi.', 'You must call me a taxi.', 'You call me a taxi?'], a: 0, vi: 'Could you … please? là lời nhờ lịch sự.' }],
+   b4: { q: '___ you send me the menu, please? (nhờ lịch sự)', hint: 'gõ 1 từ', ans: ['could', 'would'], vi: 'Could / Would you…? = nhờ lịch sự.' } },
+ { id: 'g5', g: 'g', t: "Will: quyết định ngay lúc nói", vi: '', line: 5, hl: "I'll call",
+   b1: null,
+   b2: { q: 'Câu mới: A: “We’re out of milk.” B: “I’ll buy some on my way home.” — B quyết định lúc nào?', o: ['ngay lúc nghe A nói', 'đã định từ hôm qua', 'đây là thói quen hằng ngày', 'việc đã làm xong'], a: 0, vi: 'Quyết định ngay lúc nói: will.' },
+   b3: [{ q: 'It’s cold in here. — OK, I ___ close the window.', o: ['will', 'am', 'did', 'have'], a: 0, vi: 'Vừa nghe xong quyết định làm: will.' },
+        { q: 'A: “I forgot my wallet.” B: “Don’t worry, I ___ for lunch.”', o: ['will pay', 'pay', 'paid', 'have paid'], a: 0, vi: 'Đề nghị làm giúp ngay lúc nói: will.' }],
+   b4: { q: 'A: “This bag is heavy.” B: “I ___ you.” (help)', hint: 'gõ dạng đúng của help', ans: ['will help', "'ll help", 'ill help'], vi: 'I’ll help you: quyết định giúp ngay lúc nói.' } }];
+MU.filter(m => m.g === 'g').forEach((m, i) => { const n = NPQ[i]; m.b1 = { s: n.s, q: n.q, o: n.o, a: n.a, vi: n.vi + (n.nen ? ` · 🧱 Bài Nền liên quan: ${n.nen}` : '') }; });
+// ---------- v31 nhiều bài (người sáng lập: "làm trên artifact trước" danh sách docs/BAI-HOC-THUOC.md). Bài 2 = khuôn cho bài 3–12. ----------
+// Dịch, phiên âm, đánh dấu đọc, câu luyện: Claude soạn, chưa giáo viên kiểm. Bài nói Đề 5 Part 4 (d05-p4-04), giọng Kokoro của app.
+WHO.N = ['Phát thanh viên', 'PTV'];
+const BAI2 = {
+  meta: { de: 'Đề 5 · Part 4 · bản tin', dang: '📢 Bài nói', t: 'Cầu Elm Street đóng để sửa', sub: 'Bản tin địa phương trong Đề 5 TOEIC (Part 4). Chạm một câu để nghe và xem dịch.' },
+  L: [
+    ['N', 'In local news, the Elm Street Bridge will close for repairs starting next Monday.', 'Tin địa phương: cầu Elm Street sẽ đóng để sửa chữa từ thứ Hai tới.', 'af6257393'],
+    ['N', "City engineers say the work is needed to strengthen the bridge's supports, which are more than sixty years old.", 'Các kỹ sư thành phố cho biết cần sửa để gia cố trụ cầu, vốn đã hơn sáu mươi năm tuổi.', 'a3274343e'],
+    ['N', 'The repairs are expected to take about three weeks.', 'Việc sửa chữa dự kiến mất khoảng ba tuần.', 'af40aee10'],
+    ['N', 'During that time, drivers are advised to use the Harbor Road Bridge instead.', 'Trong thời gian đó, tài xế được khuyên đi cầu Harbor Road thay thế.', 'af84175a3'],
+    ['N', 'To help reduce traffic, the city will add extra buses on Route 9 during the morning and evening rush hours.', 'Để giảm ùn tắc, thành phố sẽ tăng thêm xe buýt tuyến 9 vào giờ cao điểm sáng và chiều.', 'afe493dbe'],
+    ['N', "For updates, residents can visit the city's Web site.", 'Muốn xem tin cập nhật, người dân có thể vào trang web của thành phố.', 'a86b627fb']],
+  IPA: [
+    'ɪn|ˈloʊkəl|nuːz|ðə|elm|striːt|brɪdʒ|wɪl|kloʊz|fər|rɪˈperz|ˈstɑːrtɪŋ|nekst|ˈmʌndeɪ',
+    'ˈsɪti|ˌendʒɪˈnɪrz|seɪ|ðə|wɝːk|ɪz|ˈniːdɪd|tə|ˈstreŋθən|ðə|ˈbrɪdʒɪz|səˈpɔːrts|wɪtʃ|ər|mɔːr|ðən|ˈsɪksti|jɪrz|oʊld',
+    'ðə|rɪˈperz|ər|ɪkˈspektɪd|tə|teɪk|əˈbaʊt|θriː|wiːks',
+    'ˈdʊrɪŋ|ðæt|taɪm|ˈdraɪvərz|ər|ədˈvaɪzd|tə|juːz|ðə|ˈhɑːrbər|roʊd|brɪdʒ|ɪnˈsted',
+    'tə|help|rɪˈduːs|ˈtræfɪk|ðə|ˈsɪti|wɪl|æd|ˈekstrə|ˈbʌsɪz|ɑːn|ruːt|naɪn|ˈdʊrɪŋ|ðə|ˈmɔːrnɪŋ|ən|ˈiːvnɪŋ|rʌʃ|ˈaʊərz',
+    'fər|ˈʌpdeɪts|ˈrezɪdənts|kən|ˈvɪzɪt|ðə|ˈsɪtiz|web|saɪt'].map(x => x.split('|')),
+  STR: [[1, 2, 4, 5, 6, 8, 10, 11, 12, 13], [0, 1, 2, 4, 6, 8, 10, 11, 14, 16, 17, 18], [1, 3, 5, 7, 8], [0, 2, 3, 5, 7, 9, 10, 11, 12], [1, 2, 3, 5, 7, 8, 9, 11, 12, 15, 17, 18, 19], [1, 2, 4, 6, 7, 8]],
+  LK: [
+    [[3, 'the‿yElm', 'the Elm: trước nguyên âm “the” đọc /ði/, chèn nhẹ /j/']],
+    [[12, 'whi‿char', 'which are: /tʃ/ nối sang /ə/'], [17, 'year‿zold', 'years old: /z/ nối sang /oʊ/']],
+    [[1, 'repair‿zare', 'repairs are: /z/ nối sang /ə/'], [5, 'ta‿kabout', 'take about: /k/ nối sang /ə/']],
+    [[3, 'driver‿zare', 'drivers are: /z/ nối sang /ə/'], [11, 'brid‿ginstead', 'Bridge instead: /dʒ/ nối sang /ɪ/']],
+    [[7, 'a‿dextra', 'add extra: /d/ nối sang /e/'], [9, 'buse‿zon', 'buses on: /z/ nối sang /ɑː/'], [15, 'mornin‿gand', 'morning and: /ŋ/ nối sang /ə/'], [18, 'ru‿shours', 'rush hours: chữ h câm, /ʃ/ nối sang /aʊ/']],
+    [[0, 'fo‿rupdates', 'For updates: /r/ nối sang /ʌ/']]],
+  INT: [[[13, '↘']], [[18, '↘']], [[8, '↘']], [[12, '↘']], [[19, '↘']], [[8, '↘']]],
+  PAU: [[2], [11], [], [2], [3, 12], [1]],
+  EL: [
+    [[5, 'striː(t)', 'Street Bridge: /t/ không bật hơi trước /b/']],
+    [],
+    [[3, 'ɪkˈspektɪ(d)', 'expected to: /d/ gần như mất trước /t/']],
+    [[1, 'ðæ(t)', 'that time: hai âm /t/ gặp nhau, đọc một lần'], [5, 'ədˈvaɪz(d)', 'advised to: /d/ nuốt trước /t/']],
+    [[16, 'ən(d)', 'morning and evening: /d/ rơi, chỉ còn /ən/']],
+    [[4, 'ˈvɪzɪ(t)', 'visit the: /t/ không bật hơi trước /ð/']]],
+  VNK: [['Tin địa phương:', 'cầu Elm Street sẽ đóng', 'để sửa chữa', 'từ thứ Hai tới.'], ['Các kỹ sư thành phố cho biết', 'cần sửa để gia cố trụ cầu,', 'vốn đã hơn', 'sáu mươi năm tuổi.'],
+    ['Việc sửa chữa', 'dự kiến mất', 'khoảng ba tuần.'], ['Trong thời gian đó,', 'tài xế được khuyên', 'đi cầu Harbor Road', 'thay thế.'],
+    ['Để giảm ùn tắc,', 'thành phố sẽ tăng thêm', 'xe buýt tuyến 9', 'vào giờ cao điểm sáng và chiều.'], ['Muốn xem tin cập nhật,', 'người dân có thể vào', 'trang web của thành phố.']],
+  CUM: [['close for repairs', 'đóng để sửa chữa'], ['strengthen', 'gia cố, làm chắc'], ['be expected to + V', 'dự kiến sẽ'], ['be advised to + V', 'được khuyên nên'], ['instead', 'thay vào đó'], ['reduce traffic', 'giảm ùn tắc'], ['rush hours', 'giờ cao điểm']],
+  VNY: [
+    [['đóng'], ['sửa'], ['cầu'], ['thứ hai']],
+    [['kỹ sư'], ['gia cố', 'củng cố', 'làm chắc'], ['trụ', 'chân cầu'], ['sáu mươi', '60']],
+    [['dự kiến', 'dự tính'], ['ba tuần', '3 tuần']],
+    [['tài xế', 'lái xe', 'người lái'], ['khuyên', 'nên'], ['harbor'], ['thay thế', 'thay vào', 'thay']],
+    [['giảm'], ['ùn tắc', 'kẹt xe', 'giao thông'], ['xe buýt', 'xe bus'], ['tuyến 9', 'tuyến chín'], ['cao điểm']],
+    [['cập nhật', 'tin mới'], ['người dân', 'cư dân'], ['trang web', 'website']]],
+  EXQ: [
+    { q: 'What will happen next Monday?', o: ['A bridge will close.', 'A new bus route will open.', 'A road will be widened.', 'A city election will be held.'], a: 0, vi: '“the Elm Street Bridge will close for repairs starting next Monday”.' },
+    { q: 'Why is the work necessary?', o: ['Some supports are old.', 'A storm caused damage.', 'Traffic has increased.', 'A new road is being built.'], a: 0, vi: '“strengthen the bridge’s supports, which are more than sixty years old”.' },
+    { q: 'What will the city do to reduce traffic?', o: ['Provide more buses', 'Lower parking fees', 'Build a second bridge', 'Close some schools'], a: 0, vi: '“the city will add extra buses on Route 9”.' }],
+  NEWQ2: [
+    { q: 'The main road will ___ for repairs this weekend.', o: ['close', 'closed', 'closing', 'closure'], a: 0, vi: 'Sau will: động từ nguyên mẫu.' },
+    { q: 'Flights are ___ to be delayed because of the storm.', o: ['expected', 'expecting', 'expectation', 'expect'], a: 0, vi: 'be expected to + V = dự kiến sẽ.' },
+    { q: 'Guests are ___ to keep their valuables in the safe.', o: ['advised', 'advice', 'advise', 'advisable'], a: 0, vi: 'be advised to + V = được khuyên nên.' },
+    { q: 'Ms. Chen could not come, so Mr. Park spoke ___.', o: ['instead', 'instead of', 'rather', 'besides'], a: 0, vi: 'instead đứng cuối câu = thay vào đó.' },
+    { q: 'The new software helps ___ paperwork.', o: ['reduce', 'reduction', 'reduces', 'reduced'], a: 0, vi: 'help + V nguyên mẫu.' },
+    { q: 'The museum, ___ is near the station, is free on Sundays.', o: ['which', 'who', 'where', 'what'], a: 0, vi: 'Vật + , which.' },
+    { q: '___ the holiday season, the store stays open until 11 P.M.', o: ['During', 'While', 'When', 'Since'], a: 0, vi: 'Sau là cụm danh từ: during.' }],
+  MU: [
+    { id: 'v1', g: 'v', t: 'close for repairs', vi: 'đóng để sửa chữa', line: 0, hl: 'close for repairs',
+      b1: { s: 'the Elm Street Bridge will [[close for repairs]] starting next Monday', q: 'close for repairs nghĩa là gì?', o: ['đóng để sửa chữa', 'đóng gần chỗ sửa', 'sửa xong rồi mở', 'đóng vĩnh viễn'], a: 0, vi: 'close for + lý do = đóng để làm gì (close for the holiday, close for renovation).' },
+      b2: { q: 'Câu mới: “The swimming pool will close for repairs from June 1 to June 10.” — điều gì xảy ra?', o: ['Hồ bơi đóng 10 ngày để sửa', 'Hồ bơi mở thêm giờ', 'Hồ bơi đóng cửa hẳn', 'Hồ bơi chuyển sang chỗ khác'], a: 0, vi: 'close for repairs + khoảng thời gian = tạm đóng để sửa.' },
+      b3: [{ q: 'Our café will be closed ___ repairs this weekend.', o: ['for', 'to', 'by', 'with'], a: 0, vi: '(be) closed for + lý do.' }],
+      b4: { q: 'The museum will ___ for repairs next month.', hint: 'đóng · 1 từ', ans: ['close'], vi: 'close for repairs = đóng để sửa.' } },
+    { id: 'v2', g: 'v', t: 'strengthen', vi: 'gia cố, làm chắc', line: 1, hl: 'strengthen',
+      b1: { s: "the work is needed to [[strengthen]] the bridge's supports", q: 'strengthen nghĩa là gì?', o: ['làm chắc hơn, gia cố', 'làm dài hơn', 'sơn lại', 'tháo bỏ'], a: 0, vi: 'strong → strengthen (động từ): làm cho chắc, mạnh hơn. Đuôi -en tạo động từ: wide → widen, short → shorten.' },
+      b2: { q: 'Câu mới: “The training program will strengthen our customer service skills.” — nghĩa là gì?', o: ['làm kỹ năng phục vụ khách tốt hơn', 'làm kỹ năng kém đi', 'kiểm tra kỹ năng', 'đổi lịch đào tạo'], a: 0, vi: 'strengthen skills = nâng kỹ năng.' },
+      b3: [{ q: 'The company wants to ___ its position in the Asian market.', o: ['strengthen', 'strength', 'strong', 'strongly'], a: 0, vi: 'Sau to cần động từ: strengthen. strength = danh từ, strong = tính từ, strongly = trạng từ.' }],
+      b4: { q: 'We need to ___ the old fence before winter.', hint: 'gia cố · 1 từ, gốc strong', ans: ['strengthen'], vi: 'strengthen = làm chắc hơn.' } },
+    { id: 'v3', g: 'v', t: 'be expected to + V', vi: 'dự kiến sẽ', line: 2, hl: 'are expected to take',
+      b1: { s: 'The repairs [[are expected to take]] about three weeks.', q: 'are expected to take nghĩa là gì?', o: ['dự kiến sẽ mất', 'chắc chắn đã mất', 'mong được mất', 'bắt buộc phải mất'], a: 0, vi: 'be expected to + V = dự kiến sẽ.' },
+      b2: { q: 'Câu mới: “Sales are expected to rise by 10 percent next year.” — nghĩa là gì?', o: ['Doanh số dự kiến tăng 10%', 'Doanh số đã tăng 10%', 'Doanh số bắt buộc tăng 10%', 'Doanh số không đổi'], a: 0, vi: 'be expected to rise = dự kiến tăng.' },
+      b3: [{ q: 'The new store is ___ to open in March.', o: ['expected', 'expecting', 'expects', 'expectation'], a: 0, vi: 'be expected to + V (bị động). expectation = danh từ.' }],
+      b4: { q: 'The meeting is ___ to last two hours.', hint: 'dự kiến · 1 từ', ans: ['expected'], vi: 'is expected to last = dự kiến kéo dài.' } },
+    { id: 'v4', g: 'v', t: 'be advised to + V', vi: 'được khuyên nên', line: 3, hl: 'are advised to use',
+      b1: { s: 'drivers [[are advised to use]] the Harbor Road Bridge instead', q: 'are advised to use nghĩa là gì?', o: ['được khuyên nên dùng', 'bị bắt phải dùng', 'được phép dùng', 'không được dùng'], a: 0, vi: 'be advised to + V = được khuyên nên (thông báo hay dùng). advise sb to V = khuyên ai làm gì.' },
+      b2: { q: 'Câu mới: “Passengers are advised to arrive two hours before departure.” — nghĩa là gì?', o: ['Hành khách nên tới trước 2 tiếng', 'Hành khách phải đợi 2 tiếng', 'Chuyến bay trễ 2 tiếng', 'Hành khách tới muộn 2 tiếng'], a: 0, vi: 'be advised to arrive = nên tới.' },
+      b3: [{ q: 'Visitors are ___ to wear comfortable shoes on the tour.', o: ['advised', 'advice', 'advising', 'adviser'], a: 0, vi: 'be advised to + V. advice = lời khuyên (danh từ), adviser = người cố vấn.' }],
+      b4: { q: 'Staff are ___ to save their files before 6 P.M.', hint: 'được khuyên · 1 từ', ans: ['advised'], vi: 'are advised to save = được khuyên nên lưu.' } },
+    { id: 'v5', g: 'v', t: 'instead', vi: 'thay vào đó', line: 3, hl: 'instead',
+      b1: { s: 'drivers are advised to use the Harbor Road Bridge [[instead]]', q: 'instead ở đây nghĩa là gì?', o: ['thay vào đó (thay cho cầu Elm Street)', 'ngoài ra', 'ngay lập tức', 'vì vậy'], a: 0, vi: 'instead (cuối câu) = thay vào đó. instead of + danh từ / V-ing = thay vì.' },
+      b2: { q: 'Câu mới: “The bus was full, so I took a taxi instead.” — người nói đã làm gì?', o: ['Đi taxi thay cho xe buýt', 'Đi cả xe buýt và taxi', 'Không đi đâu cả', 'Đợi chuyến xe buýt sau'], a: 0, vi: 'instead = thay cho việc vừa nói.' },
+      b3: [{ q: 'Let’s meet on Thursday ___ of Wednesday.', o: ['instead', 'because', 'rather', 'except'], a: 0, vi: 'instead of + danh từ = thay vì.' }],
+      b4: { q: 'There was no tea, so I had coffee ___.', hint: 'thay vào đó · 1 từ', ans: ['instead'], vi: 'had coffee instead = uống cà phê thay vào đó.' } },
+    { id: 'v6', g: 'v', t: 'reduce traffic', vi: 'giảm ùn tắc', line: 4, hl: 'reduce traffic',
+      b1: { s: 'To help [[reduce traffic]], the city will add extra buses', q: 'reduce traffic nghĩa là gì?', o: ['giảm ùn tắc giao thông', 'tăng lượng xe', 'sửa đường', 'thu phí giao thông'], a: 0, vi: 'reduce = giảm: reduce costs / waste / traffic.' },
+      b2: { q: 'Câu mới: “We are trying to reduce costs by using less paper.” — nghĩa là gì?', o: ['giảm chi phí', 'tăng chi phí', 'tính chi phí', 'trả chi phí'], a: 0, vi: 'reduce costs = giảm chi phí.' },
+      b3: [{ q: 'The new policy aims to ___ the amount of waste in the office.', o: ['reduce', 'reject', 'refund', 'remind'], a: 0, vi: 'reduce the amount of = giảm lượng. reject = từ chối, refund = hoàn tiền, remind = nhắc.' }],
+      b4: { q: 'Turning off the lights can ___ energy costs.', hint: 'giảm · 1 từ', ans: ['reduce', 'lower', 'cut'], vi: 'reduce / lower / cut costs = giảm chi phí.' } },
+    { id: 'v7', g: 'v', t: 'rush hours', vi: 'giờ cao điểm', line: 4, hl: 'rush hours',
+      b1: { s: 'during the morning and evening [[rush hours]]', q: 'rush hours nghĩa là gì?', o: ['giờ cao điểm', 'giờ nghỉ trưa', 'giờ làm thêm', 'giờ mở cửa'], a: 0, vi: 'rush hour = giờ cao điểm, lúc mọi người đi làm và về nhà.' },
+      b2: { q: 'Câu mới: “Trains are crowded during rush hour, so I leave home at six.” — vì sao người nói đi sớm?', o: ['Tàu đông vào giờ cao điểm', 'Tàu hay bị hỏng', 'Người nói thích tàu đông', 'Tàu chỉ chạy lúc 6 giờ'], a: 0, vi: 'rush hour = giờ cao điểm.' },
+      b3: [{ q: 'Avoid driving downtown during ___ hour; the roads are very busy.', o: ['rush', 'fast', 'quick', 'hurry'], a: 0, vi: 'rush hour là cụm cố định.' }],
+      b4: { q: 'The roads are always busy at ___ hour.', hint: 'cao điểm · 1 từ', ans: ['rush'], vi: 'rush hour = giờ cao điểm.' } },
+    { id: 'g1', g: 'g', t: 'Will: báo tin việc sẽ xảy ra', line: 0, hl: 'will close',
+      b1: { s: 'the Elm Street Bridge [[will close]] for repairs starting next Monday', q: 'Vì sao dùng will close?', o: ['báo tin một việc sẽ xảy ra trong tương lai', 'kể việc đã xảy ra', 'thói quen hằng ngày', 'việc đang xảy ra lúc nói'], a: 0, vi: 'Bản tin báo việc sẽ xảy ra: will + V nguyên mẫu. · 🧱 Bài Nền liên quan: Will: tương lai · A2' },
+      b2: { q: 'Câu mới: “The library will open a new reading room next month.” — câu này nói về lúc nào?', o: ['việc sẽ xảy ra tháng sau', 'việc đã xảy ra', 'việc lặp lại mỗi tháng', 'việc đang diễn ra'], a: 0, vi: 'will + V + mốc tương lai.' },
+      b3: [{ q: 'The company ___ its new product at the trade fair next week.', o: ['will launch', 'launched', 'has launched', 'launching'], a: 0, vi: 'next week → will + V.' },
+           { q: 'Next year, the factory ___ 200 new workers.', o: ['will hire', 'hired', 'has hired', 'hiring'], a: 0, vi: 'Next year → will + V.' }],
+      b4: { q: 'The road ___ next Monday. (reopen)', hint: 'gõ dạng tương lai của reopen', ans: ['will reopen', "'ll reopen"], vi: 'will reopen = sẽ mở lại.' } },
+    { id: 'g2', g: 'g', t: 'Bị động: be + V3 (be expected, be advised)', line: 2, hl: 'are expected',
+      b1: { s: 'The repairs [[are expected]] to take about three weeks.', q: 'are expected là dạng gì?', o: ['bị động: (được người ta) dự kiến', 'chủ động: mong đợi', 'quá khứ: đã mong', 'tiếp diễn: đang mong'], a: 0, vi: 'be + V3 = bị động: người ta dự kiến việc sửa mất 3 tuần. · 🧱 Bài Nền liên quan: Câu bị động · B1' },
+      b2: { q: 'Câu mới: “The results are expected next week.” — ai dự kiến?', o: ['người ta dự kiến kết quả có vào tuần sau', 'kết quả tự mong đợi', 'kết quả đã có rồi', 'kết quả bị huỷ'], a: 0, vi: 'Bị động: không cần nói ai làm.' },
+      b3: [{ q: 'All visitors ___ to sign in at the front desk.', o: ['are required', 'require', 'requiring', 'are requiring'], a: 0, vi: 'Khách bị yêu cầu: bị động be required to.' },
+           { q: 'The report ___ by the manager every Friday.', o: ['is checked', 'checks', 'is checking', 'checking'], a: 0, vi: 'Báo cáo được kiểm: bị động be + V3; by + người làm.' }],
+      b4: { q: 'The new bridge ___ to open in May. (expect, bị động)', hint: 'gõ dạng bị động của expect', ans: ['is expected'], vi: 'is expected to open = dự kiến mở.' } },
+    { id: 'g3', g: 'g', t: 'Mệnh đề quan hệ có dấu phẩy: , which …', line: 1, hl: 'which are',
+      b1: { s: "the bridge's supports, [[which]] are more than sixty years old", q: 'which ở đây thay cho gì?', o: ['the bridge’s supports (trụ cầu)', 'the work', 'city engineers', 'sixty years'], a: 0, vi: 'Dấu phẩy + which: thêm thông tin cho danh từ (vật) ngay trước. · 🧱 Bài Nền liên quan: Mệnh đề quan hệ · B1' },
+      b2: { q: 'Câu mới: “Our main office, which is in Hanoi, has 200 employees.” — which thay cho gì?', o: ['our main office', 'Hanoi', '200 employees', 'the company'], a: 0, vi: 'which thay cho danh từ đứng ngay trước dấu phẩy.' },
+      b3: [{ q: 'The new printer, ___ was delivered yesterday, is already broken.', o: ['which', 'who', 'where', 'what'], a: 0, vi: 'Vật + , which.' },
+           { q: 'Ms. Lee, ___ manages the sales team, will lead the meeting.', o: ['who', 'which', 'whose', 'where'], a: 0, vi: 'Người + , who.' }],
+      b4: { q: 'The hotel, ___ opened last year, has a rooftop pool.', hint: 'gõ đại từ quan hệ', ans: ['which'], vi: 'Vật + , which.' } },
+    { id: 'g4', g: 'g', t: 'To + V chỉ mục đích', line: 4, hl: 'To help reduce',
+      b1: { s: '[[To help]] reduce traffic, the city will add extra buses', q: 'To help đứng đầu câu để làm gì?', o: ['nói mục đích: để giúp', 'nói thời gian', 'nói nguyên nhân đã xảy ra', 'nói điều kiện'], a: 0, vi: 'To + V = để …: chỉ mục đích. help + V nguyên mẫu (help reduce). · 🧱 Bài Nền liên quan: Chỉ mục đích · B1' },
+      b2: { q: 'Câu mới: “To save time, please fill out the form before you arrive.” — To save time nghĩa là gì?', o: ['để tiết kiệm thời gian', 'vì đã hết thời gian', 'khi có thời gian', 'trước thời hạn'], a: 0, vi: 'To + V đầu câu = để …' },
+      b3: [{ q: '___ improve service, the hotel hired more staff.', o: ['To', 'For', 'So', 'Because'], a: 0, vi: 'To + V = để.' },
+           { q: 'We called the supplier ___ check the delivery date.', o: ['to', 'for', 'so', 'that'], a: 0, vi: 'to + V chỉ mục đích.' }],
+      b4: { q: '___ book a table, please call us at 555-0199.', hint: 'gõ 1 từ', ans: ['to'], vi: 'To book a table = để đặt bàn.' } },
+    { id: 'g5', g: 'g', t: 'During + danh từ, While + mệnh đề', line: 3, hl: 'During that time',
+      b1: { s: '[[During]] that time, drivers are advised to use the Harbor Road Bridge', q: 'Vì sao dùng During mà không dùng While?', o: ['sau During là cụm danh từ (that time)', 'During đi với mệnh đề có động từ', 'During nghĩa là trước khi', 'dùng While cũng đúng y như vậy'], a: 0, vi: 'during + danh từ; while + mệnh đề (while the bridge is closed). · 🧱 Bài Nền liên quan: Giới từ và liên từ chỉ thời gian · B1' },
+      b2: { q: 'Câu mới: “Please turn off your phone during the meeting.” — tắt điện thoại khi nào?', o: ['trong lúc họp', 'trước khi họp', 'sau khi họp', 'thay cho cuộc họp'], a: 0, vi: 'during = trong suốt.' },
+      b3: [{ q: 'No one may enter the room ___ the exam.', o: ['during', 'while', 'when', 'until'], a: 0, vi: 'Sau là cụm danh từ (the exam): during.' },
+           { q: 'Please wait outside ___ the room is being cleaned.', o: ['while', 'during', 'for', 'between'], a: 0, vi: 'Sau là mệnh đề (the room is being cleaned): while.' }],
+      b4: { q: 'I read a book ___ the flight.', hint: 'gõ 1 từ', ans: ['during'], vi: 'during the flight = trong chuyến bay.' } }]
+};
+
+// chọn bài: mỗi bài một bộ dữ liệu; tiến độ (st) và kỷ lục giữ riêng từng bài
+const BAI1 = { meta: { de: 'Đề 3 · Part 3 · hội thoại', dang: '🗣 Hội thoại', t: 'Khách trả phòng muộn', sub: 'Hội thoại thật trong Đề 3 TOEIC (Part 3). Chạm một câu để nghe và xem dịch.' },
+  L, IPA, STR, LK, INT, PAU, EL, CUM, VNY, VNK, EXQ, NEWQ2, MU };
+const BAIS = [BAI1, BAI2], STS = {};
+const BAI_ALL = [{ n: 1, de: BAI1.meta.de, dang: BAI1.meta.dang, t: BAI1.meta.t }, { n: 2, de: BAI2.meta.de, dang: BAI2.meta.dang, t: BAI2.meta.t }, ...(typeof BAI_IDX !== 'undefined' ? BAI_IDX : [])];
+// tải bài khi chọn: <script src="bai/baiN.js"> rồi lấy hằng BAIN (hằng toàn cục của script cổ điển, không nằm trên window)
+function baiLoad(n, done) { if (BAIS[n - 1]) return done();
+  const sc = document.createElement('script'); sc.src = `bai/bai${n}.js`; sc.onload = () => { try { BAIS[n - 1] = Function('return BAI' + n)(); done(); } catch (e) { alert('Chưa tải được bài ' + n); } };
+  sc.onerror = () => alert('Chưa tải được bài ' + n + '. Kiểm tra mạng rồi thử lại.'); document.head.appendChild(sc); } let BAI_I = 0;
+function BAI_SUF() { return BAI_I ? ':' + BAI_I : ''; }
+const WHOS = [{ A: ['Khách', 'Nữ'], B: ['Lễ tân', 'Nam'] }, { N: ['Phát thanh viên', 'PTV'] }, { W: ['E-mail', '✉️'] }, { A: ['Nhân viên', 'Nữ'], B: ['Khách', 'Nam'] }, { N: ['Loa siêu thị', '📢'] }, { W: ['E-mail', '✉️'] },
+  { A: ['Quản lý', 'Nữ'], B: ['Liam', 'Nam'], C: ['Nora', 'Nữ'] }, { N: ['Người chủ trì', '📢'] }, { W: ['Memo', '✉️'] }, { A: ['Tổng đài', 'Nữ'], B: ['Khách', 'Nam'] }, { N: ['Thợ sửa xe', '📢'] }, { W: ['Memo', '✉️'] }];
+function useBai(n) { for (const k of Object.keys(WHO)) delete WHO[k]; Object.assign(WHO, (BAIS[n].meta && BAIS[n].meta.who) || WHOS[n] || {}); STS[BAI_I] = st; BAI_I = n; const B = BAIS[n];
+  ({ L, IPA, STR, LK, INT, PAU, EL, CUM, VNY, VNK, EXQ, NEWQ2, MU } = B);
+  st = STS[n] || { ipa: true, lv: 0, i: 0, w: [], day: 0, done: {}, sc: {}, cur: null, hit: [0, 0], lay: { ipa: 1 }, mu: {} }; DG = null; DV = null; }
+const baiDe = x => (x.de.match(/^Đề \d+/) || ['Khác'])[0];
+let PICK_K = null;   // dạng đang xem trong danh sách bài
+const baiBar = () => { const cur = BAI_ALL.find(x => x.n === BAI_I + 1) || BAI_ALL[0], K = PICK_K || kindOf(cur.dang), xs = BAI_ALL.filter(x => kindOf(x.dang) === K), G = {}; xs.forEach(x => (G[baiDe(x)] = G[baiDe(x)] || []).push(x));
+  return `<details class="card baipick"${PICK_K ? ' open' : ''}><summary><span><span class="tag">Bài ${BAI_I + 1} · ${cur.dang}</span><br><b>Đổi bài ›</b></span></summary>
+  <div class="kindbar" role="group" aria-label="Dạng bài">${KINDS.map(k => `<button class="lay${k[0] === K ? ' on' : ''}" data-pk="${k[0]}" aria-pressed="${k[0] === K}">${k[1]}<br>${k[2]}<br><span class="sm">${BAI_ALL.filter(x => kindOf(x.dang) === k[0]).length} bài</span></button>`).join('')}</div>
+  ${Object.entries(G).sort((a, b) => parseInt(a[0].slice(3)) - parseInt(b[0].slice(3))).map(([d, ys]) => `<p class="tag" style="margin:8px 0 2px">${d} · ${ys.length} bài</p><div class="baibar">${ys.map(x => `<button class="lay${x.n === BAI_I + 1 ? ' on' : ''}" data-bai="${x.n - 1}" aria-pressed="${x.n === BAI_I + 1}"><b>Bài ${x.n}</b><br><span class="sm">${esc(x.t)}</span></button>`).join('')}</div>`).join('')}</details>`; };
+const MU_B = ['①', '②', '③', '④'], MU_BT = ['Hiểu trong bài', 'Hiểu ở câu mới', 'Chọn dùng đúng', 'Tự gõ'];
+st.mu = st.mu || {};
+const muSt = id => st.mu[id] || (st.mu[id] = {});
+const muHieu = m => { const s = muSt(m.id); return s.b1 === true && s.b2 === true; };
+const muDung = m => { const s = muSt(m.id); return s.b3 === true && s.b4 === true; };
+const muNorm = s => String(s).toLowerCase().replace(/[’‘]/g, "'").replace(/[^a-z' ]/g, ' ').replace(/\s+/g, ' ').trim();
+// một lượt: hieu = ① rồi ② (trộn từ vựng + ngữ pháp); dung = ③ rồi ④
+function muItems(k) { const L1 = [], L2 = [];
+  for (const m of MU) { if (k === 'hieu') { L1.push({ m, b: 1, it: m.b1 }); L2.push({ m, b: 2, it: m.b2 }); }
+    else { m.b3.forEach((it, x) => L1.push({ m, b: 3, x, it })); L2.push({ m, b: 4, it: m.b4 }); } }
+  return [...shuf(L1), ...shuf(L2)]; }
+function muRun(k) { const items = muItems(k), part = {};   // ③ ngữ pháp có 2 câu: đúng cả 2 mới tính
+  QL = { k, items, render: muIt, q: items.map((_, i) => i), first: {}, seen: 0, done: 0, onFirst: (e, ok) => {
+    const s = muSt(e.m.id), key = 'b' + e.b; if (e.b === 3 && e.m.b3.length > 1) { part[e.m.id] = part[e.m.id] || []; part[e.m.id][e.x] = ok; if (part[e.m.id].filter(v => v != null).length === e.m.b3.length) s.b3 = part[e.m.id].every(Boolean); }
+    else s[key] = ok; } };
+  qnext(); }
+const muLine = m => { const t = L[m.line][1], i = t.indexOf(m.hl); return i < 0 ? esc(t) : esc(t.slice(0, i)) + '<mark>' + esc(m.hl) + '</mark>' + esc(t.slice(i + m.hl.length)); };
+function muIt(e, done) { const { m, b, it } = e, gl = m.g === 'v' ? '📚 Từ vựng' : '🧱 Ngữ pháp';
+  const tag = `<p class="tag" style="margin:0">${gl} · ${MU_B[b - 1]} ${MU_BT[b - 1]}</p><p class="mu-t"><b>${esc(m.t)}</b>${m.vi && b !== 4 ? ` <span class="mute">· ${esc(m.vi)}</span>` : ''}</p>`;
+  const ctx = it.s ? `<div class="card ctx"><span class="sm mute">📍 Trong bài:</span><span>“${esc(it.s).replace(/\[\[(.+?)\]\]/, '<mark>$1</mark>')}”</span></div>` : '';
+  const after = ok => { if (QL.first[QL.q[0]] == null) QL.onFirst(e, ok);
+    return `<div class="card ctx" style="margin-top:8px"><span class="sm mute">📍 Trong bài (${WHO[L[m.line][0]][0]}):</span><span>“${muLine(m)}”</span></div>`; };
+  if (it.ans) {   // ④ tự gõ
+    app.innerHTML = `${qTop()}${tag}<div class="card ctx"><span class="sm mute">Câu mới · gõ phần còn thiếu</span><span class="q">${esc(it.q).replace('___', '<span class="gap">?</span>')}</span><span class="sm">Gợi ý: <b>${esc(it.hint)}</b></span></div>
+      <div class="inrow"><input id="ga" class="gin" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Phần còn thiếu" placeholder="Gõ tiếng Anh"><button class="pri" id="ck">Kiểm tra</button></div><div id="fb"></div>`;
+    const g = $('#ga'); g.focus(); g.onkeydown = ev => { if (ev.key === 'Enter') $('#ck').click(); };
+    $('#ck').onclick = () => { const ok = it.ans.some(a => muNorm(a) === muNorm(g.value)); g.disabled = true; $('#ck').hidden = true;
+      $('#fb').innerHTML = `${nextBtn(ok)} Đáp án: <b>${esc(it.ans[0])}</b>. ${esc(it.vi)}</div>${after(ok)}<button class="pri" id="nx" style="margin-top:10px">Tiếp ›</button>`;
+      $('#nx').onclick = () => done(ok); };
+    return; }
+  const ord = shuf(it.o.map((_, j) => j));
+  app.innerHTML = `${qTop()}${tag}${ctx}<p class="q">${esc(it.q).replace('___', '<span class="gap">?</span>')}</p><div class="opts">${ord.map(j => `<button class="opt" data-j="${j}">${esc(it.o[j])}</button>`).join('')}</div><div id="fb"></div>`;
+  app.querySelectorAll('[data-j]').forEach(bt => bt.onclick = () => { const j = +bt.dataset.j, ok = j === it.a;
+    app.querySelectorAll('[data-j]').forEach(x => { const kk = +x.dataset.j; x.disabled = true; if (kk === it.a) x.classList.add('ok'); else if (kk === j) x.classList.add('no'); });
+    $('#fb').innerHTML = `${nextBtn(ok)} ${esc(it.vi)}</div>${b > 1 ? after(ok) : (after(ok), '')}<button class="pri" id="nx" style="margin-top:10px">Tiếp ›</button>`;
+    $('#nx').onclick = () => done(ok); }); }
+// bảng từng mục ở màn chính
+function muTable() { const dot = v => `<i class="mud ${v === true ? 'ok' : v === false ? 'no' : ''}" aria-label="${v === true ? 'đúng' : v === false ? 'sai lần đầu' : 'chưa làm'}"></i>`;
+  const row = m => { const s = muSt(m.id), b3 = s.b3; return `<div class="mur"><span>${esc(m.t)}</span><span class="mudots">${dot(s.b1)}${dot(s.b2)}${dot(b3)}${dot(s.b4)}</span><span class="sm ${muDung(m) ? 'okt' : 'mute'}">${muDung(m) ? '✍️ dùng được' : muHieu(m) ? '💡 hiểu' : ''}</span></div>`; };
+  return `<details class="card"><summary class="link" style="display:flex;align-items:center">📋 Từng mục (12) · chấm ① ② ③ ④</summary>
+    <p class="sm mute">Xanh = đúng ngay lần đầu · đỏ = sai lần đầu · xám = chưa làm. ① ② = hiểu, ③ ④ = dùng được.</p>
+    <p class="tag">📚 Từ vựng</p>${MU.filter(m => m.g === 'v').map(row).join('')}<p class="tag">🧱 Ngữ pháp</p>${MU.filter(m => m.g === 'g').map(row).join('')}</details>`; }
+
+
+// ---------- v35 mỗi dạng bài một cách hiện + một bài tập riêng (người sáng lập: "phân ra theo dạng bài, mỗi dạng cần thiết kế riêng") ----------
+// 🗣 Hội thoại: bong bóng, 🎭 Nhập vai · 📢 Bài nói: khung loa phát, 🎧 Nghe – chép · ✉️ Văn bản: như thư thật, 🧩 Điền lại ô trống
+// 📄 Đọc hiểu: tin nhắn / lịch / thẻ văn bản, 🔎 Tìm chỗ chứa đáp án · 💬 Hỏi – đáp: thẻ cặp câu, ⚡ Phản xạ
+const KIND = () => { const d = (BAIS[BAI_I].meta || {}).dang || ''; return d.includes('Hội thoại') ? 'hoi' : d.includes('Bài nói') ? 'noi' : d.includes('Văn bản') ? 'vb' : d.includes('Đọc hiểu') ? 'dh' : d.includes('Hỏi') ? 'hd' : 'hoi'; };
+const KINDS = [['hoi', '🗣', 'Hội thoại', 'Part 3'], ['noi', '📢', 'Bài nói', 'Part 4'], ['vb', '✉️', 'Văn bản', 'Part 6'], ['dh', '📄', 'Đọc hiểu', 'Part 7'], ['hd', '💬', 'Hỏi – đáp', 'Part 2']];
+const kindOf = dang => (KINDS.find(k => dang.includes(k[2])) || KINDS[0])[0];
+const EX_DANG = { hoi: ['nhapvai', '🎭 Nhập vai', 'Chọn vai, app đọc lời người kia, bạn nói lời của mình'], noi: ['ngheche', '🎧 Nghe – chép', 'Nghe từng câu, không nhìn chữ, nói hoặc gõ lại'],
+  vb: ['dienvb', '🧩 Điền lại ô trống', 'Các chỗ trống như đề Part 6, đọc cả văn bản rồi chọn'], dh: ['timdap', '🔎 Tìm chỗ chứa đáp án', 'Đọc câu hỏi của đề, chạm vào câu chứa đáp án'],
+  hd: ['phanxa', '⚡ Phản xạ', 'Nghe câu hỏi, chọn câu đáp đúng trong 3 giây'] };
+const ORDERF = () => ['hoc', 'duago', 'duavn', EX_DANG[KIND()][0], 'hieu', 'de', 'dung'];
+const KIND_NOTE = { noi: 'Một người nói', vb: 'Văn bản viết', dh: 'Văn bản đọc', hd: '10 cặp hỏi – đáp' };
+// so câu nói / gõ với câu đúng: tỉ lệ từ đúng theo thứ tự (dãy con chung dài nhất), bỏ dấu câu, viết tắt = nói đủ
+function simPct(want, got) { const A = words(want).map(dk).filter(Boolean), Bt = String(got).split(/\s+/).map(dk).filter(Boolean); if (!A.length) return 100;
+  const d = Array.from({ length: A.length + 1 }, () => new Array(Bt.length + 1).fill(0));
+  for (let i = 1; i <= A.length; i++) for (let j = 1; j <= Bt.length; j++) d[i][j] = (dkAlt(A[i - 1]).includes(Bt[j - 1]) || A[i - 1] === Bt[j - 1]) ? d[i - 1][j - 1] + 1 : Math.max(d[i - 1][j], d[i][j - 1]);
+  return Math.round(d[A.length][Bt.length] / A.length * 100); }
+// ----- cách hiện bài theo dạng (Nghe + đọc) -----
+const nsOpen = i => `data-p="${i}"`;
+function bodyHtml() { const k = KIND(), M = BAIS[BAI_I].meta || {};
+  const vi = (l, i) => `<span class="vi" hidden id="vi${i}">${esc(l[2])}</span>`;
+  if (k === 'hoi') return `<div class="card">${L.map((l, i) => lnHtml(i, `${lineTxt(i)}${vi(l, i)}`, 1)).join('')}</div>`;
+  if (k === 'noi') return `<div class="card noibox"><div class="row noihd"><span class="noiic">📢</span><span><b>${esc(WHO.N ? WHO.N[0] : 'Người nói')}</b><br><span class="sm mute">${esc(M.de || '')}</span></span></div>
+    <div class="noitext">${L.map((l, i) => `<span class="ns" role="button" tabindex="0" ${nsOpen(i)}>${lineTxt(i)}${vi(l, i)}</span>`).join(' ')}</div></div>`;
+  if (k === 'hd') return `<div class="opts">${L.map((l, i) => i % 2 ? '' : `<div class="card qa"><button class="say qaq" ${nsOpen(i)}><span class="sm mute">❓ Câu ${i / 2 + 1}</span>${lineTxt(i)}${vi(l, i)}</button>
+    ${L[i + 1] ? `<button class="say qaa" ${nsOpen(i + 1)}><span class="sm mute">↪ Đáp</span>${lineTxt(i + 1)}${vi(L[i + 1], i + 1)}</button>` : ''}</div>`).join('')}</div>`;
+  const gaps = k === 'vb' ? EXQ.filter(q => /chỗ trống/i.test(q.q)).map(q => q.o[0]) : [];
+  const mark = (t, i) => { if (anyLay()) return lineTxt(i); let h = esc(t); for (const g of gaps) { const e = esc(g); if (h.includes(e)) { h = h.replace(e, `<mark title="chỗ trống của đề">${e}</mark>`); } } return `<span>${h}</span>`; };
+  if (k === 'vb') { const hd = String(M.title || '').split(' · ').filter(Boolean);
+    return `<div class="card doc">${hd.length ? `<div class="dochd">${hd.map(x => `<div>${esc(x)}</div>`).join('')}</div>` : ''}<div class="docbody">${L.map((l, i) => `<p class="dl" role="button" tabindex="0" ${nsOpen(i)}>${mark(l[1], i)}${vi(l, i)}</p>`).join('')}</div>
+      ${gaps.length ? `<p class="sm mute">${anyLay() ? 'Tắt hết lớp đánh dấu để thấy chỗ trống của đề Part 6 (chữ tô màu).' : 'Chữ tô màu là chỗ trống của đề Part 6.'}</p>` : ''}</div>`; }
+  // 📄 đọc hiểu: tách văn bản (1) (2) …; tin nhắn có tên + giờ; dòng lịch "giờ — việc" thành bảng
+  const docs = []; let cur = null;
+  L.forEach((l, i) => { const t = l[1], h = t.match(/^\((\d)\)\s*(.*)$/); if (h || !cur) { cur = { t: h ? h[2] : (String(M.title || '').split(' · ')[0] || ''), items: [] }; docs.push(cur); if (h) return; } cur.items.push(i); });
+  const item = i => { const t = L[i][1], c = t.match(/^([A-Z][\w.'’ -]{1,30}) \((\d{1,2}:\d{2} [AP]\.M\.)\):\s*(.*)$/), s = t.match(/^(\d{1,2}:\d{2}(?: [AP]\.M\.)?)\s+—\s+(.*)$/);
+    if (c) return `<div class="msg"><span class="sm"><b>${esc(c[1])}</b> <span class="mute">${esc(c[2])}</span></span><span class="msgx" role="button" tabindex="0" ${nsOpen(i)}>${anyLay() ? lineTxt(i) : esc(c[3])}${vi(L[i], i)}</span></div>`;
+    if (s) return `<div class="sch" role="button" tabindex="0" ${nsOpen(i)}><b>${esc(s[1])}</b><span>${anyLay() ? lineTxt(i) : esc(s[2])}${vi(L[i], i)}</span></div>`;
+    return `<p class="dl" role="button" tabindex="0" ${nsOpen(i)}>${lineTxt(i)}${vi(L[i], i)}</p>`; };
+  // tin nhắn: các câu sau dòng "Tên (giờ):" thuộc cùng một bong bóng tới khi gặp tin kế tiếp
+  const CH = t => /^([A-Z][\w.'’ -]{1,30}) \((\d{1,2}:\d{2} [AP]\.M\.)\):/.test(t), SC = t => /^(\d{1,2}:\d{2}(?: [AP]\.M\.)?)\s+—\s+/.test(t);
+  const block = d => { const out = []; let msg = null; for (const i of d.items) { const t = L[i][1];
+      if (CH(t)) { msg = [i]; out.push(msg); } else if (msg && !SC(t)) msg.push(i); else { msg = null; out.push(i); } }
+    return out.map(x => Array.isArray(x) ? item(x[0]).replace('</div>', '') + x.slice(1).map(i => `<span class="msgx" role="button" tabindex="0" ${nsOpen(i)}>${lineTxt(i)}${vi(L[i], i)}</span>`).join('') + '</div>' : item(x)).join(''); };
+  return docs.map((d, n) => `<div class="card doc">${d.t ? `<div class="dochd"><span class="tag">${docs.length > 1 ? `(${n + 1}) ` : ''}</span>${esc(d.t)}</div>` : ''}<div class="docbody">${block(d)}</div></div>`).join(''); }
+// ----- 🎭 Nhập vai (hội thoại) -----
+function nhapvai() { const roles = [...new Set(L.map(l => l[0]))]; let me = null, i = 0, miss = 0, fails = 0;
+  const pick = () => { app.innerHTML = `${head('Chọn vai của bạn. App đọc lời người kia, tới lượt bạn thì nói (bàn phím 🎤) hoặc gõ lời của mình.')}
+    <div class="opts">${roles.map(r => `<button class="opt" data-r="${r}"><b>${esc(WHO[r] ? WHO[r][0] : r)}</b> <span class="sm mute">· ${L.filter(l => l[0] === r).length} câu</span></button>`).join('')}</div>`;
+    app.querySelectorAll('[data-r]').forEach(b => b.onclick = () => { me = b.dataset.r; step(); }); };
+  const step = () => { if (i >= L.length) return finish(); const l = L[i];
+    const past = L.slice(0, i).map((x, j) => `<p class="sm ${x[0] === me ? 'okt' : 'mute'}"><b>${esc(WHO[x[0]] ? WHO[x[0]][0] : x[0])}:</b> ${esc(x[1])}</p>`).join('');
+    if (l[0] !== me) { app.innerHTML = `${head()}<div class="card nvlog">${past}<p><b>${esc(WHO[l[0]][0])}:</b> ${esc(l[1])}</p></div><p class="sm mute">🔊 Đang đọc lời ${esc(WHO[l[0]][0])}…</p><button class="sec" id="nx">Tiếp ›</button>`;
+      let gone = false; const go = () => { if (gone) return; gone = true; i++; step(); }; $('#nx').onclick = go; play(i, () => setTimeout(go, 300)); return; }
+    const hint = words(l[1]).map(w => { const c = w.replace(/[^A-Za-z0-9'’]/g, ''); return c ? c[0] + '…' : w; }).join(' ');
+    app.innerHTML = `${head()}<div class="card nvlog">${past}</div><div class="card"><p class="tag">Lượt bạn · ${esc(WHO[me][0])}</p><p>${esc(l[2])}</p><p class="sm mute" id="nvh" hidden>Gợi ý: ${esc(hint)}</p>
+      <div class="inrow"><textarea id="nvi" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Nói (🎤) hoặc gõ lời tiếng Anh"></textarea><button class="pri" id="ck">Kiểm tra</button></div>
+      <div class="row"><button class="link" id="hn">💡 Gợi ý chữ đầu</button><button class="link" id="sk">Bỏ qua, xem lời</button></div><div id="fb"></div></div>`;
+    const t = $('#nvi'); t.focus(); $('#hn').onclick = () => { $('#nvh').hidden = false; };
+    const ok = () => { $('#fb').innerHTML = `<div class="fb ok">✓ ${esc(l[1])}</div>`; play(i, () => { i++; fails = 0; step(); }); };
+    $('#ck').onclick = () => { const p = simPct(l[1], t.value); if (p >= 80) ok(); else { fails++; miss++; $('#fb').innerHTML = `<div class="fb no">Đúng ${p}% số từ, cần 80%. Thử lại${fails >= 2 ? ', hoặc bấm Gợi ý' : ''}.</div><p class="diff">${diff(l[1], t.value).html}</p>`; } };
+    $('#sk').onclick = () => { miss++; $('#fb').innerHTML = `<div class="fb no">${esc(l[1])}</div><button class="pri" id="nx2">Tiếp ›</button>`; play(i); $('#nx2').onclick = () => { i++; step(); }; }; };
+  const finish = () => { const n = L.filter(l => l[0] === me).length; app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong vai ${esc(WHO[me][0])}</p><p class="big">${Math.max(0, n - miss)}/${n}</p><p class="sm mute">câu nói đúng ngay</p></div>
+    <div class="opts">${roles.filter(r => r !== me).map(r => `<button class="sec" data-r2="${r}">🎭 Đổi sang vai ${esc(WHO[r][0])}</button>`).join('')}</div><button class="pri" id="nx">Xong ›</button>`;
+    app.querySelectorAll('[data-r2]').forEach(b => b.onclick = () => { me = b.dataset.r2; i = 0; miss = 0; step(); }); $('#nx').onclick = () => fin('nhapvai', [Math.max(0, n - miss), n]); };
+  pick(); }
+// ----- 🎧 Nghe – chép (bài nói) -----
+function ngheche() { let i = 0, first = 0, tries = 0;
+  const step = () => { if (i >= L.length) return app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong cả bài</p><p class="big">${first}/${L.length}</p><p class="sm mute">câu chép đúng ngay lần đầu</p></div><button class="pri" id="nx">Xong ›</button>`, $('#nx').onclick = () => fin('ngheche', [first, L.length]);
+    app.innerHTML = `${head('Nghe câu, không nhìn chữ. Nói (🎤) hoặc gõ lại đúng câu vừa nghe. Đúng từ 80% số từ là qua.')}<p class="tag">Câu ${i + 1}/${L.length}</p><div class="bar"><i style="width:${i / L.length * 100}%"></i></div>
+      <div class="row"><button class="sec" id="pl">🔊 Nghe</button><button class="sec" id="sl">🐢 Nghe chậm</button><span class="sm mute" id="nc">chưa nghe</span></div>
+      <div class="inrow"><textarea id="ci" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Câu vừa nghe"></textarea><button class="pri" id="ck">Kiểm tra</button></div><div id="fb"></div>`;
+    let n = 0; const t = $('#ci'); const hear = r => { n++; $('#nc').textContent = `đã nghe ${n} lần`; if (r) { try { const u = new SpeechSynthesisUtterance(L[i][1]); u.lang = 'en-US'; u.rate = 0.6; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} } else play(i); };
+    $('#pl').onclick = () => hear(0); $('#sl').onclick = () => hear(1); hear(0);
+    $('#ck').onclick = () => { const p = simPct(L[i][1], t.value); tries++;
+      if (p >= 80) { if (tries === 1) first++; $('#fb').innerHTML = `<div class="fb ok">✓ ${p}% · ${esc(L[i][1])}<br><span class="sm">${esc(L[i][2])}</span></div><button class="pri" id="nx">Câu tiếp ›</button>`; $('#nx').onclick = () => { i++; tries = 0; step(); }; }
+      else $('#fb').innerHTML = `<div class="fb no">Đúng ${p}% số từ. Nghe lại rồi sửa.</div><p class="diff">${diff(L[i][1], t.value).html}</p><button class="link" id="rv">Xem đáp án</button>`, $('#rv').onclick = () => { $('#fb').innerHTML += `<div class="fb">${esc(L[i][1])}</div><button class="pri" id="nx">Câu tiếp ›</button>`; $('#nx').onclick = () => { i++; tries = 0; step(); }; }; }; };
+  step(); }
+// ----- 🧩 Điền lại ô trống (văn bản Part 6) -----
+function dienvb() { const G = EXQ.filter(q => /chỗ trống/i.test(q.q)); let k = 0, first = 0;
+  const body = (gi, show) => L.map((l, i) => { let h = esc(l[1]); G.forEach((q, n) => { const e = esc(q.o[0]); if (h.includes(e)) h = h.replace(e, n === gi && !show ? `<span class="gap">(${n + 1}) ?</span>` : n < gi || show ? `<mark>${e}</mark>` : e); }); return `<p class="dl">${h}</p>`; }).join('');
+  const step = () => { if (k >= G.length) return app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong</p><p class="big">${first}/${G.length}</p><p class="sm mute">chỗ trống đúng ngay</p></div><button class="pri" id="nx">Xong ›</button>`, $('#nx').onclick = () => fin('dienvb', [first, G.length]);
+    const q = G[k], ord = shuf(q.o.map((_, j) => j)); let tried = 0;
+    app.innerHTML = `${head('Đọc cả văn bản, chọn từ / câu điền vào chỗ trống đang hỏi, như Part 6.')}<p class="tag">Chỗ trống ${k + 1}/${G.length}</p><div class="card doc"><div class="docbody docsm">${body(k)}</div></div>
+      <div class="opts">${ord.map(j => `<button class="opt" data-j="${j}">${esc(q.o[j])}</button>`).join('')}</div><div id="fb"></div>`;
+    const g = app.querySelector('.gap'); if (g) g.scrollIntoView({ block: 'center' });
+    app.querySelectorAll('[data-j]').forEach(b => b.onclick = () => { const ok = +b.dataset.j === 0; tried++; b.classList.add(ok ? 'ok' : 'no');
+      if (!ok) { b.disabled = true; $('#fb').innerHTML = `<div class="fb no">Chưa đúng. Đọc câu trước và sau chỗ trống rồi chọn lại.</div>`; return; }
+      if (tried === 1) first++; app.querySelectorAll('[data-j]').forEach(x => x.disabled = true);
+      $('#fb').innerHTML = `<div class="fb ok">✓ ${esc(q.vi || '')}</div><button class="pri" id="nx">${k + 1 < G.length ? 'Chỗ tiếp ›' : 'Xong ›'}</button>`; $('#nx').onclick = () => { k++; step(); }; }); };
+  if (!G.length) { app.innerHTML = `${head()}<p>Bài này không có chỗ trống.</p>`; return; } step(); }
+// ----- 🔎 Tìm chỗ chứa đáp án (đọc hiểu Part 7) -----
+function timdap() { const M = BAIS[BAI_I].meta || {}, ev = M.evl || [], Q = EXQ.map((q, n) => ({ q, l: ev[n] })).filter(x => x.l >= 0); let k = 0, first = 0;
+  const step = () => { if (k >= Q.length) return app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong</p><p class="big">${first}/${Q.length}</p><p class="sm mute">câu tìm đúng ngay</p></div><button class="pri" id="nx">Xong ›</button>`, $('#nx').onclick = () => fin('timdap', [first, Q.length]);
+    const { q, l } = Q[k]; let tried = 0;
+    app.innerHTML = `${head('Đọc câu hỏi, chạm vào câu trong bài chứa đáp án. Chưa cần chọn đáp án.')}<p class="tag">Câu ${k + 1}/${Q.length}</p><div class="card"><b>${esc(q.q)}</b></div>
+      <div class="card doc"><div class="docbody docsm">${L.map((x, i) => /^\(\d\)/.test(x[1]) ? `<p class="tag">${esc(x[1])}</p>` : `<button class="tline" data-l="${i}">${esc(x[1])}</button>`).join('')}</div></div><div id="fb"></div>`;
+    app.querySelectorAll('[data-l]').forEach(b => b.onclick = () => { const i = +b.dataset.l; tried++;
+      if (i !== l) { b.classList.add('no'); $('#fb').innerHTML = `<div class="fb no">Câu này chưa chứa đáp án. Tìm chữ khoá của câu hỏi trong bài.</div>`; if (tried >= 3) show(); return; }
+      if (tried === 1) first++; show(); });
+    const show = () => { const b = app.querySelector(`[data-l="${l}"]`); b.classList.add('ok'); app.querySelectorAll('[data-l]').forEach(x => x.disabled = true);
+      $('#fb').innerHTML = `<div class="fb ok">📍 Câu chứa đáp án: “${esc(L[l][1])}”<br>Đáp án: <b>${esc(q.o[0])}</b><br><span class="sm">${esc(q.vi || '')}</span></div><p class="sm mute">Vị trí câu chứa đáp án do app đoán theo chữ trùng, có thể lệch.</p><button class="pri" id="nx">${k + 1 < Q.length ? 'Câu tiếp ›' : 'Xong ›'}</button>`;
+      $('#nx').onclick = () => { k++; step(); }; b.scrollIntoView({ block: 'center' }); }; };
+  if (!Q.length) { app.innerHTML = `${head()}<p>Bài này chưa có câu hỏi để tìm.</p>`; return; } step(); }
+// ----- ⚡ Phản xạ (hỏi – đáp Part 2) -----
+const PX_SEC = 3;
+function phanxa() { const P2 = (BAIS[BAI_I].meta || {}).p2 || []; let k = 0, first = 0, T = 0;
+  const step = () => { clearTimeout(T); if (k >= P2.length) return app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong</p><p class="big">${first}/${P2.length}</p><p class="sm mute">câu đáp đúng trong ${PX_SEC} giây</p></div><button class="sec" id="ag">↻ Chơi lại</button><button class="pri" id="nx">Xong ›</button>`, $('#ag').onclick = () => { k = 0; first = 0; step(); }, $('#nx').onclick = () => fin('phanxa', [first, P2.length]);
+    const p = P2[k], ord = shuf(p.o.map((_, j) => j)); let done = false;
+    app.innerHTML = `${head('Nghe câu hỏi (không hiện chữ), chọn câu đáp đúng trước khi hết giờ. Như Part 2: câu đáp đúng nhiều khi trả lời gián tiếp.')}<p class="tag">Câu ${k + 1}/${P2.length}</p>
+      <div class="card"><button class="sec" id="pl">🔊 Nghe lại câu hỏi</button><div class="tbar"><i id="tb" style="width:100%"></i></div><p class="sm mute" id="ts">Đang đọc câu hỏi…</p></div>
+      <div class="opts">${ord.map(j => `<button class="opt" data-j="${j}">${esc(p.o[j])}</button>`).join('')}</div><div id="fb"></div>`;
+    const end = (j, late) => { if (done) return; done = true; clearTimeout(T); const ok = j === p.a; if (ok && !late) first++;
+      app.querySelectorAll('[data-j]').forEach(x => { x.disabled = true; if (+x.dataset.j === p.a) x.classList.add('ok'); else if (+x.dataset.j === j) x.classList.add('no'); });
+      $('#fb').innerHTML = `<div class="fb ${ok && !late ? 'ok' : 'no'}">${late ? '⏱ Hết giờ. ' : ok ? '✓ ' : '✗ '}❓ ${esc(p.q)}<br>↪ ${esc(p.o[p.a])}</div><button class="pri" id="nx">${k + 1 < P2.length ? 'Câu tiếp ›' : 'Xong ›'}</button>`; $('#nx').onclick = () => { k++; step(); }; };
+    const timer = () => { $('#ts').textContent = `Chọn trong ${PX_SEC} giây`; const b = $('#tb'); b.style.transition = 'none'; b.style.width = '100%'; void b.offsetWidth; b.style.transition = `width ${PX_SEC}s linear`; b.style.width = '0%'; T = setTimeout(() => end(-1, true), PX_SEC * 1000); };
+    const ask = () => { const i = 2 * k; let st = false; const go = () => { if (!st && !done) { st = true; timer(); } }; L[i] && L[i][1] === p.q ? play(i, go) : (() => { try { const u = new SpeechSynthesisUtterance(p.q); u.lang = 'en-US'; u.onend = go; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) { go(); } })(); setTimeout(go, 6000); };
+    $('#pl').onclick = ask; ask();
+    app.querySelectorAll('[data-j]').forEach(b => b.onclick = () => end(+b.dataset.j, false)); };
+  if (!P2.length) { app.innerHTML = `${head()}<p>Bài này chưa có bộ câu hỏi.</p>`; return; } step(); }
+
+// v36 (người sáng lập: "cùng dạng bài thì chọn liên tiếp bài tiếp theo để làm tiếp sau khi xong bài hiện tại"): ‹ Bài trước · Bài tiếp › trong cùng dạng (theo số bài)
+const baiSib = d => { if (typeof BAI_ALL === 'undefined') return null; const k = KIND(), xs = BAI_ALL.filter(x => kindOf(x.dang) === k).sort((a, b) => a.n - b.n), i = xs.findIndex(x => x.n === BAI_I + 1); return i < 0 ? null : xs[i + d] || null; };
+const baiNav = () => { const a = baiSib(-1), b = baiSib(1), K = KINDS.find(x => x[0] === KIND()), xs = typeof BAI_ALL === 'undefined' ? [] : BAI_ALL.filter(x => kindOf(x.dang) === KIND()).sort((p, q) => p.n - q.n);
+  return `<div class="bainav"><button class="sec" data-go-bai="${a ? a.n - 1 : ''}" ${a ? '' : 'disabled'}>‹ Bài trước</button><span class="sm mute">${K[1]} ${xs.findIndex(x => x.n === BAI_I + 1) + 1}/${xs.length}</span><button class="sec" data-go-bai="${b ? b.n - 1 : ''}" ${b ? '' : 'disabled'}>Bài tiếp ›</button></div>`; };
+document.addEventListener('click', e => { const b = e.target.closest('[data-go-bai]'); if (!b || b.dataset.goBai === '') return; const n = +b.dataset.goBai; baiLoad(n + 1, () => { useBai(n); hub(); }); });
+// v37 (người sáng lập: "làm chức năng chọn bài tiếp cùng dạng trong bài tập nhớ"): đang ở bài tập nhớ thì sang thẳng CÙNG bài tập của bài trước / bài tiếp cùng dạng
+const sibBtn = ex => { const b = baiSib(1); return b ? `<button class="pri" style="margin-top:8px" data-sib="1" data-ex="${ex}">⏭ Làm tiếp bài sau: Bài ${b.n}<small>${esc(b.t)}</small></button>` : '<p class="sm mute" style="text-align:center">Đây là bài cuối của dạng này.</p>'; };
+const sibNav = ex => { const a = baiSib(-1), b = baiSib(1), xs = typeof BAI_ALL === 'undefined' ? [] : BAI_ALL.filter(x => kindOf(x.dang) === KIND()).sort((p, q) => p.n - q.n), K = KINDS.find(x => x[0] === KIND());
+  return `<div class="bainav" style="margin-top:8px"><button class="sec" data-sib="-1" data-ex="${ex}" ${a ? '' : 'disabled'}>‹ Bài trước</button><span class="sm mute">${K[1]} bài ${xs.findIndex(x => x.n === BAI_I + 1) + 1}/${xs.length}<br>${esc(BAIS[BAI_I].meta.t)}</span><button class="sec" data-sib="1" data-ex="${ex}" ${b ? '' : 'disabled'}>Bài tiếp ›</button></div>`; };
+document.addEventListener('click', e => { const b = e.target.closest('[data-sib]'); if (!b || b.disabled) return; const x = baiSib(+b.dataset.sib), ex = b.dataset.ex; if (!x) return;
+  if (/Xong|kỷ lục/i.test(app.textContent)) st.done[ex] = 1; baiLoad(x.n, () => { useBai(x.n - 1); run(ex); }); });
+// ---------- 🧪 Tất cả màn (người sáng lập: "hiện tất cả màn bài tập để tôi kiểm thử") ----------
+// Mỗi màn: ảnh chụp sẵn (Chromium khổ iPhone SE) + nút mở thẳng màn đó. Mở từ đây thì nút ‹ quay về danh sách này.
+const GAL = [
+  ['hub', 'Màn chính bài học', 'Chung', '2 ô điểm Nhớ / Hiểu, nút ▶ bài kế tiếp, 2 nhóm bài, lịch ôn'],
+  ['hoc', 'Nghe + đọc', '📖 Học bài', 'Phiên âm có nhấn âm, nối âm, ngữ điệu, ngắt nghỉ, nuốt âm; chạm câu để nghe + xem dịch'],
+  ['duavn', 'Đua giờ dịch nghĩa', '🧠 Tập nhớ', 'Bấm cụm nghĩa tiếng Việt theo thứ tự; bấm sai cộng 2 giây'],
+  ['duago', 'Đua giờ cả bài', '🧠 Tập nhớ', 'Đúng tới đâu chữ tự kéo lên; đồng hồ đo giờ xong cả bài'],
+  ['hieu', '💡 Hiểu', '💡 Hiểu · ✍️ Dùng được', '① trong câu của bài, ② câu mới; trả lời xong hiện câu gốc trong bài'],
+  ['dung', '✍️ Dùng được', '💡 Hiểu · ✍️ Dùng được', '③ chọn dùng đúng, ④ tự gõ trong câu mới'],
+  ['de', 'Câu hỏi của đề thật', '🎯 Làm đề', '3 câu Part 3 như khi thi'],
+  ['hubon', 'Màn chính · ngày ôn 1', '📅 Ôn', 'Đua giờ cả bài + ✍️ dùng được (đo cả nhớ)'],
+  ['moion', 'Câu mới khác · ngày ôn', '📅 Ôn', '7 câu mới khác lần học']];
+let FROM_GAL = false;
+function openShot(k) { FROM_GAL = true; st.day = /on$/.test(k) ? 1 : 0; st.i = 0;
+  if (k === 'hub' || k === 'hubon') { FROM_GAL = false; return hub(); }
+  if (k === 'thuthachan') { run('thuthach'); TT.lv = 3; return ttAsk(); }
+  if (k === 'noipasai') { run('noipa'); $('#st').value = 'good morning I am checking out of room 512 today but my flight does not live until nine tonight'; return $('#ck').click(); }
+  if (k === 'golaisai') { run('golai'); $('#wt').value = 'Good morning. I checking out of room 512 today.'; return $('#ck').click(); }
+  run(k.replace(/on$/, '')); }
+function gallery() { FROM_GAL = false; st.cur = null; scrollTo(0, 0);
+  app.innerHTML = `<div class="row" style="justify-content:space-between"><button class="link" id="ghub">‹ Bài học</button><span class="tag">🧪 Kiểm thử</span></div>
+    <h1>Tất cả màn bài tập</h1><p class="mute sm">${GAL.length} màn. Ảnh chụp sẵn để xem nhanh; bấm "Mở thử" để làm thật màn đó, nút ‹ trên màn sẽ quay về đây.</p>
+    ${GAL.map(([k, t, g, d], n) => `<div class="card gal"><div class="row" style="justify-content:space-between;align-items:baseline"><b>${n + 1}. ${esc(t)}</b><span class="tag">${esc(g)}</span></div>
+      <p class="sm mute">${esc(d)}</p><img src="shots/${k}.jpg" alt="Ảnh màn ${esc(t)}" loading="lazy">
+      <button class="sec" data-shot="${k}">▶ Mở thử màn này</button></div>`).join('')}`;
+  $('#ghub').onclick = () => { st.day = 0; hub(); };
+  app.querySelectorAll('[data-shot]').forEach(b => b.onclick = () => openShot(b.dataset.shot)); }
+// ---------- màn chính: 2 nhóm ----------
+const pct = (a, b) => b ? Math.round(a / b * 100) : null;
+function scores() { const f = k => st.sc[k] ? pct(st.sc[k][0], st.sc[k][1]) : null;
+  const H = ['tu', 'ghep', 'gotv', 'np', 'dang', 'ds', 'moi'].filter(k => st.sc[k]), hieu = H.length ? pct(H.reduce((a, k) => a + st.sc[k][0], 0), H.reduce((a, k) => a + st.sc[k][1], 0)) : null; return { hieu }; }
+const todo = () => (st.day ? REVF() : ORDERF()).filter(k => !st.done[k]);
+const NAME = Object.fromEntries([['hoc', 'Nghe + đọc'], ['moi', 'Câu mới khác'], ...EX_NHO, ...EX_HIEU, ...EX_DE, ...Object.values(EX_DANG)].map(x => [x[0], x[1]]));
+function hub() { st.cur = null; scrollTo(0, 0); const S = scores(), left = todo(), nx = left[0];
+  const row = (k, t, d) => { const on = !st.day || REVF().includes(k), dn = st.done[k], sc = st.sc[k];
+    return `<button class="opt hrow2${on ? '' : ' off'}" data-go="${k}" ${on ? '' : 'disabled'}><span><b>${dn ? '✓ ' : ''}${esc(t)}</b><br><span class="sm mute">${esc(st.day && k === 'moi' ? '7 câu mới khác lần học' : st.day && k === 'viet' ? 'Không còn gợi ý chữ đầu' : d)}</span></span>${(() => { const v = sc ? sc[0] / sc[1] * 100 : dn && k === 'viet' && st.w.length ? st.w.reduce((a, b) => a + (b || 0), 0) / L.length : dn && k === 'noi' ? (st.say || 0) : null, t = sc ? sc[0] + '/' + sc[1] : v == null ? '' : Math.round(v) + '%';
+      return `<span class="sm ${v != null && v >= 80 ? 'okt' : 'mute'}">${t}</span>`; })()}</button>`; };
+  const gauge = (ic, t, v, sub) => `<div class="gauge"><span class="sm mute">${ic} ${t}</span><b>${v == null ? '–' : v + '%'}</b><span class="sm mute">${sub}</span></div>`;
+  app.innerHTML = `<div class="row" style="justify-content:space-between"><span class="tag">${BAIS[BAI_I].meta.de} · ${L.length} câu</span>${st.day ? `<span class="tag">Ôn ngày ${st.day}</span>` : ''}</div>
+    ${baiBar()}<h1>${esc(BAIS[BAI_I].meta.t)}</h1>${baiNav()}
+    <div class="gauges g3"><div class="gauge"><span class="sm mute">⚡ Kỷ lục đua giờ</span><b>${(DG && DG.best) || dgBestGet() ? dgClock((DG && DG.best) || dgBestGet()) : '–'}</b><span class="sm mute">nói / gõ cả bài</span></div><div class="gauge"><span class="sm mute">💡 Hiểu</span><b>${MU.filter(muHieu).length}/12</b><span class="sm mute">mục</span></div><div class="gauge"><span class="sm mute">✍️ Dùng được</span><b>${MU.filter(muDung).length}/12</b><span class="sm mute">mục</span></div></div>
+    ${nx ? `<button class="pri" id="nx">▶ ${esc(NAME[nx])}<small>${left.length} bài còn lại${st.day ? ' của ngày ôn' : ''}</small></button>` : `<div class="card"><b>✓ Xong ${st.day ? 'ngày ôn ' + st.day : 'buổi học'}</b>${(() => { const nb = baiSib(1); return nb ? `<button class="pri" data-go-bai="${nb.n - 1}">▶ Bài tiếp cùng dạng: Bài ${nb.n}<small>${esc(nb.t)}</small></button>` : ''; })()}<p class="sm mute">Thuộc khi đua giờ xong cả bài, không bỏ từ nào, ở 2 ngày ôn liền. Hiểu: ① ② đúng ngay lần đầu. Dùng được: ③ ④ đúng ngay lần đầu.</p></div>`}
+    ${!st.day ? `<button class="opt hrow2" data-go="hoc"><span><b>${st.done.hoc ? '✓ ' : ''}📖 Nghe + đọc</b><br><span class="sm mute">Nghe, xem dịch, phiên âm có nối âm, nhấn âm</span></span></button>` : ''}
+    <h2 style="margin-top:6px">🧠 Tập nhớ</h2><p class="sm mute">Nói hoặc gõ lại cả bài, và xếp nghĩa tiếng Việt. Đo giờ, phá kỷ lục.</p>
+    <div class="opts">${EX_NHO.map(x => row(...x)).join('')}</div>
+    ${(() => { const kk = KINDS.find(x => x[0] === KIND()); return `<h2 style="margin-top:6px">🎯 Luyện riêng dạng ${kk[1]} ${kk[2]}</h2><p class="sm mute">Bài tập dành cho dạng ${kk[2].toLowerCase()} (${kk[3]}).</p><div class="opts">${row(...EX_DANG[KIND()])}</div>`; })()}
+    <h2 style="margin-top:6px">💡 Hiểu · ✍️ Dùng được</h2><p class="sm mute">7 cụm từ và 5 điểm ngữ pháp lấy từ bài. Mỗi mục 4 bậc: ① hiểu trong câu của bài · ② hiểu ở câu mới · ③ chọn dùng đúng · ④ tự gõ. Câu sai quay lại cuối lượt.</p>
+    <div class="opts">${EX_HIEU.map(x => row(x[0], x[1], x[2])).join('')}</div>${muTable()}
+    <h2 style="margin-top:6px">🎯 Làm đề</h2><p class="sm mute">Câu hỏi thật của đề về đoạn này.</p>
+    <div class="opts">${EX_DE.map(x => row(...x)).join('')}</div>
+    <div class="card"><h3>📅 Lịch ôn</h3><div class="cal">${[1, 3, 7, 21].map(d => `<div class="${d === nextDay() ? 'on' : ''}">Ngày ${d}${d === nextDay() ? '<br>kế tiếp' : ''}</div>`).join('')}</div>
+      <p class="sm mute">Ngày 1: ⚡ đua giờ 2 kiểu + ✍️ dùng được. Ngày 3, 7, 21: ⚡ đua giờ 2 kiểu + 7 câu mới khác. Sai câu nào làm lại câu đó tới khi đúng hết.</p>
+      <button class="sec" id="rev">☀️ Giả sang ngày ${nextDay()} để thử ôn</button></div>
+    
+    <p class="note">Bài và giọng đọc lấy từ đề của app (văn bản Part 6–7 đọc bằng giọng máy); dịch, phiên âm, câu hỏi tiếng Việt, câu mới do Claude soạn, chưa giáo viên kiểm.</p>`;
+  const b = $('#nx'); if (b) b.onclick = () => run(nx);
+  app.querySelectorAll('[data-go]').forEach(x => x.onclick = () => run(x.dataset.go));
+   app.querySelectorAll('[data-bai]').forEach(x => x.onclick = () => { const n = +x.dataset.bai; PICK_K = null; baiLoad(n + 1, () => { useBai(n); hub(); }); }); app.querySelectorAll('[data-pk]').forEach(x => x.onclick = () => { PICK_K = x.dataset.pk; hub(); });
+  $('#rev').onclick = () => { st.day = nextDay(); for (const k of REVF()) { delete st.done[k]; delete st.sc[k]; } st.w = []; st.say = 0; hub(); }; }
+const nextDay = () => [1, 3, 7, 21].find(d => d > st.day) || 21;
+function fin(k, sc) { st.done[k] = 1; if (sc) st.sc[k] = sc; FROM_GAL ? gallery() : hub(); }
+function run(k) { st.cur = k; st.i = 0; st.hit = [0, 0]; scrollTo(0, 0);
+  ({ hoc: learn, che: () => { st.lv = 1; memo(); }, dien: cloze, xep: order, viet: write, noi: speak,
+     golai: () => loop('golai'), chonvn: () => loop('chonvn'), noipa: () => loop('noipa'), thuthach: () => thuthach(), duago: () => duago(), nhapvai: () => nhapvai(), ngheche: () => ngheche(), dienvb: () => dienvb(), timdap: () => timdap(), phanxa: () => phanxa(), duavn: () => duavn(), hieu: () => muRun('hieu'), dung: () => muRun('dung'), tu: () => qloop(k, TUQ, mcqIt), np: () => qloop(k, NPQ, mcqIt), dang: () => qloop(k, DANGQ, mcqIt), moi: () => qloop(k, st.day ? NEWQ2 : NEWQ, mcqIt), gotv: () => qloop(k, GOTV, gotvIt), ds: () => qloop(k, DSQ, dsIt), ghep: () => ghep(), de: () => mcq(EXQ, k) })[k](); }
+function head(sub) { const k = st.cur, g = Object.values(EX_DANG).some(x => x[0] === k) ? '🎯 Luyện theo dạng' : EX_HIEU.some(x => x[0] === k) || k === 'moi' ? '💡 Tập hiểu' : k === 'hoc' ? '📖 Học bài' : '🧠 Tập nhớ';
+  return `<div class="row" style="justify-content:space-between"><button class="link" id="back">‹ ${FROM_GAL ? 'Tất cả màn' : 'Bài học'}</button><span class="tag">${g} · ${esc(NAME[k] || '')}</span></div>${sub ? `<p class="mute sm">${sub}</p>` : ''}`; }
+document.addEventListener('click', e => { if (e.target.closest('#back')) { if (AUD) AUD.pause(); FROM_GAL ? gallery() : hub(); } });
+// ---------- lưu tiến độ (v209): S.ht của app qua parent.htGet / htPut; mở riêng thì localStorage ----------
+const HT_KEEP = ['done', 'sc', 'mu', 'day', 'lay', 'w'];
+let HT = null; try { HT = (window.parent !== window && window.parent.htGet && window.parent.htGet()) || null; } catch (e) {}
+if (!HT) try { HT = JSON.parse(localStorage.getItem('htLocal') || 'null'); } catch (e) {}
+HT = HT && typeof HT === 'object' ? HT : { sts: {}, best: {}, cur: 0 }; HT.sts = HT.sts || {}; HT.best = HT.best || {};
+const htFresh = () => ({ ipa: true, lv: 0, i: 0, w: [], day: 0, done: {}, sc: {}, cur: null, hit: [0, 0], lay: { ipa: 1 }, mu: {} });
+for (const k of Object.keys(HT.sts)) STS[k] = Object.assign(htFresh(), HT.sts[k]);
+if (HT.sts[0]) st = STS[0];
+function htSave() { STS[BAI_I] = st; HT.cur = BAI_I; HT.sts = {};
+  for (const [k, v] of Object.entries(STS)) HT.sts[k] = Object.fromEntries(HT_KEEP.map(f => [f, v[f]]));
+  try { if (window.parent !== window && window.parent.htPut) window.parent.htPut(JSON.parse(JSON.stringify(HT))); else localStorage.setItem('htLocal', JSON.stringify(HT)); } catch (e) {} }
+const _fin = fin; fin = (k, sc) => { _fin(k, sc); htSave(); };
+const _useBai = useBai; useBai = n => { _useBai(n); htSave(); };
+dgBestGet = () => +HT.best['dg' + BAI_I] || 0; dgBestSet = v => { HT.best['dg' + BAI_I] = v; htSave(); };
+dvBestGet = () => +HT.best['dv' + BAI_I] || 0; dvBestSet = v => { HT.best['dv' + BAI_I] = v; htSave(); };
+if (HT.cur) baiLoad(HT.cur + 1, () => { _useBai(HT.cur); hub(); }); else hub();
+</script>
+
+</body></html>

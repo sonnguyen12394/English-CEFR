@@ -1,0 +1,85 @@
+{
+ "n": 43,
+ "nguon": "Đề 1 · Part 4 · 6",
+ "id": "t4-05",
+ "dang": "📢 Bài nói",
+ "kind": "intro",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Thanks for joining today's webinar on time management.",
+   "",
+   "ae77aa47b"
+  ],
+  [
+   "N",
+   "I'm Lucas Brandt, and I've been training managers for over fifteen years.",
+   "",
+   "a612080b1"
+  ],
+  [
+   "N",
+   "Today, I'll share three simple techniques that you can start using immediately.",
+   "",
+   "a43ca069e"
+  ],
+  [
+   "N",
+   "First, plan tomorrow's tasks before you leave work today.",
+   "",
+   "a7d56fee4"
+  ],
+  [
+   "N",
+   "Second, check your e-mail at fixed times rather than all day long.",
+   "",
+   "a981841de"
+  ],
+  [
+   "N",
+   "And third, schedule your most difficult work for the time of day when you have the most energy.",
+   "",
+   "a7fbdd92a"
+  ],
+  [
+   "N",
+   "At the end of the session, I'll answer your questions, so please type them in the chat box as we go.",
+   "",
+   "ab874b8c9"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the webinar about?",
+   "a": "Managing time effectively",
+   "w": [
+    "Writing better e-mails",
+    "Hiring new managers",
+    "Using new software"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the speaker say about checking e-mail?",
+   "a": "It should be done at set times.",
+   "w": [
+    "It should be done first thing.",
+    "It should be done by an assistant.",
+    "It should be done on weekends."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What are listeners asked to do?",
+   "a": "Type their questions in the chat",
+   "w": [
+    "Call the speaker later",
+    "Turn on their cameras",
+    "Download a document"
+   ],
+   "ty": "next"
+  }
+ ]
+}

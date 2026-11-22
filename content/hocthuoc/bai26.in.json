@@ -1,0 +1,67 @@
+{
+ "n": 26,
+ "nguon": "Đề 1 · Part 3 · 2",
+ "id": "t3-18",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Have you seen the sales figures for our new energy drink?",
+   "",
+   "a756e42dd"
+  ],
+  [
+   "B",
+   "Yes, sales are strong in supermarkets but weak in convenience stores.",
+   "",
+   "aed8da63b"
+  ],
+  [
+   "A",
+   "Maybe the bottles are too big for people buying on the go. We could launch a smaller size.",
+   "",
+   "a5736540b"
+  ],
+  [
+   "B",
+   "Let's discuss it with the marketing manager at Thursday's meeting. I'll add it to the agenda.",
+   "",
+   "aa9b9f905"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What product are the speakers discussing?",
+   "a": "A drink",
+   "w": [
+    "A snack",
+    "A store app",
+    "A cleaning product"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the woman suggest?",
+   "a": "Offering a smaller package",
+   "w": [
+    "Lowering the price",
+    "Changing the flavor",
+    "Advertising on television"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What will the man do?",
+   "a": "Add an item to a meeting agenda",
+   "w": [
+    "Call some store managers",
+    "Order new bottles",
+    "Write a sales report"
+   ],
+   "ty": "next"
+  }
+ ]
+}

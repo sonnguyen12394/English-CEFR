@@ -1,0 +1,73 @@
+{
+ "n": 39,
+ "nguon": "Đề 1 · Part 4 · 2",
+ "id": "t4-15",
+ "dang": "📢 Bài nói",
+ "kind": "ann",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Attention, passengers on Flight 482 to Toronto.",
+   "",
+   "ab17e0489"
+  ],
+  [
+   "N",
+   "Due to strong winds, our departure has been delayed by one hour.",
+   "",
+   "a49131a59"
+  ],
+  [
+   "N",
+   "The new departure time is three forty-five.",
+   "",
+   "aadcbc428"
+  ],
+  [
+   "N",
+   "Passengers who have connecting flights in Toronto should speak to an agent at the service desk near Gate 12.",
+   "",
+   "a9fc651f1"
+  ],
+  [
+   "N",
+   "We're sorry for the delay, and we'll provide meal vouchers at the gate in a few minutes.",
+   "",
+   "abc1aff64"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why has the flight been delayed?",
+   "a": "Because of the weather",
+   "w": [
+    "Because of a mechanical problem",
+    "Because a crew member is late",
+    "Because of heavy traffic"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "Who should go to the service desk?",
+   "a": "Passengers with connecting flights",
+   "w": [
+    "Passengers with heavy bags",
+    "First-class passengers",
+    "Passengers without tickets"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What will passengers receive?",
+   "a": "Meal vouchers",
+   "w": [
+    "Free upgrades",
+    "Hotel rooms",
+    "Travel guides"
+   ],
+   "ty": "detail"
+  }
+ ]
+}

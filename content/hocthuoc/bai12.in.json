@@ -1,0 +1,99 @@
+{
+ "n": 12,
+ "nguon": "Đề 7 · Part 6 · đoạn 4",
+ "id": "d07-p6-04",
+ "chu": "Dịch vụ & sửa chữa",
+ "dang": "✉️ Văn bản",
+ "kind": "Memo",
+ "title": "To: All Staff · From: IT Department · Subject: Password change",
+ "L": [
+  [
+   "W",
+   "All employees will be required to change their computer passwords by Friday, October 10.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "New passwords must contain at least twelve characters, including one number and one symbol.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The new password also cannot match any of your last five passwords.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Passwords that do not meet these requirements will be rejected automatically.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To change your password, open the settings menu and choose Account Security from the list on the left.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If you have any trouble, our help desk staff will be happy to assist you.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please remember that IT employees will never ask you to share your password by e-mail or phone.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "The new password also cannot match any of your last five passwords.",
+   "w": [
+    "Passwords no longer need to include a symbol.",
+    "The help desk moved to the second floor last year.",
+    "Employees may share their passwords with their managers."
+   ],
+   "why": "Thêm một yêu cầu nữa cho mật khẩu mới (also), rồi tới câu \"không đạt các yêu cầu này sẽ bị từ chối\". Hai câu trái với đoạn (bỏ ký hiệu, chia sẻ mật khẩu).",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "from",
+   "w": [
+    "of",
+    "by",
+    "at"
+   ],
+   "why": "choose something from a list = chọn từ danh sách → from.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "If",
+   "w": [
+    "Unless",
+    "Although",
+    "So"
+   ],
+   "why": "Điều kiện: nếu gặp khó khăn thì bộ phận hỗ trợ giúp → If.",
+   "ty": "conn"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "share",
+   "w": [
+    "sharing",
+    "shared",
+    "shares"
+   ],
+   "why": "ask somebody to + động từ nguyên mẫu → to share.",
+   "ty": "word"
+  }
+ ]
+}

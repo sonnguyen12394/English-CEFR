@@ -1,0 +1,115 @@
+{
+ "n": 51,
+ "nguon": "Đề 1 · Part 7 · 2",
+ "id": "t7-invoice",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Invoice",
+ "title": "Greenleaf Catering — Invoice #2291",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Customer: Norton Consulting, 14 Bay Street",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Event: Staff lunch, October 9",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lunch buffet (40 people × $18) — $720",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Coffee and tea service — $80",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Delivery fee — $25",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Subtotal — $825",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Discount (returning customer, 10%) — –$82.50",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Total due — $742.50",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Payment is due within 30 days.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please make checks payable to Greenleaf Catering or pay online at greenleafcatering.com/pay.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why did Norton Consulting receive a discount?",
+   "a": "It has ordered from Greenleaf before.",
+   "w": [
+    "The lunch event was canceled.",
+    "It paid the full amount in advance.",
+    "The food was delivered later than planned."
+   ],
+   "why": "Discount (returning customer, 10%).",
+   "lg": {
+    "og": {
+     "It has ordered from Greenleaf before.": "Họ từng đặt hàng của Greenleaf trước đây",
+     "The lunch event was canceled.": "Sự kiện bữa trưa bị huỷ",
+     "It paid the full amount in advance.": "Họ trả trước toàn bộ",
+     "The food was delivered later than planned.": "Đồ ăn giao trễ hơn dự kiến"
+    },
+    "ly": "Dòng giảm giá ghi \"returning customer, 10%\" (khách quen), tức đã từng đặt hàng. Các lý do khác không có trong hoá đơn.",
+    "dich": "Giảm giá (khách quen, 10%): trừ 82,50 đô la."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "How many people was the lunch prepared for?",
+   "a": "40",
+   "w": [
+    "45",
+    "50",
+    "60"
+   ],
+   "why": "Lunch buffet (40 people × $18).",
+   "lg": {
+    "og": {
+     "40": "40",
+     "45": "45",
+     "50": "50",
+     "60": "60"
+    },
+    "ly": "Đáp án \"40\" — Dòng bữa trưa tự chọn ghi 40 người × 18 đô la (720 đô la). Các số còn lại không xuất hiện ở dòng này.",
+    "dich": "Bữa trưa tự chọn (40 người × 18 đô la): 720 đô la."
+   },
+   "ty": "detail"
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "n": 25,
+ "nguon": "Đề 1 · Part 3 · 1",
+ "id": "t3-27",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Paul, I've finished the slides for Friday's presentation to Brightline Foods. Could you take a look before I send them to the client?",
+   "",
+   "a76da0200"
+  ],
+  [
+   "B",
+   "Sure. Hmm, the sales figures on slide six are from last year.",
+   "",
+   "aec1ff525"
+  ],
+  [
+   "A",
+   "Oh, are they? I copied that chart from an old report.",
+   "",
+   "a7cdb1d33"
+  ],
+  [
+   "B",
+   "Brightline's new figures came out on Monday. They're in the shared folder.",
+   "",
+   "a9dc67a7c"
+  ],
+  [
+   "A",
+   "Thanks. I'll update the chart this afternoon and send everything tomorrow morning.",
+   "",
+   "a0ee00a51"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What are the speakers mainly discussing?",
+   "a": "A presentation for a client",
+   "w": [
+    "A new sales office",
+    "A food delivery",
+    "A training course"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Why does the man say, \"the sales figures on slide six are from last year\"?",
+   "a": "To point out a mistake",
+   "w": [
+    "To praise the woman's work",
+    "To ask for a copy of a report",
+    "To explain a delay"
+   ],
+   "ty": "imp"
+  },
+  {
+   "q": "What will the woman do this afternoon?",
+   "a": "Revise a chart",
+   "w": [
+    "Meet with a client",
+    "Print some slides",
+    "Send a report to Brightline"
+   ],
+   "ty": "next"
+  }
+ ]
+}

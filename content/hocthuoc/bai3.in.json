@@ -1,0 +1,105 @@
+{
+ "n": 3,
+ "nguon": "Đề 7 · Part 6 · đoạn 2",
+ "id": "d07-p6-02",
+ "chu": "Khách sạn & đi lại",
+ "dang": "✉️ Văn bản",
+ "kind": "E-mail",
+ "title": "To: Samir Haddad · From: Seaview Lodge · Subject: Your reservation",
+ "L": [
+  [
+   "W",
+   "Dear Mr. Haddad, Thank you for booking two nights at the Seaview Lodge.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Your room will be ready for check-in from 3:00 P.M. on July 2.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Because you mentioned that you will arrive late, we have arranged for the night manager to give you your key at the front desk.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The front desk is staffed twenty-four hours a day.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Breakfast is served in the garden café from 7:00 to 10:00 A.M. and is included in your rate.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Furthermore, guests can borrow bicycles free of charge to explore the coastal path.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If you need anything before your stay, please do not hesitate to contact us.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We look forward to welcoming you.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "will be ready",
+   "w": [
+    "was ready",
+    "has been ready",
+    "being ready"
+   ],
+   "why": "Ngày nhận phòng 2/7 ở tương lai → will be ready.",
+   "ty": "tense"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "The front desk is staffed twenty-four hours a day.",
+   "w": [
+    "The garden café is closed for renovations.",
+    "Bicycles must be returned by noon on July 1.",
+    "Please check in before noon so that we can prepare your room."
+   ],
+   "why": "Nối với ý khách đến muộn, nhận chìa khoá ở quầy → quầy có người trực cả ngày đêm. Ba câu kia trái với đoạn (quán vẫn phục vụ bữa sáng, khách chưa tới ngày 1/7, nhận phòng từ 15:00).",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "Furthermore",
+   "w": [
+    "However",
+    "As a result",
+    "For instance"
+   ],
+   "why": "Thêm một tiện ích nữa (mượn xe đạp miễn phí) sau bữa sáng → Furthermore.",
+   "ty": "conn"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "contact",
+   "w": [
+    "reply",
+    "respond",
+    "communicate"
+   ],
+   "why": "contact us = liên hệ với chúng tôi. reply, respond, communicate cần giới từ (reply to, respond to, communicate with).",
+   "ty": "word"
+  }
+ ]
+}

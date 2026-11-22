@@ -1,0 +1,79 @@
+{
+ "n": 42,
+ "nguon": "Đề 1 · Part 4 · 5",
+ "id": "t4-26",
+ "dang": "📢 Bài nói",
+ "kind": "ad",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Is your office running out of space?",
+   "",
+   "a39facff7"
+  ],
+  [
+   "N",
+   "Let Stackwell Storage help.",
+   "",
+   "ab1354826"
+  ],
+  [
+   "N",
+   "We offer secure, climate-controlled storage units in three sizes, and we can pick up your boxes, furniture, and files on the same day you call.",
+   "",
+   "a03760541"
+  ],
+  [
+   "N",
+   "Our units are open seven days a week, and every customer receives an access card that works at any of our five locations in the city.",
+   "",
+   "ab010ef4e"
+  ],
+  [
+   "N",
+   "This month only, businesses that sign a six-month contract get the first month free.",
+   "",
+   "add43757e"
+  ],
+  [
+   "N",
+   "Call us at 555-0148 or book a pick-up on our Web site today.",
+   "",
+   "adb1ec96e"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is being advertised?",
+   "a": "A storage service",
+   "w": [
+    "An office cleaning company",
+    "A furniture store",
+    "A printing service"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What is mentioned about the access card?",
+   "a": "It can be used at several locations.",
+   "w": [
+    "It must be renewed every month.",
+    "It is only for large units.",
+    "It costs extra."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What is offered to some businesses this month?",
+   "a": "A free month",
+   "w": [
+    "A larger unit",
+    "A free access card",
+    "A discount on furniture"
+   ],
+   "ty": "detail"
+  }
+ ]
+}

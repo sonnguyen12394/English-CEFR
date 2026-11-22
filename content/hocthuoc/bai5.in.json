@@ -1,0 +1,88 @@
+{
+ "n": 5,
+ "nguon": "Đề 5 · Part 4 · bài 2",
+ "id": "d05-p4-02",
+ "chu": "Mua hàng & giao hàng",
+ "dang": "📢 Bài nói",
+ "kind": "ann",
+ "title": "",
+ "L": [
+  [
+   "N",
+   "Attention, Freshway shoppers.",
+   "",
+   "a57b84f52"
+  ],
+  [
+   "N",
+   "For the next thirty minutes, all fresh bread in our bakery section is half price.",
+   "",
+   "a3c48ff02"
+  ],
+  [
+   "N",
+   "Our bakers make everything right here in the store every morning.",
+   "",
+   "a3622f820"
+  ],
+  [
+   "N",
+   "While you're in the bakery, be sure to try a free sample of our new blueberry muffins.",
+   "",
+   "afd39fcdd"
+  ],
+  [
+   "N",
+   "And don't forget, Freshway rewards members get an extra five percent off their total purchase every Tuesday.",
+   "",
+   "aa166dc33"
+  ],
+  [
+   "N",
+   "If you're not a member yet, ask any cashier for a sign-up form.",
+   "",
+   "a3fe8fbe4"
+  ],
+  [
+   "N",
+   "Thank you for shopping at Freshway.",
+   "",
+   "a9e7ed379"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is on sale for the next thirty minutes?",
+   "a": "Bread",
+   "w": [
+    "Fruit",
+    "Coffee",
+    "Muffins"
+   ],
+   "ty": "detail",
+   "ev": "all fresh bread in our bakery section is half price"
+  },
+  {
+   "q": "What can shoppers do in the bakery?",
+   "a": "Taste a new product",
+   "w": [
+    "Order a birthday cake",
+    "Watch a cooking class",
+    "Meet a famous baker"
+   ],
+   "ty": "detail",
+   "ev": "be sure to try a free sample of our new blueberry muffins"
+  },
+  {
+   "q": "According to the speaker, what happens every Tuesday?",
+   "a": "Members receive an extra discount.",
+   "w": [
+    "New products arrive.",
+    "The store opens early.",
+    "Free bread is given away."
+   ],
+   "ty": "detail",
+   "ev": "Freshway rewards members get an extra five percent off their total purchase every Tuesday"
+  }
+ ]
+}

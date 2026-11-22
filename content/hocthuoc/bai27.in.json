@@ -1,0 +1,67 @@
+{
+ "n": 27,
+ "nguon": "Đề 1 · Part 3 · 3",
+ "id": "t3-13",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hi, Marco. Did you get a chance to look at the budget for the trade show in Singapore?",
+   "",
+   "a1ab8def7"
+  ],
+  [
+   "B",
+   "I did. The booth rental is much higher than last year, so we may need to cut something else.",
+   "",
+   "a3bd01ab5"
+  ],
+  [
+   "A",
+   "What about the printed brochures? We could put everything on a tablet display instead.",
+   "",
+   "afbdbfaa0"
+  ],
+  [
+   "B",
+   "Good idea. I'll ask the design team if they can prepare a digital version by Friday.",
+   "",
+   "a667a0de5"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What are the speakers mainly discussing?",
+   "a": "The cost of an event",
+   "w": [
+    "A new product design",
+    "A hiring decision",
+    "A delayed flight"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the woman suggest?",
+   "a": "Replacing printed materials",
+   "w": [
+    "Renting a smaller booth",
+    "Canceling the trip",
+    "Asking for a bigger budget"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What will the man do next?",
+   "a": "Contact the design team",
+   "w": [
+    "Book a hotel",
+    "Print some brochures",
+    "Call the event organizer"
+   ],
+   "ty": "next"
+  }
+ ]
+}

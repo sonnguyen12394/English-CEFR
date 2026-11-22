@@ -10,8 +10,8 @@ const tcLoad = async () => TC || (TC = await (await fetch('tracuu.json?v=' + APP
 // Màn đầu: ô tìm (Anh hoặc Việt) + 📌 Sổ từ + 🕘 tra gần đây + 3 mục: 📚 Từ & cụm từ · 🧱 Ngữ pháp & lỗi · 👄 Phát âm. Gõ thì ra MỘT danh sách chia nhóm
 // (từ, ngữ pháp, lỗi, cụm từ…); gõ tiếng Việt thì ưu tiên "tiếng Anh nói thế nào" + phân biệt từ dễ nhầm. Mẹo thi theo kỹ năng chuyển sang 🎓 Luyện thi → 📘 Cẩm nang.
 const TC_SECT = { tu: ['📚', 'Từ & cụm từ', [['tu', 'Danh sách từ'], ['pb', 'Từ dễ nhầm'], ['cum:pv', 'Cụm động từ'], ['cum:idi', 'Thành ngữ'], ['cum:col', 'Cụm hay dùng'], ['cum:pat', 'Mẫu câu'], ['cum:reg', 'Trang trọng / thân mật'], ['tn', 'Từ nối'], ['afx', 'Tiền tố / hậu tố'], ['dem', 'Đếm được / không'], ['uk', 'Anh–Anh / Anh–Mỹ'], ['cau', 'Cụm câu Viết / Nói']]],
-  np: ['🧱', 'Ngữ pháp & lỗi', [['np', 'Ngữ pháp'], ['loi', 'Lỗi hay gặp']]], pa: ['👄', 'Phát âm', []] };
-const TC_OF = { tu: 'tu', pb: 'tu', cum: 'tu', tn: 'tu', afx: 'tu', dem: 'tu', uk: 'tu', cau: 'tu', np: 'np', loi: 'np', pa: 'pa' };
+  np: ['🧱', 'Ngữ pháp & lỗi', [['np', 'Ngữ pháp'], ['loi', 'Lỗi hay gặp']]], pa: ['👄', 'Phát âm', []], nv: ['🏙', 'Nhân vật Khu phố', []] };
+const TC_OF = { tu: 'tu', pb: 'tu', cum: 'tu', tn: 'tu', afx: 'tu', dem: 'tu', uk: 'tu', cau: 'tu', np: 'np', loi: 'np', pa: 'pa', nv: 'nv' };
 const TC_SUB = [['pv', 'Cụm động từ'], ['idi', 'Thành ngữ'], ['col', 'Cụm hay dùng'], ['pat', 'Mẫu câu'], ['reg', 'Trang trọng / thân mật']];
 const TC_PV = /^[a-z]+ (up|down|out|off|on|in|over|away|back|through|into|after|for|with|about|around|along|across|ahead|apart|by|forward)( [a-z]+)?$/;
 const tcF = x => typeof tdFold === 'function' ? tdFold(x) : String(x).toLowerCase();
@@ -95,6 +95,7 @@ function tcList() { const k = tcKind(), q = (DICT.q || '').trim(), df = document
   if (k === 'cum') { const rs = tcCum(DICT.sub || 'pv', q); dl.innerHTML = rs.length ? `<p class="mute">${rs.length} mục${rs.length > DICT_MAX ? `, hiện ${DICT_MAX}` : ''}. Chạm để mở từ.</p>` + rs.slice(0, DICT_MAX).map(([p, vi, ex, w]) => `<div class="drow" data-tcgo="tu|${esc(w.w)}"><b>${esc(p)}</b><br>${esc(vi || '')}${ex ? `<br><span class="mute">${esc(ex)}</span>` : ''}</div>`).join('') : '<p class="mute">Không có mục khớp.</p>'; return; }
   if (k === 'loi') { const rs = tcLoiHits(q); dl.innerHTML = tcAi + (rs.length ? rs.map(tcLoiRow).join('') : '<p class="mute">Không có lỗi khớp.</p>'); return; }
   if (k === 'pa') { dl.innerHTML = tcPa(q); return; }
+  if (k === 'nv') { if (!tcNp().length) kLoad(KIT.np).then(() => { tcRe(); }).catch(() => {}); dl.innerHTML = tcNvList(q); return; }
   if (k === 'cau') { dl.innerHTML = tcAi + tcCau(q); return; }
 }
 
@@ -158,8 +159,9 @@ document.addEventListener('click', e => { const cn = document.getElementById('cn
   if ((b = g('[data-tcsave]'))) { stop(); const [w, vi, ex] = b.dataset.tcsave.split('|'); const n = typeof vwPut === 'function' ? vwPut([{ w, vi, ex, app: null }], '✍️ Cụm câu') : 0; return toast(n ? '📌 Đã lưu vào sổ từ.' : 'Cụm này đã có trong sổ.'); }
   if ((b = g('[data-tcnpl]'))) { stop(); const x = tcNp().find(y => y.id === b.dataset.tcnpl); if (x) { KIT.np.view = x.lv; scrollTo(0, 0); return kLearn(KIT.np, x); } return; }
   if ((b = g('[data-tcgo]'))) { stop(); const v = b.dataset.tcgo, i = v.indexOf('|'), k = v.slice(0, i), [a, all] = v.slice(i + 1).split('|');
-    if (k === 'np') { DICT.kind = 'np'; DICT.q = ''; DICT.open = a; } else if (k === 'tu') { const w = WORDS.find(x => x.w === a); DICT.kind = all || !w ? 'tu' : 'home'; DICT.q = a; DICT.open = w && !all ? w.id : null; if (w && !all) tdSeen(w); } else { DICT.kind = k; DICT.q = a; DICT.open = null; if (k === 'cum' && !a) DICT.sub = 'col'; }
+    if (k === 'np') { DICT.kind = 'np'; DICT.q = ''; DICT.open = a; } else if (k === 'nv') { DICT.kind = 'nv'; DICT.q = ''; DICT.open = 'nv:' + a; } else if (k === 'tu') { const w = WORDS.find(x => x.w === a); DICT.kind = all || !w ? 'tu' : 'home'; DICT.q = a; DICT.open = w && !all ? w.id : null; if (w && !all) tdSeen(w); } else { DICT.kind = k; DICT.q = a; DICT.open = null; if (k === 'cum' && !a) DICT.sub = 'col'; }
     if (toDict()) return; const dq = document.getElementById('dq'); dq.value = DICT.q; re(); scrollTo(0, 0); return; }
+  if ((b = g('[data-tcnv]')) && tcKind() === 'nv' && !g('[data-phv]') && !g('button')) { stop(); const o = 'nv:' + b.dataset.tcnv; DICT.open = DICT.open === o ? null : o; return re(); }
   if ((b = g('[data-tcnp]')) && tcKind() === 'np') { stop(); DICT.open = DICT.open === b.dataset.tcnp ? null : b.dataset.tcnp; return re(); } }, true);
 
 // ---------- v93 màn đầu, tìm gộp nhóm, từ dễ nhầm, 📘 Cẩm nang thi ----------
@@ -186,6 +188,8 @@ function tcSearch(q) { const df = document.getElementById('df'), dl = document.g
   grp.push(sec('❗ Lỗi hay gặp', lo.map(tcLoiRow).join('')));
   grp.push(sec('🔗 Cụm từ, thành ngữ', cum.map(([s, p, vi, ex, w]) => `<div class="drow" data-tcgo="tu|${esc(w.w)}"><b>${esc(p)}</b><br>${esc(vi || '')}</div>`).join('')));
   grp.push(sec('🔀 Từ nối', tn.length ? tcList2(tn) : ''));
+  const nv = q.trim().length >= 2 ? tcNvAll().filter(x => tcHas(q, x.name, x.pos, x.suf)).slice(0, 3) : [];
+  grp.push(sec('🏙 Nhân vật Khu phố', nv.map(x => `<div class="drow" data-tcgo="nv|${x.c}"><b>${esc(x.name)}</b> <span class="mute">· ${esc(x.P.ten)}</span><br><span class="mute">${esc(x.suf)}</span></div>`).join('')));
   const uk = (TC && TC.uk || []).filter(x => x.k !== 'spell' && q.trim().length >= 3 && tcHas(q, x.gb, x.us)).slice(0, 3);   // từ Anh–Mỹ khác (chính tả khác đã ra ở 📚 Từ)
   grp.push(sec('🇬🇧🇺🇸 Anh–Anh / Anh–Mỹ', uk.map(x => `<div class="row" style="margin:4px 0"><span>🇬🇧 ${tcWordChip(x.gb)}</span><span>🇺🇸 ${tcWordChip(x.us)}</span></div>`).join('')));
   const body = grp.filter(Boolean).join('');
@@ -197,7 +201,8 @@ function tcHome() { const df = document.getElementById('df'), dl = document.getE
   dl.innerHTML = `<p class="mute" style="margin:10px 0 2px">Gõ tiếng Anh khi gặp từ lạ; gõ tiếng Việt khi muốn nói / viết một ý.</p>
     ${card('tu', '📚', 'Từ & cụm từ', `${WORDS.length.toLocaleString('vi-VN')} từ theo cấp, từ dễ nhầm, cụm động từ, thành ngữ, từ nối, tiền tố / hậu tố`)}
     ${card('np', '🧱', 'Ngữ pháp & lỗi hay gặp', `${tcNp().length || 106} điểm ngữ pháp, ${(TC && TC.loi || []).length || 42} lỗi người Việt hay mắc`)}
-    ${card('pa', '👄', 'Phát âm', '44 âm, trọng âm, đuôi -s / -ed, âm cuối, ngữ điệu, cặp âm dễ nhầm')}`; }
+    ${card('pa', '👄', 'Phát âm', '44 âm, trọng âm, đuôi -s / -ed, âm cuối, ngữ điệu, cặp âm dễ nhầm')}
+    ${card('nv', '🏙', 'Nhân vật Khu phố', `${tcNvAll().length || 35} nhân vật của Thành phố TOEIC: dấu hiệu, luật, ví dụ`)}`; }
 // điều hướng của dictList: true = đã vẽ (màn đầu / tìm gộp / mục khác); false = để app.js vẽ 📚 danh sách từ theo cấp
 function tcRoute() { if (!TC) tcLoad().then(() => { tcRe(); }).catch(() => {}); const k = tcKind(), q = (DICT.q || '').trim();
   if (k === 'home') { q ? tcSearch(q) : tcHome(); return true; }
@@ -230,3 +235,54 @@ function tcUkList(q) { const L = (TC && TC.uk || []).filter(x => !q || tcHas(q, 
 // 👄 quy tắc: trọng âm, đuôi -s / -ed, âm cuối, ngữ điệu (ví dụ có 🔊; chữ IN HOA = âm tiết nhấn)
 const tcAm = q => (TC && TC.am || []).map(sec => ({ ...sec, items: sec.items.filter(it => !q || tcHas(q, sec.t, it.r, it.ex, it.x || '')) })).filter(sec => sec.items.length)
   .map(sec => `<details class="box" ${q ? 'open' : ''}><summary><b>${sec.t}</b></summary>${sec.note ? `<p class="mute" style="margin:4px 0">${esc(sec.note)}</p>` : ''}${sec.items.map(it => `<div style="margin:8px 0;border-top:1px solid var(--line);padding-top:6px"><b>${esc(it.r)}</b><div class="chips" style="margin:4px 0">${it.ex.map(([say, show]) => `<button class="chip" data-tcsay="${esc(say)}">🔊 ${esc(show)}</button>`).join('')}</div>${it.x ? `<p class="mute" style="margin:2px 0">${esc(it.x)}</p>` : ''}</div>`).join('')}</details>`).join('');
+
+// ---------- v206 🏙 Nhân vật Khu phố (20/11/2026, người sáng lập: "từ điển đã thể hiện được nội dung của 35 nhân vật chưa, nếu chưa thì cập nhật") ----------
+// Một mục tra theo nhân vật: tên (bỏ danh xưng theo ý người sáng lập), dấu hiệu, luật, câu thần chú, ví dụ, luật con, bài ngữ pháp liên quan, ▶ Vào phố.
+// Đọc thẳng cấu hình phố (PH_PHO) nên luôn khớp game; 4 nhân vật chưa có ở phố (Chỉ định, Phủ định NOT, Ý định, Đối chiếu) soạn ở TC_NVX.
+// v207 game cũng đã bỏ danh xưng; TC_NV_NAME giữ để đổi tên nếu tiến độ / dữ liệu cũ còn chữ cũ. Chỉ để tra, không tính luật đo.
+const TC_NV_NAME = [['Chú Gạch Giới', 'Giới từ'], ['Chú Gạch', 'Giới từ'], ['Cô Cầu Liên', 'Liên từ'], ['Cô Cầu', 'Liên từ'], ['Bác Xích Nối', 'Từ nối đầu câu'], ['Bác Xích', 'Từ nối đầu câu'],
+  ['Bác Danh từ', 'Danh từ'], ['Anh Động từ', 'Động từ'], ['Cô Tính từ', 'Tính từ'], ['Bé Trạng từ', 'Trạng từ'], ['Bác Chia thì', 'Chia thì'], ['Cô Bị động', 'Bị động'], ['Anh Nguyên mẫu', 'Nguyên mẫu'], ['Bé V-ing', 'V-ing'],
+  ['Bác Đại từ', 'Đại từ'], ['Cô Sở hữu', 'Sở hữu'], ['Anh Tự mình', 'Phản thân'], ['Chú Quan hệ', 'Quan hệ'], ['Chị Lượng', 'Lượng từ'], ['Bà Nhiều Nghĩa', 'Nhiều nghĩa'], ['Bà Cụm', 'Cụm cố định'], ['Chú Giới', 'Đi kèm giới từ'], ['Cô Nghĩa', 'Nghĩa cả câu'],
+  ['Cô So Sánh', 'So sánh'], ['Bác Đảo Ngữ', 'Đảo ngữ'], ['Anh Cặp Đôi', 'Cặp đôi'], ['Cô Mục đích', 'Mục đích'], ['Bác Chi tiết', 'Chi tiết'], ['Anh Đúng–Sai', 'Đúng–Sai'], ['Bé Suy luận', 'Suy luận'],
+  ['Bác Chỉ Lại', 'Chỉ lại'], ['Cô Thêm Ý', 'Thêm ý'], ['Anh Đổi Chiều', 'Đổi chiều'], ['Bé Tiếp Nối', 'Tiếp nối']];
+const tcNvName = s => { let t = String(s || ''); for (const [a, b] of TC_NV_NAME) t = t.split(a).join(b); return t; };
+const TC_NV_ORD = ['loai', 'cau', 'dong', 'dai', 'cho', 'ctr', 'ben', 'ghep'];
+// nhân vật chưa có ở phố (Claude soạn, chưa giáo viên kiểm)
+const TC_NVX = {
+  dai: [{ c: 'CDI', name: 'Chỉ định', pos: 'Đại từ chỉ định', suf: 'this / that + số ít · these / those + số nhiều', line: 'Chỉ vật gần (this, these) hoặc xa (that, those). Nhìn danh từ ngay sau ô trống: số ít thì this / that, số nhiều thì these / those. "Those who …" = những người mà.',
+    chant: 'Số ít this / that, số nhiều these / those.', ex: [['Please sign', 'these', 'forms by Friday.'], ['Please read', 'this', 'policy before you start.'], ['', 'Those', 'who registered early will receive a discount.']], gop: 'Chưa có trong phố: câu chỉ định đang xếp vào "Khác loại".' }],
+  ben: [{ c: 'NOT', name: 'Phủ định NOT', pos: 'Câu NOT', suf: 'NOT mentioned · NOT true · NOT indicated', line: 'Ba phương án bài có nhắc, một phương án không. Dò từng phương án trong bài, gạch 3 cái tìm thấy; còn lại là đáp án. Đừng chọn chỉ vì nghe hợp lý.',
+    chant: 'Câu NOT: gạch 3 cái có trong bài.', vd: 'Bài: "Guests enjoy free parking, Wi-Fi and breakfast." Hỏi: What is NOT offered? (A) Parking (B) Internet (C) Breakfast (D) An airport shuttle → (D).', gop: 'Trong 🔎 Bến Dò Tin hiện gộp với Đúng–Sai.' },
+    { c: 'YD', name: 'Ý định', pos: 'Câu ý định', suf: 'What does … mean when … writes "…"? · Why does … say "…"?', line: 'Câu trích ngắn trong chuỗi tin nhắn. Đọc tin nhắn ngay trước câu trích: câu trích là lời đáp cho tin đó. Chọn nghĩa trong tình huống, không chọn nghĩa đen.',
+    chant: 'Đọc tin ngay trước câu trích.', vd: 'A: "Can you cover my shift on Friday?" B: "I\'m already on the schedule that day." → B muốn nói: không nhận ca được.', gop: 'Trong 🔎 Bến Dò Tin hiện gộp với Suy luận.' },
+    { c: 'DC', name: 'Đối chiếu', pos: 'Câu nhiều văn bản', suf: 'bộ 2–3 văn bản · cần thông tin ở 2 văn bản', line: 'Một văn bản cho điều kiện (bảng giá, lịch, chính sách), văn bản kia cho tình huống (e-mail, đơn hàng). Lấy chi tiết ở văn bản này, tra điều kiện ở văn bản kia.',
+    chant: 'Chi tiết ở văn bản này, điều kiện ở văn bản kia.', vd: 'Bảng giá: phòng nhóm (tối đa 8 người) 30 USD / giờ, phòng lớn (tối đa 20 người) 50 USD / giờ. E-mail: "Nhóm chúng tôi có 12 người." Hỏi: mỗi giờ họ trả bao nhiêu? → 50 USD.', gop: 'Chưa có trong phố.' }] };
+// bài ngữ pháp Nền liên quan (so tên bài) và lối sang mục khác của Tra cứu
+const TC_NV_NP = { N: /danh từ số nhiều|đếm được/i, A: /tính từ/i, R: /trạng từ/i, G: /giới từ|although/i, L: /liên từ|although|mệnh đề thời gian/i, T: /từ nối/i, H: /hiện tại|quá khứ|tương lai/i, B: /bị động/i,
+  O: /to V/, I: /V-ing/, D: /đại từ (nhân xưng|tân ngữ|bất định)/i, S: /sở hữu/i, X: /phản thân/i, W: /quan hệ/i, U: /lượng từ|some \/ any|how much|each \/ every/i, CDI: /this \/ that/i,
+  E: /cụm động từ/i, F: /tính từ \+ giới từ/i, SS: /so sánh|the more/i, DN: /đảo ngữ|no sooner|not until/i, CD: /both, either|so \/ such|too \/ enough/i, GT: /từ nối/i, GN: /từ nối|although/i, GQ: /từ nối/i };
+const TC_NV_GO = { N: ['afx', '🧩 Đuôi từ (hậu tố)'], V: ['afx', '🧩 Đuôi từ (hậu tố)'], A: ['afx', '🧩 Đuôi từ (hậu tố)'], R: ['afx', '🧩 Đuôi từ (hậu tố)'], L: ['tn', '🔀 Từ nối'], T: ['tn', '🔀 Từ nối'],
+  GT: ['tn', '🔀 Từ nối'], GN: ['tn', '🔀 Từ nối'], GQ: ['tn', '🔀 Từ nối'], E: ['cum:col', '🔗 Cụm hay dùng'], NN: ['pb', '⚖️ Từ dễ nhầm'], J: ['pb', '⚖️ Từ dễ nhầm'] };
+// mọi nhân vật: [{ k: phố, P: cấu hình phố, c, name, pos, suf, line, chant, ex, vd, laws, gop }]
+function tcNvAll() { if (typeof PH_PHO === 'undefined') return []; const out = [];
+  for (const k of TC_NV_ORD) { const P = PH_PHO[k]; if (!P) continue;
+    for (const c of P.ORD || []) { const h = (P.CH || {})[c]; if (!h) continue; const g = (P.G || {})[c] || {};
+      out.push({ k, P, c, name: tcNvName(h.name), pos: h.pos, suf: h.suf, line: tcNvName(h.line), chant: tcNvName(g.chant || ''), ex: g.ex || [],
+        laws: Object.values(P.QH || {}).filter(x => x.t === c) }); }
+    for (const x of TC_NVX[k] || []) out.push({ k, P, laws: [], ex: [], ...x }); }
+  return out; }
+const tcNvHit = (q, x) => !q || tcHas(q, x.name, x.pos, x.suf, x.line, x.chant, x.P.ten);
+function tcNvBody(x) { const np = TC_NV_NP[x.c] ? tcNp().filter(y => TC_NV_NP[x.c].test(y.title)).slice(0, 6) : [], go = TC_NV_GO[x.c];
+  const exs = x.ex.map(([a, w, b]) => `<p style="margin:4px 0">${tcSay([a, w, b].join(' ').replace(/ \./, '.').trim())}${esc(a)} <b>${esc(w)}</b> ${esc(b)}</p>`).join('');
+  return `<div class="box" style="margin:8px 0 0">${x.gop ? `<p class="mute" style="margin:0 0 6px">ℹ️ ${esc(x.gop)}</p>` : ''}
+    <p style="margin:4px 0"><b>🔎 Dấu hiệu:</b> ${esc(x.suf)}</p><p style="margin:4px 0"><b>📏 Luật:</b> ${esc(x.line)}</p>${x.chant ? `<p style="margin:4px 0"><b>📜 Câu thần chú:</b> ${esc(x.chant)}</p>` : ''}
+    ${exs ? `<p style="margin:8px 0 2px"><b>Ví dụ</b></p>${exs}` : ''}${x.vd ? `<p style="margin:8px 0 2px"><b>Ví dụ</b></p><p style="margin:2px 0">${esc(x.vd)}</p>` : ''}
+    ${x.laws.length ? `<p style="margin:8px 0 2px"><b>Luật con (${x.laws.length})</b></p>${x.laws.map(l => `<p style="margin:2px 0">${l.e} <b>${esc(l.n)}</b> <span class="mute">${esc(l.w)}</span></p>`).join('')}` : ''}
+    ${np.length ? `<p style="margin:8px 0 2px"><b>🧱 Bài ngữ pháp liên quan</b></p><div class="chips">${np.map(y => `<button class="chip" data-tcgo="np|${y.id}">${esc(y.title)}</button>`).join('')}</div>` : ''}
+    ${go ? `<div class="chips" style="margin:6px 0"><button class="chip" data-tck="${go[0]}">${go[1]}</button></div>` : ''}
+    <button class="pri" data-phv="${x.k}">▶ Vào ${esc(x.P.ten)}</button></div>`; }
+const tcNvRow = x => { const open = DICT.open === 'nv:' + x.c; return `<div class="drow" data-tcnv="${x.c}"><b>${esc(x.name)}</b>${x.pos && tcF(x.pos) !== tcF(x.name) ? ` <span class="mute">· ${esc(x.pos)}</span>` : ''}${x.gop && !/gộp/.test(x.gop) ? ' <span class="chip" style="font-size:12px;padding:2px 8px">mới</span>' : ''}<br><span class="mute">${esc(x.suf)}</span>${open ? tcNvBody(x) : ''}</div>`; };
+function tcNvList(q) { const A = tcNvAll(); if (!A.length) return '<p class="mute">Đang tải…</p>';
+  const grp = TC_NV_ORD.map(k => ({ P: PH_PHO[k], xs: A.filter(x => x.k === k && tcNvHit(q, x)) })).filter(g => g.P && g.xs.length);
+  return `<p class="mute" style="margin:6px 0">${A.length} nhân vật ở ${TC_NV_ORD.length} phố của 🏙 Thành phố TOEIC. Mỗi nhân vật là một luật giúp chọn đáp án Phần Đọc. Chạm để xem dấu hiệu, luật, ví dụ.</p>${tcAi}
+    ${grp.length ? grp.map(g => `<details class="box" ${q || DICT.open && g.xs.some(x => DICT.open === 'nv:' + x.c) ? 'open' : ''}><summary><b>${g.P.ic} ${esc(g.P.ten)}</b> <span class="mute">(${g.xs.length})</span></summary>${g.xs.map(tcNvRow).join('')}</details>`).join('') : `<p class="mute">Không có nhân vật khớp “${esc(q)}”.</p>`}`; }

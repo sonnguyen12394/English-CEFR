@@ -1,0 +1,67 @@
+{
+ "n": 30,
+ "nguon": "Đề 1 · Part 3 · 6",
+ "id": "t3-10",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "B",
+   "Did you see the e-mail about the new expense system? From next month, all receipts have to be uploaded through the app.",
+   "",
+   "af4b74ba2"
+  ],
+  [
+   "A",
+   "I did. Honestly, I still haven't figured out the old system.",
+   "",
+   "a597c5cce"
+  ],
+  [
+   "B",
+   "There's a training session on Thursday afternoon. I'm going, if you want to join me.",
+   "",
+   "a1bff64e7"
+  ],
+  [
+   "A",
+   "Thanks, I'll ask my manager if I can leave my desk for an hour.",
+   "",
+   "a8ef0427c"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What change is being introduced?",
+   "a": "A new way to submit expenses",
+   "w": [
+    "A new travel policy",
+    "A new manager",
+    "A new office app for meetings"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the woman imply when she says, \"I still haven't figured out the old system\"?",
+   "a": "She finds expense systems confusing.",
+   "w": [
+    "She prefers the old system.",
+    "She has already used the new app.",
+    "She will not upload her receipts."
+   ],
+   "ty": "imp"
+  },
+  {
+   "q": "What will the woman probably do?",
+   "a": "Ask her manager for permission",
+   "w": [
+    "Cancel the training session",
+    "Upload her receipts today",
+    "Send an e-mail to the IT team"
+   ],
+   "ty": "next"
+  }
+ ]
+}

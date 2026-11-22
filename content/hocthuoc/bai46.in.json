@@ -1,0 +1,79 @@
+{
+ "n": 46,
+ "nguon": "Đề 1 · Part 4 · 9",
+ "id": "t4-16",
+ "dang": "📢 Bài nói",
+ "kind": "tour",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Welcome to Green Valley Farm.",
+   "",
+   "a5364bd4e"
+  ],
+  [
+   "N",
+   "Today's tour will take about an hour.",
+   "",
+   "a262847f7"
+  ],
+  [
+   "N",
+   "We'll start in the greenhouse, where we grow tomatoes all year round.",
+   "",
+   "a4c927127"
+  ],
+  [
+   "N",
+   "Then you'll see how our cheese is made.",
+   "",
+   "a4cbe2ca3"
+  ],
+  [
+   "N",
+   "Please don't touch the animals in the fields, as some of them are very young.",
+   "",
+   "a5432b830"
+  ],
+  [
+   "N",
+   "At the end of the tour, you can visit our shop, where all of our products are ten percent off for visitors today.",
+   "",
+   "af93d1bb5"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where will the tour begin?",
+   "a": "In a greenhouse",
+   "w": [
+    "In a shop",
+    "In a field",
+    "In a cheese factory"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What are listeners asked not to do?",
+   "a": "Touch the animals",
+   "w": [
+    "Take photos",
+    "Eat in the greenhouse",
+    "Leave the group"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What is offered to visitors today?",
+   "a": "A discount",
+   "w": [
+    "A free lunch",
+    "A cooking class",
+    "A gift bag"
+   ],
+   "ty": "detail"
+  }
+ ]
+}

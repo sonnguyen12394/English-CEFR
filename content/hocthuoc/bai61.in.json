@@ -1,0 +1,220 @@
+{
+ "n": 61,
+ "nguon": "Đề 1 · Part 7 · 13",
+ "id": "t7-m-order",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Web page + e-mails",
+ "title": "Tecso Office Supplies — Delivery information · E-mail · To: support@tecso.com · From: Mark Dunn · Date: Monday, 4:30 P.M. · E-mail · To: Mark Dunn · From: Tecso Customer Support · Date: Tuesday, 9:05 A.M.",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Tecso Office Supplies — Delivery information",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Standard delivery (3–5 business days): free on orders over $50; otherwise $6.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Express delivery (next business day): $15 on all orders.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Orders placed after 3:00 P.M. are processed the following business day.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Damaged items can be returned within 14 days for a full refund or replacement.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) E-mail · To: support@tecso.com · From: Mark Dunn · Date: Monday, 4:30 P.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello, I placed order #7712 an hour ago and chose express delivery because we need the printer paper for a training session on Wednesday morning.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Could you confirm it will arrive in time?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Also, I noticed I was charged $15 for delivery, although my order was $120.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I thought delivery was free for orders over $50.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you, Mark Dunn",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) E-mail · To: Mark Dunn · From: Tecso Customer Support · Date: Tuesday, 9:05 A.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dear Mr. Dunn, Thank you for your message.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Your order was processed this morning and is scheduled to arrive tomorrow, in time for your session.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please note that free delivery applies only to the standard service, so the express charge is correct.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "As a gesture of goodwill, however, we have added a $10 voucher to your account for your next purchase.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Best regards, Tecso Customer Support",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why was Mr. Dunn's order processed on Tuesday?",
+   "a": "It was placed after 3:00 P.M.",
+   "w": [
+    "The printer paper was out of stock.",
+    "He chose standard delivery.",
+    "The payment was delayed."
+   ],
+   "why": "Đặt 3:30 P.M. thứ Hai (gửi e-mail 4:30, một giờ sau khi đặt); sau 3:00 P.M. thì xử lý ngày làm việc hôm sau.",
+   "lg": {
+    "og": {
+     "It was placed after 3:00 P.M.": "Đơn được đặt sau 3 giờ chiều",
+     "The printer paper was out of stock.": "Giấy in hết hàng",
+     "He chose standard delivery.": "Ông chọn giao tiêu chuẩn",
+     "The payment was delayed.": "Thanh toán bị chậm"
+    },
+    "ly": "Ông đặt lúc 4:30 chiều thứ Hai, mà đơn sau 3:00 chiều được xử lý vào ngày làm việc kế tiếp (thứ Ba).",
+    "dich": "Đơn đặt sau 3:00 chiều sẽ được xử lý vào ngày làm việc tiếp theo."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "When will the order arrive?",
+   "a": "On Wednesday",
+   "w": [
+    "On Monday",
+    "On Tuesday",
+    "On Friday"
+   ],
+   "why": "E-mail thứ Ba: arrive tomorrow → thứ Tư.",
+   "lg": {
+    "og": {
+     "On Wednesday": "Vào thứ Tư",
+     "On Monday": "Vào thứ Hai",
+     "On Tuesday": "Vào thứ Ba",
+     "On Friday": "Vào thứ Sáu"
+    },
+    "ly": "Thư trả lời (thứ Ba) nói hàng sẽ đến \"ngày mai\", tức thứ Tư, kịp buổi tập huấn.",
+    "dich": "Đơn của ông được xử lý sáng nay và dự kiến đến vào ngày mai, kịp buổi tập huấn của ông."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What does Mr. Dunn misunderstand?",
+   "a": "Which delivery service is free",
+   "w": [
+    "The price of printer paper",
+    "How to return damaged items",
+    "The date of his training session"
+   ],
+   "why": "Free delivery applies only to the standard service.",
+   "lg": {
+    "og": {
+     "Which delivery service is free": "Dịch vụ giao hàng nào miễn phí",
+     "The price of printer paper": "Giá giấy in",
+     "How to return damaged items": "Cách trả hàng hỏng",
+     "The date of his training session": "Ngày buổi tập huấn"
+    },
+    "ly": "Ông tưởng đơn trên 50 đô la thì miễn phí giao, nhưng chỉ giao tiêu chuẩn mới miễn phí.",
+    "dich": "Miễn phí giao hàng chỉ áp dụng cho dịch vụ tiêu chuẩn, nên khoản phí giao nhanh là đúng."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What does Tecso give Mr. Dunn?",
+   "a": "A credit toward a future purchase",
+   "w": [
+    "A replacement for damaged items",
+    "A free upgrade to next-day shipping",
+    "A refund of the express fee"
+   ],
+   "why": "Thư nói đã thêm phiếu 10 đô vào tài khoản cho lần mua sau.",
+   "lg": {
+    "og": {
+     "A credit toward a future purchase": "Một khoản tín dụng cho lần mua sau",
+     "A replacement for damaged items": "Hàng thay thế cho món bị hỏng",
+     "A free upgrade to next-day shipping": "Nâng cấp giao hàng hôm sau miễn phí",
+     "A refund of the express fee": "Hoàn phí giao nhanh"
+    },
+    "ly": "Đáp án \"A credit toward a future purchase\" — Tecso thêm phiếu 10 đô vào tài khoản. Phí giao nhanh vẫn được giữ vì chỉ giao tiêu chuẩn mới miễn phí; không có hàng hỏng.",
+    "dich": "Để thể hiện thiện chí, chúng tôi đã thêm một phiếu 10 đô la vào tài khoản của ông cho lần mua tiếp theo."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "In the second e-mail, the word \"gesture\" is closest in meaning to",
+   "a": "act",
+   "w": [
+    "movement",
+    "request",
+    "price"
+   ],
+   "why": "a gesture of goodwill = một hành động thể hiện thiện chí.",
+   "lg": {
+    "og": {
+     "act": "hành động",
+     "movement": "cử động",
+     "request": "yêu cầu",
+     "price": "giá"
+    },
+    "ly": "\"A gesture of goodwill\" là một hành động thể hiện thiện chí, gần nghĩa nhất với act.",
+    "dich": "Để thể hiện thiện chí, chúng tôi đã thêm một phiếu 10 đô la vào tài khoản của ông."
+   },
+   "ty": "syn"
+  }
+ ]
+}

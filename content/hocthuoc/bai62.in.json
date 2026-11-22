@@ -1,0 +1,238 @@
+{
+ "n": 62,
+ "nguon": "Đề 1 · Part 7 · 14",
+ "id": "t7-m-venue",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Web page + e-mail + review",
+ "title": "Maplewood Conference Center — Rooms · E-mail · To: bookings@maplewoodcc.com · From: Marta Silva, Nordvik Pharmaceuticals · Date: March 3 · Online review · Posted May 24 by Marta Silva",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Maplewood Conference Center — Rooms",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Oak Room: up to 20 people, $300 per day, projector.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Birch Hall: up to 60 people, $650 per day, projector and sound system.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Cedar Suite: up to 120 people, $1,100 per day, projector, sound system and stage.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Catering is available for groups of 30 or more.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Bookings made at least 60 days in advance receive a 10% discount.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) E-mail · To: bookings@maplewoodcc.com · From: Marta Silva, Nordvik Pharmaceuticals · Date: March 3",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello, I would like to book a room for a training day on May 20.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We expect 45 employees.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "A guest speaker will give a talk in the morning, so we will need a sound system.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our budget for the room itself is $800 or less.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We would also like lunch to be served for everyone.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please confirm the price, including any discount we are eligible for.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Best regards, Marta Silva",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Online review · Posted May 24 by Marta Silva",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We held a training day at Maplewood this week.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The room was bright and comfortable, and lunch was excellent.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "In the afternoon the sound system stopped working for about fifteen minutes, but the staff responded promptly and fixed it.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Overall, a very good experience.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We will book again next year.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Which room did Ms. Silva most likely book?",
+   "a": "Birch Hall",
+   "w": [
+    "Oak Room",
+    "Cedar Suite",
+    "Two Oak Rooms"
+   ],
+   "why": "Đối chiếu: 45 người, cần âm thanh, tiền phòng tối đa $800 → Birch Hall (tới 60 người, có sound system, $650). Oak Room quá nhỏ, Cedar Suite $1,100 vượt ngân sách, hai phòng Oak cũng không đủ 45 người và không có loa.",
+   "lg": {
+    "og": {
+     "Birch Hall": "Birch Hall",
+     "Oak Room": "Oak Room",
+     "Cedar Suite": "Cedar Suite",
+     "Two Oak Rooms": "Hai Oak Room"
+    },
+    "ly": "Cần chỗ cho 45 người, có hệ thống âm thanh và ngân sách dưới 800 đô la. Chỉ Birch Hall (60 người, 650 đô la, có âm thanh) hợp.",
+    "dich": "Chúng tôi dự kiến 45 nhân viên, cần hệ thống âm thanh, ngân sách tối đa 800 đô la."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "Why will Nordvik Pharmaceuticals most likely receive a discount?",
+   "a": "The booking was made more than 60 days early.",
+   "w": [
+    "The group is larger than 30 people.",
+    "More than one room was booked.",
+    "The event takes place on a weekday."
+   ],
+   "why": "Đối chiếu: đặt ngày 3/3 cho ngày 20/5, sớm 78 ngày > 60 ngày → giảm 10%. Nhóm trên 30 người chỉ là điều kiện gọi đồ ăn.",
+   "lg": {
+    "og": {
+     "The booking was made more than 60 days early.": "Đặt trước hơn 60 ngày",
+     "The group is larger than 30 people.": "Nhóm đông hơn 30 người",
+     "More than one room was booked.": "Đặt hơn một phòng",
+     "The event takes place on a weekday.": "Sự kiện vào ngày thường"
+    },
+    "ly": "Đặt trước ít nhất 60 ngày được giảm 10%. Thư gửi ngày 3/3 cho sự kiện 20/5, tức hơn 60 ngày.",
+    "dich": "Đặt phòng trước ít nhất 60 ngày được giảm 10%."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "What is indicated about lunch for the training day?",
+   "a": "The group was large enough to order it.",
+   "w": [
+    "It was served in the Cedar Suite.",
+    "It cost extra because of the discount.",
+    "It was brought by the employees."
+   ],
+   "why": "Đối chiếu: đồ ăn chỉ có cho nhóm từ 30 người; nhóm có 45 người và bài nhận xét khen bữa trưa.",
+   "lg": {
+    "og": {
+     "The group was large enough to order it.": "Nhóm đủ đông để đặt bữa trưa",
+     "It was served in the Cedar Suite.": "Phục vụ ở Cedar Suite",
+     "It cost extra because of the discount.": "Tốn thêm vì giảm giá",
+     "It was brought by the employees.": "Nhân viên tự mang"
+    },
+    "ly": "Dịch vụ ăn uống chỉ dành cho nhóm từ 30 người, và nhóm có 45 người.",
+    "dich": "Dịch vụ ăn uống dành cho nhóm từ 30 người trở lên."
+   },
+   "ty": "true"
+  },
+  {
+   "q": "What problem does Ms. Silva mention in her review?",
+   "a": "Some equipment failed for a while.",
+   "w": [
+    "The staff were slow to respond.",
+    "The final price exceeded their budget.",
+    "Lunch was not served on time."
+   ],
+   "why": "Hệ thống âm thanh ngừng khoảng 15 phút nhưng được sửa nhanh.",
+   "lg": {
+    "og": {
+     "Some equipment failed for a while.": "Một thiết bị hỏng trong một lúc",
+     "The staff were slow to respond.": "Nhân viên phản hồi chậm",
+     "The final price exceeded their budget.": "Giá cuối vượt ngân sách",
+     "Lunch was not served on time.": "Bữa trưa không đúng giờ"
+    },
+    "ly": "Đáp án \"Some equipment failed for a while.\" — Hệ thống âm thanh ngừng khoảng mười lăm phút. Nhân viên phản hồi nhanh, bữa trưa được khen, bài không nhắc giá cuối.",
+    "dich": "Buổi chiều hệ thống âm thanh ngừng hoạt động khoảng mười lăm phút, nhưng nhân viên đã xử lý nhanh chóng."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "In the review, the word \"promptly\" is closest in meaning to",
+   "a": "quickly",
+   "w": [
+    "politely",
+    "carefully",
+    "quietly"
+   ],
+   "why": "\"responded promptly and fixed it\" = phản hồi nhanh (quickly).",
+   "lg": {
+    "og": {
+     "quickly": "nhanh chóng",
+     "politely": "lịch sự",
+     "carefully": "cẩn thận",
+     "quietly": "yên lặng"
+    },
+    "ly": "\"Responded promptly\" là phản ứng nhanh chóng, tức quickly.",
+    "dich": "Nhân viên đã phản hồi nhanh chóng và sửa được."
+   },
+   "ty": "syn"
+  }
+ ]
+}

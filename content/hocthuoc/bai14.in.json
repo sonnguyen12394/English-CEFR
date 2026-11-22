@@ -1,0 +1,88 @@
+{
+ "n": 14,
+ "nguon": "Đề 4 · Part 4 · 3",
+ "id": "d04-p4-03",
+ "dang": "📢 Bài nói",
+ "kind": "ad",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Tired of working at your kitchen table?",
+   "",
+   "abdb76c32"
+  ],
+  [
+   "N",
+   "At Brightdesk Coworking, you can rent a desk by the day, the week, or the month.",
+   "",
+   "ac58d2029"
+  ],
+  [
+   "N",
+   "Our building is just two minutes from Central Station, and every desk comes with fast Wi-Fi and free coffee.",
+   "",
+   "ab4af0eda"
+  ],
+  [
+   "N",
+   "Members can also use our meeting rooms at no extra charge.",
+   "",
+   "ac4518261"
+  ],
+  [
+   "N",
+   "You can reserve any desk online.",
+   "",
+   "a83a284f0"
+  ],
+  [
+   "N",
+   "Just remember, the desks by the windows go quickly.",
+   "",
+   "af9e3a048"
+  ],
+  [
+   "N",
+   "Sign up before June first, and your first month is half price.",
+   "",
+   "a0a5ef6de"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is being advertised?",
+   "a": "A shared office space",
+   "w": [
+    "A furniture store",
+    "A coffee shop",
+    "A moving company"
+   ],
+   "ty": "gist",
+   "ev": "At Brightdesk Coworking, you can rent a desk"
+  },
+  {
+   "q": "What is mentioned about the building?",
+   "a": "It is close to a train station.",
+   "w": [
+    "It has a rooftop garden.",
+    "It is open twenty-four hours.",
+    "It was recently renovated."
+   ],
+   "ty": "detail",
+   "ev": "Our building is just two minutes from Central Station"
+  },
+  {
+   "q": "What does the speaker imply when he says, \"the desks by the windows go quickly\"?",
+   "a": "Popular desks should be reserved early.",
+   "w": [
+    "The windows are being replaced.",
+    "Some desks are for sale.",
+    "The office is near a busy road."
+   ],
+   "ty": "imp",
+   "ev": "the desks by the windows go quickly"
+  }
+ ]
+}

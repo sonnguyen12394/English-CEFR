@@ -1,0 +1,73 @@
+{
+ "n": 44,
+ "nguon": "Đề 1 · Part 4 · 7",
+ "id": "t4-20",
+ "dang": "📢 Bài nói",
+ "kind": "meet",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hello, team.",
+   "",
+   "ae6bf079e"
+  ],
+  [
+   "N",
+   "I want to give you a quick update on the website project.",
+   "",
+   "ad0f51bda"
+  ],
+  [
+   "N",
+   "The design is finished, but testing is taking longer than planned because we found problems with the payment page.",
+   "",
+   "a26d3f3a9"
+  ],
+  [
+   "N",
+   "Because of this, the launch will be moved from June first to June fifteenth.",
+   "",
+   "ace013c4c"
+  ],
+  [
+   "N",
+   "I need everyone to send me a list of the problems you've found by Wednesday, so the developers can fix them.",
+   "",
+   "af689fa3e"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the speaker mainly talking about?",
+   "a": "A project update",
+   "w": [
+    "A new team member",
+    "A payment policy",
+    "A sales report"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What problem does the speaker mention?",
+   "a": "An issue with a web page",
+   "w": [
+    "A lack of designers",
+    "A budget cut",
+    "A late payment"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What are listeners asked to do by Wednesday?",
+   "a": "Send a list of problems",
+   "w": [
+    "Test a new design",
+    "Attend a meeting",
+    "Contact the developers"
+   ],
+   "ty": "next"
+  }
+ ]
+}

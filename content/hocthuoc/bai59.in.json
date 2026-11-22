@@ -1,0 +1,133 @@
+{
+ "n": 59,
+ "nguon": "Đề 1 · Part 7 · 10",
+ "id": "t7-email3",
+ "dang": "📄 Đọc hiểu",
+ "kind": "E-mail",
+ "title": "To: All Harlow Design staff · From: Helen Ford, Office Manager · Subject: Kitchen renovation",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear colleagues, The second-floor kitchen will be renovated from June 9 to June 20.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "During this time, please use the kitchen on the fourth floor, which will stay open as usual.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The work will include new cabinets, a larger refrigerator, and a second sink.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We expect the project to address the long lines at lunchtime that many of you have mentioned.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I apologize for any inconvenience, and thank you for your patience.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Helen Ford",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why was the e-mail sent?",
+   "a": "To inform staff about upcoming kitchen repairs",
+   "w": [
+    "To invite staff to a company lunch",
+    "To announce a change in work hours",
+    "To request feedback on a cafeteria menu"
+   ],
+   "why": "The second-floor kitchen will be renovated from June 9 to June 20.",
+   "lg": {
+    "og": {
+     "To inform staff about upcoming kitchen repairs": "Để báo nhân viên về việc sắp sửa bếp",
+     "To invite staff to a company lunch": "Để mời nhân viên ăn trưa công ty",
+     "To announce a change in work hours": "Để báo đổi giờ làm",
+     "To request feedback on a cafeteria menu": "Để xin ý kiến về thực đơn căng tin"
+    },
+    "ly": "Đáp án \"To inform staff about upcoming kitchen repairs\" — Thư báo bếp tầng hai sắp được cải tạo và hướng dẫn dùng bếp tầng bốn. Bữa trưa, giờ làm và thực đơn không được nhắc.",
+    "dich": "Bếp ở tầng hai sẽ được cải tạo từ ngày 9 đến ngày 20 tháng 6."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Its coffee machine will also be restocked every morning.\"",
+   "a": "[2]",
+   "w": [
+    "[1]",
+    "[3]",
+    "[4]"
+   ],
+   "why": "Câu chèn nói thêm một chỗ dùng tạm (\"also available\") trong lúc sửa bếp: đứng ngay sau câu bảo dùng bếp tầng 4.",
+   "lg": {
+    "og": {
+     "[2]": "[2]",
+     "[1]": "[1]",
+     "[3]": "[3]",
+     "[4]": "[4]"
+    },
+    "ly": "\"Its\" chỉ bếp tầng bốn vừa nhắc, nên câu chèn đặt ngay sau câu nói dùng bếp tầng bốn (vị trí [2]).",
+    "dich": "Máy pha cà phê ở đó cũng sẽ được bổ sung đồ mỗi sáng."
+   },
+   "ty": "insert"
+  },
+  {
+   "q": "In the e-mail, the word \"address\" is closest in meaning to",
+   "a": "deal with",
+   "w": [
+    "send",
+    "speak to",
+    "locate"
+   ],
+   "why": "address the long lines = giải quyết chuyện xếp hàng dài. address còn nghĩa \"ghi địa chỉ / gửi\" và \"nói với (khán giả)\" nhưng không hợp ở đây.",
+   "lg": {
+    "og": {
+     "deal with": "giải quyết",
+     "send": "gửi",
+     "speak to": "nói chuyện với",
+     "locate": "tìm ra"
+    },
+    "ly": "\"Address the long lines\" là giải quyết tình trạng xếp hàng dài, tức deal with.",
+    "dich": "Chúng tôi kỳ vọng dự án sẽ giải quyết tình trạng xếp hàng dài giờ trưa mà nhiều bạn đã nêu."
+   },
+   "ty": "syn"
+  },
+  {
+   "q": "What is suggested about the second-floor kitchen?",
+   "a": "It is often crowded at lunchtime.",
+   "w": [
+    "It will close permanently.",
+    "It was renovated last year.",
+    "It is larger than the fourth-floor kitchen."
+   ],
+   "why": "the long lines at lunchtime that many of you have mentioned.",
+   "lg": {
+    "og": {
+     "It is often crowded at lunchtime.": "Giờ trưa thường đông",
+     "It will close permanently.": "Sẽ đóng cửa vĩnh viễn",
+     "It was renovated last year.": "Mới cải tạo năm ngoái",
+     "It is larger than the fourth-floor kitchen.": "Lớn hơn bếp tầng bốn"
+    },
+    "ly": "Dự án cải tạo kỳ vọng giải quyết hàng dài giờ trưa, nên bếp tầng hai thường đông vào giờ trưa.",
+    "dich": "Chúng tôi kỳ vọng dự án sẽ giải quyết tình trạng xếp hàng dài giờ trưa mà nhiều bạn đã nêu."
+   },
+   "ty": "infer"
+  }
+ ]
+}

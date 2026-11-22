@@ -1,0 +1,82 @@
+{
+ "n": 8,
+ "nguon": "Đề 3 · Part 4 · bài 7",
+ "id": "d03-p4-07",
+ "chu": "Công sở & cuộc họp",
+ "dang": "📢 Bài nói",
+ "kind": "meet",
+ "title": "",
+ "L": [
+  [
+   "N",
+   "Before we finish today's meeting, I have an update about the office move.",
+   "",
+   "a929225eb"
+  ],
+  [
+   "N",
+   "The movers will arrive on Friday at noon, so please pack your desks by eleven.",
+   "",
+   "ad6e70d2c"
+  ],
+  [
+   "N",
+   "Labels and boxes are in the storage room.",
+   "",
+   "ae0f6f318"
+  ],
+  [
+   "N",
+   "Our new office on Kent Street has a larger kitchen and a quiet room for phone calls.",
+   "",
+   "ae4c0914e"
+  ],
+  [
+   "N",
+   "The parking situation is also better there, since each employee will get a reserved space.",
+   "",
+   "a7ab168fd"
+  ],
+  [
+   "N",
+   "If you have any questions about the move, please e-mail Victor in the facilities department.",
+   "",
+   "a646923ac"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the speaker mainly talking about?",
+   "a": "An office relocation",
+   "w": [
+    "A new parking policy",
+    "A kitchen renovation",
+    "A storage problem"
+   ],
+   "ty": "gist",
+   "ev": "I have an update about the office move"
+  },
+  {
+   "q": "By what time should the listeners pack their desks?",
+   "a": "Eleven o'clock",
+   "w": [
+    "Noon",
+    "Nine o'clock",
+    "Five o'clock"
+   ],
+   "ty": "detail",
+   "ev": "please pack your desks by eleven"
+  },
+  {
+   "q": "Why should the listeners contact Victor?",
+   "a": "To ask questions about the move",
+   "w": [
+    "To get a parking permit",
+    "To order more boxes",
+    "To reserve a quiet room"
+   ],
+   "ty": "detail",
+   "ev": "If you have any questions about the move, please e-mail Victor"
+  }
+ ]
+}

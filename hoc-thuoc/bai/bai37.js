@@ -1,0 +1,1190 @@
+const BAI37 = {
+ "meta": {
+  "de": "Đề 1 · Part 3 · hội thoại (có bảng)",
+  "dang": "🗣 Hội thoại",
+  "t": "Chọn chuyến tàu đi gặp khách hàng",
+  "sub": "Hai đồng nghiệp chọn chuyến tàu theo bảng giờ trong Đề 1 TOEIC (Part 3, câu có bảng). Chạm một câu để nghe và xem dịch.",
+  "who": {
+   "A": [
+    "Đồng nghiệp",
+    "Nữ"
+   ],
+   "B": [
+    "Ken",
+    "Nam"
+   ]
+  }
+ },
+ "L": [
+  [
+   "A",
+   "Ken, are we still meeting the clients in Riverside on Friday?",
+   "Ken, thứ Sáu chúng ta vẫn gặp khách hàng ở Riverside chứ?",
+   "a94719898"
+  ],
+  [
+   "B",
+   "Yes, at eleven. Their office is about a ten-minute walk from the station, so we should arrive by half past ten.",
+   "Vâng, lúc mười một giờ. Văn phòng của họ cách ga khoảng mười phút đi bộ, nên chúng ta nên đến trước mười giờ rưỡi.",
+   "a616d1b41"
+  ],
+  [
+   "A",
+   "OK. I'd take the earliest train, but I have a video call with our Tokyo office until seven-thirty.",
+   "Được rồi. Tôi muốn đi chuyến tàu sớm nhất, nhưng tôi có cuộc gọi video với văn phòng Tokyo của chúng ta đến bảy giờ rưỡi.",
+   "aa0e6244e"
+  ],
+  [
+   "B",
+   "Then we'll take the next one. I'll buy the tickets online tonight and e-mail yours to you.",
+   "Vậy chúng ta đi chuyến kế tiếp. Tối nay tôi sẽ mua vé trực tuyến và gửi e-mail vé của bạn cho bạn.",
+   "a6085b200"
+  ]
+ ],
+ "IPA": [
+  [
+   "ken",
+   "ɑːr",
+   "wi",
+   "stɪl",
+   "ˈmiːtɪŋ",
+   "ðə",
+   "ˈklaɪənts",
+   "ɪn",
+   "ˈrɪvərsaɪd",
+   "ɑːn",
+   "ˈfraɪdeɪ"
+  ],
+  [
+   "jes",
+   "æt",
+   "ɪˈlevən",
+   "ðer",
+   "ˈɔːfɪs",
+   "ɪz",
+   "əˈbaʊt",
+   "ə",
+   "ˈtenˌmɪnɪt",
+   "wɔːk",
+   "frʌm",
+   "ðə",
+   "ˈsteɪʃən",
+   "soʊ",
+   "wi",
+   "ʃʊd",
+   "əˈraɪv",
+   "baɪ",
+   "hæf",
+   "pæst",
+   "ten"
+  ],
+  [
+   "ˌoʊˈkeɪ",
+   "aɪd",
+   "teɪk",
+   "ðə",
+   "ˈɝːliɪst",
+   "treɪn",
+   "bʌt",
+   "aɪ",
+   "hæv",
+   "ə",
+   "ˈvɪdioʊ",
+   "kɔːl",
+   "wɪð",
+   "aʊər",
+   "ˈtoʊkioʊ",
+   "ˈɔːfɪs",
+   "ənˈtɪl",
+   "ˈsevənˈθɝːti"
+  ],
+  [
+   "ðen",
+   "wil",
+   "teɪk",
+   "ðə",
+   "nekst",
+   "wʌn",
+   "aɪl",
+   "baɪ",
+   "ðə",
+   "ˈtɪkɪts",
+   "ˌɑːnˈlaɪn",
+   "təˈnaɪt",
+   "ənd",
+   "ˈiːmeɪl",
+   "jɔːrz",
+   "tə",
+   "ju"
+  ]
+ ],
+ "STR": [
+  [
+   0,
+   4,
+   6,
+   8,
+   10
+  ],
+  [
+   2,
+   4,
+   6,
+   8,
+   9,
+   12,
+   16,
+   18,
+   20
+  ],
+  [
+   0,
+   2,
+   4,
+   5,
+   10,
+   11,
+   14,
+   15,
+   17
+  ],
+  [
+   2,
+   4,
+   5,
+   7,
+   9,
+   10,
+   11,
+   13
+  ]
+ ],
+ "LK": [
+  [],
+  [],
+  [
+   [
+    8,
+    "ha‿va",
+    "have a: /v/ nối sang /ə/"
+   ]
+  ],
+  [
+   [
+    12,
+    "an‿de-mail",
+    "and e-mail: /d/ nối sang /i/"
+   ]
+  ]
+ ],
+ "INT": [
+  [
+   [
+    10,
+    "↗"
+   ]
+  ],
+  [
+   [
+    2,
+    "↘"
+   ],
+   [
+    12,
+    "↗"
+   ],
+   [
+    20,
+    "↘"
+   ]
+  ],
+  [
+   [
+    5,
+    "↗"
+   ],
+   [
+    17,
+    "↘"
+   ]
+  ],
+  [
+   [
+    5,
+    "↘"
+   ],
+   [
+    16,
+    "↘"
+   ]
+  ]
+ ],
+ "PAU": [
+  [
+   0
+  ],
+  [
+   2,
+   12
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   5
+  ]
+ ],
+ "EL": [
+  [],
+  [
+   [
+    19,
+    "pæs(t)",
+    "past ten: /t/ mất vì gặp /t/ kế tiếp"
+   ]
+  ],
+  [],
+  []
+ ],
+ "VNK": [
+  [
+   "Ken,",
+   "thứ Sáu",
+   "chúng ta vẫn gặp khách hàng",
+   "ở Riverside chứ?"
+  ],
+  [
+   "Vâng, lúc mười một giờ.",
+   "Văn phòng của họ",
+   "cách ga khoảng mười phút đi bộ,",
+   "nên chúng ta nên đến",
+   "trước mười giờ rưỡi."
+  ],
+  [
+   "Được rồi.",
+   "Tôi muốn đi chuyến tàu sớm nhất,",
+   "nhưng tôi có cuộc gọi video",
+   "với văn phòng Tokyo của chúng ta",
+   "đến bảy giờ rưỡi."
+  ],
+  [
+   "Vậy chúng ta đi chuyến kế tiếp.",
+   "Tối nay tôi sẽ mua vé trực tuyến",
+   "và gửi e-mail vé của bạn",
+   "cho bạn."
+  ]
+ ],
+ "CUM": [
+  [
+   "meet the clients",
+   "gặp khách hàng"
+  ],
+  [
+   "a ten-minute walk",
+   "đi bộ mười phút"
+  ],
+  [
+   "arrive by",
+   "đến chậm nhất lúc"
+  ],
+  [
+   "earliest train",
+   "chuyến tàu sớm nhất"
+  ],
+  [
+   "video call",
+   "cuộc gọi video"
+  ],
+  [
+   "buy tickets online",
+   "mua vé trực tuyến"
+  ],
+  [
+   "e-mail sth to sb",
+   "gửi e-mail cái gì cho ai"
+  ]
+ ],
+ "VNY": [
+  [
+   [
+    "khách hàng"
+   ],
+   [
+    "gặp"
+   ],
+   [
+    "thứ sáu"
+   ]
+  ],
+  [
+   [
+    "mười một",
+    "11"
+   ],
+   [
+    "văn phòng"
+   ],
+   [
+    "mười phút"
+   ],
+   [
+    "đi bộ"
+   ],
+   [
+    "mười giờ rưỡi",
+    "10:30"
+   ]
+  ],
+  [
+   [
+    "tàu",
+    "chuyến tàu"
+   ],
+   [
+    "sớm nhất"
+   ],
+   [
+    "cuộc gọi video",
+    "gọi video"
+   ],
+   [
+    "văn phòng"
+   ],
+   [
+    "bảy giờ rưỡi",
+    "7:30"
+   ]
+  ],
+  [
+   [
+    "kế tiếp",
+    "tiếp theo"
+   ],
+   [
+    "mua vé"
+   ],
+   [
+    "trực tuyến",
+    "online"
+   ],
+   [
+    "tối nay"
+   ],
+   [
+    "e-mail",
+    "gửi"
+   ]
+  ]
+ ],
+ "EXQ": [
+  {
+   "q": "Why are the speakers going to Riverside?",
+   "o": [
+    "To meet some clients",
+    "To attend a conference",
+    "To visit a factory",
+    "To interview a job applicant"
+   ],
+   "a": 0,
+   "vi": "“are we still meeting the clients in Riverside on Friday?”."
+  },
+  {
+   "q": "Look at the graphic. Which train will the speakers take?",
+   "o": [
+    "The 8:05 train",
+    "The 7:15 train",
+    "The 8:50 train",
+    "The 9:30 train"
+   ],
+   "a": 0,
+   "vi": "Phải đến trước 10:30 và người nữ bận đến 7:30 → loại 7:15 (quá sớm), 8:50 và 9:30 (đến sau 11:00). Chuyến 8:05 đến lúc 10:20."
+  },
+  {
+   "q": "What will the man do tonight?",
+   "o": [
+    "Buy tickets",
+    "Call the Tokyo office",
+    "Prepare a presentation",
+    "Book a hotel"
+   ],
+   "a": 0,
+   "vi": "“I'll buy the tickets online tonight”."
+  },
+  {
+   "q": "Why can't the woman take the earliest train?",
+   "o": [
+    "She has a video call.",
+    "She has a client meeting.",
+    "She has to buy tickets.",
+    "She is late for work."
+   ],
+   "a": 0,
+   "vi": "“I have a video call with our Tokyo office until seven-thirty”."
+  }
+ ],
+ "NEWQ2": [
+  {
+   "q": "We should ___ at the airport two hours before the flight.",
+   "o": [
+    "arrive",
+    "arrival",
+    "arrived",
+    "arriving"
+   ],
+   "a": 0,
+   "vi": "should + V nguyên mẫu."
+  },
+  {
+   "q": "The office is a ten-minute ___ from the hotel.",
+   "o": [
+    "walk",
+    "walking",
+    "walked",
+    "walks"
+   ],
+   "a": 0,
+   "vi": "a ten-minute walk: danh từ số ít sau số đo thời gian."
+  },
+  {
+   "q": "Passengers can ___ tickets online or at the station.",
+   "o": [
+    "purchase",
+    "purchasing",
+    "purchased",
+    "purchases"
+   ],
+   "a": 0,
+   "vi": "can + V nguyên mẫu."
+  },
+  {
+   "q": "The first train leaves at 7:15, ___ the next one leaves at 8:05.",
+   "o": [
+    "while",
+    "during",
+    "despite",
+    "between"
+   ],
+   "a": 0,
+   "vi": "while + mệnh đề: trong khi (nêu so sánh hai việc)."
+  },
+  {
+   "q": "Please e-mail the invoice ___ the client by noon.",
+   "o": [
+    "to",
+    "at",
+    "of",
+    "in"
+   ],
+   "a": 0,
+   "vi": "e-mail sth to sb = gửi e-mail cái gì cho ai."
+  },
+  {
+   "q": "We missed the 9:00 train, so we will take the ___ one.",
+   "o": [
+    "next",
+    "nearly",
+    "nextly",
+    "mostly"
+   ],
+   "a": 0,
+   "vi": "the next one = chuyến kế tiếp (tính từ)."
+  },
+  {
+   "q": "The video call with the Tokyo office will last ___ seven-thirty.",
+   "o": [
+    "until",
+    "since",
+    "for",
+    "at"
+   ],
+   "a": 0,
+   "vi": "last until + mốc giờ = kéo dài đến lúc."
+  }
+ ],
+ "MU": [
+  {
+   "id": "v1",
+   "g": "v",
+   "t": "meet the clients",
+   "vi": "gặp khách hàng",
+   "line": 0,
+   "hl": "meeting the clients",
+   "b1": {
+    "s": "are we still [[meeting the clients]] in Riverside on Friday?",
+    "q": "meeting the clients nghĩa là gì?",
+    "o": [
+     "gặp khách hàng",
+     "kiểm tra khách hàng",
+     "gọi khách hàng",
+     "mời khách hàng ăn trưa"
+    ],
+    "a": 0,
+    "vi": "meet = gặp (có hẹn). meet the clients / meet a supplier."
+   },
+   "b2": {
+    "q": "Câu mới: “I am meeting a supplier at nine to discuss prices.” — người nói làm gì lúc 9 giờ?",
+    "o": [
+     "Gặp nhà cung cấp bàn về giá",
+     "Gọi cho khách hàng",
+     "Mua hàng từ nhà cung cấp",
+     "Dự buổi tập huấn"
+    ],
+    "a": 0,
+    "vi": "meeting a supplier = gặp nhà cung cấp."
+   },
+   "b3": [
+    {
+     "q": "Ms. Park is ___ the clients at the airport this afternoon.",
+     "o": [
+      "meeting",
+      "meet",
+      "met",
+      "meets"
+     ],
+     "a": 0,
+     "vi": "is + V-ing: kế hoạch chiều nay."
+    }
+   ],
+   "b4": {
+    "q": "I'm going to ___ the clients at their office.",
+    "hint": "gặp · 1 từ",
+    "ans": [
+     "meet",
+     "see",
+     "visit"
+    ],
+    "vi": "meet the clients = gặp khách hàng."
+   }
+  },
+  {
+   "id": "v2",
+   "g": "v",
+   "t": "a ten-minute walk",
+   "vi": "đi bộ mười phút",
+   "line": 1,
+   "hl": "ten-minute walk",
+   "b1": {
+    "s": "about a [[ten-minute walk]] from the station",
+    "q": "a ten-minute walk nghĩa là gì?",
+    "o": [
+     "quãng đi bộ mất mười phút",
+     "mười phút nghỉ",
+     "đi bộ mười lần",
+     "mười phút đi xe"
+    ],
+    "a": 0,
+    "vi": "số + gạch nối + danh từ số ít: a ten-minute walk = quãng đi bộ 10 phút (không thêm -s)."
+   },
+   "b2": {
+    "q": "Câu mới: “The hotel is a five-minute walk from the airport.” — khách sạn cách sân bay thế nào?",
+    "o": [
+     "Đi bộ khoảng 5 phút",
+     "Đi xe 5 phút",
+     "Cách 5 km",
+     "Ở ngay trong sân bay"
+    ],
+    "a": 0,
+    "vi": "a five-minute walk = đi bộ 5 phút."
+   },
+   "b3": [
+    {
+     "q": "The museum is a fifteen-___ walk from here.",
+     "o": [
+      "minute",
+      "minutes",
+      "minutely",
+      "minuted"
+     ],
+     "a": 0,
+     "vi": "Từ ghép làm tính từ: số + minute (số ít) + walk."
+    }
+   ],
+   "b4": {
+    "q": "The bank is a five-___ walk from our office.",
+    "hint": "phút · 1 từ",
+    "ans": [
+     "minute"
+    ],
+    "vi": "a five-minute walk."
+   }
+  },
+  {
+   "id": "v3",
+   "g": "v",
+   "t": "arrive by + giờ",
+   "vi": "đến chậm nhất lúc",
+   "line": 1,
+   "hl": "arrive by half past ten",
+   "b1": {
+    "s": "so we should [[arrive by half past ten]]",
+    "q": "arrive by half past ten nghĩa là gì?",
+    "o": [
+     "đến chậm nhất lúc 10 giờ rưỡi",
+     "đến đúng lúc 10 giờ rưỡi",
+     "rời đi lúc 10 giờ rưỡi",
+     "đến sau 10 giờ rưỡi"
+    ],
+    "a": 0,
+    "vi": "by + mốc giờ = chậm nhất vào lúc đó (có thể sớm hơn)."
+   },
+   "b2": {
+    "q": "Câu mới: “Please arrive by nine to register.” — người nghe cần làm gì?",
+    "o": [
+     "Đến chậm nhất 9 giờ để đăng ký",
+     "Đến sau 9 giờ",
+     "Đăng ký lúc 10 giờ",
+     "Đến đúng 9 giờ không sớm hơn"
+    ],
+    "a": 0,
+    "vi": "by nine = chậm nhất 9 giờ."
+   },
+   "b3": [
+    {
+     "q": "All guests should arrive ___ 8 P.M. for the dinner.",
+     "o": [
+      "by",
+      "during",
+      "since",
+      "between"
+     ],
+     "a": 0,
+     "vi": "arrive by + giờ = chậm nhất lúc đó."
+    }
+   ],
+   "b4": {
+    "q": "Please arrive ___ nine o'clock to complete the form.",
+    "hint": "chậm nhất lúc · 1 từ",
+    "ans": [
+     "by"
+    ],
+    "vi": "by nine o'clock = chậm nhất lúc 9 giờ."
+   }
+  },
+  {
+   "id": "v4",
+   "g": "v",
+   "t": "earliest train",
+   "vi": "chuyến tàu sớm nhất",
+   "line": 2,
+   "hl": "earliest train",
+   "b1": {
+    "s": "I'd take the [[earliest train]]",
+    "q": "earliest train nghĩa là gì?",
+    "o": [
+     "chuyến tàu sớm nhất",
+     "chuyến tàu sớm hơn",
+     "chuyến tàu muộn nhất",
+     "chuyến tàu gần nhất"
+    ],
+    "a": 0,
+    "vi": "early → earliest (so sánh nhất): sớm nhất. Chú ý y → i: early → earliest."
+   },
+   "b2": {
+    "q": "Câu mới: “The earliest flight to Seoul leaves at 6 A.M.” — chuyến bay nào lúc 6 giờ sáng?",
+    "o": [
+     "Chuyến sớm nhất đi Seoul",
+     "Chuyến muộn nhất đi Seoul",
+     "Chuyến duy nhất đi Seoul",
+     "Chuyến nhanh nhất đi Seoul"
+    ],
+    "a": 0,
+    "vi": "earliest = sớm nhất."
+   },
+   "b3": [
+    {
+     "q": "This is the ___ train of the day; no other train leaves before it.",
+     "o": [
+      "earliest",
+      "early",
+      "earlier",
+      "earliness"
+     ],
+     "a": 0,
+     "vi": "the + so sánh nhất: the earliest."
+    }
+   ],
+   "b4": {
+    "q": "The ___ bus leaves at 5 A.M.; no bus leaves earlier.",
+    "hint": "sớm nhất · 1 từ",
+    "ans": [
+     "earliest",
+     "first"
+    ],
+    "vi": "the earliest bus = chuyến xe sớm nhất."
+   }
+  },
+  {
+   "id": "v5",
+   "g": "v",
+   "t": "video call",
+   "vi": "cuộc gọi video",
+   "line": 2,
+   "hl": "video call",
+   "b1": {
+    "s": "I have a [[video call]] with our Tokyo office",
+    "q": "video call là gì?",
+    "o": [
+     "cuộc gọi video",
+     "cuộc gọi nhỡ",
+     "video quảng cáo",
+     "tin nhắn thoại"
+    ],
+    "a": 0,
+    "vi": "video call = cuộc gọi có hình. have a video call with + nơi / người."
+   },
+   "b2": {
+    "q": "Câu mới: “We will hold a video call with the client at nine.” — kế hoạch lúc 9 giờ là gì?",
+    "o": [
+     "Gọi video với khách hàng",
+     "Gặp khách hàng trực tiếp",
+     "Gửi video cho khách",
+     "Xem video đào tạo"
+    ],
+    "a": 0,
+    "vi": "hold a video call = có cuộc gọi video."
+   },
+   "b3": [
+    {
+     "q": "Our weekly video ___ starts at nine.",
+     "o": [
+      "call",
+      "calls",
+      "called",
+      "calling"
+     ],
+     "a": 0,
+     "vi": "video call: danh từ số ít, starts đi với chủ ngữ số ít."
+    }
+   ],
+   "b4": {
+    "q": "I have a ___ call with the Tokyo office at nine.",
+    "hint": "có hình · 1 từ",
+    "ans": [
+     "video"
+    ],
+    "vi": "video call = cuộc gọi video."
+   }
+  },
+  {
+   "id": "v6",
+   "g": "v",
+   "t": "buy tickets online",
+   "vi": "mua vé trực tuyến",
+   "line": 3,
+   "hl": "buy the tickets online",
+   "b1": {
+    "s": "I'll [[buy the tickets online]] tonight",
+    "q": "buy the tickets online nghĩa là gì?",
+    "o": [
+     "mua vé qua mạng",
+     "mua vé tại quầy",
+     "bán vé qua mạng",
+     "hủy vé qua mạng"
+    ],
+    "a": 0,
+    "vi": "online = qua mạng, trực tuyến. buy / book / pay online."
+   },
+   "b2": {
+    "q": "Câu mới: “You can buy tickets online and print them at home.” — người mua làm gì?",
+    "o": [
+     "Mua vé qua mạng rồi in ở nhà",
+     "Mua vé ở quầy rồi in",
+     "Nhận vé qua đường bưu điện",
+     "In vé ở trạm"
+    ],
+    "a": 0,
+    "vi": "buy online + print at home."
+   },
+   "b3": [
+    {
+     "q": "Passengers can purchase tickets ___ or at the station.",
+     "o": [
+      "online",
+      "outline",
+      "overline",
+      "underline"
+     ],
+     "a": 0,
+     "vi": "online = trực tuyến."
+    }
+   ],
+   "b4": {
+    "q": "You can book your seat ___ without calling us.",
+    "hint": "trực tuyến · 1 từ",
+    "ans": [
+     "online"
+    ],
+    "vi": "book online = đặt qua mạng."
+   }
+  },
+  {
+   "id": "v7",
+   "g": "v",
+   "t": "e-mail sth to sb",
+   "vi": "gửi e-mail cái gì cho ai",
+   "line": 3,
+   "hl": "e-mail yours",
+   "b1": {
+    "s": "and [[e-mail yours]] to you",
+    "q": "e-mail yours to you nghĩa là gì?",
+    "o": [
+     "gửi e-mail vé của bạn cho bạn",
+     "nhận e-mail từ bạn",
+     "in vé của bạn",
+     "xoá e-mail của bạn"
+    ],
+    "a": 0,
+    "vi": "e-mail dùng như động từ: e-mail sth to sb. yours = vé của bạn."
+   },
+   "b2": {
+    "q": "Câu mới: “Please e-mail me the report by Friday.” — người nói muốn gì?",
+    "o": [
+     "Nhận báo cáo qua e-mail trước thứ Sáu",
+     "In báo cáo trước thứ Sáu",
+     "Viết báo cáo vào thứ Sáu",
+     "Họp về báo cáo thứ Sáu"
+    ],
+    "a": 0,
+    "vi": "e-mail me the report = gửi báo cáo cho tôi qua e-mail."
+   },
+   "b3": [
+    {
+     "q": "I will ___ the schedule to everyone this afternoon.",
+     "o": [
+      "e-mail",
+      "e-mailing",
+      "e-mailed",
+      "e-mails"
+     ],
+     "a": 0,
+     "vi": "will + V nguyên mẫu."
+    }
+   ],
+   "b4": {
+    "q": "Could you ___ the file to my manager?",
+    "hint": "gửi e-mail · 1 từ",
+    "ans": [
+     "e-mail",
+     "email",
+     "send"
+    ],
+    "vi": "e-mail the file = gửi tệp qua e-mail."
+   }
+  },
+  {
+   "id": "g1",
+   "g": "g",
+   "t": "Hiện tại tiếp diễn nói về kế hoạch",
+   "line": 0,
+   "hl": "are we still meeting",
+   "b1": {
+    "s": "Ken, [[are we still meeting]] the clients in Riverside on Friday?",
+    "q": "are we still meeting … on Friday dùng để làm gì?",
+    "o": [
+     "hỏi lại về cuộc hẹn đã sắp xếp",
+     "hỏi thói quen hằng ngày",
+     "kể cuộc họp đã xong",
+     "hỏi ý kiến về cuộc họp"
+    ],
+    "a": 0,
+    "vi": "be + V-ing + mốc tương lai = kế hoạch đã sắp xếp; still = vẫn. · 🧱 Bài Nền liên quan: Hiện tại tiếp diễn nói về kế hoạch tương lai · A2"
+   },
+   "b2": {
+    "q": "Câu mới: “Are you still coming to the dinner on Saturday?” — người nói hỏi gì?",
+    "o": [
+     "Bạn còn đến bữa tối thứ Bảy không",
+     "Bạn đã ăn tối chưa",
+     "Bạn thường ăn tối lúc nào",
+     "Bữa tối ở đâu"
+    ],
+    "a": 0,
+    "vi": "Are you still coming = bạn vẫn đến chứ."
+   },
+   "b3": [
+    {
+     "q": "We ___ the architect next Monday to discuss the plans.",
+     "o": [
+      "are meeting",
+      "met",
+      "have met",
+      "meeting"
+     ],
+     "a": 0,
+     "vi": "next Monday + kế hoạch: are meeting."
+    },
+    {
+     "q": "Is she ___ the clients at the station tomorrow?",
+     "o": [
+      "meeting",
+      "meet",
+      "met",
+      "meets"
+     ],
+     "a": 0,
+     "vi": "Is + chủ ngữ + V-ing: hỏi kế hoạch."
+    }
+   ],
+   "b4": {
+    "q": "___ we still meeting the client on Friday?",
+    "hint": "gõ 1 từ",
+    "ans": [
+     "are"
+    ],
+    "vi": "Are we still meeting …?"
+   }
+  },
+  {
+   "id": "g2",
+   "g": "g",
+   "t": "Should + V: nên",
+   "line": 1,
+   "hl": "we should arrive",
+   "b1": {
+    "s": "so [[we should arrive]] by half past ten",
+    "q": "we should arrive nghĩa là gì?",
+    "o": [
+     "chúng ta nên đến",
+     "chúng ta đã đến",
+     "chúng ta phải đến muộn",
+     "chúng ta sẽ không đến"
+    ],
+    "a": 0,
+    "vi": "should + V nguyên mẫu = nên (lời khuyên, việc hợp lý). · 🧱 Bài Nền liên quan: Should / shouldn't (lời khuyên) · A2"
+   },
+   "b2": {
+    "q": "Câu mới: “You should book early because the hotel is popular.” — lời khuyên là gì?",
+    "o": [
+     "Nên đặt sớm",
+     "Nên hủy phòng",
+     "Nên chọn khách sạn khác rẻ hơn",
+     "Không cần đặt"
+    ],
+    "a": 0,
+    "vi": "should book early = nên đặt sớm."
+   },
+   "b3": [
+    {
+     "q": "Bring your ID: you ___ forget it at home.",
+     "o": [
+      "should not",
+      "should to",
+      "are should",
+      "shoulds"
+     ],
+     "a": 0,
+     "vi": "should not + V = không nên."
+    },
+    {
+     "q": "Employees ___ report any problems to their managers.",
+     "o": [
+      "should",
+      "to should",
+      "shoulding",
+      "shoulds"
+     ],
+     "a": 0,
+     "vi": "should + V nguyên mẫu, không chia."
+    }
+   ],
+   "b4": {
+    "q": "We ___ arrive at the station by ten.",
+    "hint": "nên · 1 từ",
+    "ans": [
+     "should"
+    ],
+    "vi": "should arrive = nên đến."
+   }
+  },
+  {
+   "id": "g3",
+   "g": "g",
+   "t": "but: nối hai ý đối lập",
+   "line": 2,
+   "hl": "but I have a video call",
+   "b1": {
+    "s": "I'd take the earliest train, [[but I have a video call]] with our Tokyo office",
+    "q": "but nối hai ý như thế nào?",
+    "o": [
+     "ý thứ hai đối lập với ý thứ nhất",
+     "ý thứ hai là lý do",
+     "ý thứ hai là kết quả",
+     "hai ý giống nhau"
+    ],
+    "a": 0,
+    "vi": "but = nhưng: muốn đi sớm nhưng bận. · 🧱 Bài Nền liên quan: Liên từ: and / but / or / because · A1"
+   },
+   "b2": {
+    "q": "Câu mới: “I like the hotel, but it is too expensive.” — người nói nghĩ gì?",
+    "o": [
+     "Thích khách sạn nhưng giá quá cao",
+     "Thích khách sạn vì rẻ",
+     "Không thích khách sạn",
+     "Muốn ở lại lâu"
+    ],
+    "a": 0,
+    "vi": "like … but … too expensive: ý tốt rồi ý chê."
+   },
+   "b3": [
+    {
+     "q": "The train is fast, ___ the ticket is expensive.",
+     "o": [
+      "but",
+      "because",
+      "if",
+      "or"
+     ],
+     "a": 0,
+     "vi": "Hai ý đối lập: but."
+    },
+    {
+     "q": "I wanted to join the call, ___ my laptop broke.",
+     "o": [
+      "but",
+      "because",
+      "or",
+      "so"
+     ],
+     "a": 0,
+     "vi": "Muốn tham gia nhưng laptop hỏng: but."
+    }
+   ],
+   "b4": {
+    "q": "I'd like to go, ___ I have another meeting.",
+    "hint": "nhưng · 1 từ",
+    "ans": [
+     "but"
+    ],
+    "vi": "but = nhưng."
+   }
+  },
+  {
+   "id": "g4",
+   "g": "g",
+   "t": "Will: quyết định ngay lúc nói",
+   "line": 3,
+   "hl": "we'll take",
+   "b1": {
+    "s": "Then [[we'll take]] the next one",
+    "q": "we'll take cho biết điều gì?",
+    "o": [
+     "quyết định ngay lúc nói",
+     "thói quen hằng ngày",
+     "việc đã xảy ra",
+     "điều kiện không có thật"
+    ],
+    "a": 0,
+    "vi": "will + V = quyết định tức thì (vừa biết tin xấu thì chọn cách khác). · 🧱 Bài Nền liên quan: Will: dự đoán, đề nghị, quyết định tức thì · A2"
+   },
+   "b2": {
+    "q": "Câu mới: “The 9:00 bus is full. I'll take a taxi.” — người nói quyết định gì?",
+    "o": [
+     "Đi taxi",
+     "Đợi xe buýt sau",
+     "Hủy chuyến đi",
+     "Đi bộ"
+    ],
+    "a": 0,
+    "vi": "I'll take a taxi = quyết định ngay."
+   },
+   "b3": [
+    {
+     "q": "A: The printer is broken. B: OK, I ___ the technician right now.",
+     "o": [
+      "will call",
+      "called",
+      "have called",
+      "calling"
+     ],
+     "a": 0,
+     "vi": "Quyết định tức thì: will + V."
+    },
+    {
+     "q": "I can't join today, so I ___ the recording tomorrow.",
+     "o": [
+      "will watch",
+      "watched",
+      "have watched",
+      "watching"
+     ],
+     "a": 0,
+     "vi": "tomorrow + quyết định: will watch."
+    }
+   ],
+   "b4": {
+    "q": "It's cold. I ___ my coat. (take)",
+    "hint": "gõ will + động từ",
+    "ans": [
+     "will take",
+     "'ll take",
+     "’ll take"
+    ],
+    "vi": "will take = sẽ lấy (quyết định ngay)."
+   }
+  },
+  {
+   "id": "g5",
+   "g": "g",
+   "t": "Giới từ chỉ thời gian: on + thứ",
+   "line": 0,
+   "hl": "on Friday",
+   "b1": {
+    "s": "meeting the clients in Riverside [[on Friday]]",
+    "q": "Vì sao dùng on trước Friday?",
+    "o": [
+     "on đi với thứ, ngày",
+     "on đi với giờ",
+     "on đi với tháng",
+     "on đi với mùa"
+    ],
+    "a": 0,
+    "vi": "on + thứ / ngày (on Friday, on May 3); at + giờ; in + tháng, năm, mùa. · 🧱 Bài Nền liên quan: Giới từ chỉ thời gian: in / on / at · A1"
+   },
+   "b2": {
+    "q": "Câu mới: “The conference starts on Monday and ends on Wednesday.” — hội nghị diễn ra khi nào?",
+    "o": [
+     "Từ thứ Hai đến thứ Tư",
+     "Từ thứ Tư đến thứ Hai",
+     "Chỉ vào thứ Hai",
+     "Cả tuần"
+    ],
+    "a": 0,
+    "vi": "on Monday … on Wednesday."
+   },
+   "b3": [
+    {
+     "q": "The training session is ___ Thursday morning.",
+     "o": [
+      "on",
+      "in",
+      "at",
+      "by"
+     ],
+     "a": 0,
+     "vi": "on + thứ (kể cả on Thursday morning)."
+    },
+    {
+     "q": "The train leaves ___ 8:05.",
+     "o": [
+      "at",
+      "on",
+      "in",
+      "by"
+     ],
+     "a": 0,
+     "vi": "at + giờ."
+    }
+   ],
+   "b4": {
+    "q": "My flight leaves ___ Monday morning.",
+    "hint": "gõ 1 giới từ",
+    "ans": [
+     "on"
+    ],
+    "vi": "on Monday morning."
+   }
+  }
+ ]
+};
+
+Object.assign(BAI37.meta, {});

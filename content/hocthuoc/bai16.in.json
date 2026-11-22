@@ -1,0 +1,79 @@
+{
+ "n": 16,
+ "nguon": "Đề 2 · Part 4 · 5",
+ "id": "t4-10",
+ "dang": "📢 Bài nói",
+ "kind": "tour",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hello, everyone.",
+   "",
+   "a377d798a"
+  ],
+  [
+   "N",
+   "Before we begin today's tour of the chocolate factory, I'd like to go over a few rules.",
+   "",
+   "a1f415e8e"
+  ],
+  [
+   "N",
+   "For hygiene reasons, please put on the hair nets and coats provided at the entrance.",
+   "",
+   "af0bac32b"
+  ],
+  [
+   "N",
+   "Photography is allowed in the visitor area, but not on the production floor.",
+   "",
+   "a60adf198"
+  ],
+  [
+   "N",
+   "The tour will last about one hour, and at the end, you'll be able to taste some of our newest products in the gift shop.",
+   "",
+   "a34d28b07"
+  ],
+  [
+   "N",
+   "Please stay with the group at all times.",
+   "",
+   "ae2922000"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where most likely is the speaker?",
+   "a": "At a factory",
+   "w": [
+    "At a restaurant",
+    "At a museum",
+    "At a hotel"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What are listeners asked to wear?",
+   "a": "Hair nets and coats",
+   "w": [
+    "Safety glasses",
+    "Name badges",
+    "Gloves and boots"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What can listeners do at the end of the tour?",
+   "a": "Taste some products",
+   "w": [
+    "Take photos of the machines",
+    "Meet the factory owner",
+    "Watch a short film"
+   ],
+   "ty": "detail"
+  }
+ ]
+}

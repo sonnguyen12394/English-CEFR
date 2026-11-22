@@ -2,10 +2,10 @@
  "_khuon": {
   "muc_dich": "Kho câu 🛒 Chợ Từ Vựng (Thành phố TOEIC): câu Part 5 từ vựng, 4 phương án CÙNG loại từ, khác nghĩa; chỉ một từ hợp. Không chép câu đề ETS / đề trong app.",
   "cu_dan": {
-   "E": "Bà Cụm: cụm cố định / kết hợp từ (meet a deadline, place an order, highly recommended). Dấu hiệu: từ đi cặp ngay cạnh ô trống.",
-   "F": "Chú Giới: từ đi với giới từ cố định (responsible for, comply with, eligible for). Dấu hiệu: giới từ ngay sau ô trống.",
-   "J": "Cô Nghĩa: chọn theo ý cả câu (vì doanh số giảm nên hoãn…). Dấu hiệu: một cụm khác trong câu cho biết nghĩa cần.",
-   "NN": "Bà Nhiều Nghĩa (v195): từ gần nghĩa Part 7 ('The word \"X\" … is closest in meaning to'). Từ X có nhiều nghĩa; câu chứa X quyết định nghĩa nào. Dấu hiệu: chữ quanh X trong câu."
+   "E": "Cụm cố định: cụm cố định / kết hợp từ (meet a deadline, place an order, highly recommended). Dấu hiệu: từ đi cặp ngay cạnh ô trống.",
+   "F": "Đi kèm giới từ: từ đi với giới từ cố định (responsible for, comply with, eligible for). Dấu hiệu: giới từ ngay sau ô trống.",
+   "J": "Nghĩa cả câu: chọn theo ý cả câu (vì doanh số giảm nên hoãn…). Dấu hiệu: một cụm khác trong câu cho biết nghĩa cần.",
+   "NN": "Nhiều nghĩa (v195): từ gần nghĩa Part 7 ('The word \"X\" … is closest in meaning to'). Từ X có nhiều nghĩa; câu chứa X quyết định nghĩa nào. Dấu hiệu: chữ quanh X trong câu."
   },
   "dinh_dang": "{ id 'ch-NNN', t: E|F|J, s: câu ≤ 22 từ có đúng một ___, a: đáp án, o: 4 phương án [chữ, nghĩa ngắn tiếng Việt] (cùng loại từ, cùng dạng: cùng là V-ing / cùng số nhiều…), cum: cụm đúng có đáp án (vd. 'meet the deadline', 'responsible for'), why: ≤ 30 từ, NGOẶC KÉP đầu tiên là chữ mốc có nguyên văn trong câu (không phải đáp án), có nhắc đáp án trong ngoặc kép, vi: dịch cả câu }",
   "luat_soan": "Đáp án là từ TOEIC thông dụng (danh sách từ công sở, Part 5 ETS). 3 nhiễu cùng loại từ, nghĩa gần hoặc cùng chủ đề nhưng SAI ở đây (không ghép được với chữ mốc, hoặc sai nghĩa câu). Câu F: nhiễu không đi được với giới từ đó. Bối cảnh công sở; tên hư cấu.",

@@ -1,0 +1,85 @@
+{
+ "n": 38,
+ "nguon": "Đề 1 · Part 4 · 1",
+ "id": "t4-24",
+ "dang": "📢 Bài nói",
+ "kind": "msg",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hi, Daniel, it's Rachel from the design team.",
+   "",
+   "a7d44d26b"
+  ],
+  [
+   "N",
+   "I've just looked at the brochure layout you sent this morning.",
+   "",
+   "a830774a9"
+  ],
+  [
+   "N",
+   "The photos look great, and the colours are exactly what the client asked for.",
+   "",
+   "a033445ed"
+  ],
+  [
+   "N",
+   "About the text on the back page, though.",
+   "",
+   "a30a622eb"
+  ],
+  [
+   "N",
+   "Well, it's a first draft.",
+   "",
+   "abd64d5c0"
+  ],
+  [
+   "N",
+   "Could you call me when you get a chance?",
+   "",
+   "a7a59a230"
+  ],
+  [
+   "N",
+   "I'd like to go through it with you before we send anything to the printer on Thursday.",
+   "",
+   "a5d9d55a6"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did the listener send this morning?",
+   "a": "A brochure layout",
+   "w": [
+    "Some photographs",
+    "A printing invoice",
+    "A client contract"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the speaker imply when she says, \"Well, it's a first draft\"?",
+   "a": "The text needs more work.",
+   "w": [
+    "The photos should be changed.",
+    "The client has approved the text.",
+    "The printer has made a mistake."
+   ],
+   "ty": "imp"
+  },
+  {
+   "q": "What does the speaker want to do before Thursday?",
+   "a": "Discuss the text with the listener",
+   "w": [
+    "Meet the client in person",
+    "Take new photos for the cover",
+    "Order more brochures from the printer"
+   ],
+   "ty": "next"
+  }
+ ]
+}

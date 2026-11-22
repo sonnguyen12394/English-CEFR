@@ -16,7 +16,7 @@ let PH_MUC = { b1: { ten: '🎽 Bậc 1 · Nhận đồng phục', sub: 'Chỉ n
   b4: { ten: '🔥 Bậc 4 · Đủ 4 từ', sub: '4 từ, có cặp cùng loại, nhanh dần · 3 tim, 1 gợi ý', md: 'tu', k: 4, dur: [7, 6], tim: 3, goi: 1 } }, PH_MO = ['b1', 'b2', 'b3', 'b4']; const PH_WIN = 7;
 // ván chữa câu sai từ Chinh phục đề: đủ 4 phương án của đề, từ mang màu cư dân (tập trung chọn đúng từ trong nhà), dễ thắng
 let PH_FIX = { ten: '🛠 Chữa câu', sub: '', md: 'tu', k: 4, dur: [8.5, 8.5], tim: 5, goi: 99, moc: 1, mau: 1 };
-let PH_SHORT = { N: 'Bác Danh từ', V: 'Anh Động từ', A: 'Cô Tính từ', R: 'Bé Trạng từ' };   // v184–v185: tên = tên gọi của loại từ (người sáng lập: tên cũ "chưa rõ lắm")
+let PH_SHORT = { N: 'Danh từ', V: 'Động từ', A: 'Tính từ', R: 'Trạng từ' };   // v184–v185: tên = tên gọi của loại từ (người sáng lập: tên cũ "chưa rõ lắm")
 // v201 (góp ý #17): 🔓 mở mọi bậc của mọi phố để thử, không cần thắng bậc trước (chỉ trò chơi, không đụng luật đo)
 const phThu = () => !!(S && S.to && S.to.phThu);
 const phThuBtn = () => `<button class="link tap" data-phthu>${phThu() ? '🔒 Khoá lại bậc như cũ (phải thắng bậc trước)' : '🔓 Mở mọi bậc để thử (không cần thắng bậc trước)'}</button>`;
@@ -28,22 +28,22 @@ function phMoc(it) { return PHC.moc ? PHC.moc(it) : phMocL(it); }
 function phMocL(it) { const ws = [...String(it.why || '').matchAll(/["“]([^"”]{1,30})["”]/g)].map(m => m[1].trim()).filter(Boolean);
   for (const w of ws) { const re = new RegExp('(^|[^A-Za-z])(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')(?=$|[^A-Za-z])', 'i'); if (re.test(it.s.replace('___', ' '))) return w; } return null; }
 let PH_CH = {
-  N: { name: 'Bác Danh từ', pos: 'Danh từ', suf: '-tion · -ment · -ness · -al', line: 'Tôi chỉ người, vật, việc được nói tới. Ghế của tôi: sau a / the / your, và sau Cô Tính từ.' },
-  V: { name: 'Anh Động từ', pos: 'Động từ', suf: 'dạng gốc · -ize · -ate · -fy', line: 'Tôi là hành động. Sau will / can / to tôi luôn ở dạng gốc.' },
-  A: { name: 'Cô Tính từ', pos: 'Tính từ', suf: '-ive · -ful · -ous · -able', line: 'Tôi mô tả Bác Danh từ (đẹp, mới, đáng tin…). Tôi đứng ngay trước Bác Danh từ, hoặc sau is / are.' },
-  R: { name: 'Bé Trạng từ', pos: 'Trạng từ', suf: '-ly', line: 'Tôi mô tả Anh Động từ (làm thế nào) và Cô Tính từ (đến mức nào). Tôi không bao giờ đứng cạnh Bác Danh từ.' } };
+  N: { name: 'Danh từ', pos: 'Danh từ', suf: '-tion · -ment · -ness · -al', line: 'Tôi chỉ người, vật, việc được nói tới. Ghế của tôi: sau a / the / your, và sau Tính từ.' },
+  V: { name: 'Động từ', pos: 'Động từ', suf: 'dạng gốc · -ize · -ate · -fy', line: 'Tôi là hành động. Sau will / can / to tôi luôn ở dạng gốc.' },
+  A: { name: 'Tính từ', pos: 'Tính từ', suf: '-ive · -ful · -ous · -able', line: 'Tôi mô tả Danh từ (đẹp, mới, đáng tin…). Tôi đứng ngay trước Danh từ, hoặc sau is / are.' },
+  R: { name: 'Trạng từ', pos: 'Trạng từ', suf: '-ly', line: 'Tôi mô tả Động từ (làm thế nào) và Tính từ (đến mức nào). Tôi không bao giờ đứng cạnh Danh từ.' } };
 // vụ thám tử: 4 cư dân + 4 nhóm "hai người cùng nhà" (mở khi lần đầu gặp câu có nhóm đó). Câu ví dụ Claude soạn, chưa giáo viên kiểm.
 let PH_G = {
   N: { q: 'Ai hay ngồi giữa "the … of"?', ex: [['The', 'approval', 'of the plan was quick.'], ['We waited for the', 'delivery', 'of the boxes.'], ['They planned the', 'expansion', 'of the store.']], hint: 'Nhìn đuôi: -al, -ery, -sion là đồng phục của ai?', chant: 'Sau the, a, your… là ghế của tôi.' },
   V: { q: 'Ai đứng ngay sau "will / can / to"?', ex: [['The company will', 'expand', 'next year.'], ['Can you', 'inform', 'the team?'], ['We need to', 'create', 'a new plan.']], hint: 'Ba từ này đều là hành động, ở dạng gốc.', chant: 'Sau will, can, to là tôi, dạng gốc.' },
-  A: { q: 'Ai đứng trước danh từ, hoặc sau "is / are"?', ex: [['It is a', 'reliable', 'car.'], ['The new plan is', 'successful', '.'], ['She has very', 'creative', 'ideas.']], hint: 'Họ mô tả Bác Danh từ: đáng tin, thành công, sáng tạo…', chant: 'Tôi đứng trước Bác Danh từ, hoặc sau is / are.' },
-  R: { q: 'Ai bám theo động từ hoặc tính từ?', ex: [['The report was', 'carefully', 'written.'], ['The office is', 'extremely', 'busy.'], ['Prices rose', 'quickly', 'in May.']], hint: 'Cả ba đều mặc đồng phục -ly.', chant: 'Tôi mô tả Anh Động từ và Cô Tính từ, không mô tả Bác Danh từ.' } };
+  A: { q: 'Ai đứng trước danh từ, hoặc sau "is / are"?', ex: [['It is a', 'reliable', 'car.'], ['The new plan is', 'successful', '.'], ['She has very', 'creative', 'ideas.']], hint: 'Họ mô tả Danh từ: đáng tin, thành công, sáng tạo…', chant: 'Tôi đứng trước Danh từ, hoặc sau is / are.' },
+  R: { q: 'Ai bám theo động từ hoặc tính từ?', ex: [['The report was', 'carefully', 'written.'], ['The office is', 'extremely', 'busy.'], ['Prices rose', 'quickly', 'in May.']], hint: 'Cả ba đều mặc đồng phục -ly.', chant: 'Tôi mô tả Động từ và Tính từ, không mô tả Danh từ.' } };
 let PH_NHA = {
-  nguoi: { who: 'N', name: 'Hai Bác Danh từ cùng nhà: người hay việc?', q: 'Từ được tô chỉ NGƯỜI hay VIỆC?', ex: [['The', 'applicants', 'will be interviewed on Friday.'], ['Our', 'supervisor', 'approved the request.'], ['Two new', 'employees', 'joined the team.']], ans: ['Người', 'Việc'], ok: 0, hint: 'Ai được phỏng vấn, ai duyệt yêu cầu? Đuôi -ant, -or, -ee.', chant: '-er, -or, -ant, -ee, -ist là NGƯỜI; -tion, -ment, -ance là VIỆC. Câu cần ai làm thì chọn người.' },
-  vdang: { who: 'V', name: 'Ba anh em Động: gốc, V3, V-ing', q: 'Sau "has been" và "was", Anh Động từ mặc dạng nào?', ex: [['The order has been', 'shipped', 'today.'], ['The room was', 'cleaned', 'last night.'], ['All forms must be', 'signed', 'by Friday.']], ans: ['V3 (được / bị)', 'Dạng gốc'], ok: 0, hint: 'Đơn hàng không tự gửi: nó ĐƯỢC gửi.', chant: 'Sau will / can / to: gốc. Sau be / have (được, đã): V3. Sau giới từ hoặc be (đang): V-ing.' },
+  nguoi: { who: 'N', name: 'Hai Danh từ cùng nhà: người hay việc?', q: 'Từ được tô chỉ NGƯỜI hay VIỆC?', ex: [['The', 'applicants', 'will be interviewed on Friday.'], ['Our', 'supervisor', 'approved the request.'], ['Two new', 'employees', 'joined the team.']], ans: ['Người', 'Việc'], ok: 0, hint: 'Ai được phỏng vấn, ai duyệt yêu cầu? Đuôi -ant, -or, -ee.', chant: '-er, -or, -ant, -ee, -ist là NGƯỜI; -tion, -ment, -ance là VIỆC. Câu cần ai làm thì chọn người.' },
+  vdang: { who: 'V', name: 'Ba anh em Động: gốc, V3, V-ing', q: 'Sau "has been" và "was", Động từ mặc dạng nào?', ex: [['The order has been', 'shipped', 'today.'], ['The room was', 'cleaned', 'last night.'], ['All forms must be', 'signed', 'by Friday.']], ans: ['V3 (được / bị)', 'Dạng gốc'], ok: 0, hint: 'Đơn hàng không tự gửi: nó ĐƯỢC gửi.', chant: 'Sau will / can / to: gốc. Sau be / have (được, đã): V3. Sau giới từ hoặc be (đang): V-ing.' },
   edng: { who: 'A', name: 'Hai chị em nhà Tính: -ed và -ing', q: 'Từ được tô nói người CẢM THẤY hay vật GÂY RA cảm giác?', ex: [['The staff were', 'excited', 'about the trip.'], ['I was', 'impressed', 'by her work.'], ['Visitors felt', 'satisfied', 'with the tour.']], ans: ['Người cảm thấy', 'Vật gây ra'], ok: 0, hint: 'Ai thấy hào hứng, ấn tượng, hài lòng? Đều là người.', chant: '-ed: người CẢM THẤY (I am bored). -ing: vật, việc GÂY RA cảm giác (the film is boring).' },
-  ss: { who: 'A', name: 'Ba chị em nhà Tính: nguyên, hơn, nhất', q: 'Có "than", "the … of" hay "as … as" thì Cô Tính từ mặc dạng nào?', ex: [['This room is', 'bigger', 'than that one.'], ['She is the', 'most experienced', 'engineer in the team.'], ['It is not as', 'comfortable', 'as the first one.']], ans: ['Dạng so sánh hợp với dấu hiệu', 'Luôn dạng gốc'], ok: 0, hint: 'than → hơn, the … of / in → nhất, as … as → dạng gốc.', chant: 'Có than: -er / more. The … of, in: -est / most. As … as: dạng gốc. The -er …, the -er …: càng … càng.' },
-  so: { who: 'N', name: 'Bác Danh từ một người hay nhiều người?', q: 'Sau "each / every / a", Bác Danh từ đi một mình hay đi đông?', ex: [['Each', 'employee', 'has a locker.'], ['Every', 'guest', 'gets a map.'], ['A', 'customer', 'called this morning.']], ans: ['Một mình (số ít)', 'Đi đông (số nhiều)'], ok: 0, hint: 'Each, every, a đều đếm từng người một.', chant: 'Sau a, an, each, every: số ít. Sau many, several, these, all: số nhiều.' } };
+  ss: { who: 'A', name: 'Ba chị em nhà Tính: nguyên, hơn, nhất', q: 'Có "than", "the … of" hay "as … as" thì Tính từ mặc dạng nào?', ex: [['This room is', 'bigger', 'than that one.'], ['She is the', 'most experienced', 'engineer in the team.'], ['It is not as', 'comfortable', 'as the first one.']], ans: ['Dạng so sánh hợp với dấu hiệu', 'Luôn dạng gốc'], ok: 0, hint: 'than → hơn, the … of / in → nhất, as … as → dạng gốc.', chant: 'Có than: -er / more. The … of, in: -est / most. As … as: dạng gốc. The -er …, the -er …: càng … càng.' },
+  so: { who: 'N', name: 'Danh từ một người hay nhiều người?', q: 'Sau "each / every / a", Danh từ đi một mình hay đi đông?', ex: [['Each', 'employee', 'has a locker.'], ['Every', 'guest', 'gets a map.'], ['A', 'customer', 'called this morning.']], ans: ['Một mình (số ít)', 'Đi đông (số nhiều)'], ok: 0, hint: 'Each, every, a đều đếm từng người một.', chant: 'Sau a, an, each, every: số ít. Sau many, several, these, all: số nhiều.' } };
 let PH_ORD = ['N', 'V', 'A', 'R'];
 // v181 (specs/020-thanh-pho-toeic): ĐỘNG CƠ PHỐ dùng chung. Mỗi phố là một cấu hình PH_PHO[key]; phUse(key) nạp hằng của phố vào các biến PH_* (bậc, cư dân,
 //   thám tử, kho). Phố Loại Từ là cấu hình đầu; phố khác khai báo ở tệp riêng (cau.js …). Tiến độ: Loại Từ giữ S.to.pho, phố khác S.to.phos[key].
@@ -80,7 +80,7 @@ function phP6K(q) { if (!q || q.sec !== 'p6') return null; if (q.gt === 'tense')
   if (new Set(q.opts.map(o => String(og[o]).split(':')[0].trim())).size === 1) return 'cho';
   return null; }
 // v198: câu Part 5 "cấu trúc" thuộc MỘT phố: nhận ra luật (ctLaw) → 🏛 Phố Cấu Trúc; không thì theo nhãn lời giải: so sánh → Loại Từ (nhóm nguyên / hơn / nhất),
-//   cầu nối → Cầu Nối, trợ động từ / thì → Động Từ, còn lại (cụm cố định so … that, too … to) → Chợ (quầy Bà Cụm)
+//   cầu nối → Cầu Nối, trợ động từ / thì → Động Từ, còn lại (cụm cố định so … that, too … to) → Chợ (quầy Cụm cố định)
 function phStructK(q) { if (!q || q.sec !== 'p5' || !q.x || q.x.t !== 'struct') return null; if ('_sk' in q) return q._sk;
   const og = (q.lg || {}).og || {}, src = phSrc(q), s = src ? src.s : '', ok = f => q.opts.every(o => f(o)) && f(q.a) !== '_';
   let k = null; if (q.opts && q.opts.every(o => og[o]) && src) {
@@ -95,18 +95,18 @@ const phSt = () => { const o = toSt(); let p; if (PHC.key === 'loai') p = o.pho 
 // 🪑 v182 (người sáng lập 15/11/2026: "vướng ở Bậc 2 vì không nắm được cấu trúc"): luật ghế = chữ xung quanh chỗ trống cho biết ghế của ai.
 //   Khoá trùng trường `ghe` của câu kho (content/toeic/pho.json). Ví dụ Claude soạn, chưa giáo viên kiểm.
 const PH_GHE = {
-  mao: { t: 'N', sig: 'Sau the / a / her / your…', rule: 'Sau the, a, his, her, your… (có thể có tính từ chen giữa), rồi tới động từ, of hoặc dấu chấm: ghế Bác Danh từ.', ex: 'The ___ of the store was quick.' },
-  chu: { t: 'N', sig: 'Sau all / each / many / these…', rule: 'Sau từ chỉ số lượng: all, each, every, many, several, these, those: ghế Bác Danh từ.', ex: 'Many ___ have complained.' },
-  gioi: { t: 'N', sig: 'Sau giới từ in / on / for / to…', rule: 'Sau giới từ (in, on, for, of, about, thanks to…): ghế Bác Danh từ, hoặc Anh Động từ đuôi -ing.', ex: 'We invest in ___ every year.' },
-  truocN: { t: 'A', sig: 'Ngay trước một danh từ', rule: 'Chỗ trống đứng ngay trước một danh từ (a ___ manager): ghế Cô Tính từ, không phải Bác Danh từ.', ex: 'She is a ___ manager.' },
-  sauBe: { t: 'A', sig: 'Sau is / are / was / seem / become', rule: 'Sau be (is, are, was, were), seem, become, look, feel, và không có danh từ theo sau: ghế Cô Tính từ.', ex: 'The plan seems ___.' },
-  modal: { t: 'V', sig: 'Sau will / can / must / to', rule: 'Sau will, can, should, must, to: ghế Anh Động từ, dạng gốc.', ex: 'We need to ___ the plan.' },
-  thi: { t: 'V', sig: 'Sau chủ ngữ, câu chưa có động từ', rule: 'Câu có chủ ngữ nhưng chưa có động từ chính: ghế Anh Động từ (chia thì). Sau has been, was: Anh Động từ dạng V3.', ex: 'The CEO ___ teamwork often.' },
-  sauV: { t: 'R', sig: 'Sau một động từ đã đủ nghĩa', rule: 'Câu đã có động từ (runs, dropped, rose…) và chỗ trống nói "thế nào": ghế Bé Trạng từ.', ex: 'Prices rose ___ in May.' },
-  truocA: { t: 'R', sig: 'Trước tính từ hoặc V3', rule: 'Chỗ trống đứng trước tính từ hoặc V3 (is ___ designed, ___ busy): ghế Bé Trạng từ.', ex: 'The room is ___ designed.' } };
+  mao: { t: 'N', sig: 'Sau the / a / her / your…', rule: 'Sau the, a, his, her, your… (có thể có tính từ chen giữa), rồi tới động từ, of hoặc dấu chấm: ghế Danh từ.', ex: 'The ___ of the store was quick.' },
+  chu: { t: 'N', sig: 'Sau all / each / many / these…', rule: 'Sau từ chỉ số lượng: all, each, every, many, several, these, those: ghế Danh từ.', ex: 'Many ___ have complained.' },
+  gioi: { t: 'N', sig: 'Sau giới từ in / on / for / to…', rule: 'Sau giới từ (in, on, for, of, about, thanks to…): ghế Danh từ, hoặc Động từ đuôi -ing.', ex: 'We invest in ___ every year.' },
+  truocN: { t: 'A', sig: 'Ngay trước một danh từ', rule: 'Chỗ trống đứng ngay trước một danh từ (a ___ manager): ghế Tính từ, không phải Danh từ.', ex: 'She is a ___ manager.' },
+  sauBe: { t: 'A', sig: 'Sau is / are / was / seem / become', rule: 'Sau be (is, are, was, were), seem, become, look, feel, và không có danh từ theo sau: ghế Tính từ.', ex: 'The plan seems ___.' },
+  modal: { t: 'V', sig: 'Sau will / can / must / to', rule: 'Sau will, can, should, must, to: ghế Động từ, dạng gốc.', ex: 'We need to ___ the plan.' },
+  thi: { t: 'V', sig: 'Sau chủ ngữ, câu chưa có động từ', rule: 'Câu có chủ ngữ nhưng chưa có động từ chính: ghế Động từ (chia thì). Sau has been, was: Động từ dạng V3.', ex: 'The CEO ___ teamwork often.' },
+  sauV: { t: 'R', sig: 'Sau một động từ đã đủ nghĩa', rule: 'Câu đã có động từ (runs, dropped, rose…) và chỗ trống nói "thế nào": ghế Trạng từ.', ex: 'Prices rose ___ in May.' },
+  truocA: { t: 'R', sig: 'Trước tính từ hoặc V3', rule: 'Chỗ trống đứng trước tính từ hoặc V3 (is ___ designed, ___ busy): ghế Trạng từ.', ex: 'The room is ___ designed.' } };
 const PH_GORD = ['mao', 'chu', 'gioi', 'truocN', 'sauBe', 'modal', 'thi', 'sauV', 'truocA'];
-// bài học 3 bước: học 2 cư dân dễ nhầm trước (Bác Danh từ / Cô Tính từ, rồi Anh Động từ / Bé Trạng từ), rồi trộn cả 4
-const PH_LB = [{ ts: ['N', 'A'], n: 6, ten: 'Bác Danh từ hay Cô Tính từ?' }, { ts: ['V', 'R'], n: 6, ten: 'Anh Động từ hay Bé Trạng từ?' }, { ts: ['N', 'V', 'A', 'R'], n: 8, ten: 'Trộn cả 4 cư dân' }];
+// bài học 3 bước: học 2 cư dân dễ nhầm trước (Danh từ / Tính từ, rồi Động từ / Trạng từ), rồi trộn cả 4
+const PH_LB = [{ ts: ['N', 'A'], n: 6, ten: 'Danh từ hay Tính từ?' }, { ts: ['V', 'R'], n: 6, ten: 'Động từ hay Trạng từ?' }, { ts: ['N', 'V', 'A', 'R'], n: 8, ten: 'Trộn cả 4 cư dân' }];
 const phGRows = ts => PH_GORD.filter(k => ts.includes(PH_GHE[k].t)).map(k => { const g = PH_GHE[k];
   return `<div class="phgr">${phFace(g.t, 34)}<div class="b"><b>${esc(g.sig)}</b><span class="phtag ph-${g.t}">${PH_SHORT[g.t]}</span><p>${esc(g.ex).replace('___', '<span class="phgap" aria-label="ghế trống">?</span>')}</p></div></div>`; }).join('');
 const phBang = () => `<h3 style="margin:4px 0 6px">🪑 Bảng ghế</h3><p class="mute" style="margin:0 0 6px;font-size:15px">Nhìn chữ ngay trước (hoặc ngay sau) chỗ trống.</p>${phGRows(PH_ORD)}`;
@@ -326,7 +326,7 @@ async function phView() { phStop(); window.CUR = { view: PH_VIEW }; BACK = null;
 // ---------- làm quen + thám tử ----------
 function phIntro() { phStop(); window.CUR = { view: PH_VIEW + '-intro' }; scrollTo(0, 0);
   $app.innerHTML = phTop(phSt().in ? 'Phố' : 'Thành phố', 'Bước 1 / 2') + `<h2>Cư dân ${PHC.ten}</h2><p class="mute">${PHC.introSub}</p>
-    ${PH_ORD.map(t => `<button class="phwho" data-phtalk="${t}">${phFace(t, 58)}<span class="t"><b>${PH_CH[t].name}</b><span><span class="phtag ph-${t}">${PH_CH[t].pos}</span> <small class="mute">${PHC.dau}: ${PH_CH[t].suf}</small></span><small>${PH_CH[t].line}</small></span></button>`).join('')}
+    ${PH_ORD.map(t => `<button class="phwho" data-phtalk="${t}">${phFace(t, 58)}<span class="t"><b>${PH_CH[t].name}</b><span>${PH_CH[t].pos !== PH_CH[t].name ? `<span class="phtag ph-${t}">${PH_CH[t].pos}</span>` : ''} <small class="mute">${PHC.dau}: ${PH_CH[t].suf}</small></span><small>${PH_CH[t].line}</small></span></button>`).join('')}
     <button class="pri" data-phg>Đi làm thám tử ›</button>`;
   $app.onclick = e => { if (e.target.closest('[data-phback]')) return phSt().in ? phView() : phBackGo(); const b = e.target.closest('[data-phtalk]'); if (b) { b.classList.remove('talk'); void b.offsetWidth; b.classList.add('talk'); phSfx('grow'); return; }
     if (e.target.closest('[data-phg]')) phGuess(PH_ORD.slice(), () => { phSt().in = 1; save(); phStart(); }); }; }
@@ -361,7 +361,7 @@ function phStart(fix, back) { phStop(); phAc(); let L = phPick(fix, fix ? 'tu' :
   const P = phSt(), M = fix ? PH_FIX : PH_MUC[phMuc()];
   // nhóm "hai người cùng nhà" chỉ cần ở bậc bắt đủ 4 từ (bậc 1–3 không có cặp cùng loại)
   const need = M.md === 'tu' && M.k >= 4 ? [...new Set(L.map(x => x.nha).filter(n => n && PH_NHA[n] && !P.cd[n]))] : [];
-  // v195: cư dân mới thêm vào phố đã chơi (vd. Bà Nhiều Nghĩa ở Chợ): làm vụ thám tử của người đó trước ván có câu của họ
+  // v195: cư dân mới thêm vào phố đã chơi (vd. Nhiều nghĩa ở Chợ): làm vụ thám tử của người đó trước ván có câu của họ
   if (P.in) need.unshift(...(PHC.moi || []).filter(t => PH_G[t] && !P.cd[t] && L.some(x => (x.o.find(o => o[0] === x.a) || [])[1] === t)));
   const go = () => phQuick(() => phRun(L, fix, back));
   if (need.length) return phGuess(need, go); go(); }
@@ -491,7 +491,7 @@ function phCatch() { const R = PH_R; R.done = true; const it = R.it, M = R.M, go
   else if (M.md === 'qh') { const Q0 = PHC.QH[A[3]];
     body = `<p><span class="ko">Bạn bắt:</span> ${got.e} ${esc(got.w)}.</p><p><span class="ko">${PHC.qhW || 'Hai vế'}:</span> <span class="phtag ph-Q">${Q0 ? Q0.e + ' ' + esc(Q0.n) : ''}</span> → <b>${esc(it.a)}</b>. ${esc(it.why)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`; }
   else if (M.md === 'gh') body = `<div class="phsay">${phFace(got.p, 44, 'sad')}<div class="b"><b>${PH_CH[got.p].name}</b><p>“Ghế này không phải của tôi!”</p></div></div>
-      <p><span class="ko">Ghế của:</span> <span class="phtag ph-${A[1]}">${PH_CH[A[1]].name}</span> (${PH_CH[A[1]].pos.toLowerCase()}). ${phRuleHtml(it)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`;
+      <p><span class="ko">Ghế của:</span> <span class="phtag ph-${A[1]}">${PH_CH[A[1]].name}</span>${PH_CH[A[1]].pos !== PH_CH[A[1]].name ? ` (${PH_CH[A[1]].pos.toLowerCase()})` : ''}. ${phRuleHtml(it)}</p><p class="mute" style="margin:0">${esc(it.vi)}</p>`;
   else { const same = got.p === A[1], who = got.p, line = who === '_' ? `${esc(got.w)}: ${esc(got.m)}. Từ này không thuộc nhóm ${esc(PHC.lo || '')}, không vào được ghế này.` : PHC.missSay ? PHC.missSay(it, got) : same ? `Tôi với ${esc(it.a)} cùng nhà ${PH_CH[who].pos.toLowerCase()}, nhưng ghế này không phải của tôi. ${esc(got.w)} = ${esc(got.m)}.` : `Không phải ghế của tôi! Tôi là ${PH_CH[who].pos.toLowerCase()}, ${esc(got.w)} = ${esc(got.m)}.`;
     const nha = it.nha && PH_NHA[it.nha] && phSt().cd[it.nha] ? `<p class="phch">📜 ${esc(PH_NHA[it.nha].chant)}</p>` : '';
     body = `<div class="phsay">${phFace(who, 44, 'sad')}<div class="b"><b>${PH_CH[who].name}</b><p>“${line}”</p></div></div>

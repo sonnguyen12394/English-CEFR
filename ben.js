@@ -16,11 +16,11 @@ const BEN_MUC = {
 const BEN_FIX = { ten: '🛠 Chữa câu', md: 'chon', k: 4, tim: 5, sec: 120, goi: 99 };
 PH_PHO.ben = { key: 'ben', view: 'toeic-ben', ic: '🔎', ten: 'Bến Dò Tin', file: 'ben.json', sub: 'Tìm chi tiết, mục đích, đúng–sai, suy luận · Part 7',
   desc: 'Đọc câu hỏi trước, đoán loại, rồi dò đúng câu chứa đáp án trong bài. Đáp án đúng thường nói lại ý của câu đó bằng chữ khác.',
-  lo: 'Part 7', ORD: ['P', 'C', 'K', 'Y'], SHORT: { P: 'Cô Mục đích', C: 'Bác Chi tiết', K: 'Anh Đúng–Sai', Y: 'Bé Suy luận' }, NHA: {}, G: {}, MUC: BEN_MUC, FIX: BEN_FIX,
-  CH: { P: { name: 'Cô Mục đích', pos: 'Mục đích', suf: 'Why was … written? · purpose', line: 'Hỏi bài viết để làm gì. Đọc kỹ 2 câu đầu và câu có please / I am writing to / we would like.' },
-    C: { name: 'Bác Chi tiết', pos: 'Chi tiết', suf: 'When / Where / How much / What …', line: 'Hỏi một chi tiết. Lấy từ khoá của câu hỏi (tên, ngày, số, nơi), dò trong bài tới câu có nó, đọc kỹ câu đó.' },
-    K: { name: 'Anh Đúng–Sai', pos: 'Đúng–sai', suf: 'indicated / true / NOT mentioned', line: 'Không có từ khoá rõ: đối chiếu từng phương án với bài. Câu NOT: loại 3 phương án bài có nhắc, còn lại là đáp án.' },
-    Y: { name: 'Bé Suy luận', pos: 'Suy luận', suf: 'suggested / most likely / mean when …', line: 'Đáp án không có chữ y nguyên trong bài. Tìm câu liên quan rồi suy ra điều chắc chắn đúng, không đoán theo lẽ thường.' } },
+  lo: 'Part 7', ORD: ['P', 'C', 'K', 'Y'], SHORT: { P: 'Mục đích', C: 'Chi tiết', K: 'Đúng–Sai', Y: 'Suy luận' }, NHA: {}, G: {}, MUC: BEN_MUC, FIX: BEN_FIX,
+  CH: { P: { name: 'Mục đích', pos: 'Mục đích', suf: 'Why was … written? · purpose', line: 'Hỏi bài viết để làm gì. Đọc kỹ 2 câu đầu và câu có please / I am writing to / we would like.' },
+    C: { name: 'Chi tiết', pos: 'Chi tiết', suf: 'When / Where / How much / What …', line: 'Hỏi một chi tiết. Lấy từ khoá của câu hỏi (tên, ngày, số, nơi), dò trong bài tới câu có nó, đọc kỹ câu đó.' },
+    K: { name: 'Đúng–Sai', pos: 'Đúng–sai', suf: 'indicated / true / NOT mentioned', line: 'Không có từ khoá rõ: đối chiếu từng phương án với bài. Câu NOT: loại 3 phương án bài có nhắc, còn lại là đáp án.' },
+    Y: { name: 'Suy luận', pos: 'Suy luận', suf: 'suggested / most likely / mean when …', line: 'Đáp án không có chữ y nguyên trong bài. Tìm câu liên quan rồi suy ra điều chắc chắn đúng, không đoán theo lẽ thường.' } },
   canFix: q => !!(q && q.sec === 'p7' && BEN_TY[q.qt]), fixLab: '🔎 Chữa ở Bến Dò Tin · dò câu chứa đáp án',
   own: () => benView(), fix: (de, n) => benFix(de, n) };
 let BEN_K = null, BEN_R = null, BEN_BACK = null;
@@ -82,7 +82,7 @@ async function benView() { benStop(); window.CUR = { view: 'toeic-ben' }; BACK =
     if (e.target.closest('[data-benplay]')) return benStart(); if (e.target.closest('[data-benintro]')) return benIntro(); }; }
 function benIntro() { window.CUR = { view: 'toeic-ben-intro' }; scrollTo(0, 0); const C = PH_PHO.ben.CH;
   $app.innerHTML = benTop(benSt().in ? 'Bến' : 'Thành phố') + `<h2>4 cư dân của Bến Dò Tin</h2><p class="mute">Mỗi người là một loại câu hỏi Part 7. Nhận ra loại câu hỏi trước thì biết dò ở đâu, đọc thế nào.</p>
-    ${PH_PHO.ben.ORD.map(t => `<div class="phwho" style="cursor:default">${phFace(t, 58)}<span class="t"><b>${C[t].name}</b><span><span class="phtag ph-${t}">${C[t].pos}</span> <small class="mute">${esc(C[t].suf)}</small></span><small>${esc(C[t].line)}</small></span></div>`).join('')}
+    ${PH_PHO.ben.ORD.map(t => `<div class="phwho" style="cursor:default">${phFace(t, 58)}<span class="t"><b>${C[t].name}</b><span>${C[t].pos !== C[t].name ? `<span class="phtag ph-${t}">${C[t].pos}</span>` : ''} <small class="mute">${esc(C[t].suf)}</small></span><small>${esc(C[t].line)}</small></span></div>`).join('')}
     <button class="pri" data-bengo style="min-height:52px">${benSt().in ? 'Về Bến' : '▶ Bắt đầu Bậc 1'}</button>`;
   $app.onclick = e => { if (e.target.closest('[data-benback]')) return benSt().in ? benView() : benBackGo(); if (e.target.closest('[data-bengo]')) { const P = benSt(); if (!P.in) { P.in = 1; save(); return benStart(); } return benView(); } }; }
 // ── ván ──

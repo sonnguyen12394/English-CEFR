@@ -1,0 +1,112 @@
+{
+ "n": 53,
+ "nguon": "Đề 1 · Part 7 · 4",
+ "id": "t7-job",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Job advertisement",
+ "title": "Administrative Assistant — Clarke & Lowe Architects",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Clarke & Lowe Architects is seeking a full-time administrative assistant for its downtown office.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Responsibilities include answering phones, scheduling meetings, ordering office supplies and preparing documents for client presentations.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Applicants should have at least two years of office experience and be familiar with spreadsheet software.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Experience in an architecture or design firm is an advantage but not required.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To apply, send a cover letter and résumé to hiring@clarkelowe.com by June 15.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Only shortlisted candidates will be contacted.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is one of the duties of the position?",
+   "a": "Ordering office supplies",
+   "w": [
+    "Designing buildings",
+    "Visiting construction sites",
+    "Training new architects"
+   ],
+   "why": "Responsibilities include … ordering office supplies.",
+   "lg": {
+    "og": {
+     "Ordering office supplies": "Đặt mua văn phòng phẩm",
+     "Designing buildings": "Thiết kế toà nhà",
+     "Visiting construction sites": "Đi thăm công trường",
+     "Training new architects": "Đào tạo kiến trúc sư mới"
+    },
+    "ly": "Danh sách nhiệm vụ gồm trả lời điện thoại, xếp lịch họp, đặt văn phòng phẩm và soạn tài liệu. Chỉ \"ordering office supplies\" có trong đó.",
+    "dich": "Nhiệm vụ gồm trả lời điện thoại, xếp lịch họp, đặt văn phòng phẩm và soạn tài liệu cho buổi thuyết trình với khách."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is stated about experience in a design firm?",
+   "a": "It is considered an advantage.",
+   "w": [
+    "It must last at least two years.",
+    "It should be described in the cover letter.",
+    "It is valued more than software skills."
+   ],
+   "why": "Bài ghi kinh nghiệm ở công ty thiết kế là lợi thế, không bắt buộc.",
+   "lg": {
+    "og": {
+     "It is considered an advantage.": "Được xem là một lợi thế",
+     "It must last at least two years.": "Phải kéo dài ít nhất hai năm",
+     "It should be described in the cover letter.": "Nên trình bày trong thư xin việc",
+     "It is valued more than software skills.": "Được coi trọng hơn kỹ năng phần mềm"
+    },
+    "ly": "Đáp án \"It is considered an advantage.\" — Bài ghi kinh nghiệm ở công ty kiến trúc hoặc thiết kế \"is an advantage but not required\". Hai năm là yêu cầu về kinh nghiệm văn phòng nói chung, không phải kinh nghiệm ở công ty thiết kế. Bài không nhắc thư xin việc phải trình bày kinh nghiệm này, cũng không so với kỹ năng phần mềm.",
+    "dich": "Có kinh nghiệm ở công ty kiến trúc hoặc thiết kế là một lợi thế nhưng không bắt buộc."
+   },
+   "ty": "true"
+  },
+  {
+   "q": "What will happen after June 15?",
+   "a": "A few applicants will get a reply.",
+   "w": [
+    "New résumés will still be accepted.",
+    "Candidates will take a skills test.",
+    "The job posting will be extended."
+   ],
+   "why": "Chỉ ứng viên lọt danh sách rút gọn mới được liên hệ.",
+   "lg": {
+    "og": {
+     "A few applicants will get a reply.": "Một vài ứng viên sẽ nhận phản hồi",
+     "New résumés will still be accepted.": "Vẫn nhận thêm hồ sơ mới",
+     "Candidates will take a skills test.": "Ứng viên sẽ làm bài kiểm tra kỹ năng",
+     "The job posting will be extended.": "Tin tuyển dụng sẽ được gia hạn"
+    },
+    "ly": "Đáp án \"A few applicants will get a reply.\" — Sau hạn 15/6 chỉ những người lọt danh sách rút gọn mới được liên hệ. Bài không nói gia hạn, nhận thêm hồ sơ hay có bài kiểm tra.",
+    "dich": "Chỉ những ứng viên lọt vào danh sách rút gọn mới được liên hệ."
+   },
+   "ty": "detail"
+  }
+ ]
+}

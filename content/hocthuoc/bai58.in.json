@@ -1,0 +1,127 @@
+{
+ "n": 58,
+ "nguon": "Đề 1 · Part 7 · 9",
+ "id": "t7-notice2",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Notice",
+ "title": "Oakdale Public Library: New Opening Hours",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Beginning on Monday, May 5, the Oakdale Public Library will open at 8:00 A.M. on weekdays, one hour earlier than before.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The change follows a survey in which many residents said they would like to visit the library before work.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Weekend hours will stay the same.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "During the first week of the new schedule, staff will be at the front desk from 8:00 A.M. to help visitors set up online accounts, which can be used to reserve books and study rooms.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "For more information, call 555-0172 or visit our Web site.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the notice?",
+   "a": "To announce new opening hours",
+   "w": [
+    "To announce a new borrowing policy",
+    "To announce a library renovation",
+    "To announce an upcoming book sale"
+   ],
+   "why": "Thư viện mở sớm hơn một giờ các ngày trong tuần.",
+   "lg": {
+    "og": {
+     "To announce new opening hours": "Để báo đổi giờ mở cửa",
+     "To announce a new borrowing policy": "Để báo chính sách mượn sách mới",
+     "To announce a library renovation": "Để báo thư viện sắp cải tạo",
+     "To announce an upcoming book sale": "Để báo sắp có đợt bán sách"
+    },
+    "ly": "Đáp án \"To announce new opening hours\" — Bài báo giờ mở cửa sớm hơn từ 5/5. Chính sách mượn sách, cải tạo và bán sách không được nhắc.",
+    "dich": "Từ thứ Hai ngày 5 tháng 5, Thư viện Oakdale sẽ mở cửa lúc 8 giờ sáng các ngày trong tuần, sớm hơn trước một giờ."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What is NOT mentioned about the library?",
+   "a": "It will add a parking area.",
+   "w": [
+    "It will open earlier on weekdays.",
+    "It asked residents for their opinions.",
+    "It offers study rooms that can be reserved."
+   ],
+   "why": "Câu NOT: 3 phương án kia đều có trong thông báo (giờ mở sớm hơn, cuộc khảo sát, đặt phòng học); bãi đỗ xe không được nhắc.",
+   "lg": {
+    "og": {
+     "It will add a parking area.": "Sẽ thêm khu đỗ xe",
+     "It will open earlier on weekdays.": "Sẽ mở cửa sớm hơn",
+     "It asked residents for their opinions.": "Đã hỏi ý kiến cư dân",
+     "It offers study rooms that can be reserved.": "Có phòng học đặt trước được"
+    },
+    "ly": "Bài nhắc việc mở sớm, khảo sát cư dân và phòng học đặt được, nhưng không hề nói về khu đỗ xe.",
+    "dich": "Tài khoản trực tuyến dùng để đặt sách và phòng học."
+   },
+   "ty": "not"
+  },
+  {
+   "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Many of them also asked for more places to study quietly.\"",
+   "a": "[2]",
+   "w": [
+    "[1]",
+    "[3]",
+    "[4]"
+   ],
+   "why": "\"them\" = residents ở câu khảo sát ngay trước; \"also asked\" nối với \"said they would like to visit the library before work\". Vị trí [4] có \"study rooms\" nhưng visitors không \"asked\" gì cả.",
+   "lg": {
+    "og": {
+     "[2]": "[2]",
+     "[1]": "[1]",
+     "[3]": "[3]",
+     "[4]": "[4]"
+    },
+    "ly": "Câu chèn nói nhiều cư dân còn muốn thêm chỗ học yên tĩnh, tiếp ngay sau câu nói về khảo sát cư dân (vị trí [2]).",
+    "dich": "Nhiều người trong số họ cũng đề nghị có thêm chỗ học yên tĩnh."
+   },
+   "ty": "insert"
+  },
+  {
+   "q": "In the notice, the word \"follows\" in the second sentence is closest in meaning to",
+   "a": "comes after",
+   "w": [
+    "walks behind",
+    "obeys",
+    "understands"
+   ],
+   "why": "The change follows a survey = sự thay đổi đến sau (là kết quả của) một cuộc khảo sát. follow còn nghĩa \"tuân theo\" (obey), \"hiểu\" (understand) nhưng không hợp ở đây.",
+   "lg": {
+    "og": {
+     "comes after": "đến sau",
+     "walks behind": "đi sau",
+     "obeys": "tuân theo",
+     "understands": "hiểu"
+    },
+    "ly": "\"The change follows a survey\" là thay đổi diễn ra sau khảo sát, tức comes after.",
+    "dich": "Thay đổi này diễn ra sau một khảo sát."
+   },
+   "ty": "syn"
+  }
+ ]
+}

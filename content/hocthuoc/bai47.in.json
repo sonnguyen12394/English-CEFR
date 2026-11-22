@@ -1,0 +1,114 @@
+{
+ "n": 47,
+ "nguon": "Đề 1 · Part 4 · 10",
+ "id": "t4-21",
+ "dang": "📢 Bài nói",
+ "kind": "intro",
+ "title": "",
+ "g": {
+  "t": "Small Business Forum: program",
+  "h": [
+   "Time",
+   "Talk",
+   "Speaker"
+  ],
+  "r": [
+   [
+    "9:30",
+    "Opening remarks",
+    "Lena Ortiz"
+   ],
+   [
+    "11:00",
+    "Green packaging",
+    "Amir Patel"
+   ],
+   [
+    "1:30",
+    "Saving energy in offices",
+    "Mark Hill"
+   ],
+   [
+    "3:00",
+    "Smart transport",
+    "Sofia Grant"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "N",
+   "Good morning, everyone, and welcome to the Small Business Forum.",
+   "",
+   "adfd1a47a"
+  ],
+  [
+   "N",
+   "Before we begin, there's a change to today's program.",
+   "",
+   "ac55e7e48"
+  ],
+  [
+   "N",
+   "Dr.",
+   "",
+   "a471cad93"
+  ],
+  [
+   "N",
+   "Amir Patel's train from Boston has been delayed, so he won't arrive until around noon.",
+   "",
+   "a2855503f"
+  ],
+  [
+   "N",
+   "He'll give his talk in the one-thirty slot, and the speaker who was scheduled for that time has kindly agreed to present at eleven instead.",
+   "",
+   "a2ad62170"
+  ],
+  [
+   "N",
+   "Lunch will be served in the main hall at twelve-thirty.",
+   "",
+   "ab59be70e"
+  ],
+  [
+   "N",
+   "Now, let's begin with our opening remarks.",
+   "",
+   "a761ca8fa"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where is the talk most likely taking place?",
+   "a": "At a business conference",
+   "w": [
+    "At a train station",
+    "On a factory tour",
+    "At a job fair"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Why has the schedule changed?",
+   "a": "A speaker's train is late.",
+   "w": [
+    "A room is not available.",
+    "A session was canceled.",
+    "The opening started late."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "Look at the graphic. Who will speak at eleven o'clock?",
+   "a": "Mark Hill",
+   "w": [
+    "Lena Ortiz",
+    "Amir Patel",
+    "Sofia Grant"
+   ],
+   "ty": "graphic"
+  }
+ ]
+}
