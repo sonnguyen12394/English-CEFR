@@ -15,7 +15,7 @@ const BAI55 = {
   [
    "W",
    "Grace Kim (3:15 P.M.): Has anyone booked a room for Friday's training session yet?",
-   "Grace Kim (3:15 chiều): Đã có ai đặt phòng cho buổi tập huấn hôm thứ Sáu chưa?",
+   "Grace Kim (3:15 chiều): Đã có ai đặt phòng cho buổi tập huấn vào thứ Sáu chưa?",
    ""
   ],
   [
@@ -253,7 +253,7 @@ const BAI55 = {
    "Grace Kim (3:15 chiều):",
    "Đã có ai đặt phòng",
    "cho buổi tập huấn",
-   "hôm thứ Sáu chưa?"
+   "vào thứ Sáu chưa?"
   ],
   [
    "Omar Haddad (3:16 chiều):",
@@ -679,7 +679,7 @@ const BAI55 = {
      "o": [
       "holds",
       "hold",
-      "held",
+      "to hold",
       "holding"
      ],
      "a": 0,
@@ -690,7 +690,8 @@ const BAI55 = {
     "q": "The stadium ___ fifty thousand fans.",
     "hint": "chứa được · hiện tại, 5 chữ cái",
     "ans": [
-     "holds"
+     "holds",
+     "seats"
     ],
     "vi": "holds = chứa được."
    }
@@ -1215,13 +1216,124 @@ const BAI55 = {
    }
   }
  ],
- "IPA": ["greɪs|kɪm|θriːˈfɪfˈtiːn|ˌpiːˈem|hæz|ˈeniwʌn|bʊkt|ə|ruːm|fər|ˈfraɪdeɪz|ˈtreɪnɪŋ|ˈseʃən|jet",
-    "ˈoʊmɑːr|həˈdɑːd|θriːsɪksˈtiːn|ˌpiːˈem|nɑːt|jet",
-    "ruːm|ˌfɔːrˈbiː|ɪz|friː|bʌt|ɪt|ˈoʊnli|hoʊldz|twelv|ˈpiːpəl",
-    "greɪs|kɪm|θriːˌsevənˈtiːn|ˌpiːˈem|wi|həv|ˌeɪˈtiːn|ˈpiːpəl|saɪnd|ʌp",
-    "ˈaɪvi|tʃen|θriːˌnaɪnˈtiːn|ˌpiːˈem|wʌt|əˈbaʊt|ðə|ˈkɑːnfərəns|ruːm|ɑːn|ðə|fɝːst|flɔːr",
-    "ˈoʊmɑːr|həˈdɑːd|θriːˈtwenti|ˌpiːˈem|ɪts|ˈbiːɪŋ|ˈpeɪntɪd|ðɪs|wiːk",
-    "ˈaɪvi|tʃen|θriːˈtwentiˈwʌn|ˌpiːˈem|ðen|wi|kʊd|splɪt|ðə|gruːp|ænd|rʌn|ðə|ˈseʃən|twaɪs",
-    "greɪs|kɪm|θriːˈtwentiˈtuː|ˌpiːˈem|aɪm|nɑːt|ʃʊr|ðə|ˈtreɪnər|kæn|steɪ|ðæt|lɔːŋ",
-    "aɪl|tʃek|wɪð|hɝː|ænd|get|bæk|tə|ju|boʊθ"].map(x => x.split("|"))
+ "IPA": [
+  [
+   "greɪs",
+   "kɪm",
+   "θriːˈfɪfˈtiːn",
+   "ˌpiːˈem",
+   "hæz",
+   "ˈeniwʌn",
+   "bʊkt",
+   "ə",
+   "ruːm",
+   "fər",
+   "ˈfraɪdeɪz",
+   "ˈtreɪnɪŋ",
+   "ˈseʃən",
+   "jet"
+  ],
+  [
+   "ˈoʊmɑːr",
+   "həˈdɑːd",
+   "θriːsɪksˈtiːn",
+   "ˌpiːˈem",
+   "nɑːt",
+   "jet"
+  ],
+  [
+   "ruːm",
+   "ˌfɔːrˈbiː",
+   "ɪz",
+   "friː",
+   "bʌt",
+   "ɪt",
+   "ˈoʊnli",
+   "hoʊldz",
+   "twelv",
+   "ˈpiːpəl"
+  ],
+  [
+   "greɪs",
+   "kɪm",
+   "θriːˌsevənˈtiːn",
+   "ˌpiːˈem",
+   "wi",
+   "həv",
+   "ˌeɪˈtiːn",
+   "ˈpiːpəl",
+   "saɪnd",
+   "ʌp"
+  ],
+  [
+   "ˈaɪvi",
+   "tʃen",
+   "θriːˌnaɪnˈtiːn",
+   "ˌpiːˈem",
+   "wʌt",
+   "əˈbaʊt",
+   "ðə",
+   "ˈkɑːnfərəns",
+   "ruːm",
+   "ɑːn",
+   "ðə",
+   "fɝːst",
+   "flɔːr"
+  ],
+  [
+   "ˈoʊmɑːr",
+   "həˈdɑːd",
+   "θriːˈtwenti",
+   "ˌpiːˈem",
+   "ɪts",
+   "ˈbiːɪŋ",
+   "ˈpeɪntɪd",
+   "ðɪs",
+   "wiːk"
+  ],
+  [
+   "ˈaɪvi",
+   "tʃen",
+   "θriːˈtwentiˈwʌn",
+   "ˌpiːˈem",
+   "ðen",
+   "wi",
+   "kʊd",
+   "splɪt",
+   "ðə",
+   "gruːp",
+   "ænd",
+   "rʌn",
+   "ðə",
+   "ˈseʃən",
+   "twaɪs"
+  ],
+  [
+   "greɪs",
+   "kɪm",
+   "θriːˈtwentiˈtuː",
+   "ˌpiːˈem",
+   "aɪm",
+   "nɑːt",
+   "ʃʊr",
+   "ðə",
+   "ˈtreɪnər",
+   "kæn",
+   "steɪ",
+   "ðæt",
+   "lɔːŋ"
+  ],
+  [
+   "aɪl",
+   "tʃek",
+   "wɪð",
+   "hɝː",
+   "ænd",
+   "get",
+   "bæk",
+   "tə",
+   "ju",
+   "boʊθ"
+  ]
+ ]
 };

@@ -779,7 +779,8 @@ const BAI54 = {
     "q": "The manager ___ for the mistake.",
     "hint": "xin lỗi · V2 · 10 chữ cái",
     "ans": [
-     "apologized"
+     "apologized",
+     "apologised"
     ],
     "vi": "apologized = đã xin lỗi."
    }
@@ -1148,10 +1149,108 @@ const BAI54 = {
    }
   }
  ],
- "IPA": ["aɪ|tʊk|maɪ|ˈperənts|tu|ˈkɑːsə|ˈverdeɪ|fər|maɪ|ˈfɑːðərz|ˈbɝːθdeɪ|læst|ˈsætərdeɪ",
-    "ðə|fuːd|wəz|ˈeksələnt|ɪˈspeʃəli|ðə|grɪld|fɪʃ|ænd|ðə|ˈpɔːrʃənz|wɝː|ˈdʒenərəs",
-    "ðə|stæf|ˈiːvən|brɔːt|ə|smɔːl|keɪk|wɪð|ə|ˈkændəl|wɪˈðaʊt|ʌs|ˈæskɪŋ|wɪtʃ|maɪ|ˈfɑːðər|lʌvd",
-    "ðə|ˈoʊnli|ˌdɪsəˈpɔɪntmənt|wəz|ðə|weɪt|ɔːlˈðoʊ|wi|hæd|ə|ˌrezərˈveɪʃən|fər|ˈsevən|wi|wɝː|nɑːt|ˈsiːtɪd|ənˈtɪl|ˈɔːlmoʊst|ˈsevənˈfɔːrti",
-    "ðə|ˈmænɪdʒər|əˈpɑːlədʒaɪzd|ænd|ˈɔːfərd|ʌs|friː|ˈkɔːfi|wɪtʃ|wəz|ə|naɪs|ˈdʒestʃər",
-    "aɪ|wʊd|ˈdefɪnətli|rɪˈtɝːn|bʌt|aɪ|wʊd|bʊk|ən|ˈɝːliər|ˈteɪbəl|—|ˈpɔːlə|grænt"].map(x => x.split("|"))
+ "IPA": [
+  [
+   "aɪ",
+   "tʊk",
+   "maɪ",
+   "ˈperənts",
+   "tu",
+   "ˈkɑːsə",
+   "ˈverdeɪ",
+   "fər",
+   "maɪ",
+   "ˈfɑːðərz",
+   "ˈbɝːθdeɪ",
+   "læst",
+   "ˈsætərdeɪ"
+  ],
+  [
+   "ðə",
+   "fuːd",
+   "wəz",
+   "ˈeksələnt",
+   "ɪˈspeʃəli",
+   "ðə",
+   "grɪld",
+   "fɪʃ",
+   "ænd",
+   "ðə",
+   "ˈpɔːrʃənz",
+   "wɝː",
+   "ˈdʒenərəs"
+  ],
+  [
+   "ðə",
+   "stæf",
+   "ˈiːvən",
+   "brɔːt",
+   "ə",
+   "smɔːl",
+   "keɪk",
+   "wɪð",
+   "ə",
+   "ˈkændəl",
+   "wɪˈðaʊt",
+   "ʌs",
+   "ˈæskɪŋ",
+   "wɪtʃ",
+   "maɪ",
+   "ˈfɑːðər",
+   "lʌvd"
+  ],
+  [
+   "ðə",
+   "ˈoʊnli",
+   "ˌdɪsəˈpɔɪntmənt",
+   "wəz",
+   "ðə",
+   "weɪt",
+   "ɔːlˈðoʊ",
+   "wi",
+   "hæd",
+   "ə",
+   "ˌrezərˈveɪʃən",
+   "fər",
+   "ˈsevən",
+   "wi",
+   "wɝː",
+   "nɑːt",
+   "ˈsiːtɪd",
+   "ənˈtɪl",
+   "ˈɔːlmoʊst",
+   "ˈsevənˈfɔːrti"
+  ],
+  [
+   "ðə",
+   "ˈmænɪdʒər",
+   "əˈpɑːlədʒaɪzd",
+   "ænd",
+   "ˈɔːfərd",
+   "ʌs",
+   "friː",
+   "ˈkɔːfi",
+   "wɪtʃ",
+   "wəz",
+   "ə",
+   "naɪs",
+   "ˈdʒestʃər"
+  ],
+  [
+   "aɪ",
+   "wʊd",
+   "ˈdefɪnətli",
+   "rɪˈtɝːn",
+   "bʌt",
+   "aɪ",
+   "wʊd",
+   "bʊk",
+   "ən",
+   "ˈɝːliər",
+   "ˈteɪbəl",
+   "—",
+   "ˈpɔːlə",
+   "grænt"
+  ]
+ ]
 };

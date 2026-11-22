@@ -619,7 +619,8 @@ const BAI45 = {
     "q": "We are ___ hiring two new nurses.",
     "hint": "hiện đang · 1 từ",
     "ans": [
-     "currently"
+     "currently",
+     "now"
     ],
     "vi": "currently hiring = hiện đang tuyển."
    }

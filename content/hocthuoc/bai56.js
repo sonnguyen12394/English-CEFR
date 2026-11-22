@@ -504,7 +504,8 @@ const BAI56 = {
     "hint": "xuất trình · 7 chữ cái",
     "ans": [
      "display",
-     "show"
+     "show",
+     "present"
     ],
     "vi": "display = xuất trình."
    }
@@ -1133,10 +1134,98 @@ const BAI56 = {
    }
   }
  ],
- "IPA": ["ˈstɑːrtɪŋ|meɪ|fɝːst|ɔːl|ˈviːɪkəlz|pɑːrkt|ɪn|ðə|ˈwestgeɪt|ˈɑːfɪs|ˈtaʊər|gəˈrɑːʒ|mʌst|dɪˈspleɪ|ə|nuː|ɪˌlekˈtrɑːnɪk|ˈpɑːrkɪŋ|pæs",
-    "ðə|oʊld|ˈpeɪpər|ˈpæsəz|wɪl|noʊ|ˈlɑːŋgər|bi|əkˈseptɪd",
-    "ˈtenənts|kæn|rɪˈkwest|nuː|ˈpæsəz|frəm|ðə|ˈbɪldɪŋ|ˈmænɪdʒmənt|ˈɑːfɪs|ɑːn|ðə|graʊnd|flɔːr|bɪˈtwiːn|naɪn|ˌeɪˈem|ænd|fɔːr|ˌpiːˈem",
-    "iːtʃ|ˈkʌmpəni|meɪ|rɪˈkwest|ʌp|tə|ten|ˈpæsəz|friː|əv|tʃɑːrdʒ",
-    "əˈdɪʃənəl|ˈpæsəz|kɔːst|ˌfɪfˈtiːn|pɝː|mʌnθ",
-    "ˈviːɪkəlz|wɪˈðaʊt|ə|ˈvælɪd|pæs|ˈæftər|meɪ|fɝːst|meɪ|bi|toʊd|æt|ði|ˈoʊnərz|ɪkˈspens"].map(x => x.split("|"))
+ "IPA": [
+  [
+   "ˈstɑːrtɪŋ",
+   "meɪ",
+   "fɝːst",
+   "ɔːl",
+   "ˈviːɪkəlz",
+   "pɑːrkt",
+   "ɪn",
+   "ðə",
+   "ˈwestgeɪt",
+   "ˈɑːfɪs",
+   "ˈtaʊər",
+   "gəˈrɑːʒ",
+   "mʌst",
+   "dɪˈspleɪ",
+   "ə",
+   "nuː",
+   "ɪˌlekˈtrɑːnɪk",
+   "ˈpɑːrkɪŋ",
+   "pæs"
+  ],
+  [
+   "ðə",
+   "oʊld",
+   "ˈpeɪpər",
+   "ˈpæsəz",
+   "wɪl",
+   "noʊ",
+   "ˈlɑːŋgər",
+   "bi",
+   "əkˈseptɪd"
+  ],
+  [
+   "ˈtenənts",
+   "kæn",
+   "rɪˈkwest",
+   "nuː",
+   "ˈpæsəz",
+   "frəm",
+   "ðə",
+   "ˈbɪldɪŋ",
+   "ˈmænɪdʒmənt",
+   "ˈɑːfɪs",
+   "ɑːn",
+   "ðə",
+   "graʊnd",
+   "flɔːr",
+   "bɪˈtwiːn",
+   "naɪn",
+   "ˌeɪˈem",
+   "ænd",
+   "fɔːr",
+   "ˌpiːˈem"
+  ],
+  [
+   "iːtʃ",
+   "ˈkʌmpəni",
+   "meɪ",
+   "rɪˈkwest",
+   "ʌp",
+   "tə",
+   "ten",
+   "ˈpæsəz",
+   "friː",
+   "əv",
+   "tʃɑːrdʒ"
+  ],
+  [
+   "əˈdɪʃənəl",
+   "ˈpæsəz",
+   "kɔːst",
+   "ˌfɪfˈtiːn",
+   "pɝː",
+   "mʌnθ"
+  ],
+  [
+   "ˈviːɪkəlz",
+   "wɪˈðaʊt",
+   "ə",
+   "ˈvælɪd",
+   "pæs",
+   "ˈæftər",
+   "meɪ",
+   "fɝːst",
+   "meɪ",
+   "bi",
+   "toʊd",
+   "æt",
+   "ði",
+   "ˈoʊnərz",
+   "ɪkˈspens"
+  ]
+ ]
 };
