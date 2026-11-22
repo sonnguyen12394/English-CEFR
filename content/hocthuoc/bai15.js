@@ -117,7 +117,7 @@ const BAI15 = {
       b2: { q: "Câu mới: “The store closed early because the power went out.” — lý do đóng sớm là gì?", o: ["Mất điện", "Hết hàng", "Ngày lễ", "Sửa chữa"], a: 0, vi: "because the power went out = vì mất điện." },
       b3: [{ q: "The flight was delayed ___ of the storm.", o: ["because", "so", "but", "although"], a: 0, vi: "because of + danh từ: vì cơn bão." },
            { q: "It was raining heavily, ___ we took a taxi.", o: ["so", "because", "although", "unless"], a: 0, vi: "mưa to → đi taxi: so chỉ kết quả." }],
-      b4: { q: "The meeting was postponed ___ the manager was sick.", hint: "vì · 1 từ", ans: ["because"], vi: "because + mệnh đề." } },
+      b4: { q: "The meeting was postponed ___ the manager was sick.", hint: "vì · 1 từ", ans: ["because", "as", "since"], vi: "because + mệnh đề." } },
     { id: "g4", g: "g", t: "twice as many … as: nhiều gấp đôi", line: 4, hl: "twice as many",
       b1: { s: "because [[twice as many people]] signed up as we expected", q: "twice as many people … as nghĩa là gì?", o: ["nhiều gấp đôi số người …", "ít hơn một nửa", "bằng một nửa", "nhiều hơn hai người"], a: 0, vi: "twice as many + danh từ + as = nhiều gấp đôi. · 🧱 Bài Nền liên quan: So sánh bằng · A2" },
       b2: { q: "Câu mới: “This year, we sold twice as many tickets as last year.” — vé bán được thế nào?", o: ["Gấp đôi năm ngoái", "Bằng một nửa năm ngoái", "Bằng năm ngoái", "Hơn năm ngoái hai vé"], a: 0, vi: "twice as many … as last year = gấp đôi năm ngoái." },

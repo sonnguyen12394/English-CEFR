@@ -12,7 +12,7 @@ const BAI19 = {
     ["W", "Carlos Ruiz (8:50 A.M.): Will do.", "Carlos Ruiz (8:50 sáng): Sẽ làm.", ""],
     ["W", "I'll count everything before I sign.", "Tôi sẽ đếm mọi thứ trước khi ký.", ""],
     ["W", "Hannah Lee (8:51 A.M.): Perfect.", "Hannah Lee (8:51 sáng): Tuyệt.", ""],
-    ["W", "I should be there by ten.", "Tôi chắc sẽ có mặt ở đó trước mười giờ.", ""]],
+    ["W", "I should be there by ten.", "Tôi chắc sẽ có mặt ở đó muộn nhất là mười giờ.", ""]],
   IPA: [
     "ˈhænə|li|ˌeɪtˈfɔːrtiˌfaɪv|ˌeɪˈem|gʊd|ˈmɔːrnɪŋ|ˈkɑːrloʊs",
     "ɑːr|ju|stɪl|ˈeɪbəl|tə|ˈoʊpən|ðə|stɔːr|təˈdeɪ",
@@ -43,7 +43,7 @@ const BAI19 = {
     ["Carlos Ruiz (8:50 sáng):", "Sẽ làm."],
     ["Tôi sẽ đếm mọi thứ", "trước khi ký."],
     ["Hannah Lee (8:51 sáng):", "Tuyệt."],
-    ["Tôi chắc sẽ có mặt ở đó", "trước mười giờ."]],
+    ["Tôi chắc sẽ có mặt ở đó", "muộn nhất là mười giờ."]],
   VNY: [
     [["chào buổi sáng", "buổi sáng"]],
     [["mở cửa hàng", "mở cửa"], ["hôm nay"]],

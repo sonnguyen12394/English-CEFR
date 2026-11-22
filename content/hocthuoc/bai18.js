@@ -123,7 +123,7 @@ const BAI18 = {
       b1: { s: "[[Therefore]], we are offering a 20 percent discount", q: "Therefore dùng để làm gì?", o: ["nối kết quả: vì vậy", "nối đối lập: tuy nhiên", "nối ví dụ", "nối điều kiện"], a: 0, vi: "Therefore = vì vậy, nên: nêu kết quả của ý trước. · 🧱 Bài Nền liên quan: Liên từ chỉ nguyên nhân và kết quả · A2" },
       b2: { q: "Câu mới: “The road is closed. Therefore, drivers should take Route 9.” — vì sao tài xế đi tuyến 9?", o: ["Vì đường bị đóng", "Vì tuyến 9 ngắn hơn", "Vì không có xe buýt", "Vì có lễ hội"], a: 0, vi: "Therefore nêu kết quả của “The road is closed”." },
       b3: [{ q: "The shop was crowded. ___, we waited in line for an hour.", o: ["As a result", "However", "For example", "Instead"], a: 0, vi: "Đông khách → xếp hàng một giờ: kết quả." },
-           { q: "Sales fell sharply. ___, the company cut its costs.", o: ["Therefore", "However", "Meanwhile", "Otherwise"], a: 0, vi: "Doanh số giảm → cắt chi phí: Therefore." }],
+           { q: "Sales fell sharply. ___, the company cut its costs.", o: ["Therefore", "However", "For example", "Otherwise"], a: 0, vi: "Doanh số giảm → cắt chi phí: Therefore." }],
       b4: { q: "The flight was canceled. ___, we took the train.", hint: "vì vậy · 1 từ", ans: ["therefore", "so", "thus", "consequently"], vi: "Therefore = vì vậy." } },
     { id: "g5", g: "g", t: "So sánh hơn: larger", line: 1, hl: "larger bathrooms",
       b1: { s: "new furniture and [[larger bathrooms]]", q: "larger là dạng gì?", o: ["so sánh hơn của large", "so sánh nhất của large", "trạng từ của large", "danh từ"], a: 0, vi: "Tính từ ngắn + er = so sánh hơn: large → larger. · 🧱 Bài Nền liên quan: So sánh hơn · A2" },

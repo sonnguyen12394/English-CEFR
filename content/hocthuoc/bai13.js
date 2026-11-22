@@ -98,7 +98,7 @@ const BAI13 = {
       b1: { s: "[[We're expecting]] eighty guests at a conference", q: "We're expecting nói về điều gì?", o: ["việc đang dự kiến sẽ có (tương lai gần)", "việc đã xảy ra", "thói quen mỗi ngày", "việc không thể xảy ra"], a: 0, vi: "be + V-ing có thể chỉ kế hoạch gần: dự kiến có 80 khách. · 🧱 Bài Nền liên quan: Hiện tại tiếp diễn · A1" },
       b2: { q: "Câu mới: “We are expecting a delivery this afternoon.” — khi nào hàng tới?", o: ["Chiều nay", "Hôm qua", "Mỗi chiều", "Chưa biết"], a: 0, vi: "are expecting + this afternoon: dự kiến chiều nay." },
       b3: [{ q: "The hotel ___ about two hundred guests next weekend.", o: ["is expecting", "expected", "has expected", "expecting"], a: 0, vi: "next weekend: kế hoạch tương lai, dùng is expecting." },
-           { q: "We ___ a large crowd at tomorrow’s concert.", o: ["are expecting", "expected", "were expecting", "have expected"], a: 0, vi: "tomorrow: tương lai, are expecting." }],
+           { q: "We ___ a large crowd at tomorrow’s concert.", o: ["are expecting", "expected", "expecting", "have expected"], a: 0, vi: "tomorrow: tương lai, are expecting." }],
       b4: { q: "We ___ ten visitors tomorrow. (expect)", hint: "gõ dạng tiếp diễn", ans: ["are expecting", "'re expecting", "’re expecting"], vi: "are expecting = đang dự kiến." } },
     { id: "g3", g: "g", t: "How many + danh từ đếm được", line: 1, hl: "How many",
       b1: { s: "Certainly. [[How many]] do you need?", q: "How many dùng để hỏi gì?", o: ["số lượng đếm được", "số lượng không đếm được", "giá tiền", "thời gian"], a: 0, vi: "How many + danh từ đếm được số nhiều; How much + không đếm được. · 🧱 Bài Nền liên quan: How many / How much · A1" },

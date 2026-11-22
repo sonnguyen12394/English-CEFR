@@ -127,5 +127,5 @@ const BAI22 = {
       b2: { q: "Câu mới: “I pressed the button, but nothing changed.” — kết quả thế nào?", o: ["Không có gì thay đổi", "Mọi thứ thay đổi", "Nút bị gãy", "Máy tự tắt"], a: 0, vi: "nothing changed = không có gì thay đổi." },
       b3: [{ q: "I pressed the button, but ___ happened. The screen is still black.", o: ["nothing", "anything", "everything", "anyone"], a: 0, vi: "nothing = không có gì (đã phủ định)." },
            { q: "There is ___ wrong with the printer; it works fine.", o: ["nothing", "anything", "something", "everything"], a: 0, vi: "nothing wrong = không có gì trục trặc." }],
-      b4: { q: "I called twice, but ___ answered. (không ai)", hint: "không ai · 6 chữ cái", ans: ["nobody", "no one"], vi: "nobody answered = không ai nghe máy." } }]
+      b4: { q: "I called twice, but ___ answered. (không ai)", hint: "không ai", ans: ["nobody", "no one"], vi: "nobody answered = không ai nghe máy." } }]
 };
