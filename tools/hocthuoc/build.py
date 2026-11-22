@@ -1,9 +1,10 @@
 # Dựng bản mẫu nhiều bài: bài 1–2 nằm trong trang, bài 3+ là tệp riêng mau2/bai/baiN.js tải khi chọn; mau2/bai/index.js = danh sách bài.
-# Chạy: python3 build.py  (đọc bai/base.html → ghi mau2/thuoc-doan.html, chép baiN.js đã OK sang mau2/bai/)
-import os, re, json, subprocess, shutil
-D = '/tmp/claude-0/-home-user-English-CEFR/48c67d5c-dc08-58ba-be65-4b058158838d/scratchpad'
-B = D + '/bai'; OUT = D + '/mau2'; os.makedirs(OUT + '/bai', exist_ok=True)
-s = open(B + '/base.html').read()
+# Chạy ở gốc repo: python3 tools/hocthuoc/build.py <thư mục ra>  (đọc tools/hocthuoc/base.html + content/hocthuoc/baiN.js → <ra>/thuoc-doan.html + <ra>/bai/)
+# Rồi: python3 tools/hocthuoc/build-web.py <thư mục ra>  → hoc-thuoc/ (trang con của app). Bài 1–2 nằm sẵn trong base.html.
+import os, re, json, subprocess, shutil, sys
+T = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(T))
+B = os.path.join(ROOT, 'content/hocthuoc'); OUT = os.path.abspath(sys.argv[1]); os.makedirs(OUT + '/bai', exist_ok=True)
+s = open(T + '/base.html').read()
 def R(a, b):
     global s; assert a in s, a[:70]; s = s.replace(a, b, 1)
 # danh sách bài đã qua máy kiểm
@@ -13,14 +14,14 @@ for n in range(1, 400):
         continue
     f = f'{B}/bai{n}.js'
     if not os.path.exists(f): continue
-    r = subprocess.run(['node', B + '/check.mjs', f], capture_output=True, text=True)
+    r = subprocess.run(['node', T + '/check.mjs', f], capture_output=True, text=True)
     if r.returncode: print('BỎ bài', n, r.stdout.strip().splitlines()[:3]); continue
     meta = json.loads(subprocess.run(['node', '-e', f"const fs=require('fs'),vm=require('vm');const c={{WHO:{{}}}};vm.createContext(c);vm.runInContext(fs.readFileSync('{f}','utf8')+';this.B=BAI{n}',c);console.log(JSON.stringify(c.B.meta))"], capture_output=True, text=True).stdout)
-    extra = subprocess.run(['node', '/home/user/English-CEFR/tools/hocthuoc/meta.mjs', B, str(n)], capture_output=True, text=True, cwd='/home/user/English-CEFR').stdout.strip() or '{}'
+    extra = subprocess.run(['node', T + '/meta.mjs', B, str(n)], capture_output=True, text=True, cwd=ROOT).stdout.strip() or '{}'
     open(f'{OUT}/bai/bai{n}.js', 'w').write(open(f).read() + f'\nObject.assign(BAI{n}.meta, {extra});\n'); idx.append({ 'n': n, 'de': meta['de'], 'dang': meta['dang'], 't': meta['t'] })
 open(OUT + '/bai/index.js', 'w').write('// Danh sách bài học thuộc (dựng bởi build.py)\nconst BAI_IDX = ' + json.dumps(idx, ensure_ascii=False) + ';\n')
 R('<div class="app" id="app"></div>', '<div class="app" id="app"></div>\n<script src="bai/index.js"></script>\n<script src="bai/nham.js"></script>')
-subprocess.run(['node', '/home/user/English-CEFR/tools/hocthuoc/nham.mjs', B, OUT + '/bai/nham.js'], cwd='/home/user/English-CEFR')
+subprocess.run(['node', T + '/nham.mjs', B, OUT + '/bai/nham.js'], cwd=ROOT)
 R("const BAIS = [BAI1, BAI2], STS = {};", """const BAIS = [BAI1, BAI2], STS = {};
 const BAI_ALL = [{ n: 1, de: BAI1.meta.de, dang: BAI1.meta.dang, t: BAI1.meta.t }, { n: 2, de: BAI2.meta.de, dang: BAI2.meta.dang, t: BAI2.meta.t }, ...(typeof BAI_IDX !== 'undefined' ? BAI_IDX : [])];
 // tải bài khi chọn: <script src="bai/baiN.js"> rồi lấy hằng BAIN (hằng toàn cục của script cổ điển, không nằm trên window)
