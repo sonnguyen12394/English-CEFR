@@ -1,0 +1,67 @@
+{
+ "n": 28,
+ "nguon": "Đề 1 · Part 3 · 4",
+ "id": "t3-04",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "B",
+   "Excuse me, I bought this jacket here last week, but the zipper broke the first time I wore it.",
+   "",
+   "a19e2d218"
+  ],
+  [
+   "A",
+   "I'm sorry about that. Do you have your receipt?",
+   "",
+   "a59c6f5e5"
+  ],
+  [
+   "B",
+   "Yes, here it is. I'd like to exchange it for the same jacket in the same size, if possible.",
+   "",
+   "af8904374"
+  ],
+  [
+   "A",
+   "Unfortunately, we're out of that size right now. I can order one for you, and it should arrive in three days, or I can give you a full refund.",
+   "",
+   "a8da458e1"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where most likely are the speakers?",
+   "a": "In a clothing store",
+   "w": [
+    "In a dry cleaner's",
+    "In a factory",
+    "In a post office"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the man want to do?",
+   "a": "Exchange an item",
+   "w": [
+    "Return a receipt",
+    "Buy a larger size",
+    "Repair a zipper himself"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What problem does the woman mention?",
+   "a": "A size is not available.",
+   "w": [
+    "The receipt has expired.",
+    "The store is closing soon.",
+    "The jacket was on sale."
+   ],
+   "ty": "detail"
+  }
+ ]
+}

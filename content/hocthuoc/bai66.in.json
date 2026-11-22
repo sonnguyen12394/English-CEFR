@@ -1,0 +1,109 @@
+{
+ "n": 66,
+ "nguon": "Đề 1 · Part 2 · bộ 3",
+ "id": "de1-p2-bo3",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "Part 2 · bộ 3 · 5 câu hỏi – đáp",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Why is the elevator out of service?",
+   "",
+   "aceb7972d"
+  ],
+  [
+   "B",
+   "It's being inspected today.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you going to the conference in May or the one in June?",
+   "",
+   "a62d35b9a"
+  ],
+  [
+   "B",
+   "Neither, I have to stay here.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you going to the conference by train or by car?",
+   "",
+   "a2f92c420"
+  ],
+  [
+   "B",
+   "I'm driving with two colleagues.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Where can I find extra paper for the printer?",
+   "",
+   "addcd4155"
+  ],
+  [
+   "B",
+   "In the cabinet next to the window.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Hasn't the shipment from Mexico arrived?",
+   "",
+   "a25e179fe"
+  ],
+  [
+   "B",
+   "It came in this morning.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is the elevator out of service?",
+   "a": "It's being inspected today.",
+   "w": [
+    "On the ground floor.",
+    "Yes, the service was excellent."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Are you going to the conference in May or the one in June?",
+   "a": "Neither, I have to stay here.",
+   "w": [
+    "It was a great conference.",
+    "Yes, I'm attending."
+   ],
+   "ty": "or"
+  },
+  {
+   "q": "Are you going to the conference by train or by car?",
+   "a": "I'm driving with two colleagues.",
+   "w": [
+    "Yes, I'm going.",
+    "It's a three-day conference."
+   ],
+   "ty": "or"
+  },
+  {
+   "q": "Where can I find extra paper for the printer?",
+   "a": "In the cabinet next to the window.",
+   "w": [
+    "About two hundred pages.",
+    "It prints in color."
+   ],
+   "ty": "wh"
+  }
+ ]
+}

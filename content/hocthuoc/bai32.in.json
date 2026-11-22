@@ -1,0 +1,67 @@
+{
+ "n": 32,
+ "nguon": "Đề 1 · Part 3 · 8",
+ "id": "t3-12",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "B",
+   "Rebecca, I'm calling about the quarterly report. The figures for the Asian market look lower than I expected.",
+   "",
+   "a918d2f94"
+  ],
+  [
+   "A",
+   "Yes, there was a delay with one of our shipping partners in June, so some orders were recorded in July instead.",
+   "",
+   "acb3148bd"
+  ],
+  [
+   "B",
+   "I see. So the numbers will probably look better next quarter?",
+   "",
+   "aa56f482c"
+  ],
+  [
+   "A",
+   "That's right. I'll add a note to the report explaining the delay before it goes to the directors.",
+   "",
+   "a3cc79b9e"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the man concerned about?",
+   "a": "Some sales figures",
+   "w": [
+    "A late payment",
+    "A shipping cost",
+    "A missing employee"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "According to the woman, what caused the problem?",
+   "a": "A shipping delay",
+   "w": [
+    "A pricing error",
+    "A computer failure",
+    "A staff shortage"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What will the woman add to the report?",
+   "a": "An explanation",
+   "w": [
+    "A new chart",
+    "A list of partners",
+    "A budget request"
+   ],
+   "ty": "detail"
+  }
+ ]
+}

@@ -1,0 +1,102 @@
+{
+ "n": 36,
+ "nguon": "Đề 1 · Part 3 · 12",
+ "id": "t3-21",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": {
+  "t": "Room availability: Thursday",
+  "h": [
+   "Room",
+   "Seats",
+   "Free"
+  ],
+  "r": [
+   [
+    "101",
+    "6",
+    "9:00–11:00"
+   ],
+   [
+    "204",
+    "12",
+    "1:00–3:00"
+   ],
+   [
+    "305",
+    "20",
+    "10:00–12:00"
+   ],
+   [
+    "410",
+    "30",
+    "2:00–5:00"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "A",
+   "Hi, Daniel. I'm organizing the training session on the new customer database this Thursday. Could you help me book a room?",
+   "",
+   "a61948509"
+  ],
+  [
+   "B",
+   "Sure. How many people are coming?",
+   "",
+   "a87798090"
+  ],
+  [
+   "A",
+   "Eighteen so far, and it has to be after lunch, because the sales team is out of the office until noon.",
+   "",
+   "a53e19d05"
+  ],
+  [
+   "B",
+   "Then there's only one room that works. I'll reserve it now. Do you need a projector?",
+   "",
+   "affab4edd"
+  ],
+  [
+   "A",
+   "Yes, please. And could you ask the café to send up coffee at three?",
+   "",
+   "a89c87a72"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the woman organizing?",
+   "a": "A training session",
+   "w": [
+    "A sales meeting",
+    "A product launch",
+    "A team lunch"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "Look at the graphic. Which room will the speakers most likely use?",
+   "a": "Room 410",
+   "w": [
+    "Room 101",
+    "Room 204",
+    "Room 305"
+   ],
+   "ty": "graphic"
+  },
+  {
+   "q": "What does the woman ask the man to do?",
+   "a": "Arrange for coffee",
+   "w": [
+    "Install some software",
+    "Contact the sales team",
+    "Print some handouts"
+   ],
+   "ty": "next"
+  }
+ ]
+}

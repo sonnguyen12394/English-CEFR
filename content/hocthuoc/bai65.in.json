@@ -1,0 +1,169 @@
+{
+ "n": 65,
+ "nguon": "Đề 1 · Part 2 · bộ 2",
+ "id": "de1-p2-bo2",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "Part 2 · bộ 2 · 10 câu hỏi – đáp",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Why was the meeting postponed?",
+   "",
+   "a6252cdd5"
+  ],
+  [
+   "B",
+   "The manager is out sick.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why don't we hire a temporary assistant?",
+   "",
+   "a5d40efce"
+  ],
+  [
+   "B",
+   "That might be expensive.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What did the client think of our design?",
+   "",
+   "a8f9819c0"
+  ],
+  [
+   "B",
+   "She asked for a few small changes.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Which hotel are you staying at in Chicago?",
+   "",
+   "a32d78143"
+  ],
+  [
+   "B",
+   "The one near the convention center.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How often do you meet with your team?",
+   "",
+   "a92f87f7d"
+  ],
+  [
+   "B",
+   "Usually twice a week.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you sent the invoice to the client yet?",
+   "",
+   "ad58636b6"
+  ],
+  [
+   "B",
+   "I'm doing it right now.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who's going to lead the training session?",
+   "",
+   "a23734f06"
+  ],
+  [
+   "B",
+   "Ms. Garcia from human resources.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How much does it cost to rent a car for a week?",
+   "",
+   "a77bed3cd"
+  ],
+  [
+   "B",
+   "About four hundred dollars.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why don't we hold the party outdoors?",
+   "",
+   "a63e7d34f"
+  ],
+  [
+   "B",
+   "That's a great idea if the weather's nice.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How many people have signed up for the workshop?",
+   "",
+   "afb911768"
+  ],
+  [
+   "B",
+   "Around thirty so far.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why was the meeting postponed?",
+   "a": "The manager is out sick.",
+   "w": [
+    "Let's meet at the café.",
+    "Yes, I posted it."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Why don't we hire a temporary assistant?",
+   "a": "That might be expensive.",
+   "w": [
+    "Higher prices.",
+    "He assisted me yesterday."
+   ],
+   "ty": "req"
+  },
+  {
+   "q": "What did the client think of our design?",
+   "a": "She asked for a few small changes.",
+   "w": [
+    "The client is from Toronto.",
+    "We designed it in March."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Which hotel are you staying at in Chicago?",
+   "a": "The one near the convention center.",
+   "w": [
+    "For three nights.",
+    "I stayed late at the office."
+   ],
+   "ty": "wh"
+  }
+ ]
+}

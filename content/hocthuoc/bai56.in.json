@@ -1,0 +1,112 @@
+{
+ "n": 56,
+ "nguon": "Đề 1 · Part 7 · 7",
+ "id": "t7-parking",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Notice",
+ "title": "Notice — Westgate Office Tower",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Starting May 1, all vehicles parked in the Westgate Office Tower garage must display a new electronic parking pass.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The old paper passes will no longer be accepted.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tenants can request new passes from the building management office on the ground floor between 9:00 A.M. and 4:00 P.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Each company may request up to ten passes free of charge.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Additional passes cost $15 per month.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Vehicles without a valid pass after May 1 may be towed at the owner's expense.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the notice?",
+   "a": "To announce new garage access rules",
+   "w": [
+    "To announce new garage opening hours",
+    "To announce a rise in parking fees",
+    "To warn about a closed garage level"
+   ],
+   "why": "must display a new electronic parking pass… old paper passes will no longer be accepted.",
+   "lg": {
+    "og": {
+     "To announce new garage access rules": "Để báo quy định ra vào hầm xe mới",
+     "To announce new garage opening hours": "Để báo giờ mở hầm xe mới",
+     "To announce a rise in parking fees": "Để báo tăng phí đỗ xe",
+     "To warn about a closed garage level": "Để cảnh báo một tầng hầm bị đóng"
+    },
+    "ly": "Đáp án \"To announce new garage access rules\" — Từ 1/5 mọi xe phải có thẻ điện tử mới, tức quy định ra vào hầm xe mới. Giờ mở, tăng phí và tầng bị đóng không được nhắc.",
+    "dich": "Từ ngày 1 tháng 5, mọi xe đỗ trong hầm Westgate Office Tower phải có thẻ đỗ điện tử mới."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "How much does an eleventh pass cost?",
+   "a": "$15 per month",
+   "w": [
+    "Nothing",
+    "$10 per month",
+    "$15 per year"
+   ],
+   "why": "up to ten passes free… Additional passes cost $15 per month.",
+   "lg": {
+    "og": {
+     "$15 per month": "15 đô la mỗi tháng",
+     "Nothing": "Miễn phí",
+     "$10 per month": "10 đô la mỗi tháng",
+     "$15 per year": "15 đô la mỗi năm"
+    },
+    "ly": "Mỗi công ty được tối đa mười thẻ miễn phí, nên thẻ thứ mười một tính phí 15 đô la mỗi tháng.",
+    "dich": "Mỗi công ty được xin tối đa mười thẻ miễn phí. Thẻ thêm giá 15 đô la mỗi tháng."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What may happen to vehicles without a valid pass?",
+   "a": "They may be removed.",
+   "w": [
+    "Their owners will receive a warning letter.",
+    "They will be charged $15.",
+    "They will be moved to the ground floor."
+   ],
+   "why": "may be towed (bị kéo đi).",
+   "lg": {
+    "og": {
+     "They may be removed.": "Có thể bị kéo đi",
+     "Their owners will receive a warning letter.": "Chủ xe nhận thư cảnh cáo",
+     "They will be charged $15.": "Bị tính 15 đô la",
+     "They will be moved to the ground floor.": "Bị chuyển xuống tầng trệt"
+    },
+    "ly": "Xe không có thẻ hợp lệ sau 1/5 có thể bị kéo đi (towed), tức bị di dời.",
+    "dich": "Xe không có thẻ hợp lệ sau ngày 1 tháng 5 có thể bị kéo đi, chủ xe chịu chi phí."
+   },
+   "ty": "detail"
+  }
+ ]
+}

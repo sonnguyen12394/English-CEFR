@@ -1,0 +1,130 @@
+{
+ "n": 55,
+ "nguon": "Đề 1 · Part 7 · 6",
+ "id": "t7-chat4",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Online chat discussion",
+ "title": "Online chat",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Grace Kim (3:15 P.M.): Has anyone booked a room for Friday's training session yet?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Omar Haddad (3:16 P.M.): Not yet.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Room 4B is free, but it only holds twelve people.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Grace Kim (3:17 P.M.): We have eighteen people signed up.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Ivy Chen (3:19 P.M.): What about the conference room on the first floor?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Omar Haddad (3:20 P.M.): It's being painted this week.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Ivy Chen (3:21 P.M.): Then we could split the group and run the session twice.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Grace Kim (3:22 P.M.): I'm not sure the trainer can stay that long.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll check with her and get back to you both.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is Room 4B unsuitable?",
+   "a": "It is too small.",
+   "w": [
+    "It is being painted.",
+    "It is already booked.",
+    "It has no projector."
+   ],
+   "why": "it only holds twelve people … We have eighteen people signed up.",
+   "lg": {
+    "og": {
+     "It is too small.": "Nó quá nhỏ",
+     "It is being painted.": "Nó đang được sơn",
+     "It is already booked.": "Nó đã có người đặt",
+     "It has no projector.": "Nó không có máy chiếu"
+    },
+    "ly": "Phòng 4B chỉ chứa 12 người trong khi có 18 người đăng ký, nên quá nhỏ.",
+    "dich": "Phòng 4B còn trống nhưng chỉ chứa được mười hai người."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "At 3:20 P.M., what does Mr. Haddad mean when he writes, \"It's being painted this week\"?",
+   "a": "The group will need another place for the session.",
+   "w": [
+    "The room will look better after this week.",
+    "The painting will be finished before Friday.",
+    "The training should wait until next week."
+   ],
+   "why": "Phòng đang được sơn nên nhóm phải tìm chỗ khác cho buổi tập huấn.",
+   "lg": {
+    "og": {
+     "The group will need another place for the session.": "Nhóm sẽ phải tìm chỗ khác cho buổi tập huấn",
+     "The room will look better after this week.": "Phòng sẽ đẹp hơn sau tuần này",
+     "The painting will be finished before Friday.": "Việc sơn sẽ xong trước thứ Sáu",
+     "The training should wait until next week.": "Buổi tập huấn nên dời sang tuần sau"
+    },
+    "ly": "Câu \"It's being painted this week\" được nói để cho biết phòng không dùng được, nên nhóm phải tìm chỗ khác: \"The group will need another place for the session.\" Bài không nói gì về việc phòng đẹp hơn, sơn xong trước thứ Sáu hay dời buổi tập huấn.",
+    "dich": "Phòng hội nghị đang được sơn trong tuần này."
+   },
+   "ty": "intent"
+  },
+  {
+   "q": "What will Ms. Kim most likely do next?",
+   "a": "Speak with the trainer",
+   "w": [
+    "Book Room 4B",
+    "Paint a room",
+    "Cancel the session"
+   ],
+   "why": "I'll check with her (the trainer) and get back to you both.",
+   "lg": {
+    "og": {
+     "Speak with the trainer": "Trao đổi với giảng viên",
+     "Book Room 4B": "Đặt phòng 4B",
+     "Paint a room": "Sơn một căn phòng",
+     "Cancel the session": "Huỷ buổi tập huấn"
+    },
+    "ly": "Bà Kim nói sẽ hỏi giảng viên xem có ở lại lâu được không rồi báo lại, nên bước tiếp theo là trao đổi với giảng viên.",
+    "dich": "Tôi không chắc giảng viên có thể ở lại lâu như vậy. Tôi sẽ hỏi cô ấy rồi báo lại cả hai bạn."
+   },
+   "ty": "infer"
+  }
+ ]
+}

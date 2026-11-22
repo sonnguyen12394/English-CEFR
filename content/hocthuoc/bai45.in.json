@@ -1,0 +1,85 @@
+{
+ "n": 45,
+ "nguon": "Đề 1 · Part 4 · 8",
+ "id": "t4-18",
+ "dang": "📢 Bài nói",
+ "kind": "msg",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "You've reached Coleman Dental Clinic.",
+   "",
+   "ad8b6dfc1"
+  ],
+  [
+   "N",
+   "Our office is currently closed.",
+   "",
+   "a9b7ac1dd"
+  ],
+  [
+   "N",
+   "Our regular hours are Monday to Friday, eight A.M.",
+   "",
+   "a8658a1e5"
+  ],
+  [
+   "N",
+   "to six P.M., and Saturday mornings from nine to twelve.",
+   "",
+   "a2b46d5b0"
+  ],
+  [
+   "N",
+   "If you'd like to make an appointment, you can now book online through our website.",
+   "",
+   "ae4a6d471"
+  ],
+  [
+   "N",
+   "If you have a dental emergency, please call Dr.",
+   "",
+   "a11c51853"
+  ],
+  [
+   "N",
+   "Coleman's emergency number at 555-0144.",
+   "",
+   "ac1362360"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What type of business recorded the message?",
+   "a": "A dental clinic",
+   "w": [
+    "A pharmacy",
+    "A hospital",
+    "An insurance company"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "When is the business open on Saturdays?",
+   "a": "In the morning",
+   "w": [
+    "All day",
+    "In the afternoon",
+    "Only by appointment"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What is new about making appointments?",
+   "a": "They can be made online.",
+   "w": [
+    "They are free on Saturdays.",
+    "They require a deposit.",
+    "They must be made by e-mail."
+   ],
+   "ty": "detail"
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "n": 37,
+ "nguon": "Đề 1 · Part 3 · 13",
+ "id": "t3-22",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": {
+  "t": "Trains to Riverside: Friday",
+  "h": [
+   "Departs",
+   "Arrives"
+  ],
+  "r": [
+   [
+    "7:15",
+    "9:40"
+   ],
+   [
+    "8:05",
+    "10:20"
+   ],
+   [
+    "8:50",
+    "11:05"
+   ],
+   [
+    "9:30",
+    "11:55"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "A",
+   "Ken, are we still meeting the clients in Riverside on Friday?",
+   "",
+   "a94719898"
+  ],
+  [
+   "B",
+   "Yes, at eleven. Their office is about a ten-minute walk from the station, so we should arrive by half past ten.",
+   "",
+   "a616d1b41"
+  ],
+  [
+   "A",
+   "OK. I'd take the earliest train, but I have a video call with our Tokyo office until seven-thirty.",
+   "",
+   "aa0e6244e"
+  ],
+  [
+   "B",
+   "Then we'll take the next one. I'll buy the tickets online tonight and e-mail yours to you.",
+   "",
+   "a6085b200"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why are the speakers going to Riverside?",
+   "a": "To meet some clients",
+   "w": [
+    "To attend a conference",
+    "To visit a factory",
+    "To interview a job applicant"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "Look at the graphic. Which train will the speakers take?",
+   "a": "The 8:05 train",
+   "w": [
+    "The 7:15 train",
+    "The 8:50 train",
+    "The 9:30 train"
+   ],
+   "ty": "graphic"
+  },
+  {
+   "q": "What will the man do tonight?",
+   "a": "Buy tickets",
+   "w": [
+    "Call the Tokyo office",
+    "Prepare a presentation",
+    "Book a hotel"
+   ],
+   "ty": "next"
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "n": 41,
+ "nguon": "Đề 1 · Part 4 · 4",
+ "id": "t4-17",
+ "dang": "📢 Bài nói",
+ "kind": "meet",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "I'm pleased to announce that our company has won this year's Green Business Award.",
+   "",
+   "abde9a059"
+  ],
+  [
+   "N",
+   "The judges were impressed by how much we reduced our energy use, almost thirty percent in two years.",
+   "",
+   "ac22e70c4"
+  ],
+  [
+   "N",
+   "I'd like to thank the facilities team, who installed the new lighting system.",
+   "",
+   "aeed36950"
+  ],
+  [
+   "N",
+   "To celebrate, there will be a reception in the main hall on Friday afternoon, and everyone is invited.",
+   "",
+   "afa2adb4b"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the announcement about?",
+   "a": "An award",
+   "w": [
+    "A new manager",
+    "A building move",
+    "An energy bill"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Why did the company receive recognition?",
+   "a": "It reduced its energy use.",
+   "w": [
+    "It increased its sales.",
+    "It opened a new office.",
+    "It hired more staff."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What will happen on Friday?",
+   "a": "A celebration",
+   "w": [
+    "A safety inspection",
+    "A training session",
+    "A lighting installation"
+   ],
+   "ty": "detail"
+  }
+ ]
+}

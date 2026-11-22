@@ -1,0 +1,91 @@
+{
+ "n": 40,
+ "nguon": "Đề 1 · Part 4 · 3",
+ "id": "t4-27",
+ "dang": "📢 Bài nói",
+ "kind": "ad",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Thinking about learning a new language this year?",
+   "",
+   "ac1e0ba13"
+  ],
+  [
+   "N",
+   "At Pathway Language Center, our classes are small, with no more than eight students, so you'll speak from the very first lesson.",
+   "",
+   "a475410c9"
+  ],
+  [
+   "N",
+   "We offer evening and weekend courses in Spanish, Japanese, and Korean, and all of our teachers are native speakers.",
+   "",
+   "a9a217c05"
+  ],
+  [
+   "N",
+   "Not sure which level is right for you?",
+   "",
+   "afedfdee3"
+  ],
+  [
+   "N",
+   "Our free online test takes just ten minutes.",
+   "",
+   "a0f0887d0"
+  ],
+  [
+   "N",
+   "And here's the best part: you don't have to wait until the next term.",
+   "",
+   "a77707e39"
+  ],
+  [
+   "N",
+   "New groups start every Monday.",
+   "",
+   "aec8ce548"
+  ],
+  [
+   "N",
+   "Visit pathwaylanguage.com to sign up.",
+   "",
+   "a0f080cc6"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is being advertised?",
+   "a": "A language school",
+   "w": [
+    "A travel agency",
+    "A translation service",
+    "A bookstore"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Why does the speaker say, \"you don't have to wait until the next term\"?",
+   "a": "To emphasize that students can start soon",
+   "w": [
+    "To explain why the classes are small",
+    "To announce that a term has been canceled",
+    "To recommend an online test"
+   ],
+   "ty": "imp"
+  },
+  {
+   "q": "According to the speaker, what can listeners do in ten minutes?",
+   "a": "Find out their level",
+   "w": [
+    "Watch a sample lesson",
+    "Talk to a teacher",
+    "Buy a textbook"
+   ],
+   "ty": "detail"
+  }
+ ]
+}

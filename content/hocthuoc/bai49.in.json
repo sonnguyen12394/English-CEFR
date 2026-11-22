@@ -1,0 +1,87 @@
+{
+ "n": 49,
+ "nguon": "Đề 1 · Part 6 · 4",
+ "id": "t6-press",
+ "dang": "✉️ Văn bản",
+ "kind": "Press release",
+ "title": "Solmar Foods to open new plant",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Solmar Foods announced on Tuesday that it will build a new processing plant in the city of Dalton.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The facility, which is expected to cost $40 million, will be the company's largest in the region.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Construction will begin in May and should be completed within eighteen months.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Once open, the plant will employ about 300 people.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Company president Maria Solano said that Dalton was chosen because of its proximity to major highways and its skilled workforce.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "largest",
+   "w": [
+    "larger",
+    "large",
+    "largely"
+   ],
+   "why": "the company's + so sánh nhất: largest.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "within",
+   "w": [
+    "until",
+    "since",
+    "among"
+   ],
+   "why": "within eighteen months = trong vòng 18 tháng.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "Once open, the plant will employ about 300 people.",
+   "w": [
+    "The plant has already been producing food for ten years.",
+    "Construction was finished last month, ahead of schedule.",
+    "As a result, the company has decided to cancel the project."
+   ],
+   "why": "Câu chèn nói kết quả khi nhà máy xong (khoảng 300 việc làm), trước câu giải thích lý do chọn Dalton. Nhà máy đã chạy 10 năm, đã xây xong, huỷ dự án đều ngược với bản tin.",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "proximity",
+   "w": [
+    "proximate",
+    "approximately",
+    "approximate"
+   ],
+   "why": "its + danh từ: proximity to = gần với.",
+   "ty": "word"
+  }
+ ]
+}

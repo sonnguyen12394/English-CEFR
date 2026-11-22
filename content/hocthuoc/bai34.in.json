@@ -1,0 +1,67 @@
+{
+ "n": 34,
+ "nguon": "Đề 1 · Part 3 · 10",
+ "id": "t3-03",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Good afternoon, Riverside Hotel. How can I help you?",
+   "",
+   "a4134c985"
+  ],
+  [
+   "B",
+   "Hi, I have a reservation for two nights starting tomorrow, but my flight has been canceled. Can I change it to start on Saturday instead?",
+   "",
+   "ab2c994a3"
+  ],
+  [
+   "A",
+   "Let me check. Yes, we have a room available from Saturday. There's no fee for changing the dates.",
+   "",
+   "a6b56acb8"
+  ],
+  [
+   "B",
+   "That's great. Could you also send me a new confirmation by e-mail?",
+   "",
+   "a64e984b9"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is the man calling?",
+   "a": "To change a reservation",
+   "w": [
+    "To book a flight",
+    "To complain about a room",
+    "To ask about restaurants"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the woman say about the change?",
+   "a": "There is no extra charge.",
+   "w": [
+    "It must be paid in cash.",
+    "Only one night is available.",
+    "The hotel is fully booked."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the man ask for?",
+   "a": "A confirmation by e-mail",
+   "w": [
+    "A refund",
+    "A late checkout",
+    "An airport shuttle"
+   ],
+   "ty": "next"
+  }
+ ]
+}

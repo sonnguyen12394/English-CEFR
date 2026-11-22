@@ -1,0 +1,67 @@
+{
+ "n": 29,
+ "nguon": "Đề 1 · Part 3 · 5",
+ "id": "t3-15",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Excuse me, the train to Westfield was supposed to leave at ten. Do you know what's happening?",
+   "",
+   "aa5759ddf"
+  ],
+  [
+   "B",
+   "There's a problem with the signals, so it's delayed by about forty minutes.",
+   "",
+   "a26d3a923"
+  ],
+  [
+   "A",
+   "Oh no, I have a job interview at eleven thirty. Is there another way to get there?",
+   "",
+   "aea2c8925"
+  ],
+  [
+   "B",
+   "The express bus leaves from the stop outside in ten minutes. Your train ticket is valid on it today.",
+   "",
+   "ac206f373"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is the train delayed?",
+   "a": "There is a technical problem.",
+   "w": [
+    "The weather is bad.",
+    "The driver is sick.",
+    "A track is being built."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "Why is the woman worried?",
+   "a": "She has an appointment.",
+   "w": [
+    "She lost her ticket.",
+    "She missed a meeting.",
+    "Her luggage is missing."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the man tell the woman?",
+   "a": "She can use her ticket on a bus.",
+   "w": [
+    "She should buy a new ticket.",
+    "The train will leave soon.",
+    "A taxi is waiting outside."
+   ],
+   "ty": "detail"
+  }
+ ]
+}

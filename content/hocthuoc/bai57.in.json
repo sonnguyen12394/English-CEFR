@@ -1,0 +1,118 @@
+{
+ "n": 57,
+ "nguon": "Đề 1 · Part 7 · 8",
+ "id": "t7-web",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Web page",
+ "title": "Bellavista Hotel — Meeting Rooms",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Planning a business event in Lisbon?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Bellavista Hotel offers six meeting rooms for groups of 10 to 200 people.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Every room comes with free Wi-Fi, a projector, and bottled water.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Catering can be arranged through our restaurant, which serves breakfast, lunch, and afternoon snacks.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Guests who book a room for a full day receive free parking for up to 20 cars.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To make a reservation, complete the form below at least 14 days before your event.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "A deposit of 30 percent is required to confirm a booking, and it is refunded in full if the booking is canceled more than seven days in advance.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is NOT included with every meeting room?",
+   "a": "A whiteboard",
+   "w": [
+    "Wireless Internet access",
+    "A projector",
+    "Bottled water"
+   ],
+   "why": "Mọi phòng có Wi-Fi, máy chiếu, nước đóng chai; không nhắc bảng trắng.",
+   "lg": {
+    "og": {
+     "A whiteboard": "Bảng trắng",
+     "Wireless Internet access": "Truy cập Internet không dây",
+     "A projector": "Máy chiếu",
+     "Bottled water": "Nước đóng chai"
+    },
+    "ly": "Trang web nói mọi phòng đều có Wi-Fi miễn phí, máy chiếu và nước đóng chai; bài không nhắc bảng trắng, nên đáp án là \"A whiteboard\".",
+    "dich": "Phòng nào cũng có Wi-Fi miễn phí, máy chiếu và nước đóng chai."
+   },
+   "ty": "not"
+  },
+  {
+   "q": "On the Web page, the word \"arranged\" is closest in meaning to",
+   "a": "organized",
+   "w": [
+    "listed",
+    "decorated",
+    "played"
+   ],
+   "why": "Catering can be arranged = có thể sắp xếp (tổ chức) tiệc ăn. arrange còn nghĩa \"xếp (hoa) cho đẹp\", \"phối (nhạc)\".",
+   "lg": {
+    "og": {
+     "organized": "được sắp xếp",
+     "listed": "được liệt kê",
+     "decorated": "được trang trí",
+     "played": "được chơi"
+    },
+    "ly": "\"Catering can be arranged\" nghĩa là việc ăn uống có thể được sắp xếp, gần nghĩa nhất với organized.",
+    "dich": "Dịch vụ ăn uống có thể được sắp xếp qua nhà hàng của chúng tôi."
+   },
+   "ty": "syn"
+  },
+  {
+   "q": "What will most likely happen if a booking is canceled five days before an event?",
+   "a": "The deposit will not be fully returned.",
+   "w": [
+    "The hotel will charge for parking.",
+    "The room will be given to another group for free.",
+    "The guest will receive a full refund."
+   ],
+   "why": "Chỉ hoàn đủ tiền cọc khi huỷ trước hơn 7 ngày; huỷ trước 5 ngày thì không được hoàn đủ (suy luận).",
+   "lg": {
+    "og": {
+     "The deposit will not be fully returned.": "Tiền đặt cọc không được hoàn đủ",
+     "The hotel will charge for parking.": "Khách sạn tính phí đỗ xe",
+     "The room will be given to another group for free.": "Phòng được tặng nhóm khác",
+     "The guest will receive a full refund.": "Khách được hoàn tiền toàn bộ"
+    },
+    "ly": "Cọc chỉ hoàn đủ nếu huỷ trước hơn bảy ngày. Huỷ trước năm ngày thì không được hoàn đủ.",
+    "dich": "Tiền đặt cọc 30 phần trăm được hoàn đủ nếu việc đặt phòng bị huỷ trước hơn bảy ngày."
+   },
+   "ty": "infer"
+  }
+ ]
+}

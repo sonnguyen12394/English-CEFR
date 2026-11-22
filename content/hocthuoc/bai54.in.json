@@ -1,0 +1,112 @@
+{
+ "n": 54,
+ "nguon": "Đề 1 · Part 7 · 5",
+ "id": "t7-review",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Online review",
+ "title": "Review of Casa Verde Restaurant ★★★★☆",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "I took my parents to Casa Verde for my father's birthday last Saturday.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The food was excellent, especially the grilled fish, and the portions were generous.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The staff even brought a small cake with a candle without us asking, which my father loved.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The only disappointment was the wait: although we had a reservation for 7:00, we were not seated until almost 7:40.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The manager apologized and offered us free coffee, which was a nice gesture.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I would definitely return, but I would book an earlier table. — Paula Grant",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why did Ms. Grant go to the restaurant?",
+   "a": "To mark a special day with relatives",
+   "w": [
+    "To celebrate a promotion with coworkers",
+    "To entertain a visiting business partner",
+    "To catch up with friends from school"
+   ],
+   "why": "for my father's birthday.",
+   "lg": {
+    "og": {
+     "To mark a special day with relatives": "Để mừng một ngày đặc biệt cùng người thân",
+     "To celebrate a promotion with coworkers": "Để mừng thăng chức với đồng nghiệp",
+     "To entertain a visiting business partner": "Để tiếp một đối tác đến thăm",
+     "To catch up with friends from school": "Để gặp lại bạn học cũ"
+    },
+    "ly": "Đáp án \"To mark a special day with relatives\" — Bà đưa bố mẹ đến nhà hàng nhân sinh nhật của bố, tức một ngày đặc biệt với người thân.",
+    "dich": "Tôi đưa bố mẹ đến Casa Verde nhân sinh nhật bố tôi vào thứ Bảy tuần trước."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What problem does Ms. Grant mention?",
+   "a": "Seating took longer than expected.",
+   "w": [
+    "The grilled fish was overcooked.",
+    "The staff forgot to bring the cake.",
+    "The manager refused to apologize."
+   ],
+   "why": "Đặt bàn 7:00 nhưng gần 7:40 mới có chỗ.",
+   "lg": {
+    "og": {
+     "Seating took longer than expected.": "Việc xếp chỗ lâu hơn dự kiến",
+     "The grilled fish was overcooked.": "Món cá nướng bị cháy",
+     "The staff forgot to bring the cake.": "Nhân viên quên mang bánh",
+     "The manager refused to apologize.": "Quản lý không chịu xin lỗi"
+    },
+    "ly": "Đáp án \"Seating took longer than expected.\" — Điểm trừ duy nhất của bà là chờ chỗ gần 40 phút. Cá được khen, bánh được mang ra, quản lý có xin lỗi.",
+    "dich": "Điều thất vọng duy nhất là thời gian chờ: dù đã đặt bàn lúc 7 giờ, chúng tôi gần 7 giờ 40 mới được xếp chỗ."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What did the manager do?",
+   "a": "Offered free drinks",
+   "w": [
+    "Gave a full refund",
+    "Moved them to a private room",
+    "Reduced the price of the cake"
+   ],
+   "why": "offered us free coffee.",
+   "lg": {
+    "og": {
+     "Offered free drinks": "Tặng đồ uống miễn phí",
+     "Gave a full refund": "Hoàn tiền toàn bộ",
+     "Moved them to a private room": "Chuyển họ sang phòng riêng",
+     "Reduced the price of the cake": "Giảm giá bánh"
+    },
+    "ly": "Quản lý xin lỗi và tặng cà phê miễn phí, tức là đồ uống miễn phí.",
+    "dich": "Người quản lý đã xin lỗi và tặng chúng tôi cà phê miễn phí, đó là một cử chỉ đẹp."
+   },
+   "ty": "detail"
+  }
+ ]
+}

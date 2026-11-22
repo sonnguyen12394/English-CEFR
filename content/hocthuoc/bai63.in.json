@@ -1,0 +1,220 @@
+{
+ "n": 63,
+ "nguon": "Đề 1 · Part 7 · 15",
+ "id": "t7-m-library",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Notice + schedule + e-mail",
+ "title": "Westbrook Public Library — Summer renovation · Summer events — Community Room · E-mail · To: info@westbrooklibrary.org · From: Hannah Okoye · Date: July 8",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Westbrook Public Library — Summer renovation",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The second floor of the library will be closed for renovation from July 1 to August 31.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "During this time, the children's section will move to the Community Room on the first floor, and the computer lab will be closed.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Printing services will remain available at the front desk.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Opening hours will not change.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Summer events — Community Room",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Story Time (ages 3–5): Tuesdays, 10:00 A.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Craft Club (ages 6–9): Thursdays, 3:00 P.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Teen Book Talk (ages 13–17): Saturdays, 2:00 P.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "All events are free.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Registration is required for Craft Club because materials are limited.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) E-mail · To: info@westbrooklibrary.org · From: Hannah Okoye · Date: July 8",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello, my daughter is seven and would love to join one of your summer events.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I tried to register her online, but the form would not accept my library card number.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Also, she needs to use a computer for a school project this month.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Is there a computer she can use at the library?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you, Hannah Okoye",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is part of the library closed this summer?",
+   "a": "For renovation work",
+   "w": [
+    "Because of staff shortages",
+    "To prepare for a book sale",
+    "Because of a power outage"
+   ],
+   "why": "The second floor of the library will be closed for renovation.",
+   "lg": {
+    "og": {
+     "For renovation work": "Để cải tạo",
+     "Because of staff shortages": "Do thiếu nhân viên",
+     "To prepare for a book sale": "Để chuẩn bị bán sách",
+     "Because of a power outage": "Do mất điện"
+    },
+    "ly": "Thông báo nói tầng hai đóng cửa để cải tạo từ 1/7 đến 31/8.",
+    "dich": "Tầng hai của thư viện sẽ đóng cửa để cải tạo từ ngày 1 tháng 7 đến ngày 31 tháng 8."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Where will Story Time take place during the renovation?",
+   "a": "On the first floor",
+   "w": [
+    "On the second floor",
+    "In the computer lab",
+    "At a nearby school"
+   ],
+   "why": "Đối chiếu: sự kiện ở Community Room; thông báo nói Community Room ở tầng 1.",
+   "lg": {
+    "og": {
+     "On the first floor": "Ở tầng một",
+     "On the second floor": "Ở tầng hai",
+     "In the computer lab": "Ở phòng máy tính",
+     "At a nearby school": "Ở trường học gần đó"
+    },
+    "ly": "Khu thiếu nhi chuyển đến Phòng Cộng đồng ở tầng một, và các sự kiện diễn ra ở Phòng Cộng đồng.",
+    "dich": "Khu thiếu nhi sẽ chuyển đến Phòng Cộng đồng ở tầng một."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "On which day will Ms. Okoye's daughter most likely attend an event?",
+   "a": "Thursday",
+   "w": [
+    "Tuesday",
+    "Saturday",
+    "Sunday"
+   ],
+   "why": "Đối chiếu: con 7 tuổi → Craft Club (6–9 tuổi) chiều thứ Năm.",
+   "lg": {
+    "og": {
+     "Thursday": "Thứ Năm",
+     "Tuesday": "Thứ Ba",
+     "Saturday": "Thứ Bảy",
+     "Sunday": "Chủ Nhật"
+    },
+    "ly": "Con gái bảy tuổi hợp Câu lạc bộ Thủ công (6–9 tuổi), diễn ra vào thứ Năm.",
+    "dich": "Câu lạc bộ Thủ công (6–9 tuổi): thứ Năm, 3 giờ chiều."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "What problem does Ms. Okoye mention?",
+   "a": "Her online sign-up was not accepted.",
+   "w": [
+    "The Craft Club session was full.",
+    "Her daughter was too young to attend.",
+    "The printers were out of service."
+   ],
+   "why": "Biểu mẫu không nhận số thẻ nên bà không đăng ký được cho con.",
+   "lg": {
+    "og": {
+     "Her online sign-up was not accepted.": "Bà không đăng ký trực tuyến được",
+     "The Craft Club session was full.": "Lớp Craft Club đã đầy",
+     "Her daughter was too young to attend.": "Con gái bà còn quá nhỏ để tham dự",
+     "The printers were out of service.": "Máy in ngừng hoạt động"
+    },
+    "ly": "Đáp án \"Her online sign-up was not accepted.\" — Bà viết rằng biểu mẫu không chấp nhận số thẻ thư viện. Craft Club chưa nhắc là đầy, bé bảy tuổi vẫn trong độ tuổi, và việc in ấn vẫn hoạt động.",
+    "dich": "Tôi đã thử đăng ký cho con trên mạng, nhưng biểu mẫu không chấp nhận số thẻ thư viện của tôi."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What will Ms. Okoye most likely be told about using a computer?",
+   "a": "The computer lab is closed until the renovation ends.",
+   "w": [
+    "The computer lab has moved to the Community Room.",
+    "Computers can be reserved on Saturdays.",
+    "Printing services are not available."
+   ],
+   "why": "Đối chiếu: thông báo nói phòng máy tính đóng trong thời gian sửa (tới 31/8); máy in vẫn có ở quầy trước.",
+   "lg": {
+    "og": {
+     "The computer lab is closed until the renovation ends.": "Phòng máy tính đóng đến khi cải tạo xong",
+     "The computer lab has moved to the Community Room.": "Phòng máy tính đã chuyển xuống Phòng Cộng đồng",
+     "Computers can be reserved on Saturdays.": "Đặt máy được vào thứ Bảy",
+     "Printing services are not available.": "Không có dịch vụ in"
+    },
+    "ly": "Thông báo nói phòng máy tính đóng trong thời gian cải tạo, nên bà sẽ được báo là không dùng được. Dịch vụ in vẫn có.",
+    "dich": "Phòng máy tính sẽ đóng cửa."
+   },
+   "ty": "infer"
+  }
+ ]
+}
