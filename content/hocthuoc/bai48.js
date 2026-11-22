@@ -1163,7 +1163,7 @@ const BAI48 = {
   }
  ],
  "IPA": ["dɪr|mɪz|ˈloʊpez|θæŋk|ju|fər|əˈplaɪɪŋ|fər|ðə|pəˈzɪʃən|əv|ˈwerhaʊs|ˈsuːpərvaɪzər",
-    "wi|wɝː|ˈveri|ɪmˈprest|wɪð|jʊr|ɪkˈspɪriəns|ænd|wʊd|laɪk|tə|ɪnˈvaɪt|ju|tu|ən|ˈɪntərvjuː|ɑːn|ˈtuːzdeɪ|meɪ|twelf|æt|ten|ˌeɪˈem",
+    "wi|wɝː|ˈveri|ɪmˈprest|wɪð|jʊr|ɪkˈspɪriəns|ænd|wʊd|laɪk|tə|ɪnˈvaɪt|ju|tu|ən|ˈɪntərvjuː|ɑːn|ˈtuːzdeɪ|meɪ|twelfθ|æt|ten|ˌeɪˈem",
     "ju|wɪl|miːt|ði|ɑːpəˈreɪʃənz|ˈmænɪdʒər|ænd|tu|tiːm|ˈliːdərz",
     "ði|ˈɪntərvjuː|wɪl|læst|əˈbaʊt|ˌfɔːrtiˈfaɪv|ˈmɪnɪts",
     "pliːz|brɪŋ|ə|ˈkɑːpi|əv|jʊr|ˈdraɪvərz|ˈlaɪsns|ænd|ˈeni|sərˈtɪfɪkəts|ju|həv|rɪˈsiːvd",

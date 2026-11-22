@@ -27,7 +27,7 @@ const BAI49 = {
   [
    "W",
    "Construction will begin in May and should be completed within eighteen months.",
-   "Việc xây dựng sẽ bắt đầu vào tháng 5 và nên hoàn thành trong vòng 18 tháng.",
+   "Việc xây dựng sẽ bắt đầu vào tháng 5 và dự kiến hoàn thành trong vòng 18 tháng.",
    ""
   ],
   [
@@ -178,7 +178,7 @@ const BAI49 = {
   [
    "Việc xây dựng",
    "sẽ bắt đầu vào tháng 5",
-   "và nên hoàn thành",
+   "và dự kiến hoàn thành",
    "trong vòng 18 tháng."
   ],
   [

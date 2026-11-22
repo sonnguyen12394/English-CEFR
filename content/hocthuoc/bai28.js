@@ -1,25 +1,1191 @@
-// ---------- Bài 28 · Đề 1 · Part 3 · hội thoại ----------
 const BAI28 = {
-  meta: {"de":"Đề 1 · Part 3 · hội thoại","dang":"🗣 Hội thoại","t":"Đổi áo khoác bị hỏng khoá kéo","sub":"Một khách hàng muốn đổi chiếc áo khoác mới mua trong Đề 1 TOEIC (Part 3). Chạm một câu để nghe và xem dịch.","who":{"B":["Khách hàng","Nam"],"A":["Nhân viên bán hàng","Nữ"]}},
-  L: [
-    ["B","Excuse me, I bought this jacket here last week, but the zipper broke the first time I wore it.","Xin lỗi, tôi mua chiếc áo khoác này ở đây tuần trước, nhưng khoá kéo bị hỏng ngay lần đầu tôi mặc.","a19e2d218"],
-    ["A","I'm sorry about that. Do you have your receipt?","Tôi xin lỗi về chuyện đó. Anh có hoá đơn không?","a59c6f5e5"],
-    ["B","Yes, here it is. I'd like to exchange it for the same jacket in the same size, if possible.","Có, đây ạ. Tôi muốn đổi nó lấy chiếc áo khoác giống hệt, cùng cỡ, nếu được.","af8904374"],
-    ["A","Unfortunately, we're out of that size right now. I can order one for you, and it should arrive in three days, or I can give you a full refund.","Rất tiếc, hiện giờ chúng tôi hết cỡ đó. Tôi có thể đặt một chiếc cho anh, dự kiến ba ngày sẽ về, hoặc tôi có thể hoàn lại toàn bộ tiền.","a8da458e1"]],
-  IPA: [
-    "ɪkˈskjuːs|mi|aɪ|bɔːt|ðɪs|ˈdʒækɪt|hɪr|læst|wiːk|bʌt|ðə|ˈzɪpɚ|broʊk|ðə|fɝːst|taɪm|aɪ|wɔːr|ɪt",
-    "aɪm|ˈsɑːri|əˈbaʊt|ðæt|duː|ju|hæv|jɔːr|rɪˈsiːt",
-    "jes|hɪr|ɪt|ɪz|aɪd|laɪk|tə|ɪksˈtʃeɪndʒ|ɪt|fɚ|ðə|seɪm|ˈdʒækɪt|ɪn|ðə|seɪm|saɪz|ɪf|ˈpɑːsəbl",
-    "ʌnˈfɔːrtʃənətli|wɪr|aʊt|əv|ðæt|saɪz|raɪt|naʊ|aɪ|kæn|ˈɔːrdɚ|wʌn|fɚ|ju|ən|ɪt|ʃʊd|əˈraɪv|ɪn|θriː|deɪz|ɔːr|aɪ|kæn|ɡɪv|ju|ə|fʊl|ˈriːfʌnd"].map(x => x.split('|')),
-  STR: [[1,3,5,8,11,12,14,15],[1,4,8],[1,4,5,7,12,16,18],[0,2,5,7,10,17,20,24,27,28]],
-  LK: [[[2,"I‿bought","I bought: nối nhẹ hai từ"]],[],[[8,"it‿for","it for: /t/ nối sang /f/"],[4,"I’d‿like","I’d like: nối nhẹ"]],[[2,"out‿of","out of: /t/ nối sang /ə/"],[3,"of‿that","of that: /v/ nối sang /ð/"]]],
-  INT: [[[18,"↘"]],[[8,"↗"]],[[3,"↘"],[18,"↘"]],[[0,"↘"],[21,"↘"],[28,"↘"]]],
-  PAU: [[1,8],[3],[3,8],[0,7,14,20]],
-  EL: [[],[],[],[]],
-  VNK: [["Xin lỗi,","tôi mua chiếc áo khoác này ở đây","tuần trước,","nhưng khoá kéo bị hỏng","ngay lần đầu tôi mặc."],["Tôi xin lỗi về chuyện đó.","Anh có","hoá đơn không?"],["Có, đây ạ.","Tôi muốn đổi nó","lấy chiếc áo khoác giống hệt,","cùng cỡ,","nếu được."],["Rất tiếc,","hiện giờ chúng tôi hết cỡ đó.","Tôi có thể đặt một chiếc cho anh,","dự kiến ba ngày sẽ về,","hoặc tôi có thể hoàn lại toàn bộ tiền."]],
-  CUM: [["zipper","khoá kéo"],["receipt","hoá đơn, biên lai"],["exchange … for …","đổi … lấy …"],["be out of …","hết (hàng)"],["order one for you","đặt một cái cho bạn"],["full refund","hoàn lại toàn bộ tiền"],["if possible","nếu có thể"]],
-  VNY: [[["xin lỗi"],["áo khoác"],["tuần trước"],["khoá kéo"],["hỏng"],["lần đầu"]],[["xin lỗi"],["hoá đơn","biên lai"]],[["đây ạ","đây"],["đổi"],["áo khoác giống hệt","áo giống hệt"],["cùng cỡ"],["nếu được"]],[["rất tiếc"],["hết cỡ","hết size"],["đặt"],["ba ngày"],["hoàn lại","hoàn tiền"],["toàn bộ"]]],
-  EXQ: [{"q":"Where most likely are the speakers?","o":["In a clothing store","In a dry cleaner's","In a factory","In a post office"],"a":0,"vi":"“I bought this jacket here last week … Do you have your receipt?” — họ đang ở một cửa hàng quần áo."},{"q":"What does the man want to do?","o":["Exchange an item","Return a receipt","Buy a larger size","Repair a zipper himself"],"a":0,"vi":"“I’d like to exchange it for the same jacket in the same size.” — người đàn ông muốn đổi hàng."},{"q":"What problem does the woman mention?","o":["A size is not available.","The receipt has expired.","The store is closing soon.","The jacket was on sale."],"a":0,"vi":"“We’re out of that size right now.” — hiện cửa hàng hết cỡ đó."}],
-  NEWQ2: [{"q":"The tailor replaced the broken ___ on my trousers.","o":["zipper","zebra","zero","zone"],"a":0,"vi":"zipper = khoá kéo."},{"q":"Please bring the ___ if you want to return the item.","o":["receipt","recipe","receiver","reception"],"a":0,"vi":"receipt = hoá đơn, biên lai."},{"q":"May I ___ this sweater for a smaller one?","o":["exchange","excuse","exceed","excite"],"a":0,"vi":"exchange = đổi."},{"q":"The shop is ___ of stock, but more will arrive next week.","o":["out","off","away","over"],"a":0,"vi":"out of stock = hết hàng."},{"q":"We can ___ the part from the supplier today.","o":["order","border","ordeal","orbit"],"a":0,"vi":"order = đặt hàng."},{"q":"The customer asked for a ___ because the printer never worked.","o":["refund","refuse","reform","refrain"],"a":0,"vi":"refund = hoàn tiền."},{"q":"I will call you tomorrow, ___ possible.","o":["if","so","as","than"],"a":0,"vi":"if possible = nếu có thể."}],
-  MU: [{"id":"v1","g":"v","t":"zipper","vi":"khoá kéo","line":0,"hl":"zipper","b1":{"s":"the [[zipper]] broke the first time I wore it","q":"zipper là gì?","o":["khoá kéo","cúc áo","đường may","nhãn áo"],"a":0,"vi":"zipper = khoá kéo ở áo, túi."},"b2":{"q":"Câu mới: “The zipper on my bag is stuck.” — vấn đề là gì?","o":["Khoá kéo của túi bị kẹt","Quai túi bị đứt","Túi bị mất","Túi quá nặng"],"a":0,"vi":"zipper is stuck = khoá kéo bị kẹt."},"b3":[{"q":"I need to replace the broken ___ on this coat.","o":["zipper","zebra","zero","zone"],"a":0,"vi":"zipper = khoá kéo."}],"b4":{"q":"The ___ on his jacket would not close.","hint":"khoá kéo · 1 từ","ans":["zipper","zip"],"vi":"zipper = khoá kéo."}},{"id":"v2","g":"v","t":"receipt","vi":"hoá đơn, biên lai","line":1,"hl":"receipt","b1":{"s":"Do you have your [[receipt]]?","q":"receipt là gì?","o":["hoá đơn, biên lai mua hàng","phiếu giảm giá","thẻ thành viên","đơn đặt hàng"],"a":0,"vi":"receipt = giấy chứng nhận đã trả tiền (đọc /rɪˈsiːt/, p câm)."},"b2":{"q":"Câu mới: “You need to show a receipt to return the item.” — muốn trả hàng cần gì?","o":["Xuất trình hoá đơn","Gọi điện trước","Trả thêm phí","Mang theo hộp mới"],"a":0,"vi":"show a receipt = xuất trình hoá đơn."},"b3":[{"q":"Please keep your ___ in case you need to return the shoes.","o":["receipt","recipe","receiver","reception"],"a":0,"vi":"receipt = hoá đơn."}],"b4":{"q":"You can get a refund if you have the ___.","hint":"biên lai · 1 từ","ans":["receipt"],"vi":"receipt = hoá đơn, biên lai."}},{"id":"v3","g":"v","t":"exchange","vi":"đổi hàng","line":2,"hl":"exchange","b1":{"s":"I'd like to [[exchange]] it for the same jacket","q":"exchange it for … nghĩa là gì?","o":["đổi lấy món khác","trả lại tiền","sửa chữa","mua thêm"],"a":0,"vi":"exchange A for B = đổi A lấy B."},"b2":{"q":"Câu mới: “Customers can exchange items within thirty days.” — khách làm được gì trong ba mươi ngày?","o":["Đổi hàng","Mua hàng giảm giá","Nhận quà tặng","Nộp đơn xin việc"],"a":0,"vi":"exchange items = đổi hàng."},"b3":[{"q":"Can I ___ this shirt for a larger one?","o":["exchange","excuse","exceed","excite"],"a":0,"vi":"exchange … for = đổi … lấy."}],"b4":{"q":"I’d like to ___ these shoes for a different color.","hint":"đổi · 1 từ","ans":["exchange","swap"],"vi":"exchange … for = đổi … lấy."}},{"id":"v4","g":"v","t":"be out of","vi":"hết (hàng)","line":3,"hl":"out of that size","b1":{"s":"we're [[out of]] that size right now","q":"be out of … nghĩa là gì?","o":["hết (hàng)","ở bên ngoài","đã mua","đang giảm giá"],"a":0,"vi":"be out of + danh từ = hết, không còn."},"b2":{"q":"Câu mới: “We are out of blue pens, but we have black ones.” — cửa hàng còn gì?","o":["Bút đen","Bút xanh","Không có bút","Bút đỏ"],"a":0,"vi":"out of blue pens = hết bút xanh."},"b3":[{"q":"The store is ___ of stock on that model.","o":["out","off","away","over"],"a":0,"vi":"out of stock = hết hàng."}],"b4":{"q":"Sorry, we are ___ of small sizes today.","hint":"giới từ · 1 từ","ans":["out"],"vi":"out of = hết."}},{"id":"v5","g":"v","t":"order","vi":"đặt hàng","line":3,"hl":"order one","b1":{"s":"I can [[order]] one for you","q":"order one for you nghĩa là gì?","o":["đặt hàng một cái cho bạn","trả lại một cái","sửa một cái","bán một cái"],"a":0,"vi":"order = đặt mua, đặt hàng."},"b2":{"q":"Câu mới: “We can order the part and it will arrive on Friday.” — khi nào phụ tùng đến?","o":["Thứ Sáu","Thứ Hai","Hôm nay","Tuần trước"],"a":0,"vi":"arrive on Friday = đến vào thứ Sáu."},"b3":[{"q":"If it is not in stock, we can ___ it from our warehouse.","o":["order","border","ordeal","orbit"],"a":0,"vi":"order = đặt hàng."}],"b4":{"q":"I can ___ a new one for you.","hint":"đặt hàng · 1 từ","ans":["order"],"vi":"order = đặt hàng."}},{"id":"v6","g":"v","t":"full refund","vi":"hoàn lại toàn bộ tiền","line":3,"hl":"full refund","b1":{"s":"give you a [[full refund]]","q":"full refund là gì?","o":["hoàn lại toàn bộ tiền","giảm giá một nửa","đổi sang phiếu quà tặng","bảo hành một năm"],"a":0,"vi":"refund = hoàn tiền; full = toàn bộ."},"b2":{"q":"Câu mới: “If you are not satisfied, we offer a full refund.” — nếu không hài lòng thì sao?","o":["Được hoàn lại toàn bộ tiền","Phải mua thêm","Bị phạt","Phải chờ một năm"],"a":0,"vi":"full refund = hoàn đủ tiền."},"b3":[{"q":"The airline gave passengers a ___ after the flight was canceled.","o":["refund","refuse","refrain","reform"],"a":0,"vi":"refund = hoàn tiền."}],"b4":{"q":"You will receive a full ___ within five days.","hint":"hoàn tiền · 1 từ","ans":["refund"],"vi":"full refund = hoàn tiền đủ."}},{"id":"v7","g":"v","t":"if possible","vi":"nếu có thể","line":2,"hl":"if possible","b1":{"s":"in the same size, [[if possible]]","q":"if possible nghĩa là gì?","o":["nếu có thể","nếu không","khi nào cũng","vì có thể"],"a":0,"vi":"if possible = nếu có thể, nếu được."},"b2":{"q":"Câu mới: “Please reply by Friday, if possible.” — người nói muốn gì?","o":["Được trả lời trước thứ Sáu nếu có thể","Bắt buộc trả lời","Không cần trả lời","Trả lời sau thứ Sáu"],"a":0,"vi":"if possible = nếu được."},"b3":[{"q":"Please send the file today, ___ possible.","o":["if","so","as","than"],"a":0,"vi":"if possible = nếu có thể."}],"b4":{"q":"We will deliver it tomorrow, ___ possible.","hint":"1 từ","ans":["if"],"vi":"if possible = nếu có thể."}},{"id":"g1","g":"g","t":"I’d like to + V (muốn, lịch sự)","line":2,"hl":"I'd like to exchange","b1":{"s":"[[I'd like to exchange]] it for the same jacket","q":"I'd like to … dùng để làm gì?","o":["nói điều mình muốn một cách lịch sự","hỏi ai thích gì","kể việc đã làm","từ chối"],"a":0,"vi":"I'd like to + V = tôi muốn … (lịch sự hơn I want to). · 🧱 Bài Nền liên quan: Would like: muốn · A2"},"b2":{"q":"Câu mới: “I’d like to book a table for four.” — người nói muốn gì?","o":["Đặt bàn cho bốn người","Huỷ bàn","Hỏi giá món","Gọi món ăn"],"a":0,"vi":"I’d like to book = tôi muốn đặt."},"b3":[{"q":"I’d like ___ the manager, please.","o":["to speak to","speak to","speaking to","spoke to"],"a":0,"vi":"I’d like + to V."},{"q":"We would like ___ a refund.","o":["to request","request","requesting","requested"],"a":0,"vi":"would like + to V."}],"b4":{"q":"I’d like ___ a seat by the window.","hint":"gõ to + động từ reserve","ans":["to reserve"],"vi":"I’d like to + V."}},{"id":"g2","g":"g","t":"Do you have …? (hỏi có không)","line":1,"hl":"Do you have","b1":{"s":"[[Do you have]] your receipt?","q":"Do you have …? hỏi gì?","o":["bạn có … không","bạn đã có … chưa","bạn sẽ có … khi nào","ai có …"],"a":0,"vi":"Do you have + danh từ? = bạn có … không? · 🧱 Bài Nền liên quan: Have got và have · A1"},"b2":{"q":"Câu mới: “Do you have a reservation?” — nhân viên hỏi gì?","o":["Bạn đã đặt chỗ chưa","Bạn muốn đặt chỗ khi nào","Bạn đặt chỗ cho ai","Bạn có hài lòng không"],"a":0,"vi":"Do you have a reservation? = bạn có đặt chỗ không?"},"b3":[{"q":"___ you have any questions about the warranty?","o":["Do","Are","Does","Is"],"a":0,"vi":"you → Do you have …?"},{"q":"Does the store ___ this shirt in blue?","o":["have","has","having","had"],"a":0,"vi":"Does + chủ ngữ + have."}],"b4":{"q":"Do you ___ any other colors?","hint":"gõ 1 từ","ans":["have"],"vi":"Do you have …?"}},{"id":"g3","g":"g","t":"Quá khứ đơn + last week","line":0,"hl":"I bought this jacket here last week","b1":{"s":"[[I bought this jacket here last week]], but the zipper broke","q":"Vì sao dùng bought?","o":["mốc quá khứ rõ ràng (last week) nên dùng quá khứ đơn","việc đang xảy ra","việc sắp xảy ra","thói quen"],"a":0,"vi":"last week, yesterday, ago + quá khứ đơn. · 🧱 Bài Nền liên quan: Quá khứ đơn · A1"},"b2":{"q":"Câu mới: “She ordered the parts last Tuesday.” — khi nào cô ấy đặt hàng?","o":["Thứ Ba tuần trước","Thứ Ba tuần sau","Mỗi thứ Ba","Hôm nay"],"a":0,"vi":"ordered last Tuesday = đã đặt thứ Ba tuần trước."},"b3":[{"q":"We ___ the package two days ago.","o":["received","receive","have received","will receive"],"a":0,"vi":"ago → quá khứ đơn."},{"q":"The machine ___ down yesterday morning.","o":["broke","breaks","has broken","will break"],"a":0,"vi":"yesterday morning → quá khứ đơn."}],"b4":{"q":"He ___ the laptop last month. (buy)","hint":"gõ quá khứ đơn của buy","ans":["bought"],"vi":"last month → bought."}},{"id":"g4","g":"g","t":"I can … or I can … (đưa lựa chọn)","line":3,"hl":"I can order one for you","b1":{"s":"[[I can order one for you]], and it should arrive","q":"I can … or I can … dùng để làm gì?","o":["đưa ra các lựa chọn, đề nghị giúp","hỏi khả năng của người nghe","kể việc đã làm","từ chối"],"a":0,"vi":"I can + V = tôi có thể … (đề nghị giúp). · 🧱 Bài Nền liên quan: Can: khả năng và đề nghị · A1"},"b2":{"q":"Câu mới: “I can send it by e-mail, or I can mail a copy.” — người nói làm gì?","o":["Đưa hai cách gửi","Từ chối gửi","Hỏi địa chỉ","Nhờ người khác gửi"],"a":0,"vi":"I can … or I can … = đưa hai lựa chọn."},"b3":[{"q":"I can ___ the item to you tomorrow.","o":["deliver","delivering","delivered","to deliver"],"a":0,"vi":"can + V nguyên mẫu."},{"q":"The assistant can ___ you a copy of the invoice.","o":["give","gives","giving","gave"],"a":0,"vi":"can + V nguyên mẫu."}],"b4":{"q":"We can offer you a refund, or we ___ send a replacement.","hint":"1 từ","ans":["can","could"],"vi":"can + V."}},{"id":"g5","g":"g","t":"should + V (dự kiến)","line":3,"hl":"it should arrive","b1":{"s":"I can order one for you, and [[it should arrive]] in three days","q":"it should arrive nghĩa là gì?","o":["nó dự kiến sẽ đến","nó bắt buộc phải đến","nó đã đến","nó không thể đến"],"a":0,"vi":"should + V = (chắc là) sẽ, dự kiến. · 🧱 Bài Nền liên quan: Should: lời khuyên và dự đoán · A2"},"b2":{"q":"Câu mới: “The package should arrive by Thursday.” — khi nào gói hàng dự kiến đến?","o":["Trước hoặc vào thứ Năm","Sau thứ Năm","Hôm qua","Không bao giờ"],"a":0,"vi":"should arrive by Thursday = dự kiến đến trước thứ Năm."},"b3":[{"q":"The meeting ___ finish by noon.","o":["should","shoulds","should to","is should"],"a":0,"vi":"should + V nguyên mẫu."},{"q":"The new store should ___ next month.","o":["open","opens","opening","to open"],"a":0,"vi":"should + V nguyên mẫu."}],"b4":{"q":"The shipment ___ arrive on Monday. (dự kiến)","hint":"gõ 1 từ","ans":["should","ought to"],"vi":"should arrive = dự kiến đến."}}]
+ "meta": {
+  "de": "Đề 1 · Part 3 · hội thoại",
+  "dang": "🗣 Hội thoại",
+  "t": "Đổi áo khoác bị hỏng khoá kéo",
+  "sub": "Một khách hàng muốn đổi chiếc áo khoác mới mua trong Đề 1 TOEIC (Part 3). Chạm một câu để nghe và xem dịch.",
+  "who": {
+   "B": [
+    "Khách hàng",
+    "Nam"
+   ],
+   "A": [
+    "Nhân viên bán hàng",
+    "Nữ"
+   ]
+  }
+ },
+ "L": [
+  [
+   "B",
+   "Excuse me, I bought this jacket here last week, but the zipper broke the first time I wore it.",
+   "Xin lỗi, tôi mua chiếc áo khoác này ở đây tuần trước, nhưng khoá kéo bị hỏng ngay lần đầu tôi mặc.",
+   "a19e2d218"
+  ],
+  [
+   "A",
+   "I'm sorry about that. Do you have your receipt?",
+   "Tôi xin lỗi về chuyện đó. Anh có hoá đơn không?",
+   "a59c6f5e5"
+  ],
+  [
+   "B",
+   "Yes, here it is. I'd like to exchange it for the same jacket in the same size, if possible.",
+   "Có, đây ạ. Tôi muốn đổi nó lấy chiếc áo khoác giống hệt, cùng cỡ, nếu được.",
+   "af8904374"
+  ],
+  [
+   "A",
+   "Unfortunately, we're out of that size right now. I can order one for you, and it should arrive in three days, or I can give you a full refund.",
+   "Rất tiếc, hiện giờ chúng tôi hết cỡ đó. Tôi có thể đặt một chiếc cho anh, dự kiến ba ngày sẽ về, hoặc tôi có thể hoàn lại toàn bộ tiền.",
+   "a8da458e1"
+  ]
+ ],
+ "IPA": [
+  [
+   "ɪkˈskjuːs",
+   "mi",
+   "aɪ",
+   "bɔːt",
+   "ðɪs",
+   "ˈdʒækɪt",
+   "hɪr",
+   "læst",
+   "wiːk",
+   "bʌt",
+   "ðə",
+   "ˈzɪpɚ",
+   "broʊk",
+   "ðə",
+   "fɝːst",
+   "taɪm",
+   "aɪ",
+   "wɔːr",
+   "ɪt"
+  ],
+  [
+   "aɪm",
+   "ˈsɑːri",
+   "əˈbaʊt",
+   "ðæt",
+   "duː",
+   "ju",
+   "hæv",
+   "jɔːr",
+   "rɪˈsiːt"
+  ],
+  [
+   "jes",
+   "hɪr",
+   "ɪt",
+   "ɪz",
+   "aɪd",
+   "laɪk",
+   "tə",
+   "ɪksˈtʃeɪndʒ",
+   "ɪt",
+   "fɚ",
+   "ðə",
+   "seɪm",
+   "ˈdʒækɪt",
+   "ɪn",
+   "ðə",
+   "seɪm",
+   "saɪz",
+   "ɪf",
+   "ˈpɑːsəbl"
+  ],
+  [
+   "ʌnˈfɔːrtʃənətli",
+   "wɪr",
+   "aʊt",
+   "əv",
+   "ðæt",
+   "saɪz",
+   "raɪt",
+   "naʊ",
+   "aɪ",
+   "kæn",
+   "ˈɔːrdɚ",
+   "wʌn",
+   "fɚ",
+   "ju",
+   "ən",
+   "ɪt",
+   "ʃʊd",
+   "əˈraɪv",
+   "ɪn",
+   "θriː",
+   "deɪz",
+   "ɔːr",
+   "aɪ",
+   "kæn",
+   "ɡɪv",
+   "ju",
+   "ə",
+   "fʊl",
+   "ˈriːfʌnd"
+  ]
+ ],
+ "STR": [
+  [
+   1,
+   3,
+   5,
+   8,
+   11,
+   12,
+   14,
+   15
+  ],
+  [
+   1,
+   4,
+   8
+  ],
+  [
+   1,
+   4,
+   5,
+   7,
+   12,
+   16,
+   18
+  ],
+  [
+   0,
+   2,
+   5,
+   7,
+   10,
+   17,
+   20,
+   24,
+   27,
+   28
+  ]
+ ],
+ "LK": [
+  [
+   [
+    2,
+    "I‿bought",
+    "I bought: nối nhẹ hai từ"
+   ]
+  ],
+  [],
+  [
+   [
+    8,
+    "it‿for",
+    "it for: /t/ nối sang /f/"
+   ],
+   [
+    4,
+    "I’d‿like",
+    "I’d like: nối nhẹ"
+   ]
+  ],
+  [
+   [
+    2,
+    "out‿of",
+    "out of: /t/ nối sang /ə/"
+   ],
+   [
+    3,
+    "of‿that",
+    "of that: /v/ nối sang /ð/"
+   ]
+  ]
+ ],
+ "INT": [
+  [
+   [
+    18,
+    "↘"
+   ]
+  ],
+  [
+   [
+    8,
+    "↗"
+   ]
+  ],
+  [
+   [
+    3,
+    "↘"
+   ],
+   [
+    18,
+    "↘"
+   ]
+  ],
+  [
+   [
+    0,
+    "↘"
+   ],
+   [
+    21,
+    "↘"
+   ],
+   [
+    28,
+    "↘"
+   ]
+  ]
+ ],
+ "PAU": [
+  [
+   1,
+   8
+  ],
+  [
+   3
+  ],
+  [
+   3,
+   8
+  ],
+  [
+   0,
+   7,
+   14,
+   20
+  ]
+ ],
+ "EL": [
+  [],
+  [],
+  [],
+  []
+ ],
+ "VNK": [
+  [
+   "Xin lỗi,",
+   "tôi mua chiếc áo khoác này ở đây",
+   "tuần trước,",
+   "nhưng khoá kéo bị hỏng",
+   "ngay lần đầu tôi mặc."
+  ],
+  [
+   "Tôi xin lỗi về chuyện đó.",
+   "Anh có",
+   "hoá đơn không?"
+  ],
+  [
+   "Có, đây ạ.",
+   "Tôi muốn đổi nó",
+   "lấy chiếc áo khoác giống hệt,",
+   "cùng cỡ,",
+   "nếu được."
+  ],
+  [
+   "Rất tiếc,",
+   "hiện giờ chúng tôi hết cỡ đó.",
+   "Tôi có thể đặt một chiếc cho anh,",
+   "dự kiến ba ngày sẽ về,",
+   "hoặc tôi có thể hoàn lại toàn bộ tiền."
+  ]
+ ],
+ "CUM": [
+  [
+   "zipper",
+   "khoá kéo"
+  ],
+  [
+   "receipt",
+   "hoá đơn, biên lai"
+  ],
+  [
+   "exchange … for …",
+   "đổi … lấy …"
+  ],
+  [
+   "be out of …",
+   "hết (hàng)"
+  ],
+  [
+   "order one for you",
+   "đặt một cái cho bạn"
+  ],
+  [
+   "full refund",
+   "hoàn lại toàn bộ tiền"
+  ],
+  [
+   "if possible",
+   "nếu có thể"
+  ]
+ ],
+ "VNY": [
+  [
+   [
+    "xin lỗi"
+   ],
+   [
+    "áo khoác"
+   ],
+   [
+    "tuần trước"
+   ],
+   [
+    "khoá kéo"
+   ],
+   [
+    "hỏng"
+   ],
+   [
+    "lần đầu"
+   ]
+  ],
+  [
+   [
+    "xin lỗi"
+   ],
+   [
+    "hoá đơn",
+    "biên lai"
+   ]
+  ],
+  [
+   [
+    "đây ạ",
+    "đây"
+   ],
+   [
+    "đổi"
+   ],
+   [
+    "áo khoác giống hệt",
+    "áo giống hệt"
+   ],
+   [
+    "cùng cỡ"
+   ],
+   [
+    "nếu được"
+   ]
+  ],
+  [
+   [
+    "rất tiếc"
+   ],
+   [
+    "hết cỡ",
+    "hết size"
+   ],
+   [
+    "đặt"
+   ],
+   [
+    "ba ngày"
+   ],
+   [
+    "hoàn lại",
+    "hoàn tiền"
+   ],
+   [
+    "toàn bộ"
+   ]
+  ]
+ ],
+ "EXQ": [
+  {
+   "q": "Where most likely are the speakers?",
+   "o": [
+    "In a clothing store",
+    "In a dry cleaner's",
+    "In a factory",
+    "In a post office"
+   ],
+   "a": 0,
+   "vi": "“I bought this jacket here last week … Do you have your receipt?” — họ đang ở một cửa hàng quần áo."
+  },
+  {
+   "q": "What does the man want to do?",
+   "o": [
+    "Exchange an item",
+    "Return a receipt",
+    "Buy a larger size",
+    "Repair a zipper himself"
+   ],
+   "a": 0,
+   "vi": "“I’d like to exchange it for the same jacket in the same size.” — người đàn ông muốn đổi hàng."
+  },
+  {
+   "q": "What problem does the woman mention?",
+   "o": [
+    "A size is not available.",
+    "The receipt has expired.",
+    "The store is closing soon.",
+    "The jacket was on sale."
+   ],
+   "a": 0,
+   "vi": "“We’re out of that size right now.” — hiện cửa hàng hết cỡ đó."
+  }
+ ],
+ "NEWQ2": [
+  {
+   "q": "The tailor replaced the broken ___ on my trousers.",
+   "o": [
+    "zipper",
+    "zebra",
+    "zero",
+    "zone"
+   ],
+   "a": 0,
+   "vi": "zipper = khoá kéo."
+  },
+  {
+   "q": "Please bring the ___ if you want to return the item.",
+   "o": [
+    "receipt",
+    "recipe",
+    "receiver",
+    "reception"
+   ],
+   "a": 0,
+   "vi": "receipt = hoá đơn, biên lai."
+  },
+  {
+   "q": "May I ___ this sweater for a smaller one?",
+   "o": [
+    "exchange",
+    "excuse",
+    "exceed",
+    "excite"
+   ],
+   "a": 0,
+   "vi": "exchange = đổi."
+  },
+  {
+   "q": "The shop is ___ of stock, but more will arrive next week.",
+   "o": [
+    "out",
+    "off",
+    "away",
+    "over"
+   ],
+   "a": 0,
+   "vi": "out of stock = hết hàng."
+  },
+  {
+   "q": "We can ___ the part from the supplier today.",
+   "o": [
+    "order",
+    "border",
+    "ordeal",
+    "orbit"
+   ],
+   "a": 0,
+   "vi": "order = đặt hàng."
+  },
+  {
+   "q": "The customer asked for a ___ because the printer never worked.",
+   "o": [
+    "refund",
+    "refuse",
+    "reform",
+    "refrain"
+   ],
+   "a": 0,
+   "vi": "refund = hoàn tiền."
+  },
+  {
+   "q": "I will call you tomorrow, ___ possible.",
+   "o": [
+    "if",
+    "so",
+    "as",
+    "than"
+   ],
+   "a": 0,
+   "vi": "if possible = nếu có thể."
+  }
+ ],
+ "MU": [
+  {
+   "id": "v1",
+   "g": "v",
+   "t": "zipper",
+   "vi": "khoá kéo",
+   "line": 0,
+   "hl": "zipper",
+   "b1": {
+    "s": "the [[zipper]] broke the first time I wore it",
+    "q": "zipper là gì?",
+    "o": [
+     "khoá kéo",
+     "cúc áo",
+     "đường may",
+     "nhãn áo"
+    ],
+    "a": 0,
+    "vi": "zipper = khoá kéo ở áo, túi."
+   },
+   "b2": {
+    "q": "Câu mới: “The zipper on my bag is stuck.” — vấn đề là gì?",
+    "o": [
+     "Khoá kéo của túi bị kẹt",
+     "Quai túi bị đứt",
+     "Túi bị mất",
+     "Túi quá nặng"
+    ],
+    "a": 0,
+    "vi": "zipper is stuck = khoá kéo bị kẹt."
+   },
+   "b3": [
+    {
+     "q": "I need to replace the broken ___ on this coat.",
+     "o": [
+      "zipper",
+      "zebra",
+      "zero",
+      "zone"
+     ],
+     "a": 0,
+     "vi": "zipper = khoá kéo."
+    }
+   ],
+   "b4": {
+    "q": "The ___ on his jacket would not close.",
+    "hint": "khoá kéo · 1 từ",
+    "ans": [
+     "zipper",
+     "zip"
+    ],
+    "vi": "zipper = khoá kéo."
+   }
+  },
+  {
+   "id": "v2",
+   "g": "v",
+   "t": "receipt",
+   "vi": "hoá đơn, biên lai",
+   "line": 1,
+   "hl": "receipt",
+   "b1": {
+    "s": "Do you have your [[receipt]]?",
+    "q": "receipt là gì?",
+    "o": [
+     "hoá đơn, biên lai mua hàng",
+     "phiếu giảm giá",
+     "thẻ thành viên",
+     "đơn đặt hàng"
+    ],
+    "a": 0,
+    "vi": "receipt = giấy chứng nhận đã trả tiền (đọc /rɪˈsiːt/, p câm)."
+   },
+   "b2": {
+    "q": "Câu mới: “You need to show a receipt to return the item.” — muốn trả hàng cần gì?",
+    "o": [
+     "Xuất trình hoá đơn",
+     "Gọi điện trước",
+     "Trả thêm phí",
+     "Mang theo hộp mới"
+    ],
+    "a": 0,
+    "vi": "show a receipt = xuất trình hoá đơn."
+   },
+   "b3": [
+    {
+     "q": "Please keep your ___ in case you need to return the shoes.",
+     "o": [
+      "receipt",
+      "recipe",
+      "receiver",
+      "reception"
+     ],
+     "a": 0,
+     "vi": "receipt = hoá đơn."
+    }
+   ],
+   "b4": {
+    "q": "You can get a refund if you have the ___.",
+    "hint": "biên lai · 1 từ",
+    "ans": [
+     "receipt"
+    ],
+    "vi": "receipt = hoá đơn, biên lai."
+   }
+  },
+  {
+   "id": "v3",
+   "g": "v",
+   "t": "exchange",
+   "vi": "đổi hàng",
+   "line": 2,
+   "hl": "exchange",
+   "b1": {
+    "s": "I'd like to [[exchange]] it for the same jacket",
+    "q": "exchange it for … nghĩa là gì?",
+    "o": [
+     "đổi lấy món khác",
+     "trả lại tiền",
+     "sửa chữa",
+     "mua thêm"
+    ],
+    "a": 0,
+    "vi": "exchange A for B = đổi A lấy B."
+   },
+   "b2": {
+    "q": "Câu mới: “Customers can exchange items within thirty days.” — khách làm được gì trong ba mươi ngày?",
+    "o": [
+     "Đổi hàng",
+     "Mua hàng giảm giá",
+     "Nhận quà tặng",
+     "Nộp đơn xin việc"
+    ],
+    "a": 0,
+    "vi": "exchange items = đổi hàng."
+   },
+   "b3": [
+    {
+     "q": "Can I ___ this shirt for a larger one?",
+     "o": [
+      "exchange",
+      "excuse",
+      "exceed",
+      "excite"
+     ],
+     "a": 0,
+     "vi": "exchange … for = đổi … lấy."
+    }
+   ],
+   "b4": {
+    "q": "I’d like to ___ these shoes for a different color.",
+    "hint": "đổi · 1 từ",
+    "ans": [
+     "exchange",
+     "swap"
+    ],
+    "vi": "exchange … for = đổi … lấy."
+   }
+  },
+  {
+   "id": "v4",
+   "g": "v",
+   "t": "be out of",
+   "vi": "hết (hàng)",
+   "line": 3,
+   "hl": "out of that size",
+   "b1": {
+    "s": "we're [[out of]] that size right now",
+    "q": "be out of … nghĩa là gì?",
+    "o": [
+     "hết (hàng)",
+     "ở bên ngoài",
+     "đã mua",
+     "đang giảm giá"
+    ],
+    "a": 0,
+    "vi": "be out of + danh từ = hết, không còn."
+   },
+   "b2": {
+    "q": "Câu mới: “We are out of blue pens, but we have black ones.” — cửa hàng còn gì?",
+    "o": [
+     "Bút đen",
+     "Bút xanh",
+     "Không có bút",
+     "Bút đỏ"
+    ],
+    "a": 0,
+    "vi": "out of blue pens = hết bút xanh."
+   },
+   "b3": [
+    {
+     "q": "The store is ___ of stock on that model.",
+     "o": [
+      "out",
+      "off",
+      "away",
+      "over"
+     ],
+     "a": 0,
+     "vi": "out of stock = hết hàng."
+    }
+   ],
+   "b4": {
+    "q": "Sorry, we are ___ of small sizes today.",
+    "hint": "giới từ · 1 từ",
+    "ans": [
+     "out"
+    ],
+    "vi": "out of = hết."
+   }
+  },
+  {
+   "id": "v5",
+   "g": "v",
+   "t": "order",
+   "vi": "đặt hàng",
+   "line": 3,
+   "hl": "order one",
+   "b1": {
+    "s": "I can [[order]] one for you",
+    "q": "order one for you nghĩa là gì?",
+    "o": [
+     "đặt hàng một cái cho bạn",
+     "trả lại một cái",
+     "sửa một cái",
+     "bán một cái"
+    ],
+    "a": 0,
+    "vi": "order = đặt mua, đặt hàng."
+   },
+   "b2": {
+    "q": "Câu mới: “We can order the part and it will arrive on Friday.” — khi nào phụ tùng đến?",
+    "o": [
+     "Thứ Sáu",
+     "Thứ Hai",
+     "Hôm nay",
+     "Tuần trước"
+    ],
+    "a": 0,
+    "vi": "arrive on Friday = đến vào thứ Sáu."
+   },
+   "b3": [
+    {
+     "q": "If it is not in stock, we can ___ it from our warehouse.",
+     "o": [
+      "order",
+      "border",
+      "ordeal",
+      "orbit"
+     ],
+     "a": 0,
+     "vi": "order = đặt hàng."
+    }
+   ],
+   "b4": {
+    "q": "I can ___ a new one for you.",
+    "hint": "đặt hàng · 1 từ",
+    "ans": [
+     "order"
+    ],
+    "vi": "order = đặt hàng."
+   }
+  },
+  {
+   "id": "v6",
+   "g": "v",
+   "t": "full refund",
+   "vi": "hoàn lại toàn bộ tiền",
+   "line": 3,
+   "hl": "full refund",
+   "b1": {
+    "s": "give you a [[full refund]]",
+    "q": "full refund là gì?",
+    "o": [
+     "hoàn lại toàn bộ tiền",
+     "giảm giá một nửa",
+     "đổi sang phiếu quà tặng",
+     "bảo hành một năm"
+    ],
+    "a": 0,
+    "vi": "refund = hoàn tiền; full = toàn bộ."
+   },
+   "b2": {
+    "q": "Câu mới: “If you are not satisfied, we offer a full refund.” — nếu không hài lòng thì sao?",
+    "o": [
+     "Được hoàn lại toàn bộ tiền",
+     "Phải mua thêm",
+     "Bị phạt",
+     "Phải chờ một năm"
+    ],
+    "a": 0,
+    "vi": "full refund = hoàn đủ tiền."
+   },
+   "b3": [
+    {
+     "q": "The airline gave passengers a ___ after the flight was canceled.",
+     "o": [
+      "refund",
+      "refuse",
+      "refrain",
+      "reform"
+     ],
+     "a": 0,
+     "vi": "refund = hoàn tiền."
+    }
+   ],
+   "b4": {
+    "q": "You will receive a full ___ within five days.",
+    "hint": "hoàn tiền · 1 từ",
+    "ans": [
+     "refund"
+    ],
+    "vi": "full refund = hoàn tiền đủ."
+   }
+  },
+  {
+   "id": "v7",
+   "g": "v",
+   "t": "if possible",
+   "vi": "nếu có thể",
+   "line": 2,
+   "hl": "if possible",
+   "b1": {
+    "s": "in the same size, [[if possible]]",
+    "q": "if possible nghĩa là gì?",
+    "o": [
+     "nếu có thể",
+     "nếu không",
+     "khi nào cũng",
+     "vì có thể"
+    ],
+    "a": 0,
+    "vi": "if possible = nếu có thể, nếu được."
+   },
+   "b2": {
+    "q": "Câu mới: “Please reply by Friday, if possible.” — người nói muốn gì?",
+    "o": [
+     "Được trả lời trước thứ Sáu nếu có thể",
+     "Bắt buộc trả lời",
+     "Không cần trả lời",
+     "Trả lời sau thứ Sáu"
+    ],
+    "a": 0,
+    "vi": "if possible = nếu được."
+   },
+   "b3": [
+    {
+     "q": "Please send the file today, ___ possible.",
+     "o": [
+      "if",
+      "so",
+      "as",
+      "than"
+     ],
+     "a": 0,
+     "vi": "if possible = nếu có thể."
+    }
+   ],
+   "b4": {
+    "q": "We will deliver it tomorrow, ___ possible.",
+    "hint": "1 từ",
+    "ans": [
+     "if"
+    ],
+    "vi": "if possible = nếu có thể."
+   }
+  },
+  {
+   "id": "g1",
+   "g": "g",
+   "t": "I’d like to + V (muốn, lịch sự)",
+   "line": 2,
+   "hl": "I'd like to exchange",
+   "b1": {
+    "s": "[[I'd like to exchange]] it for the same jacket",
+    "q": "I'd like to … dùng để làm gì?",
+    "o": [
+     "nói điều mình muốn một cách lịch sự",
+     "hỏi ai thích gì",
+     "kể việc đã làm",
+     "từ chối"
+    ],
+    "a": 0,
+    "vi": "I'd like to + V = tôi muốn … (lịch sự hơn I want to). · 🧱 Bài Nền liên quan: Would like: muốn · A2"
+   },
+   "b2": {
+    "q": "Câu mới: “I’d like to book a table for four.” — người nói muốn gì?",
+    "o": [
+     "Đặt bàn cho bốn người",
+     "Huỷ bàn",
+     "Hỏi giá món",
+     "Gọi món ăn"
+    ],
+    "a": 0,
+    "vi": "I’d like to book = tôi muốn đặt."
+   },
+   "b3": [
+    {
+     "q": "I’d like ___ the manager, please.",
+     "o": [
+      "to speak to",
+      "speak to",
+      "speaking to",
+      "spoke to"
+     ],
+     "a": 0,
+     "vi": "I’d like + to V."
+    },
+    {
+     "q": "We would like ___ a refund.",
+     "o": [
+      "to request",
+      "request",
+      "requesting",
+      "requested"
+     ],
+     "a": 0,
+     "vi": "would like + to V."
+    }
+   ],
+   "b4": {
+    "q": "I’d like ___ a seat by the window.",
+    "hint": "gõ to + động từ reserve",
+    "ans": [
+     "to reserve"
+    ],
+    "vi": "I’d like to + V."
+   }
+  },
+  {
+   "id": "g2",
+   "g": "g",
+   "t": "Do you have …? (hỏi có không)",
+   "line": 1,
+   "hl": "Do you have",
+   "b1": {
+    "s": "[[Do you have]] your receipt?",
+    "q": "Do you have …? hỏi gì?",
+    "o": [
+     "bạn có … không",
+     "bạn đã có … chưa",
+     "bạn sẽ có … khi nào",
+     "ai có …"
+    ],
+    "a": 0,
+    "vi": "Do you have + danh từ? = bạn có … không? · 🧱 Bài Nền liên quan: Have got và have · A1"
+   },
+   "b2": {
+    "q": "Câu mới: “Do you have a reservation?” — nhân viên hỏi gì?",
+    "o": [
+     "Bạn đã đặt chỗ chưa",
+     "Bạn muốn đặt chỗ khi nào",
+     "Bạn đặt chỗ cho ai",
+     "Bạn có hài lòng không"
+    ],
+    "a": 0,
+    "vi": "Do you have a reservation? = bạn có đặt chỗ không?"
+   },
+   "b3": [
+    {
+     "q": "___ you have any questions about the warranty?",
+     "o": [
+      "Do",
+      "Are",
+      "Does",
+      "Is"
+     ],
+     "a": 0,
+     "vi": "you → Do you have …?"
+    },
+    {
+     "q": "Does the store ___ this shirt in blue?",
+     "o": [
+      "have",
+      "has",
+      "having",
+      "had"
+     ],
+     "a": 0,
+     "vi": "Does + chủ ngữ + have."
+    }
+   ],
+   "b4": {
+    "q": "Do you ___ any other colors?",
+    "hint": "gõ 1 từ",
+    "ans": [
+     "have"
+    ],
+    "vi": "Do you have …?"
+   }
+  },
+  {
+   "id": "g3",
+   "g": "g",
+   "t": "Quá khứ đơn + last week",
+   "line": 0,
+   "hl": "I bought this jacket here last week",
+   "b1": {
+    "s": "[[I bought this jacket here last week]], but the zipper broke",
+    "q": "Vì sao dùng bought?",
+    "o": [
+     "mốc quá khứ rõ ràng (last week) nên dùng quá khứ đơn",
+     "việc đang xảy ra",
+     "việc sắp xảy ra",
+     "thói quen"
+    ],
+    "a": 0,
+    "vi": "last week, yesterday, ago + quá khứ đơn. · 🧱 Bài Nền liên quan: Quá khứ đơn · A1"
+   },
+   "b2": {
+    "q": "Câu mới: “She ordered the parts last Tuesday.” — khi nào cô ấy đặt hàng?",
+    "o": [
+     "Thứ Ba tuần trước",
+     "Thứ Ba tuần sau",
+     "Mỗi thứ Ba",
+     "Hôm nay"
+    ],
+    "a": 0,
+    "vi": "ordered last Tuesday = đã đặt thứ Ba tuần trước."
+   },
+   "b3": [
+    {
+     "q": "We ___ the package two days ago.",
+     "o": [
+      "received",
+      "receive",
+      "have received",
+      "will receive"
+     ],
+     "a": 0,
+     "vi": "ago → quá khứ đơn."
+    },
+    {
+     "q": "The machine ___ down yesterday morning.",
+     "o": [
+      "broke",
+      "breaks",
+      "has broken",
+      "will break"
+     ],
+     "a": 0,
+     "vi": "yesterday morning → quá khứ đơn."
+    }
+   ],
+   "b4": {
+    "q": "He ___ the laptop last month. (buy)",
+    "hint": "gõ quá khứ đơn của buy",
+    "ans": [
+     "bought"
+    ],
+    "vi": "last month → bought."
+   }
+  },
+  {
+   "id": "g4",
+   "g": "g",
+   "t": "I can … or I can … (đưa lựa chọn)",
+   "line": 3,
+   "hl": "I can order one for you",
+   "b1": {
+    "s": "[[I can order one for you]], and it should arrive",
+    "q": "I can … or I can … dùng để làm gì?",
+    "o": [
+     "đưa ra các lựa chọn, đề nghị giúp",
+     "hỏi khả năng của người nghe",
+     "kể việc đã làm",
+     "từ chối"
+    ],
+    "a": 0,
+    "vi": "I can + V = tôi có thể … (đề nghị giúp). · 🧱 Bài Nền liên quan: Can: khả năng và đề nghị · A1"
+   },
+   "b2": {
+    "q": "Câu mới: “I can send it by e-mail, or I can mail a copy.” — người nói làm gì?",
+    "o": [
+     "Đưa hai cách gửi",
+     "Từ chối gửi",
+     "Hỏi địa chỉ",
+     "Nhờ người khác gửi"
+    ],
+    "a": 0,
+    "vi": "I can … or I can … = đưa hai lựa chọn."
+   },
+   "b3": [
+    {
+     "q": "I can ___ the item to you tomorrow.",
+     "o": [
+      "deliver",
+      "delivering",
+      "delivered",
+      "to deliver"
+     ],
+     "a": 0,
+     "vi": "can + V nguyên mẫu."
+    },
+    {
+     "q": "The assistant can ___ you a copy of the invoice.",
+     "o": [
+      "give",
+      "gives",
+      "giving",
+      "gave"
+     ],
+     "a": 0,
+     "vi": "can + V nguyên mẫu."
+    }
+   ],
+   "b4": {
+    "q": "We can offer you a refund, or we ___ send a replacement.",
+    "hint": "1 từ",
+    "ans": [
+     "can",
+     "could",
+     "will"
+    ],
+    "vi": "can + V."
+   }
+  },
+  {
+   "id": "g5",
+   "g": "g",
+   "t": "should + V (dự kiến)",
+   "line": 3,
+   "hl": "it should arrive",
+   "b1": {
+    "s": "I can order one for you, and [[it should arrive]] in three days",
+    "q": "it should arrive nghĩa là gì?",
+    "o": [
+     "nó dự kiến sẽ đến",
+     "nó bắt buộc phải đến",
+     "nó đã đến",
+     "nó không thể đến"
+    ],
+    "a": 0,
+    "vi": "should + V = (chắc là) sẽ, dự kiến. · 🧱 Bài Nền liên quan: Should: lời khuyên và dự đoán · A2"
+   },
+   "b2": {
+    "q": "Câu mới: “The package should arrive by Thursday.” — khi nào gói hàng dự kiến đến?",
+    "o": [
+     "Trước hoặc vào thứ Năm",
+     "Sau thứ Năm",
+     "Hôm qua",
+     "Không bao giờ"
+    ],
+    "a": 0,
+    "vi": "should arrive by Thursday = dự kiến đến trước thứ Năm."
+   },
+   "b3": [
+    {
+     "q": "The meeting ___ finish by noon.",
+     "o": [
+      "should",
+      "shoulds",
+      "should to",
+      "is should"
+     ],
+     "a": 0,
+     "vi": "should + V nguyên mẫu."
+    },
+    {
+     "q": "The new store should ___ next month.",
+     "o": [
+      "open",
+      "opens",
+      "opening",
+      "to open"
+     ],
+     "a": 0,
+     "vi": "should + V nguyên mẫu."
+    }
+   ],
+   "b4": {
+    "q": "The shipment ___ arrive on Monday. (dự kiến)",
+    "hint": "gõ 1 từ",
+    "ans": [
+     "should",
+     "ought to",
+     "will"
+    ],
+    "vi": "should arrive = dự kiến đến."
+   }
+  }
+ ]
 };

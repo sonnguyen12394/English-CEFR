@@ -102,7 +102,7 @@ const BAI39 = {
       b1: { s: "and [[we'll provide]] meal vouchers at the gate", q: "we'll provide cho biết điều gì?", o: ["hứa, thông báo việc sẽ làm", "việc đã làm xong", "thói quen", "lời xin lỗi"], a: 0, vi: "will + V = hứa, thông báo sẽ làm. we'll = we will. · 🧱 Bài Nền liên quan: Will: dự đoán, đề nghị, quyết định tức thì · A2" },
       b2: { q: "Câu mới: “We will send you a confirmation e-mail shortly.” — công ty hứa gì?", o: ["Sẽ gửi e-mail xác nhận", "Đã gửi e-mail xác nhận", "Sẽ hủy đơn", "Sẽ gọi điện"], a: 0, vi: "will send = sẽ gửi." },
       b3: [{ q: "The airline ___ hotel rooms for passengers starting tomorrow.", o: ["will provide", "provided", "has provided", "providing"], a: 0, vi: "starting tomorrow → will + V." },
-           { q: "Don't worry, we ___ you a new ticket.", o: ["will give", "gave", "have given", "giving"], a: 0, vi: "Lời hứa lúc nói: will + V." }],
+           { q: "Don't worry, we ___ you a new ticket in a moment.", o: ["will give", "gave", "have given", "giving"], a: 0, vi: "Lời hứa lúc nói: will + V." }],
       b4: { q: "We ___ send you the details tomorrow.", hint: "gõ 1 từ", ans: ["will", "'ll"], vi: "will send = sẽ gửi." } },
     { id: "g5", g: "g", t: "Tính từ + giới từ: sorry for", line: 4, hl: "sorry for the delay",
       b1: { s: "We're [[sorry for the delay]]", q: "sorry for + gì?", o: ["sorry for + danh từ / V-ing: xin lỗi vì điều gì", "sorry for + động từ nguyên mẫu", "sorry for + mệnh đề", "sorry for luôn đứng cuối câu"], a: 0, vi: "be sorry for + danh từ hoặc V-ing. · 🧱 Bài Nền liên quan: Tính từ + giới từ · A2" },

@@ -63,7 +63,7 @@ const BAI50 = {
   [
    "W",
    "I'll book one now and send you the tracking number.",
-   "Tôi sẽ đặt một dịch vụ ngay bây giờ và gửi cho anh mã theo dõi.",
+   "Tôi sẽ đặt một dịch vụ ngay bây giờ và gửi cho chị mã theo dõi.",
    ""
   ]
  ],
@@ -269,7 +269,7 @@ const BAI50 = {
   [
    "Tôi sẽ đặt một dịch vụ",
    "ngay bây giờ",
-   "và gửi cho anh",
+   "và gửi cho chị",
    "mã theo dõi."
   ]
  ],

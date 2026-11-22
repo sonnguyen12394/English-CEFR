@@ -1000,7 +1000,7 @@ const BAI47 = {
    },
    "b3": [
     {
-     "q": "The store was closed, ___ we came back tomorrow.",
+     "q": "The store was closed, ___ we will come back tomorrow.",
      "o": [
       "so",
       "because",
