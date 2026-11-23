@@ -1,0 +1,118 @@
+{
+ "n": 1030,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "Bài đăng diễn đàn về ba mươi ngày chạy bộ",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "📄 Đọc hiểu",
+ "kind": "30 days of running: what I learned",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Minh: I started jogging thirty days ago, and I'm still surprised I haven't quit.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "At first, I could only run for five minutes before I felt out of breath.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Now I can run for half an hour without stopping, which feels amazing.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "My secret? I run with a friend, so I can't skip a day.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Thu: Congrats, Minh! I tried running last year, but I gave up after two weeks.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "My knees hurt because I didn't warm up properly.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Any tips for beginners like me?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Minh: Always warm up for five minutes and buy proper shoes.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Don't compare yourself with others, and rest when your body tells you to!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "How long could Minh run at first?",
+   "a": "About five minutes",
+   "w": [
+    "Half an hour",
+    "One hour",
+    "Thirty days"
+   ],
+   "why": "“I could only run for five minutes before I felt out of breath.”"
+  },
+  {
+   "q": "Why does Minh find it hard to skip a day?",
+   "a": "Minh runs with a friend.",
+   "w": [
+    "Minh has a coach.",
+    "Minh needs money.",
+    "Minh is afraid of rain."
+   ],
+   "why": "“I run with a friend, so I can't skip a day.”"
+  },
+  {
+   "q": "Why did Thu give up running last year?",
+   "a": "Her knees hurt.",
+   "w": [
+    "She lost her shoes.",
+    "She moved house.",
+    "She was too busy."
+   ],
+   "why": "“My knees hurt because I didn't warm up properly.”"
+  },
+  {
+   "q": "What does Minh advise Thu to do?",
+   "a": "Warm up and buy proper shoes",
+   "w": [
+    "Run every day without rest",
+    "Compare herself with others",
+    "Stop after two weeks"
+   ],
+   "why": "“Always warm up for five minutes and buy proper shoes.”"
+  },
+  {
+   "q": "How long can Minh run now?",
+   "a": "About half an hour",
+   "w": [
+    "About five minutes",
+    "About two hours",
+    "Only one day"
+   ],
+   "why": "“Now I can run for half an hour without stopping.”"
+  }
+ ]
+}

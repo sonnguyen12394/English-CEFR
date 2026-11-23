@@ -1,0 +1,113 @@
+{
+ "n": 1019,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-09",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "✉️ Văn bản",
+ "kind": "Chat nhóm gia đình",
+ "title": "Family chat · Sunday lunch",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Family chat · Sunday lunch",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mom: Grandma is coming over on Sunday, so please keep the afternoon free.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dad: Sounds good! I'll pick her up from the bus station at ten.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lan: I can help Mom cook. Should I make the spring rolls?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mom: Yes, please. And Nam, can you set the table at noon?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Nam: No problem, but I might be a bit late. I have football until eleven.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dad: Okay, just text us when you're on your way.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mom: Can't wait! It's been two months since we last saw her.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Chỗ trống 1: Grandma is coming over on Sunday, so please keep the afternoon ___.",
+   "a": "free",
+   "w": [
+    "freely",
+    "freedom",
+    "frees"
+   ],
+   "why": "keep + danh từ + free (tính từ) = để trống, không hẹn việc khác."
+  },
+  {
+   "q": "Chỗ trống 2: Sounds good! I'll ___ her up from the bus station at ten.",
+   "a": "pick",
+   "w": [
+    "take",
+    "get",
+    "bring"
+   ],
+   "why": "pick sb up = đón ai; take / get / bring her up không có nghĩa đón."
+  },
+  {
+   "q": "Chỗ trống 3: I can help Mom cook. ___ I make the spring rolls?",
+   "a": "Should",
+   "w": [
+    "Does",
+    "Am",
+    "Are"
+   ],
+   "why": "Should I + V? = Con có nên … không?"
+  },
+  {
+   "q": "Chỗ trống 4: I might be a bit late. I have football ___ eleven.",
+   "a": "until",
+   "w": [
+    "since",
+    "by",
+    "during"
+   ],
+   "why": "until + giờ = cho đến lúc đó (bóng đá kéo dài tới 11 giờ)."
+  },
+  {
+   "q": "Who will go to the bus station?",
+   "a": "Dad",
+   "w": [
+    "Mom",
+    "Lan",
+    "Nam"
+   ],
+   "why": "Dad: “I’ll pick her up from the bus station at ten.”"
+  }
+ ]
+}

@@ -1,0 +1,115 @@
+{
+ "n": 1024,
+ "nguon": "💬 Giao tiếp · Sở thích · bài tự soạn",
+ "id": "gt-st-04",
+ "muc": "gt",
+ "chu": "gt-st",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn về phim bộ và nhạc",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Have you watched that new fantasy series yet?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes! I binge-watched the whole season last weekend.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Seriously? Don't spoil anything! I'm only on episode three.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Relax, I won't. But the ending is mind-blowing.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Stop it! Now I'm hooked. By the way, what music are you into lately?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'm really into indie rock. A band called Blue Harbor just released an album.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Oh, I've never heard of them. Are they any good?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "They're awesome. Their songs are super catchy. I'll send you a playlist.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Thanks! I'll listen to it while I finish the series.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure thing. And tell me what you think of the ending!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did Alex do last weekend?",
+   "a": "He watched a whole season of a series",
+   "w": [
+    "He went to a concert",
+    "He met the band",
+    "He wrote a review"
+   ],
+   "why": "“I binge-watched the whole season last weekend” = cày hết cả mùa phim."
+  },
+  {
+   "q": "How far has Linh watched?",
+   "a": "Episode three",
+   "w": [
+    "Episode ten",
+    "The final episode",
+    "She has not started"
+   ],
+   "why": "“I'm only on episode three” = mới xem tới tập ba."
+  },
+  {
+   "q": "What kind of music is Alex into?",
+   "a": "Indie rock",
+   "w": [
+    "Classical music",
+    "Jazz",
+    "Pop"
+   ],
+   "why": "“I'm really into indie rock” = rất mê indie rock."
+  },
+  {
+   "q": "What will Alex send Linh?",
+   "a": "A playlist",
+   "w": [
+    "A video",
+    "A book",
+    "A photo"
+   ],
+   "why": "“I'll send you a playlist” = gửi danh sách nhạc."
+  }
+ ]
+}

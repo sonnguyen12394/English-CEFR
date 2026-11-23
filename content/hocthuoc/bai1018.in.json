@@ -1,0 +1,109 @@
+{
+ "n": 1018,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-08",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "📢 Bài nói",
+ "kind": "Bài nói trước lớp về bố đổi nghề",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Today I'd like to talk about my dad and his job.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "For fifteen years, he was a taxi driver in Hanoi.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "He worked long hours, and he was often tired when he came home.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Last year he decided to change his life.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "He had always dreamed of opening a small noodle shop.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "My mom helped him, and our whole family worked hard to get it ready.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Now he gets up at five every morning to make the soup.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "He still gets tired, but he says he has never been happier.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I'm proud of him, and I hope to be as brave as he is one day.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What was the speaker's father's job before?",
+   "a": "Taxi driver",
+   "w": [
+    "Cook",
+    "Teacher",
+    "Farmer"
+   ],
+   "why": "“he was a taxi driver in Hanoi”."
+  },
+  {
+   "q": "Why was he often tired?",
+   "a": "He worked long hours.",
+   "w": [
+    "He slept too late.",
+    "He had no job.",
+    "He lived far away."
+   ],
+   "why": "“He worked long hours, and he was often tired.”"
+  },
+  {
+   "q": "What did he dream of?",
+   "a": "Opening a small noodle shop",
+   "w": [
+    "Becoming a pilot",
+    "Moving abroad",
+    "Writing a book"
+   ],
+   "why": "“dreamed of opening a small noodle shop”."
+  },
+  {
+   "q": "How does the speaker feel about him?",
+   "a": "Proud",
+   "w": [
+    "Angry",
+    "Worried",
+    "Bored"
+   ],
+   "why": "“I’m proud of him.”"
+  }
+ ]
+}

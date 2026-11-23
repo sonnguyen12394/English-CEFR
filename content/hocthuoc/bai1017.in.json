@@ -1,0 +1,109 @@
+{
+ "n": 1017,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-07",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "📢 Bài nói",
+ "kind": "Vlog giới thiệu căn hộ nhỏ của gia đình",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hi everyone, welcome to my little apartment tour.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I live on the fourth floor with my parents and my little brother.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "It's not big, but there's a balcony where my mom grows herbs.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Here's the living room. We eat, watch TV and do homework in this one space.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "My brother and I share a bedroom, so it gets messy sometimes.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "My parents moved here ten years ago, when I was six.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Before that, we used to live in a small town near the sea.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I miss it a little, but I love the city lights at night.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Anyway, thanks for watching! Leave a comment and tell me about your home.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where does the speaker live?",
+   "a": "On the fourth floor of an apartment",
+   "w": [
+    "In a house near the sea",
+    "In a small town",
+    "In a house with a garden"
+   ],
+   "why": "“I live on the fourth floor with my parents and my little brother.”"
+  },
+  {
+   "q": "What does the speaker's mother grow on the balcony?",
+   "a": "Herbs",
+   "w": [
+    "Flowers",
+    "Tomatoes",
+    "Rice"
+   ],
+   "why": "“a balcony where my mom grows herbs” = trồng rau thơm."
+  },
+  {
+   "q": "Who shares a bedroom with the speaker?",
+   "a": "The little brother",
+   "w": [
+    "The parents",
+    "A cousin",
+    "Nobody"
+   ],
+   "why": "“My brother and I share a bedroom.”"
+  },
+  {
+   "q": "How does the speaker feel about the old town?",
+   "a": "Misses it a little but likes the city",
+   "w": [
+    "Hates it",
+    "Plans to move back soon",
+    "Has never lived there"
+   ],
+   "why": "“I miss it a little, but I love the city lights at night.”"
+  }
+ ]
+}

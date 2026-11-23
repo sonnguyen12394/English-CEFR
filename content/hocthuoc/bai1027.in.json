@@ -1,0 +1,109 @@
+{
+ "n": 1027,
+ "nguon": "💬 Giao tiếp · Sở thích & cuối tuần · bài tự soạn",
+ "id": "gt-st-07",
+ "muc": "gt",
+ "chu": "gt-st",
+ "dang": "📢 Bài nói",
+ "kind": "Vlog nướng bánh mì lần đầu",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hey everyone, welcome back to my little kitchen!",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Today I'm trying to bake bread for the very first time.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I've watched tons of videos, so I think I know what to do.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "First, I mix the flour, yeast and a bit of warm water.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Then I knead the dough for about ten minutes.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Honestly, my arms are already getting tired!",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "While the dough is rising, I'll clean up this mess.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I just hope it doesn't turn out like a rock.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Wish me luck, and I'll show you the result soon!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the speaker trying to do today?",
+   "a": "Bake bread for the first time",
+   "w": [
+    "Cook noodles for dinner",
+    "Clean the kitchen",
+    "Buy some flour"
+   ],
+   "why": "“I'm trying to bake bread for the very first time.”"
+  },
+  {
+   "q": "How long does the speaker knead the dough?",
+   "a": "About ten minutes",
+   "w": [
+    "About one hour",
+    "Two minutes",
+    "All night"
+   ],
+   "why": "“knead the dough for about ten minutes”."
+  },
+  {
+   "q": "What will the speaker do while the dough is rising?",
+   "a": "Clean up the mess",
+   "w": [
+    "Watch more videos",
+    "Go for a walk",
+    "Eat lunch"
+   ],
+   "why": "“While the dough is rising, I'll clean up this mess.”"
+  },
+  {
+   "q": "What does the speaker hope?",
+   "a": "The bread won't be hard as a rock.",
+   "w": [
+    "The oven will be bigger.",
+    "The videos will be shorter.",
+    "The flour will be cheaper."
+   ],
+   "why": "“I just hope it doesn't turn out like a rock.”"
+  }
+ ]
+}

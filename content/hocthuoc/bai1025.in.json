@@ -1,0 +1,277 @@
+{
+ "n": 1025,
+ "nguon": "💬 Giao tiếp · Sở thích · bài tự soạn",
+ "id": "gt-st-05",
+ "muc": "gt",
+ "chu": "gt-st",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về sở thích",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "What do you usually do on weekends?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I mostly play basketball with my cousins.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you play any instruments?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Just the guitar, but I'm pretty rusty.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How did you get into photography?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "My uncle lent me his old camera, and I never looked back.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Want to join our book club next month?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Maybe. What are you reading at the moment?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you ever get bored of the same hobbies?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sometimes, so I try something new every few months.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm thinking of taking up running. Any tips?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Start slow, and don't push yourself too hard at first.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Which team do you support?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'm a huge fan of Riverside FC. I never miss a game.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you ever tried rock climbing?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Once. It was exhausting, but I'd definitely do it again.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's your favourite way to relax after a long week?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Honestly, I just chill at home with some music.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can you teach me how to play chess?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure! I'll show you the basics this weekend.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What do you usually do on weekends?",
+   "a": "I mostly play basketball with my cousins.",
+   "w": [
+    "I usually go to school by bike.",
+    "On weekends I am tired.",
+    "At the weekend market."
+   ],
+   "why": "Hỏi thói quen cuối tuần → kể việc thường làm: I mostly play basketball…"
+  },
+  {
+   "q": "Do you play any instruments?",
+   "a": "Just the guitar, but I'm pretty rusty.",
+   "w": [
+    "Yes, I have two older sisters.",
+    "Instruments are on the shelf.",
+    "I play at the stadium."
+   ],
+   "why": "Hỏi có chơi nhạc cụ không → trả lời nhạc cụ nào: Just the guitar…"
+  },
+  {
+   "q": "How did you get into photography?",
+   "a": "My uncle lent me his old camera, and I never looked back.",
+   "w": [
+    "It takes about ten minutes.",
+    "I took a photo yesterday.",
+    "Photography is on the second floor."
+   ],
+   "why": "How did you get into…? hỏi lý do bắt đầu → kể chuyện chiếc máy ảnh."
+  },
+  {
+   "q": "Which team do you support?",
+   "a": "I'm a huge fan of Riverside FC. I never miss a game.",
+   "w": [
+    "I take the bus to the stadium.",
+    "At six, on Saturday.",
+    "It lost two to one."
+   ],
+   "why": "Which team …? hỏi đội → nêu tên đội: Riverside FC."
+  },
+  {
+   "q": "Can you teach me how to play chess?",
+   "a": "Sure! I'll show you the basics this weekend.",
+   "w": [
+    "Chess is a very old game.",
+    "No, I teach at school.",
+    "The game lasted two hours."
+   ],
+   "why": "Can you teach me…? = nhờ → Sure! đồng ý."
+  }
+ ],
+ "p2": [
+  {
+   "q": "What do you usually do on weekends?",
+   "o": [
+    "I usually go to school by bike.",
+    "I mostly play basketball with my cousins.",
+    "At the weekend market."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Do you play any instruments?",
+   "o": [
+    "Just the guitar, but I'm pretty rusty.",
+    "Yes, I have two older sisters.",
+    "Instruments are on the shelf."
+   ],
+   "a": 0
+  },
+  {
+   "q": "How did you get into photography?",
+   "o": [
+    "It takes about ten minutes.",
+    "I took a photo yesterday.",
+    "My uncle lent me his old camera, and I never looked back."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Want to join our book club next month?",
+   "o": [
+    "Maybe. What are you reading at the moment?",
+    "The club is very big.",
+    "It is on the table."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Do you ever get bored of the same hobbies?",
+   "o": [
+    "The same, thanks. And you?",
+    "Sometimes, so I try something new every few months.",
+    "It's my favourite board game."
+   ],
+   "a": 1
+  },
+  {
+   "q": "I'm thinking of taking up running. Any tips?",
+   "o": [
+    "Start slow, and don't push yourself too hard at first.",
+    "I take the bus to work.",
+    "Running water is in the kitchen."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Which team do you support?",
+   "o": [
+    "The final score was 2–1.",
+    "I'm a huge fan of Riverside FC. I never miss a game.",
+    "It's a team of ten people."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Have you ever tried rock climbing?",
+   "o": [
+    "I climbed the stairs this morning.",
+    "Yes, I like rock music a lot.",
+    "Once. It was exhausting, but I'd definitely do it again."
+   ],
+   "a": 2
+  },
+  {
+   "q": "What's your favourite way to relax after a long week?",
+   "o": [
+    "It was a really long week.",
+    "Honestly, I just chill at home with some music.",
+    "I had a long week at school."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Can you teach me how to play chess?",
+   "o": [
+    "Yes, I can swim well.",
+    "Chess is a very old game.",
+    "Sure! I'll show you the basics this weekend."
+   ],
+   "a": 2
+  }
+ ]
+}

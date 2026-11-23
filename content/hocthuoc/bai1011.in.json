@@ -1,0 +1,127 @@
+{
+ "n": 1011,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-01",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người mới quen",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hi, I'm Mai. Where are you from?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'm from Da Nang, but I grew up in Hue.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Oh nice! I was born in Hue too.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Really? What a small world! When did you move here?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "About five years ago, for university.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Me too. I miss the food back home, though.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Same here. But my parents live here now, so I see them every weekend.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Lucky you. My family is still in Hue, a long way from here.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How often do you visit?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Maybe twice a year. It takes ten hours by bus.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Wow, that's far! Maybe we can travel together next Tet.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sounds like a plan! Let's swap numbers.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where did Tom grow up?",
+   "a": "In Hue",
+   "w": [
+    "In Da Nang",
+    "In Hanoi",
+    "In Can Tho"
+   ],
+   "why": "“I'm from Da Nang, but I grew up in Hue.” = quê Đà Nẵng nhưng lớn lên ở Huế."
+  },
+  {
+   "q": "Why did Mai move to the city?",
+   "a": "To study at university",
+   "w": [
+    "To find a job",
+    "To visit her family",
+    "To buy a house"
+   ],
+   "why": "“for university” = để học đại học."
+  },
+  {
+   "q": "How long does it take Tom to go home by bus?",
+   "a": "Ten hours",
+   "w": [
+    "Two hours",
+    "Five hours",
+    "One day"
+   ],
+   "why": "“It takes ten hours by bus.” = đi xe buýt mất mười tiếng."
+  },
+  {
+   "q": "How often does Tom visit his hometown?",
+   "a": "About twice a year",
+   "w": [
+    "Every month",
+    "Every week",
+    "Once every five years"
+   ],
+   "why": "“Maybe twice a year.” = chắc hai lần một năm."
+  }
+ ]
+}
