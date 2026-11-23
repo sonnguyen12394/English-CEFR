@@ -1,0 +1,115 @@
+{
+ "n": 1034,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-04",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn: đồng ý và không đồng ý lịch sự",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Do you think phones should be banned in class?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Hmm, I'm not so sure. They can be useful for looking up words.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I see your point, but most students just play games.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "That's true, but a total ban seems too strict to me.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Fair enough. What would you suggest instead?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Maybe students can use them only when the teacher says it's okay.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Hmm, I actually agree with that. That sounds like a good compromise.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Great! Let's ask our teacher about it next week.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Deal. But I still think we should turn them off during exams.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Totally agree with you on that one!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What are the two friends discussing?",
+   "a": "Whether to ban phones in class",
+   "w": [
+    "Which phone to buy",
+    "How to study for exams",
+    "Where to eat lunch"
+   ],
+   "why": "“Do you think phones should be banned in class?”"
+  },
+  {
+   "q": "What does Dan think about a total ban?",
+   "a": "It is too strict",
+   "w": [
+    "It is a great idea",
+    "It is too cheap",
+    "It is already in place"
+   ],
+   "why": "“a total ban seems too strict to me”."
+  },
+  {
+   "q": "What compromise do they agree on?",
+   "a": "Use phones only when the teacher allows it",
+   "w": [
+    "Use phones at lunch only",
+    "Never bring phones to school",
+    "Use phones during exams"
+   ],
+   "why": "“use them only when the teacher says it's okay”."
+  },
+  {
+   "q": "What does Ha still think?",
+   "a": "Phones should be off during exams",
+   "w": [
+    "Phones should be banned forever",
+    "Phones are useful in class",
+    "Students need new phones"
+   ],
+   "why": "“we should turn them off during exams”."
+  }
+ ]
+}

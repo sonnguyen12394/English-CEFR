@@ -38,7 +38,7 @@ const BAI1045 = {
     ['Sao', 'sáng nay cậu đến muộn?'], ['Tớ mất hai mươi phút', 'tìm chìa khoá.'], ['Chuyện đó', 'có thật không?'], ['Tớ thề!', 'Nó xảy ra', 'y như vậy đó.'],
     ['Sinh nhật', 'năm ngoái', 'cậu làm gì?'], ['Không có gì đặc biệt.', 'Tớ chỉ ăn bánh', 'với gia đình.'], ['Cậu sẽ không tin nổi', 'hôm nay', 'tớ tình cờ gặp ai đâu!'], ['Ai vậy?', 'Đừng bắt tớ chờ!']],
   VNY: [[['cuối tuần'], ['thế nào']], [['tuyệt'], ['ra biển', 'bãi biển'], ['mặt trời lặn', 'hoàng hôn']], [['tay'], ['bị làm sao', 'làm sao']], [['trượt chân', 'trượt ngã'], ['cầu thang'], ['thứ bảy'], ['không nặng', 'không tệ']],
-    [['đoán xem'], ['trên đường', 'dọc đường']], [['chịu thôi', 'không biết'], ['kể']], [['tối qua'], ['bão'], ['ở nhà']], [['điện'], ['bị cắt', 'mất điện'], ['hai tiếng', '2 tiếng']],
+    [['đoán xem'], ['trên đường', 'dọc đường']], [['chịu thôi', 'không biết'], ['kể tớ nghe', 'kể cho tớ']], [['tối qua'], ['bão'], ['ở nhà']], [['điện'], ['bị cắt', 'mất điện'], ['hai tiếng', '2 tiếng']],
     [['buồn cười nhất'], ['từng xảy ra']], [['đâm sầm', 'đụng vào', 'va vào'], ['cửa kính'], ['trước mặt mọi người', 'trước mọi người']], [['quen'], ['bạn thân']], [['ngồi cạnh', 'ngồi bên cạnh'], ['ngày đầu'], ['đi học']],
     [['đến muộn', 'trễ']], [['hai mươi phút', '20 phút'], ['chìa khoá', 'chìa khóa']], [['có thật', 'thật không']], [['tớ thề', 'thề'], ['y như vậy', 'y như thế']],
     [['sinh nhật'], ['năm ngoái'], ['làm gì']], [['không có gì đặc biệt', 'bình thường'], ['ăn bánh', 'bánh'], ['gia đình']], [['không tin nổi', 'không thể tin'], ['tình cờ gặp', 'tình cờ']], [['ai vậy', 'ai thế'], ['bắt tớ chờ', 'đợi']]],
