@@ -1,0 +1,119 @@
+{
+ "n": 1020,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-10",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Bài blog về buổi sáng với hai đứa con",
+ "title": "How our family survives busy mornings",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "My two kids make every morning feel like a race.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "My daughter Mia is seven, and my son Leo is three.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mia wakes up early, but Leo hates getting out of bed.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Last month my wife and I tried a new routine, and it really helped.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "First, we pick out clothes and pack school bags the night before.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Second, Mia helps her little brother get dressed, which makes her feel proud.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Third, we leave the phones in a basket until breakfast is over.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Now we leave the house by seven thirty, and nobody shouts any more.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Parenting is never easy, but small habits make mornings calmer.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "How old is Leo?",
+   "a": "Three",
+   "w": [
+    "Seven",
+    "Five",
+    "Ten"
+   ],
+   "why": "“my son Leo is three”."
+  },
+  {
+   "q": "Who helps Leo get dressed?",
+   "a": "His sister Mia",
+   "w": [
+    "His mother",
+    "His father",
+    "A teacher"
+   ],
+   "why": "“Mia helps her little brother get dressed”."
+  },
+  {
+   "q": "When do they pack the school bags?",
+   "a": "The night before",
+   "w": [
+    "In the morning",
+    "At breakfast",
+    "On the weekend"
+   ],
+   "why": "“pack school bags the night before”."
+  },
+  {
+   "q": "What do they do with the phones during breakfast?",
+   "a": "Leave them in a basket",
+   "w": [
+    "Turn them off",
+    "Give them to Mia",
+    "Use them for photos"
+   ],
+   "why": "“we leave the phones in a basket until breakfast is over”."
+  },
+  {
+   "q": "What is the writer's main point?",
+   "a": "Small habits can make mornings calmer.",
+   "w": [
+    "Kids should wake up later.",
+    "Mornings are always easy.",
+    "Phones are bad for children."
+   ],
+   "why": "“small habits make mornings calmer”."
+  }
+ ]
+}

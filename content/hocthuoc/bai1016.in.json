@@ -1,0 +1,277 @@
+{
+ "n": 1016,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-06",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về gia đình",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Do you have any brothers or sisters?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes, I have an older sister and a younger brother.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What does your dad do for a living?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "He's a bus driver. He's been one for twenty years.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you get along with your sister?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Most of the time, but we argue about the bathroom.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who do you take after, your mom or your dad?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I take after my mom. We both love cooking.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Where do your grandparents live?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "In the countryside, about two hours from here.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How often do you see your cousins?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Every Tet. We all get together at my grandma's.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Is your family very close?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Pretty close. We have dinner together every night.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you the oldest in your family?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No, I'm the middle child. I have to share everything.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you still live with your parents?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes, for now. I'm saving up to rent my own place.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's your mom like?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "She's very kind, but she's strict about homework.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What does your dad do for a living?",
+   "a": "He's a bus driver. He's been one for twenty years.",
+   "w": [
+    "He lives in the countryside.",
+    "He is fifty years old.",
+    "He likes cooking a lot."
+   ],
+   "why": "do for a living = làm nghề gì → nói nghề: He is a bus driver."
+  },
+  {
+   "q": "Do you get along with your sister?",
+   "a": "Most of the time, but we argue about the bathroom.",
+   "w": [
+    "Yes, we walked along the river.",
+    "She lives in the countryside.",
+    "It takes about two hours."
+   ],
+   "why": "get along with = hợp với → trả lời mức độ hợp nhau."
+  },
+  {
+   "q": "Where do your grandparents live?",
+   "a": "In the countryside, about two hours from here.",
+   "w": [
+    "Every Tet. We all get together.",
+    "For about fifty years.",
+    "Pretty good, thanks."
+   ],
+   "why": "Where …? hỏi nơi chốn → trả lời nơi ở."
+  },
+  {
+   "q": "Is your family very close?",
+   "a": "Pretty close. We have dinner together every night.",
+   "w": [
+    "Yes, please close the window.",
+    "About two hours from here.",
+    "It is open until nine."
+   ],
+   "why": "close (gắn bó) → kể gia đình hay làm gì cùng nhau."
+  },
+  {
+   "q": "Do you still live with your parents?",
+   "a": "Yes, for now. I'm saving up to rent my own place.",
+   "w": [
+    "I'm the middle child.",
+    "He is a bus driver.",
+    "She's strict about homework."
+   ],
+   "why": "Do you still live with …? → trả lời Yes / No kèm lý do."
+  }
+ ],
+ "p2": [
+  {
+   "q": "Do you have any brothers or sisters?",
+   "o": [
+    "Yes, I have an older sister and a younger brother.",
+    "It takes about two hours.",
+    "No, thanks, I'm full."
+   ],
+   "a": 0
+  },
+  {
+   "q": "What does your dad do for a living?",
+   "o": [
+    "Twenty years ago.",
+    "He's a bus driver. He's been one for twenty years.",
+    "He lives in the countryside."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Do you get along with your sister?",
+   "o": [
+    "She is twenty-three.",
+    "Along the river, please.",
+    "Most of the time, but we argue about the bathroom."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Who do you take after, your mom or your dad?",
+   "o": [
+    "I take after my mom. We both love cooking.",
+    "I took a taxi after work.",
+    "Yes, after school."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Where do your grandparents live?",
+   "o": [
+    "Every Tet.",
+    "In the countryside, about two hours from here.",
+    "They are very kind."
+   ],
+   "a": 1
+  },
+  {
+   "q": "How often do you see your cousins?",
+   "o": [
+    "At the bus station.",
+    "About two hours.",
+    "Every Tet. We all get together at my grandma's."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Is your family very close?",
+   "o": [
+    "Pretty close. We have dinner together every night.",
+    "The shop closes at nine.",
+    "It is on the second floor."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Are you the oldest in your family?",
+   "o": [
+    "I'm saving up for a laptop.",
+    "No, I'm the middle child. I have to share everything.",
+    "Yes, in the kitchen."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Do you still live with your parents?",
+   "o": [
+    "She is strict about homework.",
+    "He is a bus driver.",
+    "Yes, for now. I'm saving up to rent my own place."
+   ],
+   "a": 2
+  },
+  {
+   "q": "What's your mom like?",
+   "o": [
+    "She's very kind, but she's strict about homework.",
+    "She is like a bus.",
+    "About two hours from here."
+   ],
+   "a": 0
+  }
+ ]
+}

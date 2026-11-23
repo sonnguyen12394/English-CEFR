@@ -1,0 +1,109 @@
+{
+ "n": 1028,
+ "nguon": "💬 Giao tiếp · Sở thích & cuối tuần · bài tự soạn",
+ "id": "gt-st-08",
+ "muc": "gt",
+ "chu": "gt-st",
+ "dang": "📢 Bài nói",
+ "kind": "Tin nhắn thoại rủ chơi game hợp tác",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hey Duy, it's Kai. Are you free tonight?",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I've just downloaded that new co-op game everyone's talking about.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "You play as a team, so nobody can win alone.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "The first level is easy enough for beginners like us.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "If we practise a bit, we'll beat the boss by Sunday.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I'm too tired to play all night, though.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Let's play for an hour or two, then call it a night.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I love playing with you because you never rage quit.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Text me back if you're in. Catch you later!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did Kai just do?",
+   "a": "Downloaded a new co-op game",
+   "w": [
+    "Finished a boss level",
+    "Bought a new phone",
+    "Joined a team"
+   ],
+   "why": "“I've just downloaded that new co-op game.”"
+  },
+  {
+   "q": "What does Kai say about the first level?",
+   "a": "It is easy enough for beginners.",
+   "w": [
+    "It is too hard for anyone.",
+    "It takes all night.",
+    "It has no boss."
+   ],
+   "why": "“easy enough for beginners like us”."
+  },
+  {
+   "q": "Why can't Kai play all night?",
+   "a": "Kai is too tired.",
+   "w": [
+    "Kai has a test.",
+    "Kai lost the game.",
+    "Kai has no phone."
+   ],
+   "why": "“I'm too tired to play all night.”"
+  },
+  {
+   "q": "What does Kai want Duy to do?",
+   "a": "Text back if he is in",
+   "w": [
+    "Call Kai tonight",
+    "Download another game",
+    "Wait until Sunday"
+   ],
+   "why": "“Text me back if you're in.”"
+  }
+ ]
+}

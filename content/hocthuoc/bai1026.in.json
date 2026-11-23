@@ -1,0 +1,277 @@
+{
+ "n": 1026,
+ "nguon": "💬 Giao tiếp · Sở thích & cuối tuần · bài tự soạn",
+ "id": "gt-st-06",
+ "muc": "gt",
+ "chu": "gt-st",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về cuối tuần",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "What are you up to this weekend?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Nothing much. I might just chill at home.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you free on Saturday afternoon?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, I'm free after two. Why?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "We're going hiking on Sunday. Wanna come?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'd love to, but I've got a lot of homework.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How was your weekend?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Pretty relaxing. I binge-watched a whole series.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Did you do anything fun last Sunday?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, I went cycling with Tam.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What time shall we meet?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "How about ten? That gives us plenty of time.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can you give me a lift to the stadium?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No problem. I'll pick you up at nine.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you think it's going to rain on Saturday?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I hope not. We're playing football in the park.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why don't we have a movie night at my place?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sounds good! I'll bring the popcorn.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "You look exhausted. Rough week?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Totally. I just want to take it easy this weekend.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "We're going hiking on Sunday. Wanna come?",
+   "a": "I'd love to, but I've got a lot of homework.",
+   "w": [
+    "I went hiking on Sunday.",
+    "Yes, the hiking is long.",
+    "I don't wear a hat."
+   ],
+   "why": "Wanna come? = rủ đi cùng → trả lời đồng ý / từ chối kèm lý do: I'd love to, but …"
+  },
+  {
+   "q": "Can you give me a lift to the stadium?",
+   "a": "No problem. I'll pick you up at nine.",
+   "w": [
+    "Yes, the stadium is big.",
+    "It lifts my bag.",
+    "I gave you a gift."
+   ],
+   "why": "give me a lift = cho đi nhờ xe → nhận lời: No problem. I'll pick you up …"
+  },
+  {
+   "q": "Why don't we have a movie night at my place?",
+   "a": "Sounds good! I'll bring the popcorn.",
+   "w": [
+    "Yes, I went to the cinema.",
+    "My place is next to you.",
+    "The movie was last year."
+   ],
+   "why": "Why don't we …? = gợi ý → đồng ý: Sounds good!"
+  },
+  {
+   "q": "What are you up to this weekend?",
+   "a": "Nothing much. I might just chill at home.",
+   "w": [
+    "Up to the top floor.",
+    "Yes, I am up.",
+    "It was great, thanks."
+   ],
+   "why": "What are you up to? hỏi kế hoạch → kể kế hoạch: Nothing much. I might …"
+  },
+  {
+   "q": "How was your weekend?",
+   "a": "Pretty relaxing. I binge-watched a whole series.",
+   "w": [
+    "Next weekend is fine.",
+    "On Saturday and Sunday.",
+    "I will have a good weekend."
+   ],
+   "why": "How was …? hỏi về cuối tuần đã qua → kể lại: Pretty relaxing. …"
+  }
+ ],
+ "p2": [
+  {
+   "q": "What are you up to this weekend?",
+   "o": [
+    "Nothing much. I might just chill at home.",
+    "Yes, I'm up at six.",
+    "It was quite relaxing."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Are you free on Saturday afternoon?",
+   "o": [
+    "Yes, it's free of charge.",
+    "Yeah, I'm free after two. Why?",
+    "I was at home on Saturday."
+   ],
+   "a": 1
+  },
+  {
+   "q": "We're going hiking on Sunday. Wanna come?",
+   "o": [
+    "I went hiking last year.",
+    "Yes, Sunday is the seventh day.",
+    "I'd love to, but I've got a lot of homework."
+   ],
+   "a": 2
+  },
+  {
+   "q": "How was your weekend?",
+   "o": [
+    "Pretty relaxing. I binge-watched a whole series.",
+    "It will be on Sunday.",
+    "Next to the cinema."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Did you do anything fun last Sunday?",
+   "o": [
+    "Sunday is my favourite day.",
+    "Yeah, I went cycling with Tam.",
+    "I'm doing it next Sunday."
+   ],
+   "a": 1
+  },
+  {
+   "q": "What time shall we meet?",
+   "o": [
+    "It's a long time.",
+    "We met last year.",
+    "How about ten? That gives us plenty of time."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Can you give me a lift to the stadium?",
+   "o": [
+    "No problem. I'll pick you up at nine.",
+    "Yes, the lift is broken.",
+    "I gave you a gift."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Do you think it's going to rain on Saturday?",
+   "o": [
+    "Yes, I think it's a good idea.",
+    "I hope not. We're playing football in the park.",
+    "It rained last Saturday."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Why don't we have a movie night at my place?",
+   "o": [
+    "The movie starts at nine.",
+    "My place is far from here.",
+    "Sounds good! I'll bring the popcorn."
+   ],
+   "a": 2
+  },
+  {
+   "q": "You look exhausted. Rough week?",
+   "o": [
+    "Totally. I just want to take it easy this weekend.",
+    "Yes, the week has seven days.",
+    "It is rough on the table."
+   ],
+   "a": 0
+  }
+ ]
+}

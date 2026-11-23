@@ -1,0 +1,122 @@
+{
+ "n": 1029,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "Chat nhóm",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "✉️ Văn bản",
+ "kind": "Group chat · Saturday playlist",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Group chat · Saturday playlist",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Nam: Okay team, who's in charge of the music for the lake picnic?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hoa: I'll make a playlist! I'm obsessed with indie songs right now.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Bao: Please no sad songs. We want upbeat stuff to sing along to.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hoa: Haha, fair enough. I'll add some old classics too.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Nam: Nice! Is anyone bringing a speaker? My phone is too quiet.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Bao: I've got a portable one. I'll bring it, no worries.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hoa: Perfect. Send me your favourite songs by Friday night!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Chỗ trống 1: Okay team, who's ___ charge of the music for the lake picnic?",
+   "a": "in",
+   "w": [
+    "on",
+    "at",
+    "for"
+   ],
+   "why": "be in charge of = phụ trách."
+  },
+  {
+   "q": "Chỗ trống 2: I'm ___ with indie songs right now.",
+   "a": "obsessed",
+   "w": [
+    "obsess",
+    "obsession",
+    "obsessive"
+   ],
+   "why": "be obsessed with = mê mẩn; sau am là tính từ."
+  },
+  {
+   "q": "Chỗ trống 3: We want upbeat stuff to sing ___ to.",
+   "a": "along",
+   "w": [
+    "around",
+    "across",
+    "through"
+   ],
+   "why": "sing along (to) = hát theo."
+  },
+  {
+   "q": "Chỗ trống 4: Haha, fair ___. I'll add some old classics too.",
+   "a": "enough",
+   "w": [
+    "sure",
+    "right",
+    "good"
+   ],
+   "why": "Fair enough = cũng phải (chấp nhận ý bạn)."
+  },
+  {
+   "q": "Who will bring a speaker?",
+   "a": "Bao",
+   "w": [
+    "Hoa",
+    "Nam",
+    "Nobody"
+   ],
+   "why": "Bao: “I've got a portable one. I'll bring it.”"
+  },
+  {
+   "q": "What does Hoa ask everyone to do by Friday night?",
+   "a": "Send her their favourite songs",
+   "w": [
+    "Bring a speaker",
+    "Buy some snacks",
+    "Choose a lake"
+   ],
+   "why": "Hoa: “Send me your favourite songs by Friday night!”"
+  }
+ ]
+}
