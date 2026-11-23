@@ -1142,7 +1142,7 @@ const BAI90 = {
       "at",
       "on",
       "in",
-      "by"
+      "for"
      ],
      "a": 0,
      "vi": "at + giờ."
