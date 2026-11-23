@@ -1,0 +1,277 @@
+{
+ "n": 1003,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-03",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp với bạn bè",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Long time no see! How have you been?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Pretty good, thanks. Busy with school.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you want to hang out this weekend?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure, what did you have in mind?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Sorry, come again? It's really noisy here.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I said, let's go somewhere quieter.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why didn't you reply to my message?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sorry, my phone died.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can I borrow your charger for a sec?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure, it's in my bag.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Guess what? I passed my driving test!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No way! Congrats!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you still mad at me?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Nah, it's all good now.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who's coming to Linh's birthday?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Pretty much everyone from our class.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you mind if I bring a friend?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not at all, the more the merrier.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Shall we split the bill?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sounds fair to me.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Long time no see! How have you been?",
+   "a": "Pretty good, thanks. Busy with school.",
+   "w": [
+    "I've been to Hanoi twice.",
+    "Since last Monday.",
+    "See you later!"
+   ],
+   "why": "How have you been? hỏi dạo này thế nào → kể tình hình: Pretty good…"
+  },
+  {
+   "q": "Sorry, come again? It's really noisy here.",
+   "a": "I said, let's go somewhere quieter.",
+   "w": [
+    "Yes, I came again yesterday.",
+    "It's not my noise.",
+    "Come in, please."
+   ],
+   "why": "Sorry, come again? = nhờ nói lại → nhắc lại câu: I said, …"
+  },
+  {
+   "q": "Guess what? I passed my driving test!",
+   "a": "No way! Congrats!",
+   "w": [
+    "I'll guess it later.",
+    "The test drive is free.",
+    "Turn left here."
+   ],
+   "why": "Bạn báo tin vui → phản ứng ngạc nhiên + chúc mừng."
+  },
+  {
+   "q": "Do you mind if I bring a friend?",
+   "a": "Not at all, the more the merrier.",
+   "w": [
+    "Yes, she's my friend.",
+    "I don't mind the weather.",
+    "I'll bring it back."
+   ],
+   "why": "Do you mind if …? → Not at all = không phiền (đồng ý)."
+  },
+  {
+   "q": "Shall we split the bill?",
+   "a": "Sounds fair to me.",
+   "w": [
+    "The bill is on the table.",
+    "I split my jeans.",
+    "At the new restaurant."
+   ],
+   "why": "Shall we …? = rủ → Sounds fair = đồng ý."
+  }
+ ],
+ "p2": [
+  {
+   "q": "Long time no see! How have you been?",
+   "o": [
+    "Pretty good, thanks. Busy with school.",
+    "I've been to Hanoi twice.",
+    "Since last Monday."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Do you want to hang out this weekend?",
+   "o": [
+    "I hung it on the wall.",
+    "Sure, what did you have in mind?",
+    "It's out of the shop."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Sorry, come again? It's really noisy here.",
+   "o": [
+    "Yes, I came again yesterday.",
+    "It's not my noise.",
+    "I said, let's go somewhere quieter."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Why didn't you reply to my message?",
+   "o": [
+    "Sorry, my phone died.",
+    "I'll send a message.",
+    "It was a long reply."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Can I borrow your charger for a sec?",
+   "o": [
+    "It charges two dollars.",
+    "Sure, it's in my bag.",
+    "For a second time."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Guess what? I passed my driving test!",
+   "o": [
+    "I'll guess it later.",
+    "The test drive is free.",
+    "No way! Congrats!"
+   ],
+   "a": 2
+  },
+  {
+   "q": "Are you still mad at me?",
+   "o": [
+    "Nah, it's all good now.",
+    "I'm still at home.",
+    "Yes, I made it myself."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Who's coming to Linh's birthday?",
+   "o": [
+    "It's coming on Sunday.",
+    "Pretty much everyone from our class.",
+    "She's twenty."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Do you mind if I bring a friend?",
+   "o": [
+    "Yes, she's my friend.",
+    "I don't mind the weather.",
+    "Not at all, the more the merrier."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Shall we split the bill?",
+   "o": [
+    "Sounds fair to me.",
+    "The bill is on the table.",
+    "I split my jeans."
+   ],
+   "a": 0
+  }
+ ]
+}

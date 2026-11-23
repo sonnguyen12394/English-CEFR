@@ -58,3 +58,18 @@ Thư mục: `content/hocthuoc/` (chạy lệnh ở gốc repo). Máy kiểm: `no
 ## Kiểm
 
 Sau mỗi bài chạy: `node /tmp/claude-0/-home-user-English-CEFR/48c67d5c-dc08-58ba-be65-4b058158838d/scratchpad/bai/check.mjs /tmp/claude-0/-home-user-English-CEFR/48c67d5c-dc08-58ba-be65-4b058158838d/scratchpad/bai/baiN.js`, sửa tới khi in "OK bài N". Rồi tự đọc lại đáp án, nhiễu, dịch.
+
+## Bài 💬 Giao tiếp hằng ngày (đặc tả 022, v211; mẫu đã làm: bai1001 hội thoại · bai1002 chat nhóm ✉️ · bai1003 hỏi – đáp)
+
+Khác bài TOEIC ở chỗ bài gốc do Claude TỰ SOẠN, không lấy từ đề. Mọi luật ở trên vẫn áp dụng (máy kiểm `check.mjs` như nhau).
+
+- **Số bài** từ 1001 (bài TOEIC < 1000). Mỗi chủ đề 10 bài = 5 dạng × 2.
+- **Chủ đề** (mã `chu`, mục 2.2 của `docs/KE-HOACH-HOC-THUOC.md`): gt-bt · gt-bb · gt-st · gt-cx · gt-kc · gt-hn · gt-hd · gt-kh. KHÔNG soạn tình huống TOEIC đã có (mua sắm, nhà hàng, đặt vé, khách sạn, bác sĩ, thuê nhà, sửa đồ, gọi điện đặt lịch).
+- **baiN.in.json viết tay** (không chạy prep2): `{ n, nguon: '💬 Giao tiếp · <chủ đề> · bài tự soạn', id: 'gt-<chủ đề>-NN', muc: 'gt', chu, dang, kind, title, g: null, L: [[người nói, câu tiếng Anh, '', '']], exq: [{ q, a, w: [3 sai], why }] }`; dạng 💬 Hỏi – đáp thêm `p2: [{ q, o: [3 lời đáp], a: chỉ số đúng }]` (bộ ⚡ Phản xạ, xoay vị trí đúng 0 / 1 / 2). Cách nhanh: soạn baiN.js trước rồi sinh in.json từ L + EXQ (như đã làm cho bai1001–1003).
+- **meta.de** = '💬 Giao tiếp · <biểu tượng> <chủ đề> · <loại>' (không ghi "Đề N"). `who`: tên riêng tiếng Anh + 'Nữ' / 'Nam'; chat nhóm W: ['Chat nhóm', '✉️'].
+- **Độ dài, cấp**: A2–B1. Hội thoại 2–3 người 80–140 từ; bài nói (một người kể / tin nhắn thoại / vlog) 70–120 từ; ✉️ tin nhắn / chat nhóm / bài mạng xã hội 4 chỗ trống (q = 'Chỗ trống k: <câu chứa chỗ đó với ___>', câu phải có nguyên văn trong một dòng của L); 📄 blog / diễn đàn ngắn + ≥ 3 câu hỏi hiểu; 💬 10 câu nói thường ngày + lời đáp tự nhiên.
+- **Lối nói thân mật** (bắt buộc, test C104): trong 7 cụm CUM có ≥ 2 cụm dạng `[cụm, nghĩa, '💬 … khi nào dùng / không dùng (thi, e-mail công việc)']` (gonna, kinda, No way!, Sounds good, Count me in, Got it…).
+- **EXQ** tự soạn ≥ 3 câu, đáp án chỉ một (đặt từng phương án sai vào chỗ trống / câu hỏi để thử). Phương án sai của 💬 Hỏi – đáp không được là lời đáp gián tiếp hợp lý.
+- **Giọng**: chưa có Kokoro thì để mã giọng rỗng '' (trang đọc bằng giọng máy); khi dựng Kokoro thì thêm nguồn `content/hocthuoc` vào `tools/build-audio.py`.
+- **Tên bài Nền** trong MU g: chép đúng `title` trong `np.json` (máy đo được; v210 sai 20 / 195 chỗ).
+- Không sinh VNY / IPA / STR / LK bằng script (v210: một nhóm bài bị trả lại vì việc này).
