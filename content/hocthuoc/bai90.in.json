@@ -1,0 +1,101 @@
+{
+ "n": 90,
+ "nguon": "Đề 2 · Part 6 · 4",
+ "id": "t6-ad",
+ "dang": "✉️ Văn bản",
+ "kind": "Advertisement",
+ "title": "Summit Fitness Center",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Looking for a place to stay active this winter?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Summit Fitness Center offers modern equipment, group classes and a heated indoor pool.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "New members who sign up before January 31 will receive their first month free of charge.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "In addition, every new member gets a free fitness assessment.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our certified trainers will create a personal plan based on your goals.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Classes are held every morning and evening, so you can always find a time that suits your schedule.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Visit our website to schedule a free tour.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "free of",
+   "w": [
+    "free from",
+    "freely",
+    "freedom"
+   ],
+   "why": "free of charge = miễn phí.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "In addition, every new member gets a free fitness assessment.",
+   "w": [
+    "The heated indoor pool will close for the winter.",
+    "However, group classes are no longer available.",
+    "These trainers have helped thousands of people reach their goals."
+   ],
+   "why": "\"In addition\" thêm một quà nữa cho hội viên mới, nối ưu đãi tháng đầu với câu huấn luyện viên lập kế hoạch. Hồ bơi đóng mùa đông và hết lớp nhóm ngược với câu đầu; \"These trainers\" nhắc huấn luyện viên trước khi câu sau giới thiệu.",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "every",
+   "w": [
+    "either",
+    "several",
+    "each of"
+   ],
+   "why": "every + danh từ số ít: every morning and evening (mỗi sáng và tối). either phải đi với or; several cần danh từ số nhiều (several mornings); each of cần the / danh từ số nhiều.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "schedule",
+   "w": [
+    "scheduling",
+    "scheduled",
+    "schedules"
+   ],
+   "why": "to + động từ nguyên mẫu: to schedule a tour.",
+   "ty": "word"
+  }
+ ],
+ "chu": "an",
+ "muc": "toeic"
+}

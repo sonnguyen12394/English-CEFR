@@ -2,7 +2,7 @@
  "n": 9,
  "nguon": "Đề 1 · Part 6 · đoạn 3",
  "id": "t6-office",
- "chu": "Công sở & cuộc họp",
+ "chu": "vp",
  "dang": "✉️ Văn bản",
  "kind": "Memo",
  "title": "To: Marketing Department · From: Office Manager · Subject: Office move",
@@ -95,5 +95,6 @@
    "why": "your + danh từ: your patience (sự kiên nhẫn).",
    "ty": "word"
   }
- ]
+ ],
+ "muc": "toeic"
 }

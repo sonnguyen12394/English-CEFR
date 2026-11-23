@@ -1,0 +1,222 @@
+{
+ "n": 99,
+ "nguon": "Đề 2 · Part 7 · 11",
+ "id": "t7-m-rent",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Advertisement + form",
+ "title": "Office space for rent — Maple Business Park · Rental application form",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Office space for rent — Maple Business Park",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Fully furnished offices available from August 1.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Small office (2 desks): $900/month.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Medium office (5 desks): $1,800/month.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Large office (10 desks): $3,200/month.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "All offices include internet, cleaning and access to shared meeting rooms.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Free parking for tenants.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Minimum lease: 6 months.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Contact Leasing Manager Olivia Park at 555-0142.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Rental application form",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Company: Bluefin Design",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Contact: Sam Okafor",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Number of employees: 4 (planning to hire 3 more next year)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Preferred start date: August 1",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lease length: 12 months",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Comments: We often meet clients, so access to meeting rooms is important.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We would like an office large enough for our team to grow.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is included in the price of every office?",
+   "a": "Cleaning",
+   "w": [
+    "Furniture delivery",
+    "Phone calls",
+    "Lunch"
+   ],
+   "why": "All offices include internet, cleaning…",
+   "lg": {
+    "og": {
+     "Cleaning": "Dọn dẹp",
+     "Furniture delivery": "Giao nội thất",
+     "Phone calls": "Cuộc gọi điện thoại",
+     "Lunch": "Bữa trưa"
+    },
+    "ly": "Quảng cáo ghi mọi văn phòng đều gồm internet, dọn dẹp và phòng họp chung.",
+    "dich": "Mọi văn phòng đều gồm internet, dọn dẹp và quyền dùng phòng họp chung."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Which office will Bluefin Design most likely rent?",
+   "a": "The large office",
+   "w": [
+    "The small office",
+    "The medium office",
+    "Two small offices"
+   ],
+   "why": "Đối chiếu: 4 người + 3 người nữa = 7 > 5 bàn của văn phòng vừa → văn phòng lớn 10 bàn.",
+   "lg": {
+    "og": {
+     "The large office": "Văn phòng lớn",
+     "The small office": "Văn phòng nhỏ",
+     "The medium office": "Văn phòng vừa",
+     "Two small offices": "Hai văn phòng nhỏ"
+    },
+    "ly": "Bluefin có 4 nhân viên và sẽ thuê thêm 3 người, tổng 7, và muốn văn phòng đủ lớn để phát triển. Văn phòng lớn (10 bàn) hợp nhất.",
+    "dich": "Chúng tôi muốn văn phòng đủ rộng để nhóm có thể phát triển."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "Why are meeting rooms important to Mr. Okafor?",
+   "a": "His company often meets clients.",
+   "w": [
+    "His team holds daily training.",
+    "He plans to rent them to others.",
+    "His office has no internet."
+   ],
+   "why": "We often meet clients.",
+   "lg": {
+    "og": {
+     "His company often meets clients.": "Công ty ông thường gặp khách",
+     "His team holds daily training.": "Nhóm ông tập huấn hằng ngày",
+     "He plans to rent them to others.": "Ông định cho thuê lại",
+     "His office has no internet.": "Văn phòng ông không có internet"
+    },
+    "ly": "Phần ghi chú nói họ thường gặp khách nên cần phòng họp.",
+    "dich": "Chúng tôi thường gặp khách hàng, nên việc được dùng phòng họp là quan trọng."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is suggested about Bluefin Design's lease?",
+   "a": "It is longer than the minimum required.",
+   "w": [
+    "It begins later than August.",
+    "It is shorter than the minimum required.",
+    "It includes paid parking."
+   ],
+   "why": "12 tháng > tối thiểu 6 tháng.",
+   "lg": {
+    "og": {
+     "It is longer than the minimum required.": "Dài hơn mức tối thiểu",
+     "It begins later than August.": "Bắt đầu sau tháng 8",
+     "It is shorter than the minimum required.": "Ngắn hơn mức tối thiểu",
+     "It includes paid parking.": "Có phí đỗ xe"
+    },
+    "ly": "Hợp đồng tối thiểu 6 tháng, còn Bluefin muốn thuê 12 tháng nên dài hơn tối thiểu.",
+    "dich": "Thời hạn thuê: 12 tháng."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "In the advertisement, the word \"shared\" is closest in meaning to",
+   "a": "common",
+   "w": [
+    "divided",
+    "told",
+    "equal"
+   ],
+   "why": "\"shared meeting rooms\" = phòng họp dùng chung cho mọi khách thuê (common), không phải \"chia ra\" (divided).",
+   "lg": {
+    "og": {
+     "common": "chung",
+     "divided": "chia",
+     "told": "kể",
+     "equal": "bằng nhau"
+    },
+    "ly": "\"Shared meeting rooms\" là phòng họp dùng chung, gần nghĩa nhất với common.",
+    "dich": "Tất cả văn phòng đều được dùng phòng họp chung."
+   },
+   "ty": "syn"
+  }
+ ],
+ "chu": "nha",
+ "muc": "toeic"
+}

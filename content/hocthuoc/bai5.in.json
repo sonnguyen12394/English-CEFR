@@ -2,7 +2,7 @@
  "n": 5,
  "nguon": "Đề 5 · Part 4 · bài 2",
  "id": "d05-p4-02",
- "chu": "Mua hàng & giao hàng",
+ "chu": "mb",
  "dang": "📢 Bài nói",
  "kind": "ann",
  "title": "",
@@ -84,5 +84,6 @@
    "ty": "detail",
    "ev": "Freshway rewards members get an extra five percent off their total purchase every Tuesday"
   }
- ]
+ ],
+ "muc": "toeic"
 }

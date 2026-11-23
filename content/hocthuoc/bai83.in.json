@@ -1,0 +1,87 @@
+{
+ "n": 83,
+ "nguon": "Đề 2 · Part 4 · 7",
+ "id": "t4-07",
+ "dang": "📢 Bài nói",
+ "kind": "msg",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hi, this is Marcus from the IT department.",
+   "",
+   "a98a38457"
+  ],
+  [
+   "N",
+   "I'm calling to let you know that we'll be upgrading the company's e-mail system this Saturday from eight A.M.",
+   "",
+   "aadbe2d10"
+  ],
+  [
+   "N",
+   "to noon.",
+   "",
+   "a3bef70e6"
+  ],
+  [
+   "N",
+   "During that time, you won't be able to send or receive messages.",
+   "",
+   "ae63f85dc"
+  ],
+  [
+   "N",
+   "Any e-mails sent to you during the upgrade will be delivered once the system is back online.",
+   "",
+   "a87884cb1"
+  ],
+  [
+   "N",
+   "If you have any urgent matters, please contact clients by phone instead.",
+   "",
+   "ae06dbc83"
+  ],
+  [
+   "N",
+   "Thanks for your patience.",
+   "",
+   "ad3cac601"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the message?",
+   "a": "To announce a system upgrade",
+   "w": [
+    "To request a new computer",
+    "To report a security problem",
+    "To schedule a training session"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What will happen to e-mails sent during the upgrade?",
+   "a": "They will be delivered later.",
+   "w": [
+    "They will be deleted.",
+    "They will be returned to the sender.",
+    "They will be forwarded to IT."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the speaker suggest for urgent matters?",
+   "a": "Using the phone",
+   "w": [
+    "Coming to the office",
+    "Writing a letter",
+    "Waiting until Monday"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "kt",
+ "muc": "toeic"
+}

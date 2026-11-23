@@ -1,0 +1,69 @@
+{
+ "n": 74,
+ "nguon": "Đề 2 · Part 3 · 8",
+ "id": "t3-20",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "I just heard that Ms. Alvarez is retiring at the end of the month.",
+   "",
+   "a235e6361"
+  ],
+  [
+   "B",
+   "Really? She's led the accounting team for twenty years. We should do something for her.",
+   "",
+   "aba137b59"
+  ],
+  [
+   "A",
+   "How about a lunch at the Italian restaurant across the street? I can collect money from the team.",
+   "",
+   "a84b24083"
+  ],
+  [
+   "B",
+   "Good. I'll book a table for Friday the twenty-eighth and order a card for everyone to sign.",
+   "",
+   "ae6c45772"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What are the speakers discussing?",
+   "a": "A colleague's retirement",
+   "w": [
+    "A new accountant",
+    "A restaurant opening",
+    "A team budget"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the woman offer to do?",
+   "a": "Collect money",
+   "w": [
+    "Write a speech",
+    "Order flowers",
+    "Contact Ms. Alvarez"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What will the man do?",
+   "a": "Reserve a table",
+   "w": [
+    "Plan a trip",
+    "Hire a caterer",
+    "Print a schedule"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "ns",
+ "muc": "toeic"
+}

@@ -1,0 +1,69 @@
+{
+ "n": 73,
+ "nguon": "Đề 2 · Part 3 · 7",
+ "id": "t3-06",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "B",
+   "Hi, Amanda. I heard you're moving to the Singapore office next month.",
+   "",
+   "a3ad74d8f"
+  ],
+  [
+   "A",
+   "That's right. I'll be managing the new marketing team there. I'm excited, but there's a lot to organize.",
+   "",
+   "a7f3695eb"
+  ],
+  [
+   "B",
+   "I worked there for two years. If you'd like, I can give you a list of good neighborhoods to live in.",
+   "",
+   "ae515e3c0"
+  ],
+  [
+   "A",
+   "That would be really helpful, thanks. Could you e-mail it to me?",
+   "",
+   "a77535eb6"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the woman going to do next month?",
+   "a": "Transfer to another office",
+   "w": [
+    "Start a new company",
+    "Take a vacation",
+    "Retire from her job"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the man offer to do?",
+   "a": "Recommend places to live",
+   "w": [
+    "Help her pack",
+    "Introduce her to a client",
+    "Train her new team"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "Why is the man able to help?",
+   "a": "He used to work in Singapore.",
+   "w": [
+    "He manages the marketing team.",
+    "He owns property there.",
+    "He is moving with her."
+   ],
+   "ty": "detail"
+  }
+ ],
+ "chu": "ns",
+ "muc": "toeic"
+}

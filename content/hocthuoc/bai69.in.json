@@ -1,0 +1,75 @@
+{
+ "n": 69,
+ "nguon": "Đề 2 · Part 3 · 3",
+ "id": "t3-24",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Thanks for joining me, Tom and Lisa. As you know, we're moving to the new building on the fifteenth.",
+   "",
+   "a74caf32e"
+  ],
+  [
+   "B",
+   "Do we know who's packing the computers? Last time it took the IT team two days to set everything up again.",
+   "",
+   "a61e264d4"
+  ],
+  [
+   "C",
+   "I spoke to the IT manager this morning. They'll come in over the weekend, so nothing will be down on Monday.",
+   "",
+   "aa39b4ce7"
+  ],
+  [
+   "A",
+   "Perfect. Then, Tom, could you make sure every box has a label with the employee's name and new desk number?",
+   "",
+   "a3d7cfcf9"
+  ],
+  [
+   "B",
+   "Sure. I'll pick up some labels from the supply room this afternoon.",
+   "",
+   "a64d08fbc"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What are the speakers mainly discussing?",
+   "a": "An office move",
+   "w": [
+    "A computer upgrade",
+    "A new employee",
+    "A weekend event"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does Lisa say about the IT team?",
+   "a": "They will work over the weekend.",
+   "w": [
+    "They need two more days.",
+    "They are short of staff.",
+    "They will buy new computers."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What will the man do this afternoon?",
+   "a": "Get some labels",
+   "w": [
+    "Pack his computer",
+    "Visit the new building",
+    "Call the IT manager"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "vp",
+ "muc": "toeic"
+}

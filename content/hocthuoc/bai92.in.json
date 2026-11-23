@@ -1,0 +1,114 @@
+{
+ "n": 92,
+ "nguon": "Đề 2 · Part 7 · 4",
+ "id": "t7-memo2",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Memo",
+ "title": "MEMO · To: All staff · From: Linda Cho, Office Manager · Re: Kitchen renovation",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "The staff kitchen on the fourth floor will be renovated from Monday, November 3, to Friday, November 14.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "During this time, the kitchen will be completely closed.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Coffee and tea will be available in the meeting room on the third floor, and the microwave there may be used between 11:30 A.M. and 2:00 P.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please remove any personal items from the kitchen refrigerator by Friday, October 31.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Anything left after that date will be thrown away.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "When the work is finished, the kitchen will have a larger seating area and a new dishwasher.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the main purpose of the memo?",
+   "a": "To notify staff of a kitchen closure",
+   "w": [
+    "To remind staff of a cleaning schedule",
+    "To announce a new break policy",
+    "To invite staff to a farewell party"
+   ],
+   "why": "The kitchen will be completely closed…",
+   "lg": {
+    "og": {
+     "To notify staff of a kitchen closure": "Để báo nhân viên về việc đóng bếp",
+     "To remind staff of a cleaning schedule": "Để nhắc lịch dọn dẹp",
+     "To announce a new break policy": "Để báo chính sách nghỉ giải lao mới",
+     "To invite staff to a farewell party": "Để mời dự tiệc chia tay"
+    },
+    "ly": "Đáp án \"To notify staff of a kitchen closure\" — Thông báo nói bếp tầng bốn sẽ đóng hoàn toàn hai tuần để cải tạo. Lịch dọn, giờ nghỉ và tiệc chia tay không được nhắc.",
+    "dich": "Bếp nhân viên ở tầng bốn sẽ được cải tạo từ thứ Hai, ngày 3 tháng 11, đến thứ Sáu, ngày 14 tháng 11."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What are employees asked to do by October 31?",
+   "a": "Clear out what they keep in the fridge",
+   "w": [
+    "Pick up coffee from the meeting room",
+    "Choose a time to use the microwave",
+    "Request a place in the larger seating area"
+   ],
+   "why": "Phải lấy đồ cá nhân khỏi tủ lạnh trước thứ Sáu 31/10.",
+   "lg": {
+    "og": {
+     "Clear out what they keep in the fridge": "Dọn những gì họ để trong tủ lạnh",
+     "Pick up coffee from the meeting room": "Lấy cà phê ở phòng họp",
+     "Choose a time to use the microwave": "Chọn giờ dùng lò vi sóng",
+     "Request a place in the larger seating area": "Xin một chỗ trong khu ngồi rộng hơn"
+    },
+    "ly": "Đáp án \"Clear out what they keep in the fridge\" — Thông báo yêu cầu lấy đồ cá nhân khỏi tủ lạnh trước 31/10, nếu không sẽ bị bỏ. Cà phê, lò vi sóng và khu ngồi mới chỉ là thông tin kèm theo.",
+    "dich": "Vui lòng lấy hết đồ cá nhân khỏi tủ lạnh nhà bếp trước thứ Sáu, ngày 31 tháng 10."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What will be added to the kitchen?",
+   "a": "More seating",
+   "w": [
+    "A coffee machine",
+    "A second refrigerator",
+    "A television"
+   ],
+   "why": "a larger seating area and a new dishwasher.",
+   "lg": {
+    "og": {
+     "More seating": "Thêm chỗ ngồi",
+     "A coffee machine": "Một máy pha cà phê",
+     "A second refrigerator": "Tủ lạnh thứ hai",
+     "A television": "Một ti vi"
+    },
+    "ly": "Câu cuối nói bếp sẽ có khu ngồi lớn hơn và máy rửa chén mới, tức thêm chỗ ngồi.",
+    "dich": "Khi công việc hoàn tất, bếp sẽ có khu vực ngồi lớn hơn và một máy rửa chén mới."
+   },
+   "ty": "detail"
+  }
+ ],
+ "chu": "nha",
+ "muc": "toeic"
+}

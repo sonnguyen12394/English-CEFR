@@ -9,6 +9,7 @@ def R(a, b):
     global s; assert a in s, a[:70]; s = s.replace(a, b, 1)
 # danh sách bài đã qua máy kiểm
 idx = []
+CHU = json.load(open(T + '/chu.json'))
 for n in range(1, 400):
     if n <= 2:
         continue
@@ -18,12 +19,12 @@ for n in range(1, 400):
     if r.returncode: print('BỎ bài', n, r.stdout.strip().splitlines()[:3]); continue
     meta = json.loads(subprocess.run(['node', '-e', f"const fs=require('fs'),vm=require('vm');const c={{WHO:{{}}}};vm.createContext(c);vm.runInContext(fs.readFileSync('{f}','utf8')+';this.B=BAI{n}',c);console.log(JSON.stringify(c.B.meta))"], capture_output=True, text=True).stdout)
     extra = subprocess.run(['node', T + '/meta.mjs', B, str(n)], capture_output=True, text=True, cwd=ROOT).stdout.strip() or '{}'
-    open(f'{OUT}/bai/bai{n}.js', 'w').write(open(f).read() + f'\nObject.assign(BAI{n}.meta, {extra});\n'); idx.append({ 'n': n, 'de': meta['de'], 'dang': meta['dang'], 't': meta['t'] })
+    open(f'{OUT}/bai/bai{n}.js', 'w').write(open(f).read() + f'\nObject.assign(BAI{n}.meta, {extra});\n'); ex = json.loads(extra); idx.append({ 'n': n, 'de': meta['de'], 'dang': meta['dang'], 't': meta['t'], 'muc': ex.get('muc', 'toeic'), 'chu': ex.get('chu', '') })
 open(OUT + '/bai/index.js', 'w').write('// Danh sách bài học thuộc (dựng bởi build.py)\nconst BAI_IDX = ' + json.dumps(idx, ensure_ascii=False) + ';\n')
 R('<div class="app" id="app"></div>', '<div class="app" id="app"></div>\n<script src="bai/index.js"></script>\n<script src="bai/nham.js"></script>')
 subprocess.run(['node', T + '/nham.mjs', B, OUT + '/bai/nham.js'], cwd=ROOT)
 R("const BAIS = [BAI1, BAI2], STS = {};", """const BAIS = [BAI1, BAI2], STS = {};
-const BAI_ALL = [{ n: 1, de: BAI1.meta.de, dang: BAI1.meta.dang, t: BAI1.meta.t }, { n: 2, de: BAI2.meta.de, dang: BAI2.meta.dang, t: BAI2.meta.t }, ...(typeof BAI_IDX !== 'undefined' ? BAI_IDX : [])];
+const BAI_ALL = [{ n: 1, de: BAI1.meta.de, dang: BAI1.meta.dang, t: BAI1.meta.t, muc: 'toeic', chu: '""" + CHU['1'] + """' }, { n: 2, de: BAI2.meta.de, dang: BAI2.meta.dang, t: BAI2.meta.t, muc: 'toeic', chu: '""" + CHU['2'] + """' }, ...(typeof BAI_IDX !== 'undefined' ? BAI_IDX : [])];
 // tải bài khi chọn: <script src="bai/baiN.js"> rồi lấy hằng BAIN (hằng toàn cục của script cổ điển, không nằm trên window)
 function baiLoad(n, done) { if (BAIS[n - 1]) return done();
   const sc = document.createElement('script'); sc.src = `bai/bai${n}.js`; sc.onload = () => { try { BAIS[n - 1] = Function('return BAI' + n)(); done(); } catch (e) { alert('Chưa tải được bài ' + n); } };

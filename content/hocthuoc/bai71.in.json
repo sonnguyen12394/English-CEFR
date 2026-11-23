@@ -1,0 +1,75 @@
+{
+ "n": 71,
+ "nguon": "Đề 2 · Part 3 · 5",
+ "id": "t3-28",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Kevin, Grace, thanks for coming. The hotel just told me the garden won't be available for our team dinner on the twenty-second. They're repairing the fountain.",
+   "",
+   "a58d95db6"
+  ],
+  [
+   "B",
+   "That's a shame. We've already sent the invitations with the hotel's address.",
+   "",
+   "a9e47faad"
+  ],
+  [
+   "C",
+   "The hotel has a rooftop terrace, doesn't it? I went to a wedding there last year.",
+   "",
+   "adb47c876"
+  ],
+  [
+   "A",
+   "Grace, that's perfect. I'll ask the manager if it's free that evening.",
+   "",
+   "acbe1679b"
+  ],
+  [
+   "B",
+   "And I'll e-mail everyone if anything changes.",
+   "",
+   "a7105fac6"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is the garden unavailable?",
+   "a": "Repairs are being made.",
+   "w": [
+    "It is too small.",
+    "It is booked for a wedding.",
+    "The weather will be bad."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does Grace imply when she says, \"The hotel has a rooftop terrace, doesn't it\"?",
+   "a": "The dinner could be held in another part of the hotel.",
+   "w": [
+    "She would prefer a different hotel.",
+    "She has never visited the hotel.",
+    "The invitations need to be printed again."
+   ],
+   "ty": "imp"
+  },
+  {
+   "q": "What does the man offer to do?",
+   "a": "Send an update to the guests",
+   "w": [
+    "Call the hotel manager",
+    "Repair a fountain",
+    "Print new invitations"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "an",
+ "muc": "toeic"
+}

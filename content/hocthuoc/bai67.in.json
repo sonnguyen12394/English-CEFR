@@ -1,0 +1,69 @@
+{
+ "n": 67,
+ "nguon": "Đề 2 · Part 3 · 1",
+ "id": "t3-05",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Kevin, the client from Lisbon just confirmed that she'll visit us next Tuesday.",
+   "",
+   "a4f3f450f"
+  ],
+  [
+   "B",
+   "Great. Should I reserve a table at the Italian restaurant for lunch?",
+   "",
+   "adb15c08e"
+  ],
+  [
+   "A",
+   "Actually, she mentioned she's vegetarian. Maybe the new place on Elm Street would be better. They have a lot of vegetarian dishes.",
+   "",
+   "a67b20a12"
+  ],
+  [
+   "B",
+   "Good point. I'll call them this afternoon and book a table for four.",
+   "",
+   "a2697edcc"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who will visit next Tuesday?",
+   "a": "A client",
+   "w": [
+    "A job applicant",
+    "A new manager",
+    "A restaurant owner"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "Why does the woman suggest a different restaurant?",
+   "a": "It offers vegetarian food.",
+   "w": [
+    "It is closer to the office.",
+    "It is less expensive.",
+    "It has a private room."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What will the man do this afternoon?",
+   "a": "Make a reservation",
+   "w": [
+    "Meet the client",
+    "Prepare a presentation",
+    "Order office supplies"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "an",
+ "muc": "toeic"
+}

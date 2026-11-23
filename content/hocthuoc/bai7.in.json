@@ -2,7 +2,7 @@
  "n": 7,
  "nguon": "Đề 7 · Part 3 · bài 4",
  "id": "d07-p3-04",
- "chu": "Công sở & cuộc họp",
+ "chu": "sx",
  "dang": "🗣 Hội thoại",
  "kind": "",
  "title": "",
@@ -78,5 +78,6 @@
    "ty": "next",
    "ev": "Nora, can you print a new set of labels?"
   }
- ]
+ ],
+ "muc": "toeic"
 }

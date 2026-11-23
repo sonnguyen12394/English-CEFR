@@ -1,0 +1,210 @@
+{
+ "n": 102,
+ "nguon": "Đề 2 · Part 7 · 14",
+ "id": "t7-m-order2",
+ "dang": "📄 Đọc hiểu",
+ "kind": "E-mail + invoice + e-mail",
+ "title": "E-mail · To: orders@papercraft.com · From: Julia Benz, Benz Design Studio · Date: April 2 · Invoice — PaperCraft · April 3 · E-mail · To: Julia Benz · From: PaperCraft Customer Service · Date: April 4",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) E-mail · To: orders@papercraft.com · From: Julia Benz, Benz Design Studio · Date: April 2",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello, I'd like to order 500 business cards (model Classic White) and 200 envelopes with our logo.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please deliver them to our studio at 42 Park Lane by April 10, as we are opening a new office that week.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you, Julia Benz",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Invoice — PaperCraft · April 3",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Customer: Benz Design Studio",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "500 business cards, Classic Cream — $75.00",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "200 printed envelopes — $60.00",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Express delivery (by April 8) — $15.00",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Total: $150.00",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) E-mail · To: Julia Benz · From: PaperCraft Customer Service · Date: April 4",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dear Ms. Benz, Thank you for pointing out our mistake.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We will print your cards in the color you requested at no extra cost, and they will still arrive before your deadline.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We have also removed the delivery charge from your invoice.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We apologize for the error.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why did Ms. Benz need the items by April 10?",
+   "a": "Her team is setting up a second location.",
+   "w": [
+    "She is hosting an open house at the studio.",
+    "She is replacing her company's logo.",
+    "Her current supply has run out."
+   ],
+   "why": "Bà cần hàng trước 10/4 vì mở văn phòng mới tuần đó.",
+   "lg": {
+    "og": {
+     "Her team is setting up a second location.": "Nhóm bà đang lập địa điểm thứ hai",
+     "She is hosting an open house at the studio.": "Bà tổ chức ngày mở cửa tại studio",
+     "She is replacing her company's logo.": "Bà thay logo công ty",
+     "Her current supply has run out.": "Lượng hàng hiện có đã hết"
+    },
+    "ly": "Đáp án \"Her team is setting up a second location.\" — Bà cần hàng vì studio mở văn phòng mới tuần đó. Logo chỉ được in lên phong bì, không có sự kiện hay chuyện hết hàng.",
+    "dich": "Xin giao đến studio của chúng tôi trước ngày 10 tháng 4, vì chúng tôi mở văn phòng mới trong tuần đó."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What mistake was made on the invoice?",
+   "a": "The wrong color was listed.",
+   "w": [
+    "The wrong address was listed.",
+    "Too many envelopes were charged.",
+    "The order date was wrong."
+   ],
+   "why": "Đặt Classic White, hoá đơn ghi Classic Cream (đối chiếu).",
+   "lg": {
+    "og": {
+     "The wrong color was listed.": "Ghi sai màu",
+     "The wrong address was listed.": "Ghi sai địa chỉ",
+     "Too many envelopes were charged.": "Tính thừa phong bì",
+     "The order date was wrong.": "Sai ngày đặt"
+    },
+    "ly": "Bà đặt màu Classic White nhưng hoá đơn ghi Classic Cream, và thư trả lời nói sẽ in đúng màu.",
+    "dich": "Chúng tôi sẽ in danh thiếp đúng màu bà yêu cầu mà không tính thêm phí."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "How much will Ms. Benz most likely pay?",
+   "a": "$135.00",
+   "w": [
+    "$150.00",
+    "$75.00",
+    "$120.00"
+   ],
+   "why": "Bỏ phí giao hàng $15: 150 − 15 = 135 (đối chiếu hoá đơn + e-mail).",
+   "lg": {
+    "og": {
+     "$135.00": "135 đô la",
+     "$150.00": "150 đô la",
+     "$75.00": "75 đô la",
+     "$120.00": "120 đô la"
+    },
+    "ly": "Tổng hoá đơn là 150 đô la và công ty đã bỏ phí giao hàng 15 đô la, nên còn 135 đô la.",
+    "dich": "Chúng tôi cũng đã xoá phí giao hàng khỏi hoá đơn của bà."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "What is suggested about the cards?",
+   "a": "They will be delivered before April 10.",
+   "w": [
+    "They will cost more than planned.",
+    "They will be sent to a new address.",
+    "They will be printed by another company."
+   ],
+   "why": "they will still arrive before your deadline.",
+   "lg": {
+    "og": {
+     "They will be delivered before April 10.": "Sẽ được giao trước ngày 10/4",
+     "They will cost more than planned.": "Sẽ đắt hơn dự kiến",
+     "They will be sent to a new address.": "Sẽ gửi đến địa chỉ mới",
+     "They will be printed by another company.": "Sẽ do công ty khác in"
+    },
+    "ly": "Thư nói danh thiếp vẫn đến trước hạn chót của bà, tức trước 10/4.",
+    "dich": "Chúng sẽ vẫn đến trước hạn chót của bà."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "In the e-mail of April 4, the word \"removed\" is closest in meaning to",
+   "a": "taken off",
+   "w": [
+    "moved away",
+    "sent back",
+    "paid for"
+   ],
+   "why": "\"removed the delivery charge from your invoice\" = bỏ phí giao hàng ra khỏi hoá đơn (taken off).",
+   "lg": {
+    "og": {
+     "taken off": "gỡ bỏ",
+     "moved away": "dời đi",
+     "sent back": "gửi trả",
+     "paid for": "trả tiền cho"
+    },
+    "ly": "\"Removed the delivery charge\" là xoá khoản phí giao hàng, gần nghĩa nhất với taken off.",
+    "dich": "Chúng tôi cũng đã xoá phí giao hàng khỏi hoá đơn của bà."
+   },
+   "ty": "syn"
+  }
+ ],
+ "chu": "mb",
+ "muc": "toeic"
+}

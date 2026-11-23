@@ -2,7 +2,7 @@
  "n": 10,
  "nguon": "Đề 5 · Part 3 · bài 4",
  "id": "d05-p3-04",
- "chu": "Dịch vụ & sửa chữa",
+ "chu": "kt",
  "dang": "🗣 Hội thoại",
  "kind": "",
  "title": "",
@@ -78,5 +78,6 @@
    "ty": "detail",
    "ev": "I'll also take ten dollars off this month's bill."
   }
- ]
+ ],
+ "muc": "toeic"
 }

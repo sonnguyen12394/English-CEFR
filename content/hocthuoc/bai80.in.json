@@ -1,0 +1,75 @@
+{
+ "n": 80,
+ "nguon": "Đề 2 · Part 4 · 3",
+ "id": "t4-08",
+ "dang": "📢 Bài nói",
+ "kind": "intro",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Good evening, and welcome to the Bayside Business Awards.",
+   "",
+   "a12f5a0a6"
+  ],
+  [
+   "N",
+   "I'm delighted to see so many local business owners here tonight.",
+   "",
+   "a599e6a95"
+  ],
+  [
+   "N",
+   "This year, we received over two hundred nominations, which is a new record.",
+   "",
+   "a00f5c523"
+  ],
+  [
+   "N",
+   "Before we announce the winners, I'd like to thank our sponsor, Coastline Bank, for making this event possible.",
+   "",
+   "a96430ed7"
+  ],
+  [
+   "N",
+   "Dinner will be served shortly, and the first award, for best new business, will be presented at eight o'clock.",
+   "",
+   "a74189125"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who most likely are the listeners?",
+   "a": "Local business owners",
+   "w": [
+    "Bank employees",
+    "Restaurant staff",
+    "University students"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the speaker say about this year's nominations?",
+   "a": "There were more than ever before.",
+   "w": [
+    "They were all from one industry.",
+    "They were announced online.",
+    "They closed earlier than usual."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What will happen at eight o'clock?",
+   "a": "An award will be presented.",
+   "w": [
+    "Dinner will be served.",
+    "The sponsor will give a speech.",
+    "Guests will leave the hall."
+   ],
+   "ty": "detail"
+  }
+ ],
+ "chu": "pt",
+ "muc": "toeic"
+}

@@ -1,0 +1,69 @@
+{
+ "n": 76,
+ "nguon": "Đề 2 · Part 3 · 10",
+ "id": "t3-17",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hello, this is Dr. Patel's office. I'm calling to remind you of your appointment on Wednesday at nine.",
+   "",
+   "a10284b20"
+  ],
+  [
+   "B",
+   "Thank you. Actually, could I come in the afternoon instead? I have a meeting that morning.",
+   "",
+   "a5ce1b53c"
+  ],
+  [
+   "A",
+   "We have an opening at two fifteen. Please arrive ten minutes early to fill in a new form.",
+   "",
+   "ab4c0697e"
+  ],
+  [
+   "B",
+   "Two fifteen is perfect. Should I bring anything else?",
+   "",
+   "ab92bf96d"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is the woman calling?",
+   "a": "To remind someone of an appointment",
+   "w": [
+    "To offer someone a new position",
+    "To order supplies for a medical office",
+    "To ask a patient to pay a bill"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the man ask for?",
+   "a": "A different time",
+   "w": [
+    "A different doctor",
+    "A copy of a form",
+    "Directions to the office"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What is the man asked to do?",
+   "a": "Arrive early",
+   "w": [
+    "Bring his insurance card",
+    "Call back tomorrow",
+    "Pay in advance"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "sk",
+ "muc": "toeic"
+}

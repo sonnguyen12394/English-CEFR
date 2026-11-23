@@ -1,0 +1,87 @@
+{
+ "n": 84,
+ "nguon": "Đề 2 · Part 4 · 8",
+ "id": "t4-03",
+ "dang": "📢 Bài nói",
+ "kind": "intro",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Good morning, everyone, and welcome to your first day at Norland Engineering.",
+   "",
+   "ad2661a72"
+  ],
+  [
+   "N",
+   "My name is Rachel Kim, and I'm the head of human resources.",
+   "",
+   "af90417d4"
+  ],
+  [
+   "N",
+   "This morning, we'll start with a short tour of the building.",
+   "",
+   "a72215ae5"
+  ],
+  [
+   "N",
+   "After that, you'll meet your team leaders, who will explain your responsibilities.",
+   "",
+   "a872567df"
+  ],
+  [
+   "N",
+   "Lunch will be provided in the staff cafeteria at twelve thirty.",
+   "",
+   "ab92dca2b"
+  ],
+  [
+   "N",
+   "In the afternoon, the IT department will set up your computers and e-mail accounts.",
+   "",
+   "ac0b52753"
+  ],
+  [
+   "N",
+   "Please make sure you have your photo identification with you, as you'll need it to receive your security badge.",
+   "",
+   "ab159a52c"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who most likely are the listeners?",
+   "a": "New employees",
+   "w": [
+    "Company clients",
+    "Engineering students",
+    "Hotel guests"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What will happen first?",
+   "a": "A tour of the building",
+   "w": [
+    "A meeting with team leaders",
+    "Lunch in the cafeteria",
+    "Computer setup"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "Why should listeners have photo identification?",
+   "a": "To receive a security badge",
+   "w": [
+    "To enter the cafeteria",
+    "To open a bank account",
+    "To use the computers"
+   ],
+   "ty": "detail"
+  }
+ ],
+ "chu": "ns",
+ "muc": "toeic"
+}

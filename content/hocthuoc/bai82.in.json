@@ -1,0 +1,75 @@
+{
+ "n": 82,
+ "nguon": "Đề 2 · Part 4 · 6",
+ "id": "t4-19",
+ "dang": "📢 Bài nói",
+ "kind": "news",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Good afternoon, and thank you for listening to Business Today.",
+   "",
+   "a108b0aac"
+  ],
+  [
+   "N",
+   "My guest this afternoon is Carl Jensen, the founder of Jensen Bikes.",
+   "",
+   "aad23ec98"
+  ],
+  [
+   "N",
+   "Ten years ago, Carl started repairing bicycles in his garage.",
+   "",
+   "af198ec87"
+  ],
+  [
+   "N",
+   "Today, his company sells electric bikes in twelve countries.",
+   "",
+   "aedf9229f"
+  ],
+  [
+   "N",
+   "Later in the show, Carl will talk about his plans to open a factory in Vietnam and answer questions from our listeners.",
+   "",
+   "a15a04811"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who is Carl Jensen?",
+   "a": "A company founder",
+   "w": [
+    "A radio host",
+    "A professional cyclist",
+    "A factory worker"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "How did Mr. Jensen start his business?",
+   "a": "By repairing bicycles",
+   "w": [
+    "By selling cars",
+    "By designing websites",
+    "By working in a factory"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What will Mr. Jensen talk about later?",
+   "a": "Plans for a new factory",
+   "w": [
+    "A cycling race",
+    "His favorite bike",
+    "A product recall"
+   ],
+   "ty": "detail"
+  }
+ ],
+ "chu": "pt",
+ "muc": "toeic"
+}

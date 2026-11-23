@@ -1,0 +1,69 @@
+{
+ "n": 75,
+ "nguon": "Đề 2 · Part 3 · 9",
+ "id": "t3-11",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Welcome to Green Valley Garden Center. Can I help you find something?",
+   "",
+   "aa0198125"
+  ],
+  [
+   "B",
+   "Yes, I'm looking for plants for my office. It doesn't get much sunlight.",
+   "",
+   "a91ef3538"
+  ],
+  [
+   "A",
+   "Then I'd recommend these snake plants. They need very little light and only a little water every two weeks.",
+   "",
+   "ab2058d84"
+  ],
+  [
+   "B",
+   "Perfect. I'll take four. Do you deliver? I came by bicycle.",
+   "",
+   "a1f8b39e0"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where does the conversation take place?",
+   "a": "At a garden center",
+   "w": [
+    "At an office building",
+    "At a flower show",
+    "At a bicycle shop"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Why does the woman recommend snake plants?",
+   "a": "They do not need much light.",
+   "w": [
+    "They grow very quickly.",
+    "They are on sale this week.",
+    "They have colorful flowers."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "Why does the man ask about delivery?",
+   "a": "He cannot carry the plants himself.",
+   "w": [
+    "He lives far away.",
+    "He wants the plants tomorrow.",
+    "He is buying a gift."
+   ],
+   "ty": "detail"
+  }
+ ],
+ "chu": "mb",
+ "muc": "toeic"
+}

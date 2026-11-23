@@ -1,0 +1,111 @@
+{
+ "n": 86,
+ "nguon": "Đề 2 · Part 4 · 10",
+ "id": "t4-23",
+ "dang": "📢 Bài nói",
+ "kind": "meet",
+ "title": "",
+ "g": {
+  "t": "Running shoe sales (pairs)",
+  "h": [
+   "Month",
+   "Sales"
+  ],
+  "r": [
+   [
+    "January",
+    "420"
+   ],
+   [
+    "February",
+    "510"
+   ],
+   [
+    "March",
+    "260"
+   ],
+   [
+    "April",
+    "640"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "N",
+   "Good afternoon.",
+   "",
+   "a02e9cfcc"
+  ],
+  [
+   "N",
+   "Let's look at the sales figures for our new line of running shoes.",
+   "",
+   "acf6edc79"
+  ],
+  [
+   "N",
+   "Overall, the results are encouraging.",
+   "",
+   "a4369e397"
+  ],
+  [
+   "N",
+   "The one weak month was when our largest store, on Main Street, closed for two weeks for renovation.",
+   "",
+   "a39bbfb31"
+  ],
+  [
+   "N",
+   "Sales picked up again right after it reopened, and April was our best month so far.",
+   "",
+   "aa71990fe"
+  ],
+  [
+   "N",
+   "Because of this success, we're going to offer the shoes in two new colors this summer.",
+   "",
+   "a9e878869"
+  ],
+  [
+   "N",
+   "Before our next meeting, I'd like each of you to come up with ideas for an advertising campaign.",
+   "",
+   "a49425cfc"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What product is the speaker discussing?",
+   "a": "Running shoes",
+   "w": [
+    "Sports clothing",
+    "Store furniture",
+    "Fitness equipment"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Look at the graphic. When was the Main Street store closed?",
+   "a": "March",
+   "w": [
+    "January",
+    "February",
+    "April"
+   ],
+   "ty": "graphic"
+  },
+  {
+   "q": "What are the listeners asked to do?",
+   "a": "Think of ideas for advertising",
+   "w": [
+    "Visit the Main Street store",
+    "Choose two new colors",
+    "Prepare a sales report"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "kd",
+ "muc": "toeic"
+}

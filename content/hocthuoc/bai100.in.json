@@ -1,0 +1,192 @@
+{
+ "n": 100,
+ "nguon": "Đề 2 · Part 7 · 12",
+ "id": "t7-m-train",
+ "dang": "📄 Đọc hiểu",
+ "kind": "E-mail + registration form",
+ "title": "E-mail · To: All department heads · From: Training Office · Date: August 4 · Registration form — Department: Sales",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) E-mail · To: All department heads · From: Training Office · Date: August 4",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our autumn training program is now open for registration.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "This year we are offering four courses: Project Management (two days), Advanced Excel (one day), Presentation Skills (one day), and Customer Communication (half day).",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Each department may send up to three employees per course.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Courses are free for staff, but departments must pay for any participant who is absent without giving notice.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please return the attached form by August 20.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Registration form — Department: Sales",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Project Management: Anna Kowal, Ben Ortiz",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Advanced Excel: Ben Ortiz, Chloe Lam, David Ng, Eva Ruiz",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Presentation Skills: Chloe Lam",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Customer Communication: Anna Kowal, Eva Ruiz",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Submitted by: Victor Hale, Sales Manager, August 22",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the e-mail?",
+   "a": "To announce training courses",
+   "w": [
+    "To introduce a new manager",
+    "To change a work schedule",
+    "To request a budget"
+   ],
+   "why": "Our autumn training program is now open for registration.",
+   "lg": {
+    "og": {
+     "To announce training courses": "Để thông báo các khoá đào tạo",
+     "To introduce a new manager": "Để giới thiệu quản lý mới",
+     "To change a work schedule": "Để đổi lịch làm việc",
+     "To request a budget": "Để xin ngân sách"
+    },
+    "ly": "E-mail mở đăng ký chương trình đào tạo mùa thu và liệt kê bốn khoá.",
+    "dich": "Chương trình đào tạo mùa thu hiện đã mở đăng ký."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "Which course is the shortest?",
+   "a": "Customer Communication",
+   "w": [
+    "Project Management",
+    "Advanced Excel",
+    "Presentation Skills"
+   ],
+   "why": "Customer Communication (half day).",
+   "lg": {
+    "og": {
+     "Customer Communication": "Giao tiếp với khách hàng",
+     "Project Management": "Quản lý dự án",
+     "Advanced Excel": "Excel nâng cao",
+     "Presentation Skills": "Kỹ năng thuyết trình"
+    },
+    "ly": "Quản lý dự án 2 ngày, hai khoá kia một ngày, còn Giao tiếp với khách hàng chỉ nửa ngày.",
+    "dich": "Giao tiếp với khách hàng (nửa ngày)."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What problem is there with the Sales department's form for Advanced Excel?",
+   "a": "Too many employees are listed.",
+   "w": [
+    "The course is not offered.",
+    "No employee is listed.",
+    "An employee is listed twice."
+   ],
+   "why": "Tối đa 3 người mỗi khoá, nhưng Advanced Excel có 4 người (đối chiếu 2 văn bản).",
+   "lg": {
+    "og": {
+     "Too many employees are listed.": "Liệt kê quá nhiều người",
+     "The course is not offered.": "Khoá không mở",
+     "No employee is listed.": "Không có ai trong danh sách",
+     "An employee is listed twice.": "Một người bị ghi hai lần"
+    },
+    "ly": "Mỗi phòng chỉ gửi tối đa ba người mỗi khoá nhưng Excel nâng cao có bốn người.",
+    "dich": "Mỗi phòng có thể cử tối đa ba nhân viên cho mỗi khoá."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is indicated about Mr. Hale?",
+   "a": "He submitted the form late.",
+   "w": [
+    "He will attend two courses.",
+    "He works in the Training Office.",
+    "He teaches Presentation Skills."
+   ],
+   "why": "Hạn 20/8, nộp ngày 22/8 (đối chiếu).",
+   "lg": {
+    "og": {
+     "He submitted the form late.": "Ông nộp biểu mẫu muộn",
+     "He will attend two courses.": "Ông dự hai khoá",
+     "He works in the Training Office.": "Ông làm ở Văn phòng Đào tạo",
+     "He teaches Presentation Skills.": "Ông dạy kỹ năng thuyết trình"
+    },
+    "ly": "Hạn nộp là 20/8 nhưng biểu mẫu ông Hale gửi ngày 22/8, tức nộp muộn.",
+    "dich": "Vui lòng gửi lại biểu mẫu đính kèm trước ngày 20 tháng 8."
+   },
+   "ty": "true"
+  },
+  {
+   "q": "What will most likely happen if Eva Ruiz misses a course without notice?",
+   "a": "The Sales team will be billed for her.",
+   "w": [
+    "She will have to cover the cost herself.",
+    "She will be dropped from future courses.",
+    "Her seat will be given to a colleague."
+   ],
+   "why": "Eva Ruiz có tên trong phiếu phòng Sales; phòng ban trả tiền khi người vắng không báo.",
+   "lg": {
+    "og": {
+     "The Sales team will be billed for her.": "Nhóm Sales sẽ bị tính phí cho cô",
+     "She will have to cover the cost herself.": "Cô phải tự trả chi phí",
+     "She will be dropped from future courses.": "Cô bị loại khỏi các khoá sau",
+     "Her seat will be given to a colleague.": "Chỗ của cô được giao cho đồng nghiệp"
+    },
+    "ly": "Đáp án \"The Sales team will be billed for her.\" — E-mail nói phòng ban phải trả cho người vắng không báo trước, và Eva Ruiz đăng ký qua phòng Sales. Bài không nói cô tự trả hay bị loại.",
+    "dich": "Các phòng ban phải trả phí cho mọi người tham gia vắng mặt mà không báo trước."
+   },
+   "ty": "infer"
+  }
+ ],
+ "chu": "ns",
+ "muc": "toeic"
+}

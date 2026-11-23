@@ -2,7 +2,7 @@
  "n": 8,
  "nguon": "Đề 3 · Part 4 · bài 7",
  "id": "d03-p4-07",
- "chu": "Công sở & cuộc họp",
+ "chu": "vp",
  "dang": "📢 Bài nói",
  "kind": "meet",
  "title": "",
@@ -78,5 +78,6 @@
    "ty": "detail",
    "ev": "If you have any questions about the move, please e-mail Victor"
   }
- ]
+ ],
+ "muc": "toeic"
 }

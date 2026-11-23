@@ -1,0 +1,101 @@
+{
+ "n": 89,
+ "nguon": "Đề 2 · Part 6 · 3",
+ "id": "t6-update",
+ "dang": "✉️ Văn bản",
+ "kind": "E-mail",
+ "title": "To: All customers · From: Bluewave Internet · Subject: Scheduled maintenance",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear customer, Bluewave Internet will carry out maintenance on our network on Saturday, June 7, between 1:00 A.M. and 5:00 A.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "During this time, your internet service may be unavailable.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We have chosen these hours because very few customers are online.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The work will make your connection faster and more reliable.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "After the work is complete, you may need to restart your modem.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Simply turn it off and on again.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We apologize for any inconvenience and thank you for choosing Bluewave.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "unavailable",
+   "w": [
+    "unavailability",
+    "unavailably",
+    "avail"
+   ],
+   "why": "be + tính từ: may be unavailable (có thể không dùng được).",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "The work will make your connection faster and more reliable.",
+   "w": [
+    "The maintenance was completed successfully last Saturday.",
+    "Most of our customers are online at this time of night.",
+    "Your service will therefore not be affected at all."
+   ],
+   "why": "Câu chèn nói lợi ích của việc bảo trì, trước câu dặn khởi động lại modem. Bảo trì đã xong ngược với \"will carry out\"; nhiều khách online ngược với câu trước; \"không ảnh hưởng gì\" ngược với \"may be unavailable\".",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "restart",
+   "w": [
+    "restarted",
+    "restarting",
+    "restarts"
+   ],
+   "why": "need to + động từ nguyên mẫu → restart.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "choosing",
+   "w": [
+    "choose",
+    "chosen",
+    "chose"
+   ],
+   "why": "Sau giới từ for dùng V-ing: thank you for choosing.",
+   "ty": "word"
+  }
+ ],
+ "chu": "kt",
+ "muc": "toeic"
+}

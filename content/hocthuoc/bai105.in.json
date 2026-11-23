@@ -1,0 +1,111 @@
+{
+ "n": 105,
+ "nguon": "Đề 2 · Part 2 · bộ 3",
+ "id": "de2-p2-bo3",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "Part 2 · bộ 3 · 5 câu hỏi – đáp",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Didn't Mr. Lee send you the contract?",
+   "",
+   "a14bc3717"
+  ],
+  [
+   "B",
+   "He sent it to my old e-mail address.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Would you mind closing the window?",
+   "",
+   "aafa9ae02"
+  ],
+  [
+   "B",
+   "Not at all.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What time does the flight to Seoul leave?",
+   "",
+   "a6722055b"
+  ],
+  [
+   "B",
+   "At four fifteen.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Would you like to meet on Tuesday or Wednesday?",
+   "",
+   "af52e928c"
+  ],
+  [
+   "B",
+   "Either day works for me.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you know where the nearest bank is?",
+   "",
+   "addac6f83"
+  ],
+  [
+   "B",
+   "There's one across from the post office.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Didn't Mr. Lee send you the contract?",
+   "a": "He sent it to my old e-mail address.",
+   "w": [
+    "A three-month contract.",
+    "Yes, I'll sign up."
+   ],
+   "ty": "yn"
+  },
+  {
+   "q": "Would you mind closing the window?",
+   "a": "Not at all.",
+   "w": [
+    "The store is closed.",
+    "It's a window seat."
+   ],
+   "ty": "req"
+  },
+  {
+   "q": "What time does the flight to Seoul leave?",
+   "a": "At four fifteen.",
+   "w": [
+    "Gate twelve.",
+    "I left it on the plane."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Would you like to meet on Tuesday or Wednesday?",
+   "a": "Either day works for me.",
+   "w": [
+    "Yes, I'd like to.",
+    "We met last month."
+   ],
+   "ty": "or"
+  }
+ ],
+ "chu": "vp",
+ "muc": "toeic"
+}

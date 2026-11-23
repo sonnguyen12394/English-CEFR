@@ -1,0 +1,121 @@
+{
+ "n": 85,
+ "nguon": "Đề 2 · Part 4 · 9",
+ "id": "t4-22",
+ "dang": "📢 Bài nói",
+ "kind": "msg",
+ "title": "",
+ "g": {
+  "t": "Building directory",
+  "h": [
+   "Floor",
+   "Tenant / room"
+  ],
+  "r": [
+   [
+    "1",
+    "Reception, café"
+   ],
+   [
+    "2",
+    "Training center"
+   ],
+   [
+    "3",
+    "Brightline Law"
+   ],
+   [
+    "4",
+    "Conference rooms"
+   ],
+   [
+    "5",
+    "Northpoint Media"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "N",
+   "Hello, Mr.",
+   "",
+   "a49c127ec"
+  ],
+  [
+   "N",
+   "Romero.",
+   "",
+   "a6740ca27"
+  ],
+  [
+   "N",
+   "This is Julia Brooks from building management.",
+   "",
+   "afd2718c1"
+  ],
+  [
+   "N",
+   "I'm calling about your team meeting next Tuesday morning.",
+   "",
+   "a408756c6"
+  ],
+  [
+   "N",
+   "The conference rooms will be closed that day because we're replacing the carpets, so we've moved your meeting to the training center.",
+   "",
+   "a641d820e"
+  ],
+  [
+   "N",
+   "It has the same equipment, including a projector and a large screen.",
+   "",
+   "a8e185750"
+  ],
+  [
+   "N",
+   "Also, please note that the café will open late that day, at eleven.",
+   "",
+   "a9ef0754e"
+  ],
+  [
+   "N",
+   "If you have any questions, call me at extension three-one-two.",
+   "",
+   "ab96f700a"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is the speaker calling?",
+   "a": "To report a change of location",
+   "w": [
+    "To book a training course",
+    "To ask about a projector",
+    "To complain about noise"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Look at the graphic. On which floor will the meeting be held?",
+   "a": "Floor 2",
+   "w": [
+    "Floor 1",
+    "Floor 3",
+    "Floor 4"
+   ],
+   "ty": "graphic"
+  },
+  {
+   "q": "What does the speaker say about the café?",
+   "a": "It will open later than usual.",
+   "w": [
+    "It will be closed all day.",
+    "It will serve free coffee.",
+    "It has moved to another floor."
+   ],
+   "ty": "detail"
+  }
+ ],
+ "chu": "vp",
+ "muc": "toeic"
+}

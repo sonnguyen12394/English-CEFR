@@ -7,6 +7,8 @@ const [DIR, N] = [process.argv[2], +process.argv[3]];
 const c = { WHO: {} }; vm.createContext(c); vm.runInContext(fs.readFileSync(`${DIR}/bai${N}.js`, 'utf8') + `;this.B=BAI${N}`, c); const B = c.B;
 const inp = JSON.parse(fs.readFileSync(`${DIR}/bai${N}.in.json`));
 const out = {}; if (inp.title) out.title = inp.title;
+// mục tiêu + mã chủ đề (docs/KE-HOACH-HOC-THUOC.md mục 2): baiN.in.json, không có thì tools/hocthuoc/chu.json
+const CHU = JSON.parse(fs.readFileSync('tools/hocthuoc/chu.json')); out.muc = inp.muc || 'toeic'; if (inp.chu || CHU[N]) out.chu = inp.chu || CHU[N];
 const toks = t => String(t || '').toLowerCase().replace(/[’‘]/g, "'").split(/[^a-z0-9']+/).filter(w => w.length > 2);
 if (B.meta.dang.includes('Đọc hiểu')) {
   out.evl = B.EXQ.map(q => { const src = (inp.exq || []).find(x => x.q === q.q) || {};

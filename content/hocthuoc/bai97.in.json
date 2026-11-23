@@ -1,0 +1,114 @@
+{
+ "n": 97,
+ "nguon": "Đề 2 · Part 7 · 9",
+ "id": "t7-article2",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Article",
+ "title": "Article — Brookfield Business News",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "BROOKFIELD (March 3) — Tech company Novaline announced yesterday that it will move its headquarters from Chicago to Brookfield by the end of the year.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The company, which makes software for hospitals, currently employs 300 people.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "It plans to hire 150 more in Brookfield over the next two years.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Novaline chose Brookfield because of its lower office costs and its close connection to Brookfield University, which has a strong computer science program.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The new headquarters will be in the renovated Carlton Building on River Street.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mayor Ellen Sato welcomed the news, saying it would bring \"high-quality jobs\" to the city.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the article mainly about?",
+   "a": "A company's decision to change cities",
+   "w": [
+    "A company's plan to merge with a competitor",
+    "A company's plan to reduce its workforce",
+    "A company's launch of new software"
+   ],
+   "why": "will move its headquarters from Chicago to Brookfield.",
+   "lg": {
+    "og": {
+     "A company's decision to change cities": "Quyết định chuyển thành phố của một công ty",
+     "A company's plan to merge with a competitor": "Kế hoạch sáp nhập với đối thủ",
+     "A company's plan to reduce its workforce": "Kế hoạch cắt giảm nhân sự",
+     "A company's launch of new software": "Việc ra mắt phần mềm mới"
+    },
+    "ly": "Đáp án \"A company's decision to change cities\" — Bài báo nói Novaline sẽ chuyển trụ sở từ Chicago về Brookfield. Sáp nhập, cắt giảm nhân sự (công ty còn tuyển thêm) và ra mắt phần mềm không được nhắc.",
+    "dich": "Công ty công nghệ Novaline hôm qua thông báo sẽ chuyển trụ sở từ Chicago về Brookfield trước cuối năm."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What does Novaline produce?",
+   "a": "Software",
+   "w": [
+    "Medical equipment",
+    "Office furniture",
+    "Computers"
+   ],
+   "why": "makes software for hospitals.",
+   "lg": {
+    "og": {
+     "Software": "Phần mềm",
+     "Medical equipment": "Thiết bị y tế",
+     "Office furniture": "Nội thất văn phòng",
+     "Computers": "Máy tính"
+    },
+    "ly": "Bài ghi công ty làm phần mềm cho bệnh viện.",
+    "dich": "Công ty, chuyên làm phần mềm cho các bệnh viện, hiện có 300 nhân viên."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Many of the new employees are expected to come from the university's computer science program.\"",
+   "a": "[2]",
+   "w": [
+    "[1]",
+    "[3]",
+    "[4]"
+   ],
+   "why": "Sau câu nói về trường đại học (nguồn sinh viên mới tốt nghiệp) và trước câu về toà nhà.",
+   "lg": {
+    "og": {
+     "[2]": "[2]",
+     "[1]": "[1]",
+     "[3]": "[3]",
+     "[4]": "[4]"
+    },
+    "ly": "Câu chèn nói nhiều nhân viên mới đến từ chương trình khoa học máy tính của trường đại học, nên đặt ngay sau câu nhắc trường đại học (vị trí [2]).",
+    "dich": "Nhiều nhân viên mới dự kiến đến từ chương trình khoa học máy tính của trường đại học."
+   },
+   "ty": "insert"
+  }
+ ],
+ "chu": "pt",
+ "muc": "toeic"
+}
