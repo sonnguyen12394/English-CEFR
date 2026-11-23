@@ -59,7 +59,7 @@ const BAI1020 = {
       b1: { s: 'Mia helps her little brother [[get dressed]]', q: 'get dressed nghĩa là gì?', o: ['mặc quần áo', 'cởi quần áo', 'giặt quần áo', 'mua quần áo'], a: 0, vi: 'get dressed = mặc quần áo.' },
       b2: { q: "Câu mới: “Hurry up and get dressed; we're leaving in five minutes.” — người nói muốn gì?", o: ['Mặc quần áo nhanh lên', 'Cởi áo ra', 'Đi ngủ', 'Dọn nhà'], a: 0, vi: 'get dressed = mặc quần áo.' },
       b3: [{ q: 'The kids ___ dressed and ran downstairs.', o: ['got', 'get', 'gets', 'getting'], a: 0, vi: 'quá khứ: got dressed.' }],
-      b4: { q: 'It is cold, so get ___ warmly. (mặc)', hint: 'V3', ans: ['dressed'], vi: 'get dressed.' } },
+      b4: { q: "Hurry up and get ___! We're late. (mặc quần áo)", hint: 'V3', ans: ['dressed'], vi: 'get dressed.' } },
     { id: 'v4', g: 'v', t: 'routine', vi: 'thói quen hằng ngày', line: 3, hl: 'a new routine',
       b1: { s: 'my wife and I tried [[a new routine]]', q: 'routine nghĩa là gì?', o: ['thói quen, trình tự việc làm hằng ngày', 'một món ăn', 'một chuyến đi', 'một bài kiểm tra'], a: 0, vi: 'routine = thói quen, trình tự quen thuộc.' },
       b2: { q: 'Câu mới: “Our evening routine includes a walk and a story.” — buổi tối họ thường làm gì?', o: ['Đi dạo và đọc truyện', 'Xem phim', 'Chơi game', 'Đi mua sắm'], a: 0, vi: 'evening routine = thói quen buổi tối.' },

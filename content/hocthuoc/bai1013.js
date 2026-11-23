@@ -99,7 +99,7 @@ const BAI1013 = {
       b2: { q: "Câu mới: “My brother hopes to study in Canada.” — Điều nào đúng?", o: ["Anh ấy hy vọng được học ở Canada", "Anh ấy đã học ở Canada", "Anh ấy ghét Canada", "Anh ấy đang ở Canada"], a: 0, vi: "hope to + V = hy vọng làm gì." },
       b3: [{ q: "She wants ___ a doctor.", o: ["to be", "being", "be", "is"], a: 0, vi: "want to + V." },
         { q: "We decided ___ at home today.", o: ["to stay", "staying", "stay", "stayed"], a: 0, vi: "decide to + V." }],
-      b4: { q: "I want ___ my grandparents this weekend. (thăm)", hint: "to + động từ", ans: ["to visit"], vi: "want to visit." } },
+      b4: { q: "I want ___ my grandparents this weekend. (thăm)", hint: "to + động từ", ans: ["to visit", "to see"], vi: "want to visit." } },
     { id: "g4", g: "g", t: "I wish I had: ước điều không có thật", line: 10, hl: "wish I had",
       b1: { s: "I [[wish I had]] a sibling", q: "wish I had diễn tả gì?", o: ["ước điều không có thật ở hiện tại", "việc đã xảy ra", "kế hoạch", "lời khuyên"], a: 0, vi: "wish + quá khứ = ước điều hiện tại không có thật. · 🧱 Bài Nền liên quan: Wish + quá khứ (ước cho hiện tại) · B1" },
       b2: { q: "Câu mới: “I wish I lived closer to my grandparents.” — Thực tế là gì?", o: ["Mình sống khá xa ông bà", "Mình sống rất gần ông bà", "Mình sống cùng ông bà", "Mình không có ông bà"], a: 0, vi: "wish I lived closer = thực tế đang sống xa." },
