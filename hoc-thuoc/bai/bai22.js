@@ -130,4 +130,4 @@ const BAI22 = {
       b4: { q: "I called twice, but ___ answered. (không ai)", hint: "không ai", ans: ["nobody", "no one"], vi: "nobody answered = không ai nghe máy." } }]
 };
 
-Object.assign(BAI22.meta, {"title":"Online chat","evl":[0,8,1]});
+Object.assign(BAI22.meta, {"title":"Online chat","muc":"toeic","chu":"kt","evl":[0,8,1]});

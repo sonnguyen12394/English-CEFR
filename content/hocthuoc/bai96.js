@@ -981,7 +981,7 @@ const BAI96 = {
      "dù chúng nghiêm trọng"
     ],
     "a": 0,
-    "vi": "before + mệnh đề = trước khi. · 🧱 Bài Nền liên quan: Giới từ và liên từ chỉ thời gian · B1"
+    "vi": "before + mệnh đề = trước khi. · 🧱 Bài Nền liên quan: Mệnh đề thời gian chỉ tương lai · B1"
    },
    "b2": {
     "q": "Câu mới: “Call us before the problem gets worse.” — nên gọi lúc nào?",
@@ -1105,7 +1105,7 @@ const BAI96 = {
      "chưa từng kéo dài"
     ],
     "a": 0,
-    "vi": "have / has + V3 = đã làm, còn liên quan hiện tại. · 🧱 Bài Nền liên quan: Hiện tại hoàn thành · A2"
+    "vi": "have / has + V3 = đã làm, còn liên quan hiện tại. · 🧱 Bài Nền liên quan: Hiện tại hoàn thành và quá khứ đơn · A2"
    },
    "b2": {
     "q": "Câu mới: “We have added a new service.” — công ty đã làm gì?",

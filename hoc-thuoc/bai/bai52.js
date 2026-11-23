@@ -1059,4 +1059,4 @@ const BAI52 = {
     "wi|əˈpɑːlədʒaɪz|fər|ˈeni|ˌɪnkənˈviːniəns|—|ˈbɪldɪŋ|ˈmænɪdʒmənt"].map(x => x.split("|"))
 };
 
-Object.assign(BAI52.meta, {"title":"Notice to all tenants — Harbor View Tower","evl":[2,2,1]});
+Object.assign(BAI52.meta, {"title":"Notice to all tenants — Harbor View Tower","muc":"toeic","chu":"nha","evl":[2,2,1]});

@@ -133,4 +133,4 @@ const BAI12 = {
       b4: { q: "If the file ___ too large, compress it. (be)", hint: "gõ dạng đúng của be", ans: ["is"], vi: "If the file is too large = nếu tệp quá lớn." } }]
 };
 
-Object.assign(BAI12.meta, {"title":"To: All Staff · From: IT Department · Subject: Password change"});
+Object.assign(BAI12.meta, {"title":"To: All Staff · From: IT Department · Subject: Password change","muc":"toeic","chu":"kt"});

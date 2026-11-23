@@ -1266,4 +1266,4 @@ const BAI57 = {
  ]
 };
 
-Object.assign(BAI57.meta, {"title":"Bellavista Hotel — Meeting Rooms","evl":[2,3,6]});
+Object.assign(BAI57.meta, {"title":"Bellavista Hotel — Meeting Rooms","muc":"toeic","chu":"dl","evl":[2,3,6]});

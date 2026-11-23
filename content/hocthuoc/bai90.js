@@ -1111,7 +1111,7 @@ const BAI90 = {
      "suốt tháng Một"
     ],
     "a": 0,
-    "vi": "before + mốc = trước mốc đó. · 🧱 Bài Nền liên quan: Giới từ và liên từ chỉ thời gian · B1"
+    "vi": "before + mốc = trước mốc đó. · 🧱 Bài Nền liên quan: Giới từ chỉ thời gian: in / on / at · A1"
    },
    "b2": {
     "q": "Câu mới: “Please submit your form before Friday.” — nộp khi nào?",
@@ -1236,7 +1236,7 @@ const BAI90 = {
      "điều kiện"
     ],
     "a": 0,
-    "vi": "so = vì vậy: lý do trước, kết quả sau. · 🧱 Bài Nền liên quan: Liên từ chỉ nguyên nhân và kết quả · A2"
+    "vi": "so = vì vậy: lý do trước, kết quả sau. · 🧱 Bài Nền liên quan: Liên từ: and / but / or / because · A1"
    },
    "b2": {
     "q": "Câu mới: “The store opens late, so you can shop after work.” — vì sao mua sắm sau giờ làm được?",

@@ -828,7 +828,7 @@ const BAI91 = {
     "hint": "khuyên · động từ",
     "ans": [
      "recommend",
-     "suggest"
+     "suggest", "advise"
     ],
     "vi": "recommend / suggest that you book = khuyên bạn đặt."
    }
@@ -964,7 +964,7 @@ const BAI91 = {
      "mặc dù (đối lập)"
     ],
     "a": 0,
-    "vi": "while + mệnh đề = trong lúc. · 🧱 Bài Nền liên quan: Giới từ và liên từ chỉ thời gian · B1"
+    "vi": "while + mệnh đề = trong lúc. · 🧱 Bài Nền liên quan: Mệnh đề thời gian chỉ tương lai · B1"
    },
    "b2": {
     "q": "Câu mới: “Please wait here while I check the schedule.” — tôi làm gì lúc bạn chờ?",
@@ -1150,7 +1150,7 @@ const BAI91 = {
      "không thể ảnh hưởng tới họ"
     ],
     "a": 0,
-    "vi": "will not be + V3 = sẽ không bị … · 🧱 Bài Nền liên quan: Câu bị động · B1"
+    "vi": "will not be + V3 = sẽ không bị … · 🧱 Bài Nền liên quan: Bị động các thì khác · B1"
    },
    "b2": {
     "q": "Câu mới: “Customers will not be charged for the delivery.” — khách thế nào?",

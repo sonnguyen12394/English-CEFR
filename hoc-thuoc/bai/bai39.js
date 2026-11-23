@@ -112,4 +112,4 @@ const BAI39 = {
       b4: { q: "I'm sorry ___ the delay.", hint: "giới từ · 1 từ", ans: ["for", "about"], vi: "sorry for the delay = xin lỗi vì sự chậm trễ." } }]
 };
 
-Object.assign(BAI39.meta, {});
+Object.assign(BAI39.meta, {"muc":"toeic","chu":"dl"});

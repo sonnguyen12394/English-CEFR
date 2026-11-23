@@ -1125,7 +1125,7 @@ const BAI94 = {
      "từ ba giờ"
     ],
     "a": 0,
-    "vi": "by + mốc = chậm nhất vào lúc đó. · 🧱 Bài Nền liên quan: Giới từ và liên từ chỉ thời gian · B1"
+    "vi": "by + mốc = chậm nhất vào lúc đó. · 🧱 Bài Nền liên quan: Giới từ chỉ thời gian: in / on / at · A1"
    },
    "b2": {
     "q": "Câu mới: “The package will arrive by Friday.” — gói hàng khi nào?",

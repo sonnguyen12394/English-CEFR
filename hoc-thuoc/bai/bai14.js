@@ -132,4 +132,4 @@ const BAI14 = {
       b4: { q: "Please ___ the door when you leave. (close)", hint: "gõ nguyên mẫu", ans: ["close", "shut"], vi: "Please + V nguyên mẫu: close." } }]
 };
 
-Object.assign(BAI14.meta, {});
+Object.assign(BAI14.meta, {"muc":"toeic","chu":"nha"});

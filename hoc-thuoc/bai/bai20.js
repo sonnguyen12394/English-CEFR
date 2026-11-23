@@ -110,4 +110,4 @@ const BAI20 = {
       b4: { q: "When you arrive, ask ___ Ms. Ferreira.", hint: "giới từ · 3 chữ cái", ans: ["for"], vi: "ask for = hỏi gặp." } }]
 };
 
-Object.assign(BAI20.meta, {"title":"Sunrise Bakery: Now Hiring","evl":[1,-1,4]});
+Object.assign(BAI20.meta, {"title":"Sunrise Bakery: Now Hiring","muc":"toeic","chu":"ns","evl":[1,-1,4]});

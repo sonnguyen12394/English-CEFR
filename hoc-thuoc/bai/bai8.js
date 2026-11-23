@@ -126,4 +126,4 @@ const BAI8 = {
       b4: { q: "If you ___ any questions, please e-mail us. (have)", hint: "gõ dạng đúng của have", ans: ["have"], vi: "If you have = nếu bạn có." } }]
 };
 
-Object.assign(BAI8.meta, {});
+Object.assign(BAI8.meta, {"muc":"toeic","chu":"vp"});

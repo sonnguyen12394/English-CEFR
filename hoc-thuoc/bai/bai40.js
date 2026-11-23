@@ -1414,4 +1414,4 @@ const BAI40 = {
  ]
 };
 
-Object.assign(BAI40.meta, {});
+Object.assign(BAI40.meta, {"muc":"toeic","chu":"ns"});

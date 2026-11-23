@@ -1167,4 +1167,4 @@ const BAI47 = {
     "naʊ|lets|bɪˈgɪn|wɪð|ˈaʊər|ˈoʊpənɪŋ|rɪˈmɑːrks"].map(x => x.split("|"))
 };
 
-Object.assign(BAI47.meta, {});
+Object.assign(BAI47.meta, {"muc":"toeic","chu":"an"});

@@ -1154,4 +1154,4 @@ const BAI53 = {
     "ˈoʊnli|ˈʃɔːrtlɪstɪd|ˈkændɪdeɪts|wɪl|bi|ˈkɑːntæktɪd"].map(x => x.split("|"))
 };
 
-Object.assign(BAI53.meta, {"title":"Administrative Assistant — Clarke & Lowe Architects","evl":[1,3,2]});
+Object.assign(BAI53.meta, {"title":"Administrative Assistant — Clarke & Lowe Architects","muc":"toeic","chu":"ns","evl":[1,3,2]});

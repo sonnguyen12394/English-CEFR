@@ -88,7 +88,7 @@ const BAI88 = {
    "ðɪs",
    "miːnz",
    "ˈaʊər",
-   "ˈsæləds",
+   "ˈsælədz",
    "ænd",
    "suːps",
    "wɪl",
@@ -573,7 +573,7 @@ const BAI88 = {
     "ingredient",
     "ingredients",
     "ingredient’s",
-    "ingredienting"
+    "of ingredients"
    ],
    "a": 0,
    "vi": "every + danh từ số ít."
@@ -594,8 +594,8 @@ const BAI88 = {
    "o": [
     "restaurants",
     "restaurant",
-    "restauranting",
-    "restaurante"
+    "restaurant’s",
+    "a restaurant"
    ],
    "a": 0,
    "vi": "many + danh từ số nhiều."
@@ -650,7 +650,7 @@ const BAI88 = {
     "hint": "nhà cung cấp · danh từ",
     "ans": [
      "supplier",
-     "suppliers"
+     "suppliers", "vendor", "vendors"
     ],
     "vi": "supplier = nhà cung cấp."
    }
@@ -1113,7 +1113,7 @@ const BAI88 = {
      "nêu thời gian"
     ],
     "a": 0,
-    "vi": "so = vì vậy: lý do (có thể sai sót) → việc cần làm. · 🧱 Bài Nền liên quan: Liên từ chỉ nguyên nhân và kết quả · A2"
+    "vi": "so = vì vậy: lý do (có thể sai sót) → việc cần làm. · 🧱 Bài Nền liên quan: Liên từ: and / but / or / because · A1"
    },
    "b2": {
     "q": "Câu mới: “The road is closed, so please use the north entrance.” — vì sao dùng cổng bắc?",

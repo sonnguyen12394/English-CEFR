@@ -126,4 +126,4 @@ const BAI16 = {
       b4: { q: "Please ___ quiet during the presentation.", hint: "gõ 1 từ", ans: ["be", "stay", "keep", "remain"], vi: "Please be quiet = vui lòng giữ yên lặng." } }]
 };
 
-Object.assign(BAI16.meta, {});
+Object.assign(BAI16.meta, {"muc":"toeic","chu":"sx"});

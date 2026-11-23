@@ -133,4 +133,4 @@ const BAI9 = {
       b4: { q: "We are grateful for your ___ with the move.", hint: "gõ danh từ của assist", ans: ["assistance"], vi: "your assistance = sự hỗ trợ của bạn." } }]
 };
 
-Object.assign(BAI9.meta, {"title":"To: Marketing Department · From: Office Manager · Subject: Office move"});
+Object.assign(BAI9.meta, {"title":"To: Marketing Department · From: Office Manager · Subject: Office move","muc":"toeic","chu":"vp"});

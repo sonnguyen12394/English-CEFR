@@ -1052,7 +1052,7 @@ const BAI93 = {
      "từ ngày 30 tháng 6"
     ],
     "a": 0,
-    "vi": "before = trước. · 🧱 Bài Nền liên quan: Giới từ và liên từ chỉ thời gian · B1"
+    "vi": "before = trước. · 🧱 Bài Nền liên quan: Giới từ chỉ thời gian: in / on / at · A1"
    },
    "b2": {
     "q": "Câu mới: “Please register before May 1.” — đăng ký khi nào?",

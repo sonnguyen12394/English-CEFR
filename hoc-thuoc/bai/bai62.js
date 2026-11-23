@@ -1836,4 +1836,4 @@ const BAI62 = {
  ]
 };
 
-Object.assign(BAI62.meta, {"title":"Maplewood Conference Center — Rooms · E-mail · To: bookings@maplewoodcc.com · From: Marta Silva, Nordvik Pharmaceuticals · Date: March 3 · Online review · Posted May 24 by Marta Silva","evl":[2,5,15,13,17]});
+Object.assign(BAI62.meta, {"title":"Maplewood Conference Center — Rooms · E-mail · To: bookings@maplewoodcc.com · From: Marta Silva, Nordvik Pharmaceuticals · Date: March 3 · Online review · Posted May 24 by Marta Silva","muc":"toeic","chu":"vp","evl":[2,5,15,13,17]});

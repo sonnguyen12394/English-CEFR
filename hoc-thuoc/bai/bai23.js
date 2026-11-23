@@ -144,4 +144,4 @@ const BAI23 = {
       b4: { q: "The room was changed ___ the group was larger. (vì)", hint: "vì · 2 chữ cái", ans: ["as"], vi: "as = vì." } }]
 };
 
-Object.assign(BAI23.meta, {"title":"Schedule — Regional Sales Conference, Hotel Arcadia · E-mail · To: Conference participants · From: Ingrid Holm · Date: September 15","evl":[9,9,10,11,2]});
+Object.assign(BAI23.meta, {"title":"Schedule — Regional Sales Conference, Hotel Arcadia · E-mail · To: Conference participants · From: Ingrid Holm · Date: September 15","muc":"toeic","chu":"vp","evl":[9,9,10,11,2]});

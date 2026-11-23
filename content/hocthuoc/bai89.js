@@ -1198,7 +1198,7 @@ const BAI89 = {
      "hiện tại tiếp diễn (is being)"
     ],
     "a": 0,
-    "vi": "Sau after / when / before dùng hiện tại đơn dù nói về tương lai. · 🧱 Bài Nền liên quan: Giới từ và liên từ chỉ thời gian · B1"
+    "vi": "Sau after / when / before dùng hiện tại đơn dù nói về tương lai. · 🧱 Bài Nền liên quan: Mệnh đề thời gian chỉ tương lai · B1"
    },
    "b2": {
     "q": "Câu mới: “Before you leave, please turn off all the lights.” — làm gì trước khi rời đi?",
@@ -1260,7 +1260,7 @@ const BAI89 = {
      "V3 (chosen)"
     ],
     "a": 0,
-    "vi": "Giới từ + V-ing. · 🧱 Bài Nền liên quan: V-ing sau giới từ · B1"
+    "vi": "Giới từ + V-ing. · 🧱 Bài Nền liên quan: V-ing làm chủ ngữ và sau giới từ · B1"
    },
    "b2": {
     "q": "Câu mới: “Thank you for waiting patiently.” — cảm ơn vì điều gì?",

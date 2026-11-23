@@ -1298,7 +1298,7 @@ const BAI87 = {
      "hiện tại tiếp diễn"
     ],
     "a": 0,
-    "vi": "has + V3: việc đã làm xong, kết quả còn tới nay. · 🧱 Bài Nền liên quan: Hiện tại hoàn thành · A2"
+    "vi": "has + V3: việc đã làm xong, kết quả còn tới nay. · 🧱 Bài Nền liên quan: Hiện tại hoàn thành và quá khứ đơn · A2"
    },
    "b2": {
     "q": "Câu mới: “The IT team has since fixed the problem.” — vấn đề hiện nay thế nào?",

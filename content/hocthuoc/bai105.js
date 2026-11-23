@@ -1347,7 +1347,7 @@ const BAI105 = {
      "V-ing"
     ],
     "a": 0,
-    "vi": "Câu hỏi gián tiếp giữ trật tự câu khẳng định: where + chủ ngữ + động từ. · 🧱 Bài Nền liên quan: Câu hỏi gián tiếp · B1"
+    "vi": "Câu hỏi gián tiếp giữ trật tự câu khẳng định: where + chủ ngữ + động từ. · 🧱 Bài Nền liên quan: Câu hỏi gián tiếp lịch sự · B2"
    },
    "b2": {
     "q": "Câu mới: “Could you tell me where the station is?” — người nói hỏi gì?",

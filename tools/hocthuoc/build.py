@@ -10,11 +10,13 @@ def R(a, b):
 # danh sách bài đã qua máy kiểm
 idx = []
 CHU = json.load(open(T + '/chu.json'))
+HOAN = set(json.load(open(T + '/hoan.json'))['bai'])
 for n in range(1, 400):
     if n <= 2:
         continue
     f = f'{B}/bai{n}.js'
     if not os.path.exists(f): continue
+    if n in HOAN: print('HOÃN bài', n); continue
     r = subprocess.run(['node', T + '/check.mjs', f], capture_output=True, text=True)
     if r.returncode: print('BỎ bài', n, r.stdout.strip().splitlines()[:3]); continue
     meta = json.loads(subprocess.run(['node', '-e', f"const fs=require('fs'),vm=require('vm');const c={{WHO:{{}}}};vm.createContext(c);vm.runInContext(fs.readFileSync('{f}','utf8')+';this.B=BAI{n}',c);console.log(JSON.stringify(c.B.meta))"], capture_output=True, text=True).stdout)

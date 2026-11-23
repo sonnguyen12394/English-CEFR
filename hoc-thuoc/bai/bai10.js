@@ -126,4 +126,4 @@ const BAI10 = {
       b4: { q: "The manager must reply ___ noon.", hint: "gõ 1 giới từ chỉ hạn chót", ans: ["by"], vi: "by noon = chậm nhất vào buổi trưa." } }]
 };
 
-Object.assign(BAI10.meta, {});
+Object.assign(BAI10.meta, {"muc":"toeic","chu":"kt"});

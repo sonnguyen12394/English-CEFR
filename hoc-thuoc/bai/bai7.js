@@ -127,4 +127,4 @@ const BAI7 = {
       b4: { q: 'Once the delivery ___, please check the boxes. (arrive)', hint: 'gõ hiện tại đơn của arrive', ans: ['arrives'], vi: 'once + hiện tại đơn: arrives.' } }]
 };
 
-Object.assign(BAI7.meta, {});
+Object.assign(BAI7.meta, {"muc":"toeic","chu":"sx"});

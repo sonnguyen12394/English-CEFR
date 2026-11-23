@@ -1723,4 +1723,4 @@ const BAI61 = {
  ]
 };
 
-Object.assign(BAI61.meta, {"title":"Tecso Office Supplies — Delivery information · E-mail · To: support@tecso.com · From: Mark Dunn · Date: Monday, 4:30 P.M. · E-mail · To: Mark Dunn · From: Tecso Customer Support · Date: Tuesday, 9:05 A.M.","evl":[3,13,14,15,15]});
+Object.assign(BAI61.meta, {"title":"Tecso Office Supplies — Delivery information · E-mail · To: support@tecso.com · From: Mark Dunn · Date: Monday, 4:30 P.M. · E-mail · To: Mark Dunn · From: Tecso Customer Support · Date: Tuesday, 9:05 A.M.","muc":"toeic","chu":"mb","evl":[3,13,14,15,15]});

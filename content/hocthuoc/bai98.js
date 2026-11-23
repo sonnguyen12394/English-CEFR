@@ -877,7 +877,7 @@ const BAI98 = {
      "đã chứng minh bởi"
     ],
     "a": 0,
-    "vi": "was made possible by = nhờ … mà thực hiện được (bị động). · 🧱 Bài Nền liên quan: Câu bị động · B1"
+    "vi": "was made possible by = nhờ … mà thực hiện được (bị động). · 🧱 Bài Nền liên quan: Câu bị động: hiện tại đơn và quá khứ đơn · A2"
    },
    "b2": {
     "q": "Câu mới: “The project was made possible by a generous donation.” — vì sao dự án thực hiện được?",

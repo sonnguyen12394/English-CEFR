@@ -120,4 +120,4 @@ const BAI38 = {
       b4: { q: "Please check the files before we ___ them to the printer.", hint: "gửi · 1 từ", ans: ["send"], vi: "before we send = trước khi chúng ta gửi." } }]
 };
 
-Object.assign(BAI38.meta, {});
+Object.assign(BAI38.meta, {"muc":"toeic","chu":"kd"});

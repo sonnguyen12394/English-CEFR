@@ -972,7 +972,7 @@ const BAI92 = {
      "sau thứ Sáu"
     ],
     "a": 0,
-    "vi": "by + mốc = chậm nhất vào lúc đó. · 🧱 Bài Nền liên quan: Giới từ và liên từ chỉ thời gian · B1"
+    "vi": "by + mốc = chậm nhất vào lúc đó. · 🧱 Bài Nền liên quan: Giới từ chỉ thời gian: in / on / at · A1"
    },
    "b2": {
     "q": "Câu mới: “Submit the report by Monday.” — hạn chót là khi nào?",
@@ -1035,7 +1035,7 @@ const BAI92 = {
      "không được dùng"
     ],
     "a": 0,
-    "vi": "may be + V3 = có thể được làm gì. · 🧱 Bài Nền liên quan: Câu bị động · B1"
+    "vi": "may be + V3 = có thể được làm gì. · 🧱 Bài Nền liên quan: Bị động các thì khác · B1"
    },
    "b2": {
     "q": "Câu mới: “The meeting room may be booked online.” — phòng họp thế nào?",

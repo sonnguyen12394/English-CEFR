@@ -1338,4 +1338,4 @@ const BAI55 = {
  ]
 };
 
-Object.assign(BAI55.meta, {"title":"Online chat","evl":[2,5,8]});
+Object.assign(BAI55.meta, {"title":"Online chat","muc":"toeic","chu":"vp","evl":[2,5,8]});

@@ -1204,4 +1204,4 @@ const BAI50 = {
     "aɪl|bʊk|wʌn|naʊ|ænd|send|ju|ðə|ˈtrækɪŋ|ˈnʌmbər"].map(x => x.split("|"))
 };
 
-Object.assign(BAI50.meta, {"title":"Text messages","evl":[3,7,8]});
+Object.assign(BAI50.meta, {"title":"Text messages","muc":"toeic","chu":"mb","evl":[3,7,8]});

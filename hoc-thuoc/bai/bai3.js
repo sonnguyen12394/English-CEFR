@@ -140,4 +140,4 @@ const BAI3 = {
       b4: { q: 'We look forward to ___ your reply. (receive)', hint: 'gõ dạng đúng của receive', ans: ['receiving'], vi: 'look forward to receiving.' } }]
 };
 
-Object.assign(BAI3.meta, {"title":"To: Samir Haddad · From: Seaview Lodge · Subject: Your reservation"});
+Object.assign(BAI3.meta, {"title":"To: Samir Haddad · From: Seaview Lodge · Subject: Your reservation","muc":"toeic","chu":"dl"});

@@ -948,7 +948,7 @@ const BAI97 = {
      "thay vì"
     ],
     "a": 0,
-    "vi": "because of + danh từ / cụm danh từ = vì. · 🧱 Bài Nền liên quan: Liên từ chỉ nguyên nhân và kết quả · A2"
+    "vi": "because of + danh từ / cụm danh từ = vì. · 🧱 Bài Nền liên quan: Liên từ: and / but / or / because · A1"
    },
    "b2": {
     "q": "Câu mới: “The flight was late because of the storm.” — vì sao chuyến bay trễ?",
@@ -1011,7 +1011,7 @@ const BAI97 = {
      "bằng nhau"
     ],
     "a": 0,
-    "vi": "low → lower = thấp hơn. · 🧱 Bài Nền liên quan: So sánh hơn · A2"
+    "vi": "low → lower = thấp hơn. · 🧱 Bài Nền liên quan: So sánh hơn của tính từ · A1"
    },
    "b2": {
     "q": "Câu mới: “This model is cheaper than the old one.” — mẫu này thế nào?",
@@ -1073,7 +1073,7 @@ const BAI97 = {
      "trong suốt cuối năm"
     ],
     "a": 0,
-    "vi": "by + mốc = chậm nhất vào lúc đó. · 🧱 Bài Nền liên quan: Giới từ và liên từ chỉ thời gian · B1"
+    "vi": "by + mốc = chậm nhất vào lúc đó. · 🧱 Bài Nền liên quan: Giới từ chỉ thời gian: in / on / at · A1"
    },
    "b2": {
     "q": "Câu mới: “The project will be finished by the end of May.” — khi nào dự án xong?",
