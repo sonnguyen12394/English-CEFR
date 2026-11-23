@@ -619,6 +619,9 @@ const DG_UP = 0.85, DG_MINT = 25, DG_PASS = 0.85, DG_TS = [[120, '2 phút'], [90
 let DG = null, DG_RAF = 0, DG_CK = 0, DG_PL = 0; const DG_POLL = 250; const DG_IDLE = 1500;
 const DG_NUM = { zero: '0', one: '1', two: '2', three: '3', four: '4', five: '5', six: '6', seven: '7', eight: '8', nine: '9', ten: '10', eleven: '11', twelve: '12' };
 const dk = w => w.toLowerCase().replace(/[^a-z0-9]/g, '');
+// Tiếng đệm (hmm, haizz, uh, um…): máy chép lời không ra chữ này nên tự xanh, không bắt nói / gõ. Từ máy ra được (oh, wow, ah) vẫn chấm.
+const DG_FILL = /^(h+m+|m+h*m+|u+h+m*|u+m+|e+r+m*|h+a+i+z+|h+u+h+|u+g+h+|p+h+e+w+|a+w+|s+h+|t+s+k+|u+h+h+u+h+)$/;
+const dkF = w => { const t = dk(w); return DG_FILL.test(t) ? '' : t; };
 const DG_NUMR = Object.fromEntries(Object.entries(DG_NUM).map(([a, b]) => [b, a]));
 // v21: số đọc bằng micro có nhiều cách ghi: "512" · "5 12" · "five twelve" · "five one two" · "five hundred (and) twelve"; "nine" · "9" · "9:00"; "o'clock" · ":00".
 const DG_W19 = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
@@ -688,7 +691,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   // KHÔNG theo thứ tự nữa. Mỗi lần ô đổi: đếm các từ trong ô (cả cụm 2–3 từ ghép lại: "five twelve", "we are"; từ ≥ 4 chữ cái tìm cả trong chữ dính "checkingout"),
   // rồi đi theo thứ tự bài, từ chưa xanh nào có trong ô (còn lượt chưa dùng) thì xanh. Ô bị xoá (rời ô) thì đếm lại từ đầu.
   let used = {}, lastLen = 0;
-  const tgt = j => dk(W[j].w);
+  const tgt = j => dkF(W[j].w);
   const alts = j => dkAlt(tgt(j), W[j].w).filter(Boolean);
   // Chữ dính ("checkingout") tách thành các từ của bài nếu tách hết được; không tìm chuỗi con (tránh "checking" làm xanh "check").
   const VOC = new Set(W.flatMap((x, j) => alts(j)));
@@ -1098,7 +1101,7 @@ const EX_DANG = { hoi: ['nhapvai', '🎭 Nhập vai', 'Chọn vai, app đọc l�
 const ORDERF = () => ['hoc', 'duago', 'duavn', EX_DANG[KIND()][0], 'hieu', 'de', 'dung'];
 const KIND_NOTE = { noi: 'Một người nói', vb: 'Văn bản viết', dh: 'Văn bản đọc', hd: '10 cặp hỏi – đáp' };
 // so câu nói / gõ với câu đúng: tỉ lệ từ đúng theo thứ tự (dãy con chung dài nhất), bỏ dấu câu, viết tắt = nói đủ
-function simPct(want, got) { const A = words(want).map(dk).filter(Boolean), Bt = String(got).split(/\s+/).map(dk).filter(Boolean); if (!A.length) return 100;
+function simPct(want, got) { const A = words(want).map(dkF).filter(Boolean), Bt = String(got).split(/\s+/).map(dk).filter(Boolean); if (!A.length) return 100;
   const d = Array.from({ length: A.length + 1 }, () => new Array(Bt.length + 1).fill(0));
   for (let i = 1; i <= A.length; i++) for (let j = 1; j <= Bt.length; j++) d[i][j] = (dkAlt(A[i - 1]).includes(Bt[j - 1]) || A[i - 1] === Bt[j - 1]) ? d[i - 1][j - 1] + 1 : Math.max(d[i - 1][j], d[i][j - 1]);
   return Math.round(d[A.length][Bt.length] / A.length * 100); }
