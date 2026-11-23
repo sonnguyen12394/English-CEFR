@@ -119,7 +119,7 @@
   ],
   [
    "A",
-   "Would you like to have kids someday?",
+   "Would you like more kids someday?",
    "",
    ""
   ],
@@ -255,7 +255,7 @@
    "a": 2
   },
   {
-   "q": "Would you like to have kids someday?",
+   "q": "Would you like more kids someday?",
    "o": [
     "At half past six.",
     "Maybe. I haven't made up my mind yet.",

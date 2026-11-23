@@ -29,7 +29,7 @@
   ],
   [
    "B",
-   "He's a bus driver. He's been one for twenty years.",
+   "He's a postman. He's been one for twenty years.",
    "",
    ""
   ],
@@ -107,13 +107,13 @@
   ],
   [
    "A",
-   "Do you still live with your parents?",
+   "Do you get pocket money from your parents?",
    "",
    ""
   ],
   [
    "B",
-   "Yes, for now. I'm saving up to rent my own place.",
+   "A little. I'm saving up to buy a new bike.",
    "",
    ""
   ],
@@ -133,13 +133,13 @@
  "exq": [
   {
    "q": "What does your dad do for a living?",
-   "a": "He's a bus driver. He's been one for twenty years.",
+   "a": "He's a postman. He's been one for twenty years.",
    "w": [
     "He lives in the countryside.",
     "He is fifty years old.",
     "He likes cooking a lot."
    ],
-   "why": "do for a living = làm nghề gì → nói nghề: He is a bus driver."
+   "why": "do for a living = làm nghề gì → nói nghề: He is a postman."
   },
   {
    "q": "Do you get along with your sister?",
@@ -172,14 +172,14 @@
    "why": "close (gắn bó) → kể gia đình hay làm gì cùng nhau."
   },
   {
-   "q": "Do you still live with your parents?",
-   "a": "Yes, for now. I'm saving up to rent my own place.",
+   "q": "Do you get pocket money from your parents?",
+   "a": "A little. I'm saving up to buy a new bike.",
    "w": [
     "I'm the middle child.",
-    "He is a bus driver.",
+    "He's a postman.",
     "She's strict about homework."
    ],
-   "why": "Do you still live with …? → trả lời Yes / No kèm lý do."
+   "why": "Do you get pocket money …? → trả lời có nhận hay không, kèm chi tiết."
   }
  ],
  "p2": [
@@ -196,7 +196,7 @@
    "q": "What does your dad do for a living?",
    "o": [
     "Twenty years ago.",
-    "He's a bus driver. He's been one for twenty years.",
+    "He's a postman. He's been one for twenty years.",
     "He lives in the countryside."
    ],
    "a": 1
@@ -256,11 +256,11 @@
    "a": 1
   },
   {
-   "q": "Do you still live with your parents?",
+   "q": "Do you get pocket money from your parents?",
    "o": [
     "She is strict about homework.",
-    "He is a bus driver.",
-    "Yes, for now. I'm saving up to rent my own place."
+    "He's a postman.",
+    "A little. I'm saving up to buy a new bike."
    ],
    "a": 2
   },
@@ -268,7 +268,7 @@
    "q": "What's your mom like?",
    "o": [
     "She's very kind, but she's strict about homework.",
-    "She is like a bus.",
+    "She likes buses.",
     "About two hours from here."
    ],
    "a": 0
