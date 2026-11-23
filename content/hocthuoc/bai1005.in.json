@@ -1,0 +1,115 @@
+{
+ "n": 1005,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-05",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại bạn bè",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hi, I don't think we've met. I'm Chloe.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Hey, nice to meet you. I'm Dan. This is my first week here.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Welcome! Where are you from, Dan?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I grew up in Da Nang, but I moved here for work.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Cool! What do you like doing in your free time?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'm into photography, and I play guitar a little.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "No kidding! I love taking photos too.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "We should go shooting together some time.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Definitely. Do you want to grab a drink after class?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure, I'd love to. Lead the way!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where did Dan grow up?",
+   "a": "In Da Nang",
+   "w": [
+    "In Hue",
+    "In Ha Noi",
+    "In Can Tho"
+   ],
+   "why": "“I grew up in Da Nang” = lớn lên ở Đà Nẵng."
+  },
+  {
+   "q": "Why did Dan move here?",
+   "a": "For work",
+   "w": [
+    "To study",
+    "To be near his family",
+    "To join a club"
+   ],
+   "why": "“I moved here for work.” = chuyển tới đây vì công việc."
+  },
+  {
+   "q": "What hobby do both Chloe and Dan share?",
+   "a": "Taking photos",
+   "w": [
+    "Playing guitar",
+    "Cooking",
+    "Swimming"
+   ],
+   "why": "Dan: “I'm into photography”; Chloe: “I love taking photos too.”"
+  },
+  {
+   "q": "What does Chloe suggest at the end?",
+   "a": "Having a drink after class",
+   "w": [
+    "Taking a photo walk on Sunday",
+    "Joining another club",
+    "Going home early"
+   ],
+   "why": "“Do you want to grab a drink after class?” = rủ đi uống sau giờ học."
+  }
+ ]
+}

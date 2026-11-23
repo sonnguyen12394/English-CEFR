@@ -63,7 +63,7 @@ Sau mỗi bài chạy: `node /tmp/claude-0/-home-user-English-CEFR/48c67d5c-dc08
 
 Khác bài TOEIC ở chỗ bài gốc do Claude TỰ SOẠN, không lấy từ đề. Mọi luật ở trên vẫn áp dụng (máy kiểm `check.mjs` như nhau).
 
-- **Số bài** từ 1001 (bài TOEIC < 1000). Mỗi chủ đề 10 bài = 5 dạng × 2.
+- **Số bài** từ 1001 (bài TOEIC < 1000). Mỗi chủ đề 10 bài: 🗣 Hội thoại 4 · 💬 Hỏi – đáp 2 bộ (10 câu mỗi bộ) · 📢 Bài nói 2 · ✉️ Tin nhắn / chat 1 · 📄 Đọc hiểu 1 (kế hoạch mục 2.2).
 - **Chủ đề** (mã `chu`, mục 2.2 của `docs/KE-HOACH-HOC-THUOC.md`): gt-bt · gt-bb · gt-st · gt-cx · gt-kc · gt-hn · gt-hd · gt-kh. KHÔNG soạn tình huống TOEIC đã có (mua sắm, nhà hàng, đặt vé, khách sạn, bác sĩ, thuê nhà, sửa đồ, gọi điện đặt lịch).
 - **baiN.in.json viết tay** (không chạy prep2): `{ n, nguon: '💬 Giao tiếp · <chủ đề> · bài tự soạn', id: 'gt-<chủ đề>-NN', muc: 'gt', chu, dang, kind, title, g: null, L: [[người nói, câu tiếng Anh, '', '']], exq: [{ q, a, w: [3 sai], why }] }`; dạng 💬 Hỏi – đáp thêm `p2: [{ q, o: [3 lời đáp], a: chỉ số đúng }]` (bộ ⚡ Phản xạ, xoay vị trí đúng 0 / 1 / 2). Cách nhanh: soạn baiN.js trước rồi sinh in.json từ L + EXQ (như đã làm cho bai1001–1003).
 - **meta.de** = '💬 Giao tiếp · <biểu tượng> <chủ đề> · <loại>' (không ghi "Đề N"). `who`: tên riêng tiếng Anh + 'Nữ' / 'Nam'; chat nhóm W: ['Chat nhóm', '✉️'].
