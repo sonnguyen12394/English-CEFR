@@ -1,0 +1,115 @@
+{
+ "n": 1031,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-01",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn: khen và chia vui",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Minh, I saw your photo on the school board. It's amazing!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Thanks! I'm so happy. It won first prize.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Seriously? Congrats! You totally deserve it.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "To be honest, I was kinda nervous when they called my name.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I bet! Where did you take it?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "At the old market near my grandma's house. The light was perfect that morning.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm really proud of you. You've worked so hard on it.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Thanks, that means a lot. Let's celebrate this weekend!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Count me in! Ice cream is on you, though.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Ha, deal!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did Minh win?",
+   "a": "First prize for his photo",
+   "w": [
+    "A free trip",
+    "A new camera",
+    "A school football cup"
+   ],
+   "why": "“It won first prize” = ảnh đoạt giải nhất."
+  },
+  {
+   "q": "How did Minh feel when they called his name?",
+   "a": "A little nervous",
+   "w": [
+    "Very angry",
+    "Bored",
+    "Sleepy"
+   ],
+   "why": "“I was kinda nervous” = hơi run."
+  },
+  {
+   "q": "Where did Minh take the photo?",
+   "a": "At an old market",
+   "w": [
+    "At his school",
+    "By a river",
+    "At home"
+   ],
+   "why": "“At the old market near my grandma's house”."
+  },
+  {
+   "q": "What does Lan want Minh to pay for?",
+   "a": "Ice cream",
+   "w": [
+    "Dinner",
+    "Movie tickets",
+    "A new camera"
+   ],
+   "why": "“Ice cream is on you” = kem cậu mời."
+  }
+ ]
+}

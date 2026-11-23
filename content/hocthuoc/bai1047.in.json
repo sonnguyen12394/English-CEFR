@@ -1,0 +1,109 @@
+{
+ "n": 1047,
+ "nguon": "💬 Giao tiếp · Kể chuyện · bài tự soạn",
+ "id": "gt-kc-07",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "📢 Bài nói",
+ "kind": "Chuyện xui: bánh sinh nhật gặp mất điện",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Okay, you won't believe what happened this weekend!",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I was baking a cake for my mom's birthday when the power went out.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "The cake was half cooked, and the kitchen was completely dark.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I used my phone as a flashlight, but I dropped it into the flour.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Then my little brother walked in and asked what the smell was.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "When the lights came back on, the cake looked like a pancake!",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "We were laughing so hard that Mom came to see what was going on.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "She ate a piece anyway and said it was the best pancake ever.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Honestly, I'm never baking in the dark again!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What was the speaker doing when the power went out?",
+   "a": "Baking a birthday cake",
+   "w": [
+    "Watching TV",
+    "Washing the dishes",
+    "Making a phone call"
+   ],
+   "why": "“I was baking a cake for my mom’s birthday.”"
+  },
+  {
+   "q": "What did she use as a flashlight?",
+   "a": "Her phone",
+   "w": [
+    "A candle",
+    "A lamp",
+    "A mirror"
+   ],
+   "why": "“I used my phone as a flashlight.”"
+  },
+  {
+   "q": "Why did Mom come into the kitchen?",
+   "a": "She heard them laughing.",
+   "w": [
+    "She wanted to eat dinner.",
+    "She was looking for her phone.",
+    "She needed the flashlight."
+   ],
+   "why": "“We were laughing so hard that Mom came to see what was going on.”"
+  },
+  {
+   "q": "What did Mom say about the cake?",
+   "a": "It was the best pancake ever.",
+   "w": [
+    "It was too sweet.",
+    "It was burnt.",
+    "She did not want it."
+   ],
+   "why": "“said it was the best pancake ever”."
+  }
+ ]
+}

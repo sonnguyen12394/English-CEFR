@@ -1,0 +1,125 @@
+{
+ "n": 1044,
+ "nguon": "💬 Giao tiếp · Kể chuyện & chuyện phiếm · bài tự soạn",
+ "id": "gt-kc-04",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn bàn chuyện phiếm",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Did you hear about Khoa? He won the school cooking contest!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Seriously? Khoa can barely boil an egg.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I know, right? Apparently, his grandma taught him everything.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Wait, that's why he always brought homemade snacks to class.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Exactly! He told me last month he was going to enter, but he made me promise not to tell anyone.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Ha! And now you've just told me.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Oops! Please don't spill the beans, okay?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "My lips are sealed. I'll just say congratulations when I see him.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Good idea. Did you know he's also learning how to bake?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Great, I'll volunteer as his taste tester.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did Khoa win?",
+   "a": "The school cooking contest",
+   "w": [
+    "A baking class",
+    "A writing contest",
+    "A school art prize"
+   ],
+   "why": "“He won the school cooking contest”."
+  },
+  {
+   "q": "Who taught Khoa to cook?",
+   "a": "His grandmother",
+   "w": [
+    "His mother",
+    "A teacher",
+    "A neighbour"
+   ],
+   "why": "“his grandma taught him everything”."
+  },
+  {
+   "q": "What did Khoa ask Hoa to do?",
+   "a": "Keep his plan secret",
+   "w": [
+    "Cook for him",
+    "Enter the contest too",
+    "Tell the class about it"
+   ],
+   "why": "“he made me promise not to tell anyone”."
+  },
+  {
+   "q": "What will Bao do when he sees Khoa?",
+   "a": "Say congratulations",
+   "w": [
+    "Ask for a recipe",
+    "Ask him to cook",
+    "Tell everyone the secret"
+   ],
+   "why": "“I'll just say congratulations”."
+  },
+  {
+   "q": "What is Khoa learning now?",
+   "a": "How to bake",
+   "w": [
+    "How to boil rice",
+    "How to draw",
+    "How to swim"
+   ],
+   "why": "“he's also learning how to bake”."
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "n": 1048,
+ "nguon": "💬 Giao tiếp · Kể chuyện · bài tự soạn",
+ "id": "gt-kc-08",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "📢 Bài nói",
+ "kind": "Chuyện vui: con mèo ăn trộm cá",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Let me tell you about my cat, Mochi, who is a total thief.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "She used to be shy, but now she steals food from the counter.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Last Friday I left a plate of fish on the counter and took a shower.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "When I came back, the plate was empty and Mochi was sleeping like an angel.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "She had already eaten the whole fish, and a tiny bone was stuck to her nose!",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I wasn't angry, though, because she looked too cute to be punished.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Since that day, I have never left any food out when she is home.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Has your pet ever done something silly? Tell me!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did Mochi do last Friday?",
+   "a": "She ate a plate of fish.",
+   "w": [
+    "She broke a plate.",
+    "She ran away from home.",
+    "She hid under the bed."
+   ],
+   "why": "“She had already eaten the whole fish.”"
+  },
+  {
+   "q": "Where was the bone when the speaker came back?",
+   "a": "Stuck to her nose",
+   "w": [
+    "In the shower",
+    "On the plate",
+    "In her bed"
+   ],
+   "why": "“a tiny bone was stuck to her nose”."
+  },
+  {
+   "q": "Why was the speaker not angry?",
+   "a": "Mochi looked too cute.",
+   "w": [
+    "The fish was old.",
+    "Mochi said sorry.",
+    "She was still in the shower."
+   ],
+   "why": "“she looked too cute to be punished”."
+  },
+  {
+   "q": "What is the speaker’s new rule?",
+   "a": "No food left out when Mochi is home.",
+   "w": [
+    "No more fish for Mochi.",
+    "Mochi must stay outside.",
+    "No showers on Fridays."
+   ],
+   "why": "“I have never left any food out when she is home.”"
+  }
+ ]
+}

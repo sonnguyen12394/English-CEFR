@@ -1,0 +1,115 @@
+{
+ "n": 1032,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-02",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn: buồn và an ủi",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hey Tuan, you look down. Is everything okay?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not really. My best friend is moving to Canada next month.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Oh no, I'm so sorry to hear that. That must be hard.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, we've been friends since we were six. I feel really down.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I understand. But you can still video call every weekend.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "True, but it won't be the same. We play football together every Sunday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Hang in there. It's okay to feel sad. Do you want to talk about it?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Maybe later. Right now I just want to be with friends.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Then come over after school. I'll make some tea, and we can watch a funny movie.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Thanks, Mai. You always know how to cheer me up.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is Tuan sad?",
+   "a": "His best friend is moving away",
+   "w": [
+    "He failed a test",
+    "He lost his phone",
+    "He has a cold"
+   ],
+   "why": "“My best friend is moving to Canada” = bạn thân sắp chuyển đi."
+  },
+  {
+   "q": "Where is Tuan's friend moving to?",
+   "a": "Canada",
+   "w": [
+    "Japan",
+    "Australia",
+    "Hue"
+   ],
+   "why": "“moving to Canada next month”."
+  },
+  {
+   "q": "How long have they been friends?",
+   "a": "Since they were six",
+   "w": [
+    "For two weeks",
+    "Since last year",
+    "Since high school"
+   ],
+   "why": "“we've been friends since we were six”."
+  },
+  {
+   "q": "What does Mai offer to do?",
+   "a": "Make tea and watch a movie",
+   "w": [
+    "Cook dinner",
+    "Go shopping",
+    "Play football"
+   ],
+   "why": "“I'll make some tea, and we can watch a funny movie.”"
+  }
+ ]
+}

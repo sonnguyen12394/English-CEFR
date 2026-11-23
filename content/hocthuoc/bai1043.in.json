@@ -1,0 +1,137 @@
+{
+ "n": 1043,
+ "nguon": "💬 Giao tiếp · Kể chuyện & chuyện phiếm · bài tự soạn",
+ "id": "gt-kc-03",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn kể chuyện xui",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "You look exhausted. Rough day?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Worst Saturday ever. First, I overslept and missed my cousin's football match.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Oh no. By the time you got there, had it finished?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Worse. When I arrived, everyone had already gone home.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Then what did you do?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I rode my bike home, and then I spilled coffee all over my shirt.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ugh, that's the worst. Did you change your shirt?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I tried to, but I was so tired that I fell asleep on the sofa.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "You didn't sleep in a dirty shirt all afternoon, did you?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yep. Finally I woke up, and my phone showed ten missed calls.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Man, that's rough. Let's get dinner and forget this day.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sounds great. My treat, since you listened to my whole sad story.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why did Duy miss the football match?",
+   "a": "He overslept",
+   "w": [
+    "He was ill",
+    "His bike was broken",
+    "He forgot the date"
+   ],
+   "why": "“I overslept and missed my cousin's football match”."
+  },
+  {
+   "q": "What happened after Duy rode home?",
+   "a": "He spilled coffee on his shirt",
+   "w": [
+    "He lost his phone",
+    "He watched the match online",
+    "He called his cousin"
+   ],
+   "why": "“I spilled coffee all over my shirt”."
+  },
+  {
+   "q": "Why didn't Duy change his shirt?",
+   "a": "He fell asleep on the sofa",
+   "w": [
+    "He had no clean shirts",
+    "He was in a hurry",
+    "He forgot where it was"
+   ],
+   "why": "“I was so tired that I fell asleep on the sofa”."
+  },
+  {
+   "q": "What did Duy see on his phone when he woke up?",
+   "a": "Ten missed calls",
+   "w": [
+    "A message from his cousin",
+    "A photo of the match",
+    "A low battery warning"
+   ],
+   "why": "“my phone showed ten missed calls”."
+  },
+  {
+   "q": "Who will pay for dinner?",
+   "a": "Duy",
+   "w": [
+    "Trang",
+    "Duy's cousin",
+    "Nobody, they will cook"
+   ],
+   "why": "“My treat” = Duy mời."
+  }
+ ]
+}

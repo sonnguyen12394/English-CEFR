@@ -1,0 +1,109 @@
+{
+ "n": 1037,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-07",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "📢 Bài nói",
+ "kind": "Tin nhắn thoại an ủi bạn trượt thi lái xe",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hey Tom, it's Hana. I heard about your driving test, and I'm so sorry.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I know you must be really down right now.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "But don't beat yourself up. Lots of people fail the first time.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "My cousin failed twice, and now he's the best driver in our family.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "It's not the end of the world, okay?",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Look on the bright side: you've already learned a lot.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "If you practice a little more, you'll pass next time. I'm sure of it.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Let's get ice cream this weekend. I'm free on Saturday.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Hang in there, okay? You've got this!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is Tom sad?",
+   "a": "He failed his driving test.",
+   "w": [
+    "He lost his phone.",
+    "He missed a party.",
+    "He had a fight with Hana."
+   ],
+   "why": "“I heard about your driving test, and I’m so sorry.” Tom trượt bài thi lái xe."
+  },
+  {
+   "q": "What happened to Hana’s cousin?",
+   "a": "He failed twice but became a good driver.",
+   "w": [
+    "He passed the first time.",
+    "He gave up driving.",
+    "He never took the test."
+   ],
+   "why": "“My cousin failed twice, and now he’s the best driver in our family.”"
+  },
+  {
+   "q": "What does Hana want to do this weekend?",
+   "a": "Get ice cream with Tom",
+   "w": [
+    "Take Tom driving",
+    "Study with Tom",
+    "Visit her cousin"
+   ],
+   "why": "“Let’s get ice cream this weekend. I’m free on Saturday.”"
+  },
+  {
+   "q": "What does Hana say will happen if Tom practices more?",
+   "a": "He will pass next time.",
+   "w": [
+    "He will feel sad again.",
+    "He will fail twice.",
+    "He will buy a car."
+   ],
+   "why": "“If you practice a little more, you’ll pass next time.”"
+  }
+ ]
+}
