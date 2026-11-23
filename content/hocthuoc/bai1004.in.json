@@ -1,0 +1,115 @@
+{
+ "n": 1004,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-4",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại bạn bè",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hey Ben, I'm really sorry about your birthday.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Honestly, I was pretty upset. I waited all evening.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I know. I totally forgot, and I feel awful about it.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "You could have just texted me.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "You're right. Let me make it up to you. Dinner is on me.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Fine, apology accepted. But I'm picking the restaurant.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Deal! Anywhere you want.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Thanks for being honest. Let's forget about it.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I promise it won't happen again. I'll set a reminder.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Good. I'll hold you to that.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is Ben upset?",
+   "a": "Hannah forgot his birthday",
+   "w": [
+    "Hannah lost his phone",
+    "Hannah was rude to his friend",
+    "Hannah missed a train"
+   ],
+   "why": "“I'm really sorry about your birthday… I totally forgot” = Hannah quên sinh nhật Ben."
+  },
+  {
+   "q": "What does Ben think Hannah should have done?",
+   "a": "Sent him a text message",
+   "w": [
+    "Called his parents",
+    "Bought him a gift",
+    "Come to his house"
+   ],
+   "why": "“You could have just texted me.” = lẽ ra chỉ cần nhắn tin."
+  },
+  {
+   "q": "Who will pay for dinner?",
+   "a": "Hannah",
+   "w": [
+    "Ben",
+    "They will split the bill",
+    "Ben's parents"
+   ],
+   "why": "“Dinner is on me.” = bữa tối tớ trả (Hannah nói)."
+  },
+  {
+   "q": "What will Hannah do to avoid forgetting next time?",
+   "a": "Set a reminder",
+   "w": [
+    "Write a note on her hand",
+    "Ask a friend to call her",
+    "Buy a diary"
+   ],
+   "why": "“I'll set a reminder.” = đặt lời nhắc."
+  }
+ ]
+}

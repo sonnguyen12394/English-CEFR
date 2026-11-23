@@ -1,0 +1,125 @@
+{
+ "n": 1006,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-6",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại bạn bè",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Guys, I need some advice. I think I have a crush on Leo.",
+   "",
+   ""
+  ],
+  [
+   "C",
+   "Leo from the art class? He's really nice!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Yeah. Should I ask him out?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Why not? Just keep it simple. Invite him for coffee.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "But what if he says no? That would be so awkward.",
+   "",
+   ""
+  ],
+  [
+   "C",
+   "Don't overthink it. If he says no, you'll still be friends.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Okay. Should I text him tonight?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'd wait until the morning. Keep your message short and friendly.",
+   "",
+   ""
+  ],
+  [
+   "C",
+   "And add a smiley face. It makes you sound relaxed.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Thanks, you two. I'll send it tomorrow morning.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who does Zoe have a crush on?",
+   "a": "Leo",
+   "w": [
+    "Kai",
+    "Ben",
+    "Rita"
+   ],
+   "why": "“I think I have a crush on Leo.” = Zoe thích Leo."
+  },
+  {
+   "q": "What does Kai suggest Zoe invite Leo to do?",
+   "a": "Have coffee",
+   "w": [
+    "See a film",
+    "Go hiking",
+    "Study together"
+   ],
+   "why": "“Invite him for coffee.” = mời đi uống cà phê."
+  },
+  {
+   "q": "What is Zoe worried about?",
+   "a": "Things might become awkward",
+   "w": [
+    "Leo has no phone",
+    "Her friends might laugh",
+    "She has no time"
+   ],
+   "why": "“That would be so awkward.” = sẽ rất ngại."
+  },
+  {
+   "q": "When does Kai think Zoe should send the message?",
+   "a": "In the morning",
+   "w": [
+    "Tonight",
+    "At lunch",
+    "On the weekend"
+   ],
+   "why": "“I'd wait until the morning.” = đợi đến sáng."
+  },
+  {
+   "q": "What does Rita suggest adding to the message?",
+   "a": "A smiley face",
+   "w": [
+    "A photo",
+    "A long apology",
+    "A joke"
+   ],
+   "why": "“add a smiley face” = thêm mặt cười."
+  }
+ ]
+}
