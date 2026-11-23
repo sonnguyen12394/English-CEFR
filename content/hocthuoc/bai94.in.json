@@ -1,0 +1,144 @@
+{
+ "n": 94,
+ "nguon": "Đề 2 · Part 7 · 6",
+ "id": "t7-chat3",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Text message chain",
+ "title": "Text messages",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Leo Brandt (10:02 A.M.): Hi Nina, the delivery van for the Ortega order just broke down on Route 9.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Nina Ruiz (10:04 A.M.): Oh no.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mr. Ortega needs those chairs for his restaurant opening at 6 tonight.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Leo Brandt (10:05 A.M.): I know.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The repair shop says the van won't be ready until tomorrow.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Nina Ruiz (10:07 A.M.): Our second van is free this afternoon.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll ask Sam to drive it out to you.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Leo Brandt (10:08 A.M.): That would save the day.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll wait here with the chairs.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Nina Ruiz (10:09 A.M.): Great.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll call Mr. Ortega and let him know they'll arrive by three.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What problem does Mr. Brandt report?",
+   "a": "A delivery vehicle has broken down.",
+   "w": [
+    "A package was sent to the wrong address.",
+    "A customer has asked for a refund.",
+    "A driver called in sick this morning."
+   ],
+   "why": "the delivery van … just broke down on Route 9.",
+   "lg": {
+    "og": {
+     "A delivery vehicle has broken down.": "Một xe giao hàng bị hỏng",
+     "A package was sent to the wrong address.": "Một gói hàng gửi nhầm địa chỉ",
+     "A customer has asked for a refund.": "Một khách xin hoàn tiền",
+     "A driver called in sick this morning.": "Một tài xế báo nghỉ ốm sáng nay"
+    },
+    "ly": "Đáp án \"A delivery vehicle has broken down.\" — Ông Brandt báo xe tải giao hàng bị hỏng trên đường Route 9. Gửi nhầm địa chỉ, hoàn tiền và tài xế nghỉ ốm không được nhắc.",
+    "dich": "Xe tải giao hàng cho đơn của ông Ortega vừa bị hỏng trên đường Route 9."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "At 10:08 A.M., what does Mr. Brandt mean when he writes, \"That would save the day\"?",
+   "a": "He is relieved by Ms. Ruiz's offer.",
+   "w": [
+    "He wants Sam to repair the van today.",
+    "He hopes to postpone the opening.",
+    "He is eager to finish for the day."
+   ],
+   "why": "\"Save the day\" là cứu nguy, nói sau khi nhận được đề nghị cho xe thứ hai.",
+   "lg": {
+    "og": {
+     "He is relieved by Ms. Ruiz's offer.": "Ông thấy nhẹ nhõm vì lời đề nghị của bà Ruiz",
+     "He wants Sam to repair the van today.": "Ông muốn Sam sửa xe trong hôm nay",
+     "He hopes to postpone the opening.": "Ông hy vọng hoãn lễ khai trương",
+     "He is eager to finish for the day.": "Ông mong xong việc trong ngày"
+    },
+    "ly": "Đáp án \"He is relieved by Ms. Ruiz's offer.\" — \"Save the day\" là cứu nguy; ông nói vậy ngay sau khi bà Ruiz đề nghị dùng xe thứ hai. Sam chỉ được nhờ lái xe, không sửa xe.",
+    "dich": "Xe thứ hai của chúng tôi chiều nay rảnh. Tôi sẽ nhờ Sam lái đến chỗ anh."
+   },
+   "ty": "intent"
+  },
+  {
+   "q": "What will Ms. Ruiz most likely do next?",
+   "a": "Contact a customer",
+   "w": [
+    "Drive a van to Route 9",
+    "Visit a repair shop",
+    "Cancel the delivery"
+   ],
+   "why": "I'll call Mr. Ortega … (Sam mới là người lái xe).",
+   "lg": {
+    "og": {
+     "Contact a customer": "Liên hệ một khách hàng",
+     "Drive a van to Route 9": "Lái xe tới Route 9",
+     "Visit a repair shop": "Đến tiệm sửa xe",
+     "Cancel the delivery": "Huỷ việc giao hàng"
+    },
+    "ly": "Bà Ruiz nói sẽ gọi ông Ortega báo hàng đến lúc ba giờ, tức liên hệ khách hàng.",
+    "dich": "Tôi sẽ gọi ông Ortega báo ông ấy là ghế sẽ đến lúc ba giờ."
+   },
+   "ty": "infer"
+  }
+ ],
+ "chu": "mb",
+ "muc": "toeic"
+}

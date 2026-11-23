@@ -1,0 +1,69 @@
+{
+ "n": 72,
+ "nguon": "Đề 2 · Part 3 · 6",
+ "id": "t3-08",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "B",
+   "I'm thinking about joining the company's cycling club. Have you heard anything about it?",
+   "",
+   "aedbcaa66"
+  ],
+  [
+   "A",
+   "Yes, my manager is a member. They ride together every Saturday morning, and the company pays for the safety equipment.",
+   "",
+   "a2e4367ea"
+  ],
+  [
+   "B",
+   "That sounds good. Do I need my own bike?",
+   "",
+   "a8a120601"
+  ],
+  [
+   "A",
+   "I think so. But there's a discount at the bike shop on Main Street for club members.",
+   "",
+   "ac818bf69"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What are the speakers mainly discussing?",
+   "a": "A company club",
+   "w": [
+    "A business trip",
+    "A new product",
+    "A training course"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "What does the company pay for?",
+   "a": "Safety equipment",
+   "w": [
+    "Bicycles",
+    "Club membership fees",
+    "Transportation"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What can club members get at a shop on Main Street?",
+   "a": "A discount",
+   "w": [
+    "Free repairs",
+    "A new bicycle",
+    "A club uniform"
+   ],
+   "ty": "detail"
+  }
+ ],
+ "chu": "ns",
+ "muc": "toeic"
+}

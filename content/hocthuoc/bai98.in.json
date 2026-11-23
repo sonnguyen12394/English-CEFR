@@ -1,0 +1,129 @@
+{
+ "n": 98,
+ "nguon": "Đề 2 · Part 7 · 10",
+ "id": "t7-article3",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Article",
+ "title": "Article — Westbrook Business Journal",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "WESTBROOK (October 2) — Greenline Bikes, a bicycle rental company founded in Westbrook four years ago, will open stations in two more cities next spring.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The company currently runs 60 stations across Westbrook, where riders unlock bikes with a mobile app and pay by the minute.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "According to chief executive Hana Sato, the expansion was made possible by a new agreement with the regional train operator.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Under the agreement, Greenline stations will be placed outside every major train station, and train passengers will receive a 20 percent discount on rides.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Ms. Sato said the company also plans to add electric bikes to its fleet by the end of next year.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the article mainly about?",
+   "a": "A company's plans to expand",
+   "w": [
+    "The opening of a train station",
+    "A new type of bicycle",
+    "A change in company leadership"
+   ],
+   "why": "will open stations in two more cities next spring.",
+   "lg": {
+    "og": {
+     "A company's plans to expand": "Kế hoạch mở rộng của một công ty",
+     "The opening of a train station": "Việc mở một nhà ga",
+     "A new type of bicycle": "Một loại xe đạp mới",
+     "A change in company leadership": "Thay đổi lãnh đạo công ty"
+    },
+    "ly": "Bài nói Greenline Bikes sẽ mở trạm ở hai thành phố nữa và thêm xe đạp điện, tức kế hoạch mở rộng.",
+    "dich": "Greenline Bikes sẽ mở trạm ở hai thành phố nữa vào mùa xuân tới."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What is NOT mentioned about Greenline Bikes?",
+   "a": "It sells bicycles to businesses.",
+   "w": [
+    "It was founded four years ago.",
+    "Its riders use a mobile app.",
+    "It will offer discounts to train passengers."
+   ],
+   "why": "Câu NOT: thành lập 4 năm trước, mở khoá bằng ứng dụng, giảm 20% cho hành khách tàu đều có trong bài; bán xe cho doanh nghiệp thì không.",
+   "lg": {
+    "og": {
+     "It sells bicycles to businesses.": "Công ty bán xe đạp cho doanh nghiệp",
+     "It was founded four years ago.": "Thành lập cách đây bốn năm",
+     "Its riders use a mobile app.": "Người dùng dùng ứng dụng",
+     "It will offer discounts to train passengers.": "Giảm giá cho hành khách tàu"
+    },
+    "ly": "Bài nhắc thành lập bốn năm trước, dùng ứng dụng và giảm giá cho hành khách tàu. Không nói gì về việc bán xe đạp cho doanh nghiệp.",
+    "dich": "Công ty cho thuê xe đạp được thành lập ở Westbrook bốn năm trước."
+   },
+   "ty": "not"
+  },
+  {
+   "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"On average, each of those stations is used more than 40 times a day.\"",
+   "a": "[2]",
+   "w": [
+    "[1]",
+    "[3]",
+    "[4]"
+   ],
+   "why": "\"those stations\" chỉ 60 trạm đang chạy ở câu ngay trước. Trạm ở thành phố mới hay ở ga tàu chưa mở nên chưa thể \"được dùng 40 lần mỗi ngày\".",
+   "lg": {
+    "og": {
+     "[2]": "[2]",
+     "[1]": "[1]",
+     "[3]": "[3]",
+     "[4]": "[4]"
+    },
+    "ly": "Câu chèn nói về các trạm đó (\"those stations\") được dùng hơn 40 lần mỗi ngày, nên đặt sau câu nói công ty có 60 trạm (vị trí [2]).",
+    "dich": "Trung bình, mỗi trạm trong số đó được dùng hơn 40 lần mỗi ngày."
+   },
+   "ty": "insert"
+  },
+  {
+   "q": "In the article, the word \"placed\" is closest in meaning to",
+   "a": "put",
+   "w": [
+    "ranked",
+    "ordered",
+    "hired"
+   ],
+   "why": "stations will be placed outside every major train station = trạm sẽ được đặt bên ngoài ga. place còn nghĩa \"xếp hạng\", \"đặt hàng\" (place an order), \"xếp việc cho người\".",
+   "lg": {
+    "og": {
+     "put": "đặt",
+     "ranked": "xếp hạng",
+     "ordered": "gọi món / đặt hàng",
+     "hired": "thuê"
+    },
+    "ly": "\"Stations will be placed outside\" là các trạm sẽ được đặt bên ngoài, gần nghĩa nhất với put.",
+    "dich": "Theo thoả thuận, các trạm Greenline sẽ được đặt bên ngoài mọi ga tàu lớn."
+   },
+   "ty": "syn"
+  }
+ ],
+ "chu": "pt",
+ "muc": "toeic"
+}

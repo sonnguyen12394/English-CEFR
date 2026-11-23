@@ -1,0 +1,69 @@
+{
+ "n": 68,
+ "nguon": "Đề 2 · Part 3 · 2",
+ "id": "t3-01",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hi, I'm calling about the printer in our office. It's been making a strange noise since yesterday, and now it won't print at all.",
+   "",
+   "aa832ebb3"
+  ],
+  [
+   "B",
+   "I'm sorry to hear that. Is it the model we installed last month?",
+   "",
+   "a72536d09"
+  ],
+  [
+   "A",
+   "Yes, that's the one. We have an important report to print by Thursday.",
+   "",
+   "ae7af7790"
+  ],
+  [
+   "B",
+   "I can send a technician tomorrow morning. In the meantime, you can use the printer on the third floor.",
+   "",
+   "a1a37e1ce"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What problem does the woman report?",
+   "a": "A printer is not working.",
+   "w": [
+    "A report is missing.",
+    "A technician is late.",
+    "An office is too noisy."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the woman say about Thursday?",
+   "a": "She has a deadline then.",
+   "w": [
+    "She will be on vacation.",
+    "A new printer will arrive.",
+    "The office will be closed."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the man suggest?",
+   "a": "Using another printer",
+   "w": [
+    "Buying a new model",
+    "Calling the manufacturer",
+    "Printing the report at home"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "kt",
+ "muc": "toeic"
+}

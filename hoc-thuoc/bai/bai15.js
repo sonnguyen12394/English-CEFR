@@ -132,4 +132,4 @@ const BAI15 = {
       b4: { q: "You need a badge ___ get into the lab.", hint: "gõ 1 từ", ans: ["to"], vi: "to + V = để." } }]
 };
 
-Object.assign(BAI15.meta, {});
+Object.assign(BAI15.meta, {"muc":"toeic","chu":"vp"});

@@ -1,0 +1,120 @@
+{
+ "n": 95,
+ "nguon": "Đề 2 · Part 7 · 7",
+ "id": "t7-letter3",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Letter",
+ "title": "Letter — Greenfield Water Company",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear Mr. Abara, Our records show that your water bill for September, in the amount of $64.20, has not been paid.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The payment was due on October 5.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To avoid a late fee of $10, please pay the full amount by October 25.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "You can pay online at greenfieldwater.com, by phone, or in person at our office on 18 Mill Road.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If you have already sent your payment, please ignore this letter.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If you are having difficulty paying, our customer service team can help you set up a payment plan.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Sincerely, Billing Department",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why was the letter sent?",
+   "a": "To remind a customer of an unpaid bill",
+   "w": [
+    "To confirm that a payment was received",
+    "To explain a rise in water rates",
+    "To offer a discount for early payment"
+   ],
+   "why": "Hoá đơn nước tháng 9 chưa được thanh toán.",
+   "lg": {
+    "og": {
+     "To remind a customer of an unpaid bill": "Để nhắc khách về hoá đơn chưa trả",
+     "To confirm that a payment was received": "Để xác nhận đã nhận thanh toán",
+     "To explain a rise in water rates": "Để giải thích giá nước tăng",
+     "To offer a discount for early payment": "Để giảm giá khi trả sớm"
+    },
+    "ly": "Đáp án \"To remind a customer of an unpaid bill\" — Thư báo hoá đơn tháng 9 chưa trả và nhắc hạn mới kèm phí trễ. Không có xác nhận thanh toán, tăng giá hay giảm giá trả sớm.",
+    "dich": "Hồ sơ của chúng tôi cho thấy hoá đơn tiền nước tháng 9 của ông, trị giá 64,20 đô la, chưa được thanh toán."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What will happen if Mr. Abara pays after October 25?",
+   "a": "A $10 charge will be added to his bill.",
+   "w": [
+    "His water service will be interrupted.",
+    "His payment plan will be canceled.",
+    "His account will be sent to collections."
+   ],
+   "why": "Trả sau 25/10 thì bị phí trễ hạn 10 đô.",
+   "lg": {
+    "og": {
+     "A $10 charge will be added to his bill.": "Hoá đơn của ông bị cộng thêm 10 đô",
+     "His water service will be interrupted.": "Dịch vụ nước của ông bị gián đoạn",
+     "His payment plan will be canceled.": "Kế hoạch trả góp của ông bị huỷ",
+     "His account will be sent to collections.": "Tài khoản ông bị chuyển sang đòi nợ"
+    },
+    "ly": "Đáp án \"A $10 charge will be added to his bill.\" — Thư nói trả sau 25/10 sẽ bị phí trễ hạn 10 đô. Bài không nói cắt nước, huỷ kế hoạch trả góp hay đòi nợ.",
+    "dich": "Để tránh phí trễ hạn 10 đô la, vui lòng thanh toán đủ trước ngày 25 tháng 10."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is offered to customers who have trouble paying?",
+   "a": "A payment plan",
+   "w": [
+    "A discount",
+    "A free inspection",
+    "A new meter"
+   ],
+   "why": "help you set up a payment plan.",
+   "lg": {
+    "og": {
+     "A payment plan": "Một kế hoạch thanh toán",
+     "A discount": "Giảm giá",
+     "A free inspection": "Kiểm tra miễn phí",
+     "A new meter": "Đồng hồ mới"
+    },
+    "ly": "Thư nói bộ phận chăm sóc khách hàng có thể giúp lập kế hoạch thanh toán cho người khó thanh toán.",
+    "dich": "Nếu ông gặp khó khăn khi thanh toán, nhóm chăm sóc khách hàng có thể giúp ông lập kế hoạch thanh toán."
+   },
+   "ty": "detail"
+  }
+ ],
+ "chu": "tc",
+ "muc": "toeic"
+}

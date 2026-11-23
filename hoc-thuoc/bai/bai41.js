@@ -108,4 +108,4 @@ const BAI41 = {
       b4: { q: "___ improve safety, we installed new lights.", hint: "để · 1 từ", ans: ["to"], vi: "To improve = để cải thiện." } }]
 };
 
-Object.assign(BAI41.meta, {});
+Object.assign(BAI41.meta, {"muc":"toeic","chu":"pt"});

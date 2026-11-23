@@ -1230,4 +1230,4 @@ const BAI56 = {
  ]
 };
 
-Object.assign(BAI56.meta, {"title":"Notice — Westgate Office Tower","evl":[0,4,5]});
+Object.assign(BAI56.meta, {"title":"Notice — Westgate Office Tower","muc":"toeic","chu":"vp","evl":[0,4,5]});

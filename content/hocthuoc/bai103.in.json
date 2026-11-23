@@ -1,0 +1,222 @@
+{
+ "n": 103,
+ "nguon": "Đề 2 · Part 7 · 15",
+ "id": "t7-m-job",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Advertisement + e-mail + schedule",
+ "title": "Job opening — Lindgren Hotels · E-mail · To: jobs@lindgren.com · From: Tomás Herrera · Date: September 12 · Interview schedule — September 20 · Harbor Street, Room 4",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Job opening — Lindgren Hotels",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lindgren Hotels is looking for a Front Desk Supervisor for its Harbor Street location.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Requirements: at least two years of experience at a hotel reception desk, fluency in English and one other language, and the ability to work weekend shifts.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To apply, send a résumé and a cover letter to jobs@lindgren.com by September 15.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) E-mail · To: jobs@lindgren.com · From: Tomás Herrera · Date: September 12",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dear Hiring Manager, I am writing to apply for the Front Desk Supervisor position.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I have worked at the reception desk of the Grand Central Hotel for three years, and I speak English, Spanish and Portuguese.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I am currently taking a part-time course in hospitality management on Saturday mornings, which ends in December.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I hope this will not be a problem.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "My résumé and cover letter are attached.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Sincerely, Tomás Herrera",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Interview schedule — September 20 · Harbor Street, Room 4",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "9:00 A.M. — Mei Lin",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "10:00 A.M. — Tomás Herrera",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "11:00 A.M. — Ahmed Nasser",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Interviewer: Grace Lindqvist, Guest Services Manager.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Candidates should bring a copy of their résumé.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the advertisement?",
+   "a": "To fill a supervisor position",
+   "w": [
+    "To announce a new hotel",
+    "To promote a training course",
+    "To offer discounted rooms"
+   ],
+   "why": "Lindgren Hotels is looking for a Front Desk Supervisor.",
+   "lg": {
+    "og": {
+     "To fill a supervisor position": "Để tuyển một vị trí giám sát",
+     "To announce a new hotel": "Để thông báo khách sạn mới",
+     "To promote a training course": "Để quảng cáo khoá đào tạo",
+     "To offer discounted rooms": "Để giảm giá phòng"
+    },
+    "ly": "Quảng cáo tuyển Giám sát quầy lễ tân của Lindgren Hotels.",
+    "dich": "Lindgren Hotels đang tìm một Giám sát quầy lễ tân cho cơ sở ở phố Harbor."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "Which requirement could be difficult for Mr. Herrera until December?",
+   "a": "Working weekend shifts",
+   "w": [
+    "Having hotel experience",
+    "Speaking two languages",
+    "Sending a cover letter"
+   ],
+   "why": "Đối chiếu: công việc cần làm ca cuối tuần; anh học sáng thứ Bảy tới tháng 12.",
+   "lg": {
+    "og": {
+     "Working weekend shifts": "Làm ca cuối tuần",
+     "Having hotel experience": "Có kinh nghiệm khách sạn",
+     "Speaking two languages": "Nói hai ngôn ngữ",
+     "Sending a cover letter": "Gửi thư xin việc"
+    },
+    "ly": "Ông học thứ Bảy buổi sáng tới tháng 12, trong khi vị trí yêu cầu làm ca cuối tuần.",
+    "dich": "Tôi đang học một khoá bán thời gian về quản trị khách sạn vào sáng thứ Bảy, kết thúc vào tháng 12."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is suggested about Mr. Herrera's application?",
+   "a": "It was sent before the deadline.",
+   "w": [
+    "It did not include a cover letter.",
+    "It was sent to the wrong address.",
+    "It was rejected by Ms. Lindqvist."
+   ],
+   "why": "Đối chiếu: hạn 15/9, e-mail gửi ngày 12/9; có lịch phỏng vấn nên không bị loại.",
+   "lg": {
+    "og": {
+     "It was sent before the deadline.": "Được gửi trước hạn nộp",
+     "It did not include a cover letter.": "Không có thư xin việc",
+     "It was sent to the wrong address.": "Gửi nhầm địa chỉ",
+     "It was rejected by Ms. Lindqvist.": "Bị bà Lindqvist từ chối"
+    },
+    "ly": "Hạn nộp là 15/9 và ông gửi ngày 12/9, tức trước hạn.",
+    "dich": "Vui lòng gửi sơ yếu lý lịch và thư xin việc đến jobs@lindgren.com trước ngày 15 tháng 9."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "What time will Mr. Herrera be interviewed?",
+   "a": "At 10:00 A.M.",
+   "w": [
+    "At 9:00 A.M.",
+    "At 11:00 A.M.",
+    "At 2:00 P.M."
+   ],
+   "why": "10:00 A.M. — Tomás Herrera.",
+   "lg": {
+    "og": {
+     "At 10:00 A.M.": "Lúc 10 giờ sáng",
+     "At 9:00 A.M.": "Lúc 9 giờ sáng",
+     "At 11:00 A.M.": "Lúc 11 giờ sáng",
+     "At 2:00 P.M.": "Lúc 2 giờ chiều"
+    },
+    "ly": "Lịch phỏng vấn ghi Tomás Herrera lúc 10:00 sáng.",
+    "dich": "10:00 sáng – Tomás Herrera."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is NOT a requirement for the position?",
+   "a": "A university degree",
+   "w": [
+    "Hotel reception experience",
+    "Knowledge of two languages",
+    "Weekend availability"
+   ],
+   "why": "Quảng cáo đòi kinh nghiệm lễ tân, 2 ngôn ngữ, làm cuối tuần; không nói bằng đại học.",
+   "lg": {
+    "og": {
+     "A university degree": "Bằng đại học",
+     "Hotel reception experience": "Kinh nghiệm quầy lễ tân khách sạn",
+     "Knowledge of two languages": "Biết hai ngôn ngữ",
+     "Weekend availability": "Làm được cuối tuần"
+    },
+    "ly": "Yêu cầu gồm hai năm kinh nghiệm lễ tân, hai ngôn ngữ và làm ca cuối tuần. Không có yêu cầu bằng đại học.",
+    "dich": "Yêu cầu: ít nhất hai năm kinh nghiệm ở quầy lễ tân khách sạn, thông thạo tiếng Anh và một ngôn ngữ khác, và có thể làm ca cuối tuần."
+   },
+   "ty": "not"
+  }
+ ],
+ "chu": "ns",
+ "muc": "toeic"
+}

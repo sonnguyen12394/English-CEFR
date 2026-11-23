@@ -1,0 +1,81 @@
+{
+ "n": 81,
+ "nguon": "Đề 2 · Part 4 · 4",
+ "id": "t4-04",
+ "dang": "📢 Bài nói",
+ "kind": "news",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "And now for the traffic report.",
+   "",
+   "a93696f47"
+  ],
+  [
+   "N",
+   "Drivers heading into the city on Highway Nine should expect delays of up to thirty minutes this morning because of road repairs near the river bridge.",
+   "",
+   "afa3671b3"
+  ],
+  [
+   "N",
+   "One lane will be closed until Friday.",
+   "",
+   "aba743d1d"
+  ],
+  [
+   "N",
+   "If possible, consider taking the Coastal Road instead, which is moving smoothly.",
+   "",
+   "aa002ec8a"
+  ],
+  [
+   "N",
+   "Commuters may also want to use the express bus service, which has added extra buses this week.",
+   "",
+   "a96f26ba1"
+  ],
+  [
+   "N",
+   "I'll be back with another update in fifteen minutes.",
+   "",
+   "a417a0f74"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is causing the delays?",
+   "a": "Road repairs",
+   "w": [
+    "An accident",
+    "Bad weather",
+    "A sports event"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the speaker suggest?",
+   "a": "Taking a different road",
+   "w": [
+    "Leaving home later",
+    "Driving faster",
+    "Working from home"
+   ],
+   "ty": "next"
+  },
+  {
+   "q": "What is mentioned about the express bus service?",
+   "a": "It has added more buses.",
+   "w": [
+    "It is free this week.",
+    "It has been canceled.",
+    "It stops at the bridge."
+   ],
+   "ty": "detail"
+  }
+ ],
+ "chu": "dl",
+ "muc": "toeic"
+}

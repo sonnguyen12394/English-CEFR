@@ -138,4 +138,4 @@ const BAI19 = {
       b4: { q: "Please check ___ is in the box. (mọi thứ)", hint: "mọi thứ · 1 từ", ans: ["everything"], vi: "everything = mọi thứ." } }]
 };
 
-Object.assign(BAI19.meta, {"title":"Text messages","evl":[2,3,6]});
+Object.assign(BAI19.meta, {"title":"Text messages","muc":"toeic","chu":"mb","evl":[2,3,6]});

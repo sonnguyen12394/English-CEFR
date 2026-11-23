@@ -1171,4 +1171,4 @@ const BAI58 = {
  ]
 };
 
-Object.assign(BAI58.meta, {"title":"Oakdale Public Library: New Opening Hours","evl":[2,-1,1,1]});
+Object.assign(BAI58.meta, {"title":"Oakdale Public Library: New Opening Hours","muc":"toeic","chu":"an","evl":[2,-1,1,1]});

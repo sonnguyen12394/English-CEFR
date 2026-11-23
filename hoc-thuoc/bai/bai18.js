@@ -133,4 +133,4 @@ const BAI18 = {
       b4: { q: "Our new store is ___ than our old one. (big)", hint: "gõ dạng so sánh hơn", ans: ["bigger"], vi: "big → bigger (gấp đôi phụ âm cuối)." } }]
 };
 
-Object.assign(BAI18.meta, {"title":"Seaview Hotel Completes Renovation"});
+Object.assign(BAI18.meta, {"title":"Seaview Hotel Completes Renovation","muc":"toeic","chu":"dl"});

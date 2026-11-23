@@ -1597,4 +1597,4 @@ const BAI60 = {
  ]
 };
 
-Object.assign(BAI60.meta, {"title":"Quickfix Appliance Repair — Invoice #5530 · E-mail · To: service@quickfix.com · From: Diego Ramos, Café Lumen · Date: April 2","evl":[10,3,4,13,12]});
+Object.assign(BAI60.meta, {"title":"Quickfix Appliance Repair — Invoice #5530 · E-mail · To: service@quickfix.com · From: Diego Ramos, Café Lumen · Date: April 2","muc":"toeic","chu":"tc","evl":[10,3,4,13,12]});

@@ -133,4 +133,4 @@ const BAI5 = {
       b4: { q: 'We have not received the package ___.', hint: 'chưa · 1 từ', ans: ['yet'], vi: 'not … yet = chưa.' } }]
 };
 
-Object.assign(BAI5.meta, {});
+Object.assign(BAI5.meta, {"muc":"toeic","chu":"mb"});

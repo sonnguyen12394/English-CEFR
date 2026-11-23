@@ -3118,6 +3118,8 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     const idx = fs.readFileSync(H + 'bai/index.js', 'utf8'), ns = JSON.parse(idx.slice(idx.indexOf('['), idx.lastIndexOf(']') + 1)).map(x => x.n);
     for (const n of ns) if (!fs.existsSync(H + `bai/bai${n}.js`)) r.push('thiếu bài ' + n);
     if (ns.length < 60) r.push('ít bài: ' + ns.length);
+    const CHU = ['vp', 'ns', 'kd', 'tc', 'mb', 'sx', 'dl', 'an', 'nha', 'sk', 'kt', 'pt'], bad = JSON.parse(idx.slice(idx.indexOf('['), idx.lastIndexOf(']') + 1)).filter(x => x.muc !== 'toeic' || !CHU.includes(x.chu)).map(x => x.n);
+    if (bad.length) r.push('bài thiếu mục tiêu / mã chủ đề: ' + bad.slice(0, 6).join(', '));
     if (ns.some(n => /Đề (9|1[0-6])\\b/.test(fs.readFileSync(H + `bai/bai${n}.js`, 'utf8').slice(0, 400)))) r.push('có bài từ đề riêng'); }
   if (!fs.readFileSync(root + 'toeic.js', 'utf8').includes('htRow()')) r.push('màn TOEIC chưa có dòng');
   R.push({ lv: 'cefr', id: 'C103', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Học thuộc bài đề: lối vào ở Luyện đề TOEIC, trang con đủ bài, tiến độ vào S.ht' }); }

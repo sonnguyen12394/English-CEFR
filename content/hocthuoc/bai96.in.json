@@ -1,0 +1,132 @@
+{
+ "n": 96,
+ "nguon": "Đề 2 · Part 7 · 8",
+ "id": "t7-letter4",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Letter",
+ "title": "Letter — Crestwood Dental Group",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear Mr. Haddad,",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you for choosing Crestwood Dental Group.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our records show that it has been twelve months since your last check-up.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Regular visits help us identify small problems before they become serious, so we recommend a check-up once a year.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "This year, we have extended our opening hours.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our clinic on Bay Street is now open until 7:00 P.M. on Tuesdays and Thursdays, and we see patients on Saturday mornings.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To book an appointment, please call our front desk at 555-0193 or use our online booking page.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please bring your insurance card to your visit, as our patient system was recently updated.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Sincerely, Anna Brooks, Patient Services",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why was the letter sent?",
+   "a": "To suggest that a patient schedule a visit",
+   "w": [
+    "To confirm a patient's upcoming appointment",
+    "To report results from a recent visit",
+    "To announce new insurance coverage"
+   ],
+   "why": "Đã mười hai tháng kể từ lần khám, thư khuyên khám mỗi năm.",
+   "lg": {
+    "og": {
+     "To suggest that a patient schedule a visit": "Để gợi ý bệnh nhân đặt lịch khám",
+     "To confirm a patient's upcoming appointment": "Để xác nhận lịch hẹn sắp tới",
+     "To report results from a recent visit": "Để báo kết quả lần khám gần đây",
+     "To announce new insurance coverage": "Để báo bảo hiểm mới"
+    },
+    "ly": "Đáp án \"To suggest that a patient schedule a visit\" — Thư nói đã một năm kể từ lần khám và khuyên khám định kỳ, kèm cách đặt lịch. Ông chưa có lịch hẹn, không có kết quả khám hay bảo hiểm mới.",
+    "dich": "Hồ sơ cho thấy đã mười hai tháng kể từ lần khám gần nhất của ông."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "In the letter, the word \"identify\" in paragraph 1 is closest in meaning to",
+   "a": "find",
+   "w": [
+    "name",
+    "copy",
+    "prove"
+   ],
+   "why": "identify small problems = phát hiện vấn đề nhỏ. identify còn nghĩa \"nhận ra, gọi tên (ai đó)\" nhưng ở đây là tìm ra.",
+   "lg": {
+    "og": {
+     "find": "tìm ra",
+     "name": "gọi tên",
+     "copy": "sao chép",
+     "prove": "chứng minh"
+    },
+    "ly": "\"Identify small problems\" là phát hiện ra các vấn đề nhỏ, gần nghĩa nhất với find.",
+    "dich": "Khám định kỳ giúp chúng tôi phát hiện vấn đề nhỏ trước khi chúng trở nên nghiêm trọng."
+   },
+   "ty": "syn"
+  },
+  {
+   "q": "What is suggested about Mr. Haddad's insurance information?",
+   "a": "The clinic may need to log it again.",
+   "w": [
+    "It must be mailed before the visit.",
+    "It will not cover Saturday appointments.",
+    "It was lost during the system update."
+   ],
+   "why": "Hệ thống bệnh nhân vừa cập nhật nên cần mang thẻ để nhập lại.",
+   "lg": {
+    "og": {
+     "The clinic may need to log it again.": "Phòng khám có thể phải nhập lại",
+     "It must be mailed before the visit.": "Phải gửi qua thư trước buổi khám",
+     "It will not cover Saturday appointments.": "Không áp dụng cho lịch thứ Bảy",
+     "It was lost during the system update.": "Bị mất khi cập nhật hệ thống"
+    },
+    "ly": "Đáp án \"The clinic may need to log it again.\" — Thư nhắc mang thẻ vì hệ thống vừa cập nhật, gợi ý thông tin có thể phải nhập lại. Bài không nói bị mất hay gửi qua thư.",
+    "dich": "Vui lòng mang theo thẻ bảo hiểm vì hệ thống bệnh nhân của chúng tôi vừa được cập nhật."
+   },
+   "ty": "infer"
+  }
+ ],
+ "chu": "sk",
+ "muc": "toeic"
+}

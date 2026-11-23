@@ -1,0 +1,81 @@
+{
+ "n": 79,
+ "nguon": "Đề 2 · Part 4 · 1",
+ "id": "t4-09",
+ "dang": "📢 Bài nói",
+ "kind": "news",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "You're listening to Business Today.",
+   "",
+   "a49804171"
+  ],
+  [
+   "N",
+   "Retail sales across the country rose by three percent last month, the biggest increase this year.",
+   "",
+   "aecd3e248"
+  ],
+  [
+   "N",
+   "Experts say the rise was mainly due to warmer weather, which encouraged people to buy summer clothing and garden equipment.",
+   "",
+   "ab25a3b1e"
+  ],
+  [
+   "N",
+   "However, sales of electronics continued to fall.",
+   "",
+   "a8c21a6da"
+  ],
+  [
+   "N",
+   "After the break, we'll speak with economist Dr.",
+   "",
+   "ad7c1fcfb"
+  ],
+  [
+   "N",
+   "Helen Park about what this means for small businesses.",
+   "",
+   "a2d217420"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the report mainly about?",
+   "a": "Recent retail sales",
+   "w": [
+    "A new electronics store",
+    "A weather forecast",
+    "A gardening competition"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "According to the speaker, what caused the increase?",
+   "a": "Warmer weather",
+   "w": [
+    "Lower prices",
+    "A holiday weekend",
+    "New stores opening"
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What will happen after the break?",
+   "a": "An interview with an expert",
+   "w": [
+    "A traffic report",
+    "A weather update",
+    "An advertisement for a bank"
+   ],
+   "ty": "detail"
+  }
+ ],
+ "chu": "kd",
+ "muc": "toeic"
+}

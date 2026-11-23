@@ -1171,4 +1171,4 @@ const BAI48 = {
     "sɪnˈsɪrli|ˈhaɪrɪŋ|tiːm"].map(x => x.split("|"))
 };
 
-Object.assign(BAI48.meta, {"title":"To: Maria Lopez · From: Hiring Team, Castell Logistics · Subject: Interview invitation"});
+Object.assign(BAI48.meta, {"title":"To: Maria Lopez · From: Hiring Team, Castell Logistics · Subject: Interview invitation","muc":"toeic","chu":"ns"});

@@ -1023,7 +1023,7 @@ const BAI2 = {
 const BAI1 = { meta: { de: 'Đề 3 · Part 3 · hội thoại', dang: '🗣 Hội thoại', t: 'Khách trả phòng muộn', sub: 'Hội thoại thật trong Đề 3 TOEIC (Part 3). Chạm một câu để nghe và xem dịch.' },
   L, IPA, STR, LK, INT, PAU, EL, CUM, VNY, VNK, EXQ, NEWQ2, MU };
 const BAIS = [BAI1, BAI2], STS = {};
-const BAI_ALL = [{ n: 1, de: BAI1.meta.de, dang: BAI1.meta.dang, t: BAI1.meta.t }, { n: 2, de: BAI2.meta.de, dang: BAI2.meta.dang, t: BAI2.meta.t }, ...(typeof BAI_IDX !== 'undefined' ? BAI_IDX : [])];
+const BAI_ALL = [{ n: 1, de: BAI1.meta.de, dang: BAI1.meta.dang, t: BAI1.meta.t, muc: 'toeic', chu: 'dl' }, { n: 2, de: BAI2.meta.de, dang: BAI2.meta.dang, t: BAI2.meta.t, muc: 'toeic', chu: 'dl' }, ...(typeof BAI_IDX !== 'undefined' ? BAI_IDX : [])];
 // tải bài khi chọn: <script src="bai/baiN.js"> rồi lấy hằng BAIN (hằng toàn cục của script cổ điển, không nằm trên window)
 function baiLoad(n, done) { if (BAIS[n - 1]) return done();
   const sc = document.createElement('script'); sc.src = `bai/bai${n}.js`; sc.onload = () => { try { BAIS[n - 1] = Function('return BAI' + n)(); done(); } catch (e) { alert('Chưa tải được bài ' + n); } };

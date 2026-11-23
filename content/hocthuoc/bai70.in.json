@@ -1,0 +1,75 @@
+{
+ "n": 70,
+ "nguon": "Đề 2 · Part 3 · 4",
+ "id": "t3-26",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hi, Daniel. The caterer just called. They can't deliver the lunch for tomorrow's board meeting until one o'clock.",
+   "",
+   "a32311b63"
+  ],
+  [
+   "B",
+   "One o'clock? The meeting starts at eleven thirty, and the directors usually eat during the break at noon.",
+   "",
+   "a370c53f3"
+  ],
+  [
+   "A",
+   "I know. I asked them to come earlier, but they're short of drivers this week.",
+   "",
+   "a8e61e15e"
+  ],
+  [
+   "B",
+   "Well, there's a sandwich shop right across the street.",
+   "",
+   "a33296144"
+  ],
+  [
+   "A",
+   "Good idea. I'll call them now and see if they can prepare something for twelve people.",
+   "",
+   "adb44d708"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What problem does the woman mention?",
+   "a": "A delivery will arrive late.",
+   "w": [
+    "A meeting has been canceled.",
+    "A caterer has raised its prices.",
+    "Some directors cannot attend."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the man imply when he says, \"there's a sandwich shop right across the street\"?",
+   "a": "The speakers could order food nearby.",
+   "w": [
+    "The meeting should be moved.",
+    "He is going out for lunch.",
+    "The caterer is located nearby."
+   ],
+   "ty": "imp"
+  },
+  {
+   "q": "What will the woman do next?",
+   "a": "Contact a shop",
+   "w": [
+    "Visit the caterer",
+    "Reschedule a meeting",
+    "Hire a driver"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "an",
+ "muc": "toeic"
+}

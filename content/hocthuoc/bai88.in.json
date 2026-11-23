@@ -1,0 +1,95 @@
+{
+ "n": 88,
+ "nguon": "Đề 2 · Part 6 · 2",
+ "id": "t6-supplier",
+ "dang": "✉️ Văn bản",
+ "kind": "Memo",
+ "title": "To: All kitchen staff · From: Restaurant Manager · Subject: New vegetable supplier",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Starting next month, our vegetables will come from Green Field Farms instead of City Produce.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The farm is only fifteen kilometers away, and its trucks will arrive early every morning.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "This means our salads and soups will be made with fresher produce.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The first delivery is scheduled for Monday, May 5.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Of course, mistakes can happen with a new supplier, so please check every box against the delivery list and report any missing items to me immediately.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you for your help.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "will arrive",
+   "w": [
+    "arrived",
+    "have arrived",
+    "were arriving"
+   ],
+   "why": "Thì theo ngữ cảnh: nhà cung cấp mới bắt đầu từ \"next month\" (câu trước) → tương lai: will arrive. Đứng riêng thì \"arrived early every morning\" cũng đúng ngữ pháp.",
+   "ty": "tense"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "This means our salads and soups will be made with fresher produce.",
+   "w": [
+    "City Produce will continue to deliver our vegetables after May 5.",
+    "The farm's trucks have been delivering to us for years.",
+    "Unfortunately, the farm is too far away to deliver in the morning."
+   ],
+   "why": "\"This\" = rau tới sớm mỗi sáng từ trang trại gần: câu chèn nói lợi ích. City Produce vẫn giao ngược với câu đầu; giao \"nhiều năm\" ngược với \"nhà cung cấp mới\"; quá xa ngược với \"only fifteen kilometers\".",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "Of course",
+   "w": [
+    "Instead",
+    "As a result",
+    "For example"
+   ],
+   "why": "Từ nối giữa câu: \"Of course\" (tất nhiên) mở ý nhắc nhở: nhà cung cấp mới có thể giao nhầm, nên kiểm từng thùng.",
+   "ty": "conn"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "immediately",
+   "w": [
+    "immediate",
+    "immediacy",
+    "more immediate"
+   ],
+   "why": "Bổ nghĩa cho động từ report → trạng từ: immediately (ngay).",
+   "ty": "word"
+  }
+ ],
+ "chu": "mb",
+ "muc": "toeic"
+}

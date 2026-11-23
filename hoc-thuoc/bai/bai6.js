@@ -140,4 +140,4 @@ const BAI6 = {
       b4: { q: 'These forms should ___ by noon. (return, bị động)', hint: 'gõ be + V3 (2 từ)', ans: ['be returned'], vi: 'should be returned = nên được trả lại.' } }]
 };
 
-Object.assign(BAI6.meta, {"title":"To: Valued customers · From: Nordic Home · Subject: Thank you for visiting"});
+Object.assign(BAI6.meta, {"title":"To: Valued customers · From: Nordic Home · Subject: Thank you for visiting","muc":"toeic","chu":"kd"});

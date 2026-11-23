@@ -1691,4 +1691,4 @@ const BAI63 = {
  ]
 };
 
-Object.assign(BAI63.meta, {"title":"Westbrook Public Library — Summer renovation · Summer events — Community Room · E-mail · To: info@westbrooklibrary.org · From: Hannah Okoye · Date: July 8","evl":[1,2,7,13,2]});
+Object.assign(BAI63.meta, {"title":"Westbrook Public Library — Summer renovation · Summer events — Community Room · E-mail · To: info@westbrooklibrary.org · From: Hannah Okoye · Date: July 8","muc":"toeic","chu":"nha","evl":[1,2,7,13,2]});

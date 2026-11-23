@@ -1,0 +1,101 @@
+{
+ "n": 87,
+ "nguon": "Đề 2 · Part 6 · 1",
+ "id": "t6-stay",
+ "dang": "✉️ Văn bản",
+ "kind": "E-mail",
+ "title": "To: Laura Kent · From: Bayview Hotel · Subject: Your recent stay",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear Ms. Kent, Thank you for your comments about your stay at the Bayview Hotel from August 2 to 5.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We are sorry that the air conditioner in your room did not work properly during your visit.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We understand how uncomfortable this must have been in such hot weather.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our maintenance team has since replaced the units in all rooms on the sixth floor.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "In addition, we would like to offer you a free night on your next stay.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Simply mention this e-mail when you make your reservation.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Sincerely, Paul Grant, Guest Relations Manager",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "did not work",
+   "w": [
+    "does not work",
+    "will not work",
+    "has not worked"
+   ],
+   "why": "Thì theo ngữ cảnh: kỳ nghỉ đã qua (2–5/8, \"during your visit\") → quá khứ đơn: did not work.",
+   "ty": "tense"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "We understand how uncomfortable this must have been in such hot weather.",
+   "w": [
+    "We are glad that everything in your room worked perfectly.",
+    "The air conditioners on your floor were replaced just before your arrival.",
+    "Unfortunately, we are unable to offer any compensation."
+   ],
+   "why": "Câu chèn tiếp lời xin lỗi về máy lạnh hỏng, trước câu nói đã thay máy. Mọi thứ hoạt động tốt ngược với lời xin lỗi; thay máy \"trước khi chị đến\" ngược với \"has since replaced\" (thay sau đó); không bồi thường ngược với câu tặng một đêm.",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "In addition",
+   "w": [
+    "Otherwise",
+    "Instead",
+    "On the other hand"
+   ],
+   "why": "Từ nối giữa câu: đã thay máy, THÊM NỮA tặng một đêm miễn phí → In addition.",
+   "ty": "conn"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "reservation",
+   "w": [
+    "reserve",
+    "reserved",
+    "reserving"
+   ],
+   "why": "make your + danh từ: make a reservation (đặt phòng).",
+   "ty": "word"
+  }
+ ],
+ "chu": "dl",
+ "muc": "toeic"
+}

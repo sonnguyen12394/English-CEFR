@@ -139,4 +139,4 @@ const BAI17 = {
       b4: { q: "I will call you when the package ___. (arrive)", hint: "gõ hiện tại đơn", ans: ["arrives"], vi: "when + hiện tại đơn: arrives." } }]
 };
 
-Object.assign(BAI17.meta, {"title":"Harlan Insurance · Claims Department"});
+Object.assign(BAI17.meta, {"title":"Harlan Insurance · Claims Department","muc":"toeic","chu":"tc"});

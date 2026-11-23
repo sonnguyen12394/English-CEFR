@@ -1173,4 +1173,4 @@ const BAI35 = {
  ]
 };
 
-Object.assign(BAI35.meta, {});
+Object.assign(BAI35.meta, {"muc":"toeic","chu":"vp"});

@@ -1,0 +1,120 @@
+{
+ "n": 93,
+ "nguon": "Đề 2 · Part 7 · 5",
+ "id": "t7-ad3",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Advertisement",
+ "title": "Advertisement — Sunrise Cleaning Services",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Is your office ready for a fresh start?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Sunrise Cleaning Services has been keeping businesses in Brookfield clean for over fifteen years.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We offer daily, weekly, and monthly cleaning plans, as well as carpet and window cleaning.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "All of our products are environmentally friendly.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "New customers who sign a one-year contract before June 30 will receive their first window cleaning free.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Call 555-0199 today for a free price estimate.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please note that we do not provide services on public holidays.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is indicated about Sunrise Cleaning Services?",
+   "a": "It does not offer services on certain days.",
+   "w": [
+    "It recently opened in Brookfield.",
+    "It charges for price estimates.",
+    "It uses standard chemical products."
+   ],
+   "why": "Quảng cáo nói công ty không làm dịch vụ vào các ngày lễ.",
+   "lg": {
+    "og": {
+     "It does not offer services on certain days.": "Có những ngày công ty không làm dịch vụ",
+     "It recently opened in Brookfield.": "Mới mở ở Brookfield",
+     "It charges for price estimates.": "Tính phí báo giá",
+     "It uses standard chemical products.": "Dùng hoá chất thông thường"
+    },
+    "ly": "Câu cuối nói công ty không làm dịch vụ vào ngày lễ: \"It does not offer services on certain days.\" Công ty đã hoạt động hơn mười lăm năm (không phải mới mở), báo giá miễn phí và mọi sản phẩm đều thân thiện môi trường.",
+    "dich": "Xin lưu ý chúng tôi không làm dịch vụ vào các ngày lễ."
+   },
+   "ty": "true"
+  },
+  {
+   "q": "What is offered to some new customers?",
+   "a": "A free window cleaning",
+   "w": [
+    "A discount on carpets",
+    "A free one-year contract",
+    "Free cleaning products"
+   ],
+   "why": "will receive their first window cleaning free.",
+   "lg": {
+    "og": {
+     "A free window cleaning": "Một lần lau cửa sổ miễn phí",
+     "A discount on carpets": "Giảm giá thảm",
+     "A free one-year contract": "Hợp đồng một năm miễn phí",
+     "Free cleaning products": "Sản phẩm vệ sinh miễn phí"
+    },
+    "ly": "Khách mới ký hợp đồng một năm trước 30/6 được lau cửa sổ miễn phí lần đầu.",
+    "dich": "Khách mới ký hợp đồng một năm trước ngày 30 tháng 6 sẽ được lau cửa sổ lần đầu miễn phí."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "The word \"fresh\" in line 1 is closest in meaning to",
+   "a": "new",
+   "w": [
+    "cold",
+    "cool",
+    "quick"
+   ],
+   "why": "a fresh start = một khởi đầu mới.",
+   "lg": {
+    "og": {
+     "new": "mới",
+     "cold": "lạnh",
+     "cool": "mát",
+     "quick": "nhanh"
+    },
+    "ly": "\"A fresh start\" là một khởi đầu mới, gần nghĩa nhất với new.",
+    "dich": "Văn phòng của bạn đã sẵn sàng cho một khởi đầu mới chưa?"
+   },
+   "ty": "syn"
+  }
+ ],
+ "chu": "mb",
+ "muc": "toeic"
+}

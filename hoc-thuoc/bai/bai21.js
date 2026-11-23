@@ -110,4 +110,4 @@ const BAI21 = {
       b4: { q: "The museum was ___ in 1920. (build)", hint: "gõ dạng V3 của build", ans: ["built"], vi: "was built = được xây." } }]
 };
 
-Object.assign(BAI21.meta, {"title":"Local firm goes green","evl":[1,4,4]});
+Object.assign(BAI21.meta, {"title":"Local firm goes green","muc":"toeic","chu":"pt","evl":[1,4,4]});

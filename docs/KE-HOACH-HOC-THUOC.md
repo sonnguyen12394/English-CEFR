@@ -2,15 +2,15 @@
 
 Viết ngày 22/11/2026, cập nhật 23/11/2026 (thêm 2 mục tiêu, mục 2). Để chuyển sang tài khoản / phiên khác làm tiếp. Đọc hết tệp này trước khi làm.
 
-## 1. Hiện trạng (bản 205, v209)
+## 1. Hiện trạng (bản 206, v210, 23/11/2026)
 
 - App: 🎯 Luyện đề → TOEIC → 📚 → dòng **📖 Học thuộc bài đề** → trang con `hoc-thuoc/` (khung iframe, tiến độ ở `S.ht`). Xem đoạn v209 trong `CLAUDE.md`.
-- 66 bài đã lên web (`hoc-thuoc/bai/`; nguồn `content/hocthuoc/baiN.js` + `baiN.in.json`):
+- 100 bài đã lên web (`hoc-thuoc/bai/`; nguồn `content/hocthuoc/baiN.js` + `baiN.in.json`). Mọi bài có mã chủ đề TOEIC (G0 xong: `tools/hocthuoc/chu.json`, trường `chu` / `muc` trong `.in.json` và meta). Bài đã soạn nhưng soát KHÔNG ĐẠT nằm ở `tools/hocthuoc/hoan.json` (bộ dựng bỏ qua):
 
 | Đề | Đã có | Ghi chú |
 |---|---|---|
 | Đề 1 | 45 bài: Part 3 13 · Part 4 10 · Part 6 4 · Part 7 14 · Part 2 3 bộ | Đủ (bài 25–66 + bài 6, 9) |
-| Đề 2 | 6: Part 3 #13 · Part 4 #2, #5 · Part 7 #2, #3 · Part 2 bộ 1 | |
+| Đề 2 | 40: Part 3 13 · Part 4 10 · Part 6 4 · Part 7 10 · Part 2 3 bộ | Bài 67–105 (v210). **Còn 5 bài hoãn: 99–103** (Part 7 #11–15, bộ nhiều văn bản): đã có tệp, qua máy kiểm, nhưng VNY / IPA / STR sinh tự động → viết lại tay (danh sách lỗi ở mục 6.5), soát lại, bỏ khỏi `hoan.json` |
 | Đề 3 | 5: Part 3 #1, #4 · Part 4 #1, #7 · Part 7 #3 | Bài 1 (Part 3 #1) nằm trong `base.html` |
 | Đề 4 | 3: Part 4 #3 · Part 6 #3 · Part 7 #1 | |
 | Đề 5 | 4: Part 3 #4 · Part 4 #2, #4 · Part 6 #4 | Bài 2 (Part 4 #4) nằm trong `base.html` |
@@ -19,7 +19,7 @@ Viết ngày 22/11/2026, cập nhật 23/11/2026 (thêm 2 mục tiêu, mục 2).
 | Đề 8 | 0 | |
 
 - Một đề đủ = 45 bài: Part 3 13 · Part 4 10 · Part 6 4 · Part 7 15 · Part 2 3 bộ (10 + 10 + 5 câu).
-- **Còn khoảng 291 bài** (Đề 2: 39 · Đề 3: 40 · Đề 4: 42 · Đề 5: 41 · Đề 6: 43 · Đề 7: 42 · Đề 8: 44; đã trừ bộ Part 7 dài hơn 200 từ). Số bài mới bắt đầu từ **67**.
+- **Còn khoảng 257 bài** (Đề 2: 5 bài hoãn · Đề 3: 40 · Đề 4: 42 · Đề 5: 41 · Đề 6: 43 · Đề 7: 42 · Đề 8: 44; đã trừ bộ Part 7 dài hơn 200 từ). Số bài mới bắt đầu từ **106** (danh sách đợt Đề 2: `tools/hocthuoc/dot3.json`; đợt kế tiếp ghi `dot4.json`).
 - Đề 9–16 (ETS, bảng `de_rieng`): KHÔNG làm. Người sáng lập đã từ chối cho Claude đọc bảng này (21/11). Chỉ làm khi người sáng lập cho phép rõ ràng; nội dung không vào repo.
 
 ## 2. Hai mục tiêu · chủ đề · dạng bài (người sáng lập 23/11/2026)
@@ -94,9 +94,9 @@ Chạy mọi lệnh ở gốc repo. Trước khi đọc mã: `graphify query "<c
 
 1. **Danh sách bài** (phiên chính): tạo `tools/hocthuoc/dotN.json` dạng `[[số bài, đề, "p3", thứ tự], ...]`, theo mẫu `tools/hocthuoc/dot2.json` (Đề 1). Part 2: `[n, đề, "p2", 0 | 1 | 2]` = bộ 10 câu thứ mấy. Bỏ bài đã có (bảng trên). Bộ Part 7 dài hơn 200 từ thì bỏ (Đề 6 có 2, Đề 8 có 1). Ghi mã chủ đề (mục 2.1) cho từng bài vào `baiN.in.json` trường `chu` sau khi chạy bước 2.
 2. **Đầu vào**: `node tools/hocthuoc/prep2.mjs content/hocthuoc tools/hocthuoc/dotN.json` → `content/hocthuoc/baiN.in.json`.
-3. **Soạn** (thợ `soan-theo-khuon`, Sonnet): mỗi thợ ~7 bài, 6 thợ chạy song song. Lời giao phải tự đủ: đọc `tools/hocthuoc/LUAT-SOAN.md` + bài mẫu theo dạng (bai2 bài nói · bai7 hội thoại 3 người · bai9, bai12 Part 6 · bai19, bai23 Part 7 · bai24 Part 2); chỉ tạo `content/hocthuoc/baiN.js` của mình; tự chạy `node tools/hocthuoc/check.mjs content/hocthuoc/baiN.js` tới khi in OK; không commit.
+3. **Soạn** (thợ `soan-theo-khuon`, Sonnet): mỗi thợ ~7 bài, 6 thợ chạy song song. Lời giao phải cấm sinh VNY / IPA / STR bằng script (v210: một thợ làm vậy, cả nhóm bị trả lại); tên bài Nền lấy đúng `title` trong `np.json` (máy đo được, xem đoạn v210 trong CLAUDE.md). Lời giao phải tự đủ: đọc `tools/hocthuoc/LUAT-SOAN.md` + bài mẫu theo dạng (bai2 bài nói · bai7 hội thoại 3 người · bai9, bai12 Part 6 · bai19, bai23 Part 7 · bai24 Part 2); chỉ tạo `content/hocthuoc/baiN.js` của mình; tự chạy `node tools/hocthuoc/check.mjs content/hocthuoc/baiN.js` tới khi in OK; không commit.
 4. **Soát** (thợ `soat-lai`, Opus medium): đọc ngẫu nhiên ≥ 10% (ít nhất 5 bài) của đợt. Tìm lỗi kiến thức: phương án nhiễu cũng đúng, câu ④ thiếu đáp án gõ, dịch sai, điểm ngữ pháp sai tên bài Nền. Lỗi nặng > 1/10 thì giao soạn lại cả đợt kèm danh sách lỗi.
-5. **Dựng**: `python3 tools/hocthuoc/build.py <thư mục tạm>` (bài không qua máy kiểm thì bị bỏ, có in "BỎ bài") → `python3 tools/hocthuoc/build-web.py <thư mục tạm>` → `hoc-thuoc/` mới.
+5. **Dựng**: `python3 tools/hocthuoc/build.py <thư mục tạm>` (bài trong `tools/hocthuoc/hoan.json` bị bỏ qua, in "HOÃN bài") (bài không qua máy kiểm thì bị bỏ, có in "BỎ bài") → `python3 tools/hocthuoc/build-web.py <thư mục tạm>` → `hoc-thuoc/` mới.
 6. **Kiểm**: mở `hoc-thuoc/index.html` qua máy chủ tĩnh, khổ iPhone SE (Chromium chỉ để soát, không thay iPhone): chọn bài mới, chạy ⚡ Đua giờ, 💡 / ✍️; không lỗi trang, không tràn ngang. `node tools/test/run.mjs` (C103 kiểm đủ tệp bài).
 7. **Phát hành**: cập nhật bảng mục 1 của tệp này + đoạn v… trong `CLAUDE.md` → `node tools/release.mjs` → commit, push nhánh của phiên → PR vào main (người sáng lập đã cho đẩy lên web) → gộp.
 
@@ -141,6 +141,8 @@ Ngưỡng là ý kiến của Claude. Đánh giá theo quý: hết quý 1/2027 c
 3. **Ghi chú ở kết quả đề thử**: "Bạn đã học thuộc N bài của đề này, điểm có thể cao hơn sức thật" (yêu cầu của người sáng lập 21/11, chưa làm). Việc giao diện + đọc `S.ht`: phiên chính Opus high, theo luật thiết kế trong `.claude/CLAUDE.md`.
 4. **Kiểm iPhone** (người sáng lập): máy chép lời trong khung iframe, tiếng 🔊, tắt mở lại app còn tiến độ, nút "‹ Luyện đề".
 
+5. **Bài 99–103 (Đề 2, hoãn ở v210):** soát 23/11 chấm nặng: VNY mỗi ý là nguyên cụm VNK có ngoặc / "(1)" nên bài tập gõ nghĩa không chấm được; IPA số ("1" ngày → fɝːst, số bàn faɪv / ten), "I am" ghi như A.M., ðə / ði; LK / EL rỗng; bài 99 MU g1.b3[1] và một câu NEWQ2 có nhiễu "too" cũng đúng, NEWQ2 1 / 3 gần trùng MU; bài 103 dịch L[8], L[9] cứng, who W thiếu lịch phỏng vấn. Giao `soan-theo-khuon` viết TAY (không sinh tự động), `soat-lai` đọc lại cả 5 bài, rồi bỏ số khỏi `hoan.json` và dựng lại.
+
 ## 7. Lời nhắn để dán sang tài khoản mới
 
-> Đọc `docs/KE-HOACH-HOC-THUOC.md` và đoạn v209 trong `CLAUDE.md`. Làm đợt kế tiếp theo mục 3 (bắt đầu Đề 2, số bài từ 67, gán mã chủ đề theo mục 2.1 và làm G0), giao thợ theo mục 4, chấm theo mục 5. Phần 💬 Giao tiếp (mục 2.2–2.3) chỉ bắt đầu sau 1–2 đề TOEIC và phải dừng ở G3 chờ người sáng lập duyệt. Không đọc bảng `de_rieng`. Xong đợt thì phát hành và cập nhật bảng mục 1.
+> Đọc `docs/KE-HOACH-HOC-THUOC.md` và đoạn v209, v210 trong `CLAUDE.md`. Trước hết làm xong 5 bài hoãn 99–103 (mục 6.5). Rồi làm đợt kế tiếp theo mục 3 (Đề 3, số bài từ 106, gán mã chủ đề theo mục 2.1), giao thợ theo mục 4, chấm theo mục 5. Phần 💬 Giao tiếp (mục 2.2–2.3) chỉ bắt đầu sau 1–2 đề TOEIC và phải dừng ở G3 chờ người sáng lập duyệt. Không đọc bảng `de_rieng`. Xong đợt thì phát hành và cập nhật bảng mục 1.

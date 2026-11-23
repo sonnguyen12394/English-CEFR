@@ -1130,4 +1130,4 @@ const BAI49 = {
     "ˈkʌmpəni|ˈprezɪdənt|məˈriːə|soʊˈlɑːnoʊ|sed|ðæt|ˈdɔːltən|wəz|ˈtʃoʊzən|bɪˈkɔːz|əv|ɪts|prɑːkˈsɪməti|tə|ˈmeɪdʒər|ˈhaɪweɪz|ænd|ɪts|skɪld|ˈwɝːkfɔːrs"].map(x => x.split("|"))
 };
 
-Object.assign(BAI49.meta, {"title":"Solmar Foods to open new plant"});
+Object.assign(BAI49.meta, {"title":"Solmar Foods to open new plant","muc":"toeic","chu":"pt"});

@@ -127,4 +127,4 @@ const BAI4 = {
       b4: { q: 'If it ___ tomorrow, we will move the event indoors. (rain)', hint: 'gõ dạng hiện tại đơn của rain', ans: ['rains'], vi: 'If + hiện tại đơn (it rains).' } }]
 };
 
-Object.assign(BAI4.meta, {});
+Object.assign(BAI4.meta, {"muc":"toeic","chu":"mb"});

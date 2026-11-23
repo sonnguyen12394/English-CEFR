@@ -1,0 +1,171 @@
+{
+ "n": 104,
+ "nguon": "Đề 2 · Part 2 · bộ 2",
+ "id": "de2-p2-bo2",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "Part 2 · bộ 2 · 10 câu hỏi – đáp",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Which presentation slides should I use?",
+   "",
+   "aee0f7a64"
+  ],
+  [
+   "B",
+   "The ones Mary updated yesterday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why haven't the packages been delivered?",
+   "",
+   "ada9a1a39"
+  ],
+  [
+   "B",
+   "There was a problem with the truck.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Where did you buy that laptop bag?",
+   "",
+   "a8390245c"
+  ],
+  [
+   "B",
+   "At an online store.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Has the delivery truck arrived yet?",
+   "",
+   "ad7c15ab1"
+  ],
+  [
+   "B",
+   "Not yet, it should be here soon.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Should we order lunch now or wait for Tom?",
+   "",
+   "aaf6a79cc"
+  ],
+  [
+   "B",
+   "Let's wait a few more minutes.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Where will the training workshop be held?",
+   "",
+   "ab932b315"
+  ],
+  [
+   "B",
+   "In the large meeting room on the fifth floor.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who should I talk to about a refund?",
+   "",
+   "ad2804363"
+  ],
+  [
+   "B",
+   "The customer service desk can help you.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Whose turn is it to clean the kitchen?",
+   "",
+   "af72219f3"
+  ],
+  [
+   "B",
+   "I think it's Mark's.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Haven't you finished the budget report yet?",
+   "",
+   "a57432f1c"
+  ],
+  [
+   "B",
+   "I'm just checking the last few figures.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can you recommend a good restaurant near the office?",
+   "",
+   "a3d5c63cd"
+  ],
+  [
+   "B",
+   "Try the Thai place on Fifth Avenue.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Which presentation slides should I use?",
+   "a": "The ones Mary updated yesterday.",
+   "w": [
+    "It was a long presentation.",
+    "I'll slide it under the door."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Why haven't the packages been delivered?",
+   "a": "There was a problem with the truck.",
+   "w": [
+    "A large package.",
+    "Yes, deliver them to me."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Where did you buy that laptop bag?",
+   "a": "At an online store.",
+   "w": [
+    "Last weekend.",
+    "It holds two laptops."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Has the delivery truck arrived yet?",
+   "a": "Not yet, it should be here soon.",
+   "w": [
+    "A large delivery.",
+    "Yes, I'll drive."
+   ],
+   "ty": "yn"
+  }
+ ],
+ "chu": "vp",
+ "muc": "toeic"
+}

@@ -1,0 +1,69 @@
+{
+ "n": 77,
+ "nguon": "Đề 2 · Part 3 · 11",
+ "id": "t3-19",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Welcome to Harbor Hotel. Do you have a reservation?",
+   "",
+   "a816972b4"
+  ],
+  [
+   "B",
+   "Yes, under the name Kim. I booked a room with a sea view for three nights.",
+   "",
+   "a42ae7ff7"
+  ],
+  [
+   "A",
+   "I'm afraid the sea-view rooms are being painted this week. I can give you a suite on the top floor at no extra charge.",
+   "",
+   "ac1ffa5a4"
+  ],
+  [
+   "B",
+   "That sounds great. Could I also get a late checkout on Sunday? My flight isn't until the evening.",
+   "",
+   "a27132b45"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where does the conversation take place?",
+   "a": "At a hotel",
+   "w": [
+    "At an airport",
+    "At a restaurant",
+    "At a travel agency"
+   ],
+   "ty": "gist"
+  },
+  {
+   "q": "Why can't the man get the room he booked?",
+   "a": "Some rooms are being painted.",
+   "w": [
+    "The hotel is full.",
+    "His booking was canceled.",
+    "The price has changed."
+   ],
+   "ty": "detail"
+  },
+  {
+   "q": "What does the man ask for?",
+   "a": "A late checkout",
+   "w": [
+    "A taxi to the airport",
+    "Breakfast in his room",
+    "A cheaper room"
+   ],
+   "ty": "next"
+  }
+ ],
+ "chu": "dl",
+ "muc": "toeic"
+}

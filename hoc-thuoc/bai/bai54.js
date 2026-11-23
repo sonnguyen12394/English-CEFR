@@ -1255,4 +1255,4 @@ const BAI54 = {
  ]
 };
 
-Object.assign(BAI54.meta, {"title":"Review of Casa Verde Restaurant ★★★★☆","evl":[0,0,4]});
+Object.assign(BAI54.meta, {"title":"Review of Casa Verde Restaurant ★★★★☆","muc":"toeic","chu":"an","evl":[0,0,4]});

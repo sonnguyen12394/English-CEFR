@@ -1,0 +1,216 @@
+{
+ "n": 101,
+ "nguon": "Đề 2 · Part 7 · 13",
+ "id": "t7-m-event",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Web page + e-mail + schedule",
+ "title": "Harbor Arts Festival — Volunteer page · E-mail · To: volunteer@harborarts.org · From: Nora Bell · Volunteer schedule — Saturday, June 7 (children's art tent)",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Harbor Arts Festival — Volunteer page",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We are looking for volunteers to help at this year's festival, June 6–8.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Volunteers work one four-hour shift and receive a free festival T-shirt and a ticket to the closing concert.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Shifts are available at the information desk, the ticket gate and the children's art tent.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Volunteers under 18 must work with an adult volunteer.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To sign up, e-mail volunteer@harborarts.org with your preferred day and area.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) E-mail · To: volunteer@harborarts.org · From: Nora Bell",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello, I would like to volunteer at the festival on Saturday, June 7.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I am a primary school teacher, so I would be happy to help in the children's art tent.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "My 16-year-old son would also like to volunteer.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Could we work the same shift?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you, Nora Bell",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Volunteer schedule — Saturday, June 7 (children's art tent)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "9:00 A.M.–1:00 P.M.: Nora Bell, Tom Bell",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "1:00 P.M.–5:00 P.M.: Grace Liu, Ahmed Saleh",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "5:00 P.M.–9:00 P.M.: (open)",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What will volunteers receive?",
+   "a": "A concert ticket",
+   "w": [
+    "A cash payment",
+    "Free meals",
+    "A parking pass"
+   ],
+   "why": "a ticket to the closing concert.",
+   "lg": {
+    "og": {
+     "A concert ticket": "Một vé buổi hoà nhạc bế mạc",
+     "A cash payment": "Tiền công",
+     "Free meals": "Bữa ăn miễn phí",
+     "A parking pass": "Thẻ đỗ xe"
+    },
+    "ly": "Tình nguyện viên nhận áo thun và vé buổi hoà nhạc bế mạc.",
+    "dich": "Tình nguyện viên làm một ca bốn giờ và nhận một áo thun lễ hội miễn phí cùng một vé buổi hoà nhạc bế mạc."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Why does Ms. Bell want to work in the children's art tent?",
+   "a": "She works with children.",
+   "w": [
+    "Her son is an artist.",
+    "It is near the entrance.",
+    "It has the shortest shift."
+   ],
+   "why": "I am a primary school teacher.",
+   "lg": {
+    "og": {
+     "She works with children.": "Bà làm việc với trẻ em",
+     "Her son is an artist.": "Con trai bà là hoạ sĩ",
+     "It is near the entrance.": "Gần lối vào",
+     "It has the shortest shift.": "Ca ngắn nhất"
+    },
+    "ly": "Bà là giáo viên tiểu học nên vui lòng giúp ở lều nghệ thuật cho trẻ em.",
+    "dich": "Tôi là giáo viên tiểu học nên sẽ rất vui được giúp ở lều nghệ thuật thiếu nhi."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is suggested about Tom Bell?",
+   "a": "He must work with an adult volunteer.",
+   "w": [
+    "He is a primary school teacher.",
+    "He chose the ticket gate.",
+    "He will work on June 6."
+   ],
+   "why": "Đối chiếu: con trai 16 tuổi của Nora (Tom Bell trên lịch) dưới 18 → phải làm cùng người lớn.",
+   "lg": {
+    "og": {
+     "He must work with an adult volunteer.": "Cậu phải làm cùng một người lớn",
+     "He is a primary school teacher.": "Cậu là giáo viên tiểu học",
+     "He chose the ticket gate.": "Cậu chọn cổng bán vé",
+     "He will work on June 6.": "Cậu làm ngày 6/6"
+    },
+    "ly": "Tom 16 tuổi, mà tình nguyện viên dưới 18 tuổi phải làm cùng người lớn.",
+    "dich": "Tình nguyện viên dưới 18 tuổi phải làm cùng một tình nguyện viên người lớn."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "What time will Ms. Bell finish her shift?",
+   "a": "At 1:00 P.M.",
+   "w": [
+    "At 9:00 A.M.",
+    "At 5:00 P.M.",
+    "At 9:00 P.M."
+   ],
+   "why": "Lịch: 9:00 A.M.–1:00 P.M.: Nora Bell.",
+   "lg": {
+    "og": {
+     "At 1:00 P.M.": "Lúc 1 giờ chiều",
+     "At 9:00 A.M.": "Lúc 9 giờ sáng",
+     "At 5:00 P.M.": "Lúc 5 giờ chiều",
+     "At 9:00 P.M.": "Lúc 9 giờ tối"
+    },
+    "ly": "Lịch ghi ca của bà Bell là 9:00 sáng đến 1:00 chiều.",
+    "dich": "9:00 sáng – 1:00 chiều: Nora Bell, Tom Bell."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Which shift still needs volunteers?",
+   "a": "The evening shift",
+   "w": [
+    "The morning shift",
+    "The afternoon shift",
+    "No shift"
+   ],
+   "why": "5:00 P.M.–9:00 P.M.: (open).",
+   "lg": {
+    "og": {
+     "The evening shift": "Ca buổi tối",
+     "The morning shift": "Ca buổi sáng",
+     "The afternoon shift": "Ca buổi chiều",
+     "No shift": "Không ca nào"
+    },
+    "ly": "Ca 5:00–9:00 tối còn trống (open).",
+    "dich": "5:00 chiều – 9:00 tối: (còn trống)."
+   },
+   "ty": "detail"
+  }
+ ],
+ "chu": "an",
+ "muc": "toeic"
+}

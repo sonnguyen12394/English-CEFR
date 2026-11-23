@@ -1,0 +1,87 @@
+{
+ "n": 91,
+ "nguon": "Đề 2 · Part 7 · 1",
+ "id": "t7-notice",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Notice",
+ "title": "Westfield Apartments — Water shut-off",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear residents, Water will be shut off in Building B on Wednesday, May 14, from 10:00 A.M. to 2:00 P.M. while plumbers replace a main pipe.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Residents of Buildings A and C will not be affected.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Bottled water will be available in the lobby of Building B during this time.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We recommend that you fill containers with water before 10:00 A.M. if needed.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We apologize for the inconvenience. — Westfield Management Office",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who is the notice intended for?",
+   "a": "Apartment complex residents",
+   "w": [
+    "Employees of an office building",
+    "Guests staying at a hotel",
+    "Members of a fitness club"
+   ],
+   "why": "Dear residents … Westfield Apartments.",
+   "lg": {
+    "og": {
+     "Apartment complex residents": "Cư dân của một khu chung cư",
+     "Employees of an office building": "Nhân viên của một toà văn phòng",
+     "Guests staying at a hotel": "Khách ở khách sạn",
+     "Members of a fitness club": "Hội viên một câu lạc bộ thể hình"
+    },
+    "ly": "Đáp án \"Apartment complex residents\" — Thư mở đầu bằng \"Dear residents\" và nói về các toà A, B, C của một khu chung cư.",
+    "dich": "Kính gửi cư dân, nước ở Toà B sẽ bị cắt vào thứ Tư, ngày 14 tháng 5, từ 10 giờ sáng đến 2 giờ chiều."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What will be provided during the shut-off?",
+   "a": "Bottled water",
+   "w": [
+    "Free meals",
+    "A shuttle bus",
+    "Hotel rooms"
+   ],
+   "why": "Bottled water will be available in the lobby.",
+   "lg": {
+    "og": {
+     "Bottled water": "Nước đóng chai",
+     "Free meals": "Bữa ăn miễn phí",
+     "A shuttle bus": "Xe đưa đón",
+     "Hotel rooms": "Phòng khách sạn"
+    },
+    "ly": "Thông báo nói nước đóng chai sẽ có ở sảnh Toà B trong thời gian cắt nước.",
+    "dich": "Nước đóng chai sẽ có tại sảnh Toà B trong thời gian này."
+   },
+   "ty": "detail"
+  }
+ ],
+ "chu": "nha",
+ "muc": "toeic"
+}

@@ -2,7 +2,7 @@
  "n": 3,
  "nguon": "Đề 7 · Part 6 · đoạn 2",
  "id": "d07-p6-02",
- "chu": "Khách sạn & đi lại",
+ "chu": "dl",
  "dang": "✉️ Văn bản",
  "kind": "E-mail",
  "title": "To: Samir Haddad · From: Seaview Lodge · Subject: Your reservation",
@@ -101,5 +101,6 @@
    "why": "contact us = liên hệ với chúng tôi. reply, respond, communicate cần giới từ (reply to, respond to, communicate with).",
    "ty": "word"
   }
- ]
+ ],
+ "muc": "toeic"
 }

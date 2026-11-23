@@ -120,4 +120,4 @@ const BAI13 = {
       b4: { q: "The train ___ arrives on time.", hint: "thường · 1 từ", ans: ["usually", "always", "often"], vi: "trạng từ tần suất đứng trước động từ arrives." } }]
 };
 
-Object.assign(BAI13.meta, {});
+Object.assign(BAI13.meta, {"muc":"toeic","chu":"mb"});

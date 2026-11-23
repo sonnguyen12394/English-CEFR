@@ -1192,4 +1192,4 @@ const BAI59 = {
  ]
 };
 
-Object.assign(BAI59.meta, {"title":"To: All Harlow Design staff · From: Helen Ford, Office Manager · Subject: Kitchen renovation","evl":[0,-1,3,3]});
+Object.assign(BAI59.meta, {"title":"To: All Harlow Design staff · From: Helen Ford, Office Manager · Subject: Kitchen renovation","muc":"toeic","chu":"nha","evl":[0,-1,3,3]});
