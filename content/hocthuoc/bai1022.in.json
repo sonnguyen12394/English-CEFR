@@ -53,7 +53,7 @@
   ],
   [
    "B",
-   "Sure! Let's play in co-op mode. I'll bring the snacks.",
+   "Sure! Let's play in co-op mode. I'll grab some snacks first.",
    "",
    ""
   ],
@@ -102,14 +102,14 @@
    "why": "“after about ten tries” = sau khoảng mười lần thử."
   },
   {
-   "q": "What will Jack bring tonight?",
-   "a": "The snacks",
+   "q": "What will Jack do before playing?",
+   "a": "Get some snacks",
    "w": [
-    "The controller",
-    "A laptop",
-    "Some drinks"
+    "Buy a new controller",
+    "Call Mai",
+    "Update the game"
    ],
-   "why": "“I'll bring the snacks” = tớ mang đồ ăn vặt."
+   "why": "“I'll grab some snacks first.” = để tớ đi lấy đồ ăn vặt đã."
   }
  ]
 }

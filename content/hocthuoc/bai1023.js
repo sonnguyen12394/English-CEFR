@@ -42,7 +42,7 @@ const BAI1023 = {
     { q: 'I nearly ___ the glass, but I caught it.', o: ['dropped', 'drop', 'dropping', 'drops'], a: 0, vi: 'nearly + V quá khứ: suýt làm rơi.' },
     { q: 'The soup is too sour. I think it needs more ___.', o: ['sugar', 'sugars', 'sugary', 'sweeten'], a: 0, vi: 'needs more + danh từ không đếm được: sugar.' },
     { q: 'Can you help me ___ the table for dinner?', o: ['set', 'sat', 'sit', 'seat'], a: 0, vi: 'set the table = dọn bàn ăn.' },
-    { q: "Wait for me, I'll be there in a ___.", o: ['sec', 'secs', 'second times', 'moment time'], a: 0, vi: 'in a sec = một lát nữa.' },
+    { q: "Wait for me, I'll be there in a ___.", o: ['sec', 'month', 'year', 'week'], a: 0, vi: 'in a sec = một lát nữa.' },
     { q: 'Can you send me the ___ for this cake?', o: ['recipe', 'receipt', 'recycle', 'recipient'], a: 0, vi: 'recipe = công thức nấu ăn.' }],
   MU: [
     { id: 'v1', g: 'v', t: 'chop', vi: 'băm, chặt nhỏ', line: 2, hl: 'chop',
@@ -91,7 +91,7 @@ const BAI1023 = {
       b2: { q: 'Câu mới: “Be quiet, the baby is sleeping.” — người nói thế nào?', o: ['Em bé đang ngủ', 'Em bé sẽ ngủ', 'Em bé đã thức', 'Em bé khóc'], a: 0, vi: 'is sleeping = đang ngủ.' },
       b3: [{ q: 'Look! It ___ raining outside.', o: ['is', 'are', 'does', 'has'], a: 0, vi: 'It is raining = đang mưa.' },
         { q: 'They ___ playing football in the park right now.', o: ['are', 'is', 'do', 'were'], a: 0, vi: 'right now → are playing.' }],
-      b4: { q: 'My dad is ___ dinner now. (nấu)', hint: 'V-ing', ans: ['cooking', 'making'], vi: 'is cooking dinner.' } },
+      b4: { q: 'My dad is ___ dinner now. (nấu)', hint: 'V-ing', ans: ['cooking', 'making', 'preparing', 'having'], vi: 'is cooking dinner.' } },
     { id: 'g3', g: 'g', t: 'Could you + V? (nhờ lịch sự)', line: 5, hl: 'Could you taste',
       b1: { s: '[[Could you taste]] the sauce', q: 'Could you …? dùng để làm gì?', o: ['nhờ lịch sự', 'ra lệnh', 'kể chuyện quá khứ', 'từ chối'], a: 0, vi: 'Could you + V? = nhờ lịch sự. · 🧱 Bài Nền liên quan: Could / can: nhờ, xin phép, khả năng trong quá khứ · A2' },
       b2: { q: 'Câu mới: “Could you pass me the salt, please?” — người nói muốn gì?', o: ['Nhờ đưa muối', 'Mời ăn muối', 'Hỏi giá muối', 'Cảm ơn'], a: 0, vi: 'Could you pass me …? = nhờ đưa.' },

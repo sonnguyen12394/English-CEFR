@@ -17,7 +17,7 @@
   ],
   [
    "B",
-   "Nothing much. I might just chill at home.",
+   "Nothing much. I might just clean my room.",
    "",
    ""
   ],
@@ -163,7 +163,7 @@
   },
   {
    "q": "What are you up to this weekend?",
-   "a": "Nothing much. I might just chill at home.",
+   "a": "Nothing much. I might just clean my room.",
    "w": [
     "Up to the top floor.",
     "Yes, I am up.",
@@ -186,7 +186,7 @@
   {
    "q": "What are you up to this weekend?",
    "o": [
-    "Nothing much. I might just chill at home.",
+    "Nothing much. I might just clean my room.",
     "Yes, I'm up at six.",
     "It was quite relaxing."
    ],
@@ -205,7 +205,7 @@
    "q": "We're going hiking on Sunday. Wanna come?",
    "o": [
     "I went hiking last year.",
-    "Yes, Sunday is the seventh day.",
+    "I went hiking last Sunday.",
     "I'd love to, but I've got a lot of homework."
    ],
    "a": 2
@@ -268,7 +268,7 @@
    "q": "You look exhausted. Rough week?",
    "o": [
     "Totally. I just want to take it easy this weekend.",
-    "Yes, the week has seven days.",
+    "Yes, it's a weekly class.",
     "It is rough on the table."
    ],
    "a": 0

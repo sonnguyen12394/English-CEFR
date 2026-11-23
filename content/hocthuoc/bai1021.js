@@ -69,7 +69,7 @@ const BAI1021 = {
     { id: 'v5', g: 'v', t: 'watch out', vi: 'coi chừng', line: 6, hl: 'watch out',
       b1: { s: 'so [[watch out]]', q: 'watch out dùng để làm gì?', o: ['Nhắc ai coi chừng', 'Mời ai xem phim', 'Hỏi giờ', 'Xin lỗi'], a: 0, vi: 'watch out = coi chừng, cẩn thận (nói đùa hoặc cảnh báo).' },
       b2: { q: "Câu mới: “Watch out! There's a puddle in front of you.” — người nói muốn gì?", o: ['Cảnh báo có vũng nước', 'Mời đi dạo', 'Hỏi đường', 'Khen đôi giày'], a: 0, vi: 'Watch out! = coi chừng.' },
-      b3: [{ q: '___ out for the wet floor!', o: ['Watch', 'Looking', 'Seen', 'Visit'], a: 0, vi: 'Watch out for + danh từ = coi chừng cái gì.' }],
+      b3: [{ q: '___ out for the wet floor!', o: ['Watch', 'Meet', 'Seen', 'Visit'], a: 0, vi: 'Watch out for + danh từ = coi chừng cái gì.' }],
       b4: { q: '___ out! A car is coming! (coi chừng)', hint: '1 động từ', ans: ['Watch', 'Look', 'watch', 'look'], vi: 'Watch out! / Look out! = coi chừng!' } },
     { id: 'v6', g: 'v', t: 'by accident', vi: 'tình cờ, vô tình', line: 9, hl: 'By accident',
       b1: { s: '[[By accident]]. But fine', q: 'by accident nghĩa là gì?', o: ['tình cờ, không cố ý', 'cố tình', 'bị tai nạn', 'đúng giờ'], a: 0, vi: 'by accident = vô tình, không cố ý.' },

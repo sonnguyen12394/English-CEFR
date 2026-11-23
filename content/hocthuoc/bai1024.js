@@ -65,7 +65,7 @@ const BAI1024 = {
       b1: { s: "Now I'm [[hooked]]", q: "I'm hooked nghĩa là gì?", o: ['bị cuốn hút, muốn xem tiếp', 'bị móc vào áo', 'bị mệt', 'bị lạc'], a: 0, vi: 'be hooked = bị cuốn hút, không dứt ra được.' },
       b2: { q: "Câu mới: “I'm totally hooked on this podcast.” — người nói thế nào?", o: ['Rất mê podcast này', 'Chán podcast này', 'Chưa nghe podcast', 'Muốn làm podcast'], a: 0, vi: 'hooked on = mê, nghiện.' },
       b3: [{ q: 'She got ___ on the game after one day.', o: ['hooked', 'hook', 'hooking', 'hooks'], a: 0, vi: 'get hooked on = bị cuốn vào.' }],
-      b4: { q: "I'm totally ___ on this series! (nghiện)", hint: 'V3', ans: ['hooked'], vi: 'hooked on = nghiện.' } },
+      b4: { q: "I'm totally ___ on this series! (nghiện)", hint: 'V3', ans: ['hooked', 'addicted', 'obsessed'], vi: 'hooked on = nghiện.' } },
     { id: 'v5', g: 'v', t: 'be into', vi: 'mê, thích', line: 5, hl: 'really into',
       b1: { s: "I'm really [[into]] indie rock", q: 'be into + gì?', o: ['mê, thích', 'đi vào', 'vào trong', 'chống lại'], a: 0, vi: 'be into + danh từ = đang mê, đang thích.' },
       b2: { q: 'Câu mới: “My sister is really into yoga these days.” — chị tôi thế nào?', o: ['Đang rất mê yoga', 'Ghét yoga', 'Dạy yoga', 'Mới thôi yoga'], a: 0, vi: 'is into yoga = mê yoga.' },
@@ -91,10 +91,10 @@ const BAI1024 = {
       b1: { s: "Oh, [[I've never heard]] of them", q: "I've never heard nói về gì?", o: ['chưa từng nghe bao giờ (kinh nghiệm)', 'vừa mới nghe', 'sắp nghe', 'không thể nghe'], a: 0, vi: 'have never + V3 = chưa từng. · 🧱 Bài Nền liên quan: Hiện tại hoàn thành: kinh nghiệm (ever, never) · A2' },
       b2: { q: "Câu mới: “I've never tried sushi before.” — người nói thế nào?", o: ['Chưa từng ăn sushi', 'Ăn sushi mỗi ngày', 'Vừa ăn sushi', 'Ghét sushi'], a: 0, vi: "I've never tried = chưa từng thử." },
       b3: [{ q: 'She has never ___ abroad.', o: ['been', 'be', 'being', 'was'], a: 0, vi: 'has never + V3.' },
-        { q: 'He has ___ been to Japan.', o: ['never', 'not', 'ever no', 'neither'], a: 0, vi: 'has never been = chưa từng tới.' }],
-      b4: { q: "I've never ___ a pizza before. (làm, V3)", hint: 'V3', ans: ['made', 'baked', 'cooked'], vi: "I've never made a pizza." } },
+        { q: 'He has ___ been to Japan.', o: ['never', 'nothing', 'ever no', 'neither'], a: 0, vi: 'has never been = chưa từng tới.' }],
+      b4: { q: "I've never ___ a pizza before. (làm, V3)", hint: 'V3', ans: ['made', 'baked', 'cooked', 'eaten', 'tried', 'had'], vi: "I've never made a pizza." } },
     { id: 'g3', g: 'g', t: 'anything: đại từ bất định', line: 2, hl: 'anything',
-      b1: { s: "Don't spoil [[anything]]", q: 'Vì sao dùng anything ở đây?', o: ['câu phủ định / cấm dùng any-', 'câu khẳng định dùng something', 'nghĩa là một người', 'nghĩa là một nơi'], a: 0, vi: 'any- dùng trong câu phủ định và câu hỏi: Don\'t … anything. · 🧱 Bài Nền liên quan: Đại từ bất định: something, anyone, nobody… · A2' },
+      b1: { s: "Don't spoil [[anything]]", q: 'Vì sao dùng anything ở đây?', o: ['câu phủ định dùng any-', 'câu khẳng định dùng something', 'nghĩa là một người', 'nghĩa là một nơi'], a: 0, vi: 'any- dùng trong câu phủ định và câu hỏi: Don\'t … anything. · 🧱 Bài Nền liên quan: Đại từ bất định: something, anyone, nobody… · A2' },
       b2: { q: "Câu mới: “I didn't tell anyone about the surprise.” — người nói thế nào?", o: ['Không nói với ai', 'Nói với mọi người', 'Nói với một người', 'Không biết gì'], a: 0, vi: "didn't tell anyone = không nói với ai." },
       b3: [{ q: "There isn't ___ in the fridge.", o: ['anything', 'something', 'nothing', 'everything'], a: 0, vi: "isn't + anything (phủ định)." },
         { q: 'Is there ___ I can do to help?', o: ['anything', 'any', 'some', 'none'], a: 0, vi: 'Câu hỏi dùng anything.' }],
@@ -110,5 +110,5 @@ const BAI1024 = {
       b2: { q: 'Câu mới: “The soup is really hot, be careful.” — súp thế nào?', o: ['Rất nóng', 'Hơi nguội', 'Rất ngon', 'Rất mặn'], a: 0, vi: 'really hot = rất nóng.' },
       b3: [{ q: 'This film is ___ funny. I laughed a lot.', o: ['really', 'real', 'realize', 'reality'], a: 0, vi: 'really + tính từ.' },
         { q: 'The exam was not ___ difficult.', o: ['very', 'verb', 'vary', 'veil'], a: 0, vi: 'not very + tính từ = không quá.' }],
-      b4: { q: "It's ___ cold today! (rất)", hint: '1 từ', ans: ['really', 'very', 'so'], vi: 'really / very / so cold = rất lạnh.' } }]
+      b4: { q: "It's ___ cold today! (rất)", hint: '1 từ', ans: ['really', 'very', 'so', 'pretty', 'quite', 'super', 'extremely'], vi: 'really / very / so cold = rất lạnh.' } }]
 };

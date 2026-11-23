@@ -135,7 +135,7 @@
    "q": "What do you usually do on weekends?",
    "a": "I mostly play basketball with my cousins.",
    "w": [
-    "I usually did it yesterday.",
+    "I usually go to school by bike.",
     "On weekends I am tired.",
     "At the weekend market."
    ],
@@ -145,7 +145,7 @@
    "q": "Do you play any instruments?",
    "a": "Just the guitar, but I'm pretty rusty.",
    "w": [
-    "Yes, it plays very loudly.",
+    "Yes, I have two older sisters.",
     "Instruments are on the shelf.",
     "I play at the stadium."
    ],
@@ -165,7 +165,7 @@
    "q": "Which team do you support?",
    "a": "I'm a huge fan of Riverside FC. I never miss a game.",
    "w": [
-    "The team supports me at work.",
+    "I take the bus to the stadium.",
     "At six, on Saturday.",
     "It lost two to one."
    ],
@@ -186,7 +186,7 @@
   {
    "q": "What do you usually do on weekends?",
    "o": [
-    "I usually did it yesterday.",
+    "I usually go to school by bike.",
     "I mostly play basketball with my cousins.",
     "At the weekend market."
    ],
@@ -196,7 +196,7 @@
    "q": "Do you play any instruments?",
    "o": [
     "Just the guitar, but I'm pretty rusty.",
-    "Yes, it plays very loudly.",
+    "Yes, I have two older sisters.",
     "Instruments are on the shelf."
    ],
    "a": 0
@@ -224,7 +224,7 @@
    "o": [
     "The same, thanks. And you?",
     "Sometimes, so I try something new every few months.",
-    "Not at all, the more the merrier."
+    "It's my favourite board game."
    ],
    "a": 1
   },
@@ -249,7 +249,7 @@
   {
    "q": "Have you ever tried rock climbing?",
    "o": [
-    "No, I have never climbed rock music.",
+    "I climbed the stairs this morning.",
     "Yes, I like rock music a lot.",
     "Once. It was exhausting, but I'd definitely do it again."
    ],
@@ -260,7 +260,7 @@
    "o": [
     "It was a really long week.",
     "Honestly, I just chill at home with some music.",
-    "A week has seven days."
+    "I had a long week at school."
    ],
    "a": 1
   },
