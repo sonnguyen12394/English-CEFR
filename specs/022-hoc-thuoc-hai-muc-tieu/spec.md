@@ -62,3 +62,6 @@ Không dùng Sonnet / Haiku ở đợt này: khuôn và mẫu đầu sai thì 80
 
 Sửa kèm (lỗi có từ trước): ✉️ Văn bản tô chỗ trống theo chuỗi con ở MỌI câu (đáp án "in" sẽ tô trong "Linh"); nay chỉ tô ở câu chứa chỗ trống, khớp nguyên từ (`reW`, `gapLine`), áp cho cả bài TOEIC.
 Còn lại (G4, sau khi người sáng lập duyệt): 77 bài, giọng Kokoro cho bài Giao tiếp.
+
+## Tỉ lệ dạng bài Giao tiếp (người sáng lập duyệt 23/11/2026)
+Mỗi chủ đề 10 bài: hội thoại 4 · hỏi – đáp 2 bộ · bài nói 2 · chat 1 · đọc hiểu 1 (trước: 5 dạng × 2). Chủ đề 🤝 Bạn bè đã có 3 mẫu (hội thoại 1, chat 1, hỏi – đáp 1); còn 7 bài, soạn sau khi người sáng lập duyệt khuôn ở G3.
