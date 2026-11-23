@@ -1,0 +1,277 @@
+{
+ "n": 1007,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-7",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp giữa bạn bè, bộ 2",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Thanks for helping me move yesterday.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Anytime. That's what friends are for.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm so nervous about my interview tomorrow.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "You'll do great. Don't stress out.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Nice haircut! It really suits you.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Thanks! I was worried it was too short.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Could you do me a favor?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure, what do you need?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm really sorry I forgot your birthday.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Don't worry about it. It happens.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Wanna grab some bubble tea after class?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'd love to, but I have to study.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I failed my math test.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Oh no, I'm sorry. Do you want to talk about it?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can you keep a secret?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Of course. My lips are sealed.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What are you up to later?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Nothing much. Why?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'll text you when I get home.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Okay, drive safe!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Could you do me a favor?",
+   "a": "Sure, what do you need?",
+   "w": [
+    "It is my favorite color.",
+    "Yes, I did it yesterday.",
+    "No, I do not like the flavor."
+   ],
+   "why": "Nhờ giúp → nhận lời và hỏi lại: Sure, what do you need?"
+  },
+  {
+   "q": "I'm really sorry I forgot your birthday.",
+   "a": "Don't worry about it. It happens.",
+   "w": [
+    "I was born in May.",
+    "It was a big chocolate cake.",
+    "Yes, my birthday is a holiday."
+   ],
+   "why": "Xin lỗi → bỏ qua, an ủi: Don’t worry about it."
+  },
+  {
+   "q": "Can you keep a secret?",
+   "a": "Of course. My lips are sealed.",
+   "w": [
+    "Yes, the key is in my pocket.",
+    "No, I cannot see the secretary.",
+    "It is a big keeper."
+   ],
+   "why": "Hỏi giữ bí mật → hứa: My lips are sealed."
+  },
+  {
+   "q": "What are you up to later?",
+   "a": "Nothing much. Why?",
+   "w": [
+    "I woke up at seven.",
+    "Up the stairs, on the left.",
+    "Yes, I am later than you."
+   ],
+   "why": "What are you up to? = định làm gì → Nothing much."
+  },
+  {
+   "q": "I failed my math test.",
+   "a": "Oh no, I'm sorry. Do you want to talk about it?",
+   "w": [
+    "Congratulations! That is great news!",
+    "Math is on the third floor.",
+    "I like tests too."
+   ],
+   "why": "Bạn báo tin buồn → chia sẻ, hỏi thăm."
+  }
+ ],
+ "p2": [
+  {
+   "q": "Thanks for helping me move yesterday.",
+   "o": [
+    "Anytime. That's what friends are for.",
+    "Yes, I moved to Hue.",
+    "You are late again."
+   ],
+   "a": 0
+  },
+  {
+   "q": "I'm so nervous about my interview tomorrow.",
+   "o": [
+    "I am an interviewer.",
+    "You'll do great. Don't stress out.",
+    "Tomorrow is Tuesday."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Nice haircut! It really suits you.",
+   "o": [
+    "It is on the second shelf.",
+    "Yes, I cut it yesterday.",
+    "Thanks! I was worried it was too short."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Could you do me a favor?",
+   "o": [
+    "Sure, what do you need?",
+    "It is my favorite color.",
+    "Yes, I did it yesterday."
+   ],
+   "a": 0
+  },
+  {
+   "q": "I'm really sorry I forgot your birthday.",
+   "o": [
+    "Happy birthday to you too!",
+    "Don't worry about it. It happens.",
+    "It was a big chocolate cake."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Wanna grab some bubble tea after class?",
+   "o": [
+    "Yes, my class is on Monday.",
+    "I grabbed the bag already.",
+    "I'd love to, but I have to study."
+   ],
+   "a": 2
+  },
+  {
+   "q": "I failed my math test.",
+   "o": [
+    "Oh no, I'm sorry. Do you want to talk about it?",
+    "Congratulations! That is great news!",
+    "Yes, the test is in room five."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Can you keep a secret?",
+   "o": [
+    "It is a big keeper.",
+    "Of course. My lips are sealed.",
+    "Yes, the key is in my pocket."
+   ],
+   "a": 1
+  },
+  {
+   "q": "What are you up to later?",
+   "o": [
+    "I woke up at seven.",
+    "Up the stairs, on the left.",
+    "Nothing much. Why?"
+   ],
+   "a": 2
+  },
+  {
+   "q": "I'll text you when I get home.",
+   "o": [
+    "Okay, drive safe!",
+    "Yes, the textbook is heavy.",
+    "It is my phone number."
+   ],
+   "a": 0
+  }
+ ]
+}

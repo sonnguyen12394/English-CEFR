@@ -1,0 +1,109 @@
+{
+ "n": 1009,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-9",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "📢 Bài nói",
+ "kind": "Kể về người bạn thân nhất",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hey everyone, welcome back to my channel.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Today I want to talk about my best friend, Daniel.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "We met on the first day of high school, and we've been inseparable ever since.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I was so shy back then that I sat alone at lunch.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Daniel just walked over, sat down, and asked, \"Mind if I join you?\"",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "One time, we got completely lost on a hiking trip and ended up laughing for an hour.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Even when things go wrong, he always makes me smile.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "He's the kind of friend you can call at any time.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "So, thanks for everything, Daniel. See you all next time!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "How did the speaker and Daniel meet?",
+   "a": "On the first day of high school",
+   "w": [
+    "On a hiking trip",
+    "At a summer job",
+    "Through a family party"
+   ],
+   "why": "“We met on the first day of high school”."
+  },
+  {
+   "q": "Why did the speaker sit alone at lunch?",
+   "a": "The speaker was very shy.",
+   "w": [
+    "The food was bad.",
+    "Lunch was too short.",
+    "The speaker was angry."
+   ],
+   "why": "“I was so shy back then that I sat alone at lunch.”"
+  },
+  {
+   "q": "What happened on the hiking trip?",
+   "a": "They got completely lost.",
+   "w": [
+    "They found a lost dog.",
+    "They missed the bus.",
+    "They had an argument."
+   ],
+   "why": "“we got completely lost on a hiking trip”."
+  },
+  {
+   "q": "What does the speaker say about Daniel?",
+   "a": "He can be called at any time.",
+   "w": [
+    "He is always late.",
+    "He lives far away.",
+    "He is very shy."
+   ],
+   "why": "“the kind of friend you can call at any time”."
+  }
+ ]
+}

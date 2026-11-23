@@ -1,0 +1,119 @@
+{
+ "n": 1010,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-10",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Bài đăng diễn đàn về giữ liên lạc với bạn cũ",
+ "title": "How do I keep in touch with old friends after moving?",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Dana: Help! My best friend moved to another city last month, and I'm scared we'll lose touch.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We used to see each other every day, but now we hardly even text.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "How do you keep in touch with old friends after you move away?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Leo: I moved two years ago, so I know how you feel.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Set a regular time to video call, like every Sunday evening.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "It doesn't have to be long. Even twenty minutes helps.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Priya: Don't wait for them to message you first.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Send a quick photo or a funny meme when you think of them.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Small things keep a friendship alive, and you could even plan a visit during the holidays.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is Dana's problem?",
+   "a": "She is afraid of losing touch with her friend.",
+   "w": [
+    "She cannot find a new city.",
+    "She does not like video calls.",
+    "She moved two years ago."
+   ],
+   "why": "“I’m scared we’ll lose touch.”"
+  },
+  {
+   "q": "When does Leo suggest having a video call?",
+   "a": "Every Sunday evening",
+   "w": [
+    "Every morning",
+    "Once a year",
+    "During the holidays"
+   ],
+   "why": "“like every Sunday evening”."
+  },
+  {
+   "q": "How long can the call be, according to Leo?",
+   "a": "Twenty minutes is enough.",
+   "w": [
+    "At least one hour.",
+    "Ten minutes only.",
+    "All night."
+   ],
+   "why": "“Even twenty minutes helps.”"
+  },
+  {
+   "q": "What does Priya advise Dana to do?",
+   "a": "Send small messages first",
+   "w": [
+    "Wait for her friend to call",
+    "Stop texting",
+    "Move to another city"
+   ],
+   "why": "“Don’t wait for them to message you first.”"
+  },
+  {
+   "q": "What could Dana plan for the holidays?",
+   "a": "A visit",
+   "w": [
+    "A new job",
+    "A party at school",
+    "A move"
+   ],
+   "why": "“plan a visit during the holidays”."
+  }
+ ]
+}

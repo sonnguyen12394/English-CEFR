@@ -1,0 +1,109 @@
+{
+ "n": 1008,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-8",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "📢 Bài nói",
+ "kind": "Tin nhắn thoại xin lỗi vì lỡ hẹn",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hi Nina, it's Ken. I'm really sorry about last night.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I know we planned to see that new movie together, but I got stuck at work.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "My boss asked me to finish a report, and I completely lost track of time.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "By the time I looked at my phone, it was almost ten o'clock.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I should have called you, and I feel terrible about it.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Anyway, can I make it up to you?",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "How about dinner on Friday? My treat.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "We can go to that noodle place you like, and then catch the late show.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Call me back when you get this, okay? Talk soon!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why did Ken miss the movie?",
+   "a": "He got stuck at work.",
+   "w": [
+    "He lost his phone.",
+    "He forgot the day.",
+    "He felt sick."
+   ],
+   "why": "“I got stuck at work” = bị kẹt ở chỗ làm."
+  },
+  {
+   "q": "What does Ken want to do on Friday?",
+   "a": "Take Nina to dinner",
+   "w": [
+    "Meet his boss",
+    "Finish a report",
+    "Go shopping"
+   ],
+   "why": "“How about dinner on Friday? My treat.” = mời đi ăn tối thứ Sáu."
+  },
+  {
+   "q": "What does Ken ask Nina to do?",
+   "a": "Call him back",
+   "w": [
+    "Come to his office",
+    "Buy movie tickets",
+    "Write a report"
+   ],
+   "why": "“Call me back when you get this.”"
+  },
+  {
+   "q": "How does Ken feel about missing the movie?",
+   "a": "Sorry",
+   "w": [
+    "Angry",
+    "Bored",
+    "Proud"
+   ],
+   "why": "“I feel terrible about it” = thấy áy náy."
+  }
+ ]
+}
