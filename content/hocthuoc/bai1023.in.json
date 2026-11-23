@@ -1,0 +1,115 @@
+{
+ "n": 1023,
+ "nguon": "💬 Giao tiếp · Sở thích · bài tự soạn",
+ "id": "gt-st-03",
+ "muc": "gt",
+ "chu": "gt-st",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn về nấu ăn ở nhà",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Wow, something smells amazing! What are you cooking?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Garlic chicken pasta. I found the recipe online.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Nice! Did you chop the garlic yourself?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, and I nearly cut my finger. I'm still learning.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Be careful! Hold the knife like this, and keep your fingers back.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Got it. Thanks. Could you taste the sauce? I'm not sure about the salt.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Mmm, it needs a pinch more salt, and maybe a little lemon.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Good idea. How long should I boil the pasta?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "About ten minutes. Taste one piece to see if it's done.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Perfect. Dinner will be ready in a sec. Can you set the table?",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is Tom cooking?",
+   "a": "Garlic chicken pasta",
+   "w": [
+    "Pho",
+    "Fried rice",
+    "Tomato soup"
+   ],
+   "why": "“Garlic chicken pasta” = mì Ý gà tỏi."
+  },
+  {
+   "q": "How did Tom find the recipe?",
+   "a": "Online",
+   "w": [
+    "From his mother",
+    "In a book",
+    "From a friend"
+   ],
+   "why": "“I found the recipe online” = tìm công thức trên mạng."
+  },
+  {
+   "q": "What does the sauce need?",
+   "a": "A bit more salt",
+   "w": [
+    "More sugar",
+    "More water",
+    "Less garlic"
+   ],
+   "why": "“it needs a pinch more salt” = cần thêm một chút muối."
+  },
+  {
+   "q": "How long should Tom boil the pasta?",
+   "a": "About ten minutes",
+   "w": [
+    "About five minutes",
+    "About twenty minutes",
+    "One hour"
+   ],
+   "why": "“About ten minutes” = khoảng mười phút."
+  }
+ ]
+}

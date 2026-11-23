@@ -1,0 +1,115 @@
+{
+ "n": 1021,
+ "nguon": "💬 Giao tiếp · Sở thích · bài tự soạn",
+ "id": "gt-st-01",
+ "muc": "gt",
+ "chu": "gt-st",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn về bóng đá",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hey Ben, did you watch the match last night?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah! That last goal was unreal.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I know, right? Anyway, we need one more player on Sunday.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "For the five-a-side game? Count me in!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Awesome. We kick off at nine, so don't sleep in.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Nine? On a Sunday? Ugh, fine. I'll set an alarm.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Cool. Oh, and I've been working on my left foot, so watch out.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Ha! You were terrible last time.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Hey, I scored once, didn't I?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "By accident. But fine, I'll let you have that one.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the problem with Sunday?",
+   "a": "They need one more player",
+   "w": [
+    "The match is cancelled",
+    "They have no ball",
+    "The pitch is closed"
+   ],
+   "why": "“we need one more player on Sunday” = chủ nhật thiếu một người."
+  },
+  {
+   "q": "What time does the game start?",
+   "a": "At nine",
+   "w": [
+    "At eight",
+    "At ten",
+    "At noon"
+   ],
+   "why": "“We kick off at nine” = chín giờ bắt đầu."
+  },
+  {
+   "q": "What will Ben do so he does not oversleep?",
+   "a": "Set an alarm",
+   "w": [
+    "Go to bed at six",
+    "Ask Kim to call him",
+    "Stay at Kim's house"
+   ],
+   "why": "“I'll set an alarm” = tớ sẽ đặt báo thức."
+  },
+  {
+   "q": "What does Ben say about Kim last time?",
+   "a": "She played badly",
+   "w": [
+    "She was late",
+    "She forgot the ball",
+    "She was hurt"
+   ],
+   "why": "“You were terrible last time” = lần trước cậu đá tệ."
+  }
+ ]
+}

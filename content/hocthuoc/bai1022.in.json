@@ -1,0 +1,115 @@
+{
+ "n": 1022,
+ "nguon": "💬 Giao tiếp · Sở thích · bài tự soạn",
+ "id": "gt-st-02",
+ "muc": "gt",
+ "chu": "gt-st",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn về trò chơi điện tử",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Jack, are you still stuck on level five?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, the boss keeps killing me. It's so annoying.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you tried hiding behind the rocks?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No way, that actually works? I'll give it a shot.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Trust me. I finally beat it last night after about ten tries.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Ten tries? Okay, I feel better now. I thought I was just bad at games.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Nah, you're pretty good. Want to team up online tonight?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure! Let's play in co-op mode. I'll bring the snacks.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Deal. But no rage-quitting this time, okay?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I promise... unless the lag gets really bad.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where is Jack stuck?",
+   "a": "On level five",
+   "w": [
+    "On level three",
+    "In the tutorial",
+    "At the end of the game"
+   ],
+   "why": "“still stuck on level five” = vẫn kẹt ở màn năm."
+  },
+  {
+   "q": "What does Mai suggest?",
+   "a": "Hiding behind the rocks",
+   "w": [
+    "Playing with a friend only",
+    "Changing to another game",
+    "Buying a new controller"
+   ],
+   "why": "“Have you tried hiding behind the rocks?” = thử núp sau tảng đá."
+  },
+  {
+   "q": "How many tries did Mai need to beat the boss?",
+   "a": "About ten",
+   "w": [
+    "Two",
+    "About twenty",
+    "Only one"
+   ],
+   "why": "“after about ten tries” = sau khoảng mười lần thử."
+  },
+  {
+   "q": "What will Jack bring tonight?",
+   "a": "The snacks",
+   "w": [
+    "The controller",
+    "A laptop",
+    "Some drinks"
+   ],
+   "why": "“I'll bring the snacks” = tớ mang đồ ăn vặt."
+  }
+ ]
+}
