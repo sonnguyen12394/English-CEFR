@@ -1,0 +1,267 @@
+{
+ "n": 1015,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-05",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về bản thân và gia đình",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "So, where are you from originally?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Hue, but I've lived in Hanoi since I was ten.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What does your dad do?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "He's retired. He used to drive a bus.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you live with your parents?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, for now. I'm saving up to move out.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How old is your daughter?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "She just turned three last week.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you close to your grandparents?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Very. I see them every Sunday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What was your childhood like?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Pretty quiet. We lived in a small village.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who's the funniest person in your family?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "My uncle, hands down. He never stops joking.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you ever argue with your brother?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "All the time, but we always make up.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What are you like as a person?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'm shy at first, but I open up quickly.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Would you like to have kids someday?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Maybe. I haven't made up my mind yet.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "So, where are you from originally?",
+   "a": "Hue, but I've lived in Hanoi since I was ten.",
+   "w": [
+    "By bus, usually.",
+    "At half past six.",
+    "Yes, I am from."
+   ],
+   "why": "Where are you from? → nói nơi mình đến từ."
+  },
+  {
+   "q": "Do you live with your parents?",
+   "a": "Yeah, for now. I'm saving up to move out.",
+   "w": [
+    "On Sundays, usually.",
+    "She just turned three.",
+    "In a small village."
+   ],
+   "why": "Do you live with …? → trả lời có / không rồi nói thêm."
+  },
+  {
+   "q": "How old is your daughter?",
+   "a": "She just turned three last week.",
+   "w": [
+    "She works at a bank.",
+    "Last week, in Hue.",
+    "Yes, she is my daughter."
+   ],
+   "why": "How old …? → nói tuổi."
+  },
+  {
+   "q": "Do you ever argue with your brother?",
+   "a": "All the time, but we always make up.",
+   "w": [
+    "He is twenty years old.",
+    "In my brother's bag.",
+    "He argues about the bill."
+   ],
+   "why": "Do you ever …? → nói mức thường xuyên (All the time)."
+  }
+ ],
+ "p2": [
+  {
+   "q": "So, where are you from originally?",
+   "o": [
+    "Hue, but I've lived in Hanoi since I was ten.",
+    "By bus, usually.",
+    "It's about three kilometres."
+   ],
+   "a": 0
+  },
+  {
+   "q": "What does your dad do?",
+   "o": [
+    "He's very tall.",
+    "He's retired. He used to drive a bus.",
+    "I do it every day."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Do you live with your parents?",
+   "o": [
+    "She turned three last week.",
+    "I'd love some tea.",
+    "Yeah, for now. I'm saving up to move out."
+   ],
+   "a": 2
+  },
+  {
+   "q": "How old is your daughter?",
+   "o": [
+    "She just turned three last week.",
+    "She lives in Hanoi.",
+    "In a small village."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Are you close to your grandparents?",
+   "o": [
+    "It's a long way from here.",
+    "Very. I see them every Sunday.",
+    "Yes, I'm a close friend."
+   ],
+   "a": 1
+  },
+  {
+   "q": "What was your childhood like?",
+   "o": [
+    "It was last Tuesday.",
+    "I'm having pasta.",
+    "Pretty quiet. We lived in a small village."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Who's the funniest person in your family?",
+   "o": [
+    "My uncle, hands down. He never stops joking.",
+    "It's on the second floor.",
+    "Yes, I'm very funny."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Do you ever argue with your brother?",
+   "o": [
+    "He is twenty years old.",
+    "All the time, but we always make up.",
+    "At my brother's school."
+   ],
+   "a": 1
+  },
+  {
+   "q": "What are you like as a person?",
+   "o": [
+    "About twenty minutes.",
+    "It's the white one.",
+    "I'm shy at first, but I open up quickly."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Would you like to have kids someday?",
+   "o": [
+    "At half past six.",
+    "Maybe. I haven't made up my mind yet.",
+    "It's very kind of you."
+   ],
+   "a": 1
+  }
+ ]
+}

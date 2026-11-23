@@ -1,0 +1,127 @@
+{
+ "n": 1013,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-03",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 bạn học nói về gia đình",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Do you have any brothers or sisters?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, I have one older sister and a little brother.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Wow! I'm an only child. It gets lonely sometimes.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Honestly, I'd swap with you. My brother drives me crazy.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ha! Do you get along with your sister?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes, we're really close. She takes after our mom.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's she like? Is she funny too?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Funnier! She's twenty-two and wants to be a vet.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "And your parents? Are they strict?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "My dad is, but my mom is easygoing.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Mine are both strict. I wish I had a sibling.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Trust me, it's not all fun!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "How many brothers and sisters does Leo have?",
+   "a": "Two",
+   "w": [
+    "One",
+    "Three",
+    "None"
+   ],
+   "why": "“one older sister and a little brother” = một chị gái và một em trai, tổng hai người."
+  },
+  {
+   "q": "Who does Leo's sister take after?",
+   "a": "Their mother",
+   "w": [
+    "Their father",
+    "Their grandmother",
+    "Their aunt"
+   ],
+   "why": "“She takes after our mom.” = chị ấy giống mẹ."
+  },
+  {
+   "q": "What does Leo's sister want to be?",
+   "a": "A vet",
+   "w": [
+    "A nurse",
+    "A teacher",
+    "A singer"
+   ],
+   "why": "“wants to be a vet” = muốn làm bác sĩ thú y."
+  },
+  {
+   "q": "Which sentence about Leo's parents is true?",
+   "a": "His dad is strict and his mom is easygoing",
+   "w": [
+    "Both of them are easygoing",
+    "His mom is strict and his dad is easygoing",
+    "Both of them are strict"
+   ],
+   "why": "“My dad is, but my mom is easygoing.” = bố nghiêm khắc, mẹ dễ tính."
+  }
+ ]
+}

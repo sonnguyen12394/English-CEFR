@@ -1,0 +1,127 @@
+{
+ "n": 1012,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-02",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn nói về nghề",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "So, Ben, what do you do for a living?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'm a nurse at a children's hospital.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Wow, that must be tiring. Do you work nights?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sometimes. I'm on night shift three days a week.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I couldn't do that. I'm hopeless without sleep.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "You get used to it. What about you?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm a freelance illustrator. I work from home.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Nice! Is it hard to find work?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "At first, yes. Now friends keep recommending me.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "That's great. I can't even draw a stick figure!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ha! Come over some time and I'll teach you.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Deal! But don't expect too much.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is Ben's job?",
+   "a": "He is a nurse",
+   "w": [
+    "He is a doctor",
+    "He is a teacher",
+    "He is a driver"
+   ],
+   "why": "“I'm a nurse at a children's hospital.” = Ben là y tá."
+  },
+  {
+   "q": "How often does Ben work night shifts?",
+   "a": "Three days a week",
+   "w": [
+    "Every day",
+    "Once a month",
+    "Only at weekends"
+   ],
+   "why": "“I'm on night shift three days a week.” = trực đêm ba ngày một tuần."
+  },
+  {
+   "q": "Where does Lan work?",
+   "a": "At home",
+   "w": [
+    "In a hospital",
+    "In a school",
+    "In a shop"
+   ],
+   "why": "“I work from home.” = làm việc ở nhà."
+  },
+  {
+   "q": "How does Lan find work now?",
+   "a": "Friends recommend her",
+   "w": [
+    "She calls companies",
+    "She posts ads online",
+    "She asks her family"
+   ],
+   "why": "“Now friends keep recommending me.” = giờ bạn bè giới thiệu mình."
+  }
+ ]
+}

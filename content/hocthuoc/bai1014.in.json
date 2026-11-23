@@ -1,0 +1,127 @@
+{
+ "n": 1014,
+ "nguon": "💬 Giao tiếp · Bản thân & gia đình · bài tự soạn",
+ "id": "gt-bt-04",
+ "muc": "gt",
+ "chu": "gt-bt",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người hàng xóm",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hi Dan! Are you settling into your new place?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It's great, but it feels a bit empty.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Give it time. We've lived here for six years.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Do you have kids? I saw a boy on a bike.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Yes, two. Ben is five and Ivy is nine months old.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Nine months! Does she sleep through the night?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Not really. We take turns getting up.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Do the kids share a room?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Not yet. Ben has the bunk bed, and Ivy still sleeps in our room.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It sounds cozy. Is there a yard?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "A tiny one. Come by on Sunday and meet the kids.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'd love to. Thanks for inviting me!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "How long has Nora lived in her home?",
+   "a": "Six years",
+   "w": [
+    "Six months",
+    "Two years",
+    "Nine months"
+   ],
+   "why": "“We've lived here for six years.” = sống ở đây sáu năm."
+  },
+  {
+   "q": "How old is Ivy?",
+   "a": "Nine months old",
+   "w": [
+    "Five years old",
+    "Nine years old",
+    "Two years old"
+   ],
+   "why": "“Ivy is nine months old.” = Ivy chín tháng tuổi."
+  },
+  {
+   "q": "Where does Ivy sleep?",
+   "a": "In her parents' room",
+   "w": [
+    "In a bunk bed",
+    "In a separate room",
+    "On the sofa"
+   ],
+   "why": "“Ivy still sleeps in our room.” = Ivy vẫn ngủ trong phòng bố mẹ."
+  },
+  {
+   "q": "What does Nora invite Dan to do?",
+   "a": "Come by on Sunday and meet the kids",
+   "w": [
+    "Babysit on Sunday",
+    "Help her move house",
+    "Join a bike race"
+   ],
+   "why": "“Come by on Sunday and meet the kids.” = ghé chơi chủ nhật và gặp bọn trẻ."
+  }
+ ]
+}
