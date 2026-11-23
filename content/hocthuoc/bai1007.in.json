@@ -1,7 +1,7 @@
 {
  "n": 1007,
  "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
- "id": "gt-bb-7",
+ "id": "gt-bb-07",
  "muc": "gt",
  "chu": "gt-bb",
  "dang": "💬 Hỏi – đáp",
@@ -205,7 +205,7 @@
    "q": "Nice haircut! It really suits you.",
    "o": [
     "It is on the second shelf.",
-    "Yes, I cut it yesterday.",
+    "Yes, I cut the paper yesterday.",
     "Thanks! I was worried it was too short."
    ],
    "a": 2

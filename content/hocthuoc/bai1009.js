@@ -35,7 +35,7 @@ const BAI1009 = {
     ['Mind if I …?', 'Mình … có được không? (xin phép nhẹ)', '💬 Thân mật, lịch sự nhẹ giữa bạn bè; e-mail trang trọng dùng "Would it be all right if I …?"'],
     ['end up + V-ing', 'rốt cuộc lại …'],
     ['make sb smile', 'làm ai mỉm cười'],
-    ['the kind of friend who …', 'kiểu bạn mà …']],
+    ['the kind of friend (who) you can …', 'kiểu bạn mà mình có thể …']],
   EXQ: [{ q: 'How did the speaker and Daniel meet?', o: ['On the first day of high school', 'On a hiking trip', 'At a summer job', 'Through a family party'], a: 0, vi: '“We met on the first day of high school”.' },
     { q: 'Why did the speaker sit alone at lunch?', o: ['The speaker was very shy.', 'The food was bad.', 'Lunch was too short.', 'The speaker was angry.'], a: 0, vi: '“I was so shy back then that I sat alone at lunch.”' },
     { q: 'What happened on the hiking trip?', o: ['They got completely lost.', 'They found a lost dog.', 'They missed the bus.', 'They had an argument.'], a: 0, vi: '“we got completely lost on a hiking trip”.' },
