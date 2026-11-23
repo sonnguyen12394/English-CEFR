@@ -624,8 +624,8 @@ const DG_UP = 0.85, DG_MINT = 25, DG_PASS = 0.85, DG_TS = [[120, '2 phút'], [90
 let DG = null, DG_RAF = 0, DG_CK = 0, DG_PL = 0; const DG_POLL = 250; const DG_IDLE = 1500;
 const DG_NUM = { zero: '0', one: '1', two: '2', three: '3', four: '4', five: '5', six: '6', seven: '7', eight: '8', nine: '9', ten: '10', eleven: '11', twelve: '12' };
 const dk = w => w.toLowerCase().replace(/[^a-z0-9]/g, '');
-// Tiếng đệm (hmm, haizz, uh, um…): máy chép lời không ra chữ này nên tự xanh, không bắt nói / gõ. Từ máy ra được (oh, wow, ah) vẫn chấm.
-const DG_FILL = /^(h+m+|m+h*m+|u+h+m*|u+m+|e+r+m*|h+a+i+z+|h+u+h+|u+g+h+|p+h+e+w+|a+w+|s+h+|t+s+k+|u+h+h+u+h+)$/;
+// Tiếng đệm (hmm, haizz, uh, um…): máy chép lời không ra chữ này nên tự xanh, không bắt nói / gõ. oh, ah, wow cũng tự xanh (người sáng lập 23/11).
+const DG_FILL = /^(o+h+|a+h+|w+o+w+|h+m+|m+h*m+|u+h+m*|u+m+|e+r+m*|h+a+i+z+|h+u+h+|u+g+h+|p+h+e+w+|a+w+|s+h+|t+s+k+|u+h+h+u+h+)$/;
 const dkF = w => { const t = dk(w); return DG_FILL.test(t) ? '' : t; };
 const DG_NUMR = Object.fromEntries(Object.entries(DG_NUM).map(([a, b]) => [b, a]));
 // v21: số đọc bằng micro có nhiều cách ghi: "512" · "5 12" · "five twelve" · "five one two" · "five hundred (and) twelve"; "nine" · "9" · "9:00"; "o'clock" · ":00".
