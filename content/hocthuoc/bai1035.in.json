@@ -1,0 +1,277 @@
+{
+ "n": 1035,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-05",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về cảm xúc và ý kiến (bộ 1)",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "You look happy today! What's the good news?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I got the part in the school play!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why are you so quiet? Are you upset about something?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "A little. I had an argument with my sister this morning.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I love your new haircut! It really suits you.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Aw, thanks! I was a bit worried it was too short.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you nervous about the exam next week?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not really. I've studied hard, so I feel pretty confident.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Don't you think the new superhero film is a bit overrated?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Honestly, I think so too. The story is just okay.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can you believe it? We won the match!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I know! I'm still shaking with excitement!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Is it okay if I disagree with you on this?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Of course. We don't have to agree on everything.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's wrong? You seem a bit stressed.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, I have too much homework and I can't sleep well.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm really proud of my little brother. He learned to swim!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "That's wonderful! You must be so happy for him.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you looking forward to the school trip?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Definitely! But I'm kind of scared of the zip line.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why are you so quiet? Are you upset about something?",
+   "a": "A little. I had an argument with my sister this morning.",
+   "w": [
+    "I got the part in the school play!",
+    "Yes, I live on a quiet street.",
+    "No, quiet is my favourite colour."
+   ],
+   "why": "Hỏi vì sao buồn → kể chuyện cãi nhau với chị."
+  },
+  {
+   "q": "I love your new haircut! It really suits you.",
+   "a": "Aw, thanks! I was a bit worried it was too short.",
+   "w": [
+    "No, I bought it at the market.",
+    "The suit is in the closet.",
+    "It cuts very well."
+   ],
+   "why": "Được khen → cảm ơn + nói điều mình lo."
+  },
+  {
+   "q": "Can you believe it? We won the match!",
+   "a": "I know! I'm still shaking with excitement!",
+   "w": [
+    "I'll believe it tomorrow, thanks.",
+    "Yes, I believe in the school.",
+    "The match starts at three."
+   ],
+   "why": "Báo tin thắng → chia vui: I know!"
+  },
+  {
+   "q": "Is it okay if I disagree with you on this?",
+   "a": "Of course. We don't have to agree on everything.",
+   "w": [
+    "Sure, the disagreement is on the table.",
+    "Yes, you are right, disagree it.",
+    "It's not okay, I'm sixteen years old."
+   ],
+   "why": "Of course = tất nhiên được, không cần đồng ý mọi chuyện."
+  },
+  {
+   "q": "Are you looking forward to the school trip?",
+   "a": "Definitely! But I'm kind of scared of the zip line.",
+   "w": [
+    "Yes, I forward it to my teacher.",
+    "The school is next to the park.",
+    "The trip took three hours."
+   ],
+   "why": "looking forward to = mong chờ → Definitely!"
+  }
+ ],
+ "p2": [
+  {
+   "q": "You look happy today! What's the good news?",
+   "o": [
+    "I got the part in the school play!",
+    "It's on the news at six.",
+    "Yes, today is Tuesday."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Why are you so quiet? Are you upset about something?",
+   "o": [
+    "It's very quiet in the library.",
+    "A little. I had an argument with my sister this morning.",
+    "I'm so quiet, thank you."
+   ],
+   "a": 1
+  },
+  {
+   "q": "I love your new haircut! It really suits you.",
+   "o": [
+    "No, I bought it at the market.",
+    "The suit is in the closet.",
+    "Aw, thanks! I was a bit worried it was too short."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Are you nervous about the exam next week?",
+   "o": [
+    "Not really. I've studied hard, so I feel pretty confident.",
+    "Yes, I take the exam in a nervous.",
+    "The exam paper is on my desk, thanks."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Don't you think the new superhero film is a bit overrated?",
+   "o": [
+    "It's rated eight o'clock.",
+    "Honestly, I think so too. The story is just okay.",
+    "Yes, I wear a superhero hat."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Can you believe it? We won the match!",
+   "o": [
+    "I'll believe it tomorrow, thanks.",
+    "The match starts at three.",
+    "I know! I'm still shaking with excitement!"
+   ],
+   "a": 2
+  },
+  {
+   "q": "Is it okay if I disagree with you on this?",
+   "o": [
+    "Of course. We don't have to agree on everything.",
+    "Yes, it's a good disagreement bag.",
+    "It's on the table, okay?"
+   ],
+   "a": 0
+  },
+  {
+   "q": "What's wrong? You seem a bit stressed.",
+   "o": [
+    "The wall is painted white.",
+    "Yeah, I have too much homework and I can't sleep well.",
+    "No, I sleep in a bed."
+   ],
+   "a": 1
+  },
+  {
+   "q": "I'm really proud of my little brother. He learned to swim!",
+   "o": [
+    "Little brothers are very tall.",
+    "I'm proud of the weather today.",
+    "That's wonderful! You must be so happy for him."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Are you looking forward to the school trip?",
+   "o": [
+    "Definitely! But I'm kind of scared of the zip line.",
+    "Yes, I forward it to my teacher.",
+    "The school is next to the park."
+   ],
+   "a": 0
+  }
+ ]
+}
