@@ -1,0 +1,115 @@
+{
+ "n": 1001,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-01",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hey Sam, are you free this Saturday?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I think so. Why? What's up?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "A few of us are gonna try that new hotpot place near the river.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No way! I've been dying to go there.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Great. We're meeting at six. Wanna come along?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sounds good. Should I bring anything?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Nah, just bring your appetite. The food's kinda spicy, though.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Even better. Text me the address, okay?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Sure. And don't be late this time!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Hey, that was one time!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What does Jess invite Sam to do?",
+   "a": "Try a new hotpot restaurant",
+   "w": [
+    "Watch a new film",
+    "Cook dinner at her place",
+    "Go for a walk by the river"
+   ],
+   "why": "“try that new hotpot place” = đi thử quán lẩu mới."
+  },
+  {
+   "q": "What time are they meeting?",
+   "a": "At six",
+   "w": [
+    "At seven",
+    "At noon",
+    "At nine"
+   ],
+   "why": "“We're meeting at six.” = gặp lúc sáu giờ."
+  },
+  {
+   "q": "What does Sam ask Jess to do?",
+   "a": "Send him the address",
+   "w": [
+    "Pick him up",
+    "Book a table",
+    "Bring some drinks"
+   ],
+   "why": "“Text me the address” = nhắn địa chỉ cho tớ."
+  },
+  {
+   "q": "What does Jess say about the food?",
+   "a": "It is a little spicy",
+   "w": [
+    "It is very cheap",
+    "It is not ready yet",
+    "It is too sweet"
+   ],
+   "why": "“The food's kinda spicy” = đồ ăn hơi cay."
+  }
+ ]
+}

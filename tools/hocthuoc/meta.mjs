@@ -17,7 +17,8 @@ if (B.meta.dang.includes('Đọc hiểu')) {
     const W1 = new Set(toks(/[a-z]{4}/i.test(src.why || '') ? src.why : '').filter(w => !STOP.has(w))), W2 = new Set(toks(q.o[0]).filter(w => !STOP.has(w))), W3 = new Set(toks(q.q).filter(w => !STOP.has(w)));
     let best = -1, bs = 0; B.L.forEach((l, i) => { if (/^\(\d\)/.test(l[1])) return; const t = toks(l[1]); const sc = (t.filter(w => W1.has(w)).length + 2 * t.filter(w => W2.has(w)).length + t.filter(w => W3.has(w)).length) / Math.sqrt(t.length + 1); if (sc > bs) { bs = sc; best = i; } });
     return bs > 0.25 ? best : -1; }); }
-if (B.meta.dang.includes('Hỏi')) {
+if (B.meta.dang.includes('Hỏi') && inp.p2) out.p2 = inp.p2;   // 💬 Giao tiếp: bộ 3 lời đáp tự soạn trong in.json (đặc tả 022)
+else if (B.meta.dang.includes('Hỏi')) {
   const T = JSON.parse(fs.readFileSync('toeic.json')), kho = Object.fromEntries(T.p2.map(x => [x.id, x]));
   const m = String(inp.id).match(/^de(\d+)-p2-bo(\d+)$/); const de = +m[1], bo = +m[2] - 1;
   const D = de <= 2 ? T.tron[de - 1] : JSON.parse(fs.readFileSync(`toeic-tron/de${de}.json`));

@@ -1,0 +1,113 @@
+{
+ "n": 1002,
+ "nguon": "💬 Giao tiếp · Bạn bè · bài tự soạn",
+ "id": "gt-bb-02",
+ "muc": "gt",
+ "chu": "gt-bb",
+ "dang": "✉️ Văn bản",
+ "kind": "Chat nhóm",
+ "title": "Group chat · Linh's birthday",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Group chat · Linh's birthday",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mai: Hey guys! Linh turns twenty on Sunday, so let's throw her a surprise picnic.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tuan: Count me in! I can bring some snacks and a speaker.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mai: Awesome. Can someone get the cake? I'm kinda busy on Saturday.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hana: I'll do it. Chocolate, right? She's crazy about chocolate.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tuan: Just don't tell her anything, okay? It's a surprise.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mai: Got it. Let's meet at the park gate at ten.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hana: See you there!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Chỗ trống 1: Linh turns twenty on Sunday, so let's ___ her a surprise picnic.",
+   "a": "throw",
+   "w": [
+    "do",
+    "put",
+    "hold"
+   ],
+   "why": "throw sb a party / picnic = tổ chức tiệc cho ai; do / put / hold không dùng theo kiểu \"___ her a picnic\"."
+  },
+  {
+   "q": "Chỗ trống 2: Count me ___! I can bring some snacks and a speaker.",
+   "a": "in",
+   "w": [
+    "on",
+    "at",
+    "up"
+   ],
+   "why": "Count me in = tính cả tớ; câu sau \"I can bring…\" cho biết Tuan tham gia."
+  },
+  {
+   "q": "Chỗ trống 3: Chocolate, right? She's crazy ___ chocolate.",
+   "a": "about",
+   "w": [
+    "of",
+    "with",
+    "on"
+   ],
+   "why": "be crazy about sth = mê cái gì."
+  },
+  {
+   "q": "Chỗ trống 4: ___. Let's meet at the park gate at ten.",
+   "a": "Got it",
+   "w": [
+    "Get it",
+    "Getting it",
+    "Gets it"
+   ],
+   "why": "Got it = Rõ rồi (đã hiểu), câu đáp ngắn khi nhắn tin."
+  },
+  {
+   "q": "Who will get the cake?",
+   "a": "Hana",
+   "w": [
+    "Mai",
+    "Tuan",
+    "Linh"
+   ],
+   "why": "Hana: “I'll do it.” sau câu hỏi ai lấy bánh."
+  }
+ ]
+}

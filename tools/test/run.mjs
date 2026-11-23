@@ -3118,11 +3118,26 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     const idx = fs.readFileSync(H + 'bai/index.js', 'utf8'), ns = JSON.parse(idx.slice(idx.indexOf('['), idx.lastIndexOf(']') + 1)).map(x => x.n);
     for (const n of ns) if (!fs.existsSync(H + `bai/bai${n}.js`)) r.push('thiếu bài ' + n);
     if (ns.length < 60) r.push('ít bài: ' + ns.length);
-    const CHU = ['vp', 'ns', 'kd', 'tc', 'mb', 'sx', 'dl', 'an', 'nha', 'sk', 'kt', 'pt'], bad = JSON.parse(idx.slice(idx.indexOf('['), idx.lastIndexOf(']') + 1)).filter(x => x.muc !== 'toeic' || !CHU.includes(x.chu)).map(x => x.n);
+    const CHU = ['vp', 'ns', 'kd', 'tc', 'mb', 'sx', 'dl', 'an', 'nha', 'sk', 'kt', 'pt'], bad = JSON.parse(idx.slice(idx.indexOf('['), idx.lastIndexOf(']') + 1)).filter(x => !(x.muc === 'toeic' && CHU.includes(x.chu)) && !(x.muc === 'gt' && /^gt-(bt|bb|st|cx|kc|hn|hd|kh)$/.test(x.chu))).map(x => x.n);
     if (bad.length) r.push('bài thiếu mục tiêu / mã chủ đề: ' + bad.slice(0, 6).join(', '));
     if (ns.some(n => /Đề (9|1[0-6])\\b/.test(fs.readFileSync(H + `bai/bai${n}.js`, 'utf8').slice(0, 400)))) r.push('có bài từ đề riêng'); }
   if (!fs.readFileSync(root + 'toeic.js', 'utf8').includes('htRow()')) r.push('màn TOEIC chưa có dòng');
   R.push({ lv: 'cefr', id: 'C103', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Học thuộc bài đề: lối vào ở Luyện đề TOEIC, trang con đủ bài, tiến độ vào S.ht' }); }
+
+// v211 C104 📖 Học thuộc 2 mục tiêu (đặc tả 022): ô Đổi bài 3 tầng (mục tiêu → chủ đề → dạng), bài 💬 Giao tiếp ≥ 1001 có muc gt + chủ đề, ≥ 2 cụm thân mật có ghi chú, chỗ trống ✉️ khớp nguyên từ ở đúng câu
+{ const r = [];
+  const fs = await import('node:fs'), vm = await import('node:vm'), root = new URL('../../', import.meta.url).pathname, H = root + 'hoc-thuoc/', h = fs.existsSync(H + 'index.html') ? fs.readFileSync(H + 'index.html', 'utf8') : '';
+  for (const k of ['data-pm=', 'data-pc=', 'data-pk=', 'MUC_CHU', 'gapLine', 'GT_TXT']) if (!h.includes(k)) r.push('trang con thiếu ' + k);
+  const idx = fs.readFileSync(H + 'bai/index.js', 'utf8'), xs = JSON.parse(idx.slice(idx.indexOf('['), idx.lastIndexOf(']') + 1)), gt = xs.filter(x => x.muc === 'gt');
+  if (gt.length < 3) r.push('bài Giao tiếp: ' + gt.length);
+  if (gt.some(x => x.n < 1001)) r.push('bài Giao tiếp phải số từ 1001');
+  if (xs.some(x => x.muc === 'gt' && /^Đề \d/.test(x.de))) r.push('bài Giao tiếp không được ghi Đề');
+  for (const x of gt) { const c = { WHO: {} }; vm.createContext(c); vm.runInContext(fs.readFileSync(H + `bai/bai${x.n}.js`, 'utf8') + `;this.B=BAI${x.n}`, c);
+    const n = (c.B.CUM || []).filter(q => q[2] && q[2].startsWith('💬')).length; if (n < 2) r.push(`bài ${x.n}: ${n} cụm thân mật có ghi chú`);
+    if (c.B.meta.dang.includes('Hỏi') && !(c.B.meta.p2 || []).length) r.push(`bài ${x.n}: thiếu bộ Phản xạ p2`); }
+  const re = h.match(/const reW = e => (new RegExp\(.*?\));\n/); if (!re) r.push('thiếu reW'); else { const reW = eval('e => ' + re[1]);
+    if (reW('in').test('Linh turns twenty')) r.push('chỗ trống "in" khớp trong "Linh"'); if (!reW('in').test('Count me in!')) r.push('không khớp "in" nguyên từ'); }
+  R.push({ lv: 'cefr', id: 'C104', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Học thuộc 2 mục tiêu: chọn mục tiêu → chủ đề → dạng, bài Giao tiếp có chủ đề, cụm thân mật, chỗ trống khớp nguyên từ' }); }
 
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

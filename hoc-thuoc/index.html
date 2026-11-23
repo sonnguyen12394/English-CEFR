@@ -119,6 +119,9 @@ mark { background: var(--acc2); color: var(--acc); font-weight: 700; border-radi
 .qa { gap: 6px } .qa .say { width: 100% } .qaa { background: var(--acc2) !important }
 .tline { display: block; width: 100%; text-align: left; background: var(--card); border: 1.5px solid var(--line); border-radius: 10px; padding: 8px 10px; margin: 6px 0; min-height: 44px; font-size: 15px }
 .tline.ok { border-color: var(--good); background: var(--goodbg) } .tline.no { border-color: var(--bad); background: var(--badbg) } .nvlog { max-height: 40vh; overflow-y: auto }
+.mucbar { display: grid; grid-template-columns: 1fr 1fr; gap: 6px } .mucbar .lay.on::before, .chubar .lay.on::before, .dangbar .lay.on::before { content: '' }
+.chubar { display: grid; grid-template-columns: 1fr 1fr; gap: 6px } .chubar .lay { text-align: left; padding: 4px 5px; font-size: 13px; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis } .chubar .lay:disabled { opacity: 1; color: var(--mute); border-style: dashed }
+.dangbar { display: flex; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px; scrollbar-width: none } .dangbar::-webkit-scrollbar { display: none } .dangbar .lay { flex: 0 0 auto; padding: 4px 10px; font-size: 13px; white-space: nowrap }
 .kindbar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px } .kindbar .lay { padding: 4px 2px; font-size: 12px; line-height: 1.2 } .kindbar .lay.on::before { content: '' }
 .bainav { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center } .bainav span { text-align: center }
 .mu-t { margin: 2px 0 4px; font-size: 17px } .mur { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: center; padding: 6px 0; border-top: 1px solid var(--line) } .mur > .sm { grid-column: 1 / -1 }
@@ -276,7 +279,7 @@ function learn() { app.innerHTML = `${head()}<h1>${esc(BAIS[BAI_I].meta.t)}</h1>
   <button class="sec" id="all">🔊 Nghe cả ${KIND() === 'hoi' ? 'đoạn' : 'bài'}</button>${ipaTg()}
   ${bodyHtml()}
 
-  <details class="card"><summary class="link" style="display:flex;align-items:center">📌 Cụm cần nhớ (${CUM.length})</summary>${CUM.map(c => `<p><b>${esc(c[0])}</b> <span class="mute">= ${esc(c[1])}</span></p>`).join('')}</details>
+  <details class="card"><summary class="link" style="display:flex;align-items:center">📌 Cụm cần nhớ (${CUM.length})</summary>${CUM.map(c => `<p><b>${esc(c[0])}</b> <span class="mute">= ${esc(c[1])}</span>${c[2] ? `<br><span class="sm">${esc(c[2])}</span>` : ''}</p>`).join('')}</details>
   <button class="pri" id="nx">Xong, về bài học ›</button>`;
   $('#all').onclick = () => playAll(); ipaOn(learn);
   app.querySelectorAll('[data-p]').forEach(b => b.onclick = () => { const i = +b.dataset.p; document.getElementById('vi' + i).hidden = false; play(i); });
@@ -1035,11 +1038,19 @@ function useBai(n) { for (const k of Object.keys(WHO)) delete WHO[k]; Object.ass
   ({ L, IPA, STR, LK, INT, PAU, EL, CUM, VNY, VNK, EXQ, NEWQ2, MU } = B);
   st = STS[n] || { ipa: true, lv: 0, i: 0, w: [], day: 0, done: {}, sc: {}, cur: null, hit: [0, 0], lay: { ipa: 1 }, mu: {} }; DG = null; DV = null; }
 const baiDe = x => (x.de.match(/^Đề \d+/) || ['Khác'])[0];
-let PICK_K = null;   // dạng đang xem trong danh sách bài
-const baiBar = () => { const cur = BAI_ALL.find(x => x.n === BAI_I + 1) || BAI_ALL[0], K = PICK_K || kindOf(cur.dang), xs = BAI_ALL.filter(x => kindOf(x.dang) === K), G = {}; xs.forEach(x => (G[baiDe(x)] = G[baiDe(x)] || []).push(x));
-  return `<details class="card baipick"${PICK_K ? ' open' : ''}><summary><span><span class="tag">Bài ${BAI_I + 1} · ${cur.dang}</span><br><b>Đổi bài ›</b></span></summary>
-  <div class="kindbar" role="group" aria-label="Dạng bài">${KINDS.map(k => `<button class="lay${k[0] === K ? ' on' : ''}" data-pk="${k[0]}" aria-pressed="${k[0] === K}">${k[1]}<br>${k[2]}<br><span class="sm">${BAI_ALL.filter(x => kindOf(x.dang) === k[0]).length} bài</span></button>`).join('')}</div>
-  ${Object.entries(G).sort((a, b) => parseInt(a[0].slice(3)) - parseInt(b[0].slice(3))).map(([d, ys]) => `<p class="tag" style="margin:8px 0 2px">${d} · ${ys.length} bài</p><div class="baibar">${ys.map(x => `<button class="lay${x.n === BAI_I + 1 ? ' on' : ''}" data-bai="${x.n - 1}" aria-pressed="${x.n === BAI_I + 1}"><b>Bài ${x.n}</b><br><span class="sm">${esc(x.t)}</span></button>`).join('')}</div>`).join('')}</details>`; };
+// v211 (đặc tả 022): chọn bài 3 tầng: mục tiêu → chủ đề → dạng; bảng mục tiêu / chủ đề MUC, CHU nằm trong base.html
+let PICK = null;   // { m: mục tiêu, c: chủ đề, k: dạng | 'all' } đang xem trong ô Đổi bài
+const baiTag = x => mucOf(x) === 'gt' ? '' : (x.de.match(/^Đề \d+ · Part \d/) || [''])[0];
+const baiBar = () => { const cur = BAI_ALL.find(x => x.n === BAI_I + 1) || BAI_ALL[0], P = PICK || { m: mucOf(cur), c: cur.chu, k: kindOf(cur.dang) };
+  const inM = BAI_ALL.filter(x => mucOf(x) === P.m), cs = MUC_CHU[P.m], c = cs.includes(P.c) && inM.some(x => x.chu === P.c) ? P.c : (cs.find(k => inM.some(x => x.chu === k)) || cs[0]);
+  const inC = inM.filter(x => x.chu === c), ks = KINDS.filter(k => inC.some(x => kindOf(x.dang) === k[0])), k = P.k !== 'all' && ks.some(x => x[0] === P.k) ? P.k : 'all';
+  const xs = inC.filter(x => k === 'all' || kindOf(x.dang) === k).sort((a, b) => a.n - b.n), on = (a, b) => `${a === b ? ' on' : ''}" aria-pressed="${a === b}`;
+  return `<details class="card baipick"${PICK ? ' open' : ''}><summary><span><span class="tag">Bài ${BAI_I + 1} · ${CHU[cur.chu] ? CHU[cur.chu].slice(0, 2).join(' ') + ' · ' : ''}${cur.dang}</span><br><b>Đổi bài ›</b></span></summary>
+  <div class="mucbar" role="group" aria-label="Mục tiêu">${MUC.map(m => `<button class="lay${on(m[0], P.m)}" data-pm="${m[0]}">${m[1]} ${m[2]}<br><span class="sm">${BAI_ALL.filter(x => mucOf(x) === m[0]).length} bài</span></button>`).join('')}</div>
+  <p class="tag" style="margin:10px 0 4px">Chủ đề</p><div class="chubar" role="group" aria-label="Chủ đề">${cs.map(ch => { const n = inM.filter(x => x.chu === ch).length;
+    return `<button class="lay${on(ch, c)}" data-pc="${ch}"${n ? '' : ' disabled'}>${CHU[ch][0]} ${CHU[ch][2] || CHU[ch][1]}<span class="sm"> · ${n}</span></button>`; }).join('')}</div>${cs.some(ch => !inM.some(x => x.chu === ch)) ? '<p class="sm mute" style="margin:4px 0 0">Viền đứt: chủ đề sắp có bài.</p>' : ''}
+  ${inC.length ? `<p class="tag" style="margin:10px 0 4px">Dạng bài</p><div class="dangbar" role="group" aria-label="Dạng bài"><button class="lay${on('all', k)}" data-pk="all">Tất cả · ${inC.length}</button>${ks.map(x => `<button class="lay${on(x[0], k)}" data-pk="${x[0]}">${x[1]} ${x[2]} · ${inC.filter(y => kindOf(y.dang) === x[0]).length}</button>`).join('')}</div>
+  <div class="baibar" style="margin-top:10px">${xs.map(x => `<button class="lay${x.n === BAI_I + 1 ? ' on' : ''}" data-bai="${x.n - 1}" aria-pressed="${x.n === BAI_I + 1}"><b>Bài ${x.n}</b>${k === 'all' ? ' · ' + KINDS.find(y => y[0] === kindOf(x.dang)).slice(1, 3).join(' ') : ''}<span class="sm mute">${baiTag(x) ? ' · ' + baiTag(x) : ''}</span><br><span class="sm">${esc(x.t)}</span></button>`).join('')}</div>` : '<p class="sm mute">Chủ đề này sắp có bài.</p>'}</details>`; };
 const MU_B = ['①', '②', '③', '④'], MU_BT = ['Hiểu trong bài', 'Hiểu ở câu mới', 'Chọn dùng đúng', 'Tự gõ'];
 st.mu = st.mu || {};
 const muSt = id => st.mu[id] || (st.mu[id] = {});
@@ -1089,6 +1100,22 @@ function muTable() { const dot = v => `<i class="mud ${v === true ? 'ok' : v ===
 // 📄 Đọc hiểu: tin nhắn / lịch / thẻ văn bản, 🔎 Tìm chỗ chứa đáp án · 💬 Hỏi – đáp: thẻ cặp câu, ⚡ Phản xạ
 const KIND = () => { const d = (BAIS[BAI_I].meta || {}).dang || ''; return d.includes('Hội thoại') ? 'hoi' : d.includes('Bài nói') ? 'noi' : d.includes('Văn bản') ? 'vb' : d.includes('Đọc hiểu') ? 'dh' : d.includes('Hỏi') ? 'hd' : 'hoi'; };
 const KINDS = [['hoi', '🗣', 'Hội thoại', 'Part 3'], ['noi', '📢', 'Bài nói', 'Part 4'], ['vb', '✉️', 'Văn bản', 'Part 6'], ['dh', '📄', 'Đọc hiểu', 'Part 7'], ['hd', '💬', 'Hỏi – đáp', 'Part 2']];
+// v211 (đặc tả 022, docs/KE-HOACH-HOC-THUOC.md mục 2): 2 mục tiêu, mỗi mục tiêu một bộ chủ đề; bài ghi meta.muc + meta.chu
+const MUC = [['toeic', '🎯', 'TOEIC'], ['gt', '💬', 'Giao tiếp']];
+const CHU = { vp: ['🏢', 'Văn phòng'], ns: ['👥', 'Nhân sự'], kd: ['💼', 'Kinh doanh'], tc: ['💰', 'Tài chính'], mb: ['🛒', 'Mua bán'], sx: ['🏭', 'Sản xuất'], dl: ['✈️', 'Đi lại'], an: ['🍽', 'Ăn uống, giải trí', 'Ăn uống'], nha: ['🏠', 'Nhà cửa'], sk: ['🏥', 'Sức khoẻ'], kt: ['💻', 'Kỹ thuật'], pt: ['📰', 'Phát triển công ty', 'Phát triển'],
+  'gt-bt': ['🙋', 'Bản thân, gia đình', 'Bản thân'], 'gt-bb': ['🤝', 'Bạn bè'], 'gt-st': ['🎮', 'Sở thích'], 'gt-cx': ['❤️', 'Cảm xúc, ý kiến', 'Cảm xúc'], 'gt-kc': ['📖', 'Kể chuyện'], 'gt-hn': ['☀️', 'Chuyện hằng ngày', 'Hằng ngày'], 'gt-hd': ['🎓', 'Học hành, dự định', 'Học hành'], 'gt-kh': ['🚨', 'Tình huống khẩn', 'Khẩn cấp'] };
+const MUC_CHU = { toeic: Object.keys(CHU).filter(k => !k.startsWith('gt-')), gt: Object.keys(CHU).filter(k => k.startsWith('gt-')) };
+const mucOf = x => (x && x.muc) || 'toeic';
+const curMuc = () => mucOf((BAIS[BAI_I] || {}).meta);
+const kPart = k => curMuc() === 'gt' ? '' : (KINDS.find(x => x[0] === k) || [])[3] || '';
+// bài 💬 Giao tiếp không lấy từ đề: đổi các câu nhắc "đề thật / Part N" ngay sau khi vẽ (chỉ nút chữ trong #app)
+const GT_TXT = [['Bài và giọng đọc lấy từ đề của app (văn bản Part 6–7 đọc bằng giọng máy); dịch,', 'Bài giao tiếp do Claude tự soạn (lối nói thân mật, cấp A2–B1), tạm đọc bằng giọng máy; dịch,'], ['3 câu của đề thật về bài này, như khi thi', '3 câu hỏi về bài này'], ['Câu hỏi của đề thật', 'Câu hỏi hiểu bài'], ['Câu hỏi thật của đề về đoạn này.', 'Câu hỏi về đoạn này.'], ['🎯 Làm đề', '🎯 Trả lời câu hỏi'],
+  ['chỗ trống của đề Part 6', 'chỗ trống'], ['Các chỗ trống như đề Part 6', 'Các chỗ trống'], ['Đọc câu hỏi của đề', 'Đọc câu hỏi'], [', như Part 6', ''], ['Như Part 2: câu', 'Câu']];
+function gtFix() { if (curMuc() !== 'gt') return; const w = document.createTreeWalker(app, NodeFilter.SHOW_TEXT); let n; while ((n = w.nextNode())) { let t = n.nodeValue, t0 = t; for (const [a, b] of GT_TXT) if (t.includes(a)) t = t.split(a).join(b); if (t !== t0) n.nodeValue = t; } }
+new MutationObserver(gtFix).observe(app, { childList: true, subtree: true });
+// v211: chỗ trống (✉️ Văn bản) chỉ tô ở ĐÚNG câu chứa nó (câu của q sau "Chỗ trống k:"), khớp nguyên từ (đáp án "in" không tô trong "Linh")
+const reW = e => new RegExp('(^|[^A-Za-z])(' + e.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')(?![A-Za-z])');
+const gapLine = G => G.map(q => { const sent = q.q.replace(/^[^:]*:\s*(\([^)]*\)\s*)?/, '').replace('___', q.o[0]).trim(); let i = L.findIndex(l => l[1].includes(sent)); if (i < 0) i = L.findIndex(l => reW(q.o[0]).test(l[1])); return i; });
 const kindOf = dang => (KINDS.find(k => dang.includes(k[2])) || KINDS[0])[0];
 const EX_DANG = { hoi: ['nhapvai', '🎭 Nhập vai', 'Chọn vai, app đọc lời người kia, bạn nói lời của mình'], noi: ['ngheche', '🎧 Nghe – chép', 'Nghe từng câu, không nhìn chữ, nói hoặc gõ lại'],
   vb: ['dienvb', '🧩 Điền lại ô trống', 'Các chỗ trống như đề Part 6, đọc cả văn bản rồi chọn'], dh: ['timdap', '🔎 Tìm chỗ chứa đáp án', 'Đọc câu hỏi của đề, chạm vào câu chứa đáp án'],
@@ -1110,7 +1137,7 @@ function bodyHtml() { const k = KIND(), M = BAIS[BAI_I].meta || {};
   if (k === 'hd') return `<div class="opts">${L.map((l, i) => i % 2 ? '' : `<div class="card qa"><button class="say qaq" ${nsOpen(i)}><span class="sm mute">❓ Câu ${i / 2 + 1}</span>${lineTxt(i)}${vi(l, i)}</button>
     ${L[i + 1] ? `<button class="say qaa" ${nsOpen(i + 1)}><span class="sm mute">↪ Đáp</span>${lineTxt(i + 1)}${vi(L[i + 1], i + 1)}</button>` : ''}</div>`).join('')}</div>`;
   const gaps = k === 'vb' ? EXQ.filter(q => /chỗ trống/i.test(q.q)).map(q => q.o[0]) : [];
-  const mark = (t, i) => { if (anyLay()) return lineTxt(i); let h = esc(t); for (const g of gaps) { const e = esc(g); if (h.includes(e)) { h = h.replace(e, `<mark title="chỗ trống của đề">${e}</mark>`); } } return `<span>${h}</span>`; };
+  const gl = gapLine(EXQ.filter(q => /chỗ trống/i.test(q.q))), mark = (t, i) => { if (anyLay()) return lineTxt(i); let h = esc(t); gaps.forEach((g, n) => { const e = esc(g); if (gl[n] === i && reW(e).test(h)) h = h.replace(reW(e), (m, p1) => p1 + `<mark title="chỗ trống của đề">${e}</mark>`); }); return `<span>${h}</span>`; };
   if (k === 'vb') { const hd = String(M.title || '').split(' · ').filter(Boolean);
     return `<div class="card doc">${hd.length ? `<div class="dochd">${hd.map(x => `<div>${esc(x)}</div>`).join('')}</div>` : ''}<div class="docbody">${L.map((l, i) => `<p class="dl" role="button" tabindex="0" ${nsOpen(i)}>${mark(l[1], i)}${vi(l, i)}</p>`).join('')}</div>
       ${gaps.length ? `<p class="sm mute">${anyLay() ? 'Tắt hết lớp đánh dấu để thấy chỗ trống của đề Part 6 (chữ tô màu).' : 'Chữ tô màu là chỗ trống của đề Part 6.'}</p>` : ''}</div>`; }
@@ -1162,7 +1189,8 @@ function ngheche() { let i = 0, first = 0, tries = 0;
   step(); }
 // ----- 🧩 Điền lại ô trống (văn bản Part 6) -----
 function dienvb() { const G = EXQ.filter(q => /chỗ trống/i.test(q.q)); let k = 0, first = 0;
-  const body = (gi, show) => L.map((l, i) => { let h = esc(l[1]); G.forEach((q, n) => { const e = esc(q.o[0]); if (h.includes(e)) h = h.replace(e, n === gi && !show ? `<span class="gap">(${n + 1}) ?</span>` : n < gi || show ? `<mark>${e}</mark>` : e); }); return `<p class="dl">${h}</p>`; }).join('');
+  const gLine = gapLine(G);
+  const body = (gi, show) => L.map((l, i) => { let h = esc(l[1]); G.forEach((q, n) => { const e = esc(q.o[0]); if (gLine[n] === i && reW(e).test(h)) h = h.replace(reW(e), (m, p1) => p1 + (n === gi && !show ? `<span class="gap">(${n + 1}) ?</span>` : n < gi || show ? `<mark>${e}</mark>` : e)); }); return `<p class="dl">${h}</p>`; }).join('');
   const step = () => { if (k >= G.length) return app.innerHTML = `${head()}<div class="card" style="text-align:center;align-items:center"><p class="tag">Xong</p><p class="big">${first}/${G.length}</p><p class="sm mute">chỗ trống đúng ngay</p></div><button class="pri" id="nx">Xong ›</button>`, $('#nx').onclick = () => fin('dienvb', [first, G.length]);
     const q = G[k], ord = shuf(q.o.map((_, j) => j)); let tried = 0;
     app.innerHTML = `${head('Đọc cả văn bản, chọn từ / câu điền vào chỗ trống đang hỏi, như Part 6.')}<p class="tag">Chỗ trống ${k + 1}/${G.length}</p><div class="card doc"><div class="docbody docsm">${body(k)}</div></div>
@@ -1204,13 +1232,14 @@ function phanxa() { const P2 = (BAIS[BAI_I].meta || {}).p2 || []; let k = 0, fir
   if (!P2.length) { app.innerHTML = `${head()}<p>Bài này chưa có bộ câu hỏi.</p>`; return; } step(); }
 
 // v36 (người sáng lập: "cùng dạng bài thì chọn liên tiếp bài tiếp theo để làm tiếp sau khi xong bài hiện tại"): ‹ Bài trước · Bài tiếp › trong cùng dạng (theo số bài)
-const baiSib = d => { if (typeof BAI_ALL === 'undefined') return null; const k = KIND(), xs = BAI_ALL.filter(x => kindOf(x.dang) === k).sort((a, b) => a.n - b.n), i = xs.findIndex(x => x.n === BAI_I + 1); return i < 0 ? null : xs[i + d] || null; };
-const baiNav = () => { const a = baiSib(-1), b = baiSib(1), K = KINDS.find(x => x[0] === KIND()), xs = typeof BAI_ALL === 'undefined' ? [] : BAI_ALL.filter(x => kindOf(x.dang) === KIND()).sort((p, q) => p.n - q.n);
+const sibXs = () => typeof BAI_ALL === 'undefined' ? [] : BAI_ALL.filter(x => kindOf(x.dang) === KIND() && mucOf(x) === curMuc()).sort((p, q) => p.n - q.n);
+const baiSib = d => { if (typeof BAI_ALL === 'undefined') return null; const k = KIND(), xs = BAI_ALL.filter(x => kindOf(x.dang) === k && mucOf(x) === curMuc()).sort((a, b) => a.n - b.n), i = xs.findIndex(x => x.n === BAI_I + 1); return i < 0 ? null : xs[i + d] || null; };
+const baiNav = () => { const a = baiSib(-1), b = baiSib(1), K = KINDS.find(x => x[0] === KIND()), xs = sibXs();
   return `<div class="bainav"><button class="sec" data-go-bai="${a ? a.n - 1 : ''}" ${a ? '' : 'disabled'}>‹ Bài trước</button><span class="sm mute">${K[1]} ${xs.findIndex(x => x.n === BAI_I + 1) + 1}/${xs.length}</span><button class="sec" data-go-bai="${b ? b.n - 1 : ''}" ${b ? '' : 'disabled'}>Bài tiếp ›</button></div>`; };
 document.addEventListener('click', e => { const b = e.target.closest('[data-go-bai]'); if (!b || b.dataset.goBai === '') return; const n = +b.dataset.goBai; baiLoad(n + 1, () => { useBai(n); hub(); }); });
 // v37 (người sáng lập: "làm chức năng chọn bài tiếp cùng dạng trong bài tập nhớ"): đang ở bài tập nhớ thì sang thẳng CÙNG bài tập của bài trước / bài tiếp cùng dạng
 const sibBtn = ex => { const b = baiSib(1); return b ? `<button class="pri" style="margin-top:8px" data-sib="1" data-ex="${ex}">⏭ Làm tiếp bài sau: Bài ${b.n}<small>${esc(b.t)}</small></button>` : '<p class="sm mute" style="text-align:center">Đây là bài cuối của dạng này.</p>'; };
-const sibNav = ex => { const a = baiSib(-1), b = baiSib(1), xs = typeof BAI_ALL === 'undefined' ? [] : BAI_ALL.filter(x => kindOf(x.dang) === KIND()).sort((p, q) => p.n - q.n), K = KINDS.find(x => x[0] === KIND());
+const sibNav = ex => { const a = baiSib(-1), b = baiSib(1), xs = sibXs(), K = KINDS.find(x => x[0] === KIND());
   return `<div class="bainav" style="margin-top:8px"><button class="sec" data-sib="-1" data-ex="${ex}" ${a ? '' : 'disabled'}>‹ Bài trước</button><span class="sm mute">${K[1]} bài ${xs.findIndex(x => x.n === BAI_I + 1) + 1}/${xs.length}<br>${esc(BAIS[BAI_I].meta.t)}</span><button class="sec" data-sib="1" data-ex="${ex}" ${b ? '' : 'disabled'}>Bài tiếp ›</button></div>`; };
 document.addEventListener('click', e => { const b = e.target.closest('[data-sib]'); if (!b || b.disabled) return; const x = baiSib(+b.dataset.sib), ex = b.dataset.ex; if (!x) return;
   if (/Xong|kỷ lục/i.test(app.textContent)) st.done[ex] = 1; baiLoad(x.n, () => { useBai(x.n - 1); run(ex); }); });
@@ -1259,7 +1288,7 @@ function hub() { st.cur = null; scrollTo(0, 0); const S = scores(), left = todo(
     ${!st.day ? `<button class="opt hrow2" data-go="hoc"><span><b>${st.done.hoc ? '✓ ' : ''}📖 Nghe + đọc</b><br><span class="sm mute">Nghe, xem dịch, phiên âm có nối âm, nhấn âm</span></span></button>` : ''}
     <h2 style="margin-top:6px">🧠 Tập nhớ</h2><p class="sm mute">Nói hoặc gõ lại cả bài, và xếp nghĩa tiếng Việt. Đo giờ, phá kỷ lục.</p>
     <div class="opts">${EX_NHO.map(x => row(...x)).join('')}</div>
-    ${(() => { const kk = KINDS.find(x => x[0] === KIND()); return `<h2 style="margin-top:6px">🎯 Luyện riêng dạng ${kk[1]} ${kk[2]}</h2><p class="sm mute">Bài tập dành cho dạng ${kk[2].toLowerCase()} (${kk[3]}).</p><div class="opts">${row(...EX_DANG[KIND()])}</div>`; })()}
+    ${(() => { const kk = KINDS.find(x => x[0] === KIND()); return `<h2 style="margin-top:6px">🎯 Luyện riêng dạng ${kk[1]} ${kk[2]}</h2><p class="sm mute">Bài tập dành cho dạng ${kk[2].toLowerCase()}${kPart(KIND()) ? ' (' + kPart(KIND()) + ')' : ''}.</p><div class="opts">${row(...EX_DANG[KIND()])}</div>`; })()}
     <h2 style="margin-top:6px">💡 Hiểu · ✍️ Dùng được</h2><p class="sm mute">7 cụm từ và 5 điểm ngữ pháp lấy từ bài. Mỗi mục 4 bậc: ① hiểu trong câu của bài · ② hiểu ở câu mới · ③ chọn dùng đúng · ④ tự gõ. Câu sai quay lại cuối lượt.</p>
     <div class="opts">${EX_HIEU.map(x => row(x[0], x[1], x[2])).join('')}</div>${muTable()}
     <h2 style="margin-top:6px">🎯 Làm đề</h2><p class="sm mute">Câu hỏi thật của đề về đoạn này.</p>
@@ -1271,7 +1300,7 @@ function hub() { st.cur = null; scrollTo(0, 0); const S = scores(), left = todo(
     <p class="note">Bài và giọng đọc lấy từ đề của app (văn bản Part 6–7 đọc bằng giọng máy); dịch, phiên âm, câu hỏi tiếng Việt, câu mới do Claude soạn, chưa giáo viên kiểm.</p>`;
   const b = $('#nx'); if (b) b.onclick = () => run(nx);
   app.querySelectorAll('[data-go]').forEach(x => x.onclick = () => run(x.dataset.go));
-   app.querySelectorAll('[data-bai]').forEach(x => x.onclick = () => { const n = +x.dataset.bai; PICK_K = null; baiLoad(n + 1, () => { useBai(n); hub(); }); }); app.querySelectorAll('[data-pk]').forEach(x => x.onclick = () => { PICK_K = x.dataset.pk; hub(); });
+   app.querySelectorAll('[data-bai]').forEach(x => x.onclick = () => { const n = +x.dataset.bai; PICK = null; baiLoad(n + 1, () => { useBai(n); hub(); }); }); const pk = () => PICK || (() => { const c = BAI_ALL.find(x => x.n === BAI_I + 1) || BAI_ALL[0]; return { m: mucOf(c), c: c.chu, k: kindOf(c.dang) }; })(); app.querySelectorAll('[data-pm]').forEach(x => x.onclick = () => { PICK = { m: x.dataset.pm, c: '', k: 'all' }; hub(); }); app.querySelectorAll('[data-pc]').forEach(x => x.onclick = () => { PICK = Object.assign(pk(), { c: x.dataset.pc }); hub(); }); app.querySelectorAll('[data-pk]').forEach(x => x.onclick = () => { PICK = Object.assign(pk(), { k: x.dataset.pk }); hub(); });
   $('#rev').onclick = () => { st.day = nextDay(); for (const k of REVF()) { delete st.done[k]; delete st.sc[k]; } st.w = []; st.say = 0; hub(); }; }
 const nextDay = () => [1, 3, 7, 21].find(d => d > st.day) || 21;
 function fin(k, sc) { st.done[k] = 1; if (sc) st.sc[k] = sc; FROM_GAL ? gallery() : hub(); }

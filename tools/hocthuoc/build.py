@@ -11,7 +11,7 @@ def R(a, b):
 idx = []
 CHU = json.load(open(T + '/chu.json'))
 HOAN = set(json.load(open(T + '/hoan.json'))['bai'])
-for n in range(1, 400):
+for n in list(range(1, 400)) + list(range(1001, 1200)):  # 1001+: bài 💬 Giao tiếp (đặc tả 022)
     if n <= 2:
         continue
     f = f'{B}/bai{n}.js'
@@ -39,11 +39,19 @@ R(".baibar { display: grid; grid-template-columns: 1fr 1fr;", ".baipick summary 
 R("Bài và giọng đọc lấy từ đề của app (Đề 3, Đề 5);", "Bài và giọng đọc lấy từ đề của app (văn bản Part 6–7 đọc bằng giọng máy);")
 i = s.index("const baiBar = () =>"); j = s.index("\n", i)
 s = s[:i] + """const baiDe = x => (x.de.match(/^Đề \\d+/) || ['Khác'])[0];
-let PICK_K = null;   // dạng đang xem trong danh sách bài
-const baiBar = () => { const cur = BAI_ALL.find(x => x.n === BAI_I + 1) || BAI_ALL[0], K = PICK_K || kindOf(cur.dang), xs = BAI_ALL.filter(x => kindOf(x.dang) === K), G = {}; xs.forEach(x => (G[baiDe(x)] = G[baiDe(x)] || []).push(x));
-  return `<details class="card baipick"${PICK_K ? ' open' : ''}><summary><span><span class="tag">Bài ${BAI_I + 1} · ${cur.dang}</span><br><b>Đổi bài ›</b></span></summary>
-  <div class="kindbar" role="group" aria-label="Dạng bài">${KINDS.map(k => `<button class="lay${k[0] === K ? ' on' : ''}" data-pk="${k[0]}" aria-pressed="${k[0] === K}">${k[1]}<br>${k[2]}<br><span class="sm">${BAI_ALL.filter(x => kindOf(x.dang) === k[0]).length} bài</span></button>`).join('')}</div>
-  ${Object.entries(G).sort((a, b) => parseInt(a[0].slice(3)) - parseInt(b[0].slice(3))).map(([d, ys]) => `<p class="tag" style="margin:8px 0 2px">${d} · ${ys.length} bài</p><div class="baibar">${ys.map(x => `<button class="lay${x.n === BAI_I + 1 ? ' on' : ''}" data-bai="${x.n - 1}" aria-pressed="${x.n === BAI_I + 1}"><b>Bài ${x.n}</b><br><span class="sm">${esc(x.t)}</span></button>`).join('')}</div>`).join('')}</details>`; };""" + s[j:]
-R("app.querySelectorAll('[data-bai]').forEach(x => x.onclick = () => { useBai(+x.dataset.bai); hub(); });", "app.querySelectorAll('[data-bai]').forEach(x => x.onclick = () => { const n = +x.dataset.bai; PICK_K = null; baiLoad(n + 1, () => { useBai(n); hub(); }); }); app.querySelectorAll('[data-pk]').forEach(x => x.onclick = () => { PICK_K = x.dataset.pk; hub(); });")
+// v211 (đặc tả 022): chọn bài 3 tầng: mục tiêu → chủ đề → dạng; bảng mục tiêu / chủ đề MUC, CHU nằm trong base.html
+let PICK = null;   // { m: mục tiêu, c: chủ đề, k: dạng | 'all' } đang xem trong ô Đổi bài
+const baiTag = x => mucOf(x) === 'gt' ? '' : (x.de.match(/^Đề \\d+ · Part \\d/) || [''])[0];
+const baiBar = () => { const cur = BAI_ALL.find(x => x.n === BAI_I + 1) || BAI_ALL[0], P = PICK || { m: mucOf(cur), c: cur.chu, k: kindOf(cur.dang) };
+  const inM = BAI_ALL.filter(x => mucOf(x) === P.m), cs = MUC_CHU[P.m], c = cs.includes(P.c) && inM.some(x => x.chu === P.c) ? P.c : (cs.find(k => inM.some(x => x.chu === k)) || cs[0]);
+  const inC = inM.filter(x => x.chu === c), ks = KINDS.filter(k => inC.some(x => kindOf(x.dang) === k[0])), k = P.k !== 'all' && ks.some(x => x[0] === P.k) ? P.k : 'all';
+  const xs = inC.filter(x => k === 'all' || kindOf(x.dang) === k).sort((a, b) => a.n - b.n), on = (a, b) => `${a === b ? ' on' : ''}" aria-pressed="${a === b}`;
+  return `<details class="card baipick"${PICK ? ' open' : ''}><summary><span><span class="tag">Bài ${BAI_I + 1} · ${CHU[cur.chu] ? CHU[cur.chu].slice(0, 2).join(' ') + ' · ' : ''}${cur.dang}</span><br><b>Đổi bài ›</b></span></summary>
+  <div class="mucbar" role="group" aria-label="Mục tiêu">${MUC.map(m => `<button class="lay${on(m[0], P.m)}" data-pm="${m[0]}">${m[1]} ${m[2]}<br><span class="sm">${BAI_ALL.filter(x => mucOf(x) === m[0]).length} bài</span></button>`).join('')}</div>
+  <p class="tag" style="margin:10px 0 4px">Chủ đề</p><div class="chubar" role="group" aria-label="Chủ đề">${cs.map(ch => { const n = inM.filter(x => x.chu === ch).length;
+    return `<button class="lay${on(ch, c)}" data-pc="${ch}"${n ? '' : ' disabled'}>${CHU[ch][0]} ${CHU[ch][2] || CHU[ch][1]}<span class="sm"> · ${n}</span></button>`; }).join('')}</div>${cs.some(ch => !inM.some(x => x.chu === ch)) ? '<p class="sm mute" style="margin:4px 0 0">Viền đứt: chủ đề sắp có bài.</p>' : ''}
+  ${inC.length ? `<p class="tag" style="margin:10px 0 4px">Dạng bài</p><div class="dangbar" role="group" aria-label="Dạng bài"><button class="lay${on('all', k)}" data-pk="all">Tất cả · ${inC.length}</button>${ks.map(x => `<button class="lay${on(x[0], k)}" data-pk="${x[0]}">${x[1]} ${x[2]} · ${inC.filter(y => kindOf(y.dang) === x[0]).length}</button>`).join('')}</div>
+  <div class="baibar" style="margin-top:10px">${xs.map(x => `<button class="lay${x.n === BAI_I + 1 ? ' on' : ''}" data-bai="${x.n - 1}" aria-pressed="${x.n === BAI_I + 1}"><b>Bài ${x.n}</b>${k === 'all' ? ' · ' + KINDS.find(y => y[0] === kindOf(x.dang)).slice(1, 3).join(' ') : ''}<span class="sm mute">${baiTag(x) ? ' · ' + baiTag(x) : ''}</span><br><span class="sm">${esc(x.t)}</span></button>`).join('')}</div>` : '<p class="sm mute">Chủ đề này sắp có bài.</p>'}</details>`; };""" + s[j:]
+R("app.querySelectorAll('[data-bai]').forEach(x => x.onclick = () => { useBai(+x.dataset.bai); hub(); });", "app.querySelectorAll('[data-bai]').forEach(x => x.onclick = () => { const n = +x.dataset.bai; PICK = null; baiLoad(n + 1, () => { useBai(n); hub(); }); }); const pk = () => PICK || (() => { const c = BAI_ALL.find(x => x.n === BAI_I + 1) || BAI_ALL[0]; return { m: mucOf(c), c: c.chu, k: kindOf(c.dang) }; })(); app.querySelectorAll('[data-pm]').forEach(x => x.onclick = () => { PICK = { m: x.dataset.pm, c: '', k: 'all' }; hub(); }); app.querySelectorAll('[data-pc]').forEach(x => x.onclick = () => { PICK = Object.assign(pk(), { c: x.dataset.pc }); hub(); }); app.querySelectorAll('[data-pk]').forEach(x => x.onclick = () => { PICK = Object.assign(pk(), { k: x.dataset.pk }); hub(); });")
 R(".baipick summary {", ".baide > summary { min-height: 44px; display: flex; align-items: center; font-weight: 600 } .baipick summary {")
 open(OUT + '/thuoc-doan.html', 'w').write(s); print('bài ngoài:', len(idx), '· trang', len(s))

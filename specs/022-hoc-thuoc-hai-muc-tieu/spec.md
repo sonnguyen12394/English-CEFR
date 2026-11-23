@@ -45,3 +45,20 @@ M1 ✗ (2.328 px) · M2 ✗ (không có chủ đề) · M3 ✓ nút dạng ~48 p
 | — | Dừng G3: người sáng lập thử 3 bài mẫu trên iPhone | Người sáng lập |
 
 Không dùng Sonnet / Haiku ở đợt này: khuôn và mẫu đầu sai thì 80 bài G4 chép sai.
+
+## Kết quả (v211, 23/11/2026): Trước → Sau
+| Mã | Trước | Sau |
+|---|---|---|
+| M1 | 2.328 px, 35 nút | 912 px khi mở ở bài TOEIC (ngưỡng 900: sát, không ép thêm), 636 px ở 💬 Giao tiếp |
+| M2 | không có chủ đề | 12 chủ đề TOEIC + 8 chủ đề Giao tiếp, ô mở sẵn đúng chủ đề / dạng của bài đang học |
+| M3 | ✓ | ✓ mọi nút / chip ≥ 44 px |
+| M4 | ✓ | ✓ 0 lỗi trang, 0 tràn ngang (sáng + tối) |
+| M5 | chưa đo | ✓ 37 / 37 chữ ≥ 4,5 : 1 (sáng + tối) |
+| M6 | — | ✓ 3 / 3 |
+| M7 | — | ✓ mỗi bài 5–6 cụm thân mật có ghi chú 💬 |
+| M8 | — | ✓ chủ đề Bạn bè (rủ đi ăn, tiệc bất ngờ, câu nói thường ngày) |
+| M9 | ✓ | ✓ C103 nhận bài Giao tiếp, C104 mới |
+| M10 | chưa đo | chưa đo được, cần iPhone (G3) |
+
+Sửa kèm (lỗi có từ trước): ✉️ Văn bản tô chỗ trống theo chuỗi con ở MỌI câu (đáp án "in" sẽ tô trong "Linh"); nay chỉ tô ở câu chứa chỗ trống, khớp nguyên từ (`reW`, `gapLine`), áp cho cả bài TOEIC.
+Còn lại (G4, sau khi người sáng lập duyệt): 77 bài, giọng Kokoro cho bài Giao tiếp.
