@@ -1612,7 +1612,7 @@ const BAI1036 = {
    },
    "b3": [
     {
-     "q": "It has rained ___ morning.",
+     "q": "It has rained ___ this morning.",
      "o": [
       "since",
       "for",
