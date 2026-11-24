@@ -83,7 +83,7 @@
   ],
   [
    "A",
-   "Have you ever got lost in a new place?",
+   "Have you ever gotten lost in a new place?",
    "",
    ""
   ],
@@ -232,13 +232,13 @@
    "q": "Who told you that?",
    "o": [
     "I told it to my sister yesterday.",
-    "I'll tell you the whole story later.",
+    "I usually tell my sister everything.",
     "Mai did, but she heard it from someone else, so I'm not sure."
    ],
    "a": 2
   },
   {
-   "q": "Have you ever got lost in a new place?",
+   "q": "Have you ever gotten lost in a new place?",
    "o": [
     "Yes, once! I took the wrong train and ended up in another city.",
     "No, the place is new and big.",

@@ -106,7 +106,7 @@ const BAI1049 = {
     { id: 'g5', g: 'g', t: "Rủ rê: let's, why don't we, shall we", line: 8, hl: "let's all go together",
       b1: { s: "Next time, [[let's all go together]] so nobody gets lost", q: "let's all go together dùng để làm gì?", o: ['rủ mọi người cùng đi', 'từ chối đi', 'hỏi đường', 'kể chuyện đã đi'], a: 0, vi: "Let's + V = chúng ta hãy …, dùng để rủ rê. · 🧱 Bài Nền liên quan: Rủ rê, gợi ý: let's, shall we, why don't we, how about · A1" },
       b2: { q: 'Câu mới: “Let’s order pizza tonight.” — người nói đang làm gì?', o: ['Rủ mọi người gọi pizza', 'Từ chối pizza', 'Hỏi giá pizza', 'Kể chuyện về pizza'], a: 0, vi: "Let's + V = rủ rê." },
-      b3: [{ q: "It's sunny. ___ go to the beach!", o: ["Let's", 'Let', 'Lets', 'We let'], a: 0, vi: "Let's + V." },
+      b3: [{ q: "It's sunny. ___ go to the beach!", o: ["Let's", 'Let', 'We let', 'Let to'], a: 0, vi: "Let's + V." },
         { q: "Why don't we ___ a short break?", o: ['take', 'taking', 'took', 'to take'], a: 0, vi: "Why don't we + V nguyên mẫu?" }],
       b4: { q: "Why don't we ___ to the park? (đi)", hint: 'V nguyên mẫu · 2 chữ cái', ans: ['go'], vi: "Why don't we go …?" } }]
 };

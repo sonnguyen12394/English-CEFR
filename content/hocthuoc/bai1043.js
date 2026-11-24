@@ -106,7 +106,7 @@ const BAI1043 = {
       b2: { q: "Câu mới: “You’re not angry with me, are you?” — người nói muốn gì?", o: ['Muốn chắc là bạn không giận', 'Muốn bạn giận', 'Hỏi giờ', 'Mời đi ăn'], a: 0, vi: 'Câu đuôi are you? = xác nhận.' },
       b3: [{ q: "She can swim, ___ she?", o: ["can't", "doesn't", "isn't", "didn't"], a: 0, vi: "can → can't she?" },
         { q: "They didn't forget the keys, ___ they?", o: ['did', "didn't", 'do', 'were'], a: 0, vi: "Phủ định → đuôi khẳng định: did they?" }],
-      b4: { q: "You like spicy food, ___ you? (không phải sao)", hint: 'phủ định · 1 từ', ans: ["don't", 'dont', 'don’t'], vi: "like → don't you?" } },
+      b4: { q: "You like spicy food, ___ you? (không phải sao)", hint: 'phủ định · 1 từ', ans: ["don't", 'don’t'], vi: "like → don't you?" } },
     { id: 'g5', g: 'g', t: 'worse: so sánh hơn bất quy tắc của bad', line: 3, hl: 'Worse',
       b1: { s: '[[Worse]]. When I arrived, everyone had already gone home', q: 'Worse là dạng nào của bad?', o: ['so sánh hơn (tệ hơn)', 'so sánh nhất (tệ nhất)', 'dạng nguyên mẫu', 'quá khứ'], a: 0, vi: 'bad → worse → worst (bất quy tắc). · 🧱 Bài Nền liên quan: So sánh bất quy tắc và so sánh bằng · A2' },
       b2: { q: 'Câu mới: “Today the weather is worse than yesterday.” — thời tiết hôm nay thế nào?', o: ['Tệ hơn hôm qua', 'Tốt hơn hôm qua', 'Giống hôm qua', 'Tệ nhất trong tuần'], a: 0, vi: 'worse than = tệ hơn.' },

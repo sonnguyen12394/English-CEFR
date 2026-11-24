@@ -109,7 +109,7 @@ const BAI1037 = {
     { id: 'g5', g: 'g', t: "Rủ rê: Let's + V", line: 7, hl: "Let's get ice cream",
       b1: { s: "[[Let's get ice cream]] this weekend", q: "Let's get ice cream dùng để làm gì?", o: ['rủ ai cùng làm gì', 'hỏi ai đã làm gì chưa', 'từ chối lời mời', 'kể chuyện quá khứ'], a: 0, vi: "Let's + V = mình cùng … nhé. · 🧱 Bài Nền liên quan: Rủ rê, gợi ý: let's, shall we, why don't we, how about · A1" },
       b2: { q: "Câu mới: “Let's walk to the lake after lunch.” — người nói làm gì?", o: ['Rủ đi bộ ra hồ', 'Hỏi đường ra hồ', 'Từ chối đi bộ', 'Kể chuyện ở hồ'], a: 0, vi: "Let's walk = rủ đi bộ." },
-      b3: [{ q: "___ go to the park this afternoon!", o: ["Let's", 'Lets', 'Let', 'Letting'], a: 0, vi: "Let's + V (let us rút gọn)." },
+      b3: [{ q: "___ go to the park this afternoon!", o: ["Let's", 'Let', 'Letting', 'Let to'], a: 0, vi: "Let's + V (let us rút gọn)." },
         { q: "Let's ___ a picnic on Sunday.", o: ['have', 'having', 'to have', 'had'], a: 0, vi: "Let's + V nguyên mẫu." }],
-      b4: { q: "___ play some music! (rủ rê)", hint: 'let + đại từ, rút gọn', ans: ["Let's", 'Lets', 'Let us'], vi: "Let's play = mình chơi nhé." } }]
+      b4: { q: "___ play some music! (rủ rê)", hint: 'let + đại từ, rút gọn', ans: ["Let's", 'Let us'], vi: "Let's play = mình chơi nhé." } }]
 };

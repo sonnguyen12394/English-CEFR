@@ -78,7 +78,7 @@ const BAI1040 = {
       b1: { s: "compliment, [[don't you think]]?", q: "don't you think? nghĩa là gì?", o: ['cậu thấy đúng không?', 'cậu không nghĩ gì sao?', 'đừng nghĩ nữa nhé', 'cậu chưa nghĩ ra à?'], a: 0, vi: "câu hỏi đuôi xin ý kiến: don't you think? = cậu thấy vậy không?" },
       b2: { q: "Câu mới: “This song is great, don't you think?” — người nói muốn gì?", o: ['Xin bạn đồng ý với mình', 'Hỏi bài hát tên gì', 'Từ chối nghe nhạc', 'Kể về ca sĩ'], a: 0, vi: "don't you think? = xin ý kiến." },
       b3: [{ q: "It's a nice day for a walk, ___ you think?", o: ["don't", 'do', "aren't", "won't"], a: 0, vi: "don't you think?" }],
-      b4: { q: 'That idea is good, ___ you think? (xin ý kiến)', hint: 'trợ động từ phủ định rút gọn', ans: ["don't", 'dont', 'don’t'], vi: "don't you think?" } },
+      b4: { q: 'That idea is good, ___ you think? (xin ý kiến)', hint: 'trợ động từ phủ định rút gọn', ans: ["don't", 'don’t'], vi: "don't you think?" } },
     { id: 'g1', g: 'g', t: 'V-ing làm chủ ngữ', line: 7, hl: 'sharing your work takes courage',
       b1: { s: 'say that [[sharing your work takes courage]]', q: 'Trong câu này, sharing your work đóng vai trò gì?', o: ['chủ ngữ của câu', 'tân ngữ', 'trạng từ', 'động từ chính'], a: 0, vi: 'V-ing (cụm) có thể làm chủ ngữ, động từ chia theo số ít. · 🧱 Bài Nền liên quan: V-ing làm chủ ngữ và sau giới từ · B1' },
       b2: { q: 'Câu mới: “Swimming every day keeps me healthy.” — điều gì giúp người nói khoẻ mạnh?', o: ['Bơi mỗi ngày', 'Ngủ nhiều', 'Ăn kiêng', 'Chạy bộ'], a: 0, vi: 'Swimming every day = chủ ngữ.' },

@@ -98,7 +98,7 @@ const BAI1038 = {
       b2: { q: "Câu mới: “You're coming tonight, aren't you?” — người nói muốn gì?", o: ['Xác nhận bạn có đến không', 'Hỏi giờ', 'Từ chối lời mời', 'Kể chuyện cũ'], a: 0, vi: "aren't you? = xác nhận." },
       b3: [{ q: "You like pizza, ___ you?", o: ["don't", 'do', "aren't", "won't"], a: 0, vi: "câu khẳng định + don't you?" },
         { q: "She isn't late, ___ she?", o: ['is', "isn't", 'does', 'was'], a: 0, vi: 'câu phủ định + is she?' }],
-      b4: { q: 'They live nearby, ___ they? (đuôi câu hỏi)', hint: "trợ động từ phủ định rút gọn", ans: ["don't", 'dont', 'don’t'], vi: "They live nearby, don't they?" } },
+      b4: { q: 'They live nearby, ___ they? (đuôi câu hỏi)', hint: "trợ động từ phủ định rút gọn", ans: ["don't", 'don’t'], vi: "They live nearby, don't they?" } },
     { id: 'g4', g: 'g', t: 'too + tính từ + to V (quá … để …)', line: 6, hl: 'too important to wait',
       b1: { s: 'Some messages are [[too important to wait]]', q: 'too important to wait nghĩa là gì?', o: ['quan trọng đến mức không thể chờ', 'không quan trọng nên chờ được', 'rất quan trọng và có thể chờ', 'quá nhiều nên bỏ qua'], a: 0, vi: 'too + tính từ + to V = quá … nên không thể …. · 🧱 Bài Nền liên quan: So / such … that; too / enough + to V · B1' },
       b2: { q: 'Câu mới: “The soup is too hot to eat.” — súp thế nào?', o: ['Nóng quá nên chưa ăn được', 'Đã nguội', 'Vừa ăn', 'Rất ngon'], a: 0, vi: 'too hot to eat = nóng quá không ăn được.' },

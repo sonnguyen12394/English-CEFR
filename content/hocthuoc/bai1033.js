@@ -1153,8 +1153,7 @@ const BAI1033 = {
     "q": "She can swim, ___ she? (đuôi phủ định)",
     "hint": "1 từ rút gọn",
     "ans": [
-     "can't",
-     "cant"
+     "can't"
     ],
     "vi": "can → can't she?"
    }

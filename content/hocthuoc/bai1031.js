@@ -1355,9 +1355,7 @@ const BAI1031 = {
     "hint": "1 từ",
     "ans": [
      "Let's",
-     "let's",
-     "Lets",
-     "lets"
+     "let's"
     ],
     "vi": "Let's go …"
    }

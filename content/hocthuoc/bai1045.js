@@ -102,7 +102,7 @@ const BAI1045 = {
       b2: { q: 'Câu mới: “How did you learn to swim?” — người nói hỏi gì?', o: ['Bạn đã học bơi bằng cách nào', 'Bạn có biết bơi không', 'Bạn sẽ học bơi không', 'Bạn bơi ở đâu'], a: 0, vi: 'How did you learn …? = hỏi cách đã học.' },
       b3: [{ q: 'How did she ___ the news?', o: ['hear', 'heard', 'hearing', 'hears'], a: 0, vi: 'did + V nguyên mẫu.' },
         { q: 'How ___ they find this place?', o: ['did', 'do', 'does', 'were'], a: 0, vi: 'hỏi việc đã qua → did.' }],
-      b4: { q: 'How did you ___ your phone? (làm vỡ)', hint: '1 động từ nguyên mẫu', ans: ['break', 'drop', 'lose'], vi: 'How did you break …?' } },
+      b4: { q: 'How did you ___ your phone? (làm vỡ)', hint: '1 động từ nguyên mẫu', ans: ['break'], vi: 'How did you break …?' } },
     { id: 'g2', g: 'g', t: 'was / were trong câu hỏi quá khứ', line: 12, hl: 'Why were you late',
       b1: { s: '[[Why were you late]] this morning', q: 'Vì sao dùng were mà không dùng did?', o: ['to be quá khứ tự đứng đầu câu hỏi', 'vì câu ở hiện tại', 'vì có từ morning', 'vì câu có hai chủ ngữ'], a: 0, vi: 'to be (was / were) không cần did: Why were you …? · 🧱 Bài Nền liên quan: Quá khứ của to be: was / were · A1' },
       b2: { q: 'Câu mới: “Where were you last night?” — người nói hỏi gì?', o: ['Tối qua bạn ở đâu', 'Tối nay bạn đi đâu', 'Ai ở nhà tối qua', 'Bạn thích ở đâu'], a: 0, vi: 'Where were you …? = hỏi nơi đã ở.' },

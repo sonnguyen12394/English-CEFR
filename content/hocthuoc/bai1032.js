@@ -1359,8 +1359,7 @@ const BAI1032 = {
     "hint": "rút gọn",
     "ans": [
      "won't",
-     "will not",
-     "wont"
+     "will not"
     ],
     "vi": "won't = will not."
    }

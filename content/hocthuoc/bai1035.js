@@ -1383,8 +1383,7 @@ const BAI1035 = {
     "q": "This hat ___ you. (hợp)",
     "hint": "V thêm s",
     "ans": [
-     "suits",
-     "fits"
+     "suits"
     ],
     "vi": "This hat suits you."
    }
@@ -1720,8 +1719,7 @@ const BAI1035 = {
     "hint": "1 từ rút gọn",
     "ans": [
      "don't",
-     "do not",
-     "dont"
+     "do not"
     ],
     "vi": "don't have to."
    }

@@ -14,7 +14,7 @@ const BAI1046 = {
     ['B', "I was taking a shower, so I didn't hear the phone.", 'Tớ đang tắm nên không nghe thấy điện thoại.', ''],
     ['A', 'Who told you that?', 'Ai nói với cậu vậy?', ''],
     ['B', "Mai did, but she heard it from someone else, so I'm not sure.", 'Mai nói, nhưng bạn ấy nghe từ người khác, nên tớ không chắc.', ''],
-    ['A', 'Have you ever got lost in a new place?', 'Cậu từng bị lạc ở một nơi mới chưa?', ''],
+    ['A', 'Have you ever gotten lost in a new place?', 'Cậu từng bị lạc ở một nơi mới chưa?', ''],
     ['B', 'Yes, once! I took the wrong train and ended up in another city.', 'Rồi, một lần! Tớ lên nhầm tàu và rốt cuộc tới một thành phố khác.', ''],
     ['A', 'How did the story end?', 'Câu chuyện kết thúc thế nào?', ''],
     ['B', 'In the end, everybody laughed, even the teacher.', 'Cuối cùng mọi người đều cười, kể cả giáo viên.', ''],
