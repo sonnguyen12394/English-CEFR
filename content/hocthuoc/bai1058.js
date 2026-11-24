@@ -42,7 +42,7 @@ const BAI1058 = {
     { q: 'She has lived here ___ three years.', o: ['for', 'since', 'ago', 'during'], a: 0, vi: 'for + khoảng thời gian.' },
     { q: "If it ___ tomorrow, we'll stay at home.", o: ['rains', 'will rain', 'would rain', 'rain'], a: 0, vi: 'Điều kiện loại 1: If + hiện tại đơn, will + V.' },
     { q: "Please drive ___; it's dangerous here.", o: ['more slowly', 'more slow', 'slowlier', 'most slowly'], a: 0, vi: 'So sánh hơn của trạng từ dài: more slowly.' },
-    { q: "Let's avoid the ___ and travel after nine.", o: ['rush hour', 'rush time', 'hurry hour', 'run hour'], a: 0, vi: 'rush hour = giờ cao điểm.' },
+    { q: "Let's avoid the ___ and travel after nine.", o: ['rush hour', 'bus fare', 'nightlife', 'headlights'], a: 0, vi: 'rush hour = giờ cao điểm.' },
     { q: 'Take this ___ across the park; it saves ten minutes.', o: ['shortcut', 'shortage', 'shortness', 'shorten'], a: 0, vi: 'shortcut = đường tắt.' }],
   MU: [
     { id: 'v1', g: 'v', t: 'be running late', vi: 'đến muộn, trễ giờ', line: 0, hl: 'running late',
@@ -90,7 +90,7 @@ const BAI1058 = {
       b1: { s: '[[I tried to take]] a shortcut', q: 'tried là dạng gì?', o: ['quá khứ đơn của try', 'hiện tại đơn', 'tương lai', 'dạng V-ing'], a: 0, vi: 'try → tried (đổi y thành -ied). · 🧱 Bài Nền liên quan: Quá khứ đơn: câu khẳng định · A1' },
       b2: { q: 'Câu mới: “Last Sunday we visited my grandparents.” — việc xảy ra khi nào?', o: ['Chủ nhật tuần trước (đã xong)', 'Mỗi Chủ nhật', 'Chủ nhật tới', 'Ngay lúc này'], a: 0, vi: 'Last Sunday + visited = đã xảy ra.' },
       b3: [{ q: 'She ___ her keys on the bus yesterday.', o: ['lost', 'lose', 'loses', 'losing'], a: 0, vi: 'yesterday → lost.' },
-        { q: 'We ___ a great film last night.', o: ['saw', 'see', 'seen', 'seeing'], a: 0, vi: 'last night → saw.' }],
+        { q: 'We ___ a great movie last night.', o: ['saw', 'see', 'seen', 'seeing'], a: 0, vi: 'last night → saw.' }],
       b4: { q: 'Yesterday I ___ to school by bike. (go, quá khứ)', hint: 'V2', ans: ['went'], vi: 'go → went.' } },
     { id: 'g3', g: 'g', t: 'have / has + V3 + for (khoảng thời gian)', line: 4, hl: "hasn't moved for ten minutes",
       b1: { s: "and it [[hasn't moved for ten minutes]]", q: "hasn't moved for ten minutes nghĩa là gì?", o: ['đã đứng yên suốt mười phút tới giờ', 'sẽ đứng yên mười phút', 'đứng yên cách đây mười phút', 'di chuyển suốt mười phút'], a: 0, vi: 'has(n’t) + V3 + for + khoảng thời gian = đến giờ đã … bấy lâu. · 🧱 Bài Nền liên quan: Hiện tại hoàn thành với for và since · A2' },

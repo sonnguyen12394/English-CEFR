@@ -47,7 +47,7 @@
   ],
   [
    "A",
-   "Can you give me a lift to the station?",
+   "Can you give me a ride to the station?",
    "",
    ""
   ],
@@ -211,7 +211,7 @@
    "a": 2
   },
   {
-   "q": "Can you give me a lift to the station?",
+   "q": "Can you give me a ride to the station?",
    "o": [
     "Sure, hop in. I'm heading that way anyway.",
     "I lifted it to the table.",

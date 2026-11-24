@@ -88,7 +88,7 @@ const BAI1066 = {
       b1: { s: 'Who [[inspires]] you the most', q: 'inspires nghĩa là gì?', o: ['truyền cảm hứng', 'làm sợ', 'dạy dỗ', 'thay thế'], a: 0, vi: 'inspire = truyền cảm hứng.' },
       b2: { q: 'Câu mới: “Her story inspired me to start running.” — câu chuyện của cô ấy làm gì?', o: ['Khiến tôi muốn bắt đầu chạy bộ', 'Khiến tôi sợ chạy', 'Dạy tôi chạy', 'Ngăn tôi chạy'], a: 0, vi: 'inspired me to start = khiến tôi muốn bắt đầu.' },
       b3: [{ q: 'Good teachers ___ their students to try harder.', o: ['inspire', 'inspires', 'inspired', 'inspiring'], a: 0, vi: 'teachers (số nhiều) + inspire.' }],
-      b4: { q: 'Who ___ you to learn English? (truyền cảm hứng, hiện tại đơn)', hint: 'hiện tại đơn', ans: ['inspires', 'encourages'], vi: 'Who + động từ chia ở ngôi thứ ba số ít.' } },
+      b4: { q: 'Who ___ you to learn English? (truyền cảm hứng, hiện tại đơn)', hint: 'hiện tại đơn', ans: ['inspires', 'encourages', 'motivates'], vi: 'Who + động từ chia ở ngôi thứ ba số ít.' } },
     { id: 'v6', g: 'v', t: 'hands down', vi: 'chắc chắn, không bàn cãi', line: 17, hl: 'hands down',
       b1: { s: 'Listening, [[hands down]]', q: 'hands down nghĩa là gì?', o: ['chắc chắn, không bàn cãi', 'giơ tay xuống', 'dễ dàng', 'có lẽ'], a: 0, vi: 'hands down = chắc chắn, không còn gì phải bàn.' },
       b2: { q: "Câu mới: “That was hands down the best pizza I've ever had.” — người nói thấy thế nào?", o: ['Ngon nhất từ trước tới giờ', 'Bình thường', 'Hơi mặn', 'Chưa ăn'], a: 0, vi: 'hands down the best = không ai sánh bằng.' },
@@ -102,7 +102,7 @@ const BAI1066 = {
     { id: 'g1', g: 'g', t: 'Have you + V3 …? (đã … chưa)', line: 2, hl: 'Have you decided',
       b1: { s: '[[Have you decided]] which university to apply to', q: 'Have you decided…? hỏi gì?', o: ['đã quyết định xong tính tới bây giờ chưa', 'hôm qua bạn quyết định gì', 'bạn sẽ quyết định khi nào', 'bạn thường quyết định thế nào'], a: 0, vi: 'Have + S + V3 …? = đã … chưa (tính tới giờ). · 🧱 Bài Nền liên quan: Hiện tại hoàn thành với just / already / yet · A2' },
       b2: { q: 'Câu mới: “Has she called you yet?” — người nói hỏi gì?', o: ['Cô ấy đã gọi cho bạn chưa', 'Khi nào cô ấy gọi', 'Cô ấy gọi ai', 'Cô ấy có số bạn không'], a: 0, vi: 'Has she called you yet? = đã gọi chưa.' },
-      b3: [{ q: 'Have you met our new neighbors ___?', o: ['yet', 'ago', 'before when', 'last year'], a: 0, vi: 'Câu hỏi hiện tại hoàn thành → yet.' },
+      b3: [{ q: 'Have you met our new neighbors ___?', o: ['yet', 'ago', 'tomorrow', 'last year'], a: 0, vi: 'Câu hỏi hiện tại hoàn thành → yet.' },
         { q: 'I ___ just finished my homework.', o: ['have', 'did', 'am', 'was'], a: 0, vi: 'I have just + V3.' }],
       b4: { q: "She hasn't answered my message ___. (chưa)", hint: '1 từ', ans: ['yet'], vi: "hasn't … yet = chưa." } },
     { id: 'g2', g: 'g', t: 'Why did you + V? (quá khứ)', line: 4, hl: 'Why did you choose',
@@ -126,7 +126,7 @@ const BAI1066 = {
     { id: 'g5', g: 'g', t: 'Who + V: câu hỏi chủ ngữ', line: 12, hl: 'Who inspires you',
       b1: { s: '[[Who inspires you]] the most', q: 'Vì sao Who inspires you không có do / does?', o: ['Who là chủ ngữ nên không cần trợ động từ', 'vì câu ở quá khứ', 'vì câu là mệnh lệnh', 'vì câu thiếu chữ'], a: 0, vi: 'Who hỏi chủ ngữ: Who + động từ … (không thêm do / does). · 🧱 Bài Nền liên quan: Câu hỏi chủ ngữ và câu hỏi tân ngữ · A2' },
       b2: { q: 'Câu mới: “Who lives next door to you?” — người nói hỏi gì?', o: ['Ai sống cạnh nhà bạn', 'Bạn sống ở đâu', 'Bạn sống với ai', 'Cạnh nhà có gì'], a: 0, vi: 'Who lives = ai sống.' },
-      b3: [{ q: 'Who ___ the best pizza in town?', o: ['makes', 'does make', 'make', 'making'], a: 0, vi: 'Who + V chia ngôi thứ ba số ít.' },
+      b3: [{ q: 'Who ___ the best pizza in town?', o: ['makes', 'are making', 'make', 'making'], a: 0, vi: 'Who + V chia ngôi thứ ba số ít.' },
         { q: 'Who ___ to the party last night?', o: ['came', 'did came', 'comes did', 'coming'], a: 0, vi: 'Who + V quá khứ.' }],
       b4: { q: 'Who ___ in the house next to yours? (sống, hiện tại đơn)', hint: 'hiện tại đơn', ans: ['lives'], vi: 'Who + V-s.' } }]
 };

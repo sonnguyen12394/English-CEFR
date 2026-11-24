@@ -3,7 +3,7 @@ const BAI1063 = {
   meta: { de: '💬 Giao tiếp · 🎓 Học hành & dự định · hội thoại', dang: '🗣 Hội thoại', t: 'Kế hoạch cho năm sau', sub: 'Hai người bạn kể dự định năm tới và chuyện nói với bố mẹ. Chạm một câu để nghe và xem dịch.', who: { A: ['Hana', 'Nữ'], B: ['Tom', 'Nam'] } },
   L: [
     ['A', 'So, what are your plans for next year, Tom?', 'Vậy, năm sau cậu có dự định gì, Tom?', ''],
-    ['B', "Well, I'm thinking of taking a gap year before college.", 'Ừ, tớ đang nghĩ tới việc nghỉ một năm trước khi vào đại học.', ''],
+    ['B', "Well, I'm thinking of taking a gap year before college.", 'À, tớ đang nghĩ tới việc nghỉ một năm trước khi vào đại học.', ''],
     ['A', 'Wow, really? What would you do all year?', 'Ồ, thật á? Cả năm cậu định làm gì?', ''],
     ['B', "I'm going to work part-time and save up for a trip to Japan.", 'Tớ sẽ làm thêm bán thời gian và để dành tiền đi Nhật.', ''],
     ['A', 'That sounds amazing. Will you go alone?', 'Nghe tuyệt đấy. Cậu đi một mình à?', ''],
@@ -20,7 +20,7 @@ const BAI1063 = {
   INT: [[[8, '↗']], [[9, '↘']], [[1, '↗'], [7, '↗']], [[12, '↘']], [[2, '↘'], [6, '↗']], [[0, '↘'], [10, '↘']], [[0, '↘'], [10, '↘']], [[7, '↗']], [[1, '↘'], [9, '↘']], [[1, '↘'], [5, '↗']]],
   PAU: [[0], [0], [1], [4], [2], [0], [0], [], [1, 7], [1]],
   EL: [[], [], [], [], [], [], [], [], [[0, 'nɑː(t)', 'not yet: /t/ gần như mất trước /j/']], []],
-  VNK: [['Vậy,', 'năm sau', 'cậu có dự định gì,', 'Tom?'], ['Ừ,', 'tớ đang nghĩ tới việc', 'nghỉ một năm', 'trước khi vào đại học.'], ['Ồ, thật á?', 'Cả năm', 'cậu định làm gì?'], ['Tớ sẽ làm thêm', 'bán thời gian', 'và để dành tiền', 'đi Nhật.'],
+  VNK: [['Vậy,', 'năm sau', 'cậu có dự định gì,', 'Tom?'], ['À,', 'tớ đang nghĩ tới việc', 'nghỉ một năm', 'trước khi vào đại học.'], ['Ồ, thật á?', 'Cả năm', 'cậu định làm gì?'], ['Tớ sẽ làm thêm', 'bán thời gian', 'và để dành tiền', 'đi Nhật.'],
     ['Nghe tuyệt đấy.', 'Cậu đi', 'một mình à?'], ['Chắc vậy.', 'Em họ tớ có thể đi cùng', 'nếu em ấy được nghỉ.'], ['Hay đấy.', 'Nhưng bố mẹ tớ', 'muốn tớ vào đại học luôn.'], ['Cậu đã nói với họ', 'điều cậu thật sự muốn chưa?'],
     ['Chưa.', 'Cuối tuần này', 'tớ sẽ nói ra,', 'tớ hứa.'], ['Chúc may mắn!', 'Có gì báo tớ nhé?']],
   VNY: [[['năm sau'], ['dự định']], [['nghĩ tới', 'đang nghĩ'], ['nghỉ một năm', 'một năm'], ['đại học']], [['thật á'], ['cả năm'], ['định làm gì', 'làm gì']], [['làm thêm', 'bán thời gian'], ['để dành tiền', 'để dành'], ['đi Nhật']],
@@ -41,7 +41,7 @@ const BAI1063 = {
     { q: "She's ___ to start a small business next spring.", o: ['going', 'go', 'goes', 'went'], a: 0, vi: "be going to + V = dự định." },
     { q: "He's saving ___ for a new laptop.", o: ['up', 'on', 'in', 'out'], a: 0, vi: 'save up for = để dành tiền cho.' },
     { q: "We're going to the lake. Do you want to come ___?", o: ['along', 'along of', 'alongly', 'a long'], a: 0, vi: 'come along = đi cùng.' },
-    { q: 'Please send me the file ___. I need it today.', o: ['right away', 'right now away', 'at right away', 'in right away'], a: 0, vi: 'right away = ngay lập tức.' },
+    { q: 'Please send me the file ___. I need it today.', o: ['right away', 'right up', 'right off', 'away'], a: 0, vi: 'right away = ngay lập tức.' },
     { q: "Don't ___ it up at dinner, it will start an argument.", o: ['bring', 'brings', 'bringing', 'brought'], a: 0, vi: "Don't + V nguyên mẫu: bring up." },
     { q: 'Call me when you get there and ___ me posted.', o: ['keep', 'hold', 'make', 'stay'], a: 0, vi: 'keep me posted = cập nhật tin cho tôi.' }],
   MU: [
@@ -53,11 +53,11 @@ const BAI1063 = {
     { id: 'v2', g: 'v', t: 'save up for', vi: 'để dành tiền cho', line: 3, hl: 'save up for',
       b1: { s: 'I\'m going to work part-time and [[save up for]] a trip to Japan', q: 'save up for nghĩa là gì?', o: ['để dành tiền cho', 'tiết kiệm thời gian cho', 'cứu giúp', 'tiêu tiền cho'], a: 0, vi: 'save up for = để dành tiền cho …' },
       b2: { q: "Câu mới: “She's saving up for a new phone.” — cô ấy làm gì?", o: ['Để dành tiền mua điện thoại mới', 'Bán điện thoại cũ', 'Đã mua điện thoại mới', 'Làm mất điện thoại'], a: 0, vi: 'save up for = để dành tiền.' },
-      b3: [{ q: "We're ___ up for a family holiday.", o: ['saving', 'saves', 'save', 'to saving'], a: 0, vi: "We're + V-ing (hiện tại tiếp diễn)." }],
+      b3: [{ q: "We're ___ up for a family vacation.", o: ['saving', 'saves', 'save', 'to saving'], a: 0, vi: "We're + V-ing (hiện tại tiếp diễn)." }],
       b4: { q: "I'm ___ up for a new bike. (để dành tiền)", hint: 'V-ing', ans: ['saving'], vi: "I'm saving up for …" } },
     { id: 'v3', g: 'v', t: 'part-time', vi: 'bán thời gian', line: 3, hl: 'part-time',
       b1: { s: "I'm going to work [[part-time]] and save up", q: 'work part-time nghĩa là gì?', o: ['làm bán thời gian', 'làm cả ngày', 'làm miễn phí', 'làm ở nhà'], a: 0, vi: 'part-time = bán thời gian.' },
-      b2: { q: 'Câu mới: “He has a part-time job at the weekend.” — việc của anh ấy thế nào?', o: ['Chỉ làm một số giờ', 'Làm cả tuần', 'Chưa có việc', 'Làm cả ngày'], a: 0, vi: 'part-time job = việc làm bán thời gian.' },
+      b2: { q: 'Câu mới: “He has a part-time job on weekends.” — việc của anh ấy thế nào?', o: ['Chỉ làm một số giờ', 'Làm cả tuần', 'Chưa có việc', 'Làm cả ngày'], a: 0, vi: 'part-time job = việc làm bán thời gian.' },
       b3: [{ q: 'Most students here work ___ to pay for books.', o: ['part-time', 'full-time job', 'parttimely', 'part time of'], a: 0, vi: 'work part-time = làm bán thời gian.' }],
       b4: { q: 'She works ___-time at the library. (bán)', hint: '1 từ', ans: ['part'], vi: 'part-time = bán thời gian.' } },
     { id: 'v4', g: 'v', t: 'come along', vi: 'đi cùng', line: 5, hl: 'come along',
@@ -109,5 +109,5 @@ const BAI1063 = {
       b2: { q: "Câu mới: “I've already finished my homework.” — người nói thế nào?", o: ['Đã làm xong bài tập rồi', 'Chưa làm bài tập', 'Sẽ làm bài tập', 'Không muốn làm bài tập'], a: 0, vi: "I've already + V3 = đã … rồi." },
       b3: [{ q: 'Have you finished your project ___?', o: ['yet', 'ago', 'last year', 'tomorrow'], a: 0, vi: 'Câu hỏi hiện tại hoàn thành → yet.' },
         { q: 'I ___ never been to Japan.', o: ['have', 'did', 'am', 'was'], a: 0, vi: 'I have never been …' }],
-      b4: { q: "I've ___ eaten, thanks. (rồi)", hint: '1 từ', ans: ['already'], vi: "I've already eaten = tôi ăn rồi." } }]
+      b4: { q: "I've ___ eaten, thanks. (rồi)", hint: '1 từ', ans: ['already', 'just'], vi: "I've already eaten = tôi ăn rồi." } }]
 };

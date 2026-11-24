@@ -38,8 +38,8 @@ const BAI1051 = {
     { q: 'How does Dan help Linh?', o: ['He lends her a scarf', 'He pays her bus fare', 'He gives her an umbrella', 'He drives her home'], a: 0, vi: '“take mine. I\'ve got a spare one” = cho mượn khăn dự phòng.' },
     { q: 'What does Linh promise to do tomorrow?', o: ['Give the scarf back', 'Bring an umbrella', 'Call Dan', 'Buy a new scarf'], a: 0, vi: '“I\'ll give it back tomorrow” = mai sẽ trả khăn.' }],
   NEWQ2: [{ q: 'The forecast says it will ___ below zero tonight.', o: ['drop', 'to drop', 'dropping', 'drops'], a: 0, vi: 'will + V nguyên mẫu: will drop.' },
-    { q: 'A: Sorry for the mess! B: ___, I will help you clean up.', o: ['No worries', 'No worry it', 'Not worries', 'No worried'], a: 0, vi: 'No worries. = Không sao đâu.' },
-    { q: 'My shoes are ___ wet after the rain.', o: ['soaking', 'soak', 'soaked to', 'soaks'], a: 0, vi: 'soaking wet = ướt sũng.' },
+    { q: 'A: Sorry for the mess! B: ___, I will help you clean up.', o: ['No worries', 'Good luck', 'Congratulations', 'Excuse me'], a: 0, vi: 'No worries. = Không sao đâu.' },
+    { q: 'My shoes are ___ wet after the rain.', o: ['soaking', 'soak', 'wetting', 'soaks'], a: 0, vi: 'soaking wet = ướt sũng.' },
     { q: 'Do you have a ___ charger? Mine is broken.', o: ['spare', 'spared', 'sparing', 'spares'], a: 0, vi: 'a spare charger = một cục sạc dự phòng.' },
     { q: 'It has been ___ since lunchtime. I am soaked.', o: ['pouring', 'pour', 'poured', 'pours'], a: 0, vi: 'has been + V-ing: has been pouring.' },
     { q: 'I am so ___ of this cold weather.', o: ['sick', 'tired to', 'full at', 'bored in'], a: 0, vi: 'be sick of + danh từ = chán ngấy.' },
@@ -108,6 +108,6 @@ const BAI1051 = {
       b1: { s: 'Ugh, [[I left my scarf]] at home', q: 'left trong câu này là gì?', o: ['quá khứ của leave: đã để quên', 'hiện tại: đang rời đi', 'tính từ chỉ bên trái', 'tương lai: sẽ để lại'], a: 0, vi: 'Quá khứ đơn: left = đã để lại. · 🧱 Bài Nền liên quan: Quá khứ đơn: câu khẳng định · A1' },
       b2: { q: 'Câu mới: “I forgot my keys this morning.” — người nói nói gì?', o: ['Sáng nay đã quên chìa khoá', 'Sáng mai sẽ quên chìa khoá', 'Hay quên chìa khoá', 'Đang tìm chìa khoá'], a: 0, vi: 'forgot = quá khứ của forget.' },
       b3: [{ q: 'She ___ her umbrella on the bus yesterday.', o: ['left', 'leaves', 'leaving', 'will leave'], a: 0, vi: 'yesterday → quá khứ: left.' },
-        { q: 'We ___ a long queue at the bus stop this morning.', o: ['saw', 'see', 'seeing', 'will see'], a: 0, vi: 'this morning (đã qua) → saw.' }],
+        { q: 'We ___ a long line at the bus stop this morning.', o: ['saw', 'see', 'seeing', 'will see'], a: 0, vi: 'this morning (đã qua) → saw.' }],
       b4: { q: 'I ___ my phone at home this morning. (để quên)', hint: 'quá khứ của leave', ans: ['left'], vi: 'left = quá khứ của leave.' } }]
 };

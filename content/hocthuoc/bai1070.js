@@ -93,7 +93,7 @@ const BAI1070 = {
       b2: { q: 'Câu mới: “This is the tastiest soup I’ve ever had.” — người nói nghĩ gì?', o: ['Chưa từng ăn súp nào ngon hơn', 'Ghét món súp', 'Sẽ nấu súp', 'Chưa ăn súp'], a: 0, vi: "I've ever had = từng ăn." },
       b3: [{ q: 'Have you ___ been to Da Lat?', o: ['ever', 'ago', 'tomorrow', 'last'], a: 0, vi: 'Have you ever + V3?' },
         { q: "I have ___ eaten sushi. It's my first time.", o: ['never', 'ever', 'yet', 'ago'], a: 0, vi: 'never = chưa bao giờ.' }],
-      b4: { q: "That's the funniest film I have ___ seen. (từng)", hint: '1 từ', ans: ['ever'], vi: 'the funniest … I have ever seen.' } },
+      b4: { q: "That's the funniest movie I have ___ seen. (từng)", hint: '1 từ', ans: ['ever'], vi: 'the funniest … I have ever seen.' } },
     { id: 'g3', g: 'g', t: 'so sánh hơn của tính từ', line: 6, hl: 'more focused than',
       b1: { s: 'I felt [[more focused than]] most of my classmates', q: 'more focused than dùng để làm gì?', o: ['so sánh: tập trung hơn', 'so sánh bằng', 'nói về quá khứ', 'hỏi ý kiến'], a: 0, vi: 'more + tính từ dài + than = hơn. · 🧱 Bài Nền liên quan: So sánh hơn của tính từ · A1' },
       b2: { q: 'Câu mới: “My new phone is lighter than my old one.” — điện thoại mới thế nào?', o: ['Nhẹ hơn điện thoại cũ', 'Nặng hơn', 'Rẻ hơn', 'Giống điện thoại cũ'], a: 0, vi: 'lighter than = nhẹ hơn.' },
