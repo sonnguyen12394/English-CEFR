@@ -62,7 +62,7 @@ const BAI1066 = {
     { q: 'He studies hard to earn a ___ for college.', o: ['scholarship', 'scholar', 'scholarly', 'scholars'], a: 0, vi: 'a scholarship = một suất học bổng.' },
     { q: 'My grandmother ___ me to be kind to everyone.', o: ['inspired', 'inspire', 'inspiring', 'to inspire'], a: 0, vi: 'inspire sb to + V.' },
     { q: 'I ___ no clue what the answer is.', o: ['have', 'am', 'do', 'make'], a: 0, vi: 'have no clue = chẳng biết.' },
-    { q: 'Small steps ___ up over time.', o: ['add', 'adds', 'adding', 'added'], a: 0, vi: 'steps (số nhiều) + add up.' }],
+    { q: 'Small steps will ___ up if you keep going.', o: ['add', 'adds', 'adding', 'added'], a: 0, vi: 'steps (số nhiều) + add up.' }],
   MU: [
     { id: 'v1', g: 'v', t: 'apply to', vi: 'nộp đơn vào', line: 2, hl: 'apply to',
       b1: { s: 'Have you decided which university to [[apply to]]', q: 'apply to ở đây nghĩa là gì?', o: ['nộp đơn vào', 'áp dụng cho', 'từ chối', 'đăng nhập vào'], a: 0, vi: 'apply to + trường = nộp đơn vào trường đó.' },
@@ -87,7 +87,7 @@ const BAI1066 = {
     { id: 'v5', g: 'v', t: 'inspire', vi: 'truyền cảm hứng', line: 12, hl: 'inspires you',
       b1: { s: 'Who [[inspires]] you the most', q: 'inspires nghĩa là gì?', o: ['truyền cảm hứng', 'làm sợ', 'dạy dỗ', 'thay thế'], a: 0, vi: 'inspire = truyền cảm hứng.' },
       b2: { q: 'Câu mới: “Her story inspired me to start running.” — câu chuyện của cô ấy làm gì?', o: ['Khiến tôi muốn bắt đầu chạy bộ', 'Khiến tôi sợ chạy', 'Dạy tôi chạy', 'Ngăn tôi chạy'], a: 0, vi: 'inspired me to start = khiến tôi muốn bắt đầu.' },
-      b3: [{ q: 'Good teachers ___ their students to try harder.', o: ['inspire', 'inspires', 'inspired', 'inspiring'], a: 0, vi: 'teachers (số nhiều) + inspire.' }],
+      b3: [{ q: 'Good teachers can ___ their students to try harder.', o: ['inspire', 'inspires', 'inspired', 'inspiring'], a: 0, vi: 'teachers (số nhiều) + inspire.' }],
       b4: { q: 'Who ___ you to learn English? (truyền cảm hứng, hiện tại đơn)', hint: 'hiện tại đơn', ans: ['inspires', 'encourages', 'motivates'], vi: 'Who + động từ chia ở ngôi thứ ba số ít.' } },
     { id: 'v6', g: 'v', t: 'hands down', vi: 'chắc chắn, không bàn cãi', line: 17, hl: 'hands down',
       b1: { s: 'Listening, [[hands down]]', q: 'hands down nghĩa là gì?', o: ['chắc chắn, không bàn cãi', 'giơ tay xuống', 'dễ dàng', 'có lẽ'], a: 0, vi: 'hands down = chắc chắn, không còn gì phải bàn.' },
