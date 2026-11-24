@@ -26,6 +26,14 @@ const _useBai = useBai; useBai = n => { _useBai(n); htSave(); };
 dgBestGet = () => +HT.best['dg' + BAI_I] || 0; dgBestSet = v => { HT.best['dg' + BAI_I] = v; htSave(); };
 dvBestGet = () => +HT.best['dv' + BAI_I] || 0; dvBestSet = v => { HT.best['dv' + BAI_I] = v; htSave(); };
 if (HT.cur) baiLoad(HT.cur + 1, () => { _useBai(HT.cur); hub(); }); else hub();""")
+# v216: tệp bài kèm ?v=<dấu nội dung> để iPhone không giữ danh sách bài cũ (trước: thấy 66 bài, chủ đề nào cũng 0)
+import hashlib
+_h = hashlib.md5()
+for f in sorted(os.listdir(SRC + '/bai')): _h.update(f.encode()); _h.update(open(f'{SRC}/bai/{f}', 'rb').read())
+BV = _h.hexdigest()[:8]
+R('src="bai/index.js"', f'src="bai/index.js?v={BV}"')
+R('src="bai/nham.js"', f'src="bai/nham.js?v={BV}"')
+R('sc.src = `bai/bai${n}.js`', 'sc.src = `bai/bai${n}.js?v=' + BV + '`')
 # hàm khai báo bằng const / function: cho phép gán lại
 for f in ['dgBestGet', 'dgBestSet', 'dvBestGet', 'dvBestSet']:
     s = s.replace(f'const {f} = ', f'let {f} = ', 1)

@@ -112,4 +112,4 @@ const BAI1029 = {
       b4: { q: "Don't worry about the bill. I ___ pay. (sẽ)", hint: 'will hoặc dạng rút gọn', ans: ["'ll", '’ll', 'will'], vi: "I'll pay." } }]
 };
 
-Object.assign(BAI1029.meta, {"muc":"gt","chu":"gt-bt"});
+Object.assign(BAI1029.meta, {"muc":"gt","chu":"gt-st"});
