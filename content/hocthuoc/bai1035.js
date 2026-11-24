@@ -1100,9 +1100,9 @@ const BAI1035 = {
    "q": "Why are you so quiet? Are you upset about something?",
    "o": [
     "A little. I had an argument with my sister this morning.",
-    "I got the part in the school play!",
-    "Yes, I live on a quiet street.",
-    "No, quiet is my favourite colour."
+    "I'm going to the market tomorrow.",
+    "A little. I'll have an argument with my sister tomorrow.",
+    "I got the part in the school play!"
    ],
    "a": 0,
    "vi": "Hỏi vì sao buồn → kể chuyện cãi nhau với chị."
@@ -1111,9 +1111,9 @@ const BAI1035 = {
    "q": "I love your new haircut! It really suits you.",
    "o": [
     "Aw, thanks! I was a bit worried it was too short.",
-    "No, I bought it at the market.",
-    "The suit is in the closet.",
-    "It cuts very well."
+    "Thanks! I'm going to cut it short tomorrow.",
+    "Thanks! My sister has a new hat.",
+    "Thanks! I was a bit worried about the exam."
    ],
    "a": 0,
    "vi": "Được khen → cảm ơn + nói điều mình lo."
@@ -1122,9 +1122,9 @@ const BAI1035 = {
    "q": "Can you believe it? We won the match!",
    "o": [
     "I know! I'm still shaking with excitement!",
-    "I'll believe it tomorrow, thanks.",
-    "Yes, I believe in the school.",
-    "The match starts at three."
+    "Sorry to hear that. Better luck next time!",
+    "The match starts at three o'clock.",
+    "I know! We lost the match yesterday."
    ],
    "a": 0,
    "vi": "Báo tin thắng → chia vui: I know!"
@@ -1133,9 +1133,9 @@ const BAI1035 = {
    "q": "Is it okay if I disagree with you on this?",
    "o": [
     "Of course. We don't have to agree on everything.",
-    "Sure, the disagreement is on the table.",
-    "Yes, you are right, disagree it.",
-    "It's not okay, I'm sixteen years old."
+    "Of course. You must agree with me on everything.",
+    "Yes, the meeting is at ten o'clock.",
+    "Sure, I'm going to the library tomorrow."
    ],
    "a": 0,
    "vi": "Of course = tất nhiên được, không cần đồng ý mọi chuyện."
@@ -1144,7 +1144,7 @@ const BAI1035 = {
    "q": "Are you looking forward to the school trip?",
    "o": [
     "Definitely! But I'm kind of scared of the zip line.",
-    "Yes, I forward it to my teacher.",
+    "Definitely! I went on the school trip yesterday.",
     "The school is next to the park.",
     "The trip took three hours."
    ],
@@ -1176,18 +1176,18 @@ const BAI1035 = {
    "vi": "upset about + danh từ."
   },
   {
-   "q": "That jacket really ___ you!",
+   "q": "This haircut doesn't ___ me. I look strange.",
    "o": [
-    "suits",
     "suit",
+    "suits",
     "suiting",
     "is suit"
    ],
    "a": 0,
-   "vi": "That jacket (số ít) + suits you."
+   "vi": "doesn't + V nguyên mẫu: doesn't suit = không hợp."
   },
   {
-   "q": "Honestly, I think that song is a bit ___.",
+   "q": "The new burger place is a bit ___. The food was just okay.",
    "o": [
     "overrated",
     "overrate",
@@ -1195,7 +1195,7 @@ const BAI1035 = {
     "overrates"
    ],
    "a": 0,
-   "vi": "be + overrated (tính từ)."
+   "vi": "be + overrated = được khen quá mức."
   },
   {
    "q": "I'm so proud ___ you!",
@@ -1209,7 +1209,7 @@ const BAI1035 = {
    "vi": "proud of."
   },
   {
-   "q": "He seems very ___ about his exams.",
+   "q": "My mother gets ___ when she is late for work.",
    "o": [
     "stressed",
     "stress",
@@ -1217,10 +1217,10 @@ const BAI1035 = {
     "stresses"
    ],
    "a": 0,
-   "vi": "seem + tính từ."
+   "vi": "get + tính từ: get stressed = bị căng thẳng."
   },
   {
-   "q": "I have some good ___ for you.",
+   "q": "Do you have any ___ about the exam results?",
    "o": [
     "news",
     "new",
@@ -1228,7 +1228,7 @@ const BAI1035 = {
     "a news"
    ],
    "a": 0,
-   "vi": "news là danh từ không đếm được."
+   "vi": "news không đếm được."
   }
  ],
  "MU": [
@@ -1368,7 +1368,7 @@ const BAI1035 = {
    },
    "b3": [
     {
-     "q": "That colour really ___ you!",
+     "q": "That color really ___ you!",
      "o": [
       "suits",
       "suit",
@@ -1376,14 +1376,15 @@ const BAI1035 = {
       "suited to"
      ],
      "a": 0,
-     "vi": "That colour + suits."
+     "vi": "That color + suits."
     }
    ],
    "b4": {
     "q": "This hat ___ you. (hợp)",
     "hint": "V thêm s",
     "ans": [
-     "suits"
+     "suits",
+     "fits"
     ],
     "vi": "This hat suits you."
    }

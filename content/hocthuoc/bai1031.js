@@ -789,7 +789,8 @@ const BAI1031 = {
     "q": "Your team played really well. You ___ to win! (xứng đáng)",
     "hint": "xứng đáng · 1 động từ",
     "ans": [
-     "deserve"
+     "deserve",
+     "deserved"
     ],
     "vi": "deserve to win = xứng đáng thắng."
    }
@@ -895,7 +896,9 @@ const BAI1031 = {
     "hint": "thân mật · 1 từ",
     "ans": [
      "kinda",
-     "kind of"
+     "kind of",
+     "sort of",
+     "sorta"
     ],
     "vi": "kinda cold = hơi lạnh."
    }
@@ -1189,7 +1192,7 @@ const BAI1031 = {
     "vi": "have + V3 = việc từ trước, còn liên quan hiện tại. · 🧱 Bài Nền liên quan: Hiện tại hoàn thành và quá khứ đơn · A2"
    },
    "b2": {
-    "q": "Câu mới: “She has practised a lot, so her English is much better now.” — vì sao tiếng Anh cô ấy tốt hơn?",
+    "q": "Câu mới: “She has practiced a lot, so her English is much better now.” — vì sao tiếng Anh cô ấy tốt hơn?",
     "o": [
      "Vì cô ấy đã luyện nhiều",
      "Vì cô ấy sắp đi học",
@@ -1197,7 +1200,7 @@ const BAI1031 = {
      "Vì cô ấy nghỉ ngơi"
     ],
     "a": 0,
-    "vi": "has practised a lot = đã luyện nhiều."
+    "vi": "has practiced a lot = đã luyện nhiều."
    },
    "b3": [
     {

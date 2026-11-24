@@ -135,8 +135,8 @@
    "q": "What happened to your arm?",
    "a": "I slipped on the stairs on Saturday, but it's not too bad.",
    "w": [
-    "I wear it every day.",
-    "It's two metres long.",
+    "I went to the gym on Saturday.",
+    "It's my left arm, and I write with it.",
     "Yes, I like my arm."
    ],
    "why": "Hỏi tay bị sao → kể chuyện bị thương: I slipped on …"
@@ -145,7 +145,7 @@
    "q": "Why were you late this morning?",
    "a": "I spent twenty minutes looking for my keys.",
    "w": [
-    "Because I like mornings.",
+    "I'm usually early on Mondays.",
     "Yes, I was late.",
     "I was late last week."
    ],
@@ -156,7 +156,7 @@
    "a": "Cross my heart! It happened exactly like that.",
    "w": [
     "Yes, I told the story.",
-    "No, it is on the wall.",
+    "I told it at school last week.",
     "The story has two pages."
    ],
    "why": "Hỏi có thật không → thề là thật."
@@ -166,7 +166,7 @@
    "a": "Nothing special. I just had cake with my family.",
    "w": [
     "I'll do it next year.",
-    "My birthday is lovely.",
+    "Last year was a busy year at school.",
     "Yes, I did a lot."
    ],
    "why": "What did you do …? → kể đã làm gì."
@@ -175,7 +175,7 @@
    "q": "How did you meet your best friend?",
    "a": "We sat next to each other on the first day of school.",
    "w": [
-    "He is very tall.",
+    "My best friend is called Linh.",
     "I will meet him tomorrow.",
     "Yes, I did."
    ],
@@ -187,7 +187,7 @@
    "q": "How was your weekend?",
    "o": [
     "It was great! We went to the beach and stayed until sunset.",
-    "It is next Monday.",
+    "I'll go to the beach next weekend.",
     "Yes, I have a week."
    ],
    "a": 0
@@ -195,7 +195,7 @@
   {
    "q": "What happened to your arm?",
    "o": [
-    "It is a long arm.",
+    "I broke my phone on Saturday.",
     "I slipped on the stairs on Saturday, but it's not too bad.",
     "I like it very much."
    ],
@@ -204,8 +204,8 @@
   {
    "q": "Guess what happened on my way here!",
    "o": [
-    "I am here on my way.",
-    "The way is very long.",
+    "I was on my way home too.",
+    "I'm on my way, too. See you soon.",
     "No idea. Come on, tell me!"
    ],
    "a": 2
@@ -214,7 +214,7 @@
    "q": "Were you home during the storm last night?",
    "o": [
     "Yeah, and the power went out for two hours.",
-    "No, it was a nice home.",
+    "No, but I'll stay home tomorrow.",
     "I was storm last night."
    ],
    "a": 0
@@ -224,7 +224,7 @@
    "o": [
     "The funniest is my uncle.",
     "Once I walked into a glass door in front of everyone.",
-    "I think it is Thursday."
+    "I laugh a lot when I watch comedies."
    ],
    "a": 1
   },
@@ -241,7 +241,7 @@
    "q": "Why were you late this morning?",
    "o": [
     "I spent twenty minutes looking for my keys.",
-    "Because the morning is late.",
+    "I'm usually early on Mondays.",
     "Yes, I was very late."
    ],
    "a": 0
@@ -249,7 +249,7 @@
   {
    "q": "Is that story really true?",
    "o": [
-    "It was a long story.",
+    "I told it to my brother last year.",
     "Cross my heart! It happened exactly like that.",
     "The story is on the shelf."
    ],
@@ -268,7 +268,7 @@
    "q": "You'll never believe who I bumped into today!",
    "o": [
     "Who? Don't keep me waiting!",
-    "I'll never believe it.",
+    "Yes, I bumped into a door yesterday.",
     "You bumped my day."
    ],
    "a": 0

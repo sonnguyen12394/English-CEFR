@@ -11,25 +11,25 @@
  "L": [
   [
    "A",
-   "Did anything exciting happen at the weekend?",
+   "Did you hear about the cat on the school roof?",
    "",
    ""
   ],
   [
    "B",
-   "Not really, but my neighbour's dog escaped and ran around the whole street.",
+   "Yes! It escaped from a neighbor's yard and climbed onto the roof.",
    "",
    ""
   ],
   [
    "A",
-   "How did you get that scar on your knee?",
+   "What did you see on the bus this morning?",
    "",
    ""
   ],
   [
    "B",
-   "I fell out of a tree when I was seven.",
+   "I saw a man in a chicken costume reading a newspaper.",
    "",
    ""
   ],
@@ -132,22 +132,22 @@
  ],
  "exq": [
   {
-   "q": "How did you get that scar on your knee?",
-   "a": "I fell out of a tree when I was seven.",
+   "q": "What did you see on the bus this morning?",
+   "a": "I saw a man in a chicken costume reading a newspaper.",
    "w": [
-    "I bought it at a shop.",
-    "It is a very small knee.",
-    "Yes, I got it this morning."
+    "I took the number twelve bus to school.",
+    "I will see a film on Sunday.",
+    "Yes, I see the bus every day."
    ],
-   "why": "How did you get …? → kể chuyện đã xảy ra: I fell out of a tree."
+   "why": "What did you see …? → kể điều đã thấy: I saw a man in a chicken costume."
   },
   {
    "q": "Why are you laughing?",
    "a": "I just remembered something silly I did yesterday.",
    "w": [
-    "Because I am a laugh.",
+    "I usually laugh at jokes in class.",
     "Yes, I like laughing.",
-    "It is Monday."
+    "I stopped laughing a minute ago."
    ],
    "why": "Why …? → nêu lý do."
   },
@@ -157,7 +157,7 @@
    "w": [
     "I will call you tomorrow.",
     "Yes, I called you.",
-    "I do my homework every day."
+    "I always call you at eight."
    ],
    "why": "What were you doing …? → kể việc đang làm lúc đó."
   },
@@ -166,8 +166,8 @@
    "a": "Mai did, but she heard it from someone else, so I'm not sure.",
    "w": [
     "I am telling you now.",
-    "Yes, it is told.",
-    "The phone told me."
+    "Yes, I told you that.",
+    "I told it to my sister yesterday."
    ],
    "why": "Who told you? → trả lời bằng tên người."
   },
@@ -175,7 +175,7 @@
    "q": "How did the story end?",
    "a": "In the end, everybody laughed, even the teacher.",
    "w": [
-    "It is on page ten.",
+    "It started with a big storm.",
     "The story starts at nine.",
     "Yes, it ended."
    ],
@@ -184,27 +184,27 @@
  ],
  "p2": [
   {
-   "q": "Did anything exciting happen at the weekend?",
+   "q": "Did you hear about the cat on the school roof?",
    "o": [
-    "Not really, but my neighbour's dog escaped and ran around the whole street.",
-    "The weekend is two days.",
-    "Yes, I am exciting."
+    "Yes! It escaped from a neighbor's yard and climbed onto the roof.",
+    "The school is on that street.",
+    "I'll hear about it tomorrow."
    ],
    "a": 0
   },
   {
-   "q": "How did you get that scar on your knee?",
+   "q": "What did you see on the bus this morning?",
    "o": [
-    "It is my knee, thank you.",
-    "I fell out of a tree when I was seven.",
-    "I bought it at the shop."
+    "I took the number twelve bus to school.",
+    "I saw a man in a chicken costume reading a newspaper.",
+    "I will see a film on Sunday."
    ],
    "a": 1
   },
   {
    "q": "What's the worst haircut you've ever had?",
    "o": [
-    "I have two hands.",
+    "I go to the same barber every month.",
     "Yes, I cut it last week.",
     "My brother cut my hair when I was twelve, and I looked like a mushroom."
    ],
@@ -214,8 +214,8 @@
    "q": "Why are you laughing?",
    "o": [
     "I just remembered something silly I did yesterday.",
-    "Because laughing is a bag.",
-    "Yes, I like Tuesdays."
+    "I stopped laughing a minute ago.",
+    "Yes, I laugh a lot with my friends."
    ],
    "a": 0
   },
@@ -231,8 +231,8 @@
   {
    "q": "Who told you that?",
    "o": [
-    "That is a long phone.",
-    "I am telling the news.",
+    "I told it to my sister yesterday.",
+    "I'll tell you the whole story later.",
     "Mai did, but she heard it from someone else, so I'm not sure."
    ],
    "a": 2
@@ -268,8 +268,8 @@
    "q": "Are you serious? That sounds like a movie!",
    "o": [
     "I know! He tells the story every Tet, and it gets longer each time.",
-    "No, it is not a serious film.",
-    "I serve the movie at home."
+    "No, I never watch movies.",
+    "Yes, we saw it at the cinema last year."
    ],
    "a": 0
   }

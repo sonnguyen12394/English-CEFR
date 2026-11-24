@@ -47,7 +47,7 @@
   ],
   [
    "A",
-   "I lost my favourite necklace. I feel awful.",
+   "I lost my favorite necklace. I feel awful.",
    "",
    ""
   ],
@@ -135,9 +135,9 @@
    "q": "Wow, your drawing is amazing! Did you do it yourself?",
    "a": "Yes! It took me about three weeks.",
    "w": [
-    "No, the weather is amazing.",
-    "I did it in my pocket.",
-    "Last night it was raining."
+    "Yes! It will take me about three weeks.",
+    "Thanks, my brother is drawing a bird now.",
+    "I'll ask my teacher about it tomorrow."
    ],
    "why": "Hỏi có tự vẽ không → Yes + mất bao lâu."
   },
@@ -145,19 +145,19 @@
    "q": "I'm so bored. Nothing fun is happening lately.",
    "a": "Same here. Do you want to try something new?",
    "w": [
-    "Yes, the fun is in my bag.",
-    "Nothing is on my bed.",
-    "Lately, it was Monday."
+    "Congrats! That sounds like fun.",
+    "Same here. I'm so excited about the weekend!",
+    "That's wonderful! You must be so happy."
    ],
    "why": "Same here = tớ cũng vậy, rồi rủ thử cái mới."
   },
   {
-   "q": "I lost my favourite necklace. I feel awful.",
+   "q": "I lost my favorite necklace. I feel awful.",
    "a": "Oh no, I'm sorry. I'm sure it'll turn up soon.",
    "w": [
-    "Congrats! You must feel awful.",
-    "It'll turn left at the corner.",
-    "Awful is my favourite colour."
+    "Congrats! You must feel great!",
+    "That's great! I'm sure it'll turn up soon.",
+    "Let's buy a new bag at the market."
    ],
    "why": "Mất đồ → chia buồn + hy vọng tìm lại."
   },
@@ -165,9 +165,9 @@
    "q": "I don't think you're right about this.",
    "a": "Okay, can you explain why?",
    "w": [
-    "Yes, I'm right-handed, thanks.",
-    "This is about the left side.",
-    "I think you are thinking."
+    "Thanks! I'm glad you agree with me.",
+    "Yes, it's about two kilometers from here.",
+    "Sure, I'm going to the library tomorrow."
    ],
    "why": "Bị phản đối → hỏi lý do lịch sự."
   },
@@ -175,9 +175,9 @@
    "q": "Congrats on getting into the team!",
    "a": "Thanks! I couldn't have done it without your help.",
    "w": [
-    "No, I get into the car.",
-    "Yes, the team is very tall.",
-    "Congrats is on the table."
+    "Sorry to hear that. Better luck next time!",
+    "Thanks! Our team lost the match yesterday.",
+    "The team practices on Tuesday and Thursday."
    ],
    "why": "Được chúc mừng → cảm ơn."
   }
@@ -186,17 +186,17 @@
   {
    "q": "Wow, your drawing is amazing! Did you do it yourself?",
    "o": [
-    "No, the weather is amazing.",
+    "Yes! It will take me about three weeks.",
     "Yes! It took me about three weeks.",
-    "I'm drawing the door, thanks."
+    "Thanks, my brother is drawing a bird now."
    ],
    "a": 1
   },
   {
    "q": "I'm so bored. Nothing fun is happening lately.",
    "o": [
-    "Yes, the fun is in my bag.",
-    "Lately, it was Monday.",
+    "Congrats! That sounds like fun.",
+    "Same here. I'm so excited about the weekend!",
     "Same here. Do you want to try something new?"
    ],
    "a": 2
@@ -205,25 +205,25 @@
    "q": "I think pineapple on pizza is delicious.",
    "o": [
     "No way! I can't stand it.",
-    "Yes, pizza is a round building.",
-    "It was delivered by the sea."
+    "Same here! I can't stand it.",
+    "The pizza will be delivered at six."
    ],
    "a": 0
   },
   {
-   "q": "I lost my favourite necklace. I feel awful.",
+   "q": "I lost my favorite necklace. I feel awful.",
    "o": [
-    "Congrats! You must feel awful.",
+    "Congrats! You must feel great!",
     "Oh no, I'm sorry. I'm sure it'll turn up soon.",
-    "Awful is my favourite colour."
+    "That's great! I'm sure it'll turn up soon."
    ],
    "a": 1
   },
   {
    "q": "What did you think of the book?",
    "o": [
-    "I thought of the book on Monday.",
     "It's on the second shelf.",
+    "I think about my family every day.",
     "I loved it, but the ending felt rushed."
    ],
    "a": 2
@@ -232,25 +232,25 @@
    "q": "I'm so excited! My grandma is visiting next week.",
    "o": [
     "That's great! How long is she staying?",
-    "Next week is a nice colour.",
-    "It's visiting me, so I'm a grandma."
+    "I'm sorry to hear that. Is she sick?",
+    "That's great! How long did she stay?"
    ],
    "a": 0
   },
   {
    "q": "I don't think you're right about this.",
    "o": [
-    "Yes, I'm right-handed, thanks.",
+    "Thanks! I'm glad you agree with me.",
     "Okay, can you explain why?",
-    "This is about the left side."
+    "Yes, it's about two kilometers from here."
    ],
    "a": 1
   },
   {
    "q": "Why do you look so worried?",
    "o": [
-    "Because it looks like a worry.",
-    "I'm looking at the window, yes.",
+    "Because I'm so happy about my results!",
+    "I looked at the window yesterday.",
     "I haven't heard from my brother since yesterday."
    ],
    "a": 2
@@ -259,17 +259,17 @@
    "q": "Congrats on getting into the team!",
    "o": [
     "Thanks! I couldn't have done it without your help.",
-    "No, I get into the car.",
-    "Yes, the team is very tall."
+    "Sorry to hear that. Better luck next time!",
+    "Thanks! Our team lost the match yesterday."
    ],
    "a": 0
   },
   {
    "q": "I'm fed up with this rain. When will it stop?",
    "o": [
-    "It stops at the bus station.",
+    "Me too. The forecast said it cleared up last Friday.",
     "Me too. The forecast says it'll clear up on Friday.",
-    "I'm fed with the rain, thanks."
+    "The bus station is near the school."
    ],
    "a": 1
   }

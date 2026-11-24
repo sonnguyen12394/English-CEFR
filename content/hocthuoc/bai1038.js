@@ -38,13 +38,13 @@ const BAI1038 = {
     { q: 'Why does Minh disagree with her?', o: ['Dinner is the only time his family talks.', 'He does not own a phone.', 'He does not like family dinners.', 'His sister is too young to have a phone.'], a: 0, vi: '“Dinner is the only time our family talks.”' },
     { q: 'What does Minh suggest at the end?', o: ['Putting phones in a basket until dessert', 'Turning off the TV at dinner', 'Eating dinner earlier', 'Never using phones again'], a: 0, vi: '“Phones in a basket until dessert.”' },
     { q: "What does Minh say about his sister's point on messages?", o: ['Some messages may be too important to wait.', 'All messages are boring.', 'Messages never matter.', 'Everyone must read messages at dinner.'], a: 0, vi: '“Some messages are too important to wait, aren’t they?”' }],
-  NEWQ2: [{ q: 'I see your ___, but I think we should wait until Monday.', o: ['point', 'pint', 'paint', 'print'], a: 0, vi: 'I see your point = mình hiểu ý bạn.' },
-    { q: "I'm sorry, but I don't totally ___ with you.", o: ['agree', 'accept', 'allow', 'answer'], a: 0, vi: 'agree with sb = đồng ý với ai.' },
-    { q: "___ honest, I didn't like the ending of the book.", o: ['To be', 'To is', 'To been', 'To are'], a: 0, vi: 'To be honest = thật lòng mà nói.' },
-    { q: "Don't worry about the spilled water. It's no big ___.", o: ['deal', 'win', 'case', 'job'], a: 0, vi: 'no big deal = chẳng có gì to tát.' },
-    { q: 'Loud music can ___ the mood on a quiet evening.', o: ['spoil', 'spill', 'spoon', 'speak'], a: 0, vi: 'spoil the mood = làm hỏng không khí.' },
-    { q: 'If I ___ more time, I would learn the guitar.', o: ['had', 'have', 'will have', 'having'], a: 0, vi: 'Điều kiện loại 2: If + quá khứ, would + V.' },
-    { q: "It's ___ cold to swim today, so we'll stay on the beach.", o: ['too', 'very', 'enough', 'so'], a: 0, vi: 'too + tính từ + to V = quá … để làm gì.' }],
+  NEWQ2: [{ q: "That's a good ___! I hadn't thought about it before.", o: ['point', 'pint', 'paint', 'print'], a: 0, vi: 'a good point = một ý hay.' },
+    { q: "I'm not sure I agree ___ you about that.", o: ['with', 'to', 'for', 'at'], a: 0, vi: 'agree with sb = đồng ý với ai.' },
+    { q: "To be ___, I'm a little nervous about the test.", o: ['honest', 'honestly', 'honesty', 'honestest'], a: 0, vi: 'To be honest, … (honest là tính từ sau to be).' },
+    { q: "Don't make a big ___ out of it. It's only a small mistake.", o: ['deal', 'win', 'case', 'job'], a: 0, vi: "make a big deal out of sth = làm to chuyện." },
+    { q: 'Rain can ___ a picnic, but we can still have fun inside.', o: ['spoil', 'spill', 'spoon', 'speak'], a: 0, vi: 'spoil = làm hỏng, làm mất vui.' },
+    { q: 'If we ___ closer to school, we would walk there every day.', o: ['lived', 'live', 'will live', 'living'], a: 0, vi: 'Điều kiện loại 2: If + quá khứ đơn, would + V.' },
+    { q: "It's ___ cold to swim today, so we'll stay on the beach.", o: ['too', 'much', 'enough', 'so'], a: 0, vi: 'too + tính từ + to V = quá … để …' }],
   MU: [
     { id: 'v1', g: 'v', t: 'I see your point, but…', vi: 'mình hiểu ý bạn, nhưng…', line: 2, hl: 'I see her point',
       b1: { s: "[[I see her point]], but I don't totally agree", q: 'I see her point nghĩa là gì?', o: ['Mình hiểu ý của cô ấy', 'Mình nhìn thấy điểm của cô ấy', 'Mình chỉ vào cô ấy', 'Mình thấy cô ấy ở đó'], a: 0, vi: "see sb's point = hiểu ý, hiểu lý lẽ của ai." },
@@ -75,7 +75,7 @@ const BAI1038 = {
       b1: { s: "[[That's fair]], though", q: "That's fair nghĩa là gì?", o: ['Cũng có lý', 'Giá vé rẻ', 'Đây là hội chợ', 'Thật không công bằng'], a: 0, vi: "That's fair = công nhận người kia có lý (thân mật)." },
       b2: { q: "Câu mới: “I need more time to decide.” — “That's fair.” — người đáp thế nào?", o: ['Chấp nhận, thấy hợp lý', 'Không đồng ý', 'Hỏi lại giờ', 'Bỏ đi'], a: 0, vi: "That's fair = có lý." },
       b3: [{ q: "A: It's late, so let's stop. B: ___ fair. Let's go home.", o: ["That's", 'Thats', 'That', 'These'], a: 0, vi: "That's fair." }],
-      b4: { q: "A: I'd rather do it tomorrow. B: That's ___. (có lý)", hint: '1 tính từ, 4 chữ cái', ans: ['fair'], vi: "That's fair." } },
+      b4: { q: "A: I'd rather do it tomorrow. B: That's ___. (có lý)", hint: '1 tính từ, 4 chữ cái', ans: ['fair', 'true', 'fine'], vi: "That's fair." } },
     { id: 'v7', g: 'v', t: 'Thanks for watching!', vi: 'cảm ơn đã xem', line: 8, hl: 'thanks for watching',
       b1: { s: 'in the comments, and [[thanks for watching]]', q: 'thanks for watching nghĩa là gì?', o: ['cảm ơn đã xem', 'cảm ơn vì đã đợi', 'xin lỗi vì đã xem', 'hãy xem tiếp nhé'], a: 0, vi: 'thanks for + V-ing = cảm ơn vì đã … (câu kết vlog).' },
       b2: { q: 'Câu mới: “That’s all for today. Thanks for watching, and see you next week!” — người nói làm gì?', o: ['Kết video và hẹn lần sau', 'Mở đầu video', 'Hỏi câu hỏi', 'Xin lỗi người xem'], a: 0, vi: 'Thanks for watching = câu kết video.' },
@@ -110,5 +110,5 @@ const BAI1038 = {
       b2: { q: 'Câu mới: “Mia decided to learn the violin.” — Mia làm gì?', o: ['Quyết định học vĩ cầm', 'Đã chơi vĩ cầm giỏi', 'Ghét vĩ cầm', 'Bán vĩ cầm'], a: 0, vi: 'decide + to V = quyết định làm gì.' },
       b3: [{ q: 'She hopes ___ a doctor.', o: ['to be', 'being', 'be', 'been'], a: 0, vi: 'hope + to V.' },
         { q: 'We plan ___ at six.', o: ['to leave', 'leaving', 'leave', 'left'], a: 0, vi: 'plan + to V.' }],
-      b4: { q: 'He promised ___ me. (giúp)', hint: 'to + động từ', ans: ['to help'], vi: 'promise + to V.' } }]
+      b4: { q: 'He promised ___ me. (giúp)', hint: 'to + động từ', ans: ['to help', 'to call', 'to text', 'to visit', 'to join'], vi: 'promise + to V.' } }]
 };

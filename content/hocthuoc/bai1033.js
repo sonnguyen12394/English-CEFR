@@ -31,7 +31,7 @@ const BAI1033 = {
   ],
   [
    "A",
-   "Take a deep breath. You've practised it a lot, haven't you?",
+   "Take a deep breath. You've practiced it a lot, haven't you?",
    "Hít thở sâu đi. Cậu đã luyện nhiều rồi mà, đúng không?",
    ""
   ],
@@ -61,7 +61,7 @@ const BAI1033 = {
   ],
   [
    "B",
-   "That actually helps. Can you listen to me practise tonight?",
+   "That actually helps. Can you listen to me practice tonight?",
    "Nghe vậy đỡ thật. Tối nay cậu nghe tớ tập được không?",
    ""
   ],
@@ -701,15 +701,15 @@ const BAI1033 = {
    "vi": "Vế trước phủ định → đuôi khẳng định: have you?"
   },
   {
-   "q": "___ me, the ending will surprise you.",
+   "q": "I don't ___ him. He often tells lies.",
    "o": [
-    "Trust",
-    "Trusting",
-    "To trust",
-    "Trusts"
+    "trust",
+    "trusts",
+    "trusting",
+    "trusted"
    ],
    "a": 0,
-   "vi": "Trust me = tin tớ đi (câu mệnh lệnh)."
+   "vi": "I don't + V nguyên mẫu: don't trust = không tin."
   },
   {
    "q": "I think she'll ___ a great job on stage.",
@@ -836,7 +836,7 @@ const BAI1033 = {
    "line": 2,
    "hl": "Take a deep breath",
    "b1": {
-    "s": "[[Take a deep breath]]. You've practised it a lot",
+    "s": "[[Take a deep breath]]. You've practiced it a lot",
     "q": "Take a deep breath nghĩa là gì?",
     "o": [
      "hít một hơi thật sâu",
@@ -928,7 +928,9 @@ const BAI1033 = {
     "hint": "V-ing",
     "ans": [
      "racing",
-     "pounding"
+     "pounding",
+     "beating",
+     "thumping"
     ],
     "vi": "heart was racing / pounding."
    }
@@ -996,7 +998,7 @@ const BAI1033 = {
    "line": 7,
    "hl": "That actually helps",
    "b1": {
-    "s": "[[That actually helps]]. Can you listen to me practise tonight",
+    "s": "[[That actually helps]]. Can you listen to me practice tonight",
     "q": "That actually helps nghĩa là gì?",
     "o": [
      "Nghe vậy thật sự có ích",
@@ -1036,7 +1038,8 @@ const BAI1033 = {
     "hint": "1 từ",
     "ans": [
      "actually",
-     "really"
+     "really",
+     "truly"
     ],
     "vi": "That actually helps."
    }
@@ -1100,7 +1103,7 @@ const BAI1033 = {
    "line": 2,
    "hl": "haven't you",
    "b1": {
-    "s": "You've practised it a lot, [[haven't you]]?",
+    "s": "You've practiced it a lot, [[haven't you]]?",
     "q": "haven't you? ở cuối câu dùng để làm gì?",
     "o": [
      "hỏi lại để xác nhận",
@@ -1150,7 +1153,8 @@ const BAI1033 = {
     "q": "She can swim, ___ she? (đuôi phủ định)",
     "hint": "1 từ rút gọn",
     "ans": [
-     "can't"
+     "can't",
+     "cant"
     ],
     "vi": "can → can't she?"
    }
@@ -1160,10 +1164,10 @@ const BAI1033 = {
    "g": "g",
    "t": "Hiện tại hoàn thành: đã làm, còn liên quan",
    "line": 2,
-   "hl": "You've practised it a lot",
+   "hl": "You've practiced it a lot",
    "b1": {
-    "s": "[[You've practised it a lot]], haven't you?",
-    "q": "Vì sao dùng You've practised?",
+    "s": "[[You've practiced it a lot]], haven't you?",
+    "q": "Vì sao dùng You've practiced?",
     "o": [
      "nói việc luyện tập từ trước tới giờ",
      "nói việc sẽ luyện",

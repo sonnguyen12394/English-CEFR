@@ -55,7 +55,7 @@ const BAI1036 = {
   ],
   [
    "A",
-   "I lost my favourite necklace. I feel awful.",
+   "I lost my favorite necklace. I feel awful.",
    "Tớ làm mất sợi dây chuyền yêu thích. Tớ thấy tệ lắm.",
    ""
   ],
@@ -1078,9 +1078,9 @@ const BAI1036 = {
    "q": "Wow, your drawing is amazing! Did you do it yourself?",
    "o": [
     "Yes! It took me about three weeks.",
-    "No, the weather is amazing.",
-    "I did it in my pocket.",
-    "Last night it was raining."
+    "Yes! It will take me about three weeks.",
+    "Thanks, my brother is drawing a bird now.",
+    "I'll ask my teacher about it tomorrow."
    ],
    "a": 0,
    "vi": "Hỏi có tự vẽ không → Yes + mất bao lâu."
@@ -1089,20 +1089,20 @@ const BAI1036 = {
    "q": "I'm so bored. Nothing fun is happening lately.",
    "o": [
     "Same here. Do you want to try something new?",
-    "Yes, the fun is in my bag.",
-    "Nothing is on my bed.",
-    "Lately, it was Monday."
+    "Congrats! That sounds like fun.",
+    "Same here. I'm so excited about the weekend!",
+    "That's wonderful! You must be so happy."
    ],
    "a": 0,
    "vi": "Same here = tớ cũng vậy, rồi rủ thử cái mới."
   },
   {
-   "q": "I lost my favourite necklace. I feel awful.",
+   "q": "I lost my favorite necklace. I feel awful.",
    "o": [
     "Oh no, I'm sorry. I'm sure it'll turn up soon.",
-    "Congrats! You must feel awful.",
-    "It'll turn left at the corner.",
-    "Awful is my favourite colour."
+    "Congrats! You must feel great!",
+    "That's great! I'm sure it'll turn up soon.",
+    "Let's buy a new bag at the market."
    ],
    "a": 0,
    "vi": "Mất đồ → chia buồn + hy vọng tìm lại."
@@ -1111,9 +1111,9 @@ const BAI1036 = {
    "q": "I don't think you're right about this.",
    "o": [
     "Okay, can you explain why?",
-    "Yes, I'm right-handed, thanks.",
-    "This is about the left side.",
-    "I think you are thinking."
+    "Thanks! I'm glad you agree with me.",
+    "Yes, it's about two kilometers from here.",
+    "Sure, I'm going to the library tomorrow."
    ],
    "a": 0,
    "vi": "Bị phản đối → hỏi lý do lịch sự."
@@ -1122,9 +1122,9 @@ const BAI1036 = {
    "q": "Congrats on getting into the team!",
    "o": [
     "Thanks! I couldn't have done it without your help.",
-    "No, I get into the car.",
-    "Yes, the team is very tall.",
-    "Congrats is on the table."
+    "Sorry to hear that. Better luck next time!",
+    "Thanks! Our team lost the match yesterday.",
+    "The team practices on Tuesday and Thursday."
    ],
    "a": 0,
    "vi": "Được chúc mừng → cảm ơn."
@@ -1132,37 +1132,37 @@ const BAI1036 = {
  ],
  "NEWQ2": [
   {
-   "q": "I can't stand ___ in the rain for a long time.",
+   "q": "My little brother can't stand ___ vegetables.",
    "o": [
-    "waiting",
-    "wait",
-    "to waited",
-    "waits"
+    "eating",
+    "eat",
+    "to ate",
+    "eats"
    ],
    "a": 0,
    "vi": "can't stand + V-ing."
   },
   {
-   "q": "I'm so fed ___ with this noise.",
+   "q": "I'm fed up ___ doing homework every night.",
    "o": [
-    "up",
-    "on",
-    "off",
-    "in"
+    "with",
+    "for",
+    "to",
+    "at"
    ],
    "a": 0,
-   "vi": "fed up with."
+   "vi": "be fed up with + V-ing."
   },
   {
-   "q": "Congrats ___ passing your exam!",
+   "q": "A: I got the job! B: ___! You worked so hard for it.",
    "o": [
-    "on",
-    "at",
-    "to",
-    "by"
+    "Congratulations",
+    "Congratulation",
+    "Congratulate",
+    "Congrats on"
    ],
    "a": 0,
-   "vi": "Congrats on + V-ing."
+   "vi": "Congratulations! (luôn có s khi chúc mừng)."
   },
   {
    "q": "I haven't seen him ___ last Saturday.",
@@ -1176,26 +1176,26 @@ const BAI1036 = {
    "vi": "since + mốc thời gian."
   },
   {
-   "q": "The cat went missing, but I'm sure it will ___ up soon.",
+   "q": "We waited for an hour, but she didn't ___ up.",
    "o": [
     "turn",
     "turns",
-    "turning",
-    "turned"
+    "turned",
+    "turning"
    ],
    "a": 0,
-   "vi": "will + V nguyên mẫu."
+   "vi": "didn't + V nguyên mẫu: didn't turn up = không xuất hiện."
   },
   {
-   "q": "I couldn't have finished the project ___ you.",
+   "q": "She left the house ___ her keys, so she couldn't get back in.",
    "o": [
     "without",
     "with",
-    "without of",
-    "within"
+    "within",
+    "while"
    ],
    "a": 0,
-   "vi": "without you = nếu không có cậu."
+   "vi": "without + danh từ = không có."
   },
   {
    "q": "A: I'm so tired of this weather. B: ___ I want some sunshine!",
@@ -1310,7 +1310,8 @@ const BAI1036 = {
     "hint": "1 động từ",
     "ans": [
      "stand",
-     "bear"
+     "bear",
+     "take"
     ],
     "vi": "can't stand / bear."
    }
@@ -1323,7 +1324,7 @@ const BAI1036 = {
    "line": 6,
    "hl": "feel awful",
    "b1": {
-    "s": "I lost my favourite necklace. I [[feel awful]]",
+    "s": "I lost my favorite necklace. I [[feel awful]]",
     "q": "feel awful nghĩa là gì?",
     "o": [
      "thấy rất tệ",
@@ -1365,7 +1366,9 @@ const BAI1036 = {
      "awful",
      "terrible",
      "bad",
-     "horrible"
+     "horrible",
+     "sorry",
+     "guilty"
     ],
     "vi": "feel awful / terrible / bad."
    }
@@ -1612,7 +1615,7 @@ const BAI1036 = {
    },
    "b3": [
     {
-     "q": "It has rained ___ this morning.",
+     "q": "It has rained ___ nine o'clock.",
      "o": [
       "since",
       "for",
@@ -1620,7 +1623,7 @@ const BAI1036 = {
       "while"
      ],
      "a": 0,
-     "vi": "since + mốc (morning)."
+     "vi": "since + mốc (nine o'clock)."
     },
     {
      "q": "We haven't talked ___ two weeks.",
@@ -1811,7 +1814,7 @@ const BAI1036 = {
      "vi": "At six → What time."
     },
     {
-     "q": "___ is your favourite singer? — Taylor.",
+     "q": "___ is your favorite singer? — Taylor.",
      "o": [
       "Who",
       "When",

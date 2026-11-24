@@ -36,7 +36,7 @@ const BAI1042 = {
     ['Poor you!', 'Tội cậu quá!', '💬 Thân mật, chia sẻ khi bạn gặp chuyện xui; không nói khi thật sự muốn an ủi nghiêm túc.'],
     ['Go on.', 'Kể tiếp đi / Cứ nói đi.']],
   EXQ: [{ q: 'What was Minh doing when the man waved at him?', o: ['Waiting for the bus', 'Buying a drink', 'Talking to his cousin', 'Walking to work'], a: 0, vi: '“I was waiting for the bus when I saw a guy waving”.' },
-    { q: 'Who did Minh think the man was?', o: ['His cousin', 'His teacher', 'His neighbour', 'His old classmate'], a: 0, vi: '“I thought he was my cousin Hung”.' },
+    { q: 'Who did Minh think the man was?', o: ['His cousin', 'His teacher', 'His neighbor', 'His old classmate'], a: 0, vi: '“I thought he was my cousin Hung”.' },
     { q: 'What did the man say to Minh?', o: ['Do I know you?', 'Where is the bus stop?', 'Are you my cousin?', 'Why are you shouting?'], a: 0, vi: 'Anh ta hỏi: “Do I know you?”.' },
     { q: 'How does Lan feel about the story?', o: ['She thinks it is very funny', 'She is angry with Minh', 'She is bored', 'She is afraid'], a: 0, vi: 'Lan cười và nói “the funniest thing I\'ve heard all week”.' }],
   NEWQ2: [{ q: 'Hurry up! I have ___ finish this before noon.', o: ['to', 'for', 'at', 'of'], a: 0, vi: 'have to + V = phải.' },
@@ -44,8 +44,8 @@ const BAI1042 = {
     { q: 'The man ___ lives next door is a musician.', o: ['who', 'where', 'when', 'what'], a: 0, vi: 'who thay cho người (chủ ngữ).' },
     { q: 'I ___ ten pages so far today.', o: ['have written', 'wrote', 'was writing', 'write'], a: 0, vi: 'so far today (chưa hết hôm nay) → hiện tại hoàn thành.' },
     { q: 'Last week my brother ___ the wrong road and got lost.', o: ['took', 'takes', 'has taken', 'is taking'], a: 0, vi: 'last week → quá khứ đơn.' },
-    { q: "I'm all ___. Tell me what happened.", o: ['ears', 'eyes', 'hands', 'mouth'], a: 0, vi: "I'm all ears = tớ đang nghe đây." },
-    { q: 'A: I failed my driving test again. B: ___ you!', o: ['Poor', 'Sad', 'Bad', 'Pity'], a: 0, vi: 'Poor you! = Tội cậu quá!' }],
+    { q: "Your idea sounds interesting, so go ahead. I'm all ___.", o: ['ears', 'eyes', 'hands', 'mouth'], a: 0, vi: "I'm all ears = tớ đang nghe đây." },
+    { q: 'A: My flight got cancelled this morning. B: Oh, ___ you! What a mess.', o: ['Poor', 'Sad', 'Bad', 'Pity'], a: 0, vi: 'Poor you! = Tội cậu quá!' }],
   MU: [
     { id: 'v1', g: 'v', t: "I'm all ears", vi: 'tớ đang chăm chú nghe', line: 2, hl: "I'm all ears",
       b1: { s: "Go on, [[I'm all ears]]", q: "I'm all ears nghĩa là gì?", o: ['tớ đang chăm chú nghe', 'tớ có tai to', 'tớ không nghe thấy', 'tớ bị đau tai'], a: 0, vi: "I'm all ears = tớ sẵn sàng nghe (thành ngữ)." },
@@ -110,6 +110,6 @@ const BAI1042 = {
       b1: { s: "Oh no! And [[it wasn't him]]", q: "wasn't him nghĩa là gì?", o: ['đó đã không phải anh ấy', 'đó sẽ không phải anh ấy', 'đó thường không phải anh ấy', 'đó không phải anh ấy bây giờ'], a: 0, vi: "wasn't = was not, quá khứ của isn't. · 🧱 Bài Nền liên quan: Quá khứ của to be: was / were · A1" },
       b2: { q: "Câu mới: “The test wasn't hard, but I was nervous.” — bài kiểm tra thế nào?", o: ['Không khó', 'Rất khó', 'Chưa diễn ra', 'Đã bị huỷ'], a: 0, vi: "wasn't hard = đã không khó." },
       b3: [{ q: "We ___ at home last night; we were at the cinema.", o: ["weren't", "wasn't", "aren't", "isn't"], a: 0, vi: "We + weren't." },
-        { q: "It ___ my fault. I'm sorry!", o: ["wasn't", "weren't", "isn't", "aren't"], a: 0, vi: "It + wasn't." }],
+        { q: "The accident yesterday ___ my fault, but I'm still sorry!", o: ["wasn't", "weren't", "isn't", "aren't"], a: 0, vi: "yesterday → wasn't." }],
       b4: { q: "The food ___ bad at all. (was not, viết tắt)", hint: 'viết tắt · 1 từ', ans: ["wasn't", 'was not'], vi: "wasn't = was not." } }]
 };

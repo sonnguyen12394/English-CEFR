@@ -715,7 +715,7 @@ const BAI1034 = {
    "vi": "should + V = nên."
   },
   {
-   "q": "A: Shall we leave at six? B: ___ .",
+   "q": "A: I can't come, I have to study. B: ___ . Good luck with the exam!",
    "o": [
     "Fair enough",
     "Fairly enough",
@@ -723,7 +723,7 @@ const BAI1034 = {
     "Fair enoughly"
    ],
    "a": 0,
-   "vi": "Fair enough = có lý, được thôi."
+   "vi": "Fair enough. = Có lý đấy (chấp nhận lý do)."
   },
   {
    "q": "That rule is ___ strict for little kids.",
@@ -737,15 +737,15 @@ const BAI1034 = {
    "vi": "too + tính từ = quá."
   },
   {
-   "q": "I'm ___ agree with you on this point.",
+   "q": "The movie was ___ boring. I fell asleep after ten minutes.",
    "o": [
     "totally",
     "total",
-    "totalness",
+    "totality",
     "totals"
    ],
    "a": 0,
-   "vi": "totally agree."
+   "vi": "totally + tính từ = hoàn toàn …"
   }
  ],
  "MU": [
@@ -786,7 +786,7 @@ const BAI1034 = {
       "so",
       "so much",
       "such",
-      "yet"
+      "many"
      ],
      "a": 0,
      "vi": "not so sure."
@@ -942,7 +942,7 @@ const BAI1034 = {
      "q": "A: I don't like horror films. B: ___ Let's pick a comedy.",
      "o": [
       "Fair enough.",
-      "Fair play.",
+      "Fair price.",
       "Enough fair.",
       "Fairly enough."
      ],
@@ -1178,7 +1178,9 @@ const BAI1034 = {
     "q": "You ___ see a doctor if you feel worse. (nên)",
     "hint": "1 từ",
     "ans": [
-     "should"
+     "should",
+     "must",
+     "could"
     ],
     "vi": "should + V."
    }
@@ -1302,7 +1304,8 @@ const BAI1034 = {
     "q": "He left without ___ goodbye. (nói)",
     "hint": "V-ing",
     "ans": [
-     "saying"
+     "saying",
+     "waving"
     ],
     "vi": "without + V-ing."
    }
@@ -1364,7 +1367,8 @@ const BAI1034 = {
     "q": "If you mix red and blue, you ___ purple. (được)",
     "hint": "1 động từ",
     "ans": [
-     "get"
+     "get",
+     "make"
     ],
     "vi": "If … you get purple."
    }
@@ -1426,7 +1430,8 @@ const BAI1034 = {
     "q": "I wanted to go, ___ I was too tired. (nhưng)",
     "hint": "1 từ",
     "ans": [
-     "but"
+     "but",
+     "yet"
     ],
     "vi": "but = nhưng."
    }

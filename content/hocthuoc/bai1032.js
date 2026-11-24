@@ -854,7 +854,11 @@ const BAI1032 = {
      "down",
      "sad",
      "low",
-     "upset"
+     "upset",
+     "blue",
+     "unhappy",
+     "gloomy",
+     "depressed"
     ],
     "vi": "look down / sad = trông buồn."
    }
@@ -894,8 +898,8 @@ const BAI1032 = {
      "q": "A: My grandma is in hospital. B: I'm so sorry to ___ that.",
      "o": [
       "hear",
-      "say",
-      "tell",
+      "listen",
+      "talk",
       "speak"
      ],
      "a": 0,
@@ -1418,7 +1422,9 @@ const BAI1032 = {
     "q": "You ___ still text me every day. (có thể)",
     "hint": "1 từ",
     "ans": [
-     "can"
+     "can",
+     "could",
+     "may"
     ],
     "vi": "can + V."
    }
