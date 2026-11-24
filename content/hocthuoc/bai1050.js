@@ -38,7 +38,7 @@ const BAI1050 = {
   NEWQ2: [{ q: 'While we were walking, it ___ to rain.', o: ['started', 'start', 'starting', 'starts'], a: 0, vi: 'While + quá khứ tiếp diễn, việc chen vào ở quá khứ đơn.' },
     { q: 'The cake ___ by my grandmother every Sunday.', o: ['is made', 'makes', 'is making', 'make'], a: 0, vi: 'Bị động hiện tại đơn: is made.' },
     { q: 'This window ___ yesterday by a football.', o: ['was broken', 'is broken', 'broke', 'breaks'], a: 0, vi: 'Bị động quá khứ: was + V3.' },
-    { q: 'The joke was ___ funny that everyone laughed.', o: ['so', 'such', 'too', 'enough'], a: 0, vi: 'so + tính từ + that.' },
+    { q: 'We put up the ___ near the lake and made a fire.', o: ['tent', 'tense', 'tint', 'tend'], a: 0, vi: 'tent = cái lều.' },
     { q: 'She is afraid ___ spiders.', o: ['of', 'at', 'for', 'with'], a: 0, vi: 'afraid of = sợ.' },
     { q: 'We have been friends ___ ten years.', o: ['for', 'since', 'from', 'in'], a: 0, vi: 'for + khoảng thời gian.' },
     { q: 'He is too tired ___ drive, so he is taking a taxi.', o: ['to', 'for', 'that', 'so'], a: 0, vi: 'too + tính từ + to V.' }],
@@ -106,6 +106,6 @@ const BAI1050 = {
       b1: { s: "Bad trips often make the best stories, [[don't they]]?", q: "don't they? ở cuối câu dùng để làm gì?", o: ['xác nhận ý, hỏi "đúng không?"', 'phủ định câu trước', 'hỏi lý do', 'ra lệnh'], a: 0, vi: 'Câu khẳng định + trợ động từ phủ định + đại từ? = …, đúng không? · 🧱 Bài Nền liên quan: Câu hỏi đuôi · B1' },
       b2: { q: 'Câu mới: “You like spicy food, don’t you?” — người nói muốn gì?', o: ['Xác nhận bạn thích đồ cay', 'Hỏi giá món cay', 'Từ chối ăn cay', 'Hỏi đường'], a: 0, vi: "…, don't you? = đúng không?" },
       b3: [{ q: 'She can swim, ___ she?', o: ["can't", "doesn't", "isn't", "won't"], a: 0, vi: "can + câu hỏi đuôi can't." },
-        { q: 'It is a nice day, ___?', o: ["isn't it", "doesn't it", 'is it', "don't it"], a: 0, vi: "câu khẳng định với is → isn't it?" }],
+        { q: 'It is a nice day, ___?', o: ["isn't it", "doesn't it", "wasn't it", "don't it"], a: 0, vi: "câu khẳng định với is → isn't it?" }],
       b4: { q: "You have a bike, ___ you? (đuôi)", hint: 'trợ động từ phủ định', ans: ["don't", "haven't"], vi: "have (sở hữu) → don't you? / haven't you?" } }]
 };
