@@ -7,6 +7,7 @@ vm.runInContext(fs.readFileSync(f, 'utf8') + `\n;this.B = BAI${n};`, ctx); const
 const words = t => t.split(/\s+/), err = m => E.push(m);
 if (!B.meta || !B.meta.t || !B.meta.de || !B.meta.dang || !B.meta.sub) err('meta thiếu t / de / dang / sub');
 if (+n >= 13) { const who = (B.meta || {}).who || {}; for (const sp of new Set(B.L.map(l => l[0]))) if (!Array.isArray(who[sp]) || who[sp].length !== 2) err(`meta.who thiếu người nói ${sp}: [vai, nhãn ngắn]`); }
+if (inp.muc === 'gt' && !(/^gt-(bt|bb|st|cx|kc|hn|hd|kh)$/.test(inp.chu) && new RegExp('^' + inp.chu + '-\\d\\d$').test(inp.id || ''))) err(`Giao tiếp: chu ${inp.chu} / id ${inp.id} phải khớp (vd. gt-st + gt-st-09)`);
 if (B.L.length !== inp.L.length) err(`L có ${B.L.length} câu, đầu vào ${inp.L.length}`);
 B.L.forEach((l, i) => { const g = inp.L[i]; if (!g) return; if (l[0] !== g[0] || l[1] !== g[1] || l[3] !== g[3]) err(`L[${i}] phải giữ nguyên người nói, câu tiếng Anh, mã giọng của đầu vào`); if (!l[2]) err(`L[${i}] thiếu dịch`); });
 const per = ['IPA', 'STR', 'LK', 'INT', 'PAU', 'EL', 'VNK', 'VNY'];

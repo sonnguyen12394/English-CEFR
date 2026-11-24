@@ -113,4 +113,4 @@ const BAI1030 = {
       b4: { q: 'He looked at ___ in the mirror. (chính anh ấy)', hint: '1 từ', ans: ['himself'], vi: 'looked at himself.' } }]
 };
 
-Object.assign(BAI1030.meta, {"muc":"gt","chu":"gt-bt","evl":[1,3,5,5,2]});
+Object.assign(BAI1030.meta, {"muc":"gt","chu":"gt-st","evl":[1,3,5,5,2]});
