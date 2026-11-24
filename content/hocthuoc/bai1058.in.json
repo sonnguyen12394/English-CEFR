@@ -1,0 +1,103 @@
+{
+ "n": 1058,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-08",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "📢 Bài nói",
+ "kind": "Tin nhắn thoại báo bị kẹt xe giờ cao điểm",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hey Lan, it's Minh. I'm running late again, and it's not my fault this time!",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "It's rush hour, and the traffic is terrible.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "They're repairing the main road near the station, so every car is crawling.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I tried to take a shortcut through the back streets, but that was a big mistake.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Now I'm stuck behind a bus, and it hasn't moved for ten minutes.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Could you please tell the teacher I'll be there in half an hour?",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "If I leave home earlier tomorrow, I won't get caught in rush hour again.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Anyway, wish me luck, and save me a seat next to you!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is Minh late?",
+   "a": "The traffic is very slow.",
+   "w": [
+    "He woke up late.",
+    "He lost his bus pass.",
+    "His class was canceled."
+   ],
+   "why": "“It’s rush hour, and the traffic is terrible.”"
+  },
+  {
+   "q": "Why are the cars crawling?",
+   "a": "Workers are repairing the main road.",
+   "w": [
+    "There is a football match.",
+    "It is snowing.",
+    "The station is closed."
+   ],
+   "why": "“They’re repairing the main road near the station.”"
+  },
+  {
+   "q": "What happened when Minh took a shortcut?",
+   "a": "He got stuck behind a bus.",
+   "w": [
+    "He found a faster road.",
+    "He arrived early.",
+    "He lost his phone."
+   ],
+   "why": "“that was a big mistake… I’m stuck behind a bus”."
+  },
+  {
+   "q": "What does Minh ask Lan to tell the teacher?",
+   "a": "That he will arrive in half an hour",
+   "w": [
+    "That he is sick",
+    "That the bus broke down",
+    "That he will skip class"
+   ],
+   "why": "“tell the teacher I’ll be there in half an hour”."
+  }
+ ]
+}

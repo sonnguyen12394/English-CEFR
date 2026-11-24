@@ -1,0 +1,123 @@
+{
+ "n": 1069,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-09",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "✉️ Văn bản",
+ "kind": "Chat nhóm",
+ "title": "Group chat · Big dreams",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Group chat · Big dreams",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Khoa: Guys, I'm thinking of applying for the summer exchange program in Japan.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Linh: Seriously?! That's so cool. You've been talking about Japan since forever!",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Khoa: I know, but my Japanese is pretty bad. I'm worried they won't pick me.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tuan: Just go for it. The worst thing that can happen is they say no.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Linh: And I can help you practice every weekend. We'll make it a habit.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Khoa: You guys are the best. Okay, I'll send in my application tonight, fingers crossed!",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tuan: Keep us posted!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Chỗ trống 1: I'm thinking ___ applying for the summer exchange program in Japan.",
+   "a": "of",
+   "w": [
+    "at",
+    "by",
+    "from"
+   ],
+   "why": "think of + V-ing = nghĩ đến việc làm gì; at / by / from không đi với thinking trong nghĩa này."
+  },
+  {
+   "q": "Chỗ trống 2: You've been talking about Japan ___ forever!",
+   "a": "since",
+   "w": [
+    "until",
+    "at",
+    "by"
+   ],
+   "why": "since forever = từ lâu lắm rồi, đi với hiện tại hoàn thành tiếp diễn (have been talking)."
+  },
+  {
+   "q": "Chỗ trống 3: Just go ___ it. The worst thing that can happen is they say no.",
+   "a": "for",
+   "w": [
+    "of",
+    "by",
+    "from"
+   ],
+   "why": "go for it = cứ thử đi, cứ làm đi."
+  },
+  {
+   "q": "Chỗ trống 4: I'll send in my application tonight, fingers ___!",
+   "a": "crossed",
+   "w": [
+    "cross",
+    "crossing",
+    "crosses"
+   ],
+   "why": "fingers crossed = mong may mắn (cụm cố định)."
+  },
+  {
+   "q": "Why is Khoa worried?",
+   "a": "His Japanese is pretty bad.",
+   "w": [
+    "He has no money.",
+    "His parents say no.",
+    "He is afraid of flying."
+   ],
+   "why": "“my Japanese is pretty bad. I’m worried they won’t pick me.”"
+  },
+  {
+   "q": "What will Linh do to help Khoa?",
+   "a": "Practice Japanese with him every weekend",
+   "w": [
+    "Write his application",
+    "Pay for his trip",
+    "Go to Japan with him"
+   ],
+   "why": "“I can help you practice every weekend.”"
+  }
+ ]
+}

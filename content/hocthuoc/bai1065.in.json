@@ -1,0 +1,267 @@
+{
+ "n": 1065,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-05",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về chuyện học",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "How's studying going lately?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not bad. I'm kinda behind on reading, though.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you ready for the test on Friday?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not really. I need to cram tonight.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Did you take notes in class today?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, I can send you a photo of them.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How long did it take you to finish the essay?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "About three hours. I kept getting distracted.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why don't we study together after school?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Good idea. Let's meet at the library at four.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What are you gonna do if you fail?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Retake it next month, I guess.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Is it okay if I ask you a quick question about the homework?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Go ahead. I'll try my best to help.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Did you hand in your project on time?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Barely. I submitted it five minutes before the deadline.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How do you stay focused when you study?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I put my phone in another room.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you think I should join the English club?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Definitely! It's a great way to practice speaking.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Are you ready for the test on Friday?",
+   "a": "Not really. I need to cram tonight.",
+   "w": [
+    "I tested the new phone on Friday.",
+    "It's ready in ten minutes.",
+    "My Friday shoes are blue."
+   ],
+   "why": "Hỏi đã sẵn sàng thi chưa → Not really. I need to cram tonight."
+  },
+  {
+   "q": "How long did it take you to finish the essay?",
+   "a": "About three hours. I kept getting distracted.",
+   "w": [
+    "It takes two buses to get there.",
+    "I like long essays.",
+    "Next Monday at nine."
+   ],
+   "why": "How long … ? → trả lời thời lượng: About three hours."
+  },
+  {
+   "q": "What are you gonna do if you fail?",
+   "a": "Retake it next month, I guess.",
+   "w": [
+    "I'm gonna wear it tomorrow.",
+    "It is next to the window.",
+    "Friday is a good day."
+   ],
+   "why": "What are you gonna do if …? → nói kế hoạch: Retake it next month."
+  },
+  {
+   "q": "How do you stay focused when you study?",
+   "a": "I put my phone in another room.",
+   "w": [
+    "I stay at my aunt's house.",
+    "I study at nine.",
+    "I focus on math the most."
+   ],
+   "why": "How do you …? hỏi cách làm → I put my phone in another room."
+  }
+ ],
+ "p2": [
+  {
+   "q": "How's studying going lately?",
+   "o": [
+    "I started it last year.",
+    "Not bad. I'm kinda behind on reading, though.",
+    "It's on the second floor."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Are you ready for the test on Friday?",
+   "o": [
+    "I tested the new phone on Friday.",
+    "It's ready in ten minutes.",
+    "Not really. I need to cram tonight."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Did you take notes in class today?",
+   "o": [
+    "Yeah, I can send you a photo of them.",
+    "I took the bus to class today.",
+    "The class is on the second floor."
+   ],
+   "a": 0
+  },
+  {
+   "q": "How long did it take you to finish the essay?",
+   "o": [
+    "It takes two buses to get there.",
+    "About three hours. I kept getting distracted.",
+    "I like long essays."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Why don't we study together after school?",
+   "o": [
+    "Study is a very important subject.",
+    "Because I forgot my umbrella.",
+    "Good idea. Let's meet at the library at four."
+   ],
+   "a": 2
+  },
+  {
+   "q": "What are you gonna do if you fail?",
+   "o": [
+    "Retake it next month, I guess.",
+    "It is next to the window.",
+    "I'm gonna wear it tomorrow."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Is it okay if I ask you a quick question about the homework?",
+   "o": [
+    "Last week I asked the same thing.",
+    "Go ahead. I'll try my best to help.",
+    "A quick lunch sounds great."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Did you hand in your project on time?",
+   "o": [
+    "My project is about volcanoes.",
+    "The bus came on time.",
+    "Barely. I submitted it five minutes before the deadline."
+   ],
+   "a": 2
+  },
+  {
+   "q": "How do you stay focused when you study?",
+   "o": [
+    "I put my phone in another room.",
+    "I stay home on Sundays.",
+    "I focus on math the most."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Do you think I should join the English club?",
+   "o": [
+    "English is spoken in many countries.",
+    "Definitely! It's a great way to practice speaking.",
+    "I should buy a new pen."
+   ],
+   "a": 1
+  }
+ ]
+}

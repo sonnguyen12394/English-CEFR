@@ -1,0 +1,125 @@
+{
+ "n": 1070,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-10",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Bài đăng diễn đàn về nghỉ một năm trước đại học",
+ "title": "Should I take a gap year before university?",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Ben: I finish high school in June, and I can't decide what to do next.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Some of my friends are going straight to university, but I'm thinking about taking a gap year.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'd like to work and travel, but my parents think I'll never go back to studying.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "What would you do in my shoes?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Chloe: I took a gap year, and it was the best decision I've ever made.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I worked in a café for six months, saved up some money, and then volunteered abroad.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "When I started university, I felt more focused than most of my classmates.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Dan: Honestly, I'd say it depends. A gap year only works if you have a plan.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "My cousin took one without any goals and just played games all year.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "So set clear goals first, and then talk to your parents about them.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is Ben thinking about?",
+   "a": "Taking a gap year",
+   "w": [
+    "Quitting school now",
+    "Moving abroad forever",
+    "Starting a business"
+   ],
+   "why": "“I’m thinking about taking a gap year.”"
+  },
+  {
+   "q": "What do Ben’s parents worry about?",
+   "a": "He may never go back to studying.",
+   "w": [
+    "He may not find a job.",
+    "He may lose his money.",
+    "He may travel alone."
+   ],
+   "why": "“my parents think I’ll never go back to studying.”"
+  },
+  {
+   "q": "What did Chloe do during her gap year?",
+   "a": "Worked at a café and volunteered abroad",
+   "w": [
+    "Studied at university",
+    "Played games all year",
+    "Started a company"
+   ],
+   "why": "“I worked in a café… and then volunteered abroad.”"
+  },
+  {
+   "q": "How did Chloe feel at university?",
+   "a": "More focused than most classmates",
+   "w": [
+    "Less ready than her friends",
+    "Bored all the time",
+    "Lonely"
+   ],
+   "why": "“I felt more focused than most of my classmates.”"
+  },
+  {
+   "q": "According to Dan, when does a gap year work?",
+   "a": "When you have a plan",
+   "w": [
+    "When you play games",
+    "When parents agree",
+    "When you earn money"
+   ],
+   "why": "“A gap year only works if you have a plan.”"
+  }
+ ]
+}

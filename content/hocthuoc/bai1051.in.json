@@ -1,0 +1,115 @@
+{
+ "n": 1051,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-01",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người quen",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Morning, Dan! Is it just me, or is it freezing today?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It's not just you. The radio says it'll drop to five degrees.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ugh, I left my scarf at home. I'm gonna turn into an ice cube.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Here, take mine. I've got a spare one in my bag.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you sure? That's really kind of you.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No worries. By the way, did you hear it's gonna rain this weekend?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Again? It's been pouring all week. My shoes are still wet.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Same here. I'm so sick of this weather. Oh, here comes the bus!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Finally! Thanks for the scarf, Dan. I'll give it back tomorrow.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No rush. Stay warm and hang in there!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did Linh forget at home?",
+   "a": "Her scarf",
+   "w": [
+    "Her umbrella",
+    "Her bag",
+    "Her phone"
+   ],
+   "why": "“I left my scarf at home” = để quên khăn quàng ở nhà."
+  },
+  {
+   "q": "What will the weather be like this weekend?",
+   "a": "Rainy",
+   "w": [
+    "Sunny",
+    "Snowy",
+    "Windy"
+   ],
+   "why": "“it's gonna rain this weekend” = cuối tuần sắp mưa."
+  },
+  {
+   "q": "How does Dan help Linh?",
+   "a": "He lends her a scarf",
+   "w": [
+    "He pays her bus fare",
+    "He gives her an umbrella",
+    "He drives her home"
+   ],
+   "why": "“take mine. I've got a spare one” = cho mượn khăn dự phòng."
+  },
+  {
+   "q": "What does Linh promise to do tomorrow?",
+   "a": "Give the scarf back",
+   "w": [
+    "Bring an umbrella",
+    "Call Dan",
+    "Buy a new scarf"
+   ],
+   "why": "“I'll give it back tomorrow” = mai sẽ trả khăn."
+  }
+ ]
+}

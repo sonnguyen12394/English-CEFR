@@ -1,0 +1,115 @@
+{
+ "n": 1053,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-03",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 anh em",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Tuan, it's your turn to do the dishes tonight. I did them yesterday.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Seriously? I thought we swapped. I took out the trash on Monday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "That was a different week. Look at the chart on the fridge.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Ugh, you're right. Okay, I'll do the dishes, but you owe me one.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Deal. I'll fold the laundry while you do them.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Wait, have you vacuumed the living room? Mom's coming on Saturday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Not yet. I'll do it after dinner. We should also tidy up the kitchen.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Good idea. It's a mess in here. Who left this pile of clothes on the sofa?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "That's yours, lazybones! Put them away before Mom sees.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Okay, okay, I'm on it. Don't be so bossy!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Whose turn is it to do the dishes tonight?",
+   "a": "Tuan's",
+   "w": [
+    "Hana's",
+    "Their mom's",
+    "Nobody's"
+   ],
+   "why": "“it's your turn to do the dishes” (nói với Tuan)."
+  },
+  {
+   "q": "Where is the chart?",
+   "a": "On the fridge",
+   "w": [
+    "On the sofa",
+    "In the kitchen drawer",
+    "Next to the front door"
+   ],
+   "why": "“Look at the chart on the fridge” = bảng ở trên tủ lạnh."
+  },
+  {
+   "q": "What will Hana do while Tuan does the dishes?",
+   "a": "Fold the laundry",
+   "w": [
+    "Vacuum the living room",
+    "Take out the trash",
+    "Cook dinner"
+   ],
+   "why": "“I'll fold the laundry while you do them.”"
+  },
+  {
+   "q": "When is their mom coming?",
+   "a": "On Saturday",
+   "w": [
+    "On Sunday",
+    "Tomorrow",
+    "On Monday"
+   ],
+   "why": "“Mom's coming on Saturday” = thứ Bảy mẹ sang."
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "n": 1068,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-08",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "📢 Bài nói",
+ "kind": "Vlog kể kế hoạch năm tới",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hi everyone! Next year is going to be big for me, so let's talk about my plans.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "First, I'm gonna save some money, because I'd love to travel in the summer.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Second, I'll start learning to drive.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I'm a little scared, but my uncle says he'll teach me.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "If I work hard, I might finally get my license by September.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Third, I want to take a cooking class, since I can't even boil an egg properly.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Honestly, I used to think plans were boring, but now I feel excited about the future.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "So tell me in the comments: what are your plans for next year? Catch you next time!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is Hana going to do first?",
+   "a": "Save money for a trip",
+   "w": [
+    "Take a cooking class",
+    "Get her license",
+    "Buy a car"
+   ],
+   "why": "“First, I’m gonna save some money.”"
+  },
+  {
+   "q": "Who will help Hana with driving?",
+   "a": "Her uncle",
+   "w": [
+    "Her father",
+    "A teacher",
+    "Her brother"
+   ],
+   "why": "“my uncle says he’ll teach me.”"
+  },
+  {
+   "q": "Why does Hana want to take a cooking class?",
+   "a": "She can't even boil an egg properly.",
+   "w": [
+    "She wants to open a restaurant.",
+    "Her uncle asked her to.",
+    "She loves eating out."
+   ],
+   "why": "“since I can’t even boil an egg properly.”"
+  },
+  {
+   "q": "How does Hana feel about the future now?",
+   "a": "Excited",
+   "w": [
+    "Bored",
+    "Worried",
+    "Angry"
+   ],
+   "why": "“now I feel excited about the future.”"
+  }
+ ]
+}

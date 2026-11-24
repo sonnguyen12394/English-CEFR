@@ -1,0 +1,113 @@
+{
+ "n": 1059,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-09",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "✉️ Văn bản",
+ "kind": "Chat nhóm",
+ "title": "Group chat · Floor 3 neighbors",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Group chat · Floor 3 neighbors",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dina: Hi everyone! Just a reminder that the trash truck is coming on Thursday this week, not Wednesday.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Ben: Thanks for the heads-up! I was about to put my bags out tonight.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mr. Cruz: I'll be away from Friday to Monday. Could someone water my plants?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dina: No problem, I live right next door. Just give me the key before you leave.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mr. Cruz: That's very kind of you. I'll bring you a small gift from my trip.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Ben: Also, whoever left the bike in the hallway, please move it. People keep tripping over it!",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dina: Oops, that's mine! Sorry, I'll take it to the basement right now.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Chỗ trống 1: Just a reminder that the trash truck is coming ___ Thursday this week, not Wednesday.",
+   "a": "on",
+   "w": [
+    "in",
+    "at",
+    "for"
+   ],
+   "why": "on + thứ trong tuần: on Thursday."
+  },
+  {
+   "q": "Chỗ trống 2: Thanks for the heads-___! I was about to put my bags out tonight.",
+   "a": "up",
+   "w": [
+    "on",
+    "out",
+    "in"
+   ],
+   "why": "heads-up = lời báo trước; Ben định đem rác ra tối nay nên được nhắc kịp."
+  },
+  {
+   "q": "Chỗ trống 3: Could someone ___ my plants?",
+   "a": "water",
+   "w": [
+    "drink",
+    "pour",
+    "rain"
+   ],
+   "why": "water my plants = tưới cây giúp tôi; ông Cruz đi vắng từ thứ Sáu tới thứ Hai."
+  },
+  {
+   "q": "Chỗ trống 4: That's very kind ___ you.",
+   "a": "of",
+   "w": [
+    "for",
+    "at",
+    "about"
+   ],
+   "why": "It’s kind of you = bạn tốt bụng quá."
+  },
+  {
+   "q": "Whose bike was in the hallway?",
+   "a": "Dina’s",
+   "w": [
+    "Ben’s",
+    "Mr. Cruz’s",
+    "Mrs. Lee’s"
+   ],
+   "why": "Dina: “Oops, that’s mine!”"
+  }
+ ]
+}

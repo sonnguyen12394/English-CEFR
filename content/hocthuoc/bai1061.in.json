@@ -1,0 +1,121 @@
+{
+ "n": 1061,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-01",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hey Ben, your English sounds way better these days.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Thanks! I've been watching shows with English subtitles.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Seriously? Doesn't that get boring after a while?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not really. I pick shows I'm into, so it doesn't feel like studying.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Smart. Do you write down new words?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, a few every night. Then I try to use them the next day.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I wish I had your patience. I always give up after a week.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Don't be so hard on yourself. Just start small, like ten minutes a day.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ten minutes? I could manage that, I guess.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "See? Piece of cake. Wanna watch an episode together tonight?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Count me in!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is Ben doing to improve his English?",
+   "a": "Watching shows with English subtitles",
+   "w": [
+    "Taking an online class",
+    "Reading a book every night",
+    "Speaking with tourists"
+   ],
+   "why": "“watching shows with English subtitles” = xem phim có phụ đề tiếng Anh."
+  },
+  {
+   "q": "Why does studying not feel boring to Ben?",
+   "a": "He picks shows he likes",
+   "w": [
+    "He studies only at weekends",
+    "He has a private teacher",
+    "He skips the hard words"
+   ],
+   "why": "“I pick shows I'm into” = chọn phim mình mê."
+  },
+  {
+   "q": "How long does Ben suggest Anna should study each day?",
+   "a": "Ten minutes",
+   "w": [
+    "One hour",
+    "Two hours",
+    "Five minutes"
+   ],
+   "why": "“like ten minutes a day” = khoảng mười phút mỗi ngày."
+  },
+  {
+   "q": "What do they plan to do tonight?",
+   "a": "Watch an episode together",
+   "w": [
+    "Write new words together",
+    "Go to an English class",
+    "Call a teacher"
+   ],
+   "why": "“Wanna watch an episode together tonight?” → “Count me in!”"
+  }
+ ]
+}

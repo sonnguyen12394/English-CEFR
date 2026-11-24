@@ -1,0 +1,277 @@
+{
+ "n": 1056,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-06",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về việc nhà và đi lại",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Who's cooking tonight?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It's my turn, so I'll make pasta.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you taken out the trash yet?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not yet. I'll do it on my way out.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why are you home so late?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I missed the last bus, so I had to walk.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can you give me a ride to the station?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure, hop in. I'm heading that way anyway.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Is the washing machine free?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Almost. The cycle ends in ten minutes.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Where did you put the vacuum cleaner?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It's in the closet under the stairs.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Could you keep it down? The baby's asleep.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Oh, sorry! I'll turn the TV down.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do we have any clean towels?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Check the dryer. I just washed a load.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How long does it take you to get to work?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "About forty minutes if the roads are clear.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ready to go? We're gonna be late!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Hang on, I can't find my keys.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who's cooking tonight?",
+   "a": "It's my turn, so I'll make pasta.",
+   "w": [
+    "I like cooking shows.",
+    "Tonight is on Friday.",
+    "The kitchen is green."
+   ],
+   "why": "Hỏi ai nấu → đến lượt tôi, tôi nấu mì Ý."
+  },
+  {
+   "q": "Why are you home so late?",
+   "a": "I missed the last bus, so I had to walk.",
+   "w": [
+    "Home is far from here.",
+    "The last bus is a big one.",
+    "So I had a late lunch."
+   ],
+   "why": "Hỏi vì sao về muộn → lỡ xe buýt cuối nên đi bộ."
+  },
+  {
+   "q": "Could you keep it down? The baby's asleep.",
+   "a": "Oh, sorry! I'll turn the TV down.",
+   "w": [
+    "The baby is a girl.",
+    "Down in the basement.",
+    "It is two o'clock now."
+   ],
+   "why": "Lời nhờ nói nhỏ lại → xin lỗi và vặn nhỏ tivi."
+  },
+  {
+   "q": "Do we have any clean towels?",
+   "a": "Check the dryer. I just washed a load.",
+   "w": [
+    "Towels are in the news.",
+    "We have a clean car.",
+    "The dryer is blue."
+   ],
+   "why": "Hỏi còn khăn sạch không → xem máy sấy, vừa giặt một mẻ."
+  },
+  {
+   "q": "How long does it take you to get to work?",
+   "a": "About forty minutes if the roads are clear.",
+   "w": [
+    "I work in the afternoon.",
+    "It is forty years old.",
+    "At work, I was long."
+   ],
+   "why": "Hỏi mất bao lâu → khoảng bốn mươi phút."
+  }
+ ],
+ "p2": [
+  {
+   "q": "Who's cooking tonight?",
+   "o": [
+    "It's my turn, so I'll make pasta.",
+    "The kitchen is very small.",
+    "Tonight is a quiet night."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Have you taken out the trash yet?",
+   "o": [
+    "The trash is very smelly.",
+    "Not yet. I'll do it on my way out.",
+    "It was out of date."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Why are you home so late?",
+   "o": [
+    "I'm home at seven.",
+    "The time was late.",
+    "I missed the last bus, so I had to walk."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Can you give me a ride to the station?",
+   "o": [
+    "Sure, hop in. I'm heading that way anyway.",
+    "I lifted it to the table.",
+    "The station is on the left."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Is the washing machine free?",
+   "o": [
+    "It's free for dinner.",
+    "Almost. The cycle ends in ten minutes.",
+    "The machine is made in Japan."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Where did you put the vacuum cleaner?",
+   "o": [
+    "I cleaned it up yesterday.",
+    "It's a very quiet cleaner.",
+    "It's in the closet under the stairs."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Could you keep it down? The baby's asleep.",
+   "o": [
+    "Oh, sorry! I'll turn the TV down.",
+    "The baby is two years old.",
+    "I can't keep a baby."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Do we have any clean towels?",
+   "o": [
+    "We have a lot of cleaners.",
+    "Check the dryer. I just washed a load.",
+    "They cleaned the town."
+   ],
+   "a": 1
+  },
+  {
+   "q": "How long does it take you to get to work?",
+   "o": [
+    "It takes a lot of work.",
+    "I start work at nine.",
+    "About forty minutes if the roads are clear."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Ready to go? We're gonna be late!",
+   "o": [
+    "Hang on, I can't find my keys.",
+    "I'm going to the lake.",
+    "Late is a bad habit."
+   ],
+   "a": 0
+  }
+ ]
+}

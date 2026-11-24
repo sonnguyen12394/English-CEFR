@@ -1,0 +1,115 @@
+{
+ "n": 1064,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-04",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "What do you want to be when you grow up, Jack?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Ha, I used to say an astronaut. Now I have no idea.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Seriously? I've known what I want since I was ten.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Let me guess. Something with drawing?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Yep! I'd love to make cartoons for a living.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "That's so cool. Are you taking any classes?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Just an online course. I practice every night so that I can improve.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "If I had your talent, I would never stop.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "It's not talent, it's just practice. You'll find your thing, don't stress.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Maybe. For now, I'll just keep trying new stuff.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did Jack want to be as a kid?",
+   "a": "An astronaut",
+   "w": [
+    "A teacher",
+    "A singer",
+    "A chef"
+   ],
+   "why": "“I used to say an astronaut.” = hồi nhỏ muốn làm phi hành gia."
+  },
+  {
+   "q": "What does Nina want to do for a living?",
+   "a": "Make cartoons",
+   "w": [
+    "Teach art",
+    "Paint houses",
+    "Write songs"
+   ],
+   "why": "“I'd love to make cartoons for a living.”"
+  },
+  {
+   "q": "How does Nina practice?",
+   "a": "She follows an online course and practices every night",
+   "w": [
+    "She goes to art school",
+    "She works with a private teacher",
+    "She practices only at weekends"
+   ],
+   "why": "“Just an online course. I practice every night.”"
+  },
+  {
+   "q": "What does Jack plan to do for now?",
+   "a": "Keep trying new things",
+   "w": [
+    "Take a gap year",
+    "Start an online course",
+    "Stop dreaming"
+   ],
+   "why": "“I'll just keep trying new stuff.” = cứ thử nhiều thứ mới."
+  }
+ ]
+}

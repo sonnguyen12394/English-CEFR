@@ -1,0 +1,115 @@
+{
+ "n": 1063,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-03",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "So, what are your plans for next year, Tom?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Well, I'm thinking of taking a gap year before college.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Wow, really? What would you do all year?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'm going to work part-time and save up for a trip to Japan.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "That sounds amazing. Will you go alone?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Probably. My cousin might come along if she gets time off.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Nice. My parents want me to start university right away, though.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Have you told them what you really want?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Not yet. I'll bring it up this weekend, I promise.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Good luck! Keep me posted, okay?",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is Tom thinking of doing next year?",
+   "a": "Taking a gap year before college",
+   "w": [
+    "Moving to Japan for good",
+    "Starting college early",
+    "Opening a small shop"
+   ],
+   "why": "“I'm thinking of taking a gap year before college.” = nghỉ một năm trước đại học."
+  },
+  {
+   "q": "How will Tom pay for his trip?",
+   "a": "By working part-time and saving up",
+   "w": [
+    "By asking his parents",
+    "By winning a contest",
+    "By selling his bike"
+   ],
+   "why": "“work part-time and save up for a trip” = làm thêm và để dành tiền."
+  },
+  {
+   "q": "What do Hana's parents want her to do?",
+   "a": "Start university right away",
+   "w": [
+    "Take a gap year too",
+    "Move abroad",
+    "Get a full-time job"
+   ],
+   "why": "“My parents want me to start university right away.”"
+  },
+  {
+   "q": "What will Hana do this weekend?",
+   "a": "Talk to her parents about what she wants",
+   "w": [
+    "Visit Tom in Japan",
+    "Start a new job",
+    "Study all weekend"
+   ],
+   "why": "“I'll bring it up this weekend” = cuối tuần sẽ nói chuyện với bố mẹ."
+  }
+ ]
+}

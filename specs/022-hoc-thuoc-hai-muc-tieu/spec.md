@@ -61,7 +61,7 @@ Không dùng Sonnet / Haiku ở đợt này: khuôn và mẫu đầu sai thì 80
 | M10 | chưa đo | chưa đo được, cần iPhone (G3) |
 
 Sửa kèm (lỗi có từ trước): ✉️ Văn bản tô chỗ trống theo chuỗi con ở MỌI câu (đáp án "in" sẽ tô trong "Linh"); nay chỉ tô ở câu chứa chỗ trống, khớp nguyên từ (`reW`, `gapLine`), áp cho cả bài TOEIC.
-Còn lại (G4): v212 Bạn bè đủ 10; v214 gt-bt + gt-st 20 bài; v215 gt-cx + gt-kc 20 bài; còn 30 bài, giọng Kokoro cho bài Giao tiếp.
+Còn lại (G4): v212 Bạn bè đủ 10; v214 gt-bt + gt-st 20 bài; v215 gt-cx + gt-kc 20 bài; v217 gt-hn + gt-hd 20 bài; còn 10 bài (gt-kh), giọng Kokoro cho bài Giao tiếp.
 
 ## Tỉ lệ dạng bài Giao tiếp (người sáng lập duyệt 23/11/2026)
 Mỗi chủ đề 10 bài: hội thoại 4 · hỏi – đáp 2 bộ · bài nói 2 · chat 1 · đọc hiểu 1 (trước: 5 dạng × 2). Chủ đề 🤝 Bạn bè đủ 10 bài (v212, người sáng lập "soạn luôn" trước G3): 1004–1010 do 2 thợ Sonnet soạn, thợ Opus soát 5 / 7 bài: vòng 1 KHÔNG ĐẠT 3 / 5 bài có lỗi nặng (câu could have tự mâu thuẫn, câu đuôi sai ngữ pháp, nhiễu hỏi – đáp lỡ hợp lý, thiếu cách gõ đúng) + ~15 lỗi nhẹ; phiên chính sửa hết, máy kiểm 10 / 10.

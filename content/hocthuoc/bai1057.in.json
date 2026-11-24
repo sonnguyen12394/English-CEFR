@@ -1,0 +1,103 @@
+{
+ "n": 1057,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-07",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "📢 Bài nói",
+ "kind": "Tin nhắn thoại nhờ hàng xóm thu quần áo",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hi Mrs. Lee, it's Hoa from next door. Sorry to bother you!",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I've just checked the weather app, and it's going to pour this afternoon.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "My clothes are still hanging on the balcony, and I won't be home until six.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Could you ask your son to bring them inside? He has my spare key.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "It's getting windy too, so you should close your windows.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I'll pick up some bread on my way home and bring you a loaf.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Thanks a million! You're a lifesaver.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I owe you one. See you tonight!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is Hoa calling Mrs. Lee?",
+   "a": "She wants help with her laundry.",
+   "w": [
+    "She wants to borrow a key.",
+    "She is selling bread.",
+    "She is moving to another city."
+   ],
+   "why": "“Could you ask your son to bring them inside?” = nhờ thu quần áo."
+  },
+  {
+   "q": "What will the weather be like this afternoon?",
+   "a": "It will rain heavily.",
+   "w": [
+    "It will be sunny.",
+    "It will snow.",
+    "It will be hot and dry."
+   ],
+   "why": "“it’s going to pour this afternoon” = chiều nay mưa như trút."
+  },
+  {
+   "q": "When will Hoa get home?",
+   "a": "At six o’clock",
+   "w": [
+    "At noon",
+    "At ten at night",
+    "At four in the afternoon"
+   ],
+   "why": "“I won’t be home until six.”"
+  },
+  {
+   "q": "What will Hoa bring Mrs. Lee?",
+   "a": "A loaf of bread",
+   "w": [
+    "A spare key",
+    "Some flowers",
+    "Her laundry"
+   ],
+   "why": "“bring you a loaf” = mang cho cô một ổ bánh mì."
+  }
+ ]
+}
