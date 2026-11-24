@@ -1,0 +1,109 @@
+{
+ "n": 1050,
+ "nguon": "💬 Giao tiếp · Kể chuyện · bài tự soạn",
+ "id": "gt-kc-10",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Chuyến cắm trại đầu tiên hỏng bét",
+ "title": "My first camping trip was a disaster",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Hoa: My first camping trip was a disaster, but I still laugh about it.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We reached the campsite after dark, and then we found out we had forgotten the tent poles.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "It was too late to drive home, so we tied the tent to two trees.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Around midnight it started to rain, and the whole tent fell on our heads!",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Phong: That's hilarious! I was cooking sausages on a camping stove when a dog stole them.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Now I always keep my food in a sealed box when I camp.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Mai: Your story is so funny that I am still smiling!",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Next time, make a packing list and ask a friend to check it.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Bad trips often make the best stories, don't they?",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did Hoa and her friends forget?",
+   "a": "The tent poles",
+   "w": [
+    "The sleeping bags",
+    "The food",
+    "The car keys"
+   ],
+   "why": "“we had forgotten the tent poles”."
+  },
+  {
+   "q": "Why did they not drive home?",
+   "a": "It was too late.",
+   "w": [
+    "The car broke down.",
+    "It was raining.",
+    "They wanted to sleep in the car."
+   ],
+   "why": "“It was too late to drive home”."
+  },
+  {
+   "q": "What happened to Phong’s sausages?",
+   "a": "A dog stole them.",
+   "w": [
+    "They burned.",
+    "He dropped them.",
+    "His friend ate them."
+   ],
+   "why": "“a dog stole them”."
+  },
+  {
+   "q": "What does Mai suggest doing next time?",
+   "a": "Making a packing list",
+   "w": [
+    "Buying a bigger tent",
+    "Going home early",
+    "Never camping again"
+   ],
+   "why": "“Next time, make a packing list”."
+  }
+ ]
+}

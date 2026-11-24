@@ -1,0 +1,119 @@
+{
+ "n": 1049,
+ "nguon": "💬 Giao tiếp · Kể chuyện · bài tự soạn",
+ "id": "gt-kc-09",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "✉️ Văn bản",
+ "kind": "Chat nhóm: Bao lên nhầm xe buýt",
+ "title": "Group chat · Weekend stories",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Group chat · Weekend stories",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lan: Has anyone heard what happened to Bao on Saturday? It's hilarious!",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Bao: Ugh, Lan! Okay, fine. I got on the wrong bus and ended up in a village I had never heard of.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Minh: No way! How far did you go?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Bao: About forty minutes. By the time I noticed, my phone had died too.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thu: Oh no! So how did you get home?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Bao: A kind old man who was selling vegetables gave me a ride on his motorbike.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Minh: Ha! Only you could turn a bad day into an adventure.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lan: Next time, let's all go together so nobody gets lost!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Chỗ trống 1: Okay, fine. I got on the wrong bus and ended ___ in a village I had never heard of.",
+   "a": "up",
+   "w": [
+    "out",
+    "off",
+    "over"
+   ],
+   "why": "end up in … = rốt cuộc lại ở …"
+  },
+  {
+   "q": "Chỗ trống 2: No ___! How far did you go?",
+   "a": "way",
+   "w": [
+    "road",
+    "path",
+    "street"
+   ],
+   "why": "No way! = Không thể nào! (cách nói cố định)."
+  },
+  {
+   "q": "Chỗ trống 3: By the time I noticed, my phone had ___ too.",
+   "a": "died",
+   "w": [
+    "die",
+    "dying",
+    "dies"
+   ],
+   "why": "had + V3: had died."
+  },
+  {
+   "q": "Chỗ trống 4: A kind old man ___ was selling vegetables gave me a ride on his motorbike.",
+   "a": "who",
+   "w": [
+    "which",
+    "where",
+    "whose"
+   ],
+   "why": "who + động từ, chỉ người (a kind old man)."
+  },
+  {
+   "q": "How did Bao get home?",
+   "a": "A vegetable seller gave him a ride.",
+   "w": [
+    "He walked back.",
+    "He took a taxi.",
+    "Lan picked him up."
+   ],
+   "why": "“A kind old man who was selling vegetables gave me a ride.”"
+  }
+ ]
+}

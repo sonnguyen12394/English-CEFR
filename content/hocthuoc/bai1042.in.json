@@ -1,0 +1,127 @@
+{
+ "n": 1042,
+ "nguon": "💬 Giao tiếp · Kể chuyện & chuyện phiếm · bài tự soạn",
+ "id": "gt-kc-02",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn kể chuyện vui",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "You look happy today. What's going on?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Oh, I have to tell you something funny that happened to me yesterday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Go on, I'm all ears.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I was waiting for the bus when I saw a guy waving at me.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Did you know him?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I thought he was my cousin Hung, so I waved back and shouted his name.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Oh no! And it wasn't him?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Nope. He walked over, looking really confused, and said, “Do I know you?”",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ha ha! What did you do?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I wanted the ground to open up! I just said sorry and hid behind my phone.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Poor you! That's the funniest thing I've heard all week.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Don't laugh! Tell me you've done something like that too.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What was Minh doing when the man waved at him?",
+   "a": "Waiting for the bus",
+   "w": [
+    "Buying a drink",
+    "Talking to his cousin",
+    "Walking to work"
+   ],
+   "why": "“I was waiting for the bus when I saw a guy waving”."
+  },
+  {
+   "q": "Who did Minh think the man was?",
+   "a": "His cousin",
+   "w": [
+    "His teacher",
+    "His neighbor",
+    "His old classmate"
+   ],
+   "why": "“I thought he was my cousin Hung”."
+  },
+  {
+   "q": "What did the man say to Minh?",
+   "a": "Do I know you?",
+   "w": [
+    "Where is the bus stop?",
+    "Are you my cousin?",
+    "Why are you shouting?"
+   ],
+   "why": "Anh ta hỏi: “Do I know you?”."
+  },
+  {
+   "q": "How does Lan feel about the story?",
+   "a": "She thinks it is very funny",
+   "w": [
+    "She is angry with Minh",
+    "She is bored",
+    "She is afraid"
+   ],
+   "why": "Lan cười và nói “the funniest thing I've heard all week”."
+  }
+ ]
+}

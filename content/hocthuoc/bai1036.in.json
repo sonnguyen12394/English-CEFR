@@ -1,0 +1,277 @@
+{
+ "n": 1036,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-06",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về cảm xúc và ý kiến (bộ 2)",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Wow, your drawing is amazing! Did you do it yourself?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes! It took me about three weeks.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm so bored. Nothing fun is happening lately.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Same here. Do you want to try something new?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I think pineapple on pizza is delicious.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No way! I can't stand it.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I lost my favorite necklace. I feel awful.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Oh no, I'm sorry. I'm sure it'll turn up soon.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What did you think of the book?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I loved it, but the ending felt rushed.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm so excited! My grandma is visiting next week.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "That's great! How long is she staying?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I don't think you're right about this.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Okay, can you explain why?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why do you look so worried?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I haven't heard from my brother since yesterday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Congrats on getting into the team!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Thanks! I couldn't have done it without your help.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm fed up with this rain. When will it stop?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Me too. The forecast says it'll clear up on Friday.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Wow, your drawing is amazing! Did you do it yourself?",
+   "a": "Yes! It took me about three weeks.",
+   "w": [
+    "Yes! It will take me about three weeks.",
+    "Thanks, my brother is drawing a bird now.",
+    "I'll ask my teacher about it tomorrow."
+   ],
+   "why": "Hỏi có tự vẽ không → Yes + mất bao lâu."
+  },
+  {
+   "q": "I'm so bored. Nothing fun is happening lately.",
+   "a": "Same here. Do you want to try something new?",
+   "w": [
+    "Congrats! That sounds like fun.",
+    "Same here. I'm so excited about the weekend!",
+    "That's wonderful! You must be so happy."
+   ],
+   "why": "Same here = tớ cũng vậy, rồi rủ thử cái mới."
+  },
+  {
+   "q": "I lost my favorite necklace. I feel awful.",
+   "a": "Oh no, I'm sorry. I'm sure it'll turn up soon.",
+   "w": [
+    "Congrats! You must feel great!",
+    "That's great! I'm sure it'll turn up soon.",
+    "Let's buy a new bag at the market."
+   ],
+   "why": "Mất đồ → chia buồn + hy vọng tìm lại."
+  },
+  {
+   "q": "I don't think you're right about this.",
+   "a": "Okay, can you explain why?",
+   "w": [
+    "Thanks! I'm glad you agree with me.",
+    "Yes, it's about two kilometers from here.",
+    "Sure, I'm going to the library tomorrow."
+   ],
+   "why": "Bị phản đối → hỏi lý do lịch sự."
+  },
+  {
+   "q": "Congrats on getting into the team!",
+   "a": "Thanks! I couldn't have done it without your help.",
+   "w": [
+    "Sorry to hear that. Better luck next time!",
+    "Thanks! Our team lost the match yesterday.",
+    "The team practices on Tuesday and Thursday."
+   ],
+   "why": "Được chúc mừng → cảm ơn."
+  }
+ ],
+ "p2": [
+  {
+   "q": "Wow, your drawing is amazing! Did you do it yourself?",
+   "o": [
+    "Yes! It will take me about three weeks.",
+    "Yes! It took me about three weeks.",
+    "Thanks, my brother is drawing a bird now."
+   ],
+   "a": 1
+  },
+  {
+   "q": "I'm so bored. Nothing fun is happening lately.",
+   "o": [
+    "Congrats! That sounds like fun.",
+    "Same here. I'm so excited about the weekend!",
+    "Same here. Do you want to try something new?"
+   ],
+   "a": 2
+  },
+  {
+   "q": "I think pineapple on pizza is delicious.",
+   "o": [
+    "No way! I can't stand it.",
+    "Same here! I can't stand it.",
+    "The pizza will be delivered at six."
+   ],
+   "a": 0
+  },
+  {
+   "q": "I lost my favorite necklace. I feel awful.",
+   "o": [
+    "Congrats! You must feel great!",
+    "Oh no, I'm sorry. I'm sure it'll turn up soon.",
+    "That's great! I'm sure it'll turn up soon."
+   ],
+   "a": 1
+  },
+  {
+   "q": "What did you think of the book?",
+   "o": [
+    "It's on the second shelf.",
+    "I think about my family every day.",
+    "I loved it, but the ending felt rushed."
+   ],
+   "a": 2
+  },
+  {
+   "q": "I'm so excited! My grandma is visiting next week.",
+   "o": [
+    "That's great! How long is she staying?",
+    "I'm sorry to hear that. Is she sick?",
+    "That's great! How long did she stay?"
+   ],
+   "a": 0
+  },
+  {
+   "q": "I don't think you're right about this.",
+   "o": [
+    "Thanks! I'm glad you agree with me.",
+    "Okay, can you explain why?",
+    "Yes, it's about two kilometers from here."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Why do you look so worried?",
+   "o": [
+    "Because I'm so happy about my results!",
+    "I looked at the window yesterday.",
+    "I haven't heard from my brother since yesterday."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Congrats on getting into the team!",
+   "o": [
+    "Thanks! I couldn't have done it without your help.",
+    "Sorry to hear that. Better luck next time!",
+    "Thanks! Our team lost the match yesterday."
+   ],
+   "a": 0
+  },
+  {
+   "q": "I'm fed up with this rain. When will it stop?",
+   "o": [
+    "Me too. The forecast said it cleared up last Friday.",
+    "Me too. The forecast says it'll clear up on Friday.",
+    "The bus station is near the school."
+   ],
+   "a": 1
+  }
+ ]
+}

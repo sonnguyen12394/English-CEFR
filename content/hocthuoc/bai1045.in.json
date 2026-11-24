@@ -1,0 +1,277 @@
+{
+ "n": 1045,
+ "nguon": "💬 Giao tiếp · Kể chuyện & chuyện phiếm · bài tự soạn",
+ "id": "gt-kc-05",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp khi kể chuyện (bộ 1)",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "How was your weekend?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It was great! We went to the beach and stayed until sunset.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What happened to your arm?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I slipped on the stairs on Saturday, but it's not too bad.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Guess what happened on my way here!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No idea. Come on, tell me!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Were you home during the storm last night?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, and the power went out for two hours.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's the funniest thing that has ever happened to you?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Once I walked into a glass door in front of everyone.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How did you meet your best friend?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "We sat next to each other on the first day of school.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why were you late this morning?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I spent twenty minutes looking for my keys.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Is that story really true?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Cross my heart! It happened exactly like that.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What did you do on your birthday last year?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Nothing special. I just had cake with my family.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "You'll never believe who I bumped into today!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Who? Don't keep me waiting!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What happened to your arm?",
+   "a": "I slipped on the stairs on Saturday, but it's not too bad.",
+   "w": [
+    "I went to the gym on Saturday.",
+    "It's my left arm, and I write with it.",
+    "Yes, I like my arm."
+   ],
+   "why": "Hỏi tay bị sao → kể chuyện bị thương: I slipped on …"
+  },
+  {
+   "q": "Why were you late this morning?",
+   "a": "I spent twenty minutes looking for my keys.",
+   "w": [
+    "I'm usually early on Mondays.",
+    "Yes, I was late.",
+    "I was late last week."
+   ],
+   "why": "Why …? → nêu lý do: I spent … looking for my keys."
+  },
+  {
+   "q": "Is that story really true?",
+   "a": "Cross my heart! It happened exactly like that.",
+   "w": [
+    "Yes, I told the story.",
+    "I told it at school last week.",
+    "The story has two pages."
+   ],
+   "why": "Hỏi có thật không → thề là thật."
+  },
+  {
+   "q": "What did you do on your birthday last year?",
+   "a": "Nothing special. I just had cake with my family.",
+   "w": [
+    "I'll do it next year.",
+    "Last year was a busy year at school.",
+    "Yes, I did a lot."
+   ],
+   "why": "What did you do …? → kể đã làm gì."
+  },
+  {
+   "q": "How did you meet your best friend?",
+   "a": "We sat next to each other on the first day of school.",
+   "w": [
+    "My best friend is called Linh.",
+    "I will meet him tomorrow.",
+    "Yes, I did."
+   ],
+   "why": "How did you meet …? → kể cách quen nhau."
+  }
+ ],
+ "p2": [
+  {
+   "q": "How was your weekend?",
+   "o": [
+    "It was great! We went to the beach and stayed until sunset.",
+    "I'll go to the beach next weekend.",
+    "Yes, I have a week."
+   ],
+   "a": 0
+  },
+  {
+   "q": "What happened to your arm?",
+   "o": [
+    "I broke my phone on Saturday.",
+    "I slipped on the stairs on Saturday, but it's not too bad.",
+    "I like it very much."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Guess what happened on my way here!",
+   "o": [
+    "I was on my way home too.",
+    "I'm on my way, too. See you soon.",
+    "No idea. Come on, tell me!"
+   ],
+   "a": 2
+  },
+  {
+   "q": "Were you home during the storm last night?",
+   "o": [
+    "Yeah, and the power went out for two hours.",
+    "Yes, the storm is coming tomorrow.",
+    "I like watching storms on TV."
+   ],
+   "a": 0
+  },
+  {
+   "q": "What's the funniest thing that has ever happened to you?",
+   "o": [
+    "The funniest is my uncle.",
+    "Once I walked into a glass door in front of everyone.",
+    "I laugh a lot when I watch comedies."
+   ],
+   "a": 1
+  },
+  {
+   "q": "How did you meet your best friend?",
+   "o": [
+    "He is my best, thank you.",
+    "Yes, we met last year.",
+    "We sat next to each other on the first day of school."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Why were you late this morning?",
+   "o": [
+    "I spent twenty minutes looking for my keys.",
+    "I'm usually early on Mondays.",
+    "Yes, I was very late."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Is that story really true?",
+   "o": [
+    "I told it to my brother last year.",
+    "Cross my heart! It happened exactly like that.",
+    "The story is on the shelf."
+   ],
+   "a": 1
+  },
+  {
+   "q": "What did you do on your birthday last year?",
+   "o": [
+    "My birthday is in May.",
+    "Yes, last year was fine.",
+    "Nothing special. I just had cake with my family."
+   ],
+   "a": 2
+  },
+  {
+   "q": "You'll never believe who I bumped into today!",
+   "o": [
+    "Who? Don't keep me waiting!",
+    "Yes, I bumped into a door yesterday.",
+    "You bumped my day."
+   ],
+   "a": 0
+  }
+ ]
+}

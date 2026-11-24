@@ -1,0 +1,109 @@
+{
+ "n": 1033,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-03",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn: lo lắng trước bài phát biểu",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "You've been quiet all day. What's on your mind?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'm worried about my speech tomorrow. What if I forget everything?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Take a deep breath. You've practiced it a lot, haven't you?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes, I have. But my hands are shaking, and my heart is racing.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "That's totally normal. Everyone gets nervous before a speech.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Really? You never look nervous when you speak.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Trust me, I was shaking last week! I just try to smile and speak slowly.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "That actually helps. Can you listen to me practice tonight?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Of course! Don't worry, you'll do great. I'll be in the front row.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is Khoa worried about?",
+   "a": "His speech tomorrow",
+   "w": [
+    "A football match",
+    "His exam results",
+    "A long trip"
+   ],
+   "why": "“I'm worried about my speech tomorrow.”"
+  },
+  {
+   "q": "What does Lily tell Khoa to do first?",
+   "a": "Take a deep breath",
+   "w": [
+    "Drink some water",
+    "Go to sleep",
+    "Call his teacher"
+   ],
+   "why": "“Take a deep breath.”"
+  },
+  {
+   "q": "How does Lily stay calm when she speaks?",
+   "a": "She smiles and speaks slowly",
+   "w": [
+    "She sings a song",
+    "She reads her notes again",
+    "She closes her eyes"
+   ],
+   "why": "“I just try to smile and speak slowly.”"
+  },
+  {
+   "q": "Where will Lily sit?",
+   "a": "In the front row",
+   "w": [
+    "At the back",
+    "Next to the teacher",
+    "Outside the room"
+   ],
+   "why": "“I'll be in the front row.”"
+  }
+ ]
+}

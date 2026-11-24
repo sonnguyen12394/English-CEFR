@@ -1,0 +1,277 @@
+{
+ "n": 1046,
+ "nguon": "💬 Giao tiếp · Kể chuyện & chuyện phiếm · bài tự soạn",
+ "id": "gt-kc-06",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp khi kể chuyện (bộ 2)",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Did you hear about the cat on the school roof?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes! It escaped from a neighbor's yard and climbed onto the roof.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What did you see on the bus this morning?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I saw a man in a chicken costume reading a newspaper.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's the worst haircut you've ever had?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "My brother cut my hair when I was twelve, and I looked like a mushroom.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why are you laughing?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I just remembered something silly I did yesterday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What were you doing when I called you earlier?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I was taking a shower, so I didn't hear the phone.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who told you that?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Mai did, but she heard it from someone else, so I'm not sure.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you ever gotten lost in a new place?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes, once! I took the wrong train and ended up in another city.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How did the story end?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "In the end, everybody laughed, even the teacher.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's the best story your grandparents have told you?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "My grandpa once met a famous singer on a boat.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you serious? That sounds like a movie!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I know! He tells the story every Tet, and it gets longer each time.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did you see on the bus this morning?",
+   "a": "I saw a man in a chicken costume reading a newspaper.",
+   "w": [
+    "I took the number twelve bus to school.",
+    "I will see a film on Sunday.",
+    "Yes, I see the bus every day."
+   ],
+   "why": "What did you see …? → kể điều đã thấy: I saw a man in a chicken costume."
+  },
+  {
+   "q": "Why are you laughing?",
+   "a": "I just remembered something silly I did yesterday.",
+   "w": [
+    "I usually laugh at jokes in class.",
+    "Yes, I like laughing.",
+    "I stopped laughing a minute ago."
+   ],
+   "why": "Why …? → nêu lý do."
+  },
+  {
+   "q": "What were you doing when I called you earlier?",
+   "a": "I was taking a shower, so I didn't hear the phone.",
+   "w": [
+    "I will call you tomorrow.",
+    "Yes, I called you.",
+    "I always call you at eight."
+   ],
+   "why": "What were you doing …? → kể việc đang làm lúc đó."
+  },
+  {
+   "q": "Who told you that?",
+   "a": "Mai did, but she heard it from someone else, so I'm not sure.",
+   "w": [
+    "I am telling you now.",
+    "Yes, I told you that.",
+    "I told it to my sister yesterday."
+   ],
+   "why": "Who told you? → trả lời bằng tên người."
+  },
+  {
+   "q": "How did the story end?",
+   "a": "In the end, everybody laughed, even the teacher.",
+   "w": [
+    "It started with a big storm.",
+    "The story starts at nine.",
+    "Yes, it ended."
+   ],
+   "why": "How did it end? → kể kết thúc."
+  }
+ ],
+ "p2": [
+  {
+   "q": "Did you hear about the cat on the school roof?",
+   "o": [
+    "Yes! It escaped from a neighbor's yard and climbed onto the roof.",
+    "The school is on that street.",
+    "I'll hear about it tomorrow."
+   ],
+   "a": 0
+  },
+  {
+   "q": "What did you see on the bus this morning?",
+   "o": [
+    "I took the number twelve bus to school.",
+    "I saw a man in a chicken costume reading a newspaper.",
+    "I will see a film on Sunday."
+   ],
+   "a": 1
+  },
+  {
+   "q": "What's the worst haircut you've ever had?",
+   "o": [
+    "I go to the same barber every month.",
+    "Yes, I cut it last week.",
+    "My brother cut my hair when I was twelve, and I looked like a mushroom."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Why are you laughing?",
+   "o": [
+    "I just remembered something silly I did yesterday.",
+    "I stopped laughing a minute ago.",
+    "Yes, I laugh a lot with my friends."
+   ],
+   "a": 0
+  },
+  {
+   "q": "What were you doing when I called you earlier?",
+   "o": [
+    "I will call you tomorrow.",
+    "I was taking a shower, so I didn't hear the phone.",
+    "Yes, you called me."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Who told you that?",
+   "o": [
+    "I told it to my sister yesterday.",
+    "I usually tell my sister everything.",
+    "Mai did, but she heard it from someone else, so I'm not sure."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Have you ever gotten lost in a new place?",
+   "o": [
+    "Yes, once! I took the wrong train and ended up in another city.",
+    "No, the place is new and big.",
+    "The new place is very big, thanks."
+   ],
+   "a": 0
+  },
+  {
+   "q": "How did the story end?",
+   "o": [
+    "It starts at nine.",
+    "In the end, everybody laughed, even the teacher.",
+    "The story has ten pages."
+   ],
+   "a": 1
+  },
+  {
+   "q": "What's the best story your grandparents have told you?",
+   "o": [
+    "My grandparents are very old.",
+    "Yes, they live in the city.",
+    "My grandpa once met a famous singer on a boat."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Are you serious? That sounds like a movie!",
+   "o": [
+    "I know! He tells the story every Tet, and it gets longer each time.",
+    "No, I never watch movies.",
+    "Yes, we saw it at the cinema last year."
+   ],
+   "a": 0
+  }
+ ]
+}

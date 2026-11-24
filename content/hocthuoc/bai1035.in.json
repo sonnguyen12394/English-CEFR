@@ -1,0 +1,277 @@
+{
+ "n": 1035,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-05",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về cảm xúc và ý kiến (bộ 1)",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "You look happy today! What's the good news?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I got the part in the school play!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why are you so quiet? Are you upset about something?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "A little. I had an argument with my sister this morning.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I love your new haircut! It really suits you.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Aw, thanks! I was a bit worried it was too short.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you nervous about the exam next week?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not really. I've studied hard, so I feel pretty confident.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Don't you think the new superhero film is a bit overrated?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Honestly, I think so too. The story is just okay.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can you believe it? We won the match!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I know! I'm still shaking with excitement!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Is it okay if I disagree with you on this?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Of course. We don't have to agree on everything.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's wrong? You seem a bit stressed.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, I have too much homework and I can't sleep well.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm really proud of my little brother. He learned to swim!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "That's wonderful! You must be so happy for him.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Are you looking forward to the school trip?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Definitely! But I'm kind of scared of the zip line.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why are you so quiet? Are you upset about something?",
+   "a": "A little. I had an argument with my sister this morning.",
+   "w": [
+    "I'm going to the market tomorrow.",
+    "A little. I'll have an argument with my sister tomorrow.",
+    "I got the part in the school play!"
+   ],
+   "why": "Hỏi vì sao buồn → kể chuyện cãi nhau với chị."
+  },
+  {
+   "q": "I love your new haircut! It really suits you.",
+   "a": "Aw, thanks! I was a bit worried it was too short.",
+   "w": [
+    "Thanks! I'm going to cut it short tomorrow.",
+    "Thanks! My sister has a new hat.",
+    "Thanks! I was a bit worried about the exam."
+   ],
+   "why": "Được khen → cảm ơn + nói điều mình lo."
+  },
+  {
+   "q": "Can you believe it? We won the match!",
+   "a": "I know! I'm still shaking with excitement!",
+   "w": [
+    "Sorry to hear that. Better luck next time!",
+    "The match starts at three o'clock.",
+    "I know! We lost the match yesterday."
+   ],
+   "why": "Báo tin thắng → chia vui: I know!"
+  },
+  {
+   "q": "Is it okay if I disagree with you on this?",
+   "a": "Of course. We don't have to agree on everything.",
+   "w": [
+    "Of course. You must agree with me on everything.",
+    "Yes, the meeting is at ten o'clock.",
+    "Sure, I'm going to the library tomorrow."
+   ],
+   "why": "Of course = tất nhiên được, không cần đồng ý mọi chuyện."
+  },
+  {
+   "q": "Are you looking forward to the school trip?",
+   "a": "Definitely! But I'm kind of scared of the zip line.",
+   "w": [
+    "Definitely! I went on the school trip yesterday.",
+    "The school is next to the park.",
+    "The trip took three hours."
+   ],
+   "why": "looking forward to = mong chờ → Definitely!"
+  }
+ ],
+ "p2": [
+  {
+   "q": "You look happy today! What's the good news?",
+   "o": [
+    "I got the part in the school play!",
+    "Thanks, I bought it last week.",
+    "Because I woke up late today."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Why are you so quiet? Are you upset about something?",
+   "o": [
+    "I'm going to the market tomorrow.",
+    "A little. I had an argument with my sister this morning.",
+    "A little. I'll have an argument with my sister tomorrow."
+   ],
+   "a": 1
+  },
+  {
+   "q": "I love your new haircut! It really suits you.",
+   "o": [
+    "Thanks! I'm going to cut it short tomorrow.",
+    "Thanks! My sister has a new hat.",
+    "Aw, thanks! I was a bit worried it was too short."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Are you nervous about the exam next week?",
+   "o": [
+    "Not really. I've studied hard, so I feel pretty confident.",
+    "Yes, I took the exam last week.",
+    "Not really. I have a new bag for school."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Don't you think the new superhero film is a bit overrated?",
+   "o": [
+    "The film starts at eight o'clock tonight.",
+    "Honestly, I think so too. The story is just okay.",
+    "The cinema is next to my school."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Can you believe it? We won the match!",
+   "o": [
+    "Sorry to hear that. Better luck next time!",
+    "The match starts at three o'clock.",
+    "I know! I'm still shaking with excitement!"
+   ],
+   "a": 2
+  },
+  {
+   "q": "Is it okay if I disagree with you on this?",
+   "o": [
+    "Of course. We don't have to agree on everything.",
+    "Of course. You must agree with me on everything.",
+    "Yes, the meeting is at ten o'clock."
+   ],
+   "a": 0
+  },
+  {
+   "q": "What's wrong? You seem a bit stressed.",
+   "o": [
+    "Yeah, I'm so happy about my new haircut!",
+    "Yeah, I have too much homework and I can't sleep well.",
+    "Sorry, I don't have a pencil."
+   ],
+   "a": 1
+  },
+  {
+   "q": "I'm really proud of my little brother. He learned to swim!",
+   "o": [
+    "I'm sorry to hear that. That must be hard.",
+    "My brother is learning to cook.",
+    "That's wonderful! You must be so happy for him."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Are you looking forward to the school trip?",
+   "o": [
+    "Definitely! But I'm kind of scared of the zip line.",
+    "Definitely! I went on the school trip yesterday.",
+    "The school is next to the park."
+   ],
+   "a": 0
+  }
+ ]
+}

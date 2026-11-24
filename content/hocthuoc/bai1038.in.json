@@ -1,0 +1,109 @@
+{
+ "n": 1038,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-08",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "📢 Bài nói",
+ "kind": "Vlog: điện thoại trên bàn ăn tối",
+ "title": "Vlog: ý kiến về điện thoại lúc ăn tối",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hi everyone, it's Minh. Today I want to talk about phones at the dinner table.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "My sister thinks it's fine to check your phone while eating.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I see her point, but I don't totally agree.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "To be honest, dinner is the only time our family talks.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "If everyone looked at their phones, nobody would say anything.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Although she says it's no big deal, I think it spoils the mood.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "That's fair, though. Some messages are too important to wait, aren't they?",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "So here's my idea: phones in a basket until dessert.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "What do you think? Tell me in the comments, and thanks for watching!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What does Minh's sister think?",
+   "a": "It is fine to check a phone while eating.",
+   "w": [
+    "Phones should stay in a basket.",
+    "Dinner should be shorter.",
+    "Families should not talk at dinner."
+   ],
+   "why": "“My sister thinks it’s fine to check your phone while eating.”"
+  },
+  {
+   "q": "Why does Minh disagree with her?",
+   "a": "Dinner is the only time his family talks.",
+   "w": [
+    "He does not own a phone.",
+    "He does not like family dinners.",
+    "His sister is too young to have a phone."
+   ],
+   "why": "“Dinner is the only time our family talks.”"
+  },
+  {
+   "q": "What does Minh suggest at the end?",
+   "a": "Putting phones in a basket until dessert",
+   "w": [
+    "Turning off the TV at dinner",
+    "Eating dinner earlier",
+    "Never using phones again"
+   ],
+   "why": "“Phones in a basket until dessert.”"
+  },
+  {
+   "q": "What does Minh say about his sister's point on messages?",
+   "a": "Some messages may be too important to wait.",
+   "w": [
+    "All messages are boring.",
+    "Messages never matter.",
+    "Everyone must read messages at dinner."
+   ],
+   "why": "“Some messages are too important to wait, aren’t they?”"
+  }
+ ]
+}

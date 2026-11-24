@@ -1,0 +1,127 @@
+{
+ "n": 1041,
+ "nguon": "💬 Giao tiếp · Kể chuyện & chuyện phiếm · bài tự soạn",
+ "id": "gt-kc-01",
+ "muc": "gt",
+ "chu": "gt-kc",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn kể chuyện cuối tuần",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hey Ken, how was your weekend?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Don't ask! We went camping, and it poured all night.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Seriously? Didn't you check the weather first?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I did. It said sunny, so we didn't bring a proper tent.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Oh no. So where did you sleep?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "In the car! While we were sleeping, Dan's feet kept hitting my head.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ha! That sounds awful. Did you at least have fun?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Honestly, yes. When the rain stopped, we cooked noodles on a tiny stove.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Aw, that's kinda sweet. Was the food any good?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It was the best bowl of noodles ever, because we were so hungry.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Next time, I'm lending you my tent. Deal?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Deal. You're a lifesaver!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why did Ken sleep in the car?",
+   "a": "It rained all night and they had no proper tent",
+   "w": [
+    "The campsite was already full",
+    "He lost his tent on the way",
+    "Dan wanted to drive at night"
+   ],
+   "why": "“it poured all night” + “didn't bring a proper tent” → ngủ trong xe."
+  },
+  {
+   "q": "What did they cook after the rain stopped?",
+   "a": "Noodles",
+   "w": [
+    "Rice",
+    "Soup",
+    "Eggs"
+   ],
+   "why": "“we cooked noodles on a tiny stove”."
+  },
+  {
+   "q": "What does Mai offer to do next time?",
+   "a": "Lend Ken her tent",
+   "w": [
+    "Drive Ken to the campsite",
+    "Check the weather for him",
+    "Cook noodles for him"
+   ],
+   "why": "“I'm lending you my tent”."
+  },
+  {
+   "q": "Why did the noodles taste so good?",
+   "a": "They were very hungry",
+   "w": [
+    "Dan is a great cook",
+    "They had a big stove",
+    "It was an expensive recipe"
+   ],
+   "why": "“because we were so hungry”."
+  }
+ ]
+}

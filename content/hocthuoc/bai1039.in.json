@@ -1,0 +1,113 @@
+{
+ "n": 1039,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-09",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "✉️ Văn bản",
+ "kind": "Chat nhóm: động viên Lan trước buổi thử giọng",
+ "title": "Group chat · Lan's big day",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Group chat · Lan's big day",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lan: Guys, I'm freaking out. My audition for the school band is at four.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Minh: Take a deep breath! You've been practicing for weeks, so you'll be fine.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hoa: Fingers crossed! I'm so proud of you for even trying.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lan: Thanks, guys. I'm kinda scared I'll forget the notes.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Minh: Don't think about that. Just play it like you do at home.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hoa: You've got this! Text us the second you're done.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lan: Will do. Wish me luck!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Chỗ trống 1: Guys, I'm freaking ___. My audition for the school band is at four.",
+   "a": "out",
+   "w": [
+    "up",
+    "off",
+    "in"
+   ],
+   "why": "freak out = hoảng lên; câu sau cho biết Lan lo vì buổi thử giọng."
+  },
+  {
+   "q": "Chỗ trống 2: Take a deep ___! You've been practicing for weeks, so you'll be fine.",
+   "a": "breath",
+   "w": [
+    "breathe",
+    "breathing",
+    "breaths"
+   ],
+   "why": "take a deep breath: breath là danh từ; breathe là động từ."
+  },
+  {
+   "q": "Chỗ trống 3: Fingers ___! I'm so proud of you for even trying.",
+   "a": "crossed",
+   "w": [
+    "cross",
+    "crossing",
+    "crosses"
+   ],
+   "why": "Fingers crossed! là cụm cố định (V3)."
+  },
+  {
+   "q": "Chỗ trống 4: ___ do. Wish me luck!",
+   "a": "Will",
+   "w": [
+    "Would",
+    "Shall",
+    "Does"
+   ],
+   "why": "Will do. = được thôi, mình sẽ làm."
+  },
+  {
+   "q": "What is Lan afraid of?",
+   "a": "Forgetting the notes",
+   "w": [
+    "Missing the bus",
+    "Losing the guitar",
+    "Being late"
+   ],
+   "why": "“I’m kinda scared I’ll forget the notes.”"
+  }
+ ]
+}

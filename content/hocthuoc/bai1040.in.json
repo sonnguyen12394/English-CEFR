@@ -1,0 +1,109 @@
+{
+ "n": 1040,
+ "nguon": "💬 Giao tiếp · Cảm xúc & ý kiến · bài tự soạn",
+ "id": "gt-cx-10",
+ "muc": "gt",
+ "chu": "gt-cx",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Nhận xét thật lòng mà không làm bạn buồn",
+ "title": "How do I give an honest opinion without hurting my friend?",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Ivy: My friend made a short film and asked me to be honest about it.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The truth is, I found it kind of boring, and I don't want to hurt her feelings.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "How can I give my opinion without being rude?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Rob: I'd start with something you really liked, like the music or the funny scene at the beginning.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Then say that some parts felt a little slow, and suggest one small change.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Honest doesn't have to mean harsh.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Sue: I'd ask her first what kind of feedback she wants.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If she only wants encouragement, you can say that sharing your work takes courage.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Most friends would rather hear a kind truth than a fake compliment, don't you think?",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What does Ivy want to know?",
+   "a": "How to share her opinion without being rude",
+   "w": [
+    "How to make a short film",
+    "How to find a new friend",
+    "How to stop watching films"
+   ],
+   "why": "“How can I give my opinion without being rude?”"
+  },
+  {
+   "q": "What does Rob suggest saying first?",
+   "a": "Something she really liked",
+   "w": [
+    "Which parts were boring",
+    "That the film is too long",
+    "That she should not show it"
+   ],
+   "why": "“I’d start with something you really liked.”"
+  },
+  {
+   "q": "What does Sue suggest asking Ivy’s friend?",
+   "a": "What kind of feedback she wants",
+   "w": [
+    "When she made the film",
+    "Who helped her",
+    "How much it cost"
+   ],
+   "why": "“I’d ask her first what kind of feedback she wants.”"
+  },
+  {
+   "q": "According to Sue, what would most friends prefer?",
+   "a": "A kind truth",
+   "w": [
+    "A fake compliment",
+    "No comment at all",
+    "A long e-mail"
+   ],
+   "why": "“Most friends would rather hear a kind truth than a fake compliment.”"
+  }
+ ]
+}
