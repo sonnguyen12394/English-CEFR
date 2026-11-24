@@ -1,0 +1,113 @@
+{
+ "n": 1060,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-10",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Bài đăng diễn đàn về chuyện xã giao trong thang máy",
+ "title": "How do I talk to my neighbors in the elevator?",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Kim: I moved into a new apartment last week, and I feel awkward in the elevator with my neighbors.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We just stand there in silence. What do you usually say to people you hardly know?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Omar: Keep it simple! A smile and a quick “Good morning” is enough.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Talking about the weather works well, like “Nice weather today, isn't it?”",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Just don't ask personal questions, like how much someone earns or why they're single.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Rosa: Learn their names as soon as you can. People love it when you remember them.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "After a few weeks, you could invite a neighbor over for coffee on a weekend.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Trust me, a little small talk makes a big difference, and soon the elevator won't feel so awkward!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why does Kim feel awkward?",
+   "a": "She does not know what to say to her neighbors in the elevator.",
+   "w": [
+    "She lost her key.",
+    "She does not like her new apartment.",
+    "Her neighbors are very loud."
+   ],
+   "why": "“We just stand there in silence.”"
+  },
+  {
+   "q": "What does Omar suggest saying?",
+   "a": "A simple “Good morning”",
+   "w": [
+    "A long story about work",
+    "A question about money",
+    "Nothing at all"
+   ],
+   "why": "“A smile and a quick ‘Good morning’ is enough.”"
+  },
+  {
+   "q": "What does Omar say not to ask about?",
+   "a": "How much someone earns",
+   "w": [
+    "The weather",
+    "Their name",
+    "The elevator"
+   ],
+   "why": "“don’t ask personal questions, like how much someone earns”."
+  },
+  {
+   "q": "What does Rosa say people love?",
+   "a": "When you remember their names",
+   "w": [
+    "When you ask about money",
+    "When you stay silent",
+    "When you move away"
+   ],
+   "why": "“People love it when you remember them.”"
+  },
+  {
+   "q": "When could Kim invite a neighbor for coffee?",
+   "a": "After a few weeks",
+   "w": [
+    "On the first day",
+    "Never",
+    "In the elevator"
+   ],
+   "why": "“After a few weeks, you could invite a neighbor over”."
+  }
+ ]
+}
