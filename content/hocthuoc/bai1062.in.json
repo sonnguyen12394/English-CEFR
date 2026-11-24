@@ -1,0 +1,115 @@
+{
+ "n": 1062,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-02",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại chị em",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "You're still up? It's almost midnight, Leo.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I can't sleep. My math exam is tomorrow, and I'm freaking out.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you reviewed everything yet?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Almost. I've already finished the formulas, but I haven't done the practice tests.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Then stop panicking and do one now. If you get stuck, I'll help you.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Really? You'd do that at midnight?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Sure. I had to study for exams too, you know. Mom made me stay up until two.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Okay, deal. But if I fail, it's your fault.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Ha! You won't fail. You always do better than you think.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Thanks, sis. I'm gonna grab my notes.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why can't Leo sleep?",
+   "a": "He is worried about a math exam",
+   "w": [
+    "He has a stomachache",
+    "His room is too noisy",
+    "He is watching a film"
+   ],
+   "why": "“My math exam is tomorrow, and I'm freaking out.” = mai thi toán và đang hoảng."
+  },
+  {
+   "q": "What has Leo not done yet?",
+   "a": "The practice tests",
+   "w": [
+    "The formulas",
+    "His English homework",
+    "The packing"
+   ],
+   "why": "“I haven't done the practice tests.” = chưa làm đề luyện tập."
+  },
+  {
+   "q": "What does Mia offer to do?",
+   "a": "Help Leo if he gets stuck",
+   "w": [
+    "Take the exam for him",
+    "Call their mother",
+    "Cook him a snack"
+   ],
+   "why": "“If you get stuck, I'll help you.” = nếu em bí, chị sẽ giúp."
+  },
+  {
+   "q": "What does Mia say about herself?",
+   "a": "She also had to study late for exams",
+   "w": [
+    "She never studied for exams",
+    "She failed her last exam",
+    "She hates math"
+   ],
+   "why": "“I had to study for exams too … until two.” = chị cũng từng phải thức khuya ôn thi."
+  }
+ ]
+}

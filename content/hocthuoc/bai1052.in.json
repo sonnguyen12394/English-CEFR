@@ -1,0 +1,115 @@
+{
+ "n": 1052,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-02",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 người bạn",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Ken, I'm so sorry. I'm stuck in traffic on Maple Road.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Again? What's going on? It's not even rush hour.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "There's roadwork near the bridge. Everything is bumper to bumper.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Ugh, that's the worst. Can you take the back road instead?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'd love to, but I don't know the way. My map says it clears up after the bridge.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Okay, then just sit tight. How long do you think it'll take?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Maybe fifteen minutes. I'll let you know when I'm moving again.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No rush. We haven't started the grill at the park yet anyway.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Thanks! Oh, finally, the cars are starting to move!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Great. Drive safe, and keep your eyes on the road!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is Mai late?",
+   "a": "She is stuck in traffic",
+   "w": [
+    "Her car broke down",
+    "She missed the bus",
+    "She forgot about the picnic"
+   ],
+   "why": "“I'm stuck in traffic on Maple Road” = đang kẹt xe."
+  },
+  {
+   "q": "What is causing the traffic jam?",
+   "a": "Roadwork near the bridge",
+   "w": [
+    "A car accident",
+    "A big parade",
+    "Heavy rain"
+   ],
+   "why": "“There's roadwork near the bridge” = gần cầu đang sửa đường."
+  },
+  {
+   "q": "How long does Mai think it will take?",
+   "a": "About fifteen minutes",
+   "w": [
+    "About an hour",
+    "About five minutes",
+    "About two hours"
+   ],
+   "why": "“Maybe fifteen minutes” = chắc mười lăm phút."
+  },
+  {
+   "q": "What does Ken tell Mai at the end?",
+   "a": "Drive safely and watch the road",
+   "w": [
+    "Come home right now",
+    "Call the police",
+    "Park near the bridge"
+   ],
+   "why": "“Drive safe, and keep your eyes on the road” = lái xe cẩn thận, nhìn đường."
+  }
+ ]
+}

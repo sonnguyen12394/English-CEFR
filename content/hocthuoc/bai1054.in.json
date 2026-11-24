@@ -1,0 +1,115 @@
+{
+ "n": 1054,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-04",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại 2 hàng xóm",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "B",
+   "Hi there! You must be the new neighbor in 4B.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "That's me! I'm Dana. I just moved in last weekend.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Nice to meet you, Dana. I'm Lee, from 4A. How are you settling in?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "So far so good, though I'm still surrounded by boxes.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I know the feeling. If you need anything, just knock on my door.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Thanks, that's really kind. Actually, do you know when the trash gets collected?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Tuesdays and Fridays, early in the morning. You'll hear the truck.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Good to know. Sorry in advance if my music gets loud.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No problem. By the way, we're having a get-together in the courtyard on Saturday. Come by if you're free!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'd love to! I'll bring some snacks. See you then!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "When did Dana move in?",
+   "a": "Last weekend",
+   "w": [
+    "Yesterday",
+    "Last month",
+    "This morning"
+   ],
+   "why": "“I just moved in last weekend” = chuyển đến cuối tuần trước."
+  },
+  {
+   "q": "Which apartment does Lee live in?",
+   "a": "4A",
+   "w": [
+    "4B",
+    "5A",
+    "3B"
+   ],
+   "why": "“I'm Lee, from 4A” = Lee ở căn 4A (Dana ở 4B)."
+  },
+  {
+   "q": "When is the trash collected?",
+   "a": "On Tuesdays and Fridays",
+   "w": [
+    "On Mondays and Thursdays",
+    "Every morning",
+    "Only on Sundays"
+   ],
+   "why": "“Tuesdays and Fridays, early in the morning.”"
+  },
+  {
+   "q": "What will Dana bring on Saturday?",
+   "a": "Some snacks",
+   "w": [
+    "A cake",
+    "Some drinks",
+    "Folding chairs"
+   ],
+   "why": "“I'll bring some snacks.”"
+  }
+ ]
+}

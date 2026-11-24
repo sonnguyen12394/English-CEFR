@@ -1,0 +1,103 @@
+{
+ "n": 1067,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-07",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "📢 Bài nói",
+ "kind": "Tin nhắn thoại về lớp tiếng Anh buổi tối",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hey Lan, it's Minh. I finally started my evening English class!",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "It's twice a week, and the teacher makes us speak the whole time.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "At first I was so nervous that I could hardly say a word.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Now I'm getting used to it, and I'm kinda enjoying it.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I want to pass the test in June, so I practice for half an hour every night.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Honestly, watching series without subtitles helps a lot.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Do you wanna study together on weekends? It'd be way more fun.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Text me back when you're free. Talk later!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "How does Minh feel about the class now?",
+   "a": "He is getting used to it and kinda enjoys it.",
+   "w": [
+    "He still hates it.",
+    "He wants to quit.",
+    "He is too nervous to speak."
+   ],
+   "why": "“Now I’m getting used to it, and I’m kinda enjoying it.”"
+  },
+  {
+   "q": "When is Minh’s test?",
+   "a": "In June",
+   "w": [
+    "Next week",
+    "In December",
+    "This weekend"
+   ],
+   "why": "“I want to pass the test in June.”"
+  },
+  {
+   "q": "What helps Minh a lot, according to him?",
+   "a": "Watching series without subtitles",
+   "w": [
+    "Writing long essays",
+    "Taking more classes",
+    "Reading the news"
+   ],
+   "why": "“watching series without subtitles helps a lot.”"
+  },
+  {
+   "q": "What does Minh want Lan to do?",
+   "a": "Study with him on weekends",
+   "w": [
+    "Call him tonight",
+    "Take the test for him",
+    "Teach him English"
+   ],
+   "why": "“Do you wanna study together on weekends?”"
+  }
+ ]
+}
