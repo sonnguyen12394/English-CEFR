@@ -1,0 +1,277 @@
+{
+ "n": 1055,
+ "nguon": "💬 Giao tiếp · Chuyện vặt hằng ngày · bài tự soạn",
+ "id": "gt-hn-05",
+ "muc": "gt",
+ "chu": "gt-hn",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp xã giao với hàng xóm",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Nice weather today, isn't it?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes, it's lovely. Perfect for a walk.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How was your weekend?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Pretty quiet. I mostly stayed in because of the rain.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Is it going to rain later?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I think so. You'd better take an umbrella.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you met the people who moved in next door?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not yet. I've only waved at them.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you mind if I park here for a minute?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Go ahead, just don't block the gate.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Did you hear that noise last night?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yeah, it kept me up too. Sounded like a fire alarm.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Mind if I borrow your ladder this weekend?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure thing. It's in the garage.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How's your mother doing these days?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Much better, thanks for asking.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you know if the power is back on?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It just came back a few minutes ago.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Well, I'd better get going. Take care!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "You too. Say hi to your family for me!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Nice weather today, isn't it?",
+   "a": "Yes, it's lovely. Perfect for a walk.",
+   "w": [
+    "I bought it last year.",
+    "It is ten kilometers away.",
+    "Two brothers and a sister."
+   ],
+   "why": "Câu bắt chuyện về thời tiết → đồng ý và nói thêm."
+  },
+  {
+   "q": "Do you mind if I park here for a minute?",
+   "a": "Go ahead, just don't block the gate.",
+   "w": [
+    "I parked it yesterday.",
+    "The gate is green.",
+    "At about five minutes."
+   ],
+   "why": "Do you mind if …? xin phép → Go ahead = cứ làm đi."
+  },
+  {
+   "q": "Did you hear that noise last night?",
+   "a": "Yeah, it kept me up too. Sounded like a fire alarm.",
+   "w": [
+    "I will hear it tomorrow.",
+    "I can hear you now.",
+    "Noise is a kind of music."
+   ],
+   "why": "Hỏi có nghe tiếng ồn không → xác nhận và kể thêm."
+  },
+  {
+   "q": "Do you know if the power is back on?",
+   "a": "It just came back a few minutes ago.",
+   "w": [
+    "The power bill is high.",
+    "I have a power drill.",
+    "It was on the wall."
+   ],
+   "why": "Hỏi điện có lại chưa → mới có lại vài phút trước."
+  },
+  {
+   "q": "Well, I'd better get going. Take care!",
+   "a": "You too. Say hi to your family for me!",
+   "w": [
+    "Good morning, how are you?",
+    "I am going to the station.",
+    "Sorry, I do not like it."
+   ],
+   "why": "Chào ra về → đáp chào và gửi lời hỏi thăm."
+  }
+ ],
+ "p2": [
+  {
+   "q": "Nice weather today, isn't it?",
+   "o": [
+    "Yes, it's lovely. Perfect for a walk.",
+    "Nice to meet you, too.",
+    "The weather vane is rusty."
+   ],
+   "a": 0
+  },
+  {
+   "q": "How was your weekend?",
+   "o": [
+    "It was ten kilometers.",
+    "Pretty quiet. I mostly stayed in because of the rain.",
+    "At the end of the week."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Is it going to rain later?",
+   "o": [
+    "It's going to the market.",
+    "It rained a lot last year.",
+    "I think so. You'd better take an umbrella."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Have you met the people who moved in next door?",
+   "o": [
+    "Not yet. I've only waved at them.",
+    "I've moved to the next floor.",
+    "A few more doors, please."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Do you mind if I park here for a minute?",
+   "o": [
+    "The park is closed on Sundays.",
+    "Go ahead, just don't block the gate.",
+    "My car is a minivan."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Did you hear that noise last night?",
+   "o": [
+    "The night train leaves at nine.",
+    "Noise is not allowed here.",
+    "Yeah, it kept me up too. Sounded like a fire alarm."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Mind if I borrow your ladder this weekend?",
+   "o": [
+    "Sure thing. It's in the garage.",
+    "The ladder is for sale.",
+    "Weekend rates start at ten dollars."
+   ],
+   "a": 0
+  },
+  {
+   "q": "How's your mother doing these days?",
+   "o": [
+    "My brother goes there often.",
+    "Much better, thanks for asking.",
+    "Those days were rainy."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Do you know if the power is back on?",
+   "o": [
+    "The power plant is far from here.",
+    "The powder is on the shelf.",
+    "It just came back a few minutes ago."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Well, I'd better get going. Take care!",
+   "o": [
+    "You too. Say hi to your family for me!",
+    "I'm getting a new dog.",
+    "It's better to take a bus."
+   ],
+   "a": 0
+  }
+ ]
+}

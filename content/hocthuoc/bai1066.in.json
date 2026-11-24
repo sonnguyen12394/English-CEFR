@@ -1,0 +1,267 @@
+{
+ "n": 1066,
+ "nguon": "💬 Giao tiếp · Học hành & dự định · bài tự soạn",
+ "id": "gt-hd-06",
+ "muc": "gt",
+ "chu": "gt-hd",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp về kế hoạch và ước mơ",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "What are you doing over the summer?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'm joining a coding camp for two weeks.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you decided which university to apply to?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not yet. I'm still comparing a few options.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why did you choose that major?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I've always loved biology, so it was an easy choice.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you think you'll study abroad one day?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'd like to, if I can get a scholarship.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How many hours a week do you practice English?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "About five. I'm trying to do more.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's your biggest goal this year?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "To speak English without feeling nervous.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who inspires you the most?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "My older sister. She worked really hard to get where she is.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Would you ever start your own business?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Maybe someday, but I've got no clue where to start.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What's the hardest part about learning English?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Listening, hands down. People talk so fast!",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Any advice for someone learning a new skill?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Just be patient. Small steps add up.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Have you decided which university to apply to?",
+   "a": "Not yet. I'm still comparing a few options.",
+   "w": [
+    "I decided yesterday's weather.",
+    "It's applied to the wall.",
+    "The university is very big."
+   ],
+   "why": "Have you decided …? → Not yet. + lý do."
+  },
+  {
+   "q": "Do you think you'll study abroad one day?",
+   "a": "I'd like to, if I can get a scholarship.",
+   "w": [
+    "I study at nine every day.",
+    "A scholar is a person who studies.",
+    "Abroad is on the second floor."
+   ],
+   "why": "Hỏi có đi du học không → I'd like to, if …"
+  },
+  {
+   "q": "Any advice for someone learning a new skill?",
+   "a": "Just be patient. Small steps add up.",
+   "w": [
+    "I learned a skill last year.",
+    "The advice is on page nine.",
+    "A new skill costs a lot."
+   ],
+   "why": "Hỏi lời khuyên → đưa lời khuyên: Just be patient."
+  },
+  {
+   "q": "What's the hardest part about learning English?",
+   "a": "Listening, hands down. People talk so fast!",
+   "w": [
+    "English is spoken in the UK.",
+    "The hardest stone is a diamond.",
+    "I learn English at school."
+   ],
+   "why": "What's the hardest part …? → nêu phần khó nhất: Listening."
+  }
+ ],
+ "p2": [
+  {
+   "q": "What are you doing over the summer?",
+   "o": [
+    "The summer was very hot.",
+    "I'm joining a coding camp for two weeks.",
+    "Over the river and the bridge."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Have you decided which university to apply to?",
+   "o": [
+    "Not yet. I'm still comparing a few options.",
+    "I decided yesterday's weather.",
+    "It's applied to the wall."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Why did you choose that major?",
+   "o": [
+    "It's a major road in town.",
+    "I've always loved biology, so it was an easy choice.",
+    "I choose it on Tuesday."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Do you think you'll study abroad one day?",
+   "o": [
+    "I study at nine every day.",
+    "A scholar is a person who studies.",
+    "I'd like to, if I can get a scholarship."
+   ],
+   "a": 2
+  },
+  {
+   "q": "How many hours a week do you practice English?",
+   "o": [
+    "About five. I'm trying to do more.",
+    "Every hour is on the clock.",
+    "My English book is blue."
+   ],
+   "a": 0
+  },
+  {
+   "q": "What's your biggest goal this year?",
+   "o": [
+    "Last year was my biggest one.",
+    "The goal is at the end of the field.",
+    "To speak English without feeling nervous."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Who inspires you the most?",
+   "o": [
+    "Inspire is a verb.",
+    "My older sister. She worked really hard to get where she is.",
+    "The most expensive one."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Would you ever start your own business?",
+   "o": [
+    "My own room is on the left.",
+    "Maybe someday, but I've got no clue where to start.",
+    "Business is busy in the morning."
+   ],
+   "a": 1
+  },
+  {
+   "q": "What's the hardest part about learning English?",
+   "o": [
+    "Listening, hands down. People talk so fast!",
+    "English is spoken in the UK.",
+    "The hardest stone is a diamond."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Any advice for someone learning a new skill?",
+   "o": [
+    "I learned a skill last year.",
+    "The advice is on page nine.",
+    "Just be patient. Small steps add up."
+   ],
+   "a": 2
+  }
+ ]
+}
