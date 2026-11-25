@@ -97,12 +97,12 @@ mark { background: var(--acc2); color: var(--acc); font-weight: 700; border-radi
 .ds2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px } .ds2 .opt { text-align: center; font-weight: 700; font-size: 18px }
 .gin { flex: 1; min-width: 0; min-height: 52px; font: 600 18px var(--body); padding: 8px 12px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink) }
 .ttcard p { margin: 6px 0; font-size: 17px; line-height: 1.5 } .tbar { height: 6px; background: var(--hide); border-radius: 999px; overflow: hidden } .tbar i { display: block; height: 100%; width: 100%; background: var(--a) }
-.dgwin { position: relative; height: 230px; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; margin: 10px 0 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 10%); mask-image: linear-gradient(to bottom, transparent 0, #000 10%) } .dgtools .lay { padding: 4px 10px } .dgtools { gap: 6px; flex-wrap: wrap; align-items: center; margin: 8px 0 0 } .dgwrap { position: relative } .dgtipc { position: absolute; inset: 0; z-index: 2; margin: 0; padding: 10px 12px; overflow: auto; box-shadow: 0 6px 20px rgba(0,0,0,.25) } .dgtw { font-size: 22px }
+.dgwin { position: relative; height: 230px; height: max(230px, 42vh); height: max(230px, 42dvh); overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; margin: 10px 0 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 10%); mask-image: linear-gradient(to bottom, transparent 0, #000 10%) } .dgtools .lay { padding: 4px 10px } .dgtools { gap: 6px; flex-wrap: wrap; align-items: center; margin: 8px 0 0 } .dgwrap { position: relative } .dgtipc { position: absolute; inset: 0; z-index: 2; margin: 0; padding: 10px 12px; overflow: auto; box-shadow: 0 6px 20px rgba(0,0,0,.25) } .dgtw { font-size: 22px }
 .dgnh { border-bottom: 1px solid var(--line); margin-bottom: 6px; padding-bottom: 6px } .nhr { margin: 4px 0 } .nhr .row { gap: 6px } .nhr .lay { padding: 4px 10px }
 .dgtl { margin: 4px 0; padding-left: 18px; font-size: 14px; line-height: 1.5 } .dgtl li { margin: 3px 0 }
 .dgwin .gw { cursor: pointer } .showipa .gw { display: inline-block; text-align: center; vertical-align: top; line-height: 1.25; margin-bottom: 6px }
 .showipa .gw::after { content: attr(data-ipa); display: block; font-size: 12px; font-weight: 400; color: var(--mute); white-space: nowrap }
-.dgclock { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 18px } .dgback { position: absolute; right: 8px; bottom: 8px; z-index: 3; min-height: 44px; border-radius: 999px; padding: 6px 14px; background: var(--acc); color: var(--card); font-weight: 700; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.25) }
+.dgtyping .dgin { display: flex; gap: 6px; align-items: center } .dgtyping .dgtools .sm, .dgtyping .dglb { display: none } .dgtyping .dgtools { margin: 0; flex-wrap: nowrap } .dgtyping .dgtools .lay { min-width: 44px; min-height: 44px; padding: 4px 8px; font-size: 18px } .dgtyping .dgwin { margin-top: 6px } .dgclock { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 18px } .dgback { position: absolute; right: 8px; bottom: 8px; z-index: 3; min-height: 44px; border-radius: 999px; padding: 6px 14px; background: var(--acc); color: var(--card); font-weight: 700; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.25) }
 .dgroll { padding: 14px 14px 140px; font-size: 20px; line-height: 1.8 } .dgl { margin: 0 0 12px } .gw { color: var(--ink); white-space: nowrap } .gw-hid { color: var(--line); letter-spacing: 1px }
 .gw-ok { color: var(--good); font-weight: 700 } .gw-sk { color: var(--warn); background: var(--warnbg); border-radius: 4px; padding: 0 2px; font-weight: 600 }
 .seg.cap { grid-template-columns: repeat(4, 1fr) } .capn { color: var(--warn); background: var(--warnbg); border-radius: 4px; padding: 0 4px; font-weight: 700 } .gw-err { color: var(--bad); text-decoration: line-through }
@@ -704,8 +704,8 @@ function dgCapBox() { const c = dgCapGet(), o = dgOptGet(), W = DG_W(), ys = W.f
 function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_W(); let k = 0, okN = 0, over = false; const res = [];
   let html = '', li = -1; W.forEach((x, j) => { if (x.i !== li) { if (li >= 0) html += '</p>'; li = x.i; html += `<p class="dgl"><span class="tag">${WHO[L[li][0]][0]}</span> `; } html += `<span class="gw" id="gw${j}" data-j="${j}" data-ipa="/${esc(dgIpa(x))}/">${esc(x.w)}</span> `; }); html += '</p>';
   app.innerHTML = `${head()}<div class="row" style="justify-content:space-between"><span class="tag">Lần ${DG.n + 1}${dgCapGet() >= 0 ? ` · cấp ${DG_CAPN[dgCapGet()]}` : ''}${DG.best ? ` · kỷ lục ${dgClock(DG.best)}` : ''}</span><span class="dgclock" id="dgclk">⏱ 0:00.0</span></div>
-    <input id="dgi" class="gin" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Gõ từ đang sáng" enterkeyhint="next" placeholder="Gõ liền nhiều từ · ↵ bỏ qua từ">
-    <div class="row dgtools"><button class="lay${DG.ipa ? ' on' : ''}" id="dgipa" aria-pressed="${!!DG.ipa}">🔤 Phiên âm</button><button class="lay" id="dgsay">🔊 Nghe từ đang sáng</button><span class="sm mute">· chạm từ để học cách nói</span></div>
+    <div class="dgin"><input id="dgi" class="gin" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Gõ từ đang sáng" enterkeyhint="next" placeholder="Nói hoặc gõ · ↵ bỏ qua từ">
+    <div class="row dgtools"><button class="lay${DG.ipa ? ' on' : ''}" id="dgipa" aria-pressed="${!!DG.ipa}" aria-label="Phiên âm">🔤<span class="dglb"> Phiên âm</span></button><button class="lay" id="dgsay" aria-label="Nghe từ đang sáng">🔊<span class="dglb"> Nghe từ đang sáng</span></button><span class="sm mute">· chạm từ để học cách nói</span></div></div>
     <div class="dgwrap"><div id="dgtip"></div><div class="dgwin${DG.ipa ? ' showipa' : ''}" id="dgwin"><div class="dgroll" id="dgroll">${html}</div></div><button class="dgback" id="dgback" hidden>↓ Về chỗ đang nói</button></div>
     <div class="bar"><i id="dgbar" style="width:0%"></i></div><p class="sm mute" id="dgs"></p><div id="fb"></div>`;
   const win = $('#dgwin'), roll = $('#dgroll'), inp = $('#dgi'), H = win.clientHeight; let t0 = 0, y = 0, skN = 0, userT = -1e9, autoS = false; const DG_HOLD = 4000;
@@ -755,7 +755,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
     if (t0) $('#dgclk').textContent = '⏱ ' + dgClock(performance.now() - t0);
     // v27 (người sáng lập: "lướt đoạn văn lên xuống để đọc"): khung cuộn tay được; vừa lướt tay thì ngừng tự kéo DG_HOLD ms, hiện nút về chỗ đang nói.
     const e = k < W.length ? sp(k) : null, hold = performance.now() - userT < DG_HOLD; $('#dgback').hidden = !hold || !e;
-    if (e && !hold) { const want = Math.max(0, e.offsetTop - H * 0.35), d = want - win.scrollTop; if (Math.abs(d) > 1) { autoS = true; win.scrollTop += d * 0.15; } }
+    if (e && !hold) { const want = Math.max(0, e.offsetTop - win.clientHeight * 0.35), d = want - win.scrollTop; if (Math.abs(d) > 1) { autoS = true; win.scrollTop += d * 0.15; } }
     DG_RAF = requestAnimationFrame(tick); };
   // v18 (người sáng lập): chữ trong ô khớp từ đang sáng thì xanh NGAY; chữ không khớp cứ DG_IDLE bỏ một lần
   // (bỏ trong bộ đếm, không sửa ô: sửa ô khi micro iPhone đang nghe làm chữ mới không hiện tới khi dừng nói). Bỏ xong vẫn tìm từ đang sáng ở phần sau nếu đã nói tới.
@@ -785,7 +785,21 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   win.addEventListener('scroll', () => { if (autoS) { autoS = false; return; } if (performance.now() - userT < 1500) userT = performance.now(); }, { passive: true });
   keep($('#dgback')); $('#dgback').onclick = () => { userT = -1e9; };
   inp.addEventListener('blur', () => { if (!over) { for (let j = 0; j < W.length; j++) if (res[j] != null) fixed.add(j); inp.value = ''; lastVal = ''; lastLen = 0; cur(); } });
-  cur(); stat(); inp.focus(); DG_RAF = requestAnimationFrame(tick); }
+  cur(); stat(); dgFit(inp, win); inp.focus(); DG_RAF = requestAnimationFrame(tick); }
+// v221 (ảnh người sáng lập iPhone: "khi đọc hoặc viết thì không thấy được có 2 hàng chữ"): bàn phím mở thì cuộn cho hàng đồng hồ lên sát mép trên
+// (giấu tiêu đề), ô chữ bài cao hết phần còn thấy trên bàn phím. Trang nằm trong khung iframe của app: bàn phím chỉ làm nhỏ
+// visualViewport của trang cha, nên đo bằng trang cha khi cùng nguồn.
+function dgFit(inp, win) { let P = window; try { if (parent !== window && parent.visualViewport) P = parent; } catch (e) {}
+  const vv = P.visualViewport || window.visualViewport, fr = P !== window ? frameElement : null;
+  const fit = () => { if (!document.body.contains(win)) { if (vv) vv.removeEventListener('resize', fit); return; }
+    const on = document.activeElement === inp; app.classList.toggle('dgtyping', on);
+    if (!on) { win.style.height = ''; return; }
+    const hd = (inp.parentElement && inp.parentElement.previousElementSibling) || inp; scrollTo(0, Math.max(0, hd.getBoundingClientRect().top + scrollY - 4));   // giữ hàng đồng hồ
+    const off = fr ? fr.getBoundingClientRect().top : 0, bot = vv ? vv.offsetTop + vv.height : innerHeight;
+    const room = Math.floor(bot - (off + win.getBoundingClientRect().top) - 10);
+    win.style.height = Math.max(150, Math.min(room, innerHeight - 140)) + 'px'; };
+  inp.addEventListener('focus', () => { setTimeout(fit, 60); setTimeout(fit, 400); }); inp.addEventListener('blur', () => setTimeout(fit, 60));
+  if (vv) vv.addEventListener('resize', fit); }
 // ④ viết lại: từng câu, gợi ý tiếng Việt + chữ đầu (ôn thì bỏ chữ đầu)
 const norm = w => w.toLowerCase().replace(/[^a-z0-9']/g, '');
 function diff(want, got) { const g = words(got).map(norm).filter(Boolean), W = words(want); let ok = 0, p = 0;
