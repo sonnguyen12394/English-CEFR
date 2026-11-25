@@ -165,9 +165,9 @@
    "q": "Should I call an ambulance?",
    "a": "Yes, right now. She can't move her leg.",
    "w": [
-    "It's a ten-minute drive from here.",
+    "My car is in the garage.",
     "Ambulances are usually white.",
-    "Last year, I took a first aid class."
+    "I went to the beach last year."
    ],
    "why": "Should I …? → Yes, right now + lý do."
   },
@@ -222,7 +222,7 @@
   {
    "q": "Should I call an ambulance?",
    "o": [
-    "It's a ten-minute drive from here.",
+    "My car is in the garage.",
     "Ambulances are usually white.",
     "Yes, right now. She can't move her leg."
    ],
