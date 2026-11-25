@@ -27,6 +27,7 @@ dgBestGet = () => +HT.best['dg' + BAI_I + dgCapSuf()] || 0; dgBestSet = v => { H
 // v218: cấp của bạn (⚡ Đua giờ) lưu ở HT.cap; chưa chọn thì lấy cấp đang học của app (parent.htLv), không có thì tắt
 dgCapGet = () => { if (HT.cap != null) return +HT.cap; try { const v = window.parent !== window && window.parent.htLv && window.parent.htLv(); if (v != null) return v; } catch (e) {} return -1; };
 dgCapSet = v => { HT.cap = v; htSave(); };
+dgOptGet = () => HT.dgo || {}; dgOptSet = o => { HT.dgo = o; htSave(); };  // v219
 dvBestGet = () => +HT.best['dv' + BAI_I] || 0; dvBestSet = v => { HT.best['dv' + BAI_I] = v; htSave(); };
 if (HT.cur) baiLoad(HT.cur + 1, () => { _useBai(HT.cur); hub(); }); else hub();""")
 # v216: tệp bài kèm ?v=<dấu nội dung> để iPhone không giữ danh sách bài cũ (trước: thấy 66 bài, chủ đề nào cũng 0)

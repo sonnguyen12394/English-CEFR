@@ -634,8 +634,14 @@ const dkF = w => { const t = dk(w); return DG_FILL.test(t) ? '' : t; };
 const DG_CAPN = ['Pre-A1', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 let dgCapGet = () => { try { const v = localStorage.getItem('dgCap'); return v == null ? -1 : +v; } catch (e) { return -1; } };
 let dgCapSet = v => { try { localStorage.setItem('dgCap', v); } catch (e) {} };
-const dgCapSuf = () => { const c = dgCapGet(); return c >= 0 && c < 6 ? ':c' + c : ''; };
+const dgCapSuf = () => { const c = dgCapGet(); return (c >= 0 && c < 6 ? ':c' + c : '') + (dgOptGet().name ? ':n' : ''); };
 const dgWLv = w => { if (typeof CAPW === 'undefined') return null; const k = String(w).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[’‘]/g, "'").replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, ''); return k in CAPW ? CAPW[k] : null; };
+// v219 (người sáng lập 25/11: "dấu chấm hoặc từ hmm cho xanh luôn thì giờ có tuỳ chọn chuyển sang vàng; tên riêng cũng có tuỳ chọn như vậy vì tôi phát âm tên riêng chưa được"):
+// 2 tuỳ chọn (lưu dgOpt / S.ht.dgo): fill = tiếng đệm + dấu câu đứng riêng hiện vàng thay vì xanh; name = tên riêng (viết hoa, không có trong bảng cấp CAPW) hiện vàng, tự bỏ qua.
+let dgOptGet = () => { try { return JSON.parse(localStorage.getItem('dgOpt') || '{}') || {}; } catch (e) { return {}; } };
+let dgOptSet = o => { try { localStorage.setItem('dgOpt', JSON.stringify(o)); } catch (e) {} };
+const dgName = w => { const c = String(w).replace(/[’‘]/g, "'").replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g, '').replace(/'s$/, ''); return /^[A-Z][A-Za-z'-]*$/.test(c) && c !== 'I' && typeof CAPW !== 'undefined' && dgWLv(c) == null; };
+const dgSkip = w => { const o = dgOptGet(); if (!dkF(w)) return o.fill ? 'fill' : null; if (dgOver(w) != null) return 'cap'; if (o.name && dgName(w)) return 'name'; return null; };
 const dgOver = w => { const c = dgCapGet(); if (c < 0 || !dkF(w)) return null; const l = dgWLv(w); return l != null && l > c ? l : null; };
 const DG_NUMR = Object.fromEntries(Object.entries(DG_NUM).map(([a, b]) => [b, a]));
 // v21: số đọc bằng micro có nhiều cách ghi: "512" · "5 12" · "five twelve" · "five one two" · "five hundred (and) twelve"; "nine" · "9" · "9:00"; "o'clock" · ":00".
@@ -694,11 +700,13 @@ function duago() { cancelAnimationFrame(DG_RAF); DG = DG || { best: dgBestGet(),
     ${dgCapBox()}
     <button class="pri" id="go" style="margin-top:12px">▶ Bắt đầu</button>${sibNav('duago')}`;
   $('#go').onclick = dgRound;
+  app.querySelectorAll('[data-dgo]').forEach(b => b.onclick = () => { const o = dgOptGet(); o[b.dataset.dgo] = !o[b.dataset.dgo]; dgOptSet(o); DG = { best: dgBestGet(), n: 0, first: null, ipa: DG.ipa }; duago(); });
   app.querySelectorAll('[data-cap]').forEach(b => b.onclick = () => { dgCapSet(+b.dataset.cap); DG = { best: dgBestGet(), n: 0, first: null, ipa: DG.ipa }; duago(); }); }
-function dgCapBox() { const c = dgCapGet(), W = DG_W(), ys = c >= 0 ? W.filter(x => dgOver(x.w) != null) : [];
-  return `<div class="card" style="margin-top:12px"><p><b>🎚 Cấp của bạn</b></p><p class="sm mute">Từ khó hơn cấp bạn chọn hiện <span class="capn">màu vàng</span>, tự bỏ qua, không cần nói. Tên riêng và số vẫn phải nói.</p>
+function dgCapBox() { const c = dgCapGet(), o = dgOptGet(), W = DG_W(), ys = W.filter(x => dgSkip(x.w) && dkF(x.w));
+  return `<div class="card" style="margin-top:12px"><p><b>🎚 Cấp của bạn</b></p><p class="sm mute">Từ khó hơn cấp bạn chọn hiện <span class="capn">màu vàng</span>, tự bỏ qua, không cần nói. Số vẫn phải nói.</p>
     <div class="seg cap" role="group" aria-label="Cấp của bạn"><button data-cap="-1" aria-pressed="${c < 0}">Tắt</button>${DG_CAPN.map((n, i) => `<button data-cap="${i}" aria-pressed="${c === i}">${n}</button>`).join('')}</div>
-    <p class="sm" style="margin-top:8px">${c < 0 ? 'Đang tắt: phải nói đủ mọi từ.' : `Bài này: <b>${ys.length}</b> / ${W.length} từ vàng, cần nói ${W.length - ys.length} từ.${ys.length ? ` <span class="mute">Từ vàng: ${[...new Set(ys.map(x => x.w.replace(/^[^A-Za-z0-9'’]+|[^A-Za-z0-9'’]+$/g, '')))].slice(0, 12).map(esc).join(', ')}${new Set(ys.map(x => dk(x.w))).size > 12 ? '…' : ''}</span>` : ''}`}</p></div>`; }
+    <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:6px"><button class="lay${o.name ? ' on' : ''}" data-dgo="name" aria-pressed="${!!o.name}">Tên riêng hiện vàng</button><button class="lay${o.fill ? ' on' : ''}" data-dgo="fill" aria-pressed="${!!o.fill}">Hmm, oh… hiện vàng</button></div>
+    <p class="sm" style="margin-top:8px">${!ys.length && c < 0 ? 'Đang tắt: phải nói đủ mọi từ.' : `Bài này: <b>${ys.length}</b> / ${W.length} từ vàng, cần nói ${W.length - ys.length} từ.${ys.length ? ` <span class="mute">Từ vàng: ${[...new Set(ys.map(x => x.w.replace(/^[^A-Za-z0-9'’]+|[^A-Za-z0-9'’]+$/g, '')))].slice(0, 12).map(esc).join(', ')}${new Set(ys.map(x => dk(x.w))).size > 12 ? '…' : ''}</span>` : ''}`}</p></div>`; }
 function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_W(); let k = 0, okN = 0, over = false; const res = [];
   let html = '', li = -1; W.forEach((x, j) => { if (x.i !== li) { if (li >= 0) html += '</p>'; li = x.i; html += `<p class="dgl"><span class="tag">${WHO[L[li][0]][0]}</span> `; } html += `<span class="gw" id="gw${j}" data-j="${j}" data-ipa="/${esc(dgIpa(x))}/">${esc(x.w)}</span> `; }); html += '</p>';
   app.innerHTML = `${head()}<div class="row" style="justify-content:space-between"><span class="tag">Lần ${DG.n + 1}${dgCapGet() >= 0 ? ` · cấp ${DG_CAPN[dgCapGet()]}` : ''}${DG.best ? ` · kỷ lục ${dgClock(DG.best)}` : ''}</span><span class="dgclock" id="dgclk">⏱ 0:00.0</span></div>
@@ -740,7 +748,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   const skip = () => { if (over) return; if (!t0) t0 = performance.now(); check(); if (over) return; k = firstPend(); if (k >= W.length) return; done(k, false); fixed.add(k); skN++; cur(); stat(); if (firstPend() >= W.length) end(); };
   const stat = () => { $('#dgs').textContent = `Đúng ${okN} · bỏ qua ${skN}${ylN ? ` · vàng ${ylN}` : ''} · còn ${W.length - okN - skN - ylN} từ`; $('#dgbar').style.width = k / W.length * 100 + '%'; };
   const done = (j, ok) => { if (res[j] != null) return; res[j] = ok; if (ok === true) okN++; const e = sp(j); e.className = 'gw ' + (ok === 'sk' ? 'gw-sk' : ok ? 'gw-ok' : 'gw-err'); e.textContent = W[j].w; };
-  let ylN = 0; for (let j = 0; j < W.length; j++) if (dgOver(W[j].w) != null) { done(j, 'sk'); fixed.add(j); ylN++; }
+  let ylN = 0; for (let j = 0; j < W.length; j++) { const why = dgSkip(W[j].w); if (why) { done(j, 'sk'); fixed.add(j); ylN++; } }
   const end = () => { if (over) return; over = true; cancelAnimationFrame(DG_RAF); clearInterval(DG_CK); clearInterval(DG_PL); inp.disabled = true;
     const ms = t0 ? performance.now() - t0 : 0, full = skN === 0, rec = full && (!DG.best || ms < DG.best), old = DG.best; if (rec) { DG.best = ms; dgBestSet(ms); }
     if (DG.first == null) DG.first = full; $('#dgclk').textContent = '⏱ ' + dgClock(ms);
@@ -769,7 +777,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   const tipOpen = j => { const x = W[j], tips = dgTip(x); dgSay(x.w, 0.85);
     $('#dgtip').innerHTML = `<div class="card dgtipc"><div class="row" style="justify-content:space-between;align-items:baseline"><span><b class="dgtw">${esc(x.w.replace(/[^A-Za-z0-9'’]+$/g, '').replace(/^[^A-Za-z0-9'’]+/, ''))}</b> <span class="mute">/${esc(dgIpa(x))}/</span></span><button class="lay" id="tipx" aria-label="Đóng">✕</button></div>
       <div class="row" style="margin:6px 0"><button class="lay" id="tip1">🔊 Nghe</button><button class="lay" id="tip2">🐢 Nghe chậm</button></div>
-      ${dgOver(x.w) != null ? `<p class="sm"><span class="capn">Từ cấp ${DG_CAPN[dgOver(x.w)]}</span>, trên cấp bạn chọn: không cần nói. Muốn tập thì cứ nghe và nói theo.</p>` : ''}
+      ${dgOver(x.w) != null ? `<p class="sm"><span class="capn">Từ cấp ${DG_CAPN[dgOver(x.w)]}</span>, trên cấp bạn chọn: không cần nói. Muốn tập thì cứ nghe và nói theo.</p>` : dgSkip(x.w) === 'name' ? `<p class="sm"><span class="capn">Tên riêng</span>: không cần nói. Muốn tập thì cứ nghe và nói theo.</p>` : ''}
       ${nhHtml(x.w)}
       ${tips.length ? `<ul class="dgtl">${tips.map(t => `<li>${t}</li>`).join('')}</ul>` : '<p class="sm mute">Từ này đọc theo phiên âm là được.</p>'}<p class="sm mute">Nghe xong nói lại cả từ vào ô.</p></div>`;
     ['#tipx', '#tip1', '#tip2'].forEach(q => keep($(q)));
@@ -1348,6 +1356,7 @@ dgBestGet = () => +HT.best['dg' + BAI_I + dgCapSuf()] || 0; dgBestSet = v => { H
 // v218: cấp của bạn (⚡ Đua giờ) lưu ở HT.cap; chưa chọn thì lấy cấp đang học của app (parent.htLv), không có thì tắt
 dgCapGet = () => { if (HT.cap != null) return +HT.cap; try { const v = window.parent !== window && window.parent.htLv && window.parent.htLv(); if (v != null) return v; } catch (e) {} return -1; };
 dgCapSet = v => { HT.cap = v; htSave(); };
+dgOptGet = () => HT.dgo || {}; dgOptSet = o => { HT.dgo = o; htSave(); };  // v219
 dvBestGet = () => +HT.best['dv' + BAI_I] || 0; dvBestSet = v => { HT.best['dv' + BAI_I] = v; htSave(); };
 if (HT.cur) baiLoad(HT.cur + 1, () => { _useBai(HT.cur); hub(); }); else hub();
 </script>
