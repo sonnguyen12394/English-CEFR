@@ -1,0 +1,115 @@
+{
+ "n": 1071,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-01",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại hỏi đường khi bị lạc",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Excuse me, I think I'm lost. Could you help me?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure. Where are you trying to go?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "The train station. My phone's dead, so I can't use the map.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No worries. It's about ten minutes on foot.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Which way should I go?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Go straight down this road, then turn left at the traffic lights.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Straight, then left at the lights. Got it.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "You'll see a big park on your right. The station is just past it.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Thank you so much. You're a lifesaver!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Anytime. Be careful crossing the road, it's busy.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why can't Amy use the map?",
+   "a": "Her phone is dead",
+   "w": [
+    "She left her phone at home",
+    "The map is too old",
+    "She does not like maps"
+   ],
+   "why": "“My phone's dead” = điện thoại hết pin."
+  },
+  {
+   "q": "How long does it take to walk to the station?",
+   "a": "About ten minutes",
+   "w": [
+    "About twenty minutes",
+    "About half an hour",
+    "About two minutes"
+   ],
+   "why": "“about ten minutes on foot” = đi bộ khoảng mười phút."
+  },
+  {
+   "q": "Where does Amy need to turn left?",
+   "a": "At the traffic lights",
+   "w": [
+    "At the park",
+    "At the station",
+    "At the bridge"
+   ],
+   "why": "“turn left at the traffic lights” = rẽ trái ở đèn giao thông."
+  },
+  {
+   "q": "What will Amy see on her right?",
+   "a": "A big park",
+   "w": [
+    "A train",
+    "A school",
+    "The river"
+   ],
+   "why": "“a big park on your right” = một công viên lớn bên tay phải."
+  }
+ ]
+}

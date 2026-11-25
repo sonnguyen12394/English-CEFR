@@ -1,0 +1,109 @@
+{
+ "n": 1078,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-08",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "📢 Bài nói",
+ "kind": "Kể chuyện bị chóng mặt ở công viên",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hey everyone, something scary happened to me yesterday.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I was jogging in the park when I suddenly felt dizzy.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "My legs felt weak, so I sat down on a bench.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "A woman walked over and asked, “Are you okay?”",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I told her I felt sick and my head was spinning.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "She stayed with me and called an ambulance right away.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "The paramedics checked me and said I was dehydrated.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I hadn't had enough water all day.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Now I always carry a water bottle. Take care of yourselves, guys!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What happened to the speaker in the park?",
+   "a": "The speaker felt dizzy and sat down.",
+   "w": [
+    "The speaker fell off a bike.",
+    "The speaker lost a phone.",
+    "The speaker met an old friend."
+   ],
+   "why": "“I suddenly felt dizzy… so I sat down on a bench.”"
+  },
+  {
+   "q": "Who called the ambulance?",
+   "a": "A woman who stopped to help",
+   "w": [
+    "The speaker",
+    "A police officer",
+    "A doctor in the park"
+   ],
+   "why": "“She stayed with me and called an ambulance.”"
+  },
+  {
+   "q": "What did the paramedics say?",
+   "a": "The speaker was dehydrated.",
+   "w": [
+    "The speaker had a broken leg.",
+    "The speaker needed an operation.",
+    "The speaker was just tired."
+   ],
+   "why": "“said I was dehydrated” = nói bị mất nước."
+  },
+  {
+   "q": "What does the speaker do now?",
+   "a": "Carries a water bottle",
+   "w": [
+    "Stops jogging",
+    "Calls a doctor every day",
+    "Stays at home"
+   ],
+   "why": "“Now I always carry a water bottle.”"
+  }
+ ]
+}

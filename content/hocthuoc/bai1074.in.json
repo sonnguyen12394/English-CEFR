@@ -1,0 +1,125 @@
+{
+ "n": 1074,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-04",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại nhờ người lạ gọi cấp cứu",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Excuse me! Can you help? A man just fell off his bike.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Oh no. Is he awake?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Yes, but his leg really hurts and he can't stand up.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Don't move him. I'll call an ambulance right now.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Thank you. I'll stay with him and keep him calm.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Hello? We need an ambulance on Park Road, near the bridge.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Tell them he's awake and talking.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "They say it'll take about eight minutes.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Sir, help is coming. Please stay still.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'll wait by the road and wave when it arrives.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What happened to the man?",
+   "a": "He fell off his bike",
+   "w": [
+    "He lost his wallet",
+    "He got lost",
+    "He felt dizzy"
+   ],
+   "why": "“A man just fell off his bike.” = ông ấy vừa ngã xe đạp."
+  },
+  {
+   "q": "What hurts?",
+   "a": "His leg",
+   "w": [
+    "His head",
+    "His arm",
+    "His back"
+   ],
+   "why": "“his leg really hurts” = chân ông ấy rất đau."
+  },
+  {
+   "q": "Where do they need the ambulance?",
+   "a": "On Park Road, near the bridge",
+   "w": [
+    "At the train station",
+    "At a bus stop",
+    "Near the hospital"
+   ],
+   "why": "“on Park Road, near the bridge” = ở đường Park, gần cầu."
+  },
+  {
+   "q": "How long will the ambulance take?",
+   "a": "About eight minutes",
+   "w": [
+    "About five minutes",
+    "About eighteen minutes",
+    "About an hour"
+   ],
+   "why": "“about eight minutes” = khoảng tám phút."
+  },
+  {
+   "q": "What will Dan do when the ambulance comes?",
+   "a": "Wave to it",
+   "w": [
+    "Drive the man home",
+    "Carry the man",
+    "Call the police"
+   ],
+   "why": "“wait by the road and wave” = đứng chờ ven đường và vẫy tay."
+  }
+ ]
+}
