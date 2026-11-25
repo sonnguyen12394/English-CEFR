@@ -7,15 +7,15 @@
 /* Bố cục: một cột kiểu điện thoại, thanh 6 bước trên cùng, một việc mỗi màn, nút chính cuối màn */
 :root {
   --bg: #f4f4f1; --card: #ffffff; --ink: #1c1d1a; --mute: #5f625a; --line: #dfe0d9;
-  --acc: #2f5d9e; --acc2: #e5ecf6; --a: #8a4f9e; --b: #2f7d6b; --good: #22783c; --goodbg: #e3f3e6; --warn: #8a5600; --warnbg: #fbf0d4; --bad: #b3261e; --badbg: #fbe8e6; --hide: #e9e9e3;
+  --acc: #2f5d9e; --acc2: #e5ecf6; --a: #8a4f9e; --b: #2f7d6b; --good: #22783c; --goodbg: #e3f3e6; --warn: #8a5600; --warnbg: #fbf0d4; --bad: #b3261e; --badbg: #fbe8e6; --hide: #e9e9e3; --lv1: #1f5fa8; --lv1bg: #e3eefb; --lv2: #0b6e75; --lv2bg: #ddf3f4; --lv3: #8a5600; --lv3bg: #fbf0d4; --lv4: #a3420c; --lv4bg: #fde6d8; --lv5: #6b3fa0; --lv5bg: #efe6f8; --lv6: #a3245e; --lv6bg: #fbe3ee; --lvn: #5c5148; --lvnbg: #ece8e3; --lvf: #5a5e63; --lvfbg: #ebebeb;
   --disp: "Be Vietnam Pro", "Inter", system-ui, sans-serif; --body: "Inter", system-ui, -apple-system, sans-serif;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #121412; --card: #1b1e1b; --ink: #eceee8; --mute: #a3a69c; --line: #2f332e;
-  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --warn: #f0c060; --warnbg: #3a2e12; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; color-scheme: dark } }
+  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --warn: #f0c060; --warnbg: #3a2e12; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; --lv1: #8fc0ff; --lv1bg: #1a2a40; --lv2: #6fd6dc; --lv2bg: #133236; --lv3: #f0c060; --lv3bg: #3a2e12; --lv4: #ffa66e; --lv4bg: #3d2414; --lv5: #c9a6f2; --lv5bg: #2d2140; --lv6: #f59cc4; --lv6bg: #3d1a2b; --lvn: #d4c8bb; --lvnbg: #2f2a25; --lvf: #bcc0c6; --lvfbg: #2a2c2f; color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #121412; --card: #1b1e1b; --ink: #eceee8; --mute: #a3a69c; --line: #2f332e;
-  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --warn: #f0c060; --warnbg: #3a2e12; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; color-scheme: dark }
+  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --warn: #f0c060; --warnbg: #3a2e12; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; --lv1: #8fc0ff; --lv1bg: #1a2a40; --lv2: #6fd6dc; --lv2bg: #133236; --lv3: #f0c060; --lv3bg: #3a2e12; --lv4: #ffa66e; --lv4bg: #3d2414; --lv5: #c9a6f2; --lv5bg: #2d2140; --lv6: #f59cc4; --lv6bg: #3d1a2b; --lvn: #d4c8bb; --lvnbg: #2f2a25; --lvf: #bcc0c6; --lvfbg: #2a2c2f; color-scheme: dark }
 * { box-sizing: border-box }
 body { background: var(--bg); color: var(--ink); font: 16px/1.55 var(--body); padding-block: 12px 40px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
@@ -106,6 +106,7 @@ mark { background: var(--acc2); color: var(--acc); font-weight: 700; border-radi
 .showipa .gw::after { content: attr(data-ipa); display: block; font-size: 12px; font-weight: 400; color: var(--mute); white-space: nowrap }
 .dgtyping .dgin { display: flex; gap: 6px; align-items: center } .dgtyping .dgtools .sm, .dgtyping .dglb { display: none } .dgtyping .dgtools { margin: 0; flex-wrap: nowrap } .dgtyping .dgtools .lay { min-width: 44px; min-height: 44px; padding: 4px 8px; font-size: 18px } .dgtyping .dgwin { margin-top: 6px } .dgclock { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 18px } .dgback { position: absolute; right: 8px; bottom: 8px; z-index: 3; min-height: 44px; border-radius: 999px; padding: 6px 14px; background: var(--acc); color: var(--card); font-weight: 700; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.25) }
 .dgroll { padding: 14px 14px 140px; font-size: 20px; line-height: 1.8 } .dgl { margin: 0 0 12px } .gw { color: var(--ink); white-space: nowrap } .gw-hid { color: var(--line); letter-spacing: 1px }
+.gw-sk.lv1, .lvc.lv1 { color: var(--lv1); background: var(--lv1bg) } .gw-sk.lv2, .lvc.lv2 { color: var(--lv2); background: var(--lv2bg) } .gw-sk.lv3, .lvc.lv3 { color: var(--lv3); background: var(--lv3bg) } .gw-sk.lv4, .lvc.lv4 { color: var(--lv4); background: var(--lv4bg) } .gw-sk.lv5, .lvc.lv5 { color: var(--lv5); background: var(--lv5bg) } .gw-sk.lv6, .lvc.lv6 { color: var(--lv6); background: var(--lv6bg) } .gw-sk.name, .lvc.name { color: var(--lvn); background: var(--lvnbg) } .gw-sk.fill, .lvc.fill { color: var(--lvf); background: var(--lvfbg) } .lvc { border-radius: 4px; padding: 0 5px; font-weight: 700; white-space: nowrap } .lvleg { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 6px 0 0; font-size: 14px }
 .gw-ok { color: var(--good); font-weight: 700 } .gw-sk { color: var(--warn); background: var(--warnbg); border-radius: 4px; padding: 0 2px; font-weight: 600 }
 .seg.cap { grid-template-columns: repeat(4, 1fr) } .capn { color: var(--warn); background: var(--warnbg); border-radius: 4px; padding: 0 4px; font-weight: 700 } .gw-err { color: var(--bad); text-decoration: line-through }
 .gw-cur { background: var(--acc2); border-radius: 6px; padding: 1px 4px; box-shadow: inset 0 -3px 0 var(--acc) } .gw-typed { color: var(--acc); font-weight: 800 } .gw-full { box-shadow: inset 0 -3px 0 var(--good) } .gw-bad { color: var(--card); background: var(--bad); border-radius: 3px }
@@ -641,6 +642,11 @@ const dgWLv = w => { if (typeof CAPW === 'undefined') return null; const k = Str
 let dgOptGet = () => { try { return JSON.parse(localStorage.getItem('dgOpt') || '{}') || {}; } catch (e) { return {}; } };
 let dgOptSet = o => { try { localStorage.setItem('dgOpt', JSON.stringify(o)); } catch (e) {} };
 const dgName = w => { const c = String(w).replace(/[’‘]/g, "'").replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g, '').replace(/'s$/, ''); return /^[A-Z][A-Za-z'-]*$/.test(c) && c !== 'I' && typeof CAPW !== 'undefined' && dgWLv(c) == null; };
+// v222 (người sáng lập 25/11: "mỗi cấp độ thì màu của từ sẽ khác nhau để dễ phân biệt chứ không phải màu vàng thôi"): từ bỏ qua tô màu theo cấp của từ
+// (A1 xanh dương · A2 xanh ngọc · B1 vàng · B2 cam · C1 tím · C2 hồng), tên riêng nâu xám, tiếng đệm xám; chú giải ở ô cấp và dưới khung chữ.
+const DG_LVC = [['lv1', 'A1'], ['lv2', 'A2'], ['lv3', 'B1'], ['lv4', 'B2'], ['lv5', 'C1'], ['lv6', 'C2'], ['name', 'Tên riêng'], ['fill', 'Hmm, oh…']];
+const dgSkCls = (w, why) => why === 'cap' ? 'lv' + Math.max(1, dgWLv(w)) : why;
+const dgLeg = cs => `<div class="lvleg">${DG_LVC.filter(([c]) => !cs || cs.has(c)).map(([c, n]) => `<span class="lvc ${c}">${n}</span>`).join('')}</div>`;
 const dgSkip = w => { const o = dgOptGet(); if (!dkF(w)) return o.fill ? 'fill' : null; if (dgOver(w) != null) return 'cap'; if (o.name && dgName(w)) return 'name'; return null; };
 const dgOver = w => { const c = dgCapGet(); if (c < 0 || !dkF(w)) return null; const l = dgWLv(w); return l != null && l > c ? l : null; };
 const DG_NUMR = Object.fromEntries(Object.entries(DG_NUM).map(([a, b]) => [b, a]));
@@ -703,10 +709,10 @@ function duago() { cancelAnimationFrame(DG_RAF); DG = DG || { best: dgBestGet(),
   app.querySelectorAll('[data-dgo]').forEach(b => b.onclick = () => { const o = dgOptGet(); o[b.dataset.dgo] = !o[b.dataset.dgo]; dgOptSet(o); DG = { best: dgBestGet(), n: 0, first: null, ipa: DG.ipa }; duago(); });
   app.querySelectorAll('[data-cap]').forEach(b => b.onclick = () => { dgCapSet(+b.dataset.cap); DG = { best: dgBestGet(), n: 0, first: null, ipa: DG.ipa }; duago(); }); }
 function dgCapBox() { const c = dgCapGet(), o = dgOptGet(), W = DG_W(), ys = W.filter(x => dgSkip(x.w) && dkF(x.w));
-  return `<div class="card" style="margin-top:12px"><p><b>🎚 Cấp của bạn</b></p><p class="sm mute">Từ khó hơn cấp bạn chọn hiện <span class="capn">màu vàng</span>, tự bỏ qua, không cần nói. Số vẫn phải nói.</p>
+  return `<div class="card" style="margin-top:12px"><p><b>🎚 Cấp của bạn</b></p><p class="sm mute">Từ khó hơn cấp bạn chọn được tô màu theo cấp của từ, tự bỏ qua, không cần nói. Số vẫn phải nói.</p>${dgLeg()}
     <div class="seg cap" role="group" aria-label="Cấp của bạn"><button data-cap="-1" aria-pressed="${c < 0}">Tắt</button>${DG_CAPN.map((n, i) => `<button data-cap="${i}" aria-pressed="${c === i}">${n}</button>`).join('')}</div>
-    <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:6px"><button class="lay${o.name ? ' on' : ''}" data-dgo="name" aria-pressed="${!!o.name}">Tên riêng hiện vàng</button><button class="lay${o.fill ? ' on' : ''}" data-dgo="fill" aria-pressed="${!!o.fill}">Hmm, oh… hiện vàng</button></div>
-    <p class="sm" style="margin-top:8px">${!ys.length && c < 0 ? 'Đang tắt: phải nói đủ mọi từ.' : `Bài này: <b>${ys.length}</b> / ${W.length} từ vàng, cần nói ${W.length - ys.length} từ.${ys.length ? ` <span class="mute">Từ vàng: ${[...new Set(ys.map(x => x.w.replace(/^[^A-Za-z0-9'’]+|[^A-Za-z0-9'’]+$/g, '')))].slice(0, 12).map(esc).join(', ')}${new Set(ys.map(x => dk(x.w))).size > 12 ? '…' : ''}</span>` : ''}`}</p></div>`; }
+    <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:6px"><button class="lay${o.name ? ' on' : ''}" data-dgo="name" aria-pressed="${!!o.name}">Tên riêng: bỏ qua</button><button class="lay${o.fill ? ' on' : ''}" data-dgo="fill" aria-pressed="${!!o.fill}">Hmm, oh…: bỏ qua</button></div>
+    <p class="sm" style="margin-top:8px">${!ys.length && c < 0 ? 'Đang tắt: phải nói đủ mọi từ.' : `Bài này: <b>${ys.length}</b> / ${W.length} từ tô màu, cần nói ${W.length - ys.length} từ.${ys.length ? ` <span class="mute">Từ tô màu: ${[...new Map(ys.map(x => [x.w.replace(/^[^A-Za-z0-9'’]+|[^A-Za-z0-9'’]+$/g, ''), dgSkCls(x.w, dgSkip(x.w))])).entries()].slice(0, 12).map(([w, c]) => `<span class="lvc ${c}">${esc(w)}</span>`).join(' ')}${new Set(ys.map(x => dk(x.w))).size > 12 ? '…' : ''}</span>` : ''}`}</p></div>`; }
 function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_W(); let k = 0, okN = 0, over = false; const res = [];
   let html = '', li = -1; W.forEach((x, j) => { if (x.i !== li) { if (li >= 0) html += '</p>'; li = x.i; html += `<p class="dgl"><span class="tag">${WHO[L[li][0]][0]}</span> `; } html += `<span class="gw" id="gw${j}" data-j="${j}" data-ipa="/${esc(dgIpa(x))}/">${esc(x.w)}</span> `; }); html += '</p>';
   app.innerHTML = `${head()}<div class="row" style="justify-content:space-between"><span class="tag">Lần ${DG.n + 1}${dgCapGet() >= 0 ? ` · cấp ${DG_CAPN[dgCapGet()]}` : ''}${DG.best ? ` · kỷ lục ${dgClock(DG.best)}` : ''}</span><span class="dgclock" id="dgclk">⏱ 0:00.0</span></div>
@@ -746,13 +752,14 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
     for (const j of assign()) if (res[j] == null) done(j, true);
     cur(); stat(); if (firstPend() >= W.length) end(); };
   const skip = () => { if (over) return; if (!t0) t0 = performance.now(); check(); if (over) return; k = firstPend(); if (k >= W.length) return; done(k, false); fixed.add(k); skN++; cur(); stat(); if (firstPend() >= W.length) end(); };
-  const stat = () => { $('#dgs').textContent = `Đúng ${okN} · bỏ qua ${skN}${ylN ? ` · vàng ${ylN}` : ''} · còn ${W.length - okN - skN - ylN} từ`; $('#dgbar').style.width = k / W.length * 100 + '%'; };
-  const done = (j, ok) => { if (res[j] != null) return; res[j] = ok; if (ok === true) okN++; const e = sp(j); e.className = 'gw ' + (ok === 'sk' ? 'gw-sk' : ok ? 'gw-ok' : 'gw-err'); e.textContent = W[j].w; };
-  let ylN = 0; for (let j = 0; j < W.length; j++) { const why = dgSkip(W[j].w); if (why) { done(j, 'sk'); fixed.add(j); ylN++; } }
+  const stat = () => { $('#dgs').textContent = `Đúng ${okN} · bỏ qua ${skN}${ylN ? ` · tô màu ${ylN}` : ''} · còn ${W.length - okN - skN - ylN} từ`; $('#dgbar').style.width = k / W.length * 100 + '%'; };
+  const done = (j, ok, cls) => { if (res[j] != null) return; res[j] = ok; if (ok === true) okN++; const e = sp(j); e.className = 'gw ' + (ok === 'sk' ? 'gw-sk ' + (cls || 'lv3') : ok ? 'gw-ok' : 'gw-err'); e.textContent = W[j].w; };
+  let ylN = 0; const lvSeen = new Set(); for (let j = 0; j < W.length; j++) { const why = dgSkip(W[j].w); if (why) { const c = dgSkCls(W[j].w, why); done(j, 'sk', c); lvSeen.add(c); fixed.add(j); ylN++; } }
+  if (lvSeen.size) { const g = document.createElement('div'); g.innerHTML = dgLeg(lvSeen); $('#dgs').before(g.firstChild); }
   const end = () => { if (over) return; over = true; cancelAnimationFrame(DG_RAF); clearInterval(DG_CK); clearInterval(DG_PL); inp.disabled = true;
     const ms = t0 ? performance.now() - t0 : 0, full = skN === 0, rec = full && (!DG.best || ms < DG.best), old = DG.best; if (rec) { DG.best = ms; dgBestSet(ms); }
     if (DG.first == null) DG.first = full; $('#dgclk').textContent = '⏱ ' + dgClock(ms);
-    $('#fb').innerHTML = `<div class="fb ${full ? 'ok' : 'no'}">${rec ? '🏆 Kỷ lục mới! ' : ''}Xong cả bài trong <b>${dgClock(ms)}</b> · ${Math.round((W.length - ylN) / ms * 60000)} từ/phút${ylN ? ` (${ylN} từ vàng không tính)` : ''}.
+    $('#fb').innerHTML = `<div class="fb ${full ? 'ok' : 'no'}">${rec ? '🏆 Kỷ lục mới! ' : ''}Xong cả bài trong <b>${dgClock(ms)}</b> · ${Math.round((W.length - ylN) / ms * 60000)} từ/phút${ylN ? ` (${ylN} từ tô màu không tính)` : ''}.
       ${full ? (old && !rec ? `<br>Kỷ lục vẫn là ${dgClock(old)} (chậm hơn ${((ms - old) / 1000).toFixed(1)} giây).` : rec && old ? `<br>Nhanh hơn kỷ lục cũ ${((old - ms) / 1000).toFixed(1)} giây.` : '') : `<br>Bạn bỏ qua ${skN} từ nên lần này không tính kỷ lục.`}</div>
       <button class="pri" id="nx" style="margin-top:10px">↻ Làm lại, phá kỷ lục</button><button class="sec" id="stop" style="margin-top:8px">Xong, về bài học</button>${sibBtn('duago')}`;
     $('#nx').onclick = () => { DG.n++; dgRound(); };
@@ -777,7 +784,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   const tipOpen = j => { const x = W[j], tips = dgTip(x); dgSay(x.w, 0.85);
     $('#dgtip').innerHTML = `<div class="card dgtipc"><div class="row" style="justify-content:space-between;align-items:baseline"><span><b class="dgtw">${esc(x.w.replace(/[^A-Za-z0-9'’]+$/g, '').replace(/^[^A-Za-z0-9'’]+/, ''))}</b> <span class="mute">/${esc(dgIpa(x))}/</span></span><button class="lay" id="tipx" aria-label="Đóng">✕</button></div>
       <div class="row" style="margin:6px 0"><button class="lay" id="tip1">🔊 Nghe</button><button class="lay" id="tip2">🐢 Nghe chậm</button></div>
-      ${dgOver(x.w) != null ? `<p class="sm"><span class="capn">Từ cấp ${DG_CAPN[dgOver(x.w)]}</span>, trên cấp bạn chọn: không cần nói. Muốn tập thì cứ nghe và nói theo.</p>` : dgSkip(x.w) === 'name' ? `<p class="sm"><span class="capn">Tên riêng</span>: không cần nói. Muốn tập thì cứ nghe và nói theo.</p>` : ''}
+      ${dgOver(x.w) != null ? `<p class="sm"><span class="lvc lv${Math.max(1, dgOver(x.w))}">Từ cấp ${DG_CAPN[dgOver(x.w)]}</span>, trên cấp bạn chọn: không cần nói. Muốn tập thì cứ nghe và nói theo.</p>` : dgSkip(x.w) === 'name' ? `<p class="sm"><span class="lvc name">Tên riêng</span>: không cần nói. Muốn tập thì cứ nghe và nói theo.</p>` : ''}
       ${nhHtml(x.w)}
       ${tips.length ? `<ul class="dgtl">${tips.map(t => `<li>${t}</li>`).join('')}</ul>` : '<p class="sm mute">Từ này đọc theo phiên âm là được.</p>'}<p class="sm mute">Nghe xong nói lại cả từ vào ô.</p></div>`;
     ['#tipx', '#tip1', '#tip2'].forEach(q => keep($(q)));

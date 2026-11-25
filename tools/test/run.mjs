@@ -3142,7 +3142,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
 // v218 C105 📖 ⚡ Đua giờ theo cấp: bảng cấp từng từ (bai/capw.js) phủ ≥ 90% từ của bài, số 0–6, từ quen đúng cấp; trang có ô chọn cấp, từ vàng tự bỏ qua; app đưa cấp đang học
 { const r = [];
   const fs = await import('node:fs'), vm = await import('node:vm'), root = new URL('../../', import.meta.url).pathname, H = root + 'hoc-thuoc/', h = fs.readFileSync(H + 'index.html', 'utf8');
-  for (const k of ['bai/capw.js?v=', 'dgCapBox', 'gw-sk', 'dgOver', 'window.parent.htLv', 'data-dgo="name"', 'data-dgo="fill"', 'dgSkip', 'HT.dgo']) if (!h.includes(k)) r.push('trang con thiếu ' + k);
+  for (const k of ['bai/capw.js?v=', 'dgCapBox', 'gw-sk', 'dgOver', 'window.parent.htLv', 'data-dgo="name"', 'data-dgo="fill"', 'dgSkip', 'HT.dgo', 'dgSkCls', 'lvleg', '--lv6bg']) if (!h.includes(k)) r.push('trang con thiếu ' + k);
   if (!fs.readFileSync(root + 'hocthuoc.js', 'utf8').includes('window.htLv')) r.push('app thiếu htLv');
   const c = {}; vm.createContext(c); vm.runInContext(fs.readFileSync(H + 'bai/capw.js', 'utf8') + ';this.X=CAPW', c); const X = c.X;
   if (Object.values(X).some(v => !(v >= 0 && v <= 6))) r.push('cấp ngoài 0–6');
@@ -3152,7 +3152,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   for (const x of xs) { const b = { WHO: {} }; vm.createContext(b); vm.runInContext(fs.readFileSync(H + `bai/bai${x.n}.js`, 'utf8') + `;this.B=BAI${x.n}`, b);
     for (const l of b.B.L || []) for (const w of String(l[1]).split(/\s+/)) { const k = w.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[’‘]/g, "'").replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, ''); if (!k || /\d/.test(k)) continue; all++; if (k in X) hit++; } }
   if (hit / all < 0.9) r.push(`phủ ${Math.round(hit / all * 100)}% từ`);
-  R.push({ lv: 'cefr', id: 'C105', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : `Đua giờ theo cấp: bảng cấp phủ ${Math.round(hit / all * 100)}% từ của ${xs.length} bài, từ trên cấp hiện vàng và tự bỏ qua` }); }
+  R.push({ lv: 'cefr', id: 'C105', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : `Đua giờ theo cấp: bảng cấp phủ ${Math.round(hit / all * 100)}% từ của ${xs.length} bài, từ trên cấp tô màu theo cấp và tự bỏ qua` }); }
 
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
