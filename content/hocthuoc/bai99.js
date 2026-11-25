@@ -131,10 +131,10 @@ const BAI99 = {
    "ˈfʊli",
    "ˈfɝːnɪʃt",
    "ˈɔːfɪsɪz",
-   "əˈveɪləbl",
+   "əˈveɪləbəl",
    "frəm",
-   "ˈɔːgəst",
-   "(1)"
+   "ˈɔːɡəst",
+   "fɝːst"
   ],
   [
    "smɔːl",
@@ -146,14 +146,14 @@ const BAI99 = {
   [
    "ˈmiːdiəm",
    "ˈɔːfɪs",
-   "fɪfθ",
+   "faɪv",
    "desks",
-   "ˈeɪtiːn ˈhʌndrəd ˈdɑːlərz pər mʌnθ"
+   "wʌn ˈθaʊzənd eɪt ˈhʌndrəd ˈdɑːlərz pər mʌnθ"
   ],
   [
    "lɑːrdʒ",
    "ˈɔːfɪs",
-   "tenθ",
+   "ten",
    "desks",
    "θriː ˈθaʊzənd tuː ˈhʌndrəd ˈdɑːlərz pər mʌnθ"
   ],
@@ -193,7 +193,7 @@ const BAI99 = {
   ],
   [
    "(2)",
-   "ˈrentl",
+   "ˈrentəl",
    "ˌæplɪˈkeɪʃən",
    "fɔːrm"
   ],
@@ -224,8 +224,8 @@ const BAI99 = {
    "prɪˈfɝːd",
    "stɑːrt",
    "deɪt",
-   "ˈɔːgəst",
-   "(1)"
+   "ˈɔːɡəst",
+   "fɝːst"
   ],
   [
    "liːs",
@@ -272,11 +272,11 @@ const BAI99 = {
    8
   ],
   [
-   0,
    1,
    2,
    3,
-   5
+   5,
+   6
   ],
   [
    0,
@@ -297,12 +297,14 @@ const BAI99 = {
    4
   ],
   [
-   0,
    1,
    2,
    3,
    4,
-   6
+   6,
+   8,
+   9,
+   10
   ],
   [
    0,
@@ -312,6 +314,7 @@ const BAI99 = {
   [
    0,
    1,
+   2,
    3
   ],
   [
@@ -340,29 +343,35 @@ const BAI99 = {
   [
    0,
    2,
+   3,
+   4,
+   6,
+   7,
+   9,
+   10
+  ],
+  [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  [
+   0,
+   1,
+   2,
+   3
+  ],
+  [
+   0,
+   2,
+   3,
    4,
    6,
    8,
-   9
-  ],
-  [
-   0,
-   1,
-   2,
-   3
-  ],
-  [
-   0,
-   1,
-   3
-  ],
-  [
-   0,
-   2,
-   3,
-   4,
-   6,
-   8
+   9,
+   11
   ],
   [
    2,
@@ -375,22 +384,96 @@ const BAI99 = {
  ],
  "LK": [
   [],
+  [
+   [
+    1,
+    "furnish‿toffices",
+    "furnished offices: /t/ nối sang /ɔː/"
+   ],
+   [
+    2,
+    "office‿zavailable",
+    "offices available: /z/ nối sang /ə/"
+   ]
+  ],
+  [
+   [
+    0,
+    "small‿office",
+    "small office: /l/ nối sang /ɔː/"
+   ]
+  ],
+  [
+   [
+    0,
+    "medium‿office",
+    "medium office: /m/ nối sang /ɔː/"
+   ]
+  ],
+  [
+   [
+    0,
+    "large‿office",
+    "large office: /dʒ/ nối sang /ɔː/"
+   ]
+  ],
+  [
+   [
+    0,
+    "all‿offices",
+    "all offices: /l/ nối sang /ɔː/"
+   ],
+   [
+    1,
+    "office‿zinclude",
+    "offices include: /z/ nối sang /ɪ/"
+   ],
+   [
+    2,
+    "inclu‿dinternet",
+    "include internet: /d/ nối sang /ɪ/"
+   ]
+  ],
+  [],
+  [],
+  [
+   [
+    4,
+    "par‿kat",
+    "Park at: /k/ nối sang /ə/"
+   ]
+  ],
   [],
   [],
   [],
+  [
+   [
+    0,
+    "numbe‿rof",
+    "Number of: /r/ nối sang /ə/"
+   ]
+  ],
   [],
   [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  []
+  [
+   [
+    9,
+    "room‿zis",
+    "rooms is: /z/ nối sang /ɪ/"
+   ]
+  ],
+  [
+   [
+    2,
+    "li‿kan",
+    "like an: /k/ nối sang /ə/"
+   ],
+   [
+    3,
+    "a‿noffice",
+    "an office: /n/ nối sang /ɔː/"
+   ]
+  ]
  ],
  "INT": [
   [
@@ -517,7 +600,9 @@ const BAI99 = {
   [
    1
   ],
-  [],
+  [
+   4
+  ],
   [],
   [
    0
@@ -526,7 +611,7 @@ const BAI99 = {
    0
   ],
   [
-   2
+   3
   ],
   [
    2
@@ -538,7 +623,9 @@ const BAI99 = {
    0,
    4
   ],
-  []
+  [
+   6
+  ]
  ],
  "EL": [
   [],
@@ -549,15 +636,45 @@ const BAI99 = {
   [],
   [],
   [],
+  [
+   [
+    0,
+    "ˈkɑːntæk(t)",
+    "Contact Leasing: /t/ gần như mất trước /l/"
+   ]
+  ],
   [],
   [],
   [],
+  [
+   [
+    9,
+    "neks(t)",
+    "next year: /t/ gần như mất trước /j/"
+   ]
+  ],
+  [
+   [
+    1,
+    "stɑːr(t)",
+    "start date: /t/ gần như mất trước /d/"
+   ]
+  ],
   [],
-  [],
-  [],
-  [],
-  [],
-  []
+  [
+   [
+    3,
+    "miː(t)",
+    "meet clients: /t/ gần như mất trước /k/"
+   ]
+  ],
+  [
+   [
+    1,
+    "wʊ(d)",
+    "would like: /d/ gần như mất trước /l/"
+   ]
+  ]
  ],
  "VNK": [
   [
@@ -643,21 +760,25 @@ const BAI99 = {
  "VNY": [
   [
    [
-    "(1) văn phòng cho thuê"
+    "văn phòng"
    ],
    [
-    "maple business park"
+    "cho thuê",
+    "thuê"
    ]
   ],
   [
    [
-    "các văn phòng"
+    "có sẵn",
+    "còn trống"
    ],
    [
-    "đầy đủ nội thất"
+    "đầy đủ nội thất",
+    "nội thất"
    ],
    [
-    "có sẵn từ ngày 1 tháng 8"
+    "tháng 8",
+    "ngày 1"
    ]
   ],
   [
@@ -665,10 +786,12 @@ const BAI99 = {
     "văn phòng nhỏ"
    ],
    [
-    "(2 bàn làm việc)"
+    "hai bàn",
+    "2 bàn làm việc"
    ],
    [
-    "900 đô la/tháng"
+    "900 đô",
+    "900 đô la"
    ]
   ],
   [
@@ -676,10 +799,12 @@ const BAI99 = {
     "văn phòng vừa"
    ],
    [
-    "(5 bàn làm việc)"
+    "năm bàn",
+    "5 bàn làm việc"
    ],
    [
-    "1.800 đô la/tháng"
+    "1.800 đô la",
+    "1800 đô la"
    ]
   ],
   [
@@ -687,37 +812,45 @@ const BAI99 = {
     "văn phòng lớn"
    ],
    [
-    "(10 bàn làm việc)"
+    "mười bàn",
+    "10 bàn làm việc"
    ],
    [
-    "3.200 đô la/tháng"
+    "3.200 đô la",
+    "3200 đô la"
    ]
   ],
   [
    [
-    "mọi văn phòng đều bao gồm"
+    "internet"
    ],
    [
-    "internet, dọn dẹp"
+    "dọn dẹp"
    ],
    [
-    "và quyền sử dụng"
+    "phòng họp chung"
    ],
    [
-    "các phòng họp chung"
+    "quyền sử dụng"
    ]
   ],
   [
    [
-    "miễn phí đỗ xe"
+    "miễn phí"
    ],
    [
-    "cho người thuê"
+    "đỗ xe"
+   ],
+   [
+    "người thuê"
    ]
   ],
   [
    [
-    "thời hạn thuê tối thiểu"
+    "thời hạn thuê"
+   ],
+   [
+    "tối thiểu"
    ],
    [
     "6 tháng"
@@ -728,15 +861,16 @@ const BAI99 = {
     "liên hệ"
    ],
    [
-    "quản lý cho thuê olivia park"
+    "quản lý cho thuê"
    ],
    [
-    "theo số 555-0142"
+    "theo số",
+    "số 555-0142"
    ]
   ],
   [
    [
-    "(2) phiếu đăng ký"
+    "phiếu đăng ký"
    ],
    [
     "thuê văn phòng"
@@ -745,36 +879,42 @@ const BAI99 = {
   [
    [
     "công ty"
-   ],
-   [
-    "bluefin design"
    ]
   ],
   [
    [
     "liên hệ"
-   ],
-   [
-    "sam okafor"
    ]
   ],
   [
    [
-    "số nhân viên: 4"
+    "số nhân viên"
    ],
    [
-    "(dự định thuê thêm 3 người"
+    "bốn người",
+    "4 người"
    ],
    [
-    "vào năm sau)"
+    "thuê thêm"
+   ],
+   [
+    "ba người",
+    "3 người"
+   ],
+   [
+    "năm sau"
    ]
   ],
   [
    [
-    "ngày bắt đầu mong muốn"
+    "ngày bắt đầu"
    ],
    [
-    "1 tháng 8"
+    "mong muốn"
+   ],
+   [
+    "tháng 8",
+    "ngày 1"
    ]
   ],
   [
@@ -782,32 +922,35 @@ const BAI99 = {
     "thời gian thuê"
    ],
    [
-    "12 tháng"
+    "12 tháng",
+    "mười hai tháng"
    ]
   ],
   [
    [
-    "ghi chú"
+    "gặp khách hàng",
+    "gặp khách"
    ],
    [
-    "chúng tôi thường gặp khách hàng"
+    "phòng họp"
    ],
    [
-    "nên việc được dùng phòng họp"
-   ],
-   [
-    "là quan trọng"
+    "quan trọng"
    ]
   ],
   [
    [
-    "chúng tôi muốn một văn phòng"
+    "muốn"
+   ],
+   [
+    "văn phòng"
    ],
    [
     "đủ rộng"
    ],
    [
-    "để nhóm có thể phát triển"
+    "phát triển",
+    "nhóm phát triển"
    ]
   ]
  ],
@@ -881,37 +1024,37 @@ const BAI99 = {
    "vi": "move into = chuyển vào."
   },
   {
-   "q": "All rooms are ___ with desks and chairs.",
+   "q": "The conference room is equipped ___ a projector and a screen.",
    "o": [
-    "furnished",
-    "furnish",
-    "furnishing",
-    "furnishes"
+    "with",
+    "to",
+    "by",
+    "of"
    ],
    "a": 0,
-   "vi": "be furnished with = có sẵn đồ đạc."
+   "vi": "be equipped with = được trang bị."
   },
   {
-   "q": "She was not tall ___ to reach the shelf.",
+   "q": "Our rent is due ___ the first day of each month.",
    "o": [
-    "enough",
-    "too",
-    "so",
-    "such"
+    "on",
+    "at",
+    "in",
+    "during"
    ],
    "a": 0,
-   "vi": "not + adj + enough + to V."
+   "vi": "on + ngày: on the first day."
   },
   {
-   "q": "We are planning ___ a second office next year.",
+   "q": "We are considering ___ a larger space next year.",
    "o": [
-    "to open",
-    "opening",
-    "open",
-    "opened"
+    "renting",
+    "to rent",
+    "rent",
+    "rented"
    ],
    "a": 0,
-   "vi": "plan + to V."
+   "vi": "consider + V-ing."
   },
   {
    "q": "Contact the building ___ to arrange a visit.",
@@ -1075,7 +1218,7 @@ const BAI99 = {
    ],
    "b4": {
     "q": "The ___ on the apartment is for twelve months. (hợp đồng thuê)",
-    "hint": "danh từ · 5 chữ cái",
+    "hint": "danh từ",
     "ans": [
      "lease",
      "contract"
@@ -1390,7 +1533,7 @@ const BAI99 = {
      "q": "She is not old ___ to rent an apartment.",
      "o": [
       "enough",
-      "too",
+      "much",
       "very",
       "so"
      ],
@@ -1414,7 +1557,7 @@ const BAI99 = {
    "line": 12,
    "hl": "planning to hire",
    "b1": {
-    "s": "Number of employees: 4 [[(planning to hire 3 more next year)]]",
+    "s": "Number of employees: 4 ([[planning to hire]] 3 more next year)",
     "q": "Sau “planning”, động từ đi với dạng nào?",
     "o": [
      "to + V (to hire)",

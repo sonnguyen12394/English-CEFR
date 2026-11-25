@@ -90,24 +90,24 @@ const BAI100 = {
    "(1)",
    "ˈiːmeɪl",
    "·",
-   "tə",
+   "tuː",
    "ɔːl",
    "dɪˈpɑːrtmənt",
    "hedz",
    "·",
-   "frəm",
+   "frʌm",
    "ˈtreɪnɪŋ",
    "ˈɔːfɪs",
    "·",
    "deɪt",
-   "ˈɔːgəst",
-   "fɔːr"
+   "ˈɔːɡəst",
+   "fɔːrθ"
   ],
   [
    "ˈaʊər",
    "ˈɔːtəm",
    "ˈtreɪnɪŋ",
-   "ˈproʊgræm",
+   "ˈproʊɡræm",
    "ɪz",
    "naʊ",
    "ˈoʊpən",
@@ -118,7 +118,7 @@ const BAI100 = {
    "ðɪs",
    "jɪr",
    "wi",
-   "ər",
+   "ɑːr",
    "ˈɔːfərɪŋ",
    "fɔːr",
    "ˈkɔːrsɪz",
@@ -130,7 +130,7 @@ const BAI100 = {
    "ɪkˈsel",
    "wʌn",
    "deɪ",
-   "ˌprezənˈteɪʃn",
+   "ˌprezənˈteɪʃən",
    "skɪlz",
    "wʌn",
    "deɪ",
@@ -149,12 +149,12 @@ const BAI100 = {
    "tə",
    "θriː",
    "ɪmˈplɔɪiːz",
-   "pɝː",
+   "pər",
    "kɔːrs"
   ],
   [
    "ˈkɔːrsɪz",
-   "ər",
+   "ɑːr",
    "friː",
    "fər",
    "stæf",
@@ -169,18 +169,18 @@ const BAI100 = {
    "ɪz",
    "ˈæbsənt",
    "wɪˈðaʊt",
-   "ˈgɪvɪŋ",
+   "ˈɡɪvɪŋ",
    "ˈnoʊtɪs"
   ],
   [
    "pliːz",
    "rɪˈtɝːn",
-   "ði",
+   "ðə",
    "əˈtætʃt",
    "fɔːrm",
    "baɪ",
-   "ˈɔːgəst",
-   "ˈtwenti"
+   "ˈɔːɡəst",
+   "ˈtwentiəθ"
   ],
   [
    "(2)",
@@ -211,7 +211,7 @@ const BAI100 = {
    "ˈruːiz"
   ],
   [
-   "ˌprezənˈteɪʃn",
+   "ˌprezənˈteɪʃən",
    "skɪlz",
    "ˈkloʊi",
    "læm"
@@ -227,22 +227,23 @@ const BAI100 = {
   [
    "səbˈmɪtɪd",
    "baɪ",
-   "ˈvɪktɚ",
+   "ˈvɪktər",
    "heɪl",
    "seɪlz",
    "ˈmænɪdʒər",
-   "ˈɔːgəst",
+   "ˈɔːɡəst",
    "ˈtwenti ˈsekənd"
   ]
  ],
  "STR": [
   [
    1,
-   4,
    5,
    6,
    9,
-   10
+   10,
+   13,
+   14
   ],
   [
    1,
@@ -255,10 +256,17 @@ const BAI100 = {
   [
    1,
    4,
-   5,
    6,
    7,
-   8
+   8,
+   10,
+   12,
+   14,
+   16,
+   18,
+   20,
+   21,
+   23
   ],
   [
    0,
@@ -266,7 +274,7 @@ const BAI100 = {
    3,
    6,
    7,
-   8
+   9
   ],
   [
    0,
@@ -274,14 +282,18 @@ const BAI100 = {
    4,
    6,
    8,
-   10
+   11,
+   14,
+   16,
+   17
   ],
   [
    0,
    1,
    3,
    4,
-   6
+   6,
+   7
   ],
   [
    1,
@@ -294,16 +306,15 @@ const BAI100 = {
    1,
    2,
    3,
-   4,
    5
   ],
   [
-   0,
    1,
-   2,
    3,
    4,
-   5
+   6,
+   8,
+   9
   ],
   [
    0,
@@ -316,7 +327,6 @@ const BAI100 = {
    1,
    2,
    3,
-   4,
    5
   ],
   [
@@ -325,19 +335,76 @@ const BAI100 = {
    3,
    4,
    5,
-   6
+   6,
+   7
   ]
  ],
  "LK": [
   [],
+  [
+   [
+    0,
+    "ou‿rautumn",
+    "Our autumn: /r/ nối sang /ɔː/"
+   ],
+   [
+    3,
+    "progra‿mis",
+    "program is: /m/ nối sang /ɪ/"
+   ]
+  ],
+  [
+   [
+    3,
+    "a‿reoffering",
+    "are offering: /r/ nối sang /ɔː/"
+   ],
+   [
+    11,
+    "advan‿stexcel",
+    "Advanced Excel: /st/ nối sang /ɪ/"
+   ]
+  ],
+  [
+   [
+    3,
+    "sen‿dup",
+    "send up: /d/ nối sang /ʌ/"
+   ]
+  ],
+  [
+   [
+    0,
+    "course‿zare",
+    "Courses are: /z/ nối sang /ɑː/"
+   ],
+   [
+    13,
+    "i‿zabsent",
+    "is absent: /z/ nối sang /æ/"
+   ]
+  ],
   [],
   [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  [
+   [
+    4,
+    "be‿nOrtiz",
+    "Ben Ortiz: /n/ nối sang /ɔː/"
+   ]
+  ],
+  [
+   [
+    0,
+    "advan‿stexcel",
+    "Advanced Excel: /st/ nối sang /ɪ/"
+   ],
+   [
+    2,
+    "be‿nOrtiz",
+    "Ben Ortiz: /n/ nối sang /ɔː/"
+   ]
+  ],
   [],
   [],
   []
@@ -357,6 +424,18 @@ const BAI100 = {
   ],
   [
    [
+    10,
+    "↗"
+   ],
+   [
+    14,
+    "↗"
+   ],
+   [
+    18,
+    "↗"
+   ],
+   [
     23,
     "↘"
    ]
@@ -368,6 +447,10 @@ const BAI100 = {
    ]
   ],
   [
+   [
+    4,
+    "↗"
+   ],
    [
     17,
     "↘"
@@ -387,11 +470,27 @@ const BAI100 = {
   ],
   [
    [
+    3,
+    "↗"
+   ],
+   [
     5,
     "↘"
    ]
   ],
   [
+   [
+    3,
+    "↗"
+   ],
+   [
+    5,
+    "↗"
+   ],
+   [
+    7,
+    "↗"
+   ],
    [
     9,
     "↘"
@@ -405,11 +504,23 @@ const BAI100 = {
   ],
   [
    [
+    3,
+    "↗"
+   ],
+   [
     5,
     "↘"
    ]
   ],
   [
+   [
+    3,
+    "↗"
+   ],
+   [
+    5,
+    "↗"
+   ],
    [
     7,
     "↘"
@@ -418,28 +529,30 @@ const BAI100 = {
  ],
  "PAU": [
   [
-   1,
-   3,
-   6,
-   8,
-   10,
-   12
+   2,
+   7,
+   11
   ],
-  [],
+  [
+   3
+  ],
   [
    6,
    10,
    14,
    18
   ],
-  [],
+  [
+   1
+  ],
   [
    4
   ],
-  [],
   [
-   2,
    4
+  ],
+  [
+   2
   ],
   [
    1,
@@ -467,12 +580,35 @@ const BAI100 = {
  "EL": [
   [],
   [],
+  [
+   [
+    7,
+    "ˈprɑːdʒek(t)",
+    "Project Management: /t/ gần như mất trước /m/"
+   ]
+  ],
+  [],
+  [
+   [
+    7,
+    "mʌs(t)",
+    "must pay: /t/ gần như mất trước /p/"
+   ],
+   [
+    14,
+    "ˈæbsən(t)",
+    "absent without: /t/ gần như mất trước /w/"
+   ]
+  ],
   [],
   [],
-  [],
-  [],
-  [],
-  [],
+  [
+   [
+    0,
+    "ˈprɑːdʒek(t)",
+    "Project Management: /t/ gần như mất trước /m/"
+   ]
+  ],
   [],
   [],
   [],
@@ -541,41 +677,51 @@ const BAI100 = {
  "VNY": [
   [
    [
-    "(1) e-mail"
+    "e-mail"
    ],
    [
-    "gửi tới: tất cả trưởng phòng ban"
+    "gửi tới"
    ],
    [
-    "từ: phòng đào tạo"
+    "các trưởng phòng",
+    "trưởng phòng ban"
    ],
    [
-    "ngày: 4 tháng 8"
+    "phòng đào tạo"
+   ],
+   [
+    "tháng 8",
+    "ngày 4"
    ]
   ],
   [
    [
-    "chương trình đào tạo mùa thu của chúng tôi"
+    "đào tạo",
+    "chương trình"
    ],
    [
-    "hiện đã mở đăng ký"
+    "mùa thu"
+   ],
+   [
+    "mở đăng ký"
    ]
   ],
   [
    [
-    "năm nay chúng tôi tổ chức bốn khoá học"
+    "bốn khoá học"
    ],
    [
-    "quản lý dự án (hai ngày)"
+    "quản lý dự án"
    ],
    [
-    "excel nâng cao (một ngày)"
+    "excel nâng cao"
    ],
    [
-    "kỹ năng thuyết trình (một ngày)"
+    "kỹ năng thuyết trình"
    ],
    [
-    "và giao tiếp với khách hàng (nửa ngày)"
+    "giao tiếp khách hàng",
+    "giao tiếp với khách hàng"
    ]
   ],
   [
@@ -583,7 +729,10 @@ const BAI100 = {
     "mỗi phòng ban"
    ],
    [
-    "có thể cử tối đa ba nhân viên"
+    "cử tối đa"
+   ],
+   [
+    "ba nhân viên"
    ],
    [
     "mỗi khoá"
@@ -591,67 +740,62 @@ const BAI100 = {
   ],
   [
    [
-    "các khoá học miễn phí cho nhân viên"
+    "miễn phí"
    ],
    [
-    "nhưng các phòng ban phải trả phí"
+    "phòng ban phải trả",
+    "phải trả phí"
    ],
    [
-    "cho bất kỳ người tham gia nào"
+    "vắng mặt"
    ],
    [
-    "vắng mặt mà không báo trước"
+    "không báo trước"
    ]
   ],
   [
    [
-    "vui lòng gửi lại"
+    "gửi lại"
    ],
    [
-    "mẫu đơn đính kèm"
+    "mẫu đơn đính kèm",
+    "đơn đính kèm"
    ],
    [
-    "trước ngày 20 tháng 8"
+    "trước ngày 20",
+    "20 tháng 8"
    ]
   ],
   [
    [
-    "(2) phiếu đăng ký"
+    "phiếu đăng ký"
    ],
    [
-    "phòng ban: kinh doanh"
+    "phòng ban"
+   ],
+   [
+    "kinh doanh"
    ]
   ],
   [
    [
     "quản lý dự án"
-   ],
-   [
-    "anna kowal, ben ortiz"
    ]
   ],
   [
    [
     "excel nâng cao"
-   ],
-   [
-    "ben ortiz, chloe lam, david ng, eva ruiz"
    ]
   ],
   [
    [
     "kỹ năng thuyết trình"
-   ],
-   [
-    "chloe lam"
    ]
   ],
   [
    [
+    "giao tiếp khách hàng",
     "giao tiếp với khách hàng"
-   ],
-   [
-    "anna kowal, eva ruiz"
    ]
   ],
   [
@@ -659,7 +803,7 @@ const BAI100 = {
     "người nộp"
    ],
    [
-    "victor hale, trưởng phòng kinh doanh"
+    "trưởng phòng kinh doanh"
    ],
    [
     "22 tháng 8"
@@ -729,7 +873,7 @@ const BAI100 = {
    "o": [
     "but",
     "or",
-    "so",
+    "nor",
     "because"
    ],
    "a": 0,
@@ -796,7 +940,7 @@ const BAI100 = {
     "about",
     "of",
     "at",
-    "after"
+    "with"
    ],
    "a": 0,
    "vi": "ask about = hỏi về."
@@ -1494,15 +1638,15 @@ const BAI100 = {
      "vi": "right now → hiện tại tiếp diễn."
     },
     {
-     "q": "Our company ___ new staff at the moment.",
+     "q": "Please be quiet. The manager ___ on the phone.",
      "o": [
-      "is hiring",
-      "hires",
-      "hired",
-      "hire"
+      "is talking",
+      "talks",
+      "talked",
+      "talk"
      ],
      "a": 0,
-     "vi": "at the moment → hiện tại tiếp diễn."
+     "vi": "Please be quiet → việc đang diễn ra: is talking."
     }
    ],
    "b4": {

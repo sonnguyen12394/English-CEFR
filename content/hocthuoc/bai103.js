@@ -15,7 +15,7 @@ const BAI103 = {
   [
    "W",
    "(1) Job opening — Lindgren Hotels",
-   "(1) Tuyển dụng — Khách sạn Lindgren",
+   "(1) Tin tuyển dụng — Khách sạn Lindgren",
    ""
   ],
   [
@@ -57,19 +57,19 @@ const BAI103 = {
   [
    "W",
    "I am currently taking a part-time course in hospitality management on Saturday mornings, which ends in December.",
-   "Hiện tôi đang học một khoá bán thời gian về quản lý khách sạn vào các sáng thứ Bảy, khoá này kết thúc vào tháng 12.",
+   "Hiện tôi đang học một khoá bán thời gian về quản trị khách sạn vào các sáng thứ Bảy, khoá này kết thúc vào tháng 12.",
    ""
   ],
   [
    "W",
    "I hope this will not be a problem.",
-   "Tôi hy vọng điều này sẽ không là vấn đề.",
+   "Tôi hy vọng điều này sẽ không thành vấn đề.",
    ""
   ],
   [
    "W",
    "My résumé and cover letter are attached.",
-   "Sơ yếu lý lịch và thư xin việc của tôi được đính kèm.",
+   "Tôi đính kèm sơ yếu lý lịch và thư xin việc.",
    ""
   ],
   [
@@ -142,23 +142,23 @@ const BAI103 = {
   ],
   [
    "rɪˈkwaɪərmənts",
-   "ət",
+   "æt",
    "liːst",
    "tuː",
    "jɪrz",
    "əv",
    "ɪkˈspɪriəns",
-   "ət",
+   "æt",
    "ə",
    "hoʊˈtel",
    "rɪˈsepʃən",
    "desk",
    "ˈfluːənsi",
    "ɪn",
-   "ˈɪŋglɪʃ",
+   "ˈɪŋɡlɪʃ",
    "ən",
    "wʌn",
-   "ˈʌðɚ",
+   "ˈʌðər",
    "ˈlæŋɡwɪdʒ",
    "ən",
    "ði",
@@ -179,37 +179,37 @@ const BAI103 = {
    "ˈkʌvər",
    "ˈletər",
    "tə",
-   "ˈdʒɑːbz æt ˈlɪndgrən dɑːt kɑːm",
+   "ˈdʒɑːbz æt ˈlɪndɡrən dɑːt kɑːm",
    "baɪ",
-   "sepˈtembɚ",
-   "fɪfˈtiːn"
+   "sepˈtembər",
+   "fɪfˈtiːnθ"
   ],
   [
    "(2)",
    "ˈiːmeɪl",
    "·",
-   "tə",
-   "ˈdʒɑːbz æt ˈlɪndgrən dɑːt kɑːm",
+   "tuː",
+   "dʒɑːbz æt ˈlɪndɡrən dɑːt kɑːm",
    "·",
-   "frəm",
+   "frʌm",
    "toʊˈmɑːs",
-   "eˈrerə",
+   "həˈrerə",
    "·",
    "deɪt",
-   "sepˈtembɚ",
-   "twelv"
+   "sepˈtembər",
+   "ˈtwelfθ"
   ],
   [
    "dɪr",
-   "ˈhaɪrɪŋ",
+   "ˈhaɪərɪŋ",
    "ˈmænɪdʒər",
    "aɪ",
-   "ˌeɪˈem",
+   "æm",
    "ˈraɪtɪŋ",
    "tə",
    "əˈplaɪ",
    "fər",
-   "ði",
+   "ðə",
    "frʌnt",
    "desk",
    "ˈsuːpərvaɪzər",
@@ -218,14 +218,14 @@ const BAI103 = {
   [
    "aɪ",
    "həv",
-   "wɝːkt",
-   "ət",
-   "ði",
+   "wɜːrkt",
+   "æt",
+   "ðə",
    "rɪˈsepʃən",
    "desk",
    "əv",
-   "ði",
-   "grænd",
+   "ðə",
+   "ɡrænd",
    "ˈsentrəl",
    "hoʊˈtel",
    "fər",
@@ -234,29 +234,29 @@ const BAI103 = {
    "ən",
    "aɪ",
    "spiːk",
-   "ˈɪŋglɪʃ",
+   "ˈɪŋɡlɪʃ",
    "ˈspænɪʃ",
    "ən",
-   "ˌpɔːrtʃəˈgiːz"
+   "ˌpɔːrtʃʊˈɡiːz"
   ],
   [
    "aɪ",
-   "ˌeɪˈem",
+   "æm",
    "ˈkɝːəntli",
    "ˈteɪkɪŋ",
    "ə",
-   "ˈpɑːrtˌtaɪm",
+   "ˈpɑːrt taɪm",
    "kɔːrs",
    "ɪn",
    "ˌhɑːspɪˈtæləti",
    "ˈmænɪdʒmənt",
    "ɑːn",
-   "ˈsætɚdeɪ",
+   "ˈsætərdeɪ",
    "ˈmɔːrnɪŋz",
    "wɪtʃ",
    "endz",
    "ɪn",
-   "dɪˈsembɚ"
+   "dɪˈsembər"
   ],
   [
    "aɪ",
@@ -280,15 +280,15 @@ const BAI103 = {
   [
    "sɪnˈsɪrli",
    "toʊˈmɑːs",
-   "eˈrerə"
+   "həˈrerə"
   ],
   [
    "(3)",
-   "ˈɪntɚvjuː",
+   "ˈɪntərvjuː",
    "ˈskedʒuːl",
    "—",
-   "sepˈtembɚ",
-   "ˈtwenti",
+   "sepˈtembər",
+   "ˈtwentiəθ",
    "·",
    "ˈhɑːrbər",
    "striːt",
@@ -297,31 +297,31 @@ const BAI103 = {
   ],
   [
    "naɪn",
-   "ˌeɪˈem",
+   "ˌeɪ ˈem",
    "—",
    "meɪ",
    "lɪn"
   ],
   [
    "ten",
-   "ˌeɪˈem",
+   "ˌeɪ ˈem",
    "—",
    "toʊˈmɑːs",
-   "eˈrerə"
+   "həˈrerə"
   ],
   [
    "ɪˈlevən",
-   "ˌeɪˈem",
+   "ˌeɪ ˈem",
    "—",
    "ˈɑːmed",
    "ˈnɑːsər"
   ],
   [
    "ˈɪntərvjuːər",
-   "greɪs",
+   "ɡreɪs",
    "ˈlɪndkvɪst",
    "ɡest",
-   "ˈsɝːvɪsəz",
+   "ˈsɝːvɪsɪz",
    "ˈmænɪdʒər"
   ],
   [
@@ -348,31 +348,42 @@ const BAI103 = {
    3,
    6,
    7,
-   8
+   8,
+   11,
+   12,
+   13
   ],
   [
    0,
    2,
-   3,
    4,
    6,
-   9
+   10,
+   12,
+   14,
+   18,
+   21,
+   23,
+   24,
+   25
   ],
   [
    1,
    2,
-   4,
-   7,
-   8,
-   10
-  ],
-  [
-   1,
    4,
    7,
    8,
    10,
-   11
+   12,
+   13
+  ],
+  [
+   1,
+   4,
+   7,
+   8,
+   11,
+   12
   ],
   [
    0,
@@ -380,26 +391,39 @@ const BAI103 = {
    2,
    5,
    7,
-   10
+   10,
+   11,
+   12,
+   13
   ],
   [
    2,
    5,
    6,
+   10,
+   11,
+   13,
+   14,
+   17,
+   18,
+   19,
+   21
+  ],
+  [
+   2,
+   3,
+   5,
+   6,
+   8,
    9,
-   10,
-   11
-  ],
-  [
-   2,
-   3,
-   5,
-   6,
-   8,
-   9
+   11,
+   12,
+   14,
+   16
   ],
   [
    1,
+   4,
    7
   ],
   [
@@ -417,22 +441,27 @@ const BAI103 = {
    1,
    2,
    4,
+   5,
    7,
    8,
-   9
+   9,
+   10
   ],
   [
    0,
+   1,
    3,
    4
   ],
   [
    0,
+   1,
    3,
    4
   ],
   [
    0,
+   1,
    3,
    4
   ],
@@ -440,7 +469,6 @@ const BAI103 = {
    0,
    1,
    2,
-   3,
    4,
    5
   ],
@@ -453,6 +481,74 @@ const BAI103 = {
  ],
  "LK": [
   [],
+  [
+   [
+    4,
+    "for‿a",
+    "for a: /r/ nối sang /ə/"
+   ]
+  ],
+  [
+   [
+    4,
+    "years‿of",
+    "years of: /z/ nối sang /ə/"
+   ],
+   [
+    7,
+    "at‿a",
+    "at a: /t/ nối sang /ə/"
+   ],
+   [
+    16,
+    "one‿other",
+    "one other: /n/ nối sang /ʌ/"
+   ]
+  ],
+  [
+   [
+    5,
+    "and‿a",
+    "and a: /n/ nối sang /ə/"
+   ]
+  ],
+  [],
+  [
+   [
+    3,
+    "I‿am",
+    "I am: nói liền, “am” đọc nhẹ"
+   ]
+  ],
+  [
+   [
+    2,
+    "worked‿at",
+    "worked at: /t/ nối sang /æ/"
+   ],
+   [
+    15,
+    "and‿I",
+    "and I: /n/ nối sang /aɪ/"
+   ]
+  ],
+  [
+   [
+    3,
+    "taking‿a",
+    "taking a: /ŋ/ nối nhẹ sang /ə/"
+   ],
+   [
+    6,
+    "course‿in",
+    "course in: /s/ nối sang /ɪ/"
+   ],
+   [
+    14,
+    "ends‿in",
+    "ends in: /z/ nối sang /ɪ/"
+   ]
+  ],
   [],
   [],
   [],
@@ -461,14 +557,13 @@ const BAI103 = {
   [],
   [],
   [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  []
+  [
+   [
+    2,
+    "bring‿a",
+    "bring a: /ŋ/ nối nhẹ sang /ə/"
+   ]
+  ]
  ],
  "INT": [
   [
@@ -578,34 +673,38 @@ const BAI103 = {
   [
    2
   ],
-  [],
+  [
+   8
+  ],
   [
    0,
    11,
    18
   ],
   [
-   1
+   1,
+   8
   ],
   [
    1,
-   3,
    4,
-   6,
-   8,
-   10
+   8
   ],
   [
    2
   ],
   [
+   11,
    14,
    18
   ],
   [
+   9,
    12
   ],
-  [],
+  [
+   1
+  ],
   [],
   [
    0
@@ -625,7 +724,6 @@ const BAI103 = {
    1
   ],
   [
-   0,
    2
   ],
   []
@@ -633,7 +731,13 @@ const BAI103 = {
  "EL": [
   [],
   [],
-  [],
+  [
+   [
+    2,
+    "liːs(t)",
+    "least two: /t/ cuối “least” gần như không bật ra trước /t/ của “two”"
+   ]
+  ],
   [],
   [],
   [],
@@ -651,7 +755,7 @@ const BAI103 = {
  ],
  "VNK": [
   [
-   "(1) Tuyển dụng —",
+   "(1) Tin tuyển dụng —",
    "Khách sạn Lindgren"
   ],
   [
@@ -691,18 +795,19 @@ const BAI103 = {
   ],
   [
    "Hiện tôi đang học một khoá bán thời gian",
-   "về quản lý khách sạn",
+   "về quản trị khách sạn",
    "vào các sáng thứ Bảy,",
    "khoá này kết thúc vào tháng 12."
   ],
   [
    "Tôi hy vọng",
-   "điều này sẽ không là vấn đề."
+   "điều này sẽ không",
+   "thành vấn đề."
   ],
   [
-   "Sơ yếu lý lịch",
-   "và thư xin việc của tôi",
-   "được đính kèm."
+   "Tôi đính kèm",
+   "sơ yếu lý lịch",
+   "và thư xin việc."
   ],
   [
    "Trân trọng,",
@@ -739,38 +844,42 @@ const BAI103 = {
  "VNY": [
   [
    [
-    "(1) tuyển dụng"
-   ],
-   [
-    "khách sạn lindgren"
+    "tin tuyển dụng",
+    "tuyển dụng"
    ]
   ],
   [
    [
-    "khách sạn lindgren đang tìm"
+    "đang tìm",
+    "đang tuyển"
    ],
    [
-    "một giám sát quầy lễ tân"
+    "giám sát quầy lễ tân",
+    "giám sát lễ tân"
    ],
    [
-    "cho chi nhánh trên phố harbor"
+    "chi nhánh trên phố Harbor",
+    "chi nhánh phố Harbor"
    ]
   ],
   [
    [
-    "yêu cầu"
+    "ít nhất hai năm"
    ],
    [
-    "ít nhất hai năm kinh nghiệm"
+    "kinh nghiệm ở quầy lễ tân",
+    "kinh nghiệm lễ tân khách sạn"
    ],
    [
-    "tại quầy lễ tân khách sạn"
+    "thông thạo tiếng Anh",
+    "giỏi tiếng Anh"
    ],
    [
-    "thông thạo tiếng anh và một ngôn ngữ khác"
+    "một ngôn ngữ khác"
    ],
    [
-    "và có khả năng làm ca cuối tuần"
+    "làm ca cuối tuần",
+    "làm việc cuối tuần"
    ]
   ],
   [
@@ -778,128 +887,138 @@ const BAI103 = {
     "để ứng tuyển"
    ],
    [
-    "hãy gửi sơ yếu lý lịch và thư xin việc"
+    "sơ yếu lý lịch"
    ],
    [
-    "tới jobs@lindgren.com"
+    "thư xin việc"
    ],
    [
-    "trước ngày 15 tháng 9"
+    "trước ngày 15 tháng 9",
+    "chậm nhất ngày 15 tháng 9"
    ]
   ],
   [
    [
-    "(2) e-mail"
+    "e-mail",
+    "thư điện tử"
    ],
    [
-    "gửi tới: jobs@lindgren.com"
-   ],
-   [
-    "từ: tomás herrera"
-   ],
-   [
-    "ngày: 12 tháng 9"
+    "12 tháng 9",
+    "ngày 12 tháng 9"
    ]
   ],
   [
    [
-    "kính gửi trưởng bộ phận tuyển dụng"
+    "trưởng bộ phận tuyển dụng"
    ],
    [
-    "tôi viết thư này"
+    "viết thư này",
+    "tôi viết thư"
    ],
    [
-    "để ứng tuyển vị trí giám sát quầy lễ tân"
+    "ứng tuyển"
+   ],
+   [
+    "giám sát quầy lễ tân",
+    "giám sát lễ tân"
    ]
   ],
   [
    [
-    "tôi đã làm việc tại quầy lễ tân"
+    "làm việc tại quầy lễ tân",
+    "làm lễ tân"
    ],
    [
-    "của khách sạn grand central"
+    "khách sạn Grand Central"
    ],
    [
-    "được ba năm"
+    "ba năm"
    ],
    [
-    "và tôi nói được tiếng anh, tiếng tây ban nha và tiếng bồ đào nha"
+    "tiếng Anh"
+   ],
+   [
+    "tiếng Tây Ban Nha"
+   ],
+   [
+    "tiếng Bồ Đào Nha"
    ]
   ],
   [
    [
-    "hiện tôi đang học một khoá bán thời gian"
+    "đang học"
    ],
    [
-    "về quản lý khách sạn"
+    "khoá bán thời gian"
    ],
    [
-    "vào các sáng thứ bảy"
+    "quản trị khách sạn"
    ],
    [
-    "khoá này kết thúc vào tháng 12"
+    "sáng thứ Bảy",
+    "các sáng thứ Bảy"
+   ],
+   [
+    "kết thúc vào tháng 12",
+    "kết thúc tháng 12"
    ]
   ],
   [
    [
-    "tôi hy vọng"
+    "hy vọng"
    ],
    [
-    "điều này sẽ không là vấn đề"
+    "không thành vấn đề",
+    "không gây vấn đề"
    ]
   ],
   [
+   [
+    "đính kèm"
+   ],
    [
     "sơ yếu lý lịch"
    ],
    [
-    "và thư xin việc của tôi"
-   ],
-   [
-    "được đính kèm"
+    "thư xin việc"
    ]
   ],
   [
    [
     "trân trọng"
-   ],
-   [
-    "tomás herrera"
    ]
   ],
   [
    [
-    "(3) lịch phỏng vấn"
+    "lịch phỏng vấn"
    ],
    [
-    "20 tháng 9"
+    "20 tháng 9",
+    "ngày 20 tháng 9"
    ],
    [
-    "phố harbor, phòng 4"
+    "phố Harbor"
+   ],
+   [
+    "Phòng 4"
    ]
   ],
   [
    [
+    "9 giờ sáng",
     "9:00 sáng"
-   ],
-   [
-    "mei lin"
    ]
   ],
   [
    [
+    "10 giờ sáng",
     "10:00 sáng"
-   ],
-   [
-    "tomás herrera"
    ]
   ],
   [
    [
+    "11 giờ sáng",
     "11:00 sáng"
-   ],
-   [
-    "ahmed nasser"
    ]
   ],
   [
@@ -907,15 +1026,12 @@ const BAI103 = {
     "người phỏng vấn"
    ],
    [
-    "grace lindqvist"
-   ],
-   [
     "quản lý dịch vụ khách hàng"
    ]
   ],
   [
    [
-    "các ứng viên"
+    "ứng viên"
    ],
    [
     "nên mang theo"
@@ -980,6 +1096,17 @@ const BAI103 = {
    ],
    "a": 0,
    "vi": "Yêu cầu gồm hai năm kinh nghiệm lễ tân, hai ngôn ngữ và làm ca cuối tuần. Không có yêu cầu bằng đại học."
+  },
+  {
+   "q": "Who will interview the candidates on September 20?",
+   "o": [
+    "The Guest Services Manager",
+    "The Front Desk Supervisor",
+    "Mr. Herrera",
+    "The hotel owner"
+   ],
+   "a": 0,
+   "vi": "Lịch ghi người phỏng vấn là Grace Lindqvist, Guest Services Manager (Quản lý Dịch vụ Khách hàng)."
   }
  ],
  "NEWQ2": [
@@ -1401,7 +1528,8 @@ const BAI103 = {
     "hint": "danh từ · 8 chữ cái",
     "ans": [
      "position",
-     "job"
+     "job",
+     "post"
     ],
     "vi": "position = vị trí, chức vụ."
    }
@@ -1489,7 +1617,7 @@ const BAI103 = {
    },
    "b3": [
     {
-     "q": "He ___ in this company since 2019.",
+     "q": "He ___ for this company since 2019.",
      "o": [
       "has worked",
       "worked",
