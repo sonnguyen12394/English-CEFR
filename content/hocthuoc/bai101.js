@@ -121,18 +121,18 @@ const BAI101 = {
   ],
   [
    "wi",
-   "ər",
+   "ɑːr",
    "ˈlʊkɪŋ",
    "fər",
    "ˌvɑːlənˈtɪrz",
    "tə",
    "help",
-   "ət",
+   "æt",
    "ðɪs",
    "jɪrz",
    "ˈfestɪvəl",
    "dʒuːn",
-   "sɪks tuː eɪt"
+   "sɪksθ tuː eɪtθ"
   ],
   [
    "ˌvɑːlənˈtɪrz",
@@ -145,28 +145,28 @@ const BAI101 = {
    "ə",
    "friː",
    "ˈfestɪvəl",
-   "ˈtiː ʃɝːt",
+   "ˈtiːʃɝːt",
    "ən",
    "ə",
    "ˈtɪkɪt",
    "tə",
-   "ði",
+   "ðə",
    "ˈkloʊzɪŋ",
-   "ˈkɑːnsɚt"
+   "ˈkɑːnsərt"
   ],
   [
    "ʃɪfts",
-   "ər",
-   "əˈveɪləbl",
-   "ət",
-   "ði",
+   "ɑːr",
+   "əˈveɪləbəl",
+   "æt",
+   "ðə",
    "ˌɪnfərˈmeɪʃən",
    "desk",
-   "ði",
+   "ðə",
    "ˈtɪkɪt",
    "ɡeɪt",
    "ən",
-   "ði",
+   "ðə",
    "ˈtʃɪldrənz",
    "ɑːrt",
    "tent"
@@ -174,7 +174,7 @@ const BAI101 = {
   [
    "ˌvɑːlənˈtɪrz",
    "ˈʌndər",
-   "ˌeɪˈtiːn",
+   "eɪˈtiːn",
    "mʌst",
    "wɝːk",
    "wɪð",
@@ -183,13 +183,13 @@ const BAI101 = {
    "ˌvɑːlənˈtɪr"
   ],
   [
-   "tə",
+   "tuː",
    "saɪn",
    "ʌp",
    "ˈiːmeɪl",
-   "ˌvɑːlənˈtɪr æt ˈhɑːrbər ɑːrts dɑːt ɔːrg",
+   "ˌvɑːlənˈtɪr æt ˈhɑːrbər ɑːrts dɑːt ɔːrɡ",
    "wɪð",
-   "jər",
+   "jɔːr",
    "prɪˈfɝːd",
    "deɪ",
    "ən",
@@ -199,10 +199,10 @@ const BAI101 = {
    "(2)",
    "ˈiːmeɪl",
    "·",
-   "tə",
-   "ˌvɑːlənˈtɪr æt ˈhɑːrbər ɑːrts dɑːt ɔːrg",
+   "tuː",
+   "ˌvɑːlənˈtɪr æt ˈhɑːrbər ɑːrts dɑːt ɔːrɡ",
    "·",
-   "frəm",
+   "frʌm",
    "ˈnɔːrə",
    "bel"
   ],
@@ -213,17 +213,17 @@ const BAI101 = {
    "laɪk",
    "tə",
    "ˌvɑːlənˈtɪr",
-   "ət",
-   "ði",
+   "æt",
+   "ðə",
    "ˈfestɪvəl",
    "ɑːn",
-   "ˈsætɚdeɪ",
+   "ˈsætərdeɪ",
    "dʒuːn",
-   "ˈsevən"
+   "ˈsevənθ"
   ],
   [
    "aɪ",
-   "ˌeɪˈem",
+   "æm",
    "ə",
    "ˈpraɪmeri",
    "skuːl",
@@ -236,14 +236,14 @@ const BAI101 = {
    "tə",
    "help",
    "ɪn",
-   "ði",
+   "ðə",
    "ˈtʃɪldrənz",
    "ɑːrt",
    "tent"
   ],
   [
    "maɪ",
-   "ˈsɪksˈtiːn jɪr oʊld",
+   "ˌsɪkstiːn jɪr oʊld",
    "sʌn",
    "wʊd",
    "ˈɔːlsoʊ",
@@ -255,7 +255,7 @@ const BAI101 = {
    "kʊd",
    "wi",
    "wɝːk",
-   "ði",
+   "ðə",
    "seɪm",
    "ʃɪft"
   ],
@@ -270,16 +270,16 @@ const BAI101 = {
    "ˌvɑːlənˈtɪr",
    "ˈskedʒuːl",
    "—",
-   "ˈsætɚdeɪ",
+   "ˈsætərdeɪ",
    "dʒuːn",
-   "ˈsevən",
+   "ˈsevənθ",
    "ˈtʃɪldrənz",
    "ɑːrt",
    "tent"
   ],
   [
    "naɪn",
-   "eɪ em tuː wʌn",
+   "ˌeɪˈem tuː wʌn",
    "ˌpiːˈem",
    "ˈnɔːrə",
    "bel",
@@ -288,16 +288,16 @@ const BAI101 = {
   ],
   [
    "wʌn",
-   "piː em tuː faɪv",
+   "ˌpiːˈem tuː faɪv",
    "ˌpiːˈem",
-   "greɪs",
-   "liːu",
+   "ɡreɪs",
+   "ˈliːuː",
    "ˈɑːmed",
    "ˈsɑːleɪ"
   ],
   [
    "faɪv",
-   "piː em tuː naɪn",
+   "ˌpiːˈem tuː naɪn",
    "ˌpiːˈem",
    "ˈoʊpən"
   ]
@@ -316,15 +316,20 @@ const BAI101 = {
    6,
    9,
    10,
-   11
+   11,
+   12
   ],
   [
    0,
    1,
-   2,
    3,
    4,
-   6
+   6,
+   8,
+   10,
+   13,
+   16,
+   17
   ],
   [
    0,
@@ -332,11 +337,15 @@ const BAI101 = {
    5,
    6,
    8,
-   9
+   9,
+   12,
+   13,
+   14
   ],
   [
    0,
-   1,
+   2,
+   3,
    4,
    7,
    8
@@ -361,7 +370,8 @@ const BAI101 = {
    5,
    8,
    10,
-   11
+   11,
+   12
   ],
   [
    3,
@@ -369,13 +379,14 @@ const BAI101 = {
    5,
    10,
    12,
-   15
+   15,
+   16,
+   17
   ],
   [
    1,
    2,
    4,
-   5,
    7
   ],
   [
@@ -393,12 +404,13 @@ const BAI101 = {
    2,
    4,
    5,
-   7,
-   8
+   6,
+   8,
+   9
   ],
   [
    0,
-   1,
+   2,
    3,
    4,
    5,
@@ -406,32 +418,121 @@ const BAI101 = {
   ],
   [
    0,
-   1,
+   2,
    3,
-   4,
    5,
    6
   ],
   [
    0,
-   1,
+   2,
    3
   ]
  ],
  "LK": [
+  [
+   [
+    1,
+    "harbo‿rarts",
+    "Harbor Arts: /r/ nối sang /ɑː/"
+   ]
+  ],
+  [
+   [
+    6,
+    "hel‿pat",
+    "help at: /p/ nối sang /æ/"
+   ]
+  ],
+  [
+   [
+    6,
+    "recei‿va",
+    "receive a: /v/ nối sang /ə/"
+   ]
+  ],
+  [
+   [
+    0,
+    "shift‿sare",
+    "Shifts are: /s/ nối sang /ɑː/"
+   ],
+   [
+    2,
+    "availab‿lat",
+    "available at: /l/ nối sang /æ/"
+   ],
+   [
+    12,
+    "children‿zart",
+    "children's art: /z/ nối sang /ɑː/"
+   ]
+  ],
+  [
+   [
+    5,
+    "wi‿than",
+    "with an: /ð/ nối sang /ə/"
+   ],
+   [
+    6,
+    "a‿nadult",
+    "an adult: /n/ nối sang /ə/"
+   ]
+  ],
+  [
+   [
+    1,
+    "sig‿nup",
+    "sign up: /n/ nối sang /ʌ/"
+   ],
+   [
+    9,
+    "an‿darea",
+    "and area: /d/ nối sang /e/"
+   ]
+  ],
+  [],
+  [
+   [
+    5,
+    "voluntee‿rat",
+    "volunteer at: /r/ nối sang /æ/"
+   ],
+   [
+    8,
+    "festiva‿lon",
+    "festival on: /l/ nối sang /ɑː/"
+   ]
+  ],
+  [
+   [
+    12,
+    "hel‿pin",
+    "help in: /p/ nối sang /ɪ/"
+   ],
+   [
+    15,
+    "children‿zart",
+    "children's art: /z/ nối sang /ɑː/"
+   ]
+  ],
+  [
+   [
+    3,
+    "woul‿dalso",
+    "would also: /d/ nối sang /ɔː/"
+   ]
+  ],
   [],
   [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  [
+   [
+    7,
+    "children‿zart",
+    "children's art: /z/ nối sang /ɑː/"
+   ]
+  ],
   [],
   [],
   []
@@ -487,6 +588,10 @@ const BAI101 = {
   ],
   [
    [
+    5,
+    "↗"
+   ],
+   [
     17,
     "↘"
    ]
@@ -517,11 +622,19 @@ const BAI101 = {
   ],
   [
    [
+    4,
+    "↗"
+   ],
+   [
     6,
     "↘"
    ]
   ],
   [
+   [
+    4,
+    "↗"
+   ],
    [
     6,
     "↘"
@@ -541,19 +654,23 @@ const BAI101 = {
   [
    10
   ],
-  [],
   [
-   6
+   4,
+   10
   ],
-  [],
+  [
+   6,
+   9
+  ],
   [
    2
   ],
   [
-   1,
-   3,
-   4,
-   6
+   2
+  ],
+  [
+   2,
+   5
   ],
   [
    0,
@@ -562,14 +679,16 @@ const BAI101 = {
   [
    5
   ],
-  [],
+  [
+   2
+  ],
   [],
   [
    1
   ],
   [
-   2,
-   4
+   3,
+   6
   ],
   [
    2,
@@ -586,17 +705,64 @@ const BAI101 = {
  "EL": [
   [],
   [],
+  [
+   [
+    13,
+    "ˈtɪki(t)",
+    "ticket to: hai /t/ liền nhau, đọc một /t/"
+   ]
+  ],
+  [
+   [
+    8,
+    "ˈtɪki(t)",
+    "ticket gate: /t/ gần như mất trước /ɡ/"
+   ],
+   [
+    13,
+    "ɑːr(t)",
+    "art tent: hai /t/ liền nhau, đọc một /t/"
+   ]
+  ],
+  [
+   [
+    3,
+    "mʌs(t)",
+    "must work: /t/ gần như mất trước /w/"
+   ]
+  ],
   [],
   [],
+  [
+   [
+    2,
+    "wʊ(d)",
+    "would like: /d/ gần như mất trước /l/"
+   ]
+  ],
+  [
+   [
+    16,
+    "ɑːr(t)",
+    "art tent: hai /t/ liền nhau, đọc một /t/"
+   ]
+  ],
   [],
+  [
+   [
+    0,
+    "kʊ(d)",
+    "could we: /d/ gần như mất trước /w/"
+   ]
+  ],
   [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  [
+   [
+    8,
+    "ɑːr(t)",
+    "art tent: hai /t/ liền nhau, đọc một /t/"
+   ]
+  ],
   [],
   [],
   []
@@ -679,54 +845,72 @@ const BAI101 = {
  "VNY": [
   [
    [
-    "(1) lễ hội nghệ thuật harbor"
+    "lễ hội nghệ thuật"
    ],
    [
-    "trang tình nguyện viên"
+    "tình nguyện viên"
    ]
   ],
   [
    [
-    "chúng tôi đang tìm tình nguyện viên"
+    "tìm tình nguyện viên"
    ],
    [
-    "hỗ trợ lễ hội năm nay"
+    "hỗ trợ lễ hội"
    ],
    [
-    "từ ngày 6 đến 8 tháng 6"
+    "năm nay"
+   ],
+   [
+    "ngày 6 đến 8"
    ]
   ],
   [
    [
-    "tình nguyện viên làm một ca bốn tiếng"
+    "làm một ca"
    ],
    [
-    "và nhận áo phông lễ hội miễn phí"
+    "bốn tiếng"
    ],
    [
-    "cùng một vé xem buổi hoà nhạc bế mạc"
+    "áo phông lễ hội",
+    "áo phông"
+   ],
+   [
+    "miễn phí"
+   ],
+   [
+    "vé hoà nhạc bế mạc",
+    "hoà nhạc bế mạc"
    ]
   ],
   [
    [
-    "có các ca ở quầy thông tin"
+    "còn ca",
+    "có các ca"
+   ],
+   [
+    "quầy thông tin"
    ],
    [
     "cổng soát vé"
    ],
    [
-    "và lều nghệ thuật dành cho trẻ em"
+    "lều nghệ thuật"
+   ],
+   [
+    "trẻ em"
    ]
   ],
   [
    [
-    "tình nguyện viên dưới 18 tuổi"
+    "dưới 18 tuổi"
    ],
    [
     "phải làm cùng"
    ],
    [
-    "một tình nguyện viên người lớn"
+    "người lớn"
    ]
   ],
   [
@@ -734,21 +918,26 @@ const BAI101 = {
     "để đăng ký"
    ],
    [
-    "hãy gửi e-mail tới volunteer@harborarts.org"
+    "gửi e-mail"
    ],
    [
-    "kèm ngày và khu vực bạn muốn"
+    "ngày bạn muốn",
+    "ngày muốn làm"
+   ],
+   [
+    "khu vực"
    ]
   ],
   [
    [
-    "(2) e-mail"
+    "e-mail"
    ],
    [
-    "gửi tới: volunteer@harborarts.org"
+    "gửi tới"
    ],
    [
-    "từ: nora bell"
+    "từ nora bell",
+    "nora bell"
    ]
   ],
   [
@@ -756,37 +945,57 @@ const BAI101 = {
     "xin chào"
    ],
    [
-    "tôi muốn làm tình nguyện viên tại lễ hội"
+    "tình nguyện",
+    "muốn làm tình nguyện"
    ],
    [
-    "vào thứ bảy, ngày 7 tháng 6"
+    "lễ hội"
+   ],
+   [
+    "thứ bảy",
+    "ngày 7 tháng 6"
    ]
   ],
   [
    [
-    "tôi là giáo viên tiểu học"
+    "giáo viên tiểu học"
    ],
    [
-    "nên tôi rất vui lòng"
+    "rất vui lòng"
    ],
    [
-    "giúp ở lều nghệ thuật dành cho trẻ em"
+    "giúp ở lều"
+   ],
+   [
+    "lều nghệ thuật",
+    "nghệ thuật trẻ em"
    ]
   ],
   [
    [
-    "con trai 16 tuổi của tôi"
+    "con trai"
    ],
    [
-    "cũng muốn làm tình nguyện viên"
+    "16 tuổi"
+   ],
+   [
+    "cũng muốn"
+   ],
+   [
+    "tình nguyện",
+    "làm tình nguyện"
    ]
   ],
   [
    [
-    "chúng tôi có thể"
+    "chúng tôi"
    ],
    [
-    "làm cùng ca không"
+    "làm cùng ca"
+   ],
+   [
+    "có thể",
+    "được không"
    ]
   ],
   [
@@ -799,37 +1008,50 @@ const BAI101 = {
   ],
   [
    [
-    "(3) lịch tình nguyện viên"
+    "lịch tình nguyện viên"
    ],
    [
-    "thứ bảy, ngày 7 tháng 6"
+    "thứ bảy",
+    "ngày 7 tháng 6"
    ],
    [
-    "(lều nghệ thuật dành cho trẻ em)"
+    "lều nghệ thuật",
+    "lều nghệ thuật trẻ em"
    ]
   ],
   [
    [
-    "9:00 sáng–1:00 chiều"
+    "chín giờ sáng"
    ],
    [
-    "nora bell, tom bell"
+    "một giờ chiều"
+   ],
+   [
+    "nora và tom",
+    "nora bell"
    ]
   ],
   [
    [
-    "1:00 chiều–5:00 chiều"
+    "một giờ chiều"
    ],
    [
-    "grace liu, ahmed saleh"
+    "năm giờ chiều"
+   ],
+   [
+    "grace và ahmed",
+    "grace liu"
    ]
   ],
   [
    [
-    "5:00 chiều–9:00 tối"
+    "năm giờ chiều"
    ],
    [
-    "(còn trống)"
+    "chín giờ tối"
+   ],
+   [
+    "còn trống"
    ]
   ]
  ],
@@ -895,7 +1117,7 @@ const BAI101 = {
    "q": "Volunteers will be given a free T-shirt ___ arrival.",
    "o": [
     "on",
-    "at",
+    "by",
     "in",
     "for"
    ],
@@ -908,7 +1130,7 @@ const BAI101 = {
     "at",
     "on",
     "in",
-    "by"
+    "during"
    ],
    "a": 0,
    "vi": "at + giờ."
