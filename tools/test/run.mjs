@@ -3139,5 +3139,20 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
     if (reW('in').test('Linh turns twenty')) r.push('chỗ trống "in" khớp trong "Linh"'); if (!reW('in').test('Count me in!')) r.push('không khớp "in" nguyên từ'); }
   R.push({ lv: 'cefr', id: 'C104', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Học thuộc 2 mục tiêu: chọn mục tiêu → chủ đề → dạng, bài Giao tiếp có chủ đề, cụm thân mật, chỗ trống khớp nguyên từ' }); }
 
+// v218 C105 📖 ⚡ Đua giờ theo cấp: bảng cấp từng từ (bai/capw.js) phủ ≥ 90% từ của bài, số 0–6, từ quen đúng cấp; trang có ô chọn cấp, từ vàng tự bỏ qua; app đưa cấp đang học
+{ const r = [];
+  const fs = await import('node:fs'), vm = await import('node:vm'), root = new URL('../../', import.meta.url).pathname, H = root + 'hoc-thuoc/', h = fs.readFileSync(H + 'index.html', 'utf8');
+  for (const k of ['bai/capw.js?v=', 'dgCapBox', 'gw-sk', 'dgOver', 'window.parent.htLv']) if (!h.includes(k)) r.push('trang con thiếu ' + k);
+  if (!fs.readFileSync(root + 'hocthuoc.js', 'utf8').includes('window.htLv')) r.push('app thiếu htLv');
+  const c = {}; vm.createContext(c); vm.runInContext(fs.readFileSync(H + 'bai/capw.js', 'utf8') + ';this.X=CAPW', c); const X = c.X;
+  if (Object.values(X).some(v => !(v >= 0 && v <= 6))) r.push('cấp ngoài 0–6');
+  for (const [w, l] of [['the', 0], ['is', 0], ["we're", 0], ['went', 0], ['color', 0], ['meeting', 1]]) if (X[w] !== l) r.push(`${w}: ${X[w]} (cần ${l})`);
+  if (!(X.furthermore >= 3)) r.push('furthermore phải ≥ B1');
+  const idx = fs.readFileSync(H + 'bai/index.js', 'utf8'), xs = JSON.parse(idx.slice(idx.indexOf('['), idx.lastIndexOf(']') + 1)); let all = 0, hit = 0;
+  for (const x of xs) { const b = { WHO: {} }; vm.createContext(b); vm.runInContext(fs.readFileSync(H + `bai/bai${x.n}.js`, 'utf8') + `;this.B=BAI${x.n}`, b);
+    for (const l of b.B.L || []) for (const w of String(l[1]).split(/\s+/)) { const k = w.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[’‘]/g, "'").replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, ''); if (!k || /\d/.test(k)) continue; all++; if (k in X) hit++; } }
+  if (hit / all < 0.9) r.push(`phủ ${Math.round(hit / all * 100)}% từ`);
+  R.push({ lv: 'cefr', id: 'C105', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : `Đua giờ theo cấp: bảng cấp phủ ${Math.round(hit / all * 100)}% từ của ${xs.length} bài, từ trên cấp hiện vàng và tự bỏ qua` }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);

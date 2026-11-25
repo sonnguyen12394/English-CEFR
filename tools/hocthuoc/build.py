@@ -23,8 +23,9 @@ for n in list(range(1, 400)) + list(range(1001, 1200)):  # 1001+: bài 💬 Giao
     extra = subprocess.run(['node', T + '/meta.mjs', B, str(n)], capture_output=True, text=True, cwd=ROOT).stdout.strip() or '{}'
     open(f'{OUT}/bai/bai{n}.js', 'w').write(open(f).read() + f'\nObject.assign(BAI{n}.meta, {extra});\n'); ex = json.loads(extra); idx.append({ 'n': n, 'de': meta['de'], 'dang': meta['dang'], 't': meta['t'], 'muc': ex.get('muc', 'toeic'), 'chu': ex.get('chu', '') })
 open(OUT + '/bai/index.js', 'w').write('// Danh sách bài học thuộc (dựng bởi build.py)\nconst BAI_IDX = ' + json.dumps(idx, ensure_ascii=False) + ';\n')
-R('<div class="app" id="app"></div>', '<div class="app" id="app"></div>\n<script src="bai/index.js"></script>\n<script src="bai/nham.js"></script>')
+R('<div class="app" id="app"></div>', '<div class="app" id="app"></div>\n<script src="bai/index.js"></script>\n<script src="bai/nham.js"></script>\n<script src="bai/capw.js"></script>')
 subprocess.run(['node', T + '/nham.mjs', B, OUT + '/bai/nham.js'], cwd=ROOT)
+subprocess.run(['node', T + '/capw.mjs', B, OUT + '/bai/capw.js'], cwd=ROOT)   # v218: cấp CEFR từng từ cho ⚡ Đua giờ
 R("const BAIS = [BAI1, BAI2], STS = {};", """const BAIS = [BAI1, BAI2], STS = {};
 const BAI_ALL = [{ n: 1, de: BAI1.meta.de, dang: BAI1.meta.dang, t: BAI1.meta.t, muc: 'toeic', chu: '""" + CHU['1'] + """' }, { n: 2, de: BAI2.meta.de, dang: BAI2.meta.dang, t: BAI2.meta.t, muc: 'toeic', chu: '""" + CHU['2'] + """' }, ...(typeof BAI_IDX !== 'undefined' ? BAI_IDX : [])];
 // tải bài khi chọn: <script src="bai/baiN.js"> rồi lấy hằng BAIN (hằng toàn cục của script cổ điển, không nằm trên window)
