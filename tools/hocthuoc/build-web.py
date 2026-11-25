@@ -25,7 +25,7 @@ const _fin = fin; fin = (k, sc) => { _fin(k, sc); htSave(); };
 const _useBai = useBai; useBai = n => { _useBai(n); htSave(); };
 dgBestGet = () => +HT.best['dg' + BAI_I + dgCapSuf()] || 0; dgBestSet = v => { HT.best['dg' + BAI_I + dgCapSuf()] = v; htSave(); };
 // v218: cấp của bạn (⚡ Đua giờ) lưu ở HT.cap; chưa chọn thì lấy cấp đang học của app (parent.htLv), không có thì tắt
-dgCapGet = () => { if (HT.cap != null) return +HT.cap; try { const v = window.parent !== window && window.parent.htLv && window.parent.htLv(); if (v != null) return v; } catch (e) {} return -1; };
+dgCapGet = () => { if (HT.cap != null) return +HT.cap; try { const v = window.parent !== window && window.parent.htLv && window.parent.htLv(); if (typeof v === "number") return v; } catch (e) {} return -1; };
 dgCapSet = v => { HT.cap = v; htSave(); };
 dgOptGet = () => HT.dgo || {}; dgOptSet = o => { HT.dgo = o; htSave(); };  // v219
 dvBestGet = () => +HT.best['dv' + BAI_I] || 0; dvBestSet = v => { HT.best['dv' + BAI_I] = v; htSave(); };
