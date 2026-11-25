@@ -1,0 +1,277 @@
+{
+ "n": 1075,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-05",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp khi lạc đường và mất đồ",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Excuse me, do you know where the nearest bus stop is?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It's just around the corner, next to the post office.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I'm totally lost. Could you show me where we are on the map?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sure. We're right here, by the river.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How far is the hospital from here?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "About a ten-minute walk. Just follow this road.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you seen a black backpack around here?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "No, sorry. Maybe ask the security guard over there.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I think I left my phone on the bus. What should I do?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Don't panic. Try calling your number first.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Could I borrow your phone for a minute? Mine's dead.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Of course. Here you go.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I've locked myself out of my apartment.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Oh no! Does a friend have a spare key?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Is it safe to walk around here at night?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "It's fine on the main street, but I'd avoid the dark alleys.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Do you know the number for the police?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "In Vietnam, it's 113. In the US, it's 911.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Hey! That guy just grabbed my bag!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I'll call the police. Can you describe him?",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Excuse me, do you know where the nearest bus stop is?",
+   "a": "It's just around the corner, next to the post office.",
+   "w": [
+    "I take the bus every morning.",
+    "The bus is not very crowded.",
+    "About ten minutes late."
+   ],
+   "why": "Hỏi chỗ trạm xe buýt → chỉ vị trí: just around the corner."
+  },
+  {
+   "q": "How far is the hospital from here?",
+   "a": "About a ten-minute walk. Just follow this road.",
+   "w": [
+    "My uncle works there.",
+    "The hospital was built in 1990.",
+    "It opens at nine o'clock."
+   ],
+   "why": "How far? hỏi khoảng cách → trả lời bằng thời gian đi bộ."
+  },
+  {
+   "q": "Have you seen a black backpack around here?",
+   "a": "No, sorry. Maybe ask the security guard over there.",
+   "w": [
+    "I bought mine at a night market.",
+    "Backpacks are popular with students.",
+    "It was too heavy for her."
+   ],
+   "why": "Hỏi có thấy không → trả lời không + gợi ý hỏi bảo vệ."
+  },
+  {
+   "q": "I think I left my phone on the bus. What should I do?",
+   "a": "Don't panic. Try calling your number first.",
+   "w": [
+    "Phones are getting cheaper.",
+    "The bus leaves at noon.",
+    "I don't use my phone much."
+   ],
+   "why": "What should I do? → lời khuyên: đừng hoảng, thử gọi số."
+  },
+  {
+   "q": "Is it safe to walk around here at night?",
+   "a": "It's fine on the main street, but I'd avoid the dark alleys.",
+   "w": [
+    "The nights are very short now.",
+    "The market opens at seven.",
+    "Walking is good for your health."
+   ],
+   "why": "Is it safe? → trả lời mức an toàn và chỗ nên tránh."
+  }
+ ],
+ "p2": [
+  {
+   "q": "Excuse me, do you know where the nearest bus stop is?",
+   "o": [
+    "It's just around the corner, next to the post office.",
+    "I take the bus every morning.",
+    "The bus is not very crowded."
+   ],
+   "a": 0
+  },
+  {
+   "q": "I'm totally lost. Could you show me where we are on the map?",
+   "o": [
+    "The river is very long.",
+    "Sure. We're right here, by the river.",
+    "My cousin draws very good maps."
+   ],
+   "a": 1
+  },
+  {
+   "q": "How far is the hospital from here?",
+   "o": [
+    "The hospital was built in 1990.",
+    "My uncle works there.",
+    "About a ten-minute walk. Just follow this road."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Have you seen a black backpack around here?",
+   "o": [
+    "No, sorry. Maybe ask the security guard over there.",
+    "I bought mine at a night market.",
+    "Backpacks are popular with students."
+   ],
+   "a": 0
+  },
+  {
+   "q": "I think I left my phone on the bus. What should I do?",
+   "o": [
+    "Phones are getting cheaper.",
+    "Don't panic. Try calling your number first.",
+    "The bus leaves at noon."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Could I borrow your phone for a minute? Mine's dead.",
+   "o": [
+    "My phone number has ten digits.",
+    "The phone shop is closed.",
+    "Of course. Here you go."
+   ],
+   "a": 2
+  },
+  {
+   "q": "I've locked myself out of my apartment.",
+   "o": [
+    "Oh no! Does a friend have a spare key?",
+    "It's on the third floor.",
+    "Apartments are quite small here."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Is it safe to walk around here at night?",
+   "o": [
+    "The market opens at seven.",
+    "It's fine on the main street, but I'd avoid the dark alleys.",
+    "The nights are very short now."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Do you know the number for the police?",
+   "o": [
+    "Police officers wear blue uniforms.",
+    "My brother wants to be a police officer.",
+    "In Vietnam, it's 113. In the US, it's 911."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Hey! That guy just grabbed my bag!",
+   "o": [
+    "I'll call the police. Can you describe him?",
+    "I like your bag very much.",
+    "It's a nice day for a walk."
+   ],
+   "a": 0
+  }
+ ]
+}

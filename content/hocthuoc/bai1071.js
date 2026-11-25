@@ -85,7 +85,7 @@ const BAI1071 = {
       b2: { q: 'Câu mới: “Could you open the window, please?” — người nói làm gì?', o: ['Nhờ mở cửa sổ lịch sự', 'Hỏi cửa sổ có mở không', 'Kể đã mở cửa sổ', 'Cấm mở cửa sổ'], a: 0, vi: 'Could you + V? = nhờ lịch sự.' },
       b3: [{ q: 'Could you ___ me the way to the park?', o: ['show', 'showing', 'shown', 'to show'], a: 0, vi: 'Could you + V nguyên mẫu.' },
         { q: '___ you tell me where the bank is?', o: ['Could', 'Do', 'Have', 'Are'], a: 0, vi: 'Could you tell me …? = nhờ lịch sự.' }],
-      b4: { q: "Could you ___ me, please? I'm lost. (giúp)", hint: '1 động từ', ans: ['help'], vi: 'Could you help me?' } },
+      b4: { q: "Could you ___ me, please? I'm lost. (giúp)", hint: '1 động từ', ans: ['help', 'tell', 'show'], vi: 'Could you help me?' } },
     { id: 'g2', g: 'g', t: 'Where are you trying to go? (từ để hỏi Wh-)', line: 1, hl: 'Where are you trying to go',
       b1: { s: 'Sure. [[Where are you trying to go]]?', q: 'Where … hỏi về điều gì?', o: ['nơi muốn tới', 'lý do', 'thời gian', 'người'], a: 0, vi: 'Where = ở đâu / tới đâu. · 🧱 Bài Nền liên quan: Câu hỏi với từ để hỏi (Wh-) · Pre-A1' },
       b2: { q: 'Câu mới: “Where are you staying this week?” — người nói hỏi gì?', o: ['Tuần này bạn ở đâu', 'Tuần này bạn làm gì', 'Ai ở cùng bạn', 'Bạn ở bao lâu'], a: 0, vi: 'Where = ở đâu.' },

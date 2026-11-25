@@ -1,0 +1,277 @@
+{
+ "n": 1076,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-06",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "10 câu hỏi – đáp khi bị ốm hoặc gặp sự cố",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Are you okay? You don't look very well.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Not really. My legs feel weak, so I need to sit down.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What happened to your hand?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I cut it while I was cooking. It's bleeding a bit.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Is there a pharmacy near here?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes, there's one across the street, next to the bakery.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "My stomach really hurts. What should I do?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sit down and rest. If it gets worse, we should see a doctor.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Should I call an ambulance?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Yes, right now. She can't move her leg.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Does anyone here know first aid?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I do. I took a course last year.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I think I'm having an allergic reaction.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sit down. Do you have your allergy medicine with you?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can you stay with me until my friend comes?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Of course. I'm not going anywhere.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "You've been coughing all day. What's wrong?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "I've got a sore throat and a slight fever. I think I caught a cold.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Where does it hurt?",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Right here, on my left foot. I think I twisted my ankle.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Are you okay? You don't look very well.",
+   "a": "Not really. My legs feel weak, so I need to sit down.",
+   "w": [
+    "The weather is very nice today.",
+    "I'll see you at the station.",
+    "I bought it last week."
+   ],
+   "why": "Hỏi thăm sức khoẻ → trả lời: Not really + lý do."
+  },
+  {
+   "q": "What happened to your hand?",
+   "a": "I cut it while I was cooking. It's bleeding a bit.",
+   "w": [
+    "I'll go to the gym this afternoon.",
+    "My brother is a good cook.",
+    "The kitchen is very small."
+   ],
+   "why": "What happened? → kể chuyện đã xảy ra: I cut it …"
+  },
+  {
+   "q": "Is there a pharmacy near here?",
+   "a": "Yes, there's one across the street, next to the bakery.",
+   "w": [
+    "I've lived here since 2020.",
+    "It was a long, hot summer.",
+    "The bakery opens at seven."
+   ],
+   "why": "Is there …? → Yes, there's one + vị trí."
+  },
+  {
+   "q": "Should I call an ambulance?",
+   "a": "Yes, right now. She can't move her leg.",
+   "w": [
+    "It's a ten-minute drive from here.",
+    "Ambulances are usually white.",
+    "Last year, I took a first aid class."
+   ],
+   "why": "Should I …? → Yes, right now + lý do."
+  },
+  {
+   "q": "Can you stay with me until my friend comes?",
+   "a": "Of course. I'm not going anywhere.",
+   "w": [
+    "My friend lives near the sea.",
+    "I don't know where it's from.",
+    "Thank you for the flowers."
+   ],
+   "why": "Can you …? nhờ giúp → Of course = đồng ý."
+  }
+ ],
+ "p2": [
+  {
+   "q": "Are you okay? You don't look very well.",
+   "o": [
+    "Not really. My legs feel weak, so I need to sit down.",
+    "The weather is very nice today.",
+    "I'll see you at the station."
+   ],
+   "a": 0
+  },
+  {
+   "q": "What happened to your hand?",
+   "o": [
+    "My brother is a good cook.",
+    "I cut it while I was cooking. It's bleeding a bit.",
+    "The kitchen is very small."
+   ],
+   "a": 1
+  },
+  {
+   "q": "Is there a pharmacy near here?",
+   "o": [
+    "I've lived here since 2020.",
+    "It was a long, hot summer.",
+    "Yes, there's one across the street, next to the bakery."
+   ],
+   "a": 2
+  },
+  {
+   "q": "My stomach really hurts. What should I do?",
+   "o": [
+    "Sit down and rest. If it gets worse, we should see a doctor.",
+    "Stomachs are very important.",
+    "The weather is getting colder."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Should I call an ambulance?",
+   "o": [
+    "It's a ten-minute drive from here.",
+    "Ambulances are usually white.",
+    "Yes, right now. She can't move her leg."
+   ],
+   "a": 2
+  },
+  {
+   "q": "Does anyone here know first aid?",
+   "o": [
+    "This building has five floors.",
+    "I do. I took a course last year.",
+    "Nobody here likes the cold weather."
+   ],
+   "a": 1
+  },
+  {
+   "q": "I think I'm having an allergic reaction.",
+   "o": [
+    "The restaurant has a new menu.",
+    "Allergies are common in spring.",
+    "Sit down. Do you have your allergy medicine with you?"
+   ],
+   "a": 2
+  },
+  {
+   "q": "Can you stay with me until my friend comes?",
+   "o": [
+    "My friend lives near the sea.",
+    "Of course. I'm not going anywhere.",
+    "Thank you for the flowers."
+   ],
+   "a": 1
+  },
+  {
+   "q": "You've been coughing all day. What's wrong?",
+   "o": [
+    "I've got a sore throat and a slight fever. I think I caught a cold.",
+    "Coughing is a loud sound.",
+    "The day was quite long."
+   ],
+   "a": 0
+  },
+  {
+   "q": "Where does it hurt?",
+   "o": [
+    "The street is very quiet today.",
+    "Right here, on my left foot. I think I twisted my ankle.",
+    "My foot size is forty."
+   ],
+   "a": 1
+  }
+ ]
+}

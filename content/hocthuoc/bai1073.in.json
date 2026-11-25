@@ -1,0 +1,115 @@
+{
+ "n": 1073,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-03",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại ba người bạn, một người chóng mặt",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "I don't feel well. I'm feeling really dizzy.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Sit down here. You look very pale.",
+   "",
+   ""
+  ],
+  [
+   "C",
+   "Here, drink some water. I've got a bottle in my bag.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Thanks. My head hurts, too.",
+   "",
+   ""
+  ],
+  [
+   "C",
+   "Did you eat anything today?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Only a coffee this morning. I skipped lunch.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "That might be why. Take slow, deep breaths.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I feel a bit sick. Maybe I should go home.",
+   "",
+   ""
+  ],
+  [
+   "C",
+   "We'll walk you home. If you feel worse, we'll call an ambulance.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Let's go slowly. Hold my arm.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What does Sara give Mia?",
+   "a": "Some water",
+   "w": [
+    "Some food",
+    "A warm coat",
+    "A phone"
+   ],
+   "why": "“drink some water. I've got a bottle” = Sara đưa nước."
+  },
+  {
+   "q": "What did Mia eat today?",
+   "a": "Only a coffee",
+   "w": [
+    "A big lunch",
+    "Only a sandwich",
+    "Nothing at all"
+   ],
+   "why": "“Only a coffee this morning. I skipped lunch.” = chỉ uống một ly cà phê."
+  },
+  {
+   "q": "How do the friends help Mia get home?",
+   "a": "They walk her home",
+   "w": [
+    "They call a taxi",
+    "They drive her",
+    "They leave her alone"
+   ],
+   "why": "“We'll walk you home.” = đưa cậu về nhà bằng cách đi bộ cùng."
+  },
+  {
+   "q": "When will they call an ambulance?",
+   "a": "If Mia feels worse",
+   "w": [
+    "Right now",
+    "When they get home",
+    "If Mia eats lunch"
+   ],
+   "why": "“If you feel worse, we'll call an ambulance.” = nếu tệ hơn thì gọi."
+  }
+ ]
+}

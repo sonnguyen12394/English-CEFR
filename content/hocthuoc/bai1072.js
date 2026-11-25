@@ -103,7 +103,7 @@ const BAI1072 = {
       b2: { q: 'Câu mới: “Sit down and drink some water.” — người nói đang làm gì?', o: ['Bảo ai đó ngồi xuống uống nước', 'Hỏi ai đó có khát không', 'Kể chuyện đã qua', 'Từ chối uống nước'], a: 0, vi: 'Mệnh lệnh: Sit down … drink …' },
       b3: [{ q: '___ the door and come in.', o: ['Open', 'Opening', 'Opens', 'To open'], a: 0, vi: 'Mệnh lệnh: Open …' },
         { q: 'Please ___ me your phone number.', o: ['give', 'giving', 'gives', 'to give'], a: 0, vi: 'Please + V nguyên mẫu.' }],
-      b4: { q: "___ your mom and tell her you're okay. (gọi)", hint: 'động từ nguyên mẫu', ans: ['Call', 'call', 'Phone', 'Text'], vi: 'Call your mom.' } },
+      b4: { q: "___ your mom and tell her you're okay. (gọi)", hint: 'động từ nguyên mẫu', ans: ['Call', 'call', 'Phone', 'phone'], vi: 'Call your mom.' } },
     { id: 'g5', g: 'g', t: 'might have + V3: đoán chuyện đã xảy ra', line: 9, hl: 'might have found',
       b1: { s: 'Someone [[might have found]] it and handed it in', q: 'might have found nói về điều gì?', o: ['khả năng có thể đã xảy ra trong quá khứ', 'điều chắc chắn đã xảy ra', 'điều sẽ xảy ra', 'điều không thể'], a: 0, vi: 'might have + V3 = có thể đã … · 🧱 Bài Nền liên quan: Suy đoán quá khứ: must have / might have / can\'t have · B2' },
       b2: { q: "Câu mới: “He isn't here. He might have gone home.” — người nói đoán gì?", o: ['Có thể anh ấy đã về nhà', 'Chắc chắn anh ấy đang ở đây', 'Anh ấy sẽ về nhà', 'Anh ấy không muốn về'], a: 0, vi: 'might have gone = có thể đã đi.' },
