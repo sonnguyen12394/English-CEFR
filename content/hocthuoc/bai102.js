@@ -108,10 +108,10 @@ const BAI102 = {
    "(1)",
    "ˈiːmeɪl",
    "·",
-   "tə",
+   "tuː",
    "ˈɔːrdərz æt ˈpeɪpərkræft dɑːt kɑːm",
    "·",
-   "frəm",
+   "frʌm",
    "ˈdʒuːliə",
    "benz",
    "benz",
@@ -120,7 +120,7 @@ const BAI102 = {
    "·",
    "deɪt",
    "ˈeɪprəl",
-   "tuː"
+   "ˈsekənd"
   ],
   [
    "həˈloʊ",
@@ -135,20 +135,20 @@ const BAI102 = {
    "ˈklæsɪk",
    "waɪt",
    "ən",
-   "tuː",
+   "tuː ˈhʌndrəd",
    "ˈenvəloʊps",
    "wɪð",
-   "ˈaʊər",
+   "aʊr",
    "ˈloʊɡoʊ"
   ],
   [
    "pliːz",
    "dɪˈlɪvər",
-   "ðem",
+   "ðəm",
    "tə",
-   "ˈaʊər",
+   "aʊr",
    "ˈstuːdioʊ",
-   "ət",
+   "æt",
    "ˈfɔːrti tuː",
    "pɑːrk",
    "leɪn",
@@ -178,7 +178,7 @@ const BAI102 = {
    "ˈpeɪpərkræft",
    "·",
    "ˈeɪprəl",
-   "θriː"
+   "ˈθɝːd"
   ],
   [
    "ˈkʌstəmər",
@@ -196,7 +196,7 @@ const BAI102 = {
    "ˈsevənti faɪv ˈdɑːlərz"
   ],
   [
-   "tuː",
+   "tuː ˈhʌndrəd",
    "ˈprɪntɪd",
    "ˈenvəloʊps",
    "—",
@@ -207,23 +207,23 @@ const BAI102 = {
    "dɪˈlɪvəri",
    "baɪ",
    "ˈeɪprəl",
-   "eɪtθ",
+   "ˈeɪtθ",
    "—",
-   "ˈfɪfˈtiːn ˈdɑːlərz"
+   "fɪfˈtiːn ˈdɑːlərz"
   ],
   [
    "ˈtoʊtəl",
-   "wʌn ˈhʌndrəd ænd ˈfɪfti ˈdɑːlərz"
+   "wʌn ˈhʌndrəd ən ˈfɪfti ˈdɑːlərz"
   ],
   [
    "(3)",
    "ˈiːmeɪl",
    "·",
-   "tə",
+   "tuː",
    "ˈdʒuːliə",
    "benz",
    "·",
-   "frəm",
+   "frʌm",
    "ˈpeɪpərkræft",
    "ˈkʌstəmər",
    "ˈsɝːvɪs",
@@ -234,14 +234,14 @@ const BAI102 = {
   ],
   [
    "dɪr",
-   "mɪz",
+   "ˈmɪz",
    "benz",
    "θæŋk",
    "ju",
    "fər",
    "ˈpɔɪntɪŋ",
    "aʊt",
-   "ˈaʊər",
+   "aʊr",
    "mɪˈsteɪk"
   ],
   [
@@ -251,11 +251,11 @@ const BAI102 = {
    "jər",
    "kɑːrdz",
    "ɪn",
-   "ði",
-   "ˈkʌlɚ",
+   "ðə",
+   "ˈkʌlər",
    "ju",
    "rɪˈkwestɪd",
-   "ət",
+   "æt",
    "noʊ",
    "ˈekstrə",
    "kɔːst",
@@ -273,7 +273,7 @@ const BAI102 = {
    "həv",
    "ˈɔːlsoʊ",
    "rɪˈmuːvd",
-   "ði",
+   "ðə",
    "dɪˈlɪvəri",
    "tʃɑːrdʒ",
    "frəm",
@@ -293,25 +293,32 @@ const BAI102 = {
    1,
    4,
    7,
-   8,
    9,
-   10
+   10,
+   11,
+   14,
+   15
   ],
   [
    0,
-   1,
    2,
    4,
    5,
-   6
+   7,
+   9,
+   10,
+   13,
+   16
   ],
   [
-   0,
    1,
-   2,
    5,
-   8,
-   9
+   7,
+   9,
+   12,
+   16,
+   19,
+   21
   ],
   [
    0,
@@ -321,12 +328,12 @@ const BAI102 = {
   [
    1,
    3,
-   5
+   5,
+   6
   ],
   [
    0,
    1,
-   2,
    3
   ],
   [
@@ -347,6 +354,7 @@ const BAI102 = {
    0,
    1,
    3,
+   4,
    6
   ],
   [
@@ -359,14 +367,16 @@ const BAI102 = {
    5,
    8,
    9,
-   10
+   10,
+   13,
+   14
   ],
   [
    0,
+   1,
    2,
    3,
    6,
-   7,
    9
   ],
   [
@@ -375,7 +385,10 @@ const BAI102 = {
    7,
    9,
    12,
-   13
+   13,
+   17,
+   18,
+   21
   ],
   [
    2,
@@ -391,6 +404,20 @@ const BAI102 = {
  ],
  "LK": [
   [],
+  [
+   [
+    10,
+    "White‿and",
+    "White and: /t/ nối sang /ə/"
+   ]
+  ],
+  [
+   [
+    16,
+    "opening‿a",
+    "opening a: /ŋ/ nối nhẹ sang /ə/"
+   ]
+  ],
   [],
   [],
   [],
@@ -399,11 +426,32 @@ const BAI102 = {
   [],
   [],
   [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  [
+   [
+    6,
+    "pointing‿out",
+    "pointing out: /ŋ/ nối nhẹ sang /aʊ/"
+   ]
+  ],
+  [
+   [
+    4,
+    "cards‿in",
+    "cards in: /z/ nối sang /ɪ/"
+   ],
+   [
+    17,
+    "still‿arrive",
+    "still arrive: /l/ nối sang /ə/"
+   ]
+  ],
+  [
+   [
+    1,
+    "have‿also",
+    "have also: /v/ nối sang /ɔː/"
+   ]
+  ],
   []
  ],
  "INT": [
@@ -501,17 +549,17 @@ const BAI102 = {
  "PAU": [
   [
    1,
-   3,
    4,
-   6,
    8,
-   11,
-   13
+   11
   ],
   [
-   0
+   0,
+   7
   ],
   [
+   5,
+   9,
    12
   ],
   [
@@ -532,6 +580,7 @@ const BAI102 = {
    2
   ],
   [
+   1,
    4
   ],
   [
@@ -539,11 +588,8 @@ const BAI102 = {
   ],
   [
    1,
-   3,
    5,
-   7,
-   10,
-   12
+   10
   ],
   [
    2
@@ -652,63 +698,85 @@ const BAI102 = {
  "VNY": [
   [
    [
-    "(1) e-mail"
+    "e-mail",
+    "thư điện tử"
    ],
    [
-    "gửi tới: orders@papercraft.com"
+    "orders@papercraft.com"
    ],
    [
-    "từ: julia benz, benz design studio"
+    "Julia Benz"
    ],
    [
-    "ngày: 2 tháng 4"
+    "Benz Design Studio"
+   ],
+   [
+    "2 tháng 4",
+    "ngày 2 tháng 4"
    ]
   ],
   [
    [
-    "xin chào"
+    "xin chào",
+    "chào bạn"
    ],
    [
-    "tôi muốn đặt 500 danh thiếp"
+    "muốn đặt",
+    "đặt hàng"
    ],
    [
-    "(mẫu classic white)"
+    "500 danh thiếp",
+    "năm trăm danh thiếp"
    ],
    [
-    "và 200 phong bì có logo của chúng tôi"
+    "mẫu Classic White"
+   ],
+   [
+    "200 phong bì",
+    "hai trăm phong bì"
+   ],
+   [
+    "có logo",
+    "in logo"
    ]
   ],
   [
    [
-    "vui lòng giao chúng"
+    "giao hàng",
+    "giao chúng"
    ],
    [
-    "đến studio của chúng tôi"
+    "đến studio",
+    "tới studio"
    ],
    [
-    "tại 42 park lane"
+    "trước ngày 10 tháng 4",
+    "chậm nhất ngày 10 tháng 4"
    ],
    [
-    "trước ngày 10 tháng 4"
-   ],
-   [
-    "vì chúng tôi sẽ mở văn phòng mới vào tuần đó"
+    "mở văn phòng mới",
+    "khai trương văn phòng mới"
    ]
   ],
   [
    [
-    "cảm ơn"
+    "cảm ơn",
+    "xin cảm ơn"
    ],
    [
-    "julia benz"
+    "Julia Benz"
    ]
   ],
   [
    [
-    "(2) hoá đơn — papercraft"
+    "hoá đơn"
    ],
    [
-    "3 tháng 4"
+    "PaperCraft"
+   ],
+   [
+    "3 tháng 4",
+    "ngày 3 tháng 4"
    ]
   ],
   [
@@ -716,106 +784,125 @@ const BAI102 = {
     "khách hàng"
    ],
    [
-    "benz design studio"
+    "Benz Design Studio"
    ]
   ],
   [
    [
-    "500 danh thiếp"
+    "500 danh thiếp",
+    "năm trăm danh thiếp"
    ],
    [
-    "classic cream"
+    "Classic Cream"
    ],
    [
+    "75 đô la",
     "75,00 đô la"
    ]
   ],
   [
    [
-    "200 phong bì in"
+    "200 phong bì",
+    "hai trăm phong bì"
    ],
    [
+    "60 đô la",
     "60,00 đô la"
    ]
   ],
   [
    [
-    "giao hàng nhanh"
+    "giao hàng nhanh",
+    "chuyển phát nhanh"
    ],
    [
-    "(trước ngày 8 tháng 4)"
+    "trước ngày 8 tháng 4"
    ],
    [
+    "15 đô la",
     "15,00 đô la"
    ]
   ],
   [
    [
-    "tổng cộng"
+    "tổng cộng",
+    "tổng số tiền"
    ],
    [
+    "150 đô la",
     "150,00 đô la"
    ]
   ],
   [
    [
-    "(3) e-mail"
+    "e-mail",
+    "thư điện tử"
    ],
    [
-    "gửi tới: julia benz"
+    "gửi tới Julia Benz"
    ],
    [
-    "từ: dịch vụ khách hàng papercraft"
+    "dịch vụ khách hàng"
    ],
    [
-    "ngày: 4 tháng 4"
+    "4 tháng 4",
+    "ngày 4 tháng 4"
    ]
   ],
   [
    [
-    "kính gửi bà benz"
+    "kính gửi bà Benz"
    ],
    [
-    "cảm ơn bà đã chỉ ra"
+    "cảm ơn bà",
+    "xin cảm ơn"
    ],
    [
-    "lỗi của chúng tôi"
+    "chỉ ra"
+   ],
+   [
+    "lỗi của chúng tôi",
+    "sai sót của chúng tôi"
    ]
   ],
   [
    [
-    "chúng tôi sẽ in danh thiếp của bà"
+    "in danh thiếp"
    ],
    [
+    "đúng màu",
     "đúng màu bà yêu cầu"
    ],
    [
-    "mà không tính thêm phí"
+    "không tính thêm phí",
+    "miễn phí"
    ],
    [
-    "và chúng vẫn sẽ đến"
-   ],
-   [
-    "trước hạn của bà"
+    "đến trước hạn",
+    "trước thời hạn"
    ]
   ],
   [
    [
-    "chúng tôi cũng đã bỏ"
+    "đã bỏ",
+    "đã xoá",
+    "đã loại"
    ],
    [
     "phí giao hàng"
    ],
    [
-    "khỏi hoá đơn của bà"
+    "khỏi hoá đơn",
+    "trên hoá đơn"
    ]
   ],
   [
    [
-    "chúng tôi xin lỗi"
+    "xin lỗi"
    ],
    [
-    "vì sai sót này"
+    "sai sót",
+    "lỗi này"
    ]
   ]
  ],
@@ -911,15 +998,15 @@ const BAI102 = {
    "vi": "the total cost = tổng chi phí."
   },
   {
-   "q": "She asked ___ she could pay by card.",
+   "q": "She wants to know ___ the cards will arrive.",
    "o": [
-    "if",
+    "when",
     "what",
-    "which",
-    "who"
+    "who",
+    "which"
    ],
    "a": 0,
-   "vi": "asked if = hỏi liệu."
+   "vi": "know when + mệnh đề = biết khi nào."
   },
   {
    "q": "We apologize ___ the late delivery.",
@@ -1035,7 +1122,8 @@ const BAI102 = {
     "ans": [
      "deliver",
      "send",
-     "bring"
+     "bring",
+     "take"
     ],
     "vi": "deliver = giao."
    }
@@ -1128,7 +1216,7 @@ const BAI102 = {
      "o": [
       "invoice",
       "invite",
-      "invoicing",
+      "invoices",
       "invoiced"
      ],
      "a": 0,
