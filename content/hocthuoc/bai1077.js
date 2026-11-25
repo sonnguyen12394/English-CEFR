@@ -83,7 +83,7 @@ const BAI1077 = {
       b4: { q: "You helped me so much — you're the ___! (nhất)", hint: '1 từ', ans: ['best'], vi: "you're the best." } },
     { id: 'g1', g: 'g', t: 'be about to + V (sắp sửa làm gì)', line: 0, hl: 'about to die',
       b1: { s: 'my phone is [[about to die]]', q: 'about to die nói về điều gì?', o: ['việc sắp xảy ra ngay', 'việc đã xảy ra từ lâu', 'việc không bao giờ xảy ra', 'thói quen hằng ngày'], a: 0, vi: 'be about to + V = sắp … ngay bây giờ. · 🧱 Bài Nền liên quan: be bound to / be likely to / be due to / be about to · B2' },
-      b2: { q: 'Câu mới: “Hurry up! The film is about to start.” — phim thế nào?', o: ['Sắp bắt đầu', 'Đã kết thúc', 'Bị huỷ', 'Bắt đầu hôm qua'], a: 0, vi: 'is about to start = sắp bắt đầu.' },
+      b2: { q: 'Câu mới: “Hurry up! The movie is about to start.” — phim thế nào?', o: ['Sắp bắt đầu', 'Đã kết thúc', 'Bị huỷ', 'Bắt đầu hôm qua'], a: 0, vi: 'is about to start = sắp bắt đầu.' },
       b3: [{ q: 'Quick, the bus is about ___ leave!', o: ['to', 'for', 'of', 'at'], a: 0, vi: 'be about to + V.' },
         { q: 'We were just about ___ out when it started to rain.', o: ['to go', 'going', 'go', 'gone'], a: 0, vi: 'be about to + V nguyên mẫu.' }],
       b4: { q: "Hold on! I'm about ___ send you the photo. (sắp)", hint: '1 từ', ans: ['to'], vi: 'be about to + V.' } },
@@ -91,7 +91,7 @@ const BAI1077 = {
       b1: { s: "I asked a man for directions, [[but]] he didn't speak much English", q: 'but dùng để làm gì?', o: ['nối hai ý trái ngược nhau', 'nối nguyên nhân với kết quả', 'nối hai ý giống nhau', 'hỏi lại ý kiến'], a: 0, vi: 'but = nhưng: hỏi đường rồi mà người kia nói tiếng Anh không giỏi. · 🧱 Bài Nền liên quan: Liên từ: and / but / or / because · A1' },
       b2: { q: 'Câu mới: “I wanted to walk, but it was raining.” — hai ý quan hệ gì?', o: ['Trái ngược: muốn đi bộ nhưng trời mưa', 'Nguyên nhân: đi bộ vì trời mưa', 'Giống nhau', 'Nối tiếp theo thời gian'], a: 0, vi: 'but nối hai ý đối lập.' },
       b3: [{ q: 'I called him twice, ___ he did not answer.', o: ['but', 'so', 'because', 'or'], a: 0, vi: 'but = nhưng.' },
-        { q: 'The café was small, ___ it was very cozy.', o: ['but', 'because', 'so', 'or'], a: 0, vi: 'small, but cozy = nhỏ nhưng ấm cúng.' }],
+        { q: 'The café was very small, ___ the food was amazing.', o: ['but', 'because', 'so', 'or'], a: 0, vi: 'small, but cozy = nhỏ nhưng ấm cúng.' }],
       b4: { q: 'I like the city, ___ it is too noisy for me. (nhưng)', hint: '3 chữ cái', ans: ['but'], vi: 'but = nhưng.' } },
     { id: 'g3', g: 'g', t: 'Can you + V? (nhờ)', line: 4, hl: 'Can you send me',
       b1: { s: '[[Can you send me]] your address again', q: 'Can you send me … dùng để làm gì?', o: ['nhờ ai làm giúp', 'hỏi ai biết gửi không', 'kể việc đã làm', 'cấm ai gửi'], a: 0, vi: 'Can you + V …? = nhờ ai làm gì. · 🧱 Bài Nền liên quan: Could / can: nhờ, xin phép, khả năng trong quá khứ · A2' },
@@ -108,7 +108,7 @@ const BAI1077 = {
     { id: 'g5', g: 'g', t: 'If + hiện tại đơn, … (điều kiện loại 1)', line: 6, hl: 'If my phone dies',
       b1: { s: "[[If my phone dies]], don't panic", q: 'Sau If dùng thì gì ở câu này?', o: ['hiện tại đơn (dies)', 'tương lai (will die)', 'quá khứ (died)', 'V-ing (dying)'], a: 0, vi: 'If + hiện tại đơn, … = nếu … thì (có thể xảy ra thật). · 🧱 Bài Nền liên quan: Câu điều kiện loại 1 · A2' },
       b2: { q: "Câu mới: “If it rains tomorrow, we'll stay home.” — nếu mưa thì họ làm gì?", o: ['Ở nhà', 'Đi chơi', 'Đi mua sắm', 'Học bài'], a: 0, vi: "If it rains, we'll stay home." },
-      b3: [{ q: 'If you get lost, ___ me.', o: ['call', 'calling', 'called', 'will called'], a: 0, vi: 'If + hiện tại, mệnh lệnh: call me.' },
+      b3: [{ q: 'If you get lost, ___ me.', o: ['call', 'calling', 'called', 'will call'], a: 0, vi: 'If + hiện tại, mệnh lệnh: call me.' },
         { q: "If the battery ___ out, I'll borrow your charger.", o: ['runs', 'will run', 'ran', 'running'], a: 0, vi: 'If + hiện tại đơn: runs out.' }],
       b4: { q: "If it ___ tonight, we'll take a taxi. (rain)", hint: 'hiện tại đơn, ngôi thứ ba', ans: ['rains'], vi: 'If + hiện tại đơn: rains.' } }]
 };

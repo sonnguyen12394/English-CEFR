@@ -31,7 +31,7 @@ const BAI1073 = {
     ['take deep breaths', 'hít thở sâu'],
     ['call an ambulance', 'gọi xe cấp cứu (ở Việt Nam gọi 115; ở Mỹ gọi 911)']],
   EXQ: [{ q: 'What does Sara give Mia?', o: ['Some water', 'Some food', 'A warm coat', 'A phone'], a: 0, vi: '“drink some water. I\'ve got a bottle” = Sara đưa nước.' },
-    { q: 'What did Mia eat today?', o: ['Only a coffee', 'A big lunch', 'Only a sandwich', 'Nothing at all'], a: 0, vi: '“Only a coffee this morning. I skipped lunch.” = chỉ uống một ly cà phê.' },
+    { q: 'What did Mia have today?', o: ['Only a coffee', 'A big lunch', 'Only a sandwich', 'Nothing at all'], a: 0, vi: '“Only a coffee this morning. I skipped lunch.” = chỉ uống một ly cà phê.' },
     { q: 'How do the friends help Mia get home?', o: ['They walk her home', 'They call a taxi', 'They drive her', 'They leave her alone'], a: 0, vi: '“We\'ll walk you home.” = đưa cậu về nhà bằng cách đi bộ cùng.' },
     { q: 'When will they call an ambulance?', o: ['If Mia feels worse', 'Right now', 'When they get home', 'If Mia eats lunch'], a: 0, vi: '“If you feel worse, we\'ll call an ambulance.” = nếu tệ hơn thì gọi.' }],
   NEWQ2: [{ q: 'I feel ___ today. I think I will lie down.', o: ['dizzy', 'dizzily', 'dizziness', 'dizzies'], a: 0, vi: 'feel + tính từ: dizzy.' },

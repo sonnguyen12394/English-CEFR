@@ -132,9 +132,9 @@ mark { background: var(--acc2); color: var(--acc); font-weight: 700; border-radi
 </style>
 
 <div class="app" id="app"></div>
-<script src="bai/index.js?v=533ad213"></script>
-<script src="bai/nham.js?v=533ad213"></script>
-<script src="bai/capw.js?v=533ad213"></script>
+<script src="bai/index.js?v=638e9eb1"></script>
+<script src="bai/nham.js?v=638e9eb1"></script>
+<script src="bai/capw.js?v=638e9eb1"></script>
 
 <script>
 // Hội thoại Part 3 thật của Đề 3 (câu 32–34 trong app). Dịch, cụm cần nhớ, bài tập câu mới: Claude soạn, chưa giáo viên kiểm.
@@ -1058,7 +1058,7 @@ const BAIS = [BAI1, BAI2], STS = {};
 const BAI_ALL = [{ n: 1, de: BAI1.meta.de, dang: BAI1.meta.dang, t: BAI1.meta.t, muc: 'toeic', chu: 'dl' }, { n: 2, de: BAI2.meta.de, dang: BAI2.meta.dang, t: BAI2.meta.t, muc: 'toeic', chu: 'dl' }, ...(typeof BAI_IDX !== 'undefined' ? BAI_IDX : [])];
 // tải bài khi chọn: <script src="bai/baiN.js"> rồi lấy hằng BAIN (hằng toàn cục của script cổ điển, không nằm trên window)
 function baiLoad(n, done) { if (BAIS[n - 1]) return done();
-  const sc = document.createElement('script'); sc.src = `bai/bai${n}.js?v=533ad213`; sc.onload = () => { try { BAIS[n - 1] = Function('return BAI' + n)(); done(); } catch (e) { alert('Chưa tải được bài ' + n); } };
+  const sc = document.createElement('script'); sc.src = `bai/bai${n}.js?v=638e9eb1`; sc.onload = () => { try { BAIS[n - 1] = Function('return BAI' + n)(); done(); } catch (e) { alert('Chưa tải được bài ' + n); } };
   sc.onerror = () => alert('Chưa tải được bài ' + n + '. Kiểm tra mạng rồi thử lại.'); document.head.appendChild(sc); } let BAI_I = 0;
 function BAI_SUF() { return BAI_I ? ':' + BAI_I : ''; }
 const WHOS = [{ A: ['Khách', 'Nữ'], B: ['Lễ tân', 'Nam'] }, { N: ['Phát thanh viên', 'PTV'] }, { W: ['E-mail', '✉️'] }, { A: ['Nhân viên', 'Nữ'], B: ['Khách', 'Nam'] }, { N: ['Loa siêu thị', '📢'] }, { W: ['E-mail', '✉️'] },
