@@ -5,15 +5,15 @@
 /* Bố cục: một cột kiểu điện thoại, thanh 6 bước trên cùng, một việc mỗi màn, nút chính cuối màn */
 :root {
   --bg: #f4f4f1; --card: #ffffff; --ink: #1c1d1a; --mute: #5f625a; --line: #dfe0d9;
-  --acc: #2f5d9e; --acc2: #e5ecf6; --a: #8a4f9e; --b: #2f7d6b; --good: #22783c; --goodbg: #e3f3e6; --bad: #b3261e; --badbg: #fbe8e6; --hide: #e9e9e3;
+  --acc: #2f5d9e; --acc2: #e5ecf6; --a: #8a4f9e; --b: #2f7d6b; --good: #22783c; --goodbg: #e3f3e6; --warn: #8a5600; --warnbg: #fbf0d4; --bad: #b3261e; --badbg: #fbe8e6; --hide: #e9e9e3;
   --disp: "Be Vietnam Pro", "Inter", system-ui, sans-serif; --body: "Inter", system-ui, -apple-system, sans-serif;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #121412; --card: #1b1e1b; --ink: #eceee8; --mute: #a3a69c; --line: #2f332e;
-  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; color-scheme: dark } }
+  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --warn: #f0c060; --warnbg: #3a2e12; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #121412; --card: #1b1e1b; --ink: #eceee8; --mute: #a3a69c; --line: #2f332e;
-  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; color-scheme: dark }
+  --acc: #8fb3ec; --acc2: #1f2c40; --a: #d39ae6; --b: #74cdb6; --good: #74d08e; --goodbg: #17321e; --warn: #f0c060; --warnbg: #3a2e12; --bad: #ff8d84; --badbg: #3a1f1d; --hide: #2a2e29; color-scheme: dark }
 * { box-sizing: border-box }
 body { background: var(--bg); color: var(--ink); font: 16px/1.55 var(--body); padding-block: 12px 40px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
@@ -104,7 +104,8 @@ mark { background: var(--acc2); color: var(--acc); font-weight: 700; border-radi
 .showipa .gw::after { content: attr(data-ipa); display: block; font-size: 12px; font-weight: 400; color: var(--mute); white-space: nowrap }
 .dgclock { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 18px } .dgback { position: absolute; right: 8px; bottom: 8px; z-index: 3; min-height: 44px; border-radius: 999px; padding: 6px 14px; background: var(--acc); color: var(--card); font-weight: 700; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.25) }
 .dgroll { padding: 14px 14px 140px; font-size: 20px; line-height: 1.8 } .dgl { margin: 0 0 12px } .gw { color: var(--ink); white-space: nowrap } .gw-hid { color: var(--line); letter-spacing: 1px }
-.gw-ok { color: var(--good); font-weight: 700 } .gw-err { color: var(--bad); text-decoration: line-through }
+.gw-ok { color: var(--good); font-weight: 700 } .gw-sk { color: var(--warn); background: var(--warnbg); border-radius: 4px; padding: 0 2px; font-weight: 600 }
+.seg.cap { grid-template-columns: repeat(4, 1fr) } .capn { color: var(--warn); background: var(--warnbg); border-radius: 4px; padding: 0 4px; font-weight: 700 } .gw-err { color: var(--bad); text-decoration: line-through }
 .gw-cur { background: var(--acc2); border-radius: 6px; padding: 1px 4px; box-shadow: inset 0 -3px 0 var(--acc) } .gw-typed { color: var(--acc); font-weight: 800 } .gw-full { box-shadow: inset 0 -3px 0 var(--good) } .gw-bad { color: var(--card); background: var(--bad); border-radius: 3px }
 .dvl { padding: 6px 4px; border-radius: 10px; margin-bottom: 8px } .dvl p { margin: 0 } .dvl.cur { background: var(--acc2) } .dvwin .dgroll { font-size: 17px; line-height: 1.5 }
 .dvys { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px !important } .dvy { font-size: 15px; padding: 1px 8px; border-radius: 999px; background: var(--hide); color: var(--mute); letter-spacing: 1px } .dvy.ok { background: var(--goodbg); color: var(--good); font-weight: 700; letter-spacing: 0 } .dvy.no { background: var(--badbg); color: var(--bad); letter-spacing: 0 }
@@ -622,6 +623,14 @@ const dk = w => w.toLowerCase().replace(/[^a-z0-9]/g, '');
 // Tiếng đệm (hmm, haizz, uh, um…): máy chép lời không ra chữ này nên tự xanh, không bắt nói / gõ. oh, ah, wow cũng tự xanh (người sáng lập 23/11).
 const DG_FILL = /^(o+h+|a+h+|w+o+w+|h+m+|m+h*m+|u+h+m*|u+m+|e+r+m*|h+a+i+z+|h+u+h+|u+g+h+|p+h+e+w+|a+w+|s+h+|t+s+k+|u+h+h+u+h+)$/;
 const dkF = w => { const t = dk(w); return DG_FILL.test(t) ? '' : t; };
+// v218 (người sáng lập 25/11: "cấp A1 thì chỉ cần nói được từ A1, từ A2 trở lên hiện màu vàng, bỏ qua"): chọn cấp của bạn; từ có cấp cao hơn (bảng CAPW
+// ở bai/capw.js, dựng từ từ điển app bằng tools/hocthuoc/capw.mjs) hiện vàng, tự bỏ qua, không bắt nói. Từ không có trong từ điển (tên riêng) và số vẫn phải nói.
+const DG_CAPN = ['Pre-A1', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+let dgCapGet = () => { try { const v = localStorage.getItem('dgCap'); return v == null ? -1 : +v; } catch (e) { return -1; } };
+let dgCapSet = v => { try { localStorage.setItem('dgCap', v); } catch (e) {} };
+const dgCapSuf = () => { const c = dgCapGet(); return c >= 0 && c < 6 ? ':c' + c : ''; };
+const dgWLv = w => { if (typeof CAPW === 'undefined') return null; const k = String(w).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[’‘]/g, "'").replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, ''); return k in CAPW ? CAPW[k] : null; };
+const dgOver = w => { const c = dgCapGet(); if (c < 0 || !dkF(w)) return null; const l = dgWLv(w); return l != null && l > c ? l : null; };
 const DG_NUMR = Object.fromEntries(Object.entries(DG_NUM).map(([a, b]) => [b, a]));
 // v21: số đọc bằng micro có nhiều cách ghi: "512" · "5 12" · "five twelve" · "five one two" · "five hundred (and) twelve"; "nine" · "9" · "9:00"; "o'clock" · ":00".
 const DG_W19 = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
@@ -670,17 +679,23 @@ const dgWpm = T => Math.round(DG_W().length / T * 60);
 // v22 (người sáng lập 21/11: "không muốn chữ kéo lên nữa, khi nói đúng sẽ tự kéo lên và đo thời gian hoàn thành nhanh nhất"):
 // chữ đứng yên, đúng tới đâu khung tự kéo lên tới đó (từ đang sáng ở khoảng 1/3 khung). Đồng hồ chạy từ lần nhập đầu tới khi xanh hết bài.
 const dgClock = ms => { const t = Math.round(ms / 100) / 10, m = Math.floor(t / 60), x = (t % 60).toFixed(1); return `${m}:${x.padStart(4, '0')}`; };
-const dgBestGet = () => { try { return +localStorage.getItem('dgBest' + BAI_SUF()) || 0; } catch (e) { return 0; } };
-const dgBestSet = v => { try { localStorage.setItem('dgBest' + BAI_SUF(), v); } catch (e) {} };
+const dgBestGet = () => { try { return +localStorage.getItem('dgBest' + BAI_SUF() + dgCapSuf()) || 0; } catch (e) { return 0; } };
+const dgBestSet = v => { try { localStorage.setItem('dgBest' + BAI_SUF() + dgCapSuf(), v); } catch (e) {} };
 function duago() { cancelAnimationFrame(DG_RAF); DG = DG || { best: dgBestGet(), n: 0, first: null }; scrollTo(0, 0);
   app.innerHTML = `${head()}<div class="card"><p><b>Nói hoặc gõ lại cả bài càng nhanh càng tốt.</b> Từ nào của bài có trong ô là xanh ngay, không cần đúng thứ tự. Khung tự kéo lên tới từ đầu tiên chưa xanh.</p>
     <p class="sm mute">Bí thì bấm ↵ để bỏ qua từ đang sáng (tính sai). Đồng hồ chạy từ chữ đầu tiên bạn nhập.</p>
-    <p>⏱ Nhanh nhất: <b>${DG.best ? dgClock(DG.best) : 'chưa có'}</b></p></div>
+    <p>⏱ Nhanh nhất${dgCapGet() >= 0 ? ` (cấp ${DG_CAPN[dgCapGet()]})` : ''}: <b>${DG.best ? dgClock(DG.best) : 'chưa có'}</b></p></div>
+    ${dgCapBox()}
     <button class="pri" id="go" style="margin-top:12px">▶ Bắt đầu</button>${sibNav('duago')}`;
-  $('#go').onclick = dgRound; }
+  $('#go').onclick = dgRound;
+  app.querySelectorAll('[data-cap]').forEach(b => b.onclick = () => { dgCapSet(+b.dataset.cap); DG = { best: dgBestGet(), n: 0, first: null, ipa: DG.ipa }; duago(); }); }
+function dgCapBox() { const c = dgCapGet(), W = DG_W(), ys = c >= 0 ? W.filter(x => dgOver(x.w) != null) : [];
+  return `<div class="card" style="margin-top:12px"><p><b>🎚 Cấp của bạn</b></p><p class="sm mute">Từ khó hơn cấp bạn chọn hiện <span class="capn">màu vàng</span>, tự bỏ qua, không cần nói. Tên riêng và số vẫn phải nói.</p>
+    <div class="seg cap" role="group" aria-label="Cấp của bạn"><button data-cap="-1" aria-pressed="${c < 0}">Tắt</button>${DG_CAPN.map((n, i) => `<button data-cap="${i}" aria-pressed="${c === i}">${n}</button>`).join('')}</div>
+    <p class="sm" style="margin-top:8px">${c < 0 ? 'Đang tắt: phải nói đủ mọi từ.' : `Bài này: <b>${ys.length}</b> / ${W.length} từ vàng, cần nói ${W.length - ys.length} từ.${ys.length ? ` <span class="mute">Từ vàng: ${[...new Set(ys.map(x => x.w.replace(/^[^A-Za-z0-9'’]+|[^A-Za-z0-9'’]+$/g, '')))].slice(0, 12).map(esc).join(', ')}${new Set(ys.map(x => dk(x.w))).size > 12 ? '…' : ''}</span>` : ''}`}</p></div>`; }
 function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_W(); let k = 0, okN = 0, over = false; const res = [];
   let html = '', li = -1; W.forEach((x, j) => { if (x.i !== li) { if (li >= 0) html += '</p>'; li = x.i; html += `<p class="dgl"><span class="tag">${WHO[L[li][0]][0]}</span> `; } html += `<span class="gw" id="gw${j}" data-j="${j}" data-ipa="/${esc(dgIpa(x))}/">${esc(x.w)}</span> `; }); html += '</p>';
-  app.innerHTML = `${head()}<div class="row" style="justify-content:space-between"><span class="tag">Lần ${DG.n + 1}${DG.best ? ` · kỷ lục ${dgClock(DG.best)}` : ''}</span><span class="dgclock" id="dgclk">⏱ 0:00.0</span></div>
+  app.innerHTML = `${head()}<div class="row" style="justify-content:space-between"><span class="tag">Lần ${DG.n + 1}${dgCapGet() >= 0 ? ` · cấp ${DG_CAPN[dgCapGet()]}` : ''}${DG.best ? ` · kỷ lục ${dgClock(DG.best)}` : ''}</span><span class="dgclock" id="dgclk">⏱ 0:00.0</span></div>
     <input id="dgi" class="gin" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Gõ từ đang sáng" enterkeyhint="next" placeholder="Gõ liền nhiều từ · ↵ bỏ qua từ">
     <div class="row dgtools"><button class="lay${DG.ipa ? ' on' : ''}" id="dgipa" aria-pressed="${!!DG.ipa}">🔤 Phiên âm</button><button class="lay" id="dgsay">🔊 Nghe từ đang sáng</button><span class="sm mute">· chạm từ để học cách nói</span></div>
     <div class="dgwrap"><div id="dgtip"></div><div class="dgwin${DG.ipa ? ' showipa' : ''}" id="dgwin"><div class="dgroll" id="dgroll">${html}</div></div><button class="dgback" id="dgback" hidden>↓ Về chỗ đang nói</button></div>
@@ -717,12 +732,13 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
     for (const j of assign()) if (res[j] == null) done(j, true);
     cur(); stat(); if (firstPend() >= W.length) end(); };
   const skip = () => { if (over) return; if (!t0) t0 = performance.now(); check(); if (over) return; k = firstPend(); if (k >= W.length) return; done(k, false); fixed.add(k); skN++; cur(); stat(); if (firstPend() >= W.length) end(); };
-  const stat = () => { $('#dgs').textContent = `Đúng ${okN} · bỏ qua ${skN} · còn ${W.length - okN - skN} từ`; $('#dgbar').style.width = k / W.length * 100 + '%'; };
-  const done = (j, ok) => { if (res[j] != null) return; res[j] = ok; if (ok) okN++; const e = sp(j); e.className = 'gw ' + (ok ? 'gw-ok' : 'gw-err'); e.textContent = W[j].w; };
+  const stat = () => { $('#dgs').textContent = `Đúng ${okN} · bỏ qua ${skN}${ylN ? ` · vàng ${ylN}` : ''} · còn ${W.length - okN - skN - ylN} từ`; $('#dgbar').style.width = k / W.length * 100 + '%'; };
+  const done = (j, ok) => { if (res[j] != null) return; res[j] = ok; if (ok === true) okN++; const e = sp(j); e.className = 'gw ' + (ok === 'sk' ? 'gw-sk' : ok ? 'gw-ok' : 'gw-err'); e.textContent = W[j].w; };
+  let ylN = 0; for (let j = 0; j < W.length; j++) if (dgOver(W[j].w) != null) { done(j, 'sk'); fixed.add(j); ylN++; }
   const end = () => { if (over) return; over = true; cancelAnimationFrame(DG_RAF); clearInterval(DG_CK); clearInterval(DG_PL); inp.disabled = true;
     const ms = t0 ? performance.now() - t0 : 0, full = skN === 0, rec = full && (!DG.best || ms < DG.best), old = DG.best; if (rec) { DG.best = ms; dgBestSet(ms); }
     if (DG.first == null) DG.first = full; $('#dgclk').textContent = '⏱ ' + dgClock(ms);
-    $('#fb').innerHTML = `<div class="fb ${full ? 'ok' : 'no'}">${rec ? '🏆 Kỷ lục mới! ' : ''}Xong cả bài trong <b>${dgClock(ms)}</b> · ${Math.round(W.length / ms * 60000)} từ/phút.
+    $('#fb').innerHTML = `<div class="fb ${full ? 'ok' : 'no'}">${rec ? '🏆 Kỷ lục mới! ' : ''}Xong cả bài trong <b>${dgClock(ms)}</b> · ${Math.round((W.length - ylN) / ms * 60000)} từ/phút${ylN ? ` (${ylN} từ vàng không tính)` : ''}.
       ${full ? (old && !rec ? `<br>Kỷ lục vẫn là ${dgClock(old)} (chậm hơn ${((ms - old) / 1000).toFixed(1)} giây).` : rec && old ? `<br>Nhanh hơn kỷ lục cũ ${((old - ms) / 1000).toFixed(1)} giây.` : '') : `<br>Bạn bỏ qua ${skN} từ nên lần này không tính kỷ lục.`}</div>
       <button class="pri" id="nx" style="margin-top:10px">↻ Làm lại, phá kỷ lục</button><button class="sec" id="stop" style="margin-top:8px">Xong, về bài học</button>${sibBtn('duago')}`;
     $('#nx').onclick = () => { DG.n++; dgRound(); };
@@ -747,6 +763,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   const tipOpen = j => { const x = W[j], tips = dgTip(x); dgSay(x.w, 0.85);
     $('#dgtip').innerHTML = `<div class="card dgtipc"><div class="row" style="justify-content:space-between;align-items:baseline"><span><b class="dgtw">${esc(x.w.replace(/[^A-Za-z0-9'’]+$/g, '').replace(/^[^A-Za-z0-9'’]+/, ''))}</b> <span class="mute">/${esc(dgIpa(x))}/</span></span><button class="lay" id="tipx" aria-label="Đóng">✕</button></div>
       <div class="row" style="margin:6px 0"><button class="lay" id="tip1">🔊 Nghe</button><button class="lay" id="tip2">🐢 Nghe chậm</button></div>
+      ${dgOver(x.w) != null ? `<p class="sm"><span class="capn">Từ cấp ${DG_CAPN[dgOver(x.w)]}</span>, trên cấp bạn chọn: không cần nói. Muốn tập thì cứ nghe và nói theo.</p>` : ''}
       ${nhHtml(x.w)}
       ${tips.length ? `<ul class="dgtl">${tips.map(t => `<li>${t}</li>`).join('')}</ul>` : '<p class="sm mute">Từ này đọc theo phiên âm là được.</p>'}<p class="sm mute">Nghe xong nói lại cả từ vào ô.</p></div>`;
     ['#tipx', '#tip1', '#tip2'].forEach(q => keep($(q)));

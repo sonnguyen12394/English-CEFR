@@ -3,6 +3,8 @@
 // Tiến độ (bài đã làm, điểm Hiểu / Dùng được, kỷ lục đua giờ) nằm ở S.ht và lưu như mọi tiến độ khác (save() → bảng vocab_state). Không đổi luật đo.
 function htRow() { return `<div class="box hcard" style="margin:12px 0 0"><button class="hrow" data-htv><span class="ic">📖</span><span class="t"><b>Học thuộc bài đề</b><small>Hội thoại, bài nói, văn bản của đề: thuộc, hiểu, dùng được, đua giờ nói lại</small></span><span class="chev">›</span></button></div>`; }
 window.htGet = () => (typeof S !== 'undefined' && S && S.ht) || null;
+// v218: cấp đang học của app → số 0 Pre-A1 … 6 C2 cho ⚡ Đua giờ (cấp "+" về cấp gốc)
+window.htLv = () => { try { const c = typeof ltCurLv === 'function' ? ltCurLv() : null, m = { pre: 0, a1: 1, a2: 2, a2p: 2, b1: 3, b1p: 3, b2: 4, b2p: 4, c1: 5, c2: 6 }; return c in m ? m[c] : null; } catch (e) { return null; } };
 window.htPut = d => { if (typeof S === 'undefined' || !S) return; S.ht = d; save(); };
 window.htClose = () => { const o = document.getElementById('htbox'); if (o) o.remove(); document.body.style.overflow = ''; };
 function htOpen() {
