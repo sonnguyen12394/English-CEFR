@@ -1,0 +1,115 @@
+{
+ "n": 1072,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-02",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "🗣 Hội thoại",
+ "kind": "Hội thoại mất ví giữa hai người bạn",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Oh no! My wallet's gone!",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "What? Are you sure? Check your bag again.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I did. It's not here. I had it at the bus stop.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Okay, calm down. Did you take anything out of your bag there?",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Yes! I took out my student card. Maybe my wallet fell out then.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Let's go back to the bus stop and look for it.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "My ID and bank card are in it. I'm so stressed.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Wait, call your bank first and block the card, just in case.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "You're right. I'll call them right now.",
+   "",
+   ""
+  ],
+  [
+   "B",
+   "Don't worry. Someone might have found it and handed it in.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where did Emma last have her wallet?",
+   "a": "At the bus stop",
+   "w": [
+    "On the bus",
+    "In her room",
+    "At school"
+   ],
+   "why": "“I had it at the bus stop.” = ví còn ở trạm xe buýt."
+  },
+  {
+   "q": "What does Jake tell Emma to do first?",
+   "a": "Call her bank and block the card",
+   "w": [
+    "Report it to the police",
+    "Go home and sleep",
+    "Buy a new wallet"
+   ],
+   "why": "“call your bank first and block the card” = gọi ngân hàng trước, khoá thẻ."
+  },
+  {
+   "q": "What did Emma take out at the bus stop?",
+   "a": "Her student card",
+   "w": [
+    "Her keys",
+    "Her phone",
+    "Her bank card"
+   ],
+   "why": "“I took out my student card.” = lấy thẻ sinh viên ra."
+  },
+  {
+   "q": "What does Jake think might have happened?",
+   "a": "Someone found the wallet and handed it in",
+   "w": [
+    "Emma left it at home",
+    "A friend borrowed it",
+    "The bank kept it"
+   ],
+   "why": "“Someone might have found it and handed it in.” = ai đó có thể đã nhặt và nộp lại."
+  }
+ ]
+}

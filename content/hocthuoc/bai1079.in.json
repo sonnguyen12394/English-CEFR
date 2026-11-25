@@ -1,0 +1,119 @@
+{
+ "n": 1079,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-09",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "✉️ Văn bản",
+ "kind": "Chat nhóm",
+ "title": "Group chat · Hana's lost wallet",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Group chat · Hana's lost wallet",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hana: Help! I think I left my wallet in the taxi.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Ben: Oh no! Don't panic. Call your bank and block your cards first.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hana: Already done. But my ID card was in there too.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mia: You should report it to the police. Do you remember the taxi number?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hana: Yes! I took a photo of the receipt.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Ben: Great. Send it to me, and I'll come with you to the police station.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hana: Thank you, guys. I don't know what I'd do without you.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mia: No worries. We've got your back!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Chỗ trống 1: I think I ___ my wallet in the taxi.",
+   "a": "left",
+   "w": [
+    "leave",
+    "leaving",
+    "leaves"
+   ],
+   "why": "left = quá khứ của leave; “I think I left…” = hình như tớ để quên."
+  },
+  {
+   "q": "Chỗ trống 2: Call your bank and ___ your cards first.",
+   "a": "block",
+   "w": [
+    "blocked",
+    "blocking",
+    "blocks"
+   ],
+   "why": "Call … and + V nguyên mẫu (lời dặn): block your cards."
+  },
+  {
+   "q": "Chỗ trống 3: You should ___ it to the police.",
+   "a": "report",
+   "w": [
+    "say",
+    "speak",
+    "talk"
+   ],
+   "why": "report sth to the police = trình báo cảnh sát."
+  },
+  {
+   "q": "Chỗ trống 4: We've got your ___!",
+   "a": "back",
+   "w": [
+    "side",
+    "head",
+    "hand"
+   ],
+   "why": "got your back = luôn sẵn sàng giúp, ủng hộ cậu."
+  },
+  {
+   "q": "Who will go to the police station with Hana?",
+   "a": "Ben",
+   "w": [
+    "Mia",
+    "The taxi driver",
+    "Nobody"
+   ],
+   "why": "Ben: “I'll come with you to the police station.”"
+  }
+ ]
+}

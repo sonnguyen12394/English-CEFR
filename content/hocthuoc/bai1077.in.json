@@ -1,0 +1,103 @@
+{
+ "n": 1077,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-07",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "📢 Bài nói",
+ "kind": "Tin nhắn thoại báo bị lạc đường",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hi Lisa, it's Tom. I'm kind of lost, and my phone is about to die.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I got off the bus at the wrong stop, and now I can't find your street.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "There's a big church on my left and a small bakery across the street.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "I asked a man for directions, but he didn't speak much English.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Can you send me your address again, please? I'll show it to someone.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Wait, I see a police officer over there. I'll ask him.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "If my phone dies, don't panic! I'll take a taxi to your place.",
+   "",
+   ""
+  ],
+  [
+   "N",
+   "Thanks a lot, you're the best!",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is Tom worried?",
+   "a": "He is lost and his phone is almost dead.",
+   "w": [
+    "He lost his wallet.",
+    "He missed the last bus home.",
+    "He cannot remember Lisa’s name."
+   ],
+   "why": "“I’m kind of lost, and my phone is about to die.” = bị lạc và điện thoại sắp hết pin."
+  },
+  {
+   "q": "Where did Tom get off the bus?",
+   "a": "At the wrong stop",
+   "w": [
+    "At the bakery",
+    "At Lisa’s house",
+    "At the end of the line"
+   ],
+   "why": "“I got off the bus at the wrong stop.” = xuống nhầm trạm."
+  },
+  {
+   "q": "What does Tom ask Lisa to do?",
+   "a": "Send him her address again",
+   "w": [
+    "Come and pick him up",
+    "Call the police",
+    "Take a taxi to him"
+   ],
+   "why": "“Can you send me your address again, please?”"
+  },
+  {
+   "q": "What will Tom do if his phone dies?",
+   "a": "Take a taxi to Lisa's place",
+   "w": [
+    "Wait at the bakery",
+    "Call the police",
+    "Go back home"
+   ],
+   "why": "“I'll take a taxi to your place.”"
+  }
+ ]
+}

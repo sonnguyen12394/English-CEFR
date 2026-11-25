@@ -1,0 +1,119 @@
+{
+ "n": 1080,
+ "nguon": "💬 Giao tiếp · Tình huống khẩn · bài tự soạn",
+ "id": "gt-kh-10",
+ "muc": "gt",
+ "chu": "gt-kh",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Diễn đàn: cách gọi cấp cứu bằng tiếng Anh",
+ "title": "How do I ask for help in an emergency in English?",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Minh: I'm moving to the US soon. How do I ask for help in English in an emergency?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Sara: First, call 911. Stay calm and speak slowly.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The operator will ask, “What is your emergency?” Say what happened, like “My friend fainted.”",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Then give your address or the name of a nearby street.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Don't hang up until the operator says you can.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Ravi: I'd add one more thing: save your home address in your phone.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "It's easy to forget it when you're scared.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Also, learn a few short phrases, like “I need an ambulance” and “Please hurry.”",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(4) Minh: Thanks, both of you! I'll practice these phrases tonight.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is Minh asking for help?",
+   "a": "He wants to know how to call for help in English.",
+   "w": [
+    "He lost his phone in the US.",
+    "He is looking for a flight to the US.",
+    "He wants to learn Vietnamese."
+   ],
+   "why": "“How do I ask for help in English in an emergency?”"
+  },
+  {
+   "q": "What should callers do first, according to Sara?",
+   "a": "Call 911 and stay calm",
+   "w": [
+    "Send a text message",
+    "Go to a hospital by bus",
+    "Wait for the police to call"
+   ],
+   "why": "“First, call 911. Stay calm and speak slowly.”"
+  },
+  {
+   "q": "Why does Ravi say Minh should save his address in his phone?",
+   "a": "It is easy to forget it when you are scared.",
+   "w": [
+    "The operator needs his phone number.",
+    "It makes the call cheaper.",
+    "His friends ask for it."
+   ],
+   "why": "“It’s easy to forget it when you’re scared.”"
+  },
+  {
+   "q": "What does Sara say about hanging up?",
+   "a": "Do not hang up until the operator says you can.",
+   "w": [
+    "Hang up as soon as you give your name.",
+    "Hang up after one minute.",
+    "Hang up if the operator is slow."
+   ],
+   "why": "“Don’t hang up until the operator says you can.”"
+  },
+  {
+   "q": "What will Minh do tonight?",
+   "a": "Practice the phrases",
+   "w": [
+    "Call 911 as a test",
+    "Move to the US",
+    "Write his address on a map"
+   ],
+   "why": "“I’ll practice these phrases tonight.”"
+  }
+ ]
+}
