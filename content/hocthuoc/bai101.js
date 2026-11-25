@@ -192,7 +192,7 @@ const BAI101 = {
    "jɔːr",
    "prɪˈfɝːd",
    "deɪ",
-   "ən",
+   "ənd",
    "ˈeriə"
   ],
   [
@@ -934,10 +934,6 @@ const BAI101 = {
    ],
    [
     "gửi tới"
-   ],
-   [
-    "từ nora bell",
-    "nora bell"
    ]
   ],
   [
@@ -988,9 +984,6 @@ const BAI101 = {
   ],
   [
    [
-    "chúng tôi"
-   ],
-   [
     "làm cùng ca"
    ],
    [
@@ -1001,9 +994,6 @@ const BAI101 = {
   [
    [
     "cảm ơn"
-   ],
-   [
-    "nora bell"
    ]
   ],
   [
@@ -1025,10 +1015,6 @@ const BAI101 = {
    ],
    [
     "một giờ chiều"
-   ],
-   [
-    "nora và tom",
-    "nora bell"
    ]
   ],
   [
@@ -1037,10 +1023,6 @@ const BAI101 = {
    ],
    [
     "năm giờ chiều"
-   ],
-   [
-    "grace và ahmed",
-    "grace liu"
    ]
   ],
   [
@@ -1152,7 +1134,7 @@ const BAI101 = {
     "attend",
     "attends",
     "attending",
-    "attended"
+    "to attend"
    ],
    "a": 0,
    "vi": "All volunteers (số nhiều) + V nguyên mẫu."
@@ -1184,7 +1166,7 @@ const BAI101 = {
    "o": [
     "for",
     "at",
-    "to",
+    "on",
     "after"
    ],
    "a": 0,
@@ -1464,7 +1446,7 @@ const BAI101 = {
    },
    "b3": [
     {
-     "q": "You can ___ for the class online.",
+     "q": "You can ___ for the race online.",
      "o": [
       "sign up",
       "signs up",
@@ -1904,7 +1886,9 @@ const BAI101 = {
     "hint": "gõ sister + 's",
     "ans": [
      "sister's",
-     "sister’s"
+     "sister’s",
+     "sisters'",
+     "sisters’"
     ],
     "vi": "sister + 's = của chị gái."
    }

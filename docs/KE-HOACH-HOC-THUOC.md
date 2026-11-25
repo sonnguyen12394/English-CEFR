@@ -10,7 +10,7 @@ Viết ngày 22/11/2026, cập nhật 23/11/2026 (thêm 2 mục tiêu, mục 2).
 | Đề | Đã có | Ghi chú |
 |---|---|---|
 | Đề 1 | 45 bài: Part 3 13 · Part 4 10 · Part 6 4 · Part 7 14 · Part 2 3 bộ | Đủ (bài 25–66 + bài 6, 9) |
-| Đề 2 | 40: Part 3 13 · Part 4 10 · Part 6 4 · Part 7 10 · Part 2 3 bộ | Bài 67–105 (v210). **Còn 5 bài hoãn: 99–103** (Part 7 #11–15, bộ nhiều văn bản): đã có tệp, qua máy kiểm, nhưng VNY / IPA / STR sinh tự động → viết lại tay (danh sách lỗi ở mục 6.5), soát lại, bỏ khỏi `hoan.json` |
+| Đề 2 | 40: Part 3 13 · Part 4 10 · Part 6 4 · Part 7 10 · Part 2 3 bộ | Bài 67–105 (v210). Bài 99–103 viết lại tay, soát Opus đạt, lên web ở v223: **Đề 2 đủ 45 / 45** |
 | Đề 3 | 5: Part 3 #1, #4 · Part 4 #1, #7 · Part 7 #3 | Bài 1 (Part 3 #1) nằm trong `base.html` |
 | Đề 4 | 3: Part 4 #3 · Part 6 #3 · Part 7 #1 | |
 | Đề 5 | 4: Part 3 #4 · Part 4 #2, #4 · Part 6 #4 | Bài 2 (Part 4 #4) nằm trong `base.html` |
@@ -20,7 +20,7 @@ Viết ngày 22/11/2026, cập nhật 23/11/2026 (thêm 2 mục tiêu, mục 2).
 
 - 💬 Giao tiếp: v214 thêm 🙋 Bản thân & gia đình 1011–1020 + 🎮 Sở thích & cuối tuần 1021–1030 (người sáng lập cho soạn tiếp trước G3); v215 thêm ❤️ Cảm xúc 1031–1040 + 📖 Kể chuyện 1041–1050; còn gt-hn, gt-hd, gt-kh. Chủ đề 🤝 Bạn bè đủ 10 bài 1001–1010 (v211 mẫu 1001–1003; v212 thêm 1004–1010: hội thoại 3, hỏi – đáp 1 bộ, bài nói 2, đọc hiểu 1). Bước kế: người sáng lập thử trên iPhone (G3) + 1–2 người học thật dùng 2 tuần (G4 ②) rồi mới soạn 7 chủ đề còn lại. Lối vào: trong trang 📖 Học thuộc, ô Đổi bài → 🎯 TOEIC · 💬 Giao tiếp → chủ đề → dạng.
 - Một đề đủ = 45 bài: Part 3 13 · Part 4 10 · Part 6 4 · Part 7 15 · Part 2 3 bộ (10 + 10 + 5 câu).
-- **Còn khoảng 257 bài** (Đề 2: 5 bài hoãn · Đề 3: 40 · Đề 4: 42 · Đề 5: 41 · Đề 6: 43 · Đề 7: 42 · Đề 8: 44; đã trừ bộ Part 7 dài hơn 200 từ). Số bài mới bắt đầu từ **106** (danh sách đợt Đề 2: `tools/hocthuoc/dot3.json`; đợt kế tiếp ghi `dot4.json`).
+- **Còn khoảng 252 bài** (Đề 3: 40 · Đề 4: 42 · Đề 5: 41 · Đề 6: 43 · Đề 7: 42 · Đề 8: 44; đã trừ bộ Part 7 dài hơn 200 từ). Số bài mới bắt đầu từ **106** (danh sách đợt Đề 2: `tools/hocthuoc/dot3.json`; đợt kế tiếp ghi `dot4.json`).
 - Đề 9–16 (ETS, bảng `de_rieng`): KHÔNG làm. Người sáng lập đã từ chối cho Claude đọc bảng này (21/11). Chỉ làm khi người sáng lập cho phép rõ ràng; nội dung không vào repo.
 
 ## 2. Hai mục tiêu · chủ đề · dạng bài (người sáng lập 23/11/2026)
@@ -142,7 +142,7 @@ Ngưỡng là ý kiến của Claude. Đánh giá theo quý: hết quý 1/2027 c
 3. **Ghi chú ở kết quả đề thử**: "Bạn đã học thuộc N bài của đề này, điểm có thể cao hơn sức thật" (yêu cầu của người sáng lập 21/11, chưa làm). Việc giao diện + đọc `S.ht`: phiên chính Opus high, theo luật thiết kế trong `.claude/CLAUDE.md`.
 4. **Kiểm iPhone** (người sáng lập): máy chép lời trong khung iframe, tiếng 🔊, tắt mở lại app còn tiến độ, nút "‹ Luyện đề".
 
-5. **Bài 99–103 (Đề 2, hoãn ở v210):** soát 23/11 chấm nặng: VNY mỗi ý là nguyên cụm VNK có ngoặc / "(1)" nên bài tập gõ nghĩa không chấm được; IPA số ("1" ngày → fɝːst, số bàn faɪv / ten), "I am" ghi như A.M., ðə / ði; LK / EL rỗng; bài 99 MU g1.b3[1] và một câu NEWQ2 có nhiễu "too" cũng đúng, NEWQ2 1 / 3 gần trùng MU; bài 103 dịch L[8], L[9] cứng, who W thiếu lịch phỏng vấn. Giao `soan-theo-khuon` viết TAY (không sinh tự động), `soat-lai` đọc lại cả 5 bài, rồi bỏ số khỏi `hoan.json` và dựng lại.
+5. ✅ v223 (đã làm). **Bài 99–103 (Đề 2, hoãn ở v210):** soát 23/11 chấm nặng: VNY mỗi ý là nguyên cụm VNK có ngoặc / "(1)" nên bài tập gõ nghĩa không chấm được; IPA số ("1" ngày → fɝːst, số bàn faɪv / ten), "I am" ghi như A.M., ðə / ði; LK / EL rỗng; bài 99 MU g1.b3[1] và một câu NEWQ2 có nhiễu "too" cũng đúng, NEWQ2 1 / 3 gần trùng MU; bài 103 dịch L[8], L[9] cứng, who W thiếu lịch phỏng vấn. Giao `soan-theo-khuon` viết TAY (không sinh tự động), `soat-lai` đọc lại cả 5 bài, rồi bỏ số khỏi `hoan.json` và dựng lại.
 
 ## 7. Lời nhắn để dán sang tài khoản mới
 

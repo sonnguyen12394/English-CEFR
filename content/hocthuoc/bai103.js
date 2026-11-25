@@ -164,7 +164,7 @@ const BAI103 = {
    "ði",
    "əˈbɪləti",
    "tə",
-   "wɜːrk",
+   "wɝːk",
    "ˈwiːkend",
    "ʃɪfts"
   ],
@@ -846,9 +846,6 @@ const BAI103 = {
    [
     "tin tuyển dụng",
     "tuyển dụng"
-   ],
-   [
-    "Khách sạn Lindgren"
    ]
   ],
   [
@@ -904,12 +901,6 @@ const BAI103 = {
    [
     "e-mail",
     "thư điện tử"
-   ],
-   [
-    "gửi tới jobs@lindgren.com"
-   ],
-   [
-    "Tomás Herrera"
    ],
    [
     "12 tháng 9",
@@ -995,9 +986,6 @@ const BAI103 = {
   [
    [
     "trân trọng"
-   ],
-   [
-    "Tomás Herrera"
    ]
   ],
   [
@@ -1019,35 +1007,23 @@ const BAI103 = {
    [
     "9 giờ sáng",
     "9:00 sáng"
-   ],
-   [
-    "Mei Lin"
    ]
   ],
   [
    [
     "10 giờ sáng",
     "10:00 sáng"
-   ],
-   [
-    "Tomás Herrera"
    ]
   ],
   [
    [
     "11 giờ sáng",
     "11:00 sáng"
-   ],
-   [
-    "Ahmed Nasser"
    ]
   ],
   [
    [
     "người phỏng vấn"
-   ],
-   [
-    "Grace Lindqvist"
    ],
    [
     "quản lý dịch vụ khách hàng"
@@ -1641,7 +1617,7 @@ const BAI103 = {
    },
    "b3": [
     {
-     "q": "He ___ in this company since 2019.",
+     "q": "He ___ for this company since 2019.",
      "o": [
       "has worked",
       "worked",

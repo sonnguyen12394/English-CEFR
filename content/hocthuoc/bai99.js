@@ -645,13 +645,7 @@ const BAI99 = {
   ],
   [],
   [],
-  [
-   [
-    0,
-    "ˈkɑːntæk(t)",
-    "Contact: /t/ gần như mất trước /s/"
-   ]
-  ],
+  [],
   [
    [
     9,
@@ -670,7 +664,7 @@ const BAI99 = {
   [
    [
     3,
-    "mi(t)",
+    "miː(t)",
     "meet clients: /t/ gần như mất trước /k/"
    ]
   ],
@@ -885,17 +879,11 @@ const BAI99 = {
   [
    [
     "công ty"
-   ],
-   [
-    "bluefin design"
    ]
   ],
   [
    [
     "liên hệ"
-   ],
-   [
-    "sam okafor"
    ]
   ],
   [
@@ -1230,7 +1218,7 @@ const BAI99 = {
    ],
    "b4": {
     "q": "The ___ on the apartment is for twelve months. (hợp đồng thuê)",
-    "hint": "danh từ · 5 chữ cái",
+    "hint": "danh từ",
     "ans": [
      "lease",
      "contract"
@@ -1569,7 +1557,7 @@ const BAI99 = {
    "line": 12,
    "hl": "planning to hire",
    "b1": {
-    "s": "Number of employees: 4 [[(planning to hire 3 more next year)]]",
+    "s": "Number of employees: 4 ([[planning to hire]] 3 more next year)",
     "q": "Sau “planning”, động từ đi với dạng nào?",
     "o": [
      "to + V (to hire)",

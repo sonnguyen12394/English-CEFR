@@ -206,7 +206,7 @@ const BAI100 = {
    "ˈkloʊi",
    "læm",
    "ˈdeɪvɪd",
-   "ŋ",
+   "ɪŋ",
    "ˈiːvə",
    "ˈruːiz"
   ],
@@ -780,41 +780,22 @@ const BAI100 = {
   [
    [
     "quản lý dự án"
-   ],
-   [
-    "anna kowal"
-   ],
-   [
-    "ben ortiz"
    ]
   ],
   [
    [
     "excel nâng cao"
-   ],
-   [
-    "bốn nhân viên",
-    "bốn người"
    ]
   ],
   [
    [
     "kỹ năng thuyết trình"
-   ],
-   [
-    "chloe lam"
    ]
   ],
   [
    [
     "giao tiếp khách hàng",
     "giao tiếp với khách hàng"
-   ],
-   [
-    "anna kowal"
-   ],
-   [
-    "eva ruiz"
    ]
   ],
   [
@@ -1657,15 +1638,15 @@ const BAI100 = {
      "vi": "right now → hiện tại tiếp diễn."
     },
     {
-     "q": "Our company ___ new staff at the moment.",
+     "q": "Please be quiet. The manager ___ on the phone.",
      "o": [
-      "is hiring",
-      "hires",
-      "hired",
-      "hire"
+      "is talking",
+      "talks",
+      "talked",
+      "talk"
      ],
      "a": 0,
-     "vi": "at the moment → hiện tại tiếp diễn."
+     "vi": "Please be quiet → việc đang diễn ra: is talking."
     }
    ],
    "b4": {

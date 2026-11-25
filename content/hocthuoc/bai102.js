@@ -230,7 +230,7 @@ const BAI102 = {
    "·",
    "deɪt",
    "ˈeɪprəl",
-   "fɔːr"
+   "fɔːrθ"
   ],
   [
    "dɪr",
@@ -702,15 +702,6 @@ const BAI102 = {
     "thư điện tử"
    ],
    [
-    "orders@papercraft.com"
-   ],
-   [
-    "Julia Benz"
-   ],
-   [
-    "Benz Design Studio"
-   ],
-   [
     "2 tháng 4",
     "ngày 2 tháng 4"
    ]
@@ -762,17 +753,11 @@ const BAI102 = {
    [
     "cảm ơn",
     "xin cảm ơn"
-   ],
-   [
-    "Julia Benz"
    ]
   ],
   [
    [
     "hoá đơn"
-   ],
-   [
-    "PaperCraft"
    ],
    [
     "3 tháng 4",
@@ -782,18 +767,12 @@ const BAI102 = {
   [
    [
     "khách hàng"
-   ],
-   [
-    "Benz Design Studio"
    ]
   ],
   [
    [
     "500 danh thiếp",
     "năm trăm danh thiếp"
-   ],
-   [
-    "Classic Cream"
    ],
    [
     "75 đô la",
@@ -981,7 +960,7 @@ const BAI102 = {
     "if",
     "what",
     "who",
-    "where"
+    "which"
    ],
    "a": 0,
    "vi": "if = liệu có."
@@ -1020,15 +999,15 @@ const BAI102 = {
    "vi": "apologize for = xin lỗi vì."
   },
   {
-   "q": "The cards will arrive ___ the end of the week.",
+   "q": "The cards were printed ___ high-quality paper.",
    "o": [
+    "on",
     "by",
-    "for",
-    "to",
-    "in"
+    "at",
+    "to"
    ],
    "a": 0,
-   "vi": "by the end of = chậm nhất vào cuối."
+   "vi": "print on paper = in trên giấy."
   },
   {
    "q": "Customers are ___ to a free replacement.",
@@ -1227,8 +1206,7 @@ const BAI102 = {
     "q": "We will send you an ___ next week. (hoá đơn)",
     "hint": "danh từ · 7 chữ cái",
     "ans": [
-     "invoice",
-     "bill"
+     "invoice"
     ],
     "vi": "invoice = hoá đơn."
    }
@@ -1280,8 +1258,7 @@ const BAI102 = {
     "q": "I made a ___ in the report. (lỗi)",
     "hint": "danh từ · 7 chữ cái",
     "ans": [
-     "mistake",
-     "error"
+     "mistake"
     ],
     "vi": "mistake = lỗi."
    }
@@ -1563,7 +1540,9 @@ const BAI102 = {
     "q": "We ___ a new product next month. (launch)",
     "hint": "gõ are + V-ing",
     "ans": [
-     "are launching"
+     "are launching",
+     "'re launching",
+     "’re launching"
     ],
     "vi": "are + V-ing + mốc tương lai."
    }
