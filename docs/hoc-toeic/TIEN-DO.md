@@ -5,8 +5,9 @@
 - Thời gian: không cố định.
 
 ## Bộ đếm
-- Câu từ mốc đánh giá tổng gần nhất (26/11, sau R + B): 27 / 30 (C1–C4, D1–D13, Đề 9 câu 101–110). Tới 30 thì đánh giá tổng.
-- Nguồn câu hiện tại: Đề 9–16 (bảng de_rieng, Supabase eojrfoormaqboxwvdqhr, data->'p5'…; KHÔNG chép nội dung đề vào repo). Câu kế tiếp: Đề 9 câu 111. Nên giữ Đề 15–16 chưa làm để đo điểm thật.
+- Đã đánh giá tổng lần 1 (26/11) sau 33 câu. Bộ đếm hiện: 0 / 30 (câu từ mốc đó).
+- Nguồn câu: Đề 9–14 (bảng de_rieng, Supabase eojrfoormaqboxwvdqhr; KHÔNG chép nội dung đề vào repo). Câu kế tiếp: Đề 9 câu 119 (118 đã ôn đúng, 114 bỏ qua). Giữ Đề 15–16 để đo điểm thật.
+- Việc đã nhận: làm Đề 1 đề thử trọn trong app. CHƯA có điểm.
 
 ## Kết quả
 | Ngày | Bài | Điểm |
@@ -17,6 +18,9 @@
 | 26/11 | C1–C4 | 3/4 |
 | 26/11 | D1–D13 | 11/13 |
 | 26/11 | Đề 9 Part 5 câu 101–110 (có hiện loại từ + nghĩa) | 9/10 |
+| 26/11 | Đề 9 câu 111–117 (6 câu trả lời) | 4/6 (sai 111 precisely, 113 with certainty: đều là từ vựng) |
+| 26/11 | Ôn lại 4 câu mới (so that / Although / decrease / her) | 4/4 |
+| 26/11 | TỔNG 33 câu chữa (C + D + Đề 9) | 27/33 = 82% (có gợi ý + nhãn loại từ) |
 
 ## Luật (💡 = còn hiện gợi ý; tắt khi đúng 2 lần liền sau lần sai gần nhất)
 | Luật | Chuỗi gần đây | Gợi ý | Lần ôn kế |
@@ -24,8 +28,9 @@
 | by (hạn chót) ≠ until (kéo dài) ≠ within (trong vòng) | B1–B3, D5, D6, D12 ✓ | tắt | 3/12 |
 | Despite / Because of + CỤM DANH TỪ; Although / Because + MỆNH ĐỀ (có động từ chia) | …D7✗ D8✓ 9-107✓ (2 liền) | tắt | 27/11 |
 | Sau giới từ cần danh từ / V-ing (in + N + of, for the + N + of) | C3✓ C4✓ D11✓ | tắt | 29/11 |
-| Sau mạo từ + tính từ cần DANH TỪ (a sharp ___ → increase) | D4✗ 9-102✓ (đối chiếu The + Adj + N) | 💡 bật | 27/11 |
-| Tính từ sở hữu (her / his / their) + cụm danh từ, sau giới từ | 9-104✗ (chọn she) | 💡 bật | 27/11 |
+| Sau mạo từ + tính từ cần DANH TỪ (a sharp ___ → increase) | D4✗ 9-102✓ Ôn3✓ | tắt | 3/12 |
+| Tính từ sở hữu (her / his / their) + cụm danh từ, sau giới từ | 9-104✗ → Ôn4✓ | tắt | 3/12 |
+| Từ vựng chọn theo nghĩa (4 phương án cùng loại từ): precisely, with certainty | 111✗ 113✗ (2 / 7 sai) | 💡 bật: học cụm đi kèm | 27/11 |
 | much + so sánh hơn | R8, D13 ✓ | tắt | 3/12 |
 | Trạng từ bổ nghĩa động từ / tính từ (bổ nghĩa danh từ) | D3, D9, D10, R9, R10 ✓ | tắt | 3/12 |
 
