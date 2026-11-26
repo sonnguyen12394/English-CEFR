@@ -6,16 +6,18 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
 1. Không bắt đọc lý thuyết dài. Luật học bằng câu chọn (phần R) để tự nhớ lại.
 2. Hỏi bằng AskUserQuestion (ô bấm chọn), KHÔNG bắt gõ. Header = mã câu (D1, D2…). 4 câu / lần gọi, gọi nối liền.
 3. MỘT ĐỢT = ~10 câu (3 lần gọi: 4 + 4 + 2), làm hết đợt rồi mới CHỮA cả đợt một lần.
-4. Hiển thị câu hỏi (người sáng lập 26/11, nhắc 2 lần):
-   - (Khung AskUserQuestion không tô màu được; người sáng lập chọn giữ dạng biểu tượng 🔊 🧩 🇻🇳.)
-   - Câu tiếng Anh, rồi dòng "🔊 /phiên âm IPA cả câu (giọng Mỹ), chỗ trống giữ ___/".
-   - Dòng "🧩" CHỈ ghi cụm cố định / đi cặp bắt buộc (collocation, cụm giới từ, danh từ ghép, động từ + giới từ), vd. "as a result of + N = do, nhờ", "leave for + nơi = lên đường đi". KHÔNG chia câu thành từng khúc nghĩa. Không ghi cụm chứa đáp án (lộ đáp án).
+4. THỨ TỰ hiển thị mỗi câu (người sáng lập 26/11): ① câu tiếng Anh → ② 🇻🇳 dịch → ③ 💡 gợi ý (nếu luật đang bật) → ④ 🧩 liệt kê cụm / collocation. Không phiên âm.
+   Chi tiết từng dòng (người sáng lập nhắc 2 lần):
+   - (Khung AskUserQuestion không tô màu được; giữ biểu tượng 🧩 🇻🇳.)
+   - KHÔNG ghi phiên âm IPA (người sáng lập bỏ 26/11, vì rối mắt).
+   - Dòng "🧩" ghi cụm cố định / đi cặp (collocation) kèm LOẠI CỤM và vài ví dụ đi kèm, vd. "🧩 as a result of + N (cụm giới từ) = do, nhờ · be selected for + N (V + giới từ) = được chọn cho · status update (N + N) = bản cập nhật tình hình; đi kèm: provide / send / give an update". Không ghi cụm chứa đáp án (lộ đáp án): cụm đó để phần chữa.
    - Dòng "🇻🇳 <dịch cả câu, chỗ trống giữ ___>"; cụm danh từ dịch đúng dạng danh từ.
-   - Mỗi phương án: label = từ tiếng Anh, description = "(ký hiệu) loại từ · /IPA/ · nghĩa" (vd. "(N) danh từ · /ˈɪnkris/ · sự tăng"). Ký hiệu: (N) (V) (Adj) (Adv) (Prep) (Conj) (Pron).
+   - Mỗi phương án: label = từ tiếng Anh, description = "(ký hiệu) loại từ · nghĩa" (vd. "(N) danh từ · sự tăng"). Ký hiệu: (N) (V) (Adj) (Adv) (Prep) (Conj) (Pron).
    - Claude đã nói rủi ro: ghi loại từ làm câu dạng từ dễ hơn đề thật. Khi người học đồng ý thì bớt dần (luật đúng 2 lần liền thì bỏ loại từ ở luật đó); chưa đồng ý thì giữ đầy đủ.
 5. Gợi ý lý thuyết cũ: câu thuộc luật người học đã SAI thì đầu câu có dòng "💡 Gợi ý: <mẹo ngắn>" và phương án ghi thêm loại từ. Tắt gợi ý khi luật đó đúng 2 lần liền sau lần sai gần nhất. Đếm ở bảng luật của TIEN-DO.md.
 6. Chữa đợt (bảng mỗi câu): ✅/❌ · bạn chọn · đáp án · dịch câu tiếng Việt · loại từ + nghĩa 4 phương án (câu sai) · vì sao · mẹo. Rồi: tiến bộ so lần trước, lỗi lặp, nhắc nhở.
-7. Cứ đủ 30 câu (đếm "câu từ mốc đánh giá" ở TIEN-DO.md): ĐÁNH GIÁ TỔNG: điểm theo từng luật / dạng, mạnh, yếu, so mốc 990, việc tuần tới; rồi đặt lại bộ đếm, học tiếp.
+7a. Đủ 30 câu: trước hết ÔN LẠI (củng cố trí nhớ dài hạn): hỏi lại ~4–8 câu MỚI cùng các luật / cụm đã sai hoặc mới học (không lặp nguyên câu cũ), chữa ngay.
+7. Sau ôn lại: ĐÁNH GIÁ năng lực hiện tại. Cứ đủ 30 câu (đếm "câu từ mốc đánh giá" ở TIEN-DO.md): ĐÁNH GIÁ TỔNG: điểm theo từng luật / dạng, mạnh, yếu, so mốc 990, việc tuần tới; rồi đặt lại bộ đếm, học tiếp.
 8. Sau mỗi lần chữa: cập nhật TIEN-DO.md, commit + push.
 9. Nói thẳng khi người học sai; phân biệt đúng do hiểu / do đoán. Nội dung Claude soạn, chưa giáo viên kiểm.
 10. Mục tiêu 990: mỗi quý đo bằng đề thử trọn trong app; người học đã nhận làm đề.
