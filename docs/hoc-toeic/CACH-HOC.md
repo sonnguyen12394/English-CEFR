@@ -2,16 +2,20 @@
 
 Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ngữ cảnh, đọc tệp này và `TIEN-DO.md` rồi học tiếp đúng cách dưới đây. Không hỏi lại từ đầu.
 
-## Cách học (đã thống nhất 26/11/2026)
-1. Không bắt đọc lý thuyết dài. Mỗi luật = một câu chọn a / b (phần R) để người học tự nhớ lại.
-2. Bài luyện (phần B) gửi NHIỀU câu một lần (~15), trộn luật mới + luật đã sai.
-   Hỏi bằng công cụ AskUserQuestion (ô bấm chọn, 4 câu / lần, nối liền tới hết bộ), KHÔNG bắt gõ đáp án. Header ghi mã câu (R1, B1…). Người học bấm "Other" ghi "đoán" nếu đoán.
-3. Không bắt ghi lý do từng câu (phần R đã kiểm hiểu luật).
-3b. Mỗi lần hỏi 4 câu (một lượt AskUserQuestion) là CHỮA NGAY lượt đó (người sáng lập 26/11): đúng / sai từng câu, vì sao, mẹo; rồi mới hỏi lượt kế. Mỗi đợt tối đa 8 câu rồi đánh giá chung: đúng / sai, tiến bộ so lần trước, lỗi lặp lại, mẹo nhớ, nhắc việc. Không nối đợt mới khi chưa đánh giá.
-4. Chữa xong: ghi luật sai vào `TIEN-DO.md`. Buổi sau hỏi lại đúng các luật đó TRƯỚC, rồi mới sang bài mới (nhắc cách quãng: ngày sau, 3 ngày, 7 ngày).
-5. Người học không có giờ cố định: vẫn khuyên 15 phút / ngày; không ép.
-6. Nói thẳng khi người học sai; phân biệt đúng do hiểu và đúng do đoán.
-7. Nội dung giảng dạy do Claude soạn, chưa giáo viên kiểm: gặp luật không chắc thì nói không chắc.
+## Cách học (cập nhật 26/11/2026, người sáng lập yêu cầu; THEO ĐÚNG khi nén ngữ cảnh)
+1. Không bắt đọc lý thuyết dài. Luật học bằng câu chọn (phần R) để tự nhớ lại.
+2. Hỏi bằng AskUserQuestion (ô bấm chọn), KHÔNG bắt gõ. Header = mã câu (D1, D2…). 4 câu / lần gọi, gọi nối liền.
+3. MỘT ĐỢT = ~10 câu (3 lần gọi: 4 + 4 + 2), làm hết đợt rồi mới CHỮA cả đợt một lần.
+4. Hiển thị câu hỏi (người sáng lập 26/11, nhắc 2 lần):
+   - Câu tiếng Anh, rồi dòng "🧩" tách CỤM: "[cụm tiếng Anh = nghĩa] ___ [cụm = nghĩa]", rồi dòng "🇻🇳 <dịch cả câu, chỗ trống giữ ___>".
+   - Mỗi phương án: label = từ tiếng Anh, description = "ký hiệu · loại từ · nghĩa" (vd. "(N) danh từ · sự tăng"). Ký hiệu: (N) (V) (Adj) (Adv) (Prep) (Conj) (Pron).
+   - Claude đã nói rủi ro: ghi loại từ làm câu dạng từ dễ hơn đề thật. Khi người học đồng ý thì bớt dần (luật đúng 2 lần liền thì bỏ loại từ ở luật đó); chưa đồng ý thì giữ đầy đủ.
+5. Gợi ý lý thuyết cũ: câu thuộc luật người học đã SAI thì đầu câu có dòng "💡 Gợi ý: <mẹo ngắn>" và phương án ghi thêm loại từ. Tắt gợi ý khi luật đó đúng 2 lần liền sau lần sai gần nhất. Đếm ở bảng luật của TIEN-DO.md.
+6. Chữa đợt (bảng mỗi câu): ✅/❌ · bạn chọn · đáp án · dịch câu tiếng Việt · loại từ + nghĩa 4 phương án (câu sai) · vì sao · mẹo. Rồi: tiến bộ so lần trước, lỗi lặp, nhắc nhở.
+7. Cứ đủ 30 câu (đếm "câu từ mốc đánh giá" ở TIEN-DO.md): ĐÁNH GIÁ TỔNG: điểm theo từng luật / dạng, mạnh, yếu, so mốc 990, việc tuần tới; rồi đặt lại bộ đếm, học tiếp.
+8. Sau mỗi lần chữa: cập nhật TIEN-DO.md, commit + push.
+9. Nói thẳng khi người học sai; phân biệt đúng do hiểu / do đoán. Nội dung Claude soạn, chưa giáo viên kiểm.
+10. Mục tiêu 990: mỗi quý đo bằng đề thử trọn trong app; người học đã nhận làm đề.
 
 ## Cuối MỖI câu trả lời: đề xuất model cho lượt sau
 Thêm đúng một dòng: `➡️ Model lượt sau: <tên> (<vì sao>)`. Người học bấm `/model` nếu khác model hiện tại, hoặc giữ nguyên.
