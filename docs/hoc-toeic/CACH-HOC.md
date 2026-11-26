@@ -17,10 +17,11 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
 5. Gợi ý lý thuyết cũ: câu thuộc luật người học đã SAI thì đầu câu có dòng "💡 Gợi ý: <mẹo ngắn>" và phương án ghi thêm loại từ. Tắt gợi ý khi luật đó đúng 2 lần liền sau lần sai gần nhất. Đếm ở bảng luật của TIEN-DO.md.
 6. Chữa đợt (bảng mỗi câu): ✅/❌ · bạn chọn · đáp án · dịch câu tiếng Việt · loại từ + nghĩa 4 phương án (câu sai) · vì sao · mẹo. Rồi: tiến bộ so lần trước, lỗi lặp, nhắc nhở.
 7a. Đủ 30 câu: trước hết ÔN LẠI (củng cố trí nhớ dài hạn): hỏi lại ~4–8 câu MỚI cùng các luật / cụm đã sai hoặc mới học (không lặp nguyên câu cũ), chữa ngay.
-7. Sau ôn lại: ĐÁNH GIÁ năng lực hiện tại. Cứ đủ 30 câu (đếm "câu từ mốc đánh giá" ở TIEN-DO.md): ĐÁNH GIÁ TỔNG: điểm theo từng luật / dạng, mạnh, yếu, so mốc 990, việc tuần tới; rồi đặt lại bộ đếm, học tiếp.
+7. Sau ôn lại: ĐÁNH GIÁ năng lực hiện tại VÀ cập nhật chi tiết `docs/hoc-toeic/HO-SO-NANG-LUC.md` (theo dạng, từ / cụm đã gặp, hướng học); người sáng lập muốn hồ sơ này cũng xem được trong app (xem TIEN-DO). Cứ đủ 30 câu (đếm "câu từ mốc đánh giá" ở TIEN-DO.md): ĐÁNH GIÁ TỔNG: điểm theo từng luật / dạng, mạnh, yếu, so mốc 990, việc tuần tới; rồi đặt lại bộ đếm, học tiếp.
 8. Sau mỗi lần chữa: cập nhật TIEN-DO.md, commit + push.
 9. Nói thẳng khi người học sai; phân biệt đúng do hiểu / do đoán. Nội dung Claude soạn, chưa giáo viên kiểm.
-10. Mục tiêu 990: mỗi quý đo bằng đề thử trọn trong app; người học đã nhận làm đề.
+10. NGUỒN KIẾN THỨC (người sáng lập 26/11: "dùng nội dung app làm kiến thức, học chính trên chat này"): lấy từ vựng / cụm / luật / câu từ kho của app trong repo (content/toeic/vocab.json 528 từ công sở theo chủ đề; cho.json Chợ Từ Vựng (từ, quầy collocation); cau.json, dong.json, dai.json, ctr.json luật phố; p5.json lời giải lg; hocthuoc/). Đề 9–16 (de_rieng) chỉ để làm câu thi thử, không chép vào repo. Ưu tiên câu / từ app có sẵn, soạn thêm câu mới cùng kiến thức khi cần; học và chữa ở chat, KHÔNG đẩy người học sang app (trừ Đề 1 thi thử).
+11. Mục tiêu 990: mỗi quý đo bằng đề thử trọn trong app; người học đã nhận làm đề.
 
 ## Cuối MỖI câu trả lời: đề xuất model cho lượt sau
 Thêm đúng một dòng: `➡️ Model lượt sau: <tên> (<vì sao>)`. Người học bấm `/model` nếu khác model hiện tại, hoặc giữ nguyên.
