@@ -223,3 +223,6 @@ Rules:
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
 - After modifying code, run `graphify update . && python3 tools/graph-vung.py` to keep the graph current (AST-only, no API cost). `tools/graph-vung.py` thêm cạnh gọi hàm giữa các tệp (graphify không thấy vì app dùng hàm toàn cục) và gom nhóm theo 13 khu vực cố định (`VUNG`); tệp mới thì thêm vào `VUNG` (script in tên tệp chưa xếp).
 - A committed graphify-out/graph.json is rewritten whole on every build, so a large diff to it in a pull request is expected. Do not flag it as churn or suggest skipping the graph rebuild or its hooks.
+
+# Học TOEIC cá nhân (người sáng lập, 26/11/2026)
+Khi học TOEIC với người sáng lập: đọc `docs/hoc-toeic/CACH-HOC.md` và `docs/hoc-toeic/TIEN-DO.md` trước, theo đúng cách học trong đó; cuối mỗi câu trả lời đề xuất model cho lượt sau.
