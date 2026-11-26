@@ -7,8 +7,10 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
 2. Hỏi bằng AskUserQuestion (ô bấm chọn), KHÔNG bắt gõ. Header = mã câu (D1, D2…). 4 câu / lần gọi, gọi nối liền.
 3. MỘT ĐỢT = ~10 câu (3 lần gọi: 4 + 4 + 2), làm hết đợt rồi mới CHỮA cả đợt một lần.
 4. Hiển thị câu hỏi (người sáng lập 26/11, nhắc 2 lần):
-   - Câu tiếng Anh, rồi dòng "🧩" tách CỤM: "[cụm tiếng Anh = nghĩa] ___ [cụm = nghĩa]", rồi dòng "🇻🇳 <dịch cả câu, chỗ trống giữ ___>".
-   - Mỗi phương án: label = từ tiếng Anh, description = "ký hiệu · loại từ · nghĩa" (vd. "(N) danh từ · sự tăng"). Ký hiệu: (N) (V) (Adj) (Adv) (Prep) (Conj) (Pron).
+   - Câu tiếng Anh, rồi dòng "🔊 /phiên âm IPA cả câu (giọng Mỹ), chỗ trống giữ ___/".
+   - Dòng "🧩" CHỈ ghi cụm cố định / đi cặp bắt buộc (collocation, cụm giới từ, danh từ ghép, động từ + giới từ), vd. "as a result of + N = do, nhờ", "leave for + nơi = lên đường đi". KHÔNG chia câu thành từng khúc nghĩa. Không ghi cụm chứa đáp án (lộ đáp án).
+   - Dòng "🇻🇳 <dịch cả câu, chỗ trống giữ ___>"; cụm danh từ dịch đúng dạng danh từ.
+   - Mỗi phương án: label = từ tiếng Anh, description = "(ký hiệu) loại từ · /IPA/ · nghĩa" (vd. "(N) danh từ · /ˈɪnkris/ · sự tăng"). Ký hiệu: (N) (V) (Adj) (Adv) (Prep) (Conj) (Pron).
    - Claude đã nói rủi ro: ghi loại từ làm câu dạng từ dễ hơn đề thật. Khi người học đồng ý thì bớt dần (luật đúng 2 lần liền thì bỏ loại từ ở luật đó); chưa đồng ý thì giữ đầy đủ.
 5. Gợi ý lý thuyết cũ: câu thuộc luật người học đã SAI thì đầu câu có dòng "💡 Gợi ý: <mẹo ngắn>" và phương án ghi thêm loại từ. Tắt gợi ý khi luật đó đúng 2 lần liền sau lần sai gần nhất. Đếm ở bảng luật của TIEN-DO.md.
 6. Chữa đợt (bảng mỗi câu): ✅/❌ · bạn chọn · đáp án · dịch câu tiếng Việt · loại từ + nghĩa 4 phương án (câu sai) · vì sao · mẹo. Rồi: tiến bộ so lần trước, lỗi lặp, nhắc nhở.
