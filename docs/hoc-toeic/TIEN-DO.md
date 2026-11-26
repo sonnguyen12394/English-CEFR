@@ -1,16 +1,23 @@
 # Tiến độ học TOEIC (cập nhật sau mỗi lần chữa bài)
 
-- Mục tiêu điểm: CHƯA RÕ (đã hỏi 2 lần). Ngày cần bằng: CHƯA RÕ.
-- Thời gian: không cố định, "rảnh thì học". Chưa thi thử đề nào.
-- 26/11/2026 kiểm tra đầu vào 5 câu Part 5: 2/5.
+- Mục tiêu điểm: CHƯA RÕ. Ngày cần bằng: CHƯA RÕ.
+- Thời gian: không cố định. Chưa thi thử đề nào.
+- Người học muốn: ô bấm chọn, và sau mỗi đợt ngắn phải có ĐÁNH GIÁ + nhắc nhở, không làm bài liên tục.
 
-## Luật hay sai (hỏi lại theo cách quãng)
-| Luật | Sai lần đầu | Lần ôn kế |
+## Kết quả
+| Ngày | Bài | Điểm |
 |---|---|---|
-| by (xong trước mốc) ≠ until (kéo dài tới mốc) | 26/11 | 27/11 |
-| Despite / Because of + cụm danh từ; Although / Because + mệnh đề | 26/11 | 27/11 |
-| Sau giới từ cần danh từ (as proof, in recognition) | 26/11 | 27/11 |
+| 26/11 | Đầu vào Part 5 | 2/5 |
+| 26/11 | R luật (10) | 7/10 |
+| 26/11 | B luyện (9 câu đã làm, dừng ở B10) | 6/9 |
+
+## Luật
+| Luật | Tình trạng | Lần ôn kế |
+|---|---|---|
+| by ≠ until | ✅ Đã vững (R1, R2, B1–B3 đúng hết) | 3/12 |
+| Despite / Because of + cụm danh từ; Although / Because + mệnh đề | ❌ Đảo ngược luật (R3, R4 sai; B4, B7 sai; B5, B6 đúng) | 27/11 |
+| Sau giới từ cần danh từ (as proof, in recognition of) | ❌ Sai 3 lần liền (đầu vào câu 5, R5, B8); có thể nhầm với "to + V" | 27/11 |
+| Đuôi từ nhận loại từ, tính từ / trạng từ | ✅ Đúng (R6–R10, B9) | 3/12 |
 
 ## Đang chờ
-- Bộ R (10 luật a/b) + B (15 câu) đã gửi 26/11, chờ người học trả lời `R: … B: …`.
-- Hỏi lại: điểm mục tiêu, ngày cần bằng.
+- B10–B15 chưa làm (dừng để đánh giá). Lần sau: hỏi lại 2 luật ❌ trước, ≤ 8 câu rồi đánh giá.

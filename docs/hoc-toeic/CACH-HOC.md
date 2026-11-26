@@ -4,8 +4,10 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
 
 ## Cách học (đã thống nhất 26/11/2026)
 1. Không bắt đọc lý thuyết dài. Mỗi luật = một câu chọn a / b (phần R) để người học tự nhớ lại.
-2. Bài luyện (phần B) gửi NHIỀU câu một lần (~15), trộn luật mới + luật đã sai, trả lời một lượt `R: 1a 2b…` `B: 1A 2B…`, thêm `đoán: B9`.
+2. Bài luyện (phần B) gửi NHIỀU câu một lần (~15), trộn luật mới + luật đã sai.
+   Hỏi bằng công cụ AskUserQuestion (ô bấm chọn, 4 câu / lần, nối liền tới hết bộ), KHÔNG bắt gõ đáp án. Header ghi mã câu (R1, B1…). Người học bấm "Other" ghi "đoán" nếu đoán.
 3. Không bắt ghi lý do từng câu (phần R đã kiểm hiểu luật).
+3b. Mỗi đợt tối đa 8 câu, rồi DỪNG để đánh giá: đúng / sai, tiến bộ so lần trước, lỗi lặp lại, mẹo nhớ, nhắc việc. Không nối đợt mới khi chưa đánh giá.
 4. Chữa xong: ghi luật sai vào `TIEN-DO.md`. Buổi sau hỏi lại đúng các luật đó TRƯỚC, rồi mới sang bài mới (nhắc cách quãng: ngày sau, 3 ngày, 7 ngày).
 5. Người học không có giờ cố định: vẫn khuyên 15 phút / ngày; không ép.
 6. Nói thẳng khi người học sai; phân biệt đúng do hiểu và đúng do đoán.
