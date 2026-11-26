@@ -1,6 +1,6 @@
 # Tiến độ học TOEIC (cập nhật sau mỗi lần chữa bài)
 
-- Mục tiêu điểm: CHƯA RÕ. Ngày cần bằng: CHƯA RÕ.
+- Mục tiêu điểm: 990 (26/11). Ngày cần bằng: CHƯA RÕ. Mốc theo quý: 550 → 700 → 850 → 950 → 990; cần điểm gốc bằng 1 đề thử trọn trong app.
 - Thời gian: không cố định. Chưa thi thử đề nào.
 - Người học muốn: ô bấm chọn, và sau mỗi đợt ngắn phải có ĐÁNH GIÁ + nhắc nhở, không làm bài liên tục.
 
