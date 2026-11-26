@@ -7,6 +7,7 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
 2. Hỏi bằng AskUserQuestion (ô bấm chọn), KHÔNG bắt gõ. Header = mã câu (D1, D2…). 4 câu / lần gọi, gọi nối liền.
 3. MỘT ĐỢT = ~10 câu (3 lần gọi: 4 + 4 + 2), làm hết đợt rồi mới CHỮA cả đợt một lần.
 4. Hiển thị câu hỏi (người sáng lập 26/11, nhắc 2 lần):
+   - (Khung AskUserQuestion không tô màu được; người sáng lập chọn giữ dạng biểu tượng 🔊 🧩 🇻🇳.)
    - Câu tiếng Anh, rồi dòng "🔊 /phiên âm IPA cả câu (giọng Mỹ), chỗ trống giữ ___/".
    - Dòng "🧩" CHỈ ghi cụm cố định / đi cặp bắt buộc (collocation, cụm giới từ, danh từ ghép, động từ + giới từ), vd. "as a result of + N = do, nhờ", "leave for + nơi = lên đường đi". KHÔNG chia câu thành từng khúc nghĩa. Không ghi cụm chứa đáp án (lộ đáp án).
    - Dòng "🇻🇳 <dịch cả câu, chỗ trống giữ ___>"; cụm danh từ dịch đúng dạng danh từ.
