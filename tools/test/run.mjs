@@ -3142,7 +3142,7 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
 // v218 C105 📖 ⚡ Đua giờ theo cấp: bảng cấp từng từ (bai/capw.js) phủ ≥ 90% từ của bài, số 0–6, từ quen đúng cấp; trang có ô chọn cấp, từ vàng tự bỏ qua; app đưa cấp đang học
 { const r = [];
   const fs = await import('node:fs'), vm = await import('node:vm'), root = new URL('../../', import.meta.url).pathname, H = root + 'hoc-thuoc/', h = fs.readFileSync(H + 'index.html', 'utf8');
-  for (const k of ['bai/capw.js?v=', 'dgCapBox', 'gw-sk', 'dgOver', 'window.parent.htLv', 'data-dgo="name"', 'data-dgo="fill"', 'dgSkip', 'HT.dgo', 'dgSkCls', 'lvleg', '--lv6bg']) if (!h.includes(k)) r.push('trang con thiếu ' + k);
+  for (const k of ['bai/capw.js?v=', 'dgCapBox', 'gw-sk', 'dgOver', 'window.parent.htLv', 'data-dgo="name"', 'data-dgo="fill"', 'dgSkip', 'HT.dgo', 'dgSkCls', 'lvleg', '--lv6bg', 'id="dgsz"', 'dgHMax', 'n+a+h+|y+e+p+']) if (!h.includes(k)) r.push('trang con thiếu ' + k);
   if (!fs.readFileSync(root + 'hocthuoc.js', 'utf8').includes('window.htLv')) r.push('app thiếu htLv');
   const c = {}; vm.createContext(c); vm.runInContext(fs.readFileSync(H + 'bai/capw.js', 'utf8') + ';this.X=CAPW', c); const X = c.X;
   if (Object.values(X).some(v => !(v >= 0 && v <= 6))) r.push('cấp ngoài 0–6');

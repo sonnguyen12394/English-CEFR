@@ -104,7 +104,7 @@ mark { background: var(--acc2); color: var(--acc); font-weight: 700; border-radi
 .dgtl { margin: 4px 0; padding-left: 18px; font-size: 14px; line-height: 1.5 } .dgtl li { margin: 3px 0 }
 .dgwin .gw { cursor: pointer } .showipa .gw { display: inline-block; text-align: center; vertical-align: top; line-height: 1.25; margin-bottom: 6px }
 .showipa .gw::after { content: attr(data-ipa); display: block; font-size: 12px; font-weight: 400; color: var(--mute); white-space: nowrap }
-.dgtyping .dgin { display: flex; gap: 6px; align-items: center } .dgtyping .dgtools .sm, .dgtyping .dglb { display: none } .dgtyping .dgtools { margin: 0; flex-wrap: nowrap } .dgtyping .dgtools .lay { min-width: 44px; min-height: 44px; padding: 4px 8px; font-size: 18px } .dgtyping .dgwin { margin-top: 6px } .dgclock { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 18px } .dgback { position: absolute; right: 8px; bottom: 8px; z-index: 3; min-height: 44px; border-radius: 999px; padding: 6px 14px; background: var(--acc); color: var(--card); font-weight: 700; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.25) }
+.dgtyping .dgin { display: flex; gap: 6px; align-items: center } .dgtyping .dgtools .sm, .dgtyping .dglb { display: none } .dgtyping .dgtools { margin: 0; flex-wrap: nowrap } .dgtyping .dgtools .lay { min-width: 44px; min-height: 44px; padding: 4px 8px; font-size: 18px } .dgtyping .dgwin { margin-top: 6px } .dgsz { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 44px; margin: -4px 0 6px; padding: 4px 8px; border: 0; background: none; color: var(--mute); font-size: 13px; touch-action: none; user-select: none; -webkit-user-select: none; cursor: ns-resize } .dgsz i { width: 44px; height: 5px; border-radius: 3px; background: var(--mute); opacity: .6 } .dgclock { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 18px } .dgback { position: absolute; right: 8px; bottom: 8px; z-index: 3; min-height: 44px; border-radius: 999px; padding: 6px 14px; background: var(--acc); color: var(--card); font-weight: 700; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.25) }
 .dgroll { padding: 14px 14px 140px; font-size: 20px; line-height: 1.8 } .dgl { margin: 0 0 12px } .gw { color: var(--ink); white-space: nowrap } .gw-hid { color: var(--line); letter-spacing: 1px }
 .gw-sk.lv1, .lvc.lv1 { color: var(--lv1); background: var(--lv1bg) } .gw-sk.lv2, .lvc.lv2 { color: var(--lv2); background: var(--lv2bg) } .gw-sk.lv3, .lvc.lv3 { color: var(--lv3); background: var(--lv3bg) } .gw-sk.lv4, .lvc.lv4 { color: var(--lv4); background: var(--lv4bg) } .gw-sk.lv5, .lvc.lv5 { color: var(--lv5); background: var(--lv5bg) } .gw-sk.lv6, .lvc.lv6 { color: var(--lv6); background: var(--lv6bg) } .gw-sk.name, .lvc.name { color: var(--lvn); background: var(--lvnbg) } .gw-sk.fill, .lvc.fill { color: var(--lvf); background: var(--lvfbg) } .lvc { border-radius: 4px; padding: 0 5px; font-weight: 700; white-space: nowrap } .lvleg { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 6px 0 0; font-size: 14px }
 .gw-ok { color: var(--good); font-weight: 700 } .gw-sk { color: var(--warn); background: var(--warnbg); border-radius: 4px; padding: 0 2px; font-weight: 600 }
@@ -628,7 +628,8 @@ let DG = null, DG_RAF = 0, DG_CK = 0, DG_PL = 0; const DG_POLL = 250; const DG_I
 const DG_NUM = { zero: '0', one: '1', two: '2', three: '3', four: '4', five: '5', six: '6', seven: '7', eight: '8', nine: '9', ten: '10', eleven: '11', twelve: '12' };
 const dk = w => w.toLowerCase().replace(/[^a-z0-9]/g, '');
 // Tiếng đệm (hmm, haizz, uh, um…): máy chép lời không ra chữ này nên tự xanh, không bắt nói / gõ. oh, ah, wow cũng tự xanh (người sáng lập 23/11).
-const DG_FILL = /^(o+h+|a+h+|w+o+w+|h+m+|m+h*m+|u+h+m*|u+m+|e+r+m*|h+a+i+z+|h+u+h+|u+g+h+|p+h+e+w+|a+w+|s+h+|t+s+k+|u+h+h+u+h+)$/;
+// v224: thêm tiếng đệm máy khó nghe ra chữ (nah, yep, nope, oops, whoa, uh-oh, aha, ooh, eh, meh, yikes, oof, ew, haha, hehe, ahem, psst, geez, jeez, gee)
+const DG_FILL = /^(o+h+|a+h+|w+o+w+|h+m+|m+h*m+|u+h+m*|u+m+|e+r+m*|h+a+i+z+|h+u+h+|u+g+h+|p+h+e+w+|a+w+|s+h+|t+s+k+|u+h+h+u+h+|n+a+h+|y+e+p+|y+u+p+|n+o+p+e+|o+o+p+s+|w+h*o+a+h*|u+h+o+h+|a+h+a+|o+o+h+|e+h+|m+e+h+|y+i+k+e+s+|o+o+f+|e+w+|(h+a+){2,}h*|(h+e+){2,}h*|a+h+e+m+|p+s+t+|g+e+e+z*|j+e+e+z+)$/;
 const dkF = w => { const t = dk(w); return DG_FILL.test(t) ? '' : t; };
 // v218 (người sáng lập 25/11: "cấp A1 thì chỉ cần nói được từ A1, từ A2 trở lên hiện màu vàng, bỏ qua"): chọn cấp của bạn; từ có cấp cao hơn (bảng CAPW
 // ở bai/capw.js, dựng từ từ điển app bằng tools/hocthuoc/capw.mjs) hiện vàng, tự bỏ qua, không bắt nói. Từ không có trong từ điển (tên riêng) và số vẫn phải nói.
@@ -719,6 +720,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
     <div class="dgin"><input id="dgi" class="gin" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Gõ từ đang sáng" enterkeyhint="next" placeholder="Nói hoặc gõ · ↵ bỏ qua từ">
     <div class="row dgtools"><button class="lay${DG.ipa ? ' on' : ''}" id="dgipa" aria-pressed="${!!DG.ipa}" aria-label="Phiên âm">🔤<span class="dglb"> Phiên âm</span></button><button class="lay" id="dgsay" aria-label="Nghe từ đang sáng">🔊<span class="dglb"> Nghe từ đang sáng</span></button><span class="sm mute">· chạm từ để học cách nói</span></div></div>
     <div class="dgwrap"><div id="dgtip"></div><div class="dgwin${DG.ipa ? ' showipa' : ''}" id="dgwin"><div class="dgroll" id="dgroll">${html}</div></div><button class="dgback" id="dgback" hidden>↓ Về chỗ đang nói</button></div>
+    <button class="dgsz" id="dgsz" aria-label="Kéo để đổi chiều cao khung chữ, chạm để phóng to hoặc thu lại"><i></i><span id="dgszt">${dgOptGet().h ? '⇕ Kéo đổi cỡ · chạm để thu lại' : '⇕ Kéo xuống để mở rộng · chạm để phóng to'}</span></button>
     <div class="bar"><i id="dgbar" style="width:0%"></i></div><p class="sm mute" id="dgs"></p><div id="fb"></div>`;
   const win = $('#dgwin'), roll = $('#dgroll'), inp = $('#dgi'), H = win.clientHeight; let t0 = 0, y = 0, skN = 0, userT = -1e9, autoS = false; const DG_HOLD = 4000;
   const sp = j => $('#gw' + j);
@@ -798,7 +800,7 @@ function dgRound() { cancelAnimationFrame(DG_RAF); scrollTo(0, 0); const W = DG_
   win.addEventListener('scroll', () => { if (autoS) { autoS = false; return; } if (performance.now() - userT < 1500) userT = performance.now(); }, { passive: true });
   keep($('#dgback')); $('#dgback').onclick = () => { userT = -1e9; };
   inp.addEventListener('blur', () => { if (!over) { for (let j = 0; j < W.length; j++) if (res[j] != null) fixed.add(j); inp.value = ''; lastVal = ''; lastLen = 0; cur(); } });
-  cur(); stat(); dgFit(inp, win); inp.focus(); DG_RAF = requestAnimationFrame(tick); }
+  cur(); stat(); dgFit(inp, win); dgSize(win, inp); keep($('#dgsz')); inp.focus(); DG_RAF = requestAnimationFrame(tick); }
 // v221 (ảnh người sáng lập iPhone: "khi đọc hoặc viết thì không thấy được có 2 hàng chữ"): bàn phím mở thì cuộn cho hàng đồng hồ lên sát mép trên
 // (giấu tiêu đề), ô chữ bài cao hết phần còn thấy trên bàn phím. Trang nằm trong khung iframe của app: bàn phím chỉ làm nhỏ
 // visualViewport của trang cha, nên đo bằng trang cha khi cùng nguồn.
@@ -806,13 +808,28 @@ function dgFit(inp, win) { let P = window; try { if (parent !== window && parent
   const vv = P.visualViewport || window.visualViewport, fr = P !== window ? frameElement : null;
   const fit = () => { if (!document.body.contains(win)) { if (vv) vv.removeEventListener('resize', fit); return; }
     const on = document.activeElement === inp; app.classList.toggle('dgtyping', on);
+    const uh = dgOptGet().h; if (uh) { win.style.height = dgHMax(uh) + 'px'; if (!on) return; }
     if (!on) { win.style.height = ''; return; }
     const hd = (inp.parentElement && inp.parentElement.previousElementSibling) || inp; scrollTo(0, Math.max(0, hd.getBoundingClientRect().top + scrollY - 4));   // giữ hàng đồng hồ
     const off = fr ? fr.getBoundingClientRect().top : 0, bot = vv ? vv.offsetTop + vv.height : innerHeight;
     const room = Math.floor(bot - (off + win.getBoundingClientRect().top) - 10);
-    win.style.height = Math.max(150, Math.min(room, innerHeight - 140)) + 'px'; };
+    if (!uh) win.style.height = Math.max(150, Math.min(room, innerHeight - 140)) + 'px'; };
   inp.addEventListener('focus', () => { setTimeout(fit, 60); setTimeout(fit, 400); }); inp.addEventListener('blur', () => setTimeout(fit, 60));
   if (vv) vv.addEventListener('resize', fit); }
+// v224 (ảnh người sáng lập iPhone: khung vẫn nhỏ, "muốn ô đoạn văn có thể mở rộng thêm"): thanh dưới khung chữ, kéo để đổi chiều cao,
+// chạm để phóng to (85% màn) / thu về tự động. Cỡ người học chọn lưu trong dgOpt.h và thắng cỡ tự tính của dgFit.
+const dgHMax = h => Math.max(120, Math.min(h, Math.round(innerHeight * 0.92)));
+function dgSize(win, inp) { const b = $('#dgsz'), t = $('#dgszt'); if (!b) return; let y0 = 0, h0 = 0, mv = 0, on = false;
+  const lab = () => { t.textContent = dgOptGet().h ? '⇕ Kéo đổi cỡ · chạm để thu lại' : '⇕ Kéo xuống để mở rộng · chạm để phóng to'; };
+  const save = h => { const o = dgOptGet(); if (h) o.h = h; else delete o.h; dgOptSet(o); lab(); };
+  b.addEventListener('pointerdown', e => { on = true; mv = 0; y0 = e.clientY; h0 = win.offsetHeight; try { b.setPointerCapture(e.pointerId); } catch (x) {} });
+  b.addEventListener('pointermove', e => { if (!on) return; const d = e.clientY - y0; mv = Math.max(mv, Math.abs(d)); if (mv > 6) win.style.height = dgHMax(h0 + d) + 'px'; });
+  const up = () => { if (!on) return; on = false;
+    if (mv > 6) save(win.offsetHeight);
+    else if (dgOptGet().h) { save(0); win.style.height = ''; inp.dispatchEvent(new Event('focus')); }
+    else { const h = dgHMax(Math.round(innerHeight * 0.85)); win.style.height = h + 'px'; save(h); }
+    win.scrollTop = win.scrollTop; };
+  b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); }
 // ④ viết lại: từng câu, gợi ý tiếng Việt + chữ đầu (ôn thì bỏ chữ đầu)
 const norm = w => w.toLowerCase().replace(/[^a-z0-9']/g, '');
 function diff(want, got) { const g = words(got).map(norm).filter(Boolean), W = words(want); let ok = 0, p = 0;
