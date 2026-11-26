@@ -10,13 +10,14 @@
 | 26/11 | Đầu vào Part 5 | 2/5 |
 | 26/11 | R luật (10) | 7/10 |
 | 26/11 | B luyện (9 câu đã làm, dừng ở B10) | 6/9 |
+| 26/11 | Chữa 2 luật sai (C1–C4) | 3/4 |
 
 ## Luật
 | Luật | Tình trạng | Lần ôn kế |
 |---|---|---|
 | by ≠ until | ✅ Đã vững (R1, R2, B1–B3 đúng hết) | 3/12 |
-| Despite / Because of + cụm danh từ; Although / Because + mệnh đề | ❌ Đảo ngược luật (R3, R4 sai; B4, B7 sai; B5, B6 đúng) | 27/11 |
-| Sau giới từ cần danh từ (as proof, in recognition of) | ❌ Sai 3 lần liền (đầu vào câu 5, R5, B8); có thể nhầm với "to + V" | 27/11 |
+| Despite / Because of + cụm danh từ; Although / Because + mệnh đề | 🟨 C1 đúng (Despite + danh từ), C2 sai (chọn despite trước mệnh đề + sai nghĩa) | 27/11 |
+| Sau giới từ cần danh từ (as proof, in recognition of) | 🟨 Sau mẹo "in + N + of": C3, C4 đúng 2/2 | 27/11 |
 | Đuôi từ nhận loại từ, tính từ / trạng từ | ✅ Đúng (R6–R10, B9) | 3/12 |
 
 ## Đang chờ
