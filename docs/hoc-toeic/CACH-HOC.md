@@ -30,6 +30,11 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
    - Hỗ trợ: người học còn yếu nên giữ dịch + loại từ ở đợt thường; Claude tự cân bằng: luật nào đúng ≥ 3 lần liền không gợi ý thì bỏ ký hiệu loại từ ở câu của luật đó; đợt ôn sau 30 câu luôn kiểu đề thật.
    - Phạm vi: Claude tự xếp theo hồ sơ. Hiện: Part 5 (từ vựng + collocation trọng tâm); Part 5 điểm thật ≥ 70% thì thêm Part 6; Part 6 ≥ 70% thì thêm Part 7. Nghe chưa đo được ở chat (cần app).
    - Không bắt làm Đề 1: hồ sơ hình thành dần từ câu đúng / sai ở chat. Chỉ nhắc đề thử khi cần đo Nghe.
+13. CHỐT THÊM 27/11:
+   - Nghe: luyện qua LỜI THOẠI CHÉP RA (Part 2–4 dạng chữ, câu hỏi + 4 phương án như đề); ghi rõ đây là hiểu nội dung, không phải luyện tai. Xen vào đợt khi Part 5 ổn định.
+   - Đề ETS 9–16: dùng hết để luyện (người sáng lập còn nhiều nguồn đề khác để đo sau).
+   - Giờ học: rảnh thì học; chỉ nhắc khi nghỉ lâu, không đặt lịch.
+   - Ước bậc thang mỗi lần đánh giá 30 câu, từ điểm thật, ghi rõ độ chắc thấp vì mới đo một phần đề.
 11. Mục tiêu 990: mỗi quý đo bằng đề thử trọn trong app; người học đã nhận làm đề.
 
 ## Cuối MỖI câu trả lời: đề xuất model cho lượt sau
