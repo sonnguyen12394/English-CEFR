@@ -5,11 +5,12 @@
 - Thời gian: không cố định.
 
 ## Bộ đếm
-- Mốc 30 câu lần 2 ĐÃ XONG (27/11): ôn lại + đánh giá + ghi hồ sơ (ho_so lần 2). Bộ đếm hiện: 0 / 30.
-- ĐIỂM THẬT tích luỹ: 9/17 (53%); ôn lại 2/9 (22%; Ôn5 lỗi đề, bỏ).
-- Đợt kế: phải HỎI LẠI cụm sai (không gợi ý): take place, commercial supplier, precisely, with certainty, valid until + mốc, team's cooperation (danh từ sau 's), their + danh từ.
-- Nguồn câu ETS: Đề 9 hết Part 5 (101–130); tiếp Đề 10 từ câu 107 (Part 5), rồi Đề 11…
-- Việc đã nhận: làm Đề 1 trong app: không bắt buộc.
+- Bộ đếm hiện: 10 / 30 (đợt H 27/11: 7/10). Đủ 30 thì ôn lại + đánh giá + ghi ho_so lần 3.
+- ĐIỂM THẬT tích luỹ: 12/22 (55%): gồm ôn lại 2/9 + hỏi lại cụm sai (🔁) 3/5.
+- Cụm đã nhớ được sau lần chữa (đúng khi hỏi lại): take place ✓, until ✓ (valid / continue until), danh từ sau 's ✓.
+- Cụm CỨNG ĐẦU (sai ≥ 3 lần): **commercial** (F8, Ôn2, H3), **precisely** (111, Ôn3, H5). Mới sai: wh- + to V (decide which printer to buy).
+- Lịch ôn: 28/11 hỏi lại commercial, precisely, wh- + to V (câu mới, không gợi ý); 30/11 take place, until, 's + danh từ, their + danh từ, with certainty.
+- Nguồn ETS: Đề 10 từ câu 111 (Part 5).
 
 ## Kết quả
 | Ngày | Bài | Điểm |
@@ -28,6 +29,8 @@
 
 | 27/11 | G1–G4 | 4/4 |
 | 27/11 | ÔN LẠI kiểu đề thật (10 câu mới, 9 tính) | 2/9 (22%) |
+
+| 27/11 | Đợt H (5 🔁 + 5 hỗ trợ) | 7/10 · 🔁 3/5 · hỗ trợ 4/5 |
 
 ## Luật (💡 = còn hiện gợi ý; tắt khi đúng 2 lần liền sau lần sai gần nhất)
 | Luật | Chuỗi gần đây | Gợi ý | Lần ôn kế |
