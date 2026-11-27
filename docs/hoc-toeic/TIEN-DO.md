@@ -5,9 +5,11 @@
 - Thời gian: không cố định.
 
 ## Bộ đếm
-- Đã đánh giá tổng lần 1 (26/11) sau 33 câu. Bộ đếm hiện: 26 / 30 (F1–F10 đúng 8/10: sai F3 take place, F8 commercial). Còn 4 câu rồi ÔN LẠI kiểu đề thật + đánh giá + cập nhật hồ sơ (ho_so). ĐIỂM THẬT tích luỹ: 7/8 (E5 E8 E11 F2 F5 F9 F10 đúng; F8 sai). (F8–F10 làm thử cách 'tự giải + phiên âm': người học thấy không hợp, đã huỷ.) (T1–T3, E1–E13 đúng 16/16). ĐIỂM THẬT (🎯) tích luỹ: 3/3 (E5 despite, E8 wish to + V, E11 cooperative; Đề 9 câu 121–123). Câu ETS kế tiếp: Đề 9 câu 124.
-- Nguồn câu: Đề 9–14 (bảng de_rieng, Supabase eojrfoormaqboxwvdqhr; KHÔNG chép nội dung đề vào repo). Câu kế tiếp: Đề 9 câu 119 (118 đã ôn đúng, 114 bỏ qua). Giữ Đề 15–16 để đo điểm thật.
-- Việc đã nhận: làm Đề 1 đề thử trọn trong app. CHƯA có điểm.
+- Mốc 30 câu lần 2 ĐÃ XONG (27/11): ôn lại + đánh giá + ghi hồ sơ (ho_so lần 2). Bộ đếm hiện: 0 / 30.
+- ĐIỂM THẬT tích luỹ: 9/17 (53%); ôn lại 2/9 (22%; Ôn5 lỗi đề, bỏ).
+- Đợt kế: phải HỎI LẠI cụm sai (không gợi ý): take place, commercial supplier, precisely, with certainty, valid until + mốc, team's cooperation (danh từ sau 's), their + danh từ.
+- Nguồn câu ETS: Đề 9 hết Part 5 (101–130); tiếp Đề 10 từ câu 107 (Part 5), rồi Đề 11…
+- Việc đã nhận: làm Đề 1 trong app: không bắt buộc.
 
 ## Kết quả
 | Ngày | Bài | Điểm |
@@ -23,6 +25,9 @@
 | 27/11 | E1–E13 (7 có hỗ trợ + 3 🎯 + E1–E3) | 13/13 · 🎯 3/3 |
 | 27/11 | F1–F10 | 8/10 · không hỗ trợ 4/5 |
 | 26/11 | TỔNG 33 câu chữa (C + D + Đề 9) | 27/33 = 82% (có gợi ý + nhãn loại từ) |
+
+| 27/11 | G1–G4 | 4/4 |
+| 27/11 | ÔN LẠI kiểu đề thật (10 câu mới, 9 tính) | 2/9 (22%) |
 
 ## Luật (💡 = còn hiện gợi ý; tắt khi đúng 2 lần liền sau lần sai gần nhất)
 | Luật | Chuỗi gần đây | Gợi ý | Lần ôn kế |

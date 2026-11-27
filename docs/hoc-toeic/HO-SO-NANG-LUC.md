@@ -34,3 +34,11 @@ precisely (xác định chính xác) · with certainty · status update · the s
 3. Thử bỏ nhãn loại từ (đã hỏi người học).
 4. Đo Nghe + Part 6 + Part 7: bắt buộc làm Đề 1 trong app, gửi điểm Nghe / Đọc.
 5. Mốc: sau 3 tháng điểm đề thử tăng chưa tới 50 thì đổi cách học.
+
+
+## Lần 2 · 27/11/2026 · đủ 30 câu mới + ôn lại kiểu đề thật (đã ghi vào bảng ho_so, app 👤 Tôi)
+- Có hỗ trợ: 74/91 = 81%. **ĐIỂM THẬT (câu mới, không hỗ trợ): 9/17 = 53%; bài ôn lại sau 30 câu chỉ 2/9 = 22%** (Ôn5 lỗi đề của Claude: không tính).
+- Kết luận: tiến bộ lúc làm có hỗ trợ phần lớn là nhờ hỗ trợ. Điểm yếu thật: **từ vựng + collocation** (không hỗ trợ 2/6) và vài luật cơ bản khi vội (until, 's + danh từ, their).
+- Cụm sai lặp lại: take place (F3 rồi Ôn1), commercial (F8 rồi Ôn2).
+- Ước bậc: ~450–550, độ chắc thấp (mới đo Part 5).
+- Việc làm: ôn chủ động cụm sai ở đợt sau; chưa mở Part 6.

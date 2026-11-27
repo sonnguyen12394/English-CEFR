@@ -37,6 +37,7 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
    - Ước bậc thang mỗi lần đánh giá 30 câu, từ điểm thật, ghi rõ độ chắc thấp vì mới đo một phần đề.
 14. CÂU 🎯 ĐO (người sáng lập 27/11): mỗi đợt 10 câu có 3 câu 🎯 trộn ở vị trí ngẫu nhiên, header "🎯 Dn": CHỈ câu tiếng Anh + 4 phương án, description "(A)" "(B)"…; không 🇻🇳 / 💡 / 🧩 / loại từ / nghĩa. Câu 🎯 chọn đủ dạng (ngữ pháp + từ vựng, có cả luật đã vững và luật đang yếu). Chữa câu 🎯 đầy đủ như câu thường. ĐIỂM THẬT = câu 🎯 + câu ôn kiểu đề thật sau 30 câu; điểm có hỗ trợ ghi riêng. Hồ sơ, bậc thang, lúc mở Part 6 / 7 chỉ dựa trên ĐIỂM THẬT. Luật tắt gợi ý / bỏ loại từ vẫn đếm cả câu thường.
 15. (HUỶ 27/11) Cách "tự giải có phiên âm, gợi ý theo yêu cầu" đã thử và người sáng lập thấy KHÔNG hợp. Quay lại mục 4–5 và 14: câu thường đầy đủ (câu Anh → 🇻🇳 → 💡 → 🧩, phương án có ký hiệu loại từ · nghĩa), 3 câu 🎯 đo không hỗ trợ mỗi đợt 10 câu, KHÔNG phiên âm.
+16. BÀI HỌC từ lần ôn 27/11 (ôn lại chỉ 2/9 dù đợt thường 93%): hỗ trợ làm điểm cao giả, đặc biệt từ vựng. Quy tắc mới: (a) câu ôn phải hợp lệ: có đúng 1 đáp án, kiểm trước khi hỏi (Ôn5 của Claude đã lỗi: thiếu "Because of"); (b) mỗi đợt có 4–5 câu HỎI LẠI cụm / luật đã sai ở đợt trước (câu mới, không gợi ý); (c) sau chữa, đọc to lại 3 cụm sai bằng 1 dòng "🔁 Nhớ: …"; (d) ôn cách quãng cụm sai sau 1 ngày, 3 ngày, 7 ngày.
 11. Mục tiêu 990: mỗi quý đo bằng đề thử trọn trong app; người học đã nhận làm đề.
 
 ## Cuối MỖI câu trả lời: đề xuất model cho lượt sau
