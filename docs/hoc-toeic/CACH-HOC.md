@@ -25,6 +25,11 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
 8. Sau mỗi lần chữa: cập nhật TIEN-DO.md, commit + push.
 9. Nói thẳng khi người học sai; phân biệt đúng do hiểu / do đoán. Nội dung Claude soạn, chưa giáo viên kiểm.
 10. NGUỒN KIẾN THỨC (người sáng lập 26/11: "dùng nội dung app làm kiến thức, học chính trên chat này"): lấy từ vựng / cụm / luật / câu từ kho của app trong repo (content/toeic/vocab.json 528 từ công sở theo chủ đề; cho.json Chợ Từ Vựng (từ, quầy collocation); cau.json, dong.json, dai.json, ctr.json luật phố; p5.json lời giải lg; hocthuoc/). Đề 9–16 (de_rieng) chỉ để làm câu thi thử, không chép vào repo. Ưu tiên câu / từ app có sẵn, soạn thêm câu mới cùng kiến thức khi cần; học và chữa ở chat, KHÔNG đẩy người học sang app (trừ Đề 1 thi thử).
+12. ĐÃ CHỐT 27/11 (người sáng lập tích chọn):
+   - Mục tiêu cuối 990, nhưng đi theo BẬC THANG để thấy tiến bộ: 450 → 550 → 650 → 750 → 850 → 950 → 990; hồ sơ ghi bậc hiện tại ước theo điểm thật.
+   - Hỗ trợ: người học còn yếu nên giữ dịch + loại từ ở đợt thường; Claude tự cân bằng: luật nào đúng ≥ 3 lần liền không gợi ý thì bỏ ký hiệu loại từ ở câu của luật đó; đợt ôn sau 30 câu luôn kiểu đề thật.
+   - Phạm vi: Claude tự xếp theo hồ sơ. Hiện: Part 5 (từ vựng + collocation trọng tâm); Part 5 điểm thật ≥ 70% thì thêm Part 6; Part 6 ≥ 70% thì thêm Part 7. Nghe chưa đo được ở chat (cần app).
+   - Không bắt làm Đề 1: hồ sơ hình thành dần từ câu đúng / sai ở chat. Chỉ nhắc đề thử khi cần đo Nghe.
 11. Mục tiêu 990: mỗi quý đo bằng đề thử trọn trong app; người học đã nhận làm đề.
 
 ## Cuối MỖI câu trả lời: đề xuất model cho lượt sau
