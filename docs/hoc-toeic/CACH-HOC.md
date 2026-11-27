@@ -16,7 +16,11 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
    - Claude đã nói rủi ro: ghi loại từ làm câu dạng từ dễ hơn đề thật. Khi người học đồng ý thì bớt dần (luật đúng 2 lần liền thì bỏ loại từ ở luật đó); chưa đồng ý thì giữ đầy đủ.
 5. Gợi ý lý thuyết cũ: câu thuộc luật người học đã SAI thì đầu câu có dòng "💡 Gợi ý: <mẹo ngắn>" và phương án ghi thêm loại từ. Tắt gợi ý khi luật đó đúng 2 lần liền sau lần sai gần nhất. Đếm ở bảng luật của TIEN-DO.md.
 6. Chữa đợt (bảng mỗi câu): ✅/❌ · bạn chọn · đáp án · dịch câu tiếng Việt · loại từ + nghĩa 4 phương án (câu sai) · vì sao · mẹo. Rồi: tiến bộ so lần trước, lỗi lặp, nhắc nhở.
-7a. Đủ 30 câu: trước hết ÔN LẠI (củng cố trí nhớ dài hạn): hỏi lại ~4–8 câu MỚI cùng các luật / cụm đã sai hoặc mới học (không lặp nguyên câu cũ), chữa ngay.
+7a. Đủ 30 câu: ÔN LẠI kiểu ĐỀ THẬT để đo chuẩn (người sáng lập 27/11: "đang làm có dịch nghĩa nên đúng nhiều hơn bình thường"):
+   - 8–10 câu MỚI cùng luật / cụm đã học (không lặp câu cũ), trộn đủ dạng, có cả câu luật đã vững.
+   - Hiển thị: CHỈ câu tiếng Anh + 4 phương án là từ tiếng Anh; description để "(A)" "(B)"…; KHÔNG 🇻🇳, KHÔNG 💡, KHÔNG 🧩, KHÔNG loại từ / nghĩa.
+   - Làm xong mới chữa (như đợt thường, đủ dịch + loại từ + vì sao).
+   - Điểm ôn lại = "điểm thật" (không hỗ trợ), ghi riêng với "điểm có hỗ trợ" ở hồ sơ; đánh giá năng lực và hướng học DỰA TRÊN điểm thật.
 7. Sau ôn lại: ĐÁNH GIÁ năng lực hiện tại VÀ cập nhật chi tiết `docs/hoc-toeic/HO-SO-NANG-LUC.md` (theo dạng, từ / cụm đã gặp, hướng học); người sáng lập muốn hồ sơ này cũng xem được trong app (xem TIEN-DO). Cứ đủ 30 câu (đếm "câu từ mốc đánh giá" ở TIEN-DO.md): ĐÁNH GIÁ TỔNG: điểm theo từng luật / dạng, mạnh, yếu, so mốc 990, việc tuần tới; rồi đặt lại bộ đếm, học tiếp.
 8. Sau mỗi lần chữa: cập nhật TIEN-DO.md, commit + push.
 9. Nói thẳng khi người học sai; phân biệt đúng do hiểu / do đoán. Nội dung Claude soạn, chưa giáo viên kiểm.

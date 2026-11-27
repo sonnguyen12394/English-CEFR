@@ -5,7 +5,7 @@
 - Thời gian: không cố định.
 
 ## Bộ đếm
-- Đã đánh giá tổng lần 1 (26/11) sau 33 câu. Bộ đếm hiện: 3 / 30 (T1–T3 đúng 3/3; T4 chưa trả lời, hỏi lại).
+- Đã đánh giá tổng lần 1 (26/11) sau 33 câu. Bộ đếm hiện: 6 / 30 (T1–T3, E1–E3 đúng 6/6, đều có hỗ trợ; E4 chưa trả lời, hỏi lại).
 - Nguồn câu: Đề 9–14 (bảng de_rieng, Supabase eojrfoormaqboxwvdqhr; KHÔNG chép nội dung đề vào repo). Câu kế tiếp: Đề 9 câu 119 (118 đã ôn đúng, 114 bỏ qua). Giữ Đề 15–16 để đo điểm thật.
 - Việc đã nhận: làm Đề 1 đề thử trọn trong app. CHƯA có điểm.
 

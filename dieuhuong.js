@@ -52,6 +52,7 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
       ${realLv.length || passedLv.length || (typeof ltKind === 'function' && ltKind() === 'cambridge') ? `<p style="margin:0 0 6px">🎓 Đạt bằng đề mẫu chính thức: ${realLv.length ? `<b>${realLv.map(l => LVN[l]).join(', ')}</b>` : '<span class="mute">chưa có (làm ở màn 🎓 Cambridge)</span>'}</p>` : ''}
       <p class="mute" style="margin:0">📚 ${nW} từ đã học trong app · 🧩 ${nK} bài kỹ năng · ⏱ hôm nay ${actMin(t)} / ${actGoal()} phút · 7 ngày ${mins} phút · 🔥 ${actStreak(now)} ngày liền</p>
       <div class="duo" style="margin-top:6px">${S.lt && S.lt.goal ? '<button class="link" data-ltseg="map" style="min-height:44px">🎯 Mục tiêu ›</button>' : ''}<button class="link" data-mapv="lt" style="min-height:44px">🗺 Chỗ yếu${f && f.act.length ? ` (${f.act.length})` : ''} ›</button></div></div>
+    <div id="hsbox"></div>
     <div class="box"><div class="row"><b>📌 Sổ từ</b><span class="mute">${vn} từ${vd ? ` · ${vd} đến hạn` : ''}</span></div>
       <p class="mute" style="margin:6px 0">Từ bạn lưu khi tra, khi chạm trong bài và từ đề thật. Ôn cách quãng 1 → 35 ngày.</p>
       <div class="duo"><button data-ct="sotu">📌 Mở sổ từ</button>${vd ? `<button class="pri" data-ct="vwrun">🔁 Ôn ${Math.min(20, vd)} từ</button>` : ''}</div></div>
@@ -60,6 +61,7 @@ async function minhView() { BACK = null; window.CUR = { view: 'cua-toi' };
     ${typeof hdView === 'function' ? '<button data-hdv>📘 Luật và cách dùng</button>' : ''}
     <button data-ct="data">💾 Dữ liệu, tài khoản và sao lưu</button>
     ${typeof gyHomeHtml === 'function' ? gyHomeHtml() : ''}`;
+  if (typeof hsFill === 'function') hsFill();   // v224 📋 hồ sơ TOEIC (bảng ho_so, chỉ khi có dòng)
   $app.onclick = e => { const b = e.target.closest('[data-ct]'); if (!b) return; scrollTo(0, 0); const a = b.dataset.ct;
     if (a === 'sotu') return sotuView(minhView); if (a === 'vwrun') return vwRun(Date.now(), minhView); if (a === 'data') return backup(); }; }
 

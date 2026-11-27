@@ -4,7 +4,7 @@ Người học: người sáng lập, mục tiêu **990**, học trên chat Clau
 Giới hạn: chỉ đo Part 5 (ngữ pháp + từ vựng) ở chat; Nghe / Part 6 / Part 7 CHƯA đo. Nội dung do Claude soạn, chưa giáo viên kiểm.
 
 ## Lần 1 · 26/11/2026 · 64 câu đã chữa (cập nhật tiếp 3 câu T1–T3)
-Tổng 49 / 64 = 77%. Chuỗi: đầu vào 40% → R 70% → B 67% → C 75% → D 85% → Đề 9 (101–110) 90% → ôn lại 4/4 → T 3/3.
+Tổng 49 / 64 = 77% (**điểm có hỗ trợ**: dịch nghĩa + loại từ + gợi ý; ôn lại 4/4 cũng có dịch). **Điểm thật (không hỗ trợ): chưa đo**; từ lần ôn sau 30 câu tới sẽ đo kiểu đề thật. Chuỗi: đầu vào 40% → R 70% → B 67% → C 75% → D 85% → Đề 9 (101–110) 90% → ôn lại 4/4 → T 3/3.
 Điều kiện: có gợi ý 💡 ở luật từng sai và nhãn loại từ ở phương án (dễ hơn đề thật).
 
 ### Theo dạng

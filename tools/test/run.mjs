@@ -3154,5 +3154,17 @@ R.push({ lv: 'cefr', id: 'C70', ok: !C70.bad.length, msg: C70.bad.length ? C70.b
   if (hit / all < 0.9) r.push(`phủ ${Math.round(hit / all * 100)}% từ`);
   R.push({ lv: 'cefr', id: 'C105', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : `Đua giờ theo cấp: bảng cấp phủ ${Math.round(hit / all * 100)}% từ của ${xs.length} bài, từ trên cấp tô màu theo cấp và tự bỏ qua` }); }
 
+// v224 C106 📋 Hồ sơ TOEIC: bảng ho_so (Claude ghi, người học chỉ đọc) hiện ô ở 👤 Tôi + màn chi tiết; không có dòng thì không có ô
+{ const r = await run(`(async () => { const bad = [], D = { v: 1, lan: 1, muc: '990', tong: [49, 64], chuoi: [['Đầu vào', 40]], dk: 'x', dang: [['by / until', 9, 10, 'Vững', 'Ôn thưa'], ['Despite', 7, 14, 'Chưa vững', 'Ôn']], tu: [['set a goal', 'đặt mục tiêu']], huong: ['Làm Đề 1'] };
+  const old = sb.from, fk = row => tb => tb === 'ho_so' ? { select: () => ({ eq: () => ({ maybeSingle: async () => ({ data: row, error: null }) }) }) } : old(tb);
+  await minhView(); if (!String($app.innerHTML).includes('id="hsbox"')) bad.push('👤 Tôi thiếu chỗ hồ sơ');
+  sb.from = fk({ data: D, at: '2026-11-26T11:00:00Z' }); const h = await hsLoad(); if (!h) bad.push('không tải được hồ sơ');
+  const bx = h ? hsBoxHtml(h) : ''; if (!bx.includes('77%')) bad.push('tổng % sai'); if (!bx.includes('Despite')) bad.push('không nêu dạng yếu'); if (!bx.includes('data-hs')) bad.push('thiếu nút chi tiết');
+  hsView(); const t = String($app.innerHTML); for (const k of ['Theo dạng câu', 'set a goal', 'Làm Đề 1', '9/10', 'data-hsb']) if (!t.includes(k)) bad.push('màn chi tiết thiếu ' + k);
+  sb.from = fk(null); HS = null; if (await hsLoad()) bad.push('không có dòng mà vẫn có hồ sơ');
+  sb.from = fk({ data: { x: 1 }, at: '' }); if (await hsLoad()) bad.push('dữ liệu hỏng vẫn nhận');
+  sb.from = old; return bad; })()`);
+  R.push({ lv: 'cefr', id: 'C106', ok: !r.length, msg: r.length ? r.slice(0, 8).join(' | ') : 'Hồ sơ TOEIC: ô ở 👤 Tôi + màn chi tiết theo dạng, từ cần nhớ, hướng học; không có dữ liệu thì ẩn' }); }
+
 let fail = 0; for (const r of R) { if (!r.ok) fail++; console.log(`${r.ok ? '✅' : '❌'} ${r.lv.padEnd(3)} ${r.id}  ${r.msg}`); }
 console.log(fail ? `\n${fail} tiêu chí chưa đạt` : '\nĐạt hết'); process.exit(fail ? 1 : 0);
