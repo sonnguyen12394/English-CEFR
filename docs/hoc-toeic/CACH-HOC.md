@@ -35,6 +35,7 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
    - Đề ETS 9–16: dùng hết để luyện (người sáng lập còn nhiều nguồn đề khác để đo sau).
    - Giờ học: rảnh thì học; chỉ nhắc khi nghỉ lâu, không đặt lịch.
    - Ước bậc thang mỗi lần đánh giá 30 câu, từ điểm thật, ghi rõ độ chắc thấp vì mới đo một phần đề.
+14. CÂU 🎯 ĐO (người sáng lập 27/11): mỗi đợt 10 câu có 3 câu 🎯 trộn ở vị trí ngẫu nhiên, header "🎯 Dn": CHỈ câu tiếng Anh + 4 phương án, description "(A)" "(B)"…; không 🇻🇳 / 💡 / 🧩 / loại từ / nghĩa. Câu 🎯 chọn đủ dạng (ngữ pháp + từ vựng, có cả luật đã vững và luật đang yếu). Chữa câu 🎯 đầy đủ như câu thường. ĐIỂM THẬT = câu 🎯 + câu ôn kiểu đề thật sau 30 câu; điểm có hỗ trợ ghi riêng. Hồ sơ, bậc thang, lúc mở Part 6 / 7 chỉ dựa trên ĐIỂM THẬT. Luật tắt gợi ý / bỏ loại từ vẫn đếm cả câu thường.
 11. Mục tiêu 990: mỗi quý đo bằng đề thử trọn trong app; người học đã nhận làm đề.
 
 ## Cuối MỖI câu trả lời: đề xuất model cho lượt sau
