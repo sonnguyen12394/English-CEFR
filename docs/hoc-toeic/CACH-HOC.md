@@ -36,6 +36,7 @@ Người học = người sáng lập, đang tự học TOEIC. Sau khi nén ng�
    - Giờ học: rảnh thì học; chỉ nhắc khi nghỉ lâu, không đặt lịch.
    - Ước bậc thang mỗi lần đánh giá 30 câu, từ điểm thật, ghi rõ độ chắc thấp vì mới đo một phần đề.
 14. CÂU 🎯 ĐO (người sáng lập 27/11): mỗi đợt 10 câu có 3 câu 🎯 trộn ở vị trí ngẫu nhiên, header "🎯 Dn": CHỈ câu tiếng Anh + 4 phương án, description "(A)" "(B)"…; không 🇻🇳 / 💡 / 🧩 / loại từ / nghĩa. Câu 🎯 chọn đủ dạng (ngữ pháp + từ vựng, có cả luật đã vững và luật đang yếu). Chữa câu 🎯 đầy đủ như câu thường. ĐIỂM THẬT = câu 🎯 + câu ôn kiểu đề thật sau 30 câu; điểm có hỗ trợ ghi riêng. Hồ sơ, bậc thang, lúc mở Part 6 / 7 chỉ dựa trên ĐIỂM THẬT. Luật tắt gợi ý / bỏ loại từ vẫn đếm cả câu thường.
+15. ĐỔI CÁCH HIỂN THỊ (người sáng lập 27/11, thay mục 4–5 và 14): GIAI ĐOẠN 1 mỗi câu CHỈ có: câu tiếng Anh + dòng "🔊 /phiên âm IPA cả câu (giọng Mỹ), chỗ trống ___/" + 4 phương án (label = từ, description = "/IPA/ của từ"). Người học tự giải. Chưa giải được thì gõ "gợi ý" ở ô Other. GIAI ĐOẠN 2 (chỉ câu nào gõ "gợi ý"): hỏi lại câu đó với 🇻🇳 dịch + 💡 gợi ý + 🧩 cụm + (ký hiệu) loại từ · nghĩa; ghi nhận "cần gợi ý" làm dữ liệu đánh giá. Điểm thật = câu đúng ở GIAI ĐOẠN 1 (không cần gợi ý); câu đúng sau gợi ý là điểm có hỗ trợ. Bỏ 🎯 riêng (mọi câu đều là câu đo). Hồ sơ ghi thêm "tỉ lệ cần gợi ý" theo dạng câu.
 11. Mục tiêu 990: mỗi quý đo bằng đề thử trọn trong app; người học đã nhận làm đề.
 
 ## Cuối MỖI câu trả lời: đề xuất model cho lượt sau
