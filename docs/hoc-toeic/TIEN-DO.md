@@ -5,7 +5,7 @@
 - Thời gian: không cố định.
 
 ## Bộ đếm
-- Đã đánh giá tổng lần 1 (26/11) sau 33 câu. Bộ đếm hiện: 26 / 30 (F1–F10 đúng 8/10: sai F3 take place, F8 commercial). Còn 4 câu rồi ÔN LẠI kiểu đề thật + đánh giá + cập nhật hồ sơ (ho_so). ĐIỂM THẬT tích luỹ: 7/8 (E5 E8 E11 F2 F5 F9 F10 đúng; F8 sai). Lưu ý F8: người học ĐOÁN thay vì gõ 'gợi ý'. (T1–T3, E1–E13 đúng 16/16). ĐIỂM THẬT (🎯) tích luỹ: 3/3 (E5 despite, E8 wish to + V, E11 cooperative; Đề 9 câu 121–123). Câu ETS kế tiếp: Đề 9 câu 124.
+- Đã đánh giá tổng lần 1 (26/11) sau 33 câu. Bộ đếm hiện: 26 / 30 (F1–F10 đúng 8/10: sai F3 take place, F8 commercial). Còn 4 câu rồi ÔN LẠI kiểu đề thật + đánh giá + cập nhật hồ sơ (ho_so). ĐIỂM THẬT tích luỹ: 7/8 (E5 E8 E11 F2 F5 F9 F10 đúng; F8 sai). (F8–F10 làm thử cách 'tự giải + phiên âm': người học thấy không hợp, đã huỷ.) (T1–T3, E1–E13 đúng 16/16). ĐIỂM THẬT (🎯) tích luỹ: 3/3 (E5 despite, E8 wish to + V, E11 cooperative; Đề 9 câu 121–123). Câu ETS kế tiếp: Đề 9 câu 124.
 - Nguồn câu: Đề 9–14 (bảng de_rieng, Supabase eojrfoormaqboxwvdqhr; KHÔNG chép nội dung đề vào repo). Câu kế tiếp: Đề 9 câu 119 (118 đã ôn đúng, 114 bỏ qua). Giữ Đề 15–16 để đo điểm thật.
 - Việc đã nhận: làm Đề 1 đề thử trọn trong app. CHƯA có điểm.
 
