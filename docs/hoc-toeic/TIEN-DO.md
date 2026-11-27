@@ -5,7 +5,7 @@
 - Thời gian: không cố định.
 
 ## Bộ đếm
-- Đã đánh giá tổng lần 1 (26/11) sau 33 câu. Bộ đếm hiện: 23 / 30 (F1–F7: 6/7; F8–F10 đang hỏi lại theo cách mới) | trước đó 16 / 30 (T1–T3, E1–E13 đúng 16/16). ĐIỂM THẬT (🎯) tích luỹ: 3/3 (E5 despite, E8 wish to + V, E11 cooperative; Đề 9 câu 121–123). Câu ETS kế tiếp: Đề 9 câu 124.
+- Đã đánh giá tổng lần 1 (26/11) sau 33 câu. Bộ đếm hiện: 26 / 30 (F1–F10 đúng 8/10: sai F3 take place, F8 commercial). Còn 4 câu rồi ÔN LẠI kiểu đề thật + đánh giá + cập nhật hồ sơ (ho_so). ĐIỂM THẬT tích luỹ: 7/8 (E5 E8 E11 F2 F5 F9 F10 đúng; F8 sai). Lưu ý F8: người học ĐOÁN thay vì gõ 'gợi ý'. (T1–T3, E1–E13 đúng 16/16). ĐIỂM THẬT (🎯) tích luỹ: 3/3 (E5 despite, E8 wish to + V, E11 cooperative; Đề 9 câu 121–123). Câu ETS kế tiếp: Đề 9 câu 124.
 - Nguồn câu: Đề 9–14 (bảng de_rieng, Supabase eojrfoormaqboxwvdqhr; KHÔNG chép nội dung đề vào repo). Câu kế tiếp: Đề 9 câu 119 (118 đã ôn đúng, 114 bỏ qua). Giữ Đề 15–16 để đo điểm thật.
 - Việc đã nhận: làm Đề 1 đề thử trọn trong app. CHƯA có điểm.
 
@@ -21,6 +21,7 @@
 | 26/11 | Đề 9 câu 111–117 (6 câu trả lời) | 4/6 (sai 111 precisely, 113 with certainty: đều là từ vựng) |
 | 26/11 | Ôn lại 4 câu mới (so that / Although / decrease / her) | 4/4 |
 | 27/11 | E1–E13 (7 có hỗ trợ + 3 🎯 + E1–E3) | 13/13 · 🎯 3/3 |
+| 27/11 | F1–F10 | 8/10 · không hỗ trợ 4/5 |
 | 26/11 | TỔNG 33 câu chữa (C + D + Đề 9) | 27/33 = 82% (có gợi ý + nhãn loại từ) |
 
 ## Luật (💡 = còn hiện gợi ý; tắt khi đúng 2 lần liền sau lần sai gần nhất)
@@ -31,7 +32,7 @@
 | Sau giới từ cần danh từ / V-ing (in + N + of, for the + N + of) | C3✓ C4✓ D11✓ | tắt | 29/11 |
 | Sau mạo từ + tính từ cần DANH TỪ (a sharp ___ → increase) | D4✗ 9-102✓ Ôn3✓ | tắt | 3/12 |
 | Tính từ sở hữu (her / his / their) + cụm danh từ, sau giới từ | 9-104✗ → Ôn4✓ | tắt | 3/12 |
-| Từ vựng chọn theo nghĩa (4 phương án cùng loại từ): precisely, with certainty | 111✗ 113✗ (2 / 7 sai) | 💡 bật: học cụm đi kèm | 27/11 |
+| Từ vựng chọn theo nghĩa / collocation (4 phương án cùng loại từ): precisely, with certainty, take place, commercial | 111✗ 113✗ F3✗ F8✗ (sai 4 / ~20; sai khi KHÔNG hỗ trợ đủ) | 💡 bật: học cụm đi kèm | 27/11 |
 | much + so sánh hơn | R8, D13 ✓ | tắt | 3/12 |
 | Trạng từ bổ nghĩa động từ / tính từ (bổ nghĩa danh từ) | D3, D9, D10, R9, R10 ✓ | tắt | 3/12 |
 
