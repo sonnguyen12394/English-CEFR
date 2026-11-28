@@ -1,0 +1,235 @@
+{
+ "n": 139,
+ "nguon": "Đề 3 · Part 7 · 12",
+ "id": "d03-p7-12",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Advertisement + e-mail",
+ "title": "Advertisement · Clearwater Fitness: Corporate Membership · E-mail · To: sales@clearwaterfit.com · From: Omar Haddi, Ferris Design Studio",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Advertisement · Clearwater Fitness: Corporate Membership",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Keep your team healthy and productive!",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Clearwater Fitness offers corporate memberships for companies with ten or more employees.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Basic plan: $30 per employee per month.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Gym access from 6 A.M. to 10 P.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Plus plan: $45 per employee per month.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Gym access 24 hours a day and all group classes.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Premium plan: $60 per employee per month.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "All Plus features and two personal training sessions per month.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Companies that sign a one-year contract receive the first month free.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Contact our corporate sales team at sales@clearwaterfit.com.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) E-mail · To: sales@clearwaterfit.com · From: Omar Haddi, Ferris Design Studio",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello, I'm the office manager at Ferris Design Studio, and fourteen of our employees are interested in a corporate membership.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Many of our designers work late into the night, so they need to be able to use the gym after 10 P.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "They are also interested in yoga and other group classes, but personal training is not necessary.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We are ready to sign a one-year contract.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Could someone visit our office next week to explain the details?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Omar Haddi",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is indicated about the corporate memberships?",
+   "a": "Very small companies may not qualify.",
+   "w": [
+    "Prices drop as more employees sign up.",
+    "A one-year contract is required to join.",
+    "The Basic plan includes personal training."
+   ],
+   "ev": "Clearwater Fitness offers corporate memberships for companies with ten or more employees.",
+   "why": "Chỉ công ty từ 10 nhân viên trở lên mới có hội viên doanh nghiệp.",
+   "lg": {
+    "og": {
+     "Very small companies may not qualify.": "Công ty rất nhỏ có thể không đủ điều kiện",
+     "Prices drop as more employees sign up.": "Giá giảm khi có thêm nhân viên đăng ký",
+     "A one-year contract is required to join.": "Phải ký hợp đồng một năm mới được tham gia",
+     "The Basic plan includes personal training.": "Gói Basic gồm huấn luyện cá nhân"
+    },
+    "ly": "Đáp án \"Very small companies may not qualify.\" — Hội viên doanh nghiệp dành cho công ty từ mười nhân viên trở lên, nên công ty quá nhỏ có thể không đủ điều kiện. Hợp đồng một năm chỉ giúp được tháng đầu miễn phí, và huấn luyện cá nhân chỉ có ở gói Premium.",
+    "dich": "Clearwater Fitness có hội viên doanh nghiệp cho công ty từ mười nhân viên trở lên."
+   },
+   "ty": "true"
+  },
+  {
+   "q": "Why do Ferris Design Studio employees need late access?",
+   "a": "They often work at night.",
+   "w": [
+    "They live near the gym.",
+    "They prefer quiet gyms.",
+    "They start work late."
+   ],
+   "ev": "Many of our designers work late into the night",
+   "why": "Nhiều nhà thiết kế làm khuya.",
+   "lg": {
+    "og": {
+     "They often work at night.": "Họ thường làm việc ban đêm",
+     "They live near the gym.": "Họ sống gần phòng tập",
+     "They prefer quiet gyms.": "Họ thích phòng tập yên tĩnh",
+     "They start work late.": "Họ bắt đầu làm muộn"
+    },
+    "ly": "E-mail nói nhiều nhà thiết kế làm việc đến khuya nên cần dùng phòng tập sau 10 giờ tối.",
+    "dich": "Nhiều nhà thiết kế của chúng tôi làm việc đến khuya nên cần dùng được phòng tập sau 10 giờ tối."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Which plan will Ferris Design Studio most likely choose?",
+   "a": "The Plus plan",
+   "w": [
+    "The Basic plan",
+    "The Premium plan",
+    "A one-month trial plan"
+   ],
+   "x": 1,
+   "ev": "Gym access 24 hours a day and all group classes",
+   "why": "Cần tập sau 22 giờ và học lớp nhóm, không cần huấn luyện cá nhân → gói Plus.",
+   "lg": {
+    "og": {
+     "The Plus plan": "Gói Plus",
+     "The Basic plan": "Gói Basic",
+     "The Premium plan": "Gói Premium",
+     "A one-month trial plan": "Gói dùng thử một tháng"
+    },
+    "ly": "Họ cần tập 24 giờ và các lớp nhóm nhưng không cần huấn luyện cá nhân, nên gói Plus hợp.",
+    "dich": "Gói Plus: 45 đô la mỗi nhân viên mỗi tháng. Vào phòng tập 24 giờ mỗi ngày và mọi lớp nhóm."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "What will Ferris Design Studio receive for signing a one-year contract?",
+   "a": "The first month free",
+   "w": [
+    "A personal trainer",
+    "A discount on classes",
+    "Free yoga mats"
+   ],
+   "x": 1,
+   "ev": "Companies that sign a one-year contract receive the first month free.",
+   "why": "E-mail: sẵn sàng ký hợp đồng một năm. Quảng cáo: ký một năm được miễn phí tháng đầu.",
+   "lg": {
+    "og": {
+     "The first month free": "Miễn phí tháng đầu",
+     "A personal trainer": "Một huấn luyện viên riêng",
+     "A discount on classes": "Giảm giá lớp học",
+     "Free yoga mats": "Thảm yoga miễn phí"
+    },
+    "ly": "Quảng cáo nói công ty ký hợp đồng một năm được miễn phí tháng đầu.",
+    "dich": "Công ty ký hợp đồng một năm sẽ được miễn phí tháng đầu tiên."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What does Mr. Haddi request?",
+   "a": "An office visit",
+   "w": [
+    "A price list",
+    "A trial class",
+    "A contract by e-mail"
+   ],
+   "ev": "Could someone visit our office next week to explain the details?",
+   "why": "Đề nghị có người tới văn phòng giải thích.",
+   "lg": {
+    "og": {
+     "An office visit": "Một chuyến thăm văn phòng",
+     "A price list": "Bảng giá",
+     "A trial class": "Một lớp học thử",
+     "A contract by e-mail": "Hợp đồng qua e-mail"
+    },
+    "ly": "Ông Haddi nhờ cử người đến văn phòng tuần sau để giải thích chi tiết.",
+    "dich": "Tuần sau có thể cử người đến văn phòng chúng tôi để giải thích chi tiết được không?"
+   },
+   "ty": "detail"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "sk"
+}

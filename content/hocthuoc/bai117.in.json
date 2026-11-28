@@ -1,0 +1,84 @@
+{
+ "n": 117,
+ "nguon": "Đề 3 · Part 4 · 2",
+ "id": "d03-p4-02",
+ "dang": "📢 Bài nói",
+ "kind": "ann",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Good afternoon, and welcome to the Northfield Home and Garden Fair.",
+   "",
+   "a3173c1d9"
+  ],
+  [
+   "N",
+   "Please note that the cooking demonstration scheduled for three o'clock has been moved from the main stage to Hall C because of a problem with the stage lighting.",
+   "",
+   "ab8e835ae"
+  ],
+  [
+   "N",
+   "The demonstration will now begin at three thirty.",
+   "",
+   "a68dd9c4f"
+  ],
+  [
+   "N",
+   "Visitors who bought tickets for the demonstration should bring them to the entrance of Hall C.",
+   "",
+   "a24e2f045"
+  ],
+  [
+   "N",
+   "While you wait, free samples of local cheese are being offered at the Dairy Council stand near the north entrance.",
+   "",
+   "a7131a8a0"
+  ],
+  [
+   "N",
+   "Thank you, and enjoy the fair.",
+   "",
+   "a15569e49"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why has the demonstration been moved?",
+   "a": "There is a problem with some lights.",
+   "w": [
+    "The weather is bad.",
+    "The chef arrived late.",
+    "More tickets were sold."
+   ],
+   "ty": "detail",
+   "ev": "because of a problem with the stage lighting"
+  },
+  {
+   "q": "Who should go to the entrance of Hall C?",
+   "a": "People with tickets for the demonstration",
+   "w": [
+    "People who want to buy plants",
+    "Exhibitors with large displays",
+    "Visitors with young children"
+   ],
+   "ty": "detail",
+   "ev": "Visitors who bought tickets for the demonstration should bring them to the entrance of Hall C"
+  },
+  {
+   "q": "What are the listeners offered?",
+   "a": "Free food samples",
+   "w": [
+    "A discount on tickets",
+    "A cooking lesson",
+    "A parking pass"
+   ],
+   "ty": "detail",
+   "ev": "free samples of local cheese are being offered"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "an"
+}

@@ -1,0 +1,95 @@
+{
+ "n": 128,
+ "nguon": "Đề 3 · Part 6 · 4",
+ "id": "d03-p6-04",
+ "dang": "✉️ Văn bản",
+ "kind": "Article",
+ "title": "Greenway Foods Opens New Distribution Center",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Greenway Foods opened a new distribution center in Milton last week.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The 20,000-square-meter facility will allow the company to deliver fresh produce to stores across the region more quickly.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Deliveries that once took two days will now arrive overnight.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "According to CEO Laura Mendes, the center will also create around 200 jobs.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Most of the positions will be filled by local residents, and the company plans to start a training program for warehouse workers this fall.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Greenway Foods currently supplies more than 150 supermarkets in three states.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "opened",
+   "w": [
+    "opens",
+    "will open",
+    "has been opening"
+   ],
+   "why": "Có last week → quá khứ đơn: opened.",
+   "ty": "tense"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "Deliveries that once took two days will now arrive overnight.",
+   "w": [
+    "Greenway Foods was founded by Laura Mendes's father.",
+    "Milton is known for its historic town center.",
+    "Fresh produce is popular with local residents."
+   ],
+   "why": "Câu trước: giao hàng nhanh hơn → câu chèn nêu cụ thể (hai ngày còn một đêm).",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "training",
+   "w": [
+    "trains",
+    "trained",
+    "to train"
+   ],
+   "why": "a training program = chương trình đào tạo (danh từ ghép).",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "supplies",
+   "w": [
+    "supply",
+    "is supplied",
+    "supplying"
+   ],
+   "why": "Chủ ngữ là tên một công ty (số ít) + currently → hiện tại đơn ngôi ba số ít: supplies.",
+   "ty": "word"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "pt"
+}

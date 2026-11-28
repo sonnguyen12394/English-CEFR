@@ -1,0 +1,101 @@
+{
+ "n": 126,
+ "nguon": "Đề 3 · Part 6 · 2",
+ "id": "d03-p6-02",
+ "dang": "✉️ Văn bản",
+ "kind": "Notice",
+ "title": "Riverside Public Library: Changes to Opening Hours",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Beginning April 1, the Riverside Public Library will extend its opening hours on weekdays.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The library will open at 8:00 A.M. instead of 9:00 A.M., giving visitors an extra hour each morning.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Closing time on weekdays will not change.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Weekend hours will remain the same.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "These changes were made in response to a survey of library users.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Many of them said they wanted to study before work.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "In addition, the library will add more study tables on the second floor.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "extend",
+   "w": [
+    "shorten",
+    "cancel",
+    "describe"
+   ],
+   "why": "Mở cửa sớm hơn, thêm một giờ mỗi sáng → kéo dài giờ mở cửa: extend.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "Closing time on weekdays will not change.",
+   "w": [
+    "The library building is more than fifty years old.",
+    "Visitors can borrow up to ten books at a time.",
+    "The survey was sent to visitors by e-mail."
+   ],
+   "why": "Câu trước nói giờ mở cửa ngày thường; câu chèn nói giờ đóng cửa ngày thường không đổi, rồi mới tới giờ cuối tuần.",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "users",
+   "w": [
+    "use",
+    "useful",
+    "used"
+   ],
+   "why": "Câu sau có Many of them said… → cần danh từ chỉ người: library users.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "In addition",
+   "w": [
+    "Instead",
+    "Otherwise",
+    "Nevertheless"
+   ],
+   "why": "Thêm một thay đổi nữa (thêm bàn học) → In addition.",
+   "ty": "conn"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "an"
+}

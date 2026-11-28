@@ -1,0 +1,84 @@
+{
+ "n": 111,
+ "nguon": "Đề 3 · Part 3 · 8",
+ "id": "d03-p3-08",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "This is the office space I mentioned. It's on the fourth floor, and the windows face the river.",
+   "",
+   "a48e6de72"
+  ],
+  [
+   "B",
+   "It's brighter than I expected. How much is the monthly rent?",
+   "",
+   "af1de05c2"
+  ],
+  [
+   "A",
+   "Thirty-two hundred dollars, including electricity.",
+   "",
+   "a1c394a89"
+  ],
+  [
+   "C",
+   "That's within our budget. But we'll need parking for at least six cars.",
+   "",
+   "a874bb998"
+  ],
+  [
+   "A",
+   "The building has a garage, and each tenant gets eight spaces.",
+   "",
+   "a6feb9bbf"
+  ],
+  [
+   "C",
+   "Then I think we should sign the lease this week, Martin.",
+   "",
+   "ab987bce1"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who most likely is the woman showing the space?",
+   "a": "A real estate agent",
+   "w": [
+    "An architect",
+    "A building cleaner",
+    "A bank officer"
+   ],
+   "ty": "gist",
+   "ev": "This is the office space I mentioned."
+  },
+  {
+   "q": "What is included in the rent?",
+   "a": "Electricity",
+   "w": [
+    "Internet service",
+    "Furniture",
+    "Cleaning"
+   ],
+   "ty": "detail",
+   "ev": "including electricity"
+  },
+  {
+   "q": "What does Martin's business partner want to do this week?",
+   "a": "Sign a lease",
+   "w": [
+    "Paint the office",
+    "Hire more staff",
+    "Visit another building"
+   ],
+   "ty": "detail",
+   "ev": "we should sign the lease this week"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "nha"
+}

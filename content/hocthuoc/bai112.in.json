@@ -1,0 +1,84 @@
+{
+ "n": 112,
+ "nguon": "Đề 3 · Part 3 · 9",
+ "id": "d03-p3-09",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hi, I'm calling about the swimming classes advertised on your Web site. Are there still spaces in the beginner class?",
+   "",
+   "ae9ddc466"
+  ],
+  [
+   "B",
+   "The Monday evening class is full, but the Saturday morning class has a few spots left.",
+   "",
+   "a170f882f"
+  ],
+  [
+   "A",
+   "Saturday is fine. Do I need to be a member of the fitness center?",
+   "",
+   "aebcab3f5"
+  ],
+  [
+   "B",
+   "No, but members get a twenty percent discount on all classes.",
+   "",
+   "ad71c8d04"
+  ],
+  [
+   "A",
+   "In that case, I'll sign up for a membership, too. Can I do that online?",
+   "",
+   "a87d679d6"
+  ],
+  [
+   "B",
+   "Yes, just fill out the form on our Web site, and bring a photo ID on your first visit.",
+   "",
+   "ac6f22b74"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the woman interested in?",
+   "a": "A swimming class",
+   "w": [
+    "A yoga workshop",
+    "A personal trainer",
+    "A summer job"
+   ],
+   "ty": "detail",
+   "ev": "I'm calling about the swimming classes advertised on your Web site."
+  },
+  {
+   "q": "What does the man say about members?",
+   "a": "They receive a discount.",
+   "w": [
+    "They can bring a guest.",
+    "They get a free towel.",
+    "They can book classes early."
+   ],
+   "ty": "detail",
+   "ev": "members get a twenty percent discount on all classes"
+  },
+  {
+   "q": "What should the woman bring on her first visit?",
+   "a": "A form of identification",
+   "w": [
+    "A swimsuit",
+    "A payment receipt",
+    "A doctor's note"
+   ],
+   "ty": "detail",
+   "ev": "bring a photo ID on your first visit"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "sk"
+}

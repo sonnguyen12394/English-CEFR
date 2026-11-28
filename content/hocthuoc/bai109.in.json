@@ -1,0 +1,90 @@
+{
+ "n": 109,
+ "nguon": "Đề 3 · Part 3 · 6",
+ "id": "d03-p3-06",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Hello, this is Sandra Vu from Pellman Engineering. We received your application for the design technician position.",
+   "",
+   "a05f55aea"
+  ],
+  [
+   "B",
+   "Thank you for calling. I'm very interested in the job.",
+   "",
+   "a950777ba"
+  ],
+  [
+   "A",
+   "We'd like to invite you for an interview. Are you available next Tuesday at ten?",
+   "",
+   "aab7dbb5c"
+  ],
+  [
+   "B",
+   "I'm afraid I have a class on Tuesday mornings. Would the afternoon work?",
+   "",
+   "a8c47bfac"
+  ],
+  [
+   "A",
+   "Let me look. Two thirty is open.",
+   "",
+   "a583469a7"
+  ],
+  [
+   "B",
+   "That works. Should I bring anything?",
+   "",
+   "aefc20be3"
+  ],
+  [
+   "A",
+   "Please bring a few samples of your drawings.",
+   "",
+   "a1083685c"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who most likely is the woman?",
+   "a": "A human resources employee",
+   "w": [
+    "A design instructor",
+    "A building inspector",
+    "A sales representative"
+   ],
+   "ty": "gist",
+   "ev": "We received your application for the design technician position."
+  },
+  {
+   "q": "Why does the man ask for a different time?",
+   "a": "He has a class.",
+   "w": [
+    "He will be traveling.",
+    "He has another interview.",
+    "He lives far away."
+   ],
+   "ty": "detail",
+   "ev": "I have a class on Tuesday mornings"
+  },
+  {
+   "q": "What does the woman ask the man to bring?",
+   "a": "Examples of his work",
+   "w": [
+    "A list of references",
+    "A photo ID",
+    "His university diploma"
+   ],
+   "ty": "detail",
+   "ev": "Please bring a few samples of your drawings."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "ns"
+}

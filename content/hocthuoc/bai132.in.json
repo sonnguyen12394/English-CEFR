@@ -1,0 +1,117 @@
+{
+ "n": 132,
+ "nguon": "Đề 3 · Part 7 · 5",
+ "id": "d03-p7-05",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Online review",
+ "title": "Review of the Harbor View Inn · Posted by Daniel K.",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "I stayed at the Harbor View Inn for three nights during a business trip in March.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The location is ideal: the convention center is a five-minute walk away, and there are several good restaurants nearby.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "My room was clean and quiet, although the Wi-Fi was slow in the evenings.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The staff were extremely helpful; when I needed to print documents late at night, the night manager let me use the office printer.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The breakfast was simple but fresh.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I would definitely stay here again on my next visit.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why did Daniel K. stay at the inn?",
+   "a": "He was traveling for work.",
+   "w": [
+    "He was on a family vacation.",
+    "He was attending a wedding.",
+    "He was visiting a college campus."
+   ],
+   "ev": "during a business trip in March",
+   "why": "Anh ở đó trong chuyến công tác tháng 3.",
+   "lg": {
+    "og": {
+     "He was traveling for work.": "Ông đi công tác",
+     "He was on a family vacation.": "Ông đi nghỉ cùng gia đình",
+     "He was attending a wedding.": "Ông dự một đám cưới",
+     "He was visiting a college campus.": "Ông đi tham quan một trường đại học"
+    },
+    "ly": "Đáp án \"He was traveling for work.\" — Ông nói mình ở ba đêm trong chuyến công tác (business trip). Bài không nhắc kỳ nghỉ, đám cưới hay trường đại học.",
+    "dich": "Tôi ở Harbor View Inn ba đêm trong một chuyến công tác vào tháng 3."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "In the review, the word \"ideal\" is closest in meaning to",
+   "a": "perfect",
+   "w": [
+    "expensive",
+    "imaginary",
+    "crowded"
+   ],
+   "ev": "The location is ideal",
+   "why": "ideal = lý tưởng, hoàn hảo (vị trí gần trung tâm hội nghị, nhiều nhà hàng).",
+   "lg": {
+    "og": {
+     "perfect": "hoàn hảo",
+     "expensive": "đắt",
+     "imaginary": "tưởng tượng",
+     "crowded": "đông đúc"
+    },
+    "ly": "\"The location is ideal\" là vị trí lý tưởng, gần nghĩa nhất với perfect.",
+    "dich": "Vị trí rất lý tưởng: trung tâm hội nghị cách năm phút đi bộ."
+   },
+   "ty": "syn"
+  },
+  {
+   "q": "What problem does Daniel K. mention?",
+   "a": "The Internet connection was slow.",
+   "w": [
+    "His room was noisy.",
+    "The breakfast was cold.",
+    "The staff were unfriendly."
+   ],
+   "ev": "the Wi-Fi was slow in the evenings",
+   "why": "Wi-Fi chậm vào buổi tối.",
+   "lg": {
+    "og": {
+     "The Internet connection was slow.": "Kết nối Internet chậm",
+     "His room was noisy.": "Phòng ồn",
+     "The breakfast was cold.": "Bữa sáng nguội",
+     "The staff were unfriendly.": "Nhân viên không thân thiện"
+    },
+    "ly": "Ông nói phòng sạch và yên tĩnh nhưng Wi-Fi chậm vào buổi tối.",
+    "dich": "Phòng của tôi sạch và yên tĩnh, tuy Wi-Fi chậm vào buổi tối."
+   },
+   "ty": "detail"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "dl"
+}

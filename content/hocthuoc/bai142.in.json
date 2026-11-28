@@ -1,0 +1,277 @@
+{
+ "n": 142,
+ "nguon": "Đề 3 · Part 7 · 15",
+ "id": "d03-p7-15",
+ "dang": "📄 Đọc hiểu",
+ "kind": "E-mail + itinerary + e-mail",
+ "title": "E-mail · To: Kenji Mori · From: Alison Grant · Date: March 3 · Subject: Visit to our Toronto office · Itinerary · Kenji Mori · Toronto · E-mail · To: Alison Grant · From: Kenji Mori · Date: March 4",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) E-mail · To: Kenji Mori · From: Alison Grant · Date: March 3 · Subject: Visit to our Toronto office",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dear Mr. Mori,",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We are delighted that you will visit our Toronto office next week.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I have attached your itinerary.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "On your first full day with us, our product team will show you the new packaging line.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "On the second day, you will meet with our purchasing director to discuss next year's order.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If you would like to tour the city during your free afternoon, my assistant, Ben, would be happy to show you around.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Best regards, Alison Grant",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Itinerary · Kenji Mori · Toronto",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Monday, March 10",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "2:30 P.M. — Arrive at Toronto Pearson Airport; car to the Lakeshore Hotel",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tuesday, March 11",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "9:00 A.M. — Product team presentation on the packaging line",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "1:00 P.M. — Lunch with Alison Grant",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Afternoon: free — Wednesday, March 12",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "10:00 A.M. — Meeting with purchasing director Ruth Feld",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "6:00 P.M. — Flight to Osaka",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) E-mail · To: Alison Grant · From: Kenji Mori · Date: March 4",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dear Ms. Grant,",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you for the itinerary.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Everything looks fine, but I have one request.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "My colleague in Osaka needs my report by Wednesday morning, so I would prefer to spend my free afternoon at the hotel rather than touring the city.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please thank Ben for his kind offer.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I look forward to seeing you next week.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Kenji Mori",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the first e-mail?",
+   "a": "To provide details of a visit",
+   "w": [
+    "To confirm a hotel booking",
+    "To introduce a new product",
+    "To request a report"
+   ],
+   "ev": "We are delighted that you will visit our Toronto office next week.",
+   "why": "Gửi thông tin chuyến thăm văn phòng Toronto.",
+   "lg": {
+    "og": {
+     "To provide details of a visit": "Cung cấp chi tiết chuyến thăm",
+     "To confirm a hotel booking": "Xác nhận đặt khách sạn",
+     "To introduce a new product": "Giới thiệu sản phẩm mới",
+     "To request a report": "Yêu cầu một báo cáo"
+    },
+    "ly": "E-mail đầu báo ông Mori sẽ thăm văn phòng Toronto và đính kèm lịch trình.",
+    "dich": "Chúng tôi rất vui vì tuần sau ông sẽ thăm văn phòng Toronto của chúng tôi. Tôi đính kèm lịch trình của ông."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "Who is Ruth Feld?",
+   "a": "A purchasing director",
+   "w": [
+    "Ms. Grant's assistant",
+    "A product team member",
+    "A hotel manager"
+   ],
+   "ev": "Meeting with purchasing director Ruth Feld",
+   "why": "Lịch trình: giám đốc mua hàng Ruth Feld.",
+   "lg": {
+    "og": {
+     "A purchasing director": "Giám đốc mua hàng",
+     "Ms. Grant's assistant": "Trợ lý của bà Grant",
+     "A product team member": "Thành viên nhóm sản phẩm",
+     "A hotel manager": "Quản lý khách sạn"
+    },
+    "ly": "Lịch trình ghi họp với giám đốc mua hàng Ruth Feld.",
+    "dich": "10:00 sáng: Họp với giám đốc mua hàng Ruth Feld."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "On which day will Mr. Mori see the packaging line?",
+   "a": "Tuesday",
+   "w": [
+    "Monday",
+    "Wednesday",
+    "Thursday"
+   ],
+   "x": 1,
+   "ev": "9:00 A.M. Product team presentation on the packaging line",
+   "why": "Lịch trình: 9 giờ thứ Ba nhóm sản phẩm giới thiệu dây chuyền đóng gói.",
+   "lg": {
+    "og": {
+     "Tuesday": "Thứ Ba",
+     "Monday": "Thứ Hai",
+     "Wednesday": "Thứ Tư",
+     "Thursday": "Thứ Năm"
+    },
+    "ly": "Thứ Ba lúc 9 giờ, nhóm sản phẩm trình bày về dây chuyền đóng gói.",
+    "dich": "9:00 sáng: Nhóm sản phẩm trình bày về dây chuyền đóng gói."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What will Mr. Mori most likely do on Tuesday afternoon?",
+   "a": "Work at his hotel",
+   "w": [
+    "Tour the city with Ben",
+    "Meet with Ruth Feld",
+    "Fly to Osaka"
+   ],
+   "x": 1,
+   "ev": "I would prefer to spend my free afternoon at the hotel",
+   "why": "Lịch trình: chiều thứ Ba rảnh. E-mail: ông muốn ở khách sạn để làm báo cáo.",
+   "lg": {
+    "og": {
+     "Work at his hotel": "Làm việc ở khách sạn",
+     "Tour the city with Ben": "Đi tham quan thành phố với Ben",
+     "Meet with Ruth Feld": "Họp với Ruth Feld",
+     "Fly to Osaka": "Bay đi Osaka"
+    },
+    "ly": "Chiều thứ Ba rảnh, và ông Mori nói muốn dành buổi chiều ở khách sạn viết báo cáo.",
+    "dich": "Tôi muốn dành buổi chiều rảnh ở khách sạn thay vì đi tham quan thành phố."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "Why does Mr. Mori decline Ben's offer?",
+   "a": "He needs to finish a report.",
+   "w": [
+    "He has visited Toronto before.",
+    "He will be meeting a client.",
+    "He is not feeling well."
+   ],
+   "ev": "My colleague in Osaka needs my report by Wednesday morning",
+   "why": "Đồng nghiệp ở Osaka cần báo cáo trước sáng thứ Tư.",
+   "lg": {
+    "og": {
+     "He needs to finish a report.": "Ông cần hoàn tất báo cáo",
+     "He has visited Toronto before.": "Ông từng đến Toronto",
+     "He will be meeting a client.": "Ông sẽ gặp khách",
+     "He is not feeling well.": "Ông không khoẻ"
+    },
+    "ly": "Ông giải thích đồng nghiệp ở Osaka cần báo cáo vào sáng thứ Tư.",
+    "dich": "Đồng nghiệp của tôi ở Osaka cần báo cáo của tôi vào sáng thứ Tư."
+   },
+   "ty": "detail"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "dl"
+}

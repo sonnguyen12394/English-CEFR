@@ -1,0 +1,95 @@
+{
+ "n": 131,
+ "nguon": "Đề 3 · Part 7 · 4",
+ "id": "d03-p7-04",
+ "dang": "📄 Đọc hiểu",
+ "kind": "E-mail",
+ "title": "E-mail · To: Priya Nair · From: Global Air Rewards · Subject: Your points are about to expire",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear Ms. Nair,",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our records show that 4,200 of your Global Air Rewards points will expire on September 30.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To keep your points, simply make a purchase with any of our partner hotels or airlines before that date.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "You can also use your points now to book a flight or upgrade a seat.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To view your balance and our partner list, log in to your account at globalairrewards.com.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The Global Air Rewards Team",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the e-mail?",
+   "a": "To remind a member to use their points",
+   "w": [
+    "To announce a bonus offer on flights",
+    "To confirm a recent purchase of points",
+    "To explain changes to a rewards program"
+   ],
+   "ev": "4,200 of your Global Air Rewards points will expire on September 30",
+   "why": "Báo cho khách biết điểm thưởng sắp hết hạn.",
+   "lg": {
+    "og": {
+     "To remind a member to use their points": "Để nhắc hội viên dùng điểm của mình",
+     "To announce a bonus offer on flights": "Để báo ưu đãi thưởng khi bay",
+     "To confirm a recent purchase of points": "Để xác nhận lần mua điểm gần đây",
+     "To explain changes to a rewards program": "Để giải thích thay đổi chương trình thưởng"
+    },
+    "ly": "Đáp án \"To remind a member to use their points\" — Thư báo 4.200 điểm sẽ hết hạn vào 30/9 và nhắc dùng hoặc giữ điểm. Ưu đãi, mua điểm và thay đổi chương trình không được nhắc.",
+    "dich": "Hồ sơ cho thấy 4.200 điểm Global Air Rewards của bà sẽ hết hạn vào ngày 30 tháng 9."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "How can Ms. Nair keep her points?",
+   "a": "By shopping with a participating business",
+   "w": [
+    "By logging in to view her balance",
+    "By renewing her membership by mail",
+    "By signing up for a travel credit card"
+   ],
+   "ev": "simply make a purchase with any of our partner hotels or airlines before that date",
+   "why": "Mua hàng ở khách sạn / hãng bay đối tác trước 30/9 thì giữ được điểm.",
+   "lg": {
+    "og": {
+     "By shopping with a participating business": "Mua sắm tại một doanh nghiệp đối tác",
+     "By logging in to view her balance": "Đăng nhập để xem số dư",
+     "By renewing her membership by mail": "Gia hạn thẻ hội viên qua thư",
+     "By signing up for a travel credit card": "Đăng ký thẻ tín dụng du lịch"
+    },
+    "ly": "Đáp án \"By shopping with a participating business\" — Thư nói chỉ cần mua hàng ở khách sạn hoặc hãng bay đối tác trước ngày hết hạn. Đăng nhập chỉ để xem số dư và danh sách đối tác.",
+    "dich": "Để giữ điểm, chỉ cần mua hàng với bất kỳ khách sạn hoặc hãng bay đối tác nào trước ngày đó."
+   },
+   "ty": "detail"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "dl"
+}

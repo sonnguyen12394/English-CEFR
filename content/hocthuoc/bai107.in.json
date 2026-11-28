@@ -1,0 +1,84 @@
+{
+ "n": 107,
+ "nguon": "Đề 3 · Part 3 · 3",
+ "id": "d03-p3-03",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Thanks for staying after your shift. Starting next week, we're adding a lunch menu with lighter dishes.",
+   "",
+   "a7f1ac218"
+  ],
+  [
+   "B",
+   "Will we need more kitchen staff for that? Lunch is already our busiest time.",
+   "",
+   "adc7a2223"
+  ],
+  [
+   "A",
+   "Yes, two new cooks will start on Monday. Daniel, I'd like you to train them.",
+   "",
+   "a3a7cd006"
+  ],
+  [
+   "B",
+   "No problem. I can show them how we prepare the sauces.",
+   "",
+   "a3f6cf4a3"
+  ],
+  [
+   "C",
+   "What about the printed menus? The ones on the tables still list last season's desserts.",
+   "",
+   "a82e5bf6f"
+  ],
+  [
+   "A",
+   "Good point, Mei. Could you contact the print shop tomorrow and order new ones?",
+   "",
+   "a537e7953"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the main topic of the conversation?",
+   "a": "A change to a menu",
+   "w": [
+    "A staff party",
+    "A health inspection",
+    "A new supplier"
+   ],
+   "ty": "gist",
+   "ev": "we're adding a lunch menu with lighter dishes"
+  },
+  {
+   "q": "What is Daniel asked to do?",
+   "a": "Train new employees",
+   "w": [
+    "Work extra shifts",
+    "Clean the kitchen",
+    "Order some ingredients"
+   ],
+   "ty": "detail",
+   "ev": "Daniel, I'd like you to train them."
+  },
+  {
+   "q": "What problem does Mei mention?",
+   "a": "Some menus are out of date.",
+   "w": [
+    "A printer is broken.",
+    "A dessert is unpopular.",
+    "Some tables are damaged."
+   ],
+   "ty": "detail",
+   "ev": "The ones on the tables still list last season's desserts."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "an"
+}

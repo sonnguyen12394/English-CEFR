@@ -1,0 +1,90 @@
+{
+ "n": 118,
+ "nguon": "Đề 3 · Part 4 · 3",
+ "id": "d03-p4-03",
+ "dang": "📢 Bài nói",
+ "kind": "ad",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Is your office starting to look a little tired?",
+   "",
+   "ab2ba5a68"
+  ],
+  [
+   "N",
+   "At Brightline Cleaning, we clean offices of every size, at night or on weekends, so your work is never interrupted.",
+   "",
+   "a1922990f"
+  ],
+  [
+   "N",
+   "Our teams use only environmentally friendly products.",
+   "",
+   "a98aa82f0"
+  ],
+  [
+   "N",
+   "And this month, new customers get their first carpet cleaning free.",
+   "",
+   "afd537853"
+  ],
+  [
+   "N",
+   "Still not sure?",
+   "",
+   "a6e2549da"
+  ],
+  [
+   "N",
+   "Over three hundred local businesses already trust us.",
+   "",
+   "aadfb71c0"
+  ],
+  [
+   "N",
+   "Visit our Web site to request a free price estimate today.",
+   "",
+   "a90ab94e0"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is being advertised?",
+   "a": "A cleaning service",
+   "w": [
+    "An office furniture store",
+    "A carpet manufacturer",
+    "A recycling program"
+   ],
+   "ty": "gist",
+   "ev": "At Brightline Cleaning, we clean offices of every size"
+  },
+  {
+   "q": "What is offered to new customers this month?",
+   "a": "A free carpet cleaning",
+   "w": [
+    "A discount on products",
+    "A free office plant",
+    "A one-year contract"
+   ],
+   "ty": "detail",
+   "ev": "new customers get their first carpet cleaning free"
+  },
+  {
+   "q": "Why does the speaker say, \"Over three hundred local businesses already trust us\"?",
+   "a": "To show that the company is reliable",
+   "w": [
+    "To announce a new location",
+    "To explain a price increase",
+    "To thank some customers"
+   ],
+   "ty": "imp",
+   "ev": "Over three hundred local businesses already trust us."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "kd"
+}

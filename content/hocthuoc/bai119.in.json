@@ -1,0 +1,84 @@
+{
+ "n": 119,
+ "nguon": "Đề 3 · Part 4 · 4",
+ "id": "d03-p4-04",
+ "dang": "📢 Bài nói",
+ "kind": "news",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "In local business news, the Harmon Mall will open a new food court next month.",
+   "",
+   "ac1736617"
+  ],
+  [
+   "N",
+   "The project, which cost twelve million dollars, includes twenty restaurants and seating for six hundred people.",
+   "",
+   "a11336761"
+  ],
+  [
+   "N",
+   "Mall manager Teresa Lin says the food court will create about one hundred and fifty jobs.",
+   "",
+   "a3cda7db7"
+  ],
+  [
+   "N",
+   "Construction was finished two weeks ahead of schedule.",
+   "",
+   "a880ebe69"
+  ],
+  [
+   "N",
+   "To celebrate the opening on May third, restaurants will offer half-price meals all day.",
+   "",
+   "a0d8cc2b3"
+  ],
+  [
+   "N",
+   "More details are available on the mall's Web site.",
+   "",
+   "a3720884a"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the report mainly about?",
+   "a": "A new food court",
+   "w": [
+    "A new shopping mall",
+    "A restaurant award",
+    "A road construction project"
+   ],
+   "ty": "gist",
+   "ev": "the Harmon Mall will open a new food court next month"
+  },
+  {
+   "q": "What does Teresa Lin say about the project?",
+   "a": "It will create jobs.",
+   "w": [
+    "It cost less than planned.",
+    "It will be finished late.",
+    "It was designed by a local firm."
+   ],
+   "ty": "detail",
+   "ev": "the food court will create about one hundred and fifty jobs"
+  },
+  {
+   "q": "What will happen on May third?",
+   "a": "Meals will be discounted.",
+   "w": [
+    "A contest will be held.",
+    "The mall will close early.",
+    "A new store will open."
+   ],
+   "ty": "detail",
+   "ev": "restaurants will offer half-price meals all day"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "pt"
+}

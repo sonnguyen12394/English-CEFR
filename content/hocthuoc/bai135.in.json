@@ -1,0 +1,163 @@
+{
+ "n": 135,
+ "nguon": "Đề 3 · Part 7 · 8",
+ "id": "d03-p7-08",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Online chat discussion",
+ "title": "Online chat",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Mina Cho [2:10 P.M.]: Hi team.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The client wants to move Friday's product demonstration to Thursday afternoon.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Peter Wallace [2:11 P.M.]: Thursday?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The new samples won't arrive from the factory until Thursday morning.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mina Cho [2:12 P.M.]: That should still give us a few hours to set up.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Grace Liu [2:13 P.M.]: I can pick up the samples from the shipping office as soon as they arrive.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Peter Wallace [2:14 P.M.]: Then count me in.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll prepare the slides tonight.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mina Cho [2:15 P.M.]: Thanks, both of you.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll confirm the new time with the client and book Conference Room A.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the discussion mainly about?",
+   "a": "Rescheduling a demonstration",
+   "w": [
+    "Hiring a new designer",
+    "Shipping samples to a client",
+    "Choosing a new factory"
+   ],
+   "ev": "The client wants to move Friday's product demonstration to Thursday afternoon.",
+   "why": "Khách muốn dời buổi trình diễn sản phẩm từ thứ Sáu sang chiều thứ Năm.",
+   "lg": {
+    "og": {
+     "Rescheduling a demonstration": "Dời buổi trình diễn sang ngày khác",
+     "Hiring a new designer": "Tuyển nhà thiết kế mới",
+     "Shipping samples to a client": "Gửi mẫu cho khách",
+     "Choosing a new factory": "Chọn nhà máy mới"
+    },
+    "ly": "Đáp án \"Rescheduling a demonstration\" — Cuộc trò chuyện xoay quanh việc khách muốn dời buổi trình diễn từ thứ Sáu sang thứ Năm. Tuyển người và chọn nhà máy không được nhắc, còn mẫu chỉ là chi tiết chuẩn bị.",
+    "dich": "Khách muốn dời buổi trình diễn sản phẩm vào thứ Sáu sang chiều thứ Năm."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What is suggested about the samples?",
+   "a": "They are being sent from a factory.",
+   "w": [
+    "They were damaged.",
+    "They are already in the office.",
+    "They will be shipped to the client."
+   ],
+   "ev": "The new samples won't arrive from the factory until Thursday morning.",
+   "why": "Mẫu từ nhà máy gửi tới, sáng thứ Năm mới đến.",
+   "lg": {
+    "og": {
+     "They are being sent from a factory.": "Đang được gửi từ nhà máy",
+     "They were damaged.": "Bị hư hỏng",
+     "They are already in the office.": "Đã có ở văn phòng",
+     "They will be shipped to the client.": "Sẽ gửi cho khách"
+    },
+    "ly": "Ông Wallace nói mẫu mới sẽ từ nhà máy đến vào sáng thứ Năm.",
+    "dich": "Mẫu mới sẽ không từ nhà máy về tới nơi cho đến sáng thứ Năm."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "At 2:14 P.M., what does Mr. Wallace mean when he writes, \"Then count me in\"?",
+   "a": "He agrees to the new schedule.",
+   "w": [
+    "He wants to count the samples.",
+    "He will attend a different meeting.",
+    "He needs more information."
+   ],
+   "ev": "I'll prepare the slides tonight.",
+   "why": "count me in = tôi tham gia; anh đồng ý lịch mới và sẽ chuẩn bị slide tối nay.",
+   "lg": {
+    "og": {
+     "He agrees to the new schedule.": "Anh đồng ý lịch mới",
+     "He wants to count the samples.": "Anh muốn đếm mẫu",
+     "He will attend a different meeting.": "Anh dự cuộc họp khác",
+     "He needs more information.": "Anh cần thêm thông tin"
+    },
+    "ly": "\"Count me in\" là tính cả tôi vào, tức đồng ý và sẽ tham gia, rồi ông nói sẽ chuẩn bị slide.",
+    "dich": "Vậy tính cả tôi nhé. Tối nay tôi sẽ chuẩn bị slide."
+   },
+   "ty": "intent"
+  },
+  {
+   "q": "What will Ms. Cho most likely do next?",
+   "a": "Contact the client",
+   "w": [
+    "Pick up the samples",
+    "Prepare some slides",
+    "Call the factory"
+   ],
+   "ev": "I'll confirm the new time with the client",
+   "why": "Cô sẽ xác nhận giờ mới với khách.",
+   "lg": {
+    "og": {
+     "Contact the client": "Liên hệ khách hàng",
+     "Pick up the samples": "Lấy mẫu",
+     "Prepare some slides": "Chuẩn bị slide",
+     "Call the factory": "Gọi nhà máy"
+    },
+    "ly": "Bà Cho nói sẽ xác nhận giờ mới với khách và đặt Phòng hội nghị A.",
+    "dich": "Tôi sẽ xác nhận giờ mới với khách và đặt Phòng hội nghị A."
+   },
+   "ty": "infer"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "kd"
+}

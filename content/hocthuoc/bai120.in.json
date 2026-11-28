@@ -1,0 +1,102 @@
+{
+ "n": 120,
+ "nguon": "Đề 3 · Part 4 · 5",
+ "id": "d03-p4-05",
+ "dang": "📢 Bài nói",
+ "kind": "intro",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Good morning, everyone, and welcome to the second day of the Regional Logistics Conference.",
+   "",
+   "a9ede2804"
+  ],
+  [
+   "N",
+   "It's my pleasure to introduce our first speaker, Dr.",
+   "",
+   "a4f20e8fe"
+  ],
+  [
+   "N",
+   "Ahmed Rashid.",
+   "",
+   "afa838321"
+  ],
+  [
+   "N",
+   "Dr.",
+   "",
+   "a471cad93"
+  ],
+  [
+   "N",
+   "Rashid has spent fifteen years helping companies reduce shipping costs, and his book on warehouse design has been translated into eight languages.",
+   "",
+   "af54edfbf"
+  ],
+  [
+   "N",
+   "Today he'll be talking about how small businesses can use data to plan deliveries.",
+   "",
+   "a4d5357f0"
+  ],
+  [
+   "N",
+   "After his talk, Dr.",
+   "",
+   "a9f22a6eb"
+  ],
+  [
+   "N",
+   "Rashid will be signing copies of his book in the lobby.",
+   "",
+   "accc4c3b1"
+  ],
+  [
+   "N",
+   "Please join me in welcoming him.",
+   "",
+   "ab6fcdeb5"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where is the talk taking place?",
+   "a": "At a conference",
+   "w": [
+    "At a bookstore",
+    "At a warehouse",
+    "At a university class"
+   ],
+   "ty": "gist",
+   "ev": "welcome to the second day of the Regional Logistics Conference"
+  },
+  {
+   "q": "What is Dr. Rashid known for?",
+   "a": "Reducing shipping costs",
+   "w": [
+    "Teaching languages",
+    "Designing software",
+    "Running a delivery company"
+   ],
+   "ty": "detail",
+   "ev": "helping companies reduce shipping costs"
+  },
+  {
+   "q": "What will Dr. Rashid do after his talk?",
+   "a": "Sign books",
+   "w": [
+    "Answer questions online",
+    "Visit a warehouse",
+    "Meet with reporters"
+   ],
+   "ty": "next",
+   "ev": "Dr. Rashid will be signing copies of his book in the lobby"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "pt"
+}

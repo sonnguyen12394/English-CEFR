@@ -1,0 +1,101 @@
+{
+ "n": 127,
+ "nguon": "Đề 3 · Part 6 · 3",
+ "id": "d03-p6-03",
+ "dang": "✉️ Văn bản",
+ "kind": "Letter",
+ "title": "Dear Ms. Tanaka,",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Thank you for choosing the Ashford Hotel for your company's sales conference on June 8.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We are writing to let you know that the Lakeview Room, which you reserved, will receive new carpeting during the first week of June.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The work may not be finished in time for your conference.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We would therefore like to move your event to the Garden Room, which is slightly larger and has a beautiful view of our park.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "There will be no change to the price you were quoted.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We apologize for any disruption this may cause, and we look forward to welcoming your group.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Sincerely, Paolo Ricci, Events Manager",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "will receive",
+   "w": [
+    "received",
+    "has received",
+    "receiving"
+   ],
+   "why": "Việc lắp thảm sắp diễn ra (during the first week of June, trước hội nghị 8/6) → tương lai: will receive.",
+   "ty": "tense"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "The work may not be finished in time for your conference.",
+   "w": [
+    "The hotel restaurant serves breakfast from 6:30 A.M.",
+    "Your sales conference was a great success last year.",
+    "Carpet samples are available at the front desk."
+   ],
+   "why": "Câu trước: phòng sẽ lắp thảm mới; câu chèn: có thể chưa xong kịp hội nghị → vì vậy (therefore) chuyển sang phòng khác.",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "beautiful",
+   "w": [
+    "beautifully",
+    "beauty",
+    "beautify"
+   ],
+   "why": "Trước danh từ view cần tính từ: a beautiful view.",
+   "ty": "word"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "disruption",
+   "w": [
+    "disrupt",
+    "disruptive",
+    "disruptively"
+   ],
+   "why": "apologize for any + danh từ: disruption (sự xáo trộn).",
+   "ty": "word"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "dl"
+}

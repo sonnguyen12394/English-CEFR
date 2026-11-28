@@ -1,0 +1,171 @@
+{
+ "n": 144,
+ "nguon": "Đề 3 · Part 2 · bộ 2",
+ "id": "de3-p2-bo2",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "Part 2 · bộ 2 · 10 câu hỏi – đáp",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "What time does the last train to Riverside leave?",
+   "",
+   "af460389c"
+  ],
+  [
+   "B",
+   "At ten forty-five.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Would you mind holding the door for me?",
+   "",
+   "a0fc9ae5d"
+  ],
+  [
+   "B",
+   "Not at all.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Which supplier did we choose for the office furniture?",
+   "",
+   "ab99cc451"
+  ],
+  [
+   "B",
+   "The one that offered free delivery.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Isn't the quarterly meeting scheduled for Thursday?",
+   "",
+   "a0a560500"
+  ],
+  [
+   "B",
+   "No, it was moved to Friday.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Where can I find the visitor parking area?",
+   "",
+   "a7f3d7263"
+  ],
+  [
+   "B",
+   "Behind the main building.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Should we hire a caterer or order food from the café downstairs?",
+   "",
+   "a78cb535b"
+  ],
+  [
+   "B",
+   "The café downstairs is cheaper.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "I can't log in to the company network this morning.",
+   "",
+   "a49679e13"
+  ],
+  [
+   "B",
+   "The IT team is updating the system.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who left this umbrella in the lobby?",
+   "",
+   "af51e94d9"
+  ],
+  [
+   "B",
+   "Probably one of the clients.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Can you help me move these chairs into the training room?",
+   "",
+   "a1aee9a84"
+  ],
+  [
+   "B",
+   "Sure, just give me a minute.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How much does the premium membership cost?",
+   "",
+   "a655a4f01"
+  ],
+  [
+   "B",
+   "Forty dollars a month.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What time does the last train to Riverside leave?",
+   "a": "At ten forty-five.",
+   "w": [
+    "Platform six.",
+    "I'm training a new employee."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Would you mind holding the door for me?",
+   "a": "Not at all.",
+   "w": [
+    "It's a glass door.",
+    "He's holding a meeting."
+   ],
+   "ty": "req"
+  },
+  {
+   "q": "Which supplier did we choose for the office furniture?",
+   "a": "The one that offered free delivery.",
+   "w": [
+    "Yes, we chose them.",
+    "Two desks and a chair."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Isn't the quarterly meeting scheduled for Thursday?",
+   "a": "No, it was moved to Friday.",
+   "w": [
+    "Every three months.",
+    "Let's schedule a call."
+   ],
+   "ty": "yn"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "dl"
+}

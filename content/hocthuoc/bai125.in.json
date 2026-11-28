@@ -1,0 +1,101 @@
+{
+ "n": 125,
+ "nguon": "Đề 3 · Part 6 · 1",
+ "id": "d03-p6-01",
+ "dang": "✉️ Văn bản",
+ "kind": "E-mail",
+ "title": "To: All employees · From: Office Manager · Subject: New recycling program",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Starting next Monday, our office will take part in a new recycling program.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Blue bins for paper and green bins for plastic will be placed in the kitchen on each floor before the program begins.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please do not put food waste in either bin.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Food waste should go in the brown container by the sink.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The building's cleaning staff will empty the bins every evening, so please do not leave recycling anywhere else.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "However, if a bin is full during the day, you may leave the items next to it.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We appreciate your cooperation in making our workplace more environmentally friendly.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Part 6 · chỗ trống 1",
+   "a": "will be placed",
+   "w": [
+    "were placed",
+    "have placed",
+    "placing"
+   ],
+   "why": "Thùng được đặt trước khi chương trình bắt đầu (before the program begins, từ thứ Hai tới) → việc ở tương lai, bị động: will be placed.",
+   "ty": "tense"
+  },
+  {
+   "q": "Part 6 · chỗ trống 2",
+   "a": "Food waste should go in the brown container by the sink.",
+   "w": [
+    "The kitchen on each floor will be renovated next year.",
+    "Our office moved to this building in 2019.",
+    "Blue is the official color of our company."
+   ],
+   "why": "Câu trước nói không bỏ rác thức ăn vào hai thùng → câu chèn cho biết bỏ rác thức ăn ở đâu.",
+   "ty": "insert"
+  },
+  {
+   "q": "Part 6 · chỗ trống 3",
+   "a": "However",
+   "w": [
+    "Therefore",
+    "For example",
+    "Similarly"
+   ],
+   "why": "Câu trước dặn không để rác tái chế chỗ khác; câu sau cho phép để cạnh thùng khi thùng đầy ban ngày → ngoại lệ, ý ngược: However.",
+   "ty": "conn"
+  },
+  {
+   "q": "Part 6 · chỗ trống 4",
+   "a": "cooperation",
+   "w": [
+    "cooperate",
+    "cooperative",
+    "cooperatively"
+   ],
+   "why": "Sau tính từ sở hữu your cần danh từ: cooperation.",
+   "ty": "word"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "vp"
+}

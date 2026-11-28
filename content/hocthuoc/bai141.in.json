@@ -1,0 +1,247 @@
+{
+ "n": 141,
+ "nguon": "Đề 3 · Part 7 · 14",
+ "id": "d03-p7-14",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Notice + e-mail + form",
+ "title": "Notice · Pinecrest Apartments · E-mail · To: Pinecrest Management · From: Tariq Aziz, Apartment 6C · Date: May 28 · Pool Access Registration Form · Apartment 6C",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Notice · Pinecrest Apartments",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The swimming pool will reopen on June 1 after renovation.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To use the pool, residents must register at the management office and receive a new access card.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Each apartment may register up to four people.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Pool hours are 7:00 A.M. to 9:00 P.M. daily.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Children under 12 must be accompanied by an adult at all times.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) E-mail · To: Pinecrest Management · From: Tariq Aziz, Apartment 6C · Date: May 28",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello, My family would like to register for pool access.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "There are five of us: my wife and I, our two children, aged 9 and 14, and my mother, who lives with us.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Is there any way all five of us can get cards?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "My mother swims every morning and is the person most likely to use the pool.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you, Tariq Aziz",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) Pool Access Registration Form · Apartment 6C",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Registered users: — 1.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tariq Aziz — 2.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Leila Aziz (spouse)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "3. — Farah Aziz (age 14)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "4. — Samira Aziz (age 71)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Cards issued: 4",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Note from office: Additional cards may be requested after July 1 if space allows.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the notice?",
+   "a": "To announce that a facility is reopening",
+   "w": [
+    "To report that a pool will close for repairs",
+    "To invite residents to a swimming event",
+    "To announce an increase in pool fees"
+   ],
+   "ev": "The swimming pool will reopen on June 1 after renovation.",
+   "why": "Hồ bơi mở lại ngày 1/6 sau khi sửa chữa.",
+   "lg": {
+    "og": {
+     "To announce that a facility is reopening": "Để thông báo một tiện ích mở cửa trở lại",
+     "To report that a pool will close for repairs": "Để báo hồ bơi sẽ đóng cửa sửa chữa",
+     "To invite residents to a swimming event": "Để mời cư dân dự sự kiện bơi lội",
+     "To announce an increase in pool fees": "Để báo tăng phí hồ bơi"
+    },
+    "ly": "Đáp án \"To announce that a facility is reopening\" — Thông báo mở đầu bằng việc hồ bơi mở lại sau khi sửa chữa, rồi nêu cách đăng ký và giờ mở. Không có việc đóng cửa mới, sự kiện hay phí.",
+    "dich": "Hồ bơi sẽ mở lại vào ngày 1 tháng 6 sau khi sửa chữa."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What is suggested about Mr. Aziz's family?",
+   "a": "It asked for one card too many.",
+   "w": [
+    "It has lived in the building for years.",
+    "It plans to use the pool in the evening.",
+    "It is moving to a different apartment."
+   ],
+   "x": 1,
+   "ev": "There are five of us",
+   "why": "Mỗi căn tối đa 4 người, e-mail xin cho 5 người.",
+   "lg": {
+    "og": {
+     "It asked for one card too many.": "Gia đình xin nhiều hơn một thẻ so với mức cho phép",
+     "It has lived in the building for years.": "Gia đình sống ở toà nhà nhiều năm",
+     "It plans to use the pool in the evening.": "Gia đình định dùng hồ bơi vào buổi tối",
+     "It is moving to a different apartment.": "Gia đình sắp chuyển sang căn khác"
+    },
+    "ly": "Đáp án \"It asked for one card too many.\" — Mỗi căn hộ chỉ đăng ký tối đa bốn người, mà ông Aziz xin cho cả năm người. Bài không nói thời gian họ ở hay việc chuyển nhà; bà mẹ bơi buổi sáng.",
+    "dich": "Mỗi căn hộ có thể đăng ký tối đa bốn người."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "Who most likely did not receive a pool access card?",
+   "a": "Mr. Aziz's younger child",
+   "w": [
+    "Mr. Aziz's mother",
+    "Mr. Aziz's wife",
+    "Mr. Aziz himself"
+   ],
+   "x": 1,
+   "ev": "our two children, aged 9 and 14",
+   "why": "Mẫu đơn có Tariq, vợ, con 14 tuổi và bà 71 tuổi → người không có thẻ là con 9 tuổi.",
+   "lg": {
+    "og": {
+     "Mr. Aziz's younger child": "Con nhỏ của ông Aziz",
+     "Mr. Aziz's mother": "Mẹ ông Aziz",
+     "Mr. Aziz's wife": "Vợ ông Aziz",
+     "Mr. Aziz himself": "Chính ông Aziz"
+    },
+    "ly": "Biểu mẫu chỉ có ông, vợ, Farah (14 tuổi) và Samira (71 tuổi). Đứa 9 tuổi (con nhỏ) không có tên.",
+    "dich": "Có năm người: vợ chồng tôi, hai con 9 và 14 tuổi, và mẹ tôi."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "According to the notice, what is true about children under 12?",
+   "a": "They must have an adult with them.",
+   "w": [
+    "They must pass a swim test first.",
+    "They pay a lower registration fee.",
+    "They are limited to morning hours."
+   ],
+   "ev": "Children under 12 must be accompanied by an adult at all times.",
+   "why": "Trẻ dưới 12 tuổi luôn phải có người lớn đi cùng.",
+   "lg": {
+    "og": {
+     "They must have an adult with them.": "Các em phải có người lớn đi cùng",
+     "They must pass a swim test first.": "Các em phải qua bài kiểm tra bơi trước",
+     "They pay a lower registration fee.": "Các em trả phí đăng ký thấp hơn",
+     "They are limited to morning hours.": "Các em chỉ được bơi buổi sáng"
+    },
+    "ly": "Đáp án \"They must have an adult with them.\" — Thông báo nói trẻ dưới 12 tuổi phải luôn có người lớn đi cùng. Bài không nói về kiểm tra bơi, phí hay giới hạn giờ cho trẻ.",
+    "dich": "Trẻ dưới 12 tuổi phải luôn có người lớn đi cùng."
+   },
+   "ty": "true"
+  },
+  {
+   "q": "What does the form indicate?",
+   "a": "More cards might be available later.",
+   "w": [
+    "The pool will close in July.",
+    "Mr. Aziz must pay a fee.",
+    "Cards will be mailed to residents."
+   ],
+   "ev": "Additional cards may be requested after July 1 if space allows.",
+   "why": "Sau 1/7 có thể xin thêm thẻ nếu còn chỗ.",
+   "lg": {
+    "og": {
+     "More cards might be available later.": "Sau này có thể có thêm thẻ",
+     "The pool will close in July.": "Hồ bơi sẽ đóng trong tháng 7",
+     "Mr. Aziz must pay a fee.": "Ông Aziz phải trả phí",
+     "Cards will be mailed to residents.": "Thẻ sẽ gửi qua bưu điện"
+    },
+    "ly": "Ghi chú của văn phòng nói có thể xin thêm thẻ sau ngày 1/7 nếu còn chỗ.",
+    "dich": "Có thể xin thêm thẻ sau ngày 1 tháng 7 nếu còn chỗ."
+   },
+   "ty": "detail"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "nha"
+}

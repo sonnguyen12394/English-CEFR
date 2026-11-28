@@ -1,0 +1,110 @@
+{
+ "n": 133,
+ "nguon": "Đề 3 · Part 7 · 6",
+ "id": "d03-p7-06",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Memo",
+ "title": "Memo · To: All Staff · From: Carla Simmons, Office Manager · Re: Kitchen schedule",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Starting Monday, each department will take turns cleaning the office kitchen.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The schedule is posted on the refrigerator door.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Cleaning includes washing any dishes left in the sink and wiping down the counters.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please also remove any food from the refrigerator that is older than one week.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you for helping to keep our shared space pleasant for everyone.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the memo?",
+   "a": "To announce a cleaning schedule",
+   "w": [
+    "To announce a new office dress code",
+    "To announce extended office hours",
+    "To announce a change in break times"
+   ],
+   "ev": "each department will take turns cleaning the office kitchen",
+   "why": "Thông báo các phòng ban lần lượt dọn bếp.",
+   "lg": {
+    "og": {
+     "To announce a cleaning schedule": "Để báo lịch dọn dẹp",
+     "To announce a new office dress code": "Để báo quy định ăn mặc mới",
+     "To announce extended office hours": "Để báo kéo dài giờ làm",
+     "To announce a change in break times": "Để báo đổi giờ nghỉ"
+    },
+    "ly": "Đáp án \"To announce a cleaning schedule\" — Bản ghi nhớ nói từ thứ Hai mỗi phòng ban luân phiên dọn bếp văn phòng theo lịch dán trên tủ lạnh. Trang phục, giờ làm và giờ nghỉ không được nhắc.",
+    "dich": "Từ thứ Hai, mỗi phòng ban sẽ luân phiên dọn dẹp bếp văn phòng."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "Where can employees find the schedule?",
+   "a": "On the refrigerator",
+   "w": [
+    "On the company Web site",
+    "In a kitchen cabinet",
+    "At the front desk"
+   ],
+   "ev": "The schedule is posted on the refrigerator door.",
+   "why": "Lịch dán trên cửa tủ lạnh.",
+   "lg": {
+    "og": {
+     "On the refrigerator": "Trên tủ lạnh",
+     "On the company Web site": "Trên trang web công ty",
+     "In a kitchen cabinet": "Trong tủ bếp",
+     "At the front desk": "Ở quầy lễ tân"
+    },
+    "ly": "Bản ghi nhớ nói lịch được dán trên cửa tủ lạnh.",
+    "dich": "Lịch được dán trên cửa tủ lạnh."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"On it, your department's assigned week is marked in red.\"",
+   "a": "[2]",
+   "w": [
+    "[1]",
+    "[3]",
+    "[4]"
+   ],
+   "why": "Câu chèn nói tuần của phòng được tô đỏ → phải đứng ngay sau câu giới thiệu lịch dán trên tủ lạnh (vị trí [2]).",
+   "lg": {
+    "og": {
+     "[2]": "[2]",
+     "[1]": "[1]",
+     "[3]": "[3]",
+     "[4]": "[4]"
+    },
+    "ly": "\"On it\" chỉ tờ lịch vừa nhắc, nên câu chèn đặt ngay sau câu nói lịch được dán trên tủ lạnh (vị trí [2]).",
+    "dich": "Trên đó, tuần được phân cho phòng ban của bạn được đánh dấu màu đỏ."
+   },
+   "ty": "insert"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "vp"
+}

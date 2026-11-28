@@ -1,0 +1,84 @@
+{
+ "n": 113,
+ "nguon": "Đề 3 · Part 3 · 10",
+ "id": "d03-p3-10",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "B",
+   "Grace, the packaging machine on line three stopped again this morning.",
+   "",
+   "a0ab78758"
+  ],
+  [
+   "A",
+   "That's the third time this week. The technician said a replacement part was on its way.",
+   "",
+   "ac6b7d30a"
+  ],
+  [
+   "B",
+   "It arrived yesterday, but he can't install it until Thursday.",
+   "",
+   "a533e169c"
+  ],
+  [
+   "A",
+   "Then we should move some orders to line two so we don't fall behind.",
+   "",
+   "a54330643"
+  ],
+  [
+   "B",
+   "Good idea. Can you update the production schedule and let the shift leaders know?",
+   "",
+   "ae63e4e11"
+  ],
+  [
+   "A",
+   "Sure. I'll send them the new schedule before lunch.",
+   "",
+   "abc40b9b7"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What problem are the speakers discussing?",
+   "a": "A machine keeps breaking down.",
+   "w": [
+    "An order was canceled.",
+    "A shipment is missing.",
+    "A shift leader quit."
+   ],
+   "ty": "detail",
+   "ev": "the packaging machine on line three stopped again this morning"
+  },
+  {
+   "q": "What does the woman suggest?",
+   "a": "Moving some orders to another line",
+   "w": [
+    "Buying a new machine",
+    "Working overtime",
+    "Calling a different technician"
+   ],
+   "ty": "next",
+   "ev": "we should move some orders to line two"
+  },
+  {
+   "q": "What will the woman do before lunch?",
+   "a": "Send a schedule to some colleagues",
+   "w": [
+    "Install a part",
+    "Meet with a technician",
+    "Check an inventory list"
+   ],
+   "ty": "next",
+   "ev": "I'll send them the new schedule before lunch."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "sx"
+}

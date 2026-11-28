@@ -1,0 +1,228 @@
+{
+ "n": 138,
+ "nguon": "Đề 3 · Part 7 · 11",
+ "id": "d03-p7-11",
+ "dang": "📄 Đọc hiểu",
+ "kind": "E-mail + schedule",
+ "title": "E-mail · To: Training Participants · From: Helen Price · Subject: Sales training next week · Schedule · Sales Training",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) E-mail · To: Training Participants · From: Helen Price · Subject: Sales training next week",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello everyone, As announced, our two-day sales training will take place next Tuesday and Wednesday at the Lakeside Conference Center.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The attached schedule shows all sessions.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please note that the session on customer negotiations has been moved to the afternoon of the second day because the speaker, Mr. Torres, has a flight that morning.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'm also pleased that Raj, who joined us from Delmont Industries last month, will lead a session.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Lunch will be provided on both days.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If you have dietary needs, reply to this e-mail by Friday.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Helen Price, Sales Director",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) Schedule · Sales Training",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tuesday — 9:00 A.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Welcome and goals (Helen Price)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "10:30 A.M. — Understanding customer needs (Amy Cho)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "2:00 P.M. — Presenting products effectively (Raj Patel)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Wednesday — 9:00 A.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Using the new sales software (Lina Park)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "2:00 P.M. — Customer negotiations (Daniel Torres)",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "4:00 P.M. — Closing remarks (Helen Price)",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the purpose of the e-mail?",
+   "a": "To give information about a training event",
+   "w": [
+    "To invite customers to a conference",
+    "To announce a new sales director",
+    "To request travel receipts"
+   ],
+   "ev": "our two-day sales training will take place next Tuesday and Wednesday",
+   "why": "Thông tin về khoá đào tạo bán hàng hai ngày.",
+   "lg": {
+    "og": {
+     "To give information about a training event": "Cung cấp thông tin về đợt tập huấn",
+     "To invite customers to a conference": "Mời khách đến hội nghị",
+     "To announce a new sales director": "Thông báo giám đốc kinh doanh mới",
+     "To request travel receipts": "Yêu cầu biên lai đi lại"
+    },
+    "ly": "E-mail báo về hai ngày tập huấn bán hàng và đính kèm lịch.",
+    "dich": "Khoá tập huấn bán hàng hai ngày sẽ diễn ra vào thứ Ba và thứ Tư tuần sau tại Trung tâm Hội nghị Lakeside."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "Why was a session moved?",
+   "a": "A speaker has a flight.",
+   "w": [
+    "A room was not available.",
+    "Some software was not ready.",
+    "Lunch was served late."
+   ],
+   "ev": "the speaker, Mr. Torres, has a flight that morning",
+   "why": "Diễn giả có chuyến bay buổi sáng.",
+   "lg": {
+    "og": {
+     "A speaker has a flight.": "Một diễn giả có chuyến bay",
+     "A room was not available.": "Phòng không có sẵn",
+     "Some software was not ready.": "Phần mềm chưa sẵn sàng",
+     "Lunch was served late.": "Bữa trưa ra trễ"
+    },
+    "ly": "Buổi đàm phán dời sang chiều ngày thứ hai vì ông Torres có chuyến bay sáng hôm đó.",
+    "dich": "Buổi về đàm phán với khách đã dời sang chiều ngày thứ hai vì diễn giả, ông Torres, có chuyến bay sáng hôm đó."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What should participants with dietary needs do?",
+   "a": "Reply to an e-mail",
+   "w": [
+    "Bring their own lunch",
+    "Call the conference center",
+    "Fill out a form"
+   ],
+   "ev": "If you have dietary needs, reply to this e-mail by Friday.",
+   "why": "Trả lời e-mail trước thứ Sáu.",
+   "lg": {
+    "og": {
+     "Reply to an e-mail": "Trả lời e-mail",
+     "Bring their own lunch": "Tự mang bữa trưa",
+     "Call the conference center": "Gọi trung tâm hội nghị",
+     "Fill out a form": "Điền một biểu mẫu"
+    },
+    "ly": "E-mail yêu cầu ai có nhu cầu ăn kiêng trả lời e-mail trước thứ Sáu.",
+    "dich": "Nếu có nhu cầu ăn kiêng, hãy trả lời e-mail này trước thứ Sáu."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What topic will the employee who recently joined the company present?",
+   "a": "Presenting products effectively",
+   "w": [
+    "Understanding customer needs",
+    "Using the new sales software",
+    "Customer negotiations"
+   ],
+   "x": 1,
+   "ev": "Raj, who joined us from Delmont Industries last month, will lead a session",
+   "why": "E-mail: Raj mới vào tháng trước. Lịch: Raj Patel trình bày \"Presenting products effectively\".",
+   "lg": {
+    "og": {
+     "Presenting products effectively": "Trình bày sản phẩm hiệu quả",
+     "Understanding customer needs": "Hiểu nhu cầu khách hàng",
+     "Using the new sales software": "Dùng phần mềm bán hàng mới",
+     "Customer negotiations": "Đàm phán với khách"
+    },
+    "ly": "Raj mới vào công ty tháng trước sẽ dẫn một buổi, và lịch ghi Raj Patel dẫn buổi Trình bày sản phẩm hiệu quả.",
+    "dich": "2:00 chiều: Trình bày sản phẩm hiệu quả (Raj Patel)."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What will happen at 4:00 P.M. on Wednesday?",
+   "a": "Ms. Price will give closing remarks.",
+   "w": [
+    "Lunch will be served.",
+    "A new product will be shown.",
+    "Participants will take a test."
+   ],
+   "ev": "4:00 P.M. Closing remarks (Helen Price)",
+   "why": "Lịch: 16 giờ thứ Tư, bà Price phát biểu bế mạc.",
+   "lg": {
+    "og": {
+     "Ms. Price will give closing remarks.": "Bà Price phát biểu bế mạc",
+     "Lunch will be served.": "Phục vụ bữa trưa",
+     "A new product will be shown.": "Giới thiệu sản phẩm mới",
+     "Participants will take a test.": "Học viên làm bài kiểm tra"
+    },
+    "ly": "Lịch ghi 4:00 chiều thứ Tư là phát biểu bế mạc của Helen Price.",
+    "dich": "4:00 chiều: Phát biểu bế mạc (Helen Price)."
+   },
+   "ty": "detail"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "ns"
+}

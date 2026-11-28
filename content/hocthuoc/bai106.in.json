@@ -1,0 +1,84 @@
+{
+ "n": 106,
+ "nguon": "Đề 3 · Part 3 · 2",
+ "id": "d03-p3-02",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Kevin, the projector in Conference Room B isn't turning on, and my presentation to the board starts in twenty minutes.",
+   "",
+   "a182ee8a9"
+  ],
+  [
+   "B",
+   "Did you check the power cable? The cleaning crew sometimes unplugs it.",
+   "",
+   "ac7b7f877"
+  ],
+  [
+   "A",
+   "I did. It's plugged in, but nothing happens.",
+   "",
+   "acfe0fa26"
+  ],
+  [
+   "B",
+   "Hmm. Room D has the same equipment, and nobody's using it this morning.",
+   "",
+   "ad9980902"
+  ],
+  [
+   "A",
+   "But all the board members are already waiting in Room B.",
+   "",
+   "a660b8b16"
+  ],
+  [
+   "B",
+   "Then I'll bring the portable projector from my office. It'll only take a minute.",
+   "",
+   "a2858a2fc"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What problem does the woman mention?",
+   "a": "Some equipment is not working.",
+   "w": [
+    "A meeting was canceled.",
+    "A room is too small.",
+    "Some files are missing."
+   ],
+   "ty": "detail",
+   "ev": "the projector in Conference Room B isn't turning on"
+  },
+  {
+   "q": "What does the woman imply when she says, \"But all the board members are already waiting in Room B\"?",
+   "a": "She does not want to change rooms.",
+   "w": [
+    "She needs more chairs.",
+    "The meeting will start late.",
+    "She has not prepared enough copies."
+   ],
+   "ty": "imp",
+   "ev": "But all the board members are already waiting in Room B."
+  },
+  {
+   "q": "What does the man offer to do?",
+   "a": "Bring another projector",
+   "w": [
+    "Call a technician",
+    "Move the meeting to Room D",
+    "Print the presentation"
+   ],
+   "ty": "next",
+   "ev": "I'll bring the portable projector from my office."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "kt"
+}

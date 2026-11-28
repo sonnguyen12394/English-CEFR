@@ -1,0 +1,78 @@
+{
+ "n": 110,
+ "nguon": "Đề 3 · Part 3 · 7",
+ "id": "d03-p3-07",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "B",
+   "Did you see the e-mail about the new accounting software? Everyone has to start using it on Monday.",
+   "",
+   "a4010146f"
+  ],
+  [
+   "A",
+   "I did. I tried it yesterday, and the reports look completely different.",
+   "",
+   "ac99609a4"
+  ],
+  [
+   "B",
+   "The training video is forty minutes long.",
+   "",
+   "a60aea460"
+  ],
+  [
+   "A",
+   "Well, I'm free after lunch. We could watch it together.",
+   "",
+   "a1e6b2ac5"
+  ],
+  [
+   "B",
+   "Good idea. I'll reserve the small meeting room for one o'clock.",
+   "",
+   "a579fa6c0"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What are the speakers mainly discussing?",
+   "a": "New software",
+   "w": [
+    "A budget report",
+    "A training course abroad",
+    "A company e-mail policy"
+   ],
+   "ty": "gist",
+   "ev": "the new accounting software"
+  },
+  {
+   "q": "Why does the man say, \"The training video is forty minutes long\"?",
+   "a": "He is concerned about the time it will take.",
+   "w": [
+    "He has already watched the video.",
+    "He wants to make a shorter video.",
+    "He thinks the video is out of date."
+   ],
+   "ty": "imp",
+   "ev": "The training video is forty minutes long."
+  },
+  {
+   "q": "What will the man do?",
+   "a": "Reserve a room",
+   "w": [
+    "Send an e-mail",
+    "Call a trainer",
+    "Print some reports"
+   ],
+   "ty": "next",
+   "ev": "I'll reserve the small meeting room for one o'clock."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "kt"
+}

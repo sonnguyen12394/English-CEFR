@@ -1,0 +1,101 @@
+{
+ "n": 114,
+ "nguon": "Đề 3 · Part 3 · 11",
+ "id": "d03-p3-11",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": {
+  "t": "Departures",
+  "h": [
+   "Destination",
+   "Departs",
+   "Platform"
+  ],
+  "r": [
+   [
+    "Brookfield",
+    "9:15",
+    "2"
+   ],
+   [
+    "Lenox",
+    "9:40",
+    "5"
+   ],
+   [
+    "Harbor City",
+    "10:05",
+    "3"
+   ],
+   [
+    "Westgate",
+    "10:30",
+    "1"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "A",
+   "Excuse me, I'm going to Harbor City for a meeting. Is the ten-oh-five train on time?",
+   "",
+   "ae29b972a"
+  ],
+  [
+   "B",
+   "It is, but there's a change today. Because of track work, trains to Harbor City are leaving from the platform listed for Lenox.",
+   "",
+   "accef2dc7"
+  ],
+  [
+   "A",
+   "Oh, thanks for telling me. Is there somewhere I can buy a coffee before it leaves?",
+   "",
+   "a76b730fd"
+  ],
+  [
+   "B",
+   "There's a café next to the ticket machines. It opens at nine thirty.",
+   "",
+   "aa48bafb1"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why is the woman traveling?",
+   "a": "To attend a meeting",
+   "w": [
+    "To visit family",
+    "To start a new job",
+    "To see a doctor"
+   ],
+   "ty": "detail",
+   "ev": "I'm going to Harbor City for a meeting."
+  },
+  {
+   "q": "Look at the graphic. Which platform will the woman's train leave from?",
+   "a": "Platform 5",
+   "w": [
+    "Platform 2",
+    "Platform 3",
+    "Platform 1"
+   ],
+   "ty": "graphic",
+   "ev": "trains to Harbor City are leaving from the platform listed for Lenox"
+  },
+  {
+   "q": "What does the man say about the café?",
+   "a": "It is near the ticket machines.",
+   "w": [
+    "It closes early.",
+    "It is on the train.",
+    "It sells newspapers."
+   ],
+   "ty": "detail",
+   "ev": "There's a café next to the ticket machines."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "dl"
+}

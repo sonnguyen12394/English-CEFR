@@ -1,0 +1,141 @@
+{
+ "n": 134,
+ "nguon": "Đề 3 · Part 7 · 7",
+ "id": "d03-p7-07",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Invoice",
+ "title": "Invoice · Bright Spark Electrical Services",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Customer: Mapleton Dental Clinic, 22 Grove Road",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Date of service: October 8",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Invoice number: 5531",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Replacement of ceiling lights (12 units): $540.00",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Labor (4 hours at $65 per hour): $260.00",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Safety inspection: no charge",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Total due: $800.00",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Payment is due within 30 days.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Customers who pay within 10 days receive a 5 percent discount.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Questions? — Call 555-0147.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What did Bright Spark Electrical Services do for the clinic?",
+   "a": "Changed some ceiling fixtures",
+   "w": [
+    "Installed additional power outlets",
+    "Upgraded the fire alarm system",
+    "Rewired the reception area"
+   ],
+   "ev": "Replacement of ceiling lights (12 units)",
+   "why": "Thay 12 bóng đèn trần.",
+   "lg": {
+    "og": {
+     "Changed some ceiling fixtures": "Thay một số đèn gắn trần",
+     "Installed additional power outlets": "Lắp thêm ổ điện",
+     "Upgraded the fire alarm system": "Nâng cấp hệ thống báo cháy",
+     "Rewired the reception area": "Đi lại dây điện khu lễ tân"
+    },
+    "ly": "Đáp án \"Changed some ceiling fixtures\" — Hoá đơn ghi thay đèn trần (12 chiếc). Ổ điện, báo cháy và đi dây điện không có trong hoá đơn.",
+    "dich": "Thay đèn trần (12 chiếc): 540 đô la."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is indicated about the safety inspection?",
+   "a": "It was free.",
+   "w": [
+    "It took four hours.",
+    "It will be done next month.",
+    "It cost $65."
+   ],
+   "ev": "Safety inspection: no charge",
+   "why": "no charge = không tính tiền.",
+   "lg": {
+    "og": {
+     "It was free.": "Miễn phí",
+     "It took four hours.": "Mất bốn giờ",
+     "It will be done next month.": "Làm vào tháng sau",
+     "It cost $65.": "Tốn 65 đô la"
+    },
+    "ly": "Dòng kiểm tra an toàn ghi \"no charge\" (miễn phí).",
+    "dich": "Kiểm tra an toàn: miễn phí."
+   },
+   "ty": "true"
+  },
+  {
+   "q": "How can the clinic receive a discount?",
+   "a": "By paying within 10 days",
+   "w": [
+    "By paying in cash",
+    "By booking another service",
+    "By calling before October 8"
+   ],
+   "ev": "Customers who pay within 10 days receive a 5 percent discount.",
+   "why": "Trả trong 10 ngày được giảm 5%.",
+   "lg": {
+    "og": {
+     "By paying within 10 days": "Thanh toán trong 10 ngày",
+     "By paying in cash": "Trả bằng tiền mặt",
+     "By booking another service": "Đặt thêm dịch vụ",
+     "By calling before October 8": "Gọi trước ngày 8/10"
+    },
+    "ly": "Khách trả trong 10 ngày được giảm 5 phần trăm.",
+    "dich": "Khách hàng thanh toán trong vòng 10 ngày được giảm giá 5 phần trăm."
+   },
+   "ty": "detail"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "tc"
+}

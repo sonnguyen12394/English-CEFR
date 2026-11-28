@@ -1,0 +1,84 @@
+{
+ "n": 108,
+ "nguon": "Đề 3 · Part 3 · 5",
+ "id": "d03-p3-05",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Raymond's retirement is at the end of the month. Have you started planning the party?",
+   "",
+   "a96826c7e"
+  ],
+  [
+   "B",
+   "I've reserved the back room at Lucia's Bistro for Friday the twenty-eighth.",
+   "",
+   "aa55091ad"
+  ],
+  [
+   "A",
+   "Great. How many people can it hold?",
+   "",
+   "aedc25c45"
+  ],
+  [
+   "B",
+   "About forty, which should be enough for our department.",
+   "",
+   "ad0ef9b62"
+  ],
+  [
+   "A",
+   "I'll collect money for a gift, then. Do you have any ideas?",
+   "",
+   "a1a37ffcd"
+  ],
+  [
+   "B",
+   "He's always talking about his garden. Maybe a set of good gardening tools.",
+   "",
+   "a2998710a"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why are the speakers planning an event?",
+   "a": "A coworker is retiring.",
+   "w": [
+    "A department is moving.",
+    "A project was completed.",
+    "A client is visiting."
+   ],
+   "ty": "detail",
+   "ev": "Raymond's retirement is at the end of the month."
+  },
+  {
+   "q": "What has the man already done?",
+   "a": "Reserved a room",
+   "w": [
+    "Sent invitations",
+    "Bought a gift",
+    "Hired a band"
+   ],
+   "ty": "detail",
+   "ev": "I've reserved the back room at Lucia's Bistro"
+  },
+  {
+   "q": "What does the man suggest as a gift?",
+   "a": "Gardening tools",
+   "w": [
+    "A restaurant voucher",
+    "A framed photograph",
+    "Concert tickets"
+   ],
+   "ty": "next",
+   "ev": "Maybe a set of good gardening tools."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "ns"
+}

@@ -1,0 +1,171 @@
+{
+ "n": 143,
+ "nguon": "Đề 3 · Part 2 · bộ 1",
+ "id": "de3-p2-bo1",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "Part 2 · bộ 1 · 10 câu hỏi – đáp",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Where should I put these boxes of printer paper?",
+   "",
+   "aad97abeb"
+  ],
+  [
+   "B",
+   "In the supply closet, please.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "When does the new branch office open?",
+   "",
+   "a5e77e64a"
+  ],
+  [
+   "B",
+   "Not until next spring.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Did you remember to book a room for the training session?",
+   "",
+   "a78a891e3"
+  ],
+  [
+   "B",
+   "Yes, Room 204 is reserved.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Who's in charge of the client presentation on Friday?",
+   "",
+   "a4f605900"
+  ],
+  [
+   "B",
+   "Ms. Okafor is handling it.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Would you prefer to meet in the morning or after lunch?",
+   "",
+   "aa3eca43b"
+  ],
+  [
+   "B",
+   "The afternoon works better for me.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Could you send me the updated budget by noon?",
+   "",
+   "a7691d9a0"
+  ],
+  [
+   "B",
+   "Sure, I'll e-mail it shortly.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Why was the shipment of laptops delayed?",
+   "",
+   "a3276c554"
+  ],
+  [
+   "B",
+   "There was a problem at the port.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "The air conditioner in the meeting room is making a strange noise.",
+   "",
+   "a6a9b75be"
+  ],
+  [
+   "B",
+   "I'll call the maintenance office.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "How many weeks will the parking lot be closed?",
+   "",
+   "acb9ff6f5"
+  ],
+  [
+   "B",
+   "About three weeks.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Have you met our new sales director yet?",
+   "",
+   "a6c9b5c05"
+  ],
+  [
+   "B",
+   "Not yet, but I'll see her tomorrow.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Where should I put these boxes of printer paper?",
+   "a": "In the supply closet, please.",
+   "w": [
+    "About forty pages.",
+    "Yes, I printed it already."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "When does the new branch office open?",
+   "a": "Not until next spring.",
+   "w": [
+    "A branch manager.",
+    "On Maple Avenue."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Did you remember to book a room for the training session?",
+   "a": "Yes, Room 204 is reserved.",
+   "w": [
+    "I read that book last year.",
+    "The trainer is from Boston."
+   ],
+   "ty": "yn"
+  },
+  {
+   "q": "Who's in charge of the client presentation on Friday?",
+   "a": "Ms. Okafor is handling it.",
+   "w": [
+    "In the main conference room.",
+    "It was a great present."
+   ],
+   "ty": "wh"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "vp"
+}

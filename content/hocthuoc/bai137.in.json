@@ -1,0 +1,157 @@
+{
+ "n": 137,
+ "nguon": "Đề 3 · Part 7 · 10",
+ "id": "d03-p7-10",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Letter",
+ "title": "Letter · Westfield Community Center",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Dear Mr. Haddad,",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you for volunteering to teach our free computer skills class for senior citizens this fall.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "As we discussed, the class will meet every Wednesday from 10:00 A.M. to noon, starting September 10.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We expect about twelve participants, most of whom have never used e-mail.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "The center will provide laptops for all participants, and a projector will be available in Room 3.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "If you need any other materials, please let our program coordinator, Ms. Lopez, know by September 1 so that we can order them in time.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We truly appreciate your generosity.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Many of our members have asked for a class like this for years.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Sincerely, Joan Whitaker, Director",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why was the letter written?",
+   "a": "To confirm details of a volunteer class",
+   "w": [
+    "To invite Mr. Haddad to join the center",
+    "To ask for a donation of laptops",
+    "To announce a new director"
+   ],
+   "ev": "Thank you for volunteering to teach our free computer skills class",
+   "why": "Cảm ơn và xác nhận chi tiết lớp tin học do ông Haddad dạy tình nguyện.",
+   "lg": {
+    "og": {
+     "To confirm details of a volunteer class": "Xác nhận chi tiết một lớp tình nguyện",
+     "To invite Mr. Haddad to join the center": "Mời ông tham gia trung tâm",
+     "To ask for a donation of laptops": "Xin tặng máy tính",
+     "To announce a new director": "Thông báo giám đốc mới"
+    },
+    "ly": "Thư cảm ơn ông tình nguyện dạy lớp và xác nhận lịch học, thiết bị.",
+    "dich": "Cảm ơn ông đã tình nguyện dạy lớp kỹ năng máy tính miễn phí cho người cao tuổi vào mùa thu này."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "What is indicated about the participants?",
+   "a": "Most have little experience with e-mail.",
+   "w": [
+    "They must bring their own laptops.",
+    "They are all center employees.",
+    "They will pay a small fee."
+   ],
+   "ev": "most of whom have never used e-mail",
+   "why": "Phần lớn chưa từng dùng e-mail.",
+   "lg": {
+    "og": {
+     "Most have little experience with e-mail.": "Phần lớn ít kinh nghiệm với e-mail",
+     "They must bring their own laptops.": "Phải mang máy tính riêng",
+     "They are all center employees.": "Tất cả là nhân viên trung tâm",
+     "They will pay a small fee.": "Phải trả một khoản phí nhỏ"
+    },
+    "ly": "Thư nói họ phần lớn chưa từng dùng e-mail, còn máy tính do trung tâm cung cấp.",
+    "dich": "Chúng tôi dự kiến khoảng mười hai học viên, phần lớn chưa từng dùng e-mail."
+   },
+   "ty": "true"
+  },
+  {
+   "q": "By what date should Mr. Haddad request additional materials?",
+   "a": "September 1",
+   "w": [
+    "September 10",
+    "October 1",
+    "December 15"
+   ],
+   "ev": "please let our program coordinator, Ms. Lopez, know by September 1",
+   "why": "Báo cô Lopez trước ngày 1/9.",
+   "lg": {
+    "og": {
+     "September 1": "Ngày 1/9",
+     "September 10": "Ngày 10/9",
+     "October 1": "Ngày 1/10",
+     "December 15": "Ngày 15/12"
+    },
+    "ly": "Thư nhắc báo cô Lopez trước ngày 1/9 nếu cần thêm vật liệu.",
+    "dich": "Nếu cần thêm tài liệu nào khác, xin báo cho điều phối viên chương trình Cô Lopez trước ngày 1 tháng 9."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What does Ms. Whitaker say about the members?",
+   "a": "They have long wished for such a class.",
+   "w": [
+    "Most of them already use e-mail daily.",
+    "They will bring their own laptops.",
+    "They requested a class held on weekends."
+   ],
+   "ev": "Many of our members have asked for a class like this for years.",
+   "why": "Nhiều hội viên đã đề nghị lớp này từ nhiều năm.",
+   "lg": {
+    "og": {
+     "They have long wished for such a class.": "Họ mong có lớp như vậy từ lâu",
+     "Most of them already use e-mail daily.": "Phần lớn họ đã dùng e-mail hằng ngày",
+     "They will bring their own laptops.": "Họ sẽ tự mang laptop",
+     "They requested a class held on weekends.": "Họ đề nghị mở lớp vào cuối tuần"
+    },
+    "ly": "Đáp án \"They have long wished for such a class.\" — Bà Whitaker nói nhiều hội viên đã xin một lớp như vậy từ nhiều năm. Trung tâm cung cấp laptop, và phần lớn học viên chưa từng dùng e-mail.",
+    "dich": "Nhiều hội viên của chúng tôi đã đề nghị một lớp như thế này từ nhiều năm nay."
+   },
+   "ty": "detail"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "ns"
+}

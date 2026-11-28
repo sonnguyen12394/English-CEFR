@@ -1,0 +1,89 @@
+{
+ "n": 130,
+ "nguon": "Đề 3 · Part 7 · 2",
+ "id": "d03-p7-02",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Notice",
+ "title": "Notice to All Tenants",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "The parking garage at 450 Elm Street will be closed on Saturday, June 14, from 6:00 A.M. to 8:00 P.M. so that the floors can be repainted.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Vehicles left in the garage after 6:00 A.M. will be moved to the lot on Cedar Avenue at the owner's expense.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Tenants may park free of charge at the Cedar Avenue lot all day on June 14.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "We apologize for any inconvenience.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Building Management",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Why will the garage be closed?",
+   "a": "So that it can be painted",
+   "w": [
+    "So that lights can be installed",
+    "Because of a city event",
+    "Because of storm damage"
+   ],
+   "ev": "so that the floors can be repainted",
+   "why": "Đóng cửa để sơn lại sàn (repainted).",
+   "lg": {
+    "og": {
+     "So that it can be painted": "Để được sơn lại",
+     "So that lights can be installed": "Để lắp đèn",
+     "Because of a city event": "Do sự kiện của thành phố",
+     "Because of storm damage": "Do bão làm hư hại"
+    },
+    "ly": "Thông báo nói hầm xe đóng cửa để sơn lại sàn các tầng.",
+    "dich": "Hầm đỗ xe ở số 450 phố Elm sẽ đóng cửa vào thứ Bảy, ngày 14 tháng 6, từ 6 giờ sáng đến 8 giờ tối để sơn lại các tầng."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What is indicated about the Cedar Avenue lot?",
+   "a": "Parking there costs nothing that day.",
+   "w": [
+    "It is being repainted on June 14.",
+    "It closes at 6:00 A.M. on June 14.",
+    "It has space for building visitors."
+   ],
+   "ev": "Tenants may park free of charge at the Cedar Avenue lot all day on June 14.",
+   "why": "Người thuê đỗ miễn phí cả ngày 14/6.",
+   "lg": {
+    "og": {
+     "Parking there costs nothing that day.": "Đỗ xe ở đó không mất tiền hôm ấy",
+     "It is being repainted on June 14.": "Bãi đang được sơn lại ngày 14/6",
+     "It closes at 6:00 A.M. on June 14.": "Bãi đóng cửa lúc 6 giờ sáng ngày 14/6",
+     "It has space for building visitors.": "Bãi có chỗ cho khách của toà nhà"
+    },
+    "ly": "Đáp án \"Parking there costs nothing that day.\" — Người thuê được đỗ miễn phí cả ngày 14/6 ở bãi đại lộ Cedar. Việc sơn lại là của bãi xe trong toà nhà, không phải bãi Cedar.",
+    "dich": "Người thuê có thể đỗ xe miễn phí cả ngày 14 tháng 6 tại bãi đại lộ Cedar."
+   },
+   "ty": "true"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "nha"
+}

@@ -1,0 +1,102 @@
+{
+ "n": 123,
+ "nguon": "Đề 3 · Part 4 · 9",
+ "id": "d03-p4-09",
+ "dang": "📢 Bài nói",
+ "kind": "ann",
+ "title": "",
+ "g": {
+  "t": "Store Directory",
+  "h": [
+   "Floor",
+   "Department"
+  ],
+  "r": [
+   [
+    "1",
+    "Cosmetics"
+   ],
+   [
+    "2",
+    "Women's Clothing"
+   ],
+   [
+    "3",
+    "Men's Clothing"
+   ],
+   [
+    "4",
+    "Home Goods"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "N",
+   "Attention, Dalton's shoppers.",
+   "",
+   "a6b9d55f7"
+  ],
+  [
+   "N",
+   "Our spring sale continues today with thirty percent off all bedding and kitchen items.",
+   "",
+   "aa5d2aadb"
+  ],
+  [
+   "N",
+   "To find these great deals, simply take the elevator to the floor with our home goods department.",
+   "",
+   "a9f1a73f5"
+  ],
+  [
+   "N",
+   "And don't forget, shoppers who spend over one hundred dollars today will receive a free canvas shopping bag.",
+   "",
+   "a0d656319"
+  ],
+  [
+   "N",
+   "Just show your receipt at the customer service counter on the first floor.",
+   "",
+   "aa176e908"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What items are on sale?",
+   "a": "Bedding and kitchen items",
+   "w": [
+    "Spring clothing",
+    "Shoes and bags",
+    "Cosmetics"
+   ],
+   "ty": "detail",
+   "ev": "thirty percent off all bedding and kitchen items"
+  },
+  {
+   "q": "Look at the graphic. Which floor should the listeners go to for the sale?",
+   "a": "Floor 4",
+   "w": [
+    "Floor 1",
+    "Floor 2",
+    "Floor 3"
+   ],
+   "ty": "graphic",
+   "ev": "take the elevator to the floor with our home goods department"
+  },
+  {
+   "q": "How can the listeners get a free bag?",
+   "a": "By spending over one hundred dollars",
+   "w": [
+    "By signing up for a store card",
+    "By shopping before noon",
+    "By completing a survey"
+   ],
+   "ty": "detail",
+   "ev": "shoppers who spend over one hundred dollars today will receive a free canvas shopping bag"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "mb"
+}

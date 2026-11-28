@@ -1,0 +1,282 @@
+{
+ "n": 140,
+ "nguon": "Đề 3 · Part 7 · 13",
+ "id": "d03-p7-13",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Web page + e-mail + e-mail",
+ "title": "Web page · Northgate Car Rentals: Vehicle Options · E-mail · To: reservations@northgaterentals.com · From: Sofia Marquez · Date: May 2 · E-mail · To: Sofia Marquez · From: Northgate Car Rentals · Date: May 3",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "(1) Web page · Northgate Car Rentals: Vehicle Options",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Compact car: $42 per day.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Seats 4, 2 suitcases.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Midsize car: $55 per day.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Seats 5, 3 suitcases.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Minivan: $78 per day.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Seats 7, 6 suitcases.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Pickup truck: $70 per day.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Seats 3, open cargo area.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "All rentals include unlimited mileage.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Drivers under 25 pay an additional $15 per day.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Return the vehicle with a full tank to avoid a refueling charge.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(2) E-mail · To: reservations@northgaterentals.com · From: Sofia Marquez · Date: May 2",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Hello, I would like to reserve a vehicle for May 20 to May 23.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll be traveling with five colleagues to a trade fair in Dorrington, and each of us will bring one suitcase.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Could you also confirm whether we can pick up the vehicle at your airport branch?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our flight lands at 8:30 A.M.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you, Sofia Marquez",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "(3) E-mail · To: Sofia Marquez · From: Northgate Car Rentals · Date: May 3",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Dear Ms. Marquez,",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Thank you for choosing Northgate.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Your reservation for May 20 to May 23 is confirmed.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Our airport branch opens at 7:00 A.M., so your vehicle will be ready when you arrive.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Please note that the driver must show a valid license and a credit card in his or her name at pickup.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Your confirmation number is NR-88214.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Best regards, Northgate Car Rentals",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is indicated about all rentals?",
+   "a": "They include unlimited mileage.",
+   "w": [
+    "They come with a full tank.",
+    "They require a $15 deposit.",
+    "They are available only at the airport."
+   ],
+   "ev": "All rentals include unlimited mileage.",
+   "why": "Mọi xe thuê đều không giới hạn số km.",
+   "lg": {
+    "og": {
+     "They include unlimited mileage.": "Gồm số dặm không giới hạn",
+     "They come with a full tank.": "Kèm bình xăng đầy",
+     "They require a $15 deposit.": "Phải đặt cọc 15 đô la",
+     "They are available only at the airport.": "Chỉ có ở sân bay"
+    },
+    "ly": "Trang web ghi mọi xe thuê đều gồm số dặm không giới hạn.",
+    "dich": "Mọi xe thuê đều gồm số dặm không giới hạn."
+   },
+   "ty": "true"
+  },
+  {
+   "q": "Why is Ms. Marquez traveling to Dorrington?",
+   "a": "To attend a trade fair",
+   "w": [
+    "To meet a new client",
+    "To visit a branch office",
+    "To go on vacation"
+   ],
+   "ev": "I'll be traveling with five colleagues to a trade fair in Dorrington",
+   "why": "Đi hội chợ thương mại.",
+   "lg": {
+    "og": {
+     "To attend a trade fair": "Dự hội chợ thương mại",
+     "To meet a new client": "Gặp khách hàng mới",
+     "To visit a branch office": "Thăm chi nhánh",
+     "To go on vacation": "Đi nghỉ"
+    },
+    "ly": "Bà đi cùng năm đồng nghiệp đến hội chợ thương mại ở Dorrington.",
+    "dich": "Tôi sẽ đi cùng năm đồng nghiệp đến một hội chợ thương mại ở Dorrington."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "Which vehicle will Ms. Marquez most likely rent?",
+   "a": "A minivan",
+   "w": [
+    "A compact car",
+    "A midsize car",
+    "A pickup truck"
+   ],
+   "x": 1,
+   "ev": "Minivan: $78 per day. Seats 7, 6 suitcases.",
+   "why": "Cô và 5 đồng nghiệp = 6 người, 6 vali → chỉ minivan (7 chỗ, 6 vali) đủ.",
+   "lg": {
+    "og": {
+     "A minivan": "Một xe minivan",
+     "A compact car": "Xe nhỏ",
+     "A midsize car": "Xe cỡ vừa",
+     "A pickup truck": "Xe bán tải"
+    },
+    "ly": "Bà đi cùng năm người, tức sáu người, mỗi người một vali nên cần 7 chỗ và 6 vali: minivan.",
+    "dich": "Xe minivan: 78 đô la mỗi ngày. Chở 7 người, 6 vali."
+   },
+   "ty": "infer"
+  },
+  {
+   "q": "At what time does the airport branch open?",
+   "a": "At 7:00 A.M.",
+   "w": [
+    "At 8:30 A.M.",
+    "At 9:00 A.M.",
+    "At 6:00 A.M."
+   ],
+   "ev": "Our airport branch opens at 7:00 A.M.",
+   "why": "Chi nhánh sân bay mở lúc 7 giờ.",
+   "lg": {
+    "og": {
+     "At 7:00 A.M.": "Lúc 7 giờ sáng",
+     "At 8:30 A.M.": "Lúc 8:30 sáng",
+     "At 9:00 A.M.": "Lúc 9 giờ sáng",
+     "At 6:00 A.M.": "Lúc 6 giờ sáng"
+    },
+    "ly": "Thư trả lời nói chi nhánh sân bay mở lúc 7:00 sáng.",
+    "dich": "Chi nhánh sân bay của chúng tôi mở cửa lúc 7 giờ sáng."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "What must the driver show at pickup?",
+   "a": "A driving permit and a payment card",
+   "w": [
+    "Proof of the trade fair registration",
+    "The printed flight itinerary",
+    "A letter from the company"
+   ],
+   "ev": "the driver must show a valid license and a credit card in his or her name at pickup",
+   "why": "Người lái phải xuất trình bằng lái và thẻ tín dụng đứng tên mình.",
+   "lg": {
+    "og": {
+     "A driving permit and a payment card": "Bằng lái và thẻ thanh toán",
+     "Proof of the trade fair registration": "Bằng chứng đăng ký hội chợ",
+     "The printed flight itinerary": "Lịch trình chuyến bay đã in",
+     "A letter from the company": "Thư của công ty"
+    },
+    "ly": "Đáp án \"A driving permit and a payment card\" — Thư nói người lái phải xuất trình bằng lái hợp lệ và thẻ tín dụng đứng tên mình. Số xác nhận chỉ để tham chiếu, không nhắc giấy tờ khác.",
+    "dich": "Người lái phải xuất trình bằng lái hợp lệ và thẻ tín dụng đứng tên mình khi nhận xe."
+   },
+   "ty": "detail"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "dl"
+}

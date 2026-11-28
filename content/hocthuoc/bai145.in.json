@@ -1,0 +1,111 @@
+{
+ "n": 145,
+ "nguon": "Đề 3 · Part 2 · bộ 3",
+ "id": "de3-p2-bo3",
+ "dang": "💬 Hỏi – đáp",
+ "kind": "Part 2 · bộ 3 · 5 câu hỏi – đáp",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "A",
+   "Are you going to the trade show in Chicago?",
+   "",
+   "acb3270dd"
+  ],
+  [
+   "B",
+   "I haven't decided yet.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "When will the new product catalog be ready?",
+   "",
+   "af6c23e5d"
+  ],
+  [
+   "B",
+   "It's at the printer now.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "Did the client sign the contract?",
+   "",
+   "afa552839"
+  ],
+  [
+   "B",
+   "She's still reviewing it with her lawyer.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "The caterer can't deliver the lunch until one o'clock.",
+   "",
+   "aac0ffdaf"
+  ],
+  [
+   "B",
+   "Then let's move the break to one-fifteen.",
+   "",
+   ""
+  ],
+  [
+   "A",
+   "What did you think of the new logo design?",
+   "",
+   "a82874d49"
+  ],
+  [
+   "B",
+   "I liked the colors a lot.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Are you going to the trade show in Chicago?",
+   "a": "I haven't decided yet.",
+   "w": [
+    "It was a great show.",
+    "Our trading partners."
+   ],
+   "ty": "yn"
+  },
+  {
+   "q": "When will the new product catalog be ready?",
+   "a": "It's at the printer now.",
+   "w": [
+    "A list of our products.",
+    "At the front desk."
+   ],
+   "ty": "wh"
+  },
+  {
+   "q": "Did the client sign the contract?",
+   "a": "She's still reviewing it with her lawyer.",
+   "w": [
+    "Please sign here.",
+    "A two-year contract."
+   ],
+   "ty": "yn"
+  },
+  {
+   "q": "The caterer can't deliver the lunch until one o'clock.",
+   "a": "Then let's move the break to one-fifteen.",
+   "w": [
+    "Lunch was delicious, thanks.",
+    "A table for four, please."
+   ],
+   "ty": "stmt"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "kd"
+}

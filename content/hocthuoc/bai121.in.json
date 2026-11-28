@@ -1,0 +1,96 @@
+{
+ "n": 121,
+ "nguon": "Đề 3 · Part 4 · 6",
+ "id": "d03-p4-06",
+ "dang": "📢 Bài nói",
+ "kind": "tour",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Welcome to the Crestwood Chocolate Factory.",
+   "",
+   "a7a5b6a89"
+  ],
+  [
+   "N",
+   "I'm Nadia, and I'll be your guide today.",
+   "",
+   "ace1f416b"
+  ],
+  [
+   "N",
+   "Our tour lasts about an hour.",
+   "",
+   "a6fd4f68a"
+  ],
+  [
+   "N",
+   "First, we'll see where the cocoa beans are roasted, and then we'll watch our chocolate bars being wrapped by machine.",
+   "",
+   "afa65c239"
+  ],
+  [
+   "N",
+   "For safety reasons, please stay behind the yellow lines at all times.",
+   "",
+   "a2b0afe70"
+  ],
+  [
+   "N",
+   "Also, photographs are not permitted inside the production area, and no food may be eaten there.",
+   "",
+   "a22a8aade"
+  ],
+  [
+   "N",
+   "Don't worry, there's plenty to taste at the end.",
+   "",
+   "a92059ac9"
+  ],
+  [
+   "N",
+   "Our gift shop also offers a ten percent discount to tour visitors today.",
+   "",
+   "a4adab344"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What will the listeners see first?",
+   "a": "Where cocoa beans are roasted",
+   "w": [
+    "How bars are wrapped",
+    "The gift shop",
+    "A short film"
+   ],
+   "ty": "detail",
+   "ev": "First, we'll see where the cocoa beans are roasted"
+  },
+  {
+   "q": "What are the listeners asked to do?",
+   "a": "Stay behind some lines",
+   "w": [
+    "Wear safety glasses",
+    "Turn off their phones",
+    "Wash their hands"
+   ],
+   "ty": "next",
+   "ev": "please stay behind the yellow lines at all times"
+  },
+  {
+   "q": "What does the speaker imply when she says, \"Don't worry, there's plenty to taste at the end\"?",
+   "a": "Visitors will be able to try some products.",
+   "w": [
+    "The tour will end early.",
+    "Visitors can take photos later.",
+    "Lunch is included in the price."
+   ],
+   "ty": "imp",
+   "ev": "Don't worry, there's plenty to taste at the end."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "sx"
+}

@@ -1,0 +1,107 @@
+{
+ "n": 129,
+ "nguon": "Đề 3 · Part 7 · 1",
+ "id": "d03-p7-01",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Text message chain",
+ "title": "Text messages",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "Mia Kim (9:15 A.M.): Hi Ethan, someone from the finance team is using Meeting Room 3, and our call with Halston Foods starts at ten.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Ethan Ruiz (9:17 A.M.): Did you book it in the system?",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mia Kim (9:18 A.M.): Yes, but it looks like they booked it too.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "They say they'll need it all morning.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Ethan Ruiz (9:19 A.M.): Don't worry about it.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll ask reception to open the small room on the fifth floor.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Mia Kim (9:20 A.M.): Thanks.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "I'll move the laptop and the speakerphone up there.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What problem does Ms. Kim report?",
+   "a": "A room she needs is already occupied.",
+   "w": [
+    "A call has been moved to a later time.",
+    "A laptop cannot connect to the network.",
+    "A client has asked for a different topic."
+   ],
+   "ev": "someone from the finance team is using Meeting Room 3",
+   "why": "Phòng họp 3 đang bị nhóm tài chính dùng, trong khi cuộc gọi với khách bắt đầu lúc 10 giờ.",
+   "lg": {
+    "og": {
+     "A room she needs is already occupied.": "Một phòng bà cần đang có người dùng",
+     "A call has been moved to a later time.": "Cuộc gọi bị dời sang giờ muộn hơn",
+     "A laptop cannot connect to the network.": "Máy tính không kết nối được mạng",
+     "A client has asked for a different topic.": "Khách yêu cầu đổi chủ đề"
+    },
+    "ly": "Đáp án \"A room she needs is already occupied.\" — Bà Kim nói người của nhóm tài chính đang dùng Phòng họp 3 trong khi cuộc gọi của bà bắt đầu lúc mười giờ. Cuộc gọi vẫn đúng giờ, máy tính không hỏng và chủ đề không đổi.",
+    "dich": "Có người của nhóm tài chính đang dùng Phòng họp 3, mà cuộc gọi của chúng ta với Halston Foods bắt đầu lúc mười giờ."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "At 9:19 A.M., what does Mr. Ruiz mean when he writes, \"Don't worry about it\"?",
+   "a": "He will solve the problem.",
+   "w": [
+    "He thinks the call can be canceled.",
+    "He does not need the meeting room.",
+    "He wants Ms. Kim to call reception."
+   ],
+   "ev": "I'll ask reception to open the small room on the fifth floor.",
+   "why": "\"Don't worry about it\" = để anh lo; anh sẽ nhờ lễ tân mở phòng nhỏ ở tầng 5.",
+   "lg": {
+    "og": {
+     "He will solve the problem.": "Anh sẽ giải quyết vấn đề",
+     "He thinks the call can be canceled.": "Anh nghĩ có thể huỷ cuộc gọi",
+     "He does not need the meeting room.": "Anh không cần phòng họp",
+     "He wants Ms. Kim to call reception.": "Anh muốn bà Kim gọi lễ tân"
+    },
+    "ly": "\"Don't worry about it\" là đừng lo, để anh lo. Ông nói sẽ nhờ lễ tân mở phòng nhỏ ở tầng năm.",
+    "dich": "Đừng lo. Tôi sẽ nhờ lễ tân mở phòng nhỏ ở tầng năm."
+   },
+   "ty": "intent"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "vp"
+}

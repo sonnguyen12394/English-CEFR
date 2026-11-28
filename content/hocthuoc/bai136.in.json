@@ -1,0 +1,132 @@
+{
+ "n": 136,
+ "nguon": "Đề 3 · Part 7 · 9",
+ "id": "d03-p7-09",
+ "dang": "📄 Đọc hiểu",
+ "kind": "Article",
+ "title": "Local Bookstore Turns a New Page",
+ "g": null,
+ "L": [
+  [
+   "W",
+   "PORTVILLE — After thirty years on Bay Street, Chapter One Books is moving to a larger space in the Cannery Market building.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "Owner Felix Moreau says the new store will have twice as much floor space, a children's reading corner, and a small café.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "\"Our customers have been asking for a place to sit and read,\" Moreau said.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "\"Now we can finally offer that.\" The current store will close on August 2, and the new location is scheduled to open on August 16.",
+   "",
+   ""
+  ],
+  [
+   "W",
+   "To celebrate, the store will host readings by local authors during its opening week.",
+   "",
+   ""
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the article mainly about?",
+   "a": "A business moving to a new location",
+   "w": [
+    "A new book by a local author",
+    "The history of Bay Street",
+    "A café opening in a market"
+   ],
+   "ev": "Chapter One Books is moving to a larger space in the Cannery Market building",
+   "why": "Hiệu sách chuyển sang chỗ rộng hơn.",
+   "lg": {
+    "og": {
+     "A business moving to a new location": "Một doanh nghiệp chuyển địa điểm",
+     "A new book by a local author": "Sách mới của tác giả địa phương",
+     "The history of Bay Street": "Lịch sử phố Bay",
+     "A café opening in a market": "Một quán cà phê mở ở chợ"
+    },
+    "ly": "Bài nói Chapter One Books chuyển sang không gian rộng hơn ở toà Cannery Market.",
+    "dich": "Sau ba mươi năm ở phố Bay, Chapter One Books chuyển sang một không gian rộng hơn trong toà nhà Cannery Market."
+   },
+   "ty": "purpose"
+  },
+  {
+   "q": "According to Mr. Moreau, what have customers wanted?",
+   "a": "A spot for reading in the store",
+   "w": [
+    "Extended opening hours on weekends",
+    "Lower prices on new releases",
+    "A wider range of local authors"
+   ],
+   "ev": "Our customers have been asking for a place to sit and read",
+   "why": "Khách muốn có chỗ ngồi đọc.",
+   "lg": {
+    "og": {
+     "A spot for reading in the store": "Một chỗ để đọc sách trong tiệm",
+     "Extended opening hours on weekends": "Giờ mở cửa cuối tuần dài hơn",
+     "Lower prices on new releases": "Giá rẻ hơn cho sách mới",
+     "A wider range of local authors": "Nhiều tác giả địa phương hơn"
+    },
+    "ly": "Đáp án \"A spot for reading in the store\" — Ông Moreau nói khách hỏi một nơi để ngồi đọc, nên cửa hàng mới có góc đọc và quán cà phê. Giờ mở cửa, giá và tác giả địa phương không được nhắc là điều khách muốn.",
+    "dich": "Khách hàng của chúng tôi đã đòi hỏi một nơi để ngồi đọc sách."
+   },
+   "ty": "detail"
+  },
+  {
+   "q": "In the article, the word \"host\" is closest in meaning to",
+   "a": "hold",
+   "w": [
+    "welcome",
+    "invite",
+    "serve"
+   ],
+   "ev": "the store will host readings by local authors",
+   "why": "host readings = tổ chức (hold) các buổi đọc sách.",
+   "lg": {
+    "og": {
+     "hold": "tổ chức",
+     "welcome": "chào đón",
+     "invite": "mời",
+     "serve": "phục vụ"
+    },
+    "ly": "\"Host readings\" là tổ chức các buổi đọc sách, gần nghĩa nhất với hold.",
+    "dich": "Để ăn mừng, cửa hàng sẽ tổ chức các buổi đọc sách của tác giả địa phương trong tuần khai trương."
+   },
+   "ty": "syn"
+  },
+  {
+   "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"During those two weeks, customers can still order books online.\"",
+   "a": "[4]",
+   "w": [
+    "[1]",
+    "[2]",
+    "[3]"
+   ],
+   "why": "\"those two weeks\" = khoảng 2/8 đến 16/8 vừa nêu → câu chèn đứng ngay sau câu về ngày đóng / mở cửa (vị trí [4]).",
+   "lg": {
+    "og": {
+     "[4]": "[4]",
+     "[1]": "[1]",
+     "[2]": "[2]",
+     "[3]": "[3]"
+    },
+    "ly": "Câu chèn nói \"hai tuần đó\" có thể đặt sách trực tuyến, nên đặt sau câu nêu đóng cửa ngày 2/8 và mở ngày 16/8 (vị trí [4]).",
+    "dich": "Trong hai tuần đó, khách vẫn có thể đặt sách trực tuyến."
+   },
+   "ty": "insert"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "pt"
+}

@@ -1,0 +1,108 @@
+{
+ "n": 116,
+ "nguon": "Đề 3 · Part 3 · 13",
+ "id": "d03-p3-13",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": {
+  "t": "Bulk Order Discounts",
+  "h": [
+   "Boxes ordered",
+   "Discount"
+  ],
+  "r": [
+   [
+    "10 to 19",
+    "5%"
+   ],
+   [
+    "20 to 49",
+    "10%"
+   ],
+   [
+    "50 to 99",
+    "15%"
+   ],
+   [
+    "100 or more",
+    "20%"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "B",
+   "Hi, I manage the café on Pine Street. We'd like to order paper cups from you again.",
+   "",
+   "a9dadc8a3"
+  ],
+  [
+   "A",
+   "Great. How many boxes this time?",
+   "",
+   "a1634022a"
+  ],
+  [
+   "B",
+   "Last time we ordered forty, but business has been good. This time we need sixty.",
+   "",
+   "af5fa84d5"
+  ],
+  [
+   "A",
+   "All right. I'll apply the discount and e-mail you the invoice this afternoon.",
+   "",
+   "a30c60205"
+  ],
+  [
+   "B",
+   "Thanks. Could the delivery come before nine A.M.? We get busy after that.",
+   "",
+   "a9952be50"
+  ],
+  [
+   "A",
+   "I'll make a note for the driver.",
+   "",
+   "a8d83309c"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Who most likely is the man?",
+   "a": "A café manager",
+   "w": [
+    "A delivery driver",
+    "A paper manufacturer",
+    "An accountant"
+   ],
+   "ty": "gist",
+   "ev": "I manage the café on Pine Street."
+  },
+  {
+   "q": "Look at the graphic. What discount will the man receive?",
+   "a": "15%",
+   "w": [
+    "5%",
+    "10%",
+    "20%"
+   ],
+   "ty": "graphic",
+   "ev": "This time we need sixty."
+  },
+  {
+   "q": "What does the man request?",
+   "a": "An early delivery",
+   "w": [
+    "A larger cup size",
+    "A paper invoice",
+    "A different driver"
+   ],
+   "ty": "next",
+   "ev": "Could the delivery come before nine A.M.?"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "mb"
+}

@@ -1,0 +1,90 @@
+{
+ "n": 122,
+ "nguon": "Đề 3 · Part 4 · 8",
+ "id": "d03-p4-08",
+ "dang": "📢 Bài nói",
+ "kind": "msg",
+ "title": "",
+ "g": null,
+ "L": [
+  [
+   "N",
+   "Hi Jonathan, it's Rachel.",
+   "",
+   "a491f244f"
+  ],
+  [
+   "N",
+   "I'm calling about the brochure for the Lakeview Hotel.",
+   "",
+   "a39a49846"
+  ],
+  [
+   "N",
+   "The client approved the photos, but they want the price list on the back page changed.",
+   "",
+   "af79d66f3"
+  ],
+  [
+   "N",
+   "They're adding two new room types.",
+   "",
+   "a2aa92cd4"
+  ],
+  [
+   "N",
+   "I know you're busy with the Hanson project.",
+   "",
+   "aa8e1f92c"
+  ],
+  [
+   "N",
+   "I could make the changes myself if you send me the original design file.",
+   "",
+   "aa9079707"
+  ],
+  [
+   "N",
+   "The printer needs the final version by Wednesday, so let me know by tomorrow.",
+   "",
+   "a9e45d375"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What is the message mainly about?",
+   "a": "A brochure",
+   "w": [
+    "A hotel reservation",
+    "A client meeting",
+    "A new printer"
+   ],
+   "ty": "gist",
+   "ev": "I'm calling about the brochure for the Lakeview Hotel."
+  },
+  {
+   "q": "Why does the speaker say, \"I know you're busy with the Hanson project\"?",
+   "a": "To offer to do some work herself",
+   "w": [
+    "To ask about a deadline",
+    "To complain about a delay",
+    "To recommend another designer"
+   ],
+   "ty": "imp",
+   "ev": "I know you're busy with the Hanson project."
+  },
+  {
+   "q": "What does the speaker ask the listener to send?",
+   "a": "A design file",
+   "w": [
+    "A price list",
+    "Some photos",
+    "A contract"
+   ],
+   "ty": "detail",
+   "ev": "send me the original design file"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "kd"
+}

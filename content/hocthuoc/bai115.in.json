@@ -1,0 +1,113 @@
+{
+ "n": 115,
+ "nguon": "Đề 3 · Part 3 · 12",
+ "id": "d03-p3-12",
+ "dang": "🗣 Hội thoại",
+ "kind": "",
+ "title": "",
+ "g": {
+  "t": "Meeting Rooms, 3rd Floor",
+  "h": [
+   "Room",
+   "Seats",
+   "Projector"
+  ],
+  "r": [
+   [
+    "Oak",
+    "6",
+    "No"
+   ],
+   [
+    "Maple",
+    "10",
+    "Yes"
+   ],
+   [
+    "Cedar",
+    "14",
+    "Yes"
+   ],
+   [
+    "Pine",
+    "20",
+    "Yes"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "A",
+   "I need to book a room for Thursday's client meeting. There will be twelve of us.",
+   "",
+   "a12e601c4"
+  ],
+  [
+   "B",
+   "Most rooms are free that day. Will you need a projector?",
+   "",
+   "ab4c9c9dc"
+  ],
+  [
+   "A",
+   "Yes, we're showing the new product designs.",
+   "",
+   "acead936e"
+  ],
+  [
+   "B",
+   "Then I'd recommend the smallest room that fits everyone. The largest one is usually too cold.",
+   "",
+   "abf9d4c81"
+  ],
+  [
+   "A",
+   "OK, please book it from two to four. And could you order coffee for the group?",
+   "",
+   "aa8b01d79"
+  ],
+  [
+   "B",
+   "Sure. I'll ask the cafeteria to bring it up at two.",
+   "",
+   "a415914b4"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "What will happen on Thursday?",
+   "a": "A client meeting",
+   "w": [
+    "A product launch",
+    "A job interview",
+    "A safety inspection"
+   ],
+   "ty": "detail",
+   "ev": "Thursday's client meeting"
+  },
+  {
+   "q": "Look at the graphic. Which room will the woman most likely use?",
+   "a": "Cedar",
+   "w": [
+    "Oak",
+    "Maple",
+    "Pine"
+   ],
+   "ty": "graphic",
+   "ev": "I'd recommend the smallest room that fits everyone."
+  },
+  {
+   "q": "What does the man say he will do?",
+   "a": "Arrange for some coffee",
+   "w": [
+    "Set up a projector",
+    "Send the designs",
+    "Call the client"
+   ],
+   "ty": "next",
+   "ev": "I'll ask the cafeteria to bring it up at two."
+  }
+ ],
+ "muc": "toeic",
+ "chu": "vp"
+}

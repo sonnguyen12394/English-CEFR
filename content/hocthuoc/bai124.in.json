@@ -1,0 +1,107 @@
+{
+ "n": 124,
+ "nguon": "Đề 3 · Part 4 · 10",
+ "id": "d03-p4-10",
+ "dang": "📢 Bài nói",
+ "kind": "news",
+ "title": "",
+ "g": {
+  "t": "Weekend Forecast",
+  "h": [
+   "Day",
+   "Weather",
+   "High"
+  ],
+  "r": [
+   [
+    "Friday",
+    "Rainy",
+    "14°C"
+   ],
+   [
+    "Saturday",
+    "Cloudy",
+    "17°C"
+   ],
+   [
+    "Sunday",
+    "Sunny",
+    "21°C"
+   ],
+   [
+    "Monday",
+    "Windy",
+    "16°C"
+   ]
+  ]
+ },
+ "L": [
+  [
+   "N",
+   "And now for the weekend weather.",
+   "",
+   "a9d82df93"
+  ],
+  [
+   "N",
+   "After a wet start on Friday, things will gradually improve.",
+   "",
+   "ad8edb158"
+  ],
+  [
+   "N",
+   "The best day for outdoor plans will be the warmest one, so if you're thinking of going to the Riverside Food Festival, that's the day to go.",
+   "",
+   "a51028471"
+  ],
+  [
+   "N",
+   "The festival runs all weekend at Harbor Park, and organizers say more than eighty food trucks will be there.",
+   "",
+   "a43b2325e"
+  ],
+  [
+   "N",
+   "Free shuttle buses will run from the central train station every twenty minutes.",
+   "",
+   "a3187fc18"
+  ]
+ ],
+ "exq": [
+  {
+   "q": "Look at the graphic. Which day does the speaker recommend for outdoor plans?",
+   "a": "Sunday",
+   "w": [
+    "Friday",
+    "Saturday",
+    "Monday"
+   ],
+   "ty": "graphic",
+   "ev": "The best day for outdoor plans will be the warmest one"
+  },
+  {
+   "q": "According to the speaker, how many food trucks will be at the festival?",
+   "a": "More than eighty",
+   "w": [
+    "About twenty",
+    "Fewer than fifty",
+    "Exactly one hundred"
+   ],
+   "ty": "detail",
+   "ev": "more than eighty food trucks will be there"
+  },
+  {
+   "q": "What does the speaker say about the shuttle buses?",
+   "a": "They are free.",
+   "w": [
+    "They leave every hour.",
+    "They run only on Sunday.",
+    "They must be reserved."
+   ],
+   "ty": "detail",
+   "ev": "Free shuttle buses will run from the central train station"
+  }
+ ],
+ "muc": "toeic",
+ "chu": "dl"
+}
