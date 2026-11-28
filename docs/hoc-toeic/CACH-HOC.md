@@ -14,6 +14,7 @@ Người học muốn **nói ít**: Claude tự tính chiến lược theo mục
 - Hỏi bằng AskUserQuestion (bấm chọn, không gõ). Tối đa 4 câu / lần gọi, header = mã câu. Không phiên âm IPA (đã thử, người học bỏ). Không tô màu được.
 - **Câu thường** hiển thị theo thứ tự: ① câu tiếng Anh → ② `🇻🇳` dịch (chỗ trống giữ `-------`) → ③ `💡` gợi ý (chỉ khi luật đó đang bật, mục 5) → ④ `🧩` cụm cố định / collocation kèm loại cụm, KHÔNG chứa đáp án.
   Phương án: label = từ tiếng Anh; description = `(ký hiệu) loại từ · nghĩa`, ký hiệu (N) (V) (Adj) (Adv) (Prep) (Conj) (Pron), (V3) (V-ing) (to V)…
+- **Nhãn cấp CEFR (người học 28/11)**: MỌI câu thường ghi ở dòng đầu `📊 CEFR: <cấp> (<ngữ pháp / từ vựng>)`, ước lượng của Claude (chưa giáo viên kiểm). Câu 🎯 đo không ghi nhãn trong câu hỏi (để không gợi ý), nhãn ghi ở phần chữa.
 - **Câu 🎯 đo** (không hỗ trợ): chỉ câu tiếng Anh + 4 phương án, description `(A)` `(B)` `(C)` `(D)`. Không dịch, không gợi ý, không cụm, không loại từ.
 - Kiểm câu trước khi hỏi: đúng MỘT đáp án; nhiễu không được cũng đúng ngữ pháp (vd. V-ing sau 's, "until" khi động từ có thể kéo dài); ví dụ trong luật không giống câu hỏi. Câu lỗi đề của Claude → nhận lỗi, loại khỏi điểm, không bắt chữa.
 
