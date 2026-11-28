@@ -55,3 +55,8 @@
 - Vòng ôn lại (28/11): by/until có lời giải ✓ + làm lại ✓ (install → by); 's + N có lời giải ✓ + làm lại ✓ (approval). Làm lại hợp lệ 2/2 (cộng dồn 4/5 trong ngày). by/until vẫn hẹn 🎯 không dịch/không loại từ ngày 29/11 và 1/12; 's + N hẹn 30/11.
 
 - Luật cổng (28/11): sau mỗi 30 câu, chữa lỗi theo cặp (lời giải + làm lại) lặp tới khi đúng hết rồi mới qua 30 câu mới. Hiện: đang ở 10/30, lỗi chưa đóng cổng: by/until (hẹn 29/11, 1/12), commercial/precisely/wh+to V (hẹn kiểm 🎯 30/11).
+
+## 28/11 — Batch I (câu 11–20/30, Đề 10 Part 5 111–118 + ôn lỗi)
+- Có hỗ trợ (111, 113, 115, 118): 4/4. 🎯 không hỗ trợ (114, 116, 117): 1/3 — sai **114 who + V chia (chọn "to cover", đáp án cover)**, **116 tính từ V3 trước N (chọn qualify, đáp án qualified)**. 🔁 ôn lỗi không luật: commercial ✓, precisely ✓, by/until ✓ (3/3).
+- Điểm thật batch I: 4/6 (67%). Cộng dồn thật: 16/28 (57%). Bộ đếm: 20/30.
+- Lỗi mới vào cổng: (1) mệnh đề quan hệ who/that + ĐỘNG TỪ CHIA theo danh từ trước (experts → cover), không dùng to V / V-ing; (2) trước danh từ cần tính từ, gồm V-ed/V3 dạng tính từ (qualified candidates, completed forms).
