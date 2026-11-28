@@ -7,3 +7,4 @@ node_modules/
 *.log
 content/ref/ets/
 toeic-tron/de9.json
+.claude/settings.local.json
