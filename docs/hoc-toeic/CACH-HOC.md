@@ -55,3 +55,5 @@ Model đang chạy đã đúng thì ghi "giữ nguyên".
 
 18. **Cổng sau mỗi 30 câu (người học chốt 28/11)**: sau đợt ôn + chấm 30 câu, mọi lỗi sai (cả ở 30 câu lẫn câu ôn lại) vào vòng chữa theo luật 17a (câu có lời giải + câu làm lại). Câu làm lại sai thì lặp lại với câu MỚI cùng luật (không dùng lại câu cũ) cho tới khi làm lại ĐÚNG HẾT mọi lỗi, rồi mới bắt đầu 30 câu mới. Ghi vòng chữa vào TIEN-DO.md; đếm 30 câu mới chỉ bắt đầu sau khi cổng đóng. Câu lỗi đề của Claude thì loại, không bắt người học chữa.
     17b. **Ghi cấp CEFR của luật (người học 28/11)**: mỗi luật / lỗi hay mắc ở đầu câu có lời giải ghi "📊 Cấp CEFR: …" (ước lượng của Claude theo chương trình Nền của app / English Profile; chưa giáo viên kiểm) để người học biết độ khó. Chữa cổng 30 câu cũng vậy.
+
+19. **Giai đoạn hiện tại (người học chốt 28/11)**: đang NẠP KIẾN THỨC, thoải mái với cách học chọn đáp án + lời giải, nên KHÔNG thêm giới hạn giờ cho câu. Giữ: thêm Part 6 khi điểm thật Part 5 ≥ 70%; giữ cổng 30 câu, chưa kết luận band khi chưa đủ 60 câu thật; thêm Nghe qua lời thoại sau khi Part 5 ổn. Luyện tốc độ để dành giai đoạn sau, khi người học đòi.
