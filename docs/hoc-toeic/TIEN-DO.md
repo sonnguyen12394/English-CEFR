@@ -60,3 +60,4 @@
 - Có hỗ trợ (111, 113, 115, 118): 4/4. 🎯 không hỗ trợ (114, 116, 117): 1/3 — sai **114 who + V chia (chọn "to cover", đáp án cover)**, **116 tính từ V3 trước N (chọn qualify, đáp án qualified)**. 🔁 ôn lỗi không luật: commercial ✓, precisely ✓, by/until ✓ (3/3).
 - Điểm thật batch I: 4/6 (67%). Cộng dồn thật: 16/28 (57%). Bộ đếm: 20/30.
 - Lỗi mới vào cổng: (1) mệnh đề quan hệ who/that + ĐỘNG TỪ CHIA theo danh từ trước (experts → cover), không dùng to V / V-ing; (2) trước danh từ cần tính từ, gồm V-ed/V3 dạng tính từ (qualified candidates, completed forms).
+- Chữa 2 lỗi mới (28/11): who + V chia (CEFR B1) có lời giải ✓ + làm lại ✓ (repairs); tính từ/V3 trước N (A2–B1) có lời giải ✓ + làm lại ✓ (damaged). Hẹn 🎯 không hỗ trợ ngày 30/11 và 1/12.
