@@ -53,3 +53,5 @@
 - Vòng 8 câu (4 lỗi × [có lời giải + làm lại không lời giải]): có lời giải 4/4. Làm lại không lời giải: take place ✓, with certainty ✓, **by/until ✗ (arrive → by)**, 's + N: câu LỖI ĐỀ (Claude): "the team's responding to…" cũng đúng ngữ pháp (V-ing sau sở hữu cách) → loại khỏi điểm, hỏi lại bằng câu khác. Làm lại hợp lệ 2/3.
 - Luật rút ra: nhiễu V-ing sau 's có thể đúng (danh động từ) → không dùng V-ing làm nhiễu cho dạng 's + N.
 - Vòng ôn lại (28/11): by/until có lời giải ✓ + làm lại ✓ (install → by); 's + N có lời giải ✓ + làm lại ✓ (approval). Làm lại hợp lệ 2/2 (cộng dồn 4/5 trong ngày). by/until vẫn hẹn 🎯 không dịch/không loại từ ngày 29/11 và 1/12; 's + N hẹn 30/11.
+
+- Luật cổng (28/11): sau mỗi 30 câu, chữa lỗi theo cặp (lời giải + làm lại) lặp tới khi đúng hết rồi mới qua 30 câu mới. Hiện: đang ở 10/30, lỗi chưa đóng cổng: by/until (hẹn 29/11, 1/12), commercial/precisely/wh+to V (hẹn kiểm 🎯 30/11).
