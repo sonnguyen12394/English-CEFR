@@ -52,3 +52,4 @@
 - Vòng gộp (luật + câu mới trong một lần): take place ✓, 's + noun ✓, with certainty ✓, **by/until ✗** (chọn until; "được nhận trước ngày" = xong một lần → BY). Mẹo: hỏi "hành động có kéo dài liên tục tới mốc không?" Không → by. Hẹn ôn 29/11, 1/12.
 - Vòng 8 câu (4 lỗi × [có lời giải + làm lại không lời giải]): có lời giải 4/4. Làm lại không lời giải: take place ✓, with certainty ✓, **by/until ✗ (arrive → by)**, 's + N: câu LỖI ĐỀ (Claude): "the team's responding to…" cũng đúng ngữ pháp (V-ing sau sở hữu cách) → loại khỏi điểm, hỏi lại bằng câu khác. Làm lại hợp lệ 2/3.
 - Luật rút ra: nhiễu V-ing sau 's có thể đúng (danh động từ) → không dùng V-ing làm nhiễu cho dạng 's + N.
+- Vòng ôn lại (28/11): by/until có lời giải ✓ + làm lại ✓ (install → by); 's + N có lời giải ✓ + làm lại ✓ (approval). Làm lại hợp lệ 2/2 (cộng dồn 4/5 trong ngày). by/until vẫn hẹn 🎯 không dịch/không loại từ ngày 29/11 và 1/12; 's + N hẹn 30/11.
