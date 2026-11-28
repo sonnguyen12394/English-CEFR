@@ -50,3 +50,5 @@
 ## 28/11 — Ôn lỗi kèm kiến thức (không tính điểm thật)
 - Vòng 1 (precisely, commercial, wh+to V): 3/3. Vòng 2 câu mới cùng luật: 3/3. Hẹn 🎯 không gợi ý ngày 30/11.
 - Vòng gộp (luật + câu mới trong một lần): take place ✓, 's + noun ✓, with certainty ✓, **by/until ✗** (chọn until; "được nhận trước ngày" = xong một lần → BY). Mẹo: hỏi "hành động có kéo dài liên tục tới mốc không?" Không → by. Hẹn ôn 29/11, 1/12.
+- Vòng 8 câu (4 lỗi × [có lời giải + làm lại không lời giải]): có lời giải 4/4. Làm lại không lời giải: take place ✓, with certainty ✓, **by/until ✗ (arrive → by)**, 's + N: câu LỖI ĐỀ (Claude): "the team's responding to…" cũng đúng ngữ pháp (V-ing sau sở hữu cách) → loại khỏi điểm, hỏi lại bằng câu khác. Làm lại hợp lệ 2/3.
+- Luật rút ra: nhiễu V-ing sau 's có thể đúng (danh động từ) → không dùng V-ing làm nhiễu cho dạng 's + N.
