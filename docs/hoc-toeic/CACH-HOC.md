@@ -58,3 +58,25 @@ Một dòng `➡️ Model lượt sau: <tên> (<vì sao>)`; model đang chạy �
 | Đánh giá 30 câu, đổi chiến lược / giai đoạn, soát lại sau nén ngữ cảnh | Opus 5.5 medium |
 | Nghi giải thích sai, câu 2 đáp án, luật khó Part 6–7 | Opus 5.5 high |
 | Chỉ chép / đếm / cập nhật tệp | Haiku 5.5 low (không giải thích) |
+
+## 9. Nhật ký cách học (đúc kết dần, Claude tự ghi)
+Mục đích: tìm cách học hợp nhất với người học để tới 990. Mỗi khi người học góp ý, từ chối, hay có kết quả đáng chú ý: thêm 1 dòng `ngày · việc · kết quả / bằng chứng · rút ra`. Ở mỗi mốc 30 câu: đọc lại nhật ký, đổi sổ tay (mục 1–8) nếu bằng chứng đủ, ghi lý do. Không đổi chỉ vì một lần.
+
+**Đã hợp (giữ):**
+- 26/11 · bấm chọn thay gõ · người học chủ động yêu cầu · giữ.
+- 26–27/11 · câu thường có dịch + loại từ + cụm · người học thoải mái, dùng để nạp kiến thức · giữ ở giai đoạn này.
+- 27/11 · tách điểm thật (🎯) với điểm có hỗ trợ · đợt thường 93% nhưng ôn đề thật 2/9 → hỗ trợ làm điểm giả · luôn đánh giá bằng điểm thật.
+- 28/11 · chữa lỗi theo cặp (lời giải → làm lại có dịch, không luật) + cấp CEFR · by/until: sai → 4 lần làm lại đúng liên tiếp sau mẹo "một lần hay kéo dài" · giữ.
+- 28/11 · lỗi ôn lại bằng câu mới không luật (🔁) · commercial, precisely, by/until đúng 3/3 ở batch I · giữ.
+
+**Không hợp (bỏ):**
+- 26/11 · phiên âm IPA (riêng dòng, rồi dưới từng từ) · rối mắt · bỏ.
+- 27/11 · tự giải có phiên âm, gợi ý theo yêu cầu · người học "không hợp" · bỏ.
+- 28/11 · liệt kê lỗi hay mắc thành đoạn chữ · người học không nhớ · thay bằng cặp câu.
+- 28/11 · câu có luật mà ví dụ gần giống câu hỏi · lộ đáp án · ví dụ phải khác câu hỏi.
+- 28/11 · câu làm lại bỏ hết dịch + loại từ · người học cần giữ · làm lại giữ dịch + loại từ.
+
+**Chưa rõ (theo dõi):**
+- Người học từ chối bảng câu hỏi 4 lần (27/11 batch I, 28/11 batch I, cặp chữa lỗi lần đầu, câu 21–24). 2 lần sau đó có góp ý (thêm cấp CEFR; quyền Supabase), 2 lần chưa rõ lý do. Có thể do bị gián đoạn hoặc muốn góp ý trước khi làm. Khi bị từ chối: dừng, hỏi ngắn, không gửi lại nguyên bảng.
+- Lỗi hay rơi vào dạng từ / dạng động từ (to V vs V chia, V3 làm tính từ): xem sau 60 câu thật có phải điểm yếu chính không.
+- Đúng trong cùng ngày chưa chứng minh nhớ lâu: kiểm ở các ngày ôn 29/11, 30/11, 1/12.
