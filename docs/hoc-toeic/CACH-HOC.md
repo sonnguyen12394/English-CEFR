@@ -49,3 +49,5 @@ Thêm đúng một dòng: `➡️ Model lượt sau: <tên> (<vì sao>)`. Ngư�
 | Người học nghi giải thích sai, câu có 2 đáp án đều được, luật khó (Part 6–7) | Opus 5.5 high |
 | Chỉ chép / đếm / cập nhật tệp tiến độ | Haiku 5.5 low (không dùng cho giải thích) |
 Model đang chạy đã đúng thì ghi "giữ nguyên".
+
+17. **Ôn lỗi hay mắc = kiến thức nằm TRONG câu hỏi (người học 28/11)**: ở bước tổng kết / chiến lược mới, không liệt kê lỗi hay mắc thành chữ dài (người học không nhớ). Mỗi lỗi thành một câu hỏi tích chọn: đầu câu hỏi ghi 📘 luật 1–2 dòng + 1–2 ví dụ đúng; mỗi phương án ghi ngay lý do (đúng / sai vì sao) trong phần mô tả; sau khi chọn, chữa tại chỗ. Câu đo thật (🎯) vẫn không kèm gợi ý.
