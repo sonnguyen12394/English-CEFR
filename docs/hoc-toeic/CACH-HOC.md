@@ -80,3 +80,4 @@ Mục đích: tìm cách học hợp nhất với người học để tới 990
 - Người học từ chối bảng câu hỏi 4 lần (27/11 batch I, 28/11 batch I, cặp chữa lỗi lần đầu, câu 21–24). 2 lần sau đó có góp ý (thêm cấp CEFR; quyền Supabase), 2 lần chưa rõ lý do. Có thể do bị gián đoạn hoặc muốn góp ý trước khi làm. Khi bị từ chối: dừng, hỏi ngắn, không gửi lại nguyên bảng.
 - Lỗi hay rơi vào dạng từ / dạng động từ (to V vs V chia, V3 làm tính từ): xem sau 60 câu thật có phải điểm yếu chính không.
 - Đúng trong cùng ngày chưa chứng minh nhớ lâu: kiểm ở các ngày ôn 29/11, 30/11, 1/12.
+- 28/11 · bảng 4 câu (batch II, câu 21–24) bị từ chối 2 lần liền (kể cả sau "Tiếp") · chưa rõ lý do (có thể do bảng 4 câu dài) · lần sau thử 2 câu / lần gọi và hỏi lý do nếu vẫn từ chối.
