@@ -46,3 +46,7 @@
 
 ## Ghi chú cho giáo viên
 - D7: lỗi một phần do bản dịch của Claude dịch "his lack of experience" thành mệnh đề ("anh ấy thiếu kinh nghiệm"). Dịch cụm danh từ phải giữ dạng danh từ: "sự thiếu kinh nghiệm của anh ấy".
+
+## 28/11 — Ôn lỗi kèm kiến thức (không tính điểm thật)
+- Vòng 1 (precisely, commercial, wh+to V): 3/3. Vòng 2 câu mới cùng luật: 3/3. Hẹn 🎯 không gợi ý ngày 30/11.
+- Vòng gộp (luật + câu mới trong một lần): take place ✓, 's + noun ✓, with certainty ✓, **by/until ✗** (chọn until; "được nhận trước ngày" = xong một lần → BY). Mẹo: hỏi "hành động có kéo dài liên tục tới mốc không?" Không → by. Hẹn ôn 29/11, 1/12.
